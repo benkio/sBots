@@ -1,0 +1,6510 @@
+1
+00:00:05,920 --> 00:00:11,280
+welcome to another episode of talk show
+
+2
+00:00:12,080 --> 00:00:15,599
+so today the
+
+3
+00:00:14,320 --> 00:00:18,160
+topic is
+
+4
+00:00:15,599 --> 00:00:20,160
+randomish actually i'm going to code
+
+5
+00:00:18,160 --> 00:00:21,359
+emac lisp
+
+6
+00:00:20,160 --> 00:00:24,560
+and uh
+
+7
+00:00:21,359 --> 00:00:27,039
+so this is a live coding section session
+
+8
+00:00:24,560 --> 00:00:28,320
+and i'm going to work on my
+
+9
+00:00:27,039 --> 00:00:32,160
+um
+
+10
+00:00:28,320 --> 00:00:34,239
+working on my website i'm going to write
+
+11
+00:00:32,160 --> 00:00:36,880
+you know so you are going to see my
+
+12
+00:00:34,239 --> 00:00:38,719
+emacs workflow
+
+13
+00:00:36,880 --> 00:00:41,280
+uh let me show you what i'm gonna write
+
+14
+00:00:38,719 --> 00:00:42,640
+to uh write about so
+
+15
+00:00:41,280 --> 00:00:45,680
+so show
+
+16
+00:00:42,640 --> 00:00:48,320
+sauce talk show so you are going to see
+
+17
+00:00:45,680 --> 00:00:50,160
+my emacs workflow so
+
+18
+00:00:48,320 --> 00:00:53,680
+star talk show
+
+19
+00:00:50,160 --> 00:00:57,120
+i'm going to work on this page
+
+20
+00:00:53,680 --> 00:00:58,960
+this is emac lisp stream functions
+
+21
+00:00:57,120 --> 00:01:01,199
+so you go to
+
+22
+00:00:58,960 --> 00:01:04,239
+you know just search for practical emac
+
+23
+00:01:01,199 --> 00:01:06,720
+list then you can see my tutorial
+
+24
+00:01:04,239 --> 00:01:09,360
+you can learn emacs from the ground up
+
+25
+00:01:06,720 --> 00:01:10,840
+and emac this from the ground up the
+
+26
+00:01:09,360 --> 00:01:14,159
+most efficient
+
+27
+00:01:10,840 --> 00:01:15,680
+introduction the least time you spend
+
+28
+00:01:14,159 --> 00:01:19,840
+and the most
+
+29
+00:01:15,680 --> 00:01:22,560
+emac lisp learning your get
+
+30
+00:01:19,840 --> 00:01:26,080
+that's what i say about my tutorial
+
+31
+00:01:22,560 --> 00:01:30,159
+practical emac bisp so in this uh
+
+32
+00:01:26,080 --> 00:01:32,799
+tutorial there's a section on all emac
+
+33
+00:01:30,159 --> 00:01:35,360
+lists string functions so let me show
+
+34
+00:01:32,799 --> 00:01:35,360
+you where
+
+35
+00:01:35,759 --> 00:01:41,280
+so writing a script writing a command
+
+36
+00:01:38,240 --> 00:01:43,680
+interactive form and basic functions
+
+37
+00:01:41,280 --> 00:01:46,320
+string functions so click on that so you
+
+38
+00:01:43,680 --> 00:01:47,600
+can see this is how you find the length
+
+39
+00:01:46,320 --> 00:01:50,479
+of a string
+
+40
+00:01:47,600 --> 00:01:53,200
+how you find substring how you
+
+41
+00:01:50,479 --> 00:01:56,399
+join string how you split string
+
+42
+00:01:53,200 --> 00:01:57,840
+and about five years ago emacs
+
+43
+00:01:56,399 --> 00:01:58,880
+introduced it
+
+44
+00:01:57,840 --> 00:02:00,000
+added
+
+45
+00:01:58,880 --> 00:02:02,640
+about
+
+46
+00:02:00,000 --> 00:02:04,960
+10 also more string functions about 20
+
+47
+00:02:02,640 --> 00:02:06,159
+more string functions so this is
+
+48
+00:02:04,960 --> 00:02:09,119
+somewhat new
+
+49
+00:02:06,159 --> 00:02:10,160
+and not that many people know about it
+
+50
+00:02:09,119 --> 00:02:12,239
+so
+
+51
+00:02:10,160 --> 00:02:16,239
+so i added them here
+
+52
+00:02:12,239 --> 00:02:18,560
+stream functions for emac bisp and uh
+
+53
+00:02:16,239 --> 00:02:20,560
+but as you can see most of them are not
+
+54
+00:02:18,560 --> 00:02:23,840
+fully documented you know i don't have a
+
+55
+00:02:20,560 --> 00:02:25,520
+documentation here on my tutorial as
+
+56
+00:02:23,840 --> 00:02:27,360
+opposed to
+
+57
+00:02:25,520 --> 00:02:29,520
+my documentation for other string
+
+58
+00:02:27,360 --> 00:02:31,760
+functions for example there's an inline
+
+59
+00:02:29,520 --> 00:02:32,800
+dot for split string how you split a
+
+60
+00:02:31,760 --> 00:02:34,800
+string
+
+61
+00:02:32,800 --> 00:02:37,280
+then you have string two number convert
+
+62
+00:02:34,800 --> 00:02:40,400
+string to a number or convert the number
+
+63
+00:02:37,280 --> 00:02:41,680
+to a string or format string so i have
+
+64
+00:02:40,400 --> 00:02:44,560
+them
+
+65
+00:02:41,680 --> 00:02:46,879
+uh documented somewhat
+
+66
+00:02:44,560 --> 00:02:49,280
+but not these new functions
+
+67
+00:02:46,879 --> 00:02:51,120
+so i've been coding emac these you know
+
+68
+00:02:49,280 --> 00:02:56,400
+you know in the past week i you know i
+
+69
+00:02:51,120 --> 00:02:56,400
+code emaclis for the past 15 years but
+
+70
+00:02:57,840 --> 00:03:02,720
+you know but i started to use these
+
+71
+00:02:59,920 --> 00:03:05,840
+string functions in recent months so i
+
+72
+00:03:02,720 --> 00:03:07,680
+want to document them document them so
+
+73
+00:03:05,840 --> 00:03:10,480
+i'm going to walk through
+
+74
+00:03:07,680 --> 00:03:13,280
+these and write the tutorial as you can
+
+75
+00:03:10,480 --> 00:03:15,200
+see how i work in html
+
+76
+00:03:13,280 --> 00:03:17,680
+so that they become
+
+77
+00:03:15,200 --> 00:03:20,159
+more you know nice
+
+78
+00:03:17,680 --> 00:03:22,800
+so you are going to watch my emacs works
+
+79
+00:03:20,159 --> 00:03:25,040
+workflow and maybe learn something about
+
+80
+00:03:22,800 --> 00:03:27,440
+emacs hello luis bro
+
+81
+00:03:25,040 --> 00:03:30,319
+good morning
+
+82
+00:03:27,440 --> 00:03:32,720
+so if you have any questions about emac
+
+83
+00:03:30,319 --> 00:03:34,400
+baseball emacs or any programming
+
+84
+00:03:32,720 --> 00:03:35,680
+related or any
+
+85
+00:03:34,400 --> 00:03:37,760
+you know
+
+86
+00:03:35,680 --> 00:03:42,319
+yeah just type any questions okay maybe
+
+87
+00:03:37,760 --> 00:03:42,319
+i can digress uh past you know maybe
+
+88
+00:03:42,480 --> 00:03:47,440
+i i'm not sure myself because i i need a
+
+89
+00:03:45,840 --> 00:03:49,680
+chaotic life
+
+90
+00:03:47,440 --> 00:03:52,000
+like sometimes someone asked some random
+
+91
+00:03:49,680 --> 00:03:54,239
+question nothing to do with today's
+
+92
+00:03:52,000 --> 00:03:56,560
+topic and i spent 30 minutes talking
+
+93
+00:03:54,239 --> 00:03:58,239
+about that
+
+94
+00:03:56,560 --> 00:04:00,640
+and sometimes i thought i should be
+
+95
+00:03:58,239 --> 00:04:02,959
+focused any anyway so if you have a
+
+96
+00:04:00,640 --> 00:04:04,720
+questions post it there okay love to see
+
+97
+00:04:02,959 --> 00:04:06,959
+it
+
+98
+00:04:04,720 --> 00:04:06,959
+so
+
+99
+00:04:07,280 --> 00:04:12,159
+so today's talk show
+
+100
+00:04:09,280 --> 00:04:13,840
+and uh of course you are you know this
+
+101
+00:04:12,159 --> 00:04:17,040
+you are looking at my keyboard this is
+
+102
+00:04:13,840 --> 00:04:19,680
+kinesis advantage 2 and this is ultimate
+
+103
+00:04:17,040 --> 00:04:22,560
+hacking keyboard on top i use it as a
+
+104
+00:04:19,680 --> 00:04:25,280
+macro i talked about that
+
+105
+00:04:22,560 --> 00:04:28,560
+many times almost in every one of my
+
+106
+00:04:25,280 --> 00:04:31,120
+videos you go to xrd dot info
+
+107
+00:04:28,560 --> 00:04:32,720
+and you go to the keyboard section
+
+108
+00:04:31,120 --> 00:04:33,520
+keywords
+
+109
+00:04:32,720 --> 00:04:36,000
+and
+
+110
+00:04:33,520 --> 00:04:40,000
+you know i've done many videos on that
+
+111
+00:04:36,000 --> 00:04:40,000
+keyboards and you go to
+
+112
+00:04:40,960 --> 00:04:45,680
+other keyboards ergonomic keyboards and
+
+113
+00:04:43,199 --> 00:04:46,880
+you can see my reviews of the kinesis
+
+114
+00:04:45,680 --> 00:04:49,600
+this one
+
+115
+00:04:46,880 --> 00:04:51,360
+and the ultimate hacking ultimate
+
+116
+00:04:49,600 --> 00:04:54,800
+hacking that one
+
+117
+00:04:51,360 --> 00:04:56,960
+and also um
+
+118
+00:04:54,800 --> 00:04:59,520
+you know many of these are great okay uh
+
+119
+00:04:56,960 --> 00:05:02,880
+you go buy them
+
+120
+00:04:59,520 --> 00:05:05,280
+and i specifically i want to shout out
+
+121
+00:05:02,880 --> 00:05:08,000
+for ex-spouse okay because they sent me
+
+122
+00:05:05,280 --> 00:05:11,039
+a unit for review but they they sent me
+
+123
+00:05:08,000 --> 00:05:13,840
+the wrong key switch so i cannot use as
+
+124
+00:05:11,039 --> 00:05:16,240
+my main i need a light linear switch red
+
+125
+00:05:13,840 --> 00:05:17,919
+switch but they sent me a brown instead
+
+126
+00:05:16,240 --> 00:05:20,320
+so anyway this keyboard is also
+
+127
+00:05:17,919 --> 00:05:22,720
+fantastic you can see
+
+128
+00:05:20,320 --> 00:05:26,240
+okay you cannot see it you see over
+
+129
+00:05:22,720 --> 00:05:29,120
+there on the on my bed that's exposed
+
+130
+00:05:26,240 --> 00:05:31,280
+typically i use it when i'm lying in bed
+
+131
+00:05:29,120 --> 00:05:33,440
+so you are looking at my keyboard
+
+132
+00:05:31,280 --> 00:05:36,479
+and uh
+
+133
+00:05:33,440 --> 00:05:38,320
+and okay let's let's let's do emacs okay
+
+134
+00:05:36,479 --> 00:05:39,759
+on the pink window is all my emacs
+
+135
+00:05:38,320 --> 00:05:42,240
+command course
+
+136
+00:05:39,759 --> 00:05:43,360
+you can see as i move cursor
+
+137
+00:05:42,240 --> 00:05:45,280
+or
+
+138
+00:05:43,360 --> 00:05:46,320
+or delete the paragraph delete the
+
+139
+00:05:45,280 --> 00:05:48,800
+paragraph
+
+140
+00:05:46,320 --> 00:05:52,720
+you can see the command there all the
+
+141
+00:05:48,800 --> 00:05:56,000
+commands and keys i press undo undo
+
+142
+00:05:52,720 --> 00:05:58,319
+you can see undo two times
+
+143
+00:05:56,000 --> 00:06:01,280
+i'm using soft light keys
+
+144
+00:05:58,319 --> 00:06:02,960
+and which is a package you can search it
+
+145
+00:06:01,280 --> 00:06:05,840
+start fly keys
+
+146
+00:06:02,960 --> 00:06:08,720
+that's a package for emacs keybinding
+
+147
+00:06:05,840 --> 00:06:12,560
+and i'm using a borac
+
+148
+00:06:08,720 --> 00:06:14,160
+layout so the keys here is borac
+
+149
+00:06:12,560 --> 00:06:15,919
+okay let's
+
+150
+00:06:14,160 --> 00:06:18,319
+okay let's um
+
+151
+00:06:15,919 --> 00:06:20,560
+let's start to do
+
+152
+00:06:18,319 --> 00:06:23,039
+any questions comments
+
+153
+00:06:20,560 --> 00:06:24,150
+okay no
+
+154
+00:06:23,039 --> 00:06:25,280
+let's start to do
+
+155
+00:06:24,150 --> 00:06:28,240
+[Music]
+
+156
+00:06:25,280 --> 00:06:30,720
+emac this okay so i want to document so
+
+157
+00:06:28,240 --> 00:06:34,160
+this page is about emac these string
+
+158
+00:06:30,720 --> 00:06:37,600
+functions okay and i'm going to so here
+
+159
+00:06:34,160 --> 00:06:37,600
+is a nice documentation
+
+160
+00:06:37,680 --> 00:06:41,430
+um
+
+161
+00:06:38,130 --> 00:06:41,430
+[Music]
+
+162
+00:06:41,680 --> 00:06:46,160
+basic stream functions so i'm going to
+
+163
+00:06:43,759 --> 00:06:48,080
+work on this page copy the url back to
+
+164
+00:06:46,160 --> 00:06:50,639
+emacs
+
+165
+00:06:48,080 --> 00:06:50,639
+open it
+
+166
+00:06:50,800 --> 00:06:58,639
+make a backup show the ping window make
+
+167
+00:06:53,199 --> 00:06:58,639
+a backup and you need to update the date
+
+168
+00:06:59,039 --> 00:07:05,599
+you can see here is a date 2021 august
+
+169
+00:07:02,960 --> 00:07:08,639
+29th and i want to update it to today so
+
+170
+00:07:05,599 --> 00:07:10,319
+i press a key that calls the command my
+
+171
+00:07:08,639 --> 00:07:12,880
+personal command
+
+172
+00:07:10,319 --> 00:07:16,240
+excel update article timestamp
+
+173
+00:07:12,880 --> 00:07:18,800
+so you can see now the date is 2022.
+
+174
+00:07:16,240 --> 00:07:21,120
+february 4th today's date
+
+175
+00:07:18,800 --> 00:07:24,160
+and you can see in browser
+
+176
+00:07:21,120 --> 00:07:26,319
+it's not refreshed yet let's magnify
+
+177
+00:07:24,160 --> 00:07:27,759
+now refresh now you can see that's
+
+178
+00:07:26,319 --> 00:07:30,240
+today's date
+
+179
+00:07:27,759 --> 00:07:31,520
+so we fixed the date we made the backup
+
+180
+00:07:30,240 --> 00:07:32,960
+and let's
+
+181
+00:07:31,520 --> 00:07:36,089
+start to
+
+182
+00:07:32,960 --> 00:07:36,089
+[Music]
+
+183
+00:07:37,599 --> 00:07:42,960
+modify
+
+184
+00:07:39,919 --> 00:07:45,599
+and add documentation for this page so
+
+185
+00:07:42,960 --> 00:07:47,199
+so
+
+186
+00:07:45,599 --> 00:07:49,840
+so
+
+187
+00:07:47,199 --> 00:07:52,080
+i want to for example move this code
+
+188
+00:07:49,840 --> 00:07:55,039
+block into this
+
+189
+00:07:52,080 --> 00:07:55,039
+definition list
+
+190
+00:07:56,160 --> 00:08:00,479
+okay this this page is not too
+
+191
+00:07:58,960 --> 00:08:02,319
+consistent
+
+192
+00:08:00,479 --> 00:08:04,720
+because
+
+193
+00:08:02,319 --> 00:08:08,000
+because in my early days of writing
+
+194
+00:08:04,720 --> 00:08:10,960
+emaclis tutorial i do not have the full
+
+195
+00:08:08,000 --> 00:08:13,919
+documentation like that you see where is
+
+196
+00:08:10,960 --> 00:08:16,879
+the function name then you have you know
+
+197
+00:08:13,919 --> 00:08:19,680
+the documentation for that function
+
+198
+00:08:16,879 --> 00:08:21,120
+but in my so this is later this i added
+
+199
+00:08:19,680 --> 00:08:22,240
+this kind of
+
+200
+00:08:21,120 --> 00:08:24,639
+two years
+
+201
+00:08:22,240 --> 00:08:26,319
+i mean uh two or three years ago for
+
+202
+00:08:24,639 --> 00:08:30,960
+example let me show you some other
+
+203
+00:08:26,319 --> 00:08:33,759
+example so you go to emaclis advanced
+
+204
+00:08:30,960 --> 00:08:33,759
+you can see
+
+205
+00:08:36,880 --> 00:08:40,640
+list
+
+206
+00:08:38,080 --> 00:08:44,320
+functions okay let's go
+
+207
+00:08:40,640 --> 00:08:46,560
+sequence functions okay so these are
+
+208
+00:08:44,320 --> 00:08:48,800
+this page is a collection of all
+
+209
+00:08:46,560 --> 00:08:52,080
+functions that works on the sequence
+
+210
+00:08:48,800 --> 00:08:56,160
+type now sequence type in emac list
+
+211
+00:08:52,080 --> 00:08:59,839
+means it's a list or a vector a vector
+
+212
+00:08:56,160 --> 00:09:00,959
+is like a seize array in in
+
+213
+00:08:59,839 --> 00:09:03,440
+any way so
+
+214
+00:09:00,959 --> 00:09:04,240
+you know i have i have tutorials about
+
+215
+00:09:03,440 --> 00:09:06,720
+this
+
+216
+00:09:04,240 --> 00:09:09,360
+vector anyway sequence function so this
+
+217
+00:09:06,720 --> 00:09:11,600
+page is a documentation of all sequence
+
+218
+00:09:09,360 --> 00:09:14,640
+functions and you can see they follow
+
+219
+00:09:11,600 --> 00:09:17,040
+this format which is a definition list
+
+220
+00:09:14,640 --> 00:09:20,000
+okay so copy that
+
+221
+00:09:17,040 --> 00:09:21,440
+open that so i can show you search for
+
+222
+00:09:20,000 --> 00:09:22,959
+car
+
+223
+00:09:21,440 --> 00:09:26,560
+search for car
+
+224
+00:09:22,959 --> 00:09:29,920
+so you can see magnify magnify
+
+225
+00:09:26,560 --> 00:09:31,839
+so you can see that start with dl dl
+
+226
+00:09:29,920 --> 00:09:35,200
+means definition list
+
+227
+00:09:31,839 --> 00:09:37,040
+you see this block that block of code
+
+228
+00:09:35,200 --> 00:09:39,519
+correspond to these
+
+229
+00:09:37,040 --> 00:09:42,320
+it's magnified
+
+230
+00:09:39,519 --> 00:09:45,680
+correspond to these in browser so that's
+
+231
+00:09:42,320 --> 00:09:49,200
+the format i adopted adopted about two
+
+232
+00:09:45,680 --> 00:09:49,200
+years ago but before that
+
+233
+00:09:49,600 --> 00:09:54,000
+but before that i just have code
+
+234
+00:09:51,360 --> 00:09:55,839
+examples okay so let's go back let's go
+
+235
+00:09:54,000 --> 00:09:57,920
+back let's go back
+
+236
+00:09:55,839 --> 00:09:59,360
+let's go back to stream function so you
+
+237
+00:09:57,920 --> 00:10:02,320
+can see
+
+238
+00:09:59,360 --> 00:10:02,320
+it just um
+
+239
+00:10:02,800 --> 00:10:07,760
+close that it's just a
+
+240
+00:10:04,959 --> 00:10:10,800
+sample code without these uh
+
+241
+00:10:07,760 --> 00:10:13,600
+kind of formal documentation
+
+242
+00:10:10,800 --> 00:10:16,079
+so that's why this page is a little bit
+
+243
+00:10:13,600 --> 00:10:18,640
+not too consistent so i'm wondering
+
+244
+00:10:16,079 --> 00:10:21,600
+should i started to add you know the
+
+245
+00:10:18,640 --> 00:10:25,200
+formal style documentation to each and
+
+246
+00:10:21,600 --> 00:10:25,200
+every one of this function or not
+
+247
+00:10:25,519 --> 00:10:30,160
+uh let's not worry about it for now okay
+
+248
+00:10:27,600 --> 00:10:33,040
+because the main thing i want to do is
+
+249
+00:10:30,160 --> 00:10:35,839
+to add documentation for these okay
+
+250
+00:10:33,040 --> 00:10:39,040
+and but first of all let's
+
+251
+00:10:35,839 --> 00:10:40,880
+move this code block into the dl list
+
+252
+00:10:39,040 --> 00:10:43,839
+okay so
+
+253
+00:10:40,880 --> 00:10:44,839
+search for substring
+
+254
+00:10:43,839 --> 00:10:46,480
+there it
+
+255
+00:10:44,839 --> 00:10:50,160
+is
+
+256
+00:10:46,480 --> 00:10:51,120
+so here is the code block
+
+257
+00:10:50,160 --> 00:10:53,760
+cut it
+
+258
+00:10:51,120 --> 00:10:56,560
+move it here paste it
+
+259
+00:10:53,760 --> 00:10:57,920
+and back to browser now if i refresh
+
+260
+00:10:56,560 --> 00:10:59,440
+you'll see
+
+261
+00:10:57,920 --> 00:11:00,959
+this code
+
+262
+00:10:59,440 --> 00:11:04,160
+moving up
+
+263
+00:11:00,959 --> 00:11:05,360
+refresh you see so that's better
+
+264
+00:11:04,160 --> 00:11:07,839
+so
+
+265
+00:11:05,360 --> 00:11:11,120
+you know makes it more
+
+266
+00:11:07,839 --> 00:11:13,120
+uh the structure of the page more clear
+
+267
+00:11:11,120 --> 00:11:16,640
+any comments
+
+268
+00:11:13,120 --> 00:11:16,640
+okay no comments okay
+
+269
+00:11:16,800 --> 00:11:21,120
+so let's start to do some of these okay
+
+270
+00:11:19,360 --> 00:11:23,440
+let's begin so
+
+271
+00:11:21,120 --> 00:11:25,279
+stream blank okay so
+
+272
+00:11:23,440 --> 00:11:27,360
+string
+
+273
+00:11:25,279 --> 00:11:30,800
+search for blank
+
+274
+00:11:27,360 --> 00:11:34,860
+so i need to so in so all these are
+
+275
+00:11:30,800 --> 00:11:37,999
+list you can see they are at least
+
+276
+00:11:34,860 --> 00:11:37,999
+[Music]
+
+277
+00:11:40,839 --> 00:11:47,839
+um stream function reference okay so
+
+278
+00:11:44,560 --> 00:11:48,800
+there's a lot of them i need to do
+
+279
+00:11:47,839 --> 00:11:51,000
+so
+
+280
+00:11:48,800 --> 00:11:54,880
+even though they are not documented
+
+281
+00:11:51,000 --> 00:11:58,399
+documented on my page but i give a link
+
+282
+00:11:54,880 --> 00:12:01,200
+reference to the official documentation
+
+283
+00:11:58,399 --> 00:12:03,519
+you can see this is the e-max feature
+
+284
+00:12:01,200 --> 00:12:05,920
+documentation but now there's a problem
+
+285
+00:12:03,519 --> 00:12:08,079
+because of the white background okay
+
+286
+00:12:05,920 --> 00:12:10,959
+that's a problem
+
+287
+00:12:08,079 --> 00:12:13,600
+you know that problem
+
+288
+00:12:10,959 --> 00:12:16,000
+let me fix that okay so let's digress
+
+289
+00:12:13,600 --> 00:12:18,399
+let's go into powershell
+
+290
+00:12:16,000 --> 00:12:21,279
+powershell the most fantastic shell much
+
+291
+00:12:18,399 --> 00:12:22,560
+better than bash and let's say xsa
+
+292
+00:12:21,279 --> 00:12:23,360
+toggle
+
+293
+00:12:22,560 --> 00:12:26,399
+you know
+
+294
+00:12:23,360 --> 00:12:26,399
+toggle dark theme
+
+295
+00:12:27,120 --> 00:12:29,519
+okay
+
+296
+00:12:28,079 --> 00:12:31,200
+do it
+
+297
+00:12:29,519 --> 00:12:33,519
+yeah you can see
+
+298
+00:12:31,200 --> 00:12:35,760
+the power the power of the power shell
+
+299
+00:12:33,519 --> 00:12:38,320
+you can just call this command your
+
+300
+00:12:35,760 --> 00:12:41,600
+toggle back theme you know back theme is
+
+301
+00:12:38,320 --> 00:12:44,880
+one of the controversial topic lots of
+
+302
+00:12:41,600 --> 00:12:46,959
+my readers you guys demand demanded you
+
+303
+00:12:44,880 --> 00:12:50,000
+know they people ask me sir when are you
+
+304
+00:12:46,959 --> 00:12:50,000
+going to have dark theme
+
+305
+00:12:50,320 --> 00:12:54,800
+i resisted it because dark theme is one
+
+306
+00:12:52,720 --> 00:12:57,279
+of the fad
+
+307
+00:12:54,800 --> 00:12:59,279
+but a lot of my you know my readers want
+
+308
+00:12:57,279 --> 00:13:00,880
+it so i
+
+309
+00:12:59,279 --> 00:13:02,959
+turns out you know i you know
+
+310
+00:13:00,880 --> 00:13:05,040
+technically it's trivial to do dark
+
+311
+00:13:02,959 --> 00:13:07,519
+theme
+
+312
+00:13:05,040 --> 00:13:09,440
+you know takes 30 minutes just all you
+
+313
+00:13:07,519 --> 00:13:11,519
+have to do i talked about it before all
+
+314
+00:13:09,440 --> 00:13:12,959
+you have to do is uh
+
+315
+00:13:11,519 --> 00:13:16,560
+let's see
+
+316
+00:13:12,959 --> 00:13:16,560
+theme okay let me show you
+
+317
+00:13:18,320 --> 00:13:21,320
+dark
+
+318
+00:13:22,800 --> 00:13:27,040
+let me show you where okay
+
+319
+00:13:25,279 --> 00:13:30,000
+there it is
+
+320
+00:13:27,040 --> 00:13:31,519
+so magnify so you can see
+
+321
+00:13:30,000 --> 00:13:35,000
+this section
+
+322
+00:13:31,519 --> 00:13:35,000
+let's um
+
+323
+00:13:35,440 --> 00:13:40,240
+let's um
+
+324
+00:13:36,880 --> 00:13:43,120
+so you are looking at some css smart and
+
+325
+00:13:40,240 --> 00:13:44,000
+i want to reformat them to a readable
+
+326
+00:13:43,120 --> 00:13:46,079
+form
+
+327
+00:13:44,000 --> 00:13:48,320
+so i can do
+
+328
+00:13:46,079 --> 00:13:51,199
+f9t which caused
+
+329
+00:13:48,320 --> 00:13:54,240
+css format expand so let me show you so
+
+330
+00:13:51,199 --> 00:13:57,199
+a little digration okay so so basically
+
+331
+00:13:54,240 --> 00:13:58,320
+you that paragraph okay
+
+332
+00:13:57,199 --> 00:14:00,639
+now if i
+
+333
+00:13:58,320 --> 00:14:03,120
+so that paragraph i want to reformat it
+
+334
+00:14:00,639 --> 00:14:04,800
+so
+
+335
+00:14:03,120 --> 00:14:06,480
+to c
+
+336
+00:14:04,800 --> 00:14:07,920
+to c
+
+337
+00:14:06,480 --> 00:14:09,519
+to c
+
+338
+00:14:07,920 --> 00:14:11,279
+here
+
+339
+00:14:09,519 --> 00:14:14,600
+to c
+
+340
+00:14:11,279 --> 00:14:14,600
+to c
+
+341
+00:14:19,360 --> 00:14:22,800
+anyway that doesn't help much but anyway
+
+342
+00:14:21,680 --> 00:14:25,360
+so this
+
+343
+00:14:22,800 --> 00:14:27,120
+this section is how you get dark theme
+
+344
+00:14:25,360 --> 00:14:30,160
+to work so
+
+345
+00:14:27,120 --> 00:14:31,839
+media is kind of a query so if it says
+
+346
+00:14:30,160 --> 00:14:34,399
+prefer color theme
+
+347
+00:14:31,839 --> 00:14:36,560
+now prefer colors theme is the one you
+
+348
+00:14:34,399 --> 00:14:39,839
+set up in operating system for example
+
+349
+00:14:36,560 --> 00:14:43,120
+on windows i press windows i
+
+350
+00:14:39,839 --> 00:14:46,480
+you got these you know windows settings
+
+351
+00:14:43,120 --> 00:14:48,560
+then you go to personal vacation
+
+352
+00:14:46,480 --> 00:14:50,720
+then you go to colors and you know
+
+353
+00:14:48,560 --> 00:14:53,199
+window is idiotic you know all the names
+
+354
+00:14:50,720 --> 00:14:55,680
+are not consistent so you have one
+
+355
+00:14:53,199 --> 00:14:57,920
+part about themes but that's not really
+
+356
+00:14:55,680 --> 00:15:00,240
+about dark theme then you have another
+
+357
+00:14:57,920 --> 00:15:03,120
+section about colors now this is where
+
+358
+00:15:00,240 --> 00:15:05,360
+you change the dark theme so you can see
+
+359
+00:15:03,120 --> 00:15:08,240
+if you set it to light
+
+360
+00:15:05,360 --> 00:15:10,480
+you know then everything is light
+
+361
+00:15:08,240 --> 00:15:13,279
+so if you set it too dark
+
+362
+00:15:10,480 --> 00:15:16,880
+then everything is stuck now if i press
+
+363
+00:15:13,279 --> 00:15:19,199
+my marker button to go to the powershell
+
+364
+00:15:16,880 --> 00:15:22,000
+i can call this command you know it
+
+365
+00:15:19,199 --> 00:15:24,160
+changes that this is my custom function
+
+366
+00:15:22,000 --> 00:15:26,480
+in powershell and how is it written let
+
+367
+00:15:24,160 --> 00:15:28,399
+me show you so a lot a lot of equations
+
+368
+00:15:26,480 --> 00:15:29,279
+but let me show you let me get to it
+
+369
+00:15:28,399 --> 00:15:32,240
+good
+
+370
+00:15:29,279 --> 00:15:34,720
+get to it one by one
+
+371
+00:15:32,240 --> 00:15:36,720
+so powershell okay let's go to
+
+372
+00:15:34,720 --> 00:15:39,040
+powershell
+
+373
+00:15:36,720 --> 00:15:41,040
+uh what
+
+374
+00:15:39,040 --> 00:15:44,399
+powershell
+
+375
+00:15:41,040 --> 00:15:45,680
+that's uh emacs bookmarks so that's that
+
+376
+00:15:44,399 --> 00:15:48,399
+command is
+
+377
+00:15:45,680 --> 00:15:50,399
+open file fast
+
+378
+00:15:48,399 --> 00:15:52,000
+you can find it online
+
+379
+00:15:50,399 --> 00:15:54,079
+just search for that
+
+380
+00:15:52,000 --> 00:15:55,680
+then your your you'll find the source
+
+381
+00:15:54,079 --> 00:15:59,279
+code that
+
+382
+00:15:55,680 --> 00:16:02,320
+command allows you to open any bookmark
+
+383
+00:15:59,279 --> 00:16:04,480
+by a simple a few keystrokes
+
+384
+00:16:02,320 --> 00:16:06,480
+so that's what i did i opened my
+
+385
+00:16:04,480 --> 00:16:08,800
+powershell bookmark
+
+386
+00:16:06,480 --> 00:16:12,079
+you know let me do it again so
+
+387
+00:16:08,800 --> 00:16:15,199
+code press three key to correct then
+
+388
+00:16:12,079 --> 00:16:18,480
+type pow then there it is my bookmark
+
+389
+00:16:15,199 --> 00:16:20,320
+open bookmark enter that's this page
+
+390
+00:16:18,480 --> 00:16:22,320
+then press the button
+
+391
+00:16:20,320 --> 00:16:24,320
+show it in browser so you are looking at
+
+392
+00:16:22,320 --> 00:16:26,560
+my powershell tutorial
+
+393
+00:16:24,320 --> 00:16:31,199
+if you like it
+
+394
+00:16:26,560 --> 00:16:32,880
+pay me okay this is uh you know this is
+
+395
+00:16:31,199 --> 00:16:36,240
+i spend a lot of time you know this is
+
+396
+00:16:32,880 --> 00:16:37,600
+one of the great tutorial because i love
+
+397
+00:16:36,240 --> 00:16:39,759
+powershell
+
+398
+00:16:37,600 --> 00:16:43,600
+okay then you go to miscellaneous
+
+399
+00:16:39,759 --> 00:16:45,600
+examples then here
+
+400
+00:16:43,600 --> 00:16:49,160
+uh wait where is the
+
+401
+00:16:45,600 --> 00:16:49,160
+set doc theme
+
+402
+00:16:51,120 --> 00:16:55,519
+uh let's see
+
+403
+00:16:52,560 --> 00:16:58,480
+backup script set dark thing yeah so at
+
+404
+00:16:55,519 --> 00:17:00,880
+the bottom you click on that so here is
+
+405
+00:16:58,480 --> 00:17:02,720
+how you set dark theme
+
+406
+00:17:00,880 --> 00:17:05,439
+essentially
+
+407
+00:17:02,720 --> 00:17:06,720
+essentially you use powershell
+
+408
+00:17:05,439 --> 00:17:09,839
+to change
+
+409
+00:17:06,720 --> 00:17:13,199
+values in the
+
+410
+00:17:09,839 --> 00:17:14,240
+windows registry so this is the line you
+
+411
+00:17:13,199 --> 00:17:17,199
+need
+
+412
+00:17:14,240 --> 00:17:20,400
+you know to turn it on or turn it off
+
+413
+00:17:17,199 --> 00:17:22,559
+then you can encapsulate
+
+414
+00:17:20,400 --> 00:17:23,439
+it into a function
+
+415
+00:17:22,559 --> 00:17:24,919
+so
+
+416
+00:17:23,439 --> 00:17:27,199
+this is the function
+
+417
+00:17:24,919 --> 00:17:28,240
+toggle.theme so that's how you do it
+
+418
+00:17:27,199 --> 00:17:31,360
+okay
+
+419
+00:17:28,240 --> 00:17:32,400
+read it and use it fantastic now let's
+
+420
+00:17:31,360 --> 00:17:34,080
+go back to
+
+421
+00:17:32,400 --> 00:17:36,640
+talk show again
+
+422
+00:17:34,080 --> 00:17:39,120
+open file fast go to
+
+423
+00:17:36,640 --> 00:17:41,039
+using the bookmark and let's just paste
+
+424
+00:17:39,120 --> 00:17:42,000
+what we talked about
+
+425
+00:17:41,039 --> 00:17:44,080
+here
+
+426
+00:17:42,000 --> 00:17:48,400
+okay and make a link
+
+427
+00:17:44,080 --> 00:17:50,799
+show in browser so we have it there
+
+428
+00:17:48,400 --> 00:17:51,679
+now the things above are kind of things
+
+429
+00:17:50,799 --> 00:17:54,240
+i
+
+430
+00:17:51,679 --> 00:17:56,960
+want to talk about but we're probably
+
+431
+00:17:54,240 --> 00:18:00,559
+not going to cover it so anyway so
+
+432
+00:17:56,960 --> 00:18:03,039
+wait so here okay set dot theme that's
+
+433
+00:18:00,559 --> 00:18:06,160
+how you do it
+
+434
+00:18:03,039 --> 00:18:09,120
+now let's go back to
+
+435
+00:18:06,160 --> 00:18:11,200
+let's go back to our css file so
+
+436
+00:18:09,120 --> 00:18:13,280
+remember this section is how you do dark
+
+437
+00:18:11,200 --> 00:18:14,400
+theme
+
+438
+00:18:13,280 --> 00:18:16,640
+now again
+
+439
+00:18:14,400 --> 00:18:19,039
+open file fast
+
+440
+00:18:16,640 --> 00:18:22,080
+type css
+
+441
+00:18:19,039 --> 00:18:23,520
+then there is my bookmark css index
+
+442
+00:18:22,080 --> 00:18:25,039
+press enter
+
+443
+00:18:23,520 --> 00:18:28,400
+show in browser
+
+444
+00:18:25,039 --> 00:18:29,840
+this is my css tutorial
+
+445
+00:18:28,400 --> 00:18:32,559
+now
+
+446
+00:18:29,840 --> 00:18:34,720
+now you go to do i have a section on
+
+447
+00:18:32,559 --> 00:18:39,280
+dark theme so search for
+
+448
+00:18:34,720 --> 00:18:42,280
+press this key a key marker search
+
+449
+00:18:39,280 --> 00:18:42,280
+t-h-e-m-e
+
+450
+00:18:42,400 --> 00:18:45,360
+oh okay so i don't have a tutorial for
+
+451
+00:18:44,559 --> 00:18:47,600
+that
+
+452
+00:18:45,360 --> 00:18:49,840
+which is one of the things i need to do
+
+453
+00:18:47,600 --> 00:18:52,880
+to write the tutorial for dark theme
+
+454
+00:18:49,840 --> 00:18:55,120
+so what are you guys here for
+
+455
+00:18:52,880 --> 00:18:59,520
+do you prefer me to go on with the emac
+
+456
+00:18:55,120 --> 00:18:59,520
+baseboard am i doing okay random
+
+457
+00:19:00,799 --> 00:19:04,880
+can you control powershell from emacs
+
+458
+00:19:03,039 --> 00:19:07,919
+yes we can
+
+459
+00:19:04,880 --> 00:19:08,880
+that question has been asked before
+
+460
+00:19:07,919 --> 00:19:11,280
+uh
+
+461
+00:19:08,880 --> 00:19:12,880
+let me show you okay then okay so can
+
+462
+00:19:11,280 --> 00:19:14,559
+let me answer that question can you do
+
+463
+00:19:12,880 --> 00:19:17,600
+it in emacs yeah
+
+464
+00:19:14,559 --> 00:19:20,720
+so you go to e xiao e show is building
+
+465
+00:19:17,600 --> 00:19:24,039
+in emacs in every emacs okay then you
+
+466
+00:19:20,720 --> 00:19:24,039
+just type
+
+467
+00:19:24,840 --> 00:19:29,520
+pwsh now pwsh
+
+468
+00:19:28,240 --> 00:19:32,160
+okay
+
+469
+00:19:29,520 --> 00:19:33,200
+oh invalid argument okay so you need to
+
+470
+00:19:32,160 --> 00:19:35,720
+um
+
+471
+00:19:33,200 --> 00:19:38,640
+let's just type
+
+472
+00:19:35,720 --> 00:19:40,240
+p-o-w-s-h-e-l-l powershell okay now you
+
+473
+00:19:38,640 --> 00:19:41,120
+are in powershell
+
+474
+00:19:40,240 --> 00:19:42,320
+now
+
+475
+00:19:41,120 --> 00:19:44,240
+toggle
+
+476
+00:19:42,320 --> 00:19:45,120
+now you know you don't have completion
+
+477
+00:19:44,240 --> 00:19:46,880
+so
+
+478
+00:19:45,120 --> 00:19:49,679
+let's say xa
+
+479
+00:19:46,880 --> 00:19:50,799
+t-o-g-g-l-e
+
+480
+00:19:49,679 --> 00:19:53,440
+theme
+
+481
+00:19:50,799 --> 00:19:55,840
+okay call my call my personal function
+
+482
+00:19:53,440 --> 00:19:55,840
+do it
+
+483
+00:19:57,520 --> 00:20:02,080
+ah object not found because it's not
+
+484
+00:19:59,840 --> 00:20:03,840
+loaded you know why
+
+485
+00:20:02,080 --> 00:20:06,720
+anyway so you are looking at powershell
+
+486
+00:20:03,840 --> 00:20:09,600
+so let's do another command de okay duh
+
+487
+00:20:06,720 --> 00:20:12,400
+which list directory so you can see
+
+488
+00:20:09,600 --> 00:20:13,760
+that's the let's do it again
+
+489
+00:20:12,400 --> 00:20:15,280
+okay the
+
+490
+00:20:13,760 --> 00:20:17,360
+these directories right that's
+
+491
+00:20:15,280 --> 00:20:20,240
+powershell uh
+
+492
+00:20:17,360 --> 00:20:23,440
+version history now there's another
+
+493
+00:20:20,240 --> 00:20:26,320
+powershell let's magnify
+
+494
+00:20:23,440 --> 00:20:28,799
+partial variable
+
+495
+00:20:26,320 --> 00:20:28,799
+which is
+
+496
+00:20:29,919 --> 00:20:35,080
+i think that's that
+
+497
+00:20:32,080 --> 00:20:35,080
+no
+
+498
+00:20:35,200 --> 00:20:42,159
+i don't remember anyway i don't
+
+499
+00:20:37,840 --> 00:20:44,080
+i haven't set it up properly you know so
+
+500
+00:20:42,159 --> 00:20:46,640
+so what i'm saying is that
+
+501
+00:20:44,080 --> 00:20:48,720
+with emacs by default you can run
+
+502
+00:20:46,640 --> 00:20:52,159
+powershell without installing any
+
+503
+00:20:48,720 --> 00:20:53,200
+third-party packages
+
+504
+00:20:52,159 --> 00:20:55,760
+so
+
+505
+00:20:53,200 --> 00:20:58,159
+powershell comes in two versions
+
+506
+00:20:55,760 --> 00:21:01,760
+okay i'm digressing over so powershell
+
+507
+00:20:58,159 --> 00:21:03,919
+you know to explain all these things
+
+508
+00:21:01,760 --> 00:21:05,919
+so powershell you know if you follow my
+
+509
+00:21:03,919 --> 00:21:08,159
+tutorial you can see powershell comes in
+
+510
+00:21:05,919 --> 00:21:10,640
+two versions one is the full name is
+
+511
+00:21:08,159 --> 00:21:13,320
+powershell the other one is pwsh
+
+512
+00:21:10,640 --> 00:21:15,760
+basically powershell was
+
+513
+00:21:13,320 --> 00:21:17,440
+microsoft.net powershell that's for
+
+514
+00:21:15,760 --> 00:21:18,960
+windows only
+
+515
+00:21:17,440 --> 00:21:21,200
+but beginning
+
+516
+00:21:18,960 --> 00:21:24,480
+around 2016
+
+517
+00:21:21,200 --> 00:21:27,840
+microsoft made powershell open source
+
+518
+00:21:24,480 --> 00:21:30,640
+and microsoft also made the entire.net
+
+519
+00:21:27,840 --> 00:21:33,679
+framework open source that includes the
+
+520
+00:21:30,640 --> 00:21:36,400
+c sharp language the f sharp language
+
+521
+00:21:33,679 --> 00:21:37,440
+with f sharp is the derivative of o
+
+522
+00:21:36,400 --> 00:21:39,760
+chemical
+
+523
+00:21:37,440 --> 00:21:42,240
+functional language like pascal
+
+524
+00:21:39,760 --> 00:21:47,600
+and our camera is derivative of
+
+525
+00:21:42,240 --> 00:21:47,600
+ml meta language or standard ml
+
+526
+00:21:47,679 --> 00:21:50,159
+okay you know
+
+527
+00:21:48,960 --> 00:21:53,200
+you know you know
+
+528
+00:21:50,159 --> 00:21:56,159
+originally you have meta language
+
+529
+00:21:53,200 --> 00:22:00,880
+then you have standard
+
+530
+00:21:56,159 --> 00:22:04,159
+mental language sml then you have object
+
+531
+00:22:00,880 --> 00:22:06,360
+meta language oml then you start to have
+
+532
+00:22:04,159 --> 00:22:08,320
+then you have
+
+533
+00:22:06,360 --> 00:22:11,679
+[Music]
+
+534
+00:22:08,320 --> 00:22:14,000
+and categorical object
+
+535
+00:22:11,679 --> 00:22:16,720
+meta language something that's ocamo
+
+536
+00:22:14,000 --> 00:22:18,960
+okay so ocamo is analogous it's very
+
+537
+00:22:16,720 --> 00:22:20,400
+similar to haskell
+
+538
+00:22:18,960 --> 00:22:22,799
+and it's
+
+539
+00:22:20,400 --> 00:22:24,640
+much more applications has has been
+
+540
+00:22:22,799 --> 00:22:26,400
+written in camel
+
+541
+00:22:24,640 --> 00:22:29,919
+so and then
+
+542
+00:22:26,400 --> 00:22:31,520
+f-sharp is microsoft's version of ocamo
+
+543
+00:22:29,919 --> 00:22:34,480
+okay microsoft
+
+544
+00:22:31,520 --> 00:22:37,280
+you know created a version of ocamo
+
+545
+00:22:34,480 --> 00:22:38,840
+that's called f-sharp and that's part of
+
+546
+00:22:37,280 --> 00:22:42,400
+the.net
+
+547
+00:22:38,840 --> 00:22:43,600
+platform.net you know c sharp f sharp
+
+548
+00:22:42,400 --> 00:22:46,400
+among other
+
+549
+00:22:43,600 --> 00:22:47,520
+things like visualbasic.net
+
+550
+00:22:46,400 --> 00:22:48,799
+uh
+
+551
+00:22:47,520 --> 00:22:51,840
+so
+
+552
+00:22:48,799 --> 00:22:56,000
+so that's digression so so powershell is
+
+553
+00:22:51,840 --> 00:22:58,799
+also based on.net okay but before 2016
+
+554
+00:22:56,000 --> 00:23:02,080
+it's all microsoft only you can only run
+
+555
+00:22:58,799 --> 00:23:04,159
+it on microsoft and it's proprietary but
+
+556
+00:23:02,080 --> 00:23:05,120
+beginning in 2006
+
+557
+00:23:04,159 --> 00:23:07,440
+team
+
+558
+00:23:05,120 --> 00:23:10,480
+microsoft made them all open source so
+
+559
+00:23:07,440 --> 00:23:12,640
+the entire.net and c-sharp
+
+560
+00:23:10,480 --> 00:23:15,039
+f-sharp powershell
+
+561
+00:23:12,640 --> 00:23:18,080
+and dot-net libraries and and and the
+
+562
+00:23:15,039 --> 00:23:20,159
+runtime system and the
+
+563
+00:23:18,080 --> 00:23:24,080
+anyway it's all open source
+
+564
+00:23:20,159 --> 00:23:24,799
+so that is why now you have two commands
+
+565
+00:23:24,080 --> 00:23:27,360
+now
+
+566
+00:23:24,799 --> 00:23:29,919
+every window opening system comes with
+
+567
+00:23:27,360 --> 00:23:31,200
+powershell the original windows only
+
+568
+00:23:29,919 --> 00:23:34,400
+powershot
+
+569
+00:23:31,200 --> 00:23:36,960
+okay i explained them in detail here
+
+570
+00:23:34,400 --> 00:23:38,799
+but beginning with powershell version
+
+571
+00:23:36,960 --> 00:23:40,880
+six
+
+572
+00:23:38,799 --> 00:23:44,000
+you know
+
+573
+00:23:40,880 --> 00:23:46,159
+it's called powershell uh core
+
+574
+00:23:44,000 --> 00:23:49,200
+which is the open source version they
+
+575
+00:23:46,159 --> 00:23:51,600
+microsoft no longer developed the
+
+576
+00:23:49,200 --> 00:23:54,960
+microsoft only version anymore but
+
+577
+00:23:51,600 --> 00:23:54,960
+however every windows
+
+578
+00:23:55,120 --> 00:24:00,320
+comes with powershell for example gcm
+
+579
+00:23:57,760 --> 00:24:02,720
+okay gcm stands for get command okay for
+
+580
+00:24:00,320 --> 00:24:05,039
+example i type gcm
+
+581
+00:24:02,720 --> 00:24:06,320
+powershell
+
+582
+00:24:05,039 --> 00:24:08,480
+you can see
+
+583
+00:24:06,320 --> 00:24:11,360
+that is the
+
+584
+00:24:08,480 --> 00:24:13,760
+executable name of the powershell and
+
+585
+00:24:11,360 --> 00:24:16,400
+that powershell is original microsoft
+
+586
+00:24:13,760 --> 00:24:20,000
+only powershell comes with any
+
+587
+00:24:16,400 --> 00:24:21,679
+every window 10 since windows
+
+588
+00:24:20,000 --> 00:24:24,480
+7 or something
+
+589
+00:24:21,679 --> 00:24:26,559
+since basically 2010
+
+590
+00:24:24,480 --> 00:24:29,200
+something like that
+
+591
+00:24:26,559 --> 00:24:33,919
+but now if you want the cross platform
+
+592
+00:24:29,200 --> 00:24:36,880
+powershell the command name is is pwsh
+
+593
+00:24:33,919 --> 00:24:38,880
+okay so that's why you have two versions
+
+594
+00:24:36,880 --> 00:24:41,440
+one of them the open source version you
+
+595
+00:24:38,880 --> 00:24:42,480
+have to install it runs on linux runs on
+
+596
+00:24:41,440 --> 00:24:44,000
+mac
+
+597
+00:24:42,480 --> 00:24:44,840
+you know
+
+598
+00:24:44,000 --> 00:24:47,039
+cross
+
+599
+00:24:44,840 --> 00:24:47,840
+platform and
+
+600
+00:24:47,039 --> 00:24:51,600
+so
+
+601
+00:24:47,840 --> 00:24:53,790
+i was showing in isha in emacs issue
+
+602
+00:24:51,600 --> 00:24:56,559
+so you can launch um
+
+603
+00:24:53,790 --> 00:25:00,600
+[Music]
+
+604
+00:24:56,559 --> 00:25:00,600
+you can launch um
+
+605
+00:25:01,919 --> 00:25:07,760
+you can launch you know like uh let's
+
+606
+00:25:05,039 --> 00:25:10,400
+say exit okay exit
+
+607
+00:25:07,760 --> 00:25:12,960
+so right now i'm isha so you can launch
+
+608
+00:25:10,400 --> 00:25:15,120
+powershell
+
+609
+00:25:12,960 --> 00:25:17,760
+but so you see
+
+610
+00:25:15,120 --> 00:25:21,200
+it run powershell but it doesn't know
+
+611
+00:25:17,760 --> 00:25:22,080
+it wasn't able to find pwsh
+
+612
+00:25:21,200 --> 00:25:24,960
+so
+
+613
+00:25:22,080 --> 00:25:26,080
+what i need to do is i need to launch
+
+614
+00:25:24,960 --> 00:25:29,279
+that
+
+615
+00:25:26,080 --> 00:25:33,360
+via the full path so how do i find the
+
+616
+00:25:29,279 --> 00:25:37,440
+full path so help gcm
+
+617
+00:25:33,360 --> 00:25:39,840
+so gcm is an alias for get command okay
+
+618
+00:25:37,440 --> 00:25:42,559
+which is equivalent analogous to the
+
+619
+00:25:39,840 --> 00:25:46,159
+unix
+
+620
+00:25:42,559 --> 00:25:48,559
+which you know the unix which command
+
+621
+00:25:46,159 --> 00:25:50,880
+so you're looking at gcm so let's see
+
+622
+00:25:48,559 --> 00:25:55,200
+the documentation i want to see the full
+
+623
+00:25:50,880 --> 00:25:57,039
+path of the pwsh okay
+
+624
+00:25:55,200 --> 00:26:00,320
+so let's see
+
+625
+00:25:57,039 --> 00:26:00,320
+yeah let's see
+
+626
+00:26:02,960 --> 00:26:10,679
+uh where is it gcm okay gcm get commands
+
+627
+00:26:07,679 --> 00:26:10,679
+named
+
+628
+00:26:15,600 --> 00:26:18,640
+too much to read
+
+629
+00:26:19,039 --> 00:26:26,640
+but i believe i think it's um
+
+630
+00:26:24,240 --> 00:26:28,640
+option wait wait gcn
+
+631
+00:26:26,640 --> 00:26:31,640
+pwsh
+
+632
+00:26:28,640 --> 00:26:31,640
+pipet2
+
+633
+00:26:31,919 --> 00:26:34,919
+uh
+
+634
+00:26:39,360 --> 00:26:43,600
+full name
+
+635
+00:26:40,480 --> 00:26:47,120
+i don't know yeah i'm not
+
+636
+00:26:43,600 --> 00:26:47,120
+okay does that work no
+
+637
+00:26:49,440 --> 00:26:53,559
+let's try that okay
+
+638
+00:26:57,120 --> 00:27:03,039
+i'm not
+
+639
+00:26:58,400 --> 00:27:03,039
+expert at powershell yet okay so
+
+640
+00:27:03,919 --> 00:27:06,919
+okay
+
+641
+00:27:13,520 --> 00:27:18,720
+so right now i'm trying to find the full
+
+642
+00:27:15,760 --> 00:27:20,399
+path of pwsh
+
+643
+00:27:18,720 --> 00:27:22,480
+via this way
+
+644
+00:27:20,399 --> 00:27:25,200
+we are the get
+
+645
+00:27:22,480 --> 00:27:25,200
+get command
+
+646
+00:27:25,279 --> 00:27:33,080
+command okay but there's an easier way
+
+647
+00:27:27,919 --> 00:27:33,080
+the easier way is to just um
+
+648
+00:27:34,399 --> 00:27:39,440
+just do this
+
+649
+00:27:35,919 --> 00:27:42,720
+version table ps version table okay
+
+650
+00:27:39,440 --> 00:27:45,760
+ps version table okay
+
+651
+00:27:42,720 --> 00:27:48,640
+then it shows you version edition uh
+
+652
+00:27:45,760 --> 00:27:51,919
+yeah where but where is the full path
+
+653
+00:27:48,640 --> 00:27:51,919
+okay version table
+
+654
+00:27:56,720 --> 00:28:02,480
+okay i want to know the full path of
+
+655
+00:27:59,520 --> 00:28:03,840
+pwsh
+
+656
+00:28:02,480 --> 00:28:06,399
+um
+
+657
+00:28:03,840 --> 00:28:09,120
+you know this you know
+
+658
+00:28:06,399 --> 00:28:09,120
+so um
+
+659
+00:28:10,399 --> 00:28:15,200
+okay so yeah anyway anyway let's skip
+
+660
+00:28:12,799 --> 00:28:17,919
+that you know i can find it but it takes
+
+661
+00:28:15,200 --> 00:28:19,039
+me two minutes or so it's kind of boring
+
+662
+00:28:17,919 --> 00:28:21,520
+so
+
+663
+00:28:19,039 --> 00:28:24,080
+so anyway so you can run in eshop
+
+664
+00:28:21,520 --> 00:28:26,720
+without installing any package now there
+
+665
+00:28:24,080 --> 00:28:29,360
+is also a package for running powershell
+
+666
+00:28:26,720 --> 00:28:33,760
+you can install for mailpad but
+
+667
+00:28:29,360 --> 00:28:33,760
+i would recommend just stick with uh
+
+668
+00:28:34,559 --> 00:28:38,399
+um well not
+
+669
+00:28:36,640 --> 00:28:40,159
+okay so it's i mean it's up to you you
+
+670
+00:28:38,399 --> 00:28:42,159
+can stick with you know
+
+671
+00:28:40,159 --> 00:28:44,799
+each other and okay
+
+672
+00:28:42,159 --> 00:28:47,360
+so i can i can run powershell but do i
+
+673
+00:28:44,799 --> 00:28:47,360
+have um
+
+674
+00:28:47,760 --> 00:28:53,600
+no completion okay d-o-g-g-r-e
+
+675
+00:28:51,520 --> 00:28:58,679
+toggle
+
+676
+00:28:53,600 --> 00:28:58,679
+let's see toggle dog theme right
+
+677
+00:29:04,880 --> 00:29:09,760
+there it is okay so yeah
+
+678
+00:29:07,039 --> 00:29:12,159
+okay so here is uh what to do okay
+
+679
+00:29:09,760 --> 00:29:13,440
+now i know now we found out okay close
+
+680
+00:29:12,159 --> 00:29:15,760
+this
+
+681
+00:29:13,440 --> 00:29:17,760
+cure it yes okay let me show you how to
+
+682
+00:29:15,760 --> 00:29:20,880
+do so
+
+683
+00:29:17,760 --> 00:29:22,399
+first of all go to e-shell each issue is
+
+684
+00:29:20,880 --> 00:29:24,559
+building
+
+685
+00:29:22,399 --> 00:29:28,399
+then start powershell
+
+686
+00:29:24,559 --> 00:29:31,279
+okay now you are running powershell now
+
+687
+00:29:28,399 --> 00:29:34,720
+once you are in powershell then it it
+
+688
+00:29:31,279 --> 00:29:36,399
+knows the path to be pwsh now you start
+
+689
+00:29:34,720 --> 00:29:38,240
+pwsh
+
+690
+00:29:36,399 --> 00:29:40,799
+okay now
+
+691
+00:29:38,240 --> 00:29:43,919
+now it loads all my you know functions
+
+692
+00:29:40,799 --> 00:29:45,760
+now you can i can cook star dark theme
+
+693
+00:29:43,919 --> 00:29:48,080
+um
+
+694
+00:29:45,760 --> 00:29:48,080
+you know
+
+695
+00:29:49,440 --> 00:29:53,200
+copy it
+
+696
+00:29:52,080 --> 00:29:54,399
+paste it
+
+697
+00:29:53,200 --> 00:29:57,919
+there it is
+
+698
+00:29:54,399 --> 00:30:00,159
+fantastic run it again dark theme tagota
+
+699
+00:29:57,919 --> 00:30:03,840
+nothing fantastic
+
+700
+00:30:00,159 --> 00:30:06,240
+power of powershell in power of isha and
+
+701
+00:30:03,840 --> 00:30:08,960
+power of emacs
+
+702
+00:30:06,240 --> 00:30:11,440
+of course who you have to write that so
+
+703
+00:30:08,960 --> 00:30:14,000
+that's the power of emac this today's
+
+704
+00:30:11,440 --> 00:30:15,840
+topic so powershell so we talked about
+
+705
+00:30:14,000 --> 00:30:16,640
+dark theme dark theme
+
+706
+00:30:15,840 --> 00:30:19,520
+you know
+
+707
+00:30:16,640 --> 00:30:23,200
+toggle dark theme and but we need to fix
+
+708
+00:30:19,520 --> 00:30:25,279
+this page this emax
+
+709
+00:30:23,200 --> 00:30:28,240
+manual on my website that's one of the
+
+710
+00:30:25,279 --> 00:30:30,960
+problem of dark theme okay dark theme
+
+711
+00:30:28,240 --> 00:30:32,000
+let me let me get back to the css
+
+712
+00:30:30,960 --> 00:30:34,559
+uh
+
+713
+00:30:32,000 --> 00:30:38,399
+let me get back to the css
+
+714
+00:30:34,559 --> 00:30:41,360
+technology again so top theme in theory
+
+715
+00:30:38,399 --> 00:30:42,640
+this is all you need you know just
+
+716
+00:30:41,360 --> 00:30:44,799
+check
+
+717
+00:30:42,640 --> 00:30:47,039
+check the system preference if the
+
+718
+00:30:44,799 --> 00:30:50,159
+user's operating system
+
+719
+00:30:47,039 --> 00:30:54,000
+is set to dark then all you have to do
+
+720
+00:30:50,159 --> 00:30:56,080
+is body background color black and color
+
+721
+00:30:54,000 --> 00:30:58,159
+text color white that's all you have to
+
+722
+00:30:56,080 --> 00:31:01,600
+do and also change the link color
+
+723
+00:30:58,159 --> 00:31:02,399
+because normally a blue link is hard to
+
+724
+00:31:01,600 --> 00:31:05,039
+read
+
+725
+00:31:02,399 --> 00:31:07,120
+when it's when the background is black
+
+726
+00:31:05,039 --> 00:31:08,480
+okay that's all you have to do basically
+
+727
+00:31:07,120 --> 00:31:10,640
+just this
+
+728
+00:31:08,480 --> 00:31:12,799
+you know five lines of code
+
+729
+00:31:10,640 --> 00:31:14,399
+to make your website dark thing
+
+730
+00:31:12,799 --> 00:31:17,360
+but however
+
+731
+00:31:14,399 --> 00:31:21,039
+then you got this run into lots of like
+
+732
+00:31:17,360 --> 00:31:21,039
+little problems such as
+
+733
+00:31:22,159 --> 00:31:25,840
+let's make it dark such as these
+
+734
+00:31:25,039 --> 00:31:27,600
+you know
+
+735
+00:31:25,840 --> 00:31:29,600
+text disappear
+
+736
+00:31:27,600 --> 00:31:32,000
+sometimes it's
+
+737
+00:31:29,600 --> 00:31:33,760
+sometimes it's images that disappear you
+
+738
+00:31:32,000 --> 00:31:36,159
+know image with transparent background
+
+739
+00:31:33,760 --> 00:31:38,240
+that just disappear so you have to fish
+
+740
+00:31:36,159 --> 00:31:40,960
+them out so that
+
+741
+00:31:38,240 --> 00:31:43,840
+so it takes 10 minutes to create a dark
+
+742
+00:31:40,960 --> 00:31:47,519
+theme css for your website but if your
+
+743
+00:31:43,840 --> 00:31:50,480
+website if your website has 10 000 pages
+
+744
+00:31:47,519 --> 00:31:52,000
+like mine written in the past 20 years
+
+745
+00:31:50,480 --> 00:31:53,120
+then
+
+746
+00:31:52,000 --> 00:31:55,360
+then
+
+747
+00:31:53,120 --> 00:31:57,600
+lots of those pages will have this
+
+748
+00:31:55,360 --> 00:32:00,000
+disappearing text so you have to
+
+749
+00:31:57,600 --> 00:32:02,799
+actually find them each you know so it's
+
+750
+00:32:00,000 --> 00:32:03,600
+takes me a week almost yeah
+
+751
+00:32:02,799 --> 00:32:05,679
+to
+
+752
+00:32:03,600 --> 00:32:07,039
+fix lots of them and now we are running
+
+753
+00:32:05,679 --> 00:32:08,720
+into another one
+
+754
+00:32:07,039 --> 00:32:11,760
+okay
+
+755
+00:32:08,720 --> 00:32:15,519
+so but before we do anything let's
+
+756
+00:32:11,760 --> 00:32:17,440
+return the format here okay so okay so
+
+757
+00:32:15,519 --> 00:32:20,640
+there that's my
+
+758
+00:32:17,440 --> 00:32:24,559
+that's my original format
+
+759
+00:32:20,640 --> 00:32:24,559
+close that okay close that
+
+760
+00:32:26,799 --> 00:32:32,159
+so now let's show the talk show wait
+
+761
+00:32:29,679 --> 00:32:33,519
+what page am i on show the talk show
+
+762
+00:32:32,159 --> 00:32:34,559
+close that
+
+763
+00:32:33,519 --> 00:32:38,399
+copy
+
+764
+00:32:34,559 --> 00:32:41,279
+css back to my talk show let's
+
+765
+00:32:38,399 --> 00:32:43,039
+paste the topics we talked about here
+
+766
+00:32:41,279 --> 00:32:45,519
+okay
+
+767
+00:32:43,039 --> 00:32:47,200
+powershell copy that
+
+768
+00:32:45,519 --> 00:32:48,720
+paste it here
+
+769
+00:32:47,200 --> 00:32:50,000
+and
+
+770
+00:32:48,720 --> 00:32:51,919
+back here
+
+771
+00:32:50,000 --> 00:32:54,840
+emacs page
+
+772
+00:32:51,919 --> 00:32:58,240
+emacs this documentation
+
+773
+00:32:54,840 --> 00:33:00,000
+on characters and strings paste it here
+
+774
+00:32:58,240 --> 00:33:02,399
+we talked about
+
+775
+00:33:00,000 --> 00:33:04,559
+and this keyboard you know someone was
+
+776
+00:33:02,399 --> 00:33:07,039
+talking someone was talking about this
+
+777
+00:33:04,559 --> 00:33:10,399
+keyboard this is a japanese
+
+778
+00:33:07,039 --> 00:33:14,000
+keyboard very popular in the 1980s
+
+779
+00:33:10,399 --> 00:33:16,559
+but mostly in japan although it's
+
+780
+00:33:14,000 --> 00:33:18,799
+specified by microsoft you know very
+
+781
+00:33:16,559 --> 00:33:21,120
+interesting this keyboard is interesting
+
+782
+00:33:18,799 --> 00:33:24,159
+because we get to see
+
+783
+00:33:21,120 --> 00:33:27,279
+the different historical arrangements of
+
+784
+00:33:24,159 --> 00:33:30,159
+the arrow key to say the least okay you
+
+785
+00:33:27,279 --> 00:33:33,039
+can see the arrow keys
+
+786
+00:33:30,159 --> 00:33:36,080
+arranged in in kind of a cross way
+
+787
+00:33:33,039 --> 00:33:38,159
+and you can see another one here
+
+788
+00:33:36,080 --> 00:33:39,600
+and here it's a bit different you know
+
+789
+00:33:38,159 --> 00:33:42,240
+it's like
+
+790
+00:33:39,600 --> 00:33:45,039
+you know it's side by side left and
+
+791
+00:33:42,240 --> 00:33:47,279
+right arrows and above and below them
+
+792
+00:33:45,039 --> 00:33:48,960
+you have up and down arrow
+
+793
+00:33:47,279 --> 00:33:52,000
+so
+
+794
+00:33:48,960 --> 00:33:52,960
+here same thing
+
+795
+00:33:52,000 --> 00:33:54,960
+okay
+
+796
+00:33:52,960 --> 00:33:57,919
+then you have a cross then you have you
+
+797
+00:33:54,960 --> 00:33:59,919
+have this arrangement you know
+
+798
+00:33:57,919 --> 00:34:01,679
+different arrangements of the arrow key
+
+799
+00:33:59,919 --> 00:34:02,640
+that's another topic i have an article
+
+800
+00:34:01,679 --> 00:34:05,760
+on that
+
+801
+00:34:02,640 --> 00:34:09,440
+um which is what is the most efficient
+
+802
+00:34:05,760 --> 00:34:11,760
+arrangement of the arrow keys
+
+803
+00:34:09,440 --> 00:34:16,159
+for example normally it's like
+
+804
+00:34:11,760 --> 00:34:19,599
+inverted t that's a standard version
+
+805
+00:34:16,159 --> 00:34:21,280
+inverted t then you also have in a row
+
+806
+00:34:19,599 --> 00:34:25,599
+like the
+
+807
+00:34:21,280 --> 00:34:27,919
+like the vi you know hjkl
+
+808
+00:34:25,599 --> 00:34:30,720
+i have an article on that and i did a
+
+809
+00:34:27,919 --> 00:34:34,320
+video a year ago about that
+
+810
+00:34:30,720 --> 00:34:37,040
+okay so anyway so
+
+811
+00:34:34,320 --> 00:34:39,599
+we haven't finished about the dark theme
+
+812
+00:34:37,040 --> 00:34:43,839
+yet because we need to fix that website
+
+813
+00:34:39,599 --> 00:34:43,839
+okay so hold on a second so
+
+814
+00:34:47,599 --> 00:34:53,359
+so this page is wrong
+
+815
+00:34:51,679 --> 00:34:57,399
+this link
+
+816
+00:34:53,359 --> 00:34:57,399
+let me just fix it
+
+817
+00:35:03,680 --> 00:35:07,200
+okay
+
+818
+00:35:04,880 --> 00:35:09,920
+so anyway we
+
+819
+00:35:07,200 --> 00:35:11,599
+so we want to fix this
+
+820
+00:35:09,920 --> 00:35:16,280
+emac lisp
+
+821
+00:35:11,599 --> 00:35:16,280
+page okay so let's do that
+
+822
+00:35:20,480 --> 00:35:25,440
+so what is the problem here so the
+
+823
+00:35:22,560 --> 00:35:28,720
+problem we need to find so what is this
+
+824
+00:35:25,440 --> 00:35:29,520
+say char equal so go to the top search
+
+825
+00:35:28,720 --> 00:35:31,200
+for
+
+826
+00:35:29,520 --> 00:35:35,920
+char
+
+827
+00:35:31,200 --> 00:35:36,880
+equal okay so here is the line
+
+828
+00:35:35,920 --> 00:35:41,520
+um
+
+829
+00:35:36,880 --> 00:35:44,480
+and the d l so d l that's that and where
+
+830
+00:35:41,520 --> 00:35:46,400
+is the code that's the example part okay
+
+831
+00:35:44,480 --> 00:35:49,920
+pre
+
+832
+00:35:46,400 --> 00:35:49,920
+pre-class example
+
+833
+00:35:52,079 --> 00:36:00,560
+okay pre-class example so
+
+834
+00:35:55,280 --> 00:36:00,560
+now let's go pre-class example
+
+835
+00:36:03,760 --> 00:36:09,920
+let's go to my css
+
+836
+00:36:06,480 --> 00:36:14,079
+group style css
+
+837
+00:36:09,920 --> 00:36:17,920
+that's the the problem is caused by this
+
+838
+00:36:14,079 --> 00:36:18,800
+gnu free software foundations css okay
+
+839
+00:36:17,920 --> 00:36:20,720
+so
+
+840
+00:36:18,800 --> 00:36:23,440
+let's comment that out
+
+841
+00:36:20,720 --> 00:36:24,640
+refresh yeah
+
+842
+00:36:23,440 --> 00:36:26,480
+so
+
+843
+00:36:24,640 --> 00:36:27,280
+i don't want i don't want that
+
+844
+00:36:26,480 --> 00:36:29,839
+so
+
+845
+00:36:27,280 --> 00:36:32,720
+so you see this line is a problem
+
+846
+00:36:29,839 --> 00:36:35,680
+this is gnu you know this is
+
+847
+00:36:32,720 --> 00:36:38,160
+you are looking at the mirror of the gnu
+
+848
+00:36:35,680 --> 00:36:42,880
+free software foundation's
+
+849
+00:36:38,160 --> 00:36:45,200
+emac this documentation on my website
+
+850
+00:36:42,880 --> 00:36:47,280
+and uh you know so they have their
+
+851
+00:36:45,200 --> 00:36:50,560
+custom css
+
+852
+00:36:47,280 --> 00:36:53,280
+and which is incompatible with doc theme
+
+853
+00:36:50,560 --> 00:36:57,200
+okay so i'm going to fix it how are you
+
+854
+00:36:53,280 --> 00:36:59,200
+gonna fix it just by removing it
+
+855
+00:36:57,200 --> 00:37:01,680
+because
+
+856
+00:36:59,200 --> 00:37:04,800
+you know i because i i spent an hour the
+
+857
+00:37:01,680 --> 00:37:06,640
+other day looking at their css
+
+858
+00:37:04,800 --> 00:37:09,119
+uh you know
+
+859
+00:37:06,640 --> 00:37:09,920
+so
+
+860
+00:37:09,119 --> 00:37:12,720
+i
+
+861
+00:37:09,920 --> 00:37:15,359
+i'm going to remove it so what i do
+
+862
+00:37:12,720 --> 00:37:17,680
+so now if you drop down to the diode
+
+863
+00:37:15,359 --> 00:37:20,480
+directory you can see
+
+864
+00:37:17,680 --> 00:37:24,000
+here's here's the files
+
+865
+00:37:20,480 --> 00:37:27,040
+so there are 1000 of them
+
+866
+00:37:24,000 --> 00:37:30,160
+so for each one of them you open it
+
+867
+00:37:27,040 --> 00:37:31,119
+search for css you can see
+
+868
+00:37:30,160 --> 00:37:34,720
+it's
+
+869
+00:37:31,119 --> 00:37:38,640
+loading that gnu css
+
+870
+00:37:34,720 --> 00:37:40,880
+open it so that's a gross css so you you
+
+871
+00:37:38,640 --> 00:37:43,920
+so what you want to do i want to remove
+
+872
+00:37:40,880 --> 00:37:45,440
+this line of code for all these 1000
+
+873
+00:37:43,920 --> 00:37:47,680
+pages okay
+
+874
+00:37:45,440 --> 00:37:49,599
+so what i do is
+
+875
+00:37:47,680 --> 00:37:50,560
+i'm just gonna do it okay
+
+876
+00:37:49,599 --> 00:37:53,200
+so
+
+877
+00:37:50,560 --> 00:37:54,640
+call this command
+
+878
+00:37:53,200 --> 00:37:56,240
+find replace
+
+879
+00:37:54,640 --> 00:37:57,280
+paste that line
+
+880
+00:37:56,240 --> 00:38:00,000
+enter
+
+881
+00:37:57,280 --> 00:38:03,520
+replace string enter blank
+
+882
+00:38:00,000 --> 00:38:06,000
+in this directory no emax menu
+
+883
+00:38:03,520 --> 00:38:10,079
+yes enter
+
+884
+00:38:06,000 --> 00:38:12,079
+file path regular expression html
+
+885
+00:38:10,079 --> 00:38:14,480
+enter
+
+886
+00:38:12,079 --> 00:38:18,720
+minimal depth
+
+887
+00:38:14,480 --> 00:38:21,359
+0 max the depth 99
+
+888
+00:38:18,720 --> 00:38:24,079
+right changes to file yes
+
+889
+00:38:21,359 --> 00:38:26,880
+fixed case in search yes
+
+890
+00:38:24,079 --> 00:38:30,160
+fixed case in replacement yes
+
+891
+00:38:26,880 --> 00:38:34,960
+make backup yes okay it will take 10
+
+892
+00:38:30,160 --> 00:38:34,960
+seconds to do the all the replacements
+
+893
+00:38:37,040 --> 00:38:42,480
+so this is one of my package start find
+
+894
+00:38:39,839 --> 00:38:46,079
+and replace okay very super convenient
+
+895
+00:38:42,480 --> 00:38:50,320
+okay it's done so you magnify so you can
+
+896
+00:38:46,079 --> 00:38:52,400
+press left right arrow to see
+
+897
+00:38:50,320 --> 00:38:53,839
+the replacement you see now you are
+
+898
+00:38:52,400 --> 00:38:56,560
+seeing
+
+899
+00:38:53,839 --> 00:38:59,440
+now you are seeing empty bracket because
+
+900
+00:38:56,560 --> 00:39:02,160
+the replacement is empty you know we
+
+901
+00:38:59,440 --> 00:39:05,040
+simply deleted it and each of the pink
+
+902
+00:39:02,160 --> 00:39:07,359
+line is the file name so you can scroll
+
+903
+00:39:05,040 --> 00:39:09,359
+down all the way you know it takes
+
+904
+00:39:07,359 --> 00:39:12,480
+there are a thousand basically a
+
+905
+00:39:09,359 --> 00:39:15,200
+thousand replacements so a number
+
+906
+00:39:12,480 --> 00:39:18,800
+a number before the file name means how
+
+907
+00:39:15,200 --> 00:39:21,119
+many changes occurred so it's one so you
+
+908
+00:39:18,800 --> 00:39:22,880
+just scroll down you hold down the right
+
+909
+00:39:21,119 --> 00:39:24,880
+arrow key you just
+
+910
+00:39:22,880 --> 00:39:27,760
+go to the next occurrence next
+
+911
+00:39:24,880 --> 00:39:28,880
+occurrence of this you know mini so you
+
+912
+00:39:27,760 --> 00:39:31,200
+can see
+
+913
+00:39:28,880 --> 00:39:33,520
+so now if you
+
+914
+00:39:31,200 --> 00:39:36,079
+move to any one of them press enter to
+
+915
+00:39:33,520 --> 00:39:38,480
+open the file you can see
+
+916
+00:39:36,079 --> 00:39:43,040
+that line is gone
+
+917
+00:39:38,480 --> 00:39:44,880
+now when shown in browser you can see um
+
+918
+00:39:43,040 --> 00:39:47,599
+you know that's how this page looks in
+
+919
+00:39:44,880 --> 00:39:48,800
+browser so that's done so that's how i
+
+920
+00:39:47,599 --> 00:39:50,880
+change
+
+921
+00:39:48,800 --> 00:39:54,000
+actually more than 1000 because if you
+
+922
+00:39:50,880 --> 00:39:56,640
+go to the dial directory you can see
+
+923
+00:39:54,000 --> 00:40:00,160
+this is emac this manual go up one
+
+924
+00:39:56,640 --> 00:40:03,040
+directory you can see
+
+925
+00:40:00,160 --> 00:40:05,599
+i changed both the emac this manual and
+
+926
+00:40:03,040 --> 00:40:07,920
+the emacs menu so let's open the emacs
+
+927
+00:40:05,599 --> 00:40:08,960
+manual you can see it also made the
+
+928
+00:40:07,920 --> 00:40:11,119
+backup
+
+929
+00:40:08,960 --> 00:40:12,640
+you know all these are
+
+930
+00:40:11,119 --> 00:40:15,119
+let's magnify
+
+931
+00:40:12,640 --> 00:40:17,599
+remove hide the hide the
+
+932
+00:40:15,119 --> 00:40:18,560
+irrelevant information
+
+933
+00:40:17,599 --> 00:40:20,400
+you can
+
+934
+00:40:18,560 --> 00:40:22,079
+and again you can see all my commands in
+
+935
+00:40:20,400 --> 00:40:25,839
+the pink window you see diode high
+
+936
+00:40:22,079 --> 00:40:28,720
+details mod that's how i hide the
+
+937
+00:40:25,839 --> 00:40:30,880
+the date the own the the unix thing you
+
+938
+00:40:28,720 --> 00:40:33,710
+know owner group
+
+939
+00:40:30,880 --> 00:40:35,440
+permission you know 666
+
+940
+00:40:33,710 --> 00:40:38,400
+[Laughter]
+
+941
+00:40:35,440 --> 00:40:40,200
+this this w
+
+942
+00:40:38,400 --> 00:40:44,960
+rw
+
+943
+00:40:40,200 --> 00:40:48,160
+rw that means 666 my friends
+
+944
+00:40:44,960 --> 00:40:50,880
+which has significance
+
+945
+00:40:48,160 --> 00:40:53,280
+in white men society but i don't know
+
+946
+00:40:50,880 --> 00:40:55,200
+that you know because i was i'm chinese
+
+947
+00:40:53,280 --> 00:40:58,160
+when i came to usa i didn't know what
+
+948
+00:40:55,200 --> 00:40:59,680
+what is 666 why are these people talking
+
+949
+00:40:58,160 --> 00:41:01,440
+about it all the time
+
+950
+00:40:59,680 --> 00:41:03,440
+what's a big deal
+
+951
+00:41:01,440 --> 00:41:04,880
+but
+
+952
+00:41:03,440 --> 00:41:08,400
+all the white people knows about it
+
+953
+00:41:04,880 --> 00:41:11,119
+because that's part of your history
+
+954
+00:41:08,400 --> 00:41:14,160
+i didn't know you know in chinese six is
+
+955
+00:41:11,119 --> 00:41:16,640
+a lucky number six six six in particular
+
+956
+00:41:14,160 --> 00:41:21,440
+is the luckiest number like when you
+
+957
+00:41:16,640 --> 00:41:23,839
+thought that is the only six six six
+
+958
+00:41:21,440 --> 00:41:25,440
+because that the pronunciation of the
+
+959
+00:41:23,839 --> 00:41:27,040
+number six
+
+960
+00:41:25,440 --> 00:41:31,599
+corresponds to
+
+961
+00:41:27,040 --> 00:41:33,440
+the word for luck okay in chinese
+
+962
+00:41:31,599 --> 00:41:36,319
+like longevity but
+
+963
+00:41:33,440 --> 00:41:39,920
+like live long and prosper prosperity
+
+964
+00:41:36,319 --> 00:41:43,040
+that's what 666 means different culture
+
+965
+00:41:39,920 --> 00:41:45,680
+different meaning okay so that so we
+
+966
+00:41:43,040 --> 00:41:49,599
+happen to upon the unix
+
+967
+00:41:45,680 --> 00:41:53,040
+final name permission 666 okay
+
+968
+00:41:49,599 --> 00:41:53,040
+which i need to show
+
+969
+00:41:53,359 --> 00:41:58,480
+linux practical linux tutorial
+
+970
+00:41:56,640 --> 00:42:03,040
+you know just go to my website you'll
+
+971
+00:41:58,480 --> 00:42:04,240
+find it xrd practical linux tutorial and
+
+972
+00:42:03,040 --> 00:42:06,800
+scroll down
+
+973
+00:42:04,240 --> 00:42:10,079
+and you'll see a page about file
+
+974
+00:42:06,800 --> 00:42:12,640
+permissions the unix cryptic file file
+
+975
+00:42:10,079 --> 00:42:16,400
+permission system
+
+976
+00:42:12,640 --> 00:42:19,119
+there it is sys file permission you know
+
+977
+00:42:16,400 --> 00:42:21,520
+the permission the root wheel group
+
+978
+00:42:19,119 --> 00:42:24,319
+owner group file name and you know root
+
+979
+00:42:21,520 --> 00:42:24,319
+you know pseudo
+
+980
+00:42:25,119 --> 00:42:30,480
+esoteric
+
+981
+00:42:26,560 --> 00:42:33,760
+crap the worst design possible the unix
+
+982
+00:42:30,480 --> 00:42:37,440
+file name system the unix uh permission
+
+983
+00:42:33,760 --> 00:42:39,200
+system the worst hack possible of the c
+
+984
+00:42:37,440 --> 00:42:41,200
+lineage
+
+985
+00:42:39,200 --> 00:42:42,400
+the grand daddy of everything that's
+
+986
+00:42:41,200 --> 00:42:44,400
+wrong
+
+987
+00:42:42,400 --> 00:42:46,319
+in computing industry
+
+988
+00:42:44,400 --> 00:42:48,240
+unix okay
+
+989
+00:42:46,319 --> 00:42:50,240
+unix file name permission system okay
+
+990
+00:42:48,240 --> 00:42:52,800
+let's go back to talk show let's we
+
+991
+00:42:50,240 --> 00:42:52,800
+digressed
+
+992
+00:42:53,119 --> 00:42:57,440
+digressed
+
+993
+00:42:54,240 --> 00:43:00,720
+and digressed okay hold on a second unix
+
+994
+00:42:57,440 --> 00:43:02,880
+file name permission system and go back
+
+995
+00:43:00,720 --> 00:43:04,319
+linux tutorial
+
+996
+00:43:02,880 --> 00:43:08,240
+copy
+
+997
+00:43:04,319 --> 00:43:10,480
+so i have a record what we talked about
+
+998
+00:43:08,240 --> 00:43:14,079
+we're gonna get into them one one one
+
+999
+00:43:10,480 --> 00:43:16,560
+and one one by one okay so now we
+
+1000
+00:43:14,079 --> 00:43:18,640
+show this in browser so you can see
+
+1001
+00:43:16,560 --> 00:43:22,720
+there okay
+
+1002
+00:43:18,640 --> 00:43:25,440
+uh now we go back to fixing this page
+
+1003
+00:43:22,720 --> 00:43:26,800
+okay so we go back yeah so let's let me
+
+1004
+00:43:25,440 --> 00:43:30,319
+show you the
+
+1005
+00:43:26,800 --> 00:43:30,319
+find and replace okay
+
+1006
+00:43:30,720 --> 00:43:34,000
+so first of all i
+
+1007
+00:43:32,160 --> 00:43:35,359
+if you look at the pink window you you
+
+1008
+00:43:34,000 --> 00:43:37,920
+can see
+
+1009
+00:43:35,359 --> 00:43:40,720
+now i call describe key
+
+1010
+00:43:37,920 --> 00:43:41,920
+by a key then i press the command okay
+
+1011
+00:43:40,720 --> 00:43:43,920
+wait
+
+1012
+00:43:41,920 --> 00:43:45,599
+i call what
+
+1013
+00:43:43,920 --> 00:43:48,640
+yeah
+
+1014
+00:43:45,599 --> 00:43:50,000
+i call describe key then i press the key
+
+1015
+00:43:48,640 --> 00:43:52,960
+to launch
+
+1016
+00:43:50,000 --> 00:43:56,000
+find replace okay which is
+
+1017
+00:43:52,960 --> 00:44:00,000
+that okay so you can see this key runs
+
+1018
+00:43:56,000 --> 00:44:02,480
+start find replace text and tab
+
+1019
+00:44:00,000 --> 00:44:05,119
+to the source code enter
+
+1020
+00:44:02,480 --> 00:44:07,280
+you are looking at the source code of my
+
+1021
+00:44:05,119 --> 00:44:10,079
+package xsa find
+
+1022
+00:44:07,280 --> 00:44:11,760
+which is find and replace and grab and
+
+1023
+00:44:10,079 --> 00:44:15,200
+set
+
+1024
+00:44:11,760 --> 00:44:18,640
+in emac list so 700 lines if you like it
+
+1025
+00:44:15,200 --> 00:44:18,640
+pay me to get it okay
+
+1026
+00:44:19,280 --> 00:44:24,880
+show in browser so this is a home page
+
+1027
+00:44:21,680 --> 00:44:27,200
+for saw find replace package which i
+
+1028
+00:44:24,880 --> 00:44:29,760
+demonstrated many times and you have
+
+1029
+00:44:27,200 --> 00:44:29,760
+just seen
+
+1030
+00:44:30,400 --> 00:44:34,800
+paste it here
+
+1031
+00:44:31,760 --> 00:44:37,119
+okay so we have just fixed
+
+1032
+00:44:34,800 --> 00:44:39,040
+let's go back here
+
+1033
+00:44:37,119 --> 00:44:41,599
+yeah so
+
+1034
+00:44:39,040 --> 00:44:43,760
+we should you know now if we refresh it
+
+1035
+00:44:41,599 --> 00:44:46,720
+should be fixed let's refresh this
+
+1036
+00:44:43,760 --> 00:44:47,920
+finger okay one key button one button
+
+1037
+00:44:46,720 --> 00:44:49,200
+press
+
+1038
+00:44:47,920 --> 00:44:51,680
+do it
+
+1039
+00:44:49,200 --> 00:44:54,960
+fantastic
+
+1040
+00:44:51,680 --> 00:44:56,079
+dark thing fixed a dark thing problem
+
+1041
+00:44:54,960 --> 00:44:56,880
+for
+
+1042
+00:44:56,079 --> 00:45:00,079
+1
+
+1043
+00:44:56,880 --> 00:45:00,079
+800 pages
+
+1044
+00:45:01,040 --> 00:45:05,040
+so you can see go back to the uh
+
+1045
+00:45:04,160 --> 00:45:07,839
+yeah
+
+1046
+00:45:05,040 --> 00:45:10,480
+we read from disk yes you see
+
+1047
+00:45:07,839 --> 00:45:12,240
+that gnu style is gone
+
+1048
+00:45:10,480 --> 00:45:13,680
+that's good
+
+1049
+00:45:12,240 --> 00:45:15,920
+uh and
+
+1050
+00:45:13,680 --> 00:45:18,319
+if i were doing this on my own there's
+
+1051
+00:45:15,920 --> 00:45:20,560
+more things to need to fix because you
+
+1052
+00:45:18,319 --> 00:45:20,560
+see
+
+1053
+00:45:20,720 --> 00:45:26,880
+you see that that part of that is hidden
+
+1054
+00:45:23,200 --> 00:45:26,880
+so i need to add um
+
+1055
+00:45:30,240 --> 00:45:36,960
+i need to uh change my css and add a
+
+1056
+00:45:33,839 --> 00:45:36,960
+little bit um
+
+1057
+00:45:38,079 --> 00:45:42,960
+okay so anyway let's i'm gonna fix it
+
+1058
+00:45:41,200 --> 00:45:47,200
+offline okay
+
+1059
+00:45:42,960 --> 00:45:49,280
+so now we started to have more people
+
+1060
+00:45:47,200 --> 00:45:51,599
+something like witch command that's
+
+1061
+00:45:49,280 --> 00:45:53,920
+right
+
+1062
+00:45:51,599 --> 00:45:57,440
+tong tong gossat
+
+1063
+00:45:53,920 --> 00:46:00,720
+you guys the weird names
+
+1064
+00:45:57,440 --> 00:46:03,839
+luis says who has unix culture still
+
+1065
+00:46:00,720 --> 00:46:04,800
+gets excited when emacs every day
+
+1066
+00:46:03,839 --> 00:46:06,960
+yes
+
+1067
+00:46:04,800 --> 00:46:08,880
+that's you know that's a big history
+
+1068
+00:46:06,960 --> 00:46:10,400
+about that topic
+
+1069
+00:46:08,880 --> 00:46:13,599
+you know remember
+
+1070
+00:46:10,400 --> 00:46:15,520
+where does emacs come from emacs came
+
+1071
+00:46:13,599 --> 00:46:18,640
+from
+
+1072
+00:46:15,520 --> 00:46:22,000
+free software foundation free software
+
+1073
+00:46:18,640 --> 00:46:26,000
+foundation foundation's gnu project
+
+1074
+00:46:22,000 --> 00:46:28,880
+and what does gnu means gnu means gnu is
+
+1075
+00:46:26,000 --> 00:46:31,200
+not unix
+
+1076
+00:46:28,880 --> 00:46:34,400
+you know that's history very interesting
+
+1077
+00:46:31,200 --> 00:46:38,640
+why because richard snowman
+
+1078
+00:46:34,400 --> 00:46:42,079
+hated unix why because unix was
+
+1079
+00:46:38,640 --> 00:46:45,200
+the proprietary corporation run by the a
+
+1080
+00:46:42,079 --> 00:46:48,640
+t and t empire the death star
+
+1081
+00:46:45,200 --> 00:46:51,520
+okay we digressed so much you know
+
+1082
+00:46:48,640 --> 00:46:54,560
+as time goes on history gets twisted
+
+1083
+00:46:51,520 --> 00:46:57,680
+nobody knows what's going on
+
+1084
+00:46:54,560 --> 00:46:58,720
+and think that oh gnu you know emacs is
+
+1085
+00:46:57,680 --> 00:47:01,440
+part of
+
+1086
+00:46:58,720 --> 00:47:03,839
+unix you know actually it's more you
+
+1087
+00:47:01,440 --> 00:47:04,720
+know nothing could be further away from
+
+1088
+00:47:03,839 --> 00:47:07,040
+that
+
+1089
+00:47:04,720 --> 00:47:08,720
+emacs
+
+1090
+00:47:07,040 --> 00:47:11,200
+is which is so much foundation you know
+
+1091
+00:47:08,720 --> 00:47:12,640
+gnu is not unix they make fun of unix
+
+1092
+00:47:11,200 --> 00:47:14,000
+because they are not in the same
+
+1093
+00:47:12,640 --> 00:47:16,800
+community
+
+1094
+00:47:14,000 --> 00:47:18,960
+richard stowman because unix is
+
+1095
+00:47:16,800 --> 00:47:21,040
+proprietary you know they they they
+
+1096
+00:47:18,960 --> 00:47:22,079
+making money and stuff
+
+1097
+00:47:21,040 --> 00:47:22,839
+and
+
+1098
+00:47:22,079 --> 00:47:26,640
+and
+
+1099
+00:47:22,839 --> 00:47:28,720
+also the e-max camp
+
+1100
+00:47:26,640 --> 00:47:30,240
+is part of the lisp
+
+1101
+00:47:28,720 --> 00:47:34,160
+community
+
+1102
+00:47:30,240 --> 00:47:37,359
+this community is the enemy of the
+
+1103
+00:47:34,160 --> 00:47:41,280
+unix and sea community the you
+
+1104
+00:47:37,359 --> 00:47:43,359
+know i mean this community camp
+
+1105
+00:47:41,280 --> 00:47:45,520
+you know eunuchs and c
+
+1106
+00:47:43,359 --> 00:47:47,440
+the criminals of the computing industry
+
+1107
+00:47:45,520 --> 00:47:50,079
+on the other hand their enemy you know
+
+1108
+00:47:47,440 --> 00:47:51,839
+the mutual enemies is the least they
+
+1109
+00:47:50,079 --> 00:47:53,760
+think about things differently
+
+1110
+00:47:51,839 --> 00:47:56,319
+differently
+
+1111
+00:47:53,760 --> 00:47:58,720
+so emacs is part of the unix i mean the
+
+1112
+00:47:56,319 --> 00:48:00,160
+part of the glue the lisp
+
+1113
+00:47:58,720 --> 00:48:02,240
+uh camp
+
+1114
+00:48:00,160 --> 00:48:04,160
+nothing to do with unix
+
+1115
+00:48:02,240 --> 00:48:07,040
+but you know but then you know you just
+
+1116
+00:48:04,160 --> 00:48:10,000
+don't you know anyway
+
+1117
+00:48:07,040 --> 00:48:12,880
+uh so we
+
+1118
+00:48:10,000 --> 00:48:15,760
+so now we let's uh refresh the directory
+
+1119
+00:48:12,880 --> 00:48:18,480
+so you can see all the back backups that
+
+1120
+00:48:15,760 --> 00:48:21,680
+saw find made you know for you know
+
+1121
+00:48:18,480 --> 00:48:24,400
+a thousand files uh
+
+1122
+00:48:21,680 --> 00:48:25,920
+okay close that so let's i mean i want
+
+1123
+00:48:24,400 --> 00:48:28,319
+to double check
+
+1124
+00:48:25,920 --> 00:48:30,160
+the changes i made okay so
+
+1125
+00:48:28,319 --> 00:48:32,480
+back to here
+
+1126
+00:48:30,160 --> 00:48:32,480
+okay
+
+1127
+00:48:33,520 --> 00:48:37,760
+uh yeah so let me mention okay so since
+
+1128
+00:48:35,920 --> 00:48:40,800
+we are talking about that let me mention
+
+1129
+00:48:37,760 --> 00:48:42,480
+a a few more things okay but before we
+
+1130
+00:48:40,800 --> 00:48:44,319
+do that let me fix
+
+1131
+00:48:42,480 --> 00:48:47,200
+this um
+
+1132
+00:48:44,319 --> 00:48:48,880
+you know there's a
+
+1133
+00:48:47,200 --> 00:48:51,920
+there's a
+
+1134
+00:48:48,880 --> 00:48:56,000
+bug in my html file i need
+
+1135
+00:48:51,920 --> 00:48:59,040
+some html mod i need to fix because it
+
+1136
+00:48:56,000 --> 00:49:03,280
+doesn't link the
+
+1137
+00:48:59,040 --> 00:49:07,200
+uh let me do it now okay
+
+1138
+00:49:03,280 --> 00:49:07,200
+yeah okay now it's fixed so
+
+1139
+00:49:15,359 --> 00:49:20,400
+okay show in browser let's
+
+1140
+00:49:18,720 --> 00:49:22,480
+show in browser
+
+1141
+00:49:20,400 --> 00:49:24,480
+so this is what we talked about
+
+1142
+00:49:22,480 --> 00:49:25,760
+powershell dark theme
+
+1143
+00:49:24,480 --> 00:49:28,400
+toggle
+
+1144
+00:49:25,760 --> 00:49:30,960
+the toggle command
+
+1145
+00:49:28,400 --> 00:49:33,440
+uh powershell install print version
+
+1146
+00:49:30,960 --> 00:49:34,960
+learn how to run emacs yeah let's write
+
+1147
+00:49:33,440 --> 00:49:37,760
+down what we did
+
+1148
+00:49:34,960 --> 00:49:40,240
+because it's better that way for people
+
+1149
+00:49:37,760 --> 00:49:43,599
+who are not watching me online
+
+1150
+00:49:40,240 --> 00:49:45,200
+in real time they can see this is
+
+1151
+00:49:43,599 --> 00:49:46,960
+what actually
+
+1152
+00:49:45,200 --> 00:49:50,640
+i talked about instead of just a bunch
+
+1153
+00:49:46,960 --> 00:49:52,720
+of links so dark thing
+
+1154
+00:49:50,640 --> 00:49:54,480
+how to do so let's you know write down
+
+1155
+00:49:52,720 --> 00:49:55,920
+what we talked about
+
+1156
+00:49:54,480 --> 00:49:59,599
+how to do
+
+1157
+00:49:55,920 --> 00:50:02,480
+dark theme in css
+
+1158
+00:49:59,599 --> 00:50:02,480
+five minutes
+
+1159
+00:50:02,720 --> 00:50:06,160
+one
+
+1160
+00:50:03,599 --> 00:50:08,640
+minutes of five
+
+1161
+00:50:06,160 --> 00:50:10,800
+lines of code
+
+1162
+00:50:08,640 --> 00:50:13,119
+but
+
+1163
+00:50:10,800 --> 00:50:18,720
+if you
+
+1164
+00:50:13,119 --> 00:50:21,200
+if you have a thousand html pages return
+
+1165
+00:50:18,720 --> 00:50:24,960
+in past 20 years
+
+1166
+00:50:21,200 --> 00:50:28,640
+you have a lot to fix
+
+1167
+00:50:24,960 --> 00:50:28,640
+disappearing inks
+
+1168
+00:50:30,000 --> 00:50:34,079
+okay
+
+1169
+00:50:32,319 --> 00:50:36,800
+that's what
+
+1170
+00:50:34,079 --> 00:50:38,400
+and this powershell
+
+1171
+00:50:36,800 --> 00:50:42,319
+a function
+
+1172
+00:50:38,400 --> 00:50:42,319
+in powershell to
+
+1173
+00:50:42,800 --> 00:50:45,359
+toggle
+
+1174
+00:50:44,000 --> 00:50:47,520
+dark theme
+
+1175
+00:50:45,359 --> 00:50:51,240
+okay that's a function in powershell to
+
+1176
+00:50:47,520 --> 00:50:51,240
+toggle dark theme
+
+1177
+00:50:54,079 --> 00:50:56,720
+uh what
+
+1178
+00:50:57,920 --> 00:51:02,640
+okay i think we have some way
+
+1179
+00:51:07,040 --> 00:51:09,839
+go down
+
+1180
+00:51:08,880 --> 00:51:13,280
+now
+
+1181
+00:51:09,839 --> 00:51:15,839
+this i'm not gonna do today so let's
+
+1182
+00:51:13,280 --> 00:51:17,920
+i need to remove them okay so
+
+1183
+00:51:15,839 --> 00:51:21,200
+a function in powershot to do to toggle
+
+1184
+00:51:17,920 --> 00:51:23,920
+dark theme how to do dark theme in css
+
+1185
+00:51:21,200 --> 00:51:25,359
+in one minute but lots of disappearing
+
+1186
+00:51:23,920 --> 00:51:28,000
+inks
+
+1187
+00:51:25,359 --> 00:51:32,599
+now how to and then how to run
+
+1188
+00:51:28,000 --> 00:51:32,599
+powershell in isha okay
+
+1189
+00:51:38,079 --> 00:51:44,240
+how to run powershell in emacs okay so
+
+1190
+00:51:42,880 --> 00:51:45,359
+that is that
+
+1191
+00:51:44,240 --> 00:51:49,960
+about
+
+1192
+00:51:45,359 --> 00:51:49,960
+then we have visual css
+
+1193
+00:51:51,599 --> 00:51:55,760
+let's move that
+
+1194
+00:51:53,520 --> 00:51:57,599
+here
+
+1195
+00:51:55,760 --> 00:52:00,240
+refresh
+
+1196
+00:51:57,599 --> 00:52:03,359
+visual css how do you do dark theme for
+
+1197
+00:52:00,240 --> 00:52:05,200
+your website for your blog
+
+1198
+00:52:03,359 --> 00:52:07,520
+okay then
+
+1199
+00:52:05,200 --> 00:52:10,000
+we were talking about
+
+1200
+00:52:07,520 --> 00:52:11,680
+emac this so we haven't started to talk
+
+1201
+00:52:10,000 --> 00:52:14,880
+about that yet you know the stream
+
+1202
+00:52:11,680 --> 00:52:19,280
+functions and i was working on that
+
+1203
+00:52:14,880 --> 00:52:21,359
+and find and replace package of xar
+
+1204
+00:52:19,280 --> 00:52:24,720
+you know find replace package buy it
+
+1205
+00:52:21,359 --> 00:52:27,680
+okay pay me support me sponsor me
+
+1206
+00:52:24,720 --> 00:52:30,960
+paypal patreon and you guys you know if
+
+1207
+00:52:27,680 --> 00:52:34,720
+you like my video buy me a drink
+
+1208
+00:52:30,960 --> 00:52:36,960
+however how much however much that cost
+
+1209
+00:52:34,720 --> 00:52:39,200
+in your
+
+1210
+00:52:36,960 --> 00:52:42,640
+abode in your trading place in your
+
+1211
+00:52:39,200 --> 00:52:42,640
+location in your country
+
+1212
+00:52:42,960 --> 00:52:47,200
+so
+
+1213
+00:52:44,480 --> 00:52:49,599
+find replace package then we have
+
+1214
+00:52:47,200 --> 00:52:53,359
+practical linux tutorial which we are
+
+1215
+00:52:49,599 --> 00:52:54,960
+talking about linux file permission okay
+
+1216
+00:52:53,359 --> 00:52:55,760
+yeah so
+
+1217
+00:52:54,960 --> 00:52:58,559
+but
+
+1218
+00:52:55,760 --> 00:53:02,880
+um but i want to show you something else
+
+1219
+00:52:58,559 --> 00:53:02,880
+something else something else
+
+1220
+00:53:05,200 --> 00:53:13,359
+you'll see it here okay just give me one
+
+1221
+00:53:09,119 --> 00:53:14,640
+you go down the eunuch's pestilence
+
+1222
+00:53:13,359 --> 00:53:17,760
+okay
+
+1223
+00:53:14,640 --> 00:53:17,760
+it's almost like every
+
+1224
+00:53:18,800 --> 00:53:24,240
+um i need to show that in every one of
+
+1225
+00:53:21,599 --> 00:53:27,839
+my videos unix pestilence okay the
+
+1226
+00:53:24,240 --> 00:53:29,839
+history of unix so why why why why show
+
+1227
+00:53:27,839 --> 00:53:34,000
+this page because
+
+1228
+00:53:29,839 --> 00:53:35,200
+we traced back to the
+
+1229
+00:53:34,000 --> 00:53:39,119
+history
+
+1230
+00:53:35,200 --> 00:53:41,760
+of unix you see a t and t
+
+1231
+00:53:39,119 --> 00:53:45,760
+here is where a t and t came mean where
+
+1232
+00:53:41,760 --> 00:53:47,839
+bsd is poking a hole of the atnt
+
+1233
+00:53:45,760 --> 00:53:50,559
+death star
+
+1234
+00:53:47,839 --> 00:53:54,920
+so a t death star we talked about
+
+1235
+00:53:50,559 --> 00:53:54,920
+yesterday so let me show you
+
+1236
+00:53:58,720 --> 00:54:04,559
+okay so go to hacker code
+
+1237
+00:54:02,559 --> 00:54:08,079
+hacker code
+
+1238
+00:54:04,559 --> 00:54:11,760
+then you'll find a page about logos
+
+1239
+00:54:08,079 --> 00:54:13,040
+design in software industry open it
+
+1240
+00:54:11,760 --> 00:54:16,079
+you'll see
+
+1241
+00:54:13,040 --> 00:54:18,400
+all the greatest logos in the history of
+
+1242
+00:54:16,079 --> 00:54:22,640
+software you know some of them great
+
+1243
+00:54:18,400 --> 00:54:25,599
+such as the sgi logo the company
+
+1244
+00:54:22,640 --> 00:54:27,599
+the company no longer exists
+
+1245
+00:54:25,599 --> 00:54:30,400
+bought by oracle
+
+1246
+00:54:27,599 --> 00:54:32,559
+samba samba you know the grand daddy
+
+1247
+00:54:30,400 --> 00:54:34,720
+that's file sharing between windows on
+
+1248
+00:54:32,559 --> 00:54:37,599
+the mac between windows and mac that's
+
+1249
+00:54:34,720 --> 00:54:38,640
+what you it's what you need samba open
+
+1250
+00:54:37,599 --> 00:54:41,680
+source
+
+1251
+00:54:38,640 --> 00:54:45,440
+but it's microsoft technology thank you
+
+1252
+00:54:41,680 --> 00:54:47,359
+microsoft since 1990s samba fire sharing
+
+1253
+00:54:45,440 --> 00:54:49,200
+network technology
+
+1254
+00:54:47,359 --> 00:54:51,440
+so if you have a mac if you have a
+
+1255
+00:54:49,200 --> 00:54:54,240
+windows you need to share files between
+
+1256
+00:54:51,440 --> 00:54:56,559
+them that's samba that's behind the
+
+1257
+00:54:54,240 --> 00:55:01,200
+scenes you know
+
+1258
+00:54:56,559 --> 00:55:01,200
+you know apple also you know um
+
+1259
+00:55:03,280 --> 00:55:07,920
+you know
+
+1260
+00:55:04,799 --> 00:55:09,839
+ported it to the mac you know
+
+1261
+00:55:07,920 --> 00:55:11,440
+and and on linux you know whenever you
+
+1262
+00:55:09,839 --> 00:55:14,079
+need to share files
+
+1263
+00:55:11,440 --> 00:55:16,880
+files with windows that's what you do
+
+1264
+00:55:14,079 --> 00:55:21,119
+so but we are showing this page because
+
+1265
+00:55:16,880 --> 00:55:22,799
+i want i wanted to show the a t and t
+
+1266
+00:55:21,119 --> 00:55:25,520
+death star
+
+1267
+00:55:22,799 --> 00:55:26,559
+which which is one of the greatest logo
+
+1268
+00:55:25,520 --> 00:55:29,680
+design
+
+1269
+00:55:26,559 --> 00:55:31,359
+in the logo design history
+
+1270
+00:55:29,680 --> 00:55:33,520
+you know logos you know you guys don't
+
+1271
+00:55:31,359 --> 00:55:35,599
+know you may not know because you guys
+
+1272
+00:55:33,520 --> 00:55:39,040
+are notes you know logo is one of the
+
+1273
+00:55:35,599 --> 00:55:40,240
+big things uh in in in graphics design
+
+1274
+00:55:39,040 --> 00:55:43,200
+you know in general it's called
+
+1275
+00:55:40,240 --> 00:55:45,359
+communication art okay so
+
+1276
+00:55:43,200 --> 00:55:48,400
+the f-sharp logo for example is the
+
+1277
+00:55:45,359 --> 00:55:50,880
+worst idiotic crab so there's a there's
+
+1278
+00:55:48,400 --> 00:55:53,520
+a madness to it there's
+
+1279
+00:55:50,880 --> 00:55:54,799
+how to design logo what constitutes a
+
+1280
+00:55:53,520 --> 00:55:57,839
+good logo
+
+1281
+00:55:54,799 --> 00:55:59,520
+what is a bad logo you know many of the
+
+1282
+00:55:57,839 --> 00:56:02,880
+people they don't know you know the
+
+1283
+00:55:59,520 --> 00:56:05,839
+coders for example they yeah so i want
+
+1284
+00:56:02,880 --> 00:56:07,920
+to okay so purpose of logo and principle
+
+1285
+00:56:05,839 --> 00:56:09,359
+of logo design
+
+1286
+00:56:07,920 --> 00:56:12,559
+so you can see
+
+1287
+00:56:09,359 --> 00:56:14,000
+here is an example of the greatest logo
+
+1288
+00:56:12,559 --> 00:56:18,880
+okay java
+
+1289
+00:56:14,000 --> 00:56:18,880
+gnu you know this benevolent gnu
+
+1290
+00:56:19,280 --> 00:56:22,160
+you know
+
+1291
+00:56:20,160 --> 00:56:24,640
+means an animal you know that can some
+
+1292
+00:56:22,160 --> 00:56:28,319
+kind of antelope you know in
+
+1293
+00:56:24,640 --> 00:56:31,040
+wild beast in in africa that's what gnu
+
+1294
+00:56:28,319 --> 00:56:33,680
+is so glue the the free software
+
+1295
+00:56:31,040 --> 00:56:38,480
+foundation their project new their logo
+
+1296
+00:56:33,680 --> 00:56:40,960
+is the gnu head gnu's logo is a gnu
+
+1297
+00:56:38,480 --> 00:56:41,839
+so this is one of the
+
+1298
+00:56:40,960 --> 00:56:44,480
+great
+
+1299
+00:56:41,839 --> 00:56:45,760
+elements of a great logo design you you
+
+1300
+00:56:44,480 --> 00:56:47,920
+want to
+
+1301
+00:56:45,760 --> 00:56:49,839
+remind people of what it is
+
+1302
+00:56:47,920 --> 00:56:52,720
+and also this smiling
+
+1303
+00:56:49,839 --> 00:56:54,960
+gnu you know that's what that's kind of
+
+1304
+00:56:52,720 --> 00:56:56,640
+the mentality the attitude of the free
+
+1305
+00:56:54,960 --> 00:57:01,040
+software foundation
+
+1306
+00:56:56,640 --> 00:57:03,440
+communism sharing you know benevolent
+
+1307
+00:57:01,040 --> 00:57:07,280
+that's what it is so java you know java
+
+1308
+00:57:03,440 --> 00:57:09,359
+is a drink you coffee coffee drink
+
+1309
+00:57:07,280 --> 00:57:11,119
+microsoft windows you can you can see
+
+1310
+00:57:09,359 --> 00:57:13,680
+this kind of window you know microsoft
+
+1311
+00:57:11,119 --> 00:57:16,640
+windows you know then apple all these
+
+1312
+00:57:13,680 --> 00:57:19,520
+are great logo designs
+
+1313
+00:57:16,640 --> 00:57:22,480
+except maybe except this pearl
+
+1314
+00:57:19,520 --> 00:57:25,760
+the pearl idiocy
+
+1315
+00:57:22,480 --> 00:57:28,400
+so you know in mcdonald's everyone knows
+
+1316
+00:57:25,760 --> 00:57:31,280
+xiao honda yamaha you know taco bell
+
+1317
+00:57:28,400 --> 00:57:33,920
+wikipedia the puzzle you know the
+
+1318
+00:57:31,280 --> 00:57:35,680
+jigsaw puzzle of the words
+
+1319
+00:57:33,920 --> 00:57:39,119
+languages you know
+
+1320
+00:57:35,680 --> 00:57:39,119
+wikipedia um
+
+1321
+00:57:39,200 --> 00:57:44,559
+let's see this is svg right so let's
+
+1322
+00:57:42,000 --> 00:57:44,559
+magnify
+
+1323
+00:57:45,200 --> 00:57:49,520
+see them in glorious
+
+1324
+00:57:47,680 --> 00:57:52,960
+magnification
+
+1325
+00:57:49,520 --> 00:57:56,400
+wikipedia logo great design you know it
+
+1326
+00:57:52,960 --> 00:57:58,000
+takes it takes designers to do that
+
+1327
+00:57:56,400 --> 00:58:02,079
+uh but
+
+1328
+00:57:58,000 --> 00:58:05,520
+then there it is a t and t death star
+
+1329
+00:58:02,079 --> 00:58:10,079
+nicknamed death star by people at t oh
+
+1330
+00:58:05,520 --> 00:58:10,079
+it's png i don't have the svg so
+
+1331
+00:58:10,319 --> 00:58:13,680
+so
+
+1332
+00:58:11,280 --> 00:58:14,960
+you know i mentioned at t from unix you
+
+1333
+00:58:13,680 --> 00:58:18,400
+know that's what
+
+1334
+00:58:14,960 --> 00:58:21,520
+that poking at at t that's what you know
+
+1335
+00:58:18,400 --> 00:58:23,359
+that's a t's logo you know atnt was the
+
+1336
+00:58:21,520 --> 00:58:27,520
+greatest empire
+
+1337
+00:58:23,359 --> 00:58:29,680
+in what in 1970s to 1980s
+
+1338
+00:58:27,520 --> 00:58:33,359
+could the biggest empire like
+
+1339
+00:58:29,680 --> 00:58:36,640
+what you might think of google
+
+1340
+00:58:33,359 --> 00:58:38,640
+running the whole earth kind of they
+
+1341
+00:58:36,640 --> 00:58:41,200
+what they do they do communication they
+
+1342
+00:58:38,640 --> 00:58:44,160
+control communication just like today's
+
+1343
+00:58:41,200 --> 00:58:47,040
+google and facebook at t and they the
+
+1344
+00:58:44,160 --> 00:58:49,920
+unix unix came from at t you have to
+
+1345
+00:58:47,040 --> 00:58:51,760
+thank at t thank you at t for creating
+
+1346
+00:58:49,920 --> 00:58:54,000
+linux
+
+1347
+00:58:51,760 --> 00:58:57,920
+for us
+
+1348
+00:58:54,000 --> 00:58:57,920
+ you open source it
+
+1349
+00:58:59,839 --> 00:59:07,119
+so att and ati ati is dead ati is bought
+
+1350
+00:59:03,680 --> 00:59:10,480
+by um you know this company ati is ati
+
+1351
+00:59:07,119 --> 00:59:14,640
+is bought by amd you know 80 i became
+
+1352
+00:59:10,480 --> 00:59:15,599
+amd then amd became china
+
+1353
+00:59:14,640 --> 00:59:19,760
+i think
+
+1354
+00:59:15,599 --> 00:59:22,160
+wait i'm not sure anyway so
+
+1355
+00:59:19,760 --> 00:59:25,359
+so that's you know apache and like the
+
+1356
+00:59:22,160 --> 00:59:26,480
+lying scumbag apache you know apache the
+
+1357
+00:59:25,359 --> 00:59:29,520
+name
+
+1358
+00:59:26,480 --> 00:59:32,160
+they came from a patchy patchy you know
+
+1359
+00:59:29,520 --> 00:59:34,880
+patch you patch your server you know
+
+1360
+00:59:32,160 --> 00:59:37,760
+like the open source spirit you know you
+
+1361
+00:59:34,880 --> 00:59:39,760
+write you know lots of bugs so use
+
+1362
+00:59:37,760 --> 00:59:42,799
+it doesn't work and you look into the
+
+1363
+00:59:39,760 --> 00:59:44,720
+source code you fix it and you patch it
+
+1364
+00:59:42,799 --> 00:59:46,559
+you know today you don't use the word
+
+1365
+00:59:44,720 --> 00:59:49,839
+patch much anymore because you use
+
+1366
+00:59:46,559 --> 00:59:51,440
+github or before that mercury and and so
+
+1367
+00:59:49,839 --> 00:59:54,640
+on
+
+1368
+00:59:51,440 --> 00:59:56,559
+but but before the you know that osvn
+
+1369
+00:59:54,640 --> 00:59:59,440
+you know
+
+1370
+00:59:56,559 --> 01:00:02,000
+but even so in the 90s and 2000s
+
+1371
+00:59:59,440 --> 01:00:04,640
+patching is common you don't have a you
+
+1372
+01:00:02,000 --> 01:00:08,000
+don't have a you know you may not you
+
+1373
+01:00:04,640 --> 01:00:10,880
+may or may not have a
+
+1374
+01:00:08,000 --> 01:00:12,880
+version control system for your software
+
+1375
+01:00:10,880 --> 01:00:14,799
+but you use patch you know you make a
+
+1376
+01:00:12,880 --> 01:00:17,119
+change you send the patch to someone
+
+1377
+01:00:14,799 --> 01:00:17,800
+that's that's the origin of the name
+
+1378
+01:00:17,119 --> 01:00:20,160
+apache
+
+1379
+01:00:17,800 --> 01:00:23,040
+[Music]
+
+1380
+01:00:20,160 --> 01:00:25,119
+but now after 10 years after 15 years on
+
+1381
+01:00:23,040 --> 01:00:26,880
+their website apache
+
+1382
+01:00:25,119 --> 01:00:29,119
+they say oh
+
+1383
+01:00:26,880 --> 01:00:31,119
+you know they have a faq frequently
+
+1384
+01:00:29,119 --> 01:00:33,920
+asked questions why is why is apache
+
+1385
+01:00:31,119 --> 01:00:36,400
+named apache oh oh that's because we
+
+1386
+01:00:33,920 --> 01:00:37,920
+respect the american or you know the
+
+1387
+01:00:36,400 --> 01:00:40,079
+indian people
+
+1388
+01:00:37,920 --> 01:00:42,640
+where the white people massacred
+
+1389
+01:00:40,079 --> 01:00:44,559
+genocide
+
+1390
+01:00:42,640 --> 01:00:45,839
+now is the time for google to ban this
+
+1391
+01:00:44,559 --> 01:00:48,559
+youtube
+
+1392
+01:00:45,839 --> 01:00:51,040
+the white people general wiped out clean
+
+1393
+01:00:48,559 --> 01:00:53,760
+wiped out the red skin people
+
+1394
+01:00:51,040 --> 01:00:56,240
+but we respect them we respect they are
+
+1395
+01:00:53,760 --> 01:00:58,880
+the greatest people we must respect them
+
+1396
+01:00:56,240 --> 01:01:01,760
+apache the tribe the indian the risking
+
+1397
+01:00:58,880 --> 01:01:05,620
+therefore we named our software apache
+
+1398
+01:01:01,760 --> 01:01:05,620
+[Laughter]
+
+1399
+01:01:06,880 --> 01:01:10,799
+sari apache
+
+1400
+01:01:09,119 --> 01:01:13,200
+name okay search for it i have an
+
+1401
+01:01:10,799 --> 01:01:16,400
+article on that
+
+1402
+01:01:13,200 --> 01:01:20,599
+apache we write history you know so
+
+1403
+01:01:16,400 --> 01:01:20,599
+here's a version from 1997
+
+1404
+01:01:20,880 --> 01:01:25,599
+they're a fish from their official
+
+1405
+01:01:22,799 --> 01:01:28,720
+website why is apache named apache oh oh
+
+1406
+01:01:25,599 --> 01:01:31,119
+that's because it's just a cute name
+
+1407
+01:01:28,720 --> 01:01:33,280
+you know let me magnify so you can see
+
+1408
+01:01:31,119 --> 01:01:36,480
+oh it's just a cute name which stuck
+
+1409
+01:01:33,280 --> 01:01:39,599
+apache is a patchy server
+
+1410
+01:01:36,480 --> 01:01:42,000
+it was based on some existing code and a
+
+1411
+01:01:39,599 --> 01:01:45,440
+series of patch files you know patch
+
+1412
+01:01:42,000 --> 01:01:45,440
+files that's what what you do
+
+1413
+01:01:46,079 --> 01:01:50,880
+then
+
+1414
+01:01:47,760 --> 01:01:53,520
+fast forward to 2013
+
+1415
+01:01:50,880 --> 01:01:56,319
+why the name apache oh the name apache
+
+1416
+01:01:53,520 --> 01:02:00,160
+was chosen from respect for the native
+
+1417
+01:01:56,319 --> 01:02:02,559
+american indian tribe of apache
+
+1418
+01:02:00,160 --> 01:02:03,680
+the open source that's
+
+1419
+01:02:02,559 --> 01:02:05,599
+you guys
+
+1420
+01:02:03,680 --> 01:02:08,640
+those are views you know open source you
+
+1421
+01:02:05,599 --> 01:02:10,720
+need to open those it
+
+1422
+01:02:08,640 --> 01:02:12,720
+nobody knows you know like nobody oh
+
+1423
+01:02:10,720 --> 01:02:15,200
+that's okay you know then then this
+
+1424
+01:02:12,720 --> 01:02:16,799
+article got you know i how do i know
+
+1425
+01:02:15,200 --> 01:02:19,680
+because
+
+1426
+01:02:16,799 --> 01:02:22,160
+back then 1997
+
+1427
+01:02:19,680 --> 01:02:23,280
+apache is one of the technology i'm
+
+1428
+01:02:22,160 --> 01:02:25,280
+deeply
+
+1429
+01:02:23,280 --> 01:02:28,400
+involved with you know i'm doing you
+
+1430
+01:02:25,280 --> 01:02:30,640
+know the dot-com days you know we we
+
+1431
+01:02:28,400 --> 01:02:32,319
+we write the
+
+1432
+01:02:30,640 --> 01:02:35,039
+one of the first
+
+1433
+01:02:32,319 --> 01:02:36,799
+e-commerce software like yahoo store
+
+1434
+01:02:35,039 --> 01:02:41,119
+like amazon we write the first
+
+1435
+01:02:36,799 --> 01:02:44,640
+e-commerce software system so that
+
+1436
+01:02:41,119 --> 01:02:47,440
+third parties such as yahoo or verizon
+
+1437
+01:02:44,640 --> 01:02:50,319
+they can run our software and
+
+1438
+01:02:47,440 --> 01:02:52,480
+create a e-store and with lots of
+
+1439
+01:02:50,319 --> 01:02:53,760
+merchants you know they can sell like
+
+1440
+01:02:52,480 --> 01:02:54,559
+you know
+
+1441
+01:02:53,760 --> 01:02:57,280
+like
+
+1442
+01:02:54,559 --> 01:02:59,359
+adi expressway you know adi expressway
+
+1443
+01:02:57,280 --> 01:03:01,200
+you know like amazon
+
+1444
+01:02:59,359 --> 01:03:03,359
+so i was writing that then back then
+
+1445
+01:03:01,200 --> 01:03:06,160
+apache we use apache so i know a lot
+
+1446
+01:03:03,359 --> 01:03:06,960
+about apache 20 years ago i woke up you
+
+1447
+01:03:06,160 --> 01:03:08,559
+know
+
+1448
+01:03:06,960 --> 01:03:11,200
+and i was
+
+1449
+01:03:08,559 --> 01:03:14,559
+kind of i'm part of the unix open source
+
+1450
+01:03:11,200 --> 01:03:17,039
+spirit i'm for richard stowman i'm for
+
+1451
+01:03:14,559 --> 01:03:17,839
+you know the ethic you know the you know
+
+1452
+01:03:17,039 --> 01:03:20,240
+the
+
+1453
+01:03:17,839 --> 01:03:22,640
+not open source but the free software
+
+1454
+01:03:20,240 --> 01:03:25,760
+foundation that's a proper you know not
+
+1455
+01:03:22,640 --> 01:03:27,520
+just oh it's this oh just it's not let's
+
+1456
+01:03:25,760 --> 01:03:30,079
+forget let's don't talk talk about
+
+1457
+01:03:27,520 --> 01:03:32,640
+ethics let's just say let's just make
+
+1458
+01:03:30,079 --> 01:03:35,839
+them open open source focus on that so
+
+1459
+01:03:32,640 --> 01:03:38,240
+that corporations can feel at the ease
+
+1460
+01:03:35,839 --> 01:03:40,000
+you know i was against that
+
+1461
+01:03:38,240 --> 01:03:44,240
+so i was more for the rich assortment
+
+1462
+01:03:40,000 --> 01:03:46,079
+but you know as you get old you realize
+
+1463
+01:03:44,240 --> 01:03:48,400
+uh things are not they weigh the way
+
+1464
+01:03:46,079 --> 01:03:50,559
+they are and you know it got worse it
+
+1465
+01:03:48,400 --> 01:03:53,839
+you know after 20 years it becomes very
+
+1466
+01:03:50,559 --> 01:03:56,720
+bad and now you have this apache openly
+
+1467
+01:03:53,839 --> 01:03:58,640
+lying about the you know the openly this
+
+1468
+01:03:56,720 --> 01:04:01,599
+what what are these people
+
+1469
+01:03:58,640 --> 01:04:04,480
+malenchen programmers and all today's
+
+1470
+01:04:01,599 --> 01:04:06,160
+you guys zoomers the
+
+1471
+01:04:04,480 --> 01:04:07,520
+you know you have this situation they
+
+1472
+01:04:06,160 --> 01:04:10,240
+openly
+
+1473
+01:04:07,520 --> 01:04:12,480
+lie on their website oh because we
+
+1474
+01:04:10,240 --> 01:04:14,240
+respect native americans and back then
+
+1475
+01:04:12,480 --> 01:04:15,520
+in the 1990s
+
+1476
+01:04:14,240 --> 01:04:18,240
+the that
+
+1477
+01:04:15,520 --> 01:04:20,319
+native american tribe apache you know
+
+1478
+01:04:18,240 --> 01:04:24,039
+there there's a fight for the domain
+
+1479
+01:04:20,319 --> 01:04:24,039
+name okay apache
+
+1480
+01:04:26,000 --> 01:04:32,319
+see now it's like now it's beautiful
+
+1481
+01:04:28,640 --> 01:04:35,440
+apache the apache so for your foundation
+
+1482
+01:04:32,319 --> 01:04:39,359
+established 1999 oh
+
+1483
+01:04:35,440 --> 01:04:41,520
+this age respect skunks
+
+1484
+01:04:39,359 --> 01:04:44,720
+you know with you know apache kong with
+
+1485
+01:04:41,520 --> 01:04:46,319
+the heart of the heads these these
+
+1486
+01:04:44,720 --> 01:04:48,240
+these are the people the white people
+
+1487
+01:04:46,319 --> 01:04:50,799
+that genocide
+
+1488
+01:04:48,240 --> 01:04:52,880
+the redskins people and they say oh you
+
+1489
+01:04:50,799 --> 01:04:55,200
+cannot say red skin that's oh that's
+
+1490
+01:04:52,880 --> 01:04:57,920
+that's that's
+
+1491
+01:04:55,200 --> 01:05:00,240
+that's that's something
+
+1492
+01:04:57,920 --> 01:05:03,760
+the heads it is these social
+
+1493
+01:05:00,240 --> 01:05:05,440
+justice warriors and and and apache oak
+
+1494
+01:05:03,760 --> 01:05:07,119
+you know back then two
+
+1495
+01:05:05,440 --> 01:05:08,720
+20 years ago
+
+1496
+01:05:07,119 --> 01:05:10,799
+the tribe
+
+1497
+01:05:08,720 --> 01:05:13,119
+was fighting for that domain name
+
+1498
+01:05:10,799 --> 01:05:17,119
+because apache that's you know what's
+
+1499
+01:05:13,119 --> 01:05:19,200
+their tribe's domain but apache
+
+1500
+01:05:17,119 --> 01:05:22,480
+uh i forgot what they do but they
+
+1501
+01:05:19,200 --> 01:05:24,000
+basically i think the tribe sued apache
+
+1502
+01:05:22,480 --> 01:05:26,799
+you know they want the domain back but
+
+1503
+01:05:24,000 --> 01:05:30,559
+apache says no go yourself go
+
+1504
+01:05:26,799 --> 01:05:34,200
+yourself we have apache we are a bit
+
+1505
+01:05:30,559 --> 01:05:34,200
+
+1506
+01:05:37,440 --> 01:05:40,960
+so today's generation you guys you know
+
+1507
+01:05:39,440 --> 01:05:42,400
+don't know you know history you know
+
+1508
+01:05:40,960 --> 01:05:44,799
+it's forgotten now you have new
+
+1509
+01:05:42,400 --> 01:05:48,480
+generation and and you think oh let's do
+
+1510
+01:05:44,799 --> 01:05:50,880
+open source let's help humanity
+
+1511
+01:05:48,480 --> 01:05:53,839
+
+1512
+01:05:50,880 --> 01:05:56,400
+oh look at that there's a guy he's a bad
+
+1513
+01:05:53,839 --> 01:05:58,799
+guy he doing what the he's like uh
+
+1514
+01:05:56,400 --> 01:05:58,799
+evil
+
+1515
+01:06:01,359 --> 01:06:06,319
+okay so that's a lot of digression into
+
+1516
+01:06:03,599 --> 01:06:06,319
+this uh
+
+1517
+01:06:06,799 --> 01:06:11,520
+angry stuff typical you know it's
+
+1518
+01:06:09,520 --> 01:06:12,960
+fairly common in my
+
+1519
+01:06:11,520 --> 01:06:16,559
+talk show
+
+1520
+01:06:12,960 --> 01:06:16,559
+these open source skunks
+
+1521
+01:06:17,520 --> 01:06:22,160
+you know i you know remember i was open
+
+1522
+01:06:20,000 --> 01:06:24,000
+source i was pro not open source i was
+
+1523
+01:06:22,160 --> 01:06:27,920
+pro richard storm and free software
+
+1524
+01:06:24,000 --> 01:06:30,480
+foundation you know i've been banned
+
+1525
+01:06:27,920 --> 01:06:32,079
+for you know for for for saying good
+
+1526
+01:06:30,480 --> 01:06:34,720
+things about richard someone and stuff
+
+1527
+01:06:32,079 --> 01:06:36,640
+i've been banned in you know many places
+
+1528
+01:06:34,720 --> 01:06:37,839
+but you know things turn around and you
+
+1529
+01:06:36,640 --> 01:06:40,079
+know like
+
+1530
+01:06:37,839 --> 01:06:41,680
+and new generation and
+
+1531
+01:06:40,079 --> 01:06:43,839
+massive brainwashing you don't know what
+
+1532
+01:06:41,680 --> 01:06:45,119
+you're talking about like a lot of you
+
+1533
+01:06:43,839 --> 01:06:47,599
+people you know don't know what you're
+
+1534
+01:06:45,119 --> 01:06:49,440
+talking about using you know
+
+1535
+01:06:47,599 --> 01:06:52,000
+and i suppose
+
+1536
+01:06:49,440 --> 01:06:54,400
+that happens a lot in history that's how
+
+1537
+01:06:52,000 --> 01:06:58,760
+you know the generation the cycle turns
+
+1538
+01:06:54,400 --> 01:06:58,760
+that's that's how things are
+
+1539
+01:07:02,960 --> 01:07:09,200
+okay so i talked about
+
+1540
+01:07:05,599 --> 01:07:11,440
+an hour over hour already
+
+1541
+01:07:09,200 --> 01:07:14,640
+and i don't think we started to do what
+
+1542
+01:07:11,440 --> 01:07:16,640
+we originally began to do
+
+1543
+01:07:14,640 --> 01:07:19,440
+uh
+
+1544
+01:07:16,640 --> 01:07:20,640
+yeah so unix pestilence apache we write
+
+1545
+01:07:19,440 --> 01:07:23,520
+history
+
+1546
+01:07:20,640 --> 01:07:27,760
+so here is the documentation of it
+
+1547
+01:07:23,520 --> 01:07:31,039
+and it's been on hacker news okay it's
+
+1548
+01:07:27,760 --> 01:07:34,400
+been posted to hacker news um and a lot
+
+1549
+01:07:31,039 --> 01:07:37,039
+there's a lot of stories you know a lot
+
+1550
+01:07:34,400 --> 01:07:39,680
+of this controversy or the many of the
+
+1551
+01:07:37,039 --> 01:07:40,559
+open source guns doing things
+
+1552
+01:07:39,680 --> 01:07:43,200
+um
+
+1553
+01:07:40,559 --> 01:07:45,280
+turns up but you don't know it you don't
+
+1554
+01:07:43,200 --> 01:07:47,839
+know it because google don't want you to
+
+1555
+01:07:45,280 --> 01:07:50,400
+know google facebook they don't want you
+
+1556
+01:07:47,839 --> 01:07:52,720
+to know and microsoft today
+
+1557
+01:07:50,400 --> 01:07:55,359
+they are all pro open source they they
+
+1558
+01:07:52,720 --> 01:07:58,400
+are the they are the blood that runs
+
+1559
+01:07:55,359 --> 01:08:00,319
+open source they without their money
+
+1560
+01:07:58,400 --> 01:08:02,720
+open source dies right off
+
+1561
+01:08:00,319 --> 01:08:05,440
+and ubuntu and red hat you know google
+
+1562
+01:08:02,720 --> 01:08:08,000
+is putting money into them
+
+1563
+01:08:05,440 --> 01:08:11,280
+so that google so that
+
+1564
+01:08:08,000 --> 01:08:13,680
+so that if you are a software programmer
+
+1565
+01:08:11,280 --> 01:08:17,279
+the only way to survive is to work for
+
+1566
+01:08:13,680 --> 01:08:19,759
+google or microsoft or facebook
+
+1567
+01:08:17,279 --> 01:08:21,440
+if you make a complaint if you say men
+
+1568
+01:08:19,759 --> 01:08:23,920
+are not women or they are not the same
+
+1569
+01:08:21,440 --> 01:08:25,839
+thing you know you'll get wiped and
+
+1570
+01:08:23,920 --> 01:08:29,440
+there's nothing you can do that that's
+
+1571
+01:08:25,839 --> 01:08:29,440
+the power of open source
+
+1572
+01:08:32,719 --> 01:08:36,799
+okay so another open source rent
+
+1573
+01:08:37,679 --> 01:08:42,159
+so what to do next i think i'm going to
+
+1574
+01:08:39,920 --> 01:08:44,159
+read comments
+
+1575
+01:08:42,159 --> 01:08:46,960
+i i'm going to read comments and
+
+1576
+01:08:44,159 --> 01:08:46,960
+originally
+
+1577
+01:08:47,359 --> 01:08:51,600
+so i'm not i'm i'm going to shut down
+
+1578
+01:08:49,600 --> 01:08:53,679
+okay so
+
+1579
+01:08:51,600 --> 01:08:55,600
+see i talked about that today i talked
+
+1580
+01:08:53,679 --> 01:08:59,199
+about logos
+
+1581
+01:08:55,600 --> 01:09:03,319
+we talked about logos and
+
+1582
+01:08:59,199 --> 01:09:03,319
+do i have this here
+
+1583
+01:09:07,520 --> 01:09:13,839
+logo design okay no so add it there
+
+1584
+01:09:11,199 --> 01:09:15,839
+close it i'm about to close i think
+
+1585
+01:09:13,839 --> 01:09:18,880
+so i'm gonna read comments answer some
+
+1586
+01:09:15,839 --> 01:09:21,839
+questions and close so here is the gnu
+
+1587
+01:09:18,880 --> 01:09:21,839
+emacs website
+
+1588
+01:09:21,920 --> 01:09:29,199
+refresh i need to fix that part okay so
+
+1589
+01:09:25,679 --> 01:09:32,839
+what else css we talked about
+
+1590
+01:09:29,199 --> 01:09:34,600
+how shall we talk about close
+
+1591
+01:09:32,839 --> 01:09:37,679
+ms
+
+1592
+01:09:34,600 --> 01:09:39,040
+msx computer okay let's put the page
+
+1593
+01:09:37,679 --> 01:09:41,279
+here
+
+1594
+01:09:39,040 --> 01:09:41,279
+uh
+
+1595
+01:09:44,159 --> 01:09:48,239
+yeah
+
+1596
+01:09:45,759 --> 01:09:49,839
+close
+
+1597
+01:09:48,239 --> 01:09:52,080
+notes close
+
+1598
+01:09:49,839 --> 01:09:54,319
+okay that okay
+
+1599
+01:09:52,080 --> 01:09:54,319
+uh
+
+1600
+01:09:55,520 --> 01:10:00,719
+so i'm gonna just read comments and we
+
+1601
+01:09:57,520 --> 01:10:02,560
+shut down in three minutes i think
+
+1602
+01:10:00,719 --> 01:10:06,239
+so originally
+
+1603
+01:10:02,560 --> 01:10:11,400
+i was doing yeah this page
+
+1604
+01:10:06,239 --> 01:10:11,400
+yeah i was going to do some workflow but
+
+1605
+01:10:17,960 --> 01:10:23,840
+msx in brazil okay cool yeah i heard
+
+1606
+01:10:21,760 --> 01:10:26,080
+that mxs
+
+1607
+01:10:23,840 --> 01:10:29,080
+computer i mean is also popular in
+
+1608
+01:10:26,080 --> 01:10:29,080
+brazil
+
+1609
+01:10:30,320 --> 01:10:36,719
+justin scarfie just in scarf i say
+
+1610
+01:10:33,600 --> 01:10:41,440
+something more than how are you
+
+1611
+01:10:36,719 --> 01:10:41,440
+hello cortes fantastic cortes
+
+1612
+01:10:42,320 --> 01:10:45,120
+talent
+
+1613
+01:10:43,440 --> 01:10:48,800
+kekma
+
+1614
+01:10:45,120 --> 01:10:48,800
+okay kekma kik
+
+1615
+01:10:50,960 --> 01:10:54,640
+uh
+
+1616
+01:10:52,320 --> 01:10:56,159
+you've seen people who love both see and
+
+1617
+01:10:54,640 --> 01:10:59,600
+this well
+
+1618
+01:10:56,159 --> 01:11:01,679
+not really i mean yeah of course you can
+
+1619
+01:10:59,600 --> 01:11:03,920
+they are just they are always in the
+
+1620
+01:11:01,679 --> 01:11:06,159
+opposite camps okay
+
+1621
+01:11:03,920 --> 01:11:06,159
+uh
+
+1622
+01:11:09,760 --> 01:11:14,000
+ng
+
+1623
+01:11:11,040 --> 01:11:15,920
+engines okay yeah so makes you wonder
+
+1624
+01:11:14,000 --> 01:11:17,679
+what you will brainwash into your
+
+1625
+01:11:15,920 --> 01:11:20,560
+generation no
+
+1626
+01:11:17,679 --> 01:11:23,560
+okay not much comment uh i think that's
+
+1627
+01:11:20,560 --> 01:11:23,560
+it
+
+1628
+01:11:28,320 --> 01:11:31,880
+okay bye guys
+

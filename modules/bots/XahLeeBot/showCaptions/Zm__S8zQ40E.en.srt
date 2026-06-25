@@ -1,0 +1,1692 @@
+1
+00:00:04,960 --> 00:00:14,160
+The power of Emacs begins now.
+
+2
+00:00:10,640 --> 00:00:17,640
+So, I'm going to write a Emacs Lisp code
+
+3
+00:00:14,160 --> 00:00:19,840
+that will add section tag.
+
+4
+00:00:17,640 --> 00:00:24,640
+Such as that.
+
+5
+00:00:19,840 --> 00:00:27,800
+To every headers, okay? So, let's begin.
+
+6
+00:00:24,640 --> 00:00:32,880
+So, delete those, create a Emacs Lisp
+
+7
+00:00:27,800 --> 00:00:35,440
+code block, and let's find a page where
+
+8
+00:00:32,880 --> 00:00:38,000
+there is a lot section tags. I'm going
+
+9
+00:00:35,440 --> 00:00:39,000
+to show you what am I going to do. The
+
+10
+00:00:38,000 --> 00:00:43,080
+goal.
+
+11
+00:00:39,000 --> 00:00:45,080
+Okay? So, let's go to Emacs. Uh okay,
+
+12
+00:00:43,080 --> 00:00:46,600
+Emacs block.
+
+13
+00:00:45,080 --> 00:00:50,800
+Showing browser.
+
+14
+00:00:46,600 --> 00:00:54,400
+Let's Okay, so you see there is Lisp
+
+15
+00:00:50,800 --> 00:00:56,880
+basics. So, let's go to Emacs tutorial.
+
+16
+00:00:54,400 --> 00:00:59,520
+Uh start to download.
+
+17
+00:00:56,880 --> 00:01:02,120
+So, let's
+
+18
+00:00:59,520 --> 00:01:04,120
+search find and replace find count,
+
+19
+00:01:02,120 --> 00:01:07,960
+okay? Meta X uh
+
+20
+00:01:04,120 --> 00:01:12,320
+find count. So, I want to count the
+
+21
+00:01:07,960 --> 00:01:13,680
+number of H2 headers, okay?
+
+22
+00:01:12,320 --> 00:01:17,280
+And uh
+
+23
+00:01:13,680 --> 00:01:20,040
+I want to I want it to be
+
+24
+00:01:17,280 --> 00:01:22,880
+greater than
+
+25
+00:01:20,040 --> 00:01:24,160
+let's say four.
+
+26
+00:01:22,880 --> 00:01:26,880
+Okay?
+
+27
+00:01:24,160 --> 00:01:30,800
+And in this directory, yes, indeed. All
+
+28
+00:01:26,880 --> 00:01:34,440
+HTML files. Okay, so many results. So,
+
+29
+00:01:30,800 --> 00:01:37,680
+do you see 7 9 14? So, let's pick one.
+
+30
+00:01:34,440 --> 00:01:40,480
+So, let's pick Let's uh okay, Emacs Lisp
+
+31
+00:01:37,680 --> 00:01:43,760
+hash table. So, there is one. So, let's
+
+32
+00:01:40,480 --> 00:01:47,440
+go to it. Showing browser.
+
+33
+00:01:43,760 --> 00:01:50,480
+Okay, so this page, there is a lot
+
+34
+00:01:47,440 --> 00:01:52,600
+headers, indeed. I'm going to
+
+35
+00:01:50,480 --> 00:01:55,920
+So, let's let's work on this page, okay?
+
+36
+00:01:52,600 --> 00:01:58,240
+Copy the text. Go to Xah Talk Show
+
+37
+00:01:55,920 --> 00:02:01,920
+today.
+
+38
+00:01:58,240 --> 00:02:04,320
+Go here and paste the link here.
+
+39
+00:02:01,920 --> 00:02:06,400
+Linkify it. This is the page we are
+
+40
+00:02:04,320 --> 00:02:09,479
+going to work on. Turn on highlight
+
+41
+00:02:06,400 --> 00:02:11,520
+current lines, okay? So, this is page we
+
+42
+00:02:09,479 --> 00:02:15,280
+are going to work on. Show in browser.
+
+43
+00:02:11,520 --> 00:02:17,400
+There is There are a lot headers, H2.
+
+44
+00:02:15,280 --> 00:02:19,520
+I'm going to add sections to each one of
+
+45
+00:02:17,400 --> 00:02:20,840
+them, okay? So, first of all, make a
+
+46
+00:02:19,520 --> 00:02:23,760
+backup.
+
+47
+00:02:20,840 --> 00:02:27,560
+Then, go to the directory. This is the
+
+48
+00:02:23,760 --> 00:02:30,920
+backup. Let's rename it.
+
+49
+00:02:27,560 --> 00:02:33,400
+Original original, okay?
+
+50
+00:02:30,920 --> 00:02:37,160
+Save it. Now, open that. Show in
+
+51
+00:02:33,400 --> 00:02:39,840
+browser. This is the original page. So,
+
+52
+00:02:37,160 --> 00:02:42,760
+we can do comparison. Now, let's close
+
+53
+00:02:39,840 --> 00:02:45,040
+this page and work on the the thing we
+
+54
+00:02:42,760 --> 00:02:46,120
+want to change. So, I want to change it
+
+55
+00:02:45,040 --> 00:02:48,200
+to
+
+56
+00:02:46,120 --> 00:02:50,280
+Let me show you. So, you see, this page
+
+57
+00:02:48,200 --> 00:02:52,600
+currently look like that.
+
+58
+00:02:50,280 --> 00:02:54,400
+Header, header, header. There are 17 of
+
+59
+00:02:52,600 --> 00:02:55,720
+them. So many.
+
+60
+00:02:54,400 --> 00:02:59,000
+So many.
+
+61
+00:02:55,720 --> 00:03:01,680
+Hash. This is Emacs Lisp hash table or
+
+62
+00:02:59,000 --> 00:03:05,080
+dictionary, okay? So, what I want to do
+
+63
+00:03:01,680 --> 00:03:07,800
+is Normally, to do this manually, I
+
+64
+00:03:05,080 --> 00:03:10,200
+would select this this this this
+
+65
+00:03:07,800 --> 00:03:14,720
+this this this, okay? Until you see,
+
+66
+00:03:10,200 --> 00:03:19,280
+starting from H2 until the next H2. Stop
+
+67
+00:03:14,720 --> 00:03:21,640
+there and add a section. Wait.
+
+68
+00:03:19,280 --> 00:03:24,080
+Yeah, I did. So, you see, this is the
+
+69
+00:03:21,640 --> 00:03:25,920
+section tag we added.
+
+70
+00:03:24,080 --> 00:03:27,680
+Let's jump to
+
+71
+00:03:25,920 --> 00:03:29,720
+um
+
+72
+00:03:27,680 --> 00:03:31,160
+Yeah, so you see, we can jump around. If
+
+73
+00:03:29,720 --> 00:03:34,200
+we shrink,
+
+74
+00:03:31,160 --> 00:03:34,200
+you can see
+
+75
+00:03:34,600 --> 00:03:42,120
+we added this section there and there.
+
+76
+00:03:38,519 --> 00:03:44,920
+There and there, okay? So, magnify.
+
+77
+00:03:42,120 --> 00:03:48,840
+So, now show in browser,
+
+78
+00:03:44,920 --> 00:03:51,400
+you can see with CSS, section adds this
+
+79
+00:03:48,840 --> 00:03:54,240
+box. So, that's what I want to do. I
+
+80
+00:03:51,400 --> 00:03:57,160
+want add sections to all these
+
+81
+00:03:54,240 --> 00:03:59,720
+uh H2 headers, okay?
+
+82
+00:03:57,160 --> 00:04:01,680
+So, now
+
+83
+00:03:59,720 --> 00:04:05,000
+of course, I can do it manually, which
+
+84
+00:04:01,680 --> 00:04:07,640
+is like this. Do it Go go here, go here,
+
+85
+00:04:05,000 --> 00:04:10,520
+add it. You know, once you add it, you
+
+86
+00:04:07,640 --> 00:04:11,840
+also want to remove the date. So, remove
+
+87
+00:04:10,520 --> 00:04:14,360
+the date.
+
+88
+00:04:11,840 --> 00:04:17,040
+And also there's another occurrence,
+
+89
+00:04:14,360 --> 00:04:19,640
+remove it, show in browser.
+
+90
+00:04:17,040 --> 00:04:23,480
+So that's how I want it to look like,
+
+91
+00:04:19,640 --> 00:04:26,720
+you know, add adding these uh boxes. So
+
+92
+00:04:23,480 --> 00:04:28,600
+it creates visual clarity.
+
+93
+00:04:26,720 --> 00:04:31,240
+More so.
+
+94
+00:04:28,600 --> 00:04:33,160
+Okay? Okay, but we have we we want to
+
+95
+00:04:31,240 --> 00:04:36,000
+write a Emacs Lisp com- command to do
+
+96
+00:04:33,160 --> 00:04:37,400
+it, okay? So let's do it. Let's begin.
+
+97
+00:04:36,000 --> 00:04:39,160
+Defun
+
+98
+00:04:37,400 --> 00:04:43,040
+uh
+
+99
+00:04:39,160 --> 00:04:43,040
+defun xah-html-add-section
+
+100
+00:04:44,760 --> 00:04:49,919
+tags, okay?
+
+101
+00:04:46,720 --> 00:04:52,480
+To all headers, okay? Documentation, all
+
+102
+00:04:49,919 --> 00:04:53,960
+important documentation, version,
+
+103
+00:04:52,480 --> 00:04:57,600
+today's date.
+
+104
+00:04:53,960 --> 00:05:03,400
+Add um HTML
+
+105
+00:04:57,600 --> 00:05:05,640
+section tags to enclose all
+
+106
+00:05:03,400 --> 00:05:08,080
+H3
+
+107
+00:05:05,640 --> 00:05:10,520
+headers.
+
+108
+00:05:08,080 --> 00:05:10,520
+Okay?
+
+109
+00:05:10,560 --> 00:05:13,720
+That's
+
+110
+00:05:12,040 --> 00:05:16,160
+that's the documentation, okay? Let's
+
+111
+00:05:13,720 --> 00:05:18,560
+begin to write it. Now for the whole
+
+112
+00:05:16,160 --> 00:05:21,520
+buffer, of course. So
+
+113
+00:05:18,560 --> 00:05:25,040
+what we're going to do is we
+
+114
+00:05:21,520 --> 00:05:25,040
+So um
+
+115
+00:05:25,960 --> 00:05:32,800
+Let's say it's uh okay, so hold so
+
+116
+00:05:30,120 --> 00:05:35,640
+So this is going to be about text
+
+117
+00:05:32,800 --> 00:05:39,480
+processing, more specifically find and
+
+118
+00:05:35,640 --> 00:05:42,080
+replace. So we are going to find
+
+119
+00:05:39,480 --> 00:05:45,280
+any H3 tags,
+
+120
+00:05:42,080 --> 00:05:47,160
+then before that add a section, and also
+
+121
+00:05:45,280 --> 00:05:50,320
+after. Okay, so find
+
+122
+00:05:47,160 --> 00:05:50,320
+is the main thing.
+
+123
+00:05:50,440 --> 00:05:54,880
+The description of the this code, what
+
+124
+00:05:52,760 --> 00:05:58,000
+what it's going to do.
+
+125
+00:05:54,880 --> 00:06:01,720
+Okay, so uh
+
+126
+00:05:58,000 --> 00:06:03,560
+He- hello, hello Dion.
+
+127
+00:06:01,720 --> 00:06:06,320
+Let's pop this out.
+
+128
+00:06:03,560 --> 00:06:09,440
+Uh what happened to
+
+129
+00:06:06,320 --> 00:06:09,440
+Let's pop this out.
+
+130
+00:06:09,840 --> 00:06:13,560
+Okay, so we want to add a header. So
+
+131
+00:06:11,680 --> 00:06:15,160
+what what we going to Let's let's do
+
+132
+00:06:13,560 --> 00:06:17,400
+this fast, okay?
+
+133
+00:06:15,160 --> 00:06:20,400
+So add a
+
+134
+00:06:17,400 --> 00:06:20,400
+So first of all
+
+135
+00:06:21,880 --> 00:06:28,400
+while
+
+136
+00:06:23,240 --> 00:06:32,680
+search forward, we want to search for
+
+137
+00:06:28,400 --> 00:06:35,080
+H3. Okay, optional bound, we don't care.
+
+138
+00:06:32,680 --> 00:06:36,680
+We don't want to have a boundary. We
+
+139
+00:06:35,080 --> 00:06:39,560
+want to search until the end of a
+
+140
+00:06:36,680 --> 00:06:42,600
+buffer. And no error true, we don't want
+
+141
+00:06:39,560 --> 00:06:45,680
+it to stop error out when it cannot be
+
+142
+00:06:42,600 --> 00:06:49,200
+found, okay? So this returns true when
+
+143
+00:06:45,680 --> 00:06:51,840
+it's found. Then you want to replace it
+
+144
+00:06:49,200 --> 00:06:51,840
+by
+
+145
+00:06:52,800 --> 00:06:59,080
+Oh god, this is um
+
+146
+00:06:55,640 --> 00:07:02,560
+Okay, so let's go back. Let's
+
+147
+00:06:59,080 --> 00:07:05,400
+We want to replace it by
+
+148
+00:07:02,560 --> 00:07:09,560
+for example
+
+149
+00:07:05,400 --> 00:07:11,960
+something. So we want to replace H3 by
+
+150
+00:07:09,560 --> 00:07:15,360
+H3 section, okay?
+
+151
+00:07:11,960 --> 00:07:15,360
+So here
+
+152
+00:07:16,480 --> 00:07:20,480
+There it is. That's what we wanted to
+
+153
+00:07:18,440 --> 00:07:23,800
+replace.
+
+154
+00:07:20,480 --> 00:07:26,280
+And also before that, we want a end
+
+155
+00:07:23,800 --> 00:07:27,520
+section, okay? Let me just do it so it
+
+156
+00:07:26,280 --> 00:07:29,520
+makes
+
+157
+00:07:27,520 --> 00:07:33,120
+it makes sense later.
+
+158
+00:07:29,520 --> 00:07:35,800
+So for each H3, we want add a section
+
+159
+00:07:33,120 --> 00:07:37,040
+end and section begin.
+
+160
+00:07:35,800 --> 00:07:40,480
+Then
+
+161
+00:07:37,040 --> 00:07:43,080
+optional fixed case, yes, we don't care.
+
+162
+00:07:40,480 --> 00:07:47,480
+Uh what Actually we we care.
+
+163
+00:07:43,080 --> 00:07:50,520
+Fixed case true. Literal true.
+
+164
+00:07:47,480 --> 00:07:52,640
+String nil, substring nil. Okay? You can
+
+165
+00:07:50,520 --> 00:07:54,840
+describe function and find the details
+
+166
+00:07:52,640 --> 00:07:57,480
+about those parameters.
+
+167
+00:07:54,840 --> 00:07:58,720
+Okay? So, this is essentially what we
+
+168
+00:07:57,480 --> 00:08:02,200
+want.
+
+169
+00:07:58,720 --> 00:08:02,200
+Uh, and what else?
+
+170
+00:08:04,480 --> 00:08:09,440
+Okay, so we want this to be starting
+
+171
+00:08:07,520 --> 00:08:11,400
+with the region. Okay? So, let's just
+
+172
+00:08:09,440 --> 00:08:14,880
+code code it. Okay? Start with the
+
+173
+00:08:11,400 --> 00:08:19,400
+region. And let's evaluate it.
+
+174
+00:08:14,880 --> 00:08:19,400
+We want to um
+
+175
+00:08:20,000 --> 00:08:27,280
+add the section boxes, but where does it
+
+176
+00:08:23,320 --> 00:08:31,120
+begin? It begins at
+
+177
+00:08:27,280 --> 00:08:33,680
+the first occurrence.
+
+178
+00:08:31,120 --> 00:08:38,039
+Right. It begins in the first occurrence
+
+179
+00:08:33,680 --> 00:08:41,599
+of H3, then it ends at the last
+
+180
+00:08:38,039 --> 00:08:44,400
+occurrence of H3.
+
+181
+00:08:41,599 --> 00:08:49,560
+Well, the H3 ends here, but we actually
+
+182
+00:08:44,400 --> 00:08:52,760
+want the end section pack over here. So,
+
+183
+00:08:49,560 --> 00:08:55,520
+so is there a mechanics is there a
+
+184
+00:08:52,760 --> 00:08:58,720
+criteria we can determine where does the
+
+185
+00:08:55,520 --> 00:09:02,839
+H3 section header ends?
+
+186
+00:08:58,720 --> 00:09:05,760
+In general, no. Therefore, our command
+
+187
+00:09:02,839 --> 00:09:10,600
+needs the user to specify where it begin
+
+188
+00:09:05,760 --> 00:09:13,960
+and end. Okay? So, let's let's do that.
+
+189
+00:09:10,600 --> 00:09:16,120
+Start end, that's our parameter. Okay?
+
+190
+00:09:13,960 --> 00:09:18,200
+So, that that's going to going to be
+
+191
+00:09:16,120 --> 00:09:21,440
+region beginning and region end. Okay?
+
+192
+00:09:18,200 --> 00:09:25,160
+So, let's define some
+
+193
+00:09:21,440 --> 00:09:28,400
+parameters XP1, XP2, that's position.
+
+194
+00:09:25,160 --> 00:09:29,839
+Cursor positions, two cursor positions.
+
+195
+00:09:28,400 --> 00:09:31,680
+And
+
+196
+00:09:29,839 --> 00:09:33,120
+um
+
+197
+00:09:31,680 --> 00:09:34,440
+and
+
+198
+00:09:33,120 --> 00:09:38,160
+set
+
+199
+00:09:34,440 --> 00:09:42,080
+XP1 equals to
+
+200
+00:09:38,160 --> 00:09:45,720
+uh region beginning, okay?
+
+201
+00:09:42,080 --> 00:09:47,920
+Uh actually, that then we don't need um
+
+202
+00:09:45,720 --> 00:09:52,880
+Okay, let's not give a parameter. Let's
+
+203
+00:09:47,920 --> 00:09:54,600
+just do this, okay? XP1 set XP2
+
+204
+00:09:52,880 --> 00:09:57,920
+cursor position
+
+205
+00:09:54,600 --> 00:10:03,320
+to region end, okay?
+
+206
+00:09:57,920 --> 00:10:03,320
+Fantastic. Then, we narrow to region
+
+207
+00:10:05,160 --> 00:10:10,040
+XP1
+
+208
+00:10:07,200 --> 00:10:14,640
+XP2
+
+209
+00:10:10,040 --> 00:10:16,680
+and we then we do the while then we
+
+210
+00:10:14,640 --> 00:10:20,480
+inside this region
+
+211
+00:10:16,680 --> 00:10:20,480
+we search for that.
+
+212
+00:10:20,680 --> 00:10:24,880
+First of all, we need to go
+
+213
+00:10:22,920 --> 00:10:27,560
+to
+
+214
+00:10:24,880 --> 00:10:30,480
+go to char
+
+215
+00:10:27,560 --> 00:10:31,920
+uh point minimum. That's the beginning
+
+216
+00:10:30,480 --> 00:10:35,200
+of the region.
+
+217
+00:10:31,920 --> 00:10:37,080
+Okay, we narrow to region, so Emax
+
+218
+00:10:35,200 --> 00:10:40,240
+thinks that the buffer is just this
+
+219
+00:10:37,080 --> 00:10:42,000
+part, okay? Then, we go to uh go to char
+
+220
+00:10:40,240 --> 00:10:43,520
+point minimum.
+
+221
+00:10:42,000 --> 00:10:47,080
+Move the cursor to the beginning of the
+
+222
+00:10:43,520 --> 00:10:49,160
+region. Then, we start to do the search
+
+223
+00:10:47,080 --> 00:10:51,680
+and replace.
+
+224
+00:10:49,160 --> 00:10:56,120
+Now, after we done that
+
+225
+00:10:51,680 --> 00:10:56,120
+we need to go to um
+
+226
+00:11:02,560 --> 00:11:07,720
+Well, there's a you see after we do
+
+227
+00:11:04,800 --> 00:11:10,160
+that, we need to go to char
+
+228
+00:11:07,720 --> 00:11:11,960
+beginning of the buffer again.
+
+229
+00:11:10,160 --> 00:11:15,400
+Then
+
+230
+00:11:11,960 --> 00:11:18,360
+search forward for
+
+231
+00:11:15,400 --> 00:11:21,400
+this end section. We need to remove it
+
+232
+00:11:18,360 --> 00:11:23,839
+because it's redundant.
+
+233
+00:11:21,400 --> 00:11:26,640
+Okay, option bound
+
+234
+00:11:23,839 --> 00:11:28,640
+nil no error.
+
+235
+00:11:26,640 --> 00:11:30,960
+We actually care because it should be
+
+236
+00:11:28,640 --> 00:11:33,040
+there. So, if you cannot find it,
+
+237
+00:11:30,960 --> 00:11:37,600
+there's error.
+
+238
+00:11:33,040 --> 00:11:39,560
+So, we search forward. Then we uh
+
+239
+00:11:37,600 --> 00:11:43,080
+replace match
+
+240
+00:11:39,560 --> 00:11:44,480
+by empty string.
+
+241
+00:11:43,080 --> 00:11:46,160
+Okay?
+
+242
+00:11:44,480 --> 00:11:49,440
+Then we
+
+243
+00:11:46,160 --> 00:11:49,440
+go to char
+
+244
+00:11:49,920 --> 00:11:55,240
+2. max end of the buffer.
+
+245
+00:11:53,440 --> 00:11:58,920
+Then we
+
+246
+00:11:55,240 --> 00:12:04,920
+insert we want to insert
+
+247
+00:11:58,920 --> 00:12:04,920
+this thing. Okay? So, we insert
+
+248
+00:12:05,320 --> 00:12:11,080
+that. Okay? Now, prettify the code.
+
+249
+00:12:09,000 --> 00:12:12,280
+Prettify the code. That should be it.
+
+250
+00:12:11,080 --> 00:12:15,080
+That should
+
+251
+00:12:12,280 --> 00:12:18,040
+uh be it. Okay, so
+
+252
+00:12:15,080 --> 00:12:18,040
+go to char.
+
+253
+00:12:19,280 --> 00:12:23,800
+Okay, let's eval the buffer. Go back to
+
+254
+00:12:21,880 --> 00:12:25,560
+the test page.
+
+255
+00:12:23,800 --> 00:12:28,960
+Remove that.
+
+256
+00:12:25,560 --> 00:12:31,360
+Let's go to go to this Emacs hash table
+
+257
+00:12:28,960 --> 00:12:33,920
+showing browser. So, it looks like that.
+
+258
+00:12:31,360 --> 00:12:36,560
+Let's remove this uh section for now
+
+259
+00:12:33,920 --> 00:12:36,560
+because
+
+260
+00:12:36,880 --> 00:12:44,360
+remove that section. Showing browser.
+
+261
+00:12:41,160 --> 00:12:44,360
+Okay, there's one more.
+
+262
+00:12:47,480 --> 00:12:51,160
+Okay, now there is no section.
+
+263
+00:12:50,080 --> 00:12:55,000
+Now,
+
+264
+00:12:51,160 --> 00:12:57,800
+those H2 we need to change it to H3
+
+265
+00:12:55,000 --> 00:13:01,160
+first. Okay? And yesterday we did a live
+
+266
+00:12:57,800 --> 00:13:06,920
+stream writing a command to do that. So,
+
+267
+00:13:01,160 --> 00:13:06,920
+so for example, list matching lines H2.
+
+268
+00:13:07,839 --> 00:13:13,720
+You see? So, there are 17 H2 headers.
+
+269
+00:13:11,280 --> 00:13:15,920
+Now, we want to replace them all by H3.
+
+270
+00:13:13,720 --> 00:13:18,720
+So, we wrote a command yesterday. So,
+
+271
+00:13:15,920 --> 00:13:23,640
+let's call it cos-html
+
+272
+00:13:18,720 --> 00:13:27,160
+demote headers buffer. Do it.
+
+273
+00:13:23,640 --> 00:13:30,880
+Okay? Now, now you can see those are H3.
+
+274
+00:13:27,160 --> 00:13:34,160
+Now, let's this matching lines H2 zero.
+
+275
+00:13:30,880 --> 00:13:35,640
+Okay. Now, this matching lines
+
+276
+00:13:34,160 --> 00:13:37,920
+H3
+
+277
+00:13:35,640 --> 00:13:39,320
+we got it. So, now we refresh the
+
+278
+00:13:37,920 --> 00:13:42,280
+browser, you can see they become
+
+279
+00:13:39,320 --> 00:13:44,880
+smaller. Now, let's call the command to
+
+280
+00:13:42,280 --> 00:13:48,000
+add the section. So, we just wrote it.
+
+281
+00:13:44,880 --> 00:13:51,720
+So, insert HTML
+
+282
+00:13:48,000 --> 00:13:55,560
+add section tags. Do it.
+
+283
+00:13:51,720 --> 00:13:55,560
+Search failed section.
+
+284
+00:13:56,640 --> 00:14:02,200
+Okay. So, this matching lines section
+
+285
+00:13:59,520 --> 00:14:05,400
+did it do anything? It didn't. So,
+
+286
+00:14:02,200 --> 00:14:08,240
+search failed. What what What is the
+
+287
+00:14:05,400 --> 00:14:08,240
+problem?
+
+288
+00:14:08,840 --> 00:14:13,640
+Close that. Let's go to our this code.
+
+289
+00:14:11,360 --> 00:14:16,400
+So, search failed.
+
+290
+00:14:13,640 --> 00:14:20,280
+Search failed for
+
+291
+00:14:16,400 --> 00:14:20,280
+end of the section. So,
+
+292
+00:14:23,160 --> 00:14:27,280
+Why is it search failed?
+
+293
+00:14:29,120 --> 00:14:33,880
+Oh, because we set a region beginning
+
+294
+00:14:31,920 --> 00:14:36,960
+and region end.
+
+295
+00:14:33,880 --> 00:14:39,600
+That's That's right. Our code needs the
+
+296
+00:14:36,960 --> 00:14:42,000
+region beginning and region end, meaning
+
+297
+00:14:39,600 --> 00:14:43,560
+selection. But, we didn't do any
+
+298
+00:14:42,000 --> 00:14:46,960
+selection.
+
+299
+00:14:43,560 --> 00:14:50,640
+So, we need to do a selection.
+
+300
+00:14:46,960 --> 00:14:54,320
+Because without manual selection, human
+
+301
+00:14:50,640 --> 00:14:56,600
+aid, the computer would not know
+
+302
+00:14:54,320 --> 00:14:59,520
+Well, it would know when to begin, but
+
+303
+00:14:56,600 --> 00:15:01,760
+it would not know when the
+
+304
+00:14:59,520 --> 00:15:03,839
+the section end, you know, it should end
+
+305
+00:15:01,760 --> 00:15:06,400
+here, but the computer doesn't know it
+
+306
+00:15:03,839 --> 00:15:08,200
+should end here. So, that is why you
+
+307
+00:15:06,400 --> 00:15:09,280
+need a
+
+308
+00:15:08,200 --> 00:15:11,280
+uh
+
+309
+00:15:09,280 --> 00:15:14,560
+selection.
+
+310
+00:15:11,280 --> 00:15:17,080
+So, yeah, so our code still correct. We
+
+311
+00:15:14,560 --> 00:15:19,240
+just made a We just have a human error
+
+312
+00:15:17,080 --> 00:15:21,800
+where we need to begin.
+
+313
+00:15:19,240 --> 00:15:23,640
+Okay, so where we want to begin? So, we
+
+314
+00:15:21,800 --> 00:15:25,920
+want to begin
+
+315
+00:15:23,640 --> 00:15:26,920
+here. Market.
+
+316
+00:15:25,920 --> 00:15:29,360
+Okay.
+
+317
+00:15:26,920 --> 00:15:31,080
+Uh and then go all the way to the
+
+318
+00:15:29,360 --> 00:15:33,600
+bottom.
+
+319
+00:15:31,080 --> 00:15:35,640
+We want to stop here, okay? So, now
+
+320
+00:15:33,600 --> 00:15:38,160
+let's call the command.
+
+321
+00:15:35,640 --> 00:15:40,760
+Add section text to it.
+
+322
+00:15:38,160 --> 00:15:42,520
+Seems it works, okay? Fantastic. Now,
+
+323
+00:15:40,760 --> 00:15:46,160
+add the line break.
+
+324
+00:15:42,520 --> 00:15:49,120
+Now, there is some
+
+325
+00:15:46,160 --> 00:15:52,240
+Well, it should work. So, now refresh.
+
+326
+00:15:49,120 --> 00:15:55,200
+Fantastic. You can see
+
+327
+00:15:52,240 --> 00:15:57,480
+all the sections now have a this uh
+
+328
+00:15:55,200 --> 00:16:00,440
+round box around it.
+
+329
+00:15:57,480 --> 00:16:03,600
+That is what what I want. So, it makes
+
+330
+00:16:00,440 --> 00:16:07,240
+the headers somewhat more clear. And
+
+331
+00:16:03,600 --> 00:16:09,200
+also, it adds a syntactical unit. You
+
+332
+00:16:07,240 --> 00:16:11,560
+know, in the source code, you can for
+
+333
+00:16:09,200 --> 00:16:14,600
+example, let's search for a section. You
+
+334
+00:16:11,560 --> 00:16:17,240
+You can see I can press a key and we'll
+
+335
+00:16:14,600 --> 00:16:21,440
+highlight, you know,
+
+336
+00:16:17,240 --> 00:16:22,920
+this section syntax by syntax alone.
+
+337
+00:16:21,440 --> 00:16:24,920
+You know, without this nesting, you
+
+338
+00:16:22,920 --> 00:16:29,280
+wouldn't know. You know, it's very
+
+339
+00:16:24,920 --> 00:16:31,360
+similar to how this code is all nested.
+
+340
+00:16:29,280 --> 00:16:33,720
+And one of the advantage of the such
+
+341
+00:16:31,360 --> 00:16:34,520
+nesting syntax regularity is that you
+
+342
+00:16:33,720 --> 00:16:38,240
+can
+
+343
+00:16:34,520 --> 00:16:41,160
+you can you can you can
+
+344
+00:16:38,240 --> 00:16:44,000
+delete any
+
+345
+00:16:41,160 --> 00:16:47,080
+syntactical unit that corresponds to the
+
+346
+00:16:44,000 --> 00:16:50,000
+semantic unit. So, you know, in C or
+
+347
+00:16:47,080 --> 00:16:52,440
+JavaScript or Java
+
+348
+00:16:50,000 --> 00:16:53,560
+or Haskell, you cannot do it. They'll
+
+349
+00:16:52,440 --> 00:16:55,680
+fail.
+
+350
+00:16:53,560 --> 00:17:01,080
+You know, so this one of the advantage
+
+351
+00:16:55,680 --> 00:17:03,920
+of the nested syntax, which applies to
+
+352
+00:17:01,080 --> 00:17:08,160
+Emacs Lisp, any Lisp in general, and
+
+353
+00:17:03,920 --> 00:17:09,839
+Wolfram Language, and uh HTML, and uh
+
+354
+00:17:08,160 --> 00:17:12,520
+XML.
+
+355
+00:17:09,839 --> 00:17:15,240
+Regularity of the nested syntax, that's
+
+356
+00:17:12,520 --> 00:17:18,240
+one of the advantage. So, okay. So, I I
+
+357
+00:17:15,240 --> 00:17:21,000
+that's it. So, how does replace match
+
+358
+00:17:18,240 --> 00:17:23,920
+work? Okay, so that is the
+
+359
+00:17:21,000 --> 00:17:26,680
+you know, so in Emacs Lisp
+
+360
+00:17:23,920 --> 00:17:29,280
+every time you call search forward
+
+361
+00:17:26,680 --> 00:17:31,000
+and or
+
+362
+00:17:29,280 --> 00:17:33,080
+so that you know, I'm going to I'm
+
+363
+00:17:31,000 --> 00:17:36,440
+explaining so so every time you call
+
+364
+00:17:33,080 --> 00:17:39,360
+search forward or or
+
+365
+00:17:36,440 --> 00:17:43,120
+research forward
+
+366
+00:17:39,360 --> 00:17:45,680
+those commands will you know, basically
+
+367
+00:17:43,120 --> 00:17:49,200
+take a text or regular expression okay,
+
+368
+00:17:45,680 --> 00:17:51,160
+and it will save the data of the found
+
+369
+00:17:49,200 --> 00:17:53,200
+position, you know
+
+370
+00:17:51,160 --> 00:17:56,360
+and the end position
+
+371
+00:17:53,200 --> 00:18:00,240
+and whatever capture if you are using
+
+372
+00:17:56,360 --> 00:18:02,160
+regular expression into a
+
+373
+00:18:00,240 --> 00:18:06,120
+you know, it will save them internally
+
+374
+00:18:02,160 --> 00:18:08,480
+and you can access them by match data.
+
+375
+00:18:06,120 --> 00:18:11,360
+Okay, that that is the
+
+376
+00:18:08,480 --> 00:18:13,880
+match data, you know, describe function
+
+377
+00:18:11,360 --> 00:18:16,600
+you can see match data is a function
+
+378
+00:18:13,880 --> 00:18:20,400
+that retrieves all these internal data
+
+379
+00:18:16,600 --> 00:18:22,200
+about the last command that did any sort
+
+380
+00:18:20,400 --> 00:18:24,040
+of search, you know, where is the
+
+381
+00:18:22,200 --> 00:18:27,240
+beginning position position and a
+
+382
+00:18:24,040 --> 00:18:28,520
+position and so on and capture if any
+
+383
+00:18:27,240 --> 00:18:30,960
+and then
+
+384
+00:18:28,520 --> 00:18:34,040
+so any so basically every time you call
+
+385
+00:18:30,960 --> 00:18:37,560
+search forward you can then you can call
+
+386
+00:18:34,040 --> 00:18:40,280
+replace match and give a string that
+
+387
+00:18:37,560 --> 00:18:42,280
+will use the last match data and to
+
+388
+00:18:40,280 --> 00:18:45,320
+replace them. So, that's essentially
+
+389
+00:18:42,280 --> 00:18:45,320
+that's how it works.
+
+390
+00:18:45,800 --> 00:18:49,600
+Fantastic, I'm doing great. Okay, I
+
+391
+00:18:47,800 --> 00:18:52,120
+think that's it for today, you know,
+
+392
+00:18:49,600 --> 00:18:53,480
+that's 20 minutes.
+
+393
+00:18:52,120 --> 00:18:55,720
+Okay, so
+
+394
+00:18:53,480 --> 00:18:58,400
+let me think about it if there's
+
+395
+00:18:55,720 --> 00:19:01,000
+anything else we want to do here. So,
+
+396
+00:18:58,400 --> 00:19:02,400
+yeah, say let's pretty by the code, you
+
+397
+00:19:01,000 --> 00:19:04,840
+know, that's
+
+398
+00:19:02,400 --> 00:19:06,920
+um
+
+399
+00:19:04,840 --> 00:19:08,440
+I think that's it. So, let's pop this
+
+400
+00:19:06,920 --> 00:19:12,840
+back
+
+401
+00:19:08,440 --> 00:19:15,480
+to HTML buffer syntax color it show in
+
+402
+00:19:12,840 --> 00:19:15,480
+browser.
+
+403
+00:19:16,560 --> 00:19:21,440
+Yeah, so I think that's it. So, let's
+
+404
+00:19:18,320 --> 00:19:23,480
+compare, you know, let's compare
+
+405
+00:19:21,440 --> 00:19:25,960
+the original. So, this is the original
+
+406
+00:19:23,480 --> 00:19:29,960
+page. Let's shrink it a bit.
+
+407
+00:19:25,960 --> 00:19:32,200
+Go here, shrink twice, okay? Magnify.
+
+408
+00:19:29,960 --> 00:19:35,000
+So, you can see
+
+409
+00:19:32,200 --> 00:19:36,680
+this is the original page. This is with
+
+410
+00:19:35,000 --> 00:19:40,560
+the um
+
+411
+00:19:36,680 --> 00:19:42,120
+with the section mark. You know,
+
+412
+00:19:40,560 --> 00:19:44,720
+um
+
+413
+00:19:42,120 --> 00:19:47,240
+but, you know, you see, in this case,
+
+414
+00:19:44,720 --> 00:19:49,120
+there might be too many lines, but
+
+415
+00:19:47,240 --> 00:19:50,520
+usually it's better.
+
+416
+00:19:49,120 --> 00:19:52,080
+Okay, that's it for today. Thank you
+
+417
+00:19:50,520 --> 00:19:54,520
+guys for watching.
+
+418
+00:19:52,080 --> 00:19:54,520
+Bye.
+
+419
+00:19:58,480 --> 00:20:04,000
+Yeah, that's it.
+
+420
+00:20:01,400 --> 00:20:06,960
+That's what I want to do, and
+
+421
+00:20:04,000 --> 00:20:09,800
+I need this function for my for writing
+
+422
+00:20:06,960 --> 00:20:11,960
+my own pages.
+
+423
+00:20:09,800 --> 00:20:11,960
+Okay.
+

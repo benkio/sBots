@@ -1,0 +1,2004 @@
+1
+00:00:00,320 --> 00:00:06,160
+Welcome to another episode of S talk
+
+2
+00:00:03,120 --> 00:00:09,200
+show. If you are watching this offline,
+
+3
+00:00:06,160 --> 00:00:12,639
+play at 1.5 speed. If you are here, say
+
+4
+00:00:09,200 --> 00:00:15,200
+hi. So, we going to code uh pearl. I'm
+
+5
+00:00:12,639 --> 00:00:18,400
+going to demonstrate a pearl find and
+
+6
+00:00:15,200 --> 00:00:22,640
+replace script of all files in a
+
+7
+00:00:18,400 --> 00:00:26,880
+directory. Uh, and I'm going to
+
+8
+00:00:22,640 --> 00:00:29,119
+demonstrate formatting pearl code. Okay.
+
+9
+00:00:26,880 --> 00:00:33,920
+So, let's see. Let's look at the pearl
+
+10
+00:00:29,119 --> 00:00:36,320
+code. So, PL. So, there it is. So,
+
+11
+00:00:33,920 --> 00:00:39,760
+here's a code. It can do multiple find
+
+12
+00:00:36,320 --> 00:00:42,719
+and replace pairs. Uh, it can do regular
+
+13
+00:00:39,760 --> 00:00:45,760
+expression or literal find replace. And
+
+14
+00:00:42,719 --> 00:00:48,719
+it can filter file by file name regular
+
+15
+00:00:45,760 --> 00:00:52,640
+expression of course and automatically
+
+16
+00:00:48,719 --> 00:00:54,320
+make backup and generate a report. So,
+
+17
+00:00:52,640 --> 00:00:56,640
+several several things. So, we're going
+
+18
+00:00:54,320 --> 00:00:59,280
+to do show that then we're going to demo
+
+19
+00:00:56,640 --> 00:01:01,680
+how to format pearl code. So, so for
+
+20
+00:00:59,280 --> 00:01:04,960
+example, if you have pro code like right
+
+21
+00:01:01,680 --> 00:01:08,560
+now, like if you um if if they are not
+
+22
+00:01:04,960 --> 00:01:11,840
+formatted correctly, I can press a key,
+
+23
+00:01:08,560 --> 00:01:14,400
+I mean you go to shell, you go to shell
+
+24
+00:01:11,840 --> 00:01:17,360
+and call a command to automatically
+
+25
+00:01:14,400 --> 00:01:20,000
+format it. Then we're going to write a
+
+26
+00:01:17,360 --> 00:01:22,799
+emac command to call that command. So in
+
+27
+00:01:20,000 --> 00:01:26,080
+EMAC, I can now press a key and it will
+
+28
+00:01:22,799 --> 00:01:28,080
+be formatted, you know, like uh like
+
+29
+00:01:26,080 --> 00:01:30,000
+before. Okay, that's what we're going to
+
+30
+00:01:28,080 --> 00:01:33,439
+do. So, first of all, we going to de
+
+31
+00:01:30,000 --> 00:01:34,960
+demonstrate this uh pearl find replace.
+
+32
+00:01:33,439 --> 00:01:37,680
+So,
+
+33
+00:01:34,960 --> 00:01:39,759
+so let's pick a directory so that the so
+
+34
+00:01:37,680 --> 00:01:44,079
+those are documentation. So, can you see
+
+35
+00:01:39,759 --> 00:01:46,960
+it? Yes. Comments. Okay. So,
+
+36
+00:01:44,079 --> 00:01:50,000
+demonstrate. So, we want to the
+
+37
+00:01:46,960 --> 00:01:52,880
+directory is going to be here. I made a
+
+38
+00:01:50,000 --> 00:01:54,479
+some temporary files. So, this is
+
+39
+00:01:52,880 --> 00:01:58,240
+emacisp
+
+40
+00:01:54,479 --> 00:02:01,840
+uh manual. Okay. So if you go to the
+
+41
+00:01:58,240 --> 00:02:03,920
+directory there are 1,000 files. Okay.
+
+42
+00:02:01,840 --> 00:02:05,680
+So open the top one show in browser. So
+
+43
+00:02:03,920 --> 00:02:08,879
+that what's that's what it looks like.
+
+44
+00:02:05,680 --> 00:02:12,959
+So we're going to find replace all files
+
+45
+00:02:08,879 --> 00:02:15,120
+of a text in this directory. Okay. So
+
+46
+00:02:12,959 --> 00:02:19,120
+close close. So so that's where you
+
+47
+00:02:15,120 --> 00:02:22,640
+specify. Then this is uh here is where
+
+48
+00:02:19,120 --> 00:02:25,200
+you specify a backup directory. it will
+
+49
+00:02:22,640 --> 00:02:27,280
+make the changes and all original files
+
+50
+00:02:25,200 --> 00:02:29,920
+change files.
+
+51
+00:02:27,280 --> 00:02:33,360
+If if there's if there's a change in a
+
+52
+00:02:29,920 --> 00:02:36,640
+file then there will be a backup and all
+
+53
+00:02:33,360 --> 00:02:38,480
+the backup will be created in this uh in
+
+54
+00:02:36,640 --> 00:02:40,800
+this
+
+55
+00:02:38,480 --> 00:02:43,360
+directory. Okay. So that's this uh
+
+56
+00:02:40,800 --> 00:02:45,840
+backup.path. Then here's a regular
+
+57
+00:02:43,360 --> 00:02:48,560
+expression. I can replace all HTML
+
+58
+00:02:45,840 --> 00:02:50,640
+files. So JavaScript files and so on and
+
+59
+00:02:48,560 --> 00:02:53,840
+write to file. So this is a feature I
+
+60
+00:02:50,640 --> 00:02:58,000
+added originally. This script is uh
+
+61
+00:02:53,840 --> 00:03:00,800
+written in 2020 I mean two 2000 so
+
+62
+00:02:58,000 --> 00:03:03,760
+that's 20 five years ago. So I just
+
+63
+00:03:00,800 --> 00:03:06,480
+updated today.
+
+64
+00:03:03,760 --> 00:03:09,680
+So right to file zero and here is the
+
+65
+00:03:06,480 --> 00:03:13,120
+pairs of replacement. So let's say gnu
+
+66
+00:03:09,680 --> 00:03:17,519
+uh let's say gnu uh let's say replace
+
+67
+00:03:13,120 --> 00:03:20,480
+gnu to be ttt ttt. So and then you can
+
+68
+00:03:17,519 --> 00:03:22,879
+say uh use regular expression yes or no
+
+69
+00:03:20,480 --> 00:03:26,560
+uh and file size limit. If it's beyond
+
+70
+00:03:22,879 --> 00:03:28,879
+that don't don't make any change.
+
+71
+00:03:26,560 --> 00:03:30,799
+Okay. And the rest of it is code. So
+
+72
+00:03:28,879 --> 00:03:34,720
+let's do it. Let's do a demo. So let's
+
+73
+00:03:30,799 --> 00:03:37,120
+go to this directory again. Uh let's
+
+74
+00:03:34,720 --> 00:03:42,440
+open a new
+
+75
+00:03:37,120 --> 00:03:42,440
+window so we can kind of see. So
+
+76
+00:03:44,400 --> 00:03:49,480
+okay. So open that. Uh well
+
+77
+00:03:49,840 --> 00:03:55,120
+let's make it wider.
+
+78
+00:03:52,239 --> 00:03:58,799
+Okay. So what we doing? So yeah. So go
+
+79
+00:03:55,120 --> 00:04:01,920
+back here. So we we open this file.
+
+80
+00:03:58,799 --> 00:04:05,680
+Let's say we want what do we uh want to
+
+81
+00:04:01,920 --> 00:04:08,480
+replace? So gn replace by ttt. So there
+
+82
+00:04:05,680 --> 00:04:10,560
+is one occurrence of
+
+83
+00:04:08,480 --> 00:04:14,720
+gnon.
+
+84
+00:04:10,560 --> 00:04:16,959
+Uh and let's say
+
+85
+00:04:14,720 --> 00:04:19,120
+write to file
+
+86
+00:04:16,959 --> 00:04:23,720
+write to file
+
+87
+00:04:19,120 --> 00:04:23,720
+zero. Okay. So run it.
+
+88
+00:04:24,800 --> 00:04:30,800
+So total file zero file changed because
+
+89
+00:04:27,440 --> 00:04:33,840
+you say write to file uh wait right to
+
+90
+00:04:30,800 --> 00:04:36,479
+file zero. Um
+
+91
+00:04:33,840 --> 00:04:39,199
+what why is it not doing a report? Even
+
+92
+00:04:36,479 --> 00:04:43,520
+if it's zero, it still should do a
+
+93
+00:04:39,199 --> 00:04:46,080
+report. Okay. So,
+
+94
+00:04:43,520 --> 00:04:49,600
+I think it's because we don't have it
+
+95
+00:04:46,080 --> 00:04:53,520
+capitalized. Reet. There it is. Okay.
+
+96
+00:04:49,600 --> 00:04:57,199
+So, you can see total files 1,86
+
+97
+00:04:53,520 --> 00:05:00,400
+file changed and each change is reported
+
+98
+00:04:57,199 --> 00:05:03,120
+here. So, that's a script. Now we if if
+
+99
+00:05:00,400 --> 00:05:07,520
+we look at the uh this file close it
+
+100
+00:05:03,120 --> 00:05:11,120
+reopen it's not changed because we said
+
+101
+00:05:07,520 --> 00:05:15,720
+write to file force
+
+102
+00:05:11,120 --> 00:05:15,720
+um let's see
+
+103
+00:05:16,479 --> 00:05:22,240
+find go okay not go so here because we
+
+104
+00:05:19,840 --> 00:05:24,479
+say write to file false now if you
+
+105
+00:05:22,240 --> 00:05:27,520
+change that to true now pearl doesn't
+
+106
+00:05:24,479 --> 00:05:32,320
+have a boolean data type so one is true
+
+107
+00:05:27,520 --> 00:05:34,720
+is zero is force force. Okay. Run it.
+
+108
+00:05:32,320 --> 00:05:37,440
+Okay. So,
+
+109
+00:05:34,720 --> 00:05:40,320
+so again the same report. Now go here.
+
+110
+00:05:37,440 --> 00:05:43,199
+You can see now it changed.
+
+111
+00:05:40,320 --> 00:05:46,639
+Now let's say let's change multiple
+
+112
+00:05:43,199 --> 00:05:50,960
+things. Let's change all EMAC to close
+
+113
+00:05:46,639 --> 00:05:57,680
+that. Let's say we change um
+
+114
+00:05:50,960 --> 00:06:01,520
+what Emac to be E. Then let's change tdt
+
+115
+00:05:57,680 --> 00:06:06,759
+to be hh. Okay. So we can do multiple
+
+116
+00:06:01,520 --> 00:06:06,759
+time uh pairs at the same time, run it.
+
+117
+00:06:15,280 --> 00:06:24,160
+Hello tmate. Hello SCP.
+
+118
+00:06:19,759 --> 00:06:26,960
+Yeah, this is ancient. Uh, so again 1,00
+
+119
+00:06:24,160 --> 00:06:29,360
+file changed and some of them four times
+
+120
+00:06:26,960 --> 00:06:32,000
+three occurrences six. So switch back
+
+121
+00:06:29,360 --> 00:06:36,560
+here so you can see it made those
+
+122
+00:06:32,000 --> 00:06:40,800
+changes. EMAC became E, Emacs became E
+
+123
+00:06:36,560 --> 00:06:43,120
+and uh, you know, TGD became H. So and
+
+124
+00:06:40,800 --> 00:06:45,919
+if you now if you go to the backup
+
+125
+00:06:43,120 --> 00:06:48,240
+directory, close that. Now where do we
+
+126
+00:06:45,919 --> 00:06:50,479
+specify the back directory? Backup
+
+127
+00:06:48,240 --> 00:06:53,919
+directory. So go there open it. So you
+
+128
+00:06:50,479 --> 00:06:59,440
+can see it copies the entire directory
+
+129
+00:06:53,919 --> 00:07:02,240
+structure. So you see the you see the
+
+130
+00:06:59,440 --> 00:07:05,039
+backup directory is that but because we
+
+131
+00:07:02,240 --> 00:07:07,520
+are in a directory called xx so it
+
+132
+00:07:05,039 --> 00:07:10,400
+copied that then eag this then then
+
+133
+00:07:07,520 --> 00:07:14,319
+there so here you can see is original
+
+134
+00:07:10,400 --> 00:07:18,080
+file. I mean it's original file because
+
+135
+00:07:14,319 --> 00:07:21,440
+um we did the replacement again. So, so
+
+136
+00:07:18,080 --> 00:07:24,400
+that's a demo of this code. Okay. So,
+
+137
+00:07:21,440 --> 00:07:28,240
+close it, reopen it, go to So, you can
+
+138
+00:07:24,400 --> 00:07:32,479
+get the code. I just update it right
+
+139
+00:07:28,240 --> 00:07:36,560
+here. So, if you go to talk show, close
+
+140
+00:07:32,479 --> 00:07:38,479
+that talk show. It's right here. Okay.
+
+141
+00:07:36,560 --> 00:07:42,479
+So, you can copy the code if you want.
+
+142
+00:07:38,479 --> 00:07:46,400
+Now, by the way, there is also um there
+
+143
+00:07:42,479 --> 00:07:50,000
+is a Golan version for grip and find
+
+144
+00:07:46,400 --> 00:07:54,400
+replace golan version and Python version
+
+145
+00:07:50,000 --> 00:07:56,960
+and there's also Emacs version uh or and
+
+146
+00:07:54,400 --> 00:07:59,039
+Emacs how to so it's you know you can
+
+147
+00:07:56,960 --> 00:08:03,360
+use any one of those the code is all
+
+148
+00:07:59,039 --> 00:08:06,960
+there okay so that's one thing now
+
+149
+00:08:03,360 --> 00:08:11,120
+now let's demo the formatting pearl code
+
+150
+00:08:06,960 --> 00:08:18,599
+okay so right Now I'm in uh this is go
+
+151
+00:08:11,120 --> 00:08:18,599
+program. So I can I can munch up this um
+
+152
+00:08:18,639 --> 00:08:24,319
+you know and I press a key they became
+
+153
+00:08:21,120 --> 00:08:26,720
+formatted. Let's say undo. Okay save. So
+
+154
+00:08:24,319 --> 00:08:31,680
+you see right now it's not formatted
+
+155
+00:08:26,720 --> 00:08:34,399
+well. So for example you know it's now
+
+156
+00:08:31,680 --> 00:08:37,760
+save it. I'll press a key. It formats
+
+157
+00:08:34,399 --> 00:08:42,080
+the entire code. So that command I
+
+158
+00:08:37,760 --> 00:08:45,120
+demonstrated a few days ago is here and
+
+159
+00:08:42,080 --> 00:08:48,080
+uh so that was the talk show
+
+160
+00:08:45,120 --> 00:08:49,760
+that was the talk show about uh talk
+
+161
+00:08:48,080 --> 00:08:54,240
+show
+
+162
+00:08:49,760 --> 00:08:58,959
+three days ago. So three or four days uh
+
+163
+00:08:54,240 --> 00:09:02,399
+last week let's see there talk show
+
+164
+00:08:58,959 --> 00:09:04,320
+episode 673
+
+165
+00:09:02,399 --> 00:09:09,519
+about a week ago format Python
+
+166
+00:09:04,320 --> 00:09:13,120
+JavaScript Goland HTML CSS in Emacs and
+
+167
+00:09:09,519 --> 00:09:15,680
+Wuam language auto format okay so you
+
+168
+00:09:13,120 --> 00:09:17,440
+can get a code so you can format it so
+
+169
+00:09:15,680 --> 00:09:19,120
+but now we are missing we don't have
+
+170
+00:09:17,440 --> 00:09:24,000
+pearl
+
+171
+00:09:19,120 --> 00:09:29,440
+so close that now go to pearl.pl PL so
+
+172
+00:09:24,000 --> 00:09:31,040
+this file so if in so in this file if if
+
+173
+00:09:29,440 --> 00:09:34,080
+you know right now it's not formatted
+
+174
+00:09:31,040 --> 00:09:39,279
+correctly so you know I make it one line
+
+175
+00:09:34,080 --> 00:09:43,360
+uh now save it however I can do it by
+
+176
+00:09:39,279 --> 00:09:46,080
+uh pearl tidy okay pearl tidy and the
+
+177
+00:09:43,360 --> 00:09:51,760
+file name so file name is that correct
+
+178
+00:09:46,080 --> 00:09:56,959
+so now watch watch this line okay do it
+
+179
+00:09:51,760 --> 00:09:59,120
+okay Now back here now auto auto revert.
+
+180
+00:09:56,959 --> 00:10:00,800
+So now you can see they are formatted
+
+181
+00:09:59,120 --> 00:10:03,279
+well.
+
+182
+00:10:00,800 --> 00:10:05,600
+So but the problem now is that so this
+
+183
+00:10:03,279 --> 00:10:09,360
+is demonstration of pearl format. This
+
+184
+00:10:05,600 --> 00:10:12,640
+pearl tid command is bundled with pearl
+
+185
+00:10:09,360 --> 00:10:16,560
+like usually uh otherwise you can call
+
+186
+00:10:12,640 --> 00:10:19,760
+cpan cpan then pearl tid to install it
+
+187
+00:10:16,560 --> 00:10:22,640
+but I think it's bundled in every pearl.
+
+188
+00:10:19,760 --> 00:10:25,760
+So that's how you uh format code. Okay.
+
+189
+00:10:22,640 --> 00:10:28,000
+But I want a command in Emacs. So I
+
+190
+00:10:25,760 --> 00:10:31,279
+press a key. It'll just do it. Okay. So
+
+191
+00:10:28,000 --> 00:10:32,800
+let's write that. Okay. Let's write that
+
+192
+00:10:31,279 --> 00:10:35,839
+command.
+
+193
+00:10:32,800 --> 00:10:39,279
+So far so good. So far so good. Okay. So
+
+194
+00:10:35,839 --> 00:10:43,360
+now we want to write a command. Now we
+
+195
+00:10:39,279 --> 00:10:47,360
+can just copy existing command. So So
+
+196
+00:10:43,360 --> 00:10:50,959
+for example, let's go to go and uh
+
+197
+00:10:47,360 --> 00:10:54,880
+describe key. Tab F. So here's the
+
+198
+00:10:50,959 --> 00:10:58,160
+source code for for Goland Goland format
+
+199
+00:10:54,880 --> 00:11:02,120
+buffer. Okay. So how do you select it?
+
+200
+00:10:58,160 --> 00:11:02,120
+Uh not that.
+
+201
+00:11:03,200 --> 00:11:09,920
+Okay. Copy it. Let's see. Is this what
+
+202
+00:11:06,320 --> 00:11:13,519
+we want? Uh
+
+203
+00:11:09,920 --> 00:11:15,600
+yep. Okay. Close it.
+
+204
+00:11:13,519 --> 00:11:19,120
+Uh
+
+205
+00:11:15,600 --> 00:11:22,800
+suff go. Close it. Close it. So, here's
+
+206
+00:11:19,120 --> 00:11:25,440
+a pearl program. Now, let's make it not
+
+207
+00:11:22,800 --> 00:11:29,680
+well formatted. Now, go to some talk
+
+208
+00:11:25,440 --> 00:11:35,120
+show today's talk show and let's write
+
+209
+00:11:29,680 --> 00:11:39,040
+one. Okay. Uh, wait.
+
+210
+00:11:35,120 --> 00:11:43,760
+Pearl code. Paste the code and pop it
+
+211
+00:11:39,040 --> 00:11:46,240
+out and pearl format. Okay. And uh,
+
+212
+00:11:43,760 --> 00:11:49,120
+wait, this is shouldn't be pearl. Should
+
+213
+00:11:46,240 --> 00:11:53,640
+be Emacs. So, let's
+
+214
+00:11:49,120 --> 00:11:53,640
+do it again. Uh,
+
+215
+00:11:53,920 --> 00:11:58,880
+emac this code.
+
+216
+00:11:56,560 --> 00:12:02,959
+Put it there.
+
+217
+00:11:58,880 --> 00:12:05,760
+Pop it out. Now, this is Emac this mod.
+
+218
+00:12:02,959 --> 00:12:09,120
+Now, this is correct. Okay. So, we want
+
+219
+00:12:05,760 --> 00:12:10,959
+to write this code. So, replace all go
+
+220
+00:12:09,120 --> 00:12:14,560
+by
+
+221
+00:12:10,959 --> 00:12:18,079
+pearl. Okay. Just one occurrence. Okay.
+
+222
+00:12:14,560 --> 00:12:20,000
+So some uh pearl format buffer. Now
+
+223
+00:12:18,079 --> 00:12:22,560
+let's see what is a command. This is a
+
+224
+00:12:20,000 --> 00:12:25,120
+command cut. So eventually we need to do
+
+225
+00:12:22,560 --> 00:12:27,200
+this. Okay. We need to call that command
+
+226
+00:12:25,120 --> 00:12:31,360
+in shell. So format current file by
+
+227
+00:12:27,200 --> 00:12:35,600
+calling uh by calling pro
+
+228
+00:12:31,360 --> 00:12:40,000
+tidy. Okay. Ber is saved first. Yes. And
+
+229
+00:12:35,600 --> 00:12:42,160
+do I have a URL? Not right now. Uh and
+
+230
+00:12:40,000 --> 00:12:45,600
+uh creation date.
+
+231
+00:12:42,160 --> 00:12:49,519
+Version date. Okay. So now
+
+232
+00:12:45,600 --> 00:12:53,519
+so when buffer is not a file report
+
+233
+00:12:49,519 --> 00:12:56,880
+error. Okay then if buffer is modified
+
+234
+00:12:53,519 --> 00:12:59,680
+save it. Okay then
+
+235
+00:12:56,880 --> 00:13:01,279
+create a temp variable local variable
+
+236
+00:12:59,680 --> 00:13:04,480
+output
+
+237
+00:13:01,279 --> 00:13:07,040
+out buffer. Okay create the buffer pearl
+
+238
+00:13:04,480 --> 00:13:11,519
+format output.
+
+239
+00:13:07,040 --> 00:13:14,160
+Okay that's good. Then uh save current
+
+240
+00:13:11,519 --> 00:13:18,600
+buffer. So this now there's a better way
+
+241
+00:13:14,160 --> 00:13:18,600
+to write this uh width
+
+242
+00:13:22,639 --> 00:13:30,720
+with 10 buffer. Okay. So with 10 buffer
+
+243
+00:13:27,279 --> 00:13:33,680
+output buffer then erase buffer. So let
+
+244
+00:13:30,720 --> 00:13:37,120
+me explain what this does. Okay. Save C.
+
+245
+00:13:33,680 --> 00:13:41,440
+Save current buffer just uh wait what?
+
+246
+00:13:37,120 --> 00:13:45,360
+Save current buffer just means
+
+247
+00:13:41,440 --> 00:13:48,160
+you know not not saving a file sense but
+
+248
+00:13:45,360 --> 00:13:51,200
+you uh so you can restore the buffer
+
+249
+00:13:48,160 --> 00:13:53,200
+whatever buffer you are in. Okay. So
+
+250
+00:13:51,200 --> 00:13:54,880
+anyway so then you set the buffer. So
+
+251
+00:13:53,200 --> 00:13:56,639
+you make the current buffer that's what
+
+252
+00:13:54,880 --> 00:13:59,199
+set buffer means. So you want to make
+
+253
+00:13:56,639 --> 00:14:02,480
+the current buffer to be output buffer.
+
+254
+00:13:59,199 --> 00:14:05,120
+Then you erase it. So basically what
+
+255
+00:14:02,480 --> 00:14:07,279
+this line does then then because you are
+
+256
+00:14:05,120 --> 00:14:10,079
+doing save current buffer then so after
+
+257
+00:14:07,279 --> 00:14:14,320
+this is done it'll just revert to
+
+258
+00:14:10,079 --> 00:14:16,639
+whatever the uh previous buffer.
+
+259
+00:14:14,320 --> 00:14:20,160
+So that buffer so this line basically
+
+260
+00:14:16,639 --> 00:14:23,120
+means you know you create a buffer
+
+261
+00:14:20,160 --> 00:14:26,320
+uh of this name
+
+262
+00:14:23,120 --> 00:14:30,399
+if it already exist then do anything if
+
+263
+00:14:26,320 --> 00:14:33,360
+not then create it. That's what this uh
+
+264
+00:14:30,399 --> 00:14:35,360
+get buffer create means. Okay. And that
+
+265
+00:14:33,360 --> 00:14:36,880
+returns a buffer. So that's the output
+
+266
+00:14:35,360 --> 00:14:40,240
+buffer.
+
+267
+00:14:36,880 --> 00:14:42,880
+Uh okay. Then
+
+268
+00:14:40,240 --> 00:14:45,519
+then you you want to erase you want to
+
+269
+00:14:42,880 --> 00:14:48,480
+empty that content before you run this
+
+270
+00:14:45,519 --> 00:14:51,040
+command. But a better way to write it uh
+
+271
+00:14:48,480 --> 00:14:54,000
+is just with temp buffer. So with temp
+
+272
+00:14:51,040 --> 00:14:55,760
+buffer means uh make make this buffer
+
+273
+00:14:54,000 --> 00:15:00,320
+current
+
+274
+00:14:55,760 --> 00:15:02,880
+then erase buffer. So okay you can uh
+
+275
+00:15:00,320 --> 00:15:05,839
+with 10 buffer is actually just a macro
+
+276
+00:15:02,880 --> 00:15:09,279
+for that. So we can look up describe
+
+277
+00:15:05,839 --> 00:15:11,360
+function with 10 buffer. Go to the
+
+278
+00:15:09,279 --> 00:15:14,079
+source code.
+
+279
+00:15:11,360 --> 00:15:16,160
+Uh wait
+
+280
+00:15:14,079 --> 00:15:20,000
+uh it's not with 10 buffer it's with
+
+281
+00:15:16,160 --> 00:15:23,920
+current buffer. Okay.
+
+282
+00:15:20,000 --> 00:15:27,040
+Yeah. So actually this should be god I
+
+283
+00:15:23,920 --> 00:15:30,399
+recently changed stuff like keys. So
+
+284
+00:15:27,040 --> 00:15:32,560
+there is so so this is equivalent to
+
+285
+00:15:30,399 --> 00:15:37,519
+that. So describe function with current
+
+286
+00:15:32,560 --> 00:15:39,760
+buffer jump to the source code.
+
+287
+00:15:37,519 --> 00:15:42,160
+So you can see it basically just call
+
+288
+00:15:39,760 --> 00:15:46,240
+save current buffer. You know this is a
+
+289
+00:15:42,160 --> 00:15:50,320
+markup. Okay. So anyway so so far so
+
+290
+00:15:46,240 --> 00:15:53,519
+good. Yes. Then call uh call process go
+
+291
+00:15:50,320 --> 00:15:55,199
+format. No we want to call pearl tidy.
+
+292
+00:15:53,519 --> 00:15:57,279
+Okay.
+
+293
+00:15:55,199 --> 00:16:01,360
+Pearl tidy
+
+294
+00:15:57,279 --> 00:16:04,880
+then new output buffer Neo then an
+
+295
+00:16:01,360 --> 00:16:08,399
+option will B means replace the current
+
+296
+00:16:04,880 --> 00:16:11,600
+file B means override the current file
+
+297
+00:16:08,399 --> 00:16:15,519
+okay then buffer file name means the
+
+298
+00:16:11,600 --> 00:16:21,360
+current buffers file path
+
+299
+00:16:15,519 --> 00:16:24,160
+okay so then then what is this uh so per
+
+300
+00:16:21,360 --> 00:16:25,360
+so now actually so now what we want to
+
+301
+00:16:24,160 --> 00:16:27,120
+know
+
+302
+00:16:25,360 --> 00:16:30,320
+Right now actually this command will
+
+303
+00:16:27,120 --> 00:16:34,880
+work. But what we want to know uh is
+
+304
+00:16:30,320 --> 00:16:36,399
+that we want to know whether pro tidy
+
+305
+00:16:34,880 --> 00:16:40,320
+uh
+
+306
+00:16:36,399 --> 00:16:42,480
+return code exit e ex exit code. We want
+
+307
+00:16:40,320 --> 00:16:44,560
+we want to know if it uh formatted
+
+308
+00:16:42,480 --> 00:16:46,320
+correctly.
+
+309
+00:16:44,560 --> 00:16:49,759
+Uh
+
+310
+00:16:46,320 --> 00:16:53,560
+so uh is there a documentation for pearl
+
+311
+00:16:49,759 --> 00:16:53,560
+tid? Let's see.
+
+312
+00:16:54,480 --> 00:16:59,040
+But anyway, regardless, you know, let's
+
+313
+00:16:56,720 --> 00:17:01,920
+assume it's successful.
+
+314
+00:16:59,040 --> 00:17:05,919
+So what what the the rest of the code
+
+315
+00:17:01,920 --> 00:17:08,640
+does is that if if the so this should be
+
+316
+00:17:05,919 --> 00:17:12,799
+with 10 buffer. Okay, with with current
+
+317
+00:17:08,640 --> 00:17:14,480
+buffer. So if the buffer output buffer
+
+318
+00:17:12,799 --> 00:17:16,480
+the
+
+319
+00:17:14,480 --> 00:17:20,640
+basically this checks if the output
+
+320
+00:17:16,480 --> 00:17:24,319
+buffer is empty. So if it's empty then
+
+321
+00:17:20,640 --> 00:17:26,400
+kill the output buffer then then the
+
+322
+00:17:24,319 --> 00:17:28,160
+current buffer is whatever is your code
+
+323
+00:17:26,400 --> 00:17:30,880
+then you just revert it that means
+
+324
+00:17:28,160 --> 00:17:34,880
+revert it to whatever is on disk because
+
+325
+00:17:30,880 --> 00:17:37,760
+this command just changed it but if the
+
+326
+00:17:34,880 --> 00:17:40,240
+output buffer is not empty then you show
+
+327
+00:17:37,760 --> 00:17:42,400
+it. Okay, so this command should work.
+
+328
+00:17:40,240 --> 00:17:44,400
+But to make it better, we should uh
+
+329
+00:17:42,400 --> 00:17:47,360
+check
+
+330
+00:17:44,400 --> 00:17:50,160
+what pearl tidy actually returns. You
+
+331
+00:17:47,360 --> 00:17:52,480
+know, we need to check the exit exit
+
+332
+00:17:50,160 --> 00:17:56,080
+status. But let's ignore it for now.
+
+333
+00:17:52,480 --> 00:18:00,080
+Okay, so now run the code.
+
+334
+00:17:56,080 --> 00:18:04,000
+Okay, run the code and uh copy the uh
+
+335
+00:18:00,080 --> 00:18:06,640
+the name. Now go to the pearl code.
+
+336
+00:18:04,000 --> 00:18:09,840
+Let's see where is the pearl code. Close
+
+337
+00:18:06,640 --> 00:18:12,400
+that. Uh, here's a pearl code. Okay.
+
+338
+00:18:09,840 --> 00:18:17,200
+Now, meta x
+
+339
+00:18:12,400 --> 00:18:20,720
+s pearl format buffer. Do it. Fantastic
+
+340
+00:18:17,200 --> 00:18:23,280
+and beautiful. Okay. Now, let's
+
+341
+00:18:20,720 --> 00:18:26,480
+experiment on something. Okay. So, let's
+
+342
+00:18:23,280 --> 00:18:31,039
+just create a file xx.pl.
+
+343
+00:18:26,480 --> 00:18:33,679
+Okay. Basically same file. But now we
+
+344
+00:18:31,039 --> 00:18:37,200
+screw up that. But let's also screw up
+
+345
+00:18:33,679 --> 00:18:40,559
+the syntax. So this now becomes invalid
+
+346
+00:18:37,200 --> 00:18:43,880
+pearl code. And now we call the format.
+
+347
+00:18:40,559 --> 00:18:43,880
+Let's see.
+
+348
+00:18:46,559 --> 00:18:50,480
+Let's see what happens if you know
+
+349
+00:18:48,320 --> 00:18:54,200
+whether it's going to erase my file or
+
+350
+00:18:50,480 --> 00:18:54,200
+not. Let's do it.
+
+351
+00:18:54,640 --> 00:19:00,799
+Okay. So it does not did it did it even
+
+352
+00:18:58,240 --> 00:19:02,799
+complain? No, it didn't even output
+
+353
+00:19:00,799 --> 00:19:04,559
+anything.
+
+354
+00:19:02,799 --> 00:19:08,080
+Interesting.
+
+355
+00:19:04,559 --> 00:19:11,440
+So the pearl formatter actually does
+
+356
+00:19:08,080 --> 00:19:14,400
+some kind of huristic format you know.
+
+357
+00:19:11,440 --> 00:19:18,640
+So this line you see this line of code
+
+358
+00:19:14,400 --> 00:19:21,520
+is invalid. Okay wait uh what this line
+
+359
+00:19:18,640 --> 00:19:23,760
+of code is invalid
+
+360
+00:19:21,520 --> 00:19:26,720
+but pearl just formatted the the best
+
+361
+00:19:23,760 --> 00:19:29,760
+way it can. So you know if you run this
+
+362
+00:19:26,720 --> 00:19:31,679
+right now it won't work because you see
+
+363
+00:19:29,760 --> 00:19:35,840
+you see
+
+364
+00:19:31,679 --> 00:19:41,760
+you got syntax errors and so on.
+
+365
+00:19:35,840 --> 00:19:43,840
+But if you add the comma there then
+
+366
+00:19:41,760 --> 00:19:47,120
+call format
+
+367
+00:19:43,840 --> 00:19:50,400
+do it now it's good.
+
+368
+00:19:47,120 --> 00:19:53,280
+Okay. So actually we just wrote so now
+
+369
+00:19:50,400 --> 00:19:55,280
+uh so okay. So now we just wrote our
+
+370
+00:19:53,280 --> 00:20:00,799
+code successful.
+
+371
+00:19:55,280 --> 00:20:04,840
+Uh and this part is now redundant. I
+
+372
+00:20:00,799 --> 00:20:04,840
+you know this uh
+
+373
+00:20:06,320 --> 00:20:11,679
+we kind of don't need but because
+
+374
+00:20:08,880 --> 00:20:14,960
+apparently pearl the pearl tidy doesn't
+
+375
+00:20:11,679 --> 00:20:17,600
+output anything.
+
+376
+00:20:14,960 --> 00:20:22,039
+Okay. So
+
+377
+00:20:17,600 --> 00:20:22,039
+so what should we do? Um,
+
+378
+00:20:23,360 --> 00:20:29,760
+yeah. So, we just we don't we just
+
+379
+00:20:26,240 --> 00:20:32,080
+revert the current buffer and uh don't
+
+380
+00:20:29,760 --> 00:20:34,320
+do anything. Okay.
+
+381
+00:20:32,080 --> 00:20:38,799
+Okay.
+
+382
+00:20:34,320 --> 00:20:42,559
+Okay. And uh cut that out. Put it back.
+
+383
+00:20:38,799 --> 00:20:46,320
+Syntax correct. Showing browser.
+
+384
+00:20:42,559 --> 00:20:48,559
+So, that is it for today. We
+
+385
+00:20:46,320 --> 00:20:52,200
+successfully done. Okay. Okay, I think
+
+386
+00:20:48,559 --> 00:20:52,200
+that's it for today.
+
+387
+00:20:52,400 --> 00:20:59,039
+Jean Claude Lemonu, what's up, guys?
+
+388
+00:20:56,559 --> 00:21:03,760
+Okay, I think I'm done.
+
+389
+00:20:59,039 --> 00:21:06,640
+Uh, so yeah, let it be short. If you
+
+390
+00:21:03,760 --> 00:21:09,280
+guys like my stuff, donate. Okay, so go
+
+391
+00:21:06,640 --> 00:21:12,799
+to.info.
+
+392
+00:21:09,280 --> 00:21:17,919
+Go to the bottom. Lots of programming
+
+393
+00:21:12,799 --> 00:21:21,360
+tutorials about 6,000 pages. Patreon me,
+
+394
+00:21:17,919 --> 00:21:26,000
+Amazon gift card me, or PayPal me. If
+
+395
+00:21:21,360 --> 00:21:28,880
+you work, have a job, pay me $100, one
+
+396
+00:21:26,000 --> 00:21:31,039
+shot. That would be appreciated. Thank
+
+397
+00:21:28,880 --> 00:21:34,559
+you.
+
+398
+00:21:31,039 --> 00:21:37,600
+Okay, so we shut down. Should uh should
+
+399
+00:21:34,559 --> 00:21:40,880
+we shut down? Yeah, I think we you know
+
+400
+00:21:37,600 --> 00:21:43,440
+done this uh we shut down in two
+
+401
+00:21:40,880 --> 00:21:47,159
+minutes.
+
+402
+00:21:43,440 --> 00:21:47,159
+comment and questions.
+
+403
+00:21:50,000 --> 00:21:56,559
+So, here is my uh banana juice and
+
+404
+00:21:53,760 --> 00:21:58,960
+coffee. Fantastic.
+
+405
+00:21:56,559 --> 00:22:02,400
+Now, if you don't know, of course, I
+
+406
+00:21:58,960 --> 00:22:07,640
+have uh pearl python. You know, there's
+
+407
+00:22:02,400 --> 00:22:07,640
+a complete pro tutorial here.
+
+408
+00:22:16,400 --> 00:22:21,520
+Let's um you know let's squeeze few
+
+409
+00:22:19,679 --> 00:22:24,320
+minutes. Let's see what I can talk
+
+410
+00:22:21,520 --> 00:22:27,600
+about. Lots of updates. Okay. Softly
+
+411
+00:22:24,320 --> 00:22:31,039
+keys. I recently yesterday I made a
+
+412
+00:22:27,600 --> 00:22:33,039
+major kind of major is is change. So if
+
+413
+00:22:31,039 --> 00:22:36,400
+you don't know Safly Keys is a key
+
+414
+00:22:33,039 --> 00:22:39,120
+binding system in Emacs, the most
+
+415
+00:22:36,400 --> 00:22:41,520
+powerful editor. That's what I'm using.
+
+416
+00:22:39,120 --> 00:22:45,840
+key binding system. So the more it's a
+
+417
+00:22:41,520 --> 00:22:48,159
+more efficient than vim meaning that uh
+
+418
+00:22:45,840 --> 00:22:52,799
+for doing the same thing you have to
+
+419
+00:22:48,159 --> 00:22:54,960
+type less keystrokes than vim. Okay but
+
+420
+00:22:52,799 --> 00:22:58,400
+it's this is for emacs. You can download
+
+421
+00:22:54,960 --> 00:23:02,080
+it on github you can watch a video and
+
+422
+00:22:58,400 --> 00:23:04,960
+you can see the keystrokes. Now the one
+
+423
+00:23:02,080 --> 00:23:09,360
+change I made is that you see the those
+
+424
+00:23:04,960 --> 00:23:12,880
+number row. So originally each key each
+
+425
+00:23:09,360 --> 00:23:16,320
+number they they do something but now I
+
+426
+00:23:12,880 --> 00:23:20,320
+remove them all. So they they become now
+
+427
+00:23:16,320 --> 00:23:23,360
+merged to the you know the offer of you
+
+428
+00:23:20,320 --> 00:23:26,080
+know the letter key section because that
+
+429
+00:23:23,360 --> 00:23:29,679
+way you don't have to move your fingers
+
+430
+00:23:26,080 --> 00:23:32,240
+all the way up. In fact, that caused me
+
+431
+00:23:29,679 --> 00:23:34,320
+major and permanent
+
+432
+00:23:32,240 --> 00:23:36,720
+uh hand injury.
+
+433
+00:23:34,320 --> 00:23:39,200
+Uh especially because of the one, two,
+
+434
+00:23:36,720 --> 00:23:41,760
+and three keys since 10 years ago. And
+
+435
+00:23:39,200 --> 00:23:45,280
+it was it became permanent like right
+
+436
+00:23:41,760 --> 00:23:48,559
+now here is painful. Not right now, but
+
+437
+00:23:45,280 --> 00:23:51,120
+it, you know, last week, you know, it's
+
+438
+00:23:48,559 --> 00:23:53,360
+kind of permanent. Okay. So, if you if I
+
+439
+00:23:51,120 --> 00:23:56,640
+started to type too much, you know, it
+
+440
+00:23:53,360 --> 00:23:58,960
+hurts here. Why here? Because because I
+
+441
+00:23:56,640 --> 00:24:01,440
+use this middle finger to press the
+
+442
+00:23:58,960 --> 00:24:04,320
+number three key all the time and
+
+443
+00:24:01,440 --> 00:24:07,520
+because I'm a touch typer. So I just,
+
+444
+00:24:04,320 --> 00:24:10,559
+you know, flip that up. Type the three
+
+445
+00:24:07,520 --> 00:24:14,240
+key three all the time. Why?
+
+446
+00:24:10,559 --> 00:24:18,240
+Why the key three? Because three is for
+
+447
+00:24:14,240 --> 00:24:20,320
+unsplit window. Uh wait. Uh right now I
+
+448
+00:24:18,240 --> 00:24:22,400
+don't have that key anymore. So but but
+
+449
+00:24:20,320 --> 00:24:24,720
+I still press that. I have it, you know,
+
+450
+00:24:22,400 --> 00:24:27,440
+key three.
+
+451
+00:24:24,720 --> 00:24:31,039
+So, so doing that you know so that
+
+452
+00:24:27,440 --> 00:24:32,559
+created a permanent uh hand paint here
+
+453
+00:24:31,039 --> 00:24:34,880
+there.
+
+454
+00:24:32,559 --> 00:24:38,480
+It took a while to realize. Took me like
+
+455
+00:24:34,880 --> 00:24:41,600
+a year to realize that one. And before
+
+456
+00:24:38,480 --> 00:24:45,600
+the problem was key one and two on the
+
+457
+00:24:41,600 --> 00:24:47,840
+Microsoft natural keyboard because I I
+
+458
+00:24:45,600 --> 00:24:51,120
+have you know I got into a habit of
+
+459
+00:24:47,840 --> 00:24:53,279
+moving my hand like that and use the
+
+460
+00:24:51,120 --> 00:24:55,679
+index finger or the pointing finger to
+
+461
+00:24:53,279 --> 00:25:00,799
+press one and two and that created a
+
+462
+00:24:55,679 --> 00:25:03,679
+problem here. So that was 2010.
+
+463
+00:25:00,799 --> 00:25:06,000
+So the number row keys are kind of
+
+464
+00:25:03,679 --> 00:25:10,159
+nasty.
+
+465
+00:25:06,000 --> 00:25:13,760
+And I remember back in 1992,
+
+466
+00:25:10,159 --> 00:25:17,860
+actually 19 Yeah, I I started to touch
+
+467
+00:25:13,760 --> 00:25:19,600
+type on quarti in 1988.
+
+468
+00:25:17,860 --> 00:25:23,600
+[Music]
+
+469
+00:25:19,600 --> 00:25:25,919
+Okay. About 1988 on a on a electric
+
+470
+00:25:23,600 --> 00:25:29,440
+typewriter.
+
+471
+00:25:25,919 --> 00:25:32,880
+uh and I start to learn Vorac to touch
+
+472
+00:25:29,440 --> 00:25:37,600
+type Vorac in 1994.
+
+473
+00:25:32,880 --> 00:25:39,520
+Okay. So I don't have a problem until
+
+474
+00:25:37,600 --> 00:25:43,120
+2005.
+
+475
+00:25:39,520 --> 00:25:45,679
+Uh and uh then I started to have
+
+476
+00:25:43,120 --> 00:25:47,840
+problems like every few years another
+
+477
+00:25:45,679 --> 00:25:51,200
+new problem.
+
+478
+00:25:47,840 --> 00:25:53,279
+It began in 2005 because I was using a
+
+479
+00:25:51,200 --> 00:25:55,760
+laptop keyboard
+
+480
+00:25:53,279 --> 00:25:58,159
+all day you know like for for a year for
+
+481
+00:25:55,760 --> 00:26:00,400
+for two years that's that began all the
+
+482
+00:25:58,159 --> 00:26:03,440
+problem
+
+483
+00:26:00,400 --> 00:26:05,919
+uh copper I I you know that's very
+
+484
+00:26:03,440 --> 00:26:09,679
+technical I don't think that's copotonal
+
+485
+00:26:05,919 --> 00:26:13,279
+but capoternal is very technical name so
+
+486
+00:26:09,679 --> 00:26:15,440
+you know so I don't think it's proper to
+
+487
+00:26:13,279 --> 00:26:17,520
+go with technical names because the
+
+488
+00:26:15,440 --> 00:26:20,960
+repetitive strain injury there there's
+
+489
+00:26:17,520 --> 00:26:24,400
+all all kinds and kind of fuzzy. Even
+
+490
+00:26:20,960 --> 00:26:27,400
+the scientists don't know exactly why it
+
+491
+00:26:24,400 --> 00:26:27,400
+happens.
+
+492
+00:26:27,679 --> 00:26:32,480
+So anyway,
+
+493
+00:26:30,159 --> 00:26:35,360
+so this is the one of the change I made
+
+494
+00:26:32,480 --> 00:26:37,520
+to safely keys. So you no longer press,
+
+495
+00:26:35,360 --> 00:26:40,880
+you know, the number keys instead
+
+496
+00:26:37,520 --> 00:26:43,520
+instead you press the shift and enter.
+
+497
+00:26:40,880 --> 00:26:46,400
+Okay, that's one change about fly keys
+
+498
+00:26:43,520 --> 00:26:48,400
+and lots of others, you know, and lots
+
+499
+00:26:46,400 --> 00:26:51,760
+of other things I did recently. But
+
+500
+00:26:48,400 --> 00:26:56,760
+that's it for for this one. One topic at
+
+501
+00:26:51,760 --> 00:26:56,760
+a time per video. Bye, guys.
+

@@ -1,0 +1,3800 @@
+1
+00:00:11,010 --> 00:00:16,750
+welcome to another episode of Zatoichi
+
+2
+00:00:13,450 --> 00:00:21,669
+Oh today is through the 2019 November
+
+3
+00:00:16,750 --> 00:00:25,590
+29th Friday 10 o clock 10 after 10:00 in
+
+4
+00:00:21,669 --> 00:00:28,779
+the morning San Francisco time and
+
+5
+00:00:25,590 --> 00:00:32,200
+today's topic is JavaScript live code in
+
+6
+00:00:28,779 --> 00:00:39,420
+JavaScript first tutorial javascript and
+
+7
+00:00:32,200 --> 00:00:39,420
+SVG and we are going to do
+
+8
+00:01:27,500 --> 00:01:37,020
+check okay so my sound stops sorry about
+
+9
+00:01:33,780 --> 00:01:41,460
+that so today it's today's topic is
+
+10
+00:01:37,020 --> 00:01:44,010
+going to be JavaScript plus SVG live
+
+11
+00:01:41,460 --> 00:01:48,479
+coding first tutorial I'm going to
+
+12
+00:01:44,010 --> 00:01:53,100
+explain what I'm doing and we are going
+
+13
+00:01:48,479 --> 00:01:59,820
+to code a real-time rotation of platonic
+
+14
+00:01:53,100 --> 00:02:02,880
+solids now you hear okay so great so we
+
+15
+00:01:59,820 --> 00:02:05,580
+are going to code front live rotation
+
+16
+00:02:02,880 --> 00:02:08,550
+real-time rotation of photonic solids
+
+17
+00:02:05,580 --> 00:02:12,660
+and I did a video I did two videos
+
+18
+00:02:08,550 --> 00:02:16,709
+before but you if you want to start from
+
+19
+00:02:12,660 --> 00:02:19,380
+scratch check out the previous video
+
+20
+00:02:16,709 --> 00:02:23,340
+about three days ago on my youtube
+
+21
+00:02:19,380 --> 00:02:26,670
+channel so good morning Benjamin good
+
+22
+00:02:23,340 --> 00:02:32,340
+morning Matt so we got concurrent
+
+23
+00:02:26,670 --> 00:02:35,220
+viewers - okay so just you two guys well
+
+24
+00:02:32,340 --> 00:02:41,010
+okay so let me mention thanks to this
+
+25
+00:02:35,220 --> 00:02:43,830
+person breasts for donation you can go
+
+26
+00:02:41,010 --> 00:02:47,640
+to I have my paypal and patreon on my
+
+27
+00:02:43,830 --> 00:02:55,950
+website solid out info so let's begin
+
+28
+00:02:47,640 --> 00:02:59,610
+coding shall we okay so let's let's not
+
+29
+00:02:55,950 --> 00:03:04,040
+coding then JavaScript that's okay let's
+
+30
+00:02:59,610 --> 00:03:09,090
+start - Co JavaScript so I'm going to
+
+31
+00:03:04,040 --> 00:03:11,610
+okay exhaust start command log mod so on
+
+32
+00:03:09,090 --> 00:03:16,769
+the Left window you see all my Emacs
+
+33
+00:03:11,610 --> 00:03:21,540
+commands and actually let me magnify my
+
+34
+00:03:16,769 --> 00:03:28,040
+font okay let me do some Emacs setup new
+
+35
+00:03:21,540 --> 00:03:32,540
+buffer middle o menlo 15 on the Mac
+
+36
+00:03:28,040 --> 00:03:32,540
+evaluate it that's good
+
+37
+00:03:36,739 --> 00:03:43,590
+so Benjamin Matt Matt you do some
+
+38
+00:03:41,700 --> 00:03:48,540
+JavaScript right Benjamin do you go
+
+39
+00:03:43,590 --> 00:03:51,290
+JavaScript so let's let me get this
+
+40
+00:03:48,540 --> 00:03:51,290
+ready okay
+
+41
+00:03:52,879 --> 00:04:00,870
+today is today's Friday so Friday's
+
+42
+00:03:56,660 --> 00:04:03,989
+today is kind of relaxed day yesterday
+
+43
+00:04:00,870 --> 00:04:07,940
+is Thanksgiving today's so today is
+
+44
+00:04:03,989 --> 00:04:11,310
+Black Friday Black Friday shopping day
+
+45
+00:04:07,940 --> 00:04:13,230
+so close that and some talk show a live
+
+46
+00:04:11,310 --> 00:04:17,459
+stream that's right and we are going to
+
+47
+00:04:13,230 --> 00:04:22,260
+do JavaScript JavaScript okay some
+
+48
+00:04:17,459 --> 00:04:25,530
+JavaScript you've done okay so today we
+
+49
+00:04:22,260 --> 00:04:35,820
+are going to do polyhedron lifetime real
+
+50
+00:04:25,530 --> 00:04:38,970
+time rotation okay and okay let's let's
+
+51
+00:04:35,820 --> 00:04:44,910
+let's continue with that javascript live
+
+52
+00:04:38,970 --> 00:04:50,510
+rotation let's show this in chrome okay
+
+53
+00:04:44,910 --> 00:04:52,139
+this is not working for some reason the
+
+54
+00:04:50,510 --> 00:04:54,620
+apt Oh
+
+55
+00:04:52,139 --> 00:05:02,340
+good morning apt oh good morning to
+
+56
+00:04:54,620 --> 00:05:07,169
+Egypt's Egypt I believe right okay so
+
+57
+00:05:02,340 --> 00:05:10,080
+we're gonna go in to do some JavaScript
+
+58
+00:05:07,169 --> 00:05:12,690
+okay let's you know I need to get
+
+59
+00:05:10,080 --> 00:05:16,320
+started to warm up and get on the track
+
+60
+00:05:12,690 --> 00:05:21,539
+so first of all let's look at this one
+
+61
+00:05:16,320 --> 00:05:23,460
+from showing Chrome okay we're gonna
+
+62
+00:05:21,539 --> 00:05:27,870
+start with that one that one's got some
+
+63
+00:05:23,460 --> 00:05:31,889
+problems and we are going to also let me
+
+64
+00:05:27,870 --> 00:05:37,949
+prepare some code here so we need more
+
+65
+00:05:31,889 --> 00:05:42,650
+code here and what we need is what is
+
+66
+00:05:37,949 --> 00:05:46,070
+this okay so go to a Saudi blog and
+
+67
+00:05:42,650 --> 00:05:46,070
+sound row
+
+68
+00:05:46,140 --> 00:06:02,380
+and index showing Chrome browser and
+
+69
+00:05:54,750 --> 00:06:04,770
+open that polyhedron rotate okay so this
+
+70
+00:06:02,380 --> 00:06:04,770
+one
+
+71
+00:06:11,830 --> 00:06:17,400
+so we're gonna do some JavaScript good
+
+72
+00:06:14,710 --> 00:06:17,400
+morning Alan
+
+73
+00:06:17,849 --> 00:06:27,009
+Carrie Oh Egypt yes and good morning
+
+74
+00:06:22,150 --> 00:06:30,490
+Alan to sunny California okay so we're
+
+75
+00:06:27,009 --> 00:06:33,580
+gonna do JavaScript I need to get on
+
+76
+00:06:30,490 --> 00:06:37,810
+track so what so what are we doing today
+
+77
+00:06:33,580 --> 00:06:40,479
+so we are going to basically improve
+
+78
+00:06:37,810 --> 00:06:43,659
+this one you see this one is kind of
+
+79
+00:06:40,479 --> 00:06:46,419
+screwed the colors is not right it's
+
+80
+00:06:43,659 --> 00:06:48,550
+kind of transparent but it's not you
+
+81
+00:06:46,419 --> 00:06:51,819
+know you see this effect it's actually a
+
+82
+00:06:48,550 --> 00:06:56,639
+book so we we're gonna make it a solid
+
+83
+00:06:51,819 --> 00:06:56,639
+so you don't see the part behind it okay
+
+84
+00:06:57,180 --> 00:07:01,840
+that's the first thing we're gonna do
+
+85
+00:06:59,469 --> 00:07:03,879
+let's this just focus on that shall we
+
+86
+00:07:01,840 --> 00:07:07,060
+let's yeah let's just focus on this one
+
+87
+00:07:03,879 --> 00:07:09,490
+and that one doesn't work for some
+
+88
+00:07:07,060 --> 00:07:14,440
+reason I have like so many versions
+
+89
+00:07:09,490 --> 00:07:18,449
+right now you know so copy that close
+
+90
+00:07:14,440 --> 00:07:23,889
+that create a new window paste it here
+
+91
+00:07:18,449 --> 00:07:26,050
+so we're gonna fix this one so and which
+
+92
+00:07:23,889 --> 00:07:31,599
+one is this okay so this one is right
+
+93
+00:07:26,050 --> 00:07:35,229
+here so again for those of you new here
+
+94
+00:07:31,599 --> 00:07:38,139
+there is a another video a few days ago
+
+95
+00:07:35,229 --> 00:07:40,479
+I did two videos before but watch the
+
+96
+00:07:38,139 --> 00:07:43,240
+second one because that one start from
+
+97
+00:07:40,479 --> 00:07:48,069
+scratch that one is one hour and 15
+
+98
+00:07:43,240 --> 00:07:53,400
+minutes which we arrived at this state
+
+99
+00:07:48,069 --> 00:07:58,979
+where we have icicle icosahedron or
+
+100
+00:07:53,400 --> 00:08:08,370
+octahedron or da roca Heatran and
+
+101
+00:07:58,979 --> 00:08:08,370
+octahedron and cube and tetrahedron okay
+
+102
+00:08:08,610 --> 00:08:19,050
+okay so so we need to so so go back to
+
+103
+00:08:19,180 --> 00:08:37,030
+i cosa he'd run go back to us like thank
+
+104
+00:08:27,280 --> 00:08:42,910
+Allah he'd run and and my god Kody I I
+
+105
+00:08:37,030 --> 00:08:45,490
+should get prepared but okay okay let's
+
+106
+00:08:42,910 --> 00:08:47,980
+take it it's just let's just take it
+
+107
+00:08:45,490 --> 00:08:51,880
+easy and go to whatever if we cannot
+
+108
+00:08:47,980 --> 00:08:54,160
+finish then then we cannot finish so
+
+109
+00:08:51,880 --> 00:09:03,790
+what what's up you guys have you guys
+
+110
+00:08:54,160 --> 00:09:06,760
+eaten turkey okay first of all let's fix
+
+111
+00:09:03,790 --> 00:09:13,720
+the faces why is it like that
+
+112
+00:09:06,760 --> 00:09:17,980
+I don't know so I think the well I have
+
+113
+00:09:13,720 --> 00:09:21,220
+to explain you know coding live coding
+
+114
+00:09:17,980 --> 00:09:25,540
+and and also explaining what's going on
+
+115
+00:09:21,220 --> 00:09:27,900
+is not so easy you know basically you
+
+116
+00:09:25,540 --> 00:09:31,900
+have to choose something you know well
+
+117
+00:09:27,900 --> 00:09:34,360
+then you do it you don't go into places
+
+118
+00:09:31,900 --> 00:09:36,640
+you don't know well because otherwise
+
+119
+00:09:34,360 --> 00:09:39,190
+you're gonna think for 10 minutes then
+
+120
+00:09:36,640 --> 00:09:40,900
+coaches for a minute and nobody wants to
+
+121
+00:09:39,190 --> 00:09:43,210
+watch that so you want to pick something
+
+122
+00:09:40,900 --> 00:09:46,140
+you know we're already and you know like
+
+123
+00:09:43,210 --> 00:09:49,930
+noise so where we can just start to code
+
+124
+00:09:46,140 --> 00:09:52,810
+fast but the other issue is that when
+
+125
+00:09:49,930 --> 00:09:56,110
+you do live coding you have to do
+
+126
+00:09:52,810 --> 00:09:58,180
+explanation at the same time so you know
+
+127
+00:09:56,110 --> 00:10:02,770
+if you are coding by yourself you can
+
+128
+00:09:58,180 --> 00:10:05,740
+just type type away but often times you
+
+129
+00:10:02,770 --> 00:10:09,010
+have to explain and the explanation you
+
+130
+00:10:05,740 --> 00:10:12,910
+will take like 50% more than 50% of the
+
+131
+00:10:09,010 --> 00:10:15,330
+time because because when you're coding
+
+132
+00:10:12,910 --> 00:10:17,650
+there's so many maybe you made a typo
+
+133
+00:10:15,330 --> 00:10:21,460
+even if you made a typo you have to
+
+134
+00:10:17,650 --> 00:10:23,410
+expand it because otherwise because most
+
+135
+00:10:21,460 --> 00:10:25,150
+people we are not know what you know
+
+136
+00:10:23,410 --> 00:10:29,530
+because you are the way do you know it
+
+137
+00:10:25,150 --> 00:10:32,560
+but other people don't so what are we
+
+138
+00:10:29,530 --> 00:10:35,050
+doing now so we are trying to fix this
+
+139
+00:10:32,560 --> 00:10:40,089
+so in order to fix this there are there
+
+140
+00:10:35,050 --> 00:10:46,689
+are 280 days of code so we did this
+
+141
+00:10:40,089 --> 00:10:49,959
+before so I'm not going to explain you
+
+142
+00:10:46,689 --> 00:10:52,449
+know I'm not going to explain but but
+
+143
+00:10:49,959 --> 00:10:54,910
+where is the problem well I know it's a
+
+144
+00:10:52,449 --> 00:11:02,850
+problem okay that the problem is around
+
+145
+00:10:54,910 --> 00:11:06,819
+when you generate SVG face so let's see
+
+146
+00:11:02,850 --> 00:11:12,579
+so we have here feel we are using a
+
+147
+00:11:06,819 --> 00:11:16,240
+transparency here you see this RGB that
+
+148
+00:11:12,579 --> 00:11:18,610
+part is is transparent because of the
+
+149
+00:11:16,240 --> 00:11:22,629
+last value now this is by the way same
+
+150
+00:11:18,610 --> 00:11:26,879
+syntax as CSS so if you if we take away
+
+151
+00:11:22,629 --> 00:11:31,209
+feel cut and let's just say yellow
+
+152
+00:11:26,879 --> 00:11:37,240
+refresh then you can see the problem it
+
+153
+00:11:31,209 --> 00:11:42,100
+becomes really funky yeah that's an
+
+154
+00:11:37,240 --> 00:11:44,920
+interesting thing that's going on the
+
+155
+00:11:42,100 --> 00:11:47,949
+reason that's happening because right
+
+156
+00:11:44,920 --> 00:11:50,279
+now the code okay let me show you a
+
+157
+00:11:47,949 --> 00:11:53,439
+different version okay instead of yellow
+
+158
+00:11:50,279 --> 00:11:58,720
+this here is the line okay comment that
+
+159
+00:11:53,439 --> 00:12:03,809
+out and wait and do and do and do okay
+
+160
+00:11:58,720 --> 00:12:08,050
+so copy the line then comment this out
+
+161
+00:12:03,809 --> 00:12:10,600
+then in here we say yellow okay that's
+
+162
+00:12:08,050 --> 00:12:13,509
+the current version we have copy the
+
+163
+00:12:10,600 --> 00:12:19,170
+line paste it again coming out the
+
+164
+00:12:13,509 --> 00:12:24,519
+yellow and let's say Fionan okay refresh
+
+165
+00:12:19,170 --> 00:12:26,410
+now that's better that's wireframe you
+
+166
+00:12:24,519 --> 00:12:28,689
+see they are rotating in only one
+
+167
+00:12:26,410 --> 00:12:30,639
+direction let's see like you know it's
+
+168
+00:12:28,689 --> 00:12:36,899
+not to tell which direction they are
+
+169
+00:12:30,639 --> 00:12:40,870
+rotating but now if we say fear yellow
+
+170
+00:12:36,899 --> 00:12:43,230
+refresh then we get this kind of funky
+
+171
+00:12:40,870 --> 00:12:43,230
+thing
+
+172
+00:12:44,490 --> 00:12:54,480
+the reason that happens is that we are
+
+173
+00:12:48,790 --> 00:13:00,120
+drawing each of these polygons in a pen
+
+174
+00:12:54,480 --> 00:13:00,120
+some some are in front of the others but
+
+175
+00:13:05,790 --> 00:13:15,700
+how do you how can I explain this this
+
+176
+00:13:12,340 --> 00:13:22,390
+is very disorienting to see code first
+
+177
+00:13:15,700 --> 00:13:25,630
+explain after oh okay yeah so code first
+
+178
+00:13:22,390 --> 00:13:27,610
+explain after that that that seems a
+
+179
+00:13:25,630 --> 00:13:31,620
+good advice
+
+180
+00:13:27,610 --> 00:13:31,620
+code first explain later yeah
+
+181
+00:13:31,810 --> 00:13:38,970
+okay so but what are we doing what am i
+
+182
+00:13:34,660 --> 00:13:42,100
+doing so what I need to fix this
+
+183
+00:13:38,970 --> 00:13:44,740
+you know I okay I know what how do I
+
+184
+00:13:42,100 --> 00:13:49,240
+know what is wrong that's you know what
+
+185
+00:13:44,740 --> 00:13:51,880
+we can do is going to you see we have
+
+186
+00:13:49,240 --> 00:13:59,290
+the polyhedron data here so let me show
+
+187
+00:13:51,880 --> 00:14:04,240
+you yeah even I myself am confused
+
+188
+00:13:59,290 --> 00:14:06,580
+actually what am i doing I should have
+
+189
+00:14:04,240 --> 00:14:09,190
+really every time I start to do this I
+
+190
+00:14:06,580 --> 00:14:13,150
+thought I should have done this before
+
+191
+00:14:09,190 --> 00:14:15,670
+like you know just to review it so I can
+
+192
+00:14:13,150 --> 00:14:18,910
+do a better video but every time I
+
+193
+00:14:15,670 --> 00:14:20,020
+started to like to you know this is this
+
+194
+00:14:18,910 --> 00:14:23,110
+is not too hard
+
+195
+00:14:20,020 --> 00:14:25,120
+you know and I thought you just walk you
+
+196
+00:14:23,110 --> 00:14:33,280
+know whatever problems we can just
+
+197
+00:14:25,120 --> 00:14:35,410
+explain and do it you know live but but
+
+198
+00:14:33,280 --> 00:14:40,570
+when they actually start to do it
+
+199
+00:14:35,410 --> 00:14:43,780
+there are like several minutes delay
+
+200
+00:14:40,570 --> 00:14:48,250
+like I don't know like I have to read
+
+201
+00:14:43,780 --> 00:14:52,660
+the code and think about it okay so
+
+202
+00:14:48,250 --> 00:14:54,910
+anyway so here is the icosahedron data
+
+203
+00:14:52,660 --> 00:14:56,950
+you know what is you know it might be
+
+204
+00:14:54,910 --> 00:14:57,310
+interesting to see what happens to the
+
+205
+00:14:56,950 --> 00:15:01,420
+other
+
+206
+00:14:57,310 --> 00:15:05,080
+for the Hydra okay so here is octahedron
+
+207
+00:15:01,420 --> 00:15:12,430
+really funky let's see if you guys can
+
+208
+00:15:05,080 --> 00:15:17,890
+see it you guys can see it right so
+
+209
+00:15:12,430 --> 00:15:21,060
+let's go to the HTML let's remove that
+
+210
+00:15:17,890 --> 00:15:27,190
+okay now it's better
+
+211
+00:15:21,060 --> 00:15:29,910
+so that's ice icosahedron now darker
+
+212
+00:15:27,190 --> 00:15:29,910
+Heatran
+
+213
+00:15:34,790 --> 00:15:45,130
+it's really funky now at octahedron cube
+
+214
+00:15:49,630 --> 00:15:58,389
+okay that's a good question and the most
+
+215
+00:15:53,430 --> 00:16:00,819
+that's that's a good question
+
+216
+00:15:58,389 --> 00:16:03,130
+so that that that question gets us
+
+217
+00:16:00,819 --> 00:16:08,110
+started thank you thank you for asking
+
+218
+00:16:03,130 --> 00:16:11,199
+that so for for we what we are joining
+
+219
+00:16:08,110 --> 00:16:16,029
+right now is platonic solids so
+
+220
+00:16:11,199 --> 00:16:18,310
+basically they are convex solids that
+
+221
+00:16:16,029 --> 00:16:19,630
+means it's like a bow okay so it's not
+
+222
+00:16:18,310 --> 00:16:23,160
+concave it
+
+223
+00:16:19,630 --> 00:16:27,579
+there's no dent so everywhere it's like
+
+224
+00:16:23,160 --> 00:16:30,100
+puffy so when you have a convex solid
+
+225
+00:16:27,579 --> 00:16:33,519
+then it's really easy to determine which
+
+226
+00:16:30,100 --> 00:16:39,819
+phases is in front all you have to do is
+
+227
+00:16:33,519 --> 00:16:42,509
+is you compute the center of a of a
+
+228
+00:16:39,819 --> 00:16:46,930
+triangle let's see let's stop rotate
+
+229
+00:16:42,509 --> 00:16:52,930
+okay so you have this okay this is this
+
+230
+00:16:46,930 --> 00:16:56,019
+is really funky this is you know I'm
+
+231
+00:16:52,930 --> 00:16:58,269
+trying to figure out why does this
+
+232
+00:16:56,019 --> 00:17:00,939
+happen the way it is you know right now
+
+233
+00:16:58,269 --> 00:17:03,220
+I don't understand but I know I can
+
+234
+00:17:00,939 --> 00:17:06,039
+understand that if I try to figure it
+
+235
+00:17:03,220 --> 00:17:08,799
+out for five minutes try to think about
+
+236
+00:17:06,039 --> 00:17:12,579
+it why does this happen right now
+
+237
+00:17:08,799 --> 00:17:15,039
+currently you see but anyway that's one
+
+238
+00:17:12,579 --> 00:17:20,799
+topic okay that's very interesting topic
+
+239
+00:17:15,039 --> 00:17:24,089
+to figure out why you know how it draws
+
+240
+00:17:20,799 --> 00:17:24,089
+the way it is right now
+
+241
+00:17:24,390 --> 00:17:30,730
+that's very interesting so that's one
+
+242
+00:17:27,069 --> 00:17:34,059
+topic and the other topic is right now
+
+243
+00:17:30,730 --> 00:17:37,150
+we can just start to code you know we we
+
+244
+00:17:34,059 --> 00:17:39,820
+can start to add proper code so that the
+
+245
+00:17:37,150 --> 00:17:44,950
+facing front will show we all hide the
+
+246
+00:17:39,820 --> 00:17:47,799
+face behind it so so how do you do that
+
+247
+00:17:44,950 --> 00:17:49,780
+let me explain okay so so remember
+
+248
+00:17:47,799 --> 00:17:52,809
+remember there are two things we want to
+
+249
+00:17:49,780 --> 00:17:54,669
+do one is just to start to make it you
+
+250
+00:17:52,809 --> 00:17:58,690
+know how the algorithm should walk the
+
+251
+00:17:54,669 --> 00:18:02,559
+other one is a curiosity is to figure
+
+252
+00:17:58,690 --> 00:18:02,980
+out why it what's the exact reason it is
+
+253
+00:18:02,559 --> 00:18:05,650
+doing
+
+254
+00:18:02,980 --> 00:18:08,200
+what it is doing right now okay that's
+
+255
+00:18:05,650 --> 00:18:11,370
+one question we go back to that but
+
+256
+00:18:08,200 --> 00:18:14,410
+first of all let's try let's explain how
+
+257
+00:18:11,370 --> 00:18:16,990
+how to get it properly how so to
+
+258
+00:18:14,410 --> 00:18:19,840
+determine which phase in front which one
+
+259
+00:18:16,990 --> 00:18:24,010
+is impact all you have to do is for each
+
+260
+00:18:19,840 --> 00:18:26,860
+face you compute their center like a
+
+261
+00:18:24,010 --> 00:18:31,330
+face has three points in in
+
+262
+00:18:26,860 --> 00:18:33,970
+three-dimensional space so you can you
+
+263
+00:18:31,330 --> 00:18:37,810
+compute their center you got the center
+
+264
+00:18:33,970 --> 00:18:45,670
+of the face then it's just a matter of
+
+265
+00:18:37,810 --> 00:18:48,760
+seeing which of their z-axis has higher
+
+266
+00:18:45,670 --> 00:18:52,180
+value so the higher value for the z axis
+
+267
+00:18:48,760 --> 00:18:58,150
+the z coordinate is more in front that's
+
+268
+00:18:52,180 --> 00:19:00,340
+so that's very easy to do okay so let's
+
+269
+00:18:58,150 --> 00:19:03,790
+just do that first then then maybe we
+
+270
+00:19:00,340 --> 00:19:08,860
+come back to the curiosity so to figure
+
+271
+00:19:03,790 --> 00:19:12,370
+out the the to figure out the centroid
+
+272
+00:19:08,860 --> 00:19:15,210
+okay here is here's the computation so
+
+273
+00:19:12,370 --> 00:19:21,850
+you if suppose you have a triangle so
+
+274
+00:19:15,210 --> 00:19:26,830
+let's say a1 a2 a3 so that's one
+
+275
+00:19:21,850 --> 00:19:29,160
+coordinate of a triangle and and let's
+
+276
+00:19:26,830 --> 00:19:29,160
+see
+
+277
+00:19:43,680 --> 00:19:52,000
+ABC okay so now we have three points of
+
+278
+00:19:49,270 --> 00:19:58,150
+a triangle it can be more okay it
+
+279
+00:19:52,000 --> 00:20:03,820
+doesn't matter so let's add more ABCD C
+
+280
+00:19:58,150 --> 00:20:06,790
+to D okay suppose we have a anyway you
+
+281
+00:20:03,820 --> 00:20:08,830
+have a pulley you have a face you know
+
+282
+00:20:06,790 --> 00:20:12,070
+let's this just say triangle you have a
+
+283
+00:20:08,830 --> 00:20:17,650
+face in free space and each one is their
+
+284
+00:20:12,070 --> 00:20:20,890
+coordinates a1 a2 a3 b1 b2 b3 and to
+
+285
+00:20:17,650 --> 00:20:26,140
+compute the center that we now we need a
+
+286
+00:20:20,890 --> 00:20:29,140
+another point x1 x2 x3 such that this
+
+287
+00:20:26,140 --> 00:20:31,870
+point is the center of that face so the
+
+288
+00:20:29,140 --> 00:20:38,730
+way you do it is very easy you this is
+
+289
+00:20:31,870 --> 00:20:38,730
+what you do a 1 plus B 1 B 1 plus C 1
+
+290
+00:20:38,850 --> 00:20:44,770
+you add them divided by 3 because they
+
+291
+00:20:42,820 --> 00:20:48,100
+are three points total so basically you
+
+292
+00:20:44,770 --> 00:20:53,490
+just average them so here is what you do
+
+293
+00:20:48,100 --> 00:20:53,490
+so the new coordinate will be like that
+
+294
+00:20:55,860 --> 00:21:07,540
+ok so this is like the new code and let
+
+295
+00:21:00,700 --> 00:21:10,360
+me show you okay so this is this is the
+
+296
+00:21:07,540 --> 00:21:14,140
+centroid there's a math term they call
+
+297
+00:21:10,360 --> 00:21:17,500
+it centroid centroid you know the center
+
+298
+00:21:14,140 --> 00:21:20,200
+point among a bunch of points so and
+
+299
+00:21:17,500 --> 00:21:23,230
+this works in any dimension in any
+
+300
+00:21:20,200 --> 00:21:26,050
+number of points so you can have more
+
+301
+00:21:23,230 --> 00:21:37,480
+points so if you have another point
+
+302
+00:21:26,050 --> 00:21:41,580
+let's say okay let me do it here so
+
+303
+00:21:37,480 --> 00:21:45,990
+that's one thing here is one thing and
+
+304
+00:21:41,580 --> 00:21:45,990
+now we have another thing
+
+305
+00:21:46,100 --> 00:21:52,760
+so in this example in a second example
+
+306
+00:21:49,520 --> 00:21:56,270
+we have four points in space and if you
+
+307
+00:21:52,760 --> 00:21:58,340
+want to find the center this is all you
+
+308
+00:21:56,270 --> 00:22:07,310
+have to do you just basically just
+
+309
+00:21:58,340 --> 00:22:12,410
+average them wait ABCD okay so this is
+
+310
+00:22:07,310 --> 00:22:15,230
+gonna be AP see
+
+311
+00:22:12,410 --> 00:22:17,440
+oh yeah plus T so this is gonna be like
+
+312
+00:22:15,230 --> 00:22:17,440
+that
+
+313
+00:22:26,200 --> 00:22:34,549
+does that make sense the centroid guys
+
+314
+00:22:31,669 --> 00:22:35,240
+make sense this is called the centroid
+
+315
+00:22:34,549 --> 00:22:37,309
+okay
+
+316
+00:22:35,240 --> 00:22:41,299
+so now let's go back let's write a
+
+317
+00:22:37,309 --> 00:22:44,450
+function that takes a bunch of points
+
+318
+00:22:41,299 --> 00:22:46,850
+and returns the centroid so in but in
+
+319
+00:22:44,450 --> 00:22:54,769
+fact we have that code here already so
+
+320
+00:22:46,850 --> 00:22:55,899
+let me try to find it so does that does
+
+321
+00:22:54,769 --> 00:22:59,649
+that make sense
+
+322
+00:22:55,899 --> 00:23:02,450
+Emma knows let me know you know if you
+
+323
+00:22:59,649 --> 00:23:05,600
+can answer that would be great so
+
+324
+00:23:02,450 --> 00:23:09,139
+because I know oh I did something you
+
+325
+00:23:05,600 --> 00:23:11,779
+know good right so the question so let's
+
+326
+00:23:09,139 --> 00:23:14,629
+get the centroid okay so this the code
+
+327
+00:23:11,779 --> 00:23:16,700
+for centuries this one it's so simple so
+
+328
+00:23:14,629 --> 00:23:19,940
+here is the code for centroid
+
+329
+00:23:16,700 --> 00:23:23,659
+so get centroid then you give it a bunch
+
+330
+00:23:19,940 --> 00:23:26,990
+of vectors erase then it returns the
+
+331
+00:23:23,659 --> 00:23:31,460
+centroid of a list of points so that's
+
+332
+00:23:26,990 --> 00:23:42,200
+very simple code so let's put that code
+
+333
+00:23:31,460 --> 00:23:47,019
+into our polyhedron here so let's put a
+
+334
+00:23:42,200 --> 00:23:47,019
+function where where do we put it
+
+335
+00:23:51,340 --> 00:23:58,920
+let's say here okay well let's say above
+
+336
+00:23:55,590 --> 00:23:58,920
+okay here
+
+337
+00:24:08,760 --> 00:24:18,690
+okay get centroid so centroid is a arrow
+
+338
+00:24:12,760 --> 00:24:25,240
+function it takes list of points and
+
+339
+00:24:18,690 --> 00:24:30,669
+then it a price reduce it takes any two
+
+340
+00:24:25,240 --> 00:24:42,730
+points ABC and XYZ then it computes a
+
+341
+00:24:30,669 --> 00:24:47,740
+plus X P plus y C / Z okay then then it
+
+342
+00:24:42,730 --> 00:24:55,360
+does map it it divided by number of
+
+343
+00:24:47,740 --> 00:25:00,240
+points okay so so anyway so we got the
+
+344
+00:24:55,360 --> 00:25:05,710
+centroid right guys right
+
+345
+00:25:00,240 --> 00:25:11,370
+see if I'm 24 minutes okay so this is
+
+346
+00:25:05,710 --> 00:25:11,370
+this is this is not going so good
+
+347
+00:25:12,659 --> 00:25:19,059
+century we are not going to get anywhere
+
+348
+00:25:15,399 --> 00:25:23,169
+with this speed so now we have a century
+
+349
+00:25:19,059 --> 00:25:30,210
+now we want to look at the code where it
+
+350
+00:25:23,169 --> 00:25:30,210
+renders okay so render
+
+351
+00:25:35,250 --> 00:25:49,200
+hello sir hello Finch Fitch you know I
+
+352
+00:25:44,870 --> 00:25:52,860
+not doing good here and every time I
+
+353
+00:25:49,200 --> 00:25:56,750
+think you know I'll just stop but if I
+
+354
+00:25:52,860 --> 00:25:59,549
+stop that's not going to work because
+
+355
+00:25:56,750 --> 00:26:02,700
+because if I stop now then what what's
+
+356
+00:25:59,549 --> 00:26:10,710
+not next either we switch to some random
+
+357
+00:26:02,700 --> 00:26:11,850
+topic or or next day tomorrow we're
+
+358
+00:26:10,710 --> 00:26:14,750
+gonna do this again
+
+359
+00:26:11,850 --> 00:26:18,200
+so I need to do this anyway so centroid
+
+360
+00:26:14,750 --> 00:26:24,000
+so okay what am I gonna do with centroid
+
+361
+00:26:18,200 --> 00:26:27,659
+okay now okay so let me go methodology
+
+362
+00:26:24,000 --> 00:26:30,600
+Co by logically step by step so I got a
+
+363
+00:26:27,659 --> 00:26:33,750
+centroid function which returns the
+
+364
+00:26:30,600 --> 00:26:37,980
+center point of a bunch of a point in
+
+365
+00:26:33,750 --> 00:26:42,919
+our case it returns the center of a face
+
+366
+00:26:37,980 --> 00:26:46,530
+okay he returns the center of a face now
+
+367
+00:26:42,919 --> 00:26:49,830
+what do I want to do next what I want to
+
+368
+00:26:46,530 --> 00:26:54,600
+do is when this thing when I try to draw
+
+369
+00:26:49,830 --> 00:26:56,820
+this thing you try to find the centroid
+
+370
+00:26:54,600 --> 00:27:01,710
+for each face before you draw it you
+
+371
+00:26:56,820 --> 00:27:06,450
+find the center point then check if that
+
+372
+00:27:01,710 --> 00:27:12,659
+center point is on one side of the plane
+
+373
+00:27:06,450 --> 00:27:16,679
+XY XY plane so so when you do SVG here's
+
+374
+00:27:12,659 --> 00:27:20,970
+your plan this is X vertical is Y so
+
+375
+00:27:16,679 --> 00:27:24,450
+this plane is XY plane so I got a
+
+376
+00:27:20,970 --> 00:27:27,600
+centroid of a face somewhere in 3-space
+
+377
+00:27:24,450 --> 00:27:33,270
+all I want to do is I want to find out
+
+378
+00:27:27,600 --> 00:27:34,350
+if that point is on one side of the one
+
+379
+00:27:33,270 --> 00:27:36,720
+side of the plane
+
+380
+00:27:34,350 --> 00:27:40,950
+because this thing we are drawing is
+
+381
+00:27:36,720 --> 00:27:43,919
+centered on zero on the engine so if
+
+382
+00:27:40,950 --> 00:27:46,710
+it's on one side then draw it if it's on
+
+383
+00:27:43,919 --> 00:27:49,170
+the other side don't draw it that's half
+
+384
+00:27:46,710 --> 00:27:51,900
+the problem okay
+
+385
+00:27:49,170 --> 00:27:55,080
+so the next step is to find where is the
+
+386
+00:27:51,900 --> 00:27:59,010
+part that draws the polygons so that
+
+387
+00:27:55,080 --> 00:28:04,680
+would be invent in in render okay so
+
+388
+00:27:59,010 --> 00:28:09,480
+render it says face indexes for each you
+
+389
+00:28:04,680 --> 00:28:13,860
+append child cue a SVG face okay so for
+
+390
+00:28:09,480 --> 00:28:18,240
+each face you okay now I want I know
+
+391
+00:28:13,860 --> 00:28:24,960
+what to do so here it is trying to for
+
+392
+00:28:18,240 --> 00:28:28,200
+each face it creates a SVG element then
+
+393
+00:28:24,960 --> 00:28:35,310
+it draws so now we don't want to do that
+
+394
+00:28:28,200 --> 00:28:38,130
+for all faces only we want to do that
+
+395
+00:28:35,310 --> 00:28:42,150
+only when the face is on one side of the
+
+396
+00:28:38,130 --> 00:28:45,330
+of the XY plane okay that's very easy to
+
+397
+00:28:42,150 --> 00:28:55,020
+do so so we're gonna modify this line
+
+398
+00:28:45,330 --> 00:29:02,010
+here okay so if something else something
+
+399
+00:28:55,020 --> 00:29:04,760
+okay so if on one side of face so if get
+
+400
+00:29:02,010 --> 00:29:04,760
+centroid
+
+401
+00:29:15,260 --> 00:29:21,260
+get centroid we need a bunch of points
+
+402
+00:29:18,500 --> 00:29:25,130
+for the face but how do we know how do
+
+403
+00:29:21,260 --> 00:29:28,850
+we get the points of the face well it's
+
+404
+00:29:25,130 --> 00:29:34,309
+somewhere here okay yeah it's somewhere
+
+405
+00:29:28,850 --> 00:29:38,390
+here face sket face there it is
+
+406
+00:29:34,309 --> 00:29:42,679
+so get face J returns a array each
+
+407
+00:29:38,390 --> 00:29:44,929
+element is coordinate of a vertex of the
+
+408
+00:29:42,679 --> 00:29:48,169
+face number J okay that's what we want
+
+409
+00:29:44,929 --> 00:29:51,730
+to that's what we want now go back to
+
+410
+00:29:48,169 --> 00:29:51,730
+where we are here
+
+411
+00:29:52,030 --> 00:29:59,929
+so get centroid we're gonna call it okay
+
+412
+00:29:56,270 --> 00:30:03,200
+we're gonna core it and we're gonna core
+
+413
+00:29:59,929 --> 00:30:10,520
+it with weight we're gonna call it like
+
+414
+00:30:03,200 --> 00:30:13,900
+that go get face okay go get face J okay
+
+415
+00:30:10,520 --> 00:30:13,900
+so so far so good
+
+416
+00:30:14,049 --> 00:30:22,400
+even so far so not good you are stuck
+
+417
+00:30:18,350 --> 00:30:25,820
+with me so get centroid get face J so
+
+418
+00:30:22,400 --> 00:30:29,270
+get face returns a bunch of points then
+
+419
+00:30:25,820 --> 00:30:33,679
+get Centro it returns the centroid of
+
+420
+00:30:29,270 --> 00:30:37,690
+that bunch of points then we take the z
+
+421
+00:30:33,679 --> 00:30:43,270
+axis I mean the we take the Z coordinate
+
+422
+00:30:37,690 --> 00:30:46,520
+okay so which is the second index
+
+423
+00:30:43,270 --> 00:30:49,309
+because remember we have a sick
+
+424
+00:30:46,520 --> 00:30:52,400
+eccentric returns a point and this point
+
+425
+00:30:49,309 --> 00:30:57,010
+is in 3-space so it has three
+
+426
+00:30:52,400 --> 00:31:00,980
+coordinates XYZ so the last part is
+
+427
+00:30:57,010 --> 00:31:06,080
+index two so if the z coordinate is
+
+428
+00:31:00,980 --> 00:31:13,790
+greater than zero then you draw it okay
+
+429
+00:31:06,080 --> 00:31:20,720
+then we want to draw it okay so if that
+
+430
+00:31:13,790 --> 00:31:25,990
+draw else else else don't do anything
+
+431
+00:31:20,720 --> 00:31:27,890
+okay let's see okay let's try that okay
+
+432
+00:31:25,990 --> 00:31:30,679
+wait
+
+433
+00:31:27,890 --> 00:31:32,920
+yeah let's let's try what happens with
+
+434
+00:31:30,679 --> 00:31:32,920
+this
+
+435
+00:31:41,490 --> 00:31:49,580
+okay motive myself so okay so let's
+
+436
+00:31:45,120 --> 00:31:49,580
+refresh oops
+
+437
+00:31:49,700 --> 00:31:57,529
+okay okay
+
+438
+00:31:53,659 --> 00:32:01,919
+so I'm cooking pizza this morning and
+
+439
+00:31:57,529 --> 00:32:06,690
+inviting my roommates to eat pizza they
+
+440
+00:32:01,919 --> 00:32:11,630
+are heading off to work now so what is
+
+441
+00:32:06,690 --> 00:32:11,630
+the problem on court type error Oh God
+
+442
+00:32:14,690 --> 00:32:24,529
+you know I'm not sure I'm gonna sis this
+
+443
+00:32:19,980 --> 00:32:24,529
+is getting very bad six people watching
+
+444
+00:32:28,370 --> 00:32:33,179
+are you guys still getting anything okay
+
+445
+00:32:31,020 --> 00:32:36,840
+so let me let me see what's going on
+
+446
+00:32:33,179 --> 00:32:40,559
+so unquote okay so stop rotation you
+
+447
+00:32:36,840 --> 00:32:43,890
+know when you you know this keeps going
+
+448
+00:32:40,559 --> 00:32:49,340
+so what's his problem
+
+449
+00:32:43,890 --> 00:32:49,340
+PDS reduce is not a function what
+
+450
+00:32:54,530 --> 00:33:05,030
+okay maybe our centroid get centroid
+
+451
+00:32:59,510 --> 00:33:08,900
+face oh I know where is wrong I got it
+
+452
+00:33:05,030 --> 00:33:10,570
+wrong the syntax is wrong so it should
+
+453
+00:33:08,900 --> 00:33:17,630
+be here yeah
+
+454
+00:33:10,570 --> 00:33:21,440
+so you see get face then we have guessed
+
+455
+00:33:17,630 --> 00:33:24,170
+centroid then take take the Z coordinate
+
+456
+00:33:21,440 --> 00:33:25,840
+okay then if it's greater than zero then
+
+457
+00:33:24,170 --> 00:33:32,600
+Troy now let's try it
+
+458
+00:33:25,840 --> 00:33:35,110
+yay yay problem good morning Lyle card
+
+459
+00:33:32,600 --> 00:33:38,470
+Oh what is the problem
+
+460
+00:33:35,110 --> 00:33:41,510
+yeah indeed we got a problem but I don't
+
+461
+00:33:38,470 --> 00:33:44,090
+know what why is it drawing like that
+
+462
+00:33:41,510 --> 00:33:47,990
+but however you can see now look at that
+
+463
+00:33:44,090 --> 00:33:51,580
+picture carefully you can see that our
+
+464
+00:33:47,990 --> 00:33:53,960
+algorithm is actually working correctly
+
+465
+00:33:51,580 --> 00:33:57,430
+but we got some other problems for
+
+466
+00:33:53,960 --> 00:34:01,780
+example this you know we got this blank
+
+467
+00:33:57,430 --> 00:34:04,760
+thing there I don't know why is it blank
+
+468
+00:34:01,780 --> 00:34:10,370
+you know I know why is that like that
+
+469
+00:34:04,760 --> 00:34:15,010
+because yeah actually I know it is like
+
+470
+00:34:10,370 --> 00:34:20,120
+that because our data for I suck eyes
+
+471
+00:34:15,010 --> 00:34:25,340
+icosahedron is incorrect you see we have
+
+472
+00:34:20,120 --> 00:34:29,000
+the data here for icosahedron so here
+
+473
+00:34:25,340 --> 00:34:32,750
+are the vertices and here are the faces
+
+474
+00:34:29,000 --> 00:34:36,080
+I know it's incorrect because this data
+
+475
+00:34:32,750 --> 00:34:40,129
+is computed is given to me this code by
+
+476
+00:34:36,080 --> 00:34:42,409
+a my friend mathematician Herman and he
+
+477
+00:34:40,129 --> 00:34:46,970
+told me this is incorrect because he has
+
+478
+00:34:42,409 --> 00:34:51,830
+a new version so if we just replace the
+
+479
+00:34:46,970 --> 00:34:55,669
+data by a new version issue walk yeah
+
+480
+00:34:51,830 --> 00:34:58,090
+right yeah so I guess that's yeah when
+
+481
+00:34:55,669 --> 00:34:58,090
+you have
+
+482
+00:34:59,839 --> 00:35:07,530
+you see these vertices this this are
+
+483
+00:35:04,200 --> 00:35:11,880
+just a bunch of numbers you know Gigi is
+
+484
+00:35:07,530 --> 00:35:14,849
+a number the reason they are using Gigi
+
+485
+00:35:11,880 --> 00:35:19,490
+is because it makes it easier to compute
+
+486
+00:35:14,849 --> 00:35:23,130
+you see gigi is defined in in here
+
+487
+00:35:19,490 --> 00:35:27,650
+Gigi is actually the golden ratio now
+
+488
+00:35:23,130 --> 00:35:32,670
+when you need the vertices for a eggs
+
+489
+00:35:27,650 --> 00:35:38,970
+icosahedron you need golden ratio okay
+
+490
+00:35:32,670 --> 00:35:41,609
+let's go there let's let's go to now if
+
+491
+00:35:38,970 --> 00:35:44,099
+I cannot do code well I go to
+
+492
+00:35:41,609 --> 00:35:48,450
+mathematics to explain something
+
+493
+00:35:44,099 --> 00:35:50,940
+interesting but this is indeed
+
+494
+00:35:48,450 --> 00:35:56,310
+interesting because when you are trying
+
+495
+00:35:50,940 --> 00:36:00,900
+to draw a icosahedron or any polyhedron
+
+496
+00:35:56,310 --> 00:36:04,710
+you need a list of coordinates now for
+
+497
+00:36:00,900 --> 00:36:08,579
+cube the coordinates are easy to come by
+
+498
+00:36:04,710 --> 00:36:11,369
+because it's just 1 1 1 or 1 negative 1
+
+499
+00:36:08,579 --> 00:36:13,190
+you know it's a variation of what but
+
+500
+00:36:11,369 --> 00:36:17,910
+when you have something like like
+
+501
+00:36:13,190 --> 00:36:20,400
+icosahedron the vertices is you have to
+
+502
+00:36:17,910 --> 00:36:24,569
+compute them you and if you have not
+
+503
+00:36:20,400 --> 00:36:27,150
+studied it you may find this actually a
+
+504
+00:36:24,569 --> 00:36:32,849
+good very good
+
+505
+00:36:27,150 --> 00:36:37,490
+problem in geometry that is to find the
+
+506
+00:36:32,849 --> 00:36:40,680
+coordinates for this thing by yourself
+
+507
+00:36:37,490 --> 00:36:42,930
+you know you can you can try to do it
+
+508
+00:36:40,680 --> 00:36:47,220
+try to find the coordinates of all the
+
+509
+00:36:42,930 --> 00:36:49,800
+coordinates by yourself oh oh it takes I
+
+510
+00:36:47,220 --> 00:36:53,280
+mean the problem is that you have a
+
+511
+00:36:49,800 --> 00:36:57,119
+solid such that every face is a triangle
+
+512
+00:36:53,280 --> 00:36:59,550
+Wow it more than that but anyway you go
+
+513
+00:36:57,119 --> 00:37:03,540
+to Wikipedia you look up these things
+
+514
+00:36:59,550 --> 00:37:05,849
+you all know what's going on so anyway
+
+515
+00:37:03,540 --> 00:37:08,760
+the problem is to find all the vertices
+
+516
+00:37:05,849 --> 00:37:12,210
+the coordinates okay that's a geometry
+
+517
+00:37:08,760 --> 00:37:12,839
+problem and it turns out it's very
+
+518
+00:37:12,210 --> 00:37:18,539
+interests
+
+519
+00:37:12,839 --> 00:37:21,170
+it turns out there's a easy way to get
+
+520
+00:37:18,539 --> 00:37:25,009
+them now
+
+521
+00:37:21,170 --> 00:37:25,009
+okay they don't have it here
+
+522
+00:37:25,249 --> 00:37:33,989
+now there there it is you see this image
+
+523
+00:37:28,670 --> 00:37:40,859
+this image is the key to find the
+
+524
+00:37:33,989 --> 00:37:47,759
+coordinates for the icosahedron okay so
+
+525
+00:37:40,859 --> 00:37:50,190
+but you know they this is not the
+
+526
+00:37:47,759 --> 00:37:53,999
+version I want but but he but it is a
+
+527
+00:37:50,190 --> 00:37:56,869
+key but it is not the one the picture
+
+528
+00:37:53,999 --> 00:37:56,869
+I'm looking for
+
+529
+00:38:09,510 --> 00:38:15,869
+okay since I cannot find a picture
+
+530
+00:38:17,220 --> 00:38:32,430
+actually I do have a picture so you
+
+531
+00:38:27,700 --> 00:38:37,810
+search for Sally math wonder math wonder
+
+532
+00:38:32,430 --> 00:38:42,280
+sauce top 10 math wonders this article I
+
+533
+00:38:37,810 --> 00:38:46,890
+wrote back in 2010 about you know I'm
+
+534
+00:38:42,280 --> 00:38:53,680
+trying to pick the top 10 most
+
+535
+00:38:46,890 --> 00:38:56,170
+interesting wonderful things in math you
+
+536
+00:38:53,680 --> 00:39:00,400
+know so I just picked some of them so
+
+537
+00:38:56,170 --> 00:39:03,520
+here is a fractal here is Constance
+
+538
+00:39:00,400 --> 00:39:08,320
+golden ratio here is the picture I want
+
+539
+00:39:03,520 --> 00:39:11,619
+to show you open image so you can see
+
+540
+00:39:08,320 --> 00:39:14,970
+this image is pretty much this image was
+
+541
+00:39:11,619 --> 00:39:17,950
+from Wikipedia but now they change it it
+
+542
+00:39:14,970 --> 00:39:23,170
+to something more you know less
+
+543
+00:39:17,950 --> 00:39:27,099
+interesting they change it to this thing
+
+544
+00:39:23,170 --> 00:39:28,900
+less intuitive but anyway basically that
+
+545
+00:39:27,099 --> 00:39:33,460
+the two are kind of the same thing you
+
+546
+00:39:28,900 --> 00:39:36,990
+can see so when you have this so first
+
+547
+00:39:33,460 --> 00:39:39,310
+you know to find the vertices of this
+
+548
+00:39:36,990 --> 00:39:43,330
+icosahedron all you have to do is you
+
+549
+00:39:39,310 --> 00:39:46,450
+get this rectangle first so you get
+
+550
+00:39:43,330 --> 00:39:50,430
+these three of this rectangle then you
+
+551
+00:39:46,450 --> 00:39:55,770
+intersect them in orthogonal way then
+
+552
+00:39:50,430 --> 00:39:59,680
+the vertices will be the vertices on the
+
+553
+00:39:55,770 --> 00:40:04,420
+icosahedron okay so this is one this is
+
+554
+00:39:59,680 --> 00:40:09,160
+the best way to remember to calculate
+
+555
+00:40:04,420 --> 00:40:14,109
+the vertices of the icosahedron any any
+
+556
+00:40:09,160 --> 00:40:18,099
+comments questions type it okay keep
+
+557
+00:40:14,109 --> 00:40:20,080
+keep keep the things going so so how do
+
+558
+00:40:18,099 --> 00:40:21,160
+you so what is this rectangle this
+
+559
+00:40:20,080 --> 00:40:24,250
+rectangle
+
+560
+00:40:21,160 --> 00:40:26,530
+say golden rectangle this rectangle now
+
+561
+00:40:24,250 --> 00:40:30,430
+how do you remember golden rectangle
+
+562
+00:40:26,530 --> 00:40:32,500
+that's very beautiful okay so you want
+
+563
+00:40:30,430 --> 00:40:35,490
+to find a rectangle that looks like that
+
+564
+00:40:32,500 --> 00:40:38,200
+I mean it's called golden rectangle and
+
+565
+00:40:35,490 --> 00:40:42,150
+golden rectangle basically if you look
+
+566
+00:40:38,200 --> 00:40:46,089
+at my window if you look at the black
+
+567
+00:40:42,150 --> 00:40:48,190
+part of my screen a golden rectangle
+
+568
+00:40:46,089 --> 00:40:51,910
+looks something like that this
+
+569
+00:40:48,190 --> 00:40:54,670
+proportion so your job is to find so so
+
+570
+00:40:51,910 --> 00:41:00,309
+what is the ratio so if the side is one
+
+571
+00:40:54,670 --> 00:41:03,579
+what is the the width okay so how do you
+
+572
+00:41:00,309 --> 00:41:06,369
+find that so it's this is also very
+
+573
+00:41:03,579 --> 00:41:11,740
+specific and very interesting you find
+
+574
+00:41:06,369 --> 00:41:17,410
+it by the ratio kW over edge is such
+
+575
+00:41:11,740 --> 00:41:21,490
+that and see how I can explain it's such
+
+576
+00:41:17,410 --> 00:41:27,700
+such that okay if you take the hate and
+
+577
+00:41:21,490 --> 00:41:30,970
+if you draw a rectangle amia square with
+
+578
+00:41:27,700 --> 00:41:34,000
+the same hate then you will cut this
+
+579
+00:41:30,970 --> 00:41:37,359
+rectangle into two sections you see this
+
+580
+00:41:34,000 --> 00:41:40,720
+section and this section and the ratio
+
+581
+00:41:37,359 --> 00:41:43,990
+of these two sections will be exactly
+
+582
+00:41:40,720 --> 00:41:53,770
+identical to the ratio of the width and
+
+583
+00:41:43,990 --> 00:41:59,740
+hate okay do I make sense well I'm not
+
+584
+00:41:53,770 --> 00:42:02,410
+sure I do golden but you can you go now
+
+585
+00:41:59,740 --> 00:42:05,680
+you gotta wait Wikipedia I think you can
+
+586
+00:42:02,410 --> 00:42:08,079
+read it and okay they don't have that Oh
+
+587
+00:42:05,680 --> 00:42:15,119
+God there it is golden rectangle okay
+
+588
+00:42:08,079 --> 00:42:19,119
+they do have a explanation there it is
+
+589
+00:42:15,119 --> 00:42:24,279
+you see golden rectangle is a specific
+
+590
+00:42:19,119 --> 00:42:30,690
+rectangle in with a specific ratio of
+
+591
+00:42:24,279 --> 00:42:30,690
+the width and hate such that such that
+
+592
+00:42:31,160 --> 00:42:43,140
+well just just like the picture showed
+
+593
+00:42:33,839 --> 00:42:47,730
+you know the weight such that such that
+
+594
+00:42:43,140 --> 00:42:49,670
+the ratio of the hate and width is equal
+
+595
+00:42:47,730 --> 00:42:54,119
+to the ratio of
+
+596
+00:42:49,670 --> 00:42:57,049
+a and B here if you make a rectangle I
+
+597
+00:42:54,119 --> 00:43:01,049
+mean if you make a square out of the
+
+598
+00:42:57,049 --> 00:43:03,150
+rectangle so it's kind of self
+
+599
+00:43:01,049 --> 00:43:05,460
+referential its kind of the definition
+
+600
+00:43:03,150 --> 00:43:08,880
+you can think of it that way
+
+601
+00:43:05,460 --> 00:43:14,339
+and we keep here PDA shows you many ways
+
+602
+00:43:08,880 --> 00:43:17,490
+to construct to to derive the number so
+
+603
+00:43:14,339 --> 00:43:21,000
+you can find out exactly what is a plus
+
+604
+00:43:17,490 --> 00:43:24,059
+B a plus B it turns out it's a golden
+
+605
+00:43:21,000 --> 00:43:26,630
+ratio it's this number one point six one
+
+606
+00:43:24,059 --> 00:43:29,250
+eight and and so on
+
+607
+00:43:26,630 --> 00:43:32,069
+so that's you know this is a very
+
+608
+00:43:29,250 --> 00:43:36,119
+beautiful thing in math okay golden
+
+609
+00:43:32,069 --> 00:43:39,990
+ratio and golden rectangle and so once
+
+610
+00:43:36,119 --> 00:43:43,619
+you have that once you have this ratio
+
+611
+00:43:39,990 --> 00:43:46,950
+of the rectangle then you just put three
+
+612
+00:43:43,619 --> 00:43:52,410
+of them together like that then you know
+
+613
+00:43:46,950 --> 00:43:56,940
+the vertices of a icosahedron okay hi hi
+
+614
+00:43:52,410 --> 00:44:03,720
+knobby Hanavi you are late so let's
+
+615
+00:43:56,940 --> 00:44:07,650
+continue to okay so anyway so so that's
+
+616
+00:44:03,720 --> 00:44:09,569
+a that's kind of a side point about how
+
+617
+00:44:07,650 --> 00:44:12,630
+do you find the vertices of the
+
+618
+00:44:09,569 --> 00:44:19,349
+icosahedron now let's go back to our
+
+619
+00:44:12,630 --> 00:44:24,210
+code so that's why you see so we have we
+
+620
+00:44:19,349 --> 00:44:28,859
+have icosahedron vertices here you see
+
+621
+00:44:24,210 --> 00:44:30,990
+we have like how many of them I don't
+
+622
+00:44:28,859 --> 00:44:35,779
+know how many of them twelve or twenty
+
+623
+00:44:30,990 --> 00:44:40,500
+and see 12 of them 12 vertices and you
+
+624
+00:44:35,779 --> 00:44:44,010
+can see they are computed by gg gg is
+
+625
+00:44:40,500 --> 00:44:47,400
+the golden ratio okay so you go up here
+
+626
+00:44:44,010 --> 00:44:52,020
+you can see this formula is this number
+
+627
+00:44:47,400 --> 00:44:57,840
+is called a ratio okay so that's how we
+
+628
+00:44:52,020 --> 00:45:01,920
+get we get the vertices of a icosahedron
+
+629
+00:44:57,840 --> 00:45:06,740
+and the face now how are the face
+
+630
+00:45:01,920 --> 00:45:11,970
+computed the face the face just the face
+
+631
+00:45:06,740 --> 00:45:17,340
+data here they are just indexes of the
+
+632
+00:45:11,970 --> 00:45:22,950
+vertices so so for example here 0 1 4
+
+633
+00:45:17,340 --> 00:45:27,930
+means means the zeroes face I mean the
+
+634
+00:45:22,950 --> 00:45:32,130
+zeroes vertex connected to the first
+
+635
+00:45:27,930 --> 00:45:37,290
+vertex connected to the fourth vertex so
+
+636
+00:45:32,130 --> 00:45:41,930
+0 1 2 3 4 so connect to this one so
+
+637
+00:45:37,290 --> 00:45:45,119
+that's what this is 0 1 for me and
+
+638
+00:45:41,930 --> 00:45:50,010
+similar for the others so the that's the
+
+639
+00:45:45,119 --> 00:45:57,930
+data structure for the face now the
+
+640
+00:45:50,010 --> 00:46:01,710
+reason our code is incorrect like that
+
+641
+00:45:57,930 --> 00:46:05,940
+is because I believe it's because the
+
+642
+00:46:01,710 --> 00:46:08,960
+face information is incorrect that is
+
+643
+00:46:05,940 --> 00:46:12,540
+why we get that we get that funky thing
+
+644
+00:46:08,960 --> 00:46:14,940
+so to fix that I believe we have a
+
+645
+00:46:12,540 --> 00:46:21,680
+version that with the correct face so
+
+646
+00:46:14,940 --> 00:46:21,680
+let's use it ok let's use it
+
+647
+00:46:24,050 --> 00:46:37,010
+okay that's that's what we want this
+
+648
+00:46:28,010 --> 00:46:48,100
+code copy it close it close it make a
+
+649
+00:46:37,010 --> 00:46:49,340
+backup no let's face it okay and do oh
+
+650
+00:46:48,100 --> 00:46:52,010
+yeah
+
+651
+00:46:49,340 --> 00:46:57,590
+obviously it's incorrect because you see
+
+652
+00:46:52,010 --> 00:46:59,540
+here we don't have enough faces okay
+
+653
+00:46:57,590 --> 00:47:05,750
+let's let's do that again
+
+654
+00:46:59,540 --> 00:47:11,360
+so here how many facing a icosahedron
+
+655
+00:47:05,750 --> 00:47:18,200
+does anyone know we can see 20 but
+
+656
+00:47:11,360 --> 00:47:21,080
+however we only have 12 here so
+
+657
+00:47:18,200 --> 00:47:23,840
+obviously that's incorrect oh we got 20
+
+658
+00:47:21,080 --> 00:47:27,530
+faced that's why that's why we see these
+
+659
+00:47:23,840 --> 00:47:38,030
+horse okay no I know and now I
+
+660
+00:47:27,530 --> 00:47:43,450
+understand okay go back we want to copy
+
+661
+00:47:38,030 --> 00:47:49,330
+close that so we're gonna delete this
+
+662
+00:47:43,450 --> 00:47:53,320
+okay now back to 20 correct refresh
+
+663
+00:47:49,330 --> 00:47:58,670
+perfect perfect
+
+664
+00:47:53,320 --> 00:48:01,160
+God now this is great now I guess we can
+
+665
+00:47:58,670 --> 00:48:06,430
+say at least I did something for today
+
+666
+00:48:01,160 --> 00:48:09,680
+oh my god get this fixed now you see
+
+667
+00:48:06,430 --> 00:48:14,750
+that's one shot you know we fixed two
+
+668
+00:48:09,680 --> 00:48:20,260
+things we fixed our previous code that's
+
+669
+00:48:14,750 --> 00:48:27,520
+missing faces and we also fixed the
+
+670
+00:48:20,260 --> 00:48:31,040
+problem of of hiding the face behind
+
+671
+00:48:27,520 --> 00:48:33,830
+okay so let's let's add another feature
+
+672
+00:48:31,040 --> 00:48:35,240
+okay let's add a checkbox that says
+
+673
+00:48:33,830 --> 00:48:37,300
+whether you want it
+
+674
+00:48:35,240 --> 00:48:40,510
+wireframe or not okay
+
+675
+00:48:37,300 --> 00:48:43,840
+let's do that and let's see do we have
+
+676
+00:48:40,510 --> 00:48:46,060
+time enough to do something else let's
+
+677
+00:48:43,840 --> 00:48:48,370
+make it one hour okay let's make it one
+
+678
+00:48:46,060 --> 00:48:52,480
+hour right now we got 10 more minutes to
+
+679
+00:48:48,370 --> 00:48:55,690
+do and it's not okay so now we add a
+
+680
+00:48:52,480 --> 00:48:58,140
+checkbox so that we can choose wireframe
+
+681
+00:48:55,690 --> 00:48:58,140
+or not
+
+682
+00:48:59,580 --> 00:49:09,940
+front-end program a happy solution lose
+
+683
+00:49:04,060 --> 00:49:11,920
+face by ending stream I was thinking
+
+684
+00:49:09,940 --> 00:49:14,530
+ending stream early but that's no
+
+685
+00:49:11,920 --> 00:49:17,260
+solution because then what I'm gonna do
+
+686
+00:49:14,530 --> 00:49:25,150
+then tomorrow it's the same thing the
+
+687
+00:49:17,260 --> 00:49:29,800
+spice must flow okay see you later man
+
+688
+00:49:25,150 --> 00:49:33,220
+so we're gonna do we saw with let's to
+
+689
+00:49:29,800 --> 00:49:38,460
+check box okay let's go to JavaScript
+
+690
+00:49:33,220 --> 00:49:42,190
+blog and let's go to my tutorial DOM and
+
+691
+00:49:38,460 --> 00:49:46,770
+the Dom how do you do a checkbox here it
+
+692
+00:49:42,190 --> 00:49:52,540
+is so you do a check box by copying that
+
+693
+00:49:46,770 --> 00:49:58,390
+magnify so go back here go to the HTML
+
+694
+00:49:52,540 --> 00:50:05,320
+page don't save so go to HTML page put a
+
+695
+00:49:58,390 --> 00:50:07,200
+checkbox here and check box wireframe
+
+696
+00:50:05,320 --> 00:50:11,340
+okay
+
+697
+00:50:07,200 --> 00:50:17,200
+id wireframe type checkbox' name
+
+698
+00:50:11,340 --> 00:50:24,960
+wireframe value value check box my
+
+699
+00:50:17,200 --> 00:50:28,890
+friend actually no no value okay then
+
+700
+00:50:24,960 --> 00:50:28,890
+for wireframe
+
+701
+00:50:39,860 --> 00:50:50,220
+so we named it wireframe checkbox okay
+
+702
+00:50:43,200 --> 00:50:51,690
+and showing browser okay so showing
+
+703
+00:50:50,220 --> 00:50:54,930
+browser refresh
+
+704
+00:50:51,690 --> 00:50:57,990
+we got a wireframe checkbox right now it
+
+705
+00:50:54,930 --> 00:51:03,600
+does not do anything so now we need to
+
+706
+00:50:57,990 --> 00:51:07,230
+go to our code go to it and go to the
+
+707
+00:51:03,600 --> 00:51:16,080
+top and right now we can write this easy
+
+708
+00:51:07,230 --> 00:51:20,520
+because this is not math document get
+
+709
+00:51:16,080 --> 00:51:23,610
+element by ID and wireframe checkbox
+
+710
+00:51:20,520 --> 00:51:27,300
+okay we got the checkbox now we need to
+
+711
+00:51:23,610 --> 00:51:30,860
+do something with a checkbox so we do
+
+712
+00:51:27,300 --> 00:51:36,860
+that by going to the bottom and add a
+
+713
+00:51:30,860 --> 00:51:40,110
+add a event so this will be like that
+
+714
+00:51:36,860 --> 00:51:46,320
+wireframe checkbox add event listener
+
+715
+00:51:40,110 --> 00:51:50,670
+input and toggle wireframe okay let's
+
+716
+00:51:46,320 --> 00:51:56,550
+say yeah toggle wireframe so when people
+
+717
+00:51:50,670 --> 00:51:58,740
+check this wireframe checkbox if we are
+
+718
+00:51:56,550 --> 00:52:01,950
+Targo you it will call this function
+
+719
+00:51:58,740 --> 00:52:04,770
+toggle wireframe so what does i Function
+
+720
+00:52:01,950 --> 00:52:13,200
+do well I don't know let's look at our
+
+721
+00:52:04,770 --> 00:52:18,810
+go auto rotation so copy this search for
+
+722
+00:52:13,200 --> 00:52:20,940
+that okay so that is the function for
+
+723
+00:52:18,810 --> 00:52:23,730
+toggle auto rotation
+
+724
+00:52:20,940 --> 00:52:29,660
+okay well now second let's make a copy
+
+725
+00:52:23,730 --> 00:52:29,660
+of that rename it toggle wireframe
+
+726
+00:52:31,660 --> 00:52:45,890
+okay and then then if if toggle
+
+727
+00:52:39,049 --> 00:52:51,829
+wireframe okay hold on a second if go to
+
+728
+00:52:45,890 --> 00:52:55,119
+the bottom if wireframe checkbox if weif
+
+729
+00:52:51,829 --> 00:52:55,119
+and check box is checked
+
+730
+00:53:07,589 --> 00:53:18,749
+then rotate timer okay we don't want to
+
+731
+00:53:12,509 --> 00:53:21,410
+rotate time what is going on here it's
+
+732
+00:53:18,749 --> 00:53:21,410
+just
+
+733
+00:53:29,910 --> 00:53:37,960
+so basically if it's checked then do
+
+734
+00:53:33,280 --> 00:53:46,780
+something else do something okay so if
+
+735
+00:53:37,960 --> 00:53:51,190
+wireframe checkbox is checked okay I
+
+736
+00:53:46,780 --> 00:54:00,630
+know what to do then you say wireframe
+
+737
+00:53:51,190 --> 00:54:03,630
+style let's say a string okay feel none
+
+738
+00:54:00,630 --> 00:54:03,630
+okay
+
+739
+00:54:14,430 --> 00:54:24,960
+do you say feel styie okay that's what
+
+740
+00:54:18,960 --> 00:54:28,109
+you say feel style so if the checkbox is
+
+741
+00:54:24,960 --> 00:54:32,630
+checked wireframe is checked then you
+
+742
+00:54:28,109 --> 00:54:38,490
+draw the polygon and the feel is none
+
+743
+00:54:32,630 --> 00:54:43,619
+otherwise else feel equals to read okay
+
+744
+00:54:38,490 --> 00:54:47,099
+it's just saying that okay so we added a
+
+745
+00:54:43,619 --> 00:54:51,089
+new constant field style here so let's
+
+746
+00:54:47,099 --> 00:54:58,650
+go to the top and add a constant field
+
+747
+00:54:51,089 --> 00:55:01,380
+style okay so we need the field style
+
+748
+00:54:58,650 --> 00:55:10,289
+then we need to go to the place where it
+
+749
+00:55:01,380 --> 00:55:19,039
+tries to draw here and it will just add
+
+750
+00:55:10,289 --> 00:55:19,039
+field style not yellow but
+
+751
+00:55:24,780 --> 00:55:42,880
+like that okay so here is we create we
+
+752
+00:55:39,369 --> 00:55:46,450
+are creating a polygon SVG polygon in
+
+753
+00:55:42,880 --> 00:55:55,540
+that line then we add an attribute where
+
+754
+00:55:46,450 --> 00:56:02,560
+is the coordinates for the polygon then
+
+755
+00:55:55,540 --> 00:56:05,080
+then we add a style to it okay and let's
+
+756
+00:56:02,560 --> 00:56:10,599
+let's double check one more thing
+
+757
+00:56:05,080 --> 00:56:13,920
+so toggle wireframe so if that then that
+
+758
+00:56:10,599 --> 00:56:17,260
+then we need to call render okay because
+
+759
+00:56:13,920 --> 00:56:21,760
+every time user toggle wireframe we have
+
+760
+00:56:17,260 --> 00:56:25,480
+to render it so actually let's shrink
+
+761
+00:56:21,760 --> 00:56:33,369
+this this style coding code formatting
+
+762
+00:56:25,480 --> 00:56:37,270
+this style none of the C style crap okay
+
+763
+00:56:33,369 --> 00:56:41,050
+if else render if these two that else do
+
+764
+00:56:37,270 --> 00:56:44,230
+that feel style then we render it okay
+
+765
+00:56:41,050 --> 00:56:48,460
+let's hope everything is good Wayne's
+
+766
+00:56:44,230 --> 00:56:51,869
+good we can all go home oh yeah let's
+
+767
+00:56:48,460 --> 00:56:55,359
+check wireframe oops
+
+768
+00:56:51,869 --> 00:56:58,690
+and coach type arrow assigned to
+
+769
+00:56:55,359 --> 00:57:04,900
+constant variable of course I know that
+
+770
+00:56:58,690 --> 00:57:08,080
+shut shut up shut up you see we have a
+
+771
+00:57:04,900 --> 00:57:10,690
+constant fire field style which actually
+
+772
+00:57:08,080 --> 00:57:16,030
+should be not constant because we are
+
+773
+00:57:10,690 --> 00:57:19,330
+changing it so refresh click on
+
+774
+00:57:16,030 --> 00:57:22,690
+wireframe okay now this is another
+
+775
+00:57:19,330 --> 00:57:24,760
+interesting side effect visual side
+
+776
+00:57:22,690 --> 00:57:28,150
+effect the reason we see it like that
+
+777
+00:57:24,760 --> 00:57:31,540
+because the feel color and the edge
+
+778
+00:57:28,150 --> 00:57:34,230
+color are the same so we got that so we
+
+779
+00:57:31,540 --> 00:57:34,230
+don't want red
+
+780
+00:57:34,420 --> 00:57:47,430
+fear let's go to fear again blue okay
+
+781
+00:57:41,550 --> 00:57:49,950
+refresh click on wireframe now it's
+
+782
+00:57:47,430 --> 00:57:54,040
+beautiful oh my god this is beautiful
+
+783
+00:57:49,950 --> 00:57:57,460
+and in fact we got it reversed oh wait
+
+784
+00:57:54,040 --> 00:58:02,250
+my frame know why affair oh yeah is this
+
+785
+00:57:57,460 --> 00:58:02,250
+beautiful he got the problem solved guys
+
+786
+00:58:02,550 --> 00:58:08,640
+so should we we have actually we it's
+
+787
+00:58:06,190 --> 00:58:12,580
+one hour I think that's it
+
+788
+00:58:08,640 --> 00:58:21,040
+or should we do more what do you guys
+
+789
+00:58:12,580 --> 00:58:24,040
+think okay so Nabi has a suggestion Nabi
+
+790
+00:58:21,040 --> 00:58:26,530
+has a great suggestion to see the
+
+791
+00:58:24,040 --> 00:58:31,840
+background like transparency so we can
+
+792
+00:58:26,530 --> 00:58:36,310
+do that so instead of feel blue we just
+
+793
+00:58:31,840 --> 00:58:41,470
+use that transparent colors okay so it's
+
+794
+00:58:36,310 --> 00:58:47,220
+such for RGV so we just do this instead
+
+795
+00:58:41,470 --> 00:58:52,030
+okay so feel instead of a blue we say
+
+796
+00:58:47,220 --> 00:58:59,040
+that okay so here is the part you know
+
+797
+00:58:52,030 --> 00:59:03,790
+feel we give it a CSS color syntax
+
+798
+00:58:59,040 --> 00:59:09,340
+okay let's refresh okay refresh now no
+
+799
+00:59:03,790 --> 00:59:12,610
+wireframe now okay I know what's going
+
+800
+00:59:09,340 --> 00:59:16,570
+on too because because remember our
+
+801
+00:59:12,610 --> 00:59:19,600
+algorithm it's not drawing anything
+
+802
+00:59:16,570 --> 00:59:23,410
+behind at all because remember if the
+
+803
+00:59:19,600 --> 00:59:25,660
+point is above the z axis we draw it
+
+804
+00:59:23,410 --> 00:59:28,300
+otherwise we don't draw it at all so
+
+805
+00:59:25,660 --> 00:59:31,630
+it's not drawing anything behind it so
+
+806
+00:59:28,300 --> 00:59:40,270
+we need now we need actually to draw it
+
+807
+00:59:31,630 --> 00:59:42,970
+in order to see the well yeah we can do
+
+808
+00:59:40,270 --> 00:59:46,930
+that but let's try it okay let's go to
+
+809
+00:59:42,970 --> 00:59:53,440
+the place where we call get sent
+
+810
+00:59:46,930 --> 00:59:55,569
+okay here here you see if if the century
+
+811
+00:59:53,440 --> 01:00:05,430
+okay let me show that let's make this
+
+812
+00:59:55,569 --> 01:00:05,430
+easier okay z-coordinate okay equals to
+
+813
+01:00:06,119 --> 01:00:09,750
+hold on a second
+
+814
+01:00:11,369 --> 01:00:22,420
+so constants Z coordinate equal to get
+
+815
+01:00:16,359 --> 01:00:26,740
+face which is a bunch of points then we
+
+816
+01:00:22,420 --> 01:00:30,339
+call get centroid returns one point then
+
+817
+01:00:26,740 --> 01:00:33,849
+we get the last component which is the Z
+
+818
+01:00:30,339 --> 01:00:37,960
+coordinate okay so that's Z coordinate
+
+819
+01:00:33,849 --> 01:00:43,569
+so now if we if Z coordinate if is
+
+820
+01:00:37,960 --> 01:00:54,250
+greater than zero then we draw it okay
+
+821
+01:00:43,569 --> 01:00:57,010
+otherwise else well what we gonna do so
+
+822
+01:00:54,250 --> 01:01:01,559
+else we draw it too let's just do that
+
+823
+01:00:57,010 --> 01:01:01,559
+but it doesn't matter okay
+
+824
+01:01:04,079 --> 01:01:14,260
+okay so we have that you know we have
+
+825
+01:01:06,849 --> 01:01:18,279
+that but you see this this doesn't you
+
+826
+01:01:14,260 --> 01:01:24,789
+know we are using transparency so what
+
+827
+01:01:18,279 --> 01:01:28,480
+so so yeah we can do this but but this
+
+828
+01:01:24,789 --> 01:01:31,750
+is no different than just you know not
+
+829
+01:01:28,480 --> 01:01:36,809
+having the if statement at all for
+
+830
+01:01:31,750 --> 01:01:40,779
+example you know you see instead of
+
+831
+01:01:36,809 --> 01:01:43,809
+instead of the if-else we can simply
+
+832
+01:01:40,779 --> 01:01:46,779
+just draw it it doesn't matter it's in
+
+833
+01:01:43,809 --> 01:01:52,240
+front or not we just draw it we are just
+
+834
+01:01:46,779 --> 01:01:55,420
+using the transparency but since we do
+
+835
+01:01:52,240 --> 01:01:58,480
+have the ability to find out which one
+
+836
+01:01:55,420 --> 01:02:00,160
+is in front then why don't we do
+
+837
+01:01:58,480 --> 01:02:03,880
+something a bit fancy
+
+838
+01:02:00,160 --> 01:02:09,309
+such that if it's in front it should
+
+839
+01:02:03,880 --> 01:02:19,390
+have let's see more peg color or
+
+840
+01:02:09,309 --> 01:02:21,930
+something what so Nadia says if the
+
+841
+01:02:19,390 --> 01:02:25,589
+wireframe box is checked don't render
+
+842
+01:02:21,930 --> 01:02:33,819
+yeah that's what we did
+
+843
+01:02:25,589 --> 01:02:36,010
+yeah that's what we did I that's what we
+
+844
+01:02:33,819 --> 01:02:40,750
+did before I think that's you know
+
+845
+01:02:36,010 --> 01:02:42,819
+that's that's what we did for example if
+
+846
+01:02:40,750 --> 01:02:46,420
+we come and this out and comment that
+
+847
+01:02:42,819 --> 01:02:49,299
+out so if Z is greater than zero they
+
+848
+01:02:46,420 --> 01:02:53,710
+enjoy it otherwise do nothing so if we
+
+849
+01:02:49,299 --> 01:03:00,609
+now refresh you see yeah that I guess
+
+850
+01:02:53,710 --> 01:03:09,039
+that's oh okay I think maybe that's it
+
+851
+01:03:00,609 --> 01:03:14,760
+for today I was you know I was planning
+
+852
+01:03:09,039 --> 01:03:14,760
+to do some okay let's see oh
+
+853
+01:03:17,049 --> 01:03:27,190
+sone Abby's suggestion is yes good point
+
+854
+01:03:20,770 --> 01:03:33,160
+so nabis is saying now be saying if it's
+
+855
+01:03:27,190 --> 01:03:36,460
+not wireframe then you draw what is in
+
+856
+01:03:33,160 --> 01:03:39,630
+front but whatever is behind you simply
+
+857
+01:03:36,460 --> 01:03:42,520
+draw the wires you know not the polygon
+
+858
+01:03:39,630 --> 01:03:47,440
+okay yeah that's a good idea so let's do
+
+859
+01:03:42,520 --> 01:03:51,190
+that so if it if it is in front we draw
+
+860
+01:03:47,440 --> 01:03:55,990
+it no more okay now but if else if it's
+
+861
+01:03:51,190 --> 01:03:59,410
+in the back we how do we do it okay how
+
+862
+01:03:55,990 --> 01:04:06,550
+do we do it we have to change the field
+
+863
+01:03:59,410 --> 01:04:10,280
+basically but okay so wait so
+
+864
+01:04:06,550 --> 01:04:14,050
+so we need to pass a we need to add an
+
+865
+01:04:10,280 --> 01:04:18,320
+argument to render okay hmm
+
+866
+01:04:14,050 --> 01:04:21,080
+now that's it's just hack let's just
+
+867
+01:04:18,320 --> 01:04:24,820
+hack our way through it instead of the
+
+868
+01:04:21,080 --> 01:04:28,820
+instead of thinking of the proper way so
+
+869
+01:04:24,820 --> 01:04:32,570
+so else if it's not in front then we
+
+870
+01:04:28,820 --> 01:04:47,150
+just then Fiona yeah it's easy to do
+
+871
+01:04:32,570 --> 01:04:47,600
+Fionan okay right so there so if it's in
+
+872
+01:04:47,150 --> 01:04:51,290
+front
+
+873
+01:04:47,600 --> 01:04:55,390
+joy normally but if it's in the back
+
+874
+01:04:51,290 --> 01:05:06,640
+make the feel none let's try it
+
+875
+01:04:55,390 --> 01:05:09,640
+refresh okay click no wireframe what Wow
+
+876
+01:05:06,640 --> 01:05:13,520
+well the reason this happens is because
+
+877
+01:05:09,640 --> 01:05:16,790
+it has no effect right now because the
+
+878
+01:05:13,520 --> 01:05:22,280
+fear style is a global variable so you
+
+879
+01:05:16,790 --> 01:05:27,260
+once you set it here it affects the part
+
+880
+01:05:22,280 --> 01:05:29,720
+over there's we are as well so so let's
+
+881
+01:05:27,260 --> 01:05:35,980
+just do some more hack okay this it's
+
+882
+01:05:29,720 --> 01:05:35,980
+just to some hack let's see that works
+
+883
+01:05:42,719 --> 01:05:47,999
+okay let's do just do some more hack I
+
+884
+01:05:50,789 --> 01:05:58,529
+don't think your walk because because
+
+885
+01:05:54,640 --> 01:06:01,630
+the feel style is a global variable so
+
+886
+01:05:58,529 --> 01:06:07,439
+you act you actually need to put in the
+
+887
+01:06:01,630 --> 01:06:11,439
+place where I create SVG face there so
+
+888
+01:06:07,439 --> 01:06:14,079
+yeah so it doesn't work because the feel
+
+889
+01:06:11,439 --> 01:06:19,660
+style is global it justifies doesn't
+
+890
+01:06:14,079 --> 01:06:22,329
+matter you but as far as hack is
+
+891
+01:06:19,660 --> 01:06:24,309
+concerned we can try to hack it to make
+
+892
+01:06:22,329 --> 01:06:35,140
+it work so all we have to do is go to
+
+893
+01:06:24,309 --> 01:06:39,479
+the go to the create SVG face okay we
+
+894
+01:06:35,140 --> 01:06:39,479
+can kind of create a variable
+
+895
+01:06:50,990 --> 01:06:59,660
+okay we create a second variable here X
+
+896
+01:06:55,839 --> 01:07:02,380
+let's say feel okay let's say feel X
+
+897
+01:06:59,660 --> 01:07:02,380
+here
+
+898
+01:07:10,940 --> 01:07:16,530
+okay so I know what to do we can finish
+
+899
+01:07:13,770 --> 01:07:19,070
+this okay we can finish this no worry
+
+900
+01:07:16,530 --> 01:07:19,070
+okay
+
+901
+01:07:31,199 --> 01:07:41,489
+we remove all that we just create a SVG
+
+902
+01:07:35,229 --> 01:07:41,489
+face here right
+
+903
+01:07:53,710 --> 01:08:03,130
+okay we create SVG face and we go back
+
+904
+01:07:58,670 --> 01:08:13,010
+to the create SVG face then we do our
+
+905
+01:08:03,130 --> 01:08:15,890
+computing here get the get the z
+
+906
+01:08:13,010 --> 01:08:26,569
+coordinate if z coordinate is greater
+
+907
+01:08:15,890 --> 01:08:28,910
+than zero hold on a second yeah so if Z
+
+908
+01:08:26,569 --> 01:08:32,569
+coordinate is greater than zero we don't
+
+909
+01:08:28,910 --> 01:08:40,990
+need that anymore so if Z coordinate is
+
+910
+01:08:32,569 --> 01:08:40,990
+greater than zero then then
+
+911
+01:08:47,840 --> 01:08:52,060
+what what's going on so
+
+912
+01:08:56,960 --> 01:09:02,530
+oh we already have that then we
+
+913
+01:09:19,470 --> 01:09:30,520
+here okay we are hacking this code out
+
+914
+01:09:24,760 --> 01:09:40,260
+of shape so here if Z is greater than 0
+
+915
+01:09:30,520 --> 01:09:40,260
+then we we've we said attribute okay
+
+916
+01:09:46,500 --> 01:09:49,500
+else
+
+917
+01:10:00,310 --> 01:10:05,140
+I'm not sure this is going to work but
+
+918
+01:10:03,320 --> 01:10:08,660
+it's close
+
+919
+01:10:05,140 --> 01:10:12,200
+let's just try it refresh
+
+920
+01:10:08,660 --> 01:10:15,110
+no wireframe yes wireframe it doesn't
+
+921
+01:10:12,200 --> 01:10:23,230
+work we cannot use global variables
+
+922
+01:10:15,110 --> 01:10:23,230
+because this is global wait
+
+923
+01:10:30,600 --> 01:10:39,610
+refresh oh there it is we are seeing
+
+924
+01:10:35,080 --> 01:10:48,460
+something this is another interesting
+
+925
+01:10:39,610 --> 01:10:50,610
+effect know why a frame-by-frame doesn't
+
+926
+01:10:48,460 --> 01:10:50,610
+matter
+
+927
+01:10:55,639 --> 01:11:08,900
+oh I know why I kind of know why yeah I
+
+928
+01:11:05,179 --> 01:11:15,280
+think I know why because anyways it's a
+
+929
+01:11:08,900 --> 01:11:24,830
+bit complicated to explain yeah I see I
+
+930
+01:11:15,280 --> 01:11:26,690
+know what you mean knobby but but okay
+
+931
+01:11:24,830 --> 01:11:33,020
+do we want to I mean the question is
+
+932
+01:11:26,690 --> 01:11:35,000
+should we do that you know if we keep if
+
+933
+01:11:33,020 --> 01:11:38,000
+we want to do that I don't know how long
+
+934
+01:11:35,000 --> 01:11:41,150
+it's going to take because you know the
+
+935
+01:11:38,000 --> 01:11:43,750
+code we have to right now it's doing
+
+936
+01:11:41,150 --> 01:11:43,750
+that because
+
+937
+01:11:59,160 --> 01:12:06,890
+let's remove the let's remove the global
+
+938
+01:12:03,300 --> 01:12:13,550
+variable okay let's just put the actual
+
+939
+01:12:06,890 --> 01:12:13,550
+style here see what happens okay
+
+940
+01:12:31,880 --> 01:12:40,870
+refresh No
+
+941
+01:12:53,679 --> 01:13:02,590
+anyway I think that's a no hacker thank
+
+942
+01:12:59,679 --> 01:13:03,010
+you okay I think that's it it's in one
+
+943
+01:13:02,590 --> 01:13:06,790
+hour
+
+944
+01:13:03,010 --> 01:13:09,790
+well we did something now I wish I can
+
+945
+01:13:06,790 --> 01:13:13,390
+go back to the code where I forgot to
+
+946
+01:13:09,790 --> 01:13:17,290
+make a backup so we cannot we cannot go
+
+947
+01:13:13,390 --> 01:13:20,080
+back to the the correct code we had
+
+948
+01:13:17,290 --> 01:13:24,120
+before anyway that's it for today thank
+
+949
+01:13:20,080 --> 01:13:24,120
+you guys for watching bye guys
+
+950
+01:13:37,809 --> 01:13:43,030
+cross the video stream n stream
+

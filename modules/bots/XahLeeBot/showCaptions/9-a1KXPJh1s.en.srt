@@ -1,0 +1,5736 @@
+1
+00:00:02,510 --> 00:00:11,400
+good morning everyone welcome to another
+
+2
+00:00:06,600 --> 00:00:18,840
+episode of saw talk show today is June
+
+3
+00:00:11,400 --> 00:00:23,039
+15th 2019 and today we are going to do a
+
+4
+00:00:18,840 --> 00:00:26,279
+light coating demo first tutorial I'm
+
+5
+00:00:23,039 --> 00:00:31,500
+going to code goal and I'm going to
+
+6
+00:00:26,279 --> 00:00:35,100
+write a script that kind of does well
+
+7
+00:00:31,500 --> 00:00:37,590
+it's a text processing script and the
+
+8
+00:00:35,100 --> 00:00:44,370
+purpose of the script would be similar
+
+9
+00:00:37,590 --> 00:00:48,210
+to grab and set or find and replace a
+
+10
+00:00:44,370 --> 00:00:59,850
+bunch of text files in a directory and
+
+11
+00:00:48,210 --> 00:01:02,579
+I'm going to do that using Emacs and so
+
+12
+00:00:59,850 --> 00:01:12,750
+nobody is here yet let me type it out so
+
+13
+00:01:02,579 --> 00:01:19,159
+people know so today live coding in goal
+
+14
+00:01:12,750 --> 00:01:29,909
+and doing a find/replace kind of hex
+
+15
+00:01:19,159 --> 00:01:34,740
+processing script writing okay and using
+
+16
+00:01:29,909 --> 00:01:39,680
+Emacs and sawfly keys okay that's what
+
+17
+00:01:34,740 --> 00:01:39,680
+we're gonna do and let me paste it here
+
+18
+00:01:41,970 --> 00:01:50,320
+okay so we got one guy watching say hi
+
+19
+00:01:45,520 --> 00:01:55,390
+and let's get started so what we gonna
+
+20
+00:01:50,320 --> 00:01:59,290
+do what we gonna do is we have this okay
+
+21
+00:01:55,390 --> 00:02:05,250
+talk-show we have these let me show you
+
+22
+00:01:59,290 --> 00:02:07,229
+this page let's see if you go to Google
+
+23
+00:02:05,250 --> 00:02:12,640
+sorry
+
+24
+00:02:07,229 --> 00:02:14,950
+Monkey King I'm hi guys I'm describing
+
+25
+00:02:12,640 --> 00:02:20,340
+what we're gonna do so if you go to
+
+26
+00:02:14,950 --> 00:02:20,340
+Google not Google but if you search for
+
+27
+00:02:20,670 --> 00:02:29,790
+journey of the West
+
+28
+00:02:22,660 --> 00:02:29,790
+so search for Journey to the West
+
+29
+00:02:33,560 --> 00:02:41,900
+there that's the first item here so I
+
+30
+00:02:38,990 --> 00:02:46,850
+have this web page this web page is a
+
+31
+00:02:41,900 --> 00:02:50,720
+novel it's a it's a classic Chinese
+
+32
+00:02:46,850 --> 00:02:56,900
+novel one it's said to be one of the
+
+33
+00:02:50,720 --> 00:03:01,340
+four greatest Chinese novel and so I
+
+34
+00:02:56,900 --> 00:03:05,780
+have it here you can see this is bad so
+
+35
+00:03:01,340 --> 00:03:08,900
+you can see you know it has about 100
+
+36
+00:03:05,780 --> 00:03:13,790
+chapters and you can see each page you
+
+37
+00:03:08,900 --> 00:03:16,250
+know is the text and let me show you the
+
+38
+00:03:13,790 --> 00:03:23,180
+directory so this is the let me go to
+
+39
+00:03:16,250 --> 00:03:25,760
+the my my home directory here so so this
+
+40
+00:03:23,180 --> 00:03:29,450
+file if we show in browser you can see
+
+41
+00:03:25,760 --> 00:03:34,269
+that's a file and here is a directory so
+
+42
+00:03:29,450 --> 00:03:37,489
+it could you know it's about 200 files
+
+43
+00:03:34,269 --> 00:03:40,730
+now there's a problem there's a issue I
+
+44
+00:03:37,489 --> 00:03:43,459
+want to change that is for each chapter
+
+45
+00:03:40,730 --> 00:03:46,940
+you can see this is chapter 1 and this
+
+46
+00:03:43,459 --> 00:03:49,400
+is chapter 1 part 2 and this is chapter
+
+47
+00:03:46,940 --> 00:03:52,610
+chapter 2 you can see the two here means
+
+48
+00:03:49,400 --> 00:03:53,090
+the chapter number chapter 2 part 1 page
+
+49
+00:03:52,610 --> 00:03:57,530
+1
+
+50
+00:03:53,090 --> 00:04:00,650
+ok then chapter 2 page 2 so for each
+
+51
+00:03:57,530 --> 00:04:03,769
+chapter let's go to number 5 for each
+
+52
+00:04:00,650 --> 00:04:06,350
+chapter you have two pages this is first
+
+53
+00:04:03,769 --> 00:04:10,190
+page then you click here you go to the
+
+54
+00:04:06,350 --> 00:04:12,880
+second page then if you click Next then
+
+55
+00:04:10,190 --> 00:04:15,530
+then that's going to be the next chapter
+
+56
+00:04:12,880 --> 00:04:19,880
+but this is a problem because I don't
+
+57
+00:04:15,530 --> 00:04:22,100
+want you know I don't want two pages I
+
+58
+00:04:19,880 --> 00:04:24,950
+want to combine them into one pages it
+
+59
+00:04:22,100 --> 00:04:29,030
+was two pages because back then 10 years
+
+60
+00:04:24,950 --> 00:04:32,470
+ago you know the browser is not as
+
+61
+00:04:29,030 --> 00:04:37,490
+powerful as today so you know short
+
+62
+00:04:32,470 --> 00:04:38,870
+content is more preferable but so what
+
+63
+00:04:37,490 --> 00:04:41,479
+we're gonna do is today we're gonna
+
+64
+00:04:38,870 --> 00:04:46,460
+combine you know go to every page that
+
+65
+00:04:41,479 --> 00:04:47,030
+is the page two and combine the content
+
+66
+00:04:46,460 --> 00:04:55,610
+in to pay
+
+67
+00:04:47,030 --> 00:04:59,510
+one so let me show you it's a mr. since
+
+68
+00:04:55,610 --> 00:05:09,950
+I'm using Emacs let me start this sawed
+
+69
+00:04:59,510 --> 00:05:13,190
+command log mod so so that so that you
+
+70
+00:05:09,950 --> 00:05:13,730
+can see all the commands I'm coding in
+
+71
+00:05:13,190 --> 00:05:17,690
+Emacs
+
+72
+00:05:13,730 --> 00:05:22,250
+so let's call star start command log mod
+
+73
+00:05:17,690 --> 00:05:26,060
+okay now if I move kusa you can see it's
+
+74
+00:05:22,250 --> 00:05:28,310
+cause this command tired next line in
+
+75
+00:05:26,060 --> 00:05:30,830
+fact for any command I call it it's
+
+76
+00:05:28,310 --> 00:05:34,910
+gonna show up on the Left panel so if
+
+77
+00:05:30,830 --> 00:05:36,260
+you are using Emacs that's a good tip
+
+78
+00:05:34,910 --> 00:05:40,040
+good thing to know
+
+79
+00:05:36,260 --> 00:05:46,370
+so anyway we are going to create a :
+
+80
+00:05:40,040 --> 00:05:48,140
+script that perhaps every page you know
+
+81
+00:05:46,370 --> 00:05:51,050
+a bunch of files we want to open each
+
+82
+00:05:48,140 --> 00:05:53,450
+file and the grab part of the content in
+
+83
+00:05:51,050 --> 00:05:56,990
+that file then put that file to another
+
+84
+00:05:53,450 --> 00:05:59,840
+corresponding file that that is the what
+
+85
+00:05:56,990 --> 00:06:03,320
+we are going to do in fact I started to
+
+86
+00:05:59,840 --> 00:06:05,510
+write this code today you know about
+
+87
+00:06:03,320 --> 00:06:09,560
+half an hour ago but let's start from
+
+88
+00:06:05,510 --> 00:06:15,050
+scratch okay so let's go to open a new
+
+89
+00:06:09,560 --> 00:06:23,830
+file close this and let's say let's name
+
+90
+00:06:15,050 --> 00:06:30,290
+it save the file as go find replace
+
+91
+00:06:23,830 --> 00:06:35,860
+let's say go monkey okay don't go so we
+
+92
+00:06:30,290 --> 00:06:39,580
+have a new buffer new file let me add a
+
+93
+00:06:35,860 --> 00:06:42,350
+golden template in : every program
+
+94
+00:06:39,580 --> 00:06:48,250
+basically we will start like these will
+
+95
+00:06:42,350 --> 00:06:48,250
+have these lines and files
+
+96
+00:06:48,389 --> 00:07:04,779
+so let's see gay people watching so say
+
+97
+00:06:54,009 --> 00:07:08,340
+hi let me see so let's do what we're
+
+98
+00:07:04,779 --> 00:07:17,050
+gonna do so first of all start a comment
+
+99
+00:07:08,340 --> 00:07:19,090
+ok comment goes go through a least the
+
+100
+00:07:17,050 --> 00:07:19,629
+you know I'm gonna type out what we're
+
+101
+00:07:19,090 --> 00:07:25,289
+gonna do
+
+102
+00:07:19,629 --> 00:07:34,090
+please some files for each file open it
+
+103
+00:07:25,289 --> 00:07:44,889
+grab part of the content then put that
+
+104
+00:07:34,090 --> 00:07:47,789
+content into a corresponding file so
+
+105
+00:07:44,889 --> 00:07:51,729
+first of all let's get the files we want
+
+106
+00:07:47,789 --> 00:07:56,500
+so now in Emacs we can call this command
+
+107
+00:07:51,729 --> 00:08:01,060
+tired mark file rejects so we want - -
+
+108
+00:07:56,500 --> 00:08:04,180
+dot HTML so that lists all the files we
+
+109
+00:08:01,060 --> 00:08:07,539
+actually want to process in green I mean
+
+110
+00:08:04,180 --> 00:08:08,409
+in orange here like this so I'm going to
+
+111
+00:08:07,539 --> 00:08:12,159
+call command
+
+112
+00:08:08,409 --> 00:08:15,279
+this command is a copy file path so what
+
+113
+00:08:12,159 --> 00:08:17,310
+we got is all the files we need for
+
+114
+00:08:15,279 --> 00:08:20,319
+example let's paste it here you see
+
+115
+00:08:17,310 --> 00:08:24,310
+that's the list of files we want to
+
+116
+00:08:20,319 --> 00:08:31,089
+process now so first of all we have to
+
+117
+00:08:24,310 --> 00:08:35,050
+make a file list a variable so this
+
+118
+00:08:31,089 --> 00:08:39,310
+variable will contain this bunch of file
+
+119
+00:08:35,050 --> 00:08:45,790
+names but I haven't been coding go line
+
+120
+00:08:39,310 --> 00:08:49,990
+for a while so let's go up to goal and
+
+121
+00:08:45,790 --> 00:08:52,329
+this is my goal and tutorial you can
+
+122
+00:08:49,990 --> 00:08:56,110
+find it by searching sorry :
+
+123
+00:08:52,329 --> 00:08:59,170
+tutorial and while I code it I also use
+
+124
+00:08:56,110 --> 00:09:01,000
+it to you know when I code goal and this
+
+125
+00:08:59,170 --> 00:09:04,120
+is my tutorial it is also
+
+126
+00:09:01,000 --> 00:09:11,290
+uses my own reference there's a mistake
+
+127
+00:09:04,120 --> 00:09:13,900
+here yeah okay so so yeah so so golden
+
+128
+00:09:11,290 --> 00:09:19,360
+reference so right now I want to a I
+
+129
+00:09:13,900 --> 00:09:27,280
+want a variable that is a array so that
+
+130
+00:09:19,360 --> 00:09:31,930
+would be slice we want a slice of
+
+131
+00:09:27,280 --> 00:09:36,300
+strings so let's see string okay this is
+
+132
+00:09:31,930 --> 00:09:36,300
+a slice so let's go back to the code
+
+133
+00:09:38,970 --> 00:09:48,100
+our file list file list is going to be a
+
+134
+00:09:43,510 --> 00:09:50,530
+slice and it's a string and what is the
+
+135
+00:09:48,100 --> 00:09:55,120
+syntax for the slice I believe it is
+
+136
+00:09:50,530 --> 00:10:02,560
+that so let's put it here and I have a
+
+137
+00:09:55,120 --> 00:10:06,490
+command that is code you don't need that
+
+138
+00:10:02,560 --> 00:10:10,330
+let's add some code lines so quote by
+
+139
+00:10:06,490 --> 00:10:10,930
+double quote yes each line ends with a
+
+140
+00:10:10,330 --> 00:10:15,310
+coma
+
+141
+00:10:10,930 --> 00:10:18,940
+yes so we got that this command is
+
+142
+00:10:15,310 --> 00:10:22,710
+called Saad if you are using Emacs if
+
+143
+00:10:18,940 --> 00:10:22,710
+you are a Mac user it's code
+
+144
+00:10:28,070 --> 00:10:36,320
+some cool lines here and you can find
+
+145
+00:10:32,680 --> 00:10:40,009
+the source code at this URL if you like
+
+146
+00:10:36,320 --> 00:10:44,740
+to see it I mean you can you can copy it
+
+147
+00:10:40,009 --> 00:10:48,680
+for your own use so okay so we got a
+
+148
+00:10:44,740 --> 00:10:53,750
+bunch of strings and let's move the
+
+149
+00:10:48,680 --> 00:11:04,160
+directory name part out oops
+
+150
+00:10:53,750 --> 00:11:08,120
+it's wrong let's move the directory part
+
+151
+00:11:04,160 --> 00:11:10,750
+part so far
+
+152
+00:11:08,120 --> 00:11:10,750
+oops
+
+153
+00:11:17,580 --> 00:11:22,800
+so we just want actually oops
+
+154
+00:11:32,090 --> 00:11:45,140
+import format and the stream so this is
+
+155
+00:11:42,090 --> 00:11:45,140
+the directory part
+
+156
+00:11:53,920 --> 00:12:04,040
+then we have a bunch of files let's now
+
+157
+00:11:58,610 --> 00:12:07,880
+let's just print them you know to make
+
+158
+00:12:04,040 --> 00:12:12,560
+sure how code is actually running so
+
+159
+00:12:07,880 --> 00:12:14,709
+print line and print file list and run
+
+160
+00:12:12,560 --> 00:12:14,709
+it
+
+161
+00:12:21,279 --> 00:12:32,060
+syntax error line 15 so let's go to line
+
+162
+00:12:26,180 --> 00:12:38,779
+15 error because he says done expected
+
+163
+00:12:32,060 --> 00:12:43,310
+that expecting expression okay so now we
+
+164
+00:12:38,779 --> 00:12:46,940
+have a problem with a slice data type he
+
+165
+00:12:43,310 --> 00:12:50,660
+says now what is the problem sighs you
+
+166
+00:12:46,940 --> 00:12:54,160
+dr. Dillon types literal expression for
+
+167
+00:12:50,660 --> 00:12:54,160
+slice okay
+
+168
+00:13:00,840 --> 00:13:08,070
+file list it's a slice type then it's a
+
+169
+00:13:04,080 --> 00:13:18,320
+stream each element is a string then we
+
+170
+00:13:08,070 --> 00:13:18,320
+say I don't see anything wrong okay
+
+171
+00:13:22,080 --> 00:13:24,560
+maybe
+
+172
+00:13:28,580 --> 00:13:37,440
+this way let's run it
+
+173
+00:13:33,410 --> 00:13:45,320
+correct so now we fix that so we got a
+
+174
+00:13:37,440 --> 00:13:45,320
+list here of file names then let's print
+
+175
+00:13:45,410 --> 00:13:53,880
+here then we got a bunch of lists we got
+
+176
+00:13:49,910 --> 00:13:56,940
+another directory so let's start do a
+
+177
+00:13:53,880 --> 00:14:00,560
+for loop we want to go through the list
+
+178
+00:13:56,940 --> 00:14:07,980
+of files for each one we want to open it
+
+179
+00:14:00,560 --> 00:14:10,800
+so prints nice what we want to do is we
+
+180
+00:14:07,980 --> 00:14:17,640
+want to loop through size yes
+
+181
+00:14:10,800 --> 00:14:25,200
+so you use this syntax for range file
+
+182
+00:14:17,640 --> 00:14:29,460
+list okay for range this for so this
+
+183
+00:14:25,200 --> 00:14:32,160
+file list is a slice a slicing colon is
+
+184
+00:14:29,460 --> 00:14:34,560
+just like a ray except that the length
+
+185
+00:14:32,160 --> 00:14:41,130
+can be changed so it's similar to
+
+186
+00:14:34,560 --> 00:14:44,760
+pythons array or Ruby's array so we have
+
+187
+00:14:41,130 --> 00:14:50,850
+file this is a slice now we need to go
+
+188
+00:14:44,760 --> 00:14:52,860
+through it and this is the name then the
+
+189
+00:14:50,850 --> 00:14:57,600
+first part is the index we don't want
+
+190
+00:14:52,860 --> 00:15:01,770
+let's just say print line file name okay
+
+191
+00:14:57,600 --> 00:15:03,960
+let's see what happens so we go through
+
+192
+00:15:01,770 --> 00:15:06,840
+the file list print each file name yes
+
+193
+00:15:03,960 --> 00:15:11,460
+run it that's good that's what we want
+
+194
+00:15:06,840 --> 00:15:15,960
+and we can in goal and it comes with a
+
+195
+00:15:11,460 --> 00:15:18,990
+formatting tool called GOF empty go
+
+196
+00:15:15,960 --> 00:15:20,700
+format okay so let's let's format our
+
+197
+00:15:18,990 --> 00:15:27,710
+code because you can see it's not
+
+198
+00:15:20,700 --> 00:15:31,560
+aligned so go format let's call it good
+
+199
+00:15:27,710 --> 00:15:35,610
+so now we print the file name now let's
+
+200
+00:15:31,560 --> 00:15:42,140
+get a directory let's get
+
+201
+00:15:35,610 --> 00:15:42,140
+full path full path we are equals 2/3 +
+
+202
+00:15:42,350 --> 00:15:56,519
+filename okay then let's print that run
+
+203
+00:15:52,350 --> 00:15:59,010
+a code that's correct so now for each
+
+204
+00:15:56,519 --> 00:16:01,740
+file now we got a full path for each
+
+205
+00:15:59,010 --> 00:16:06,930
+file full path we want to open the file
+
+206
+00:16:01,740 --> 00:16:11,160
+so how do you open a file so I go
+
+207
+00:16:06,930 --> 00:16:15,060
+through my tutorial I forgot read fire
+
+208
+00:16:11,160 --> 00:16:20,269
+we that's what we want so there so we
+
+209
+00:16:15,060 --> 00:16:25,110
+need this IO uto copy it
+
+210
+00:16:20,269 --> 00:16:29,420
+we need the IO utility then library then
+
+211
+00:16:25,110 --> 00:16:34,260
+this is how you open a file great
+
+212
+00:16:29,420 --> 00:16:39,649
+everything is what we want so here's the
+
+213
+00:16:34,260 --> 00:16:44,690
+code formatted read whole file yes and
+
+214
+00:16:39,649 --> 00:16:50,670
+the the file name the the path will be
+
+215
+00:16:44,690 --> 00:16:54,930
+that ok we did then my text is the files
+
+216
+00:16:50,670 --> 00:16:58,050
+content that's good let's try now let's
+
+217
+00:16:54,930 --> 00:17:07,110
+try to print it let's see can we print
+
+218
+00:16:58,050 --> 00:17:14,429
+it yes let's try to print let's print
+
+219
+00:17:07,110 --> 00:17:21,839
+the file so my text okay hold on a
+
+220
+00:17:14,429 --> 00:17:25,770
+second my text let's say the first 20
+
+221
+00:17:21,839 --> 00:17:28,319
+bytes the first 10 bytes so 1 to 10
+
+222
+00:17:25,770 --> 00:17:28,890
+let's say that see let's see if that
+
+223
+00:17:28,319 --> 00:17:35,030
+works
+
+224
+00:17:28,890 --> 00:17:38,790
+now each my text is of type type string
+
+225
+00:17:35,030 --> 00:17:41,850
+the way so we want this substring of the
+
+226
+00:17:38,790 --> 00:17:44,590
+first 10 points now what is the syntax
+
+227
+00:17:41,850 --> 00:17:48,550
+for substring so let's see
+
+228
+00:17:44,590 --> 00:17:51,600
+string functions yeah so we need a : is
+
+229
+00:17:48,550 --> 00:17:54,850
+: instead of coma so let's try that
+
+230
+00:17:51,600 --> 00:18:01,900
+donate okay
+
+231
+00:17:54,850 --> 00:18:07,030
+aro panic no such file or directory okay
+
+232
+00:18:01,900 --> 00:18:09,780
+why is that oh because we are missing we
+
+233
+00:18:07,030 --> 00:18:15,580
+are missing the slash for loot pass
+
+234
+00:18:09,780 --> 00:18:17,410
+route pass so let's run it again okay it
+
+235
+00:18:15,580 --> 00:18:20,170
+seems to be walking because it is
+
+236
+00:18:17,410 --> 00:18:22,630
+printing the first ten bytes let's see
+
+237
+00:18:20,170 --> 00:18:24,970
+one two three four five six seven eight
+
+238
+00:18:22,630 --> 00:18:28,960
+nine well yeah night the first night
+
+239
+00:18:24,970 --> 00:18:32,670
+bytes of the each fire and the first
+
+240
+00:18:28,960 --> 00:18:37,990
+night bytes are always the same because
+
+241
+00:18:32,670 --> 00:18:42,670
+because if we if we go to monkey you
+
+242
+00:18:37,990 --> 00:18:45,940
+know if we go to the if we look at the
+
+243
+00:18:42,670 --> 00:18:48,160
+file each file is a HTML file and we go
+
+244
+00:18:45,940 --> 00:18:50,260
+to the top each you know the first 10
+
+245
+00:18:48,160 --> 00:18:57,610
+lines you know the first line is you
+
+246
+00:18:50,260 --> 00:19:03,390
+know always that so that is correct then
+
+247
+00:18:57,610 --> 00:19:03,390
+we go into let's see so we we
+
+248
+00:19:11,910 --> 00:19:17,160
+we are going to so we got yeah so then
+
+249
+00:19:15,510 --> 00:19:18,630
+we're going to open the file so let's
+
+250
+00:19:17,160 --> 00:19:25,230
+see how we open the file
+
+251
+00:19:18,630 --> 00:19:28,770
+yep so let's go back to Golan we want to
+
+252
+00:19:25,230 --> 00:19:29,700
+open a file yeah we already that's right
+
+253
+00:19:28,770 --> 00:19:33,770
+we already
+
+254
+00:19:29,700 --> 00:19:38,300
+oh here now we already open the file
+
+255
+00:19:33,770 --> 00:19:48,450
+okay so now the next thing we want to do
+
+256
+00:19:38,300 --> 00:19:54,570
+grab the main content of the file for
+
+257
+00:19:48,450 --> 00:20:01,620
+example header for example we do not
+
+258
+00:19:54,570 --> 00:20:04,290
+care for header and footer okay so let's
+
+259
+00:20:01,620 --> 00:20:07,590
+go through the file and look at point-o
+
+260
+00:20:04,290 --> 00:20:12,090
+of the file as an example and see you
+
+261
+00:20:07,590 --> 00:20:14,160
+know which part we want so basically now
+
+262
+00:20:12,090 --> 00:20:17,760
+we have a string that represents the
+
+263
+00:20:14,160 --> 00:20:22,170
+file content and it's a huge stream we
+
+264
+00:20:17,760 --> 00:20:26,000
+only want part of the string for example
+
+265
+00:20:22,170 --> 00:20:34,830
+this is the chapter so the so we ignore
+
+266
+00:20:26,000 --> 00:20:43,470
+the beginning until we reached until we
+
+267
+00:20:34,830 --> 00:20:48,390
+reached let's say men okay and then to
+
+268
+00:20:43,470 --> 00:20:51,420
+the bottom that men again so we want to
+
+269
+00:20:48,390 --> 00:20:57,000
+search given a text file you know a big
+
+270
+00:20:51,420 --> 00:20:58,530
+string we want to search two strings one
+
+271
+00:20:57,000 --> 00:21:01,260
+of them will be the beginning position
+
+272
+00:20:58,530 --> 00:21:06,480
+one of them will be the end position and
+
+273
+00:21:01,260 --> 00:21:09,030
+remove the rest of it that's right so
+
+274
+00:21:06,480 --> 00:21:19,340
+that is the main content we want so
+
+275
+00:21:09,030 --> 00:21:19,340
+let's let's try to do that go back to :
+
+276
+00:21:20,700 --> 00:21:36,309
+the main content will be delivered
+
+277
+00:21:26,010 --> 00:21:39,520
+native by men and that okay now we want
+
+278
+00:21:36,309 --> 00:21:42,130
+to grab this pot so keep on a text file
+
+279
+00:21:39,520 --> 00:21:44,500
+we want to grab part of the string how
+
+280
+00:21:42,130 --> 00:21:50,590
+do we do that
+
+281
+00:21:44,500 --> 00:21:53,320
+I don't know so let's look at go line
+
+282
+00:21:50,590 --> 00:21:57,370
+functions go lines string functions
+
+283
+00:21:53,320 --> 00:22:00,490
+that's what what we want substring we
+
+284
+00:21:57,370 --> 00:22:03,250
+want a substring but not by index we
+
+285
+00:22:00,490 --> 00:22:06,580
+want you know to find the beginning
+
+286
+00:22:03,250 --> 00:22:08,740
+string and industry join string no embed
+
+287
+00:22:06,580 --> 00:22:12,070
+expression no stream functions okay
+
+288
+00:22:08,740 --> 00:22:17,980
+so we need to use the library go string
+
+289
+00:22:12,070 --> 00:22:21,520
+functions so so here is several examples
+
+290
+00:22:17,980 --> 00:22:27,520
+of you using the function okay what we
+
+291
+00:22:21,520 --> 00:22:32,740
+want is not here contains no so we want
+
+292
+00:22:27,520 --> 00:22:38,789
+to go to the goal golden string function
+
+293
+00:22:32,740 --> 00:22:38,789
+library so let's go to it search for :
+
+294
+00:22:43,880 --> 00:22:54,299
+go to the go website and click on
+
+295
+00:22:51,049 --> 00:22:56,610
+documents oh sorry
+
+296
+00:22:54,299 --> 00:23:01,130
+should be quickly click on the packages
+
+297
+00:22:56,610 --> 00:23:04,470
+the packages is basically the
+
+298
+00:23:01,130 --> 00:23:09,360
+documentation for all the standard
+
+299
+00:23:04,470 --> 00:23:15,779
+libraries so the way the one we want is
+
+300
+00:23:09,360 --> 00:23:18,990
+the stream section path and see stream
+
+301
+00:23:15,779 --> 00:23:22,620
+so all the stream functions is here
+
+302
+00:23:18,990 --> 00:23:24,630
+you know : the language core itself does
+
+303
+00:23:22,620 --> 00:23:28,409
+not have much stream function so you
+
+304
+00:23:24,630 --> 00:23:31,950
+have is like substring string index join
+
+305
+00:23:28,409 --> 00:23:35,820
+string string length and that's it you
+
+306
+00:23:31,950 --> 00:23:40,470
+know so for any text processing even
+
+307
+00:23:35,820 --> 00:23:43,710
+trivial ones you have to use the string
+
+308
+00:23:40,470 --> 00:23:49,250
+package package strings so first of all
+
+309
+00:23:43,710 --> 00:23:53,970
+let's go to top add the package import
+
+310
+00:23:49,250 --> 00:23:55,620
+strings okay so I think I've got I got
+
+311
+00:23:53,970 --> 00:23:59,399
+for people-watching so if you have a
+
+312
+00:23:55,620 --> 00:24:01,649
+questions comments opinions write it in
+
+313
+00:23:59,399 --> 00:24:05,880
+the comment box okay I love to see that
+
+314
+00:24:01,649 --> 00:24:08,340
+I need anything this is you know I'm
+
+315
+00:24:05,880 --> 00:24:11,010
+this is a informal this is a talk show
+
+316
+00:24:08,340 --> 00:24:16,010
+you know I talk talk about random things
+
+317
+00:24:11,010 --> 00:24:20,399
+usually programmer related nerd stuff
+
+318
+00:24:16,010 --> 00:24:22,710
+and it's pretty informal so today you
+
+319
+00:24:20,399 --> 00:24:26,909
+know we are just doing this light
+
+320
+00:24:22,710 --> 00:24:30,000
+coating of : so we got a giant string
+
+321
+00:24:26,909 --> 00:24:32,610
+that represents the file and we want to
+
+322
+00:24:30,000 --> 00:24:36,120
+search certain you know part of the file
+
+323
+00:24:32,610 --> 00:24:40,830
+and grab it as the that's the main
+
+324
+00:24:36,120 --> 00:24:46,100
+content we want so so what function
+
+325
+00:24:40,830 --> 00:24:46,100
+should we use magnify magnify
+
+326
+00:24:50,180 --> 00:24:58,770
+so string contains okay maybe the
+
+327
+00:24:54,900 --> 00:25:05,570
+contains last index sub strange
+
+328
+00:24:58,770 --> 00:25:05,570
+substring bass index any less index page
+
+329
+00:25:10,100 --> 00:25:15,200
+okay so let's see so the answer should
+
+330
+00:25:14,300 --> 00:25:27,970
+be
+
+331
+00:25:15,200 --> 00:25:27,970
+let's see contains and let's see index
+
+332
+00:25:31,680 --> 00:25:40,370
+you see basically we want the position
+
+333
+00:25:34,020 --> 00:25:44,370
+the index for the beginning part we want
+
+334
+00:25:40,370 --> 00:25:46,620
+and we want you know we want to do this
+
+335
+00:25:44,370 --> 00:25:50,220
+for another string that indicates the
+
+336
+00:25:46,620 --> 00:25:55,200
+end then we then we want to get the
+
+337
+00:25:50,220 --> 00:25:57,860
+substring you know grab that part so the
+
+338
+00:25:55,200 --> 00:26:00,660
+candidate functions are contains
+
+339
+00:25:57,860 --> 00:26:03,080
+function contains returns a boolean no
+
+340
+00:26:00,660 --> 00:26:06,390
+that's not we want we need the position
+
+341
+00:26:03,080 --> 00:26:09,090
+so function index index returns the
+
+342
+00:26:06,390 --> 00:26:12,900
+index of the first instance of substring
+
+343
+00:26:09,090 --> 00:26:15,050
+in s that's what we want you know or
+
+344
+00:26:12,900 --> 00:26:18,990
+negative Y if doesn't exist
+
+345
+00:26:15,050 --> 00:26:23,060
+okay what about the index any index any
+
+346
+00:26:18,990 --> 00:26:31,230
+written index the first instance of of
+
+347
+00:26:23,060 --> 00:26:34,440
+any Unicode code point okay so it so
+
+348
+00:26:31,230 --> 00:26:37,470
+index any is just like index except you
+
+349
+00:26:34,440 --> 00:26:41,310
+are only searching a Unicode character
+
+350
+00:26:37,470 --> 00:26:43,350
+you are not searching a stream and in
+
+351
+00:26:41,310 --> 00:26:45,810
+the X part is pretty much the same thing
+
+352
+00:26:43,350 --> 00:26:51,150
+except you give it a bite to such so
+
+353
+00:26:45,810 --> 00:26:59,160
+what we want is this index function so
+
+354
+00:26:51,150 --> 00:27:04,740
+let's use that let's see variable main
+
+355
+00:26:59,160 --> 00:27:10,140
+content a good moenay's cat 44 Catherine
+
+356
+00:27:04,740 --> 00:27:16,070
+from Australia hi I don't think I have a
+
+357
+00:27:10,140 --> 00:27:16,070
+female audience before so good morning
+
+358
+00:27:17,690 --> 00:27:24,900
+so main content will be the main content
+
+359
+00:27:21,990 --> 00:27:29,790
+so what we're gonna do so we're gonna
+
+360
+00:27:24,900 --> 00:27:32,550
+get that we're gonna try to get that so
+
+361
+00:27:29,790 --> 00:27:34,440
+so carefully for our Katherine are you a
+
+362
+00:27:32,550 --> 00:27:36,720
+programmer are you learning
+
+363
+00:27:34,440 --> 00:27:40,490
+are you learning or you are experienced
+
+364
+00:27:36,720 --> 00:27:40,490
+programmer or Emacs user
+
+365
+00:27:41,670 --> 00:27:49,290
+so let me call the function so how do we
+
+366
+00:27:46,980 --> 00:27:55,170
+call the function let's see I think it's
+
+367
+00:27:49,290 --> 00:27:59,700
+like this strange start index we call
+
+368
+00:27:55,170 --> 00:28:04,650
+the function and the first argument we
+
+369
+00:27:59,700 --> 00:28:08,250
+is our text so the first argument is my
+
+370
+00:28:04,650 --> 00:28:12,540
+text it says is a string you want to
+
+371
+00:28:08,250 --> 00:28:15,390
+search from you know the the file
+
+372
+00:28:12,540 --> 00:28:18,570
+thus then the second argument is a
+
+373
+00:28:15,390 --> 00:28:22,470
+string we want to search so we want to
+
+374
+00:28:18,570 --> 00:28:39,740
+search this string mean okay and it
+
+375
+00:28:22,470 --> 00:28:39,740
+returns a int so we say start index okay
+
+376
+00:28:42,269 --> 00:28:46,200
+let's see if that works
+
+377
+00:28:51,960 --> 00:29:07,570
+print printed start index okay okay so
+
+378
+00:29:04,150 --> 00:29:11,530
+there is something we are doing wrong
+
+379
+00:29:07,570 --> 00:29:15,130
+here that is this one so we do not allow
+
+380
+00:29:11,530 --> 00:29:17,860
+that okay now let's see if it works we
+
+381
+00:29:15,130 --> 00:29:20,950
+we grab we search the string and when we
+
+382
+00:29:17,860 --> 00:29:26,110
+find it we you know that's a start index
+
+383
+00:29:20,950 --> 00:29:32,740
+and we try to print it run it okay
+
+384
+00:29:26,110 --> 00:29:35,800
+error cannot use my text type bite as
+
+385
+00:29:32,740 --> 00:29:40,720
+type straining argument okay so colon
+
+386
+00:29:35,800 --> 00:29:43,060
+has this issue in : a string is as you
+
+387
+00:29:40,720 --> 00:29:43,810
+know it is technically a sequence of
+
+388
+00:29:43,060 --> 00:29:46,060
+bytes
+
+389
+00:29:43,810 --> 00:29:48,460
+you know like different languages they
+
+390
+00:29:46,060 --> 00:29:51,850
+deal with strings differently you know
+
+391
+00:29:48,460 --> 00:29:57,670
+in JavaScript as string is a sequence of
+
+392
+00:29:51,850 --> 00:30:00,130
+two a sequence of pair of bytes two
+
+393
+00:29:57,670 --> 00:30:02,830
+bytes you know that those are Unicode
+
+394
+00:30:00,130 --> 00:30:04,600
+sixteen characters anyway so in
+
+395
+00:30:02,830 --> 00:30:08,800
+JavaScript that's one thing string is
+
+396
+00:30:04,600 --> 00:30:10,750
+one thing in : a string is a sequence of
+
+397
+00:30:08,800 --> 00:30:13,900
+bytes you know they are not characters
+
+398
+00:30:10,750 --> 00:30:19,600
+this is important you know we when you
+
+399
+00:30:13,900 --> 00:30:23,620
+actually start to code golem you know I
+
+400
+00:30:19,600 --> 00:30:26,710
+have a detailed explanation here because
+
+401
+00:30:23,620 --> 00:30:29,740
+so anyway income you know you can read
+
+402
+00:30:26,710 --> 00:30:33,220
+if you rate up but basically colon in
+
+403
+00:30:29,740 --> 00:30:35,890
+colon string is a sequence of bytes and
+
+404
+00:30:33,220 --> 00:30:39,310
+then there are functions to convert the
+
+405
+00:30:35,890 --> 00:30:43,120
+bytes into a Unicode because for a
+
+406
+00:30:39,310 --> 00:30:46,000
+Unicode character you know like like an
+
+407
+00:30:43,120 --> 00:30:50,070
+emoji or or right right arrow you know
+
+408
+00:30:46,000 --> 00:30:54,250
+oh math math symbols so a Unicode a
+
+409
+00:30:50,070 --> 00:30:58,120
+character is you know is maybe
+
+410
+00:30:54,250 --> 00:31:01,630
+represented by two bytes two or more you
+
+411
+00:30:58,120 --> 00:31:04,480
+know what one to four bytes so in : a
+
+412
+00:31:01,630 --> 00:31:06,100
+stream string is a sequence of bytes
+
+413
+00:31:04,480 --> 00:31:09,880
+what happens when you have a Unicode
+
+414
+00:31:06,100 --> 00:31:12,880
+such as smiley so you know it is
+
+415
+00:31:09,880 --> 00:31:16,480
+represented by you know three or four
+
+416
+00:31:12,880 --> 00:31:19,540
+bytes and so there are there are methods
+
+417
+00:31:16,480 --> 00:31:22,090
+to convert a string to you know as you
+
+418
+00:31:19,540 --> 00:31:24,850
+know a string sequence of bytes to a
+
+419
+00:31:22,090 --> 00:31:27,429
+sequence of Unicode characters in Cola
+
+420
+00:31:24,850 --> 00:31:29,080
+and a Unicode character is coded run you
+
+421
+00:31:27,429 --> 00:31:32,020
+know that's that's just the term Cola
+
+422
+00:31:29,080 --> 00:31:34,030
+and invented so there are methods to
+
+423
+00:31:32,020 --> 00:31:42,000
+convert sequence of bytes to Unicode
+
+424
+00:31:34,030 --> 00:31:44,770
+characters or into a slice of bytes you
+
+425
+00:31:42,000 --> 00:31:47,320
+see so so this is interesting so in
+
+426
+00:31:44,770 --> 00:31:51,370
+colon a string is a sequence of bytes
+
+427
+00:31:47,320 --> 00:31:54,460
+but also string is not mutable mutable
+
+428
+00:31:51,370 --> 00:31:56,650
+that mutable that means you know you
+
+429
+00:31:54,460 --> 00:31:58,929
+cannot every time you change your string
+
+430
+00:31:56,650 --> 00:32:02,320
+like you take a substring colon will
+
+431
+00:31:58,929 --> 00:32:04,600
+have to make a entire new string and and
+
+432
+00:32:02,320 --> 00:32:06,700
+so other way the old one if you don't
+
+433
+00:32:04,600 --> 00:32:10,240
+use it anymore so every time you create
+
+434
+00:32:06,700 --> 00:32:13,419
+a string it you know it's a major cost
+
+435
+00:32:10,240 --> 00:32:15,370
+you know it's Cola has to do lots of
+
+436
+00:32:13,419 --> 00:32:18,000
+things especially when the string is
+
+437
+00:32:15,370 --> 00:32:21,730
+very big such as a you know file content
+
+438
+00:32:18,000 --> 00:32:26,020
+so a colon string is a sequence of bytes
+
+439
+00:32:21,730 --> 00:32:29,559
+and they are not mutable so because they
+
+440
+00:32:26,020 --> 00:32:31,510
+are not mutable mutable every time you
+
+441
+00:32:29,559 --> 00:32:34,360
+change your string go long will have to
+
+442
+00:32:31,510 --> 00:32:37,299
+create a new string that is slow process
+
+443
+00:32:34,360 --> 00:32:40,330
+so therefore you know when you want to
+
+444
+00:32:37,299 --> 00:32:43,120
+change when you want to change the
+
+445
+00:32:40,330 --> 00:32:45,250
+string frequency such as you know doing
+
+446
+00:32:43,120 --> 00:32:51,429
+fine and replace so like what we are
+
+447
+00:32:45,250 --> 00:32:54,850
+doing you better to use a slice of bytes
+
+448
+00:32:51,429 --> 00:32:56,710
+instead of a string you know slice of
+
+449
+00:32:54,850 --> 00:32:59,380
+bytes slice is just at least
+
+450
+00:32:56,710 --> 00:33:01,540
+okay so slice of iced bytes is just a
+
+451
+00:32:59,380 --> 00:33:04,059
+list of bytes so what's the difference
+
+452
+00:33:01,540 --> 00:33:06,040
+to a string the only difference is that
+
+453
+00:33:04,059 --> 00:33:08,460
+when you have a slice abouts you can
+
+454
+00:33:06,040 --> 00:33:11,950
+change you know you can replace you know
+
+455
+00:33:08,460 --> 00:33:14,040
+take a substring or you know or cut out
+
+456
+00:33:11,950 --> 00:33:17,559
+some part of the string things like that
+
+457
+00:33:14,040 --> 00:33:18,690
+or to finally replace so when you want
+
+458
+00:33:17,559 --> 00:33:21,880
+to change us
+
+459
+00:33:18,690 --> 00:33:24,490
+you want to work with a slice of bytes
+
+460
+00:33:21,880 --> 00:33:29,350
+so there's a there's a way to convert a
+
+461
+00:33:24,490 --> 00:33:32,260
+string to size of bytes then there's
+
+462
+00:33:29,350 --> 00:33:35,710
+another representation for string is
+
+463
+00:33:32,260 --> 00:33:38,350
+that run size run is just a Unicode
+
+464
+00:33:35,710 --> 00:33:40,150
+character so you know before when we
+
+465
+00:33:38,350 --> 00:33:43,120
+have a string which is a sequence of
+
+466
+00:33:40,150 --> 00:33:46,000
+bytes or if we have a slice of bytes you
+
+467
+00:33:43,120 --> 00:33:48,820
+know each index is actually just a bite
+
+468
+00:33:46,000 --> 00:33:51,700
+they are not a character you know so
+
+469
+00:33:48,820 --> 00:33:55,510
+sometimes if you are really working with
+
+470
+00:33:51,700 --> 00:33:57,940
+file textual content you you know you
+
+471
+00:33:55,510 --> 00:34:01,900
+want to work with characters instead of
+
+472
+00:33:57,940 --> 00:34:05,740
+bytes so so in that case you want a run
+
+473
+00:34:01,900 --> 00:34:08,260
+slice one slice is just a list of nohrin
+
+474
+00:34:05,740 --> 00:34:11,910
+strange it run is just a unicode
+
+475
+00:34:08,260 --> 00:34:16,390
+character that's the how : cost cause it
+
+476
+00:34:11,910 --> 00:34:19,290
+so that is why when you walk in : you
+
+477
+00:34:16,390 --> 00:34:22,660
+have this three kind of data structure
+
+478
+00:34:19,290 --> 00:34:26,800
+representation for for a string for text
+
+479
+00:34:22,660 --> 00:34:30,940
+you know for human text and each one has
+
+480
+00:34:26,800 --> 00:34:33,550
+advantages and disadvantages and you
+
+481
+00:34:30,940 --> 00:34:36,040
+know so a string is a sequence of bytes
+
+482
+00:34:33,550 --> 00:34:37,090
+but they are not mutable every time you
+
+483
+00:34:36,040 --> 00:34:40,180
+make some changes
+
+484
+00:34:37,090 --> 00:34:43,900
+you know it's slow then you have slice
+
+485
+00:34:40,180 --> 00:34:46,630
+by slice which is like a string but you
+
+486
+00:34:43,900 --> 00:34:49,240
+can change it you know very efficient
+
+487
+00:34:46,630 --> 00:34:50,950
+then you have run slice which is when
+
+488
+00:34:49,240 --> 00:34:52,960
+you want to actually deal with each
+
+489
+00:34:50,950 --> 00:34:56,740
+characters you know for example you want
+
+490
+00:34:52,960 --> 00:35:00,400
+to find the 99th character you know you
+
+491
+00:34:56,740 --> 00:35:04,510
+know text file you then the run slice is
+
+492
+00:35:00,400 --> 00:35:06,460
+most effective so but why do you have
+
+493
+00:35:04,510 --> 00:35:08,560
+these rivers you know this different one
+
+494
+00:35:06,460 --> 00:35:10,960
+so why can't you just have one you know
+
+495
+00:35:08,560 --> 00:35:14,320
+that you know that does demo well
+
+496
+00:35:10,960 --> 00:35:16,810
+because colon is kind you know it's kind
+
+497
+00:35:14,320 --> 00:35:19,510
+of low-level language when you want to
+
+498
+00:35:16,810 --> 00:35:21,400
+program games for example or networking
+
+499
+00:35:19,510 --> 00:35:23,770
+you want to send networking packets
+
+500
+00:35:21,400 --> 00:35:25,930
+you're dealing with or video processing
+
+501
+00:35:23,770 --> 00:35:28,150
+you know video you know you have
+
+502
+00:35:25,930 --> 00:35:30,940
+sequence of bytes stream you know of
+
+503
+00:35:28,150 --> 00:35:32,040
+bytes you want to you know you don't
+
+504
+00:35:30,940 --> 00:35:34,620
+want it to be
+
+505
+00:35:32,040 --> 00:35:38,070
+you know characters those are not
+
+506
+00:35:34,620 --> 00:35:40,890
+characters you want the bytes so so this
+
+507
+00:35:38,070 --> 00:35:44,450
+is one way : solves the problem between
+
+508
+00:35:40,890 --> 00:35:47,880
+bytes and Unicode characters and it is
+
+509
+00:35:44,450 --> 00:35:51,630
+very good it is actually a very good
+
+510
+00:35:47,880 --> 00:35:54,780
+approach on the other hand in Python you
+
+511
+00:35:51,630 --> 00:35:57,860
+know in Python 3 string is a sequence of
+
+512
+00:35:54,780 --> 00:36:01,020
+unicode characters but in Python 2
+
+513
+00:35:57,860 --> 00:36:03,780
+strange the sequence of bytes kind of
+
+514
+00:36:01,020 --> 00:36:04,830
+like : : so you know it's it's
+
+515
+00:36:03,780 --> 00:36:07,230
+problematic
+
+516
+00:36:04,830 --> 00:36:10,650
+you know because many people do not like
+
+517
+00:36:07,230 --> 00:36:14,130
+the way Python went and ruby has its own
+
+518
+00:36:10,650 --> 00:36:15,870
+ways so that so this is you know this is
+
+519
+00:36:14,130 --> 00:36:16,680
+actually critical when you when you
+
+520
+00:36:15,870 --> 00:36:20,250
+learn :
+
+521
+00:36:16,680 --> 00:36:23,790
+you know after you learn the syntax this
+
+522
+00:36:20,250 --> 00:36:28,290
+this part is a very important part you
+
+523
+00:36:23,790 --> 00:36:30,360
+want to know it very well because string
+
+524
+00:36:28,290 --> 00:36:32,610
+and bytes they are you know essential
+
+525
+00:36:30,360 --> 00:36:35,310
+they are essential in any program you
+
+526
+00:36:32,610 --> 00:36:36,930
+either deal with you know characters you
+
+527
+00:36:35,310 --> 00:36:41,640
+know text processing or you deal with
+
+528
+00:36:36,930 --> 00:36:45,210
+the sequence of bytes so let me look at
+
+529
+00:36:41,640 --> 00:36:48,480
+the content I mean a comment right at
+
+530
+00:36:45,210 --> 00:36:52,320
+your site some months ago searching info
+
+531
+00:36:48,480 --> 00:36:56,670
+on algorithmic art oh great fantastic
+
+532
+00:36:52,320 --> 00:36:59,700
+have found your talk shows has sparked
+
+533
+00:36:56,670 --> 00:37:06,630
+an interest in programming so cool thank
+
+534
+00:36:59,700 --> 00:37:14,900
+you thank you for that so yeah let's get
+
+535
+00:37:06,630 --> 00:37:18,110
+back to the goal goal and so so yeah :
+
+536
+00:37:14,900 --> 00:37:21,300
+Quran is a good language to learn and
+
+537
+00:37:18,110 --> 00:37:26,010
+you know it may not be the first
+
+538
+00:37:21,300 --> 00:37:28,710
+language to learn I mean you know if you
+
+539
+00:37:26,010 --> 00:37:31,920
+have never programmed before if you
+
+540
+00:37:28,710 --> 00:37:36,470
+never programmed before : is still a
+
+541
+00:37:31,920 --> 00:37:43,320
+possibility but but some other
+
+542
+00:37:36,470 --> 00:37:47,140
+alternatives is Python let's go to
+
+543
+00:37:43,320 --> 00:37:50,290
+yeah Python Python is pretty good you
+
+544
+00:37:47,140 --> 00:37:57,570
+know popular choice : is also pretty
+
+545
+00:37:50,290 --> 00:38:07,030
+good yeah so let's go back to this code
+
+546
+00:37:57,570 --> 00:38:18,700
+goal and code so I mean how many people
+
+547
+00:38:07,030 --> 00:38:24,930
+are watching 3 okay so we got so we're
+
+548
+00:38:18,700 --> 00:38:24,930
+gonna we should speed this up because
+
+549
+00:38:25,890 --> 00:38:34,420
+because how long we been talking 30 or
+
+550
+00:38:31,720 --> 00:38:38,140
+40 minutes okay we are not done yet okay
+
+551
+00:38:34,420 --> 00:38:43,390
+so we try to run the program we got an
+
+552
+00:38:38,140 --> 00:38:46,450
+error it says cannot use my text byte
+
+553
+00:38:43,390 --> 00:38:48,600
+type as a string type okay yeah so we
+
+554
+00:38:46,450 --> 00:38:52,420
+are dealing with this problem this is a
+
+555
+00:38:48,600 --> 00:38:53,830
+important critical problem in : so
+
+556
+00:38:52,420 --> 00:38:57,340
+basically we are running into a problem
+
+557
+00:38:53,830 --> 00:39:01,480
+where when we read the fire when we open
+
+558
+00:38:57,340 --> 00:39:05,920
+the file in this slide it actually the
+
+559
+00:39:01,480 --> 00:39:08,830
+result is a byte slice you see when we
+
+560
+00:39:05,920 --> 00:39:13,800
+let's let's see I run the program you
+
+561
+00:39:08,830 --> 00:39:17,050
+see it says what I have here is a type
+
+562
+00:39:13,800 --> 00:39:19,120
+you know bracket byte that means byte
+
+563
+00:39:17,050 --> 00:39:23,530
+slice at least of you know bite so
+
+564
+00:39:19,120 --> 00:39:26,650
+sequence of bytes meanwhile this
+
+565
+00:39:23,530 --> 00:39:34,720
+function string dot index requires a
+
+566
+00:39:26,650 --> 00:39:37,510
+string type not bytes so okay so this is
+
+567
+00:39:34,720 --> 00:39:41,550
+kind of an issue in : so that's that's
+
+568
+00:39:37,510 --> 00:39:41,550
+why it's important to understand it well
+
+569
+00:39:42,470 --> 00:39:57,050
+and I think so : string I know there it
+
+570
+00:39:53,540 --> 00:39:59,540
+is index bytes you see so in the :
+
+571
+00:39:57,050 --> 00:40:02,210
+string library they have a set of
+
+572
+00:39:59,540 --> 00:40:15,170
+functions almost like each function has
+
+573
+00:40:02,210 --> 00:40:17,660
+two variations one one takes a yeah one
+
+574
+00:40:15,170 --> 00:40:22,040
+takes a bite one takes a run and one
+
+575
+00:40:17,660 --> 00:40:24,560
+takes a string as input so okay so every
+
+576
+00:40:22,040 --> 00:40:27,550
+function string function has almost like
+
+577
+00:40:24,560 --> 00:40:32,030
+every one of them has three variations
+
+578
+00:40:27,550 --> 00:40:34,520
+one of them takes a string as you know
+
+579
+00:40:32,030 --> 00:40:36,349
+the argument 2nd argument and one of
+
+580
+00:40:34,520 --> 00:40:39,890
+them takes a bite as a second argument
+
+581
+00:40:36,349 --> 00:40:42,500
+and one of them takes a run a unicode
+
+582
+00:40:39,890 --> 00:40:45,220
+character is a second argument all these
+
+583
+00:40:42,500 --> 00:40:49,250
+are trying to search your string and we
+
+584
+00:40:45,220 --> 00:40:52,099
+return the index so but our problem is
+
+585
+00:40:49,250 --> 00:40:58,310
+that we have sequence of bytes but this
+
+586
+00:40:52,099 --> 00:41:01,819
+function requires a string so we are
+
+587
+00:40:58,310 --> 00:41:04,780
+using index we are using this function
+
+588
+00:41:01,819 --> 00:41:04,780
+it requires us
+
+589
+00:41:12,020 --> 00:41:17,090
+okay so the first argument needs to be a
+
+590
+00:41:14,690 --> 00:41:21,470
+stream so what we need to do here is
+
+591
+00:41:17,090 --> 00:41:28,100
+convert convert bytes to stream okay so
+
+592
+00:41:21,470 --> 00:41:31,160
+let's go back to here string two bytes
+
+593
+00:41:28,100 --> 00:41:36,100
+slice by slice two strings so that's how
+
+594
+00:41:31,160 --> 00:41:42,860
+you do it so let's just do that string
+
+595
+00:41:36,100 --> 00:41:46,850
+that okay let's run it great fantastic
+
+596
+00:41:42,860 --> 00:41:50,390
+so we got a you know for each file we
+
+597
+00:41:46,850 --> 00:41:54,619
+got a number this number is the position
+
+598
+00:41:50,390 --> 00:41:58,430
+where the character the stream main
+
+599
+00:41:54,619 --> 00:42:02,810
+appears that's what we want then the
+
+600
+00:41:58,430 --> 00:42:05,600
+second then this is great so it's
+
+601
+00:42:02,810 --> 00:42:08,080
+working now let's do let's get the end
+
+602
+00:42:05,600 --> 00:42:08,080
+index
+
+603
+00:42:14,329 --> 00:42:22,400
+start index and index an extranet great
+
+604
+00:42:19,699 --> 00:42:26,420
+it's working now we want to take the
+
+605
+00:42:22,400 --> 00:42:30,979
+substring of these so let's say so this
+
+606
+00:42:26,420 --> 00:42:40,269
+is when this variable is useful so the
+
+607
+00:42:30,979 --> 00:42:40,269
+main content equals to equals to my text
+
+608
+00:42:41,199 --> 00:42:50,829
+my text substring start index and index
+
+609
+00:42:52,059 --> 00:43:04,009
+okay let's try to print that main
+
+610
+00:42:58,939 --> 00:43:15,259
+content let's print the first 20 the
+
+611
+00:43:04,009 --> 00:43:18,529
+first 10 bytes okay vennett fantastic
+
+612
+00:43:15,259 --> 00:43:20,839
+now it seems to be working but however
+
+613
+00:43:18,529 --> 00:43:22,779
+we don't know these printing bytes you
+
+614
+00:43:20,839 --> 00:43:29,150
+know it's a pretty sequence of bytes
+
+615
+00:43:22,779 --> 00:43:34,939
+these numbers are I think these numbers
+
+616
+00:43:29,150 --> 00:43:37,849
+are the code point for each byte no they
+
+617
+00:43:34,939 --> 00:43:42,650
+just represent the byte so our job is
+
+618
+00:43:37,849 --> 00:43:48,160
+actually to turn this see turn this size
+
+619
+00:43:42,650 --> 00:43:48,160
+of bytes into a string so let's do that
+
+620
+00:43:49,359 --> 00:43:58,309
+string then run it great so we just
+
+621
+00:43:55,969 --> 00:44:03,920
+printed so you know each one shows me
+
+622
+00:43:58,309 --> 00:44:06,140
+that's a good thing and but actually
+
+623
+00:44:03,920 --> 00:44:09,219
+let's just print the whole thing and
+
+624
+00:44:06,140 --> 00:44:09,219
+let's see what happens
+
+625
+00:44:18,540 --> 00:44:25,540
+yeah print the main content okay it's
+
+626
+00:44:23,530 --> 00:44:31,390
+all printing out Speights
+
+627
+00:44:25,540 --> 00:44:35,110
+that's not what we want we wanted to we
+
+628
+00:44:31,390 --> 00:44:37,120
+wanted to print us strings so again we
+
+629
+00:44:35,110 --> 00:44:41,950
+are back to the string and bytes issue
+
+630
+00:44:37,120 --> 00:44:45,130
+so let's go to print string section so
+
+631
+00:44:41,950 --> 00:44:47,650
+we have a sequence of bytes we want to
+
+632
+00:44:45,130 --> 00:44:49,810
+print them as strings we don't want to
+
+633
+00:44:47,650 --> 00:44:54,790
+bring them as you know this small a
+
+634
+00:44:49,810 --> 00:44:58,390
+bunch of numbers so print one by the in
+
+635
+00:44:54,790 --> 00:45:04,740
+string print whole string you can so you
+
+636
+00:44:58,390 --> 00:45:04,740
+can print string as is print with ASCII
+
+637
+00:45:05,880 --> 00:45:11,460
+so we want to print them as
+
+638
+00:45:20,050 --> 00:45:27,579
+okay so we need to convert the sequence
+
+639
+00:45:23,359 --> 00:45:27,579
+of bytes to stream I think
+
+640
+00:45:31,490 --> 00:45:41,119
+let's run it great this is walking this
+
+641
+00:45:36,600 --> 00:45:41,119
+is printing all the contents we want
+
+642
+00:45:45,720 --> 00:45:49,970
+there are a hundred files there
+
+643
+00:45:52,230 --> 00:46:02,070
+okay it's close it cure it so we got the
+
+644
+00:45:58,920 --> 00:46:05,579
+main content what's the next thing to do
+
+645
+00:46:02,070 --> 00:46:10,680
+we want to find now remember in a
+
+646
+00:46:05,579 --> 00:46:14,460
+directory for each file each file has
+
+647
+00:46:10,680 --> 00:46:18,119
+two pages you know one and two we want
+
+648
+00:46:14,460 --> 00:46:21,380
+to put you know we have opened the file
+
+649
+00:46:18,119 --> 00:46:27,260
+of this second page we want to put it
+
+650
+00:46:21,380 --> 00:46:32,280
+insert it into the first the files first
+
+651
+00:46:27,260 --> 00:46:36,829
+page so what we need to do now is we
+
+652
+00:46:32,280 --> 00:46:43,140
+need to find out the file name for the
+
+653
+00:46:36,829 --> 00:46:50,180
+corresponding file for page two so here
+
+654
+00:46:43,140 --> 00:46:50,180
+let's change file name okay let's run it
+
+655
+00:46:53,450 --> 00:46:58,430
+main content declare and not used
+
+656
+00:47:02,250 --> 00:47:12,430
+okay let's print the file name oh if you
+
+657
+00:47:08,530 --> 00:47:15,760
+don't use it then it's you know one of
+
+658
+00:47:12,430 --> 00:47:19,690
+the issues in Cola is that if you do not
+
+659
+00:47:15,760 --> 00:47:23,109
+use a variable it will refuse to run it
+
+660
+00:47:19,690 --> 00:47:25,359
+will refuse to compile they do it this
+
+661
+00:47:23,109 --> 00:47:27,849
+way so that you know the code will
+
+662
+00:47:25,359 --> 00:47:31,630
+remain clean if you don't use some
+
+663
+00:47:27,849 --> 00:47:34,960
+variables if they are not used you know
+
+664
+00:47:31,630 --> 00:47:37,300
+you have to remove the declaration so
+
+665
+00:47:34,960 --> 00:47:40,210
+right now here I have been I have
+
+666
+00:47:37,300 --> 00:47:43,630
+created the start index and end index
+
+667
+00:47:40,210 --> 00:47:49,119
+for that I'm not using it anywhere so
+
+668
+00:47:43,630 --> 00:47:52,089
+that is why goal and refuse you know to
+
+669
+00:47:49,119 --> 00:47:58,210
+compile my code is making a complaint so
+
+670
+00:47:52,089 --> 00:48:02,829
+we have to use those start index so
+
+671
+00:47:58,210 --> 00:48:06,250
+let's make that then so we have to use
+
+672
+00:48:02,829 --> 00:48:08,640
+the index to create the main content but
+
+673
+00:48:06,250 --> 00:48:18,460
+however we are not using main content
+
+674
+00:48:08,640 --> 00:48:20,710
+but we have to use it so forth but okay
+
+675
+00:48:18,460 --> 00:48:29,829
+in that case that's common this lines
+
+676
+00:48:20,710 --> 00:48:36,069
+out so we are not using the and comment
+
+677
+00:48:29,829 --> 00:48:40,480
+this line up it's just really now its
+
+678
+00:48:36,069 --> 00:48:43,420
+face now it says because I'm not using
+
+679
+00:48:40,480 --> 00:48:46,569
+the library strings so it refuses to
+
+680
+00:48:43,420 --> 00:48:49,210
+compile so this this is a major
+
+681
+00:48:46,569 --> 00:48:51,640
+complaint of : a lot people complained
+
+682
+00:48:49,210 --> 00:48:53,859
+about these because every time you are
+
+683
+00:48:51,640 --> 00:48:58,750
+when you are doing a prototype you know
+
+684
+00:48:53,859 --> 00:49:01,150
+experiment then you know you you load a
+
+685
+00:48:58,750 --> 00:49:03,910
+bunch of libraries but it complains if
+
+686
+00:49:01,150 --> 00:49:05,920
+you do not use them like right now it's
+
+687
+00:49:03,910 --> 00:49:09,430
+happening to me
+
+688
+00:49:05,920 --> 00:49:11,849
+so okay comment out let's run the
+
+689
+00:49:09,430 --> 00:49:11,849
+program again
+
+690
+00:49:12,420 --> 00:49:19,630
+my texts declared and not use Oh God so
+
+691
+00:49:16,270 --> 00:49:23,530
+now I have to comment out the opening
+
+692
+00:49:19,630 --> 00:49:27,040
+file even so that's not good let's let's
+
+693
+00:49:23,530 --> 00:49:35,440
+revert it let's let's uncomment them so
+
+694
+00:49:27,040 --> 00:49:39,820
+we start index and main content let's
+
+695
+00:49:35,440 --> 00:49:41,860
+say we just print the first one
+
+696
+00:49:39,820 --> 00:49:45,880
+character of main content okay we don't
+
+697
+00:49:41,860 --> 00:49:50,080
+care about that really so now we run the
+
+698
+00:49:45,880 --> 00:49:53,560
+program great the first character of
+
+699
+00:49:50,080 --> 00:49:56,800
+each file is that correct then this is
+
+700
+00:49:53,560 --> 00:50:02,350
+the part we want but however the actual
+
+701
+00:49:56,800 --> 00:50:04,570
+part we want is this one you see yeah
+
+702
+00:50:02,350 --> 00:50:10,780
+it's the chapter name the first part
+
+703
+00:50:04,570 --> 00:50:14,290
+before the dash is the chapter number so
+
+704
+00:50:10,780 --> 00:50:16,300
+for each name we want to get the chapter
+
+705
+00:50:14,290 --> 00:50:20,530
+number so basically we want to take a
+
+706
+00:50:16,300 --> 00:50:24,250
+substring so let's do that so this is an
+
+707
+00:50:20,530 --> 00:50:31,930
+example of a string a substring would be
+
+708
+00:50:24,250 --> 00:50:38,520
+0 1 2 3 4 0 to 4
+
+709
+00:50:31,930 --> 00:50:43,110
+okay so substring is 0 to 4 okay
+
+710
+00:50:38,520 --> 00:50:43,110
+joined it that's correct
+
+711
+00:50:46,980 --> 00:50:56,640
+that is correct so the next thing we
+
+712
+00:50:53,619 --> 00:50:56,640
+want to do is
+
+713
+00:51:05,579 --> 00:51:33,089
+chapter filename chapter filename will
+
+714
+00:51:14,230 --> 00:51:33,089
+equals to the found in press press that
+
+715
+00:51:33,720 --> 00:51:37,680
+let's see if that works
+
+716
+00:51:43,650 --> 00:51:47,390
+okay let's run it
+
+717
+00:51:49,579 --> 00:51:57,469
+great this is fantastic we we got that
+
+718
+00:51:54,439 --> 00:52:03,130
+file this is the file we want to open
+
+719
+00:51:57,469 --> 00:52:03,130
+then insert our main content okay so now
+
+720
+00:52:04,149 --> 00:52:19,880
+now let's see there's a no now we want
+
+721
+00:52:10,039 --> 00:52:28,999
+to open the file again so Open File is
+
+722
+00:52:19,880 --> 00:52:37,999
+that code so we want to open my text -
+
+723
+00:52:28,999 --> 00:52:52,009
+my hero - and this we want to open this
+
+724
+00:52:37,999 --> 00:52:58,989
+file and once we opened it we print that
+
+725
+00:52:52,009 --> 00:53:03,019
+the first ten characters let's do that
+
+726
+00:52:58,989 --> 00:53:08,959
+my arrow - declared and not used
+
+727
+00:53:03,019 --> 00:53:11,259
+okay let's use it try it again okay it
+
+728
+00:53:08,959 --> 00:53:11,259
+works
+
+729
+00:53:14,920 --> 00:53:21,490
+hi Emmett now we are going to comment
+
+730
+00:53:18,400 --> 00:53:23,319
+the whole file now we're going to
+
+731
+00:53:21,490 --> 00:53:29,410
+comment the whole file what do you mean
+
+732
+00:53:23,319 --> 00:53:31,839
+coming the whole file okay this is
+
+733
+00:53:29,410 --> 00:53:35,740
+taking long and let's see how many
+
+734
+00:53:31,839 --> 00:53:38,500
+people are watching this is like getting
+
+735
+00:53:35,740 --> 00:53:40,539
+lonely and getting boring I think you
+
+736
+00:53:38,500 --> 00:53:48,279
+know is it like kind of boring to you
+
+737
+00:53:40,539 --> 00:53:52,569
+guys it would be better you know if if
+
+738
+00:53:48,279 --> 00:53:55,569
+you know I'm hot you know that there's a
+
+739
+00:53:52,569 --> 00:53:58,960
+issue with doing live-streaming demo
+
+740
+00:53:55,569 --> 00:54:02,260
+programming you know like coding because
+
+741
+00:53:58,960 --> 00:54:06,069
+when you do you know when you do a live
+
+742
+00:54:02,260 --> 00:54:07,630
+coding if you do not explain like like
+
+743
+00:54:06,069 --> 00:54:11,619
+when you are at work you know you don't
+
+744
+00:54:07,630 --> 00:54:14,650
+explain you just do it then then that is
+
+745
+00:54:11,619 --> 00:54:16,359
+no value to people watching it because
+
+746
+00:54:14,650 --> 00:54:19,119
+they don't know what you're doing
+
+747
+00:54:16,359 --> 00:54:21,339
+because it's impossible impossible for
+
+748
+00:54:19,119 --> 00:54:22,660
+anyone just should look at you your
+
+749
+00:54:21,339 --> 00:54:25,170
+swing and know what you're doing you
+
+750
+00:54:22,660 --> 00:54:29,980
+have to kind of explain along the way
+
+751
+00:54:25,170 --> 00:54:32,410
+but when you explain along the way you
+
+752
+00:54:29,980 --> 00:54:35,049
+are not actually really doing like
+
+753
+00:54:32,410 --> 00:54:41,529
+coding because you have to actually
+
+754
+00:54:35,049 --> 00:54:44,910
+explain lots of things well yeah kind of
+
+755
+00:54:41,529 --> 00:54:44,910
+you know so
+
+756
+00:54:46,950 --> 00:54:52,970
+so anyway I think the issue is okay so
+
+757
+00:54:49,530 --> 00:55:01,410
+anyway so let's keep doing this almost
+
+758
+00:54:52,970 --> 00:55:05,309
+complete so we got a code I hope in 15
+
+759
+00:55:01,410 --> 00:55:09,230
+more minutes we're gonna be done okay
+
+760
+00:55:05,309 --> 00:55:09,230
+we're gonna get get it done
+
+761
+00:55:10,280 --> 00:55:19,349
+so we have successfully got the file now
+
+762
+00:55:16,380 --> 00:55:22,500
+we want to add basically all we want to
+
+763
+00:55:19,349 --> 00:55:25,980
+do now is to insert the main content
+
+764
+00:55:22,500 --> 00:55:32,790
+into the fire we just opened okay that
+
+765
+00:55:25,980 --> 00:55:35,490
+is great so we want to insert the text
+
+766
+00:55:32,790 --> 00:55:38,849
+the main content into the fire we just
+
+767
+00:55:35,490 --> 00:55:44,069
+opened question where are you going to
+
+768
+00:55:38,849 --> 00:55:50,069
+insert it okay let's go to so let's go
+
+769
+00:55:44,069 --> 00:55:52,890
+to let's go through the file let's see
+
+770
+00:55:50,069 --> 00:55:56,160
+where do we want to insert it we want to
+
+771
+00:55:52,890 --> 00:55:58,650
+insert so this is a file you can see in
+
+772
+00:55:56,160 --> 00:56:01,049
+browser we want to insert it at the
+
+773
+00:55:58,650 --> 00:56:04,349
+bottom because you know remember we are
+
+774
+00:56:01,049 --> 00:56:07,470
+inserting grabbing the page - you know
+
+775
+00:56:04,349 --> 00:56:10,770
+append it to the page 1 content so the
+
+776
+00:56:07,470 --> 00:56:14,339
+bottom will be above this line above
+
+777
+00:56:10,770 --> 00:56:19,170
+this ads bottom line that's where we
+
+778
+00:56:14,339 --> 00:56:23,910
+want to insert ok so now now let's go
+
+779
+00:56:19,170 --> 00:56:26,940
+back to let's go back to the goal and so
+
+780
+00:56:23,910 --> 00:56:31,770
+we want to grab these strings so again
+
+781
+00:56:26,940 --> 00:56:39,150
+we have to do some search there so let's
+
+782
+00:56:31,770 --> 00:56:44,250
+clean up the code a little bit so main
+
+783
+00:56:39,150 --> 00:56:46,140
+index main decks print main contents we
+
+784
+00:56:44,250 --> 00:56:50,640
+don't need to print it anymore print
+
+785
+00:56:46,140 --> 00:56:52,830
+print now it's you know make the whole
+
+786
+00:56:50,640 --> 00:56:56,470
+thing cream
+
+787
+00:56:52,830 --> 00:57:01,210
+so Emmet says I mean when we comments
+
+788
+00:56:56,470 --> 00:57:04,930
+single vas and then their depth in lips
+
+789
+00:57:01,210 --> 00:57:14,050
+oh now we're going to come in the hole
+
+790
+00:57:04,930 --> 00:57:16,030
+oh yeah I see what you mean yeah that's
+
+791
+00:57:14,050 --> 00:57:18,420
+a problem with the goal and you know a
+
+792
+00:57:16,030 --> 00:57:21,790
+lot of people complain about that
+
+793
+00:57:18,420 --> 00:57:24,670
+because of because this strictness issue
+
+794
+00:57:21,790 --> 00:57:34,120
+every time you extract you know you do
+
+795
+00:57:24,670 --> 00:57:37,930
+prototypes it's a pen so Russ ed I'm ed
+
+796
+00:57:34,120 --> 00:57:39,720
+says rust has a way to avoid this issue
+
+797
+00:57:37,930 --> 00:57:43,240
+Oh interesting
+
+798
+00:57:39,720 --> 00:57:45,400
+you know I don't and I'm not much of a
+
+799
+00:57:43,240 --> 00:57:49,840
+fan of rust you know even I don't know
+
+800
+00:57:45,400 --> 00:57:52,270
+rust because well because rust is like
+
+801
+00:57:49,840 --> 00:57:55,450
+Lola low-level language you know they
+
+802
+00:57:52,270 --> 00:57:58,780
+they they require you to manage in the
+
+803
+00:57:55,450 --> 00:58:00,610
+memory like Oh garbage collection you
+
+804
+00:57:58,780 --> 00:58:04,090
+know they require you to do it manually
+
+805
+00:58:00,610 --> 00:58:06,040
+I don't like I you know those kind of
+
+806
+00:58:04,090 --> 00:58:11,670
+languages that those are you know low
+
+807
+00:58:06,040 --> 00:58:16,140
+level languages so Kathleen says a
+
+808
+00:58:11,670 --> 00:58:18,880
+appreciate the time thank you
+
+809
+00:58:16,140 --> 00:58:23,590
+she says I appreciate the time you take
+
+810
+00:58:18,880 --> 00:58:27,970
+the time to explain the workflow so no
+
+811
+00:58:23,590 --> 00:58:30,190
+we're gonna do yeah so we are kind of
+
+812
+00:58:27,970 --> 00:58:32,530
+repeating what we did before so now we
+
+813
+00:58:30,190 --> 00:58:36,610
+have this file we want to find the
+
+814
+00:58:32,530 --> 00:58:41,710
+location where this string exists
+
+815
+00:58:36,610 --> 00:58:44,530
+yes that's what we want so we you know
+
+816
+00:58:41,710 --> 00:58:47,140
+just like before we almost can just copy
+
+817
+00:58:44,530 --> 00:58:53,050
+this thing so just like before we copy
+
+818
+00:58:47,140 --> 00:58:55,260
+it paste it here and my text to so this
+
+819
+00:58:53,050 --> 00:58:55,260
+is
+
+820
+00:58:58,570 --> 00:59:11,620
+main content we don't care about main
+
+821
+00:59:00,760 --> 00:59:22,720
+content actually instead position inside
+
+822
+00:59:11,620 --> 00:59:28,020
+position is going to be oh now we have a
+
+823
+00:59:22,720 --> 00:59:32,650
+string which contains the double quote
+
+824
+00:59:28,020 --> 00:59:34,990
+now that is not allowed so we need to
+
+825
+00:59:32,650 --> 00:59:45,370
+escape the double quote how do you do
+
+826
+00:59:34,990 --> 00:59:49,660
+that let's go - oh okay so we just do we
+
+827
+00:59:45,370 --> 00:59:53,190
+have we can use this tactic so let me
+
+828
+00:59:49,660 --> 01:00:01,510
+show you what I mean so instead of that
+
+829
+00:59:53,190 --> 01:00:04,360
+we say back kick like that yeah so now
+
+830
+01:00:01,510 --> 01:00:08,320
+we don't have to you know add escapes to
+
+831
+01:00:04,360 --> 01:00:11,710
+the string so anyway so we the inside
+
+832
+01:00:08,320 --> 01:00:16,900
+position will be this okay
+
+833
+01:00:11,710 --> 01:00:17,430
+now let's print and see if we got it
+
+834
+01:00:16,900 --> 01:00:23,650
+right
+
+835
+01:00:17,430 --> 01:00:26,770
+comment this out Lynnette main content
+
+836
+01:00:23,650 --> 01:00:32,950
+declared are not used let's let's the
+
+837
+01:00:26,770 --> 01:00:35,640
+pain again main content let's just say
+
+838
+01:00:32,950 --> 01:00:35,640
+print
+
+839
+01:00:38,360 --> 01:00:48,380
+plaintiff first you know don't rain
+
+840
+01:00:42,010 --> 01:00:52,940
+print the zeroth character yeah so let's
+
+841
+01:00:48,380 --> 01:00:55,490
+run it again great so we you see it
+
+842
+01:00:52,940 --> 01:00:59,150
+shows this fire which is the fire we
+
+843
+01:00:55,490 --> 01:01:02,420
+want to insert and it shows this number
+
+844
+01:00:59,150 --> 01:01:06,490
+this number is the index where we want
+
+845
+01:01:02,420 --> 01:01:12,710
+to insert actually actually it is the I
+
+846
+01:01:06,490 --> 01:01:19,150
+believe it is so let's see so now what
+
+847
+01:01:12,710 --> 01:01:19,150
+we want to do is that we have my text to
+
+848
+01:01:25,200 --> 01:01:33,760
+basically we want to insert a stream
+
+849
+01:01:29,880 --> 01:01:38,369
+into the middle of another stream that's
+
+850
+01:01:33,760 --> 01:01:38,369
+right we want to insert a string
+
+851
+01:01:38,490 --> 01:01:58,829
+now insert main content into my text to
+
+852
+01:01:53,200 --> 01:02:05,740
+add position oops
+
+853
+01:01:58,829 --> 01:02:10,089
+add position insert that's what we want
+
+854
+01:02:05,740 --> 01:02:13,599
+to do so how do we do that
+
+855
+01:02:10,089 --> 01:02:18,579
+so now main content is a sequence of
+
+856
+01:02:13,599 --> 01:02:21,339
+bytes byte size and inst and my text to
+
+857
+01:02:18,579 --> 01:02:23,859
+is also a page size so we got a batch
+
+858
+01:02:21,339 --> 01:02:26,589
+size we want to insert another page size
+
+859
+01:02:23,859 --> 01:02:29,380
+oh that's easy
+
+860
+01:02:26,589 --> 01:02:37,329
+okay so in so we go back to the tutorial
+
+861
+01:02:29,380 --> 01:02:41,430
+and we look at we look at slice so
+
+862
+01:02:37,329 --> 01:02:46,299
+literal expression print slice create
+
+863
+01:02:41,430 --> 01:02:50,200
+create slice with make length of slice
+
+864
+01:02:46,299 --> 01:02:56,980
+take us the slice out of a size a pen -
+
+865
+01:02:50,200 --> 01:03:03,849
+sighs clear size nested size do through
+
+866
+01:02:56,980 --> 01:03:06,339
+size so there is no is there is there a
+
+867
+01:03:03,849 --> 01:03:10,299
+function or method or operation that
+
+868
+01:03:06,339 --> 01:03:13,740
+inserts a size into another size well
+
+869
+01:03:10,299 --> 01:03:13,740
+obviously I'm pretty sure
+
+870
+01:03:17,839 --> 01:03:22,460
+but how do you do that why is it
+
+871
+01:03:30,230 --> 01:03:40,080
+so any any suggestions any any NGO
+
+872
+01:03:36,840 --> 01:03:42,570
+programmers so so we got a slice which
+
+873
+01:03:40,080 --> 01:03:47,670
+is you know like a ray or least we got a
+
+874
+01:03:42,570 --> 01:03:50,040
+slice of bytes and we have another slice
+
+875
+01:03:47,670 --> 01:04:00,810
+we want to insert it into the first
+
+876
+01:03:50,040 --> 01:04:05,520
+slice at a particular position okay so
+
+877
+01:04:00,810 --> 01:04:10,230
+normally in many languages you call a
+
+878
+01:04:05,520 --> 01:04:13,740
+function or a method which is usually
+
+879
+01:04:10,230 --> 01:04:15,390
+you know called the slice you know you
+
+880
+01:04:13,740 --> 01:04:17,970
+know all the names are similar and
+
+881
+01:04:15,390 --> 01:04:21,960
+confusing but anyway typically you call
+
+882
+01:04:17,970 --> 01:04:26,450
+a method yes you call a method you know
+
+883
+01:04:21,960 --> 01:04:30,859
+function that you know we will insert
+
+884
+01:04:26,450 --> 01:04:30,859
+size into another size
+
+885
+01:04:35,140 --> 01:04:44,650
+but we want greater size with make no
+
+886
+01:04:41,390 --> 01:04:51,460
+length of sighs take a slice of size
+
+887
+01:04:44,650 --> 01:04:56,900
+that's not you know what we really want
+
+888
+01:04:51,460 --> 01:05:02,330
+okay we do not see the function so crea
+
+889
+01:04:56,900 --> 01:05:06,290
+size nested slice okay I don't see the
+
+890
+01:05:02,330 --> 01:05:09,710
+function here so so that probably means
+
+891
+01:05:06,290 --> 01:05:12,050
+there is no piolin function because :
+
+892
+01:05:09,710 --> 01:05:18,230
+because otherwise I would have written a
+
+893
+01:05:12,050 --> 01:05:22,040
+adhere likely maybe not but because I
+
+894
+01:05:18,230 --> 01:05:24,020
+know : is rather a low-level language so
+
+895
+01:05:22,040 --> 01:05:26,000
+sometimes it does not have you know
+
+896
+01:05:24,020 --> 01:05:28,460
+convenient functions you have to add it
+
+897
+01:05:26,000 --> 01:05:31,190
+your own in this case you know it's
+
+898
+01:05:28,460 --> 01:05:34,870
+trivial to write you know a function
+
+899
+01:05:31,190 --> 01:05:37,640
+that instead size into another part so I
+
+900
+01:05:34,870 --> 01:05:40,370
+ran out I believe we we don't have that
+
+901
+01:05:37,640 --> 01:05:43,490
+function building you know we can look
+
+902
+01:05:40,370 --> 01:05:46,670
+for it you know Stack Overflow but to
+
+903
+01:05:43,490 --> 01:05:49,940
+save time it's actually easier if we
+
+904
+01:05:46,670 --> 01:05:55,940
+just write it you know just let's just
+
+905
+01:05:49,940 --> 01:05:59,540
+do it so okay so the first my text to is
+
+906
+01:05:55,940 --> 01:06:01,910
+the slice we want to take a slice of it
+
+907
+01:05:59,540 --> 01:06:06,250
+you know like a sub strange okay
+
+908
+01:06:01,910 --> 01:06:11,510
+a slice of the size we want to say from
+
+909
+01:06:06,250 --> 01:06:18,800
+from the beginning to the from the
+
+910
+01:06:11,510 --> 01:06:21,770
+beginning to the insert position okay so
+
+911
+01:06:18,800 --> 01:06:27,200
+that's the first part the second part
+
+912
+01:06:21,770 --> 01:06:32,120
+will be the will be the you know the new
+
+913
+01:06:27,200 --> 01:06:37,630
+content we want to insert so main
+
+914
+01:06:32,120 --> 01:06:41,060
+content okay then the last part will be
+
+915
+01:06:37,630 --> 01:06:44,050
+again we take a slice from insert
+
+916
+01:06:41,060 --> 01:06:44,050
+position to
+
+917
+01:06:44,869 --> 01:06:54,279
+to the end position so what is the end
+
+918
+01:06:49,069 --> 01:06:54,279
+position that would be the length of the
+
+919
+01:06:54,460 --> 01:07:03,170
+my text that's right so how do you get
+
+920
+01:07:00,289 --> 01:07:08,869
+the length of a size you use the length
+
+921
+01:07:03,170 --> 01:07:12,219
+function wait how do you how l en you
+
+922
+01:07:08,869 --> 01:07:17,930
+know each languages they have their own
+
+923
+01:07:12,219 --> 01:07:21,140
+thing so okay basically this is the the
+
+924
+01:07:17,930 --> 01:07:25,819
+new content we want these these three
+
+925
+01:07:21,140 --> 01:07:29,719
+things these three slices and we need to
+
+926
+01:07:25,819 --> 01:07:41,200
+join them combine them so there is a how
+
+927
+01:07:29,719 --> 01:07:41,200
+do you join us rice append
+
+928
+01:07:50,650 --> 01:08:06,520
+so here's the new content new content
+
+929
+01:07:56,660 --> 01:08:06,520
+new content equals to append okay append
+
+930
+01:08:09,010 --> 01:08:22,310
+append a bunch of sizes now can append
+
+931
+01:08:15,860 --> 01:08:25,780
+the second argument be a slice well in
+
+932
+01:08:22,310 --> 01:08:32,050
+that case we have to go look at goal and
+
+933
+01:08:25,780 --> 01:08:36,610
+documentation so you go to packages and
+
+934
+01:08:32,050 --> 01:08:41,320
+the building functions are documented in
+
+935
+01:08:36,610 --> 01:08:45,020
+in this weird place but let me show you
+
+936
+01:08:41,320 --> 01:08:47,810
+Theoden you see this is a funny thing
+
+937
+01:08:45,020 --> 01:08:50,450
+and a good thing to know if you are
+
+938
+01:08:47,810 --> 01:08:53,060
+learning all that you know in there this
+
+939
+01:08:50,450 --> 01:08:55,280
+page is there documentation for all the
+
+940
+01:08:53,060 --> 01:08:57,710
+packages you know you can find the
+
+941
+01:08:55,280 --> 01:08:59,360
+package you need and you click it you
+
+942
+01:08:57,710 --> 01:09:03,110
+know there's a documentation for that
+
+943
+01:08:59,360 --> 01:09:05,480
+package however there is one thing
+
+944
+01:09:03,110 --> 01:09:07,160
+special here in this page you'll find
+
+945
+01:09:05,480 --> 01:09:10,790
+this building
+
+946
+01:09:07,160 --> 01:09:14,750
+now this build in thing is not actually
+
+947
+01:09:10,790 --> 01:09:18,110
+a package it's actually just a
+
+948
+01:09:14,750 --> 01:09:21,860
+convenient place where they document or
+
+949
+01:09:18,110 --> 01:09:23,960
+the building things in : for example all
+
+950
+01:09:21,860 --> 01:09:27,320
+these functions are building they are
+
+951
+01:09:23,960 --> 01:09:31,130
+not packages but however you find this
+
+952
+01:09:27,320 --> 01:09:34,580
+documentation in the packages you know
+
+953
+01:09:31,130 --> 01:09:37,100
+section so that's interesting so wait so
+
+954
+01:09:34,580 --> 01:09:39,680
+in practice so practically what it means
+
+955
+01:09:37,100 --> 01:09:42,020
+whenever you are you know looking up :
+
+956
+01:09:39,680 --> 01:09:46,820
+documentation for some building things
+
+957
+01:09:42,020 --> 01:09:48,830
+such as bar or such as you know for
+
+958
+01:09:46,820 --> 01:09:54,800
+example if you want to know what you
+
+959
+01:09:48,830 --> 01:09:57,460
+know why is for in : you can look at is
+
+960
+01:09:54,800 --> 01:09:57,460
+it here
+
+961
+01:09:58,450 --> 01:10:05,810
+no advice actually too low-level but you
+
+962
+01:10:03,830 --> 01:10:09,530
+know for example length is documented
+
+963
+01:10:05,810 --> 01:10:14,930
+here but anyway so the thing we want to
+
+964
+01:10:09,530 --> 01:10:16,280
+look for is append here so a pent takes
+
+965
+01:10:14,930 --> 01:10:18,620
+two arguments
+
+966
+01:10:16,280 --> 01:10:21,290
+you know like actually infinite number
+
+967
+01:10:18,620 --> 01:10:24,110
+of arguments so the first thing is a
+
+968
+01:10:21,290 --> 01:10:28,550
+size the second you know the rest of
+
+969
+01:10:24,110 --> 01:10:30,440
+arguments are of any type as long as
+
+970
+01:10:28,550 --> 01:10:34,219
+they are the same type you know it says
+
+971
+01:10:30,440 --> 01:10:36,739
+here so so that's good so that's that
+
+972
+01:10:34,219 --> 01:10:39,140
+you know we got what we want to know we
+
+973
+01:10:36,739 --> 01:10:41,330
+found what we want to know so we got we
+
+974
+01:10:39,140 --> 01:10:45,980
+want to append three things the first
+
+975
+01:10:41,330 --> 01:10:48,050
+thing is a slice the second thing is
+
+976
+01:10:45,980 --> 01:10:50,050
+also slice the last thing is also a
+
+977
+01:10:48,050 --> 01:10:54,320
+slice that's what we want
+
+978
+01:10:50,050 --> 01:10:56,950
+let's go format and go format says you
+
+979
+01:10:54,320 --> 01:10:56,950
+got a problem
+
+980
+01:10:58,780 --> 01:11:09,290
+it says expected that but found coma so
+
+981
+01:11:05,360 --> 01:11:14,350
+this is line 165 so here
+
+982
+01:11:09,290 --> 01:11:14,350
+oh okay so wait
+
+983
+01:11:17,260 --> 01:11:21,550
+you say oh yeah so you need a call and
+
+984
+01:11:20,710 --> 01:11:26,590
+instead
+
+985
+01:11:21,550 --> 01:11:34,230
+so go format again another error the
+
+986
+01:11:26,590 --> 01:11:41,530
+arrow is lying 165 and it's missing home
+
+987
+01:11:34,230 --> 01:11:49,630
+missing coma before noon line argument
+
+988
+01:11:41,530 --> 01:11:53,200
+list okay I think that that's good
+
+989
+01:11:49,630 --> 01:11:57,850
+you know : here's another thing about :
+
+990
+01:11:53,200 --> 01:12:03,760
+: technically you require the semicolon
+
+991
+01:11:57,850 --> 01:12:08,590
+in most of the in most phrases in the
+
+992
+01:12:03,760 --> 01:12:12,220
+most end of line but however however
+
+993
+01:12:08,590 --> 01:12:16,180
+colon has a feature that you do not need
+
+994
+01:12:12,220 --> 01:12:19,830
+to add that because when you have a
+
+995
+01:12:16,180 --> 01:12:22,770
+newline character : will almost
+
+996
+01:12:19,830 --> 01:12:27,220
+automatically assume that you have a
+
+997
+01:12:22,770 --> 01:12:30,430
+semicolon at the end you know it's a
+
+998
+01:12:27,220 --> 01:12:32,110
+part of the feature of : because so you
+
+999
+01:12:30,430 --> 01:12:34,570
+don't have to type you know the
+
+1000
+01:12:32,110 --> 01:12:37,030
+semicolon all the time you know tedious
+
+1001
+01:12:34,570 --> 01:12:38,830
+you can just use a new line you know
+
+1002
+01:12:37,030 --> 01:12:42,070
+whatever something something something
+
+1003
+01:12:38,830 --> 01:12:44,950
+and new line you know no no need to
+
+1004
+01:12:42,070 --> 01:12:47,710
+manually type the semicolon but
+
+1005
+01:12:44,950 --> 01:12:51,220
+technically you actually need them you
+
+1006
+01:12:47,710 --> 01:12:54,760
+see I I you know for example I'm adding
+
+1007
+01:12:51,220 --> 01:12:57,640
+semicolon over here adding a semicolon
+
+1008
+01:12:54,760 --> 01:13:00,910
+you know and your men
+
+1009
+01:12:57,640 --> 01:13:03,310
+it will run you know as usual but
+
+1010
+01:13:00,910 --> 01:13:05,290
+however when you Coco format you know
+
+1011
+01:13:03,310 --> 01:13:08,500
+the command the building commando format
+
+1012
+01:13:05,290 --> 01:13:11,770
+which formats your code for you it
+
+1013
+01:13:08,500 --> 01:13:15,190
+removes the semicolon for example you
+
+1014
+01:13:11,770 --> 01:13:17,940
+see nah now let me Coco format okay I
+
+1015
+01:13:15,190 --> 01:13:22,570
+call you see it remove so Mike
+
+1016
+01:13:17,940 --> 01:13:24,790
+semicolons because even though
+
+1017
+01:13:22,570 --> 01:13:28,390
+technically you need the semicolon big
+
+1018
+01:13:24,790 --> 01:13:30,670
+but the convention of go :
+
+1019
+01:13:28,390 --> 01:13:31,180
+you know the convention is that people
+
+1020
+01:13:30,670 --> 01:13:34,660
+who don't
+
+1021
+01:13:31,180 --> 01:13:37,540
+type the semicolon you know so so that's
+
+1022
+01:13:34,660 --> 01:13:38,170
+you know it's you know even easier to
+
+1023
+01:13:37,540 --> 01:13:40,360
+read
+
+1024
+01:13:38,170 --> 01:13:44,260
+you know without all the quarters of
+
+1025
+01:13:40,360 --> 01:13:47,290
+semicolon so that is why when you KOCO
+
+1026
+01:13:44,260 --> 01:13:50,320
+format it it just removes the semicolons
+
+1027
+01:13:47,290 --> 01:13:53,290
+you know for you but however sometimes
+
+1028
+01:13:50,320 --> 01:13:59,440
+it it got confused for example if I have
+
+1029
+01:13:53,290 --> 01:14:02,890
+this thing you know in three lines then
+
+1030
+01:13:59,440 --> 01:14:06,400
+go format got confused it says you know
+
+1031
+01:14:02,890 --> 01:14:08,380
+I need a comma here but actually that's
+
+1032
+01:14:06,400 --> 01:14:11,980
+not the case because this whole thing is
+
+1033
+01:14:08,380 --> 01:14:16,240
+should be considered one line for
+
+1034
+01:14:11,980 --> 01:14:18,310
+example let's see if I can do that
+
+1035
+01:14:16,240 --> 01:14:23,980
+let's try go format again let's see what
+
+1036
+01:14:18,310 --> 01:14:26,380
+happens oh it runs so if you actually
+
+1037
+01:14:23,980 --> 01:14:31,090
+intended then they actually now
+
+1038
+01:14:26,380 --> 01:14:35,560
+understand this is you know but anyway
+
+1039
+01:14:31,090 --> 01:14:38,560
+let's make it one line so new content
+
+1040
+01:14:35,560 --> 01:14:45,900
+will equals to a pen now okay now let's
+
+1041
+01:14:38,560 --> 01:14:52,660
+print let's print out the first file
+
+1042
+01:14:45,900 --> 01:14:55,510
+that let's print out the new content
+
+1043
+01:14:52,660 --> 01:14:57,790
+okay but we don't want to print it here
+
+1044
+01:14:55,510 --> 01:15:00,060
+because then it's gonna print for every
+
+1045
+01:14:57,790 --> 01:15:06,120
+file then it's a huge number of files
+
+1046
+01:15:00,060 --> 01:15:14,890
+but let's print it here so that before
+
+1047
+01:15:06,120 --> 01:15:17,590
+let's do it here like this variable X is
+
+1048
+01:15:14,890 --> 01:15:22,060
+a temp temporary variable let's just say
+
+1049
+01:15:17,590 --> 01:15:32,910
+something okay okay then at the bottom
+
+1050
+01:15:22,060 --> 01:15:36,550
+we say x equals to new content okay
+
+1051
+01:15:32,910 --> 01:15:46,360
+then at the end out of the loop we print
+
+1052
+01:15:36,550 --> 01:15:49,030
+X okay that that works so in this way we
+
+1053
+01:15:46,360 --> 01:15:51,400
+will only print one of the file new
+
+1054
+01:15:49,030 --> 01:15:56,590
+content because otherwise he'll just
+
+1055
+01:15:51,400 --> 01:16:01,420
+keep printing a lot so run it undefined
+
+1056
+01:15:56,590 --> 01:16:13,390
+my text - okay that's because I miss I
+
+1057
+01:16:01,420 --> 01:16:18,270
+need a capitalization my text - okay
+
+1058
+01:16:13,390 --> 01:16:18,270
+where is it oh here
+
+1059
+01:16:26,599 --> 01:16:38,030
+and one more okay run it okay it says
+
+1060
+01:16:33,659 --> 01:16:45,770
+cannot use main content page slice as
+
+1061
+01:16:38,030 --> 01:16:45,770
+type bite in append okay so
+
+1062
+01:16:53,360 --> 01:17:05,510
+so our problem now is to combine several
+
+1063
+01:16:57,050 --> 01:17:07,700
+bite sizes it says we cannot let's try
+
+1064
+01:17:05,510 --> 01:17:13,220
+it try it again what's the error
+
+1065
+01:17:07,700 --> 01:17:17,660
+so he says cannot use bite slice as type
+
+1066
+01:17:13,220 --> 01:17:23,390
+bite in append so that tells us that the
+
+1067
+01:17:17,660 --> 01:17:27,610
+append will only take bite as as its
+
+1068
+01:17:23,390 --> 01:17:27,610
+arguments that's it's not good
+
+1069
+01:17:33,280 --> 01:17:36,790
+oh it should walk because you see this
+
+1070
+01:17:36,160 --> 01:17:45,160
+one
+
+1071
+01:17:36,790 --> 01:17:47,640
+oh if so if you appending slice then you
+
+1072
+01:17:45,160 --> 01:17:47,640
+should walk
+
+1073
+01:17:52,100 --> 01:17:55,690
+so what is saying
+
+1074
+01:17:59,260 --> 01:18:12,639
+so main content what is the main content
+
+1075
+01:18:02,860 --> 01:18:25,929
+main content is a Oh main content is a
+
+1076
+01:18:12,639 --> 01:18:36,729
+stream yeah because wait my text my text
+
+1077
+01:18:25,929 --> 01:18:44,530
+is a pipe slice and main content should
+
+1078
+01:18:36,729 --> 01:18:48,429
+also be is also a by size okay let's get
+
+1079
+01:18:44,530 --> 01:18:54,429
+over this and so we can be done with
+
+1080
+01:18:48,429 --> 01:19:00,130
+this donut you cannot use main content
+
+1081
+01:18:54,429 --> 01:19:06,579
+type bite slice first type bite as type
+
+1082
+01:19:00,130 --> 01:19:09,449
+bite in append so somewhere here it is
+
+1083
+01:19:06,579 --> 01:19:09,449
+assuming
+
+1084
+01:19:11,849 --> 01:19:19,250
+I tie plates to these let's just remove
+
+1085
+01:19:16,320 --> 01:19:19,250
+the last one
+
+1086
+01:19:22,580 --> 01:19:30,420
+and let's run it see what happens
+
+1087
+01:19:25,560 --> 01:19:37,890
+same thing so what is the type of main
+
+1088
+01:19:30,420 --> 01:19:40,770
+content so we want to see what is the
+
+1089
+01:19:37,890 --> 01:19:45,150
+type of main content how do you find out
+
+1090
+01:19:40,770 --> 01:19:59,940
+what type something is in Golan you can
+
+1091
+01:19:45,150 --> 01:20:02,270
+go to print and percentage sign T is the
+
+1092
+01:19:59,940 --> 01:20:02,270
+type
+
+1093
+01:20:07,530 --> 01:20:12,560
+yeah so this how you this is how you do
+
+1094
+01:20:10,530 --> 01:20:12,560
+it
+
+1095
+01:20:15,290 --> 01:20:21,050
+learn it now
+
+1096
+01:20:17,820 --> 01:20:24,230
+which let's comment on how to come and
+
+1097
+01:20:21,050 --> 01:20:24,230
+comment now
+
+1098
+01:20:31,920 --> 01:20:44,340
+okay Lynette okay it's printing this
+
+1099
+01:20:38,100 --> 01:20:50,990
+whole thing this is wrong because I want
+
+1100
+01:20:44,340 --> 01:20:50,990
+to train the tight butt
+
+1101
+01:20:54,809 --> 01:20:57,739
+oh because
+
+1102
+01:21:18,820 --> 01:21:28,769
+let's try this again maybe because i'm
+
+1103
+01:21:23,980 --> 01:21:28,769
+using print lie instead of print
+
+1104
+01:21:44,360 --> 01:21:57,340
+okay let's try this that's correct so
+
+1105
+01:21:50,330 --> 01:21:57,340
+you see this line square bracket uint8
+
+1106
+01:21:57,640 --> 01:22:04,010
+that means it's a bite slice because in
+
+1107
+01:22:03,170 --> 01:22:10,010
+:
+
+1108
+01:22:04,010 --> 01:22:15,440
+the uint8 means a bite it's a it's on
+
+1109
+01:22:10,010 --> 01:22:21,470
+areas to abide so if you go to here and
+
+1110
+01:22:15,440 --> 01:22:28,640
+you see basic types so we have int 8
+
+1111
+01:22:21,470 --> 01:22:31,820
+here then you have uint8 here so
+
+1112
+01:22:28,640 --> 01:22:34,490
+basically that just means a bite so the
+
+1113
+01:22:31,820 --> 01:22:40,910
+type of main content is a base slice
+
+1114
+01:22:34,490 --> 01:22:43,340
+because you know so the type of main
+
+1115
+01:22:40,910 --> 01:22:48,220
+content is a bite size then why is is
+
+1116
+01:22:43,340 --> 01:22:48,220
+not working append
+
+1117
+01:22:57,140 --> 01:23:07,190
+cannot use main contents cannot use main
+
+1118
+01:23:00,830 --> 01:23:11,420
+content type by size as type bite in a
+
+1119
+01:23:07,190 --> 01:23:17,030
+pen so the paint function assumed how
+
+1120
+01:23:11,420 --> 01:23:19,630
+the second argument has bite type but
+
+1121
+01:23:17,030 --> 01:23:19,630
+why is that
+
+1122
+01:23:31,480 --> 01:23:35,110
+does anyone know
+
+1123
+01:23:40,730 --> 01:23:45,740
+we whoops where did it go
+
+1124
+01:23:48,180 --> 01:23:56,730
+append packages strains building
+
+1125
+01:23:59,489 --> 01:24:03,410
+the OD'ing obtained
+
+1126
+01:24:17,650 --> 01:24:31,000
+I don't know why why it's not working
+
+1127
+01:24:22,860 --> 01:24:33,160
+but let's just try to make this into a
+
+1128
+01:24:31,000 --> 01:24:38,350
+string maybe that helps you know let's
+
+1129
+01:24:33,160 --> 01:24:43,540
+see what happens donate so nowadays
+
+1130
+01:24:38,350 --> 01:24:46,950
+cannot use string main contents can I
+
+1131
+01:24:43,540 --> 01:24:50,230
+use stream main content as type string
+
+1132
+01:24:46,950 --> 01:24:53,890
+well can I use stream main content of
+
+1133
+01:24:50,230 --> 01:24:56,770
+type string as type fight in your paint
+
+1134
+01:24:53,890 --> 01:24:57,670
+yeah so the paint function this the
+
+1135
+01:24:56,770 --> 01:25:01,860
+second argument
+
+1136
+01:24:57,670 --> 01:25:10,900
+it keeps assuming that we are using bite
+
+1137
+01:25:01,860 --> 01:25:13,090
+but we are not using bite man hey
+
+1138
+01:25:10,900 --> 01:25:16,630
+Gabriel how are you I'm doing great
+
+1139
+01:25:13,090 --> 01:25:20,500
+thank you yeah I found out I noticed who
+
+1140
+01:25:16,630 --> 01:25:23,640
+you are on Twitter the other day sir so
+
+1141
+01:25:20,500 --> 01:25:26,830
+do you know Golan are you new too : oh
+
+1142
+01:25:23,640 --> 01:25:30,460
+so we are coding this problem and right
+
+1143
+01:25:26,830 --> 01:25:32,920
+now we have a problem of with the append
+
+1144
+01:25:30,460 --> 01:25:37,480
+function you know basically what we want
+
+1145
+01:25:32,920 --> 01:25:44,410
+to do is to we basically we want to join
+
+1146
+01:25:37,480 --> 01:25:49,090
+three three slice of bites you know just
+
+1147
+01:25:44,410 --> 01:25:55,320
+join three slices and we try to use the
+
+1148
+01:25:49,090 --> 01:25:55,320
+append function so how do you do this so
+
+1149
+01:25:56,730 --> 01:26:06,160
+so we keep running into problems so ra6
+
+1150
+01:26:02,830 --> 01:26:07,920
+says i'm new to go only know about the
+
+1151
+01:26:06,160 --> 01:26:11,250
+basics okay
+
+1152
+01:26:07,920 --> 01:26:11,250
+same here
+
+1153
+01:26:12,840 --> 01:26:26,070
+so KS cannot use main content type
+
+1154
+01:26:17,160 --> 01:26:34,500
+string as type biting a pen okay so how
+
+1155
+01:26:26,070 --> 01:26:37,080
+do you join how do you join a slice we
+
+1156
+01:26:34,500 --> 01:26:38,210
+want to join a bunch of sizes print size
+
+1157
+01:26:37,080 --> 01:26:42,450
+line by line
+
+1158
+01:26:38,210 --> 01:26:47,940
+grace eyes with make okay length of size
+
+1159
+01:26:42,450 --> 01:26:50,330
+takes slice of slice append to size so
+
+1160
+01:26:47,940 --> 01:26:58,590
+building function of hand okay
+
+1161
+01:26:50,330 --> 01:27:04,830
+Korea's rice create nested size with
+
+1162
+01:26:58,590 --> 01:27:07,170
+make loop through size so definitely the
+
+1163
+01:27:04,830 --> 01:27:10,610
+answer lies in append that's the
+
+1164
+01:27:07,170 --> 01:27:10,610
+function we want to use
+
+1165
+01:27:14,630 --> 01:27:24,500
+oh ok so we need three thoughts that's
+
+1166
+01:27:18,830 --> 01:27:28,010
+right I know these these three thoughts
+
+1167
+01:27:24,500 --> 01:27:30,320
+are actually an operator if I recall
+
+1168
+01:27:28,010 --> 01:27:35,210
+correctly I might be mistaken but I'm
+
+1169
+01:27:30,320 --> 01:27:39,740
+pretty sure so let's try it again okay
+
+1170
+01:27:35,210 --> 01:27:42,530
+let's you know let's try this comment
+
+1171
+01:27:39,740 --> 01:27:46,460
+this out and instead of that we don't
+
+1172
+01:27:42,530 --> 01:27:51,620
+need or we have to do is give it three
+
+1173
+01:27:46,460 --> 01:27:54,500
+thoughts you know because the append the
+
+1174
+01:27:51,620 --> 01:27:58,910
+second argument to append really must be
+
+1175
+01:27:54,500 --> 01:28:00,260
+bite it doesn't want slices he wants a
+
+1176
+01:27:58,910 --> 01:28:05,180
+bite you know you can have many
+
+1177
+01:28:00,260 --> 01:28:09,230
+arguments they all must be bite so now
+
+1178
+01:28:05,180 --> 01:28:13,250
+you so our main content is a slice it's
+
+1179
+01:28:09,230 --> 01:28:16,160
+not a bite it's a slice of bites so we
+
+1180
+01:28:13,250 --> 01:28:19,490
+want to pass this into the paint but we
+
+1181
+01:28:16,160 --> 01:28:22,880
+need these three dots to make it into a
+
+1182
+01:28:19,490 --> 01:28:28,760
+you know a bunch of arguments so let's
+
+1183
+01:28:22,880 --> 01:28:31,550
+run it that's successful it says new
+
+1184
+01:28:28,760 --> 01:28:36,230
+content declare they're not used that's
+
+1185
+01:28:31,550 --> 01:28:42,140
+good finally so so that's good now we go
+
+1186
+01:28:36,230 --> 01:28:44,330
+back to our original here we want to you
+
+1187
+01:28:42,140 --> 01:28:50,800
+know we are want to make all these three
+
+1188
+01:28:44,330 --> 01:28:50,800
+dots dot dot and
+
+1189
+01:28:53,460 --> 01:29:01,110
+and here too dot dot dot okay vennett
+
+1190
+01:29:01,710 --> 01:29:10,079
+unexpected but this is confusing
+
+1191
+01:29:51,840 --> 01:29:57,630
+oh can you do that okay I know what's
+
+1192
+01:29:56,880 --> 01:30:00,600
+going on
+
+1193
+01:29:57,630 --> 01:30:03,330
+so actually what we need to do it can
+
+1194
+01:30:00,600 --> 01:30:11,780
+append when you use this it can only be
+
+1195
+01:30:03,330 --> 01:30:21,090
+done once yeah so so new content new
+
+1196
+01:30:11,780 --> 01:30:23,360
+content this probably something like
+
+1197
+01:30:21,090 --> 01:30:23,360
+that
+
+1198
+01:30:27,989 --> 01:30:38,670
+so comment this out so new content
+
+1199
+01:30:31,280 --> 01:30:46,140
+equals to that then we want to append
+
+1200
+01:30:38,670 --> 01:30:48,780
+new content again by that let's see that
+
+1201
+01:30:46,140 --> 01:30:51,830
+is correct I think that's it correct
+
+1202
+01:30:48,780 --> 01:30:51,830
+it's running ooh
+
+1203
+01:30:52,770 --> 01:30:57,920
+it seems good it sounds good
+
+1204
+01:30:59,360 --> 01:31:12,030
+now let's print the content shall we
+
+1205
+01:31:02,250 --> 01:31:14,270
+it's let's get back to the printed run
+
+1206
+01:31:12,030 --> 01:31:14,270
+it
+
+1207
+01:31:15,140 --> 01:31:24,600
+okay cannot use new content because type
+
+1208
+01:31:21,380 --> 01:31:27,120
+spice spice as types training or
+
+1209
+01:31:24,600 --> 01:31:31,830
+assignment okay that's easy to fix
+
+1210
+01:31:27,120 --> 01:31:37,980
+so X is a string so now we just turn it
+
+1211
+01:31:31,830 --> 01:31:40,560
+into a string great fantastic it seems
+
+1212
+01:31:37,980 --> 01:31:44,489
+like it's working now let is let us
+
+1213
+01:31:40,560 --> 01:31:47,250
+double check let us double check and
+
+1214
+01:31:44,489 --> 01:31:50,430
+when maybe when this is correct
+
+1215
+01:31:47,250 --> 01:31:54,120
+we shall shall call it a day so let me
+
+1216
+01:31:50,430 --> 01:31:56,310
+read the comments Michael and why go
+
+1217
+01:31:54,120 --> 01:31:59,430
+line is great but what does three
+
+1218
+01:31:56,310 --> 01:32:03,120
+thoughts me is they like convert type
+
+1219
+01:31:59,430 --> 01:32:10,620
+too tight no it's not convert type 2
+
+1220
+01:32:03,120 --> 01:32:13,770
+type 3 thoughts means you want to for
+
+1221
+01:32:10,620 --> 01:32:18,810
+example if you have is let's say any
+
+1222
+01:32:13,770 --> 01:32:24,870
+language let's say bar equals to bar
+
+1223
+01:32:18,810 --> 01:32:29,160
+list equals to something 3 4 5 ok now
+
+1224
+01:32:24,870 --> 01:32:35,730
+let's say you have a function f okay and
+
+1225
+01:32:29,160 --> 01:32:38,520
+it takes three arguments X Y Z okay
+
+1226
+01:32:35,730 --> 01:32:42,310
+equals to something okay now this
+
+1227
+01:32:38,520 --> 01:32:45,320
+function takes three arguments X Y Z
+
+1228
+01:32:42,310 --> 01:32:48,110
+now you want to code a function with the
+
+1229
+01:32:45,320 --> 01:32:51,800
+content of the least three four five but
+
+1230
+01:32:48,110 --> 01:32:54,290
+however you don't have you know that the
+
+1231
+01:32:51,800 --> 01:32:57,110
+problem now is is that you want to pass
+
+1232
+01:32:54,290 --> 01:32:57,500
+this you know away this list kind of
+
+1233
+01:32:57,110 --> 01:33:00,050
+thing
+
+1234
+01:32:57,500 --> 01:33:01,940
+into the function but the function
+
+1235
+01:33:00,050 --> 01:33:05,300
+doesn't take a list the function needs
+
+1236
+01:33:01,940 --> 01:33:07,850
+the arguments by itself so how do you do
+
+1237
+01:33:05,300 --> 01:33:12,320
+that this is a common problem so in some
+
+1238
+01:33:07,850 --> 01:33:15,410
+languages you can say in : for example
+
+1239
+01:33:12,320 --> 01:33:17,420
+that's what you say you know you give a
+
+1240
+01:33:15,410 --> 01:33:22,310
+variable name then you put three dots
+
+1241
+01:33:17,420 --> 01:33:26,000
+that kind of put you know that it
+
+1242
+01:33:22,310 --> 01:33:28,970
+sometimes it said slice or surprise you
+
+1243
+01:33:26,000 --> 01:33:33,320
+know the the list into the arguments and
+
+1244
+01:33:28,970 --> 01:33:36,410
+in JavaScript in JavaScript you have to
+
+1245
+01:33:33,320 --> 01:33:38,390
+put the three dots before you know and
+
+1246
+01:33:36,410 --> 01:33:41,450
+each one works differently you know
+
+1247
+01:33:38,390 --> 01:33:44,870
+JavaScript in a case of JavaScript the
+
+1248
+01:33:41,450 --> 01:33:53,090
+list is considered an iterable anyway so
+
+1249
+01:33:44,870 --> 01:33:57,290
+that is what the three dots is is for so
+
+1250
+01:33:53,090 --> 01:34:00,740
+now we seems to be successful and what
+
+1251
+01:33:57,290 --> 01:34:03,590
+we did is that we have printed out the
+
+1252
+01:34:00,740 --> 01:34:06,200
+new content now all we have to do is to
+
+1253
+01:34:03,590 --> 01:34:09,200
+double check if this is new content is
+
+1254
+01:34:06,200 --> 01:34:12,770
+correct so how do we do that you know
+
+1255
+01:34:09,200 --> 01:34:15,530
+you go to here you can see this is
+
+1256
+01:34:12,770 --> 01:34:18,880
+correct because you know I know you see
+
+1257
+01:34:15,530 --> 01:34:21,770
+these two lines are repeated at bottom
+
+1258
+01:34:18,880 --> 01:34:24,260
+why they are repeated because I know one
+
+1259
+01:34:21,770 --> 01:34:26,090
+of them came from the second file while
+
+1260
+01:34:24,260 --> 01:34:29,090
+the other one is already you know
+
+1261
+01:34:26,090 --> 01:34:32,900
+originally in the first file remember in
+
+1262
+01:34:29,090 --> 01:34:36,170
+the first file we we searched for this
+
+1263
+01:34:32,900 --> 01:34:39,230
+position we say we want to add it before
+
+1264
+01:34:36,170 --> 01:34:41,420
+these so that's why you know so from
+
+1265
+01:34:39,230 --> 01:34:47,980
+here and the perb is from the second
+
+1266
+01:34:41,420 --> 01:34:47,980
+file so if we go up and look at
+
+1267
+01:34:48,840 --> 01:34:56,760
+so yeah so we are sure this is correct
+
+1268
+01:34:52,530 --> 01:35:00,390
+this is correct now the last step this
+
+1269
+01:34:56,760 --> 01:35:04,520
+the last step is to write out this new
+
+1270
+01:35:00,390 --> 01:35:07,350
+content into the into our file you know
+
+1271
+01:35:04,520 --> 01:35:13,440
+original file so let's just do that and
+
+1272
+01:35:07,350 --> 01:35:14,070
+you know it should be done yeah so so
+
+1273
+01:35:13,440 --> 01:35:18,510
+let's do that
+
+1274
+01:35:14,070 --> 01:35:23,370
+and it will be done for today maybe 17
+
+1275
+01:35:18,510 --> 01:35:24,630
+minutes so far we have talked about or
+
+1276
+01:35:23,370 --> 01:35:28,680
+ninety minutes
+
+1277
+01:35:24,630 --> 01:35:31,710
+yeah this takes a long time you know if
+
+1278
+01:35:28,680 --> 01:35:34,860
+if I've been working with Golan a lot
+
+1279
+01:35:31,710 --> 01:35:38,310
+then you know todavía will be much
+
+1280
+01:35:34,860 --> 01:35:40,070
+smoother you know but I'm they're just
+
+1281
+01:35:38,310 --> 01:35:42,240
+doing this for fun you know that
+
+1282
+01:35:40,070 --> 01:35:48,570
+exploration and all these frustrations
+
+1283
+01:35:42,240 --> 01:35:50,340
+is part of part of the ship so yeah we
+
+1284
+01:35:48,570 --> 01:35:54,570
+know we want to write to fire so how do
+
+1285
+01:35:50,340 --> 01:35:57,530
+you do that so I go to my my tutorial
+
+1286
+01:35:54,570 --> 01:36:03,630
+which we function as a notes for myself
+
+1287
+01:35:57,530 --> 01:36:07,950
+so here is how you write to file content
+
+1288
+01:36:03,630 --> 01:36:10,920
+okay you want to create a file first
+
+1289
+01:36:07,950 --> 01:36:13,910
+then that's how you write to fire okay
+
+1290
+01:36:10,920 --> 01:36:13,910
+so let's copy that
+
+1291
+01:36:15,320 --> 01:36:19,370
+okay here's another example
+
+1292
+01:36:21,909 --> 01:36:32,670
+so basically they are there is this
+
+1293
+01:36:25,630 --> 01:36:42,070
+library OS and you can use write stream
+
+1294
+01:36:32,670 --> 01:36:46,719
+so you have to do OS create then OS
+
+1295
+01:36:42,070 --> 01:36:50,530
+create it returns a file object and this
+
+1296
+01:36:46,719 --> 01:36:54,820
+file object has a method named write
+
+1297
+01:36:50,530 --> 01:36:58,320
+string so you use always start create to
+
+1298
+01:36:54,820 --> 01:37:01,500
+create a path it returns a file object
+
+1299
+01:36:58,320 --> 01:37:05,620
+then the file object has a right to
+
+1300
+01:37:01,500 --> 01:37:08,380
+string method then that's how you write
+
+1301
+01:37:05,620 --> 01:37:12,429
+to a file that's one way now let's
+
+1302
+01:37:08,380 --> 01:37:16,090
+totally look at the other way so in this
+
+1303
+01:37:12,429 --> 01:37:26,260
+case in a in this example we need to use
+
+1304
+01:37:16,090 --> 01:37:32,980
+IO IO uto so in this way you write to
+
+1305
+01:37:26,260 --> 01:37:36,610
+file by by this way okay let's use this
+
+1306
+01:37:32,980 --> 01:37:41,460
+method because I prefer this seems to be
+
+1307
+01:37:36,610 --> 01:37:47,980
+a simpler method so we need this library
+
+1308
+01:37:41,460 --> 01:37:51,300
+go to the top of the file then we need
+
+1309
+01:37:47,980 --> 01:37:51,300
+the library here
+
+1310
+01:37:54,300 --> 01:38:04,470
+okay then we need to use this function
+
+1311
+01:37:59,100 --> 01:38:06,960
+to write to file go has lots of error
+
+1312
+01:38:04,470 --> 01:38:09,900
+checking you must have that otherwise
+
+1313
+01:38:06,960 --> 01:38:13,860
+you won't compile so that is also a
+
+1314
+01:38:09,900 --> 01:38:17,790
+common complaint about : so here we have
+
+1315
+01:38:13,860 --> 01:38:20,670
+the right to file code so I owe you t or
+
+1316
+01:38:17,790 --> 01:38:27,350
+right file and this is the path we want
+
+1317
+01:38:20,670 --> 01:38:27,350
+to write it to we want to write it to
+
+1318
+01:38:29,300 --> 01:38:44,490
+plus let's just say xx test okay let's
+
+1319
+01:38:38,910 --> 01:38:46,130
+let's just say for now okay so every
+
+1320
+01:38:44,490 --> 01:38:52,260
+time we just write to that file
+
+1321
+01:38:46,130 --> 01:38:53,640
+repeatedly you know just for now we're
+
+1322
+01:38:52,260 --> 01:38:58,590
+gonna fix it later
+
+1323
+01:38:53,640 --> 01:39:00,900
+so the TT will be the pipe slice you
+
+1324
+01:38:58,590 --> 01:39:05,070
+want to write to in this case it will be
+
+1325
+01:39:00,900 --> 01:39:07,980
+new content and the write the create
+
+1326
+01:39:05,070 --> 01:39:11,010
+file mod the UNIX file permission mod is
+
+1327
+01:39:07,980 --> 01:39:17,070
+zero six four four okay come on in
+
+1328
+01:39:11,010 --> 01:39:22,680
+George okay let's see if that runs go
+
+1329
+01:39:17,070 --> 01:39:25,890
+format run it okay I owe you - we
+
+1330
+01:39:22,680 --> 01:39:28,050
+declared as imported okay that's another
+
+1331
+01:39:25,890 --> 01:39:30,960
+pane okay all right yeah we already
+
+1332
+01:39:28,050 --> 01:39:35,600
+declared that okay
+
+1333
+01:39:30,960 --> 01:39:40,620
+run it again yay looks like it's working
+
+1334
+01:39:35,600 --> 01:39:45,270
+fantastic now all we have to do is just
+
+1335
+01:39:40,620 --> 01:39:48,960
+to go to the directory then look at the
+
+1336
+01:39:45,270 --> 01:39:51,170
+file there look at the file is this the
+
+1337
+01:39:48,960 --> 01:39:51,170
+one
+
+1338
+01:39:57,650 --> 01:40:08,070
+yep so instead of this we're gonna do
+
+1339
+01:40:04,370 --> 01:40:10,970
+one more thing two more minutes so
+
+1340
+01:40:08,070 --> 01:40:17,520
+instead so the file name will be
+
+1341
+01:40:10,970 --> 01:40:28,110
+directory plus we have a file name here
+
+1342
+01:40:17,520 --> 01:40:31,920
+somewhere the current file name let's
+
+1343
+01:40:28,110 --> 01:40:38,090
+search for name okay here yeah
+
+1344
+01:40:31,920 --> 01:40:41,990
+so chapter file name let's do this okay
+
+1345
+01:40:38,090 --> 01:40:41,990
+so let's do this
+
+1346
+01:40:51,400 --> 01:40:55,420
+huh now second it's
+
+1347
+01:40:57,579 --> 01:41:13,349
+so directory X underscore there in
+
+1348
+01:41:04,059 --> 01:41:18,670
+Chapter file name then HTML dot HTML
+
+1349
+01:41:13,349 --> 01:41:23,159
+okay that's what we want this we should
+
+1350
+01:41:18,670 --> 01:41:25,559
+create one new file for each of these
+
+1351
+01:41:23,159 --> 01:41:32,739
+let's see if it works
+
+1352
+01:41:25,559 --> 01:41:33,909
+run it please free space it's spinning
+
+1353
+01:41:32,739 --> 01:41:40,840
+this we don't need
+
+1354
+01:41:33,909 --> 01:41:45,070
+let's see oh it looks like we failed all
+
+1355
+01:41:40,840 --> 01:41:47,460
+the files a week we've succeeded you see
+
+1356
+01:41:45,070 --> 01:41:50,590
+all these new files are the new files
+
+1357
+01:41:47,460 --> 01:41:53,409
+you see yeah that that is correct all
+
+1358
+01:41:50,590 --> 01:41:57,820
+these files let's try to open one of
+
+1359
+01:41:53,409 --> 01:42:01,059
+them chapter four yep
+
+1360
+01:41:57,820 --> 01:42:04,570
+this is chapter four Chinese chapter
+
+1361
+01:42:01,059 --> 01:42:06,909
+four so in this chapter four okay
+
+1362
+01:42:04,570 --> 01:42:10,329
+actually it's correct you can see this
+
+1363
+01:42:06,909 --> 01:42:13,199
+is the second page content you know have
+
+1364
+01:42:10,329 --> 01:42:18,540
+added to the first page content now it
+
+1365
+01:42:13,199 --> 01:42:21,219
+appears like that because we had we have
+
+1366
+01:42:18,540 --> 01:42:25,420
+because you can see if I can show you
+
+1367
+01:42:21,219 --> 01:42:30,940
+here you see because we remember we
+
+1368
+01:42:25,420 --> 01:42:33,010
+added from starting of the main tag we
+
+1369
+01:42:30,940 --> 01:42:36,780
+actually should have not included that
+
+1370
+01:42:33,010 --> 01:42:41,219
+and also we shouldn't have included that
+
+1371
+01:42:36,780 --> 01:42:43,690
+but you know we have you know that's
+
+1372
+01:42:41,219 --> 01:42:46,000
+essentially it's it's what we wanted you
+
+1373
+01:42:43,690 --> 01:42:51,159
+know these these are just minor things
+
+1374
+01:42:46,000 --> 01:42:53,230
+we have to tweak the code so actually
+
+1375
+01:42:51,159 --> 01:42:55,360
+that so I think that's covers it you
+
+1376
+01:42:53,230 --> 01:42:57,849
+know we you know basically that's what
+
+1377
+01:42:55,360 --> 01:43:01,570
+we set out to do and we have finished it
+
+1378
+01:42:57,849 --> 01:43:03,790
+you know it's not very refined but we
+
+1379
+01:43:01,570 --> 01:43:07,110
+spent ninety minutes you know the you
+
+1380
+01:43:03,790 --> 01:43:10,480
+know I'm just gonna clean the code and
+
+1381
+01:43:07,110 --> 01:43:12,719
+that would be you know for myself so you
+
+1382
+01:43:10,480 --> 01:43:12,719
+know
+
+1383
+01:43:13,230 --> 01:43:22,059
+so thank you guys for watching have a
+
+1384
+01:43:18,820 --> 01:43:24,880
+good day I hope you liked : : is now my
+
+1385
+01:43:22,059 --> 01:43:26,559
+favorite language you know it's Cola is
+
+1386
+01:43:24,880 --> 01:43:29,530
+a great language it's my favorite
+
+1387
+01:43:26,559 --> 01:43:32,170
+because you know I have you know quite a
+
+1388
+01:43:29,530 --> 01:43:33,730
+few my favorite would be Mathematica but
+
+1389
+01:43:32,170 --> 01:43:37,269
+in general :
+
+1390
+01:43:33,730 --> 01:43:41,019
+I like : a lot is because it's extremely
+
+1391
+01:43:37,269 --> 01:43:45,090
+simple very simple I mean among all the
+
+1392
+01:43:41,019 --> 01:43:48,280
+languages among Python JavaScript C C++
+
+1393
+01:43:45,090 --> 01:43:51,670
+C sharp you know among all of them : is
+
+1394
+01:43:48,280 --> 01:43:56,349
+one of the simplest one okay so if you
+
+1395
+01:43:51,670 --> 01:44:00,460
+are a beginner : is a good choice Python
+
+1396
+01:43:56,349 --> 01:44:05,380
+Ruby PHP they are actually your good
+
+1397
+01:44:00,460 --> 01:44:09,550
+choices okay I like : okay : is but : is
+
+1398
+01:44:05,380 --> 01:44:11,230
+almost the simplest among them that's
+
+1399
+01:44:09,550 --> 01:44:14,619
+one thing that's one reason the other
+
+1400
+01:44:11,230 --> 01:44:16,749
+reason is I : is industrial it's you
+
+1401
+01:44:14,619 --> 01:44:19,960
+know hugely popular it's created by
+
+1402
+01:44:16,749 --> 01:44:23,170
+Google of course and it's it's
+
+1403
+01:44:19,960 --> 01:44:26,079
+industrial language so if you you know
+
+1404
+01:44:23,170 --> 01:44:30,099
+want to work for some company you know
+
+1405
+01:44:26,079 --> 01:44:32,739
+doing : you can easily find a job you
+
+1406
+01:44:30,099 --> 01:44:34,929
+know if you know provided you actually
+
+1407
+01:44:32,739 --> 01:44:37,389
+you know you have to learn : of course
+
+1408
+01:44:34,929 --> 01:44:41,530
+you have to be you know good you know
+
+1409
+01:44:37,389 --> 01:44:44,949
+spent you know you know to to study : so
+
+1410
+01:44:41,530 --> 01:44:46,719
+: is industrial language now this is
+
+1411
+01:44:44,949 --> 01:44:50,679
+different from some other languages
+
+1412
+01:44:46,719 --> 01:44:54,400
+where it's a niche for example this you
+
+1413
+01:44:50,679 --> 01:44:57,849
+know has cow even it's kind of a bit
+
+1414
+01:44:54,400 --> 01:45:02,440
+niche so : is very popular widely used
+
+1415
+01:44:57,849 --> 01:45:06,789
+and it's and also the third reason is
+
+1416
+01:45:02,440 --> 01:45:08,889
+that : is a very powerful modern
+
+1417
+01:45:06,789 --> 01:45:11,230
+language you know it's created like only
+
+1418
+01:45:08,889 --> 01:45:14,050
+10 years ago all the other languages are
+
+1419
+01:45:11,230 --> 01:45:18,579
+you know 20 years ago you know Python is
+
+1420
+01:45:14,050 --> 01:45:23,349
+like 30 years old almost Python Perl
+
+1421
+01:45:18,579 --> 01:45:27,540
+Ruby I'm almost 30 years old
+
+1422
+01:45:23,349 --> 01:45:30,820
+yeah thirty actually 31 it's something
+
+1423
+01:45:27,540 --> 01:45:34,030
+you know and CC press first those are
+
+1424
+01:45:30,820 --> 01:45:38,409
+even older so golden is a modern it's
+
+1425
+01:45:34,030 --> 01:45:41,650
+only like ten years old you know as far
+
+1426
+01:45:38,409 --> 01:45:44,139
+as foreign languages goes in general as
+
+1427
+01:45:41,650 --> 01:45:47,110
+far as technology goes anything related
+
+1428
+01:45:44,139 --> 01:45:50,980
+to technology such as your cell phone or
+
+1429
+01:45:47,110 --> 01:45:55,780
+computer laptop the late later the
+
+1430
+01:45:50,980 --> 01:46:00,099
+better okay so yeah so I like goal and
+
+1431
+01:45:55,780 --> 01:46:01,449
+and I hope you like it and you know you
+
+1432
+01:46:00,099 --> 01:46:06,150
+know try to check out my goal and
+
+1433
+01:46:01,449 --> 01:46:13,500
+tutorial just go to Saudi :
+
+1434
+01:46:06,150 --> 01:46:13,500
+thank you for watching see you next time
+

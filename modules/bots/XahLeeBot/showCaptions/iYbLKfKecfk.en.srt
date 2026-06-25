@@ -1,0 +1,6120 @@
+1
+00:00:01,080 --> 00:00:05,400
+Good morning. Good evening. Good
+
+2
+00:00:02,960 --> 00:00:10,040
+afternoon. Hello guys. Welcome to
+
+3
+00:00:05,400 --> 00:00:11,320
+another episode of Kxalo
+
+4
+00:00:10,040 --> 00:00:13,760
+show. Kxalo show.
+
+5
+00:00:11,320 --> 00:00:16,520
+Let's see scene one, scene two.
+
+6
+00:00:13,760 --> 00:00:19,440
+So, are you looking at me? Let's see.
+
+7
+00:00:16,520 --> 00:00:22,920
+What are you seeing? You are seeing me.
+
+8
+00:00:19,440 --> 00:00:25,360
+And so, let's show my desktop. There you
+
+9
+00:00:22,920 --> 00:00:27,280
+go. And today's talk show. So, we're
+
+10
+00:00:25,360 --> 00:00:28,520
+going to talk about cascading style
+
+11
+00:00:27,280 --> 00:00:31,520
+sheet.
+
+12
+00:00:28,520 --> 00:00:35,440
+That's one of the technology for the web
+
+13
+00:00:31,520 --> 00:00:39,280
+and it turns out over the past 30 years,
+
+14
+00:00:35,440 --> 00:00:41,520
+the cascading style sheet became hugely
+
+15
+00:00:39,280 --> 00:00:43,760
+hugely important.
+
+16
+00:00:41,520 --> 00:00:46,080
+They became critical because the cascade
+
+17
+00:00:43,760 --> 00:00:50,120
+cascading style sheet
+
+18
+00:00:46,080 --> 00:00:53,080
+they became the way you control user
+
+19
+00:00:50,120 --> 00:00:55,040
+interface of software.
+
+20
+00:00:53,080 --> 00:00:57,480
+You know, in the beginning it's just for
+
+21
+00:00:55,040 --> 00:00:59,520
+the web. You know, it's like
+
+22
+00:00:57,480 --> 00:01:01,760
+back in 1997,
+
+23
+00:00:59,520 --> 00:01:02,840
+around there, the cascading style sheet
+
+24
+00:01:01,760 --> 00:01:05,040
+was
+
+25
+00:01:02,840 --> 00:01:07,960
+offered. You know, in the beginning the
+
+26
+00:01:05,040 --> 00:01:09,760
+idea is Am I here? Are you guys watching
+
+27
+00:01:07,960 --> 00:01:12,080
+me? Say hi, okay?
+
+28
+00:01:09,760 --> 00:01:14,280
+If you are here, comment, okay? So, let
+
+29
+00:01:12,080 --> 00:01:17,120
+me pop this out.
+
+30
+00:01:14,280 --> 00:01:18,840
+Um pop the chat. So, we are talking
+
+31
+00:01:17,120 --> 00:01:20,680
+about cascading style sheet today.
+
+32
+00:01:18,840 --> 00:01:25,120
+Hello, Juan.
+
+33
+00:01:20,680 --> 00:01:27,440
+Uh I'm looking at you. Fantastic.
+
+34
+00:01:25,120 --> 00:01:29,160
+Okay, so cascading style sheet. So, back
+
+35
+00:01:27,440 --> 00:01:30,760
+in 1997,
+
+36
+00:01:29,160 --> 00:01:33,080
+around there,
+
+37
+00:01:30,760 --> 00:01:36,280
+you know, they began to start
+
+38
+00:01:33,080 --> 00:01:37,680
+offering cascading style sheet.
+
+39
+00:01:36,280 --> 00:01:40,440
+Right? If you
+
+40
+00:01:37,680 --> 00:01:43,000
+Well, most of you probably have
+
+41
+00:01:40,440 --> 00:01:45,840
+heard of it. So, you you can look at my
+
+42
+00:01:43,000 --> 00:01:49,280
+cascading style sheet. This is for my
+
+43
+00:01:45,840 --> 00:01:52,480
+website. So, my website My My website is
+
+44
+00:01:49,280 --> 00:01:55,080
+extremely lean. kxali.info
+
+45
+00:01:52,480 --> 00:01:58,000
+and kxali.org. Okay, just search for it.
+
+46
+00:01:55,080 --> 00:02:01,000
+You'll find it. Extremely lean.
+
+47
+00:01:58,000 --> 00:02:06,160
+And And so, my cascading style sheet is
+
+48
+00:02:01,000 --> 00:02:08,360
+only 900 lines of code. And
+
+49
+00:02:06,160 --> 00:02:11,800
+12 kilobytes.
+
+50
+00:02:08,360 --> 00:02:15,120
+If you go to Google or Wikipedia or any
+
+51
+00:02:11,800 --> 00:02:17,959
+other website, they they are like 500 um
+
+52
+00:02:15,120 --> 00:02:20,360
+like 100 kilobytes or few hundred
+
+53
+00:02:17,959 --> 00:02:22,840
+kilobytes.
+
+54
+00:02:20,360 --> 00:02:25,080
+Okay. So anyway, so so here is what
+
+55
+00:02:22,840 --> 00:02:28,000
+cascading style sheet
+
+56
+00:02:25,080 --> 00:02:30,440
+uh code looks like. CSS.
+
+57
+00:02:28,000 --> 00:02:32,840
+Cascade, you know. Why is it called
+
+58
+00:02:30,440 --> 00:02:34,800
+cascade? It's like waterfall, you know,
+
+59
+00:02:32,840 --> 00:02:37,240
+which is what we're going to talk about
+
+60
+00:02:34,800 --> 00:02:38,600
+today, okay? So any anyway, so if I can
+
+61
+00:02:37,240 --> 00:02:41,400
+1990
+
+62
+00:02:38,600 --> 00:02:43,840
+uh seven, it began.
+
+63
+00:02:41,400 --> 00:02:46,400
+Uh originally, it was just for the web
+
+64
+00:02:43,840 --> 00:02:48,440
+so that you can have pretty things like
+
+65
+00:02:46,400 --> 00:02:50,240
+all these color, you know, graphics
+
+66
+00:02:48,440 --> 00:02:52,720
+design. You like that user interface
+
+67
+00:02:50,240 --> 00:02:55,320
+design, you can uh you know, actually I
+
+68
+00:02:52,720 --> 00:02:58,320
+I should show you some websites from
+
+69
+00:02:55,320 --> 00:02:59,920
+1999.
+
+70
+00:02:58,320 --> 00:03:01,480
+You can see there's lots of pretty
+
+71
+00:02:59,920 --> 00:03:02,880
+designs, okay?
+
+72
+00:03:01,480 --> 00:03:05,000
+Uh
+
+73
+00:03:02,880 --> 00:03:07,959
+anyway, so
+
+74
+00:03:05,000 --> 00:03:10,160
+CSS style sheet, cascading style sheet.
+
+75
+00:03:07,959 --> 00:03:11,800
+So originally, it was just for the web,
+
+76
+00:03:10,160 --> 00:03:14,480
+but
+
+77
+00:03:11,800 --> 00:03:16,502
+turns out after 30 years, it became
+
+78
+00:03:14,480 --> 00:03:16,760
+overwhelming because it became
+
+79
+00:03:16,502 --> 00:03:19,239
+>> [snorts]
+
+80
+00:03:16,760 --> 00:03:20,320
+>> very popular. It became that it became
+
+81
+00:03:19,239 --> 00:03:22,640
+how
+
+82
+00:03:20,320 --> 00:03:25,320
+other software
+
+83
+00:03:22,640 --> 00:03:27,200
+user interface are done. For example, if
+
+84
+00:03:25,320 --> 00:03:30,640
+you're going to code uh software for
+
+85
+00:03:27,200 --> 00:03:33,160
+Windows or for Mac or for Linux, you're
+
+86
+00:03:30,640 --> 00:03:34,480
+going to use CSS. A lot of them adopted
+
+87
+00:03:33,160 --> 00:03:37,920
+CSS.
+
+88
+00:03:34,480 --> 00:03:39,320
+Now, I haven't done uh user interface uh
+
+89
+00:03:37,920 --> 00:03:41,200
+application
+
+90
+00:03:39,320 --> 00:03:43,120
+software before, so I don't actually
+
+91
+00:03:41,200 --> 00:03:45,880
+know how do you create a software
+
+92
+00:03:43,120 --> 00:03:48,440
+application on Windows or Mac or on
+
+93
+00:03:45,880 --> 00:03:50,920
+Linux. Like you use um
+
+94
+00:03:48,440 --> 00:03:52,480
+you know, you you you use the Gnome, you
+
+95
+00:03:50,920 --> 00:03:54,160
+know, the the the dev, you know,
+
+96
+00:03:52,480 --> 00:03:57,360
+libraries
+
+97
+00:03:54,160 --> 00:03:59,280
+framework. Uh but I only know web. So, I
+
+98
+00:03:57,360 --> 00:04:02,040
+know web, you know, I was a web dev
+
+99
+00:03:59,280 --> 00:04:04,320
+since like 1999.
+
+100
+00:04:02,040 --> 00:04:06,240
+So, but anyway, cascading style sheet
+
+101
+00:04:04,320 --> 00:04:10,280
+took over. So, you know, so you write
+
+102
+00:04:06,240 --> 00:04:11,800
+this basically today like I think
+
+103
+00:04:10,280 --> 00:04:15,560
+it became critical, you know, you you
+
+104
+00:04:11,800 --> 00:04:17,799
+you you write this to control how your
+
+105
+00:04:15,560 --> 00:04:19,239
+software or website
+
+106
+00:04:17,799 --> 00:04:21,640
+works.
+
+107
+00:04:19,239 --> 00:04:24,320
+I mean, even if you are not using the
+
+108
+00:04:21,640 --> 00:04:27,960
+the like the
+
+109
+00:04:24,320 --> 00:04:30,080
+the VS code, what they call it, Atom.
+
+110
+00:04:27,960 --> 00:04:32,520
+Is it called Atom engine?
+
+111
+00:04:30,080 --> 00:04:34,400
+Anyway, CSS, okay? So,
+
+112
+00:04:32,520 --> 00:04:36,400
+you're looking at the CSS, you know, so
+
+113
+00:04:34,400 --> 00:04:40,080
+you you know, in the past month, I've
+
+114
+00:04:36,400 --> 00:04:42,960
+been working on CSS a lot, so updating
+
+115
+00:04:40,080 --> 00:04:45,480
+my website. You can check it out.
+
+116
+00:04:42,960 --> 00:04:47,200
+Visual CSS. Just go to my website, okay?
+
+117
+00:04:45,480 --> 00:04:49,919
+You see these funky things, that's
+
+118
+00:04:47,200 --> 00:04:52,120
+because I enlarge the font without
+
+119
+00:04:49,919 --> 00:04:54,240
+enlarging the uh
+
+120
+00:04:52,120 --> 00:04:56,880
+I enlarge my website but without
+
+121
+00:04:54,240 --> 00:05:01,000
+enlarging the image images. So, you may
+
+122
+00:04:56,880 --> 00:05:03,400
+see some this artifact there. You see?
+
+123
+00:05:01,000 --> 00:05:06,160
+Anyway, so
+
+124
+00:05:03,400 --> 00:05:10,080
+so check out, you know, xahlee.info. So,
+
+125
+00:05:06,160 --> 00:05:12,640
+let me go to my website. So, x a h l e e
+
+126
+00:05:10,080 --> 00:05:15,440
+.info. You can see all these programming
+
+127
+00:05:12,640 --> 00:05:16,400
+language tutorials. Got this
+
+128
+00:05:15,440 --> 00:05:19,480
+font
+
+129
+00:05:16,400 --> 00:05:21,840
+enlargement problem.
+
+130
+00:05:19,480 --> 00:05:23,360
+Hacker code, okay? That's what we are.
+
+131
+00:05:21,840 --> 00:05:25,360
+Hackers.
+
+132
+00:05:23,360 --> 00:05:27,400
+So, you can check out all sort of
+
+133
+00:05:25,360 --> 00:05:30,000
+tutorials on
+
+134
+00:05:27,400 --> 00:05:31,720
+CSS, HTML, these program language,
+
+135
+00:05:30,000 --> 00:05:32,960
+JavaScript, PowerShell, and so on, go
+
+136
+00:05:31,720 --> 00:05:36,080
+that.
+
+137
+00:05:32,960 --> 00:05:40,440
+Cheers. Today is cocktail.
+
+138
+00:05:36,080 --> 00:05:44,720
+Some red wine, some mar- margarita
+
+139
+00:05:40,440 --> 00:05:44,720
+and some red wine.
+
+140
+00:05:44,840 --> 00:05:47,920
+So,
+
+141
+00:05:45,800 --> 00:05:52,560
+Juan says, "I hate
+
+142
+00:05:47,920 --> 00:05:55,400
+Whenever I can, I use pre-built styles."
+
+143
+00:05:52,560 --> 00:05:57,280
+Mhm. Well, eventually you have to learn
+
+144
+00:05:55,400 --> 00:05:58,840
+it because it's it's kind of interesting
+
+145
+00:05:57,280 --> 00:06:01,440
+because
+
+146
+00:05:58,840 --> 00:06:03,400
+because if you think about about what
+
+147
+00:06:01,440 --> 00:06:05,000
+CSS does,
+
+148
+00:06:03,400 --> 00:06:07,680
+you know, it controls the layout, you
+
+149
+00:06:05,000 --> 00:06:09,800
+know, it controls where to put like
+
+150
+00:06:07,680 --> 00:06:11,400
+where to put where you can have like
+
+151
+00:06:09,800 --> 00:06:13,600
+layout, you know, that's what called
+
+152
+00:06:11,400 --> 00:06:16,560
+layout, okay?
+
+153
+00:06:13,600 --> 00:06:19,240
+Uh of any page, I mean any application,
+
+154
+00:06:16,560 --> 00:06:21,080
+any program, any website like right now
+
+155
+00:06:19,240 --> 00:06:23,880
+we looking at Twitter.
+
+156
+00:06:21,080 --> 00:06:26,600
+Uh Twitter um
+
+157
+00:06:23,880 --> 00:06:28,960
+or you have Discord. Discord is actually
+
+158
+00:06:26,600 --> 00:06:31,320
+written in Atom, so it's actually a web
+
+159
+00:06:28,960 --> 00:06:34,120
+page, you know, Discord. So, we looking
+
+160
+00:06:31,320 --> 00:06:35,960
+at Discord is actually a web page. But,
+
+161
+00:06:34,120 --> 00:06:38,840
+I mean any application For example, this
+
+162
+00:06:35,960 --> 00:06:40,880
+OBS, okay? So, you see this OBS
+
+163
+00:06:38,840 --> 00:06:42,000
+application for live stream.
+
+164
+00:06:40,880 --> 00:06:43,400
+It is
+
+165
+00:06:42,000 --> 00:06:47,560
+Now, I don't know how it is written,
+
+166
+00:06:43,400 --> 00:06:50,680
+what framework, but I would guess this
+
+167
+00:06:47,560 --> 00:06:53,760
+All these are CSS, okay? All these
+
+168
+00:06:50,680 --> 00:06:55,440
+cascading style sheets just take over. I
+
+169
+00:06:53,760 --> 00:06:58,680
+could be wrong, but that's my guess,
+
+170
+00:06:55,440 --> 00:07:01,720
+okay? Now, how do you put this back?
+
+171
+00:06:58,680 --> 00:07:03,600
+Uh Jesus, options.
+
+172
+00:07:01,720 --> 00:07:06,800
+Uh
+
+173
+00:07:03,600 --> 00:07:09,960
+There's no close window. Uh
+
+174
+00:07:06,800 --> 00:07:09,960
+Jesus, what?
+
+175
+00:07:10,600 --> 00:07:15,400
+Stupid uh
+
+176
+00:07:13,720 --> 00:07:18,800
+interface design. How do you put the
+
+177
+00:07:15,400 --> 00:07:18,800
+audio back? I don't know.
+
+178
+00:07:22,680 --> 00:07:28,000
+Okay, so anyway, that's uh some random
+
+179
+00:07:25,680 --> 00:07:30,840
+talk about CSS. That's how important it
+
+180
+00:07:28,000 --> 00:07:35,320
+became. So, you have to deal with it.
+
+181
+00:07:30,840 --> 00:07:38,000
+Hello, uh Minds Ethiopia.
+
+182
+00:07:35,320 --> 00:07:40,520
+First time catching us live.
+
+183
+00:07:38,000 --> 00:07:40,520
+What?
+
+184
+00:07:41,000 --> 00:07:45,710
+What do you think about Tailwind have
+
+185
+00:07:43,600 --> 00:07:47,080
+you ever tried it?
+
+186
+00:07:45,710 --> 00:07:49,760
+>> [laughter]
+
+187
+00:07:47,080 --> 00:07:51,880
+>> Are you sure this is the first time you
+
+188
+00:07:49,760 --> 00:07:55,440
+watch me?
+
+189
+00:07:51,880 --> 00:07:55,440
+Or are you like trolling?
+
+190
+00:07:56,480 --> 00:08:04,240
+Okay, OBS is QT Juan says OBS is QT.
+
+191
+00:08:01,360 --> 00:08:06,680
+It has CSS but that is
+
+192
+00:08:04,240 --> 00:08:09,760
+only for colors not for layout.
+
+193
+00:08:06,680 --> 00:08:09,760
+Okay, I didn't know.
+
+194
+00:08:10,840 --> 00:08:15,840
+But anyway, a lot of them, you know,
+
+195
+00:08:12,919 --> 00:08:17,880
+desktop apps are adopting CSS. But you
+
+196
+00:08:15,840 --> 00:08:21,000
+know, yeah, so here's an interesting
+
+197
+00:08:17,880 --> 00:08:24,640
+thing. You see, if you don't use CSS,
+
+198
+00:08:21,000 --> 00:08:28,240
+what what is the alternative? You see a
+
+199
+00:08:24,640 --> 00:08:30,560
+application design, let's let's use the
+
+200
+00:08:28,240 --> 00:08:33,520
+OBS for example because
+
+201
+00:08:30,560 --> 00:08:36,440
+it's an app, right? So you look at So
+
+202
+00:08:33,520 --> 00:08:39,280
+let's move this back here. Oh, you can
+
+203
+00:08:36,440 --> 00:08:41,960
+now you can pop it back, okay? So you
+
+204
+00:08:39,280 --> 00:08:44,200
+see this is OBS, right? It's a software.
+
+205
+00:08:41,960 --> 00:08:46,400
+Now, there's a layout, right? You can
+
+206
+00:08:44,200 --> 00:08:47,640
+you know, control these windows, you can
+
+207
+00:08:46,400 --> 00:08:49,880
+whether this
+
+208
+00:08:47,640 --> 00:08:52,240
+you can decide whether they they can be
+
+209
+00:08:49,880 --> 00:08:54,280
+dragged out or not. You can, you know,
+
+210
+00:08:52,240 --> 00:08:55,040
+layout, you know, you can resize, you
+
+211
+00:08:54,280 --> 00:08:57,400
+know,
+
+212
+00:08:55,040 --> 00:08:58,800
+I don't want to mess my config, but
+
+213
+00:08:57,400 --> 00:09:00,200
+anyway.
+
+214
+00:08:58,800 --> 00:09:01,680
+You see, but how do you do it? How do
+
+215
+00:09:00,200 --> 00:09:06,120
+you code this?
+
+216
+00:09:01,680 --> 00:09:08,200
+One way is CSS which we are familiar.
+
+217
+00:09:06,120 --> 00:09:10,600
+You know, you can like each of these is
+
+218
+00:09:08,200 --> 00:09:13,560
+element then you say what is the margin,
+
+219
+00:09:10,600 --> 00:09:16,280
+what is the padding and so and so on.
+
+220
+00:09:13,560 --> 00:09:18,800
+Okay, CSS is kind of complicated
+
+221
+00:09:16,280 --> 00:09:20,880
+actually. You know, actually it's pretty
+
+222
+00:09:18,800 --> 00:09:23,480
+simple to learn. You can learn it in one
+
+223
+00:09:20,880 --> 00:09:25,680
+day. You know, like especially like all
+
+224
+00:09:23,480 --> 00:09:27,920
+the color stuff, like colors, you know,
+
+225
+00:09:25,680 --> 00:09:31,400
+you can learn how to do all these colors
+
+226
+00:09:27,920 --> 00:09:33,280
+in in one day all the uh bold, you know,
+
+227
+00:09:31,400 --> 00:09:36,200
+font size,
+
+228
+00:09:33,280 --> 00:09:38,360
+uh whether you want it bold or you can
+
+229
+00:09:36,200 --> 00:09:40,760
+do a you know, like
+
+230
+00:09:38,360 --> 00:09:43,760
+But but when you start to do layout,
+
+231
+00:09:40,760 --> 00:09:46,800
+like actual layout, then it gets
+
+232
+00:09:43,760 --> 00:09:49,440
+very complex. Like you can you got this
+
+233
+00:09:46,800 --> 00:09:52,000
+play they they get more and more complex
+
+234
+00:09:49,440 --> 00:09:53,600
+over the past 30 years. Okay, you got
+
+235
+00:09:52,000 --> 00:09:56,240
+you got this you know, for example,
+
+236
+00:09:53,600 --> 00:09:58,760
+recently in the past 5 years, we got
+
+237
+00:09:56,240 --> 00:10:00,280
+this flex box layout, okay, which is
+
+238
+00:09:58,760 --> 00:10:03,440
+very nice.
+
+239
+00:10:00,280 --> 00:10:04,840
+Uh but it it only came out like uh 5
+
+240
+00:10:03,440 --> 00:10:07,360
+years ago.
+
+241
+00:10:04,840 --> 00:10:09,920
+Pretty new, so I only wrote this page
+
+242
+00:10:07,360 --> 00:10:12,000
+last month, okay. Well, I began it last
+
+243
+00:10:09,920 --> 00:10:13,320
+year, but you know, I basically finished
+
+244
+00:10:12,000 --> 00:10:14,800
+writing this
+
+245
+00:10:13,320 --> 00:10:16,680
+just last month.
+
+246
+00:10:14,800 --> 00:10:18,480
+So, when you when it comes to layout, it
+
+247
+00:10:16,680 --> 00:10:20,080
+become complex. But anyway, back to the
+
+248
+00:10:18,480 --> 00:10:22,440
+question. So, you are designing a
+
+249
+00:10:20,080 --> 00:10:25,400
+website, right? You one way to do it
+
+250
+00:10:22,440 --> 00:10:27,720
+with CSS, but but what's the other way?
+
+251
+00:10:25,400 --> 00:10:29,840
+Or what is the alternative?
+
+252
+00:10:27,720 --> 00:10:31,640
+How do you What is the programming
+
+253
+00:10:29,840 --> 00:10:34,240
+language
+
+254
+00:10:31,640 --> 00:10:37,080
+of computer language such that it allows
+
+255
+00:10:34,240 --> 00:10:40,120
+you to specify, you know, I want a box
+
+256
+00:10:37,080 --> 00:10:42,600
+here, and I want text go inside here, I
+
+257
+00:10:40,120 --> 00:10:44,320
+want another box over there, and I want
+
+258
+00:10:42,600 --> 00:10:46,240
+a button here. How do you specify all
+
+259
+00:10:44,320 --> 00:10:48,240
+these positions and window, you know,
+
+260
+00:10:46,240 --> 00:10:49,760
+pixel? How do you do it?
+
+261
+00:10:48,240 --> 00:10:52,440
+Okay, that is the question. You see, I
+
+262
+00:10:49,760 --> 00:10:55,040
+don't know I haven't coded desktop app
+
+263
+00:10:52,440 --> 00:10:58,920
+before, so I don't know I don't know how
+
+264
+00:10:55,040 --> 00:11:01,400
+you know, people do that before CSS, but
+
+265
+00:10:58,920 --> 00:11:01,400
+anyway.
+
+266
+00:11:01,480 --> 00:11:08,600
+Okay. Okay. Okay. So, let's go what we
+
+267
+00:11:05,160 --> 00:11:10,400
+going to talk about. I was going to um
+
+268
+00:11:08,600 --> 00:11:13,640
+Well, I was going to
+
+269
+00:11:10,400 --> 00:11:15,520
+like um give you guys a lesson of the
+
+270
+00:11:13,640 --> 00:11:16,640
+cascading
+
+271
+00:11:15,520 --> 00:11:19,360
+uh
+
+272
+00:11:16,640 --> 00:11:21,800
+complexity of CSS, okay? Let me just
+
+273
+00:11:19,360 --> 00:11:24,280
+talk random, okay? Because that's what I
+
+274
+00:11:21,800 --> 00:11:26,640
+do the best.
+
+275
+00:11:24,280 --> 00:11:29,839
+Uh delete that. Now, first of all, I
+
+276
+00:11:26,640 --> 00:11:33,760
+want to tell you I made a change to Xah
+
+277
+00:11:29,839 --> 00:11:36,720
+HTML mode of Emacs Lisp.
+
+278
+00:11:33,760 --> 00:11:38,920
+My most advanced package, you see.
+
+279
+00:11:36,720 --> 00:11:40,120
+That's what I do for life.
+
+280
+00:11:38,920 --> 00:11:42,240
+Uh let's see.
+
+281
+00:11:40,120 --> 00:11:47,160
+Press press press press press press
+
+282
+00:11:42,240 --> 00:11:47,160
+press. That is a key to invoke
+
+283
+00:11:47,360 --> 00:11:55,400
+XHTML mode, okay? Now, let's see. Let's
+
+284
+00:11:51,280 --> 00:11:58,800
+magnify the font a bit more.
+
+285
+00:11:55,400 --> 00:12:01,960
+Oh god, it only magnified tiny, okay.
+
+286
+00:11:58,800 --> 00:12:02,600
+Anyway, so you go to the source code.
+
+287
+00:12:01,960 --> 00:12:06,120
+Uh
+
+288
+00:12:02,600 --> 00:12:09,600
+there are 3,000 lines of code here, but
+
+289
+00:12:06,120 --> 00:12:16,680
+actually 1 2 3, so there you got uh
+
+290
+00:12:09,600 --> 00:12:19,400
+XHTML 1 2 3 4 5 6 7 8 eight files.
+
+291
+00:12:16,680 --> 00:12:20,800
+So, together
+
+292
+00:12:19,400 --> 00:12:24,560
+What?
+
+293
+00:12:20,800 --> 00:12:27,040
+Together, they are about, I think,
+
+294
+00:12:24,560 --> 00:12:29,040
+over 10,000 lines of code.
+
+295
+00:12:27,040 --> 00:12:31,040
+Okay.
+
+296
+00:12:29,040 --> 00:12:33,760
+Uh so, what I did, you know, I made a
+
+297
+00:12:31,040 --> 00:12:36,520
+change so that you can see Wait.
+
+298
+00:12:33,760 --> 00:12:38,800
+So, the beginning tags are in one color,
+
+299
+00:12:36,520 --> 00:12:41,600
+the ending tags are in different color,
+
+300
+00:12:38,800 --> 00:12:44,480
+you see. That's a very very interesting
+
+301
+00:12:41,600 --> 00:12:47,720
+uh convention that I'm trying it out. I
+
+302
+00:12:44,480 --> 00:12:50,200
+think I'll like it. You see, so you can
+
+303
+00:12:47,720 --> 00:12:53,000
+move to the end tag, you press a key, it
+
+304
+00:12:50,200 --> 00:12:56,040
+delete the entire
+
+305
+00:12:53,000 --> 00:12:58,160
+box, including all the nested inside,
+
+306
+00:12:56,040 --> 00:13:00,040
+okay? So, for example, if your cursor is
+
+307
+00:12:58,160 --> 00:13:02,560
+here, let's say if your cursor is here,
+
+308
+00:13:00,040 --> 00:13:05,240
+uh press a key, it removes all the white
+
+309
+00:13:02,560 --> 00:13:08,240
+spaces before it.
+
+310
+00:13:05,240 --> 00:13:10,520
+Press a key, it removes the box above
+
+311
+00:13:08,240 --> 00:13:14,200
+it, including all the nested ones. See,
+
+312
+00:13:10,520 --> 00:13:17,400
+it's amazing, beautiful. Undo. Undo.
+
+313
+00:13:14,200 --> 00:13:20,560
+Undo. Undo. Okay, so this is
+
+314
+00:13:17,400 --> 00:13:22,400
+what you're looking at is XHTML
+
+315
+00:13:20,560 --> 00:13:24,800
+mode. You have to pay me to get it,
+
+316
+00:13:22,400 --> 00:13:24,800
+okay?
+
+317
+00:13:25,320 --> 00:13:30,080
+Uh
+
+318
+00:13:26,560 --> 00:13:32,640
+go to go to go to go to go to the top
+
+319
+00:13:30,080 --> 00:13:35,120
+and here is the link. You can see the
+
+320
+00:13:32,640 --> 00:13:37,680
+home page. The home page hasn't been
+
+321
+00:13:35,120 --> 00:13:40,120
+aggressively updated, but
+
+322
+00:13:37,680 --> 00:13:42,680
+but it's like you pay me $30. I should
+
+323
+00:13:40,120 --> 00:13:44,520
+increase it $200, okay?
+
+324
+00:13:42,680 --> 00:13:49,080
+Then you get it because for 10 years
+
+325
+00:13:44,520 --> 00:13:50,840
+it's free and I die of hunger.
+
+326
+00:13:49,080 --> 00:13:52,280
+Open source
+
+327
+00:13:50,840 --> 00:13:55,400
+scum.
+
+328
+00:13:52,280 --> 00:14:00,360
+Open source is a huge scam taken over by
+
+329
+00:13:55,400 --> 00:14:00,360
+the deep state for in the past 20 years.
+
+330
+00:14:03,200 --> 00:14:05,960
+ACP
+
+331
+00:14:06,080 --> 00:14:10,160
+ACP, where are you from ACP? I forgot.
+
+332
+00:14:08,280 --> 00:14:12,600
+Are you from India and you are a
+
+333
+00:14:10,160 --> 00:14:16,200
+student, right? It's like you are
+
+334
+00:14:12,600 --> 00:14:16,200
+watching my video every day.
+
+335
+00:14:17,080 --> 00:14:22,000
+You don't have [snorts] nothing to do
+
+336
+00:14:18,320 --> 00:14:24,160
+just like me. Am I correct?
+
+337
+00:14:22,000 --> 00:14:26,760
+So ACP says, "Ksatria, did you cast a
+
+338
+00:14:24,160 --> 00:14:28,920
+vote in the primaries?" No.
+
+339
+00:14:26,760 --> 00:14:30,680
+Well, that looks like you are American.
+
+340
+00:14:28,920 --> 00:14:34,160
+Primaries, no.
+
+341
+00:14:30,680 --> 00:14:36,440
+I voted once in my like 20 years of
+
+342
+00:14:34,160 --> 00:14:39,680
+eligibility, 25.
+
+343
+00:14:36,440 --> 00:14:41,040
+I voted once for Trump
+
+344
+00:14:39,680 --> 00:14:43,360
+2 years ago
+
+345
+00:14:41,040 --> 00:14:46,360
+and that what the what a [ __ ] mistake
+
+346
+00:14:43,360 --> 00:14:48,400
+that became. Trump is became the
+
+347
+00:14:46,360 --> 00:14:51,360
+greatest
+
+348
+00:14:48,400 --> 00:14:54,960
+American criminal.
+
+349
+00:14:51,360 --> 00:14:57,440
+Trump, you know, and we voted for him.
+
+350
+00:14:54,960 --> 00:14:59,640
+Very sad because the you know, so how
+
+351
+00:14:57,440 --> 00:15:01,760
+could you become how
+
+352
+00:14:59,640 --> 00:15:03,910
+how could you fall for such a trap
+
+353
+00:15:01,760 --> 00:15:04,160
+because it's fairly complicated.
+
+354
+00:15:03,910 --> 00:15:08,760
+>> [snorts]
+
+355
+00:15:04,160 --> 00:15:11,160
+>> Okay, Trump became the greatest criminal
+
+356
+00:15:08,760 --> 00:15:13,600
+in USA history, I would say, you know,
+
+357
+00:15:11,160 --> 00:15:15,480
+in fact it it it you know, the things
+
+358
+00:15:13,600 --> 00:15:17,560
+they've done
+
+359
+00:15:15,480 --> 00:15:20,320
+is not tolerable. It's it's you know,
+
+360
+00:15:17,560 --> 00:15:22,720
+it's I could go to detail, then YouTube
+
+361
+00:15:20,320 --> 00:15:25,840
+is going to ban me, okay? So, these
+
+362
+00:15:22,720 --> 00:15:26,180
+things we cannot talk about.
+
+363
+00:15:25,840 --> 00:15:26,480
+Uh
+
+364
+00:15:26,180 --> 00:15:32,160
+>> [sighs]
+
+365
+00:15:26,480 --> 00:15:32,160
+>> well, enjoy life while you are still uh
+
+366
+00:15:34,240 --> 00:15:39,760
+Can you see me? Am I alive? Am I dead
+
+367
+00:15:37,080 --> 00:15:43,400
+yet? Not yet.
+
+368
+00:15:39,760 --> 00:15:43,400
+Uh sad story.
+
+369
+00:15:44,480 --> 00:15:50,080
+Okay, I I voted one time for AFD.
+
+370
+00:15:51,080 --> 00:15:55,400
+For funny before they got popular. What
+
+371
+00:15:53,120 --> 00:15:57,520
+is AFD?
+
+372
+00:15:55,400 --> 00:16:00,680
+Uh let's say
+
+373
+00:15:57,520 --> 00:16:02,120
+uh Obama, let's say Biden, let's say
+
+374
+00:16:00,680 --> 00:16:06,800
+before that
+
+375
+00:16:02,120 --> 00:16:10,120
+then you got the the Bush [ __ ] face.
+
+376
+00:16:06,800 --> 00:16:10,120
+So, what is AFD?
+
+377
+00:16:12,120 --> 00:16:15,840
+And then before that you got the
+
+378
+00:16:13,440 --> 00:16:17,640
+Clinton, the scum. You know, Clinton is
+
+379
+00:16:15,840 --> 00:16:20,280
+the one one of the greatest criminal,
+
+380
+00:16:17,640 --> 00:16:22,240
+okay? The especially the
+
+381
+00:16:20,280 --> 00:16:24,200
+Hillary Clinton.
+
+382
+00:16:22,240 --> 00:16:26,640
+Um
+
+383
+00:16:24,200 --> 00:16:29,040
+Why have you not visit China? Yeah, it
+
+384
+00:16:26,640 --> 00:16:31,800
+it takes money, you see? I'm I'm like
+
+385
+00:16:29,040 --> 00:16:34,720
+kind of a poor guy.
+
+386
+00:16:31,800 --> 00:16:36,920
+Oh, AFD is Alternative for Germany. Oh,
+
+387
+00:16:34,720 --> 00:16:39,160
+okay. Well, I don't know what's going on
+
+388
+00:16:36,920 --> 00:16:41,480
+in Germany and uh
+
+389
+00:16:39,160 --> 00:16:43,400
+Well, Germany, you see,
+
+390
+00:16:41,480 --> 00:16:44,280
+we starting to talk about politics, you
+
+391
+00:16:43,400 --> 00:16:46,920
+see?
+
+392
+00:16:44,280 --> 00:16:49,800
+Germany and UK, especially these two in
+
+393
+00:16:46,920 --> 00:16:52,720
+Europe, in the entire Europe, Eastern
+
+394
+00:16:49,800 --> 00:16:54,680
+Europe or Western Europe, you know, like
+
+395
+00:16:52,720 --> 00:16:57,120
+5 years ago, I don't even know what's
+
+396
+00:16:54,680 --> 00:16:59,560
+the difference, like
+
+397
+00:16:57,120 --> 00:17:02,800
+like I I I was creating a unicorn map
+
+398
+00:16:59,560 --> 00:17:04,439
+and I was trying to classify. So, which
+
+399
+00:17:02,800 --> 00:17:06,199
+country are Eastern Europe? Which
+
+400
+00:17:04,439 --> 00:17:08,839
+country are Western, you know? I was
+
+401
+00:17:06,199 --> 00:17:11,480
+confused.
+
+402
+00:17:08,839 --> 00:17:14,280
+Take took me several days. I post on
+
+403
+00:17:11,480 --> 00:17:16,760
+Twitter and and people Jesus, no, that's
+
+404
+00:17:14,280 --> 00:17:19,680
+not what you crazy, that's not Eastern
+
+405
+00:17:16,760 --> 00:17:22,040
+European. That's you know
+
+406
+00:17:19,680 --> 00:17:24,439
+So, it took me several days to correct
+
+407
+00:17:22,040 --> 00:17:25,680
+it. Uh, let's see. So, I was doing this
+
+408
+00:17:24,439 --> 00:17:28,840
+page.
+
+409
+00:17:25,680 --> 00:17:31,600
+This page was created 2017. That's about
+
+410
+00:17:28,840 --> 00:17:34,360
+Unicode flags or in other words, flags
+
+411
+00:17:31,600 --> 00:17:37,200
+of the world, okay? And in order to make
+
+412
+00:17:34,360 --> 00:17:40,440
+it easy to re- read, I want to classify
+
+413
+00:17:37,200 --> 00:17:43,200
+categorize the countries into like
+
+414
+00:17:40,440 --> 00:17:44,720
+regions, so people can easily see be-
+
+415
+00:17:43,200 --> 00:17:46,680
+for example,
+
+416
+00:17:44,720 --> 00:17:49,360
+Northern Europe, all the flags are
+
+417
+00:17:46,680 --> 00:17:51,800
+similar. You you got Iceland, Denmark,
+
+418
+00:17:49,360 --> 00:17:54,160
+Norway, Finland, Sweden.
+
+419
+00:17:51,800 --> 00:17:56,120
+And uh, this rare rare really known
+
+420
+00:17:54,160 --> 00:17:58,000
+Allen Islands, okay?
+
+421
+00:17:56,120 --> 00:18:01,040
+And Western Europe, you know, I need to
+
+422
+00:17:58,000 --> 00:18:04,600
+group them. So, but I wasn't sure like
+
+423
+00:18:01,040 --> 00:18:08,160
+what what how is like how do you define
+
+424
+00:18:04,600 --> 00:18:10,480
+exactly Western Europe, Southern Europe,
+
+425
+00:18:08,160 --> 00:18:13,040
+Central Europe, and Eastern?
+
+426
+00:18:10,480 --> 00:18:15,480
+Like obviously, UK is Western. That
+
+427
+00:18:13,040 --> 00:18:16,840
+everyone knows. And and Ireland, okay?
+
+428
+00:18:15,480 --> 00:18:20,080
+But then
+
+429
+00:18:16,840 --> 00:18:22,120
+then the France, for example, well,
+
+430
+00:18:20,080 --> 00:18:24,480
+couldn't it be Southern Europe? Like you
+
+431
+00:18:22,120 --> 00:18:26,360
+don't know. Like
+
+432
+00:18:24,480 --> 00:18:27,617
+After all, they are like all all close
+
+433
+00:18:26,360 --> 00:18:27,680
+together, right?
+
+434
+00:18:27,617 --> 00:18:29,400
+>> [snorts]
+
+435
+00:18:27,680 --> 00:18:31,520
+>> So, it took me several days to create
+
+436
+00:18:29,400 --> 00:18:33,440
+this. And and anyway, what I want to say
+
+437
+00:18:31,520 --> 00:18:37,080
+by the mention of your comment, Huang,
+
+438
+00:18:33,440 --> 00:18:40,160
+is that basically, Germany
+
+439
+00:18:37,080 --> 00:18:43,400
+this big [ __ ] country, Germany. Germany
+
+440
+00:18:40,160 --> 00:18:45,360
+is a big a very powerful uh,
+
+441
+00:18:43,400 --> 00:18:49,960
+group of people, okay?
+
+442
+00:18:45,360 --> 00:18:51,360
+Germany and the United Kingdom
+
+443
+00:18:49,960 --> 00:18:54,000
+these two
+
+444
+00:18:51,360 --> 00:18:57,040
+are what we would go what they call
+
+445
+00:18:54,000 --> 00:18:59,240
+white men, okay? You know, the the the
+
+446
+00:18:57,040 --> 00:19:01,040
+the jargon, white men has been
+
+447
+00:18:59,240 --> 00:19:03,200
+personally to me
+
+448
+00:19:01,040 --> 00:19:05,280
+you know, like
+
+449
+00:19:03,200 --> 00:19:08,320
+you know, they are popularized by the
+
+450
+00:19:05,280 --> 00:19:10,920
+social justice warriors in the past 10
+
+451
+00:19:08,320 --> 00:19:12,720
+years. White men. White men is white
+
+452
+00:19:10,920 --> 00:19:13,800
+men. White men evil, you know, white
+
+453
+00:19:12,720 --> 00:19:14,760
+men.
+
+454
+00:19:13,800 --> 00:19:17,400
+So, what?
+
+455
+00:19:14,760 --> 00:19:19,480
+So, I didn't know. So what like
+
+456
+00:19:17,400 --> 00:19:21,320
+You know, so well, white man, what does
+
+457
+00:19:19,480 --> 00:19:23,280
+it mean? Well, it means like people
+
+458
+00:19:21,320 --> 00:19:26,880
+looks white, you know, blonde and blue
+
+459
+00:19:23,280 --> 00:19:29,840
+eyes or not necessarily, but
+
+460
+00:19:26,880 --> 00:19:32,560
+but that's not the case because Russian
+
+461
+00:19:29,840 --> 00:19:34,360
+the Russian girls the hottest people,
+
+462
+00:19:32,560 --> 00:19:36,920
+you know, hot hottest girls the
+
+463
+00:19:34,360 --> 00:19:37,840
+Russians. They are not white.
+
+464
+00:19:36,920 --> 00:19:40,160
+And you
+
+465
+00:19:37,840 --> 00:19:42,640
+you know, the technically the this white
+
+466
+00:19:40,160 --> 00:19:45,800
+people the United Kingdom and the German
+
+467
+00:19:42,640 --> 00:19:49,720
+guys hate the word Russians, okay? The
+
+468
+00:19:45,800 --> 00:19:50,640
+Russians are not like white.
+
+469
+00:19:49,720 --> 00:19:51,800
+And there's [clears throat] another
+
+470
+00:19:50,640 --> 00:19:53,720
+group
+
+471
+00:19:51,800 --> 00:19:56,520
+which became so
+
+472
+00:19:53,720 --> 00:19:58,720
+widely talked about in USA because they
+
+473
+00:19:56,520 --> 00:20:01,200
+are doing some
+
+474
+00:19:58,720 --> 00:20:02,960
+uh things in Middle East, okay? This
+
+475
+00:20:01,200 --> 00:20:04,880
+this group of people.
+
+476
+00:20:02,960 --> 00:20:07,760
+And they are they are just like white
+
+477
+00:20:04,880 --> 00:20:09,280
+men. Like I didn't know like to me they
+
+478
+00:20:07,760 --> 00:20:10,560
+are like white men. I never thought
+
+479
+00:20:09,280 --> 00:20:12,920
+about it.
+
+480
+00:20:10,560 --> 00:20:15,520
+And then turns out, oh my god, Jesus,
+
+481
+00:20:12,920 --> 00:20:18,920
+there's a big difference, you know.
+
+482
+00:20:15,520 --> 00:20:22,120
+Uh yeah, but anyway, so
+
+483
+00:20:18,920 --> 00:20:24,200
+uh we're getting into a hot topic.
+
+484
+00:20:22,120 --> 00:20:25,960
+Maybe we should exit now, okay? So
+
+485
+00:20:24,200 --> 00:20:28,240
+because you see
+
+486
+00:20:25,960 --> 00:20:30,360
+So you see and one thing I learned I
+
+487
+00:20:28,240 --> 00:20:31,480
+learned so much about politics and you
+
+488
+00:20:30,360 --> 00:20:35,080
+know
+
+489
+00:20:31,480 --> 00:20:37,840
+is that uh by the way, the USA census
+
+490
+00:20:35,080 --> 00:20:40,440
+there's no special group for the
+
+491
+00:20:37,840 --> 00:20:42,720
+for these for these Middle East kind of
+
+492
+00:20:40,440 --> 00:20:44,360
+the special
+
+493
+00:20:42,720 --> 00:20:47,520
+uh people.
+
+494
+00:20:44,360 --> 00:20:50,440
+You know, they are just in uh USA census
+
+495
+00:20:47,520 --> 00:20:51,880
+they are considered white men, okay? So
+
+496
+00:20:50,440 --> 00:20:54,600
+are they white men? You know, that
+
+497
+00:20:51,880 --> 00:20:56,920
+depends on who you ask, okay? It's a
+
+498
+00:20:54,600 --> 00:20:59,960
+It turns out it's very complicated that
+
+499
+00:20:56,920 --> 00:21:01,400
+that that this group of people.
+
+500
+00:20:59,960 --> 00:21:03,680
+And uh
+
+501
+00:21:01,400 --> 00:21:05,360
+well, they are not doing things uh very
+
+502
+00:21:03,680 --> 00:21:07,440
+good things, okay?
+
+503
+00:21:05,360 --> 00:21:09,840
+So anyway, you got the United Kingdom
+
+504
+00:21:07,440 --> 00:21:11,720
+and the Germany. They
+
+505
+00:21:09,840 --> 00:21:15,400
+You know, in my view I learned they are
+
+506
+00:21:11,720 --> 00:21:17,400
+the most aggressive people.
+
+507
+00:21:15,400 --> 00:21:20,800
+And the what is the question? Oh, well,
+
+508
+00:21:17,400 --> 00:21:22,160
+you were talking about um
+
+509
+00:21:20,800 --> 00:21:24,160
+You know, yeah, we know it what the
+
+510
+00:21:22,160 --> 00:21:25,840
+group that is, but we shall not talk
+
+511
+00:21:24,160 --> 00:21:29,320
+about that because, you know, it's
+
+512
+00:21:25,840 --> 00:21:31,720
+because in in USA it's interesting that
+
+513
+00:21:29,320 --> 00:21:33,720
+you can criticize lots of groups, but
+
+514
+00:21:31,720 --> 00:21:34,949
+not that one.
+
+515
+00:21:33,720 --> 00:21:35,880
+Okay?
+
+516
+00:21:34,949 --> 00:21:40,280
+>> [laughter]
+
+517
+00:21:35,880 --> 00:21:43,200
+>> You got to be very careful. Um okay, so
+
+518
+00:21:40,280 --> 00:21:45,400
+that's unjust.
+
+519
+00:21:43,200 --> 00:21:47,880
+Anyway, so I was going to say Germany
+
+520
+00:21:45,400 --> 00:21:51,600
+and UK, they basically they are puppets
+
+521
+00:21:47,880 --> 00:21:53,840
+of USA, okay? Germany and and also
+
+522
+00:21:51,600 --> 00:21:55,160
+including France,
+
+523
+00:21:53,840 --> 00:21:57,240
+Ireland, you know, they are they are
+
+524
+00:21:55,160 --> 00:22:00,880
+nothing, you know, they like but anyway,
+
+525
+00:21:57,240 --> 00:22:03,840
+the the big powers is like Germany
+
+526
+00:22:00,880 --> 00:22:06,520
+and UK. Not not so much. They are not
+
+527
+00:22:03,840 --> 00:22:08,400
+powers anymore like and France. Okay,
+
+528
+00:22:06,520 --> 00:22:10,240
+they are not
+
+529
+00:22:08,400 --> 00:22:11,560
+not today, you know.
+
+530
+00:22:10,240 --> 00:22:14,320
+Maybe
+
+531
+00:22:11,560 --> 00:22:16,680
+30 years ago they are like powerful, but
+
+532
+00:22:14,320 --> 00:22:18,960
+not today. Anyway, they are just puppets
+
+533
+00:22:16,680 --> 00:22:23,800
+of USA, okay?
+
+534
+00:22:18,960 --> 00:22:23,800
+And USA is puppet of the other country.
+
+535
+00:22:24,720 --> 00:22:30,000
+Sad to know, but
+
+536
+00:22:27,280 --> 00:22:30,000
+anyway.
+
+537
+00:22:31,600 --> 00:22:35,920
+They don't check ethnicity in Germany.
+
+538
+00:22:33,880 --> 00:22:37,560
+They only check our nationality, of
+
+539
+00:22:35,920 --> 00:22:39,320
+course.
+
+540
+00:22:37,560 --> 00:22:41,240
+I mean, it's it you like by the white
+
+541
+00:22:39,320 --> 00:22:44,440
+man's culture you are not supposed to
+
+542
+00:22:41,240 --> 00:22:49,440
+check ethnicity. However, the ethnicity
+
+543
+00:22:44,440 --> 00:22:49,440
+is the most sensitive topic among
+
+544
+00:22:54,920 --> 00:22:59,600
+Now, the creeper guy, what are you
+
+545
+00:22:56,800 --> 00:23:01,240
+talking about? Like what white something
+
+546
+00:22:59,600 --> 00:23:03,720
+isn't real?
+
+547
+00:23:01,240 --> 00:23:06,680
+Like yesterday you was talking [ __ ]
+
+548
+00:23:03,720 --> 00:23:10,360
+about some AI is not fake news. It's
+
+549
+00:23:06,680 --> 00:23:14,920
+fake news or something. Anyway.
+
+550
+00:23:10,360 --> 00:23:14,920
+So, let's see what we going to uh
+
+551
+00:23:15,480 --> 00:23:22,400
+Okay, Unicode. Let's quickly can we like
+
+552
+00:23:18,760 --> 00:23:24,600
+quickly uh talk about Yeah. So, I was
+
+553
+00:23:22,400 --> 00:23:27,000
+telling you guys, you see I got the new
+
+554
+00:23:24,600 --> 00:23:29,520
+scheme coloring scheme where the ending
+
+555
+00:23:27,000 --> 00:23:32,240
+tag is colored
+
+556
+00:23:29,520 --> 00:23:34,600
+differently from the beginning tag.
+
+557
+00:23:32,240 --> 00:23:36,240
+Okay? So, it allows me to like, you
+
+558
+00:23:34,600 --> 00:23:38,440
+know, delete the whole header, for
+
+559
+00:23:36,240 --> 00:23:39,880
+example.
+
+560
+00:23:38,440 --> 00:23:42,720
+Uh
+
+561
+00:23:39,880 --> 00:23:46,080
+Okay. So, that's uh just interesting
+
+562
+00:23:42,720 --> 00:23:48,240
+thing. Okay. Now, go back to today's
+
+563
+00:23:46,080 --> 00:23:53,520
+talk show.
+
+564
+00:23:48,240 --> 00:23:54,680
+Uh let's talk about CSS specificity.
+
+565
+00:23:53,520 --> 00:23:57,560
+Can we?
+
+566
+00:23:54,680 --> 00:23:57,560
+Shall we?
+
+567
+00:24:00,680 --> 00:24:05,920
+Okay. So, uh what else you guys are
+
+568
+00:24:03,680 --> 00:24:08,000
+interested? Shall we you know, maybe I
+
+569
+00:24:05,920 --> 00:24:09,320
+should quickly actually go through this
+
+570
+00:24:08,000 --> 00:24:11,240
+because
+
+571
+00:24:09,320 --> 00:24:13,360
+every time I start the video, either I
+
+572
+00:24:11,240 --> 00:24:16,360
+don't start the live stream or if I
+
+573
+00:24:13,360 --> 00:24:18,320
+start, I start to ramble for hours
+
+574
+00:24:16,360 --> 00:24:19,720
+without actually talking about the
+
+575
+00:24:18,320 --> 00:24:21,960
+things
+
+576
+00:24:19,720 --> 00:24:25,120
+I'm supposed to cover.
+
+577
+00:24:21,960 --> 00:24:27,800
+Uh so, but that is the story of my life.
+
+578
+00:24:25,120 --> 00:24:30,000
+So, cascade. Okay. So, CSS, you got the
+
+579
+00:24:27,800 --> 00:24:32,120
+cascade.
+
+580
+00:24:30,000 --> 00:24:34,720
+And specificity.
+
+581
+00:24:32,120 --> 00:24:37,160
+Okay. And in the past few years, you got
+
+582
+00:24:34,720 --> 00:24:39,840
+a new thing called cascade cascade
+
+583
+00:24:37,160 --> 00:24:42,120
+layer, which you can customize. Okay.
+
+584
+00:24:39,840 --> 00:24:45,360
+So, let me give let me do actually talk
+
+585
+00:24:42,120 --> 00:24:48,360
+about them for like 20 minutes. Okay.
+
+586
+00:24:45,360 --> 00:24:50,600
+Let me see the comment. Uh
+
+587
+00:24:48,360 --> 00:24:53,920
+Culture is more important. Ethnicity
+
+588
+00:24:50,600 --> 00:24:56,720
+doesn't mean anything. Okay.
+
+589
+00:24:53,920 --> 00:24:58,520
+Uh
+
+590
+00:24:56,720 --> 00:25:01,760
+Yeah, you are right. For example, you
+
+591
+00:24:58,520 --> 00:25:04,920
+know, if you use uh look at the Chinese
+
+592
+00:25:01,760 --> 00:25:08,320
+in USA, okay? They are so-called
+
+593
+00:25:04,920 --> 00:25:10,760
+American-born Chinese, ABC, you know, in
+
+594
+00:25:08,320 --> 00:25:13,520
+our in this community. Actually, I'm not
+
+595
+00:25:10,760 --> 00:25:15,280
+part of that community, but in this, you
+
+596
+00:25:13,520 --> 00:25:16,680
+know, Chinese community, they are called
+
+597
+00:25:15,280 --> 00:25:19,520
+ABC.
+
+598
+00:25:16,680 --> 00:25:21,400
+Means American-born Chinese, okay? But
+
+599
+00:25:19,520 --> 00:25:23,360
+if you look at them, they are not
+
+600
+00:25:21,400 --> 00:25:25,680
+Chinese. They are just They are [ __ ]
+
+601
+00:25:23,360 --> 00:25:27,000
+white people, okay? Because they talk,
+
+602
+00:25:25,680 --> 00:25:28,560
+they think
+
+603
+00:25:27,000 --> 00:25:30,400
+like white people. They just like white
+
+604
+00:25:28,560 --> 00:25:33,000
+people with yellow skin, okay? That
+
+605
+00:25:30,400 --> 00:25:36,080
+those born in America
+
+606
+00:25:33,000 --> 00:25:37,680
+Chinese, okay? And I'm not
+
+607
+00:25:36,080 --> 00:25:40,360
+I think
+
+608
+00:25:37,680 --> 00:25:42,800
+I still more like, you know, I have like
+
+609
+00:25:40,360 --> 00:25:45,880
+I have both, but I have roots in
+
+610
+00:25:42,800 --> 00:25:48,840
+Chinese, okay? So
+
+611
+00:25:45,880 --> 00:25:52,480
+So, you know, it is true
+
+612
+00:25:48,840 --> 00:25:54,880
+that you are really how you, you know,
+
+613
+00:25:52,480 --> 00:25:57,840
+your environment, who taught you.
+
+614
+00:25:54,880 --> 00:26:00,880
+Like, for example, today, you got a lot
+
+615
+00:25:57,840 --> 00:26:02,600
+white people or Europeans who were born
+
+616
+00:26:00,880 --> 00:26:05,000
+in China.
+
+617
+00:26:02,600 --> 00:26:07,040
+You start to have more and more of that.
+
+618
+00:26:05,000 --> 00:26:09,240
+And you talk to them, of course, they
+
+619
+00:26:07,040 --> 00:26:10,680
+are not like you guys Western. They look
+
+620
+00:26:09,240 --> 00:26:13,040
+white, but they
+
+621
+00:26:10,680 --> 00:26:14,440
+they talk and think like Chinese people,
+
+622
+00:26:13,040 --> 00:26:16,000
+okay?
+
+623
+00:26:14,440 --> 00:26:17,720
+You know, they look white, but they are
+
+624
+00:26:16,000 --> 00:26:21,240
+not, you know, they don't think like the
+
+625
+00:26:17,720 --> 00:26:23,640
+way you do about oh justice, oh rape, or
+
+626
+00:26:21,240 --> 00:26:27,200
+whatever [ __ ]
+
+627
+00:26:23,640 --> 00:26:27,200
+The Roman Empire you know.
+
+628
+00:26:31,960 --> 00:26:37,400
+They are banana. Yeah, well, that's what
+
+629
+00:26:34,280 --> 00:26:40,360
+they say, something.
+
+630
+00:26:37,400 --> 00:26:42,480
+So, can humans ever live together
+
+631
+00:26:40,360 --> 00:26:44,480
+peacefully?
+
+632
+00:26:42,480 --> 00:26:45,240
+I don't think so, okay?
+
+633
+00:26:44,480 --> 00:26:48,280
+Uh
+
+634
+00:26:45,240 --> 00:26:49,920
+to be blunt
+
+635
+00:26:48,280 --> 00:26:52,720
+I don't think so.
+
+636
+00:26:49,920 --> 00:26:55,080
+That is like Okay, so how can I, you
+
+637
+00:26:52,720 --> 00:26:57,800
+know, so the question, can humans ever
+
+638
+00:26:55,080 --> 00:27:00,560
+live together peacefully?
+
+639
+00:26:57,800 --> 00:27:03,320
+That question
+
+640
+00:27:00,560 --> 00:27:05,160
+I don't think so, but it's not absolute,
+
+641
+00:27:03,320 --> 00:27:07,520
+okay? It's not like, oh, then we going
+
+642
+00:27:05,160 --> 00:27:09,320
+to just kill each other and die, or we
+
+643
+00:27:07,520 --> 00:27:12,240
+going to die. No, that's not the case,
+
+644
+00:27:09,320 --> 00:27:14,760
+neither. The case is similar to look at
+
+645
+00:27:12,240 --> 00:27:16,880
+all other animals, okay? You can look at
+
+646
+00:27:14,760 --> 00:27:19,080
+tigers, you can look at
+
+647
+00:27:16,880 --> 00:27:22,240
+I don't know, lions or whatever the
+
+648
+00:27:19,080 --> 00:27:24,480
+other animals. They fight. They kill.
+
+649
+00:27:22,240 --> 00:27:27,960
+They eat each other.
+
+650
+00:27:24,480 --> 00:27:30,000
+Okay? Even among monkeys.
+
+651
+00:27:27,960 --> 00:27:32,960
+Okay, so can they live peacefully
+
+652
+00:27:30,000 --> 00:27:36,120
+together? Well, yes and no.
+
+653
+00:27:32,960 --> 00:27:39,200
+Okay, they they probably will be around.
+
+654
+00:27:36,120 --> 00:27:41,160
+Uh, you know, but they not going to live
+
+655
+00:27:39,200 --> 00:27:43,720
+peacefully together because, you know,
+
+656
+00:27:41,160 --> 00:27:44,800
+if you like peacefully, peace, what does
+
+657
+00:27:43,720 --> 00:27:48,160
+it mean?
+
+658
+00:27:44,800 --> 00:27:51,200
+Well, it's a philosophical idea created
+
+659
+00:27:48,160 --> 00:27:56,040
+by human animals. We imagine, you know,
+
+660
+00:27:51,200 --> 00:27:59,240
+we imagine this this concept of peace.
+
+661
+00:27:56,040 --> 00:28:00,400
+But you know, biologically, basically,
+
+662
+00:27:59,240 --> 00:28:02,480
+well
+
+663
+00:28:00,400 --> 00:28:04,720
+we just need to eat.
+
+664
+00:28:02,480 --> 00:28:07,640
+And we need to survive.
+
+665
+00:28:04,720 --> 00:28:09,520
+And we need to [ __ ] But you don't get,
+
+666
+00:28:07,640 --> 00:28:11,880
+you know, everything. Like there's, you
+
+667
+00:28:09,520 --> 00:28:14,320
+know, girls, they you have to fight for
+
+668
+00:28:11,880 --> 00:28:16,920
+the girls because the girls, they want
+
+669
+00:28:14,320 --> 00:28:20,560
+the king. They don't want the losers.
+
+670
+00:28:16,920 --> 00:28:23,520
+Okay? So, you know, you and me
+
+671
+00:28:20,560 --> 00:28:25,560
+the [ __ ] you have to fight.
+
+672
+00:28:23,520 --> 00:28:28,240
+If you fight, there's harm, there's
+
+673
+00:28:25,560 --> 00:28:31,320
+injury, there's death.
+
+674
+00:28:28,240 --> 00:28:33,040
+Okay? Because you want to [ __ ] the girl.
+
+675
+00:28:31,320 --> 00:28:35,080
+The girl want the winners. The girl
+
+676
+00:28:33,040 --> 00:28:36,520
+don't want the losers.
+
+677
+00:28:35,080 --> 00:28:38,640
+They don't want, you know, the girl is
+
+678
+00:28:36,520 --> 00:28:40,704
+not going to say, oh, yeah, let's have a
+
+679
+00:28:38,640 --> 00:28:42,240
+threesome.
+
+680
+00:28:40,704 --> 00:28:45,920
+>> [laughter]
+
+681
+00:28:42,240 --> 00:28:45,920
+>> So, that's the origin
+
+682
+00:28:46,000 --> 00:28:50,800
+of this, uh um
+
+683
+00:28:48,640 --> 00:28:52,120
+not piece, okay, that is the like the
+
+684
+00:28:50,800 --> 00:28:55,000
+fundamental
+
+685
+00:28:52,120 --> 00:28:55,000
+reason, but
+
+686
+00:28:56,240 --> 00:28:59,040
+So, anyway.
+
+687
+00:29:00,240 --> 00:29:03,880
+Um
+
+688
+00:29:01,640 --> 00:29:07,480
+so, let me think about, okay? So, how
+
+689
+00:29:03,880 --> 00:29:10,560
+long have I talked about Let's see. I
+
+690
+00:29:07,480 --> 00:29:10,560
+talked for
+
+691
+00:29:11,400 --> 00:29:17,400
+30 minutes, okay? Now, let me do 20
+
+692
+00:29:14,520 --> 00:29:20,280
+minutes about Let's talk about cascading
+
+693
+00:29:17,400 --> 00:29:20,280
+style sheet.
+
+694
+00:29:29,640 --> 00:29:34,880
+Okay, all you guys here eight watching,
+
+695
+00:29:32,800 --> 00:29:36,960
+say hi, okay?
+
+696
+00:29:34,880 --> 00:29:38,320
+Now, let me talk about cascading style
+
+697
+00:29:36,960 --> 00:29:41,560
+sheet. So,
+
+698
+00:29:38,320 --> 00:29:44,480
+So, CSS, you have, you know, one of the
+
+699
+00:29:41,560 --> 00:29:45,840
+uh issue you have in CSS is that you
+
+700
+00:29:44,480 --> 00:29:49,600
+have the
+
+701
+00:29:45,840 --> 00:29:51,720
+conflict of priority.
+
+702
+00:29:49,600 --> 00:29:54,240
+Like, you can specify, you know, this
+
+703
+00:29:51,720 --> 00:29:56,640
+element should be red, but in some other
+
+704
+00:29:54,240 --> 00:29:59,040
+place, you also specify that element
+
+705
+00:29:56,640 --> 00:30:00,560
+should be blue. So, which one, you know,
+
+706
+00:29:59,040 --> 00:30:02,440
+is it going to be red or blue, for
+
+707
+00:30:00,560 --> 00:30:04,840
+example?
+
+708
+00:30:02,440 --> 00:30:06,840
+Um
+
+709
+00:30:04,840 --> 00:30:08,240
+For example, let me get uh show you. For
+
+710
+00:30:06,840 --> 00:30:10,000
+example, this
+
+711
+00:30:08,240 --> 00:30:11,280
+this you're looking at, okay? Can you
+
+712
+00:30:10,000 --> 00:30:13,840
+see?
+
+713
+00:30:11,280 --> 00:30:17,680
+Can you guys see? Is it clear? Is it big
+
+714
+00:30:13,840 --> 00:30:20,640
+enough? Okay. So, you got HTML element.
+
+715
+00:30:17,680 --> 00:30:22,360
+You got P tag, paragraph. You got ID for
+
+716
+00:30:20,640 --> 00:30:25,880
+that paragraph.
+
+717
+00:30:22,360 --> 00:30:27,880
+ID attribute. You got a class attribute.
+
+718
+00:30:25,880 --> 00:30:30,960
+Then, it says, "Good morning."
+
+719
+00:30:27,880 --> 00:30:33,760
+Okay, that's an element. HTML. Then, you
+
+720
+00:30:30,960 --> 00:30:36,320
+got CSS that specify the style. What
+
+721
+00:30:33,760 --> 00:30:40,200
+style should it be? Now, if the ID
+
+722
+00:30:36,320 --> 00:30:42,760
+match, then it should be green, it says.
+
+723
+00:30:40,200 --> 00:30:44,640
+Now, this part says, "If the
+
+724
+00:30:42,760 --> 00:30:46,520
+if the element is a paragraph it should
+
+725
+00:30:44,640 --> 00:30:49,000
+be red.
+
+726
+00:30:46,520 --> 00:30:51,200
+This element says if the class is this
+
+727
+00:30:49,000 --> 00:30:53,800
+class it should be blue.
+
+728
+00:30:51,200 --> 00:30:56,920
+So you can see
+
+729
+00:30:53,800 --> 00:30:59,360
+all of them match this element. So what
+
+730
+00:30:56,920 --> 00:31:02,480
+color should it be? They conflict. You
+
+731
+00:30:59,360 --> 00:31:04,600
+know, there's a conflict of interest.
+
+732
+00:31:02,480 --> 00:31:07,000
+So you need to have some sense of
+
+733
+00:31:04,600 --> 00:31:08,800
+priority. You know, who is who is got
+
+734
+00:31:07,000 --> 00:31:11,560
+you know, who is considered more
+
+735
+00:31:08,800 --> 00:31:14,160
+important. That's a problem.
+
+736
+00:31:11,560 --> 00:31:17,720
+So this is an example of
+
+737
+00:31:14,160 --> 00:31:20,280
+CSS rule conflict. Okay. Now how do you
+
+738
+00:31:17,720 --> 00:31:23,080
+resolve this? How does CSS resolve this?
+
+739
+00:31:20,280 --> 00:31:26,240
+It It is resolved by
+
+740
+00:31:23,080 --> 00:31:27,680
+what's called cascade. Okay. It's So
+
+741
+00:31:26,240 --> 00:31:30,480
+there actually there's several
+
+742
+00:31:27,680 --> 00:31:35,160
+mechanisms I'm going to explain today.
+
+743
+00:31:30,480 --> 00:31:37,960
+Okay. So the first the topmost uh
+
+744
+00:31:35,160 --> 00:31:40,320
+mechanism is called cascade. That's the
+
+745
+00:31:37,960 --> 00:31:42,440
+name cascading style sheet came for.
+
+746
+00:31:40,320 --> 00:31:46,120
+Cascade. So what does it mean? Okay. So
+
+747
+00:31:42,440 --> 00:31:48,480
+first is the origin of the specification
+
+748
+00:31:46,120 --> 00:31:51,360
+like color or style whatever origin. For
+
+749
+00:31:48,480 --> 00:31:53,880
+example, you have uh for example, inline
+
+750
+00:31:51,360 --> 00:31:55,080
+style has higher priority than page
+
+751
+00:31:53,880 --> 00:31:57,840
+style.
+
+752
+00:31:55,080 --> 00:32:01,200
+And page style has higher priority than
+
+753
+00:31:57,840 --> 00:32:03,640
+external style file.
+
+754
+00:32:01,200 --> 00:32:06,200
+And that has higher priority than the
+
+755
+00:32:03,640 --> 00:32:07,760
+browser style sheet. Okay. So what does
+
+756
+00:32:06,200 --> 00:32:10,160
+that mean? So let me show you example.
+
+757
+00:32:07,760 --> 00:32:13,360
+So origin, okay. The first way to
+
+758
+00:32:10,160 --> 00:32:15,240
+determine which rule is has priority is
+
+759
+00:32:13,360 --> 00:32:17,320
+the origin.
+
+760
+00:32:15,240 --> 00:32:19,440
+So what is what does that mean origin?
+
+761
+00:32:17,320 --> 00:32:22,720
+Well, so you know, for example, you can
+
+762
+00:32:19,440 --> 00:32:25,360
+add a style to a element like that. This
+
+763
+00:32:22,720 --> 00:32:28,120
+is called inline style. Because you
+
+764
+00:32:25,360 --> 00:32:32,240
+embed a style equals to attribute to the
+
+765
+00:32:28,120 --> 00:32:33,960
+HTML element. Okay. Direct direct. This
+
+766
+00:32:32,240 --> 00:32:36,600
+is inline style.
+
+767
+00:32:33,960 --> 00:32:40,320
+Another way to add style sheet is you
+
+768
+00:32:36,600 --> 00:32:42,600
+add a style tag to the whole page. The
+
+769
+00:32:40,320 --> 00:32:44,840
+style will apply to the entire page. So,
+
+770
+00:32:42,600 --> 00:32:46,520
+for example,
+
+771
+00:32:44,840 --> 00:32:49,720
+for example, let's look at today's talk
+
+772
+00:32:46,520 --> 00:32:52,920
+show, okay? Now, let's see I want to add
+
+773
+00:32:49,720 --> 00:32:55,560
+Let's go to this URL. I forgot I'm Let's
+
+774
+00:32:52,920 --> 00:32:58,680
+make it list make a list, you see? Now,
+
+775
+00:32:55,560 --> 00:32:59,760
+it's a list UL unordered list. Showing
+
+776
+00:32:58,680 --> 00:33:01,960
+browser,
+
+777
+00:32:59,760 --> 00:33:04,160
+you can see now it's a list. Now, let's
+
+778
+00:33:01,960 --> 00:33:06,040
+make a style, okay? So, now you see this
+
+779
+00:33:04,160 --> 00:33:09,000
+is the link
+
+780
+00:33:06,040 --> 00:33:12,800
+anchor href something target blank,
+
+781
+00:33:09,000 --> 00:33:12,800
+okay? Now, let's add
+
+782
+00:33:12,840 --> 00:33:18,040
+add a class, let's say style,
+
+783
+00:33:15,680 --> 00:33:22,200
+and let's say color
+
+784
+00:33:18,040 --> 00:33:26,600
+let's say let's say
+
+785
+00:33:22,200 --> 00:33:28,560
+red blue purple. Let's say brown, okay?
+
+786
+00:33:26,600 --> 00:33:30,520
+Now, go back to browser. You see right
+
+787
+00:33:28,560 --> 00:33:33,560
+now it's blue. Now, if I refresh it,
+
+788
+00:33:30,520 --> 00:33:36,600
+it'll be brown. Refresh, you see?
+
+789
+00:33:33,560 --> 00:33:39,640
+Fantastic. That is because I got this
+
+790
+00:33:36,600 --> 00:33:41,840
+inline style. You see it? Like inline
+
+791
+00:33:39,640 --> 00:33:43,880
+inside this element, you know,
+
+792
+00:33:41,840 --> 00:33:47,040
+direct apply to it.
+
+793
+00:33:43,880 --> 00:33:49,360
+And I can make it
+
+794
+00:33:47,040 --> 00:33:54,240
+more, let's say,
+
+795
+00:33:49,360 --> 00:33:56,240
+font size, let's say three REM root
+
+796
+00:33:54,240 --> 00:33:58,240
+element size,
+
+797
+00:33:56,240 --> 00:34:00,800
+three times.
+
+798
+00:33:58,240 --> 00:34:00,800
+Refresh.
+
+799
+00:34:01,480 --> 00:34:06,520
+Okay, let's let's We are doing inline
+
+800
+00:34:04,360 --> 00:34:09,040
+style, okay? Go back here.
+
+801
+00:34:06,520 --> 00:34:11,800
+Go back go back go go back go back go
+
+802
+00:34:09,040 --> 00:34:14,360
+Okay, wait. I'll go back to the other
+
+803
+00:34:11,800 --> 00:34:17,159
+page. So, we were explaining what is
+
+804
+00:34:14,360 --> 00:34:21,080
+inline style, okay? Now, what is page
+
+805
+00:34:17,159 --> 00:34:23,639
+style? Page style is if I go to the top,
+
+806
+00:34:21,080 --> 00:34:26,840
+and here I add
+
+807
+00:34:23,639 --> 00:34:28,480
+a style tag, and in this style tag I
+
+808
+00:34:26,840 --> 00:34:31,679
+want to say
+
+809
+00:34:28,480 --> 00:34:36,159
+everything that's a tag of A that should
+
+810
+00:34:31,679 --> 00:34:36,159
+have color. uh
+
+811
+00:34:36,840 --> 00:34:43,200
+What color? Gold. Golden.
+
+812
+00:34:39,639 --> 00:34:43,200
+Golden shower. Okay.
+
+813
+00:34:44,800 --> 00:34:49,360
+Now, if you go back to the browser
+
+814
+00:34:47,360 --> 00:34:51,800
+and refresh,
+
+815
+00:34:49,360 --> 00:34:55,800
+you see, oh, they all become gold. Well,
+
+816
+00:34:51,800 --> 00:34:55,800
+except this one, because this one,
+
+817
+00:34:55,879 --> 00:34:59,560
+you know, that one is got the inline
+
+818
+00:34:57,760 --> 00:35:01,880
+style of color,
+
+819
+00:34:59,560 --> 00:35:04,360
+which overrides
+
+820
+00:35:01,880 --> 00:35:06,560
+has higher priority than the page style.
+
+821
+00:35:04,360 --> 00:35:10,720
+So, you can Can you guys see?
+
+822
+00:35:06,560 --> 00:35:14,600
+Is it clear? Do I have clarity in this
+
+823
+00:35:10,720 --> 00:35:14,600
+live stream talk show?
+
+824
+00:35:16,400 --> 00:35:21,040
+Good morning, sir. Okay.
+
+825
+00:35:19,040 --> 00:35:22,840
+Are you guys still watching? Does that
+
+826
+00:35:21,040 --> 00:35:24,280
+make sense?
+
+827
+00:35:22,840 --> 00:35:26,880
+Okay.
+
+828
+00:35:24,280 --> 00:35:29,760
+Is that Does that make sense?
+
+829
+00:35:26,880 --> 00:35:32,080
+So, we talked about the page style, so
+
+830
+00:35:29,760 --> 00:35:37,240
+which is this thing, and we got the
+
+831
+00:35:32,080 --> 00:35:37,240
+inline style, which is right here. Okay.
+
+832
+00:35:38,080 --> 00:35:42,280
+Okay, what What are the other ways?
+
+833
+00:35:40,120 --> 00:35:43,920
+Well, you can have inline style, you can
+
+834
+00:35:42,280 --> 00:35:47,080
+have page style, and you can have
+
+835
+00:35:43,920 --> 00:35:49,080
+external style sheet. What you do is you
+
+836
+00:35:47,080 --> 00:35:50,400
+add this link
+
+837
+00:35:49,080 --> 00:35:53,800
+tag,
+
+838
+00:35:50,400 --> 00:35:56,160
+which refers to a file.
+
+839
+00:35:53,800 --> 00:35:58,080
+Okay, so, for example, on this page, we
+
+840
+00:35:56,160 --> 00:36:00,920
+can go up, go up,
+
+841
+00:35:58,080 --> 00:36:02,840
+go up, go up, go up, go up. And here,
+
+842
+00:36:00,920 --> 00:36:05,840
+you got a link
+
+843
+00:36:02,840 --> 00:36:05,840
+reference.
+
+844
+00:36:06,200 --> 00:36:11,560
+That stand for I E L stand for I forgot
+
+845
+00:36:09,160 --> 00:36:13,640
+what I stand for I E L. But anyway, this
+
+846
+00:36:11,560 --> 00:36:16,360
+means, you know, this is a style sheet.
+
+847
+00:36:13,640 --> 00:36:18,280
+Okay. Now, open that, so you got the
+
+848
+00:36:16,360 --> 00:36:20,360
+whole file.
+
+849
+00:36:18,280 --> 00:36:23,240
+This entire file
+
+850
+00:36:20,360 --> 00:36:25,760
+is all styles. Okay.
+
+851
+00:36:23,240 --> 00:36:31,040
+So, that is for my entire website, so
+
+852
+00:36:25,760 --> 00:36:31,040
+every file can link to this style. So,
+
+853
+00:36:31,200 --> 00:36:36,600
+9,100 900
+
+854
+00:36:34,520 --> 00:36:39,720
+lines of code.
+
+855
+00:36:36,600 --> 00:36:42,520
+Okay? Do I make sense? Do I make sense?
+
+856
+00:36:39,720 --> 00:36:42,520
+I make sense?
+
+857
+00:36:43,680 --> 00:36:49,160
+Okay? So, you got inline style. So,
+
+858
+00:36:47,320 --> 00:36:51,000
+So, that is so, you know, you got
+
+859
+00:36:49,160 --> 00:36:53,920
+several ways
+
+860
+00:36:51,000 --> 00:36:55,160
+adding cascading style sheet.
+
+861
+00:36:53,920 --> 00:36:58,120
+Now,
+
+862
+00:36:55,160 --> 00:36:59,480
+if you go back, the cascading rule says
+
+863
+00:36:58,120 --> 00:37:01,200
+origin
+
+864
+00:36:59,480 --> 00:37:03,640
+is how you first of all determine
+
+865
+00:37:01,200 --> 00:37:06,480
+priority. The first way to determine
+
+866
+00:37:03,640 --> 00:37:08,960
+priority, okay? Inline style has the
+
+867
+00:37:06,480 --> 00:37:12,920
+highest priority then
+
+868
+00:37:08,960 --> 00:37:15,840
+page style then external file. Okay?
+
+869
+00:37:12,920 --> 00:37:17,960
+Then the browser style sheet the browser
+
+870
+00:37:15,840 --> 00:37:21,040
+actually got a style.
+
+871
+00:37:17,960 --> 00:37:23,280
+Uh because, for example, if I comment
+
+872
+00:37:21,040 --> 00:37:26,200
+out this
+
+873
+00:37:23,280 --> 00:37:27,440
+my external style file
+
+874
+00:37:26,200 --> 00:37:31,520
+and
+
+875
+00:37:27,440 --> 00:37:36,400
+delete this page style, delete it,
+
+876
+00:37:31,520 --> 00:37:37,840
+and go to this uh also remove the inline
+
+877
+00:37:36,400 --> 00:37:40,400
+style,
+
+878
+00:37:37,840 --> 00:37:42,280
+remove it. Now, showing showing browser,
+
+879
+00:37:40,400 --> 00:37:45,480
+refresh what we are going to get.
+
+880
+00:37:42,280 --> 00:37:47,280
+Refresh. Refresh, you see?
+
+881
+00:37:45,480 --> 00:37:49,480
+You got like nothing.
+
+882
+00:37:47,280 --> 00:37:52,360
+No style. Actually, there's a style. The
+
+883
+00:37:49,480 --> 00:37:54,040
+style it's using is the browser's
+
+884
+00:37:52,360 --> 00:37:56,200
+style.
+
+885
+00:37:54,040 --> 00:37:57,720
+Now, how do you view the browser style?
+
+886
+00:37:56,200 --> 00:38:00,560
+You can.
+
+887
+00:37:57,720 --> 00:38:03,320
+So, the browser style actually so,
+
+888
+00:38:00,560 --> 00:38:06,400
+you know, I have it I discussed
+
+889
+00:38:03,320 --> 00:38:08,800
+somewhere. So, there is you can actually
+
+890
+00:38:06,400 --> 00:38:12,040
+view the browser default style sheet,
+
+891
+00:38:08,800 --> 00:38:14,080
+okay? It's available on GitHub.
+
+892
+00:38:12,040 --> 00:38:16,640
+So, you got Google Chrome style, you
+
+893
+00:38:14,080 --> 00:38:18,880
+know, Google Chrome browser style, and
+
+894
+00:38:16,640 --> 00:38:21,720
+you got Firefox, you know, and so on.
+
+895
+00:38:18,880 --> 00:38:23,800
+So, here is an example of Google's
+
+896
+00:38:21,720 --> 00:38:24,960
+browser style sheet.
+
+897
+00:38:23,800 --> 00:38:27,120
+So,
+
+898
+00:38:24,960 --> 00:38:29,600
+it lies at the bottom. So, when you
+
+899
+00:38:27,120 --> 00:38:33,840
+visit a page that doesn't have any
+
+900
+00:38:29,600 --> 00:38:35,760
+styles at all, just pure HTML, no CSS,
+
+901
+00:38:33,840 --> 00:38:37,520
+you still
+
+902
+00:38:35,760 --> 00:38:41,240
+you're still kind of formatted, you
+
+903
+00:38:37,520 --> 00:38:44,760
+know, for example, this is H2 header,
+
+904
+00:38:41,240 --> 00:38:47,240
+big font, and link are in blue and
+
+905
+00:38:44,760 --> 00:38:49,640
+underlined. And
+
+906
+00:38:47,240 --> 00:38:51,240
+if you hover, you notice the cursor
+
+907
+00:38:49,640 --> 00:38:53,320
+becomes
+
+908
+00:38:51,240 --> 00:38:56,160
+of a finger like that.
+
+909
+00:38:53,320 --> 00:38:59,600
+You see, a pointing finger, you see. So,
+
+910
+00:38:56,160 --> 00:39:04,480
+that's a browser style, okay?
+
+911
+00:38:59,600 --> 00:39:04,480
+So, cascading style sheet says
+
+912
+00:39:04,520 --> 00:39:08,480
+priority,
+
+913
+00:39:06,040 --> 00:39:11,320
+inline first,
+
+914
+00:39:08,480 --> 00:39:13,440
+page style second, then external style,
+
+915
+00:39:11,320 --> 00:39:14,840
+then last is the browser style sheet,
+
+916
+00:39:13,440 --> 00:39:18,520
+okay?
+
+917
+00:39:14,840 --> 00:39:21,120
+Now, what if in the same origin, for
+
+918
+00:39:18,520 --> 00:39:22,880
+example, in the same origin,
+
+919
+00:39:21,120 --> 00:39:25,400
+for example, now let's put it back
+
+920
+00:39:22,880 --> 00:39:27,800
+showing browser. Fantastic, beautiful.
+
+921
+00:39:25,400 --> 00:39:30,600
+You see, now I have my style. Now, you
+
+922
+00:39:27,800 --> 00:39:33,720
+see, let's do it again. Remove that,
+
+923
+00:39:30,600 --> 00:39:36,840
+refresh, do it. You see?
+
+924
+00:39:33,720 --> 00:39:39,640
+That's the browser style or no style.
+
+925
+00:39:36,840 --> 00:39:42,920
+Now, I want my style back.
+
+926
+00:39:39,640 --> 00:39:46,120
+Refresh, you see? Fantastic.
+
+927
+00:39:42,920 --> 00:39:48,640
+Now, if you go to a cascade, so we want
+
+928
+00:39:46,120 --> 00:39:53,640
+to Yeah, okay, so if you
+
+929
+00:39:48,640 --> 00:39:55,040
+So, if if you have a situation where
+
+930
+00:39:53,640 --> 00:39:57,560
+uh
+
+931
+00:39:55,040 --> 00:39:59,240
+where Okay, I already explained that. If
+
+932
+00:39:57,560 --> 00:40:02,240
+you have a situation like we talked
+
+933
+00:39:59,240 --> 00:40:05,480
+before, the style conflict, for example,
+
+934
+00:40:02,240 --> 00:40:08,240
+these three All these are in a style
+
+935
+00:40:05,480 --> 00:40:10,040
+sheet, a style file. They are in the
+
+936
+00:40:08,240 --> 00:40:13,480
+same origin.
+
+937
+00:40:10,040 --> 00:40:15,080
+So, according to origin,
+
+938
+00:40:13,480 --> 00:40:17,560
+they are all in
+
+939
+00:40:15,080 --> 00:40:20,960
+style sheet, so it doesn't resolve their
+
+940
+00:40:17,560 --> 00:40:25,880
+priority. Then, the second way to
+
+941
+00:40:20,960 --> 00:40:27,760
+resolve priority is called specific
+
+942
+00:40:25,880 --> 00:40:30,280
+specific
+
+943
+00:40:27,760 --> 00:40:32,440
+Okay, this is a complicated word.
+
+944
+00:40:30,280 --> 00:40:35,840
+Specificity.
+
+945
+00:40:32,440 --> 00:40:37,720
+Wait, specific specificity.
+
+946
+00:40:35,840 --> 00:40:39,800
+Specificity.
+
+947
+00:40:37,720 --> 00:40:42,000
+Specificity.
+
+948
+00:40:39,800 --> 00:40:44,520
+Specificity.
+
+949
+00:40:42,000 --> 00:40:46,720
+Specificity.
+
+950
+00:40:44,520 --> 00:40:49,680
+Okay, that's
+
+951
+00:40:46,720 --> 00:40:51,038
+How is it? How are you supposed What is
+
+952
+00:40:49,680 --> 00:40:51,400
+the proper
+
+953
+00:40:51,038 --> 00:40:53,760
+>> [gasps]
+
+954
+00:40:51,400 --> 00:40:56,600
+>> um
+
+955
+00:40:53,760 --> 00:40:56,600
+um
+
+956
+00:40:57,080 --> 00:41:01,000
+Wait, how do you say How do they say?
+
+957
+00:41:19,400 --> 00:41:23,960
+Yeah, the the browser style
+
+958
+00:41:22,200 --> 00:41:24,960
+They are similar, but they are not the
+
+959
+00:41:23,960 --> 00:41:26,960
+same.
+
+960
+00:41:24,960 --> 00:41:29,040
+That's why if you have a plain page, you
+
+961
+00:41:26,960 --> 00:41:30,440
+know, in different browser, they they
+
+962
+00:41:29,040 --> 00:41:31,960
+they they are
+
+963
+00:41:30,440 --> 00:41:34,160
+different. Okay, they are slightly
+
+964
+00:41:31,960 --> 00:41:37,040
+different. So, [snorts] that's why many
+
+965
+00:41:34,160 --> 00:41:38,440
+of the web dev when they create a style,
+
+966
+00:41:37,040 --> 00:41:40,560
+they
+
+967
+00:41:38,440 --> 00:41:43,920
+the first thing they do in in their
+
+968
+00:41:40,560 --> 00:41:46,040
+style sheet is clear all browser style.
+
+969
+00:41:43,920 --> 00:41:47,560
+So, what they do is, for example, I can
+
+970
+00:41:46,040 --> 00:41:49,760
+show you.
+
+971
+00:41:47,560 --> 00:41:52,160
+So, what they do the first first of all,
+
+972
+00:41:49,760 --> 00:41:55,480
+what they do is for for everything, the
+
+973
+00:41:52,160 --> 00:41:58,920
+root. Actually, they they do You can do
+
+974
+00:41:55,480 --> 00:42:01,840
+that for for all all tags, okay?
+
+975
+00:41:58,920 --> 00:42:04,920
+Reset.
+
+976
+00:42:01,840 --> 00:42:07,400
+Wait, not that.
+
+977
+00:42:04,920 --> 00:42:09,440
+I think they reset in it, okay?
+
+978
+00:42:07,400 --> 00:42:11,200
+Something, you know, anyway, so the
+
+979
+00:42:09,440 --> 00:42:14,080
+point is that you
+
+980
+00:42:11,200 --> 00:42:17,360
+you basically delete
+
+981
+00:42:14,080 --> 00:42:19,280
+all browser styles.
+
+982
+00:42:17,360 --> 00:42:23,240
+Uh actually, one of the common thing
+
+983
+00:42:19,280 --> 00:42:27,240
+they actually people actually do is um
+
+984
+00:42:23,240 --> 00:42:28,280
+is this is Let me show you, okay?
+
+985
+00:42:27,240 --> 00:42:29,800
+Uh
+
+986
+00:42:28,280 --> 00:42:32,840
+border
+
+987
+00:42:29,800 --> 00:42:36,320
+Yeah, so this this three lines this five
+
+988
+00:42:32,840 --> 00:42:39,000
+lines people actually do. So
+
+989
+00:42:36,320 --> 00:42:41,734
+for all HTML element, they make it
+
+990
+00:42:39,000 --> 00:42:42,640
+box-sizing border-box, okay?
+
+991
+00:42:41,734 --> 00:42:46,320
+>> [snorts]
+
+992
+00:42:42,640 --> 00:42:48,720
+>> Which means um which means it change the
+
+993
+00:42:46,320 --> 00:42:50,240
+meaning of width. So when you have
+
+994
+00:42:48,720 --> 00:42:52,440
+box-sizing
+
+995
+00:42:50,240 --> 00:42:54,280
+border-box, that means
+
+996
+00:42:52,440 --> 00:42:56,760
+width
+
+997
+00:42:54,280 --> 00:42:58,480
+counts also the border and padding,
+
+998
+00:42:56,760 --> 00:43:00,840
+okay?
+
+999
+00:42:58,480 --> 00:43:03,640
+Because if you don't if you don't say
+
+1000
+00:43:00,840 --> 00:43:06,720
+this box-sizing border-box, then
+
+1001
+00:43:03,640 --> 00:43:10,040
+width will only mean the content. So
+
+1002
+00:43:06,720 --> 00:43:12,240
+when you add padding and border, it will
+
+1003
+00:43:10,040 --> 00:43:15,400
+change your your your your goal actually
+
+1004
+00:43:12,240 --> 00:43:18,280
+your change your element size. So if
+
+1005
+00:43:15,400 --> 00:43:20,280
+your your layout become shifted anyway.
+
+1006
+00:43:18,280 --> 00:43:22,720
+Am I clear on this? I don't think so,
+
+1007
+00:43:20,280 --> 00:43:24,640
+but I'm not going to talk about this,
+
+1008
+00:43:22,720 --> 00:43:26,520
+okay?
+
+1009
+00:43:24,640 --> 00:43:29,240
+So you can but you can look it up, okay?
+
+1010
+00:43:26,520 --> 00:43:32,400
+Just ask AI box-sizing border-box. This
+
+1011
+00:43:29,240 --> 00:43:35,160
+is important. So and you So basically
+
+1012
+00:43:32,400 --> 00:43:36,480
+these five lines will clear
+
+1013
+00:43:35,160 --> 00:43:38,720
+um
+
+1014
+00:43:36,480 --> 00:43:41,480
+Wait, actually the the things they
+
+1015
+00:43:38,720 --> 00:43:43,600
+actually do is I didn't explain well,
+
+1016
+00:43:41,480 --> 00:43:45,040
+but you you you you look it up, you'll
+
+1017
+00:43:43,600 --> 00:43:47,520
+see it uh
+
+1018
+00:43:45,040 --> 00:43:50,080
+What people do is that they they do
+
+1019
+00:43:47,520 --> 00:43:51,400
+this, okay? Margin
+
+1020
+00:43:50,080 --> 00:43:54,240
+padding
+
+1021
+00:43:51,400 --> 00:43:56,560
+so that they clear all elements margin
+
+1022
+00:43:54,240 --> 00:43:58,560
+and padding. Actually, they do it like
+
+1023
+00:43:56,560 --> 00:44:00,400
+that.
+
+1024
+00:43:58,560 --> 00:44:03,640
+Uh
+
+1025
+00:44:00,400 --> 00:44:04,280
+that, okay? So they clear every elements
+
+1026
+00:44:03,640 --> 00:44:06,160
+uh
+
+1027
+00:44:04,280 --> 00:44:09,400
+margin and padding. So they set that
+
+1028
+00:44:06,160 --> 00:44:09,400
+themselves anyway.
+
+1029
+00:44:09,760 --> 00:44:14,800
+Look if you said this, you can ask AI.
+
+1030
+00:44:12,040 --> 00:44:17,280
+AI will tell you all about it, okay?
+
+1031
+00:44:14,800 --> 00:44:19,320
+So, let's see. Did I change anything to
+
+1032
+00:44:17,280 --> 00:44:20,440
+this file?
+
+1033
+00:44:19,320 --> 00:44:25,880
+Uh
+
+1034
+00:44:20,440 --> 00:44:29,400
+yes, I did, but that's before, okay?
+
+1035
+00:44:25,880 --> 00:44:31,160
+So, am I so far so good? Okay, I changed
+
+1036
+00:44:29,400 --> 00:44:33,640
+that.
+
+1037
+00:44:31,160 --> 00:44:33,640
+Um
+
+1038
+00:44:39,840 --> 00:44:42,840
+Yeah, okay.
+
+1039
+00:44:42,080 --> 00:44:45,360
+Uh
+
+1040
+00:44:42,840 --> 00:44:48,160
+I just want to make sure I didn't [ __ ]
+
+1041
+00:44:45,360 --> 00:44:48,160
+up anything.
+
+1042
+00:44:48,360 --> 00:44:55,200
+So, anyways, so we talked about cascade.
+
+1043
+00:44:51,480 --> 00:44:57,960
+Then, the next thing if the conflict uh
+
+1044
+00:44:55,200 --> 00:45:01,600
+or within the same origin, the next
+
+1045
+00:44:57,960 --> 00:45:04,040
+thing you consider is called specis
+
+1046
+00:45:01,600 --> 00:45:06,160
+sp- specificities.
+
+1047
+00:45:04,040 --> 00:45:09,200
+Specificity.
+
+1048
+00:45:06,160 --> 00:45:11,520
+How uh what is the uh how they say this?
+
+1049
+00:45:09,200 --> 00:45:11,520
+Um
+
+1050
+00:45:17,960 --> 00:45:22,880
+Like where do they put the em- emphasis
+
+1051
+00:45:20,400 --> 00:45:24,240
+on the word?
+
+1052
+00:45:22,880 --> 00:45:27,520
+Okay.
+
+1053
+00:45:24,240 --> 00:45:31,520
+Specificity. Okay, something like that.
+
+1054
+00:45:27,520 --> 00:45:31,520
+Specif- specificity.
+
+1055
+00:45:32,840 --> 00:45:39,960
+Okay, so let's ask Google, okay?
+
+1056
+00:45:36,400 --> 00:45:39,960
+Let's see what Google says.
+
+1057
+00:45:43,720 --> 00:45:49,880
+In a cascading style sheet, you have the
+
+1058
+00:45:46,160 --> 00:45:52,840
+concept of specificity.
+
+1059
+00:45:49,880 --> 00:45:52,840
+Can you say that?
+
+1060
+00:45:54,160 --> 00:45:58,240
+>> Yeah, CSS specificity is basically how
+
+1061
+00:45:56,480 --> 00:45:59,480
+the browser decides which style wins
+
+1062
+00:45:58,240 --> 00:46:02,480
+when multiple rules apply.
+
+1063
+00:45:59,480 --> 00:46:02,480
+>> repeat that?
+
+1064
+00:46:02,800 --> 00:46:07,040
+>> Sure, CSS specificity is how the browser
+
+1065
+00:46:05,320 --> 00:46:09,880
+decides which style wins when multiple
+
+1066
+00:46:07,040 --> 00:46:12,960
+>> CSS specificity.
+
+1067
+00:46:09,880 --> 00:46:17,040
+CSS specificity.
+
+1068
+00:46:12,960 --> 00:46:17,040
+Repeat that three times, please.
+
+1069
+00:46:17,200 --> 00:46:24,440
+>> CSS specificity. CSS specificity. CSS
+
+1070
+00:46:21,680 --> 00:46:24,440
+specificity.
+
+1071
+00:46:24,880 --> 00:46:28,480
+>> CSS
+
+1072
+00:46:26,480 --> 00:46:31,800
+specificity.
+
+1073
+00:46:28,480 --> 00:46:31,800
+Wait, specificity.
+
+1074
+00:46:31,840 --> 00:46:36,080
+This is incorrect. Specificity.
+
+1075
+00:46:37,440 --> 00:46:42,520
+Okay, anyway. So,
+
+1076
+00:46:39,520 --> 00:46:45,400
+so what does this mean? That means
+
+1077
+00:46:42,520 --> 00:46:48,440
+you know, the way when
+
+1078
+00:46:45,400 --> 00:46:51,000
+these CSS rules are all in the same
+
+1079
+00:46:48,440 --> 00:46:52,840
+origin. So, now you have you have a
+
+1080
+00:46:51,000 --> 00:46:56,400
+problem. You have to You have to
+
+1081
+00:46:52,840 --> 00:46:58,960
+determine which one has priority. Okay,
+
+1082
+00:46:56,400 --> 00:47:02,200
+the way this works is that you
+
+1083
+00:46:58,960 --> 00:47:05,200
+you classify each of the tag matching
+
+1084
+00:47:02,200 --> 00:47:07,440
+so-called selectors. You classify them
+
+1085
+00:47:05,200 --> 00:47:09,600
+by, you know, you got ID selectors,
+
+1086
+00:47:07,440 --> 00:47:11,760
+attribute selectors, you got
+
+1087
+00:47:09,600 --> 00:47:14,240
+tag name selectors, you got class name
+
+1088
+00:47:11,760 --> 00:47:17,560
+attribute selectors. So, you classify
+
+1089
+00:47:14,240 --> 00:47:20,480
+them and give each type of selectors a
+
+1090
+00:47:17,560 --> 00:47:23,200
+different score. Okay? The score are
+
+1091
+00:47:20,480 --> 00:47:25,320
+usually three numbers written as a
+
+1092
+00:47:23,200 --> 00:47:28,560
+triplet, ABC.
+
+1093
+00:47:25,320 --> 00:47:31,600
+So, if it's a ID selector, you
+
+1094
+00:47:28,560 --> 00:47:34,520
+you score it one on the first slot.
+
+1095
+00:47:31,600 --> 00:47:37,680
+Okay? If it's a attribute selector,
+
+1096
+00:47:34,520 --> 00:47:40,320
+including class, then it's a score on
+
+1097
+00:47:37,680 --> 00:47:42,400
+the second slot. Okay? Or if it's a
+
+1098
+00:47:40,320 --> 00:47:44,480
+pseudo class selector, it's also the
+
+1099
+00:47:42,400 --> 00:47:46,960
+second slot.
+
+1100
+00:47:44,480 --> 00:47:49,280
+Then, if you have type selector, which
+
+1101
+00:47:46,960 --> 00:47:52,320
+is tag name, and pseudo element
+
+1102
+00:47:49,280 --> 00:47:54,160
+selector, then you put a score of one to
+
+1103
+00:47:52,320 --> 00:47:56,040
+the third slot.
+
+1104
+00:47:54,160 --> 00:47:58,720
+Okay?
+
+1105
+00:47:56,040 --> 00:48:01,600
+So, so when you whenever you have a
+
+1106
+00:47:58,720 --> 00:48:03,880
+rule, you can check, you know, how many
+
+1107
+00:48:01,600 --> 00:48:06,360
+ID selectors are there. Typically, just
+
+1108
+00:48:03,880 --> 00:48:09,080
+one because it's not possible to have
+
+1109
+00:48:06,360 --> 00:48:12,000
+two ID selectors, okay? So, if you got
+
+1110
+00:48:09,080 --> 00:48:14,120
+if it's if it has one ID selector like
+
+1111
+00:48:12,000 --> 00:48:17,040
+this case, you add one to the first
+
+1112
+00:48:14,120 --> 00:48:19,600
+number, okay? Then,
+
+1113
+00:48:17,040 --> 00:48:22,960
+check if it has class selector or
+
+1114
+00:48:19,600 --> 00:48:25,000
+others. If there's one, add it. If not
+
+1115
+00:48:22,960 --> 00:48:26,280
+if not, don't add it, okay? So, that's
+
+1116
+00:48:25,000 --> 00:48:28,680
+how you
+
+1117
+00:48:26,280 --> 00:48:30,240
+get this triplet
+
+1118
+00:48:28,680 --> 00:48:32,440
+uh number.
+
+1119
+00:48:30,240 --> 00:48:36,520
+Three numbers, okay? That's called
+
+1120
+00:48:32,440 --> 00:48:38,200
+specificity score, okay? Then, you can
+
+1121
+00:48:36,520 --> 00:48:41,680
+compare the score when you have two
+
+1122
+00:48:38,200 --> 00:48:44,120
+selectors like one here, one here. So,
+
+1123
+00:48:41,680 --> 00:48:47,040
+this one, you got ID selector, that's
+
+1124
+00:48:44,120 --> 00:48:49,840
+all, that's one. And no other, so that's
+
+1125
+00:48:47,040 --> 00:48:52,120
+1 0 0 score, okay?
+
+1126
+00:48:49,840 --> 00:48:55,200
+Then, this one is you got a
+
+1127
+00:48:52,120 --> 00:48:59,120
+tag name selector, so that would be the
+
+1128
+00:48:55,200 --> 00:49:02,400
+you add a one to the last number, so so
+
+1129
+00:48:59,120 --> 00:49:04,640
+this selector would be 0 0 1
+
+1130
+00:49:02,400 --> 00:49:07,000
+because it got no others. Then, you
+
+1131
+00:49:04,640 --> 00:49:09,920
+compare the score of these two, this is
+
+1132
+00:49:07,000 --> 00:49:10,800
+1 0 0, this is 0 0 1.
+
+1133
+00:49:09,920 --> 00:49:13,400
+The
+
+1134
+00:49:10,800 --> 00:49:16,720
+the bigger number in front wins, okay?
+
+1135
+00:49:13,400 --> 00:49:20,920
+So, this ID selector has higher priority
+
+1136
+00:49:16,720 --> 00:49:22,680
+than this tag name selector, okay?
+
+1137
+00:49:20,920 --> 00:49:24,840
+And this mechanism is called
+
+1138
+00:49:22,680 --> 00:49:27,720
+specificity,
+
+1139
+00:49:24,840 --> 00:49:31,200
+okay? So, this is how
+
+1140
+00:49:27,720 --> 00:49:33,920
+CSS resolve conflicts when
+
+1141
+00:49:31,200 --> 00:49:36,080
+the cascade is a tie. You know, they
+
+1142
+00:49:33,920 --> 00:49:38,720
+came from the same place. The cascade is
+
+1143
+00:49:36,080 --> 00:49:41,080
+a tie, then you go to specificity,
+
+1144
+00:49:38,720 --> 00:49:41,080
+okay?
+
+1145
+00:49:42,240 --> 00:49:47,800
+Okay? So, that's that resolve
+
+1146
+00:49:46,000 --> 00:49:50,320
+a lot problem, lots of, you know,
+
+1147
+00:49:47,800 --> 00:49:51,600
+priority issues, but you still have
+
+1148
+00:49:50,320 --> 00:49:55,760
+other uh
+
+1149
+00:49:51,600 --> 00:49:57,880
+unresolved conflict. For example,
+
+1150
+00:49:55,760 --> 00:50:00,480
+so when you have, for example, like
+
+1151
+00:49:57,880 --> 00:50:02,520
+this, for example, P color red,
+
+1152
+00:50:00,480 --> 00:50:05,280
+but if you at the bottom you have P
+
+1153
+00:50:02,520 --> 00:50:06,960
+color blue, which one has priority? Does
+
+1154
+00:50:05,280 --> 00:50:09,720
+the first one,
+
+1155
+00:50:06,960 --> 00:50:12,520
+you know, they are the same specificity
+
+1156
+00:50:09,720 --> 00:50:14,760
+because both of them are identical P,
+
+1157
+00:50:12,520 --> 00:50:16,760
+you know, just a tag name P, something,
+
+1158
+00:50:14,760 --> 00:50:19,520
+but one occurs
+
+1159
+00:50:16,760 --> 00:50:22,240
+earlier, one occurs at the bottom. So
+
+1160
+00:50:19,520 --> 00:50:25,400
+which one come has priority? In that
+
+1161
+00:50:22,240 --> 00:50:27,680
+case, the one that comes later has
+
+1162
+00:50:25,400 --> 00:50:30,480
+priority, okay? That's part of the
+
+1163
+00:50:27,680 --> 00:50:32,440
+cascade. So now, in summary, understand
+
+1164
+00:50:30,480 --> 00:50:33,880
+the cascade concept.
+
+1165
+00:50:32,440 --> 00:50:37,160
+You got
+
+1166
+00:50:33,880 --> 00:50:39,520
+the CSS rule origin
+
+1167
+00:50:37,160 --> 00:50:42,440
+that determines the priority, okay? If
+
+1168
+00:50:39,520 --> 00:50:45,160
+it's a tie, then you check the
+
+1169
+00:50:42,440 --> 00:50:47,040
+specificity
+
+1170
+00:50:45,160 --> 00:50:49,640
+of the selector.
+
+1171
+00:50:47,040 --> 00:50:51,320
+Okay? Which means you each selector is
+
+1172
+00:50:49,640 --> 00:50:53,360
+classified,
+
+1173
+00:50:51,320 --> 00:50:56,680
+given a score, then you compare.
+
+1174
+00:50:53,360 --> 00:50:58,840
+Basically, ID has the highest priority.
+
+1175
+00:50:56,680 --> 00:51:00,960
+Tag name has the lowest priority.
+
+1176
+00:50:58,840 --> 00:51:01,920
+Attribute names like classes like
+
+1177
+00:51:00,960 --> 00:51:03,520
+middle.
+
+1178
+00:51:01,920 --> 00:51:05,520
+Okay?
+
+1179
+00:51:03,520 --> 00:51:07,080
+That's how you determine
+
+1180
+00:51:05,520 --> 00:51:10,000
+selectors, okay?
+
+1181
+00:51:07,080 --> 00:51:12,360
+If it's tie, a tie two, for example, you
+
+1182
+00:51:10,000 --> 00:51:14,760
+have the exactly the same selector in
+
+1183
+00:51:12,360 --> 00:51:16,480
+the same file.
+
+1184
+00:51:14,760 --> 00:51:18,880
+The, you know, so both have the same
+
+1185
+00:51:16,480 --> 00:51:22,880
+score, it you know, then
+
+1186
+00:51:18,880 --> 00:51:25,480
+you determine by the source code order,
+
+1187
+00:51:22,880 --> 00:51:27,080
+okay? Later ones
+
+1188
+00:51:25,480 --> 00:51:28,920
+has priority.
+
+1189
+00:51:27,080 --> 00:51:31,880
+Okay? So this is the
+
+1190
+00:51:28,920 --> 00:51:31,880
+this is called
+
+1191
+00:51:32,160 --> 00:51:38,040
+cascade of cascading style sheet. That's
+
+1192
+00:51:35,040 --> 00:51:41,800
+what That's what cascade means, okay?
+
+1193
+00:51:38,040 --> 00:51:44,640
+Like like a waterfall, like a
+
+1194
+00:51:41,800 --> 00:51:46,280
+like a hierarchy of rules.
+
+1195
+00:51:44,640 --> 00:51:47,960
+Which one determines priority? Now,
+
+1196
+00:51:46,280 --> 00:51:50,520
+there's one exception, that is the
+
+1197
+00:51:47,960 --> 00:51:52,720
+important keyword. Whenever you say
+
+1198
+00:51:50,520 --> 00:51:55,280
+something important that made it that
+
+1199
+00:51:52,720 --> 00:51:58,280
+makes it highest priority. Now, the
+
+1200
+00:51:55,280 --> 00:52:00,800
+problem is if you have two rules that
+
+1201
+00:51:58,280 --> 00:52:02,560
+both says both claims to be important,
+
+1202
+00:52:00,800 --> 00:52:05,400
+then what happens?
+
+1203
+00:52:02,560 --> 00:52:08,880
+Then it's more complex complicated.
+
+1204
+00:52:05,400 --> 00:52:11,400
+Okay? Then it's like very complicated.
+
+1205
+00:52:08,880 --> 00:52:13,800
+Anyway, so that's the basics of
+
+1206
+00:52:11,400 --> 00:52:16,200
+cascading
+
+1207
+00:52:13,800 --> 00:52:17,960
+priority determination. Okay? Now, the
+
+1208
+00:52:16,200 --> 00:52:20,120
+specificity
+
+1209
+00:52:17,960 --> 00:52:21,840
+is a bit involved, so you have to read,
+
+1210
+00:52:20,120 --> 00:52:23,200
+you know, you have to read a little bit
+
+1211
+00:52:21,840 --> 00:52:24,200
+to understand.
+
+1212
+00:52:23,200 --> 00:52:26,120
+Okay?
+
+1213
+00:52:24,200 --> 00:52:28,160
+Uh that's it. Um
+
+1214
+00:52:26,120 --> 00:52:30,960
+then you got other selectors that you
+
+1215
+00:52:28,160 --> 00:52:32,720
+get complicated to determine their uh
+
+1216
+00:52:30,960 --> 00:52:34,120
+specificity.
+
+1217
+00:52:32,720 --> 00:52:36,640
+Okay?
+
+1218
+00:52:34,120 --> 00:52:40,080
+Like this this new this this new has
+
+1219
+00:52:36,640 --> 00:52:42,880
+selector is any is selector, where
+
+1220
+00:52:40,080 --> 00:52:45,520
+selector, not selector, pseudo selector.
+
+1221
+00:52:42,880 --> 00:52:47,520
+They they are fairly complicated, okay?
+
+1222
+00:52:45,520 --> 00:52:48,680
+They're very advanced, that's why I'm
+
+1223
+00:52:47,520 --> 00:52:49,880
+saying
+
+1224
+00:52:48,680 --> 00:52:53,840
+uh
+
+1225
+00:52:49,880 --> 00:52:56,560
+CSS requires a PhD today. So, if you
+
+1226
+00:52:53,840 --> 00:52:58,240
+haven't done so, you should watch
+
+1227
+00:52:56,560 --> 00:53:02,200
+um
+
+1228
+00:52:58,240 --> 00:53:04,400
+4 days ago, 5 days ago's video
+
+1229
+00:53:02,200 --> 00:53:07,520
+where I talked about
+
+1230
+00:53:04,400 --> 00:53:09,040
+how CSS the complexity of CSS, okay? So,
+
+1231
+00:53:07,520 --> 00:53:13,200
+that is
+
+1232
+00:53:09,040 --> 00:53:13,200
+uh that would be episode
+
+1233
+00:53:14,160 --> 00:53:18,480
+785
+
+1234
+00:53:16,440 --> 00:53:22,200
+aired on
+
+1235
+00:53:18,480 --> 00:53:26,040
+May 23rd, 2026.
+
+1236
+00:53:22,200 --> 00:53:28,160
+You need a PhD for CSS selectors, okay?
+
+1237
+00:53:26,040 --> 00:53:30,040
+That's got this cheap out girl
+
+1238
+00:53:28,160 --> 00:53:31,720
+thumbnail.
+
+1239
+00:53:30,040 --> 00:53:34,040
+So, you should watch that one, okay?
+
+1240
+00:53:31,720 --> 00:53:36,440
+That one is like a prelude to what I'm
+
+1241
+00:53:34,040 --> 00:53:38,480
+talking about today. So, today
+
+1242
+00:53:36,440 --> 00:53:41,000
+uh we kind of finished talking about
+
+1243
+00:53:38,480 --> 00:53:43,480
+this, but there's one more a
+
+1244
+00:53:41,000 --> 00:53:44,680
+It's a new feature, fantastic, very
+
+1245
+00:53:43,480 --> 00:53:46,560
+good.
+
+1246
+00:53:44,680 --> 00:53:51,000
+Okay, but this is like for advanced
+
+1247
+00:53:46,560 --> 00:53:54,000
+users. This is CSS at layer.
+
+1248
+00:53:51,000 --> 00:53:57,440
+So, basically, what this do is it
+
+1249
+00:53:54,000 --> 00:53:59,160
+allows you to create
+
+1250
+00:53:57,440 --> 00:54:01,520
+a layer
+
+1251
+00:53:59,160 --> 00:54:04,080
+like so-called layer. It allows you to
+
+1252
+00:54:01,520 --> 00:54:06,320
+create a customized
+
+1253
+00:54:04,080 --> 00:54:09,880
+um
+
+1254
+00:54:06,320 --> 00:54:13,160
+um like grouping of cascade. So, for all
+
+1255
+00:54:09,880 --> 00:54:14,960
+your CSS rules, you can you can actually
+
+1256
+00:54:13,160 --> 00:54:17,920
+put them into several different
+
+1257
+00:54:14,960 --> 00:54:20,440
+so-called layers or groups. Okay, let's
+
+1258
+00:54:17,920 --> 00:54:22,680
+just say groups. So, you can have group
+
+1259
+00:54:20,440 --> 00:54:25,400
+A, group B, group C.
+
+1260
+00:54:22,680 --> 00:54:28,680
+And you can say that A is at most
+
+1261
+00:54:25,400 --> 00:54:31,560
+should, you know, like C should have the
+
+1262
+00:54:28,680 --> 00:54:34,080
+highest priority than B. B should has
+
+1263
+00:54:31,560 --> 00:54:36,320
+higher priority than A. You can say that
+
+1264
+00:54:34,080 --> 00:54:38,960
+yourself. You can have A, B, C, D, or
+
+1265
+00:54:36,320 --> 00:54:41,400
+whatever name. So, you can put all your
+
+1266
+00:54:38,960 --> 00:54:44,800
+rules into like different groups and
+
+1267
+00:54:41,400 --> 00:54:49,040
+specify order of priority. So, that
+
+1268
+00:54:44,800 --> 00:54:49,040
+That allows you So, that is called
+
+1269
+00:54:49,280 --> 00:54:54,960
+CSS cas- cascade at layer. Okay, that's
+
+1270
+00:54:52,920 --> 00:54:57,120
+optional. That's custom cascade layers,
+
+1271
+00:54:54,960 --> 00:54:58,560
+okay? This is pretty new. This is
+
+1272
+00:54:57,120 --> 00:55:00,720
+available
+
+1273
+00:54:58,560 --> 00:55:03,000
+Let's see browser support few years ago.
+
+1274
+00:55:00,720 --> 00:55:07,280
+You know, this is new.
+
+1275
+00:55:03,000 --> 00:55:09,400
+Uh when is it widely supported? 2023,
+
+1276
+00:55:07,280 --> 00:55:11,960
+okay, 2 years ago.
+
+1277
+00:55:09,400 --> 00:55:13,560
+It only week became supported by all
+
+1278
+00:55:11,960 --> 00:55:15,760
+browsers
+
+1279
+00:55:13,560 --> 00:55:18,880
+two or three years ago, okay? So, this
+
+1280
+00:55:15,760 --> 00:55:22,560
+is called cascade at layer.
+
+1281
+00:55:18,880 --> 00:55:26,000
+It allows you to group all
+
+1282
+00:55:22,560 --> 00:55:28,880
+or part of your CSS rules into like
+
+1283
+00:55:26,000 --> 00:55:30,360
+different groups and order them by
+
+1284
+00:55:28,880 --> 00:55:34,200
+priority.
+
+1285
+00:55:30,360 --> 00:55:37,040
+So, this is nice, similar to how you can
+
+1286
+00:55:34,200 --> 00:55:38,600
+in a programming language, you can um
+
+1287
+00:55:37,040 --> 00:55:39,840
+you know, you can group code into a
+
+1288
+00:55:38,600 --> 00:55:41,760
+function,
+
+1289
+00:55:39,840 --> 00:55:44,400
+right? And you can group functions into
+
+1290
+00:55:41,760 --> 00:55:46,640
+modules. So, this is similar this this
+
+1291
+00:55:44,400 --> 00:55:47,960
+is similar like grouping them into a
+
+1292
+00:55:46,640 --> 00:55:49,960
+function.
+
+1293
+00:55:47,960 --> 00:55:53,120
+Okay, so you can you know,
+
+1294
+00:55:49,960 --> 00:55:55,960
+so you can so you so
+
+1295
+00:55:53,120 --> 00:55:58,480
+so you don't have to worry so much about
+
+1296
+00:55:55,960 --> 00:55:59,720
+the specificity
+
+1297
+00:55:58,480 --> 00:56:02,360
+like
+
+1298
+00:55:59,720 --> 00:56:04,800
+because the specificity is a little bit
+
+1299
+00:56:02,360 --> 00:56:07,640
+involved. You have to know oh, you know,
+
+1300
+00:56:04,800 --> 00:56:09,960
+which ID selector what how what score is
+
+1301
+00:56:07,640 --> 00:56:09,960
+it?
+
+1302
+00:56:10,560 --> 00:56:17,040
+Because once you group them, you know,
+
+1303
+00:56:12,520 --> 00:56:19,240
+the your group priority takes
+
+1304
+00:56:17,040 --> 00:56:22,480
+you know, resolve the priority before it
+
+1305
+00:56:19,240 --> 00:56:25,080
+reaches the specificity, okay? So, that
+
+1306
+00:56:22,480 --> 00:56:26,720
+is a CSS cascade layers.
+
+1307
+00:56:25,080 --> 00:56:29,160
+You know, so I haven't done you know, I
+
+1308
+00:56:26,720 --> 00:56:31,320
+could go into detail how do you do this,
+
+1309
+00:56:29,160 --> 00:56:33,480
+but um
+
+1310
+00:56:31,320 --> 00:56:36,040
+but uh do you guys want to see it? Are
+
+1311
+00:56:33,480 --> 00:56:36,040
+we done?
+
+1312
+00:56:36,520 --> 00:56:42,280
+Okay, so let's see.
+
+1313
+00:56:39,600 --> 00:56:42,280
+Are we done?
+
+1314
+00:56:46,640 --> 00:56:52,880
+Good morning, sir. Yeah, interesting.
+
+1315
+00:56:49,160 --> 00:56:56,160
+Okay, ask Dobao Dobao.
+
+1316
+00:56:52,880 --> 00:56:58,240
+Ask Dobao. Okay, Dobao, what is that?
+
+1317
+00:56:56,160 --> 00:56:59,880
+What what AI is that? I think I'm done
+
+1318
+00:56:58,240 --> 00:57:03,400
+today, okay?
+
+1319
+00:56:59,880 --> 00:57:03,400
+Anything else, guys?
+
+1320
+00:57:04,360 --> 00:57:07,600
+Uh God.
+
+1321
+00:57:09,120 --> 00:57:12,600
+Got a spammer today.
+
+1322
+00:57:12,640 --> 00:57:19,200
+Okay, so I think that's it.
+
+1323
+00:57:16,040 --> 00:57:20,880
+And what else? I talked for an hour,
+
+1324
+00:57:19,200 --> 00:57:22,680
+okay?
+
+1325
+00:57:20,880 --> 00:57:26,480
+So,
+
+1326
+00:57:22,680 --> 00:57:28,320
+a lot of things going on, especially AI.
+
+1327
+00:57:26,480 --> 00:57:30,280
+Oh, I forgot to talk about thumbnail.
+
+1328
+00:57:28,320 --> 00:57:33,160
+So, the thumbnail you are seeing is
+
+1329
+00:57:30,280 --> 00:57:36,080
+quite interesting phenomenon, okay?
+
+1330
+00:57:33,160 --> 00:57:37,960
+The thumbnail for this video they came
+
+1331
+00:57:36,080 --> 00:57:41,720
+from
+
+1332
+00:57:37,960 --> 00:57:41,720
+uh they came from
+
+1333
+00:57:46,240 --> 00:57:51,920
+amazing AI, okay? They came from AI.
+
+1334
+00:57:48,960 --> 00:57:51,920
+It's just amazing.
+
+1335
+00:57:58,280 --> 00:58:02,920
+Amazing AI, okay? Now, Grok, you know, I
+
+1336
+00:58:01,200 --> 00:58:05,720
+don't want to show this because Google
+
+1337
+00:58:02,920 --> 00:58:07,400
+is going to censor me. Here because they
+
+1338
+00:58:05,720 --> 00:58:08,600
+are girls with
+
+1339
+00:58:07,400 --> 00:58:11,190
+tits
+
+1340
+00:58:08,600 --> 00:58:12,240
+showing, okay? Now, Grok.
+
+1341
+00:58:11,190 --> 00:58:14,040
+>> [snorts]
+
+1342
+00:58:12,240 --> 00:58:15,760
+>> If you ask question, you know, there's a
+
+1343
+00:58:14,040 --> 00:58:19,040
+Grok images. See
+
+1344
+00:58:15,760 --> 00:58:22,600
+you ask a question it will show girls
+
+1345
+00:58:19,040 --> 00:58:25,120
+with tits naked. Okay? It will just
+
+1346
+00:58:22,600 --> 00:58:27,680
+even if you didn't ask for it. If you
+
+1347
+00:58:25,120 --> 00:58:28,840
+just ask for, you know, show me a hot
+
+1348
+00:58:27,680 --> 00:58:30,680
+chick
+
+1349
+00:58:28,840 --> 00:58:33,240
+you know, give me some drawings of hot
+
+1350
+00:58:30,680 --> 00:58:37,560
+chick some of the girls will be naked
+
+1351
+00:58:33,240 --> 00:58:37,560
+with their her tits showing.
+
+1352
+00:58:37,760 --> 00:58:42,160
+Okay? So, you can see what is this let's
+
+1353
+00:58:40,680 --> 00:58:46,840
+say Ksaw
+
+1354
+00:58:42,160 --> 00:58:50,440
+art blog. So, you can go to ksawli.org
+
+1355
+00:58:46,840 --> 00:58:52,200
+art blog, okay? So, ksawli web
+
+1356
+00:58:50,440 --> 00:58:55,040
+ksawli.org
+
+1357
+00:58:52,200 --> 00:58:56,480
+then there is
+
+1358
+00:58:55,040 --> 00:59:00,120
+Ksaw arts
+
+1359
+00:58:56,480 --> 00:59:03,080
+and art blog, okay? Now, there's a new
+
+1360
+00:59:00,120 --> 00:59:06,080
+entry, Grok AI image showing tits. I
+
+1361
+00:59:03,080 --> 00:59:08,640
+have documented this phenomenon.
+
+1362
+00:59:06,080 --> 00:59:11,000
+A documentation of human history, okay?
+
+1363
+00:59:08,640 --> 00:59:14,280
+I noticed so, for example, this one I
+
+1364
+00:59:11,000 --> 00:59:17,320
+asked Grok draw a sexy Chinese girl
+
+1365
+00:59:14,280 --> 00:59:18,800
+wearing a wea- wearing a top that says
+
+1366
+00:59:17,320 --> 00:59:20,080
+Emacs.
+
+1367
+00:59:18,800 --> 00:59:23,080
+Then
+
+1368
+00:59:20,080 --> 00:59:24,480
+then one of the image it shows tits, you
+
+1369
+00:59:23,080 --> 00:59:27,000
+know, like
+
+1370
+00:59:24,480 --> 00:59:28,760
+this is like
+
+1371
+00:59:27,000 --> 00:59:30,800
+not normal.
+
+1372
+00:59:28,760 --> 00:59:33,920
+By that I mean like typically you don't
+
+1373
+00:59:30,800 --> 00:59:36,080
+expect this to happen in USA, okay?
+
+1374
+00:59:33,920 --> 00:59:38,200
+Well, but today you got chatterbate, you
+
+1375
+00:59:36,080 --> 00:59:40,240
+got, you know, porn all over, you got
+
+1376
+00:59:38,200 --> 00:59:43,800
+the trans porn.
+
+1377
+00:59:40,240 --> 00:59:45,640
+You got the furry porns. So, maybe this
+
+1378
+00:59:43,800 --> 00:59:47,560
+is not surprising.
+
+1379
+00:59:45,640 --> 00:59:52,200
+Okay, you got the gays, you got the
+
+1380
+00:59:47,560 --> 00:59:52,200
+[ __ ] in the ass and rampant.
+
+1381
+00:59:52,280 --> 00:59:55,680
+So, anyway, so you see, but they show
+
+1382
+00:59:54,160 --> 00:59:58,440
+tits.
+
+1383
+00:59:55,680 --> 00:59:59,120
+And then I asked it to
+
+1384
+00:59:58,440 --> 01:00:01,440
+uh
+
+1385
+00:59:59,120 --> 01:00:03,840
+you know, the prompt is
+
+1386
+01:00:01,440 --> 01:00:05,240
+the very interesting poem, okay? Let me
+
+1387
+01:00:03,840 --> 01:00:08,320
+read it.
+
+1388
+01:00:05,240 --> 01:00:12,360
+They find me fault with her where I
+
+1389
+01:00:08,320 --> 01:00:15,320
+default never find save happily that a
+
+1390
+01:00:12,360 --> 01:00:18,800
+speck in either eye may show.
+
+1391
+01:00:15,320 --> 01:00:21,200
+But if her eyes have fault of fault her
+
+1392
+01:00:18,800 --> 01:00:25,080
+form hath none.
+
+1393
+01:00:21,200 --> 01:00:26,720
+Slim built above the waist and heavily
+
+1394
+01:00:25,080 --> 01:00:29,680
+made below.
+
+1395
+01:00:26,720 --> 01:00:33,800
+Okay, that is a poem from Arabian
+
+1396
+01:00:29,680 --> 01:00:33,800
+Nights, okay? Let me show that again.
+
+1397
+01:00:34,480 --> 01:00:40,760
+I talked about Arabian Nights quite a
+
+1398
+01:00:37,280 --> 01:00:43,240
+few times, so you need to go to again
+
+1399
+01:00:40,760 --> 01:00:47,040
+xali.org.
+
+1400
+01:00:43,240 --> 01:00:50,680
+Uh then Wadi English, this is English
+
+1401
+01:00:47,040 --> 01:00:54,200
+literature section of my blog and there
+
+1402
+01:00:50,680 --> 01:01:01,320
+is literature classics, then Arabian
+
+1403
+01:00:54,200 --> 01:01:03,000
+Nights and one of the story is story 70.
+
+1404
+01:01:01,320 --> 01:01:06,640
+Abu
+
+1405
+01:01:03,000 --> 01:01:10,600
+Aswad and his slave girl.
+
+1406
+01:01:06,640 --> 01:01:12,840
+Okay? Then there is this poem.
+
+1407
+01:01:10,600 --> 01:01:16,120
+Okay, so you just paste this poem to
+
+1408
+01:01:12,840 --> 01:01:20,160
+Google and you know, ask Google to show
+
+1409
+01:01:16,120 --> 01:01:20,160
+a illustration and
+
+1410
+01:01:21,080 --> 01:01:24,200
+this is what you see.
+
+1411
+01:01:24,360 --> 01:01:30,360
+Girls with tits. So, I was like taken
+
+1412
+01:01:27,800 --> 01:01:33,080
+back. I what you know, like the first
+
+1413
+01:01:30,360 --> 01:01:35,280
+one it just like so maybe it's a
+
+1414
+01:01:33,080 --> 01:01:38,600
+mistake, you know, it showed half of the
+
+1415
+01:01:35,280 --> 01:01:41,360
+tits. But this one is like just
+
+1416
+01:01:38,600 --> 01:01:42,520
+just like naked, okay? So, I asked
+
+1417
+01:01:41,360 --> 01:01:44,920
+Google
+
+1418
+01:01:42,520 --> 01:01:46,520
+what's going on? Do don't you guys like
+
+1419
+01:01:44,920 --> 01:01:50,200
+oh Jesus that
+
+1420
+01:01:46,520 --> 01:01:52,960
+don't you guys do censorship anymore?
+
+1421
+01:01:50,200 --> 01:01:54,960
+And Google answered, okay? So, it turns
+
+1422
+01:01:52,960 --> 01:01:57,480
+out
+
+1423
+01:01:54,960 --> 01:01:59,560
+here's the answer. So, basically Google
+
+1424
+01:01:57,480 --> 01:02:01,960
+is saying
+
+1425
+01:01:59,560 --> 01:02:04,920
+they censor pornography
+
+1426
+01:02:01,960 --> 01:02:07,040
+but they do not censor erotica.
+
+1427
+01:02:04,920 --> 01:02:09,520
+Okay? Now, for you young guys, for you
+
+1428
+01:02:07,040 --> 01:02:11,960
+zoomers like you you you have no idea
+
+1429
+01:02:09,520 --> 01:02:16,000
+what the [ __ ] that means, okay?
+
+1430
+01:02:11,960 --> 01:02:17,000
+So, let me give you an education.
+
+1431
+01:02:16,000 --> 01:02:18,920
+Um
+
+1432
+01:02:17,000 --> 01:02:21,440
+so erotica, you know, like what's the
+
+1433
+01:02:18,920 --> 01:02:22,280
+difference erotica? Erotica basically,
+
+1434
+01:02:21,440 --> 01:02:24,680
+you know,
+
+1435
+01:02:22,280 --> 01:02:25,640
+porn, you know, when when you see girls
+
+1436
+01:02:24,680 --> 01:02:28,080
+like
+
+1437
+01:02:25,640 --> 01:02:31,600
+if you just you have a girl walking on a
+
+1438
+01:02:28,080 --> 01:02:33,760
+street, what what makes her not a porn?
+
+1439
+01:02:31,600 --> 01:02:35,680
+Well, the thing is if if there's an
+
+1440
+01:02:33,760 --> 01:02:37,440
+artistic element
+
+1441
+01:02:35,680 --> 01:02:40,000
+then it's not
+
+1442
+01:02:37,440 --> 01:02:43,760
+pure porn, okay? That's like that's
+
+1443
+01:02:40,000 --> 01:02:46,200
+that's like the major difference.
+
+1444
+01:02:43,760 --> 01:02:48,320
+Uh and some people would say, well,
+
+1445
+01:02:46,200 --> 01:02:49,960
+it depends on the lighting, okay? That
+
+1446
+01:02:48,320 --> 01:02:51,800
+is actually true.
+
+1447
+01:02:49,960 --> 01:02:54,400
+So, if the lighting is certain certain
+
+1448
+01:02:51,800 --> 01:02:56,840
+way, there's artistic element that is
+
+1449
+01:02:54,400 --> 01:02:59,560
+part of humanity.
+
+1450
+01:02:56,840 --> 01:03:01,400
+Okay? Then you consider it like erotica.
+
+1451
+01:02:59,560 --> 01:03:04,920
+You don't say porn, okay? Because
+
+1452
+01:03:01,400 --> 01:03:06,600
+there's artistic element. If you just
+
+1453
+01:03:04,920 --> 01:03:10,360
+you know, it's just tits and ass,
+
+1454
+01:03:06,600 --> 01:03:13,560
+nothing else and [ __ ] then
+
+1455
+01:03:10,360 --> 01:03:16,080
+you know, it's like then you say it's
+
+1456
+01:03:13,560 --> 01:03:18,960
+lewd or porn, okay?
+
+1457
+01:03:16,080 --> 01:03:21,560
+So, basically Google is saying that if
+
+1458
+01:03:18,960 --> 01:03:23,160
+there's artistic artistic element then
+
+1459
+01:03:21,560 --> 01:03:24,520
+it's okay.
+
+1460
+01:03:23,160 --> 01:03:29,000
+That's the
+
+1461
+01:03:24,520 --> 01:03:31,200
+like the policy of Grok today. Okay.
+
+1462
+01:03:29,000 --> 01:03:33,080
+Then Elmo's then someone showed me
+
+1463
+01:03:31,200 --> 01:03:35,360
+Elmo's
+
+1464
+01:03:33,080 --> 01:03:39,240
+take you know so Elmo's is saying so
+
+1465
+01:03:35,360 --> 01:03:41,880
+where's the Elmo's
+
+1466
+01:03:39,240 --> 01:03:43,240
+Elmo's is saying that
+
+1467
+01:03:41,880 --> 01:03:45,800
+where did I
+
+1468
+01:03:43,240 --> 01:03:45,800
+wait?
+
+1469
+01:03:53,640 --> 01:04:01,120
+Okay. I asked what?
+
+1470
+01:03:58,280 --> 01:04:04,440
+You know Twitter sucks because it's hard
+
+1471
+01:04:01,120 --> 01:04:06,400
+to find a post inside a thread.
+
+1472
+01:04:04,440 --> 01:04:08,520
+You see it's not showing up but it's
+
+1473
+01:04:06,400 --> 01:04:10,440
+like right this is a reply right to the
+
+1474
+01:04:08,520 --> 01:04:12,480
+first this this one.
+
+1475
+01:04:10,440 --> 01:04:16,840
+You can find it. Then another guy
+
+1476
+01:04:12,480 --> 01:04:20,520
+replied which directed me to an Elmo's
+
+1477
+01:04:16,840 --> 01:04:22,800
+post. So Elmo's is posting about like
+
+1478
+01:04:20,520 --> 01:04:25,240
+what what is the policy for Grok
+
+1479
+01:04:22,800 --> 01:04:27,960
+regarding tits?
+
+1480
+01:04:25,240 --> 01:04:31,160
+And basically Elmo's is saying that you
+
+1481
+01:04:27,960 --> 01:04:33,520
+know if if it's in a if it's allowed in
+
+1482
+01:04:31,160 --> 01:04:35,800
+a R-rated movie
+
+1483
+01:04:33,520 --> 01:04:36,920
+you know the the USA concept then it's
+
+1484
+01:04:35,800 --> 01:04:39,440
+fine.
+
+1485
+01:04:36,920 --> 01:04:41,120
+Otherwise Grok will censor. Okay. So
+
+1486
+01:04:39,440 --> 01:04:42,840
+that's what
+
+1487
+01:04:41,120 --> 01:04:45,520
+Anyway, so that's one thing. The other
+
+1488
+01:04:42,840 --> 01:04:48,520
+thing is that you know the the AI
+
+1489
+01:04:45,520 --> 01:04:50,120
+artificial intelligence today is like
+
+1490
+01:04:48,520 --> 01:04:52,880
+Jesus.
+
+1491
+01:04:50,120 --> 01:04:55,280
+You know it just create this beautiful
+
+1492
+01:04:52,880 --> 01:04:58,880
+amazing drawings
+
+1493
+01:04:55,280 --> 01:05:02,200
+a million per second.
+
+1494
+01:04:58,880 --> 01:05:02,200
+You know this this is
+
+1495
+01:05:03,080 --> 01:05:07,280
+this is end of human animals. This is
+
+1496
+01:05:05,480 --> 01:05:10,880
+impossible. You know
+
+1497
+01:05:07,280 --> 01:05:12,920
+maybe I worry too much but
+
+1498
+01:05:10,880 --> 01:05:15,920
+but this is not possible. You know like
+
+1499
+01:05:12,920 --> 01:05:18,760
+you can you can just talk to it, ask it
+
+1500
+01:05:15,920 --> 01:05:21,120
+questions, things like that.
+
+1501
+01:05:18,760 --> 01:05:22,240
+And it generates, you know, thousands of
+
+1502
+01:05:21,120 --> 01:05:25,880
+these
+
+1503
+01:05:22,240 --> 01:05:25,880
+amazing pictures, okay?
+
+1504
+01:05:28,920 --> 01:05:31,920
+Bye, guys. Bye.
+
+1505
+01:05:39,000 --> 01:05:43,040
+Fascinating. [snorts]
+
+1506
+01:05:40,000 --> 01:05:46,880
+So, Arabian Nights story, okay?
+
+1507
+01:05:43,040 --> 01:05:49,880
+So, yeah, so this amazing
+
+1508
+01:05:46,880 --> 01:05:49,880
+amazing.
+
+1509
+01:05:54,400 --> 01:05:59,400
+And you you see, the other thing I find
+
+1510
+01:05:56,560 --> 01:06:02,120
+amazing, like when you read literature,
+
+1511
+01:05:59,400 --> 01:06:06,320
+you know, this Arabian Nights. So, how
+
+1512
+01:06:02,120 --> 01:06:09,160
+old is Arabian Nights? They are like
+
+1513
+01:06:06,320 --> 01:06:11,960
+from year 500s
+
+1514
+01:06:09,160 --> 01:06:15,895
+or 1,000 years ago, okay?
+
+1515
+01:06:11,960 --> 01:06:16,680
+Uh and so, they are talking about
+
+1516
+01:06:15,895 --> 01:06:20,360
+>> [snorts]
+
+1517
+01:06:16,680 --> 01:06:23,000
+>> They are talking about women.
+
+1518
+01:06:20,360 --> 01:06:26,000
+Uh you know, um
+
+1519
+01:06:23,000 --> 01:06:28,080
+slim-built above the waist and heavily
+
+1520
+01:06:26,000 --> 01:06:30,800
+made below.
+
+1521
+01:06:28,080 --> 01:06:34,840
+So, what does it mean? So, it means
+
+1522
+01:06:30,800 --> 01:06:37,000
+okay, so it's not today that oh, we are
+
+1523
+01:06:34,840 --> 01:06:38,680
+like, you know, bikinis. Oh, girl, can
+
+1524
+01:06:37,000 --> 01:06:41,320
+you draw bikini? We find all these
+
+1525
+01:06:38,680 --> 01:06:43,640
+thoughts online
+
+1526
+01:06:41,320 --> 01:06:47,360
+attractive, you know, the tits and ass.
+
+1527
+01:06:43,640 --> 01:06:49,440
+It's like 1,000 years ago, 1,000s years
+
+1528
+01:06:47,360 --> 01:06:52,440
+ago they are saying. What what what does
+
+1529
+01:06:49,440 --> 01:06:55,440
+it mean? Heavily made below. That means
+
+1530
+01:06:52,440 --> 01:06:55,440
+big ass.
+

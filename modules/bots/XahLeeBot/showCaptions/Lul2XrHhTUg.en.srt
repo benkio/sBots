@@ -1,0 +1,5280 @@
+1
+00:00:04,319 --> 00:00:09,920
+good morning guys welcome to another
+
+2
+00:00:06,799 --> 00:00:14,000
+episode of cassatt talk show today we
+
+3
+00:00:09,920 --> 00:00:17,279
+are going to do emacs emacs 28 new
+
+4
+00:00:14,000 --> 00:00:19,279
+features and i'm going to explain
+
+5
+00:00:17,279 --> 00:00:22,640
+you know some particular features of
+
+6
+00:00:19,279 --> 00:00:24,720
+emacs 28 fantastic emacs 28 is truly
+
+7
+00:00:22,640 --> 00:00:26,640
+fantastic you know i just installed it
+
+8
+00:00:24,720 --> 00:00:29,199
+like three days ago and
+
+9
+00:00:26,640 --> 00:00:33,040
+tons of fantastic features and i'm going
+
+10
+00:00:29,199 --> 00:00:34,880
+to focus today on the i complete
+
+11
+00:00:33,040 --> 00:00:36,480
+so i complete
+
+12
+00:00:34,880 --> 00:00:37,440
+fido
+
+13
+00:00:36,480 --> 00:00:39,520
+i do
+
+14
+00:00:37,440 --> 00:00:43,040
+and smacks you know i'm going to talk
+
+15
+00:00:39,520 --> 00:00:45,760
+about this you know this uh category of
+
+16
+00:00:43,040 --> 00:00:47,600
+emacs 28 features so it's gonna be
+
+17
+00:00:45,760 --> 00:00:50,239
+nothing but emacs
+
+18
+00:00:47,600 --> 00:00:51,280
+so if you have a emacs questions ask me
+
+19
+00:00:50,239 --> 00:00:54,239
+okay
+
+20
+00:00:51,280 --> 00:00:57,039
+and don't forget to donate like chiptune
+
+21
+00:00:54,239 --> 00:01:00,399
+you know put money in my pocket
+
+22
+00:00:57,039 --> 00:01:02,960
+and so let's begin okay so so let's see
+
+23
+00:01:00,399 --> 00:01:05,280
+yeah let's begin right away so uh audio
+
+24
+00:01:02,960 --> 00:01:08,320
+check video check
+
+25
+00:01:05,280 --> 00:01:10,320
+i'm still alive not dead yet
+
+26
+00:01:08,320 --> 00:01:12,400
+so uh let's
+
+27
+00:01:10,320 --> 00:01:14,320
+uh what am i gonna do yeah
+
+28
+00:01:12,400 --> 00:01:15,360
+so yeah stop this
+
+29
+00:01:14,320 --> 00:01:16,560
+thing
+
+30
+00:01:15,360 --> 00:01:18,479
+and
+
+31
+00:01:16,560 --> 00:01:21,280
+okay emacs okay
+
+32
+00:01:18,479 --> 00:01:24,080
+so the emacs 28 is just fantastic you
+
+33
+00:01:21,280 --> 00:01:25,759
+know you download it you know you can um
+
+34
+00:01:24,080 --> 00:01:27,680
+you know you know you know let's just
+
+35
+00:01:25,759 --> 00:01:28,720
+talk about the features okay let's not
+
+36
+00:01:27,680 --> 00:01:32,640
+um
+
+37
+00:01:28,720 --> 00:01:34,479
+get distracted okay so you know
+
+38
+00:01:32,640 --> 00:01:36,479
+you know maybe later on i'll talk about
+
+39
+00:01:34,479 --> 00:01:38,640
+where to download and stuff it's all on
+
+40
+00:01:36,479 --> 00:01:40,479
+my website you know sorry emacs just
+
+41
+00:01:38,640 --> 00:01:42,960
+search for my name emacs you'll see
+
+42
+00:01:40,479 --> 00:01:46,240
+where to download and for mac for we uh
+
+43
+00:01:42,960 --> 00:01:49,439
+for windows and for linux okay so emacs
+
+44
+00:01:46,240 --> 00:01:52,799
+28 one of the great feature you know
+
+45
+00:01:49,439 --> 00:01:55,600
+emacs 28 has i was i'm truly impressed
+
+46
+00:01:52,799 --> 00:01:58,079
+okay so let me show you so you are
+
+47
+00:01:55,600 --> 00:02:02,719
+looking at the emacs
+
+48
+00:01:58,079 --> 00:02:05,200
+gnu emacs news file you know you know
+
+49
+00:02:02,719 --> 00:02:07,360
+you know in every other application when
+
+50
+00:02:05,200 --> 00:02:10,239
+you have a new release you have release
+
+51
+00:02:07,360 --> 00:02:13,520
+notes you know but it's an emax
+
+52
+00:02:10,239 --> 00:02:15,680
+tradition because emacs beginning at all
+
+53
+00:02:13,520 --> 00:02:17,920
+you know 40 years ago they they don't
+
+54
+00:02:15,680 --> 00:02:20,160
+have release notes instead of
+
+55
+00:02:17,920 --> 00:02:20,879
+you know instead they say it's news you
+
+56
+00:02:20,160 --> 00:02:23,440
+know
+
+57
+00:02:20,879 --> 00:02:26,000
+emacs news so you are looking at the gnu
+
+58
+00:02:23,440 --> 00:02:27,120
+emacs news you know
+
+59
+00:02:26,000 --> 00:02:28,959
+so
+
+60
+00:02:27,120 --> 00:02:31,920
+which is the release notes you know for
+
+61
+00:02:28,959 --> 00:02:33,599
+this uh imax 28 and i was going to you
+
+62
+00:02:31,920 --> 00:02:37,440
+know i just installed it three months
+
+63
+00:02:33,599 --> 00:02:39,840
+ago i mean three days ago and it it's
+
+64
+00:02:37,440 --> 00:02:42,080
+released actually just this month uh
+
+65
+00:02:39,840 --> 00:02:43,840
+it's just released you know uh let's see
+
+66
+00:02:42,080 --> 00:02:46,080
+do they have a date here that no they
+
+67
+00:02:43,840 --> 00:02:47,040
+don't put a date so hold on a second let
+
+68
+00:02:46,080 --> 00:02:48,840
+me
+
+69
+00:02:47,040 --> 00:02:51,360
+add
+
+70
+00:02:48,840 --> 00:02:52,879
+wait yeah let me add the highlight the
+
+71
+00:02:51,360 --> 00:02:55,040
+current line so we can see where my
+
+72
+00:02:52,879 --> 00:02:57,120
+cursor is and actually i can increase
+
+73
+00:02:55,040 --> 00:02:58,239
+the cruiser size now never mind
+
+74
+00:02:57,120 --> 00:03:00,640
+so
+
+75
+00:02:58,239 --> 00:03:03,120
+so emacs 28 you are looking at the
+
+76
+00:03:00,640 --> 00:03:05,120
+release notes and i was going through it
+
+77
+00:03:03,120 --> 00:03:07,599
+you know and this is the best release
+
+78
+00:03:05,120 --> 00:03:09,440
+this is emacs 28 is the best
+
+79
+00:03:07,599 --> 00:03:10,319
+uh
+
+80
+00:03:09,440 --> 00:03:13,280
+uh
+
+81
+00:03:10,319 --> 00:03:15,360
+feature reach uh release in the past 10
+
+82
+00:03:13,280 --> 00:03:16,480
+years i would say just by impression you
+
+83
+00:03:15,360 --> 00:03:19,360
+know
+
+84
+00:03:16,480 --> 00:03:21,120
+and and one of the fantastic thing is
+
+85
+00:03:19,360 --> 00:03:23,040
+that
+
+86
+00:03:21,120 --> 00:03:24,720
+the release notes you know what they say
+
+87
+00:03:23,040 --> 00:03:27,120
+here you can you know go read it
+
+88
+00:03:24,720 --> 00:03:29,599
+yourself so you how do you get to this
+
+89
+00:03:27,120 --> 00:03:31,440
+page you know you start emacs then press
+
+90
+00:03:29,599 --> 00:03:32,480
+ctrl h
+
+91
+00:03:31,440 --> 00:03:35,440
+n
+
+92
+00:03:32,480 --> 00:03:38,319
+you know then you get this uh emacs news
+
+93
+00:03:35,440 --> 00:03:40,640
+so you can read this page and you know
+
+94
+00:03:38,319 --> 00:03:43,599
+there's just pages of them and one of
+
+95
+00:03:40,640 --> 00:03:46,080
+the great improvement is that now they
+
+96
+00:03:43,599 --> 00:03:49,040
+are readable you know like you know i've
+
+97
+00:03:46,080 --> 00:03:51,360
+been coding emac this for 10 plus years
+
+98
+00:03:49,040 --> 00:03:54,080
+i've been using emacs for 20 years but
+
+99
+00:03:51,360 --> 00:03:57,760
+every time emacs released you know new
+
+100
+00:03:54,080 --> 00:04:00,560
+new feature you know new emacs release
+
+101
+00:03:57,760 --> 00:04:01,920
+you know i read the e-max news release
+
+102
+00:04:00,560 --> 00:04:04,480
+notes
+
+103
+00:04:01,920 --> 00:04:06,799
+half of the items i don't understand
+
+104
+00:04:04,480 --> 00:04:08,799
+like incomprehensible
+
+105
+00:04:06,799 --> 00:04:11,360
+but now that's but now there's a big
+
+106
+00:04:08,799 --> 00:04:13,439
+change now actually almost every item is
+
+107
+00:04:11,360 --> 00:04:15,519
+like you can understand what they are
+
+108
+00:04:13,439 --> 00:04:18,560
+talking about you know so you can read
+
+109
+00:04:15,519 --> 00:04:20,959
+it yourself so anyway so let me let's
+
+110
+00:04:18,560 --> 00:04:22,240
+start to talk about the i complete
+
+111
+00:04:20,959 --> 00:04:26,240
+things so
+
+112
+00:04:22,240 --> 00:04:29,199
+in imax 28 they have
+
+113
+00:04:26,240 --> 00:04:31,360
+overhauled the i complete my okay so
+
+114
+00:04:29,199 --> 00:04:32,880
+hold on a second let me go too so go to
+
+115
+00:04:31,360 --> 00:04:35,040
+powershell
+
+116
+00:04:32,880 --> 00:04:36,240
+uh powershell you are looking at my
+
+117
+00:04:35,040 --> 00:04:38,240
+powershell
+
+118
+00:04:36,240 --> 00:04:42,919
+and let's
+
+119
+00:04:38,240 --> 00:04:42,919
+saw wait what's going on
+
+120
+00:04:43,199 --> 00:04:47,520
+let's magnify you so you can see
+
+121
+00:04:46,560 --> 00:04:49,520
+uh
+
+122
+00:04:47,520 --> 00:04:50,800
+sartargo
+
+123
+00:04:49,520 --> 00:04:53,520
+dark theme
+
+124
+00:04:50,800 --> 00:04:56,720
+so now it's you know it's um
+
+125
+00:04:53,520 --> 00:05:00,720
+not dark themed so it's easier to read
+
+126
+00:04:56,720 --> 00:05:03,759
+okay so so i was saying that um
+
+127
+00:05:00,720 --> 00:05:04,960
+the imax28 so they they did a complete
+
+128
+00:05:03,759 --> 00:05:06,880
+um
+
+129
+00:05:04,960 --> 00:05:09,120
+change upgrade you know adding a lot of
+
+130
+00:05:06,880 --> 00:05:11,680
+features to the icomplete mod okay let
+
+131
+00:05:09,120 --> 00:05:13,520
+me let me begin for from the let me
+
+132
+00:05:11,680 --> 00:05:15,600
+explain from the beginning so those of
+
+133
+00:05:13,520 --> 00:05:19,440
+you are kind of
+
+134
+00:05:15,600 --> 00:05:22,080
+uh new to emacs you can read it
+
+135
+00:05:19,440 --> 00:05:24,320
+okay so in emacs you have completions
+
+136
+00:05:22,080 --> 00:05:27,600
+okay so for example i want to call a
+
+137
+00:05:24,320 --> 00:05:30,960
+command let's say
+
+138
+00:05:27,600 --> 00:05:33,280
+uh what command should i uh call let's
+
+139
+00:05:30,960 --> 00:05:33,280
+say
+
+140
+00:05:34,560 --> 00:05:39,520
+i search okay i search is one one of the
+
+141
+00:05:37,360 --> 00:05:41,520
+most useful feature which lets you for
+
+142
+00:05:39,520 --> 00:05:43,680
+example i want to find the next
+
+143
+00:05:41,520 --> 00:05:46,639
+occurrence of the word
+
+144
+00:05:43,680 --> 00:05:49,120
+emax in this file in this buffer so i
+
+145
+00:05:46,639 --> 00:05:50,080
+press a key i'm using supply keys so i
+
+146
+00:05:49,120 --> 00:05:51,280
+can
+
+147
+00:05:50,080 --> 00:05:54,479
+type
+
+148
+00:05:51,280 --> 00:05:56,639
+so you can see in the mini buffer e max
+
+149
+00:05:54,479 --> 00:05:58,319
+so you can see that and you can move to
+
+150
+00:05:56,639 --> 00:06:01,120
+the next occurrence or move to the
+
+151
+00:05:58,319 --> 00:06:04,400
+previous occurrence you know so that
+
+152
+00:06:01,120 --> 00:06:08,080
+that command is called i search okay
+
+153
+00:06:04,400 --> 00:06:09,919
+so for example i can describe key okay
+
+154
+00:06:08,080 --> 00:06:11,680
+hold on a second let me show the pink
+
+155
+00:06:09,919 --> 00:06:13,840
+window the pink window shows all my
+
+156
+00:06:11,680 --> 00:06:16,560
+command names you can you know look you
+
+157
+00:06:13,840 --> 00:06:18,080
+can look up so you know
+
+158
+00:06:16,560 --> 00:06:21,520
+and keystrokes
+
+159
+00:06:18,080 --> 00:06:23,360
+so i want to call i search you know
+
+160
+00:06:21,520 --> 00:06:26,960
+there's a shortcut but
+
+161
+00:06:23,360 --> 00:06:28,319
+you can also call it by meta x you know
+
+162
+00:06:26,960 --> 00:06:32,000
+mental x
+
+163
+00:06:28,319 --> 00:06:34,080
+then i search okay let me show you uh
+
+164
+00:06:32,000 --> 00:06:36,400
+let's see describe key okay
+
+165
+00:06:34,080 --> 00:06:38,720
+let me just go quickly so describe key
+
+166
+00:06:36,400 --> 00:06:41,440
+then i press the key in soft like keys
+
+167
+00:06:38,720 --> 00:06:43,280
+to invoke i search which is this key one
+
+168
+00:06:41,440 --> 00:06:45,840
+single key press b
+
+169
+00:06:43,280 --> 00:06:48,880
+on for our keyboard so you can see it
+
+170
+00:06:45,840 --> 00:06:50,800
+calls the command i search forward
+
+171
+00:06:48,880 --> 00:06:52,240
+and you have seen how that works you
+
+172
+00:06:50,800 --> 00:06:56,240
+know press b
+
+173
+00:06:52,240 --> 00:06:59,120
+then type e max you know and you can so
+
+174
+00:06:56,240 --> 00:07:00,880
+that that's i search now so let me
+
+175
+00:06:59,120 --> 00:07:02,880
+let me try again now let's call the
+
+176
+00:07:00,880 --> 00:07:03,680
+command okay
+
+177
+00:07:02,880 --> 00:07:06,080
+so
+
+178
+00:07:03,680 --> 00:07:09,680
+let's this time i'm going to call meta x
+
+179
+00:07:06,080 --> 00:07:11,919
+you know i'm going to press meta x so
+
+180
+00:07:09,680 --> 00:07:14,880
+so in starfly keys it's just one single
+
+181
+00:07:11,919 --> 00:07:17,360
+key a okay so you can see let's see uh
+
+182
+00:07:14,880 --> 00:07:20,400
+cancel okay so you can see
+
+183
+00:07:17,360 --> 00:07:22,880
+i'm calling you see there execute
+
+184
+00:07:20,400 --> 00:07:24,400
+extended command that's a full name for
+
+185
+00:07:22,880 --> 00:07:26,479
+the shortcut key
+
+186
+00:07:24,400 --> 00:07:29,440
+meta x which is
+
+187
+00:07:26,479 --> 00:07:31,680
+typically alt x okay on windows on mac
+
+188
+00:07:29,440 --> 00:07:34,479
+on on linux
+
+189
+00:07:31,680 --> 00:07:38,080
+so anyway so meta x so i'm gonna call
+
+190
+00:07:34,479 --> 00:07:40,319
+meta x you know execute extended command
+
+191
+00:07:38,080 --> 00:07:42,960
+now you see the mini buffer now that's
+
+192
+00:07:40,319 --> 00:07:46,000
+that's new okay you see
+
+193
+00:07:42,960 --> 00:07:49,520
+i'm not using any fancy mod you know i'm
+
+194
+00:07:46,000 --> 00:07:51,199
+now actually not using any third-party
+
+195
+00:07:49,520 --> 00:07:53,759
+packages i'm
+
+196
+00:07:51,199 --> 00:07:55,440
+purely using my own
+
+197
+00:07:53,759 --> 00:07:57,680
+you know anything that's not developed
+
+198
+00:07:55,440 --> 00:07:59,599
+here i'm not using i'm using
+
+199
+00:07:57,680 --> 00:08:03,120
+only xr packages
+
+200
+00:07:59,599 --> 00:08:06,800
+and the gnu emacs mothership so meta x
+
+201
+00:08:03,120 --> 00:08:08,879
+you can see now in a mini buffer you see
+
+202
+00:08:06,800 --> 00:08:11,440
+it suggests you know first of all you
+
+203
+00:08:08,879 --> 00:08:13,919
+have this vertical display and it
+
+204
+00:08:11,440 --> 00:08:16,800
+suggests you know it gives you all the
+
+205
+00:08:13,919 --> 00:08:19,520
+command choices and also the key binding
+
+206
+00:08:16,800 --> 00:08:21,440
+the shortcut associated with those
+
+207
+00:08:19,520 --> 00:08:24,240
+commands that has a key
+
+208
+00:08:21,440 --> 00:08:25,759
+so now i can type you know i search so i
+
+209
+00:08:24,240 --> 00:08:29,599
+type i
+
+210
+00:08:25,759 --> 00:08:32,320
+then it immediately narrows down
+
+211
+00:08:29,599 --> 00:08:35,120
+it narrows down to all commands that
+
+212
+00:08:32,320 --> 00:08:36,080
+contains the letter i
+
+213
+00:08:35,120 --> 00:08:37,839
+you see
+
+214
+00:08:36,080 --> 00:08:40,320
+before it doesn't work like that before
+
+215
+00:08:37,839 --> 00:08:41,519
+when you have you know it you have to
+
+216
+00:08:40,320 --> 00:08:44,080
+type
+
+217
+00:08:41,519 --> 00:08:45,760
+whatever the command name begin with
+
+218
+00:08:44,080 --> 00:08:47,519
+so for example
+
+219
+00:08:45,760 --> 00:08:51,760
+this stiff command
+
+220
+00:08:47,519 --> 00:08:53,760
+you know diff you have to type d first
+
+221
+00:08:51,760 --> 00:08:55,279
+so you cannot type a letter that's in
+
+222
+00:08:53,760 --> 00:08:57,440
+the middle of the command name for
+
+223
+00:08:55,279 --> 00:08:59,839
+example some command switch
+
+224
+00:08:57,440 --> 00:09:02,000
+switch to buffer you know some long
+
+225
+00:08:59,839 --> 00:09:04,640
+command name you forgot
+
+226
+00:09:02,000 --> 00:09:06,399
+what comes in before comps comes after
+
+227
+00:09:04,640 --> 00:09:07,360
+you just remember there's a word buffer
+
+228
+00:09:06,399 --> 00:09:10,000
+in it
+
+229
+00:09:07,360 --> 00:09:12,560
+so in that case you can just type buff
+
+230
+00:09:10,000 --> 00:09:14,640
+so let's cancel let's do that okay meta
+
+231
+00:09:12,560 --> 00:09:15,519
+x b u f f
+
+232
+00:09:14,640 --> 00:09:18,160
+you see
+
+233
+00:09:15,519 --> 00:09:20,399
+so so all these commands contain the
+
+234
+00:09:18,160 --> 00:09:22,720
+word buffer
+
+235
+00:09:20,399 --> 00:09:25,120
+and you don't and also you know so this
+
+236
+00:09:22,720 --> 00:09:27,360
+is new this is fantastic
+
+237
+00:09:25,120 --> 00:09:28,959
+you know before emacs 28
+
+238
+00:09:27,360 --> 00:09:31,760
+you also have that feature but you have
+
+239
+00:09:28,959 --> 00:09:33,680
+to download from third part party
+
+240
+00:09:31,760 --> 00:09:38,880
+packages you know such as
+
+241
+00:09:33,680 --> 00:09:41,040
+helm such as icicles such as
+
+242
+00:09:38,880 --> 00:09:43,680
+a bunch of others you know and i do is
+
+243
+00:09:41,040 --> 00:09:46,000
+one of them but i do is included in imax
+
+244
+00:09:43,680 --> 00:09:48,800
+so anyway so that is the fantastic
+
+245
+00:09:46,000 --> 00:09:50,720
+feature okay let's do it again meta x
+
+246
+00:09:48,800 --> 00:09:52,959
+then i
+
+247
+00:09:50,720 --> 00:09:52,959
+s
+
+248
+00:09:54,160 --> 00:09:57,839
+e
+
+249
+00:09:55,760 --> 00:10:01,920
+okay then you can see a bunch of i
+
+250
+00:09:57,839 --> 00:10:04,800
+search you know then i type a
+
+251
+00:10:01,920 --> 00:10:07,200
+uh you know so so that's the example so
+
+252
+00:10:04,800 --> 00:10:08,800
+let's cancel let's um yeah so this is
+
+253
+00:10:07,200 --> 00:10:12,640
+fantastic okay
+
+254
+00:10:08,800 --> 00:10:15,600
+right so if you are not using emacs 28
+
+255
+00:10:12,640 --> 00:10:17,760
+then what you do is you call you install
+
+256
+00:10:15,600 --> 00:10:20,320
+the external package they are several
+
+257
+00:10:17,760 --> 00:10:23,120
+you know helm you know i don't use but
+
+258
+00:10:20,320 --> 00:10:25,279
+there's one i use i highly recommend
+
+259
+00:10:23,120 --> 00:10:28,800
+which is smacks okay let me show you
+
+260
+00:10:25,279 --> 00:10:29,920
+where it is so some key
+
+261
+00:10:28,800 --> 00:10:32,399
+uh
+
+262
+00:10:29,920 --> 00:10:35,680
+that's a file let's go to the directory
+
+263
+00:10:32,399 --> 00:10:38,160
+search for smx okay there
+
+264
+00:10:35,680 --> 00:10:41,040
+so let's okay let's hide you know that
+
+265
+00:10:38,160 --> 00:10:43,360
+that one smacks okay so you can download
+
+266
+00:10:41,040 --> 00:10:44,880
+it on mailpad so if you are not using
+
+267
+00:10:43,360 --> 00:10:47,760
+emax28
+
+268
+00:10:44,880 --> 00:10:49,120
+this is the one i recommend so what does
+
+269
+00:10:47,760 --> 00:10:52,000
+smacks do
+
+270
+00:10:49,120 --> 00:10:55,680
+it enhances your meta x
+
+271
+00:10:52,000 --> 00:10:59,200
+so now you see in imax 28 meta x is
+
+272
+00:10:55,680 --> 00:11:01,680
+fantastic but if you don't have emax 28
+
+273
+00:10:59,200 --> 00:11:04,160
+you install smacks
+
+274
+00:11:01,680 --> 00:11:06,720
+then you have similar but in fact emacs
+
+275
+00:11:04,160 --> 00:11:08,800
+28 is better because it also includes
+
+276
+00:11:06,720 --> 00:11:10,000
+keyboard shortcuts you don't have that
+
+277
+00:11:08,800 --> 00:11:13,360
+in smacks
+
+278
+00:11:10,000 --> 00:11:15,920
+but now with emacs 28 i highly recommend
+
+279
+00:11:13,360 --> 00:11:18,959
+go install it now okay with emacs 28 you
+
+280
+00:11:15,920 --> 00:11:21,680
+don't need smacks anymore so my last
+
+281
+00:11:18,959 --> 00:11:23,839
+you know the the the last external
+
+282
+00:11:21,680 --> 00:11:25,920
+package i don't need anymore you know i
+
+283
+00:11:23,839 --> 00:11:27,760
+was planning to you know write my own
+
+284
+00:11:25,920 --> 00:11:28,880
+smacks at some time but now i don't need
+
+285
+00:11:27,760 --> 00:11:30,959
+to
+
+286
+00:11:28,880 --> 00:11:32,720
+so no more smacks
+
+287
+00:11:30,959 --> 00:11:34,399
+okay that's
+
+288
+00:11:32,720 --> 00:11:37,440
+so so
+
+289
+00:11:34,399 --> 00:11:39,680
+so the so so this feature
+
+290
+00:11:37,440 --> 00:11:41,600
+you know meta x where you have vertical
+
+291
+00:11:39,680 --> 00:11:44,000
+display and
+
+292
+00:11:41,600 --> 00:11:45,760
+flex matching okay the technical name is
+
+293
+00:11:44,000 --> 00:11:48,480
+flex matching
+
+294
+00:11:45,760 --> 00:11:50,399
+it's just fantastic it
+
+295
+00:11:48,480 --> 00:11:53,760
+okay that's one thing okay that's one
+
+296
+00:11:50,399 --> 00:11:55,440
+thing i covered we covered today
+
+297
+00:11:53,760 --> 00:11:58,079
+questions comments
+
+298
+00:11:55,440 --> 00:12:01,600
+on what i'm talking about uh posted okay
+
+299
+00:11:58,079 --> 00:12:04,399
+so smacks is fantastic i mean the the
+
+300
+00:12:01,600 --> 00:12:05,600
+icon feed okay i complete the emacs 28
+
+301
+00:12:04,399 --> 00:12:07,519
+feature
+
+302
+00:12:05,600 --> 00:12:08,560
+i complete
+
+303
+00:12:07,519 --> 00:12:13,360
+now
+
+304
+00:12:08,560 --> 00:12:14,959
+has flex matching and also has vertical
+
+305
+00:12:13,360 --> 00:12:17,360
+um
+
+306
+00:12:14,959 --> 00:12:19,360
+thing let's uh let's type buffer okay
+
+307
+00:12:17,360 --> 00:12:21,760
+let's see all the commands
+
+308
+00:12:19,360 --> 00:12:24,720
+involving the name buffer so you can
+
+309
+00:12:21,760 --> 00:12:27,360
+move cursor to you know eval buffer very
+
+310
+00:12:24,720 --> 00:12:29,600
+useful save buffer kill buffer of course
+
+311
+00:12:27,360 --> 00:12:33,120
+usually you have you do a key to call
+
+312
+00:12:29,600 --> 00:12:34,320
+those commands next buffer diff buffers
+
+313
+00:12:33,120 --> 00:12:36,639
+okay
+
+314
+00:12:34,320 --> 00:12:39,760
+you know great suggestion you know i i
+
+315
+00:12:36,639 --> 00:12:43,120
+rarely use that uh erase buffer clone
+
+316
+00:12:39,760 --> 00:12:45,519
+buffer oh there's even a clone buffer
+
+317
+00:12:43,120 --> 00:12:46,800
+i didn't i didn't know i never used that
+
+318
+00:12:45,519 --> 00:12:49,120
+command so
+
+319
+00:12:46,800 --> 00:12:51,360
+great feature okay so now let's let me
+
+320
+00:12:49,120 --> 00:12:54,720
+go to the next thing let me tell you
+
+321
+00:12:51,360 --> 00:12:57,040
+okay so this is a demo of the feature
+
+322
+00:12:54,720 --> 00:12:59,760
+so this feature is called
+
+323
+00:12:57,040 --> 00:13:03,040
+i complete okay technique technically
+
+324
+00:12:59,760 --> 00:13:04,800
+technicality so in emacs there's a
+
+325
+00:13:03,040 --> 00:13:06,639
+command called
+
+326
+00:13:04,800 --> 00:13:09,440
+i complete mod
+
+327
+00:13:06,639 --> 00:13:10,320
+okay so technically it's a minor mod so
+
+328
+00:13:09,440 --> 00:13:12,720
+that
+
+329
+00:13:10,320 --> 00:13:15,440
+when you turn this mod on that's what
+
+330
+00:13:12,720 --> 00:13:16,399
+that's what allows you to have this uh
+
+331
+00:13:15,440 --> 00:13:18,880
+kind of
+
+332
+00:13:16,399 --> 00:13:21,600
+nice um
+
+333
+00:13:18,880 --> 00:13:23,920
+you know uh pop-up selection
+
+334
+00:13:21,600 --> 00:13:24,800
+and it's it's fast okay
+
+335
+00:13:23,920 --> 00:13:28,320
+it's
+
+336
+00:13:24,800 --> 00:13:30,720
+very fast okay so i complete mod but not
+
+337
+00:13:28,320 --> 00:13:32,959
+just that emacs 28 also have a bunch of
+
+338
+00:13:30,720 --> 00:13:36,480
+others okay so let me show you where
+
+339
+00:13:32,959 --> 00:13:38,320
+okay so fido yeah so let me show you so
+
+340
+00:13:36,480 --> 00:13:41,040
+it might be confusing
+
+341
+00:13:38,320 --> 00:13:43,120
+to you you know if you don't know so
+
+342
+00:13:41,040 --> 00:13:44,800
+i'm going to explain so you have i
+
+343
+00:13:43,120 --> 00:13:47,279
+complete mod
+
+344
+00:13:44,800 --> 00:13:50,079
+and in imax 28 you also have something
+
+345
+00:13:47,279 --> 00:13:51,760
+called fido mod okay
+
+346
+00:13:50,079 --> 00:13:52,560
+so what's the difference between these
+
+347
+00:13:51,760 --> 00:13:55,199
+two
+
+348
+00:13:52,560 --> 00:13:57,440
+actually all these are part of the i
+
+349
+00:13:55,199 --> 00:14:00,639
+complete mod in the in the file so let
+
+350
+00:13:57,440 --> 00:14:03,440
+me show you okay so meta x wait
+
+351
+00:14:00,639 --> 00:14:05,600
+so now i do um
+
+352
+00:14:03,440 --> 00:14:07,279
+ctrl h f
+
+353
+00:14:05,600 --> 00:14:09,920
+describe function
+
+354
+00:14:07,279 --> 00:14:11,839
+you see so con you know uh hold on a
+
+355
+00:14:09,920 --> 00:14:14,959
+second so let me show the pink window so
+
+356
+00:14:11,839 --> 00:14:16,560
+you can see my command there you see so
+
+357
+00:14:14,959 --> 00:14:19,040
+let's do it again
+
+358
+00:14:16,560 --> 00:14:21,600
+describe function so now you can type
+
+359
+00:14:19,040 --> 00:14:25,120
+you know you know let's see i complete
+
+360
+00:14:21,600 --> 00:14:28,959
+okay so let's just say i come
+
+361
+00:14:25,120 --> 00:14:33,839
+here you see there okay then
+
+362
+00:14:28,959 --> 00:14:35,760
+c o m and m o d there it is you see
+
+363
+00:14:33,839 --> 00:14:37,839
+very nice you see you don't have to
+
+364
+00:14:35,760 --> 00:14:40,000
+match the whole substring so whatever
+
+365
+00:14:37,839 --> 00:14:42,639
+you typed have doesn't have to be a
+
+366
+00:14:40,000 --> 00:14:45,360
+substring of the command you can type
+
+367
+00:14:42,639 --> 00:14:48,079
+part of the word here part of that word
+
+368
+00:14:45,360 --> 00:14:50,160
+here as long as they are in order and
+
+369
+00:14:48,079 --> 00:14:51,440
+you get you know you get the command you
+
+370
+00:14:50,160 --> 00:14:53,519
+want
+
+371
+00:14:51,440 --> 00:14:55,600
+so i complete mod okay so describe
+
+372
+00:14:53,519 --> 00:14:57,920
+function let's show let's show the
+
+373
+00:14:55,600 --> 00:15:00,560
+documentation of the icomplete mod okay
+
+374
+00:14:57,920 --> 00:15:03,199
+expand the window magnify so
+
+375
+00:15:00,560 --> 00:15:05,680
+there it is and you can
+
+376
+00:15:03,199 --> 00:15:08,399
+okay that's too big okay now it's good
+
+377
+00:15:05,680 --> 00:15:10,880
+now you press tab you press tab to jump
+
+378
+00:15:08,399 --> 00:15:12,800
+to the source code you can and you know
+
+379
+00:15:10,880 --> 00:15:15,040
+then you can see the key binding and so
+
+380
+00:15:12,800 --> 00:15:17,120
+on so
+
+381
+00:15:15,040 --> 00:15:19,519
+so what's my point so i can yeah so
+
+382
+00:15:17,120 --> 00:15:22,320
+anyway i complete mod and oh yeah so
+
+383
+00:15:19,519 --> 00:15:25,279
+let's jump to the file okay so
+
+384
+00:15:22,320 --> 00:15:27,920
+so let's jump to the you know
+
+385
+00:15:25,279 --> 00:15:30,560
+source code of i complete mod so you can
+
+386
+00:15:27,920 --> 00:15:32,639
+go to direct direct jump and you can see
+
+387
+00:15:30,560 --> 00:15:36,160
+here's the you know e-max this source
+
+388
+00:15:32,639 --> 00:15:38,079
+code directory so here's i complete mod
+
+389
+00:15:36,160 --> 00:15:40,720
+and now let's
+
+390
+00:15:38,079 --> 00:15:42,320
+these matching lines and let's type
+
+391
+00:15:40,720 --> 00:15:43,279
+defend
+
+392
+00:15:42,320 --> 00:15:45,040
+enter
+
+393
+00:15:43,279 --> 00:15:48,399
+then you can see
+
+394
+00:15:45,040 --> 00:15:51,360
+all the functions defined in this file
+
+395
+00:15:48,399 --> 00:15:51,360
+and now you can see
+
+396
+00:15:53,120 --> 00:15:56,480
+where is fido what
+
+397
+00:15:59,519 --> 00:16:03,199
+i complete i complete wait feeder is
+
+398
+00:16:02,079 --> 00:16:05,759
+here but
+
+399
+00:16:03,199 --> 00:16:07,680
+where is the feeder function oh it's not
+
+400
+00:16:05,759 --> 00:16:09,680
+using different okay so
+
+401
+00:16:07,680 --> 00:16:11,279
+let's do it again let's search for fido
+
+402
+00:16:09,680 --> 00:16:13,759
+okay
+
+403
+00:16:11,279 --> 00:16:16,320
+this matching line is fido
+
+404
+00:16:13,759 --> 00:16:18,320
+so you can see there define minor mod
+
+405
+00:16:16,320 --> 00:16:21,199
+it's in the same file you see let's jump
+
+406
+00:16:18,320 --> 00:16:24,160
+to it you see define minor mod feeder
+
+407
+00:16:21,199 --> 00:16:26,160
+vertical mod you see and there is also
+
+408
+00:16:24,160 --> 00:16:28,480
+feeder mod um
+
+409
+00:16:26,160 --> 00:16:30,800
+you know you see the feeder define miner
+
+410
+00:16:28,480 --> 00:16:31,680
+mod feeder mod let's jump to it right
+
+411
+00:16:30,800 --> 00:16:33,839
+here
+
+412
+00:16:31,680 --> 00:16:34,959
+then there's also feed of vertical mod
+
+413
+00:16:33,839 --> 00:16:35,759
+but anyway
+
+414
+00:16:34,959 --> 00:16:38,560
+so
+
+415
+00:16:35,759 --> 00:16:42,079
+you have i complete mod and fido mod and
+
+416
+00:16:38,560 --> 00:16:42,079
+i complete vertical mod
+
+417
+00:16:42,639 --> 00:16:47,279
+then you also have feeder vertical mods
+
+418
+00:16:44,880 --> 00:16:49,040
+so all these are actually the kind of
+
+419
+00:16:47,279 --> 00:16:51,040
+the same thing they are in the i
+
+420
+00:16:49,040 --> 00:16:54,000
+complete package they are considered the
+
+421
+00:16:51,040 --> 00:16:56,560
+same so how do they work they actually
+
+422
+00:16:54,000 --> 00:16:58,720
+they actually just change they actually
+
+423
+00:16:56,560 --> 00:17:00,240
+just change some mini buffer
+
+424
+00:16:58,720 --> 00:17:01,120
+configuration
+
+425
+00:17:00,240 --> 00:17:03,120
+you know
+
+426
+00:17:01,120 --> 00:17:05,439
+that's how they work they are actually
+
+427
+00:17:03,120 --> 00:17:06,640
+not the engine or co they are just right
+
+428
+00:17:05,439 --> 00:17:08,799
+they are just changing some
+
+429
+00:17:06,640 --> 00:17:11,199
+configurations of the mini buffer so
+
+430
+00:17:08,799 --> 00:17:14,640
+they are all kind of the same
+
+431
+00:17:11,199 --> 00:17:15,679
+so we when you call any each or any one
+
+432
+00:17:14,640 --> 00:17:18,319
+of them
+
+433
+00:17:15,679 --> 00:17:20,160
+you know icomplete or feeder mod or i
+
+434
+00:17:18,319 --> 00:17:23,199
+complete vertical mod or feed or
+
+435
+00:17:20,160 --> 00:17:26,799
+vertical mod they all turn on i complete
+
+436
+00:17:23,199 --> 00:17:30,640
+mod so you can consider them all just as
+
+437
+00:17:26,799 --> 00:17:30,640
+variations of icomplete okay
+
+438
+00:17:30,799 --> 00:17:34,480
+i mean this information is helpful when
+
+439
+00:17:32,880 --> 00:17:36,720
+you started to
+
+440
+00:17:34,480 --> 00:17:38,960
+you know put configurations in your emac
+
+441
+00:17:36,720 --> 00:17:41,600
+list because you might thought oh what
+
+442
+00:17:38,960 --> 00:17:43,840
+happens if i turn both i do mod and i
+
+443
+00:17:41,600 --> 00:17:46,160
+complete mod on you know maybe you'll
+
+444
+00:17:43,840 --> 00:17:48,720
+give me some richer feature you know
+
+445
+00:17:46,160 --> 00:17:50,480
+combined no no it's not like that so you
+
+446
+00:17:48,720 --> 00:17:52,960
+can pick any one of them they just
+
+447
+00:17:50,480 --> 00:17:55,120
+change some configuration okay so i
+
+448
+00:17:52,960 --> 00:17:58,840
+complete my so what's the the difference
+
+449
+00:17:55,120 --> 00:18:02,240
+between i complete mod and fido mod is
+
+450
+00:17:58,840 --> 00:18:03,840
+that with i complete mod is which is the
+
+451
+00:18:02,240 --> 00:18:06,880
+classic you have to
+
+452
+00:18:03,840 --> 00:18:09,120
+whatever you type has to be a substring
+
+453
+00:18:06,880 --> 00:18:11,039
+of the command and has to begin with the
+
+454
+00:18:09,120 --> 00:18:13,919
+first character of the string so you
+
+455
+00:18:11,039 --> 00:18:16,640
+cannot you know if you remember command
+
+456
+00:18:13,919 --> 00:18:18,960
+called something something buffer
+
+457
+00:18:16,640 --> 00:18:20,799
+and you just type buffer it won't show
+
+458
+00:18:18,960 --> 00:18:22,880
+because you you have to type you have to
+
+459
+00:18:20,799 --> 00:18:26,000
+begin with whatever the letter the
+
+460
+00:18:22,880 --> 00:18:27,679
+command begin so i complete my
+
+461
+00:18:26,000 --> 00:18:29,280
+the classic
+
+462
+00:18:27,679 --> 00:18:32,240
+way is not useful
+
+463
+00:18:29,280 --> 00:18:34,720
+you want feeder mod so that feeder mod
+
+464
+00:18:32,240 --> 00:18:36,960
+is using flex match okay
+
+465
+00:18:34,720 --> 00:18:38,320
+like we demonstrated like buffer if i
+
+466
+00:18:36,960 --> 00:18:41,280
+type buffer
+
+467
+00:18:38,320 --> 00:18:43,039
+then you got i buffer e buffer pp buffer
+
+468
+00:18:41,280 --> 00:18:46,160
+i don't know what that is you know then
+
+469
+00:18:43,039 --> 00:18:48,240
+view buffer then eval buffer save of you
+
+470
+00:18:46,160 --> 00:18:49,360
+know you got a bunch you know reverb
+
+471
+00:18:48,240 --> 00:18:51,200
+buffer
+
+472
+00:18:49,360 --> 00:18:53,600
+reverb buffer is when you want to
+
+473
+00:18:51,200 --> 00:18:55,120
+refresh the file from the disk you know
+
+474
+00:18:53,600 --> 00:18:57,039
+maybe someone else change it you know
+
+475
+00:18:55,120 --> 00:18:58,799
+very useful too
+
+476
+00:18:57,039 --> 00:19:01,760
+and rename buffer oh
+
+477
+00:18:58,799 --> 00:19:05,360
+i'll remember okay that's not too useful
+
+478
+00:19:01,760 --> 00:19:08,160
+uh html you know so
+
+479
+00:19:05,360 --> 00:19:11,039
+what is this smiley buffer look
+
+480
+00:19:08,160 --> 00:19:14,880
+look we found slap smiley buffer i have
+
+481
+00:19:11,039 --> 00:19:17,120
+no idea what that is okay so let's do
+
+482
+00:19:14,880 --> 00:19:19,919
+uh mid you know uh
+
+483
+00:19:17,120 --> 00:19:21,840
+h control h
+
+484
+00:19:19,919 --> 00:19:24,960
+f let's see
+
+485
+00:19:21,840 --> 00:19:28,160
+smiley buffer so what
+
+486
+00:19:24,960 --> 00:19:31,440
+what is that smiley puff smiley buffer
+
+487
+00:19:28,160 --> 00:19:34,400
+is an autoloader from blah blah blah run
+
+488
+00:19:31,440 --> 00:19:36,799
+smiley region at the buffer okay
+
+489
+00:19:34,400 --> 00:19:39,919
+specifying argument okay what that is
+
+490
+00:19:36,799 --> 00:19:42,559
+what what is that let's let's go check
+
+491
+00:19:39,919 --> 00:19:45,600
+smiley region
+
+492
+00:19:42,559 --> 00:19:48,320
+okay smiley region is auto loaded
+
+493
+00:19:45,600 --> 00:19:50,720
+replaced in regions smiley regular
+
+494
+00:19:48,320 --> 00:19:53,760
+expression a list matches when
+
+495
+00:19:50,720 --> 00:19:58,320
+corresponding images
+
+496
+00:19:53,760 --> 00:19:58,320
+a list of images is returned
+
+497
+00:19:59,200 --> 00:20:03,600
+i have no idea what that is but it's
+
+498
+00:20:01,360 --> 00:20:04,720
+interesting it's you know this we can
+
+499
+00:20:03,600 --> 00:20:06,640
+jump to
+
+500
+00:20:04,720 --> 00:20:09,760
+uh jump to the
+
+501
+00:20:06,640 --> 00:20:12,880
+source code of smiley thing
+
+502
+00:20:09,760 --> 00:20:15,360
+written by dave love
+
+503
+00:20:12,880 --> 00:20:18,240
+from year 2000
+
+504
+00:20:15,360 --> 00:20:22,880
+okay i don't know what this package oh
+
+505
+00:20:18,240 --> 00:20:22,880
+okay basically it does smileys okay
+
+506
+00:20:23,280 --> 00:20:29,360
+the precursor of unicode of emoji you
+
+507
+00:20:26,720 --> 00:20:33,039
+know the malaysians emoji so this is
+
+508
+00:20:29,360 --> 00:20:34,559
+hackers emoji in the 1990s precursor of
+
+509
+00:20:33,039 --> 00:20:36,000
+the emoji
+
+510
+00:20:34,559 --> 00:20:38,320
+smiley
+
+511
+00:20:36,000 --> 00:20:41,039
+so i suppose this package help you type
+
+512
+00:20:38,320 --> 00:20:42,960
+smitey something like that
+
+513
+00:20:41,039 --> 00:20:45,200
+okay so anyway so
+
+514
+00:20:42,960 --> 00:20:47,760
+so back to you know well
+
+515
+00:20:45,200 --> 00:20:49,440
+so so all these you know video mod like
+
+516
+00:20:47,760 --> 00:20:52,400
+so the main difference between i
+
+517
+00:20:49,440 --> 00:20:54,080
+complete and fido is that fido uses flex
+
+518
+00:20:52,400 --> 00:20:55,360
+matching okay
+
+519
+00:20:54,080 --> 00:20:58,080
+that's good
+
+520
+00:20:55,360 --> 00:21:00,480
+then you have then you have you know you
+
+521
+00:20:58,080 --> 00:21:02,880
+can go to my website and read all about
+
+522
+00:21:00,480 --> 00:21:05,760
+it you know just like you know
+
+523
+00:21:02,880 --> 00:21:08,159
+so then you have um
+
+524
+00:21:05,760 --> 00:21:10,559
+i complete vertical mod
+
+525
+00:21:08,159 --> 00:21:12,400
+and the feeder vertical mod they are
+
+526
+00:21:10,559 --> 00:21:14,240
+just the vertical version you know for
+
+527
+00:21:12,400 --> 00:21:16,960
+example let's turn off the vertical
+
+528
+00:21:14,240 --> 00:21:19,600
+let's say so right now i'm using fido
+
+529
+00:21:16,960 --> 00:21:23,200
+okay let me show you the difference okay
+
+530
+00:21:19,600 --> 00:21:26,000
+so i'm going to call
+
+531
+00:21:23,200 --> 00:21:27,120
+i complete mod okay
+
+532
+00:21:26,000 --> 00:21:29,440
+do it
+
+533
+00:21:27,120 --> 00:21:31,919
+now it says i complete my disabled okay
+
+534
+00:21:29,440 --> 00:21:34,320
+let's call it again
+
+535
+00:21:31,919 --> 00:21:36,720
+because they it toggles okay
+
+536
+00:21:34,320 --> 00:21:39,440
+okay now you see now i complete is
+
+537
+00:21:36,720 --> 00:21:40,240
+disabled now i have you know now there's
+
+538
+00:21:39,440 --> 00:21:44,799
+no
+
+539
+00:21:40,240 --> 00:21:47,600
+suggestions let's magnify let's see
+
+540
+00:21:44,799 --> 00:21:47,600
+you know this
+
+541
+00:21:47,840 --> 00:21:52,480
+you know so i complete there's no
+
+542
+00:21:50,159 --> 00:21:54,480
+suggestion so i have to i have to press
+
+543
+00:21:52,480 --> 00:21:58,880
+tab
+
+544
+00:21:54,480 --> 00:22:01,039
+oh oh and god and i okay i complete so i
+
+545
+00:21:58,880 --> 00:22:02,159
+have to type o
+
+546
+00:22:01,039 --> 00:22:05,600
+tab
+
+547
+00:22:02,159 --> 00:22:07,520
+okay tab okay i complete
+
+548
+00:22:05,600 --> 00:22:11,039
+then tab
+
+549
+00:22:07,520 --> 00:22:13,120
+then mod tab okay finally so this is
+
+550
+00:22:11,039 --> 00:22:15,840
+what happens when you do not have i
+
+551
+00:22:13,120 --> 00:22:17,919
+complete on or any of these songs so
+
+552
+00:22:15,840 --> 00:22:20,720
+okay but now let's turn it on
+
+553
+00:22:17,919 --> 00:22:20,720
+so now it's on
+
+554
+00:22:21,679 --> 00:22:25,039
+oh god we got
+
+555
+00:22:23,440 --> 00:22:28,960
+it wrong
+
+556
+00:22:25,039 --> 00:22:30,559
+we got a quote okay let's do it again
+
+557
+00:22:28,960 --> 00:22:32,720
+i can
+
+558
+00:22:30,559 --> 00:22:36,080
+complete and
+
+559
+00:22:32,720 --> 00:22:36,080
+i complete tab
+
+560
+00:22:36,400 --> 00:22:41,120
+mod
+
+561
+00:22:38,159 --> 00:22:43,039
+okay i complete mod enabled now let's
+
+562
+00:22:41,120 --> 00:22:44,400
+try again
+
+563
+00:22:43,039 --> 00:22:46,960
+meta x
+
+564
+00:22:44,400 --> 00:22:49,919
+i complete okay it's vertical now it's
+
+565
+00:22:46,960 --> 00:22:51,919
+doing the vertical version
+
+566
+00:22:49,919 --> 00:22:52,840
+we want to turn off the vertical version
+
+567
+00:22:51,919 --> 00:22:55,840
+so
+
+568
+00:22:52,840 --> 00:22:59,120
+cancel so i complete
+
+569
+00:22:55,840 --> 00:23:02,159
+vertical one cancel
+
+570
+00:22:59,120 --> 00:23:05,440
+i complete you see
+
+571
+00:23:02,159 --> 00:23:08,720
+right now we want to call this
+
+572
+00:23:05,440 --> 00:23:11,039
+i complete vertical mod command
+
+573
+00:23:08,720 --> 00:23:13,840
+to turn it off okay but right now i
+
+574
+00:23:11,039 --> 00:23:15,600
+cannot type v so if i type v
+
+575
+00:23:13,840 --> 00:23:18,400
+nothing shows up
+
+576
+00:23:15,600 --> 00:23:21,360
+why because you are not using fido it's
+
+577
+00:23:18,400 --> 00:23:24,559
+not using flex match so that's that's
+
+578
+00:23:21,360 --> 00:23:27,120
+why fido is better than i complete okay
+
+579
+00:23:24,559 --> 00:23:28,400
+so i have to first of all do a
+
+580
+00:23:27,120 --> 00:23:29,919
+completion
+
+581
+00:23:28,400 --> 00:23:32,559
+then v
+
+582
+00:23:29,919 --> 00:23:32,559
+completion
+
+583
+00:23:32,799 --> 00:23:36,960
+enter okay that enter doesn't work even
+
+584
+00:23:35,120 --> 00:23:39,360
+though it's the first choice so now i
+
+585
+00:23:36,960 --> 00:23:41,919
+have to type m
+
+586
+00:23:39,360 --> 00:23:43,200
+when so now there's only one choice now
+
+587
+00:23:41,919 --> 00:23:45,600
+i can enter
+
+588
+00:23:43,200 --> 00:23:47,200
+okay so now it says i complete vertical
+
+589
+00:23:45,600 --> 00:23:49,120
+disabled
+
+590
+00:23:47,200 --> 00:23:52,320
+so right now we are just in i complete
+
+591
+00:23:49,120 --> 00:23:54,880
+mod let's do it again meta x
+
+592
+00:23:52,320 --> 00:23:57,039
+i complete you see
+
+593
+00:23:54,880 --> 00:23:58,880
+so this is uh
+
+594
+00:23:57,039 --> 00:24:00,960
+this is what happens when you don't have
+
+595
+00:23:58,880 --> 00:24:03,279
+the vertical mod version
+
+596
+00:24:00,960 --> 00:24:05,919
+okay
+
+597
+00:24:03,279 --> 00:24:07,600
+okay so i think that's um we covered
+
+598
+00:24:05,919 --> 00:24:10,720
+that okay so
+
+599
+00:24:07,600 --> 00:24:12,640
+let's just go back to fido vertical okay
+
+600
+00:24:10,720 --> 00:24:14,000
+i want the fido
+
+601
+00:24:12,640 --> 00:24:15,120
+mod what
+
+602
+00:24:14,000 --> 00:24:16,799
+yeah
+
+603
+00:24:15,120 --> 00:24:19,679
+fido
+
+604
+00:24:16,799 --> 00:24:23,039
+vertical uh so
+
+605
+00:24:19,679 --> 00:24:26,640
+without you know without fido
+
+606
+00:24:23,039 --> 00:24:26,640
+you have to always complete
+
+607
+00:24:26,880 --> 00:24:31,360
+you know press tab to complete i don't
+
+608
+00:24:28,960 --> 00:24:33,279
+want that
+
+609
+00:24:31,360 --> 00:24:36,240
+and
+
+610
+00:24:33,279 --> 00:24:36,240
+wait cancel
+
+611
+00:24:36,880 --> 00:24:42,000
+it's enabled okay now let's try again
+
+612
+00:24:39,919 --> 00:24:43,600
+fantastic now we are back to fido
+
+613
+00:24:42,000 --> 00:24:47,120
+vertical so
+
+614
+00:24:43,600 --> 00:24:50,559
+if you installed emax28 or you know just
+
+615
+00:24:47,120 --> 00:24:52,960
+turn on fido okay just this is the line
+
+616
+00:24:50,559 --> 00:24:58,720
+you want that's all you want okay now
+
+617
+00:24:52,960 --> 00:24:58,720
+but if you are using emacs 27 or before
+
+618
+00:24:58,840 --> 00:25:04,159
+then then you you know i so i have a
+
+619
+00:25:02,159 --> 00:25:08,240
+code here you can just copy paste your
+
+620
+00:25:04,159 --> 00:25:10,640
+emacs each so if you are using emacs 27
+
+621
+00:25:08,240 --> 00:25:14,720
+then you want to turn on
+
+622
+00:25:10,640 --> 00:25:17,679
+icomplete and you also want to set the i
+
+623
+00:25:14,720 --> 00:25:21,440
+complete separator to be a
+
+624
+00:25:17,679 --> 00:25:23,520
+to be a end of line character
+
+625
+00:25:21,440 --> 00:25:26,480
+so that's how you make it display
+
+626
+00:25:23,520 --> 00:25:28,480
+vertical so before before e max 28 you
+
+627
+00:25:26,480 --> 00:25:31,039
+have to do all these you know manually
+
+628
+00:25:28,480 --> 00:25:33,360
+like configure it so it display
+
+629
+00:25:31,039 --> 00:25:36,000
+vertically but now it's just you just
+
+630
+00:25:33,360 --> 00:25:38,880
+call i complete vertical you know
+
+631
+00:25:36,000 --> 00:25:41,440
+so anyway in before emacs 28 you have to
+
+632
+00:25:38,880 --> 00:25:43,520
+turn on i complete mod then you also
+
+633
+00:25:41,440 --> 00:25:45,840
+have to turn off i do
+
+634
+00:25:43,520 --> 00:25:46,960
+so let me explain what is i do i do is
+
+635
+00:25:45,840 --> 00:25:49,200
+basically
+
+636
+00:25:46,960 --> 00:25:49,200
+you know
+
+637
+00:25:49,360 --> 00:25:54,400
+flex matching okay but the thing is that
+
+638
+00:25:52,400 --> 00:25:56,640
+i do only works for
+
+639
+00:25:54,400 --> 00:25:58,880
+file names and buffer names like when
+
+640
+00:25:56,640 --> 00:26:02,880
+you switch buffer or when you open a new
+
+641
+00:25:58,880 --> 00:26:06,080
+file so fido com you know fido is very
+
+642
+00:26:02,880 --> 00:26:08,400
+useful and you can also configure fig
+
+643
+00:26:06,080 --> 00:26:12,159
+fiddle so that
+
+644
+00:26:08,400 --> 00:26:14,640
+so let's magnify so that for example
+
+645
+00:26:12,159 --> 00:26:17,760
+you know said you know
+
+646
+00:26:14,640 --> 00:26:20,480
+i do i mean free i do not veto okay so
+
+647
+00:26:17,760 --> 00:26:22,799
+emacs 28 you have to turn feet
+
+648
+00:26:20,480 --> 00:26:24,799
+you have to turn i do mod
+
+649
+00:26:22,799 --> 00:26:25,760
+and what does i do mod
+
+650
+00:26:24,799 --> 00:26:27,600
+do
+
+651
+00:26:25,760 --> 00:26:30,320
+it makes
+
+652
+00:26:27,600 --> 00:26:31,600
+it allows flex matching
+
+653
+00:26:30,320 --> 00:26:33,440
+and
+
+654
+00:26:31,600 --> 00:26:35,919
+for buffers
+
+655
+00:26:33,440 --> 00:26:38,480
+buffer switching commands and open file
+
+656
+00:26:35,919 --> 00:26:40,080
+commands so you don't so for you know
+
+657
+00:26:38,480 --> 00:26:42,799
+matching file names
+
+658
+00:26:40,080 --> 00:26:44,799
+so and you can also set it up so that it
+
+659
+00:26:42,799 --> 00:26:47,120
+displays things vertically
+
+660
+00:26:44,799 --> 00:26:51,039
+you know so for example here
+
+661
+00:26:47,120 --> 00:26:54,159
+i do enable flex matching true you know
+
+662
+00:26:51,039 --> 00:26:57,440
+so the problem is i do
+
+663
+00:26:54,159 --> 00:26:59,679
+mod it's which is part of emacs
+
+664
+00:26:57,440 --> 00:27:02,960
+it only works for buffer names and file
+
+665
+00:26:59,679 --> 00:27:05,520
+names so when you want to do meta x it
+
+666
+00:27:02,960 --> 00:27:08,080
+doesn't work it doesn't apply there so
+
+667
+00:27:05,520 --> 00:27:10,880
+that's that is why you also have to turn
+
+668
+00:27:08,080 --> 00:27:14,320
+on i complete
+
+669
+00:27:10,880 --> 00:27:16,799
+but however i complete in emacs 27
+
+670
+00:27:14,320 --> 00:27:19,679
+doesn't support flex matching so you
+
+671
+00:27:16,799 --> 00:27:22,720
+have to press tab all the time like tab
+
+672
+00:27:19,679 --> 00:27:24,880
+completed part of it then tab again type
+
+673
+00:27:22,720 --> 00:27:26,399
+something tab again complete again
+
+674
+00:27:24,880 --> 00:27:28,880
+so that's
+
+675
+00:27:26,399 --> 00:27:31,600
+so but now it's all soft okay
+
+676
+00:27:28,880 --> 00:27:33,840
+okay so that's about
+
+677
+00:27:31,600 --> 00:27:35,039
+that's about that okay so let's see what
+
+678
+00:27:33,840 --> 00:27:37,039
+else i
+
+679
+00:27:35,039 --> 00:27:38,240
+need to explain
+
+680
+00:27:37,039 --> 00:27:40,720
+and
+
+681
+00:27:38,240 --> 00:27:43,360
+maybe that's it for today okay
+
+682
+00:27:40,720 --> 00:27:47,720
+uh any questions comments so how long
+
+683
+00:27:43,360 --> 00:27:47,720
+have i been talking for 30 minutes
+
+684
+00:27:50,399 --> 00:27:55,320
+uh
+
+685
+00:27:51,360 --> 00:27:58,320
+sits on top of the native com completion
+
+686
+00:27:55,320 --> 00:28:01,279
+emax28 yes
+
+687
+00:27:58,320 --> 00:28:04,640
+so it's awesome thank you money money is
+
+688
+00:28:01,279 --> 00:28:04,640
+what i need okay
+
+689
+00:28:05,200 --> 00:28:10,480
+yeah well
+
+690
+00:28:06,640 --> 00:28:14,080
+yeah so donate me or um buy my emacs
+
+691
+00:28:10,480 --> 00:28:16,559
+tutorial okay buy my you know patreon
+
+692
+00:28:14,080 --> 00:28:18,080
+amazon gift card or paypal
+
+693
+00:28:16,559 --> 00:28:19,120
+or bitcoin
+
+694
+00:28:18,080 --> 00:28:21,279
+or
+
+695
+00:28:19,120 --> 00:28:23,600
+you can buy
+
+696
+00:28:21,279 --> 00:28:23,600
+my
+
+697
+00:28:24,559 --> 00:28:27,679
+uh
+
+698
+00:28:25,360 --> 00:28:30,799
+you know complete emacs tutorial which i
+
+699
+00:28:27,679 --> 00:28:33,600
+provided for you online okay let me show
+
+700
+00:28:30,799 --> 00:28:35,360
+you some another thing a recent addition
+
+701
+00:28:33,600 --> 00:28:36,640
+to my website okay
+
+702
+00:28:35,360 --> 00:28:38,960
+so you know
+
+703
+00:28:36,640 --> 00:28:41,520
+look at my emacs tutorial it's here if
+
+704
+00:28:38,960 --> 00:28:43,520
+you like it you know support me pay me
+
+705
+00:28:41,520 --> 00:28:46,159
+okay
+
+706
+00:28:43,520 --> 00:28:48,720
+uh so there's a recent addition which is
+
+707
+00:28:46,159 --> 00:28:51,360
+a search feature you know in in the la
+
+708
+00:28:48,720 --> 00:28:52,559
+in my last video i did about two weeks
+
+709
+00:28:51,360 --> 00:28:54,799
+ago
+
+710
+00:28:52,559 --> 00:28:56,399
+i was live coding
+
+711
+00:28:54,799 --> 00:28:59,039
+uh
+
+712
+00:28:56,399 --> 00:28:59,840
+a search engine essentially uh you know
+
+713
+00:28:59,039 --> 00:29:02,480
+the
+
+714
+00:28:59,840 --> 00:29:04,960
+premier a primitive search engine
+
+715
+00:29:02,480 --> 00:29:08,000
+so now it's complete you know so you can
+
+716
+00:29:04,960 --> 00:29:10,799
+just you know go to my excite website or
+
+717
+00:29:08,000 --> 00:29:13,279
+sally.info each part has a search engine
+
+718
+00:29:10,799 --> 00:29:15,039
+so let me show you okay
+
+719
+00:29:13,279 --> 00:29:16,559
+so it supports lots of features for
+
+720
+00:29:15,039 --> 00:29:18,640
+example uh
+
+721
+00:29:16,559 --> 00:29:21,279
+let's suppose you want to you know i
+
+722
+00:29:18,640 --> 00:29:24,080
+have like a few hundred articles on my
+
+723
+00:29:21,279 --> 00:29:25,840
+for my emacs so you want know you want
+
+724
+00:29:24,080 --> 00:29:27,760
+to know what is i do
+
+725
+00:29:25,840 --> 00:29:29,679
+you know
+
+726
+00:29:27,760 --> 00:29:32,080
+because you know i have emacs tutorial
+
+727
+00:29:29,679 --> 00:29:34,960
+emacs init emacs keys
+
+728
+00:29:32,080 --> 00:29:38,240
+you know and emacs keys you know 100
+
+729
+00:29:34,960 --> 00:29:41,120
+articles uh practical emac list
+
+730
+00:29:38,240 --> 00:29:44,240
+then several videos emac these examples
+
+731
+00:29:41,120 --> 00:29:46,880
+you forgot where they are where is the
+
+732
+00:29:44,240 --> 00:29:48,080
+page i talked about i do so you click on
+
+733
+00:29:46,880 --> 00:29:50,159
+search
+
+734
+00:29:48,080 --> 00:29:53,840
+then
+
+735
+00:29:50,159 --> 00:29:56,799
+i do there it is fantastic instantaneous
+
+736
+00:29:53,840 --> 00:29:58,559
+result as you type now you you remember
+
+737
+00:29:56,799 --> 00:30:01,279
+reading something about buffer how do
+
+738
+00:29:58,559 --> 00:30:05,840
+you set a buffer in emacs so but you
+
+739
+00:30:01,279 --> 00:30:08,720
+forgot where it is so you type b-u-f-f-e
+
+740
+00:30:05,840 --> 00:30:10,000
+so immediate result so you got a bunch
+
+741
+00:30:08,720 --> 00:30:13,279
+of them
+
+742
+00:30:10,000 --> 00:30:15,760
+so ivy mod yeah
+
+743
+00:30:13,279 --> 00:30:17,039
+ivy mod is another you know
+
+744
+00:30:15,760 --> 00:30:19,679
+um
+
+745
+00:30:17,039 --> 00:30:21,360
+completion i think i forgot
+
+746
+00:30:19,679 --> 00:30:24,720
+third party mod
+
+747
+00:30:21,360 --> 00:30:26,559
+so let's see okay so wait so
+
+748
+00:30:24,720 --> 00:30:29,679
+yeah anyway so that's a search feature
+
+749
+00:30:26,559 --> 00:30:32,240
+okay you can you can also do minus
+
+750
+00:30:29,679 --> 00:30:32,240
+let's see
+
+751
+00:30:32,640 --> 00:30:39,840
+uh uncolor next previous buffer
+
+752
+00:30:35,520 --> 00:30:43,039
+let's see so some of them are um
+
+753
+00:30:39,840 --> 00:30:45,360
+let's see so let's search for lisp okay
+
+754
+00:30:43,039 --> 00:30:48,880
+you know you are into this programming
+
+755
+00:30:45,360 --> 00:30:52,240
+so let's search for lisp and you have
+
+756
+00:30:48,880 --> 00:30:54,399
+you know 200 articles
+
+757
+00:30:52,240 --> 00:30:56,720
+so
+
+758
+00:30:54,399 --> 00:30:58,640
+but suppose
+
+759
+00:30:56,720 --> 00:31:02,480
+you know you have a minus feature let me
+
+760
+00:30:58,640 --> 00:31:02,480
+let me try to find a good example
+
+761
+00:31:02,559 --> 00:31:08,080
+okay list
+
+762
+00:31:04,720 --> 00:31:10,399
+so let's say you want to find a list of
+
+763
+00:31:08,080 --> 00:31:12,880
+all emacs hooks
+
+764
+00:31:10,399 --> 00:31:15,679
+okay so you just type list
+
+765
+00:31:12,880 --> 00:31:17,279
+but however you got 20 results because
+
+766
+00:31:15,679 --> 00:31:19,600
+in emac this
+
+767
+00:31:17,279 --> 00:31:23,360
+a list is one of the you know data
+
+768
+00:31:19,600 --> 00:31:26,720
+struct data type so you got a bunch of
+
+769
+00:31:23,360 --> 00:31:29,760
+results on emac list which is not what
+
+770
+00:31:26,720 --> 00:31:34,799
+you want you you want a list of hooks so
+
+771
+00:31:29,760 --> 00:31:38,640
+you can type list minus wait minus minus
+
+772
+00:31:34,799 --> 00:31:39,840
+where is the minus key here this minus
+
+773
+00:31:38,640 --> 00:31:42,159
+lisp
+
+774
+00:31:39,840 --> 00:31:44,799
+you see you narrow down the result so
+
+775
+00:31:42,159 --> 00:31:48,799
+that's a you know that's a feature
+
+776
+00:31:44,799 --> 00:31:51,600
+so you can see a list of emacs hooks
+
+777
+00:31:48,799 --> 00:31:53,760
+uh and list buffers how did you list
+
+778
+00:31:51,600 --> 00:31:55,840
+buffers and so on okay
+
+779
+00:31:53,760 --> 00:31:59,039
+so that's a new feature on my website
+
+780
+00:31:55,840 --> 00:32:00,880
+and it also works on xsa keyboard for
+
+781
+00:31:59,039 --> 00:32:02,399
+example let's go to keyboard you are
+
+782
+00:32:00,880 --> 00:32:03,679
+looking at my keyboard condenses
+
+783
+00:32:02,399 --> 00:32:05,840
+advantage
+
+784
+00:32:03,679 --> 00:32:07,600
+ultimate hacking keyboard okay
+
+785
+00:32:05,840 --> 00:32:10,159
+let me let me show you some keyboards i
+
+786
+00:32:07,600 --> 00:32:13,279
+want i want to talk about so search for
+
+787
+00:32:10,159 --> 00:32:16,240
+sadie keyboard google
+
+788
+00:32:13,279 --> 00:32:19,200
+and you arrived at my website
+
+789
+00:32:16,240 --> 00:32:21,360
+there is a search button just for this
+
+790
+00:32:19,200 --> 00:32:23,360
+page let's turn on javascript so the
+
+791
+00:32:21,360 --> 00:32:25,600
+video shows
+
+792
+00:32:23,360 --> 00:32:25,600
+the
+
+793
+00:32:25,679 --> 00:32:28,960
+you know
+
+794
+00:32:26,640 --> 00:32:31,200
+you know the advertisement well i mean
+
+795
+00:32:28,960 --> 00:32:31,200
+the
+
+796
+00:32:31,360 --> 00:32:35,519
+the image you know thumbnail screen
+
+797
+00:32:34,000 --> 00:32:36,720
+uh clickbait
+
+798
+00:32:35,519 --> 00:32:39,039
+type of
+
+799
+00:32:36,720 --> 00:32:41,760
+thumbnail screen so anyway here's my
+
+800
+00:32:39,039 --> 00:32:43,760
+keyboard site there's a search button
+
+801
+00:32:41,760 --> 00:32:46,960
+then you can type
+
+802
+00:32:43,760 --> 00:32:49,120
+you know there are 800 articles there so
+
+803
+00:32:46,960 --> 00:32:53,039
+type mouse
+
+804
+00:32:49,120 --> 00:32:55,840
+so there are 1 100 articles about mouse
+
+805
+00:32:53,039 --> 00:32:58,159
+and let's say you want
+
+806
+00:32:55,840 --> 00:32:59,919
+mouse and something logitech okay so
+
+807
+00:32:58,159 --> 00:33:02,159
+type logitech
+
+808
+00:32:59,919 --> 00:33:05,519
+so you narrow down to titles that
+
+809
+00:33:02,159 --> 00:33:07,760
+contain both mouse and logitech okay now
+
+810
+00:33:05,519 --> 00:33:10,799
+let's try if there's any there's any
+
+811
+00:33:07,760 --> 00:33:12,000
+article related to emax on keyboard so
+
+812
+00:33:10,799 --> 00:33:13,840
+emacs
+
+813
+00:33:12,000 --> 00:33:16,720
+there it is okay
+
+814
+00:33:13,840 --> 00:33:19,760
+vi emacs keybinding design history of
+
+815
+00:33:16,720 --> 00:33:23,200
+emacs and vi keys emacs plus keyboard
+
+816
+00:33:19,760 --> 00:33:25,679
+kicking the nth episode okay whatever
+
+817
+00:33:23,200 --> 00:33:27,200
+emacs meta key history
+
+818
+00:33:25,679 --> 00:33:29,360
+you know so
+
+819
+00:33:27,200 --> 00:33:31,760
+that's the search feature using
+
+820
+00:33:29,360 --> 00:33:34,000
+javascript typescript
+
+821
+00:33:31,760 --> 00:33:36,159
+fantastic okay that's a feature i want
+
+822
+00:33:34,000 --> 00:33:38,880
+to show you show you okay let's go back
+
+823
+00:33:36,159 --> 00:33:40,640
+to emacs so we explained i complete we
+
+824
+00:33:38,880 --> 00:33:43,360
+explained fido
+
+825
+00:33:40,640 --> 00:33:46,240
+uh we explained smacks which is a
+
+826
+00:33:43,360 --> 00:33:49,279
+replacement you know the flex matching
+
+827
+00:33:46,240 --> 00:33:51,440
+for meta x
+
+828
+00:33:49,279 --> 00:33:54,880
+which now you don't need anymore
+
+829
+00:33:51,440 --> 00:33:56,960
+and we explained the whole i complete
+
+830
+00:33:54,880 --> 00:33:59,760
+set of commands we did
+
+831
+00:33:56,960 --> 00:34:02,640
+and we explained let's magnify we
+
+832
+00:33:59,760 --> 00:34:04,559
+explained i complete is for all commands
+
+833
+00:34:02,640 --> 00:34:07,200
+i do is just for files and buffers
+
+834
+00:34:04,559 --> 00:34:09,280
+that's right so i complete you know for
+
+835
+00:34:07,200 --> 00:34:11,839
+any command that
+
+836
+00:34:09,280 --> 00:34:13,520
+that requires a bunch of choices in the
+
+837
+00:34:11,839 --> 00:34:15,839
+mini buffer
+
+838
+00:34:13,520 --> 00:34:18,000
+i complete a price you know i i
+
+839
+00:34:15,839 --> 00:34:20,079
+completely will make them you know put
+
+840
+00:34:18,000 --> 00:34:22,240
+you know fetal vertical mod you know
+
+841
+00:34:20,079 --> 00:34:25,919
+turn it on
+
+842
+00:34:22,240 --> 00:34:28,800
+so show configuration you know i did
+
+843
+00:34:25,919 --> 00:34:31,919
+that overview of history of i complete
+
+844
+00:34:28,800 --> 00:34:33,440
+and i switch and i do and fido okay
+
+845
+00:34:31,919 --> 00:34:35,839
+uh
+
+846
+00:34:33,440 --> 00:34:38,159
+okay so i complete is pretty old you
+
+847
+00:34:35,839 --> 00:34:40,720
+know let me show you guys you know so
+
+848
+00:34:38,159 --> 00:34:40,720
+let's do
+
+849
+00:34:41,440 --> 00:34:46,399
+uh
+
+850
+00:34:42,720 --> 00:34:47,919
+meta i mean control h f
+
+851
+00:34:46,399 --> 00:34:50,720
+describe function
+
+852
+00:34:47,919 --> 00:34:53,720
+and type i complete
+
+853
+00:34:50,720 --> 00:34:53,720
+i-c-o-m-m-o
+
+854
+00:34:53,839 --> 00:34:57,440
+okay there it is
+
+855
+00:34:55,839 --> 00:35:00,000
+then switch
+
+856
+00:34:57,440 --> 00:35:01,599
+the cursor to the pen
+
+857
+00:35:00,000 --> 00:35:05,200
+tab
+
+858
+00:35:01,599 --> 00:35:06,960
+and enter to jump to the source code
+
+859
+00:35:05,200 --> 00:35:08,880
+expand the pen
+
+860
+00:35:06,960 --> 00:35:11,760
+so we are on the in the source code of i
+
+861
+00:35:08,880 --> 00:35:14,240
+complete go to the top now you can see
+
+862
+00:35:11,760 --> 00:35:15,920
+the history you know it's good to look
+
+863
+00:35:14,240 --> 00:35:19,200
+at the source coding you know now and
+
+864
+00:35:15,920 --> 00:35:21,680
+then gradually your learn more emac this
+
+865
+00:35:19,200 --> 00:35:23,839
+you know it's fun you know when you
+
+866
+00:35:21,680 --> 00:35:27,760
+look around the emacs you know community
+
+867
+00:35:23,839 --> 00:35:30,320
+the emacs culture or the emacs code
+
+868
+00:35:27,760 --> 00:35:31,920
+you know the emacs philosophy so you
+
+869
+00:35:30,320 --> 00:35:33,680
+know it's good to sometimes to look at
+
+870
+00:35:31,920 --> 00:35:36,960
+the source code so gradually you'll pick
+
+871
+00:35:33,680 --> 00:35:39,280
+up more uh how to how to or you know
+
+872
+00:35:36,960 --> 00:35:41,520
+useful tips about emacs so you are
+
+873
+00:35:39,280 --> 00:35:43,599
+looking at the i complete
+
+874
+00:35:41,520 --> 00:35:46,720
+source code so in the beginning you can
+
+875
+00:35:43,599 --> 00:35:49,200
+see it begin in 1992
+
+876
+00:35:46,720 --> 00:35:51,200
+and it's written by this guy
+
+877
+00:35:49,200 --> 00:35:53,440
+you know in my in my past
+
+878
+00:35:51,200 --> 00:35:54,720
+20 years of using emacs especially in
+
+879
+00:35:53,440 --> 00:35:57,520
+the last
+
+880
+00:35:54,720 --> 00:35:59,040
+15 years i sometimes look up people you
+
+881
+00:35:57,520 --> 00:36:00,880
+know so you have to
+
+882
+00:35:59,040 --> 00:36:02,880
+thank them you know
+
+883
+00:36:00,880 --> 00:36:04,000
+most emacs users you don't know who
+
+884
+00:36:02,880 --> 00:36:06,320
+wrote what
+
+885
+00:36:04,000 --> 00:36:09,280
+all you know is richard stroman okay he
+
+886
+00:36:06,320 --> 00:36:12,160
+hasn't been coding he hasn't he hasn't
+
+887
+00:36:09,280 --> 00:36:15,200
+coded for 10 plus for 15 years more
+
+888
+00:36:12,160 --> 00:36:15,200
+likely 20 years
+
+889
+00:36:15,520 --> 00:36:18,560
+but you have so it's a good thing to
+
+890
+00:36:17,599 --> 00:36:20,960
+know
+
+891
+00:36:18,560 --> 00:36:22,800
+who are writing these you know great
+
+892
+00:36:20,960 --> 00:36:26,480
+features you know
+
+893
+00:36:22,800 --> 00:36:28,960
+so i compete begin in 1992 and written
+
+894
+00:36:26,480 --> 00:36:31,119
+by this guy then you can look up you
+
+895
+00:36:28,960 --> 00:36:33,520
+know look up
+
+896
+00:36:31,119 --> 00:36:36,079
+uh mod you know you can pay me and get
+
+897
+00:36:33,520 --> 00:36:39,839
+that package so you you can look up
+
+898
+00:36:36,079 --> 00:36:42,240
+oh so he this guy is on wikipedia is he
+
+899
+00:36:39,839 --> 00:36:44,720
+oh well
+
+900
+00:36:42,240 --> 00:36:47,920
+i didn't know this you know sometimes i
+
+901
+00:36:44,720 --> 00:36:49,440
+look up people so you know you learn
+
+902
+00:36:47,920 --> 00:36:51,040
+you know your community you know what
+
+903
+00:36:49,440 --> 00:36:53,359
+they did
+
+904
+00:36:51,040 --> 00:36:56,160
+so ken
+
+905
+00:36:53,359 --> 00:36:59,280
+manheimer has been a prominent software
+
+906
+00:36:56,160 --> 00:37:01,119
+developer for soap and glue mailman okay
+
+907
+00:36:59,280 --> 00:37:02,720
+that's asian you know software that's
+
+908
+00:37:01,119 --> 00:37:04,880
+1990s
+
+909
+00:37:02,720 --> 00:37:08,720
+1999
+
+910
+00:37:04,880 --> 00:37:11,040
+zop and gnu mailman who works for nist
+
+911
+00:37:08,720 --> 00:37:14,000
+and baba
+
+912
+00:37:11,040 --> 00:37:16,720
+and spider oak okay
+
+913
+00:37:14,000 --> 00:37:18,880
+he's been listed by guido van rossum the
+
+914
+00:37:16,720 --> 00:37:21,680
+creator of guido
+
+915
+00:37:18,880 --> 00:37:24,640
+together with barry warsaw
+
+916
+00:37:21,680 --> 00:37:28,320
+as the probable inventor of the term
+
+917
+00:37:24,640 --> 00:37:31,920
+benevolent dictator for life ah that's a
+
+918
+00:37:28,320 --> 00:37:34,160
+that's a jargon from the
+
+919
+00:37:31,920 --> 00:37:36,880
+you know hacker community banana
+
+920
+00:37:34,160 --> 00:37:39,359
+dictator for life so anyway that's
+
+921
+00:37:36,880 --> 00:37:42,240
+interesting so you know and also you can
+
+922
+00:37:39,359 --> 00:37:45,359
+sometimes go to their home page you know
+
+923
+00:37:42,240 --> 00:37:47,200
+okay so he works for government some
+
+924
+00:37:45,359 --> 00:37:48,079
+yeah so anyway that's interesting you
+
+925
+00:37:47,200 --> 00:37:50,720
+know so
+
+926
+00:37:48,079 --> 00:37:53,680
+i complete begin in 1992
+
+927
+00:37:50,720 --> 00:37:56,000
+of course over the years you know he
+
+928
+00:37:53,680 --> 00:37:58,000
+essentially donated and signed over you
+
+929
+00:37:56,000 --> 00:38:00,560
+have to sign give the rights to free
+
+930
+00:37:58,000 --> 00:38:02,960
+software foundation you know then
+
+931
+00:38:00,560 --> 00:38:05,520
+over the years free software foundation
+
+932
+00:38:02,960 --> 00:38:10,079
+you know developed more of it you know
+
+933
+00:38:05,520 --> 00:38:13,280
+like today now it's massively expanded
+
+934
+00:38:10,079 --> 00:38:15,680
+starting in ex-28 fantastic
+
+935
+00:38:13,280 --> 00:38:17,440
+so and also let me tell you how does it
+
+936
+00:38:15,680 --> 00:38:20,079
+work okay
+
+937
+00:38:17,440 --> 00:38:23,440
+so this i complete you know and i
+
+938
+00:38:20,079 --> 00:38:24,960
+complete vertical and fido mod and fido
+
+939
+00:38:23,440 --> 00:38:26,480
+vertical mod
+
+940
+00:38:24,960 --> 00:38:28,880
+actually they don't do actually they
+
+941
+00:38:26,480 --> 00:38:32,079
+don't do much
+
+942
+00:38:28,880 --> 00:38:35,599
+i mean the the change in emacs 28 all
+
+943
+00:38:32,079 --> 00:38:38,400
+the great features is actually not
+
+944
+00:38:35,599 --> 00:38:40,960
+not much in this file you know all these
+
+945
+00:38:38,400 --> 00:38:43,040
+all these minor mods they are actually
+
+946
+00:38:40,960 --> 00:38:43,920
+just changing
+
+947
+00:38:43,040 --> 00:38:45,520
+the
+
+948
+00:38:43,920 --> 00:38:47,359
+you know when you call you know video
+
+949
+00:38:45,520 --> 00:38:49,440
+mod or when you call i complete mod or
+
+950
+00:38:47,359 --> 00:38:51,200
+when you call fido vertical they are
+
+951
+00:38:49,440 --> 00:38:53,119
+actually just setting up
+
+952
+00:38:51,200 --> 00:38:54,880
+you know changing some variables of them
+
+953
+00:38:53,119 --> 00:38:57,520
+for the mini buffer
+
+954
+00:38:54,880 --> 00:38:58,839
+configuration so let me show you okay so
+
+955
+00:38:57,520 --> 00:39:02,640
+let's describe
+
+956
+00:38:58,839 --> 00:39:04,720
+function let's say feeder vertical okay
+
+957
+00:39:02,640 --> 00:39:06,560
+so okay let's go there
+
+958
+00:39:04,720 --> 00:39:09,359
+and
+
+959
+00:39:06,560 --> 00:39:12,880
+tap jump to the code so you can see the
+
+960
+00:39:09,359 --> 00:39:15,040
+definition of the feeder vertical mod
+
+961
+00:39:12,880 --> 00:39:17,680
+you see now you look at that it's only
+
+962
+00:39:15,040 --> 00:39:18,640
+four lines you know only four lines
+
+963
+00:39:17,680 --> 00:39:20,720
+you know
+
+964
+00:39:18,640 --> 00:39:22,640
+what what you know you might think what
+
+965
+00:39:20,720 --> 00:39:25,520
+kind of magic oh it must be a lot of
+
+966
+00:39:22,640 --> 00:39:28,160
+code you know to great feature right
+
+967
+00:39:25,520 --> 00:39:30,400
+but it's only four lines you know so it
+
+968
+00:39:28,160 --> 00:39:32,640
+basically
+
+969
+00:39:30,400 --> 00:39:36,000
+so when you turn it on it basically all
+
+970
+00:39:32,640 --> 00:39:38,000
+it does is just turn on video mod
+
+971
+00:39:36,000 --> 00:39:39,760
+okay right that's all it does it just
+
+972
+00:39:38,000 --> 00:39:40,560
+turns video mod
+
+973
+00:39:39,760 --> 00:39:43,520
+then
+
+974
+00:39:40,560 --> 00:39:45,680
+it turns on i complete vertical mod
+
+975
+00:39:43,520 --> 00:39:47,839
+so that's why i say it's kind of
+
+976
+00:39:45,680 --> 00:39:49,200
+confusing you know you think you might
+
+977
+00:39:47,839 --> 00:39:50,400
+think they are all different but
+
+978
+00:39:49,200 --> 00:39:51,920
+actually they are
+
+979
+00:39:50,400 --> 00:39:54,000
+just i complete
+
+980
+00:39:51,920 --> 00:39:57,040
+so it just only does it turn on video
+
+981
+00:39:54,000 --> 00:39:59,119
+mod and turn on i complete vertical mod
+
+982
+00:39:57,040 --> 00:40:03,599
+then you might go look into what does
+
+983
+00:39:59,119 --> 00:40:07,240
+feeder mod do exactly okay so let's
+
+984
+00:40:03,599 --> 00:40:07,240
+uh let's um
+
+985
+00:40:10,160 --> 00:40:14,960
+so let's go to fidomar describe function
+
+986
+00:40:12,400 --> 00:40:17,040
+fidomar let's jump to it let's jump to
+
+987
+00:40:14,960 --> 00:40:20,160
+the source code
+
+988
+00:40:17,040 --> 00:40:21,599
+there it is fido mod okay it's only five
+
+989
+00:40:20,160 --> 00:40:24,560
+lines you know
+
+990
+00:40:21,599 --> 00:40:26,480
+seven lines so what does it do
+
+991
+00:40:24,560 --> 00:40:29,200
+well it
+
+992
+00:40:26,480 --> 00:40:30,960
+it first of all turn off i complete mod
+
+993
+00:40:29,200 --> 00:40:32,240
+then turn it back on
+
+994
+00:40:30,960 --> 00:40:34,560
+then
+
+995
+00:40:32,240 --> 00:40:37,280
+set two hooks that's it that's it it
+
+996
+00:40:34,560 --> 00:40:40,480
+just set two hooks ad hook
+
+997
+00:40:37,280 --> 00:40:41,359
+ad hook mini buffer setup hook
+
+998
+00:40:40,480 --> 00:40:43,359
+then
+
+999
+00:40:41,359 --> 00:40:45,920
+then call this function you know i
+
+1000
+00:40:43,359 --> 00:40:47,920
+complete mini buffer setup then another
+
+1001
+00:40:45,920 --> 00:40:50,800
+hook you know i complete fiddle mask
+
+1002
+00:40:47,920 --> 00:40:53,680
+setup you see so now
+
+1003
+00:40:50,800 --> 00:40:55,599
+in order to trace how it works now we
+
+1004
+00:40:53,680 --> 00:40:57,760
+have to look at these two functions you
+
+1005
+00:40:55,599 --> 00:41:00,560
+know what exactly they do
+
+1006
+00:40:57,760 --> 00:41:02,560
+to make this rich feature so for example
+
+1007
+00:41:00,560 --> 00:41:06,319
+let's let's look up this function i
+
+1008
+00:41:02,560 --> 00:41:09,440
+completely feed all my setup okay
+
+1009
+00:41:06,319 --> 00:41:11,520
+uh do it do it there it is let's jump to
+
+1010
+00:41:09,440 --> 00:41:15,119
+the code the source code let's jump to
+
+1011
+00:41:11,520 --> 00:41:15,119
+the definition there it is
+
+1012
+00:41:16,240 --> 00:41:22,480
+there it is not many lines you know 20
+
+1013
+00:41:18,880 --> 00:41:25,359
+lines so i complete fetal mod setup so
+
+1014
+00:41:22,480 --> 00:41:26,240
+what does does it do so it uh
+
+1015
+00:41:25,359 --> 00:41:28,880
+you know
+
+1016
+00:41:26,240 --> 00:41:31,359
+there it is change you know set local
+
+1017
+00:41:28,880 --> 00:41:34,079
+set set queue local change one bunch of
+
+1018
+00:41:31,359 --> 00:41:37,359
+variables exchange set the variable i
+
+1019
+00:41:34,079 --> 00:41:39,680
+complete tidy shadow file names true i
+
+1020
+00:41:37,359 --> 00:41:43,040
+complete shadow matches
+
+1021
+00:41:39,680 --> 00:41:45,119
+um no input true i complete height
+
+1022
+00:41:43,040 --> 00:41:48,640
+command prefix nio
+
+1023
+00:41:45,119 --> 00:41:51,359
+i complete scroll something something
+
+1024
+00:41:48,640 --> 00:41:54,560
+i complete completion style this is
+
+1025
+00:41:51,359 --> 00:41:58,319
+important line okay completion style set
+
+1026
+00:41:54,560 --> 00:42:00,960
+it to flex you see so when you turn
+
+1027
+00:41:58,319 --> 00:42:01,680
+feeder mod this is this is the critical
+
+1028
+00:42:00,960 --> 00:42:02,560
+thing
+
+1029
+00:42:01,680 --> 00:42:05,440
+it
+
+1030
+00:42:02,560 --> 00:42:06,800
+it it sets the variable completion style
+
+1031
+00:42:05,440 --> 00:42:09,119
+to flex
+
+1032
+00:42:06,800 --> 00:42:11,280
+that's that what makes fido different
+
+1033
+00:42:09,119 --> 00:42:13,440
+from i complete okay
+
+1034
+00:42:11,280 --> 00:42:15,680
+then other setup you see
+
+1035
+00:42:13,440 --> 00:42:17,200
+so this whole file you know i went
+
+1036
+00:42:15,680 --> 00:42:18,640
+through this whole file you know there's
+
+1037
+00:42:17,200 --> 00:42:19,760
+actually no
+
+1038
+00:42:18,640 --> 00:42:23,119
+like
+
+1039
+00:42:19,760 --> 00:42:24,640
+core machinery to to do this completion
+
+1040
+00:42:23,119 --> 00:42:27,280
+so
+
+1041
+00:42:24,640 --> 00:42:29,200
+so the code machine machinery happens
+
+1042
+00:42:27,280 --> 00:42:32,240
+somewhere else happens in those
+
+1043
+00:42:29,200 --> 00:42:33,920
+variables you know they um
+
+1044
+00:42:32,240 --> 00:42:35,280
+basically they happen in some other
+
+1045
+00:42:33,920 --> 00:42:37,440
+functions you know
+
+1046
+00:42:35,280 --> 00:42:41,760
+who which
+
+1047
+00:42:37,440 --> 00:42:41,760
+takes you know new variable values okay
+
+1048
+00:42:41,920 --> 00:42:46,800
+so that's essentially you know i haven't
+
+1049
+00:42:44,400 --> 00:42:47,839
+looked into in details yet but that's
+
+1050
+00:42:46,800 --> 00:42:49,280
+the
+
+1051
+00:42:47,839 --> 00:42:51,520
+how things are
+
+1052
+00:42:49,280 --> 00:42:54,079
+okay that's it i think that's it for
+
+1053
+00:42:51,520 --> 00:42:56,800
+today anything else
+
+1054
+00:42:54,079 --> 00:42:58,560
+okay so far so good you guys like it any
+
+1055
+00:42:56,800 --> 00:43:00,960
+comments and questions and that's it for
+
+1056
+00:42:58,560 --> 00:43:00,960
+today
+
+1057
+00:43:03,760 --> 00:43:09,040
+okay video check audio check and uh yeah
+
+1058
+00:43:07,200 --> 00:43:11,680
+so
+
+1059
+00:43:09,040 --> 00:43:14,880
+yeah okay so let's shut down in five
+
+1060
+00:43:11,680 --> 00:43:17,200
+more minutes okay we talked yeah
+
+1061
+00:43:14,880 --> 00:43:18,480
+shut down in five more minutes uh now
+
+1062
+00:43:17,200 --> 00:43:20,640
+i'm gonna
+
+1063
+00:43:18,480 --> 00:43:23,040
+you know wrap up let's see what else is
+
+1064
+00:43:20,640 --> 00:43:24,400
+interesting so in you know emax28
+
+1065
+00:43:23,040 --> 00:43:25,599
+fantastic
+
+1066
+00:43:24,400 --> 00:43:28,000
+and
+
+1067
+00:43:25,599 --> 00:43:31,599
+let's go to um
+
+1068
+00:43:28,000 --> 00:43:35,119
+xr emacs mod i mean xr emax
+
+1069
+00:43:31,599 --> 00:43:38,880
+this distribution you know exa emax a
+
+1070
+00:43:35,119 --> 00:43:42,240
+complete emax distribution
+
+1071
+00:43:38,880 --> 00:43:44,960
+with all my packages you know look uh so
+
+1072
+00:43:42,240 --> 00:43:46,240
+these are all the all the packages i use
+
+1073
+00:43:44,960 --> 00:43:48,000
+nothing else
+
+1074
+00:43:46,240 --> 00:43:50,560
+so for example
+
+1075
+00:43:48,000 --> 00:43:52,079
+i can show you my emacs init
+
+1076
+00:43:50,560 --> 00:43:55,680
+you see
+
+1077
+00:43:52,079 --> 00:43:57,839
+you now with emacs 28
+
+1078
+00:43:55,680 --> 00:44:00,079
+is you know you can show you know type
+
+1079
+00:43:57,839 --> 00:44:04,560
+version you can see in the mini buffer
+
+1080
+00:44:00,079 --> 00:44:07,520
+emacs 28 or go to the message buffer
+
+1081
+00:44:04,560 --> 00:44:09,920
+emax28 right so
+
+1082
+00:44:07,520 --> 00:44:12,640
+uh what i want to say so like yeah let's
+
+1083
+00:44:09,920 --> 00:44:16,480
+go to bookmark you know i have a command
+
+1084
+00:44:12,640 --> 00:44:19,920
+called open bookmark mark fast so you
+
+1085
+00:44:16,480 --> 00:44:22,800
+see even in bookmark prompt it also you
+
+1086
+00:44:19,920 --> 00:44:23,839
+know uh uses the feed of
+
+1087
+00:44:22,800 --> 00:44:25,359
+uh
+
+1088
+00:44:23,839 --> 00:44:28,480
+completion feature
+
+1089
+00:44:25,359 --> 00:44:32,240
+fantastic so now let's just type
+
+1090
+00:44:28,480 --> 00:44:35,760
+init so let's go to my emacs init just
+
+1091
+00:44:32,240 --> 00:44:38,880
+two lines so let's so the first
+
+1092
+00:44:35,760 --> 00:44:40,400
+line of my init is load emacs
+
+1093
+00:44:38,880 --> 00:44:43,359
+okay
+
+1094
+00:44:40,400 --> 00:44:45,040
+but if we jump to diet jump to my emacs
+
+1095
+00:44:43,359 --> 00:44:47,599
+init directory
+
+1096
+00:44:45,040 --> 00:44:50,960
+you can see let's open elpa that's
+
+1097
+00:44:47,599 --> 00:44:54,800
+nothing you know so i'm i i have reached
+
+1098
+00:44:50,960 --> 00:44:56,880
+the a point where i'm using no
+
+1099
+00:44:54,800 --> 00:44:59,440
+no external packages
+
+1100
+00:44:56,880 --> 00:45:00,560
+well except actually uh there's one i
+
+1101
+00:44:59,440 --> 00:45:02,960
+still use
+
+1102
+00:45:00,560 --> 00:45:05,760
+which is well one of them is
+
+1103
+00:45:02,960 --> 00:45:08,560
+the log you know the command log you are
+
+1104
+00:45:05,760 --> 00:45:10,640
+looking at the pink window and the other
+
+1105
+00:45:08,560 --> 00:45:12,480
+one is html
+
+1106
+00:45:10,640 --> 00:45:13,520
+okay but anyway let's go to
+
+1107
+00:45:12,480 --> 00:45:15,359
+emacs
+
+1108
+00:45:13,520 --> 00:45:17,839
+config okay
+
+1109
+00:45:15,359 --> 00:45:19,920
+uh what
+
+1110
+00:45:17,839 --> 00:45:21,200
+so emacs can fit and go to direct so
+
+1111
+00:45:19,920 --> 00:45:22,880
+this is
+
+1112
+00:45:21,200 --> 00:45:24,400
+emacs distro
+
+1113
+00:45:22,880 --> 00:45:26,880
+okay so
+
+1114
+00:45:24,400 --> 00:45:29,280
+and go to the packages this is all my
+
+1115
+00:45:26,880 --> 00:45:32,480
+packages so that's what i use
+
+1116
+00:45:29,280 --> 00:45:37,920
+okay so the other external package i use
+
+1117
+00:45:32,480 --> 00:45:41,200
+is this html lice which allows me to
+
+1118
+00:45:37,920 --> 00:45:44,400
+syntax color programming source code
+
+1119
+00:45:41,200 --> 00:45:45,280
+computer language source code in html
+
+1120
+00:45:44,400 --> 00:45:47,680
+okay
+
+1121
+00:45:45,280 --> 00:45:50,880
+but
+
+1122
+00:45:47,680 --> 00:45:54,880
+um you know i'm i'm i'm going to switch
+
+1123
+00:45:50,880 --> 00:45:56,800
+to javascript based solution because
+
+1124
+00:45:54,880 --> 00:46:01,280
+because otherwise the source code in
+
+1125
+00:45:56,800 --> 00:46:02,880
+html is impossible to read
+
+1126
+00:46:01,280 --> 00:46:05,280
+so anyway so
+
+1127
+00:46:02,880 --> 00:46:07,680
+emacs distro okay so if you like my
+
+1128
+00:46:05,280 --> 00:46:09,920
+stuff you go to my website you can you
+
+1129
+00:46:07,680 --> 00:46:12,720
+know get it you know you have to pay
+
+1130
+00:46:09,920 --> 00:46:16,560
+uh it's open source of course
+
+1131
+00:46:12,720 --> 00:46:18,319
+and so with emacs 28 you know i did a
+
+1132
+00:46:16,560 --> 00:46:21,040
+lot
+
+1133
+00:46:18,319 --> 00:46:24,560
+uh changes so right now they don't you
+
+1134
+00:46:21,040 --> 00:46:26,960
+know they used to use i do mod i do mod
+
+1135
+00:46:24,560 --> 00:46:28,400
+it's fantastic but now you don't need it
+
+1136
+00:46:26,960 --> 00:46:30,720
+anymore so this
+
+1137
+00:46:28,400 --> 00:46:32,160
+so you just rely on fido vertical
+
+1138
+00:46:30,720 --> 00:46:35,040
+fantastic
+
+1139
+00:46:32,160 --> 00:46:37,440
+and also now the
+
+1140
+00:46:35,040 --> 00:46:40,640
+the universal
+
+1141
+00:46:37,440 --> 00:46:43,760
+the universal leader key for all my
+
+1142
+00:46:40,640 --> 00:46:45,359
+packages you know
+
+1143
+00:46:43,760 --> 00:46:46,640
+css smart
+
+1144
+00:46:45,359 --> 00:46:47,680
+direct
+
+1145
+00:46:46,640 --> 00:46:49,359
+uh
+
+1146
+00:46:47,680 --> 00:46:50,560
+emac this mod
+
+1147
+00:46:49,359 --> 00:46:54,160
+start find
+
+1148
+00:46:50,560 --> 00:46:58,560
+flat keys sapphire keys and golan mod
+
+1149
+00:46:54,160 --> 00:47:00,800
+html mod all the javascript mod od smart
+
+1150
+00:46:58,560 --> 00:47:03,280
+now they
+
+1151
+00:47:00,800 --> 00:47:07,119
+they universally support the same leader
+
+1152
+00:47:03,280 --> 00:47:10,560
+key and that key has been changed to tab
+
+1153
+00:47:07,119 --> 00:47:12,800
+which is fantastic
+
+1154
+00:47:10,560 --> 00:47:14,720
+because recently you know i've been
+
+1155
+00:47:12,800 --> 00:47:17,280
+using this 60
+
+1156
+00:47:14,720 --> 00:47:21,599
+keyboard let me put a plug to this
+
+1157
+00:47:17,280 --> 00:47:25,839
+keyboard okay so you go to normal
+
+1158
+00:47:21,599 --> 00:47:25,839
+i did i did a review of this keyboard
+
+1159
+00:47:26,720 --> 00:47:31,680
+uh two three weeks ago
+
+1160
+00:47:29,040 --> 00:47:32,559
+uh they sent it to me for review
+
+1161
+00:47:31,680 --> 00:47:34,400
+i
+
+1162
+00:47:32,559 --> 00:47:36,720
+gave you my honest review so i've been
+
+1163
+00:47:34,400 --> 00:47:39,119
+using this keyboard when i'm lying in
+
+1164
+00:47:36,720 --> 00:47:41,280
+bed which is right there you know the
+
+1165
+00:47:39,119 --> 00:47:44,240
+keyboard is right there so
+
+1166
+00:47:41,280 --> 00:47:46,240
+so i've been using this 60 keyboard
+
+1167
+00:47:44,240 --> 00:47:47,920
+you know one of the problem with 60
+
+1168
+00:47:46,240 --> 00:47:50,000
+keyboard is that you don't have much
+
+1169
+00:47:47,920 --> 00:47:52,400
+keys you know
+
+1170
+00:47:50,000 --> 00:47:54,400
+so i started to use tab as a little
+
+1171
+00:47:52,400 --> 00:47:56,720
+leader key which is fantastic you know
+
+1172
+00:47:54,400 --> 00:47:58,800
+because a lot of people especially when
+
+1173
+00:47:56,720 --> 00:48:02,000
+you are on a laptop you know it's very
+
+1174
+00:47:58,800 --> 00:48:03,599
+common like vast majority of people are
+
+1175
+00:48:02,000 --> 00:48:06,319
+using a laptop
+
+1176
+00:48:03,599 --> 00:48:08,240
+and then on a laptop you usually don't
+
+1177
+00:48:06,319 --> 00:48:09,920
+have function keys i mean the function
+
+1178
+00:48:08,240 --> 00:48:13,520
+keys is set to
+
+1179
+00:48:09,920 --> 00:48:14,800
+volume up volume down and so on
+
+1180
+00:48:13,520 --> 00:48:16,160
+so
+
+1181
+00:48:14,800 --> 00:48:19,280
+so
+
+1182
+00:48:16,160 --> 00:48:21,920
+so the so the use of tab key as a leader
+
+1183
+00:48:19,280 --> 00:48:24,640
+key is a great idea so now all my
+
+1184
+00:48:21,920 --> 00:48:25,920
+packages does that
+
+1185
+00:48:24,640 --> 00:48:29,200
+and this
+
+1186
+00:48:25,920 --> 00:48:32,480
+keyboard let me you know plug
+
+1187
+00:48:29,200 --> 00:48:34,240
+for them is great okay key move
+
+1188
+00:48:32,480 --> 00:48:37,920
+not expensive okay you know you know
+
+1189
+00:48:34,240 --> 00:48:41,599
+it's it's cheaper than logitech but it's
+
+1190
+00:48:37,920 --> 00:48:43,119
+fantastic i had i had you know i enjoyed
+
+1191
+00:48:41,599 --> 00:48:44,240
+it very much it's
+
+1192
+00:48:43,119 --> 00:48:47,680
+very
+
+1193
+00:48:44,240 --> 00:48:50,319
+high quality build okay i like it
+
+1194
+00:48:47,680 --> 00:48:50,319
+okay that's it
+
+1195
+00:48:50,480 --> 00:48:54,880
+bye guys so
+
+1196
+00:48:53,599 --> 00:48:57,440
+so there's a question what's the
+
+1197
+00:48:54,880 --> 00:49:00,240
+difference between set q and set local
+
+1198
+00:48:57,440 --> 00:49:03,119
+okay that's a bit technical so set q is
+
+1199
+00:49:00,240 --> 00:49:05,359
+you know just normal setting a variable
+
+1200
+00:49:03,119 --> 00:49:05,359
+okay
+
+1201
+00:49:06,000 --> 00:49:10,640
+in summary in short okay now set local
+
+1202
+00:49:09,280 --> 00:49:11,680
+is to
+
+1203
+00:49:10,640 --> 00:49:14,960
+make
+
+1204
+00:49:11,680 --> 00:49:17,440
+a variable to be buffer local
+
+1205
+00:49:14,960 --> 00:49:19,200
+okay so let me explain what does this
+
+1206
+00:49:17,440 --> 00:49:20,640
+mean so in emacs
+
+1207
+00:49:19,200 --> 00:49:22,720
+you know and
+
+1208
+00:49:20,640 --> 00:49:25,520
+you know you have variables you know
+
+1209
+00:49:22,720 --> 00:49:26,640
+variables you know you can have a value
+
+1210
+00:49:25,520 --> 00:49:27,260
+and
+
+1211
+00:49:26,640 --> 00:49:28,480
+normally
+
+1212
+00:49:27,260 --> 00:49:30,079
+[Music]
+
+1213
+00:49:28,480 --> 00:49:33,119
+just like programming languages a
+
+1214
+00:49:30,079 --> 00:49:35,280
+variable is global
+
+1215
+00:49:33,119 --> 00:49:38,480
+okay but in emacs you have the concept
+
+1216
+00:49:35,280 --> 00:49:40,319
+of buffer local meaning that the same
+
+1217
+00:49:38,480 --> 00:49:42,240
+variable name
+
+1218
+00:49:40,319 --> 00:49:44,880
+can have different value
+
+1219
+00:49:42,240 --> 00:49:47,200
+for each buffer so every buffer
+
+1220
+00:49:44,880 --> 00:49:49,760
+the same variable name they will have
+
+1221
+00:49:47,200 --> 00:49:52,079
+their own values so it may be the same
+
+1222
+00:49:49,760 --> 00:49:53,200
+with or maybe different you know so
+
+1223
+00:49:52,079 --> 00:49:56,559
+that's
+
+1224
+00:49:53,200 --> 00:49:59,280
+the buffer local variable okay now in
+
+1225
+00:49:56,559 --> 00:50:01,520
+e-max some variables
+
+1226
+00:49:59,280 --> 00:50:03,920
+are buffer local but not all of them
+
+1227
+00:50:01,520 --> 00:50:05,119
+summer variables are global
+
+1228
+00:50:03,920 --> 00:50:07,359
+so
+
+1229
+00:50:05,119 --> 00:50:08,880
+sometimes you want to
+
+1230
+00:50:07,359 --> 00:50:11,680
+set a variable
+
+1231
+00:50:08,880 --> 00:50:14,000
+in a buffer just for that buffer only
+
+1232
+00:50:11,680 --> 00:50:15,520
+but but that variable is not a buffer
+
+1233
+00:50:14,000 --> 00:50:17,040
+local variable
+
+1234
+00:50:15,520 --> 00:50:20,800
+that is when
+
+1235
+00:50:17,040 --> 00:50:23,760
+you want to use the set q local
+
+1236
+00:50:20,800 --> 00:50:27,839
+so when you use set q local it it forces
+
+1237
+00:50:23,760 --> 00:50:30,319
+that variable to become buffer local to
+
+1238
+00:50:27,839 --> 00:50:33,920
+this buffer only you know
+
+1239
+00:50:30,319 --> 00:50:33,920
+okay that's that's what that is
+
+1240
+00:50:35,680 --> 00:50:41,440
+uh y e max over vim okay that's that's a
+
+1241
+00:50:39,280 --> 00:50:44,640
+common question i'm not gonna explain
+
+1242
+00:50:41,440 --> 00:50:46,160
+okay exactly so luis explain that set
+
+1243
+00:50:44,640 --> 00:50:47,839
+local good
+
+1244
+00:50:46,160 --> 00:50:50,559
+okay that's it
+
+1245
+00:50:47,839 --> 00:50:51,359
+thank you guys for watching bye guys
+
+1246
+00:50:50,559 --> 00:50:54,720
+uh
+
+1247
+00:50:51,359 --> 00:50:58,800
+what are your thoughts on tmox my whole
+
+1248
+00:50:54,720 --> 00:51:01,040
+dev workflow is vim and tmux okay that's
+
+1249
+00:50:58,800 --> 00:51:03,599
+that's good for you
+
+1250
+00:51:01,040 --> 00:51:05,119
+tmux yeah if you are using if you are a
+
+1251
+00:51:03,599 --> 00:51:08,640
+vim user
+
+1252
+00:51:05,119 --> 00:51:10,880
+then god you need tmux without tmux
+
+1253
+00:51:08,640 --> 00:51:12,800
+you become a you know if you're
+
+1254
+00:51:10,880 --> 00:51:14,480
+a veeam user t-mux
+
+1255
+00:51:12,800 --> 00:51:17,680
+they have to go hand-in-hand if you are
+
+1256
+00:51:14,480 --> 00:51:20,160
+a vim user you need t-mux and you also
+
+1257
+00:51:17,680 --> 00:51:23,839
+need the entire
+
+1258
+00:51:20,160 --> 00:51:26,960
+unix tool shell bag you know bash and
+
+1259
+00:51:23,839 --> 00:51:29,520
+find and xox and
+
+1260
+00:51:26,960 --> 00:51:30,400
+you know you need that grab
+
+1261
+00:51:29,520 --> 00:51:32,480
+sort
+
+1262
+00:51:30,400 --> 00:51:35,040
+uh you know
+
+1263
+00:51:32,480 --> 00:51:38,079
+that's a veeam workflow you
+
+1264
+00:51:35,040 --> 00:51:39,520
+kind of componentize you know you need
+
+1265
+00:51:38,079 --> 00:51:42,559
+all these tools
+
+1266
+00:51:39,520 --> 00:51:45,599
+but if you are using emacs typically you
+
+1267
+00:51:42,559 --> 00:51:46,960
+don't need tmux you can if you want to
+
+1268
+00:51:45,599 --> 00:51:49,440
+but you could
+
+1269
+00:51:46,960 --> 00:51:51,599
+you know log into remote computers
+
+1270
+00:51:49,440 --> 00:51:55,520
+without you needing tmux you know
+
+1271
+00:51:51,599 --> 00:51:59,040
+and so on many many different ways and
+
+1272
+00:51:55,520 --> 00:52:00,640
+ssh within emacs i can do it now okay so
+
+1273
+00:51:59,040 --> 00:52:04,240
+ssh
+
+1274
+00:52:00,640 --> 00:52:06,960
+or not ssh so for example okay cancel
+
+1275
+00:52:04,240 --> 00:52:09,040
+term okay so you start a terminal
+
+1276
+00:52:06,960 --> 00:52:13,119
+emulator okay
+
+1277
+00:52:09,040 --> 00:52:13,119
+oh god um program
+
+1278
+00:52:14,000 --> 00:52:18,880
+okay it's because i'm on windows so it's
+
+1279
+00:52:16,800 --> 00:52:20,319
+telling me to run what kind of terminal
+
+1280
+00:52:18,880 --> 00:52:22,160
+application
+
+1281
+00:52:20,319 --> 00:52:24,800
+wait
+
+1282
+00:52:22,160 --> 00:52:26,559
+cancel i think term is should be built
+
+1283
+00:52:24,800 --> 00:52:27,920
+in emacs
+
+1284
+00:52:26,559 --> 00:52:30,880
+turn mod there
+
+1285
+00:52:27,920 --> 00:52:30,880
+okay term mod
+
+1286
+00:52:30,960 --> 00:52:36,400
+uh arrow menu bar update hook uh i don't
+
+1287
+00:52:34,480 --> 00:52:39,760
+know what's going on i haven't
+
+1288
+00:52:36,400 --> 00:52:39,760
+you know called that command
+
+1289
+00:52:40,960 --> 00:52:43,359
+close
+
+1290
+00:52:43,440 --> 00:52:50,880
+wait not turn mod just term okay
+
+1291
+00:52:48,559 --> 00:52:54,800
+it asks me which terminal
+
+1292
+00:52:50,880 --> 00:52:58,880
+program oh yeah that right so actually
+
+1293
+00:52:54,800 --> 00:53:00,800
+it's built in on windows you see
+
+1294
+00:52:58,880 --> 00:53:02,720
+you see let me show you the file path
+
+1295
+00:53:00,800 --> 00:53:05,200
+okay so let's see i don't know if you
+
+1296
+00:53:02,720 --> 00:53:08,079
+can see so you can see
+
+1297
+00:53:05,200 --> 00:53:10,079
+it's actually part of emacs 28 on
+
+1298
+00:53:08,079 --> 00:53:12,480
+windows this is critical because
+
+1299
+00:53:10,079 --> 00:53:14,079
+normally on windows you are screwed but
+
+1300
+00:53:12,480 --> 00:53:16,000
+now it's built building so let's do
+
+1301
+00:53:14,079 --> 00:53:17,200
+let's just run it let's see what happens
+
+1302
+00:53:16,000 --> 00:53:21,040
+arrow
+
+1303
+00:53:17,200 --> 00:53:23,839
+uh arrow in menu bar update hook okay
+
+1304
+00:53:21,040 --> 00:53:25,920
+okay that doesn't work so anyway term so
+
+1305
+00:53:23,839 --> 00:53:30,319
+in emacs if you are e-mail user this you
+
+1306
+00:53:25,920 --> 00:53:30,319
+have lots of ways you don't need t-mucks
+
+1307
+00:53:32,079 --> 00:53:36,960
+okay that's it for today i just gonna
+
+1308
+00:53:34,000 --> 00:53:39,520
+read uh one more minutes comments and
+
+1309
+00:53:36,960 --> 00:53:42,480
+that's it scarface
+
+1310
+00:53:39,520 --> 00:53:45,040
+scarface great to see you pro justin a
+
+1311
+00:53:42,480 --> 00:53:47,280
+mathematician from canada
+
+1312
+00:53:45,040 --> 00:53:50,920
+um
+
+1313
+00:53:47,280 --> 00:53:50,920
+nelson okay
+
+1314
+00:53:58,079 --> 00:54:04,240
+moving emacs covered okay yeah maybe
+
+1315
+00:54:01,440 --> 00:54:04,240
+that's too late
+
+1316
+00:54:06,800 --> 00:54:11,160
+uh okay
+
+1317
+00:54:08,160 --> 00:54:11,160
+um
+
+1318
+00:54:22,480 --> 00:54:28,079
+fantastic so if you have bought my stuff
+
+1319
+00:54:25,359 --> 00:54:28,079
+fantastic
+
+1320
+00:54:29,680 --> 00:54:31,839
+i
+

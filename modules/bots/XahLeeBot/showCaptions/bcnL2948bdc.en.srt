@@ -1,0 +1,5992 @@
+1
+00:00:02,880 --> 00:00:07,880
+Hello everyone. Welcome to another
+
+2
+00:00:05,240 --> 00:00:10,840
+episode of cell talk show.
+
+3
+00:00:07,880 --> 00:00:14,520
+Let me heat up my tea and I'll be right
+
+4
+00:00:10,840 --> 00:00:17,560
+here. So today we are going to
+
+5
+00:00:14,520 --> 00:00:20,360
+introduction to F sharp programming
+
+6
+00:00:17,560 --> 00:00:22,080
+language.
+
+7
+00:00:20,360 --> 00:00:24,880
+Okay, let me
+
+8
+00:00:22,080 --> 00:00:28,240
+microwave my tea.
+
+9
+00:00:24,880 --> 00:00:28,240
+Be back in 1 minute.
+
+10
+00:00:50,240 --> 00:00:57,080
+If you are watching this offline, skip
+
+11
+00:00:52,720 --> 00:00:59,080
+around and play at 1.5 speed because I
+
+12
+00:00:57,080 --> 00:01:02,920
+ramble all over.
+
+13
+00:00:59,080 --> 00:01:05,360
+If you are watching live, say hi. Post
+
+14
+00:01:02,920 --> 00:01:07,880
+your comment. Hello Louis.
+
+15
+00:01:05,360 --> 00:01:10,280
+Fantastic topic.
+
+16
+00:01:07,880 --> 00:01:13,480
+F sharp, okay? Let's begin. So my
+
+17
+00:01:10,280 --> 00:01:15,160
+keyboard is Glove 80. Fantastic
+
+18
+00:01:13,480 --> 00:01:17,080
+ergonomic keyboard.
+
+19
+00:01:15,160 --> 00:01:19,400
+Ultimate hacking keyboard.
+
+20
+00:01:17,080 --> 00:01:24,760
+No liar track ball.
+
+21
+00:01:19,400 --> 00:01:27,360
+And this fantastic small board S V A L B
+
+22
+00:01:24,760 --> 00:01:29,960
+O A R D.
+
+23
+00:01:27,360 --> 00:01:32,840
+I have a video review for each one of
+
+24
+00:01:29,960 --> 00:01:36,600
+them on YouTube, okay? So now let's go
+
+25
+00:01:32,840 --> 00:01:39,440
+to F sharp. So if you don't know yet,
+
+26
+00:01:36,600 --> 00:01:42,640
+F sharp is the programming language that
+
+27
+00:01:39,440 --> 00:01:45,480
+is derived from OCaml.
+
+28
+00:01:42,640 --> 00:01:50,080
+Okay, so let me uh
+
+29
+00:01:45,480 --> 00:01:53,440
+make clear the lineage, okay? ML is meta
+
+30
+00:01:50,080 --> 00:01:57,160
+language. Then it became then then
+
+31
+00:01:53,440 --> 00:01:58,600
+there's a variation SML.
+
+32
+00:01:57,160 --> 00:02:02,160
+Okay.
+
+33
+00:01:58,600 --> 00:02:02,160
+For standing for
+
+34
+00:02:03,440 --> 00:02:10,280
+standard meta language. Then there is
+
+35
+00:02:08,920 --> 00:02:12,360
+Camel
+
+36
+00:02:10,280 --> 00:02:14,120
+standing for something something. Then
+
+37
+00:02:12,360 --> 00:02:17,120
+there is
+
+38
+00:02:14,120 --> 00:02:17,120
+object
+
+39
+00:02:17,280 --> 00:02:21,600
+Camel. Okay, so
+
+40
+00:02:22,360 --> 00:02:27,880
+So that is a lineage. Then there is F
+
+41
+00:02:25,240 --> 00:02:27,880
+Sharp.
+
+42
+00:02:30,600 --> 00:02:36,280
+Okay, that is the lineage of the
+
+43
+00:02:33,920 --> 00:02:38,000
+F Sharp programming language. They are
+
+44
+00:02:36,280 --> 00:02:40,160
+functional.
+
+45
+00:02:38,000 --> 00:02:42,240
+Uh very much functional programming
+
+46
+00:02:40,160 --> 00:02:46,720
+language. So Haskell
+
+47
+00:02:42,240 --> 00:02:49,760
+is sometimes after OCaml. So Haskell is
+
+48
+00:02:46,720 --> 00:02:52,080
+very much similar, very very much
+
+49
+00:02:49,760 --> 00:02:55,080
+similar, but somewhat different. So
+
+50
+00:02:52,080 --> 00:02:56,800
+Haskell is after OCaml. Now OCaml did I
+
+51
+00:02:55,080 --> 00:02:58,840
+spell it correctly.
+
+52
+00:02:56,800 --> 00:03:00,360
+Um
+
+53
+00:02:58,840 --> 00:03:03,920
+you know
+
+54
+00:03:00,360 --> 00:03:08,519
+OCaml came from, you know, Camel. So
+
+55
+00:03:03,920 --> 00:03:11,720
+they added an object. So but how what is
+
+56
+00:03:08,519 --> 00:03:13,160
+the So you see OCaml is objective Camel.
+
+57
+00:03:11,720 --> 00:03:15,640
+So this is
+
+58
+00:03:13,160 --> 00:03:18,560
+uh CAML.
+
+59
+00:03:15,640 --> 00:03:20,400
+Now what does Camel stand for? Category
+
+60
+00:03:18,560 --> 00:03:21,800
+something. Okay.
+
+61
+00:03:20,400 --> 00:03:26,080
+So
+
+62
+00:03:21,800 --> 00:03:28,600
+categorical abstract machine language.
+
+63
+00:03:26,080 --> 00:03:28,600
+Okay.
+
+64
+00:03:29,519 --> 00:03:35,720
+So that's a lineage. So F Sharp began
+
+65
+00:03:32,040 --> 00:03:37,800
+around 2002. Amazing because, you know,
+
+66
+00:03:35,720 --> 00:03:39,560
+functional programming is not popular,
+
+67
+00:03:37,800 --> 00:03:41,360
+but Microsoft
+
+68
+00:03:39,560 --> 00:03:41,920
+created
+
+69
+00:03:41,360 --> 00:03:44,120
+uh
+
+70
+00:03:41,920 --> 00:03:45,480
+you know, like this is So this is the
+
+71
+00:03:44,120 --> 00:03:49,959
+first
+
+72
+00:03:45,480 --> 00:03:50,800
+mega corporation sponsored
+
+73
+00:03:49,959 --> 00:03:54,600
+uh uh,
+
+74
+00:03:50,800 --> 00:03:54,600
+functional language
+
+75
+00:03:55,480 --> 00:04:01,280
+.net, okay, like
+
+76
+00:03:57,760 --> 00:04:05,160
+in fact, F# is uh,
+
+77
+00:04:01,280 --> 00:04:07,520
+based off .net. So, .net is entirely
+
+78
+00:04:05,160 --> 00:04:08,600
+open source since about 5 years ago,
+
+79
+00:04:07,520 --> 00:04:11,640
+something.
+
+80
+00:04:08,600 --> 00:04:13,280
+So, it's fantastic. Now, you want to
+
+81
+00:04:11,640 --> 00:04:16,160
+install it, it's
+
+82
+00:04:13,280 --> 00:04:18,920
+uh, trivial, you know, like in fact, I
+
+83
+00:04:16,160 --> 00:04:21,560
+installed it by accident
+
+84
+00:04:18,920 --> 00:04:21,560
+because
+
+85
+00:04:23,040 --> 00:04:28,400
+so, you can look at my PowerShell
+
+86
+00:04:25,120 --> 00:04:29,640
+tutorial because I was studying, you
+
+87
+00:04:28,400 --> 00:04:32,040
+know, I was looking up some
+
+88
+00:04:29,640 --> 00:04:34,720
+documentation of PowerShell functions, I
+
+89
+00:04:32,040 --> 00:04:38,600
+think. Now, PowerShell is also based on
+
+90
+00:04:34,720 --> 00:04:41,600
+.net. .net is this programming language
+
+91
+00:04:38,600 --> 00:04:45,520
+framework. So, you have .net, then you
+
+92
+00:04:41,600 --> 00:04:46,919
+have C#, you have F#, you have
+
+93
+00:04:45,520 --> 00:04:49,560
+PowerShell,
+
+94
+00:04:46,919 --> 00:04:51,600
+and you have .net Visual Basic, .net
+
+95
+00:04:49,560 --> 00:04:54,400
+Basic, something.
+
+96
+00:04:51,600 --> 00:04:56,280
+So, in fact, also Clojure one time was
+
+97
+00:04:54,400 --> 00:04:59,680
+implemented on
+
+98
+00:04:56,280 --> 00:05:02,919
+implemented on .net. So, .net is like is
+
+99
+00:04:59,680 --> 00:05:04,720
+like Java's JVM, so you can implement a
+
+100
+00:05:02,919 --> 00:05:07,160
+lot languages
+
+101
+00:05:04,720 --> 00:05:09,120
+on top of it.
+
+102
+00:05:07,160 --> 00:05:10,960
+It's got its own virtual machine, you
+
+103
+00:05:09,120 --> 00:05:13,400
+know, cross-platform.
+
+104
+00:05:10,960 --> 00:05:15,760
+So, and it's open source.
+
+105
+00:05:13,400 --> 00:05:17,600
+Uh, so, one day
+
+106
+00:05:15,760 --> 00:05:20,680
+like half a year ago, I was looking at
+
+107
+00:05:17,600 --> 00:05:24,240
+the PowerShell dot uh, PowerShell uh,
+
+108
+00:05:20,680 --> 00:05:26,560
+documentation. And then I run into some,
+
+109
+00:05:24,240 --> 00:05:30,720
+you know, sometimes it has to reference
+
+110
+00:05:26,560 --> 00:05:31,600
+.net stuff because in PowerShell or C#
+
+111
+00:05:30,720 --> 00:05:34,919
+or
+
+112
+00:05:31,600 --> 00:05:37,760
+F#, you can call any of the .net
+
+113
+00:05:34,919 --> 00:05:39,120
+functions. So, it's entirely super
+
+114
+00:05:37,760 --> 00:05:40,840
+powerful.
+
+115
+00:05:39,120 --> 00:05:42,640
+So, I was reading documentation and then
+
+116
+00:05:40,840 --> 00:05:45,880
+and I I click click, you know, run to
+
+117
+00:05:42,640 --> 00:05:48,200
+.net and then then I see a download of
+
+118
+00:05:45,880 --> 00:05:51,200
+F# here, you know, because it's it's
+
+119
+00:05:48,200 --> 00:05:55,880
+related. Then I click download, install.
+
+120
+00:05:51,200 --> 00:05:58,600
+So, in 3 minutes, I installed F sharp.
+
+121
+00:05:55,880 --> 00:06:01,440
+And I try to run it, it run.
+
+122
+00:05:58,600 --> 00:06:04,160
+This is in contrast to
+
+123
+00:06:01,440 --> 00:06:06,360
+you know, OCaml, you know, OCaml I try
+
+124
+00:06:04,160 --> 00:06:09,120
+to install on Windows. Took, you know,
+
+125
+00:06:06,360 --> 00:06:10,840
+took took me an hour. Like you you have
+
+126
+00:06:09,120 --> 00:06:13,920
+to install this first of all, which
+
+127
+00:06:10,840 --> 00:06:16,040
+which runs your machine, 86 or 386,
+
+128
+00:06:13,920 --> 00:06:17,960
+whatever, babbling. You know, then you
+
+129
+00:06:16,040 --> 00:06:20,120
+you don't know which one. Then you after
+
+130
+00:06:17,960 --> 00:06:22,080
+you found one, then oh, but by the way,
+
+131
+00:06:20,120 --> 00:06:23,960
+if you are doing this, this, you have to
+
+132
+00:06:22,080 --> 00:06:26,360
+get that from you have to run this, you
+
+133
+00:06:23,960 --> 00:06:28,600
+know, that [ __ ] [ __ ] up.
+
+134
+00:06:26,360 --> 00:06:31,800
+That's a typical open source.
+
+135
+00:06:28,600 --> 00:06:33,960
+Similar is the story for Haskell. Okay,
+
+136
+00:06:31,800 --> 00:06:38,080
+I tried to learn Haskell for like for
+
+137
+00:06:33,960 --> 00:06:41,280
+for 10 years since 1990s.
+
+138
+00:06:38,080 --> 00:06:44,400
+But it never went anywhere. But F sharp
+
+139
+00:06:41,280 --> 00:06:46,800
+is amazing. F sharp, okay? So, you you
+
+140
+00:06:44,400 --> 00:06:49,600
+want to install just just search for
+
+141
+00:06:46,800 --> 00:06:51,960
+install F sharp. You'll install it in 3
+
+142
+00:06:49,600 --> 00:06:54,919
+minutes, okay?
+
+143
+00:06:51,960 --> 00:06:56,760
+And then the documentation, oh my god,
+
+144
+00:06:54,919 --> 00:06:59,000
+the documentation is amazing. First of
+
+145
+00:06:56,760 --> 00:07:00,480
+all, let me show you running uh
+
+146
+00:06:59,000 --> 00:07:03,360
+um
+
+147
+00:07:00,480 --> 00:07:07,240
+uh running F sharp, okay? So, this is my
+
+148
+00:07:03,360 --> 00:07:07,240
+learning notes. So,
+
+149
+00:07:10,040 --> 00:07:15,520
+So, copy and paste, run, okay? So,
+
+150
+00:07:12,280 --> 00:07:19,320
+search for print. So, for example,
+
+151
+00:07:15,520 --> 00:07:22,560
+print first F sharp. Run it in Emacs.
+
+152
+00:07:19,320 --> 00:07:24,800
+Fantastic, successful.
+
+153
+00:07:22,560 --> 00:07:27,320
+Welcome .NET 8.
+
+154
+00:07:24,800 --> 00:07:29,080
+Uh and where is my output? What is this?
+
+155
+00:07:27,320 --> 00:07:31,840
+First F sharp.
+
+156
+00:07:29,080 --> 00:07:31,840
+So,
+
+157
+00:07:32,520 --> 00:07:37,280
+this is the output.
+
+158
+00:07:34,360 --> 00:07:38,760
+Okay, close it. Now, let's say print
+
+159
+00:07:37,280 --> 00:07:41,160
+three.
+
+160
+00:07:38,760 --> 00:07:43,160
+Hello, love.
+
+161
+00:07:41,160 --> 00:07:44,400
+Run it.
+
+162
+00:07:43,160 --> 00:07:46,160
+You see,
+
+163
+00:07:44,400 --> 00:07:47,920
+when you run the first time, it prints a
+
+164
+00:07:46,160 --> 00:07:51,080
+bunch of other stuff, copyright or
+
+165
+00:07:47,920 --> 00:07:53,240
+whatever version. Then then now you just
+
+166
+00:07:51,080 --> 00:07:55,160
+get it, okay? Now, if I can run this,
+
+167
+00:07:53,240 --> 00:07:59,240
+okay, I'm going to do that. So, anyway,
+
+168
+00:07:55,160 --> 00:08:01,400
+so this here is um OCaml, okay? Syntax
+
+169
+00:07:59,240 --> 00:08:03,320
+color it showing browser.
+
+170
+00:08:01,400 --> 00:08:06,000
+Fantastic.
+
+171
+00:08:03,320 --> 00:08:10,480
+So, you get If you want to run this in
+
+172
+00:08:06,000 --> 00:08:12,360
+command line, then then it's dot net fsi
+
+173
+00:08:10,480 --> 00:08:13,960
+then um
+
+174
+00:08:12,360 --> 00:08:16,160
+then the file name.
+
+175
+00:08:13,960 --> 00:08:17,520
+Okay, so that's kind of the introduction
+
+176
+00:08:16,160 --> 00:08:19,520
+to F sharp.
+
+177
+00:08:17,520 --> 00:08:22,480
+Uh it's fantastic. Oh, yeah, the
+
+178
+00:08:19,520 --> 00:08:26,000
+documentation. The documentation
+
+179
+00:08:22,480 --> 00:08:28,640
+of F sharp is beautiful, okay? You can
+
+180
+00:08:26,000 --> 00:08:31,680
+learn it in like you know in
+
+181
+00:08:28,640 --> 00:08:34,080
+in an hour, in a few days.
+
+182
+00:08:31,680 --> 00:08:37,360
+So, you know, so everything is
+
+183
+00:08:34,080 --> 00:08:40,520
+professionally written and clear.
+
+184
+00:08:37,360 --> 00:08:44,120
+You know, so fantastic. Now, again, in
+
+185
+00:08:40,520 --> 00:08:47,600
+contrast to the Haskell [ __ ]
+
+186
+00:08:44,120 --> 00:08:50,000
+or the OCaml [ __ ] this open source.
+
+187
+00:08:47,600 --> 00:08:52,920
+You know, I love them. I I'm obsessed
+
+188
+00:08:50,000 --> 00:08:54,839
+about them like since like 20 years ago.
+
+189
+00:08:52,920 --> 00:08:55,880
+But you try to read their documentation
+
+190
+00:08:54,839 --> 00:08:59,400
+like
+
+191
+00:08:55,880 --> 00:08:59,400
+extremely lousy.
+
+192
+00:08:59,760 --> 00:09:04,360
+Extreme, like to the extreme. Okay, you
+
+193
+00:09:02,240 --> 00:09:07,320
+know, let me show you some of my old
+
+194
+00:09:04,360 --> 00:09:09,440
+articles about it.
+
+195
+00:09:07,320 --> 00:09:10,720
+So, as a
+
+196
+00:09:09,440 --> 00:09:13,440
+proof
+
+197
+00:09:10,720 --> 00:09:15,680
+of what I said what I said is true. You
+
+198
+00:09:13,440 --> 00:09:18,720
+know, so there are few articles. Let me
+
+199
+00:09:15,680 --> 00:09:21,040
+just randomly show them.
+
+200
+00:09:18,720 --> 00:09:23,120
+Um
+
+201
+00:09:21,040 --> 00:09:26,280
+Okay, Haskell basic. There it is,
+
+202
+00:09:23,120 --> 00:09:28,560
+Haskell basics, you see? So, I started
+
+203
+00:09:26,280 --> 00:09:32,440
+to actually try to write a tutorial for
+
+204
+00:09:28,560 --> 00:09:35,920
+Haskell in 2009. So, you can see or see
+
+205
+00:09:32,440 --> 00:09:38,200
+some vestige of my like defunct
+
+206
+00:09:35,920 --> 00:09:41,440
+tutorial, 2006.
+
+207
+00:09:38,200 --> 00:09:43,240
+This began in 2006. You know, I started
+
+208
+00:09:41,440 --> 00:09:46,440
+to learn Haskell.
+
+209
+00:09:43,240 --> 00:09:48,760
+Uh in fact, I deleted I think I deleted
+
+210
+00:09:46,440 --> 00:09:50,000
+most of the, you know, like
+
+211
+00:09:48,760 --> 00:09:53,320
+You know,
+
+212
+00:09:50,000 --> 00:09:56,600
+it's this is abandoned project. So, 2000
+
+213
+00:09:53,320 --> 00:09:58,920
+2005, you see. 2005, you read the
+
+214
+00:09:56,600 --> 00:10:02,120
+documentation, it's like they got a
+
+215
+00:09:58,920 --> 00:10:03,920
+bunch of academic documentation written
+
+216
+00:10:02,120 --> 00:10:05,560
+by professors.
+
+217
+00:10:03,920 --> 00:10:07,280
+You know, the first chapter is going to
+
+218
+00:10:05,560 --> 00:10:09,920
+tell you mathematics something
+
+219
+00:10:07,280 --> 00:10:11,360
+something. Then, the first program you
+
+220
+00:10:09,920 --> 00:10:13,560
+have to write, "Oh, let's write a
+
+221
+00:10:11,360 --> 00:10:16,000
+derivative."
+
+222
+00:10:13,560 --> 00:10:17,360
+Who the [ __ ] do does a derivative?
+
+223
+00:10:16,000 --> 00:10:19,320
+That's what they do.
+
+224
+00:10:17,360 --> 00:10:23,840
+You know, for for 20 for 30 years, it
+
+225
+00:10:19,320 --> 00:10:26,400
+has has Haskell begin began in 1980s, I
+
+226
+00:10:23,840 --> 00:10:31,040
+think. Okay? Haskell
+
+227
+00:10:26,400 --> 00:10:33,880
+in in competent incompetent [ __ ]
+
+228
+00:10:31,040 --> 00:10:37,320
+So, this is the proof that, you know, I
+
+229
+00:10:33,880 --> 00:10:40,800
+started to learn Haskell in 2005.
+
+230
+00:10:37,320 --> 00:10:45,000
+And in the 1990s, you know, because I I
+
+231
+00:10:40,800 --> 00:10:47,400
+began my programming career in 1990s.
+
+232
+00:10:45,000 --> 00:10:50,040
+And you have like functional programming
+
+233
+00:10:47,400 --> 00:10:54,240
+frequently asked questions.
+
+234
+00:10:50,040 --> 00:10:56,400
+They tell you about Haskell, OCaml, ML,
+
+235
+00:10:54,240 --> 00:10:58,080
+and a quite a few. And a Clean, there's
+
+236
+00:10:56,400 --> 00:11:00,440
+a language called Clean. There's a
+
+237
+00:10:58,080 --> 00:11:03,560
+Miranda. Okay? These are the like
+
+238
+00:11:00,440 --> 00:11:05,839
+popular names back then.
+
+239
+00:11:03,560 --> 00:11:07,720
+Uh okay, so then let me go one by one.
+
+240
+00:11:05,839 --> 00:11:10,360
+So, um
+
+241
+00:11:07,720 --> 00:11:14,480
+So, let's go to talk show again. So, let
+
+242
+00:11:10,360 --> 00:11:14,480
+me just mention some of the names.
+
+243
+00:11:15,280 --> 00:11:20,280
+Miranda
+
+244
+00:11:17,480 --> 00:11:20,280
+Clean
+
+245
+00:11:20,440 --> 00:11:26,200
+functional programming language, okay?
+
+246
+00:11:23,720 --> 00:11:28,760
+Let's search it so you can see Clean.
+
+247
+00:11:26,200 --> 00:11:32,800
+There it is. Clean programming language.
+
+248
+00:11:28,760 --> 00:11:35,200
+This was in the '90s. This is a It It
+
+249
+00:11:32,800 --> 00:11:38,320
+was a commercial programming language,
+
+250
+00:11:35,200 --> 00:11:40,120
+commercial. Then, I think in 2010 or
+
+251
+00:11:38,320 --> 00:11:43,520
+something, they
+
+252
+00:11:40,120 --> 00:11:45,280
+released in 2000 um
+
+253
+00:11:43,520 --> 00:11:48,040
+you know, they released in open source
+
+254
+00:11:45,280 --> 00:11:49,920
+because the open source virus, you know,
+
+255
+00:11:48,040 --> 00:11:51,360
+you can't survive if you are not open
+
+256
+00:11:49,920 --> 00:11:54,160
+source.
+
+257
+00:11:51,360 --> 00:11:56,240
+So, that So, there is a clean
+
+258
+00:11:54,160 --> 00:11:58,880
+programming language and Miranda. So,
+
+259
+00:11:56,240 --> 00:12:03,200
+let's search for You see, they are You
+
+260
+00:11:58,880 --> 00:12:05,000
+see, influenced by Miranda.
+
+261
+00:12:03,200 --> 00:12:07,000
+Uh you see, so if you are in a
+
+262
+00:12:05,000 --> 00:12:09,000
+functional programming community, you
+
+263
+00:12:07,000 --> 00:12:10,000
+kind of know all these because they are
+
+264
+00:12:09,000 --> 00:12:12,240
+all
+
+265
+00:12:10,000 --> 00:12:14,000
+you know, neighbors and
+
+266
+00:12:12,240 --> 00:12:17,480
+brothers and sisters. So, there's
+
+267
+00:12:14,000 --> 00:12:20,120
+Miranda, there's SASL, very
+
+268
+00:12:17,480 --> 00:12:24,000
+familiar name, and Hope.
+
+269
+00:12:20,120 --> 00:12:25,680
+So, Miranda is another commercial um
+
+270
+00:12:24,000 --> 00:12:29,560
+functional programming language. You
+
+271
+00:12:25,680 --> 00:12:33,000
+see, started in 1985.
+
+272
+00:12:29,560 --> 00:12:34,680
+Okay. Copy the file name.
+
+273
+00:12:33,000 --> 00:12:36,520
+In fact,
+
+274
+00:12:34,680 --> 00:12:39,400
+I'm not going to you know, I don't want
+
+275
+00:12:36,520 --> 00:12:42,520
+to link to Wikipedia these days because
+
+276
+00:12:39,400 --> 00:12:45,720
+Wikipedia become very corrupt. However,
+
+277
+00:12:42,520 --> 00:12:47,560
+for technical stuff, Wikipedia can still
+
+278
+00:12:45,720 --> 00:12:49,880
+be trusted.
+
+279
+00:12:47,560 --> 00:12:52,720
+So, you see, Miranda. Anyway, so you
+
+280
+00:12:49,880 --> 00:12:54,880
+know, many old programming language,
+
+281
+00:12:52,720 --> 00:12:57,200
+functional programming languages. They
+
+282
+00:12:54,880 --> 00:13:00,080
+are They are all kind of related, just
+
+283
+00:12:57,200 --> 00:13:03,520
+like C, C++,
+
+284
+00:13:00,080 --> 00:13:06,000
+C#, Java. They are kind of the same
+
+285
+00:13:03,520 --> 00:13:08,200
+bunch. You know, doing one thing, you
+
+286
+00:13:06,000 --> 00:13:09,480
+have similar thing in another.
+
+287
+00:13:08,200 --> 00:13:11,760
+So,
+
+288
+00:13:09,480 --> 00:13:14,400
+that's similarly in functional
+
+289
+00:13:11,760 --> 00:13:16,800
+programming community. So, there is my
+
+290
+00:13:14,400 --> 00:13:18,680
+Haskell, you know, backing. So, one
+
+291
+00:13:16,800 --> 00:13:19,760
+thing worth mentioning
+
+292
+00:13:18,680 --> 00:13:22,440
+uh
+
+293
+00:13:19,760 --> 00:13:24,240
+this you know, my tutorial is not worth
+
+294
+00:13:22,440 --> 00:13:27,320
+reading. I mean, there's nothing, you
+
+295
+00:13:24,240 --> 00:13:29,120
+know, there's only two pages.
+
+296
+00:13:27,320 --> 00:13:33,000
+But, one thing
+
+297
+00:13:29,120 --> 00:13:34,680
+uh is interesting is that I created a
+
+298
+00:13:33,000 --> 00:13:36,400
+um
+
+299
+00:13:34,680 --> 00:13:39,920
+uh
+
+300
+00:13:36,400 --> 00:13:42,320
+I created a Haskell logo.
+
+301
+00:13:39,920 --> 00:13:45,760
+I thought I deleted this page, but I
+
+302
+00:13:42,320 --> 00:13:45,760
+guess okay. So,
+
+303
+00:13:46,880 --> 00:13:53,040
+where is it? Yeah, Haskell logo. So,
+
+304
+00:13:48,880 --> 00:13:55,840
+back in 2005, I created this
+
+305
+00:13:53,040 --> 00:13:57,960
+this web badge.
+
+306
+00:13:55,840 --> 00:14:01,000
+Uh back then web badge is somewhat
+
+307
+00:13:57,960 --> 00:14:02,960
+popular. You can put on your website,
+
+308
+00:14:01,000 --> 00:14:06,560
+you know, kind of a logo. This website
+
+309
+00:14:02,960 --> 00:14:09,200
+is made by Java. You know, this this
+
+310
+00:14:06,560 --> 00:14:12,640
+this website is made by something. This
+
+311
+00:14:09,200 --> 00:14:16,280
+website is W3 standard approved, you
+
+312
+00:14:12,640 --> 00:14:19,960
+know, like a bunch of badges.
+
+313
+00:14:16,280 --> 00:14:22,200
+So, I created um the Haskell logo.
+
+314
+00:14:19,960 --> 00:14:25,160
+Uh that's very interesting because then
+
+315
+00:14:22,200 --> 00:14:28,000
+you see the Haskell logo history. This
+
+316
+00:14:25,160 --> 00:14:30,480
+is Yale Haskell project. This is dead
+
+317
+00:14:28,000 --> 00:14:33,960
+since 1999.
+
+318
+00:14:30,480 --> 00:14:37,560
+You got this bullfrog, very interesting.
+
+319
+00:14:33,960 --> 00:14:39,240
+Then this this is Hugs 98.
+
+320
+00:14:37,560 --> 00:14:41,160
+Uh this is
+
+321
+00:14:39,240 --> 00:14:44,080
+this is one of the original Haskell
+
+322
+00:14:41,160 --> 00:14:48,760
+logo, 2002.
+
+323
+00:14:44,080 --> 00:14:50,839
+Then in 2003, they improved it upgrade.
+
+324
+00:14:48,760 --> 00:14:55,000
+So, it becomes like that. You got this
+
+325
+00:14:50,839 --> 00:14:57,240
+bunch of symbols. I'm I was still am
+
+326
+00:14:55,000 --> 00:14:59,480
+obsessive I'm fascinated with this
+
+327
+00:14:57,240 --> 00:15:02,600
+symbology. As you know, I talked about
+
+328
+00:14:59,480 --> 00:15:05,600
+Unicode. I have a lot of work on Unicode
+
+329
+00:15:02,600 --> 00:15:08,200
+and math symbols. So, what does this
+
+330
+00:15:05,600 --> 00:15:10,839
+each one of these represent?
+
+331
+00:15:08,200 --> 00:15:13,240
+So, I asked the arrow the So, I asked
+
+332
+00:15:10,839 --> 00:15:16,400
+people. So, actually people
+
+333
+00:15:13,240 --> 00:15:17,720
+uh in newsgroup, they helped me. They
+
+334
+00:15:16,400 --> 00:15:20,320
+they told me.
+
+335
+00:15:17,720 --> 00:15:24,320
+So, the at the right arrow represents
+
+336
+00:15:20,320 --> 00:15:28,160
+signifies signifies transformation.
+
+337
+00:15:24,320 --> 00:15:29,720
+The upside down A is
+
+338
+00:15:28,160 --> 00:15:31,880
+for all.
+
+339
+00:15:29,720 --> 00:15:36,840
+The double
+
+340
+00:15:31,880 --> 00:15:39,200
+greater than sign is free from disorder.
+
+341
+00:15:36,840 --> 00:15:41,000
+Free from disorder.
+
+342
+00:15:39,200 --> 00:15:44,520
+The doubles
+
+343
+00:15:41,000 --> 00:15:48,400
+colon means exactitude.
+
+344
+00:15:44,520 --> 00:15:50,760
+The double arrow means generality.
+
+345
+00:15:48,400 --> 00:15:54,680
+The lambda means functionality. By the
+
+346
+00:15:50,760 --> 00:15:56,800
+way, this is kind of a poem I wrote.
+
+347
+00:15:54,680 --> 00:15:59,960
+I mean, that's not exactly. I mean, I'm
+
+348
+00:15:56,800 --> 00:15:59,960
+adding a little bit.
+
+349
+00:16:00,560 --> 00:16:05,440
+Florid this florid description.
+
+350
+00:16:07,600 --> 00:16:14,080
+That's my alarm clock telling me I need
+
+351
+00:16:10,360 --> 00:16:14,080
+to get up and walk.
+
+352
+00:16:14,280 --> 00:16:18,440
+Okay, let me get my tea.
+
+353
+00:17:00,400 --> 00:17:08,920
+So fantastic Haskell.
+
+354
+00:17:04,680 --> 00:17:10,959
+Uh you know, so in 2008, about 2007,
+
+355
+00:17:08,920 --> 00:17:14,400
+2008,
+
+356
+00:17:10,959 --> 00:17:15,800
+Haskell became somewhat very popular
+
+357
+00:17:14,400 --> 00:17:20,319
+uh
+
+358
+00:17:15,800 --> 00:17:23,760
+because that's the era when CPU becomes
+
+359
+00:17:20,319 --> 00:17:26,400
+multi CPU, you know, multi core
+
+360
+00:17:23,760 --> 00:17:30,680
+because CPU don't get any faster
+
+361
+00:17:26,400 --> 00:17:33,040
+anymore. So, around 2008
+
+362
+00:17:30,680 --> 00:17:35,560
+Haskell suddenly became very
+
+363
+00:17:33,040 --> 00:17:38,160
+popular used by Facebook and other
+
+364
+00:17:35,560 --> 00:17:40,320
+corporations. So, these days today if
+
+365
+00:17:38,160 --> 00:17:42,720
+you do a pure if you code in pure
+
+366
+00:17:40,320 --> 00:17:45,040
+functional programming languages
+
+367
+00:17:42,720 --> 00:17:46,520
+you can find a job, okay?
+
+368
+00:17:45,040 --> 00:17:51,400
+So, they are used by
+
+369
+00:17:46,520 --> 00:17:51,400
+by by Facebook and and elsewhere.
+
+370
+00:17:51,880 --> 00:17:55,200
+Is Coke?
+
+371
+00:18:00,120 --> 00:18:05,200
+Hello German, Wolfram language
+
+372
+00:18:03,640 --> 00:18:07,120
+programmer.
+
+373
+00:18:05,200 --> 00:18:09,640
+Hello Michael.
+
+374
+00:18:07,120 --> 00:18:11,320
+Hi, are you teaching the fun funda
+
+375
+00:18:09,640 --> 00:18:14,240
+fundamental of functional programming?
+
+376
+00:18:11,320 --> 00:18:14,240
+No, not really.
+
+377
+00:18:16,920 --> 00:18:21,920
+But I can do that, you know, that would
+
+378
+00:18:19,440 --> 00:18:24,640
+be a fun topic. I can do that, but I
+
+379
+00:18:21,920 --> 00:18:27,680
+wasn't doing I'm not doing that today.
+
+380
+00:18:24,640 --> 00:18:30,440
+I'm just rambling. I mean, talking about
+
+381
+00:18:27,680 --> 00:18:32,200
+like functional programming introduction
+
+382
+00:18:30,440 --> 00:18:35,440
+to F sharp.
+
+383
+00:18:32,200 --> 00:18:36,720
+F sharp beautiful documentation easy to
+
+384
+00:18:35,440 --> 00:18:39,760
+understand
+
+385
+00:18:36,720 --> 00:18:42,640
+you know, language guide literals, you
+
+386
+00:18:39,760 --> 00:18:43,400
+know, F sharp literals and strings, you
+
+387
+00:18:42,640 --> 00:18:45,640
+know,
+
+388
+00:18:43,400 --> 00:18:47,840
+easy to understand. So,
+
+389
+00:18:45,640 --> 00:18:50,920
+I recommend F sharp.
+
+390
+00:18:47,840 --> 00:18:53,880
+Now, if you are on Linux, you have a few
+
+391
+00:18:50,920 --> 00:18:57,360
+choices. You can go with Haskell or
+
+392
+00:18:53,880 --> 00:19:00,000
+OCaml, okay? OCaml is very good.
+
+393
+00:18:57,360 --> 00:19:03,640
+And by the way, OCaml also came to
+
+394
+00:19:00,000 --> 00:19:06,040
+JavaScript. So, there is JavaScript
+
+395
+00:19:03,640 --> 00:19:07,800
+version of OCaml. So, let me let me let
+
+396
+00:19:06,040 --> 00:19:11,000
+me
+
+397
+00:19:07,800 --> 00:19:14,960
+go through my topics one by one, okay?
+
+398
+00:19:11,000 --> 00:19:14,960
+No rush. Uh
+
+399
+00:19:15,400 --> 00:19:19,000
+ML script and
+
+400
+00:19:23,200 --> 00:19:28,880
+So, Facebook, the mega corporation by
+
+401
+00:19:26,880 --> 00:19:31,120
+the Zuckerberg
+
+402
+00:19:28,880 --> 00:19:34,800
+scum
+
+403
+00:19:31,120 --> 00:19:38,080
+the corporation created they they moved
+
+404
+00:19:34,800 --> 00:19:39,960
+the they created a JavaScript version of
+
+405
+00:19:38,080 --> 00:19:42,200
+the meta language.
+
+406
+00:19:39,960 --> 00:19:45,080
+OCaml, okay? So,
+
+407
+00:19:42,200 --> 00:19:47,760
+so let me try to find the name.
+
+408
+00:19:45,080 --> 00:19:47,760
+Um
+
+409
+00:19:50,640 --> 00:19:55,280
+JavaScript type TypeScript, so it would
+
+410
+00:19:53,120 --> 00:19:57,320
+be much better than TypeScript.
+
+411
+00:19:55,280 --> 00:20:00,680
+TypeScript is [ __ ]
+
+412
+00:19:57,320 --> 00:20:05,000
+TypeScript, you know, uh TypeScript is a
+
+413
+00:20:00,680 --> 00:20:08,120
+superset of JavaScript where they add
+
+414
+00:20:05,000 --> 00:20:11,280
+you know, like strict types and type
+
+415
+00:20:08,120 --> 00:20:15,320
+inference to JavaScript. But, however,
+
+416
+00:20:11,280 --> 00:20:17,600
+it's strictly a superset. So, when you
+
+417
+00:20:15,320 --> 00:20:20,520
+write JavaScript, whatever JavaScript,
+
+418
+00:20:17,600 --> 00:20:23,120
+it is also TypeScript because it's
+
+419
+00:20:20,520 --> 00:20:25,800
+exactly, you know, TypeScript is exactly
+
+420
+00:20:23,120 --> 00:20:28,360
+a superset.
+
+421
+00:20:25,800 --> 00:20:30,200
+So, by grafting type system into
+
+422
+00:20:28,360 --> 00:20:31,960
+JavaScript
+
+423
+00:20:30,200 --> 00:20:35,920
+that makes it very lousy because
+
+424
+00:20:31,960 --> 00:20:38,200
+JavaScript the syntax is already [ __ ]
+
+425
+00:20:35,920 --> 00:20:41,240
+Then you then now you have to add types
+
+426
+00:20:38,200 --> 00:20:43,640
+to that [ __ ] syntax. So, it becomes more
+
+427
+00:20:41,240 --> 00:20:45,800
+[ __ ]
+
+428
+00:20:43,640 --> 00:20:47,640
+Nothing they can do because if you
+
+429
+00:20:45,800 --> 00:20:49,360
+create a new language, then people is
+
+430
+00:20:47,640 --> 00:20:52,800
+not going to learn.
+
+431
+00:20:49,360 --> 00:20:56,440
+That's the major factor for popularity
+
+432
+00:20:52,800 --> 00:21:00,800
+of language. That is why C++ is so
+
+433
+00:20:56,440 --> 00:21:04,760
+popular because C was popular. And the
+
+434
+00:21:00,800 --> 00:21:07,280
+C++ [ __ ] he's thinking, "Oh, I'll
+
+435
+00:21:04,760 --> 00:21:09,000
+just add a little thing to C.
+
+436
+00:21:07,280 --> 00:21:10,680
+Then everyone will love it because they
+
+437
+00:21:09,000 --> 00:21:12,800
+already know it. You know, people don't
+
+438
+00:21:10,680 --> 00:21:14,400
+want to learn new things like new way.
+
+439
+00:21:12,800 --> 00:21:16,200
+They don't They know They don't care.
+
+440
+00:21:14,400 --> 00:21:18,200
+They They They just care, "Oh, I already
+
+441
+00:21:16,200 --> 00:21:23,120
+know this. I can make money."
+
+442
+00:21:18,200 --> 00:21:27,160
+You know, that's how C++ became popular.
+
+443
+00:21:23,120 --> 00:21:29,520
+Uh scum tactics. Lots of the things in
+
+444
+00:21:27,160 --> 00:21:32,640
+uh software industry is uh scum tactics
+
+445
+00:21:29,520 --> 00:21:36,960
+scum tactics. Somewhat, okay? Not
+
+446
+00:21:32,640 --> 00:21:40,280
+exactly. The I I don't think the C++ guy
+
+447
+00:21:36,960 --> 00:21:41,400
+is a bad guy. His name is um you know,
+
+448
+00:21:40,280 --> 00:21:43,400
+some uh
+
+449
+00:21:41,400 --> 00:21:44,920
+hard to pronounce, you know, so I don't
+
+450
+00:21:43,400 --> 00:21:48,680
+think he's a
+
+451
+00:21:44,920 --> 00:21:53,240
+bad guy, but however
+
+452
+00:21:48,680 --> 00:21:54,920
+the way he created C++ and promoted
+
+453
+00:21:53,240 --> 00:21:57,920
+I don't like it.
+
+454
+00:21:54,920 --> 00:22:01,880
+You know, it's like [ __ ] Like let's add
+
+455
+00:21:57,920 --> 00:22:05,800
+a [ __ ] layer on top of another [ __ ] C.
+
+456
+00:22:01,880 --> 00:22:05,800
+That's what C++ is.
+
+457
+00:22:07,560 --> 00:22:11,040
+So,
+
+458
+00:22:08,720 --> 00:22:14,080
+TypeScript, you know, Types Oh, by the
+
+459
+00:22:11,040 --> 00:22:17,640
+way, the the guy who created TypeScript,
+
+460
+00:22:14,080 --> 00:22:19,200
+that's one of the great genius, okay?
+
+461
+00:22:17,640 --> 00:22:22,280
+I respect
+
+462
+00:22:19,200 --> 00:22:25,280
+the guy who created uh TypeScript from
+
+463
+00:22:22,280 --> 00:22:25,280
+Microsoft.
+
+464
+00:22:27,080 --> 00:22:31,800
+By his name is Andy something.
+
+465
+00:22:44,120 --> 00:22:47,200
+Coke and tea.
+
+466
+00:22:56,360 --> 00:23:01,840
+Where does it Can you even find the
+
+467
+00:22:58,440 --> 00:23:01,840
+name? Yeah, God.
+
+468
+00:23:04,600 --> 00:23:08,000
+Uh so
+
+469
+00:23:11,520 --> 00:23:16,720
+Okay, let me go through them one by one,
+
+470
+00:23:14,040 --> 00:23:18,800
+not missing a beat, okay?
+
+471
+00:23:16,720 --> 00:23:18,800
+Um
+
+472
+00:23:19,560 --> 00:23:24,560
+O'Caml in JavaScript, let's find what
+
+473
+00:23:22,000 --> 00:23:27,280
+that uh name is.
+
+474
+00:23:24,560 --> 00:23:27,280
+Um
+
+475
+00:23:27,560 --> 00:23:31,520
+JS of O'Caml, no.
+
+476
+00:23:33,520 --> 00:23:38,920
+Uh
+
+477
+00:23:34,360 --> 00:23:38,920
+okay, I can find it. Hold on a second.
+
+478
+00:23:46,560 --> 00:23:50,080
+Uh where is it?
+
+479
+00:23:52,640 --> 00:23:56,240
+Okay, so hold on a second.
+
+480
+00:23:58,400 --> 00:24:03,560
+Anders Hejlsberg, yes, that's the guy.
+
+481
+00:24:02,400 --> 00:24:06,160
+Thank you.
+
+482
+00:24:03,560 --> 00:24:08,280
+Um
+
+483
+00:24:06,160 --> 00:24:13,000
+Hold on a second. So, let me I
+
+484
+00:24:08,280 --> 00:24:17,120
+determined to find it on my blog because
+
+485
+00:24:13,000 --> 00:24:19,080
+the web is chaotic, so usually if I have
+
+486
+00:24:17,120 --> 00:24:22,000
+something written down,
+
+487
+00:24:19,080 --> 00:24:25,280
+I can find it on my blog
+
+488
+00:24:22,000 --> 00:24:28,440
+and I remember where it is. So, here's a
+
+489
+00:24:25,280 --> 00:24:31,240
+bunch of languages and uh
+
+490
+00:24:28,440 --> 00:24:31,240
+um
+
+491
+00:24:31,360 --> 00:24:36,040
+So, I just have to remember what was the
+
+492
+00:24:34,640 --> 00:24:40,120
+um
+
+493
+00:24:36,040 --> 00:24:40,120
+the article title.
+
+494
+00:24:49,840 --> 00:24:54,280
+Uh that all the history of this
+
+495
+00:24:53,080 --> 00:24:57,040
+um
+
+496
+00:24:54,280 --> 00:24:58,920
+There, proliferation of programming
+
+497
+00:24:57,040 --> 00:25:01,920
+languages, okay?
+
+498
+00:24:58,920 --> 00:25:01,920
+So,
+
+499
+00:25:03,720 --> 00:25:10,680
+Okay, so you got a Lisp, new Lisp, Arc
+
+500
+00:25:06,840 --> 00:25:13,080
+Lisp, Chi Lisp, Shen Lisp, Closure Lisp,
+
+501
+00:25:10,680 --> 00:25:16,480
+Scheme Lisp.
+
+502
+00:25:13,080 --> 00:25:19,040
+You got six SICP
+
+503
+00:25:16,480 --> 00:25:21,800
+Structure and Interpretation of
+
+504
+00:25:19,040 --> 00:25:24,440
+Computer Programs, and you got this
+
+505
+00:25:21,800 --> 00:25:28,640
+lambda in a school.
+
+506
+00:25:24,440 --> 00:25:31,920
+You got Dylan Dylan Lisp dead from
+
+507
+00:25:28,640 --> 00:25:35,000
+Apple. You got Meta Language. Then you
+
+508
+00:25:31,920 --> 00:25:38,480
+got Oh, by the way, so I also wrote a
+
+509
+00:25:35,000 --> 00:25:42,360
+OCaml tutorial back in 2009.
+
+510
+00:25:38,480 --> 00:25:45,360
+So, this is I went much further than the
+
+511
+00:25:42,360 --> 00:25:47,560
+Haskell. You know, so I I actually
+
+512
+00:25:45,360 --> 00:25:50,760
+learned learned something.
+
+513
+00:25:47,560 --> 00:25:52,960
+So, you got OCaml, list,
+
+514
+00:25:50,760 --> 00:25:56,160
+you know, list, array, tuple, record
+
+515
+00:25:52,960 --> 00:25:58,920
+type, function, pattern matching, uh you
+
+516
+00:25:56,160 --> 00:26:01,840
+know, types in OCaml. By the way, so my
+
+517
+00:25:58,920 --> 00:26:02,960
+OCaml tutorial is not worth reading
+
+518
+00:26:01,840 --> 00:26:05,480
+today.
+
+519
+00:26:02,960 --> 00:26:08,040
+You know, so it's not good. So, you
+
+520
+00:26:05,480 --> 00:26:11,960
+actually you can learn
+
+521
+00:26:08,040 --> 00:26:14,560
+a lot just by asking AI AI chatbot, you
+
+522
+00:26:11,960 --> 00:26:16,440
+know, just ask Google like,
+
+523
+00:26:14,560 --> 00:26:18,920
+you know, so
+
+524
+00:26:16,440 --> 00:26:22,200
+So, I started So, I didn't finish you
+
+525
+00:26:18,920 --> 00:26:25,640
+know, OCaml tutorial. So, let me make a
+
+526
+00:26:22,200 --> 00:26:25,640
+copy. So, why not?
+
+527
+00:26:25,880 --> 00:26:31,520
+And where is my Haskell?
+
+528
+00:26:28,880 --> 00:26:34,440
+Haskell logo, copy.
+
+529
+00:26:31,520 --> 00:26:36,720
+Uh I'm going to go over each of these,
+
+530
+00:26:34,440 --> 00:26:41,520
+okay? So,
+
+531
+00:26:36,720 --> 00:26:45,040
+So, Haskell logo, great. Um so, now we
+
+532
+00:26:41,520 --> 00:26:49,080
+want to find the name of that
+
+533
+00:26:45,040 --> 00:26:53,560
+programming language, which is OCaml,
+
+534
+00:26:49,080 --> 00:26:55,800
+but in JavaScript syntax from Facebook.
+
+535
+00:26:53,560 --> 00:26:59,280
+Okay, so you got F sharp, you got
+
+536
+00:26:55,800 --> 00:27:00,920
+Haskell, you got PHP, you got you know,
+
+537
+00:26:59,280 --> 00:27:02,880
+Scala,
+
+538
+00:27:00,920 --> 00:27:06,400
+Groovy, you got a bunch JavaScript,
+
+539
+00:27:02,880 --> 00:27:10,200
+PowerShell, TCL, very popular popular in
+
+540
+00:27:06,400 --> 00:27:12,320
+year 2000s. Lua became popular in year
+
+541
+00:27:10,200 --> 00:27:15,440
+2020.
+
+542
+00:27:12,320 --> 00:27:18,240
+Linden Scripting Language was massive
+
+543
+00:27:15,440 --> 00:27:21,320
+number of users back then.
+
+544
+00:27:18,240 --> 00:27:24,200
+Uh so, what is the uh yeah, so you go
+
+545
+00:27:21,320 --> 00:27:26,800
+down then Pure is a
+
+546
+00:27:24,200 --> 00:27:30,160
+uh term rewriting system.
+
+547
+00:27:26,800 --> 00:27:33,240
+They used to have a um
+
+548
+00:27:30,160 --> 00:27:35,000
+they used to have a Wikipedia entry, but
+
+549
+00:27:33,240 --> 00:27:38,920
+it got deleted.
+
+550
+00:27:35,000 --> 00:27:40,920
+You know, sometimes Wikipedia delete um
+
+551
+00:27:38,920 --> 00:27:44,080
+entries. Factor, so a bunch of
+
+552
+00:27:40,920 --> 00:27:46,280
+programming language Go, 2009,
+
+553
+00:27:44,080 --> 00:27:49,680
+a kind of revolution because Go is a
+
+554
+00:27:46,280 --> 00:27:51,040
+language that introduced automatic
+
+555
+00:27:49,680 --> 00:27:54,040
+formatting.
+
+556
+00:27:51,040 --> 00:27:56,240
+Go format, that revolution
+
+557
+00:27:54,040 --> 00:28:00,080
+revolutionized the
+
+558
+00:27:56,240 --> 00:28:02,120
+the programming coding style, [ __ ]
+
+559
+00:28:00,080 --> 00:28:04,200
+Okay, because now you don't
+
+560
+00:28:02,120 --> 00:28:07,840
+you know, you don't indent one by line
+
+561
+00:28:04,200 --> 00:28:11,200
+one line by line, okay? So, and Rust
+
+562
+00:28:07,840 --> 00:28:13,560
+Rust with you know, okay. Rust is the
+
+563
+00:28:11,200 --> 00:28:17,120
+one with the hype.
+
+564
+00:28:13,560 --> 00:28:19,800
+Idiotic. Julia is great. So, Julia is
+
+565
+00:28:17,120 --> 00:28:21,400
+another kind of functional programming
+
+566
+00:28:19,800 --> 00:28:25,560
+language
+
+567
+00:28:21,400 --> 00:28:29,920
+together with Haskell, F sharp, OCaml.
+
+568
+00:28:25,560 --> 00:28:32,680
+Uh and they became, you know, in 2011,
+
+569
+00:28:29,920 --> 00:28:37,440
+they came, you know, they supposedly is
+
+570
+00:28:32,680 --> 00:28:39,440
+a fastest, you know, even as fast as C.
+
+571
+00:28:37,440 --> 00:28:41,960
+That's what they claim when it when when
+
+572
+00:28:39,440 --> 00:28:44,880
+it came out. So, Julia, okay?
+
+573
+00:28:41,960 --> 00:28:47,360
+And I think it's good.
+
+574
+00:28:44,880 --> 00:28:49,840
+But today, you know, since like 2010,
+
+575
+00:28:47,360 --> 00:28:52,520
+you just got so many so many languages.
+
+576
+00:28:49,840 --> 00:28:54,640
+So, even though it's good, but there's a
+
+577
+00:28:52,520 --> 00:28:55,520
+lot of other good ones, too.
+
+578
+00:28:54,640 --> 00:28:56,840
+Uh
+
+579
+00:28:55,520 --> 00:28:59,080
+so,
+
+580
+00:28:56,840 --> 00:29:00,240
+I was going to learn Julia, but I think
+
+581
+00:28:59,080 --> 00:29:03,080
+I learned
+
+582
+00:29:00,240 --> 00:29:05,600
+F sharp instead because F sharp, you
+
+583
+00:29:03,080 --> 00:29:08,680
+got, you know, Microsoft.net,
+
+584
+00:29:05,600 --> 00:29:11,680
+which is the powerful engine,
+
+585
+00:29:08,680 --> 00:29:13,280
+which is also running C sharp and uh
+
+586
+00:29:11,680 --> 00:29:15,760
+PowerShell.
+
+587
+00:29:13,280 --> 00:29:17,800
+I already I know PowerShell, so
+
+588
+00:29:15,760 --> 00:29:19,720
+you know, so I didn't learn Julia. And
+
+589
+00:29:17,800 --> 00:29:21,720
+And the other thing about Julia is that
+
+590
+00:29:19,720 --> 00:29:23,440
+So, one day, you know, a few years ago,
+
+591
+00:29:21,720 --> 00:29:26,040
+5 years ago,
+
+592
+00:29:23,440 --> 00:29:28,480
+you know, on Twitter,
+
+593
+00:29:26,040 --> 00:29:31,160
+you know, uh that's back in the social
+
+594
+00:29:28,480 --> 00:29:35,160
+justice warrior days, you know, social
+
+595
+00:29:31,160 --> 00:29:37,080
+justice, feminism, patriarchy. All males
+
+596
+00:29:35,160 --> 00:29:40,680
+are evil. All the bad things in the
+
+597
+00:29:37,080 --> 00:29:42,200
+world are created uh done by males. If
+
+598
+00:29:40,680 --> 00:29:44,480
+you are a white male, you are a
+
+599
+00:29:42,200 --> 00:29:46,360
+[ __ ]
+
+600
+00:29:44,480 --> 00:29:48,920
+You know, that's that's back then,
+
+601
+00:29:46,360 --> 00:29:50,640
+social justice warrior days with Black
+
+602
+00:29:48,920 --> 00:29:54,040
+Lives Matter,
+
+603
+00:29:50,640 --> 00:29:56,520
+burning buildings, beating people. Then
+
+604
+00:29:54,040 --> 00:29:57,600
+Then comes trans.
+
+605
+00:29:56,520 --> 00:29:59,800
+The
+
+606
+00:29:57,600 --> 00:30:01,840
+trans is the king,
+
+607
+00:29:59,800 --> 00:30:04,400
+where they can go to women's bathroom,
+
+608
+00:30:01,840 --> 00:30:07,600
+and they can get pregnant, and then
+
+609
+00:30:04,400 --> 00:30:10,920
+begin to erase the word women.
+
+610
+00:30:07,600 --> 00:30:14,480
+You know, they don't say mom, mother.
+
+611
+00:30:10,920 --> 00:30:16,400
+They Well, they say the person
+
+612
+00:30:14,480 --> 00:30:19,520
+you know, the person you
+
+613
+00:30:16,400 --> 00:30:19,520
+something something.
+
+614
+00:30:19,680 --> 00:30:24,680
+You know, so that's that was the social
+
+615
+00:30:21,920 --> 00:30:27,440
+justice warrior days.
+
+616
+00:30:24,680 --> 00:30:30,360
+So, around, you know, a few years ago on
+
+617
+00:30:27,440 --> 00:30:34,240
+Twitter, I saw the Julia group. Oh, we
+
+618
+00:30:30,360 --> 00:30:36,360
+we are sponsoring this women group. We
+
+619
+00:30:34,240 --> 00:30:39,960
+are, you know, like we think it's
+
+620
+00:30:36,360 --> 00:30:42,640
+important to promote women.
+
+621
+00:30:39,960 --> 00:30:44,480
+Uh you know, so they are they are they
+
+622
+00:30:42,640 --> 00:30:45,440
+are
+
+623
+00:30:44,480 --> 00:30:48,040
+They They
+
+624
+00:30:45,440 --> 00:30:51,480
+they are pushing the social justice
+
+625
+00:30:48,040 --> 00:30:54,120
+warriors thing or rather they are a
+
+626
+00:30:51,480 --> 00:30:56,920
+victim of the deep state.
+
+627
+00:30:54,120 --> 00:30:58,840
+You know, deep deep state threats you.
+
+628
+00:30:56,920 --> 00:31:00,520
+You know, do this. If you don't do it,
+
+629
+00:30:58,840 --> 00:31:04,280
+you're going to be gone.
+
+630
+00:31:00,520 --> 00:31:06,560
+Okay, then the Julia creator um,
+
+631
+00:31:04,280 --> 00:31:08,240
+okay. Okay, yes, sir.
+
+632
+00:31:06,560 --> 00:31:11,640
+That's what they did.
+
+633
+00:31:08,240 --> 00:31:14,280
+So, that's part of the reason
+
+634
+00:31:11,640 --> 00:31:16,360
+and I'm not going to learn Julia, but
+
+635
+00:31:14,280 --> 00:31:20,280
+but anyway, that's not important reason
+
+636
+00:31:16,360 --> 00:31:22,760
+because this happened in go in golang
+
+637
+00:31:20,280 --> 00:31:24,800
+in rust very much. You go to their
+
+638
+00:31:22,760 --> 00:31:28,040
+website, there's a big banner. We
+
+639
+00:31:24,800 --> 00:31:30,560
+support Black Lives Matters, you know.
+
+640
+00:31:28,040 --> 00:31:32,760
+Back then.
+
+641
+00:31:30,560 --> 00:31:36,040
+Uh, this, you know, about 5 years ago.
+
+642
+00:31:32,760 --> 00:31:38,000
+So, pretty bad, very bad. You live, you
+
+643
+00:31:36,040 --> 00:31:41,200
+know, you know, if you are a normal
+
+644
+00:31:38,000 --> 00:31:43,720
+person, you kind of live in fear or
+
+645
+00:31:41,200 --> 00:31:45,720
+alternatively, you can join them.
+
+646
+00:31:43,720 --> 00:31:49,720
+You know, I'm you know, put put on your
+
+647
+00:31:45,720 --> 00:31:53,200
+website, I support Black Lives Matters.
+
+648
+00:31:49,720 --> 00:31:57,320
+And if you're if you have a good friend
+
+649
+00:31:53,200 --> 00:32:00,680
+who is not corrupt as you are,
+
+650
+00:31:57,320 --> 00:32:03,160
+then you can go and beat him up and get
+
+651
+00:32:00,680 --> 00:32:03,160
+money.
+
+652
+00:32:03,880 --> 00:32:08,240
+So, a lot of white people actually
+
+653
+00:32:05,680 --> 00:32:10,920
+started to, you know, do this, join this
+
+654
+00:32:08,240 --> 00:32:13,640
+movement. You know, you got to be smart.
+
+655
+00:32:10,920 --> 00:32:15,000
+I got to join whatever is currently
+
+656
+00:32:13,640 --> 00:32:19,160
+powerful.
+
+657
+00:32:15,000 --> 00:32:22,320
+[ __ ] ethics. [ __ ] what is, you know,
+
+658
+00:32:19,160 --> 00:32:25,960
+good or bad. I just care about money.
+
+659
+00:32:22,320 --> 00:32:28,960
+That's most of the the you some of you
+
+660
+00:32:25,960 --> 00:32:30,680
+the open source [ __ ] heads.
+
+661
+00:32:28,960 --> 00:32:32,640
+That's what some of you are doing. Open
+
+662
+00:32:30,680 --> 00:32:33,640
+source. Open source. You need to you
+
+663
+00:32:32,640 --> 00:32:36,560
+need to
+
+664
+00:32:33,640 --> 00:32:36,560
+use Linux.
+
+665
+00:32:36,640 --> 00:32:41,760
+Okay, slight digression. So, there's
+
+666
+00:32:39,680 --> 00:32:44,720
+TypeScript.
+
+667
+00:32:41,760 --> 00:32:47,520
+Originally, this is a TypeScript's logo.
+
+668
+00:32:44,720 --> 00:32:50,120
+Okay, then they got, you know, kind of
+
+669
+00:32:47,520 --> 00:32:50,120
+um
+
+670
+00:32:50,560 --> 00:32:55,400
+Okay, oh meta. So, the language I'm
+
+671
+00:32:53,560 --> 00:32:59,320
+trying to find
+
+672
+00:32:55,400 --> 00:33:01,280
+is so many, endless, you know,
+
+673
+00:32:59,320 --> 00:33:03,920
+so there's Elm, another functional
+
+674
+00:33:01,280 --> 00:33:06,040
+programming language, kind of niche for
+
+675
+00:33:03,920 --> 00:33:07,760
+the web and Hax
+
+676
+00:33:06,040 --> 00:33:10,760
+or Haxe.
+
+677
+00:33:07,760 --> 00:33:12,760
+A multi-language compile to multiple
+
+678
+00:33:10,760 --> 00:33:15,000
+legs, something.
+
+679
+00:33:12,760 --> 00:33:15,600
+Then Hack from Facebook
+
+680
+00:33:15,000 --> 00:33:19,840
+uh
+
+681
+00:33:15,600 --> 00:33:22,920
+upgrade from PHP, like improved PHP.
+
+682
+00:33:19,840 --> 00:33:25,040
+Then Swift, I think this is great from
+
+683
+00:33:22,920 --> 00:33:26,680
+Apple, 2014,
+
+684
+00:33:25,040 --> 00:33:29,520
+modern.
+
+685
+00:33:26,680 --> 00:33:31,440
+Then there's Elixir, also great, based
+
+686
+00:33:29,520 --> 00:33:34,120
+on Erlang,
+
+687
+00:33:31,440 --> 00:33:35,160
+but with a better syntax, something like
+
+688
+00:33:34,120 --> 00:33:38,840
+that.
+
+689
+00:33:35,160 --> 00:33:40,400
+Then there's Kotlin, a new kid on the
+
+690
+00:33:38,840 --> 00:33:42,320
+block,
+
+691
+00:33:40,400 --> 00:33:45,080
+you know, became overnight super
+
+692
+00:33:42,320 --> 00:33:47,480
+popular, taking over Java
+
+693
+00:33:45,080 --> 00:33:49,440
+in the Java land.
+
+694
+00:33:47,480 --> 00:33:50,680
+Okay, which I'm not interested, you
+
+695
+00:33:49,440 --> 00:33:53,360
+know, I'm not
+
+696
+00:33:50,680 --> 00:33:56,280
+Anything Java is [ __ ]
+
+697
+00:33:53,360 --> 00:33:59,840
+Then there's Nim, another niche, like we
+
+698
+00:33:56,280 --> 00:34:02,480
+have Possum is a fan of Nim. And, you
+
+699
+00:33:59,840 --> 00:34:05,680
+know, so a lot people is like Nim, Nim,
+
+700
+00:34:02,480 --> 00:34:07,320
+and Crystal of the Lisp gang.
+
+701
+00:34:05,680 --> 00:34:10,600
+Then Pirate,
+
+702
+00:34:07,320 --> 00:34:13,280
+because Scheme nested paren failed
+
+703
+00:34:10,600 --> 00:34:15,960
+failed. They can't, you know, people
+
+704
+00:34:13,280 --> 00:34:18,240
+don't like nested paren, so they they
+
+705
+00:34:15,960 --> 00:34:19,600
+the Scheme the Racket Scheme these
+
+706
+00:34:18,240 --> 00:34:22,800
+people, uh
+
+707
+00:34:19,600 --> 00:34:27,000
+maybe we should abandon nested paren.
+
+708
+00:34:22,800 --> 00:34:31,200
+So, let's create Pirate, Python-based
+
+709
+00:34:27,000 --> 00:34:33,320
+syntax. That's a root of
+
+710
+00:34:31,200 --> 00:34:36,560
+Pirate, okay?
+
+711
+00:34:33,320 --> 00:34:38,080
+Then PureScript was kind of popular
+
+712
+00:34:36,560 --> 00:34:39,520
+around like
+
+713
+00:34:38,080 --> 00:34:41,399
+10 years ago.
+
+714
+00:34:39,520 --> 00:34:43,200
+Another pure functional programming,
+
+715
+00:34:41,399 --> 00:34:45,480
+Reason, okay?
+
+716
+00:34:43,200 --> 00:34:50,080
+ReasonML, that's the one I'm looking
+
+717
+00:34:45,480 --> 00:34:53,560
+for. So, ReasonML is basically OCaml
+
+718
+00:34:50,080 --> 00:34:54,679
+but in JavaScript clothing.
+
+719
+00:34:53,560 --> 00:34:57,360
+Okay?
+
+720
+00:34:54,679 --> 00:35:01,200
+So, that's related to today's topic. I
+
+721
+00:34:57,360 --> 00:35:04,200
+need to mention that, ReasonML, okay?
+
+722
+00:35:01,200 --> 00:35:04,200
+ReasonML.
+
+723
+00:35:07,480 --> 00:35:14,440
+Okay? Took Took like 10 minutes to to
+
+724
+00:35:10,280 --> 00:35:16,960
+get to this page, Reason. Okay, so
+
+725
+00:35:14,440 --> 00:35:22,840
+yeah, so we were talking about ReasonML,
+
+726
+00:35:16,960 --> 00:35:24,920
+so so this is OCaml in JavaScript.
+
+727
+00:35:22,840 --> 00:35:27,880
+Uh then
+
+728
+00:35:24,920 --> 00:35:29,480
+Okay, yeah, and then there's Author,
+
+729
+00:35:27,880 --> 00:35:31,960
+yeah, so let's
+
+730
+00:35:29,480 --> 00:35:31,960
+um
+
+731
+00:35:32,160 --> 00:35:36,800
+TypeScript.
+
+732
+00:35:34,360 --> 00:35:38,720
+Uh you know, so so much history. Then,
+
+733
+00:35:36,800 --> 00:35:42,600
+you know, so you Then you got
+
+734
+00:35:38,720 --> 00:35:45,400
+CoffeeScript. So, there is this Anders
+
+735
+00:35:42,600 --> 00:35:47,040
+Hejlsberg. I think I think he's a
+
+736
+00:35:45,400 --> 00:35:49,120
+genius, you know, he's one of the
+
+737
+00:35:47,040 --> 00:35:52,880
+greatest
+
+738
+00:35:49,120 --> 00:35:55,720
+um programming language compiler creator
+
+739
+00:35:52,880 --> 00:35:57,360
+and programming language designer, okay?
+
+740
+00:35:55,720 --> 00:35:59,400
+One of the greatest.
+
+741
+00:35:57,360 --> 00:36:01,120
+For example, Python, you know, the Guido
+
+742
+00:35:59,400 --> 00:36:05,240
+van Rossum,
+
+743
+00:36:01,120 --> 00:36:08,160
+in my opinion, is the most stupid guy
+
+744
+00:36:05,240 --> 00:36:11,080
+among those who creates language. Most
+
+745
+00:36:08,160 --> 00:36:14,040
+stupid, and but he think he's smart.
+
+746
+00:36:11,080 --> 00:36:15,960
+Guido van Rossum of Python, okay?
+
+747
+00:36:14,040 --> 00:36:18,160
+Now, there's Ruby creator, there's
+
+748
+00:36:15,960 --> 00:36:20,360
+original Lisp creator, there's Wolfram
+
+749
+00:36:18,160 --> 00:36:22,520
+language creator, which I respect very
+
+750
+00:36:20,360 --> 00:36:24,960
+much, Stephen Wolfram. There's Go
+
+751
+00:36:22,520 --> 00:36:27,440
+language creator, I respect very much,
+
+752
+00:36:24,960 --> 00:36:30,960
+Rob Pike,
+
+753
+00:36:27,440 --> 00:36:34,080
+and another guy co-creator and you know
+
+754
+00:36:30,960 --> 00:36:36,800
+many programming language creators.
+
+755
+00:36:34,080 --> 00:36:36,800
+So
+
+756
+00:36:37,000 --> 00:36:43,480
+I you know Anders this guy I think he's
+
+757
+00:36:39,800 --> 00:36:46,000
+he's one of the great really great.
+
+758
+00:36:43,480 --> 00:36:47,480
+But I don't know much about him because
+
+759
+00:36:46,000 --> 00:36:50,600
+you know he's he's working for
+
+760
+00:36:47,480 --> 00:36:53,680
+Microsoft. So you you know so I'm
+
+761
+00:36:50,600 --> 00:36:58,280
+usually in a Unix kind of open source
+
+762
+00:36:53,680 --> 00:37:00,000
+circle so I don't know much about him.
+
+763
+00:36:58,280 --> 00:37:02,480
+But I can kind of see especially
+
+764
+00:37:00,000 --> 00:37:05,280
+creating type script you know creating a
+
+765
+00:37:02,480 --> 00:37:07,920
+language from scratch
+
+766
+00:37:05,280 --> 00:37:10,440
+is easy especially today because you got
+
+767
+00:37:07,920 --> 00:37:13,600
+so many tools you know it's compiler
+
+768
+00:37:10,440 --> 00:37:17,520
+passes and 1,000 books on passing and
+
+769
+00:37:13,600 --> 00:37:20,480
+compiling and you can ask AI bots.
+
+770
+00:37:17,520 --> 00:37:21,920
+You know so it's very kind of very easy
+
+771
+00:37:20,480 --> 00:37:24,120
+to create a
+
+772
+00:37:21,920 --> 00:37:28,000
+your own language.
+
+773
+00:37:24,120 --> 00:37:30,840
+But it is very difficult if you are
+
+774
+00:37:28,000 --> 00:37:34,360
+going to create a language that works on
+
+775
+00:37:30,840 --> 00:37:37,400
+top of a existing language especially
+
+776
+00:37:34,360 --> 00:37:40,880
+very popular one like JavaScript. Okay
+
+777
+00:37:37,400 --> 00:37:42,720
+that makes it incredibly difficult.
+
+778
+00:37:40,880 --> 00:37:44,880
+Because if you create your own language
+
+779
+00:37:42,720 --> 00:37:46,800
+you you you can do anything you want.
+
+780
+00:37:44,880 --> 00:37:47,800
+You can just say oh I designed it that
+
+781
+00:37:46,800 --> 00:37:49,040
+way.
+
+782
+00:37:47,800 --> 00:37:52,040
+You know but if you are creating a
+
+783
+00:37:49,040 --> 00:37:53,960
+language that works on existing language
+
+784
+00:37:52,040 --> 00:37:55,760
+there's a lot of
+
+785
+00:37:53,960 --> 00:37:58,840
+constraints you know you know you have
+
+786
+00:37:55,760 --> 00:38:00,360
+to follow whatever bugs that were there
+
+787
+00:37:58,840 --> 00:38:02,480
+not just that but you have to be
+
+788
+00:38:00,360 --> 00:38:04,920
+compatible you have to
+
+789
+00:38:02,480 --> 00:38:07,440
+then you have to create a new syntax
+
+790
+00:38:04,920 --> 00:38:10,080
+such that it still works makes it
+
+791
+00:38:07,440 --> 00:38:12,240
+consistent. Okay this is
+
+792
+00:38:10,080 --> 00:38:16,400
+super difficult to do that.
+
+793
+00:38:12,240 --> 00:38:18,400
+And and he he is doing that to make it
+
+794
+00:38:16,400 --> 00:38:20,560
+you know type script to make it very
+
+795
+00:38:18,400 --> 00:38:23,200
+strict like like a functional
+
+796
+00:38:20,560 --> 00:38:26,920
+programming language so that
+
+797
+00:38:23,200 --> 00:38:28,360
+it's, you know, that's not easy at all.
+
+798
+00:38:26,920 --> 00:38:32,320
+Okay, so
+
+799
+00:38:28,360 --> 00:38:35,000
+we kind of rambled over, so let's see.
+
+800
+00:38:32,320 --> 00:38:35,000
+Um
+
+801
+00:38:40,960 --> 00:38:46,920
+So, let's see. We talked for 40 minutes.
+
+802
+00:38:44,440 --> 00:38:48,560
+Uh so, PowerShell, Clean, Miranda,
+
+803
+00:38:46,920 --> 00:38:51,800
+TypeScript.
+
+804
+00:38:48,560 --> 00:38:54,360
+Uh then, okay, so So, there is one that
+
+805
+00:38:51,800 --> 00:38:56,800
+I need to copy. Proliferation of
+
+806
+00:38:54,360 --> 00:38:59,280
+programming languages, okay?
+
+807
+00:38:56,800 --> 00:39:00,760
+Copy that article.
+
+808
+00:38:59,280 --> 00:39:03,240
+Uh
+
+809
+00:39:00,760 --> 00:39:06,040
+Yeah. Oh, and another very worth
+
+810
+00:39:03,240 --> 00:39:07,240
+mentioning related to today's topic is
+
+811
+00:39:06,040 --> 00:39:10,560
+Lean.
+
+812
+00:39:07,240 --> 00:39:14,080
+Okay, so I have been learning Lean
+
+813
+00:39:10,560 --> 00:39:17,240
+in the past month or two, so together.
+
+814
+00:39:14,080 --> 00:39:20,040
+So, I'm learning Lean right now, and I'm
+
+815
+00:39:17,240 --> 00:39:22,560
+also learning F sharp.
+
+816
+00:39:20,040 --> 00:39:23,800
+Okay, so Lean Lean, you know, so both
+
+817
+00:39:22,560 --> 00:39:26,960
+are like functional programming
+
+818
+00:39:23,800 --> 00:39:29,920
+languages, but Lean is more is it's
+
+819
+00:39:26,960 --> 00:39:32,840
+primary design is for math, proving
+
+820
+00:39:29,920 --> 00:39:36,400
+mathematics, type theory, okay? So, it's
+
+821
+00:39:32,840 --> 00:39:40,640
+dependent type theory.
+
+822
+00:39:36,400 --> 00:39:44,760
+Uh let me go to X X22.
+
+823
+00:39:40,640 --> 00:39:46,840
+Search for Lean. So, I have my learning
+
+824
+00:39:44,760 --> 00:39:48,720
+Lean notes.
+
+825
+00:39:46,840 --> 00:39:51,760
+Copy the path.
+
+826
+00:39:48,720 --> 00:39:55,800
+Close that. Paste it here. Make a link.
+
+827
+00:39:51,760 --> 00:39:58,400
+So, there it is, learning Lean.
+
+828
+00:39:55,800 --> 00:40:01,360
+So,
+
+829
+00:39:58,400 --> 00:40:05,680
+so far the the trip is not easy. It is
+
+830
+00:40:01,360 --> 00:40:07,720
+very easy to learn F sharp for me
+
+831
+00:40:05,680 --> 00:40:13,400
+because I've been functional programming
+
+832
+00:40:07,720 --> 00:40:16,000
+since 1992 in Wolfram language. So,
+
+833
+00:40:13,400 --> 00:40:19,400
+you know, and then I code Emacs Emacs
+
+834
+00:40:16,000 --> 00:40:21,080
+Lisp in past, you know, 15 years. So,
+
+835
+00:40:19,400 --> 00:40:22,440
+I'm very familiar with functional
+
+836
+00:40:21,080 --> 00:40:25,720
+programming
+
+837
+00:40:22,440 --> 00:40:28,760
+or whatever, you know, how you do it.
+
+838
+00:40:25,720 --> 00:40:29,840
+So, when reading F sharp, where's the F
+
+839
+00:40:28,760 --> 00:40:33,040
+sharp?
+
+840
+00:40:29,840 --> 00:40:36,000
+F sharp, especially when it has a very
+
+841
+00:40:33,040 --> 00:40:38,440
+nice written documentation. It's It's so
+
+842
+00:40:36,000 --> 00:40:40,240
+trivial, you know, I can I read this, I
+
+843
+00:40:38,440 --> 00:40:42,640
+can understand, you know, just read all
+
+844
+00:40:40,240 --> 00:40:45,160
+strings, literal let bindings and
+
+845
+00:40:42,640 --> 00:40:46,360
+functions, you know, no side effect, you
+
+846
+00:40:45,160 --> 00:40:50,040
+know.
+
+847
+00:40:46,360 --> 00:40:51,760
+So, it's very easy for me to learn
+
+848
+00:40:50,040 --> 00:40:54,600
+uh F sharp.
+
+849
+00:40:51,760 --> 00:40:57,200
+But, however, Lean
+
+850
+00:40:54,600 --> 00:40:59,400
+is entirely different, you know. So,
+
+851
+00:40:57,200 --> 00:41:01,440
+I've been trying to So, let me show you.
+
+852
+00:40:59,400 --> 00:41:03,040
+So, I um
+
+853
+00:41:01,440 --> 00:41:06,160
+very difficult
+
+854
+00:41:03,040 --> 00:41:08,920
+because this type theory
+
+855
+00:41:06,160 --> 00:41:11,360
+So, Lean Lean is like two things, okay?
+
+856
+00:41:08,920 --> 00:41:13,960
+One is that you can use it just like a
+
+857
+00:41:11,360 --> 00:41:16,880
+pure uh functional programming language,
+
+858
+00:41:13,960 --> 00:41:18,920
+like Haskell and F sharp.
+
+859
+00:41:16,880 --> 00:41:21,520
+We, you know, you So, you can use it
+
+860
+00:41:18,920 --> 00:41:24,240
+just for that purpose.
+
+861
+00:41:21,520 --> 00:41:27,920
+But, meanwhile, it is primarily designed
+
+862
+00:41:24,240 --> 00:41:30,440
+is a proof system to prove mathematics,
+
+863
+00:41:27,920 --> 00:41:32,680
+like topology, you know, like very
+
+864
+00:41:30,440 --> 00:41:35,320
+complicated, very advanced.
+
+865
+00:41:32,680 --> 00:41:35,320
+So,
+
+866
+00:41:36,280 --> 00:41:40,000
+So, you know,
+
+867
+00:41:37,840 --> 00:41:42,480
+So, I think, you know, let's let you
+
+868
+00:41:40,000 --> 00:41:44,480
+know, I I can just learn this as a
+
+869
+00:41:42,480 --> 00:41:46,840
+functional programming language, you
+
+870
+00:41:44,480 --> 00:41:49,040
+know, I already have like 30 years of
+
+871
+00:41:46,840 --> 00:41:52,000
+experience.
+
+872
+00:41:49,040 --> 00:41:53,640
+But, but, but it's not uh so easy
+
+873
+00:41:52,000 --> 00:41:57,200
+because
+
+874
+00:41:53,640 --> 00:41:58,840
+well, partly because the the tutorials I
+
+875
+00:41:57,200 --> 00:42:00,480
+looked into and the official
+
+876
+00:41:58,840 --> 00:42:03,840
+documentation,
+
+877
+00:42:00,480 --> 00:42:06,400
+they are not that good, okay? So,
+
+878
+00:42:03,840 --> 00:42:09,520
+this is Yeah, so, anyway, so, that's my
+
+879
+00:42:06,400 --> 00:42:11,440
+experience of Lean, but but I'm
+
+880
+00:42:09,520 --> 00:42:14,840
+persistent, you know, I'm going to learn
+
+881
+00:42:11,440 --> 00:42:17,800
+Lean because I need it for doing my
+
+882
+00:42:14,840 --> 00:42:21,600
+mathematics.
+
+883
+00:42:17,800 --> 00:42:21,600
+Um doing
+
+884
+00:42:22,240 --> 00:42:26,680
+curves index
+
+885
+00:42:29,160 --> 00:42:33,160
+You know, I talked about this. I did,
+
+886
+00:42:31,520 --> 00:42:36,800
+you know, many live streams about
+
+887
+00:42:33,160 --> 00:42:39,520
+mathematics and and also
+
+888
+00:42:36,800 --> 00:42:42,720
+surfaces, you know, this is fantastic
+
+889
+00:42:39,520 --> 00:42:44,520
+Wolfram language. This is uh inversion
+
+890
+00:42:42,720 --> 00:42:46,680
+of a
+
+891
+00:42:44,520 --> 00:42:49,320
+array of cubes.
+
+892
+00:42:46,680 --> 00:42:51,920
+Beautiful, extremely beautiful. So, but
+
+893
+00:42:49,320 --> 00:42:54,480
+this are visualization of mathematics,
+
+894
+00:42:51,920 --> 00:42:57,000
+okay? So, but you know, so but there is
+
+895
+00:42:54,480 --> 00:42:58,080
+also differential geometry,
+
+896
+00:42:57,000 --> 00:43:00,840
+which
+
+897
+00:42:58,080 --> 00:43:03,000
+I've been, you know, these are graphs
+
+898
+00:43:00,840 --> 00:43:05,720
+made by, you know, a professor who
+
+899
+00:43:03,000 --> 00:43:08,080
+taught me a lot differential geometry.
+
+900
+00:43:05,720 --> 00:43:11,040
+So, when you do these kind of things,
+
+901
+00:43:08,080 --> 00:43:12,600
+differential geometry, manifold,
+
+902
+00:43:11,040 --> 00:43:15,760
+topology,
+
+903
+00:43:12,600 --> 00:43:19,040
+you need to do proofs. Proofs is the
+
+904
+00:43:15,760 --> 00:43:21,640
+basically the heart of
+
+905
+00:43:19,040 --> 00:43:24,840
+advanced mathematics, you know, you you
+
+906
+00:43:21,640 --> 00:43:26,880
+you just need to do proofs. So,
+
+907
+00:43:24,840 --> 00:43:29,440
+today with computer, with this, you
+
+908
+00:43:26,880 --> 00:43:30,680
+know, so new type theory
+
+909
+00:43:29,440 --> 00:43:32,480
+um
+
+910
+00:43:30,680 --> 00:43:34,800
+homotopy
+
+911
+00:43:32,480 --> 00:43:36,280
+type
+
+912
+00:43:34,800 --> 00:43:39,920
+theory
+
+913
+00:43:36,280 --> 00:43:43,240
+or uh univalent foundation for
+
+914
+00:43:39,920 --> 00:43:45,040
+mathematics is like like a new era for
+
+915
+00:43:43,240 --> 00:43:47,360
+mathematics.
+
+916
+00:43:45,040 --> 00:43:50,840
+They provide a new foundation for
+
+917
+00:43:47,360 --> 00:43:53,000
+mathematics, and this new foundation
+
+918
+00:43:50,840 --> 00:43:55,400
+is is
+
+919
+00:43:53,000 --> 00:43:57,600
+can be done
+
+920
+00:43:55,400 --> 00:44:01,640
+by computer. So, today you have a
+
+921
+00:43:57,600 --> 00:44:04,080
+thriving community, like a new era of
+
+922
+00:44:01,640 --> 00:44:06,240
+proof systems, you know.
+
+923
+00:44:04,080 --> 00:44:09,040
+So, I think that in in fact, this is
+
+924
+00:44:06,240 --> 00:44:12,760
+critical. I think this is a revolution
+
+925
+00:44:09,040 --> 00:44:14,760
+because like almost like from now on
+
+926
+00:44:12,760 --> 00:44:17,440
+mathematics
+
+927
+00:44:14,760 --> 00:44:19,560
+is going to be done with computers,
+
+928
+00:44:17,440 --> 00:44:21,800
+okay? Not like before.
+
+929
+00:44:19,560 --> 00:44:24,000
+I mean some you know, the if you ask the
+
+930
+00:44:21,800 --> 00:44:26,520
+old mathematicians, they they would say,
+
+931
+00:44:24,000 --> 00:44:29,680
+"No, you know, this computer [ __ ]
+
+932
+00:44:26,520 --> 00:44:31,600
+that's just for kids." Some Some might
+
+933
+00:44:29,680 --> 00:44:32,760
+say that, but actually
+
+934
+00:44:31,600 --> 00:44:34,800
+you know,
+
+935
+00:44:32,760 --> 00:44:37,160
+like the top some of the top, you know,
+
+936
+00:44:34,800 --> 00:44:40,400
+let's say the greatest
+
+937
+00:44:37,160 --> 00:44:43,320
+100 mathematicians alive. In fact, one
+
+938
+00:44:40,400 --> 00:44:44,080
+of the top few they they are doing these
+
+939
+00:44:43,320 --> 00:44:47,040
+um
+
+940
+00:44:44,080 --> 00:44:49,280
+computer proof systems, you know.
+
+941
+00:44:47,040 --> 00:44:52,000
+So, anyway, this here is to stay. So,
+
+942
+00:44:49,280 --> 00:44:53,160
+this is what I want to do. Lean, okay?
+
+943
+00:44:52,000 --> 00:44:55,160
+So
+
+944
+00:44:53,160 --> 00:44:57,280
+Yeah, so I've been reading, for example,
+
+945
+00:44:55,160 --> 00:44:59,040
+this book.
+
+946
+00:44:57,280 --> 00:45:02,160
+You know, I I was reading all of them,
+
+947
+00:44:59,040 --> 00:45:06,160
+but anyway, but this one this chapter
+
+948
+00:45:02,160 --> 00:45:09,560
+two, the dependent type theory.
+
+949
+00:45:06,160 --> 00:45:11,840
+I spend like 10 hours in a week.
+
+950
+00:45:09,560 --> 00:45:15,280
+Read and reread.
+
+951
+00:45:11,840 --> 00:45:17,440
+I learned a lot, okay? I learned a lot.
+
+952
+00:45:15,280 --> 00:45:20,520
+You know, it's it's a bit long. You
+
+953
+00:45:17,440 --> 00:45:22,920
+know, 20 pages, but I read it like over
+
+954
+00:45:20,520 --> 00:45:25,400
+a week, like 1 hour a day.
+
+955
+00:45:22,920 --> 00:45:27,920
+And and and you know, read part of it or
+
+956
+00:45:25,400 --> 00:45:30,360
+whatever and repeat and you know, so I
+
+957
+00:45:27,920 --> 00:45:31,920
+read this chapter. It's
+
+958
+00:45:30,360 --> 00:45:35,480
+it's great.
+
+959
+00:45:31,920 --> 00:45:38,200
+You see, it's I it's it's great if you
+
+960
+00:45:35,480 --> 00:45:42,600
+learn a programming language that do
+
+961
+00:45:38,200 --> 00:45:46,760
+proofs instead of just reading about
+
+962
+00:45:42,600 --> 00:45:47,920
+the type theory, okay? So, like
+
+963
+00:45:46,760 --> 00:45:51,000
+before
+
+964
+00:45:47,920 --> 00:45:53,840
+traditionally the math foundation is
+
+965
+00:45:51,000 --> 00:45:56,640
+based on set theory, okay? But that's
+
+966
+00:45:53,840 --> 00:45:58,680
+kind of old and that's not suitable if
+
+967
+00:45:56,640 --> 00:46:02,120
+you are doing
+
+968
+00:45:58,680 --> 00:46:04,880
+like computation-based mathematics.
+
+969
+00:46:02,120 --> 00:46:07,760
+Computation does not necessarily mean
+
+970
+00:46:04,880 --> 00:46:09,560
+using a computer. It just means like you
+
+971
+00:46:07,760 --> 00:46:12,560
+are So, in other words, you are doing
+
+972
+00:46:09,560 --> 00:46:12,560
+constructive
+
+973
+00:46:12,800 --> 00:46:17,320
+the philosophy of constructivism
+
+974
+00:46:15,600 --> 00:46:20,320
+of mathematics. So, you need to
+
+975
+00:46:17,320 --> 00:46:24,560
+construct So, anyway, so
+
+976
+00:46:20,320 --> 00:46:24,560
+So, the old way is set theory.
+
+977
+00:46:24,960 --> 00:46:30,480
+Which is, you know, traditional, but now
+
+978
+00:46:27,720 --> 00:46:33,520
+the new way is we are basically type
+
+979
+00:46:30,480 --> 00:46:35,440
+theory, okay? So, you can read about
+
+980
+00:46:33,520 --> 00:46:37,920
+type theory,
+
+981
+00:46:35,440 --> 00:46:42,160
+but that's not as useful
+
+982
+00:46:37,920 --> 00:46:44,920
+than if you actually hands-on learn a
+
+983
+00:46:42,160 --> 00:46:46,320
+proof system based on type theory.
+
+984
+00:46:44,920 --> 00:46:49,120
+Because when you actually do it,
+
+985
+00:46:46,320 --> 00:46:50,720
+computer will uh tell you you are wrong.
+
+986
+00:46:49,120 --> 00:46:52,440
+You know, you read a book type theory,
+
+987
+00:46:50,720 --> 00:46:54,960
+you think you understand, you know, very
+
+988
+00:46:52,440 --> 00:46:56,680
+advanced type, you know,
+
+989
+00:46:54,960 --> 00:46:57,920
+you think you know, but actually you
+
+990
+00:46:56,680 --> 00:47:00,200
+don't.
+
+991
+00:46:57,920 --> 00:47:02,360
+But if you learn a programming language
+
+992
+00:47:00,200 --> 00:47:05,040
+such as um
+
+993
+00:47:02,360 --> 00:47:07,640
+Lean or another one, Coq.
+
+994
+00:47:05,040 --> 00:47:11,480
+Okay, so let me let me
+
+995
+00:47:07,640 --> 00:47:13,840
+Let me just introduce you to you guys.
+
+996
+00:47:11,480 --> 00:47:17,120
+Is it interesting?
+
+997
+00:47:13,840 --> 00:47:19,320
+So, uh so Lean, there's another one
+
+998
+00:47:17,120 --> 00:47:24,240
+called Coq, okay?
+
+999
+00:47:19,320 --> 00:47:25,360
+From French, okay? Coq proof assistant.
+
+1000
+00:47:24,240 --> 00:47:27,800
+Uh
+
+1001
+00:47:25,360 --> 00:47:29,600
+so, they they they It's very annoying.
+
+1002
+00:47:27,800 --> 00:47:32,040
+They renamed
+
+1003
+00:47:29,600 --> 00:47:35,880
+their language, you see? It was called
+
+1004
+00:47:32,040 --> 00:47:39,200
+Coq, c o q.
+
+1005
+00:47:35,880 --> 00:47:43,280
+For many good reasons, okay? But then
+
+1006
+00:47:39,200 --> 00:47:46,440
+then the you know, the moralists think
+
+1007
+00:47:43,280 --> 00:47:48,120
+that, "Oh, sounds like a penis. That's
+
+1008
+00:47:46,440 --> 00:47:50,120
+offensive."
+
+1009
+00:47:48,120 --> 00:47:51,120
+You know, so they renamed it. It's no
+
+1010
+00:47:50,120 --> 00:47:53,160
+good.
+
+1011
+00:47:51,120 --> 00:47:55,160
+So, I will
+
+1012
+00:47:53,160 --> 00:47:58,440
+So, anyway, so
+
+1013
+00:47:55,160 --> 00:48:01,080
+Coq is another traditional proof system.
+
+1014
+00:47:58,440 --> 00:48:03,400
+They are basically all type type theory
+
+1015
+00:48:01,080 --> 00:48:05,040
+based and
+
+1016
+00:48:03,400 --> 00:48:08,800
+you know, there are many different
+
+1017
+00:48:05,040 --> 00:48:11,440
+branches of type theory. So, anyway.
+
+1018
+00:48:08,800 --> 00:48:13,160
+So, Coq is another one. Okay, so you you
+
+1019
+00:48:11,440 --> 00:48:16,120
+can learn if especially if you are
+
+1020
+00:48:13,160 --> 00:48:19,480
+French because when you are French, you
+
+1021
+00:48:16,120 --> 00:48:22,000
+you know, you probably want to learn,
+
+1022
+00:48:19,480 --> 00:48:25,040
+promote a system
+
+1023
+00:48:22,000 --> 00:48:26,360
+that your countryman, your bloodline
+
+1024
+00:48:25,040 --> 00:48:28,320
+created.
+
+1025
+00:48:26,360 --> 00:48:31,560
+So, if you are French, you can learn
+
+1026
+00:48:28,320 --> 00:48:34,320
+Coq, very popular, okay.
+
+1027
+00:48:31,560 --> 00:48:37,360
+So, anyway, so that's okay, I think
+
+1028
+00:48:34,320 --> 00:48:40,440
+that's that's that's about the you know,
+
+1029
+00:48:37,360 --> 00:48:44,680
+what I have to say.
+
+1030
+00:48:40,440 --> 00:48:46,960
+Uh, so that's so maybe we should down.
+
+1031
+00:48:44,680 --> 00:48:49,160
+So, I've been talking for 50
+
+1032
+00:48:46,960 --> 00:48:51,040
+for 50 minutes.
+
+1033
+00:48:49,160 --> 00:48:53,960
+Is there something I
+
+1034
+00:48:51,040 --> 00:48:57,560
+else I want to say? Um,
+
+1035
+00:48:53,960 --> 00:49:00,440
+yeah, so F sharp is great.
+
+1036
+00:48:57,560 --> 00:49:03,320
+Easy to install, great documentation,
+
+1037
+00:49:00,440 --> 00:49:04,560
+easy to learn. I highly recommend it.
+
+1038
+00:49:03,320 --> 00:49:06,440
+And
+
+1039
+00:49:04,560 --> 00:49:08,280
+based on .NET,
+
+1040
+00:49:06,440 --> 00:49:11,680
+so and
+
+1041
+00:49:08,280 --> 00:49:14,040
+.NET is fully open source since like 5
+
+1042
+00:49:11,680 --> 00:49:17,040
+years ago. And
+
+1043
+00:49:14,040 --> 00:49:21,360
+and F sharp, the entire .NET languages
+
+1044
+00:49:17,040 --> 00:49:24,880
+is fully promoted by Microsoft with VS
+
+1045
+00:49:21,360 --> 00:49:24,880
+Code integration.
+
+1046
+00:49:25,000 --> 00:49:32,200
+Open in VS Code. So, this is a Emacs
+
+1047
+00:49:29,000 --> 00:49:35,040
+command. I can open the current file in
+
+1048
+00:49:32,200 --> 00:49:39,040
+VS Code. VS Code is easy to use,
+
+1049
+00:49:35,040 --> 00:49:41,680
+popular. So, it's fully integrated with
+
+1050
+00:49:39,040 --> 00:49:43,560
+PowerShell, with um,
+
+1051
+00:49:41,680 --> 00:49:46,880
+you know, with PowerShell, you can run a
+
+1052
+00:49:43,560 --> 00:49:51,600
+PowerShell command, but I hardly use it.
+
+1053
+00:49:46,880 --> 00:49:54,360
+So, so let's see. Where do I
+
+1054
+00:49:51,600 --> 00:49:57,080
+Um, so anyway, F sharp, C sharp, it's
+
+1055
+00:49:54,360 --> 00:49:59,760
+all integrated with um
+
+1056
+00:49:57,080 --> 00:50:01,640
+VS code, okay? So
+
+1057
+00:49:59,760 --> 00:50:04,480
+Uh, okay, so let me
+
+1058
+00:50:01,640 --> 00:50:04,480
+let's um
+
+1059
+00:50:04,600 --> 00:50:09,680
+view
+
+1060
+00:50:06,360 --> 00:50:12,960
+explorer, what is this explorer?
+
+1061
+00:50:09,680 --> 00:50:12,960
+Yeah, I don't use
+
+1062
+00:50:13,280 --> 00:50:19,160
+I don't use uh VS code, so
+
+1063
+00:50:17,160 --> 00:50:20,680
+but I know
+
+1064
+00:50:19,160 --> 00:50:23,600
+you can
+
+1065
+00:50:20,680 --> 00:50:26,280
+uh new terminal there, okay?
+
+1066
+00:50:23,600 --> 00:50:30,320
+There, so there is your PowerShell. So,
+
+1067
+00:50:26,280 --> 00:50:32,960
+let's go to CD Kusande.
+
+1068
+00:50:30,320 --> 00:50:34,520
+CD web
+
+1069
+00:50:32,960 --> 00:50:39,240
+Kusande.org,
+
+1070
+00:50:34,520 --> 00:50:41,600
+Kusande.info, go to it. CD
+
+1071
+00:50:39,240 --> 00:50:44,120
+Emacs
+
+1072
+00:50:41,600 --> 00:50:46,960
+Emacs, go to it.
+
+1073
+00:50:44,120 --> 00:50:46,960
+So
+
+1074
+00:50:47,120 --> 00:50:54,520
+So, there it is. This is VS code, so
+
+1075
+00:50:50,560 --> 00:50:56,400
+Yeah, so I recommend F sharp.
+
+1076
+00:50:54,520 --> 00:50:59,280
+Then
+
+1077
+00:50:56,400 --> 00:51:02,360
+if you are into mathematics
+
+1078
+00:50:59,280 --> 00:51:04,640
+uh you can learn Lean.
+
+1079
+00:51:02,360 --> 00:51:07,600
+You know, like I am. I'm struggling with
+
+1080
+00:51:04,640 --> 00:51:09,480
+it, but I'm persistent. That's a key.
+
+1081
+00:51:07,600 --> 00:51:10,960
+Because when you read
+
+1082
+00:51:09,480 --> 00:51:13,640
+you know, like right now, you know, like
+
+1083
+00:51:10,960 --> 00:51:17,680
+I showed you which page? God, so many.
+
+1084
+00:51:13,640 --> 00:51:17,680
+So, for example, Lean, this page.
+
+1085
+00:51:17,800 --> 00:51:21,480
+You I don't, you know, it's like
+
+1086
+00:51:20,120 --> 00:51:23,480
+you know, this paragraph I don't
+
+1087
+00:51:21,480 --> 00:51:25,960
+understand, you know, tomorrow I read it
+
+1088
+00:51:23,480 --> 00:51:27,760
+I still don't understand understand, but
+
+1089
+00:51:25,960 --> 00:51:31,120
+just keep doing it. That's what I do,
+
+1090
+00:51:27,760 --> 00:51:34,320
+okay? Just let whatever the word. So,
+
+1091
+00:51:31,120 --> 00:51:36,160
+like if I don't understand, that's fine.
+
+1092
+00:51:34,320 --> 00:51:39,200
+I will make sure, you know, I'm going to
+
+1093
+00:51:36,160 --> 00:51:42,240
+be like I'm going to memorize each
+
+1094
+00:51:39,200 --> 00:51:44,440
+chapter, like I can recite each chapter,
+
+1095
+00:51:42,240 --> 00:51:46,920
+okay? Even I don't understand, but
+
+1096
+00:51:44,440 --> 00:51:49,400
+actually, when you actually do that, you
+
+1097
+00:51:46,920 --> 00:51:51,160
+will begin to understand.
+
+1098
+00:51:49,400 --> 00:51:52,760
+Okay, that's what I do.
+
+1099
+00:51:51,160 --> 00:51:54,680
+So, right now it's quite difficult, you
+
+1100
+00:51:52,760 --> 00:51:56,560
+know, even though I have
+
+1101
+00:51:54,680 --> 00:51:58,680
+you know, I I I have some you know,
+
+1102
+00:51:56,560 --> 00:52:00,240
+quite quite some experience with
+
+1103
+00:51:58,680 --> 00:52:01,360
+functional programming language and
+
+1104
+00:52:00,240 --> 00:52:04,800
+logic.
+
+1105
+00:52:01,360 --> 00:52:07,280
+Uh you know, the the mathematical logic.
+
+1106
+00:52:04,800 --> 00:52:08,320
+But, I still find this, you know, hard
+
+1107
+00:52:07,280 --> 00:52:10,560
+to
+
+1108
+00:52:08,320 --> 00:52:12,280
+understand, you know, but
+
+1109
+00:52:10,560 --> 00:52:14,120
+I'm persistent. That's That's what I'm
+
+1110
+00:52:12,280 --> 00:52:16,240
+telling you guys. So,
+
+1111
+00:52:14,120 --> 00:52:17,960
+if you want to learn something, you got
+
+1112
+00:52:16,240 --> 00:52:21,200
+to be persistent.
+
+1113
+00:52:17,960 --> 00:52:22,960
+Okay, F# So, if but if you are on Linux,
+
+1114
+00:52:21,200 --> 00:52:24,840
+you know, OCaml or you can learn
+
+1115
+00:52:22,960 --> 00:52:26,040
+Haskell.
+
+1116
+00:52:24,840 --> 00:52:27,280
+Pretty good.
+
+1117
+00:52:26,040 --> 00:52:29,800
+Um
+
+1118
+00:52:27,280 --> 00:52:34,200
+then if you are, you know, you can if
+
+1119
+00:52:29,800 --> 00:52:38,120
+you are a web dev, you can use um
+
+1120
+00:52:34,200 --> 00:52:38,120
+you can use the um
+
+1121
+00:52:39,640 --> 00:52:44,560
+Reason ReasonML, okay?
+
+1122
+00:52:42,480 --> 00:52:45,560
+Okay, that's it. That's it for today.
+
+1123
+00:52:44,560 --> 00:52:47,400
+Let's see.
+
+1124
+00:52:45,560 --> 00:52:49,400
+Let's read the comments, answer the
+
+1125
+00:52:47,400 --> 00:52:52,960
+questions, and that's it.
+
+1126
+00:52:49,400 --> 00:52:55,160
+If you like my stuff, go to xahlee.info
+
+1127
+00:52:52,960 --> 00:52:58,120
+and pay me, okay?
+
+1128
+00:52:55,160 --> 00:52:58,120
+Got to uh
+
+1129
+00:52:58,640 --> 00:53:01,480
+Why is this?
+
+1130
+00:53:05,320 --> 00:53:11,040
+Yes, I'm you I'm I'm just starting to uh
+
+1131
+00:53:08,600 --> 00:53:14,560
+well, I I haven't been using
+
+1132
+00:53:11,040 --> 00:53:17,160
+uh Swab board, but I'm trying to, okay?
+
+1133
+00:53:14,560 --> 00:53:20,000
+So, just wait for me to have something
+
+1134
+00:53:17,160 --> 00:53:20,000
+some news.
+
+1135
+00:53:23,120 --> 00:53:26,280
+Hello, I don't know.
+
+1136
+00:53:31,800 --> 00:53:36,600
+Oh, so Ferrison says, "Hello, I watch
+
+1137
+00:53:34,120 --> 00:53:39,880
+your talk shows, but I never seen see
+
+1138
+00:53:36,600 --> 00:53:44,480
+you use much modern tools like LSP tree
+
+1139
+00:53:39,880 --> 00:53:44,480
+sitter, okay?" That's correct.
+
+1140
+00:53:47,720 --> 00:53:54,000
+So, why is that? Well, the short answer
+
+1141
+00:53:50,400 --> 00:53:56,480
+is because I'm getting old.
+
+1142
+00:53:54,000 --> 00:53:58,000
+So,
+
+1143
+00:53:56,480 --> 00:54:00,120
+LSPP
+
+1144
+00:53:58,000 --> 00:54:01,840
+and tree-sitter, they are two different
+
+1145
+00:54:00,120 --> 00:54:06,320
+topics, okay?
+
+1146
+00:54:01,840 --> 00:54:10,520
+LSP is a language server protocol. So,
+
+1147
+00:54:06,320 --> 00:54:12,040
+if you go to Xah Lee Emacs blog, search
+
+1148
+00:54:10,520 --> 00:54:14,360
+LSP,
+
+1149
+00:54:12,040 --> 00:54:18,280
+you'll see it there.
+
+1150
+00:54:14,360 --> 00:54:20,000
+Language server protocol, LSP, kills
+
+1151
+00:54:18,280 --> 00:54:22,400
+Emacs.
+
+1152
+00:54:20,000 --> 00:54:25,080
+Year 2017.
+
+1153
+00:54:22,400 --> 00:54:27,520
+This is when LSP came out.
+
+1154
+00:54:25,080 --> 00:54:29,280
+So, in my opinion,
+
+1155
+00:54:27,520 --> 00:54:35,120
+we should never
+
+1156
+00:54:29,280 --> 00:54:37,040
+use LSP in Emacs because it kills Emacs.
+
+1157
+00:54:35,120 --> 00:54:38,960
+You know, because you know, once you
+
+1158
+00:54:37,040 --> 00:54:40,720
+have the you know, the idea is not too
+
+1159
+00:54:38,960 --> 00:54:44,000
+bad because you have you know, one
+
+1160
+00:54:40,720 --> 00:54:46,720
+centralized server protocol that deals
+
+1161
+00:54:44,000 --> 00:54:49,000
+with syntax
+
+1162
+00:54:46,720 --> 00:54:50,560
+of all different sort of programming
+
+1163
+00:54:49,000 --> 00:54:55,520
+languages.
+
+1164
+00:54:50,560 --> 00:54:57,560
+So, in each editor, Emacs, VS Code, Vim,
+
+1165
+00:54:55,520 --> 00:55:01,080
+uh Notepad++
+
+1166
+00:54:57,560 --> 00:55:02,680
+or Gedit or whatever, you know, so many
+
+1167
+00:55:01,080 --> 00:55:05,320
+editors.
+
+1168
+00:55:02,680 --> 00:55:07,680
+So, you can all in any editor, you can
+
+1169
+00:55:05,320 --> 00:55:10,400
+all just talk to the server protocol of
+
+1170
+00:55:07,680 --> 00:55:12,120
+that language, maybe Lisp, Golang,
+
+1171
+00:55:10,400 --> 00:55:13,480
+whatever, Python.
+
+1172
+00:55:12,120 --> 00:55:15,760
+You know, so
+
+1173
+00:55:13,480 --> 00:55:17,600
+you you so each editor don't have to
+
+1174
+00:55:15,760 --> 00:55:20,960
+write their own
+
+1175
+00:55:17,600 --> 00:55:23,400
+like syntax parsers and highlighters and
+
+1176
+00:55:20,960 --> 00:55:25,480
+edit, you know, semantic edit, whatever.
+
+1177
+00:55:23,400 --> 00:55:28,440
+So, they can always just talk to So, you
+
+1178
+00:55:25,480 --> 00:55:31,000
+write, you know, so this modularization.
+
+1179
+00:55:28,440 --> 00:55:33,400
+You have, you know, this language server
+
+1180
+00:55:31,000 --> 00:55:35,480
+protocol, which is a protocol, then you
+
+1181
+00:55:33,400 --> 00:55:38,560
+write a program to
+
+1182
+00:55:35,480 --> 00:55:40,680
+to pass the syntax of a language, then
+
+1183
+00:55:38,560 --> 00:55:43,000
+you have editors. So, editor talks to
+
+1184
+00:55:40,680 --> 00:55:45,000
+the parser via this language server
+
+1185
+00:55:43,000 --> 00:55:46,720
+protocol. So, everything is nice,
+
+1186
+00:55:45,000 --> 00:55:49,160
+modularized.
+
+1187
+00:55:46,720 --> 00:55:51,040
+You see? So, if you create a nice parser
+
+1188
+00:55:49,160 --> 00:55:52,560
+for Golang or whatever, Haskell, F
+
+1189
+00:55:51,040 --> 00:55:55,040
+Sharp,
+
+1190
+00:55:52,560 --> 00:55:57,040
+any editor can use it, too,
+
+1191
+00:55:55,040 --> 00:55:58,440
+via the language server protocol. That's
+
+1192
+00:55:57,040 --> 00:56:01,040
+the idea.
+
+1193
+00:55:58,440 --> 00:56:03,800
+Okay, but the consequence of this nice
+
+1194
+00:56:01,040 --> 00:56:06,560
+thing is that it kills Emacs.
+
+1195
+00:56:03,800 --> 00:56:09,640
+Because before this,
+
+1196
+00:56:06,560 --> 00:56:12,280
+Emacs has a unique power that doesn't
+
+1197
+00:56:09,640 --> 00:56:15,240
+exist in any text editor.
+
+1198
+00:56:12,280 --> 00:56:18,160
+Why? Because Emacs Lisp you got Lisp.
+
+1199
+00:56:15,240 --> 00:56:21,600
+In fact, Emacs, the entire Emacs, is a
+
+1200
+00:56:18,160 --> 00:56:24,240
+interface to the Lisp system.
+
+1201
+00:56:21,600 --> 00:56:27,720
+You know, in your init file,
+
+1202
+00:56:24,240 --> 00:56:30,240
+in your init file, that's all Lisp code.
+
+1203
+00:56:27,720 --> 00:56:31,880
+It's not like configuration.
+
+1204
+00:56:30,240 --> 00:56:34,280
+Well, they are configuration and
+
+1205
+00:56:31,880 --> 00:56:35,720
+settings, but this is actually all Lisp
+
+1206
+00:56:34,280 --> 00:56:39,240
+code.
+
+1207
+00:56:35,720 --> 00:56:41,720
+So, Emacs is actually a Lisp programming
+
+1208
+00:56:39,240 --> 00:56:44,840
+language interface.
+
+1209
+00:56:41,720 --> 00:56:46,640
+It makes it extremely powerful.
+
+1210
+00:56:44,840 --> 00:56:49,640
+But now you have a language server
+
+1211
+00:56:46,640 --> 00:56:49,640
+protocol, so
+
+1212
+00:56:50,320 --> 00:56:54,560
+so that kind of
+
+1213
+00:56:53,000 --> 00:56:59,000
+nullify
+
+1214
+00:56:54,560 --> 00:57:01,000
+the power, the advantage of Emacs over
+
+1215
+00:56:59,000 --> 00:57:03,440
+other editors.
+
+1216
+00:57:01,000 --> 00:57:06,160
+Okay, that's that's that's one of the
+
+1217
+00:57:03,440 --> 00:57:06,160
+element.
+
+1218
+00:57:07,320 --> 00:57:12,360
+You know, that's one way to see it.
+
+1219
+00:57:09,960 --> 00:57:15,680
+But why is But you know, the the other
+
+1220
+00:57:12,360 --> 00:57:19,320
+issue is that Emacs Lisp has been
+
+1221
+00:57:15,680 --> 00:57:20,840
+stagnating for like 20 years. I I blame
+
+1222
+00:57:19,320 --> 00:57:24,320
+the GNU
+
+1223
+00:57:20,840 --> 00:57:27,520
+Emacs dev [ __ ] well, half of them.
+
+1224
+00:57:24,320 --> 00:57:28,840
+Because they, led by Richard Stallman,
+
+1225
+00:57:27,520 --> 00:57:30,680
+you know, because they they think they
+
+1226
+00:57:28,840 --> 00:57:32,480
+are God, you know, they They change
+
+1227
+00:57:30,680 --> 00:57:35,600
+nothing.
+
+1228
+00:57:32,480 --> 00:57:37,280
+Unlike Python, PHP, JavaScript, you
+
+1229
+00:57:35,600 --> 00:57:39,040
+know, each one like
+
+1230
+00:57:37,280 --> 00:57:40,840
+every year they have a new compiler,
+
+1231
+00:57:39,040 --> 00:57:42,920
+every 3 years, you know, new compiler
+
+1232
+00:57:40,840 --> 00:57:44,960
+because there's competition. You know,
+
+1233
+00:57:42,920 --> 00:57:46,960
+JavaScript engine from Firefox from
+
+1234
+00:57:44,960 --> 00:57:48,120
+that, you know, I create a faster engine
+
+1235
+00:57:46,960 --> 00:57:50,400
+than you.
+
+1236
+00:57:48,120 --> 00:57:53,480
+Same thing with PHP, you know, same
+
+1237
+00:57:50,400 --> 00:57:54,920
+thing with Python, Python 2, Python 3,
+
+1238
+00:57:53,480 --> 00:57:57,120
+you know, same thing with especially
+
+1239
+00:57:54,920 --> 00:57:59,400
+JavaScript and and you know, so all the
+
+1240
+00:57:57,120 --> 00:58:03,640
+languages are competing and they they
+
+1241
+00:57:59,400 --> 00:58:05,320
+thrive fast. But Emacs like
+
+1242
+00:58:03,640 --> 00:58:06,720
+they stagnate.
+
+1243
+00:58:05,320 --> 00:58:08,480
+You know, if you're going to
+
+1244
+00:58:06,720 --> 00:58:12,080
+if you write a better compiler, you have
+
+1245
+00:58:08,480 --> 00:58:14,440
+to beg, "Please, I I just created this
+
+1246
+00:58:12,080 --> 00:58:16,920
+much faster compiler. Can you Can you
+
+1247
+00:58:14,440 --> 00:58:19,240
+guys God, Richard Stallman, I respect
+
+1248
+00:58:16,920 --> 00:58:22,560
+you so much. Please, can you possibly
+
+1249
+00:58:19,240 --> 00:58:25,240
+think about maybe add my stuff to your
+
+1250
+00:58:22,560 --> 00:58:27,520
+to to the GNU Emacs?"
+
+1251
+00:58:25,240 --> 00:58:30,640
+You know, that's what happens in GNU
+
+1252
+00:58:27,520 --> 00:58:32,640
+Emacs led by the Richard Stallman, [ __ ]
+
+1253
+00:58:30,640 --> 00:58:34,480
+it.
+
+1254
+00:58:32,640 --> 00:58:36,120
+With a bunch of other, you know,
+
+1255
+00:58:34,480 --> 00:58:37,680
+you know, they
+
+1256
+00:58:36,120 --> 00:58:40,440
+Why is it that way? Because they are
+
+1257
+00:58:37,680 --> 00:58:42,400
+like a commune. They are like
+
+1258
+00:58:40,440 --> 00:58:44,360
+communism. You know, they are they
+
+1259
+00:58:42,400 --> 00:58:46,360
+became a commune
+
+1260
+00:58:44,360 --> 00:58:47,640
+where Richard Stallman is the leader,
+
+1261
+00:58:46,360 --> 00:58:49,280
+the head.
+
+1262
+00:58:47,640 --> 00:58:52,720
+You know, you donate, you know, you
+
+1263
+00:58:49,280 --> 00:58:52,720
+should donate money to him.
+
+1264
+00:58:54,000 --> 00:58:58,640
+So, that's part of the story, okay? Of
+
+1265
+00:58:56,200 --> 00:59:00,560
+course, a lot Emacs people are great,
+
+1266
+00:58:58,640 --> 00:59:03,440
+you know, we
+
+1267
+00:59:00,560 --> 00:59:05,920
+you know, I'm using Emacs and Emacs in
+
+1268
+00:59:03,440 --> 00:59:07,360
+the past 5 years there's tremendous
+
+1269
+00:59:05,920 --> 00:59:10,480
+improvements
+
+1270
+00:59:07,360 --> 00:59:13,040
+thanks to the Emacs dev.
+
+1271
+00:59:10,480 --> 00:59:14,400
+Too, right? Also thanks to Richard
+
+1272
+00:59:13,040 --> 00:59:15,720
+Stallman.
+
+1273
+00:59:14,400 --> 00:59:18,400
+You know, so one thing good about
+
+1274
+00:59:15,720 --> 00:59:20,480
+Richard Stallman is not is that he has
+
+1275
+00:59:18,400 --> 00:59:23,760
+not fallen
+
+1276
+00:59:20,480 --> 00:59:27,600
+as a victim or ass kisser
+
+1277
+00:59:23,760 --> 00:59:30,040
+of the men can get pregnant [ __ ] or code
+
+1278
+00:59:27,600 --> 00:59:32,000
+of conduct, [ __ ]
+
+1279
+00:59:30,040 --> 00:59:34,720
+Or the you know, if you are a white man,
+
+1280
+00:59:32,000 --> 00:59:37,280
+you are a evil, [ __ ]
+
+1281
+00:59:34,720 --> 00:59:40,160
+You know, we got Richard Stallman
+
+1282
+00:59:37,280 --> 00:59:41,880
+who defended our rights.
+
+1283
+00:59:40,160 --> 00:59:44,520
+So, that we have to thank Richard
+
+1284
+00:59:41,880 --> 00:59:46,840
+Stallman because he's, you know,
+
+1285
+00:59:44,520 --> 00:59:49,560
+So, Emacs, you know, dev has good and
+
+1286
+00:59:46,840 --> 00:59:52,320
+bad, you know, good and bad and so, but
+
+1287
+00:59:49,560 --> 00:59:52,320
+they but
+
+1288
+00:59:52,360 --> 00:59:58,680
+But, they uh yeah, they you know, some
+
+1289
+00:59:55,040 --> 01:00:00,840
+there's some flaws. So, Emacs this
+
+1290
+00:59:58,680 --> 01:00:03,480
+this you know, actually there's a lot
+
+1291
+01:00:00,840 --> 01:00:06,200
+improvement of Emacs this in past
+
+1292
+01:00:03,480 --> 01:00:08,960
+especially past 5 years.
+
+1293
+01:00:06,200 --> 01:00:11,160
+But, anyway, so my original uh I did
+
+1294
+01:00:08,960 --> 01:00:12,640
+opinion about language server protocol
+
+1295
+01:00:11,160 --> 01:00:15,000
+is and uh
+
+1296
+01:00:12,640 --> 01:00:17,320
+I rather, you know, so you can if if you
+
+1297
+01:00:15,000 --> 01:00:20,560
+read my article, you know, it's
+
+1298
+01:00:17,320 --> 01:00:23,080
+I want Emacs this to improve
+
+1299
+01:00:20,560 --> 01:00:26,040
+because we have so many
+
+1300
+01:00:23,080 --> 01:00:28,040
+incredible, talented people. I list
+
+1301
+01:00:26,040 --> 01:00:31,360
+their names here.
+
+1302
+01:00:28,040 --> 01:00:33,880
+They have written compilers and passes.
+
+1303
+01:00:31,360 --> 01:00:36,520
+Some of them are professional
+
+1304
+01:00:33,880 --> 01:00:38,200
+compiler and parser developers such as
+
+1305
+01:00:36,520 --> 01:00:40,560
+John Wigley
+
+1306
+01:00:38,200 --> 01:00:43,600
+who is I believe who is country
+
+1307
+01:00:40,560 --> 01:00:45,640
+currently the leader of Emacs.
+
+1308
+01:00:43,600 --> 01:00:48,920
+Okay. So, they've been, you know, John
+
+1309
+01:00:45,640 --> 01:00:52,120
+Wigley, for example, working with C++
+
+1310
+01:00:48,920 --> 01:00:53,800
+compiler for 20 years in a professional
+
+1311
+01:00:52,120 --> 01:00:57,040
+manner.
+
+1312
+01:00:53,800 --> 01:00:59,400
+Steve Yegge works for Amazon and Google
+
+1313
+01:00:57,040 --> 01:01:01,880
+for like over 20 years
+
+1314
+01:00:59,400 --> 01:01:03,840
+develop developing
+
+1315
+01:01:01,880 --> 01:01:06,800
+programming languages
+
+1316
+01:01:03,840 --> 01:01:09,360
+tools and stuff. You know, so and and
+
+1317
+01:01:06,800 --> 01:01:11,480
+Lars Magnet, you know, so we have great
+
+1318
+01:01:09,360 --> 01:01:12,920
+number of people, you know, and James
+
+1319
+01:01:11,480 --> 01:01:14,680
+Clark like
+
+1320
+01:01:12,920 --> 01:01:17,400
+You guys don't read stuff. You guys are
+
+1321
+01:01:14,680 --> 01:01:19,520
+zoomers, so you guys know nothing.
+
+1322
+01:01:17,400 --> 01:01:21,640
+But, if you read, you know, my article,
+
+1323
+01:01:19,520 --> 01:01:22,760
+James Clark is
+
+1324
+01:01:21,640 --> 01:01:26,840
+is
+
+1325
+01:01:22,760 --> 01:01:30,880
+he created the XML parser that is in
+
+1326
+01:01:26,840 --> 01:01:33,400
+every or just like almost every XML
+
+1327
+01:01:30,880 --> 01:01:36,480
+parser used in the world.
+
+1328
+01:01:33,400 --> 01:01:38,240
+And he created also the
+
+1329
+01:01:36,480 --> 01:01:41,440
+in Emacs
+
+1330
+01:01:38,240 --> 01:01:44,440
+nXML mode, which is the best editor for
+
+1331
+01:01:41,440 --> 01:01:44,440
+XML, okay?
+
+1332
+01:01:47,080 --> 01:01:52,960
+Okay? So, let me show you his name here.
+
+1333
+01:01:50,080 --> 01:01:54,880
+He's a big open source fanatic, okay?
+
+1334
+01:01:52,960 --> 01:01:56,800
+James Clark.
+
+1335
+01:01:54,880 --> 01:01:59,520
+You know, beginning he I believe he
+
+1336
+01:01:56,800 --> 01:02:00,600
+lives in Philippines. He's a white guy,
+
+1337
+01:01:59,520 --> 01:02:03,160
+okay?
+
+1338
+01:02:00,600 --> 01:02:07,360
+He beginning 2003.
+
+1339
+01:02:03,160 --> 01:02:09,200
+So, he is the the world's top ex- expert
+
+1340
+01:02:07,360 --> 01:02:11,880
+of XML
+
+1341
+01:02:09,200 --> 01:02:14,080
+technology, okay?
+
+1342
+01:02:11,880 --> 01:02:17,120
+So, and we have Flight Flight Check
+
+1343
+01:02:14,080 --> 01:02:19,800
+author, we have Eric Lundem, creator of
+
+1344
+01:02:17,120 --> 01:02:22,520
+C-CEDET. All these are great Emacs Lisp
+
+1345
+01:02:19,800 --> 01:02:23,840
+dev. Xavier well-known. Meet most of
+
+1346
+01:02:22,520 --> 01:02:26,520
+them uh
+
+1347
+01:02:23,840 --> 01:02:29,880
+you probably heard. They are well-known,
+
+1348
+01:02:26,520 --> 01:02:33,440
+okay? Lars Lasse Måge in this this guy
+
+1349
+01:02:29,880 --> 01:02:34,080
+created the EWW browser, okay? So, let
+
+1350
+01:02:33,440 --> 01:02:35,200
+me
+
+1351
+01:02:34,080 --> 01:02:38,520
+let me see.
+
+1352
+01:02:35,200 --> 01:02:41,080
+Entire web browser written in Emacs Lisp
+
+1353
+01:02:38,520 --> 01:02:43,280
+among other things, among GNU's and you
+
+1354
+01:02:41,080 --> 01:02:47,520
+know, so so many.
+
+1355
+01:02:43,280 --> 01:02:49,760
+So, EWW, okay?
+
+1356
+01:02:47,520 --> 01:02:53,920
+Web browser. So, which website you want
+
+1357
+01:02:49,760 --> 01:02:53,920
+to visit? Let's see, xsali.info.
+
+1358
+01:02:54,800 --> 01:03:02,480
+Okay? This is xsali.info
+
+1359
+01:02:57,920 --> 01:03:03,640
+in Emacs. Oh, you got graphics, too.
+
+1360
+01:03:02,480 --> 01:03:07,200
+You see?
+
+1361
+01:03:03,640 --> 01:03:08,640
+xsali.info. Let's Let's full Well, you
+
+1362
+01:03:07,200 --> 01:03:11,040
+can see.
+
+1363
+01:03:08,640 --> 01:03:13,600
+So, you see?
+
+1364
+01:03:11,040 --> 01:03:16,600
+Entire web browser. So, let's look at
+
+1365
+01:03:13,600 --> 01:03:19,440
+source code, EWW, okay? So,
+
+1366
+01:03:16,600 --> 01:03:22,320
+there is a source code. There is a file.
+
+1367
+01:03:19,440 --> 01:03:26,560
+So, this this this, you know, so you got
+
+1368
+01:03:22,320 --> 01:03:28,520
+this like a lot files.
+
+1369
+01:03:26,560 --> 01:03:31,800
+Okay, entire web browser in written
+
+1370
+01:03:28,520 --> 01:03:32,480
+Emacs. So, and then you got John Weekly,
+
+1371
+01:03:31,800 --> 01:03:35,400
+uh
+
+1372
+01:03:32,480 --> 01:03:38,000
+Stefan Monnier, professor in functional
+
+1373
+01:03:35,400 --> 01:03:41,720
+programming language research.
+
+1374
+01:03:38,000 --> 01:03:43,880
+Uh Phil Has Has Hagelberg. He's also,
+
+1375
+01:03:41,720 --> 01:03:45,360
+you know, he's a
+
+1376
+01:03:43,880 --> 01:03:48,040
+commercial programmer, a great
+
+1377
+01:03:45,360 --> 01:03:51,680
+programmer. And Christopher Wellens, I
+
+1378
+01:03:48,040 --> 01:03:53,240
+respect very much. He's, you know,
+
+1379
+01:03:51,680 --> 01:03:54,760
+they they all, you know,
+
+1380
+01:03:53,240 --> 01:03:57,240
+like almost
+
+1381
+01:03:54,760 --> 01:03:58,920
+all of them work for companies or they
+
+1382
+01:03:57,240 --> 01:04:02,560
+are professors, you know.
+
+1383
+01:03:58,920 --> 01:04:06,280
+So, they they have written passes.
+
+1384
+01:04:02,560 --> 01:04:07,520
+So, if Emac Lisp improves,
+
+1385
+01:04:06,280 --> 01:04:10,280
+then
+
+1386
+01:04:07,520 --> 01:04:13,520
+like we don't need like the LSP [ __ ] We
+
+1387
+01:04:10,280 --> 01:04:15,640
+don't need like other people's uh parser
+
+1388
+01:04:13,520 --> 01:04:18,960
+because we all these people are creating
+
+1389
+01:04:15,640 --> 01:04:21,760
+them, you know, as breakfast.
+
+1390
+01:04:18,960 --> 01:04:25,440
+But, what we need is improved Emac Lisp,
+
+1391
+01:04:21,760 --> 01:04:27,400
+okay? We need name space. We need
+
+1392
+01:04:25,440 --> 01:04:28,680
+actual you know, we
+
+1393
+01:04:27,400 --> 01:04:31,120
+you know, there's you know, there's
+
+1394
+01:04:28,680 --> 01:04:34,440
+quite a lot improvements we can ask for.
+
+1395
+01:04:31,120 --> 01:04:37,040
+We need name space. We need uh
+
+1396
+01:04:34,440 --> 01:04:39,400
+keyword arguments. We don't have that
+
+1397
+01:04:37,040 --> 01:04:42,560
+right now. We we kind of have like
+
+1398
+01:04:39,400 --> 01:04:44,680
+borrowing from, you know, common Lisp.
+
+1399
+01:04:42,560 --> 01:04:47,240
+But, but basically we don't have keyword
+
+1400
+01:04:44,680 --> 01:04:48,960
+arguments for functions.
+
+1401
+01:04:47,240 --> 01:04:50,760
+So, anyway,
+
+1402
+01:04:48,960 --> 01:04:53,480
+but anyway, in past 5 years, there's
+
+1403
+01:04:50,760 --> 01:04:55,920
+already tremendous improvements in Emac
+
+1404
+01:04:53,480 --> 01:04:58,080
+Lisp because, for example, today we have
+
+1405
+01:04:55,920 --> 01:05:00,120
+native compilation.
+
+1406
+01:04:58,080 --> 01:05:01,360
+But, however, it's not available on
+
+1407
+01:05:00,120 --> 01:05:03,280
+Windows.
+
+1408
+01:05:01,360 --> 01:05:04,960
+That's too bad.
+
+1409
+01:05:03,280 --> 01:05:08,440
+But, anyway,
+
+1410
+01:05:04,960 --> 01:05:10,720
+so my original opinion of LSP is no
+
+1411
+01:05:08,440 --> 01:05:12,760
+good. Don't use it.
+
+1412
+01:05:10,720 --> 01:05:15,520
+Yeah, but you cannot avoid it once it
+
+1413
+01:05:12,760 --> 01:05:18,400
+became more popular because everyone is
+
+1414
+01:05:15,520 --> 01:05:21,160
+every editor is supporting it.
+
+1415
+01:05:18,400 --> 01:05:24,640
+If your editor Emacs does not support
+
+1416
+01:05:21,160 --> 01:05:27,920
+it, then it's like a flaw, right?
+
+1417
+01:05:24,640 --> 01:05:30,560
+So, you also, you know, so
+
+1418
+01:05:27,920 --> 01:05:33,840
+So, you you also might want to support
+
+1419
+01:05:30,560 --> 01:05:35,520
+it. But, why am I not using it? Because
+
+1420
+01:05:33,840 --> 01:05:39,320
+Well, the short answer is I'm getting
+
+1421
+01:05:35,520 --> 01:05:44,000
+old. I have not taken the time yet to
+
+1422
+01:05:39,320 --> 01:05:46,120
+study this and write my own, you know,
+
+1423
+01:05:44,000 --> 01:05:48,960
+study this protocol in depth. I I
+
+1424
+01:05:46,120 --> 01:05:52,880
+started to a bit, but
+
+1425
+01:05:48,960 --> 01:05:54,360
+I'm old, okay? And I do not want to
+
+1426
+01:05:52,880 --> 01:05:56,760
+like like
+
+1427
+01:05:54,360 --> 01:05:58,240
+install other people's stuff, these
+
+1428
+01:05:56,760 --> 01:06:00,520
+packages.
+
+1429
+01:05:58,240 --> 01:06:02,560
+You know, so you can these packages, you
+
+1430
+01:06:00,520 --> 01:06:07,560
+got a thousands, you know, you got a
+
+1431
+01:06:02,560 --> 01:06:07,560
+thousand packages, like 6,663.
+
+1432
+01:06:10,880 --> 01:06:14,200
+So, you
+
+1433
+01:06:12,360 --> 01:06:16,880
+I can install them, you know, I can
+
+1434
+01:06:14,200 --> 01:06:18,840
+install them, you know, go land mod, F
+
+1435
+01:06:16,880 --> 01:06:21,640
+sharp mod,
+
+1436
+01:06:18,840 --> 01:06:25,240
+but I don't need to because I
+
+1437
+01:06:21,640 --> 01:06:29,120
+been coding Emacs this myself for 20
+
+1438
+01:06:25,240 --> 01:06:31,800
+years almost and uh
+
+1439
+01:06:29,120 --> 01:06:33,960
+I can write my own mod, F sharp mod,
+
+1440
+01:06:31,800 --> 01:06:36,520
+like in in an hour.
+
+1441
+01:06:33,960 --> 01:06:38,320
+Do exactly what I want.
+
+1442
+01:06:36,520 --> 01:06:40,960
+I don't have to read documentation,
+
+1443
+01:06:38,320 --> 01:06:43,560
+search for it if it doesn't exist or
+
+1444
+01:06:40,960 --> 01:06:46,320
+like what what other people's thinking,
+
+1445
+01:06:43,560 --> 01:06:48,400
+why are they designed that way, uh how
+
+1446
+01:06:46,320 --> 01:06:49,400
+do I make it the way I want? I don't
+
+1447
+01:06:48,400 --> 01:06:52,160
+have to.
+
+1448
+01:06:49,400 --> 01:06:54,320
+I create this F sharp mod in
+
+1449
+01:06:52,160 --> 01:06:56,160
+in like 2 hours.
+
+1450
+01:06:54,320 --> 01:06:57,600
+I don't need
+
+1451
+01:06:56,160 --> 01:07:00,120
+another
+
+1452
+01:06:57,600 --> 01:07:02,000
+you know, compiler the server protocol.
+
+1453
+01:07:00,120 --> 01:07:04,640
+I don't need it.
+
+1454
+01:07:02,000 --> 01:07:06,960
+Because and I I'm more efficient, you
+
+1455
+01:07:04,640 --> 01:07:09,560
+know, like I can
+
+1456
+01:07:06,960 --> 01:07:12,160
+Anyway, so that's the reason I'm not
+
+1457
+01:07:09,560 --> 01:07:14,560
+using it because I'm getting old. Same
+
+1458
+01:07:12,160 --> 01:07:17,080
+thing with tree-sitter. Tree-sitter I
+
+1459
+01:07:14,560 --> 01:07:19,960
+believe is much better. Tree I mean both
+
+1460
+01:07:17,080 --> 01:07:23,080
+are good, okay? LSP is
+
+1461
+01:07:19,960 --> 01:07:25,800
+I mean you know, LSP is is is a good
+
+1462
+01:07:23,080 --> 01:07:28,960
+idea. It's good, okay? Tree-sitter is
+
+1463
+01:07:25,800 --> 01:07:30,320
+also good. Tree-sitter is advancement of
+
+1464
+01:07:28,960 --> 01:07:31,800
+parsing
+
+1465
+01:07:30,320 --> 01:07:34,280
+a progress.
+
+1466
+01:07:31,800 --> 01:07:36,920
+But I'm just I don't have
+
+1467
+01:07:34,280 --> 01:07:38,200
+I didn't you know, I don't have time. I
+
+1468
+01:07:36,920 --> 01:07:40,600
+didn't
+
+1469
+01:07:38,200 --> 01:07:43,560
+yet to get to it.
+
+1470
+01:07:40,600 --> 01:07:46,320
+Like right now my time I need to spend
+
+1471
+01:07:43,560 --> 01:07:48,600
+on learning this proof system.
+
+1472
+01:07:46,320 --> 01:07:51,000
+Okay, so that's further delay to the
+
+1473
+01:07:48,600 --> 01:07:54,520
+tree-sitter. This learning this lean
+
+1474
+01:07:51,000 --> 01:07:57,640
+proof system is more important
+
+1475
+01:07:54,520 --> 01:08:00,600
+for me, more critical for me than
+
+1476
+01:07:57,640 --> 01:08:03,120
+than learning about the tree-sitter, you
+
+1477
+01:08:00,600 --> 01:08:07,400
+know, parser mechanism, how they
+
+1478
+01:08:03,120 --> 01:08:07,400
+integrate with Emacs and and that's why.
+
+1479
+01:08:10,200 --> 01:08:15,200
+Okay, that's it for today. Thank you
+
+1480
+01:08:12,160 --> 01:08:15,200
+guys for watching.
+
+1481
+01:08:18,120 --> 01:08:23,560
+Yeah, tree-sitter is good. I mean it's a
+
+1482
+01:08:20,120 --> 01:08:23,560
+good idea. It's uh
+
+1483
+01:08:25,560 --> 01:08:31,880
+You need more adaptive and study fast in
+
+1484
+01:08:28,839 --> 01:08:31,880
+modern world.
+
+1485
+01:08:32,400 --> 01:08:36,640
+Yeah, but but but but but but but you
+
+1486
+01:08:33,920 --> 01:08:39,680
+can only do so much. You see if if you
+
+1487
+01:08:36,640 --> 01:08:41,319
+try to learn a lot fast, you don't have
+
+1488
+01:08:39,680 --> 01:08:44,080
+depth.
+
+1489
+01:08:41,319 --> 01:08:46,400
+Anyway, that's it for today.
+
+1490
+01:08:44,080 --> 01:08:47,720
+Thank you guys for watching. 15 viewers.
+
+1491
+01:08:46,400 --> 01:08:51,759
+Okay.
+
+1492
+01:08:47,720 --> 01:08:51,759
+Yeah, that's it. Bye. I think yeah.
+
+1493
+01:08:53,480 --> 01:08:56,080
+Uh
+
+1494
+01:08:57,120 --> 01:09:03,319
+Close that. Okay, so anyway, bye guys.
+
+1495
+01:09:01,160 --> 01:09:06,200
+Go to xali.info,
+
+1496
+01:09:03,319 --> 01:09:08,960
+okay? xali.info
+
+1497
+01:09:06,200 --> 01:09:11,759
+Go all the way down and pay me Amazon
+
+1498
+01:09:08,960 --> 01:09:11,759
+gift card.
+

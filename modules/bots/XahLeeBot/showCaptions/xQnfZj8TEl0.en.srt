@@ -1,0 +1,4712 @@
+1
+00:00:06,319 --> 00:00:10,960
+good morning everyone
+
+2
+00:00:08,720 --> 00:00:12,160
+uh welcome to another episode of son
+
+3
+00:00:10,960 --> 00:00:15,440
+talk show
+
+4
+00:00:12,160 --> 00:00:19,359
+today is 2020 august 21st
+
+5
+00:00:15,440 --> 00:00:22,000
+friday and it's 4 30
+
+6
+00:00:19,359 --> 00:00:22,720
+in the afternoon san francisco time good
+
+7
+00:00:22,000 --> 00:00:26,160
+morning guys
+
+8
+00:00:22,720 --> 00:00:28,840
+good morning bots alan and informatic
+
+9
+00:00:26,160 --> 00:00:30,400
+so today we are going to do a uh
+
+10
+00:00:28,840 --> 00:00:33,520
+concentrated
+
+11
+00:00:30,400 --> 00:00:34,320
+emacs list tutorial i'm going to show
+
+12
+00:00:33,520 --> 00:00:37,680
+you
+
+13
+00:00:34,320 --> 00:00:39,680
+how to create a command that highlights
+
+14
+00:00:37,680 --> 00:00:43,440
+text
+
+15
+00:00:39,680 --> 00:00:44,000
+okay and so first of all today's
+
+16
+00:00:43,440 --> 00:00:46,640
+background
+
+17
+00:00:44,000 --> 00:00:48,160
+image is this keyboard fantastic hey
+
+18
+00:00:46,640 --> 00:00:51,039
+danielle
+
+19
+00:00:48,160 --> 00:00:51,680
+so this is this keyboard you see there's
+
+20
+00:00:51,039 --> 00:00:54,879
+hyper
+
+21
+00:00:51,680 --> 00:00:56,399
+super meta control this is one of the
+
+22
+00:00:54,879 --> 00:01:00,239
+lisp keyboards this
+
+23
+00:00:56,399 --> 00:01:03,359
+is uh rocco norsk
+
+24
+00:01:00,239 --> 00:01:06,640
+kps10 lisp prototype keyboard
+
+25
+00:01:03,359 --> 00:01:09,920
+this one is actually a prototype it's uh
+
+26
+00:01:06,640 --> 00:01:13,119
+never made this is
+
+27
+00:01:09,920 --> 00:01:16,320
+at the end near the end of
+
+28
+00:01:13,119 --> 00:01:20,880
+a.i winter you know that's the death of
+
+29
+00:01:16,320 --> 00:01:23,040
+lisp around 1990 i think what wins this
+
+30
+00:01:20,880 --> 00:01:27,680
+keyboard
+
+31
+00:01:23,040 --> 00:01:30,479
+uh 1984 okay so 1984
+
+32
+00:01:27,680 --> 00:01:32,400
+so anyway so that's today's background
+
+33
+00:01:30,479 --> 00:01:33,439
+and you see back then we have this
+
+34
+00:01:32,400 --> 00:01:37,680
+optical mouse
+
+35
+00:01:33,439 --> 00:01:38,479
+you know 1984 this optical mouse unlike
+
+36
+00:01:37,680 --> 00:01:41,520
+today's
+
+37
+00:01:38,479 --> 00:01:44,720
+where so back then you have you use this
+
+38
+00:01:41,520 --> 00:01:46,880
+uh mirror pad uh
+
+39
+00:01:44,720 --> 00:01:49,200
+for it to work without that pad it
+
+40
+00:01:46,880 --> 00:01:51,040
+doesn't work
+
+41
+00:01:49,200 --> 00:01:53,040
+so okay that's the background image and
+
+42
+00:01:51,040 --> 00:01:53,439
+let's get it get started we're gonna
+
+43
+00:01:53,040 --> 00:01:55,920
+talk
+
+44
+00:01:53,439 --> 00:01:58,640
+we're gonna do this tutorial and this is
+
+45
+00:01:55,920 --> 00:02:01,119
+just going to be a concentrated tutorial
+
+46
+00:01:58,640 --> 00:02:01,759
+so we are going to write a command that
+
+47
+00:02:01,119 --> 00:02:06,560
+highlight
+
+48
+00:02:01,759 --> 00:02:06,560
+text uh let me show you okay so you go
+
+49
+00:02:06,840 --> 00:02:10,000
+to
+
+50
+00:02:08,000 --> 00:02:12,160
+let me show you some default emacs
+
+51
+00:02:10,000 --> 00:02:14,319
+commands so you this you you go to my
+
+52
+00:02:12,160 --> 00:02:17,200
+emacs tutorial just search for xr
+
+53
+00:02:14,319 --> 00:02:18,400
+emacs highlight highlighting commands
+
+54
+00:02:17,200 --> 00:02:21,840
+for example so
+
+55
+00:02:18,400 --> 00:02:22,879
+let's magnify mac magnum by my buffer
+
+56
+00:02:21,840 --> 00:02:25,680
+for example
+
+57
+00:02:22,879 --> 00:02:26,239
+let's say i want to highlight all the
+
+58
+00:02:25,680 --> 00:02:29,760
+words
+
+59
+00:02:26,239 --> 00:02:33,760
+emacs okay let's see so emax
+
+60
+00:02:29,760 --> 00:02:36,879
+so i just call the command highlight
+
+61
+00:02:33,760 --> 00:02:37,920
+uh lines matching regret rejects there
+
+62
+00:02:36,879 --> 00:02:42,160
+are several command
+
+63
+00:02:37,920 --> 00:02:45,200
+commands highlight phrase okay um
+
+64
+00:02:42,160 --> 00:02:48,640
+there it is uh wait highlight phrase
+
+65
+00:02:45,200 --> 00:02:50,959
+then you type emacs press enter
+
+66
+00:02:48,640 --> 00:02:52,640
+it asks you what color so yellow is fine
+
+67
+00:02:50,959 --> 00:02:55,760
+so now you can see
+
+68
+00:02:52,640 --> 00:02:56,080
+yellow now let's highlight lisp keyword
+
+69
+00:02:55,760 --> 00:02:59,360
+so
+
+70
+00:02:56,080 --> 00:03:00,319
+highlight phrase lisp and what color
+
+71
+00:02:59,360 --> 00:03:02,319
+pink
+
+72
+00:03:00,319 --> 00:03:03,920
+you can see so that's a highlight
+
+73
+00:03:02,319 --> 00:03:05,120
+command so how do you do it how do you
+
+74
+00:03:03,920 --> 00:03:06,959
+write a command to do that
+
+75
+00:03:05,120 --> 00:03:09,200
+i'm gonna show you okay so here are some
+
+76
+00:03:06,959 --> 00:03:11,599
+of the commands
+
+77
+00:03:09,200 --> 00:03:12,720
+highlight regular expression uh
+
+78
+00:03:11,599 --> 00:03:15,599
+highlight symbol
+
+79
+00:03:12,720 --> 00:03:16,319
+at point uh very useful if you are
+
+80
+00:03:15,599 --> 00:03:18,879
+programmed
+
+81
+00:03:16,319 --> 00:03:20,400
+if you are a program programmer doing a
+
+82
+00:03:18,879 --> 00:03:20,959
+source code sometimes you want to see
+
+83
+00:03:20,400 --> 00:03:23,200
+some
+
+84
+00:03:20,959 --> 00:03:24,400
+function name highlighted highlight
+
+85
+00:03:23,200 --> 00:03:26,640
+highlight lines
+
+86
+00:03:24,400 --> 00:03:27,519
+matching regular expression highlight
+
+87
+00:03:26,640 --> 00:03:29,280
+trace
+
+88
+00:03:27,519 --> 00:03:31,360
+highlight regular expression so there
+
+89
+00:03:29,280 --> 00:03:33,120
+are these commands
+
+90
+00:03:31,360 --> 00:03:35,519
+so i'm going to show you how to do them
+
+91
+00:03:33,120 --> 00:03:36,959
+so what you do you go to my emacs
+
+92
+00:03:35,519 --> 00:03:41,120
+tutorial
+
+93
+00:03:36,959 --> 00:03:44,840
+then you go to emacs list
+
+94
+00:03:41,120 --> 00:03:47,440
+writing a major mod okay then you go
+
+95
+00:03:44,840 --> 00:03:52,480
+down um
+
+96
+00:03:47,440 --> 00:03:52,480
+then you go down then you look at um
+
+97
+00:03:52,720 --> 00:03:58,239
+text properties okay so that's my
+
+98
+00:03:56,000 --> 00:03:59,840
+tutorial where i tell you
+
+99
+00:03:58,239 --> 00:04:02,080
+you know you can read it i tell you how
+
+100
+00:03:59,840 --> 00:04:02,560
+to do it but we are going to do it from
+
+101
+00:04:02,080 --> 00:04:05,519
+scratch
+
+102
+00:04:02,560 --> 00:04:06,319
+i'm just going to explain and do it um
+
+103
+00:04:05,519 --> 00:04:09,040
+live
+
+104
+00:04:06,319 --> 00:04:11,040
+so highlight command so let's start a
+
+105
+00:04:09,040 --> 00:04:15,840
+emacs lisp okay so just
+
+106
+00:04:11,040 --> 00:04:19,280
+open the empty buffer any buffer will do
+
+107
+00:04:15,840 --> 00:04:23,040
+but since i'm um so anyway so
+
+108
+00:04:19,280 --> 00:04:26,800
+here is my emac list define a function
+
+109
+00:04:23,040 --> 00:04:27,680
+and so let me explain so in e-max there
+
+110
+00:04:26,800 --> 00:04:32,320
+are two
+
+111
+00:04:27,680 --> 00:04:36,160
+mechanisms to highlight text
+
+112
+00:04:32,320 --> 00:04:39,440
+for example you see these red
+
+113
+00:04:36,160 --> 00:04:40,400
+lines comments in html that's syntax
+
+114
+00:04:39,440 --> 00:04:43,280
+coloring
+
+115
+00:04:40,400 --> 00:04:44,160
+obviously right you see you see this is
+
+116
+00:04:43,280 --> 00:04:47,280
+blue
+
+117
+00:04:44,160 --> 00:04:48,000
+this is blue and for a string you have a
+
+118
+00:04:47,280 --> 00:04:50,639
+red
+
+119
+00:04:48,000 --> 00:04:51,600
+then normally it's black this is syntax
+
+120
+00:04:50,639 --> 00:04:54,720
+coloring
+
+121
+00:04:51,600 --> 00:04:56,639
+so in general syntax coloring
+
+122
+00:04:54,720 --> 00:04:58,800
+in a major mod programming language mod
+
+123
+00:04:56,639 --> 00:05:01,199
+they use a mechanism called
+
+124
+00:04:58,800 --> 00:05:02,080
+text properties i'm going to show you
+
+125
+00:05:01,199 --> 00:05:05,440
+that now
+
+126
+00:05:02,080 --> 00:05:07,600
+okay text properties
+
+127
+00:05:05,440 --> 00:05:08,960
+now that's one mechanism there's another
+
+128
+00:05:07,600 --> 00:05:11,919
+mechanism called
+
+129
+00:05:08,960 --> 00:05:12,800
+overlay okay uh i think we are going to
+
+130
+00:05:11,919 --> 00:05:14,720
+explain that
+
+131
+00:05:12,800 --> 00:05:17,759
+we need to do this fast but let's do
+
+132
+00:05:14,720 --> 00:05:19,520
+let's focus on text properties first
+
+133
+00:05:17,759 --> 00:05:21,759
+so in emacs you have something called
+
+134
+00:05:19,520 --> 00:05:22,800
+text property like in a buffer every
+
+135
+00:05:21,759 --> 00:05:25,520
+text
+
+136
+00:05:22,800 --> 00:05:27,440
+every text for example in any text if
+
+137
+00:05:25,520 --> 00:05:31,199
+there is you can actually attach
+
+138
+00:05:27,440 --> 00:05:33,520
+a property to it and so for example over
+
+139
+00:05:31,199 --> 00:05:36,639
+here how does emacs know that
+
+140
+00:05:33,520 --> 00:05:38,160
+this you know part should be read well
+
+141
+00:05:36,639 --> 00:05:40,960
+it's because
+
+142
+00:05:38,160 --> 00:05:42,400
+in this section in this region of text
+
+143
+00:05:40,960 --> 00:05:45,440
+there's actually a text
+
+144
+00:05:42,400 --> 00:05:48,240
+property that tells you
+
+145
+00:05:45,440 --> 00:05:50,639
+that it should be color red that's a
+
+146
+00:05:48,240 --> 00:05:50,639
+reason
+
+147
+00:05:50,840 --> 00:05:54,400
+so so how do you do it so okay so let's
+
+148
+00:05:54,000 --> 00:05:57,919
+see
+
+149
+00:05:54,400 --> 00:06:00,400
+um let's write the code to do let's say
+
+150
+00:05:57,919 --> 00:06:04,240
+highlight let's say let's write the
+
+151
+00:06:00,400 --> 00:06:04,240
+command highlight kernel word okay
+
+152
+00:06:04,840 --> 00:06:10,479
+um
+
+153
+00:06:07,360 --> 00:06:14,000
+okay hi light
+
+154
+00:06:10,479 --> 00:06:18,000
+current word the word under cursor okay
+
+155
+00:06:14,000 --> 00:06:21,039
+let's see um type type the
+
+156
+00:06:18,000 --> 00:06:24,240
+dot string highlight
+
+157
+00:06:21,039 --> 00:06:27,440
+the word under cruiser to be
+
+158
+00:06:24,240 --> 00:06:32,479
+red okay and let's
+
+159
+00:06:27,440 --> 00:06:34,639
+give a version number today's date
+
+160
+00:06:32,479 --> 00:06:36,160
+it's my convention to always give a
+
+161
+00:06:34,639 --> 00:06:39,440
+version number of date
+
+162
+00:06:36,160 --> 00:06:43,120
+for command so okay
+
+163
+00:06:39,440 --> 00:06:43,120
+so how do we do it uh
+
+164
+00:06:43,360 --> 00:06:49,840
+highlight the word highlight the
+
+165
+00:06:46,400 --> 00:06:49,840
+the word under cruiser
+
+166
+00:06:51,120 --> 00:06:56,319
+uh wait so am i doing good oh it's
+
+167
+00:06:53,759 --> 00:06:56,319
+always good
+
+168
+00:06:56,400 --> 00:06:59,599
+okay highlight what under kusa hold on a
+
+169
+00:06:58,319 --> 00:07:03,680
+second
+
+170
+00:06:59,599 --> 00:07:04,800
+let's see okay so highlight what under
+
+171
+00:07:03,680 --> 00:07:07,199
+kuza so
+
+172
+00:07:04,800 --> 00:07:08,240
+so first of all we need to find out the
+
+173
+00:07:07,199 --> 00:07:10,400
+beginning position
+
+174
+00:07:08,240 --> 00:07:12,560
+and end position of the word under
+
+175
+00:07:10,400 --> 00:07:16,880
+cruiser so how you do that
+
+176
+00:07:12,560 --> 00:07:18,639
+um there's a word there's a command
+
+177
+00:07:16,880 --> 00:07:20,160
+a current word there's there are quite a
+
+178
+00:07:18,639 --> 00:07:23,199
+few ways to do it
+
+179
+00:07:20,160 --> 00:07:25,759
+uh but one of the simplest way is using
+
+180
+00:07:23,199 --> 00:07:28,000
+a command something called current word
+
+181
+00:07:25,759 --> 00:07:30,400
+i forgot the command name so let's go to
+
+182
+00:07:28,000 --> 00:07:33,440
+my emac this tutorial
+
+183
+00:07:30,400 --> 00:07:33,440
+and we'll find it
+
+184
+00:07:36,160 --> 00:07:45,840
+stream functions text editing um
+
+185
+00:07:46,720 --> 00:07:50,400
+there is a let's use just use thing at
+
+186
+00:07:49,599 --> 00:07:53,599
+point okay
+
+187
+00:07:50,400 --> 00:07:54,080
+uh that's because it's um it's more
+
+188
+00:07:53,599 --> 00:07:56,800
+general
+
+189
+00:07:54,080 --> 00:07:58,160
+thing at point so there is this command
+
+190
+00:07:56,800 --> 00:08:01,360
+thing at point
+
+191
+00:07:58,160 --> 00:08:03,680
+and you just say a single word and that
+
+192
+00:08:01,360 --> 00:08:05,360
+will
+
+193
+00:08:03,680 --> 00:08:06,800
+let me show you how to how to do it
+
+194
+00:08:05,360 --> 00:08:09,840
+first of all
+
+195
+00:08:06,800 --> 00:08:11,680
+position one position two that's the
+
+196
+00:08:09,840 --> 00:08:13,120
+beginning and end position of the word
+
+197
+00:08:11,680 --> 00:08:16,800
+we want so
+
+198
+00:08:13,120 --> 00:08:18,160
+um found a thing at point so that's the
+
+199
+00:08:16,800 --> 00:08:20,160
+command
+
+200
+00:08:18,160 --> 00:08:21,759
+that's a command you want to call bounce
+
+201
+00:08:20,160 --> 00:08:27,759
+of thing at point
+
+202
+00:08:21,759 --> 00:08:31,520
+then let's just say word okay
+
+203
+00:08:27,759 --> 00:08:33,839
+so what that will return is a vector
+
+204
+00:08:31,520 --> 00:08:35,919
+this will return a vector so let me show
+
+205
+00:08:33,839 --> 00:08:40,560
+you how do you do these
+
+206
+00:08:35,919 --> 00:08:43,599
+bounds okay let's say boundary
+
+207
+00:08:40,560 --> 00:08:43,919
+so we have three variables so first of
+
+208
+00:08:43,599 --> 00:08:47,760
+all
+
+209
+00:08:43,919 --> 00:08:51,360
+set set
+
+210
+00:08:47,760 --> 00:08:55,839
+boundary okay then this command
+
+211
+00:08:51,360 --> 00:08:55,839
+bounds everything at point
+
+212
+00:08:57,200 --> 00:09:02,080
+so what it will return what it will
+
+213
+00:09:00,160 --> 00:09:09,839
+return is a vector like that
+
+214
+00:09:02,080 --> 00:09:09,839
+uh some way
+
+215
+00:09:14,080 --> 00:09:17,680
+wait what am i doing
+
+216
+00:09:20,320 --> 00:09:23,440
+yeah it will return a vector like that
+
+217
+00:09:22,160 --> 00:09:25,600
+two numbers the number
+
+218
+00:09:23,440 --> 00:09:26,880
+are positioned cruiser position in a
+
+219
+00:09:25,600 --> 00:09:29,680
+buffer
+
+220
+00:09:26,880 --> 00:09:31,920
+that's what uh sample return value okay
+
+221
+00:09:29,680 --> 00:09:34,160
+so we not once we got the boundary
+
+222
+00:09:31,920 --> 00:09:36,080
+then we want to set position one and
+
+223
+00:09:34,160 --> 00:09:40,000
+position two so position one
+
+224
+00:09:36,080 --> 00:09:43,680
+is going to be set
+
+225
+00:09:40,000 --> 00:09:47,040
+position one um a ref
+
+226
+00:09:43,680 --> 00:09:51,200
+okay when you want to get
+
+227
+00:09:47,040 --> 00:09:53,600
+a element of a of a array you use a ref
+
+228
+00:09:51,200 --> 00:09:55,120
+wait i think it returns a list instead
+
+229
+00:09:53,600 --> 00:09:58,720
+of array so
+
+230
+00:09:55,120 --> 00:09:58,720
+let's look up the documentation
+
+231
+00:09:59,440 --> 00:10:04,160
+describe function so here is the
+
+232
+00:10:02,880 --> 00:10:06,560
+documentation
+
+233
+00:10:04,160 --> 00:10:08,640
+so determines the start and end buffer
+
+234
+00:10:06,560 --> 00:10:10,079
+location for the thing at point okay
+
+235
+00:10:08,640 --> 00:10:12,720
+blah blah blah
+
+236
+00:10:10,079 --> 00:10:14,240
+uh return a con cell so that it returns
+
+237
+00:10:12,720 --> 00:10:18,079
+a con cell that's what it
+
+238
+00:10:14,240 --> 00:10:21,519
+returns data type so in that case a
+
+239
+00:10:18,079 --> 00:10:23,440
+car if you know it returns a con cell
+
+240
+00:10:21,519 --> 00:10:26,320
+like that
+
+241
+00:10:23,440 --> 00:10:29,279
+like that so to get the first element
+
+242
+00:10:26,320 --> 00:10:29,279
+you just say car
+
+243
+00:10:30,480 --> 00:10:34,959
+okay then set position two
+
+244
+00:10:35,120 --> 00:10:38,720
+to get the second element you say cut
+
+245
+00:10:37,680 --> 00:10:41,920
+the okay
+
+246
+00:10:38,720 --> 00:10:44,480
+uh cdr that's just um the
+
+247
+00:10:41,920 --> 00:10:44,959
+strange names you see car and carder is
+
+248
+00:10:44,480 --> 00:10:48,079
+just
+
+249
+00:10:44,959 --> 00:10:50,640
+historical don't worry about it
+
+250
+00:10:48,079 --> 00:10:52,560
+uh you can you know you you might find
+
+251
+00:10:50,640 --> 00:10:53,760
+online articles about why they are named
+
+252
+00:10:52,560 --> 00:10:57,040
+that but basically
+
+253
+00:10:53,760 --> 00:10:59,040
+it's a console any anyway so car you get
+
+254
+00:10:57,040 --> 00:10:59,519
+the first point and kada is the second
+
+255
+00:10:59,040 --> 00:11:02,800
+point
+
+256
+00:10:59,519 --> 00:11:04,720
+a second element in a con cell console
+
+257
+00:11:02,800 --> 00:11:07,760
+is just basically
+
+258
+00:11:04,720 --> 00:11:09,839
+it's just a at least like
+
+259
+00:11:07,760 --> 00:11:12,399
+thing with only two elements that's a
+
+260
+00:11:09,839 --> 00:11:12,399
+constant
+
+261
+00:11:13,040 --> 00:11:16,320
+so we we've done that so okay so that's
+
+262
+00:11:15,440 --> 00:11:19,600
+that uh
+
+263
+00:11:16,320 --> 00:11:21,360
+now the next step is
+
+264
+00:11:19,600 --> 00:11:23,279
+so now we have the beginning and end
+
+265
+00:11:21,360 --> 00:11:25,680
+position now we just want to highlight
+
+266
+00:11:23,279 --> 00:11:28,320
+it so
+
+267
+00:11:25,680 --> 00:11:30,800
+so what do you do you call this command
+
+268
+00:11:28,320 --> 00:11:35,920
+text properties okay let me show you
+
+269
+00:11:30,800 --> 00:11:39,600
+uh okay let's go back to my talk show
+
+270
+00:11:35,920 --> 00:11:41,360
+you go to text properties
+
+271
+00:11:39,600 --> 00:11:43,760
+i'm gonna explain to i'm going to
+
+272
+00:11:41,360 --> 00:11:45,600
+explain so what you want is the text
+
+273
+00:11:43,760 --> 00:11:48,800
+properties
+
+274
+00:11:45,600 --> 00:11:54,560
+here let me copy it
+
+275
+00:11:48,800 --> 00:11:54,560
+it's easier so you see so we are going
+
+276
+00:11:54,839 --> 00:11:59,200
+to
+
+277
+00:11:56,160 --> 00:12:00,160
+this command text properties put text
+
+278
+00:11:59,200 --> 00:12:02,399
+property
+
+279
+00:12:00,160 --> 00:12:04,240
+what does that mean so this function
+
+280
+00:12:02,399 --> 00:12:05,040
+takes two elements uh takes several
+
+281
+00:12:04,240 --> 00:12:07,279
+arguments
+
+282
+00:12:05,040 --> 00:12:08,880
+the first two argument is a position
+
+283
+00:12:07,279 --> 00:12:11,760
+beginning and end position
+
+284
+00:12:08,880 --> 00:12:14,240
+so in our case it's position one and
+
+285
+00:12:11,760 --> 00:12:18,079
+position two
+
+286
+00:12:14,240 --> 00:12:21,680
+then the rest of the arguments
+
+287
+00:12:18,079 --> 00:12:24,959
+is going to ask you what kind of
+
+288
+00:12:21,680 --> 00:12:27,440
+property you want to add to this region
+
+289
+00:12:24,959 --> 00:12:29,040
+to this position one position to be you
+
+290
+00:12:27,440 --> 00:12:30,720
+know the region between those two
+
+291
+00:12:29,040 --> 00:12:32,720
+positions
+
+292
+00:12:30,720 --> 00:12:33,760
+so what is the text property you know
+
+293
+00:12:32,720 --> 00:12:36,160
+you can read
+
+294
+00:12:33,760 --> 00:12:38,240
+my tutorial i explain in detail but text
+
+295
+00:12:36,160 --> 00:12:41,040
+property is basically a
+
+296
+00:12:38,240 --> 00:12:42,560
+list of pairs so it's actually just a
+
+297
+00:12:41,040 --> 00:12:45,120
+list of pairs
+
+298
+00:12:42,560 --> 00:12:47,279
+you know key value pairs so in our case
+
+299
+00:12:45,120 --> 00:12:49,839
+we are going to add
+
+300
+00:12:47,279 --> 00:12:50,720
+one of the building key is called font
+
+301
+00:12:49,839 --> 00:12:53,279
+lock face
+
+302
+00:12:50,720 --> 00:12:54,880
+okay uh found log face so we are going
+
+303
+00:12:53,279 --> 00:12:57,440
+to add
+
+304
+00:12:54,880 --> 00:12:58,079
+a text property with a key font lock
+
+305
+00:12:57,440 --> 00:13:01,519
+face
+
+306
+00:12:58,079 --> 00:13:05,200
+to this region then then then
+
+307
+00:13:01,519 --> 00:13:08,639
+the value of that is going to be this um
+
+308
+00:13:05,200 --> 00:13:11,600
+this list expression foreground red
+
+309
+00:13:08,639 --> 00:13:11,600
+yeah foregone red
+
+310
+00:13:12,480 --> 00:13:17,120
+so let's make this pretty fire so that's
+
+311
+00:13:15,279 --> 00:13:18,160
+it that actually that's the code that's
+
+312
+00:13:17,120 --> 00:13:20,079
+all there it is
+
+313
+00:13:18,160 --> 00:13:22,160
+so we are so what we're gonna do is
+
+314
+00:13:20,079 --> 00:13:23,200
+going to we're gonna to evaluate this
+
+315
+00:13:22,160 --> 00:13:26,399
+buffer
+
+316
+00:13:23,200 --> 00:13:27,600
+okay now copy the word copy copy the
+
+317
+00:13:26,399 --> 00:13:30,639
+command name
+
+318
+00:13:27,600 --> 00:13:34,720
+now let's say let's go back to my uh
+
+319
+00:13:30,639 --> 00:13:37,120
+talk show okay so my talk show
+
+320
+00:13:34,720 --> 00:13:37,920
+let's say i want to highlight the word
+
+321
+00:13:37,120 --> 00:13:40,720
+modify
+
+322
+00:13:37,920 --> 00:13:42,800
+you see that that word modify so i put a
+
+323
+00:13:40,720 --> 00:13:46,079
+cursor under that word
+
+324
+00:13:42,800 --> 00:13:49,120
+called the command we just defined
+
+325
+00:13:46,079 --> 00:13:52,959
+highlight current word okay enter
+
+326
+00:13:49,120 --> 00:13:52,959
+you there it is you see it's red
+
+327
+00:13:53,519 --> 00:13:57,680
+so that's how you do it okay let's go
+
+328
+00:13:55,519 --> 00:13:58,240
+back to the code uh let's go back to the
+
+329
+00:13:57,680 --> 00:14:01,519
+code
+
+330
+00:13:58,240 --> 00:14:03,519
+you know that's how you do it it's so
+
+331
+00:14:01,519 --> 00:14:06,800
+simple
+
+332
+00:14:03,519 --> 00:14:07,519
+okay so so far so good comments guys
+
+333
+00:14:06,800 --> 00:14:10,079
+okay
+
+334
+00:14:07,519 --> 00:14:10,959
+comments let's see do we have comments
+
+335
+00:14:10,079 --> 00:14:14,240
+say something hi
+
+336
+00:14:10,959 --> 00:14:18,000
+uh guys uh
+
+337
+00:14:14,240 --> 00:14:22,320
+let's see how long have i been talking
+
+338
+00:14:18,000 --> 00:14:22,320
+there's something wrong with this um
+
+339
+00:14:25,040 --> 00:14:28,399
+pop-up let's see how long i've been
+
+340
+00:14:27,040 --> 00:14:32,639
+talking then let's
+
+341
+00:14:28,399 --> 00:14:32,639
+let's move on to the next topic uh
+
+342
+00:14:34,160 --> 00:14:41,199
+14 minutes okay it's pretty good
+
+343
+00:14:37,760 --> 00:14:43,199
+so that is how you highlight uh text
+
+344
+00:14:41,199 --> 00:14:44,959
+you know might you know you read my
+
+345
+00:14:43,199 --> 00:14:50,000
+tutorial you explain the whole thing
+
+346
+00:14:44,959 --> 00:14:53,760
+uh but now okay now let's copy the code
+
+347
+00:14:50,000 --> 00:14:56,079
+and put it in my this tutorial okay so
+
+348
+00:14:53,760 --> 00:14:56,079
+um
+
+349
+00:14:56,959 --> 00:14:59,839
+a second
+
+350
+00:15:01,360 --> 00:15:07,279
+okay paste the code here show in browser
+
+351
+00:15:04,560 --> 00:15:08,320
+so we got a code that's today's code and
+
+352
+00:15:07,279 --> 00:15:13,040
+make it
+
+353
+00:15:08,320 --> 00:15:16,000
+syntax color refresh so that is our code
+
+354
+00:15:13,040 --> 00:15:18,240
+for highlighting the current word now
+
+355
+00:15:16,000 --> 00:15:21,519
+let's move on to the next um
+
+356
+00:15:18,240 --> 00:15:24,480
+thing we want to do so
+
+357
+00:15:21,519 --> 00:15:25,760
+so text properties is one of the way one
+
+358
+00:15:24,480 --> 00:15:28,720
+of the mechanism
+
+359
+00:15:25,760 --> 00:15:30,399
+in emacs to highlight you know to make
+
+360
+00:15:28,720 --> 00:15:33,759
+coloring of a text
+
+361
+00:15:30,399 --> 00:15:35,120
+and this this the thing we just showed
+
+362
+00:15:33,759 --> 00:15:38,079
+text properties
+
+363
+00:15:35,120 --> 00:15:39,600
+is actually the the more fundamental
+
+364
+00:15:38,079 --> 00:15:41,600
+because
+
+365
+00:15:39,600 --> 00:15:43,600
+every major mod every programming
+
+366
+00:15:41,600 --> 00:15:46,639
+language my javascript java
+
+367
+00:15:43,600 --> 00:15:49,360
+c uh uh python
+
+368
+00:15:46,639 --> 00:15:50,399
+ruby perl any any programming language
+
+369
+00:15:49,360 --> 00:15:52,880
+mod
+
+370
+00:15:50,399 --> 00:15:53,759
+you know when they highlight words they
+
+371
+00:15:52,880 --> 00:15:56,880
+are using
+
+372
+00:15:53,759 --> 00:16:00,480
+text property mechanism okay
+
+373
+00:15:56,880 --> 00:16:03,120
+that is what they are using this is the
+
+374
+00:16:00,480 --> 00:16:05,839
+kind of the most efficient mechanism to
+
+375
+00:16:03,120 --> 00:16:05,839
+highlight text
+
+376
+00:16:06,320 --> 00:16:12,160
+uh text properties okay now let me show
+
+377
+00:16:09,839 --> 00:16:14,720
+you there is another mechanism
+
+378
+00:16:12,160 --> 00:16:16,560
+as kind of secondary mechanism it's
+
+379
+00:16:14,720 --> 00:16:20,079
+called overlay
+
+380
+00:16:16,560 --> 00:16:22,240
+so so it's also
+
+381
+00:16:20,079 --> 00:16:24,000
+you can see the code here it's actually
+
+382
+00:16:22,240 --> 00:16:26,320
+pretty simple as well
+
+383
+00:16:24,000 --> 00:16:28,560
+you know you you all you have to do is
+
+384
+00:16:26,320 --> 00:16:30,800
+uh
+
+385
+00:16:28,560 --> 00:16:31,680
+all you have to do is look at that lines
+
+386
+00:16:30,800 --> 00:16:34,959
+of code you know
+
+387
+00:16:31,680 --> 00:16:36,880
+overlay put make overlay then
+
+388
+00:16:34,959 --> 00:16:38,560
+face and bolt and beginning and end
+
+389
+00:16:36,880 --> 00:16:41,680
+position you you know you give a
+
+390
+00:16:38,560 --> 00:16:44,959
+beginning and end position of a
+
+391
+00:16:41,680 --> 00:16:47,920
+buffer then you just call this command
+
+392
+00:16:44,959 --> 00:16:49,440
+then you say uh what kind of color uh
+
+393
+00:16:47,920 --> 00:16:52,399
+what you want bold or
+
+394
+00:16:49,440 --> 00:16:54,399
+you know what whatever so overlay so
+
+395
+00:16:52,399 --> 00:16:57,920
+what's the difference between overlay
+
+396
+00:16:54,399 --> 00:17:00,160
+and text properties okay so for
+
+397
+00:16:57,920 --> 00:17:01,199
+text properties you know it's a it's
+
+398
+00:17:00,160 --> 00:17:04,559
+it's kind of a
+
+399
+00:17:01,199 --> 00:17:05,039
+list of pairs that is attached to any
+
+400
+00:17:04,559 --> 00:17:08,959
+text
+
+401
+00:17:05,039 --> 00:17:10,400
+in a region in a buffer so when you copy
+
+402
+00:17:08,959 --> 00:17:13,520
+and paste
+
+403
+00:17:10,400 --> 00:17:14,480
+any text the color the properties also
+
+404
+00:17:13,520 --> 00:17:16,559
+go with it
+
+405
+00:17:14,480 --> 00:17:17,520
+so when you copy your piece of text in
+
+406
+00:17:16,559 --> 00:17:20,400
+emacs
+
+407
+00:17:17,520 --> 00:17:21,520
+you actually copied you know for example
+
+408
+00:17:20,400 --> 00:17:25,199
+this text
+
+409
+00:17:21,520 --> 00:17:27,919
+you see this color if i cut it
+
+410
+00:17:25,199 --> 00:17:29,440
+the text properties go with it so if i
+
+411
+00:17:27,919 --> 00:17:32,240
+paste it here
+
+412
+00:17:29,440 --> 00:17:34,160
+you know it's again colored actually so
+
+413
+00:17:32,240 --> 00:17:37,679
+if i open a new buffer
+
+414
+00:17:34,160 --> 00:17:39,360
+magnify paste it you can see the color
+
+415
+00:17:37,679 --> 00:17:42,559
+is still there
+
+416
+00:17:39,360 --> 00:17:43,440
+uh wait okay so let's try again so open
+
+417
+00:17:42,559 --> 00:17:45,600
+a new text
+
+418
+00:17:43,440 --> 00:17:47,280
+new buffer and let's make this
+
+419
+00:17:45,600 --> 00:17:49,760
+fundamental mod
+
+420
+00:17:47,280 --> 00:17:51,679
+so there is no coloring no coloring in
+
+421
+00:17:49,760 --> 00:17:54,160
+this in this buffer but however now
+
+422
+00:17:51,679 --> 00:17:56,480
+let's paste it you see it's your color
+
+423
+00:17:54,160 --> 00:17:57,360
+why is it color because the text
+
+424
+00:17:56,480 --> 00:18:00,160
+properties
+
+425
+00:17:57,360 --> 00:18:02,640
+come with the text okay that's the text
+
+426
+00:18:00,160 --> 00:18:02,640
+properties
+
+427
+00:18:04,000 --> 00:18:08,640
+so so what's the difference what's
+
+428
+00:18:06,880 --> 00:18:09,120
+overlay now overlay is something
+
+429
+00:18:08,640 --> 00:18:12,400
+different
+
+430
+00:18:09,120 --> 00:18:14,720
+overlay is kind of just like the english
+
+431
+00:18:12,400 --> 00:18:17,600
+word overlay like you are laying
+
+432
+00:18:14,720 --> 00:18:18,000
+something on top of the buffer so it's
+
+433
+00:18:17,600 --> 00:18:21,280
+not
+
+434
+00:18:18,000 --> 00:18:23,360
+fixed to the text uh
+
+435
+00:18:21,280 --> 00:18:25,520
+so what's you know what's the point of
+
+436
+00:18:23,360 --> 00:18:27,840
+overlay
+
+437
+00:18:25,520 --> 00:18:28,799
+for example you've seen two tips right
+
+438
+00:18:27,840 --> 00:18:31,600
+you you've seen
+
+439
+00:18:28,799 --> 00:18:32,799
+two tips like right now you see the two
+
+440
+00:18:31,600 --> 00:18:36,160
+tips
+
+441
+00:18:32,799 --> 00:18:38,559
+the two tips in in css you know the web
+
+442
+00:18:36,160 --> 00:18:41,039
+technology javascript css
+
+443
+00:18:38,559 --> 00:18:43,600
+is is kind of overlay you know or in
+
+444
+00:18:41,039 --> 00:18:46,080
+photoshop photoshop you have layers
+
+445
+00:18:43,600 --> 00:18:46,880
+you know in photoshop you have layers so
+
+446
+00:18:46,080 --> 00:18:49,760
+what's so good
+
+447
+00:18:46,880 --> 00:18:50,880
+for that well that's advantageous in the
+
+448
+00:18:49,760 --> 00:18:53,360
+sense that
+
+449
+00:18:50,880 --> 00:18:54,720
+you can modify one layer without you
+
+450
+00:18:53,360 --> 00:18:58,400
+know modifying
+
+451
+00:18:54,720 --> 00:18:59,200
+the other layer so that that is what the
+
+452
+00:18:58,400 --> 00:19:02,880
+overlay is
+
+453
+00:18:59,200 --> 00:19:05,120
+kind of like so
+
+454
+00:19:02,880 --> 00:19:07,120
+so overlay there is a cost though
+
+455
+00:19:05,120 --> 00:19:07,840
+because when you have you know when you
+
+456
+00:19:07,120 --> 00:19:11,840
+have like
+
+457
+00:19:07,840 --> 00:19:14,880
+hundreds uh color it's
+
+458
+00:19:11,840 --> 00:19:16,880
+less efficient so in general you don't
+
+459
+00:19:14,880 --> 00:19:18,880
+want overlay so when do you want to use
+
+460
+00:19:16,880 --> 00:19:20,480
+overlay overlay is when you want to
+
+461
+00:19:18,880 --> 00:19:23,039
+for example when you highlight words
+
+462
+00:19:20,480 --> 00:19:26,400
+when you call the command
+
+463
+00:19:23,039 --> 00:19:28,799
+uh highlight phrase you know that
+
+464
+00:19:26,400 --> 00:19:30,559
+building emacs command let's say
+
+465
+00:19:28,799 --> 00:19:33,039
+what do you want to highlight let's say
+
+466
+00:19:30,559 --> 00:19:36,160
+you want to highlight the word keyword
+
+467
+00:19:33,039 --> 00:19:38,400
+okay and highlight green
+
+468
+00:19:36,160 --> 00:19:39,600
+now you can see the keywords are
+
+469
+00:19:38,400 --> 00:19:42,960
+highlighted in green
+
+470
+00:19:39,600 --> 00:19:43,440
+those are overlay overlay so overlay is
+
+471
+00:19:42,960 --> 00:19:45,600
+general
+
+472
+00:19:43,440 --> 00:19:47,120
+in general it's used for ephemeral
+
+473
+00:19:45,600 --> 00:19:49,120
+purposes like
+
+474
+00:19:47,120 --> 00:19:50,400
+you you might want to remove the overlay
+
+475
+00:19:49,120 --> 00:19:54,320
+later on
+
+476
+00:19:50,400 --> 00:19:56,960
+things like that so that's overlay
+
+477
+00:19:54,320 --> 00:19:57,600
+okay so actually we are going to do um
+
+478
+00:19:56,960 --> 00:20:00,160
+so that
+
+479
+00:19:57,600 --> 00:20:02,240
+so that actually finished the
+
+480
+00:20:00,160 --> 00:20:03,679
+explanation about overlay we can try
+
+481
+00:20:02,240 --> 00:20:07,360
+this actually
+
+482
+00:20:03,679 --> 00:20:09,679
+um let's try it okay so
+
+483
+00:20:07,360 --> 00:20:11,200
+let's let's let's let's try the code
+
+484
+00:20:09,679 --> 00:20:14,799
+let's
+
+485
+00:20:11,200 --> 00:20:16,640
+uh emac this okay create a new buffer
+
+486
+00:20:14,799 --> 00:20:18,080
+paste the code here i'm just going to
+
+487
+00:20:16,640 --> 00:20:20,799
+use the
+
+488
+00:20:18,080 --> 00:20:22,320
+you know copy and paste so this this
+
+489
+00:20:20,799 --> 00:20:24,720
+command will
+
+490
+00:20:22,320 --> 00:20:25,840
+highlight the region using the overlay
+
+491
+00:20:24,720 --> 00:20:28,559
+mechanism
+
+492
+00:20:25,840 --> 00:20:29,840
+and it will make it both you can see uh
+
+493
+00:20:28,559 --> 00:20:32,799
+both okay
+
+494
+00:20:29,840 --> 00:20:35,760
+eval buffer now let's go back to the
+
+495
+00:20:32,799 --> 00:20:37,760
+html buffer
+
+496
+00:20:35,760 --> 00:20:39,600
+and let's say i want to overlay this
+
+497
+00:20:37,760 --> 00:20:42,799
+word figure okay
+
+498
+00:20:39,600 --> 00:20:45,360
+so so i select it
+
+499
+00:20:42,799 --> 00:20:46,960
+now first of all it's red right it's red
+
+500
+00:20:45,360 --> 00:20:50,480
+here so i select it
+
+501
+00:20:46,960 --> 00:20:53,600
+call the command xsa
+
+502
+00:20:50,480 --> 00:20:57,440
+make overlay bold
+
+503
+00:20:53,600 --> 00:21:00,840
+region enter okay you can see now that
+
+504
+00:20:57,440 --> 00:21:02,400
+that word figure is now bold so that's
+
+505
+00:21:00,840 --> 00:21:06,000
+overlay
+
+506
+00:21:02,400 --> 00:21:06,480
+okay uh copy the paste code paste it
+
+507
+00:21:06,000 --> 00:21:10,640
+here
+
+508
+00:21:06,480 --> 00:21:14,799
+make it that lag uh put it into our uh
+
+509
+00:21:10,640 --> 00:21:18,320
+talk show page so that's overlay
+
+510
+00:21:14,799 --> 00:21:20,960
+okay so that completes my uh
+
+511
+00:21:18,320 --> 00:21:22,400
+explanation and you know demonstration
+
+512
+00:21:20,960 --> 00:21:25,200
+of these two
+
+513
+00:21:22,400 --> 00:21:26,320
+uh text highlighting mechanisms these
+
+514
+00:21:25,200 --> 00:21:28,840
+are the two
+
+515
+00:21:26,320 --> 00:21:31,440
+uh mechanism text highlighting
+
+516
+00:21:28,840 --> 00:21:33,440
+mechanisms
+
+517
+00:21:31,440 --> 00:21:36,000
+now let's go the next thing we want to
+
+518
+00:21:33,440 --> 00:21:37,200
+do is let's let's use a practical
+
+519
+00:21:36,000 --> 00:21:39,360
+example because
+
+520
+00:21:37,200 --> 00:21:40,400
+i'm going to write i have a command that
+
+521
+00:21:39,360 --> 00:21:42,559
+does something
+
+522
+00:21:40,400 --> 00:21:44,240
+and i need you know it it transformed
+
+523
+00:21:42,559 --> 00:21:47,520
+the buffer text in the buffer
+
+524
+00:21:44,240 --> 00:21:50,000
+when it's done i want
+
+525
+00:21:47,520 --> 00:21:51,440
+all the places that has that changed to
+
+526
+00:21:50,000 --> 00:21:54,559
+be highlighted so i can
+
+527
+00:21:51,440 --> 00:21:55,760
+easily see it okay so so this is an
+
+528
+00:21:54,559 --> 00:21:59,840
+application
+
+529
+00:21:55,760 --> 00:21:59,840
+of the text highlighting
+
+530
+00:22:00,080 --> 00:22:04,960
+uh okay so far so good where is my uh
+
+531
+00:22:05,520 --> 00:22:09,280
+uh good morning guys uh you're not good
+
+532
+00:22:08,400 --> 00:22:12,480
+okay thank you
+
+533
+00:22:09,280 --> 00:22:15,679
+uh people jason good informatic
+
+534
+00:22:12,480 --> 00:22:16,960
+it's off topic but why no https in your
+
+535
+00:22:15,679 --> 00:22:21,120
+website
+
+536
+00:22:16,960 --> 00:22:24,400
+well that's partly because i'm lazy
+
+537
+00:22:21,120 --> 00:22:25,200
+you have to do it you know and usually
+
+538
+00:22:24,400 --> 00:22:28,400
+you have to pay
+
+539
+00:22:25,200 --> 00:22:30,720
+like 40 a year
+
+540
+00:22:28,400 --> 00:22:32,960
+anyway so let's go back let's let's make
+
+541
+00:22:30,720 --> 00:22:36,640
+a practical example okay close that
+
+542
+00:22:32,960 --> 00:22:39,200
+reopen so this is back to my talk show
+
+543
+00:22:36,640 --> 00:22:40,080
+now i want to show a practical example
+
+544
+00:22:39,200 --> 00:22:44,080
+let's see
+
+545
+00:22:40,080 --> 00:22:47,679
+um okay here
+
+546
+00:22:44,080 --> 00:22:49,280
+so i have a command that's html remove
+
+547
+00:22:47,679 --> 00:22:53,280
+or wikipedia link
+
+548
+00:22:49,280 --> 00:22:54,000
+okay let me show you so for example i
+
+549
+00:22:53,280 --> 00:22:57,280
+have this
+
+550
+00:22:54,000 --> 00:22:59,600
+page uh this
+
+551
+00:22:57,280 --> 00:23:00,320
+is one of my blog about parallel
+
+552
+00:22:59,600 --> 00:23:03,600
+programming
+
+553
+00:23:00,320 --> 00:23:07,600
+problem s as asciify
+
+554
+00:23:03,600 --> 00:23:11,039
+string uh so what the what does this
+
+555
+00:23:07,600 --> 00:23:14,400
+problem what is the problem basically
+
+556
+00:23:11,039 --> 00:23:14,880
+when you have a text that has lots of
+
+557
+00:23:14,400 --> 00:23:18,320
+these
+
+558
+00:23:14,880 --> 00:23:20,799
+um european language characters
+
+559
+00:23:18,320 --> 00:23:22,000
+sometimes you know sometimes you want to
+
+560
+00:23:20,799 --> 00:23:24,720
+remove them
+
+561
+00:23:22,000 --> 00:23:25,760
+so you want to replace e or cube with
+
+562
+00:23:24,720 --> 00:23:29,280
+the accent
+
+563
+00:23:25,760 --> 00:23:29,280
+remove the all those accents
+
+564
+00:23:29,360 --> 00:23:33,200
+so that that is the task that is the
+
+565
+00:23:32,159 --> 00:23:36,000
+problem
+
+566
+00:23:33,200 --> 00:23:36,960
+so on this page the issue is how do you
+
+567
+00:23:36,000 --> 00:23:38,960
+code it
+
+568
+00:23:36,960 --> 00:23:40,400
+uh it turns out there are so many ways
+
+569
+00:23:38,960 --> 00:23:42,640
+to implement that
+
+570
+00:23:40,400 --> 00:23:44,000
+you know you you can implement this in
+
+571
+00:23:42,640 --> 00:23:46,480
+in imac list
+
+572
+00:23:44,000 --> 00:23:48,880
+in commonly speaking scheme in golan in
+
+573
+00:23:46,480 --> 00:23:51,120
+in javascript in perl
+
+574
+00:23:48,880 --> 00:23:53,279
+many ways to do it i mean you can use
+
+575
+00:23:51,120 --> 00:23:56,720
+any language but however
+
+576
+00:23:53,279 --> 00:23:57,600
+the algorithm turns out it's suitable
+
+577
+00:23:56,720 --> 00:24:00,480
+for parallel
+
+578
+00:23:57,600 --> 00:24:01,360
+parallelism so this is a good exercise
+
+579
+00:24:00,480 --> 00:24:05,039
+for
+
+580
+00:24:01,360 --> 00:24:07,279
+uh parallel programming
+
+581
+00:24:05,039 --> 00:24:09,840
+so i mean we are not going to do that
+
+582
+00:24:07,279 --> 00:24:10,640
+but what we are going to do is you see
+
+583
+00:24:09,840 --> 00:24:14,480
+there is some
+
+584
+00:24:10,640 --> 00:24:17,600
+text is green they link to wikipedia
+
+585
+00:24:14,480 --> 00:24:22,320
+so for example this id and homograph
+
+586
+00:24:17,600 --> 00:24:24,799
+attack you can you can read it later
+
+587
+00:24:22,320 --> 00:24:26,720
+and for example duplicate characters in
+
+588
+00:24:24,799 --> 00:24:29,840
+unicode
+
+589
+00:24:26,720 --> 00:24:32,240
+so in unicode there are
+
+590
+00:24:29,840 --> 00:24:33,120
+many characters that look similar but
+
+591
+00:24:32,240 --> 00:24:35,360
+they are different
+
+592
+00:24:33,120 --> 00:24:35,360
+okay
+
+593
+00:24:36,320 --> 00:24:39,760
+so why am i mentioning them because they
+
+594
+00:24:38,320 --> 00:24:42,880
+are related to these
+
+595
+00:24:39,760 --> 00:24:44,640
+um you know ascii
+
+596
+00:24:42,880 --> 00:24:46,240
+they are you know if you want to
+
+597
+00:24:44,640 --> 00:24:48,240
+implement them they are related to
+
+598
+00:24:46,240 --> 00:24:50,159
+parallel programming because you can use
+
+599
+00:24:48,240 --> 00:24:52,880
+parallel programming to do those things
+
+600
+00:24:50,159 --> 00:24:54,000
+to do these tasks in your algorithm so
+
+601
+00:24:52,880 --> 00:24:56,559
+anyway my concern
+
+602
+00:24:54,000 --> 00:24:58,720
+my our concern right now is you see
+
+603
+00:24:56,559 --> 00:25:02,320
+there are links to wikipedia okay there
+
+604
+00:24:58,720 --> 00:25:04,159
+are links to wikipedia and also here
+
+605
+00:25:02,320 --> 00:25:06,640
+so you know anyone want to try it
+
+606
+00:25:04,159 --> 00:25:10,000
+perhaps in fortress fortress language
+
+607
+00:25:06,640 --> 00:25:13,120
+siso language urlan language is language
+
+608
+00:25:10,000 --> 00:25:14,640
+alice language x10 language all these
+
+609
+00:25:13,120 --> 00:25:18,640
+languages there's one thing
+
+610
+00:25:14,640 --> 00:25:20,320
+in common they are all designed for
+
+611
+00:25:18,640 --> 00:25:22,880
+parallel programming
+
+612
+00:25:20,320 --> 00:25:25,279
+and also closure you know they are all
+
+613
+00:25:22,880 --> 00:25:27,440
+for parallel programming
+
+614
+00:25:25,279 --> 00:25:29,600
+but anyway what i want to do is i have a
+
+615
+00:25:27,440 --> 00:25:33,360
+command i want to remove all these
+
+616
+00:25:29,600 --> 00:25:35,120
+wikipedia links okay so let's go back
+
+617
+00:25:33,360 --> 00:25:36,799
+so i have a command let's go to this
+
+618
+00:25:35,120 --> 00:25:40,960
+page okay copy
+
+619
+00:25:36,799 --> 00:25:40,960
+uh back to emacs open that page
+
+620
+00:25:41,039 --> 00:25:45,200
+so this is the this is a page
+
+621
+00:25:42,960 --> 00:25:48,880
+programming parallel programming
+
+622
+00:25:45,200 --> 00:25:49,679
+so you if you let's say uh list matching
+
+623
+00:25:48,880 --> 00:25:53,840
+lines
+
+624
+00:25:49,679 --> 00:25:55,919
+pdr you can see
+
+625
+00:25:53,840 --> 00:25:58,080
+all these lines matching you know all
+
+626
+00:25:55,919 --> 00:26:01,520
+these links in wikipedia
+
+627
+00:25:58,080 --> 00:26:02,159
+so you have you know uh fortress ciso
+
+628
+00:26:01,520 --> 00:26:04,880
+erlang
+
+629
+00:26:02,159 --> 00:26:05,679
+is you know for example let's go to
+
+630
+00:26:04,880 --> 00:26:09,279
+there
+
+631
+00:26:05,679 --> 00:26:10,000
+you see this section hey they are or
+
+632
+00:26:09,279 --> 00:26:12,080
+wikipedia
+
+633
+00:26:10,000 --> 00:26:14,080
+links now i want i so i have a command
+
+634
+00:26:12,080 --> 00:26:15,200
+that removes them all so let me show you
+
+635
+00:26:14,080 --> 00:26:20,640
+let me call the command
+
+636
+00:26:15,200 --> 00:26:20,640
+um okay so call the command
+
+637
+00:26:21,200 --> 00:26:25,440
+html remove wiki remove all wikipedia
+
+638
+00:26:24,960 --> 00:26:28,960
+link
+
+639
+00:26:25,440 --> 00:26:32,080
+okay so that's a command call it
+
+640
+00:26:28,960 --> 00:26:34,480
+you see open you see that you see
+
+641
+00:26:32,080 --> 00:26:35,840
+you see over here it's all the wikipedia
+
+642
+00:26:34,480 --> 00:26:37,840
+links is good
+
+643
+00:26:35,840 --> 00:26:39,360
+but however it shows in the message
+
+644
+00:26:37,840 --> 00:26:42,000
+buffer
+
+645
+00:26:39,360 --> 00:26:43,760
+so here's the message buffer here is all
+
+646
+00:26:42,000 --> 00:26:47,279
+the
+
+647
+00:26:43,760 --> 00:26:50,640
+links that has been just deleted
+
+648
+00:26:47,279 --> 00:26:53,919
+okay okay
+
+649
+00:26:50,640 --> 00:26:56,400
+but what i want is i want to i want to
+
+650
+00:26:53,919 --> 00:26:57,360
+i want the command to highlight here you
+
+651
+00:26:56,400 --> 00:27:00,400
+know highlight
+
+652
+00:26:57,360 --> 00:27:02,320
+it so i you know so i can
+
+653
+00:27:00,400 --> 00:27:03,440
+i can know in the buffer where they
+
+654
+00:27:02,320 --> 00:27:05,679
+changed
+
+655
+00:27:03,440 --> 00:27:08,880
+okay so let's let's write that command
+
+656
+00:27:05,679 --> 00:27:11,600
+that that's what we're going to do
+
+657
+00:27:08,880 --> 00:27:13,440
+so let's look at the source code for
+
+658
+00:27:11,600 --> 00:27:18,000
+example remove html
+
+659
+00:27:13,440 --> 00:27:20,720
+uh source code for
+
+660
+00:27:18,000 --> 00:27:23,360
+html remove a wikipedia link okay here's
+
+661
+00:27:20,720 --> 00:27:27,440
+the source code
+
+662
+00:27:23,360 --> 00:27:31,039
+um so that's so good any questions
+
+663
+00:27:27,440 --> 00:27:35,840
+comments questions okay uh
+
+664
+00:27:31,039 --> 00:27:35,840
+where is my where is my
+
+665
+00:27:37,520 --> 00:27:44,159
+leonato says how can i list the entire
+
+666
+00:27:40,880 --> 00:27:46,240
+supply keys uh well that's
+
+667
+00:27:44,159 --> 00:27:47,760
+off topic but you can do it you can do
+
+668
+00:27:46,240 --> 00:27:52,159
+it by space
+
+669
+00:27:47,760 --> 00:27:55,360
+control edge okay that's how you list
+
+670
+00:27:52,159 --> 00:27:59,440
+that's how you list all leader keys okay
+
+671
+00:27:55,360 --> 00:28:03,120
+let me try it again space
+
+672
+00:27:59,440 --> 00:28:05,600
+control h okay so now expand this
+
+673
+00:28:03,120 --> 00:28:07,760
+buffer so that's all the commands for
+
+674
+00:28:05,600 --> 00:28:10,880
+leader keys
+
+675
+00:28:07,760 --> 00:28:13,360
+okay so back to our program so so this
+
+676
+00:28:10,880 --> 00:28:14,159
+this function this command cannot remove
+
+677
+00:28:13,360 --> 00:28:17,200
+uh all
+
+678
+00:28:14,159 --> 00:28:19,919
+wikipedia links let me explain what they
+
+679
+00:28:17,200 --> 00:28:19,919
+how it works
+
+680
+00:28:22,080 --> 00:28:27,520
+so go to character go to the point
+
+681
+00:28:25,039 --> 00:28:31,919
+minimum go to the beginning of buffer
+
+682
+00:28:27,520 --> 00:28:34,559
+then a while loop then search for word
+
+683
+00:28:31,919 --> 00:28:37,440
+search for word for wikipedia link you
+
+684
+00:28:34,559 --> 00:28:39,760
+know that's a class you know string so
+
+685
+00:28:37,440 --> 00:28:40,799
+basically that what that does is it
+
+686
+00:28:39,760 --> 00:28:44,320
+moves kusa
+
+687
+00:28:40,799 --> 00:28:48,159
+to a um let's undo
+
+688
+00:28:44,320 --> 00:28:48,159
+it moves kusa to a
+
+689
+00:28:49,039 --> 00:28:56,399
+to a wikipedia link here
+
+690
+00:28:52,320 --> 00:28:56,399
+then okay then
+
+691
+00:28:57,039 --> 00:29:04,000
+then it sets flag
+
+692
+00:29:00,320 --> 00:29:04,000
+okay sets flag
+
+693
+00:29:07,200 --> 00:29:13,840
+okay so what it does is
+
+694
+00:29:14,159 --> 00:29:19,520
+so it calls another command so here so
+
+695
+00:29:16,960 --> 00:29:22,799
+then it calls another command
+
+696
+00:29:19,520 --> 00:29:23,520
+html remove wikipedia link which which
+
+697
+00:29:22,799 --> 00:29:27,520
+just
+
+698
+00:29:23,520 --> 00:29:30,080
+removes that one single link
+
+699
+00:29:27,520 --> 00:29:30,640
+but what it does it return it returns a
+
+700
+00:29:30,080 --> 00:29:34,159
+flag
+
+701
+00:29:30,640 --> 00:29:37,520
+then okay so
+
+702
+00:29:34,159 --> 00:29:38,000
+so this command size we remove wikipedia
+
+703
+00:29:37,520 --> 00:29:41,279
+links
+
+704
+00:29:38,000 --> 00:29:42,159
+removes the link at the at the cruiser
+
+705
+00:29:41,279 --> 00:29:45,200
+position
+
+706
+00:29:42,159 --> 00:29:48,799
+and it returns the whole link
+
+707
+00:29:45,200 --> 00:29:51,840
+as flag then what it does
+
+708
+00:29:48,799 --> 00:29:51,840
+is um
+
+709
+00:29:53,679 --> 00:30:00,640
+you push that value to a list
+
+710
+00:29:57,279 --> 00:30:03,919
+removed text list okay then
+
+711
+00:30:00,640 --> 00:30:07,600
+what it does is you print
+
+712
+00:30:03,919 --> 00:30:10,000
+you know you you map then
+
+713
+00:30:07,600 --> 00:30:11,360
+then you map the print function print
+
+714
+00:30:10,000 --> 00:30:14,640
+basically you want to print
+
+715
+00:30:11,360 --> 00:30:17,760
+every link you remove to the to the uh
+
+716
+00:30:14,640 --> 00:30:18,960
+to the message buffer so that so that's
+
+717
+00:30:17,760 --> 00:30:21,760
+what it does
+
+718
+00:30:18,960 --> 00:30:22,320
+then just return the list of removed
+
+719
+00:30:21,760 --> 00:30:26,799
+text
+
+720
+00:30:22,320 --> 00:30:28,960
+link okay so now what we want to do is
+
+721
+00:30:26,799 --> 00:30:32,159
+we want to color
+
+722
+00:30:28,960 --> 00:30:34,480
+color the removed part okay so
+
+723
+00:30:32,159 --> 00:30:36,559
+so the the main function is this one
+
+724
+00:30:34,480 --> 00:30:39,600
+this this is a function that removes it
+
+725
+00:30:36,559 --> 00:30:39,600
+so let's go to it
+
+726
+00:30:39,840 --> 00:30:44,960
+so here is a function so this function
+
+727
+00:30:42,799 --> 00:30:48,000
+removes the current
+
+728
+00:30:44,960 --> 00:30:51,279
+link the cursor is
+
+729
+00:30:48,000 --> 00:30:55,840
+under okay okay so i
+
+730
+00:30:51,279 --> 00:30:58,559
+have to i have to explain this um
+
+731
+00:30:55,840 --> 00:31:00,960
+code okay so let's let's explain the
+
+732
+00:30:58,559 --> 00:31:04,080
+code then
+
+733
+00:31:00,960 --> 00:31:08,080
+okay so
+
+734
+00:31:04,080 --> 00:31:10,159
+so let's then when so it starts to
+
+735
+00:31:08,080 --> 00:31:12,480
+search for words remember the cursor is
+
+736
+00:31:10,159 --> 00:31:15,679
+inside the link you search forward
+
+737
+00:31:12,480 --> 00:31:19,360
+for the end tag of the link
+
+738
+00:31:15,679 --> 00:31:22,399
+okay when if it's found then it's set
+
+739
+00:31:19,360 --> 00:31:24,559
+p2 position then
+
+740
+00:31:22,399 --> 00:31:26,640
+it sets then search backward to the
+
+741
+00:31:24,559 --> 00:31:30,480
+beginning of the link
+
+742
+00:31:26,640 --> 00:31:32,880
+the anchor link then sets p1
+
+743
+00:31:30,480 --> 00:31:34,880
+so py and p2 is the beginning and end
+
+744
+00:31:32,880 --> 00:31:38,080
+position of the link
+
+745
+00:31:34,880 --> 00:31:40,799
+then set text to delete
+
+746
+00:31:38,080 --> 00:31:42,799
+you grab the text you know buffer string
+
+747
+00:31:40,799 --> 00:31:44,720
+no properties
+
+748
+00:31:42,799 --> 00:31:46,240
+you give it two positions then it
+
+749
+00:31:44,720 --> 00:31:48,799
+returns the text
+
+750
+00:31:46,240 --> 00:31:49,360
+the string under that to position so
+
+751
+00:31:48,799 --> 00:31:52,880
+save
+
+752
+00:31:49,360 --> 00:31:55,200
+save that to text to delete then you
+
+753
+00:31:52,880 --> 00:31:57,519
+search for word
+
+754
+00:31:55,200 --> 00:32:00,960
+you search for word for the wikipedia
+
+755
+00:31:57,519 --> 00:32:04,080
+link then
+
+756
+00:32:00,960 --> 00:32:07,840
+oh my god so this this uh this this
+
+757
+00:32:04,080 --> 00:32:10,320
+code this thing calls another
+
+758
+00:32:07,840 --> 00:32:10,320
+command
+
+759
+00:32:12,640 --> 00:32:17,120
+so you once you move the cursor to the
+
+760
+00:32:15,039 --> 00:32:18,960
+link then you call another command to
+
+761
+00:32:17,120 --> 00:32:24,640
+remove html tags
+
+762
+00:32:18,960 --> 00:32:24,640
+yeah yeah i should have just coded here
+
+763
+00:32:26,840 --> 00:32:32,080
+uh so
+
+764
+00:32:29,200 --> 00:32:33,120
+html remove html tags so you call
+
+765
+00:32:32,080 --> 00:32:36,320
+another command
+
+766
+00:32:33,120 --> 00:32:39,120
+to remove html tags
+
+767
+00:32:36,320 --> 00:32:39,120
+that's no good
+
+768
+00:32:39,600 --> 00:32:43,840
+well you uh
+
+769
+00:32:45,279 --> 00:32:50,159
+so you call that command that commands
+
+770
+00:32:47,279 --> 00:32:52,799
+remove the entire link
+
+771
+00:32:50,159 --> 00:32:53,200
+but what actually what we want to do is
+
+772
+00:32:52,799 --> 00:32:55,360
+um
+
+773
+00:32:53,200 --> 00:32:58,240
+let me let me explain okay go back to
+
+774
+00:32:55,360 --> 00:33:01,039
+the html page
+
+775
+00:32:58,240 --> 00:33:01,039
+let me explain
+
+776
+00:33:03,679 --> 00:33:07,760
+so for example you have a wikipedia link
+
+777
+00:33:06,320 --> 00:33:11,840
+here
+
+778
+00:33:07,760 --> 00:33:11,840
+you see you have a wikipedia link here
+
+779
+00:33:12,399 --> 00:33:18,240
+now if you remove the entire link
+
+780
+00:33:15,919 --> 00:33:20,159
+what you let what what is left is the
+
+781
+00:33:18,240 --> 00:33:22,840
+you know the link text
+
+782
+00:33:20,159 --> 00:33:24,080
+this is this is a text we want to
+
+783
+00:33:22,840 --> 00:33:26,159
+highlight
+
+784
+00:33:24,080 --> 00:33:28,320
+and in order to do that we need to know
+
+785
+00:33:26,159 --> 00:33:31,519
+the beginning and end position
+
+786
+00:33:28,320 --> 00:33:32,480
+okay that's that's what we need but
+
+787
+00:33:31,519 --> 00:33:36,080
+however
+
+788
+00:33:32,480 --> 00:33:40,320
+in the current way it works
+
+789
+00:33:36,080 --> 00:33:40,320
+you don't have that um
+
+790
+00:33:43,760 --> 00:33:47,919
+you know you cannot you cannot get the
+
+791
+00:33:46,000 --> 00:33:51,440
+beginning and end position of the
+
+792
+00:33:47,919 --> 00:33:54,080
+link text because this command
+
+793
+00:33:51,440 --> 00:33:55,600
+this command actually just removes i
+
+794
+00:33:54,080 --> 00:33:59,200
+mean this command removes
+
+795
+00:33:55,600 --> 00:34:02,240
+every possible attack in the region
+
+796
+00:33:59,200 --> 00:34:04,240
+yeah so it's it's it's getting complex
+
+797
+00:34:02,240 --> 00:34:07,360
+so we don't want that so let's let's
+
+798
+00:34:04,240 --> 00:34:10,960
+let's modify the code then
+
+799
+00:34:07,360 --> 00:34:14,000
+okay let's back to we are back to the uh
+
+800
+00:34:10,960 --> 00:34:14,320
+let's narrow to region we are back to
+
+801
+00:34:14,000 --> 00:34:18,720
+these
+
+802
+00:34:14,320 --> 00:34:18,720
+let's let's code our own okay
+
+803
+00:34:19,440 --> 00:34:26,159
+so let's quote it quickly so how long
+
+804
+00:34:22,079 --> 00:34:26,159
+have i been is it so so far so good
+
+805
+00:34:26,560 --> 00:34:32,720
+feedback uh yes yes type yes okay
+
+806
+00:34:30,079 --> 00:34:34,800
+let's see how long i've been talking 34
+
+807
+00:34:32,720 --> 00:34:37,520
+minutes not so bad
+
+808
+00:34:34,800 --> 00:34:38,079
+so let's code this fast so now remember
+
+809
+00:34:37,520 --> 00:34:40,960
+right now
+
+810
+00:34:38,079 --> 00:34:42,480
+the cursor is under a link under
+
+811
+00:34:40,960 --> 00:34:45,040
+wikipedia link
+
+812
+00:34:42,480 --> 00:34:46,399
+so now we what we do is search search
+
+813
+00:34:45,040 --> 00:34:49,599
+backward
+
+814
+00:34:46,399 --> 00:34:53,839
+search backward to the beginning of the
+
+815
+00:34:49,599 --> 00:34:53,839
+the html bracket okay
+
+816
+00:34:54,639 --> 00:34:59,680
+then set p1 okay
+
+817
+00:35:00,160 --> 00:35:04,720
+let's say p3 p4 okay
+
+818
+00:35:06,400 --> 00:35:13,760
+position three position four okay
+
+819
+00:35:10,320 --> 00:35:17,040
+so let's set p3 and p3
+
+820
+00:35:13,760 --> 00:35:20,160
+is the beginning of the link
+
+821
+00:35:17,040 --> 00:35:23,440
+actually we don't want to
+
+822
+00:35:20,160 --> 00:35:27,359
+yeah let's say search for p3 okay
+
+823
+00:35:23,440 --> 00:35:30,880
+then search for word
+
+824
+00:35:27,359 --> 00:35:33,280
+uh the end bracket okay i'm going just
+
+825
+00:35:30,880 --> 00:35:36,960
+going to code fast okay
+
+826
+00:35:33,280 --> 00:35:40,480
+then set p4
+
+827
+00:35:36,960 --> 00:35:45,839
+okay then
+
+828
+00:35:40,480 --> 00:35:45,839
+what we do is we delete region
+
+829
+00:35:46,960 --> 00:35:54,320
+p3 p4 okay delete region
+
+830
+00:35:51,200 --> 00:35:59,440
+then search forward
+
+831
+00:35:54,320 --> 00:36:03,359
+delete region yeah then search forward
+
+832
+00:35:59,440 --> 00:36:03,359
+search forward that for that
+
+833
+00:36:11,599 --> 00:36:20,560
+then set p3 then search backwards search
+
+834
+00:36:16,320 --> 00:36:23,599
+p4 then delete region again
+
+835
+00:36:20,560 --> 00:36:27,839
+that should be it prettify the code okay
+
+836
+00:36:23,599 --> 00:36:27,839
+that should be it
+
+837
+00:36:29,760 --> 00:36:32,880
+okay when
+
+838
+00:36:34,480 --> 00:36:42,960
+okay that's that's our code
+
+839
+00:36:40,640 --> 00:36:42,960
+um
+
+840
+00:36:47,520 --> 00:36:51,200
+it should work okay let's try it
+
+841
+00:36:51,800 --> 00:36:56,480
+evaluate go to html
+
+842
+00:36:57,119 --> 00:37:02,240
+undo so we have a we have a wikipedia
+
+843
+00:37:01,040 --> 00:37:04,320
+link here
+
+844
+00:37:02,240 --> 00:37:05,440
+now i move the cursor somewhere inside
+
+845
+00:37:04,320 --> 00:37:08,800
+the link
+
+846
+00:37:05,440 --> 00:37:12,720
+then call the command start remove h
+
+847
+00:37:08,800 --> 00:37:16,560
+excel remove wikipedia link code
+
+848
+00:37:12,720 --> 00:37:20,079
+works you see now the link is good
+
+849
+00:37:16,560 --> 00:37:20,079
+undo let's go back
+
+850
+00:37:20,720 --> 00:37:24,640
+okay so far so good now we just now we
+
+851
+00:37:23,040 --> 00:37:28,640
+are going to do the highlight
+
+852
+00:37:24,640 --> 00:37:28,640
+okay uh
+
+853
+00:37:31,040 --> 00:37:36,480
+now we are going to do the highlight but
+
+854
+00:37:33,440 --> 00:37:36,480
+before we do that
+
+855
+00:37:42,320 --> 00:37:51,520
+hold on a second let's we need to
+
+856
+00:37:45,680 --> 00:37:55,520
+let's use begin
+
+857
+00:37:51,520 --> 00:37:55,520
+link text begin okay
+
+858
+00:37:55,599 --> 00:37:59,200
+another variable
+
+859
+00:38:01,760 --> 00:38:08,240
+links text link text end okay link text
+
+860
+00:38:05,359 --> 00:38:12,079
+begin position
+
+861
+00:38:08,240 --> 00:38:18,320
+and here will be link text begin
+
+862
+00:38:12,079 --> 00:38:22,000
+and and here will be link
+
+863
+00:38:18,320 --> 00:38:22,000
+text end yeah that's it
+
+864
+00:38:23,920 --> 00:38:32,240
+if i click and i correct
+
+865
+00:38:27,200 --> 00:38:34,800
+no wait
+
+866
+00:38:32,240 --> 00:38:37,119
+uh no that's not right okay hold on a
+
+867
+00:38:34,800 --> 00:38:37,119
+second
+
+868
+00:38:41,760 --> 00:38:49,599
+so so this part this part
+
+869
+00:38:45,359 --> 00:38:49,599
+deletes the beginning of um
+
+870
+00:38:51,920 --> 00:38:55,280
+that part deletes the beginning
+
+871
+00:38:54,320 --> 00:38:59,280
+beginning
+
+872
+00:38:55,280 --> 00:39:03,280
+link the beginning tag of the link
+
+873
+00:38:59,280 --> 00:39:03,280
+let me write it so it's it's clear
+
+874
+00:39:06,800 --> 00:39:13,599
+okay this is the beginning tag dvdn
+
+875
+00:39:10,079 --> 00:39:17,680
+tag and link tag
+
+876
+00:39:13,599 --> 00:39:21,520
+okay now
+
+877
+00:39:17,680 --> 00:39:21,520
+in between we are going to do
+
+878
+00:39:24,480 --> 00:39:26,880
+set
+
+879
+00:39:27,680 --> 00:39:35,839
+link text begin
+
+880
+00:39:32,480 --> 00:39:39,359
+okay so that's that is the position
+
+881
+00:39:35,839 --> 00:39:39,359
+where the link text begins
+
+882
+00:39:40,839 --> 00:39:43,839
+then
+
+883
+00:39:47,839 --> 00:39:57,839
+then the link tag text end is is here
+
+884
+00:39:51,200 --> 00:39:57,839
+okay so
+
+885
+00:40:00,640 --> 00:40:05,680
+yep that's that okay so far the code
+
+886
+00:40:03,599 --> 00:40:08,079
+works exactly the same
+
+887
+00:40:05,680 --> 00:40:09,680
+we just added two more positions link
+
+888
+00:40:08,079 --> 00:40:14,240
+text begin
+
+889
+00:40:09,680 --> 00:40:16,640
+and link text end now
+
+890
+00:40:14,240 --> 00:40:18,560
+now what we are going to do is overlay
+
+891
+00:40:16,640 --> 00:40:19,359
+add the color remember we are we want to
+
+892
+00:40:18,560 --> 00:40:25,359
+add the color
+
+893
+00:40:19,359 --> 00:40:27,839
+so um so let's go back to our code
+
+894
+00:40:25,359 --> 00:40:30,160
+so how do you do overlay you do it this
+
+895
+00:40:27,839 --> 00:40:30,160
+way
+
+896
+00:40:34,880 --> 00:40:39,839
+uh wait
+
+897
+00:40:42,400 --> 00:40:51,040
+yeah okay all right so i don't have a
+
+898
+00:40:46,800 --> 00:40:53,359
+overlay put describe function
+
+899
+00:40:51,040 --> 00:40:55,440
+uh describe functions so here is the
+
+900
+00:40:53,359 --> 00:40:58,640
+documentation for overlay overlay put
+
+901
+00:40:55,440 --> 00:40:58,640
+property value okay
+
+902
+00:40:59,599 --> 00:41:07,839
+so here's a function overlay put
+
+903
+00:41:08,720 --> 00:41:15,369
+make overlay begin end will be
+
+904
+00:41:12,320 --> 00:41:15,369
+[Music]
+
+905
+00:41:19,280 --> 00:41:25,680
+okay link text begin link text end
+
+906
+00:41:22,319 --> 00:41:28,720
+then property will be i want it red
+
+907
+00:41:25,680 --> 00:41:29,359
+you know i don't i want it read so for
+
+908
+00:41:28,720 --> 00:41:33,440
+red
+
+909
+00:41:29,359 --> 00:41:36,800
+you can use this code okay
+
+910
+00:41:33,440 --> 00:41:36,800
+property will be
+
+911
+00:41:40,560 --> 00:41:45,760
+here is our property and here is the
+
+912
+00:41:46,839 --> 00:41:49,839
+value
+
+913
+00:41:50,560 --> 00:41:57,119
+there let's make it so
+
+914
+00:41:53,760 --> 00:41:57,839
+there and facebook we don't want
+
+915
+00:41:57,119 --> 00:42:00,079
+facebook
+
+916
+00:41:57,839 --> 00:42:00,079
+okay
+
+917
+00:42:01,280 --> 00:42:06,880
+so this code this code will uh color it
+
+918
+00:42:04,800 --> 00:42:10,000
+red
+
+919
+00:42:06,880 --> 00:42:14,400
+let's let's try if it works okay
+
+920
+00:42:10,000 --> 00:42:18,000
+eva evalda wait uh syntax zero
+
+921
+00:42:14,400 --> 00:42:21,359
+unbalanced parent somewhere i got it
+
+922
+00:42:18,000 --> 00:42:23,680
+uh wrong back trace
+
+923
+00:42:21,359 --> 00:42:23,680
+wait
+
+924
+00:42:27,920 --> 00:42:32,319
+okay yeah i copy okay so now it's good
+
+925
+00:42:33,599 --> 00:42:35,760
+uh
+
+926
+00:42:37,520 --> 00:42:41,839
+let's pretty fire this a little bit
+
+927
+00:42:42,319 --> 00:42:45,839
+yeah yeah
+
+928
+00:42:49,280 --> 00:42:59,119
+evaluate the expression
+
+929
+00:42:52,880 --> 00:43:02,400
+then back to the html
+
+930
+00:42:59,119 --> 00:43:06,240
+shrink a little bit delete that
+
+931
+00:43:02,400 --> 00:43:07,040
+let's go down so we we go to the
+
+932
+00:43:06,240 --> 00:43:11,760
+position
+
+933
+00:43:07,040 --> 00:43:15,520
+where there is lots of wikipedia links
+
+934
+00:43:11,760 --> 00:43:16,319
+you see so there's a lot of wikipedia
+
+935
+00:43:15,520 --> 00:43:19,599
+links
+
+936
+00:43:16,319 --> 00:43:22,560
+now i'm going to call the command html
+
+937
+00:43:19,599 --> 00:43:25,680
+remove all wikipedia links
+
+938
+00:43:22,560 --> 00:43:28,480
+so all these links will be done but
+
+939
+00:43:25,680 --> 00:43:30,400
+but the words the words like you know
+
+940
+00:43:28,480 --> 00:43:33,599
+the link text will be
+
+941
+00:43:30,400 --> 00:43:35,920
+read so let's call it let's hope it
+
+942
+00:43:33,599 --> 00:43:35,920
+works
+
+943
+00:43:36,800 --> 00:43:44,400
+it's not remove or wikipedia link do it
+
+944
+00:43:41,359 --> 00:43:48,160
+yay it worked
+
+945
+00:43:44,400 --> 00:43:50,000
+but we got a problem you see this word
+
+946
+00:43:48,160 --> 00:43:52,839
+is highlighted red
+
+947
+00:43:50,000 --> 00:43:54,800
+but apparently something went wrong so
+
+948
+00:43:52,839 --> 00:43:58,960
+uh
+
+949
+00:43:54,800 --> 00:43:58,960
+you know something is uh went wrong
+
+950
+00:44:00,400 --> 00:44:04,079
+but but that's ideas so uh we just now
+
+951
+00:44:03,359 --> 00:44:08,400
+undo
+
+952
+00:44:04,079 --> 00:44:12,319
+let's we need to fix the bugs so wait
+
+953
+00:44:08,400 --> 00:44:12,319
+undo again so why is that
+
+954
+00:44:13,599 --> 00:44:20,400
+how did it happen so that
+
+955
+00:44:17,280 --> 00:44:21,200
+you know it highlighted in such a
+
+956
+00:44:20,400 --> 00:44:23,839
+strange
+
+957
+00:44:21,200 --> 00:44:23,839
+way
+
+958
+00:44:26,800 --> 00:44:30,240
+okay i know now remember before we said
+
+959
+00:44:29,760 --> 00:44:33,440
+that
+
+960
+00:44:30,240 --> 00:44:34,560
+if you use overlay mechanism to color
+
+961
+00:44:33,440 --> 00:44:36,880
+text
+
+962
+00:44:34,560 --> 00:44:38,079
+it doesn't stick with the text it kind
+
+963
+00:44:36,880 --> 00:44:41,280
+of floats
+
+964
+00:44:38,079 --> 00:44:43,599
+you know it marks two position and
+
+965
+00:44:41,280 --> 00:44:44,640
+and but if you change your buffer if you
+
+966
+00:44:43,599 --> 00:44:47,839
+delete lots of
+
+967
+00:44:44,640 --> 00:44:49,280
+text before it the overlay coloring
+
+968
+00:44:47,839 --> 00:44:51,760
+doesn't change
+
+969
+00:44:49,280 --> 00:44:55,040
+it doesn't move with the text that's the
+
+970
+00:44:51,760 --> 00:44:58,640
+reason i think that's a reason
+
+971
+00:44:55,040 --> 00:45:02,079
+so so i haven't
+
+972
+00:44:58,640 --> 00:45:04,160
+logically thought about this but we can
+
+973
+00:45:02,079 --> 00:45:07,119
+actually go back to the code
+
+974
+00:45:04,160 --> 00:45:07,599
+so instead of using overlay let's just
+
+975
+00:45:07,119 --> 00:45:10,079
+use
+
+976
+00:45:07,599 --> 00:45:13,280
+the you know put text properties you
+
+977
+00:45:10,079 --> 00:45:13,280
+know just let's just um
+
+978
+00:45:14,640 --> 00:45:20,000
+so actually we improved our code so
+
+979
+00:45:17,760 --> 00:45:23,599
+instead of overlay let's say
+
+980
+00:45:20,000 --> 00:45:26,160
+put text properties okay i don't have a
+
+981
+00:45:23,599 --> 00:45:26,160
+shortcut
+
+982
+00:45:30,319 --> 00:45:34,160
+so let's copy the code here
+
+983
+00:45:37,280 --> 00:45:47,839
+there it is put put text properties
+
+984
+00:45:40,560 --> 00:45:47,839
+position okay position will be
+
+985
+00:45:51,119 --> 00:45:54,480
+this position will be that link begin
+
+986
+00:45:53,359 --> 00:45:56,960
+link end
+
+987
+00:45:54,480 --> 00:45:59,599
+then the property will be found face
+
+988
+00:45:56,960 --> 00:46:03,280
+foreground red
+
+989
+00:45:59,599 --> 00:46:03,280
+okay um
+
+990
+00:46:05,280 --> 00:46:10,000
+yeah so let's comment out the overlay
+
+991
+00:46:07,920 --> 00:46:13,280
+thing
+
+992
+00:46:10,000 --> 00:46:15,839
+that's it so let's make this one line
+
+993
+00:46:13,280 --> 00:46:15,839
+okay so
+
+994
+00:46:19,280 --> 00:46:23,280
+uh whoops
+
+995
+00:46:26,480 --> 00:46:34,319
+so we evaluate the code
+
+996
+00:46:30,880 --> 00:46:38,240
+back to html back to this html
+
+997
+00:46:34,319 --> 00:46:42,880
+close it reopen it so we got a fresh
+
+998
+00:46:38,240 --> 00:46:46,000
+html show in browser
+
+999
+00:46:42,880 --> 00:46:47,359
+so you see this is the this is you know
+
+1000
+00:46:46,000 --> 00:46:50,720
+that page
+
+1001
+00:46:47,359 --> 00:46:53,599
+uh you go down you see all these links
+
+1002
+00:46:50,720 --> 00:46:57,119
+now we're going to call the command
+
+1003
+00:46:53,599 --> 00:47:00,560
+remove or wikipedia link
+
+1004
+00:46:57,119 --> 00:47:05,920
+call it done
+
+1005
+00:47:00,560 --> 00:47:05,920
+uh okay so the it's still incorrect
+
+1006
+00:47:06,560 --> 00:47:13,280
+okay so debug again so apparently
+
+1007
+00:47:10,880 --> 00:47:15,119
+the problem is not due to overlay the
+
+1008
+00:47:13,280 --> 00:47:19,200
+problem is due to
+
+1009
+00:47:15,119 --> 00:47:22,640
+our mark position is incorrect
+
+1010
+00:47:19,200 --> 00:47:26,400
+so i mean so the code here the
+
+1011
+00:47:22,640 --> 00:47:26,400
+so we have to think about that
+
+1012
+00:47:27,280 --> 00:47:32,800
+okay so let's see search backward search
+
+1013
+00:47:30,240 --> 00:47:32,800
+forward
+
+1014
+00:47:33,599 --> 00:47:42,160
+uh so this is the beginning tag then uh
+
+1015
+00:47:37,920 --> 00:47:45,760
+set oh i know why okay
+
+1016
+00:47:42,160 --> 00:47:45,760
+so you cannot you you have to
+
+1017
+00:47:46,079 --> 00:47:50,400
+okay should we explain so far so good
+
+1018
+00:47:48,960 --> 00:47:53,839
+should i explain what's going on you
+
+1019
+00:47:50,400 --> 00:47:53,839
+guys know dude
+
+1020
+00:47:54,480 --> 00:47:58,559
+okay let me explain you guys are quiet
+
+1021
+00:47:56,400 --> 00:47:59,200
+say something so let me explain the code
+
+1022
+00:47:58,559 --> 00:48:02,400
+so what
+
+1023
+00:47:59,200 --> 00:48:02,400
+so what's going on so
+
+1024
+00:48:02,640 --> 00:48:09,359
+so what's going on is um
+
+1025
+00:48:06,880 --> 00:48:09,359
+undo
+
+1026
+00:48:13,839 --> 00:48:17,839
+i'm not sure do i still make sense say
+
+1027
+00:48:16,960 --> 00:48:20,800
+something guys
+
+1028
+00:48:17,839 --> 00:48:21,280
+so at this point does that make sense or
+
+1029
+00:48:20,800 --> 00:48:24,000
+getting
+
+1030
+00:48:21,280 --> 00:48:26,079
+more complex should i explain or should
+
+1031
+00:48:24,000 --> 00:48:30,319
+i just go ahead and just
+
+1032
+00:48:26,079 --> 00:48:30,319
+make it work and everyone is happy
+
+1033
+00:48:32,000 --> 00:48:37,599
+okay so what happens is that you see so
+
+1034
+00:48:35,520 --> 00:48:41,680
+so let me show let me show okay so let
+
+1035
+00:48:37,599 --> 00:48:46,880
+me show let me show a code
+
+1036
+00:48:41,680 --> 00:48:48,880
+for example so here is a wikipedia link
+
+1037
+00:48:46,880 --> 00:48:50,400
+so what happened is that when the
+
+1038
+00:48:48,880 --> 00:48:52,640
+cruiser so we are moving
+
+1039
+00:48:50,400 --> 00:48:55,359
+so cruiser is inside the link somewhere
+
+1040
+00:48:52,640 --> 00:48:58,400
+okay so first of all we switch backward
+
+1041
+00:48:55,359 --> 00:49:01,440
+to the to the angle bracket
+
+1042
+00:48:58,400 --> 00:49:03,359
+then we search forward to the closing
+
+1043
+00:49:01,440 --> 00:49:07,359
+anchor bracket so the cruiser is
+
+1044
+00:49:03,359 --> 00:49:10,000
+right here now we want to delete that
+
+1045
+00:49:07,359 --> 00:49:11,599
+that part so we delete it
+
+1046
+00:49:10,000 --> 00:49:13,119
+and we want to know the beginning
+
+1047
+00:49:11,599 --> 00:49:16,640
+position of the word
+
+1048
+00:49:13,119 --> 00:49:18,559
+the link text so
+
+1049
+00:49:16,640 --> 00:49:20,160
+we have to you know what we have to do
+
+1050
+00:49:18,559 --> 00:49:23,839
+we have to delete this first
+
+1051
+00:49:20,160 --> 00:49:26,640
+then set the position because otherwise
+
+1052
+00:49:23,839 --> 00:49:28,000
+if you set the position now then you
+
+1053
+00:49:26,640 --> 00:49:30,079
+delete it
+
+1054
+00:49:28,000 --> 00:49:31,119
+the position is wrong and you you and
+
+1055
+00:49:30,079 --> 00:49:32,960
+you know because
+
+1056
+00:49:31,119 --> 00:49:35,280
+you already deleted you know some text
+
+1057
+00:49:32,960 --> 00:49:37,920
+above so the position will be incorrect
+
+1058
+00:49:35,280 --> 00:49:38,720
+so what you need to do is you need to
+
+1059
+00:49:37,920 --> 00:49:42,640
+delete it
+
+1060
+00:49:38,720 --> 00:49:44,480
+then set position okay so that is why
+
+1061
+00:49:42,640 --> 00:49:48,240
+our code is not working
+
+1062
+00:49:44,480 --> 00:49:51,599
+properly so let's go back to the code
+
+1063
+00:49:48,240 --> 00:49:55,280
+so you see this
+
+1064
+00:49:51,599 --> 00:49:55,280
+setting should be
+
+1065
+00:49:56,079 --> 00:49:59,280
+should be it should be here okay wait
+
+1066
+00:49:58,720 --> 00:50:03,119
+and we got
+
+1067
+00:49:59,280 --> 00:50:04,960
+that wrong so so you see we delete the
+
+1068
+00:50:03,119 --> 00:50:05,839
+position i mean we delete the region
+
+1069
+00:50:04,960 --> 00:50:08,960
+first
+
+1070
+00:50:05,839 --> 00:50:13,839
+then we set the
+
+1071
+00:50:08,960 --> 00:50:13,839
+uh position similarly here
+
+1072
+00:50:22,400 --> 00:50:29,760
+similarly here okay
+
+1073
+00:50:27,280 --> 00:50:32,079
+okay let's just run the code let's use
+
+1074
+00:50:29,760 --> 00:50:35,280
+the overlay again
+
+1075
+00:50:32,079 --> 00:50:41,839
+okay evaluate the buffer
+
+1076
+00:50:35,280 --> 00:50:41,839
+now let's go back to the
+
+1077
+00:50:42,480 --> 00:50:46,480
+let's go back to the html page
+
+1078
+00:50:46,800 --> 00:50:50,480
+call the command custom remove or
+
+1079
+00:50:48,880 --> 00:50:55,839
+wikipedia link
+
+1080
+00:50:50,480 --> 00:50:55,839
+do it hey fantastic now you can see
+
+1081
+00:50:56,400 --> 00:51:02,640
+success it becomes the text becomes red
+
+1082
+00:50:59,520 --> 00:51:09,520
+and all the removed links
+
+1083
+00:51:02,640 --> 00:51:13,040
+shows in the message buffer
+
+1084
+00:51:09,520 --> 00:51:14,960
+okay so that is that that is what we
+
+1085
+00:51:13,040 --> 00:51:16,559
+uh wanted to do today how long i've been
+
+1086
+00:51:14,960 --> 00:51:18,480
+talking 51 minutes
+
+1087
+00:51:16,559 --> 00:51:20,839
+so i think that's it for today thank you
+
+1088
+00:51:18,480 --> 00:51:25,200
+guys for coming by
+
+1089
+00:51:20,839 --> 00:51:27,200
+uh yeah so if there is there so
+
+1090
+00:51:25,200 --> 00:51:29,520
+so now we are back in browser let's
+
+1091
+00:51:27,200 --> 00:51:33,440
+refresh once you refresh all this
+
+1092
+00:51:29,520 --> 00:51:38,079
+wikipedia link will be good do it
+
+1093
+00:51:33,440 --> 00:51:40,800
+good so it's good back to the talk show
+
+1094
+00:51:38,079 --> 00:51:43,280
+so let's clean up we and we shut down in
+
+1095
+00:51:40,800 --> 00:51:46,400
+three minutes okay we shut down
+
+1096
+00:51:43,280 --> 00:51:48,800
+we clean up the code a little bit uh
+
+1097
+00:51:46,400 --> 00:51:52,079
+yeah here's our code
+
+1098
+00:51:48,800 --> 00:51:53,119
+copy the code actually this is part of
+
+1099
+00:51:52,079 --> 00:51:56,559
+html
+
+1100
+00:51:53,119 --> 00:51:59,920
+part of html mod so actually
+
+1101
+00:51:56,559 --> 00:52:05,839
+let's uh modify it let's
+
+1102
+00:51:59,920 --> 00:52:05,839
+update the version name and let's say
+
+1103
+00:52:07,359 --> 00:52:10,800
+let's update the version name and go
+
+1104
+00:52:09,440 --> 00:52:14,079
+back here
+
+1105
+00:52:10,800 --> 00:52:19,599
+and update the version name of the mod
+
+1106
+00:52:14,079 --> 00:52:22,480
+okay so i want to add the date stamp
+
+1107
+00:52:19,599 --> 00:52:22,480
+and wait wait
+
+1108
+00:52:24,960 --> 00:52:30,640
+okay add a date stamp
+
+1109
+00:52:28,000 --> 00:52:30,640
+not that
+
+1110
+00:52:31,760 --> 00:52:41,200
+i want add a date stamp version 8.12
+
+1111
+00:52:36,480 --> 00:52:43,680
+then something okay save it
+
+1112
+00:52:41,200 --> 00:52:43,680
+magic
+
+1113
+00:52:44,640 --> 00:52:50,079
+i want to sync to the edge uh my github
+
+1114
+00:52:50,720 --> 00:53:01,839
+so here is let's see what we changed
+
+1115
+00:52:54,720 --> 00:53:01,839
+so we changed uh quite a few things
+
+1116
+00:53:03,440 --> 00:53:07,359
+okay let me let me uh actually there's
+
+1117
+00:53:06,079 --> 00:53:11,680
+more than one change
+
+1118
+00:53:07,359 --> 00:53:15,839
+so so
+
+1119
+00:53:11,680 --> 00:53:15,839
+split buffer speed buffer
+
+1120
+00:53:24,160 --> 00:53:29,839
+okay hold on a second so
+
+1121
+00:53:35,359 --> 00:53:40,400
+so this command now highlight
+
+1122
+00:53:40,839 --> 00:53:46,640
+change
+
+1123
+00:53:43,760 --> 00:53:46,640
+and also
+
+1124
+00:53:46,880 --> 00:53:49,119
+now
+
+1125
+00:53:50,079 --> 00:53:53,440
+let's describe variable
+
+1126
+00:53:57,200 --> 00:54:03,839
+describe variable major
+
+1127
+00:54:00,240 --> 00:54:07,119
+uh describe variable
+
+1128
+00:54:03,839 --> 00:54:11,280
+major mod that's how you find the
+
+1129
+00:54:07,119 --> 00:54:14,240
+technical name of the mod
+
+1130
+00:54:11,280 --> 00:54:16,079
+okay so the technical name of the mod is
+
+1131
+00:54:14,240 --> 00:54:21,119
+html mod
+
+1132
+00:54:16,079 --> 00:54:25,839
+so now html mod is based on
+
+1133
+00:54:21,119 --> 00:54:25,839
+html mod i'm writing the commit message
+
+1134
+00:54:26,480 --> 00:54:33,440
+and html remove wikipedia link is now
+
+1135
+00:54:30,640 --> 00:54:34,800
+we are now uh highlight change change so
+
+1136
+00:54:33,440 --> 00:54:38,079
+that's my
+
+1137
+00:54:34,800 --> 00:54:41,760
+commit message cut that
+
+1138
+00:54:38,079 --> 00:54:46,079
+delete that close magic close it
+
+1139
+00:54:41,760 --> 00:54:46,079
+do it again magic status
+
+1140
+00:54:46,400 --> 00:54:48,720
+and
+
+1141
+00:54:50,160 --> 00:54:58,960
+type s to stage
+
+1142
+00:54:53,599 --> 00:55:02,000
+the file uh type cc to commit
+
+1143
+00:54:58,960 --> 00:55:04,720
+they ask me a commit message okay
+
+1144
+00:55:02,000 --> 00:55:06,079
+so the commit message we typed there
+
+1145
+00:55:04,720 --> 00:55:09,280
+before okay
+
+1146
+00:55:06,079 --> 00:55:11,680
+now ctrl c ctrl c to commit
+
+1147
+00:55:09,280 --> 00:55:13,839
+now it's commented now let's push it to
+
+1148
+00:55:11,680 --> 00:55:16,880
+the server
+
+1149
+00:55:13,839 --> 00:55:20,000
+capital p p so now it's
+
+1150
+00:55:16,880 --> 00:55:23,119
+on my github xl html
+
+1151
+00:55:20,000 --> 00:55:27,280
+mod good
+
+1152
+00:55:23,119 --> 00:55:28,000
+close above a close-up of uh that's the
+
+1153
+00:55:27,280 --> 00:55:32,400
+code we
+
+1154
+00:55:28,000 --> 00:55:32,400
+done uh before we close it we want to
+
+1155
+00:55:32,839 --> 00:55:41,280
+um close it
+
+1156
+00:55:35,680 --> 00:55:41,280
+uh let's i want to show the source code
+
+1157
+00:55:42,160 --> 00:55:45,760
+describe function jump to the source
+
+1158
+00:55:45,119 --> 00:55:49,280
+code
+
+1159
+00:55:45,760 --> 00:55:52,319
+there it is copy it close it
+
+1160
+00:55:49,280 --> 00:55:56,400
+close this page uh
+
+1161
+00:55:52,319 --> 00:55:56,400
+close that back to the talk show page
+
+1162
+00:55:57,920 --> 00:56:01,200
+where is the talk show page
+
+1163
+00:56:01,359 --> 00:56:08,480
+yeah go to talk show
+
+1164
+00:56:04,480 --> 00:56:12,000
+talk show and at the bottom
+
+1165
+00:56:08,480 --> 00:56:16,880
+uh insert the emac this template
+
+1166
+00:56:12,000 --> 00:56:19,280
+show in browser so at the bottom
+
+1167
+00:56:16,880 --> 00:56:21,839
+here's today's code now let's syntax
+
+1168
+00:56:19,280 --> 00:56:21,839
+color it
+
+1169
+00:56:23,040 --> 00:56:29,040
+color it back to browser
+
+1170
+00:56:26,160 --> 00:56:30,880
+refresh there it is that's today's code
+
+1171
+00:56:29,040 --> 00:56:34,160
+thank you guys for watching
+
+1172
+00:56:30,880 --> 00:56:36,880
+if you like my stuff go to
+
+1173
+00:56:34,160 --> 00:56:37,599
+my emacs tutorial you can learn all
+
+1174
+00:56:36,880 --> 00:56:42,799
+about this
+
+1175
+00:56:37,599 --> 00:56:42,799
+in detail and buy my tutorial okay
+
+1176
+00:56:43,440 --> 00:56:46,559
+thank you guys for watching
+
+1177
+00:56:46,960 --> 00:56:59,839
+bye guys
+
+1178
+00:57:04,799 --> 00:57:06,880
+you
+

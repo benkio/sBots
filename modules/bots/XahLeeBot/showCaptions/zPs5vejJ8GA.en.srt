@@ -1,0 +1,4812 @@
+1
+00:00:06,779 --> 00:00:11,519
+hello guys good morning welcome to
+
+2
+00:00:09,000 --> 00:00:13,740
+another episode of sun talk show so
+
+3
+00:00:11,519 --> 00:00:16,920
+today we are going to do a coding
+
+4
+00:00:13,740 --> 00:00:18,720
+challenge I'm going to code Wolfram
+
+5
+00:00:16,920 --> 00:00:20,279
+language okay let's start with fam
+
+6
+00:00:18,720 --> 00:00:22,080
+language
+
+7
+00:00:20,279 --> 00:00:23,699
+um
+
+8
+00:00:22,080 --> 00:00:24,960
+move from
+
+9
+00:00:23,699 --> 00:00:27,900
+okay
+
+10
+00:00:24,960 --> 00:00:30,260
+I'm gonna code Wolfram language to
+
+11
+00:00:27,900 --> 00:00:34,140
+answer this George's coding Challenge
+
+12
+00:00:30,260 --> 00:00:36,500
+and I have to start a new uh Wolfram
+
+13
+00:00:34,140 --> 00:00:39,960
+language file and
+
+14
+00:00:36,500 --> 00:00:43,739
+evaluate it started
+
+15
+00:00:39,960 --> 00:00:47,340
+and let me explain Okay so so yeah so
+
+16
+00:00:43,739 --> 00:00:51,180
+let's magnify magnify so you can see so
+
+17
+00:00:47,340 --> 00:00:53,879
+George posted a coding challenge to our
+
+18
+00:00:51,180 --> 00:00:57,239
+Discord forum and here it is I'm gonna
+
+19
+00:00:53,879 --> 00:00:58,500
+read it for you okay so the coding
+
+20
+00:00:57,239 --> 00:01:01,379
+challenge
+
+21
+00:00:58,500 --> 00:01:03,420
+and I have a bet with Dia and actually
+
+22
+00:01:01,379 --> 00:01:05,220
+right now we have already several
+
+23
+00:01:03,420 --> 00:01:07,799
+solutions by different people you know
+
+24
+00:01:05,220 --> 00:01:09,979
+we have uh several people posted the
+
+25
+00:01:07,799 --> 00:01:13,979
+solution triangle
+
+26
+00:01:09,979 --> 00:01:15,900
+cheated the idiot okay and you know
+
+27
+00:01:13,979 --> 00:01:19,040
+several people posted the solution in
+
+28
+00:01:15,900 --> 00:01:21,780
+different languages oh yeah Dia Zephyr
+
+29
+00:01:19,040 --> 00:01:25,320
+uh and the triangle and several people
+
+30
+00:01:21,780 --> 00:01:27,420
+so I claim I'm going to code this today
+
+31
+00:01:25,320 --> 00:01:29,939
+right now in Wolfram language and I
+
+32
+00:01:27,420 --> 00:01:33,000
+claim my code is gonna be the shortest
+
+33
+00:01:29,939 --> 00:01:35,280
+then them all python Ruby JavaScript or
+
+34
+00:01:33,000 --> 00:01:39,180
+whatever show this but
+
+35
+00:01:35,280 --> 00:01:42,060
+also the fastest okay the most fast
+
+36
+00:01:39,180 --> 00:01:44,579
+Speedy the most performant
+
+37
+00:01:42,060 --> 00:01:46,560
+that's a word performant okay then all
+
+38
+00:01:44,579 --> 00:01:47,700
+the solutions so what is the challenge
+
+39
+00:01:46,560 --> 00:01:50,399
+okay
+
+40
+00:01:47,700 --> 00:01:53,340
+so let's um yeah so let's read The
+
+41
+00:01:50,399 --> 00:01:56,759
+Challenge and uh and I have a bet with
+
+42
+00:01:53,340 --> 00:01:58,979
+Dion okay I I have a bet with Dion so
+
+43
+00:01:56,759 --> 00:02:01,860
+Dion is gonna bet whether my program is
+
+44
+00:01:58,979 --> 00:02:03,360
+gonna be the shortest and fastest and so
+
+45
+00:02:01,860 --> 00:02:06,540
+okay let's begin
+
+46
+00:02:03,360 --> 00:02:07,860
+so the the coding problem is that create
+
+47
+00:02:06,540 --> 00:02:11,239
+a function
+
+48
+00:02:07,860 --> 00:02:14,760
+such that when given an array of numbers
+
+49
+00:02:11,239 --> 00:02:18,120
+Returns the number that appears an odd
+
+50
+00:02:14,760 --> 00:02:21,420
+amount of times Okay so
+
+51
+00:02:18,120 --> 00:02:23,879
+only one number will ever appear an odd
+
+52
+00:02:21,420 --> 00:02:26,340
+number of times so there's a unique
+
+53
+00:02:23,879 --> 00:02:28,920
+solution and there will always be one
+
+54
+00:02:26,340 --> 00:02:31,920
+number that appears an odd number of
+
+55
+00:02:28,920 --> 00:02:34,379
+times okay so given an array or at least
+
+56
+00:02:31,920 --> 00:02:37,860
+whatever your language calls it
+
+57
+00:02:34,379 --> 00:02:39,000
+at least and and it's at least a bunch
+
+58
+00:02:37,860 --> 00:02:42,239
+of numbers
+
+59
+00:02:39,000 --> 00:02:46,080
+and many numbers occur several times
+
+60
+00:02:42,239 --> 00:02:48,959
+okay so you want to find one of the item
+
+61
+00:02:46,080 --> 00:02:52,019
+that's a number that occurs an odd
+
+62
+00:02:48,959 --> 00:02:54,540
+number of times okay and this that the
+
+63
+00:02:52,019 --> 00:02:56,459
+and that's unique you know there's a
+
+64
+00:02:54,540 --> 00:02:59,519
+unique answer so here's some example
+
+65
+00:02:56,459 --> 00:03:02,160
+Solutions I mean the specification of
+
+66
+00:02:59,519 --> 00:03:04,260
+the problem okay and try to think of the
+
+67
+00:03:02,160 --> 00:03:06,120
+shortest Solution that's the fun part
+
+68
+00:03:04,260 --> 00:03:09,980
+you know that's the fun part of the
+
+69
+00:03:06,120 --> 00:03:13,440
+so-called lead code lead code
+
+70
+00:03:09,980 --> 00:03:15,720
+shorty solution and you know the
+
+71
+00:03:13,440 --> 00:03:19,440
+shortest or the most elegant and the
+
+72
+00:03:15,720 --> 00:03:22,739
+fastest those are all good uh criterions
+
+73
+00:03:19,440 --> 00:03:25,800
+Post Your solution in thread okay so so
+
+74
+00:03:22,739 --> 00:03:28,319
+okay I'm gonna start to do it okay
+
+75
+00:03:25,800 --> 00:03:32,220
+so yeah so Wolfram language so let's
+
+76
+00:03:28,319 --> 00:03:35,220
+save this in desktop uh
+
+77
+00:03:32,220 --> 00:03:39,720
+let's say let's name it get odd okay get
+
+78
+00:03:35,220 --> 00:03:42,840
+r dot MB that's the Wolfram notebook so
+
+79
+00:03:39,720 --> 00:03:45,060
+okay so this is this might me take me 30
+
+80
+00:03:42,840 --> 00:03:47,940
+minutes I I'm gonna try to do it as fast
+
+81
+00:03:45,060 --> 00:03:50,640
+as possible over 30 minutes or I'm gonna
+
+82
+00:03:47,940 --> 00:03:52,920
+try to be shortest and fastest then all
+
+83
+00:03:50,640 --> 00:03:56,299
+the others then python you know then
+
+84
+00:03:52,920 --> 00:03:59,040
+python Ruby JavaScript or even go land
+
+85
+00:03:56,299 --> 00:04:00,180
+now I'm not sure if you if you call that
+
+86
+00:03:59,040 --> 00:04:02,400
+in C
+
+87
+00:04:00,180 --> 00:04:05,940
+I'm not sure I can beat it I mean even
+
+88
+00:04:02,400 --> 00:04:08,640
+in in Golan possibly okay I don't know
+
+89
+00:04:05,940 --> 00:04:11,700
+for sure okay but I'm gonna try maybe 30
+
+90
+00:04:08,640 --> 00:04:13,019
+minutes 240 or maybe in an hour so let's
+
+91
+00:04:11,700 --> 00:04:14,580
+begin so
+
+92
+00:04:13,019 --> 00:04:16,680
+you know you're gonna watch you you're
+
+93
+00:04:14,580 --> 00:04:18,060
+just gonna watch me coding okay and
+
+94
+00:04:16,680 --> 00:04:20,040
+meanwhile
+
+95
+00:04:18,060 --> 00:04:23,220
+if you like you know you might try to do
+
+96
+00:04:20,040 --> 00:04:25,139
+it you you know um it's probably it's
+
+97
+00:04:23,220 --> 00:04:27,180
+probably going to be boring for you
+
+98
+00:04:25,139 --> 00:04:30,840
+because I'm just gonna go technical on
+
+99
+00:04:27,180 --> 00:04:32,940
+wolfen language okay so so I'm gonna
+
+100
+00:04:30,840 --> 00:04:36,000
+begin now uh
+
+101
+00:04:32,940 --> 00:04:38,520
+so the so you want to given a list so
+
+102
+00:04:36,000 --> 00:04:42,180
+okay so let's just begin uh X this
+
+103
+00:04:38,520 --> 00:04:44,880
+equals to something okay and let's Okay
+
+104
+00:04:42,180 --> 00:04:47,220
+so let's uh for example
+
+105
+00:04:44,880 --> 00:04:50,880
+so you also want to make sure you handle
+
+106
+00:04:47,220 --> 00:04:54,600
+special cases like a array of a single
+
+107
+00:04:50,880 --> 00:04:57,840
+item right so for example uh let's see
+
+108
+00:04:54,600 --> 00:05:00,840
+so here is an example from George so let
+
+109
+00:04:57,840 --> 00:05:05,220
+me start my solution here
+
+110
+00:05:00,840 --> 00:05:09,900
+uh okay so start a Wolfram language code
+
+111
+00:05:05,220 --> 00:05:11,220
+code block okay and this is the wufam
+
+112
+00:05:09,900 --> 00:05:14,460
+language
+
+113
+00:05:11,220 --> 00:05:18,540
+in fam language solution okay let's just
+
+114
+00:05:14,460 --> 00:05:20,460
+do it okay and let's start to code
+
+115
+00:05:18,540 --> 00:05:22,620
+Wolfram language okay so Wolfram
+
+116
+00:05:20,460 --> 00:05:25,680
+language so X list
+
+117
+00:05:22,620 --> 00:05:28,460
+that's the uh Define the input okay so
+
+118
+00:05:25,680 --> 00:05:28,460
+that's the input
+
+119
+00:05:28,500 --> 00:05:36,419
+uh so so so so in this case seven
+
+120
+00:05:33,000 --> 00:05:38,400
+because seven occurs three times seven
+
+121
+00:05:36,419 --> 00:05:40,560
+seven thirty seven
+
+122
+00:05:38,400 --> 00:05:42,180
+so the solution is seven so you want to
+
+123
+00:05:40,560 --> 00:05:45,539
+define a function
+
+124
+00:05:42,180 --> 00:05:48,900
+uh let's say get odd okay
+
+125
+00:05:45,539 --> 00:05:51,720
+get all these function and okay let's
+
+126
+00:05:48,900 --> 00:05:54,360
+just uh let me code it
+
+127
+00:05:51,720 --> 00:05:58,500
+uh wolf you know I'm using Wolf star
+
+128
+00:05:54,360 --> 00:06:01,199
+wolf and mod in JavaScript I mean mod in
+
+129
+00:05:58,500 --> 00:06:04,199
+Emax that's my own mod you can find if
+
+130
+00:06:01,199 --> 00:06:06,720
+you just search it you'll find uh it on
+
+131
+00:06:04,199 --> 00:06:09,180
+GitHub because I will find mod then I
+
+132
+00:06:06,720 --> 00:06:10,979
+can evaluate it here in emac so I can
+
+133
+00:06:09,180 --> 00:06:13,860
+paste it I'm gonna paste it in Notebook
+
+134
+00:06:10,979 --> 00:06:17,400
+okay so but I can type it faster in
+
+135
+00:06:13,860 --> 00:06:18,479
+emacs so uh that's why I'm doing it here
+
+136
+00:06:17,400 --> 00:06:21,720
+so
+
+137
+00:06:18,479 --> 00:06:24,600
+so the function will take a input okay
+
+138
+00:06:21,720 --> 00:06:26,460
+so input will be let's name it X
+
+139
+00:06:24,600 --> 00:06:29,759
+distance okay
+
+140
+00:06:26,460 --> 00:06:31,680
+and here is the function body okay body
+
+141
+00:06:29,759 --> 00:06:33,720
+Okay so
+
+142
+00:06:31,680 --> 00:06:36,180
+so okay I have to think about it so
+
+143
+00:06:33,720 --> 00:06:41,819
+Define a function so this function takes
+
+144
+00:06:36,180 --> 00:06:45,060
+a list and the output is the output is a
+
+145
+00:06:41,819 --> 00:06:48,479
+single number that's the item
+
+146
+00:06:45,060 --> 00:06:50,100
+that occurs an odd of number times so
+
+147
+00:06:48,479 --> 00:06:54,120
+the output is a number
+
+148
+00:06:50,100 --> 00:06:57,360
+uh and it's a part of the test an item
+
+149
+00:06:54,120 --> 00:07:00,780
+in the list okay so and uh
+
+150
+00:06:57,360 --> 00:07:03,900
+so you want to count so let me write
+
+151
+00:07:00,780 --> 00:07:07,800
+some notes for myself okay so actually
+
+152
+00:07:03,900 --> 00:07:10,319
+uh let's go back here so what the the
+
+153
+00:07:07,800 --> 00:07:13,500
+plan of the algorithm you know
+
+154
+00:07:10,319 --> 00:07:14,639
+this is my the process of how I code you
+
+155
+00:07:13,500 --> 00:07:18,300
+know different people have different
+
+156
+00:07:14,639 --> 00:07:21,060
+styles I tends to be
+
+157
+00:07:18,300 --> 00:07:22,919
+first of all a logical analysis you know
+
+158
+00:07:21,060 --> 00:07:26,400
+some people start to code right away
+
+159
+00:07:22,919 --> 00:07:30,240
+trial and error you know which uh is you
+
+160
+00:07:26,400 --> 00:07:31,800
+know different styles so I so so first
+
+161
+00:07:30,240 --> 00:07:34,919
+of all I want to
+
+162
+00:07:31,800 --> 00:07:35,699
+um yeah so count so basically you want
+
+163
+00:07:34,919 --> 00:07:36,360
+to
+
+164
+00:07:35,699 --> 00:07:40,520
+um
+
+165
+00:07:36,360 --> 00:07:40,520
+count number of
+
+166
+00:07:41,160 --> 00:07:44,520
+of occurrence
+
+167
+00:07:45,120 --> 00:07:52,819
+for each and every item
+
+168
+00:07:50,160 --> 00:07:52,819
+return
+
+169
+00:07:53,460 --> 00:08:01,259
+the item that's odd count okay so
+
+170
+00:07:58,740 --> 00:08:02,460
+essentially you can't so you have to
+
+171
+00:08:01,259 --> 00:08:06,080
+count
+
+172
+00:08:02,460 --> 00:08:06,080
+okay so you can so
+
+173
+00:08:06,180 --> 00:08:10,440
+I'm thinking whether you can abort in
+
+174
+00:08:08,639 --> 00:08:12,479
+the middle once you find the answer but
+
+175
+00:08:10,440 --> 00:08:16,380
+I don't think so because you have to
+
+176
+00:08:12,479 --> 00:08:17,940
+cover every you have to count everything
+
+177
+00:08:16,380 --> 00:08:19,199
+so
+
+178
+00:08:17,940 --> 00:08:21,960
+uh
+
+179
+00:08:19,199 --> 00:08:24,180
+yeah because otherwise you have to
+
+180
+00:08:21,960 --> 00:08:26,280
+go all the way till the end of the list
+
+181
+00:08:24,180 --> 00:08:29,819
+otherwise you wouldn't know if that
+
+182
+00:08:26,280 --> 00:08:30,780
+occur yes okay so count
+
+183
+00:08:29,819 --> 00:08:33,659
+um
+
+184
+00:08:30,780 --> 00:08:36,779
+count a number of occurrence for each
+
+185
+00:08:33,659 --> 00:08:38,820
+and every item so for every item so for
+
+186
+00:08:36,779 --> 00:08:41,459
+every unique item you have to count it
+
+187
+00:08:38,820 --> 00:08:42,740
+so one of the you know one of the most
+
+188
+00:08:41,459 --> 00:08:46,200
+common
+
+189
+00:08:42,740 --> 00:08:49,140
+intuitive solution is is to build a
+
+190
+00:08:46,200 --> 00:08:51,120
+dictionary or hash table so every time
+
+191
+00:08:49,140 --> 00:08:53,880
+you take a number
+
+192
+00:08:51,120 --> 00:08:56,880
+see if it's it already exists in your
+
+193
+00:08:53,880 --> 00:09:00,839
+hash table in your dictionary if not you
+
+194
+00:08:56,880 --> 00:09:03,600
+add it with a value of 1. if it already
+
+195
+00:09:00,839 --> 00:09:06,480
+exists you add it
+
+196
+00:09:03,600 --> 00:09:10,560
+if you know if it already exists you
+
+197
+00:09:06,480 --> 00:09:12,899
+increase the count two by one
+
+198
+00:09:10,560 --> 00:09:13,860
+so after you do that you got a hash
+
+199
+00:09:12,899 --> 00:09:15,540
+table
+
+200
+00:09:13,860 --> 00:09:18,540
+then
+
+201
+00:09:15,540 --> 00:09:21,019
+then you go through the hash table yeah
+
+202
+00:09:18,540 --> 00:09:24,300
+then you go through the hash table and
+
+203
+00:09:21,019 --> 00:09:27,660
+find the one whose value is one okay so
+
+204
+00:09:24,300 --> 00:09:30,779
+the let's write it down so it's um you
+
+205
+00:09:27,660 --> 00:09:33,839
+know so it's clear to everyone who come
+
+206
+00:09:30,779 --> 00:09:35,399
+to watch the video so
+
+207
+00:09:33,839 --> 00:09:38,300
+okay
+
+208
+00:09:35,399 --> 00:09:43,339
+e uh most
+
+209
+00:09:38,300 --> 00:09:43,339
+intuitive algorithm okay
+
+210
+00:09:44,420 --> 00:09:51,740
+hash table build a dictionary
+
+211
+00:09:49,320 --> 00:09:51,740
+for
+
+212
+00:09:55,320 --> 00:10:02,160
+if I go through the list for each
+
+213
+00:09:59,459 --> 00:10:08,459
+python
+
+214
+00:10:02,160 --> 00:10:11,220
+add to the hash if it already exists
+
+215
+00:10:08,459 --> 00:10:15,480
+increase
+
+216
+00:10:11,220 --> 00:10:17,160
+value by one else
+
+217
+00:10:15,480 --> 00:10:18,959
+add
+
+218
+00:10:17,160 --> 00:10:25,399
+to hash
+
+219
+00:10:18,959 --> 00:10:28,700
+with value of one okay so that is the
+
+220
+00:10:25,399 --> 00:10:28,700
+algorithm okay
+
+221
+00:10:29,279 --> 00:10:35,040
+so that's the most intuitive algorithm
+
+222
+00:10:31,560 --> 00:10:38,160
+we can do that in Wolfram language but I
+
+223
+00:10:35,040 --> 00:10:41,760
+think I got better way you know so that
+
+224
+00:10:38,160 --> 00:10:44,459
+algorithm is probably okay now you know
+
+225
+00:10:41,760 --> 00:10:46,620
+that this algorithm is probably how
+
+226
+00:10:44,459 --> 00:10:49,380
+you're gonna do it in every other
+
+227
+00:10:46,620 --> 00:10:52,380
+language this is yeah this is the most
+
+228
+00:10:49,380 --> 00:10:55,500
+common so now let's think about is there
+
+229
+00:10:52,380 --> 00:10:58,800
+some kind of shortcut like a trick or a
+
+230
+00:10:55,500 --> 00:11:01,380
+mathematical formula to to do this
+
+231
+00:10:58,800 --> 00:11:04,440
+you know another way for example if you
+
+232
+00:11:01,380 --> 00:11:07,700
+can is that you get you know you try to
+
+233
+00:11:04,440 --> 00:11:07,700
+get all the unique
+
+234
+00:11:08,399 --> 00:11:13,019
+if you can maybe there's a you know if
+
+235
+00:11:10,620 --> 00:11:15,839
+if it's very fast to get all the unique
+
+236
+00:11:13,019 --> 00:11:17,760
+items in the list because this list is
+
+237
+00:11:15,839 --> 00:11:19,860
+going to be
+
+238
+00:11:17,760 --> 00:11:23,160
+lots of numbers
+
+239
+00:11:19,860 --> 00:11:25,380
+and uh most of them will not be unique
+
+240
+00:11:23,160 --> 00:11:27,360
+because each item will happen several
+
+241
+00:11:25,380 --> 00:11:31,800
+times
+
+242
+00:11:27,360 --> 00:11:34,560
+right you know by the spec so the unique
+
+243
+00:11:31,800 --> 00:11:38,279
+item will be actually a small subset of
+
+244
+00:11:34,560 --> 00:11:42,060
+the list okay so if you can get a unique
+
+245
+00:11:38,279 --> 00:11:44,839
+item you know the unique items you still
+
+246
+00:11:42,060 --> 00:11:44,839
+have to count it
+
+247
+00:11:45,779 --> 00:11:51,500
+okay so let me so maybe let's just uh
+
+248
+00:11:49,260 --> 00:11:54,240
+you know walk you know let's just
+
+249
+00:11:51,500 --> 00:11:56,940
+brainstorming okay
+
+250
+00:11:54,240 --> 00:12:00,480
+another way this is probably not a good
+
+251
+00:11:56,940 --> 00:12:01,800
+algorithm not I mean not efficient get
+
+252
+00:12:00,480 --> 00:12:07,320
+or
+
+253
+00:12:01,800 --> 00:12:09,000
+unique items in the list
+
+254
+00:12:07,320 --> 00:12:11,399
+because
+
+255
+00:12:09,000 --> 00:12:13,440
+the
+
+256
+00:12:11,399 --> 00:12:16,680
+because
+
+257
+00:12:13,440 --> 00:12:17,899
+most of the time assuming the list is
+
+258
+00:12:16,680 --> 00:12:21,060
+random
+
+259
+00:12:17,899 --> 00:12:24,440
+random-ish most of the time
+
+260
+00:12:21,060 --> 00:12:24,440
+the unique
+
+261
+00:12:25,200 --> 00:12:32,720
+items will be a small subset of the list
+
+262
+00:12:29,940 --> 00:12:32,720
+okay
+
+263
+00:12:33,120 --> 00:12:37,040
+of the Beast okay
+
+264
+00:12:38,220 --> 00:12:41,700
+then
+
+265
+00:12:39,360 --> 00:12:44,300
+then you just
+
+266
+00:12:41,700 --> 00:12:50,820
+then you still need to count each then
+
+267
+00:12:44,300 --> 00:12:50,820
+you still need to count the
+
+268
+00:12:51,420 --> 00:12:54,420
+occurrence
+
+269
+00:13:00,120 --> 00:13:07,380
+of each unique item
+
+270
+00:13:03,959 --> 00:13:10,380
+okay that's then then that kind of uh
+
+271
+00:13:07,380 --> 00:13:12,720
+made it pointless
+
+272
+00:13:10,380 --> 00:13:14,220
+because is there some kind of magical
+
+273
+00:13:12,720 --> 00:13:17,060
+way
+
+274
+00:13:14,220 --> 00:13:17,060
+to
+
+275
+00:13:19,860 --> 00:13:27,060
+um okay so let's go on to the next idea
+
+276
+00:13:23,160 --> 00:13:29,339
+so another way to solve this is you can
+
+277
+00:13:27,060 --> 00:13:30,839
+reorder them
+
+278
+00:13:29,339 --> 00:13:35,579
+that's right
+
+279
+00:13:30,839 --> 00:13:40,019
+you can sort the whole list but sort is
+
+280
+00:13:35,579 --> 00:13:42,560
+fairly expensive yeah probably not not a
+
+281
+00:13:40,019 --> 00:13:42,560
+good solution
+
+282
+00:13:42,959 --> 00:13:51,959
+so the whole list the advantage of a
+
+283
+00:13:47,579 --> 00:13:54,120
+sorted list to begin with is that you
+
+284
+00:13:51,959 --> 00:13:56,820
+you can once you find a different number
+
+285
+00:13:54,120 --> 00:13:59,519
+then you know that that is it the number
+
+286
+00:13:56,820 --> 00:14:01,880
+of the occurrences of the particular
+
+287
+00:13:59,519 --> 00:14:01,880
+item
+
+288
+00:14:03,240 --> 00:14:08,060
+okay
+
+289
+00:14:05,100 --> 00:14:08,060
+advanced
+
+290
+00:14:08,820 --> 00:14:11,720
+being that
+
+291
+00:14:14,760 --> 00:14:22,440
+when you go through the list
+
+292
+00:14:18,300 --> 00:14:27,019
+and when you see a different
+
+293
+00:14:22,440 --> 00:14:27,019
+number then you know
+
+294
+00:14:29,639 --> 00:14:32,420
+that
+
+295
+00:14:32,579 --> 00:14:38,700
+the current number
+
+296
+00:14:35,459 --> 00:14:41,519
+no longer occur in other words you can
+
+297
+00:14:38,700 --> 00:14:42,480
+find our currencies by partition the
+
+298
+00:14:41,519 --> 00:14:45,480
+list
+
+299
+00:14:42,480 --> 00:14:48,120
+into subdists then you just count the
+
+300
+00:14:45,480 --> 00:14:50,040
+length of each sublist
+
+301
+00:14:48,120 --> 00:14:52,560
+but you do need the algorithm that
+
+302
+00:14:50,040 --> 00:14:54,779
+compares differences between items okay
+
+303
+00:14:52,560 --> 00:14:57,180
+so that's another way I don't think
+
+304
+00:14:54,779 --> 00:15:00,540
+these ways are faster than the simplest
+
+305
+00:14:57,180 --> 00:15:03,120
+cache I mean the hash table solution
+
+306
+00:15:00,540 --> 00:15:05,639
+okay so okay let's that's enough
+
+307
+00:15:03,120 --> 00:15:07,740
+thinking let's start to you know who fan
+
+308
+00:15:05,639 --> 00:15:10,079
+language has lots of building functions
+
+309
+00:15:07,740 --> 00:15:12,720
+this problem
+
+310
+00:15:10,079 --> 00:15:14,779
+the way I saw it I'm thinking this
+
+311
+00:15:12,720 --> 00:15:17,760
+already building function for it
+
+312
+00:15:14,779 --> 00:15:21,500
+something like that okay let me show let
+
+313
+00:15:17,760 --> 00:15:21,500
+me try to find it okay Taddy
+
+314
+00:15:21,600 --> 00:15:28,560
+there it is a function Tabby okay
+
+315
+00:15:25,320 --> 00:15:30,480
+tally Tad is the elements in this this
+
+316
+00:15:28,560 --> 00:15:33,260
+thing or the distinct element together
+
+317
+00:15:30,480 --> 00:15:38,279
+with their number
+
+318
+00:15:33,260 --> 00:15:41,279
+that's it that is it that is a solution
+
+319
+00:15:38,279 --> 00:15:45,380
+okay let's let's do it
+
+320
+00:15:41,279 --> 00:15:45,380
+uh we don't okay tally
+
+321
+00:15:45,779 --> 00:15:52,320
+tally
+
+322
+00:15:46,980 --> 00:15:53,220
+and and uh and and xx okay so XX is the
+
+323
+00:15:52,320 --> 00:15:56,160
+input
+
+324
+00:15:53,220 --> 00:15:59,660
+so yeah so okay so that that's already
+
+325
+00:15:56,160 --> 00:15:59,660
+the solution isn't it
+
+326
+00:16:01,500 --> 00:16:07,860
+okay let's run it let's see what we get
+
+327
+00:16:05,579 --> 00:16:10,019
+okay function okay so let's add the
+
+328
+00:16:07,860 --> 00:16:13,920
+semicolon so we already got the output
+
+329
+00:16:10,019 --> 00:16:18,300
+here so the the output is this
+
+330
+00:16:13,920 --> 00:16:20,160
+so one occurs twice seven occurs three
+
+331
+00:16:18,300 --> 00:16:22,740
+times
+
+332
+00:16:20,160 --> 00:16:25,380
+three occurs twice is that right that's
+
+333
+00:16:22,740 --> 00:16:28,579
+correct then once you get this then all
+
+334
+00:16:25,380 --> 00:16:28,579
+you have to do is you
+
+335
+00:16:28,740 --> 00:16:36,420
+you won't get the item
+
+336
+00:16:31,260 --> 00:16:39,839
+such that the second element is odd
+
+337
+00:16:36,420 --> 00:16:44,339
+okay so now yeah this is a solution I
+
+338
+00:16:39,839 --> 00:16:47,100
+think I'm gonna win the bet okay so okay
+
+339
+00:16:44,339 --> 00:16:49,620
+so Wolfram language let's go to my own
+
+340
+00:16:47,100 --> 00:16:51,480
+oven Language tutorial you know I'm
+
+341
+00:16:49,620 --> 00:16:53,880
+promoting with my language within
+
+342
+00:16:51,480 --> 00:16:56,880
+language you know who from research is
+
+343
+00:16:53,880 --> 00:16:59,519
+donating to me sponsoring
+
+344
+00:16:56,880 --> 00:17:01,560
+you know my videos so
+
+345
+00:16:59,519 --> 00:17:03,060
+so I have written a tutorial of the
+
+346
+00:17:01,560 --> 00:17:06,419
+whole you know I've been coding Wolfram
+
+347
+00:17:03,060 --> 00:17:07,860
+language since 1992 and it is my
+
+348
+00:17:06,419 --> 00:17:11,220
+favorite language I've been coding it
+
+349
+00:17:07,860 --> 00:17:13,919
+for over 10 years since 1992 every day
+
+350
+00:17:11,220 --> 00:17:17,819
+you know uh and so
+
+351
+00:17:13,919 --> 00:17:19,439
+um so I want to yeah so let's look at my
+
+352
+00:17:17,819 --> 00:17:21,900
+tutorial you know I've been working on
+
+353
+00:17:19,439 --> 00:17:25,559
+it again so
+
+354
+00:17:21,900 --> 00:17:28,679
+right now we want to get the
+
+355
+00:17:25,559 --> 00:17:33,000
+item in a list such that the second
+
+356
+00:17:28,679 --> 00:17:35,460
+element is an odd number okay so here is
+
+357
+00:17:33,000 --> 00:17:37,500
+all these all the possible functions to
+
+358
+00:17:35,460 --> 00:17:41,160
+get the list
+
+359
+00:17:37,500 --> 00:17:43,799
+so you want you can use pattern matching
+
+360
+00:17:41,160 --> 00:17:45,780
+which is in general much slower so I
+
+361
+00:17:43,799 --> 00:17:46,799
+don't want to use pen imagine or you can
+
+362
+00:17:45,780 --> 00:17:49,919
+use
+
+363
+00:17:46,799 --> 00:17:52,559
+um I can I can try both ways so pattern
+
+364
+00:17:49,919 --> 00:17:54,840
+matching is a solution then the other
+
+365
+00:17:52,559 --> 00:17:58,320
+solution is just go through each one and
+
+366
+00:17:54,840 --> 00:18:00,960
+apply a function select okay so here is
+
+367
+00:17:58,320 --> 00:18:02,220
+so if you want to get parts of an
+
+368
+00:18:00,960 --> 00:18:04,919
+expression
+
+369
+00:18:02,220 --> 00:18:07,080
+bio function you can use select you know
+
+370
+00:18:04,919 --> 00:18:08,580
+you give it a filter function you know
+
+371
+00:18:07,080 --> 00:18:11,520
+there's a building so you you know
+
+372
+00:18:08,580 --> 00:18:15,419
+that's you know we just copy and paste
+
+373
+00:18:11,520 --> 00:18:17,900
+okay let me show you okay so select is
+
+374
+00:18:15,419 --> 00:18:17,900
+one way
+
+375
+00:18:18,980 --> 00:18:25,919
+so
+
+376
+00:18:20,600 --> 00:18:29,039
+select in so select the Tidy result then
+
+377
+00:18:25,919 --> 00:18:30,360
+then here will be a function
+
+378
+00:18:29,039 --> 00:18:31,460
+um
+
+379
+00:18:30,360 --> 00:18:34,799
+okay
+
+380
+00:18:31,460 --> 00:18:38,100
+okay I have a shortcut so this is
+
+381
+00:18:34,799 --> 00:18:42,480
+powerful Wolfram shortcut
+
+382
+00:18:38,100 --> 00:18:46,340
+uh I'm gonna I'm not gonna explain
+
+383
+00:18:42,480 --> 00:18:50,520
+okay actually so let's okay first of all
+
+384
+00:18:46,340 --> 00:18:52,679
+let's remove this part there
+
+385
+00:18:50,520 --> 00:18:54,960
+okay let's not use the shortcut because
+
+386
+00:18:52,679 --> 00:18:57,900
+the shortcut is hard to understand for a
+
+387
+00:18:54,960 --> 00:19:00,840
+lot of people so let's use yeah but
+
+388
+00:18:57,900 --> 00:19:03,120
+however we need we are doing a bet of
+
+389
+00:19:00,840 --> 00:19:04,919
+the shortest program so actually I do
+
+390
+00:19:03,120 --> 00:19:07,140
+want to use the shortcut but let me do
+
+391
+00:19:04,919 --> 00:19:10,020
+the the full form first okay the
+
+392
+00:19:07,140 --> 00:19:12,480
+function then the argument so what is
+
+393
+00:19:10,020 --> 00:19:16,340
+this even Q okay so we want to test the
+
+394
+00:19:12,480 --> 00:19:16,340
+second argument so second argument
+
+395
+00:19:17,280 --> 00:19:22,740
+oh God so if you take a element that's
+
+396
+00:19:20,220 --> 00:19:24,480
+going to be much slower so actually
+
+397
+00:19:22,740 --> 00:19:26,280
+maybe the pattern matching is faster
+
+398
+00:19:24,480 --> 00:19:29,460
+let's try it okay
+
+399
+00:19:26,280 --> 00:19:32,780
+so the second element
+
+400
+00:19:29,460 --> 00:19:32,780
+is odd okay
+
+401
+00:19:35,400 --> 00:19:39,900
+there it is okay so let me let me show
+
+402
+00:19:37,740 --> 00:19:43,080
+you what's what's going on clean the
+
+403
+00:19:39,900 --> 00:19:43,080
+code uh
+
+404
+00:19:44,880 --> 00:19:51,799
+okay so let me show you explain uh you
+
+405
+00:19:48,600 --> 00:19:51,799
+know you guys um
+
+406
+00:19:51,960 --> 00:19:56,700
+you know ufan language is just like this
+
+407
+00:19:54,780 --> 00:19:59,700
+so here is the function already so
+
+408
+00:19:56,700 --> 00:20:02,580
+remove that so taddy first of all we get
+
+409
+00:19:59,700 --> 00:20:05,340
+Tabby and then we select okay select
+
+410
+00:20:02,580 --> 00:20:09,720
+text two arguments first of uh the first
+
+411
+00:20:05,340 --> 00:20:12,840
+one is the data okay the second one is a
+
+412
+00:20:09,720 --> 00:20:14,900
+function so this function is gonna be
+
+413
+00:20:12,840 --> 00:20:14,900
+um
+
+414
+00:20:16,919 --> 00:20:24,059
+odd in the second argument okay so
+
+415
+00:20:19,500 --> 00:20:26,940
+function so this part size stand for the
+
+416
+00:20:24,059 --> 00:20:28,500
+input of the function so we take the
+
+417
+00:20:26,940 --> 00:20:33,200
+second part
+
+418
+00:20:28,500 --> 00:20:33,200
+and we check if it's odd
+
+419
+00:20:33,240 --> 00:20:36,980
+then if it is
+
+420
+00:20:38,940 --> 00:20:44,100
+then return it okay
+
+421
+00:20:41,340 --> 00:20:46,320
+but the thing you know this will work
+
+422
+00:20:44,100 --> 00:20:49,919
+but however it's not the most efficient
+
+423
+00:20:46,320 --> 00:20:54,960
+because it will because we know that
+
+424
+00:20:49,919 --> 00:20:57,360
+this problem there's only one odd
+
+425
+00:20:54,960 --> 00:20:59,880
+you know one of the items that's that
+
+426
+00:20:57,360 --> 00:21:02,880
+occur odd number of times so once we
+
+427
+00:20:59,880 --> 00:21:05,960
+find that we do not to you know select
+
+428
+00:21:02,880 --> 00:21:05,960
+the other ones so
+
+429
+00:21:06,000 --> 00:21:09,780
+so this is not the most efficient but
+
+430
+00:21:08,580 --> 00:21:12,780
+but
+
+431
+00:21:09,780 --> 00:21:16,140
+let's just run it so to make sure it uh
+
+432
+00:21:12,780 --> 00:21:18,480
+it's correct okay so get our X list okay
+
+433
+00:21:16,140 --> 00:21:20,580
+let's run it
+
+434
+00:21:18,480 --> 00:21:24,780
+seven three you see that's the result
+
+435
+00:21:20,580 --> 00:21:27,179
+you see this is the correct result okay
+
+436
+00:21:24,780 --> 00:21:29,700
+here is the
+
+437
+00:21:27,179 --> 00:21:31,679
+here is the correct result let's put it
+
+438
+00:21:29,700 --> 00:21:34,320
+here okay let's put it here
+
+439
+00:21:31,679 --> 00:21:36,840
+seven three okay in fact actually we
+
+440
+00:21:34,320 --> 00:21:39,720
+need to we need to return a number so we
+
+441
+00:21:36,840 --> 00:21:42,059
+don't want the list so we want to so
+
+442
+00:21:39,720 --> 00:21:46,080
+once you
+
+443
+00:21:42,059 --> 00:21:47,580
+select once you select it then you want
+
+444
+00:21:46,080 --> 00:21:50,299
+to
+
+445
+00:21:47,580 --> 00:21:50,299
+take
+
+446
+00:21:50,460 --> 00:21:55,679
+the
+
+447
+00:21:51,780 --> 00:21:58,260
+first element of the first element okay
+
+448
+00:21:55,679 --> 00:22:00,840
+because here is the output that's the
+
+449
+00:21:58,260 --> 00:22:03,059
+nested list you want to take the first
+
+450
+00:22:00,840 --> 00:22:04,919
+element which is this list then you want
+
+451
+00:22:03,059 --> 00:22:08,120
+to take the first element that's seven
+
+452
+00:22:04,919 --> 00:22:08,120
+so let's run it again
+
+453
+00:22:08,760 --> 00:22:15,780
+uh okay so you forgot the unique Parts
+
+454
+00:22:12,000 --> 00:22:18,840
+okay so there run it
+
+455
+00:22:15,780 --> 00:22:21,659
+there it is you see seven okay so this
+
+456
+00:22:18,840 --> 00:22:24,120
+is our um
+
+457
+00:22:21,659 --> 00:22:27,120
+first solution okay that's not efficient
+
+458
+00:22:24,120 --> 00:22:29,280
+that's this you know let's let's do
+
+459
+00:22:27,120 --> 00:22:32,460
+another one okay let me run this in
+
+460
+00:22:29,280 --> 00:22:35,159
+Wolfram language so you can see
+
+461
+00:22:32,460 --> 00:22:37,700
+um I mean let's run this in notebooks so
+
+462
+00:22:35,159 --> 00:22:37,700
+you can see
+
+463
+00:22:39,659 --> 00:22:45,000
+the net you see seven okay
+
+464
+00:22:42,720 --> 00:22:46,860
+let's put it here
+
+465
+00:22:45,000 --> 00:22:49,559
+okay so now
+
+466
+00:22:46,860 --> 00:22:51,480
+let's make it faster now we we're gonna
+
+467
+00:22:49,559 --> 00:22:53,460
+do the timing we're gonna write the
+
+468
+00:22:51,480 --> 00:22:55,799
+command to do timing and we're gonna
+
+469
+00:22:53,460 --> 00:22:59,520
+write several Solutions okay so this is
+
+470
+00:22:55,799 --> 00:23:02,100
+the first solution okay get out one uh
+
+471
+00:22:59,520 --> 00:23:04,640
+get odd one so that's the second
+
+472
+00:23:02,100 --> 00:23:04,640
+solution
+
+473
+00:23:06,179 --> 00:23:12,600
+now we know that there's only one
+
+474
+00:23:09,179 --> 00:23:14,820
+occurrence so let's do let's now let's
+
+475
+00:23:12,600 --> 00:23:18,900
+do a pattern matching okay
+
+476
+00:23:14,820 --> 00:23:20,400
+pattern matching okay so the function
+
+477
+00:23:18,900 --> 00:23:23,760
+will be
+
+478
+00:23:20,400 --> 00:23:26,580
+you want to so you are given a list
+
+479
+00:23:23,760 --> 00:23:31,520
+that's a result of Taddy
+
+480
+00:23:26,580 --> 00:23:31,520
+okay let me write it out so
+
+481
+00:23:35,460 --> 00:23:38,960
+so that you can understand
+
+482
+00:23:39,960 --> 00:23:44,640
+result of Teddy
+
+483
+00:23:43,140 --> 00:23:47,539
+is
+
+484
+00:23:44,640 --> 00:23:47,539
+that okay
+
+485
+00:23:52,380 --> 00:23:57,029
+okay it's
+
+486
+00:23:53,960 --> 00:23:57,029
+[Music]
+
+487
+00:23:58,860 --> 00:24:02,419
+so this way you can see
+
+488
+00:24:05,580 --> 00:24:11,400
+result of tally essentially
+
+489
+00:24:08,220 --> 00:24:13,500
+is the solution okay so we can do that
+
+490
+00:24:11,400 --> 00:24:15,780
+that will return true you know you can
+
+491
+00:24:13,500 --> 00:24:18,059
+you know let's run it
+
+492
+00:24:15,780 --> 00:24:19,380
+yeah you see true
+
+493
+00:24:18,059 --> 00:24:22,380
+uh
+
+494
+00:24:19,380 --> 00:24:24,720
+you see okay so but so first solution
+
+495
+00:24:22,380 --> 00:24:28,320
+then second solution let's use pattern
+
+496
+00:24:24,720 --> 00:24:31,380
+matching so when you use uh so you are
+
+497
+00:24:28,320 --> 00:24:32,400
+given a list a list like that now you
+
+498
+00:24:31,380 --> 00:24:36,000
+want to
+
+499
+00:24:32,400 --> 00:24:38,700
+select an element such that the second
+
+500
+00:24:36,000 --> 00:24:40,860
+element is odd
+
+501
+00:24:38,700 --> 00:24:44,220
+now you want to do this by pattern
+
+502
+00:24:40,860 --> 00:24:45,539
+matching okay so how do you do that
+
+503
+00:24:44,220 --> 00:24:48,720
+um
+
+504
+00:24:45,539 --> 00:24:51,900
+yeah so let's go back to uh so pattern
+
+505
+00:24:48,720 --> 00:24:53,940
+matching you you use the cases okay so
+
+506
+00:24:51,900 --> 00:24:55,500
+let's let's do it here so second
+
+507
+00:24:53,940 --> 00:24:57,360
+solution
+
+508
+00:24:55,500 --> 00:24:59,880
+uh
+
+509
+00:24:57,360 --> 00:25:04,220
+so you don't do you don't say select
+
+510
+00:24:59,880 --> 00:25:04,220
+okay so let me copy
+
+511
+00:25:05,760 --> 00:25:14,220
+so you want to say cases
+
+512
+00:25:09,419 --> 00:25:18,980
+okay cases the first uh element is the
+
+513
+00:25:14,220 --> 00:25:18,980
+data the second part is a pattern
+
+514
+00:25:19,320 --> 00:25:25,440
+right the second part is a pattern so in
+
+515
+00:25:22,440 --> 00:25:28,340
+this case we're gonna be the pattern is
+
+516
+00:25:25,440 --> 00:25:28,340
+gonna be a list
+
+517
+00:25:29,279 --> 00:25:33,200
+and X anything
+
+518
+00:25:34,980 --> 00:25:40,580
+okay so at least
+
+519
+00:25:37,919 --> 00:25:40,580
+X
+
+520
+00:25:43,440 --> 00:25:45,679
+foreign
+
+521
+00:25:48,620 --> 00:25:52,220
+X is a number
+
+522
+00:25:53,220 --> 00:25:59,640
+the second part is um well actually X
+
+523
+00:25:57,059 --> 00:26:02,460
+anything that you know we don't want to
+
+524
+00:25:59,640 --> 00:26:05,220
+do extra computation because we need
+
+525
+00:26:02,460 --> 00:26:09,720
+this to be as fast as possible the
+
+526
+00:26:05,220 --> 00:26:14,039
+second part is going to be odd so and
+
+527
+00:26:09,720 --> 00:26:16,799
+so underscore means anything anything
+
+528
+00:26:14,039 --> 00:26:19,860
+with a condition
+
+529
+00:26:16,799 --> 00:26:21,480
+okay with a condition so we want to do
+
+530
+00:26:19,860 --> 00:26:25,020
+pattern matching
+
+531
+00:26:21,480 --> 00:26:28,500
+by applying a function so it's a
+
+532
+00:26:25,020 --> 00:26:30,480
+we are doing both kind of a patterns
+
+533
+00:26:28,500 --> 00:26:32,580
+such that
+
+534
+00:26:30,480 --> 00:26:34,620
+this function returns true okay so
+
+535
+00:26:32,580 --> 00:26:35,940
+pattern syntax so let's go to pattern
+
+536
+00:26:34,620 --> 00:26:39,500
+syntax
+
+537
+00:26:35,940 --> 00:26:39,500
+so uh
+
+538
+00:26:43,200 --> 00:26:51,360
+yeah test okay test is e uh odd
+
+539
+00:26:48,600 --> 00:26:54,120
+Q okay
+
+540
+00:26:51,360 --> 00:26:56,539
+okay so this is the pattern matching
+
+541
+00:26:54,120 --> 00:26:56,539
+solution
+
+542
+00:27:00,000 --> 00:27:05,720
+okay so let's
+
+543
+00:27:02,340 --> 00:27:05,720
+let's do it here
+
+544
+00:27:07,320 --> 00:27:15,120
+hello guys hello Reaper
+
+545
+00:27:10,559 --> 00:27:17,880
+PHP Wings Reaper has a PHP solution
+
+546
+00:27:15,120 --> 00:27:19,500
+we're gonna check out well not in live
+
+547
+00:27:17,880 --> 00:27:22,020
+stream but you know we're gonna check
+
+548
+00:27:19,500 --> 00:27:25,020
+out all the solutions to see who is
+
+549
+00:27:22,020 --> 00:27:28,740
+faster okay run it
+
+550
+00:27:25,020 --> 00:27:32,159
+pattern matching okay again true you see
+
+551
+00:27:28,740 --> 00:27:34,679
+it's selected seven so that's correct so
+
+552
+00:27:32,159 --> 00:27:36,840
+I actually I need to go faster okay so
+
+553
+00:27:34,679 --> 00:27:40,200
+you need uh once you get the result you
+
+554
+00:27:36,840 --> 00:27:42,779
+need to take take the um
+
+555
+00:27:40,200 --> 00:27:45,179
+take that okay done it
+
+556
+00:27:42,779 --> 00:27:48,720
+okay seven seven is true okay let's
+
+557
+00:27:45,179 --> 00:27:51,740
+let's just uh let's just say equals
+
+558
+00:27:48,720 --> 00:27:51,740
+seven that's true
+
+559
+00:27:53,460 --> 00:27:58,440
+run it
+
+560
+00:27:55,200 --> 00:28:00,360
+you see true true fantastic so we have
+
+561
+00:27:58,440 --> 00:28:03,179
+two solutions now
+
+562
+00:28:00,360 --> 00:28:05,159
+uh but both of them are not the most
+
+563
+00:28:03,179 --> 00:28:06,120
+efficient because they actually go
+
+564
+00:28:05,159 --> 00:28:09,059
+through
+
+565
+00:28:06,120 --> 00:28:10,860
+all items we want a solution such that
+
+566
+00:28:09,059 --> 00:28:12,659
+once you
+
+567
+00:28:10,860 --> 00:28:16,980
+get elements
+
+568
+00:28:12,659 --> 00:28:19,460
+that the second part is odd stop okay
+
+569
+00:28:16,980 --> 00:28:19,460
+so
+
+570
+00:28:25,200 --> 00:28:30,600
+so actually I wonder if that's uh that's
+
+571
+00:28:27,960 --> 00:28:32,159
+already part of the taddy function so is
+
+572
+00:28:30,600 --> 00:28:37,279
+there a
+
+573
+00:28:32,159 --> 00:28:37,279
+let's see taddy maybe there's an option
+
+574
+00:28:40,260 --> 00:28:45,000
+so
+
+575
+00:28:41,580 --> 00:28:49,520
+indeed there is an option
+
+576
+00:28:45,000 --> 00:28:49,520
+the second argument test used
+
+577
+00:28:49,980 --> 00:28:55,799
+test to determine where the pair of
+
+578
+00:28:52,020 --> 00:28:58,919
+elements should be considered equivalent
+
+579
+00:28:55,799 --> 00:29:01,440
+okay we don't want the test give a list
+
+580
+00:28:58,919 --> 00:29:04,620
+of the first representatives of each
+
+581
+00:29:01,440 --> 00:29:08,580
+equivalent classes
+
+582
+00:29:04,620 --> 00:29:13,140
+together with their multiplicities now
+
+583
+00:29:08,580 --> 00:29:17,279
+okay we want uh options such that
+
+584
+00:29:13,140 --> 00:29:17,279
+it will just select
+
+585
+00:29:17,640 --> 00:29:27,539
+okay so is there an option so one easy
+
+586
+00:29:21,419 --> 00:29:31,320
+way to find out is you type options okay
+
+587
+00:29:27,539 --> 00:29:35,940
+options and give the function name taddy
+
+588
+00:29:31,320 --> 00:29:39,539
+to see if there's any option no okay
+
+589
+00:29:35,940 --> 00:29:44,419
+okay so so we have to do this uh
+
+590
+00:29:39,539 --> 00:29:48,620
+manually okay so uh second solution
+
+591
+00:29:44,419 --> 00:29:48,620
+third solution okay let's
+
+592
+00:29:50,880 --> 00:29:57,779
+let's select by function
+
+593
+00:29:53,640 --> 00:30:01,159
+but exit when
+
+594
+00:29:57,779 --> 00:30:01,159
+first found okay
+
+595
+00:30:02,880 --> 00:30:07,880
+so select that function so
+
+596
+00:30:05,820 --> 00:30:07,880
+um
+
+597
+00:30:14,100 --> 00:30:21,440
+yeah so let's copy that
+
+598
+00:30:16,980 --> 00:30:21,440
+third third solution okay
+
+599
+00:30:22,940 --> 00:30:29,700
+select by a function this function but
+
+600
+00:30:26,340 --> 00:30:32,039
+once you find find it immediately exit
+
+601
+00:30:29,700 --> 00:30:34,440
+so in that case you you don't want to
+
+602
+00:30:32,039 --> 00:30:37,200
+use select
+
+603
+00:30:34,440 --> 00:30:39,600
+because select doesn't immediately exit
+
+604
+00:30:37,200 --> 00:30:42,840
+Okay so
+
+605
+00:30:39,600 --> 00:30:44,520
+okay let's check if there's an option in
+
+606
+00:30:42,840 --> 00:30:47,460
+select
+
+607
+00:30:44,520 --> 00:30:50,880
+pick out all elements E1 of least for
+
+608
+00:30:47,460 --> 00:30:53,279
+which criteria one is true there it is
+
+609
+00:30:50,880 --> 00:30:55,380
+pick out the first n elements for which
+
+610
+00:30:53,279 --> 00:30:58,640
+criteria is true so all you have to do
+
+611
+00:30:55,380 --> 00:31:03,779
+is give this n to one
+
+612
+00:30:58,640 --> 00:31:07,620
+this is fantastic so
+
+613
+00:31:03,779 --> 00:31:10,799
+select list Criterion and end okay so
+
+614
+00:31:07,620 --> 00:31:13,799
+select okay so let's clean this up so
+
+615
+00:31:10,799 --> 00:31:20,600
+you can see uh easy so you can see
+
+616
+00:31:13,799 --> 00:31:20,600
+select so select at least a Criterion
+
+617
+00:31:21,419 --> 00:31:28,260
+yeah the Criterion and third argument
+
+618
+00:31:24,860 --> 00:31:31,260
+one that's as long as as soon as you
+
+619
+00:31:28,260 --> 00:31:33,740
+find it return it okay so now let's
+
+620
+00:31:31,260 --> 00:31:33,740
+let's
+
+621
+00:31:34,159 --> 00:31:41,760
+do this is gonna be my
+
+622
+00:31:38,940 --> 00:31:44,539
+submission okay let's run it uh let's
+
+623
+00:31:41,760 --> 00:31:44,539
+run it
+
+624
+00:31:44,580 --> 00:31:51,140
+seven three fantastic so we still need
+
+625
+00:31:47,700 --> 00:31:51,140
+this extraction
+
+626
+00:31:51,179 --> 00:31:58,500
+okay let's show the pink window so let's
+
+627
+00:31:54,480 --> 00:32:01,860
+run let's copy that do that select do it
+
+628
+00:31:58,500 --> 00:32:04,919
+true true true true or true so all these
+
+629
+00:32:01,860 --> 00:32:07,860
+Solutions are correct okay and this
+
+630
+00:32:04,919 --> 00:32:09,840
+solution is the fastest
+
+631
+00:32:07,860 --> 00:32:11,880
+yeah or you have to you need this one
+
+632
+00:32:09,840 --> 00:32:14,279
+okay I think that's actually that's
+
+633
+00:32:11,880 --> 00:32:17,399
+that's my that's going to be my
+
+634
+00:32:14,279 --> 00:32:19,740
+submission so we copy that let's run
+
+635
+00:32:17,399 --> 00:32:22,860
+this in Wolfram language so you can see
+
+636
+00:32:19,740 --> 00:32:25,279
+you know it automatically colors you
+
+637
+00:32:22,860 --> 00:32:25,279
+know that
+
+638
+00:32:25,919 --> 00:32:31,380
+so you see the net
+
+639
+00:32:28,500 --> 00:32:32,940
+it's all true so this solution works
+
+640
+00:32:31,380 --> 00:32:35,399
+okay
+
+641
+00:32:32,940 --> 00:32:36,659
+uh what about some special cases you
+
+642
+00:32:35,399 --> 00:32:40,500
+know uh
+
+643
+00:32:36,659 --> 00:32:42,779
+edge cases uh so
+
+644
+00:32:40,500 --> 00:32:46,919
+when there's one element it should work
+
+645
+00:32:42,779 --> 00:32:50,220
+yeah okay my solution I actually that
+
+646
+00:32:46,919 --> 00:32:53,940
+this should be my solution okay
+
+647
+00:32:50,220 --> 00:32:57,179
+uh okay let me think about what else so
+
+648
+00:32:53,940 --> 00:33:01,080
+any any questions any comments let me uh
+
+649
+00:32:57,179 --> 00:33:05,340
+take a break then how long have I been
+
+650
+00:33:01,080 --> 00:33:06,179
+30 minutes 40 minutes so we did 30
+
+651
+00:33:05,340 --> 00:33:09,480
+minutes
+
+652
+00:33:06,179 --> 00:33:11,100
+uh maybe I should start now for the for
+
+653
+00:33:09,480 --> 00:33:12,000
+this video because
+
+654
+00:33:11,100 --> 00:33:14,039
+um
+
+655
+00:33:12,000 --> 00:33:18,179
+you know it's better for the video to be
+
+656
+00:33:14,039 --> 00:33:21,899
+short and then I'm gonna walk offline to
+
+657
+00:33:18,179 --> 00:33:24,240
+see in what ways I can squeeze this into
+
+658
+00:33:21,899 --> 00:33:26,460
+more tight coat you know in fact we can
+
+659
+00:33:24,240 --> 00:33:29,399
+optimize already so we can let me show
+
+660
+00:33:26,460 --> 00:33:31,559
+you okay so
+
+661
+00:33:29,399 --> 00:33:35,340
+um fourth solution remember we want the
+
+662
+00:33:31,559 --> 00:33:38,039
+shortest code possible so so in this can
+
+663
+00:33:35,340 --> 00:33:41,240
+be shortened a lot okay so for example
+
+664
+00:33:38,039 --> 00:33:41,240
+let me try Okay
+
+665
+00:33:42,299 --> 00:33:48,620
+so function so this function you can use
+
+666
+00:33:45,240 --> 00:33:48,620
+a short let me show you okay
+
+667
+00:33:49,519 --> 00:33:57,860
+fourth solution okay four and this
+
+668
+00:33:52,980 --> 00:33:57,860
+function part we can rewrite it so that
+
+669
+00:34:01,799 --> 00:34:05,059
+yeah so
+
+670
+00:34:06,419 --> 00:34:13,980
+you see this function can be written
+
+671
+00:34:09,599 --> 00:34:15,980
+like that okay so it's even shorter
+
+672
+00:34:13,980 --> 00:34:15,980
+um
+
+673
+00:34:19,440 --> 00:34:25,740
+but let me let me tell you okay so this
+
+674
+00:34:23,460 --> 00:34:28,260
+should be faster I mean not faster but
+
+675
+00:34:25,740 --> 00:34:31,740
+shorter but let me give you a another
+
+676
+00:34:28,260 --> 00:34:36,560
+fifth version
+
+677
+00:34:31,740 --> 00:34:36,560
+let's also keep the document document
+
+678
+00:34:41,820 --> 00:34:51,859
+same as third solution but shorter
+
+679
+00:34:46,399 --> 00:34:56,099
+syntax okay now the fifth solution is
+
+680
+00:34:51,859 --> 00:34:58,220
+is going to be
+
+681
+00:34:56,099 --> 00:34:58,220
+um
+
+682
+00:35:01,320 --> 00:35:07,800
+okay
+
+683
+00:35:03,359 --> 00:35:09,660
+same as fourth but faster okay
+
+684
+00:35:07,800 --> 00:35:12,180
+now how do you make it faster because
+
+685
+00:35:09,660 --> 00:35:14,760
+every time you extract an element that's
+
+686
+00:35:12,180 --> 00:35:17,520
+actually slow okay so what you want to
+
+687
+00:35:14,760 --> 00:35:20,180
+do is actually transpose the tally okay
+
+688
+00:35:17,520 --> 00:35:20,180
+let me show you
+
+689
+00:35:20,700 --> 00:35:26,460
+uh let me explain
+
+690
+00:35:23,520 --> 00:35:29,240
+let me explain what's going on so you
+
+691
+00:35:26,460 --> 00:35:29,240
+have a
+
+692
+00:35:30,000 --> 00:35:35,700
+okay let me explain okay
+
+693
+00:35:32,040 --> 00:35:39,300
+so you have a matrix right now you can
+
+694
+00:35:35,700 --> 00:35:42,420
+transpose it transpose means uh means
+
+695
+00:35:39,300 --> 00:35:43,440
+you're gonna have uh
+
+696
+00:35:42,420 --> 00:35:48,359
+uh
+
+697
+00:35:43,440 --> 00:35:49,680
+1 7 3 then the second part is going to
+
+698
+00:35:48,359 --> 00:35:54,839
+be
+
+699
+00:35:49,680 --> 00:35:58,500
+2 3 2. you see that's transposition
+
+700
+00:35:54,839 --> 00:36:00,780
+you have a you have a two by three
+
+701
+00:35:58,500 --> 00:36:04,140
+Matrix now it becomes three by two
+
+702
+00:36:00,780 --> 00:36:06,300
+Matrix so once you transpose it all you
+
+703
+00:36:04,140 --> 00:36:07,859
+have to do is you you want to find the
+
+704
+00:36:06,300 --> 00:36:10,380
+first
+
+705
+00:36:07,859 --> 00:36:13,020
+the first row
+
+706
+00:36:10,380 --> 00:36:15,300
+actually you want to find the second row
+
+707
+00:36:13,020 --> 00:36:18,900
+you want to find the odd number in it
+
+708
+00:36:15,300 --> 00:36:22,020
+okay get the odd number there
+
+709
+00:36:18,900 --> 00:36:24,119
+so in this case it's a second item then
+
+710
+00:36:22,020 --> 00:36:26,760
+you take the second item from the first
+
+711
+00:36:24,119 --> 00:36:29,460
+row that's your answer okay that's so
+
+712
+00:36:26,760 --> 00:36:33,839
+that is what we are going to do here
+
+713
+00:36:29,460 --> 00:36:33,839
+so you gonna transpose
+
+714
+00:36:34,380 --> 00:36:39,900
+okay this is gonna be faster even
+
+715
+00:36:36,599 --> 00:36:41,760
+because transposition is a extremely
+
+716
+00:36:39,900 --> 00:36:44,339
+fast operation in Wolfram language
+
+717
+00:36:41,760 --> 00:36:47,460
+because Wolfram language is like a list
+
+718
+00:36:44,339 --> 00:36:50,579
+I mean it's like a list language so
+
+719
+00:36:47,460 --> 00:36:54,240
+it has lots of operations that works on
+
+720
+00:36:50,579 --> 00:36:56,700
+a entire rectangular nested list the
+
+721
+00:36:54,240 --> 00:36:59,520
+most efficient way faster than
+
+722
+00:36:56,700 --> 00:37:01,800
+then you can do in C because the data
+
+723
+00:36:59,520 --> 00:37:05,280
+structure is structured in in such a way
+
+724
+00:37:01,800 --> 00:37:07,079
+to optimize this kind of operation you
+
+725
+00:37:05,280 --> 00:37:09,300
+know because linear algebra you need to
+
+726
+00:37:07,079 --> 00:37:11,880
+do lots of this so transposition so
+
+727
+00:37:09,300 --> 00:37:15,240
+we're gonna transpose
+
+728
+00:37:11,880 --> 00:37:18,060
+we're gonna transpose this tidy result
+
+729
+00:37:15,240 --> 00:37:20,700
+and then we're gonna
+
+730
+00:37:18,060 --> 00:37:23,820
+then we're gonna do a select okay so let
+
+731
+00:37:20,700 --> 00:37:26,099
+me let me write it okay so transpose the
+
+732
+00:37:23,820 --> 00:37:28,700
+categories result then we're gonna
+
+733
+00:37:26,099 --> 00:37:28,700
+select
+
+734
+00:37:28,859 --> 00:37:35,160
+we're gonna select this thing from from
+
+735
+00:37:32,280 --> 00:37:38,480
+this result
+
+736
+00:37:35,160 --> 00:37:38,480
+and uh
+
+737
+00:37:38,520 --> 00:37:45,660
+so okay transpose first okay so let's do
+
+738
+00:37:42,599 --> 00:37:48,500
+it here you transpose it then you take
+
+739
+00:37:45,660 --> 00:37:48,500
+the second
+
+740
+00:37:48,660 --> 00:37:53,099
+you take the so you transpose it you
+
+741
+00:37:51,960 --> 00:37:56,700
+take the
+
+742
+00:37:53,099 --> 00:38:01,940
+second element okay so you take the
+
+743
+00:37:56,700 --> 00:38:01,940
+second element okay then you select
+
+744
+00:38:03,540 --> 00:38:10,619
+then you select right so then you select
+
+745
+00:38:06,480 --> 00:38:13,560
+from there you want to the and the
+
+746
+00:38:10,619 --> 00:38:16,020
+criteria is just odd okay that's all
+
+747
+00:38:13,560 --> 00:38:18,900
+that's all there it is odd
+
+748
+00:38:16,020 --> 00:38:21,000
+then you only want the first one okay
+
+749
+00:38:18,900 --> 00:38:24,000
+so once you get that
+
+750
+00:38:21,000 --> 00:38:25,380
+let's let's assign it to
+
+751
+00:38:24,000 --> 00:38:28,079
+um
+
+752
+00:38:25,380 --> 00:38:30,420
+yeah once you as when you do assignment
+
+753
+00:38:28,079 --> 00:38:33,300
+it slows things down you know we are
+
+754
+00:38:30,420 --> 00:38:34,920
+really trying to squeeze speed here
+
+755
+00:38:33,300 --> 00:38:36,960
+so
+
+756
+00:38:34,920 --> 00:38:40,339
+so you transpose
+
+757
+00:38:36,960 --> 00:38:40,339
+you take the odd
+
+758
+00:38:40,440 --> 00:38:46,920
+and only the first occurrence of it then
+
+759
+00:38:43,859 --> 00:38:50,280
+you got the number which should be the
+
+760
+00:38:46,920 --> 00:38:53,460
+three okay but oh but you want the index
+
+761
+00:38:50,280 --> 00:38:55,920
+here you want the index
+
+762
+00:38:53,460 --> 00:38:59,040
+you don't want the number you you want
+
+763
+00:38:55,920 --> 00:39:01,579
+the index of this
+
+764
+00:38:59,040 --> 00:39:01,579
+thing
+
+765
+00:39:02,220 --> 00:39:07,520
+uh okay so you see a select indexed
+
+766
+00:39:14,400 --> 00:39:19,200
+then date select select selectable
+
+767
+00:39:17,040 --> 00:39:21,720
+select cell I don't think so select
+
+768
+00:39:19,200 --> 00:39:24,780
+first oh
+
+769
+00:39:21,720 --> 00:39:28,760
+okay so instead of
+
+770
+00:39:24,780 --> 00:39:28,760
+you know we shorten it again
+
+771
+00:39:29,520 --> 00:39:35,780
+so we instead of Select give three
+
+772
+00:39:31,740 --> 00:39:35,780
+argument we just say select first okay
+
+773
+00:39:35,940 --> 00:39:39,900
+um yeah so so that's gonna be another
+
+774
+00:39:38,160 --> 00:39:43,640
+solution so
+
+775
+00:39:39,900 --> 00:39:43,640
+anyway select first
+
+776
+00:39:44,700 --> 00:39:52,500
+trap selection what is that
+
+777
+00:39:48,060 --> 00:39:57,359
+trap selection okay that's some system
+
+778
+00:39:52,500 --> 00:40:00,599
+selection select select evaluate
+
+779
+00:39:57,359 --> 00:40:02,460
+said that replaces the current selection
+
+780
+00:40:00,599 --> 00:40:04,800
+in a notebook okay that's small
+
+781
+00:40:02,460 --> 00:40:07,500
+interactive thing
+
+782
+00:40:04,800 --> 00:40:11,099
+that's a notebook programming like when
+
+783
+00:40:07,500 --> 00:40:14,160
+you if you program Oak mod files that's
+
+784
+00:40:11,099 --> 00:40:16,560
+what that those are uh you know
+
+785
+00:40:14,160 --> 00:40:18,480
+selection evaluate just like emacs you
+
+786
+00:40:16,560 --> 00:40:20,220
+know you can like manipulate the
+
+787
+00:40:18,480 --> 00:40:20,820
+notebook
+
+788
+00:40:20,220 --> 00:40:23,640
+um
+
+789
+00:40:20,820 --> 00:40:27,000
+so I don't think so
+
+790
+00:40:23,640 --> 00:40:28,920
+okay we are kind of getting
+
+791
+00:40:27,000 --> 00:40:32,040
+out of focus
+
+792
+00:40:28,920 --> 00:40:34,920
+so can I do this quickly
+
+793
+00:40:32,040 --> 00:40:36,780
+so fifth solution same as possible
+
+794
+00:40:34,920 --> 00:40:39,680
+faster so
+
+795
+00:40:36,780 --> 00:40:42,540
+once you transpose you get the number
+
+796
+00:40:39,680 --> 00:40:44,660
+you get a number but you don't want the
+
+797
+00:40:42,540 --> 00:40:48,660
+number you want the index of this number
+
+798
+00:40:44,660 --> 00:40:48,660
+Okay so
+
+799
+00:40:49,680 --> 00:40:53,720
+so you don't want to select
+
+800
+00:40:57,119 --> 00:41:02,640
+so you don't want to select you want
+
+801
+00:41:00,839 --> 00:41:05,400
+the
+
+802
+00:41:02,640 --> 00:41:07,320
+you don't want to select you want the
+
+803
+00:41:05,400 --> 00:41:10,040
+index of that number
+
+804
+00:41:07,320 --> 00:41:10,040
+so
+
+805
+00:41:15,480 --> 00:41:19,520
+okay I think I'm kind of stuck
+
+806
+00:41:20,099 --> 00:41:27,660
+and this is getting more complicated
+
+807
+00:41:24,480 --> 00:41:31,160
+uh okay let me just run it so you can
+
+808
+00:41:27,660 --> 00:41:31,160
+see what's going on okay
+
+809
+00:41:37,440 --> 00:41:44,640
+so select first
+
+810
+00:41:41,280 --> 00:41:46,740
+don't need that anymore
+
+811
+00:41:44,640 --> 00:41:50,960
+okay
+
+812
+00:41:46,740 --> 00:41:50,960
+so this is the fifth solution
+
+813
+00:41:51,660 --> 00:41:54,980
+fourth solution
+
+814
+00:41:59,040 --> 00:42:01,760
+the net
+
+815
+00:42:01,859 --> 00:42:07,859
+choo choo choo choo Force so yeah so
+
+816
+00:42:04,680 --> 00:42:10,740
+yeah the last one is not done yet
+
+817
+00:42:07,859 --> 00:42:13,320
+okay so you see it returns three which
+
+818
+00:42:10,740 --> 00:42:17,760
+is the correct answer
+
+819
+00:42:13,320 --> 00:42:22,460
+but we need the index we don't we
+
+820
+00:42:17,760 --> 00:42:22,460
+we need the index not the
+
+821
+00:42:24,000 --> 00:42:29,400
+okay anyway now we have four Solutions
+
+822
+00:42:26,880 --> 00:42:31,859
+now let's modify them so
+
+823
+00:42:29,400 --> 00:42:34,500
+let's modify them so we don't use select
+
+824
+00:42:31,859 --> 00:42:37,560
+we use select first okay so let's try
+
+825
+00:42:34,500 --> 00:42:40,200
+this one first instead of Select let's
+
+826
+00:42:37,560 --> 00:42:43,040
+say select first okay we don't need that
+
+827
+00:42:40,200 --> 00:42:43,040
+the net
+
+828
+00:42:44,820 --> 00:42:49,079
+uh Parts specification
+
+829
+00:42:50,220 --> 00:42:54,680
+okay so wait
+
+830
+00:42:58,619 --> 00:43:01,339
+the net
+
+831
+00:43:06,420 --> 00:43:13,819
+oh okay yeah so yeah so if you use
+
+832
+00:43:10,140 --> 00:43:13,819
+select first then you
+
+833
+00:43:14,760 --> 00:43:19,020
+yeah so you just need the first one so
+
+834
+00:43:17,160 --> 00:43:21,380
+we don't you you know you can just save
+
+835
+00:43:19,020 --> 00:43:21,380
+first
+
+836
+00:43:22,440 --> 00:43:25,579
+more shortcut
+
+837
+00:43:26,099 --> 00:43:31,260
+unit
+
+838
+00:43:28,319 --> 00:43:33,839
+correct seven seven seven seven three
+
+839
+00:43:31,260 --> 00:43:38,480
+Okay so
+
+840
+00:43:33,839 --> 00:43:38,480
+so yeah so that makes it uh
+
+841
+00:43:42,720 --> 00:43:49,380
+yeah this is this is the fastest okay so
+
+842
+00:43:45,660 --> 00:43:50,700
+let's replace all these uh previous by
+
+843
+00:43:49,380 --> 00:43:53,099
+just that
+
+844
+00:43:50,700 --> 00:43:56,760
+okay then it
+
+845
+00:43:53,099 --> 00:43:58,200
+you see all correct now we can also do
+
+846
+00:43:56,760 --> 00:44:00,859
+this
+
+847
+00:43:58,200 --> 00:44:00,859
+uh
+
+848
+00:44:00,960 --> 00:44:06,660
+and do that so we run it
+
+849
+00:44:05,400 --> 00:44:08,940
+okay
+
+850
+00:44:06,660 --> 00:44:13,079
+so we have all these Solutions uh
+
+851
+00:44:08,940 --> 00:44:15,480
+Solutions but the fifth solution I still
+
+852
+00:44:13,079 --> 00:44:20,300
+need to work on
+
+853
+00:44:15,480 --> 00:44:20,300
+uh okay I think maybe that's it
+
+854
+00:44:20,460 --> 00:44:25,940
+how long have I been doing in 50 minutes
+
+855
+00:44:23,339 --> 00:44:25,940
+okay
+
+856
+00:44:26,700 --> 00:44:30,720
+um
+
+857
+00:44:28,140 --> 00:44:34,079
+yeah so let's copy let's run them in
+
+858
+00:44:30,720 --> 00:44:35,940
+Wolfram language okay let's rename
+
+859
+00:44:34,079 --> 00:44:38,220
+here
+
+860
+00:44:35,940 --> 00:44:39,300
+you know lots of so let's shrink it a
+
+861
+00:44:38,220 --> 00:44:43,260
+little bit
+
+862
+00:44:39,300 --> 00:44:45,720
+okay run it so it's all seven so the
+
+863
+00:44:43,260 --> 00:44:48,800
+only one we still need to work on is the
+
+864
+00:44:45,720 --> 00:44:48,800
+solution number five
+
+865
+00:44:50,880 --> 00:44:54,660
+I hope I can do it in this live stream
+
+866
+00:44:53,460 --> 00:44:57,480
+so
+
+867
+00:44:54,660 --> 00:45:00,000
+um so you need the index you need to go
+
+868
+00:44:57,480 --> 00:45:02,940
+through it you need to you need to get
+
+869
+00:45:00,000 --> 00:45:07,200
+the index number but you don't want to
+
+870
+00:45:02,940 --> 00:45:09,480
+use anything that's like map because
+
+871
+00:45:07,200 --> 00:45:13,140
+be because you only want to get the
+
+872
+00:45:09,480 --> 00:45:17,579
+first occurrence then exit
+
+873
+00:45:13,140 --> 00:45:22,160
+so the first occurrence then exit so in
+
+874
+00:45:17,579 --> 00:45:22,160
+that case so this is a problem
+
+875
+00:45:22,319 --> 00:45:27,960
+so given at least you want to select by
+
+876
+00:45:26,099 --> 00:45:31,260
+some criteria
+
+877
+00:45:27,960 --> 00:45:33,960
+and the result shouldn't be
+
+878
+00:45:31,260 --> 00:45:36,660
+the result should be the index of the
+
+879
+00:45:33,960 --> 00:45:39,839
+item not the item itself that is the
+
+880
+00:45:36,660 --> 00:45:44,520
+problem we are trying to solve so
+
+881
+00:45:39,839 --> 00:45:50,060
+okay so so this problem belongs to uh
+
+882
+00:45:44,520 --> 00:45:50,060
+get an element of the list no not really
+
+883
+00:45:51,060 --> 00:45:55,140
+get the index
+
+884
+00:45:53,280 --> 00:45:57,000
+of a list
+
+885
+00:45:55,140 --> 00:46:01,520
+that's right you want to get the
+
+886
+00:45:57,000 --> 00:46:01,520
+occurrence right so you want to get
+
+887
+00:46:02,880 --> 00:46:09,300
+the index where a certain certain
+
+888
+00:46:05,460 --> 00:46:12,200
+criteria occurs okay and only the first
+
+889
+00:46:09,300 --> 00:46:16,020
+one so once you find it exit immediately
+
+890
+00:46:12,200 --> 00:46:19,579
+so in that case uh
+
+891
+00:46:16,020 --> 00:46:19,579
+so let's look at here
+
+892
+00:46:23,220 --> 00:46:27,839
+count by pattern actually
+
+893
+00:46:26,040 --> 00:46:30,480
+you know there are so many wolf and
+
+894
+00:46:27,839 --> 00:46:32,780
+language Solutions you can there's also
+
+895
+00:46:30,480 --> 00:46:32,780
+count
+
+896
+00:46:36,300 --> 00:46:41,520
+uh
+
+897
+00:46:38,760 --> 00:46:44,119
+uh count okay so let's go back
+
+898
+00:46:41,520 --> 00:46:44,119
+position
+
+899
+00:47:03,420 --> 00:47:08,220
+exactly position is what we want okay
+
+900
+00:47:06,359 --> 00:47:10,740
+position
+
+901
+00:47:08,220 --> 00:47:13,380
+you give it a pattern it Returns the
+
+902
+00:47:10,740 --> 00:47:14,760
+position kind of like an index if the
+
+903
+00:47:13,380 --> 00:47:17,579
+list is flat
+
+904
+00:47:14,760 --> 00:47:19,859
+it returns Returns the index right yeah
+
+905
+00:47:17,579 --> 00:47:22,020
+position is what we want so position we
+
+906
+00:47:19,859 --> 00:47:24,599
+can use now let's see if there's
+
+907
+00:47:22,020 --> 00:47:27,300
+something more convenient
+
+908
+00:47:24,599 --> 00:47:31,579
+sought sort by reverse rotate right now
+
+909
+00:47:27,300 --> 00:47:36,359
+ordering no join Union intersection
+
+910
+00:47:31,579 --> 00:47:40,700
+referral no partition no split split by
+
+911
+00:47:36,359 --> 00:47:40,700
+uh no gather
+
+912
+00:47:41,280 --> 00:47:48,180
+gather is is that you group a list of
+
+913
+00:47:44,400 --> 00:47:50,579
+items into sub lists such that
+
+914
+00:47:48,180 --> 00:47:53,040
+they match some criteria
+
+915
+00:47:50,579 --> 00:47:54,900
+you know such as you know gather all the
+
+916
+00:47:53,040 --> 00:47:57,180
+same items right so before we were
+
+917
+00:47:54,900 --> 00:48:00,480
+thinking of the algorithm that we
+
+918
+00:47:57,180 --> 00:48:03,480
+arranged the list to like sort so gather
+
+919
+00:48:00,480 --> 00:48:06,240
+does that without actually sorting
+
+920
+00:48:03,480 --> 00:48:10,079
+so gather does that permutation minimum
+
+921
+00:48:06,240 --> 00:48:14,660
+maximum fat and transpose pad left so is
+
+922
+00:48:10,079 --> 00:48:14,660
+there um let me think an is there a way
+
+923
+00:48:15,240 --> 00:48:21,000
+okay position is our solution let's just
+
+924
+00:48:18,060 --> 00:48:23,460
+get on let's let's finish this solution
+
+925
+00:48:21,000 --> 00:48:26,460
+then that's it for the video
+
+926
+00:48:23,460 --> 00:48:30,079
+uh so Fifth Fifth solution so you
+
+927
+00:48:26,460 --> 00:48:30,079
+transpose you
+
+928
+00:48:30,119 --> 00:48:35,760
+you transpose it then you um
+
+929
+00:48:34,380 --> 00:48:37,920
+you
+
+930
+00:48:35,760 --> 00:48:39,540
+you don't want to select first you
+
+931
+00:48:37,920 --> 00:48:41,099
+transpose
+
+932
+00:48:39,540 --> 00:48:44,700
+okay
+
+933
+00:48:41,099 --> 00:48:48,440
+then you yeah so you transpose first
+
+934
+00:48:44,700 --> 00:48:48,440
+then you want to call position
+
+935
+00:48:49,440 --> 00:48:52,040
+foreign
+
+936
+00:48:53,540 --> 00:48:59,099
+the first
+
+937
+00:48:55,220 --> 00:49:03,480
+argument is the expression there the
+
+938
+00:48:59,099 --> 00:49:05,480
+second argument is a pattern so
+
+939
+00:49:03,480 --> 00:49:05,480
+um
+
+940
+00:49:05,700 --> 00:49:09,960
+the pattern will be this one this is a
+
+941
+00:49:09,000 --> 00:49:12,720
+pattern
+
+942
+00:49:09,960 --> 00:49:16,940
+underscore that matches anything but
+
+943
+00:49:12,720 --> 00:49:16,940
+must satisfy this function okay
+
+944
+00:49:18,660 --> 00:49:25,940
+okay so that's the pattern and then
+
+945
+00:49:23,099 --> 00:49:25,940
+level spect
+
+946
+00:49:26,280 --> 00:49:31,819
+okay level spec is uh I'm awesome thank
+
+947
+00:49:29,640 --> 00:49:31,819
+you
+
+948
+00:49:32,640 --> 00:49:37,319
+so level spect you know Wolfram language
+
+949
+00:49:34,920 --> 00:49:39,839
+when you have a list in most languages
+
+950
+00:49:37,319 --> 00:49:42,300
+when you have a list you have a function
+
+951
+00:49:39,839 --> 00:49:44,940
+like map you know that can apply a
+
+952
+00:49:42,300 --> 00:49:47,819
+function to every element in a list but
+
+953
+00:49:44,940 --> 00:49:50,460
+however if you have a tree or Matrix you
+
+954
+00:49:47,819 --> 00:49:53,819
+want to apply just two rows or all the
+
+955
+00:49:50,460 --> 00:49:55,560
+leaves of the tree then in all the all
+
+956
+00:49:53,819 --> 00:49:57,900
+the other languages python Ruby
+
+957
+00:49:55,560 --> 00:50:01,680
+JavaScript you cannot do it in fact it's
+
+958
+00:49:57,900 --> 00:50:05,040
+very painful to do it because they they
+
+959
+00:50:01,680 --> 00:50:07,880
+at least are generally flat you know but
+
+960
+00:50:05,040 --> 00:50:10,380
+Wolfram language these are almost always
+
+961
+00:50:07,880 --> 00:50:12,599
+arbitrarily nested so you have lots of
+
+962
+00:50:10,380 --> 00:50:15,599
+nesting so
+
+963
+00:50:12,599 --> 00:50:19,680
+almost every function that applies to a
+
+964
+00:50:15,599 --> 00:50:21,900
+list has a option level spec that can
+
+965
+00:50:19,680 --> 00:50:25,920
+specify you want to apply the function
+
+966
+00:50:21,900 --> 00:50:27,599
+specifically to specific level like for
+
+967
+00:50:25,920 --> 00:50:30,359
+example when you Traverse a directory
+
+968
+00:50:27,599 --> 00:50:33,180
+you know first you know the depth Unix
+
+969
+00:50:30,359 --> 00:50:36,960
+would call it depth but here the level
+
+970
+00:50:33,180 --> 00:50:40,260
+spec can be just one level or a range of
+
+971
+00:50:36,960 --> 00:50:43,020
+levels or negative one means all the
+
+972
+00:50:40,260 --> 00:50:45,359
+leaves of a tree
+
+973
+00:50:43,020 --> 00:50:48,300
+so
+
+974
+00:50:45,359 --> 00:50:52,740
+so here you can specify a level spect
+
+975
+00:50:48,300 --> 00:50:55,200
+the levels will be just one
+
+976
+00:50:52,740 --> 00:51:00,599
+you see so here is the level of spec
+
+977
+00:50:55,200 --> 00:51:03,859
+okay so uh infinity level n Only so the
+
+978
+00:51:00,599 --> 00:51:08,160
+level will be one okay just level one
+
+979
+00:51:03,859 --> 00:51:12,119
+then the last argument is one because we
+
+980
+00:51:08,160 --> 00:51:13,819
+want to check in thank you Reaper
+
+981
+00:51:12,119 --> 00:51:17,700
+hahaha
+
+982
+00:51:13,819 --> 00:51:21,240
+money money is everything thank you
+
+983
+00:51:17,700 --> 00:51:24,240
+uh so I think that's it okay
+
+984
+00:51:21,240 --> 00:51:27,480
+so
+
+985
+00:51:24,240 --> 00:51:31,640
+get the first in object okay so let's do
+
+986
+00:51:27,480 --> 00:51:31,640
+that okay let's run it
+
+987
+00:51:32,280 --> 00:51:38,040
+two that's what we want so we got the
+
+988
+00:51:34,619 --> 00:51:39,420
+result of two fantastic now once we got
+
+989
+00:51:38,040 --> 00:51:42,180
+the two
+
+990
+00:51:39,420 --> 00:51:44,220
+okay we need a variable we need to need
+
+991
+00:51:42,180 --> 00:51:47,700
+to save this okay so this is gonna be
+
+992
+00:51:44,220 --> 00:51:50,579
+more work uh okay so now let's do a
+
+993
+00:51:47,700 --> 00:51:52,619
+declare a local variable okay a local
+
+994
+00:51:50,579 --> 00:51:55,200
+variable
+
+995
+00:51:52,619 --> 00:51:58,559
+um module that's how you define a local
+
+996
+00:51:55,200 --> 00:52:03,440
+variable so module is like this let okay
+
+997
+00:51:58,559 --> 00:52:03,440
+so this variable will be
+
+998
+00:52:03,720 --> 00:52:10,200
+that okay
+
+999
+00:52:05,520 --> 00:52:13,980
+so X data okay so X data equals to that
+
+1000
+00:52:10,200 --> 00:52:18,260
+okay then whatever body okay the body is
+
+1001
+00:52:13,980 --> 00:52:18,260
+gonna be this whole thing okay
+
+1002
+00:52:19,020 --> 00:52:24,240
+so this is how you define very local
+
+1003
+00:52:21,059 --> 00:52:27,420
+variables okay so local variables now
+
+1004
+00:52:24,240 --> 00:52:30,059
+you have a you have this transpose this
+
+1005
+00:52:27,420 --> 00:52:32,059
+is the data okay
+
+1006
+00:52:30,059 --> 00:52:32,059
+um
+
+1007
+00:52:37,559 --> 00:52:43,020
+yeah okay so let's do something here so
+
+1008
+00:52:41,339 --> 00:52:46,319
+hex data
+
+1009
+00:52:43,020 --> 00:52:50,339
+then do that then get the position so
+
+1010
+00:52:46,319 --> 00:52:53,099
+this position let's run it
+
+1011
+00:52:50,339 --> 00:52:57,500
+okay so you can see the result is that
+
+1012
+00:52:53,099 --> 00:52:57,500
+now once you get that you want to
+
+1013
+00:52:58,260 --> 00:53:04,760
+okay so this is gonna be longer code
+
+1014
+00:53:00,839 --> 00:53:04,760
+okay so data
+
+1015
+00:53:05,280 --> 00:53:13,280
+data you want to data the first element
+
+1016
+00:53:09,420 --> 00:53:13,280
+okay so let's actually
+
+1017
+00:53:15,420 --> 00:53:23,940
+okay the first element of the data then
+
+1018
+00:53:20,520 --> 00:53:27,839
+then you want to extract
+
+1019
+00:53:23,940 --> 00:53:29,880
+these okay actually
+
+1020
+00:53:27,839 --> 00:53:33,599
+okay this code you you wouldn't
+
+1021
+00:53:29,880 --> 00:53:36,599
+understand but that's it I think that's
+
+1022
+00:53:33,599 --> 00:53:40,640
+it run it
+
+1023
+00:53:36,599 --> 00:53:40,640
+okay we got some error so
+
+1024
+00:53:42,300 --> 00:53:48,119
+right so uh so you want uh yeah so okay
+
+1025
+00:53:45,540 --> 00:53:51,380
+I know what what's going on so
+
+1026
+00:53:48,119 --> 00:53:51,380
+so hold on second
+
+1027
+00:53:51,660 --> 00:53:57,140
+so the first of the data so you want to
+
+1028
+00:53:54,480 --> 00:53:57,140
+apply
+
+1029
+00:54:00,920 --> 00:54:08,359
+okay I you know I'm not gonna explain
+
+1030
+00:54:03,720 --> 00:54:08,359
+because it it's gonna take too much
+
+1031
+00:54:09,599 --> 00:54:11,599
+um
+
+1032
+00:54:12,059 --> 00:54:16,940
+yeah let's let's let's be um
+
+1033
+00:54:21,359 --> 00:54:27,260
+so we it's gonna be let's do this fast
+
+1034
+00:54:24,300 --> 00:54:27,260
+okay so let's
+
+1035
+00:54:27,599 --> 00:54:31,700
+so you get the position
+
+1036
+00:54:32,880 --> 00:54:42,180
+you know let's let's write it out it's
+
+1037
+00:54:37,800 --> 00:54:47,480
+remember this returns that okay so you
+
+1038
+00:54:42,180 --> 00:54:47,480
+get that and you want to
+
+1039
+00:54:47,760 --> 00:54:52,619
+this is gonna be fastest but the code is
+
+1040
+00:54:50,700 --> 00:54:53,819
+much longer okay
+
+1041
+00:54:52,619 --> 00:54:57,599
+so
+
+1042
+00:54:53,819 --> 00:55:02,119
+the first part of the data and you now
+
+1043
+00:54:57,599 --> 00:55:02,119
+you want to essentially extract that
+
+1044
+00:55:05,339 --> 00:55:07,339
+um
+
+1045
+00:55:22,440 --> 00:55:26,700
+okay so let me look up almost done
+
+1046
+00:55:25,500 --> 00:55:30,300
+almost
+
+1047
+00:55:26,700 --> 00:55:31,559
+so I need to look up parts okay get
+
+1048
+00:55:30,300 --> 00:55:35,280
+elements
+
+1049
+00:55:31,559 --> 00:55:38,640
+the Pod syntax so if you do that okay
+
+1050
+00:55:35,280 --> 00:55:42,240
+that returns to multiple parts
+
+1051
+00:55:38,640 --> 00:55:44,579
+so you want to
+
+1052
+00:55:42,240 --> 00:55:46,440
+get
+
+1053
+00:55:44,579 --> 00:55:49,319
+first element
+
+1054
+00:55:46,440 --> 00:55:53,900
+then the first first
+
+1055
+00:55:49,319 --> 00:55:53,900
+okay so you want to say
+
+1056
+00:55:55,200 --> 00:55:57,980
+pod
+
+1057
+00:56:05,579 --> 00:56:10,079
+position
+
+1058
+00:56:06,859 --> 00:56:13,380
+then you want to say
+
+1059
+00:56:10,079 --> 00:56:15,900
+the first element of that and the first
+
+1060
+00:56:13,380 --> 00:56:18,000
+element of that okay
+
+1061
+00:56:15,900 --> 00:56:21,000
+then
+
+1062
+00:56:18,000 --> 00:56:24,119
+then actually
+
+1063
+00:56:21,000 --> 00:56:27,059
+okay this part is incomprehensible to
+
+1064
+00:56:24,119 --> 00:56:31,640
+you guys I suppose
+
+1065
+00:56:27,059 --> 00:56:31,640
+that's it that's wait what what
+
+1066
+00:56:32,160 --> 00:56:37,680
+yeah so I think that's it
+
+1067
+00:56:35,460 --> 00:56:41,880
+doing it
+
+1068
+00:56:37,680 --> 00:56:43,920
+there it is this I believe is the
+
+1069
+00:56:41,880 --> 00:56:45,059
+fastest solution
+
+1070
+00:56:43,920 --> 00:56:47,760
+okay
+
+1071
+00:56:45,059 --> 00:56:50,579
+this is the fastest solution so you know
+
+1072
+00:56:47,760 --> 00:56:52,559
+let's copy them to Wolfram language to
+
+1073
+00:56:50,579 --> 00:56:55,559
+The Notebook so we can see the result
+
+1074
+00:56:52,559 --> 00:56:58,680
+here so we have
+
+1075
+00:56:55,559 --> 00:56:59,640
+add one R2 R3 out for five Solutions
+
+1076
+00:56:58,680 --> 00:57:01,680
+okay
+
+1077
+00:56:59,640 --> 00:57:06,119
+run it
+
+1078
+00:57:01,680 --> 00:57:08,099
+fantastic they all worked uh yeah and I
+
+1079
+00:57:06,119 --> 00:57:12,059
+believe the number five solution is the
+
+1080
+00:57:08,099 --> 00:57:14,579
+fastest the the fastest and we can clean
+
+1081
+00:57:12,059 --> 00:57:17,760
+up the code
+
+1082
+00:57:14,579 --> 00:57:19,940
+so let's say sixth solution
+
+1083
+00:57:17,760 --> 00:57:22,619
+we can make it
+
+1084
+00:57:19,940 --> 00:57:26,480
+shorter okay now let's try to make it
+
+1085
+00:57:22,619 --> 00:57:26,480
+shorter this um
+
+1086
+00:57:43,079 --> 00:57:49,200
+okay so that make it one line
+
+1087
+00:57:46,980 --> 00:57:51,980
+okay so that
+
+1088
+00:57:49,200 --> 00:57:51,980
+then
+
+1089
+00:58:06,599 --> 00:58:09,980
+okay that that
+
+1090
+00:58:10,260 --> 00:58:16,400
+make the whole thing one line okay 6 th
+
+1091
+00:58:13,740 --> 00:58:16,400
+solution okay
+
+1092
+00:58:21,240 --> 00:58:25,500
+run it
+
+1093
+00:58:22,980 --> 00:58:28,619
+yep it works
+
+1094
+00:58:25,500 --> 00:58:31,500
+copy the whole thing paste it here run
+
+1095
+00:58:28,619 --> 00:58:34,619
+it you see all seven we have one two
+
+1096
+00:58:31,500 --> 00:58:37,260
+three four five six Solutions okay
+
+1097
+00:58:34,619 --> 00:58:41,660
+now of course this can be shorter too
+
+1098
+00:58:37,260 --> 00:58:41,660
+this can be made even shorter yeah
+
+1099
+00:58:45,480 --> 00:58:50,520
+yep
+
+1100
+00:58:46,680 --> 00:58:54,380
+so seventh solution
+
+1101
+00:58:50,520 --> 00:58:54,380
+wait let's clean up the
+
+1102
+00:58:57,720 --> 00:59:03,839
+okay seventh solution same as six but
+
+1103
+00:59:02,220 --> 00:59:06,540
+but
+
+1104
+00:59:03,839 --> 00:59:10,500
+shorter okay
+
+1105
+00:59:06,540 --> 00:59:13,640
+even shorter Okay so
+
+1106
+00:59:10,500 --> 00:59:13,640
+the function
+
+1107
+00:59:14,579 --> 00:59:21,500
+yeah so the function will be
+
+1108
+00:59:19,380 --> 00:59:21,500
+um
+
+1109
+00:59:25,920 --> 00:59:28,819
+okay
+
+1110
+00:59:34,500 --> 00:59:37,520
+okay there it is
+
+1111
+00:59:37,740 --> 00:59:40,880
+function okay
+
+1112
+00:59:44,280 --> 00:59:49,040
+yeah
+
+1113
+00:59:45,299 --> 00:59:49,040
+so seventh solution
+
+1114
+00:59:50,099 --> 00:59:52,819
+rennet
+
+1115
+00:59:52,859 --> 00:59:58,619
+oh wait did we Define oh yeah we forgot
+
+1116
+00:59:55,920 --> 01:00:01,400
+to change the name
+
+1117
+00:59:58,619 --> 01:00:05,760
+seven planet
+
+1118
+01:00:01,400 --> 01:00:09,380
+fantastic backup now copy the code back
+
+1119
+01:00:05,760 --> 01:00:09,380
+to Wolfram language learn it
+
+1120
+01:00:09,780 --> 01:00:13,680
+seven Solutions all correct answers so
+
+1121
+01:00:12,240 --> 01:00:18,299
+this is my
+
+1122
+01:00:13,680 --> 01:00:22,380
+uh this is close to my last offer
+
+1123
+01:00:18,299 --> 01:00:24,900
+okay so let's modify more
+
+1124
+01:00:22,380 --> 01:00:26,819
+eighth solution
+
+1125
+01:00:24,900 --> 01:00:29,400
+shorter
+
+1126
+01:00:26,819 --> 01:00:32,280
+okay now we we are starting to
+
+1127
+01:00:29,400 --> 01:00:34,799
+manipulate this little variable names
+
+1128
+01:00:32,280 --> 01:00:38,900
+okay so data
+
+1129
+01:00:34,799 --> 01:00:38,900
+just become X okay
+
+1130
+01:00:38,940 --> 01:00:47,119
+and this first can be shortened okay so
+
+1131
+01:00:42,960 --> 01:00:50,040
+actually let me just massively start to
+
+1132
+01:00:47,119 --> 01:00:53,760
+you know do things that you normally
+
+1133
+01:00:50,040 --> 01:00:56,420
+wouldn't know what I'm doing okay so
+
+1134
+01:00:53,760 --> 01:00:56,420
+yeah
+
+1135
+01:01:01,380 --> 01:01:08,339
+there it is how much shorter and shorter
+
+1136
+01:01:05,299 --> 01:01:11,220
+now let's see module
+
+1137
+01:01:08,339 --> 01:01:13,799
+uh I don't think you need
+
+1138
+01:01:11,220 --> 01:01:17,460
+if you only have one variable do you
+
+1139
+01:01:13,799 --> 01:01:21,299
+need the first argument to be at least
+
+1140
+01:01:17,460 --> 01:01:25,319
+uh I don't know maybe
+
+1141
+01:01:21,299 --> 01:01:27,720
+so anyway eighth solution okay so also
+
+1142
+01:01:25,319 --> 01:01:29,720
+here we don't need
+
+1143
+01:01:27,720 --> 01:01:29,720
+um
+
+1144
+01:01:35,640 --> 01:01:44,180
+there's a lot Improvement to be done so
+
+1145
+01:01:39,260 --> 01:01:44,180
+first so you can just say
+
+1146
+01:01:46,260 --> 01:01:49,260
+uh
+
+1147
+01:01:52,500 --> 01:01:55,160
+okay
+
+1148
+01:01:56,700 --> 01:02:04,799
+eighth solution
+
+1149
+01:01:59,640 --> 01:02:06,859
+so first X then position that that that
+
+1150
+01:02:04,799 --> 01:02:06,859
+that that
+
+1151
+01:02:09,000 --> 01:02:12,000
+okay
+
+1152
+01:02:14,880 --> 01:02:17,540
+run it
+
+1153
+01:02:17,599 --> 01:02:24,900
+fantastic copy the code back to from
+
+1154
+01:02:21,059 --> 01:02:28,740
+language paste the whole thing
+
+1155
+01:02:24,900 --> 01:02:29,460
+learn it fantastic okay
+
+1156
+01:02:28,740 --> 01:02:32,160
+um
+
+1157
+01:02:29,460 --> 01:02:34,260
+now we are starting to just ditto with
+
+1158
+01:02:32,160 --> 01:02:36,240
+code you know like syntactic or change
+
+1159
+01:02:34,260 --> 01:02:39,000
+it like remove you know remove the
+
+1160
+01:02:36,240 --> 01:02:42,900
+spaces remove this redundant spaces but
+
+1161
+01:02:39,000 --> 01:02:45,359
+that's not really uh good there are some
+
+1162
+01:02:42,900 --> 01:02:48,839
+more optimization to be done here
+
+1163
+01:02:45,359 --> 01:02:51,420
+because but that's it for today okay
+
+1164
+01:02:48,839 --> 01:02:54,119
+so I'm gonna go offline and gonna work
+
+1165
+01:02:51,420 --> 01:02:57,000
+on this small and let's see how how good
+
+1166
+01:02:54,119 --> 01:02:58,559
+it is let's see if I can beat python you
+
+1167
+01:02:57,000 --> 01:03:01,559
+know so
+
+1168
+01:02:58,559 --> 01:03:03,780
+there's a lot more to do so I'm I I need
+
+1169
+01:03:01,559 --> 01:03:05,700
+to continue to call this and I also need
+
+1170
+01:03:03,780 --> 01:03:09,960
+to write a program
+
+1171
+01:03:05,700 --> 01:03:14,119
+that generate arbitrary uh input for for
+
+1172
+01:03:09,960 --> 01:03:19,020
+this coding problem you know arbitrary
+
+1173
+01:03:14,119 --> 01:03:23,880
+valid inputs so that I can test this on
+
+1174
+01:03:19,020 --> 01:03:27,000
+a input that has a a Million numbers you
+
+1175
+01:03:23,880 --> 01:03:30,180
+know because we need to know how fast it
+
+1176
+01:03:27,000 --> 01:03:32,339
+is so then we need to do some timings so
+
+1177
+01:03:30,180 --> 01:03:34,559
+we can run a timing on all these
+
+1178
+01:03:32,339 --> 01:03:37,380
+different solutions I'm pretty sure they
+
+1179
+01:03:34,559 --> 01:03:40,799
+are progressive you know like um
+
+1180
+01:03:37,380 --> 01:03:42,980
+okay let's pop this back to emacs and
+
+1181
+01:03:40,799 --> 01:03:42,980
+let's
+
+1182
+01:03:44,460 --> 01:03:50,640
+syntax colored let's show in browser so
+
+1183
+01:03:47,940 --> 01:03:53,579
+here we have the Wolfram code and we
+
+1184
+01:03:50,640 --> 01:03:56,819
+have uh you know many solutions
+
+1185
+01:03:53,579 --> 01:03:58,440
+it's magnify you know and I'm pretty
+
+1186
+01:03:56,819 --> 01:04:01,799
+sure the
+
+1187
+01:03:58,440 --> 01:04:05,400
+the progressive the more the the later
+
+1188
+01:04:01,799 --> 01:04:07,920
+ones are faster in shorter uh
+
+1189
+01:04:05,400 --> 01:04:10,260
+but we need to time it okay okay that's
+
+1190
+01:04:07,920 --> 01:04:13,220
+it for today
+
+1191
+01:04:10,260 --> 01:04:13,220
+bye guys
+
+1192
+01:04:13,619 --> 01:04:19,339
+how many I probably lost all the people
+
+1193
+01:04:16,500 --> 01:04:19,339
+Okay so
+
+1194
+01:04:21,780 --> 01:04:28,920
+if you like my stuff donate okay buy my
+
+1195
+01:04:25,020 --> 01:04:32,220
+emacs tutorial check out my uh you know
+
+1196
+01:04:28,920 --> 01:04:35,040
+donate uh patreon patreon me
+
+1197
+01:04:32,220 --> 01:04:38,099
+by my emacs tutorial my emacs packages
+
+1198
+01:04:35,040 --> 01:04:40,140
+my JavaScript tutorial
+
+1199
+01:04:38,099 --> 01:04:44,520
+and uh
+
+1200
+01:04:40,140 --> 01:04:48,140
+stuff okay or just Amazon me a cup of
+
+1201
+01:04:44,520 --> 01:04:48,140
+coffee or something bye guys
+
+1202
+01:04:51,780 --> 01:04:58,520
+here's a solution
+
+1203
+01:04:54,720 --> 01:04:58,520
+and yeah okay
+

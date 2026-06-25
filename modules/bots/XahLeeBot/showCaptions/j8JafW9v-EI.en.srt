@@ -1,0 +1,6156 @@
+1
+00:00:02,899 --> 00:00:12,620
+good morning everyone welcome to another
+
+2
+00:00:06,450 --> 00:00:14,870
+casaya talk show today is June 7th 2019
+
+3
+00:00:12,620 --> 00:00:19,880
+I'm sorry I'm late
+
+4
+00:00:14,870 --> 00:00:24,029
+14 minutes late that's super late and
+
+5
+00:00:19,880 --> 00:00:27,150
+I'm tired so I'm coming up one of my
+
+6
+00:00:24,029 --> 00:00:30,060
+eyes because I have you know what I'm
+
+7
+00:00:27,150 --> 00:00:32,070
+tired my eyes closed cross actually I
+
+8
+00:00:30,060 --> 00:00:34,640
+can't I can do fine here so today I'm
+
+9
+00:00:32,070 --> 00:00:38,629
+going to talk about understanding
+
+10
+00:00:34,640 --> 00:00:42,510
+JavaScript object like a mathematician
+
+11
+00:00:38,629 --> 00:00:47,809
+okay so after listening to this talk
+
+12
+00:00:42,510 --> 00:00:51,809
+shop you will understand JavaScript
+
+13
+00:00:47,809 --> 00:00:58,100
+objects like a mathematician okay so
+
+14
+00:00:51,809 --> 00:00:58,100
+let's go to my JavaScript blog and show
+
+15
+00:00:58,280 --> 00:01:07,200
+okay I haven't okay so anyway so it's
+
+16
+00:01:04,530 --> 00:01:15,900
+not help show yeah we're gonna talk
+
+17
+00:01:07,200 --> 00:01:18,650
+about JavaScript object and let's see
+
+18
+00:01:15,900 --> 00:01:21,360
+what what do we have here new your time
+
+19
+00:01:18,650 --> 00:01:24,630
+update showing results yeah so this is
+
+20
+00:01:21,360 --> 00:01:28,380
+my JavaScript blog so I have JavaScript
+
+21
+00:01:24,630 --> 00:01:31,680
+in depth we're gonna talk with this my
+
+22
+00:01:28,380 --> 00:01:40,140
+tutorial today of course so let me show
+
+23
+00:01:31,680 --> 00:01:44,130
+that here and get prepared here so I
+
+24
+00:01:40,140 --> 00:01:48,180
+make sure you can see my screen I'm
+
+25
+00:01:44,130 --> 00:01:52,380
+sorry I wasn't prepared before and this
+
+26
+00:01:48,180 --> 00:01:56,990
+screen it's movie here so okay so I
+
+27
+00:01:52,380 --> 00:01:56,990
+think that's we are set
+
+28
+00:01:59,689 --> 00:02:10,500
+game critic imp save memory we are said
+
+29
+00:02:08,940 --> 00:02:18,350
+so yeah so we're gonna talk about
+
+30
+00:02:10,500 --> 00:02:21,510
+JavaScript is it talk show JavaScript
+
+31
+00:02:18,350 --> 00:02:23,640
+JavaScript object the way a
+
+32
+00:02:21,510 --> 00:02:26,160
+mathematician understand it you know
+
+33
+00:02:23,640 --> 00:02:28,200
+because I'm gonna talk teaching a
+
+34
+00:02:26,160 --> 00:02:31,350
+special way so that you understand the
+
+35
+00:02:28,200 --> 00:02:35,160
+kind of logical into relations and stuff
+
+36
+00:02:31,350 --> 00:02:37,350
+I guarantee you you will have not heard
+
+37
+00:02:35,160 --> 00:02:42,150
+of that style of teaching JavaScript
+
+38
+00:02:37,350 --> 00:02:47,340
+object people and so so let me actually
+
+39
+00:02:42,150 --> 00:02:52,230
+write it out javascript understand
+
+40
+00:02:47,340 --> 00:02:54,930
+JavaScript object like a mathematician
+
+41
+00:02:52,230 --> 00:03:00,239
+okay copy that
+
+42
+00:02:54,930 --> 00:03:05,640
+talk show okay copy that
+
+43
+00:03:00,239 --> 00:03:08,700
+switch back here and paste it here so
+
+44
+00:03:05,640 --> 00:03:11,940
+app so after that maybe we talk about
+
+45
+00:03:08,700 --> 00:03:14,549
+something else you know so if you have a
+
+46
+00:03:11,940 --> 00:03:17,340
+questions just ask any questions
+
+47
+00:03:14,549 --> 00:03:20,239
+comments I'd love to see that so let's
+
+48
+00:03:17,340 --> 00:03:26,130
+begin let's go to my JavaScript tutorial
+
+49
+00:03:20,239 --> 00:03:29,070
+well let me talk about yeah so talk-show
+
+50
+00:03:26,130 --> 00:03:31,769
+understand JavaScript object like my
+
+51
+00:03:29,070 --> 00:03:36,000
+mathematician that's right and let's
+
+52
+00:03:31,769 --> 00:03:41,190
+begin so let me begin by starting with a
+
+53
+00:03:36,000 --> 00:03:44,430
+section and since we are using a Emacs
+
+54
+00:03:41,190 --> 00:03:49,430
+which is my my editor of choice
+
+55
+00:03:44,430 --> 00:03:52,980
+let me start sauce start command mod
+
+56
+00:03:49,430 --> 00:03:58,680
+command log so in this window you can
+
+57
+00:03:52,980 --> 00:04:01,260
+see all the Emacs commands I call so
+
+58
+00:03:58,680 --> 00:04:03,260
+we're gonna do a JavaScript and so this
+
+59
+00:04:01,260 --> 00:04:09,419
+is a JavaScript file let's say
+
+60
+00:04:03,260 --> 00:04:12,010
+console.log 3 + 4 ok vennett 7 that's
+
+61
+00:04:09,419 --> 00:04:15,580
+good a good morning runs
+
+62
+00:04:12,010 --> 00:04:17,049
+ran six hello Chris I am I'm Gabriel
+
+63
+00:04:15,580 --> 00:04:19,829
+from Brazil
+
+64
+00:04:17,049 --> 00:04:23,729
+oh hi Gabriel I think I know which one
+
+65
+00:04:19,829 --> 00:04:26,199
+who you are thank you thank you
+
+66
+00:04:23,729 --> 00:04:29,020
+so I'm going to cover one of my ice
+
+67
+00:04:26,199 --> 00:04:31,030
+because I'm tired I have a little
+
+68
+00:04:29,020 --> 00:04:34,120
+cross-eyed so I'm gonna talk like that
+
+69
+00:04:31,030 --> 00:04:36,580
+so anyway that starts with the on with
+
+70
+00:04:34,120 --> 00:04:39,160
+the job understanding JavaScript object
+
+71
+00:04:36,580 --> 00:04:41,260
+like a mathematician okay so first of
+
+72
+00:04:39,160 --> 00:04:44,199
+all what's the object okay okay let me
+
+73
+00:04:41,260 --> 00:04:47,169
+tell you what is is a syntax so we
+
+74
+00:04:44,199 --> 00:04:50,080
+create a constant object
+
+75
+00:04:47,169 --> 00:04:54,039
+it's okay hold on a second okay here we
+
+76
+00:04:50,080 --> 00:04:57,880
+create a constant thing object is
+
+77
+00:04:54,039 --> 00:05:02,800
+basically a key value pairs so here we
+
+78
+00:04:57,880 --> 00:05:16,500
+say my object and let's say a is a is
+
+79
+00:05:02,800 --> 00:05:21,310
+one let's say that B 3 C is 3 B's - okay
+
+80
+00:05:16,500 --> 00:05:26,320
+it's magnified okay so so let's run this
+
+81
+00:05:21,310 --> 00:05:30,180
+oh and it works but however we have to
+
+82
+00:05:26,320 --> 00:05:34,120
+print it so print my object
+
+83
+00:05:30,180 --> 00:05:39,699
+it's just shortening it to object the
+
+84
+00:05:34,120 --> 00:05:43,389
+net you can see it's printed you can see
+
+85
+00:05:39,699 --> 00:05:46,870
+it's printed here so we have this object
+
+86
+00:05:43,389 --> 00:05:51,610
+of three keys the keys are a and B and C
+
+87
+00:05:46,870 --> 00:05:56,470
+and the values are 1 2 3 so a object is
+
+88
+00:05:51,610 --> 00:05:59,680
+mostly a key and value pairs and each
+
+89
+00:05:56,470 --> 00:06:01,990
+key and value we call it a property so a
+
+90
+00:05:59,680 --> 00:06:03,880
+object is a collection of properties a
+
+91
+00:06:01,990 --> 00:06:06,490
+property is two things key and value
+
+92
+00:06:03,880 --> 00:06:09,010
+pairs actually let me write it down so
+
+93
+00:06:06,490 --> 00:06:15,039
+that as we go along we have a bunch of
+
+94
+00:06:09,010 --> 00:06:19,530
+notes Gabriel from Brazil you have a
+
+95
+00:06:15,039 --> 00:06:19,530
+Russian name that just occurred to me
+
+96
+00:06:21,539 --> 00:06:25,390
+wait I'm not sure which one you are you
+
+97
+00:06:24,520 --> 00:06:32,500
+are not for me
+
+98
+00:06:25,390 --> 00:06:35,200
+sico right so anyway so object object is
+
+99
+00:06:32,500 --> 00:06:37,450
+a collection of properties not ordered
+
+100
+00:06:35,200 --> 00:06:41,280
+okay they are not ordered collection
+
+101
+00:06:37,450 --> 00:06:49,000
+let me read an object is foremost a
+
+102
+00:06:41,280 --> 00:06:52,260
+collection properties each property is a
+
+103
+00:06:49,000 --> 00:06:57,600
+key and a value
+
+104
+00:06:52,260 --> 00:07:03,150
+okay so object is a collection of
+
+105
+00:06:57,600 --> 00:07:08,640
+key-value pairs the key now next thing
+
+106
+00:07:03,150 --> 00:07:16,150
+important to know the key must be of two
+
+107
+00:07:08,640 --> 00:07:18,960
+data types one string two symbol okay
+
+108
+00:07:16,150 --> 00:07:22,930
+now symbol is a new thing in JavaScript
+
+109
+00:07:18,960 --> 00:07:26,980
+2015 you know the language and the
+
+110
+00:07:22,930 --> 00:07:29,020
+symbol key is is basically it's not even
+
+111
+00:07:26,980 --> 00:07:32,110
+readable it's just like something
+
+112
+00:07:29,020 --> 00:07:35,670
+internal it functioned the purpose of
+
+113
+00:07:32,110 --> 00:07:38,200
+symbol key is just as a ID you know
+
+114
+00:07:35,670 --> 00:07:41,380
+identification ID you know just like
+
+115
+00:07:38,200 --> 00:07:43,570
+almost like a random stream stream you
+
+116
+00:07:41,380 --> 00:07:46,450
+cannot even see it you cannot you know
+
+117
+00:07:43,570 --> 00:07:48,400
+even see what you know actually show the
+
+118
+00:07:46,450 --> 00:07:51,940
+symbol it's just you know a random thing
+
+119
+00:07:48,400 --> 00:07:54,040
+it's an ID used for keys so that the
+
+120
+00:07:51,940 --> 00:07:57,760
+purpose is so that you can create an
+
+121
+00:07:54,040 --> 00:08:00,670
+object with a symbol key that nobody
+
+122
+00:07:57,760 --> 00:08:04,240
+will be able to override it because you
+
+123
+00:08:00,670 --> 00:08:07,900
+know you know it almost impossible
+
+124
+00:08:04,240 --> 00:08:10,300
+because you cannot retrieve the symbol
+
+125
+00:08:07,900 --> 00:08:12,520
+key since you don't know what you know
+
+126
+00:08:10,300 --> 00:08:16,630
+what number or ID it is unless you know
+
+127
+00:08:12,520 --> 00:08:20,380
+the ID you know as so the purpose of
+
+128
+00:08:16,630 --> 00:08:24,310
+symbol key is just to to create unique
+
+129
+00:08:20,380 --> 00:08:26,740
+key unique unique keys that other people
+
+130
+00:08:24,310 --> 00:08:30,040
+may not not likely to be overweight
+
+131
+00:08:26,740 --> 00:08:34,960
+written so let me write it down the
+
+132
+00:08:30,040 --> 00:08:38,740
+purpose of the symbol of the let me
+
+133
+00:08:34,960 --> 00:08:45,360
+rephrase it so so it's more accurate
+
+134
+00:08:38,740 --> 00:08:54,480
+purpose of a key that's a symbol type is
+
+135
+00:08:45,360 --> 00:09:00,610
+so that so that's such properties to not
+
+136
+00:08:54,480 --> 00:09:02,530
+do not easily get overwritten okay so
+
+137
+00:09:00,610 --> 00:09:07,060
+you know you cannot stand on each
+
+138
+00:09:02,530 --> 00:09:09,310
+other's keys so again let me let me so a
+
+139
+00:09:07,060 --> 00:09:12,160
+property is a collection of key and
+
+140
+00:09:09,310 --> 00:09:15,600
+value pairs now the keys are of two
+
+141
+00:09:12,160 --> 00:09:18,670
+possible value types string or symbol
+
+142
+00:09:15,600 --> 00:09:22,900
+now we can see here we have three keys
+
+143
+00:09:18,670 --> 00:09:26,890
+ABC and you see the a and B and C are
+
+144
+00:09:22,900 --> 00:09:31,420
+actually strings you know they are
+
+145
+00:09:26,890 --> 00:09:33,850
+actually strings because you know for
+
+146
+00:09:31,420 --> 00:09:37,000
+example we can actually put a string
+
+147
+00:09:33,850 --> 00:09:39,010
+like that and let's print it and the
+
+148
+00:09:37,000 --> 00:09:41,470
+result is your sentence still the same
+
+149
+00:09:39,010 --> 00:09:43,900
+you know what actually happened is that
+
+150
+00:09:41,470 --> 00:09:47,470
+when you don't have a stream the
+
+151
+00:09:43,900 --> 00:09:55,210
+JavaScript automatically convert that
+
+152
+00:09:47,470 --> 00:10:02,470
+that B into a stream okay so now let's
+
+153
+00:09:55,210 --> 00:10:08,590
+say the the type of a Keys value can be
+
+154
+00:10:02,470 --> 00:10:11,460
+any JavaScript data type okay so the
+
+155
+00:10:08,590 --> 00:10:13,840
+match so the key must be of two types
+
+156
+00:10:11,460 --> 00:10:16,390
+string or symbol okay
+
+157
+00:10:13,840 --> 00:10:20,140
+simple we we are not going to talk about
+
+158
+00:10:16,390 --> 00:10:22,540
+we barely use okay it's new in 2015 so
+
+159
+00:10:20,140 --> 00:10:25,180
+the key must be either string or symbol
+
+160
+00:10:22,540 --> 00:10:29,260
+if it's not strange our script
+
+161
+00:10:25,180 --> 00:10:32,050
+automatically converted to stream so so
+
+162
+00:10:29,260 --> 00:10:35,590
+you know this C with or without code is
+
+163
+00:10:32,050 --> 00:10:39,820
+actually the same now the value can be
+
+164
+00:10:35,590 --> 00:10:43,330
+any JavaScript type so let's so what are
+
+165
+00:10:39,820 --> 00:10:47,470
+the JavaScript value types let's have a
+
+166
+00:10:43,330 --> 00:10:50,500
+look so we have here JavaScript
+
+167
+00:10:47,470 --> 00:10:51,830
+JavaScript variable JavaScript value
+
+168
+00:10:50,500 --> 00:10:56,360
+types now
+
+169
+00:10:51,830 --> 00:10:59,600
+variable do not have a type but but any
+
+170
+00:10:56,360 --> 00:11:01,670
+JavaScript value is associated with the
+
+171
+00:10:59,600 --> 00:11:04,460
+thing called type you know the type of
+
+172
+00:11:01,670 --> 00:11:07,070
+the thing so you have undefined is a
+
+173
+00:11:04,460 --> 00:11:10,790
+type new is the type pooling is a type
+
+174
+00:11:07,070 --> 00:11:16,580
+pooling has two possible values true and
+
+175
+00:11:10,790 --> 00:11:18,230
+false or building building keywords so
+
+176
+00:11:16,580 --> 00:11:21,380
+then you have string type you have
+
+177
+00:11:18,230 --> 00:11:24,980
+number type you have symbol type then
+
+178
+00:11:21,380 --> 00:11:28,270
+you have the object type so if every
+
+179
+00:11:24,980 --> 00:11:32,200
+value in javascript is one of these type
+
+180
+00:11:28,270 --> 00:11:35,720
+so so let me summarize one more time
+
+181
+00:11:32,200 --> 00:11:37,910
+object is a collection of keys and
+
+182
+00:11:35,720 --> 00:11:40,460
+values you know key and value is a pair
+
+183
+00:11:37,910 --> 00:11:43,460
+key values collection key and values the
+
+184
+00:11:40,460 --> 00:11:45,620
+one key and value together is called a
+
+185
+00:11:43,460 --> 00:11:48,920
+property so you know you got a bunch of
+
+186
+00:11:45,620 --> 00:11:52,820
+properties now the key must be of two
+
+187
+00:11:48,920 --> 00:11:56,180
+possible types string or symbol almost
+
+188
+00:11:52,820 --> 00:12:01,280
+always it's a stream you know unless you
+
+189
+00:11:56,180 --> 00:12:05,300
+are you know you know like before 2015
+
+190
+00:12:01,280 --> 00:12:07,460
+keys are always just strings so key can
+
+191
+00:12:05,300 --> 00:12:11,570
+be two types string or symbol the value
+
+192
+00:12:07,460 --> 00:12:14,120
+of a key can be any type that means it
+
+193
+00:12:11,570 --> 00:12:17,980
+can be any of these undefined no
+
+194
+00:12:14,120 --> 00:12:20,420
+true/false or can be a string which is
+
+195
+00:12:17,980 --> 00:12:23,230
+typical very common or can be a number
+
+196
+00:12:20,420 --> 00:12:26,810
+very common it can also be a symbol and
+
+197
+00:12:23,230 --> 00:12:28,850
+it can be a object again like you know
+
+198
+00:12:26,810 --> 00:12:31,520
+like what is object the collection of
+
+199
+00:12:28,850 --> 00:12:34,730
+key value pairs so the value of a key
+
+200
+00:12:31,520 --> 00:12:37,160
+can also be another object and of course
+
+201
+00:12:34,730 --> 00:12:43,150
+that object in turn you know has its own
+
+202
+00:12:37,160 --> 00:12:47,240
+key value key value pair properties so
+
+203
+00:12:43,150 --> 00:12:50,600
+the interesting thing about the key when
+
+204
+00:12:47,240 --> 00:12:53,930
+a value is object is that so what is
+
+205
+00:12:50,600 --> 00:12:58,850
+Java JavaScript object JavaScript object
+
+206
+00:12:53,930 --> 00:13:03,160
+is anything that basically anything not
+
+207
+00:12:58,850 --> 00:13:06,640
+one of these undefined no
+
+208
+00:13:03,160 --> 00:13:09,519
+Stream number symbol if it's not one of
+
+209
+00:13:06,640 --> 00:13:12,220
+those then it's object so what does that
+
+210
+00:13:09,519 --> 00:13:15,310
+mean it basically practically includes
+
+211
+00:13:12,220 --> 00:13:18,630
+any function any array data object
+
+212
+00:13:15,310 --> 00:13:25,839
+regular expression object JSON object
+
+213
+00:13:18,630 --> 00:13:34,480
+you know it just can be anything so so
+
+214
+00:13:25,839 --> 00:13:39,160
+we covered let me let me write that down
+
+215
+00:13:34,480 --> 00:13:50,440
+so object is one foremost
+
+216
+00:13:39,160 --> 00:13:56,980
+okay then then to each object we each
+
+217
+00:13:50,440 --> 00:14:01,839
+object has a link to another object we
+
+218
+00:13:56,980 --> 00:14:06,160
+call it the parent object we call it a
+
+219
+00:14:01,839 --> 00:14:09,130
+parent or the prototype object
+
+220
+00:14:06,160 --> 00:14:11,800
+now remember Java JavaScript object is a
+
+221
+00:14:09,130 --> 00:14:15,910
+key value pairs so it is just like
+
+222
+00:14:11,800 --> 00:14:18,970
+exactly like a hash table in Ruby pearl
+
+223
+00:14:15,910 --> 00:14:21,190
+or a dictionary in Python so you can
+
+224
+00:14:18,970 --> 00:14:24,820
+kind of think of it exactly like a
+
+225
+00:14:21,190 --> 00:14:28,089
+dictionary in Python now that's one
+
+226
+00:14:24,820 --> 00:14:29,200
+thing correction of key value pairs but
+
+227
+00:14:28,089 --> 00:14:32,350
+that's not all
+
+228
+00:14:29,200 --> 00:14:35,800
+to object they object each object also
+
+229
+00:14:32,350 --> 00:14:42,430
+by definition has a link may may have a
+
+230
+00:14:35,800 --> 00:14:45,850
+link may have a link to another object
+
+231
+00:14:42,430 --> 00:14:48,010
+and we call that object its parent so
+
+232
+00:14:45,850 --> 00:14:53,040
+it's a directed arrow you know with an
+
+233
+00:14:48,010 --> 00:14:56,199
+arrow link so so a essentially a object
+
+234
+00:14:53,040 --> 00:14:58,570
+may have a parent it may not may or may
+
+235
+00:14:56,199 --> 00:15:01,089
+not you know so in general all the
+
+236
+00:14:58,570 --> 00:15:03,550
+building objects you know all the
+
+237
+00:15:01,089 --> 00:15:05,589
+JavaScript peony objects they they they
+
+238
+00:15:03,550 --> 00:15:09,100
+all have a parent they are all connected
+
+239
+00:15:05,589 --> 00:15:11,170
+in forming a tree the object can have
+
+240
+00:15:09,100 --> 00:15:16,040
+only one parent you can never have two
+
+241
+00:15:11,170 --> 00:15:18,440
+parents and also a objects parents
+
+242
+00:15:16,040 --> 00:15:21,800
+that the parents will never be circular
+
+243
+00:15:18,440 --> 00:15:25,160
+so you cannot have a spare anis peepees
+
+244
+00:15:21,800 --> 00:15:27,290
+parent is CeCe's parent is a that can
+
+245
+00:15:25,160 --> 00:15:29,870
+never happen that's impossible
+
+246
+00:15:27,290 --> 00:15:33,199
+you also cannot have you know peace
+
+247
+00:15:29,870 --> 00:15:35,810
+parent is a a spirit is P you know so
+
+248
+00:15:33,199 --> 00:15:40,009
+that doesn't exist object always have a
+
+249
+00:15:35,810 --> 00:15:42,259
+parent one parent and you know and it
+
+250
+00:15:40,009 --> 00:15:46,610
+may or may not have so you you always
+
+251
+00:15:42,259 --> 00:15:52,790
+have like a line or lineage so so this
+
+252
+00:15:46,610 --> 00:15:58,190
+this is called the parent of parent act
+
+253
+00:15:52,790 --> 00:16:01,550
+of a object is called the prototype
+
+254
+00:15:58,190 --> 00:16:03,500
+chain so you might have heard that you
+
+255
+00:16:01,550 --> 00:16:05,509
+know prototype chain so that's that just
+
+256
+00:16:03,500 --> 00:16:10,699
+means you know object always have a
+
+257
+00:16:05,509 --> 00:16:12,709
+parent know okay so but what what is the
+
+258
+00:16:10,699 --> 00:16:15,940
+purpose let's talk about what is the
+
+259
+00:16:12,709 --> 00:16:18,680
+purpose of this parent chain you know
+
+260
+00:16:15,940 --> 00:16:26,300
+what does it actually do what you know
+
+261
+00:16:18,680 --> 00:16:28,790
+so the purpose is that okay the the
+
+262
+00:16:26,300 --> 00:16:31,370
+purpose of the prototype chain you know
+
+263
+00:16:28,790 --> 00:16:33,139
+the purpose of parent itself I mean
+
+264
+00:16:31,370 --> 00:16:36,860
+what's the point of something having a
+
+265
+00:16:33,139 --> 00:16:40,069
+parent the purpose of all these is only
+
+266
+00:16:36,860 --> 00:16:42,230
+for one thing that is when JavaScript
+
+267
+00:16:40,069 --> 00:16:44,829
+look up a property like when you say
+
+268
+00:16:42,230 --> 00:16:50,180
+let's say for example when you say
+
+269
+00:16:44,829 --> 00:16:54,649
+object dot a you know suppose you want
+
+270
+00:16:50,180 --> 00:16:57,769
+to print that we can print it and the
+
+271
+00:16:54,649 --> 00:17:01,910
+result is what you can see here you know
+
+272
+00:16:57,769 --> 00:17:05,480
+we are accessing the the key the
+
+273
+00:17:01,910 --> 00:17:10,669
+property key a we want the property key
+
+274
+00:17:05,480 --> 00:17:13,610
+a value so the result is one you know
+
+275
+00:17:10,669 --> 00:17:16,159
+because we defined it that way so when
+
+276
+00:17:13,610 --> 00:17:22,730
+you access a object when you try to read
+
+277
+00:17:16,159 --> 00:17:25,280
+a object e of a object-- JavaScript will
+
+278
+00:17:22,730 --> 00:17:29,450
+try to find that to see if this object
+
+279
+00:17:25,280 --> 00:17:32,029
+has has that key in this case it
+
+280
+00:17:29,450 --> 00:17:35,690
+so the result is one however if this
+
+281
+00:17:32,029 --> 00:17:37,970
+object does not have a key of that name
+
+282
+00:17:35,690 --> 00:17:42,019
+you know by that string or symbol in
+
+283
+00:17:37,970 --> 00:17:44,179
+this case it's a a is a stream so if the
+
+284
+00:17:42,019 --> 00:17:48,440
+if the object does not have that key
+
+285
+00:17:44,179 --> 00:17:51,289
+then JavaScript we all look up try to
+
+286
+00:17:48,440 --> 00:17:54,740
+check the parent object has that key if
+
+287
+00:17:51,289 --> 00:17:56,990
+not it will try to look up that object's
+
+288
+00:17:54,740 --> 00:18:01,010
+parent to see if that object has a key
+
+289
+00:17:56,990 --> 00:18:04,820
+and so on until a key is found by that
+
+290
+00:18:01,010 --> 00:18:07,220
+name a oh you know the object has no
+
+291
+00:18:04,820 --> 00:18:09,649
+more parent you know and no key is found
+
+292
+00:18:07,220 --> 00:18:15,260
+then in that case it actually returns
+
+293
+00:18:09,649 --> 00:18:18,200
+undefined so so this behavior you know
+
+294
+00:18:15,260 --> 00:18:20,360
+this you know trying to find a key then
+
+295
+00:18:18,200 --> 00:18:23,960
+try to check the parent and try to check
+
+296
+00:18:20,360 --> 00:18:27,830
+that parent you know so this behavior is
+
+297
+00:18:23,960 --> 00:18:30,080
+called inheritance now this is important
+
+298
+00:18:27,830 --> 00:18:33,049
+because inheritance this is what it
+
+299
+00:18:30,080 --> 00:18:34,990
+means and only mean these nothing else
+
+300
+00:18:33,049 --> 00:18:37,220
+nothing absolutely nothing else
+
+301
+00:18:34,990 --> 00:18:39,620
+inheritance in JavaScript just means
+
+302
+00:18:37,220 --> 00:18:41,899
+when JavaScript checks our object we
+
+303
+00:18:39,620 --> 00:18:46,490
+will try to keep checking the parent
+
+304
+00:18:41,899 --> 00:18:49,279
+until a key is found or normal parent is
+
+305
+00:18:46,490 --> 00:18:53,960
+found you know so this is called
+
+306
+00:18:49,279 --> 00:18:56,720
+inheritance and this is the only yes
+
+307
+00:18:53,960 --> 00:18:58,990
+this is the only purpose of the whole
+
+308
+00:18:56,720 --> 00:19:02,620
+parent thing you know we said before
+
+309
+00:18:58,990 --> 00:19:05,269
+object may have a parent you know and
+
+310
+00:19:02,620 --> 00:19:07,309
+you know therefore that object may also
+
+311
+00:19:05,269 --> 00:19:09,710
+have a parent you know you have a parent
+
+312
+00:19:07,309 --> 00:19:11,330
+chain you had you know called prototype
+
+313
+00:19:09,710 --> 00:19:13,850
+chain what what's the point about this
+
+314
+00:19:11,330 --> 00:19:17,720
+parent for I mean what's this useful the
+
+315
+00:19:13,850 --> 00:19:21,440
+only purpose is when when you try to
+
+316
+00:19:17,720 --> 00:19:23,269
+look at lookup a try to read a objects
+
+317
+00:19:21,440 --> 00:19:25,100
+key you know you'll just look keep
+
+318
+00:19:23,269 --> 00:19:29,860
+looking up the parent so that that is
+
+319
+00:19:25,100 --> 00:19:33,320
+the only your purpose so we talk about
+
+320
+00:19:29,860 --> 00:19:40,840
+okay let's write this down the whole
+
+321
+00:19:33,320 --> 00:19:40,840
+point a parent or parent n is just
+
+322
+00:19:43,200 --> 00:19:56,100
+when JavaScript looks up a key a objects
+
+323
+00:19:49,630 --> 00:20:02,490
+key it will try to check the parent
+
+324
+00:19:56,100 --> 00:20:08,640
+until a key is found or normal parent
+
+325
+00:20:02,490 --> 00:20:12,070
+object okay this is called inheritance
+
+326
+00:20:08,640 --> 00:20:16,480
+in JavaScript let's just say in
+
+327
+00:20:12,070 --> 00:20:25,830
+inheritance okay in JavaScript and this
+
+328
+00:20:16,480 --> 00:20:29,140
+is the only whole purpose parent or
+
+329
+00:20:25,830 --> 00:20:34,710
+parent chain okay there's no no other
+
+330
+00:20:29,140 --> 00:20:36,570
+use parent this is only purpose now I'm
+
+331
+00:20:34,710 --> 00:20:41,620
+I'm not doing good
+
+332
+00:20:36,570 --> 00:20:44,560
+am I like so rot glass six am I like
+
+333
+00:20:41,620 --> 00:20:45,820
+being too verbose or too repetitive or
+
+334
+00:20:44,560 --> 00:20:48,520
+I'm doing okay
+
+335
+00:20:45,820 --> 00:20:50,440
+so you know let me know so any guys
+
+336
+00:20:48,520 --> 00:20:52,630
+watching let me know give me your
+
+337
+00:20:50,440 --> 00:20:54,730
+comments any comment you know don't need
+
+338
+00:20:52,630 --> 00:20:57,510
+needs not to be a question let me just
+
+339
+00:20:54,730 --> 00:21:00,400
+you know give me some feedback so I know
+
+340
+00:20:57,510 --> 00:21:02,530
+so we cover we are trying to define what
+
+341
+00:21:00,400 --> 00:21:08,560
+is a JavaScript mathematically you know
+
+342
+00:21:02,530 --> 00:21:10,810
+because I'm trying to teach this great
+
+343
+00:21:08,560 --> 00:21:14,560
+thank you so I'm trying to teach this in
+
+344
+00:21:10,810 --> 00:21:16,350
+a math you know logical way so we are
+
+345
+00:21:14,560 --> 00:21:18,970
+trying to define what is the object
+
+346
+00:21:16,350 --> 00:21:21,190
+mathematically mathematically so first
+
+347
+00:21:18,970 --> 00:21:23,950
+of all we know it's a collection of key
+
+348
+00:21:21,190 --> 00:21:26,100
+and value pairs okay and key must be
+
+349
+00:21:23,950 --> 00:21:32,770
+string or symbol and value can be any
+
+350
+00:21:26,100 --> 00:21:35,620
+any other type and we also know by
+
+351
+00:21:32,770 --> 00:21:38,710
+definition a object has this kind of
+
+352
+00:21:35,620 --> 00:21:41,530
+link called parent pink or prototype you
+
+353
+00:21:38,710 --> 00:21:44,410
+know links to another object we call its
+
+354
+00:21:41,530 --> 00:21:47,970
+parent okay we also know that so these
+
+355
+00:21:44,410 --> 00:21:51,270
+two things so far these two things are
+
+356
+00:21:47,970 --> 00:21:54,300
+not all yet they are part of the
+
+357
+00:21:51,270 --> 00:21:57,210
+definition of object the you know the
+
+358
+00:21:54,300 --> 00:22:01,140
+meaning the practical meaning of object
+
+359
+00:21:57,210 --> 00:22:03,300
+in JavaScript and we also discussed you
+
+360
+00:22:01,140 --> 00:22:05,460
+know the point the the purpose of the
+
+361
+00:22:03,300 --> 00:22:08,190
+parent thing you know it's so that
+
+362
+00:22:05,460 --> 00:22:12,930
+object access wheel you know so you know
+
+363
+00:22:08,190 --> 00:22:15,390
+ensured its inheritance inheritance ok
+
+364
+00:22:12,930 --> 00:22:19,170
+javascript is these two things now there
+
+365
+00:22:15,390 --> 00:22:22,050
+is there are one or more two things
+
+366
+00:22:19,170 --> 00:22:27,030
+about it yeah let me talk about it
+
+367
+00:22:22,050 --> 00:22:30,510
+one more thing one more thing we
+
+368
+00:22:27,030 --> 00:22:35,370
+mentioned okay let me take the match I
+
+369
+00:22:30,510 --> 00:22:37,920
+patch up okay we mentioned javascript
+
+370
+00:22:35,370 --> 00:22:42,270
+object you know two things key value
+
+371
+00:22:37,920 --> 00:22:44,010
+pairs and there's a parent possible that
+
+372
+00:22:42,270 --> 00:22:47,610
+possibly there's a parent linked to a
+
+373
+00:22:44,010 --> 00:22:50,040
+parent one more thing javascript object
+
+374
+00:22:47,610 --> 00:22:57,870
+you know that the definition of object
+
+375
+00:22:50,040 --> 00:23:02,270
+is that some objects may okay some
+
+376
+00:22:57,870 --> 00:23:05,970
+object may have a special behavior or
+
+377
+00:23:02,270 --> 00:23:09,630
+spatial data internal data that are not
+
+378
+00:23:05,970 --> 00:23:11,790
+key and values now this is getting a bit
+
+379
+00:23:09,630 --> 00:23:15,420
+complex because it's kind of
+
+380
+00:23:11,790 --> 00:23:17,240
+inconsistent you know because what what
+
+381
+00:23:15,420 --> 00:23:21,510
+we are saying is a javascript object
+
+382
+00:23:17,240 --> 00:23:24,690
+some object may have a special property
+
+383
+00:23:21,510 --> 00:23:28,050
+or special behavior not special behavior
+
+384
+00:23:24,690 --> 00:23:30,960
+or special internal data okay
+
+385
+00:23:28,050 --> 00:23:34,700
+let me give you some quick examples what
+
+386
+00:23:30,960 --> 00:23:37,050
+I'm talking about for example array
+
+387
+00:23:34,700 --> 00:23:39,390
+JavaScript array is a object
+
+388
+00:23:37,050 --> 00:23:41,880
+you know because remember we talked
+
+389
+00:23:39,390 --> 00:23:44,670
+about JavaScript value types you know
+
+390
+00:23:41,880 --> 00:23:47,250
+arrays is not undefined arrays not
+
+391
+00:23:44,670 --> 00:23:51,600
+normal arrays not number arrays not
+
+392
+00:23:47,250 --> 00:23:54,210
+bullying you know it's not any of those
+
+393
+00:23:51,600 --> 00:23:56,340
+things so array so what is array it's
+
+394
+00:23:54,210 --> 00:24:00,150
+not string either it's not a symbol so
+
+395
+00:23:56,340 --> 00:24:02,750
+it is a object you know so so array is a
+
+396
+00:24:00,150 --> 00:24:02,750
+object
+
+397
+00:24:02,900 --> 00:24:08,250
+arrays object that means it has key
+
+398
+00:24:05,940 --> 00:24:10,020
+value pairs and
+
+399
+00:24:08,250 --> 00:24:14,220
+we mentioned it may have special
+
+400
+00:24:10,020 --> 00:24:20,310
+behavior that is true because array has
+
+401
+00:24:14,220 --> 00:24:25,250
+a property key named links for example
+
+402
+00:24:20,310 --> 00:24:31,380
+let's let's create a way create a array
+
+403
+00:24:25,250 --> 00:24:36,330
+example okay so let's say constant AR
+
+404
+00:24:31,380 --> 00:24:43,770
+let's say 3 4 - okay
+
+405
+00:24:36,330 --> 00:24:53,040
+and let's print printer array so we see
+
+406
+00:24:43,770 --> 00:25:01,250
+that we get that and by the way to find
+
+407
+00:24:53,040 --> 00:25:01,250
+the type of object use the type of
+
+408
+00:25:01,670 --> 00:25:12,000
+operator so we can you know we can print
+
+409
+00:25:05,670 --> 00:25:17,600
+here console.log type of a or object so
+
+410
+00:25:12,000 --> 00:25:20,550
+and we can also do it for the array here
+
+411
+00:25:17,600 --> 00:25:24,110
+so we are trying to type we are trying
+
+412
+00:25:20,550 --> 00:25:26,880
+to print the type of array or object
+
+413
+00:25:24,110 --> 00:25:29,070
+you'll see that you know both of them
+
+414
+00:25:26,880 --> 00:25:33,300
+return just object meaning that they are
+
+415
+00:25:29,070 --> 00:25:36,560
+objects and so here we have array and
+
+416
+00:25:33,300 --> 00:25:41,520
+array has the length let me show you
+
+417
+00:25:36,560 --> 00:25:46,620
+console.log a r dot a r dot length
+
+418
+00:25:41,520 --> 00:25:49,110
+okay now length is a property key so
+
+419
+00:25:46,620 --> 00:25:54,300
+when you say a r dot length it returns a
+
+420
+00:25:49,110 --> 00:25:56,430
+value let's see so you see is it returns
+
+421
+00:25:54,300 --> 00:25:59,550
+three because we have three elements in
+
+422
+00:25:56,430 --> 00:26:02,550
+the array so what is this length
+
+423
+00:25:59,550 --> 00:26:04,890
+remember we talked before now don't
+
+424
+00:26:02,550 --> 00:26:06,990
+become don't get confused with other
+
+425
+00:26:04,890 --> 00:26:09,450
+languages because with other languages
+
+426
+00:26:06,990 --> 00:26:12,690
+you automatically think oh of course
+
+427
+00:26:09,450 --> 00:26:15,810
+I'll rake out the length but remember we
+
+428
+00:26:12,690 --> 00:26:19,320
+are trying to do this in a mathematical
+
+429
+00:26:15,810 --> 00:26:22,200
+logic foundation way so we we said
+
+430
+00:26:19,320 --> 00:26:25,110
+before arrays a object is
+
+431
+00:26:22,200 --> 00:26:29,190
+a Correctional properties you know kyun
+
+432
+00:26:25,110 --> 00:26:31,980
+values and it may have a parent now we
+
+433
+00:26:29,190 --> 00:26:34,140
+never mentioned there is a property
+
+434
+00:26:31,980 --> 00:26:37,080
+length where does it came from you know
+
+435
+00:26:34,140 --> 00:26:39,750
+we didn't define a property length year
+
+436
+00:26:37,080 --> 00:26:43,200
+no you know you know for example this
+
+437
+00:26:39,750 --> 00:26:44,130
+array three four two three things where
+
+438
+00:26:43,200 --> 00:26:46,680
+are the keys
+
+439
+00:26:44,130 --> 00:26:48,780
+what are these people to you know we we
+
+440
+00:26:46,680 --> 00:26:51,660
+are not seeing key value pairs because
+
+441
+00:26:48,780 --> 00:26:54,150
+we because we mentioned that object is
+
+442
+00:26:51,660 --> 00:26:58,860
+always key value pairs that's one of the
+
+443
+00:26:54,150 --> 00:27:02,940
+thing so but remember we also mentioned
+
+444
+00:26:58,860 --> 00:27:05,640
+a object may have like special behaviors
+
+445
+00:27:02,940 --> 00:27:10,020
+special behaviors and special internal
+
+446
+00:27:05,640 --> 00:27:12,000
+properties arrays one example and this
+
+447
+00:27:10,020 --> 00:27:14,490
+is part of the reason why javascript
+
+448
+00:27:12,000 --> 00:27:19,470
+language is pretty bad is fairly fairly
+
+449
+00:27:14,490 --> 00:27:22,410
+complex so array so arrays object so you
+
+450
+00:27:19,470 --> 00:27:24,450
+have length length is a building
+
+451
+00:27:22,410 --> 00:27:26,280
+property like you don't have to define
+
+452
+00:27:24,450 --> 00:27:31,080
+it it's already there it's just there
+
+453
+00:27:26,280 --> 00:27:33,240
+why well it's useful but but it's not
+
+454
+00:27:31,080 --> 00:27:35,580
+logical well that's just the way that it
+
+455
+00:27:33,240 --> 00:27:38,340
+is you know it just has a magical
+
+456
+00:27:35,580 --> 00:27:43,650
+property already big building named
+
+457
+00:27:38,340 --> 00:27:47,700
+length and when you change the array
+
+458
+00:27:43,650 --> 00:27:52,230
+push for example when I add a more let's
+
+459
+00:27:47,700 --> 00:27:57,390
+say add five here then we try to print
+
+460
+00:27:52,230 --> 00:28:00,450
+it then we try to print length you can
+
+461
+00:27:57,390 --> 00:28:03,420
+see the length was three then we added a
+
+462
+00:28:00,450 --> 00:28:05,520
+element the lengths becomes four you see
+
+463
+00:28:03,420 --> 00:28:08,700
+that the length automatically get
+
+464
+00:28:05,520 --> 00:28:11,430
+updated even we didn't change it so
+
+465
+00:28:08,700 --> 00:28:14,760
+that's magic there is no other mechanism
+
+466
+00:28:11,430 --> 00:28:17,430
+in JavaScript entirety of JavaScript
+
+467
+00:28:14,760 --> 00:28:20,430
+spec to explain this other other than
+
+468
+00:28:17,430 --> 00:28:23,460
+just magic that's just that's just the
+
+469
+00:28:20,430 --> 00:28:26,430
+way JavaScript is that is why there are
+
+470
+00:28:23,460 --> 00:28:31,190
+many complexities in JavaScript now also
+
+471
+00:28:26,430 --> 00:28:35,100
+remember javascript array is actually
+
+472
+00:28:31,190 --> 00:28:35,940
+you know it is a object there is no such
+
+473
+00:28:35,100 --> 00:28:40,920
+thing as
+
+474
+00:28:35,940 --> 00:28:44,550
+just a object it just so happens that it
+
+475
+00:28:40,920 --> 00:28:48,270
+has this kind of magical thing like
+
+476
+00:28:44,550 --> 00:28:53,070
+links and you know it's actually just a
+
+477
+00:28:48,270 --> 00:28:55,320
+property because if you print the if you
+
+478
+00:28:53,070 --> 00:28:58,290
+print all the properties of the array
+
+479
+00:28:55,320 --> 00:29:02,010
+you will see the property keys let's try
+
+480
+00:28:58,290 --> 00:29:08,040
+that so let's go to JavaScript in-depth
+
+481
+00:29:02,010 --> 00:29:11,730
+and let's go to JavaScript these
+
+482
+00:29:08,040 --> 00:29:15,390
+properties so we want to be able to show
+
+483
+00:29:11,730 --> 00:29:19,200
+Oh a objects keys so we can do this
+
+484
+00:29:15,390 --> 00:29:20,390
+object keys include string key yeah
+
+485
+00:29:19,200 --> 00:29:26,750
+let's do that
+
+486
+00:29:20,390 --> 00:29:31,470
+so console.log object a our object keys
+
+487
+00:29:26,750 --> 00:29:34,550
+object keys okay on the object AR it
+
+488
+00:29:31,470 --> 00:29:38,970
+will print all the keys of the object AR
+
+489
+00:29:34,550 --> 00:29:43,470
+run it and here is the result you can
+
+490
+00:29:38,970 --> 00:29:57,260
+see that it's fully let's put the result
+
+491
+00:29:43,470 --> 00:29:57,260
+here let's just put some of them result
+
+492
+00:30:04,360 --> 00:30:15,920
+okay down second almost done vennett
+
+493
+00:30:12,820 --> 00:30:19,580
+good so you can see the result of
+
+494
+00:30:15,920 --> 00:30:22,490
+running this is that you know it returns
+
+495
+00:30:19,580 --> 00:30:23,030
+these AR objects all the keys of this AR
+
+496
+00:30:22,490 --> 00:30:27,140
+AR
+
+497
+00:30:23,030 --> 00:30:27,679
+object and you see we got zero one two
+
+498
+00:30:27,140 --> 00:30:31,550
+three
+
+499
+00:30:27,679 --> 00:30:34,160
+each one is a string now it's a stream
+
+500
+00:30:31,550 --> 00:30:35,929
+because remember Oh a key must be either
+
+501
+00:30:34,160 --> 00:30:38,030
+string or symbol so in this case a
+
+502
+00:30:35,929 --> 00:30:41,030
+string but where do they came from I
+
+503
+00:30:38,030 --> 00:30:43,550
+mean we didn't ever add a property key
+
+504
+00:30:41,030 --> 00:30:44,780
+you know zero there where'd it came from
+
+505
+00:30:43,550 --> 00:30:47,000
+it's just magic
+
+506
+00:30:44,780 --> 00:30:51,260
+so array in JavaScript it's object
+
+507
+00:30:47,000 --> 00:30:53,480
+that's pretending to be your ways so all
+
+508
+00:30:51,260 --> 00:30:57,470
+the keys came from the index of the
+
+509
+00:30:53,480 --> 00:31:02,840
+array 2 3 you know 0 1 2 3 because we
+
+510
+00:30:57,470 --> 00:31:05,450
+have 4 4 things so that that is why so
+
+511
+00:31:02,840 --> 00:31:07,370
+you know that's some that's that's some
+
+512
+00:31:05,450 --> 00:31:10,850
+of the complexities of java javascript
+
+513
+00:31:07,370 --> 00:31:14,720
+so let me so let's go on to mention the
+
+514
+00:31:10,850 --> 00:31:19,100
+the third property of the I mean the
+
+515
+00:31:14,720 --> 00:31:27,130
+third thing that defines a a object so a
+
+516
+00:31:19,100 --> 00:31:32,420
+object may have special behavior or
+
+517
+00:31:27,130 --> 00:31:39,170
+internal data okay for example for
+
+518
+00:31:32,420 --> 00:31:51,230
+example JavaScript array or function or
+
+519
+00:31:39,170 --> 00:31:53,300
+map or set objects or even date state
+
+520
+00:31:51,230 --> 00:31:56,780
+like when you get when you create a date
+
+521
+00:31:53,300 --> 00:32:00,620
+like equals some x equals to new date
+
+522
+00:31:56,780 --> 00:32:02,690
+you get you know you get a date but
+
+523
+00:32:00,620 --> 00:32:05,090
+where does that date came from you know
+
+524
+00:32:02,690 --> 00:32:07,280
+it's not a property key it's not key
+
+525
+00:32:05,090 --> 00:32:10,970
+value pairs where does the date came
+
+526
+00:32:07,280 --> 00:32:14,510
+from it is it came from a internal kind
+
+527
+00:32:10,970 --> 00:32:16,830
+of internal data you cannot access I
+
+528
+00:32:14,510 --> 00:32:18,840
+mean you can access but
+
+529
+00:32:16,830 --> 00:32:22,020
+but it's just internal you know it just
+
+530
+00:32:18,840 --> 00:32:25,500
+magically has a date so that's for the
+
+531
+00:32:22,020 --> 00:32:28,620
+date object and and similarly for each
+
+532
+00:32:25,500 --> 00:32:34,880
+you know for a function for example it's
+
+533
+00:32:28,620 --> 00:32:39,450
+let's define a function function FF
+
+534
+00:32:34,880 --> 00:32:43,470
+takes X as value and return X plus 1
+
+535
+00:32:39,450 --> 00:32:49,140
+let's for let's say for example okay and
+
+536
+00:32:43,470 --> 00:32:51,120
+let's call FF 5 and the research is
+
+537
+00:32:49,140 --> 00:32:56,700
+gonna be six let's run it
+
+538
+00:32:51,120 --> 00:33:04,620
+six indeed so you can see that so here's
+
+539
+00:32:56,700 --> 00:33:10,350
+a function but a function a game
+
+540
+00:33:04,620 --> 00:33:16,050
+function is a object two because you can
+
+541
+00:33:10,350 --> 00:33:19,680
+add key value pairs or properties you
+
+542
+00:33:16,050 --> 00:33:22,530
+can add properties to it for example
+
+543
+00:33:19,680 --> 00:33:30,540
+let's let's let's add some properties to
+
+544
+00:33:22,530 --> 00:33:35,250
+it let's say f f/a okay wait F if a
+
+545
+00:33:30,540 --> 00:33:38,340
+equals to let's say F F F F X okay
+
+546
+00:33:35,250 --> 00:33:47,220
+equals to three okay let's just say for
+
+547
+00:33:38,340 --> 00:33:51,900
+example and M equals to that okay then
+
+548
+00:33:47,220 --> 00:34:00,630
+we console.log F X dot X let's see what
+
+549
+00:33:51,900 --> 00:34:05,250
+we get three there it is you can see
+
+550
+00:34:00,630 --> 00:34:07,890
+that good morning Paul why does
+
+551
+00:34:05,250 --> 00:34:11,040
+JavaScript even have array then why not
+
+552
+00:34:07,890 --> 00:34:15,060
+have only object okay let me talk about
+
+553
+00:34:11,040 --> 00:34:18,450
+that let me finish about the function so
+
+554
+00:34:15,060 --> 00:34:20,940
+you see a function is also a object
+
+555
+00:34:18,450 --> 00:34:22,890
+because you know it's it's not undefined
+
+556
+00:34:20,940 --> 00:34:27,169
+you know like we mentioned before it's
+
+557
+00:34:22,890 --> 00:34:30,099
+not strange it's not any of those basic
+
+558
+00:34:27,169 --> 00:34:32,829
+let's go there Java scream dead
+
+559
+00:34:30,099 --> 00:34:35,789
+leave the window open so we can easily
+
+560
+00:34:32,829 --> 00:34:39,190
+refer to it you know so these are the
+
+561
+00:34:35,789 --> 00:34:41,499
+value types so JavaScript function is
+
+562
+00:34:39,190 --> 00:34:44,829
+also an object because it's not any one
+
+563
+00:34:41,499 --> 00:34:46,629
+of those other things a function is an
+
+564
+00:34:44,829 --> 00:34:49,149
+object that means you know like we
+
+565
+00:34:46,629 --> 00:34:52,690
+mentioned before object always can have
+
+566
+00:34:49,149 --> 00:34:55,659
+key value pairs so therefore we can add
+
+567
+00:34:52,690 --> 00:34:59,319
+you know let's say F F dot X equals to 3
+
+568
+00:34:55,659 --> 00:35:01,989
+you know or anything then we can name it
+
+569
+00:34:59,319 --> 00:35:05,549
+shows and in fact we can now print the
+
+570
+00:35:01,989 --> 00:35:08,829
+keys of it for example let's print
+
+571
+00:35:05,549 --> 00:35:12,579
+object Archies we want to see all keys
+
+572
+00:35:08,829 --> 00:35:16,450
+of the FF so there we go
+
+573
+00:35:12,579 --> 00:35:19,869
+and we see here is a result X and M
+
+574
+00:35:16,450 --> 00:35:24,640
+which is you know correct so you know
+
+575
+00:35:19,869 --> 00:35:26,440
+function so you know this this is a bit
+
+576
+00:35:24,640 --> 00:35:30,009
+strange you know function is also a
+
+577
+00:35:26,440 --> 00:35:32,799
+object but it has this kind of special
+
+578
+00:35:30,009 --> 00:35:34,690
+behavior because you can call it like a
+
+579
+00:35:32,799 --> 00:35:37,329
+function you know you can it's like you
+
+580
+00:35:34,690 --> 00:35:39,509
+know a thing that does something but
+
+581
+00:35:37,329 --> 00:35:41,999
+technically they are all just JavaScript
+
+582
+00:35:39,509 --> 00:35:46,509
+objects you know JavaScript does not
+
+583
+00:35:41,999 --> 00:35:49,509
+give a function as special you know
+
+584
+00:35:46,509 --> 00:35:53,349
+technically it doesn't but in practice
+
+585
+00:35:49,509 --> 00:35:55,749
+we all know function is you know it's a
+
+586
+00:35:53,349 --> 00:35:59,650
+function you use it as a function you
+
+587
+00:35:55,749 --> 00:36:01,059
+don't usually use use it like you know a
+
+588
+00:35:59,650 --> 00:36:03,190
+object or dictionary
+
+589
+00:36:01,059 --> 00:36:05,950
+you know same thing with array when you
+
+590
+00:36:03,190 --> 00:36:08,440
+have array you you you you use it as a
+
+591
+00:36:05,950 --> 00:36:11,170
+array you don't try to use it as a
+
+592
+00:36:08,440 --> 00:36:13,630
+object but however you can and a lot of
+
+593
+00:36:11,170 --> 00:36:16,150
+people when people do that it's a
+
+594
+00:36:13,630 --> 00:36:18,519
+mistake so you get confused and
+
+595
+00:36:16,150 --> 00:36:20,739
+therefore you have lots of bugs so why
+
+596
+00:36:18,519 --> 00:36:23,529
+is array you know so what's the point of
+
+597
+00:36:20,739 --> 00:36:26,890
+array then why do you have this strange
+
+598
+00:36:23,529 --> 00:36:30,880
+kind of strange behavior well the basic
+
+599
+00:36:26,890 --> 00:36:34,089
+answer is that JavaScript sucks you know
+
+600
+00:36:30,880 --> 00:36:37,809
+because it was created it was designed
+
+601
+00:36:34,089 --> 00:36:41,319
+created written implemented all together
+
+602
+00:36:37,809 --> 00:36:42,770
+in 10 days by this Brendan Eich guy from
+
+603
+00:36:41,319 --> 00:36:46,820
+Netscape you know he's
+
+604
+00:36:42,770 --> 00:36:49,430
+he's now running the company brave
+
+605
+00:36:46,820 --> 00:36:51,800
+browser today so anyways yeah so it is
+
+606
+00:36:49,430 --> 00:36:54,050
+really it's truly you know if you look
+
+607
+00:36:51,800 --> 00:36:57,530
+up JavaScript history from him he has
+
+608
+00:36:54,050 --> 00:37:00,050
+plants and other places you can verify
+
+609
+00:36:57,530 --> 00:37:02,270
+you know it's just written in tender is
+
+610
+00:37:00,050 --> 00:37:04,850
+designed the whole thing designed and
+
+611
+00:37:02,270 --> 00:37:08,210
+implemented the you know compiler
+
+612
+00:37:04,850 --> 00:37:09,980
+written you know in ten days so and in
+
+613
+00:37:08,210 --> 00:37:13,760
+the beginning it was designed to be a
+
+614
+00:37:09,980 --> 00:37:17,270
+easy language for non-programmers you
+
+615
+00:37:13,760 --> 00:37:21,140
+know for HTML designers who can so they
+
+616
+00:37:17,270 --> 00:37:23,510
+can maybe add a little code to make
+
+617
+00:37:21,140 --> 00:37:25,310
+their page interactive it's not it's
+
+618
+00:37:23,510 --> 00:37:27,320
+nothing like today you know where you
+
+619
+00:37:25,310 --> 00:37:29,570
+have whole applications written in
+
+620
+00:37:27,320 --> 00:37:33,730
+JavaScript all his servers that's you
+
+621
+00:37:29,570 --> 00:37:38,360
+know that was not in 1995 he was just
+
+622
+00:37:33,730 --> 00:37:40,550
+designed to be a a language for you know
+
+623
+00:37:38,360 --> 00:37:43,940
+non-programmers almost like in for
+
+624
+00:37:40,550 --> 00:37:47,030
+beginners you know so it's kind of
+
+625
+00:37:43,940 --> 00:37:49,340
+rushed and also they tried to make you
+
+626
+00:37:47,030 --> 00:37:52,640
+know JavaScript the language is based on
+
+627
+00:37:49,340 --> 00:37:57,020
+the scheme Lisp the function of foreign
+
+628
+00:37:52,640 --> 00:38:00,380
+language and self the language named
+
+629
+00:37:57,020 --> 00:38:03,680
+self there's a language named self where
+
+630
+00:38:00,380 --> 00:38:06,590
+the JavaScript prototype inheritance the
+
+631
+00:38:03,680 --> 00:38:10,190
+prototype object system came from the
+
+632
+00:38:06,590 --> 00:38:13,520
+functional aspect features of JavaScript
+
+633
+00:38:10,190 --> 00:38:16,490
+came from the scheme disp language which
+
+634
+00:38:13,520 --> 00:38:18,680
+is great language you know I think I
+
+635
+00:38:16,490 --> 00:38:20,930
+heard that self you know a lot of people
+
+636
+00:38:18,680 --> 00:38:23,060
+also like self but I don't know self so
+
+637
+00:38:20,930 --> 00:38:27,830
+anyway javascript is based on these
+
+638
+00:38:23,060 --> 00:38:31,700
+great languages but however it has to be
+
+639
+00:38:27,830 --> 00:38:32,810
+made to be like Java because there is a
+
+640
+00:38:31,700 --> 00:38:35,300
+commercial deal
+
+641
+00:38:32,810 --> 00:38:38,420
+Netscape with the Java some ecosystems
+
+642
+00:38:35,300 --> 00:38:42,590
+at a time so they try to have the Java
+
+643
+00:38:38,420 --> 00:38:45,380
+syntax and they try to fit in like you
+
+644
+00:38:42,590 --> 00:38:47,270
+know to behave like kind of like Java
+
+645
+00:38:45,380 --> 00:38:51,170
+the language you know the Sun
+
+646
+00:38:47,270 --> 00:38:53,630
+Microsystems Java so so for marketing
+
+647
+00:38:51,170 --> 00:38:56,570
+reasons and because the big rush so it
+
+648
+00:38:53,630 --> 00:38:59,690
+becomes it's rather very calm
+
+649
+00:38:56,570 --> 00:39:01,340
+kaydee language complicated in not in a
+
+650
+00:38:59,690 --> 00:39:05,240
+good way it's just sucks
+
+651
+00:39:01,340 --> 00:39:07,370
+so that is why today we have this you
+
+652
+00:39:05,240 --> 00:39:10,520
+know we already mentioned few like white
+
+653
+00:39:07,370 --> 00:39:13,100
+why do you if I raise a object why do
+
+654
+00:39:10,520 --> 00:39:16,360
+you know what's the point of it right
+
+655
+00:39:13,100 --> 00:39:19,400
+the thing about that is when when when
+
+656
+00:39:16,360 --> 00:39:22,970
+browsers implement there's a difference
+
+657
+00:39:19,400 --> 00:39:25,490
+when browsers when you create array and
+
+658
+00:39:22,970 --> 00:39:27,770
+you don't try to use it like a object
+
+659
+00:39:25,490 --> 00:39:31,460
+you know for example you don't delete a
+
+660
+00:39:27,770 --> 00:39:33,620
+key you know in the middle if you do not
+
+661
+00:39:31,460 --> 00:39:35,660
+do that if you do that then then
+
+662
+00:39:33,620 --> 00:39:38,120
+something happens so get out I'll tell
+
+663
+00:39:35,660 --> 00:39:42,050
+you but if you do not if you just use it
+
+664
+00:39:38,120 --> 00:39:46,570
+like a way like a normal way then the
+
+665
+00:39:42,050 --> 00:39:50,360
+implementation maintains maintains it
+
+666
+00:39:46,570 --> 00:39:53,090
+internally like AC array so it's very
+
+667
+00:39:50,360 --> 00:39:55,970
+efficient you know you can loop you can
+
+668
+00:39:53,090 --> 00:39:58,580
+access random access you know in
+
+669
+00:39:55,970 --> 00:40:01,610
+constant time but however here's the
+
+670
+00:39:58,580 --> 00:40:05,630
+thing if you have array let's say 1,000
+
+671
+00:40:01,610 --> 00:40:09,050
+element let's say 0 to 1000 then if you
+
+672
+00:40:05,630 --> 00:40:12,740
+try to use the delete operator to delete
+
+673
+00:40:09,050 --> 00:40:15,350
+some of the element you know what
+
+674
+00:40:12,740 --> 00:40:19,400
+happened is that if let's say if you
+
+675
+00:40:15,350 --> 00:40:23,510
+delete 300 random elements in our array
+
+676
+00:40:19,400 --> 00:40:28,220
+that has 1,000 elements what happened is
+
+677
+00:40:23,510 --> 00:40:31,930
+that we that array is technically now
+
+678
+00:40:28,220 --> 00:40:34,640
+called a sparse array in JavaScript and
+
+679
+00:40:31,930 --> 00:40:37,520
+essentially the effect is that it
+
+680
+00:40:34,640 --> 00:40:43,640
+becomes a normal object it losses all
+
+681
+00:40:37,520 --> 00:40:45,950
+the efficiency poverty of array it
+
+682
+00:40:43,640 --> 00:40:49,190
+becames you know hash table or
+
+683
+00:40:45,950 --> 00:40:51,290
+dictionary so so this is all internal I
+
+684
+00:40:49,190 --> 00:40:54,200
+mean on this language level you're not
+
+685
+00:40:51,290 --> 00:41:00,040
+supposed to know but yeah so that's why
+
+686
+00:40:54,200 --> 00:41:04,970
+it's part of reason it's very complex so
+
+687
+00:41:00,040 --> 00:41:07,190
+does that make sense there's a lot of
+
+688
+00:41:04,970 --> 00:41:09,850
+complex complexities but let me finish
+
+689
+00:41:07,190 --> 00:41:13,110
+yet so if he
+
+690
+00:41:09,850 --> 00:41:16,480
+there's something unclear let me know
+
+691
+00:41:13,110 --> 00:41:22,300
+let me mention another complexity which
+
+692
+00:41:16,480 --> 00:41:25,840
+is very useful to know that is that the
+
+693
+00:41:22,300 --> 00:41:28,600
+type of operator so how do you find
+
+694
+00:41:25,840 --> 00:41:33,640
+something a values type you use the type
+
+695
+00:41:28,600 --> 00:41:36,370
+of operator but here's an important
+
+696
+00:41:33,640 --> 00:41:39,630
+thing another complexity when you use
+
+697
+00:41:36,370 --> 00:41:44,080
+type of are know for example like that
+
+698
+00:41:39,630 --> 00:41:48,430
+you you get the return is a object he
+
+699
+00:41:44,080 --> 00:41:50,620
+says it's an object that is wrong you
+
+700
+00:41:48,430 --> 00:41:53,110
+know that that's just you know one
+
+701
+00:41:50,620 --> 00:41:57,010
+another problem of JavaScript it's not
+
+702
+00:41:53,110 --> 00:42:03,550
+know is not a object like we talked
+
+703
+00:41:57,010 --> 00:42:06,730
+before another let me go back to that
+
+704
+00:42:03,550 --> 00:42:09,340
+page again the JavaScript values are
+
+705
+00:42:06,730 --> 00:42:12,310
+just you know one two three four five
+
+706
+00:42:09,340 --> 00:42:16,060
+six seven seven of them undefined no
+
+707
+00:42:12,310 --> 00:42:22,480
+true string number symbol object there
+
+708
+00:42:16,060 --> 00:42:25,390
+is no type called know well I mean no
+
+709
+00:42:22,480 --> 00:42:30,340
+that the type of know is the literals
+
+710
+00:42:25,390 --> 00:42:33,190
+keyword know itself and the only value
+
+711
+00:42:30,340 --> 00:42:35,590
+for the of the type know is just that
+
+712
+00:42:33,190 --> 00:42:39,730
+value there's nothing else possibly can
+
+713
+00:42:35,590 --> 00:42:43,690
+be can be no so when you say type of
+
+714
+00:42:39,730 --> 00:42:45,970
+know you should get no but but that's
+
+715
+00:42:43,690 --> 00:42:48,190
+not what happens you you it returns a
+
+716
+00:42:45,970 --> 00:42:50,970
+object you know it says it's an object
+
+717
+00:42:48,190 --> 00:42:54,670
+and the reason this happens is because
+
+718
+00:42:50,970 --> 00:42:57,520
+there was a see bug in the JavaScript
+
+719
+00:42:54,670 --> 00:42:59,740
+language you can you know you can go
+
+720
+00:42:57,520 --> 00:43:03,160
+through list this link this this is
+
+721
+00:42:59,740 --> 00:43:05,260
+written by a famous JavaScript expert he
+
+722
+00:43:03,160 --> 00:43:09,700
+dug into the C code you know back in
+
+723
+00:43:05,260 --> 00:43:14,650
+1999 not 1995 you know and it's just a
+
+724
+00:43:09,700 --> 00:43:16,780
+bug in C so that is why when you when
+
+725
+00:43:14,650 --> 00:43:20,290
+you do type of nor you get you know
+
+726
+00:43:16,780 --> 00:43:24,210
+JavaScript says it's object so so you
+
+727
+00:43:20,290 --> 00:43:26,950
+know this is another complexity but also
+
+728
+00:43:24,210 --> 00:43:29,380
+there's also interesting things
+
+729
+00:43:26,950 --> 00:43:36,670
+let me type this so you should read that
+
+730
+00:43:29,380 --> 00:43:41,640
+later you know this this URL also when
+
+731
+00:43:36,670 --> 00:43:46,809
+you say type of a function let's try the
+
+732
+00:43:41,640 --> 00:43:50,289
+console log okay type of no let's see
+
+733
+00:43:46,809 --> 00:43:54,309
+what we get you know we you we get
+
+734
+00:43:50,289 --> 00:44:02,529
+object we says object now let's let's
+
+735
+00:43:54,309 --> 00:44:04,900
+try type of FF great thank you so if we
+
+736
+00:44:02,529 --> 00:44:10,930
+try type of FF what do you think will
+
+737
+00:44:04,900 --> 00:44:15,309
+happen anyone let's also try type of AR
+
+738
+00:44:10,930 --> 00:44:19,599
+what would happen you okay I'll give you
+
+739
+00:44:15,309 --> 00:44:23,650
+five seconds to say and I'm gonna show
+
+740
+00:44:19,599 --> 00:44:25,900
+run it so you know so there are two
+
+741
+00:44:23,650 --> 00:44:29,739
+questions type of FF what does it return
+
+742
+00:44:25,900 --> 00:44:36,609
+f F is a function and AI is a way
+
+743
+00:44:29,739 --> 00:44:39,329
+well what would type of return okay I'm
+
+744
+00:44:36,609 --> 00:44:43,150
+gonna run it let's see
+
+745
+00:44:39,329 --> 00:44:45,519
+so it says function here okay
+
+746
+00:44:43,150 --> 00:44:46,329
+so for a function he says function for
+
+747
+00:44:45,519 --> 00:44:50,470
+object
+
+748
+00:44:46,329 --> 00:44:53,259
+it says object okay so you say it's
+
+749
+00:44:50,470 --> 00:44:57,160
+object and object you got one of them
+
+750
+00:44:53,259 --> 00:45:00,160
+wrong so when you say type type F F type
+
+751
+00:44:57,160 --> 00:45:02,410
+type of FF or function it actually
+
+752
+00:45:00,160 --> 00:45:05,730
+returns a strange function you know it
+
+753
+00:45:02,410 --> 00:45:11,470
+says it's a function so here is another
+
+754
+00:45:05,730 --> 00:45:14,559
+complexity now you know that's why I'm
+
+755
+00:45:11,470 --> 00:45:18,220
+you know JavaScript many people hates it
+
+756
+00:45:14,559 --> 00:45:21,640
+you know remember here are the you know
+
+757
+00:45:18,220 --> 00:45:25,900
+value possible value types of JavaScript
+
+758
+00:45:21,640 --> 00:45:29,739
+there is no type code function okay but
+
+759
+00:45:25,900 --> 00:45:32,950
+however when you say type of and use of
+
+760
+00:45:29,739 --> 00:45:34,809
+function it just return function now
+
+761
+00:45:32,950 --> 00:45:37,010
+this is actually extremely useful
+
+762
+00:45:34,809 --> 00:45:39,230
+because
+
+763
+00:45:37,010 --> 00:45:41,810
+you need to distinguish object you know
+
+764
+00:45:39,230 --> 00:45:44,540
+a function is you know not normally a
+
+765
+00:45:41,810 --> 00:45:47,870
+object you know it's a function so you
+
+766
+00:45:44,540 --> 00:45:50,450
+need that distinction but but by the
+
+767
+00:45:47,870 --> 00:45:52,370
+JavaScript spec there is no such thing
+
+768
+00:45:50,450 --> 00:45:56,330
+as a function type you know it's just
+
+769
+00:45:52,370 --> 00:46:00,800
+object so so you have this you know you
+
+770
+00:45:56,330 --> 00:46:03,230
+have all these weird situations so just
+
+771
+00:46:00,800 --> 00:46:06,440
+remember you know when you use type of
+
+772
+00:46:03,230 --> 00:46:11,330
+type of there are kind of two special
+
+773
+00:46:06,440 --> 00:46:13,700
+cases one is function and one is the new
+
+774
+00:46:11,330 --> 00:46:16,670
+so when you say type of know it actually
+
+775
+00:46:13,700 --> 00:46:21,880
+say object when you say type of function
+
+776
+00:46:16,670 --> 00:46:25,220
+it says function not object you know and
+
+777
+00:46:21,880 --> 00:46:28,850
+and also when you say type of array
+
+778
+00:46:25,220 --> 00:46:31,130
+it doesn't say already says object so
+
+779
+00:46:28,850 --> 00:46:33,650
+this is you know it's just really bad
+
+780
+00:46:31,130 --> 00:46:35,960
+but however you know people get you know
+
+781
+00:46:33,650 --> 00:46:38,600
+what can you do people just use it you
+
+782
+00:46:35,960 --> 00:46:42,710
+know like if you consider computing
+
+783
+00:46:38,600 --> 00:46:44,750
+history let's say C programming language
+
+784
+00:46:42,710 --> 00:46:47,120
+in Unix
+
+785
+00:46:44,750 --> 00:46:50,750
+oh my god and there's lots of problems
+
+786
+00:46:47,120 --> 00:46:52,580
+there in C press first but you know
+
+787
+00:46:50,750 --> 00:46:54,760
+people just get on you know you just
+
+788
+00:46:52,580 --> 00:46:58,940
+have to you know get on with it use it
+
+789
+00:46:54,760 --> 00:47:01,880
+so I think I almost covered everything
+
+790
+00:46:58,940 --> 00:47:03,740
+about object but there is I think there
+
+791
+00:47:01,880 --> 00:47:06,890
+is possibly one more so but but let me
+
+792
+00:47:03,740 --> 00:47:09,380
+do a summary first okay three things
+
+793
+00:47:06,890 --> 00:47:11,600
+about object one is a collection of
+
+794
+00:47:09,380 --> 00:47:16,430
+properties key value pairs
+
+795
+00:47:11,600 --> 00:47:19,160
+that's what object is - it may have
+
+796
+00:47:16,430 --> 00:47:23,000
+another object called its parent there's
+
+797
+00:47:19,160 --> 00:47:27,200
+a link you know so so a object may have
+
+798
+00:47:23,000 --> 00:47:29,930
+a parent and the purpose of this parent
+
+799
+00:47:27,200 --> 00:47:32,750
+thing parent chain is just so that when
+
+800
+00:47:29,930 --> 00:47:34,850
+you look up a property javascript will
+
+801
+00:47:32,750 --> 00:47:36,980
+look up its parent try to see if there
+
+802
+00:47:34,850 --> 00:47:40,640
+and repeat then this is called
+
+803
+00:47:36,980 --> 00:47:43,490
+inheritance so okay so that's the second
+
+804
+00:47:40,640 --> 00:47:47,000
+thing about object it may have a parent
+
+805
+00:47:43,490 --> 00:47:49,330
+for the inheritance purposes when
+
+806
+00:47:47,000 --> 00:47:54,470
+looking up properties
+
+807
+00:47:49,330 --> 00:47:57,340
+3a object some objects may have a kind
+
+808
+00:47:54,470 --> 00:48:01,220
+of special behavior or special internal
+
+809
+00:47:57,340 --> 00:48:03,890
+data you know you cannot it's not it's
+
+810
+00:48:01,220 --> 00:48:07,270
+not like he value pairs you can readily
+
+811
+00:48:03,890 --> 00:48:12,520
+you know manipulate it's just internal
+
+812
+00:48:07,270 --> 00:48:18,920
+so example of such objects are function
+
+813
+00:48:12,520 --> 00:48:20,150
+array there's a map type which is new in
+
+814
+00:48:18,920 --> 00:48:24,590
+2015
+
+815
+00:48:20,150 --> 00:48:30,470
+let me show you JavaScript in depth so
+
+816
+00:48:24,590 --> 00:48:35,150
+you go to in depth and you go down you
+
+817
+00:48:30,470 --> 00:48:40,130
+can see JavaScript iterables okay set
+
+818
+00:48:35,150 --> 00:48:43,010
+object and map object well actually
+
+819
+00:48:40,130 --> 00:48:46,070
+let's go to JavaScript reference so you
+
+820
+00:48:43,010 --> 00:48:48,920
+can see you have this set object a set
+
+821
+00:48:46,070 --> 00:48:52,580
+object is just a mathematical set it's
+
+822
+00:48:48,920 --> 00:48:56,000
+just like it's like on a way except that
+
+823
+00:48:52,580 --> 00:48:59,330
+no item can be Pete every item must be
+
+824
+00:48:56,000 --> 00:49:02,690
+unique so that's what set is and you
+
+825
+00:48:59,330 --> 00:49:06,320
+have this map object map object is a
+
+826
+00:49:02,690 --> 00:49:09,980
+proper hash table or dictionary like
+
+827
+00:49:06,320 --> 00:49:16,850
+dictionary in Python or hash table in in
+
+828
+00:49:09,980 --> 00:49:18,440
+Ruby so both set and map objects are new
+
+829
+00:49:16,850 --> 00:49:21,230
+in 2015
+
+830
+00:49:18,440 --> 00:49:24,380
+okay they just added that so why do you
+
+831
+00:49:21,230 --> 00:49:26,840
+need map object because I mean you you
+
+832
+00:49:24,380 --> 00:49:29,870
+say you say it's just like a dictionary
+
+833
+00:49:26,840 --> 00:49:31,640
+but a object is already your dictionary
+
+834
+00:49:29,870 --> 00:49:35,060
+you know because it's got key value
+
+835
+00:49:31,640 --> 00:49:38,560
+pairs why do you need map again that's
+
+836
+00:49:35,060 --> 00:49:43,130
+another complexity because the object
+
+837
+00:49:38,560 --> 00:49:45,140
+data type we created here it's got a lot
+
+838
+00:49:43,130 --> 00:49:49,910
+of problems for example there is no way
+
+839
+00:49:45,140 --> 00:49:51,740
+to find how many keys are there well you
+
+840
+00:49:49,910 --> 00:49:54,260
+can but you first of all you have to get
+
+841
+00:49:51,740 --> 00:49:56,630
+all the keys then count the keys you
+
+842
+00:49:54,260 --> 00:49:58,760
+know you know tell me you know when you
+
+843
+00:49:56,630 --> 00:50:02,300
+get the keys it's a race then you use
+
+844
+00:49:58,760 --> 00:50:05,810
+the length property but that's not you
+
+845
+00:50:02,300 --> 00:50:08,840
+that's too English and you know you this
+
+846
+00:50:05,810 --> 00:50:12,260
+but there's no direct way to to know how
+
+847
+00:50:08,840 --> 00:50:15,340
+many keys you have so you have these
+
+848
+00:50:12,260 --> 00:50:17,780
+kind of problems so so that is why
+
+849
+00:50:15,340 --> 00:50:21,890
+javascript in 2015
+
+850
+00:50:17,780 --> 00:50:25,100
+properly added the dictionary or also
+
+851
+00:50:21,890 --> 00:50:28,160
+known as hash table thing which which is
+
+852
+00:50:25,100 --> 00:50:30,740
+a object you know another object so you
+
+853
+00:50:28,160 --> 00:50:32,810
+have the map object so let me so let me
+
+854
+00:50:30,740 --> 00:50:35,450
+mentioned so that number three things
+
+855
+00:50:32,810 --> 00:50:38,090
+some object may have special behavior or
+
+856
+00:50:35,450 --> 00:50:42,080
+internal data for example array function
+
+857
+00:50:38,090 --> 00:50:46,640
+map or set objects or date or all
+
+858
+00:50:42,080 --> 00:50:51,260
+rejects or rejects or you know not kind
+
+859
+00:50:46,640 --> 00:50:53,510
+of you you know but to JavaScript
+
+860
+00:50:51,260 --> 00:50:57,800
+technically speaking they are all just
+
+861
+00:50:53,510 --> 00:51:01,030
+objects like like a coding PI you know
+
+862
+00:50:57,800 --> 00:51:05,240
+if you go by the JavaScript spec
+
+863
+00:51:01,030 --> 00:51:09,050
+specification for example I have several
+
+864
+00:51:05,240 --> 00:51:11,030
+links to them you you know they they
+
+865
+00:51:09,050 --> 00:51:15,770
+just define it that way though all these
+
+866
+00:51:11,030 --> 00:51:20,240
+are objects there is no to us you know
+
+867
+00:51:15,770 --> 00:51:22,250
+we might say okay function array map set
+
+868
+00:51:20,240 --> 00:51:25,790
+you know these things are kind of like
+
+869
+00:51:22,250 --> 00:51:27,830
+subtype of the object type that makes
+
+870
+00:51:25,790 --> 00:51:31,400
+sense right because you know you have
+
+871
+00:51:27,830 --> 00:51:34,940
+this object but you have you know you
+
+872
+00:51:31,400 --> 00:51:37,820
+have array function no more object you
+
+873
+00:51:34,940 --> 00:51:40,550
+have map you know this date you know
+
+874
+00:51:37,820 --> 00:51:43,610
+these things behaves differently because
+
+875
+00:51:40,550 --> 00:51:45,980
+they have special purposes so we might
+
+876
+00:51:43,610 --> 00:51:50,180
+think you know it's logical to us we say
+
+877
+00:51:45,980 --> 00:51:53,650
+oh those are subtype you know of the
+
+878
+00:51:50,180 --> 00:51:58,040
+object type but however JavaScript spec
+
+879
+00:51:53,650 --> 00:51:58,460
+has no such notion yeah so that's too
+
+880
+00:51:58,040 --> 00:52:00,530
+bad
+
+881
+00:51:58,460 --> 00:52:03,350
+otherwise we we could you know maybe we
+
+882
+00:52:00,530 --> 00:52:06,770
+can have a function or you know like
+
+883
+00:52:03,350 --> 00:52:08,600
+subtype of then you will properly tell
+
+884
+00:52:06,770 --> 00:52:12,100
+us you know when you when we have array
+
+885
+00:52:08,600 --> 00:52:14,060
+you'll say array you know when we have
+
+886
+00:52:12,100 --> 00:52:16,280
+you know a functions
+
+887
+00:52:14,060 --> 00:52:18,980
+it says function when we have a normal
+
+888
+00:52:16,280 --> 00:52:22,210
+check you will say like data object you
+
+889
+00:52:18,980 --> 00:52:26,600
+know for example but there's no such
+
+890
+00:52:22,210 --> 00:52:28,610
+there's no actual subtype concept but
+
+891
+00:52:26,600 --> 00:52:32,120
+however there's a trick you if you
+
+892
+00:52:28,610 --> 00:52:35,030
+really want to find the the subtype you
+
+893
+00:52:32,120 --> 00:52:39,980
+know so-called subtype of a object type
+
+894
+00:52:35,030 --> 00:52:45,830
+you can and but that's considered like a
+
+895
+00:52:39,980 --> 00:52:49,850
+trick so you can find it you can find it
+
+896
+00:52:45,830 --> 00:52:53,270
+by object and inheritance object type
+
+897
+00:52:49,850 --> 00:52:56,120
+okay fine objects type for example here
+
+898
+00:52:53,270 --> 00:52:58,790
+I show you how to find the various types
+
+899
+00:52:56,120 --> 00:53:02,690
+how do you actually determine you know
+
+900
+00:52:58,790 --> 00:53:05,780
+whether this is array or is it's not a
+
+901
+00:53:02,690 --> 00:53:08,210
+way you know it's just another data
+
+902
+00:53:05,780 --> 00:53:12,410
+object you know oh this so you can check
+
+903
+00:53:08,210 --> 00:53:15,920
+you know the the special way the trick
+
+904
+00:53:12,410 --> 00:53:19,730
+is this reflect on apply object our
+
+905
+00:53:15,920 --> 00:53:22,730
+prototype to string then object then oh
+
+906
+00:53:19,730 --> 00:53:26,480
+you can say object a prototype dot to
+
+907
+00:53:22,730 --> 00:53:31,060
+string Col then object and you it will
+
+908
+00:53:26,480 --> 00:53:34,580
+return a string like one of these it so
+
+909
+00:53:31,060 --> 00:53:40,640
+so in other words it tells us the
+
+910
+00:53:34,580 --> 00:53:42,610
+subtype of the object value type and you
+
+911
+00:53:40,640 --> 00:53:45,200
+know this is sometimes useful but it's
+
+912
+00:53:42,610 --> 00:53:47,690
+it's tricky again it's tricky because
+
+913
+00:53:45,200 --> 00:53:50,690
+javascript language does not define no
+
+914
+00:53:47,690 --> 00:53:53,480
+such concept of sub sub type i mean if
+
+915
+00:53:50,690 --> 00:53:56,450
+there is then you could have easy you
+
+916
+00:53:53,480 --> 00:53:58,340
+have a function that precisely tell us
+
+917
+00:53:56,450 --> 00:54:00,620
+you know what subtype it is but
+
+918
+00:53:58,340 --> 00:54:03,050
+javascript doesn't have that the the
+
+919
+00:54:00,620 --> 00:54:07,400
+reason that the the technique we are
+
+920
+00:54:03,050 --> 00:54:11,300
+doing is actually from a kind of
+
+921
+00:54:07,400 --> 00:54:13,460
+convoluted thing it's it's it's it's not
+
+922
+00:54:11,300 --> 00:54:15,740
+easy to explain it's not simple to
+
+923
+00:54:13,460 --> 00:54:21,110
+explain but but anyway that's how you
+
+924
+00:54:15,740 --> 00:54:23,890
+how you can find the the subtype of a
+
+925
+00:54:21,110 --> 00:54:23,890
+object type
+
+926
+00:54:24,630 --> 00:54:31,349
+so I think that is so we covered so far
+
+927
+00:54:28,049 --> 00:54:35,579
+we defined object to be these three kind
+
+928
+00:54:31,349 --> 00:54:38,490
+of having these three aspects you know a
+
+929
+00:54:35,579 --> 00:54:42,500
+collection of properties may have a
+
+930
+00:54:38,490 --> 00:54:45,450
+parent and may have special behavior
+
+931
+00:54:42,500 --> 00:54:47,510
+that's a three thing but there is like
+
+932
+00:54:45,450 --> 00:54:51,059
+one more thing then we'll be done today
+
+933
+00:54:47,510 --> 00:54:56,220
+54 minutes great one more thing and
+
+934
+00:54:51,059 --> 00:54:59,430
+about object so let's go to here I'll
+
+935
+00:54:56,220 --> 00:55:02,040
+check overview so let's read it let's
+
+936
+00:54:59,430 --> 00:55:04,799
+see if I missed something so javascript
+
+937
+00:55:02,040 --> 00:55:08,010
+summary of javascript object object is a
+
+938
+00:55:04,799 --> 00:55:10,770
+collection of key-value pairs okay each
+
+939
+00:55:08,010 --> 00:55:13,770
+key/value pair is called poverty okay
+
+940
+00:55:10,770 --> 00:55:16,859
+most objects have special purpose in
+
+941
+00:55:13,770 --> 00:55:20,099
+internal data for example function
+
+942
+00:55:16,859 --> 00:55:23,940
+objects is a function array object has a
+
+943
+00:55:20,099 --> 00:55:26,160
+magical length property bigger
+
+944
+00:55:23,940 --> 00:55:29,839
+expression object is used to match
+
+945
+00:55:26,160 --> 00:55:33,569
+stream pattern state object holds
+
+946
+00:55:29,839 --> 00:55:35,730
+date/time data and so on the one object
+
+947
+00:55:33,569 --> 00:55:39,000
+that does not have any special purpose
+
+948
+00:55:35,730 --> 00:55:42,150
+is what we call the data object you know
+
+949
+00:55:39,000 --> 00:55:44,940
+which one way to create it is you know
+
+950
+00:55:42,150 --> 00:55:47,660
+with this notation you know curly
+
+951
+00:55:44,940 --> 00:55:47,660
+bracket in
+
+952
+00:55:50,809 --> 00:55:56,569
+okay so we cover so and and and let me
+
+953
+00:55:54,199 --> 00:55:59,269
+continue each object has zero or one
+
+954
+00:55:56,569 --> 00:56:04,369
+parent object okay called its prototype
+
+955
+00:55:59,269 --> 00:56:07,579
+when a object is obsessed where poverty
+
+956
+00:56:04,369 --> 00:56:10,640
+is exist JavaScript will go of the
+
+957
+00:56:07,579 --> 00:56:13,909
+parent chain koko of the parent object
+
+958
+00:56:10,640 --> 00:56:17,049
+or parent a parent at to look for the
+
+959
+00:56:13,909 --> 00:56:22,099
+poverty this is called inheritance okay
+
+960
+00:56:17,049 --> 00:56:24,439
+so that's that's a the third thing about
+
+961
+00:56:22,099 --> 00:56:28,189
+object you know her parents may have
+
+962
+00:56:24,439 --> 00:56:30,739
+parents now for the the fourth thing
+
+963
+00:56:28,189 --> 00:56:34,839
+about object is that each object has a
+
+964
+00:56:30,739 --> 00:56:38,659
+special info attached called the is
+
+965
+00:56:34,839 --> 00:56:40,699
+extensible internal slot it specifies
+
+966
+00:56:38,659 --> 00:56:43,099
+where the new properties can be added to
+
+967
+00:56:40,699 --> 00:56:45,890
+the object okay that's the that's the
+
+968
+00:56:43,099 --> 00:56:48,949
+other thing I want to mention so so be
+
+969
+00:56:45,890 --> 00:56:51,140
+so so we we are trying to define the
+
+970
+00:56:48,949 --> 00:56:53,619
+object there's one more requirement the
+
+971
+00:56:51,140 --> 00:56:56,779
+the so called you know the object thing
+
+972
+00:56:53,619 --> 00:56:58,969
+has a special info attached to date
+
+973
+00:56:56,779 --> 00:57:02,539
+attached to it that that is called
+
+974
+00:56:58,969 --> 00:57:06,439
+is extensible you know technically in
+
+975
+00:57:02,539 --> 00:57:11,929
+JavaScript SPECT they say they call it
+
+976
+00:57:06,439 --> 00:57:15,169
+the X deco it is extensible internal
+
+977
+00:57:11,929 --> 00:57:20,599
+slot they used the word internal start
+
+978
+00:57:15,169 --> 00:57:23,689
+to describe this special info sometimes
+
+979
+00:57:20,599 --> 00:57:26,509
+you know in I think in previous spec
+
+980
+00:57:23,689 --> 00:57:31,219
+it's called attribute but you know the
+
+981
+00:57:26,509 --> 00:57:34,130
+terms change anyway so anyway the point
+
+982
+00:57:31,219 --> 00:57:36,709
+about this is that each object remember
+
+983
+00:57:34,130 --> 00:57:39,979
+each object may have a parent meaning it
+
+984
+00:57:36,709 --> 00:57:43,759
+has a link to another object we call it
+
+985
+00:57:39,979 --> 00:57:49,519
+its parent but it also have another kind
+
+986
+00:57:43,759 --> 00:57:53,299
+of special info that is is extensible
+
+987
+00:57:49,519 --> 00:57:56,359
+meaning that the the the kind of value
+
+988
+00:57:53,299 --> 00:57:58,939
+of this is either true or false so if it
+
+989
+00:57:56,359 --> 00:58:01,869
+is extensible that means you can add
+
+990
+00:57:58,939 --> 00:58:04,220
+more properties to the object if not
+
+991
+00:58:01,869 --> 00:58:07,730
+that means you cannot
+
+992
+00:58:04,220 --> 00:58:10,369
+so you have this is extensible thing you
+
+993
+00:58:07,730 --> 00:58:12,410
+know it's called internal start by the
+
+994
+00:58:10,369 --> 00:58:16,030
+way it's not a property okay it's not a
+
+995
+00:58:12,410 --> 00:58:19,099
+key it's not like you just say that is
+
+996
+00:58:16,030 --> 00:58:20,810
+extensible equals true you know true or
+
+997
+00:58:19,099 --> 00:58:23,780
+false you cannot do it like that it's
+
+998
+00:58:20,810 --> 00:58:27,230
+not it's not a property it's not a key
+
+999
+00:58:23,780 --> 00:58:31,010
+value thing it's just a special internal
+
+1000
+00:58:27,230 --> 00:58:35,030
+information but if you want to you know
+
+1001
+00:58:31,010 --> 00:58:39,530
+change this is extensible or thing you
+
+1002
+00:58:35,030 --> 00:58:42,170
+can there are methods to do that so
+
+1003
+00:58:39,530 --> 00:58:45,230
+actually I have written all these out
+
+1004
+00:58:42,170 --> 00:58:50,390
+for example if you just go to JavaScript
+
+1005
+00:58:45,230 --> 00:58:53,900
+in depth and go back to the object
+
+1006
+00:58:50,390 --> 00:58:55,880
+section object and inheritance you
+
+1007
+00:58:53,900 --> 00:58:58,880
+already know what inheritance means we
+
+1008
+00:58:55,880 --> 00:59:02,540
+covered so you go this section there are
+
+1009
+00:58:58,880 --> 00:59:04,310
+ways to find out which is a objects
+
+1010
+00:59:02,540 --> 00:59:06,380
+parents you know sometimes you want to
+
+1011
+00:59:04,310 --> 00:59:10,190
+know you know find the average
+
+1012
+00:59:06,380 --> 00:59:12,859
+experience you can which is very easy by
+
+1013
+00:59:10,190 --> 00:59:17,900
+the way you can find the objects type
+
+1014
+00:59:12,859 --> 00:59:23,770
+you can find the prototype chain you can
+
+1015
+00:59:17,900 --> 00:59:28,310
+for example set parent or get parent
+
+1016
+00:59:23,770 --> 00:59:31,069
+almost anytime you want and here is how
+
+1017
+00:59:28,310 --> 00:59:38,150
+do you hear the explanation of the
+
+1018
+00:59:31,069 --> 00:59:42,470
+prototype chain and you can you can show
+
+1019
+00:59:38,150 --> 00:59:44,510
+prototype chain you can prevent adding
+
+1020
+00:59:42,470 --> 00:59:47,420
+property okay sometimes you want to
+
+1021
+00:59:44,510 --> 00:59:50,030
+prevent people or yourself from adding
+
+1022
+00:59:47,420 --> 00:59:53,020
+another property so all you have to do
+
+1023
+00:59:50,030 --> 00:59:57,200
+is you want to set set this is
+
+1024
+00:59:53,020 --> 00:59:59,089
+extensible to force but because it's
+
+1025
+00:59:57,200 --> 01:00:06,109
+internal thing you cannot do it directly
+
+1026
+00:59:59,089 --> 01:00:09,770
+you do it by by calling the method
+
+1027
+01:00:06,109 --> 01:00:13,339
+object are preventing extension then the
+
+1028
+01:00:09,770 --> 01:00:17,550
+object name so you know so and you can
+
+1029
+01:00:13,339 --> 01:00:20,580
+also check if an object is is extensible
+
+1030
+01:00:17,550 --> 01:00:22,080
+so okay so I think that's the the main
+
+1031
+01:00:20,580 --> 01:00:30,630
+thing is I want to cover about
+
+1032
+01:00:22,080 --> 01:00:33,480
+JavaScript object the let's see okay sit
+
+1033
+01:00:30,630 --> 01:00:37,680
+and get prototypes that that's set and
+
+1034
+01:00:33,480 --> 01:00:46,170
+get parent okay let's go to let's go
+
+1035
+01:00:37,680 --> 01:00:48,930
+back to JavaScript in-depth house okay
+
+1036
+01:00:46,170 --> 01:00:58,770
+yeah so that's basically what I want to
+
+1037
+01:00:48,930 --> 01:01:03,050
+cover today yeah we are trying to cover
+
+1038
+01:00:58,770 --> 01:01:07,200
+what is javascript object in a kind of
+
+1039
+01:01:03,050 --> 01:01:10,500
+mathematicians way which means you know
+
+1040
+01:01:07,200 --> 01:01:14,190
+you abstract me you identify things you
+
+1041
+01:01:10,500 --> 01:01:16,830
+know by the way know that we didn't
+
+1042
+01:01:14,190 --> 01:01:19,650
+mention anything about class you know
+
+1043
+01:01:16,830 --> 01:01:21,870
+like in Java or Python or Ruby you
+
+1044
+01:01:19,650 --> 01:01:26,070
+created you know you defined classes
+
+1045
+01:01:21,870 --> 01:01:28,860
+then you instantiate a object you know
+
+1046
+01:01:26,070 --> 01:01:31,560
+from where class class has inheritance
+
+1047
+01:01:28,860 --> 01:01:34,110
+like parent you know a tree you know
+
+1048
+01:01:31,560 --> 01:01:37,640
+then you create objects then you can you
+
+1049
+01:01:34,110 --> 01:01:41,070
+can also extend a class you know
+
+1050
+01:01:37,640 --> 01:01:45,030
+JavaScript does not have that okay this
+
+1051
+01:01:41,070 --> 01:01:46,890
+is important javascript object is this
+
+1052
+01:01:45,030 --> 01:01:49,440
+is nothing like that like you know you
+
+1053
+01:01:46,890 --> 01:01:53,310
+saw it's nothing you know Java scripts
+
+1054
+01:01:49,440 --> 01:01:57,960
+object system the OB system it's called
+
+1055
+01:01:53,310 --> 01:02:01,940
+prototype based object system it's
+
+1056
+01:01:57,960 --> 01:02:07,010
+modeled from the self language it is
+
+1057
+01:02:01,940 --> 01:02:11,580
+absolutely totally nothing like the way
+
+1058
+01:02:07,010 --> 01:02:14,720
+OB is in Ruby Python or Java because in
+
+1059
+01:02:11,580 --> 01:02:18,840
+there typically you define classes and
+
+1060
+01:02:14,720 --> 01:02:22,140
+classes can can have a children so
+
+1061
+01:02:18,840 --> 01:02:25,020
+classes in helping the they say inherit
+
+1062
+01:02:22,140 --> 01:02:27,780
+each other you know then you create an
+
+1063
+01:02:25,020 --> 01:02:31,380
+object of the particular class the
+
+1064
+01:02:27,780 --> 01:02:34,740
+object will have you know the same kind
+
+1065
+01:02:31,380 --> 01:02:37,250
+you know it's like a type but again but
+
+1066
+01:02:34,740 --> 01:02:41,009
+we have covered we have talked about
+
+1067
+01:02:37,250 --> 01:02:43,500
+JavaScript object for one hour did we
+
+1068
+01:02:41,009 --> 01:02:44,779
+ever mention classes no because it's
+
+1069
+01:02:43,500 --> 01:02:49,349
+nothing like that
+
+1070
+01:02:44,779 --> 01:02:50,789
+but javascript you know so you know like
+
+1071
+01:02:49,349 --> 01:02:52,920
+all the things we talked about
+
+1072
+01:02:50,789 --> 01:02:55,440
+javascript object you know like
+
+1073
+01:02:52,920 --> 01:02:58,289
+correction of key value pairs may have a
+
+1074
+01:02:55,440 --> 01:03:02,250
+parent may have special behavior and
+
+1075
+01:02:58,289 --> 01:03:04,440
+have this is extensible thing attached
+
+1076
+01:03:02,250 --> 01:03:07,130
+that's the four things about javascript
+
+1077
+01:03:04,440 --> 01:03:10,819
+object and that is it that
+
+1078
+01:03:07,130 --> 01:03:13,109
+mathematically defines it there is no
+
+1079
+01:03:10,819 --> 01:03:14,970
+class in object creation there is
+
+1080
+01:03:13,109 --> 01:03:17,279
+nothing like that
+
+1081
+01:03:14,970 --> 01:03:19,829
+but however javascript do have the
+
+1082
+01:03:17,279 --> 01:03:24,509
+keyword class and that is from
+
+1083
+01:03:19,829 --> 01:03:27,539
+javascript 2015 which you can read about
+
+1084
+01:03:24,509 --> 01:03:32,339
+it here which function was some kind of
+
+1085
+01:03:27,539 --> 01:03:34,410
+a syntax sugar in other words you you
+
+1086
+01:03:32,339 --> 01:03:37,710
+you do not need this class whatsoever
+
+1087
+01:03:34,410 --> 01:03:41,339
+because it does not add anything new to
+
+1088
+01:03:37,710 --> 01:03:42,750
+JavaScript object remains the way we you
+
+1089
+01:03:41,339 --> 01:03:45,960
+know the four things we talked about
+
+1090
+01:03:42,750 --> 01:03:48,720
+that is the definition of object in
+
+1091
+01:03:45,960 --> 01:03:55,339
+JavaScript script mathematically there
+
+1092
+01:03:48,720 --> 01:03:59,609
+is no such thing as you know class
+
+1093
+01:03:55,339 --> 01:04:03,029
+really but there is you know in 2015
+
+1094
+01:03:59,609 --> 01:04:06,289
+they added a class keyword which is very
+
+1095
+01:04:03,029 --> 01:04:10,769
+convenient to allow you to create
+
+1096
+01:04:06,289 --> 01:04:14,130
+automatic helps in in in a sense that it
+
+1097
+01:04:10,769 --> 01:04:19,400
+automatically creates several objects
+
+1098
+01:04:14,130 --> 01:04:23,220
+and several properties by a wine single
+
+1099
+01:04:19,400 --> 01:04:27,079
+definition with a keyword class so when
+
+1100
+01:04:23,220 --> 01:04:30,029
+you say class something you are actually
+
+1101
+01:04:27,079 --> 01:04:32,130
+javascript wheel behind you know will
+
+1102
+01:04:30,029 --> 01:04:35,039
+take your code and create several
+
+1103
+01:04:32,130 --> 01:04:37,619
+objects the way we defined it you know
+
+1104
+01:04:35,039 --> 01:04:41,339
+several object with with proper linkage
+
+1105
+01:04:37,619 --> 01:04:43,769
+of parents and also create several
+
+1106
+01:04:41,339 --> 01:04:45,090
+properties whose values are the
+
+1107
+01:04:43,769 --> 01:04:48,270
+functions you
+
+1108
+01:04:45,090 --> 01:04:51,600
+in your class keyword so that that kind
+
+1109
+01:04:48,270 --> 01:04:54,780
+of so the cast keyword of 2015 kind of
+
+1110
+01:04:51,600 --> 01:04:57,330
+helps it's kind of convenient to make
+
+1111
+01:04:54,780 --> 01:05:01,050
+you know it's kind of convenient if you
+
+1112
+01:04:57,330 --> 01:05:04,590
+do Opie canned of thing but again it's
+
+1113
+01:05:01,050 --> 01:05:08,820
+important to know JavaScript object is
+
+1114
+01:05:04,590 --> 01:05:11,130
+nothing absolutely no similarity yeah
+
+1115
+01:05:08,820 --> 01:05:14,160
+you could say absolutely no similarity
+
+1116
+01:05:11,130 --> 01:05:20,580
+to the class or object you know systems
+
+1117
+01:05:14,160 --> 01:05:23,030
+in Java or Python oh so why is
+
+1118
+01:05:20,580 --> 01:05:27,770
+JavaScript so why do we use that's
+
+1119
+01:05:23,030 --> 01:05:27,770
+that's not difficult to answer because
+
+1120
+01:05:29,990 --> 01:05:37,790
+because you know so it began in 1995 it
+
+1121
+01:05:34,290 --> 01:05:40,170
+didn't really go anywhere it's kind of a
+
+1122
+01:05:37,790 --> 01:05:42,869
+it's almost like a failure
+
+1123
+01:05:40,170 --> 01:05:46,590
+there's nobody using using it not not
+
+1124
+01:05:42,869 --> 01:05:49,619
+really not not really not industry
+
+1125
+01:05:46,590 --> 01:05:54,150
+heavyweight you know it's like anyone
+
+1126
+01:05:49,619 --> 01:05:57,540
+can miss it no problem but so back then
+
+1127
+01:05:54,150 --> 01:06:01,380
+let's say in the 1990s or early 2000s
+
+1128
+01:05:57,540 --> 01:06:05,040
+the only other thing that can run in a
+
+1129
+01:06:01,380 --> 01:06:07,980
+browser is Java you know Java is not
+
+1130
+01:06:05,040 --> 01:06:10,560
+just for servers but it can you can run
+
+1131
+01:06:07,980 --> 01:06:13,440
+any browser called applet you have this
+
+1132
+01:06:10,560 --> 01:06:15,690
+kind of special plugin by the way Google
+
+1133
+01:06:13,440 --> 01:06:17,270
+Keo did so it you know you cannot even
+
+1134
+01:06:15,690 --> 01:06:22,470
+Java high anymore
+
+1135
+01:06:17,270 --> 01:06:24,570
+so anyway so Java you can in a browser
+
+1136
+01:06:22,470 --> 01:06:28,650
+you run this per game to run Java
+
+1137
+01:06:24,570 --> 01:06:32,940
+applets so-called applet ever just means
+
+1138
+01:06:28,650 --> 01:06:38,220
+Java code running inside browser we are
+
+1139
+01:06:32,940 --> 01:06:41,760
+this kind of plugging a foundation in a
+
+1140
+01:06:38,220 --> 01:06:44,760
+browser but that is removed few years
+
+1141
+01:06:41,760 --> 01:06:48,240
+ago in all browsers basically so anyway
+
+1142
+01:06:44,760 --> 01:06:51,230
+so so to run code in championing a
+
+1143
+01:06:48,240 --> 01:06:54,600
+browser you have two options either
+
+1144
+01:06:51,230 --> 01:06:57,430
+JavaScript which is a very extremely
+
+1145
+01:06:54,600 --> 01:06:59,770
+lousy language designed for
+
+1146
+01:06:57,430 --> 01:07:02,200
+non-programmers okay we have already
+
+1147
+01:06:59,770 --> 01:07:06,849
+seen several examples how it is you know
+
+1148
+01:07:02,200 --> 01:07:09,040
+a lot of quacks yeah so you have in
+
+1149
+01:07:06,849 --> 01:07:12,579
+browser you have Java for design for
+
+1150
+01:07:09,040 --> 01:07:15,400
+non-programmers very lousy on the other
+
+1151
+01:07:12,579 --> 01:07:17,230
+hand you have Java okay you have
+
+1152
+01:07:15,400 --> 01:07:21,400
+JavaScript on the other hand you have
+
+1153
+01:07:17,230 --> 01:07:23,950
+Java which is the languages for rather
+
+1154
+01:07:21,400 --> 01:07:26,410
+professional programmers and it's rather
+
+1155
+01:07:23,950 --> 01:07:29,349
+lower level much lower level than in
+
+1156
+01:07:26,410 --> 01:07:31,780
+JavaScript because one javascript is
+
+1157
+01:07:29,349 --> 01:07:37,569
+kind of equivalent to five or ten lines
+
+1158
+01:07:31,780 --> 01:07:39,670
+of Java so Java it's very hard to do you
+
+1159
+01:07:37,569 --> 01:07:41,770
+know is more difficult especially most
+
+1160
+01:07:39,670 --> 01:07:45,700
+people are program are beginners you
+
+1161
+01:07:41,770 --> 01:07:49,030
+know and also Java is very clunky
+
+1162
+01:07:45,700 --> 01:07:51,849
+because it has to start the virtual
+
+1163
+01:07:49,030 --> 01:07:55,869
+machine and so on anyway the the end
+
+1164
+01:07:51,849 --> 01:08:00,760
+story is that Java kind of failed
+
+1165
+01:07:55,869 --> 01:08:05,160
+you know only maybe amateur programmers
+
+1166
+01:08:00,760 --> 01:08:08,500
+use Java to create you know some fun
+
+1167
+01:08:05,160 --> 01:08:12,190
+applications educational applications in
+
+1168
+01:08:08,500 --> 01:08:14,710
+Java but the industry doesn't really
+
+1169
+01:08:12,190 --> 01:08:17,080
+have any use for it Java him in browser
+
+1170
+01:08:14,710 --> 01:08:20,410
+okay this is in browser on the other
+
+1171
+01:08:17,080 --> 01:08:24,969
+hand JavaScript start to have more and
+
+1172
+01:08:20,410 --> 01:08:27,520
+more users because because partly
+
+1173
+01:08:24,969 --> 01:08:29,319
+because for e-commerce you know for
+
+1174
+01:08:27,520 --> 01:08:31,449
+e-commerce when you want to buy and
+
+1175
+01:08:29,319 --> 01:08:35,440
+update things you usually you don't want
+
+1176
+01:08:31,449 --> 01:08:37,929
+to reload the entire HTML page usually
+
+1177
+01:08:35,440 --> 01:08:42,040
+like you just update you just want to
+
+1178
+01:08:37,929 --> 01:08:44,589
+update a section of your page so if you
+
+1179
+01:08:42,040 --> 01:08:47,529
+can use JavaScript just to update a tiny
+
+1180
+01:08:44,589 --> 01:08:49,509
+section like one item in basket you just
+
+1181
+01:08:47,529 --> 01:08:53,319
+click you know put one item in basket
+
+1182
+01:08:49,509 --> 01:08:55,480
+then the basket changes to what you
+
+1183
+01:08:53,319 --> 01:08:57,489
+don't want to you know because reloading
+
+1184
+01:08:55,480 --> 01:08:59,620
+a whole page back to the server you know
+
+1185
+01:08:57,489 --> 01:09:02,259
+back to the browser takes a long time
+
+1186
+01:08:59,620 --> 01:09:04,929
+it's too slow so you want just to be
+
+1187
+01:09:02,259 --> 01:09:08,319
+able to update parts of the screen and
+
+1188
+01:09:04,929 --> 01:09:10,150
+that is super useful so gradually people
+
+1189
+01:09:08,319 --> 01:09:11,359
+developed what's so-called
+
+1190
+01:09:10,150 --> 01:09:15,980
+ajax a
+
+1191
+01:09:11,359 --> 01:09:19,190
+JX kind of hack no because javascript is
+
+1192
+01:09:15,980 --> 01:09:21,259
+pretty bad and but people do really want
+
+1193
+01:09:19,190 --> 01:09:23,480
+to update you know just small part of
+
+1194
+01:09:21,259 --> 01:09:25,580
+the scream all the time like for example
+
+1195
+01:09:23,480 --> 01:09:27,469
+when you are chatting you know you just
+
+1196
+01:09:25,580 --> 01:09:29,719
+type a message you just want to update a
+
+1197
+01:09:27,469 --> 01:09:31,040
+message you like meanwhile can talk to
+
+1198
+01:09:29,719 --> 01:09:34,460
+the server you know I keep the
+
+1199
+01:09:31,040 --> 01:09:38,270
+connection but you cannot do that before
+
+1200
+01:09:34,460 --> 01:09:42,440
+you know be lets say 2005 it's not easy
+
+1201
+01:09:38,270 --> 01:09:45,199
+because the the the browser works at
+
+1202
+01:09:42,440 --> 01:09:48,319
+that time the the idea is that you just
+
+1203
+01:09:45,199 --> 01:09:50,569
+reload the whole page like every time
+
+1204
+01:09:48,319 --> 01:09:53,299
+you type something you send it to the
+
+1205
+01:09:50,569 --> 01:09:56,830
+server I mean I typed something I press
+
+1206
+01:09:53,299 --> 01:10:00,020
+enter my browser send it to the server
+
+1207
+01:09:56,830 --> 01:10:02,480
+the server sees takes my message and
+
+1208
+01:10:00,020 --> 01:10:05,570
+send the whole page back so my browser
+
+1209
+01:10:02,480 --> 01:10:08,300
+update does host rinse screen you know
+
+1210
+01:10:05,570 --> 01:10:10,250
+but it's so it's very wasteful you know
+
+1211
+01:10:08,300 --> 01:10:12,380
+when you have a chat you know things
+
+1212
+01:10:10,250 --> 01:10:14,090
+like that but actually what people
+
+1213
+01:10:12,380 --> 01:10:15,949
+really want is everything stayed the
+
+1214
+01:10:14,090 --> 01:10:19,150
+same just you know change the part
+
+1215
+01:10:15,949 --> 01:10:22,699
+that's the new incoming text and so on
+
+1216
+01:10:19,150 --> 01:10:24,889
+so eventually javascript has you know
+
+1217
+01:10:22,699 --> 01:10:27,860
+slow javascript has this critical use
+
+1218
+01:10:24,889 --> 01:10:30,320
+and people's needed especially
+
+1219
+01:10:27,860 --> 01:10:32,989
+commercial organizations they really
+
+1220
+01:10:30,320 --> 01:10:36,110
+need it so it just kind of grow and grow
+
+1221
+01:10:32,989 --> 01:10:41,570
+and so you start with ajax then you
+
+1222
+01:10:36,110 --> 01:10:45,320
+started to have yeah ajax then you then
+
+1223
+01:10:41,570 --> 01:10:49,280
+eventually html5 kim because apple and
+
+1224
+01:10:45,320 --> 01:10:52,219
+that has a they are kicking out the
+
+1225
+01:10:49,280 --> 01:10:54,980
+flash extremely popular flash because
+
+1226
+01:10:52,219 --> 01:10:58,540
+flash is not friendly on apple you know
+
+1227
+01:10:54,980 --> 01:11:02,710
+fascist run by Adobe was Macromedia
+
+1228
+01:10:58,540 --> 01:11:05,510
+Adobe bought it so it became fresh and
+
+1229
+01:11:02,710 --> 01:11:08,330
+fresh it's very slow on Apple computers
+
+1230
+01:11:05,510 --> 01:11:12,949
+because no market you know and so I
+
+1231
+01:11:08,330 --> 01:11:15,320
+don't like it but Apple do need you know
+
+1232
+01:11:12,949 --> 01:11:18,440
+interactivity drawing and stuff so Apple
+
+1233
+01:11:15,320 --> 01:11:22,250
+invented canvas technology that
+
+1234
+01:11:18,440 --> 01:11:24,580
+eventually became part of html5 so html5
+
+1235
+01:11:22,250 --> 01:11:30,490
+pushed the whole thing and then
+
+1236
+01:11:24,580 --> 01:11:32,110
+in 2008 or 2009 the not Jas came up you
+
+1237
+01:11:30,490 --> 01:11:33,850
+know that's the whole history about not
+
+1238
+01:11:32,110 --> 01:11:39,790
+J's because but basically it's
+
+1239
+01:11:33,850 --> 01:11:42,040
+JavaScript as a server and that
+
+1240
+01:11:39,790 --> 01:11:44,680
+that kind of changed the whole industry
+
+1241
+01:11:42,040 --> 01:11:48,940
+a lot it's rather it's even it's
+
+1242
+01:11:44,680 --> 01:11:52,860
+technically not that good but the reason
+
+1243
+01:11:48,940 --> 01:11:57,940
+you change the industry because it's it
+
+1244
+01:11:52,860 --> 01:12:02,890
+it allows you know it it further rather
+
+1245
+01:11:57,940 --> 01:12:05,080
+run away the old kind of thinking of
+
+1246
+01:12:02,890 --> 01:12:07,390
+doing servers like you see in the
+
+1247
+01:12:05,080 --> 01:12:11,710
+homepage it throw that away
+
+1248
+01:12:07,390 --> 01:12:13,990
+so instead everything is like we so you
+
+1249
+01:12:11,710 --> 01:12:16,510
+started to have what's called a single
+
+1250
+01:12:13,990 --> 01:12:18,520
+page application you know basically
+
+1251
+01:12:16,510 --> 01:12:21,100
+you're a single web page you'd load it
+
+1252
+01:12:18,520 --> 01:12:25,450
+one time then everything you know you're
+
+1253
+01:12:21,100 --> 01:12:27,430
+no longer like reload the whole page you
+
+1254
+01:12:25,450 --> 01:12:30,130
+just have you know services running
+
+1255
+01:12:27,430 --> 01:12:32,110
+behind it talking to the server update
+
+1256
+01:12:30,130 --> 01:12:34,090
+to the part of the screen like a game or
+
+1257
+01:12:32,110 --> 01:12:34,900
+whatever you know single page
+
+1258
+01:12:34,090 --> 01:12:38,830
+application
+
+1259
+01:12:34,900 --> 01:12:41,590
+so anyway not jeaious became you know
+
+1260
+01:12:38,830 --> 01:12:43,570
+extremely popular so that further and
+
+1261
+01:12:41,590 --> 01:12:46,540
+also with html5
+
+1262
+01:12:43,570 --> 01:12:50,650
+on the scene that began to update the
+
+1263
+01:12:46,540 --> 01:12:54,760
+entire JavaScript so so we eventually we
+
+1264
+01:12:50,650 --> 01:12:58,900
+have Java JavaScript 2015 which is
+
+1265
+01:12:54,760 --> 01:13:00,970
+actually like a complete overhaul not
+
+1266
+01:12:58,900 --> 01:13:04,300
+overhaul but it's like a complete new
+
+1267
+01:13:00,970 --> 01:13:09,220
+language with huge amount of features
+
+1268
+01:13:04,300 --> 01:13:12,970
+that Pete's any any advanced feature in
+
+1269
+01:13:09,220 --> 01:13:16,900
+Ruby or Java or Python so you can look
+
+1270
+01:13:12,970 --> 01:13:19,300
+at JavaScript 2015 features you have
+
+1271
+01:13:16,900 --> 01:13:22,510
+lips which is good you have constant you
+
+1272
+01:13:19,300 --> 01:13:24,610
+have arrow functions you have function
+
+1273
+01:13:22,510 --> 01:13:26,860
+argument default values you have rest
+
+1274
+01:13:24,610 --> 01:13:30,790
+parameters you have destructuring
+
+1275
+01:13:26,860 --> 01:13:33,760
+assignment you have object you have you
+
+1276
+01:13:30,790 --> 01:13:36,700
+you can you know now property keys can
+
+1277
+01:13:33,760 --> 01:13:38,079
+be computed meaning a variable can be
+
+1278
+01:13:36,700 --> 01:13:39,999
+property keys
+
+1279
+01:13:38,079 --> 01:13:42,639
+you know whatever its value will be the
+
+1280
+01:13:39,999 --> 01:13:47,099
+real poverty key you know so you have a
+
+1281
+01:13:42,639 --> 01:13:50,109
+bunch of features in 2015 they also
+
+1282
+01:13:47,099 --> 01:13:52,449
+importantly you have you begin to have
+
+1283
+01:13:50,109 --> 01:13:56,530
+iterators this kind of thing iterators
+
+1284
+01:13:52,449 --> 01:14:00,939
+and generators and interface so the
+
+1285
+01:13:56,530 --> 01:14:01,570
+language becomes more complex you know
+
+1286
+01:14:00,939 --> 01:14:03,609
+already
+
+1287
+01:14:01,570 --> 01:14:06,550
+before it's kind of a small very small
+
+1288
+01:14:03,609 --> 01:14:09,699
+language designed for beginners you know
+
+1289
+01:14:06,550 --> 01:14:12,309
+but now but it's very badly done because
+
+1290
+01:14:09,699 --> 01:14:16,739
+you know it's in Russia and all that but
+
+1291
+01:14:12,309 --> 01:14:19,989
+now it's like the language becomes
+
+1292
+01:14:16,739 --> 01:14:21,639
+sizable sizable okay with all the
+
+1293
+01:14:19,989 --> 01:14:24,550
+features you can find in Python whatever
+
+1294
+01:14:21,639 --> 01:14:27,159
+Python Perl all these you have in
+
+1295
+01:14:24,550 --> 01:14:30,249
+JavaScript you know possibly even better
+
+1296
+01:14:27,159 --> 01:14:32,919
+than but however they try to maintain
+
+1297
+01:14:30,249 --> 01:14:37,539
+backward compatible meaning that all the
+
+1298
+01:14:32,919 --> 01:14:40,119
+bad things in JavaScript remains so you
+
+1299
+01:14:37,539 --> 01:14:42,099
+have this rather even more complexity
+
+1300
+01:14:40,119 --> 01:14:47,379
+you know if you are not careful it's
+
+1301
+01:14:42,099 --> 01:14:51,249
+very complex language okay I talked a
+
+1302
+01:14:47,379 --> 01:14:56,769
+lot okay any questions I'm gonna react
+
+1303
+01:14:51,249 --> 01:15:00,339
+any any questions yeah so so because
+
+1304
+01:14:56,769 --> 01:15:02,409
+these reasons JavaScript became you know
+
+1305
+01:15:00,339 --> 01:15:04,419
+it's like one thing leads to another you
+
+1306
+01:15:02,409 --> 01:15:06,760
+know so after not jeaious becomes
+
+1307
+01:15:04,419 --> 01:15:09,579
+extremely successful Oh before not J's
+
+1308
+01:15:06,760 --> 01:15:12,219
+there's a jQuery you know remember
+
+1309
+01:15:09,579 --> 01:15:14,979
+jQuery charity queries
+
+1310
+01:15:12,219 --> 01:15:19,079
+one of the fundamental help in spreading
+
+1311
+01:15:14,979 --> 01:15:21,820
+Java because because this language
+
+1312
+01:15:19,079 --> 01:15:23,589
+helped you know making all the browser's
+
+1313
+01:15:21,820 --> 01:15:28,359
+kind of compatible they'll commit you
+
+1314
+01:15:23,589 --> 01:15:31,749
+know because it's very useful like Dom
+
+1315
+01:15:28,359 --> 01:15:35,379
+is very complex itself but jQuery helped
+
+1316
+01:15:31,749 --> 01:15:37,959
+a lot and also JavaScript spread
+
+1317
+01:15:35,379 --> 01:15:40,629
+functional programming actually I would
+
+1318
+01:15:37,959 --> 01:15:43,239
+say even more than Haskell practically
+
+1319
+01:15:40,629 --> 01:15:46,119
+speaking because JavaScript language
+
+1320
+01:15:43,239 --> 01:15:49,059
+they support functional programming it
+
+1321
+01:15:46,119 --> 01:15:51,579
+came from the scheme Lisp you know where
+
+1322
+01:15:49,059 --> 01:15:51,969
+JavaScript is based on so function can
+
+1323
+01:15:51,579 --> 01:15:55,120
+read
+
+1324
+01:15:51,969 --> 01:15:58,030
+a function it is a function it's a value
+
+1325
+01:15:55,120 --> 01:16:00,940
+function can also take functions as
+
+1326
+01:15:58,030 --> 01:16:03,489
+argument this idea is extremely powerful
+
+1327
+01:16:00,940 --> 01:16:04,630
+so that is why sometimes you hear you
+
+1328
+01:16:03,489 --> 01:16:07,660
+know functional programming in
+
+1329
+01:16:04,630 --> 01:16:10,600
+JavaScript and that is actually I would
+
+1330
+01:16:07,660 --> 01:16:14,050
+say in my opinion okay javascript has
+
+1331
+01:16:10,600 --> 01:16:16,920
+helped spread the functional programming
+
+1332
+01:16:14,050 --> 01:16:19,120
+idea more than any functional
+
+1333
+01:16:16,920 --> 01:16:22,719
+programming language more than a scow
+
+1334
+01:16:19,120 --> 01:16:25,000
+okay it is JavaScript that helped help
+
+1335
+01:16:22,719 --> 01:16:27,790
+the idea to the masses to that you know
+
+1336
+01:16:25,000 --> 01:16:29,050
+to the beginner programmers who don't
+
+1337
+01:16:27,790 --> 01:16:32,650
+know what they are doing you know like
+
+1338
+01:16:29,050 --> 01:16:35,140
+you know HTML designers you know a lot
+
+1339
+01:16:32,650 --> 01:16:37,630
+of people who just you know you know
+
+1340
+01:16:35,140 --> 01:16:40,660
+they are not programmers but they know
+
+1341
+01:16:37,630 --> 01:16:43,900
+some HTML they design a web page so in
+
+1342
+01:16:40,660 --> 01:16:46,810
+in 2000 a lot of people these people
+
+1343
+01:16:43,900 --> 01:16:48,550
+learned you know start to program you
+
+1344
+01:16:46,810 --> 01:16:50,980
+know begin with you know maybe your
+
+1345
+01:16:48,550 --> 01:16:55,140
+little JavaScript it became and many
+
+1346
+01:16:50,980 --> 01:16:55,140
+many of them are today experts you know
+
+1347
+01:16:59,010 --> 01:17:11,500
+so yeah ok that's it about maybe that is
+
+1348
+01:17:04,960 --> 01:17:17,890
+it about understanding javascript object
+
+1349
+01:17:11,500 --> 01:17:22,110
+like a mathematician okay am i okay so
+
+1350
+01:17:17,890 --> 01:17:22,110
+is that does that make sense
+
+1351
+01:17:31,600 --> 01:17:39,760
+let's see let's see if I anything else
+
+1352
+01:17:36,970 --> 01:17:43,320
+em cover so if you have any questions
+
+1353
+01:17:39,760 --> 01:17:48,210
+any comments about my videos my anything
+
+1354
+01:17:43,320 --> 01:17:51,160
+type it you have like 10 seconds then
+
+1355
+01:17:48,210 --> 01:17:57,820
+then we're gonna shut down and say
+
+1356
+01:17:51,160 --> 01:18:00,010
+goodbye math object said type okay by
+
+1357
+01:17:57,820 --> 01:18:03,280
+the way so I'm sending my tutorial so if
+
+1358
+01:18:00,010 --> 01:18:05,140
+you are intrigued about JavaScript this
+
+1359
+01:18:03,280 --> 01:18:06,280
+is the best tutorial okay give you a
+
+1360
+01:18:05,140 --> 01:18:08,790
+give it a shot
+
+1361
+01:18:06,280 --> 01:18:12,610
+so I'm sitting it you get the whole page
+
+1362
+01:18:08,790 --> 01:18:17,530
+fast loading and also serve as a
+
+1363
+01:18:12,610 --> 01:18:20,050
+reference and also Tom scripting don't
+
+1364
+01:18:17,530 --> 01:18:21,790
+scripting is where things gets start to
+
+1365
+01:18:20,050 --> 01:18:24,460
+get interesting because you start to
+
+1366
+01:18:21,790 --> 01:18:28,710
+program actual you know programming the
+
+1367
+01:18:24,460 --> 01:18:31,270
+browser I have several examples I mean
+
+1368
+01:18:28,710 --> 01:18:37,890
+yeah let me show one example and that's
+
+1369
+01:18:31,270 --> 01:18:37,890
+it for today okay
+
+1370
+01:18:38,220 --> 01:18:44,230
+actually I showed this before yeah six
+
+1371
+01:18:42,010 --> 01:18:47,140
+takes ah could you talk about some of
+
+1372
+01:18:44,230 --> 01:18:51,190
+your favorite JavaScript libraries okay
+
+1373
+01:18:47,140 --> 01:18:54,690
+actually I don't use any cuz because I'm
+
+1374
+01:18:51,190 --> 01:18:57,610
+kind of old-fashioned and I'm kind of
+
+1375
+01:18:54,690 --> 01:19:02,490
+I'm like you could say I have trouble
+
+1376
+01:18:57,610 --> 01:19:02,490
+any new stuff yeah I have 50 years old I
+
+1377
+01:19:02,700 --> 01:19:11,320
+so for mixed reasons I don't like I
+
+1378
+01:19:08,380 --> 01:19:13,390
+don't I try not to use I don't actually
+
+1379
+01:19:11,320 --> 01:19:15,970
+I don't use any of the frameworks
+
+1380
+01:19:13,390 --> 01:19:18,400
+alright first okay let me give you a
+
+1381
+01:19:15,970 --> 01:19:22,990
+practical advice first of all don't use
+
+1382
+01:19:18,400 --> 01:19:26,470
+jQuery jQuery because jQuery it was
+
+1383
+01:19:22,990 --> 01:19:29,410
+invented around 2005 okay anything
+
+1384
+01:19:26,470 --> 01:19:33,190
+jQuery can do is already in the
+
+1385
+01:19:29,410 --> 01:19:34,870
+JavaScript language 2015 actually a
+
+1386
+01:19:33,190 --> 01:19:37,240
+little bit more lines you know sometimes
+
+1387
+01:19:34,870 --> 01:19:40,000
+you need to line since they've won but
+
+1388
+01:19:37,240 --> 01:19:42,520
+you don't need jQuery at all so if you
+
+1389
+01:19:40,000 --> 01:19:45,159
+are not working with legacy code you
+
+1390
+01:19:42,520 --> 01:19:47,770
+know a jar a job or something
+
+1391
+01:19:45,159 --> 01:19:50,469
+any new project you don't need jQuery
+
+1392
+01:19:47,770 --> 01:19:54,730
+don't use it okay life is much simpler
+
+1393
+01:19:50,469 --> 01:19:58,449
+and better not using it because what it
+
+1394
+01:19:54,730 --> 01:20:02,290
+does everything JavaScript building can
+
+1395
+01:19:58,449 --> 01:20:04,449
+do so don't use jQuery but I would
+
+1396
+01:20:02,290 --> 01:20:12,300
+recommend you know I would recommend
+
+1397
+01:20:04,449 --> 01:20:14,350
+I've studied react.js I only studied it
+
+1398
+01:20:12,300 --> 01:20:18,520
+because I've been thinking maybe I
+
+1399
+01:20:14,350 --> 01:20:20,920
+should use it you know because but for
+
+1400
+01:20:18,520 --> 01:20:24,880
+my for my personal projects I don't
+
+1401
+01:20:20,920 --> 01:20:26,770
+really need it so I yeah so I would say
+
+1402
+01:20:24,880 --> 01:20:29,800
+so if you are you know just known in
+
+1403
+01:20:26,770 --> 01:20:31,870
+JavaScript try to not use any library in
+
+1404
+01:20:29,800 --> 01:20:35,080
+fact there's a movement right now I
+
+1405
+01:20:31,870 --> 01:20:39,060
+think called JavaScript 30 you know
+
+1406
+01:20:35,080 --> 01:20:41,770
+hashtag JavaScript 30 meaning like
+
+1407
+01:20:39,060 --> 01:20:45,489
+something like write a JavaScript
+
+1408
+01:20:41,770 --> 01:20:48,130
+application in 30 days or something like
+
+1409
+01:20:45,489 --> 01:20:52,300
+creating 30 applications I forgot which
+
+1410
+01:20:48,130 --> 01:20:54,580
+which but they they say one of the rule
+
+1411
+01:20:52,300 --> 01:20:57,639
+is no library whatever just use plain
+
+1412
+01:20:54,580 --> 01:20:59,590
+JavaScript like JavaScript language you
+
+1413
+01:20:57,639 --> 01:21:03,310
+know it's JavaScript in browser that's
+
+1414
+01:20:59,590 --> 01:21:05,980
+all you need so they are I guess they
+
+1415
+01:21:03,310 --> 01:21:08,080
+are trying to push you know they are
+
+1416
+01:21:05,980 --> 01:21:10,800
+trying to tell people guys you don't
+
+1417
+01:21:08,080 --> 01:21:13,600
+really need all these fancy libraries
+
+1418
+01:21:10,800 --> 01:21:15,610
+which is good you know so if you are
+
+1419
+01:21:13,600 --> 01:21:18,100
+learning if you just I recommend you
+
+1420
+01:21:15,610 --> 01:21:21,820
+know if you are starting out don't use
+
+1421
+01:21:18,100 --> 01:21:24,280
+any of the libraries of course at work
+
+1422
+01:21:21,820 --> 01:21:28,360
+you probably have to you know depending
+
+1423
+01:21:24,280 --> 01:21:31,860
+on what they use and never use jQuery
+
+1424
+01:21:28,360 --> 01:21:35,440
+never like for whatsoever reason never
+
+1425
+01:21:31,860 --> 01:21:37,659
+if your company's is using it try to get
+
+1426
+01:21:35,440 --> 01:21:43,780
+rid of it like it's it's time it's you
+
+1427
+01:21:37,659 --> 01:21:47,440
+know you can like try to remove it react
+
+1428
+01:21:43,780 --> 01:21:50,020
+I think it's pretty good there's another
+
+1429
+01:21:47,440 --> 01:21:53,530
+thing view touches I haven't tried but I
+
+1430
+01:21:50,020 --> 01:21:56,139
+heard it's like Chinese people Chinese
+
+1431
+01:21:53,530 --> 01:21:59,110
+programmer at Google wrote that and it's
+
+1432
+01:21:56,139 --> 01:22:03,130
+also very popular food rjs this
+
+1433
+01:21:59,110 --> 01:22:06,960
+angularjs I looked up anger a little bit
+
+1434
+01:22:03,130 --> 01:22:06,960
+I don't like its history I think it
+
+1435
+01:22:07,470 --> 01:22:16,180
+because angular just like JavaScript and
+
+1436
+01:22:11,140 --> 01:22:19,420
+PHP they were born humbly angular was
+
+1437
+01:22:16,180 --> 01:22:22,350
+spawned because some programmer tried to
+
+1438
+01:22:19,420 --> 01:22:24,850
+make money they are trying to create
+
+1439
+01:22:22,350 --> 01:22:27,070
+like they are trying to create a
+
+1440
+01:22:24,850 --> 01:22:29,740
+language so that any terming can use
+
+1441
+01:22:27,070 --> 01:22:32,290
+like non-programmers like you know bees
+
+1442
+01:22:29,740 --> 01:22:34,660
+knew your mom your dad it was you know
+
+1443
+01:22:32,290 --> 01:22:36,640
+your granddad or someone trying to
+
+1444
+01:22:34,660 --> 01:22:38,530
+create a web store or something you know
+
+1445
+01:22:36,640 --> 01:22:40,690
+they they have a small business you know
+
+1446
+01:22:38,530 --> 01:22:42,820
+they try to create their website but oh
+
+1447
+01:22:40,690 --> 01:22:45,850
+my god you know what is javascript like
+
+1448
+01:22:42,820 --> 01:22:48,580
+they don't know so there you have this
+
+1449
+01:22:45,850 --> 01:22:51,190
+angular that's original purpose you know
+
+1450
+01:22:48,580 --> 01:22:53,620
+the guys are thinking we are just
+
+1451
+01:22:51,190 --> 01:22:56,650
+creating this product so anyone can
+
+1452
+01:22:53,620 --> 01:23:00,370
+click and make a website no time dynamic
+
+1453
+01:22:56,650 --> 01:23:04,660
+website that is the history that is or
+
+1454
+01:23:00,370 --> 01:23:06,430
+engine of angular you know then Google
+
+1455
+01:23:04,660 --> 01:23:08,800
+bought it then you know they try to
+
+1456
+01:23:06,430 --> 01:23:12,460
+change it you know they try to erase the
+
+1457
+01:23:08,800 --> 01:23:15,640
+history you know they they try to erase
+
+1458
+01:23:12,460 --> 01:23:19,540
+this this humble history just like you
+
+1459
+01:23:15,640 --> 01:23:25,120
+know just like PHP has done Phe P began
+
+1460
+01:23:19,540 --> 01:23:27,970
+as teenagers pretty homepage you know
+
+1461
+01:23:25,120 --> 01:23:31,180
+and and you know ten years ago it became
+
+1462
+01:23:27,970 --> 01:23:35,320
+the most popular language and it was
+
+1463
+01:23:31,180 --> 01:23:40,120
+named like post you know it's named like
+
+1464
+01:23:35,320 --> 01:23:46,240
+hyper let's see PHP what does they say
+
+1465
+01:23:40,120 --> 01:23:49,500
+PHP Istanbul something hyper for God you
+
+1466
+01:23:46,240 --> 01:23:54,150
+know this they are basically they are
+
+1467
+01:23:49,500 --> 01:23:54,150
+they are kind of lies you know they are
+
+1468
+01:23:54,960 --> 01:24:03,550
+anyway so yeah so and I also look at t3
+
+1469
+01:24:00,580 --> 01:24:05,770
+the the plotting library which is I'm
+
+1470
+01:24:03,550 --> 01:24:08,670
+what I'm doing now that's my main
+
+1471
+01:24:05,770 --> 01:24:12,530
+project to create mathematical
+
+1472
+01:24:08,670 --> 01:24:14,600
+visualizations and I really hate
+
+1473
+01:24:12,530 --> 01:24:16,970
+chiefly okay let me show you some
+
+1474
+01:24:14,600 --> 01:24:24,350
+articles so here's the article about
+
+1475
+01:24:16,970 --> 01:24:27,440
+history of angular saw the d3 okay then
+
+1476
+01:24:24,350 --> 01:24:31,310
+I explained something I really dislike
+
+1477
+01:24:27,440 --> 01:24:33,680
+about d3 by the way I tried to write a
+
+1478
+01:24:31,310 --> 01:24:36,740
+tutorial but that if this tutorial is
+
+1479
+01:24:33,680 --> 01:24:39,290
+incomplete and and no good so it ignore
+
+1480
+01:24:36,740 --> 01:24:42,140
+it so don't you know you can know of my
+
+1481
+01:24:39,290 --> 01:24:46,100
+d3 tutorial but anyway I wrote this
+
+1482
+01:24:42,140 --> 01:24:51,260
+essay because I try to study it in depth
+
+1483
+01:24:46,100 --> 01:24:53,600
+and d3 I find it to be it's almost like
+
+1484
+01:24:51,260 --> 01:24:57,020
+a religion it's a voodoo okay I don't
+
+1485
+01:24:53,600 --> 01:25:00,790
+like it at all they try they are trying
+
+1486
+01:24:57,020 --> 01:25:08,200
+to create like a new way a new way for
+
+1487
+01:25:00,790 --> 01:25:08,200
+writing visual visualization of data
+
+1488
+01:25:08,350 --> 01:25:14,060
+like a new paradigm you know they are
+
+1489
+01:25:11,030 --> 01:25:17,630
+trying to change you know the the the
+
+1490
+01:25:14,060 --> 01:25:20,960
+the Nommo that the the practical way of
+
+1491
+01:25:17,630 --> 01:25:22,940
+writing you know visual application they
+
+1492
+01:25:20,960 --> 01:25:25,400
+are trying to create some kind of new
+
+1493
+01:25:22,940 --> 01:25:27,050
+you know like patterns and extreme
+
+1494
+01:25:25,400 --> 01:25:31,040
+programming so I don't you know I don't
+
+1495
+01:25:27,050 --> 01:25:36,110
+like it I don't find you know oh yeah
+
+1496
+01:25:31,040 --> 01:25:41,380
+PHP hypertext preprocessor where does a
+
+1497
+01:25:36,110 --> 01:25:41,380
+yeah so but we did the first P went
+
+1498
+01:25:43,480 --> 01:25:48,040
+professional hypertext free process
+
+1499
+01:25:51,040 --> 01:25:57,470
+yeah libraries yeah so that's what I
+
+1500
+01:25:55,490 --> 01:26:02,330
+have to say about libraries you know I
+
+1501
+01:25:57,470 --> 01:26:04,190
+hope I'm not using them because mostly
+
+1502
+01:26:02,330 --> 01:26:09,590
+because I actually don't know them well
+
+1503
+01:26:04,190 --> 01:26:13,430
+and also that is because I I don't
+
+1504
+01:26:09,590 --> 01:26:15,290
+really want to you know because so what
+
+1505
+01:26:13,430 --> 01:26:19,520
+I'm trying to say is that I don't really
+
+1506
+01:26:15,290 --> 01:26:21,110
+have a solid reason you know because you
+
+1507
+01:26:19,520 --> 01:26:23,420
+know part of the reason because I don't
+
+1508
+01:26:21,110 --> 01:26:26,090
+know I just have a lot of opinions about
+
+1509
+01:26:23,420 --> 01:26:29,750
+libraries but I don't actually know
+
+1510
+01:26:26,090 --> 01:26:34,760
+this stuff so you know take take it as
+
+1511
+01:26:29,750 --> 01:26:36,980
+what if I'm trying to you know part of
+
+1512
+01:26:34,760 --> 01:26:39,680
+the reason I study JavaScript and I
+
+1513
+01:26:36,980 --> 01:26:42,800
+don't use any libraries and that's why I
+
+1514
+01:26:39,680 --> 01:26:45,980
+study JavaScript in depth so I wanted to
+
+1515
+01:26:42,800 --> 01:26:49,310
+you know you will be able to write those
+
+1516
+01:26:45,980 --> 01:26:52,040
+libraries if you want to but however if
+
+1517
+01:26:49,310 --> 01:26:53,930
+you like a lot JavaScript programmers
+
+1518
+01:26:52,040 --> 01:26:56,960
+they use these libraries they know how
+
+1519
+01:26:53,930 --> 01:26:59,450
+of course in some sense it's actually
+
+1520
+01:26:56,960 --> 01:27:01,730
+easier of course because see so then you
+
+1521
+01:26:59,450 --> 01:27:04,160
+know you just want some commands but
+
+1522
+01:27:01,730 --> 01:27:06,350
+then once you get used to you don't
+
+1523
+01:27:04,160 --> 01:27:08,870
+really know how to how to do things you
+
+1524
+01:27:06,350 --> 01:27:11,840
+know you don't understand the underlying
+
+1525
+01:27:08,870 --> 01:27:14,300
+dome-like you know in jQuery you have to
+
+1526
+01:27:11,840 --> 01:27:17,990
+select something you know this is just a
+
+1527
+01:27:14,300 --> 01:27:20,150
+dollar sign dollar sign which is say 80s
+
+1528
+01:27:17,990 --> 01:27:23,000
+by the way it's a it's it's just a
+
+1529
+01:27:20,150 --> 01:27:26,030
+function name dollar sign
+
+1530
+01:27:23,000 --> 01:27:29,800
+it's a 80s for jQuery the function name
+
+1531
+01:27:26,030 --> 01:27:32,690
+so you can select something right but
+
+1532
+01:27:29,800 --> 01:27:35,030
+but a lot of people you they wouldn't
+
+1533
+01:27:32,690 --> 01:27:36,350
+know how to do that without jQuery and
+
+1534
+01:27:35,030 --> 01:27:38,510
+same thing with react you know
+
+1535
+01:27:36,350 --> 01:27:42,260
+especially things like we react which is
+
+1536
+01:27:38,510 --> 01:27:44,480
+very you know the it's actually a layer
+
+1537
+01:27:42,260 --> 01:27:48,800
+on top of JavaScript trying to make
+
+1538
+01:27:44,480 --> 01:27:55,150
+things easier yeah okay okay thank you
+
+1539
+01:27:48,800 --> 01:27:55,150
+guys for watching hope you like it bye
+

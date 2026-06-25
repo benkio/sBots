@@ -1,0 +1,2944 @@
+1
+00:00:04,339 --> 00:00:09,450
+good morning everyone
+
+2
+00:00:06,470 --> 00:00:14,910
+welcome to another episode of Santa's
+
+3
+00:00:09,450 --> 00:00:16,830
+Show today is 2019 October 27th sunday
+
+4
+00:00:14,910 --> 00:00:20,010
+nigh o'clock p.m.
+
+5
+00:00:16,830 --> 00:00:25,039
+San Francisco time and today we are
+
+6
+00:00:20,010 --> 00:00:28,439
+going to do a impromptu JavaScript plus
+
+7
+00:00:25,039 --> 00:00:31,550
+SVG coding live coding we are going to
+
+8
+00:00:28,439 --> 00:00:37,050
+plot a math curve now this is impromptu
+
+9
+00:00:31,550 --> 00:00:40,469
+now my my skillet my sleeping schedule
+
+10
+00:00:37,050 --> 00:00:42,989
+my video not talk shows schedule is kind
+
+11
+00:00:40,469 --> 00:00:45,870
+of in the mess okay so I was not
+
+12
+00:00:42,989 --> 00:00:50,640
+planning to do a video today but I woke
+
+13
+00:00:45,870 --> 00:00:54,390
+up and it's the right time you know you
+
+14
+00:00:50,640 --> 00:00:56,579
+know when you wake up after two hours
+
+15
+00:00:54,390 --> 00:00:58,770
+that's the best time that's the best
+
+16
+00:00:56,579 --> 00:01:01,949
+time of your day so usually I choose
+
+17
+00:00:58,770 --> 00:01:03,960
+that time to do the video so no money no
+
+18
+00:01:01,949 --> 00:01:08,520
+more it's it's something like ten
+
+19
+00:01:03,960 --> 00:01:10,850
+o'clock in the morning or noon but you
+
+20
+00:01:08,520 --> 00:01:14,010
+know I figured I'm going to do a video
+
+21
+00:01:10,850 --> 00:01:17,400
+so you don't you see you know every time
+
+22
+00:01:14,010 --> 00:01:19,860
+I think of many people who especially
+
+23
+00:01:17,400 --> 00:01:22,710
+but who wants to me to stick to a
+
+24
+00:01:19,860 --> 00:01:24,420
+schedule but I'm thinking you know I'm
+
+25
+00:01:22,710 --> 00:01:29,100
+doing everyday I'm doing a video every
+
+26
+00:01:24,420 --> 00:01:31,020
+day and that and for I know for a lot
+
+27
+00:01:29,100 --> 00:01:33,570
+people that's too much you know they
+
+28
+00:01:31,020 --> 00:01:36,810
+don't have time to just spend one hour
+
+29
+00:01:33,570 --> 00:01:38,790
+90 minutes to just watch my video
+
+30
+00:01:36,810 --> 00:01:45,479
+you know this there's millions of videos
+
+31
+00:01:38,790 --> 00:01:48,060
+out there so so but it would be I mean
+
+32
+00:01:45,479 --> 00:01:51,479
+it's great there are some people who
+
+33
+00:01:48,060 --> 00:01:55,590
+like to watch my show every day but you
+
+34
+00:01:51,479 --> 00:01:58,020
+know I'm putting out a lot so I so I'm
+
+35
+00:01:55,590 --> 00:02:02,670
+thinking you know what it doesn't really
+
+36
+00:01:58,020 --> 00:02:05,820
+matter if you cannot catch it live you
+
+37
+00:02:02,670 --> 00:02:09,629
+know so so anyway I mean that that's my
+
+38
+00:02:05,820 --> 00:02:12,150
+excuse for my random chaotic schedule so
+
+39
+00:02:09,629 --> 00:02:13,530
+so today it's going to be very simple
+
+40
+00:02:12,150 --> 00:02:16,200
+okay today we are doing
+
+41
+00:02:13,530 --> 00:02:19,910
+just going to do a javascript live
+
+42
+00:02:16,200 --> 00:02:24,870
+coding that I did not finish last time
+
+43
+00:02:19,910 --> 00:02:27,090
+stop is okay so JavaScript was SVG
+
+44
+00:02:24,870 --> 00:02:27,630
+coding and we can finish it in 40
+
+45
+00:02:27,090 --> 00:02:31,140
+minutes
+
+46
+00:02:27,630 --> 00:02:33,360
+last time we about 2 days ago we tried
+
+47
+00:02:31,140 --> 00:02:37,819
+that and we did not finish but this time
+
+48
+00:02:33,360 --> 00:02:44,000
+we will we will start from scratch and
+
+49
+00:02:37,819 --> 00:02:47,640
+do it so so okay so that is the premise
+
+50
+00:02:44,000 --> 00:02:52,650
+so what are we going to do today now is
+
+51
+00:02:47,640 --> 00:02:56,070
+to write a JavaScript code to create
+
+52
+00:02:52,650 --> 00:03:01,080
+this image this is created in
+
+53
+00:02:56,070 --> 00:03:03,360
+Mathematica and it's a PNG file as you
+
+54
+00:03:01,080 --> 00:03:08,130
+can see so it's static I'm going to
+
+55
+00:03:03,360 --> 00:03:10,440
+change this to a live JavaScript code so
+
+56
+00:03:08,130 --> 00:03:13,140
+open the file so you can see this is the
+
+57
+00:03:10,440 --> 00:03:16,790
+source code for that file and this is a
+
+58
+00:03:13,140 --> 00:03:16,790
+PNG file right there
+
+59
+00:03:18,620 --> 00:03:24,900
+some start command log mod okay all my
+
+60
+00:03:22,709 --> 00:03:29,040
+Emacs commands you can see on the Left
+
+61
+00:03:24,900 --> 00:03:31,500
+window here for those of you Emacs users
+
+62
+00:03:29,040 --> 00:03:37,739
+so we're gonna create this in JavaScript
+
+63
+00:03:31,500 --> 00:03:40,470
+so first so actually that's let's go to
+
+64
+00:03:37,739 --> 00:03:43,470
+my directory okay actually I have a
+
+65
+00:03:40,470 --> 00:03:47,070
+template here let's start from scratch
+
+66
+00:03:43,470 --> 00:03:54,709
+okay so we are going to create a new
+
+67
+00:03:47,070 --> 00:04:02,390
+file new file in HTML mod and HTML
+
+68
+00:03:54,709 --> 00:04:05,910
+insert a template JavaScript first SVG
+
+69
+00:04:02,390 --> 00:04:08,489
+fat math curve okay that's what we're
+
+70
+00:04:05,910 --> 00:04:15,359
+going to do and we're gonna insert a
+
+71
+00:04:08,489 --> 00:04:19,019
+random dive tag with a high D okay SVG
+
+72
+00:04:15,359 --> 00:04:21,510
+so this is our random tag and also we're
+
+73
+00:04:19,019 --> 00:04:25,580
+gonna okay show in browser okay I need
+
+74
+00:04:21,510 --> 00:04:33,250
+to save this X X 2 dot H
+
+75
+00:04:25,580 --> 00:04:33,250
+email X X 2 X X X X plot let's say
+
+76
+00:04:33,729 --> 00:04:39,680
+JavaScript prod okay
+
+77
+00:04:35,629 --> 00:04:46,699
+now showing browser it's empty now let's
+
+78
+00:04:39,680 --> 00:04:50,840
+see title h1 okay now we got a title
+
+79
+00:04:46,699 --> 00:04:55,069
+now we're gonna insert a insert a
+
+80
+00:04:50,840 --> 00:05:04,370
+stylesheet ok style and the style is
+
+81
+00:04:55,069 --> 00:05:09,099
+gonna be ID SVG that okay and switch to
+
+82
+00:05:04,370 --> 00:05:14,710
+CSS mod and let's say border
+
+83
+00:05:09,099 --> 00:05:17,539
+sorry think way okay switch to HTML mod
+
+84
+00:05:14,710 --> 00:05:20,629
+showing browser there we have it it's
+
+85
+00:05:17,539 --> 00:05:27,370
+empty therefore you got you get a line
+
+86
+00:05:20,629 --> 00:05:27,370
+and the next thing let's pop this out
+
+87
+00:05:29,139 --> 00:05:35,360
+the next thing we're going to do is to
+
+88
+00:05:32,650 --> 00:05:39,159
+okay so what we have so we're gonna
+
+89
+00:05:35,360 --> 00:05:43,520
+create a SVG so we're gonna create a
+
+90
+00:05:39,159 --> 00:05:47,599
+JavaScript file okay so paste the file
+
+91
+00:05:43,520 --> 00:05:51,770
+path name it JavaScript and call Emacs
+
+92
+00:05:47,599 --> 00:05:54,379
+command to liquify it okay then open the
+
+93
+00:05:51,770 --> 00:05:57,550
+javascript file is its new okay create
+
+94
+00:05:54,379 --> 00:06:00,349
+new and put a date okay
+
+95
+00:05:57,550 --> 00:06:02,719
+there we have it now back to this
+
+96
+00:06:00,349 --> 00:06:06,529
+showing browser okay there we have it
+
+97
+00:06:02,719 --> 00:06:11,120
+and in JavaScript now we begin to call
+
+98
+00:06:06,529 --> 00:06:16,159
+JavaScript now we want to constant
+
+99
+00:06:11,120 --> 00:06:21,229
+create a constant this name and we want
+
+100
+00:06:16,159 --> 00:06:25,219
+to say document get element by ID okay
+
+101
+00:06:21,229 --> 00:06:27,819
+and we have that ID then we need to
+
+102
+00:06:25,219 --> 00:06:33,879
+create okay close this hold on a second
+
+103
+00:06:27,819 --> 00:06:37,460
+we open magnify go back here
+
+104
+00:06:33,879 --> 00:06:41,060
+showing browser now we need to create a
+
+105
+00:06:37,460 --> 00:06:43,729
+SVG element okay let's go to my SVG
+
+106
+00:06:41,060 --> 00:06:47,930
+tutorial because I don't remember what's
+
+107
+00:06:43,729 --> 00:06:51,319
+a command so it's what's a function so
+
+108
+00:06:47,930 --> 00:06:53,919
+let's we are going to create a SAS Viji
+
+109
+00:06:51,319 --> 00:06:57,680
+element and here is my tutorial
+
+110
+00:06:53,919 --> 00:07:00,020
+scripting SVG and basically here is the
+
+111
+00:06:57,680 --> 00:07:03,169
+code to create the whole thing so let's
+
+112
+00:07:00,020 --> 00:07:06,379
+copy it and let's go back to JavaScript
+
+113
+00:07:03,169 --> 00:07:10,580
+and let's paste it here okay so this
+
+114
+00:07:06,379 --> 00:07:14,199
+code we have a function here then at the
+
+115
+00:07:10,580 --> 00:07:17,300
+end we call the function here and the
+
+116
+00:07:14,199 --> 00:07:24,110
+function first of all create a SVG
+
+117
+00:07:17,300 --> 00:07:27,099
+element so let's do that let's okay how
+
+118
+00:07:24,110 --> 00:07:34,159
+now second so let's create a SVG element
+
+119
+00:07:27,099 --> 00:07:36,639
+there SVG element then we okay let's
+
+120
+00:07:34,159 --> 00:07:41,060
+copy that
+
+121
+00:07:36,639 --> 00:07:44,860
+okay then we set the SVG hate and wait
+
+122
+00:07:41,060 --> 00:07:50,569
+okay then we create a circle element
+
+123
+00:07:44,860 --> 00:07:55,880
+then we append the circle element to the
+
+124
+00:07:50,569 --> 00:08:03,289
+SVG element then we append the SVG
+
+125
+00:07:55,880 --> 00:08:05,990
+element to the to the dive SVG part
+
+126
+00:08:03,289 --> 00:08:09,169
+which is that way
+
+127
+00:08:05,990 --> 00:08:13,039
+so document.getelementbyid e actually so
+
+128
+00:08:09,169 --> 00:08:16,759
+we attach it like that the pen child and
+
+129
+00:08:13,039 --> 00:08:19,580
+now we can delete this function we don't
+
+130
+00:08:16,759 --> 00:08:22,990
+need it function we are coding
+
+131
+00:08:19,580 --> 00:08:25,849
+everything directly so now we go back to
+
+132
+00:08:22,990 --> 00:08:28,340
+the Java Script showing browser now I
+
+133
+00:08:25,849 --> 00:08:31,690
+have JavaScript off here so I need to
+
+134
+00:08:28,340 --> 00:08:37,779
+show in Google Chrome so let's do it
+
+135
+00:08:31,690 --> 00:08:42,469
+because I have JavaScript on the test
+
+136
+00:08:37,779 --> 00:08:46,550
+okay good I'm good and now so let's show
+
+137
+00:08:42,469 --> 00:08:50,880
+it in him in Google Chrome so
+
+138
+00:08:46,550 --> 00:08:54,180
+open opening Chrome browser okay so
+
+139
+00:08:50,880 --> 00:08:59,160
+enter there we have it so we have a
+
+140
+00:08:54,180 --> 00:09:02,490
+circle of SVG element now all we have to
+
+141
+00:08:59,160 --> 00:09:07,350
+do is to remember it needs hold on
+
+142
+00:09:02,490 --> 00:09:11,760
+second let's copy this copy the file
+
+143
+00:09:07,350 --> 00:09:17,520
+path close it go back to go back here
+
+144
+00:09:11,760 --> 00:09:22,740
+and add a horizontal line and paste the
+
+145
+00:09:17,520 --> 00:09:29,400
+link here and showing Bowser
+
+146
+00:09:22,740 --> 00:09:32,070
+okay refresh that's good move it here so
+
+147
+00:09:29,400 --> 00:09:35,100
+we want what we want is actually this
+
+148
+00:09:32,070 --> 00:09:37,920
+this graph this graph is what we are
+
+149
+00:09:35,100 --> 00:09:41,660
+trying to do so let's go back let's copy
+
+150
+00:09:37,920 --> 00:09:45,270
+the graph over here so copy it close it
+
+151
+00:09:41,660 --> 00:09:47,940
+paste it showing browser so this graph
+
+152
+00:09:45,270 --> 00:09:51,320
+is what we are trying to do so let's
+
+153
+00:09:47,940 --> 00:09:56,270
+begin let's start to create what we want
+
+154
+00:09:51,320 --> 00:09:56,270
+so go back to the javascript file and
+
+155
+00:09:56,420 --> 00:10:03,240
+okay so here we create a SVG element
+
+156
+00:10:00,150 --> 00:10:05,490
+then we set the width and hate then we
+
+157
+00:10:03,240 --> 00:10:09,810
+create a circle now a circle is not what
+
+158
+00:10:05,490 --> 00:10:12,060
+we want we want a now two products first
+
+159
+00:10:09,810 --> 00:10:14,760
+of all we need to define a function for
+
+160
+00:10:12,060 --> 00:10:21,900
+this function but before we do that
+
+161
+00:10:14,760 --> 00:10:28,440
+let's just say x squared okay define a
+
+162
+00:10:21,900 --> 00:10:33,300
+function constant area function let's
+
+163
+00:10:28,440 --> 00:10:41,090
+say math F so math F is our function so
+
+164
+00:10:33,300 --> 00:10:43,590
+X so you enter X and it returns math
+
+165
+00:10:41,090 --> 00:10:47,280
+let's say x squared okay
+
+166
+00:10:43,590 --> 00:10:50,010
+let's say that is our function so we are
+
+167
+00:10:47,280 --> 00:10:53,850
+going to first of all try to plot x
+
+168
+00:10:50,010 --> 00:10:56,130
+squared so how do you do that first of
+
+169
+00:10:53,850 --> 00:10:58,980
+all for each input to the function we
+
+170
+00:10:56,130 --> 00:10:59,970
+need to have a output that is the value
+
+171
+00:10:58,980 --> 00:11:02,699
+Y
+
+172
+00:10:59,970 --> 00:11:06,449
+but we need a coordinate so we need a
+
+173
+00:11:02,699 --> 00:11:13,319
+pair x and y that with a sense a point
+
+174
+00:11:06,449 --> 00:11:17,250
+on the curve so we what we can do is
+
+175
+00:11:13,319 --> 00:11:21,529
+that we want to map this function into
+
+176
+00:11:17,250 --> 00:11:30,209
+an input range okay let's say x mean
+
+177
+00:11:21,529 --> 00:11:33,839
+constant x mean x mean from 0 to x max x
+
+178
+00:11:30,209 --> 00:11:38,879
+max let's say let's say 3 so plot this
+
+179
+00:11:33,839 --> 00:11:40,709
+curve x squared from 0 to 3 okay so
+
+180
+00:11:38,879 --> 00:11:44,519
+first of all we need to generate an
+
+181
+00:11:40,709 --> 00:11:48,019
+array of elements from 0 to 3 with in
+
+182
+00:11:44,519 --> 00:11:50,930
+turbos let's say 0.1 okay
+
+183
+00:11:48,019 --> 00:11:57,420
+so we're going to create a rate of
+
+184
+00:11:50,930 --> 00:12:00,329
+intervals from 0 to 3 so how do you do
+
+185
+00:11:57,420 --> 00:12:04,889
+that now in JavaScript there is no range
+
+186
+00:12:00,329 --> 00:12:06,540
+function in Python you just say 0 3 0
+
+187
+00:12:04,889 --> 00:12:08,370
+point what that's how you do it in
+
+188
+00:12:06,540 --> 00:12:11,490
+Python but in JavaScript you don't have
+
+189
+00:12:08,370 --> 00:12:13,339
+that so how do you do that okay we go
+
+190
+00:12:11,490 --> 00:12:18,420
+back to my JavaScript tutorial
+
+191
+00:12:13,339 --> 00:12:22,949
+javascript in depth and you go to the
+
+192
+00:12:18,420 --> 00:12:26,009
+array section array understanding array
+
+193
+00:12:22,949 --> 00:12:28,500
+and there's a section or page on array
+
+194
+00:12:26,009 --> 00:12:33,540
+how to so here is a function range
+
+195
+00:12:28,500 --> 00:12:37,680
+function to generate a way so I have
+
+196
+00:12:33,540 --> 00:12:40,050
+written this function it's pretty easy
+
+197
+00:12:37,680 --> 00:12:47,279
+to understand so let's put the function
+
+198
+00:12:40,050 --> 00:12:50,879
+here let's put a function here so this
+
+199
+00:12:47,279 --> 00:12:54,809
+function X range minimum max we are
+
+200
+00:12:50,879 --> 00:12:57,509
+written of away from Ming to max and if
+
+201
+00:12:54,809 --> 00:13:00,029
+you give a step you are returned away by
+
+202
+00:12:57,509 --> 00:13:03,180
+that step basically the way you do that
+
+203
+00:13:00,029 --> 00:13:05,629
+is just for loop you see this function
+
+204
+00:13:03,180 --> 00:13:09,000
+is using a for loop in fact for loop is
+
+205
+00:13:05,629 --> 00:13:12,540
+the fastest way to channel generate a
+
+206
+00:13:09,000 --> 00:13:13,070
+array that is nature of JavaScript
+
+207
+00:13:12,540 --> 00:13:16,520
+there's no
+
+208
+00:13:13,070 --> 00:13:19,160
+thing you can do about that so for loop
+
+209
+00:13:16,520 --> 00:13:22,160
+is a fast way to generate away in the
+
+210
+00:13:19,160 --> 00:13:24,920
+most efficient way why am i mentioning
+
+211
+00:13:22,160 --> 00:13:27,320
+that because typically for a functional
+
+212
+00:13:24,920 --> 00:13:29,150
+programmer me or those of you who prefer
+
+213
+00:13:27,320 --> 00:13:31,910
+functional programming you don't like to
+
+214
+00:13:29,150 --> 00:13:33,770
+use for loops but in JavaScript you have
+
+215
+00:13:31,910 --> 00:13:35,810
+no choice that's you know that's even
+
+216
+00:13:33,770 --> 00:13:39,020
+though JavaScript supports functional
+
+217
+00:13:35,810 --> 00:13:42,200
+programming but the best way to generate
+
+218
+00:13:39,020 --> 00:13:45,560
+array the most efficient efficient way
+
+219
+00:13:42,200 --> 00:13:49,040
+is simply a for loop is faster then for
+
+220
+00:13:45,560 --> 00:13:51,590
+each other ways to do it and remember
+
+221
+00:13:49,040 --> 00:13:57,050
+the thing is that we need a step because
+
+222
+00:13:51,590 --> 00:14:00,530
+if we do not need to a arbitrary step
+
+223
+00:13:57,050 --> 00:14:05,000
+size interval then you can simply do
+
+224
+00:14:00,530 --> 00:14:10,100
+this this kind of in comprehensible way
+
+225
+00:14:05,000 --> 00:14:12,230
+with JavaScript 2015 anyway so we have
+
+226
+00:14:10,100 --> 00:14:17,570
+this function it's not range so let's
+
+227
+00:14:12,230 --> 00:14:21,670
+just use that so input so we're gonna
+
+228
+00:14:17,570 --> 00:14:29,600
+call range it's not range and actually
+
+229
+00:14:21,670 --> 00:14:36,170
+so from X mean X mean to X Max in steps
+
+230
+00:14:29,600 --> 00:14:40,820
+of okay let's put it here X step see
+
+231
+00:14:36,170 --> 00:14:45,650
+your point one okay so now now that
+
+232
+00:14:40,820 --> 00:14:53,750
+gives us a range we need to say waiting
+
+233
+00:14:45,650 --> 00:14:59,990
+into a variable input okay X range X
+
+234
+00:14:53,750 --> 00:15:03,980
+values let's say okay now that X values
+
+235
+00:14:59,990 --> 00:15:06,800
+is the input values to X what's the next
+
+236
+00:15:03,980 --> 00:15:09,500
+thing we need to now we need to map this
+
+237
+00:15:06,800 --> 00:15:16,430
+function to X values okay let's do that
+
+238
+00:15:09,500 --> 00:15:23,590
+so math function which is a weight so x
+
+239
+00:15:16,430 --> 00:15:26,389
+value is a array we want to map okay and
+
+240
+00:15:23,590 --> 00:15:29,739
+then we pass the function
+
+241
+00:15:26,389 --> 00:15:33,739
+constant error function so the function
+
+242
+00:15:29,739 --> 00:15:36,019
+right not constant error function arrow
+
+243
+00:15:33,739 --> 00:15:44,660
+function ok the function will take a
+
+244
+00:15:36,019 --> 00:15:50,749
+value X and return a pair of numbers x
+
+245
+00:15:44,660 --> 00:15:55,790
+and y ok so the the x value is just X
+
+246
+00:15:50,749 --> 00:16:00,499
+itself the Y value will be mass F X okay
+
+247
+00:15:55,790 --> 00:16:04,129
+so this so for each input value of x we
+
+248
+00:16:00,499 --> 00:16:11,420
+return a coordinate a vector of two
+
+249
+00:16:04,129 --> 00:16:13,939
+things x and y ok that is that is the
+
+250
+00:16:11,420 --> 00:16:24,559
+points so we're gonna create a variable
+
+251
+00:16:13,939 --> 00:16:29,509
+constant pts ok so that's the result of
+
+252
+00:16:24,559 --> 00:16:31,489
+that is at least the points right so
+
+253
+00:16:29,509 --> 00:16:34,549
+what is the next thing to do so now we
+
+254
+00:16:31,489 --> 00:16:38,239
+got the list of points now we got the
+
+255
+00:16:34,549 --> 00:16:45,309
+list of points we need to let's go back
+
+256
+00:16:38,239 --> 00:16:45,309
+to what's going on second
+
+257
+00:16:47,240 --> 00:16:53,480
+so now we got a bunch of pundits refresh
+
+258
+00:16:50,660 --> 00:16:56,809
+okay so now we got a bunch of point each
+
+259
+00:16:53,480 --> 00:17:00,350
+point is a point on the curve we need to
+
+260
+00:16:56,809 --> 00:17:07,520
+represent it by a wait he's here
+
+261
+00:17:00,350 --> 00:17:13,069
+something that jumps my mouse oh because
+
+262
+00:17:07,520 --> 00:17:17,839
+my interactive pen is he's on so good
+
+263
+00:17:13,069 --> 00:17:20,899
+morning George so so folks so let's so
+
+264
+00:17:17,839 --> 00:17:25,789
+let's do this so we got the list of
+
+265
+00:17:20,899 --> 00:17:30,110
+points and for each point we want to
+
+266
+00:17:25,789 --> 00:17:34,250
+generate a SVG circle to represent that
+
+267
+00:17:30,110 --> 00:17:38,779
+point and show it in this graph so how
+
+268
+00:17:34,250 --> 00:17:41,480
+we do that okay so first of all so here
+
+269
+00:17:38,779 --> 00:17:45,830
+is a bunch of points then we map the
+
+270
+00:17:41,480 --> 00:17:50,480
+points to you see this is how you
+
+271
+00:17:45,830 --> 00:17:52,820
+generate the SVG circle and in here we
+
+272
+00:17:50,480 --> 00:17:55,580
+see this that giant circle that is that
+
+273
+00:17:52,820 --> 00:17:59,570
+but now we got which we need to generate
+
+274
+00:17:55,580 --> 00:18:00,440
+a list of circles a SVG circle element
+
+275
+00:17:59,570 --> 00:18:05,480
+so let's do that
+
+276
+00:18:00,440 --> 00:18:09,200
+so PT has these points and its array so
+
+277
+00:18:05,480 --> 00:18:11,480
+we're gonna map we are not going to map
+
+278
+00:18:09,200 --> 00:18:14,270
+we're gonna do for each because we don't
+
+279
+00:18:11,480 --> 00:18:18,610
+care about the output we only we just
+
+280
+00:18:14,270 --> 00:18:21,679
+want to generate a bunch of SVG circles
+
+281
+00:18:18,610 --> 00:18:24,440
+okay but before then then we need to
+
+282
+00:18:21,679 --> 00:18:32,630
+assign the result to a variable so let's
+
+283
+00:18:24,440 --> 00:18:35,750
+say constant circles point circles okay
+
+284
+00:18:32,630 --> 00:18:39,440
+so something like that so we're gonna
+
+285
+00:18:35,750 --> 00:18:44,360
+map this by a function for each so for
+
+286
+00:18:39,440 --> 00:18:51,620
+each pair of values we are going to
+
+287
+00:18:44,360 --> 00:18:54,620
+create a SVG circle like that so for
+
+288
+00:18:51,620 --> 00:18:57,590
+each here we need a arrow function okay
+
+289
+00:18:54,620 --> 00:18:58,789
+arrow function and in this error
+
+290
+00:18:57,590 --> 00:19:01,459
+function
+
+291
+00:18:58,789 --> 00:19:06,679
+hold on a second so error function the
+
+292
+00:19:01,459 --> 00:19:09,679
+input is x and y and the output not the
+
+293
+00:19:06,679 --> 00:19:17,449
+output but what we do with the XY is
+
+294
+00:19:09,679 --> 00:19:21,459
+that we are going to create a circle ok
+
+295
+00:19:17,449 --> 00:19:28,820
+create a circle ok let's copy this here
+
+296
+00:19:21,459 --> 00:19:32,479
+for each X&Y point we first of all we
+
+297
+00:19:28,820 --> 00:19:41,599
+create a circle we set the x coordinate
+
+298
+00:19:32,479 --> 00:19:42,529
+to be x ok to string okay and for the y
+
+299
+00:19:41,599 --> 00:19:45,319
+coordinate
+
+300
+00:19:42,529 --> 00:19:48,499
+cornered with coordinate we do the same
+
+301
+00:19:45,319 --> 00:19:51,440
+thing okay to string the radius will be
+
+302
+00:19:48,499 --> 00:19:55,789
+let's say three point four now and the
+
+303
+00:19:51,440 --> 00:20:06,009
+circle will be colored red ok so now
+
+304
+00:19:55,789 --> 00:20:12,919
+let's put some comments for each point
+
+305
+00:20:06,009 --> 00:20:15,949
+generate a SVG's circle hedeman okay so
+
+306
+00:20:12,919 --> 00:20:20,569
+that's what this part does so now we
+
+307
+00:20:15,949 --> 00:20:24,829
+have point circles okay and attach them
+
+308
+00:20:20,569 --> 00:20:27,559
+to right now attach them to the SVG
+
+309
+00:20:24,829 --> 00:20:31,009
+element okay
+
+310
+00:20:27,559 --> 00:20:37,429
+then attach the scg every SVG element to
+
+311
+00:20:31,009 --> 00:20:40,089
+our to our dive element so that should
+
+312
+00:20:37,429 --> 00:20:44,329
+walk let's try it
+
+313
+00:20:40,089 --> 00:20:47,299
+refresh arrow okay it's not working so
+
+314
+00:20:44,329 --> 00:20:50,599
+let's look at what's going on so we turn
+
+315
+00:20:47,299 --> 00:20:54,679
+on the arrow log the browser JavaScript
+
+316
+00:20:50,599 --> 00:20:58,969
+console so he says uncaught type area
+
+317
+00:20:54,679 --> 00:20:59,599
+fail to execute 9:47 and pain child or
+
+318
+00:20:58,969 --> 00:21:03,139
+not
+
+319
+00:20:59,599 --> 00:21:07,809
+parameter one is not of type not okay so
+
+320
+00:21:03,139 --> 00:21:11,780
+I know what's going on so so for each
+
+321
+00:21:07,809 --> 00:21:16,950
+for each of these
+
+322
+00:21:11,780 --> 00:21:23,030
+all right so so point circles is a array
+
+323
+00:21:16,950 --> 00:21:27,059
+and each element is a SVG circle element
+
+324
+00:21:23,030 --> 00:21:28,860
+now you cannot append it to SVG you
+
+325
+00:21:27,059 --> 00:21:33,059
+cannot append child because a panchayat
+
+326
+00:21:28,860 --> 00:21:37,170
+requires the argument must be a knot not
+
+327
+00:21:33,059 --> 00:21:41,160
+a array so that that's easy to fix
+
+328
+00:21:37,170 --> 00:21:48,570
+so what we need to do is so we say point
+
+329
+00:21:41,160 --> 00:21:52,400
+circles dot for each so for each of one
+
+330
+00:21:48,570 --> 00:21:55,320
+of them we're going to append okay so
+
+331
+00:21:52,400 --> 00:21:59,549
+yeah so wait so we need an arrow
+
+332
+00:21:55,320 --> 00:22:03,200
+function here so for each one of them we
+
+333
+00:21:59,549 --> 00:22:06,480
+are going to SVG a panchayat
+
+334
+00:22:03,200 --> 00:22:07,049
+so we don't need that so this is how we
+
+335
+00:22:06,480 --> 00:22:14,150
+do it
+
+336
+00:22:07,049 --> 00:22:22,679
+attach it attach attach circles to the
+
+337
+00:22:14,150 --> 00:22:25,590
+to the SVG container okay so for each of
+
+338
+00:22:22,679 --> 00:22:29,490
+them append child to SVG then append
+
+339
+00:22:25,590 --> 00:22:34,020
+append the SVG to our dive element that
+
+340
+00:22:29,490 --> 00:22:37,040
+that should be it hold on a second yeah
+
+341
+00:22:34,020 --> 00:22:41,610
+that should be Hana it's a shrink
+
+342
+00:22:37,040 --> 00:22:44,880
+good morning DM w so okay so let's let's
+
+343
+00:22:41,610 --> 00:22:47,340
+see what's going on with our code let's
+
+344
+00:22:44,880 --> 00:22:54,750
+go to a browser refresh he should walk
+
+345
+00:22:47,340 --> 00:22:58,410
+hey you know this is the show it cannot
+
+346
+00:22:54,750 --> 00:23:03,240
+read property for each of undefined okay
+
+347
+00:22:58,410 --> 00:23:09,960
+I think what's going on so what happens
+
+348
+00:23:03,240 --> 00:23:13,410
+is that so that this value point circus
+
+349
+00:23:09,960 --> 00:23:16,860
+right now is undefined why because for
+
+350
+00:23:13,410 --> 00:23:18,940
+each actually returns undefined that's
+
+351
+00:23:16,860 --> 00:23:21,070
+that's what it returns
+
+352
+00:23:18,940 --> 00:23:24,159
+I mean because for each is just for a
+
+353
+00:23:21,070 --> 00:23:29,580
+side effect so instead of for each you
+
+354
+00:23:24,159 --> 00:23:34,840
+want to use map so let's change that map
+
+355
+00:23:29,580 --> 00:23:37,749
+so let's refresh browser fail to execute
+
+356
+00:23:34,840 --> 00:23:41,590
+or paint child are not primed one is of
+
+357
+00:23:37,749 --> 00:23:46,269
+not type not oh I know I okay now we use
+
+358
+00:23:41,590 --> 00:23:50,200
+map map will return a away because pity
+
+359
+00:23:46,269 --> 00:23:53,080
+points pts is away and we map we map
+
+360
+00:23:50,200 --> 00:23:55,359
+this function to it but this function
+
+361
+00:23:53,080 --> 00:24:00,820
+right now doesn't have a return value so
+
+362
+00:23:55,359 --> 00:24:04,179
+it you need to return the circle okay so
+
+363
+00:24:00,820 --> 00:24:07,629
+that's that's what you need to do so
+
+364
+00:24:04,179 --> 00:24:11,849
+once you return a circle you got the
+
+365
+00:24:07,629 --> 00:24:18,190
+point circles is a vector I mean a way
+
+366
+00:24:11,849 --> 00:24:22,210
+where each element is a is a SVG circle
+
+367
+00:24:18,190 --> 00:24:25,239
+element then for each of them you do for
+
+368
+00:24:22,210 --> 00:24:29,559
+each you appended you know then you
+
+369
+00:24:25,239 --> 00:24:31,629
+should walk let's try there it is we see
+
+370
+00:24:29,559 --> 00:24:34,450
+something there but something is not is
+
+371
+00:24:31,629 --> 00:24:37,749
+wrong because you see we run into the
+
+372
+00:24:34,450 --> 00:24:40,649
+problem last time because right now you
+
+373
+00:24:37,749 --> 00:24:48,940
+see the red dot on the upper left corner
+
+374
+00:24:40,649 --> 00:24:52,059
+that's a lot of red dots because this
+
+375
+00:24:48,940 --> 00:24:56,830
+function let's see let's see what's
+
+376
+00:24:52,059 --> 00:24:59,320
+going on so the here with so so far what
+
+377
+00:24:56,830 --> 00:25:01,330
+we have done before it's or simple you
+
+378
+00:24:59,320 --> 00:25:05,529
+know is we are following the basic
+
+379
+00:25:01,330 --> 00:25:07,690
+programming of SVG now you understand
+
+380
+00:25:05,529 --> 00:25:10,479
+SVG you know you create elements you
+
+381
+00:25:07,690 --> 00:25:13,090
+understand JavaScript you create a way
+
+382
+00:25:10,479 --> 00:25:16,509
+you create elements you attach to SVG
+
+383
+00:25:13,090 --> 00:25:21,749
+then you get a graph it's all correct
+
+384
+00:25:16,509 --> 00:25:26,049
+however here comes the some kind of inch
+
+385
+00:25:21,749 --> 00:25:29,109
+intrinsic problem of creating a math
+
+386
+00:25:26,049 --> 00:25:32,770
+plot so now the problem is not about
+
+387
+00:25:29,109 --> 00:25:35,980
+JavaScript or SVG but rather it's about
+
+388
+00:25:32,770 --> 00:25:39,400
+the deranged you know the plot range and
+
+389
+00:25:35,980 --> 00:25:42,309
+your actual things you want to plot
+
+390
+00:25:39,400 --> 00:25:44,080
+because right now they are all within
+
+391
+00:25:42,309 --> 00:25:48,460
+that area you have to figure out a
+
+392
+00:25:44,080 --> 00:25:51,520
+proper you know the proper range plant
+
+393
+00:25:48,460 --> 00:25:54,760
+range so that they show up for example
+
+394
+00:25:51,520 --> 00:26:00,160
+let's let's let's let's see if we can
+
+395
+00:25:54,760 --> 00:26:05,200
+fix that quickly just to show so here we
+
+396
+00:26:00,160 --> 00:26:09,070
+have SVG attribute with 100 hate 100
+
+397
+00:26:05,200 --> 00:26:13,840
+let's increase it to yeah that's why
+
+398
+00:26:09,070 --> 00:26:16,780
+because width is 100 meanwhile our x max
+
+399
+00:26:13,840 --> 00:26:19,570
+is 3 0 to 3 so that's why it's
+
+400
+00:26:16,780 --> 00:26:22,390
+everything is showing up in a corner so
+
+401
+00:26:19,570 --> 00:26:27,250
+let's say with these 4 let's say with
+
+402
+00:26:22,390 --> 00:26:30,179
+let's say with is 3 hate is let's say 10
+
+403
+00:26:27,250 --> 00:26:35,100
+let's try it again
+
+404
+00:26:30,179 --> 00:26:45,309
+ok better but still what's going on
+
+405
+00:26:35,100 --> 00:26:48,520
+hate 10 ok I know what's going on you
+
+406
+00:26:45,309 --> 00:26:50,230
+change then ask why am I writing a power
+
+407
+00:26:48,520 --> 00:26:55,200
+function because that's my job
+
+408
+00:26:50,230 --> 00:26:55,200
+kind of because I'm trying to create
+
+409
+00:26:57,270 --> 00:27:06,220
+because I have this math project with a
+
+410
+00:27:03,429 --> 00:27:09,340
+lot of these friend curves those are
+
+411
+00:27:06,220 --> 00:27:12,550
+created in Mathematica about 20 years
+
+412
+00:27:09,340 --> 00:27:15,490
+ago and now I'm trying to replace over
+
+413
+00:27:12,550 --> 00:27:19,500
+them by interactive JavaScript so this
+
+414
+00:27:15,490 --> 00:27:22,120
+is the first step towards that direction
+
+415
+00:27:19,500 --> 00:27:26,020
+yeah but and you know Mathematica is
+
+416
+00:27:22,120 --> 00:27:30,610
+great but you know I need it to for my
+
+417
+00:27:26,020 --> 00:27:35,260
+website so JavaScript so okay so so what
+
+418
+00:27:30,610 --> 00:27:37,450
+so now the problem is okay so let's
+
+419
+00:27:35,260 --> 00:27:41,860
+let's try to finish this okay today so
+
+420
+00:27:37,450 --> 00:27:45,610
+just focus on this thing now the problem
+
+421
+00:27:41,860 --> 00:27:48,310
+is you see our SVG
+
+422
+00:27:45,610 --> 00:27:51,250
+which is only three that means three
+
+423
+00:27:48,310 --> 00:27:54,400
+pixels that's not going to work three
+
+424
+00:27:51,250 --> 00:27:57,490
+pixels you know three pixels on your
+
+425
+00:27:54,400 --> 00:28:00,610
+screen is too small so what we need to
+
+426
+00:27:57,490 --> 00:28:03,850
+do is actually there is a SVG thing
+
+427
+00:28:00,610 --> 00:28:09,480
+that's called SVG coordinate let's go to
+
+428
+00:28:03,850 --> 00:28:11,890
+my JavaScript tutorial and let's see
+
+429
+00:28:09,480 --> 00:28:16,840
+let's go through my JavaScript tutorial
+
+430
+00:28:11,890 --> 00:28:22,950
+so let's go to SVG tutorial so we need
+
+431
+00:28:16,840 --> 00:28:26,830
+to use the view box view box is how you
+
+432
+00:28:22,950 --> 00:28:30,760
+control the coordinates within a SVG
+
+433
+00:28:26,830 --> 00:28:34,540
+element so let me let me refresh now
+
+434
+00:28:30,760 --> 00:28:37,030
+when you have a SVG element you have for
+
+435
+00:28:34,540 --> 00:28:41,050
+example here as a SVG element you have
+
+436
+00:28:37,030 --> 00:28:46,390
+width and hate that's in pixels
+
+437
+00:28:41,050 --> 00:28:50,020
+now that specifies the canvas the canvas
+
+438
+00:28:46,390 --> 00:28:52,480
+you know can they call it viewport so
+
+439
+00:28:50,020 --> 00:28:55,510
+this you see this red box that's visible
+
+440
+00:28:52,480 --> 00:28:58,450
+you know the the canvas you can say it's
+
+441
+00:28:55,510 --> 00:29:03,460
+canvas so the width is hundred pixels
+
+442
+00:28:58,450 --> 00:29:05,860
+Hades hundred pixels now by default now
+
+443
+00:29:03,460 --> 00:29:08,950
+so that's one thing but however when you
+
+444
+00:29:05,860 --> 00:29:13,590
+the the points inside the box they also
+
+445
+00:29:08,950 --> 00:29:18,670
+have coordinates so by default it's also
+
+446
+00:29:13,590 --> 00:29:22,900
+0 to 100 for X and 0 to 100 for Y from
+
+447
+00:29:18,670 --> 00:29:27,640
+top to bottom so the 0 is on the upper
+
+448
+00:29:22,900 --> 00:29:30,790
+left corner okay so there are two
+
+449
+00:29:27,640 --> 00:29:34,090
+concepts one is the width and height of
+
+450
+00:29:30,790 --> 00:29:36,820
+the viewable portion you know you know
+
+451
+00:29:34,090 --> 00:29:40,480
+the canvas SVG size how much how much is
+
+452
+00:29:36,820 --> 00:29:43,780
+your you know viewport the other concept
+
+453
+00:29:40,480 --> 00:29:48,550
+is the actual coordinates inside it so
+
+454
+00:29:43,780 --> 00:29:51,220
+for example I say Wheatland hate ten so
+
+455
+00:29:48,550 --> 00:29:55,480
+you got this size screen but however
+
+456
+00:29:51,220 --> 00:29:58,300
+suppose I'm trying to plot x squared now
+
+457
+00:29:55,480 --> 00:29:59,200
+x squared you know or some other
+
+458
+00:29:58,300 --> 00:30:03,250
+function that
+
+459
+00:29:59,200 --> 00:30:07,360
+that goes from 0 to 1,000 so obviously
+
+460
+00:30:03,250 --> 00:30:09,929
+it won't fit because this is only 10 to
+
+461
+00:30:07,360 --> 00:30:13,450
+10 you are parting something beyond 10
+
+462
+00:30:09,929 --> 00:30:15,730
+so but there is that you can change the
+
+463
+00:30:13,450 --> 00:30:18,429
+coordinate create a user coordinate so
+
+464
+00:30:15,730 --> 00:30:22,480
+that from the left to the right is 0 to
+
+465
+00:30:18,429 --> 00:30:25,860
+1000 even though the actual camera size
+
+466
+00:30:22,480 --> 00:30:29,019
+is 0 to 10 so that's what we want to do
+
+467
+00:30:25,860 --> 00:30:31,799
+change the code and a user coordinate so
+
+468
+00:30:29,019 --> 00:30:36,070
+in order to do that you go to the SVG
+
+469
+00:30:31,799 --> 00:30:38,620
+you see it's called view box okay and
+
+470
+00:30:36,070 --> 00:30:43,480
+here is the syntax I mean the here is a
+
+471
+00:30:38,620 --> 00:30:48,820
+syntax with hate and view box so let me
+
+472
+00:30:43,480 --> 00:30:52,299
+paste it here so let's do that okay so
+
+473
+00:30:48,820 --> 00:30:57,190
+with hate view box so we're gonna add a
+
+474
+00:30:52,299 --> 00:31:01,990
+another so with let's say with so with
+
+475
+00:30:57,190 --> 00:31:03,490
+let's say 600 600 is a good width you
+
+476
+00:31:01,990 --> 00:31:09,750
+know view port you know something like
+
+477
+00:31:03,490 --> 00:31:14,049
+that let's say 800 okay width is 800 and
+
+478
+00:31:09,750 --> 00:31:18,539
+hate will be what what what should our
+
+479
+00:31:14,049 --> 00:31:24,389
+hate be let's say a hundred to let's say
+
+480
+00:31:18,539 --> 00:31:30,120
+600 okay so we have a kind of a TV sized
+
+481
+00:31:24,389 --> 00:31:35,399
+box okay and we can see it if you
+
+482
+00:31:30,120 --> 00:31:35,399
+refresh you see now we got a TV size box
+
+483
+00:31:35,789 --> 00:31:42,610
+now you see all the points
+
+484
+00:31:39,519 --> 00:31:45,549
+is on the top upper left corner so let's
+
+485
+00:31:42,610 --> 00:31:48,309
+change the radius so hold on a second so
+
+486
+00:31:45,549 --> 00:31:53,049
+the circle is here and the circle radius
+
+487
+00:31:48,309 --> 00:31:57,450
+is here so circle radius 30 okay refresh
+
+488
+00:31:53,049 --> 00:32:00,250
+now you see that's circle radius now
+
+489
+00:31:57,450 --> 00:32:02,880
+let's change the function so our
+
+490
+00:32:00,250 --> 00:32:02,880
+function
+
+491
+00:32:03,280 --> 00:32:13,030
+is x squared let's just change it to two
+
+492
+00:32:07,690 --> 00:32:19,150
+times X okay so refresh that's your no
+
+493
+00:32:13,030 --> 00:32:21,910
+good oh because you know X min is 0 2 3
+
+494
+00:32:19,150 --> 00:32:25,390
+that's too small let's say 0 to 10 and
+
+495
+00:32:21,910 --> 00:32:27,210
+let's say instead of five zero point
+
+496
+00:32:25,390 --> 00:32:31,420
+five okay
+
+497
+00:32:27,210 --> 00:32:41,020
+refresh yeah it's still no good let's
+
+498
+00:32:31,420 --> 00:32:45,940
+say zero to 800 okay now we got too many
+
+499
+00:32:41,020 --> 00:32:49,870
+points let's say step let's say in step
+
+500
+00:32:45,940 --> 00:32:54,850
+of 10 refresh now we start to see the
+
+501
+00:32:49,870 --> 00:33:00,210
+dots let's say step in step of 30
+
+502
+00:32:54,850 --> 00:33:03,670
+oops 30 refresh okay now we kind of got
+
+503
+00:33:00,210 --> 00:33:10,420
+far let's change the function 2x squared
+
+504
+00:33:03,670 --> 00:33:13,210
+again and see what happens okay so so
+
+505
+00:33:10,420 --> 00:33:16,230
+now what we want to do we want to use
+
+506
+00:33:13,210 --> 00:33:25,960
+the view box okay so to do the view box
+
+507
+00:33:16,230 --> 00:33:30,160
+we set the attribute view box and the
+
+508
+00:33:25,960 --> 00:33:34,570
+value should be X minimum is 0 Y minimum
+
+509
+00:33:30,160 --> 00:33:38,170
+is 0 that's the upper left corner and X
+
+510
+00:33:34,570 --> 00:33:44,320
+width and exhale so what the coordinate
+
+511
+00:33:38,170 --> 00:33:47,460
+we want to be so let's say a hundred and
+
+512
+00:33:44,320 --> 00:33:47,460
+hate will be
+
+513
+00:33:52,070 --> 00:34:07,100
+hate will be what are we hate will be
+
+514
+00:33:59,000 --> 00:34:07,100
+100 let's say yes let's see what happens
+
+515
+00:34:08,240 --> 00:34:13,679
+okay syntax error
+
+516
+00:34:10,409 --> 00:34:16,619
+okay unexpected token oh yeah so we go
+
+517
+00:34:13,679 --> 00:34:19,200
+back here now it got me kind of okay so
+
+518
+00:34:16,619 --> 00:34:23,340
+you see here here's a problem the
+
+519
+00:34:19,200 --> 00:34:26,099
+problem is that we created a canvas size
+
+520
+00:34:23,340 --> 00:34:28,530
+you know with with hate and we can
+
+521
+00:34:26,099 --> 00:34:31,409
+specify the coordinate inside it like
+
+522
+00:34:28,530 --> 00:34:36,030
+from X's from what to what and Y's from
+
+523
+00:34:31,409 --> 00:34:38,639
+what what but depending our function you
+
+524
+00:34:36,030 --> 00:34:41,550
+know the the function may output values
+
+525
+00:34:38,639 --> 00:34:45,270
+you know given an X it may output Y to
+
+526
+00:34:41,550 --> 00:34:47,700
+be very huge like from 0 to 1 billion or
+
+527
+00:34:45,270 --> 00:34:52,379
+something very large which will fall
+
+528
+00:34:47,700 --> 00:34:56,399
+outside of the outside of your outside
+
+529
+00:34:52,379 --> 00:34:58,200
+of your coordinate or on the other hand
+
+530
+00:34:56,399 --> 00:35:01,500
+sometimes the function depends on the
+
+531
+00:34:58,200 --> 00:35:04,170
+function this function made the Y value
+
+532
+00:35:01,500 --> 00:35:08,250
+may be between 0 to 3 you know very
+
+533
+00:35:04,170 --> 00:35:11,599
+small so in that case if you plot it you
+
+534
+00:35:08,250 --> 00:35:15,630
+know in this coordinate you become like
+
+535
+00:35:11,599 --> 00:35:17,700
+two tiny invisible on your screen so the
+
+536
+00:35:15,630 --> 00:35:20,010
+first issue we need to do the first
+
+537
+00:35:17,700 --> 00:35:23,310
+problem we need to solve is we need to
+
+538
+00:35:20,010 --> 00:35:27,270
+find what is the maximum value of the
+
+539
+00:35:23,310 --> 00:35:30,690
+function and you know the maximum and
+
+540
+00:35:27,270 --> 00:35:36,960
+minimum of X and the maximum of minimum
+
+541
+00:35:30,690 --> 00:35:41,250
+of Y so so what our job now is we got a
+
+542
+00:35:36,960 --> 00:35:44,250
+range of values we want to find you know
+
+543
+00:35:41,250 --> 00:35:46,380
+the points we need to find so here's a
+
+544
+00:35:44,250 --> 00:35:50,280
+bunch of points we need to find the x
+
+545
+00:35:46,380 --> 00:35:55,020
+minimum y minim x minimum x max why me
+
+546
+00:35:50,280 --> 00:35:59,070
+why max now x me n and x max we already
+
+547
+00:35:55,020 --> 00:36:01,840
+already know from 0 to 800 let's say we
+
+548
+00:35:59,070 --> 00:36:06,410
+are plotting from 0 to 10
+
+549
+00:36:01,840 --> 00:36:12,250
+x-min and x-max so we are partying our
+
+550
+00:36:06,410 --> 00:36:19,240
+function s squared so x max let's say 5
+
+551
+00:36:12,250 --> 00:36:19,240
+so 5 squared 5 squared is 25
+
+552
+00:36:19,870 --> 00:36:33,110
+ok so step is 0.2 okay now 5 squared is
+
+553
+00:36:28,550 --> 00:36:38,750
+25 so Y max is 25 so let's hand let's
+
+554
+00:36:33,110 --> 00:36:48,560
+hand coded it constant Y max equals to
+
+555
+00:36:38,750 --> 00:36:54,440
+25 and y minimum is y mean is 0 so we
+
+556
+00:36:48,560 --> 00:36:56,030
+got weiming and ymax and we can we can
+
+557
+00:36:54,440 --> 00:36:59,690
+let's move this down
+
+558
+00:36:56,030 --> 00:37:03,710
+let's move this SVG element down so we
+
+559
+00:36:59,690 --> 00:37:07,990
+first of all we get our points then we
+
+560
+00:37:03,710 --> 00:37:11,270
+start to create SVG stuff over here and
+
+561
+00:37:07,990 --> 00:37:18,350
+actually let's put it inside a bracket
+
+562
+00:37:11,270 --> 00:37:22,250
+so copy copy that cut cut cut cut so
+
+563
+00:37:18,350 --> 00:37:28,820
+inside this bracket will be creating SVG
+
+564
+00:37:22,250 --> 00:37:32,510
+stuff there so now we got X min so
+
+565
+00:37:28,820 --> 00:37:40,030
+here's our function from from X million
+
+566
+00:37:32,510 --> 00:37:47,600
+Y and Y you know xmin and xmax and then
+
+567
+00:37:40,030 --> 00:37:50,380
+here is our functions values hold on
+
+568
+00:37:47,600 --> 00:37:50,380
+second so
+
+569
+00:37:53,399 --> 00:38:02,919
+okay so the here hold on second so let's
+
+570
+00:37:57,009 --> 00:38:05,559
+redo these so to make the cold cream so
+
+571
+00:38:02,919 --> 00:38:11,409
+yeah so let's do this so here's our
+
+572
+00:38:05,559 --> 00:38:17,079
+function here is xmin xmax and here is
+
+573
+00:38:11,409 --> 00:38:19,899
+the input values for X and here are the
+
+574
+00:38:17,079 --> 00:38:28,869
+actual points data so let's change the
+
+575
+00:38:19,899 --> 00:38:31,869
+name points to points data okay so here
+
+576
+00:38:28,869 --> 00:38:35,349
+is the actual array each element is x
+
+577
+00:38:31,869 --> 00:38:40,809
+and y okay then we want to find out
+
+578
+00:38:35,349 --> 00:38:45,279
+what's the y-min and y-max now we are
+
+579
+00:38:40,809 --> 00:38:49,329
+hard coding this for now okay now once
+
+580
+00:38:45,279 --> 00:38:53,919
+you know why me and WiMAX you can you
+
+581
+00:38:49,329 --> 00:38:57,519
+can adjust the coordinates so we want to
+
+582
+00:38:53,919 --> 00:39:05,109
+be from so let's do this let's see how
+
+583
+00:38:57,519 --> 00:39:07,149
+we do this and it's zero zero okay
+
+584
+00:39:05,109 --> 00:39:09,909
+that's that's how you do it
+
+585
+00:39:07,149 --> 00:39:14,259
+this is JavaScript template string
+
+586
+00:39:09,909 --> 00:39:21,309
+JavaScript 2015 so in here you can put
+
+587
+00:39:14,259 --> 00:39:27,759
+any JavaScript code so the x max should
+
+588
+00:39:21,309 --> 00:39:33,459
+be I mean the X width should be x max
+
+589
+00:39:27,759 --> 00:39:37,889
+night- having x max minus X me yeah so x
+
+590
+00:39:33,459 --> 00:39:40,509
+max minus X me that's a width
+
+591
+00:39:37,889 --> 00:39:42,899
+okay so let's actually let's do this
+
+592
+00:39:40,509 --> 00:39:42,899
+here
+
+593
+00:39:45,200 --> 00:39:57,260
+let's constant X with equals to x max
+
+594
+00:39:55,190 --> 00:40:03,849
+minus X me okay
+
+595
+00:39:57,260 --> 00:40:17,270
+so now we can put the X with here and Y
+
+596
+00:40:03,849 --> 00:40:23,109
+so we need Y with y max - why me okay so
+
+597
+00:40:17,270 --> 00:40:27,530
+that's why with so Y with should be here
+
+598
+00:40:23,109 --> 00:40:31,180
+actually dot to string technically
+
+599
+00:40:27,530 --> 00:40:34,970
+that's true actually we don't need that
+
+600
+00:40:31,180 --> 00:40:38,270
+so now we have we don't need that line
+
+601
+00:40:34,970 --> 00:40:42,170
+set attribute we don't need that so now
+
+602
+00:40:38,270 --> 00:40:45,790
+the canvas width is 800 and hate is 600
+
+603
+00:40:42,170 --> 00:40:49,490
+pixels but the actual coordinate will be
+
+604
+00:40:45,790 --> 00:40:51,130
+from 0 to X width and Y width so let's
+
+605
+00:40:49,490 --> 00:40:57,020
+see if that works
+
+606
+00:40:51,130 --> 00:41:01,670
+please no reference arrow SVG 1 is not
+
+607
+00:40:57,020 --> 00:41:05,329
+defined so SVG 1 is not defined oh yeah
+
+608
+00:41:01,670 --> 00:41:10,599
+because it's about the last line you see
+
+609
+00:41:05,329 --> 00:41:15,380
+we are attaching the SVG to our dive but
+
+610
+00:41:10,599 --> 00:41:18,890
+but but you sees you see it's outside of
+
+611
+00:41:15,380 --> 00:41:24,290
+this scope so we need to move this
+
+612
+00:41:18,890 --> 00:41:28,609
+inside so move this inside okay so back
+
+613
+00:41:24,290 --> 00:41:31,579
+to browser refresh oops I know what is
+
+614
+00:41:28,609 --> 00:41:34,760
+that because now the radius is too big
+
+615
+00:41:31,579 --> 00:41:36,950
+the radius of the circles you see so
+
+616
+00:41:34,760 --> 00:41:43,520
+here we are creating a circles now the
+
+617
+00:41:36,950 --> 00:41:46,609
+radius is it should not be 30 it should
+
+618
+00:41:43,520 --> 00:41:51,290
+be yeah here is a very problematic part
+
+619
+00:41:46,609 --> 00:41:55,520
+of hvg because the radius the value
+
+620
+00:41:51,290 --> 00:41:57,660
+should be is is with respect to your
+
+621
+00:41:55,520 --> 00:42:02,080
+user coordinate
+
+622
+00:41:57,660 --> 00:42:04,450
+so now the user coordinate is x width
+
+623
+00:42:02,080 --> 00:42:07,330
+and wide width you want to find the
+
+624
+00:42:04,450 --> 00:42:09,280
+appropriate size for the circle for
+
+625
+00:42:07,330 --> 00:42:12,090
+example let's let's just change this to
+
+626
+00:42:09,280 --> 00:42:15,310
+three let's see what happens
+
+627
+00:42:12,090 --> 00:42:20,730
+refresh you know you see it becomes that
+
+628
+00:42:15,310 --> 00:42:22,840
+so it's actually not three let's say one
+
+629
+00:42:20,730 --> 00:42:27,910
+okay that's no good
+
+630
+00:42:22,840 --> 00:42:31,480
+let's say zero point five now I don't
+
+631
+00:42:27,910 --> 00:42:39,970
+know why is they look like that let's
+
+632
+00:42:31,480 --> 00:42:47,310
+see where did we go wrong this is a
+
+633
+00:42:39,970 --> 00:42:47,310
+headache okay I got a bad feeling that
+
+634
+00:42:49,050 --> 00:42:56,320
+that we are now in good not going to
+
+635
+00:42:51,880 --> 00:42:58,470
+finish this in 20 more minutes oh my god
+
+636
+00:42:56,320 --> 00:43:01,690
+I tried this last time it failed so
+
+637
+00:42:58,470 --> 00:43:04,300
+anyway so let's see what is wrong so we
+
+638
+00:43:01,690 --> 00:43:07,690
+got our function let's try simpler x
+
+639
+00:43:04,300 --> 00:43:14,560
+equals 2x so this should plot a straight
+
+640
+00:43:07,690 --> 00:43:21,280
+line okay and in that case if then
+
+641
+00:43:14,560 --> 00:43:25,870
+what's the maximum the maximum is just x
+
+642
+00:43:21,280 --> 00:43:31,600
+max the same as x math.max let's try it
+
+643
+00:43:25,870 --> 00:43:37,570
+again yeah that's that's correct that's
+
+644
+00:43:31,600 --> 00:43:40,690
+what we expect now let's try to write a
+
+645
+00:43:37,570 --> 00:43:44,010
+function so that we generate these
+
+646
+00:43:40,690 --> 00:43:49,540
+weiming and Max weiming and ymax
+
+647
+00:43:44,010 --> 00:43:52,900
+automatically so we want to find in the
+
+648
+00:43:49,540 --> 00:44:00,490
+points data the x minimum and the Y
+
+649
+00:43:52,900 --> 00:44:02,700
+minimum so actually so to do that I have
+
+650
+00:44:00,490 --> 00:44:02,700
+written
+
+651
+00:44:02,850 --> 00:44:10,260
+I have written already the code to do
+
+652
+00:44:06,600 --> 00:44:15,930
+that so let's try to borrow that code
+
+653
+00:44:10,260 --> 00:44:20,000
+maybe that will save our time let's
+
+654
+00:44:15,930 --> 00:44:20,000
+let's find where is the
+
+655
+00:44:31,930 --> 00:44:44,619
+okay looks like this is a function get
+
+656
+00:44:38,390 --> 00:44:44,619
+curve min max okay so here is a function
+
+657
+00:44:47,200 --> 00:44:56,660
+okay so let's we can use that so let's
+
+658
+00:44:50,299 --> 00:44:59,210
+use that so we define a function now the
+
+659
+00:44:56,660 --> 00:45:04,780
+our code is getting complicated so here
+
+660
+00:44:59,210 --> 00:45:08,619
+is our function this will take a array
+
+661
+00:45:04,780 --> 00:45:13,730
+okay so this this function is actually
+
+662
+00:45:08,619 --> 00:45:19,869
+not in the format we want so it's taking
+
+663
+00:45:13,730 --> 00:45:22,670
+a ray where each for each array you have
+
+664
+00:45:19,869 --> 00:45:27,710
+each array looks like that you have T
+
+665
+00:45:22,670 --> 00:45:31,099
+and x1 y1 x1 and y1 is a code and not
+
+666
+00:45:27,710 --> 00:45:35,329
+points T is the actual input to those
+
+667
+00:45:31,099 --> 00:45:37,430
+current coordinate so in order to use
+
+668
+00:45:35,329 --> 00:45:42,049
+this function we need to change our
+
+669
+00:45:37,430 --> 00:45:44,290
+format so instead of just the vector XY
+
+670
+00:45:42,049 --> 00:45:50,319
+we need to change it to the more general
+
+671
+00:45:44,290 --> 00:45:55,450
+the input then the x and y let's do that
+
+672
+00:45:50,319 --> 00:45:55,450
+so this is getting more and more complex
+
+673
+00:45:55,839 --> 00:46:03,260
+because it's actually difficult to do
+
+674
+00:45:58,430 --> 00:46:07,040
+too so actually so let's change our
+
+675
+00:46:03,260 --> 00:46:11,329
+format so where do we change so point
+
+676
+00:46:07,040 --> 00:46:18,890
+data okay so it's in the point data so
+
+677
+00:46:11,329 --> 00:46:21,619
+let's do that X X so that's this is what
+
+678
+00:46:18,890 --> 00:46:25,130
+we want point data
+
+679
+00:46:21,619 --> 00:46:27,859
+okay so remove that and let's see where
+
+680
+00:46:25,130 --> 00:46:32,359
+else point data is used okay it's used
+
+681
+00:46:27,859 --> 00:46:38,710
+here so we also need to change this part
+
+682
+00:46:32,359 --> 00:46:38,710
+spawn points data points data XY
+
+683
+00:46:47,000 --> 00:46:56,930
+there okay so that should work so we go
+
+684
+00:46:53,480 --> 00:47:01,490
+back here so we have this get curved
+
+685
+00:46:56,930 --> 00:47:07,880
+name max it returns X min x max weiming
+
+686
+00:47:01,490 --> 00:47:14,290
+y max okay and let's let's let's shrink
+
+687
+00:47:07,880 --> 00:47:14,290
+it okay so get curve
+
+688
+00:47:20,239 --> 00:47:37,279
+get curved me max okay we copy get cuff
+
+689
+00:47:26,459 --> 00:47:46,799
+me max points data and it returns X mean
+
+690
+00:47:37,279 --> 00:47:59,959
+Y X me X X max Y mean Y max okay returns
+
+691
+00:47:46,799 --> 00:47:59,959
+that so constant so that is that
+
+692
+00:48:08,119 --> 00:48:20,369
+and we don't need this year anymore but
+
+693
+00:48:12,869 --> 00:48:25,579
+what about X min x max okay so there is
+
+694
+00:48:20,369 --> 00:48:25,579
+a bit confusion so let's change the x2 t
+
+695
+00:48:26,060 --> 00:48:31,339
+let me show you let me tell you what I
+
+696
+00:48:29,010 --> 00:48:31,339
+mean
+
+697
+00:48:36,589 --> 00:48:46,190
+so constant T T is time okay time me
+
+698
+00:48:41,430 --> 00:48:48,710
+teaming t max tea with equals to
+
+699
+00:48:46,190 --> 00:48:55,319
+actually this we don't want to change
+
+700
+00:48:48,710 --> 00:48:59,450
+actually X with we don't want and T
+
+701
+00:48:55,319 --> 00:48:59,450
+steps okay
+
+702
+00:49:10,560 --> 00:49:17,710
+so we the team in team ax T stands for
+
+703
+00:49:14,859 --> 00:49:26,650
+time so basically here is our function
+
+704
+00:49:17,710 --> 00:49:29,530
+here is a T input is T and output is TT
+
+705
+00:49:26,650 --> 00:49:33,030
+output is a point okay let's change our
+
+706
+00:49:29,530 --> 00:49:36,750
+function so instead of X returning why
+
+707
+00:49:33,030 --> 00:49:40,020
+we change it the input to a tee you know
+
+708
+00:49:36,750 --> 00:49:43,150
+abstract T value and output is a point
+
+709
+00:49:40,020 --> 00:49:46,960
+for example if you want to plot T
+
+710
+00:49:43,150 --> 00:49:55,060
+squared you can just do that so this
+
+711
+00:49:46,960 --> 00:50:01,960
+would be a function 4x squared and so
+
+712
+00:49:55,060 --> 00:50:02,500
+now we have teeming t max okay and t
+
+713
+00:50:01,960 --> 00:50:06,609
+steps
+
+714
+00:50:02,500 --> 00:50:11,400
+0 2 okay then we generate a range of
+
+715
+00:50:06,609 --> 00:50:18,520
+values input this this is T values okay
+
+716
+00:50:11,400 --> 00:50:22,599
+range of T values and then we we want to
+
+717
+00:50:18,520 --> 00:50:35,710
+generate the actual points T where T
+
+718
+00:50:22,599 --> 00:50:39,190
+values map X map t XX actually in this
+
+719
+00:50:35,710 --> 00:50:44,910
+case our function we can just call math
+
+720
+00:50:39,190 --> 00:50:47,920
+function you see math function here
+
+721
+00:50:44,910 --> 00:50:51,760
+returns you know takes one value t
+
+722
+00:50:47,920 --> 00:50:57,820
+number and returns a vector that is the
+
+723
+00:50:51,760 --> 00:51:02,380
+point of this curve so points theta T
+
+724
+00:50:57,820 --> 00:51:10,390
+values yeah so Team T&T max t steps and
+
+725
+00:51:02,380 --> 00:51:14,950
+he T values okay then we we gets the
+
+726
+00:51:10,390 --> 00:51:18,670
+points data then we can find out the X
+
+727
+00:51:14,950 --> 00:51:20,049
+min x max the actual x-axis minima in
+
+728
+00:51:18,670 --> 00:51:31,509
+max maximum
+
+729
+00:51:20,049 --> 00:51:32,170
+why mean WiMAX and okay so let's let's
+
+730
+00:51:31,509 --> 00:51:34,869
+Eve
+
+731
+00:51:32,170 --> 00:51:38,559
+I don't let's let's hope it works let's
+
+732
+00:51:34,869 --> 00:51:43,449
+refresh no okay because type error
+
+733
+00:51:38,559 --> 00:51:52,029
+undefined is not a function undefined is
+
+734
+00:51:43,449 --> 00:51:55,049
+not a function at 925 925 undefined is
+
+735
+00:51:52,029 --> 00:51:55,049
+not a function
+
+736
+00:52:06,000 --> 00:52:10,250
+ok so I think this is gonna
+

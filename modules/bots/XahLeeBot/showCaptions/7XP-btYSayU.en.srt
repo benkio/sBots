@@ -1,0 +1,4596 @@
+1
+00:00:04,549 --> 00:00:11,690
+good morning everyone welcome to another
+
+2
+00:00:08,309 --> 00:00:16,830
+episode of saw talk show today's 2019
+
+3
+00:00:11,690 --> 00:00:25,230
+December 12 December 21st 3 o clock p.m.
+
+4
+00:00:16,830 --> 00:00:28,019
+Saturday San Francisco time and today we
+
+5
+00:00:25,230 --> 00:00:31,730
+are going to do this Emily clock I'm
+
+6
+00:00:28,019 --> 00:00:36,290
+going to do live coding plus tutorial
+
+7
+00:00:31,730 --> 00:00:39,480
+and I'm going to teach you about how
+
+8
+00:00:36,290 --> 00:00:42,510
+different a time system and how to
+
+9
+00:00:39,480 --> 00:00:45,860
+convert to different number base I'm
+
+10
+00:00:42,510 --> 00:00:49,079
+going to explain what is number base
+
+11
+00:00:45,860 --> 00:00:55,500
+notation like decimal hexadecimal and
+
+12
+00:00:49,079 --> 00:00:56,460
+octal and sex symbol and 7 based and
+
+13
+00:00:55,500 --> 00:00:59,910
+lots of others
+
+14
+00:00:56,460 --> 00:01:02,520
+ok so I'm gonna explain that and we're
+
+15
+00:00:59,910 --> 00:01:05,820
+gonna do live coding so we are going to
+
+16
+00:01:02,520 --> 00:01:11,610
+specify the problem and we are going to
+
+17
+00:01:05,820 --> 00:01:15,780
+live code it ok so let's go to this page
+
+18
+00:01:11,610 --> 00:01:18,299
+that's almost begin good morning Emily
+
+19
+00:01:15,780 --> 00:01:23,520
+good morning crash hacker so you are
+
+20
+00:01:18,299 --> 00:01:26,850
+looking at Emily's watch now ok so so
+
+21
+00:01:23,520 --> 00:01:33,030
+I'm going to do live coding and the I'm
+
+22
+00:01:26,850 --> 00:01:38,790
+going to do three possible languages one
+
+23
+00:01:33,030 --> 00:01:43,110
+is Emma crisp one is JavaScript and the
+
+24
+00:01:38,790 --> 00:01:45,810
+other possibility is : so type in a chat
+
+25
+00:01:43,110 --> 00:01:48,509
+which one you prefer me to do okay we
+
+26
+00:01:45,810 --> 00:01:50,880
+are going to do to live coding so typing
+
+27
+00:01:48,509 --> 00:01:52,890
+a chat okay read read the description
+
+28
+00:01:50,880 --> 00:01:57,180
+and type in the chat what which language
+
+29
+00:01:52,890 --> 00:01:58,979
+emag base Cola and JavaScript and we
+
+30
+00:01:57,180 --> 00:02:01,649
+don't have time to do more than one
+
+31
+00:01:58,979 --> 00:02:05,869
+because you know this is gonna be take a
+
+32
+00:02:01,649 --> 00:02:10,879
+while I hope we can finish in let's say
+
+33
+00:02:05,869 --> 00:02:13,860
+probably one hour let's say 40 minutes
+
+34
+00:02:10,879 --> 00:02:19,260
+okay so Emily posted a
+
+35
+00:02:13,860 --> 00:02:22,110
+reference implementation let's see so
+
+36
+00:02:19,260 --> 00:02:24,210
+who else did okay so okay here you can
+
+37
+00:02:22,110 --> 00:02:27,570
+see my calculator optimizer and never
+
+38
+00:02:24,210 --> 00:02:32,580
+finish the game okay so this is Emily's
+
+39
+00:02:27,570 --> 00:02:38,970
+okay so Emily's Emily posted reference
+
+40
+00:02:32,580 --> 00:02:41,910
+implementation okay so actually that's
+
+41
+00:02:38,970 --> 00:02:44,370
+why I didn't get enough time to see it
+
+42
+00:02:41,910 --> 00:02:46,920
+but I don't you know I don't think we
+
+43
+00:02:44,370 --> 00:02:48,900
+can go over it because we don't have
+
+44
+00:02:46,920 --> 00:02:52,430
+time because I need to go through the
+
+45
+00:02:48,900 --> 00:02:56,790
+it's explanation what is a problem and
+
+46
+00:02:52,430 --> 00:03:00,030
+and also you know live coded and
+
+47
+00:02:56,790 --> 00:03:01,860
+explained number basis stuff so hold on
+
+48
+00:03:00,030 --> 00:03:07,580
+a second so let me put this Emery's
+
+49
+00:03:01,860 --> 00:03:12,270
+reference implementation in place and
+
+50
+00:03:07,580 --> 00:03:15,930
+then we can later on wait then later on
+
+51
+00:03:12,270 --> 00:03:19,049
+we can check a result if it's to see if
+
+52
+00:03:15,930 --> 00:03:24,959
+that's correct okay so first of all let
+
+53
+00:03:19,049 --> 00:03:29,040
+me magnify so this is Emily 3 reference
+
+54
+00:03:24,959 --> 00:03:31,530
+implementation so so so sauce start
+
+55
+00:03:29,040 --> 00:03:35,340
+command log mod and I'm going to explain
+
+56
+00:03:31,530 --> 00:03:38,940
+what is the problem we are going to do
+
+57
+00:03:35,340 --> 00:03:41,880
+okay so set background color and we
+
+58
+00:03:38,940 --> 00:03:44,420
+decided last time the Papa we want the
+
+59
+00:03:41,880 --> 00:03:49,500
+purple color so hold on a second
+
+60
+00:03:44,420 --> 00:03:51,930
+so hello Daniel hello magpie okay magpie
+
+61
+00:03:49,500 --> 00:03:56,250
+crash hacker says let's do it in
+
+62
+00:03:51,930 --> 00:03:59,010
+JavaScript any okay I need a vote which
+
+63
+00:03:56,250 --> 00:04:01,440
+language JavaScript emag bees or Golan
+
+64
+00:03:59,010 --> 00:04:04,380
+post post one okay each one of you posts
+
+65
+00:04:01,440 --> 00:04:07,620
+choose the language and we gonna cook
+
+66
+00:04:04,380 --> 00:04:13,290
+code that we need to actually I need to
+
+67
+00:04:07,620 --> 00:04:15,390
+do this fast beast color display because
+
+68
+00:04:13,290 --> 00:04:18,450
+otherwise I know it's not we are now
+
+69
+00:04:15,390 --> 00:04:20,459
+going to finish it in one hour so first
+
+70
+00:04:18,450 --> 00:04:25,000
+of all let me check am I correct
+
+71
+00:04:20,459 --> 00:04:30,040
+am i all right I'm all right okay so
+
+72
+00:04:25,000 --> 00:04:32,740
+and Google Google YouTube okay sothey so
+
+73
+00:04:30,040 --> 00:04:37,330
+let's choose the color the--so okay set
+
+74
+00:04:32,740 --> 00:04:46,680
+background color feast souls 3 so number
+
+75
+00:04:37,330 --> 00:04:49,450
+one okay full three yeah that's okay so
+
+76
+00:04:46,680 --> 00:04:53,560
+you said number one or number two but
+
+77
+00:04:49,450 --> 00:04:57,160
+anyway that that let that be this is
+
+78
+00:04:53,560 --> 00:04:59,140
+Emily's favorite color so what is a
+
+79
+00:04:57,160 --> 00:05:02,440
+problem so you are looking at Emily's
+
+80
+00:04:59,140 --> 00:05:05,110
+watch she this is fit spits watch and
+
+81
+00:05:02,440 --> 00:05:09,850
+she programmed it so that it displays
+
+82
+00:05:05,110 --> 00:05:12,190
+the clock in her own kind of system now
+
+83
+00:05:09,850 --> 00:05:15,220
+what is this system let's call em clock
+
+84
+00:05:12,190 --> 00:05:18,280
+okay Emily crock what is this system
+
+85
+00:05:15,220 --> 00:05:21,040
+this system now in a 24 hour system you
+
+86
+00:05:18,280 --> 00:05:24,370
+have 24 hours a day is divided by 24
+
+87
+00:05:21,040 --> 00:05:28,320
+hours each hour is 60 minutes and each
+
+88
+00:05:24,370 --> 00:05:34,270
+minute is 60 seconds now in Emily clock
+
+89
+00:05:28,320 --> 00:05:36,750
+the Emily system it's 36 and 6 system so
+
+90
+00:05:34,270 --> 00:05:41,979
+in this system one day is divided by
+
+91
+00:05:36,750 --> 00:05:45,940
+divided into 36 hours and each hour is
+
+92
+00:05:41,979 --> 00:05:51,130
+divided into 36 minutes and each minute
+
+93
+00:05:45,940 --> 00:05:53,320
+is divided into 36 seconds okay so this
+
+94
+00:05:51,130 --> 00:05:59,229
+is the clock system this is the Emily
+
+95
+00:05:53,320 --> 00:06:02,890
+clock system 36 spaced 6 system 36 hours
+
+96
+00:05:59,229 --> 00:06:06,370
+in a day 36 minutes in an hour 36
+
+97
+00:06:02,890 --> 00:06:11,830
+seconds in a minute ok this is Emily
+
+98
+00:06:06,370 --> 00:06:13,360
+clock and then so that's a clock however
+
+99
+00:06:11,830 --> 00:06:17,229
+there's one more thing
+
+100
+00:06:13,360 --> 00:06:19,330
+now when you sow so when you have
+
+101
+00:06:17,229 --> 00:06:21,340
+certain hour and so the minute given
+
+102
+00:06:19,330 --> 00:06:24,010
+given these Emily crocks you know a
+
+103
+00:06:21,340 --> 00:06:27,610
+certain number of hours number of
+
+104
+00:06:24,010 --> 00:06:31,630
+minutes number of seconds the notation
+
+105
+00:06:27,610 --> 00:06:33,700
+for this clock system is 6 paced number
+
+106
+00:06:31,630 --> 00:06:38,409
+system in other words you don't say all
+
+107
+00:06:33,700 --> 00:06:44,259
+right now it's 37 hours and 29 minutes
+
+108
+00:06:38,409 --> 00:06:47,409
+and and and 30 seconds you don't say
+
+109
+00:06:44,259 --> 00:06:51,300
+that you have to convert them into a six
+
+110
+00:06:47,409 --> 00:06:55,330
+based number system okay so that is the
+
+111
+00:06:51,300 --> 00:06:57,759
+description of the problem well the
+
+112
+00:06:55,330 --> 00:07:03,399
+problem is that we are going to write a
+
+113
+00:06:57,759 --> 00:07:06,399
+a function in images or in colon or in
+
+114
+00:07:03,399 --> 00:07:09,519
+JavaScript which one is it guys
+
+115
+00:07:06,399 --> 00:07:12,089
+come on pick one okay pick one of the
+
+116
+00:07:09,519 --> 00:07:15,939
+language okay I cannot do them all I
+
+117
+00:07:12,089 --> 00:07:19,839
+wanted to but from past experiences I
+
+118
+00:07:15,939 --> 00:07:22,869
+know that this is not good I cannot do
+
+119
+00:07:19,839 --> 00:07:24,939
+them oh so so you have to pick a
+
+120
+00:07:22,869 --> 00:07:27,039
+language okay each one of you who are
+
+121
+00:07:24,939 --> 00:07:31,239
+watching you know poster language
+
+122
+00:07:27,039 --> 00:07:34,269
+javascript' emag bees o : so that is
+
+123
+00:07:31,239 --> 00:07:39,819
+problem write a function that takes a
+
+124
+00:07:34,269 --> 00:07:43,149
+input take a takes a input string such
+
+125
+00:07:39,819 --> 00:07:49,300
+as such as what is right now such as
+
+126
+00:07:43,149 --> 00:07:49,809
+today right now is 15 15 0 9 and 0 0
+
+127
+00:07:49,300 --> 00:07:54,389
+okay
+
+128
+00:07:49,809 --> 00:08:00,929
+take a input string then output in this
+
+129
+00:07:54,389 --> 00:08:00,929
+MD crock notation system okay let's see
+
+130
+00:08:01,319 --> 00:08:09,209
+: : : i cannot do haskell okay so what
+
+131
+00:08:05,110 --> 00:08:09,209
+what what is this so let's see
+
+132
+00:08:09,300 --> 00:08:18,789
+Hayami soap up here top talk show is all
+
+133
+00:08:13,239 --> 00:08:21,969
+about you Emily is the queen in ink
+
+134
+00:08:18,789 --> 00:08:24,159
+Saudis corner so we are saying so I'm so
+
+135
+00:08:21,969 --> 00:08:26,259
+honored and what are we talking about so
+
+136
+00:08:24,159 --> 00:08:30,489
+the time system yeah so look at this
+
+137
+00:08:26,259 --> 00:08:35,319
+clock fantastic ofc I forgot what OFC
+
+138
+00:08:30,489 --> 00:08:42,579
+means okay : question is okay crash
+
+139
+00:08:35,319 --> 00:08:45,160
+hacker says any is fine magpie says in
+
+140
+00:08:42,579 --> 00:08:47,680
+his fine Oprah me is just logic syntax
+
+141
+00:08:45,160 --> 00:08:51,720
+is secondary know that that's not true
+
+142
+00:08:47,680 --> 00:08:56,810
+okay but I'm not going to digress
+
+143
+00:08:51,720 --> 00:08:56,810
+I want to see routines okay so s :
+
+144
+00:08:57,230 --> 00:09:03,779
+okay let's do go Landon well go and okay
+
+145
+00:09:01,560 --> 00:09:10,620
+go lines gonna take more time because I
+
+146
+00:09:03,779 --> 00:09:12,360
+haven't been coding : day D okay so we
+
+147
+00:09:10,620 --> 00:09:15,209
+got a problem and we got the problem
+
+148
+00:09:12,360 --> 00:09:17,519
+SPECT we got a problem SPECT right here
+
+149
+00:09:15,209 --> 00:09:20,100
+if you guys just you know you you can
+
+150
+00:09:17,519 --> 00:09:23,490
+read it here in detail in writing the
+
+151
+00:09:20,100 --> 00:09:25,949
+problem inspect so so we're gonna write
+
+152
+00:09:23,490 --> 00:09:29,670
+in : okay so what we gonna do okay
+
+153
+00:09:25,949 --> 00:09:32,070
+um yeah so live coding is what I'm going
+
+154
+00:09:29,670 --> 00:09:33,959
+to do oh and okay so I'm going to start
+
+155
+00:09:32,070 --> 00:09:37,230
+to code and those of you who already
+
+156
+00:09:33,959 --> 00:09:41,430
+understand what is this is about and who
+
+157
+00:09:37,230 --> 00:09:43,500
+already know what number format I mean
+
+158
+00:09:41,430 --> 00:09:47,010
+number base system means how it works
+
+159
+00:09:43,500 --> 00:09:49,230
+then right now you go ahead and code
+
+160
+00:09:47,010 --> 00:09:52,170
+code you of every language so you guys
+
+161
+00:09:49,230 --> 00:09:52,980
+has cow or Earl and you know code it
+
+162
+00:09:52,170 --> 00:09:56,699
+let's see
+
+163
+00:09:52,980 --> 00:09:59,870
+you know coded so after 15 minutes show
+
+164
+00:09:56,699 --> 00:10:03,510
+your code and we can verify we can see
+
+165
+00:09:59,870 --> 00:10:06,570
+different languages and syntax okay and
+
+166
+00:10:03,510 --> 00:10:10,680
+actually someone has already written you
+
+167
+00:10:06,570 --> 00:10:15,170
+know someone we we already you know
+
+168
+00:10:10,680 --> 00:10:22,250
+someone has given this art out a are W
+
+169
+00:10:15,170 --> 00:10:27,120
+with a RW n this person is from
+
+170
+00:10:22,250 --> 00:10:29,640
+California and he has given a C code I'm
+
+171
+00:10:27,120 --> 00:10:33,990
+not sure I haven't verified its correct
+
+172
+00:10:29,640 --> 00:10:37,380
+because right now we don't have easy way
+
+173
+00:10:33,990 --> 00:10:40,860
+to verify it so we got C code the Python
+
+174
+00:10:37,380 --> 00:10:41,310
+3 code is incorrect because there's the
+
+175
+00:10:40,860 --> 00:10:43,440
+problem
+
+176
+00:10:41,310 --> 00:10:47,389
+you know the anyway it's incorrect so
+
+177
+00:10:43,440 --> 00:10:50,370
+let's go : ok so let's start live coding
+
+178
+00:10:47,389 --> 00:10:53,250
+goal and let's see how far we can go so
+
+179
+00:10:50,370 --> 00:10:57,660
+: I've opened a new buffer and magnify
+
+180
+00:10:53,250 --> 00:11:00,750
+and let's see go okay so we start we
+
+181
+00:10:57,660 --> 00:11:04,300
+start to have a template every goal and
+
+182
+00:11:00,750 --> 00:11:07,430
+script you need basically list
+
+183
+00:11:04,300 --> 00:11:10,060
+so : and we are going to write a
+
+184
+00:11:07,430 --> 00:11:16,100
+function that takes an input okay
+
+185
+00:11:10,060 --> 00:11:18,830
+M time okay that's right let's say
+
+186
+00:11:16,100 --> 00:11:24,140
+that's a function okay function the
+
+187
+00:11:18,830 --> 00:11:27,590
+function name is same time okay and the
+
+188
+00:11:24,140 --> 00:11:33,860
+int M time the input will be a string
+
+189
+00:11:27,590 --> 00:11:36,530
+type time 24 okay so that's a parameter
+
+190
+00:11:33,860 --> 00:11:40,580
+input it's going to be a string type and
+
+191
+00:11:36,530 --> 00:11:45,100
+the output the output is also a string
+
+192
+00:11:40,580 --> 00:11:48,590
+okay and this is the function body and
+
+193
+00:11:45,100 --> 00:11:56,600
+when we run a program we're gonna call
+
+194
+00:11:48,590 --> 00:12:01,550
+em time and let's say zero time zero
+
+195
+00:11:56,600 --> 00:12:04,340
+zero zero zero zero one okay zero one so
+
+196
+00:12:01,550 --> 00:12:06,980
+that's zero hour this is a 24-hour
+
+197
+00:12:04,340 --> 00:12:13,940
+system zero hours you a minute and but
+
+198
+00:12:06,980 --> 00:12:19,280
+one second and let's see you know it
+
+199
+00:12:13,940 --> 00:12:21,170
+will return the M time okay so and we're
+
+200
+00:12:19,280 --> 00:12:24,200
+gonna need we need to print this so
+
+201
+00:12:21,170 --> 00:12:28,700
+print so we're gonna copy that put it
+
+202
+00:12:24,200 --> 00:12:33,500
+here so there okay so that is our code
+
+203
+00:12:28,700 --> 00:12:36,380
+and we can't run it now so run it it
+
+204
+00:12:33,500 --> 00:12:38,630
+says cannot use new as type string in
+
+205
+00:12:36,380 --> 00:12:40,970
+written argument yes indeed that's true
+
+206
+00:12:38,630 --> 00:12:43,930
+so let's return some random string so
+
+207
+00:12:40,970 --> 00:12:47,680
+let's say is three three okay grenade
+
+208
+00:12:43,930 --> 00:12:50,870
+okay this our template is working now
+
+209
+00:12:47,680 --> 00:12:54,350
+now the the important thing is we cannot
+
+210
+00:12:50,870 --> 00:12:58,010
+write this function so to write this
+
+211
+00:12:54,350 --> 00:13:00,110
+function so what algorithm to use you
+
+212
+00:12:58,010 --> 00:13:03,230
+have to think about it okay so actually
+
+213
+00:13:00,110 --> 00:13:05,450
+so this problem again if you don't know
+
+214
+00:13:03,230 --> 00:13:10,220
+let me paste the enemy copy this URL
+
+215
+00:13:05,450 --> 00:13:15,380
+okay for those of you are new here this
+
+216
+00:13:10,220 --> 00:13:17,570
+is a problem description okay so you can
+
+217
+00:13:15,380 --> 00:13:21,019
+go and code it now in your favor
+
+218
+00:13:17,570 --> 00:13:27,740
+language and after 15 minutes let's
+
+219
+00:13:21,019 --> 00:13:29,449
+compare notes problem description coded
+
+220
+00:13:27,740 --> 00:13:36,279
+in your favorite language okay
+
+221
+00:13:29,449 --> 00:13:41,990
+Haskell Alan if you up to Emily and and
+
+222
+00:13:36,279 --> 00:13:44,089
+other languages okay so ten people
+
+223
+00:13:41,990 --> 00:13:47,180
+watching so let's the clock is ticking
+
+224
+00:13:44,089 --> 00:13:49,370
+and let's let's get how long have I been
+
+225
+00:13:47,180 --> 00:13:55,300
+talking Oh
+
+226
+00:13:49,370 --> 00:13:57,949
+13 13 minutes already G okay so
+
+227
+00:13:55,300 --> 00:13:59,480
+algorithm so before you do anything you
+
+228
+00:13:57,949 --> 00:13:59,899
+need to think about how you're gonna do
+
+229
+00:13:59,480 --> 00:14:04,690
+this
+
+230
+00:13:59,899 --> 00:14:07,490
+so algorithm our algorithm is gonna be
+
+231
+00:14:04,690 --> 00:14:11,769
+so first of all a documentation for this
+
+232
+00:14:07,490 --> 00:14:20,800
+same time so so here we say aim time
+
+233
+00:14:11,769 --> 00:14:25,100
+returns takes a input of this format
+
+234
+00:14:20,800 --> 00:14:29,829
+okay so for example 13 o clock 13 o
+
+235
+00:14:25,100 --> 00:14:36,069
+clock one minute and one second and
+
+236
+00:14:29,829 --> 00:14:41,420
+return a string that is M time system
+
+237
+00:14:36,069 --> 00:14:44,449
+okay and so that's the that is the
+
+238
+00:14:41,420 --> 00:14:49,790
+function documentation so we got that
+
+239
+00:14:44,449 --> 00:14:53,690
+now algorithm what so first of all so so
+
+240
+00:14:49,790 --> 00:14:56,149
+so I'm just going to go and code
+
+241
+00:14:53,690 --> 00:14:59,089
+whatever in my grant like right now
+
+242
+00:14:56,149 --> 00:15:00,949
+without thinking about efficiency and
+
+243
+00:14:59,089 --> 00:15:04,040
+all that you know that it's to a
+
+244
+00:15:00,949 --> 00:15:04,579
+prototype if we finish this in 30
+
+245
+00:15:04,040 --> 00:15:10,430
+minutes
+
+246
+00:15:04,579 --> 00:15:14,170
+that will be our code success okay so
+
+247
+00:15:10,430 --> 00:15:20,930
+algorithm so what I'm going to do is
+
+248
+00:15:14,170 --> 00:15:26,259
+first find out what is the total number
+
+249
+00:15:20,930 --> 00:15:26,259
+of seconds okay then
+
+250
+00:15:27,630 --> 00:15:41,170
+then total number of seconds and find
+
+251
+00:15:35,200 --> 00:15:46,750
+out okay so and find out what is the
+
+252
+00:15:41,170 --> 00:15:59,740
+total number of seconds in M clock okay
+
+253
+00:15:46,750 --> 00:16:00,580
+game system and then I don't know what
+
+254
+00:15:59,740 --> 00:16:02,170
+next
+
+255
+00:16:00,580 --> 00:16:05,260
+so first of all what is a total number
+
+256
+00:16:02,170 --> 00:16:06,490
+of seconds in M system I don't know so
+
+257
+00:16:05,260 --> 00:16:12,180
+let's let's find it
+
+258
+00:16:06,490 --> 00:16:12,180
+let's compute total number of seconds
+
+259
+00:16:13,650 --> 00:16:29,250
+mtoto SEC equals to constant M total
+
+260
+00:16:21,970 --> 00:16:36,250
+number of seconds equals to 36 seconds
+
+261
+00:16:29,250 --> 00:16:39,400
+36 times 36 right so 36 seconds times
+
+262
+00:16:36,250 --> 00:16:43,600
+the number of minutes in our times the
+
+263
+00:16:39,400 --> 00:16:49,150
+number of hours in a day so 36 times 36
+
+264
+00:16:43,600 --> 00:16:53,560
+times 36 is mtoto second okay
+
+265
+00:16:49,150 --> 00:16:56,740
+and let's print that okay let's just
+
+266
+00:16:53,560 --> 00:16:58,900
+print that to see what that is now mtoto
+
+267
+00:16:56,740 --> 00:17:02,020
+second is a number we need to convert
+
+268
+00:16:58,900 --> 00:17:05,560
+that to a string in : and the way you do
+
+269
+00:17:02,020 --> 00:17:07,950
+that is like that okay if I remember
+
+270
+00:17:05,560 --> 00:17:07,950
+correctly
+
+271
+00:17:08,550 --> 00:17:16,780
+okay so wrong you got somewhere wrong
+
+272
+00:17:12,070 --> 00:17:19,630
+what is wrong God so go for my format
+
+273
+00:17:16,780 --> 00:17:22,430
+arrow expected that found indent M
+
+274
+00:17:19,630 --> 00:17:25,650
+seconds okay so
+
+275
+00:17:22,430 --> 00:17:25,650
+[Music]
+
+276
+00:17:29,240 --> 00:17:42,630
+what this is not looking good God so
+
+277
+00:17:38,550 --> 00:17:46,710
+white ways is God okay let's go to Saudi
+
+278
+00:17:42,630 --> 00:17:49,610
+golden tutorial for those of you for me
+
+279
+00:17:46,710 --> 00:17:52,350
+who have not been coding : for a while
+
+280
+00:17:49,610 --> 00:17:54,600
+so constant so let's look at the
+
+281
+00:17:52,350 --> 00:18:01,020
+variable declaration declaration
+
+282
+00:17:54,600 --> 00:18:03,150
+constants comments guys comment so so so
+
+283
+00:18:01,020 --> 00:18:05,850
+we need what's going on I don't know
+
+284
+00:18:03,150 --> 00:18:08,640
+what's going on so the constant so what
+
+285
+00:18:05,850 --> 00:18:17,370
+is the goal lines variable declaration
+
+286
+00:18:08,640 --> 00:18:19,500
+so variable Wow okay so but : also have
+
+287
+00:18:17,370 --> 00:18:26,220
+a constant so but I don't know why is it
+
+288
+00:18:19,500 --> 00:18:29,690
+but let's just try this okay what what
+
+289
+00:18:26,220 --> 00:18:29,690
+is going on okay so
+
+290
+00:18:37,330 --> 00:18:43,529
+so it says expected that but found
+
+291
+00:18:40,840 --> 00:18:43,529
+indent
+
+292
+00:18:51,550 --> 00:19:04,420
+what my said okay okay so apparently
+
+293
+00:19:01,900 --> 00:19:09,160
+this line is incorrect so how do you
+
+294
+00:19:04,420 --> 00:19:12,190
+convert a number to a stream I'm I'm
+
+295
+00:19:09,160 --> 00:19:20,800
+pretty sure it's correct so let's see
+
+296
+00:19:12,190 --> 00:19:23,650
+stream okay so we have I we have a
+
+297
+00:19:20,800 --> 00:19:27,340
+string here and backslash escape raw
+
+298
+00:19:23,650 --> 00:19:30,880
+string literal string a sequence string
+
+299
+00:19:27,340 --> 00:19:35,760
+is a sequence of bytes in : and string
+
+300
+00:19:30,880 --> 00:19:39,690
+index string functions run okay so
+
+301
+00:19:35,760 --> 00:19:46,600
+that's colon string and let's see
+
+302
+00:19:39,690 --> 00:19:49,690
+comments stream stream functions oh god
+
+303
+00:19:46,600 --> 00:19:53,350
+I got stuck in these syntactical issues
+
+304
+00:19:49,690 --> 00:19:55,600
+we're never gonna finish anyway total
+
+305
+00:19:53,350 --> 00:19:58,390
+number of seconds in M system so what is
+
+306
+00:19:55,600 --> 00:20:06,280
+wrong that with that let's do it again
+
+307
+00:19:58,390 --> 00:20:07,000
+so found intent found end of line try it
+
+308
+00:20:06,280 --> 00:20:13,930
+again
+
+309
+00:20:07,000 --> 00:20:18,790
+no so anyone of you know what is wrong
+
+310
+00:20:13,930 --> 00:20:23,980
+of you : expert okay this is walking oh
+
+311
+00:20:18,790 --> 00:20:26,680
+okay so I think maybe that okay so
+
+312
+00:20:23,980 --> 00:20:27,510
+apparently this conversion line is
+
+313
+00:20:26,680 --> 00:20:37,030
+incorrect
+
+314
+00:20:27,510 --> 00:20:42,220
+so : so sing coding so what what what is
+
+315
+00:20:37,030 --> 00:20:44,020
+what are we doing variable variable so
+
+316
+00:20:42,220 --> 00:20:49,570
+variable declare you declare a variable
+
+317
+00:20:44,020 --> 00:20:51,880
+like that and you that's right oh you
+
+318
+00:20:49,570 --> 00:20:54,900
+add when you declare a variable you have
+
+319
+00:20:51,880 --> 00:20:58,180
+to have a type okay but this type is
+
+320
+00:20:54,900 --> 00:21:05,610
+automatically determined because colon
+
+321
+00:20:58,180 --> 00:21:05,610
+has type you have type
+
+322
+00:21:05,870 --> 00:21:13,970
+how they call that type inference so you
+
+323
+00:21:09,740 --> 00:21:16,700
+do not you do not need to type a type as
+
+324
+00:21:13,970 --> 00:21:19,790
+long as the value is already of that
+
+325
+00:21:16,700 --> 00:21:20,450
+type so here's a variable declaration in
+
+326
+00:21:19,790 --> 00:21:24,190
+:
+
+327
+00:21:20,450 --> 00:21:25,400
+and default value variable with value
+
+328
+00:21:24,190 --> 00:21:27,910
+okay
+
+329
+00:21:25,400 --> 00:21:31,960
+and the parallel assignment okay and
+
+330
+00:21:27,910 --> 00:21:31,960
+variable scope okay and
+
+331
+00:21:45,029 --> 00:21:49,879
+je dois from Peru good morning je dois
+
+332
+00:22:00,700 --> 00:22:08,710
+so do we have : experts here when we do
+
+333
+00:22:06,100 --> 00:22:13,230
+go format this is tell me is wrong so I
+
+334
+00:22:08,710 --> 00:22:13,230
+need to think about this what's going on
+
+335
+00:22:23,260 --> 00:22:34,000
+go format errors found indent but
+
+336
+00:22:26,679 --> 00:22:38,040
+expected parentheses where when why is
+
+337
+00:22:34,000 --> 00:22:38,040
+it why is it that
+
+338
+00:22:45,240 --> 00:22:50,940
+so the problem seems to we are trying to
+
+339
+00:22:48,419 --> 00:22:54,659
+convert a number to string but I'm
+
+340
+00:22:50,940 --> 00:22:57,140
+pretty sure that is correct a number to
+
+341
+00:22:54,659 --> 00:22:57,140
+string
+
+342
+00:23:17,380 --> 00:23:23,980
+okay I think I know what is going on
+
+343
+00:23:20,380 --> 00:23:28,289
+string by size and size so let's look at
+
+344
+00:23:23,980 --> 00:23:28,289
+this string by size and size
+
+345
+00:23:34,400 --> 00:23:42,440
+oh oh oh I got it wrong I got the syntax
+
+346
+00:23:38,720 --> 00:23:47,540
+wrong guys because I'm I've I fell into
+
+347
+00:23:42,440 --> 00:23:53,600
+I am a victim of the C and Java god I'm
+
+348
+00:23:47,540 --> 00:23:57,680
+a victim of C and Java this is the
+
+349
+00:23:53,600 --> 00:23:59,840
+correct way guys I forgot so this is
+
+350
+00:23:57,680 --> 00:24:04,040
+wrong okay so these the second line is
+
+351
+00:23:59,840 --> 00:24:06,830
+correct so now we go format let's try it
+
+352
+00:24:04,040 --> 00:24:11,600
+again it's now go format perfect now
+
+353
+00:24:06,830 --> 00:24:14,179
+let's run the code okay when we run a
+
+354
+00:24:11,600 --> 00:24:17,660
+code it actually prints out some Korean
+
+355
+00:24:14,179 --> 00:24:22,179
+now I know the reason because when you
+
+356
+00:24:17,660 --> 00:24:26,000
+print a stream now this this string is
+
+357
+00:24:22,179 --> 00:24:28,670
+36 times 36 times 36 and we are trying
+
+358
+00:24:26,000 --> 00:24:34,309
+to print it and it comes out displayed
+
+359
+00:24:28,670 --> 00:24:37,490
+as a Korean because because this the
+
+360
+00:24:34,309 --> 00:24:42,110
+result number is actually interpreted as
+
+361
+00:24:37,490 --> 00:24:44,630
+a Unicode code point and and that number
+
+362
+00:24:42,110 --> 00:24:48,230
+happens to be the Unicode code point for
+
+363
+00:24:44,630 --> 00:24:52,940
+this Korean character apparently so
+
+364
+00:24:48,230 --> 00:24:57,890
+the way to fix that is you go to go and
+
+365
+00:24:52,940 --> 00:25:00,530
+you look at print okay so you look at
+
+366
+00:24:57,890 --> 00:25:08,390
+print there are various ways to print
+
+367
+00:25:00,530 --> 00:25:14,330
+different formats so in this case we
+
+368
+00:25:08,390 --> 00:25:16,490
+have a number we want to convert string
+
+369
+00:25:14,330 --> 00:25:19,550
+okay so the number two string is
+
+370
+00:25:16,490 --> 00:25:21,860
+actually a big problem in all languages
+
+371
+00:25:19,550 --> 00:25:25,550
+actually so that's why you got this
+
+372
+00:25:21,860 --> 00:25:31,820
+print F which is extremely complicated
+
+373
+00:25:25,550 --> 00:25:37,970
+thing okay so we want this okay we wants
+
+374
+00:25:31,820 --> 00:25:40,550
+print F we didn't even begin to code and
+
+375
+00:25:37,970 --> 00:25:44,810
+but we run into so many technical little
+
+376
+00:25:40,550 --> 00:25:49,270
+problems so strength F is we want to
+
+377
+00:25:44,810 --> 00:25:49,270
+print okay this thing
+
+378
+00:25:49,750 --> 00:25:54,280
+okay
+
+379
+00:25:50,960 --> 00:25:54,280
+and the
+
+380
+00:25:59,720 --> 00:26:06,809
+okay here here is how you do it okay so
+
+381
+00:26:03,200 --> 00:26:10,799
+here is your stream and here is your
+
+382
+00:26:06,809 --> 00:26:15,090
+value okay they are but your stream
+
+383
+00:26:10,799 --> 00:26:25,770
+needs to be percentage something
+
+384
+00:26:15,090 --> 00:26:28,850
+percentage is a holder for so we want to
+
+385
+00:26:25,770 --> 00:26:31,850
+so so this part the second part is a
+
+386
+00:26:28,850 --> 00:26:31,850
+stream
+
+387
+00:26:37,450 --> 00:26:46,210
+and okay I know what is it I know what
+
+388
+00:26:40,780 --> 00:26:48,730
+it is V okay V V means V means in code
+
+389
+00:26:46,210 --> 00:26:50,620
+and format okay so anyway so what we are
+
+390
+00:26:48,730 --> 00:27:11,230
+trying to do is we convert this string
+
+391
+00:26:50,620 --> 00:27:14,920
+into let's just try it okay run it the
+
+392
+00:27:11,230 --> 00:27:25,060
+problem of not having been coding : for
+
+393
+00:27:14,920 --> 00:27:31,030
+a while in doing live stream is why is
+
+394
+00:27:25,060 --> 00:27:41,560
+it come out Korean damn yeah so okay
+
+395
+00:27:31,030 --> 00:27:43,570
+that's it's it's okay I cannot I really
+
+396
+00:27:41,560 --> 00:27:48,100
+have to think about this in order to get
+
+397
+00:27:43,570 --> 00:27:52,750
+it to work so so we have a stream so
+
+398
+00:27:48,100 --> 00:27:55,300
+this is the string oh okay I see what
+
+399
+00:27:52,750 --> 00:27:57,480
+it's going on I know what is going on so
+
+400
+00:27:55,300 --> 00:28:02,740
+this is so stupid
+
+401
+00:27:57,480 --> 00:28:05,110
+okay so we so this is correct we are
+
+402
+00:28:02,740 --> 00:28:08,650
+just returning a string but we are
+
+403
+00:28:05,110 --> 00:28:17,470
+printing it here the the part that is
+
+404
+00:28:08,650 --> 00:28:21,300
+wrong is over here so we say I think s
+
+405
+00:28:17,470 --> 00:28:21,300
+okay no
+
+406
+00:28:24,620 --> 00:28:33,360
+so we really do need to look at print
+
+407
+00:28:27,899 --> 00:28:41,700
+the D in detail so format print print
+
+408
+00:28:33,360 --> 00:28:45,870
+okay so use a package format so
+
+409
+00:28:41,700 --> 00:28:48,720
+percentage V means okay here is the
+
+410
+00:28:45,870 --> 00:28:53,059
+format details for the percentage V is
+
+411
+00:28:48,720 --> 00:28:57,500
+any value print in human readable form
+
+412
+00:28:53,059 --> 00:29:05,309
+so V vennett
+
+413
+00:28:57,500 --> 00:29:09,230
+no so let's say percentage hash V prints
+
+414
+00:29:05,309 --> 00:29:18,240
+in Colin's syntax Lynette
+
+415
+00:29:09,230 --> 00:29:20,700
+okay so okay so the problem is not with
+
+416
+00:29:18,240 --> 00:29:23,340
+print the problem is we with our
+
+417
+00:29:20,700 --> 00:29:29,070
+conversion converting this number to
+
+418
+00:29:23,340 --> 00:29:31,320
+stream is its this is tremendous time
+
+419
+00:29:29,070 --> 00:29:35,789
+wasting so let's try this let's just say
+
+420
+00:29:31,320 --> 00:29:38,850
+int okay so let's say this number this
+
+421
+00:29:35,789 --> 00:29:45,240
+function returns a int then let's just
+
+422
+00:29:38,850 --> 00:29:54,149
+say that okay and now it returns an int
+
+423
+00:29:45,240 --> 00:30:03,919
+let's just join it so here is the result
+
+424
+00:29:54,149 --> 00:30:03,919
+this number this number is a
+
+425
+00:30:09,450 --> 00:30:17,010
+oh yeah it's a number right yeah oh god
+
+426
+00:30:14,820 --> 00:30:22,590
+I went to through ok so anyway so that's
+
+427
+00:30:17,010 --> 00:30:25,140
+a number so we don't need to wait we
+
+428
+00:30:22,590 --> 00:30:27,150
+want to convert well we want to convert
+
+429
+00:30:25,140 --> 00:30:29,640
+this number to string we need to solve
+
+430
+00:30:27,150 --> 00:30:32,810
+that problem because we will be needing
+
+431
+00:30:29,640 --> 00:30:32,810
+to do that later on
+
+432
+00:30:33,210 --> 00:30:44,280
+greetings Ultima yeah ok I posted my
+
+433
+00:30:36,360 --> 00:30:47,310
+ruby solution on this code ok ok I need
+
+434
+00:30:44,280 --> 00:30:50,100
+to finish this ok I'm hoping to finish
+
+435
+00:30:47,310 --> 00:30:58,650
+this then we look at all the other
+
+436
+00:30:50,100 --> 00:31:01,710
+people's solutions so so this is a
+
+437
+00:30:58,650 --> 00:31:05,250
+number of this function it returns a
+
+438
+00:31:01,710 --> 00:31:08,150
+number and now we need to change this
+
+439
+00:31:05,250 --> 00:31:15,980
+number into a stream phone format and
+
+440
+00:31:08,150 --> 00:31:15,980
+why cannot we do it so for example
+
+441
+00:31:21,180 --> 00:31:24,180
+print
+
+442
+00:31:27,070 --> 00:31:32,770
+this is a number okay and let's run it
+
+443
+00:31:31,480 --> 00:31:35,920
+okay
+
+444
+00:31:32,770 --> 00:31:39,450
+that's correct but however we want to
+
+445
+00:31:35,920 --> 00:31:39,450
+turn this into a stream
+
+446
+00:32:01,470 --> 00:32:05,100
+let's try
+
+447
+00:32:16,340 --> 00:32:24,860
+it keeps returning the Korean character
+
+448
+00:32:21,400 --> 00:32:28,310
+so the problem right now we have I have
+
+449
+00:32:24,860 --> 00:32:33,590
+is to convert a number into a string but
+
+450
+00:32:28,310 --> 00:32:43,600
+this is so basic but I got so screwed up
+
+451
+00:32:33,590 --> 00:32:43,600
+here what what am I
+
+452
+00:32:57,330 --> 00:33:09,210
+let's try this yeah so that is correct
+
+453
+00:33:10,559 --> 00:33:20,169
+so the problem right now is that I am
+
+454
+00:33:16,240 --> 00:33:23,980
+unable to convert a number this number
+
+455
+00:33:20,169 --> 00:33:27,700
+to a stream because when I do this it
+
+456
+00:33:23,980 --> 00:33:34,510
+returns incorrect result so converting
+
+457
+00:33:27,700 --> 00:33:36,669
+number to stream okay so I see what go
+
+458
+00:33:34,510 --> 00:33:39,460
+line is doing so because when you are if
+
+459
+00:33:36,669 --> 00:33:45,490
+you do this colon is just to convert
+
+460
+00:33:39,460 --> 00:33:46,890
+this number to a Unicode character yeah
+
+461
+00:33:45,490 --> 00:33:49,990
+yeah
+
+462
+00:33:46,890 --> 00:33:52,980
+so convert Golan to number to a string
+
+463
+00:33:49,990 --> 00:33:52,980
+how do you do that
+
+464
+00:34:01,460 --> 00:34:05,059
+skiing hot
+
+465
+00:34:11,100 --> 00:34:14,690
+so let's look at
+
+466
+00:34:28,869 --> 00:34:36,500
+yes you can append no go line I don't
+
+467
+00:34:32,990 --> 00:34:40,369
+think that works even if it works that's
+
+468
+00:34:36,500 --> 00:34:44,770
+kind of a hack that's not how you do it
+
+469
+00:34:40,369 --> 00:34:48,409
+in Golan because colon is a very
+
+470
+00:34:44,770 --> 00:34:53,720
+strongly typed language it does not
+
+471
+00:34:48,409 --> 00:35:02,420
+usually allows you to automatically
+
+472
+00:34:53,720 --> 00:35:05,060
+convert between types so and so right
+
+473
+00:35:02,420 --> 00:35:08,690
+now we want to convert this number to a
+
+474
+00:35:05,060 --> 00:35:11,119
+string I I have worked on this before
+
+475
+00:35:08,690 --> 00:35:13,609
+but I haven't been coding colon for a
+
+476
+00:35:11,119 --> 00:35:16,550
+month or two I don't remember
+
+477
+00:35:13,609 --> 00:35:22,240
+soul and oh let's see random number and
+
+478
+00:35:16,550 --> 00:35:22,240
+then int I print have B
+
+479
+00:35:27,900 --> 00:35:33,480
+oh yeah so so so back to the sprints
+
+480
+00:35:31,230 --> 00:35:37,170
+this is what we need to use I'm pretty
+
+481
+00:35:33,480 --> 00:35:43,140
+sure yeah that that obviously so here
+
+482
+00:35:37,170 --> 00:35:46,140
+this is this is the proper way okay so
+
+483
+00:35:43,140 --> 00:35:52,249
+you so we're going to call sprint F to
+
+484
+00:35:46,140 --> 00:35:55,849
+format a format a number into a stream
+
+485
+00:35:52,249 --> 00:35:58,759
+not not used not using the string
+
+486
+00:35:55,849 --> 00:36:06,269
+conversion so we're gonna format this
+
+487
+00:35:58,759 --> 00:36:12,119
+into a string so let's try it oh you
+
+488
+00:36:06,269 --> 00:36:23,190
+need to print it so print print this
+
+489
+00:36:12,119 --> 00:36:27,589
+okay good finally after some thinking we
+
+490
+00:36:23,190 --> 00:36:31,410
+got the answer okay that's it for today
+
+491
+00:36:27,589 --> 00:36:35,430
+so now we cocoa format so here is how
+
+492
+00:36:31,410 --> 00:36:39,329
+you convert a number to a string okay
+
+493
+00:36:35,430 --> 00:36:44,430
+you use the Sprint F function so once we
+
+494
+00:36:39,329 --> 00:36:47,130
+so so once we got a we got a string here
+
+495
+00:36:44,430 --> 00:36:50,400
+which is a string four six six five six
+
+496
+00:36:47,130 --> 00:36:54,900
+then we use print print F to print it
+
+497
+00:36:50,400 --> 00:36:59,579
+okay so now we got that soft now go back
+
+498
+00:36:54,900 --> 00:37:04,769
+to the our function here we we change it
+
+499
+00:36:59,579 --> 00:37:12,589
+back to a string type and we we change
+
+500
+00:37:04,769 --> 00:37:12,589
+it to the okay we change it return
+
+501
+00:37:13,789 --> 00:37:20,400
+anyway so actually let's just say that
+
+502
+00:37:17,400 --> 00:37:23,039
+okay we don't we don't need that so M
+
+503
+00:37:20,400 --> 00:37:26,869
+total second is the total number of
+
+504
+00:37:23,039 --> 00:37:26,869
+seconds in a day and
+
+505
+00:37:31,630 --> 00:37:34,630
+and
+
+506
+00:37:53,220 --> 00:38:01,550
+okay so mtoto ii is a number of a
+
+507
+00:37:57,089 --> 00:38:07,890
+seconds in a day in m crock the end then
+
+508
+00:38:01,550 --> 00:38:15,060
+then we then we return a stream version
+
+509
+00:38:07,890 --> 00:38:21,440
+of it so given a 24 hours so so our
+
+510
+00:38:15,060 --> 00:38:21,440
+input time 24 is gonna be something like
+
+511
+00:38:23,569 --> 00:38:35,880
+something like let's say 13 0 do we have
+
+512
+00:38:28,680 --> 00:38:37,980
+it here yeah so let's say that so that's
+
+513
+00:38:35,880 --> 00:38:44,280
+the input so first of all we need to
+
+514
+00:38:37,980 --> 00:38:47,579
+pass the time now there are two ways to
+
+515
+00:38:44,280 --> 00:38:50,250
+do it one is one way is that we're gonna
+
+516
+00:38:47,579 --> 00:38:53,520
+do this manually that is we split the
+
+517
+00:38:50,250 --> 00:38:55,770
+string into three parts then we compute
+
+518
+00:38:53,520 --> 00:38:58,920
+how many total seconds are there the
+
+519
+00:38:55,770 --> 00:39:06,119
+other way is use some sort of Theoden
+
+520
+00:38:58,920 --> 00:39:08,970
+function to pass time which one should
+
+521
+00:39:06,119 --> 00:39:13,560
+we use I think let's do it manually okay
+
+522
+00:39:08,970 --> 00:39:15,720
+because either way depending on which
+
+523
+00:39:13,560 --> 00:39:20,869
+one you are familiar but but I think
+
+524
+00:39:15,720 --> 00:39:23,730
+doing manually is is it's better for now
+
+525
+00:39:20,869 --> 00:39:27,480
+so we're gonna do so we're gonna spread
+
+526
+00:39:23,730 --> 00:39:30,690
+this stream string into a list of three
+
+527
+00:39:27,480 --> 00:39:34,859
+items so let's go to stream stream
+
+528
+00:39:30,690 --> 00:39:41,670
+functions ok length substring join
+
+529
+00:39:34,859 --> 00:39:46,650
+stream stream functions and the split we
+
+530
+00:39:41,670 --> 00:39:50,990
+already have the code example there so
+
+531
+00:39:46,650 --> 00:39:50,990
+this we're gonna have a
+
+532
+00:39:55,320 --> 00:40:07,330
+so time 24 split wait first of all we
+
+533
+00:40:03,490 --> 00:40:11,860
+you need a sprint function I mean we
+
+534
+00:40:07,330 --> 00:40:19,570
+need a strange library okay so here is
+
+535
+00:40:11,860 --> 00:40:30,030
+the strange library we need then we call
+
+536
+00:40:19,570 --> 00:40:32,640
+strings split okay split in the input by
+
+537
+00:40:30,030 --> 00:40:42,490
+:
+
+538
+00:40:32,640 --> 00:40:46,960
+okay and let's call it variable H minute
+
+539
+00:40:42,490 --> 00:40:50,910
+minute second second least okay is
+
+540
+00:40:46,960 --> 00:40:50,910
+actually you don't call it least slice
+
+541
+00:40:54,390 --> 00:41:05,050
+so so this is basically a array of three
+
+542
+00:41:00,280 --> 00:41:10,870
+items each item is a stream of that of
+
+543
+00:41:05,050 --> 00:41:17,530
+two digits okay and then we can say
+
+544
+00:41:10,870 --> 00:41:22,540
+return let's see if it's correct let's
+
+545
+00:41:17,530 --> 00:41:25,050
+say return 0th okay and let's print it
+
+546
+00:41:22,540 --> 00:41:25,050
+here
+
+547
+00:41:29,170 --> 00:41:39,430
+let's let's use that okay
+
+548
+00:41:34,059 --> 00:41:44,000
+rennet mtoto ii declared and not used
+
+549
+00:41:39,430 --> 00:41:52,210
+that's one of the colons problem yeah
+
+550
+00:41:44,000 --> 00:41:56,930
+okay so this just printed here brunette
+
+551
+00:41:52,210 --> 00:42:01,520
+good so it returns 13 that's correct
+
+552
+00:41:56,930 --> 00:42:04,640
+because that's the first part of the we
+
+553
+00:42:01,520 --> 00:42:09,549
+we're never gonna finish by this rate
+
+554
+00:42:04,640 --> 00:42:09,549
+okay this already what 41 minutes
+
+555
+00:42:14,170 --> 00:42:20,349
+import strings strange split time 24
+
+556
+00:42:20,920 --> 00:42:27,200
+yeah so that that yeah that is correct
+
+557
+00:42:24,290 --> 00:42:31,790
+so once we lets me try to do this
+
+558
+00:42:27,200 --> 00:42:33,920
+quicker if we see if we can do it let's
+
+559
+00:42:31,790 --> 00:42:35,450
+see how far we go after 10 more minutes
+
+560
+00:42:33,920 --> 00:42:38,690
+okay once week
+
+561
+00:42:35,450 --> 00:42:42,770
+so this is our so let's just be done
+
+562
+00:42:38,690 --> 00:42:52,010
+okay so our will be equals to that let's
+
+563
+00:42:42,770 --> 00:42:54,589
+be done minute second to one okay let's
+
+564
+00:42:52,010 --> 00:42:56,930
+not you know there are so many other
+
+565
+00:42:54,589 --> 00:43:01,369
+better syntax to do this but let's just
+
+566
+00:42:56,930 --> 00:43:06,020
+get it done so so we want to compute now
+
+567
+00:43:01,369 --> 00:43:09,230
+we want to compute total sex sec total
+
+568
+00:43:06,020 --> 00:43:20,140
+number of seconds so total number of
+
+569
+00:43:09,230 --> 00:43:22,510
+seconds equals 2 so h h number of hours
+
+570
+00:43:20,140 --> 00:43:26,690
+times 60
+
+571
+00:43:22,510 --> 00:43:30,890
+that's a minutes times 60
+
+572
+00:43:26,690 --> 00:43:33,339
+that's seconds first the number of
+
+573
+00:43:30,890 --> 00:43:33,339
+minutes
+
+574
+00:43:39,540 --> 00:43:48,610
+times 60 that's a number of seconds
+
+575
+00:43:43,210 --> 00:43:53,230
+first seconds okay so we got total
+
+576
+00:43:48,610 --> 00:43:54,930
+number of seconds okay and now let's
+
+577
+00:43:53,230 --> 00:43:57,790
+return
+
+578
+00:43:54,930 --> 00:44:00,880
+let's return total number of seconds
+
+579
+00:43:57,790 --> 00:44:04,120
+let's see what works okay cannot convert
+
+580
+00:44:00,880 --> 00:44:07,030
+can cannot convert 60 to type string
+
+581
+00:44:04,120 --> 00:44:11,010
+okay so we need to do conversion again
+
+582
+00:44:07,030 --> 00:44:14,020
+so so each one of these is a string
+
+583
+00:44:11,010 --> 00:44:23,620
+hh:mm:ss is a string we need to convert
+
+584
+00:44:14,020 --> 00:44:26,800
+it to a number so here so now the
+
+585
+00:44:23,620 --> 00:44:34,540
+problem is string to number how do you
+
+586
+00:44:26,800 --> 00:44:41,220
+convert string to number so convert a
+
+587
+00:44:34,540 --> 00:44:44,410
+string to number a string to number I
+
+588
+00:44:41,220 --> 00:44:49,480
+believe you need to use a library
+
+589
+00:44:44,410 --> 00:44:56,710
+because I had this problem before I
+
+590
+00:44:49,480 --> 00:45:03,760
+believe you you need to use a library so
+
+591
+00:44:56,710 --> 00:45:05,560
+does anyone know okay the easiest way is
+
+592
+00:45:03,760 --> 00:45:11,920
+just stack overflow okay
+
+593
+00:45:05,560 --> 00:45:17,890
+Golan string so what is this string -
+
+594
+00:45:11,920 --> 00:45:21,760
+number yeah string - number blew through
+
+595
+00:45:17,890 --> 00:45:25,180
+the length of string yeah you can do
+
+596
+00:45:21,760 --> 00:45:28,750
+that but that's that's that's not proper
+
+597
+00:45:25,180 --> 00:45:34,540
+way how to convert string to integer in
+
+598
+00:45:28,750 --> 00:45:36,970
+: okay so actually yeah there it is you
+
+599
+00:45:34,540 --> 00:45:39,430
+need this library you know each each
+
+600
+00:45:36,970 --> 00:45:42,580
+language is a bit funky
+
+601
+00:45:39,430 --> 00:45:46,080
+I was kind of surprised you need this
+
+602
+00:45:42,580 --> 00:45:49,920
+library string conversion
+
+603
+00:45:46,080 --> 00:45:52,790
+and let's go back okay so let's so
+
+604
+00:45:49,920 --> 00:45:57,060
+because I have looked into this there I
+
+605
+00:45:52,790 --> 00:46:00,330
+you know I've I've done this before so
+
+606
+00:45:57,060 --> 00:46:03,140
+here is the package string conversion so
+
+607
+00:46:00,330 --> 00:46:05,940
+you want to convert a string to a number
+
+608
+00:46:03,140 --> 00:46:10,130
+so let it let's see what are the
+
+609
+00:46:05,940 --> 00:46:10,130
+functions we need to use okay
+
+610
+00:46:11,420 --> 00:46:19,470
+the most common American version are a
+
+611
+00:46:14,460 --> 00:46:22,520
+two I string to int and I to I into
+
+612
+00:46:19,470 --> 00:46:27,270
+string string to int that's what we want
+
+613
+00:46:22,520 --> 00:46:34,040
+so Oh God
+
+614
+00:46:27,270 --> 00:46:34,040
+: with its aerial stuff or is this
+
+615
+00:46:48,200 --> 00:46:56,190
+yes you do because colon is a low level
+
+616
+00:46:52,140 --> 00:47:00,540
+language like C so you know it's it's
+
+617
+00:46:56,190 --> 00:47:04,110
+not as high high level so I haven't been
+
+618
+00:47:00,540 --> 00:47:11,340
+coding : in past few months so it's kind
+
+619
+00:47:04,110 --> 00:47:14,580
+of just - so sorry about that yeah so so
+
+620
+00:47:11,340 --> 00:47:17,370
+let's see so we have several several
+
+621
+00:47:14,580 --> 00:47:19,740
+functions that convert string to number
+
+622
+00:47:17,370 --> 00:47:21,800
+actually this will be quite useful for
+
+623
+00:47:19,740 --> 00:47:28,020
+our purposes because we are going to
+
+624
+00:47:21,800 --> 00:47:33,150
+convert to base six near the end so okay
+
+625
+00:47:28,020 --> 00:47:37,590
+so string to number right so for example
+
+626
+00:47:33,150 --> 00:47:44,790
+we can use this one string to int okay
+
+627
+00:47:37,590 --> 00:47:48,540
+so so this is how you convert a string
+
+628
+00:47:44,790 --> 00:47:53,940
+to int so this the string will be H edge
+
+629
+00:47:48,540 --> 00:47:57,420
+and and the second part number is passed
+
+630
+00:47:53,940 --> 00:48:07,380
+int o case the the other arguments are
+
+631
+00:47:57,420 --> 00:48:08,970
+passed int pace and bit size base and
+
+632
+00:48:07,380 --> 00:48:11,040
+pitch sighs you know the problem with
+
+633
+00:48:08,970 --> 00:48:13,310
+low-level languages is that then you
+
+634
+00:48:11,040 --> 00:48:18,030
+have to worry about this speed sighs
+
+635
+00:48:13,310 --> 00:48:20,910
+Jesus I don't want no I don't care about
+
+636
+00:48:18,030 --> 00:48:27,810
+what bit sighs so pass in interpreter
+
+637
+00:48:20,910 --> 00:48:30,810
+string s in the given base okay you know
+
+638
+00:48:27,810 --> 00:48:35,610
+in a given base that's the input zero of
+
+639
+00:48:30,810 --> 00:48:39,900
+binary or 36 and bit size zero to 64 and
+
+640
+00:48:35,610 --> 00:48:46,200
+return a corresponding I what what is
+
+641
+00:48:39,900 --> 00:48:48,470
+the bit size mean piece size 32 doesn't
+
+642
+00:48:46,200 --> 00:48:48,470
+matter
+
+643
+00:48:50,590 --> 00:48:58,150
+OKC has that in standard pipe so if a
+
+644
+00:48:54,170 --> 00:49:00,860
+zero in base equals to zero
+
+645
+00:48:58,150 --> 00:49:06,860
+the base is implied by the strings
+
+646
+00:49:00,860 --> 00:49:10,460
+prefix okay that's another kind of not
+
+647
+00:49:06,860 --> 00:49:13,100
+so good design because you see they are
+
+648
+00:49:10,460 --> 00:49:15,530
+using a trick you know the second
+
+649
+00:49:13,100 --> 00:49:20,119
+argument is supposed to a base but
+
+650
+00:49:15,530 --> 00:49:23,180
+however it is allowed to to let the base
+
+651
+00:49:20,119 --> 00:49:25,730
+be 0 because when the base is 0 it means
+
+652
+00:49:23,180 --> 00:49:28,430
+you know it is kind of a magical value
+
+653
+00:49:25,730 --> 00:49:32,060
+and then it means the base is implied by
+
+654
+00:49:28,430 --> 00:49:38,090
+the stringing in in you know the inputs
+
+655
+00:49:32,060 --> 00:49:43,790
+prefix anyway that's that's that's just
+
+656
+00:49:38,090 --> 00:49:46,130
+how things are it's not mathematical the
+
+657
+00:49:43,790 --> 00:49:49,930
+besides arguments specify the integer
+
+658
+00:49:46,130 --> 00:49:54,890
+type that the result must fit into okay
+
+659
+00:49:49,930 --> 00:49:59,720
+what what besides should all be so 32 I
+
+660
+00:49:54,890 --> 00:50:03,740
+guess 64 let's go to 64 okay let's just
+
+661
+00:49:59,720 --> 00:50:06,260
+say that okay then you have to do arrow
+
+662
+00:50:03,740 --> 00:50:08,600
+checking because you see this this
+
+663
+00:50:06,260 --> 00:50:10,369
+function returns two things one the
+
+664
+00:50:08,600 --> 00:50:14,680
+first thing is value the second thing is
+
+665
+00:50:10,369 --> 00:50:14,680
+arrow God
+
+666
+00:50:19,300 --> 00:50:31,400
+god this is a lot to do means a lot of
+
+667
+00:50:22,730 --> 00:50:35,810
+code Jesus let's just say that okay
+
+668
+00:50:31,400 --> 00:50:38,710
+let's be dumb and let's just say that so
+
+669
+00:50:35,810 --> 00:50:38,710
+we're gonna have
+
+670
+00:50:47,420 --> 00:50:51,650
+how do you do this function in a
+
+671
+00:50:49,579 --> 00:50:53,589
+function way I don't want too many lines
+
+672
+00:50:51,650 --> 00:50:57,680
+that's a problem
+
+673
+00:50:53,589 --> 00:51:02,510
+so this line returns the let's just
+
+674
+00:50:57,680 --> 00:51:03,109
+ignore the area okay yeah we can do that
+
+675
+00:51:02,510 --> 00:51:13,779
+yeah
+
+676
+00:51:03,109 --> 00:51:13,779
+so yep that is something like that okay
+
+677
+00:51:27,100 --> 00:51:35,750
+okay so H H numb so this will be H F H
+
+678
+00:51:31,580 --> 00:51:40,010
+in numerical form this will be m m in
+
+679
+00:51:35,750 --> 00:51:42,620
+numerical form and SS in numerical form
+
+680
+00:51:40,010 --> 00:51:45,160
+let's run it please no it's not gonna
+
+681
+00:51:42,620 --> 00:51:52,610
+work right I know it
+
+682
+00:51:45,160 --> 00:51:56,440
+so is a single value context : colons
+
+683
+00:51:52,610 --> 00:52:01,220
+function it can return multiple values
+
+684
+00:51:56,440 --> 00:52:04,340
+okay so let's just do that so so this
+
+685
+00:52:01,220 --> 00:52:06,860
+function passed int returns two values
+
+686
+00:52:04,340 --> 00:52:09,050
+the first value is a real result the
+
+687
+00:52:06,860 --> 00:52:13,820
+second value is a error kind of error
+
+688
+00:52:09,050 --> 00:52:16,580
+indicator so when you so when a function
+
+689
+00:52:13,820 --> 00:52:18,830
+returns two values you need to you the
+
+690
+00:52:16,580 --> 00:52:21,380
+way you get the values is like that you
+
+691
+00:52:18,830 --> 00:52:25,970
+use you know you assigned it aside
+
+692
+00:52:21,380 --> 00:52:27,800
+to like two values but if you but you
+
+693
+00:52:25,970 --> 00:52:30,830
+need to assign it to two values
+
+694
+00:52:27,800 --> 00:52:32,350
+otherwise Golan complains so let's do
+
+695
+00:52:30,830 --> 00:52:37,270
+that
+
+696
+00:52:32,350 --> 00:52:37,270
+everyone arrow to arrow 3 whatever
+
+697
+00:52:38,020 --> 00:52:51,170
+declared and not used God an arrow to
+
+698
+00:52:45,440 --> 00:52:54,800
+arrow 3 declare is not used Jesus if
+
+699
+00:52:51,170 --> 00:52:58,490
+arrow okay if arrow 1 equals to is not
+
+700
+00:52:54,800 --> 00:53:04,580
+Neil panic this is what this is what
+
+701
+00:52:58,490 --> 00:53:13,700
+everyone do you just add this code let's
+
+702
+00:53:04,580 --> 00:53:21,640
+try it again we declared God so is it
+
+703
+00:53:13,700 --> 00:53:21,640
+fun guys : this is : guys : okay
+
+704
+00:53:23,550 --> 00:53:29,349
+: is fantastic because it's most
+
+705
+00:53:26,410 --> 00:53:39,670
+practical so let's run it again
+
+706
+00:53:29,349 --> 00:53:45,359
+yay finally so so what's going on now so
+
+707
+00:53:39,670 --> 00:53:45,359
+we have we have given the number of
+
+708
+00:53:45,450 --> 00:53:54,640
+let's see let's look at what's going on
+
+709
+00:53:48,010 --> 00:53:57,700
+our code right now okay so we have we
+
+710
+00:53:54,640 --> 00:54:02,440
+have the input the input is here okay 13
+
+711
+00:53:57,700 --> 00:54:07,720
+hours 13 hours 1 minute 1 second and we
+
+712
+00:54:02,440 --> 00:54:10,589
+have passed that into h h mm and SS then
+
+713
+00:54:07,720 --> 00:54:15,310
+we can convert them to a numerical form
+
+714
+00:54:10,589 --> 00:54:17,710
+integers then we multiply them so we got
+
+715
+00:54:15,310 --> 00:54:21,790
+total number of seconds okay
+
+716
+00:54:17,710 --> 00:54:25,869
+so the total number of seconds so let's
+
+717
+00:54:21,790 --> 00:54:29,290
+run a code so this is the total of
+
+718
+00:54:25,869 --> 00:54:33,609
+number of seconds let's try it again
+
+719
+00:54:29,290 --> 00:54:38,800
+okay so what if we say zero zero okay
+
+720
+00:54:33,609 --> 00:54:49,869
+that should return one correct guys
+
+721
+00:54:38,800 --> 00:54:51,400
+correct look okay let's try to correct
+
+722
+00:54:49,869 --> 00:54:54,730
+okay so so far so good
+
+723
+00:54:51,400 --> 00:54:56,500
+so now we got a total number of seconds
+
+724
+00:54:54,730 --> 00:54:59,349
+this should be easier now okay so this
+
+725
+00:54:56,500 --> 00:55:02,170
+is me you can almost and so now we got
+
+726
+00:54:59,349 --> 00:55:05,680
+total number of seconds in a day of a
+
+727
+00:55:02,170 --> 00:55:11,380
+given time now we want to convert it to
+
+728
+00:55:05,680 --> 00:55:15,040
+the Emily croc 36 paste system that's
+
+729
+00:55:11,380 --> 00:55:18,130
+not hard okay that's not hard so what we
+
+730
+00:55:15,040 --> 00:55:26,560
+do so what we so we take the total
+
+731
+00:55:18,130 --> 00:55:27,750
+number of seconds and then divided by 36
+
+732
+00:55:26,560 --> 00:55:31,900
+okay
+
+733
+00:55:27,750 --> 00:55:36,539
+divided by 36 then take the take the
+
+734
+00:55:31,900 --> 00:55:42,419
+floor okay then that would be our
+
+735
+00:55:36,539 --> 00:55:47,179
+our so okay so em our okay something
+
+736
+00:55:42,419 --> 00:55:50,579
+like that right guys right right right
+
+737
+00:55:47,179 --> 00:55:53,219
+so we got this em our something like
+
+738
+00:55:50,579 --> 00:55:58,259
+that but however the flow is not correct
+
+739
+00:55:53,219 --> 00:56:01,109
+you maybe you need math in Golan you
+
+740
+00:55:58,259 --> 00:56:08,849
+need a math library to do floor do I
+
+741
+00:56:01,109 --> 00:56:12,689
+have a tutorial here somewhere okay I
+
+742
+00:56:08,849 --> 00:56:15,479
+don't know so Golan so you go go you go
+
+743
+00:56:12,689 --> 00:56:18,119
+to Colin's official documentation you
+
+744
+00:56:15,479 --> 00:56:21,630
+click on packages by the way Golan has
+
+745
+00:56:18,119 --> 00:56:24,660
+the best documentation ever in my 20
+
+746
+00:56:21,630 --> 00:56:26,849
+years 3 30 years of in programming
+
+747
+00:56:24,660 --> 00:56:30,449
+industry : has the best documentation
+
+748
+00:56:26,849 --> 00:56:32,369
+ever and the language is very simple
+
+749
+00:56:30,449 --> 00:56:35,880
+it's a bit tedious okay it's more
+
+750
+00:56:32,369 --> 00:56:38,339
+tedious than Python than this but it's
+
+751
+00:56:35,880 --> 00:56:42,359
+510 times faster than Python all this
+
+752
+00:56:38,339 --> 00:56:44,939
+okay so that is why and colon is
+
+753
+00:56:42,359 --> 00:56:48,959
+designed to replace designed to replace
+
+754
+00:56:44,939 --> 00:56:51,299
+C++ basically it's in the same speed as
+
+755
+00:56:48,959 --> 00:56:54,150
+the prosperous so anyway right now we
+
+756
+00:56:51,299 --> 00:56:58,679
+are trying to find out how to do how to
+
+757
+00:56:54,150 --> 00:57:02,069
+do the floor function in : and how do
+
+758
+00:56:58,679 --> 00:57:07,229
+how to do how to do modular with medics
+
+759
+00:57:02,069 --> 00:57:11,249
+so we go to Colin's packages and then
+
+760
+00:57:07,229 --> 00:57:15,390
+look at math so let's see if there is a
+
+761
+00:57:11,249 --> 00:57:23,329
+flaw there it is indeed floor so you
+
+762
+00:57:15,390 --> 00:57:23,329
+have okay so here is the floor function
+
+763
+00:57:23,509 --> 00:57:34,259
+okay so you got a float of floor
+
+764
+00:57:29,009 --> 00:57:36,929
+function and this package is math so you
+
+765
+00:57:34,259 --> 00:57:43,849
+need to use the math package so go to
+
+766
+00:57:36,929 --> 00:57:49,559
+the top add a new package math okay then
+
+767
+00:57:43,849 --> 00:57:50,430
+in then in the line that says floor we
+
+768
+00:57:49,559 --> 00:57:55,369
+need say we
+
+769
+00:57:50,430 --> 00:57:59,220
+need to say math dot flora okay and
+
+770
+00:57:55,369 --> 00:58:03,450
+let's print em how okay let's print em
+
+771
+00:57:59,220 --> 00:58:08,550
+how wait now we need to convert that to
+
+772
+00:58:03,450 --> 00:58:12,619
+a stream because this function returns
+
+773
+00:58:08,550 --> 00:58:12,619
+the string so convert that to a string
+
+774
+00:58:20,480 --> 00:58:25,800
+that's how you that's how you convert
+
+775
+00:58:23,040 --> 00:58:27,869
+and a number to a string now we are so
+
+776
+00:58:25,800 --> 00:58:33,030
+familiar with it so we can do it right
+
+777
+00:58:27,869 --> 00:58:37,369
+away so okay so so now we run it it
+
+778
+00:58:33,030 --> 00:58:37,369
+should return the number of hours I
+
+779
+00:58:40,400 --> 00:58:47,849
+cannot refer to an exported name math
+
+780
+00:58:43,950 --> 00:58:51,660
+third floor oh the F must be capitalized
+
+781
+00:58:47,849 --> 00:58:54,300
+now another goal and tip every function
+
+782
+00:58:51,660 --> 00:58:55,230
+in a package their name must be
+
+783
+00:58:54,300 --> 00:58:58,619
+capitalized
+
+784
+00:58:55,230 --> 00:59:00,690
+okay so we got it wrong and now it
+
+785
+00:58:58,619 --> 00:59:05,250
+should be good we change it to floor
+
+786
+00:59:00,690 --> 00:59:08,369
+capital F now run it okay wait so total
+
+787
+00:59:05,250 --> 00:59:14,280
+seconds divided the batter is 236 and
+
+788
+00:59:08,369 --> 00:59:16,290
+yeah that's right Janet cannot use 30
+
+789
+00:59:14,280 --> 00:59:21,410
+total it cannot use total seconds
+
+790
+00:59:16,290 --> 00:59:26,010
+divided by 36 because typed mismatch
+
+791
+00:59:21,410 --> 00:59:29,849
+this is problem of typed languages okay
+
+792
+00:59:26,010 --> 00:59:37,440
+total seconds divided by 32 okay doesn't
+
+793
+00:59:29,849 --> 00:59:45,540
+work because because float64 in argument
+
+794
+00:59:37,440 --> 00:59:48,720
+to math okay so yeah God cannot do what
+
+795
+00:59:45,540 --> 00:59:54,660
+you're gonna do okay we instead of
+
+796
+00:59:48,720 --> 00:59:59,010
+divide we want to use is there a better
+
+797
+00:59:54,660 --> 01:00:01,490
+wait let's just say 0 0 okay let's just
+
+798
+00:59:59,010 --> 01:00:04,230
+say that run it
+
+799
+01:00:01,490 --> 01:00:11,160
+okay cannot divide total number of
+
+800
+01:00:04,230 --> 01:00:18,240
+seconds by 30 36 okay then it's
+
+801
+01:00:11,160 --> 01:00:23,030
+converted to float okay so that's how
+
+802
+01:00:18,240 --> 01:00:27,270
+you do it in Golan Golan tediousness
+
+803
+01:00:23,030 --> 01:00:30,720
+wait no there's no type float so let's
+
+804
+01:00:27,270 --> 01:00:33,600
+go back to Golan types there is no type
+
+805
+01:00:30,720 --> 01:00:45,840
+float you need to use the appropriate
+
+806
+01:00:33,600 --> 01:00:51,110
+type Golan basic types so you have float
+
+807
+01:00:45,840 --> 01:00:54,570
+32 float64 okay float64 Gwinnett Oh
+
+808
+01:00:51,110 --> 01:00:59,010
+finally God and our answer is correct
+
+809
+01:00:54,570 --> 01:01:03,990
+it's zero hours so let's summarize again
+
+810
+01:00:59,010 --> 01:01:06,570
+okay so summarize so we got so our
+
+811
+01:01:03,990 --> 01:01:11,760
+function right now is printing the total
+
+812
+01:01:06,570 --> 01:01:15,000
+number of hours in Emily croc so if the
+
+813
+01:01:11,760 --> 01:01:16,980
+input you know so so it's spinning a
+
+814
+01:01:15,000 --> 01:01:19,920
+total number of hours the Emily croc we
+
+815
+01:01:16,980 --> 01:01:23,160
+are getting close so we run into a
+
+816
+01:01:19,920 --> 01:01:26,550
+problem because when we divide this this
+
+817
+01:01:23,160 --> 01:01:31,190
+math.floor function the input must be
+
+818
+01:01:26,550 --> 01:01:34,530
+type float 64 therefore we need to
+
+819
+01:01:31,190 --> 01:01:40,200
+convert it before we feed it to the
+
+820
+01:01:34,530 --> 01:01:43,560
+function but anyway now it works now and
+
+821
+01:01:40,200 --> 01:01:46,200
+once we know we got the number of hours
+
+822
+01:01:43,560 --> 01:01:49,260
+we need to know what's the remainder
+
+823
+01:01:46,200 --> 01:01:53,040
+what's that women momenta of total sex
+
+824
+01:01:49,260 --> 01:01:56,070
+seconds divided by 3 is 36 we are almost
+
+825
+01:01:53,040 --> 01:01:59,760
+there okay so I guess you can see the
+
+826
+01:01:56,070 --> 01:02:02,550
+pattern so let me read the comments okay
+
+827
+01:01:59,760 --> 01:02:08,570
+this how long have I been talking we
+
+828
+01:02:02,550 --> 01:02:08,570
+cannot finish this today maybe not
+
+829
+01:02:10,390 --> 01:02:13,750
+so what is
+
+830
+01:02:23,210 --> 01:02:35,000
+font they are talking about font so so
+
+831
+01:02:30,530 --> 01:02:36,710
+George has a ruby version so maybe we
+
+832
+01:02:35,000 --> 01:02:38,990
+should just look at that for the
+
+833
+01:02:36,710 --> 01:02:41,980
+people's code or should we continue to
+
+834
+01:02:38,990 --> 01:02:45,020
+finish this :
+
+835
+01:02:41,980 --> 01:02:49,520
+thing we are almost there so how long
+
+836
+01:02:45,020 --> 01:02:51,740
+have I been talking one hour already so
+
+837
+01:02:49,520 --> 01:02:56,080
+okay let me be the comments quickly okay
+
+838
+01:02:51,740 --> 01:03:08,420
+Emily are you still here
+
+839
+01:02:56,080 --> 01:03:10,730
+crash hacker is still here so let's read
+
+840
+01:03:08,420 --> 01:03:13,970
+the comments and maybe we shut down okay
+
+841
+01:03:10,730 --> 01:03:18,380
+so I don't think he's not a third of our
+
+842
+01:03:13,970 --> 01:03:24,020
+game right so so the string conversion
+
+843
+01:03:18,380 --> 01:03:28,810
+from number to string is in : okay it's
+
+844
+01:03:24,020 --> 01:03:28,810
+a B or D in package it's this one okay
+
+845
+01:03:29,380 --> 01:03:37,270
+but being able to just say that is so
+
+846
+01:03:32,420 --> 01:03:40,930
+much better yeah so : does not have that
+
+847
+01:03:37,270 --> 01:03:45,170
+so thus go have first-class functions
+
+848
+01:03:40,930 --> 01:03:48,320
+yes : in : function can return a
+
+849
+01:03:45,170 --> 01:03:51,140
+function and function can be an argument
+
+850
+01:03:48,320 --> 01:03:54,680
+to another function function is a value
+
+851
+01:03:51,140 --> 01:03:57,170
+function is a expression so you know you
+
+852
+01:03:54,680 --> 01:03:59,630
+guys check out my goal and tutorial okay
+
+853
+01:03:57,170 --> 01:04:02,540
+actually I do cover all the basics so if
+
+854
+01:03:59,630 --> 01:04:04,700
+you are a golden beginner go check out
+
+855
+01:04:02,540 --> 01:04:09,110
+my goal and tutorial you follow them one
+
+856
+01:04:04,700 --> 01:04:11,330
+by one now I don't cover all features of
+
+857
+01:04:09,110 --> 01:04:13,220
+a goal and go line is pretty basic okay
+
+858
+01:04:11,330 --> 01:04:16,130
+you can learn actually almost this or
+
+859
+01:04:13,220 --> 01:04:18,260
+the whole thing in one day but however I
+
+860
+01:04:16,130 --> 01:04:21,380
+there are some features I'm missing but
+
+861
+01:04:18,260 --> 01:04:24,080
+don't complain because of the hacker
+
+862
+01:04:21,380 --> 01:04:26,960
+types they all say oh you're your goal
+
+863
+01:04:24,080 --> 01:04:30,410
+and lacks co-routine or your goal you're
+
+864
+01:04:26,960 --> 01:04:32,930
+your tutorial ax some fancy : features
+
+865
+01:04:30,410 --> 01:04:37,100
+right those are fancy I'm giving you a
+
+866
+01:04:32,930 --> 01:04:41,000
+basic tutorial so check out my tutorial
+
+867
+01:04:37,100 --> 01:04:45,050
+so let me just pace it here and so what
+
+868
+01:04:41,000 --> 01:04:49,010
+are we um let's go back to the code so
+
+869
+01:04:45,050 --> 01:04:53,930
+there is our code so goal and does have
+
+870
+01:04:49,010 --> 01:04:55,550
+function as first class function so as
+
+871
+01:04:53,930 --> 01:04:58,850
+today I had a discussion with a
+
+872
+01:04:55,550 --> 01:05:03,200
+colleague Freddie says with a colleague
+
+873
+01:04:58,850 --> 01:05:05,630
+and he told me : takes takes the
+
+874
+01:05:03,200 --> 01:05:10,310
+readability of Python in the power of C
+
+875
+01:05:05,630 --> 01:05:12,830
+and optimizes for modern CPUs yes so so
+
+876
+01:05:10,310 --> 01:05:21,230
+far it seems not so different from C but
+
+877
+01:05:12,830 --> 01:05:22,950
+I am no Co expert okay check out a talk
+
+878
+01:05:21,230 --> 01:05:26,040
+code okay so
+
+879
+01:05:22,950 --> 01:05:26,040
+[Music]
+
+880
+01:05:32,530 --> 01:05:39,670
+so Dion says Emily says of course Emily
+
+881
+01:05:36,460 --> 01:05:44,380
+still they are great so Emily is working
+
+882
+01:05:39,670 --> 01:05:49,140
+on Earl and version you didn't finish it
+
+883
+01:05:44,380 --> 01:05:52,720
+yet okay we are having a race
+
+884
+01:05:49,140 --> 01:05:55,150
+okay so you know usually the problem
+
+885
+01:05:52,720 --> 01:05:57,760
+seems trivial until you actually code it
+
+886
+01:05:55,150 --> 01:05:59,770
+then lots of these details like this
+
+887
+01:05:57,760 --> 01:06:02,560
+pain in the ass
+
+888
+01:05:59,770 --> 01:06:07,690
+number conversion you know number two
+
+889
+01:06:02,560 --> 01:06:10,090
+string conversion details okay let me do
+
+890
+01:06:07,690 --> 01:06:14,980
+let me try to finish this okay
+
+891
+01:06:10,090 --> 01:06:18,550
+in fact George has a ruby version seems
+
+892
+01:06:14,980 --> 01:06:21,880
+very short let's see if it works okay
+
+893
+01:06:18,550 --> 01:06:24,670
+now if it is if it doesn't work in the
+
+894
+01:06:21,880 --> 01:06:33,360
+first time I'm gonna abandon it okay so
+
+895
+01:06:24,670 --> 01:06:42,970
+because it's a ruby so m time ub m time
+
+896
+01:06:33,360 --> 01:06:45,540
+george dot RB okay actually okay so hold
+
+897
+01:06:42,970 --> 01:06:45,540
+on a second
+
+898
+01:06:49,280 --> 01:07:03,800
+so we have here a version George ruby
+
+899
+01:06:56,490 --> 01:07:06,930
+version magnify now Lynette
+
+900
+01:07:03,800 --> 01:07:10,740
+it runs let's try to call it now I don't
+
+901
+01:07:06,930 --> 01:07:12,540
+know Ruby okay I studied it for a month
+
+902
+01:07:10,740 --> 01:07:14,450
+but I don't really know it but let's
+
+903
+01:07:12,540 --> 01:07:20,070
+just try it
+
+904
+01:07:14,450 --> 01:07:24,150
+1300 zero one zero one okay Lynette oh
+
+905
+01:07:20,070 --> 01:07:25,950
+you need to print print in Ruby you have
+
+906
+01:07:24,150 --> 01:07:34,880
+this people print
+
+907
+01:07:25,950 --> 01:07:44,340
+vennett problem 2m time okay problem
+
+908
+01:07:34,880 --> 01:07:47,340
+undefined method year what yeah so so
+
+909
+01:07:44,340 --> 01:07:49,980
+George doesn't walk okay it doesn't walk
+
+910
+01:07:47,340 --> 01:07:55,490
+other box you know every time I give a
+
+911
+01:07:49,980 --> 01:07:55,490
+programming problem many people we are
+
+912
+01:07:55,910 --> 01:08:01,670
+many people you know every time I give a
+
+913
+01:07:58,620 --> 01:08:05,010
+program how a problem many people will
+
+914
+01:08:01,670 --> 01:08:07,890
+post their solutions but you need to
+
+915
+01:08:05,010 --> 01:08:10,610
+make sure your solution actually follow
+
+916
+01:08:07,890 --> 01:08:13,020
+follow the spec correctly because to you
+
+917
+01:08:10,610 --> 01:08:15,930
+you know it just walks on your machine
+
+918
+01:08:13,020 --> 01:08:18,720
+it works on my machine right but it but
+
+919
+01:08:15,930 --> 01:08:21,000
+wait when you want to show others is
+
+920
+01:08:18,720 --> 01:08:23,220
+usually doesn't so right now I'm running
+
+921
+01:08:21,000 --> 01:08:25,290
+into this problem you know you have to
+
+922
+01:08:23,220 --> 01:08:27,240
+consider other people don't know Ruby
+
+923
+01:08:25,290 --> 01:08:29,880
+you know for example maybe you are
+
+924
+01:08:27,240 --> 01:08:32,520
+coding Haskell or LAN or whatever or
+
+925
+01:08:29,880 --> 01:08:36,470
+eMac this other people do not know
+
+926
+01:08:32,520 --> 01:08:39,900
+they've never done it so you need to
+
+927
+01:08:36,470 --> 01:08:44,010
+kind of have it you need to have it like
+
+928
+01:08:39,900 --> 01:08:46,650
+work and also even even include some
+
+929
+01:08:44,010 --> 01:08:49,080
+documentation if necessary like how to
+
+930
+01:08:46,650 --> 01:08:51,150
+compile it like that C code you know how
+
+931
+01:08:49,080 --> 01:08:56,120
+to compare and things like that anyway
+
+932
+01:08:51,150 --> 01:08:56,120
+so for example this George solution I
+
+933
+01:08:56,270 --> 01:09:01,260
+read and it give me is problem so let's
+
+934
+01:08:59,580 --> 01:09:04,260
+see what is a problem
+
+935
+01:09:01,260 --> 01:09:06,930
+so use the server up to him undefined
+
+936
+01:09:04,260 --> 01:09:10,320
+method year so it says undefined method
+
+937
+01:09:06,930 --> 01:09:15,120
+yeah you know I know a little bit Ruby
+
+938
+01:09:10,320 --> 01:09:16,830
+so I can actually know a little bit but
+
+939
+01:09:15,120 --> 01:09:19,890
+you know you have to imagine it's other
+
+940
+01:09:16,830 --> 01:09:22,110
+people they are running your code and
+
+941
+01:09:19,890 --> 01:09:24,720
+they have known that they they don't
+
+942
+01:09:22,110 --> 01:09:27,060
+even have Ruby installed maybe so they
+
+943
+01:09:24,720 --> 01:09:30,570
+don't know you know so I don't know so I
+
+944
+01:09:27,060 --> 01:09:32,910
+don't even know what is the problem no
+
+945
+01:09:30,570 --> 01:09:35,310
+method yeah so there's no year so maybe
+
+946
+01:09:32,910 --> 01:09:38,910
+you need to load the library on top did
+
+947
+01:09:35,310 --> 01:09:40,800
+I miss it yeah you need to load the
+
+948
+01:09:38,910 --> 01:09:44,730
+library is something so anyway so this
+
+949
+01:09:40,800 --> 01:09:46,950
+Ruby version I consider fail now now
+
+950
+01:09:44,730 --> 01:09:51,960
+there are other versions like Emily
+
+951
+01:09:46,950 --> 01:09:54,600
+him/herself has given us a solution now
+
+952
+01:09:51,960 --> 01:09:59,370
+this this code works this is in eMac
+
+953
+01:09:54,600 --> 01:10:03,720
+this but however you see we when you run
+
+954
+01:09:59,370 --> 01:10:07,260
+this okay it let me show you what is a
+
+955
+01:10:03,720 --> 01:10:09,660
+result okay it doesn't even print the
+
+956
+01:10:07,260 --> 01:10:13,650
+result because I mean the code works but
+
+957
+01:10:09,660 --> 01:10:17,670
+it's it's a code she used in her herself
+
+958
+01:10:13,650 --> 01:10:20,910
+you know for for a long time even though
+
+959
+01:10:17,670 --> 01:10:24,030
+it works correctly but we cannot use it
+
+960
+01:10:20,910 --> 01:10:27,210
+in our live stream purposes because we
+
+961
+01:10:24,030 --> 01:10:30,020
+need to know we needed to print result
+
+962
+01:10:27,210 --> 01:10:36,030
+and also we need to be able to input
+
+963
+01:10:30,020 --> 01:10:40,020
+time instead of using a current time so
+
+964
+01:10:36,030 --> 01:10:42,270
+she needs to modify this for us
+
+965
+01:10:40,020 --> 01:10:45,690
+for me you know that you know in order
+
+966
+01:10:42,270 --> 01:10:49,530
+for us to look at this hold on a second
+
+967
+01:10:45,690 --> 01:10:53,490
+let me close that okay so this so she
+
+968
+01:10:49,530 --> 01:10:56,190
+has that version and then she has she
+
+969
+01:10:53,490 --> 01:10:59,460
+has given us another version and this
+
+970
+01:10:56,190 --> 01:11:01,850
+version has also has a problem see it
+
+971
+01:10:59,460 --> 01:11:07,020
+turns out it's incorrect because the way
+
+972
+01:11:01,850 --> 01:11:10,130
+we read in the time we try to read in
+
+973
+01:11:07,020 --> 01:11:12,810
+the 24-hour time is is not correct code
+
+974
+01:11:10,130 --> 01:11:14,850
+see so what I'm saying is that even
+
+975
+01:11:12,810 --> 01:11:16,710
+though this problem seems three
+
+976
+01:11:14,850 --> 01:11:18,600
+but it's not really trivial when you
+
+977
+01:11:16,710 --> 01:11:21,600
+actually code it so you have you run
+
+978
+01:11:18,600 --> 01:11:25,170
+into you run into lots of little details
+
+979
+01:11:21,600 --> 01:11:28,140
+I mean emily has been coding emag lists
+
+980
+01:11:25,170 --> 01:11:32,400
+for a couple of years right at least of
+
+981
+01:11:28,140 --> 01:11:34,890
+few years so then we have this C version
+
+982
+01:11:32,400 --> 01:11:39,060
+now I don't know C at all
+
+983
+01:11:34,890 --> 01:11:44,610
+C is by r1 from California in on this
+
+984
+01:11:39,060 --> 01:11:47,040
+code and this version you know I I try
+
+985
+01:11:44,610 --> 01:11:52,140
+to compile it so let's let's see why it
+
+986
+01:11:47,040 --> 01:11:54,990
+does okay so let's go to e she'll go to
+
+987
+01:11:52,140 --> 01:11:58,080
+okay so let's go to hoedown second so go
+
+988
+01:11:54,990 --> 01:12:01,380
+to the file which is this file now we
+
+989
+01:11:58,080 --> 01:12:11,430
+need to compare this file so I go to EC
+
+990
+01:12:01,380 --> 01:12:14,690
+au and I type GCC compiler optimized now
+
+991
+01:12:11,430 --> 01:12:19,310
+I don't know I don't know GCC I copied
+
+992
+01:12:14,690 --> 01:12:23,670
+this command line from crash hacker
+
+993
+01:12:19,310 --> 01:12:27,570
+crash crash Shaka gave us the the syntax
+
+994
+01:12:23,670 --> 01:12:31,350
+for that so okay so this so the here is
+
+995
+01:12:27,570 --> 01:12:34,830
+how we compile it do it done
+
+996
+01:12:31,350 --> 01:12:38,100
+okay then then it will create a wait I
+
+997
+01:12:34,830 --> 01:12:38,790
+got a wrong actually did I over
+
+998
+01:12:38,100 --> 01:12:46,740
+haha
+
+999
+01:12:38,790 --> 01:12:51,920
+I just over wrote it yeah so this is so
+
+1000
+01:12:46,740 --> 01:12:54,540
+bad I just I just overrode the program
+
+1001
+01:12:51,920 --> 01:12:58,020
+okay I and now I have to go find
+
+1002
+01:12:54,540 --> 01:13:02,720
+somewhere in the discord with our
+
+1003
+01:12:58,020 --> 01:13:02,720
+internal code the C program
+
+1004
+01:13:06,909 --> 01:13:14,469
+Oh George says he doesn't take a stream
+
+1005
+01:13:10,060 --> 01:13:19,449
+okay so so Arwen are you here you know
+
+1006
+01:13:14,469 --> 01:13:23,380
+how when you should be here so we can so
+
+1007
+01:13:19,449 --> 01:13:30,360
+so so I screwed up ONC code
+
+1008
+01:13:23,380 --> 01:13:37,360
+I I compared it and over wrote itself
+
+1009
+01:13:30,360 --> 01:13:42,310
+how idiotic so let's run George's code
+
+1010
+01:13:37,360 --> 01:13:45,850
+again so it doesn't take a it doesn't
+
+1011
+01:13:42,310 --> 01:13:47,409
+take us input but why is there is you
+
+1012
+01:13:45,850 --> 01:13:49,360
+know the I don't think the code is
+
+1013
+01:13:47,409 --> 01:13:52,360
+really hundred percent correct because
+
+1014
+01:13:49,360 --> 01:13:56,650
+there is a parameter there but okay so
+
+1015
+01:13:52,360 --> 01:14:01,929
+let's run this yeah I still have got a
+
+1016
+01:13:56,650 --> 01:14:04,150
+problem so remember next time someone
+
+1017
+01:14:01,929 --> 01:14:06,460
+you know like there's a competition well
+
+1018
+01:14:04,150 --> 01:14:09,639
+you know companies you know competition
+
+1019
+01:14:06,460 --> 01:14:18,100
+then you know you want to be careful
+
+1020
+01:14:09,639 --> 01:14:21,190
+because but anyway okay so let's so at
+
+1021
+01:14:18,100 --> 01:14:22,889
+least I can we can run the are ones code
+
+1022
+01:14:21,190 --> 01:14:26,800
+okay so let's try it
+
+1023
+01:14:22,889 --> 01:14:30,969
+so our ones code let's go to so Owens
+
+1024
+01:14:26,800 --> 01:14:35,800
+codes okay so you need to let's magnify
+
+1025
+01:14:30,969 --> 01:14:38,530
+okay so Owens cold dot slash that's how
+
+1026
+01:14:35,800 --> 01:14:44,560
+you ran it okay you need to give it a
+
+1027
+01:14:38,530 --> 01:14:48,280
+time so let's say zero zero zero zero
+
+1028
+01:14:44,560 --> 01:14:52,030
+zero one one second okay so it doesn't
+
+1029
+01:14:48,280 --> 01:14:56,520
+conform to the spec but let's try that
+
+1030
+01:14:52,030 --> 01:14:56,520
+okay let's try one minute
+
+1031
+01:14:56,940 --> 01:15:03,760
+this seems incorrect this is incorrect
+
+1032
+01:15:00,790 --> 01:15:08,409
+Arwen you guys all you guys code are
+
+1033
+01:15:03,760 --> 01:15:11,560
+incorrect guys wait maybe it's correct
+
+1034
+01:15:08,409 --> 01:15:14,310
+let's try one hour okay one hour and
+
+1035
+01:15:11,560 --> 01:15:14,310
+zero minutes
+
+1036
+01:15:17,560 --> 01:15:24,170
+is that correct
+
+1037
+01:15:19,340 --> 01:15:28,220
+because we don't have reference so one
+
+1038
+01:15:24,170 --> 01:15:31,600
+hour is in Emily time so you have to
+
+1039
+01:15:28,220 --> 01:15:37,310
+remember this is a hexadecimal this is a
+
+1040
+01:15:31,600 --> 01:15:40,910
+sectional notation so that 1 1 : 5 0
+
+1041
+01:15:37,310 --> 01:15:45,500
+that means that's a 6 amount notation
+
+1042
+01:15:40,910 --> 01:15:48,440
+base 6 so this one is space space 6 1
+
+1043
+01:15:45,500 --> 01:15:51,280
+not this amount 1 okay so you need to
+
+1044
+01:15:48,440 --> 01:15:57,770
+convert these space 6 to decimal and
+
+1045
+01:15:51,280 --> 01:15:59,840
+this 50 is also base 6 so it's it's hard
+
+1046
+01:15:57,770 --> 01:16:03,670
+for me to verify because right now we
+
+1047
+01:15:59,840 --> 01:16:03,670
+don't have a reference implementation
+
+1048
+01:16:08,530 --> 01:16:17,180
+okay so George is giving us another shot
+
+1049
+01:16:13,790 --> 01:16:26,830
+so let's go try George's version you'll
+
+1050
+01:16:17,180 --> 01:16:30,440
+be ok it's magnify okay brunette
+
+1051
+01:16:26,830 --> 01:16:35,540
+undefined method pass pass undefined
+
+1052
+01:16:30,440 --> 01:16:38,660
+method method pass George you gotta make
+
+1053
+01:16:35,540 --> 01:16:41,510
+it sure everyone can run it okay
+
+1054
+01:16:38,660 --> 01:16:44,840
+Alliance cards Emily Scott earlier and
+
+1055
+01:16:41,510 --> 01:16:48,430
+version done oh I cannot verify it
+
+1056
+01:16:44,840 --> 01:16:51,880
+because I don't have a line installed
+
+1057
+01:16:48,430 --> 01:16:51,880
+well too bad
+
+1058
+01:16:54,620 --> 01:17:06,230
+and what is that cracker is that a new
+
+1059
+01:16:57,350 --> 01:17:10,690
+version new C version okay so should I
+
+1060
+01:17:06,230 --> 01:17:10,690
+be here today or should we
+
+1061
+01:17:13,860 --> 01:17:22,060
+so Emily got the early inversion then
+
+1062
+01:17:17,530 --> 01:17:24,970
+where is the code okay so it's in here
+
+1063
+01:17:22,060 --> 01:17:28,510
+my island solution it's not pretty it's
+
+1064
+01:17:24,970 --> 01:17:32,170
+not efficient but it works okay let's
+
+1065
+01:17:28,510 --> 01:17:36,430
+copy and look at the code olan olan guys
+
+1066
+01:17:32,170 --> 01:17:38,310
+a line is the massive concurrency
+
+1067
+01:17:36,430 --> 01:17:42,780
+hot-swappable
+
+1068
+01:17:38,310 --> 01:17:46,630
+language it's a language that features
+
+1069
+01:17:42,780 --> 01:17:49,080
+hot-swap ability okay so let's look at
+
+1070
+01:17:46,630 --> 01:17:58,600
+the code so save it as
+
+1071
+01:17:49,080 --> 01:18:01,570
+what'swhat's Islands extension RL Emily
+
+1072
+01:17:58,600 --> 01:18:04,350
+what's Alan's extension let's say yeah
+
+1073
+01:18:01,570 --> 01:18:04,350
+okay
+
+1074
+01:18:06,400 --> 01:18:09,210
+okay so
+
+1075
+01:18:15,980 --> 01:18:23,489
+so there we have early inversion and
+
+1076
+01:18:19,050 --> 01:18:30,510
+open it okay I don't have syntax
+
+1077
+01:18:23,489 --> 01:18:39,150
+coloring so well so that you have a line
+
+1078
+01:18:30,510 --> 01:18:42,409
+version thought ERL okay okay so I think
+
+1079
+01:18:39,150 --> 01:18:45,989
+that's it we you know I so what about
+
+1080
+01:18:42,409 --> 01:18:49,019
+what about our code I mean the goal
+
+1081
+01:18:45,989 --> 01:18:50,599
+inversion we haven't finished it where
+
+1082
+01:18:49,019 --> 01:18:55,489
+is it
+
+1083
+01:18:50,599 --> 01:19:02,489
+how long have I been talking maybe with
+
+1084
+01:18:55,489 --> 01:19:08,369
+one hour and 18 minutes yes I saved it
+
+1085
+01:19:02,489 --> 01:19:12,269
+but so Emily so the early inversion I
+
+1086
+01:19:08,369 --> 01:19:14,670
+already save it you can see but I don't
+
+1087
+01:19:12,269 --> 01:19:21,690
+have you know I don't have a line in
+
+1088
+01:19:14,670 --> 01:19:24,420
+stored so outward and I don't
+
+1089
+01:19:21,690 --> 01:19:28,980
+have the Earl and Maud all I'm are to
+
+1090
+01:19:24,420 --> 01:19:38,190
+syntax correct but okay so let's look at
+
+1091
+01:19:28,980 --> 01:19:41,610
+a code maybe so module export so this is
+
+1092
+01:19:38,190 --> 01:19:45,230
+earl and code earl and syntax for line
+
+1093
+01:19:41,610 --> 01:19:45,230
+is a function of programming language
+
+1094
+01:19:50,530 --> 01:19:57,520
+oh the compiler requires the requires
+
+1095
+01:19:55,000 --> 01:20:01,330
+the file name to match the module name
+
+1096
+01:19:57,520 --> 01:20:03,100
+okay so so Emily says it should be M
+
+1097
+01:20:01,330 --> 01:20:09,610
+time dot ERL
+
+1098
+01:20:03,100 --> 01:20:18,190
+okay so let's rename it M time dot ERL
+
+1099
+01:20:09,610 --> 01:20:21,120
+okay okay so maybe I will install all
+
+1100
+01:20:18,190 --> 01:20:26,850
+and later on maybe yeah maybe not
+
+1101
+01:20:21,120 --> 01:20:26,850
+because I got so many other things to do
+
+1102
+01:20:30,060 --> 01:20:35,800
+so anyway that's all and code about goal
+
+1103
+01:20:33,070 --> 01:20:41,860
+and cold let's let's go back to goal and
+
+1104
+01:20:35,800 --> 01:20:50,800
+code okay let's copy it close it and put
+
+1105
+01:20:41,860 --> 01:20:57,730
+the goal and code here okay so and
+
+1106
+01:20:50,800 --> 01:21:00,300
+rename it goal and saw actually M time
+
+1107
+01:20:57,730 --> 01:21:00,300
+saw
+
+1108
+01:21:04,660 --> 01:21:07,660
+okay
+
+1109
+01:21:12,880 --> 01:21:23,090
+okay so here is the code we can finish
+
+1110
+01:21:15,800 --> 01:21:29,960
+it or M our we almost done okay so M our
+
+1111
+01:21:23,090 --> 01:21:31,969
+then we so we got a number of hours well
+
+1112
+01:21:29,960 --> 01:21:38,960
+the next thing we need to do is to find
+
+1113
+01:21:31,969 --> 01:21:42,380
+out how to do modular with medics so
+
+1114
+01:21:38,960 --> 01:21:45,020
+actually I'll I'll leave that d that
+
+1115
+01:21:42,380 --> 01:21:49,639
+will be a today so for those of you who
+
+1116
+01:21:45,020 --> 01:21:52,130
+watch find : interesting you can go and
+
+1117
+01:21:49,639 --> 01:21:57,580
+write your own you know try to do this
+
+1118
+01:21:52,130 --> 01:21:57,580
+as an exercise and you will learn :
+
+1119
+01:21:59,080 --> 01:22:11,929
+you know so and that will be it today
+
+1120
+01:22:02,719 --> 01:22:17,090
+thank you guys for watching bye guys we
+
+1121
+01:22:11,929 --> 01:22:22,370
+closed down in one minute a line is so
+
+1122
+01:22:17,090 --> 01:22:25,280
+pretty okay so that's really messy so
+
+1123
+01:22:22,370 --> 01:22:27,350
+you guys you know what whatever is your
+
+1124
+01:22:25,280 --> 01:22:30,110
+favorite language or whatever language
+
+1125
+01:22:27,350 --> 01:22:33,679
+you are trying to learn this would be a
+
+1126
+01:22:30,110 --> 01:22:37,850
+good exercise so you go and try to code
+
+1127
+01:22:33,679 --> 01:22:48,320
+it you can code it in bash in Python in
+
+1128
+01:22:37,850 --> 01:22:50,020
+Ruby and so on and Indian and DeYoung
+
+1129
+01:22:48,320 --> 01:22:52,900
+what are you studying
+
+1130
+01:22:50,020 --> 01:23:03,040
+haven't seen you for a while you are
+
+1131
+01:22:52,900 --> 01:23:03,040
+coding Haskell or okay bye guys
+
+1132
+01:23:13,140 --> 01:23:20,270
+oh okay so finally George supplied a new
+
+1133
+01:23:17,340 --> 01:23:26,180
+code that's let's do this one more time
+
+1134
+01:23:20,270 --> 01:23:26,180
+one last time George George is Ruby code
+
+1135
+01:23:26,600 --> 01:23:41,340
+cuz that go to Ruby okay
+
+1136
+01:23:31,440 --> 01:23:44,750
+aim time George Ruby pace it okay okay
+
+1137
+01:23:41,340 --> 01:23:54,450
+run it there we have it
+
+1138
+01:23:44,750 --> 01:23:59,520
+fantastic okay so it says 12 o clock is
+
+1139
+01:23:54,450 --> 01:24:04,160
+aim time you know the aim time is a bit
+
+1140
+01:23:59,520 --> 01:24:08,970
+complex because remember it it is 36
+
+1141
+01:24:04,160 --> 01:24:13,890
+system 36 hours 36 minutes 36 seconds
+
+1142
+01:24:08,970 --> 01:24:17,730
+but however the final notation is 6
+
+1143
+01:24:13,890 --> 01:24:21,770
+based so so when we see the output we
+
+1144
+01:24:17,730 --> 01:24:26,100
+need to convert that 30 from 6 space to
+
+1145
+01:24:21,770 --> 01:24:28,530
+2 decimal to be able to understand what
+
+1146
+01:24:26,100 --> 01:24:31,830
+how many hours is that so it's kind of
+
+1147
+01:24:28,530 --> 01:24:35,100
+hard it's hard to verify unless we have
+
+1148
+01:24:31,830 --> 01:24:38,030
+a reference code but anyway that's it
+
+1149
+01:24:35,100 --> 01:24:38,030
+for today bye guys
+

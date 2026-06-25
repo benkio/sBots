@@ -1,0 +1,1504 @@
+1
+00:00:00,060 --> 00:00:08,550
+Frank guys so today I'm going to show
+
+2
+00:00:02,610 --> 00:00:12,300
+you a max coding Emacs Lisp example I'm
+
+3
+00:00:08,550 --> 00:00:16,320
+going to write a command so I'm not in
+
+4
+00:00:12,300 --> 00:00:19,890
+my blog so let's see so I'm running my
+
+5
+00:00:16,320 --> 00:00:22,910
+blog and this is my art blog on
+
+6
+00:00:19,890 --> 00:00:26,580
+animations by the way this this guy
+
+7
+00:00:22,910 --> 00:00:29,820
+Richard Williams is great one of the
+
+8
+00:00:26,580 --> 00:00:33,829
+greatest and mater there's a lot science
+
+9
+00:00:29,820 --> 00:00:37,020
+and art to it it's very interesting
+
+10
+00:00:33,829 --> 00:00:41,070
+anyway so I'm writing my blog and often
+
+11
+00:00:37,020 --> 00:00:45,059
+times I want to include the video like
+
+12
+00:00:41,070 --> 00:00:47,340
+for example here let me show you in
+
+13
+00:00:45,059 --> 00:00:54,750
+Safari because in Safari
+
+14
+00:00:47,340 --> 00:00:58,739
+I have video turned on so so this video
+
+15
+00:00:54,750 --> 00:01:01,859
+I'm doing it's going to be 10 or 15
+
+16
+00:00:58,739 --> 00:01:04,610
+minutes if I if I go over time you know
+
+17
+00:01:01,859 --> 00:01:08,010
+just keep skipping around because I I
+
+18
+00:01:04,610 --> 00:01:13,439
+tend to look lose track of time and go
+
+19
+00:01:08,010 --> 00:01:17,430
+you know so anyway so so when I run
+
+20
+00:01:13,439 --> 00:01:21,780
+write blog I often frequently I have
+
+21
+00:01:17,430 --> 00:01:26,180
+videos you know I had a video so that
+
+22
+00:01:21,780 --> 00:01:26,180
+leads to a example let's go to YouTube
+
+23
+00:01:28,400 --> 00:01:31,400
+YouTube
+
+24
+00:01:34,540 --> 00:01:39,220
+so let's see animations speak animation
+
+25
+00:01:38,860 --> 00:01:46,270
+okay
+
+26
+00:01:39,220 --> 00:01:48,460
+Hellboy Hellboy that's a good okay so so
+
+27
+00:01:46,270 --> 00:01:54,490
+suppose I want this animation it's copy
+
+28
+00:01:48,460 --> 00:01:57,610
+it I can't copy the URL and let's say I
+
+29
+00:01:54,490 --> 00:02:00,450
+want to add it here I paste here and I
+
+30
+00:01:57,610 --> 00:02:05,460
+have a command the command name is
+
+31
+00:02:00,450 --> 00:02:09,250
+excited HTML any link of I so it becomes
+
+32
+00:02:05,460 --> 00:02:13,260
+it becomes from UI R becomes a youtube
+
+33
+00:02:09,250 --> 00:02:13,260
+link and let's have a look
+
+34
+00:02:16,300 --> 00:02:25,590
+and see the key is this so there it is
+
+35
+00:02:23,050 --> 00:02:25,590
+Hellboy
+
+36
+00:02:31,030 --> 00:02:37,450
+okay that's great and now you see what
+
+37
+00:02:35,530 --> 00:02:39,700
+happened is that usually I want to add
+
+38
+00:02:37,450 --> 00:02:44,500
+who did it you know the title of the
+
+39
+00:02:39,700 --> 00:02:50,560
+video and who create who uploaded or
+
+40
+00:02:44,500 --> 00:02:59,530
+created it and what date so so I copy
+
+41
+00:02:50,560 --> 00:03:03,040
+that copy and put it here and Harris boy
+
+42
+00:02:59,530 --> 00:03:05,380
+so delete this my DVD did that I don't
+
+43
+00:03:03,040 --> 00:03:07,900
+need I don't need okay that that that's
+
+44
+00:03:05,380 --> 00:03:11,770
+what I want you see this is the title
+
+45
+00:03:07,900 --> 00:03:16,000
+this is the I don't need this money so
+
+46
+00:03:11,770 --> 00:03:19,540
+title oh well this is PI okay this is a
+
+47
+00:03:16,000 --> 00:03:23,140
+guy who uploaded and for which date
+
+48
+00:03:19,540 --> 00:03:26,140
+so let's look in the browser now in
+
+49
+00:03:23,140 --> 00:03:28,360
+Firefox I don't have the JavaScript on
+
+50
+00:03:26,140 --> 00:03:30,940
+so you don't see the movies yeah we
+
+51
+00:03:28,360 --> 00:03:33,760
+don't need to see it so anyway so the
+
+52
+00:03:30,940 --> 00:03:43,600
+line becomes one line that's not good I
+
+53
+00:03:33,760 --> 00:03:47,590
+want what I want is this br br so save
+
+54
+00:03:43,600 --> 00:03:54,940
+it go to browser refresh you see that's
+
+55
+00:03:47,590 --> 00:03:56,769
+the format I want okay but but you see
+
+56
+00:03:54,940 --> 00:04:00,910
+here's another one Richard Williams
+
+57
+00:03:56,769 --> 00:04:05,350
+animation movement title by and
+
+58
+00:04:00,910 --> 00:04:08,019
+published date you see here it's become
+
+59
+00:04:05,350 --> 00:04:12,610
+one line it's no good so I need to add
+
+60
+00:04:08,019 --> 00:04:14,530
+BR here here it gets tedious so I'm
+
+61
+00:04:12,610 --> 00:04:19,479
+going to write this command so I can
+
+62
+00:04:14,530 --> 00:04:22,960
+select a region and code command and the
+
+63
+00:04:19,479 --> 00:04:26,560
+BI is added to every end of line like
+
+64
+00:04:22,960 --> 00:04:31,990
+here here here okay so let's start
+
+65
+00:04:26,560 --> 00:04:36,700
+reading that okay open nuke new buffer
+
+66
+00:04:31,990 --> 00:04:41,830
+it's just give it a random name and the
+
+67
+00:04:36,700 --> 00:04:43,680
+fun okay defend let's say what I do what
+
+68
+00:04:41,830 --> 00:04:46,590
+do I want to call this
+
+69
+00:04:43,680 --> 00:04:49,940
+you see it said that naming is the most
+
+70
+00:04:46,590 --> 00:04:55,250
+difficult thing in programming
+
+71
+00:04:49,940 --> 00:05:03,090
+so anyway so let's say XHTML had the
+
+72
+00:04:55,250 --> 00:05:04,560
+let's just say that for now okay so that
+
+73
+00:05:03,090 --> 00:05:21,710
+dark string
+
+74
+00:05:04,560 --> 00:05:28,020
+add a br like add a B to end of line to
+
+75
+00:05:21,710 --> 00:05:30,599
+current end of line or selection if
+
+76
+00:05:28,020 --> 00:05:34,199
+there's one so give a date
+
+77
+00:05:30,599 --> 00:05:40,979
+you should I put the date version so
+
+78
+00:05:34,199 --> 00:05:46,530
+okay so right so that's okay so what we
+
+79
+00:05:40,979 --> 00:05:50,039
+wanted to so first of all we want to
+
+80
+00:05:46,530 --> 00:05:55,139
+check if there is selection so let's do
+
+81
+00:05:50,039 --> 00:05:57,440
+that if what's name for check for
+
+82
+00:05:55,139 --> 00:05:57,440
+selection
+
+83
+00:05:58,730 --> 00:06:04,730
+I forgot you know normally actually you
+
+84
+00:06:02,060 --> 00:06:11,090
+know normally why I called him Alex this
+
+85
+00:06:04,730 --> 00:06:13,810
+I just go to my my team well I have
+
+86
+00:06:11,090 --> 00:06:17,090
+written a lot eMac beast code so I just
+
+87
+00:06:13,810 --> 00:06:18,680
+usually I know where similar
+
+88
+00:06:17,090 --> 00:06:20,780
+functionality are having another
+
+89
+00:06:18,680 --> 00:06:25,880
+function I just go to that function and
+
+90
+00:06:20,780 --> 00:06:28,490
+copy and paste you know that's copy and
+
+91
+00:06:25,880 --> 00:06:32,690
+paste is it's actually the most
+
+92
+00:06:28,490 --> 00:06:35,990
+practical way to program with weight you
+
+93
+00:06:32,690 --> 00:06:39,320
+can even go to yeah this is what I want
+
+94
+00:06:35,990 --> 00:06:45,850
+to do so you seek stuff like he's I go
+
+95
+00:06:39,320 --> 00:06:45,850
+there and open there's huge amount of
+
+96
+00:06:45,880 --> 00:06:57,410
+functions you know four thousand lines
+
+97
+00:06:51,190 --> 00:07:00,670
+so go to the big that's the beginning
+
+98
+00:06:57,410 --> 00:07:00,670
+let's go down
+
+99
+00:07:02,599 --> 00:07:07,580
+so you see there's a lot functions and
+
+100
+00:07:04,939 --> 00:07:10,879
+actually I can just I know where to find
+
+101
+00:07:07,580 --> 00:07:13,669
+but let's not do that because if I do
+
+102
+00:07:10,879 --> 00:07:16,969
+that it kind of loses the point of doing
+
+103
+00:07:13,669 --> 00:07:20,479
+a video you know interactive coding
+
+104
+00:07:16,969 --> 00:07:24,110
+tutorial kind of thing so if I just
+
+105
+00:07:20,479 --> 00:07:29,330
+struggle adhere myself then you can see
+
+106
+00:07:24,110 --> 00:07:32,240
+you know you can probably get you know
+
+107
+00:07:29,330 --> 00:07:36,800
+pick up my body language and see okay
+
+108
+00:07:32,240 --> 00:07:38,990
+where how things are done okay so anyway
+
+109
+00:07:36,800 --> 00:07:42,649
+what I want to do is I want to check if
+
+110
+00:07:38,990 --> 00:07:44,300
+there's a selection selection now what's
+
+111
+00:07:42,649 --> 00:07:48,129
+the function name there's a function
+
+112
+00:07:44,300 --> 00:07:52,789
+name I forgot so let's call a proper
+
+113
+00:07:48,129 --> 00:07:56,959
+select wait in Emacs selection is called
+
+114
+00:07:52,789 --> 00:08:02,330
+region active region so okay I think
+
+115
+00:07:56,959 --> 00:08:07,639
+okay the command is called use region P
+
+116
+00:08:02,330 --> 00:08:11,680
+use Regency let's see yeah there is you
+
+117
+00:08:07,639 --> 00:08:15,189
+see I'm using soft like way I'm using
+
+118
+00:08:11,680 --> 00:08:21,189
+solid emag be smart so I just typed
+
+119
+00:08:15,189 --> 00:08:24,619
+abbreviation like use user u RP and
+
+120
+00:08:21,189 --> 00:08:28,430
+usually that will work so use region P
+
+121
+00:08:24,619 --> 00:08:35,269
+it will return true if there is a region
+
+122
+00:08:28,430 --> 00:08:38,300
+and basically yeah so if it is true then
+
+123
+00:08:35,269 --> 00:08:43,430
+we do this if it's not true then we do
+
+124
+00:08:38,300 --> 00:08:49,880
+this so if it's not true then we just go
+
+125
+00:08:43,430 --> 00:08:52,360
+to yeah my alarm alarm clock we know let
+
+126
+00:08:49,880 --> 00:08:52,360
+me turn it off
+
+127
+00:09:01,700 --> 00:09:07,860
+sorry about that
+
+128
+00:09:03,390 --> 00:09:10,290
+I'm back so yeah the alarm clock
+
+129
+00:09:07,860 --> 00:09:12,810
+no it's like every 30 minutes it tells
+
+130
+00:09:10,290 --> 00:09:17,040
+me to get up to walk because otherwise
+
+131
+00:09:12,810 --> 00:09:22,260
+my hand is suffering
+
+132
+00:09:17,040 --> 00:09:24,660
+you know typing too much so anyway so if
+
+133
+00:09:22,260 --> 00:09:28,880
+there's no region let's go to end of
+
+134
+00:09:24,660 --> 00:09:32,520
+line you know that way he said right in
+
+135
+00:09:28,880 --> 00:09:35,370
+the running is a moot point to end of
+
+136
+00:09:32,520 --> 00:09:39,150
+life yes that's what we want so end of
+
+137
+00:09:35,370 --> 00:09:41,810
+line and it just got to end of line and
+
+138
+00:09:39,150 --> 00:09:41,810
+insert
+
+139
+00:09:48,560 --> 00:09:58,190
+beyond he's alright let's go back to Oh
+
+140
+00:09:54,500 --> 00:10:04,770
+wrong I thought there's something wrong
+
+141
+00:09:58,190 --> 00:10:09,000
+so yeah so so that press tab to indent
+
+142
+00:10:04,770 --> 00:10:11,730
+well so now so if there's no region then
+
+143
+00:10:09,000 --> 00:10:15,240
+just do this very simple now if there is
+
+144
+00:10:11,730 --> 00:10:20,790
+a region okay here's what we want to do
+
+145
+00:10:15,240 --> 00:10:25,500
+we want to narrow to region so first of
+
+146
+00:10:20,790 --> 00:10:34,430
+all save restriction yes they narrow to
+
+147
+00:10:25,500 --> 00:10:39,180
+region in our to region region beginning
+
+148
+00:10:34,430 --> 00:10:41,460
+region end that's right so this we are
+
+149
+00:10:39,180 --> 00:10:44,130
+narrow to region narrow to region is
+
+150
+00:10:41,460 --> 00:10:46,740
+like have you ever used it it's very
+
+151
+00:10:44,130 --> 00:10:50,690
+good like you make a selection and you
+
+152
+00:10:46,740 --> 00:10:57,030
+call the command narrow to region and it
+
+153
+00:10:50,690 --> 00:11:00,720
+eMac will will act as if the entire
+
+154
+00:10:57,030 --> 00:11:02,640
+buffer is just your region so so for
+
+155
+00:11:00,720 --> 00:11:05,940
+example if you are doing find and
+
+156
+00:11:02,640 --> 00:11:08,730
+replacement you want you know you only
+
+157
+00:11:05,940 --> 00:11:12,300
+focus on the region you want you know
+
+158
+00:11:08,730 --> 00:11:14,520
+make changes outside this of this region
+
+159
+00:11:12,300 --> 00:11:17,840
+so that's very good so if you want to
+
+160
+00:11:14,520 --> 00:11:20,970
+get out just go widen widen is you know
+
+161
+00:11:17,840 --> 00:11:23,240
+remove the narrow to region so anyway we
+
+162
+00:11:20,970 --> 00:11:26,730
+are using now to region in the program
+
+163
+00:11:23,240 --> 00:11:30,150
+so what so what's the save restriction
+
+164
+00:11:26,730 --> 00:11:34,280
+that means you know once you done with
+
+165
+00:11:30,150 --> 00:11:35,820
+your region you want to basically widen
+
+166
+00:11:34,280 --> 00:11:39,690
+where is it
+
+167
+00:11:35,820 --> 00:11:43,830
+yeah yeah you know remove the narrow to
+
+168
+00:11:39,690 --> 00:11:49,110
+region and and emag miss you co you you
+
+169
+00:11:43,830 --> 00:11:52,350
+you - Yuko Savior restriction so anyway
+
+170
+00:11:49,110 --> 00:11:54,300
+so yeah so program save restriction
+
+171
+00:11:52,350 --> 00:11:55,850
+narrow to region that's right
+
+172
+00:11:54,300 --> 00:12:01,640
+and then
+
+173
+00:11:55,850 --> 00:12:06,770
+let's then let's just do fine replace
+
+174
+00:12:01,640 --> 00:12:11,800
+that's the idiom for when you want to do
+
+175
+00:12:06,770 --> 00:12:17,060
+fine replace so what you do is while
+
+176
+00:12:11,800 --> 00:12:23,630
+such forward wait before we do that you
+
+177
+00:12:17,060 --> 00:12:26,830
+want to go to go go to the cha-cha go to
+
+178
+00:12:23,630 --> 00:12:30,760
+character go to the position point mean
+
+179
+00:12:26,830 --> 00:12:35,810
+so point mean is usually zero that's the
+
+180
+00:12:30,760 --> 00:12:42,340
+beginning of the buffer so anyway so go
+
+181
+00:12:35,810 --> 00:12:42,340
+to chop point mean then Wow such forward
+
+182
+00:12:44,350 --> 00:12:51,590
+weight so let's see I mean there are
+
+183
+00:12:49,400 --> 00:12:55,340
+many ways to do this and I'm thinking
+
+184
+00:12:51,590 --> 00:12:57,260
+what's the best way anyway let's stop
+
+185
+00:12:55,340 --> 00:13:01,160
+thinking about that let's just do this
+
+186
+00:12:57,260 --> 00:13:04,180
+you know it cuz yeah let's just just
+
+187
+00:13:01,160 --> 00:13:04,180
+finish this
+
+188
+00:13:04,960 --> 00:13:16,010
+so you want to here we want backslash I
+
+189
+00:13:10,910 --> 00:13:22,210
+just got a new keyboard so so the keys
+
+190
+00:13:16,010 --> 00:13:22,210
+are position I'm unfamiliar so X ash
+
+191
+00:13:23,670 --> 00:13:36,120
+there okay so search for word for lying
+
+192
+00:13:30,510 --> 00:13:39,450
+returned character and yes so if it's an
+
+193
+00:13:36,120 --> 00:13:47,120
+you know ignore bound and stuff so if
+
+194
+00:13:39,450 --> 00:13:53,930
+it's true then you just replace wait
+
+195
+00:13:47,120 --> 00:13:53,930
+search for that replay replace rejects
+
+196
+00:13:55,250 --> 00:14:02,040
+no I don't think that's I haven't coded
+
+197
+00:13:59,580 --> 00:14:08,820
+eMac peaceful for a while so let's go
+
+198
+00:14:02,040 --> 00:14:13,320
+let's go to my eMac this tutorial that's
+
+199
+00:14:08,820 --> 00:14:18,810
+the that's the that's the most practical
+
+200
+00:14:13,320 --> 00:14:21,830
+way to do things so they are so there is
+
+201
+00:14:18,810 --> 00:14:25,290
+the idiom for such replace where is it
+
+202
+00:14:21,830 --> 00:14:27,930
+writing commands yes fine replace text
+
+203
+00:14:25,290 --> 00:14:31,490
+they are how do we place match that's
+
+204
+00:14:27,930 --> 00:14:35,550
+right so you see while replace match so
+
+205
+00:14:31,490 --> 00:14:39,560
+while that we face match that's what we
+
+206
+00:14:35,550 --> 00:14:39,560
+want we face it with
+
+207
+00:14:48,850 --> 00:15:00,490
+so replace with that that that that's
+
+208
+00:14:54,350 --> 00:15:03,709
+that that that that that okay that's
+
+209
+00:15:00,490 --> 00:15:08,180
+that's that's it I think that's it let's
+
+210
+00:15:03,709 --> 00:15:10,300
+just try it then you know we don't need
+
+211
+00:15:08,180 --> 00:15:13,700
+this anymore
+
+212
+00:15:10,300 --> 00:15:17,720
+I put that there is so that the last one
+
+213
+00:15:13,700 --> 00:15:19,970
+does not get moved to here because
+
+214
+00:15:17,720 --> 00:15:23,810
+sometimes you know because when it's not
+
+215
+00:15:19,970 --> 00:15:26,930
+moved there it's like you can you can
+
+216
+00:15:23,810 --> 00:15:32,060
+like you know delete brog but if it's
+
+217
+00:15:26,930 --> 00:15:35,060
+there sometimes you TV blog and your
+
+218
+00:15:32,060 --> 00:15:38,810
+syntax is wrong anyway that anyway that
+
+219
+00:15:35,060 --> 00:15:42,730
+doesn't matter so so here's a code here
+
+220
+00:15:38,810 --> 00:15:47,589
+is the finished code let's try it then
+
+221
+00:15:42,730 --> 00:15:47,589
+Eva wait what do I do
+
+222
+00:15:48,370 --> 00:15:58,400
+so Eva last six okay save now let's go
+
+223
+00:15:54,050 --> 00:16:01,600
+back to my HTML file there it is so
+
+224
+00:15:58,400 --> 00:16:01,600
+let's call the command
+
+225
+00:16:04,600 --> 00:16:14,950
+sighs TM l had er oh yes that's
+
+226
+00:16:09,250 --> 00:16:18,580
+good now let's try selection else that's
+
+227
+00:16:14,950 --> 00:16:20,500
+wrong okay
+
+228
+00:16:18,580 --> 00:16:24,730
+you see what happening is that you need
+
+229
+00:16:20,500 --> 00:16:32,410
+to you want the BR before the line break
+
+230
+00:16:24,730 --> 00:16:37,930
+that's right so Eva Eva last sex and and
+
+231
+00:16:32,410 --> 00:16:44,650
+do and do and do and it's select call
+
+232
+00:16:37,930 --> 00:16:47,290
+the command that's good that is good now
+
+233
+00:16:44,650 --> 00:16:51,460
+but there is one more thing because it
+
+234
+00:16:47,290 --> 00:16:53,790
+should remove the selection I don't know
+
+235
+00:16:51,460 --> 00:17:02,830
+why it's not removing the selection
+
+236
+00:16:53,790 --> 00:17:05,790
+program end of line insert break so save
+
+237
+00:17:02,830 --> 00:17:05,790
+restriction
+
+238
+00:17:08,650 --> 00:17:19,660
+we don't need to let any more so we
+
+239
+00:17:15,980 --> 00:17:19,660
+never need it in the first phase
+
+240
+00:17:20,620 --> 00:17:35,680
+so anyway why is it not let's see I
+
+241
+00:17:26,839 --> 00:17:35,680
+don't know it's let's do this one so at
+
+242
+00:17:37,650 --> 00:17:46,590
+okay that's I don't know why well I
+
+243
+00:17:43,980 --> 00:17:50,280
+think you know usually usually when a
+
+244
+00:17:46,590 --> 00:17:53,630
+command is called it should the
+
+245
+00:17:50,280 --> 00:17:53,630
+selection will be removed
+
+246
+00:17:59,390 --> 00:18:07,620
+yeah I have to look into it what yeah
+
+247
+00:18:03,810 --> 00:18:16,230
+what yeah let's okay how long have we
+
+248
+00:18:07,620 --> 00:18:18,240
+been running this ready well I don't
+
+249
+00:18:16,230 --> 00:18:26,840
+know how long have we been doing this
+
+250
+00:18:18,240 --> 00:18:30,030
+but I'm thinking wait make a dog better
+
+251
+00:18:26,840 --> 00:18:32,540
+so yeah okay let me think about it let's
+
+252
+00:18:30,030 --> 00:18:38,280
+see if we can solve this in a minute
+
+253
+00:18:32,540 --> 00:18:41,040
+otherwise it's just called a day okay so
+
+254
+00:18:38,280 --> 00:18:51,710
+save restriction arrow to region go to
+
+255
+00:18:41,040 --> 00:18:51,710
+cha while it's not it's let's try this
+
+256
+00:18:54,799 --> 00:19:03,890
+okay if I make a selection okay such
+
+257
+00:18:59,700 --> 00:19:03,890
+failed that's expected
+
+258
+00:19:04,340 --> 00:19:09,350
+yeah but the selection should be removed
+
+259
+00:19:10,850 --> 00:19:21,950
+savoury section narrow to region save
+
+260
+00:19:19,140 --> 00:19:21,950
+restriction
+
+261
+00:19:29,480 --> 00:19:47,000
+I don't know I have to look into it okay
+
+262
+00:19:34,750 --> 00:19:50,230
+let's let me look at my code n so let's
+
+263
+00:19:47,000 --> 00:19:50,230
+look at this command
+
+264
+00:19:54,880 --> 00:20:00,340
+actually wait hold on a second let's see
+
+265
+00:20:02,919 --> 00:20:11,720
+okay let's look at this command sort of
+
+266
+00:20:08,480 --> 00:20:15,770
+a later case because because in this
+
+267
+00:20:11,720 --> 00:20:22,090
+command I intentionally try to keep the
+
+268
+00:20:15,770 --> 00:20:28,490
+selection on so let's look at tar go to
+
+269
+00:20:22,090 --> 00:20:33,110
+case code this is the code you see so I
+
+270
+00:20:28,490 --> 00:20:35,110
+have the act deactivate mock Neil you
+
+271
+00:20:33,110 --> 00:20:39,440
+see normally it song that's a variable
+
+272
+00:20:35,110 --> 00:20:43,039
+so when that is on that means when the
+
+273
+00:20:39,440 --> 00:20:46,760
+command is finished the selection of
+
+274
+00:20:43,039 --> 00:20:48,850
+region will be inactive being activated
+
+275
+00:20:46,760 --> 00:20:52,640
+it will be made inactive
+
+276
+00:20:48,850 --> 00:20:55,909
+so let's look at the documentation the
+
+277
+00:20:52,640 --> 00:20:58,460
+activate mark deactivate the mark if
+
+278
+00:20:55,909 --> 00:21:02,289
+transient mark is disabled this function
+
+279
+00:20:58,460 --> 00:21:05,649
+only does nothing right transient mod
+
+280
+00:21:02,289 --> 00:21:09,289
+transient mock mod basically is just
+
+281
+00:21:05,649 --> 00:21:11,270
+it's a minor mod that makes erection
+
+282
+00:21:09,289 --> 00:21:17,480
+highlighted that's all basically that's
+
+283
+00:21:11,270 --> 00:21:20,270
+that's all it does so if this function
+
+284
+00:21:17,480 --> 00:21:26,000
+only does nothing nothing but if force
+
+285
+00:21:20,270 --> 00:21:30,190
+is no Neil it the active a it
+
+286
+00:21:26,000 --> 00:21:30,190
+deactivates the mark anyway
+
+287
+00:21:33,859 --> 00:21:39,859
+okay wait deactivate mark is a function
+
+288
+00:21:37,679 --> 00:21:44,570
+it's not a variable
+
+289
+00:21:39,859 --> 00:21:44,570
+okay my safe back to kneel
+
+290
+00:21:48,260 --> 00:21:53,810
+well anyway I don't I don't know what's
+
+291
+00:21:51,390 --> 00:22:00,330
+the right direction but we can you know
+
+292
+00:21:53,810 --> 00:22:04,230
+for the sake of this video we we we
+
+293
+00:22:00,330 --> 00:22:09,600
+could you know if all we want is just to
+
+294
+00:22:04,230 --> 00:22:11,630
+solve this problem then we can just call
+
+295
+00:22:09,600 --> 00:22:11,630
+that
+
+296
+00:22:16,450 --> 00:22:27,700
+you see so let's try that let's select
+
+297
+00:22:20,540 --> 00:22:27,700
+this code a command way
+
+298
+00:22:32,240 --> 00:22:34,840
+right
+
+299
+00:22:36,630 --> 00:22:43,920
+deactivate what if transient is disabled
+
+300
+00:22:54,780 --> 00:23:01,140
+okay the documentation is pretty lousy
+
+301
+00:22:57,650 --> 00:23:04,980
+you see it deactivate the Mach if
+
+302
+00:23:01,140 --> 00:23:08,070
+transient Mach mod is disabled this
+
+303
+00:23:04,980 --> 00:23:10,560
+function normally does nothing okay so
+
+304
+00:23:08,070 --> 00:23:14,340
+if it's disable this function only does
+
+305
+00:23:10,560 --> 00:23:18,690
+nothing but if force is Nanao it
+
+306
+00:23:14,340 --> 00:23:20,210
+deactivates mark anyway so this is kind
+
+307
+00:23:18,690 --> 00:23:24,660
+of silly okay
+
+308
+00:23:20,210 --> 00:23:27,180
+you see the documentation is not I don't
+
+309
+00:23:24,660 --> 00:23:30,030
+think you know in my first impression
+
+310
+00:23:27,180 --> 00:23:34,440
+it's not it's not well written why
+
+311
+00:23:30,030 --> 00:23:36,660
+because it tries to discuss two separate
+
+312
+00:23:34,440 --> 00:23:38,670
+issues kind of being one sentence
+
+313
+00:23:36,660 --> 00:23:42,270
+because first first of all it talks
+
+314
+00:23:38,670 --> 00:23:44,880
+about whether transient mark Martis on
+
+315
+00:23:42,270 --> 00:23:48,830
+you know with you know it says when this
+
+316
+00:23:44,880 --> 00:23:55,080
+mod is disabled this this does nothing
+
+317
+00:23:48,830 --> 00:23:58,290
+okay but what if it's enabled it doesn't
+
+318
+00:23:55,080 --> 00:24:02,520
+say but it went down to talk about the
+
+319
+00:23:58,290 --> 00:24:04,800
+optional argument yeah so it's kind of
+
+320
+00:24:02,520 --> 00:24:06,960
+confusing but anyway I know what it
+
+321
+00:24:04,800 --> 00:24:10,440
+means you know I know what's trying to
+
+322
+00:24:06,960 --> 00:24:15,360
+say because because normally transient
+
+323
+00:24:10,440 --> 00:24:21,990
+mark mod is just just make the region
+
+324
+00:24:15,360 --> 00:24:24,210
+highlighted make the region active so
+
+325
+00:24:21,990 --> 00:24:28,610
+anyway let's just try that I'm like
+
+326
+00:24:24,210 --> 00:24:32,780
+rambling too much so now it should work
+
+327
+00:24:28,610 --> 00:24:32,780
+select all correct
+
+328
+00:24:34,000 --> 00:24:38,800
+no wait what
+
+329
+00:24:47,570 --> 00:24:51,520
+if you use the region
+
+330
+00:24:56,520 --> 00:25:10,860
+where is a change in Emacs 26 this would
+
+331
+00:25:03,630 --> 00:25:13,830
+be interesting is control edge and easy
+
+332
+00:25:10,860 --> 00:25:19,140
+control edge and gives you new Emacs
+
+333
+00:25:13,830 --> 00:25:23,880
+news with which which is Emacs way of
+
+334
+00:25:19,140 --> 00:25:26,640
+saying features like new features so
+
+335
+00:25:23,880 --> 00:25:33,059
+this is wait hold on a second
+
+336
+00:25:26,640 --> 00:25:35,970
+curse curse okay be open now I want to
+
+337
+00:25:33,059 --> 00:25:39,480
+change you see it by default the news is
+
+338
+00:25:35,970 --> 00:25:44,280
+in our line mod and online mod the keys
+
+339
+00:25:39,480 --> 00:25:46,920
+its key bindings are problematic like as
+
+340
+00:25:44,280 --> 00:25:50,450
+you know and I'm using soft like keys
+
+341
+00:25:46,920 --> 00:25:57,929
+you can see sulphide keys which is a
+
+342
+00:25:50,450 --> 00:26:02,100
+special key binding and okay it works
+
+343
+00:25:57,929 --> 00:26:07,710
+anyway so let's anyway let's let's
+
+344
+00:26:02,100 --> 00:26:12,800
+change it to poke mod you see oka mod is
+
+345
+00:26:07,710 --> 00:26:16,440
+basically a extension of a line mod and
+
+346
+00:26:12,800 --> 00:26:19,740
+the key bindings is more sensible and
+
+347
+00:26:16,440 --> 00:26:26,000
+far more features so anyway so I mean
+
+348
+00:26:19,740 --> 00:26:34,850
+the Emacs 26 yeah you see in acts 26
+
+349
+00:26:26,000 --> 00:26:37,850
+News and let's look at what wait such
+
+350
+00:26:34,850 --> 00:26:37,850
+park
+
+351
+00:26:39,070 --> 00:26:49,600
+such such deactivate mark
+
+352
+00:26:50,220 --> 00:26:59,580
+okay hold on a second let's go back
+
+353
+00:26:52,920 --> 00:27:03,330
+let's such that it's just paste it here
+
+354
+00:26:59,580 --> 00:27:09,660
+such okay this does not happen anywhere
+
+355
+00:27:03,330 --> 00:27:15,650
+in the fire so but it's okay I can mock
+
+356
+00:27:09,660 --> 00:27:18,020
+active so copy that close paste such
+
+357
+00:27:15,650 --> 00:27:21,390
+okay it's not there either
+
+358
+00:27:18,020 --> 00:27:24,240
+okay so I don't know what's going on I'm
+
+359
+00:27:21,390 --> 00:27:26,280
+you know I don't know I have to look
+
+360
+00:27:24,240 --> 00:27:28,500
+into it the actor very much so
+
+361
+00:27:26,280 --> 00:27:35,070
+well this this one more thing we can try
+
+362
+00:27:28,500 --> 00:27:47,070
+to quickly just set the Pam mark to to
+
+363
+00:27:35,070 --> 00:27:50,730
+knee oh yeah so mark you see mark active
+
+364
+00:27:47,070 --> 00:27:58,320
+is a variable so you just said it to
+
+365
+00:27:50,730 --> 00:28:04,440
+Neil and TV that run select go to
+
+366
+00:27:58,320 --> 00:28:09,890
+command court yes your doesn't work it's
+
+367
+00:28:04,440 --> 00:28:14,190
+use it is it because let's see
+
+368
+00:28:09,890 --> 00:28:17,550
+copy your new buffer paste now I mean
+
+369
+00:28:14,190 --> 00:28:22,980
+text mod so maybe you make the
+
+370
+00:28:17,550 --> 00:28:25,920
+difference no there's something going on
+
+371
+00:28:22,980 --> 00:28:30,510
+so I don't know what it is I hope it's
+
+372
+00:28:25,920 --> 00:28:32,760
+not some other anyway
+
+373
+00:28:30,510 --> 00:28:38,600
+okay let's say that that's it for today
+
+374
+00:28:32,760 --> 00:28:41,950
+I hope you learned something
+
+375
+00:28:38,600 --> 00:28:44,910
+thank you for watching
+
+376
+00:28:41,950 --> 00:28:44,910
+bye-bye
+

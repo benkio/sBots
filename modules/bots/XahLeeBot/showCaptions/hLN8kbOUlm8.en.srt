@@ -1,0 +1,5804 @@
+1
+00:00:01,860 --> 00:00:04,040
+foreign
+
+2
+00:00:09,320 --> 00:00:15,299
+welcome to another episode of sound talk
+
+3
+00:00:12,599 --> 00:00:18,900
+show so today I'm going to we are going
+
+4
+00:00:15,299 --> 00:00:21,439
+to call this stereographic projection in
+
+5
+00:00:18,900 --> 00:00:25,859
+wufam language so I'm going to explain
+
+6
+00:00:21,439 --> 00:00:27,859
+what it is and I'm going to show you how
+
+7
+00:00:25,859 --> 00:00:31,700
+to code it in Wolfram language
+
+8
+00:00:27,859 --> 00:00:34,800
+and those of you programmers I hope you
+
+9
+00:00:31,700 --> 00:00:37,559
+will do this either in Wolfram language
+
+10
+00:00:34,800 --> 00:00:43,020
+or in your favorite language in Haskell
+
+11
+00:00:37,559 --> 00:00:46,860
+in Julia in Python in skim lisp in Java
+
+12
+00:00:43,020 --> 00:00:50,340
+even or uh you know in or in JavaScript
+
+13
+00:00:46,860 --> 00:00:52,219
+with SVG or canvas whatever is your
+
+14
+00:00:50,340 --> 00:00:56,039
+favorite language I hope you'll do it
+
+15
+00:00:52,219 --> 00:00:58,379
+once you have uh you watch the video
+
+16
+00:00:56,039 --> 00:01:01,559
+you know learn something and instead of
+
+17
+00:00:58,379 --> 00:01:03,960
+just passively uh listening to
+
+18
+00:01:01,559 --> 00:01:05,580
+YouTube as an entertainment you know
+
+19
+00:01:03,960 --> 00:01:08,520
+actually start to
+
+20
+00:01:05,580 --> 00:01:10,140
+learn something code mathematics so this
+
+21
+00:01:08,520 --> 00:01:13,080
+is a
+
+22
+00:01:10,140 --> 00:01:16,740
+yeah so so Wolfram language uh if you
+
+23
+00:01:13,080 --> 00:01:19,020
+watch my video before you know that you
+
+24
+00:01:16,740 --> 00:01:23,360
+know you can have an entire tutorial on
+
+25
+00:01:19,020 --> 00:01:23,360
+Wolfram language uh you just go to
+
+26
+00:01:23,520 --> 00:01:26,900
+personally that info
+
+27
+00:01:27,000 --> 00:01:35,280
+and let's turn JavaScript
+
+28
+00:01:31,259 --> 00:01:37,740
+and you can see I've done many uh videos
+
+29
+00:01:35,280 --> 00:01:40,500
+on Wolfram language and there's also
+
+30
+00:01:37,740 --> 00:01:42,659
+lots of introduction so you go down and
+
+31
+00:01:40,500 --> 00:01:46,020
+you go down and you'll see this wufan
+
+32
+00:01:42,659 --> 00:01:48,659
+language so here's a whole tutorial and
+
+33
+00:01:46,020 --> 00:01:51,119
+where to download it for free it's you
+
+34
+00:01:48,659 --> 00:01:53,520
+know the Wolfram engine is free since
+
+35
+00:01:51,119 --> 00:01:56,280
+about three or four years ago so you can
+
+36
+00:01:53,520 --> 00:01:58,079
+download it and you can
+
+37
+00:01:56,280 --> 00:01:59,880
+or you can buy it you know buy the
+
+38
+00:01:58,079 --> 00:02:01,860
+Wolfram language if you buy the woofam
+
+39
+00:01:59,880 --> 00:02:03,479
+language then you get the notepad so
+
+40
+00:02:01,860 --> 00:02:06,659
+let's let me start the move from
+
+41
+00:02:03,479 --> 00:02:07,520
+language okay so start move from
+
+42
+00:02:06,659 --> 00:02:09,539
+language
+
+43
+00:02:07,520 --> 00:02:11,940
+[Music]
+
+44
+00:02:09,539 --> 00:02:15,480
+so this is going to be very fun you know
+
+45
+00:02:11,940 --> 00:02:18,239
+uh geometry and uh and by the way it's
+
+46
+00:02:15,480 --> 00:02:20,160
+it's easy it's it's not difficult at all
+
+47
+00:02:18,239 --> 00:02:22,080
+okay so
+
+48
+00:02:20,160 --> 00:02:25,560
+you know when you look at if you never
+
+49
+00:02:22,080 --> 00:02:27,239
+had uh geometry you know experience you
+
+50
+00:02:25,560 --> 00:02:29,879
+might think this is hard to do but
+
+51
+00:02:27,239 --> 00:02:31,860
+actually it's all it's pretty easy so I
+
+52
+00:02:29,879 --> 00:02:34,379
+hope you you know so you can download
+
+53
+00:02:31,860 --> 00:02:36,239
+rufan language and do it you know in Wu
+
+54
+00:02:34,379 --> 00:02:41,160
+fun language or you can do a JavaScript
+
+55
+00:02:36,239 --> 00:02:44,519
+in SVG so let me show you so I have a
+
+56
+00:02:41,160 --> 00:02:46,680
+SVG tutorial is very useful for
+
+57
+00:02:44,519 --> 00:02:49,500
+JavaScript for example you can learn
+
+58
+00:02:46,680 --> 00:02:51,420
+from the ground up SVG is very simple
+
+59
+00:02:49,500 --> 00:02:53,879
+it's just just
+
+60
+00:02:51,420 --> 00:02:58,140
+XML just like
+
+61
+00:02:53,879 --> 00:03:00,780
+um HTML files so for example if you
+
+62
+00:02:58,140 --> 00:03:04,019
+copy this and put in a text file and
+
+63
+00:03:00,780 --> 00:03:06,540
+open it in your browser it will show a
+
+64
+00:03:04,019 --> 00:03:08,580
+line so this is how you for example if
+
+65
+00:03:06,540 --> 00:03:11,040
+you want to draw a rectangle this is how
+
+66
+00:03:08,580 --> 00:03:13,500
+you do it basically just these three
+
+67
+00:03:11,040 --> 00:03:16,860
+lines you know and so on
+
+68
+00:03:13,500 --> 00:03:20,519
+and you and then you can write a uh you
+
+69
+00:03:16,860 --> 00:03:23,400
+know clock and that's just uh 50 lines
+
+70
+00:03:20,519 --> 00:03:26,700
+you know 59 so
+
+71
+00:03:23,400 --> 00:03:29,040
+so you can use SVG and the JavaScript to
+
+72
+00:03:26,700 --> 00:03:31,920
+do it if you already know JavaScript or
+
+73
+00:03:29,040 --> 00:03:33,900
+you can use canvas and so on so I hope
+
+74
+00:03:31,920 --> 00:03:35,580
+you guys do it so let me so let me show
+
+75
+00:03:33,900 --> 00:03:38,640
+you how you how do you code this it's
+
+76
+00:03:35,580 --> 00:03:41,280
+pretty easy okay so let me explain
+
+77
+00:03:38,640 --> 00:03:44,220
+so uh actually so let's let me write
+
+78
+00:03:41,280 --> 00:03:49,379
+down what what what we gonna do okay let
+
+79
+00:03:44,220 --> 00:03:52,019
+me uh so it's more organized Okay so
+
+80
+00:03:49,379 --> 00:03:55,019
+explain what is
+
+81
+00:03:52,019 --> 00:03:55,019
+stereographic
+
+82
+00:03:55,680 --> 00:04:01,560
+projection okay and
+
+83
+00:03:59,879 --> 00:04:06,060
+explain
+
+84
+00:04:01,560 --> 00:04:09,180
+how to code this the basic ideas okay
+
+85
+00:04:06,060 --> 00:04:10,980
+and okay showing browser so you can see
+
+86
+00:04:09,180 --> 00:04:13,019
+today's talk show explain what okay
+
+87
+00:04:10,980 --> 00:04:15,060
+explain how to code this the other basic
+
+88
+00:04:13,019 --> 00:04:17,100
+idea so you can code this in any
+
+89
+00:04:15,060 --> 00:04:18,359
+language it's pretty it's pretty easy
+
+90
+00:04:17,100 --> 00:04:21,000
+okay
+
+91
+00:04:18,359 --> 00:04:23,400
+uh let's see what else we want to cover
+
+92
+00:04:21,000 --> 00:04:26,280
+uh explain what is stereographic
+
+93
+00:04:23,400 --> 00:04:30,960
+projection and explain how to code it
+
+94
+00:04:26,280 --> 00:04:33,240
+and okay then maybe if we have time this
+
+95
+00:04:30,960 --> 00:04:36,000
+video is gonna be like 40 minutes or 50
+
+96
+00:04:33,240 --> 00:04:38,400
+minutes I hope no more than that
+
+97
+00:04:36,000 --> 00:04:42,780
+so then also explain
+
+98
+00:04:38,400 --> 00:04:45,360
+how to derive the function that the
+
+99
+00:04:42,780 --> 00:04:48,960
+projection function okay
+
+100
+00:04:45,360 --> 00:04:51,300
+how to derive the projection function
+
+101
+00:04:48,960 --> 00:04:54,540
+this so this is mathematics
+
+102
+00:04:51,300 --> 00:04:57,600
+okay so refresh okay that that's
+
+103
+00:04:54,540 --> 00:04:58,259
+basically what we want to do okay
+
+104
+00:04:57,600 --> 00:05:00,360
+um
+
+105
+00:04:58,259 --> 00:05:03,060
+explain what is a stereographic
+
+106
+00:05:00,360 --> 00:05:06,479
+projection explain how to code these the
+
+107
+00:05:03,060 --> 00:05:10,740
+basic ideas uh and explain how to
+
+108
+00:05:06,479 --> 00:05:12,780
+describe the projection function Okay so
+
+109
+00:05:10,740 --> 00:05:13,800
+you you know
+
+110
+00:05:12,780 --> 00:05:16,320
+um
+
+111
+00:05:13,800 --> 00:05:18,360
+it's pretty easy actually so all you
+
+112
+00:05:16,320 --> 00:05:21,479
+need let me let me explain so
+
+113
+00:05:18,360 --> 00:05:24,120
+stereographic projection I wrote this in
+
+114
+00:05:21,479 --> 00:05:28,440
+Mathematica in Wolfram language like
+
+115
+00:05:24,120 --> 00:05:30,680
+15 years ago in 2006 so you can see let
+
+116
+00:05:28,440 --> 00:05:32,880
+me explain what what this is okay
+
+117
+00:05:30,680 --> 00:05:36,240
+stereographic projection it's just a
+
+118
+00:05:32,880 --> 00:05:38,520
+projection so you given a plane you know
+
+119
+00:05:36,240 --> 00:05:41,820
+you have a grid you know given a grid or
+
+120
+00:05:38,520 --> 00:05:45,060
+any any point on the plane so you can
+
+121
+00:05:41,820 --> 00:05:48,180
+put a ball on top of the plane and from
+
+122
+00:05:45,060 --> 00:05:50,820
+the top of the ball the North Pole you
+
+123
+00:05:48,180 --> 00:05:53,940
+draw a line
+
+124
+00:05:50,820 --> 00:05:57,960
+to the point on the plane so this line
+
+125
+00:05:53,940 --> 00:06:00,840
+will cross the sphere at one point so
+
+126
+00:05:57,960 --> 00:06:04,020
+that is the projection so that is that
+
+127
+00:06:00,840 --> 00:06:06,600
+that gives you a for every point on the
+
+128
+00:06:04,020 --> 00:06:07,500
+plane you have a corresponding point on
+
+129
+00:06:06,600 --> 00:06:09,960
+the sphere
+
+130
+00:06:07,500 --> 00:06:12,300
+okay that's the key that's the essence
+
+131
+00:06:09,960 --> 00:06:14,699
+of stereographic projection
+
+132
+00:06:12,300 --> 00:06:16,259
+you know
+
+133
+00:06:14,699 --> 00:06:18,660
+given a plane
+
+134
+00:06:16,259 --> 00:06:20,460
+for any point on the plane you put a
+
+135
+00:06:18,660 --> 00:06:22,560
+ball first of all you put a ball on on
+
+136
+00:06:20,460 --> 00:06:26,460
+the plane in the center of the plane you
+
+137
+00:06:22,560 --> 00:06:28,199
+know you know the South Pole touches the
+
+138
+00:06:26,460 --> 00:06:31,860
+origin you know the center of the plane
+
+139
+00:06:28,199 --> 00:06:34,500
+then for any point on the plane you draw
+
+140
+00:06:31,860 --> 00:06:37,680
+a line from the North Pole to that point
+
+141
+00:06:34,500 --> 00:06:39,600
+this line will intersect the sphere at
+
+142
+00:06:37,680 --> 00:06:42,180
+one point so
+
+143
+00:06:39,600 --> 00:06:43,860
+so you have a correspondence so for
+
+144
+00:06:42,180 --> 00:06:46,740
+every point on the plan you have a
+
+145
+00:06:43,860 --> 00:06:48,600
+corresponding point on the sphere so
+
+146
+00:06:46,740 --> 00:06:52,020
+this correspondence is this
+
+147
+00:06:48,600 --> 00:06:54,479
+stereographic projection so this means
+
+148
+00:06:52,020 --> 00:06:57,840
+this means you can have any picture for
+
+149
+00:06:54,479 --> 00:07:00,960
+example a grid on the plane or even a
+
+150
+00:06:57,840 --> 00:07:03,900
+photograph or any drawing then you can
+
+151
+00:07:00,960 --> 00:07:06,780
+project it to the sphere and you you it
+
+152
+00:07:03,900 --> 00:07:09,780
+will appear in a different way okay so
+
+153
+00:07:06,780 --> 00:07:14,660
+that is the that is what stereographic
+
+154
+00:07:09,780 --> 00:07:17,160
+projection is so what what this is um
+
+155
+00:07:14,660 --> 00:07:19,919
+fundamental in mathematics truly useful
+
+156
+00:07:17,160 --> 00:07:22,500
+for example if you want to draw a map of
+
+157
+00:07:19,919 --> 00:07:24,660
+Earth Earth is round but you want to
+
+158
+00:07:22,500 --> 00:07:26,580
+draw a map on a paper so this is one of
+
+159
+00:07:24,660 --> 00:07:28,319
+the ways you know stereographic
+
+160
+00:07:26,580 --> 00:07:29,759
+projection is one of the way to draw a
+
+161
+00:07:28,319 --> 00:07:32,220
+map
+
+162
+00:07:29,759 --> 00:07:34,020
+so you can see and let me show you some
+
+163
+00:07:32,220 --> 00:07:37,560
+of the fun ones so you can start with
+
+164
+00:07:34,020 --> 00:07:39,620
+you know here we have a grid then on a
+
+165
+00:07:37,560 --> 00:07:42,960
+ball it appears like that
+
+166
+00:07:39,620 --> 00:07:46,620
+and here we start with this you know
+
+167
+00:07:42,960 --> 00:07:49,139
+decorative pattern this is uh you know
+
+168
+00:07:46,620 --> 00:07:51,180
+you can think of it as graph Theory or
+
+169
+00:07:49,139 --> 00:07:53,940
+networks not really graph Theory but
+
+170
+00:07:51,180 --> 00:07:55,860
+decorative you know so they project to
+
+171
+00:07:53,940 --> 00:07:57,840
+the sphere it becomes like that and you
+
+172
+00:07:55,860 --> 00:07:59,340
+can rotate it I'm gonna show you from
+
+173
+00:07:57,840 --> 00:08:01,199
+language okay
+
+174
+00:07:59,340 --> 00:08:03,900
+so if you start with this pattern you
+
+175
+00:08:01,199 --> 00:08:06,479
+get that beautiful and you can start to
+
+176
+00:08:03,900 --> 00:08:10,620
+get fancy if you start with this kind of
+
+177
+00:08:06,479 --> 00:08:11,580
+tiring random tiles then you got this
+
+178
+00:08:10,620 --> 00:08:13,680
+ball
+
+179
+00:08:11,580 --> 00:08:16,259
+and if you start with that you got this
+
+180
+00:08:13,680 --> 00:08:19,319
+Spore fat beautiful okay
+
+181
+00:08:16,259 --> 00:08:21,360
+so this is uh you know I I did a lot of
+
+182
+00:08:19,319 --> 00:08:24,180
+these for like 10 years
+
+183
+00:08:21,360 --> 00:08:26,340
+okay so uh any comments and questions
+
+184
+00:08:24,180 --> 00:08:28,979
+posted okay I love to see your question
+
+185
+00:08:26,340 --> 00:08:32,339
+hello immortality
+
+186
+00:08:28,979 --> 00:08:34,320
+uh and hello Dan
+
+187
+00:08:32,339 --> 00:08:38,180
+okay comments and questions about
+
+188
+00:08:34,320 --> 00:08:42,839
+related to these love to see it okay
+
+189
+00:08:38,180 --> 00:08:46,140
+uh okay so we explained stereographic
+
+190
+00:08:42,839 --> 00:08:49,860
+projection now how do you code this okay
+
+191
+00:08:46,140 --> 00:08:51,839
+now very easy actually easier than than
+
+192
+00:08:49,860 --> 00:08:54,360
+you think all you need first of all all
+
+193
+00:08:51,839 --> 00:08:56,519
+you need you need a graphical system
+
+194
+00:08:54,360 --> 00:08:58,800
+now in Wolfram language it's super easy
+
+195
+00:08:56,519 --> 00:09:02,100
+but in other languages for example in
+
+196
+00:08:58,800 --> 00:09:04,019
+JavaScript then you use SVG or canvas I
+
+197
+00:09:02,100 --> 00:09:05,640
+don't know about other languages but you
+
+198
+00:09:04,019 --> 00:09:08,100
+you probably know if you are a
+
+199
+00:09:05,640 --> 00:09:09,959
+programmer you can find out
+
+200
+00:09:08,100 --> 00:09:12,420
+so if so first of all you need a
+
+201
+00:09:09,959 --> 00:09:15,300
+graphical system to render to draw the
+
+202
+00:09:12,420 --> 00:09:18,839
+lines and curves and so you you know a
+
+203
+00:09:15,300 --> 00:09:21,080
+graphical library but the essence is
+
+204
+00:09:18,839 --> 00:09:25,500
+that
+
+205
+00:09:21,080 --> 00:09:26,220
+uh so you begin by drawing lines on you
+
+206
+00:09:25,500 --> 00:09:28,320
+know
+
+207
+00:09:26,220 --> 00:09:30,540
+this is what we are going to do you know
+
+208
+00:09:28,320 --> 00:09:33,120
+forget about the fancy ones you know
+
+209
+00:09:30,540 --> 00:09:36,480
+we're gonna start very simple just draw
+
+210
+00:09:33,120 --> 00:09:37,980
+this illustration a simple grid
+
+211
+00:09:36,480 --> 00:09:42,000
+on a plane
+
+212
+00:09:37,980 --> 00:09:44,339
+and project it to the sphere so
+
+213
+00:09:42,000 --> 00:09:46,740
+so first of all you draw the Grid on the
+
+214
+00:09:44,339 --> 00:09:48,959
+plane which is very easy you know for
+
+215
+00:09:46,740 --> 00:09:51,980
+example integer points those are the
+
+216
+00:09:48,959 --> 00:09:56,399
+coordinates then you have a function
+
+217
+00:09:51,980 --> 00:09:59,580
+that takes any point on the plane
+
+218
+00:09:56,399 --> 00:10:01,680
+as argument and returns a point on the
+
+219
+00:09:59,580 --> 00:10:04,620
+sphere you know Returns the coordinate
+
+220
+00:10:01,680 --> 00:10:06,779
+on a sphere so on the plane
+
+221
+00:10:04,620 --> 00:10:10,800
+you got you know normally you're playing
+
+222
+00:10:06,779 --> 00:10:13,620
+is just X and Y you know x axis Y axis
+
+223
+00:10:10,800 --> 00:10:16,200
+so you got a point X and Y now in this
+
+224
+00:10:13,620 --> 00:10:18,600
+case since we are doing this in 3D so
+
+225
+00:10:16,200 --> 00:10:21,779
+there's another component the Z
+
+226
+00:10:18,600 --> 00:10:24,959
+coordinate but in this case
+
+227
+00:10:21,779 --> 00:10:26,519
+they are just zero so imagine this is a
+
+228
+00:10:24,959 --> 00:10:30,120
+plane on the
+
+229
+00:10:26,519 --> 00:10:32,399
+Z equals to zero axis
+
+230
+00:10:30,120 --> 00:10:34,680
+okay so you got a plane
+
+231
+00:10:32,399 --> 00:10:37,320
+each point on the plane is three points
+
+232
+00:10:34,680 --> 00:10:41,580
+three you know coordinate of three
+
+233
+00:10:37,320 --> 00:10:44,100
+numbers x y and zero so then you have a
+
+234
+00:10:41,580 --> 00:10:48,120
+projection function that takes this
+
+235
+00:10:44,100 --> 00:10:50,459
+point x y and zero and return a
+
+236
+00:10:48,120 --> 00:10:53,880
+another three numbers that's the number
+
+237
+00:10:50,459 --> 00:10:55,440
+on a sphere okay so to draw to program
+
+238
+00:10:53,880 --> 00:10:58,620
+these so you have to do first of all
+
+239
+00:10:55,440 --> 00:11:01,260
+draw the grid then apply this project
+
+240
+00:10:58,620 --> 00:11:03,480
+projection function to every point you
+
+241
+00:11:01,260 --> 00:11:06,180
+want so you got a bunch of points on the
+
+242
+00:11:03,480 --> 00:11:08,760
+sphere so you end up have a you know you
+
+243
+00:11:06,180 --> 00:11:10,560
+end up with a bunch of points and all
+
+244
+00:11:08,760 --> 00:11:14,160
+you have to do then is just connect the
+
+245
+00:11:10,560 --> 00:11:17,339
+lines connect the lines on the you know
+
+246
+00:11:14,160 --> 00:11:20,760
+of the points on the sphere just as just
+
+247
+00:11:17,339 --> 00:11:23,399
+as the way you had you know you connect
+
+248
+00:11:20,760 --> 00:11:26,640
+the lines on the grid okay
+
+249
+00:11:23,399 --> 00:11:28,079
+so that is the essence of how do you
+
+250
+00:11:26,640 --> 00:11:30,779
+call this
+
+251
+00:11:28,079 --> 00:11:33,000
+in fact you can start to code it you
+
+252
+00:11:30,779 --> 00:11:35,540
+know in just about in your favorite
+
+253
+00:11:33,000 --> 00:11:38,760
+language you know if you are unsure
+
+254
+00:11:35,540 --> 00:11:41,220
+about how the formula you know it's very
+
+255
+00:11:38,760 --> 00:11:42,899
+simple all you need is the function that
+
+256
+00:11:41,220 --> 00:11:45,240
+Maps one point on the plane to the
+
+257
+00:11:42,899 --> 00:11:48,779
+sphere and this function you can easily
+
+258
+00:11:45,240 --> 00:11:51,079
+see the formula by just going to for
+
+259
+00:11:48,779 --> 00:11:51,079
+example
+
+260
+00:11:54,480 --> 00:11:58,680
+you know you can you can just go to
+
+261
+00:11:56,220 --> 00:12:01,560
+Wikipedia you know I'm going to cover it
+
+262
+00:11:58,680 --> 00:12:05,399
+today you know I'm going to talk as I
+
+263
+00:12:01,560 --> 00:12:10,079
+code but if you missed some information
+
+264
+00:12:05,399 --> 00:12:15,200
+or if you got confused you can
+
+265
+00:12:10,079 --> 00:12:15,200
+yeah who is my magnify key
+
+266
+00:12:20,519 --> 00:12:27,000
+okay so you can see here's the Wikipedia
+
+267
+00:12:23,579 --> 00:12:29,040
+on stereographic projection and then you
+
+268
+00:12:27,000 --> 00:12:31,980
+can see they explain
+
+269
+00:12:29,040 --> 00:12:35,160
+uh they give you formulas formulas so
+
+270
+00:12:31,980 --> 00:12:38,579
+you can just read it if you got confused
+
+271
+00:12:35,160 --> 00:12:40,620
+okay so now let's talk let's let's start
+
+272
+00:12:38,579 --> 00:12:43,440
+movement language actually let me show
+
+273
+00:12:40,620 --> 00:12:45,720
+you uh let's start to draw uh draw this
+
+274
+00:12:43,440 --> 00:12:49,019
+okay so
+
+275
+00:12:45,720 --> 00:12:51,360
+so I um so yeah so stereo so today's
+
+276
+00:12:49,019 --> 00:12:54,660
+talk show let's go to stereographic
+
+277
+00:12:51,360 --> 00:12:58,500
+projection page showing browser and
+
+278
+00:12:54,660 --> 00:13:00,420
+there is a Wolfram notebook I have wrote
+
+279
+00:12:58,500 --> 00:13:03,660
+this um
+
+280
+00:13:00,420 --> 00:13:04,860
+long ago okay let's open that so you are
+
+281
+00:13:03,660 --> 00:13:07,860
+looking at
+
+282
+00:13:04,860 --> 00:13:11,399
+this file sphere projection illustration
+
+283
+00:13:07,860 --> 00:13:14,100
+dot MB notebook so this is Wolfram
+
+284
+00:13:11,399 --> 00:13:16,680
+language or mathematica notebook
+
+285
+00:13:14,100 --> 00:13:19,079
+it looks like that you know you see this
+
+286
+00:13:16,680 --> 00:13:21,260
+is version seven this is like 15 years
+
+287
+00:13:19,079 --> 00:13:23,639
+ago so
+
+288
+00:13:21,260 --> 00:13:26,160
+you know this is how Wolfram language
+
+289
+00:13:23,639 --> 00:13:28,560
+looks like the source code and these
+
+290
+00:13:26,160 --> 00:13:31,920
+things are basically images these are
+
+291
+00:13:28,560 --> 00:13:34,560
+you know bitmap images uh
+
+292
+00:13:31,920 --> 00:13:36,540
+formatted in you know uffam notebook is
+
+293
+00:13:34,560 --> 00:13:40,440
+actually just text file so you can see
+
+294
+00:13:36,540 --> 00:13:42,720
+this is a bitmap image now those are
+
+295
+00:13:40,440 --> 00:13:45,060
+PostScript image here
+
+296
+00:13:42,720 --> 00:13:46,800
+but anyway so this is just a format of
+
+297
+00:13:45,060 --> 00:13:51,500
+the notebook let's open it okay let's
+
+298
+00:13:46,800 --> 00:13:55,440
+open it in Wolfram language there it is
+
+299
+00:13:51,500 --> 00:13:58,380
+stereographic projection let's magnify
+
+300
+00:13:55,440 --> 00:14:01,620
+okay and this is what we are going to
+
+301
+00:13:58,380 --> 00:14:05,279
+code continue with updated sliding yes
+
+302
+00:14:01,620 --> 00:14:08,399
+so you see 2006.
+
+303
+00:14:05,279 --> 00:14:11,459
+okay so you see this is so you first of
+
+304
+00:14:08,399 --> 00:14:14,399
+all you draw a grid then
+
+305
+00:14:11,459 --> 00:14:17,220
+then I I draw some you know colored
+
+306
+00:14:14,399 --> 00:14:19,560
+rectangle so to make this small apparent
+
+307
+00:14:17,220 --> 00:14:22,940
+how you know this illustration the
+
+308
+00:14:19,560 --> 00:14:26,700
+purpose of this image is to
+
+309
+00:14:22,940 --> 00:14:29,880
+visually illustrate visually demonstrate
+
+310
+00:14:26,700 --> 00:14:33,000
+what stereographic projection is you
+
+311
+00:14:29,880 --> 00:14:35,220
+know the power of visualization so when
+
+312
+00:14:33,000 --> 00:14:37,440
+people see this they already know but
+
+313
+00:14:35,220 --> 00:14:40,079
+what it is
+
+314
+00:14:37,440 --> 00:14:43,199
+okay so so I also draw some colored
+
+315
+00:14:40,079 --> 00:14:44,820
+rectangle so to make it apparent then
+
+316
+00:14:43,199 --> 00:14:49,320
+you
+
+317
+00:14:44,820 --> 00:14:51,240
+add add 0 to the z-axis Z coordinates so
+
+318
+00:14:49,320 --> 00:14:54,560
+they become three-dimensional so you can
+
+319
+00:14:51,240 --> 00:14:58,560
+see this is a bitmap image oh actually
+
+320
+00:14:54,560 --> 00:15:01,680
+it's a you know can you rotate no but we
+
+321
+00:14:58,560 --> 00:15:04,199
+we can later on okay then
+
+322
+00:15:01,680 --> 00:15:05,639
+then you just project it you know then
+
+323
+00:15:04,199 --> 00:15:06,779
+you become this
+
+324
+00:15:05,639 --> 00:15:09,480
+um
+
+325
+00:15:06,779 --> 00:15:12,180
+okay we don't I cannot rotate but but
+
+326
+00:15:09,480 --> 00:15:13,740
+let me show you okay so this is a final
+
+327
+00:15:12,180 --> 00:15:17,420
+image
+
+328
+00:15:13,740 --> 00:15:17,420
+okay and then
+
+329
+00:15:17,579 --> 00:15:24,180
+yeah then there's the other fancy ones
+
+330
+00:15:21,360 --> 00:15:27,839
+that's not here but um let's see are
+
+331
+00:15:24,180 --> 00:15:30,899
+they here somewhere and it's open
+
+332
+00:15:27,839 --> 00:15:34,860
+let's open this one let's see what it is
+
+333
+00:15:30,899 --> 00:15:38,420
+okay first of all make a backup
+
+334
+00:15:34,860 --> 00:15:42,600
+okay and open it
+
+335
+00:15:38,420 --> 00:15:46,940
+magnify 150 percent
+
+336
+00:15:42,600 --> 00:15:46,940
+so let's see what this one is
+
+337
+00:15:48,300 --> 00:15:55,160
+oh yeah so this is the um you know the
+
+338
+00:15:51,300 --> 00:15:55,160
+other ones uh fancy ones
+
+339
+00:15:59,040 --> 00:16:05,040
+let's see if we can make it
+
+340
+00:16:02,639 --> 00:16:07,980
+yeah this so this is pure bitmap let's
+
+341
+00:16:05,040 --> 00:16:11,300
+okay let's let's do it so first of all
+
+342
+00:16:07,980 --> 00:16:11,300
+you know I need
+
+343
+00:16:11,399 --> 00:16:18,839
+so this is written long ago and I used
+
+344
+00:16:15,120 --> 00:16:21,480
+one of my package transform 2D plot now
+
+345
+00:16:18,839 --> 00:16:25,040
+what so it's all building actually so
+
+346
+00:16:21,480 --> 00:16:25,040
+let me show you that package
+
+347
+00:16:26,639 --> 00:16:32,600
+so let's go to desktop
+
+348
+00:16:29,519 --> 00:16:38,279
+and the subwoof and packages
+
+349
+00:16:32,600 --> 00:16:41,100
+transform 2D plots and let's open it so
+
+350
+00:16:38,279 --> 00:16:43,440
+here is a package you can see
+
+351
+00:16:41,100 --> 00:16:47,759
+this is Wolfram language
+
+352
+00:16:43,440 --> 00:16:50,459
+code here is the in a
+
+353
+00:16:47,759 --> 00:16:52,860
+dark string for many of the functions
+
+354
+00:16:50,459 --> 00:16:56,579
+let's magnify
+
+355
+00:16:52,860 --> 00:17:00,360
+dark stream for many of the functions
+
+356
+00:16:56,579 --> 00:17:02,839
+then body then here starting here's a
+
+357
+00:17:00,360 --> 00:17:02,839
+code okay
+
+358
+00:17:03,120 --> 00:17:06,000
+here's a code you see
+
+359
+00:17:05,280 --> 00:17:08,520
+um
+
+360
+00:17:06,000 --> 00:17:11,939
+okay so it's all built in there but
+
+361
+00:17:08,520 --> 00:17:13,620
+let's just let's select all okay select
+
+362
+00:17:11,939 --> 00:17:16,199
+all
+
+363
+00:17:13,620 --> 00:17:20,579
+and evaluate it
+
+364
+00:17:16,199 --> 00:17:23,339
+okay evaluated shift enter evaluate this
+
+365
+00:17:20,579 --> 00:17:25,919
+okay
+
+366
+00:17:23,339 --> 00:17:29,160
+done
+
+367
+00:17:25,919 --> 00:17:32,040
+now this is one of my huge package I
+
+368
+00:17:29,160 --> 00:17:34,320
+spent half a year to draw this
+
+369
+00:17:32,040 --> 00:17:37,380
+um backing
+
+370
+00:17:34,320 --> 00:17:39,539
+2000s around so now you have once you
+
+371
+00:17:37,380 --> 00:17:42,480
+have this loaded
+
+372
+00:17:39,539 --> 00:17:44,480
+all you have to do is
+
+373
+00:17:42,480 --> 00:17:44,480
+um
+
+374
+00:17:49,020 --> 00:17:54,260
+see
+
+375
+00:17:50,600 --> 00:17:54,260
+stereographic will come
+
+376
+00:17:55,140 --> 00:18:06,480
+okay so now let's just evaluate the code
+
+377
+00:18:01,260 --> 00:18:10,799
+run it okay so here's a code graphics
+
+378
+00:18:06,480 --> 00:18:14,660
+and evaluate this part Bennett so I'm
+
+379
+00:18:10,799 --> 00:18:14,660
+drawing some colored rectangles
+
+380
+00:18:15,120 --> 00:18:23,840
+okay and when this fantastic
+
+381
+00:18:21,059 --> 00:18:27,720
+and
+
+382
+00:18:23,840 --> 00:18:29,520
+release okay starting now you can rotate
+
+383
+00:18:27,720 --> 00:18:31,440
+you have a
+
+384
+00:18:29,520 --> 00:18:33,120
+great
+
+385
+00:18:31,440 --> 00:18:36,120
+then this
+
+386
+00:18:33,120 --> 00:18:39,179
+and now you have the rectangles
+
+387
+00:18:36,120 --> 00:18:40,620
+I mean squares colored squares
+
+388
+00:18:39,179 --> 00:18:42,480
+run it
+
+389
+00:18:40,620 --> 00:18:46,140
+now you have
+
+390
+00:18:42,480 --> 00:18:49,260
+the color squares on the grid except
+
+391
+00:18:46,140 --> 00:18:51,900
+there's something changed so you know it
+
+392
+00:18:49,260 --> 00:18:53,460
+used to be color now it's black why
+
+393
+00:18:51,900 --> 00:18:56,039
+because
+
+394
+00:18:53,460 --> 00:18:58,679
+after 15 years there's some changing
+
+395
+00:18:56,039 --> 00:19:01,860
+Wolfram language that's why so you need
+
+396
+00:18:58,679 --> 00:19:03,960
+to remove this one lighting then
+
+397
+00:19:01,860 --> 00:19:07,740
+let's do it again there it is now you
+
+398
+00:19:03,960 --> 00:19:11,460
+have colored uh Square am I doing okay
+
+399
+00:19:07,740 --> 00:19:13,380
+check video check audio check yeah
+
+400
+00:19:11,460 --> 00:19:17,220
+okay
+
+401
+00:19:13,380 --> 00:19:21,480
+so comments okay so here you have the
+
+402
+00:19:17,220 --> 00:19:24,600
+colored square and Grid in 3D then let's
+
+403
+00:19:21,480 --> 00:19:27,179
+evaluate this part let's see oh yeah
+
+404
+00:19:24,600 --> 00:19:30,840
+then we started to draw the lines you
+
+405
+00:19:27,179 --> 00:19:33,660
+know the projection line is fantastic
+
+406
+00:19:30,840 --> 00:19:36,660
+you see in order to draw in order to do
+
+407
+00:19:33,660 --> 00:19:39,179
+these lines you see the endpoints of the
+
+408
+00:19:36,660 --> 00:19:42,419
+lines are the squares are the color
+
+409
+00:19:39,179 --> 00:19:45,600
+squares so and the beginning point of
+
+410
+00:19:42,419 --> 00:19:46,980
+the lines is the North Pole of the of
+
+411
+00:19:45,600 --> 00:19:49,740
+the sphere
+
+412
+00:19:46,980 --> 00:19:52,820
+so you can see here's a code array
+
+413
+00:19:49,740 --> 00:19:55,320
+graphics 3D
+
+414
+00:19:52,820 --> 00:19:59,360
+polygon line
+
+415
+00:19:55,320 --> 00:19:59,360
+patch graphics 3D
+
+416
+00:20:00,900 --> 00:20:07,020
+patch graphics 3D now what is patch
+
+417
+00:20:04,500 --> 00:20:09,480
+graphic oh these are patches okay yeah
+
+418
+00:20:07,020 --> 00:20:11,700
+so these colored rectangles I call them
+
+419
+00:20:09,480 --> 00:20:17,039
+patch graphics 3D
+
+420
+00:20:11,700 --> 00:20:19,500
+and the grid is called flow graphics 3D
+
+421
+00:20:17,039 --> 00:20:22,260
+then here
+
+422
+00:20:19,500 --> 00:20:27,799
+the patch graphic 3D
+
+423
+00:20:22,260 --> 00:20:27,799
+this means replace each polar gun
+
+424
+00:20:31,679 --> 00:20:36,179
+by
+
+425
+00:20:33,059 --> 00:20:38,940
+okay so this is kind of
+
+426
+00:20:36,179 --> 00:20:41,160
+well this is a very powerful Wolfram
+
+427
+00:20:38,940 --> 00:20:44,880
+language
+
+428
+00:20:41,160 --> 00:20:46,860
+um a pattern matching code so what
+
+429
+00:20:44,880 --> 00:20:50,640
+okay let me explain this one so what
+
+430
+00:20:46,860 --> 00:20:53,580
+what it is doing is that you take you
+
+431
+00:20:50,640 --> 00:20:56,700
+start with the patch graphics 3D so
+
+432
+00:20:53,580 --> 00:21:00,480
+patch graphics 3D uh
+
+433
+00:20:56,700 --> 00:21:02,460
+just these three rectangles you know
+
+434
+00:21:00,480 --> 00:21:06,080
+they
+
+435
+00:21:02,460 --> 00:21:06,080
+they are just uh
+
+436
+00:21:06,179 --> 00:21:12,179
+I can I can show you okay I can show you
+
+437
+00:21:08,940 --> 00:21:16,620
+patch graphics 3D so let's open a new
+
+438
+00:21:12,179 --> 00:21:17,900
+one let's put it here and let's magnify
+
+439
+00:21:16,620 --> 00:21:21,480
+[Music]
+
+440
+00:21:17,900 --> 00:21:25,799
+and let's evaluate it
+
+441
+00:21:21,480 --> 00:21:28,080
+and let's uh because it's a graphics so
+
+442
+00:21:25,799 --> 00:21:31,740
+that's why it shows like that
+
+443
+00:21:28,080 --> 00:21:35,460
+but you want to see the actual code so
+
+444
+00:21:31,740 --> 00:21:38,220
+what you can do is that you do that uh
+
+445
+00:21:35,460 --> 00:21:42,480
+you say length let's see how many items
+
+446
+00:21:38,220 --> 00:21:46,559
+are there one okay so they you
+
+447
+00:21:42,480 --> 00:21:48,000
+then you say first now slash slash slash
+
+448
+00:21:46,559 --> 00:21:51,059
+is the
+
+449
+00:21:48,000 --> 00:21:53,159
+so there it is slash slash is the post
+
+450
+00:21:51,059 --> 00:21:56,760
+fixed notation so you apply the first
+
+451
+00:21:53,159 --> 00:21:59,520
+function to this object first is just
+
+452
+00:21:56,760 --> 00:22:01,860
+return the first item
+
+453
+00:21:59,520 --> 00:22:04,679
+and essentially that just removes the
+
+454
+00:22:01,860 --> 00:22:05,480
+graphics head
+
+455
+00:22:04,679 --> 00:22:08,280
+um
+
+456
+00:22:05,480 --> 00:22:11,100
+if you don't understand it don't worry
+
+457
+00:22:08,280 --> 00:22:16,080
+about it so anyway so the basically it's
+
+458
+00:22:11,100 --> 00:22:18,480
+just a list of three polygons okay and
+
+459
+00:22:16,080 --> 00:22:21,299
+let me let me show you further so take
+
+460
+00:22:18,480 --> 00:22:25,679
+the first and take the first again
+
+461
+00:22:21,299 --> 00:22:28,980
+so you can see the first polygon and
+
+462
+00:22:25,679 --> 00:22:31,559
+and that green is actually a color you
+
+463
+00:22:28,980 --> 00:22:34,440
+see you see this little pop-up that's
+
+464
+00:22:31,559 --> 00:22:35,159
+actually the code is hue
+
+465
+00:22:34,440 --> 00:22:38,280
+um
+
+466
+00:22:35,159 --> 00:22:40,320
+is there a way to not show this but show
+
+467
+00:22:38,280 --> 00:22:44,780
+you the code well anyway let me let me
+
+468
+00:22:40,320 --> 00:22:44,780
+let's go further with this
+
+469
+00:22:45,419 --> 00:22:49,740
+yeah but it's it's not showing the code
+
+470
+00:22:47,580 --> 00:22:52,340
+I want to see I want to show you the
+
+471
+00:22:49,740 --> 00:22:52,340
+actual code
+
+472
+00:22:54,600 --> 00:23:01,080
+you see this green let me let me explain
+
+473
+00:22:58,320 --> 00:23:03,840
+this one the kind of the one of the
+
+474
+00:23:01,080 --> 00:23:05,820
+power of Wolfram language you see this
+
+475
+00:23:03,840 --> 00:23:07,799
+code let me show you okay let me just
+
+476
+00:23:05,820 --> 00:23:10,679
+type it
+
+477
+00:23:07,799 --> 00:23:13,740
+so this Hue function Hue function
+
+478
+00:23:10,679 --> 00:23:18,120
+reference represents a color just like
+
+479
+00:23:13,740 --> 00:23:19,500
+in CV in CSS cascading style sheet you
+
+480
+00:23:18,120 --> 00:23:21,360
+have RGB
+
+481
+00:23:19,500 --> 00:23:24,799
+right in
+
+482
+00:23:21,360 --> 00:23:24,799
+you know so let's see
+
+483
+00:23:24,919 --> 00:23:29,299
+let's see that
+
+484
+00:23:30,720 --> 00:23:37,320
+so if we go to the CSS you know the CSS
+
+485
+00:23:34,980 --> 00:23:42,320
+file and we
+
+486
+00:23:37,320 --> 00:23:42,320
+search for color let's go all the way
+
+487
+00:23:45,360 --> 00:23:51,120
+you can see
+
+488
+00:23:47,039 --> 00:23:54,600
+one of the way you specify color is by
+
+489
+00:23:51,120 --> 00:23:58,080
+by this way hsl parenthesis then
+
+490
+00:23:54,600 --> 00:24:02,720
+parameters values so let's how use one
+
+491
+00:23:58,080 --> 00:24:02,720
+of the way to specify color in CSS
+
+492
+00:24:04,080 --> 00:24:07,799
+so if you don't know you can you can go
+
+493
+00:24:05,880 --> 00:24:11,760
+to my tutorial okay I'm kind of
+
+494
+00:24:07,799 --> 00:24:14,460
+digressing but so you have many color
+
+495
+00:24:11,760 --> 00:24:18,360
+syntax but anyway here's how how you
+
+496
+00:24:14,460 --> 00:24:21,360
+represent colors in CSS okay by color
+
+497
+00:24:18,360 --> 00:24:23,520
+colon and the one of the value the value
+
+498
+00:24:21,360 --> 00:24:26,400
+can be your name color name or can be
+
+499
+00:24:23,520 --> 00:24:31,940
+kind of the hexadecimal
+
+500
+00:24:26,400 --> 00:24:31,940
+um format or it can be
+
+501
+00:24:31,980 --> 00:24:39,780
+you know it can be the RGB syntax or it
+
+502
+00:24:36,539 --> 00:24:41,940
+also can be hsl syntax so let me show
+
+503
+00:24:39,780 --> 00:24:44,640
+you so for example this is
+
+504
+00:24:41,940 --> 00:24:47,419
+this is a code you can see random color
+
+505
+00:24:44,640 --> 00:24:47,419
+you can see
+
+506
+00:24:48,179 --> 00:24:53,760
+you know so many many syntax in CSS to
+
+507
+00:24:51,960 --> 00:24:56,340
+represent a color
+
+508
+00:24:53,760 --> 00:24:58,919
+now in Wolfram language there is also
+
+509
+00:24:56,340 --> 00:25:02,340
+several ways to represent color one of
+
+510
+00:24:58,919 --> 00:25:05,600
+the ways by the Hue function okay so if
+
+511
+00:25:02,340 --> 00:25:09,299
+you say Hue 0.5
+
+512
+00:25:05,600 --> 00:25:13,980
+0.25 that's gonna be green so if you Q
+
+513
+00:25:09,299 --> 00:25:17,340
+goes from 0 to 1 so 0 is red okay so
+
+514
+00:25:13,980 --> 00:25:19,200
+when you evaluate it
+
+515
+00:25:17,340 --> 00:25:21,659
+it returns
+
+516
+00:25:19,200 --> 00:25:24,539
+you know it just returns itself you know
+
+517
+00:25:21,659 --> 00:25:27,419
+it's just a color Cube but however
+
+518
+00:25:24,539 --> 00:25:29,220
+the wolf Animal book renders it renders
+
+519
+00:25:27,419 --> 00:25:31,080
+it as a red square
+
+520
+00:25:29,220 --> 00:25:34,140
+just like
+
+521
+00:25:31,080 --> 00:25:38,100
+you know just like when you are in
+
+522
+00:25:34,140 --> 00:25:39,419
+you know CSS some of the editors renders
+
+523
+00:25:38,100 --> 00:25:42,779
+you know
+
+524
+00:25:39,419 --> 00:25:44,640
+colors put colors onto them so in the
+
+525
+00:25:42,779 --> 00:25:47,340
+same way we'll find language returns
+
+526
+00:25:44,640 --> 00:25:50,580
+that square
+
+527
+00:25:47,340 --> 00:25:52,440
+so for example if you want purple you
+
+528
+00:25:50,580 --> 00:25:55,320
+know it's a rainbow Hue is like the
+
+529
+00:25:52,440 --> 00:25:59,360
+rainbow color so purple is 0.9 around
+
+530
+00:25:55,320 --> 00:26:04,140
+there so if you do that okay 0.9
+
+531
+00:25:59,360 --> 00:26:06,559
+that's not purple enough let's say 0.8
+
+532
+00:26:04,140 --> 00:26:09,900
+okay so you can see you got the color
+
+533
+00:26:06,559 --> 00:26:14,220
+Hue so you can you can actually do a
+
+534
+00:26:09,900 --> 00:26:19,740
+range of colors we are digressing a lot
+
+535
+00:26:14,220 --> 00:26:21,059
+but let me finish this so Hue x x goes
+
+536
+00:26:19,740 --> 00:26:23,179
+from
+
+537
+00:26:21,059 --> 00:26:27,720
+a zero to one
+
+538
+00:26:23,179 --> 00:26:30,299
+in steps of 0.1 okay that will give you
+
+539
+00:26:27,720 --> 00:26:34,340
+a range of Hues basically the rainbow
+
+540
+00:26:30,299 --> 00:26:34,340
+color evaluated you can see
+
+541
+00:26:35,460 --> 00:26:41,700
+okay that's what Q is
+
+542
+00:26:39,000 --> 00:26:45,240
+uh actually we are digressing then the
+
+543
+00:26:41,700 --> 00:26:49,679
+polygon is just a bunch of is just um
+
+544
+00:26:45,240 --> 00:26:51,000
+so so the patch graphics 3D is these
+
+545
+00:26:49,679 --> 00:26:53,880
+squares
+
+546
+00:26:51,000 --> 00:26:56,880
+and uh
+
+547
+00:26:53,880 --> 00:27:00,480
+it's a list of three things each thing
+
+548
+00:26:56,880 --> 00:27:03,000
+is a list and in this list you start
+
+549
+00:27:00,480 --> 00:27:06,059
+with the color then you start with the
+
+550
+00:27:03,000 --> 00:27:09,240
+polygon function which represents the
+
+551
+00:27:06,059 --> 00:27:11,640
+polygon and inside you just
+
+552
+00:27:09,240 --> 00:27:14,419
+inside you see here just a bunch of
+
+553
+00:27:11,640 --> 00:27:14,419
+points okay
+
+554
+00:27:14,700 --> 00:27:19,159
+uh
+
+555
+00:27:16,140 --> 00:27:19,159
+yeah so
+
+556
+00:27:22,679 --> 00:27:26,640
+yeah
+
+557
+00:27:24,120 --> 00:27:29,640
+so why are we talking about this yeah
+
+558
+00:27:26,640 --> 00:27:32,460
+because I was trying to show you
+
+559
+00:27:29,640 --> 00:27:35,100
+how this works
+
+560
+00:27:32,460 --> 00:27:38,460
+uh
+
+561
+00:27:35,100 --> 00:27:43,500
+projection yeah so here you take the
+
+562
+00:27:38,460 --> 00:27:46,440
+bunch of colored polygon and you this
+
+563
+00:27:43,500 --> 00:27:49,679
+slash dot means pattern replacement okay
+
+564
+00:27:46,440 --> 00:27:52,740
+and the pattern you want to find is
+
+565
+00:27:49,679 --> 00:27:55,380
+anything polygon with anything anything
+
+566
+00:27:52,740 --> 00:27:58,020
+inside you know the inside polygon a
+
+567
+00:27:55,380 --> 00:28:00,659
+bunch of at least the points so you say
+
+568
+00:27:58,020 --> 00:28:03,539
+you want to find a pattern that begins
+
+569
+00:28:00,659 --> 00:28:06,179
+with the polygon square brackets and
+
+570
+00:28:03,539 --> 00:28:10,380
+anything inside and we give it a name
+
+571
+00:28:06,179 --> 00:28:12,120
+pts then we you want to replace it by
+
+572
+00:28:10,380 --> 00:28:17,460
+by a line
+
+573
+00:28:12,120 --> 00:28:19,500
+starting at 0 0 1 and ends
+
+574
+00:28:17,460 --> 00:28:22,260
+up at
+
+575
+00:28:19,500 --> 00:28:25,679
+okay you want it to be placed by this
+
+576
+00:28:22,260 --> 00:28:29,100
+expression this expression is mapping
+
+577
+00:28:25,679 --> 00:28:32,279
+this function to pts pts is bunch of
+
+578
+00:28:29,100 --> 00:28:34,919
+points in the polygon so
+
+579
+00:28:32,279 --> 00:28:37,460
+and what this means is a function that
+
+580
+00:28:34,919 --> 00:28:37,460
+Maps
+
+581
+00:28:37,620 --> 00:28:42,779
+this function to the points and this
+
+582
+00:28:40,260 --> 00:28:46,080
+function is basically a line starting at
+
+583
+00:28:42,779 --> 00:28:50,100
+0 0 1 and map it to that that particular
+
+584
+00:28:46,080 --> 00:28:53,460
+point so the result of this map
+
+585
+00:28:50,100 --> 00:28:56,520
+is a bunch of points I mean a bunch of
+
+586
+00:28:53,460 --> 00:28:58,980
+lines beginning at zero zero one to the
+
+587
+00:28:56,520 --> 00:29:01,380
+point so that's why
+
+588
+00:28:58,980 --> 00:29:02,760
+that's why you get this that's how you
+
+589
+00:29:01,380 --> 00:29:07,080
+get this
+
+590
+00:29:02,760 --> 00:29:09,120
+uh lines very very different programming
+
+591
+00:29:07,080 --> 00:29:12,360
+technique you see
+
+592
+00:29:09,120 --> 00:29:16,320
+you see by turning this thing
+
+593
+00:29:12,360 --> 00:29:18,960
+a bunch of squares into a bunch of lines
+
+594
+00:29:16,320 --> 00:29:19,919
+from one point to each of the squares
+
+595
+00:29:18,960 --> 00:29:24,000
+corner
+
+596
+00:29:19,919 --> 00:29:27,059
+just by this single line okay so anyways
+
+597
+00:29:24,000 --> 00:29:30,000
+then then
+
+598
+00:29:27,059 --> 00:29:34,200
+so okay so then let's evaluate this part
+
+599
+00:29:30,000 --> 00:29:37,700
+okay then this is a kind of the the
+
+600
+00:29:34,200 --> 00:29:37,700
+result of the sphere
+
+601
+00:29:38,520 --> 00:29:40,640
+um
+
+602
+00:29:42,120 --> 00:29:48,600
+then you also add
+
+603
+00:29:45,299 --> 00:29:52,380
+you add a grid to it to it
+
+604
+00:29:48,600 --> 00:29:57,179
+so let's remove the lighting
+
+605
+00:29:52,380 --> 00:29:58,559
+so now you get color yeah so there it is
+
+606
+00:29:57,179 --> 00:30:02,880
+okay
+
+607
+00:29:58,559 --> 00:30:04,860
+save it we are uh we've been running for
+
+608
+00:30:02,880 --> 00:30:06,899
+30 minutes we're kind of too slow we
+
+609
+00:30:04,860 --> 00:30:08,460
+want to start to get to the code okay
+
+610
+00:30:06,899 --> 00:30:10,260
+because I haven't
+
+611
+00:30:08,460 --> 00:30:12,840
+started coding
+
+612
+00:30:10,260 --> 00:30:15,539
+now the Java view you can ignore it this
+
+613
+00:30:12,840 --> 00:30:19,919
+this part is back then like 15 years ago
+
+614
+00:30:15,539 --> 00:30:24,299
+there is a Java applet that runs in
+
+615
+00:30:19,919 --> 00:30:27,120
+browser so that you can you can feed it
+
+616
+00:30:24,299 --> 00:30:29,880
+a Wolfram language code you know the
+
+617
+00:30:27,120 --> 00:30:32,399
+data points then you can see this thing
+
+618
+00:30:29,880 --> 00:30:34,140
+rotate in a browser
+
+619
+00:30:32,399 --> 00:30:36,120
+foreign
+
+620
+00:30:34,140 --> 00:30:40,220
+you know you can just rotate this in a
+
+621
+00:30:36,120 --> 00:30:43,860
+browser but Java applet is
+
+622
+00:30:40,220 --> 00:30:45,360
+dead in the browser it no longer works
+
+623
+00:30:43,860 --> 00:30:48,120
+so anyway so
+
+624
+00:30:45,360 --> 00:30:49,500
+so this is the package okay let's save
+
+625
+00:30:48,120 --> 00:30:51,840
+it now
+
+626
+00:30:49,500 --> 00:30:55,380
+what I want to do is start from scratch
+
+627
+00:30:51,840 --> 00:30:57,720
+okay now I can show you you know you can
+
+628
+00:30:55,380 --> 00:31:00,419
+see in this notebook everything is so
+
+629
+00:30:57,720 --> 00:31:03,000
+simple you don't see much you know lots
+
+630
+00:31:00,419 --> 00:31:04,679
+of code it seems so simple that the
+
+631
+00:31:03,000 --> 00:31:07,080
+reason I mean where is the projection
+
+632
+00:31:04,679 --> 00:31:09,000
+function like where is the function that
+
+633
+00:31:07,080 --> 00:31:11,460
+Maps one point on the plane to the
+
+634
+00:31:09,000 --> 00:31:15,059
+sphere you don't see it and where is the
+
+635
+00:31:11,460 --> 00:31:16,080
+where is the code to generate this grid
+
+636
+00:31:15,059 --> 00:31:20,159
+you see
+
+637
+00:31:16,080 --> 00:31:23,279
+to generate this squid that's the code
+
+638
+00:31:20,159 --> 00:31:24,419
+you know it's like it's like just one
+
+639
+00:31:23,279 --> 00:31:27,360
+line
+
+640
+00:31:24,419 --> 00:31:30,720
+but one of the reason is it's all in
+
+641
+00:31:27,360 --> 00:31:34,640
+this package okay so let's let's have a
+
+642
+00:31:30,720 --> 00:31:34,640
+look at the package for a little bit
+
+643
+00:31:35,039 --> 00:31:43,620
+okay transformation 2D plot so
+
+644
+00:31:39,179 --> 00:31:47,299
+so for example here is a usage for the
+
+645
+00:31:43,620 --> 00:31:47,299
+function rectangular grid
+
+646
+00:31:47,940 --> 00:31:54,419
+so all you have to do is just say
+
+647
+00:31:50,820 --> 00:31:56,720
+rectangular grid and let me let me do
+
+648
+00:31:54,419 --> 00:31:56,720
+this
+
+649
+00:31:57,419 --> 00:32:00,720
+all you have to do is just say
+
+650
+00:31:59,159 --> 00:32:06,299
+rectangular grid
+
+651
+00:32:00,720 --> 00:32:08,880
+and say x Min x max extend what I mean y
+
+652
+00:32:06,299 --> 00:32:12,240
+Max why step
+
+653
+00:32:08,880 --> 00:32:16,700
+that will return
+
+654
+00:32:12,240 --> 00:32:16,700
+the actual Graphics Primitives
+
+655
+00:32:17,220 --> 00:32:21,980
+so let me demonstrate so copy that
+
+656
+00:32:22,020 --> 00:32:28,460
+a new
+
+657
+00:32:23,820 --> 00:32:28,460
+notebook okay paste it there
+
+658
+00:32:37,080 --> 00:32:42,659
+okay run it so you see
+
+659
+00:32:40,380 --> 00:32:44,520
+a bunch of lines so that's what this
+
+660
+00:32:42,659 --> 00:32:47,100
+rectangular grid
+
+661
+00:32:44,520 --> 00:32:50,220
+a function do it just generate a bunch
+
+662
+00:32:47,100 --> 00:32:53,100
+of lines and how do you generate this
+
+663
+00:32:50,220 --> 00:32:56,640
+it's very easy you just like we did
+
+664
+00:32:53,100 --> 00:33:01,020
+before let me just say table
+
+665
+00:32:56,640 --> 00:33:03,600
+line for example line X
+
+666
+00:33:01,020 --> 00:33:06,899
+uh
+
+667
+00:33:03,600 --> 00:33:11,779
+so line you need
+
+668
+00:33:06,899 --> 00:33:16,640
+you need a list let's say X Y let's say
+
+669
+00:33:11,779 --> 00:33:22,679
+and this so line needs two points so x y
+
+670
+00:33:16,640 --> 00:33:23,820
+and x first one y plus one okay then you
+
+671
+00:33:22,679 --> 00:33:31,440
+say
+
+672
+00:33:23,820 --> 00:33:35,840
+x from 0 to 10 in steps of one okay then
+
+673
+00:33:31,440 --> 00:33:35,840
+you do the same thing for y
+
+674
+00:33:36,600 --> 00:33:42,779
+y 0 to 10 okay let's evaluate that you
+
+675
+00:33:41,460 --> 00:33:45,059
+see
+
+676
+00:33:42,779 --> 00:33:47,880
+that's how you get you know a bunch of
+
+677
+00:33:45,059 --> 00:33:49,980
+lines X and you know a bunch it's kind
+
+678
+00:33:47,880 --> 00:33:52,080
+of you have to
+
+679
+00:33:49,980 --> 00:33:53,940
+make sure this
+
+680
+00:33:52,080 --> 00:33:55,760
+you know is correct but that's
+
+681
+00:33:53,940 --> 00:34:00,000
+essentially what this
+
+682
+00:33:55,760 --> 00:34:02,360
+rectangular grid do you know it returns
+
+683
+00:34:00,000 --> 00:34:06,059
+a much bunch of lines but it has extra
+
+684
+00:34:02,360 --> 00:34:07,140
+it automatically you see added color to
+
+685
+00:34:06,059 --> 00:34:09,720
+each line
+
+686
+00:34:07,140 --> 00:34:12,480
+so this is fantastic
+
+687
+00:34:09,720 --> 00:34:15,619
+so you can see you can just run this and
+
+688
+00:34:12,480 --> 00:34:15,619
+get this um
+
+689
+00:34:15,960 --> 00:34:21,119
+let's say I want them thicker so
+
+690
+00:34:19,139 --> 00:34:24,780
+thickness okay
+
+691
+00:34:21,119 --> 00:34:27,780
+thickness let's see
+
+692
+00:34:24,780 --> 00:34:27,780
+0.2
+
+693
+00:34:28,139 --> 00:34:32,940
+okay it says 0.4
+
+694
+00:34:34,919 --> 00:34:37,580
+hmm
+
+695
+00:34:41,280 --> 00:34:48,899
+okay thickness
+
+696
+00:34:44,700 --> 00:34:52,500
+is not applying here for some reason
+
+697
+00:34:48,899 --> 00:34:54,419
+but anyway that's not important
+
+698
+00:34:52,500 --> 00:34:57,500
+um let's see increased graphics
+
+699
+00:34:54,419 --> 00:34:57,500
+resolution okay
+
+700
+00:34:58,200 --> 00:35:03,900
+so what what we want to do so that is
+
+701
+00:35:01,020 --> 00:35:06,660
+the function that is the function for
+
+702
+00:35:03,900 --> 00:35:09,119
+the rectangular grid okay
+
+703
+00:35:06,660 --> 00:35:11,339
+now that's how you generate this
+
+704
+00:35:09,119 --> 00:35:13,920
+rectangular grid
+
+705
+00:35:11,339 --> 00:35:14,520
+now what about
+
+706
+00:35:13,920 --> 00:35:17,520
+um
+
+707
+00:35:14,520 --> 00:35:20,280
+what about the actual
+
+708
+00:35:17,520 --> 00:35:24,480
+map into the sphere like where is the
+
+709
+00:35:20,280 --> 00:35:26,579
+code so that part is built I mean I it's
+
+710
+00:35:24,480 --> 00:35:27,839
+part of the package you see this
+
+711
+00:35:26,579 --> 00:35:30,300
+function
+
+712
+00:35:27,839 --> 00:35:34,020
+so let me let me make this easier to
+
+713
+00:35:30,300 --> 00:35:35,880
+read I hope let's see Ctrl shift n
+
+714
+00:35:34,020 --> 00:35:39,420
+okay it doesn't
+
+715
+00:35:35,880 --> 00:35:41,820
+see Ctrl shift T Ctrl shift n it doesn't
+
+716
+00:35:39,420 --> 00:35:45,260
+do much okay
+
+717
+00:35:41,820 --> 00:35:45,260
+so this code
+
+718
+00:35:46,140 --> 00:35:50,000
+so so this code
+
+719
+00:35:51,859 --> 00:35:59,880
+here is the important part this function
+
+720
+00:35:55,940 --> 00:36:02,640
+stereographic projection plot 3D
+
+721
+00:35:59,880 --> 00:36:05,040
+so you can let's look at the
+
+722
+00:36:02,640 --> 00:36:07,740
+documentation
+
+723
+00:36:05,040 --> 00:36:10,020
+you just type question mark and the
+
+724
+00:36:07,740 --> 00:36:12,900
+function name
+
+725
+00:36:10,020 --> 00:36:16,560
+then it tells you okay stereographic
+
+726
+00:36:12,900 --> 00:36:19,380
+projection plus 3D it takes three
+
+727
+00:36:16,560 --> 00:36:22,980
+arguments the first argument is playing
+
+728
+00:36:19,380 --> 00:36:24,780
+Graphics the second argument is R third
+
+729
+00:36:22,980 --> 00:36:28,320
+argument is C
+
+730
+00:36:24,780 --> 00:36:30,780
+shows a graphics 3D object that is the
+
+731
+00:36:28,320 --> 00:36:34,260
+input 2D Graphics stereographically
+
+732
+00:36:30,780 --> 00:36:37,260
+projected to a sphere of radius R and
+
+733
+00:36:34,260 --> 00:36:39,320
+above the orange and by C okay
+
+734
+00:36:37,260 --> 00:36:43,980
+so this is so
+
+735
+00:36:39,320 --> 00:36:46,020
+simple so let's just let's let's do
+
+736
+00:36:43,980 --> 00:36:49,980
+let's do it
+
+737
+00:36:46,020 --> 00:36:54,180
+okay so let's do it here
+
+738
+00:36:49,980 --> 00:36:56,520
+so let's let's see so you need we we
+
+739
+00:36:54,180 --> 00:36:59,520
+want to feed it
+
+740
+00:36:56,520 --> 00:37:02,700
+of flow Graphics okay
+
+741
+00:36:59,520 --> 00:37:04,920
+so that's the flow Graphics flow
+
+742
+00:37:02,700 --> 00:37:07,800
+Graphics is just bunch of lines like
+
+743
+00:37:04,920 --> 00:37:10,619
+this you know that's a great
+
+744
+00:37:07,800 --> 00:37:12,780
+okay then the second argument should be
+
+745
+00:37:10,619 --> 00:37:15,839
+a sphere radius
+
+746
+00:37:12,780 --> 00:37:17,160
+default to one and let's let's ignore
+
+747
+00:37:15,839 --> 00:37:20,099
+them
+
+748
+00:37:17,160 --> 00:37:23,220
+you see the second argument is R is the
+
+749
+00:37:20,099 --> 00:37:27,240
+radius of the sphere and above the
+
+750
+00:37:23,220 --> 00:37:30,960
+orange and by C so let's just run this
+
+751
+00:37:27,240 --> 00:37:35,660
+uh the T4 radius is half and the default
+
+752
+00:37:30,960 --> 00:37:35,660
+C is half okay it's the planet
+
+753
+00:37:36,839 --> 00:37:40,220
+okay not
+
+754
+00:37:40,460 --> 00:37:44,540
+uh yeah so
+
+755
+00:37:45,839 --> 00:37:52,920
+so it's not working why is it uh
+
+756
+00:37:49,380 --> 00:37:57,420
+let's see flow graphics 3D
+
+757
+00:37:52,920 --> 00:38:02,880
+now we have to see you see these parts
+
+758
+00:37:57,420 --> 00:38:06,900
+oh needs a 2d not 3D let's see so again
+
+759
+00:38:02,880 --> 00:38:09,859
+yeah so we feed it flow Graphics 2D not
+
+760
+00:38:06,900 --> 00:38:09,859
+3D so
+
+761
+00:38:11,220 --> 00:38:19,740
+do it fantastic you see how simple so we
+
+762
+00:38:16,140 --> 00:38:21,540
+didn't even have to code it you know
+
+763
+00:38:19,740 --> 00:38:23,760
+yeah but how does it work I mean the
+
+764
+00:38:21,540 --> 00:38:26,820
+problem with today you know actually we
+
+765
+00:38:23,760 --> 00:38:29,339
+wanted to actually code is not not using
+
+766
+00:38:26,820 --> 00:38:31,140
+a you know code already written so let
+
+767
+00:38:29,339 --> 00:38:34,460
+me show you okay stereographic
+
+768
+00:38:31,140 --> 00:38:38,460
+projection plus 3D okay
+
+769
+00:38:34,460 --> 00:38:41,220
+uh it's already 40 minutes uh
+
+770
+00:38:38,460 --> 00:38:43,320
+you know we can do this from scratch or
+
+771
+00:38:41,220 --> 00:38:45,839
+first of all let's look at the code okay
+
+772
+00:38:43,320 --> 00:38:48,660
+so the function is stereographics
+
+773
+00:38:45,839 --> 00:38:52,560
+projection plot 3D so the function is
+
+774
+00:38:48,660 --> 00:38:56,040
+here somewhere that here okay so here
+
+775
+00:38:52,560 --> 00:38:57,540
+is a code pretty simple let's see if I
+
+776
+00:38:56,040 --> 00:38:59,700
+can
+
+777
+00:38:57,540 --> 00:39:03,240
+copy the code
+
+778
+00:38:59,700 --> 00:39:06,060
+let's paste the code here and let's see
+
+779
+00:39:03,240 --> 00:39:07,859
+if I can predify it into a mathematical
+
+780
+00:39:06,060 --> 00:39:12,380
+rendering
+
+781
+00:39:07,859 --> 00:39:12,380
+yeah not much okay never mind
+
+782
+00:39:16,020 --> 00:39:23,180
+um DD did okay so
+
+783
+00:39:18,780 --> 00:39:23,180
+here is the code for the whole thing
+
+784
+00:39:25,140 --> 00:39:31,220
+okay and uh
+
+785
+00:39:28,380 --> 00:39:31,220
+let's see
+
+786
+00:39:31,619 --> 00:39:38,160
+so remember when we do this one of the
+
+787
+00:39:35,160 --> 00:39:41,280
+most important thing is the projection
+
+788
+00:39:38,160 --> 00:39:44,460
+function you know a function that takes
+
+789
+00:39:41,280 --> 00:39:46,920
+a point on the plane to the sphere okay
+
+790
+00:39:44,460 --> 00:39:48,480
+so we want to know where you know that
+
+791
+00:39:46,920 --> 00:39:51,359
+is the most important function that
+
+792
+00:39:48,480 --> 00:39:53,760
+function is here somewhere okay so let's
+
+793
+00:39:51,359 --> 00:39:56,300
+look at
+
+794
+00:39:53,760 --> 00:40:00,300
+there it is you see
+
+795
+00:39:56,300 --> 00:40:03,180
+stereographic project you see there is
+
+796
+00:40:00,300 --> 00:40:05,820
+that function so basically you can you
+
+797
+00:40:03,180 --> 00:40:08,940
+can kind of see you know the the code is
+
+798
+00:40:05,820 --> 00:40:13,440
+a bit complex but you can kind of see it
+
+799
+00:40:08,940 --> 00:40:16,260
+Maps this function to every point
+
+800
+00:40:13,440 --> 00:40:19,140
+you know from the points in the polygon
+
+801
+00:40:16,260 --> 00:40:20,160
+or points in the line so you start with
+
+802
+00:40:19,140 --> 00:40:22,619
+a
+
+803
+00:40:20,160 --> 00:40:25,200
+you know you start with a
+
+804
+00:40:22,619 --> 00:40:27,359
+whatever figure a plane figure that's
+
+805
+00:40:25,200 --> 00:40:30,180
+either polygons or lines
+
+806
+00:40:27,359 --> 00:40:32,160
+so each polygon or line
+
+807
+00:40:30,180 --> 00:40:35,040
+has
+
+808
+00:40:32,160 --> 00:40:36,780
+a bunch of you know line you know points
+
+809
+00:40:35,040 --> 00:40:39,780
+inside right
+
+810
+00:40:36,780 --> 00:40:42,060
+just just like this so for each point
+
+811
+00:40:39,780 --> 00:40:46,200
+you want to apply the function to that
+
+812
+00:40:42,060 --> 00:40:47,820
+point okay so that is what
+
+813
+00:40:46,200 --> 00:40:52,200
+this
+
+814
+00:40:47,820 --> 00:40:55,380
+uh this part is doing okay that
+
+815
+00:40:52,200 --> 00:40:59,820
+that is what they are
+
+816
+00:40:55,380 --> 00:41:03,000
+you see you use a pattern matching
+
+817
+00:40:59,820 --> 00:41:04,619
+you extract the polygon p is the points
+
+818
+00:41:03,000 --> 00:41:07,920
+in the polygon
+
+819
+00:41:04,619 --> 00:41:10,920
+and you once you got the point you apply
+
+820
+00:41:07,920 --> 00:41:13,980
+the function stereographic project
+
+821
+00:41:10,920 --> 00:41:17,640
+with that pointless argument and radius
+
+822
+00:41:13,980 --> 00:41:19,740
+of the sphere and the distance from the
+
+823
+00:41:17,640 --> 00:41:21,300
+plane see you know you apply this
+
+824
+00:41:19,740 --> 00:41:24,420
+function
+
+825
+00:41:21,300 --> 00:41:26,220
+at a specific level anyway the point is
+
+826
+00:41:24,420 --> 00:41:28,740
+that you just apply that function to a
+
+827
+00:41:26,220 --> 00:41:31,440
+bunch of points so now we want to look
+
+828
+00:41:28,740 --> 00:41:33,420
+up these functions stereographic project
+
+829
+00:41:31,440 --> 00:41:37,560
+so let's see
+
+830
+00:41:33,420 --> 00:41:39,960
+eventually it will just become
+
+831
+00:41:37,560 --> 00:41:43,380
+you know that function is basically just
+
+832
+00:41:39,960 --> 00:41:47,119
+this formula okay and Wikipedia so let's
+
+833
+00:41:43,380 --> 00:41:47,119
+look at that function okay
+
+834
+00:41:47,480 --> 00:41:54,900
+uh so what is this one okay let's
+
+835
+00:41:52,740 --> 00:41:57,980
+so
+
+836
+00:41:54,900 --> 00:41:57,980
+somewhere here
+
+837
+00:42:00,359 --> 00:42:05,940
+transformation Mobius transformation
+
+838
+00:42:02,820 --> 00:42:09,420
+okay uh
+
+839
+00:42:05,940 --> 00:42:11,599
+there is the function there it is
+
+840
+00:42:09,420 --> 00:42:13,440
+[Laughter]
+
+841
+00:42:11,599 --> 00:42:17,040
+fantastically
+
+842
+00:42:13,440 --> 00:42:20,579
+nicely rendered okay stereographic
+
+843
+00:42:17,040 --> 00:42:22,440
+project okay so given two points the
+
+844
+00:42:20,579 --> 00:42:25,980
+formula is
+
+845
+00:42:22,440 --> 00:42:28,020
+is that okay that
+
+846
+00:42:25,980 --> 00:42:30,660
+will agree
+
+847
+00:42:28,020 --> 00:42:35,700
+with wikipedias
+
+848
+00:42:30,660 --> 00:42:39,780
+um definition okay where's Wikipedia
+
+849
+00:42:35,700 --> 00:42:42,359
+so we keep PD essays that uh
+
+850
+00:42:39,780 --> 00:42:44,880
+anyway there's a lot of variations
+
+851
+00:42:42,359 --> 00:42:46,859
+depending on where you put the sphere
+
+852
+00:42:44,880 --> 00:42:49,380
+you know some
+
+853
+00:42:46,859 --> 00:42:52,619
+author put the sphere centered on the
+
+854
+00:42:49,380 --> 00:42:55,740
+plane some author put a sphere above the
+
+855
+00:42:52,619 --> 00:42:59,780
+plane like that so the formula will vary
+
+856
+00:42:55,740 --> 00:42:59,780
+but anyway so that's the code
+
+857
+00:43:00,420 --> 00:43:04,200
+okay that's it
+
+858
+00:43:02,040 --> 00:43:07,140
+um I think that you know basically we
+
+859
+00:43:04,200 --> 00:43:08,099
+cover it you know but
+
+860
+00:43:07,140 --> 00:43:12,060
+um
+
+861
+00:43:08,099 --> 00:43:14,400
+I'm thinking let's actually code it
+
+862
+00:43:12,060 --> 00:43:16,920
+walk through the package would be really
+
+863
+00:43:14,400 --> 00:43:19,380
+illustrative so we did you know we we
+
+864
+00:43:16,920 --> 00:43:22,160
+kind of did that uh I don't know if
+
+865
+00:43:19,380 --> 00:43:22,160
+that's helpful
+
+866
+00:43:22,319 --> 00:43:28,500
+okay so now any questions and comments
+
+867
+00:43:25,319 --> 00:43:30,119
+live people you guys say something so
+
+868
+00:43:28,500 --> 00:43:32,160
+now I'm thinking let's do it from
+
+869
+00:43:30,119 --> 00:43:34,800
+scratch I hope I can maybe I can finish
+
+870
+00:43:32,160 --> 00:43:38,220
+in 10 minutes if I really do it fast
+
+871
+00:43:34,800 --> 00:43:41,280
+like from scratch no need you know
+
+872
+00:43:38,220 --> 00:43:43,740
+from scratch let's do a really basic you
+
+873
+00:43:41,280 --> 00:43:47,280
+know this image okay let's let's do it
+
+874
+00:43:43,740 --> 00:43:50,940
+okay so let's do this so open unit we
+
+875
+00:43:47,280 --> 00:43:53,760
+need to do this really fast I want to
+
+876
+00:43:50,940 --> 00:43:56,880
+finish this okay so
+
+877
+00:43:53,760 --> 00:44:01,980
+so first of all let's let's
+
+878
+00:43:56,880 --> 00:44:04,640
+um it's not it's um the code seven
+
+879
+00:44:01,980 --> 00:44:04,640
+so
+
+880
+00:44:06,740 --> 00:44:12,859
+that's kind of the title that's not what
+
+881
+00:44:09,300 --> 00:44:12,859
+we want uh so
+
+882
+00:44:14,819 --> 00:44:20,700
+old age
+
+883
+00:44:17,400 --> 00:44:23,400
+this is a text this is a comment okay so
+
+884
+00:44:20,700 --> 00:44:26,520
+so Wolfram notebook is just like
+
+885
+00:44:23,400 --> 00:44:28,380
+um Oak mod if you use emacs you might be
+
+886
+00:44:26,520 --> 00:44:30,900
+familiar with Oak mod so you can have
+
+887
+00:44:28,380 --> 00:44:31,859
+title you have different headers you you
+
+888
+00:44:30,900 --> 00:44:34,980
+can have
+
+889
+00:44:31,859 --> 00:44:39,300
+um uh texts and so on
+
+890
+00:44:34,980 --> 00:44:41,220
+so what we I what I want now is to let's
+
+891
+00:44:39,300 --> 00:44:45,000
+see sales
+
+892
+00:44:41,220 --> 00:44:45,839
+of these format style sheet
+
+893
+00:44:45,000 --> 00:44:47,700
+um
+
+894
+00:44:45,839 --> 00:44:51,240
+styles
+
+895
+00:44:47,700 --> 00:44:54,200
+oh old seven is text so this part should
+
+896
+00:44:51,240 --> 00:44:54,200
+be old seven
+
+897
+00:44:55,859 --> 00:44:58,760
+all seven is
+
+898
+00:45:00,119 --> 00:45:05,280
+text okay so what I want to do now okay
+
+899
+00:45:03,119 --> 00:45:07,980
+let's do this
+
+900
+00:45:05,280 --> 00:45:11,940
+hopefully quickly hope you know
+
+901
+00:45:07,980 --> 00:45:13,740
+so what I want to do is geographic so
+
+902
+00:45:11,940 --> 00:45:17,599
+first of all
+
+903
+00:45:13,740 --> 00:45:17,599
+draw a grid okay
+
+904
+00:45:17,760 --> 00:45:27,180
+that's a bunch of lines then
+
+905
+00:45:22,380 --> 00:45:33,540
+Define the projection function
+
+906
+00:45:27,180 --> 00:45:35,280
+F okay then map the projection function
+
+907
+00:45:33,540 --> 00:45:41,040
+map
+
+908
+00:45:35,280 --> 00:45:43,200
+the map F2 or grid points
+
+909
+00:45:41,040 --> 00:45:47,040
+okay that's essentially what we want to
+
+910
+00:45:43,200 --> 00:45:49,140
+do so first of all draw the grid okay
+
+911
+00:45:47,040 --> 00:45:51,599
+so um
+
+912
+00:45:49,140 --> 00:45:54,359
+so we need to code this quickly now
+
+913
+00:45:51,599 --> 00:45:57,599
+let's go back to emacs because I can
+
+914
+00:45:54,359 --> 00:46:01,200
+type much faster in emacs okay so what
+
+915
+00:45:57,599 --> 00:46:05,280
+is this CSS index stereographic position
+
+916
+00:46:01,200 --> 00:46:07,920
+close so here is today's talk show and
+
+917
+00:46:05,280 --> 00:46:10,859
+go back and let's start a Wolfram
+
+918
+00:46:07,920 --> 00:46:13,260
+language here so I'm using wolf and mod
+
+919
+00:46:10,859 --> 00:46:16,520
+star wolf and mod if you just search for
+
+920
+00:46:13,260 --> 00:46:16,520
+it you will find it okay
+
+921
+00:46:18,359 --> 00:46:23,819
+uh let me show you so subwoofer mod you
+
+922
+00:46:21,240 --> 00:46:26,339
+just go to this URL so this mod allows
+
+923
+00:46:23,819 --> 00:46:28,980
+you to code Wolfram language in emacs
+
+924
+00:46:26,339 --> 00:46:30,119
+and it's on GitHub okay so you can get
+
+925
+00:46:28,980 --> 00:46:33,900
+it
+
+926
+00:46:30,119 --> 00:46:35,760
+okay so so let's code it so we want a
+
+927
+00:46:33,900 --> 00:46:37,280
+table
+
+928
+00:46:35,760 --> 00:46:40,700
+of lines
+
+929
+00:46:37,280 --> 00:46:40,700
+not tab
+
+930
+00:46:41,280 --> 00:46:47,660
+so we want uh so we want the bunch of
+
+931
+00:46:44,520 --> 00:46:47,660
+lines how do you
+
+932
+00:46:47,700 --> 00:46:55,579
+so we want the lines so let's see from 0
+
+933
+00:46:51,540 --> 00:46:55,579
+to let's say 10
+
+934
+00:47:00,300 --> 00:47:07,099
+X
+
+935
+00:47:02,400 --> 00:47:07,099
+x 0 to 10 okay
+
+936
+00:47:07,200 --> 00:47:12,420
+um so first of all so table needs two
+
+937
+00:47:10,140 --> 00:47:14,220
+arguments the first one is expression
+
+938
+00:47:12,420 --> 00:47:18,480
+line
+
+939
+00:47:14,220 --> 00:47:21,960
+okay line needs two point P1 and P2 okay
+
+940
+00:47:18,480 --> 00:47:28,400
+now the first point will be X
+
+941
+00:47:21,960 --> 00:47:28,400
+so X is starting from 0 so X
+
+942
+00:47:28,619 --> 00:47:35,940
+yeah X moves you know and Y is all zero
+
+943
+00:47:32,460 --> 00:47:38,579
+so here is X Y is all zero and what's
+
+944
+00:47:35,940 --> 00:47:39,960
+the end point uh the end point is going
+
+945
+00:47:38,579 --> 00:47:43,380
+to be
+
+946
+00:47:39,960 --> 00:47:46,619
+so this actually negative five to five
+
+947
+00:47:43,380 --> 00:47:51,300
+negative five to five
+
+948
+00:47:46,619 --> 00:47:52,920
+the end point the P2 is again two points
+
+949
+00:47:51,300 --> 00:47:57,800
+so
+
+950
+00:47:52,920 --> 00:47:57,800
+the end point is let's see
+
+951
+00:48:00,119 --> 00:48:05,660
+start there
+
+952
+00:48:02,220 --> 00:48:05,660
+so start at
+
+953
+00:48:06,240 --> 00:48:10,740
+X
+
+954
+00:48:07,619 --> 00:48:16,440
+so here should be negative five
+
+955
+00:48:10,740 --> 00:48:19,740
+and the end points is five okay X and uh
+
+956
+00:48:16,440 --> 00:48:25,079
+five okay so that is
+
+957
+00:48:19,740 --> 00:48:26,700
+uh grid points okay so that is uh grid
+
+958
+00:48:25,079 --> 00:48:29,720
+points I think
+
+959
+00:48:26,700 --> 00:48:29,720
+copy that
+
+960
+00:48:29,940 --> 00:48:37,079
+so now we need to yeah so
+
+961
+00:48:33,660 --> 00:48:41,180
+paste it run it okay you got a bunch of
+
+962
+00:48:37,079 --> 00:48:45,180
+lines so you can show it show
+
+963
+00:48:41,180 --> 00:48:45,180
+Graphics 2D
+
+964
+00:48:47,900 --> 00:48:56,040
+Graphics yeah that and add
+
+965
+00:48:52,560 --> 00:48:59,339
+grid points okay
+
+966
+00:48:56,040 --> 00:49:01,980
+fantastic that's all that's our vertical
+
+967
+00:48:59,339 --> 00:49:05,220
+lines okay now you want horizontal you
+
+968
+00:49:01,980 --> 00:49:07,140
+want horizontal lines
+
+969
+00:49:05,220 --> 00:49:09,180
+you know actually I know there's a
+
+970
+00:49:07,140 --> 00:49:11,760
+problem already because when you draw
+
+971
+00:49:09,180 --> 00:49:13,680
+lines like that you have endpoints you
+
+972
+00:49:11,760 --> 00:49:18,420
+know you have for each line you only
+
+973
+00:49:13,680 --> 00:49:21,720
+have two end points right then
+
+974
+00:49:18,420 --> 00:49:23,700
+then when you apply the transformation
+
+975
+00:49:21,720 --> 00:49:26,400
+you know the function map it to a sphere
+
+976
+00:49:23,700 --> 00:49:28,920
+you only got two points to work with
+
+977
+00:49:26,400 --> 00:49:31,260
+so you don't have you don't have all the
+
+978
+00:49:28,920 --> 00:49:33,420
+points in between the lines you know the
+
+979
+00:49:31,260 --> 00:49:36,480
+grid points
+
+980
+00:49:33,420 --> 00:49:39,180
+so that's not good so what will end up
+
+981
+00:49:36,480 --> 00:49:42,060
+is just the edges on the sphere
+
+982
+00:49:39,180 --> 00:49:44,280
+okay you see what I'm saying but
+
+983
+00:49:42,060 --> 00:49:47,339
+let's do that let's just do that okay
+
+984
+00:49:44,280 --> 00:49:51,140
+for now so that's a great point so
+
+985
+00:49:47,339 --> 00:49:51,140
+actually great points uh
+
+986
+00:49:51,540 --> 00:49:56,700
+vertical line itself so this is actually
+
+987
+00:49:53,940 --> 00:49:59,839
+vertical lines
+
+988
+00:49:56,700 --> 00:50:03,180
+okay this is aha
+
+989
+00:49:59,839 --> 00:50:07,020
+horizontal lines
+
+990
+00:50:03,180 --> 00:50:11,760
+okay horizontal lines is gonna be
+
+991
+00:50:07,020 --> 00:50:14,520
+uh lots of you have to think a lot
+
+992
+00:50:11,760 --> 00:50:17,700
+are you able to grab the code for
+
+993
+00:50:14,520 --> 00:50:20,940
+truncated isocahedron instead
+
+994
+00:50:17,700 --> 00:50:22,380
+of course how would that take things off
+
+995
+00:50:20,940 --> 00:50:24,839
+track
+
+996
+00:50:22,380 --> 00:50:27,859
+grab the code for what do you mean grab
+
+997
+00:50:24,839 --> 00:50:30,060
+you can do it in one minute truncated
+
+998
+00:50:27,859 --> 00:50:32,460
+isocahedron because that's so common
+
+999
+00:50:30,060 --> 00:50:34,500
+that's been done a thousand times you
+
+1000
+00:50:32,460 --> 00:50:36,660
+just go to Wolfram website you just
+
+1001
+00:50:34,500 --> 00:50:39,480
+search for wufan you just search for
+
+1002
+00:50:36,660 --> 00:50:41,040
+Mathematica truncated isocahedron in the
+
+1003
+00:50:39,480 --> 00:50:42,960
+library this
+
+1004
+00:50:41,040 --> 00:50:45,540
+actually and and it's actually just
+
+1005
+00:50:42,960 --> 00:50:47,579
+building there's a building but you know
+
+1006
+00:50:45,540 --> 00:50:50,099
+that's a different topic it's not let's
+
+1007
+00:50:47,579 --> 00:50:54,240
+let's focus on this one
+
+1008
+00:50:50,099 --> 00:50:56,819
+so so now you want to you know uh
+
+1009
+00:50:54,240 --> 00:50:59,760
+horizontal lines okay so horizontal
+
+1010
+00:50:56,819 --> 00:51:03,980
+lines you want to
+
+1011
+00:50:59,760 --> 00:51:03,980
+um we can combine these two actually so
+
+1012
+00:51:04,940 --> 00:51:11,280
+I don't know so let's just try that I
+
+1013
+00:51:08,880 --> 00:51:13,760
+don't know maybe this will probably work
+
+1014
+00:51:11,280 --> 00:51:13,760
+okay
+
+1015
+00:51:16,619 --> 00:51:22,859
+okay show
+
+1016
+00:51:19,500 --> 00:51:26,420
+actually graphics
+
+1017
+00:51:22,859 --> 00:51:26,420
+okay at
+
+1018
+00:51:27,300 --> 00:51:32,720
+okay we got horizontal lines now you can
+
+1019
+00:51:30,119 --> 00:51:32,720
+combine them
+
+1020
+00:51:33,000 --> 00:51:37,200
+okay combine them
+
+1021
+00:51:35,040 --> 00:51:41,420
+uh
+
+1022
+00:51:37,200 --> 00:51:41,420
+okay let's let's define them
+
+1023
+00:51:45,000 --> 00:51:50,160
+okay what is this uh
+
+1024
+00:51:47,280 --> 00:51:52,819
+Microsoft
+
+1025
+00:51:50,160 --> 00:51:52,819
+something
+
+1026
+00:51:53,880 --> 00:52:00,720
+so there is your lines and now you just
+
+1027
+00:51:57,480 --> 00:52:04,920
+combine them by
+
+1028
+00:52:00,720 --> 00:52:09,020
+give them a list okay so
+
+1029
+00:52:04,920 --> 00:52:13,020
+vertical lines and horizontal lines
+
+1030
+00:52:09,020 --> 00:52:14,819
+there it is and then you can
+
+1031
+00:52:13,020 --> 00:52:18,660
+show grid
+
+1032
+00:52:14,819 --> 00:52:21,180
+grid lines automatic okay
+
+1033
+00:52:18,660 --> 00:52:22,020
+uh actually we don't want grid lines we
+
+1034
+00:52:21,180 --> 00:52:23,220
+want
+
+1035
+00:52:22,020 --> 00:52:26,420
+um
+
+1036
+00:52:23,220 --> 00:52:26,420
+we want frame
+
+1037
+00:52:31,920 --> 00:52:35,720
+uh actually we
+
+1038
+00:52:37,400 --> 00:52:40,760
+close to
+
+1039
+00:52:50,180 --> 00:52:55,500
+we want yeah that's what we want we I
+
+1040
+00:52:53,339 --> 00:52:58,079
+want the ticks so you can see easily see
+
+1041
+00:52:55,500 --> 00:53:01,680
+we got we got our lines now we got the
+
+1042
+00:52:58,079 --> 00:53:02,880
+lines now you we we now let's define the
+
+1043
+00:53:01,680 --> 00:53:05,460
+projection
+
+1044
+00:53:02,880 --> 00:53:07,559
+function okay let's define the
+
+1045
+00:53:05,460 --> 00:53:09,980
+projection function we just copy the
+
+1046
+00:53:07,559 --> 00:53:09,980
+code here
+
+1047
+00:53:10,380 --> 00:53:15,900
+easy
+
+1048
+00:53:13,200 --> 00:53:17,520
+yeah it's because that function this
+
+1049
+00:53:15,900 --> 00:53:19,140
+function you can just get it from
+
+1050
+00:53:17,520 --> 00:53:22,800
+Wikipedia okay
+
+1051
+00:53:19,140 --> 00:53:25,380
+so yes Wikipedia you know you change you
+
+1052
+00:53:22,800 --> 00:53:28,559
+can just copy it when Wikipedia and also
+
+1053
+00:53:25,380 --> 00:53:30,800
+well we can actually derive this formula
+
+1054
+00:53:28,559 --> 00:53:34,140
+okay this formula is actually easy easy
+
+1055
+00:53:30,800 --> 00:53:36,720
+to derive if you know trigonometry okay
+
+1056
+00:53:34,140 --> 00:53:37,740
+but let's not do it today we don't have
+
+1057
+00:53:36,720 --> 00:53:40,920
+time
+
+1058
+00:53:37,740 --> 00:53:46,280
+okay so projection function uh let's say
+
+1059
+00:53:40,920 --> 00:53:46,280
+project F okay so actually
+
+1060
+00:53:46,800 --> 00:53:50,940
+okay that's that's our function project
+
+1061
+00:53:48,839 --> 00:53:56,819
+f
+
+1062
+00:53:50,940 --> 00:53:59,300
+let's see uh yeah in C uh okay yeah so
+
+1063
+00:53:56,819 --> 00:53:59,300
+okay
+
+1064
+00:54:00,599 --> 00:54:05,400
+that's our projection function okay now
+
+1065
+00:54:03,300 --> 00:54:08,640
+let's test
+
+1066
+00:54:05,400 --> 00:54:10,920
+uh projection function and let's test
+
+1067
+00:54:08,640 --> 00:54:14,520
+give it a point
+
+1068
+00:54:10,920 --> 00:54:16,559
+let's say 0 0 it should be returned zero
+
+1069
+00:54:14,520 --> 00:54:18,359
+zero because the ranger map sorry you
+
+1070
+00:54:16,559 --> 00:54:22,079
+see it becomes a three-dimensional
+
+1071
+00:54:18,359 --> 00:54:25,500
+engine okay so let's say
+
+1072
+00:54:22,079 --> 00:54:27,059
+one one okay one one
+
+1073
+00:54:25,500 --> 00:54:31,079
+Okay so
+
+1074
+00:54:27,059 --> 00:54:33,540
+the point one one on the plane will be
+
+1075
+00:54:31,079 --> 00:54:36,059
+the point that point on the sphere okay
+
+1076
+00:54:33,540 --> 00:54:39,359
+that's a projection function now all you
+
+1077
+00:54:36,059 --> 00:54:40,440
+have all we have to do is we have to map
+
+1078
+00:54:39,359 --> 00:54:42,720
+okay
+
+1079
+00:54:40,440 --> 00:54:46,880
+so we're gonna do
+
+1080
+00:54:42,720 --> 00:54:46,880
+what we're gonna do is this okay
+
+1081
+00:54:48,420 --> 00:54:55,980
+okay butterflies horizontal lines okay
+
+1082
+00:54:52,140 --> 00:54:58,740
+make at least a list of them then you to
+
+1083
+00:54:55,980 --> 00:55:01,440
+replace okay that means replace uh let
+
+1084
+00:54:58,740 --> 00:55:03,300
+me show you in the more understandable
+
+1085
+00:55:01,440 --> 00:55:06,240
+syntax
+
+1086
+00:55:03,300 --> 00:55:08,819
+okay so replace all is the thing is the
+
+1087
+00:55:06,240 --> 00:55:10,140
+function we want to do let's kind of pet
+
+1088
+00:55:08,819 --> 00:55:12,359
+a matching let's show you the
+
+1089
+00:55:10,140 --> 00:55:17,119
+documentation so
+
+1090
+00:55:12,359 --> 00:55:17,119
+here's a documentation for replace all
+
+1091
+00:55:18,059 --> 00:55:24,900
+uh you see it just takes uh it takes an
+
+1092
+00:55:22,980 --> 00:55:27,180
+expression and a bunch of rules and
+
+1093
+00:55:24,900 --> 00:55:31,020
+transform that expression let me show
+
+1094
+00:55:27,180 --> 00:55:32,940
+you so so replace or takes two arguments
+
+1095
+00:55:31,020 --> 00:55:35,579
+the first argument is the expression
+
+1096
+00:55:32,940 --> 00:55:38,160
+which is a list of the vertical lines
+
+1097
+00:55:35,579 --> 00:55:40,319
+and horizontal lines and the second
+
+1098
+00:55:38,160 --> 00:55:43,980
+argument is how you want to transform it
+
+1099
+00:55:40,319 --> 00:55:47,700
+and the way you do it is you say a rule
+
+1100
+00:55:43,980 --> 00:55:50,940
+okay actually you say root delayed
+
+1101
+00:55:47,700 --> 00:55:52,980
+okay rule delay takes two things one is
+
+1102
+00:55:50,940 --> 00:55:55,200
+the pattern
+
+1103
+00:55:52,980 --> 00:56:00,240
+a pattern matching a pattern you want to
+
+1104
+00:55:55,200 --> 00:56:04,160
+match so in this case we want to
+
+1105
+00:56:00,240 --> 00:56:04,160
+uh so um
+
+1106
+00:56:04,680 --> 00:56:11,059
+and the second argument is what you want
+
+1107
+00:56:07,380 --> 00:56:11,059
+to replace by Okay so
+
+1108
+00:56:12,240 --> 00:56:17,780
+so the first argument is um
+
+1109
+00:56:20,880 --> 00:56:26,119
+horizontal lines so for any so we want
+
+1110
+00:56:23,880 --> 00:56:26,119
+to
+
+1111
+00:56:26,450 --> 00:56:35,520
+[Music]
+
+1112
+00:56:31,220 --> 00:56:39,420
+points so we want to say pts is a bunch
+
+1113
+00:56:35,520 --> 00:56:41,940
+of points and the pattern will be line
+
+1114
+00:56:39,420 --> 00:56:43,400
+okay so this is a pattern this means
+
+1115
+00:56:41,940 --> 00:56:47,819
+anything
+
+1116
+00:56:43,400 --> 00:56:51,559
+that's a line okay and uh
+
+1117
+00:56:47,819 --> 00:56:51,559
+actually let's do it this way
+
+1118
+00:56:57,359 --> 00:57:03,540
+Okay so
+
+1119
+00:56:59,700 --> 00:57:06,480
+yeah so so this means this is a this is
+
+1120
+00:57:03,540 --> 00:57:09,720
+this this means a pattern of a line and
+
+1121
+00:57:06,480 --> 00:57:13,140
+inside it is anything and we name it X
+
+1122
+00:57:09,720 --> 00:57:15,720
+points okay and we want to map it too
+
+1123
+00:57:13,140 --> 00:57:20,119
+let's let's put it here
+
+1124
+00:57:15,720 --> 00:57:20,119
+let's make them easier to see okay
+
+1125
+00:57:20,880 --> 00:57:23,540
+so
+
+1126
+00:57:24,240 --> 00:57:28,559
+okay the second argument for root
+
+1127
+00:57:26,520 --> 00:57:33,980
+degrade is what you want to replace by
+
+1128
+00:57:28,559 --> 00:57:33,980
+so in this case we want to replace by
+
+1129
+00:57:35,040 --> 00:57:43,140
+line and inside will be using the
+
+1130
+00:57:40,319 --> 00:57:45,440
+projection function okay projection
+
+1131
+00:57:43,140 --> 00:57:48,900
+function to
+
+1132
+00:57:45,440 --> 00:57:51,300
+map to
+
+1133
+00:57:48,900 --> 00:57:52,920
+X points okay
+
+1134
+00:57:51,300 --> 00:57:55,680
+that
+
+1135
+00:57:52,920 --> 00:57:57,960
+do you see what I mean you know so so
+
+1136
+00:57:55,680 --> 00:58:00,480
+this line is actually can be written
+
+1137
+00:57:57,960 --> 00:58:02,280
+more easier to understand if I just
+
+1138
+00:58:00,480 --> 00:58:04,700
+write it as
+
+1139
+00:58:02,280 --> 00:58:04,700
+second
+
+1140
+00:58:06,599 --> 00:58:13,339
+okay so we want to map the projection
+
+1141
+00:58:09,839 --> 00:58:13,339
+function to
+
+1142
+00:58:13,740 --> 00:58:18,240
+points okay so this
+
+1143
+00:58:16,079 --> 00:58:20,579
+this line and this line are equivalent
+
+1144
+00:58:18,240 --> 00:58:22,140
+just syntax differences so let's let's
+
+1145
+00:58:20,579 --> 00:58:27,319
+use that
+
+1146
+00:58:22,140 --> 00:58:27,319
+okay so let's try if it works
+
+1147
+00:58:31,440 --> 00:58:34,819
+let's do
+
+1148
+00:58:33,140 --> 00:58:39,059
+fantastic
+
+1149
+00:58:34,819 --> 00:58:41,040
+one shot it works you see originally our
+
+1150
+00:58:39,059 --> 00:58:43,799
+lines vertical lines and horizontal
+
+1151
+00:58:41,040 --> 00:58:46,619
+lines are two dimensional lines you know
+
+1152
+00:58:43,799 --> 00:58:49,319
+each point is just 2 I X and Y
+
+1153
+00:58:46,619 --> 00:58:51,180
+coordinates now it's three because there
+
+1154
+00:58:49,319 --> 00:58:53,640
+are now three dimensional and a sphere
+
+1155
+00:58:51,180 --> 00:58:56,400
+so all you have to do is Show graphics
+
+1156
+00:58:53,640 --> 00:58:59,040
+of these things so let's do it
+
+1157
+00:58:56,400 --> 00:59:00,660
+you know we can just do it so here is
+
+1158
+00:58:59,040 --> 00:59:03,359
+the
+
+1159
+00:59:00,660 --> 00:59:06,180
+uh
+
+1160
+00:59:03,359 --> 00:59:10,200
+graphics
+
+1161
+00:59:06,180 --> 00:59:11,460
+g3d okay g3d wait
+
+1162
+00:59:10,200 --> 00:59:15,839
+G
+
+1163
+00:59:11,460 --> 00:59:18,660
+x g 3D okay let's just say that equals
+
+1164
+00:59:15,839 --> 00:59:22,140
+to it's assign it to a
+
+1165
+00:59:18,660 --> 00:59:26,880
+to a variable so we can refer to it xg3d
+
+1166
+00:59:22,140 --> 00:59:29,880
+okay now let's just put graphics
+
+1167
+00:59:26,880 --> 00:59:29,880
+3D
+
+1168
+00:59:29,940 --> 00:59:35,040
+and give it an argument xg3d
+
+1169
+00:59:38,900 --> 00:59:43,819
+wrong
+
+1170
+00:59:40,500 --> 00:59:43,819
+oh wait is it
+
+1171
+00:59:46,440 --> 00:59:49,220
+how is it
+
+1172
+00:59:52,319 --> 00:59:58,099
+so
+
+1173
+00:59:54,780 --> 00:59:58,099
+why is it wrong
+
+1174
+00:59:58,819 --> 01:00:06,079
+uh let's see map project to the points
+
+1175
+01:00:03,000 --> 01:00:06,079
+but um
+
+1176
+01:00:07,980 --> 01:00:12,960
+so we got this bunch of lines Why is it
+
+1177
+01:00:10,740 --> 01:00:17,599
+wrong I don't know
+
+1178
+01:00:12,960 --> 01:00:17,599
+but uh I'm getting tired
+
+1179
+01:00:23,819 --> 01:00:29,180
+he's here because uh formula is
+
+1180
+01:00:26,460 --> 01:00:29,180
+incorrect
+
+1181
+01:00:34,380 --> 01:00:39,510
+foreign
+
+1182
+01:00:36,140 --> 01:00:39,510
+[Music]
+
+1183
+01:01:09,200 --> 01:01:16,260
+let's try is it because our phone
+
+1184
+01:01:12,119 --> 01:01:20,760
+formula is incorrect so if you have 100
+
+1185
+01:01:16,260 --> 01:01:20,760
+what happens 100 100.
+
+1186
+01:01:21,180 --> 01:01:23,359
+foreign
+
+1187
+01:01:26,540 --> 01:01:32,220
+that's a point very far away
+
+1188
+01:01:29,760 --> 01:01:37,880
+very far away
+
+1189
+01:01:32,220 --> 01:01:37,880
+and so if you have a point very far away
+
+1190
+01:01:39,900 --> 01:01:43,680
+you should
+
+1191
+01:01:42,000 --> 01:01:46,260
+have
+
+1192
+01:01:43,680 --> 01:01:48,540
+the resulting point should be very close
+
+1193
+01:01:46,260 --> 01:01:51,839
+to the North Pole
+
+1194
+01:01:48,540 --> 01:01:54,599
+so this number should be very close to
+
+1195
+01:01:51,839 --> 01:01:57,900
+the North Pole that's right because you
+
+1196
+01:01:54,599 --> 01:02:01,020
+see the Z coordinate here
+
+1197
+01:01:57,900 --> 01:02:04,260
+is almost one
+
+1198
+01:02:01,020 --> 01:02:06,839
+and this number here is almost zero X
+
+1199
+01:02:04,260 --> 01:02:10,140
+and Y becomes
+
+1200
+01:02:06,839 --> 01:02:12,240
+almost zero almost zero and the Z is
+
+1201
+01:02:10,140 --> 01:02:15,480
+almost one so very close to the North
+
+1202
+01:02:12,240 --> 01:02:17,940
+Pole so the formula projection function
+
+1203
+01:02:15,480 --> 01:02:19,140
+is correct
+
+1204
+01:02:17,940 --> 01:02:21,839
+but
+
+1205
+01:02:19,140 --> 01:02:24,480
+um but why are we getting this this is
+
+1206
+01:02:21,839 --> 01:02:27,720
+actually probably expected okay actually
+
+1207
+01:02:24,480 --> 01:02:29,880
+that's probably even correct so let's
+
+1208
+01:02:27,720 --> 01:02:33,799
+just do this again let's clean up the
+
+1209
+01:02:29,880 --> 01:02:33,799
+code and let's do this again
+
+1210
+01:02:34,260 --> 01:02:40,260
+okay so so let's clean up the code so
+
+1211
+01:02:38,460 --> 01:02:44,460
+that's what we need
+
+1212
+01:02:40,260 --> 01:02:45,900
+so let's put the semicolon
+
+1213
+01:02:44,460 --> 01:02:49,559
+here
+
+1214
+01:02:45,900 --> 01:02:53,760
+put put this in my colon here put the
+
+1215
+01:02:49,559 --> 01:02:53,760
+semicolon here and
+
+1216
+01:02:56,280 --> 01:03:00,599
+okay it's
+
+1217
+01:02:57,839 --> 01:03:02,940
+okay that's that's a lot of code that's
+
+1218
+01:03:00,599 --> 01:03:07,220
+all there it is so now
+
+1219
+01:03:02,940 --> 01:03:07,220
+let's delete all that
+
+1220
+01:03:16,559 --> 01:03:22,099
+okay and paste this code
+
+1221
+01:03:19,380 --> 01:03:22,099
+do it
+
+1222
+01:03:28,680 --> 01:03:35,599
+wait why is it
+
+1223
+01:03:31,559 --> 01:03:35,599
+why is it not showing graphics
+
+1224
+01:03:36,660 --> 01:03:42,980
+oh not graph graphics 3D not craft 3D
+
+1225
+01:03:51,780 --> 01:03:55,760
+okay let's do it again
+
+1226
+01:03:56,280 --> 01:04:03,420
+paste over do it
+
+1227
+01:03:59,400 --> 01:04:05,640
+okay don't worry let's fix it now let's
+
+1228
+01:04:03,420 --> 01:04:10,020
+say uh
+
+1229
+01:04:05,640 --> 01:04:14,339
+in increment of zero point
+
+1230
+01:04:10,020 --> 01:04:19,500
+five okay let's say increment
+
+1231
+01:04:14,339 --> 01:04:22,040
+X increment equals to 0.2
+
+1232
+01:04:19,500 --> 01:04:22,040
+okay
+
+1233
+01:04:28,799 --> 01:04:33,839
+uh
+
+1234
+01:04:30,720 --> 01:04:37,680
+uh there so here
+
+1235
+01:04:33,839 --> 01:04:39,859
+here okay copy that
+
+1236
+01:04:37,680 --> 01:04:39,859
+foreign
+
+1237
+01:05:02,240 --> 01:05:05,599
+what is this
+
+1238
+01:05:06,900 --> 01:05:14,780
+oh we got we got uh yeah we got a
+
+1239
+01:05:10,920 --> 01:05:14,780
+syntax era or something
+
+1240
+01:05:27,500 --> 01:05:31,520
+coordinate cell context
+
+1241
+01:05:32,040 --> 01:05:36,319
+to your triple of numbers okay
+
+1242
+01:05:56,940 --> 01:05:59,660
+what
+
+1243
+01:06:20,040 --> 01:06:24,559
+okay there is something wrong
+
+1244
+01:06:25,160 --> 01:06:33,079
+let's add some clear coat clear the
+
+1245
+01:06:29,339 --> 01:06:33,079
+variables X ink
+
+1246
+01:06:56,520 --> 01:07:03,000
+okay let's select all
+
+1247
+01:06:58,980 --> 01:07:05,819
+paste just do it okay so there's
+
+1248
+01:07:03,000 --> 01:07:08,000
+something wrong let's see let's figure
+
+1249
+01:07:05,819 --> 01:07:08,000
+out
+
+1250
+01:07:08,099 --> 01:07:16,799
+X and Y and uh oh yeah so we got extra
+
+1251
+01:07:12,119 --> 01:07:22,220
+zero here idiotic so select all paste
+
+1252
+01:07:16,799 --> 01:07:25,339
+run it fantastic okay now increment
+
+1253
+01:07:22,220 --> 01:07:30,559
+0.1 okay
+
+1254
+01:07:25,339 --> 01:07:30,559
+fantastic we got this patch now
+
+1255
+01:07:31,020 --> 01:07:37,740
+now let's look carefully
+
+1256
+01:07:34,920 --> 01:07:40,500
+actually that may be the correct result
+
+1257
+01:07:37,740 --> 01:07:43,440
+yes that's the correct result because if
+
+1258
+01:07:40,500 --> 01:07:45,539
+you look carefully when you have large
+
+1259
+01:07:43,440 --> 01:07:48,240
+you know when you have points that's far
+
+1260
+01:07:45,539 --> 01:07:51,599
+away from the center of the plane then
+
+1261
+01:07:48,240 --> 01:07:54,839
+they become mapped to the like very
+
+1262
+01:07:51,599 --> 01:07:57,720
+small patch at the near the North Pole
+
+1263
+01:07:54,839 --> 01:08:01,079
+so our code is actually correct
+
+1264
+01:07:57,720 --> 01:08:03,319
+so now we just need to modify the yeah
+
+1265
+01:08:01,079 --> 01:08:08,760
+so let's do Max and mean
+
+1266
+01:08:03,319 --> 01:08:08,760
+X found X
+
+1267
+01:08:08,819 --> 01:08:13,859
+let's say bound okay X
+
+1268
+01:08:12,359 --> 01:08:15,980
+boundary
+
+1269
+01:08:13,859 --> 01:08:15,980
+um
+
+1270
+01:08:17,839 --> 01:08:23,359
+let's just say x this okay
+
+1271
+01:08:23,520 --> 01:08:27,380
+name is uh problem
+
+1272
+01:08:32,100 --> 01:08:41,880
+s okay X length equals to one okay and
+
+1273
+01:08:37,140 --> 01:08:46,880
+uh increment 0.2 okay so X length is
+
+1274
+01:08:41,880 --> 01:08:46,880
+going to be let's say two okay
+
+1275
+01:08:46,980 --> 01:08:54,259
+so this instead of five let's just
+
+1276
+01:08:49,859 --> 01:08:54,259
+replace by X length okay
+
+1277
+01:08:54,420 --> 01:08:59,000
+you place five by X length
+
+1278
+01:09:01,319 --> 01:09:08,299
+okay copy the whole
+
+1279
+01:09:03,600 --> 01:09:08,299
+select all paste open it
+
+1280
+01:09:10,259 --> 01:09:17,460
+yeah I think that's closer
+
+1281
+01:09:14,160 --> 01:09:18,359
+but still incorrect yeah remember the
+
+1282
+01:09:17,460 --> 01:09:20,880
+reason
+
+1283
+01:09:18,359 --> 01:09:23,819
+we don't got the sphere because we we
+
+1284
+01:09:20,880 --> 01:09:26,819
+don't have many points to work with
+
+1285
+01:09:23,819 --> 01:09:28,859
+so so now let's let's work on the
+
+1286
+01:09:26,819 --> 01:09:30,660
+horizontal lines because we only have
+
+1287
+01:09:28,859 --> 01:09:32,400
+the boundary of the points we don't have
+
+1288
+01:09:30,660 --> 01:09:35,699
+the points inside
+
+1289
+01:09:32,400 --> 01:09:39,600
+so now we it's just work on the boundary
+
+1290
+01:09:35,699 --> 01:09:42,960
+I mean the let's draw the actual grid
+
+1291
+01:09:39,600 --> 01:09:45,660
+so instead of so now instead of these
+
+1292
+01:09:42,960 --> 01:09:46,859
+two code let's just simplify with one
+
+1293
+01:09:45,660 --> 01:09:48,660
+code
+
+1294
+01:09:46,859 --> 01:09:52,440
+we can do
+
+1295
+01:09:48,660 --> 01:09:54,060
+um a lot with just one single table so
+
+1296
+01:09:52,440 --> 01:09:56,580
+single table
+
+1297
+01:09:54,060 --> 01:10:00,000
+needs
+
+1298
+01:09:56,580 --> 01:10:02,160
+two arguments the first argument is a
+
+1299
+01:10:00,000 --> 01:10:04,440
+expression the second argument is the
+
+1300
+01:10:02,160 --> 01:10:06,600
+increment so actually we need two
+
+1301
+01:10:04,440 --> 01:10:10,020
+increments
+
+1302
+01:10:06,600 --> 01:10:12,739
+X and Y so
+
+1303
+01:10:10,020 --> 01:10:12,739
+X
+
+1304
+01:10:14,760 --> 01:10:17,960
+and the Y
+
+1305
+01:10:18,239 --> 01:10:24,380
+X length y length Okay so and the
+
+1306
+01:10:22,080 --> 01:10:27,420
+expression should be
+
+1307
+01:10:24,380 --> 01:10:31,440
+instead of a line we got the list of
+
+1308
+01:10:27,420 --> 01:10:33,800
+lines okay so list of lines so this will
+
+1309
+01:10:31,440 --> 01:10:33,800
+be
+
+1310
+01:10:35,040 --> 01:10:38,179
+so let's let's
+
+1311
+01:10:43,560 --> 01:10:48,659
+okay so X
+
+1312
+01:10:47,040 --> 01:10:51,860
+first
+
+1313
+01:10:48,659 --> 01:10:51,860
+this will be
+
+1314
+01:10:52,500 --> 01:11:00,300
+X starting from that to that
+
+1315
+01:10:57,360 --> 01:11:03,199
+and the increment will be
+
+1316
+01:11:00,300 --> 01:11:03,199
+X
+
+1317
+01:11:03,900 --> 01:11:08,719
+here will be X
+
+1318
+01:11:06,120 --> 01:11:08,719
+Plus
+
+1319
+01:11:09,179 --> 01:11:12,800
+X increment okay
+
+1320
+01:11:20,880 --> 01:11:28,320
+oh actually
+
+1321
+01:11:22,500 --> 01:11:30,659
+here we'll be X and Y and here will be
+
+1322
+01:11:28,320 --> 01:11:35,719
+X first increment
+
+1323
+01:11:30,659 --> 01:11:35,719
+and Y plus increment okay
+
+1324
+01:11:36,179 --> 01:11:40,760
+so
+
+1325
+01:11:37,860 --> 01:11:40,760
+and
+
+1326
+01:11:42,480 --> 01:11:47,880
+okay and
+
+1327
+01:11:44,940 --> 01:11:49,320
+that's our new code okay so we don't
+
+1328
+01:11:47,880 --> 01:11:54,320
+need that
+
+1329
+01:11:49,320 --> 01:11:54,320
+so you say x lines
+
+1330
+01:11:56,460 --> 01:12:00,080
+okay x squared
+
+1331
+01:12:00,840 --> 01:12:09,900
+so this is a great
+
+1332
+01:12:03,000 --> 01:12:12,360
+okay and now when you apply replace all
+
+1333
+01:12:09,900 --> 01:12:15,540
+instead of the lines you can just say
+
+1334
+01:12:12,360 --> 01:12:17,940
+grid okay it's hope it works one shot
+
+1335
+01:12:15,540 --> 01:12:19,560
+blind coding
+
+1336
+01:12:17,940 --> 01:12:23,159
+because
+
+1337
+01:12:19,560 --> 01:12:26,239
+I know what I'm doing okay
+
+1338
+01:12:23,159 --> 01:12:26,239
+Okay so
+
+1339
+01:12:27,420 --> 01:12:38,159
+so something wrong okay so line X and Y
+
+1340
+01:12:32,400 --> 01:12:43,520
+line requires at least the points so x y
+
+1341
+01:12:38,159 --> 01:12:43,520
+X Plus increment y plus increment
+
+1342
+01:12:47,460 --> 01:12:51,980
+so X and Y are variables
+
+1343
+01:12:54,659 --> 01:13:01,340
+yeah so here you need
+
+1344
+01:12:57,420 --> 01:13:01,340
+X increment okay
+
+1345
+01:13:02,780 --> 01:13:10,739
+select or paste then
+
+1346
+01:13:05,760 --> 01:13:14,040
+okay still no good because table
+
+1347
+01:13:10,739 --> 01:13:15,360
+yeah that's okay oh syntax wrong extra
+
+1348
+01:13:14,040 --> 01:13:19,560
+comma
+
+1349
+01:13:15,360 --> 01:13:21,719
+idiotic oil paste again
+
+1350
+01:13:19,560 --> 01:13:24,320
+hopefully this is looking fantastic
+
+1351
+01:13:21,719 --> 01:13:24,320
+fantastic
+
+1352
+01:13:26,540 --> 01:13:35,540
+fantastic okay but we are missing
+
+1353
+01:13:31,500 --> 01:13:35,540
+we are missing the horizontal
+
+1354
+01:13:36,239 --> 01:13:41,940
+yeah okay so uh wait this is what this
+
+1355
+01:13:40,380 --> 01:13:45,719
+is actually
+
+1356
+01:13:41,940 --> 01:13:48,780
+uh actually we got diagonal lines so we
+
+1357
+01:13:45,719 --> 01:13:51,480
+actually need to draw so let me show you
+
+1358
+01:13:48,780 --> 01:13:56,780
+actually our lines is diagonal that's
+
+1359
+01:13:51,480 --> 01:13:56,780
+incorrect so I can show you by
+
+1360
+01:13:58,140 --> 01:14:00,800
+okay
+
+1361
+01:14:02,699 --> 01:14:07,520
+so select or paste run it
+
+1362
+01:14:09,120 --> 01:14:15,540
+you see this is that's why it's
+
+1363
+01:14:12,780 --> 01:14:17,159
+not correct that we got diagonal lines
+
+1364
+01:14:15,540 --> 01:14:21,000
+but it's still pretty
+
+1365
+01:14:17,159 --> 01:14:23,640
+so we got the reason we have diagonal
+
+1366
+01:14:21,000 --> 01:14:25,140
+lines because of this here is incorrect
+
+1367
+01:14:23,640 --> 01:14:27,719
+Okay so
+
+1368
+01:14:25,140 --> 01:14:29,880
+so you you this is when you actually you
+
+1369
+01:14:27,719 --> 01:14:31,940
+have to just think
+
+1370
+01:14:29,880 --> 01:14:31,940
+um
+
+1371
+01:14:32,280 --> 01:14:38,159
+yeah so actually so five more minutes we
+
+1372
+01:14:34,920 --> 01:14:42,020
+should be able to finish it so
+
+1373
+01:14:38,159 --> 01:14:42,020
+so the table x squared
+
+1374
+01:14:47,460 --> 01:14:53,060
+one of the easy way to fix this is just
+
+1375
+01:14:51,060 --> 01:14:53,060
+um
+
+1376
+01:14:53,400 --> 01:14:58,739
+um let's say x squared y grid okay so
+
+1377
+01:14:56,820 --> 01:15:02,060
+the x squared
+
+1378
+01:14:58,739 --> 01:15:02,060
+X increment
+
+1379
+01:15:02,140 --> 01:15:05,199
+[Music]
+
+1380
+01:15:08,640 --> 01:15:11,120
+okay
+
+1381
+01:15:12,060 --> 01:15:15,679
+so the Y grid
+
+1382
+01:15:17,699 --> 01:15:24,659
+kind of like that okay and here
+
+1383
+01:15:21,360 --> 01:15:27,199
+Graphics x squared and Y grid let's show
+
+1384
+01:15:24,659 --> 01:15:27,199
+them both
+
+1385
+01:15:31,500 --> 01:15:39,239
+okay and here you want to transform it
+
+1386
+01:15:36,179 --> 01:15:43,620
+to that okay copy all
+
+1387
+01:15:39,239 --> 01:15:44,820
+select or paste run it
+
+1388
+01:15:43,620 --> 01:15:49,560
+okay
+
+1389
+01:15:44,820 --> 01:15:52,380
+page down page down page down page down
+
+1390
+01:15:49,560 --> 01:15:54,540
+big huge chunk of things fantastic
+
+1391
+01:15:52,380 --> 01:15:56,640
+beautiful done
+
+1392
+01:15:54,540 --> 01:15:59,820
+finally
+
+1393
+01:15:56,640 --> 01:16:02,000
+huh fine finally holiday a Merry
+
+1394
+01:15:59,820 --> 01:16:02,000
+Christmas
+
+1395
+01:16:03,179 --> 01:16:09,960
+okay uh anyone still watching okay five
+
+1396
+01:16:06,420 --> 01:16:10,860
+loyal watches so we we did it okay now
+
+1397
+01:16:09,960 --> 01:16:12,239
+let's
+
+1398
+01:16:10,860 --> 01:16:14,640
+um
+
+1399
+01:16:12,239 --> 01:16:15,780
+we did it okay let's compact the file
+
+1400
+01:16:14,640 --> 01:16:18,900
+the code
+
+1401
+01:16:15,780 --> 01:16:22,860
+and wait no this is compact fighter code
+
+1402
+01:16:18,900 --> 01:16:23,880
+compact by the code so you know here's a
+
+1403
+01:16:22,860 --> 01:16:28,800
+kind of code
+
+1404
+01:16:23,880 --> 01:16:30,360
+and uh and okay let's not show this uh
+
+1405
+01:16:28,800 --> 01:16:32,040
+output
+
+1406
+01:16:30,360 --> 01:16:36,600
+okay
+
+1407
+01:16:32,040 --> 01:16:38,940
+now copy all select or paste okay and
+
+1408
+01:16:36,600 --> 01:16:41,940
+let's make them
+
+1409
+01:16:38,940 --> 01:16:47,340
+pretty you know rendered in math formula
+
+1410
+01:16:41,940 --> 01:16:50,159
+okay so let's run it so there it is okay
+
+1411
+01:16:47,340 --> 01:16:52,080
+um and then of course you want to draw
+
+1412
+01:16:50,159 --> 01:16:53,820
+the lines but that
+
+1413
+01:16:52,080 --> 01:16:57,060
+um we already know how to do it it's
+
+1414
+01:16:53,820 --> 01:16:59,640
+just more tedious okay so Wolfram
+
+1415
+01:16:57,060 --> 01:17:02,460
+language okay guys wufan language you
+
+1416
+01:16:59,640 --> 01:17:06,000
+just how many lines of code five
+
+1417
+01:17:02,460 --> 01:17:07,920
+how you can do this okay I hope
+
+1418
+01:17:06,000 --> 01:17:10,820
+you know I hope you guys learned
+
+1419
+01:17:07,920 --> 01:17:14,159
+something about how do you code
+
+1420
+01:17:10,820 --> 01:17:16,679
+stereographic projection and so I again
+
+1421
+01:17:14,159 --> 01:17:19,020
+I hope you guys you know go out and do
+
+1422
+01:17:16,679 --> 01:17:20,940
+it you know with Haskell or Julia
+
+1423
+01:17:19,020 --> 01:17:24,000
+whatever your favorite lens favorite
+
+1424
+01:17:20,940 --> 01:17:26,940
+language go land just find a graphical
+
+1425
+01:17:24,000 --> 01:17:27,960
+system of your library of your language
+
+1426
+01:17:26,940 --> 01:17:30,300
+and
+
+1427
+01:17:27,960 --> 01:17:34,020
+and show me the code okay you can show
+
+1428
+01:17:30,300 --> 01:17:36,000
+it on my Twitter or on Discord because I
+
+1429
+01:17:34,020 --> 01:17:39,679
+Discord you just search for xani Twitter
+
+1430
+01:17:36,000 --> 01:17:39,679
+because I need Discord you'll find it
+
+1431
+01:17:40,080 --> 01:17:45,600
+okay fantastic bye guys if you like my
+
+1432
+01:17:43,440 --> 01:17:48,140
+you know don't you know if you like my
+
+1433
+01:17:45,600 --> 01:17:52,500
+stuff donate okay just go to my website
+
+1434
+01:17:48,140 --> 01:17:55,620
+saudi.info uh at the bottom patreon me
+
+1435
+01:17:52,500 --> 01:17:57,900
+Amazon me okay pay for me
+
+1436
+01:17:55,620 --> 01:18:00,420
+bye guys
+
+1437
+01:17:57,900 --> 01:18:02,820
+so we shut down in one minute so now
+
+1438
+01:18:00,420 --> 01:18:06,179
+let's put the code back in the browser
+
+1439
+01:18:02,820 --> 01:18:08,640
+so here's today's talk show
+
+1440
+01:18:06,179 --> 01:18:12,840
+you know and let's
+
+1441
+01:18:08,640 --> 01:18:14,940
+syntax code go to the browser refresh so
+
+1442
+01:18:12,840 --> 01:18:17,580
+here's the Wolfram language
+
+1443
+01:18:14,940 --> 01:18:20,699
+code to do this from scratch you know
+
+1444
+01:18:17,580 --> 01:18:24,420
+doesn't need any package then you you
+
+1445
+01:18:20,699 --> 01:18:26,880
+know we can get fancy and then
+
+1446
+01:18:24,420 --> 01:18:30,420
+so what is is do we still need yeah we
+
+1447
+01:18:26,880 --> 01:18:32,719
+so that's a code so we can get fancy and
+
+1448
+01:18:30,420 --> 01:18:32,719
+uh
+
+1449
+01:18:35,540 --> 01:18:40,040
+and have a bunch of the other
+
+1450
+01:18:44,040 --> 01:18:51,560
+things shown in the browser okay so yeah
+
+1451
+01:18:47,580 --> 01:18:51,560
+let's shut down bye guys
+

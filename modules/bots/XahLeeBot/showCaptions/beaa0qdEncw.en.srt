@@ -1,0 +1,4868 @@
+1
+00:00:09,440 --> 00:00:14,519
+good morning guys
+
+2
+00:00:11,509 --> 00:00:20,340
+welcome to another episode of our talk
+
+3
+00:00:14,519 --> 00:00:24,029
+show today to 2020 January 12 Sunday 3 o
+
+4
+00:00:20,340 --> 00:00:28,920
+clock p.m. San Francisco time and today
+
+5
+00:00:24,029 --> 00:00:34,320
+we the scheduled topic is supposed to be
+
+6
+00:00:28,920 --> 00:00:36,600
+random but so random so if you guys do
+
+7
+00:00:34,320 --> 00:00:39,690
+not have any comments or questions or
+
+8
+00:00:36,600 --> 00:00:42,000
+topic if you have a topic posted
+
+9
+00:00:39,690 --> 00:00:44,940
+otherwise I'm going to start to do
+
+10
+00:00:42,000 --> 00:00:46,800
+random and that means I'm going to start
+
+11
+00:00:44,940 --> 00:00:49,320
+to work Emacs
+
+12
+00:00:46,800 --> 00:00:56,940
+I'm going to do live coding of Emacs
+
+13
+00:00:49,320 --> 00:00:59,039
+Lisp with explanation so and the thing
+
+14
+00:00:56,940 --> 00:01:00,690
+is in the description youtube
+
+15
+00:00:59,039 --> 00:01:05,369
+description you can see where we are
+
+16
+00:01:00,690 --> 00:01:12,270
+what what I just said and ok so I'm
+
+17
+00:01:05,369 --> 00:01:14,460
+going to just start to do Emacs stuff so
+
+18
+00:01:12,270 --> 00:01:18,869
+the first thing I want to do is let me
+
+19
+00:01:14,460 --> 00:01:26,040
+show you my art block ok so that is
+
+20
+00:01:18,869 --> 00:01:28,080
+actually today's today's image on my
+
+21
+00:01:26,040 --> 00:01:31,700
+YouTube livestream you can see this
+
+22
+00:01:28,080 --> 00:01:36,000
+image fantastic image good morning Kathy
+
+23
+00:01:31,700 --> 00:01:40,320
+so any topics Kathy otherwise I'm just
+
+24
+00:01:36,000 --> 00:01:43,880
+going to do eMac this live coding so I'm
+
+25
+00:01:40,320 --> 00:01:47,850
+going to begin so I have this blog blog
+
+26
+00:01:43,880 --> 00:01:50,820
+some art blog so you can see it's
+
+27
+00:01:47,850 --> 00:01:57,210
+basically all arts related stuff visual
+
+28
+00:01:50,820 --> 00:02:00,270
+arts animations and stuff and some of
+
+29
+00:01:57,210 --> 00:02:05,009
+them are beautiful beautiful to my eyes
+
+30
+00:02:00,270 --> 00:02:08,729
+and we have a lots of girls because
+
+31
+00:02:05,009 --> 00:02:11,270
+girls they are the beauty of humanity
+
+32
+00:02:08,729 --> 00:02:11,270
+and
+
+33
+00:02:12,240 --> 00:02:18,420
+and so you can see this this art blog
+
+34
+00:02:16,350 --> 00:02:27,510
+page is getting long so let me show you
+
+35
+00:02:18,420 --> 00:02:31,740
+how many pages 1 2 3 4 5 6 7 8 9 10 very
+
+36
+00:02:27,510 --> 00:02:34,610
+long 10 is like 40 40 screens so we have
+
+37
+00:02:31,740 --> 00:02:39,380
+Russian girls what are what are these
+
+38
+00:02:34,610 --> 00:02:41,730
+Russians to wardresses then we have
+
+39
+00:02:39,380 --> 00:02:46,200
+Europa in the book we talked about
+
+40
+00:02:41,730 --> 00:02:52,040
+several times then we have the white
+
+41
+00:02:46,200 --> 00:02:56,220
+magazine of least code some 40 years ago
+
+42
+00:02:52,040 --> 00:03:00,660
+1979 and this is a fantastic article by
+
+43
+00:02:56,220 --> 00:03:03,870
+the way and this is I mean my essay is a
+
+44
+00:03:00,660 --> 00:03:07,470
+fantastic essay and I talked about from
+
+45
+00:03:03,870 --> 00:03:12,180
+Lisp from this byte magazine cover byte
+
+46
+00:03:07,470 --> 00:03:14,430
+magazine is a old classic magazine for
+
+47
+00:03:12,180 --> 00:03:18,330
+programmers for amateur programmers
+
+48
+00:03:14,430 --> 00:03:24,620
+mostly and professional in a in a in an
+
+49
+00:03:18,330 --> 00:03:28,230
+era of 1980s and 1990s and 1990s and
+
+50
+00:03:24,620 --> 00:03:32,670
+this by the way this photo is taken by
+
+51
+00:03:28,230 --> 00:03:36,500
+this guy this has me the Mishnah me see
+
+52
+00:03:32,670 --> 00:03:36,500
+what how do you pronounce his name
+
+53
+00:03:37,010 --> 00:03:46,260
+Casimir maturing ok he is in I think he
+
+54
+00:03:43,230 --> 00:03:48,870
+is either Russian or East European
+
+55
+00:03:46,260 --> 00:03:52,500
+somewhere there I forgot exactly he's a
+
+56
+00:03:48,870 --> 00:03:56,630
+friend and he is a common base he's a
+
+57
+00:03:52,500 --> 00:04:00,600
+disc expert so he studied this and and
+
+58
+00:03:56,630 --> 00:04:05,370
+comedies and other lisps and in fact he
+
+59
+00:04:00,600 --> 00:04:09,300
+is also a lisp historian he has actually
+
+60
+00:04:05,370 --> 00:04:12,540
+written a book in in what language I
+
+61
+00:04:09,300 --> 00:04:16,859
+forgot what was it Russian or some you
+
+62
+00:04:12,540 --> 00:04:19,830
+you chronic or III I don't remember the
+
+63
+00:04:16,859 --> 00:04:22,470
+name ok but you can go to his blog ok so
+
+64
+00:04:19,830 --> 00:04:26,690
+he's got a blog here so he has written a
+
+65
+00:04:22,470 --> 00:04:30,389
+book on the history of lisp
+
+66
+00:04:26,690 --> 00:04:33,060
+so you see this this we what we were
+
+67
+00:04:30,389 --> 00:04:38,190
+chatting you know he doesn't his last
+
+68
+00:04:33,060 --> 00:04:43,669
+blog is 2013 I guess so
+
+69
+00:04:38,190 --> 00:04:47,669
+this guy this expert and you know you
+
+70
+00:04:43,669 --> 00:04:50,940
+his account of this history is contrary
+
+71
+00:04:47,669 --> 00:04:52,860
+to the common list [ __ ] you here
+
+72
+00:04:50,940 --> 00:04:55,530
+you know around the web you know like
+
+73
+00:04:52,860 --> 00:04:58,110
+like I mentioned many times before if
+
+74
+00:04:55,530 --> 00:04:59,009
+you have watched my video or watch you
+
+75
+00:04:58,110 --> 00:05:00,840
+read my blogs
+
+76
+00:04:59,009 --> 00:05:03,539
+you know this typically you hang around
+
+77
+00:05:00,840 --> 00:05:05,490
+the hacker news reddit you know they are
+
+78
+00:05:03,539 --> 00:05:09,240
+these communities to the Emax
+
+79
+00:05:05,490 --> 00:05:12,389
+communities they what you hear every day
+
+80
+00:05:09,240 --> 00:05:14,729
+about history about things is all fake
+
+81
+00:05:12,389 --> 00:05:18,090
+news fake news you know they are pushed
+
+82
+00:05:14,729 --> 00:05:20,220
+by these fanatics you know people who
+
+83
+00:05:18,090 --> 00:05:21,810
+really you know they really love these
+
+84
+00:05:20,220 --> 00:05:23,490
+comment-list they think he's the
+
+85
+00:05:21,810 --> 00:05:25,500
+greatest thing they think it's a
+
+86
+00:05:23,490 --> 00:05:27,539
+greatest thing since sliced bread
+
+87
+00:05:25,500 --> 00:05:29,460
+they think the diss Marco you know they
+
+88
+00:05:27,539 --> 00:05:31,349
+you know people are like that you know
+
+89
+00:05:29,460 --> 00:05:34,590
+you have the Emacs coupe you have the
+
+90
+00:05:31,349 --> 00:05:37,500
+common list group then you also do have
+
+91
+00:05:34,590 --> 00:05:39,990
+Python group per group goal and you know
+
+92
+00:05:37,500 --> 00:05:43,050
+trust goof haskell group you know they
+
+93
+00:05:39,990 --> 00:05:47,300
+or you know there are people phonetics
+
+94
+00:05:43,050 --> 00:05:50,669
+coat you know this is many of these hack
+
+95
+00:05:47,300 --> 00:05:54,330
+hacker type of languages have this code
+
+96
+00:05:50,669 --> 00:05:58,349
+and among this code if you are not
+
+97
+00:05:54,330 --> 00:05:59,720
+careful if you are not well if you are
+
+98
+00:05:58,349 --> 00:06:03,990
+not a learned man
+
+99
+00:05:59,720 --> 00:06:06,240
+you you you learn or everything's you
+
+100
+00:06:03,990 --> 00:06:10,320
+know not just this particular language
+
+101
+00:06:06,240 --> 00:06:15,960
+you know so if you are not careful you
+
+102
+00:06:10,320 --> 00:06:19,430
+will hear mostly fake news you know in
+
+103
+00:06:15,960 --> 00:06:23,070
+in Python groups in in Linux group in
+
+104
+00:06:19,430 --> 00:06:25,470
+this group things like that so he wrote
+
+105
+00:06:23,070 --> 00:06:28,949
+a book on the history of Common Lisp and
+
+106
+00:06:25,470 --> 00:06:32,370
+and I cannot read it but I chatted with
+
+107
+00:06:28,949 --> 00:06:35,190
+him so his story of this is not what you
+
+108
+00:06:32,370 --> 00:06:38,510
+hear is not you know so what I mean by
+
+109
+00:06:35,190 --> 00:06:38,510
+that so what's the difference
+
+110
+00:06:38,729 --> 00:06:44,189
+if you are a common Lisa you probably
+
+111
+00:06:40,589 --> 00:06:47,370
+know a lot stories and basically what
+
+112
+00:06:44,189 --> 00:06:51,199
+happens is that these people they want
+
+113
+00:06:47,370 --> 00:06:55,349
+to promote news or history or facts that
+
+114
+00:06:51,199 --> 00:06:57,089
+that is advantageous that is positive
+
+115
+00:06:55,349 --> 00:06:59,309
+about the thing that they love
+
+116
+00:06:57,089 --> 00:07:02,580
+for example commonly Spurs they were
+
+117
+00:06:59,309 --> 00:07:05,430
+just there their head is filled with all
+
+118
+00:07:02,580 --> 00:07:07,860
+the things that's positive about
+
+119
+00:07:05,430 --> 00:07:11,430
+comedies about how common lisp is going
+
+120
+00:07:07,860 --> 00:07:13,949
+to is the best language ever same thing
+
+121
+00:07:11,430 --> 00:07:17,009
+with Haskell people you know with their
+
+122
+00:07:13,949 --> 00:07:21,529
+monad and the whatever scheme people
+
+123
+00:07:17,009 --> 00:07:23,969
+with their tail recursion and Co CC
+
+124
+00:07:21,529 --> 00:07:26,430
+stuff like that Python people you know
+
+125
+00:07:23,969 --> 00:07:30,419
+the same Perl Emacs and bheem
+
+126
+00:07:26,430 --> 00:07:32,520
+so but anyway so you you read his so so
+
+127
+00:07:30,419 --> 00:07:34,740
+anyway check you may want to check out
+
+128
+00:07:32,520 --> 00:07:38,699
+he's this guy you have to look somewhere
+
+129
+00:07:34,740 --> 00:07:40,949
+you have to he was on Google+ but
+
+130
+00:07:38,699 --> 00:07:43,860
+unfortunately unfortunately these
+
+131
+00:07:40,949 --> 00:07:47,089
+[ __ ] corporates comes they spread
+
+132
+00:07:43,860 --> 00:07:50,039
+fake news you know Google+ and Google
+
+133
+00:07:47,089 --> 00:07:53,969
+censorship and Facebook and Twitter the
+
+134
+00:07:50,039 --> 00:07:57,599
+Google+ killed Google+ Google killed
+
+135
+00:07:53,969 --> 00:08:01,289
+Google+ about a year ago so all the
+
+136
+00:07:57,599 --> 00:08:04,319
+other posts in writing zarkan anyway he
+
+137
+00:08:01,289 --> 00:08:09,689
+has published the book so that's a
+
+138
+00:08:04,319 --> 00:08:11,759
+digression about this essay okay let me
+
+139
+00:08:09,689 --> 00:08:15,029
+copy it to my website actually I want to
+
+140
+00:08:11,759 --> 00:08:22,409
+start to do I want to start to code eMac
+
+141
+00:08:15,029 --> 00:08:25,529
+B's so let's go - so let's post that so
+
+142
+00:08:22,409 --> 00:08:28,319
+I in this essay I was talking about this
+
+143
+00:08:25,529 --> 00:08:30,719
+magazine so you look at them you you
+
+144
+00:08:28,319 --> 00:08:34,260
+know with a curious mind you study and
+
+145
+00:08:30,719 --> 00:08:38,789
+all the details then you find then you
+
+146
+00:08:34,260 --> 00:08:42,990
+start to read about a Space Odyssey the
+
+147
+00:08:38,789 --> 00:08:44,819
+movie not the way you think okay most
+
+148
+00:08:42,990 --> 00:08:46,740
+people they watch the movie oh this is
+
+149
+00:08:44,819 --> 00:08:50,010
+movie day and that's it but you hit dive
+
+150
+00:08:46,740 --> 00:08:52,590
+deeper why why is it made what what's
+
+151
+00:08:50,010 --> 00:08:55,710
+the background story it's a lot okay
+
+152
+00:08:52,590 --> 00:08:59,520
+so for example it says anyway I'm not
+
+153
+00:08:55,710 --> 00:09:03,230
+going to talk about this page anyway it
+
+154
+00:08:59,520 --> 00:09:07,050
+then is soon involves thus Spoke
+
+155
+00:09:03,230 --> 00:09:09,360
+Zarathustra and richest rose
+
+156
+00:09:07,050 --> 00:09:13,730
+you know the richest Rose is a famous
+
+157
+00:09:09,360 --> 00:09:17,820
+musician and a nice [ __ ] a philosopher
+
+158
+00:09:13,730 --> 00:09:22,260
+who is known for nearly me reason okay
+
+159
+00:09:17,820 --> 00:09:26,940
+so it's ready to this walk this this and
+
+160
+00:09:22,260 --> 00:09:31,620
+music classical music and then you start
+
+161
+00:09:26,940 --> 00:09:38,160
+to read about thus Spoke Zarathustra the
+
+162
+00:09:31,620 --> 00:09:40,589
+philosophy and stuff okay so that's
+
+163
+00:09:38,160 --> 00:09:44,970
+about that so anyway so back to my art
+
+164
+00:09:40,589 --> 00:09:47,490
+blog so most of them is pretty pictures
+
+165
+00:09:44,970 --> 00:09:49,920
+and this this creature you know it's not
+
+166
+00:09:47,490 --> 00:09:57,050
+not it's not just pretty pictures okay
+
+167
+00:09:49,920 --> 00:10:01,500
+this creature éxito this creature is
+
+168
+00:09:57,050 --> 00:10:04,020
+known for its regional regenerative
+
+169
+00:10:01,500 --> 00:10:06,420
+abilities they are quite a few creatures
+
+170
+00:10:04,020 --> 00:10:08,400
+that have that ability the most
+
+171
+00:10:06,420 --> 00:10:11,250
+well-known is of course lizards
+
+172
+00:10:08,400 --> 00:10:15,210
+you know lizards or gecko you cut off
+
+173
+00:10:11,250 --> 00:10:17,520
+their arms and they will regrow but this
+
+174
+00:10:15,210 --> 00:10:22,050
+creature is more so and actually there
+
+175
+00:10:17,520 --> 00:10:26,760
+are also other micro micro organisms
+
+176
+00:10:22,050 --> 00:10:28,770
+that has such ability and in scientist
+
+177
+00:10:26,760 --> 00:10:31,290
+stars you know by our biology start
+
+178
+00:10:28,770 --> 00:10:34,680
+studying it of course to benefit
+
+179
+00:10:31,290 --> 00:10:37,110
+humanity so anyway but but there's more
+
+180
+00:10:34,680 --> 00:10:40,530
+than that this creature is from known
+
+181
+00:10:37,110 --> 00:10:42,600
+for its regenerative abilities but by
+
+182
+00:10:40,530 --> 00:10:46,589
+the way this creature lives in like miss
+
+183
+00:10:42,600 --> 00:10:51,209
+Mexico Mexico there's a lake something
+
+184
+00:10:46,589 --> 00:10:55,890
+like that but this creature is also used
+
+185
+00:10:51,209 --> 00:11:00,420
+in a science fiction doom okay so have
+
+186
+00:10:55,890 --> 00:11:03,750
+you guys read iam dune deep fake ok
+
+187
+00:11:00,420 --> 00:11:06,070
+defect so anyways so this D fake that's
+
+188
+00:11:03,750 --> 00:11:09,910
+a topic subject
+
+189
+00:11:06,070 --> 00:11:12,880
+by day Morris actually I don't know
+
+190
+00:11:09,910 --> 00:11:18,510
+nothing about that I I have not even
+
+191
+00:11:12,880 --> 00:11:25,570
+seen it deep fake wait deep fake is that
+
+192
+00:11:18,510 --> 00:11:27,700
+okay I was thinking deep nude deep fake
+
+193
+00:11:25,570 --> 00:11:33,130
+so what what's deep fake or deep fakies
+
+194
+00:11:27,700 --> 00:11:35,500
+say AI software that generates fake news
+
+195
+00:11:33,130 --> 00:11:40,270
+in a believable way right
+
+196
+00:11:35,500 --> 00:11:43,450
+that's a deep fake so so this creature
+
+197
+00:11:40,270 --> 00:11:46,360
+is also used in in the fiction
+
+198
+00:11:43,450 --> 00:11:46,870
+Dhoom and it's used in a very dark way
+
+199
+00:11:46,360 --> 00:11:53,800
+okay
+
+200
+00:11:46,870 --> 00:11:56,170
+it's called AK so tank oXXO told tank
+
+201
+00:11:53,800 --> 00:11:59,560
+you have to look it up I'm not I'm not
+
+202
+00:11:56,170 --> 00:12:04,540
+going to go into because because then it
+
+203
+00:11:59,560 --> 00:12:07,120
+it gets into the the topics the topic
+
+204
+00:12:04,540 --> 00:12:11,110
+that's sensitive to the social justice
+
+205
+00:12:07,120 --> 00:12:15,940
+scan so anyway so there is this thing
+
+206
+00:12:11,110 --> 00:12:19,920
+called ax o Thoth ank of doom doom is a
+
+207
+00:12:15,940 --> 00:12:22,990
+epic epic science fiction you know
+
+208
+00:12:19,920 --> 00:12:25,740
+recounting the stories of thousands of
+
+209
+00:12:22,990 --> 00:12:28,270
+years generations with nations and
+
+210
+00:12:25,740 --> 00:12:32,350
+planets and the universe and different
+
+211
+00:12:28,270 --> 00:12:35,590
+Maps and what what happens to them Jim
+
+212
+00:12:32,350 --> 00:12:39,880
+I haven't read the book by the way so
+
+213
+00:12:35,590 --> 00:12:42,600
+this so back to my art blog art blog so
+
+214
+00:12:39,880 --> 00:12:45,790
+you have pretty pictures then you have
+
+215
+00:12:42,600 --> 00:12:49,150
+not just three pictures you know yeah I
+
+216
+00:12:45,790 --> 00:12:53,260
+love tits here we have a girl naked girl
+
+217
+00:12:49,150 --> 00:12:55,870
+tits sculpture so you have girls naked
+
+218
+00:12:53,260 --> 00:12:58,080
+girls and and by the way naked girls you
+
+219
+00:12:55,870 --> 00:13:01,750
+know like I said before they are the
+
+220
+00:12:58,080 --> 00:13:05,260
+center of humanity we evolved around
+
+221
+00:13:01,750 --> 00:13:11,170
+them throughout the edges age throughout
+
+222
+00:13:05,260 --> 00:13:18,310
+the it you know the edges in Asian you
+
+223
+00:13:11,170 --> 00:13:19,840
+know in white because they they give
+
+224
+00:13:18,310 --> 00:13:21,820
+birth girls not
+
+225
+00:13:19,840 --> 00:13:23,500
+the women girls young girls that's
+
+226
+00:13:21,820 --> 00:13:26,800
+that's why we are centered around them
+
+227
+00:13:23,500 --> 00:13:29,110
+men centers around them and girls center
+
+228
+00:13:26,800 --> 00:13:31,900
+around em - because all you have to
+
+229
+00:13:29,110 --> 00:13:34,210
+check for that is you look at women's
+
+230
+00:13:31,900 --> 00:13:36,910
+magazines it's all pretty young girls
+
+231
+00:13:34,210 --> 00:13:41,260
+women's magazines it's all pretty young
+
+232
+00:13:36,910 --> 00:13:42,970
+girls and it's on Hollywood everyday you
+
+233
+00:13:41,260 --> 00:13:45,610
+know the superstars they showing their
+
+234
+00:13:42,970 --> 00:13:49,420
+tits their ass with their naked dress
+
+235
+00:13:45,610 --> 00:13:51,970
+you know the ever forever ever more
+
+236
+00:13:49,420 --> 00:13:55,120
+creative naked dresses showing the you
+
+237
+00:13:51,970 --> 00:14:00,700
+know the 1,000 ways to show their tits
+
+238
+00:13:55,120 --> 00:14:05,740
+and ass young girls so here is starter
+
+239
+00:14:00,700 --> 00:14:09,370
+of neo P and so you know besides besides
+
+240
+00:14:05,740 --> 00:14:11,760
+being pretty you there is art there is
+
+241
+00:14:09,370 --> 00:14:16,180
+humanity you know this is a ancient
+
+242
+00:14:11,760 --> 00:14:18,550
+story of Greek mythology daughter of
+
+243
+00:14:16,180 --> 00:14:20,800
+Niobe so let me tell you what's the
+
+244
+00:14:18,550 --> 00:14:26,650
+story so why is that she what what's the
+
+245
+00:14:20,800 --> 00:14:29,230
+story of her she okay that that's going
+
+246
+00:14:26,650 --> 00:14:31,360
+to be a big story then you know since if
+
+247
+00:14:29,230 --> 00:14:34,600
+I gonna start to talk about Greek
+
+248
+00:14:31,360 --> 00:14:39,760
+mythology because quick mythology is 1
+
+249
+00:14:34,600 --> 00:14:41,800
+million pages 1 million pages ok let me
+
+250
+00:14:39,760 --> 00:14:46,600
+tell you the story yes you know summary
+
+251
+00:14:41,800 --> 00:14:49,710
+so you have this this girl this girl is
+
+252
+00:14:46,600 --> 00:14:53,560
+the princess
+
+253
+00:14:49,710 --> 00:14:57,640
+the goddess the Queen of pretty girls
+
+254
+00:14:53,560 --> 00:15:01,090
+the let me tell you what it is she is
+
+255
+00:14:57,640 --> 00:15:07,510
+the greatest speech of all times this
+
+256
+00:15:01,090 --> 00:15:09,820
+this girl her name is autumn as' she you
+
+257
+00:15:07,510 --> 00:15:11,590
+know she's like a princess you know the
+
+258
+00:15:09,820 --> 00:15:18,430
+she can do whatever she wants
+
+259
+00:15:11,590 --> 00:15:21,340
+and she and her brother Apolo killed 12
+
+260
+00:15:18,430 --> 00:15:25,180
+childrens of now now Niobe
+
+261
+00:15:21,340 --> 00:15:25,810
+so she she said that's her okay she and
+
+262
+00:15:25,180 --> 00:15:32,710
+her brother
+
+263
+00:15:25,810 --> 00:15:37,839
+Apollo killed 12 children of Niobe
+
+264
+00:15:32,710 --> 00:15:43,230
+why because Niobe boasted that she has
+
+265
+00:15:37,839 --> 00:15:49,089
+12 children far more then then then
+
+266
+00:15:43,230 --> 00:15:55,779
+Artemis mom no Artemis mom Artemis her
+
+267
+00:15:49,089 --> 00:15:56,200
+mom is yeah her parents is yours and
+
+268
+00:15:55,779 --> 00:16:00,130
+Leto
+
+269
+00:15:56,200 --> 00:16:03,339
+okay so they have zeros has thousands of
+
+270
+00:16:00,130 --> 00:16:06,700
+children's with which things are 10,000
+
+271
+00:16:03,339 --> 00:16:10,630
+women okay so but anyways us and Leto
+
+272
+00:16:06,700 --> 00:16:17,680
+have two children I think one is Artemis
+
+273
+00:16:10,630 --> 00:16:20,140
+her who is a goddess of her story varies
+
+274
+00:16:17,680 --> 00:16:25,360
+some sometimes he said goddess of most
+
+275
+00:16:20,140 --> 00:16:27,430
+you know but vagina birth oh no I got a
+
+276
+00:16:25,360 --> 00:16:28,959
+spelling error so I got correct that
+
+277
+00:16:27,430 --> 00:16:32,640
+vagina [ __ ]
+
+278
+00:16:28,959 --> 00:16:36,220
+mercy this vagina [ __ ] that's right
+
+279
+00:16:32,640 --> 00:16:39,520
+Artemis for her vagina beauty and
+
+280
+00:16:36,220 --> 00:16:42,640
+cruelty Artemis is a merciless vagina
+
+281
+00:16:39,520 --> 00:16:45,940
+[ __ ] she kills with her brother with
+
+282
+00:16:42,640 --> 00:16:49,480
+her arrow for petty much for pretty much
+
+283
+00:16:45,940 --> 00:16:53,410
+gaming that's what she does she so she
+
+284
+00:16:49,480 --> 00:16:56,020
+killed the 12 all of them 12 children
+
+285
+00:16:53,410 --> 00:16:59,430
+some of Niobe because Niobe boasted that
+
+286
+00:16:56,020 --> 00:17:02,050
+she has more children than her parents
+
+287
+00:16:59,430 --> 00:17:04,120
+so she killed them she and her brother
+
+288
+00:17:02,050 --> 00:17:08,890
+with an arrow like again you know again
+
+289
+00:17:04,120 --> 00:17:12,040
+and so that is the story of Niobe so
+
+290
+00:17:08,890 --> 00:17:14,309
+Niobe became a stone that's wet forever
+
+291
+00:17:12,040 --> 00:17:16,630
+crying forever
+
+292
+00:17:14,309 --> 00:17:18,459
+so you know it's interesting sometimes
+
+293
+00:17:16,630 --> 00:17:21,550
+you have this stone where I was shot
+
+294
+00:17:18,459 --> 00:17:25,000
+child I I've seen it like you have a
+
+295
+00:17:21,550 --> 00:17:27,400
+stone you you know you use a water spray
+
+296
+00:17:25,000 --> 00:17:29,520
+you know what a gun you you put water on
+
+297
+00:17:27,400 --> 00:17:32,200
+it and the water disappears right away
+
+298
+00:17:29,520 --> 00:17:34,420
+does anyone know what what what is that
+
+299
+00:17:32,200 --> 00:17:38,160
+I always wondered about that I don't
+
+300
+00:17:34,420 --> 00:17:42,130
+think I ever find out what what exactly
+
+301
+00:17:38,160 --> 00:17:44,590
+what's the name of such stone and what
+
+302
+00:17:42,130 --> 00:17:46,600
+is the property that makes it do that
+
+303
+00:17:44,590 --> 00:17:50,620
+does anyone know
+
+304
+00:17:46,600 --> 00:17:53,139
+like this I think this often happens
+
+305
+00:17:50,620 --> 00:17:56,169
+with the break as well since some some
+
+306
+00:17:53,139 --> 00:17:58,299
+break like you put water on it the water
+
+307
+00:17:56,169 --> 00:18:00,220
+tries to write away like within one
+
+308
+00:17:58,299 --> 00:18:01,899
+second you disappears right away does
+
+309
+00:18:00,220 --> 00:18:03,820
+doesn't matter how much you water you
+
+310
+00:18:01,899 --> 00:18:07,000
+put on it I don't know how does that
+
+311
+00:18:03,820 --> 00:18:11,350
+happens does anyone know the name of
+
+312
+00:18:07,000 --> 00:18:14,529
+such strong so anyway Niobe became known
+
+313
+00:18:11,350 --> 00:18:24,909
+as the you know she became by the Greek
+
+314
+00:18:14,529 --> 00:18:26,379
+mythology she is perpetually weeping so
+
+315
+00:18:24,909 --> 00:18:28,929
+that's that's about that
+
+316
+00:18:26,379 --> 00:18:32,039
+Niobe daughter of Niobe that's that's a
+
+317
+00:18:28,929 --> 00:18:40,259
+sculpture by what by who who is this guy
+
+318
+00:18:32,039 --> 00:18:43,870
+by ho t Saarloos kyani in Rome okay five
+
+319
+00:18:40,259 --> 00:18:48,070
+fifth century BC so this is two hundred
+
+320
+00:18:43,870 --> 00:18:51,429
+five two thousand five hundred years ago
+
+321
+00:18:48,070 --> 00:18:57,330
+this sculpture have you ever touched
+
+322
+00:18:51,429 --> 00:18:57,330
+something that's few thousand years ago
+
+323
+00:19:01,200 --> 00:19:07,000
+okay so that's about that and that's
+
+324
+00:19:04,210 --> 00:19:09,309
+about Artemis okay Greek mythology you
+
+325
+00:19:07,000 --> 00:19:12,850
+know there's tons of stories quick
+
+326
+00:19:09,309 --> 00:19:18,070
+mythology Artemis so anyway back to my
+
+327
+00:19:12,850 --> 00:19:21,039
+art blog so many interesting things and
+
+328
+00:19:18,070 --> 00:19:25,539
+many mathematical beauty for example we
+
+329
+00:19:21,039 --> 00:19:28,330
+have this hexagonal star roof this is a
+
+330
+00:19:25,539 --> 00:19:31,210
+architecture architectural beauty this
+
+331
+00:19:28,330 --> 00:19:34,809
+one is in China you know China in the
+
+332
+00:19:31,210 --> 00:19:38,320
+past 10 or 20 years has grow and grow
+
+333
+00:19:34,809 --> 00:19:40,870
+and you have so many things in China and
+
+334
+00:19:38,320 --> 00:19:43,120
+the Westerners don't know you know those
+
+335
+00:19:40,870 --> 00:19:45,100
+are the white people they they don't
+
+336
+00:19:43,120 --> 00:19:47,610
+want to believe it and they are in
+
+337
+00:19:45,100 --> 00:19:50,559
+darkness they don't know but they
+
+338
+00:19:47,610 --> 00:19:52,720
+thought what they want to believe is a
+
+339
+00:19:50,559 --> 00:19:55,000
+China bad you know they you know you
+
+340
+00:19:52,720 --> 00:19:57,010
+need to bomb them that's what they want
+
+341
+00:19:55,000 --> 00:20:00,130
+to believe they want mean why are they
+
+342
+00:19:57,010 --> 00:20:02,290
+they they have a instinct
+
+343
+00:20:00,130 --> 00:20:06,370
+teve you know it's purely in the brain
+
+344
+00:20:02,290 --> 00:20:10,600
+or all of us you have an instinctive
+
+345
+00:20:06,370 --> 00:20:13,210
+theater to filter out anything that you
+
+346
+00:20:10,600 --> 00:20:18,130
+don't want to believe because if you
+
+347
+00:20:13,210 --> 00:20:19,770
+believe it it may do harm to you you
+
+348
+00:20:18,130 --> 00:20:24,310
+know that this is a very interesting
+
+349
+00:20:19,770 --> 00:20:26,680
+phenomenon in in psychology because you
+
+350
+00:20:24,310 --> 00:20:29,160
+know you might think logically we want
+
+351
+00:20:26,680 --> 00:20:32,740
+to know everything that's true because
+
+352
+00:20:29,160 --> 00:20:35,620
+once we know the truth we can deal with
+
+353
+00:20:32,740 --> 00:20:38,100
+it better you know we all will fare
+
+354
+00:20:35,620 --> 00:20:41,700
+better we all have better outcomes for
+
+355
+00:20:38,100 --> 00:20:44,140
+things you know whatever whoever you are
+
+356
+00:20:41,700 --> 00:20:46,450
+once you know the truth then you can
+
+357
+00:20:44,140 --> 00:20:49,720
+make a better decision so that the
+
+358
+00:20:46,450 --> 00:20:51,520
+outcome will benefit you more but
+
+359
+00:20:49,720 --> 00:20:54,240
+however that's not the case
+
+360
+00:20:51,520 --> 00:20:57,850
+you know we our brain has speared in
+
+361
+00:20:54,240 --> 00:21:00,490
+theater so we actually we filter a
+
+362
+00:20:57,850 --> 00:21:02,140
+certain fact or truth we don't want to
+
+363
+00:21:00,490 --> 00:21:04,980
+believe that's why you have coats like
+
+364
+00:21:02,140 --> 00:21:07,600
+Emacs code Python code Common Lisp code
+
+365
+00:21:04,980 --> 00:21:10,620
+Haskell code you know some of these
+
+366
+00:21:07,600 --> 00:21:14,650
+examples codes they believe they believe
+
+367
+00:21:10,620 --> 00:21:16,480
+things and not not to mention political
+
+368
+00:21:14,650 --> 00:21:19,380
+codes and religion of course it's even
+
+369
+00:21:16,480 --> 00:21:24,070
+bigger political things and religion and
+
+370
+00:21:19,380 --> 00:21:27,700
+nationalism and you know so anyway so so
+
+371
+00:21:24,070 --> 00:21:30,730
+human animal psychology we it's building
+
+372
+00:21:27,700 --> 00:21:34,720
+you know by evolution which we so
+
+373
+00:21:30,730 --> 00:21:37,210
+apparently apparently this is this seems
+
+374
+00:21:34,720 --> 00:21:41,200
+like a paradox apparently human animals
+
+375
+00:21:37,210 --> 00:21:43,650
+apparently if we filter out certain
+
+376
+00:21:41,200 --> 00:21:49,690
+truth in fact that actually have
+
+377
+00:21:43,650 --> 00:21:53,740
+beneficial outcomes for us I think this
+
+378
+00:21:49,690 --> 00:21:56,380
+is a bit hard to explain why that is so
+
+379
+00:21:53,740 --> 00:22:00,790
+you know because well I know partly
+
+380
+00:21:56,380 --> 00:22:05,860
+because you know your behavior depends
+
+381
+00:22:00,790 --> 00:22:09,700
+on your because our codes too yeah I'm a
+
+382
+00:22:05,860 --> 00:22:12,190
+I'm a code I need to be a bigger coat
+
+383
+00:22:09,700 --> 00:22:13,750
+you know a small code like you know
+
+384
+00:22:12,190 --> 00:22:17,640
+fifty people watch
+
+385
+00:22:13,750 --> 00:22:22,420
+video says no codes I need to be vegan
+
+386
+00:22:17,640 --> 00:22:24,460
+and I need to generate money you know I
+
+387
+00:22:22,420 --> 00:22:26,680
+need to that's the thing that's the
+
+388
+00:22:24,460 --> 00:22:29,200
+thing about codes the code
+
+389
+00:22:26,680 --> 00:22:33,640
+leaders usually often often not not
+
+390
+00:22:29,200 --> 00:22:36,160
+always but often so anyway so it's a
+
+391
+00:22:33,640 --> 00:22:41,170
+very interesting phenomenon that about
+
+392
+00:22:36,160 --> 00:22:43,690
+psychology where you where certain fact
+
+393
+00:22:41,170 --> 00:22:46,450
+if you feel to it out it actually
+
+394
+00:22:43,690 --> 00:22:49,420
+benefits you and in part I think it's
+
+395
+00:22:46,450 --> 00:22:50,920
+because your behavior depends on what
+
+396
+00:22:49,420 --> 00:22:53,980
+you know and what you think your
+
+397
+00:22:50,920 --> 00:22:56,470
+behavior you know your decision who you
+
+398
+00:22:53,980 --> 00:22:59,740
+make friends with what what's your goal
+
+399
+00:22:56,470 --> 00:23:01,450
+your plan the way you think's depends on
+
+400
+00:22:59,740 --> 00:23:06,370
+what you know you know your experience
+
+401
+00:23:01,450 --> 00:23:10,030
+and if you feel to our certain fact
+
+402
+00:23:06,370 --> 00:23:15,040
+certain you know certain fact it
+
+403
+00:23:10,030 --> 00:23:17,590
+actually benefits you it's it's I think
+
+404
+00:23:15,040 --> 00:23:20,440
+it's hard to resolve that in some you
+
+405
+00:23:17,590 --> 00:23:22,930
+know to explain that completely but but
+
+406
+00:23:20,440 --> 00:23:28,750
+that's you know that is what what is
+
+407
+00:23:22,930 --> 00:23:30,940
+going on you know in this this this bias
+
+408
+00:23:28,750 --> 00:23:34,000
+in other words it's called bias this
+
+409
+00:23:30,940 --> 00:23:36,310
+bias is Bo Dini in the brain you know so
+
+410
+00:23:34,000 --> 00:23:37,690
+it's it's not magical you see that
+
+411
+00:23:36,310 --> 00:23:39,730
+that's the thing you don't you know we
+
+412
+00:23:37,690 --> 00:23:42,910
+are getting into the forefront of
+
+413
+00:23:39,730 --> 00:23:44,980
+psychology and neuroscience because if
+
+414
+00:23:42,910 --> 00:23:48,100
+you really think about it the
+
+415
+00:23:44,980 --> 00:23:52,420
+neuroscience or the brain or how we make
+
+416
+00:23:48,100 --> 00:23:54,700
+judgments how we judge things how does
+
+417
+00:23:52,420 --> 00:23:56,620
+that work exactly we don't know you know
+
+418
+00:23:54,700 --> 00:23:59,170
+to this day we don't know how that works
+
+419
+00:23:56,620 --> 00:24:01,450
+exactly yeah we have neuroscience yeah
+
+420
+00:23:59,170 --> 00:24:03,400
+we have neurons we understand you know
+
+421
+00:24:01,450 --> 00:24:07,030
+but we don't really understand exactly
+
+422
+00:24:03,400 --> 00:24:09,310
+how it works and also we don't
+
+423
+00:24:07,030 --> 00:24:12,610
+understand what is consciousness I mean
+
+424
+00:24:09,310 --> 00:24:17,680
+what self so you know it's we cannot
+
+425
+00:24:12,610 --> 00:24:24,190
+find a mathematically precise definition
+
+426
+00:24:17,680 --> 00:24:27,269
+for what is what is intelligence no can
+
+427
+00:24:24,190 --> 00:24:30,070
+we define what means you know
+
+428
+00:24:27,269 --> 00:24:32,320
+intelligence as in you know artificial
+
+429
+00:24:30,070 --> 00:24:35,230
+intelligence we cannot find a precise
+
+430
+00:24:32,320 --> 00:24:37,000
+definition no can we define what is a
+
+431
+00:24:35,230 --> 00:24:43,210
+conscious you know what is conscious
+
+432
+00:24:37,000 --> 00:24:50,320
+what is self-aware awareness for example
+
+433
+00:24:43,210 --> 00:24:52,360
+we kill pigs we kill cows and bulls we
+
+434
+00:24:50,320 --> 00:24:53,380
+kill we kill them because we think they
+
+435
+00:24:52,360 --> 00:24:55,600
+are brutes
+
+436
+00:24:53,380 --> 00:25:00,399
+you know we kill them for food you know
+
+437
+00:24:55,600 --> 00:25:05,279
+ants and insects flies mosquitoes we
+
+438
+00:25:00,399 --> 00:25:08,559
+kill them without much thought but and
+
+439
+00:25:05,279 --> 00:25:10,240
+we kill you know cows of course we
+
+440
+00:25:08,559 --> 00:25:12,549
+killed him and you know you go to
+
+441
+00:25:10,240 --> 00:25:16,330
+McDonald's you eat you know hamburger
+
+442
+00:25:12,549 --> 00:25:19,929
+let's have a hamburger that's that's the
+
+443
+00:25:16,330 --> 00:25:25,690
+meat of some dead cows or you know and
+
+444
+00:25:19,929 --> 00:25:28,649
+and then sheep and goats land lamb chop
+
+445
+00:25:25,690 --> 00:25:31,570
+I would like to have a lamb chop fries
+
+446
+00:25:28,649 --> 00:25:33,669
+so we occurred you kill them no problem
+
+447
+00:25:31,570 --> 00:25:36,279
+but American to the white people these
+
+448
+00:25:33,669 --> 00:25:38,919
+idiots these rights human rights animal
+
+449
+00:25:36,279 --> 00:25:41,590
+rights this and these idiots but they
+
+450
+00:25:38,919 --> 00:25:44,679
+they have a reservation when it comes to
+
+451
+00:25:41,590 --> 00:25:47,019
+say dogs or cats you know because who
+
+452
+00:25:44,679 --> 00:25:51,279
+know now you cannot cure it because dogs
+
+453
+00:25:47,019 --> 00:25:55,149
+is somehow you know we are we say dogs
+
+454
+00:25:51,279 --> 00:25:57,460
+are the friends of humans okay but what
+
+455
+00:25:55,149 --> 00:26:01,360
+about cows you know ma me I mean what
+
+456
+00:25:57,460 --> 00:26:04,509
+about quotes you know clothes are super
+
+457
+00:26:01,360 --> 00:26:07,149
+intelligent and we we kill where else
+
+458
+00:26:04,509 --> 00:26:09,340
+where else you eat them too you know we
+
+459
+00:26:07,149 --> 00:26:11,980
+the lots of things yeah I mean even I
+
+460
+00:26:09,340 --> 00:26:15,370
+mean the Chinese they eat even more they
+
+461
+00:26:11,980 --> 00:26:19,269
+eat everything but we let's limit us to
+
+462
+00:26:15,370 --> 00:26:22,120
+you know Americans you see ochio a lot
+
+463
+00:26:19,269 --> 00:26:24,759
+of things so I mean the point is so what
+
+464
+00:26:22,120 --> 00:26:27,190
+what what what makes a distinction what
+
+465
+00:26:24,759 --> 00:26:30,429
+animal you can say you kill that's no
+
+466
+00:26:27,190 --> 00:26:32,230
+problem and why other animals you say
+
+467
+00:26:30,429 --> 00:26:33,909
+that's all you cannot do that yeah
+
+468
+00:26:32,230 --> 00:26:35,799
+that's unethical
+
+469
+00:26:33,909 --> 00:26:39,179
+you know this human rights and I'm
+
+470
+00:26:35,799 --> 00:26:40,360
+alright this this rights idiotic concept
+
+471
+00:26:39,179 --> 00:26:42,910
+so
+
+472
+00:26:40,360 --> 00:26:44,620
+question is what what what what can you
+
+473
+00:26:42,910 --> 00:26:47,650
+kill what you can you kill what what
+
+474
+00:26:44,620 --> 00:26:51,100
+what is the definition no mori we say
+
+475
+00:26:47,650 --> 00:26:53,920
+those we cannot kill or we we do things
+
+476
+00:26:51,100 --> 00:26:58,179
+to them we think it's cruelty is because
+
+477
+00:26:53,920 --> 00:27:02,049
+we think okay we intelligence that's the
+
+478
+00:26:58,179 --> 00:27:03,880
+dividing line normally tradition okay if
+
+479
+00:27:02,049 --> 00:27:07,809
+you have an animal that's intelligent
+
+480
+00:27:03,880 --> 00:27:10,059
+then if you do something bad to them
+
+481
+00:27:07,809 --> 00:27:12,070
+youth you know we think it's not ethical
+
+482
+00:27:10,059 --> 00:27:16,690
+we have a problem with it you know
+
+483
+00:27:12,070 --> 00:27:22,390
+especially the white people for example
+
+484
+00:27:16,690 --> 00:27:28,000
+dolphins dolphins whales horse but
+
+485
+00:27:22,390 --> 00:27:31,870
+that's not a that's not a consistent
+
+486
+00:27:28,000 --> 00:27:33,750
+argument because dogs and cats they are
+
+487
+00:27:31,870 --> 00:27:40,110
+not really smart okay
+
+488
+00:27:33,750 --> 00:27:43,360
+octopus octopus and octopus and course
+
+489
+00:27:40,110 --> 00:27:48,850
+they are far more intelligent than dogs
+
+490
+00:27:43,360 --> 00:27:50,590
+and cats or horse for that matter but we
+
+491
+00:27:48,850 --> 00:27:54,490
+eat octopuses
+
+492
+00:27:50,590 --> 00:27:57,460
+you know we eat them but then we don't
+
+493
+00:27:54,490 --> 00:27:59,710
+you know but host dogs cats we think oh
+
+494
+00:27:57,460 --> 00:28:03,490
+this is you cannot eat them that [ __ ]
+
+495
+00:27:59,710 --> 00:28:06,730
+you know white people do you know so
+
+496
+00:28:03,490 --> 00:28:10,900
+it's not consistent so what you know so
+
+497
+00:28:06,730 --> 00:28:13,450
+you get into this problem anyway we
+
+498
+00:28:10,900 --> 00:28:15,460
+digress into that because I was talking
+
+499
+00:28:13,450 --> 00:28:18,250
+about intelligence you know you by
+
+500
+00:28:15,460 --> 00:28:21,580
+tradition you should usually use the you
+
+501
+00:28:18,250 --> 00:28:23,830
+use intelligence as the dividing line of
+
+502
+00:28:21,580 --> 00:28:28,059
+what animals you can kill and what
+
+503
+00:28:23,830 --> 00:28:30,760
+animal you cannot do bad things to so
+
+504
+00:28:28,059 --> 00:28:32,980
+back to so why did we mention about that
+
+505
+00:28:30,760 --> 00:28:38,830
+intelligence because we are we were
+
+506
+00:28:32,980 --> 00:28:40,809
+talking about yeah we started to talk
+
+507
+00:28:38,830 --> 00:28:44,020
+about you know how do you define
+
+508
+00:28:40,809 --> 00:28:45,880
+intelligence and and artificial
+
+509
+00:28:44,020 --> 00:28:49,870
+intelligence consciousness yeah
+
+510
+00:28:45,880 --> 00:28:53,950
+consciousness and the human mind the you
+
+511
+00:28:49,870 --> 00:28:55,720
+know so what I'm saying is that we don't
+
+512
+00:28:53,950 --> 00:28:58,390
+to this day we don't understand how it
+
+513
+00:28:55,720 --> 00:29:01,210
+works we don't really know so these are
+
+514
+00:28:58,390 --> 00:29:03,280
+kind of the ultimate question in
+
+515
+00:29:01,210 --> 00:29:09,160
+philosophy and we don't know what what
+
+516
+00:29:03,280 --> 00:29:13,230
+he says we have no idea so how do we get
+
+517
+00:29:09,160 --> 00:29:13,230
+into that topic so I was saying because
+
+518
+00:29:17,490 --> 00:29:23,710
+how did we get into the intelligence
+
+519
+00:29:20,260 --> 00:29:29,460
+topic because oh biases yeah the
+
+520
+00:29:23,710 --> 00:29:33,250
+interesting thing about why biases form
+
+521
+00:29:29,460 --> 00:29:35,980
+which biases actually so as far as I
+
+522
+00:29:33,250 --> 00:29:38,020
+know biases is building it's a natural
+
+523
+00:29:35,980 --> 00:29:41,680
+it's part of our brains fundamental you
+
+524
+00:29:38,020 --> 00:29:45,730
+cannot remove it so if you study this
+
+525
+00:29:41,680 --> 00:29:48,010
+Steve you know this even this fun this
+
+526
+00:29:45,730 --> 00:29:49,990
+thing about bias even comes up in
+
+527
+00:29:48,010 --> 00:29:53,020
+artificial intelligence for example
+
+528
+00:29:49,990 --> 00:29:55,390
+today we have self-driving cars and
+
+529
+00:29:53,020 --> 00:29:57,310
+usually you have a dilemma should you
+
+530
+00:29:55,390 --> 00:30:02,020
+you know you feel some choice you know
+
+531
+00:29:57,310 --> 00:30:05,200
+car when a bad situation and should you
+
+532
+00:30:02,020 --> 00:30:09,160
+kill let's say this one person who is a
+
+533
+00:30:05,200 --> 00:30:11,320
+professor oh this can't homeless person
+
+534
+00:30:09,160 --> 00:30:13,960
+which one should you kill like like
+
+535
+00:30:11,320 --> 00:30:17,710
+there's a meme where you have to decide
+
+536
+00:30:13,960 --> 00:30:19,930
+on a real track you either kill one
+
+537
+00:30:17,710 --> 00:30:24,190
+person or ten person you know to decide
+
+538
+00:30:19,930 --> 00:30:26,080
+so that meme came from came from I
+
+539
+00:30:24,190 --> 00:30:29,320
+suppose some artificial intelligence
+
+540
+00:30:26,080 --> 00:30:31,240
+research so the question is you want you
+
+541
+00:30:29,320 --> 00:30:34,510
+you want the self-driving cars or
+
+542
+00:30:31,240 --> 00:30:39,160
+certain artificial intelligence to make
+
+543
+00:30:34,510 --> 00:30:40,660
+a decision but the the thing is that how
+
+544
+00:30:39,160 --> 00:30:44,800
+do you make a decision you know
+
+545
+00:30:40,660 --> 00:30:48,370
+especially when it comes to ethics so
+
+546
+00:30:44,800 --> 00:30:50,890
+basically the current state of things is
+
+547
+00:30:48,370 --> 00:30:54,310
+that we can't we don't know how to read
+
+548
+00:30:50,890 --> 00:30:57,130
+we don't know exactly how to what is you
+
+549
+00:30:54,310 --> 00:31:00,070
+know what is more ethical what is not we
+
+550
+00:30:57,130 --> 00:31:02,140
+cannot make that decision so this is
+
+551
+00:31:00,070 --> 00:31:04,660
+connected to bias that's what I'm
+
+552
+00:31:02,140 --> 00:31:07,910
+talking about so I'm here so this is
+
+553
+00:31:04,660 --> 00:31:11,410
+connected to several things
+
+554
+00:31:07,910 --> 00:31:14,450
+justice bias artificial intelligence
+
+555
+00:31:11,410 --> 00:31:19,400
+philosophy ethics you know philosophy of
+
+556
+00:31:14,450 --> 00:31:21,650
+ethics and you know psychology so what
+
+557
+00:31:19,400 --> 00:31:24,530
+I'm saying is that this filtering
+
+558
+00:31:21,650 --> 00:31:28,640
+mechanism fioating filtering out things
+
+559
+00:31:24,530 --> 00:31:31,790
+you don't you don't like it is part of
+
+560
+00:31:28,640 --> 00:31:36,170
+us you know it's it's we we have it from
+
+561
+00:31:31,790 --> 00:31:37,790
+evolution and it seems strange that you
+
+562
+00:31:36,170 --> 00:31:43,190
+filter out things you don't believe that
+
+563
+00:31:37,790 --> 00:31:46,130
+actually benefit you and that's the that
+
+564
+00:31:43,190 --> 00:31:49,130
+is how to explain that's that is what
+
+565
+00:31:46,130 --> 00:31:51,050
+I'm saying and and so what I'm trying to
+
+566
+00:31:49,130 --> 00:31:52,910
+say is that we so far we don't
+
+567
+00:31:51,050 --> 00:31:55,340
+understand how all these things work
+
+568
+00:31:52,910 --> 00:31:57,320
+because in order to in order to
+
+569
+00:31:55,340 --> 00:31:59,390
+understand how it works you have to drag
+
+570
+00:31:57,320 --> 00:32:01,280
+in basically you have to understand what
+
+571
+00:31:59,390 --> 00:32:03,530
+is what woody you have to know what is
+
+572
+00:32:01,280 --> 00:32:07,700
+intelligence what is consciousness
+
+573
+00:32:03,530 --> 00:32:10,490
+what is self-aware awareness and you
+
+574
+00:32:07,700 --> 00:32:14,000
+know all these you know so we don't know
+
+575
+00:32:10,490 --> 00:32:17,840
+the answer so far so back to the back to
+
+576
+00:32:14,000 --> 00:32:21,920
+my art blog so we have a lot of things
+
+577
+00:32:17,840 --> 00:32:23,900
+and this is David Lee Roth he is a rock
+
+578
+00:32:21,920 --> 00:32:26,690
+star
+
+579
+00:32:23,900 --> 00:32:28,540
+you know he's one of the top rock star
+
+580
+00:32:26,690 --> 00:32:31,490
+in 1980s
+
+581
+00:32:28,540 --> 00:32:34,490
+you know he's old he's he's a nerdy
+
+582
+00:32:31,490 --> 00:32:36,440
+character he's on YouTube doing his show
+
+583
+00:32:34,490 --> 00:32:40,430
+he's doing a show on YouTube you know
+
+584
+00:32:36,440 --> 00:32:45,050
+but he's now you know 30 years old older
+
+585
+00:32:40,430 --> 00:32:49,010
+so he's like 60 probably years old and
+
+586
+00:32:45,050 --> 00:32:52,630
+he's a nerdy guy but but this is one of
+
+587
+00:32:49,010 --> 00:32:58,490
+his most popular video California Girls
+
+588
+00:32:52,630 --> 00:33:01,790
+song in 1985 so I'm going to go through
+
+589
+00:32:58,490 --> 00:33:06,440
+my okay so many interesting things this
+
+590
+00:33:01,790 --> 00:33:10,010
+is this one is a commercial made by
+
+591
+00:33:06,440 --> 00:33:14,330
+Motorola and they are making fun of
+
+592
+00:33:10,010 --> 00:33:16,960
+oppose 1984 commercial so let me show
+
+593
+00:33:14,330 --> 00:33:16,960
+you this is
+
+594
+00:33:18,159 --> 00:33:25,639
+this is this is one of the most
+
+595
+00:33:22,249 --> 00:33:29,330
+commercial ever you know in human
+
+596
+00:33:25,639 --> 00:33:32,210
+history apples 1984 commercial and this
+
+597
+00:33:29,330 --> 00:33:35,210
+commercial if you haven't seen it you
+
+598
+00:33:32,210 --> 00:33:36,889
+know go see it go to my saw arts page
+
+599
+00:33:35,210 --> 00:33:42,919
+you know go to my page and you can see
+
+600
+00:33:36,889 --> 00:33:47,899
+it so good so let's go to okay so let's
+
+601
+00:33:42,919 --> 00:33:52,059
+sync my website and then go back copy
+
+602
+00:33:47,899 --> 00:33:59,419
+the file path paste it here make a link
+
+603
+00:33:52,059 --> 00:34:03,769
+copy it close and I go here I paste it
+
+604
+00:33:59,419 --> 00:34:08,539
+so you can go to that website then you
+
+605
+00:34:03,769 --> 00:34:11,210
+will find my link to my art blog then
+
+606
+00:34:08,539 --> 00:34:15,379
+you scroll down then you can get to this
+
+607
+00:34:11,210 --> 00:34:17,419
+commercial you can watch it okay so this
+
+608
+00:34:15,379 --> 00:34:20,270
+commercial is very popular weekend and
+
+609
+00:34:17,419 --> 00:34:26,020
+it's popular in part because it alludes
+
+610
+00:34:20,270 --> 00:34:30,859
+to George Orwell's 1984 his novel his
+
+611
+00:34:26,020 --> 00:34:35,629
+dystopian novel which is a big topic by
+
+612
+00:34:30,859 --> 00:34:40,990
+itself so this is this happened in 1984
+
+613
+00:34:35,629 --> 00:34:51,200
+but but in 2000 in in what year in 2011
+
+614
+00:34:40,990 --> 00:34:53,659
+Motorola Motorola made a commercial that
+
+615
+00:34:51,200 --> 00:34:56,389
+makes fun of Apple you know all these
+
+616
+00:34:53,659 --> 00:34:58,279
+white hooded people they are Apple
+
+617
+00:34:56,389 --> 00:35:03,140
+people you know with their white year
+
+618
+00:34:58,279 --> 00:35:09,220
+Europe year birds like visco so Motorola
+
+619
+00:35:03,140 --> 00:35:14,660
+made a commercial that's that's that's
+
+620
+00:35:09,220 --> 00:35:17,990
+taunting Apple and so that's interesting
+
+621
+00:35:14,660 --> 00:35:20,569
+okay so that's about that so that's my
+
+622
+00:35:17,990 --> 00:35:23,089
+art blog so I'm going to go down there's
+
+623
+00:35:20,569 --> 00:35:25,579
+quite many interesting things and some
+
+624
+00:35:23,089 --> 00:35:28,490
+of the some some of them are internet
+
+625
+00:35:25,579 --> 00:35:31,240
+history for example this one this guy is
+
+626
+00:35:28,490 --> 00:35:31,240
+a very funny
+
+627
+00:35:31,580 --> 00:35:38,840
+very popular around years early year mm
+
+628
+00:35:35,890 --> 00:35:43,640
+mm - you know things like that very
+
+629
+00:35:38,840 --> 00:35:47,870
+popular this before YouTube became
+
+630
+00:35:43,640 --> 00:35:51,890
+popular okay that there's like so many
+
+631
+00:35:47,870 --> 00:35:55,910
+interesting interesting things on my art
+
+632
+00:35:51,890 --> 00:35:59,900
+blog and this one this guy who drew this
+
+633
+00:35:55,910 --> 00:36:04,160
+one Kim Jong gee he is one of the
+
+634
+00:35:59,900 --> 00:36:06,500
+greatest illustrator on earth okay
+
+635
+00:36:04,160 --> 00:36:11,990
+probably one of the top five or top
+
+636
+00:36:06,500 --> 00:36:13,790
+three greatest living illustrator you
+
+637
+00:36:11,990 --> 00:36:15,470
+know maybe top ten in history of
+
+638
+00:36:13,790 --> 00:36:18,320
+humanity so he's one of the greatest
+
+639
+00:36:15,470 --> 00:36:21,260
+illustrator I've seen there are many
+
+640
+00:36:18,320 --> 00:36:23,770
+YouTube videos of him he draw things
+
+641
+00:36:21,260 --> 00:36:26,630
+live you know he he can draw this just
+
+642
+00:36:23,770 --> 00:36:28,850
+well meaning illustrator skin you know
+
+643
+00:36:26,630 --> 00:36:33,650
+you just start to draw it very fast no
+
+644
+00:36:28,850 --> 00:36:35,750
+but and also no mistakes I mean if
+
+645
+00:36:33,650 --> 00:36:38,210
+there's a mistake he just keep going so
+
+646
+00:36:35,750 --> 00:36:40,910
+he draw this in VO time in terminates
+
+647
+00:36:38,210 --> 00:36:43,730
+something like that in it's like you
+
+648
+00:36:40,910 --> 00:36:46,430
+have this in real time without without
+
+649
+00:36:43,730 --> 00:36:51,530
+having a model or having you know some
+
+650
+00:36:46,430 --> 00:36:54,020
+photo to copy he just like destroy it
+
+651
+00:36:51,530 --> 00:36:57,950
+start from scratch without looking at
+
+652
+00:36:54,020 --> 00:37:00,320
+anything so this guy Kim Jong ji but
+
+653
+00:36:57,950 --> 00:37:02,420
+however I don't I don't like his hard
+
+654
+00:37:00,320 --> 00:37:07,610
+work you know when you look at artworks
+
+655
+00:37:02,420 --> 00:37:11,410
+oh god we got to not-safe-for-work
+
+656
+00:37:07,610 --> 00:37:17,110
+stuff so when you look at this
+
+657
+00:37:11,410 --> 00:37:22,550
+when you look at a artwork artwork they
+
+658
+00:37:17,110 --> 00:37:27,890
+they they within it within the work it
+
+659
+00:37:22,550 --> 00:37:32,150
+embeds the style of the artist and it
+
+660
+00:37:27,890 --> 00:37:37,100
+embeds the personality of the artist so
+
+661
+00:37:32,150 --> 00:37:41,390
+this kingdom a king king jinji guy he's
+
+662
+00:37:37,100 --> 00:37:44,810
+a great artist but I look at his artwork
+
+663
+00:37:41,390 --> 00:37:45,860
+i I don't like his artwork that much
+
+664
+00:37:44,810 --> 00:37:52,870
+because
+
+665
+00:37:45,860 --> 00:37:55,210
+there is a certain personality certain
+
+666
+00:37:52,870 --> 00:37:58,190
+perspective of the world
+
+667
+00:37:55,210 --> 00:38:02,150
+you can see his artwork I don't like
+
+668
+00:37:58,190 --> 00:38:03,860
+that style I mean he's kind of like he
+
+669
+00:38:02,150 --> 00:38:06,550
+looked at the world you know you can
+
+670
+00:38:03,860 --> 00:38:09,800
+look you look at his artworks you know
+
+671
+00:38:06,550 --> 00:38:12,140
+hundreds of them and you can see the
+
+672
+00:38:09,800 --> 00:38:14,630
+character of this person in the same way
+
+673
+00:38:12,140 --> 00:38:16,610
+you can see that in a novelist you know
+
+674
+00:38:14,630 --> 00:38:19,330
+if you read certain novelists you can
+
+675
+00:38:16,610 --> 00:38:22,250
+see the character of the guy the author
+
+676
+00:38:19,330 --> 00:38:26,690
+Stefan clean or you know many science
+
+677
+00:38:22,250 --> 00:38:28,820
+fiction writers or other novelist but
+
+678
+00:38:26,690 --> 00:38:33,550
+anyway so I look at this Kingdom his
+
+679
+00:38:28,820 --> 00:38:36,290
+artwork I see this guy he's he's got a
+
+680
+00:38:33,550 --> 00:38:40,400
+worldview a perspective of the world
+
+681
+00:38:36,290 --> 00:38:45,800
+that is some some somewhat a similar
+
+682
+00:38:40,400 --> 00:38:49,130
+like sloppy and happy-go-lucky you know
+
+683
+00:38:45,800 --> 00:38:53,540
+like careless you know he doesn't he
+
+684
+00:38:49,130 --> 00:38:56,150
+doesn't care you know that kind of
+
+685
+00:38:53,540 --> 00:39:02,600
+attitude so I I didn't really like his
+
+686
+00:38:56,150 --> 00:39:05,510
+work and biology is another great is a
+
+687
+00:39:02,600 --> 00:39:10,280
+classic French movie okay so lots of
+
+688
+00:39:05,510 --> 00:39:13,910
+lots of interesting things and here it's
+
+689
+00:39:10,280 --> 00:39:15,950
+an interesting thing you have the Hugo
+
+690
+00:39:13,910 --> 00:39:19,100
+the this is a character in the video
+
+691
+00:39:15,950 --> 00:39:21,610
+game Street Fighter okay but however you
+
+692
+00:39:19,100 --> 00:39:26,450
+see what's interesting thing about this
+
+693
+00:39:21,610 --> 00:39:30,020
+drawing is that they have you know art
+
+694
+00:39:26,450 --> 00:39:32,930
+works are often exaggerated for the
+
+695
+00:39:30,020 --> 00:39:34,130
+dramatic effect okay so this is you know
+
+696
+00:39:32,930 --> 00:39:37,520
+one of the character
+
+697
+00:39:34,130 --> 00:39:40,010
+so this Hugo so you can but here you see
+
+698
+00:39:37,520 --> 00:39:44,660
+this girl is super small you see this
+
+699
+00:39:40,010 --> 00:39:47,810
+car it's pretty girl is so small sits on
+
+700
+00:39:44,660 --> 00:39:53,020
+his shoulder and this giant guy you know
+
+701
+00:39:47,810 --> 00:39:56,750
+do the fighting it's interesting and
+
+702
+00:39:53,020 --> 00:39:58,819
+scientifically this is called sexual
+
+703
+00:39:56,750 --> 00:40:03,769
+dimorphism
+
+704
+00:39:58,819 --> 00:40:08,299
+where the male and female of the same
+
+705
+00:40:03,769 --> 00:40:11,029
+species become very different you know
+
+706
+00:40:08,299 --> 00:40:13,699
+they differ greatly in some cases they
+
+707
+00:40:11,029 --> 00:40:16,519
+differ greatly in their size in their
+
+708
+00:40:13,699 --> 00:40:19,160
+physical size and this is also true for
+
+709
+00:40:16,519 --> 00:40:22,880
+human animals males are bigger than
+
+710
+00:40:19,160 --> 00:40:25,249
+females but in other species it it's
+
+711
+00:40:22,880 --> 00:40:27,380
+very big difference like Mayo is this
+
+712
+00:40:25,249 --> 00:40:30,619
+big females they speak something like
+
+713
+00:40:27,380 --> 00:40:33,949
+you know something like that so this is
+
+714
+00:40:30,619 --> 00:40:36,199
+called sexual dimorphism you study that
+
+715
+00:40:33,949 --> 00:40:38,479
+when you study biology you know you
+
+716
+00:40:36,199 --> 00:40:42,019
+study you go deep you know in college
+
+717
+00:40:38,479 --> 00:40:44,479
+you take intro biology then you take you
+
+718
+00:40:42,019 --> 00:40:50,239
+know you you learn things okay you learn
+
+719
+00:40:44,479 --> 00:40:55,299
+cellular biology microbiology you know
+
+720
+00:40:50,239 --> 00:40:58,939
+you go learn things and here is another
+
+721
+00:40:55,299 --> 00:41:02,569
+architectural beauty this is again in
+
+722
+00:40:58,939 --> 00:41:04,909
+China this you see this like they have
+
+723
+00:41:02,569 --> 00:41:07,989
+hundreds of these like hundred literally
+
+724
+00:41:04,909 --> 00:41:09,890
+hundreds hundreds of these amazing
+
+725
+00:41:07,989 --> 00:41:14,509
+architectures in China
+
+726
+00:41:09,890 --> 00:41:19,609
+well elsewhere elsewhere too but but in
+
+727
+00:41:14,509 --> 00:41:23,029
+China a lot more you know incredible so
+
+728
+00:41:19,609 --> 00:41:28,999
+you have this tree tree like building in
+
+729
+00:41:23,029 --> 00:41:31,339
+China fascinating you know I was so
+
+730
+00:41:28,999 --> 00:41:35,119
+amazed by these Chinese things you know
+
+731
+00:41:31,339 --> 00:41:37,459
+like you know how do you find this thing
+
+732
+00:41:35,119 --> 00:41:39,529
+well you can you can follow some Chinese
+
+733
+00:41:37,459 --> 00:41:42,829
+on Twitter you know the Chinese some
+
+734
+00:41:39,529 --> 00:41:45,259
+channels so you see turn of it every day
+
+735
+00:41:42,829 --> 00:41:48,829
+like the big you know train like they
+
+736
+00:41:45,259 --> 00:41:52,549
+have the you know pulley trend like 2020
+
+737
+00:41:48,829 --> 00:41:55,309
+rails in parallel Jesus like 20 wheels
+
+738
+00:41:52,549 --> 00:41:57,019
+so so then you see the train then you
+
+739
+00:41:55,309 --> 00:41:59,319
+see these buildings hundreds of them
+
+740
+00:41:57,019 --> 00:42:02,059
+every day you know there's new then
+
+741
+00:41:59,319 --> 00:42:04,390
+skyscrapers then bridges you know the
+
+742
+00:42:02,059 --> 00:42:07,069
+longest bridge you know the beautiful
+
+743
+00:42:04,390 --> 00:42:09,349
+fantastic you started to see this like
+
+744
+00:42:07,069 --> 00:42:12,620
+oh I see I started to see it you know
+
+745
+00:42:09,349 --> 00:42:17,030
+like every day you know and I was just
+
+746
+00:42:12,620 --> 00:42:19,550
+then you know this is genuine amazement
+
+747
+00:42:17,030 --> 00:42:22,160
+you know I'm like I'm America American
+
+748
+00:42:19,550 --> 00:42:26,540
+I've never been to China so I live in
+
+749
+00:42:22,160 --> 00:42:28,610
+America you know and you know America we
+
+750
+00:42:26,540 --> 00:42:32,150
+have you know we have San Francisco we
+
+751
+00:42:28,610 --> 00:42:34,820
+have New York we have you know Chicago
+
+752
+00:42:32,150 --> 00:42:37,370
+or Los Angeles you know skyscrapers we
+
+753
+00:42:34,820 --> 00:42:39,490
+have we have skyscrapers we are the
+
+754
+00:42:37,370 --> 00:42:42,800
+first one to have lots of them
+
+755
+00:42:39,490 --> 00:42:46,550
+record-breaking but then but you started
+
+756
+00:42:42,800 --> 00:42:49,910
+to see this this China things they drove
+
+757
+00:42:46,550 --> 00:42:51,560
+they trough your American Fox okay like
+
+758
+00:42:49,910 --> 00:42:53,810
+American today you have nothing nothing
+
+759
+00:42:51,560 --> 00:42:55,910
+new everything is like hundred years old
+
+760
+00:42:53,810 --> 00:42:58,030
+you don't have anything new you don't
+
+761
+00:42:55,910 --> 00:43:00,590
+have new skyscrapers you have nothing
+
+762
+00:42:58,030 --> 00:43:05,540
+meanwhile you see in China and other
+
+763
+00:43:00,590 --> 00:43:07,820
+places you know in in Dubai you see lots
+
+764
+00:43:05,540 --> 00:43:10,280
+of these going on the biggest bridge the
+
+765
+00:43:07,820 --> 00:43:15,320
+biggest I'm the biggest satellite the
+
+766
+00:43:10,280 --> 00:43:17,320
+biggest biggest radio dish embedded in a
+
+767
+00:43:15,320 --> 00:43:20,390
+mountain you know things like that so
+
+768
+00:43:17,320 --> 00:43:22,640
+you don't see that but meanwhile you
+
+769
+00:43:20,390 --> 00:43:27,320
+talk to typical Americans like I know
+
+770
+00:43:22,640 --> 00:43:29,120
+you know on my discord see they they
+
+771
+00:43:27,320 --> 00:43:32,240
+like don't know a [ __ ] okay
+
+772
+00:43:29,120 --> 00:43:34,910
+meanwhile they have this very strong
+
+773
+00:43:32,240 --> 00:43:36,890
+American buyers they you know they they
+
+774
+00:43:34,910 --> 00:43:39,230
+don't in meanwhile they don't know a
+
+775
+00:43:36,890 --> 00:43:41,750
+[ __ ] they are thinking Oh China is just
+
+776
+00:43:39,230 --> 00:43:45,470
+corrupt it oh they just evil or they
+
+777
+00:43:41,750 --> 00:43:48,470
+just whatever you know meanwhile on the
+
+778
+00:43:45,470 --> 00:43:51,410
+on the news in USA papers every day you
+
+779
+00:43:48,470 --> 00:43:53,690
+see is like stupid things you know
+
+780
+00:43:51,410 --> 00:43:54,920
+propaganda China evil basically just
+
+781
+00:43:53,690 --> 00:43:58,850
+China you go China
+
+782
+00:43:54,920 --> 00:44:01,490
+Evo this channel you go that but the
+
+783
+00:43:58,850 --> 00:44:03,170
+real life things like these buildings
+
+784
+00:44:01,490 --> 00:44:07,130
+you don't you don't see you don't you
+
+785
+00:44:03,170 --> 00:44:11,090
+know this you don't see so I'm I'm
+
+786
+00:44:07,130 --> 00:44:15,230
+literally change annually amazed by
+
+787
+00:44:11,090 --> 00:44:20,750
+these things going on in China then you
+
+788
+00:44:15,230 --> 00:44:24,980
+have this okay this poster Lolita okay
+
+789
+00:44:20,750 --> 00:44:26,270
+this this is a classic film which again
+
+790
+00:44:24,980 --> 00:44:28,100
+the white people
+
+791
+00:44:26,270 --> 00:44:29,510
+white men okay it's a taboo you know
+
+792
+00:44:28,100 --> 00:44:32,960
+they don't know how to deal with this
+
+793
+00:44:29,510 --> 00:44:35,270
+issue when it comes to this thing that
+
+794
+00:44:32,960 --> 00:44:38,300
+there is a word okay I don't want to
+
+795
+00:44:35,270 --> 00:44:41,150
+mention because in in the white guy's
+
+796
+00:44:38,300 --> 00:44:43,370
+mouth every day is like what they have a
+
+797
+00:44:41,150 --> 00:44:45,500
+few words that they that that that they
+
+798
+00:44:43,370 --> 00:44:50,000
+chant every day it's in their brain did
+
+799
+00:44:45,500 --> 00:44:52,280
+they cannot escape it like they are they
+
+800
+00:44:50,000 --> 00:44:57,490
+they are forced into thinking about
+
+801
+00:44:52,280 --> 00:45:00,650
+about about five or ten terms every day
+
+802
+00:44:57,490 --> 00:45:06,770
+so anyway this poster is about the film
+
+803
+00:45:00,650 --> 00:45:08,740
+classic by Stanley Kubrick okay so I'm
+
+804
+00:45:06,770 --> 00:45:14,230
+not going to talk about that too much
+
+805
+00:45:08,740 --> 00:45:16,880
+and in Brazil is another great fantastic
+
+806
+00:45:14,230 --> 00:45:23,240
+science fiction okay it's it's also
+
+807
+00:45:16,880 --> 00:45:25,910
+about dystopia Brazil and this girl this
+
+808
+00:45:23,240 --> 00:45:31,730
+this woman is fantastic is she is
+
+809
+00:45:25,910 --> 00:45:33,950
+fantastic four zero okay it's a
+
+810
+00:45:31,730 --> 00:45:38,210
+fantastic movie science fiction you
+
+811
+00:45:33,950 --> 00:45:41,030
+should go watch it so anyway so I was so
+
+812
+00:45:38,210 --> 00:45:47,060
+I'm going through my okay then then you
+
+813
+00:45:41,030 --> 00:45:48,980
+have some of the greatest solar tower
+
+814
+00:45:47,060 --> 00:45:51,430
+you know thermal energy you know
+
+815
+00:45:48,980 --> 00:45:56,000
+renewable energy this one is in China
+
+816
+00:45:51,430 --> 00:45:58,700
+again in China but you also have some
+
+817
+00:45:56,000 --> 00:46:04,070
+USA ones okay so let me show you some of
+
+818
+00:45:58,700 --> 00:46:14,570
+some of these this one is in France this
+
+819
+00:46:04,070 --> 00:46:17,390
+one is in in USA I think yeah I think
+
+820
+00:46:14,570 --> 00:46:24,260
+this one is not no but wait is it in USA
+
+821
+00:46:17,390 --> 00:46:28,820
+I forgot where Isis and this one is in
+
+822
+00:46:24,260 --> 00:46:31,370
+Spain I think your spin you know about
+
+823
+00:46:28,820 --> 00:46:33,230
+solar panels so I'm very much into so
+
+824
+00:46:31,370 --> 00:46:38,810
+this is a different style of solar
+
+825
+00:46:33,230 --> 00:46:41,780
+energy they concentrate light way into
+
+826
+00:46:38,810 --> 00:46:43,970
+the pipe in the middle
+
+827
+00:46:41,780 --> 00:46:46,280
+you know a difference so it's very
+
+828
+00:46:43,970 --> 00:46:51,680
+interesting to study the efficiency of
+
+829
+00:46:46,280 --> 00:46:53,990
+these different styles of solo energy so
+
+830
+00:46:51,680 --> 00:46:56,660
+you have massive erase of it I like I
+
+831
+00:46:53,990 --> 00:47:00,829
+love these kind of things I love it so
+
+832
+00:46:56,660 --> 00:47:04,430
+you so you can see so you know so I'm
+
+833
+00:47:00,829 --> 00:47:07,579
+very much interested in these things
+
+834
+00:47:04,430 --> 00:47:11,240
+here is another style parabolic mirror
+
+835
+00:47:07,579 --> 00:47:13,809
+they concentrate the sunlight into this
+
+836
+00:47:11,240 --> 00:47:19,690
+thing in the middle so they heat it up
+
+837
+00:47:13,809 --> 00:47:24,500
+and here is another one so I'm I'm very
+
+838
+00:47:19,690 --> 00:47:27,980
+attracted to these things but how you
+
+839
+00:47:24,500 --> 00:47:31,660
+know and and also the wind turbines let
+
+840
+00:47:27,980 --> 00:47:31,660
+me show you some of the wind turbines
+
+841
+00:47:32,079 --> 00:47:38,630
+they are beautiful you know some some
+
+842
+00:47:35,569 --> 00:47:40,400
+people they think these are I sauce but
+
+843
+00:47:38,630 --> 00:47:43,220
+I rather I think I think they are
+
+844
+00:47:40,400 --> 00:47:47,299
+actually beautiful to my eyes I love
+
+845
+00:47:43,220 --> 00:47:49,579
+seeing him this hot gigantea okay you
+
+846
+00:47:47,299 --> 00:47:52,640
+see this you see this that that thing
+
+847
+00:47:49,579 --> 00:47:55,970
+there that's a human is like this tiny
+
+848
+00:47:52,640 --> 00:47:58,970
+over there you know so this is like 20
+
+849
+00:47:55,970 --> 00:48:02,900
+stories high 10 stories high no more so
+
+850
+00:47:58,970 --> 00:48:09,109
+you usually wind turbine is like 120
+
+851
+00:48:02,900 --> 00:48:12,500
+meters okay so this Archer gantry you
+
+852
+00:48:09,109 --> 00:48:15,650
+know you have array of them and this one
+
+853
+00:48:12,500 --> 00:48:19,460
+this one is in Sweden and actually one
+
+854
+00:48:15,650 --> 00:48:22,670
+of the person his dad works with these
+
+855
+00:48:19,460 --> 00:48:26,720
+things so his dad goes into one of them
+
+856
+00:48:22,670 --> 00:48:29,029
+and take a photo and in this guy you
+
+857
+00:48:26,720 --> 00:48:35,210
+know he seems Swedish he sent me in the
+
+858
+00:48:29,029 --> 00:48:38,329
+photo about in 2006 so you know he is a
+
+859
+00:48:35,210 --> 00:48:40,369
+Emacs user so that's how we you know we
+
+860
+00:48:38,329 --> 00:48:42,589
+know each other he sent me this photo
+
+861
+00:48:40,369 --> 00:48:47,720
+because he saw me collecting these
+
+862
+00:48:42,589 --> 00:48:52,520
+photos what's his name and the spark god
+
+863
+00:48:47,720 --> 00:48:53,970
+yeah and the spa god okay so I wonder
+
+864
+00:48:52,520 --> 00:48:57,750
+how he is doing so
+
+865
+00:48:53,970 --> 00:49:01,200
+this is you know this is 14 years ago so
+
+866
+00:48:57,750 --> 00:49:04,740
+he sent me this photo in Sweden and some
+
+867
+00:49:01,200 --> 00:49:07,680
+other photos I took oh I I took all my
+
+868
+00:49:04,740 --> 00:49:11,280
+friends you know my real life friends
+
+869
+00:49:07,680 --> 00:49:14,160
+sent it to me and this this one I took
+
+870
+00:49:11,280 --> 00:49:17,910
+so anyway wind turbines okay fascinating
+
+871
+00:49:14,160 --> 00:49:20,310
+but you know then I learned I learned in
+
+872
+00:49:17,910 --> 00:49:24,330
+the past few years that wind turbines in
+
+873
+00:49:20,310 --> 00:49:28,560
+the solo energy they are crap okay we
+
+874
+00:49:24,330 --> 00:49:30,690
+have been brainwashed especially
+
+875
+00:49:28,560 --> 00:49:33,060
+California in California here you know
+
+876
+00:49:30,690 --> 00:49:37,050
+the California the very progressive
+
+877
+00:49:33,060 --> 00:49:40,770
+state in USA we we have been brainwashed
+
+878
+00:49:37,050 --> 00:49:43,349
+to believe that these are great things
+
+879
+00:49:40,770 --> 00:49:46,140
+because I believe them I really I love
+
+880
+00:49:43,349 --> 00:49:49,800
+them I love how they looks I love how
+
+881
+00:49:46,140 --> 00:49:51,690
+they works I love the technology you
+
+882
+00:49:49,800 --> 00:49:55,170
+know and I love how they works you know
+
+883
+00:49:51,690 --> 00:49:59,550
+that you know so I believed in them for
+
+884
+00:49:55,170 --> 00:50:03,030
+like 20 years but until the rise of
+
+885
+00:49:59,550 --> 00:50:06,420
+social justice in studying in 2016 I
+
+886
+00:50:03,030 --> 00:50:08,220
+started to read you know all the you
+
+887
+00:50:06,420 --> 00:50:10,140
+know why are they thinking about these
+
+888
+00:50:08,220 --> 00:50:11,849
+things or that things so I started to
+
+889
+00:50:10,140 --> 00:50:14,880
+read a lot of things then they I learned
+
+890
+00:50:11,849 --> 00:50:19,619
+eventually you know two years ago so I
+
+891
+00:50:14,880 --> 00:50:22,560
+learned the truth that these things this
+
+892
+00:50:19,619 --> 00:50:25,640
+renewable energy this solar and an wind
+
+893
+00:50:22,560 --> 00:50:28,890
+turbine they are like do nothing okay
+
+894
+00:50:25,640 --> 00:50:32,160
+compared to nuclear energy what you want
+
+895
+00:50:28,890 --> 00:50:34,140
+is nuclear energy that's ten times more
+
+896
+00:50:32,160 --> 00:50:36,900
+efficient something like that then this
+
+897
+00:50:34,140 --> 00:50:39,270
+this then these solar panels or wind
+
+898
+00:50:36,900 --> 00:50:42,300
+panels these are like petty they are
+
+899
+00:50:39,270 --> 00:50:46,680
+just decorations they are and and partly
+
+900
+00:50:42,300 --> 00:50:48,359
+they are pop agonda and money they make
+
+901
+00:50:46,680 --> 00:50:50,820
+money for certain people you know that
+
+902
+00:50:48,359 --> 00:50:57,780
+that's so we have been brainwashed to
+
+903
+00:50:50,820 --> 00:51:00,240
+believe in them so anyway so so that's
+
+904
+00:50:57,780 --> 00:51:03,240
+my some of my interesting photos and
+
+905
+00:51:00,240 --> 00:51:06,420
+stuff you know usually my collections
+
+906
+00:51:03,240 --> 00:51:07,840
+are things contrary to your opinions
+
+907
+00:51:06,420 --> 00:51:09,630
+contrary to your PV
+
+908
+00:51:07,840 --> 00:51:13,600
+that's the things I like to talk about
+
+909
+00:51:09,630 --> 00:51:15,460
+why because what's the point if I talk
+
+910
+00:51:13,600 --> 00:51:17,920
+about things everyone already knows
+
+911
+00:51:15,460 --> 00:51:19,900
+already believes so I talk about some
+
+912
+00:51:17,920 --> 00:51:22,840
+other things especially because I'm
+
+913
+00:51:19,900 --> 00:51:25,720
+American I live in USA so I hear the
+
+914
+00:51:22,840 --> 00:51:28,150
+news from typically white people and
+
+915
+00:51:25,720 --> 00:51:31,290
+today the social justice can they are
+
+916
+00:51:28,150 --> 00:51:34,180
+far worse they are much more worse but
+
+917
+00:51:31,290 --> 00:51:36,190
+they don't see things they don't they
+
+918
+00:51:34,180 --> 00:51:40,090
+don't know things okay for example this
+
+919
+00:51:36,190 --> 00:51:42,520
+this sign okay this sign is one of the
+
+920
+00:51:40,090 --> 00:51:45,100
+things that's lodged in white people's
+
+921
+00:51:42,520 --> 00:51:47,350
+mind every day every day they talk they
+
+922
+00:51:45,100 --> 00:51:51,010
+talk about that they cannot escape like
+
+923
+00:51:47,350 --> 00:51:53,380
+their brain is like deformed its creeped
+
+924
+00:51:51,010 --> 00:51:56,280
+out by certain you know bite by certain
+
+925
+00:51:53,380 --> 00:51:59,560
+thoughts so this so these white people
+
+926
+00:51:56,280 --> 00:52:02,560
+they don't know they don't see this they
+
+927
+00:51:59,560 --> 00:52:08,320
+don't know these things and these things
+
+928
+00:52:02,560 --> 00:52:11,230
+this Buddha it is not some obscure thing
+
+929
+00:52:08,320 --> 00:52:13,600
+that you have to dig you know in history
+
+930
+00:52:11,230 --> 00:52:17,920
+in archaeology that's not the case in
+
+931
+00:52:13,600 --> 00:52:21,340
+Asia Asia Japan China ok Taiwan Hong
+
+932
+00:52:17,920 --> 00:52:24,910
+Kong in South Asia you have more
+
+933
+00:52:21,340 --> 00:52:28,360
+population than Europe in America ok
+
+934
+00:52:24,910 --> 00:52:32,110
+more people being Asia then also
+
+935
+00:52:28,360 --> 00:52:34,510
+including India ok China India Japan ok
+
+936
+00:52:32,110 --> 00:52:37,290
+you have more people than you then
+
+937
+00:52:34,510 --> 00:52:40,150
+Europe in America and Australia combined
+
+938
+00:52:37,290 --> 00:52:43,660
+ok these white people countries more
+
+939
+00:52:40,150 --> 00:52:48,670
+people in Asia and every person in a
+
+940
+00:52:43,660 --> 00:52:51,550
+seer know about this but in America for
+
+941
+00:52:48,670 --> 00:52:53,620
+example the white people when you show
+
+942
+00:52:51,550 --> 00:52:56,860
+them this oh they are like hope my god
+
+943
+00:52:53,620 --> 00:52:58,540
+what is this Jesus this should be banned
+
+944
+00:52:56,860 --> 00:53:00,040
+you know they they never seen this
+
+945
+00:52:58,540 --> 00:53:02,260
+before they don't know that's a
+
+946
+00:53:00,040 --> 00:53:04,570
+situation that is a situation I'm
+
+947
+00:53:02,260 --> 00:53:07,540
+talking about that is a situation why am
+
+948
+00:53:04,570 --> 00:53:09,400
+i have contrary opinions I'm showing
+
+949
+00:53:07,540 --> 00:53:12,550
+this because I because what do you
+
+950
+00:53:09,400 --> 00:53:16,750
+believe is not truth you you you are
+
+951
+00:53:12,550 --> 00:53:20,230
+like 1 plus 1 equals 2 3 every day you
+
+952
+00:53:16,750 --> 00:53:21,619
+know that's that's what's happening so
+
+953
+00:53:20,230 --> 00:53:26,480
+so that is why
+
+954
+00:53:21,619 --> 00:53:29,990
+collect these photos and also the photo
+
+955
+00:53:26,480 --> 00:53:34,430
+by itself you know it's deep okay people
+
+956
+00:53:29,990 --> 00:53:37,249
+human animals we human animals created
+
+957
+00:53:34,430 --> 00:53:39,440
+this thing you know this sculpture it's
+
+958
+00:53:37,249 --> 00:53:42,109
+not it's not something you can just
+
+959
+00:53:39,440 --> 00:53:44,420
+create try to do it you know try to go
+
+960
+00:53:42,109 --> 00:53:46,369
+ahead and do make one make this thing
+
+961
+00:53:44,420 --> 00:53:49,759
+today you will see you cannot do it you
+
+962
+00:53:46,369 --> 00:53:52,160
+see this this I'm not sure how big is
+
+963
+00:53:49,759 --> 00:53:55,460
+this you know this is sculpture it takes
+
+964
+00:53:52,160 --> 00:53:59,569
+a team you know 100 thousands or a city
+
+965
+00:53:55,460 --> 00:54:02,359
+to build it so it's a human artifact you
+
+966
+00:53:59,569 --> 00:54:04,940
+know human sometimes somewhere in some
+
+967
+00:54:02,359 --> 00:54:06,980
+region they created this and of course
+
+968
+00:54:04,940 --> 00:54:10,569
+this is part of the religion this is
+
+969
+00:54:06,980 --> 00:54:14,960
+Buddhism it's another big topic just
+
+970
+00:54:10,569 --> 00:54:17,569
+like for example in Brazil I think st.
+
+971
+00:54:14,960 --> 00:54:22,450
+Paul or some some large city you have a
+
+972
+00:54:17,569 --> 00:54:26,900
+giant huge Jesus you know like in this
+
+973
+00:54:22,450 --> 00:54:30,549
+posture and of course then USA you have
+
+974
+00:54:26,900 --> 00:54:36,019
+the freedom goddess you know in New York
+
+975
+00:54:30,549 --> 00:54:41,480
+which is a gift from France so you have
+
+976
+00:54:36,019 --> 00:54:47,410
+to look and understand things
+
+977
+00:54:41,480 --> 00:54:47,410
+not from your narrowed you know your
+
+978
+00:54:48,400 --> 00:54:57,769
+comment you know the idiotic sources you
+
+979
+00:54:52,700 --> 00:54:59,900
+have to broaden your mind and here here
+
+980
+00:54:57,769 --> 00:55:02,720
+is a piece of history okay here's a
+
+981
+00:54:59,900 --> 00:55:07,999
+piece of internet history now look at
+
+982
+00:55:02,720 --> 00:55:10,519
+this this is back in 2000 what year is
+
+983
+00:55:07,999 --> 00:55:15,680
+this I have the year
+
+984
+00:55:10,519 --> 00:55:21,799
+I think it's 2005 or something around
+
+985
+00:55:15,680 --> 00:55:24,920
+there this is at Google you see that now
+
+986
+00:55:21,799 --> 00:55:31,039
+today you cannot do that anymore
+
+987
+00:55:24,920 --> 00:55:34,460
+so this this photo is a it's a piece of
+
+988
+00:55:31,039 --> 00:55:35,520
+internet history and some are
+
+989
+00:55:34,460 --> 00:55:39,080
+significant
+
+990
+00:55:35,520 --> 00:55:43,170
+you can see a cultural shift here and
+
+991
+00:55:39,080 --> 00:55:44,100
+this guy again that's he this guy is a
+
+992
+00:55:43,170 --> 00:55:47,610
+piece of history
+
+993
+00:55:44,100 --> 00:55:51,810
+he's the his this guy his name is Vic
+
+994
+00:55:47,610 --> 00:55:55,050
+Gundotra I think okay so wait I'm not
+
+995
+00:55:51,810 --> 00:56:00,420
+sure it's actually him but Vic on Dora
+
+996
+00:55:55,050 --> 00:56:03,210
+is a guy Indian blood he was the lead
+
+997
+00:56:00,420 --> 00:56:06,030
+you know some top manager top leader of
+
+998
+00:56:03,210 --> 00:56:08,369
+Google he was the lead of Google Plus he
+
+999
+00:56:06,030 --> 00:56:11,790
+tried to push Google Plus to become the
+
+1000
+00:56:08,369 --> 00:56:15,450
+social network you know because of the
+
+1001
+00:56:11,790 --> 00:56:18,420
+threat of Facebook and eventually he
+
+1002
+00:56:15,450 --> 00:56:21,690
+failed and gave up then he quit he quit
+
+1003
+00:56:18,420 --> 00:56:23,820
+Google you know so here is a piece of
+
+1004
+00:56:21,690 --> 00:56:27,660
+Google history and also a piece of
+
+1005
+00:56:23,820 --> 00:56:32,850
+internet history and history of American
+
+1006
+00:56:27,660 --> 00:56:35,340
+culture so you can see back then this is
+
+1007
+00:56:32,850 --> 00:56:36,810
+kind of fun ok and we have lots of it
+
+1008
+00:56:35,340 --> 00:56:38,580
+this is Google
+
+1009
+00:56:36,810 --> 00:56:43,619
+I think it's Google Halloween or
+
+1010
+00:56:38,580 --> 00:56:45,540
+something where Google people have fun
+
+1011
+00:56:43,619 --> 00:56:50,700
+you know engineers back then it was
+
+1012
+00:56:45,540 --> 00:56:53,720
+Google was good this is mm but today
+
+1013
+00:56:50,700 --> 00:56:56,190
+Google is mostly just social justice
+
+1014
+00:56:53,720 --> 00:57:00,390
+lawsuit you know Google you know those
+
+1015
+00:56:56,190 --> 00:57:02,340
+who this feminism lawsuit trans lawsuit
+
+1016
+00:57:00,390 --> 00:57:04,980
+Google suing you know Google firing
+
+1017
+00:57:02,340 --> 00:57:06,480
+people you know then the Google firing
+
+1018
+00:57:04,980 --> 00:57:09,359
+people criticized this or that and
+
+1019
+00:57:06,480 --> 00:57:11,820
+Google firing activists you know some of
+
+1020
+00:57:09,359 --> 00:57:15,450
+the soldiers you know it's a lawsuit
+
+1021
+00:57:11,820 --> 00:57:18,930
+it's a lawsuit lawsuit games those huge
+
+1022
+00:57:15,450 --> 00:57:23,609
+circus and this one is the beginning of
+
+1023
+00:57:18,930 --> 00:57:26,640
+Google+ she is she's kind of actress you
+
+1024
+00:57:23,609 --> 00:57:29,700
+can you can watch a video on Chrome this
+
+1025
+00:57:26,640 --> 00:57:33,869
+video does not show up in Firefox
+
+1026
+00:57:29,700 --> 00:57:36,630
+because Firefox does not support MKV you
+
+1027
+00:57:33,869 --> 00:57:40,260
+know again here is another very
+
+1028
+00:57:36,630 --> 00:57:43,500
+interesting history of ok here now this
+
+1029
+00:57:40,260 --> 00:57:45,690
+is about history of technology as you
+
+1030
+00:57:43,500 --> 00:57:48,840
+know we you know we technique us know a
+
+1031
+00:57:45,690 --> 00:57:50,910
+good morning hello beautiful people
+
+1032
+00:57:48,840 --> 00:57:54,840
+I'm gonna agree the comment singing a
+
+1033
+00:57:50,910 --> 00:57:56,850
+bit okay I already talked up about 57
+
+1034
+00:57:54,840 --> 00:57:59,310
+minutes okay I think I do 10 more
+
+1035
+00:57:56,850 --> 00:58:01,530
+minutes in this thought so internet
+
+1036
+00:57:59,310 --> 00:58:06,330
+history here is a piece of internet
+
+1037
+00:58:01,530 --> 00:58:09,990
+history two aspects one is the history
+
+1038
+00:58:06,330 --> 00:58:12,720
+of Google Plus this is a video of
+
+1039
+00:58:09,990 --> 00:58:16,710
+showing this car scene scene II mean
+
+1040
+00:58:12,720 --> 00:58:18,930
+kind of a song about Google Plus this is
+
+1041
+00:58:16,710 --> 00:58:25,280
+when Google Plus began okay hold on a
+
+1042
+00:58:18,930 --> 00:58:25,280
+second there's a Jesus
+
+1043
+00:58:42,410 --> 00:58:45,280
+be right back
+
+1044
+00:59:15,390 --> 00:59:27,130
+okay I'm going to stop that's about it
+
+1045
+00:59:21,070 --> 00:59:29,800
+for today's talk show and and let's see
+
+1046
+00:59:27,130 --> 00:59:32,770
+my store life so that's about it for
+
+1047
+00:59:29,800 --> 00:59:35,530
+today's talk show I was going to do some
+
+1048
+00:59:32,770 --> 00:59:38,650
+Emacs but we talked and talked
+
+1049
+00:59:35,530 --> 00:59:41,470
+then stop so I was saying I'm going to
+
+1050
+00:59:38,650 --> 00:59:47,290
+read the comments for five minutes okay
+
+1051
+00:59:41,470 --> 00:59:51,880
+so I didn't catch up hello beautiful
+
+1052
+00:59:47,290 --> 00:59:54,730
+people anyway so I'm talking about this
+
+1053
+00:59:51,880 --> 00:59:58,720
+beginning of Google history of Google
+
+1054
+00:59:54,730 --> 01:00:04,600
+but the other aspect is about technology
+
+1055
+00:59:58,720 --> 01:00:06,700
+the history of or the politics of movie
+
+1056
+01:00:04,600 --> 01:00:09,910
+codec movie formats you know video
+
+1057
+01:00:06,700 --> 01:00:12,250
+formats in the past 20 years you see
+
+1058
+01:00:09,910 --> 01:00:16,060
+here's a very interesting thing and and
+
+1059
+01:00:12,250 --> 01:00:18,940
+this this relates to open source the
+
+1060
+01:00:16,060 --> 01:00:22,510
+politics of open source you know as you
+
+1061
+01:00:18,940 --> 01:00:24,670
+know I'm against the typical open source
+
+1062
+01:00:22,510 --> 01:00:27,280
+and free software of phonetics you know
+
+1063
+01:00:24,670 --> 01:00:31,210
+here is an example why you see this
+
+1064
+01:00:27,280 --> 01:00:33,580
+video codec this video is not showing in
+
+1065
+01:00:31,210 --> 01:00:36,760
+Google in in Firefox okay let me show
+
+1066
+01:00:33,580 --> 01:00:43,290
+let me show this video in Google Chrome
+
+1067
+01:00:36,760 --> 01:00:48,150
+so right now I mean Google Chrome and
+
+1068
+01:00:43,290 --> 01:00:48,150
+this video shows up you can play it
+
+1069
+01:00:58,660 --> 01:01:01,870
+[Music]
+
+1070
+01:01:06,030 --> 01:01:13,000
+so that's you know this video was some
+
+1071
+01:01:09,880 --> 01:01:19,030
+sort of meme on Google+ when Google+
+
+1072
+01:01:13,000 --> 01:01:22,660
+began in 2011 okay so this is like nine
+
+1073
+01:01:19,030 --> 01:01:29,380
+years ago so it's a piece of history and
+
+1074
+01:01:22,660 --> 01:01:32,230
+I'm recording it and so the thing I want
+
+1075
+01:01:29,380 --> 01:01:36,369
+to talk about is the video format so the
+
+1076
+01:01:32,230 --> 01:01:38,589
+video format MKV is espoused by all the
+
+1077
+01:01:36,369 --> 01:01:42,400
+open source people they love it because
+
+1078
+01:01:38,589 --> 01:01:44,320
+they say oh it's open source and also
+
+1079
+01:01:42,400 --> 01:01:46,450
+it's technically superior things like
+
+1080
+01:01:44,320 --> 01:01:50,710
+that but mainly because it's open source
+
+1081
+01:01:46,450 --> 01:01:54,339
+but an open source people they usually
+
+1082
+01:01:50,710 --> 01:01:57,910
+often also chant about Firefox you see
+
+1083
+01:01:54,339 --> 01:02:02,140
+right now I mean Firefox you can see but
+
+1084
+01:01:57,910 --> 01:02:06,670
+however in Firefox you cannot play this
+
+1085
+01:02:02,140 --> 01:02:11,619
+MKV video but you can do it in Google
+
+1086
+01:02:06,670 --> 01:02:14,020
+Chrome so this you see this this open
+
+1087
+01:02:11,619 --> 01:02:17,099
+source is seems there's a problem why is
+
+1088
+01:02:14,020 --> 01:02:21,160
+that the question is why is that this
+
+1089
+01:02:17,099 --> 01:02:24,430
+Firefox browser loved by all these open
+
+1090
+01:02:21,160 --> 01:02:29,349
+source fanatics does not support this
+
+1091
+01:02:24,430 --> 01:02:33,040
+video technology that's also open source
+
+1092
+01:02:29,349 --> 01:02:35,290
+and and and loved by this open source
+
+1093
+01:02:33,040 --> 01:02:37,839
+phonetics why is that have you guys
+
+1094
+01:02:35,290 --> 01:02:39,190
+thought about that have you guys why is
+
+1095
+01:02:37,839 --> 01:02:46,300
+that
+
+1096
+01:02:39,190 --> 01:02:49,270
+good morning bond is it open source I
+
+1097
+01:02:46,300 --> 01:02:51,220
+don't know I don't know this MKV but I
+
+1098
+01:02:49,270 --> 01:02:55,599
+know it's a format that open source
+
+1099
+01:02:51,220 --> 01:02:57,310
+phonetics love okay so let me so that's
+
+1100
+01:02:55,599 --> 01:03:00,910
+about it for today let me read the
+
+1101
+01:02:57,310 --> 01:03:02,650
+comments which we we stopped in in in
+
+1102
+01:03:00,910 --> 01:03:05,770
+three minutes five five minutes okay
+
+1103
+01:03:02,650 --> 01:03:06,280
+okay since I started to talk about my
+
+1104
+01:03:05,770 --> 01:03:08,980
+art
+
+1105
+01:03:06,280 --> 01:03:12,100
+Prague I cannot stop because this one is
+
+1106
+01:03:08,980 --> 01:03:15,790
+another great fantastic interesting
+
+1107
+01:03:12,100 --> 01:03:19,570
+thing this guy Richard Williams wrote
+
+1108
+01:03:15,790 --> 01:03:22,360
+this book the animators survival kit
+
+1109
+01:03:19,570 --> 01:03:27,180
+okay this is a classic you know it's a
+
+1110
+01:03:22,360 --> 01:03:29,740
+loved by all anyone who who do
+
+1111
+01:03:27,180 --> 01:03:31,450
+animations or have professions in
+
+1112
+01:03:29,740 --> 01:03:33,840
+animation you know animation is a big
+
+1113
+01:03:31,450 --> 01:03:36,370
+big business today you know movie
+
+1114
+01:03:33,840 --> 01:03:38,650
+Japanese animation or with Disney
+
+1115
+01:03:36,370 --> 01:03:40,870
+animation or not even though commercials
+
+1116
+01:03:38,650 --> 01:03:43,660
+you know you have to have animations and
+
+1117
+01:03:40,870 --> 01:03:45,820
+also illustrators and artists you all
+
+1118
+01:03:43,660 --> 01:03:50,560
+involves animation animation is very
+
+1119
+01:03:45,820 --> 01:03:54,100
+different from from Troy from from anime
+
+1120
+01:03:50,560 --> 01:03:57,460
+or from drawing static cartoons okay
+
+1121
+01:03:54,100 --> 01:04:00,970
+anyway what I'm saying is that this guy
+
+1122
+01:03:57,460 --> 01:04:05,460
+so this book is well known and you know
+
+1123
+01:04:00,970 --> 01:04:11,560
+the it's a classic the best book for
+
+1124
+01:04:05,460 --> 01:04:13,210
+anything related to animation and that's
+
+1125
+01:04:11,560 --> 01:04:16,150
+one thing okay but more than that
+
+1126
+01:04:13,210 --> 01:04:19,120
+animation when you read this book or
+
+1127
+01:04:16,150 --> 01:04:21,370
+look into the details animation involves
+
+1128
+01:04:19,120 --> 01:04:23,200
+you know Emma animation is so such a
+
+1129
+01:04:21,370 --> 01:04:26,110
+fascinating thing like when you watch
+
+1130
+01:04:23,200 --> 01:04:28,570
+Disney Mickey Mouse Mickey Mouse or
+
+1131
+01:04:26,110 --> 01:04:31,030
+other characters you can see you can see
+
+1132
+01:04:28,570 --> 01:04:34,810
+their expressions what they want you
+
+1133
+01:04:31,030 --> 01:04:37,870
+know the who they're even even Mickey
+
+1134
+01:04:34,810 --> 01:04:40,090
+Mouse is not human but you can or
+
+1135
+01:04:37,870 --> 01:04:42,310
+Finding Nemo you know the modern movies
+
+1136
+01:04:40,090 --> 01:04:45,940
+you can see their desires you know just
+
+1137
+01:04:42,310 --> 01:04:48,550
+like another human animal and how do you
+
+1138
+01:04:45,940 --> 01:04:51,160
+get that you see you you you you read
+
+1139
+01:04:48,550 --> 01:04:55,210
+them through the lines through the lines
+
+1140
+01:04:51,160 --> 01:04:59,110
+so not just not just a static image of
+
+1141
+01:04:55,210 --> 01:05:02,650
+their face but you also much of it came
+
+1142
+01:04:59,110 --> 01:05:05,620
+from their motion that is body language
+
+1143
+01:05:02,650 --> 01:05:12,760
+so which you know in fact body language
+
+1144
+01:05:05,620 --> 01:05:17,200
+can't you know it's it's significant in
+
+1145
+01:05:12,760 --> 01:05:19,630
+some cases the maturity of the content
+
+1146
+01:05:17,200 --> 01:05:22,900
+of human communication
+
+1147
+01:05:19,630 --> 01:05:25,600
+and that brings me to the nuts the
+
+1148
+01:05:22,900 --> 01:05:27,910
+[ __ ] nuts okay most programmers you
+
+1149
+01:05:25,600 --> 01:05:30,370
+know nuts we you know we don't want to
+
+1150
+01:05:27,910 --> 01:05:33,130
+go on to video because Oh Todd you know
+
+1151
+01:05:30,370 --> 01:05:35,290
+text is sufficient you know they don't
+
+1152
+01:05:33,130 --> 01:05:38,350
+want to go on video for many reasons but
+
+1153
+01:05:35,290 --> 01:05:40,060
+they are just idiotic they don't know
+
+1154
+01:05:38,350 --> 01:05:44,560
+about all these things body language
+
+1155
+01:05:40,060 --> 01:05:47,200
+okay body language in many cases like
+
+1156
+01:05:44,560 --> 01:05:49,780
+when you watch me okay I conveyed far
+
+1157
+01:05:47,200 --> 01:05:53,920
+more like hundred times more then it's
+
+1158
+01:05:49,780 --> 01:05:55,510
+possible in writing okay so anyway so
+
+1159
+01:05:53,920 --> 01:05:58,200
+let me read the comments and that's it
+
+1160
+01:05:55,510 --> 01:05:58,200
+for today
+
+1161
+01:06:03,480 --> 01:06:13,630
+so I haven't been reading comments and
+
+1162
+01:06:07,780 --> 01:06:17,110
+witness read the comments and that's so
+
+1163
+01:06:13,630 --> 01:06:21,040
+I'll shine says that guy the Lisp expert
+
+1164
+01:06:17,110 --> 01:06:24,910
+is from kosha I think okay so we talked
+
+1165
+01:06:21,040 --> 01:06:28,440
+about this this expert before and he is
+
+1166
+01:06:24,910 --> 01:06:38,280
+in kosha okay so where is it here yeah
+
+1167
+01:06:28,440 --> 01:06:38,280
+wait this guy this guy Casimir Shirin
+
+1168
+01:06:38,520 --> 01:06:45,100
+Casimir maturing okay he's on in
+
+1169
+01:06:42,640 --> 01:06:49,150
+question how do you know so sunshine
+
+1170
+01:06:45,100 --> 01:06:53,500
+so outshine all shined so you know okay
+
+1171
+01:06:49,150 --> 01:06:58,210
+so we got quite a few so I'm gonna read
+
+1172
+01:06:53,500 --> 01:07:04,270
+the comments for for two more minutes
+
+1173
+01:06:58,210 --> 01:07:07,500
+and let's stop pickle this okay so lots
+
+1174
+01:07:04,270 --> 01:07:07,500
+of comments I missed
+
+1175
+01:07:17,170 --> 01:07:22,930
+hello beautiful people I got my Chema's
+
+1176
+01:07:20,980 --> 01:07:30,309
+track today oh my god
+
+1177
+01:07:22,930 --> 01:07:32,740
+Cathy you you bought that Cathy show us
+
+1178
+01:07:30,309 --> 01:07:38,260
+photos you have to show us photos and
+
+1179
+01:07:32,740 --> 01:07:41,079
+you bought that thing amazing Cathy says
+
+1180
+01:07:38,260 --> 01:07:46,569
+I bought in pieces assembled at home
+
+1181
+01:07:41,079 --> 01:07:48,490
+it's 40 dollars cheaper Wow they put my
+
+1182
+01:07:46,569 --> 01:07:51,460
+pieces back to multiple times
+
+1183
+01:07:48,490 --> 01:07:55,089
+okay so Cathy says double Chema's track
+
+1184
+01:07:51,460 --> 01:07:58,539
+not chair mounted brown switch and quote
+
+1185
+01:07:55,089 --> 01:08:01,720
+I am glad I didn't go straight to work
+
+1186
+01:07:58,539 --> 01:08:08,140
+it's a bit harder to get used used to
+
+1187
+01:08:01,720 --> 01:08:10,930
+than I expected yeah hello beautiful
+
+1188
+01:08:08,140 --> 01:08:13,630
+people says every single Rock I touch
+
+1189
+01:08:10,930 --> 01:08:16,989
+was formed millions of years ago yeah I
+
+1190
+01:08:13,630 --> 01:08:20,560
+was car when I was about to mention that
+
+1191
+01:08:16,989 --> 01:08:23,049
+exception no except rocks and trees you
+
+1192
+01:08:20,560 --> 01:08:24,759
+know of course that doesn't help I'm
+
+1193
+01:08:23,049 --> 01:08:28,889
+talking about you have to have you ever
+
+1194
+01:08:24,759 --> 01:08:32,819
+touched something that is human-made and
+
+1195
+01:08:28,889 --> 01:08:37,690
+that's a few thousand years ago then
+
+1196
+01:08:32,819 --> 01:08:40,989
+that's the question very few people have
+
+1197
+01:08:37,690 --> 01:08:45,839
+I mean you you you could go to museums
+
+1198
+01:08:40,989 --> 01:08:45,839
+but usually you are not allowed to touch
+
+1199
+01:08:46,380 --> 01:08:54,100
+you know please don't say we eat
+
+1200
+01:08:51,730 --> 01:09:01,060
+everything then we Chinese don't have
+
+1201
+01:08:54,100 --> 01:09:04,420
+friend Thank You Moscow he was much
+
+1202
+01:09:01,060 --> 01:09:08,980
+longer than the time they say you get
+
+1203
+01:09:04,420 --> 01:09:11,949
+used to it he Mouse okay beautiful
+
+1204
+01:09:08,980 --> 01:09:17,190
+people keys
+
+1205
+01:09:11,949 --> 01:09:17,190
+so geez
+
+1206
+01:09:26,260 --> 01:09:33,380
+so Kathy says I actually actually find
+
+1207
+01:09:30,890 --> 01:09:36,680
+some Chinese sellers manufacturing this
+
+1208
+01:09:33,380 --> 01:09:39,470
+stuff with less than 150 yo hope there
+
+1209
+01:09:36,680 --> 01:09:46,850
+will be more people interested greetings
+
+1210
+01:09:39,470 --> 01:09:49,870
+greetings sparked tired pretty much I'm
+
+1211
+01:09:46,850 --> 01:09:59,840
+gonna go sleep bye send you information
+
+1212
+01:09:49,870 --> 01:10:05,180
+okay Cathy edge asked you to send pics
+
+1213
+01:09:59,840 --> 01:10:09,590
+of your stuff pics of my stuff
+
+1214
+01:10:05,180 --> 01:10:12,980
+she has already seen already seen ok I
+
+1215
+01:10:09,590 --> 01:10:20,710
+think that's it for today guys thank you
+
+1216
+01:10:12,980 --> 01:10:20,710
+for watching and have a good day
+
+1217
+01:10:38,300 --> 01:10:42,530
+I'm gonna shut down
+

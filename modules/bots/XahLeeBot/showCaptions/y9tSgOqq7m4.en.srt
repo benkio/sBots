@@ -1,0 +1,4828 @@
+1
+00:00:00,080 --> 00:00:06,000
+episode of s talk show today we are
+
+2
+00:00:02,679 --> 00:00:08,800
+going to code emac LP continue from
+
+3
+00:00:06,000 --> 00:00:12,480
+yesterday uh continue from yesterday
+
+4
+00:00:08,800 --> 00:00:15,080
+hello guys sound talk show uh we are
+
+5
+00:00:12,480 --> 00:00:18,240
+going to write a emac this command to
+
+6
+00:00:15,080 --> 00:00:20,439
+validate brackets validate matching
+
+7
+00:00:18,240 --> 00:00:24,279
+brackets to see if you have a missing
+
+8
+00:00:20,439 --> 00:00:27,119
+bracket or or misplaced bracket so we
+
+9
+00:00:24,279 --> 00:00:29,080
+did that yesterday uh so let me begin
+
+10
+00:00:27,119 --> 00:00:32,399
+let me show you my keyboard and let's
+
+11
+00:00:29,080 --> 00:00:36,399
+begin so this is kesis foam keyboard
+
+12
+00:00:32,399 --> 00:00:39,680
+kesis foam keyboard I did a unboxing and
+
+13
+00:00:36,399 --> 00:00:42,719
+I did a review in the past week so just
+
+14
+00:00:39,680 --> 00:00:44,640
+check my YouTube tutorial it's a very
+
+15
+00:00:42,719 --> 00:00:47,559
+elegant
+
+16
+00:00:44,640 --> 00:00:50,320
+keyboard okay and the new le track Bard
+
+17
+00:00:47,559 --> 00:00:54,239
+this is my ultimate hacking keyboard and
+
+18
+00:00:50,320 --> 00:00:57,239
+uh again this is a fantastic fancy
+
+19
+00:00:54,239 --> 00:01:02,280
+ergonomic keyboard very Advanced this is
+
+20
+00:00:57,239 --> 00:01:05,560
+called Spar board SV b o a r d you I did
+
+21
+00:01:02,280 --> 00:01:07,960
+a review kind of unboxing and uh you
+
+22
+00:01:05,560 --> 00:01:12,759
+search it you'll find it on the web SW
+
+23
+00:01:07,960 --> 00:01:16,000
+board s v a l b o a r d data hand okay
+
+24
+00:01:12,759 --> 00:01:18,880
+so I will be using it down the road uh
+
+25
+00:01:16,000 --> 00:01:21,360
+and let's begin coding okay
+
+26
+00:01:18,880 --> 00:01:26,159
+sois keyboard newly attractable
+
+27
+00:01:21,360 --> 00:01:28,960
+fantastic let's begin coding so let's
+
+28
+00:01:26,159 --> 00:01:31,840
+show uh so we did this yesterday
+
+29
+00:01:28,960 --> 00:01:35,159
+yesterday and I cleaned up the code so
+
+30
+00:01:31,840 --> 00:01:37,240
+now the code is much better uh but
+
+31
+00:01:35,159 --> 00:01:39,720
+there's more to do okay let's begin
+
+32
+00:01:37,240 --> 00:01:42,439
+coding and let me tell you what to
+
+33
+00:01:39,720 --> 00:01:44,360
+do uh let's write it out okay I'm just
+
+34
+00:01:42,439 --> 00:01:48,799
+going to go slowly if you are watching
+
+35
+00:01:44,360 --> 00:01:52,560
+this offline uh play it at speed 1.5 or
+
+36
+00:01:48,799 --> 00:01:57,399
+skip around if you are here say hi
+
+37
+00:01:52,560 --> 00:02:00,799
+okay okay so uh so we have a command
+
+38
+00:01:57,399 --> 00:02:05,119
+let's go to my init file
+
+39
+00:02:00,799 --> 00:02:08,920
+validate so this that's old
+
+40
+00:02:05,119 --> 00:02:11,760
+code validate okay validate bracket so
+
+41
+00:02:08,920 --> 00:02:14,239
+that's a new code so there it is first
+
+42
+00:02:11,760 --> 00:02:17,000
+of all we Define so this is what we have
+
+43
+00:02:14,239 --> 00:02:19,760
+since yesterday so we have a list of
+
+44
+00:02:17,000 --> 00:02:23,680
+brackets okay watch yesterday's video
+
+45
+00:02:19,760 --> 00:02:26,560
+this is uh called Association list and
+
+46
+00:02:23,680 --> 00:02:29,200
+then the main thing is this command
+
+47
+00:02:26,560 --> 00:02:33,360
+validate bracket file okay so this is
+
+48
+00:02:29,200 --> 00:02:35,599
+about lines of code and uh what this
+
+49
+00:02:33,360 --> 00:02:37,519
+will do is will tell you if I have
+
+50
+00:02:35,599 --> 00:02:41,319
+mismatched bracket for example let's
+
+51
+00:02:37,519 --> 00:02:44,800
+open a new file uh let's add some
+
+52
+00:02:41,319 --> 00:02:47,319
+brackets uh parent parent and okay
+
+53
+00:02:44,800 --> 00:02:50,239
+square bracket square bracket there that
+
+54
+00:02:47,319 --> 00:02:52,440
+should be good so I press a key I
+
+55
+00:02:50,239 --> 00:02:53,200
+already have the key set up so that
+
+56
+00:02:52,440 --> 00:02:55,360
+would
+
+57
+00:02:53,200 --> 00:02:57,840
+be space
+
+58
+00:02:55,360 --> 00:03:01,720
+space
+
+59
+00:02:57,840 --> 00:03:05,920
+TG uh no uh I forgot what's the key so
+
+60
+00:03:01,720 --> 00:03:10,360
+let's look up so Kar key binding okay so
+
+61
+00:03:05,920 --> 00:03:12,640
+search for validate there it is TG so uh
+
+62
+00:03:10,360 --> 00:03:15,760
+yeah that should be space space TG so
+
+63
+00:03:12,640 --> 00:03:20,120
+close that space space
+
+64
+00:03:15,760 --> 00:03:23,480
+TG what oh you need to uh yeah you need
+
+65
+00:03:20,120 --> 00:03:24,920
+to save the file okay okay so actually I
+
+66
+00:03:23,480 --> 00:03:28,680
+made
+
+67
+00:03:24,920 --> 00:03:33,519
+the let's save the file this just temp
+
+68
+00:03:28,680 --> 00:03:36,760
+file okay space space TG so you can say
+
+69
+00:03:33,519 --> 00:03:39,720
+it says brackets valid you are beautiful
+
+70
+00:03:36,760 --> 00:03:42,680
+and now if we delete one of the bracket
+
+71
+00:03:39,720 --> 00:03:45,200
+you see now it's a missing right square
+
+72
+00:03:42,680 --> 00:03:48,920
+bracket space space
+
+73
+00:03:45,200 --> 00:03:51,799
+TG then it will say at the bottom Miss
+
+74
+00:03:48,920 --> 00:03:54,439
+bracket mismatch in file that file
+
+75
+00:03:51,799 --> 00:03:57,799
+nothing matches this bracket opening
+
+76
+00:03:54,439 --> 00:04:00,680
+square bracket at position 10 so let's
+
+77
+00:03:57,799 --> 00:04:04,239
+go here so you can see this is the error
+
+78
+00:04:00,680 --> 00:04:07,040
+message so this so this is uh this is a
+
+79
+00:04:04,239 --> 00:04:12,040
+command but we coded yesterday let's go
+
+80
+00:04:07,040 --> 00:04:15,280
+back um so on a new keyboard I'm not as
+
+81
+00:04:12,040 --> 00:04:19,560
+fluent so anyway so this is the code you
+
+82
+00:04:15,280 --> 00:04:22,639
+can get from yesterday's uh talk show
+
+83
+00:04:19,560 --> 00:04:26,240
+okay it just valid validates check the
+
+84
+00:04:22,639 --> 00:04:28,479
+current buffer or file okay today what
+
+85
+00:04:26,240 --> 00:04:31,720
+we're going to do is uh let's write it
+
+86
+00:04:28,479 --> 00:04:31,720
+out okay
+
+87
+00:04:33,360 --> 00:04:40,400
+this
+
+88
+00:04:35,960 --> 00:04:43,120
+validates a file or current buffer okay
+
+89
+00:04:40,400 --> 00:04:48,120
+if you are calling it interactively
+
+90
+00:04:43,120 --> 00:04:53,680
+interactively okay like by meta X
+
+91
+00:04:48,120 --> 00:04:58,039
+now make this uh now I want to make this
+
+92
+00:04:53,680 --> 00:05:02,039
+to check a directory okay all files to
+
+93
+00:04:58,039 --> 00:05:05,360
+check all files in a okay we are going
+
+94
+00:05:02,039 --> 00:05:07,199
+to make write a new command uh yeah so
+
+95
+00:05:05,360 --> 00:05:10,199
+write a new
+
+96
+00:05:07,199 --> 00:05:10,199
+command
+
+97
+00:05:10,520 --> 00:05:18,560
+let's write a new command that command
+
+98
+00:05:15,080 --> 00:05:20,960
+will be validate brackets
+
+99
+00:05:18,560 --> 00:05:23,759
+store
+
+100
+00:05:20,960 --> 00:05:27,520
+okay which check all files in a
+
+101
+00:05:23,759 --> 00:05:31,600
+directory okay so that's one thing
+
+102
+00:05:27,520 --> 00:05:31,600
+another thing we want to do
+
+103
+00:05:31,880 --> 00:05:35,160
+uh let's
+
+104
+00:05:36,120 --> 00:05:41,960
+see uh you know I was thinking make this
+
+105
+00:05:39,120 --> 00:05:44,520
+colable in a sh script so if you don't
+
+106
+00:05:41,960 --> 00:05:48,120
+know what I mean let me show you
+
+107
+00:05:44,520 --> 00:05:49,759
+control um Windows key one that gives
+
+108
+00:05:48,120 --> 00:05:53,960
+you my
+
+109
+00:05:49,759 --> 00:05:56,600
+shell okay control control SC magnify so
+
+110
+00:05:53,960 --> 00:06:00,240
+this is power sh I'm on Windows on Linux
+
+111
+00:05:56,600 --> 00:06:03,319
+it be will be bash or on Mac Z sh so you
+
+112
+00:06:00,240 --> 00:06:05,599
+can call this script emac uh the way you
+
+113
+00:06:03,319 --> 00:06:09,560
+call it is
+
+114
+00:06:05,599 --> 00:06:11,720
+emac script then the file name script
+
+115
+00:06:09,560 --> 00:06:15,319
+name script
+
+116
+00:06:11,720 --> 00:06:16,840
+name. then a directory the path okay
+
+117
+00:06:15,319 --> 00:06:19,599
+that will check
+
+118
+00:06:16,840 --> 00:06:23,599
+all files in the directory and make a
+
+119
+00:06:19,599 --> 00:06:25,639
+report so that's another thing so let's
+
+120
+00:06:23,599 --> 00:06:28,160
+if we have time we'll maybe do that but
+
+121
+00:06:25,639 --> 00:06:31,000
+now we just uh write this command
+
+122
+00:06:28,160 --> 00:06:34,039
+validate brackets St so you call it meta
+
+123
+00:06:31,000 --> 00:06:36,680
+X within emac hello guys good morning
+
+124
+00:06:34,039 --> 00:06:36,680
+good morning good
+
+125
+00:06:37,960 --> 00:06:45,080
+morning
+
+126
+00:06:39,680 --> 00:06:50,800
+alaza hi loling hi viix hi you are
+
+127
+00:06:45,080 --> 00:06:50,800
+beautiful yes you are subit
+
+128
+00:06:57,879 --> 00:07:03,720
+hi okay let let's write this command uh
+
+129
+00:07:02,160 --> 00:07:06,240
+fantastic
+
+130
+00:07:03,720 --> 00:07:08,479
+superb just realized have you change
+
+131
+00:07:06,240 --> 00:07:11,400
+your keyboard from
+
+132
+00:07:08,479 --> 00:07:14,360
+glove well I'm doing a new review for
+
+133
+00:07:11,400 --> 00:07:17,080
+them so check it out in the past weeks
+
+134
+00:07:14,360 --> 00:07:21,080
+there are two videos about this about
+
+135
+00:07:17,080 --> 00:07:23,240
+this um Kinesis form keyboard okay check
+
+136
+00:07:21,080 --> 00:07:23,240
+it
+
+137
+00:07:23,479 --> 00:07:28,160
+out so okay so now we're going to write
+
+138
+00:07:26,280 --> 00:07:31,039
+this command so let's let's begin
+
+139
+00:07:28,160 --> 00:07:34,479
+writing it fantastic so let's put let's
+
+140
+00:07:31,039 --> 00:07:37,319
+put this here here here here here and
+
+141
+00:07:34,479 --> 00:07:41,960
+let's copy that name paste it here
+
+142
+00:07:37,319 --> 00:07:45,199
+actually cut it def for defund fantastic
+
+143
+00:07:41,960 --> 00:07:48,759
+so we are defining a new command and
+
+144
+00:07:45,199 --> 00:07:50,720
+this command we'll take a directory
+
+145
+00:07:48,759 --> 00:07:54,720
+okay
+
+146
+00:07:50,720 --> 00:07:58,240
+validate uh brackets
+
+147
+00:07:54,720 --> 00:08:00,240
+in all
+
+148
+00:07:58,240 --> 00:08:04,520
+files in
+
+149
+00:08:00,240 --> 00:08:07,919
+okay and recursively yeah recursively
+
+150
+00:08:04,520 --> 00:08:10,360
+okay meaning all files in subdirectories
+
+151
+00:08:07,919 --> 00:08:13,840
+as well and also we need to give a
+
+152
+00:08:10,360 --> 00:08:16,639
+optional argument that is uh file name
+
+153
+00:08:13,840 --> 00:08:16,639
+extension
+
+154
+00:08:19,879 --> 00:08:28,960
+okay some okay yeah let's just name it
+
+155
+00:08:24,360 --> 00:08:32,360
+that uh check only files with file name
+
+156
+00:08:28,960 --> 00:08:35,080
+extension that created today's date uh
+
+157
+00:08:32,360 --> 00:08:38,360
+version today's date okay documentation
+
+158
+00:08:35,080 --> 00:08:43,440
+all important most programmers ignore
+
+159
+00:08:38,360 --> 00:08:45,920
+that uh which is bad uh okay so now so
+
+160
+00:08:43,440 --> 00:08:48,760
+the first thing is to get all files in a
+
+161
+00:08:45,920 --> 00:08:52,519
+directory then it's very simple then all
+
+162
+00:08:48,760 --> 00:08:57,440
+we have to do is for each file we just
+
+163
+00:08:52,519 --> 00:09:00,800
+call this function okay so how do you
+
+164
+00:08:57,440 --> 00:09:05,680
+get all files in your directory e lisp
+
+165
+00:09:00,800 --> 00:09:08,200
+the power of emac lisp emac lisp Basics
+
+166
+00:09:05,680 --> 00:09:11,600
+okay that's all about lisp programming
+
+167
+00:09:08,200 --> 00:09:15,600
+language but you want to go to emac lisp
+
+168
+00:09:11,600 --> 00:09:18,000
+then there is how do you walk walk walk
+
+169
+00:09:15,600 --> 00:09:20,519
+walk walk a
+
+170
+00:09:18,000 --> 00:09:23,079
+directory right here walk a directory
+
+171
+00:09:20,519 --> 00:09:25,720
+okay directory files so here's a
+
+172
+00:09:23,079 --> 00:09:29,040
+function now this doesn't recurse it's
+
+173
+00:09:25,720 --> 00:09:31,880
+not subdirectory so we want uh do we
+
+174
+00:09:29,040 --> 00:09:34,839
+want all subdirectories yeah we Let's uh
+
+175
+00:09:31,880 --> 00:09:37,160
+we want all sub subdirectories so
+
+176
+00:09:34,839 --> 00:09:40,000
+directory files
+
+177
+00:09:37,160 --> 00:09:43,040
+recursively by the way that recursively
+
+178
+00:09:40,000 --> 00:09:44,720
+thing popular in Unix you know like when
+
+179
+00:09:43,040 --> 00:09:47,640
+you do a
+
+180
+00:09:44,720 --> 00:09:50,640
+LS uh I mean when you do find when you
+
+181
+00:09:47,640 --> 00:09:54,000
+do copy dasr you know they all say
+
+182
+00:09:50,640 --> 00:09:57,880
+recursively but that's a idiotic name
+
+183
+00:09:54,000 --> 00:10:00,800
+because recursively in
+
+184
+00:09:57,880 --> 00:10:02,959
+first uh
+
+185
+00:10:00,800 --> 00:10:06,959
+is it kind of in infers the
+
+186
+00:10:02,959 --> 00:10:11,160
+implementation is recursive but what you
+
+187
+00:10:06,959 --> 00:10:13,200
+really mean is including all nested subd
+
+188
+00:10:11,160 --> 00:10:15,000
+subdirectories and their
+
+189
+00:10:13,200 --> 00:10:18,519
+subdirectories
+
+190
+00:10:15,000 --> 00:10:20,800
+so but anyway recursive this kind of
+
+191
+00:10:18,519 --> 00:10:24,200
+gets you the idea but it's
+
+192
+00:10:20,800 --> 00:10:26,920
+not in some semantic sense is not the
+
+193
+00:10:24,200 --> 00:10:28,040
+correct word okay because recursively
+
+194
+00:10:26,920 --> 00:10:31,240
+refers
+
+195
+00:10:28,040 --> 00:10:32,760
+to uh wait wa okay let me get let me
+
+196
+00:10:31,240 --> 00:10:37,519
+explain this
+
+197
+00:10:32,760 --> 00:10:37,519
+well so the word recursively
+
+198
+00:10:37,839 --> 00:10:48,480
+it it infers nesting it infers nesting
+
+199
+00:10:44,399 --> 00:10:48,480
+and it it infers an
+
+200
+00:10:50,079 --> 00:11:01,200
+action okay it it it must be connotes
+
+201
+00:10:55,680 --> 00:11:01,200
+with the idea of something that is
+
+202
+00:11:03,240 --> 00:11:11,360
+nested okay something that is nested or
+
+203
+00:11:06,839 --> 00:11:14,040
+some action that that that is somewhat
+
+204
+00:11:11,360 --> 00:11:17,440
+nested that's when that's a situation
+
+205
+00:11:14,040 --> 00:11:19,760
+you say it's recursive mostly the the
+
+206
+00:11:17,440 --> 00:11:22,680
+word recursively is used in computer
+
+207
+00:11:19,760 --> 00:11:24,680
+science now I'm not sure if it's that's
+
+208
+00:11:22,680 --> 00:11:27,760
+an interesting question okay digression
+
+209
+00:11:24,680 --> 00:11:30,480
+is interesting question I'm not sure
+
+210
+00:11:27,760 --> 00:11:32,519
+recursively what's the mology but I
+
+211
+00:11:30,480 --> 00:11:34,800
+believe it's
+
+212
+00:11:32,519 --> 00:11:37,760
+predominantly today in the past let's
+
+213
+00:11:34,800 --> 00:11:39,600
+say 50 years used in programming only
+
+214
+00:11:37,760 --> 00:11:43,040
+computer science or programming or
+
+215
+00:11:39,600 --> 00:11:44,880
+mathematics okay math first because in
+
+216
+00:11:43,040 --> 00:11:47,160
+mathematics that's a foundation of
+
+217
+00:11:44,880 --> 00:11:50,279
+mathematics you have recursive functions
+
+218
+00:11:47,160 --> 00:11:53,839
+that's original idea the you know when
+
+219
+00:11:50,279 --> 00:11:56,399
+they are trying to uh Define precisely
+
+220
+00:11:53,839 --> 00:11:59,920
+what can be computed
+
+221
+00:11:56,399 --> 00:12:01,800
+okay so that's a subject in
+
+222
+00:11:59,920 --> 00:12:04,839
+in theoretical computer science
+
+223
+00:12:01,800 --> 00:12:06,720
+recursively but anyway so I think it is
+
+224
+00:12:04,839 --> 00:12:09,880
+my guess that the word the term
+
+225
+00:12:06,720 --> 00:12:12,680
+recursive or recursively is used
+
+226
+00:12:09,880 --> 00:12:14,440
+predominantly like almost nowhere else
+
+227
+00:12:12,680 --> 00:12:17,440
+just in math computer science
+
+228
+00:12:14,440 --> 00:12:20,519
+programming okay now but let's look up
+
+229
+00:12:17,440 --> 00:12:25,360
+the atmology of
+
+230
+00:12:20,519 --> 00:12:30,399
+recursive recursive so space space
+
+231
+00:12:25,360 --> 00:12:32,040
+edge uh atmology e okay that's SAR by
+
+232
+00:12:30,399 --> 00:12:34,440
+the way the pink window shows all my
+
+233
+00:12:32,040 --> 00:12:38,240
+commands so that's one of my command
+
+234
+00:12:34,440 --> 00:12:43,240
+commanda look up atmology and
+
+235
+00:12:38,240 --> 00:12:46,760
+uh uh and uh space space H so you can
+
+236
+00:12:43,240 --> 00:12:50,040
+see it's in one of my package s look up
+
+237
+00:12:46,760 --> 00:12:52,399
+you go there and you go there you can
+
+238
+00:12:50,040 --> 00:12:56,120
+see you got all these commands look up
+
+239
+00:12:52,399 --> 00:12:59,560
+Google web Yandex Wikipedia look up
+
+240
+00:12:56,120 --> 00:13:03,199
+street maps look up what definition what
+
+241
+00:12:59,560 --> 00:13:06,199
+look up dictionary or or dictionary or
+
+242
+00:13:03,199 --> 00:13:08,440
+atmology or synonyms or all
+
+243
+00:13:06,199 --> 00:13:11,199
+dictionaries so that's one of my package
+
+244
+00:13:08,440 --> 00:13:15,360
+you have to pay to get it okay because
+
+245
+00:13:11,199 --> 00:13:18,600
+in the past 20 years uh everything is
+
+246
+00:13:15,360 --> 00:13:21,000
+free and uh people just bug you for Tex
+
+247
+00:13:18,600 --> 00:13:24,399
+support and all that so anyway so here's
+
+248
+00:13:21,000 --> 00:13:28,279
+a website so anyway Let's uh let's go
+
+249
+00:13:24,399 --> 00:13:30,040
+back recursive there it is so I want to
+
+250
+00:13:28,279 --> 00:13:31,560
+magnify
+
+251
+00:13:30,040 --> 00:13:35,399
+okay so
+
+252
+00:13:31,560 --> 00:13:35,399
+control scroll up
+
+253
+00:13:35,800 --> 00:13:44,560
+okay now recursive adjective okay uh
+
+254
+00:13:40,040 --> 00:13:47,199
+recursive adjective periodically
+
+255
+00:13:44,560 --> 00:13:50,040
+recurring okay so it describes something
+
+256
+00:13:47,199 --> 00:13:53,399
+that recurs that happens again and again
+
+257
+00:13:50,040 --> 00:13:57,240
+okay so first of all that's an objective
+
+258
+00:13:53,399 --> 00:13:59,600
+okay now wait okay so I need to get rid
+
+259
+00:13:57,240 --> 00:14:03,279
+of the control okay
+
+260
+00:13:59,600 --> 00:14:06,279
+I have sticky keys on by the way so so
+
+261
+00:14:03,279 --> 00:14:09,000
+then recursive now return backward
+
+262
+00:14:06,279 --> 00:14:12,079
+movement okay return and backward
+
+263
+00:14:09,000 --> 00:14:12,079
+movement from
+
+264
+00:14:12,759 --> 00:14:20,399
+1610 okay the recursive objective
+
+265
+00:14:16,759 --> 00:14:27,000
+periodically recurring is from
+
+266
+00:14:20,399 --> 00:14:31,639
+17 90 okay so recursion is from
+
+267
+00:14:27,000 --> 00:14:35,079
+1610 from Latin recursion um something
+
+268
+00:14:31,639 --> 00:14:38,880
+something uh running backward return
+
+269
+00:14:35,079 --> 00:14:41,320
+okay so running backward return
+
+270
+00:14:38,880 --> 00:14:46,320
+okay so when you
+
+271
+00:14:41,320 --> 00:14:49,360
+say a function that will list all
+
+272
+00:14:46,320 --> 00:14:52,240
+subdirectories and their
+
+273
+00:14:49,360 --> 00:14:55,720
+subdirectories can you say is it
+
+274
+00:14:52,240 --> 00:14:58,839
+appropriate to say
+
+275
+00:14:55,720 --> 00:15:03,759
+recursively yeah I guess so okay okay I
+
+276
+00:14:58,839 --> 00:15:03,759
+was was I would yeah okay I guess
+
+277
+00:15:04,959 --> 00:15:10,199
+so uh yeah so that's a good definition
+
+278
+00:15:07,880 --> 00:15:15,160
+in computer science recursive okay so
+
+279
+00:15:10,199 --> 00:15:19,440
+anyway let's go back to um copy go to S
+
+280
+00:15:15,160 --> 00:15:24,199
+Talk Show and uh S Talk Show show in
+
+281
+00:15:19,440 --> 00:15:30,959
+browser uh and go back so now this is a
+
+282
+00:15:24,199 --> 00:15:30,959
+new keyboard so I don't have all my uh
+
+283
+00:15:31,959 --> 00:15:37,880
+I don't have all my keys marro keys set
+
+284
+00:15:35,560 --> 00:15:42,000
+up but anyways
+
+285
+00:15:37,880 --> 00:15:45,360
+so so there's a link toook web okay we
+
+286
+00:15:42,000 --> 00:15:46,600
+let's go back to the problem we want to
+
+287
+00:15:45,360 --> 00:15:51,000
+solve
+
+288
+00:15:46,600 --> 00:15:52,839
+okay close this next next okay let's go
+
+289
+00:15:51,000 --> 00:15:57,160
+back to
+
+290
+00:15:52,839 --> 00:16:00,759
+here uh yeah so recursively okay so so
+
+291
+00:15:57,160 --> 00:16:05,680
+yeah what you do is you want
+
+292
+00:16:00,759 --> 00:16:09,399
+to uh yeah directory files recursively
+
+293
+00:16:05,680 --> 00:16:13,680
+okay directory files recursively there
+
+294
+00:16:09,399 --> 00:16:17,480
+it is a abbreviation fantastic
+
+295
+00:16:13,680 --> 00:16:20,959
+template okay so du is going to just be
+
+296
+00:16:17,480 --> 00:16:24,399
+du uh regular expression is going going
+
+297
+00:16:20,959 --> 00:16:27,120
+to be the file name extension but uh but
+
+298
+00:16:24,399 --> 00:16:30,920
+regular ex uh expression okay so the way
+
+299
+00:16:27,120 --> 00:16:30,920
+you do that is you
+
+300
+00:16:34,399 --> 00:16:40,480
+conact back slashback slash dot with
+
+301
+00:16:38,800 --> 00:16:44,199
+file name
+
+302
+00:16:40,480 --> 00:16:46,440
+extension and then a dollar sign okay
+
+303
+00:16:44,199 --> 00:16:49,160
+because dollar sign in regular
+
+304
+00:16:46,440 --> 00:16:52,839
+expression means the end of string okay
+
+305
+00:16:49,160 --> 00:16:56,639
+so so that part is the regular
+
+306
+00:16:52,839 --> 00:17:00,160
+expression okay then the rest arguments
+
+307
+00:16:56,639 --> 00:17:04,079
+are optional so include directory snow
+
+308
+00:17:00,160 --> 00:17:07,679
+okay include directory snil predicate
+
+309
+00:17:04,079 --> 00:17:11,799
+predicate is the function that filters I
+
+310
+00:17:07,679 --> 00:17:14,679
+believe uh include subdirectories true
+
+311
+00:17:11,799 --> 00:17:18,679
+means in a result include path that are
+
+312
+00:17:14,679 --> 00:17:21,199
+directories okay no uh the predicate is
+
+313
+00:17:18,679 --> 00:17:24,760
+a filter on which subd directories to
+
+314
+00:17:21,199 --> 00:17:28,319
+dive into rejects is applied first
+
+315
+00:17:24,760 --> 00:17:31,880
+before okay uh we don't okay we don't
+
+316
+00:17:28,319 --> 00:17:36,120
+care we don't have a you know predicate
+
+317
+00:17:31,880 --> 00:17:39,039
+NE follow Sim links NE okay ne ne Neil
+
+318
+00:17:36,120 --> 00:17:41,559
+then we don't need to write it just
+
+319
+00:17:39,039 --> 00:17:46,679
+NE okay
+
+320
+00:17:41,559 --> 00:17:52,080
+so so let's give a local variable x file
+
+321
+00:17:46,679 --> 00:17:56,120
+uh X paths okay
+
+322
+00:17:52,080 --> 00:18:01,320
+uh so this this keyboard kesis form
+
+323
+00:17:56,120 --> 00:18:05,480
+keyboard has a low profile key switch
+
+324
+00:18:01,320 --> 00:18:09,880
+that is 50 g linear
+
+325
+00:18:05,480 --> 00:18:12,360
+switch uh kind of pretty silent so 50 gs
+
+326
+00:18:09,880 --> 00:18:15,960
+but that's still too heavy for me so I
+
+327
+00:18:12,360 --> 00:18:17,760
+have to sometimes I press not hard
+
+328
+00:18:15,960 --> 00:18:20,640
+enough and I don't
+
+329
+00:18:17,760 --> 00:18:24,360
+get uh action okay so
+
+330
+00:18:20,640 --> 00:18:26,919
+anyway so a bunch of file path directory
+
+331
+00:18:24,360 --> 00:18:30,240
+file recursively okay we got a bunch of
+
+332
+00:18:26,919 --> 00:18:31,400
+files path and now all we have to do is
+
+333
+00:18:30,240 --> 00:18:32,919
+we
+
+334
+00:18:31,400 --> 00:18:35,480
+call
+
+335
+00:18:32,919 --> 00:18:38,080
+S validate
+
+336
+00:18:35,480 --> 00:18:41,240
+completion okay we want to call that
+
+337
+00:18:38,080 --> 00:18:44,600
+function we want to map this function to
+
+338
+00:18:41,240 --> 00:18:47,559
+this bunch of file path okay so what you
+
+339
+00:18:44,600 --> 00:18:52,080
+do is you
+
+340
+00:18:47,559 --> 00:18:56,679
+map C map c means do not return the
+
+341
+00:18:52,080 --> 00:19:00,440
+result okay so it's like for each uh so
+
+342
+00:18:56,679 --> 00:19:03,000
+here is one bunch of file path and this
+
+343
+00:19:00,440 --> 00:19:04,679
+is a function you want to map to okay
+
+344
+00:19:03,000 --> 00:19:06,400
+the
+
+345
+00:19:04,679 --> 00:19:09,400
+function
+
+346
+00:19:06,400 --> 00:19:12,840
+uh uh so actually the function all you
+
+347
+00:19:09,400 --> 00:19:16,000
+need is just a function name you don't
+
+348
+00:19:12,840 --> 00:19:18,480
+need the Lambda and you need to code it
+
+349
+00:19:16,000 --> 00:19:20,320
+you know you need to have a apostrophe
+
+350
+00:19:18,480 --> 00:19:24,320
+in front
+
+351
+00:19:20,320 --> 00:19:29,039
+so cling up the code so I think that's
+
+352
+00:19:24,320 --> 00:19:33,200
+it so map this function to this pun file
+
+353
+00:19:29,039 --> 00:19:35,200
+paath okay so in fact this is so Supreme
+
+354
+00:19:33,200 --> 00:19:38,640
+let's make it one single line so I think
+
+355
+00:19:35,200 --> 00:19:41,840
+that's it anything else okay so when you
+
+356
+00:19:38,640 --> 00:19:44,480
+are calling so now actually this should
+
+357
+00:19:41,840 --> 00:19:47,559
+work so the way you call this command is
+
+358
+00:19:44,480 --> 00:19:51,280
+just that and uh give a directory for
+
+359
+00:19:47,559 --> 00:19:55,520
+example let's say that then uh file name
+
+360
+00:19:51,280 --> 00:19:59,240
+extension okay what if what if when the
+
+361
+00:19:55,520 --> 00:20:00,400
+file name extension is not given
+
+362
+00:19:59,240 --> 00:20:03,080
+in that
+
+363
+00:20:00,400 --> 00:20:07,360
+case okay in that case
+
+364
+00:20:03,080 --> 00:20:11,240
+just all files
+
+365
+00:20:07,360 --> 00:20:12,799
+okay uh so in that case we can use a
+
+366
+00:20:11,240 --> 00:20:17,640
+empty string
+
+367
+00:20:12,799 --> 00:20:21,039
+to get all files let's let's test okay
+
+368
+00:20:17,640 --> 00:20:24,039
+so for example for
+
+369
+00:20:21,039 --> 00:20:24,039
+example
+
+370
+00:20:24,520 --> 00:20:32,280
+uh directory that okay directory that
+
+371
+00:20:28,400 --> 00:20:37,840
+and and a regular expression empty
+
+372
+00:20:32,280 --> 00:20:41,120
+string and uh evaluate this it should
+
+373
+00:20:37,840 --> 00:20:45,880
+return all files in this emac in it
+
+374
+00:20:41,120 --> 00:20:51,200
+let's do it run it fantastic go to
+
+375
+00:20:45,880 --> 00:20:55,840
+messages buffer fantastic copy this
+
+376
+00:20:51,200 --> 00:20:59,919
+line new buffer paste it make each line
+
+377
+00:20:55,840 --> 00:21:02,679
+a line so basically yeah you see wait
+
+378
+00:20:59,919 --> 00:21:05,640
+why is sample oh it even went to the git
+
+379
+00:21:02,679 --> 00:21:09,159
+directory the do git so that you so now
+
+380
+00:21:05,640 --> 00:21:13,080
+you got thousands of you know pass files
+
+381
+00:21:09,159 --> 00:21:19,600
+or something interesting so you do want
+
+382
+00:21:13,080 --> 00:21:19,600
+to ignore git so [ __ ] that gets more
+
+383
+00:21:20,600 --> 00:21:28,960
+complex yeah you want to ignore get so
+
+384
+00:21:24,600 --> 00:21:32,000
+close that close this
+
+385
+00:21:28,960 --> 00:21:36,039
+uh what if you put a dot here dot means
+
+386
+00:21:32,000 --> 00:21:36,039
+any file I think same same
+
+387
+00:21:37,760 --> 00:21:44,200
+result yeah same
+
+388
+00:21:40,039 --> 00:21:47,080
+result so so the question now is if the
+
+389
+00:21:44,200 --> 00:21:50,480
+user does not give a file extension what
+
+390
+00:21:47,080 --> 00:21:52,080
+should you do this is kind of a design
+
+391
+00:21:50,480 --> 00:21:55,000
+issue
+
+392
+00:21:52,080 --> 00:21:57,000
+okay if the user does not give a file
+
+393
+00:21:55,000 --> 00:21:59,000
+extension what how you know what should
+
+394
+00:21:57,000 --> 00:22:00,960
+the program
+
+395
+00:21:59,000 --> 00:22:06,400
+do so that's one thing the other thing
+
+396
+00:22:00,960 --> 00:22:06,400
+is that you do want to ignore git
+
+397
+00:22:06,559 --> 00:22:14,039
+um uh okay so we got you know so kind of
+
+398
+00:22:11,440 --> 00:22:16,120
+design issues you know you have to think
+
+399
+00:22:14,039 --> 00:22:20,080
+about so
+
+400
+00:22:16,120 --> 00:22:23,159
+but can we just shall we just simply
+
+401
+00:22:20,080 --> 00:22:25,400
+ignore this problem just hack hack you
+
+402
+00:22:23,159 --> 00:22:28,559
+know like for now just
+
+403
+00:22:25,400 --> 00:22:30,159
+assume we're going to check HTML files
+
+404
+00:22:28,559 --> 00:22:32,520
+only or
+
+405
+00:22:30,159 --> 00:22:35,720
+something anyway let's just do it
+
+406
+00:22:32,520 --> 00:22:38,320
+properly we have time okay so I mean
+
+407
+00:22:35,720 --> 00:22:42,400
+long time no see coffee who are you
+
+408
+00:22:38,320 --> 00:22:42,400
+coffee I don't remember who are you
+
+409
+00:22:43,520 --> 00:22:51,600
+coffee am I doing good am I alive yes
+
+410
+00:22:48,880 --> 00:22:53,600
+yes looks like I'm still alive that's
+
+411
+00:22:51,600 --> 00:22:58,600
+good okay
+
+412
+00:22:53,600 --> 00:23:02,600
+so two issues what happens when the file
+
+413
+00:22:58,600 --> 00:23:05,120
+extension is is not given do you want to
+
+414
+00:23:02,600 --> 00:23:05,120
+make it
+
+415
+00:23:07,200 --> 00:23:13,159
+optional yeah so when it's optional when
+
+416
+00:23:10,039 --> 00:23:16,440
+it's not given just use anything okay so
+
+417
+00:23:13,159 --> 00:23:19,360
+first of all solve one problem at a time
+
+418
+00:23:16,440 --> 00:23:24,360
+so okay so let's do
+
+419
+00:23:19,360 --> 00:23:30,440
+that uh let's say x EXT that's file
+
+420
+00:23:24,360 --> 00:23:30,440
+extension okay now set XEX
+
+421
+00:23:30,520 --> 00:23:33,520
+t
+
+422
+00:23:35,279 --> 00:23:40,799
+or now if there's a file
+
+423
+00:23:38,480 --> 00:23:43,799
+extension then use
+
+424
+00:23:40,799 --> 00:23:43,799
+that
+
+425
+00:23:44,799 --> 00:23:51,760
+otherwise uh wait uh I don't like to use
+
+426
+00:23:48,080 --> 00:23:54,080
+all okay let's let's use if proper
+
+427
+00:23:51,760 --> 00:23:56,320
+coding you know because
+
+428
+00:23:54,080 --> 00:23:58,679
+all by the way that's an interesting
+
+429
+00:23:56,320 --> 00:24:04,200
+question because all operation is
+
+430
+00:23:58,679 --> 00:24:08,600
+usually used as a as a short circuit for
+
+431
+00:24:04,200 --> 00:24:09,760
+if statement so for example if you want
+
+432
+00:24:08,600 --> 00:24:15,480
+to
+
+433
+00:24:09,760 --> 00:24:20,360
+do if x then one if otherwise two okay
+
+434
+00:24:15,480 --> 00:24:22,799
+wait if uh okay one is over here because
+
+435
+00:24:20,360 --> 00:24:26,760
+of the staggered keyboard so I got used
+
+436
+00:24:22,799 --> 00:24:31,000
+to the grid so that's why I made
+
+437
+00:24:26,760 --> 00:24:34,120
+got two okay okay so suppose this is
+
+438
+00:24:31,000 --> 00:24:37,880
+what you want to do if something true
+
+439
+00:24:34,120 --> 00:24:41,760
+then one otherwise two now usually
+
+440
+00:24:37,880 --> 00:24:45,000
+people can write it this way okay
+
+441
+00:24:41,760 --> 00:24:49,159
+or uh wait uh
+
+442
+00:24:45,000 --> 00:24:52,240
+what so if x you want return X otherwise
+
+443
+00:24:49,159 --> 00:24:54,039
+something right so people but a shortcut
+
+444
+00:24:52,240 --> 00:24:55,640
+is just
+
+445
+00:24:54,039 --> 00:25:01,120
+o
+
+446
+00:24:55,640 --> 00:25:04,480
+x 2 uh too okay so this is kind of the
+
+447
+00:25:01,120 --> 00:25:07,000
+same as that similarly in bash typically
+
+448
+00:25:04,480 --> 00:25:11,760
+you'll see it in bash in
+
+449
+00:25:07,000 --> 00:25:11,760
+JavaScript in Python okay that's
+
+450
+00:25:12,799 --> 00:25:19,320
+idiotic okay let me digress let's
+
+451
+00:25:16,039 --> 00:25:22,679
+digress our talk show is about
+
+452
+00:25:19,320 --> 00:25:25,880
+digression because there are so many
+
+453
+00:25:22,679 --> 00:25:28,799
+wonderful and different things on earth
+
+454
+00:25:25,880 --> 00:25:30,760
+that you can explore not not just the
+
+455
+00:25:28,799 --> 00:25:35,440
+main mainstream you know mainstream just
+
+456
+00:25:30,760 --> 00:25:38,960
+you know do professional crap okay so
+
+457
+00:25:35,440 --> 00:25:41,200
+programming hacker hacker code a
+
+458
+00:25:38,960 --> 00:25:43,919
+collection of articles about everything
+
+459
+00:25:41,200 --> 00:25:49,240
+about hacker so you
+
+460
+00:25:43,919 --> 00:25:53,039
+got on this syntax soup we want to go to
+
+461
+00:25:49,240 --> 00:25:56,320
+semantic noodles okay why I hate C why I
+
+462
+00:25:53,039 --> 00:26:00,360
+love goand why I love poell poell
+
+463
+00:25:56,320 --> 00:26:06,320
+complexity indeed why bash sucks but
+
+464
+00:26:00,360 --> 00:26:08,559
+today we want to go to all considered
+
+465
+00:26:06,320 --> 00:26:11,640
+harmful uh yeah I haven't talked about
+
+466
+00:26:08,559 --> 00:26:16,279
+this online so let's talk about that
+
+467
+00:26:11,640 --> 00:26:21,559
+search for or uh
+
+468
+00:26:16,279 --> 00:26:25,960
+uh uh search for logic okay there it is
+
+469
+00:26:21,559 --> 00:26:29,200
+programming edms and style section logic
+
+470
+00:26:25,960 --> 00:26:32,039
+operator is control flow one of the
+
+471
+00:26:29,200 --> 00:26:34,720
+idiocy of the mainstream programmers
+
+472
+00:26:32,039 --> 00:26:38,840
+including the elite
+
+473
+00:26:34,720 --> 00:26:40,640
+hackers like the Unix idiots you know
+
+474
+00:26:38,840 --> 00:26:43,279
+the they they typically are they are
+
+475
+00:26:40,640 --> 00:26:45,600
+they are Elite they tell you what to do
+
+476
+00:26:43,279 --> 00:26:48,039
+they you know you see this in style
+
+477
+00:26:45,600 --> 00:26:51,000
+guide in Python Pro whatever style guide
+
+478
+00:26:48,039 --> 00:26:53,120
+they say oh oh oh by the way the Ed
+
+479
+00:26:51,000 --> 00:26:56,760
+idiomatic way is you should do it this
+
+480
+00:26:53,120 --> 00:27:00,640
+way JavaScript for example here you see
+
+481
+00:26:56,760 --> 00:27:04,120
+V xal to through
+
+482
+00:27:00,640 --> 00:27:07,320
+y4 or all this uh wait this so this is
+
+483
+00:27:04,120 --> 00:27:11,000
+Javascript there here you have python
+
+484
+00:27:07,320 --> 00:27:14,039
+there you have bash with the m per m per
+
+485
+00:27:11,000 --> 00:27:17,880
+very common okay by the way there's
+
+486
+00:27:14,039 --> 00:27:21,320
+another trst with bash because ent ent
+
+487
+00:27:17,880 --> 00:27:25,559
+is actually end but because the ID
+
+488
+00:27:21,320 --> 00:27:28,919
+idiocy of the Unix idiots extreme those
+
+489
+00:27:25,559 --> 00:27:32,760
+you know Unix idiots
+
+490
+00:27:28,919 --> 00:27:35,080
+they they they they they have they they
+
+491
+00:27:32,760 --> 00:27:38,279
+return value when something returns
+
+492
+00:27:35,080 --> 00:27:41,039
+successful they return zero okay it's
+
+493
+00:27:38,279 --> 00:27:44,320
+kind of reversed from what what's more
+
+494
+00:27:41,039 --> 00:27:47,120
+sensible when something is successful it
+
+495
+00:27:44,320 --> 00:27:48,120
+returns zero when something fails it
+
+496
+00:27:47,120 --> 00:27:51,480
+returns
+
+497
+00:27:48,120 --> 00:27:54,200
+one why is that you know why do they do
+
+498
+00:27:51,480 --> 00:27:56,480
+that because when when something fails
+
+499
+00:27:54,200 --> 00:27:59,480
+it can return a different integers one
+
+500
+00:27:56,480 --> 00:28:01,760
+or two to indicate what kind of error so
+
+501
+00:27:59,480 --> 00:28:05,360
+that's why they do that so in bash you
+
+502
+00:28:01,760 --> 00:28:08,720
+have you know you you use the end end
+
+503
+00:28:05,360 --> 00:28:11,760
+instead of the of the all okay so anyway
+
+504
+00:28:08,720 --> 00:28:14,960
+here are some examples JavaScript python
+
+505
+00:28:11,760 --> 00:28:18,360
+bash and emac this you see you you'll
+
+506
+00:28:14,960 --> 00:28:20,760
+see this very common in fact you know
+
+507
+00:28:18,360 --> 00:28:24,240
+people will tell me hey uh you should
+
+508
+00:28:20,760 --> 00:28:27,880
+use all you know uh because I you know
+
+509
+00:28:24,240 --> 00:28:31,120
+because that's more ID idiomatic okay no
+
+510
+00:28:27,880 --> 00:28:37,120
+no no you are a idiot
+
+511
+00:28:31,120 --> 00:28:41,240
+okay so this is a problem oh so so why
+
+512
+00:28:37,120 --> 00:28:43,840
+basically or is a logical operator let
+
+513
+00:28:41,240 --> 00:28:49,519
+let me show you a example why the idiocy
+
+514
+00:28:43,840 --> 00:28:52,559
+of this this brainless non-thinking
+
+515
+00:28:49,519 --> 00:28:56,360
+mainstream they think they are Elite
+
+516
+00:28:52,559 --> 00:28:58,720
+hackers Fox okay let me let me tell you
+
+517
+00:28:56,360 --> 00:29:01,000
+right away you can clearly see what's
+
+518
+00:28:58,720 --> 00:29:01,000
+the
+
+519
+00:29:01,320 --> 00:29:08,480
+problem uh so uh let's
+
+520
+00:29:05,480 --> 00:29:08,480
+see
+
+521
+00:29:11,600 --> 00:29:16,840
+or let's
+
+522
+00:29:13,600 --> 00:29:19,840
+say one okay uh actually let's just say
+
+523
+00:29:16,840 --> 00:29:23,120
+false so it's easier
+
+524
+00:29:19,840 --> 00:29:27,039
+well okay well okay in emac is Neil and
+
+525
+00:29:23,120 --> 00:29:29,799
+true okay so it's Neil Neil NE Neil Neil
+
+526
+00:29:27,039 --> 00:29:31,720
+and last one is true true let's say now
+
+527
+00:29:29,799 --> 00:29:34,440
+if you are designing a programming you
+
+528
+00:29:31,720 --> 00:29:37,279
+know remember there's parallel
+
+529
+00:29:34,440 --> 00:29:40,000
+computation so when you see a all
+
+530
+00:29:37,279 --> 00:29:44,600
+mathematically means if any one of these
+
+531
+00:29:40,000 --> 00:29:46,279
+item is true it should return true okay
+
+532
+00:29:44,600 --> 00:29:48,519
+so when you have a situation you can
+
+533
+00:29:46,279 --> 00:29:52,080
+start parallel computation you know
+
+534
+00:29:48,519 --> 00:29:54,080
+today we have like several Calles CPU
+
+535
+00:29:52,080 --> 00:29:55,519
+Calles or whatever it eventually it's
+
+536
+00:29:54,080 --> 00:29:58,320
+going to happen you know we don't have
+
+537
+00:29:55,519 --> 00:30:01,919
+that like 15 years ago then started you
+
+538
+00:29:58,320 --> 00:30:04,600
+know multi two call you know dual call
+
+539
+00:30:01,919 --> 00:30:07,840
+Intel whatever Intel
+
+540
+00:30:04,600 --> 00:30:11,360
+[ __ ] or threats you know if you are a c
+
+541
+00:30:07,840 --> 00:30:13,559
+type of programmer C++ or Java idiots or
+
+542
+00:30:11,360 --> 00:30:15,840
+the rust idiots these people are kind of
+
+543
+00:30:13,559 --> 00:30:19,000
+idiots because they have no sense of
+
+544
+00:30:15,840 --> 00:30:21,519
+mathematics they just know bit bit deing
+
+545
+00:30:19,000 --> 00:30:25,320
+that's they that's what they are good at
+
+546
+00:30:21,519 --> 00:30:28,120
+okay so if you have in all these
+
+547
+00:30:25,320 --> 00:30:31,640
+languages when you have all with which
+
+548
+00:30:28,120 --> 00:30:34,840
+means mathematic mathematic is a logical
+
+549
+00:30:31,640 --> 00:30:37,240
+operation remember the roots it's logic
+
+550
+00:30:34,840 --> 00:30:39,519
+any if there's any one item that's true
+
+551
+00:30:37,240 --> 00:30:41,799
+return true so when you have all you can
+
+552
+00:30:39,519 --> 00:30:46,039
+start a parallel computation if you have
+
+553
+00:30:41,799 --> 00:30:48,640
+1,000 CPUs or whatnot you can run you
+
+554
+00:30:46,039 --> 00:30:52,799
+know you can dispatch and each you know
+
+555
+00:30:48,640 --> 00:30:54,880
+whenever a a thread or a c get one it
+
+556
+00:30:52,799 --> 00:30:58,639
+tells it sends back information then you
+
+557
+00:30:54,880 --> 00:31:01,320
+can stop ignore all the rest okay
+
+558
+00:30:58,639 --> 00:31:04,000
+but that's not how things are done in
+
+559
+00:31:01,320 --> 00:31:05,080
+typical programming languages almost all
+
+560
+00:31:04,000 --> 00:31:07,440
+except a
+
+561
+00:31:05,080 --> 00:31:09,960
+few when you have all they have to do
+
+562
+00:31:07,440 --> 00:31:12,000
+sequential evaluation so they check this
+
+563
+00:31:09,960 --> 00:31:13,360
+one then they check next one check next
+
+564
+00:31:12,000 --> 00:31:18,320
+one
+
+565
+00:31:13,360 --> 00:31:22,519
+until until if any one of them is true
+
+566
+00:31:18,320 --> 00:31:25,639
+then they they stop evaluate okay so for
+
+567
+00:31:22,519 --> 00:31:29,360
+example when they reach here they stop
+
+568
+00:31:25,639 --> 00:31:32,440
+and return okay so this this is why but
+
+569
+00:31:29,360 --> 00:31:35,679
+this is not but but if you have these
+
+570
+00:31:32,440 --> 00:31:38,559
+semantics then you cannot do parallel
+
+571
+00:31:35,679 --> 00:31:41,799
+computation you know you cannot your
+
+572
+00:31:38,559 --> 00:31:43,960
+compiler cannot automatically start a
+
+573
+00:31:41,799 --> 00:31:46,159
+parallel computation does doesn't matter
+
+574
+00:31:43,960 --> 00:31:48,679
+if you have 10,000
+
+575
+00:31:46,159 --> 00:31:51,679
+CPUs so basically the programming
+
+576
+00:31:48,679 --> 00:31:55,120
+language put a major
+
+577
+00:31:51,679 --> 00:31:55,120
+restriction on the
+
+578
+00:31:56,559 --> 00:32:01,320
+semantics this is a good reason for that
+
+579
+00:31:58,840 --> 00:32:03,960
+too because historically you know we
+
+580
+00:32:01,320 --> 00:32:06,120
+don't have you know multiple CPUs it's
+
+581
+00:32:03,960 --> 00:32:09,000
+all sequential so that's why it's
+
+582
+00:32:06,120 --> 00:32:12,720
+natural things are this way okay but
+
+583
+00:32:09,000 --> 00:32:15,840
+anyway so so people started to use this
+
+584
+00:32:12,720 --> 00:32:19,799
+sequential evaluation this is a gist
+
+585
+00:32:15,840 --> 00:32:23,559
+okay the semantic of all function or
+
+586
+00:32:19,799 --> 00:32:27,399
+operator in almost all languages
+
+587
+00:32:23,559 --> 00:32:28,679
+they is sequential evaluation that's
+
+588
+00:32:27,399 --> 00:32:31,399
+fundamental
+
+589
+00:32:28,679 --> 00:32:35,000
+so if you have sequential evaluation
+
+590
+00:32:31,399 --> 00:32:39,840
+then you can start to use all as a
+
+591
+00:32:35,000 --> 00:32:42,639
+branch control you see or X or2 so if
+
+592
+00:32:39,840 --> 00:32:46,919
+this x returns true then stop just
+
+593
+00:32:42,639 --> 00:32:49,760
+return X otherwise um close
+
+594
+00:32:46,919 --> 00:32:52,200
+that close that otherwise return true
+
+595
+00:32:49,760 --> 00:32:54,440
+okay I'm kind of going too much so
+
+596
+00:32:52,200 --> 00:33:00,679
+anyway I think you get the idea so you
+
+597
+00:32:54,440 --> 00:33:03,320
+know here's a essay and uh eser W disra
+
+598
+00:33:00,679 --> 00:33:07,919
+agree with me he wrote an article about
+
+599
+00:33:03,320 --> 00:33:11,000
+it okay he's famous for flaming you know
+
+600
+00:33:07,919 --> 00:33:12,360
+this programmer idiots you see he says
+
+601
+00:33:11,000 --> 00:33:16,320
+the conditional
+
+602
+00:33:12,360 --> 00:33:18,720
+connectives C and and Co for short are
+
+603
+00:33:16,320 --> 00:33:21,600
+less innocent than they might seem at
+
+604
+00:33:18,720 --> 00:33:24,200
+first sight for instance C does not
+
+605
+00:33:21,600 --> 00:33:26,679
+distribute over CN
+
+606
+00:33:24,200 --> 00:33:28,720
+compared anyway he wrote something
+
+607
+00:33:26,679 --> 00:33:32,360
+similar um
+
+608
+00:33:28,720 --> 00:33:36,440
+anyway that's a major digression so so
+
+609
+00:33:32,360 --> 00:33:41,120
+usually I don't when I use all is only
+
+610
+00:33:36,440 --> 00:33:46,639
+for logical purposes okay I never use or
+
+611
+00:33:41,120 --> 00:33:49,639
+or abuse or for branch control I use I
+
+612
+00:33:46,639 --> 00:33:52,279
+always use if statement okay so okay
+
+613
+00:33:49,639 --> 00:33:55,480
+that's a digression let's get back to
+
+614
+00:33:52,279 --> 00:33:59,120
+this problem so if the file name
+
+615
+00:33:55,480 --> 00:34:04,440
+extension if
+
+616
+00:33:59,120 --> 00:34:08,240
+uh so if file extension is defined
+
+617
+00:34:04,440 --> 00:34:12,240
+then uh then just return that okay
+
+618
+00:34:08,240 --> 00:34:14,560
+otherwise the file name extension will
+
+619
+00:34:12,240 --> 00:34:17,560
+be
+
+620
+00:34:14,560 --> 00:34:17,560
+um
+
+621
+00:34:18,520 --> 00:34:26,480
+uh none okay
+
+622
+00:34:21,320 --> 00:34:29,079
+so yeah can we do none yeah so let's try
+
+623
+00:34:26,480 --> 00:34:31,320
+again yep
+
+624
+00:34:29,079 --> 00:34:33,720
+so if it's not defined and then it's
+
+625
+00:34:31,320 --> 00:34:39,399
+just empty string okay so that's what we
+
+626
+00:34:33,720 --> 00:34:43,679
+do here and uh and here we just uh do
+
+627
+00:34:39,399 --> 00:34:46,560
+there okay so that so if the file name
+
+628
+00:34:43,679 --> 00:34:48,679
+extension is empty I mean it's Neo then
+
+629
+00:34:46,560 --> 00:34:51,839
+just I mean if it's
+
+630
+00:34:48,679 --> 00:34:53,879
+valid then return that otherwise empty
+
+631
+00:34:51,839 --> 00:34:59,560
+string
+
+632
+00:34:53,879 --> 00:34:59,560
+okay uh then what happens if you do
+
+633
+00:35:00,040 --> 00:35:04,400
+oh okay so actually
+
+634
+00:35:06,720 --> 00:35:11,560
+um back SL back slash
+
+635
+00:35:12,680 --> 00:35:19,160
+dot empty string I mean can you do that
+
+636
+00:35:16,480 --> 00:35:23,200
+yeah I think so no actually if you do
+
+637
+00:35:19,160 --> 00:35:24,960
+that no okay yeah so actually we need to
+
+638
+00:35:23,200 --> 00:35:29,640
+fix this
+
+639
+00:35:24,960 --> 00:35:29,640
+so okay then let's just do that
+
+640
+00:35:35,119 --> 00:35:41,400
+uh so file name extension if file name
+
+641
+00:35:39,119 --> 00:35:44,680
+extension
+
+642
+00:35:41,400 --> 00:35:47,680
+then that otherwise empty okay something
+
+643
+00:35:44,680 --> 00:35:47,680
+like that
+
+644
+00:35:47,720 --> 00:35:55,960
+so let's change the name file name
+
+645
+00:35:51,400 --> 00:35:55,960
+extension we uh
+
+646
+00:36:05,000 --> 00:36:13,200
+got uh GX so I need to type harder so
+
+647
+00:36:11,440 --> 00:36:16,000
+there file name extension regular
+
+648
+00:36:13,200 --> 00:36:19,119
+expression okay if there that then that
+
+649
+00:36:16,000 --> 00:36:23,560
+otherwise empty okay
+
+650
+00:36:19,119 --> 00:36:27,960
+yeah so now now that that that okay so I
+
+651
+00:36:23,560 --> 00:36:31,040
+think that's it so um
+
+652
+00:36:27,960 --> 00:36:33,720
+so what is this validate bracket yeah
+
+653
+00:36:31,040 --> 00:36:37,040
+you can call it and here test code we
+
+654
+00:36:33,720 --> 00:36:41,280
+don't care and oh okay so now the next
+
+655
+00:36:37,040 --> 00:36:45,920
+issue the next issue is about ignore
+
+656
+00:36:41,280 --> 00:36:53,200
+G and that's that's a problematic
+
+657
+00:36:45,920 --> 00:36:53,200
+thing uh so now you need to look at the
+
+658
+00:36:53,720 --> 00:37:01,480
+um the predicate okay is a filter on
+
+659
+00:36:58,000 --> 00:37:05,119
+which subd directory to dive
+
+660
+00:37:01,480 --> 00:37:06,680
+into Neil dive into all sub
+
+661
+00:37:05,119 --> 00:37:11,040
+directories
+
+662
+00:37:06,680 --> 00:37:16,040
+um function f if F returns true dive
+
+663
+00:37:11,040 --> 00:37:18,760
+into that uh lse not f is past a sub
+
+664
+00:37:16,040 --> 00:37:20,920
+directory full path okay you kind of
+
+665
+00:37:18,760 --> 00:37:25,680
+need a function
+
+666
+00:37:20,920 --> 00:37:29,240
+so so this will be the Lambda predic cut
+
+667
+00:37:25,680 --> 00:37:32,079
+X is the full path of a
+
+668
+00:37:29,240 --> 00:37:36,280
+directory now so if the
+
+669
+00:37:32,079 --> 00:37:40,480
+directory name is dogit the the just the
+
+670
+00:37:36,280 --> 00:37:44,640
+name not the full path then
+
+671
+00:37:40,480 --> 00:37:44,640
+return Neo okay
+
+672
+00:37:44,760 --> 00:37:50,200
+so so that's kind of we uh yeah that's
+
+673
+00:37:48,440 --> 00:37:53,000
+one thing we can do there's another
+
+674
+00:37:50,200 --> 00:37:55,119
+issue about interface design because if
+
+675
+00:37:53,000 --> 00:37:57,960
+you do this if we write this function
+
+676
+00:37:55,119 --> 00:38:01,440
+and put it here then basically we are
+
+677
+00:37:57,960 --> 00:38:03,880
+hardcoding it so it will just all ignore
+
+678
+00:38:01,440 --> 00:38:06,119
+dogit but what about I mean there's a
+
+679
+00:38:03,880 --> 00:38:09,000
+bunch of other directories you probably
+
+680
+00:38:06,119 --> 00:38:12,760
+want to ignore you know for example AG
+
+681
+00:38:09,000 --> 00:38:15,359
+silver whatever you know the Unix Unix
+
+682
+00:38:12,760 --> 00:38:21,240
+crab okay this start git and you know
+
+683
+00:38:15,359 --> 00:38:21,240
+this start is is created by the Unix
+
+684
+00:38:24,079 --> 00:38:28,960
+[ __ ] let me explain that one
+
+685
+00:38:26,520 --> 00:38:32,800
+because for example this is a concrete
+
+686
+00:38:28,960 --> 00:38:33,440
+example why should we care I mean what
+
+687
+00:38:32,800 --> 00:38:36,440
+you
+
+688
+00:38:33,440 --> 00:38:39,520
+know so we have a Git You know for
+
+689
+00:38:36,440 --> 00:38:42,400
+example actually I was working on my I
+
+690
+00:38:39,520 --> 00:38:46,400
+updated my git
+
+691
+00:38:42,400 --> 00:38:49,240
+tutorial uh can you see where let's just
+
+692
+00:38:46,400 --> 00:38:49,240
+go to it
+
+693
+00:38:52,480 --> 00:38:58,079
+okay practical G in an hour okay how to
+
+694
+00:38:55,960 --> 00:39:01,839
+add a file how to commit file you know
+
+695
+00:38:58,079 --> 00:39:07,240
+git is very useful you know so yeah so I
+
+696
+00:39:01,839 --> 00:39:10,040
+use git but now it created a dotg [ __ ]
+
+697
+00:39:07,240 --> 00:39:15,040
+am I concerned that's not that's not my
+
+698
+00:39:10,040 --> 00:39:18,480
+file I'm using a tool and this tool [ __ ]
+
+699
+00:39:15,040 --> 00:39:21,880
+A bunch of [ __ ] in my in my in in my
+
+700
+00:39:18,480 --> 00:39:24,839
+toolbox that's what happening with that
+
+701
+00:39:21,880 --> 00:39:27,720
+okay that's a re that's what actually
+
+702
+00:39:24,839 --> 00:39:29,680
+happening you know the Unix say they got
+
+703
+00:39:27,720 --> 00:39:32,280
+brainwashed they they thought this is
+
+704
+00:39:29,680 --> 00:39:34,560
+natural you know it's natural of course
+
+705
+00:39:32,280 --> 00:39:36,480
+obviously you have dogit or whatever dot
+
+706
+00:39:34,560 --> 00:39:38,280
+is you know when you use some of the
+
+707
+00:39:36,480 --> 00:39:40,440
+because oh yeah because you you know
+
+708
+00:39:38,280 --> 00:39:45,040
+there something something
+
+709
+00:39:40,440 --> 00:39:48,160
+no I use the git okay fantastic tool but
+
+710
+00:39:45,040 --> 00:39:52,359
+the tool should not create random
+
+711
+00:39:48,160 --> 00:39:54,520
+[ __ ] in my directory you can create a
+
+712
+00:39:52,359 --> 00:39:58,079
+you can if you need this [ __ ] you should
+
+713
+00:39:54,520 --> 00:39:59,280
+create it in your uh specific
+
+714
+00:39:58,079 --> 00:40:02,960
+you know
+
+715
+00:39:59,280 --> 00:40:06,720
+designated uh directory okay for example
+
+716
+00:40:02,960 --> 00:40:09,400
+on Mac you have file uh Forks well
+
+717
+00:40:06,720 --> 00:40:11,920
+that's another thing you know meta
+
+718
+00:40:09,400 --> 00:40:14,400
+information so you know because this is
+
+719
+00:40:11,920 --> 00:40:16,000
+not my thing why are you putting [ __ ] in
+
+720
+00:40:14,400 --> 00:40:19,720
+my in my in my
+
+721
+00:40:16,000 --> 00:40:22,319
+box that's what the Unix do because the
+
+722
+00:40:19,720 --> 00:40:24,280
+Unix [ __ ] you know the Unix
+
+723
+00:40:22,319 --> 00:40:26,680
+philosophy and Linux
+
+724
+00:40:24,280 --> 00:40:28,920
+idiots they just code whatever is
+
+725
+00:40:26,680 --> 00:40:31,960
+convenient it's the most easy to code if
+
+726
+00:40:28,920 --> 00:40:34,280
+I'm implementing git let's let's just oh
+
+727
+00:40:31,960 --> 00:40:36,520
+direct let's just create a a do git
+
+728
+00:40:34,280 --> 00:40:38,920
+special this is a special thing in your
+
+729
+00:40:36,520 --> 00:40:42,720
+directory okay that's what the Unix
+
+730
+00:40:38,920 --> 00:40:45,960
+people do [ __ ] the Unix
+
+731
+00:40:42,720 --> 00:40:47,960
+people and it become Norm like people
+
+732
+00:40:45,960 --> 00:40:50,960
+don't know you know become this is
+
+733
+00:40:47,960 --> 00:40:54,000
+normal this is normal that's what uni
+
+734
+00:40:50,960 --> 00:40:58,560
+people do okay so let's go back here for
+
+735
+00:40:54,000 --> 00:41:04,040
+now let's just hardcode it okay so if uh
+
+736
+00:40:58,560 --> 00:41:08,760
+so now you need to get the file name the
+
+737
+00:41:04,040 --> 00:41:11,880
+directory name from a file path
+
+738
+00:41:08,760 --> 00:41:16,000
+okay uh directory name from a file path
+
+739
+00:41:11,880 --> 00:41:19,359
+so let's go to uh Eis worker directory
+
+740
+00:41:16,000 --> 00:41:22,240
+directory name from a file path okay so
+
+741
+00:41:19,359 --> 00:41:24,280
+file path functions let's look at all
+
+742
+00:41:22,240 --> 00:41:25,760
+the file path functions file name
+
+743
+00:41:24,280 --> 00:41:30,839
+directory
+
+744
+00:41:25,760 --> 00:41:35,440
+okay uh no file name n directory uh yeah
+
+745
+00:41:30,839 --> 00:41:40,280
+okay maybe that so let's
+
+746
+00:41:35,440 --> 00:41:45,680
+test file name n directory okay and uh
+
+747
+00:41:40,280 --> 00:41:49,280
+so this is a directory copy that put it
+
+748
+00:41:45,680 --> 00:41:52,000
+here okay then evaluate it what do we
+
+749
+00:41:49,280 --> 00:41:55,520
+get empty okay that's not right so
+
+750
+00:41:52,000 --> 00:41:58,240
+actually we want um you see this returns
+
+751
+00:41:55,520 --> 00:42:01,640
+empty because
+
+752
+00:41:58,240 --> 00:42:03,640
+yeah well so this this n directory is
+
+753
+00:42:01,640 --> 00:42:08,000
+supposed to return a file name but we
+
+754
+00:42:03,640 --> 00:42:12,000
+just want the directory
+
+755
+00:42:08,000 --> 00:42:16,359
+name uh file name base file name split
+
+756
+00:42:12,000 --> 00:42:16,359
+uh file relative name what so what is
+
+757
+00:42:17,040 --> 00:42:23,640
+it file name directory okay I think
+
+758
+00:42:20,760 --> 00:42:23,640
+that's file name
+
+759
+00:42:24,200 --> 00:42:30,480
+directory file name directory yes so
+
+760
+00:42:27,599 --> 00:42:33,240
+let's try that
+
+761
+00:42:30,480 --> 00:42:38,240
+so evaluate
+
+762
+00:42:33,240 --> 00:42:40,880
+it yeah but it gives the full path um we
+
+763
+00:42:38,240 --> 00:42:45,319
+don't want the full path we just want
+
+764
+00:42:40,880 --> 00:42:45,319
+the last path
+
+765
+00:42:46,040 --> 00:42:51,240
+so is it file name base return the base
+
+766
+00:42:49,200 --> 00:42:52,880
+name of file name no directory no
+
+767
+00:42:51,240 --> 00:42:55,880
+extension
+
+768
+00:42:52,880 --> 00:42:57,839
+okay uh file
+
+769
+00:42:55,880 --> 00:43:00,839
+name base
+
+770
+00:42:57,839 --> 00:43:04,400
+okay well file
+
+771
+00:43:00,839 --> 00:43:04,400
+name file
+
+772
+00:43:06,960 --> 00:43:12,200
+name okay let's see if that
+
+773
+00:43:12,240 --> 00:43:21,240
+works empty stram no what the [ __ ]
+
+774
+00:43:17,079 --> 00:43:21,240
+expand file name true file name
+
+775
+00:43:24,839 --> 00:43:30,359
+wait uh
+
+776
+00:43:27,760 --> 00:43:34,079
+absolute Parent Directory this file name
+
+777
+00:43:30,359 --> 00:43:38,599
+Parent Directory is new in emac
+
+778
+00:43:34,079 --> 00:43:38,599
+29 I think 29 or
+
+779
+00:43:39,440 --> 00:43:46,119
+28 okay how long have I been talking 50
+
+780
+00:43:43,119 --> 00:43:46,119
+minutes
+
+781
+00:43:51,559 --> 00:43:58,520
+okay tck this channel talk about yeah
+
+782
+00:43:55,280 --> 00:44:00,760
+different things uh usually emac this
+
+783
+00:43:58,520 --> 00:44:03,119
+Unix programming programming languages
+
+784
+00:44:00,760 --> 00:44:06,920
+programming language design wam language
+
+785
+00:44:03,119 --> 00:44:12,040
+and keyboards lots of keyboard and mouse
+
+786
+00:44:06,920 --> 00:44:15,160
+and lots of my rent okay so usually if
+
+787
+00:44:12,040 --> 00:44:20,040
+you just want
+
+788
+00:44:15,160 --> 00:44:22,079
+pure uh you know tutorial on emac lisp
+
+789
+00:44:20,040 --> 00:44:24,920
+sometimes I do that sometimes it's just
+
+790
+00:44:22,079 --> 00:44:28,920
+you know focused like yesterday but
+
+791
+00:44:24,920 --> 00:44:28,920
+sometimes I go into a rent
+
+792
+00:44:30,640 --> 00:44:35,640
+uh hi sir what do you think about Terry
+
+793
+00:44:32,800 --> 00:44:39,480
+Terry A D Davis you know that's another
+
+794
+00:44:35,640 --> 00:44:39,480
+frequently Asked question
+
+795
+00:44:39,520 --> 00:44:47,720
+because uh the the the 5c answer is that
+
+796
+00:44:44,319 --> 00:44:51,559
+yeah he's a relatively great programmer
+
+797
+00:44:47,720 --> 00:44:56,079
+but he's got a severe mental problem
+
+798
+00:44:51,559 --> 00:44:56,079
+which is um
+
+799
+00:44:59,599 --> 00:45:03,839
+um which is called
+
+800
+00:45:04,680 --> 00:45:09,079
+uh
+
+801
+00:45:06,240 --> 00:45:10,640
+schizoid schizo
+
+802
+00:45:09,079 --> 00:45:13,680
+schizophrenic
+
+803
+00:45:10,640 --> 00:45:16,200
+schizophrenic okay that means you see
+
+804
+00:45:13,680 --> 00:45:19,800
+Illusions you see things and you hear
+
+805
+00:45:16,200 --> 00:45:24,400
+things that's not it there so T Terry a
+
+806
+00:45:19,800 --> 00:45:26,520
+Davis is got that that affected some you
+
+807
+00:45:24,400 --> 00:45:28,440
+know some great mathematicians also got
+
+808
+00:45:26,520 --> 00:45:31,800
+that problem you know one of the great
+
+809
+00:45:28,440 --> 00:45:35,839
+mathematician that's um uh there's a
+
+810
+00:45:31,800 --> 00:45:39,640
+movie made out of uh that mathematician
+
+811
+00:45:35,839 --> 00:45:39,640
+what's his name uh
+
+812
+00:45:39,720 --> 00:45:45,400
+beautiful a beautiful life or something
+
+813
+00:45:43,000 --> 00:45:49,040
+um anyway I forgot the name at the
+
+814
+00:45:45,400 --> 00:45:50,160
+moment but anyway schizophrenic okay
+
+815
+00:45:49,040 --> 00:45:53,400
+it's a
+
+816
+00:45:50,160 --> 00:45:56,319
+serious that's just an that's not just a
+
+817
+00:45:53,400 --> 00:45:58,599
+mental problem okay like a lot of us
+
+818
+00:45:56,319 --> 00:45:59,760
+maybe you have lot stress you have uh
+
+819
+00:45:58,599 --> 00:46:03,720
+you know you
+
+820
+00:45:59,760 --> 00:46:06,079
+are kind of a social or you are um
+
+821
+00:46:03,720 --> 00:46:08,480
+borderline personality or you are
+
+822
+00:46:06,079 --> 00:46:10,559
+histrionic you you need to make a drama
+
+823
+00:46:08,480 --> 00:46:12,720
+to be center of attention all the time
+
+824
+00:46:10,559 --> 00:46:15,559
+you have to talk nonstop some people are
+
+825
+00:46:12,720 --> 00:46:17,480
+like that or you are skeo like me which
+
+826
+00:46:15,559 --> 00:46:21,839
+is kind of a loner we don't you know we
+
+827
+00:46:17,480 --> 00:46:23,960
+don't go out much all these are and then
+
+828
+00:46:21,839 --> 00:46:26,960
+you have bipolar you have Maniac you
+
+829
+00:46:23,960 --> 00:46:28,760
+know is personality disorders but then
+
+830
+00:46:26,960 --> 00:46:31,280
+and
+
+831
+00:46:28,760 --> 00:46:33,400
+schizophrenic that's not just a
+
+832
+00:46:31,280 --> 00:46:35,839
+personality disorder that's something
+
+833
+00:46:33,400 --> 00:46:39,160
+serious seriously wrong in your brain
+
+834
+00:46:35,839 --> 00:46:42,440
+okay you see you see Illusions so that's
+
+835
+00:46:39,160 --> 00:46:47,119
+what he's have and he's
+
+836
+00:46:42,440 --> 00:46:50,480
+got he uh you know he killed himself but
+
+837
+00:46:47,119 --> 00:46:53,640
+then these Zuma idiots the [ __ ] zumas
+
+838
+00:46:50,480 --> 00:46:57,800
+today you know online the for Chan you
+
+839
+00:46:53,640 --> 00:46:59,920
+know channers oh Terry Davis
+
+840
+00:46:57,800 --> 00:47:02,599
+do you like gay oh yeah you know they
+
+841
+00:46:59,920 --> 00:47:05,240
+they they don't care about nothing they
+
+842
+00:47:02,599 --> 00:47:07,760
+they they just like the drama and they
+
+843
+00:47:05,240 --> 00:47:11,160
+you know that's what happens you know
+
+844
+00:47:07,760 --> 00:47:14,200
+that's why that's what happens with um
+
+845
+00:47:11,160 --> 00:47:14,200
+this today's
+
+846
+00:47:14,680 --> 00:47:19,319
+generation okay so let's get back to
+
+847
+00:47:17,160 --> 00:47:22,280
+this we can finish this in five minutes
+
+848
+00:47:19,319 --> 00:47:25,520
+you know okay so uh so right now I just
+
+849
+00:47:22,280 --> 00:47:28,240
+want the directory name file name um
+
+850
+00:47:25,520 --> 00:47:31,040
+let's see so given a file full path
+
+851
+00:47:28,240 --> 00:47:34,040
+that's a directory we just want the
+
+852
+00:47:31,040 --> 00:47:34,040
+directory
+
+853
+00:47:37,040 --> 00:47:44,960
+uh wait what why is it uh file name
+
+854
+00:47:40,200 --> 00:47:47,920
+directory let's see so let's see file
+
+855
+00:47:44,960 --> 00:47:50,920
+name none directory file name
+
+856
+00:47:47,920 --> 00:47:56,760
+directory file name extension file name
+
+857
+00:47:50,920 --> 00:47:56,760
+sense extension wait what is it
+
+858
+00:48:00,400 --> 00:48:08,079
+I'm pretty sure I've used
+
+859
+00:48:02,960 --> 00:48:12,359
+this quite a few times but wait but uh
+
+860
+00:48:08,079 --> 00:48:14,359
+file relative name expand file name file
+
+861
+00:48:12,359 --> 00:48:18,240
+true name
+
+862
+00:48:14,359 --> 00:48:20,359
+no uh file name with extensions join
+
+863
+00:48:18,240 --> 00:48:25,040
+file path file name
+
+864
+00:48:20,359 --> 00:48:28,839
+concact okay so file name directory name
+
+865
+00:48:25,040 --> 00:48:32,040
+p file name us directory basically add a
+
+866
+00:48:28,839 --> 00:48:35,920
+slash yeah I don't think that's
+
+867
+00:48:32,040 --> 00:48:39,119
+it file name us directory okay so for
+
+868
+00:48:35,920 --> 00:48:42,760
+example we can check double check run
+
+869
+00:48:39,119 --> 00:48:47,280
+that yeah it just return itself we just
+
+870
+00:48:42,760 --> 00:48:49,319
+want for example this the last part so
+
+871
+00:48:47,280 --> 00:48:52,440
+what what what is
+
+872
+00:48:49,319 --> 00:48:54,799
+it I don't think it's a Parent Directory
+
+873
+00:48:52,440 --> 00:48:58,720
+but we can try but I don't want to use
+
+874
+00:48:54,799 --> 00:48:58,720
+this command because uh
+
+875
+00:48:59,359 --> 00:49:08,559
+my Marco Keys doesn't work because now
+
+876
+00:49:01,760 --> 00:49:08,559
+I'm using a a quy layout so control C to
+
+877
+00:49:11,280 --> 00:49:19,599
+copy so uh for example if we call
+
+878
+00:49:16,520 --> 00:49:21,799
+that yeah that returns The Parent
+
+879
+00:49:19,599 --> 00:49:24,799
+Directory that's not what we
+
+880
+00:49:21,799 --> 00:49:24,799
+want
+
+881
+00:49:25,319 --> 00:49:32,680
+uh f name
+
+882
+00:49:28,920 --> 00:49:32,680
+components uh directory
+
+883
+00:49:44,079 --> 00:49:50,119
+names directory file name wait wa how
+
+884
+00:49:47,720 --> 00:49:54,119
+come I don't have that directory file
+
+885
+00:49:50,119 --> 00:49:54,119
+name uh
+
+886
+00:50:06,680 --> 00:50:09,720
+okay let's try
+
+887
+00:50:12,559 --> 00:50:19,040
+that it Returns the full path no I don't
+
+888
+00:50:16,240 --> 00:50:19,040
+want full
+
+889
+00:50:20,880 --> 00:50:26,079
+path wait I can't believe
+
+890
+00:50:29,400 --> 00:50:35,119
+yeah we wasted a lot time on this but
+
+891
+00:50:32,119 --> 00:50:38,400
+okay let's just let's let's
+
+892
+00:50:35,119 --> 00:50:43,000
+um let's just do a regular expression
+
+893
+00:50:38,400 --> 00:50:45,960
+okay string string match Okay stram
+
+894
+00:50:43,000 --> 00:50:49,000
+match the string is the X which is a
+
+895
+00:50:45,960 --> 00:50:51,559
+full path to a directory and uh the
+
+896
+00:50:49,000 --> 00:50:53,960
+regular expression is just let's check
+
+897
+00:50:51,559 --> 00:50:57,760
+git okay let's just check
+
+898
+00:50:53,960 --> 00:51:00,200
+that slash slash okay okay start we
+
+899
+00:50:57,760 --> 00:51:03,240
+don't care okay so this is our function
+
+900
+00:51:00,200 --> 00:51:06,119
+to check if it's a good directory I was
+
+901
+00:51:03,240 --> 00:51:08,119
+trying to be more proper by you know
+
+902
+00:51:06,119 --> 00:51:10,920
+actually getting the directory named
+
+903
+00:51:08,119 --> 00:51:16,559
+itself but this will work
+
+904
+00:51:10,920 --> 00:51:19,319
+okay uh so yeah so so so we need to put
+
+905
+00:51:16,559 --> 00:51:23,520
+this in this directory file
+
+906
+00:51:19,319 --> 00:51:26,599
+recursively a predicate I believe here
+
+907
+00:51:23,520 --> 00:51:30,040
+uh by the way emac work directory for
+
+908
+00:51:26,599 --> 00:51:32,160
+facilities sucks okay so there is a
+
+909
+00:51:30,040 --> 00:51:35,280
+predicate the documentation predicate
+
+910
+00:51:32,160 --> 00:51:38,400
+can be either Neo which means all Sub
+
+911
+00:51:35,280 --> 00:51:40,400
+sub are descended into all true which
+
+912
+00:51:38,400 --> 00:51:44,000
+means all
+
+913
+00:51:40,400 --> 00:51:47,040
+subies that can be read are ignored okay
+
+914
+00:51:44,000 --> 00:51:48,680
+or a function okay which is called with
+
+915
+00:51:47,040 --> 00:51:52,480
+the name of each
+
+916
+00:51:48,680 --> 00:51:55,000
+subdirectory and should be return true
+
+917
+00:51:52,480 --> 00:51:58,480
+if the subdirectory is to be descended
+
+918
+00:51:55,000 --> 00:52:00,799
+into Okay so
+
+919
+00:51:58,480 --> 00:52:03,359
+so wait where is the position of the
+
+920
+00:52:00,799 --> 00:52:06,480
+predicate you know emac this doesn't
+
+921
+00:52:03,359 --> 00:52:09,400
+have named parameters so you have to so
+
+922
+00:52:06,480 --> 00:52:11,359
+every parameter is ordered so the
+
+923
+00:52:09,400 --> 00:52:14,319
+regular expression
+
+924
+00:52:11,359 --> 00:52:16,799
+include directories and predicate okay
+
+925
+00:52:14,319 --> 00:52:21,319
+so we need a
+
+926
+00:52:16,799 --> 00:52:24,040
+Neo here okay then this function Lambda
+
+927
+00:52:21,319 --> 00:52:29,240
+string you know this function just check
+
+928
+00:52:24,040 --> 00:52:33,480
+if match git if it does
+
+929
+00:52:29,240 --> 00:52:38,160
+then uh Neil okay so we need
+
+930
+00:52:33,480 --> 00:52:42,160
+to not reverse it
+
+931
+00:52:38,160 --> 00:52:45,480
+okay so we got that okay so
+
+932
+00:52:42,160 --> 00:52:47,720
+now uh what do we do with that cut cut
+
+933
+00:52:45,480 --> 00:52:51,720
+cut
+
+934
+00:52:47,720 --> 00:52:55,839
+cut put a new put it there and go back
+
+935
+00:52:51,720 --> 00:52:58,440
+here okay so we essentially complete
+
+936
+00:52:55,839 --> 00:52:58,440
+this
+
+937
+00:52:59,000 --> 00:53:05,200
+I think that's it so validate
+
+938
+00:53:02,040 --> 00:53:06,200
+directory and check only files with file
+
+939
+00:53:05,200 --> 00:53:08,839
+name
+
+940
+00:53:06,200 --> 00:53:12,280
+extension uh let's give a full
+
+941
+00:53:08,839 --> 00:53:15,280
+documentation if file name extension is
+
+942
+00:53:12,280 --> 00:53:15,280
+NE
+
+943
+00:53:15,720 --> 00:53:24,440
+uh do all let's just say sloppy writing
+
+944
+00:53:19,799 --> 00:53:29,160
+let's just say do all now and uh also
+
+945
+00:53:24,440 --> 00:53:32,400
+dog the is ignored okay because we
+
+946
+00:53:29,160 --> 00:53:34,559
+hardcoded it we have to think about
+
+947
+00:53:32,400 --> 00:53:39,400
+fixing later
+
+948
+00:53:34,559 --> 00:53:41,559
+okay so one more time last's check uh
+
+949
+00:53:39,400 --> 00:53:44,559
+regular expression file path regular
+
+950
+00:53:41,559 --> 00:53:49,359
+expression file name extension this is
+
+951
+00:53:44,559 --> 00:53:51,680
+all file path and uh then then you just
+
+952
+00:53:49,359 --> 00:53:53,839
+map that to all file
+
+953
+00:53:51,680 --> 00:53:57,839
+path
+
+954
+00:53:53,839 --> 00:53:57,839
+okay okay
+
+955
+00:53:58,480 --> 00:54:05,040
+now what if what if when this is called
+
+956
+00:54:01,880 --> 00:54:08,280
+interactively like when you do meta X so
+
+957
+00:54:05,040 --> 00:54:11,000
+in that case you need to create a value
+
+958
+00:54:08,280 --> 00:54:14,760
+for the directory and curent and file
+
+959
+00:54:11,000 --> 00:54:17,599
+extension so let's just put it here
+
+960
+00:54:14,760 --> 00:54:21,280
+let's add it okay so
+
+961
+00:54:17,599 --> 00:54:26,880
+interactive uh
+
+962
+00:54:21,280 --> 00:54:32,040
+interactive okay let so we need to event
+
+963
+00:54:26,880 --> 00:54:34,079
+create a list okay so current default
+
+964
+00:54:32,040 --> 00:54:37,240
+okay default directory is whatever the
+
+965
+00:54:34,079 --> 00:54:38,000
+current buers directory so when you call
+
+966
+00:54:37,240 --> 00:54:40,240
+this
+
+967
+00:54:38,000 --> 00:54:42,680
+interactively the directory is going to
+
+968
+00:54:40,240 --> 00:54:47,640
+be default directory and what about file
+
+969
+00:54:42,680 --> 00:54:49,760
+name extension uh let's just say HTML uh
+
+970
+00:54:47,640 --> 00:54:54,200
+actually let's say the current files
+
+971
+00:54:49,760 --> 00:54:57,799
+extension okay let's get elaborate
+
+972
+00:54:54,200 --> 00:54:59,880
+so by default it will will use the file
+
+973
+00:54:57,799 --> 00:55:02,280
+name extension of whatever is the
+
+974
+00:54:59,880 --> 00:55:06,440
+current buers file name extension if
+
+975
+00:55:02,280 --> 00:55:12,079
+that exist okay so let's do that here
+
+976
+00:55:06,440 --> 00:55:16,160
+so uh buffer file name that Returns the
+
+977
+00:55:12,079 --> 00:55:19,799
+full path of the current buffers file if
+
+978
+00:55:16,160 --> 00:55:21,079
+it is visiting a file so okay so this
+
+979
+00:55:19,799 --> 00:55:24,079
+can get
+
+980
+00:55:21,079 --> 00:55:27,720
+complex if if there's a bu if the
+
+981
+00:55:24,079 --> 00:55:32,480
+current buffer is actually a file then
+
+982
+00:55:27,720 --> 00:55:35,039
+then you get then then uh file name
+
+983
+00:55:32,480 --> 00:55:38,720
+extension
+
+984
+00:55:35,039 --> 00:55:40,559
+okay buffer file name so buffer file
+
+985
+00:55:38,720 --> 00:55:43,880
+name then you get the file name
+
+986
+00:55:40,559 --> 00:55:49,599
+extension if if there is actually your
+
+987
+00:55:43,880 --> 00:55:51,160
+extension uh but but what what if it
+
+988
+00:55:49,599 --> 00:55:55,920
+something
+
+989
+00:55:51,160 --> 00:55:56,880
+something TD what does it return NE Okay
+
+990
+00:55:55,920 --> 00:55:59,640
+so
+
+991
+00:55:56,880 --> 00:56:03,200
+when there's no extension re it returns
+
+992
+00:55:59,640 --> 00:56:07,680
+NE okay what about dot okay okay so when
+
+993
+00:56:03,200 --> 00:56:11,280
+there is the extension then
+
+994
+00:56:07,680 --> 00:56:14,240
+you then you just um get the file name
+
+995
+00:56:11,280 --> 00:56:17,520
+extension otherwise otherwise you need
+
+996
+00:56:14,240 --> 00:56:20,200
+another if statements otherwise H what
+
+997
+00:56:17,520 --> 00:56:23,960
+the [ __ ] let's just say
+
+998
+00:56:20,200 --> 00:56:27,119
+HTML something let's see so if the
+
+999
+00:56:23,960 --> 00:56:30,200
+current buffer is a file and if the that
+
+1000
+00:56:27,119 --> 00:56:33,400
+file has a file name extension then use
+
+1001
+00:56:30,200 --> 00:56:36,839
+that but if that file does not have file
+
+1002
+00:56:33,400 --> 00:56:38,520
+name extension okay the proper way is to
+
+1003
+00:56:36,839 --> 00:56:41,839
+prompt
+
+1004
+00:56:38,520 --> 00:56:44,400
+it now we got too many nested you know
+
+1005
+00:56:41,839 --> 00:56:49,400
+so the proper way is actually to prompt
+
+1006
+00:56:44,400 --> 00:56:52,799
+you know ask user what what what um but
+
+1007
+00:56:49,400 --> 00:56:55,280
+usually I don't do that because it's a
+
+1008
+00:56:52,799 --> 00:56:56,799
+better user interface design that you
+
+1009
+00:56:55,280 --> 00:57:00,440
+never pumped
+
+1010
+00:56:56,799 --> 00:57:03,680
+okay you don't want when user runs some
+
+1011
+00:57:00,440 --> 00:57:06,119
+command and and sometimes it prompts
+
+1012
+00:57:03,680 --> 00:57:10,280
+sometimes it doesn't either it always
+
+1013
+00:57:06,119 --> 00:57:12,359
+prompt or it never prompt okay that is a
+
+1014
+00:57:10,280 --> 00:57:16,240
+better user interface
+
+1015
+00:57:12,359 --> 00:57:18,240
+design because that way you adapt your
+
+1016
+00:57:16,240 --> 00:57:20,680
+muscle memory when you know when you run
+
+1017
+00:57:18,240 --> 00:57:23,359
+this command you know there's no prompt
+
+1018
+00:57:20,680 --> 00:57:24,920
+you know you just do whatever if there's
+
+1019
+00:57:23,359 --> 00:57:27,559
+issue it'll tell you you know but
+
+1020
+00:57:24,920 --> 00:57:29,280
+doesn't like stop in the middle oh but
+
+1021
+00:57:27,559 --> 00:57:30,480
+by the way I can't find the directory
+
+1022
+00:57:29,280 --> 00:57:32,280
+can you type
+
+1023
+00:57:30,480 --> 00:57:34,359
+something
+
+1024
+00:57:32,280 --> 00:57:36,839
+unexpected because sometimes it does
+
+1025
+00:57:34,359 --> 00:57:38,160
+thattime it doesn't you know then when
+
+1026
+00:57:36,839 --> 00:57:41,160
+you call the command you have to think
+
+1027
+00:57:38,160 --> 00:57:43,280
+about oh uh is my current buffer
+
+1028
+00:57:41,160 --> 00:57:45,799
+associate with the file does it have a
+
+1029
+00:57:43,280 --> 00:57:48,880
+extension you know you don't want that
+
+1030
+00:57:45,799 --> 00:57:52,720
+so usually that's a better uh design
+
+1031
+00:57:48,880 --> 00:57:55,440
+principle emac doesn't you know uh
+
+1032
+00:57:52,720 --> 00:57:57,280
+support that the most prominent example
+
+1033
+00:57:55,440 --> 00:58:01,480
+is when you say file when you kill
+
+1034
+00:57:57,280 --> 00:58:04,559
+buffer for example when you do kill
+
+1035
+00:58:01,480 --> 00:58:08,799
+buffer you know if the buffer is not
+
+1036
+00:58:04,559 --> 00:58:11,039
+saved it will prompt but you know like
+
+1037
+00:58:08,799 --> 00:58:13,200
+you know first of all it idiotically you
+
+1038
+00:58:11,039 --> 00:58:15,280
+know it prompts you you know are you
+
+1039
+00:58:13,200 --> 00:58:18,440
+sure this is a current buffer that's
+
+1040
+00:58:15,280 --> 00:58:20,960
+idiotic then if you say yes then you'll
+
+1041
+00:58:18,440 --> 00:58:24,559
+say you know oh buffer is modified kill
+
+1042
+00:58:20,960 --> 00:58:27,359
+anyway that's very annoying okay but if
+
+1043
+00:58:24,559 --> 00:58:29,880
+the buffer is not modify it doesn't ask
+
+1044
+00:58:27,359 --> 00:58:33,359
+that so whenever you call this command
+
+1045
+00:58:29,880 --> 00:58:35,280
+you have like unexpected you like you
+
+1046
+00:58:33,359 --> 00:58:36,640
+know it's not muscle memory so you don't
+
+1047
+00:58:35,280 --> 00:58:39,839
+you don't want that
+
+1048
+00:58:36,640 --> 00:58:39,839
+so so
+
+1049
+00:58:45,280 --> 00:58:54,039
+anyway so if otherwise prompt okay so
+
+1050
+00:58:49,839 --> 00:58:57,559
+wait if both of file name
+
+1051
+00:58:54,039 --> 00:59:02,480
+then uh
+
+1052
+00:58:57,559 --> 00:59:05,119
+okay if if bu is a file then get that
+
+1053
+00:59:02,480 --> 00:59:08,480
+file name otherwise prompt okay let's
+
+1054
+00:59:05,119 --> 00:59:08,480
+just say prompt for you
+
+1055
+00:59:09,720 --> 00:59:17,440
+know oh wait actually let's just say Neo
+
+1056
+00:59:13,559 --> 00:59:20,839
+okay because down down the road here it
+
+1057
+00:59:17,440 --> 00:59:26,240
+will deal with Neo
+
+1058
+00:59:20,839 --> 00:59:28,400
+here so so here is also NE Okay so you
+
+1059
+00:59:26,240 --> 00:59:30,720
+got the default directory and you got
+
+1060
+00:59:28,400 --> 00:59:34,079
+the file name extension if it cannot
+
+1061
+00:59:30,720 --> 00:59:38,599
+find it then it's Neil So when it's NE
+
+1062
+00:59:34,079 --> 00:59:42,680
+so this part this part will fill out the
+
+1063
+00:59:38,599 --> 00:59:47,000
+value for this two possibly not that one
+
+1064
+00:59:42,680 --> 00:59:50,240
+so that one over here you know it will
+
+1065
+00:59:47,000 --> 00:59:50,240
+check if it's
+
+1066
+00:59:53,039 --> 00:59:57,039
+given yeah
+
+1067
+00:59:58,640 --> 01:00:05,760
+where am I searching okay so right here
+
+1068
+01:00:02,720 --> 01:00:08,799
+if it's given then just do that
+
+1069
+01:00:05,760 --> 01:00:11,280
+otherwise it's just empty
+
+1070
+01:00:08,799 --> 01:00:14,440
+string okay I think that's
+
+1071
+01:00:11,280 --> 01:00:17,799
+it so since we don't have local
+
+1072
+01:00:14,440 --> 01:00:22,000
+variables we can replace that by P R O
+
+1073
+01:00:17,799 --> 01:00:25,520
+GN which is just group okay save it
+
+1074
+01:00:22,000 --> 01:00:28,839
+evaluate the buffer uh error no open
+
+1075
+01:00:25,520 --> 01:00:32,160
+opening bracket what evaluate the buffer
+
+1076
+01:00:28,839 --> 01:00:34,799
+oh God we got syntax Z error no opening
+
+1077
+01:00:32,160 --> 01:00:34,799
+bracket
+
+1078
+01:00:36,720 --> 01:00:40,760
+what wa where is the
+
+1079
+01:00:45,520 --> 01:00:51,839
+error no opening bracket for that okay
+
+1080
+01:00:49,240 --> 01:00:55,119
+so actually oh yeah so I know why
+
+1081
+01:00:51,839 --> 01:00:57,880
+because we are running this delete that
+
+1082
+01:00:55,119 --> 01:01:01,920
+evaluate the
+
+1083
+01:00:57,880 --> 01:01:05,920
+okay so we got this command now let's
+
+1084
+01:01:01,920 --> 01:01:09,559
+try it validate brackets St where do we
+
+1085
+01:01:05,920 --> 01:01:12,280
+try it let's go to talk show directory
+
+1086
+01:01:09,559 --> 01:01:15,400
+okay so talk show directory you have 800
+
+1087
+01:01:12,280 --> 01:01:20,240
+900 files
+
+1088
+01:01:15,400 --> 01:01:23,760
+so uh so let's open this file AI
+
+1089
+01:01:20,240 --> 01:01:26,839
+morality so it's my podcast talking
+
+1090
+01:01:23,760 --> 01:01:30,720
+about AI artificial intelligence and
+
+1091
+01:01:26,839 --> 01:01:35,440
+ethics okay now let's call Meta
+
+1092
+01:01:30,720 --> 01:01:35,440
+X validate brackets
+
+1093
+01:01:35,480 --> 01:01:45,440
+enter so okay it got errors so it says
+
+1094
+01:01:42,200 --> 01:01:47,359
+uh no opening bracket for that at
+
+1095
+01:01:45,440 --> 01:01:49,880
+position
+
+1096
+01:01:47,359 --> 01:01:55,960
+22157 in this
+
+1097
+01:01:49,880 --> 01:01:59,440
+file okay so open that file sh browser
+
+1098
+01:01:55,960 --> 01:02:01,200
+so this file this old file em Emily's
+
+1099
+01:01:59,440 --> 01:02:07,240
+hexad decimal I
+
+1100
+01:02:01,200 --> 01:02:10,119
+mean six based watch she programmed her
+
+1101
+01:02:07,240 --> 01:02:13,400
+I I eyew watch to do
+
+1102
+01:02:10,119 --> 01:02:16,559
+it so but anyway in this file it's
+
+1103
+01:02:13,400 --> 01:02:18,960
+saying I'm missing an opening bracket
+
+1104
+01:02:16,559 --> 01:02:22,240
+let's see where's Arrow
+
+1105
+01:02:18,960 --> 01:02:24,640
+three uh at position this position so
+
+1106
+01:02:22,240 --> 01:02:28,240
+let's go
+
+1107
+01:02:24,640 --> 01:02:33,119
+to go go to
+
+1108
+01:02:28,240 --> 01:02:34,880
+char uh TN okay space TN go to
+
+1109
+01:02:33,119 --> 01:02:39,319
+char
+
+1110
+01:02:34,880 --> 01:02:41,400
+22517 do it oh there because it's a
+
+1111
+01:02:39,319 --> 01:02:46,039
+smiley you
+
+1112
+01:02:41,400 --> 01:02:48,599
+see so that is why you know usually when
+
+1113
+01:02:46,039 --> 01:02:50,559
+I check brackets uh let's okay let's
+
+1114
+01:02:48,599 --> 01:02:57,079
+close that close
+
+1115
+01:02:50,559 --> 01:03:02,240
+that uh close that close that go
+
+1116
+01:02:57,079 --> 01:03:05,880
+uh okay so go back here look up close
+
+1117
+01:03:02,240 --> 01:03:10,680
+that uh go here
+
+1118
+01:03:05,880 --> 01:03:15,039
+here so I don't like to check this you
+
+1119
+01:03:10,680 --> 01:03:18,160
+know this par because the because
+
+1120
+01:03:15,039 --> 01:03:21,760
+these uh
+
+1121
+01:03:18,160 --> 01:03:25,359
+what these are often abused you know to
+
+1122
+01:03:21,760 --> 01:03:27,920
+make smilees and stuff so usually I only
+
+1123
+01:03:25,359 --> 01:03:30,279
+check these others okay let's do it
+
+1124
+01:03:27,920 --> 01:03:33,160
+again so evaluate the
+
+1125
+01:03:30,279 --> 01:03:35,200
+buffer go to S Talk
+
+1126
+01:03:33,160 --> 01:03:38,039
+Show meta
+
+1127
+01:03:35,200 --> 01:03:42,960
+X validate brackets
+
+1128
+01:03:38,039 --> 01:03:46,279
+St brackets valid you are beautiful
+
+1129
+01:03:42,960 --> 01:03:49,240
+597 times
+
+1130
+01:03:46,279 --> 01:03:52,200
+fantastic
+
+1131
+01:03:49,240 --> 01:03:54,799
+now now let's go to one of these file
+
+1132
+01:03:52,200 --> 01:03:58,880
+let's say you know pick a random file
+
+1133
+01:03:54,799 --> 01:04:00,680
+let's say that one and let's
+
+1134
+01:03:58,880 --> 01:04:03,640
+secretly
+
+1135
+01:04:00,680 --> 01:04:05,160
+add a mismatched
+
+1136
+01:04:03,640 --> 01:04:08,160
+bracket
+
+1137
+01:04:05,160 --> 01:04:13,039
+okay there there it is you
+
+1138
+01:04:08,160 --> 01:04:17,799
+know secret mismatch bracket save it
+
+1139
+01:04:13,039 --> 01:04:21,279
+close it close it now meta x s validate
+
+1140
+01:04:17,799 --> 01:04:24,720
+braet do it
+
+1141
+01:04:21,279 --> 01:04:27,640
+aror fantastic you
+
+1142
+01:04:24,720 --> 01:04:31,520
+see it's no secret to the
+
+1143
+01:04:27,640 --> 01:04:35,240
+program in this file at position
+
+1144
+01:04:31,520 --> 01:04:39,559
+386 384 you are missing a opening
+
+1145
+01:04:35,240 --> 01:04:42,359
+bracket for that okay now open that
+
+1146
+01:04:39,559 --> 01:04:46,279
+file expanded let's move the crer
+
+1147
+01:04:42,359 --> 01:04:50,880
+somewhere now let's see let's go to char
+
+1148
+01:04:46,279 --> 01:04:53,039
+384 do it fantastic now deleted
+
+1149
+01:04:50,880 --> 01:04:55,799
+fantastic okay that's it for today thank
+
+1150
+01:04:53,039 --> 01:04:58,240
+you guys for watching
+
+1151
+01:04:55,799 --> 01:05:01,240
+did you enjoy the
+
+1152
+01:04:58,240 --> 01:05:04,279
+show so how many people have do I have
+
+1153
+01:05:01,240 --> 01:05:04,279
+let's say 10
+
+1154
+01:05:04,440 --> 01:05:07,720
+maybe oh
+
+1155
+01:05:07,839 --> 01:05:10,839
+four
+
+1156
+01:05:11,839 --> 01:05:19,240
+okay John joh John Nash A Beautiful Mind
+
+1157
+01:05:16,799 --> 01:05:21,920
+yes John Nash is one of the greatest
+
+1158
+01:05:19,240 --> 01:05:27,559
+mathematician you know top 100 in the in
+
+1159
+01:05:21,920 --> 01:05:30,599
+the past 100 years uh but he's got a
+
+1160
+01:05:27,559 --> 01:05:32,400
+schizophrenic serious which is a serious
+
+1161
+01:05:30,599 --> 01:05:35,079
+problem because you see Illusions you
+
+1162
+01:05:32,400 --> 01:05:36,960
+know you living your with your friends
+
+1163
+01:05:35,079 --> 01:05:39,119
+with your relative it
+
+1164
+01:05:36,960 --> 01:05:41,359
+doesn't because you think they are doing
+
+1165
+01:05:39,119 --> 01:05:44,039
+something but they are not you know
+
+1166
+01:05:41,359 --> 01:05:45,799
+illusion so that's a serious problem
+
+1167
+01:05:44,039 --> 01:05:48,119
+that's why they found it to be more
+
+1168
+01:05:45,799 --> 01:05:49,839
+prevalent in children born during war
+
+1169
+01:05:48,119 --> 01:05:51,440
+and starvation
+
+1170
+01:05:49,839 --> 01:05:56,359
+okay
+
+1171
+01:05:51,440 --> 01:05:56,359
+uh delusions yes
+
+1172
+01:05:59,680 --> 01:06:05,440
+you know Terry Davis you know I watched
+
+1173
+01:06:03,160 --> 01:06:08,359
+some of his videos like uh I have a
+
+1174
+01:06:05,440 --> 01:06:11,880
+friend which is like forchan type of
+
+1175
+01:06:08,359 --> 01:06:14,599
+people you know young guy 15 years ago
+
+1176
+01:06:11,880 --> 01:06:18,680
+you know he told me first about Davis
+
+1177
+01:06:14,599 --> 01:06:21,200
+about Terry Davis you know the tempo OS
+
+1178
+01:06:18,680 --> 01:06:24,160
+it's interesting too because you know
+
+1179
+01:06:21,200 --> 01:06:26,599
+Terry Davis he's creating a God's
+
+1180
+01:06:24,160 --> 01:06:29,599
+operating system this is you know this
+
+1181
+01:06:26,599 --> 01:06:32,160
+is God told him to do it you know and
+
+1182
+01:06:29,599 --> 01:06:34,359
+it's for God or whatever you know
+
+1183
+01:06:32,160 --> 01:06:37,720
+Christian things okay I'm not
+
+1184
+01:06:34,359 --> 01:06:41,880
+Christian but but but
+
+1185
+01:06:37,720 --> 01:06:44,640
+then and it's quite interesting because
+
+1186
+01:06:41,880 --> 01:06:48,279
+you know I watched a few you know videos
+
+1187
+01:06:44,640 --> 01:06:51,400
+you know it's got It's got a buil In
+
+1188
+01:06:48,279 --> 01:06:54,079
+Like A variation of C programming
+
+1189
+01:06:51,400 --> 01:06:56,839
+language he created and a compiler and
+
+1190
+01:06:54,079 --> 01:06:59,359
+everything and also a three CD modeler
+
+1191
+01:06:56,839 --> 01:07:01,960
+Game you know inside you
+
+1192
+01:06:59,359 --> 01:07:06,000
+know so it's quite interesting and
+
+1193
+01:07:01,960 --> 01:07:08,480
+creative um yeah and then he's like
+
+1194
+01:07:06,000 --> 01:07:08,480
+talking
+
+1195
+01:07:11,839 --> 01:07:19,319
+about you know T Terry Davis got this
+
+1196
+01:07:16,599 --> 01:07:22,279
+problem you know he's he's he's saying
+
+1197
+01:07:19,319 --> 01:07:24,799
+this word why why can't we say it
+
+1198
+01:07:22,279 --> 01:07:26,160
+because the [ __ ] deep State scums
+
+1199
+01:07:24,799 --> 01:07:28,839
+that's a Google
+
+1200
+01:07:26,160 --> 01:07:31,440
+right now it's a Google you know it's
+
+1201
+01:07:28,839 --> 01:07:33,760
+Google Facebook you know all the others
+
+1202
+01:07:31,440 --> 01:07:36,760
+okay I got a phone call I got to pick up
+
+1203
+01:07:33,760 --> 01:07:36,760
+okay
+
+1204
+01:08:04,200 --> 01:08:11,440
+okay I gotta go sorry so um so actually
+
+1205
+01:08:08,400 --> 01:08:15,079
+uh shut down I gotta go so
+
+1206
+01:08:11,440 --> 01:08:15,079
+um okay I'll be
+
+1207
+01:08:24,440 --> 01:08:28,480
+back e
+

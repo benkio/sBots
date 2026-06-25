@@ -1,0 +1,5172 @@
+1
+00:00:01,120 --> 00:00:06,000
+Good morning. Good morning everyone.
+
+2
+00:00:03,040 --> 00:00:09,040
+Welcome to another episode of Sound Talk
+
+3
+00:00:06,000 --> 00:00:10,880
+Show. Fantastic and beautiful. So, let
+
+4
+00:00:09,040 --> 00:00:14,240
+me show you what we going to do today.
+
+5
+00:00:10,880 --> 00:00:17,600
+You see this beautiful Taurus? So, you
+
+6
+00:00:14,240 --> 00:00:22,240
+can rotate it. But in particular, you
+
+7
+00:00:17,600 --> 00:00:24,880
+can see how it is colored. You see? So,
+
+8
+00:00:22,240 --> 00:00:27,840
+the formula. So, this is a parametric
+
+9
+00:00:24,880 --> 00:00:31,119
+equation. So that's the formula cosine
+
+10
+00:00:27,840 --> 00:00:34,239
+to cosine s you know
+
+11
+00:00:31,119 --> 00:00:36,160
+uh do I need to explain par parametric
+
+12
+00:00:34,239 --> 00:00:39,120
+equation
+
+13
+00:00:36,160 --> 00:00:43,360
+maybe I should but so this is what I'm
+
+14
+00:00:39,120 --> 00:00:47,920
+going to do today I'm so but this is a
+
+15
+00:00:43,360 --> 00:00:51,039
+plot of a par parametric equation uh
+
+16
+00:00:47,920 --> 00:00:53,840
+which is a taurus but however what you
+
+17
+00:00:51,039 --> 00:00:57,600
+notice is a color so this is colored in
+
+18
+00:00:53,840 --> 00:01:01,920
+a way that is the it is colored by the
+
+19
+00:00:57,600 --> 00:01:05,119
+increment of the parameter V. So you see
+
+20
+00:01:01,920 --> 00:01:08,159
+so as V the parameter V gets larger
+
+21
+00:01:05,119 --> 00:01:12,159
+value it gets more black you know from
+
+22
+00:01:08,159 --> 00:01:15,680
+white to black. So there are many ways
+
+23
+00:01:12,159 --> 00:01:18,000
+to color a surface very complicated. So
+
+24
+00:01:15,680 --> 00:01:21,040
+this relates to you know rendering you
+
+25
+00:01:18,000 --> 00:01:24,000
+know what is the color of a object you
+
+26
+00:01:21,040 --> 00:01:26,240
+know like my pen my cup. Uh, so anyway,
+
+27
+00:01:24,000 --> 00:01:28,400
+this is what I plan to talk about, but
+
+28
+00:01:26,240 --> 00:01:35,280
+if you guys have any questions, pay me
+
+29
+00:01:28,400 --> 00:01:38,159
+ch $10, $1,000, you know, ch
+
+30
+00:01:35,280 --> 00:01:42,079
+Google, we'll take half of it or best to
+
+31
+00:01:38,159 --> 00:01:44,960
+go to PayPal, you know, on.info,
+
+32
+00:01:42,079 --> 00:01:47,040
+uh, as you know, kadi.info, my website.
+
+33
+00:01:44,960 --> 00:01:50,960
+At the bottom, you can see my PayPal
+
+34
+00:01:47,040 --> 00:01:54,159
+Patreon. So, PayPal me 100 bucks. Okay,
+
+35
+00:01:50,960 --> 00:01:56,640
+that goes to my pocket pocket like 90
+
+36
+00:01:54,159 --> 00:01:59,920
+like they take $3, you know, 3% or
+
+37
+00:01:56,640 --> 00:02:03,200
+something. And I'll talk about the
+
+38
+00:01:59,920 --> 00:02:06,880
+subject you want to know.
+
+39
+00:02:03,200 --> 00:02:09,360
+Cuz you need to learn open scad. Well,
+
+40
+00:02:06,880 --> 00:02:13,520
+uh, thank you blue three for that
+
+41
+00:02:09,360 --> 00:02:18,000
+suggestion, but I heard of open scad
+
+42
+00:02:13,520 --> 00:02:21,680
+open scad like 10 years ago. But in
+
+43
+00:02:18,000 --> 00:02:25,280
+fact, I'm upset. I'm obsessed about this
+
+44
+00:02:21,680 --> 00:02:28,560
+3D cat software. Okay. So, can you see
+
+45
+00:02:25,280 --> 00:02:30,800
+my screen? Yes. Uh let me turn on
+
+46
+00:02:28,560 --> 00:02:34,800
+JavaScript so Google knows where you
+
+47
+00:02:30,800 --> 00:02:39,519
+are. So, OpenCat is a 3D modeling
+
+48
+00:02:34,800 --> 00:02:41,519
+software, you know, and uh you know, so
+
+49
+00:02:39,519 --> 00:02:44,400
+you know, I know about 3D modeling
+
+50
+00:02:41,519 --> 00:02:46,080
+software since 1993.
+
+51
+00:02:44,400 --> 00:02:48,400
+AutoCAD.
+
+52
+00:02:46,080 --> 00:02:51,519
+It's the most famous then you know the
+
+53
+00:02:48,400 --> 00:02:53,360
+sil you know silic silicon graphics
+
+54
+00:02:51,519 --> 00:02:56,319
+which creates
+
+55
+00:02:53,360 --> 00:03:00,560
+operating system which is a v variation
+
+56
+00:02:56,319 --> 00:03:04,640
+of Unix silicon graphics they did uh
+
+57
+00:03:00,560 --> 00:03:08,640
+fantastic graphics movie effects on dur
+
+58
+00:03:04,640 --> 00:03:10,959
+Jurassic Park around 1998 that was a big
+
+59
+00:03:08,640 --> 00:03:12,640
+thing but Silicon Graphic died the
+
+60
+00:03:10,959 --> 00:03:14,879
+corporation
+
+61
+00:03:12,640 --> 00:03:18,879
+so lots of history 30 years of history
+
+62
+00:03:14,879 --> 00:03:21,680
+so I am incredibly fascinated by 3D CAT
+
+63
+00:03:18,879 --> 00:03:23,360
+software but it turns out I actually
+
+64
+00:03:21,680 --> 00:03:27,280
+never learned it. I tried to learn that
+
+65
+00:03:23,360 --> 00:03:31,760
+many times but I never did. Okay. So but
+
+66
+00:03:27,280 --> 00:03:34,319
+I just go back to wam language. Okay. So
+
+67
+00:03:31,760 --> 00:03:36,799
+um so what were you going to talk about
+
+68
+00:03:34,319 --> 00:03:39,840
+you know so 3D cut software there are
+
+69
+00:03:36,799 --> 00:03:43,200
+many types by the way. So some of them
+
+70
+00:03:39,840 --> 00:03:45,519
+is for creating engineering mechanical
+
+71
+00:03:43,200 --> 00:03:48,400
+engineering designed for mechanical
+
+72
+00:03:45,519 --> 00:03:50,560
+engineering for for example if you want
+
+73
+00:03:48,400 --> 00:03:54,720
+to design a propeller you have to model
+
+74
+00:03:50,560 --> 00:03:58,560
+it you know some of them is designed for
+
+75
+00:03:54,720 --> 00:04:01,599
+architecture for example sketch there's
+
+76
+00:03:58,560 --> 00:04:04,159
+a called sketch 3D or something uh
+
+77
+00:04:01,599 --> 00:04:06,640
+blueprint of your house design you know
+
+78
+00:04:04,159 --> 00:04:08,319
+the where are the rooms you know how
+
+79
+00:04:06,640 --> 00:04:10,080
+many floors you want things like that
+
+80
+00:04:08,319 --> 00:04:12,640
+and doors. You know, I should show you
+
+81
+00:04:10,080 --> 00:04:15,360
+some pictures, but that's, you know, I
+
+82
+00:04:12,640 --> 00:04:17,680
+don't think we're gonna talk about this.
+
+83
+00:04:15,360 --> 00:04:19,919
+So, you know, so you got this SK sketch
+
+84
+00:04:17,680 --> 00:04:23,600
+3D. You know, I'm starting to ramble
+
+85
+00:04:19,919 --> 00:04:25,600
+because if if if I don't stop right now,
+
+86
+00:04:23,600 --> 00:04:28,960
+like the whole hour is going to be 3D
+
+87
+00:04:25,600 --> 00:04:32,160
+rendering modeling stuff.
+
+88
+00:04:28,960 --> 00:04:34,479
+Okay, I should stop. Anyway, so there
+
+89
+00:04:32,160 --> 00:04:36,800
+are many types. So, some some of them
+
+90
+00:04:34,479 --> 00:04:39,120
+are designed for mechanical engineering.
+
+91
+00:04:36,800 --> 00:04:41,199
+Some of them are designed for electric
+
+92
+00:04:39,120 --> 00:04:44,639
+engineering. So you have electric you
+
+93
+00:04:41,199 --> 00:04:46,479
+know the resistors and you know the the
+
+94
+00:04:44,639 --> 00:04:49,440
+you know I don't know m much about
+
+95
+00:04:46,479 --> 00:04:51,919
+electricity but you know like IC circuit
+
+96
+00:04:49,440 --> 00:04:54,720
+board computer circuit board that's
+
+97
+00:04:51,919 --> 00:04:57,280
+mostly two-dimensional and some of them
+
+98
+00:04:54,720 --> 00:05:00,080
+is designed for architecture like sketch
+
+99
+00:04:57,280 --> 00:05:03,280
+3D and quite a few lots of others for
+
+100
+00:05:00,080 --> 00:05:06,240
+the past from the past 35 years. Some of
+
+101
+00:05:03,280 --> 00:05:09,759
+them are designed for Hollywood special
+
+102
+00:05:06,240 --> 00:05:11,600
+effect movie movies, you know, like um
+
+103
+00:05:09,759 --> 00:05:13,919
+the
+
+104
+00:05:11,600 --> 00:05:16,160
+Scavenator, whatever nator, the
+
+105
+00:05:13,919 --> 00:05:20,080
+Terminator, you know, like special
+
+106
+00:05:16,160 --> 00:05:22,320
+effect or space Star Wars, you know,
+
+107
+00:05:20,080 --> 00:05:24,880
+uh they are different because if you
+
+108
+00:05:22,320 --> 00:05:29,039
+are, for example, some of the names are
+
+109
+00:05:24,880 --> 00:05:31,039
+Maya, Mayor 3D, Alias, Wavefront, they
+
+110
+00:05:29,039 --> 00:05:32,880
+changed the names by the way over the
+
+111
+00:05:31,039 --> 00:05:34,720
+past 30 years. They changed the names.
+
+112
+00:05:32,880 --> 00:05:37,680
+They changed the companies. So I don't
+
+113
+00:05:34,720 --> 00:05:43,520
+know what is called today. So there was
+
+114
+00:05:37,680 --> 00:05:45,840
+Adias wave front that became uh uh Maya
+
+115
+00:05:43,520 --> 00:05:48,320
+3D something and might have changed
+
+116
+00:05:45,840 --> 00:05:50,240
+again and then they got sold to autocat
+
+117
+00:05:48,320 --> 00:05:53,039
+and stuff.
+
+118
+00:05:50,240 --> 00:05:55,919
+So if you are using one for 3D special
+
+119
+00:05:53,039 --> 00:05:58,800
+effects like movie for movies, it's very
+
+120
+00:05:55,919 --> 00:06:02,000
+different from the mechanical from the
+
+121
+00:05:58,800 --> 00:06:04,000
+ones designed for me mechanical modeling
+
+122
+00:06:02,000 --> 00:06:06,479
+because for for the movie effects you
+
+123
+00:06:04,000 --> 00:06:09,360
+don't care about precision. But for
+
+124
+00:06:06,479 --> 00:06:11,360
+propellers or these fans, you know, CPU
+
+125
+00:06:09,360 --> 00:06:14,000
+fans or whatever, you need to be
+
+126
+00:06:11,360 --> 00:06:16,080
+extremely precise. So you can output a
+
+127
+00:06:14,000 --> 00:06:18,319
+format that can be 3D printed or
+
+128
+00:06:16,080 --> 00:06:22,160
+whatever. So they are like very
+
+129
+00:06:18,319 --> 00:06:23,919
+different. Okay. to to a trained person
+
+130
+00:06:22,160 --> 00:06:26,080
+you might think oh they are similar they
+
+131
+00:06:23,919 --> 00:06:27,919
+are just all 3D modeling but they are
+
+132
+00:06:26,080 --> 00:06:30,240
+actually quite different so there are
+
+133
+00:06:27,919 --> 00:06:32,319
+many types okay so I've been wanting to
+
+134
+00:06:30,240 --> 00:06:36,400
+learn one of these but I never actually
+
+135
+00:06:32,319 --> 00:06:39,120
+um you know and so this is also related
+
+136
+00:06:36,400 --> 00:06:41,919
+to 3D game engines
+
+137
+00:06:39,120 --> 00:06:45,520
+you know and which is also related to 3D
+
+138
+00:06:41,919 --> 00:06:49,039
+mathematics so I'll show you today you
+
+139
+00:06:45,520 --> 00:06:52,560
+know later today so many of the spectac
+
+140
+00:06:49,039 --> 00:06:55,280
+acular surfaces. Okay. So this is
+
+141
+00:06:52,560 --> 00:06:57,520
+modeling you know this is ma
+
+142
+00:06:55,280 --> 00:07:00,560
+visualization of mathematics. You can
+
+143
+00:06:57,520 --> 00:07:02,400
+see how they are color differently.
+
+144
+00:07:00,560 --> 00:07:05,759
+Okay. If you are watching this offline
+
+145
+00:07:02,400 --> 00:07:09,599
+play at 1.5 speed because I talk slowly
+
+146
+00:07:05,759 --> 00:07:12,000
+and ramble that way is better. Um if you
+
+147
+00:07:09,599 --> 00:07:14,720
+watch this live
+
+148
+00:07:12,000 --> 00:07:18,479
+pay me. Okay that's the most important.
+
+149
+00:07:14,720 --> 00:07:21,919
+And now let's have a intermission.
+
+150
+00:07:18,479 --> 00:07:23,520
+Today's coffee is brought to you by this
+
+151
+00:07:21,919 --> 00:07:25,360
+cup.
+
+152
+00:07:23,520 --> 00:07:29,599
+This is
+
+153
+00:07:25,360 --> 00:07:33,360
+ground coffee. Elite ground coffee from
+
+154
+00:07:29,599 --> 00:07:39,400
+from Trader Joe's or something. And with
+
+155
+00:07:33,360 --> 00:07:39,400
+elite honey. American elite from Costco.
+
+156
+00:07:39,680 --> 00:07:46,080
+Elite. Very good. Because when you are
+
+157
+00:07:42,720 --> 00:07:48,800
+poor like when you are dying of hunger
+
+158
+00:07:46,080 --> 00:07:53,120
+when you shop every day for 10 years is
+
+159
+00:07:48,800 --> 00:07:55,440
+at one tree $1 tree store or Walmart.
+
+160
+00:07:53,120 --> 00:07:58,919
+This Costco stuff and Trader Joe's
+
+161
+00:07:55,440 --> 00:07:58,919
+that's elite.
+
+162
+00:08:01,840 --> 00:08:06,360
+Very nice honey.
+
+163
+00:08:08,000 --> 00:08:14,560
+Honey is expensive.
+
+164
+00:08:10,560 --> 00:08:18,080
+And now let's have some elite tea. So
+
+165
+00:08:14,560 --> 00:08:20,240
+let me introduce you you guys. U E
+
+166
+00:08:18,080 --> 00:08:23,520
+Europe.
+
+167
+00:08:20,240 --> 00:08:26,319
+Europeans. You don't know Brits don't
+
+168
+00:08:23,520 --> 00:08:30,479
+know nothing about tea. Okay. This is
+
+169
+00:08:26,319 --> 00:08:35,080
+China's tea. Also elite.
+
+170
+00:08:30,479 --> 00:08:35,080
+Okay. Let's pour some of it.
+
+171
+00:08:39,200 --> 00:08:44,399
+So we're going to talk about 3D math
+
+172
+00:08:41,919 --> 00:08:48,839
+function. Math function coloring of the
+
+173
+00:08:44,399 --> 00:08:48,839
+surfaces and so on. Okay.
+
+174
+00:08:59,920 --> 00:09:07,120
+Okay. So let's switch back to my screen
+
+175
+00:09:03,680 --> 00:09:08,959
+and uh let's you know this beautiful wam
+
+176
+00:09:07,120 --> 00:09:11,120
+language. Okay, if you don't know, you
+
+177
+00:09:08,959 --> 00:09:14,240
+can go to you can just search for
+
+178
+00:09:11,120 --> 00:09:16,880
+download wam language free.
+
+179
+00:09:14,240 --> 00:09:20,640
+There it is. Download it. You can have
+
+180
+00:09:16,880 --> 00:09:24,640
+it free uh since about five years ago or
+
+181
+00:09:20,640 --> 00:09:27,920
+or six. And so it's the most advanced
+
+182
+00:09:24,640 --> 00:09:30,959
+high level language. Okay.
+
+183
+00:09:27,920 --> 00:09:32,959
+And I'm going to do a tutorial about it.
+
+184
+00:09:30,959 --> 00:09:37,200
+So let's see what you know a kind of
+
+185
+00:09:32,959 --> 00:09:40,160
+randomish chat. Let's let's this be a
+
+186
+00:09:37,200 --> 00:09:43,519
+fun and fun oriented. So this is this
+
+187
+00:09:40,160 --> 00:09:46,519
+YouTube video is classified as
+
+188
+00:09:43,519 --> 00:09:46,519
+entertainment.
+
+189
+00:09:47,440 --> 00:09:52,880
+So if I didn't talk about science or
+
+190
+00:09:49,760 --> 00:09:56,680
+mathematics correctly, consider it just
+
+191
+00:09:52,880 --> 00:09:56,680
+as a comedy.
+
+192
+00:10:05,440 --> 00:10:11,519
+You know, so I'm the master of the pen
+
+193
+00:10:07,920 --> 00:10:14,160
+spinning. Pen spinning. Okay, I'm master
+
+194
+00:10:11,519 --> 00:10:17,040
+of it. Both hands. You see why? You
+
+195
+00:10:14,160 --> 00:10:20,000
+know, usually in Asia,
+
+196
+00:10:17,040 --> 00:10:21,920
+uh especially in Japan, Taiwan, China,
+
+197
+00:10:20,000 --> 00:10:25,120
+everyone does this. Like when you are a
+
+198
+00:10:21,920 --> 00:10:28,000
+kid, you do this all day. And how you
+
+199
+00:10:25,120 --> 00:10:30,320
+know so some some people ask me how do
+
+200
+00:10:28,000 --> 00:10:33,760
+you learn it okay let me explain 15
+
+201
+00:10:30,320 --> 00:10:36,959
+views I got a crowd n concurrent viewers
+
+202
+00:10:33,760 --> 00:10:39,519
+okay keep your comments coming okay and
+
+203
+00:10:36,959 --> 00:10:41,360
+pay me don't forget
+
+204
+00:10:39,519 --> 00:10:44,640
+so someone asked me how do you learn
+
+205
+00:10:41,360 --> 00:10:48,320
+this let me let me do a short tutorial
+
+206
+00:10:44,640 --> 00:10:50,720
+insta tutorial okay so you begin so by
+
+207
+00:10:48,320 --> 00:10:52,640
+the way this will take you month or year
+
+208
+00:10:50,720 --> 00:10:54,640
+and it's going to be very frustrating
+
+209
+00:10:52,640 --> 00:10:57,040
+okay because you're going drop your pen
+
+210
+00:10:54,640 --> 00:11:00,160
+like every few seconds you're going to
+
+211
+00:10:57,040 --> 00:11:03,040
+get annoyed but that's but we learned
+
+212
+00:11:00,160 --> 00:11:05,440
+that you know like we do this uh when we
+
+213
+00:11:03,040 --> 00:11:08,000
+are like 10 years old. Okay. So the
+
+214
+00:11:05,440 --> 00:11:11,519
+first thing so hold your pen like that
+
+215
+00:11:08,000 --> 00:11:15,200
+by these three fingers index finger
+
+216
+00:11:11,519 --> 00:11:19,040
+middle finger the thumb. Okay. Then so
+
+217
+00:11:15,200 --> 00:11:22,240
+you can see this index. So thumb is the
+
+218
+00:11:19,040 --> 00:11:27,040
+uh form or what what is it called? you
+
+219
+00:11:22,240 --> 00:11:29,360
+know the fulcum. Okay. So,
+
+220
+00:11:27,040 --> 00:11:32,000
+so thumb is the fulcrum. So, you can see
+
+221
+00:11:29,360 --> 00:11:35,839
+these two fingers uh controls the
+
+222
+00:11:32,000 --> 00:11:38,560
+rocking motion. The pen rocks around the
+
+223
+00:11:35,839 --> 00:11:41,200
+thumb. I'm pretty sure there are 10,000
+
+224
+00:11:38,560 --> 00:11:44,720
+uh YouTube tutorials. They do lots of
+
+225
+00:11:41,200 --> 00:11:46,880
+other things. Okay. Um but
+
+226
+00:11:44,720 --> 00:11:49,920
+you know, but but I only know this.
+
+227
+00:11:46,880 --> 00:11:51,839
+Okay. I I only know this uh you know so
+
+228
+00:11:49,920 --> 00:11:54,959
+when I was younger you know there's like
+
+229
+00:11:51,839 --> 00:11:59,760
+I can do this for many minutes you know
+
+230
+00:11:54,959 --> 00:12:03,200
+like you can count uh 1 2 3 4 5 6 7 8 9
+
+231
+00:11:59,760 --> 00:12:06,720
+10 11 12 and you know hundreds. So
+
+232
+00:12:03,200 --> 00:12:10,800
+anyway so these two fingers index finger
+
+233
+00:12:06,720 --> 00:12:13,440
+and middle finger controls the the pen.
+
+234
+00:12:10,800 --> 00:12:16,560
+Okay. So the first thing you want to do
+
+235
+00:12:13,440 --> 00:12:20,399
+is just one shot. Okay. Like that. So
+
+236
+00:12:16,560 --> 00:12:22,959
+try to play the video in slow speed in
+
+237
+00:12:20,399 --> 00:12:25,760
+snail speed. Okay. So what you do is you
+
+238
+00:12:22,959 --> 00:12:30,880
+use this index uh middle finger to push
+
+239
+00:12:25,760 --> 00:12:34,880
+it push it and uh let the index finger
+
+240
+00:12:30,880 --> 00:12:37,120
+go. So middle finger push inward and let
+
+241
+00:12:34,880 --> 00:12:39,040
+the index finger go. So you want to
+
+242
+00:12:37,120 --> 00:12:40,800
+accomplish
+
+243
+00:12:39,040 --> 00:12:43,839
+what you want to accomplish is something
+
+244
+00:12:40,800 --> 00:12:46,720
+like that. Just one shot. Okay. So, this
+
+245
+00:12:43,839 --> 00:12:51,440
+is the first thing you have to learn,
+
+246
+00:12:46,720 --> 00:12:53,519
+okay? Before you flip it back, okay?
+
+247
+00:12:51,440 --> 00:12:55,120
+By the way, again, it's going to be very
+
+248
+00:12:53,519 --> 00:12:56,880
+frustrating because you're going to take
+
+249
+00:12:55,120 --> 00:12:59,120
+a month, you know, and you're going to
+
+250
+00:12:56,880 --> 00:13:01,120
+drop your pen every few seconds. You're
+
+251
+00:12:59,120 --> 00:13:03,200
+going to just pick up and, you know, it
+
+252
+00:13:01,120 --> 00:13:05,440
+became a habit.
+
+253
+00:13:03,200 --> 00:13:12,040
+So, you you learn this. So, once you can
+
+254
+00:13:05,440 --> 00:13:12,040
+do that, then what you do is you uh
+
+255
+00:13:13,440 --> 00:13:19,040
+you when when this goes over then you
+
+256
+00:13:17,120 --> 00:13:24,000
+use your
+
+257
+00:13:19,040 --> 00:13:27,279
+uh pointing finger to like tip bounce it
+
+258
+00:13:24,000 --> 00:13:30,320
+back right here. Okay. Right here. So,
+
+259
+00:13:27,279 --> 00:13:34,160
+let me do it again. Uh let me do it
+
+260
+00:13:30,320 --> 00:13:36,639
+again. So, this is one shot. One shot.
+
+261
+00:13:34,160 --> 00:13:40,800
+Now, bounce it back.
+
+262
+00:13:36,639 --> 00:13:42,160
+Okay. Bounce it back. Okay. Bounce it
+
+263
+00:13:40,800 --> 00:13:44,480
+back.
+
+264
+00:13:42,160 --> 00:13:46,800
+bounce it back. So you see, so once you
+
+265
+00:13:44,480 --> 00:13:49,440
+can bounce it back, then you can then
+
+266
+00:13:46,800 --> 00:13:52,079
+you can kind of start to uh continue
+
+267
+00:13:49,440 --> 00:13:54,880
+them forever. Then you can uh try
+
+268
+00:13:52,079 --> 00:13:58,160
+different tricks. You can you can do it
+
+269
+00:13:54,880 --> 00:14:01,440
+while you rotate your arm so you get a
+
+270
+00:13:58,160 --> 00:14:04,160
+kind of different effect. Okay.
+
+271
+00:14:01,440 --> 00:14:07,440
+Uh by the way, heavier pen is easier.
+
+272
+00:14:04,160 --> 00:14:10,320
+Heavier pen is easier also. Slightly
+
+273
+00:14:07,440 --> 00:14:13,279
+longer pen is easier. Okay. Then once
+
+274
+00:14:10,320 --> 00:14:16,320
+you can do that you can kind of this is
+
+275
+00:14:13,279 --> 00:14:18,720
+more difficult like you you move your
+
+276
+00:14:16,320 --> 00:14:21,440
+hand
+
+277
+00:14:18,720 --> 00:14:23,920
+on the side so you can get you can get a
+
+278
+00:14:21,440 --> 00:14:25,440
+different effect. Okay that's about
+
+279
+00:14:23,920 --> 00:14:28,320
+that.
+
+280
+00:14:25,440 --> 00:14:32,079
+So let's see the comments. Uh at this
+
+281
+00:14:28,320 --> 00:14:37,959
+rate we won't be explaining this uh math
+
+282
+00:14:32,079 --> 00:14:37,959
+stuff but that's anyway that's okay.
+
+283
+00:14:40,240 --> 00:14:47,920
+Uh, so Hamza says, "You are so
+
+284
+00:14:43,519 --> 00:14:50,800
+acrobatic." Acrobatic, Mr. Lee. Uh,
+
+285
+00:14:47,920 --> 00:14:55,120
+maybe a little bit, but those who are
+
+286
+00:14:50,800 --> 00:14:58,320
+good at acrobatics are not good at
+
+287
+00:14:55,120 --> 00:15:00,000
+bodybuilding, you know, like typically
+
+288
+00:14:58,320 --> 00:15:03,360
+the the white guys, you know, they are
+
+289
+00:15:00,000 --> 00:15:05,519
+into bodybuilding, they are into uh uh
+
+290
+00:15:03,360 --> 00:15:09,120
+bench press. How many pounds can you
+
+291
+00:15:05,519 --> 00:15:11,839
+bench press? you know let's go to gym
+
+292
+00:15:09,120 --> 00:15:15,760
+I don't like gym I don't like the muscle
+
+293
+00:15:11,839 --> 00:15:18,160
+building [ __ ] so but they like it why
+
+294
+00:15:15,760 --> 00:15:21,199
+because they have big body they are good
+
+295
+00:15:18,160 --> 00:15:23,600
+at it so they are into how many how many
+
+296
+00:15:21,199 --> 00:15:25,760
+pounds can you bench press press you
+
+297
+00:15:23,600 --> 00:15:27,920
+know these white people they like they
+
+298
+00:15:25,760 --> 00:15:30,560
+have big bodies
+
+299
+00:15:27,920 --> 00:15:33,760
+but um
+
+300
+00:15:30,560 --> 00:15:39,360
+but me I'm skinny okay so I'm not you
+
+301
+00:15:33,760 --> 00:15:42,079
+know I'm not into um weight lifting.
+
+302
+00:15:39,360 --> 00:15:44,800
+So let's see. Uh do you believe in
+
+303
+00:15:42,079 --> 00:15:50,639
+falong? What kind of shitty questions is
+
+304
+00:15:44,800 --> 00:15:53,920
+that? Huang falugong is a is a sect from
+
+305
+00:15:50,639 --> 00:15:56,959
+China. Okay. They teach people they are
+
+306
+00:15:53,920 --> 00:15:59,120
+kind of they are partially based on
+
+307
+00:15:56,959 --> 00:16:02,079
+Chinese philosophy and Chinese you know
+
+308
+00:15:59,120 --> 00:16:04,079
+Buddhism uh Dowoism
+
+309
+00:16:02,079 --> 00:16:06,959
+and but they are partially they are kind
+
+310
+00:16:04,079 --> 00:16:09,680
+of a uh coat. Okay. So they teach you
+
+311
+00:16:06,959 --> 00:16:12,000
+that you can fly you know like you can
+
+312
+00:16:09,680 --> 00:16:14,000
+levitate you know things like that. They
+
+313
+00:16:12,000 --> 00:16:16,480
+teach you they also teach you by the way
+
+314
+00:16:14,000 --> 00:16:18,720
+for you white people here they teach you
+
+315
+00:16:16,480 --> 00:16:22,480
+that gays
+
+316
+00:16:18,720 --> 00:16:24,480
+should die. Okay, that's you know they
+
+317
+00:16:22,480 --> 00:16:26,800
+in other words they they don't you know
+
+318
+00:16:24,480 --> 00:16:30,399
+they they they don't you know like gays
+
+319
+00:16:26,800 --> 00:16:34,399
+and they also teach you that medicine
+
+320
+00:16:30,399 --> 00:16:37,120
+western med medicine is no good okay
+
+321
+00:16:34,399 --> 00:16:40,800
+that's kind of so it's a quote fongong
+
+322
+00:16:37,120 --> 00:16:42,880
+and they become big in USA especially in
+
+323
+00:16:40,800 --> 00:16:46,639
+the past 10 years they become very big
+
+324
+00:16:42,880 --> 00:16:50,720
+in the beginning so anyway so this guy
+
+325
+00:16:46,639 --> 00:16:53,040
+uh code leader in China They you know he
+
+326
+00:16:50,720 --> 00:16:55,680
+began the farugong
+
+327
+00:16:53,040 --> 00:16:58,399
+at first is for health you know let's
+
+328
+00:16:55,680 --> 00:17:01,040
+you know get people to exercise to to
+
+329
+00:16:58,399 --> 00:17:05,520
+cultivate the Chinese you know religion
+
+330
+00:17:01,040 --> 00:17:07,679
+philosophy you know like peace you know
+
+331
+00:17:05,520 --> 00:17:10,799
+their sign
+
+332
+00:17:07,679 --> 00:17:13,120
+their sign is partially swast swastika
+
+333
+00:17:10,799 --> 00:17:15,199
+from the Buddhism origin but partially
+
+334
+00:17:13,120 --> 00:17:16,799
+you know and part of it says peace and
+
+335
+00:17:15,199 --> 00:17:20,559
+stuff
+
+336
+00:17:16,799 --> 00:17:24,160
+uh but so he began head. Then he started
+
+337
+00:17:20,559 --> 00:17:25,679
+to like do kind of nasty things.
+
+338
+00:17:24,160 --> 00:17:27,839
+Actually, I shouldn't talk about this
+
+339
+00:17:25,679 --> 00:17:30,640
+because Google is going to ban me
+
+340
+00:17:27,839 --> 00:17:36,720
+because this is heavily heavily related
+
+341
+00:17:30,640 --> 00:17:40,320
+to uh deep state. Okay. So anyway, so he
+
+342
+00:17:36,720 --> 00:17:43,919
+started to do things uh like mislead
+
+343
+00:17:40,320 --> 00:17:48,000
+people. Then China wants to capture him.
+
+344
+00:17:43,919 --> 00:17:50,720
+He escaped to USA
+
+345
+00:17:48,000 --> 00:17:54,480
+and USA the white people the white men
+
+346
+00:17:50,720 --> 00:17:56,640
+or whatever subclass you know subset of
+
+347
+00:17:54,480 --> 00:17:59,039
+the white
+
+348
+00:17:56,640 --> 00:18:01,919
+I didn't know who they are anyway I
+
+349
+00:17:59,039 --> 00:18:06,480
+don't want to get into details okay
+
+350
+00:18:01,919 --> 00:18:10,640
+escape to USA and uh USA applauds
+
+351
+00:18:06,480 --> 00:18:15,360
+it why because fingong is against China
+
+352
+00:18:10,640 --> 00:18:17,679
+then we can say justly flee. Look how
+
+353
+00:18:15,360 --> 00:18:21,360
+evil is China. They don't tolerate
+
+354
+00:18:17,679 --> 00:18:24,160
+religion. We tolerate religion. You are
+
+355
+00:18:21,360 --> 00:18:28,000
+welcome here. You see that's a that's uh
+
+356
+00:18:24,160 --> 00:18:31,919
+you know that's that's what you know
+
+357
+00:18:28,000 --> 00:18:36,880
+fallenong is. So in USA they become and
+
+358
+00:18:31,919 --> 00:18:41,360
+they are partially sponsored by CIA
+
+359
+00:18:36,880 --> 00:18:45,919
+funded by CIA. Uh, every day they do
+
+360
+00:18:41,360 --> 00:18:51,600
+basically China bad, CCP, communism,
+
+361
+00:18:45,919 --> 00:18:54,320
+CCP, this this CC CCP CC CCP this and
+
+362
+00:18:51,600 --> 00:18:57,760
+that
+
+363
+00:18:54,320 --> 00:19:01,120
+and and they become but however in the
+
+364
+00:18:57,760 --> 00:19:04,320
+past 10 years there's a twist okay
+
+365
+00:19:01,120 --> 00:19:08,480
+fugong become the
+
+366
+00:19:04,320 --> 00:19:10,640
+major supporter of the Trump camp okay
+
+367
+00:19:08,480 --> 00:19:12,400
+the right the the rightwing or
+
+368
+00:19:10,640 --> 00:19:16,960
+Christianity, you know, the
+
+369
+00:19:12,400 --> 00:19:20,480
+conservatives against the Democratic
+
+370
+00:19:16,960 --> 00:19:24,559
+social justice warriors party, you know,
+
+371
+00:19:20,480 --> 00:19:27,200
+BLM trans and all that. Oh, [ __ ] I
+
+372
+00:19:24,559 --> 00:19:28,960
+think I think this video is [ __ ]
+
+373
+00:19:27,200 --> 00:19:30,559
+because now I started to talk about
+
+374
+00:19:28,960 --> 00:19:33,679
+politics.
+
+375
+00:19:30,559 --> 00:19:35,760
+Huang, it's time for me. you know you
+
+376
+00:19:33,679 --> 00:19:40,600
+cannot pay me okay for my discussion
+
+377
+00:19:35,760 --> 00:19:40,600
+about this uh and all the digressions
+
+378
+00:19:47,200 --> 00:19:51,919
+what kind of question is that okay let
+
+379
+00:19:49,280 --> 00:19:57,120
+me let me let me quickly finish this
+
+380
+00:19:51,919 --> 00:20:04,080
+topic okay so in USA in past years t so
+
+381
+00:19:57,120 --> 00:20:07,360
+USA used falong as a tool to
+
+382
+00:20:04,080 --> 00:20:09,679
+to spread opinions against China
+
+383
+00:20:07,360 --> 00:20:12,320
+government. Okay.
+
+384
+00:20:09,679 --> 00:20:18,160
+Then but in the past 10 years there's a
+
+385
+00:20:12,320 --> 00:20:22,880
+twist. Palong become a a a very huge
+
+386
+00:20:18,160 --> 00:20:26,080
+supporter of the Trump camp. Okay. Or
+
+387
+00:20:22,880 --> 00:20:27,679
+conservatives or Christians. Okay. uh
+
+388
+00:20:26,080 --> 00:20:30,000
+because you know all the giant
+
+389
+00:20:27,679 --> 00:20:33,280
+politicians, Republicans, you know,
+
+390
+00:20:30,000 --> 00:20:36,240
+Fallenon funded them and also on on
+
+391
+00:20:33,280 --> 00:20:39,360
+Facebook Fallong spend like more money
+
+392
+00:20:36,240 --> 00:20:42,480
+than all the other politician combined
+
+393
+00:20:39,360 --> 00:20:45,679
+campaign money to to to support the
+
+394
+00:20:42,480 --> 00:20:48,880
+right-wing Trump camp.
+
+395
+00:20:45,679 --> 00:20:50,880
+Okay. And now um and they so they become
+
+396
+00:20:48,880 --> 00:20:53,440
+very powerful. you know, I don't exactly
+
+397
+00:20:50,880 --> 00:20:56,000
+know where they
+
+398
+00:20:53,440 --> 00:21:00,080
+got their money but stuff, but but but
+
+399
+00:20:56,000 --> 00:21:03,200
+they are partly funded by CIA. Okay, so
+
+400
+00:21:00,080 --> 00:21:07,000
+that's about that.
+
+401
+00:21:03,200 --> 00:21:07,000
+Uh well,
+
+402
+00:21:07,919 --> 00:21:14,320
+Diet Coke is my favorite drink. No, I
+
+403
+00:21:10,559 --> 00:21:16,159
+almost don't drink Coke at all. Uh you
+
+404
+00:21:14,320 --> 00:21:19,840
+know, stuff I was just throwing out.
+
+405
+00:21:16,159 --> 00:21:22,159
+Okay. Uh what's your opinion on India?
+
+406
+00:21:19,840 --> 00:21:24,640
+uh my opinion on India is kind of
+
+407
+00:21:22,159 --> 00:21:26,720
+disappointing
+
+408
+00:21:24,640 --> 00:21:30,080
+you know like
+
+409
+00:21:26,720 --> 00:21:33,280
+like before 10 years ago I don't I'm not
+
+410
+00:21:30,080 --> 00:21:36,240
+that much into politics because you know
+
+411
+00:21:33,280 --> 00:21:39,440
+like up to when I was 40 years old all
+
+412
+00:21:36,240 --> 00:21:42,480
+my attention is mathematics
+
+413
+00:21:39,440 --> 00:21:45,200
+engineering programming okay that's like
+
+414
+00:21:42,480 --> 00:21:48,720
+I that's the only thing I'm interested
+
+415
+00:21:45,200 --> 00:21:52,640
+and philosophy and linguistics okay but
+
+416
+00:21:48,720 --> 00:21:55,440
+And starting around 2016 also because
+
+417
+00:21:52,640 --> 00:21:57,360
+I'm getting old so after I'm 40
+
+418
+00:21:55,440 --> 00:22:00,080
+something
+
+419
+00:21:57,360 --> 00:22:02,880
+2016 there is this social justice
+
+420
+00:22:00,080 --> 00:22:07,799
+warriors coming out of nowhere all of a
+
+421
+00:22:02,880 --> 00:22:07,799
+sudden you got this safe space
+
+422
+00:22:08,240 --> 00:22:15,280
+you know you got this safe space stuff
+
+423
+00:22:12,880 --> 00:22:18,080
+what what the [ __ ] all of a sudden it's
+
+424
+00:22:15,280 --> 00:22:21,200
+so big safe space oh and all of a sudden
+
+425
+00:22:18,080 --> 00:22:24,080
+The males are evil. Like I'm evil. You
+
+426
+00:22:21,200 --> 00:22:26,400
+are evil. We are evil. We We are not
+
+427
+00:22:24,080 --> 00:22:29,200
+just evil. We are evil since since
+
+428
+00:22:26,400 --> 00:22:31,600
+kingdom come.
+
+429
+00:22:29,200 --> 00:22:34,320
+Women's are good. You know, and gays are
+
+430
+00:22:31,600 --> 00:22:37,760
+good and trans are good. Uh blacks are
+
+431
+00:22:34,320 --> 00:22:40,799
+good. Uh white guys, you guys are evil.
+
+432
+00:22:37,760 --> 00:22:43,679
+You guys are evil [ __ ] And me, I'm a
+
+433
+00:22:40,799 --> 00:22:46,960
+male, I'm evil [ __ ] Am I trans? No. Am
+
+434
+00:22:43,679 --> 00:22:50,480
+I gay? No. Therefore, I'm evil [ __ ] You
+
+435
+00:22:46,960 --> 00:22:54,480
+know that's 2016 all of a sudden. This
+
+436
+00:22:50,480 --> 00:22:56,880
+this lasted for 10 years. Oh [ __ ] We I
+
+437
+00:22:54,480 --> 00:22:59,760
+you know this video is becoming just
+
+438
+00:22:56,880 --> 00:23:02,880
+politics. Okay. So maybe so I'll save
+
+439
+00:22:59,760 --> 00:23:05,840
+this I'll save this talk next time.
+
+440
+00:23:02,880 --> 00:23:09,520
+Okay. So let's just talk about that uh
+
+441
+00:23:05,840 --> 00:23:11,919
+politics. Okay. So
+
+442
+00:23:09,520 --> 00:23:15,200
+yeah. So since lots of you are want to
+
+443
+00:23:11,919 --> 00:23:17,200
+talk about that. Uh well that's natural
+
+444
+00:23:15,200 --> 00:23:20,159
+because when you talk about mathematics
+
+445
+00:23:17,200 --> 00:23:24,880
+or programming your audience all of a
+
+446
+00:23:20,159 --> 00:23:26,960
+sudden becomes 110 one one millionth
+
+447
+00:23:24,880 --> 00:23:29,440
+very small
+
+448
+00:23:26,960 --> 00:23:33,120
+you know if you want to make great
+
+449
+00:23:29,440 --> 00:23:36,240
+America great again mathematics
+
+450
+00:23:33,120 --> 00:23:40,640
+is what you want to do okay
+
+451
+00:23:36,240 --> 00:23:43,520
+if you do not want to make America great
+
+452
+00:23:40,640 --> 00:23:46,400
+again let's talk about politics Let's
+
+453
+00:23:43,520 --> 00:23:49,520
+talk about your opinion about uh do you
+
+454
+00:23:46,400 --> 00:23:53,360
+support men in women's bathroom? That's
+
+455
+00:23:49,520 --> 00:23:56,000
+what white people do every day. They do
+
+456
+00:23:53,360 --> 00:23:59,520
+every day on Twitter. Let's make, you
+
+457
+00:23:56,000 --> 00:24:01,760
+know, let's have a debate. Uh versus
+
+458
+00:23:59,520 --> 00:24:03,840
+something debate on YouTube, you know,
+
+459
+00:24:01,760 --> 00:24:05,679
+chipping money. Ching ching ching. Let's
+
+460
+00:24:03,840 --> 00:24:10,080
+have a debate.
+
+461
+00:24:05,679 --> 00:24:12,960
+[ __ ] them. Uh USA is so corrupted. We
+
+462
+00:24:10,080 --> 00:24:14,960
+got lots of lots of problems. lots of
+
+463
+00:24:12,960 --> 00:24:17,600
+problems.
+
+464
+00:24:14,960 --> 00:24:20,080
+Okay, let's back to uh let's see so
+
+465
+00:24:17,600 --> 00:24:24,240
+India. So you are asking my opinion
+
+466
+00:24:20,080 --> 00:24:26,559
+about India. So, so starting in 2016, I
+
+467
+00:24:24,240 --> 00:24:28,320
+started to read a lot about this what
+
+468
+00:24:26,559 --> 00:24:32,159
+what what is the social justice
+
+469
+00:24:28,320 --> 00:24:33,840
+warriors, you know, and then I learned
+
+470
+00:24:32,159 --> 00:24:36,240
+so much, you know, I learned a lot of
+
+471
+00:24:33,840 --> 00:24:40,320
+things, you know, the the re, for
+
+472
+00:24:36,240 --> 00:24:43,360
+example, recycling is mostly a scam.
+
+473
+00:24:40,320 --> 00:24:46,000
+Okay, recycling. I'm so I'm very much
+
+474
+00:24:43,360 --> 00:24:48,799
+into recycling, you know, recycling, you
+
+475
+00:24:46,000 --> 00:24:51,039
+know, like I would even take a toy
+
+476
+00:24:48,799 --> 00:24:53,679
+apart. Okay, this part should go to
+
+477
+00:24:51,039 --> 00:24:56,480
+metals or whatever, you know, like study
+
+478
+00:24:53,679 --> 00:24:59,919
+recycling, you know. It turns out it's
+
+479
+00:24:56,480 --> 00:25:02,080
+mostly mostly a scam
+
+480
+00:24:59,919 --> 00:25:05,120
+like million dollars or whatever billion
+
+481
+00:25:02,080 --> 00:25:08,400
+dollar scam. Okay, the only thing you
+
+482
+00:25:05,120 --> 00:25:12,559
+can recycle is glass bottles and metal
+
+483
+00:25:08,400 --> 00:25:15,440
+bottles. Okay, metal metal like tin can.
+
+484
+00:25:12,559 --> 00:25:17,919
+Okay, like tin can, Coke, you know,
+
+485
+00:25:15,440 --> 00:25:19,760
+metal bottle or glass bottles. That's
+
+486
+00:25:17,919 --> 00:25:23,919
+basically the only thing you can
+
+487
+00:25:19,760 --> 00:25:26,080
+recycle, not plastic. And by the way, in
+
+488
+00:25:23,919 --> 00:25:28,559
+California, for example, you you know,
+
+489
+00:25:26,080 --> 00:25:30,640
+you you you you put things in recycle
+
+490
+00:25:28,559 --> 00:25:33,919
+bin,
+
+491
+00:25:30,640 --> 00:25:36,000
+half of it or most of it goes to trash.
+
+492
+00:25:33,919 --> 00:25:39,760
+You just don't know it. They just like
+
+493
+00:25:36,000 --> 00:25:41,919
+go to trash. And uh and all the recycle
+
+494
+00:25:39,760 --> 00:25:44,320
+stuff, they ship it to China. They ship
+
+495
+00:25:41,919 --> 00:25:47,039
+it to South Asia, you know, and you
+
+496
+00:25:44,320 --> 00:25:50,880
+know, we ship it to China, ship it to
+
+497
+00:25:47,039 --> 00:25:53,840
+South Asia, let them deal with it.
+
+498
+00:25:50,880 --> 00:25:56,720
+Uh, and the China like five or 10 years
+
+499
+00:25:53,840 --> 00:25:58,960
+ago, they they they refused. Okay, we
+
+500
+00:25:56,720 --> 00:26:02,240
+don't want it anymore. So, just, you
+
+501
+00:25:58,960 --> 00:26:05,200
+know, take your garbage elsewhere.
+
+502
+00:26:02,240 --> 00:26:06,960
+Uh, recycling, you know, a giant huge
+
+503
+00:26:05,200 --> 00:26:08,640
+scam.
+
+504
+00:26:06,960 --> 00:26:11,120
+But in California, you know, we
+
+505
+00:26:08,640 --> 00:26:13,679
+programmers, we think, "Oh, let's help
+
+506
+00:26:11,120 --> 00:26:16,480
+the earth." You know, we need to help
+
+507
+00:26:13,679 --> 00:26:20,000
+the earth. Why? Because life is too
+
+508
+00:26:16,480 --> 00:26:22,240
+good. You know, like we enjoy whatever
+
+509
+00:26:20,000 --> 00:26:25,919
+coffee, you know, life is too good. Code
+
+510
+00:26:22,240 --> 00:26:28,000
+a little bit. Um, but you feel like,
+
+511
+00:26:25,919 --> 00:26:31,679
+well, there must be something I can do
+
+512
+00:26:28,000 --> 00:26:34,400
+for humanity. Oh, yeah. Let's you know I
+
+513
+00:26:31,679 --> 00:26:37,279
+I you know I'm going to starting today
+
+514
+00:26:34,400 --> 00:26:41,600
+I'm going to recycle everything
+
+515
+00:26:37,279 --> 00:26:46,159
+that that is a mentality okay
+
+516
+00:26:41,600 --> 00:26:49,919
+uh coming from the result of life is too
+
+517
+00:26:46,159 --> 00:26:53,200
+good okay so recycling is one of the
+
+518
+00:26:49,919 --> 00:26:56,159
+huge scam just remember the only thing
+
+519
+00:26:53,200 --> 00:27:00,240
+you want to recycle is paper okay paper
+
+520
+00:26:56,159 --> 00:27:04,159
+included paper uh metal tin cans like
+
+521
+00:27:00,240 --> 00:27:06,880
+from coke or glass.
+
+522
+00:27:04,159 --> 00:27:09,679
+Okay. Plastic not not much. Okay. You
+
+523
+00:27:06,880 --> 00:27:11,919
+know you know
+
+524
+00:27:09,679 --> 00:27:15,279
+then okay India. Okay. So I learned a
+
+525
+00:27:11,919 --> 00:27:18,480
+lot of things starting in 2016 about
+
+526
+00:27:15,279 --> 00:27:21,760
+politics. Then all of a sudden 200 uh
+
+527
+00:27:18,480 --> 00:27:25,120
+what is it 2022?
+
+528
+00:27:21,760 --> 00:27:28,720
+Well I mean then the COVID came by.
+
+529
+00:27:25,120 --> 00:27:31,360
+Covid. What a nasty, you know, like what
+
+530
+00:27:28,720 --> 00:27:34,720
+what what a
+
+531
+00:27:31,360 --> 00:27:38,320
+what a extreme nasty thing, you know.
+
+532
+00:27:34,720 --> 00:27:41,279
+Three, how many dead? 300 million
+
+533
+00:27:38,320 --> 00:27:42,960
+something like that. Was it 30 million?
+
+534
+00:27:41,279 --> 00:27:45,600
+You know, you can look up Wikipedia
+
+535
+00:27:42,960 --> 00:27:48,720
+easily. You know, you remember that was
+
+536
+00:27:45,600 --> 00:27:52,400
+just few years ago. We lived by it. And
+
+537
+00:27:48,720 --> 00:27:54,640
+it turns out is a biological research r
+
+538
+00:27:52,400 --> 00:27:58,320
+went wrong
+
+539
+00:27:54,640 --> 00:28:00,799
+by by USA. We need to you know we need
+
+540
+00:27:58,320 --> 00:28:03,919
+to research. We we cannot lose to China.
+
+541
+00:28:00,799 --> 00:28:06,640
+We need to research biological weapons
+
+542
+00:28:03,919 --> 00:28:08,480
+so that we puff something in the air and
+
+543
+00:28:06,640 --> 00:28:11,440
+all the different races we don't like
+
+544
+00:28:08,480 --> 00:28:14,080
+they will die. We'll be okay. You know
+
+545
+00:28:11,440 --> 00:28:16,240
+we white people we'll be okay. But the
+
+546
+00:28:14,080 --> 00:28:19,760
+black people whatever or you know they
+
+547
+00:28:16,240 --> 00:28:23,440
+will die. That's the ultimate
+
+548
+00:28:19,760 --> 00:28:27,520
+goal of biological weapons
+
+549
+00:28:23,440 --> 00:28:31,600
+and we are doing it you know then then
+
+550
+00:28:27,520 --> 00:28:36,559
+it something some accident happened then
+
+551
+00:28:31,600 --> 00:28:39,279
+we say oh Jesus China did it China bats
+
+552
+00:28:36,559 --> 00:28:41,440
+China eat bad soup
+
+553
+00:28:39,279 --> 00:28:45,039
+by the way we funded China to do it for
+
+554
+00:28:41,440 --> 00:28:46,720
+us we can't do it here because Obama you
+
+555
+00:28:45,039 --> 00:28:51,120
+know there's a law we cannot do it so
+
+556
+00:28:46,720 --> 00:28:53,679
+they you They go to pay China to do it.
+
+557
+00:28:51,120 --> 00:28:59,200
+Uh Jesus, am I going to be banned for
+
+558
+00:28:53,679 --> 00:29:01,760
+this video? Um I don't know. Very
+
+559
+00:28:59,200 --> 00:29:04,000
+I don't know, you know. So, let's
+
+560
+00:29:01,760 --> 00:29:06,240
+continue. You know, maybe I should So,
+
+561
+00:29:04,000 --> 00:29:09,520
+you guys save this video, okay? Save
+
+562
+00:29:06,240 --> 00:29:11,440
+this video quickly.
+
+563
+00:29:09,520 --> 00:29:16,240
+I'm afraid it's going to, you know,
+
+564
+00:29:11,440 --> 00:29:19,919
+maybe I'll like uh make it private.
+
+565
+00:29:16,240 --> 00:29:22,559
+So there's COVID. COVID happened.
+
+566
+00:29:19,919 --> 00:29:24,960
+Then then you say, "Oh, China, China did
+
+567
+00:29:22,559 --> 00:29:28,399
+it." You know, this white people, okay,
+
+568
+00:29:24,960 --> 00:29:32,960
+white people, whatever the other group,
+
+569
+00:29:28,399 --> 00:29:35,919
+uh, China, CCP, nasty CCP did it, then,
+
+570
+00:29:32,960 --> 00:29:38,640
+oh yeah, let's make let's let's make
+
+571
+00:29:35,919 --> 00:29:40,960
+money. Pharmaceutical corporations,
+
+572
+00:29:38,640 --> 00:29:43,200
+let's make billions. This is a great
+
+573
+00:29:40,960 --> 00:29:46,000
+opportunity to make billions and
+
+574
+00:29:43,200 --> 00:29:49,440
+billions.
+
+575
+00:29:46,000 --> 00:29:52,240
+Covid Covid vac
+
+576
+00:29:49,440 --> 00:29:55,919
+you have to take it if you don't take it
+
+577
+00:29:52,240 --> 00:29:57,919
+then you are not a good human that's
+
+578
+00:29:55,919 --> 00:30:00,799
+what they say you you know they force
+
+579
+00:29:57,919 --> 00:30:05,360
+you to take it co
+
+580
+00:30:00,799 --> 00:30:10,640
+uh who did that well USA
+
+581
+00:30:05,360 --> 00:30:14,559
+so there is co you know then 2022
+
+582
+00:30:10,640 --> 00:30:16,159
+was it 22 or 23 the Ukraine war began
+
+583
+00:30:14,559 --> 00:30:18,320
+And
+
+584
+00:30:16,159 --> 00:30:20,399
+you know what? What is Ukraine? I don't
+
+585
+00:30:18,320 --> 00:30:23,200
+know.
+
+586
+00:30:20,399 --> 00:30:25,679
+2022. Oh, Ukraine. Russia invaded
+
+587
+00:30:23,200 --> 00:30:29,440
+Ukraine. What what is Ukraine? I don't
+
+588
+00:30:25,679 --> 00:30:31,600
+know. So I look up, you know, Wikipedia,
+
+589
+00:30:29,440 --> 00:30:34,399
+you know, like if you want to know
+
+590
+00:30:31,600 --> 00:30:37,440
+something, you can today and you can
+
+591
+00:30:34,399 --> 00:30:40,640
+know the truth. You just have to look
+
+592
+00:30:37,440 --> 00:30:43,679
+for it. spend time hours, two hours,
+
+593
+00:30:40,640 --> 00:30:47,279
+three hours, 10 hours, 100 hours every
+
+594
+00:30:43,679 --> 00:30:49,039
+day, you'll find the information. Okay?
+
+595
+00:30:47,279 --> 00:30:52,320
+For example, what is Ukraine? Well,
+
+596
+00:30:49,039 --> 00:30:54,480
+Wikipedia, Google maps, you can find it.
+
+597
+00:30:52,320 --> 00:30:56,640
+So, I started to learn, oh, there's
+
+598
+00:30:54,480 --> 00:30:59,039
+Ukraine. Oh, Russia. What what is
+
+599
+00:30:56,640 --> 00:31:01,840
+Ukraine? Oh, they, you know, they were
+
+600
+00:30:59,039 --> 00:31:03,919
+like, you know, USSR, they are they were
+
+601
+00:31:01,840 --> 00:31:05,840
+part of the Russia. And what what what
+
+602
+00:31:03,919 --> 00:31:08,880
+people are in Ukraine? Well, they are
+
+603
+00:31:05,840 --> 00:31:12,640
+just Russian white people. Beautiful. By
+
+604
+00:31:08,880 --> 00:31:15,200
+the way, the Russian, you know, white,
+
+605
+00:31:12,640 --> 00:31:20,240
+you know, before this.
+
+606
+00:31:15,200 --> 00:31:22,399
+I find the white girls very attractive,
+
+607
+00:31:20,240 --> 00:31:24,480
+you know, because well, because they got
+
+608
+00:31:22,399 --> 00:31:26,240
+blonde and blue eyes. I find them very
+
+609
+00:31:24,480 --> 00:31:28,880
+attractive and I, you know, they are
+
+610
+00:31:26,240 --> 00:31:31,919
+from Northern Europe.
+
+611
+00:31:28,880 --> 00:31:35,440
+But now I know better. I know deeper,
+
+612
+00:31:31,919 --> 00:31:38,640
+you know. So actually the the the most
+
+613
+00:31:35,440 --> 00:31:41,440
+whitest girl they are Russian whites
+
+614
+00:31:38,640 --> 00:31:44,960
+okay like including Ukraine Ukraine
+
+615
+00:31:41,440 --> 00:31:48,320
+Estonia Russian you know that that
+
+616
+00:31:44,960 --> 00:31:52,559
+region there's a like technical name for
+
+617
+00:31:48,320 --> 00:31:54,799
+that group called um
+
+618
+00:31:52,559 --> 00:31:57,279
+I don't remember exactly but this you
+
+619
+00:31:54,799 --> 00:31:59,919
+know like diff you know then I learned
+
+620
+00:31:57,279 --> 00:32:02,240
+so many ethnicities like fine division
+
+621
+00:31:59,919 --> 00:32:03,760
+you know like very technical anyway
+
+622
+00:32:02,240 --> 00:32:06,799
+Anyway,
+
+623
+00:32:03,760 --> 00:32:09,519
+so I learned about Ukraine, you know,
+
+624
+00:32:06,799 --> 00:32:12,720
+Ukraine war and why did it happen and
+
+625
+00:32:09,519 --> 00:32:15,440
+and you know, stuff.
+
+626
+00:32:12,720 --> 00:32:18,480
+Yeah, I know. You don't know, but I
+
+627
+00:32:15,440 --> 00:32:20,720
+know. Uh
+
+628
+00:32:18,480 --> 00:32:23,440
+well, then after that there's something
+
+629
+00:32:20,720 --> 00:32:25,519
+Gaza happened. What What is Gaza? I
+
+630
+00:32:23,440 --> 00:32:31,200
+don't know. So I looked up, you know,
+
+631
+00:32:25,519 --> 00:32:33,679
+Gaza. Very sad story. Uh yeah. So,
+
+632
+00:32:31,200 --> 00:32:38,080
+so, so during these past 10 years, I
+
+633
+00:32:33,679 --> 00:32:40,399
+started to also uh learn about India
+
+634
+00:32:38,080 --> 00:32:41,600
+because when you look up the map, you
+
+635
+00:32:40,399 --> 00:32:44,080
+know, you want to know what you know
+
+636
+00:32:41,600 --> 00:32:46,880
+what what is Georgia. Georgia is not the
+
+637
+00:32:44,080 --> 00:32:48,559
+USA Georgia state. There's another
+
+638
+00:32:46,880 --> 00:32:51,120
+Georgia
+
+639
+00:32:48,559 --> 00:32:53,039
+you know Georgia you know you know
+
+640
+00:32:51,120 --> 00:32:55,120
+neighboring countries of Ukraine like
+
+641
+00:32:53,039 --> 00:32:57,039
+because you hear the news the news says
+
+642
+00:32:55,120 --> 00:32:59,120
+oh this region whatever you know this
+
+643
+00:32:57,039 --> 00:33:01,679
+city you know you don't know what they
+
+644
+00:32:59,120 --> 00:33:03,200
+are so you look up so you you you know
+
+645
+00:33:01,679 --> 00:33:07,600
+you started to learn more and more
+
+646
+00:33:03,200 --> 00:33:10,159
+things and India is
+
+647
+00:33:07,600 --> 00:33:13,440
+kind of part of the news because there's
+
+648
+00:33:10,159 --> 00:33:16,480
+you know India China China CCP every day
+
+649
+00:33:13,440 --> 00:33:18,799
+something China China and India Is India
+
+650
+00:33:16,480 --> 00:33:22,880
+is is India gonna beat China or China is
+
+651
+00:33:18,799 --> 00:33:26,399
+gonna beat India? You know so and I a
+
+652
+00:33:22,880 --> 00:33:28,640
+lot of you many of you
+
+653
+00:33:26,399 --> 00:33:31,200
+uh Indians you know I learned you know
+
+654
+00:33:28,640 --> 00:33:35,760
+well actually I worked with Indian uh
+
+655
+00:33:31,200 --> 00:33:40,880
+like in year 2000 in you know in uh in
+
+656
+00:33:35,760 --> 00:33:46,000
+Ntopia. So my co-workers are actually
+
+657
+00:33:40,880 --> 00:33:48,000
+four Indians and white one white guy. So
+
+658
+00:33:46,000 --> 00:33:51,120
+but I don't really know what they are
+
+659
+00:33:48,000 --> 00:33:54,399
+Indians like. So but until recent years
+
+660
+00:33:51,120 --> 00:33:57,600
+I started to learn India you know. So uh
+
+661
+00:33:54,399 --> 00:33:59,840
+India well they kind of very poor and
+
+662
+00:33:57,600 --> 00:34:02,240
+especially in the past two years you see
+
+663
+00:33:59,840 --> 00:34:04,880
+lots of India
+
+664
+00:34:02,240 --> 00:34:08,560
+um
+
+665
+00:34:04,880 --> 00:34:10,960
+videos and photos because the because of
+
+666
+00:34:08,560 --> 00:34:12,879
+the racial tension you know in the past
+
+667
+00:34:10,960 --> 00:34:14,800
+one year there's a lot racial tension
+
+668
+00:34:12,879 --> 00:34:18,720
+you know Trump and you know the
+
+669
+00:34:14,800 --> 00:34:21,520
+immigration the Trump and Ella Musk war
+
+670
+00:34:18,720 --> 00:34:24,399
+about immigration so there's a lot
+
+671
+00:34:21,520 --> 00:34:27,280
+information about India Yeah. And of
+
+672
+00:34:24,399 --> 00:34:31,040
+course as part of the consequence a lot
+
+673
+00:34:27,280 --> 00:34:33,839
+of the European Americans make fun of
+
+674
+00:34:31,040 --> 00:34:36,639
+ind Indian. So you see lots of like you
+
+675
+00:34:33,839 --> 00:34:40,159
+see a lot pictures of like very Indians
+
+676
+00:34:36,639 --> 00:34:43,679
+is pretty poor and they are not they
+
+677
+00:34:40,159 --> 00:34:46,720
+kind of very poor and uh then of course
+
+678
+00:34:43,679 --> 00:34:48,800
+you can go to YouTube and you know and
+
+679
+00:34:46,720 --> 00:34:51,359
+there's a lot of videos like India too.
+
+680
+00:34:48,800 --> 00:34:53,520
+You can watch those too.
+
+681
+00:34:51,359 --> 00:34:55,440
+But yeah, my but my impression if you
+
+682
+00:34:53,520 --> 00:34:59,280
+want my
+
+683
+00:34:55,440 --> 00:35:03,920
+honest opinion Indian India Indian they
+
+684
+00:34:59,280 --> 00:35:05,839
+seems they they have a lot way to go.
+
+685
+00:35:03,920 --> 00:35:09,680
+You know this is interesting because
+
+686
+00:35:05,839 --> 00:35:13,440
+like in the in year 2000 for example 25
+
+687
+00:35:09,680 --> 00:35:16,320
+years ago I heard that India and China
+
+688
+00:35:13,440 --> 00:35:19,119
+and Russia is going to be superpowers.
+
+689
+00:35:16,320 --> 00:35:22,320
+So this is in the 1990s
+
+690
+00:35:19,119 --> 00:35:25,359
+and people people are debating you know
+
+691
+00:35:22,320 --> 00:35:27,440
+why you know this some say oh I bet
+
+692
+00:35:25,359 --> 00:35:31,200
+Russia is going to be the superpower in
+
+693
+00:35:27,440 --> 00:35:34,079
+in in 10 years some will say oh China uh
+
+694
+00:35:31,200 --> 00:35:38,079
+some will say India
+
+695
+00:35:34,079 --> 00:35:40,960
+but now 25 years is passed it turns out
+
+696
+00:35:38,079 --> 00:35:43,760
+China is just like rising like become a
+
+697
+00:35:40,960 --> 00:35:47,839
+super powerful superstar
+
+698
+00:35:43,760 --> 00:35:52,320
+Russia is doing good and India not doing
+
+699
+00:35:47,839 --> 00:35:56,000
+too good it turns out and uh if I can
+
+700
+00:35:52,320 --> 00:36:01,599
+give you extra information about why
+
+701
+00:35:56,000 --> 00:36:06,240
+well I think part of the reason is India
+
+702
+00:36:01,599 --> 00:36:09,040
+um I don't know too much about this but
+
+703
+00:36:06,240 --> 00:36:12,560
+but I think part of the issue I think
+
+704
+00:36:09,040 --> 00:36:15,760
+India got lots of issues for one thing
+
+705
+00:36:12,560 --> 00:36:18,720
+India's got so many religions
+
+706
+00:36:15,760 --> 00:36:21,359
+they you know they are not mutually
+
+707
+00:36:18,720 --> 00:36:26,240
+compatible you. So, so you have lots of
+
+708
+00:36:21,359 --> 00:36:28,720
+religion and lots of over 10
+
+709
+00:36:26,240 --> 00:36:31,760
+like technically hundreds languages
+
+710
+00:36:28,720 --> 00:36:35,599
+different languages but overall you got
+
+711
+00:36:31,760 --> 00:36:38,560
+more than five you know major languages
+
+712
+00:36:35,599 --> 00:36:41,920
+mutually unintelligible
+
+713
+00:36:38,560 --> 00:36:44,320
+in India and you got different religions
+
+714
+00:36:41,920 --> 00:36:46,960
+you know you got Muslims you got Hindi
+
+715
+00:36:44,320 --> 00:36:49,440
+you got Buddhism but you got other so
+
+716
+00:36:46,960 --> 00:36:51,680
+many divisions of
+
+717
+00:36:49,440 --> 00:36:54,160
+different Hinduism something. Okay, I
+
+718
+00:36:51,680 --> 00:36:55,920
+don't know too well but that's just my
+
+719
+00:36:54,160 --> 00:36:59,040
+impression.
+
+720
+00:36:55,920 --> 00:37:01,839
+So you got language like fraction you
+
+721
+00:36:59,040 --> 00:37:05,119
+know then you got uh religion fraction
+
+722
+00:37:01,839 --> 00:37:08,000
+you got race racial fraction in India
+
+723
+00:37:05,119 --> 00:37:11,280
+and then you got but then another thing
+
+724
+00:37:08,000 --> 00:37:14,079
+is that India adopted English as their
+
+725
+00:37:11,280 --> 00:37:16,640
+main language. So what India do every
+
+726
+00:37:14,079 --> 00:37:20,800
+day is like all the things they read is
+
+727
+00:37:16,640 --> 00:37:24,240
+basically western websites like Twitter,
+
+728
+00:37:20,800 --> 00:37:27,760
+you know, Yahoo, MSN,
+
+729
+00:37:24,240 --> 00:37:30,000
+you know, like like like the educated
+
+730
+00:37:27,760 --> 00:37:34,000
+class in India is all just reading
+
+731
+00:37:30,000 --> 00:37:37,200
+English because English is sanctioned as
+
+732
+00:37:34,000 --> 00:37:39,119
+the official actual official language of
+
+733
+00:37:37,200 --> 00:37:41,520
+India.
+
+734
+00:37:39,119 --> 00:37:44,960
+uh and they are mostly used by the
+
+735
+00:37:41,520 --> 00:37:47,920
+educated class kind of elite in India.
+
+736
+00:37:44,960 --> 00:37:49,440
+So it's all English. So that also means
+
+737
+00:37:47,920 --> 00:37:53,119
+whatever
+
+738
+00:37:49,440 --> 00:37:56,000
+the western society whenever they have
+
+739
+00:37:53,119 --> 00:37:58,960
+problems conceptual problems for example
+
+740
+00:37:56,000 --> 00:38:04,880
+in the past 10 years the trans the
+
+741
+00:37:58,960 --> 00:38:09,599
+feminism the LGBTQ plus ABC
+
+742
+00:38:04,880 --> 00:38:12,880
+all these ideas goes to India because
+
+743
+00:38:09,599 --> 00:38:17,680
+they share the same language English but
+
+744
+00:38:12,880 --> 00:38:17,680
+not so in Russia and China that's kind
+
+745
+00:38:17,760 --> 00:38:21,839
+interesting because before I thought it
+
+746
+00:38:20,000 --> 00:38:25,440
+would be great to have a universal
+
+747
+00:38:21,839 --> 00:38:28,000
+language for efficiency reasons. So
+
+748
+00:38:25,440 --> 00:38:30,079
+since English is already currently the
+
+749
+00:38:28,000 --> 00:38:33,040
+most popular, so why not? It would be
+
+750
+00:38:30,079 --> 00:38:36,880
+great if the whole world speak just one
+
+751
+00:38:33,040 --> 00:38:39,040
+English. So you avoid inefficiency,
+
+752
+00:38:36,880 --> 00:38:41,599
+you know, it's like one language, one
+
+753
+00:38:39,040 --> 00:38:43,599
+programming language to rule them all.
+
+754
+00:38:41,599 --> 00:38:46,800
+You don't have to learn oh for web you
+
+755
+00:38:43,599 --> 00:38:50,320
+have to to do JavaScript JavaScript uh
+
+756
+00:38:46,800 --> 00:38:52,960
+for for for server use Python or Pearl
+
+757
+00:38:50,320 --> 00:38:56,160
+or Bash or Shell Ruby PowerShell
+
+758
+00:38:52,960 --> 00:38:58,560
+whatever you know one language why not
+
+759
+00:38:56,160 --> 00:39:00,720
+so you don't have to like waste time to
+
+760
+00:38:58,560 --> 00:39:04,079
+learn different things
+
+761
+00:39:00,720 --> 00:39:07,359
+so but it turns out one language is not
+
+762
+00:39:04,079 --> 00:39:12,560
+that good one universal language is not
+
+763
+00:39:07,359 --> 00:39:16,000
+that good why because it's Like once you
+
+764
+00:39:12,560 --> 00:39:18,960
+have a virus in that system, it collapse
+
+765
+00:39:16,000 --> 00:39:21,599
+the entire system
+
+766
+00:39:18,960 --> 00:39:24,640
+or like when you build a ship, you need
+
+767
+00:39:21,599 --> 00:39:27,119
+to have compartment compartments because
+
+768
+00:39:24,640 --> 00:39:30,560
+if you have a hole in one of the, you
+
+769
+00:39:27,119 --> 00:39:35,359
+know, your ship bottoms, it prevents
+
+770
+00:39:30,560 --> 00:39:39,520
+other compartments uh go down with it.
+
+771
+00:39:35,359 --> 00:39:41,760
+So, so one language is,
+
+772
+00:39:39,520 --> 00:39:45,359
+you know, is not necessarily a great
+
+773
+00:39:41,760 --> 00:39:48,720
+idea. So, anyway, back to India.
+
+774
+00:39:45,359 --> 00:39:54,000
+So, India, they tend to, you know, they
+
+775
+00:39:48,720 --> 00:39:57,200
+they use English. Um, so
+
+776
+00:39:54,000 --> 00:40:01,359
+it's complex issue. So I think that has
+
+777
+00:39:57,200 --> 00:40:03,839
+some issues because you basically just
+
+778
+00:40:01,359 --> 00:40:05,760
+your view you know your your view of
+
+779
+00:40:03,839 --> 00:40:10,000
+things of the world is basically just
+
+780
+00:40:05,760 --> 00:40:11,760
+the western view. Um but of course there
+
+781
+00:40:10,000 --> 00:40:15,599
+are good reasons for it because when
+
+782
+00:40:11,760 --> 00:40:18,880
+when India began let's say 440 years ago
+
+783
+00:40:15,599 --> 00:40:21,520
+or something you know they were they
+
+784
+00:40:18,880 --> 00:40:26,079
+were [ __ ] by the Brits okay the white
+
+785
+00:40:21,520 --> 00:40:28,800
+guys by the Brits very much so
+
+786
+00:40:26,079 --> 00:40:30,640
+uh you know so
+
+787
+00:40:28,800 --> 00:40:33,440
+you know
+
+788
+00:40:30,640 --> 00:40:35,839
+the academics would say they are you
+
+789
+00:40:33,440 --> 00:40:37,599
+know they were a colony under British
+
+790
+00:40:35,839 --> 00:40:41,920
+imperialism.
+
+791
+00:40:37,599 --> 00:40:44,640
+So they got [ __ ] by the Brits. Uh but
+
+792
+00:40:41,920 --> 00:40:47,920
+so they so English is very common you
+
+793
+00:40:44,640 --> 00:40:50,400
+know and their law is so like based on
+
+794
+00:40:47,920 --> 00:40:52,079
+British you know this you know this
+
+795
+00:40:50,400 --> 00:40:56,000
+practical
+
+796
+00:40:52,079 --> 00:41:00,640
+issues. So so anyway that's language in
+
+797
+00:40:56,000 --> 00:41:03,440
+India ching. Why do Indian scammers get
+
+798
+00:41:00,640 --> 00:41:07,680
+hacked so badly? Can they afford to hire
+
+799
+00:41:03,440 --> 00:41:09,760
+a system admin with money they steal?
+
+800
+00:41:07,680 --> 00:41:12,400
+Yeah, that's you know another thing
+
+801
+00:41:09,760 --> 00:41:14,960
+about India is like it seems a lot of
+
+802
+00:41:12,400 --> 00:41:18,400
+the hackers
+
+803
+00:41:14,960 --> 00:41:20,800
+and uh well not not actually good hacker
+
+804
+00:41:18,400 --> 00:41:23,440
+like all the scammers you know like they
+
+805
+00:41:20,800 --> 00:41:25,680
+call you up they say oh you need to call
+
+806
+00:41:23,440 --> 00:41:29,920
+this number for your credit card because
+
+807
+00:41:25,680 --> 00:41:32,880
+you know like scammers and and are in
+
+808
+00:41:29,920 --> 00:41:36,319
+India and they got exposed by many
+
+809
+00:41:32,880 --> 00:41:38,720
+YouTubers you know so that's another bad
+
+810
+00:41:36,319 --> 00:41:42,040
+impression of India India. So in India
+
+811
+00:41:38,720 --> 00:41:42,040
+is not
+
+812
+00:41:42,480 --> 00:41:48,640
+you know they got a lot issues. Um so
+
+813
+00:41:44,960 --> 00:41:53,280
+that is my impression from of India and
+
+814
+00:41:48,640 --> 00:41:58,480
+uh and uh you know we got quite a few
+
+815
+00:41:53,280 --> 00:42:03,000
+India uh friends on s discord. So I also
+
+816
+00:41:58,480 --> 00:42:03,000
+learned something from them.
+
+817
+00:42:11,200 --> 00:42:17,359
+Yeah. Yeah. You know,
+
+818
+00:42:14,560 --> 00:42:19,920
+so like if you go to YouTube India, you
+
+819
+00:42:17,359 --> 00:42:24,839
+know, uh scam, you'll see a lot, you
+
+820
+00:42:19,920 --> 00:42:24,839
+know, uh exposing like in depth.
+
+821
+00:42:25,040 --> 00:42:30,640
+So let's see what's the next question.
+
+822
+00:42:27,680 --> 00:42:33,839
+Uh what's the next question? Open Scott.
+
+823
+00:42:30,640 --> 00:42:37,760
+Okay. Stephan Wolfam is a bad guy. Why
+
+824
+00:42:33,839 --> 00:42:41,200
+do you say that? Adam YouTube says,
+
+825
+00:42:37,760 --> 00:42:46,240
+"Okay." Uh, and
+
+826
+00:42:41,200 --> 00:42:49,240
+do you miss chai? Chai
+
+827
+00:42:46,240 --> 00:42:49,240
+ham.
+
+828
+00:42:49,359 --> 00:42:57,680
+So chai for tea. Chai is actually I
+
+829
+00:42:53,119 --> 00:43:00,160
+think chai is from the southern Asia.
+
+830
+00:42:57,680 --> 00:43:03,920
+They call it chai. you know, maybe in
+
+831
+00:43:00,160 --> 00:43:06,079
+Vietnam or or Thailand maybe, but in
+
+832
+00:43:03,920 --> 00:43:10,359
+Chinese it's
+
+833
+00:43:06,079 --> 00:43:10,359
+okay for tea.
+
+834
+00:43:13,680 --> 00:43:19,440
+So, next, Adam says, "Do you miss
+
+835
+00:43:17,119 --> 00:43:21,200
+trolling internet forums like back in
+
+836
+00:43:19,440 --> 00:43:24,640
+the 90s?"
+
+837
+00:43:21,200 --> 00:43:26,400
+Uh, minor correction. I didn't troll in
+
+838
+00:43:24,640 --> 00:43:30,800
+the 90s.
+
+839
+00:43:26,400 --> 00:43:32,319
+I my kind of my first post
+
+840
+00:43:30,800 --> 00:43:35,359
+on
+
+841
+00:43:32,319 --> 00:43:39,920
+well I mean yeah I wouldn't say you know
+
+842
+00:43:35,359 --> 00:43:43,680
+I I'm known as a troll on news groups
+
+843
+00:43:39,920 --> 00:43:46,720
+beginning around after year 2000 okay so
+
+844
+00:43:43,680 --> 00:43:49,359
+I wasn't known as a troll in the 90s
+
+845
+00:43:46,720 --> 00:43:52,720
+even though I do I do post on news
+
+846
+00:43:49,359 --> 00:43:54,720
+groups but I wasn't a troll then it
+
+847
+00:43:52,720 --> 00:43:57,839
+became
+
+848
+00:43:54,720 --> 00:44:01,680
+known You know, I I became to post more
+
+849
+00:43:57,839 --> 00:44:03,920
+dramatic stuff after year 2000, okay? On
+
+850
+00:44:01,680 --> 00:44:06,720
+news groups.
+
+851
+00:44:03,920 --> 00:44:10,079
+Do I miss it?
+
+852
+00:44:06,720 --> 00:44:12,400
+You can, you know, it's not it's not
+
+853
+00:44:10,079 --> 00:44:15,119
+it's not I miss it or not. I'm just
+
+854
+00:44:12,400 --> 00:44:18,160
+getting old. You know, when you get old,
+
+855
+00:44:15,119 --> 00:44:21,440
+your perspective, your behavior behavior
+
+856
+00:44:18,160 --> 00:44:24,800
+changes. Okay? So like when you are a
+
+857
+00:44:21,440 --> 00:44:27,599
+teen you tend to do something
+
+858
+00:44:24,800 --> 00:44:29,440
+and almost always when you are older you
+
+859
+00:44:27,599 --> 00:44:32,400
+don't like you know you you you find
+
+860
+00:44:29,440 --> 00:44:35,119
+them silly but teens you know when you
+
+861
+00:44:32,400 --> 00:44:37,200
+are young teen you got to do what teens
+
+862
+00:44:35,119 --> 00:44:38,800
+do you know you got you got to be brave
+
+863
+00:44:37,200 --> 00:44:40,560
+you're going to break some windows
+
+864
+00:44:38,800 --> 00:44:42,720
+you're going to do some graffiti you
+
+865
+00:44:40,560 --> 00:44:45,520
+know you got to be different you know
+
+866
+00:44:42,720 --> 00:44:48,720
+it's part of the
+
+867
+00:44:45,520 --> 00:44:52,800
+um ritual what you know what what's it
+
+868
+00:44:48,720 --> 00:44:56,079
+called passage of right you know so
+
+869
+00:44:52,800 --> 00:45:00,240
+anyway I don't think I miss it I miss
+
+870
+00:44:56,079 --> 00:45:04,800
+trolling or whatn not um
+
+871
+00:45:00,240 --> 00:45:07,359
+you know I just get old and uh you know
+
+872
+00:45:04,800 --> 00:45:10,160
+but but these people you know so maybe
+
+873
+00:45:07,359 --> 00:45:12,880
+you are aware recently like two days ago
+
+874
+00:45:10,160 --> 00:45:15,680
+one of my article became popular I mean
+
+875
+00:45:12,880 --> 00:45:19,200
+got posted on hacker news again about
+
+876
+00:45:15,680 --> 00:45:22,800
+lisp cons you know I must say this lisp
+
+877
+00:45:19,200 --> 00:45:25,520
+people are extreme idiots. Extreme.
+
+878
+00:45:22,800 --> 00:45:27,920
+Okay, are you guys these coders here?
+
+879
+00:45:25,520 --> 00:45:31,040
+Because I can go into detail on why they
+
+880
+00:45:27,920 --> 00:45:34,160
+are like they are just like idiotics,
+
+881
+00:45:31,040 --> 00:45:36,480
+idiots. Okay, and also some people, you
+
+882
+00:45:34,160 --> 00:45:38,240
+know, a lot of people say I'm a troll. I
+
+883
+00:45:36,480 --> 00:45:41,680
+don't think I'm a troll. Okay. I don't
+
+884
+00:45:38,240 --> 00:45:45,119
+consider I'm not you know like the
+
+885
+00:45:41,680 --> 00:45:47,920
+stereotype image of a troll in their
+
+886
+00:45:45,119 --> 00:45:50,400
+minds is that you know some people like
+
+887
+00:45:47,920 --> 00:45:53,040
+they just want to post something that
+
+888
+00:45:50,400 --> 00:45:56,480
+triggers you and make a mess you know
+
+889
+00:45:53,040 --> 00:45:59,760
+and and uh you know I'm you know if I'm
+
+890
+00:45:56,480 --> 00:46:02,560
+a troy like I will be laugh this guy is
+
+891
+00:45:59,760 --> 00:46:04,560
+so stupid you know it's like a prank.
+
+892
+00:46:02,560 --> 00:46:07,920
+That's what most these white people
+
+893
+00:46:04,560 --> 00:46:10,079
+[ __ ] idiots. their they you know
+
+894
+00:46:07,920 --> 00:46:12,319
+that's their
+
+895
+00:46:10,079 --> 00:46:14,640
+brain pattern about trolling you know
+
+896
+00:46:12,319 --> 00:46:17,200
+it's like troll troll is like a prank in
+
+897
+00:46:14,640 --> 00:46:21,599
+their mind okay like someone you know
+
+898
+00:46:17,200 --> 00:46:23,599
+just enjoy the misery or the ridicule
+
+899
+00:46:21,599 --> 00:46:25,680
+other people you know let me post
+
+900
+00:46:23,599 --> 00:46:27,680
+something you know to the Python or
+
+901
+00:46:25,680 --> 00:46:29,920
+pearl or list programmers you know like
+
+902
+00:46:27,680 --> 00:46:31,920
+oh your language is stupid and and
+
+903
+00:46:29,920 --> 00:46:34,880
+because I think you know something silly
+
+904
+00:46:31,920 --> 00:46:37,839
+1 plus 1 I think oneplus 1 is three
+
+905
+00:46:34,880 --> 00:46:40,240
+therefore python is idiots, you know,
+
+906
+00:46:37,839 --> 00:46:42,640
+like, you know, that's their imagery,
+
+907
+00:46:40,240 --> 00:46:44,880
+these white idiots.
+
+908
+00:46:42,640 --> 00:46:47,280
+And so, so the troll, you know, make fun
+
+909
+00:46:44,880 --> 00:46:50,640
+of people and I enjoy it, but but that's
+
+910
+00:46:47,280 --> 00:46:53,599
+not that's not me. Okay, that's not
+
+911
+00:46:50,640 --> 00:46:56,319
+that does not represent my mindset. That
+
+912
+00:46:53,599 --> 00:46:58,160
+doesn't is not correct description of
+
+913
+00:46:56,319 --> 00:47:00,880
+what
+
+914
+00:46:58,160 --> 00:47:04,800
+my behavior. Okay, I can tell you what
+
+915
+00:47:00,880 --> 00:47:09,440
+my I can tell you what I'm doing. I have
+
+916
+00:47:04,800 --> 00:47:11,359
+a strong view opinion and I tends to be
+
+917
+00:47:09,440 --> 00:47:14,800
+very rude.
+
+918
+00:47:11,359 --> 00:47:17,839
+Okay. Uh may you know intentionally or
+
+919
+00:47:14,800 --> 00:47:21,040
+otherwise I'm a nerd. Okay. So usually I
+
+920
+00:47:17,839 --> 00:47:24,240
+don't perceive social you know I'm not
+
+921
+00:47:21,040 --> 00:47:28,240
+you know very polite person
+
+922
+00:47:24,240 --> 00:47:30,480
+uh for whatever reasons. Okay. So I'm
+
+923
+00:47:28,240 --> 00:47:32,880
+pretty rude,
+
+924
+00:47:30,480 --> 00:47:35,839
+you know, and I don't I don't follow
+
+925
+00:47:32,880 --> 00:47:38,480
+social norms like you don't, you know.
+
+926
+00:47:35,839 --> 00:47:40,880
+So if I think Richard Stoman or whatever
+
+927
+00:47:38,480 --> 00:47:43,599
+these famous people, they did something
+
+928
+00:47:40,880 --> 00:47:47,040
+stupid, I'll say this these [ __ ]
+
+929
+00:47:43,599 --> 00:47:50,560
+Richard Stoman did a lot damage to
+
+930
+00:47:47,040 --> 00:47:55,200
+Emacs. Okay. And the Gido von Russam is
+
+931
+00:47:50,560 --> 00:47:58,160
+the most idiotic, the most low IQ person
+
+932
+00:47:55,200 --> 00:48:00,800
+among those who created a programming
+
+933
+00:47:58,160 --> 00:48:05,680
+language. Gido von Russam of the Python
+
+934
+00:48:00,800 --> 00:48:08,480
+fame idiots. Okay. And also he sponsored
+
+935
+00:48:05,680 --> 00:48:12,079
+social justice warrior women. Oh, I'm
+
+936
+00:48:08,480 --> 00:48:15,599
+not going to uh mentor men uh because ma
+
+937
+00:48:12,079 --> 00:48:18,480
+males are like aggressive. Males are the
+
+938
+00:48:15,599 --> 00:48:21,839
+uh evil in in h human animalist history.
+
+939
+00:48:18,480 --> 00:48:23,920
+You know the G von Russen [ __ ]
+
+940
+00:48:21,839 --> 00:48:26,960
+Okay. And lots of others. For example,
+
+941
+00:48:23,920 --> 00:48:30,079
+that Ruby on Rails guy
+
+942
+00:48:26,960 --> 00:48:32,960
+DHH. He goes by, you know, the short man
+
+943
+00:48:30,079 --> 00:48:34,559
+HDD or DH, you know, Ruby on Rails.
+
+944
+00:48:32,960 --> 00:48:37,440
+[ __ ]
+
+945
+00:48:34,559 --> 00:48:40,160
+Okay. So this because of my manner,
+
+946
+00:48:37,440 --> 00:48:42,880
+because the way I say things, you know,
+
+947
+00:48:40,160 --> 00:48:47,280
+disregard social norms and being very
+
+948
+00:48:42,880 --> 00:48:50,720
+extremely rude and uh post my opinions
+
+949
+00:48:47,280 --> 00:48:53,200
+in a strong way. That is why people
+
+950
+00:48:50,720 --> 00:48:55,280
+don't like me, okay? Because they think
+
+951
+00:48:53,200 --> 00:48:58,559
+I'm a troll.
+
+952
+00:48:55,280 --> 00:49:00,079
+Okay? But also many of my opinions, they
+
+953
+00:48:58,559 --> 00:49:02,880
+don't they don't get it because they are
+
+954
+00:49:00,079 --> 00:49:07,319
+just idiots. Like for example, the least
+
+955
+00:49:02,880 --> 00:49:07,319
+cons they don't understand because
+
+956
+00:49:07,680 --> 00:49:12,400
+um anyway that's up to debate. Okay,
+
+957
+00:49:10,000 --> 00:49:14,400
+whether my opinion is good or bad,
+
+958
+00:49:12,400 --> 00:49:17,119
+that's up to debate. But that's anyway
+
+959
+00:49:14,400 --> 00:49:21,119
+that's my description of why they call
+
+960
+00:49:17,119 --> 00:49:23,520
+me a troll. Okay, I don't enjoy I'm not
+
+961
+00:49:21,119 --> 00:49:26,800
+the way they think of typical troll or
+
+962
+00:49:23,520 --> 00:49:29,839
+prank. I I despise pranks. Okay. I don't
+
+963
+00:49:26,800 --> 00:49:32,400
+enjoy pranking like call someone you
+
+964
+00:49:29,839 --> 00:49:34,480
+know like you know these hackers you
+
+965
+00:49:32,400 --> 00:49:37,520
+know they call someone they don't know
+
+966
+00:49:34,480 --> 00:49:39,680
+who where you coming calling from and
+
+967
+00:49:37,520 --> 00:49:42,480
+pretend you are someone else you know
+
+968
+00:49:39,680 --> 00:49:45,920
+prank pranksters and troll I don't I
+
+969
+00:49:42,480 --> 00:49:51,079
+don't like those okay that's not me but
+
+970
+00:49:45,920 --> 00:49:51,079
+this white people idiots
+
+971
+00:49:51,359 --> 00:49:57,319
+okay anyway that's uh that's about that
+
+972
+00:49:57,760 --> 00:50:03,359
+uh another question
+
+973
+00:50:00,800 --> 00:50:05,920
+tell us what will happen in Middle East.
+
+974
+00:50:03,359 --> 00:50:07,839
+Okay, nobody knows. Okay, that's uh I
+
+975
+00:50:05,920 --> 00:50:12,599
+think I'm done for today and it's
+
+976
+00:50:07,839 --> 00:50:12,599
+already 50 minutes.
+
+977
+00:50:13,280 --> 00:50:19,760
+Uh because talking about Middle East
+
+978
+00:50:16,319 --> 00:50:23,520
+that's that's a big problem. You know
+
+979
+00:50:19,760 --> 00:50:27,280
+the YouTube going to ban me.
+
+980
+00:50:23,520 --> 00:50:30,400
+uh and more, you know, something,
+
+981
+00:50:27,280 --> 00:50:33,880
+you know, I'm I'm afraid to actually
+
+982
+00:50:30,400 --> 00:50:33,880
+talk about that.
+
+983
+00:50:39,440 --> 00:50:47,440
+ACP says, "Do I use a smartphone?" Yes,
+
+984
+00:50:43,200 --> 00:50:51,359
+I begin to have a smartphone in year
+
+985
+00:50:47,440 --> 00:50:54,000
+2000. Okay. before year I mean I mean in
+
+986
+00:50:51,359 --> 00:50:56,720
+year 2020
+
+987
+00:50:54,000 --> 00:50:59,200
+basically when the covid begin that's
+
+988
+00:50:56,720 --> 00:51:02,000
+when I started to have a smartphone
+
+989
+00:50:59,200 --> 00:51:03,760
+before that I don't know you know I
+
+990
+00:51:02,000 --> 00:51:05,920
+never
+
+991
+00:51:03,760 --> 00:51:10,440
+I don't have a smartphone okay so I
+
+992
+00:51:05,920 --> 00:51:10,440
+began to use one in 2020
+
+993
+00:51:11,599 --> 00:51:16,079
+so your question is you are saying I'm
+
+994
+00:51:14,240 --> 00:51:19,599
+thinking to switch to a less
+
+995
+00:51:16,079 --> 00:51:23,359
+sophisticated phone to reduce reliance
+
+996
+00:51:19,599 --> 00:51:25,200
+mobile apps. That's a good move. Okay. I
+
+997
+00:51:23,359 --> 00:51:28,000
+do use a smartphone but I'm very
+
+998
+00:51:25,200 --> 00:51:32,319
+reluctant. So I almost never use any
+
+999
+00:51:28,000 --> 00:51:36,880
+apps. So mostly my Twitter whatever I do
+
+1000
+00:51:32,319 --> 00:51:40,800
+is all on desktop. Okay. I use phone. It
+
+1001
+00:51:36,880 --> 00:51:43,680
+become it became necessary.
+
+1002
+00:51:40,800 --> 00:51:46,240
+Okay. Before year 2020 I don't have
+
+1003
+00:51:43,680 --> 00:51:48,640
+money to have a phone.
+
+1004
+00:51:46,240 --> 00:51:50,559
+Uh actually, you know, something like
+
+1005
+00:51:48,640 --> 00:51:53,760
+that. Okay. Year, you know, the year may
+
+1006
+00:51:50,559 --> 00:51:56,800
+be off a bit. So, I don't have money. I
+
+1007
+00:51:53,760 --> 00:51:58,880
+don't have like $30 a month. I don't
+
+1008
+00:51:56,800 --> 00:52:00,559
+have it.
+
+1009
+00:51:58,880 --> 00:52:04,720
+So, I don't have a phone. In fact, I
+
+1010
+00:52:00,559 --> 00:52:07,720
+don't even have a phone from about year
+
+1011
+00:52:04,720 --> 00:52:07,720
+20120.
+
+1012
+00:52:10,319 --> 00:52:16,800
+Not even a dumb phone because I don't
+
+1013
+00:52:12,800 --> 00:52:19,920
+have $10 to pay for it.
+
+1014
+00:52:16,800 --> 00:52:24,960
+That's how bad that's very bad period of
+
+1015
+00:52:19,920 --> 00:52:26,559
+my life. So, and also so yeah, I don't I
+
+1016
+00:52:24,960 --> 00:52:28,400
+don't use a phone and also the
+
+1017
+00:52:26,559 --> 00:52:31,440
+smartphone, you know, this got so many
+
+1018
+00:52:28,400 --> 00:52:34,400
+apps on it. I usually don't use it but
+
+1019
+00:52:31,440 --> 00:52:38,559
+it became it kind of became necessary
+
+1020
+00:52:34,400 --> 00:52:41,680
+you know because if you you know if you
+
+1021
+00:52:38,559 --> 00:52:44,079
+go out if you are lost you kind of need
+
+1022
+00:52:41,680 --> 00:52:47,040
+a phone and especially smartphone
+
+1023
+00:52:44,079 --> 00:52:49,119
+because the all the maps are on it you
+
+1024
+00:52:47,040 --> 00:52:52,400
+need a map you know if you are in a
+
+1025
+00:52:49,119 --> 00:52:54,720
+different city uh you need to call cabs
+
+1026
+00:52:52,400 --> 00:52:57,839
+you need to you know do banking or
+
+1027
+00:52:54,720 --> 00:53:00,240
+whatever it kind of become necessary
+
+1028
+00:52:57,839 --> 00:53:02,000
+because there's No public phone anymore,
+
+1029
+00:53:00,240 --> 00:53:03,599
+you know. Used to be in the 90s there's
+
+1030
+00:53:02,000 --> 00:53:05,920
+a public phone. You there's no know
+
+1031
+00:53:03,599 --> 00:53:08,880
+that. And they don't have maps anymore.
+
+1032
+00:53:05,920 --> 00:53:12,000
+I mean, if you want, you still can buy
+
+1033
+00:53:08,880 --> 00:53:14,640
+paper maps, but it's kind of nobody yet
+
+1034
+00:53:12,000 --> 00:53:18,079
+do that. So, you kind of need a phone
+
+1035
+00:53:14,640 --> 00:53:20,480
+today. So, but I I don't use it that
+
+1036
+00:53:18,079 --> 00:53:24,079
+much. I use it just for, you know,
+
+1037
+00:53:20,480 --> 00:53:26,800
+contact emergency map.
+
+1038
+00:53:24,079 --> 00:53:29,359
+Um, yeah.
+
+1039
+00:53:26,800 --> 00:53:34,760
+So I think that's it because I it's
+
+1040
+00:53:29,359 --> 00:53:34,760
+already one hour. Um let's see.
+
+1041
+00:53:35,359 --> 00:53:40,240
+Brew 3 says
+
+1042
+00:53:38,160 --> 00:53:43,280
+have you any experience with mapping
+
+1043
+00:53:40,240 --> 00:53:47,680
+projection onto spheres and unwrapping
+
+1044
+00:53:43,280 --> 00:53:50,640
+thereof? I saw a cool demo on Desmos
+
+1045
+00:53:47,680 --> 00:53:52,800
+website called wrapping UV sphere but
+
+1046
+00:53:50,640 --> 00:53:56,000
+I'm too dumb to understand. Well, okay.
+
+1047
+00:53:52,800 --> 00:53:59,599
+I can, you know, so I can tell you
+
+1048
+00:53:56,000 --> 00:54:02,079
+something about it. So this is about
+
+1049
+00:53:59,599 --> 00:54:05,240
+projection to a sphere. So if you just
+
+1050
+00:54:02,079 --> 00:54:05,240
+go to
+
+1051
+00:54:05,280 --> 00:54:10,960
+uh so I have one page about okay there's
+
+1052
+00:54:08,319 --> 00:54:15,200
+a few page. Okay. So let's go check them
+
+1053
+00:54:10,960 --> 00:54:18,079
+out. So there is stereographic
+
+1054
+00:54:15,200 --> 00:54:21,200
+projection. This is how you one of the
+
+1055
+00:54:18,079 --> 00:54:24,240
+way to project
+
+1056
+00:54:21,200 --> 00:54:27,440
+to map between a sphere and a plane.
+
+1057
+00:54:24,240 --> 00:54:29,440
+Okay. So you can see this visually. Uh
+
+1058
+00:54:27,440 --> 00:54:33,280
+actually we did this I think in a live
+
+1059
+00:54:29,440 --> 00:54:35,440
+stream two or three years ago in Wuan
+
+1060
+00:54:33,280 --> 00:54:38,800
+language code. So we can actually copy
+
+1061
+00:54:35,440 --> 00:54:42,720
+the code. Let's demo some technology.
+
+1062
+00:54:38,800 --> 00:54:46,240
+Okay. So paste it there. Run it. So you
+
+1063
+00:54:42,720 --> 00:54:49,440
+can see there there there and this you
+
+1064
+00:54:46,240 --> 00:54:53,599
+know made of lines of sphere then
+
+1065
+00:54:49,440 --> 00:54:55,839
+projected to a plan I mean we also draw
+
+1066
+00:54:53,599 --> 00:54:59,359
+a plan plane.
+
+1067
+00:54:55,839 --> 00:55:02,640
+Okay. Then then then then we started to
+
+1068
+00:54:59,359 --> 00:55:05,520
+color part of it.
+
+1069
+00:55:02,640 --> 00:55:07,200
+Then we start to project. So this is a
+
+1070
+00:55:05,520 --> 00:55:09,359
+visualization
+
+1071
+00:55:07,200 --> 00:55:12,720
+illustration. This is graphics
+
+1072
+00:55:09,359 --> 00:55:14,240
+programming in wam language. uh to
+
+1073
+00:55:12,720 --> 00:55:18,240
+illustrate
+
+1074
+00:55:14,240 --> 00:55:20,559
+the mechanism of stereographic
+
+1075
+00:55:18,240 --> 00:55:24,160
+projection. So this is one of the way
+
+1076
+00:55:20,559 --> 00:55:28,000
+okay one of the way to to map between a
+
+1077
+00:55:24,160 --> 00:55:30,640
+sphere and a plane.
+
+1078
+00:55:28,000 --> 00:55:32,800
+Okay. So in general if you want to map
+
+1079
+00:55:30,640 --> 00:55:35,760
+between two spaces that's called
+
+1080
+00:55:32,800 --> 00:55:39,680
+projection. I mean well
+
+1081
+00:55:35,760 --> 00:55:42,559
+a certain sub a certain subclass of map
+
+1082
+00:55:39,680 --> 00:55:45,359
+between two spaces is called projection.
+
+1083
+00:55:42,559 --> 00:55:47,760
+Now stereographic projection is one of
+
+1084
+00:55:45,359 --> 00:55:50,640
+the projections uh mapping between a
+
+1085
+00:55:47,760 --> 00:55:54,079
+sphere and a plane. So there's a lot
+
+1086
+00:55:50,640 --> 00:55:55,920
+others. Okay. So we can search map
+
+1087
+00:55:54,079 --> 00:55:58,880
+projection
+
+1088
+00:55:55,920 --> 00:56:01,520
+and it's get fairly complicated and very
+
+1089
+00:55:58,880 --> 00:56:04,720
+interesting. Okay. Wikipedia map
+
+1090
+00:56:01,520 --> 00:56:07,280
+projection. So you can see
+
+1091
+00:56:04,720 --> 00:56:09,599
+so Wikipedia you know goes through into
+
+1092
+00:56:07,280 --> 00:56:11,760
+detail. So if you want to study this you
+
+1093
+00:56:09,599 --> 00:56:16,000
+can spend half a year because there's
+
+1094
+00:56:11,760 --> 00:56:19,599
+many so this is pure ge geometry very
+
+1095
+00:56:16,000 --> 00:56:22,079
+interesting topic I have been wanting to
+
+1096
+00:56:19,599 --> 00:56:26,880
+fully understand this but I actually
+
+1097
+00:56:22,079 --> 00:56:29,599
+never did okay so I don't actually know
+
+1098
+00:56:26,880 --> 00:56:32,240
+the answer to your question. So but
+
+1099
+00:56:29,599 --> 00:56:33,760
+anyway I know the fundamentals. So
+
+1100
+00:56:32,240 --> 00:56:36,079
+anyway, so there are many different
+
+1101
+00:56:33,760 --> 00:56:38,640
+types of projection you can study in
+
+1102
+00:56:36,079 --> 00:56:41,680
+detail. One of the most popular for maps
+
+1103
+00:56:38,640 --> 00:56:45,839
+is called um
+
+1104
+00:56:41,680 --> 00:56:49,119
+uh is called this um
+
+1105
+00:56:45,839 --> 00:56:52,160
+stupid name. So Mecca Mecca something
+
+1106
+00:56:49,119 --> 00:56:55,760
+marta maka projection that's one of the
+
+1107
+00:56:52,160 --> 00:56:59,440
+popular one. Okay. So anyway, your goal
+
+1108
+00:56:55,760 --> 00:57:01,920
+is to map a sphere to a plane. uh it is
+
+1109
+00:56:59,440 --> 00:57:03,440
+impossible to to do it without
+
+1110
+00:57:01,920 --> 00:57:05,680
+distortion.
+
+1111
+00:57:03,440 --> 00:57:09,440
+So there are therefore there are many
+
+1112
+00:57:05,680 --> 00:57:12,079
+ways to do it but
+
+1113
+00:57:09,440 --> 00:57:13,440
+somewhat minimize the distortion like
+
+1114
+00:57:12,079 --> 00:57:15,040
+you can't you can't get rid of
+
+1115
+00:57:13,440 --> 00:57:18,079
+distortion. So anyway, so you got
+
+1116
+00:57:15,040 --> 00:57:20,960
+different you got cylindrical um
+
+1117
+00:57:18,079 --> 00:57:23,119
+projection, you got another different
+
+1118
+00:57:20,960 --> 00:57:26,079
+type of cylindrical projection and
+
+1119
+00:57:23,119 --> 00:57:28,400
+anyway so that
+
+1120
+00:57:26,079 --> 00:57:30,319
+so that's uh you know so that's the what
+
+1121
+00:57:28,400 --> 00:57:33,440
+the answer you are looking for different
+
+1122
+00:57:30,319 --> 00:57:36,559
+types of projections okay I don't really
+
+1123
+00:57:33,440 --> 00:57:39,680
+understand it fully okay so but it's a
+
+1124
+00:57:36,559 --> 00:57:39,680
+very interesting topic
+
+1125
+00:57:48,319 --> 00:57:54,720
+The only projection I know is this
+
+1126
+00:57:51,839 --> 00:57:57,359
+stereographic projection.
+
+1127
+00:57:54,720 --> 00:58:00,319
+Uh if you are into mathematics and
+
+1128
+00:57:57,359 --> 00:58:04,880
+geometry, this is the most important
+
+1129
+00:58:00,319 --> 00:58:08,079
+because this relates to the whole field
+
+1130
+00:58:04,880 --> 00:58:11,599
+of complex analysis. Okay, complex
+
+1131
+00:58:08,079 --> 00:58:14,640
+numbers then you got into you know so so
+
+1132
+00:58:11,599 --> 00:58:16,960
+this so you can look up this is called
+
+1133
+00:58:14,640 --> 00:58:18,880
+Raymon sphere
+
+1134
+00:58:16,960 --> 00:58:20,960
+anyway so
+
+1135
+00:58:18,880 --> 00:58:22,880
+so if you are into math you know
+
+1136
+00:58:20,960 --> 00:58:25,880
+stereographic projection is the most
+
+1137
+00:58:22,880 --> 00:58:25,880
+important
+
+1138
+00:58:27,119 --> 00:58:31,119
+so let's see next question so I think
+
+1139
+00:58:29,200 --> 00:58:33,440
+that's it for today so thank you guys
+
+1140
+00:58:31,119 --> 00:58:37,760
+for watching
+
+1141
+00:58:33,440 --> 00:58:40,760
+am I doing good is my video rolling
+
+1142
+00:58:37,760 --> 00:58:40,760
+Okay.
+
+1143
+00:58:53,920 --> 00:59:01,520
+My grandfather said every girl is same
+
+1144
+00:58:57,119 --> 00:59:04,000
+when lights is turned off.
+
+1145
+00:59:01,520 --> 00:59:05,839
+India has thousands of years of history.
+
+1146
+00:59:04,000 --> 00:59:08,640
+Sir.
+
+1147
+00:59:05,839 --> 00:59:12,799
+Yeah, I know. I know that. Hamas, but I
+
+1148
+00:59:08,640 --> 00:59:16,480
+mean so does Greek. So does China. So
+
+1149
+00:59:12,799 --> 00:59:19,599
+does, you know, Middle East countries.
+
+1150
+00:59:16,480 --> 00:59:22,799
+Uh so does Egypt.
+
+1151
+00:59:19,599 --> 00:59:26,000
+But I mean India, I mean, you know, so
+
+1152
+00:59:22,799 --> 00:59:28,000
+you got you guys got to work um you
+
+1153
+00:59:26,000 --> 00:59:30,720
+know, if you want to make India great
+
+1154
+00:59:28,000 --> 00:59:34,960
+again.
+
+1155
+00:59:30,720 --> 00:59:34,960
+I I think you know. Okay.
+
+1156
+00:59:35,359 --> 00:59:41,119
+Uh, the tranquil young says, "Hi, I
+
+1157
+00:59:39,119 --> 00:59:44,000
+always like the vibe with your stream."
+
+1158
+00:59:41,119 --> 00:59:46,160
+Thank you. Just curious what you doing
+
+1159
+00:59:44,000 --> 00:59:48,720
+for living. I'm doing nothing for a
+
+1160
+00:59:46,160 --> 00:59:52,559
+living. That's the honest question.
+
+1161
+00:59:48,720 --> 00:59:55,839
+Okay. So, I'm not retired.
+
+1162
+00:59:52,559 --> 00:59:58,880
+Um, well, if you know a bit of my
+
+1163
+00:59:55,839 --> 01:00:03,200
+history, I was, you know,
+
+1164
+00:59:58,880 --> 01:00:06,720
+dying of hunger. So anyway, I just um
+
+1165
+01:00:03,200 --> 01:00:09,680
+I don't have money. Okay.
+
+1166
+01:00:06,720 --> 01:00:12,319
+Uh
+
+1167
+01:00:09,680 --> 01:00:17,680
+we are divided by language and religion.
+
+1168
+01:00:12,319 --> 01:00:21,040
+Hi. Hi. Do you like pure poor tea? Yes,
+
+1169
+01:00:17,680 --> 01:00:25,040
+I'm a lisper. Okay. Uh another idiot
+
+1170
+01:00:21,040 --> 01:00:26,799
+here by many categorizations of this
+
+1171
+01:00:25,040 --> 01:00:29,680
+channel. Haha. Writing this
+
+1172
+01:00:26,799 --> 01:00:32,480
+professionally. Fantastic.
+
+1173
+01:00:29,680 --> 01:00:35,599
+Lucky you.
+
+1174
+01:00:32,480 --> 01:00:37,200
+Very cool, Rudy. I've been Okay, that's
+
+1175
+01:00:35,599 --> 01:00:40,720
+it.
+
+1176
+01:00:37,200 --> 01:00:44,079
+Bye, guys. Anything else? Your last
+
+1177
+01:00:40,720 --> 01:00:47,400
+chance. We've have been talking for an
+
+1178
+01:00:44,079 --> 01:00:47,400
+hour now.
+
+1179
+01:00:54,000 --> 01:00:59,760
+So by after you know tomorrow or next
+
+1180
+01:00:57,839 --> 01:01:03,599
+few days we going to come back to the
+
+1181
+01:00:59,760 --> 01:01:06,400
+topic of this coloring of mathematical
+
+1182
+01:01:03,599 --> 01:01:08,400
+functions. Fascinating subject because
+
+1183
+01:01:06,400 --> 01:01:11,839
+you got different lighting. Oh let me
+
+1184
+01:01:08,400 --> 01:01:15,760
+summarize it a bit here. Okay.
+
+1185
+01:01:11,839 --> 01:01:18,160
+So what determines the color of a of a
+
+1186
+01:01:15,760 --> 01:01:21,200
+mathematical surface? You know, so there
+
+1187
+01:01:18,160 --> 01:01:23,760
+are many ways there's intrinsic color of
+
+1188
+01:01:21,200 --> 01:01:26,000
+the surface like you can put a color on
+
+1189
+01:01:23,760 --> 01:01:29,440
+each one of these squares, you know,
+
+1190
+01:01:26,000 --> 01:01:32,160
+intrinsic color and there's lighting.
+
+1191
+01:01:29,440 --> 01:01:34,240
+Okay. Now the intrinsic color like you
+
+1192
+01:01:32,160 --> 01:01:35,760
+know what is the color of your pen? What
+
+1193
+01:01:34,240 --> 01:01:38,240
+is the color of your keyboard? You know
+
+1194
+01:01:35,760 --> 01:01:41,599
+there are many different types.
+
+1195
+01:01:38,240 --> 01:01:43,839
+So there is
+
+1196
+01:01:41,599 --> 01:01:47,040
+transparency. You know first of all you
+
+1197
+01:01:43,839 --> 01:01:50,559
+got transparency like a glass. So you
+
+1198
+01:01:47,040 --> 01:01:53,520
+can make a object transparent to various
+
+1199
+01:01:50,559 --> 01:01:56,000
+degrees. Okay. Then you got diffuse
+
+1200
+01:01:53,520 --> 01:01:59,040
+color which is most popular almost
+
+1201
+01:01:56,000 --> 01:02:00,799
+everything you see uh my keyboard and
+
+1202
+01:01:59,040 --> 01:02:03,680
+you know that's diffuse color they
+
+1203
+01:02:00,799 --> 01:02:06,240
+reflect color. Okay. And you know so you
+
+1204
+01:02:03,680 --> 01:02:09,359
+got white keys you this is black this is
+
+1205
+01:02:06,240 --> 01:02:12,720
+red uh this is you know this book is
+
+1206
+01:02:09,359 --> 01:02:14,720
+blue. You got different colors.
+
+1207
+01:02:12,720 --> 01:02:16,480
+Then you can have glowing colors. So
+
+1208
+01:02:14,720 --> 01:02:19,200
+what's what's the example? You see the
+
+1209
+01:02:16,480 --> 01:02:23,200
+lead let lead lights here that's
+
+1210
+01:02:19,200 --> 01:02:25,280
+glowing. So a thing can glow and they
+
+1211
+01:02:23,200 --> 01:02:28,960
+can have different colors. Okay. So a
+
+1212
+01:02:25,280 --> 01:02:31,760
+glow will also affect what you perceive
+
+1213
+01:02:28,960 --> 01:02:34,480
+as the color of a thing. Okay. So these
+
+1214
+01:02:31,760 --> 01:02:38,319
+lights are glowing. So if actually I can
+
+1215
+01:02:34,480 --> 01:02:40,640
+change like can you see
+
+1216
+01:02:38,319 --> 01:02:43,680
+this is my ultimate hacking keyboard.
+
+1217
+01:02:40,640 --> 01:02:46,160
+Okay. I cannot take it. It's hard to
+
+1218
+01:02:43,680 --> 01:02:48,319
+move.
+
+1219
+01:02:46,160 --> 01:02:50,160
+So you see I press this button they
+
+1220
+01:02:48,319 --> 01:02:53,040
+change light. You see that's you see
+
+1221
+01:02:50,160 --> 01:02:55,920
+that this light that's glowing. Okay. So
+
+1222
+01:02:53,040 --> 01:03:00,799
+I can press this button. You see that's
+
+1223
+01:02:55,920 --> 01:03:03,520
+white, red, blue. Okay. That's glowing
+
+1224
+01:03:00,799 --> 01:03:05,200
+color. Okay. So you got then you got
+
+1225
+01:03:03,520 --> 01:03:08,400
+specularity
+
+1226
+01:03:05,200 --> 01:03:11,839
+which is like a metal
+
+1227
+01:03:08,400 --> 01:03:15,200
+a shiny metal. It kind of reflects.
+
+1228
+01:03:11,839 --> 01:03:18,680
+Okay. So you see so all these aspects
+
+1229
+01:03:15,200 --> 01:03:18,680
+you know transparency
+
+1230
+01:03:20,240 --> 01:03:23,240
+transparency
+
+1231
+01:03:23,280 --> 01:03:28,079
+specularity
+
+1232
+01:03:24,960 --> 01:03:32,640
+or diffuse color
+
+1233
+01:03:28,079 --> 01:03:34,240
+you know this is you know transparency
+
+1234
+01:03:32,640 --> 01:03:37,680
+specularity
+
+1235
+01:03:34,240 --> 01:03:42,079
+diffused color then you got uh glowing
+
+1236
+01:03:37,680 --> 01:03:44,559
+color okay so they all affect
+
+1237
+01:03:42,079 --> 01:03:47,920
+How something the color of something.
+
+1238
+01:03:44,559 --> 01:03:52,559
+Okay. So that is the intrinsic color of
+
+1239
+01:03:47,920 --> 01:03:54,160
+a object. Okay. Then you got lighting
+
+1240
+01:03:52,559 --> 01:03:56,799
+you know. So lighting you can have
+
+1241
+01:03:54,160 --> 01:04:00,799
+different light source and they can be
+
+1242
+01:03:56,799 --> 01:04:04,160
+many types. You have like parallel light
+
+1243
+01:04:00,799 --> 01:04:06,400
+like sunlight you know from parallel you
+
+1244
+01:04:04,160 --> 01:04:10,480
+know from one direction or parallel or
+
+1245
+01:04:06,400 --> 01:04:12,640
+you can have um you can have spotlight
+
+1246
+01:04:10,480 --> 01:04:15,440
+you know like in a football stadium
+
+1247
+01:04:12,640 --> 01:04:17,039
+spotlight from one direction.
+
+1248
+01:04:15,440 --> 01:04:19,920
+Uh
+
+1249
+01:04:17,039 --> 01:04:22,720
+then you can have uh
+
+1250
+01:04:19,920 --> 01:04:25,760
+you can have a light bulb light bulb
+
+1251
+01:04:22,720 --> 01:04:28,160
+light you know it radiate from radiates
+
+1252
+01:04:25,760 --> 01:04:29,920
+from one point then you can have
+
+1253
+01:04:28,160 --> 01:04:32,960
+flashlight like outside of the
+
+1254
+01:04:29,920 --> 01:04:35,599
+flashlight it's totally dark then you
+
+1255
+01:04:32,960 --> 01:04:40,079
+can have ambient light. Ambient light is
+
+1256
+01:04:35,599 --> 01:04:42,079
+like a in a well lit room you know you
+
+1257
+01:04:40,079 --> 01:04:44,799
+have light like all over they don't they
+
+1258
+01:04:42,079 --> 01:04:46,559
+don't cast shadows much
+
+1259
+01:04:44,799 --> 01:04:48,640
+so you have different this different
+
+1260
+01:04:46,559 --> 01:04:51,680
+types of light source you can have more
+
+1261
+01:04:48,640 --> 01:04:54,079
+than one they interact and each light
+
+1262
+01:04:51,680 --> 01:04:55,680
+source can have different color you know
+
+1263
+01:04:54,079 --> 01:04:59,440
+you can have red light blue light you
+
+1264
+01:04:55,680 --> 01:05:03,119
+know so so that all affect that interact
+
+1265
+01:04:59,440 --> 01:05:07,680
+with the intrinsic color of the thing
+
+1266
+01:05:03,119 --> 01:05:11,119
+Okay. So in wam language if you want to
+
+1267
+01:05:07,680 --> 01:05:14,319
+so you can have like you can specify
+
+1268
+01:05:11,119 --> 01:05:17,039
+each and every one of these variations.
+
+1269
+01:05:14,319 --> 01:05:19,520
+So they affect how
+
+1270
+01:05:17,039 --> 01:05:21,520
+how how the things you know looks you
+
+1271
+01:05:19,520 --> 01:05:26,000
+know it can be partially transparent and
+
+1272
+01:05:21,520 --> 01:05:27,920
+so on or shiny. Okay that's what I was
+
+1273
+01:05:26,000 --> 01:05:30,640
+going to talk about. So, I'm going to
+
+1274
+01:05:27,920 --> 01:05:32,400
+talk about this next.
+
+1275
+01:05:30,640 --> 01:05:35,400
+Um,
+
+1276
+01:05:32,400 --> 01:05:35,400
+okay.
+
+1277
+01:05:36,880 --> 01:05:39,880
+Bye.
+
+1278
+01:05:40,240 --> 01:05:44,960
+Uh, thanks for the stream. Bye. Have a
+
+1279
+01:05:42,400 --> 01:05:48,720
+good day. Do you exercise regularly? No,
+
+1280
+01:05:44,960 --> 01:05:50,960
+I haven't done for like over 10 years,
+
+1281
+01:05:48,720 --> 01:05:55,559
+but now I just do like some little
+
+1282
+01:05:50,960 --> 01:05:55,559
+push-ups and stuff.
+
+1283
+01:05:56,160 --> 01:06:03,039
+Uh yeah, I used to like throughout my
+
+1284
+01:05:58,960 --> 01:06:05,680
+life I used to be at the level of
+
+1285
+01:06:03,039 --> 01:06:09,440
+competitive athletics.
+
+1286
+01:06:05,680 --> 01:06:12,319
+So I do figure skating, I do swimming. I
+
+1287
+01:06:09,440 --> 01:06:16,720
+was in a swimming team when I was in
+
+1288
+01:06:12,319 --> 01:06:19,920
+college when I was like 22 something.
+
+1289
+01:06:16,720 --> 01:06:23,359
+And I do like figure I mean like
+
+1290
+01:06:19,920 --> 01:06:25,680
+rollerblade. I hold on to cars, you
+
+1291
+01:06:23,359 --> 01:06:28,720
+know, on the street, you know. I I did
+
+1292
+01:06:25,680 --> 01:06:33,720
+that when I was even 30 something.
+
+1293
+01:06:28,720 --> 01:06:33,720
+Anyway, I haven't been. Okay, bye.
+

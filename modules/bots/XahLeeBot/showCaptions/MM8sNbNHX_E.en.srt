@@ -1,0 +1,3800 @@
+1
+00:00:05,120 --> 00:00:10,519
+hello guys welcome to another episode
+
+2
+00:00:07,560 --> 00:00:15,800
+OFA talk show today we are going to code
+
+3
+00:00:10,519 --> 00:00:20,000
+emac lisp we are going to write a uh a
+
+4
+00:00:15,800 --> 00:00:23,599
+function that creates a key map like vak
+
+5
+00:00:20,000 --> 00:00:26,000
+to Cy to vorak to comac and so on so
+
+6
+00:00:23,599 --> 00:00:28,880
+let's begin let me show you guys so
+
+7
+00:00:26,000 --> 00:00:32,399
+here's my keyboard This is glove 80 the
+
+8
+00:00:28,880 --> 00:00:36,440
+best keyboard there is uh can you guys
+
+9
+00:00:32,399 --> 00:00:40,360
+see me so here is a G8 fantastic search
+
+10
+00:00:36,440 --> 00:00:44,600
+my YouTube or my website c.in info
+
+11
+00:00:40,360 --> 00:00:47,440
+you'll find reviews and this is Ultimate
+
+12
+00:00:44,600 --> 00:00:51,160
+hacking keyboard version to fantastic
+
+13
+00:00:47,440 --> 00:00:55,800
+and this is going to be my favorite s
+
+14
+00:00:51,160 --> 00:01:01,359
+board SV a l b o a r d data
+
+15
+00:00:55,800 --> 00:01:05,320
+hand so but today let's begin coding
+
+16
+00:01:01,359 --> 00:01:08,280
+eacp okay so let's go to SW uh switch
+
+17
+00:01:05,320 --> 00:01:10,200
+screen so you can see okay let me uh
+
+18
+00:01:08,280 --> 00:01:12,640
+tell you what we're going to do so
+
+19
+00:01:10,200 --> 00:01:16,280
+yesterday we did a
+
+20
+00:01:12,640 --> 00:01:19,200
+ASMR edition of writing JavaScript to
+
+21
+00:01:16,280 --> 00:01:20,920
+create this keyboard layout so you can
+
+22
+00:01:19,200 --> 00:01:24,200
+see here's a
+
+23
+00:01:20,920 --> 00:01:26,799
+keyboard uh and quy and you can change
+
+24
+00:01:24,200 --> 00:01:29,159
+to vak that's a heat map the bigger the
+
+25
+00:01:26,799 --> 00:01:32,840
+circle means that letter is used more
+
+26
+00:01:29,159 --> 00:01:35,399
+often so quy vorak
+
+27
+00:01:32,840 --> 00:01:42,759
+KAC qfm
+
+28
+00:01:35,399 --> 00:01:48,320
+lwy Workman Norman KAC DH bco 15
+
+29
+00:01:42,759 --> 00:01:52,640
+homac in grar mini MAAC and so on Okay
+
+30
+00:01:48,320 --> 00:01:54,719
+so yesterday we wrote a uh we so we we
+
+31
+00:01:52,640 --> 00:01:57,880
+wrote the function for JavaScript today
+
+32
+00:01:54,719 --> 00:02:01,360
+we're going to write it in emac
+
+33
+00:01:57,880 --> 00:02:03,960
+this uh so I'm using flly Keys why do we
+
+34
+00:02:01,360 --> 00:02:06,280
+need to write it let me show you so I'm
+
+35
+00:02:03,960 --> 00:02:09,679
+going to explain uh what are we going to
+
+36
+00:02:06,280 --> 00:02:12,120
+do okay so here's sofly Keys which is a
+
+37
+00:02:09,679 --> 00:02:15,640
+key binding system for emac you can find
+
+38
+00:02:12,120 --> 00:02:18,000
+it if you don't know yet you can find it
+
+39
+00:02:15,640 --> 00:02:20,680
+on my website Sly
+
+40
+00:02:18,000 --> 00:02:25,160
+Keys uh okay
+
+41
+00:02:20,680 --> 00:02:29,920
+so in order to have you know so we so
+
+42
+00:02:25,160 --> 00:02:32,440
+this soft like key supports Cy vak uh
+
+43
+00:02:29,920 --> 00:02:36,000
+Pac and a bunch of others lots of
+
+44
+00:02:32,440 --> 00:02:39,440
+supports like tens of layouts 10 layout
+
+45
+00:02:36,000 --> 00:02:44,200
+also so you see so that's all the layout
+
+46
+00:02:39,440 --> 00:02:49,040
+is supports and including uh weird ones
+
+47
+00:02:44,200 --> 00:02:52,319
+Co neo2 Norman programmable ra PT navito
+
+48
+00:02:49,040 --> 00:02:57,200
+which is a efficient layout for POI Keys
+
+49
+00:02:52,319 --> 00:03:01,360
+using Brazil so yes quy there quy a and
+
+50
+00:02:57,200 --> 00:03:05,560
+t actually I forgot what that is is uh
+
+51
+00:03:01,360 --> 00:03:08,400
+quy Norwegian and quartz and Workman so
+
+52
+00:03:05,560 --> 00:03:11,560
+in order to have this layout you need a
+
+53
+00:03:08,400 --> 00:03:14,000
+you need a like a dictionary or hash
+
+54
+00:03:11,560 --> 00:03:19,080
+table that converts the key like what is
+
+55
+00:03:14,000 --> 00:03:21,879
+the key e on quy what is it in vorak so
+
+56
+00:03:19,080 --> 00:03:24,599
+we need to have lots of code for that so
+
+57
+00:03:21,879 --> 00:03:28,959
+let's go to so let's uh
+
+58
+00:03:24,599 --> 00:03:33,080
+let's let's search okay so search for DV
+
+59
+00:03:28,959 --> 00:03:36,799
+o r a okay VX search for it so there
+
+60
+00:03:33,080 --> 00:03:40,400
+there it is so you can
+
+61
+00:03:36,799 --> 00:03:45,040
+see we need to have lots of these tables
+
+62
+00:03:40,400 --> 00:03:48,640
+so this is from quy to oer oer use is
+
+63
+00:03:45,040 --> 00:03:52,879
+used in France and I believe France
+
+64
+00:03:48,640 --> 00:03:56,720
+Belgium uh other TB used in
+
+65
+00:03:52,879 --> 00:03:59,879
+Germany so here's comac so comac here's
+
+66
+00:03:56,720 --> 00:04:03,439
+comac DH dhm
+
+67
+00:03:59,879 --> 00:04:05,840
+comac dhk oh comac has a lot variations
+
+68
+00:04:03,439 --> 00:04:08,879
+so you need this
+
+69
+00:04:05,840 --> 00:04:11,280
+um you need this dictionaries in order
+
+70
+00:04:08,879 --> 00:04:12,280
+to convert to know which keys to convert
+
+71
+00:04:11,280 --> 00:04:15,560
+to
+
+72
+00:04:12,280 --> 00:04:18,799
+which but so if we are going to add a
+
+73
+00:04:15,560 --> 00:04:22,800
+new layout for Sly Keys it's kind of
+
+74
+00:04:18,799 --> 00:04:25,199
+tedious to create this uh this this
+
+75
+00:04:22,800 --> 00:04:30,160
+dictionary so what we going to do
+
+76
+00:04:25,199 --> 00:04:34,240
+instead we are going to use um
+
+77
+00:04:30,160 --> 00:04:36,320
+uh a technique of asky layout so let me
+
+78
+00:04:34,240 --> 00:04:38,840
+show you that's what we did yesterday
+
+79
+00:04:36,320 --> 00:04:43,479
+for JavaScript so instead of a
+
+80
+00:04:38,840 --> 00:04:47,840
+dictionary like that you simply do you
+
+81
+00:04:43,479 --> 00:04:51,160
+create this asky map so for example this
+
+82
+00:04:47,840 --> 00:04:53,759
+is quy you know it's just a string
+
+83
+00:04:51,160 --> 00:04:57,520
+visual layout then you create another
+
+84
+00:04:53,759 --> 00:05:00,160
+one for example comac DH like that then
+
+85
+00:04:57,520 --> 00:05:02,240
+you simply have a function that go
+
+86
+00:05:00,160 --> 00:05:06,280
+through these two strings and map each
+
+87
+00:05:02,240 --> 00:05:09,160
+key to to each letter to each letter and
+
+88
+00:05:06,280 --> 00:05:11,520
+you it will return a dictionary like
+
+89
+00:05:09,160 --> 00:05:14,039
+that so this is
+
+90
+00:05:11,520 --> 00:05:17,800
+Javascript and uh we are going to do it
+
+91
+00:05:14,039 --> 00:05:19,880
+for emac lisp okay so let's make a
+
+92
+00:05:17,800 --> 00:05:24,000
+backup of this file let's begin coding
+
+93
+00:05:19,880 --> 00:05:29,479
+it refresh and uh and uh let's rename
+
+94
+00:05:24,000 --> 00:05:33,120
+this to eel eel for emac disp okay so
+
+95
+00:05:29,479 --> 00:05:36,479
+this this is a e file now emac this so
+
+96
+00:05:33,120 --> 00:05:39,120
+uh if you have a questions comments oh
+
+97
+00:05:36,479 --> 00:05:42,560
+we have quite a few let's pop out the
+
+98
+00:05:39,120 --> 00:05:47,160
+chat uh if you have any emac related
+
+99
+00:05:42,560 --> 00:05:51,199
+questions today uh it's ask me uh answer
+
+100
+00:05:47,160 --> 00:05:53,880
+okay UTF let's declare the lexical
+
+101
+00:05:51,199 --> 00:05:57,560
+binding uh so we need to write the
+
+102
+00:05:53,880 --> 00:06:00,800
+function um okay this is Javascript uh
+
+103
+00:05:57,560 --> 00:06:05,120
+we don't we don't want you know uh so
+
+104
+00:06:00,800 --> 00:06:07,440
+let's let me let me just do this so that
+
+105
+00:06:05,120 --> 00:06:07,440
+we
+
+106
+00:06:08,360 --> 00:06:15,919
+have in case we need to uh we want to
+
+107
+00:06:12,160 --> 00:06:18,400
+revisit so anyway so so EAC is so we
+
+108
+00:06:15,919 --> 00:06:22,120
+want to write this function so Define a
+
+109
+00:06:18,400 --> 00:06:23,919
+function and let's just name it uh s
+
+110
+00:06:22,120 --> 00:06:28,560
+create layout
+
+111
+00:06:23,919 --> 00:06:33,919
+map and this function will take layout
+
+112
+00:06:28,560 --> 00:06:39,199
+one takes two layout as argument ask Art
+
+113
+00:06:33,919 --> 00:06:42,680
+in the form of asky art version today
+
+114
+00:06:39,199 --> 00:06:46,360
+State okay let's let's quickly write the
+
+115
+00:06:42,680 --> 00:06:48,160
+documentation takes two strings layout
+
+116
+00:06:46,360 --> 00:06:52,880
+one and layout
+
+117
+00:06:48,160 --> 00:06:55,880
+two they are in sard
+
+118
+00:06:52,880 --> 00:06:55,880
+form
+
+119
+00:06:57,039 --> 00:07:03,440
+return a what should we return the data
+
+120
+00:07:01,120 --> 00:07:05,639
+structure it should it be hash table or
+
+121
+00:07:03,440 --> 00:07:09,199
+should it be uh
+
+122
+00:07:05,639 --> 00:07:13,199
+associate associative array because in
+
+123
+00:07:09,199 --> 00:07:16,800
+EAC lisp you have two kind
+
+124
+00:07:13,199 --> 00:07:21,639
+of uh data structure
+
+125
+00:07:16,800 --> 00:07:25,840
+for for uh a collection of pairs key
+
+126
+00:07:21,639 --> 00:07:29,599
+value pairs so let's go to let's go to
+
+127
+00:07:25,840 --> 00:07:32,199
+Sly Keys let's see push looks like okay
+
+128
+00:07:29,599 --> 00:07:34,280
+they are associative arrays okay let's
+
+129
+00:07:32,199 --> 00:07:38,080
+let's do
+
+130
+00:07:34,280 --> 00:07:42,240
+that return a associative list it's
+
+131
+00:07:38,080 --> 00:07:46,039
+called associative list in emac okay CH
+
+132
+00:07:42,240 --> 00:07:49,440
+thank you AV sbq what is a question
+
+133
+00:07:46,039 --> 00:07:51,440
+thoughts on speech to text dictation
+
+134
+00:07:49,440 --> 00:07:53,960
+worthwhile uh okay that's very
+
+135
+00:07:51,440 --> 00:07:57,000
+interesting question I had my first
+
+136
+00:07:53,960 --> 00:08:01,400
+experience about 10 years ago I tried
+
+137
+00:07:57,000 --> 00:08:04,960
+the Microsoft buin text speech in fact
+
+138
+00:08:01,400 --> 00:08:08,520
+we can use it right now uh let's see
+
+139
+00:08:04,960 --> 00:08:10,840
+voice recorder uh I don't use it I don't
+
+140
+00:08:08,520 --> 00:08:14,199
+use it much I sometimes use it on my
+
+141
+00:08:10,840 --> 00:08:16,120
+laptop on the Windows machine so I tried
+
+142
+00:08:14,199 --> 00:08:18,960
+it 10 years ago so
+
+143
+00:08:16,120 --> 00:08:24,159
+basically if you are going to do voice
+
+144
+00:08:18,960 --> 00:08:27,599
+to voice to text okay the text dictation
+
+145
+00:08:24,159 --> 00:08:30,280
+and if you are speaking if your speech
+
+146
+00:08:27,599 --> 00:08:34,000
+is a normal speech like hi Mom how are
+
+147
+00:08:30,280 --> 00:08:35,399
+you today oh happy happy birthday Mom uh
+
+148
+00:08:34,000 --> 00:08:37,039
+we going to go shopping today are we
+
+149
+00:08:35,399 --> 00:08:39,599
+going to go shopping today things like
+
+150
+00:08:37,039 --> 00:08:43,159
+that then it's very
+
+151
+00:08:39,599 --> 00:08:45,959
+good so Microsoft and Reaper Reaper
+
+152
+00:08:43,159 --> 00:08:48,560
+showed us this this the I can't find it
+
+153
+00:08:45,959 --> 00:08:51,200
+now but there's another URL which is
+
+154
+00:08:48,560 --> 00:08:54,000
+better than Microsoft and Apple I
+
+155
+00:08:51,200 --> 00:08:56,200
+believe is very good so I mean you guys
+
+156
+00:08:54,000 --> 00:08:58,880
+younger people using the phone all the
+
+157
+00:08:56,200 --> 00:09:03,000
+time you know it's good it's it's very
+
+158
+00:08:58,880 --> 00:09:06,959
+good you know Apple so but so but if you
+
+159
+00:09:03,000 --> 00:09:10,200
+are if the things you want to say is
+
+160
+00:09:06,959 --> 00:09:14,000
+unusual and uh like for example coding
+
+161
+00:09:10,200 --> 00:09:16,720
+or um coding is a entire different
+
+162
+00:09:14,000 --> 00:09:18,600
+story so but if the things you want to
+
+163
+00:09:16,720 --> 00:09:22,760
+say for example usually I want to talk
+
+164
+00:09:18,600 --> 00:09:25,120
+about things uh and for example zumas
+
+165
+00:09:22,760 --> 00:09:27,880
+you know Zuma forchan type of people
+
+166
+00:09:25,120 --> 00:09:32,839
+they like to say a lot of joggin like
+
+167
+00:09:27,880 --> 00:09:34,279
+Chad you know had and uh you know I I
+
+168
+00:09:32,839 --> 00:09:36,959
+don't I don't want to mention it but you
+
+169
+00:09:34,279 --> 00:09:40,600
+know lots of Jons of these younger
+
+170
+00:09:36,959 --> 00:09:43,839
+people then text to speech you will have
+
+171
+00:09:40,600 --> 00:09:46,279
+problem you know like yeah the other
+
+172
+00:09:43,839 --> 00:09:50,200
+actually I I I did a recording about one
+
+173
+00:09:46,279 --> 00:09:54,279
+time I wanted to say red skin you know
+
+174
+00:09:50,200 --> 00:09:57,160
+I'm Yow you know to describe
+
+175
+00:09:54,279 --> 00:10:00,720
+people ra kind of race so you have white
+
+176
+00:09:57,160 --> 00:10:04,880
+people which is very well
+
+177
+00:10:00,720 --> 00:10:07,240
+accepted but you and black people but
+
+178
+00:10:04,880 --> 00:10:10,120
+but they they you have just call them
+
+179
+00:10:07,240 --> 00:10:12,920
+African Americans you know it's it's
+
+180
+00:10:10,120 --> 00:10:16,160
+it's it's another story but okay anyway
+
+181
+00:10:12,920 --> 00:10:19,279
+red skin yellow skin okay so I'm yellow
+
+182
+00:10:16,160 --> 00:10:22,200
+skin you know so using skin to describe
+
+183
+00:10:19,279 --> 00:10:24,959
+people is very efficient it's very
+
+184
+00:10:22,200 --> 00:10:28,279
+natural so anyway one one time I want to
+
+185
+00:10:24,959 --> 00:10:31,000
+record you know text to speech you know
+
+186
+00:10:28,279 --> 00:10:36,360
+I was saying red skin but it cannot you
+
+187
+00:10:31,000 --> 00:10:40,760
+know after repeated the red skin red
+
+188
+00:10:36,360 --> 00:10:44,040
+skin red skin you know I I try to say
+
+189
+00:10:40,760 --> 00:10:47,880
+the word 10 times it can it it it it's
+
+190
+00:10:44,040 --> 00:10:50,800
+like it cannot just type it
+
+191
+00:10:47,880 --> 00:10:55,200
+out so that's an issue okay so that's a
+
+192
+00:10:50,800 --> 00:10:58,720
+issue when you want to use text to
+
+193
+00:10:55,200 --> 00:11:00,880
+speech uh so there's you know there's
+
+194
+00:10:58,720 --> 00:11:03,800
+kind of know they they they they want to
+
+195
+00:11:00,880 --> 00:11:06,519
+try to prevent you saying words they
+
+196
+00:11:03,800 --> 00:11:07,560
+don't want you to say things like that
+
+197
+00:11:06,519 --> 00:11:10,880
+so anyway
+
+198
+00:11:07,560 --> 00:11:13,040
+uncoding um well we should get back to
+
+199
+00:11:10,880 --> 00:11:18,720
+the emac this coding because I want to
+
+200
+00:11:13,040 --> 00:11:21,120
+do that quickly uh so oncode so uh so
+
+201
+00:11:18,720 --> 00:11:24,839
+there is a famous
+
+202
+00:11:21,120 --> 00:11:27,880
+uh python coder in year
+
+203
+00:11:24,839 --> 00:11:30,360
+2013 so this is a python conference you
+
+204
+00:11:27,880 --> 00:11:33,160
+search it you'll find it first input for
+
+205
+00:11:30,360 --> 00:11:37,639
+programming year 2013 and this guy's
+
+206
+00:11:33,160 --> 00:11:40,440
+name is uh is
+
+207
+00:11:37,639 --> 00:11:44,760
+um you know was very
+
+208
+00:11:40,440 --> 00:11:47,720
+popular so this is 10 years ago Tavis R
+
+209
+00:11:44,760 --> 00:11:49,959
+he got injury to his hand so he started
+
+210
+00:11:47,720 --> 00:11:52,720
+to do voice recording basically he
+
+211
+00:11:49,959 --> 00:11:56,040
+created a system so you can watch the
+
+212
+00:11:52,720 --> 00:12:00,079
+video he demon that
+
+213
+00:11:56,040 --> 00:12:02,920
+so so it's it's like it's uh fast F than
+
+214
+00:12:00,079 --> 00:12:06,160
+than you when you code faster than you
+
+215
+00:12:02,920 --> 00:12:08,959
+type for coding so there's one system
+
+216
+00:12:06,160 --> 00:12:11,160
+but since then there's a few others but
+
+217
+00:12:08,959 --> 00:12:13,440
+I haven't really uh looked into but you
+
+218
+00:12:11,160 --> 00:12:17,480
+can check it out okay that is my
+
+219
+00:12:13,440 --> 00:12:21,199
+experience uh yeah do you know plan n
+
+220
+00:12:17,480 --> 00:12:25,639
+real sweeping to open Windows no I don't
+
+221
+00:12:21,199 --> 00:12:27,320
+know what uh I I know what is plan n but
+
+222
+00:12:25,639 --> 00:12:30,360
+I don't know what is
+
+223
+00:12:27,320 --> 00:12:33,839
+real and uh I don't I know what is
+
+224
+00:12:30,360 --> 00:12:36,639
+sweeping to open Windows real window
+
+225
+00:12:33,839 --> 00:12:39,639
+system okay let's look at
+
+226
+00:12:36,639 --> 00:12:41,639
+quickly real is plan KN okay so it's
+
+227
+00:12:39,639 --> 00:12:43,600
+part of plan KN window system it's well
+
+228
+00:12:41,639 --> 00:12:45,279
+known for making its window management
+
+229
+00:12:43,600 --> 00:12:46,880
+transparent to the application this
+
+230
+00:12:45,279 --> 00:12:49,480
+allows running real inside another
+
+231
+00:12:46,880 --> 00:12:51,440
+window manager okay no I don't know it I
+
+232
+00:12:49,480 --> 00:12:54,399
+haven't used it I haven't I have not
+
+233
+00:12:51,440 --> 00:12:57,560
+tried plan n and likely I'm not
+
+234
+00:12:54,399 --> 00:13:00,959
+interested because it's not it's not
+
+235
+00:12:57,560 --> 00:13:03,079
+practical if you can if I can use plan n
+
+236
+00:13:00,959 --> 00:13:07,000
+like right now I install it and have all
+
+237
+00:13:03,079 --> 00:13:09,000
+my browsers work emac work I love it but
+
+238
+00:13:07,000 --> 00:13:11,399
+that's not the case you know usually
+
+239
+00:13:09,000 --> 00:13:14,040
+it's just a nerd interest so I'm not
+
+240
+00:13:11,399 --> 00:13:16,839
+interested in plan n and in general I'm
+
+241
+00:13:14,040 --> 00:13:20,040
+not interested in operating systems so
+
+242
+00:13:16,839 --> 00:13:22,120
+there's a kind of group of people nerds
+
+243
+00:13:20,040 --> 00:13:24,160
+who are into operating systems I'm not
+
+244
+00:13:22,120 --> 00:13:26,680
+interested in operating systems for
+
+245
+00:13:24,160 --> 00:13:30,519
+example there's a lot Linux versus BSD
+
+246
+00:13:26,680 --> 00:13:33,880
+nuts we have a few BSD nuts who in you
+
+247
+00:13:30,519 --> 00:13:37,320
+know who says insist how BSD is superior
+
+248
+00:13:33,880 --> 00:13:39,440
+than Linux and so on but to me when I
+
+249
+00:13:37,320 --> 00:13:42,160
+use operating system like I said before
+
+250
+00:13:39,440 --> 00:13:46,000
+I'm not interested in memory ding bit
+
+251
+00:13:42,160 --> 00:13:49,760
+diding like memory you know the stuff
+
+252
+00:13:46,000 --> 00:13:53,399
+like that I'm interested shell in Shell
+
+253
+00:13:49,760 --> 00:13:55,800
+what shell what what shell does it have
+
+254
+00:13:53,399 --> 00:13:58,320
+is it a good shell power Shell versus
+
+255
+00:13:55,800 --> 00:14:00,360
+spash I'm interested in programing
+
+256
+00:13:58,320 --> 00:14:03,560
+language High Lev stuff application
+
+257
+00:14:00,360 --> 00:14:07,320
+mathematics I'm not interested in in the
+
+258
+00:14:03,560 --> 00:14:09,519
+bit dling memory processes background
+
+259
+00:14:07,320 --> 00:14:12,600
+process you know like like the things
+
+260
+00:14:09,519 --> 00:14:14,519
+you cannot like you know it's like it's
+
+261
+00:14:12,600 --> 00:14:17,160
+not I don't care about
+
+262
+00:14:14,519 --> 00:14:19,279
+those okay that's my uh that's what I
+
+263
+00:14:17,160 --> 00:14:22,199
+have to say about
+
+264
+00:14:19,279 --> 00:14:25,839
+that so I let's go back I want to go
+
+265
+00:14:22,199 --> 00:14:29,079
+back to coding so uh coding coding you
+
+266
+00:14:25,839 --> 00:14:31,519
+know this is Hardcore um I would Rec
+
+267
+00:14:29,079 --> 00:14:34,720
+recommend you guys you know instead of
+
+268
+00:14:31,519 --> 00:14:36,519
+instead of uh you know when when if you
+
+269
+00:14:34,720 --> 00:14:39,000
+are a programmer if you are you know
+
+270
+00:14:36,519 --> 00:14:42,600
+into Emax VI and all these operating
+
+271
+00:14:39,000 --> 00:14:45,440
+system do something concrete and useful
+
+272
+00:14:42,600 --> 00:14:48,759
+you know dive into the the programming
+
+273
+00:14:45,440 --> 00:14:50,720
+language and code and and best thing is
+
+274
+00:14:48,759 --> 00:14:52,360
+to create an application you know you
+
+275
+00:14:50,720 --> 00:14:55,199
+you create an application maybe you'll
+
+276
+00:14:52,360 --> 00:14:57,800
+become very popular instead of the
+
+277
+00:14:55,199 --> 00:15:01,399
+window managers and
+
+278
+00:14:57,800 --> 00:15:04,639
+stuff okay any uh let's see what else uh
+
+279
+00:15:01,399 --> 00:15:04,639
+C shop no I haven't
+
+280
+00:15:04,720 --> 00:15:11,279
+tried Acme text editor that's another
+
+281
+00:15:07,759 --> 00:15:15,199
+popular uh question yes we have a person
+
+282
+00:15:11,279 --> 00:15:19,279
+uh Emily she is using Acme
+
+283
+00:15:15,199 --> 00:15:19,279
+okay on inar
+
+284
+00:15:22,639 --> 00:15:30,160
+Discord isn't Linux Factory better for E
+
+285
+00:15:25,920 --> 00:15:33,000
+for emac though okay thank you thank you
+
+286
+00:15:30,160 --> 00:15:33,000
+IV
+
+287
+00:15:33,759 --> 00:15:40,920
+sbq okay so back to emac this coding so
+
+288
+00:15:37,560 --> 00:15:43,000
+let's uh so let's close that so we want
+
+289
+00:15:40,920 --> 00:15:45,880
+to create a function this we are writing
+
+290
+00:15:43,000 --> 00:15:48,880
+this function T to layout that's right
+
+291
+00:15:45,880 --> 00:15:51,880
+and uh okay let's uh we can begin coding
+
+292
+00:15:48,880 --> 00:15:55,800
+okay this is Javascript we don't care
+
+293
+00:15:51,880 --> 00:15:59,839
+delete that JavaScript okay do that and
+
+294
+00:15:55,800 --> 00:16:03,120
+this ask asky OD we need but we need to
+
+295
+00:15:59,839 --> 00:16:06,560
+convert this into a format that emac
+
+296
+00:16:03,120 --> 00:16:09,600
+emac understand so this is Javascript so
+
+297
+00:16:06,560 --> 00:16:12,600
+for example copy cut it out so this is
+
+298
+00:16:09,600 --> 00:16:15,360
+quy this is a layout you know this is a
+
+299
+00:16:12,600 --> 00:16:18,759
+string so let's make it uh emac this
+
+300
+00:16:15,360 --> 00:16:24,240
+string so let's do
+
+301
+00:16:18,759 --> 00:16:26,800
+this okay uh okay make it a string and
+
+302
+00:16:24,240 --> 00:16:30,680
+then you need to escape the double quote
+
+303
+00:16:26,800 --> 00:16:33,279
+that's a emac string okay and this part
+
+304
+00:16:30,680 --> 00:16:37,839
+you don't care
+
+305
+00:16:33,279 --> 00:16:40,839
+so for example this is a
+
+306
+00:16:37,839 --> 00:16:40,839
+quy
+
+307
+00:16:41,399 --> 00:16:49,480
+um asot okay so this this will be used
+
+308
+00:16:46,199 --> 00:16:52,639
+as a input to our function to this
+
+309
+00:16:49,480 --> 00:16:55,319
+function so
+
+310
+00:16:52,639 --> 00:16:57,720
+quy yeah let's quickly just demo let's
+
+311
+00:16:55,319 --> 00:17:00,079
+forget about you know microft like key
+
+312
+00:16:57,720 --> 00:17:04,280
+structure let's just get this to work
+
+313
+00:17:00,079 --> 00:17:10,720
+and now so now this a coac okay let's
+
+314
+00:17:04,280 --> 00:17:10,720
+coac let's cut cut cut and uh set
+
+315
+00:17:10,799 --> 00:17:19,439
+Q uh yeah you need a string okay double
+
+316
+00:17:14,959 --> 00:17:22,319
+quote is for string in emx and uh and
+
+317
+00:17:19,439 --> 00:17:26,360
+search for double quote Yeah so you need
+
+318
+00:17:22,319 --> 00:17:31,760
+to escape the double quote okay and this
+
+319
+00:17:26,360 --> 00:17:35,039
+one is comac D so Q comac DH okay and
+
+320
+00:17:31,760 --> 00:17:39,400
+this JavaScript code we
+
+321
+00:17:35,039 --> 00:17:41,640
+remove and this is what we this the
+
+322
+00:17:39,400 --> 00:17:43,799
+function this should be the output of
+
+323
+00:17:41,640 --> 00:17:46,799
+our function okay and the rest we don't
+
+324
+00:17:43,799 --> 00:17:49,840
+care JavaScript testing code okay so so
+
+325
+00:17:46,799 --> 00:17:52,760
+far so good so we have one quality
+
+326
+00:17:49,840 --> 00:17:54,760
+layout let's we have one vac layout
+
+327
+00:17:52,760 --> 00:17:58,640
+let's move them to the
+
+328
+00:17:54,760 --> 00:18:01,799
+top so that you know constant go first
+
+329
+00:17:58,640 --> 00:18:04,840
+okay then we write our function so take
+
+330
+00:18:01,799 --> 00:18:07,880
+two strings L one l two they are in ask
+
+331
+00:18:04,840 --> 00:18:09,960
+art form return a Associated
+
+332
+00:18:07,880 --> 00:18:15,320
+list uh
+
+333
+00:18:09,960 --> 00:18:18,640
+okay and uh that REM Maps key in uh
+
+334
+00:18:15,320 --> 00:18:21,240
+layout one to layout
+
+335
+00:18:18,640 --> 00:18:24,039
+two okay that is the purpose of this
+
+336
+00:18:21,240 --> 00:18:26,840
+function okay so let's begin writing
+
+337
+00:18:24,039 --> 00:18:29,919
+here so layout one so first of all we
+
+338
+00:18:26,840 --> 00:18:32,480
+got a ask key so you know the layout
+
+339
+00:18:29,919 --> 00:18:35,120
+looks like that first of all the the the
+
+340
+00:18:32,480 --> 00:18:38,480
+first two rows is the number row number
+
+341
+00:18:35,120 --> 00:18:43,720
+and symbol shifted symbol then you have
+
+342
+00:18:38,480 --> 00:18:46,159
+the uh the main you know the ask key quy
+
+343
+00:18:43,720 --> 00:18:51,360
+layout then you have the capital shifted
+
+344
+00:18:46,159 --> 00:18:54,919
+version so so that constitute this um
+
+345
+00:18:51,360 --> 00:18:57,600
+you know s art layout then you give
+
+346
+00:18:54,919 --> 00:19:00,360
+another one then it just it just takes
+
+347
+00:18:57,600 --> 00:19:02,520
+each you know go through it each
+
+348
+00:19:00,360 --> 00:19:07,440
+character by character and
+
+349
+00:19:02,520 --> 00:19:10,960
+uh return a pair okay and in the in the
+
+350
+00:19:07,440 --> 00:19:13,320
+structure of Association list okay so
+
+351
+00:19:10,960 --> 00:19:15,640
+first of all we need to iterate through
+
+352
+00:19:13,320 --> 00:19:17,080
+the string okay first of all you need to
+
+353
+00:19:15,640 --> 00:19:19,480
+split
+
+354
+00:19:17,080 --> 00:19:22,400
+string now
+
+355
+00:19:19,480 --> 00:19:25,720
+um well you you you can split string
+
+356
+00:19:22,400 --> 00:19:29,960
+because in here each you know they are
+
+357
+00:19:25,720 --> 00:19:33,480
+consecu cons continuously character
+
+358
+00:19:29,960 --> 00:19:37,840
+um but actually I realized it's better
+
+359
+00:19:33,480 --> 00:19:41,640
+to have them not consecutive so uh what
+
+360
+00:19:37,840 --> 00:19:44,559
+I mean by let me do let me show you okay
+
+361
+00:19:41,640 --> 00:19:47,919
+so we're going to add spaces
+
+362
+00:19:44,559 --> 00:19:50,240
+here uh let's see how we so we want to
+
+363
+00:19:47,919 --> 00:19:53,559
+add a space like that like that like
+
+364
+00:19:50,240 --> 00:19:59,039
+that but instead of doing it manually
+
+365
+00:19:53,559 --> 00:20:02,720
+let's do a keyboard marro okay so begin
+
+366
+00:19:59,039 --> 00:20:04,880
+so start recording keyboard marro and
+
+367
+00:20:02,720 --> 00:20:07,200
+okay by the way so you can see all my
+
+368
+00:20:04,880 --> 00:20:10,080
+command Calles in the pink window and my
+
+369
+00:20:07,200 --> 00:20:12,440
+key strokes on the left I'm using soft
+
+370
+00:20:10,080 --> 00:20:14,840
+like keys and V keyboard of course so
+
+371
+00:20:12,440 --> 00:20:18,799
+start Maro let's start
+
+372
+00:20:14,840 --> 00:20:25,159
+Maro and uh move to the Right add a
+
+373
+00:20:18,799 --> 00:20:28,159
+space okay and end Mar okay and
+
+374
+00:20:25,159 --> 00:20:32,200
+uh okay and let's call last keyboard
+
+375
+00:20:28,159 --> 00:20:35,640
+mark okay that's done Cass CU Mar you
+
+376
+00:20:32,200 --> 00:20:39,280
+see now the next one will be interesting
+
+377
+00:20:35,640 --> 00:20:42,600
+that's we call repeat last command okay
+
+378
+00:20:39,280 --> 00:20:44,640
+which is this key you see the name is
+
+379
+00:20:42,600 --> 00:20:47,440
+repeat I mean not repeat last command
+
+380
+00:20:44,640 --> 00:20:49,360
+just repeat so once I call repeat I can
+
+381
+00:20:47,440 --> 00:20:51,760
+just keep pressing the key and it'll
+
+382
+00:20:49,360 --> 00:20:54,400
+just do it you see you see now I can
+
+383
+00:20:51,760 --> 00:20:57,880
+just hold the key and it this does this
+
+384
+00:20:54,400 --> 00:20:59,159
+magically fantastic okay one more one
+
+385
+00:20:57,880 --> 00:21:02,240
+more Fant
+
+386
+00:20:59,159 --> 00:21:07,240
+fantastic so we want the input to be in
+
+387
+00:21:02,240 --> 00:21:10,320
+this form this form is superior than um
+
+388
+00:21:07,240 --> 00:21:14,679
+wait why is it not so this form is
+
+389
+00:21:10,320 --> 00:21:16,640
+superior than the oh yeah so this here
+
+390
+00:21:14,679 --> 00:21:19,840
+you shouldn't have a space because
+
+391
+00:21:16,640 --> 00:21:23,000
+that's Escaping The Double quote so why
+
+392
+00:21:19,840 --> 00:21:26,880
+is is this form Superior than that
+
+393
+00:21:23,000 --> 00:21:29,520
+because in this form if you in the
+
+394
+00:21:26,880 --> 00:21:34,360
+future if you want to have a key map
+
+395
+00:21:29,520 --> 00:21:37,840
+that contains old key Enter key shift
+
+396
+00:21:34,360 --> 00:21:40,279
+key control key you know the key label
+
+397
+00:21:37,840 --> 00:21:42,760
+has more than one character so for
+
+398
+00:21:40,279 --> 00:21:44,279
+example you might have you might add for
+
+399
+00:21:42,760 --> 00:21:49,080
+example
+
+400
+00:21:44,279 --> 00:21:51,240
+Ctrl here that stand for control so then
+
+401
+00:21:49,080 --> 00:21:55,000
+you have you have the space as a
+
+402
+00:21:51,240 --> 00:21:57,679
+separator so you can do that so you can
+
+403
+00:21:55,000 --> 00:22:00,520
+remap you know control old you know or
+
+404
+00:21:57,679 --> 00:22:02,559
+caps loog or function keys but if you
+
+405
+00:22:00,520 --> 00:22:05,760
+don't have the spaces
+
+406
+00:22:02,559 --> 00:22:08,240
+then then you need to find some sort of
+
+407
+00:22:05,760 --> 00:22:10,799
+single Un code character to stand for it
+
+408
+00:22:08,240 --> 00:22:15,320
+you know so anyway so this way is better
+
+409
+00:22:10,799 --> 00:22:18,880
+so let's let's go with this um the space
+
+410
+00:22:15,320 --> 00:22:22,440
+okay so now this part we can remove now
+
+411
+00:22:18,880 --> 00:22:22,440
+let's do the same for this
+
+412
+00:22:23,279 --> 00:22:29,000
+coac
+
+413
+00:22:25,159 --> 00:22:31,240
+uh play call last keyboard Mar and call
+
+414
+00:22:29,000 --> 00:22:34,400
+the repeat command and just hold a key
+
+415
+00:22:31,240 --> 00:22:38,720
+and you'll just do it do it fantastic
+
+416
+00:22:34,400 --> 00:22:41,480
+beautiful okay now remove that space
+
+417
+00:22:38,720 --> 00:22:43,840
+fantastic now since we have space in
+
+418
+00:22:41,480 --> 00:22:47,440
+between now it's actually easier to do
+
+419
+00:22:43,840 --> 00:22:50,360
+now we just split string so let's let's
+
+420
+00:22:47,440 --> 00:22:53,840
+capitalize them so because it's my
+
+421
+00:22:50,360 --> 00:22:56,640
+convention for par parameter names to be
+
+422
+00:22:53,840 --> 00:22:59,440
+capitalized so now we have layout one
+
+423
+00:22:56,640 --> 00:23:03,720
+you want to split string
+
+424
+00:22:59,440 --> 00:23:08,679
+okay fantastic and uh separators so
+
+425
+00:23:03,720 --> 00:23:10,960
+separators will be space or
+
+426
+00:23:08,679 --> 00:23:12,840
+return okay is that the regular
+
+427
+00:23:10,960 --> 00:23:13,919
+expression I believe so let's look at
+
+428
+00:23:12,840 --> 00:23:15,559
+the
+
+429
+00:23:13,919 --> 00:23:19,120
+documentation
+
+430
+00:23:15,559 --> 00:23:21,760
+separators uh if separator is a NE
+
+431
+00:23:19,120 --> 00:23:23,760
+should be regular expression fantastic
+
+432
+00:23:21,760 --> 00:23:27,840
+so that
+
+433
+00:23:23,760 --> 00:23:31,799
+will uh you need a you need a vertical
+
+434
+00:23:27,840 --> 00:23:35,960
+vertical bar and not that vertical bar
+
+435
+00:23:31,799 --> 00:23:39,279
+so that means all so space or actually
+
+436
+00:23:35,960 --> 00:23:43,480
+one or more let's put one or more space
+
+437
+00:23:39,279 --> 00:23:49,320
+one or more or return one or more okay
+
+438
+00:23:43,480 --> 00:23:51,400
+Aid no uh am no because you know we
+
+439
+00:23:49,320 --> 00:23:56,559
+don't thank you
+
+440
+00:23:51,400 --> 00:23:56,559
+CH I help my RSI so much thank
+
+441
+00:23:57,240 --> 00:24:03,480
+you uh any other question laughing I
+
+442
+00:24:01,360 --> 00:24:07,799
+answer would you recommend CI keys to
+
+443
+00:24:03,480 --> 00:24:07,799
+someone who has never used emac yes of
+
+444
+00:24:08,960 --> 00:24:14,679
+course
+
+445
+00:24:11,120 --> 00:24:17,440
+yes uh it's up to you so I mean there's
+
+446
+00:24:14,679 --> 00:24:20,919
+no absolute question so if you never use
+
+447
+00:24:17,440 --> 00:24:23,840
+emac you start to use emac the common
+
+448
+00:24:20,919 --> 00:24:27,760
+question is should I start with playing
+
+449
+00:24:23,840 --> 00:24:29,440
+G emx or can I directly jump to Evo mod
+
+450
+00:24:27,760 --> 00:24:33,320
+Doom
+
+451
+00:24:29,440 --> 00:24:37,200
+space Max or S FL Keys there's no
+
+452
+00:24:33,320 --> 00:24:41,440
+absolute answer to which way is the best
+
+453
+00:24:37,200 --> 00:24:44,600
+okay you could you know start so I I you
+
+454
+00:24:41,440 --> 00:24:47,320
+know so of course I you know I can
+
+455
+00:24:44,600 --> 00:24:50,320
+recommend soft like
+
+456
+00:24:47,320 --> 00:24:52,840
+Keys uh if you start with PL emx of
+
+457
+00:24:50,320 --> 00:24:56,640
+course the key by that's absolutely not
+
+458
+00:24:52,840 --> 00:24:59,760
+good okay but you know but you learn you
+
+459
+00:24:56,640 --> 00:25:03,360
+learn it you know maybe you maybe uh so
+
+460
+00:24:59,760 --> 00:25:06,000
+anyway doesn't matter each uh either way
+
+461
+00:25:03,360 --> 00:25:09,080
+okay split string so we split this
+
+462
+00:25:06,000 --> 00:25:12,720
+string of course we need to
+
+463
+00:25:09,080 --> 00:25:17,080
+uh uh save it a result to a variable so
+
+464
+00:25:12,720 --> 00:25:22,880
+split uh split we split the strings so
+
+465
+00:25:17,080 --> 00:25:27,679
+uh Keys one okay L1 Keys let's
+
+466
+00:25:22,880 --> 00:25:31,120
+say uh X X1 Keys okay so that's a
+
+467
+00:25:27,679 --> 00:25:35,360
+variable and X2 Keys that's that would
+
+468
+00:25:31,120 --> 00:25:37,600
+be keys from layout two okay so X1 Keys
+
+469
+00:25:35,360 --> 00:25:41,919
+set the varable
+
+470
+00:25:37,600 --> 00:25:44,440
+to this split string okay then do the
+
+471
+00:25:41,919 --> 00:25:47,360
+same for X2
+
+472
+00:25:44,440 --> 00:25:50,640
+Keys uh let's name name just Keys one
+
+473
+00:25:47,360 --> 00:25:53,120
+Keys two it's easier that way
+
+474
+00:25:50,640 --> 00:25:58,360
+okay
+
+475
+00:25:53,120 --> 00:25:59,120
+uh Keys one just Keys one Keys two okay
+
+476
+00:25:58,360 --> 00:26:03,360
+okay
+
+477
+00:25:59,120 --> 00:26:07,880
+that's Keys two layout two
+
+478
+00:26:03,360 --> 00:26:09,320
+okay is that good yes now pretty fine uh
+
+479
+00:26:07,880 --> 00:26:13,640
+I think that's
+
+480
+00:26:09,320 --> 00:26:16,760
+good okay then what so once you split
+
+481
+00:26:13,640 --> 00:26:19,880
+them what you get the split string
+
+482
+00:26:16,760 --> 00:26:24,000
+returns a list okay so you just have to
+
+483
+00:26:19,880 --> 00:26:27,000
+go through the list so you can use uh
+
+484
+00:26:24,000 --> 00:26:27,000
+map
+
+485
+00:26:29,880 --> 00:26:38,200
+let's see what do you want to
+
+486
+00:26:33,000 --> 00:26:41,240
+use map C or map map car okay map car is
+
+487
+00:26:38,200 --> 00:26:46,120
+just like map in other languages like
+
+488
+00:26:41,240 --> 00:26:51,159
+Python's map okay so so you map a
+
+489
+00:26:46,120 --> 00:26:53,919
+function to the sequence X Keys one okay
+
+490
+00:26:51,159 --> 00:26:56,880
+and uh by this function so what does
+
+491
+00:26:53,919 --> 00:26:59,000
+this function do so this function will
+
+492
+00:26:56,880 --> 00:27:04,000
+take
+
+493
+00:26:59,000 --> 00:27:06,960
+okay so it will uh map okay uh we cannot
+
+494
+00:27:04,000 --> 00:27:09,399
+use map because for example we need to
+
+495
+00:27:06,960 --> 00:27:13,480
+create here's what we need to create we
+
+496
+00:27:09,399 --> 00:27:16,240
+need to create a bunch of cons payers
+
+497
+00:27:13,480 --> 00:27:20,640
+and the cons paare is a pair okay the
+
+498
+00:27:16,240 --> 00:27:24,200
+first value is a key X from from layer
+
+499
+00:27:20,640 --> 00:27:26,600
+one the second value should be a key
+
+500
+00:27:24,200 --> 00:27:28,679
+from Layer Two but how do you get the
+
+501
+00:27:26,600 --> 00:27:31,240
+layer two
+
+502
+00:27:28,679 --> 00:27:34,480
+we can't because actually because we we
+
+503
+00:27:31,240 --> 00:27:37,720
+need the index so we cannot use map C
+
+504
+00:27:34,480 --> 00:27:42,519
+but there's Solutions okay so we just go
+
+505
+00:27:37,720 --> 00:27:45,240
+to um the I go to my emac list reference
+
+506
+00:27:42,519 --> 00:27:49,159
+which I do use as a reference myself
+
+507
+00:27:45,240 --> 00:27:51,799
+emac lisp so we need to go to um
+
+508
+00:27:49,159 --> 00:27:55,679
+sequences okay so
+
+509
+00:27:51,799 --> 00:27:58,720
+this lisp symbol lisp data structure
+
+510
+00:27:55,679 --> 00:28:02,399
+function symbol uh
+
+511
+00:27:58,720 --> 00:28:07,320
+um variable conditional buing this data
+
+512
+00:28:02,399 --> 00:28:10,679
+structure there and let's go to sequence
+
+513
+00:28:07,320 --> 00:28:13,320
+type and uh let's go to sequence
+
+514
+00:28:10,679 --> 00:28:15,760
+functions that's what I want yes so
+
+515
+00:28:13,320 --> 00:28:18,399
+sequence functions is a collection of
+
+516
+00:28:15,760 --> 00:28:23,000
+functions all these functions work on
+
+517
+00:28:18,399 --> 00:28:26,679
+any of this data type or or vector data
+
+518
+00:28:23,000 --> 00:28:30,360
+type Vector is array okay known as array
+
+519
+00:28:26,679 --> 00:28:32,679
+in other languages okay so we so we have
+
+520
+00:28:30,360 --> 00:28:36,200
+a bunch of functions this function all
+
+521
+00:28:32,679 --> 00:28:41,799
+through all work on um list kind of
+
+522
+00:28:36,200 --> 00:28:44,159
+stuff so we want one that allow us to um
+
+523
+00:28:41,799 --> 00:28:47,039
+there's a every okay so let let me let
+
+524
+00:28:44,159 --> 00:28:47,039
+me see which one I
+
+525
+00:28:47,760 --> 00:28:55,600
+want insert delete modify items no take
+
+526
+00:28:51,880 --> 00:28:59,080
+drop no we don't care uh filter no we
+
+527
+00:28:55,600 --> 00:29:02,600
+want map okay we want map function to
+
+528
+00:28:59,080 --> 00:29:06,640
+both lists at the same time so delete
+
+529
+00:29:02,600 --> 00:29:09,559
+Loop iteration uh sequin do yeah we can
+
+530
+00:29:06,640 --> 00:29:13,640
+do sequence map okay sequence map apply
+
+531
+00:29:09,559 --> 00:29:17,720
+a function to a sequence return result
+
+532
+00:29:13,640 --> 00:29:21,080
+sequence okay well no we need to map it
+
+533
+00:29:17,720 --> 00:29:21,080
+to kind of two
+
+534
+00:29:21,519 --> 00:29:27,559
+um now in common list there's a common
+
+535
+00:29:24,679 --> 00:29:29,000
+list Library cl-h there's a function
+
+536
+00:29:27,559 --> 00:29:31,840
+that do that
+
+537
+00:29:29,000 --> 00:29:34,320
+but I don't like to use common disp I
+
+538
+00:29:31,840 --> 00:29:36,360
+don't like anything common disp Al so
+
+539
+00:29:34,320 --> 00:29:38,399
+there's a question asking me about do
+
+540
+00:29:36,360 --> 00:29:42,519
+you use
+
+541
+00:29:38,399 --> 00:29:45,159
+slime uh well actually I never I don't I
+
+542
+00:29:42,519 --> 00:29:49,279
+never coded common disp I did a little
+
+543
+00:29:45,159 --> 00:29:52,080
+bit scheme I did a homework for someone
+
+544
+00:29:49,279 --> 00:29:54,000
+in in racket scheme about seven years
+
+545
+00:29:52,080 --> 00:29:57,559
+ago but
+
+546
+00:29:54,000 --> 00:30:01,399
+so but other other than that I don't and
+
+547
+00:29:57,559 --> 00:30:04,240
+I did closure professionally for about a
+
+548
+00:30:01,399 --> 00:30:09,440
+year uh so I haven't I haven't used
+
+549
+00:30:04,240 --> 00:30:11,519
+slime and I don't know what is Sly s y
+
+550
+00:30:09,440 --> 00:30:14,120
+so anyway back to the question let's get
+
+551
+00:30:11,519 --> 00:30:17,679
+this quickly we uh I want to finish this
+
+552
+00:30:14,120 --> 00:30:19,880
+so we we we need to map a functions so
+
+553
+00:30:17,679 --> 00:30:20,799
+in wam language it will be simple it
+
+554
+00:30:19,880 --> 00:30:23,960
+just
+
+555
+00:30:20,799 --> 00:30:27,440
+map or map map
+
+556
+00:30:23,960 --> 00:30:31,080
+threads so and in Python you call uh
+
+557
+00:30:27,440 --> 00:30:31,080
+some kind of a function called
+
+558
+00:30:31,559 --> 00:30:38,080
+zip but uh so in emac this okay let me
+
+559
+00:30:35,799 --> 00:30:41,120
+let me think
+
+560
+00:30:38,080 --> 00:30:43,480
+about sequin count sequin contains
+
+561
+00:30:41,120 --> 00:30:49,559
+sequin find sequence
+
+562
+00:30:43,480 --> 00:30:51,320
+every uh there it is sequence map n now
+
+563
+00:30:49,559 --> 00:30:54,559
+these functions are new all these
+
+564
+00:30:51,320 --> 00:30:57,320
+sequence prefix functions they they they
+
+565
+00:30:54,559 --> 00:30:58,559
+came out about six years ago they came
+
+566
+00:30:57,320 --> 00:31:04,200
+out in
+
+567
+00:30:58,559 --> 00:31:08,240
+2016 oh almost 8 years ago so sequence
+
+568
+00:31:04,200 --> 00:31:13,760
+map n is the one we want okay there it
+
+569
+00:31:08,240 --> 00:31:19,600
+is seq map in so let's write so not map
+
+570
+00:31:13,760 --> 00:31:25,519
+car SQ map n so let's see if we have
+
+571
+00:31:19,600 --> 00:31:28,080
+a sequence map n okay now SQ
+
+572
+00:31:25,519 --> 00:31:30,480
+map okay we don't I don't have a
+
+573
+00:31:28,080 --> 00:31:35,960
+shortcut for that okay so this is a
+
+574
+00:31:30,480 --> 00:31:40,200
+function so okay so replace that here
+
+575
+00:31:35,960 --> 00:31:43,159
+okay now the function will take two
+
+576
+00:31:40,200 --> 00:31:47,679
+arguments wait
+
+577
+00:31:43,159 --> 00:31:49,760
+uh so sequence map and sequences okay
+
+578
+00:31:47,679 --> 00:31:52,840
+returns as result of applying function
+
+579
+00:31:49,760 --> 00:31:56,320
+to each element of
+
+580
+00:31:52,840 --> 00:31:59,679
+sequences okay okay so you give two
+
+581
+00:31:56,320 --> 00:32:05,559
+sequences here so it's
+
+582
+00:31:59,679 --> 00:32:09,840
+easy there so then you got X and Y so so
+
+583
+00:32:05,559 --> 00:32:09,840
+it becomes trivial now that's
+
+584
+00:32:12,480 --> 00:32:17,320
+it okay cling up that I believe I
+
+585
+00:32:15,159 --> 00:32:21,600
+believe that's it for our function let's
+
+586
+00:32:17,320 --> 00:32:23,720
+try it okay let's try it so our function
+
+587
+00:32:21,600 --> 00:32:29,159
+let's copy the
+
+588
+00:32:23,720 --> 00:32:32,320
+function uh call the function and uh
+
+589
+00:32:29,159 --> 00:32:35,880
+and uh and we need to give arguments one
+
+590
+00:32:32,320 --> 00:32:38,039
+is qualy okay let's put a x in front
+
+591
+00:32:35,880 --> 00:32:41,760
+because I don't want
+
+592
+00:32:38,039 --> 00:32:45,159
+to so that we can track our variables
+
+593
+00:32:41,760 --> 00:32:47,639
+because in emac in emac this every
+
+594
+00:32:45,159 --> 00:32:52,320
+variable become every symbol becomes
+
+595
+00:32:47,639 --> 00:32:55,399
+Global so so if you that's why you put a
+
+596
+00:32:52,320 --> 00:32:58,880
+prefix to your names that that way it's
+
+597
+00:32:55,399 --> 00:33:04,880
+easier to track them
+
+598
+00:32:58,880 --> 00:33:07,840
+okay so that and uh coac that I believe
+
+599
+00:33:04,880 --> 00:33:10,480
+that I believe that's it eval the buffer
+
+600
+00:33:07,840 --> 00:33:13,840
+let's try it eval the buffer okay we got
+
+601
+00:33:10,480 --> 00:33:18,840
+a problem of course warning lexical
+
+602
+00:33:13,840 --> 00:33:18,840
+argument Shadows the dynamic
+
+603
+00:33:20,919 --> 00:33:29,760
+what so let's see if this variable is
+
+604
+00:33:24,360 --> 00:33:29,760
+defined describe variable yes it is
+
+605
+00:33:30,519 --> 00:33:39,440
+yeah it is defined uh you know and is
+
+606
+00:33:35,200 --> 00:33:43,360
+this variable defined quy yes okay so
+
+607
+00:33:39,440 --> 00:33:47,799
+what is the problem warning lexical
+
+608
+00:33:43,360 --> 00:33:49,880
+argument lexical argument Shadows di oh
+
+609
+00:33:47,799 --> 00:33:53,519
+okay lexical
+
+610
+00:33:49,880 --> 00:33:57,919
+argument Shadows okay we got
+
+611
+00:33:53,519 --> 00:33:58,960
+a oh yeah that's I think that's why we
+
+612
+00:33:57,919 --> 00:34:05,639
+got the
+
+613
+00:33:58,960 --> 00:34:05,639
+spelling typle here not 12 okay
+
+614
+00:34:05,840 --> 00:34:08,840
+so
+
+615
+00:34:09,960 --> 00:34:12,960
+what
+
+616
+00:34:14,599 --> 00:34:22,480
+okay oh yeah because we before it it
+
+617
+00:34:19,520 --> 00:34:24,679
+made a mistake so this became now this
+
+618
+00:34:22,480 --> 00:34:28,119
+this symbol is not Global so that's a
+
+619
+00:34:24,679 --> 00:34:31,280
+mistake anyway we don't want to so to
+
+620
+00:34:28,119 --> 00:34:34,040
+fix that we can restart
+
+621
+00:34:31,280 --> 00:34:36,560
+emac you know the issue right now is
+
+622
+00:34:34,040 --> 00:34:39,440
+that because we made a typo in the
+
+623
+00:34:36,560 --> 00:34:44,720
+variable name it was
+
+624
+00:34:39,440 --> 00:34:49,440
+12 and we and we run the code so this
+
+625
+00:34:44,720 --> 00:34:52,440
+variable X key to is now a global
+
+626
+00:34:49,440 --> 00:34:56,359
+variable it is a symbol now it's like
+
+627
+00:34:52,440 --> 00:34:59,680
+Global and in it's possible to remove
+
+628
+00:34:56,359 --> 00:35:01,960
+the symbol it's but usually is not done
+
+629
+00:34:59,680 --> 00:35:05,280
+so you can just restart emac but let's
+
+630
+00:35:01,960 --> 00:35:08,200
+forget it okay let's run
+
+631
+00:35:05,280 --> 00:35:12,599
+it uh again
+
+632
+00:35:08,200 --> 00:35:16,040
+lexico oh yeah so oh my God this obvious
+
+633
+00:35:12,599 --> 00:35:20,720
+type of coma just came from JavaScript
+
+634
+00:35:16,040 --> 00:35:24,599
+let's run it again okay it seems it um
+
+635
+00:35:20,720 --> 00:35:24,599
+it's done let's look at
+
+636
+00:35:24,680 --> 00:35:31,440
+um Okay so
+
+637
+00:35:28,520 --> 00:35:34,440
+let's run it okay
+
+638
+00:35:31,440 --> 00:35:34,440
+fantastic
+
+639
+00:35:34,560 --> 00:35:41,960
+wait oh it mapped the delete return
+
+640
+00:35:39,160 --> 00:35:41,960
+sequence
+
+641
+00:35:48,800 --> 00:35:54,079
+map yes yes and
+
+642
+00:35:54,160 --> 00:36:01,800
+uh um those these are varable variables
+
+643
+00:35:58,640 --> 00:36:05,200
+and function so return value but why is
+
+644
+00:36:01,800 --> 00:36:07,800
+the return value not shown obviously
+
+645
+00:36:05,200 --> 00:36:11,800
+it's shown but it's
+
+646
+00:36:07,800 --> 00:36:16,440
+incorrect you see this return value
+
+647
+00:36:11,800 --> 00:36:19,760
+is it's not doing it's job you see it's
+
+648
+00:36:16,440 --> 00:36:24,520
+it's trying to connect
+
+649
+00:36:19,760 --> 00:36:28,400
+this so this is incorrect okay our code
+
+650
+00:36:24,520 --> 00:36:32,240
+worked but something is wrong
+
+651
+00:36:28,400 --> 00:36:34,160
+so the something is wrong is
+
+652
+00:36:32,240 --> 00:36:38,079
+because
+
+653
+00:36:34,160 --> 00:36:41,720
+um is because did the layout work so we
+
+654
+00:36:38,079 --> 00:36:46,960
+can always debug print
+
+655
+00:36:41,720 --> 00:36:50,400
+messages print this variable okay run it
+
+656
+00:36:46,960 --> 00:36:52,680
+let's go to messages buffer and see what
+
+657
+00:36:50,400 --> 00:36:52,680
+we
+
+658
+00:36:52,760 --> 00:37:00,160
+get okay I don't think the
+
+659
+00:36:56,200 --> 00:37:00,160
+splits it is
+
+660
+00:37:02,000 --> 00:37:05,839
+successful ching
+
+661
+00:37:06,440 --> 00:37:12,240
+ching oh thank you that's not all in
+
+662
+00:37:10,119 --> 00:37:15,680
+regular expression that's right but in
+
+663
+00:37:12,240 --> 00:37:19,960
+because in emac you have the toothpick
+
+664
+00:37:15,680 --> 00:37:23,680
+syndrome very nasty so in fact you need
+
+665
+00:37:19,960 --> 00:37:27,359
+uh you need two backslash very nasty
+
+666
+00:37:23,680 --> 00:37:27,359
+let's try it again
+
+667
+00:37:35,040 --> 00:37:40,839
+there there it is there is our result
+
+668
+00:37:38,200 --> 00:37:43,480
+but it's incorrect again we we got
+
+669
+00:37:40,839 --> 00:37:47,839
+something closer but you see we got
+
+670
+00:37:43,480 --> 00:37:47,839
+bunch of pairs but it's
+
+671
+00:37:47,960 --> 00:37:53,040
+incorrect oh wait it's cor actually yes
+
+672
+00:37:51,160 --> 00:37:55,359
+it's correct
+
+673
+00:37:53,040 --> 00:37:58,280
+because now there's too many of them
+
+674
+00:37:55,359 --> 00:38:00,480
+it's so the message both are TR TR it so
+
+675
+00:37:58,280 --> 00:38:03,880
+in order to not truncate you need to
+
+676
+00:38:00,480 --> 00:38:06,440
+print each item you see it works you see
+
+677
+00:38:03,880 --> 00:38:08,079
+because this one you see the first line
+
+678
+00:38:06,440 --> 00:38:11,400
+it's all the same because that's the
+
+679
+00:38:08,079 --> 00:38:13,920
+number in symbol row so the number in
+
+680
+00:38:11,400 --> 00:38:16,839
+symbol Row for quy and for KAC it's the
+
+681
+00:38:13,920 --> 00:38:20,000
+same they didn't change so what we have
+
+682
+00:38:16,839 --> 00:38:23,680
+to do is
+
+683
+00:38:20,000 --> 00:38:27,520
+um you know we can actually
+
+684
+00:38:23,680 --> 00:38:31,599
+print uh we can print this and maybe
+
+685
+00:38:27,520 --> 00:38:35,599
+will work I don't I don't know if it
+
+686
+00:38:31,599 --> 00:38:39,240
+does but maybe not it's try fantastic
+
+687
+00:38:35,599 --> 00:38:42,200
+now let's look at
+
+688
+00:38:39,240 --> 00:38:44,720
+um now it's better okay copy it new
+
+689
+00:38:42,200 --> 00:38:50,359
+buffer paste it let's see what's going
+
+690
+00:38:44,720 --> 00:38:52,920
+on so now let's let's replace by all
+
+691
+00:38:50,359 --> 00:38:56,040
+right parin by right
+
+692
+00:38:52,920 --> 00:38:58,760
+paren new
+
+693
+00:38:56,040 --> 00:39:02,480
+line okay
+
+694
+00:38:58,760 --> 00:39:07,960
+so we got that that that
+
+695
+00:39:02,480 --> 00:39:14,359
+that okay so far so good yes it
+
+696
+00:39:07,960 --> 00:39:18,079
+worked so CTE becomes KAC dhf is that
+
+697
+00:39:14,359 --> 00:39:21,640
+correct let's go to our keyboard
+
+698
+00:39:18,079 --> 00:39:24,000
+layout qu is right
+
+699
+00:39:21,640 --> 00:39:29,119
+here comac
+
+700
+00:39:24,000 --> 00:39:32,760
+DED is f correct
+
+701
+00:39:29,119 --> 00:39:40,359
+R becomes B let's check one more time R
+
+702
+00:39:32,760 --> 00:39:43,160
+is here and col DH is p
+
+703
+00:39:40,359 --> 00:39:46,400
+wait
+
+704
+00:39:43,160 --> 00:39:52,760
+quy R should
+
+705
+00:39:46,400 --> 00:39:52,760
+become P but we have here R becomes
+
+706
+00:39:53,839 --> 00:39:59,920
+p
+
+707
+00:39:56,079 --> 00:40:03,000
+uh but I think uh so you know so this is
+
+708
+00:39:59,920 --> 00:40:04,520
+a matter of like kind of debugging but
+
+709
+00:40:03,000 --> 00:40:07,319
+basically we
+
+710
+00:40:04,520 --> 00:40:11,240
+got you know that's what we want that's
+
+711
+00:40:07,319 --> 00:40:12,760
+a associative list a bunch of key value
+
+712
+00:40:11,240 --> 00:40:17,640
+pairs that's
+
+713
+00:40:12,760 --> 00:40:19,200
+right so but now this little bug so why
+
+714
+00:40:17,640 --> 00:40:22,839
+is
+
+715
+00:40:19,200 --> 00:40:25,760
+it R qu R
+
+716
+00:40:22,839 --> 00:40:29,079
+becomes b quy
+
+717
+00:40:25,760 --> 00:40:33,680
+r quy R right
+
+718
+00:40:29,079 --> 00:40:33,680
+here becomes chac
+
+719
+00:40:34,119 --> 00:40:37,119
+DH
+
+720
+00:40:38,280 --> 00:40:45,000
+what it says P there
+
+721
+00:40:42,640 --> 00:40:48,240
+d
+
+722
+00:40:45,000 --> 00:40:48,240
+q let's
+
+723
+00:40:55,760 --> 00:41:02,880
+try oh wait wait we got the we got a
+
+724
+00:40:58,920 --> 00:41:06,640
+issue I think our code is not correct
+
+725
+00:41:02,880 --> 00:41:08,359
+here okay we inherited wrong code okay
+
+726
+00:41:06,640 --> 00:41:12,119
+let's go fix
+
+727
+00:41:08,359 --> 00:41:16,480
+it let's go to keyboard block let's go
+
+728
+00:41:12,119 --> 00:41:19,880
+to layout so this is a page for that and
+
+729
+00:41:16,480 --> 00:41:23,800
+go to the top go to the JavaScript and
+
+730
+00:41:19,880 --> 00:41:28,200
+uh uh not not CSS go to the JavaScript
+
+731
+00:41:23,800 --> 00:41:33,000
+and uh go to search for corat
+
+732
+00:41:28,200 --> 00:41:37,520
+okay KAC and here's KAC DH did we have
+
+733
+00:41:33,000 --> 00:41:39,640
+the yeah you see it's p here somehow we
+
+734
+00:41:37,520 --> 00:41:44,960
+made a
+
+735
+00:41:39,640 --> 00:41:47,960
+mistake okay so it's p it's not
+
+736
+00:41:44,960 --> 00:41:47,960
+um
+
+737
+00:41:48,319 --> 00:41:54,000
+B so Q
+
+738
+00:41:51,000 --> 00:41:54,000
+wfp
+
+739
+00:41:55,440 --> 00:41:59,240
+GJ qw
+
+740
+00:41:59,560 --> 00:42:06,040
+FP BJ okay
+
+741
+00:42:03,200 --> 00:42:11,160
+what yeah what's going on with this okay
+
+742
+00:42:06,040 --> 00:42:15,200
+I think I used oh okay so we got this is
+
+743
+00:42:11,160 --> 00:42:17,400
+wrong too this should be just Escape
+
+744
+00:42:15,200 --> 00:42:20,559
+there should be no
+
+745
+00:42:17,400 --> 00:42:24,440
+space uh let's just use let's just use
+
+746
+00:42:20,559 --> 00:42:27,319
+our JavaScript code here instead of the
+
+747
+00:42:24,440 --> 00:42:29,079
+so this code I believe is good so okay
+
+748
+00:42:27,319 --> 00:42:33,520
+let's use
+
+749
+00:42:29,079 --> 00:42:35,160
+yeah copy that close that close that
+
+750
+00:42:33,520 --> 00:42:39,280
+close
+
+751
+00:42:35,160 --> 00:42:42,079
+set okay let's let's try to call the
+
+752
+00:42:39,280 --> 00:42:42,079
+marle
+
+753
+00:42:46,760 --> 00:42:54,040
+again okay and the whole thing needs to
+
+754
+00:42:50,240 --> 00:42:59,119
+put them inside double quote and escape
+
+755
+00:42:54,040 --> 00:42:59,119
+this double quote and escape the
+
+756
+00:42:59,599 --> 00:43:05,920
+Escape that's right and also this this
+
+757
+00:43:03,079 --> 00:43:09,160
+is also needs to be escaped yeah lots of
+
+758
+00:43:05,920 --> 00:43:12,040
+this you know this Escape thing is the
+
+759
+00:43:09,160 --> 00:43:14,040
+worst thing in programming languages
+
+760
+00:43:12,040 --> 00:43:17,319
+when you have a string you know you have
+
+761
+00:43:14,040 --> 00:43:21,880
+a backslash to escape in a bash you know
+
+762
+00:43:17,319 --> 00:43:24,079
+it's worse you know so when and in HTML
+
+763
+00:43:21,880 --> 00:43:28,079
+you also have the m per you know if you
+
+764
+00:43:24,079 --> 00:43:31,040
+want to escape the the angle brackets
+
+765
+00:43:28,079 --> 00:43:34,440
+so if you design a language
+
+766
+00:43:31,040 --> 00:43:37,839
+you never you should never have anything
+
+767
+00:43:34,440 --> 00:43:40,599
+that has that you should never have this
+
+768
+00:43:37,839 --> 00:43:44,559
+Escape mechanism you know this begin
+
+769
+00:43:40,599 --> 00:43:47,280
+from C people and it just spread like
+
+770
+00:43:44,559 --> 00:43:50,200
+like C is you know Unix and C is the
+
+771
+00:43:47,280 --> 00:43:54,119
+kind of virus they spread the most
+
+772
+00:43:50,200 --> 00:43:56,760
+harmful uh thing all
+
+773
+00:43:54,119 --> 00:43:59,200
+across so right now we are you know we
+
+774
+00:43:56,760 --> 00:44:02,400
+are facing a damage of that problem
+
+775
+00:43:59,200 --> 00:44:04,880
+because you see you see this back space
+
+776
+00:44:02,400 --> 00:44:06,880
+you know if you don't have any Escape
+
+777
+00:44:04,880 --> 00:44:09,599
+then you don't have any of wor but if
+
+778
+00:44:06,880 --> 00:44:12,119
+you have any of kind of Escape you need
+
+779
+00:44:09,599 --> 00:44:15,160
+to go through each of the thing in your
+
+780
+00:44:12,119 --> 00:44:17,800
+string to see if there's you know some
+
+781
+00:44:15,160 --> 00:44:20,520
+Escape happen that's what that's the
+
+782
+00:44:17,800 --> 00:44:23,680
+problem we are facing because we have a
+
+783
+00:44:20,520 --> 00:44:26,559
+backsplash back backs slash here because
+
+784
+00:44:23,680 --> 00:44:29,400
+in JavaScript we were using that tick
+
+785
+00:44:26,559 --> 00:44:31,960
+sign for for the
+
+786
+00:44:29,400 --> 00:44:34,520
+delator that's the template string in
+
+787
+00:44:31,960 --> 00:44:39,200
+JavaScript so in JavaScript we needed
+
+788
+00:44:34,520 --> 00:44:43,160
+that but in emx not so okay so let's
+
+789
+00:44:39,200 --> 00:44:45,720
+let's just fix it let's not talk um okay
+
+790
+00:44:43,160 --> 00:44:49,079
+so back slash needs to escape that's
+
+791
+00:44:45,720 --> 00:44:53,000
+right for slash is okay and uh this
+
+792
+00:44:49,079 --> 00:44:58,599
+delate delimiter needs to escape okay
+
+793
+00:44:53,000 --> 00:45:03,760
+and uh okay so also remove
+
+794
+00:44:58,599 --> 00:45:06,000
+the trading wi space okay so this is our
+
+795
+00:45:03,760 --> 00:45:09,280
+previous
+
+796
+00:45:06,000 --> 00:45:12,119
+deleted uh it so far it looks good okay
+
+797
+00:45:09,280 --> 00:45:12,119
+let's just run a
+
+798
+00:45:13,319 --> 00:45:21,040
+code run it okay
+
+799
+00:45:17,160 --> 00:45:24,960
+so and uh and delete print okay
+
+800
+00:45:21,040 --> 00:45:31,160
+fantastic it seems like did copy close
+
+801
+00:45:24,960 --> 00:45:36,880
+go to it select all paste okay
+
+802
+00:45:31,160 --> 00:45:38,800
+replace right bracket by a line okay so
+
+803
+00:45:36,880 --> 00:45:42,280
+now let's
+
+804
+00:45:38,800 --> 00:45:46,119
+see okay so that righted bracket by a
+
+805
+00:45:42,280 --> 00:45:48,319
+line that's right okay oh so another
+
+806
+00:45:46,119 --> 00:45:50,040
+thing we need to do is that if the
+
+807
+00:45:48,319 --> 00:45:51,480
+characters are the same don't do
+
+808
+00:45:50,040 --> 00:45:56,040
+anything
+
+809
+00:45:51,480 --> 00:45:59,040
+okay okay that's the step so you know if
+
+810
+00:45:56,040 --> 00:46:03,880
+the characters are the same do not put
+
+811
+00:45:59,040 --> 00:46:03,880
+it into the uh
+
+812
+00:46:04,240 --> 00:46:11,480
+list but basically that's
+
+813
+00:46:07,200 --> 00:46:14,720
+it so uh some characters are different
+
+814
+00:46:11,480 --> 00:46:17,680
+right yeah indeed yeah so that's it so
+
+815
+00:46:14,720 --> 00:46:19,760
+now okay let's let's try to make them so
+
+816
+00:46:17,680 --> 00:46:22,359
+that if the if the characters are the
+
+817
+00:46:19,760 --> 00:46:28,920
+same don't do
+
+818
+00:46:22,359 --> 00:46:28,920
+anything uh okay uh Lis is
+
+819
+00:46:31,920 --> 00:46:34,440
+um
+
+820
+00:46:35,520 --> 00:46:41,280
+so well if you want to do that then you
+
+821
+00:46:38,359 --> 00:46:45,359
+you can't use the you know then you have
+
+822
+00:46:41,280 --> 00:46:48,319
+to you know you you can't use functional
+
+823
+00:46:45,359 --> 00:46:51,520
+programming right now I'm we are doing
+
+824
+00:46:48,319 --> 00:46:56,599
+like pure functional programming we use
+
+825
+00:46:51,520 --> 00:46:59,960
+this um but if you do not if some of the
+
+826
+00:46:56,599 --> 00:47:02,680
+if the x equals to Y you don't want to
+
+827
+00:46:59,960 --> 00:47:06,000
+be part of the result then you have to
+
+828
+00:47:02,680 --> 00:47:07,880
+do a extra step by removing it okay
+
+829
+00:47:06,000 --> 00:47:12,000
+let's do
+
+830
+00:47:07,880 --> 00:47:15,160
+that uh we so we use this function this
+
+831
+00:47:12,000 --> 00:47:16,760
+function is very powerful to allow you
+
+832
+00:47:15,160 --> 00:47:20,599
+to
+
+833
+00:47:16,760 --> 00:47:21,210
+remove some sequence of elements okay
+
+834
+00:47:20,599 --> 00:47:22,760
+that would
+
+835
+00:47:21,210 --> 00:47:28,839
+[Music]
+
+836
+00:47:22,760 --> 00:47:28,839
+be this sequence map cat
+
+837
+00:47:31,640 --> 00:47:41,079
+okay so
+
+838
+00:47:33,640 --> 00:47:43,680
+yeah so we use that okay uh and uh
+
+839
+00:47:41,079 --> 00:47:48,520
+the and the
+
+840
+00:47:43,680 --> 00:47:52,359
+result so we map a function into this
+
+841
+00:47:48,520 --> 00:47:55,240
+sequence optional type we don't care so
+
+842
+00:47:52,359 --> 00:47:59,040
+we map a function and what the function
+
+843
+00:47:55,240 --> 00:47:59,040
+is Lambda of of
+
+844
+00:47:59,359 --> 00:48:05,800
+course and if the condition is
+
+845
+00:48:05,880 --> 00:48:12,599
+if the car part of the cons is equal
+
+846
+00:48:17,880 --> 00:48:28,720
+to the C part of the cons then return NE
+
+847
+00:48:25,440 --> 00:48:32,559
+otherwise other right wise return itself
+
+848
+00:48:28,720 --> 00:48:36,480
+clean up the code so clean up the code
+
+849
+00:48:32,559 --> 00:48:36,480
+prettyy so that is what we
+
+850
+00:48:36,680 --> 00:48:42,040
+do okay let's just run it run it okay
+
+851
+00:48:40,920 --> 00:48:46,599
+run
+
+852
+00:48:42,040 --> 00:48:48,119
+it uh wrong type argument list P okay so
+
+853
+00:48:46,599 --> 00:48:50,760
+oh
+
+854
+00:48:48,119 --> 00:48:53,880
+wait
+
+855
+00:48:50,760 --> 00:48:57,040
+what uh sequence map
+
+856
+00:48:53,880 --> 00:48:59,760
+cat oh yeah if we we need to return the
+
+857
+00:48:57,040 --> 00:49:02,960
+list okay
+
+858
+00:48:59,760 --> 00:49:06,920
+so okay run it
+
+859
+00:49:02,960 --> 00:49:10,720
+fantastic let's see fantastic copy it
+
+860
+00:49:06,920 --> 00:49:13,200
+new buffer paste it replace make them
+
+861
+00:49:10,720 --> 00:49:13,200
+into
+
+862
+00:49:13,599 --> 00:49:20,160
+lines beautiful
+
+863
+00:49:17,280 --> 00:49:22,079
+successful okay that that's that's we
+
+864
+00:49:20,160 --> 00:49:26,160
+did that's the function that's the
+
+865
+00:49:22,079 --> 00:49:27,319
+function we um want today so we talked
+
+866
+00:49:26,160 --> 00:49:29,839
+oh 50
+
+867
+00:49:27,319 --> 00:49:33,319
+minutes how long have we
+
+868
+00:49:29,839 --> 00:49:35,640
+been any questions post it okay I'm
+
+869
+00:49:33,319 --> 00:49:35,640
+going to
+
+870
+00:49:35,799 --> 00:49:39,480
+answer we talked
+
+871
+00:49:40,000 --> 00:49:45,760
+for 50 minute 50 minutes that's right
+
+872
+00:49:50,559 --> 00:49:54,559
+yeah fantastic
+
+873
+00:50:01,520 --> 00:50:07,880
+what's the difference between let and
+
+874
+00:50:03,880 --> 00:50:12,760
+set Q let just let you declare a local
+
+875
+00:50:07,880 --> 00:50:16,040
+variable set Q is actually setting a
+
+876
+00:50:12,760 --> 00:50:18,000
+value now you might be asking is that
+
+877
+00:50:16,040 --> 00:50:20,960
+what you are asking you you could put a
+
+878
+00:50:18,000 --> 00:50:23,920
+value in in the Le for example let's say
+
+879
+00:50:20,960 --> 00:50:26,920
+we have a new variable y y and let's say
+
+880
+00:50:23,920 --> 00:50:29,839
+we want the value to be three so what we
+
+881
+00:50:26,920 --> 00:50:31,680
+do is like that okay so you can put it
+
+882
+00:50:29,839 --> 00:50:35,720
+inside the lead if you want then you
+
+883
+00:50:31,680 --> 00:50:40,839
+don't need set q but putting inside you
+
+884
+00:50:35,720 --> 00:50:40,839
+got other issues because what happens if
+
+885
+00:50:41,400 --> 00:50:50,040
+you the the if if the if you the later
+
+886
+00:50:47,079 --> 00:50:54,040
+variable when you give a value to this
+
+887
+00:50:50,040 --> 00:50:56,799
+variable if you want to use the
+
+888
+00:50:54,040 --> 00:50:59,319
+previous variables value you cannot do
+
+889
+00:50:56,799 --> 00:51:04,200
+it inside then you have to change you
+
+890
+00:50:59,319 --> 00:51:07,640
+have to use let Star okay let Star you
+
+891
+00:51:04,200 --> 00:51:10,680
+know so it it gets uh more complicated
+
+892
+00:51:07,640 --> 00:51:14,319
+so this these days I prefer to always
+
+893
+00:51:10,680 --> 00:51:17,240
+separate them so in the let is just
+
+894
+00:51:14,319 --> 00:51:20,799
+simply variable names then you use set
+
+895
+00:51:17,240 --> 00:51:20,799
+to to set
+
+896
+00:51:22,160 --> 00:51:28,760
+value uh opinions on pornography uh I'm
+
+897
+00:51:26,240 --> 00:51:32,079
+not going to talk about that today emac
+
+898
+00:51:28,760 --> 00:51:35,280
+Le we can talk about that in some other
+
+899
+00:51:32,079 --> 00:51:39,240
+time and uh probably not YouTube I'm
+
+900
+00:51:35,280 --> 00:51:42,280
+hoping to Branch out to uh Twitter
+
+901
+00:51:39,240 --> 00:51:44,559
+Twitter L musk I trust very
+
+902
+00:51:42,280 --> 00:51:48,319
+much there are lot issues you know
+
+903
+00:51:44,559 --> 00:51:52,480
+political issues USA is uh very in a
+
+904
+00:51:48,319 --> 00:51:56,760
+very bad state so I hope we can you know
+
+905
+00:51:52,480 --> 00:51:59,440
+help to recover so I'm going to try to
+
+906
+00:51:56,760 --> 00:52:02,240
+use start to use Twitter
+
+907
+00:51:59,440 --> 00:52:05,599
+stream uh you know and see and we can
+
+908
+00:52:02,240 --> 00:52:05,599
+talk about politics over
+
+909
+00:52:10,920 --> 00:52:16,200
+there so let the varable declare and
+
+910
+00:52:13,480 --> 00:52:17,160
+secure assignment yes that's right
+
+911
+00:52:16,200 --> 00:52:20,040
+anything
+
+912
+00:52:17,160 --> 00:52:23,400
+else okay I think maybe that's it let me
+
+913
+00:52:20,040 --> 00:52:23,400
+get my drink
+
+914
+00:52:27,480 --> 00:52:30,680
+we shut down in two
+
+915
+00:52:32,280 --> 00:52:37,559
+minutes okay so so we let's clean up so
+
+916
+00:52:35,359 --> 00:52:39,480
+we got this function working I mean the
+
+917
+00:52:37,559 --> 00:52:41,720
+skeleton I mean that's essentially
+
+918
+00:52:39,480 --> 00:52:44,400
+that's what we want so but the main
+
+919
+00:52:41,720 --> 00:52:47,640
+thing is that let's go back to S flag
+
+920
+00:52:44,400 --> 00:52:50,200
+Keys search for
+
+921
+00:52:47,640 --> 00:52:57,680
+RAC you know so we got the all these
+
+922
+00:52:50,200 --> 00:53:01,400
+bunch of layouts b b Bop carox Co ma K
+
+923
+00:52:57,680 --> 00:53:05,240
+vak Norman and you know all this layout
+
+924
+00:53:01,400 --> 00:53:07,680
+we need to so you see we need to what I
+
+925
+00:53:05,240 --> 00:53:12,240
+need to do is to start to remove all
+
+926
+00:53:07,680 --> 00:53:16,160
+this so instead of this hardcoded you
+
+927
+00:53:12,240 --> 00:53:18,680
+know key se you know key payers we just
+
+928
+00:53:16,160 --> 00:53:18,680
+simply
+
+929
+00:53:18,760 --> 00:53:23,440
+call you know we simply call the
+
+930
+00:53:21,119 --> 00:53:27,920
+function we Define like like
+
+931
+00:53:23,440 --> 00:53:30,839
+that and we Define the key MTH like that
+
+932
+00:53:27,920 --> 00:53:34,040
+you see it so now it's much more better
+
+933
+00:53:30,839 --> 00:53:37,119
+it's clear you can see the layout so
+
+934
+00:53:34,040 --> 00:53:37,119
+that's what I need to
+
+935
+00:53:46,000 --> 00:53:53,520
+do fantastic thank you guys for
+
+936
+00:53:50,040 --> 00:53:58,240
+watching okay so let's make me copy this
+
+937
+00:53:53,520 --> 00:54:02,359
+code cut go to talk show
+
+938
+00:53:58,240 --> 00:54:07,400
+show uh and paste it here so create a
+
+939
+00:54:02,359 --> 00:54:10,079
+new block new code block paste it syntax
+
+940
+00:54:07,400 --> 00:54:13,079
+color it showing
+
+941
+00:54:10,079 --> 00:54:13,079
+browser
+
+942
+00:54:16,839 --> 00:54:21,200
+great bye guys
+
+943
+00:54:30,160 --> 00:54:36,280
+ching ching let's try some Emoji let's
+
+944
+00:54:32,599 --> 00:54:36,280
+let's let's try to play the
+
+945
+00:54:36,400 --> 00:54:42,200
+YouTube let's see Emoji I have a bunch
+
+946
+00:54:40,640 --> 00:54:46,720
+of
+
+947
+00:54:42,200 --> 00:54:46,720
+um there okay let's
+
+948
+00:54:46,799 --> 00:54:57,680
+see YouTube YouTube
+
+949
+00:54:50,440 --> 00:54:57,680
+Emoji this is SAS Emoji lunch box
+
+950
+00:54:58,359 --> 00:55:01,480
+my favorite emojji
+

@@ -1,0 +1,6504 @@
+1
+00:00:07,279 --> 00:00:10,240
+good morning everyone welcome to another
+
+2
+00:00:09,360 --> 00:00:14,240
+episode of
+
+3
+00:00:10,240 --> 00:00:18,400
+talk show uh today is 2020
+
+4
+00:00:14,240 --> 00:00:19,680
+august 7th friday 12 30 p.m san
+
+5
+00:00:18,400 --> 00:00:21,840
+francisco time
+
+6
+00:00:19,680 --> 00:00:23,840
+and today we are going to talk about
+
+7
+00:00:21,840 --> 00:00:27,359
+emacs and emacs lisp
+
+8
+00:00:23,840 --> 00:00:30,880
+i'm going to do a live coding of a
+
+9
+00:00:27,359 --> 00:00:33,680
+emacs command and then
+
+10
+00:00:30,880 --> 00:00:35,280
+we are going to uh after that we we
+
+11
+00:00:33,680 --> 00:00:38,640
+might talk random about
+
+12
+00:00:35,280 --> 00:00:41,600
+emacs related stuff emacs
+
+13
+00:00:38,640 --> 00:00:42,320
+community or whatever or a demo of stuff
+
+14
+00:00:41,600 --> 00:00:44,879
+like keys
+
+15
+00:00:42,320 --> 00:00:45,360
+a live demo or let's use stuff like this
+
+16
+00:00:44,879 --> 00:00:48,239
+to do
+
+17
+00:00:45,360 --> 00:00:48,960
+a vim golf we haven't done that for a
+
+18
+00:00:48,239 --> 00:00:52,239
+while
+
+19
+00:00:48,960 --> 00:00:55,199
+and all we go to talk about keyboards
+
+20
+00:00:52,239 --> 00:00:56,960
+you know my my keyboard blog uh lots of
+
+21
+00:00:55,199 --> 00:01:00,000
+interesting things to talk about
+
+22
+00:00:56,960 --> 00:01:01,199
+and you guys okay you guys type in the
+
+23
+00:01:00,000 --> 00:01:02,879
+comments okay
+
+24
+00:01:01,199 --> 00:01:05,280
+questions or chat uh type in the
+
+25
+00:01:02,879 --> 00:01:05,280
+comments
+
+26
+00:01:06,880 --> 00:01:12,880
+good morning uh renato uh trying out
+
+27
+00:01:10,240 --> 00:01:13,439
+stuff like he's right now fantastic any
+
+28
+00:01:12,880 --> 00:01:16,479
+questions
+
+29
+00:01:13,439 --> 00:01:16,799
+comments just uh post it okay so here is
+
+30
+00:01:16,479 --> 00:01:19,360
+my
+
+31
+00:01:16,799 --> 00:01:20,000
+emacs window showing browser so here is
+
+32
+00:01:19,360 --> 00:01:22,479
+today's
+
+33
+00:01:20,000 --> 00:01:23,360
+uh kind of talk show page go back to
+
+34
+00:01:22,479 --> 00:01:25,200
+emacs
+
+35
+00:01:23,360 --> 00:01:27,840
+and on the right window you can see the
+
+36
+00:01:25,200 --> 00:01:30,079
+pink window is all my emacs commands
+
+37
+00:01:27,840 --> 00:01:32,079
+as i move cursor you can see the
+
+38
+00:01:30,079 --> 00:01:34,079
+commands call
+
+39
+00:01:32,079 --> 00:01:35,840
+you can see the command name and the
+
+40
+00:01:34,079 --> 00:01:37,759
+keystroke i'm using i'm using
+
+41
+00:01:35,840 --> 00:01:40,880
+soft light keys of course and i'm i'm
+
+42
+00:01:37,759 --> 00:01:43,040
+using vorack keyboard layout
+
+43
+00:01:40,880 --> 00:01:45,200
+so if you if there's any command you
+
+44
+00:01:43,040 --> 00:01:45,680
+don't know you can look up the command
+
+45
+00:01:45,200 --> 00:01:47,520
+name
+
+46
+00:01:45,680 --> 00:01:50,159
+on the right window then you can look up
+
+47
+00:01:47,520 --> 00:01:53,200
+on the web most likely it's on my web
+
+48
+00:01:50,159 --> 00:01:54,000
+with the source code okay so let me show
+
+49
+00:01:53,200 --> 00:01:56,000
+you what we're gonna
+
+50
+00:01:54,000 --> 00:01:57,280
+do today okay so we're gonna do a
+
+51
+00:01:56,000 --> 00:02:01,520
+youtube
+
+52
+00:01:57,280 --> 00:02:05,360
+uh command let's go to youtube
+
+53
+00:02:01,520 --> 00:02:07,520
+uh youtube emacs okay let's go to let's
+
+54
+00:02:05,360 --> 00:02:08,560
+search youtube emacs let's see what we
+
+55
+00:02:07,520 --> 00:02:10,560
+find
+
+56
+00:02:08,560 --> 00:02:12,080
+okay emacs tutorial i don't know who
+
+57
+00:02:10,560 --> 00:02:15,760
+that is let's see
+
+58
+00:02:12,080 --> 00:02:19,200
+oh actually let's go to um
+
+59
+00:02:15,760 --> 00:02:22,239
+abraham okay let me show you this okay
+
+60
+00:02:19,200 --> 00:02:26,000
+there there is this guy i know
+
+61
+00:02:22,239 --> 00:02:30,239
+who is a e-max and e-max this expert
+
+62
+00:02:26,000 --> 00:02:30,239
+uh so i i like to show his video
+
+63
+00:02:30,800 --> 00:02:34,000
+wait wait is my voice coming through
+
+64
+00:02:33,360 --> 00:02:37,519
+fine
+
+65
+00:02:34,000 --> 00:02:38,080
+right i'm doing fine i'm alive alive and
+
+66
+00:02:37,519 --> 00:02:40,319
+kicking
+
+67
+00:02:38,080 --> 00:02:41,840
+right good morning allen good morning
+
+68
+00:02:40,319 --> 00:02:45,280
+sansa
+
+69
+00:02:41,840 --> 00:02:45,760
+okay so yeah okay so let's go to let's
+
+70
+00:02:45,280 --> 00:02:51,120
+find
+
+71
+00:02:45,760 --> 00:02:54,239
+um okay i need to show this allen stuff
+
+72
+00:02:51,120 --> 00:02:57,840
+so so uh
+
+73
+00:02:54,239 --> 00:03:01,360
+alan allen drew this picture this is
+
+74
+00:02:57,840 --> 00:03:04,400
+uh this is reaper
+
+75
+00:03:01,360 --> 00:03:05,040
+folding table with moving casters you
+
+76
+00:03:04,400 --> 00:03:07,760
+know why
+
+77
+00:03:05,040 --> 00:03:08,239
+because you know my favorite uh computer
+
+78
+00:03:07,760 --> 00:03:10,319
+desk
+
+79
+00:03:08,239 --> 00:03:12,480
+is actually a folding table like that
+
+80
+00:03:10,319 --> 00:03:15,680
+that's that is actually my folding
+
+81
+00:03:12,480 --> 00:03:18,800
+my favorite computer desk why because
+
+82
+00:03:15,680 --> 00:03:20,080
+that is the borg style you know the star
+
+83
+00:03:18,800 --> 00:03:23,200
+trek book
+
+84
+00:03:20,080 --> 00:03:26,080
+uh technology you know the the most pure
+
+85
+00:03:23,200 --> 00:03:27,200
+functionality without no decorations no
+
+86
+00:03:26,080 --> 00:03:29,920
+no nothing
+
+87
+00:03:27,200 --> 00:03:30,720
+pure functionality study you know this
+
+88
+00:03:29,920 --> 00:03:33,360
+is the
+
+89
+00:03:30,720 --> 00:03:33,920
+latest research i mean that this is the
+
+90
+00:03:33,360 --> 00:03:37,440
+fruit
+
+91
+00:03:33,920 --> 00:03:41,040
+of science you know the most study and
+
+92
+00:03:37,440 --> 00:03:44,080
+easy to make and durable and uh
+
+93
+00:03:41,040 --> 00:03:47,599
+and you know you can you can lie
+
+94
+00:03:44,080 --> 00:03:50,480
+you can you can sit on this desk
+
+95
+00:03:47,599 --> 00:03:50,959
+and it's affordable and it's you know
+
+96
+00:03:50,480 --> 00:03:52,879
+it's
+
+97
+00:03:50,959 --> 00:03:54,080
+fantastic it's the most function
+
+98
+00:03:52,879 --> 00:03:57,840
+functional stuff
+
+99
+00:03:54,080 --> 00:03:58,799
+my style so anyway that's my favorite
+
+100
+00:03:57,840 --> 00:04:00,959
+desk and
+
+101
+00:03:58,799 --> 00:04:02,560
+of course there's also standing desk
+
+102
+00:04:00,959 --> 00:04:04,640
+actually i never used
+
+103
+00:04:02,560 --> 00:04:06,799
+uh rather i never had the opportunity to
+
+104
+00:04:04,640 --> 00:04:07,680
+use but that's something i would like to
+
+105
+00:04:06,799 --> 00:04:10,879
+use
+
+106
+00:04:07,680 --> 00:04:12,720
+uh if i have you know maybe a setup
+
+107
+00:04:10,879 --> 00:04:14,319
+possibly i don't know you know set up a
+
+108
+00:04:12,720 --> 00:04:17,280
+standing desk
+
+109
+00:04:14,319 --> 00:04:18,160
+and if you use standing desk there is
+
+110
+00:04:17,280 --> 00:04:21,040
+this thing
+
+111
+00:04:18,160 --> 00:04:21,840
+called wobble board which is fantastic
+
+112
+00:04:21,040 --> 00:04:25,440
+do you know why
+
+113
+00:04:21,840 --> 00:04:28,800
+because when i was a teenager from 16 to
+
+114
+00:04:25,440 --> 00:04:30,000
+18 i was working in a bagel shop you
+
+115
+00:04:28,800 --> 00:04:32,720
+know bagels
+
+116
+00:04:30,000 --> 00:04:34,479
+making bread and you rode the door you
+
+117
+00:04:32,720 --> 00:04:36,479
+stand there through the door all day for
+
+118
+00:04:34,479 --> 00:04:37,759
+10 hours a day eight hours 10 hours a
+
+119
+00:04:36,479 --> 00:04:41,360
+day that's
+
+120
+00:04:37,759 --> 00:04:43,440
+truly the most laborers uh job
+
+121
+00:04:41,360 --> 00:04:45,919
+and you know i was doing that as a
+
+122
+00:04:43,440 --> 00:04:50,080
+illegal immigrant in canada
+
+123
+00:04:45,919 --> 00:04:52,639
+and taking some minimal amount of money
+
+124
+00:04:50,080 --> 00:04:54,320
+but the the problem is that you stand
+
+125
+00:04:52,639 --> 00:04:55,600
+there you know you stand there for eight
+
+126
+00:04:54,320 --> 00:04:58,800
+hours stay your note
+
+127
+00:04:55,600 --> 00:05:01,039
+you'll notice after a while your legs
+
+128
+00:04:58,800 --> 00:05:02,960
+get tired it's not just your legs get
+
+129
+00:05:01,039 --> 00:05:04,880
+tired there's a posture thing
+
+130
+00:05:02,960 --> 00:05:06,800
+it's just like sitting if you sit for
+
+131
+00:05:04,880 --> 00:05:07,600
+too long for hours for three hours four
+
+132
+00:05:06,800 --> 00:05:09,919
+hours a day
+
+133
+00:05:07,600 --> 00:05:11,360
+you'll notice back problems also the
+
+134
+00:05:09,919 --> 00:05:14,560
+problems so
+
+135
+00:05:11,360 --> 00:05:16,960
+so you want standing desk but but
+
+136
+00:05:14,560 --> 00:05:19,440
+even i mean if you stand for too long
+
+137
+00:05:16,960 --> 00:05:21,919
+you also have problems you know so
+
+138
+00:05:19,440 --> 00:05:23,039
+you usually you when you do a standing
+
+139
+00:05:21,919 --> 00:05:26,160
+you want to
+
+140
+00:05:23,039 --> 00:05:28,800
+prop uh one of your legs you know on
+
+141
+00:05:26,160 --> 00:05:29,440
+on a foot box or something like that you
+
+142
+00:05:28,800 --> 00:05:31,759
+usually
+
+143
+00:05:29,440 --> 00:05:33,919
+like you know the bar stool the bar
+
+144
+00:05:31,759 --> 00:05:36,880
+stool you know you go to a bar
+
+145
+00:05:33,919 --> 00:05:37,600
+where there's a you know a bar
+
+146
+00:05:36,880 --> 00:05:40,320
+underneath
+
+147
+00:05:37,600 --> 00:05:41,840
+for your to for you to put your foot on
+
+148
+00:05:40,320 --> 00:05:43,199
+that that is a good thing because you
+
+149
+00:05:41,840 --> 00:05:45,120
+want to do that and you want to
+
+150
+00:05:43,199 --> 00:05:46,400
+you want to move around shift around so
+
+151
+00:05:45,120 --> 00:05:51,199
+there is this
+
+152
+00:05:46,400 --> 00:05:54,320
+wobble board you can buy on amazon okay
+
+153
+00:05:51,199 --> 00:05:58,000
+so you go you you guys go there buy it
+
+154
+00:05:54,320 --> 00:06:02,240
+now it's excellent let's demonstrate my
+
+155
+00:05:58,000 --> 00:06:05,360
+the power of my emacs operation
+
+156
+00:06:02,240 --> 00:06:08,720
+you go by and help the economy
+
+157
+00:06:05,360 --> 00:06:12,080
+paste okay the best computer desk
+
+158
+00:06:08,720 --> 00:06:14,319
+so alan says skeletor's skeletor sliding
+
+159
+00:06:12,080 --> 00:06:18,000
+indeed if you sit too long you'll be
+
+160
+00:06:14,319 --> 00:06:18,000
+a bird hurt exactly
+
+161
+00:06:18,240 --> 00:06:22,720
+okay so that's computer desk so let's
+
+162
+00:06:20,400 --> 00:06:25,840
+let's begin let's let's start to do
+
+163
+00:06:22,720 --> 00:06:29,039
+the the
+
+164
+00:06:25,840 --> 00:06:31,680
+uh okay hold on a second let me
+
+165
+00:06:29,039 --> 00:06:32,880
+let me put that in my in my talk show
+
+166
+00:06:31,680 --> 00:06:36,800
+page okay
+
+167
+00:06:32,880 --> 00:06:39,840
+go to talk show show in browser go back
+
+168
+00:06:36,800 --> 00:06:42,960
+magnify and uh talk
+
+169
+00:06:39,840 --> 00:06:46,080
+talk talk okay today's talk show
+
+170
+00:06:42,960 --> 00:06:48,800
+magnify show in browser good
+
+171
+00:06:46,080 --> 00:06:50,080
+magnify switch back to emacs or single
+
+172
+00:06:48,800 --> 00:06:53,199
+key operations
+
+173
+00:06:50,080 --> 00:06:55,840
+okay let's put the link here so that's
+
+174
+00:06:53,199 --> 00:06:57,039
+that's today's topic then showing
+
+175
+00:06:55,840 --> 00:06:59,680
+browser
+
+176
+00:06:57,039 --> 00:07:02,080
+so uh best computer desk we talked about
+
+177
+00:06:59,680 --> 00:07:02,960
+that let's get on to emacs and emac
+
+178
+00:07:02,080 --> 00:07:06,720
+these
+
+179
+00:07:02,960 --> 00:07:08,240
+modify xr html youtube linkify okay let
+
+180
+00:07:06,720 --> 00:07:11,120
+me show you what's going on we talked
+
+181
+00:07:08,240 --> 00:07:12,880
+about that a little bit yesterday
+
+182
+00:07:11,120 --> 00:07:15,280
+i was thinking about building my own
+
+183
+00:07:12,880 --> 00:07:19,199
+desk table with adjustable height
+
+184
+00:07:15,280 --> 00:07:21,520
+by manually spinning a wheel
+
+185
+00:07:19,199 --> 00:07:22,960
+yeah that's that's a good hey good
+
+186
+00:07:21,520 --> 00:07:26,319
+morning emily
+
+187
+00:07:22,960 --> 00:07:27,360
+uh like a help you know another
+
+188
+00:07:26,319 --> 00:07:30,160
+interesting thing
+
+189
+00:07:27,360 --> 00:07:31,039
+is that let me let me ramble a little
+
+190
+00:07:30,160 --> 00:07:34,319
+bit
+
+191
+00:07:31,039 --> 00:07:36,960
+you know the touch screen
+
+192
+00:07:34,319 --> 00:07:37,680
+the touch screen is the band of user
+
+193
+00:07:36,960 --> 00:07:40,000
+interface
+
+194
+00:07:37,680 --> 00:07:42,400
+the touchscreen popularized by steve
+
+195
+00:07:40,000 --> 00:07:45,199
+jobs of apple
+
+196
+00:07:42,400 --> 00:07:46,960
+but steve jobs however is a genius uh
+
+197
+00:07:45,199 --> 00:07:50,160
+genius at marketing he know
+
+198
+00:07:46,960 --> 00:07:53,360
+he know what to do but however uh touch
+
+199
+00:07:50,160 --> 00:07:56,160
+screen is not uh
+
+200
+00:07:53,360 --> 00:07:56,800
+a great user interface you want physical
+
+201
+00:07:56,160 --> 00:07:59,280
+knobs
+
+202
+00:07:56,800 --> 00:08:00,080
+and wheels and sliders okay you want you
+
+203
+00:07:59,280 --> 00:08:03,360
+know like like
+
+204
+00:08:00,080 --> 00:08:06,560
+like i can show you lots of uh
+
+205
+00:08:03,360 --> 00:08:07,440
+things uh but but anyway so look so this
+
+206
+00:08:06,560 --> 00:08:10,479
+is us
+
+207
+00:08:07,440 --> 00:08:13,840
+navy warships you see you see the
+
+208
+00:08:10,479 --> 00:08:16,639
+you see it's uh got the touch screen
+
+209
+00:08:13,840 --> 00:08:17,280
+and with this user interface they got
+
+210
+00:08:16,639 --> 00:08:21,120
+into an
+
+211
+00:08:17,280 --> 00:08:24,240
+accident you know it's a merchant ship
+
+212
+00:08:21,120 --> 00:08:27,919
+ran into them because because of the
+
+213
+00:08:24,240 --> 00:08:31,840
+touchscreen uh
+
+214
+00:08:27,919 --> 00:08:35,279
+so after this accident the u.s navy
+
+215
+00:08:31,840 --> 00:08:37,599
+did research and they realized you know
+
+216
+00:08:35,279 --> 00:08:38,719
+the touch screen is no good so they went
+
+217
+00:08:37,599 --> 00:08:42,000
+back they
+
+218
+00:08:38,719 --> 00:08:42,880
+decreed all ships must use the you know
+
+219
+00:08:42,000 --> 00:08:46,160
+the back
+
+220
+00:08:42,880 --> 00:08:47,839
+good old physical controls 1 000 knobs
+
+221
+00:08:46,160 --> 00:08:49,760
+and wheels you know
+
+222
+00:08:47,839 --> 00:08:51,760
+like a cockpit you know like a space
+
+223
+00:08:49,760 --> 00:08:55,279
+shuttle
+
+224
+00:08:51,760 --> 00:08:59,040
+and then then you see you see this
+
+225
+00:08:55,279 --> 00:09:01,920
+uh this this thing this nasa thing
+
+226
+00:08:59,040 --> 00:09:04,399
+i mean not nasa the spacex they started
+
+227
+00:09:01,920 --> 00:09:04,399
+to use
+
+228
+00:09:04,560 --> 00:09:07,680
+touch screen user interface which is
+
+229
+00:09:06,800 --> 00:09:10,399
+disaster
+
+230
+00:09:07,680 --> 00:09:10,399
+in the waiting
+
+231
+00:09:16,720 --> 00:09:22,880
+and shut up you know the astronaut is
+
+232
+00:09:20,880 --> 00:09:25,279
+actually saying when you use the old
+
+233
+00:09:22,880 --> 00:09:25,920
+wheel and you know when you look at the
+
+234
+00:09:25,279 --> 00:09:29,920
+cockpit
+
+235
+00:09:25,920 --> 00:09:32,720
+of a space shuttle you see a thousand
+
+236
+00:09:29,920 --> 00:09:33,360
+knobs and wheels that is actually good
+
+237
+00:09:32,720 --> 00:09:35,680
+because you know
+
+238
+00:09:33,360 --> 00:09:36,720
+you you want to control something you
+
+239
+00:09:35,680 --> 00:09:39,040
+can you know
+
+240
+00:09:36,720 --> 00:09:39,839
+exactly where it is and you can touch it
+
+241
+00:09:39,040 --> 00:09:42,959
+you know uh
+
+242
+00:09:39,839 --> 00:09:44,480
+muscle memory but with touch screen
+
+243
+00:09:42,959 --> 00:09:46,640
+you have to think you have to look at
+
+244
+00:09:44,480 --> 00:09:47,680
+the screen oh you know press this button
+
+245
+00:09:46,640 --> 00:09:50,160
+change the screen to
+
+246
+00:09:47,680 --> 00:09:52,080
+this control and press and touch that
+
+247
+00:09:50,160 --> 00:09:54,480
+you know it's no good
+
+248
+00:09:52,080 --> 00:09:55,440
+so he actually the astronaut actually
+
+249
+00:09:54,480 --> 00:09:57,360
+says
+
+250
+00:09:55,440 --> 00:09:58,880
+tells you that with touch screen you
+
+251
+00:09:57,360 --> 00:10:01,200
+have to uh
+
+252
+00:09:58,880 --> 00:10:02,320
+it's more you have to it's you have to
+
+253
+00:10:01,200 --> 00:10:06,480
+think
+
+254
+00:10:02,320 --> 00:10:09,040
+so it's accident in the waiting okay uh
+
+255
+00:10:06,480 --> 00:10:11,040
+so imagine the future you know like a
+
+256
+00:10:09,040 --> 00:10:12,880
+star trek you know in star trek you it's
+
+257
+00:10:11,040 --> 00:10:16,240
+all touch swing you see
+
+258
+00:10:12,880 --> 00:10:19,680
+because we imagine that's the best
+
+259
+00:10:16,240 --> 00:10:22,480
+but so imagine let's say
+
+260
+00:10:19,680 --> 00:10:24,560
+let's say 10 or 20 years from now our
+
+261
+00:10:22,480 --> 00:10:28,399
+space shuttle spaceships
+
+262
+00:10:24,560 --> 00:10:32,160
+what will they actually use uh
+
+263
+00:10:28,399 --> 00:10:33,519
+touch screen user interface as primary i
+
+264
+00:10:32,160 --> 00:10:37,680
+doubt it okay
+
+265
+00:10:33,519 --> 00:10:41,680
+i doubt it because it is no good
+
+266
+00:10:37,680 --> 00:10:44,079
+so anyway that's about touch screen uh
+
+267
+00:10:41,680 --> 00:10:44,880
+i can show you actually a lot of photos
+
+268
+00:10:44,079 --> 00:10:46,720
+about
+
+269
+00:10:44,880 --> 00:10:48,240
+you know the physical control let's get
+
+270
+00:10:46,720 --> 00:10:51,760
+back to emacs okay
+
+271
+00:10:48,240 --> 00:10:51,760
+comments in questions posted
+
+272
+00:10:52,880 --> 00:10:57,360
+so touchscreen with adjustable hate
+
+273
+00:10:58,000 --> 00:11:02,399
+okay so let's get back to emacs and
+
+274
+00:11:00,399 --> 00:11:03,279
+let's talk about how do you what what
+
+275
+00:11:02,399 --> 00:11:06,800
+are we going to do
+
+276
+00:11:03,279 --> 00:11:09,600
+emacs this coding okay
+
+277
+00:11:06,800 --> 00:11:11,040
+so what are we going to do now yeah so
+
+278
+00:11:09,600 --> 00:11:15,680
+let's go to
+
+279
+00:11:11,040 --> 00:11:19,040
+um this this guy okay
+
+280
+00:11:15,680 --> 00:11:23,120
+before we do that let's go to keyboard
+
+281
+00:11:19,040 --> 00:11:26,160
+uh block okay uh wait uh
+
+282
+00:11:23,120 --> 00:11:29,680
+keyboard block go there and
+
+283
+00:11:26,160 --> 00:11:33,279
+go to ergo keyboards okay fantastic
+
+284
+00:11:29,680 --> 00:11:35,519
+keyboards then we go to the foot pedal
+
+285
+00:11:33,279 --> 00:11:38,720
+kinesis foot pedal which i have down
+
+286
+00:11:35,519 --> 00:11:43,120
+there i i did a video on that
+
+287
+00:11:38,720 --> 00:11:46,320
+then there is this guy
+
+288
+00:11:43,120 --> 00:11:49,600
+uh by by this
+
+289
+00:11:46,320 --> 00:11:52,480
+emacs expert okay
+
+290
+00:11:49,600 --> 00:11:53,839
+uh i think i have a link there it is
+
+291
+00:11:52,480 --> 00:11:56,959
+howard
+
+292
+00:11:53,839 --> 00:11:59,760
+abraham abraham okay
+
+293
+00:11:56,959 --> 00:12:01,680
+he wrote a review on that he is a emacs
+
+294
+00:11:59,760 --> 00:12:03,680
+expert
+
+295
+00:12:01,680 --> 00:12:04,800
+so what we're gonna do is we're gonna
+
+296
+00:12:03,680 --> 00:12:08,160
+youtube search
+
+297
+00:12:04,800 --> 00:12:11,440
+emacs howard abraham because he's
+
+298
+00:12:08,160 --> 00:12:15,200
+he's done great uh
+
+299
+00:12:11,440 --> 00:12:18,000
+emacs tutorials so let's go to his
+
+300
+00:12:15,200 --> 00:12:18,000
+youtube channel
+
+301
+00:12:23,200 --> 00:12:28,399
+okay let's see introduction to isha okay
+
+302
+00:12:26,560 --> 00:12:31,839
+let's see intro okay so let's
+
+303
+00:12:28,399 --> 00:12:31,839
+introduction to isiah
+
+304
+00:12:33,279 --> 00:12:40,160
+okay so he's he you know he is his
+
+305
+00:12:36,800 --> 00:12:40,800
+youtube video tutorial on emacs asia
+
+306
+00:12:40,160 --> 00:12:44,000
+okay
+
+307
+00:12:40,800 --> 00:12:47,040
+now i am a blogger so i want to embed
+
+308
+00:12:44,000 --> 00:12:50,000
+his video in my blog so what i do i
+
+309
+00:12:47,040 --> 00:12:52,800
+press a key to copy the url
+
+310
+00:12:50,000 --> 00:12:54,079
+switch back to emacs okay switch back to
+
+311
+00:12:52,800 --> 00:12:57,760
+emacs anyway
+
+312
+00:12:54,079 --> 00:12:58,079
+okay then i post it here let's go to my
+
+313
+00:12:57,760 --> 00:13:01,519
+uh
+
+314
+00:12:58,079 --> 00:13:02,320
+talk show page okay you see now the link
+
+315
+00:13:01,519 --> 00:13:05,600
+is here
+
+316
+00:13:02,320 --> 00:13:08,480
+is there now i want to okay
+
+317
+00:13:05,600 --> 00:13:08,480
+showing browser
+
+318
+00:13:08,639 --> 00:13:14,399
+you see that's a link that's no good you
+
+319
+00:13:10,720 --> 00:13:17,519
+want the embed code so i press a key
+
+320
+00:13:14,399 --> 00:13:19,200
+actually i can press a key then show in
+
+321
+00:13:17,519 --> 00:13:22,560
+browser
+
+322
+00:13:19,200 --> 00:13:26,399
+there it is okay back to emacs
+
+323
+00:13:22,560 --> 00:13:28,320
+undo undo so here it is okay so
+
+324
+00:13:26,399 --> 00:13:29,440
+so what the command i just called is
+
+325
+00:13:28,320 --> 00:13:32,720
+youtube
+
+326
+00:13:29,440 --> 00:13:35,839
+linkify okay html youtube linkify
+
+327
+00:13:32,720 --> 00:13:39,279
+that will turn a youtube link into this
+
+328
+00:13:35,839 --> 00:13:42,399
+uh my format of uh you know
+
+329
+00:13:39,279 --> 00:13:46,240
+iframe this is the
+
+330
+00:13:42,399 --> 00:13:48,079
+heart of it okay but i also have figure
+
+331
+00:13:46,240 --> 00:13:52,399
+and figure caption so i can say
+
+332
+00:13:48,079 --> 00:13:56,560
+for example this is a great tutorial
+
+333
+00:13:52,399 --> 00:14:01,120
+on e-shell e-max issue
+
+334
+00:13:56,560 --> 00:14:03,519
+by harward okay so showing browser
+
+335
+00:14:01,120 --> 00:14:05,600
+that's fantastic now you so if you are
+
+336
+00:14:03,519 --> 00:14:07,760
+like me a blogger you want to uh
+
+337
+00:14:05,600 --> 00:14:10,720
+you need to do these orphans often so
+
+338
+00:14:07,760 --> 00:14:13,839
+you can just copy a url any url
+
+339
+00:14:10,720 --> 00:14:14,639
+copy it and just do it here you know in
+
+340
+00:14:13,839 --> 00:14:18,480
+your blog
+
+341
+00:14:14,639 --> 00:14:18,480
+press the key and it becomes that
+
+342
+00:14:19,360 --> 00:14:23,839
+okay so let me show you what's the other
+
+343
+00:14:22,320 --> 00:14:26,959
+thing okay so
+
+344
+00:14:23,839 --> 00:14:29,839
+when you copy a url you see the url
+
+345
+00:14:26,959 --> 00:14:30,639
+it's of this format but when you uh
+
+346
+00:14:29,839 --> 00:14:33,519
+change it to
+
+347
+00:14:30,639 --> 00:14:34,480
+embedded youtube video it's actually
+
+348
+00:14:33,519 --> 00:14:37,600
+iframe
+
+349
+00:14:34,480 --> 00:14:39,839
+and the iframe uses this url
+
+350
+00:14:37,600 --> 00:14:40,959
+which is different from the other let me
+
+351
+00:14:39,839 --> 00:14:43,920
+magnify okay so
+
+352
+00:14:40,959 --> 00:14:44,560
+you see this is original and this is the
+
+353
+00:14:43,920 --> 00:14:49,360
+embed
+
+354
+00:14:44,560 --> 00:14:49,360
+url so what i want to do
+
+355
+00:14:51,199 --> 00:14:59,040
+is i want my command to be
+
+356
+00:14:55,120 --> 00:15:00,800
+able to work on this embed url as well
+
+357
+00:14:59,040 --> 00:15:01,600
+if i do it now it won't work let me show
+
+358
+00:15:00,800 --> 00:15:05,519
+you okay
+
+359
+00:15:01,600 --> 00:15:08,399
+so for example this is stupid emacs bug
+
+360
+00:15:05,519 --> 00:15:09,680
+okay for example this is original url i
+
+361
+00:15:08,399 --> 00:15:12,959
+press a key
+
+362
+00:15:09,680 --> 00:15:15,760
+it becomes that which is good now this
+
+363
+00:15:12,959 --> 00:15:18,399
+is the embed url i press a key
+
+364
+00:15:15,760 --> 00:15:19,600
+it doesn't work well it becomes a link
+
+365
+00:15:18,399 --> 00:15:23,199
+let me show you
+
+366
+00:15:19,600 --> 00:15:25,360
+okay um
+
+367
+00:15:23,199 --> 00:15:26,880
+you see it becomes a link here that's
+
+368
+00:15:25,360 --> 00:15:30,320
+not what we want
+
+369
+00:15:26,880 --> 00:15:33,440
+so go back undo undo
+
+370
+00:15:30,320 --> 00:15:35,440
+so i want my command to be able to work
+
+371
+00:15:33,440 --> 00:15:38,560
+on this embed url
+
+372
+00:15:35,440 --> 00:15:39,519
+code so that's what i want to modify
+
+373
+00:15:38,560 --> 00:15:42,880
+today
+
+374
+00:15:39,519 --> 00:15:46,399
+so before before we do that let's let's
+
+375
+00:15:42,880 --> 00:15:48,160
+show let's um
+
+376
+00:15:46,399 --> 00:15:50,399
+let's show you the command let me go
+
+377
+00:15:48,160 --> 00:15:52,639
+over the command how it works okay so
+
+378
+00:15:50,399 --> 00:15:53,600
+because this is going to be a emac list
+
+379
+00:15:52,639 --> 00:15:56,959
+tutorial
+
+380
+00:15:53,600 --> 00:16:00,000
+so you go to the source code html mod
+
+381
+00:15:56,959 --> 00:16:02,959
+and oops so
+
+382
+00:16:00,000 --> 00:16:04,000
+here is the source code okay it's not
+
+383
+00:16:02,959 --> 00:16:08,320
+too long let's
+
+384
+00:16:04,000 --> 00:16:11,680
+let's cut it's um
+
+385
+00:16:08,320 --> 00:16:15,680
+okay so okay so here's the line
+
+386
+00:16:11,680 --> 00:16:15,680
+uh wait so here's a code
+
+387
+00:16:18,399 --> 00:16:23,839
+it's not too long okay so but let's copy
+
+388
+00:16:21,199 --> 00:16:23,839
+it let's
+
+389
+00:16:24,079 --> 00:16:31,440
+copy it create a new buffer paste it
+
+390
+00:16:27,440 --> 00:16:35,360
+save it xx let's save it as
+
+391
+00:16:31,440 --> 00:16:39,440
+the command name save it that
+
+392
+00:16:35,360 --> 00:16:43,199
+and today's state and dot e-l okay
+
+393
+00:16:39,440 --> 00:16:43,199
+they magnify so here's the code
+
+394
+00:16:43,360 --> 00:16:47,440
+so it says the line can be so here's the
+
+395
+00:16:46,240 --> 00:16:50,480
+documentation so
+
+396
+00:16:47,440 --> 00:16:54,240
+it says the line can be any of
+
+397
+00:16:50,480 --> 00:16:57,279
+this is a normal youtube url
+
+398
+00:16:54,240 --> 00:16:58,320
+and it can also be the url i mean the
+
+399
+00:16:57,279 --> 00:17:01,279
+youtube id
+
+400
+00:16:58,320 --> 00:17:02,839
+for youtube every video has id which is
+
+401
+00:17:01,279 --> 00:17:06,480
+part of the
+
+402
+00:17:02,839 --> 00:17:09,120
+url uh here you see that's the id
+
+403
+00:17:06,480 --> 00:17:10,400
+and then it also can be this format you
+
+404
+00:17:09,120 --> 00:17:13,039
+know why
+
+405
+00:17:10,400 --> 00:17:14,880
+youtube changes every every year so you
+
+406
+00:17:13,039 --> 00:17:18,559
+know normally when you want to do in
+
+407
+00:17:14,880 --> 00:17:20,880
+embed you click on this share button
+
+408
+00:17:18,559 --> 00:17:22,880
+annoying uh user interface then you can
+
+409
+00:17:20,880 --> 00:17:26,319
+share to facebook you know
+
+410
+00:17:22,880 --> 00:17:27,120
+you click on facebook it goes to
+
+411
+00:17:26,319 --> 00:17:30,840
+facebook it
+
+412
+00:17:27,120 --> 00:17:34,080
+shares you know this social networking
+
+413
+00:17:30,840 --> 00:17:37,120
+crap anyway so this is the
+
+414
+00:17:34,080 --> 00:17:39,840
+so if you just click here
+
+415
+00:17:37,120 --> 00:17:42,000
+it gives you this url which is different
+
+416
+00:17:39,840 --> 00:17:44,799
+from the url of the original
+
+417
+00:17:42,000 --> 00:17:45,760
+uh website for example let me paste it
+
+418
+00:17:44,799 --> 00:17:48,799
+here
+
+419
+00:17:45,760 --> 00:17:52,000
+let's undo okay
+
+420
+00:17:48,799 --> 00:17:55,039
+so you see so this is original url
+
+421
+00:17:52,000 --> 00:17:56,240
+and this is the url if you click on the
+
+422
+00:17:55,039 --> 00:17:58,960
+share
+
+423
+00:17:56,240 --> 00:18:00,000
+and this is the url if you click on if
+
+424
+00:17:58,960 --> 00:18:02,000
+you uh
+
+425
+00:18:00,000 --> 00:18:04,799
+you want to embed it like for example
+
+426
+00:18:02,000 --> 00:18:04,799
+you click share
+
+427
+00:18:04,880 --> 00:18:10,880
+then you click on embed
+
+428
+00:18:08,799 --> 00:18:12,160
+you see saying then youtube gives you
+
+429
+00:18:10,880 --> 00:18:14,880
+this crap
+
+430
+00:18:12,160 --> 00:18:16,880
+this bunch of let me show you okay
+
+431
+00:18:14,880 --> 00:18:20,000
+that's what youtube gives you
+
+432
+00:18:16,880 --> 00:18:23,600
+you know uh
+
+433
+00:18:20,000 --> 00:18:27,760
+frame board frame border is you know
+
+434
+00:18:23,600 --> 00:18:31,840
+old html so allow accelerometer
+
+435
+00:18:27,760 --> 00:18:35,120
+auto play encrypted media gyroscope
+
+436
+00:18:31,840 --> 00:18:35,120
+picture in picture crap
+
+437
+00:18:36,240 --> 00:18:42,720
+anyway so i just want standard
+
+438
+00:18:39,679 --> 00:18:45,200
+you know html no nothing fancy so
+
+439
+00:18:42,720 --> 00:18:46,640
+this is what i want so in order to write
+
+440
+00:18:45,200 --> 00:18:48,480
+this command
+
+441
+00:18:46,640 --> 00:18:49,760
+you know first of all you study all
+
+442
+00:18:48,480 --> 00:18:53,760
+these youtube formats
+
+443
+00:18:49,760 --> 00:18:53,760
+but let's let's go to our code
+
+444
+00:18:54,400 --> 00:18:57,520
+so anyway so here's our code so you it
+
+445
+00:18:56,799 --> 00:19:00,000
+turns
+
+446
+00:18:57,520 --> 00:19:01,200
+you know any one of these ui out into
+
+447
+00:19:00,000 --> 00:19:04,559
+this uh
+
+448
+00:19:01,200 --> 00:19:07,039
+iframe and figure stuff
+
+449
+00:19:04,559 --> 00:19:08,080
+okay so i think i guess i let me explain
+
+450
+00:19:07,039 --> 00:19:10,799
+the code uh
+
+451
+00:19:08,080 --> 00:19:15,280
+i guess either i explain the code i
+
+452
+00:19:10,799 --> 00:19:15,280
+start oh i start to code and modify it
+
+453
+00:19:18,480 --> 00:19:24,400
+okay so let's look at the comments
+
+454
+00:19:21,600 --> 00:19:24,880
+uh what do you guys think so uh paul
+
+455
+00:19:24,400 --> 00:19:28,640
+says
+
+456
+00:19:24,880 --> 00:19:28,640
+never uh
+
+457
+00:19:29,679 --> 00:19:36,080
+have been looking into kneeling chair
+
+458
+00:19:32,799 --> 00:19:36,960
+oh kneading chair no good okay uh i can
+
+459
+00:19:36,080 --> 00:19:40,480
+tell you about
+
+460
+00:19:36,960 --> 00:19:42,799
+kneeling chairs paul edward
+
+461
+00:19:40,480 --> 00:19:45,360
+let's digress a little bit okay the
+
+462
+00:19:42,799 --> 00:19:49,120
+stagnation is more fun
+
+463
+00:19:45,360 --> 00:19:49,120
+uh exactly
+
+464
+00:19:49,280 --> 00:19:52,320
+needing chair because i'm very much into
+
+465
+00:19:51,600 --> 00:19:55,360
+these
+
+466
+00:19:52,320 --> 00:19:57,440
+strange chairs ergonomic chairs but
+
+467
+00:19:55,360 --> 00:19:59,039
+knitting chairs is no good okay but
+
+468
+00:19:57,440 --> 00:20:02,000
+because
+
+469
+00:19:59,039 --> 00:20:02,000
+uh well
+
+470
+00:20:02,240 --> 00:20:08,320
+okay it's it's on one of my page uh
+
+471
+00:20:05,760 --> 00:20:10,240
+it's on saudi.org i'm not sure i want to
+
+472
+00:20:08,320 --> 00:20:13,760
+show it
+
+473
+00:20:10,240 --> 00:20:17,039
+but anyway anyway there's this
+
+474
+00:20:13,760 --> 00:20:18,080
+knitting chair okay i which i actually
+
+475
+00:20:17,039 --> 00:20:22,640
+bought
+
+476
+00:20:18,080 --> 00:20:26,640
+in 2000 in 1996 okay these are
+
+477
+00:20:22,640 --> 00:20:31,039
+knitting chairs okay i got them
+
+478
+00:20:26,640 --> 00:20:33,919
+around 1997 and i used it for a year
+
+479
+00:20:31,039 --> 00:20:34,799
+you know so i thought this is a great
+
+480
+00:20:33,919 --> 00:20:38,559
+you know
+
+481
+00:20:34,799 --> 00:20:41,039
+ergonomic science chair uh
+
+482
+00:20:38,559 --> 00:20:42,320
+after using it for a year it's not that
+
+483
+00:20:41,039 --> 00:20:44,240
+good
+
+484
+00:20:42,320 --> 00:20:48,000
+when you sit on this chair you have the
+
+485
+00:20:44,240 --> 00:20:50,400
+issue of your
+
+486
+00:20:48,000 --> 00:20:52,240
+you know it is it's you know it's this
+
+487
+00:20:50,400 --> 00:20:54,240
+knitting chairs this california thing
+
+488
+00:20:52,240 --> 00:20:56,880
+bare feet and stuff
+
+489
+00:20:54,240 --> 00:20:57,840
+so but but when you sit on it a normal
+
+490
+00:20:56,880 --> 00:21:00,880
+chair you have this
+
+491
+00:20:57,840 --> 00:21:04,960
+back support okay so you can lie on it
+
+492
+00:21:00,880 --> 00:21:07,440
+uh wait so you can you see i can
+
+493
+00:21:04,960 --> 00:21:08,320
+there's the you know you can you can lie
+
+494
+00:21:07,440 --> 00:21:09,919
+on it
+
+495
+00:21:08,320 --> 00:21:12,080
+but with kneeling chair you don't have
+
+496
+00:21:09,919 --> 00:21:12,720
+that so you have it's like a tree you
+
+497
+00:21:12,080 --> 00:21:16,559
+have this
+
+498
+00:21:12,720 --> 00:21:19,120
+issue of like you constantly have to
+
+499
+00:21:16,559 --> 00:21:21,280
+unconsciously you know it's it's not so
+
+500
+00:21:19,120 --> 00:21:21,280
+good
+
+501
+00:21:21,679 --> 00:21:25,360
+also also you know when i sit on it i
+
+502
+00:21:24,559 --> 00:21:27,600
+remember
+
+503
+00:21:25,360 --> 00:21:29,039
+you you have you have the feel of
+
+504
+00:21:27,600 --> 00:21:31,760
+falling down like you know
+
+505
+00:21:29,039 --> 00:21:33,280
+tree topples a normal chair you don't
+
+506
+00:21:31,760 --> 00:21:36,080
+have to worry about that but but
+
+507
+00:21:33,280 --> 00:21:37,039
+but with this knee lean chair because
+
+508
+00:21:36,080 --> 00:21:39,440
+your feet
+
+509
+00:21:37,039 --> 00:21:40,480
+your legs is all tied up you know it's
+
+510
+00:21:39,440 --> 00:21:43,520
+kind of
+
+511
+00:21:40,480 --> 00:21:44,000
+tied up with that the way you sit so you
+
+512
+00:21:43,520 --> 00:21:47,200
+cannot
+
+513
+00:21:44,000 --> 00:21:49,120
+readily move your legs out
+
+514
+00:21:47,200 --> 00:21:50,640
+to either stand up or something you know
+
+515
+00:21:49,120 --> 00:21:53,840
+you so
+
+516
+00:21:50,640 --> 00:21:56,640
+you have the you won't actually
+
+517
+00:21:53,840 --> 00:21:56,960
+fall down but you kind of feel like like
+
+518
+00:21:56,640 --> 00:21:58,960
+that
+
+519
+00:21:56,960 --> 00:22:00,240
+because you you know it's like your your
+
+520
+00:21:58,960 --> 00:22:03,840
+feed is bound and
+
+521
+00:22:00,240 --> 00:22:06,960
+and you have the top uh moving
+
+522
+00:22:03,840 --> 00:22:08,159
+so i didn't like it so much the idea
+
+523
+00:22:06,960 --> 00:22:12,640
+seems good but
+
+524
+00:22:08,159 --> 00:22:13,440
+um i didn't like it so that's about
+
+525
+00:22:12,640 --> 00:22:15,919
+kneading chair
+
+526
+00:22:13,440 --> 00:22:15,919
+okay so
+
+527
+00:22:16,480 --> 00:22:23,840
+uh so
+
+528
+00:22:20,480 --> 00:22:26,640
+emmanuel torre says if you
+
+529
+00:22:23,840 --> 00:22:27,120
+right click on the video you can you can
+
+530
+00:22:26,640 --> 00:22:29,679
+press
+
+531
+00:22:27,120 --> 00:22:31,280
+copy embed code okay in the context menu
+
+532
+00:22:29,679 --> 00:22:34,320
+i noticed that there
+
+533
+00:22:31,280 --> 00:22:37,520
+are more options okay
+
+534
+00:22:34,320 --> 00:22:40,400
+uh do you not put them in ten you know
+
+535
+00:22:37,520 --> 00:22:42,240
+yeah you can do that but it's not good
+
+536
+00:22:40,400 --> 00:22:44,400
+you know if you are a blogger if you are
+
+537
+00:22:42,240 --> 00:22:46,080
+using emacs of course you can get the
+
+538
+00:22:44,400 --> 00:22:49,360
+embed code right click
+
+539
+00:22:46,080 --> 00:22:52,559
+you know copy video url copy uil
+
+540
+00:22:49,360 --> 00:22:53,360
+uh copy embed code you can do like that
+
+541
+00:22:52,559 --> 00:22:55,360
+or you can
+
+542
+00:22:53,360 --> 00:22:58,159
+click on the share but it's too much
+
+543
+00:22:55,360 --> 00:23:01,280
+mouse clicks you don't want that
+
+544
+00:22:58,159 --> 00:23:02,960
+so what you want is you just use the
+
+545
+00:23:01,280 --> 00:23:06,880
+standard shortcut keys
+
+546
+00:23:02,960 --> 00:23:09,039
+uh control l to move your cursor to the
+
+547
+00:23:06,880 --> 00:23:11,280
+url field and ctrl c
+
+548
+00:23:09,039 --> 00:23:12,080
+then you have it copied then switch to
+
+549
+00:23:11,280 --> 00:23:17,039
+emax
+
+550
+00:23:12,080 --> 00:23:19,440
+then you can paste it you see close undo
+
+551
+00:23:17,039 --> 00:23:21,120
+or i have a shortcut you know i just
+
+552
+00:23:19,440 --> 00:23:23,520
+press a single key you know
+
+553
+00:23:21,120 --> 00:23:26,240
+one single key it's already copied i go
+
+554
+00:23:23,520 --> 00:23:28,720
+back to emacs and i can copy it
+
+555
+00:23:26,240 --> 00:23:31,760
+so once you have it in emacs you know
+
+556
+00:23:28,720 --> 00:23:33,679
+you you have it in emacs it's magnified
+
+557
+00:23:31,760 --> 00:23:34,799
+then you just press a key it becomes you
+
+558
+00:23:33,679 --> 00:23:36,640
+know what you want
+
+559
+00:23:34,799 --> 00:23:38,159
+then you can start to type you know so
+
+560
+00:23:36,640 --> 00:23:42,320
+that's more efficient
+
+561
+00:23:38,159 --> 00:23:42,320
+that's the advantage of emacs
+
+562
+00:23:43,120 --> 00:23:46,559
+okay so so let's look at the code okay
+
+563
+00:23:46,159 --> 00:23:51,840
+let's
+
+564
+00:23:46,559 --> 00:23:51,840
+let's start to look at the code and um
+
+565
+00:23:54,159 --> 00:23:58,400
+what should we do we want to let me go
+
+566
+00:23:56,880 --> 00:24:01,520
+over the code then okay
+
+567
+00:23:58,400 --> 00:24:01,520
+let me go over the code
+
+568
+00:24:02,960 --> 00:24:07,440
+so the code you know what actually what
+
+569
+00:24:06,320 --> 00:24:10,960
+the code will do
+
+570
+00:24:07,440 --> 00:24:13,120
+is that let me go back to uh you see
+
+571
+00:24:10,960 --> 00:24:14,559
+the code basically what the code will
+
+572
+00:24:13,120 --> 00:24:18,000
+need to do is that you
+
+573
+00:24:14,559 --> 00:24:19,840
+will grab the text under the cursor you
+
+574
+00:24:18,000 --> 00:24:22,080
+know the user put the cursor somewhere
+
+575
+00:24:19,840 --> 00:24:24,000
+in the url grab the text under cursor
+
+576
+00:24:22,080 --> 00:24:26,159
+so you actually get the input that's the
+
+577
+00:24:24,000 --> 00:24:28,240
+input you want to transform
+
+578
+00:24:26,159 --> 00:24:29,840
+so you want to grab that text under
+
+579
+00:24:28,240 --> 00:24:32,480
+cruiser then
+
+580
+00:24:29,840 --> 00:24:34,720
+you want to kind of pass the text for
+
+581
+00:24:32,480 --> 00:24:39,520
+example you want to find out which part
+
+582
+00:24:34,720 --> 00:24:41,440
+is the video id which is this part
+
+583
+00:24:39,520 --> 00:24:43,840
+you know once you got the video id
+
+584
+00:24:41,440 --> 00:24:45,760
+everything is easy then you want to
+
+585
+00:24:43,840 --> 00:24:47,520
+then you just want to insert you know
+
+586
+00:24:45,760 --> 00:24:51,120
+you you want to insert
+
+587
+00:24:47,520 --> 00:24:54,799
+iframe tag you know iframe
+
+588
+00:24:51,120 --> 00:24:56,960
+uh oops let's just do this iframe
+
+589
+00:24:54,799 --> 00:25:00,240
+you know you insert the iframe tag then
+
+590
+00:24:56,960 --> 00:25:00,240
+source equals to
+
+591
+00:25:01,840 --> 00:25:07,440
+source equals to something you know
+
+592
+00:25:05,039 --> 00:25:09,120
+so once you pass and get the id
+
+593
+00:25:07,440 --> 00:25:12,240
+everything is easier you just insert
+
+594
+00:25:09,120 --> 00:25:12,240
+what whatever you want
+
+595
+00:25:13,679 --> 00:25:18,080
+okay so that's uh that's the core of
+
+596
+00:25:16,400 --> 00:25:20,000
+this command that's what this command
+
+597
+00:25:18,080 --> 00:25:22,640
+needs to do so let's look at look at
+
+598
+00:25:20,000 --> 00:25:28,480
+what the command actually does okay so
+
+599
+00:25:22,640 --> 00:25:31,760
+so youtube linkify so that's a command
+
+600
+00:25:28,480 --> 00:25:35,440
+and okay so let a bunch of
+
+601
+00:25:31,760 --> 00:25:38,960
+uh we declare
+
+602
+00:25:35,440 --> 00:25:42,080
+a bunch of variables okay p1
+
+603
+00:25:38,960 --> 00:25:44,880
+p2 is position one and position two
+
+604
+00:25:42,080 --> 00:25:45,840
+that's the beginning and end of the url
+
+605
+00:25:44,880 --> 00:25:48,720
+okay
+
+606
+00:25:45,840 --> 00:25:49,520
+the input string is the url that you
+
+607
+00:25:48,720 --> 00:25:54,840
+grab
+
+608
+00:25:49,520 --> 00:25:57,360
+okay and this id is the youtube video id
+
+609
+00:25:54,840 --> 00:26:01,360
+okay uh youtube
+
+610
+00:25:57,360 --> 00:26:01,360
+link charts okay so
+
+611
+00:26:02,159 --> 00:26:06,559
+so these are the characters in the
+
+612
+00:26:04,320 --> 00:26:09,600
+youtube url link
+
+613
+00:26:06,559 --> 00:26:11,200
+that you want to skip something like
+
+614
+00:26:09,600 --> 00:26:13,919
+that
+
+615
+00:26:11,200 --> 00:26:15,840
+okay skip char let's go over quickly
+
+616
+00:26:13,919 --> 00:26:18,400
+skip charts backward
+
+617
+00:26:15,840 --> 00:26:21,919
+so you are skipping so you are moving
+
+618
+00:26:18,400 --> 00:26:21,919
+the cruiser and skipping these
+
+619
+00:26:22,840 --> 00:26:29,120
+characters
+
+620
+00:26:24,799 --> 00:26:31,360
+then uh okay
+
+621
+00:26:29,120 --> 00:26:33,360
+so first of all what are we doing here
+
+622
+00:26:31,360 --> 00:26:33,840
+is actually we are trying to find out
+
+623
+00:26:33,360 --> 00:26:37,200
+the
+
+624
+00:26:33,840 --> 00:26:40,640
+the beginning and end position of the
+
+625
+00:26:37,200 --> 00:26:45,120
+of the of the youtube url
+
+626
+00:26:40,640 --> 00:26:47,679
+so that's what this code does
+
+627
+00:26:45,120 --> 00:26:50,400
+so we skipped character backward in the
+
+628
+00:26:47,679 --> 00:26:50,400
+url
+
+629
+00:26:50,559 --> 00:26:56,559
+okay and uh and what
+
+630
+00:26:53,840 --> 00:26:58,320
+and this part actually we can ignore you
+
+631
+00:26:56,559 --> 00:27:00,640
+know the skip chart backward let me
+
+632
+00:26:58,320 --> 00:27:04,559
+explain what it does okay so you can do
+
+633
+00:27:00,640 --> 00:27:07,120
+describe function to look to read the
+
+634
+00:27:04,559 --> 00:27:08,240
+documentation of of this skip chart
+
+635
+00:27:07,120 --> 00:27:10,080
+backward command
+
+636
+00:27:08,240 --> 00:27:11,840
+so escape chart backward it takes a
+
+637
+00:27:10,080 --> 00:27:14,080
+string uh basically
+
+638
+00:27:11,840 --> 00:27:15,360
+so just like that you know here over
+
+639
+00:27:14,080 --> 00:27:17,679
+here it takes a string and
+
+640
+00:27:15,360 --> 00:27:18,720
+what the string is the string function
+
+641
+00:27:17,679 --> 00:27:21,760
+as a
+
+642
+00:27:18,720 --> 00:27:24,720
+regular expression
+
+643
+00:27:21,760 --> 00:27:26,480
+so you are telling you are telling emacs
+
+644
+00:27:24,720 --> 00:27:29,760
+to skip character to move the
+
+645
+00:27:26,480 --> 00:27:30,720
+cruiser backward uh and skip all these
+
+646
+00:27:29,760 --> 00:27:33,279
+characters
+
+647
+00:27:30,720 --> 00:27:34,480
+so you skip the dash underscore question
+
+648
+00:27:33,279 --> 00:27:37,600
+mark period
+
+649
+00:27:34,480 --> 00:27:40,960
+colon slash and equal sign
+
+650
+00:27:37,600 --> 00:27:42,320
+and ampersand ampersand sign and you
+
+651
+00:27:40,960 --> 00:27:45,919
+also skip
+
+652
+00:27:42,320 --> 00:27:49,039
+capital a to z lowercase a to z
+
+653
+00:27:45,919 --> 00:27:52,880
+and zero to nine you see these
+
+654
+00:27:49,039 --> 00:27:56,320
+are kind of regular expression uh
+
+655
+00:27:52,880 --> 00:27:59,120
+uh syntax so it's kind of a mixture of
+
+656
+00:27:56,320 --> 00:28:00,640
+regular expression syntax
+
+657
+00:27:59,120 --> 00:28:03,120
+you know it's like the regular
+
+658
+00:28:00,640 --> 00:28:05,360
+expression square brackets inside it
+
+659
+00:28:03,120 --> 00:28:07,120
+so you skip those characters so
+
+660
+00:28:05,360 --> 00:28:10,799
+basically what what we want is
+
+661
+00:28:07,120 --> 00:28:10,799
+go to the beginning of um
+
+662
+00:28:12,960 --> 00:28:16,000
+you know actually another way simpler
+
+663
+00:28:15,600 --> 00:28:20,159
+way to
+
+664
+00:28:16,000 --> 00:28:23,120
+do this is just call the thing at point
+
+665
+00:28:20,159 --> 00:28:25,120
+command you know we can do this thing at
+
+666
+00:28:23,120 --> 00:28:28,840
+point file name but
+
+667
+00:28:25,120 --> 00:28:31,919
+we explained thing at point yesterday
+
+668
+00:28:28,840 --> 00:28:32,799
+so anyway so let's let's go with this
+
+669
+00:28:31,919 --> 00:28:34,640
+okay skip
+
+670
+00:28:32,799 --> 00:28:37,200
+so you move the cursor backward to the
+
+671
+00:28:34,640 --> 00:28:40,080
+beginning basically beginning of the url
+
+672
+00:28:37,200 --> 00:28:40,720
+then you set it to p1 position one okay
+
+673
+00:28:40,080 --> 00:28:43,279
+then you
+
+674
+00:28:40,720 --> 00:28:45,120
+move character forward again then you
+
+675
+00:28:43,279 --> 00:28:48,640
+set the point to p2 so you got the
+
+676
+00:28:45,120 --> 00:28:53,200
+beginning and end position of the
+
+677
+00:28:48,640 --> 00:28:56,080
+of the url the url by the way is
+
+678
+00:28:53,200 --> 00:28:56,720
+by the way could be inside the sentence
+
+679
+00:28:56,080 --> 00:28:59,760
+could be
+
+680
+00:28:56,720 --> 00:29:03,120
+inside a sentence okay like that
+
+681
+00:28:59,760 --> 00:29:06,159
+and something usually is not
+
+682
+00:29:03,120 --> 00:29:09,679
+so that's py and p2 then you
+
+683
+00:29:06,159 --> 00:29:11,919
+um you use buffer string no properties
+
+684
+00:29:09,679 --> 00:29:13,360
+and give two positions that grabs the
+
+685
+00:29:11,919 --> 00:29:16,799
+text underneath it
+
+686
+00:29:13,360 --> 00:29:19,039
+then you save it to input string then
+
+687
+00:29:16,799 --> 00:29:20,240
+okay so the input string is the actual
+
+688
+00:29:19,039 --> 00:29:23,600
+url
+
+689
+00:29:20,240 --> 00:29:24,960
+then you try to extract the id from the
+
+690
+00:29:23,600 --> 00:29:27,279
+input string
+
+691
+00:29:24,960 --> 00:29:28,880
+okay that's how you do it so you try to
+
+692
+00:29:27,279 --> 00:29:32,320
+extract id
+
+693
+00:29:28,880 --> 00:29:36,720
+by condition okay the condition
+
+694
+00:29:32,320 --> 00:29:36,720
+so let me show you the id okay so
+
+695
+00:29:37,120 --> 00:29:43,279
+for example
+
+696
+00:29:40,880 --> 00:29:43,279
+um
+
+697
+00:29:48,159 --> 00:29:53,200
+okay so for example this is the url
+
+698
+00:29:50,960 --> 00:29:57,919
+right this is the original url
+
+699
+00:29:53,200 --> 00:30:00,320
+and let's put it here so you can see
+
+700
+00:29:57,919 --> 00:30:02,880
+so given a url like that you want to
+
+701
+00:30:00,320 --> 00:30:03,440
+extract the id which is the v equals to
+
+702
+00:30:02,880 --> 00:30:07,520
+something
+
+703
+00:30:03,440 --> 00:30:11,520
+so so we can see if if string match
+
+704
+00:30:07,520 --> 00:30:14,399
+v equals to 11 characters
+
+705
+00:30:11,520 --> 00:30:14,799
+so if you actually found a pattern like
+
+706
+00:30:14,399 --> 00:30:18,960
+that
+
+707
+00:30:14,799 --> 00:30:22,000
+then then those 11 characters are the id
+
+708
+00:30:18,960 --> 00:30:24,240
+so so you see then match
+
+709
+00:30:22,000 --> 00:30:26,240
+string equals two so we captured it you
+
+710
+00:30:24,240 --> 00:30:30,399
+know so
+
+711
+00:30:26,240 --> 00:30:35,120
+so that's the id but otherwise
+
+712
+00:30:30,399 --> 00:30:38,320
+otherwise we do this a second test
+
+713
+00:30:35,120 --> 00:30:40,960
+so if the string is actually youtube.b
+
+714
+00:30:38,320 --> 00:30:41,679
+okay that's the other let me go back to
+
+715
+00:30:40,960 --> 00:30:44,320
+the you see
+
+716
+00:30:41,679 --> 00:30:45,840
+this is the second you possible url from
+
+717
+00:30:44,320 --> 00:30:49,200
+youtube
+
+718
+00:30:45,840 --> 00:30:51,919
+so let's switch back
+
+719
+00:30:49,200 --> 00:30:52,240
+let's paste it here okay so let's paste
+
+720
+00:30:51,919 --> 00:30:55,360
+it
+
+721
+00:30:52,240 --> 00:30:58,559
+to kind of document document so
+
+722
+00:30:55,360 --> 00:31:02,080
+if the url is like that
+
+723
+00:30:58,559 --> 00:31:04,960
+then we do that okay so but if the url
+
+724
+00:31:02,080 --> 00:31:08,399
+is like that
+
+725
+00:31:04,960 --> 00:31:09,519
+then we do that we get the id the id is
+
+726
+00:31:08,399 --> 00:31:13,279
+right after
+
+727
+00:31:09,519 --> 00:31:16,480
+right after the domain name okay
+
+728
+00:31:13,279 --> 00:31:17,279
+then otherwise when you use condition in
+
+729
+00:31:16,480 --> 00:31:19,200
+emac this
+
+730
+00:31:17,279 --> 00:31:21,679
+condition you know you usually want to
+
+731
+00:31:19,200 --> 00:31:24,080
+give the last condition which is true
+
+732
+00:31:21,679 --> 00:31:26,320
+that is always true that means if it
+
+733
+00:31:24,080 --> 00:31:28,880
+doesn't match any of the above then just
+
+734
+00:31:26,320 --> 00:31:30,799
+do this so it just says error cannot
+
+735
+00:31:28,880 --> 00:31:34,559
+find the youtube video
+
+736
+00:31:30,799 --> 00:31:38,480
+so we want to actually modify this part
+
+737
+00:31:34,559 --> 00:31:41,519
+so because uh you see here is the
+
+738
+00:31:38,480 --> 00:31:44,320
+alternative url so let's copy that
+
+739
+00:31:41,519 --> 00:31:47,360
+go back to the list code so we want to
+
+740
+00:31:44,320 --> 00:31:50,399
+add another condition
+
+741
+00:31:47,360 --> 00:31:54,159
+okay and
+
+742
+00:31:50,399 --> 00:31:54,159
+stream match okay
+
+743
+00:31:54,399 --> 00:32:01,039
+so if the stream match let's copy that
+
+744
+00:31:57,600 --> 00:32:05,440
+if the stream match that embed
+
+745
+00:32:01,039 --> 00:32:05,440
+okay um
+
+746
+00:32:06,240 --> 00:32:11,360
+actually let's copy this part okay so
+
+747
+00:32:08,640 --> 00:32:15,840
+because it's similar
+
+748
+00:32:11,360 --> 00:32:15,840
+so if the string match
+
+749
+00:32:24,320 --> 00:32:28,799
+that okay this is fantastic if the
+
+750
+00:32:26,960 --> 00:32:33,600
+string match it contains an
+
+751
+00:32:28,799 --> 00:32:33,600
+embed then whatever the id
+
+752
+00:32:34,720 --> 00:32:39,200
+characters 11 characters then
+
+753
+00:32:39,600 --> 00:32:43,919
+then what we do is if the stream match
+
+754
+00:32:42,480 --> 00:32:47,519
+then we do
+
+755
+00:32:43,919 --> 00:32:50,799
+just like that here match stream
+
+756
+00:32:47,519 --> 00:32:52,880
+okay pretty fine so you see
+
+757
+00:32:50,799 --> 00:32:55,200
+so here is our code so if the stream
+
+758
+00:32:52,880 --> 00:32:58,399
+match embeds something then
+
+759
+00:32:55,200 --> 00:33:01,279
+we get the id okay then
+
+760
+00:32:58,399 --> 00:33:02,720
+otherwise error okay cannot find the
+
+761
+00:33:01,279 --> 00:33:07,039
+youtube video id
+
+762
+00:33:02,720 --> 00:33:09,120
+in url okay so once you get the id of
+
+763
+00:33:07,039 --> 00:33:12,480
+the url of the youtube
+
+764
+00:33:09,120 --> 00:33:15,279
+video then you delete region okay
+
+765
+00:33:12,480 --> 00:33:15,840
+then you insert then you start to insert
+
+766
+00:33:15,279 --> 00:33:19,519
+you know
+
+767
+00:33:15,840 --> 00:33:22,480
+your your iframe uh you know thing
+
+768
+00:33:19,519 --> 00:33:24,159
+here okay i think that's it that's what
+
+769
+00:33:22,480 --> 00:33:26,640
+we want to do we
+
+770
+00:33:24,159 --> 00:33:27,600
+yeah you you know this here is easy to
+
+771
+00:33:26,640 --> 00:33:30,880
+understand you just
+
+772
+00:33:27,600 --> 00:33:31,360
+insert insert a bunch of things and the
+
+773
+00:33:30,880 --> 00:33:33,360
+id
+
+774
+00:33:31,360 --> 00:33:35,200
+is right here the youtube id you see
+
+775
+00:33:33,360 --> 00:33:36,720
+here
+
+776
+00:33:35,200 --> 00:33:38,559
+you see the id is right there the
+
+777
+00:33:36,720 --> 00:33:41,760
+youtube video id
+
+778
+00:33:38,559 --> 00:33:42,880
+okay so now we run the code so eval
+
+779
+00:33:41,760 --> 00:33:45,919
+buffer
+
+780
+00:33:42,880 --> 00:33:47,360
+eval buffer we have our code and go back
+
+781
+00:33:45,919 --> 00:33:50,559
+to
+
+782
+00:33:47,360 --> 00:33:53,600
+uh go back to our html we're gonna try
+
+783
+00:33:50,559 --> 00:33:55,200
+on this url before it doesn't work now
+
+784
+00:33:53,600 --> 00:33:59,600
+it should work okay
+
+785
+00:33:55,200 --> 00:34:02,320
+core meta x because youtube linkify
+
+786
+00:33:59,600 --> 00:34:03,679
+oops cannot find your youtube video id
+
+787
+00:34:02,320 --> 00:34:06,960
+in url what the
+
+788
+00:34:03,679 --> 00:34:09,760
+what what what is going on let's go back
+
+789
+00:34:06,960 --> 00:34:09,760
+to the code
+
+790
+00:34:12,159 --> 00:34:16,879
+eval buffer let's make sure we give our
+
+791
+00:34:14,399 --> 00:34:21,839
+buffer again
+
+792
+00:34:16,879 --> 00:34:21,839
+okay if i prefer
+
+793
+00:34:23,359 --> 00:34:26,720
+11 characters right
+
+794
+00:34:29,359 --> 00:34:35,839
+oh okay so uh wait
+
+795
+00:34:32,839 --> 00:34:35,839
+uh
+
+796
+00:34:37,200 --> 00:34:42,399
+let's just do so
+
+797
+00:34:40,240 --> 00:34:43,760
+you see we are trying to match the
+
+798
+00:34:42,399 --> 00:34:46,960
+pattern a to z
+
+799
+00:34:43,760 --> 00:34:48,960
+capital lowercase and zero to nine but
+
+800
+00:34:46,960 --> 00:34:51,200
+however
+
+801
+00:34:48,960 --> 00:34:52,800
+you see the the id actually sometimes
+
+802
+00:34:51,200 --> 00:34:55,919
+contain underscore
+
+803
+00:34:52,800 --> 00:34:57,920
+so that's not what we want we want we
+
+804
+00:34:55,919 --> 00:35:00,960
+want to delete this part
+
+805
+00:34:57,920 --> 00:35:04,400
+and just say a character
+
+806
+00:35:00,960 --> 00:35:07,040
+okay any character 11 one of 11 of them
+
+807
+00:35:04,400 --> 00:35:08,320
+and actually this part is also wrong so
+
+808
+00:35:07,040 --> 00:35:12,560
+let's just
+
+809
+00:35:08,320 --> 00:35:15,440
+copy that put a dot okay if our buffer
+
+810
+00:35:12,560 --> 00:35:16,880
+go back to our code let's try it on here
+
+811
+00:35:15,440 --> 00:35:20,880
+let's try it
+
+812
+00:35:16,880 --> 00:35:24,079
+meta x html youtube linkify
+
+813
+00:35:20,880 --> 00:35:24,079
+yeah fantastic
+
+814
+00:35:25,440 --> 00:35:30,880
+uh you have to escape the dot you don't
+
+815
+00:35:27,440 --> 00:35:33,760
+have to escape the dot because
+
+816
+00:35:30,880 --> 00:35:34,240
+because a dot in regular expression
+
+817
+00:35:33,760 --> 00:35:36,960
+means
+
+818
+00:35:34,240 --> 00:35:37,920
+any character okay any character if you
+
+819
+00:35:36,960 --> 00:35:41,599
+escape it
+
+820
+00:35:37,920 --> 00:35:44,720
+then that means a literal dot you know
+
+821
+00:35:41,599 --> 00:35:45,200
+we we don't want that so actually it
+
+822
+00:35:44,720 --> 00:35:47,839
+works
+
+823
+00:35:45,200 --> 00:35:48,320
+that's actually what we want to do so so
+
+824
+00:35:47,839 --> 00:35:51,280
+let's
+
+825
+00:35:48,320 --> 00:35:52,480
+uh you see it works on that url works on
+
+826
+00:35:51,280 --> 00:35:56,160
+that url and
+
+827
+00:35:52,480 --> 00:35:58,240
+you know it all works so show in browser
+
+828
+00:35:56,160 --> 00:36:00,560
+you can see we have several copies of
+
+829
+00:35:58,240 --> 00:36:04,320
+the same thing
+
+830
+00:36:00,560 --> 00:36:05,200
+that's all good so we done with our job
+
+831
+00:36:04,320 --> 00:36:10,160
+today let's
+
+832
+00:36:05,200 --> 00:36:13,280
+let's show it delete it show it you know
+
+833
+00:36:10,160 --> 00:36:17,119
+okay so you might go out check out
+
+834
+00:36:13,280 --> 00:36:19,839
+howard abraham's tutorial on e-show i'm
+
+835
+00:36:17,119 --> 00:36:20,960
+pretty sure it's a fantastic if you
+
+836
+00:36:19,839 --> 00:36:23,920
+haven't used isha
+
+837
+00:36:20,960 --> 00:36:26,560
+isha is fantastic okay i use it i
+
+838
+00:36:23,920 --> 00:36:31,760
+started you know i started to use emacs
+
+839
+00:36:26,560 --> 00:36:35,599
+since 1998 basically i lived in emacs
+
+840
+00:36:31,760 --> 00:36:36,480
+beginning in 1998 and for the first 10
+
+841
+00:36:35,599 --> 00:36:39,280
+years about
+
+842
+00:36:36,480 --> 00:36:40,720
+yeah more than 10 years i use i don't
+
+843
+00:36:39,280 --> 00:36:43,839
+use e shell i use
+
+844
+00:36:40,720 --> 00:36:47,760
+uh i i
+
+845
+00:36:43,839 --> 00:36:51,119
+i use the i use this
+
+846
+00:36:47,760 --> 00:36:52,800
+shell this you know this inferior shell
+
+847
+00:36:51,119 --> 00:36:53,599
+they call it you know for example let's
+
+848
+00:36:52,800 --> 00:36:56,960
+do ls
+
+849
+00:36:53,599 --> 00:36:57,599
+you can see and he and on the top it's
+
+850
+00:36:56,960 --> 00:37:01,359
+issue
+
+851
+00:36:57,599 --> 00:37:02,240
+ls you know so what's the difference you
+
+852
+00:37:01,359 --> 00:37:05,599
+know i have an
+
+853
+00:37:02,240 --> 00:37:08,640
+article so you go to my emacs tutorial
+
+854
+00:37:05,599 --> 00:37:11,760
+i'm going to i'm going to my emacs blog
+
+855
+00:37:08,640 --> 00:37:14,000
+okay uh hold on a second okay so here's
+
+856
+00:37:11,760 --> 00:37:17,040
+my emacs blog showing browser
+
+857
+00:37:14,000 --> 00:37:20,960
+you go to my emacs tutorial
+
+858
+00:37:17,040 --> 00:37:23,520
+and go down on the left you will see
+
+859
+00:37:20,960 --> 00:37:24,320
+shell okay let's search for it shell
+
+860
+00:37:23,520 --> 00:37:27,520
+okay
+
+861
+00:37:24,320 --> 00:37:28,640
+so then shell in e-max wide one shell in
+
+862
+00:37:27,520 --> 00:37:30,960
+e-max i explain
+
+863
+00:37:28,640 --> 00:37:33,280
+you know some people they do things in
+
+864
+00:37:30,960 --> 00:37:36,560
+terminal
+
+865
+00:37:33,280 --> 00:37:38,480
+so for example uh wait i don't want to
+
+866
+00:37:36,560 --> 00:37:42,000
+do ls
+
+867
+00:37:38,480 --> 00:37:44,320
+oops let's let's cd
+
+868
+00:37:42,000 --> 00:37:46,640
+okay so in terminal let's see magnify
+
+869
+00:37:44,320 --> 00:37:49,359
+magnify
+
+870
+00:37:46,640 --> 00:37:50,079
+so here is your standard terminal and
+
+871
+00:37:49,359 --> 00:37:53,520
+some people
+
+872
+00:37:50,079 --> 00:37:56,400
+say let's say web
+
+873
+00:37:53,520 --> 00:37:57,280
+ergo emacs you know i mean my emacs
+
+874
+00:37:56,400 --> 00:38:00,320
+directory and
+
+875
+00:37:57,280 --> 00:38:03,119
+go to emacs okay
+
+876
+00:38:00,320 --> 00:38:04,560
+then we can do ls you know a bunch of
+
+877
+00:38:03,119 --> 00:38:07,760
+big
+
+878
+00:38:04,560 --> 00:38:07,760
+ls you know a bunch of
+
+879
+00:38:07,839 --> 00:38:13,599
+but emacs is superior okay
+
+880
+00:38:11,359 --> 00:38:15,599
+you you most of the time you want to do
+
+881
+00:38:13,599 --> 00:38:17,359
+shell commands in emacs because you have
+
+882
+00:38:15,599 --> 00:38:20,640
+much more control
+
+883
+00:38:17,359 --> 00:38:23,839
+and then but but then
+
+884
+00:38:20,640 --> 00:38:27,119
+and emacs have
+
+885
+00:38:23,839 --> 00:38:29,359
+multiple uh
+
+886
+00:38:27,119 --> 00:38:30,160
+uh variations on shell okay let me show
+
+887
+00:38:29,359 --> 00:38:33,839
+you where is it
+
+888
+00:38:30,160 --> 00:38:37,200
+article shell wait
+
+889
+00:38:33,839 --> 00:38:39,760
+shell okay so you have one shell emacs
+
+890
+00:38:37,200 --> 00:38:40,960
+that's an introduction why even shell in
+
+891
+00:38:39,760 --> 00:38:44,160
+imax okay
+
+892
+00:38:40,960 --> 00:38:46,320
+and e shell that's another option and
+
+893
+00:38:44,160 --> 00:38:48,880
+xiao versus turn versus each
+
+894
+00:38:46,320 --> 00:38:49,520
+versus isho emax has you know three
+
+895
+00:38:48,880 --> 00:38:52,880
+shells
+
+896
+00:38:49,520 --> 00:38:54,160
+more than three four but actually two of
+
+897
+00:38:52,880 --> 00:38:57,200
+them becomes
+
+898
+00:38:54,160 --> 00:39:00,880
+are merged together anyway so
+
+899
+00:38:57,200 --> 00:39:02,960
+xiao is much much more uh better okay
+
+900
+00:39:00,880 --> 00:39:05,200
+so you have xiao you have isha and and
+
+901
+00:39:02,960 --> 00:39:08,640
+isha is great okay i started to
+
+902
+00:39:05,200 --> 00:39:12,800
+to use eshow around 2000
+
+903
+00:39:08,640 --> 00:39:14,079
+uh 2014 or something like that so i've
+
+904
+00:39:12,800 --> 00:39:16,320
+been using the the
+
+905
+00:39:14,079 --> 00:39:19,440
+traditional shelf for more than 10 years
+
+906
+00:39:16,320 --> 00:39:22,000
+then i switched to esha basically
+
+907
+00:39:19,440 --> 00:39:23,920
+and there's also term term emulator you
+
+908
+00:39:22,000 --> 00:39:27,119
+know term emulate you know if you
+
+909
+00:39:23,920 --> 00:39:28,960
+meta x term that gets you nc term
+
+910
+00:39:27,119 --> 00:39:30,160
+okay so here are different you know
+
+911
+00:39:28,960 --> 00:39:32,800
+several different
+
+912
+00:39:30,160 --> 00:39:34,800
+shells you can run in emacs so i explain
+
+913
+00:39:32,800 --> 00:39:38,320
+the differences
+
+914
+00:39:34,800 --> 00:39:41,119
+and in fact if you run term that means
+
+915
+00:39:38,320 --> 00:39:41,760
+inside emacs you can run vim you can run
+
+916
+00:39:41,119 --> 00:39:44,640
+vi
+
+917
+00:39:41,760 --> 00:39:45,760
+you can run ssh you can run you can
+
+918
+00:39:44,640 --> 00:39:48,960
+start nano okay
+
+919
+00:39:45,760 --> 00:39:51,119
+actually someone let's go back
+
+920
+00:39:48,960 --> 00:39:53,119
+let's go to my emacs blog let me show
+
+921
+00:39:51,119 --> 00:39:56,640
+you these interesting things
+
+922
+00:39:53,119 --> 00:40:00,079
+somewhat in e-max
+
+923
+00:39:56,640 --> 00:40:03,280
+let me show a copy uh so this guy
+
+924
+00:40:00,079 --> 00:40:06,560
+is who is who is this guy this guy is
+
+925
+00:40:03,280 --> 00:40:10,160
+uh dxlr88r
+
+926
+00:40:06,560 --> 00:40:14,000
+okay so view image this guy
+
+927
+00:40:10,160 --> 00:40:16,800
+uses emacs stuff like keys and runs
+
+928
+00:40:14,000 --> 00:40:17,760
+term terminal okay emacs terminal
+
+929
+00:40:16,800 --> 00:40:20,800
+emulator
+
+930
+00:40:17,760 --> 00:40:22,839
+then he start started nano nano text
+
+931
+00:40:20,800 --> 00:40:25,200
+editor
+
+932
+00:40:22,839 --> 00:40:29,280
+so
+
+933
+00:40:25,200 --> 00:40:32,000
+so in fact you can in inside emacs issue
+
+934
+00:40:29,280 --> 00:40:32,880
+term you can start another emacs
+
+935
+00:40:32,000 --> 00:40:35,760
+instance
+
+936
+00:40:32,880 --> 00:40:36,880
+and you can start term again and start
+
+937
+00:40:35,760 --> 00:40:40,160
+another emacs
+
+938
+00:40:36,880 --> 00:40:42,800
+instance i've done that i've done that
+
+939
+00:40:40,160 --> 00:40:45,040
+like 20 years ago
+
+940
+00:40:42,800 --> 00:40:46,480
+so anyway isha so you know you might to
+
+941
+00:40:45,040 --> 00:40:49,040
+check out isha isho
+
+942
+00:40:46,480 --> 00:40:50,240
+you know the difference the y-ish issue
+
+943
+00:40:49,040 --> 00:40:54,560
+is a shell
+
+944
+00:40:50,240 --> 00:40:57,119
+that's written entirely in emac lisp
+
+945
+00:40:54,560 --> 00:40:57,920
+yeah so each out the advantage of each
+
+946
+00:40:57,119 --> 00:41:00,400
+one of the
+
+947
+00:40:57,920 --> 00:41:00,960
+advantage is written entirely in imax
+
+948
+00:41:00,400 --> 00:41:03,200
+this
+
+949
+00:41:00,960 --> 00:41:05,040
+and it's faster okay it's faster on the
+
+950
+00:41:03,200 --> 00:41:09,200
+other hand if you run term
+
+951
+00:41:05,040 --> 00:41:13,119
+or the uh shell meta x shell
+
+952
+00:41:09,200 --> 00:41:17,200
+they they actually start a shell a bash
+
+953
+00:41:13,119 --> 00:41:17,200
+and interface that with emacs
+
+954
+00:41:17,359 --> 00:41:23,040
+yeah but so so one of the great
+
+955
+00:41:20,400 --> 00:41:24,560
+useful uh situation for issue is that
+
+956
+00:41:23,040 --> 00:41:26,560
+when you are on windows
+
+957
+00:41:24,560 --> 00:41:29,119
+you don't have bash but you are used to
+
+958
+00:41:26,560 --> 00:41:32,079
+bash you know you want to run ls and
+
+959
+00:41:29,119 --> 00:41:32,480
+unix commands so you can just run eshell
+
+960
+00:41:32,079 --> 00:41:35,280
+each
+
+961
+00:41:32,480 --> 00:41:36,640
+has built-in um emulators for those
+
+962
+00:41:35,280 --> 00:41:40,000
+commands
+
+963
+00:41:36,640 --> 00:41:43,200
+so close kill it yes okay
+
+964
+00:41:40,000 --> 00:41:45,920
+uh key it kill it showing browser
+
+965
+00:41:43,200 --> 00:41:46,880
+star talk show so you might check out
+
+966
+00:41:45,920 --> 00:41:50,800
+abraham's
+
+967
+00:41:46,880 --> 00:41:52,880
+uh tutorial on asia
+
+968
+00:41:50,800 --> 00:41:54,079
+okay that's that's the main thing for
+
+969
+00:41:52,880 --> 00:41:56,480
+today then we
+
+970
+00:41:54,079 --> 00:41:57,440
+talk about random depends on what you
+
+971
+00:41:56,480 --> 00:41:59,359
+guys want to
+
+972
+00:41:57,440 --> 00:42:03,839
+talk about let's so let me see how long
+
+973
+00:41:59,359 --> 00:42:03,839
+have i been talking
+
+974
+00:42:03,920 --> 00:42:07,440
+and let me read the comments
+
+975
+00:42:08,400 --> 00:42:12,400
+oh we already been talking for 40 mi 45
+
+976
+00:42:11,599 --> 00:42:14,400
+minutes
+
+977
+00:42:12,400 --> 00:42:15,760
+okay that's uh so we might shut down
+
+978
+00:42:14,400 --> 00:42:20,800
+soon
+
+979
+00:42:15,760 --> 00:42:20,800
+so let's see the comments and let's chat
+
+980
+00:42:23,280 --> 00:42:27,119
+asking about not putting extra options
+
+981
+00:42:25,599 --> 00:42:30,160
+like picture in picture
+
+982
+00:42:27,119 --> 00:42:31,280
+oh okay so okay uh scott hey good
+
+983
+00:42:30,160 --> 00:42:34,960
+morning scott
+
+984
+00:42:31,280 --> 00:42:39,440
+scott is the expert on c and uh
+
+985
+00:42:34,960 --> 00:42:42,000
+low level programming on cpu and gpu
+
+986
+00:42:39,440 --> 00:42:43,680
+so scott says are you using dollar sign
+
+987
+00:42:42,000 --> 00:42:46,720
+for variable names in
+
+988
+00:42:43,680 --> 00:42:50,560
+imac list yes interesting
+
+989
+00:42:46,720 --> 00:42:52,000
+almost feels like a formal former pearl
+
+990
+00:42:50,560 --> 00:42:56,160
+guy writing images
+
+991
+00:42:52,000 --> 00:42:57,920
+yeah i get that question often
+
+992
+00:42:56,160 --> 00:42:59,920
+but let me tell you okay let me copy the
+
+993
+00:42:57,920 --> 00:43:00,400
+code let me show you this uh let me demo
+
+994
+00:42:59,920 --> 00:43:03,760
+this
+
+995
+00:43:00,400 --> 00:43:06,720
+uh feature i have in size html mod
+
+996
+00:43:03,760 --> 00:43:07,359
+okay so here's our today's code i copy
+
+997
+00:43:06,720 --> 00:43:09,920
+it
+
+998
+00:43:07,359 --> 00:43:09,920
+in fact
+
+999
+00:43:10,480 --> 00:43:14,160
+uh okay so wait what i want to do okay i
+
+1000
+00:43:13,440 --> 00:43:18,880
+want to
+
+1001
+00:43:14,160 --> 00:43:22,319
+modify the comments to um
+
+1002
+00:43:18,880 --> 00:43:22,640
+okay because we added a feature so copy
+
+1003
+00:43:22,319 --> 00:43:27,839
+that
+
+1004
+00:43:22,640 --> 00:43:27,839
+go back to comment so add add a feature
+
+1005
+00:43:28,319 --> 00:43:35,359
+okay but this command actually
+
+1006
+00:43:32,720 --> 00:43:36,240
+okay let's modify it so it works on the
+
+1007
+00:43:35,359 --> 00:43:38,160
+id
+
+1008
+00:43:36,240 --> 00:43:39,520
+i think i had the code that works on
+
+1009
+00:43:38,160 --> 00:43:44,560
+that but but i
+
+1010
+00:43:39,520 --> 00:43:44,560
+i think i deleted a while back so
+
+1011
+00:43:46,079 --> 00:43:50,240
+so okay let me show you okay so let's
+
+1012
+00:43:48,640 --> 00:43:52,800
+copy the id
+
+1013
+00:43:50,240 --> 00:43:55,760
+now i don't know what youtube url is
+
+1014
+00:43:52,800 --> 00:43:58,880
+that i hope it's
+
+1015
+00:43:55,760 --> 00:43:58,880
+open in chrome okay
+
+1016
+00:44:01,119 --> 00:44:04,640
+let's see what what video is this hope
+
+1017
+00:44:04,240 --> 00:44:08,160
+that
+
+1018
+00:44:04,640 --> 00:44:11,440
+something okay
+
+1019
+00:44:08,160 --> 00:44:13,040
+that's uh that's a youtube that's a
+
+1020
+00:44:11,440 --> 00:44:16,560
+youtube comedian that's
+
+1021
+00:44:13,040 --> 00:44:19,920
+a very funny guy and his name is
+
+1022
+00:44:16,560 --> 00:44:23,040
+fat francis he has a very
+
+1023
+00:44:19,920 --> 00:44:27,599
+touching an interesting history
+
+1024
+00:44:23,040 --> 00:44:27,599
+uh if you go watch that youtube url okay
+
+1025
+00:44:28,160 --> 00:44:34,960
+very sad kind of sad history
+
+1026
+00:44:31,599 --> 00:44:37,839
+uh anyway so let's let's change your url
+
+1027
+00:44:34,960 --> 00:44:37,839
+to something
+
+1028
+00:44:38,240 --> 00:44:42,000
+let's change the apple hem let's use
+
+1029
+00:44:40,319 --> 00:44:45,520
+this ui okay
+
+1030
+00:44:42,000 --> 00:44:45,520
+so let's modify this
+
+1031
+00:44:48,319 --> 00:44:51,839
+copy okay so
+
+1032
+00:44:52,400 --> 00:44:56,079
+so that's the url name
+
+1033
+00:44:58,960 --> 00:45:04,880
+i'm modifying the inline dock
+
+1034
+00:45:02,240 --> 00:45:06,319
+so now it's more relevant because we are
+
+1035
+00:45:04,880 --> 00:45:10,400
+using a
+
+1036
+00:45:06,319 --> 00:45:13,839
+emacs video as a as a example
+
+1037
+00:45:10,400 --> 00:45:17,119
+so so if we copy the id
+
+1038
+00:45:13,839 --> 00:45:19,760
+go back to my html page
+
+1039
+00:45:17,119 --> 00:45:20,800
+paste id let's call our commands to see
+
+1040
+00:45:19,760 --> 00:45:23,839
+if it works
+
+1041
+00:45:20,800 --> 00:45:26,240
+html linkify it doesn't work
+
+1042
+00:45:23,839 --> 00:45:27,920
+because i think i removed the code so
+
+1043
+00:45:26,240 --> 00:45:30,079
+but we want to make it work
+
+1044
+00:45:27,920 --> 00:45:30,960
+so let's go back to our code let's make
+
+1045
+00:45:30,079 --> 00:45:34,880
+it work
+
+1046
+00:45:30,960 --> 00:45:37,520
+let's make it work on that just the id
+
+1047
+00:45:34,880 --> 00:45:41,119
+so condition we're going to need to add
+
+1048
+00:45:37,520 --> 00:45:44,160
+another condition to check this
+
+1049
+00:45:41,119 --> 00:45:46,880
+copy the code okay
+
+1050
+00:45:44,160 --> 00:45:48,640
+so the condition so this time the
+
+1051
+00:45:46,880 --> 00:45:52,079
+condition will be
+
+1052
+00:45:48,640 --> 00:45:54,400
+length okay so if the length
+
+1053
+00:45:52,079 --> 00:45:54,400
+of
+
+1054
+00:45:56,880 --> 00:46:02,400
+if the length of input string is equals
+
+1055
+00:46:00,160 --> 00:46:02,400
+to
+
+1056
+00:46:06,480 --> 00:46:14,319
+three and three let's run it yeah okay
+
+1057
+00:46:10,640 --> 00:46:18,160
+so let's paste it here
+
+1058
+00:46:14,319 --> 00:46:21,200
+11. so if the length of the input string
+
+1059
+00:46:18,160 --> 00:46:21,920
+is 11 characters exactly then that is
+
+1060
+00:46:21,200 --> 00:46:25,440
+the id
+
+1061
+00:46:21,920 --> 00:46:28,960
+okay so then then we say
+
+1062
+00:46:25,440 --> 00:46:32,319
+then we just return the input stream
+
+1063
+00:46:28,960 --> 00:46:36,240
+we return that then we set it here right
+
+1064
+00:46:32,319 --> 00:46:39,920
+so okay evaluate the buffer go back to
+
+1065
+00:46:36,240 --> 00:46:43,200
+the html let's try our code on it
+
+1066
+00:46:39,920 --> 00:46:43,680
+fantastic works okay now go back to the
+
+1067
+00:46:43,200 --> 00:46:46,240
+code
+
+1068
+00:46:43,680 --> 00:46:47,680
+now scott was saying you know my my i'm
+
+1069
+00:46:46,240 --> 00:46:49,760
+using a dollar sign
+
+1070
+00:46:47,680 --> 00:46:51,359
+that's just for my personal reasons you
+
+1071
+00:46:49,760 --> 00:46:52,400
+don't have to okay you can remove the
+
+1072
+00:46:51,359 --> 00:46:54,640
+dollar sign
+
+1073
+00:46:52,400 --> 00:46:55,599
+but if you use a dollar sign you have
+
+1074
+00:46:54,640 --> 00:46:59,200
+the advantage
+
+1075
+00:46:55,599 --> 00:47:02,319
+they become green uh colored
+
+1076
+00:46:59,200 --> 00:47:05,440
+because i'm using sar emac this mod
+
+1077
+00:47:02,319 --> 00:47:06,640
+my own emac this mod so you don't have
+
+1078
+00:47:05,440 --> 00:47:10,800
+to use the
+
+1079
+00:47:06,640 --> 00:47:12,560
+dollar sign okay but i have a great you
+
+1080
+00:47:10,800 --> 00:47:14,800
+know i have a great history about
+
+1081
+00:47:12,560 --> 00:47:15,760
+why i use dollar sign and let's talk
+
+1082
+00:47:14,800 --> 00:47:19,040
+about that okay
+
+1083
+00:47:15,760 --> 00:47:23,280
+you go to emacs blog uh and
+
+1084
+00:47:19,040 --> 00:47:25,760
+it's you know you go to let me show you
+
+1085
+00:47:23,280 --> 00:47:27,280
+yeah it's it's one of the frequently
+
+1086
+00:47:25,760 --> 00:47:31,520
+answered you know asked
+
+1087
+00:47:27,280 --> 00:47:34,160
+question and it's a huge controversy
+
+1088
+00:47:31,520 --> 00:47:35,440
+you know because for for like five years
+
+1089
+00:47:34,160 --> 00:47:37,119
+i have been using
+
+1090
+00:47:35,440 --> 00:47:39,760
+not actually just dollar sign i've been
+
+1091
+00:47:37,119 --> 00:47:43,359
+using i've been using greek symbols
+
+1092
+00:47:39,760 --> 00:47:43,920
+okay let me show you you know that is
+
+1093
+00:47:43,359 --> 00:47:46,079
+like one
+
+1094
+00:47:43,920 --> 00:47:47,040
+one of my weird things right and people
+
+1095
+00:47:46,079 --> 00:47:49,760
+complain you know
+
+1096
+00:47:47,040 --> 00:47:50,480
+these emacs these phonetics you know
+
+1097
+00:47:49,760 --> 00:47:52,480
+these
+
+1098
+00:47:50,480 --> 00:47:54,079
+some of them don't like me because i'm
+
+1099
+00:47:52,480 --> 00:47:57,920
+too weird okay so
+
+1100
+00:47:54,079 --> 00:48:01,280
+so for example i what i've been doing
+
+1101
+00:47:57,920 --> 00:48:04,640
+uh wait okay so magnify i have i
+
+1102
+00:48:01,280 --> 00:48:07,839
+i used to use the greek sign okay like v
+
+1103
+00:48:04,640 --> 00:48:10,400
+okay let me show you okay so
+
+1104
+00:48:07,839 --> 00:48:11,119
+so instead of dollar id i would say fee
+
+1105
+00:48:10,400 --> 00:48:14,160
+id
+
+1106
+00:48:11,119 --> 00:48:16,960
+okay and that
+
+1107
+00:48:14,160 --> 00:48:18,240
+confuses a lot of people but why do i
+
+1108
+00:48:16,960 --> 00:48:21,200
+use this weird thing
+
+1109
+00:48:18,240 --> 00:48:24,319
+thing you know so on all my website all
+
+1110
+00:48:21,200 --> 00:48:26,960
+my code i was using i was doing that
+
+1111
+00:48:24,319 --> 00:48:28,480
+because i was because i believe that is
+
+1112
+00:48:26,960 --> 00:48:30,319
+actually superior
+
+1113
+00:48:28,480 --> 00:48:31,920
+that is you know for source code you
+
+1114
+00:48:30,319 --> 00:48:35,040
+know for as a programmer
+
+1115
+00:48:31,920 --> 00:48:36,880
+you want to you know we have concerns
+
+1116
+00:48:35,040 --> 00:48:38,400
+about how to code what's the
+
+1117
+00:48:36,880 --> 00:48:40,160
+you know what's the best way to code
+
+1118
+00:48:38,400 --> 00:48:42,800
+something the elegance
+
+1119
+00:48:40,160 --> 00:48:43,359
+or efficiency or shortest number of code
+
+1120
+00:48:42,800 --> 00:48:45,760
+you know
+
+1121
+00:48:43,359 --> 00:48:46,720
+all the naming of things you know naming
+
+1122
+00:48:45,760 --> 00:48:49,680
+of things is a
+
+1123
+00:48:46,720 --> 00:48:50,160
+great big giant controversy should you
+
+1124
+00:48:49,680 --> 00:48:52,880
+use
+
+1125
+00:48:50,160 --> 00:48:53,200
+underscore or should you use dash or
+
+1126
+00:48:52,880 --> 00:48:55,280
+should
+
+1127
+00:48:53,200 --> 00:48:56,559
+you you know camera case versus you know
+
+1128
+00:48:55,280 --> 00:48:59,680
+this or that underscore
+
+1129
+00:48:56,559 --> 00:49:00,880
+snake case python people no big
+
+1130
+00:48:59,680 --> 00:49:03,520
+controversy but
+
+1131
+00:49:00,880 --> 00:49:04,079
+and so i studied that issue i've read
+
+1132
+00:49:03,520 --> 00:49:06,960
+this
+
+1133
+00:49:04,079 --> 00:49:08,079
+all articles there is and research
+
+1134
+00:49:06,960 --> 00:49:10,720
+articles on that
+
+1135
+00:49:08,079 --> 00:49:12,400
+in fact we you know i have so many
+
+1136
+00:49:10,720 --> 00:49:15,520
+articles
+
+1137
+00:49:12,400 --> 00:49:19,200
+sally snake
+
+1138
+00:49:15,520 --> 00:49:20,240
+case okay let's let me let me show you
+
+1139
+00:49:19,200 --> 00:49:24,240
+okay
+
+1140
+00:49:20,240 --> 00:49:26,240
+snake case versus camel case okay you go
+
+1141
+00:49:24,240 --> 00:49:28,800
+search that you call a command and
+
+1142
+00:49:26,240 --> 00:49:28,800
+you'll search
+
+1143
+00:49:28,839 --> 00:49:33,440
+google uh actually not google but
+
+1144
+00:49:31,280 --> 00:49:34,000
+duckduckgo okay so i have an article on
+
+1145
+00:49:33,440 --> 00:49:36,400
+that
+
+1146
+00:49:34,000 --> 00:49:37,359
+camera case versus snake case which is
+
+1147
+00:49:36,400 --> 00:49:39,760
+better you know
+
+1148
+00:49:37,359 --> 00:49:41,520
+you know what do you mean by better you
+
+1149
+00:49:39,760 --> 00:49:42,720
+know there's so many so much details
+
+1150
+00:49:41,520 --> 00:49:46,400
+which languages
+
+1151
+00:49:42,720 --> 00:49:47,839
+uses which uh you know the naming their
+
+1152
+00:49:46,400 --> 00:49:50,720
+naming style
+
+1153
+00:49:47,839 --> 00:49:51,760
+or idiom or you know the style which
+
+1154
+00:49:50,720 --> 00:49:53,839
+recommend which
+
+1155
+00:49:51,760 --> 00:49:55,119
+which one is better what do you mean by
+
+1156
+00:49:53,839 --> 00:49:57,440
+better and
+
+1157
+00:49:55,119 --> 00:49:58,960
+you know you measure by statistics how
+
+1158
+00:49:57,440 --> 00:50:01,280
+many codes
+
+1159
+00:49:58,960 --> 00:50:03,280
+what they use and why is it better you
+
+1160
+00:50:01,280 --> 00:50:05,280
+know there's so much details
+
+1161
+00:50:03,280 --> 00:50:06,880
+and also you study the character
+
+1162
+00:50:05,280 --> 00:50:11,440
+frequency
+
+1163
+00:50:06,880 --> 00:50:15,040
+you know if you dive deep into this
+
+1164
+00:50:11,440 --> 00:50:18,640
+you will start need wait
+
+1165
+00:50:15,040 --> 00:50:18,640
+what what the it's not working
+
+1166
+00:50:18,800 --> 00:50:24,000
+oh yeah you have to say uh yeah okay so
+
+1167
+00:50:25,280 --> 00:50:32,880
+okay if you start to study
+
+1168
+00:50:28,640 --> 00:50:36,079
+this issue in depth
+
+1169
+00:50:32,880 --> 00:50:39,359
+and one of the thing you
+
+1170
+00:50:36,079 --> 00:50:43,280
+want to know is the frequency
+
+1171
+00:50:39,359 --> 00:50:46,880
+of the various symbols
+
+1172
+00:50:43,280 --> 00:50:49,920
+used in programming languages
+
+1173
+00:50:46,880 --> 00:50:54,319
+such as the dollar sign comma
+
+1174
+00:50:49,920 --> 00:50:57,599
+semicolon percentage sign
+
+1175
+00:50:54,319 --> 00:51:00,720
+dash underscore and so on
+
+1176
+00:50:57,599 --> 00:51:03,520
+so so actually i wrote this javascript
+
+1177
+00:51:00,720 --> 00:51:04,960
+to compute that and i've done statistics
+
+1178
+00:51:03,520 --> 00:51:08,079
+on you know all languages
+
+1179
+00:51:04,960 --> 00:51:09,440
+what characters they use the most often
+
+1180
+00:51:08,079 --> 00:51:11,359
+so anyway that's one of the things you
+
+1181
+00:51:09,440 --> 00:51:15,359
+want to study let's go back to
+
+1182
+00:51:11,359 --> 00:51:18,079
+um let's let's copy some
+
+1183
+00:51:15,359 --> 00:51:19,839
+some of my urls so i let's go to the
+
+1184
+00:51:18,079 --> 00:51:21,200
+talk show so i can put it there
+
+1185
+00:51:19,839 --> 00:51:25,680
+digressions
+
+1186
+00:51:21,200 --> 00:51:25,680
+uh interesting things
+
+1187
+00:51:25,920 --> 00:51:29,359
+uh talk show okay so let's put some of
+
+1188
+00:51:28,960 --> 00:51:32,640
+the
+
+1189
+00:51:29,359 --> 00:51:36,000
+here so
+
+1190
+00:51:32,640 --> 00:51:38,559
+and uh oh wait wait
+
+1191
+00:51:36,000 --> 00:51:38,559
+what's the
+
+1192
+00:51:43,839 --> 00:51:51,839
+oh like did i did i close it
+
+1193
+00:51:47,599 --> 00:51:51,839
+camo case versus anyway
+
+1194
+00:51:58,400 --> 00:52:01,760
+i forgot where that is
+
+1195
+00:52:02,319 --> 00:52:06,720
+okay here's the url copy back to emacs
+
+1196
+00:52:05,359 --> 00:52:08,720
+paste it thinkify
+
+1197
+00:52:06,720 --> 00:52:10,160
+so back in my talk show page showing
+
+1198
+00:52:08,720 --> 00:52:12,720
+browser so you have
+
+1199
+00:52:10,160 --> 00:52:14,880
+so i have a reference to it so i can put
+
+1200
+00:52:12,720 --> 00:52:19,200
+in the youtube description
+
+1201
+00:52:14,880 --> 00:52:21,520
+for the topic talked today so
+
+1202
+00:52:19,200 --> 00:52:22,960
+so yeah so i was studying this issue and
+
+1203
+00:52:21,520 --> 00:52:25,599
+i decided that
+
+1204
+00:52:22,960 --> 00:52:26,480
+you want to use the greek characters as
+
+1205
+00:52:25,599 --> 00:52:29,520
+a sigil
+
+1206
+00:52:26,480 --> 00:52:31,680
+now the technical the the technical term
+
+1207
+00:52:29,520 --> 00:52:35,359
+to call that symbol is called sijo
+
+1208
+00:52:31,680 --> 00:52:37,440
+cjo is in the term is invented by pearl
+
+1209
+00:52:35,359 --> 00:52:38,800
+people you know pearl people is always
+
+1210
+00:52:37,440 --> 00:52:42,480
+colorful they
+
+1211
+00:52:38,800 --> 00:52:44,400
+they you know their language
+
+1212
+00:52:42,480 --> 00:52:46,000
+you know they use that then they started
+
+1213
+00:52:44,400 --> 00:52:48,000
+to go after a few years after
+
+1214
+00:52:46,000 --> 00:52:50,880
+about five years they they created a
+
+1215
+00:52:48,000 --> 00:52:52,880
+name for that sigil
+
+1216
+00:52:50,880 --> 00:52:54,240
+and i have a great story so let's go
+
+1217
+00:52:52,880 --> 00:52:56,880
+back to my emacs
+
+1218
+00:52:54,240 --> 00:52:57,920
+uh page okay let me tell you so you go
+
+1219
+00:52:56,880 --> 00:53:01,200
+to my emacs
+
+1220
+00:52:57,920 --> 00:53:04,640
+blog you go to the then
+
+1221
+00:53:01,200 --> 00:53:08,400
+you go to the emacs miscellaneous
+
+1222
+00:53:04,640 --> 00:53:11,440
+okay i have some uh past videos on
+
+1223
+00:53:08,400 --> 00:53:14,240
+uh uh how to um
+
+1224
+00:53:11,440 --> 00:53:15,800
+why emac this sucks okay then you just
+
+1225
+00:53:14,240 --> 00:53:19,440
+search for cj
+
+1226
+00:53:15,800 --> 00:53:22,720
+s-i-g-i-l the sigils
+
+1227
+00:53:19,440 --> 00:53:25,440
+wall uh i so you know
+
+1228
+00:53:22,720 --> 00:53:27,359
+so in for five or more than five years i
+
+1229
+00:53:25,440 --> 00:53:28,319
+was using the greek characters and
+
+1230
+00:53:27,359 --> 00:53:30,800
+that's how my
+
+1231
+00:53:28,319 --> 00:53:33,119
+uh buffer looks you know the greek the
+
+1232
+00:53:30,800 --> 00:53:35,599
+variable names are highlighted what so
+
+1233
+00:53:33,119 --> 00:53:36,559
+so the question is why do i want that
+
+1234
+00:53:35,599 --> 00:53:40,559
+why do i want that
+
+1235
+00:53:36,559 --> 00:53:42,880
+sigil well the reason is
+
+1236
+00:53:40,559 --> 00:53:44,640
+okay there are many ways to explain it
+
+1237
+00:53:42,880 --> 00:53:47,839
+what the reason is that
+
+1238
+00:53:44,640 --> 00:53:49,119
+you want to be able to be able to
+
+1239
+00:53:47,839 --> 00:53:52,240
+distinguish
+
+1240
+00:53:49,119 --> 00:53:54,319
+local variables and and
+
+1241
+00:53:52,240 --> 00:53:57,040
+parameters of the function okay that's a
+
+1242
+00:53:54,319 --> 00:53:59,359
+primary reason i want to do that
+
+1243
+00:53:57,040 --> 00:54:00,720
+i want to be able to quickly discern
+
+1244
+00:53:59,359 --> 00:54:03,839
+them
+
+1245
+00:54:00,720 --> 00:54:04,400
+and okay further more advanced reason
+
+1246
+00:54:03,839 --> 00:54:07,920
+for that
+
+1247
+00:54:04,400 --> 00:54:10,160
+is is that this gets deeper okay
+
+1248
+00:54:07,920 --> 00:54:12,400
+this you know so anyway this article i
+
+1249
+00:54:10,160 --> 00:54:16,000
+just i talked about sigil wall
+
+1250
+00:54:12,400 --> 00:54:20,240
+then i have a lot of articles about
+
+1251
+00:54:16,000 --> 00:54:23,119
+my complete reasons why i want to use
+
+1252
+00:54:20,240 --> 00:54:25,839
+the sigil okay you know for example
+
+1253
+00:54:23,119 --> 00:54:27,920
+sigil for function parameter names okay
+
+1254
+00:54:25,839 --> 00:54:30,240
+then there's another article i have you
+
+1255
+00:54:27,920 --> 00:54:34,240
+know quite a few articles
+
+1256
+00:54:30,240 --> 00:54:37,280
+here this one why i want to use sigil
+
+1257
+00:54:34,240 --> 00:54:40,960
+variable naming english words considered
+
+1258
+00:54:37,280 --> 00:54:43,040
+harmful uh okay so it's a big topic i
+
+1259
+00:54:40,960 --> 00:54:45,040
+can go on one hour about it
+
+1260
+00:54:43,040 --> 00:54:46,240
+you know so i have several articles this
+
+1261
+00:54:45,040 --> 00:54:49,119
+is you know
+
+1262
+00:54:46,240 --> 00:54:51,839
+in this article i explained why do you
+
+1263
+00:54:49,119 --> 00:54:54,960
+want sigils okay why do you want cjos
+
+1264
+00:54:51,839 --> 00:54:57,359
+then in this article i explain one of
+
+1265
+00:54:54,960 --> 00:55:00,079
+the primary reasons why i want
+
+1266
+00:54:57,359 --> 00:55:01,200
+to distinguish function functions
+
+1267
+00:55:00,079 --> 00:55:03,839
+parameter names
+
+1268
+00:55:01,200 --> 00:55:04,839
+from variable local variable names
+
+1269
+00:55:03,839 --> 00:55:08,640
+biograms
+
+1270
+00:55:04,839 --> 00:55:10,559
+okay then the more advanced question
+
+1271
+00:55:08,640 --> 00:55:12,160
+is that you know this gets deeper
+
+1272
+00:55:10,559 --> 00:55:13,440
+because you know when you when you talk
+
+1273
+00:55:12,160 --> 00:55:16,480
+to haskell people
+
+1274
+00:55:13,440 --> 00:55:16,880
+those functional programming uh nerds
+
+1275
+00:55:16,480 --> 00:55:19,839
+you know
+
+1276
+00:55:16,880 --> 00:55:20,400
+the phonetics they they keep they they
+
+1277
+00:55:19,839 --> 00:55:22,640
+you know
+
+1278
+00:55:20,400 --> 00:55:24,400
+it's very fashionable they keep wanting
+
+1279
+00:55:22,640 --> 00:55:26,720
+to talk about
+
+1280
+00:55:24,400 --> 00:55:28,880
+static analysis you know if you know
+
+1281
+00:55:26,720 --> 00:55:33,200
+what i mean static analysis
+
+1282
+00:55:28,880 --> 00:55:35,040
+where where a source code you can
+
+1283
+00:55:33,200 --> 00:55:37,920
+analyze what the source code do
+
+1284
+00:55:35,040 --> 00:55:39,440
+without actually running it so there is
+
+1285
+00:55:37,920 --> 00:55:43,359
+huge number of
+
+1286
+00:55:39,440 --> 00:55:46,839
+advantages for that property and usually
+
+1287
+00:55:43,359 --> 00:55:49,040
+it's this is associated with static
+
+1288
+00:55:46,839 --> 00:55:51,119
+types
+
+1289
+00:55:49,040 --> 00:55:52,799
+the main goal is to reduce programming
+
+1290
+00:55:51,119 --> 00:55:54,319
+errors so you know
+
+1291
+00:55:52,799 --> 00:55:56,480
+imagine you don't have to run your
+
+1292
+00:55:54,319 --> 00:55:58,640
+program but however you can just run
+
+1293
+00:55:56,480 --> 00:55:59,760
+another program to check on it and you
+
+1294
+00:55:58,640 --> 00:56:02,400
+can know all
+
+1295
+00:55:59,760 --> 00:56:04,240
+possible errors you know without
+
+1296
+00:56:02,400 --> 00:56:06,960
+actually running your program
+
+1297
+00:56:04,240 --> 00:56:08,000
+theoretically that's actually impossible
+
+1298
+00:56:06,960 --> 00:56:11,440
+due to
+
+1299
+00:56:08,000 --> 00:56:16,160
+um this you know that's impossible
+
+1300
+00:56:11,440 --> 00:56:19,040
+there's a name for that it's called
+
+1301
+00:56:16,160 --> 00:56:19,520
+uh what's the name you know you they're
+
+1302
+00:56:19,040 --> 00:56:22,799
+tuned
+
+1303
+00:56:19,520 --> 00:56:25,839
+chewing something you basically
+
+1304
+00:56:22,799 --> 00:56:28,000
+you want to basically it's impossible to
+
+1305
+00:56:25,839 --> 00:56:29,920
+check if a program will stop running
+
+1306
+00:56:28,000 --> 00:56:32,880
+there's a name for that i forgot some of
+
+1307
+00:56:29,920 --> 00:56:35,040
+you probably know type it okay
+
+1308
+00:56:32,880 --> 00:56:37,920
+type it we are about to end let me
+
+1309
+00:56:35,040 --> 00:56:40,160
+finish the rambo
+
+1310
+00:56:37,920 --> 00:56:42,079
+so anyway it becomes it gets into
+
+1311
+00:56:40,160 --> 00:56:45,440
+theoretical questions okay but
+
+1312
+00:56:42,079 --> 00:56:48,640
+so it's impossible to have 100 static
+
+1313
+00:56:45,440 --> 00:56:50,160
+typing i mean static analysis to be able
+
+1314
+00:56:48,640 --> 00:56:53,599
+to find all your
+
+1315
+00:56:50,160 --> 00:56:57,040
+errors but however haskell
+
+1316
+00:56:53,599 --> 00:56:59,920
+you know those strongly typed languages
+
+1317
+00:56:57,040 --> 00:57:01,280
+they they have those features mp
+
+1318
+00:56:59,920 --> 00:57:04,880
+complete
+
+1319
+00:57:01,280 --> 00:57:07,280
+uh well yeah not that's
+
+1320
+00:57:04,880 --> 00:57:08,160
+mp complete that's that's the whole team
+
+1321
+00:57:07,280 --> 00:57:10,000
+problem okay
+
+1322
+00:57:08,160 --> 00:57:11,680
+yeah whole thing problem is the term i
+
+1323
+00:57:10,000 --> 00:57:15,359
+was looking for you know
+
+1324
+00:57:11,680 --> 00:57:17,280
+if you you may already know but if you
+
+1325
+00:57:15,359 --> 00:57:19,119
+look up wikipedia you'll know what i'm
+
+1326
+00:57:17,280 --> 00:57:21,200
+talking about holding problem
+
+1327
+00:57:19,119 --> 00:57:22,480
+so it's theoretically impossible
+
+1328
+00:57:21,200 --> 00:57:24,799
+actually to
+
+1329
+00:57:22,480 --> 00:57:26,000
+have a static analysis to have a
+
+1330
+00:57:24,799 --> 00:57:28,880
+programming language
+
+1331
+00:57:26,000 --> 00:57:30,000
+such that you can run a static analyzer
+
+1332
+00:57:28,880 --> 00:57:32,160
+such that you
+
+1333
+00:57:30,000 --> 00:57:33,599
+you can know all possible errors without
+
+1334
+00:57:32,160 --> 00:57:34,720
+actually running the program it's
+
+1335
+00:57:33,599 --> 00:57:37,359
+impossible
+
+1336
+00:57:34,720 --> 00:57:40,319
+and there's a theory to back up that
+
+1337
+00:57:37,359 --> 00:57:43,280
+which is holding problem
+
+1338
+00:57:40,319 --> 00:57:44,400
+so anyway but but still a lot of errors
+
+1339
+00:57:43,280 --> 00:57:48,160
+you can find out by
+
+1340
+00:57:44,400 --> 00:57:49,040
+uh static static analysis you know
+
+1341
+00:57:48,160 --> 00:57:51,359
+that's why
+
+1342
+00:57:49,040 --> 00:57:55,599
+the strongly typed languages they love
+
+1343
+00:57:51,359 --> 00:57:58,880
+that they love that haskell people
+
+1344
+00:57:55,599 --> 00:58:01,520
+okay so haskar people love that so
+
+1345
+00:57:58,880 --> 00:58:02,160
+so in order to do that you have to have
+
+1346
+00:58:01,520 --> 00:58:05,760
+strong
+
+1347
+00:58:02,160 --> 00:58:07,359
+strongly typed languages but if you go
+
+1348
+00:58:05,760 --> 00:58:11,599
+one step further you have
+
+1349
+00:58:07,359 --> 00:58:11,599
+you know why not you know why not
+
+1350
+00:58:12,400 --> 00:58:16,480
+let me let me tell you the story okay
+
+1351
+00:58:14,640 --> 00:58:20,240
+about this naming issue
+
+1352
+00:58:16,480 --> 00:58:22,960
+why not create
+
+1353
+00:58:20,240 --> 00:58:23,359
+enforce a situation in your language so
+
+1354
+00:58:22,960 --> 00:58:26,720
+that
+
+1355
+00:58:23,359 --> 00:58:28,079
+all local variables must start with a
+
+1356
+00:58:26,720 --> 00:58:30,400
+dollar sign let's say
+
+1357
+00:58:28,079 --> 00:58:31,440
+okay by the way dollar sign is used in
+
+1358
+00:58:30,400 --> 00:58:34,799
+perl it's
+
+1359
+00:58:31,440 --> 00:58:37,599
+also used in ruby okay and in fact
+
+1360
+00:58:34,799 --> 00:58:39,680
+ruby is more strict ruby if your
+
+1361
+00:58:37,599 --> 00:58:41,839
+variable starts with a dollar sign then
+
+1362
+00:58:39,680 --> 00:58:43,520
+it is absolutely of a local variable
+
+1363
+00:58:41,839 --> 00:58:46,000
+cannot be otherwise okay
+
+1364
+00:58:43,520 --> 00:58:46,960
+so there's a enforcement in ruby ruby
+
+1365
+00:58:46,000 --> 00:58:49,920
+has a bunch of
+
+1366
+00:58:46,960 --> 00:58:51,680
+a few other conventions so you see this
+
+1367
+00:58:49,920 --> 00:58:54,079
+this has to do with static
+
+1368
+00:58:51,680 --> 00:58:55,520
+static analysis you know it helps so
+
+1369
+00:58:54,079 --> 00:58:57,119
+when you whenever you see a
+
+1370
+00:58:55,520 --> 00:58:59,760
+variable name start with a dollar sign
+
+1371
+00:58:57,119 --> 00:59:02,960
+then you know it's a
+
+1372
+00:58:59,760 --> 00:59:05,200
+local variable and your static analyzer
+
+1373
+00:59:02,960 --> 00:59:06,240
+also know that and then your compiler
+
+1374
+00:59:05,200 --> 00:59:09,359
+will also know that
+
+1375
+00:59:06,240 --> 00:59:10,960
+it helps a lot and but also as a
+
+1376
+00:59:09,359 --> 00:59:12,400
+programmer when you code that you see
+
+1377
+00:59:10,960 --> 00:59:13,440
+your dollar sign there you right away
+
+1378
+00:59:12,400 --> 00:59:15,440
+you know
+
+1379
+00:59:13,440 --> 00:59:16,880
+what that that's a local variable okay
+
+1380
+00:59:15,440 --> 00:59:17,680
+that's you know that's one of the
+
+1381
+00:59:16,880 --> 00:59:20,400
+advantage
+
+1382
+00:59:17,680 --> 00:59:21,200
+and ruby has ruby and scheme this has
+
+1383
+00:59:20,400 --> 00:59:24,079
+other
+
+1384
+00:59:21,200 --> 00:59:27,440
+um advantage for example if a function
+
+1385
+00:59:24,079 --> 00:59:27,440
+ends with a question mark
+
+1386
+00:59:28,240 --> 00:59:33,280
+in ruby and in in in skim lisp
+
+1387
+00:59:31,359 --> 00:59:35,200
+if a function name ends with a question
+
+1388
+00:59:33,280 --> 00:59:37,280
+mark then you know for sure
+
+1389
+00:59:35,200 --> 00:59:38,319
+that function will always return a
+
+1390
+00:59:37,280 --> 00:59:40,640
+boolean okay
+
+1391
+00:59:38,319 --> 00:59:42,559
+true or false for sure that because
+
+1392
+00:59:40,640 --> 00:59:44,799
+that's
+
+1393
+00:59:42,559 --> 00:59:46,640
+uh i don't think that's actually
+
+1394
+00:59:44,799 --> 00:59:49,520
+enforced in ruby or
+
+1395
+00:59:46,640 --> 00:59:50,559
+or or scheme but anyway they have that
+
+1396
+00:59:49,520 --> 00:59:52,720
+convention okay
+
+1397
+00:59:50,559 --> 00:59:54,160
+so first of all you have a convention
+
+1398
+00:59:52,720 --> 00:59:54,720
+there's another issue whether the
+
+1399
+00:59:54,160 --> 00:59:57,920
+language
+
+1400
+00:59:54,720 --> 00:59:59,839
+actually enforce it okay so
+
+1401
+00:59:57,920 --> 01:00:02,079
+so there are these issues about naming
+
+1402
+00:59:59,839 --> 01:00:03,440
+okay so if you actually enforce it in
+
+1403
+01:00:02,079 --> 01:00:05,200
+your language there are certain
+
+1404
+01:00:03,440 --> 01:00:08,400
+advantages you know the
+
+1405
+01:00:05,200 --> 01:00:09,359
+the compiler the static static analyzer
+
+1406
+01:00:08,400 --> 01:00:11,440
+we all know
+
+1407
+01:00:09,359 --> 01:00:12,960
+and will help your program and also as a
+
+1408
+01:00:11,440 --> 01:00:15,599
+programmer it's you know you
+
+1409
+01:00:12,960 --> 01:00:17,520
+you you can tell by a glance lots of
+
+1410
+01:00:15,599 --> 01:00:20,720
+properties of your code
+
+1411
+01:00:17,520 --> 01:00:23,200
+so what i want so that that's where my
+
+1412
+01:00:20,720 --> 01:00:25,760
+cgo idea coming i want you know i want
+
+1413
+01:00:23,200 --> 01:00:28,400
+sigils okay i
+
+1414
+01:00:25,760 --> 01:00:29,119
+you know 20 years ago when i was a pro
+
+1415
+01:00:28,400 --> 01:00:32,319
+programmer
+
+1416
+01:00:29,119 --> 01:00:33,680
+you know i was i was the expert of a
+
+1417
+01:00:32,319 --> 01:00:36,799
+pearl you know i coded
+
+1418
+01:00:33,680 --> 01:00:38,000
+you know not like today you know back
+
+1419
+01:00:36,799 --> 01:00:40,240
+then i worked in a
+
+1420
+01:00:38,000 --> 01:00:41,599
+in a company for four years writing the
+
+1421
+01:00:40,240 --> 01:00:44,960
+one of the first
+
+1422
+01:00:41,599 --> 01:00:47,319
+uh back end uh
+
+1423
+01:00:44,960 --> 01:00:48,480
+easter online store you know this is
+
+1424
+01:00:47,319 --> 01:00:51,680
+1999
+
+1425
+01:00:48,480 --> 01:00:52,240
+to 2002 you know newtopia i worked you
+
+1426
+01:00:51,680 --> 01:00:56,240
+know the
+
+1427
+01:00:52,240 --> 01:00:59,040
+one of the first uh
+
+1428
+01:00:56,240 --> 01:00:59,680
+the backbone the the engine of online
+
+1429
+01:00:59,040 --> 01:01:02,799
+web store
+
+1430
+01:00:59,680 --> 01:01:05,520
+that's sold to verizon and others
+
+1431
+01:01:02,799 --> 01:01:08,000
+then they run the web store so merchant
+
+1432
+01:01:05,520 --> 01:01:10,480
+can open a web store like yahoo store
+
+1433
+01:01:08,000 --> 01:01:11,119
+like amazon okay so i was working in
+
+1434
+01:01:10,480 --> 01:01:14,400
+industry
+
+1435
+01:01:11,119 --> 01:01:17,760
+coding that i was you know a
+
+1436
+01:01:14,400 --> 01:01:20,319
+top pearl expert back then
+
+1437
+01:01:17,760 --> 01:01:21,520
+so so back then when i saw per person
+
+1438
+01:01:20,319 --> 01:01:24,559
+you know i hated pearl
+
+1439
+01:01:21,520 --> 01:01:26,400
+and the siege was but anyway but
+
+1440
+01:01:24,559 --> 01:01:28,640
+but but a few years ago i started to
+
+1441
+01:01:26,400 --> 01:01:29,440
+realize cjo is actually a good thing so
+
+1442
+01:01:28,640 --> 01:01:31,359
+i want
+
+1443
+01:01:29,440 --> 01:01:33,040
+i want all my code you know so when you
+
+1444
+01:01:31,359 --> 01:01:33,680
+see a variable with a dollar sign then
+
+1445
+01:01:33,040 --> 01:01:36,160
+you know
+
+1446
+01:01:33,680 --> 01:01:36,799
+that you must enforce that to be a local
+
+1447
+01:01:36,160 --> 01:01:40,240
+variable
+
+1448
+01:01:36,799 --> 01:01:43,839
+and similarly you also i want also
+
+1449
+01:01:40,240 --> 01:01:44,480
+a a cgo for the parameter of a functions
+
+1450
+01:01:43,839 --> 01:01:46,559
+variable
+
+1451
+01:01:44,480 --> 01:01:48,319
+so when you see that you know it's
+
+1452
+01:01:46,559 --> 01:01:49,359
+absolutely a functions variable and you
+
+1453
+01:01:48,319 --> 01:01:52,079
+cannot
+
+1454
+01:01:49,359 --> 01:01:54,000
+change it you know a language you know
+
+1455
+01:01:52,079 --> 01:01:57,119
+let's say a new language you should you
+
+1456
+01:01:54,000 --> 01:01:58,720
+you could enforce that so that you know
+
+1457
+01:01:57,119 --> 01:02:01,680
+a function's parameter is not
+
+1458
+01:01:58,720 --> 01:02:02,799
+uh mutable and most of us of a seizure
+
+1459
+01:02:01,680 --> 01:02:06,880
+so that
+
+1460
+01:02:02,799 --> 01:02:10,160
+so all this has to do with uh static
+
+1461
+01:02:06,880 --> 01:02:11,760
+uh analyzer and you know if your
+
+1462
+01:02:10,160 --> 01:02:14,160
+philosophy
+
+1463
+01:02:11,760 --> 01:02:15,839
+uh approves that you know if you think
+
+1464
+01:02:14,160 --> 01:02:18,400
+this is a way to go
+
+1465
+01:02:15,839 --> 01:02:20,640
+so apparently a lot of people do like
+
+1466
+01:02:18,400 --> 01:02:23,760
+you know the haskar people uh
+
+1467
+01:02:20,640 --> 01:02:26,960
+so that is the reason reason for this
+
+1468
+01:02:23,760 --> 01:02:28,799
+for for my use of sigils
+
+1469
+01:02:26,960 --> 01:02:31,359
+then there's a question about which
+
+1470
+01:02:28,799 --> 01:02:31,680
+character you want to use for sigil you
+
+1471
+01:02:31,359 --> 01:02:33,520
+know
+
+1472
+01:02:31,680 --> 01:02:35,200
+for example you can use dollar sign
+
+1473
+01:02:33,520 --> 01:02:37,359
+percent sign or the
+
+1474
+01:02:35,200 --> 01:02:38,319
+pound sign or the add sign you know a
+
+1475
+01:02:37,359 --> 01:02:42,160
+number of choices
+
+1476
+01:02:38,319 --> 01:02:45,280
+ascii but then but today we have unicode
+
+1477
+01:02:42,160 --> 01:02:46,079
+make let's make use of unicode let's be
+
+1478
+01:02:45,280 --> 01:02:49,520
+progressive
+
+1479
+01:02:46,079 --> 01:02:50,400
+okay in in the design of things let's go
+
+1480
+01:02:49,520 --> 01:02:52,640
+progressive
+
+1481
+01:02:50,400 --> 01:02:54,079
+let's use unicode you could have you
+
+1482
+01:02:52,640 --> 01:02:57,119
+know have
+
+1483
+01:02:54,079 --> 01:02:59,119
+20 100 000 characters so i choose you
+
+1484
+01:02:57,119 --> 01:02:59,599
+know after the careful study i choose
+
+1485
+01:02:59,119 --> 01:03:03,039
+the
+
+1486
+01:02:59,599 --> 01:03:05,200
+greek this fee character
+
+1487
+01:03:03,039 --> 01:03:06,079
+there are lots of reasons in choosing
+
+1488
+01:03:05,200 --> 01:03:08,240
+them but
+
+1489
+01:03:06,079 --> 01:03:10,319
+but i'm not going to go over them yeah
+
+1490
+01:03:08,240 --> 01:03:12,559
+some of these are detailed some some of
+
+1491
+01:03:10,319 --> 01:03:15,200
+some of the reasons okay
+
+1492
+01:03:12,559 --> 01:03:17,520
+so that is why i use sigil so for five
+
+1493
+01:03:15,200 --> 01:03:19,119
+years or my emacs code i have sigils
+
+1494
+01:03:17,520 --> 01:03:22,160
+then
+
+1495
+01:03:19,119 --> 01:03:25,280
+the emacs community you know the
+
+1496
+01:03:22,160 --> 01:03:25,599
+traditional emacs gnu e-max their emac
+
+1497
+01:03:25,280 --> 01:03:28,559
+this
+
+1498
+01:03:25,599 --> 01:03:29,520
+coders they don't like that okay because
+
+1499
+01:03:28,559 --> 01:03:33,599
+sadie guy
+
+1500
+01:03:29,520 --> 01:03:35,839
+this is a weird nut job he don't conform
+
+1501
+01:03:33,599 --> 01:03:37,599
+to our tradition you know he doesn't
+
+1502
+01:03:35,839 --> 01:03:41,039
+conform to the emacs
+
+1503
+01:03:37,599 --> 01:03:42,799
+idioms you know the the glue gospel so
+
+1504
+01:03:41,039 --> 01:03:44,960
+a lot of people don't like me they and
+
+1505
+01:03:42,799 --> 01:03:47,359
+they some of them will say oh this guy
+
+1506
+01:03:44,960 --> 01:03:51,359
+don't know how to code
+
+1507
+01:03:47,359 --> 01:03:55,119
+anyway after five years with cjos i
+
+1508
+01:03:51,359 --> 01:03:57,119
+i stopped it you know because
+
+1509
+01:03:55,119 --> 01:03:59,200
+yeah i'm being i'm being very
+
+1510
+01:03:57,119 --> 01:04:00,720
+progressive you know i use these greek
+
+1511
+01:03:59,200 --> 01:04:03,839
+characters but
+
+1512
+01:04:00,720 --> 01:04:06,480
+the fact is in america usa you know
+
+1513
+01:04:03,839 --> 01:04:07,440
+uh english-speaking countries this is
+
+1514
+01:04:06,480 --> 01:04:10,319
+just too weird
+
+1515
+01:04:07,440 --> 01:04:13,520
+uh people cannot accept it i mean my
+
+1516
+01:04:10,319 --> 01:04:15,200
+readers you know some people see my code
+
+1517
+01:04:13,520 --> 01:04:18,079
+they see this and they'll say okay what
+
+1518
+01:04:15,200 --> 01:04:19,839
+what is that they get confused
+
+1519
+01:04:18,079 --> 01:04:21,520
+then you have to explain you know you
+
+1520
+01:04:19,839 --> 01:04:23,760
+get a lot of questions why are you
+
+1521
+01:04:21,520 --> 01:04:24,720
+using that then i have it i have to
+
+1522
+01:04:23,760 --> 01:04:26,480
+explain
+
+1523
+01:04:24,720 --> 01:04:28,160
+then but when i would explain i have to
+
+1524
+01:04:26,480 --> 01:04:29,680
+go you know i just explained for 20
+
+1525
+01:04:28,160 --> 01:04:31,760
+minutes about all these
+
+1526
+01:04:29,680 --> 01:04:34,640
+you know the static analyzing you know
+
+1527
+01:04:31,760 --> 01:04:36,960
+too much explanation to do
+
+1528
+01:04:34,640 --> 01:04:38,480
+then of course some of them most of them
+
+1529
+01:04:36,960 --> 01:04:40,640
+speaking english you know
+
+1530
+01:04:38,480 --> 01:04:42,559
+there's a problem with english only
+
+1531
+01:04:40,640 --> 01:04:44,480
+language speakers because
+
+1532
+01:04:42,559 --> 01:04:46,160
+when you use a character that's not
+
+1533
+01:04:44,480 --> 01:04:48,319
+ascii they
+
+1534
+01:04:46,160 --> 01:04:49,760
+they go nuts they go nutty because they
+
+1535
+01:04:48,319 --> 01:04:52,400
+they just not used to it
+
+1536
+01:04:49,760 --> 01:04:54,160
+on the other hand japanese people
+
+1537
+01:04:52,400 --> 01:04:56,799
+chinese people you know you have
+
+1538
+01:04:54,160 --> 01:04:57,280
+a big 1 billion coders you know they're
+
+1539
+01:04:56,799 --> 01:05:00,480
+you know
+
+1540
+01:04:57,280 --> 01:05:01,039
+not one billion but anyway other
+
+1541
+01:05:00,480 --> 01:05:05,359
+language
+
+1542
+01:05:01,039 --> 01:05:07,599
+and basically other you know languages
+
+1543
+01:05:05,359 --> 01:05:09,680
+they they are they have no problem with
+
+1544
+01:05:07,599 --> 01:05:11,200
+seizures with great characters because
+
+1545
+01:05:09,680 --> 01:05:12,799
+in chinese and japanese
+
+1546
+01:05:11,200 --> 01:05:14,960
+every captain you know you have ten
+
+1547
+01:05:12,799 --> 01:05:18,240
+thousand characters you have to type
+
+1548
+01:05:14,960 --> 01:05:20,720
+you know but with the
+
+1549
+01:05:18,240 --> 01:05:22,319
+english in mostly american audience this
+
+1550
+01:05:20,720 --> 01:05:24,240
+is just too weird you
+
+1551
+01:05:22,319 --> 01:05:26,480
+i have a lot you know i have to answer a
+
+1552
+01:05:24,240 --> 01:05:30,400
+lot of questions and stuff so
+
+1553
+01:05:26,480 --> 01:05:33,200
+so eventually i decided that let's
+
+1554
+01:05:30,400 --> 01:05:33,920
+i decided to stop you know stop using
+
+1555
+01:05:33,200 --> 01:05:36,000
+the greek
+
+1556
+01:05:33,920 --> 01:05:37,359
+characters procedure then
+
+1557
+01:05:36,000 --> 01:05:39,359
+[Music]
+
+1558
+01:05:37,359 --> 01:05:40,960
+then there's a question which ascii
+
+1559
+01:05:39,359 --> 01:05:42,960
+character i want to use
+
+1560
+01:05:40,960 --> 01:05:44,559
+you know if you use sc characters for
+
+1561
+01:05:42,960 --> 01:05:46,400
+cgl then
+
+1562
+01:05:44,559 --> 01:05:48,000
+then there's another set of problems
+
+1563
+01:05:46,400 --> 01:05:50,799
+because for example
+
+1564
+01:05:48,000 --> 01:05:53,680
+right now i'm using dollar sign then
+
+1565
+01:05:50,799 --> 01:05:56,720
+people will have a question oh
+
+1566
+01:05:53,680 --> 01:05:57,039
+is that part of uh emac list because you
+
+1567
+01:05:56,720 --> 01:06:00,319
+know
+
+1568
+01:05:57,039 --> 01:06:02,640
+for example in perl in php in
+
+1569
+01:06:00,319 --> 01:06:04,079
+in ruby they all use dollar sign you
+
+1570
+01:06:02,640 --> 01:06:06,079
+know as a convention
+
+1571
+01:06:04,079 --> 01:06:08,079
+so then when when people are new to emac
+
+1572
+01:06:06,079 --> 01:06:10,720
+these they are they'll think oh
+
+1573
+01:06:08,079 --> 01:06:12,079
+um oh okay you have to use dollar sign
+
+1574
+01:06:10,720 --> 01:06:15,760
+which is not true
+
+1575
+01:06:12,079 --> 01:06:18,640
+uh there's still explanation to do
+
+1576
+01:06:15,760 --> 01:06:19,599
+right yeah but i still so it's a
+
+1577
+01:06:18,640 --> 01:06:22,720
+question you know so
+
+1578
+01:06:19,599 --> 01:06:24,799
+are you going to use seizure or not i so
+
+1579
+01:06:22,720 --> 01:06:27,599
+right now i'm still using sigils because
+
+1580
+01:06:24,799 --> 01:06:29,920
+i think it's a good thing but
+
+1581
+01:06:27,599 --> 01:06:31,039
+anyway that's a digression about sigils
+
+1582
+01:06:29,920 --> 01:06:34,640
+which is very
+
+1583
+01:06:31,039 --> 01:06:37,680
+interesting topic by the way
+
+1584
+01:06:34,640 --> 01:06:40,240
+so i think that's it for today so let's
+
+1585
+01:06:37,680 --> 01:06:42,960
+i think that's it for today so let's see
+
+1586
+01:06:40,240 --> 01:06:45,359
+any other questions i didn't answer
+
+1587
+01:06:42,960 --> 01:06:47,839
+uh i've been talking for one hour and 10
+
+1588
+01:06:45,359 --> 01:06:47,839
+minutes
+
+1589
+01:06:49,280 --> 01:06:53,839
+okay there's so let me answer the
+
+1590
+01:06:50,799 --> 01:06:56,720
+questions and that'll be it for today
+
+1591
+01:06:53,839 --> 01:06:58,960
+uh got a problem with the ansi term when
+
+1592
+01:06:56,720 --> 01:07:00,799
+running some batch programs it doesn't
+
+1593
+01:06:58,960 --> 01:07:03,520
+fit screen correctly
+
+1594
+01:07:00,799 --> 01:07:03,520
+yeah yeah
+
+1595
+01:07:08,000 --> 01:07:12,480
+snake case for variable in function
+
+1596
+01:07:10,160 --> 01:07:15,599
+names okay compilers guys
+
+1597
+01:07:12,480 --> 01:07:18,880
+love static analysis yes
+
+1598
+01:07:15,599 --> 01:07:21,440
+scott would know a lot about compilers i
+
+1599
+01:07:18,880 --> 01:07:24,319
+i you know so i'm trying to learn more
+
+1600
+01:07:21,440 --> 01:07:24,319
+about compilers
+
+1601
+01:07:27,119 --> 01:07:31,680
+so scott says like you i was writing a
+
+1602
+01:07:30,559 --> 01:07:35,119
+lot more pearl
+
+1603
+01:07:31,680 --> 01:07:38,559
+20 years ago so i'm used to c gels yeah
+
+1604
+01:07:35,119 --> 01:07:40,640
+now i write now now that i write more c
+
+1605
+01:07:38,559 --> 01:07:42,799
+and c plus first i'm not sure how
+
+1606
+01:07:40,640 --> 01:07:45,760
+seizures would be accepted
+
+1607
+01:07:42,799 --> 01:07:47,119
+by my peers yeah exactly yeah they'll
+
+1608
+01:07:45,760 --> 01:07:50,720
+flame you to death
+
+1609
+01:07:47,119 --> 01:07:52,720
+your code will not be accepted and
+
+1610
+01:07:50,720 --> 01:07:54,000
+yeah you'll have a hard time to explain
+
+1611
+01:07:52,720 --> 01:07:57,760
+your boss
+
+1612
+01:07:54,000 --> 01:07:58,720
+you know your company what cg are doing
+
+1613
+01:07:57,760 --> 01:08:02,319
+in clc
+
+1614
+01:07:58,720 --> 01:08:04,160
+plus first so you know convention and
+
+1615
+01:08:02,319 --> 01:08:10,319
+tradition they have a
+
+1616
+01:08:04,160 --> 01:08:14,960
+huge force on how things will go yeah
+
+1617
+01:08:10,319 --> 01:08:18,239
+uh so torrei says i use sigils in c
+
+1618
+01:08:14,960 --> 01:08:20,960
+plus plus okay
+
+1619
+01:08:18,239 --> 01:08:22,880
+okay i think that's it for today uh okay
+
+1620
+01:08:20,960 --> 01:08:23,199
+thank you guys for coming thank you guys
+
+1621
+01:08:22,880 --> 01:08:26,799
+for
+
+1622
+01:08:23,199 --> 01:08:28,960
+coming um if you are new
+
+1623
+01:08:26,799 --> 01:08:31,839
+if you like my stuff buy my emacs
+
+1624
+01:08:28,960 --> 01:08:39,839
+tutorial okay buy my emacs tutorial
+
+1625
+01:08:31,839 --> 01:08:39,839
+thank you guys see you next time bye
+
+1626
+01:08:44,719 --> 01:08:46,799
+bye
+

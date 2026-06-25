@@ -1,0 +1,7075 @@
+1
+00:00:10,400 --> 00:00:13,599
+good morning everyone
+
+2
+00:00:11,440 --> 00:00:16,640
+welcome to another episode of sound talk
+
+3
+00:00:13,599 --> 00:00:19,840
+show today we're going to do a pure
+
+4
+00:00:16,640 --> 00:00:22,560
+javascript live coding uh
+
+5
+00:00:19,840 --> 00:00:23,600
+i'm going to do i'm going to show you
+
+6
+00:00:22,560 --> 00:00:28,480
+what i'm going to do
+
+7
+00:00:23,600 --> 00:00:28,480
+so you see this uh
+
+8
+00:00:28,840 --> 00:00:35,920
+uh two-letter sequence spygram
+
+9
+00:00:32,399 --> 00:00:38,320
+counts so given a text any text
+
+10
+00:00:35,920 --> 00:00:39,200
+i'm going to write a interactive java
+
+11
+00:00:38,320 --> 00:00:42,320
+javascript
+
+12
+00:00:39,200 --> 00:00:46,480
+application that draws the
+
+13
+00:00:42,320 --> 00:00:47,280
+diagram chart uh dynamic dynamically
+
+14
+00:00:46,480 --> 00:00:50,480
+dynamically
+
+15
+00:00:47,280 --> 00:00:54,640
+as you type so basically reproduce this
+
+16
+00:00:50,480 --> 00:00:57,120
+uh bitmap image but uh in real time
+
+17
+00:00:54,640 --> 00:00:58,079
+so i'm going to do it quickly so let's
+
+18
+00:00:57,120 --> 00:00:59,000
+start
+
+19
+00:00:58,079 --> 00:01:01,600
+good morning
+
+20
+00:00:59,000 --> 00:01:04,720
+[Music]
+
+21
+00:01:01,600 --> 00:01:09,880
+good morning russian link 2050
+
+22
+00:01:04,720 --> 00:01:11,439
+okay so javascript coding uh so today is
+
+23
+00:01:09,880 --> 00:01:14,880
+2021
+
+24
+00:01:11,439 --> 00:01:17,759
+april 10th welcome to another episode of
+
+25
+00:01:14,880 --> 00:01:18,240
+talk show okay so javascript coding so
+
+26
+00:01:17,759 --> 00:01:21,920
+let's
+
+27
+00:01:18,240 --> 00:01:24,960
+do um
+
+28
+00:01:21,920 --> 00:01:27,280
+so we are going to begin
+
+29
+00:01:24,960 --> 00:01:28,159
+now and on the left window i'm using
+
+30
+00:01:27,280 --> 00:01:31,040
+emacs
+
+31
+00:01:28,159 --> 00:01:33,360
+with soft like keys and on the pink
+
+32
+00:01:31,040 --> 00:01:34,799
+window you can see all my emacs commands
+
+33
+00:01:33,360 --> 00:01:36,880
+and keystrokes
+
+34
+00:01:34,799 --> 00:01:39,040
+so move forward move backward move
+
+35
+00:01:36,880 --> 00:01:42,320
+forward by char move backward by char
+
+36
+00:01:39,040 --> 00:01:45,040
+and up and down go up by paragraph
+
+37
+00:01:42,320 --> 00:01:45,360
+go down by paragraph and you can also
+
+38
+00:01:45,040 --> 00:01:48,399
+see
+
+39
+00:01:45,360 --> 00:01:50,960
+the keystrokes on the pink window
+
+40
+00:01:48,399 --> 00:01:52,560
+so if you find if you are emacs user and
+
+41
+00:01:50,960 --> 00:01:55,840
+you don't know what i'm doing
+
+42
+00:01:52,560 --> 00:01:58,399
+you can always you can actually search
+
+43
+00:01:55,840 --> 00:02:01,040
+uh search the command and usually you'll
+
+44
+00:01:58,399 --> 00:02:04,560
+find the code on my website
+
+45
+00:02:01,040 --> 00:02:07,439
+okay so javascript so first of all
+
+46
+00:02:04,560 --> 00:02:09,280
+we need to yeah let me show you okay so
+
+47
+00:02:07,439 --> 00:02:12,239
+let me show you what it looks like
+
+48
+00:02:09,280 --> 00:02:14,800
+at the end so you just search for xari
+
+49
+00:02:12,239 --> 00:02:14,800
+keyboard
+
+50
+00:02:15,599 --> 00:02:19,599
+okay i'm gonna do this quickly today so
+
+51
+00:02:18,160 --> 00:02:22,720
+any comments questions
+
+52
+00:02:19,599 --> 00:02:26,000
+uh said okay hi guo
+
+53
+00:02:22,720 --> 00:02:26,560
+um so i'm gonna show you how it looks
+
+54
+00:02:26,000 --> 00:02:29,840
+like
+
+55
+00:02:26,560 --> 00:02:34,640
+uh basically um
+
+56
+00:02:29,840 --> 00:02:34,640
+i i did a video talk about
+
+57
+00:02:34,840 --> 00:02:40,400
+um
+
+58
+00:02:36,560 --> 00:02:42,000
+about about this kind of key mapping i
+
+59
+00:02:40,400 --> 00:02:44,959
+mean keyboard layout
+
+60
+00:02:42,000 --> 00:02:46,640
+and uh project a few days ago you you
+
+61
+00:02:44,959 --> 00:02:48,959
+might want to watch that
+
+62
+00:02:46,640 --> 00:02:50,319
+so for example this page this is how
+
+63
+00:02:48,959 --> 00:02:54,160
+it's going to look like
+
+64
+00:02:50,319 --> 00:02:58,159
+so delete it start typing here
+
+65
+00:02:54,160 --> 00:03:02,319
+and you can see that the graph
+
+66
+00:02:58,159 --> 00:03:05,519
+the chart is updated in real time
+
+67
+00:03:02,319 --> 00:03:08,720
+so we're going to write this in um
+
+68
+00:03:05,519 --> 00:03:09,920
+for the diagram okay so let's begin okay
+
+69
+00:03:08,720 --> 00:03:12,239
+so first of all
+
+70
+00:03:09,920 --> 00:03:13,519
+we need to we and i'm going to do this
+
+71
+00:03:12,239 --> 00:03:17,200
+from the ground up
+
+72
+00:03:13,519 --> 00:03:21,040
+uh without any libraries pure javascript
+
+73
+00:03:17,200 --> 00:03:23,440
+and the dom and stuff okay so
+
+74
+00:03:21,040 --> 00:03:25,040
+first of all we need this input box okay
+
+75
+00:03:23,440 --> 00:03:27,519
+so how do you do that
+
+76
+00:03:25,040 --> 00:03:28,640
+you check out my javascript in depth
+
+77
+00:03:27,519 --> 00:03:31,440
+just search for
+
+78
+00:03:28,640 --> 00:03:32,560
+exactly javascript in depth and go to
+
+79
+00:03:31,440 --> 00:03:35,760
+dome
+
+80
+00:03:32,560 --> 00:03:38,000
+first of all we need the input box
+
+81
+00:03:35,760 --> 00:03:40,879
+so how do you do that i have examples
+
+82
+00:03:38,000 --> 00:03:43,519
+here text field so technically
+
+83
+00:03:40,879 --> 00:03:45,280
+it's called text field actually it's
+
+84
+00:03:43,519 --> 00:03:48,720
+called text area okay
+
+85
+00:03:45,280 --> 00:03:51,519
+so here's the code here's html code and
+
+86
+00:03:48,720 --> 00:03:54,879
+here's the javascript code so you can
+
+87
+00:03:51,519 --> 00:03:57,920
+see you start to type and
+
+88
+00:03:54,879 --> 00:04:01,760
+you know use results so let's copy that
+
+89
+00:03:57,920 --> 00:04:04,159
+copy it go back to emacs paste it here
+
+90
+00:04:01,760 --> 00:04:07,040
+and we are going to create a web page
+
+91
+00:04:04,159 --> 00:04:07,040
+for it okay so
+
+92
+00:04:07,120 --> 00:04:11,680
+okay so let's do this okay uh open a new
+
+93
+00:04:10,400 --> 00:04:15,439
+buffer
+
+94
+00:04:11,680 --> 00:04:19,600
+paste go to the top magnify
+
+95
+00:04:15,439 --> 00:04:22,799
+and this is gonna be javascript
+
+96
+00:04:19,600 --> 00:04:22,799
+uh diagram
+
+97
+00:04:24,639 --> 00:04:31,120
+background app okay updated
+
+98
+00:04:28,000 --> 00:04:33,919
+and let's let's let's move this google
+
+99
+00:04:31,120 --> 00:04:33,919
+uh thing
+
+100
+00:04:35,199 --> 00:04:40,320
+the google tracker away so it's gonna
+
+101
+00:04:38,080 --> 00:04:40,320
+let's
+
+102
+00:04:41,520 --> 00:04:46,080
+remove the add remove remove let's see
+
+103
+00:04:46,639 --> 00:04:53,040
+remove remove footer we don't want
+
+104
+00:04:49,919 --> 00:04:57,840
+uh we don't want highlight link so uh
+
+105
+00:04:53,040 --> 00:04:57,840
+save okay javascript we need to save it
+
+106
+00:04:58,000 --> 00:05:02,560
+lowercase it and
+
+107
+00:05:04,639 --> 00:05:12,160
+dot html so save it and show in browser
+
+108
+00:05:08,000 --> 00:05:14,960
+okay we got it we got empty html page
+
+109
+00:05:12,160 --> 00:05:16,320
+so we're gonna start to add stuff here
+
+110
+00:05:14,960 --> 00:05:20,000
+copy the link
+
+111
+00:05:16,320 --> 00:05:22,880
+paste it here so this is our app and uh
+
+112
+00:05:20,000 --> 00:05:24,720
+before we remember the text area so copy
+
+113
+00:05:22,880 --> 00:05:27,840
+that
+
+114
+00:05:24,720 --> 00:05:30,880
+copy that go back
+
+115
+00:05:27,840 --> 00:05:33,919
+paste it here so text area so show so
+
+116
+00:05:30,880 --> 00:05:37,039
+you see we got a text area so how
+
+117
+00:05:33,919 --> 00:05:40,560
+so here's a html uh
+
+118
+00:05:37,039 --> 00:05:41,919
+text area row five column forty okay i
+
+119
+00:05:40,560 --> 00:05:46,240
+need to go faster than
+
+120
+00:05:41,919 --> 00:05:48,479
+these otherwise we cannot finish um
+
+121
+00:05:46,240 --> 00:05:50,560
+okay then we're going to need a
+
+122
+00:05:48,479 --> 00:05:53,039
+javascript file so let's create a
+
+123
+00:05:50,560 --> 00:05:56,160
+javascript file
+
+124
+00:05:53,039 --> 00:05:59,759
+of this name open it
+
+125
+00:05:56,160 --> 00:06:04,840
+create yes okay so here is a javascript
+
+126
+00:05:59,759 --> 00:06:07,199
+file javascript app
+
+127
+00:06:04,840 --> 00:06:10,479
+to draw
+
+128
+00:06:07,199 --> 00:06:13,360
+diagram of
+
+129
+00:06:10,479 --> 00:06:14,400
+a given text okay that's our javascript
+
+130
+00:06:13,360 --> 00:06:17,120
+file
+
+131
+00:06:14,400 --> 00:06:17,759
+and this is the file path and press the
+
+132
+00:06:17,120 --> 00:06:20,800
+command
+
+133
+00:06:17,759 --> 00:06:24,080
+to link to it so we got that
+
+134
+00:06:20,800 --> 00:06:27,520
+and now so this result we don't need so
+
+135
+00:06:24,080 --> 00:06:31,520
+here's the javascript code copy it
+
+136
+00:06:27,520 --> 00:06:35,120
+wait copy it yeah
+
+137
+00:06:31,520 --> 00:06:39,039
+open the javascript file paste it here
+
+138
+00:06:35,120 --> 00:06:42,080
+let's see refresh
+
+139
+00:06:39,039 --> 00:06:45,199
+select all something yeah
+
+140
+00:06:42,080 --> 00:06:47,199
+it works okay so let me explain how
+
+141
+00:06:45,199 --> 00:06:48,560
+how this works so first of all so
+
+142
+00:06:47,199 --> 00:06:52,240
+javascript
+
+143
+00:06:48,560 --> 00:06:53,039
+uh let's let's copy that put it here
+
+144
+00:06:52,240 --> 00:06:57,039
+okay so
+
+145
+00:06:53,039 --> 00:07:00,800
+text area creates this
+
+146
+00:06:57,039 --> 00:07:03,840
+this uh text box and the default text
+
+147
+00:07:00,800 --> 00:07:03,840
+type something here
+
+148
+00:07:04,560 --> 00:07:11,599
+okay then
+
+149
+00:07:07,680 --> 00:07:14,880
+span show box um
+
+150
+00:07:11,599 --> 00:07:18,080
+right this is uh we don't need that p
+
+151
+00:07:14,880 --> 00:07:21,840
+okay so okay so let's let's make it
+
+152
+00:07:18,080 --> 00:07:21,840
+simple okay expansion box
+
+153
+00:07:22,319 --> 00:07:29,039
+id that okay so we got two
+
+154
+00:07:25,520 --> 00:07:30,240
+uh html elements one is the text area
+
+155
+00:07:29,039 --> 00:07:33,280
+with an id
+
+156
+00:07:30,240 --> 00:07:36,479
+and with a spam with id
+
+157
+00:07:33,280 --> 00:07:39,120
+okay and now look at the javascript code
+
+158
+00:07:36,479 --> 00:07:41,199
+so javascript code says first of all get
+
+159
+00:07:39,120 --> 00:07:44,639
+the text area element
+
+160
+00:07:41,199 --> 00:07:48,879
+by this id you know get element by id
+
+161
+00:07:44,639 --> 00:07:48,879
+then do the same thing for the show box
+
+162
+00:07:49,039 --> 00:07:52,160
+do we need the show box actually we
+
+163
+00:07:50,720 --> 00:07:54,560
+don't need a show box but
+
+164
+00:07:52,160 --> 00:07:56,240
+actually leave it so now we define a
+
+165
+00:07:54,560 --> 00:08:00,280
+function constant
+
+166
+00:07:56,240 --> 00:08:02,759
+f update here is the arrow function
+
+167
+00:08:00,280 --> 00:08:04,479
+sharebox.textcontent equals to
+
+168
+00:08:02,759 --> 00:08:09,199
+textarea.value
+
+169
+00:08:04,479 --> 00:08:12,720
+so so here's a function that gets the
+
+170
+00:08:09,199 --> 00:08:15,919
+gets in the in the uh
+
+171
+00:08:12,720 --> 00:08:19,199
+text area so when
+
+172
+00:08:15,919 --> 00:08:23,840
+when this function runs it it
+
+173
+00:08:19,199 --> 00:08:27,919
+sets the show box you know it sets
+
+174
+00:08:23,840 --> 00:08:30,560
+it sets this span elements
+
+175
+00:08:27,919 --> 00:08:31,199
+you know inner area to be the value of
+
+176
+00:08:30,560 --> 00:08:34,719
+the
+
+177
+00:08:31,199 --> 00:08:34,719
+typed text so
+
+178
+00:08:34,800 --> 00:08:41,279
+so that's the function grabs
+
+179
+00:08:38,479 --> 00:08:42,719
+the text area text and put it in the
+
+180
+00:08:41,279 --> 00:08:45,680
+show box
+
+181
+00:08:42,719 --> 00:08:46,480
+so that's that then we need to uh create
+
+182
+00:08:45,680 --> 00:08:48,399
+events
+
+183
+00:08:46,480 --> 00:08:50,720
+so what does that mean so that means
+
+184
+00:08:48,399 --> 00:08:56,000
+whenever user type something
+
+185
+00:08:50,720 --> 00:08:59,600
+you call the function so so text area
+
+186
+00:08:56,000 --> 00:09:00,720
+this event will be created for the text
+
+187
+00:08:59,600 --> 00:09:03,200
+area so whenever
+
+188
+00:09:00,720 --> 00:09:04,480
+user type something there you add a
+
+189
+00:09:03,200 --> 00:09:07,120
+event listener
+
+190
+00:09:04,480 --> 00:09:09,519
+so input is a event that means whenever
+
+191
+00:09:07,120 --> 00:09:12,240
+the text change here
+
+192
+00:09:09,519 --> 00:09:15,200
+then you call the function f update
+
+193
+00:09:12,240 --> 00:09:18,480
+which basically just grab the text and
+
+194
+00:09:15,200 --> 00:09:22,560
+and insert into the show box okay
+
+195
+00:09:18,480 --> 00:09:25,760
+then lastly we call f update so
+
+196
+00:09:22,560 --> 00:09:28,640
+so when the app begins it also
+
+197
+00:09:25,760 --> 00:09:29,279
+shows there okay so that is that is the
+
+198
+00:09:28,640 --> 00:09:33,600
+uh
+
+199
+00:09:29,279 --> 00:09:37,279
+that but what we need to do is actually
+
+200
+00:09:33,600 --> 00:09:39,839
+let's see so we need to
+
+201
+00:09:37,279 --> 00:09:40,399
+yeah we need to do this fast so uh let
+
+202
+00:09:39,839 --> 00:09:44,800
+me i
+
+203
+00:09:40,399 --> 00:09:48,000
+have to think about so given the text
+
+204
+00:09:44,800 --> 00:09:49,519
+we need to compute the diagram okay we
+
+205
+00:09:48,000 --> 00:09:52,320
+need to
+
+206
+00:09:49,519 --> 00:09:52,320
+kind of
+
+207
+00:09:52,720 --> 00:09:58,160
+let me show you okay sorry keyboard
+
+208
+00:10:03,839 --> 00:10:10,399
+okay so we go to layout
+
+209
+00:10:07,040 --> 00:10:13,920
+we go to yeah so we need to
+
+210
+00:10:10,399 --> 00:10:16,959
+draw this diagram so first of all
+
+211
+00:10:13,920 --> 00:10:20,240
+you know um so given a text we grab
+
+212
+00:10:16,959 --> 00:10:20,240
+the text then we
+
+213
+00:10:22,560 --> 00:10:28,399
+we find okay so we find all possible
+
+214
+00:10:26,399 --> 00:10:32,000
+diagrams okay
+
+215
+00:10:28,399 --> 00:10:34,959
+then we count it so how to do that
+
+216
+00:10:32,000 --> 00:10:35,920
+basically you create a hash table or map
+
+217
+00:10:34,959 --> 00:10:39,040
+or
+
+218
+00:10:35,920 --> 00:10:41,680
+called dictionary and each
+
+219
+00:10:39,040 --> 00:10:42,560
+element each key is going to be a
+
+220
+00:10:41,680 --> 00:10:46,079
+diagram
+
+221
+00:10:42,560 --> 00:10:48,399
+okay and the value of the key
+
+222
+00:10:46,079 --> 00:10:50,160
+is going to be count you know the number
+
+223
+00:10:48,399 --> 00:10:52,000
+of occurrences of the background so okay
+
+224
+00:10:50,160 --> 00:10:54,320
+so that's the
+
+225
+00:10:52,000 --> 00:10:55,920
+that's what we're gonna do so let me add
+
+226
+00:10:54,320 --> 00:10:58,839
+some comments so you go
+
+227
+00:10:55,920 --> 00:11:00,320
+you guys can see clearly what's going on
+
+228
+00:10:58,839 --> 00:11:03,600
+so
+
+229
+00:11:00,320 --> 00:11:07,040
+uh if update let's let's make my
+
+230
+00:11:03,600 --> 00:11:07,839
+code a bit more you know let's make the
+
+231
+00:11:07,040 --> 00:11:09,760
+code
+
+232
+00:11:07,839 --> 00:11:12,839
+the code formatting a bit more
+
+233
+00:11:09,760 --> 00:11:15,839
+traditional okay
+
+234
+00:11:12,839 --> 00:11:15,839
+uh
+
+235
+00:11:16,000 --> 00:11:23,680
+if update the i mean let's add
+
+236
+00:11:19,839 --> 00:11:26,720
+the documentation for update uh
+
+237
+00:11:23,680 --> 00:11:30,240
+grab text area text
+
+238
+00:11:26,720 --> 00:11:33,279
+and insert into show box
+
+239
+00:11:30,240 --> 00:11:34,959
+okay that's what it does okay so but
+
+240
+00:11:33,279 --> 00:11:37,920
+what we need to do
+
+241
+00:11:34,959 --> 00:11:37,920
+so algorithm
+
+242
+00:11:41,279 --> 00:11:46,399
+uh actually i don't like this common
+
+243
+00:11:43,680 --> 00:11:49,519
+style so let me try these
+
+244
+00:11:46,399 --> 00:11:53,279
+always in decisions that's uh
+
+245
+00:11:49,519 --> 00:11:53,279
+uh what we need to do is to
+
+246
+00:11:53,839 --> 00:12:00,800
+grab the given text
+
+247
+00:11:57,279 --> 00:12:04,000
+then then we need to find
+
+248
+00:12:00,800 --> 00:12:07,440
+all possible diagrams how do you do that
+
+249
+00:12:04,000 --> 00:12:12,240
+okay let's see a b c d
+
+250
+00:12:07,440 --> 00:12:15,440
+e f g so if that's a given text
+
+251
+00:12:12,240 --> 00:12:18,560
+we need to get a b
+
+252
+00:12:15,440 --> 00:12:21,839
+b c d e f
+
+253
+00:12:18,560 --> 00:12:25,839
+g okay um
+
+254
+00:12:21,839 --> 00:12:29,200
+how do you do that so
+
+255
+00:12:25,839 --> 00:12:33,200
+d e wait a b b c
+
+256
+00:12:29,200 --> 00:12:36,320
+a b b c and it's not
+
+257
+00:12:33,200 --> 00:12:36,880
+a b c d e okay then you the diagrams are
+
+258
+00:12:36,320 --> 00:12:41,920
+a b
+
+259
+00:12:36,880 --> 00:12:45,440
+b c c d
+
+260
+00:12:41,920 --> 00:12:48,160
+d e yeah so
+
+261
+00:12:45,440 --> 00:12:49,920
+if the character length i mean if the
+
+262
+00:12:48,160 --> 00:12:53,440
+string length is one
+
+263
+00:12:49,920 --> 00:12:57,279
+uh con words five characters
+
+264
+00:12:53,440 --> 00:12:58,959
+then the diagram is gonna be one less
+
+265
+00:12:57,279 --> 00:13:00,480
+you know one less background so that's
+
+266
+00:12:58,959 --> 00:13:05,120
+how it works right
+
+267
+00:13:00,480 --> 00:13:09,839
+let's see a b b c a b b c
+
+268
+00:13:05,120 --> 00:13:09,839
+c d d e yeah um
+
+269
+00:13:10,800 --> 00:13:14,480
+let me write it out so because when you
+
+270
+00:13:13,440 --> 00:13:22,320
+do a video
+
+271
+00:13:14,480 --> 00:13:22,320
+uh people can see later on okay
+
+272
+00:13:23,440 --> 00:13:26,880
+example input text and that's a
+
+273
+00:13:25,279 --> 00:13:31,360
+background okay so
+
+274
+00:13:26,880 --> 00:13:35,839
+we need to do this uh computationally so
+
+275
+00:13:31,360 --> 00:13:35,839
+input text
+
+276
+00:13:35,920 --> 00:13:39,440
+so once we have input text so how how do
+
+277
+00:13:38,560 --> 00:13:42,560
+you write this
+
+278
+00:13:39,440 --> 00:13:46,240
+let's see you can
+
+279
+00:13:42,560 --> 00:13:46,240
+do a map
+
+280
+00:13:47,120 --> 00:13:56,639
+let's see how you do this um
+
+281
+00:13:51,360 --> 00:14:00,000
+you can so input text is a string
+
+282
+00:13:56,639 --> 00:14:03,519
+you can do a map or a loop
+
+283
+00:14:00,000 --> 00:14:06,959
+okay uh let's do you know
+
+284
+00:14:03,519 --> 00:14:08,800
+let's do a loop yeah let's do a loop
+
+285
+00:14:06,959 --> 00:14:11,760
+okay
+
+286
+00:14:08,800 --> 00:14:14,079
+let's for example for simplicity let's
+
+287
+00:14:11,760 --> 00:14:14,079
+um
+
+288
+00:14:14,839 --> 00:14:17,839
+uh
+
+289
+00:14:18,639 --> 00:14:25,760
+so so for for simplicity let's create a
+
+290
+00:14:21,680 --> 00:14:25,760
+new javascript okay let's just test
+
+291
+00:14:28,839 --> 00:14:35,199
+okay
+
+292
+00:14:31,760 --> 00:14:38,320
+so input constant
+
+293
+00:14:35,199 --> 00:14:40,800
+x x equals to let's say
+
+294
+00:14:38,320 --> 00:14:40,800
+string
+
+295
+00:14:42,079 --> 00:14:48,320
+so that's the
+
+296
+00:14:45,279 --> 00:14:48,320
+that's the input
+
+297
+00:14:49,440 --> 00:14:52,480
+okay then
+
+298
+00:14:53,600 --> 00:15:00,800
+diagram will be equals to so uh we
+
+299
+00:14:57,440 --> 00:15:03,600
+so we map okay now
+
+300
+00:15:00,800 --> 00:15:12,959
+let's go to my javascript tutorial
+
+301
+00:15:03,600 --> 00:15:16,000
+because i
+
+302
+00:15:12,959 --> 00:15:19,040
+i have tutorials there
+
+303
+00:15:16,000 --> 00:15:22,330
+javascript in depth uh
+
+304
+00:15:19,040 --> 00:15:23,760
+wait so we need to
+
+305
+00:15:22,330 --> 00:15:26,160
+[Music]
+
+306
+00:15:23,760 --> 00:15:29,440
+so string we are we are going to work on
+
+307
+00:15:26,160 --> 00:15:29,440
+string string overview
+
+308
+00:15:29,680 --> 00:15:33,600
+now remember in javascript 2015 string
+
+309
+00:15:33,120 --> 00:15:35,759
+is
+
+310
+00:15:33,600 --> 00:15:35,759
+a
+
+311
+00:15:37,839 --> 00:15:42,160
+create string string constructor string
+
+312
+00:15:40,639 --> 00:15:46,079
+drawing string method string
+
+313
+00:15:42,160 --> 00:15:49,440
+is a how do you say
+
+314
+00:15:46,079 --> 00:15:51,680
+let's see um map object iterable yeah
+
+315
+00:15:49,440 --> 00:15:54,079
+so in javascript string is an iterable
+
+316
+00:15:51,680 --> 00:15:56,320
+so that means we can use for a loop
+
+317
+00:15:54,079 --> 00:15:56,320
+okay
+
+318
+00:15:57,600 --> 00:16:04,079
+for of loop so so for
+
+319
+00:16:00,720 --> 00:16:08,000
+k of iterable
+
+320
+00:16:04,079 --> 00:16:10,959
+k is a char x char okay
+
+321
+00:16:08,000 --> 00:16:13,440
+i prefer to have variable names that are
+
+322
+00:16:10,959 --> 00:16:13,440
+unique
+
+323
+00:16:14,560 --> 00:16:20,720
+okay so for x char of x input
+
+324
+00:16:18,560 --> 00:16:22,399
+for example let's say we can do console
+
+325
+00:16:20,720 --> 00:16:26,160
+log x char
+
+326
+00:16:22,399 --> 00:16:28,079
+okay run it there it is our result so
+
+327
+00:16:26,160 --> 00:16:31,600
+this is correct
+
+328
+00:16:28,079 --> 00:16:35,519
+now for each x chart of
+
+329
+00:16:31,600 --> 00:16:37,680
+input we need to
+
+330
+00:16:35,519 --> 00:16:39,120
+okay we need the index because we need
+
+331
+00:16:37,680 --> 00:16:51,839
+find we need to find
+
+332
+00:16:39,120 --> 00:16:51,839
+the char that's next to the
+
+333
+00:16:54,880 --> 00:16:59,920
+how do you okay let's try to
+
+334
+00:17:03,839 --> 00:17:07,520
+i'll do okay so i need to
+
+335
+00:17:08,240 --> 00:17:10,559
+um
+
+336
+00:17:12,799 --> 00:17:19,039
+so another way obviously is you to use
+
+337
+00:17:15,919 --> 00:17:19,760
+a for loop for loop is uh is actually
+
+338
+00:17:19,039 --> 00:17:24,559
+going to be
+
+339
+00:17:19,760 --> 00:17:27,839
+simpler okay let's let's forget about
+
+340
+00:17:24,559 --> 00:17:28,400
+let's forget about the the you know
+
+341
+00:17:27,839 --> 00:17:33,840
+that's
+
+342
+00:17:28,400 --> 00:17:33,840
+pretty fine wait what's going on
+
+343
+00:17:37,120 --> 00:17:42,799
+formatting line tango unexpected token
+
+344
+00:17:44,840 --> 00:17:49,039
+what
+
+345
+00:17:46,080 --> 00:17:50,880
+yeah for loop oh yeah so the length here
+
+346
+00:17:49,039 --> 00:18:00,080
+is wrong
+
+347
+00:17:50,880 --> 00:18:03,360
+yeah so you need x input
+
+348
+00:18:00,080 --> 00:18:07,520
+okay so so let's do a for loop for i
+
+349
+00:18:03,360 --> 00:18:10,400
+equals to one uh two islands
+
+350
+00:18:07,520 --> 00:18:10,400
+uh less than
+
+351
+00:18:10,640 --> 00:18:20,160
+x input.length okay
+
+352
+00:18:15,280 --> 00:18:20,160
+then we
+
+353
+00:18:21,120 --> 00:18:29,840
+got now is there a way in a string
+
+354
+00:18:24,480 --> 00:18:29,840
+to um i forgot you know uh wait
+
+355
+00:18:30,640 --> 00:18:34,559
+is you know anyway let's let's just push
+
+356
+00:18:33,679 --> 00:18:38,080
+on with this
+
+357
+00:18:34,559 --> 00:18:41,440
+it's not waste time so uh
+
+358
+00:18:38,080 --> 00:18:42,000
+you know because but however this way
+
+359
+00:18:41,440 --> 00:18:44,400
+might be
+
+360
+00:18:42,000 --> 00:18:47,679
+less efficient okay but let's not worry
+
+361
+00:18:44,400 --> 00:18:47,679
+about it x input
+
+362
+00:18:51,039 --> 00:18:55,679
+so you need to create a diagram okay so
+
+363
+00:18:53,840 --> 00:18:59,200
+how do you create a bigram first of all
+
+364
+00:18:55,679 --> 00:19:02,799
+we need a map we need to create a map
+
+365
+00:18:59,200 --> 00:19:05,840
+so basically this is going to be
+
+366
+00:19:02,799 --> 00:19:10,480
+x input i that's a string
+
+367
+00:19:05,840 --> 00:19:13,760
+plus x input i plus
+
+368
+00:19:10,480 --> 00:19:19,520
+one okay and this is going to
+
+369
+00:19:13,760 --> 00:19:19,520
+be uh minus one yeah i think so
+
+370
+00:19:20,240 --> 00:19:24,960
+so this we're gonna add this to the map
+
+371
+00:19:22,960 --> 00:19:28,080
+so how do you do javascript map
+
+372
+00:19:24,960 --> 00:19:31,120
+so let's look at that map
+
+373
+00:19:28,080 --> 00:19:34,320
+create map so
+
+374
+00:19:31,120 --> 00:19:35,600
+map object tutorial map in javascript is
+
+375
+00:19:34,320 --> 00:19:37,919
+a key value pair
+
+376
+00:19:35,600 --> 00:19:38,960
+better than object i talked about that
+
+377
+00:19:37,919 --> 00:19:44,080
+in my last
+
+378
+00:19:38,960 --> 00:19:44,080
+javascript video so uh
+
+379
+00:19:46,000 --> 00:19:50,240
+oh so we can just make it a iterable
+
+380
+00:19:50,840 --> 00:19:53,840
+okay
+
+381
+00:19:54,000 --> 00:19:59,600
+create a map from values in each of
+
+382
+00:19:57,200 --> 00:20:00,960
+our objects so the iterable can be a
+
+383
+00:19:59,600 --> 00:20:04,000
+string
+
+384
+00:20:00,960 --> 00:20:04,960
+but if you do that what's gonna be the
+
+385
+00:20:04,000 --> 00:20:07,840
+value
+
+386
+00:20:04,960 --> 00:20:07,840
+i don't know
+
+387
+00:20:12,159 --> 00:20:15,679
+let's let's just try okay
+
+388
+00:20:16,000 --> 00:20:23,840
+so comment is all coming out this out
+
+389
+00:20:19,520 --> 00:20:23,840
+console.log new map
+
+390
+00:20:26,320 --> 00:20:34,159
+okay let's see what it get
+
+391
+00:20:30,159 --> 00:20:38,400
+okay uh uncaught type error let's
+
+392
+00:20:34,159 --> 00:20:43,600
+x input is a iterable then
+
+393
+00:20:38,400 --> 00:20:43,600
+iterator value a is not an entry object
+
+394
+00:20:44,960 --> 00:20:49,600
+oh yeah so i guess it needs to be you
+
+395
+00:20:47,840 --> 00:20:52,880
+cannot
+
+396
+00:20:49,600 --> 00:20:55,760
+you cannot create a map out of a
+
+397
+00:20:52,880 --> 00:20:56,640
+string even though string is iterable
+
+398
+00:20:55,760 --> 00:21:00,000
+because
+
+399
+00:20:56,640 --> 00:21:00,799
+the to the argument to a map must be
+
+400
+00:21:00,000 --> 00:21:04,320
+pairs
+
+401
+00:21:00,799 --> 00:21:04,320
+okay so forget that
+
+402
+00:21:04,799 --> 00:21:12,480
+uh but however we need a map anyway
+
+403
+00:21:09,280 --> 00:21:15,679
+so new map
+
+404
+00:21:12,480 --> 00:21:18,640
+okay so this map is going to be
+
+405
+00:21:15,679 --> 00:21:18,640
+by grams
+
+406
+00:21:20,240 --> 00:21:25,520
+okay so this map is going to be diagrams
+
+407
+00:21:22,880 --> 00:21:29,760
+now let's continue with our for loop
+
+408
+00:21:25,520 --> 00:21:33,360
+so we now for each
+
+409
+00:21:29,760 --> 00:21:36,480
+occurrence i mean for each happenstance
+
+410
+00:21:33,360 --> 00:21:39,760
+we need to add to the new map so how do
+
+411
+00:21:36,480 --> 00:21:39,760
+you add to the new map
+
+412
+00:21:39,919 --> 00:21:46,159
+let's see create map
+
+413
+00:21:43,440 --> 00:21:46,960
+parent of map object size of map add
+
+414
+00:21:46,159 --> 00:21:50,159
+entries so
+
+415
+00:21:46,960 --> 00:21:53,679
+here is how you add to the map okay
+
+416
+00:21:50,159 --> 00:21:53,679
+so map objects
+
+417
+00:21:56,960 --> 00:22:02,480
+set key is going to
+
+418
+00:22:00,240 --> 00:22:02,480
+be
+
+419
+00:22:04,159 --> 00:22:07,200
+that's the key okay
+
+420
+00:22:11,360 --> 00:22:19,120
+okay then value is going to
+
+421
+00:22:14,880 --> 00:22:22,640
+be basically if it
+
+422
+00:22:19,120 --> 00:22:25,679
+exists already then add
+
+423
+00:22:22,640 --> 00:22:29,840
+one to it otherwise
+
+424
+00:22:25,679 --> 00:22:29,840
+create a new key okay so
+
+425
+00:22:30,320 --> 00:22:33,679
+so check existence
+
+426
+00:22:36,640 --> 00:22:41,840
+has key
+
+427
+00:22:42,159 --> 00:22:45,760
+so we can do that if
+
+428
+00:22:45,840 --> 00:22:51,280
+has the key if it has the key
+
+429
+00:22:52,200 --> 00:22:58,960
+then uh
+
+430
+00:22:54,320 --> 00:22:58,960
+then we add one to the
+
+431
+00:22:59,520 --> 00:23:04,480
+um yeah we then we add one to it
+
+432
+00:23:05,840 --> 00:23:12,960
+so how do you get the key size check
+
+433
+00:23:08,960 --> 00:23:12,960
+existence get value get okay
+
+434
+00:23:20,080 --> 00:23:28,400
+okay let me show you how how to
+
+435
+00:23:23,360 --> 00:23:31,679
+do this so if it has the key
+
+436
+00:23:28,400 --> 00:23:31,679
+then set
+
+437
+00:23:32,320 --> 00:23:40,080
+plus one
+
+438
+00:23:36,159 --> 00:23:40,080
+okay otherwise
+
+439
+00:23:44,640 --> 00:23:48,240
+that okay now let's prettify the code
+
+440
+00:23:47,440 --> 00:23:52,320
+okay
+
+441
+00:23:48,240 --> 00:23:55,279
+so if background has the key then
+
+442
+00:23:52,320 --> 00:23:56,720
+basically add one to it okay now
+
+443
+00:23:55,279 --> 00:24:00,880
+otherwise
+
+444
+00:23:56,720 --> 00:24:04,000
+otherwise um otherwise create a new key
+
+445
+00:24:00,880 --> 00:24:07,039
+and the value is going to be
+
+446
+00:24:04,000 --> 00:24:10,880
+one okay i think that's
+
+447
+00:24:07,039 --> 00:24:13,279
+that's um that's right let's see what
+
+448
+00:24:10,880 --> 00:24:13,279
+happens
+
+449
+00:24:14,080 --> 00:24:19,520
+finished okay no output so now we can
+
+450
+00:24:17,679 --> 00:24:22,720
+console.log
+
+451
+00:24:19,520 --> 00:24:26,880
+x by grand printed okay let's see
+
+452
+00:24:22,720 --> 00:24:26,880
+yay let's see uh what
+
+453
+00:24:28,640 --> 00:24:35,360
+so a b b c a b b
+
+454
+00:24:32,159 --> 00:24:38,720
+c c d d e let's see check a b
+
+455
+00:24:35,360 --> 00:24:42,400
+b c yeah so so that is uh
+
+456
+00:24:38,720 --> 00:24:45,679
+correct now we can
+
+457
+00:24:42,400 --> 00:24:46,240
+now we can uh we can just make a
+
+458
+00:24:45,679 --> 00:24:51,520
+function
+
+459
+00:24:46,240 --> 00:24:54,559
+out of it okay constant arrow function
+
+460
+00:24:51,520 --> 00:24:58,320
+uh string two
+
+461
+00:24:54,559 --> 00:24:58,320
+diagram okay function
+
+462
+00:24:58,840 --> 00:25:04,000
+okay uh the string is going to be
+
+463
+00:25:04,640 --> 00:25:12,080
+i mean the argument is that
+
+464
+00:25:07,679 --> 00:25:12,080
+then the value is
+
+465
+00:25:12,559 --> 00:25:16,320
+basically this okay
+
+466
+00:25:19,520 --> 00:25:29,840
+and you need to return
+
+467
+00:25:30,000 --> 00:25:43,840
+so here is a function
+
+468
+00:25:48,080 --> 00:25:57,840
+here's a function it takes a string so
+
+469
+00:25:49,919 --> 00:25:57,840
+that let's rename this
+
+470
+00:26:02,960 --> 00:26:10,000
+returns a map object
+
+471
+00:26:06,320 --> 00:26:13,279
+where keys are the diagrams
+
+472
+00:26:10,000 --> 00:26:15,760
+and var is the count okay
+
+473
+00:26:13,279 --> 00:26:17,840
+so that's a function so now let's just
+
+474
+00:26:15,760 --> 00:26:20,960
+test
+
+475
+00:26:17,840 --> 00:26:25,279
+if it works so comment this out
+
+476
+00:26:20,960 --> 00:26:29,600
+comment this out and
+
+477
+00:26:25,279 --> 00:26:29,600
+to do that so now we want to
+
+478
+00:26:35,360 --> 00:26:39,840
+call the function on
+
+479
+00:26:42,000 --> 00:26:49,919
+input okay run it fantastic
+
+480
+00:26:47,039 --> 00:26:51,520
+now let's try now since it works now
+
+481
+00:26:49,919 --> 00:26:54,159
+let's try something
+
+482
+00:26:51,520 --> 00:26:56,960
+fancy okay let's just copy let's try the
+
+483
+00:26:54,159 --> 00:27:00,880
+input string to be something fancy wait
+
+484
+00:26:56,960 --> 00:27:07,679
+abcde let's repeat this okay repeat this
+
+485
+00:27:00,880 --> 00:27:11,039
+okay run it run it
+
+486
+00:27:07,679 --> 00:27:14,480
+let's see a b okay
+
+487
+00:27:11,039 --> 00:27:18,840
+a b is two b c is two c d is two d
+
+488
+00:27:14,480 --> 00:27:20,799
+is two e space is
+
+489
+00:27:18,840 --> 00:27:24,000
+one
+
+490
+00:27:20,799 --> 00:27:27,279
+e space is one then
+
+491
+00:27:24,000 --> 00:27:29,039
+space a is one correct so our diagram
+
+492
+00:27:27,279 --> 00:27:31,919
+function now works
+
+493
+00:27:29,039 --> 00:27:31,919
+fantastic
+
+494
+00:27:32,480 --> 00:27:39,039
+so now we can put this uh function back
+
+495
+00:27:35,679 --> 00:27:42,000
+to copy it
+
+496
+00:27:39,039 --> 00:27:42,000
+back to our code
+
+497
+00:27:42,159 --> 00:27:52,399
+you can see now we have a function
+
+498
+00:27:49,039 --> 00:27:54,720
+okay now let's drop the you know
+
+499
+00:27:52,399 --> 00:27:56,480
+usually in my javascript the whole
+
+500
+00:27:54,720 --> 00:28:00,480
+script i put a
+
+501
+00:27:56,480 --> 00:28:02,960
+curly braces around it so that
+
+502
+00:28:00,480 --> 00:28:04,240
+so that all the variables and constants
+
+503
+00:28:02,960 --> 00:28:08,399
+does not escape
+
+504
+00:28:04,240 --> 00:28:10,399
+this script uh does not interfere with
+
+505
+00:28:08,399 --> 00:28:11,600
+other scripts you load on the webpage
+
+506
+00:28:10,399 --> 00:28:14,399
+but it's not neces
+
+507
+00:28:11,600 --> 00:28:15,600
+you know it's not that necessary so
+
+508
+00:28:14,399 --> 00:28:18,720
+let's remove it
+
+509
+00:28:15,600 --> 00:28:19,120
+and reformat so so our code is easier to
+
+510
+00:28:18,720 --> 00:28:23,440
+see
+
+511
+00:28:19,120 --> 00:28:23,440
+okay uh
+
+512
+00:28:25,760 --> 00:28:32,399
+this is grab okay grab text area text
+
+513
+00:28:29,919 --> 00:28:35,679
+and insert into show box okay now this
+
+514
+00:28:32,399 --> 00:28:38,000
+is a string to diagram function
+
+515
+00:28:35,679 --> 00:28:38,000
+now
+
+516
+00:28:40,000 --> 00:28:47,200
+now these comments this
+
+517
+00:28:44,960 --> 00:28:49,520
+this is what we need to do let's put it
+
+518
+00:28:47,200 --> 00:28:53,360
+here
+
+519
+00:28:49,520 --> 00:28:56,159
+uh input abcd diagram okay
+
+520
+00:28:53,360 --> 00:28:56,159
+give a text
+
+521
+00:28:56,960 --> 00:29:03,360
+compute the diagram and
+
+522
+00:29:00,320 --> 00:29:07,039
+print the stud
+
+523
+00:29:03,360 --> 00:29:09,200
+the count of them okay that's the first
+
+524
+00:29:07,039 --> 00:29:12,960
+thing
+
+525
+00:29:09,200 --> 00:29:16,080
+second part of the
+
+526
+00:29:12,960 --> 00:29:16,080
+of the problem
+
+527
+00:29:16,159 --> 00:29:24,559
+given a map of the map
+
+528
+00:29:19,279 --> 00:29:24,559
+object of the diagram
+
+529
+00:29:25,360 --> 00:29:32,240
+plot generate a svg
+
+530
+00:29:29,600 --> 00:29:32,240
+object
+
+531
+00:29:34,159 --> 00:29:41,120
+draw a chart okay draw a
+
+532
+00:29:37,440 --> 00:29:44,240
+chart draw a bar chart
+
+533
+00:29:41,120 --> 00:29:55,840
+by generating a svg
+
+534
+00:29:44,240 --> 00:29:55,840
+object okay
+
+535
+00:29:56,159 --> 00:30:00,880
+first part of the problem grab the given
+
+536
+00:29:58,320 --> 00:30:04,080
+text computer diagram
+
+537
+00:30:00,880 --> 00:30:06,240
+and print the count of them okay now we
+
+538
+00:30:04,080 --> 00:30:08,000
+almost already did the first part now
+
+539
+00:30:06,240 --> 00:30:13,600
+but we need to update it
+
+540
+00:30:08,000 --> 00:30:17,039
+so let's modify the update code
+
+541
+00:30:13,600 --> 00:30:20,720
+so so update code show box
+
+542
+00:30:17,039 --> 00:30:20,720
+text content equals to
+
+543
+00:30:21,520 --> 00:30:28,000
+equals to this
+
+544
+00:30:24,640 --> 00:30:36,240
+is what it will be okay copy let me show
+
+545
+00:30:28,000 --> 00:30:39,039
+you how
+
+546
+00:30:36,240 --> 00:30:39,840
+so we compute the diagram yeah that's
+
+547
+00:30:39,039 --> 00:30:43,120
+how
+
+548
+00:30:39,840 --> 00:30:47,279
+it is okay
+
+549
+00:30:43,120 --> 00:30:51,039
+now actually comment that out now
+
+550
+00:30:47,279 --> 00:30:53,600
+if we now let's try our code if it works
+
+551
+00:30:51,039 --> 00:30:53,600
+refresh
+
+552
+00:30:55,360 --> 00:31:00,320
+oh it's just say object map okay
+
+553
+00:30:58,240 --> 00:31:03,360
+something all right it
+
+554
+00:31:00,320 --> 00:31:07,840
+it okay we need to convert the object
+
+555
+00:31:03,360 --> 00:31:10,399
+map to text so
+
+556
+00:31:07,840 --> 00:31:11,840
+so this part will be two string two
+
+557
+00:31:10,399 --> 00:31:16,840
+string
+
+558
+00:31:11,840 --> 00:31:19,760
+okay refresh
+
+559
+00:31:16,840 --> 00:31:19,760
+something yeah
+
+560
+00:31:22,559 --> 00:31:26,799
+okay debug now let's see
+
+561
+00:31:27,200 --> 00:31:33,120
+let's do a console log here let's print
+
+562
+00:31:30,840 --> 00:31:36,799
+it
+
+563
+00:31:33,120 --> 00:31:40,880
+so text areas this is the input text
+
+564
+00:31:36,799 --> 00:31:44,399
+which is a string and feed it to
+
+565
+00:31:40,880 --> 00:31:46,720
+feed it to the diagram function oh
+
+566
+00:31:44,399 --> 00:31:50,320
+wait yeah i think i know what's wrong
+
+567
+00:31:46,720 --> 00:31:50,320
+the function needs to be
+
+568
+00:31:51,039 --> 00:31:56,559
+at the top okay because if you define a
+
+569
+00:31:54,640 --> 00:31:59,120
+function using arrow function by
+
+570
+00:31:56,559 --> 00:32:01,600
+assigning it to a constant
+
+571
+00:31:59,120 --> 00:32:02,720
+you cannot call the function until it's
+
+572
+00:32:01,600 --> 00:32:06,320
+defined
+
+573
+00:32:02,720 --> 00:32:07,679
+so so here we are calling the function
+
+574
+00:32:06,320 --> 00:32:10,960
+here so that's why
+
+575
+00:32:07,679 --> 00:32:15,360
+okay so now back to the browser
+
+576
+00:32:10,960 --> 00:32:16,000
+refresh something okay that's still not
+
+577
+00:32:15,360 --> 00:32:20,320
+working
+
+578
+00:32:16,000 --> 00:32:24,399
+refresh close it close it
+
+579
+00:32:20,320 --> 00:32:28,480
+let's go back to the let's see
+
+580
+00:32:24,399 --> 00:32:30,080
+some okay that's not working okay so
+
+581
+00:32:28,480 --> 00:32:32,799
+what's going on let's see
+
+582
+00:32:30,080 --> 00:32:32,799
+the code
+
+583
+00:32:38,159 --> 00:32:47,200
+okay so we need to debug show
+
+584
+00:32:41,519 --> 00:32:47,200
+show log string to diagram
+
+585
+00:32:48,640 --> 00:32:54,480
+and tostring okay that should print that
+
+586
+00:32:51,360 --> 00:32:54,480
+should print the log
+
+587
+00:32:55,360 --> 00:33:03,120
+morning bot okay now let's
+
+588
+00:32:58,640 --> 00:33:07,360
+press f12 to show the javascript console
+
+589
+00:33:03,120 --> 00:33:10,720
+and refresh it prints object
+
+590
+00:33:07,360 --> 00:33:14,799
+map that's wrong that is wrong
+
+591
+00:33:10,720 --> 00:33:20,799
+okay so you can see can we magnify this
+
+592
+00:33:14,799 --> 00:33:20,799
+can we magnify this console log
+
+593
+00:33:22,159 --> 00:33:25,840
+oh you can yeah okay
+
+594
+00:33:26,240 --> 00:33:33,600
+okay so it's it shows object map
+
+595
+00:33:29,919 --> 00:33:33,600
+wait but i thought i
+
+596
+00:33:35,600 --> 00:33:39,600
+so okay here's a problem why can't we
+
+597
+00:33:37,600 --> 00:33:43,519
+print two string okay so let's
+
+598
+00:33:39,600 --> 00:33:43,519
+go back to our test script
+
+599
+00:33:44,880 --> 00:33:47,200
+wait
+
+600
+00:33:50,559 --> 00:33:56,720
+close that let's print let's put
+
+601
+00:33:53,679 --> 00:33:56,720
+the yeah
+
+602
+00:33:57,039 --> 00:34:02,080
+so here's the text test script
+
+603
+00:34:03,840 --> 00:34:07,039
+by say sometimes you need to make sure
+
+604
+00:34:05,679 --> 00:34:10,399
+the browser is not
+
+605
+00:34:07,039 --> 00:34:12,800
+caching the website okay i
+
+606
+00:34:10,399 --> 00:34:12,800
+uh
+
+607
+00:34:13,440 --> 00:34:18,960
+in yeah in which case you keep the uh
+
+608
+00:34:16,639 --> 00:34:20,399
+offset version in the browser yeah but i
+
+609
+00:34:18,960 --> 00:34:24,240
+think
+
+610
+00:34:20,399 --> 00:34:28,159
+i think that's not the case refresh okay
+
+611
+00:34:24,240 --> 00:34:32,800
+uh return refresh
+
+612
+00:34:28,159 --> 00:34:35,679
+wait uh i hate firefox
+
+613
+00:34:32,800 --> 00:34:38,399
+let's show let's let's do this in um in
+
+614
+00:34:35,679 --> 00:34:38,399
+chrome okay
+
+615
+00:34:45,359 --> 00:34:52,320
+yeah it's the same thing console
+
+616
+00:34:49,839 --> 00:34:54,240
+yeah i don't think that's a problem okay
+
+617
+00:34:52,320 --> 00:34:57,440
+let's back to
+
+618
+00:34:54,240 --> 00:34:57,440
+the drawing board
+
+619
+00:34:57,599 --> 00:35:06,720
+console.log f string to diagram
+
+620
+00:35:01,440 --> 00:35:06,720
+x input it really should
+
+621
+00:35:07,520 --> 00:35:11,920
+be closer
+
+622
+00:35:15,280 --> 00:35:19,040
+he really should um
+
+623
+00:35:24,079 --> 00:35:28,240
+uh that's pretty fine okay
+
+624
+00:35:28,960 --> 00:35:31,839
+let's
+
+625
+00:35:36,960 --> 00:35:40,240
+yeah i'm just fuzzing you know like i do
+
+626
+00:35:39,680 --> 00:35:44,160
+i do
+
+627
+00:35:40,240 --> 00:35:46,000
+fuzzing a lot when i'm stuck uh
+
+628
+00:35:44,160 --> 00:35:47,680
+second part of the problem okay the
+
+629
+00:35:46,000 --> 00:35:48,560
+first part of the problem second part
+
+630
+00:35:47,680 --> 00:35:52,800
+about the problem
+
+631
+00:35:48,560 --> 00:35:57,040
+constants um what's going on so this
+
+632
+00:35:52,800 --> 00:36:01,520
+returns this function returns a
+
+633
+00:35:57,040 --> 00:36:06,160
+a diagram which is a map object
+
+634
+00:36:01,520 --> 00:36:09,920
+and now the update function
+
+635
+00:36:06,160 --> 00:36:11,760
+the update function first of all it
+
+636
+00:36:09,920 --> 00:36:15,599
+console
+
+637
+00:36:11,760 --> 00:36:17,440
+it what what that rack let's let's try
+
+638
+00:36:15,599 --> 00:36:20,160
+this okay
+
+639
+00:36:17,440 --> 00:36:22,720
+let's just print console.log i mean
+
+640
+00:36:20,160 --> 00:36:22,720
+let's just
+
+641
+00:36:24,839 --> 00:36:31,119
+print
+
+642
+00:36:26,000 --> 00:36:35,520
+the whatever is in the text area value
+
+643
+00:36:31,119 --> 00:36:35,520
+okay refresh
+
+644
+00:36:35,680 --> 00:36:45,119
+something here okay that is working okay
+
+645
+00:36:41,680 --> 00:36:47,520
+so so the text area value is
+
+646
+00:36:45,119 --> 00:36:47,520
+good
+
+647
+00:36:48,400 --> 00:36:51,359
+okay then
+
+648
+00:36:53,440 --> 00:37:12,960
+let's try to define okay
+
+649
+00:37:09,839 --> 00:37:12,960
+and what's going on
+
+650
+00:37:17,839 --> 00:37:23,839
+why is it not formatting correctly
+
+651
+00:37:26,160 --> 00:37:37,839
+what's going on
+
+652
+00:37:48,640 --> 00:37:56,079
+it's let's try the browser again refresh
+
+653
+00:37:51,760 --> 00:37:58,480
+oh there it is so now we are seeing the
+
+654
+00:37:56,079 --> 00:37:58,480
+map
+
+655
+00:37:58,560 --> 00:38:05,280
+now we are seeing
+
+656
+00:38:01,760 --> 00:38:08,240
+the diagram update
+
+657
+00:38:05,280 --> 00:38:08,240
+in real time
+
+658
+00:38:12,240 --> 00:38:22,640
+yeah it works yes
+
+659
+00:38:18,960 --> 00:38:26,240
+yeah so this is actually this is indeed
+
+660
+00:38:22,640 --> 00:38:29,280
+the diagram
+
+661
+00:38:26,240 --> 00:38:33,680
+it returns a object but not
+
+662
+00:38:29,280 --> 00:38:38,240
+but let's see two string to string
+
+663
+00:38:33,680 --> 00:38:40,400
+okay now it should
+
+664
+00:38:38,240 --> 00:38:41,359
+what happens if you to string a map
+
+665
+00:38:40,400 --> 00:38:43,920
+that's a question
+
+666
+00:38:41,359 --> 00:38:43,920
+refresh
+
+667
+00:38:45,119 --> 00:38:50,079
+when a map okay that's a problem we the
+
+668
+00:38:48,240 --> 00:38:53,520
+tostring is a problem
+
+669
+00:38:50,079 --> 00:38:56,800
+it does does not convert a map to
+
+670
+00:38:53,520 --> 00:38:59,599
+kind of the printed values it just
+
+671
+00:38:56,800 --> 00:39:00,079
+when you tostring a map object it just
+
+672
+00:38:59,599 --> 00:39:02,320
+prints
+
+673
+00:39:00,079 --> 00:39:03,599
+object map that's a that's a book that's
+
+674
+00:39:02,320 --> 00:39:06,640
+a problem
+
+675
+00:39:03,599 --> 00:39:08,880
+okay so we found the problem
+
+676
+00:39:06,640 --> 00:39:08,880
+um
+
+677
+00:39:11,680 --> 00:39:15,839
+okay we found the problem but uh
+
+678
+00:39:17,520 --> 00:39:22,560
+okay we found the problem
+
+679
+00:39:23,680 --> 00:39:26,720
+uh that's okay
+
+680
+00:39:26,800 --> 00:39:30,640
+we don't need this okay so
+
+681
+00:39:32,079 --> 00:39:37,599
+so actually so anyway so we we we
+
+682
+00:39:34,720 --> 00:39:38,079
+already completed the first part of the
+
+683
+00:39:37,599 --> 00:39:41,200
+job
+
+684
+00:39:38,079 --> 00:39:45,119
+which is uh which is given
+
+685
+00:39:41,200 --> 00:39:48,720
+an input text create a diagram of it
+
+686
+00:39:45,119 --> 00:39:50,560
+and their count of occurrence
+
+687
+00:39:48,720 --> 00:39:53,440
+now we can actually start to code the
+
+688
+00:39:50,560 --> 00:39:58,160
+second part to start to generate svg
+
+689
+00:39:53,440 --> 00:40:00,480
+images now that's actually more complex
+
+690
+00:39:58,160 --> 00:40:02,079
+but first of all what do we do about
+
+691
+00:40:00,480 --> 00:40:04,319
+these
+
+692
+00:40:02,079 --> 00:40:05,839
+i would like to print it here actually
+
+693
+00:40:04,319 --> 00:40:09,040
+okay so let's
+
+694
+00:40:05,839 --> 00:40:11,599
+uh so let's complete let's actually have
+
+695
+00:40:09,040 --> 00:40:15,920
+the background printed here
+
+696
+00:40:11,599 --> 00:40:19,119
+so so okay we can we can we can
+
+697
+00:40:15,920 --> 00:40:21,760
+we can print uh now we need to print the
+
+698
+00:40:19,119 --> 00:40:21,760
+diagram
+
+699
+00:40:22,880 --> 00:40:31,680
+okay so wait that is why wait
+
+700
+00:40:27,200 --> 00:40:31,680
+okay so we need to print the diagram
+
+701
+00:40:33,520 --> 00:40:41,119
+by grab map so for each
+
+702
+00:40:37,440 --> 00:40:41,119
+it needs to become a string
+
+703
+00:40:42,400 --> 00:40:49,440
+uh how do you print them i forgot
+
+704
+00:40:46,319 --> 00:40:54,079
+map object delete object check existence
+
+705
+00:40:49,440 --> 00:40:56,160
+clear map iterate map okay so we can
+
+706
+00:40:54,079 --> 00:40:57,440
+you know the whole thing needs to be a
+
+707
+00:40:56,160 --> 00:40:59,839
+string that's uh
+
+708
+00:40:57,440 --> 00:40:59,839
+issue
+
+709
+00:41:01,200 --> 00:41:06,560
+but i thought two string should do the
+
+710
+00:41:03,920 --> 00:41:08,400
+job okay so let's see so let's
+
+711
+00:41:06,560 --> 00:41:10,000
+yeah i'm pretty sure two string should
+
+712
+00:41:08,400 --> 00:41:13,200
+do the job
+
+713
+00:41:10,000 --> 00:41:17,440
+the reason it's not working before
+
+714
+00:41:13,200 --> 00:41:20,079
+where you just see the object mapped
+
+715
+00:41:17,440 --> 00:41:20,720
+the reason that's like that is maybe
+
+716
+00:41:20,079 --> 00:41:24,240
+because
+
+717
+00:41:20,720 --> 00:41:27,520
+we are calling to string of the string
+
+718
+00:41:24,240 --> 00:41:30,400
+object not the map object so let's go to
+
+719
+00:41:27,520 --> 00:41:33,920
+javascript reference
+
+720
+00:41:30,400 --> 00:41:35,520
+go to the map object let's see if it has
+
+721
+00:41:33,920 --> 00:41:39,760
+a method
+
+722
+00:41:35,520 --> 00:41:39,760
+about two string okay
+
+723
+00:41:41,520 --> 00:41:48,800
+for each entries iterator keys values
+
+724
+00:41:44,800 --> 00:41:51,920
+has size constructor
+
+725
+00:41:48,800 --> 00:41:52,240
+symbol tostring tag that's not it that's
+
+726
+00:41:51,920 --> 00:41:55,040
+not
+
+727
+00:41:52,240 --> 00:41:55,040
+it i know
+
+728
+00:42:00,839 --> 00:42:07,280
+prototype
+
+729
+00:42:02,960 --> 00:42:10,079
+uh parent purpose okay constructor size
+
+730
+00:42:07,280 --> 00:42:17,760
+get set has delete clear for each
+
+731
+00:42:10,079 --> 00:42:21,040
+entries key values
+
+732
+00:42:17,760 --> 00:42:22,800
+entries return the iterator
+
+733
+00:42:21,040 --> 00:42:25,440
+for the map okay maybe we need to
+
+734
+00:42:22,800 --> 00:42:28,800
+convert it to an array so
+
+735
+00:42:25,440 --> 00:42:29,200
+so dot entries will convert a map object
+
+736
+00:42:28,800 --> 00:42:32,560
+to
+
+737
+00:42:29,200 --> 00:42:32,560
+array then
+
+738
+00:42:35,680 --> 00:42:45,839
+then maybe let's do this
+
+739
+00:42:38,960 --> 00:42:48,960
+okay then maybe
+
+740
+00:42:45,839 --> 00:42:52,079
+okay background map entries
+
+741
+00:42:48,960 --> 00:42:55,119
+it becomes a array where each element
+
+742
+00:42:52,079 --> 00:42:59,040
+is a pair key and value then you do
+
+743
+00:42:55,119 --> 00:43:01,370
+two string maybe that work
+
+744
+00:42:59,040 --> 00:43:02,960
+okay so back to
+
+745
+00:43:01,370 --> 00:43:06,640
+[Music]
+
+746
+00:43:02,960 --> 00:43:09,359
+firefox refresh
+
+747
+00:43:06,640 --> 00:43:13,280
+try something yeah now it becomes object
+
+748
+00:43:09,359 --> 00:43:15,599
+map iterator how do you
+
+749
+00:43:13,280 --> 00:43:15,599
+
+750
+00:43:18,319 --> 00:43:22,560
+okay yeah okay i i think maybe i know
+
+751
+00:43:20,720 --> 00:43:23,200
+now let's go to look at the stream
+
+752
+00:43:22,560 --> 00:43:25,760
+functions
+
+753
+00:43:23,200 --> 00:43:26,720
+string object object reference let's go
+
+754
+00:43:25,760 --> 00:43:29,680
+to string
+
+755
+00:43:26,720 --> 00:43:29,680
+maybe there is a
+
+756
+00:43:31,920 --> 00:43:38,839
+method that
+
+757
+00:43:35,280 --> 00:43:41,680
+converts any iterable to a string
+
+758
+00:43:38,839 --> 00:43:45,359
+representation okay
+
+759
+00:43:41,680 --> 00:43:50,000
+now string object has lots of uh methods
+
+760
+00:43:45,359 --> 00:43:53,280
+concat repeat trim path slice substring
+
+761
+00:43:50,000 --> 00:43:57,119
+index of last index of
+
+762
+00:43:53,280 --> 00:44:00,480
+search map imagine okay to lower case
+
+763
+00:43:57,119 --> 00:44:03,200
+char charcoal okay there is no such
+
+764
+00:44:00,480 --> 00:44:06,400
+wait i'm i'm i'm very sure i'm pretty
+
+765
+00:44:03,200 --> 00:44:08,560
+sure there's a simple way
+
+766
+00:44:06,400 --> 00:44:10,800
+because i'm trying not to write it
+
+767
+00:44:08,560 --> 00:44:14,480
+myself
+
+768
+00:44:10,800 --> 00:44:17,839
+given a string i mean given a map object
+
+769
+00:44:14,480 --> 00:44:23,839
+the problem is to create a string that
+
+770
+00:44:17,839 --> 00:44:23,839
+represents the map objects
+
+771
+00:44:27,440 --> 00:44:34,480
+uh wait i'm
+
+772
+00:44:30,560 --> 00:44:38,319
+very i'm pretty sure that two string
+
+773
+00:44:34,480 --> 00:44:41,200
+of array does that what uh
+
+774
+00:44:38,319 --> 00:44:43,520
+what the i think you need to do
+
+775
+00:44:41,200 --> 00:44:46,720
+some json.string file
+
+776
+00:44:43,520 --> 00:44:48,000
+oh okay that's uh json string5 that's a
+
+777
+00:44:46,720 --> 00:44:53,359
+great
+
+778
+00:44:48,000 --> 00:44:53,359
+solution let's do that okay
+
+779
+00:44:53,880 --> 00:44:56,880
+jason
+
+780
+00:44:58,400 --> 00:45:06,079
+stream five yeah so jason stream
+
+781
+00:45:02,839 --> 00:45:10,880
+five okay so how do you
+
+782
+00:45:06,079 --> 00:45:10,880
+okay so i guess uh
+
+783
+00:45:15,359 --> 00:45:21,280
+yeah maybe that okay let's try it
+
+784
+00:45:21,920 --> 00:45:28,160
+refresh select
+
+785
+00:45:24,960 --> 00:45:33,839
+all delete maybe
+
+786
+00:45:28,160 --> 00:45:33,839
+this work no damn it
+
+787
+00:45:34,240 --> 00:45:37,440
+what the
+
+788
+00:45:38,079 --> 00:45:42,000
+no okay let's look at jason
+
+789
+00:45:42,160 --> 00:45:48,240
+uh object reference
+
+790
+00:45:45,599 --> 00:45:48,240
+jason
+
+791
+00:45:49,359 --> 00:45:52,079
+jason
+
+792
+00:45:53,280 --> 00:45:57,119
+okay stream fi
+
+793
+00:45:57,760 --> 00:46:03,040
+converts a javascript object to json
+
+794
+00:46:01,040 --> 00:46:07,839
+string format so what the hell
+
+795
+00:46:03,040 --> 00:46:07,839
+why is it not working json stream file
+
+796
+00:46:08,160 --> 00:46:11,680
+okay i don't know why is it
+
+797
+00:46:12,800 --> 00:46:17,440
+let's cancel log it okay
+
+798
+00:46:18,800 --> 00:46:26,800
+refresh what
+
+799
+00:46:22,000 --> 00:46:26,800
+the hell now i just print empty
+
+800
+00:46:26,839 --> 00:46:29,839
+brackets
+
+801
+00:46:32,560 --> 00:46:42,079
+console.log diagram
+
+802
+00:46:36,720 --> 00:46:45,599
+map okay
+
+803
+00:46:42,079 --> 00:46:48,560
+console.log diagram entries let's see
+
+804
+00:46:45,599 --> 00:46:48,560
+what the hell they are
+
+805
+00:46:48,800 --> 00:46:59,680
+refresh now oh
+
+806
+00:46:56,560 --> 00:47:03,359
+it returns a iterator yeah
+
+807
+00:46:59,680 --> 00:47:03,359
+right so when you um
+
+808
+00:47:03,440 --> 00:47:11,440
+yeah so when you use the entries method
+
+809
+00:47:06,960 --> 00:47:14,560
+of a map it returns a iterator
+
+810
+00:47:11,440 --> 00:47:18,960
+you need to turn that iterator into a
+
+811
+00:47:14,560 --> 00:47:22,240
+actual um yeah exactly
+
+812
+00:47:18,960 --> 00:47:27,359
+the dot dot dot the the spread
+
+813
+00:47:22,240 --> 00:47:27,359
+operator okay let's let's let's go to um
+
+814
+00:47:27,920 --> 00:47:34,480
+the spread operate operator okay so
+
+815
+00:47:31,119 --> 00:47:38,079
+so if you go to iterables
+
+816
+00:47:34,480 --> 00:47:42,559
+uh go to e3 iterables which is a
+
+817
+00:47:38,079 --> 00:47:42,559
+new kind of more advanced
+
+818
+00:47:44,480 --> 00:47:57,520
+e-trade over map
+
+819
+00:47:53,520 --> 00:47:59,839
+you can use for a bloop or where is the
+
+820
+00:47:57,520 --> 00:48:00,559
+dot operator let's let's search for
+
+821
+00:47:59,839 --> 00:48:04,079
+spread
+
+822
+00:48:00,559 --> 00:48:08,480
+okay spread operator here iterable yeah
+
+823
+00:48:04,079 --> 00:48:12,559
+spread operator yeah okay so let's
+
+824
+00:48:08,480 --> 00:48:18,400
+try that entries dot dot dot
+
+825
+00:48:12,559 --> 00:48:18,400
+okay let's hope it all works
+
+826
+00:48:18,559 --> 00:48:23,680
+now yeah oh yeah okay we need
+
+827
+00:48:21,760 --> 00:48:25,280
+that that seems to work you need to add
+
+828
+00:48:23,680 --> 00:48:28,000
+it here i mean
+
+829
+00:48:25,280 --> 00:48:28,000
+dot dot
+
+830
+00:48:30,559 --> 00:48:38,079
+refresh select all delete
+
+831
+00:48:34,000 --> 00:48:41,280
+now let's see okay it's working but
+
+832
+00:48:38,079 --> 00:48:44,480
+uh you know it's just printing it once
+
+833
+00:48:41,280 --> 00:48:48,559
+so that's something we can fix
+
+834
+00:48:44,480 --> 00:48:52,720
+so let's remove remove remove that
+
+835
+00:48:48,559 --> 00:48:52,720
+we don't we may not even need stream
+
+836
+00:49:00,839 --> 00:49:03,839
+five
+
+837
+00:49:07,040 --> 00:49:11,520
+so maybe that okay and maybe we don't
+
+838
+00:49:10,160 --> 00:49:14,640
+even need entries
+
+839
+00:49:11,520 --> 00:49:18,640
+if we convert it to
+
+840
+00:49:14,640 --> 00:49:22,559
+you know um wait do we
+
+841
+00:49:18,640 --> 00:49:24,160
+okay let's show box content okay i don't
+
+842
+00:49:22,559 --> 00:49:27,680
+know
+
+843
+00:49:24,160 --> 00:49:31,680
+refresh what happened now okay
+
+844
+00:49:27,680 --> 00:49:34,960
+uncalled expected expression
+
+845
+00:49:31,680 --> 00:49:38,559
+dot dot okay and
+
+846
+00:49:34,960 --> 00:49:42,079
+add the parenthesis refresh
+
+847
+00:49:38,559 --> 00:49:47,119
+uncode syntax zero expect
+
+848
+00:49:42,079 --> 00:49:47,119
+expected closing parenthesis got dots
+
+849
+00:49:56,839 --> 00:50:03,359
+what okay so let's follow
+
+850
+00:50:00,160 --> 00:50:06,240
+pancreas news suggestion
+
+851
+00:50:03,359 --> 00:50:07,520
+just follow just follow what i said okay
+
+852
+00:50:06,240 --> 00:50:10,559
+let's do that
+
+853
+00:50:07,520 --> 00:50:10,559
+jason streamfire
+
+854
+00:50:11,200 --> 00:50:17,760
+okay jason streamfight then
+
+855
+00:50:14,400 --> 00:50:23,200
+then what uh then then
+
+856
+00:50:17,760 --> 00:50:26,800
+my map okay so he suggests that
+
+857
+00:50:23,200 --> 00:50:31,520
+it better work
+
+858
+00:50:26,800 --> 00:50:31,520
+it's better work ah what's going on
+
+859
+00:50:31,839 --> 00:50:34,079
+no
+
+860
+00:50:35,599 --> 00:50:40,160
+oh yeah wait uh i'm missing dot dot dot
+
+861
+00:50:38,640 --> 00:50:44,319
+here okay hold on a second
+
+862
+00:50:40,160 --> 00:50:47,839
+he says yeah turn the map into
+
+863
+00:50:44,319 --> 00:50:50,960
+um yeah okay
+
+864
+00:50:47,839 --> 00:50:53,359
+this is not exactly i mean i mean i
+
+865
+00:50:50,960 --> 00:50:56,319
+wouldn't do that
+
+866
+00:50:53,359 --> 00:50:57,680
+oh yeah yeah this it works great great
+
+867
+00:50:56,319 --> 00:51:00,960
+suggestion
+
+868
+00:50:57,680 --> 00:51:06,079
+great suggestion now we
+
+869
+00:51:00,960 --> 00:51:06,079
+got the diagram computation
+
+870
+00:51:06,839 --> 00:51:12,559
+working
+
+871
+00:51:08,480 --> 00:51:15,839
+fantastic okay so we got the diagram
+
+872
+00:51:12,559 --> 00:51:17,839
+computation yeah so fantastic
+
+873
+00:51:15,839 --> 00:51:19,680
+now you can like like now we can like
+
+874
+00:51:17,839 --> 00:51:22,000
+copy the whole thing here
+
+875
+00:51:19,680 --> 00:51:24,720
+and just this you know let's have some
+
+876
+00:51:22,000 --> 00:51:29,440
+fun doing diagram computation oh
+
+877
+00:51:24,720 --> 00:51:33,839
+wait what copy it
+
+878
+00:51:29,440 --> 00:51:37,280
+uh paste what uh what's going on okay
+
+879
+00:51:33,839 --> 00:51:40,720
+copy it paste
+
+880
+00:51:37,280 --> 00:51:41,040
+oh yes okay the next thing we need to do
+
+881
+00:51:40,720 --> 00:51:45,040
+is
+
+882
+00:51:41,040 --> 00:51:47,040
+to sort the diagram obviously
+
+883
+00:51:45,040 --> 00:51:48,839
+yeah that's what we need to do before
+
+884
+00:51:47,040 --> 00:51:52,640
+before we started to do
+
+885
+00:51:48,839 --> 00:51:53,839
+um to do the svg because we need them
+
+886
+00:51:52,640 --> 00:51:57,200
+sorted
+
+887
+00:51:53,839 --> 00:51:59,920
+okay let's do that okay but
+
+888
+00:51:57,200 --> 00:52:00,640
+i need to figure out how this you know
+
+889
+00:51:59,920 --> 00:52:03,280
+how
+
+890
+00:52:00,640 --> 00:52:03,760
+i need to think about this a little bit
+
+891
+00:52:03,280 --> 00:52:07,119
+so
+
+892
+00:52:03,760 --> 00:52:10,720
+this spygram map
+
+893
+00:52:07,119 --> 00:52:14,000
+so this diagram map now is
+
+894
+00:52:10,720 --> 00:52:14,960
+convert the map you know maybe you don't
+
+895
+00:52:14,000 --> 00:52:19,040
+need
+
+896
+00:52:14,960 --> 00:52:21,520
+you don't need the outer bracket right
+
+897
+00:52:19,040 --> 00:52:21,520
+i think
+
+898
+00:52:22,400 --> 00:52:25,040
+let's try it
+
+899
+00:52:25,680 --> 00:52:35,040
+wait yeah yeah it should work
+
+900
+00:52:32,079 --> 00:52:35,040
+why okay
+
+901
+00:52:38,400 --> 00:52:44,480
+why is it not i don't understand
+
+902
+00:52:41,599 --> 00:52:46,880
+background map is a iterable it's a map
+
+903
+00:52:44,480 --> 00:52:49,200
+object iterable but
+
+904
+00:52:46,880 --> 00:52:49,200
+um
+
+905
+00:52:52,000 --> 00:53:00,000
+do we actually it's it's iterable right
+
+906
+00:52:56,000 --> 00:53:03,200
+and yeah i'm being stubborn
+
+907
+00:53:00,000 --> 00:53:05,920
+you know i wanted to start
+
+908
+00:53:03,200 --> 00:53:05,920
+entries
+
+909
+00:53:07,440 --> 00:53:15,280
+okay so so why is it
+
+910
+00:53:10,640 --> 00:53:18,319
+uh i mean i don't see why
+
+911
+00:53:15,280 --> 00:53:18,319
+why do you need
+
+912
+00:53:18,400 --> 00:53:22,960
+extra uh square bracket there
+
+913
+00:53:24,640 --> 00:53:29,119
+okay rocket it's just not gonna it's not
+
+914
+00:53:27,599 --> 00:53:31,920
+working okay let's ignore that
+
+915
+00:53:29,119 --> 00:53:31,920
+okay let's just
+
+916
+00:53:35,119 --> 00:53:40,240
+okay now we need to sort okay now let's
+
+917
+00:53:40,839 --> 00:53:43,839
+now
+
+918
+00:53:43,920 --> 00:53:50,720
+now let's write a function
+
+919
+00:53:46,960 --> 00:53:53,839
+to sort a map object okay
+
+920
+00:53:50,720 --> 00:53:57,839
+now do we have do i already have that
+
+921
+00:53:53,839 --> 00:53:57,839
+somewhere i might have
+
+922
+00:53:59,520 --> 00:54:06,800
+straight operate a spread operator
+
+923
+00:54:03,599 --> 00:54:06,800
+object reference
+
+924
+00:54:08,839 --> 00:54:14,640
+map get
+
+925
+00:54:11,359 --> 00:54:18,319
+set clear uh keys so
+
+926
+00:54:14,640 --> 00:54:21,440
+now god i don't have did i
+
+927
+00:54:18,319 --> 00:54:27,280
+e-trade over map convert to for
+
+928
+00:54:21,440 --> 00:54:30,160
+map reverse key value map constructor
+
+929
+00:54:27,280 --> 00:54:30,160
+map filter
+
+930
+00:54:30,400 --> 00:54:38,000
+convert to format object to map
+
+931
+00:54:34,480 --> 00:54:42,480
+map to object okay now we need to
+
+932
+00:54:38,000 --> 00:54:45,280
+sort map it's always more code
+
+933
+00:54:42,480 --> 00:54:45,280
+go only sit
+
+934
+00:54:45,760 --> 00:54:49,359
+okay how long have i been talking we
+
+935
+00:54:48,640 --> 00:54:54,079
+haven't
+
+936
+00:54:49,359 --> 00:54:54,079
+uh it's almost an hour but i need to
+
+937
+00:54:54,319 --> 00:54:59,920
+okay we need to we do need to write a
+
+938
+00:54:57,040 --> 00:55:02,960
+function to sort a map object
+
+939
+00:54:59,920 --> 00:55:06,079
+then then we need to
+
+940
+00:55:02,960 --> 00:55:08,319
+start to draw the svg
+
+941
+00:55:06,079 --> 00:55:09,599
+so i'm thinking let's just continue
+
+942
+00:55:08,319 --> 00:55:12,079
+whenever
+
+943
+00:55:09,599 --> 00:55:12,799
+you know i have some time let's finish
+
+944
+00:55:12,079 --> 00:55:20,720
+this
+
+945
+00:55:12,799 --> 00:55:25,280
+let me drink
+
+946
+00:55:20,720 --> 00:55:25,280
+there it is take a break
+
+947
+00:55:31,200 --> 00:55:35,839
+milk and coffee and honey
+
+948
+00:55:39,119 --> 00:55:43,920
+okay let let's push on let's get let's
+
+949
+00:55:41,920 --> 00:55:46,640
+get the um
+
+950
+00:55:43,920 --> 00:55:48,000
+yeah let's finish this so now we need to
+
+951
+00:55:46,640 --> 00:55:52,079
+write a function to
+
+952
+00:55:48,000 --> 00:55:52,079
+sort a map object how do you
+
+953
+00:55:52,640 --> 00:55:59,839
+how do you do that yeah okay
+
+954
+00:55:56,400 --> 00:56:01,920
+i need to then
+
+955
+00:55:59,839 --> 00:56:04,400
+you are looking at my keyboard now you
+
+956
+00:56:01,920 --> 00:56:04,400
+look at me
+
+957
+00:56:07,520 --> 00:56:16,000
+okay so now we need to um
+
+958
+00:56:11,680 --> 00:56:19,280
+sort a map object i mean let me think
+
+959
+00:56:16,000 --> 00:56:22,240
+map object so map is got key
+
+960
+00:56:19,280 --> 00:56:23,680
+key and value pairs you want to sort it
+
+961
+00:56:22,240 --> 00:56:27,359
+by the
+
+962
+00:56:23,680 --> 00:56:31,200
+by the value okay
+
+963
+00:56:27,359 --> 00:56:34,559
+so one of the easiest way
+
+964
+00:56:31,200 --> 00:56:35,200
+is to first of all turn the map into
+
+965
+00:56:34,559 --> 00:56:38,079
+array
+
+966
+00:56:35,200 --> 00:56:38,079
+using entries
+
+967
+00:56:38,559 --> 00:56:45,839
+using the entries function then you just
+
+968
+00:56:41,119 --> 00:56:45,839
+saw that okay let's just do it
+
+969
+00:56:48,240 --> 00:56:54,720
+yeah so now i want to know if the array
+
+970
+00:56:52,160 --> 00:56:54,720
+function
+
+971
+00:56:55,040 --> 00:56:59,839
+if the array
+
+972
+00:56:59,920 --> 00:57:12,400
+if the array uh sort method
+
+973
+00:57:03,200 --> 00:57:14,799
+does it take a iterable or not
+
+974
+00:57:12,400 --> 00:57:14,799
+sort
+
+975
+00:57:15,520 --> 00:57:20,079
+return a new array array so no it does
+
+976
+00:57:18,000 --> 00:57:22,559
+not take the iterable but i think it
+
+977
+00:57:20,079 --> 00:57:22,559
+will work
+
+978
+00:57:22,720 --> 00:57:29,359
+array like object yeah there's a crap
+
+979
+00:57:26,160 --> 00:57:33,280
+javascript array like object okay
+
+980
+00:57:29,359 --> 00:57:37,200
+so so let let's go to the
+
+981
+00:57:33,280 --> 00:57:41,839
+test script do we have the text
+
+982
+00:57:37,200 --> 00:57:41,839
+test script okay
+
+983
+00:57:42,640 --> 00:57:46,079
+run this so this thing returns a map
+
+984
+00:57:45,520 --> 00:57:49,280
+object
+
+985
+00:57:46,079 --> 00:57:54,720
+now we can sort it but before we do
+
+986
+00:57:49,280 --> 00:57:58,480
+let's change
+
+987
+00:57:54,720 --> 00:58:01,599
+some random input okay
+
+988
+00:57:58,480 --> 00:58:05,119
+run it yeah so now you got different
+
+989
+00:58:01,599 --> 00:58:08,240
+okay you need some
+
+990
+00:58:05,119 --> 00:58:12,280
+more text so that some bar
+
+991
+00:58:08,240 --> 00:58:14,960
+is more than others okay let's say
+
+992
+00:58:12,280 --> 00:58:18,319
+t-h-t-h-t-h run it
+
+993
+00:58:14,960 --> 00:58:18,319
+yeah okay so you can see
+
+994
+00:58:19,119 --> 00:58:25,520
+you know some of the yeah so we can now
+
+995
+00:58:22,319 --> 00:58:25,520
+sort it so let's see
+
+996
+00:58:28,720 --> 00:58:32,000
+my map okay
+
+997
+00:58:32,720 --> 00:58:40,160
+my map is that now
+
+998
+00:58:36,079 --> 00:58:43,200
+function sort map so so my map
+
+999
+00:58:40,160 --> 00:58:46,319
+dot entries
+
+1000
+00:58:43,200 --> 00:58:49,680
+then dot sort
+
+1001
+00:58:46,319 --> 00:58:50,799
+comparison function okay arrow function
+
+1002
+00:58:49,680 --> 00:58:54,079
+uh
+
+1003
+00:58:50,799 --> 00:58:57,680
+a and b let's say x and y okay
+
+1004
+00:58:54,079 --> 00:59:00,559
+x y it should return
+
+1005
+00:58:57,680 --> 00:59:00,559
+negative number
+
+1006
+00:59:01,040 --> 00:59:05,839
+uh just number comparison okay so
+
+1007
+00:59:06,359 --> 00:59:09,359
+entries
+
+1008
+00:59:11,200 --> 00:59:19,280
+so wait so how do you so entries
+
+1009
+00:59:14,640 --> 00:59:23,680
+which is entries which is an array
+
+1010
+00:59:19,280 --> 00:59:23,680
+where each element has the form
+
+1011
+00:59:23,839 --> 00:59:29,920
+key value okay that's an
+
+1012
+00:59:26,880 --> 00:59:30,839
+entry so we want to compare the v so
+
+1013
+00:59:29,920 --> 00:59:34,319
+what we do
+
+1014
+00:59:30,839 --> 00:59:37,359
+is we want
+
+1015
+00:59:34,319 --> 00:59:37,359
+we what we do is
+
+1016
+00:59:38,160 --> 00:59:40,480
+x
+
+1017
+00:59:41,680 --> 00:59:47,839
+the first one
+
+1018
+00:59:51,680 --> 00:59:57,200
+let's let's just do that okay i
+
+1019
+00:59:54,799 --> 00:59:57,200
+think
+
+1020
+00:59:58,079 --> 01:00:02,720
+wait yeah i think that
+
+1021
+01:00:03,839 --> 01:00:11,359
+yeah the so the one is the
+
+1022
+01:00:07,359 --> 01:00:11,839
+the value part okay so it just returned
+
+1023
+01:00:11,359 --> 01:00:15,839
+that
+
+1024
+01:00:11,839 --> 01:00:15,839
+okay so we don't need
+
+1025
+01:00:17,440 --> 01:00:28,000
+so that should be our sorting function
+
+1026
+01:00:21,599 --> 01:00:31,520
+let's try it
+
+1027
+01:00:28,000 --> 01:00:34,799
+console.log sorted
+
+1028
+01:00:31,520 --> 01:00:39,359
+run it arrow uncode type error
+
+1029
+01:00:34,799 --> 01:00:39,359
+map entries sort is not a function
+
+1030
+01:00:40,839 --> 01:00:46,160
+what
+
+1031
+01:00:43,359 --> 01:00:48,319
+it's not functional yeah because well i
+
+1032
+01:00:46,160 --> 01:00:49,040
+think that's because of the iterable
+
+1033
+01:00:48,319 --> 01:00:52,319
+thing again
+
+1034
+01:00:49,040 --> 01:00:52,319
+let's just try the
+
+1035
+01:00:53,520 --> 01:00:57,839
+yeah now wait did it sort
+
+1036
+01:01:01,280 --> 01:01:03,599
+what
+
+1037
+01:01:04,400 --> 01:01:11,839
+no it didn't sort what
+
+1038
+01:01:12,400 --> 01:01:19,440
+console.log that magnify
+
+1039
+01:01:16,960 --> 01:01:19,440
+run it
+
+1040
+01:01:22,400 --> 01:01:28,799
+so the biggest value should be e space
+
+1041
+01:01:25,599 --> 01:01:28,799
+that's seven okay
+
+1042
+01:01:30,319 --> 01:01:35,440
+okay let's let's uh let me reduce the
+
+1043
+01:01:36,839 --> 01:01:39,839
+input
+
+1044
+01:01:40,240 --> 01:01:43,440
+okay run it
+
+1045
+01:01:44,799 --> 01:01:54,400
+okay so th th let's do that run it
+
+1046
+01:01:50,799 --> 01:01:58,640
+so thth occurs three times okay
+
+1047
+01:01:54,400 --> 01:02:02,799
+ht occurs two times okay
+
+1048
+01:01:58,640 --> 01:02:02,799
+then we can actually reduce it more
+
+1049
+01:02:03,359 --> 01:02:09,920
+so for simplicity
+
+1050
+01:02:06,559 --> 01:02:13,280
+th occurs three times and the
+
+1051
+01:02:09,920 --> 01:02:21,839
+ht occurs two times okay
+
+1052
+01:02:13,280 --> 01:02:21,839
+now sorted
+
+1053
+01:02:25,039 --> 01:02:29,920
+okay our sort function is wrong f is a
+
+1054
+01:02:28,079 --> 01:02:31,280
+ordering function the function should
+
+1055
+01:02:29,920 --> 01:02:35,839
+takes two arguments
+
+1056
+01:02:31,280 --> 01:02:35,839
+x and y
+
+1057
+01:02:38,400 --> 01:02:52,319
+takes two arguments x and y and return
+
+1058
+01:02:49,039 --> 01:02:54,799
+oh okay so it it shouldn't return true
+
+1059
+01:02:52,319 --> 01:02:58,319
+or false it should return
+
+1060
+01:02:54,799 --> 01:03:03,839
+a stupid javascript you know
+
+1061
+01:02:58,319 --> 01:03:08,160
+uh should it should returns um
+
+1062
+01:03:03,839 --> 01:03:13,039
+it's it's just let's just say minus okay
+
+1063
+01:03:08,160 --> 01:03:13,039
+run our code run our code
+
+1064
+01:03:14,160 --> 01:03:17,680
+okay now we need to reverse order okay
+
+1065
+01:03:16,880 --> 01:03:21,680
+so
+
+1066
+01:03:17,680 --> 01:03:21,680
+reverse the x and y here
+
+1067
+01:03:24,640 --> 01:03:32,160
+run it what
+
+1068
+01:03:28,160 --> 01:03:32,160
+oh yeah correct you see
+
+1069
+01:03:32,640 --> 01:03:39,039
+th count three then
+
+1070
+01:03:35,680 --> 01:03:40,160
+ht2 so so that is our function basically
+
+1071
+01:03:39,039 --> 01:03:43,520
+that
+
+1072
+01:03:40,160 --> 01:03:48,079
+so we have our function
+
+1073
+01:03:43,520 --> 01:03:52,559
+uh let's see so so this is a function
+
+1074
+01:03:48,079 --> 01:03:56,839
+let's let's clear it uh constant
+
+1075
+01:03:52,559 --> 01:03:59,839
+constant arrow function sort map
+
+1076
+01:03:56,839 --> 01:03:59,839
+okay
+
+1077
+01:04:00,000 --> 01:04:03,520
+my map okay
+
+1078
+01:04:11,039 --> 01:04:17,920
+so they are a map object and returns
+
+1079
+01:04:14,640 --> 01:04:20,480
+a array of array
+
+1080
+01:04:17,920 --> 01:04:20,480
+sorted
+
+1081
+01:04:22,160 --> 01:04:29,359
+sorted by the vowel
+
+1082
+01:04:25,760 --> 01:04:31,680
+okay so this is the function and it
+
+1083
+01:04:29,359 --> 01:04:31,680
+can
+
+1084
+01:04:34,079 --> 01:04:41,839
+adjust this single line okay so
+
+1085
+01:04:42,960 --> 01:04:47,680
+yeah so now we can see
+
+1086
+01:04:48,799 --> 01:04:55,839
+okay i think i'm taking more time than
+
+1087
+01:04:51,200 --> 01:04:55,839
+necessary here
+
+1088
+01:05:12,400 --> 01:05:14,880
+run it
+
+1089
+01:05:16,400 --> 01:05:27,440
+no what's going on soda map
+
+1090
+01:05:23,200 --> 01:05:28,240
+so here is a function sorted equals to
+
+1091
+01:05:27,440 --> 01:05:31,680
+sort map
+
+1092
+01:05:28,240 --> 01:05:35,760
+my map run it
+
+1093
+01:05:31,680 --> 01:05:40,160
+oh yeah it works yeah so it works
+
+1094
+01:05:35,760 --> 01:05:46,400
+so now we grab this function copy it
+
+1095
+01:05:40,160 --> 01:05:46,400
+okay copy it go back to our code
+
+1096
+01:05:46,480 --> 01:05:56,000
+and here's our function
+
+1097
+01:05:51,440 --> 01:05:56,000
+okay now put this function on top
+
+1098
+01:05:57,599 --> 01:06:02,400
+put it here okay now we got a function
+
+1099
+01:06:01,200 --> 01:06:05,839
+to sort map
+
+1100
+01:06:02,400 --> 01:06:08,960
+now we can we can call it
+
+1101
+01:06:05,839 --> 01:06:13,280
+we can call it here so
+
+1102
+01:06:08,960 --> 01:06:13,280
+stream file sort map
+
+1103
+01:06:16,000 --> 01:06:22,799
+okay back to javascript back to browser
+
+1104
+01:06:20,079 --> 01:06:22,799
+refresh
+
+1105
+01:06:26,559 --> 01:06:34,319
+now we should see sorted
+
+1106
+01:06:30,799 --> 01:06:36,720
+but this something seems
+
+1107
+01:06:34,319 --> 01:06:36,720
+wrong
+
+1108
+01:06:38,559 --> 01:06:44,839
+okay i think this is getting this is
+
+1109
+01:06:40,799 --> 01:06:47,839
+dragging on i need to move on to the
+
+1110
+01:06:44,839 --> 01:06:47,839
+svg
+
+1111
+01:06:50,960 --> 01:06:54,559
+you should call this in fortran the
+
+1112
+01:06:52,960 --> 01:06:57,760
+language is hipster
+
+1113
+01:06:54,559 --> 01:07:01,839
+like right yeah
+
+1114
+01:06:57,760 --> 01:07:01,839
+um okay so
+
+1115
+01:07:03,680 --> 01:07:07,039
+so what is going on
+
+1116
+01:07:11,760 --> 01:07:15,760
+oh yeah so sort map sword map doesn't
+
+1117
+01:07:15,119 --> 01:07:18,799
+take that
+
+1118
+01:07:15,760 --> 01:07:18,799
+anymore that's right
+
+1119
+01:07:20,799 --> 01:07:29,839
+okay obviously i know what is going on
+
+1120
+01:07:36,160 --> 01:07:39,520
+yeah that's what we need
+
+1121
+01:07:40,839 --> 01:07:46,240
+refresh
+
+1122
+01:07:43,200 --> 01:07:49,359
+now it seems to be working
+
+1123
+01:07:46,240 --> 01:07:52,960
+and we going to add
+
+1124
+01:07:49,359 --> 01:07:56,000
+a lot t-h-t-h-t-h-t-h-t-h
+
+1125
+01:07:52,960 --> 01:07:58,880
+yeah the more th so th
+
+1126
+01:07:56,000 --> 01:07:58,880
+comes on top
+
+1127
+01:07:59,760 --> 01:08:06,880
+yeah so now we got the sorting function
+
+1128
+01:08:03,039 --> 01:08:09,920
+work okay now the sort function worked
+
+1129
+01:08:06,880 --> 01:08:13,440
+the next thing we need to do is
+
+1130
+01:08:09,920 --> 01:08:16,400
+plot the svg okay
+
+1131
+01:08:13,440 --> 01:08:16,400
+i feel like
+
+1132
+01:08:17,040 --> 01:08:25,839
+one hour and nine minutes i
+
+1133
+01:08:20,719 --> 01:08:25,839
+feel like i want to go
+
+1134
+01:08:26,480 --> 01:08:31,279
+okay now we need to do svg
+
+1135
+01:08:31,520 --> 01:08:39,520
+okay so so now we got um
+
+1136
+01:08:35,839 --> 01:08:44,640
+we got the sorted diagram
+
+1137
+01:08:39,520 --> 01:08:44,640
+we got the sorted diagram now we
+
+1138
+01:08:44,880 --> 01:08:51,600
+we want to plot something like that so
+
+1139
+01:08:48,080 --> 01:08:54,480
+now we have to think about svg
+
+1140
+01:08:51,600 --> 01:08:54,480
+so given
+
+1141
+01:08:54,719 --> 01:09:00,799
+basically given a map object
+
+1142
+01:08:58,239 --> 01:09:02,960
+where keys are the diagrams and values
+
+1143
+01:09:00,799 --> 01:09:06,799
+of the count
+
+1144
+01:09:02,960 --> 01:09:10,480
+you want to draw svg
+
+1145
+01:09:06,799 --> 01:09:13,839
+so that um
+
+1146
+01:09:10,480 --> 01:09:17,920
+you know so that the bar length
+
+1147
+01:09:13,839 --> 01:09:21,279
+represents the count the frequency of it
+
+1148
+01:09:17,920 --> 01:09:22,799
+so in order to do this first thing you
+
+1149
+01:09:21,279 --> 01:09:26,719
+need to do is
+
+1150
+01:09:22,799 --> 01:09:29,839
+instead of showing the count
+
+1151
+01:09:26,719 --> 01:09:32,080
+like we have here we need to show a
+
+1152
+01:09:29,839 --> 01:09:33,440
+we need to make them a percentage
+
+1153
+01:09:32,080 --> 01:09:39,120
+instead
+
+1154
+01:09:33,440 --> 01:09:42,080
+so what that means is that you have to
+
+1155
+01:09:39,120 --> 01:09:45,199
+you know you have to sum all the numbers
+
+1156
+01:09:42,080 --> 01:09:48,480
+then for each value divided by that sum
+
+1157
+01:09:45,199 --> 01:09:50,799
+so you get a percentage with re
+
+1158
+01:09:48,480 --> 01:09:51,679
+you know that's a percentage of this
+
+1159
+01:09:50,799 --> 01:09:55,040
+diagram
+
+1160
+01:09:51,679 --> 01:09:55,040
+with respect to
+
+1161
+01:10:00,080 --> 01:10:07,199
+with respect to all diagrams
+
+1162
+01:10:03,679 --> 01:10:08,719
+but that is not necessarily what you
+
+1163
+01:10:07,199 --> 01:10:12,640
+want
+
+1164
+01:10:08,719 --> 01:10:15,679
+because there potentially
+
+1165
+01:10:12,640 --> 01:10:19,199
+there i mean there are a lot of diagrams
+
+1166
+01:10:15,679 --> 01:10:20,159
+the number of diagrams in english
+
+1167
+01:10:19,199 --> 01:10:22,719
+language
+
+1168
+01:10:20,159 --> 01:10:23,840
+you know you have 26 characters you have
+
+1169
+01:10:22,719 --> 01:10:28,320
+26
+
+1170
+01:10:23,840 --> 01:10:30,800
+upper case then you have punctuations
+
+1171
+01:10:28,320 --> 01:10:33,280
+so you if you add them all together you
+
+1172
+01:10:30,800 --> 01:10:36,239
+might have 100 characters you know the
+
+1173
+01:10:33,280 --> 01:10:39,360
+like the characters on your keyboard so
+
+1174
+01:10:36,239 --> 01:10:42,480
+you have 100 characters
+
+1175
+01:10:39,360 --> 01:10:47,280
+and every pair of them forms
+
+1176
+01:10:42,480 --> 01:10:50,320
+a diagram and a different order
+
+1177
+01:10:47,280 --> 01:10:54,080
+creates two different diagrams so
+
+1178
+01:10:50,320 --> 01:10:54,080
+essentially you would have
+
+1179
+01:10:54,239 --> 01:10:58,080
+uh how so what's the total number
+
+1180
+01:10:57,520 --> 01:11:01,840
+background
+
+1181
+01:10:58,080 --> 01:11:05,520
+quite a lot so that's
+
+1182
+01:11:01,840 --> 01:11:05,520
+um how do you compute that
+
+1183
+01:11:08,800 --> 01:11:12,000
+so does anyone know comment it okay if
+
+1184
+01:11:11,360 --> 01:11:15,199
+you think you
+
+1185
+01:11:12,000 --> 01:11:19,520
+find you know so the question is
+
+1186
+01:11:15,199 --> 01:11:22,080
+assume you have 100 distinct characters
+
+1187
+01:11:19,520 --> 01:11:26,000
+the question is how many possible
+
+1188
+01:11:22,080 --> 01:11:31,040
+diagrams are there
+
+1189
+01:11:26,000 --> 01:11:31,040
+so 100 times 99
+
+1190
+01:11:31,199 --> 01:11:37,679
+100 100 times that would be 100 times 99
+
+1191
+01:11:38,840 --> 01:11:55,840
+times 99 i think okay
+
+1192
+01:11:42,320 --> 01:11:55,840
+i think
+
+1193
+01:11:57,280 --> 01:12:08,080
+so which is about wow big number
+
+1194
+01:12:02,239 --> 01:12:11,280
+nine hundred eighty thousand
+
+1195
+01:12:08,080 --> 01:12:11,280
+so they are positive
+
+1196
+01:12:12,400 --> 01:12:28,480
+wait not times 99 times 2 wait
+
+1197
+01:12:23,120 --> 01:12:28,480
+yeah so they are about 1900 big grams
+
+1198
+01:12:28,920 --> 01:12:33,600
+1900 big grams right
+
+1199
+01:12:34,840 --> 01:12:41,120
+so
+
+1200
+01:12:37,760 --> 01:12:41,120
+let me write it out okay
+
+1201
+01:12:42,640 --> 01:12:50,000
+assume you have 100
+
+1202
+01:12:45,679 --> 01:12:53,840
+this think charts
+
+1203
+01:12:50,000 --> 01:12:56,480
+how many possible diagrams
+
+1204
+01:12:53,840 --> 01:12:56,480
+are there
+
+1205
+01:12:59,040 --> 01:13:05,840
+probably this number
+
+1206
+01:13:02,320 --> 01:13:05,840
+yeah 100
+
+1207
+01:13:06,560 --> 01:13:16,159
+you have 100 possible first character
+
+1208
+01:13:11,280 --> 01:13:16,159
+then you have
+
+1209
+01:13:16,840 --> 01:13:20,800
+99
+
+1210
+01:13:18,080 --> 01:13:23,280
+oh you have actually 100 possible second
+
+1211
+01:13:20,800 --> 01:13:23,280
+character
+
+1212
+01:13:23,920 --> 01:13:28,880
+yeah that okay just 100 times 100 i
+
+1213
+01:13:30,840 --> 01:13:36,080
+think
+
+1214
+01:13:32,719 --> 01:13:39,760
+so the possible bi-grams is 10
+
+1215
+01:13:36,080 --> 01:13:39,760
+000 okay
+
+1216
+01:13:45,920 --> 01:13:53,679
+so so back to our problem
+
+1217
+01:13:49,679 --> 01:13:53,679
+that you know you don't want
+
+1218
+01:13:54,320 --> 01:13:57,760
+the percentage
+
+1219
+01:13:58,400 --> 01:14:01,920
+you know so what what does the
+
+1220
+01:13:59,679 --> 01:14:04,640
+percentage what do you want to measure
+
+1221
+01:14:01,920 --> 01:14:04,640
+against
+
+1222
+01:14:06,880 --> 01:14:12,239
+uh all possible biograms yeah i think
+
+1223
+01:14:09,840 --> 01:14:15,280
+maybe that's
+
+1224
+01:14:12,239 --> 01:14:18,800
+yeah and also the issue gets complex
+
+1225
+01:14:15,280 --> 01:14:21,040
+because typically when you measure when
+
+1226
+01:14:18,800 --> 01:14:21,600
+you count diagrams you only want to
+
+1227
+01:14:21,040 --> 01:14:25,199
+count
+
+1228
+01:14:21,600 --> 01:14:27,440
+letters you want to ignore
+
+1229
+01:14:25,199 --> 01:14:30,480
+you know diagrams that contains a space
+
+1230
+01:14:27,440 --> 01:14:30,480
+or punctuation
+
+1231
+01:14:30,960 --> 01:14:36,400
+so that means our diagram we need to
+
+1232
+01:14:33,679 --> 01:14:39,679
+filter out
+
+1233
+01:14:36,400 --> 01:14:43,120
+you know results such as this space
+
+1234
+01:14:39,679 --> 01:14:46,239
+t and any other things
+
+1235
+01:14:43,120 --> 01:14:46,800
+involving comma so comma comma for
+
+1236
+01:14:46,239 --> 01:14:49,199
+example
+
+1237
+01:14:46,800 --> 01:14:49,199
+comma
+
+1238
+01:14:50,159 --> 01:14:55,040
+you know comma comma or comma space
+
+1239
+01:14:55,600 --> 01:15:00,159
+you know comma space or period space
+
+1240
+01:14:58,000 --> 01:15:00,960
+that's probably going to be very
+
+1241
+01:15:00,159 --> 01:15:06,239
+frequent
+
+1242
+01:15:00,960 --> 01:15:08,560
+diagram so but traditionally you want to
+
+1243
+01:15:06,239 --> 01:15:10,880
+uh you don't want to include that so you
+
+1244
+01:15:08,560 --> 01:15:14,400
+need to write a
+
+1245
+01:15:10,880 --> 01:15:15,679
+filter function first so you want to
+
+1246
+01:15:14,400 --> 01:15:18,719
+write a field
+
+1247
+01:15:15,679 --> 01:15:22,080
+filter function for your map okay let's
+
+1248
+01:15:18,719 --> 01:15:25,199
+maybe we can do that
+
+1249
+01:15:22,080 --> 01:15:26,560
+then after that after that then you need
+
+1250
+01:15:25,199 --> 01:15:39,840
+to compute
+
+1251
+01:15:26,560 --> 01:15:39,840
+the percentage okay let's write it
+
+1252
+01:15:42,480 --> 01:15:50,080
+so that write a field function of a
+
+1253
+01:15:45,760 --> 01:15:54,480
+given map so that backgrounds containing
+
+1254
+01:15:50,080 --> 01:15:54,480
+diagrams contains um
+
+1255
+01:15:55,199 --> 01:16:02,880
+contains space or punctuation
+
+1256
+01:15:59,520 --> 01:16:04,000
+should be removed okay that's the first
+
+1257
+01:16:02,880 --> 01:16:07,520
+thing
+
+1258
+01:16:04,000 --> 01:16:13,040
+then then we need to write
+
+1259
+01:16:07,520 --> 01:16:13,040
+a then we need to write a function
+
+1260
+01:16:15,360 --> 01:16:21,840
+given a diagram map object
+
+1261
+01:16:22,480 --> 01:16:30,719
+return a map object
+
+1262
+01:16:26,640 --> 01:16:34,080
+where the value is percentage
+
+1263
+01:16:30,719 --> 01:16:34,880
+instead of count okay okay let's work on
+
+1264
+01:16:34,080 --> 01:16:37,679
+that
+
+1265
+01:16:34,880 --> 01:16:38,159
+write a filter function of a given map
+
+1266
+01:16:37,679 --> 01:16:41,360
+um
+
+1267
+01:16:38,159 --> 01:16:44,560
+okay you know if we cannot finish
+
+1268
+01:16:41,360 --> 01:16:48,560
+wherever we are let's let that be
+
+1269
+01:16:44,560 --> 01:16:52,320
+you know just so be it so
+
+1270
+01:16:48,560 --> 01:16:56,159
+now we have so what is this now now this
+
+1271
+01:16:52,320 --> 01:17:02,480
+sorts the function i mean this sorts
+
+1272
+01:16:56,159 --> 01:17:04,719
+um i mean this is a test script uh
+
+1273
+01:17:02,480 --> 01:17:06,800
+that now we have the sort function now
+
+1274
+01:17:04,719 --> 01:17:10,000
+we want to write the filter function
+
+1275
+01:17:06,800 --> 01:17:13,840
+so how do i do how do we do
+
+1276
+01:17:10,000 --> 01:17:17,120
+uh for example this one
+
+1277
+01:17:13,840 --> 01:17:20,239
+you see this contains this
+
+1278
+01:17:17,120 --> 01:17:22,800
+contains c space right so we want to
+
+1279
+01:17:20,239 --> 01:17:25,120
+filter that out
+
+1280
+01:17:22,800 --> 01:17:26,159
+so we're gonna write a function we can
+
+1281
+01:17:25,120 --> 01:17:30,320
+can we write this
+
+1282
+01:17:26,159 --> 01:17:33,360
+this in one shot yes i think so
+
+1283
+01:17:30,320 --> 01:17:36,960
+it's constant arrow function
+
+1284
+01:17:33,360 --> 01:17:36,960
+filter map okay
+
+1285
+01:17:38,880 --> 01:17:45,920
+takes a map object
+
+1286
+01:17:42,840 --> 01:17:49,920
+filter remove
+
+1287
+01:17:45,920 --> 01:17:58,159
+return a map object
+
+1288
+01:17:49,920 --> 01:18:01,679
+with key keys where
+
+1289
+01:17:58,159 --> 01:18:06,480
+that keys that contains a
+
+1290
+01:18:01,679 --> 01:18:10,880
+space or contains a char
+
+1291
+01:18:06,480 --> 01:18:10,880
+that's not english letter okay
+
+1292
+01:18:11,280 --> 01:18:18,400
+so xmap
+
+1293
+01:18:14,960 --> 01:18:21,360
+so input is a map object output is
+
+1294
+01:18:18,400 --> 01:18:24,480
+okay now we need to work on map objects
+
+1295
+01:18:21,360 --> 01:18:27,679
+so back to javascript
+
+1296
+01:18:24,480 --> 01:18:30,400
+uh convert object so let's go back to
+
+1297
+01:18:27,679 --> 01:18:30,400
+the map
+
+1298
+01:18:30,719 --> 01:18:41,840
+map filter i have written this before
+
+1299
+01:18:34,719 --> 01:18:41,840
+copy it
+
+1300
+01:18:43,280 --> 01:18:49,760
+yeah so you just give a function okay so
+
+1301
+01:18:46,640 --> 01:18:51,120
+so i'm not going to go over this all i
+
+1302
+01:18:49,760 --> 01:18:55,600
+have to do is to
+
+1303
+01:18:51,120 --> 01:18:59,040
+uh give a error function
+
+1304
+01:18:55,600 --> 01:19:02,480
+wait so you
+
+1305
+01:18:59,040 --> 01:19:02,480
+call the map filter
+
+1306
+01:19:04,640 --> 01:19:14,560
+call the map filter
+
+1307
+01:19:09,600 --> 01:19:17,679
+and here is arrow function
+
+1308
+01:19:14,560 --> 01:19:17,679
+the arrow function
+
+1309
+01:19:19,120 --> 01:19:23,120
+return a new map where that returns true
+
+1310
+01:19:21,600 --> 01:19:37,840
+okay so
+
+1311
+01:19:23,120 --> 01:19:37,840
+the arrow function will say
+
+1312
+01:19:37,920 --> 01:19:43,679
+f so
+
+1313
+01:19:41,280 --> 01:19:44,400
+key value the arrow function takes two
+
+1314
+01:19:43,679 --> 01:19:51,840
+values
+
+1315
+01:19:44,400 --> 01:19:51,840
+key and value okay
+
+1316
+01:19:55,679 --> 01:19:59,440
+uh we want to know if the key contains a
+
+1317
+01:19:58,560 --> 01:20:02,560
+punctuation
+
+1318
+01:19:59,440 --> 01:20:07,040
+okay so we want some kind of mat
+
+1319
+01:20:02,560 --> 01:20:07,040
+match string so let's search for
+
+1320
+01:20:08,000 --> 01:20:14,960
+string functions string
+
+1321
+01:20:12,400 --> 01:20:19,840
+string object let's go to let's just
+
+1322
+01:20:14,960 --> 01:20:19,840
+open a new one
+
+1323
+01:20:26,800 --> 01:20:29,679
+so far so good
+
+1324
+01:20:31,600 --> 01:20:34,960
+so far so good so stream function we
+
+1325
+01:20:33,920 --> 01:20:40,480
+want to map
+
+1326
+01:20:34,960 --> 01:20:47,840
+string start with end with
+
+1327
+01:20:40,480 --> 01:20:47,840
+match okay
+
+1328
+01:20:50,800 --> 01:21:03,520
+ah this gets complex
+
+1329
+01:21:00,159 --> 01:21:05,600
+start with search string return true if
+
+1330
+01:21:03,520 --> 01:21:07,360
+string start with search string else
+
+1331
+01:21:05,600 --> 01:21:12,080
+force
+
+1332
+01:21:07,360 --> 01:21:14,400
+so the start string does not
+
+1333
+01:21:12,080 --> 01:21:15,840
+does not take a regular expression we
+
+1334
+01:21:14,400 --> 01:21:19,040
+need one that takes
+
+1335
+01:21:15,840 --> 01:21:23,199
+regular expression uh
+
+1336
+01:21:19,040 --> 01:21:23,920
+let's see includes return true if string
+
+1337
+01:21:23,199 --> 01:21:26,080
+contains
+
+1338
+01:21:23,920 --> 01:21:27,600
+such string else return force okay
+
+1339
+01:21:26,080 --> 01:21:31,600
+that's not what we want
+
+1340
+01:21:27,600 --> 01:21:34,000
+okay we apparently
+
+1341
+01:21:31,600 --> 01:21:36,480
+we need some sort of regular expression
+
+1342
+01:21:34,000 --> 01:21:36,480
+function
+
+1343
+01:21:40,000 --> 01:21:46,800
+okay match or is not what we want match
+
+1344
+01:21:42,960 --> 01:21:46,800
+basically matches what we want
+
+1345
+01:21:51,760 --> 01:21:56,960
+oh god no actually that's not what we
+
+1346
+01:21:54,800 --> 01:22:00,159
+want let's
+
+1347
+01:21:56,960 --> 01:22:00,639
+so let's go to the regular expression
+
+1348
+01:22:00,159 --> 01:22:05,199
+okay
+
+1349
+01:22:00,639 --> 01:22:07,360
+so let's go to regular expression object
+
+1350
+01:22:05,199 --> 01:22:08,560
+yeah we want something that returns true
+
+1351
+01:22:07,360 --> 01:22:12,320
+and false
+
+1352
+01:22:08,560 --> 01:22:15,280
+so start test then given a string
+
+1353
+01:22:12,320 --> 01:22:16,400
+returns true if rejects matched part of
+
+1354
+01:22:15,280 --> 01:22:20,880
+whole of string
+
+1355
+01:22:16,400 --> 01:22:25,040
+yeah yep that's what we want so
+
+1356
+01:22:20,880 --> 01:22:31,120
+copy that
+
+1357
+01:22:25,040 --> 01:22:35,840
+so regular expression is going to be
+
+1358
+01:22:31,120 --> 01:22:35,840
+a to b a to z
+
+1359
+01:22:36,840 --> 01:22:42,960
+and a to z
+
+1360
+01:22:39,199 --> 01:22:52,800
+now there's a shortcut for that syntax
+
+1361
+01:22:42,960 --> 01:22:56,960
+and see
+
+1362
+01:22:52,800 --> 01:22:56,960
+no there is no shortcut for that
+
+1363
+01:23:00,719 --> 01:23:07,520
+okay so here's what we need to do
+
+1364
+01:23:03,760 --> 01:23:10,639
+so the regular expression will be that
+
+1365
+01:23:07,520 --> 01:23:12,560
+and dollar sign so correct in the
+
+1366
+01:23:10,639 --> 01:23:13,679
+beginning means the beginning of regular
+
+1367
+01:23:12,560 --> 01:23:16,719
+expression actually
+
+1368
+01:23:13,679 --> 01:23:16,719
+needs to be here
+
+1369
+01:23:16,880 --> 01:23:20,159
+okay and dollar sign needs to be here
+
+1370
+01:23:19,679 --> 01:23:24,639
+and
+
+1371
+01:23:20,159 --> 01:23:28,000
+the whole thing needs to be like that
+
+1372
+01:23:24,639 --> 01:23:31,520
+so that's a regular expression
+
+1373
+01:23:28,000 --> 01:23:34,880
+that means okay
+
+1374
+01:23:31,520 --> 01:23:38,480
+this needs to repeat
+
+1375
+01:23:34,880 --> 01:23:40,480
+so the first letter is a afternoon
+
+1376
+01:23:38,480 --> 01:23:41,920
+alphabet you know english letter the
+
+1377
+01:23:40,480 --> 01:23:48,719
+second character is also
+
+1378
+01:23:41,920 --> 01:23:51,920
+english letter then we test
+
+1379
+01:23:48,719 --> 01:23:55,280
+key so see if that returns true or false
+
+1380
+01:23:51,920 --> 01:23:56,000
+if it returns true then the element
+
+1381
+01:23:55,280 --> 01:23:58,800
+should stay
+
+1382
+01:23:56,000 --> 01:23:58,800
+so yeah
+
+1383
+01:23:59,520 --> 01:24:08,239
+okay predefine the code yeah so that
+
+1384
+01:24:04,320 --> 01:24:08,239
+should work okay let's let's try
+
+1385
+01:24:08,639 --> 01:24:17,840
+now console.log filter map
+
+1386
+01:24:13,920 --> 01:24:17,840
+filter map sorted okay
+
+1387
+01:24:19,520 --> 01:24:24,239
+run it undefined
+
+1388
+01:24:26,719 --> 01:24:35,840
+oh yeah because wait yeah
+
+1389
+01:24:30,080 --> 01:24:35,840
+because when you use a braces here you
+
+1390
+01:24:37,280 --> 01:24:41,199
+you need a return statement we don't
+
+1391
+01:24:39,520 --> 01:24:44,480
+need we need a
+
+1392
+01:24:41,199 --> 01:24:49,120
+return statement but we
+
+1393
+01:24:44,480 --> 01:24:49,120
+there there it is let's try again run it
+
+1394
+01:24:49,440 --> 01:24:55,920
+yeah it worked one
+
+1395
+01:24:52,480 --> 01:24:59,199
+shot coding success
+
+1396
+01:24:55,920 --> 01:25:04,239
+so you see the space c the c space
+
+1397
+01:24:59,199 --> 01:25:04,239
+and space t are removed fantastic
+
+1398
+01:25:04,880 --> 01:25:09,040
+okay so copy these two code
+
+1399
+01:25:09,360 --> 01:25:14,560
+copy these two code okay hold on a
+
+1400
+01:25:11,840 --> 01:25:14,560
+second what
+
+1401
+01:25:18,159 --> 01:25:24,320
+uh copy those two code and back to our
+
+1402
+01:25:22,639 --> 01:25:27,840
+function here
+
+1403
+01:25:24,320 --> 01:25:27,840
+and paste the function here
+
+1404
+01:25:27,920 --> 01:25:35,199
+okay so we got filter map function
+
+1405
+01:25:32,000 --> 01:25:41,440
+then we also got i mean we got our
+
+1406
+01:25:35,199 --> 01:25:44,719
+filter map function here
+
+1407
+01:25:41,440 --> 01:25:48,239
+okay then we can call off
+
+1408
+01:25:44,719 --> 01:25:52,840
+a filter map here so
+
+1409
+01:25:48,239 --> 01:25:55,840
+copy string file sort map and filter map
+
+1410
+01:25:52,840 --> 01:25:55,840
+okay
+
+1411
+01:26:00,480 --> 01:26:08,000
+okay prettify the code
+
+1412
+01:26:03,920 --> 01:26:10,639
+go to the browser magnify
+
+1413
+01:26:08,000 --> 01:26:10,639
+refresh
+
+1414
+01:26:11,040 --> 01:26:15,679
+something is wrong okay something went
+
+1415
+01:26:13,440 --> 01:26:15,679
+wrong
+
+1416
+01:26:21,679 --> 01:26:26,989
+oh now you need to again
+
+1417
+01:26:23,910 --> 01:26:26,989
+[Music]
+
+1418
+01:26:31,679 --> 01:26:39,679
+filter map now
+
+1419
+01:26:34,800 --> 01:26:39,679
+again you need to make it into a
+
+1420
+01:26:42,480 --> 01:26:48,840
+you know i really hate the iterable crap
+
+1421
+01:26:46,639 --> 01:26:50,000
+you know they created iterable things
+
+1422
+01:26:48,840 --> 01:26:54,080
+for
+
+1423
+01:26:50,000 --> 01:26:56,639
+iterable is a let me say this again
+
+1424
+01:26:54,080 --> 01:26:58,080
+iterable the concept of iterables in
+
+1425
+01:26:56,639 --> 01:27:01,679
+programming languages
+
+1426
+01:26:58,080 --> 01:27:05,360
+which exists in javascript in python
+
+1427
+01:27:01,679 --> 01:27:08,639
+okay i'm claiming this is my
+
+1428
+01:27:05,360 --> 01:27:12,560
+my opinion okay itrobo is a
+
+1429
+01:27:08,639 --> 01:27:15,679
+computer engineering byproduct just like
+
+1430
+01:27:12,560 --> 01:27:18,239
+int float long double
+
+1431
+01:27:15,679 --> 01:27:19,280
+uh code stack you know those kind of
+
+1432
+01:27:18,239 --> 01:27:22,480
+thing
+
+1433
+01:27:19,280 --> 01:27:26,239
+you know the the concept arrived
+
+1434
+01:27:22,480 --> 01:27:29,600
+right arose because you kind of need it
+
+1435
+01:27:26,239 --> 01:27:29,600
+in order to implement
+
+1436
+01:27:30,000 --> 01:27:36,800
+them or for efficiency reasons
+
+1437
+01:27:33,280 --> 01:27:39,679
+but however it's not truly a
+
+1438
+01:27:36,800 --> 01:27:40,560
+programming concept or algorithm so in
+
+1439
+01:27:39,679 --> 01:27:42,800
+other words
+
+1440
+01:27:40,560 --> 01:27:44,239
+for a programmer you don't really want
+
+1441
+01:27:42,800 --> 01:27:46,800
+you know you don't
+
+1442
+01:27:44,239 --> 01:27:47,840
+really need the concept concept of
+
+1443
+01:27:46,800 --> 01:27:50,239
+iterable
+
+1444
+01:27:47,840 --> 01:27:51,760
+you know what so what is the iterable it
+
+1445
+01:27:50,239 --> 01:27:54,080
+basically is just a list
+
+1446
+01:27:51,760 --> 01:27:54,800
+or vector okay it's just so that a
+
+1447
+01:27:54,080 --> 01:27:56,719
+iterable
+
+1448
+01:27:54,800 --> 01:27:58,320
+just doesn't compute the whole thing you
+
+1449
+01:27:56,719 --> 01:27:59,679
+just you know you can
+
+1450
+01:27:58,320 --> 01:28:01,360
+you don't have to compute the whole
+
+1451
+01:27:59,679 --> 01:28:03,280
+thing so that it consumes a lot of
+
+1452
+01:28:01,360 --> 01:28:05,199
+memory
+
+1453
+01:28:03,280 --> 01:28:07,040
+but to a programmer that's that's your
+
+1454
+01:28:05,199 --> 01:28:08,639
+problem that's your compiler writer's
+
+1455
+01:28:07,040 --> 01:28:11,280
+problem that's not my problem
+
+1456
+01:28:08,639 --> 01:28:13,120
+you know you figure you figure it out
+
+1457
+01:28:11,280 --> 01:28:14,960
+whether i'm going to use the old values
+
+1458
+01:28:13,120 --> 01:28:17,040
+or not you know
+
+1459
+01:28:14,960 --> 01:28:18,800
+but you know but it's a difficult
+
+1460
+01:28:17,040 --> 01:28:21,920
+problem in com
+
+1461
+01:28:18,800 --> 01:28:24,239
+compilation optimization right so these
+
+1462
+01:28:21,920 --> 01:28:26,320
+compilers or these programming language
+
+1463
+01:28:24,239 --> 01:28:29,760
+designers they just throw it up
+
+1464
+01:28:26,320 --> 01:28:31,840
+to the programming language so
+
+1465
+01:28:29,760 --> 01:28:33,040
+the problem you know they avoid the
+
+1466
+01:28:31,840 --> 01:28:36,560
+problem be
+
+1467
+01:28:33,040 --> 01:28:38,400
+by by throwing this
+
+1468
+01:28:36,560 --> 01:28:39,600
+optimization problem into the
+
+1469
+01:28:38,400 --> 01:28:41,760
+programming language
+
+1470
+01:28:39,600 --> 01:28:43,679
+so now the programmer has to worry about
+
+1471
+01:28:41,760 --> 01:28:46,159
+it like when i use a
+
+1472
+01:28:43,679 --> 01:28:46,800
+you know list or array i have to think
+
+1473
+01:28:46,159 --> 01:28:49,199
+about oh
+
+1474
+01:28:46,800 --> 01:28:49,920
+whether i should want to where am i
+
+1475
+01:28:49,199 --> 01:28:53,440
+going to
+
+1476
+01:28:49,920 --> 01:28:55,760
+be needing to add elements to it
+
+1477
+01:28:53,440 --> 01:28:56,719
+if not oh i need to use array because
+
+1478
+01:28:55,760 --> 01:28:59,199
+it's sufficient
+
+1479
+01:28:56,719 --> 01:29:01,840
+am i going to have lots of element oh if
+
+1480
+01:28:59,199 --> 01:29:04,960
+so oh and then i need to use declare
+
+1481
+01:29:01,840 --> 01:29:08,239
+it verbal you know this kind of crap
+
+1482
+01:29:04,960 --> 01:29:10,239
+computer engineering side effect
+
+1483
+01:29:08,239 --> 01:29:11,520
+and i'm dealing you know the the the
+
+1484
+01:29:10,239 --> 01:29:15,520
+reason i spent
+
+1485
+01:29:11,520 --> 01:29:18,239
+time you see today is a is a concrete
+
+1486
+01:29:15,520 --> 01:29:20,800
+example it's wasting programmers time
+
+1487
+01:29:18,239 --> 01:29:22,400
+uh you know and especially javascript
+
+1488
+01:29:20,800 --> 01:29:26,320
+you have the you know spread
+
+1489
+01:29:22,400 --> 01:29:27,520
+operators and crap so anyway so let's
+
+1490
+01:29:26,320 --> 01:29:31,920
+try this again
+
+1491
+01:29:27,520 --> 01:29:31,920
+let's go to the browser refresh
+
+1492
+01:29:32,239 --> 01:29:36,159
+see if this works and it's not working
+
+1493
+01:29:35,679 --> 01:29:39,199
+yeah
+
+1494
+01:29:36,159 --> 01:29:41,600
+and i'm getting i wanna i wanna go take
+
+1495
+01:29:39,199 --> 01:29:41,600
+a break
+
+1496
+01:29:42,960 --> 01:29:49,520
+alpha beta says why don't you use
+
+1497
+01:29:46,520 --> 01:29:53,840
+next.js what the crap
+
+1498
+01:29:49,520 --> 01:29:53,840
+what what is next.js
+
+1499
+01:29:55,360 --> 01:29:59,600
+okay so um what are we doing now so
+
+1500
+01:29:58,000 --> 01:30:02,000
+should we
+
+1501
+01:29:59,600 --> 01:30:02,800
+oh yeah fig yeah of course i need i
+
+1502
+01:30:02,000 --> 01:30:06,320
+forgot the
+
+1503
+01:30:02,800 --> 01:30:09,920
+dot dot refresh
+
+1504
+01:30:06,320 --> 01:30:13,520
+there it is okay
+
+1505
+01:30:09,920 --> 01:30:17,120
+now finally it works t h t h
+
+1506
+01:30:13,520 --> 01:30:20,400
+t h t h t edge it works
+
+1507
+01:30:17,120 --> 01:30:21,520
+and now we have sorted them and also we
+
+1508
+01:30:20,400 --> 01:30:24,560
+have filtered
+
+1509
+01:30:21,520 --> 01:30:27,600
+out anything that's that's not just
+
+1510
+01:30:24,560 --> 01:30:32,159
+uh letters we filtered
+
+1511
+01:30:27,600 --> 01:30:32,159
+out uh punctuations that's great
+
+1512
+01:30:32,239 --> 01:30:39,520
+so we this you know take
+
+1513
+01:30:35,760 --> 01:30:44,320
+so now we can actually start to
+
+1514
+01:30:39,520 --> 01:30:44,320
+to draw the svg i i think i take um
+
+1515
+01:30:44,880 --> 01:30:53,120
+i'm thinking uh maybe starting to
+
+1516
+01:30:49,199 --> 01:30:53,120
+let's do it next time because
+
+1517
+01:30:55,120 --> 01:30:59,280
+yeah i you know i should create my own
+
+1518
+01:30:57,520 --> 01:31:00,560
+programming language because i've been
+
+1519
+01:30:59,280 --> 01:31:03,199
+bitching about them
+
+1520
+01:31:00,560 --> 01:31:06,239
+for 20 years where is your own
+
+1521
+01:31:03,199 --> 01:31:09,280
+programming language i haven't done so
+
+1522
+01:31:06,239 --> 01:31:10,560
+and right now you know i i studied
+
+1523
+01:31:09,280 --> 01:31:13,679
+compilers for
+
+1524
+01:31:10,560 --> 01:31:15,440
+for a while three years ago three or
+
+1525
+01:31:13,679 --> 01:31:18,239
+four
+
+1526
+01:31:15,440 --> 01:31:19,760
+i really i need to finish that then i
+
+1527
+01:31:18,239 --> 01:31:22,960
+can actually create a
+
+1528
+01:31:19,760 --> 01:31:26,239
+my own language you know it's not
+
+1529
+01:31:22,960 --> 01:31:30,320
+you know it's not that easy uh and i
+
+1530
+01:31:26,239 --> 01:31:32,480
+have lots of other things to do you know
+
+1531
+01:31:30,320 --> 01:31:33,199
+so it you know it's really it's not that
+
+1532
+01:31:32,480 --> 01:31:35,600
+difficult
+
+1533
+01:31:33,199 --> 01:31:38,080
+to create your own language like you
+
+1534
+01:31:35,600 --> 01:31:41,280
+know you learn for example most college
+
+1535
+01:31:38,080 --> 01:31:42,800
+students in in uh majoring in computer
+
+1536
+01:31:41,280 --> 01:31:44,719
+science
+
+1537
+01:31:42,800 --> 01:31:46,880
+if you are a good student when you
+
+1538
+01:31:44,719 --> 01:31:49,520
+graduate you probably have
+
+1539
+01:31:46,880 --> 01:31:50,639
+studied compilers and you know and you
+
+1540
+01:31:49,520 --> 01:31:53,679
+might actually have
+
+1541
+01:31:50,639 --> 01:31:54,159
+already written your small language so
+
+1542
+01:31:53,679 --> 01:31:58,320
+it's not
+
+1543
+01:31:54,159 --> 01:32:00,320
+too difficult but however to create one
+
+1544
+01:31:58,320 --> 01:32:01,520
+that becomes very practical and
+
+1545
+01:32:00,320 --> 01:32:05,920
+efficient
+
+1546
+01:32:01,520 --> 01:32:09,040
+that quickly becomes immensely difficult
+
+1547
+01:32:05,920 --> 01:32:12,239
+uh besides that if you want to
+
+1548
+01:32:09,040 --> 01:32:14,880
+um you know if
+
+1549
+01:32:12,239 --> 01:32:17,040
+i mean even if you create a very elegant
+
+1550
+01:32:14,880 --> 01:32:19,440
+and efficient programming language
+
+1551
+01:32:17,040 --> 01:32:20,800
+super efficient practical can be used by
+
+1552
+01:32:19,440 --> 01:32:24,000
+google for example
+
+1553
+01:32:20,800 --> 01:32:24,639
+even suppose you created that that is
+
+1554
+01:32:24,000 --> 01:32:27,199
+not
+
+1555
+01:32:24,639 --> 01:32:27,920
+easy but even suppose you did such as
+
+1556
+01:32:27,199 --> 01:32:30,480
+julia
+
+1557
+01:32:27,920 --> 01:32:32,239
+you know we already have examples julia
+
+1558
+01:32:30,480 --> 01:32:34,880
+the programming language
+
+1559
+01:32:32,239 --> 01:32:36,080
+so even you are a genius you created
+
+1560
+01:32:34,880 --> 01:32:38,560
+such a great
+
+1561
+01:32:36,080 --> 01:32:39,120
+programming language nobody is going to
+
+1562
+01:32:38,560 --> 01:32:41,440
+use it
+
+1563
+01:32:39,120 --> 01:32:43,040
+you run into a problem of how do you get
+
+1564
+01:32:41,440 --> 01:32:45,280
+people to use it nobody
+
+1565
+01:32:43,040 --> 01:32:47,440
+you know so right now we have you know
+
+1566
+01:32:45,280 --> 01:32:48,000
+julia and lots of other languages they
+
+1567
+01:32:47,440 --> 01:32:52,840
+are just
+
+1568
+01:32:48,000 --> 01:32:54,800
+hanging there uh not much used
+
+1569
+01:32:52,840 --> 01:32:56,719
+so
+
+1570
+01:32:54,800 --> 01:32:57,920
+so actually you know creating a
+
+1571
+01:32:56,719 --> 01:33:02,639
+programming language
+
+1572
+01:32:57,920 --> 01:33:05,600
+is actually not a practical
+
+1573
+01:33:02,639 --> 01:33:06,159
+thing to do you know and nobody will pay
+
+1574
+01:33:05,600 --> 01:33:07,840
+you
+
+1575
+01:33:06,159 --> 01:33:09,520
+you know you know you're gonna waste
+
+1576
+01:33:07,840 --> 01:33:12,639
+your time basically it's like
+
+1577
+01:33:09,520 --> 01:33:14,159
+painting or philosophy you know yeah
+
+1578
+01:33:12,639 --> 01:33:17,040
+it's fun to do but
+
+1579
+01:33:14,159 --> 01:33:19,280
+you don't get paid for that that's the
+
+1580
+01:33:17,040 --> 01:33:19,280
+thing
+
+1581
+01:33:20,159 --> 01:33:23,600
+uh starting on this screen in real life
+
+1582
+01:33:21,760 --> 01:33:24,000
+you converted with requirement to create
+
+1583
+01:33:23,600 --> 01:33:26,400
+a
+
+1584
+01:33:24,000 --> 01:33:27,679
+well yeah yeah of course in real life
+
+1585
+01:33:26,400 --> 01:33:30,560
+you
+
+1586
+01:33:27,679 --> 01:33:31,760
+are confronted with the requirement to
+
+1587
+01:33:30,560 --> 01:33:34,400
+create a new language
+
+1588
+01:33:31,760 --> 01:33:36,560
+no that almost never happens what you
+
+1589
+01:33:34,400 --> 01:33:40,560
+are talking about is a small
+
+1590
+01:33:36,560 --> 01:33:43,120
+uh uh what they called you know uh
+
+1591
+01:33:40,560 --> 01:33:44,320
+you know small language like a few lines
+
+1592
+01:33:43,120 --> 01:33:48,080
+you know
+
+1593
+01:33:44,320 --> 01:33:49,120
+what they call um application specific
+
+1594
+01:33:48,080 --> 01:33:52,159
+language
+
+1595
+01:33:49,120 --> 01:33:55,199
+a s
+
+1596
+01:33:52,159 --> 01:33:56,960
+l uh or no
+
+1597
+01:33:55,199 --> 01:33:58,400
+there's a there's a word you know it's
+
+1598
+01:33:56,960 --> 01:34:01,600
+like a niche
+
+1599
+01:33:58,400 --> 01:34:01,600
+just for your um
+
+1600
+01:34:01,760 --> 01:34:06,239
+company just for your um and
+
+1601
+01:34:08,000 --> 01:34:12,480
+generator functions okay so okay so i
+
+1602
+01:34:11,120 --> 01:34:17,199
+think i think maybe
+
+1603
+01:34:12,480 --> 01:34:21,199
+that's it for today so we finished
+
+1604
+01:34:17,199 --> 01:34:22,960
+you know we finished the part
+
+1605
+01:34:21,199 --> 01:34:24,560
+you know we we kind of finished the
+
+1606
+01:34:22,960 --> 01:34:29,040
+first part of
+
+1607
+01:34:24,560 --> 01:34:29,040
+of you know creating
+
+1608
+01:34:29,360 --> 01:34:32,880
+you know statistics for the diagram
+
+1609
+01:34:31,440 --> 01:34:34,159
+actually there's another thing we need
+
+1610
+01:34:32,880 --> 01:34:37,360
+to do we should finish
+
+1611
+01:34:34,159 --> 01:34:39,040
+we need to write a function that
+
+1612
+01:34:37,360 --> 01:34:42,719
+computes the percentage
+
+1613
+01:34:39,040 --> 01:34:44,960
+instead of the count yeah that's easy
+
+1614
+01:34:42,719 --> 01:34:47,600
+that's not too difficult
+
+1615
+01:34:44,960 --> 01:34:49,840
+but we'll probably take another 10 or 20
+
+1616
+01:34:47,600 --> 01:34:53,440
+minutes
+
+1617
+01:34:49,840 --> 01:34:56,239
+actually i already have written it
+
+1618
+01:34:53,440 --> 01:34:57,040
+so but the the second part we have not
+
+1619
+01:34:56,239 --> 01:35:01,280
+completed
+
+1620
+01:34:57,040 --> 01:35:05,199
+is svg is actually creating
+
+1621
+01:35:01,280 --> 01:35:08,320
+um you know the svg for the chart
+
+1622
+01:35:05,199 --> 01:35:09,119
+this is the this is the important part
+
+1623
+01:35:08,320 --> 01:35:10,960
+actually
+
+1624
+01:35:09,119 --> 01:35:12,159
+because people you know you need a
+
+1625
+01:35:10,960 --> 01:35:14,719
+visual diagram
+
+1626
+01:35:12,159 --> 01:35:15,840
+so i'm thinking but however coding this
+
+1627
+01:35:14,719 --> 01:35:19,040
+svg will be
+
+1628
+01:35:15,840 --> 01:35:22,080
+entirely different separate uh
+
+1629
+01:35:19,040 --> 01:35:23,679
+tasks almost having nothing to do with
+
+1630
+01:35:22,080 --> 01:35:27,520
+what we have done
+
+1631
+01:35:23,679 --> 01:35:31,600
+now because for the task of drawing svg
+
+1632
+01:35:27,520 --> 01:35:35,280
+what you need you consider the input
+
+1633
+01:35:31,600 --> 01:35:37,119
+given the input is a map of key value
+
+1634
+01:35:35,280 --> 01:35:40,320
+pairs the keys are diagram
+
+1635
+01:35:37,119 --> 01:35:41,040
+the values are the percentage of
+
+1636
+01:35:40,320 --> 01:35:44,080
+occurrence
+
+1637
+01:35:41,040 --> 01:35:46,800
+of that diagram then you just draw a
+
+1638
+01:35:44,080 --> 01:35:47,199
+chart okay okay i think that's i need to
+
+1639
+01:35:46,800 --> 01:35:50,480
+go
+
+1640
+01:35:47,199 --> 01:35:54,960
+i need to take a break uh
+
+1641
+01:35:50,480 --> 01:35:58,159
+let's do it so next time javascript
+
+1642
+01:35:54,960 --> 01:36:01,280
+you know yeah nick let's do it next time
+
+1643
+01:35:58,159 --> 01:36:03,760
+i have a lot um okay i
+
+1644
+01:36:01,280 --> 01:36:04,719
+actually i have a lot talk show uh
+
+1645
+01:36:03,760 --> 01:36:08,480
+coming up
+
+1646
+01:36:04,719 --> 01:36:09,360
+you know i want to do so i'm gonna do
+
+1647
+01:36:08,480 --> 01:36:13,360
+maybe
+
+1648
+01:36:09,360 --> 01:36:16,400
+almost one every day um
+
+1649
+01:36:13,360 --> 01:36:19,440
+i like usually 10 o'clock in the morning
+
+1650
+01:36:16,400 --> 01:36:20,480
+san francisco time so for example let me
+
+1651
+01:36:19,440 --> 01:36:23,440
+tell you what
+
+1652
+01:36:20,480 --> 01:36:24,080
+are the things that i plan to do for for
+
+1653
+01:36:23,440 --> 01:36:27,679
+example
+
+1654
+01:36:24,080 --> 01:36:31,280
+here you see internet speed growth
+
+1655
+01:36:27,679 --> 01:36:33,679
+rate okay and there's a chart
+
+1656
+01:36:31,280 --> 01:36:34,480
+now this chart is done in mathematica
+
+1657
+01:36:33,679 --> 01:36:37,600
+okay
+
+1658
+01:36:34,480 --> 01:36:40,480
+it's done like 10 years ago
+
+1659
+01:36:37,600 --> 01:36:41,440
+and here you are seeing mathematica code
+
+1660
+01:36:40,480 --> 01:36:43,840
+to
+
+1661
+01:36:41,440 --> 01:36:45,760
+you know anyway so i need to update this
+
+1662
+01:36:43,840 --> 01:36:49,119
+chart because this is up to
+
+1663
+01:36:45,760 --> 01:36:51,679
+2012. so i'm going to show you how
+
+1664
+01:36:49,119 --> 01:36:53,840
+how to use mathematica to draw this like
+
+1665
+01:36:51,679 --> 01:36:55,040
+one single line we'll do it actually i
+
+1666
+01:36:53,840 --> 01:36:56,960
+can do it now
+
+1667
+01:36:55,040 --> 01:36:59,119
+so anyway this article is about internet
+
+1668
+01:36:56,960 --> 01:37:02,080
+speed growth rate
+
+1669
+01:36:59,119 --> 01:37:03,760
+uh it basically doubles every two years
+
+1670
+01:37:02,080 --> 01:37:06,639
+in theory
+
+1671
+01:37:03,760 --> 01:37:07,440
+so that's one thing uh one i want to do
+
+1672
+01:37:06,639 --> 01:37:10,880
+then there's
+
+1673
+01:37:07,440 --> 01:37:14,400
+also so that's about wufam language
+
+1674
+01:37:10,880 --> 01:37:18,719
+then there's also quite a few
+
+1675
+01:37:14,400 --> 01:37:21,040
+uh emac emacs list i can talk about
+
+1676
+01:37:18,719 --> 01:37:22,320
+i i you know i have to do i can talk
+
+1677
+01:37:21,040 --> 01:37:25,520
+about you know
+
+1678
+01:37:22,320 --> 01:37:29,360
+live coding tutorial then there
+
+1679
+01:37:25,520 --> 01:37:32,560
+is uh oh there's my food
+
+1680
+01:37:29,360 --> 01:37:35,840
+uh then there is
+
+1681
+01:37:32,560 --> 01:37:38,960
+javascript yeah we i talked about a lot
+
+1682
+01:37:35,840 --> 01:37:39,280
+last time there's quite a few and there
+
+1683
+01:37:38,960 --> 01:37:42,880
+is
+
+1684
+01:37:39,280 --> 01:37:46,320
+also this unicode um
+
+1685
+01:37:42,880 --> 01:37:46,320
+i want to do i want to
+
+1686
+01:37:47,760 --> 01:37:51,840
+you know for example let me show you
+
+1687
+01:37:49,280 --> 01:37:51,840
+this one
+
+1688
+01:37:51,920 --> 01:37:59,280
+let's see this fun program
+
+1689
+01:37:55,440 --> 01:38:03,119
+it lets you type something
+
+1690
+01:37:59,280 --> 01:38:06,400
+and convert them to upside
+
+1691
+01:38:03,119 --> 01:38:09,199
+down characters okay
+
+1692
+01:38:06,400 --> 01:38:12,080
+so i want to write one you know kind of
+
+1693
+01:38:09,199 --> 01:38:14,639
+a tutorial for the
+
+1694
+01:38:12,080 --> 01:38:15,520
+for the full width characters for with
+
+1695
+01:38:14,639 --> 01:38:19,199
+characters
+
+1696
+01:38:15,520 --> 01:38:22,000
+are characters in unicode that
+
+1697
+01:38:19,199 --> 01:38:23,520
+just like english alphabets but however
+
+1698
+01:38:22,000 --> 01:38:27,119
+each character
+
+1699
+01:38:23,520 --> 01:38:29,360
+by specification is like uh
+
+1700
+01:38:27,119 --> 01:38:32,159
+is the same with as a chinese character
+
+1701
+01:38:29,360 --> 01:38:35,520
+and it's basically mono space
+
+1702
+01:38:32,159 --> 01:38:37,119
+and white width so i want to create an
+
+1703
+01:38:35,520 --> 01:38:38,800
+interactive app for that
+
+1704
+01:38:37,119 --> 01:38:45,199
+okay that's that's it for today thank
+
+1705
+01:38:38,800 --> 01:38:48,880
+you guys for watching
+
+1706
+01:38:45,199 --> 01:38:50,400
+they put they put you through
+
+1707
+01:38:48,880 --> 01:38:52,639
+exercise and a lot of training in
+
+1708
+01:38:50,400 --> 01:38:54,239
+particular discipline but when you enter
+
+1709
+01:38:52,639 --> 01:38:57,679
+practice your life a lot of learning
+
+1710
+01:38:54,239 --> 01:39:00,639
+skills quickly become unlearned yeah
+
+1711
+01:38:57,679 --> 01:39:03,360
+okay so you if you like my stuff buy my
+
+1712
+01:39:00,639 --> 01:39:06,480
+javascript tutorials okay
+
+1713
+01:39:03,360 --> 01:39:10,239
+you just go to javascript
+
+1714
+01:39:06,480 --> 01:39:12,400
+in depth then you'll find it you know
+
+1715
+01:39:10,239 --> 01:39:15,760
+you can you then you can just
+
+1716
+01:39:12,400 --> 01:39:16,719
+buy it and thank you guys paypal me and
+
+1717
+01:39:15,760 --> 01:39:20,000
+patreon me
+
+1718
+01:39:16,719 --> 01:39:23,679
+bye guys okay bye guys
+
+1719
+01:39:20,000 --> 01:39:26,960
+i'm shutting down let me just um
+
+1720
+01:39:23,679 --> 01:39:29,280
+i'm shutting down now let's see
+
+1721
+01:39:26,960 --> 01:39:29,280
+close
+
+1722
+01:39:34,880 --> 01:39:38,400
+uh trust me background
+
+1723
+01:39:38,560 --> 01:39:43,520
+uh yeah live coding you know live coding
+
+1724
+01:39:40,880 --> 01:39:47,119
+is always
+
+1725
+01:39:43,520 --> 01:39:50,000
+much slower than i would expect because
+
+1726
+01:39:47,119 --> 01:39:50,400
+we actually start to code lots of issues
+
+1727
+01:39:50,000 --> 01:39:54,880
+like
+
+1728
+01:39:50,400 --> 01:39:56,639
+minor details that um
+
+1729
+01:39:54,880 --> 01:39:59,119
+you know because but i'm doing this kind
+
+1730
+01:39:56,639 --> 01:40:00,480
+of for fun you know i need to do this
+
+1731
+01:39:59,119 --> 01:40:03,600
+for my website right
+
+1732
+01:40:00,480 --> 01:40:06,159
+because i like i need
+
+1733
+01:40:03,600 --> 01:40:08,719
+you know i need this i i want to have
+
+1734
+01:40:06,159 --> 01:40:12,000
+this dynamic
+
+1735
+01:40:08,719 --> 01:40:14,000
+diagram and also i need trigram as well
+
+1736
+01:40:12,000 --> 01:40:15,199
+but once you start to code you know you
+
+1737
+01:40:14,000 --> 01:40:18,159
+have the structure
+
+1738
+01:40:15,199 --> 01:40:18,560
+then it's pretty easy to add a trigram
+
+1739
+01:40:18,159 --> 01:40:21,600
+or
+
+1740
+01:40:18,560 --> 01:40:24,960
+quadrogram or you know
+
+1741
+01:40:21,600 --> 01:40:26,800
+uh and you know then
+
+1742
+01:40:24,960 --> 01:40:28,000
+you know i need to create this dynamic
+
+1743
+01:40:26,800 --> 01:40:31,840
+chart
+
+1744
+01:40:28,000 --> 01:40:31,840
+so this is for my own website
+
+1745
+01:40:32,159 --> 01:40:37,280
+so even if i'm not doing live stream i
+
+1746
+01:40:34,960 --> 01:40:41,920
+will have to code this
+
+1747
+01:40:37,280 --> 01:40:41,920
+usually that's a bit much more faster
+
+1748
+01:40:42,400 --> 01:40:48,800
+because i don't have to expand and i can
+
+1749
+01:40:44,719 --> 01:40:48,800
+stop and read something in detail
+
+1750
+01:40:48,840 --> 01:40:53,040
+um yeah so
+
+1751
+01:40:50,800 --> 01:40:54,320
+then i need to add svg i'm gonna
+
+1752
+01:40:53,040 --> 01:40:56,880
+schedule that
+
+1753
+01:40:54,320 --> 01:40:58,639
+i don't know when but uh just check out
+
+1754
+01:40:56,880 --> 01:41:01,679
+my youtube okay
+
+1755
+01:40:58,639 --> 01:41:03,199
+the next one on javascript is probably
+
+1756
+01:41:01,679 --> 01:41:07,679
+going to be
+
+1757
+01:41:03,199 --> 01:41:12,320
+creating svg from scratch you know
+
+1758
+01:41:07,679 --> 01:41:14,320
+then um
+
+1759
+01:41:12,320 --> 01:41:17,040
+yeah so this is one of the things to do
+
+1760
+01:41:14,320 --> 01:41:19,840
+and there's quite a few other javascript
+
+1761
+01:41:17,040 --> 01:41:19,840
+ones
+
+1762
+01:41:21,360 --> 01:41:27,920
+so where's the yeah
+
+1763
+01:41:24,719 --> 01:41:27,920
+i'm shutting down okay
+
+1764
+01:41:28,320 --> 01:41:32,000
+i'm shutting down in i'm shutting down
+
+1765
+01:41:31,280 --> 01:41:35,040
+now this
+
+1766
+01:41:32,000 --> 01:41:39,920
+is i'm done today
+
+1767
+01:41:35,040 --> 01:41:47,840
+uh and golden okay math keyboard
+
+1768
+01:41:39,920 --> 01:41:47,840
+okay bye guys
+
+1769
+01:41:54,880 --> 01:41:56,960
+you
+

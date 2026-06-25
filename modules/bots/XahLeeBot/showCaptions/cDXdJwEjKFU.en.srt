@@ -1,0 +1,3940 @@
+1
+00:00:03,600 --> 00:00:07,520
+Good morning everyone. Good morning
+
+2
+00:00:05,279 --> 00:00:09,599
+everyone. Welcome to another episode of
+
+3
+00:00:07,520 --> 00:00:12,400
+Sound Talk Show. We are going to code
+
+4
+00:00:09,599 --> 00:00:14,480
+wam language today and doing plane
+
+5
+00:00:12,400 --> 00:00:18,720
+curves, special plane curves. We are
+
+6
+00:00:14,480 --> 00:00:22,880
+going to recreate this image. This image
+
+7
+00:00:18,720 --> 00:00:24,560
+is done like 30 years ago. Uh so we're
+
+8
+00:00:22,880 --> 00:00:26,880
+going to recreate it. So it's going to
+
+9
+00:00:24,560 --> 00:00:29,160
+be wam language coding also known as
+
+10
+00:00:26,880 --> 00:00:32,600
+Mathematica. If you are watching
+
+11
+00:00:29,160 --> 00:00:36,399
+offline, play at 1.5 speed because I
+
+12
+00:00:32,600 --> 00:00:38,440
+ramble. If you are watching live, say
+
+13
+00:00:36,399 --> 00:00:41,120
+hi. Love to see your
+
+14
+00:00:38,440 --> 00:00:44,960
+comments. Okay, so Wuam language also
+
+15
+00:00:41,120 --> 00:00:47,600
+known as Mathematica. So play at 1.5
+
+16
+00:00:44,960 --> 00:00:49,760
+speed. Okay, so let's begin. So my
+
+17
+00:00:47,600 --> 00:00:52,600
+keyboard, let me show you. Gett
+
+18
+00:00:49,760 --> 00:00:57,320
+fantastic glove 80 keyboard. Nia track
+
+19
+00:00:52,600 --> 00:01:01,640
+ball Logitech 405 with uh the best thing
+
+20
+00:00:57,320 --> 00:01:05,680
+502 G502. The best thing is the spin
+
+21
+00:01:01,640 --> 00:01:09,520
+wheel infinite spin uh and the ultimate
+
+22
+00:01:05,680 --> 00:01:09,520
+hacking keyboard and
+
+23
+00:01:09,560 --> 00:01:17,320
+also also let me show you this delay and
+
+24
+00:01:13,760 --> 00:01:20,720
+delay. This is farboard the most
+
+25
+00:01:17,320 --> 00:01:24,600
+fantastic advanced ergonomic keyboard
+
+26
+00:01:20,720 --> 00:01:27,520
+device. Okay, so I will get to it
+
+27
+00:01:24,600 --> 00:01:31,159
+eventually. Uh you can watch videos of
+
+28
+00:01:27,520 --> 00:01:35,759
+all these. I have video reviews on
+
+29
+00:01:31,159 --> 00:01:39,360
+YouTube. So this is again SV A L B O A R
+
+30
+00:01:35,759 --> 00:01:42,119
+D S board magnetic switches. So
+
+31
+00:01:39,360 --> 00:01:46,799
+fantastic. Okay, I'll show I'll be using
+
+32
+00:01:42,119 --> 00:01:49,680
+it sometimes. So, so let's start to uh
+
+33
+00:01:46,799 --> 00:01:52,240
+code wam language. Say hi if you are
+
+34
+00:01:49,680 --> 00:01:55,920
+here. Let's stop that. So, can you see
+
+35
+00:01:52,240 --> 00:01:57,840
+my screen? Yes. Okay. So, wuam language
+
+36
+00:01:55,920 --> 00:02:01,759
+talk show today. So, let's go to kasar
+
+37
+00:01:57,840 --> 00:02:04,479
+talk show today. So, we going to code.
+
+38
+00:02:01,759 --> 00:02:07,920
+So, wuam language you know uh go to
+
+39
+00:02:04,479 --> 00:02:10,560
+kasali.info info my website and or
+
+40
+00:02:07,920 --> 00:02:13,680
+search for sawufam language tutorial you
+
+41
+00:02:10,560 --> 00:02:17,599
+can see where to download it's free uh
+
+42
+00:02:13,680 --> 00:02:20,239
+and uh I have the complete tutorial for
+
+43
+00:02:17,599 --> 00:02:23,520
+this language uh the most advanced
+
+44
+00:02:20,239 --> 00:02:28,680
+programming language by far better than
+
+45
+00:02:23,520 --> 00:02:32,879
+Haskell Python Ruby uh
+
+46
+00:02:28,680 --> 00:02:35,599
+lisp or rust you know by far so but
+
+47
+00:02:32,879 --> 00:02:37,959
+mostly it's used for by mathematicians
+
+48
+00:02:35,599 --> 00:02:40,560
+scientists,
+
+49
+00:02:37,959 --> 00:02:42,720
+engineers, okay, but you use it just
+
+50
+00:02:40,560 --> 00:02:44,400
+like Python, okay? It can do artificial
+
+51
+00:02:42,720 --> 00:02:47,440
+intelligence, machine learning, neuronet
+
+52
+00:02:44,400 --> 00:02:50,160
+networks, like 7,000 functions building.
+
+53
+00:02:47,440 --> 00:02:52,720
+Okay, so Wuang language tutorial,
+
+54
+00:02:50,160 --> 00:02:56,760
+download it, go read it. And today we
+
+55
+00:02:52,720 --> 00:03:00,319
+going to do so, so here is my uh planker
+
+56
+00:02:56,760 --> 00:03:02,680
+packages. Today we're gonna do um Okay,
+
+57
+00:03:00,319 --> 00:03:06,840
+let me let me get on to
+
+58
+00:03:02,680 --> 00:03:09,640
+the Today we going to do the
+
+59
+00:03:06,840 --> 00:03:11,959
+hypotcoid hypocyclloid and
+
+60
+00:03:09,640 --> 00:03:16,440
+hypotloy. Okay.
+
+61
+00:03:11,959 --> 00:03:19,360
+So, okay. So, let's begin. So, um hello
+
+62
+00:03:16,440 --> 00:03:21,720
+dosey. So, what we going to do? So,
+
+63
+00:03:19,360 --> 00:03:26,640
+first of all, let me explain what are
+
+64
+00:03:21,720 --> 00:03:27,840
+these. Okay. Um am I ready? Uh let's
+
+65
+00:03:26,640 --> 00:03:31,360
+see.
+
+66
+00:03:27,840 --> 00:03:34,959
+So explain what they are. Okay. So let's
+
+67
+00:03:31,360 --> 00:03:36,720
+do that. Okay. So hypo truck and it's
+
+68
+00:03:34,959 --> 00:03:39,599
+easier. It's the best way if you just
+
+69
+00:03:36,720 --> 00:03:41,319
+watch your animation. Okay. So let me
+
+70
+00:03:39,599 --> 00:03:43,920
+show you
+
+71
+00:03:41,319 --> 00:03:47,840
+animation. So you go here. Let's uh
+
+72
+00:03:43,920 --> 00:03:47,840
+enlarge this window. So
+
+73
+00:03:50,599 --> 00:03:59,920
+that close that. So go back here,
+
+74
+00:03:54,640 --> 00:04:03,400
+enlarge the window and uh not not dev.
+
+75
+00:03:59,920 --> 00:04:06,720
+So this hypotcoid they are also known as
+
+76
+00:04:03,400 --> 00:04:09,799
+um spyroraph. So you can see there's a
+
+77
+00:04:06,720 --> 00:04:13,439
+Wikipedia article about
+
+78
+00:04:09,799 --> 00:04:16,320
+it. Uh I got I have this toy back in
+
+79
+00:04:13,439 --> 00:04:19,040
+1980s when I was 10 years old. So it's
+
+80
+00:04:16,320 --> 00:04:20,560
+like great fun. So you generate these
+
+81
+00:04:19,040 --> 00:04:22,360
+curves and one thing I learned from
+
+82
+00:04:20,560 --> 00:04:26,520
+Wikipedia is that
+
+83
+00:04:22,360 --> 00:04:28,960
+they you know why they have these
+
+84
+00:04:26,520 --> 00:04:31,280
+because one of the reason is that when
+
+85
+00:04:28,960 --> 00:04:33,680
+they print money you can see US dollar
+
+86
+00:04:31,280 --> 00:04:36,400
+they have these uh kind of curves. So
+
+87
+00:04:33,680 --> 00:04:40,160
+why do they put that there? Because
+
+88
+00:04:36,400 --> 00:04:41,919
+these curves it is given given one of
+
+89
+00:04:40,160 --> 00:04:45,000
+them because there are millions you know
+
+90
+00:04:41,919 --> 00:04:48,240
+infinite variations. So given one of the
+
+91
+00:04:45,000 --> 00:04:50,800
+drawings it is
+
+92
+00:04:48,240 --> 00:04:52,960
+almost impossible to find exactly what
+
+93
+00:04:50,800 --> 00:04:55,199
+are the parameters to create these
+
+94
+00:04:52,960 --> 00:04:57,600
+drawings. So they put it they print it
+
+95
+00:04:55,199 --> 00:04:59,240
+on the dollar bill so it prevents
+
+96
+00:04:57,600 --> 00:05:02,160
+counter
+
+97
+00:04:59,240 --> 00:05:04,639
+counterfeit. Of course today you have
+
+98
+00:05:02,160 --> 00:05:07,440
+much more technology like hologram or
+
+99
+00:05:04,639 --> 00:05:10,160
+whatever transparency. So anyway so back
+
+100
+00:05:07,440 --> 00:05:12,840
+then that's one of the reason they this
+
+101
+00:05:10,160 --> 00:05:15,520
+um they create created this
+
+102
+00:05:12,840 --> 00:05:17,919
+curve. So basically that's that's how it
+
+103
+00:05:15,520 --> 00:05:19,960
+works. So you roll a circle around
+
+104
+00:05:17,919 --> 00:05:23,120
+another circle
+
+105
+00:05:19,960 --> 00:05:26,320
+then then you put a point fixed on the
+
+106
+00:05:23,120 --> 00:05:29,639
+rolling circle then it will trace out a
+
+107
+00:05:26,320 --> 00:05:32,479
+curve. So it will trace out all these
+
+108
+00:05:29,639 --> 00:05:35,520
+varieties depending on the distance you
+
+109
+00:05:32,479 --> 00:05:38,240
+know the size of the two circles or the
+
+110
+00:05:35,520 --> 00:05:41,520
+or or the distance you know where is the
+
+111
+00:05:38,240 --> 00:05:43,840
+fixed point on the uh rolling circle. So
+
+112
+00:05:41,520 --> 00:05:46,479
+the rolling circle can be inside the
+
+113
+00:05:43,840 --> 00:05:48,160
+larger circle or it can be outside. Do
+
+114
+00:05:46,479 --> 00:05:49,400
+they have an animation of that? They
+
+115
+00:05:48,160 --> 00:05:52,919
+don't have.
+
+116
+00:05:49,400 --> 00:05:55,639
+Okay. So anyway, this is known as
+
+117
+00:05:52,919 --> 00:05:58,639
+spyroraph because you know some toy
+
+118
+00:05:55,639 --> 00:05:59,880
+company created marketed as and
+
+119
+00:05:58,639 --> 00:06:03,080
+trademark
+
+120
+00:05:59,880 --> 00:06:08,360
+spyroraph. Okay. So but their technical
+
+121
+00:06:03,080 --> 00:06:11,919
+name is called hypocycllo
+
+122
+00:06:08,360 --> 00:06:12,919
+hypocyclloid epicyclloid. Okay. So there
+
+123
+00:06:11,919 --> 00:06:14,840
+it
+
+124
+00:06:12,919 --> 00:06:16,440
+is.
+
+125
+00:06:14,840 --> 00:06:18,680
+Hypocyclloid.
+
+126
+00:06:16,440 --> 00:06:21,759
+Epicyclloid. That's a blue one.
+
+127
+00:06:18,680 --> 00:06:23,160
+Hypocyclloid. That's a red one. Then you
+
+128
+00:06:21,759 --> 00:06:25,319
+have
+
+129
+00:06:23,160 --> 00:06:29,280
+um
+
+130
+00:06:25,319 --> 00:06:31,360
+epitrocids. Then you have hypotroids. So
+
+131
+00:06:29,280 --> 00:06:34,680
+all these are spyroraph. That's a
+
+132
+00:06:31,360 --> 00:06:37,000
+technical name for them. The mathemat
+
+133
+00:06:34,680 --> 00:06:39,199
+mathematicians you know for
+
+134
+00:06:37,000 --> 00:06:41,440
+mathematicians. And there are many
+
+135
+00:06:39,199 --> 00:06:44,800
+special cases. For example, this all
+
+136
+00:06:41,440 --> 00:06:48,479
+these are called rows curves. Ross is
+
+137
+00:06:44,800 --> 00:06:50,080
+the most um the most common is are
+
+138
+00:06:48,479 --> 00:06:52,560
+these. You can see can you see my
+
+139
+00:06:50,080 --> 00:06:54,520
+screen? Am I doing good? Say hi. Hello
+
+140
+00:06:52,560 --> 00:06:58,520
+fellow. Hello blue
+
+141
+00:06:54,520 --> 00:07:01,759
+three. Blue three. Hello fellow Python
+
+142
+00:06:58,520 --> 00:07:04,240
+scriptors. So you see these are called
+
+143
+00:07:01,759 --> 00:07:06,720
+rose curves and uh you know these are
+
+144
+00:07:04,240 --> 00:07:09,639
+well known. You learn them when you do
+
+145
+00:07:06,720 --> 00:07:12,479
+calculus when you take uh class in
+
+146
+00:07:09,639 --> 00:07:16,720
+calculus. Um and they are special case
+
+147
+00:07:12,479 --> 00:07:18,639
+of of um of the rolling circles. So I
+
+148
+00:07:16,720 --> 00:07:20,560
+have an animation. So let me show you
+
+149
+00:07:18,639 --> 00:07:23,360
+animation. Okay. So anyway, so all these
+
+150
+00:07:20,560 --> 00:07:25,759
+are special cases. So here is an
+
+151
+00:07:23,360 --> 00:07:28,400
+example. This this specific one is
+
+152
+00:07:25,759 --> 00:07:31,560
+called asteroid. Okay. Lots of
+
+153
+00:07:28,400 --> 00:07:34,639
+interesting properties and and very
+
+154
+00:07:31,560 --> 00:07:37,680
+interestingly it has a properties of
+
+155
+00:07:34,639 --> 00:07:42,160
+such that you can generate the exact
+
+156
+00:07:37,680 --> 00:07:47,120
+same curve in both ways. So rolling a
+
+157
+00:07:42,160 --> 00:07:50,560
+circle inside a circle uh that is 1/4 of
+
+158
+00:07:47,120 --> 00:07:52,560
+the radius. So you generate a asteroid.
+
+159
+00:07:50,560 --> 00:07:55,039
+But you can also generate exactly the
+
+160
+00:07:52,560 --> 00:07:56,759
+same curve by rolling a circle that is
+
+161
+00:07:55,039 --> 00:08:00,000
+um
+
+162
+00:07:56,759 --> 00:08:03,680
+3/4 the radius of the larger circle.
+
+163
+00:08:00,000 --> 00:08:06,160
+Exact the same curve. And you can have
+
+164
+00:08:03,680 --> 00:08:08,319
+linkages and mechanism that connects
+
+165
+00:08:06,160 --> 00:08:10,960
+these two together. So they they they
+
+166
+00:08:08,319 --> 00:08:13,280
+trace out the exact the same point. Do I
+
+167
+00:08:10,960 --> 00:08:15,599
+have that somewhere? Um yeah. So it's a
+
+168
+00:08:13,280 --> 00:08:19,560
+lots of lots of mathematics. You can
+
+169
+00:08:15,599 --> 00:08:24,720
+actually see it here. So this is a
+
+170
+00:08:19,560 --> 00:08:24,720
+gege. Um let's see if I can
+
+171
+00:08:25,720 --> 00:08:33,360
+magnify. Okay. So using Gbra can you see
+
+172
+00:08:29,199 --> 00:08:36,479
+this? Let's see. Let's magnify that. So
+
+173
+00:08:33,360 --> 00:08:40,320
+let's drag this point. So you can see
+
+174
+00:08:36,479 --> 00:08:42,399
+the blue curve inside is the asteroid.
+
+175
+00:08:40,320 --> 00:08:46,800
+And all these lines you see all these
+
+176
+00:08:42,399 --> 00:08:49,120
+lines are mechanism you know ways to
+
+177
+00:08:46,800 --> 00:08:52,560
+show you how how can you actually trace
+
+178
+00:08:49,120 --> 00:08:55,200
+the curve create the curve in fact
+
+179
+00:08:52,560 --> 00:08:56,880
+without rolling any circles. So, so
+
+180
+00:08:55,200 --> 00:08:58,720
+there are so many properties you know
+
+181
+00:08:56,880 --> 00:09:01,480
+you can trace the curve by rolling a
+
+182
+00:08:58,720 --> 00:09:05,279
+circle or or you can trace the curve
+
+183
+00:09:01,480 --> 00:09:07,600
+by by all these uh geometric
+
+184
+00:09:05,279 --> 00:09:10,320
+constructions. You can you can see and
+
+185
+00:09:07,600 --> 00:09:13,920
+and by the way the the the red curve
+
+186
+00:09:10,320 --> 00:09:17,800
+outside of it that is another asteroid
+
+187
+00:09:13,920 --> 00:09:20,120
+another cyclloid uh uh
+
+188
+00:09:17,800 --> 00:09:23,600
+hypocyclloid and it
+
+189
+00:09:20,120 --> 00:09:25,640
+can and another property is that it is
+
+190
+00:09:23,600 --> 00:09:30,920
+actually the
+
+191
+00:09:25,640 --> 00:09:34,560
+um the radial curve uh was it the
+
+192
+00:09:30,920 --> 00:09:37,600
+um the radial curve the blue ones. So
+
+193
+00:09:34,560 --> 00:09:41,040
+any anyway so so this interactive
+
+194
+00:09:37,600 --> 00:09:44,000
+geometry um application it's called G
+
+195
+00:09:41,040 --> 00:09:45,920
+algebra okay so you know I have like
+
+196
+00:09:44,000 --> 00:09:48,800
+hundreds of them showing this
+
+197
+00:09:45,920 --> 00:09:52,000
+interesting properties you can it's free
+
+198
+00:09:48,800 --> 00:09:54,240
+it was open source like 15 years ago
+
+199
+00:09:52,000 --> 00:09:57,680
+then they became very popular and they
+
+200
+00:09:54,240 --> 00:09:59,320
+made it closed source so that is
+
+201
+00:09:57,680 --> 00:10:03,120
+extremely
+
+202
+00:09:59,320 --> 00:10:05,600
+nasty so anyway so so let's see the rose
+
+203
+00:10:03,120 --> 00:10:08,480
+cub so I'm going to talk random a little
+
+204
+00:10:05,600 --> 00:10:11,600
+bit. Okay. So, so for example, here's a
+
+205
+00:10:08,480 --> 00:10:15,079
+rose curve and let's see uh what does
+
+206
+00:10:11,600 --> 00:10:18,040
+this one do? You
+
+207
+00:10:15,079 --> 00:10:21,600
+can Oh, yeah. You can animate it. You
+
+208
+00:10:18,040 --> 00:10:23,800
+see, I mean, so this is like rose curve
+
+209
+00:10:21,600 --> 00:10:27,040
+of different
+
+210
+00:10:23,800 --> 00:10:30,399
+parameters. Now, let's let's go back to
+
+211
+00:10:27,040 --> 00:10:32,959
+a a easy easy one. So, you can see at
+
+212
+00:10:30,399 --> 00:10:34,079
+some point they become just like that.
+
+213
+00:10:32,959 --> 00:10:37,519
+Okay.
+
+214
+00:10:34,079 --> 00:10:39,279
+So this curve is created by rolling a
+
+215
+00:10:37,519 --> 00:10:43,040
+circle
+
+216
+00:10:39,279 --> 00:10:45,200
+um around another circle. Okay. But if
+
+217
+00:10:43,040 --> 00:10:47,440
+you change the circle size and the
+
+218
+00:10:45,200 --> 00:10:50,959
+tracing point then you got all these
+
+219
+00:10:47,440 --> 00:10:54,959
+variations you see. So this this family
+
+220
+00:10:50,959 --> 00:10:57,440
+of curve curves is called rose curve.
+
+221
+00:10:54,959 --> 00:11:00,320
+Okay. And they are just a special case
+
+222
+00:10:57,440 --> 00:11:02,079
+of the spiralaph special case of the you
+
+223
+00:11:00,320 --> 00:11:05,079
+know so there are so many infinite
+
+224
+00:11:02,079 --> 00:11:08,480
+varieties of these um kind
+
+225
+00:11:05,079 --> 00:11:11,200
+of so ge algebra interesting you can you
+
+226
+00:11:08,480 --> 00:11:13,760
+know try you can you know use it and you
+
+227
+00:11:11,200 --> 00:11:17,800
+can check out my website and you know
+
+228
+00:11:13,760 --> 00:11:22,079
+and get all these uh inter interactive
+
+229
+00:11:17,800 --> 00:11:24,480
+um applications. It's amazing. So if you
+
+230
+00:11:22,079 --> 00:11:27,519
+are learning math this is uh tremendous
+
+231
+00:11:24,480 --> 00:11:29,640
+fun and this this one is particularly
+
+232
+00:11:27,519 --> 00:11:33,200
+very interesting because
+
+233
+00:11:29,640 --> 00:11:35,560
+this you know what is this showing is
+
+234
+00:11:33,200 --> 00:11:39,040
+the is called
+
+235
+00:11:35,560 --> 00:11:41,839
+costics that is you shine a light ray so
+
+236
+00:11:39,040 --> 00:11:44,800
+in the center you have this blue curve
+
+237
+00:11:41,839 --> 00:11:47,800
+of three like shaped like a triangle
+
+238
+00:11:44,800 --> 00:11:51,399
+it's so it's one of the it's called
+
+239
+00:11:47,800 --> 00:11:54,160
+deltoid which is a special case of hypo
+
+240
+00:11:51,399 --> 00:11:57,440
+cyclloid meaning you roll a circle
+
+241
+00:11:54,160 --> 00:12:00,560
+inside the larger one. Okay. So you can
+
+242
+00:11:57,440 --> 00:12:04,600
+create this delto del uh this this
+
+243
+00:12:00,560 --> 00:12:09,120
+triangle shaped curve inside. Okay. But
+
+244
+00:12:04,600 --> 00:12:12,920
+then you um then you put a point. Let's
+
+245
+00:12:09,120 --> 00:12:12,920
+see where is it.
+
+246
+00:12:14,399 --> 00:12:18,800
+Basically
+
+247
+00:12:15,800 --> 00:12:21,200
+you for any point you know you you pick
+
+248
+00:12:18,800 --> 00:12:22,839
+a point on the on the plane and you
+
+249
+00:12:21,200 --> 00:12:26,560
+shine light
+
+250
+00:12:22,839 --> 00:12:30,720
+rays towards the curve and then it
+
+251
+00:12:26,560 --> 00:12:33,920
+reflects off or refract off then you
+
+252
+00:12:30,720 --> 00:12:36,959
+then it will form you can see it forms
+
+253
+00:12:33,920 --> 00:12:39,880
+this shape. Okay, it forms this diamond
+
+254
+00:12:36,959 --> 00:12:44,000
+shape and that diamond shape is the
+
+255
+00:12:39,880 --> 00:12:47,120
+asteroid which is a which is a looks
+
+256
+00:12:44,000 --> 00:12:49,760
+like a diamond which is a special case
+
+257
+00:12:47,120 --> 00:12:52,639
+of hypocyclloid. So again the diamond
+
+258
+00:12:49,760 --> 00:12:56,399
+shape can also be created by rolling a
+
+259
+00:12:52,639 --> 00:12:58,399
+circle inside another circle. So you see
+
+260
+00:12:56,399 --> 00:13:01,920
+so the inside you got this triangle
+
+261
+00:12:58,399 --> 00:13:03,480
+shape deltoid which is a special case of
+
+262
+00:13:01,920 --> 00:13:06,160
+cylo uh
+
+263
+00:13:03,480 --> 00:13:09,040
+hypocyclloid but on the outside you know
+
+264
+00:13:06,160 --> 00:13:12,480
+if you shine a light on the on the
+
+265
+00:13:09,040 --> 00:13:14,959
+triangle shape and it reflect off then
+
+266
+00:13:12,480 --> 00:13:17,839
+you got this so-called envelope this
+
+267
+00:13:14,959 --> 00:13:21,279
+diamond shape then that is a asteroid
+
+268
+00:13:17,839 --> 00:13:24,399
+which is another uh hypocyclloid. So
+
+269
+00:13:21,279 --> 00:13:27,839
+this amazing and fascinating properties
+
+270
+00:13:24,399 --> 00:13:30,880
+you can see. So I'm I'm moving this
+
+271
+00:13:27,839 --> 00:13:34,440
+point P around. That is the uh that's
+
+272
+00:13:30,880 --> 00:13:36,720
+that is the light source. So so this
+
+273
+00:13:34,440 --> 00:13:38,120
+demonstrates doesn't matter where is the
+
+274
+00:13:36,720 --> 00:13:41,519
+light
+
+275
+00:13:38,120 --> 00:13:43,720
+source there uh costics which means the
+
+276
+00:13:41,519 --> 00:13:47,600
+re reflection and
+
+277
+00:13:43,720 --> 00:13:50,560
+refraction will create the the asteroid.
+
+278
+00:13:47,600 --> 00:13:51,240
+Okay. So in other words, the costics of
+
+279
+00:13:50,560 --> 00:13:52,920
+a
+
+280
+00:13:51,240 --> 00:13:55,079
+deltoid
+
+281
+00:13:52,920 --> 00:13:59,120
+is a
+
+282
+00:13:55,079 --> 00:14:01,839
+asteroid regardless where is the uh
+
+283
+00:13:59,120 --> 00:14:03,079
+origin of the light source. So that's
+
+284
+00:14:01,839 --> 00:14:06,720
+what this
+
+285
+00:14:03,079 --> 00:14:09,360
+uh this application demonstrates. Okay.
+
+286
+00:14:06,720 --> 00:14:12,480
+So that's about ge algebra. So let's go
+
+287
+00:14:09,360 --> 00:14:13,800
+back to um so this is asteroid you know.
+
+288
+00:14:12,480 --> 00:14:16,959
+So
+
+289
+00:14:13,800 --> 00:14:20,000
+remember so let's look at um okay so
+
+290
+00:14:16,959 --> 00:14:22,320
+let's look at deltoids so can we see so
+
+291
+00:14:20,000 --> 00:14:24,800
+asteroid can also generate this way so
+
+292
+00:14:22,320 --> 00:14:28,760
+amazing properties so let's look at so
+
+293
+00:14:24,800 --> 00:14:32,120
+here it shows where the
+
+294
+00:14:28,760 --> 00:14:34,959
+deltoids costics which is the light ray
+
+295
+00:14:32,120 --> 00:14:37,360
+refraction creates generates the
+
+296
+00:14:34,959 --> 00:14:40,199
+asteroid so there's a connection between
+
+297
+00:14:37,360 --> 00:14:43,600
+them
+
+298
+00:14:40,199 --> 00:14:46,079
+um and here's the deltoid. Okay. So
+
+299
+00:14:43,600 --> 00:14:49,199
+fascinating. So actually I I don't know
+
+300
+00:14:46,079 --> 00:14:52,639
+what's the proof you know. Um so I did
+
+301
+00:14:49,199 --> 00:14:55,240
+this like 30 years ago uh starting in
+
+302
+00:14:52,639 --> 00:14:58,519
+1994
+
+303
+00:14:55,240 --> 00:15:01,040
+uh you know I write I write programs in
+
+304
+00:14:58,519 --> 00:15:03,839
+Mathematica language to generate them
+
+305
+00:15:01,040 --> 00:15:07,519
+and today I'm just updating them.
+
+306
+00:15:03,839 --> 00:15:10,880
+Fascinating. Okay. So let's go back. So
+
+307
+00:15:07,519 --> 00:15:13,320
+so is it interesting. Did God write the
+
+308
+00:15:10,880 --> 00:15:17,440
+universe in lisp or wufam
+
+309
+00:15:13,320 --> 00:15:19,760
+language? Well, wam language is a is a
+
+310
+00:15:17,440 --> 00:15:22,800
+family, you know, it's a particular case
+
+311
+00:15:19,760 --> 00:15:25,720
+of lisp. If you don't know yet, let me
+
+312
+00:15:22,800 --> 00:15:29,360
+quickly show that
+
+313
+00:15:25,720 --> 00:15:32,160
+um uh digression. Okay, let me quickly
+
+314
+00:15:29,360 --> 00:15:35,120
+quickly show that the equivalence of
+
+315
+00:15:32,160 --> 00:15:38,639
+lisp and wam language if you don't know
+
+316
+00:15:35,120 --> 00:15:41,279
+that yet. Uh so wam language tutorials
+
+317
+00:15:38,639 --> 00:15:43,360
+by video. So I have lots of like
+
+318
+00:15:41,279 --> 00:15:45,120
+hundreds of videos talking about wam
+
+319
+00:15:43,360 --> 00:15:46,839
+language in the past. These are the best
+
+320
+00:15:45,120 --> 00:15:51,600
+ones I collected
+
+321
+00:15:46,839 --> 00:15:55,600
+here. And uh wam language mod uh
+
+322
+00:15:51,600 --> 00:15:57,759
+packages. Okay. So so these are all
+
+323
+00:15:55,600 --> 00:16:00,399
+packages. Most of them are for plank
+
+324
+00:15:57,759 --> 00:16:02,639
+curves like for example this one. This
+
+325
+00:16:00,399 --> 00:16:05,440
+one specialized in generating
+
+326
+00:16:02,639 --> 00:16:06,639
+animations. Okay. So it's all free on
+
+327
+00:16:05,440 --> 00:16:10,240
+GitHub.
+
+328
+00:16:06,639 --> 00:16:14,399
+So download wam language and get them
+
+329
+00:16:10,240 --> 00:16:17,279
+and some are for pl um for tilings f
+
+330
+00:16:14,399 --> 00:16:20,399
+another fascinating subject. Okay so
+
+331
+00:16:17,279 --> 00:16:22,320
+these are for trocoid that's the topic
+
+332
+00:16:20,399 --> 00:16:23,480
+we are talking about today you can
+
+333
+00:16:22,320 --> 00:16:27,839
+generate all
+
+334
+00:16:23,480 --> 00:16:29,639
+these and this package is not for you
+
+335
+00:16:27,839 --> 00:16:33,199
+know if you want to show the rolling
+
+336
+00:16:29,639 --> 00:16:35,519
+circles then you want this one. Okay. Um
+
+337
+00:16:33,199 --> 00:16:38,440
+yeah the animation it create animation
+
+338
+00:16:35,519 --> 00:16:41,959
+rolling circles and other animations to
+
+339
+00:16:38,440 --> 00:16:46,800
+generate all sorts of
+
+340
+00:16:41,959 --> 00:16:48,880
+curves and uh but if you want you know
+
+341
+00:16:46,800 --> 00:16:51,040
+if you want given a curve you want to
+
+342
+00:16:48,880 --> 00:16:54,160
+change their parameters. For example the
+
+343
+00:16:51,040 --> 00:16:55,959
+circle size of two rolling circles a
+
+344
+00:16:54,160 --> 00:16:58,480
+circle rolling around
+
+345
+00:16:55,959 --> 00:17:00,320
+another but if the circle size are
+
+346
+00:16:58,480 --> 00:17:02,800
+different they they they trace out
+
+347
+00:17:00,320 --> 00:17:05,439
+different curves.
+
+348
+00:17:02,800 --> 00:17:07,839
+And you want to show not the circles
+
+349
+00:17:05,439 --> 00:17:10,480
+rolling but you want to show how the how
+
+350
+00:17:07,839 --> 00:17:13,360
+the change of circle size create
+
+351
+00:17:10,480 --> 00:17:16,319
+different images. That's this one.
+
+352
+00:17:13,360 --> 00:17:20,559
+That's what this one is for charcoal
+
+353
+00:17:16,319 --> 00:17:22,559
+plot. Okay. So you can see uh and and
+
+354
+00:17:20,559 --> 00:17:23,640
+you can also generate animation of it
+
+355
+00:17:22,559 --> 00:17:26,240
+like
+
+356
+00:17:23,640 --> 00:17:28,720
+that. So you can see you change one of
+
+357
+00:17:26,240 --> 00:17:30,960
+the parameter they become smaller and
+
+358
+00:17:28,720 --> 00:17:34,400
+different shape to different ones.
+
+359
+00:17:30,960 --> 00:17:36,640
+Fascinating. Beautiful. Uh and also this
+
+360
+00:17:34,400 --> 00:17:39,160
+one is interesting because this one
+
+361
+00:17:36,640 --> 00:17:41,760
+shows that a line
+
+362
+00:17:39,160 --> 00:17:46,720
+segment can actually be generated by
+
+363
+00:17:41,760 --> 00:17:48,960
+rolling a circle like that. Okay. So
+
+364
+00:17:46,720 --> 00:17:53,600
+um so let's go back. So that those are
+
+365
+00:17:48,960 --> 00:17:57,840
+woof packages. Uh I'm gonna um so
+
+366
+00:17:53,600 --> 00:18:01,520
+download that and I'm gonna show you how
+
+367
+00:17:57,840 --> 00:18:05,440
+rolling a line I mean a line segment can
+
+368
+00:18:01,520 --> 00:18:08,000
+be generated as a uh by rolling circles.
+
+369
+00:18:05,440 --> 00:18:10,240
+Okay. So here's some animations. Let me
+
+370
+00:18:08,000 --> 00:18:11,640
+get back to the lisp and wolfam language
+
+371
+00:18:10,240 --> 00:18:16,400
+thing.
+
+372
+00:18:11,640 --> 00:18:16,400
+Um, okay. So, you got this
+
+373
+00:18:18,840 --> 00:18:26,480
+um animations. Okay. And where is the
+
+374
+00:18:22,240 --> 00:18:26,480
+single line? Okay. That would be
+
+375
+00:18:36,840 --> 00:18:40,840
+hypotcoid. Mhm.
+
+376
+00:18:41,280 --> 00:18:47,039
+You see this shows a line segment can be
+
+377
+00:18:44,880 --> 00:18:50,960
+actually generated by rolling a circle
+
+378
+00:18:47,039 --> 00:18:53,360
+inside another of half radius of the
+
+379
+00:18:50,960 --> 00:18:53,360
+larger
+
+380
+00:18:55,640 --> 00:19:02,559
+circle and elis elisps can also be
+
+381
+00:18:59,760 --> 00:19:02,559
+generated that
+
+382
+00:19:04,520 --> 00:19:11,600
+way. And here we see the deltoid, we see
+
+383
+00:19:08,480 --> 00:19:15,039
+the asteroid, and we see other fancy
+
+384
+00:19:11,600 --> 00:19:19,200
+one. Rose, this is Rose. Okay, that's
+
+385
+00:19:15,039 --> 00:19:21,559
+about that. Um, yeah. So, uh, so uh, so
+
+386
+00:19:19,200 --> 00:19:26,720
+let me show you about
+
+387
+00:19:21,559 --> 00:19:29,080
+the how Wam language is a um, lisp
+
+388
+00:19:26,720 --> 00:19:33,760
+programming language.
+
+389
+00:19:29,080 --> 00:19:37,520
+Okay. Uh, so wam language history there
+
+390
+00:19:33,760 --> 00:19:39,600
+you go. UFM language version history of
+
+391
+00:19:37,520 --> 00:19:43,039
+notebook user interface you know today
+
+392
+00:19:39,600 --> 00:19:46,240
+it's very popular you have this Julia
+
+393
+00:19:43,039 --> 00:19:48,360
+uh Jupiter notebook where does it came
+
+394
+00:19:46,240 --> 00:19:52,400
+from it came from wuam
+
+395
+00:19:48,360 --> 00:19:55,919
+language 40 years ago starting in 1998
+
+396
+00:19:52,400 --> 00:19:59,840
+the notebook interface came from wuam
+
+397
+00:19:55,919 --> 00:19:59,840
+language okay let's start wuam
+
+398
+00:20:02,200 --> 00:20:08,520
+language so I highly, you know, it's my
+
+399
+00:20:06,240 --> 00:20:10,799
+favorite programming
+
+400
+00:20:08,520 --> 00:20:14,400
+language. It's my first programming
+
+401
+00:20:10,799 --> 00:20:16,640
+language, but it turns out also my
+
+402
+00:20:14,400 --> 00:20:18,039
+favorite after, you know, after all
+
+403
+00:20:16,640 --> 00:20:21,160
+these
+
+404
+00:20:18,039 --> 00:20:23,640
+years. So, hold on a second.
+
+405
+00:20:21,160 --> 00:20:27,600
+So, so Wufam
+
+406
+00:20:23,640 --> 00:20:30,799
+language shift enter to start to uh
+
+407
+00:20:27,600 --> 00:20:33,799
+launch it to start the kernel and
+
+408
+00:20:30,799 --> 00:20:33,799
+magnify.
+
+409
+00:20:35,080 --> 00:20:40,320
+Okay. Okay. So that's about notebook
+
+410
+00:20:37,679 --> 00:20:43,760
+interface. Then we want to go wam
+
+411
+00:20:40,320 --> 00:20:46,600
+language history. So wam language is
+
+412
+00:20:43,760 --> 00:20:50,480
+basic basically based on
+
+413
+00:20:46,600 --> 00:20:54,480
+lisp and APL. Okay. So you know here's
+
+414
+00:20:50,480 --> 00:20:55,400
+old documentation uh like 30 years ago
+
+415
+00:20:54,480 --> 00:20:59,200
+and
+
+416
+00:20:55,400 --> 00:21:01,679
+APL. Okay. So, so for detail wam
+
+417
+00:20:59,200 --> 00:21:04,919
+language versus lisp you can see wuam
+
+418
+00:21:01,679 --> 00:21:08,240
+language got every you know lisp
+
+419
+00:21:04,919 --> 00:21:12,720
+language why is it special because you
+
+420
+00:21:08,240 --> 00:21:15,360
+can list about five things about lisp
+
+421
+00:21:12,720 --> 00:21:17,760
+that is different from all other
+
+422
+00:21:15,360 --> 00:21:21,280
+languages. So one of them is everything
+
+423
+00:21:17,760 --> 00:21:23,440
+are symbols check. Same thing with wuam
+
+424
+00:21:21,280 --> 00:21:26,880
+language everything are symbols
+
+425
+00:21:23,440 --> 00:21:29,520
+everything is a expression check. uh a
+
+426
+00:21:26,880 --> 00:21:32,799
+expression is either atomic expression
+
+427
+00:21:29,520 --> 00:21:36,400
+such as numbers or string or a list
+
+428
+00:21:32,799 --> 00:21:39,760
+check also true in wolfam language
+
+429
+00:21:36,400 --> 00:21:42,640
+purely nested syntax true you know in in
+
+430
+00:21:39,760 --> 00:21:42,640
+list you got
+
+431
+00:21:43,240 --> 00:21:49,200
+paren so you know you got all these
+
+432
+00:21:46,120 --> 00:21:51,840
+parenthesis so you know you know like
+
+433
+00:21:49,200 --> 00:21:54,400
+this is lisp code wen language is
+
+434
+00:21:51,840 --> 00:21:57,360
+exactly the same purely necessary syntax
+
+435
+00:21:54,400 --> 00:22:00,120
+but you use the square bracket instead
+
+436
+00:21:57,360 --> 00:22:03,760
+and you put the head of the expression
+
+437
+00:22:00,120 --> 00:22:06,720
+outside. So and predominantly functional
+
+438
+00:22:03,760 --> 00:22:10,240
+programming check both in both case
+
+439
+00:22:06,720 --> 00:22:12,960
+reader macros. Exactly. So this you got
+
+440
+00:22:10,240 --> 00:22:17,200
+this you know square bracket for vector
+
+441
+00:22:12,960 --> 00:22:20,480
+you got this uh apostrophe for quote you
+
+442
+00:22:17,200 --> 00:22:23,039
+got back tick for quote but evaluate
+
+443
+00:22:20,480 --> 00:22:25,600
+parts of it. You got comma to indicate
+
+444
+00:22:23,039 --> 00:22:29,760
+which part you want to evaluate and you
+
+445
+00:22:25,600 --> 00:22:29,760
+got the uh the pound
+
+446
+00:22:31,720 --> 00:22:36,480
+sign you know and you know these are
+
+447
+00:22:34,320 --> 00:22:39,520
+kind you know in this they are called
+
+448
+00:22:36,480 --> 00:22:41,760
+reader markers and in wam language you
+
+449
+00:22:39,520 --> 00:22:44,960
+have a more elaborate version. So you
+
+450
+00:22:41,760 --> 00:22:47,799
+got you got so in wam language actually
+
+451
+00:22:44,960 --> 00:22:50,559
+you can you can have infix infix
+
+452
+00:22:47,799 --> 00:22:55,159
+notation but they are equivalent to the
+
+453
+00:22:50,559 --> 00:22:58,720
+nested version. So here is a complete
+
+454
+00:22:55,159 --> 00:23:02,720
+uh list of them in you know this you
+
+455
+00:22:58,720 --> 00:23:05,799
+know called reader macros in lisp but in
+
+456
+00:23:02,720 --> 00:23:08,200
+wuam language they are just called
+
+457
+00:23:05,799 --> 00:23:11,280
+syntactic forms.
+
+458
+00:23:08,200 --> 00:23:14,320
+Okay. So you got that then you got list
+
+459
+00:23:11,280 --> 00:23:18,240
+macros. So in list you got list macros
+
+460
+00:23:14,320 --> 00:23:21,039
+but in Wuam language you got like a
+
+461
+00:23:18,240 --> 00:23:24,679
+glorified list macros which is pattern
+
+462
+00:23:21,039 --> 00:23:28,480
+matching symbolic pattern
+
+463
+00:23:24,679 --> 00:23:31,440
+matching or also known as
+
+464
+00:23:28,480 --> 00:23:34,000
+um term rewriting system in computer
+
+465
+00:23:31,440 --> 00:23:35,919
+science. So if you take the computer
+
+466
+00:23:34,000 --> 00:23:38,799
+science perspective it's called term
+
+467
+00:23:35,919 --> 00:23:41,200
+rewriting system in in fact that's how
+
+468
+00:23:38,799 --> 00:23:43,840
+wam language works the entire language.
+
+469
+00:23:41,200 --> 00:23:46,720
+So imagine if you are a list coder wam
+
+470
+00:23:43,840 --> 00:23:49,440
+language is is such that every function
+
+471
+00:23:46,720 --> 00:23:51,320
+you write is a list macro okay that's
+
+472
+00:23:49,440 --> 00:23:52,840
+basically all you
+
+473
+00:23:51,320 --> 00:23:57,120
+do
+
+474
+00:23:52,840 --> 00:23:59,280
+so okay that's the lisp in wam language
+
+475
+00:23:57,120 --> 00:24:02,480
+then the other thing is APL APL
+
+476
+00:23:59,280 --> 00:24:05,200
+programming language is like you know so
+
+477
+00:24:02,480 --> 00:24:09,039
+so the main thing about APL language is
+
+478
+00:24:05,200 --> 00:24:11,360
+two things they use short unic code
+
+479
+00:24:09,039 --> 00:24:13,919
+symbols for function names
+
+480
+00:24:11,360 --> 00:24:15,840
+That's one thing which is um not too
+
+481
+00:24:13,919 --> 00:24:18,880
+important because it just renamed
+
+482
+00:24:15,840 --> 00:24:22,080
+functions. But the other thing about APL
+
+483
+00:24:18,880 --> 00:24:25,520
+that's um an innovation back then is
+
+484
+00:24:22,080 --> 00:24:29,840
+that they treat every function every
+
+485
+00:24:25,520 --> 00:24:33,200
+every every argument as a matrix or
+
+486
+00:24:29,840 --> 00:24:37,600
+array. So list array or nested. So you
+
+487
+00:24:33,200 --> 00:24:40,080
+got matrices or of of any dimension.
+
+488
+00:24:37,600 --> 00:24:43,360
+So whenever function takes an argument
+
+489
+00:24:40,080 --> 00:24:46,559
+whenever that argument is a list or
+
+490
+00:24:43,360 --> 00:24:49,760
+array or matrix it automatically apply
+
+491
+00:24:46,559 --> 00:24:52,640
+the function to the whole elements. So
+
+492
+00:24:49,760 --> 00:24:54,960
+it's like map. So in Python in
+
+493
+00:24:52,640 --> 00:24:58,240
+JavaScript in you know in Java we have
+
+494
+00:24:54,960 --> 00:25:01,120
+the map function from basically from
+
+495
+00:24:58,240 --> 00:25:03,880
+APL. Okay map. But the thing about APL
+
+496
+00:25:01,120 --> 00:25:05,760
+is that it it does it the map
+
+497
+00:25:03,880 --> 00:25:08,080
+automatically. So you don't have to
+
+498
+00:25:05,760 --> 00:25:10,159
+manually say maps a function to
+
+499
+00:25:08,080 --> 00:25:13,120
+something whenever the argument is a
+
+500
+00:25:10,159 --> 00:25:18,159
+list it automatically map. Okay. So that
+
+501
+00:25:13,120 --> 00:25:20,320
+is APL that is the the s the the the the
+
+502
+00:25:18,159 --> 00:25:23,760
+core characteristics the the the
+
+503
+00:25:20,320 --> 00:25:26,880
+innovation of APL APL stand for a
+
+504
+00:25:23,760 --> 00:25:28,720
+programming language. Okay. So so that's
+
+505
+00:25:26,880 --> 00:25:31,240
+a case in wam language. Okay. Okay. So
+
+506
+00:25:28,720 --> 00:25:34,240
+wam language got the list
+
+507
+00:25:31,240 --> 00:25:36,400
+characteristics APR characteristics and
+
+508
+00:25:34,240 --> 00:25:39,360
+every function in APR is in Wufam
+
+509
+00:25:36,400 --> 00:25:41,000
+language. APR is small like you got 30
+
+510
+00:25:39,360 --> 00:25:44,960
+functions that's
+
+511
+00:25:41,000 --> 00:25:47,840
+it. But then so besides these two wam
+
+512
+00:25:44,960 --> 00:25:50,000
+language does mathematics. So uh you
+
+513
+00:25:47,840 --> 00:25:52,960
+know symbolic solving equations
+
+514
+00:25:50,000 --> 00:25:54,039
+integrals derivatives and so on. So
+
+515
+00:25:52,960 --> 00:25:56,880
+these
+
+516
+00:25:54,039 --> 00:26:00,440
+three parts you know the you know the
+
+517
+00:25:56,880 --> 00:26:04,480
+this characteristics APL
+
+518
+00:26:00,440 --> 00:26:06,320
+and solve equations uh or integral and
+
+519
+00:26:04,480 --> 00:26:09,039
+you know differential equations or
+
+520
+00:26:06,320 --> 00:26:11,600
+vectors or solve matrices you know that
+
+521
+00:26:09,039 --> 00:26:14,320
+makes up that basically makes up the
+
+522
+00:26:11,600 --> 00:26:17,120
+wraim language what's known as
+
+523
+00:26:14,320 --> 00:26:20,080
+Mathematica. Okay. So then you can see
+
+524
+00:26:17,120 --> 00:26:22,720
+the details. So for every every part you
+
+525
+00:26:20,080 --> 00:26:25,120
+know like almost like everything about
+
+526
+00:26:22,720 --> 00:26:28,400
+this in wolf language there's a
+
+527
+00:26:25,120 --> 00:26:30,400
+counterpart okay and exactly basically
+
+528
+00:26:28,400 --> 00:26:32,320
+exactly the same thing except you know
+
+529
+00:26:30,400 --> 00:26:35,840
+the syntax differ a little bit but
+
+530
+00:26:32,320 --> 00:26:39,600
+exactly the same concept. So for syntax
+
+531
+00:26:35,840 --> 00:26:42,799
+for example for comments uh for for
+
+532
+00:26:39,600 --> 00:26:44,279
+grouping expressions for arithmetics
+
+533
+00:26:42,799 --> 00:26:47,039
+uh for
+
+534
+00:26:44,279 --> 00:26:48,640
+booleans uh then for variables
+
+535
+00:26:47,039 --> 00:26:53,600
+assignment
+
+536
+00:26:48,640 --> 00:26:57,120
+uh flow control if else which switch
+
+537
+00:26:53,600 --> 00:27:01,600
+condition and you know and loop while
+
+538
+00:26:57,120 --> 00:27:04,559
+map uh map C do times you know and data
+
+539
+00:27:01,600 --> 00:27:07,159
+structure. So in in data structure in
+
+540
+00:27:04,559 --> 00:27:09,760
+list basically everything is a
+
+541
+00:27:07,159 --> 00:27:13,120
+list then you have a hash table
+
+542
+00:27:09,760 --> 00:27:16,799
+basically list and hash table and well
+
+543
+00:27:13,120 --> 00:27:19,600
+you have vector okay so in this in wam
+
+544
+00:27:16,799 --> 00:27:22,000
+language language exactly the same so
+
+545
+00:27:19,600 --> 00:27:25,600
+this list this and association so every
+
+546
+00:27:22,000 --> 00:27:27,559
+every data structure is just those
+
+547
+00:27:25,600 --> 00:27:30,720
+mostly just list
+
+548
+00:27:27,559 --> 00:27:33,760
+okay so for example wam language does
+
+549
+00:27:30,720 --> 00:27:36,320
+not have hash table and until until
+
+550
+00:27:33,760 --> 00:27:39,679
+about 10 years ago. For the first 20
+
+551
+00:27:36,320 --> 00:27:42,320
+years ago, for the first 20 or so years
+
+552
+00:27:39,679 --> 00:27:45,039
+of wolf language, there's no hash table.
+
+553
+00:27:42,320 --> 00:27:47,440
+Everything is just a list. So what if
+
+554
+00:27:45,039 --> 00:27:50,440
+you want a hash table or dictionary?
+
+555
+00:27:47,440 --> 00:27:54,559
+Well, you just have a list of pairs just
+
+556
+00:27:50,440 --> 00:27:55,320
+like this called association list, you
+
+557
+00:27:54,559 --> 00:27:58,480
+know.
+
+558
+00:27:55,320 --> 00:28:01,520
+So, and you know, so so you can check
+
+559
+00:27:58,480 --> 00:28:03,720
+out that. Okay. So let's go back to um
+
+560
+00:28:01,520 --> 00:28:05,919
+so is that
+
+561
+00:28:03,720 --> 00:28:08,159
+interesting? Keep your comments coming.
+
+562
+00:28:05,919 --> 00:28:09,480
+Okay. So let's go back to start to code
+
+563
+00:28:08,159 --> 00:28:12,240
+some
+
+564
+00:28:09,480 --> 00:28:14,200
+uh some more fam language on the
+
+565
+00:28:12,240 --> 00:28:17,760
+mathematics on the
+
+566
+00:28:14,200 --> 00:28:17,760
+u on these
+
+567
+00:28:27,080 --> 00:28:32,399
+things. D
+
+568
+00:28:29,559 --> 00:28:34,799
+says you have influenced me to look into
+
+569
+00:28:32,399 --> 00:28:38,159
+more I didn't know it was a lisp. Why is
+
+570
+00:28:34,799 --> 00:28:40,480
+wam not used more often in some of the
+
+571
+00:28:38,159 --> 00:28:45,120
+places list use? It's simple. The answer
+
+572
+00:28:40,480 --> 00:28:47,919
+is simple. Wam language is not free. In
+
+573
+00:28:45,120 --> 00:28:50,320
+fact, if you want to buy it, it's like,
+
+574
+00:28:47,919 --> 00:28:51,919
+you know, like if you want to use in a
+
+575
+00:28:50,320 --> 00:28:55,960
+corporation like professional
+
+576
+00:28:51,919 --> 00:28:59,520
+organization, it's like $2,000,
+
+577
+00:28:55,960 --> 00:29:02,679
+$1,000 back in 1990s. They have student
+
+578
+00:28:59,520 --> 00:29:05,080
+version which is $250. So, it's very
+
+579
+00:29:02,679 --> 00:29:07,919
+commercial entity.
+
+580
+00:29:05,080 --> 00:29:09,919
+Okay? And most coders, you know, they
+
+581
+00:29:07,919 --> 00:29:12,320
+don't like it, you know, like the C and
+
+582
+00:29:09,919 --> 00:29:15,159
+Unix people, they don't want things
+
+583
+00:29:12,320 --> 00:29:18,159
+that's not free. they want
+
+584
+00:29:15,159 --> 00:29:20,559
+free you know so basic then the open
+
+585
+00:29:18,159 --> 00:29:23,320
+source became very popular since year
+
+586
+00:29:20,559 --> 00:29:26,799
+2000 everyone demand open
+
+587
+00:29:23,320 --> 00:29:29,760
+source so then basically that killed all
+
+588
+00:29:26,799 --> 00:29:31,520
+the commercial uh compilers and you know
+
+589
+00:29:29,760 --> 00:29:34,279
+so everything is like open source and
+
+590
+00:29:31,520 --> 00:29:37,279
+free but wuam language remained
+
+591
+00:29:34,279 --> 00:29:39,840
+commercial so today you can you can
+
+592
+00:29:37,279 --> 00:29:44,480
+download the um you know you can
+
+593
+00:29:39,840 --> 00:29:46,360
+download it free starting about um let's
+
+594
+00:29:44,480 --> 00:29:49,840
+about five years
+
+595
+00:29:46,360 --> 00:29:51,760
+ago. Okay. So, you can download it free.
+
+596
+00:29:49,840 --> 00:29:54,240
+Uh but it's still commercial. It's not
+
+597
+00:29:51,760 --> 00:29:56,279
+open source. Okay. The free version
+
+598
+00:29:54,240 --> 00:29:59,760
+provide everything. It's it's not a
+
+599
+00:29:56,279 --> 00:30:03,120
+crippled. So, it's like exactly the same
+
+600
+00:29:59,760 --> 00:30:05,679
+as if you buy if if you pay it, you
+
+601
+00:30:03,120 --> 00:30:07,760
+know, if you pay it. There's a student
+
+602
+00:30:05,679 --> 00:30:09,000
+version, there's a hobbyist version like
+
+603
+00:30:07,760 --> 00:30:11,360
+three
+
+604
+00:30:09,000 --> 00:30:13,159
+$300 something like that. Okay. check
+
+605
+00:30:11,360 --> 00:30:15,000
+their
+
+606
+00:30:13,159 --> 00:30:17,000
+website.
+
+607
+00:30:15,000 --> 00:30:20,159
+Um, you know,
+
+608
+00:30:17,000 --> 00:30:23,039
+so yeah, it's commercial. I mean, yeah,
+
+609
+00:30:20,159 --> 00:30:25,360
+you know, so the open source, you know,
+
+610
+00:30:23,039 --> 00:30:29,760
+people want free things, but now you got
+
+611
+00:30:25,360 --> 00:30:29,760
+you you you got the free um
+
+612
+00:30:30,840 --> 00:30:38,039
+version. Okay, so that's about war
+
+613
+00:30:33,360 --> 00:30:38,039
+language. So, uh, hello Hank.
+
+614
+00:30:39,440 --> 00:30:43,600
+Okay, let's code some let's start to
+
+615
+00:30:46,360 --> 00:30:52,799
+code. Okay, so close uh that show. So
+
+616
+00:30:50,320 --> 00:30:55,919
+let's start to code. I want to code um
+
+617
+00:30:52,799 --> 00:30:57,840
+what are we coding? So I want to
+
+618
+00:30:55,919 --> 00:30:59,000
+regenerate this graph. Let's try that
+
+619
+00:30:57,840 --> 00:31:02,960
+today.
+
+620
+00:30:59,000 --> 00:31:04,720
+Okay. So open that. So go to the top MB.
+
+621
+00:31:02,960 --> 00:31:06,960
+You can see there's a wuam language
+
+622
+00:31:04,720 --> 00:31:11,720
+notebook. You know these are 30 years
+
+623
+00:31:06,960 --> 00:31:16,080
+old. So open it. Make a backup. Open
+
+624
+00:31:11,720 --> 00:31:18,640
+it. Okay. So let's move it here. And you
+
+625
+00:31:16,080 --> 00:31:20,480
+can see it says, you know, Asian
+
+626
+00:31:18,640 --> 00:31:26,480
+notebook. Do you want to update the
+
+627
+00:31:20,480 --> 00:31:27,960
+appearance? Yes. Okay. Then uh magnify.
+
+628
+00:31:26,480 --> 00:31:32,399
+Okay.
+
+629
+00:31:27,960 --> 00:31:34,200
+So, so these are all my old um you know
+
+630
+00:31:32,399 --> 00:31:37,080
+like this is
+
+631
+00:31:34,200 --> 00:31:40,640
+199
+
+632
+00:31:37,080 --> 00:31:42,880
+1995 many of these are obsolete but I
+
+633
+00:31:40,640 --> 00:31:43,640
+have a updated version on my website and
+
+634
+00:31:42,880 --> 00:31:47,880
+on
+
+635
+00:31:43,640 --> 00:31:52,159
+GitHub. So description uh okay
+
+636
+00:31:47,880 --> 00:31:56,840
+so how we going to do this?
+
+637
+00:31:52,159 --> 00:31:56,840
+So you can see this is ancient
+
+638
+00:31:57,880 --> 00:32:04,320
+um okay so this is the graph we want to
+
+639
+00:32:01,320 --> 00:32:04,320
+recreate
+
+640
+00:32:04,360 --> 00:32:10,000
+okay now this is 30 years old now
+
+641
+00:32:07,519 --> 00:32:10,000
+remember
+
+642
+00:32:10,519 --> 00:32:15,919
+so okay okay so we need to do that okay
+
+643
+00:32:13,760 --> 00:32:19,760
+so let's let's start with something
+
+644
+00:32:15,919 --> 00:32:22,760
+simple okay so let's put here let's save
+
+645
+00:32:19,760 --> 00:32:22,760
+it
+
+646
+00:32:23,240 --> 00:32:28,919
+um untitled
+
+647
+00:32:26,440 --> 00:32:31,080
+uh spiral
+
+648
+00:32:28,919 --> 00:32:34,559
+graph.
+
+649
+00:32:31,080 --> 00:32:37,080
+Okay. So it's calling power plot and
+
+650
+00:32:34,559 --> 00:32:39,640
+calling that that is my
+
+651
+00:32:37,080 --> 00:32:45,960
+um that is my
+
+652
+00:32:39,640 --> 00:32:49,919
+um my packages. Okay. So okay. So let's
+
+653
+00:32:45,960 --> 00:32:49,919
+see. So you can get
+
+654
+00:33:02,200 --> 00:33:06,279
+those. Okay, let me let me let me start
+
+655
+00:33:04,799 --> 00:33:09,519
+to do this.
+
+656
+00:33:06,279 --> 00:33:12,880
+Um, so what do you need? So this package
+
+657
+00:33:09,519 --> 00:33:15,760
+is uh so this one is for uh plank code
+
+658
+00:33:12,880 --> 00:33:19,279
+formulas. Okay. So yeah, so let's focus
+
+659
+00:33:15,760 --> 00:33:22,559
+on getting this done hyper. So okay, so
+
+660
+00:33:19,279 --> 00:33:25,120
+go to curve formulas. Let me just get
+
+661
+00:33:22,559 --> 00:33:29,440
+it. Okay, so we are doing what is this
+
+662
+00:33:25,120 --> 00:33:29,440
+one? This one is uh
+
+663
+00:33:29,960 --> 00:33:36,960
+hypotcoid. Okay, so hypo this one is
+
+664
+00:33:34,279 --> 00:33:40,480
+hypocyclloid. Okay, let me just grab the
+
+665
+00:33:36,960 --> 00:33:42,120
+formula. Okay, so hold on a second. So
+
+666
+00:33:40,480 --> 00:33:46,080
+go to talk
+
+667
+00:33:42,120 --> 00:33:48,039
+show go to today's talk show and start
+
+668
+00:33:46,080 --> 00:33:51,399
+start a coding
+
+669
+00:33:48,039 --> 00:33:57,000
+block language. Okay, paste the code
+
+670
+00:33:51,399 --> 00:33:58,760
+there and uh Okay, then search
+
+671
+00:33:57,000 --> 00:34:02,480
+search
+
+672
+00:33:58,760 --> 00:34:02,480
+hypotid search
+
+673
+00:34:06,039 --> 00:34:12,079
+search. Okay, where is the definition?
+
+674
+00:34:08,560 --> 00:34:15,839
+So the definition is here that is the
+
+675
+00:34:12,079 --> 00:34:19,200
+formula. Okay. Copy that. Close that.
+
+676
+00:34:15,839 --> 00:34:23,760
+Okay. Now show in browser. So there's a
+
+677
+00:34:19,200 --> 00:34:26,639
+wam language. Let's uh pop it out. Paste
+
+678
+00:34:23,760 --> 00:34:29,359
+it here. So this is the formula. So we
+
+679
+00:34:26,639 --> 00:34:32,560
+want to
+
+680
+00:34:29,359 --> 00:34:32,560
+uh so let's copy
+
+681
+00:34:33,879 --> 00:34:40,159
+this. Okay. So we need to make this code
+
+682
+00:34:37,200 --> 00:34:42,320
+work. This code right now won't work
+
+683
+00:34:40,159 --> 00:34:44,879
+because it's coding a package. I can
+
+684
+00:34:42,320 --> 00:34:47,119
+load the package but I don't want to do
+
+685
+00:34:44,879 --> 00:34:50,079
+that. I want to show you how to do this
+
+686
+00:34:47,119 --> 00:34:51,879
+um without you know without like a
+
+687
+00:34:50,079 --> 00:34:55,280
+special
+
+688
+00:34:51,879 --> 00:34:59,040
+package. Okay. So you define this
+
+689
+00:34:55,280 --> 00:35:03,320
+function hypocyclloid and which is has
+
+690
+00:34:59,040 --> 00:35:03,320
+three parameters there.
+
+691
+00:35:03,599 --> 00:35:10,119
+uh let's let's uh
+
+692
+00:35:06,760 --> 00:35:13,440
+show okay three
+
+693
+00:35:10,119 --> 00:35:14,760
+parameters. So hypocyclloid is a special
+
+694
+00:35:13,440 --> 00:35:18,240
+case of
+
+695
+00:35:14,760 --> 00:35:21,839
+hypotloid. So it becomes um yeah so it
+
+696
+00:35:18,240 --> 00:35:23,720
+becomes one and one over n one / n and
+
+697
+00:35:21,839 --> 00:35:26,839
+what is hypo
+
+698
+00:35:23,720 --> 00:35:31,599
+hypotcoid which is uh this
+
+699
+00:35:26,839 --> 00:35:35,400
+one and it is a function of t. So here's
+
+700
+00:35:31,599 --> 00:35:39,359
+the formula. A and B, A and B are
+
+701
+00:35:35,400 --> 00:35:42,920
+the the radius of the circles. So circle
+
+702
+00:35:39,359 --> 00:35:46,560
+A, circle B, radius H is
+
+703
+00:35:42,920 --> 00:35:48,240
+the the distance from the center of the
+
+704
+00:35:46,560 --> 00:35:50,920
+rolling circle. That's the tracing
+
+705
+00:35:48,240 --> 00:35:55,200
+point. Okay. So anyway, that's the
+
+706
+00:35:50,920 --> 00:35:57,520
+formula. So then you want to Okay. So
+
+707
+00:35:55,200 --> 00:36:00,520
+let let me just quickly show you
+
+708
+00:35:57,520 --> 00:36:00,520
+something.
+
+709
+00:36:02,880 --> 00:36:09,400
+Okay. So, parametric plot takes two
+
+710
+00:36:06,240 --> 00:36:14,119
+functions. One is the
+
+711
+00:36:09,400 --> 00:36:17,440
+um um Okay. So, let's not do
+
+712
+00:36:14,119 --> 00:36:21,920
+that. So, parametric plot takes two
+
+713
+00:36:17,440 --> 00:36:25,040
+argument. One is a function. Um the
+
+714
+00:36:21,920 --> 00:36:31,160
+second part is a parameter t from zero
+
+715
+00:36:25,040 --> 00:36:34,720
+to let's say 30. uh let's say 10 pi.
+
+716
+00:36:31,160 --> 00:36:37,200
+Okay. So you need to define a and b.
+
+717
+00:36:34,720 --> 00:36:37,200
+Okay.
+
+718
+00:36:38,040 --> 00:36:47,480
+Clear. A b. Okay.
+
+719
+00:36:42,599 --> 00:36:50,599
+Then then you assign a =
+
+720
+00:36:47,480 --> 00:36:58,359
+5 a =
+
+721
+00:36:50,599 --> 00:36:58,359
+1 b = to let's say 1 over 3.
+
+722
+00:36:58,560 --> 00:37:06,160
+Okay. So we can now plot
+
+723
+00:37:02,599 --> 00:37:09,680
+this. Okay. No go. Okay. Something is
+
+724
+00:37:06,160 --> 00:37:13,720
+wrong. So why is it wrong? Because H is
+
+725
+00:37:09,680 --> 00:37:16,599
+not defined. Yeah. So we need to define
+
+726
+00:37:13,720 --> 00:37:20,599
+H.
+
+727
+00:37:16,599 --> 00:37:24,200
+Uh AB
+
+728
+00:37:20,599 --> 00:37:28,920
+H. Okay. So h
+
+729
+00:37:24,200 --> 00:37:31,920
+is 1.1 over3. Okay, copy
+
+730
+00:37:28,920 --> 00:37:35,920
+that. Now if you are wondering what is
+
+731
+00:37:31,920 --> 00:37:35,920
+h, let me there. There it is.
+
+732
+00:37:38,520 --> 00:37:44,800
+Okay. Okay. So what is edge? Uh h is the
+
+733
+00:37:47,079 --> 00:37:52,680
+um so let me show you an animation. Uh
+
+734
+00:37:50,480 --> 00:37:55,599
+do we have an
+
+735
+00:37:52,680 --> 00:37:58,720
+animation? Yeah. You see this? You see
+
+736
+00:37:55,599 --> 00:38:00,200
+this bar extending far out from the
+
+737
+00:37:58,720 --> 00:38:04,480
+yellow
+
+738
+00:38:00,200 --> 00:38:08,280
+circles. So the distance from the leng
+
+739
+00:38:04,480 --> 00:38:11,119
+so h is the length of that bar.
+
+740
+00:38:08,280 --> 00:38:12,520
+Okay. So if the length is different, you
+
+741
+00:38:11,119 --> 00:38:17,119
+have different
+
+742
+00:38:12,520 --> 00:38:19,000
+curves. So here the formula a and b. A
+
+743
+00:38:17,119 --> 00:38:22,960
+is the larger
+
+744
+00:38:19,000 --> 00:38:25,760
+circle radius. B is the radius of the
+
+745
+00:38:22,960 --> 00:38:30,440
+smaller circle. And H is that length of
+
+746
+00:38:25,760 --> 00:38:33,599
+that bar. Okay. So, so you got
+
+747
+00:38:30,440 --> 00:38:36,440
+that. Okay. So, and and what's the other
+
+748
+00:38:33,599 --> 00:38:40,240
+thing? So, if you change it to 3
+
+749
+00:38:36,440 --> 00:38:46,000
+over7, so if you change this to 3 over
+
+750
+00:38:40,240 --> 00:38:51,520
+7, then you get that seven star thing. 3
+
+751
+00:38:46,000 --> 00:38:54,000
+over 7 shift enter fantastic okay so you
+
+752
+00:38:51,520 --> 00:38:56,560
+don't need any packages you can just in
+
+753
+00:38:54,000 --> 00:39:01,400
+fact you can go to wuam research like
+
+754
+00:38:56,560 --> 00:39:05,920
+you can go to the wuam alpha and it
+
+755
+00:39:01,400 --> 00:39:07,400
+will I I'm pretty sure okay so wuam
+
+756
+00:39:05,920 --> 00:39:10,320
+alpha
+
+757
+00:39:07,400 --> 00:39:14,599
+website they have somewhere that allows
+
+758
+00:39:10,320 --> 00:39:17,240
+you to uh evaluate wuam language code
+
+759
+00:39:14,599 --> 00:39:21,640
+online
+
+760
+00:39:17,240 --> 00:39:25,119
+like okay so let's see
+
+761
+00:39:21,640 --> 00:39:28,040
+uh yeah
+
+762
+00:39:25,119 --> 00:39:32,280
+uh okay I missed some part of
+
+763
+00:39:28,040 --> 00:39:34,119
+it so let's copy again turn on
+
+764
+00:39:32,280 --> 00:39:37,200
+JavaScript
+
+765
+00:39:34,119 --> 00:39:40,880
+yes mafa doesn't understand your query
+
+766
+00:39:37,200 --> 00:39:40,880
+okay so
+
+767
+00:39:47,079 --> 00:39:53,920
+Yeah, you need to go to somewhere. Wait,
+
+768
+00:39:50,480 --> 00:39:58,280
+try the following. Okay, wam, you know.
+
+769
+00:39:53,920 --> 00:40:00,880
+Wow, it it types set the thing.
+
+770
+00:39:58,280 --> 00:40:03,320
+Fantastic. So, in Wuam language, you can
+
+771
+00:40:00,880 --> 00:40:06,880
+type set the thing just by
+
+772
+00:40:03,320 --> 00:40:09,119
+pressing control shift N. Okay, it's
+
+773
+00:40:06,880 --> 00:40:10,800
+beautiful. That's the beauty of uh you
+
+774
+00:40:09,119 --> 00:40:13,760
+know wam language. You don't have to
+
+775
+00:40:10,800 --> 00:40:17,079
+learn lat or tech complicated you know
+
+776
+00:40:13,760 --> 00:40:19,839
+just control shift n we'll do
+
+777
+00:40:17,079 --> 00:40:23,520
+it. Okay so we got that. So let's move
+
+778
+00:40:19,839 --> 00:40:26,400
+on. So what but what um okay so okay got
+
+779
+00:40:23,520 --> 00:40:27,240
+so now we need to get we need to work on
+
+780
+00:40:26,400 --> 00:40:30,240
+this
+
+781
+00:40:27,240 --> 00:40:30,240
+code.
+
+782
+00:40:30,599 --> 00:40:37,200
+Yeah. Okay. So this code will generate
+
+783
+00:40:34,640 --> 00:40:37,200
+this
+
+784
+00:40:38,119 --> 00:40:46,079
+graphics. Okay. So this is 30 years old
+
+785
+00:40:43,079 --> 00:40:46,079
+graphics.
+
+786
+00:40:47,320 --> 00:40:56,359
+Um so so let's make a break point there.
+
+787
+00:40:52,160 --> 00:41:00,319
+So we need to get this code to work.
+
+788
+00:40:56,359 --> 00:41:06,280
+Okay. So why so I'm doing this you know
+
+789
+00:41:00,319 --> 00:41:06,280
+this particular graphics is to show
+
+790
+00:41:06,400 --> 00:41:13,119
+uh let me go back here okay so so this
+
+791
+00:41:10,000 --> 00:41:17,640
+particular graphic is to show it it lets
+
+792
+00:41:13,119 --> 00:41:20,880
+you get a general idea of what the
+
+793
+00:41:17,640 --> 00:41:22,200
+parameters what the curves look like for
+
+794
+00:41:20,880 --> 00:41:24,480
+a certain
+
+795
+00:41:22,200 --> 00:41:27,760
+parameter because there are so many of
+
+796
+00:41:24,480 --> 00:41:30,359
+them you know so so I've choose
+
+797
+00:41:27,760 --> 00:41:35,040
+This is carefully chosen
+
+798
+00:41:30,359 --> 00:41:37,599
+values. So it is intended intended to
+
+799
+00:41:35,040 --> 00:41:39,440
+show you that so at a glance you can
+
+800
+00:41:37,599 --> 00:41:43,200
+know what kind of parameters will
+
+801
+00:41:39,440 --> 00:41:45,920
+generate what kind of curve. Okay. So
+
+802
+00:41:43,200 --> 00:41:48,560
+for example if you see these uh six
+
+803
+00:41:45,920 --> 00:41:54,160
+curves you can see the number six there.
+
+804
+00:41:48,560 --> 00:41:56,800
+You see -1 / 6 or -5 over 6. So for
+
+805
+00:41:54,160 --> 00:42:02,040
+these five curves you can see the number
+
+806
+00:41:56,800 --> 00:42:05,119
+five -1 over five or -4 over
+
+807
+00:42:02,040 --> 00:42:07,160
+five for this one is four you know for
+
+808
+00:42:05,119 --> 00:42:10,240
+this one is
+
+809
+00:42:07,160 --> 00:42:13,280
+seven. Okay so you know so and this one
+
+810
+00:42:10,240 --> 00:42:16,240
+is four. So you know you can like get a
+
+811
+00:42:13,280 --> 00:42:19,040
+sense of what it looks like. Okay. So
+
+812
+00:42:16,240 --> 00:42:23,680
+let's uh let's try to update this. Okay.
+
+813
+00:42:19,040 --> 00:42:27,200
+So let's see. Uh oh my god my my this so
+
+814
+00:42:23,680 --> 00:42:30,359
+this is kind of advanced code I wrote
+
+815
+00:42:27,200 --> 00:42:36,119
+like 20 years ago 30 years
+
+816
+00:42:30,359 --> 00:42:40,800
+ago they uh okay parametric plot uh
+
+817
+00:42:36,119 --> 00:42:40,800
+hypotcoid okay so I need to define
+
+818
+00:42:40,839 --> 00:42:45,040
+that oh it's
+
+819
+00:42:47,560 --> 00:42:53,440
+epitrocoid okay I got hypotcoid but I
+
+820
+00:42:50,800 --> 00:42:55,720
+don't have a trunk. AP trunk is
+
+821
+00:42:53,440 --> 00:42:58,720
+basically just a change of
+
+822
+00:42:55,720 --> 00:42:58,720
+sign.
+
+823
+00:42:59,560 --> 00:43:09,480
+So get uh let's see curve formulas. So
+
+824
+00:43:05,280 --> 00:43:12,319
+what what we need? We need the epi
+
+825
+00:43:09,480 --> 00:43:14,560
+epitroid formula. Search for it. There
+
+826
+00:43:12,319 --> 00:43:14,560
+it
+
+827
+00:43:14,920 --> 00:43:20,599
+is. Copy back here.
+
+828
+00:43:19,680 --> 00:43:24,400
+So
+
+829
+00:43:20,599 --> 00:43:26,280
+let's put it there. Okay. So this part
+
+830
+00:43:24,400 --> 00:43:29,680
+we
+
+831
+00:43:26,280 --> 00:43:33,119
+remove and where is the formula? Okay.
+
+832
+00:43:29,680 --> 00:43:33,119
+So search for the
+
+833
+00:43:33,400 --> 00:43:38,440
+formula. There it is.
+
+834
+00:43:35,720 --> 00:43:42,079
+Okay. Copy.
+
+835
+00:43:38,440 --> 00:43:45,920
+Close and paste it here. And this this
+
+836
+00:43:42,079 --> 00:43:49,359
+is the inline documentation. Okay. Move
+
+837
+00:43:45,920 --> 00:43:51,400
+it up.
+
+838
+00:43:49,359 --> 00:43:54,040
+Okay. So we got
+
+839
+00:43:51,400 --> 00:43:57,760
+hypocyclloid
+
+840
+00:43:54,040 --> 00:43:59,160
+epicloid. So hypocyclloid is defined in
+
+841
+00:43:57,760 --> 00:44:02,800
+terms of
+
+842
+00:43:59,160 --> 00:44:05,800
+hypotrocoid. Epicid is defined in terms
+
+843
+00:44:02,800 --> 00:44:08,800
+of epitrocoid.
+
+844
+00:44:05,800 --> 00:44:08,800
+Okay.
+
+845
+00:44:09,560 --> 00:44:19,520
+Um okay. So Okay. So we need some kind
+
+846
+00:44:13,359 --> 00:44:19,520
+of clear um because that makes
+
+847
+00:44:19,880 --> 00:44:26,240
+it so that you
+
+848
+00:44:22,359 --> 00:44:30,200
+can so when you re-eva re-evaluate they
+
+849
+00:44:26,240 --> 00:44:32,440
+will clear clear out all the rules and
+
+850
+00:44:30,200 --> 00:44:34,440
+stuff.
+
+851
+00:44:32,440 --> 00:44:38,960
+Um
+
+852
+00:44:34,440 --> 00:44:39,720
+hypotcoid. Okay. So that then then you
+
+853
+00:44:38,960 --> 00:44:45,800
+need
+
+854
+00:44:39,720 --> 00:44:51,040
+the MP cycl. Okay. Yeah. So clear
+
+855
+00:44:45,800 --> 00:44:56,599
+them then inline documentation then um
+
+856
+00:44:51,040 --> 00:45:00,079
+then the actual definition here. Okay.
+
+857
+00:44:56,599 --> 00:45:00,079
+Then then
+
+858
+00:45:01,880 --> 00:45:06,480
+you Okay. So,
+
+859
+00:45:08,599 --> 00:45:12,960
+so okay. So, you got
+
+860
+00:45:14,280 --> 00:45:20,960
+this. Okay. You got
+
+861
+00:45:16,839 --> 00:45:20,960
+this. Actually, it will just
+
+862
+00:45:21,000 --> 00:45:30,000
+work. All you have to do it will just
+
+863
+00:45:24,160 --> 00:45:31,880
+work. I'm pretty sure. So, go back here.
+
+864
+00:45:30,000 --> 00:45:35,440
+Select
+
+865
+00:45:31,880 --> 00:45:38,720
+all. Uh, wait a minute. Shift enter. Let
+
+866
+00:45:35,440 --> 00:45:38,720
+me make a screenshot of
+
+867
+00:45:49,160 --> 00:45:58,960
+this. Okay. Select or paste. Uh, no, not
+
+868
+00:45:54,079 --> 00:46:00,520
+that. Copy or select or paste. Okay. So
+
+869
+00:45:58,960 --> 00:46:02,040
+we got a code
+
+870
+00:46:00,520 --> 00:46:04,280
+here.
+
+871
+00:46:02,040 --> 00:46:06,359
+Now shift
+
+872
+00:46:04,280 --> 00:46:08,680
+controlN to make
+
+873
+00:46:06,359 --> 00:46:12,720
+it type
+
+874
+00:46:08,680 --> 00:46:16,319
+set. Okay. So now we can evaluate it and
+
+875
+00:46:12,720 --> 00:46:16,319
+hopefully it will create
+
+876
+00:46:16,359 --> 00:46:27,240
+this after 30 years. Okay. Let's see.
+
+877
+00:46:21,079 --> 00:46:27,240
+Yeah. Shift enter. Okay. Do it.
+
+878
+00:46:27,760 --> 00:46:33,319
+Okay. No, wrong. Yeah, graphics array is
+
+879
+00:46:31,119 --> 00:46:36,400
+obsolete. Okay.
+
+880
+00:46:33,319 --> 00:46:40,000
+So, yeah. So, it's obsolete. You need to
+
+881
+00:46:36,400 --> 00:46:42,319
+use graphics grid. But, however, it
+
+882
+00:46:40,000 --> 00:46:42,319
+still
+
+883
+00:46:43,240 --> 00:46:50,480
+works. Now, you see, you need to change
+
+884
+00:46:46,640 --> 00:46:51,560
+the thickness. Yeah, I kind of like this
+
+885
+00:46:50,480 --> 00:46:56,160
+new
+
+886
+00:46:51,560 --> 00:46:59,280
+thickness. New default thickness.
+
+887
+00:46:56,160 --> 00:47:02,560
+Okay. So it it works. Um this minor
+
+888
+00:46:59,280 --> 00:47:05,760
+detail graph graphics array is obsolate.
+
+889
+00:47:02,560 --> 00:47:08,720
+You need to use graphics grid which is
+
+890
+00:47:05,760 --> 00:47:12,319
+um trivial to change. It doesn't matter
+
+891
+00:47:08,720 --> 00:47:14,720
+much. Okay. So graphics array is a
+
+892
+00:47:12,319 --> 00:47:18,079
+function that just take a takes a list
+
+893
+00:47:14,720 --> 00:47:21,680
+of graphics. Then they will try to
+
+894
+00:47:18,079 --> 00:47:24,319
+arrange them in a in a like grid. So
+
+895
+00:47:21,680 --> 00:47:26,839
+that you know so they they they replace
+
+896
+00:47:24,319 --> 00:47:30,400
+with a new function graphics
+
+897
+00:47:26,839 --> 00:47:33,280
+grid. So anyway so that's it. We did
+
+898
+00:47:30,400 --> 00:47:36,440
+what we wanted. Fantastic. So let me
+
+899
+00:47:33,280 --> 00:47:40,839
+copy this. So
+
+900
+00:47:36,440 --> 00:47:45,359
+um uh cut graphics. Let's see. Uh
+
+901
+00:47:40,839 --> 00:47:47,280
+export copy graphics. Uh, save graphics
+
+902
+00:47:45,359 --> 00:47:52,119
+as
+
+903
+00:47:47,280 --> 00:47:56,680
+uh I don't want PDF, I want
+
+904
+00:47:52,119 --> 00:48:01,240
+JPEG. So, you got PDF, HTML,
+
+905
+00:47:56,680 --> 00:48:07,000
+BMP, JPEG, PNG. That's what we want.
+
+906
+00:48:01,240 --> 00:48:09,800
+Okay. Then, uh, this Windows
+
+907
+00:48:07,000 --> 00:48:14,240
+interface
+
+908
+00:48:09,800 --> 00:48:14,240
+XX. Okay. Now go to
+
+909
+00:48:15,960 --> 00:48:20,960
+desktop
+
+910
+00:48:17,640 --> 00:48:23,400
+refresh. There is a graphics now open in
+
+911
+00:48:20,960 --> 00:48:25,559
+a in the dedicated
+
+912
+00:48:23,400 --> 00:48:29,440
+graphics.
+
+913
+00:48:25,559 --> 00:48:31,960
+Fantastic. Fantastic. Okay. So, copy the
+
+914
+00:48:29,440 --> 00:48:33,559
+file path. Close
+
+915
+00:48:31,960 --> 00:48:36,800
+it.
+
+916
+00:48:33,559 --> 00:48:41,280
+Show metadata. Okay. There's a lot of
+
+917
+00:48:36,800 --> 00:48:45,280
+metadata. We make a backup. Now remove
+
+918
+00:48:41,280 --> 00:48:48,800
+meta data. Okay. Show metadata again.
+
+919
+00:48:45,280 --> 00:48:53,760
+Now it's meta data is removed. Okay. Now
+
+920
+00:48:48,800 --> 00:48:55,000
+copy the file path. Close. Close. Go to
+
+921
+00:48:53,760 --> 00:48:58,880
+talk
+
+922
+00:48:55,000 --> 00:49:00,440
+show. Today's talk show in browser. Go
+
+923
+00:48:58,880 --> 00:49:06,119
+to the
+
+924
+00:49:00,440 --> 00:49:10,400
+um hypocyclloid page. Open it there
+
+925
+00:49:06,119 --> 00:49:14,359
+and search for PNG. So this is the old
+
+926
+00:49:10,400 --> 00:49:18,800
+image. Now let's put a new image here.
+
+927
+00:49:14,359 --> 00:49:21,680
+Linkfi show. There it is. Fantastic.
+
+928
+00:49:18,800 --> 00:49:22,920
+This is update after 30 years. Yeah,
+
+929
+00:49:21,680 --> 00:49:27,200
+it's much
+
+930
+00:49:22,920 --> 00:49:30,880
+better. And then move the image to the
+
+931
+00:49:27,200 --> 00:49:30,880
+current directory. Wait.
+
+932
+00:49:33,079 --> 00:49:41,160
+Uh move it to the current directory and
+
+933
+00:49:36,720 --> 00:49:45,200
+just say there. and uh rename
+
+934
+00:49:41,160 --> 00:49:45,200
+it. Uh rename
+
+935
+00:49:49,240 --> 00:49:58,079
+it. Uh okay, this is my old
+
+936
+00:49:53,160 --> 00:49:58,079
+um naming convention. Let's make
+
+937
+00:49:59,000 --> 00:50:05,079
+it epicyclloid
+
+938
+00:50:02,119 --> 00:50:07,079
+hypocyclloid gallery. Okay, let's just
+
+939
+00:50:05,079 --> 00:50:11,440
+say
+
+940
+00:50:07,079 --> 00:50:14,000
+okay, redo the figure tag. There you
+
+941
+00:50:11,440 --> 00:50:17,599
+have it. Okay, that's it for today.
+
+942
+00:50:14,000 --> 00:50:17,599
+Fantastic. I hope you like
+
+943
+00:50:19,480 --> 00:50:25,520
+it. Anything else? I think Yeah, that's
+
+944
+00:50:22,160 --> 00:50:28,480
+it for today. Uh I'm going to I need to
+
+945
+00:50:25,520 --> 00:50:32,240
+code. So, you know, I need to code a lot
+
+946
+00:50:28,480 --> 00:50:33,800
+more. I need to um you see this package?
+
+947
+00:50:32,240 --> 00:50:37,359
+I need
+
+948
+00:50:33,800 --> 00:50:40,480
+to and there's a lot of animations and
+
+949
+00:50:37,359 --> 00:50:40,480
+stuff I need to
+
+950
+00:50:48,599 --> 00:50:58,680
+redo. Okay. Bye guys. I think that's it.
+
+951
+00:50:53,760 --> 00:51:01,599
+So, so this old image let's see this is
+
+952
+00:50:58,680 --> 00:51:05,280
+36 kilobytes.
+
+953
+00:51:01,599 --> 00:51:05,280
+Okay, let's look at the new
+
+954
+00:51:05,640 --> 00:51:11,520
+image.
+
+955
+00:51:07,640 --> 00:51:13,000
+566. Okay, you need to uh optimize it.
+
+956
+00:51:11,520 --> 00:51:15,480
+Make a backup
+
+957
+00:51:13,000 --> 00:51:17,160
+first.
+
+958
+00:51:15,480 --> 00:51:20,359
+Optimize.
+
+959
+00:51:17,160 --> 00:51:23,880
+Okay, refresh. Now it's
+
+960
+00:51:20,359 --> 00:51:27,880
+242 kilobytes. So it's
+
+961
+00:51:23,880 --> 00:51:27,880
+like Yeah.
+
+962
+00:51:36,000 --> 00:51:41,240
+Uh, if you like my stuff, okay, support
+
+963
+00:51:38,960 --> 00:51:45,680
+me. Go to
+
+964
+00:51:41,240 --> 00:51:45,680
+my.info. Pay me, okay? Go
+
+965
+00:51:46,040 --> 00:51:52,079
+to.info. You can
+
+966
+00:51:49,160 --> 00:51:55,440
+then.info. Then all the way down.
+
+967
+00:51:52,079 --> 00:51:58,960
+Patreon me, Amazon gift card, PayPal. I
+
+968
+00:51:55,440 --> 00:52:02,720
+prefer those. Okay. send me $100 or you
+
+969
+00:51:58,960 --> 00:52:06,040
+can get my entire website of all the
+
+970
+00:52:02,720 --> 00:52:09,280
+programming tutorials. It's about $6,000
+
+971
+00:52:06,040 --> 00:52:12,720
+pages, three gigabytes of information
+
+972
+00:52:09,280 --> 00:52:15,160
+written in the past 30 years. You can
+
+973
+00:52:12,720 --> 00:52:19,599
+pay me $300
+
+974
+00:52:15,160 --> 00:52:22,480
+PayPal or Amazon gift card and uh I'll
+
+975
+00:52:19,599 --> 00:52:25,119
+send you a zip version. Okay? Or you can
+
+976
+00:52:22,480 --> 00:52:27,599
+buy my Emacs tutorial and JavaScript
+
+977
+00:52:25,119 --> 00:52:30,400
+tutorial. you you know go there if you
+
+978
+00:52:27,599 --> 00:52:34,599
+are interested you'll find the you know
+
+979
+00:52:30,400 --> 00:52:39,119
+the link to pay me and get the zip
+
+980
+00:52:34,599 --> 00:52:41,680
+file. Thank you guys for watching and
+
+981
+00:52:39,119 --> 00:52:43,599
+bye guys like it very much. Thank you.
+
+982
+00:52:41,680 --> 00:52:45,160
+First time I see Wu in action.
+
+983
+00:52:43,599 --> 00:52:48,160
+Fantastic. Hey
+
+984
+00:52:45,160 --> 00:52:48,160
+10.
+
+985
+00:52:51,160 --> 00:52:56,319
+Bye. Okay. So close down.
+

@@ -1,0 +1,6932 @@
+1
+00:00:00,400 --> 00:00:05,759
+Hello, welcome to another episode of
+
+2
+00:00:03,200 --> 00:00:09,160
+talk show. So we are going to code wolf
+
+3
+00:00:05,759 --> 00:00:12,800
+language doing a animation of physics
+
+4
+00:00:09,160 --> 00:00:16,160
+simulation of bouncing balls. My
+
+5
+00:00:12,800 --> 00:00:20,000
+keyboards glove 80 fantastic nia track
+
+6
+00:00:16,160 --> 00:00:22,080
+ball fantastic Logitech 405 mouse
+
+7
+00:00:20,000 --> 00:00:25,359
+fantastic something like 405 or
+
+8
+00:00:22,080 --> 00:00:30,119
+something 46 and the ultimate hacking
+
+9
+00:00:25,359 --> 00:00:34,120
+keyboard. Okay. And then there is this
+
+10
+00:00:30,119 --> 00:00:38,440
+um sparboard. Fantastic. Okay. I'm going
+
+11
+00:00:34,120 --> 00:00:42,000
+to try to use it. Okay. Check watch my
+
+12
+00:00:38,440 --> 00:00:44,760
+videos. Uh for each one of them I have a
+
+13
+00:00:42,000 --> 00:00:48,640
+vid video uh on
+
+14
+00:00:44,760 --> 00:00:51,120
+YouTube. Okay. So let's do stop that.
+
+15
+00:00:48,640 --> 00:00:54,640
+Let's start to code wam language. Let me
+
+16
+00:00:51,120 --> 00:00:57,760
+show you what we going to do. Uh if you
+
+17
+00:00:54,640 --> 00:00:59,000
+are watching offline, play at 1.5 speed
+
+18
+00:00:57,760 --> 00:01:02,000
+because I
+
+19
+00:00:59,000 --> 00:01:04,760
+ramble. Now there is this fantastic
+
+20
+00:01:02,000 --> 00:01:08,200
+animation. Okay, let me show you
+
+21
+00:01:04,760 --> 00:01:10,560
+um this animation. Okay, let's go to
+
+22
+00:01:08,200 --> 00:01:12,799
+it. We're going to do we're going to
+
+23
+00:01:10,560 --> 00:01:12,799
+code
+
+24
+00:01:18,200 --> 00:01:23,880
+this. Let's see. We need to turn on
+
+25
+00:01:20,880 --> 00:01:23,880
+sound.
+
+26
+00:01:25,439 --> 00:01:28,840
+Start again.
+
+27
+00:02:13,060 --> 00:02:23,850
+[Music]
+
+28
+00:02:25,680 --> 00:02:28,640
+D do
+
+29
+00:02:29,239 --> 00:02:34,720
+fantastic. Okay, we're going to code
+
+30
+00:02:31,360 --> 00:02:37,360
+that. Uh I've never done this before. So
+
+31
+00:02:34,720 --> 00:02:39,440
+uh I'm just going to see how it you know
+
+32
+00:02:37,360 --> 00:02:41,840
+we are going to explore how to do it
+
+33
+00:02:39,440 --> 00:02:44,560
+with wam language. Meanwhile I'm going
+
+34
+00:02:41,840 --> 00:02:46,879
+to show you how uh about wam language
+
+35
+00:02:44,560 --> 00:02:50,160
+graphics programming. So if you are new
+
+36
+00:02:46,879 --> 00:02:52,879
+to wuam language I had I have like 100
+
+37
+00:02:50,160 --> 00:02:55,920
+videos in the past
+
+38
+00:02:52,879 --> 00:02:58,319
+uh and uh about two weeks ago we have
+
+39
+00:02:55,920 --> 00:03:01,760
+this one about how to introduction to
+
+40
+00:02:58,319 --> 00:03:04,239
+wam language programming graphics. Okay.
+
+41
+00:03:01,760 --> 00:03:08,879
+So watch that one uh if you don't know
+
+42
+00:03:04,239 --> 00:03:11,800
+yet. And uh wam language uh so I got
+
+43
+00:03:08,879 --> 00:03:14,319
+search for wufam language tutorial
+
+44
+00:03:11,800 --> 00:03:18,080
+kasali.info and you can download it for
+
+45
+00:03:14,319 --> 00:03:20,879
+free over here. Uh and uh you can then
+
+46
+00:03:18,080 --> 00:03:23,280
+you can download Jupiter extension and
+
+47
+00:03:20,879 --> 00:03:26,400
+there's another one that allows you to
+
+48
+00:03:23,280 --> 00:03:30,280
+have interactive graphics without buying
+
+49
+00:03:26,400 --> 00:03:34,640
+it. Okay, download free and uh then
+
+50
+00:03:30,280 --> 00:03:37,799
+um so uh okay so let's just code it.
+
+51
+00:03:34,640 --> 00:03:41,400
+Okay, so this is today's talk show. Um
+
+52
+00:03:37,799 --> 00:03:45,959
+yeah, so in order to do animation there
+
+53
+00:03:41,400 --> 00:03:49,360
+are like the most basic way is via
+
+54
+00:03:45,959 --> 00:03:52,400
+geometry. So that is if you want to do
+
+55
+00:03:49,360 --> 00:03:54,959
+an animation all you need to know is
+
+56
+00:03:52,400 --> 00:03:58,720
+let's say let's say we are limiting
+
+57
+00:03:54,959 --> 00:04:01,920
+ourself to 2D geometry but this works in
+
+58
+00:03:58,720 --> 00:04:04,080
+3D geometry or live action or movie
+
+59
+00:04:01,920 --> 00:04:07,280
+anything so all you have to do to to
+
+60
+00:04:04,080 --> 00:04:11,560
+know is the graphics for each frame okay
+
+61
+00:04:07,280 --> 00:04:15,040
+now but in 2D geometry all such as this
+
+62
+00:04:11,560 --> 00:04:16,639
+thing all you need to know is the uh if
+
+63
+00:04:15,040 --> 00:04:18,239
+you are here say hi okay if you are
+
+64
+00:04:16,639 --> 00:04:20,799
+watching watching live, say hi. Love to
+
+65
+00:04:18,239 --> 00:04:23,360
+see your comments. Now, if you are doing
+
+66
+00:04:20,799 --> 00:04:26,560
+animation for 2D geometry, all you have
+
+67
+00:04:23,360 --> 00:04:29,919
+to to know is that each object's
+
+68
+00:04:26,560 --> 00:04:31,919
+position with respect to time. So, if
+
+69
+00:04:29,919 --> 00:04:34,720
+you have an animation of let's say one
+
+70
+00:04:31,919 --> 00:04:36,400
+minute. So, each second you know
+
+71
+00:04:34,720 --> 00:04:39,120
+position, you need to know the position
+
+72
+00:04:36,400 --> 00:04:40,800
+of each object. Then just draw it. Then
+
+73
+00:04:39,120 --> 00:04:43,600
+you can create the whole frame and frame
+
+74
+00:04:40,800 --> 00:04:45,440
+by frame it creates animation. So in
+
+75
+00:04:43,600 --> 00:04:47,759
+summary, you you need to know the most
+
+76
+00:04:45,440 --> 00:04:50,160
+basic way is to know the position of
+
+77
+00:04:47,759 --> 00:04:53,240
+each geometric object. Okay, that's how
+
+78
+00:04:50,160 --> 00:04:55,600
+you do any animation. You can do any
+
+79
+00:04:53,240 --> 00:04:58,560
+animation. Now that's the most
+
+80
+00:04:55,600 --> 00:05:01,080
+fundamental basic way. Now a more higher
+
+81
+00:04:58,560 --> 00:05:04,160
+level way is that you
+
+82
+00:05:01,080 --> 00:05:07,199
+um let's see if I have written it out.
+
+83
+00:05:04,160 --> 00:05:09,280
+Yeah. So I have so yeah so one way to
+
+84
+00:05:07,199 --> 00:05:11,919
+create animation is to know position of
+
+85
+00:05:09,280 --> 00:05:14,560
+each object in any frame. Okay. Now a
+
+86
+00:05:11,919 --> 00:05:17,479
+higher level is to create animation is
+
+87
+00:05:14,560 --> 00:05:21,360
+to know an object's beginning and end
+
+88
+00:05:17,479 --> 00:05:24,720
+position and specify a rule to determine
+
+89
+00:05:21,360 --> 00:05:27,120
+their intermediate positions. Okay. So
+
+90
+00:05:24,720 --> 00:05:30,400
+instead of you know drawing each
+
+91
+00:05:27,120 --> 00:05:33,759
+position in each frame you just say the
+
+92
+00:05:30,400 --> 00:05:38,080
+start position end position and you give
+
+93
+00:05:33,759 --> 00:05:41,840
+it a function how it uh will go through
+
+94
+00:05:38,080 --> 00:05:44,320
+time. So as time increases the function
+
+95
+00:05:41,840 --> 00:05:47,360
+uh will specify the position. So that's
+
+96
+00:05:44,320 --> 00:05:49,280
+kind of higher level. A more higher
+
+97
+00:05:47,360 --> 00:05:51,680
+level way is actually to do something
+
+98
+00:05:49,280 --> 00:05:55,280
+like this is actually you write a
+
+99
+00:05:51,680 --> 00:05:58,320
+physics emulation. So that is getting
+
+100
+00:05:55,280 --> 00:06:00,479
+more complex but which is in many game
+
+101
+00:05:58,320 --> 00:06:05,680
+engines they do that. So what you have
+
+102
+00:06:00,479 --> 00:06:08,080
+to do is you you specify the rules. um
+
+103
+00:06:05,680 --> 00:06:10,800
+you know I I'm not familiar with this so
+
+104
+00:06:08,080 --> 00:06:13,600
+but I think basically you specify the
+
+105
+00:06:10,800 --> 00:06:15,759
+physics rules the ball will bounce and
+
+106
+00:06:13,600 --> 00:06:17,840
+stuff and so all you have to do to
+
+107
+00:06:15,759 --> 00:06:21,360
+create animation is to specify your
+
+108
+00:06:17,840 --> 00:06:24,000
+object and initial velocity so the
+
+109
+00:06:21,360 --> 00:06:26,080
+direction and speed it's moving that's
+
+110
+00:06:24,000 --> 00:06:29,199
+that's all you have to do then you just
+
+111
+00:06:26,080 --> 00:06:31,759
+run it and as the object moves it will
+
+112
+00:06:29,199 --> 00:06:33,919
+the the physics engine will detect you
+
+113
+00:06:31,759 --> 00:06:36,720
+know which position is that what
+
+114
+00:06:33,919 --> 00:06:39,919
+direction is going if there's obstacle
+
+115
+00:06:36,720 --> 00:06:42,080
+if so it will bounce it back it will
+
+116
+00:06:39,919 --> 00:06:44,800
+move the object in a different position
+
+117
+00:06:42,080 --> 00:06:48,080
+according to the physics uh engine's
+
+118
+00:06:44,800 --> 00:06:50,880
+rules okay so in this framework all you
+
+119
+00:06:48,080 --> 00:06:52,440
+have to do is specify object and initial
+
+120
+00:06:50,880 --> 00:06:55,600
+velocity that's
+
+121
+00:06:52,440 --> 00:06:58,639
+it so but we are going to do so I never
+
+122
+00:06:55,600 --> 00:07:01,199
+done this animation like this this you
+
+123
+00:06:58,639 --> 00:07:04,720
+know looks like a physics animation so I
+
+124
+00:07:01,199 --> 00:07:05,639
+never done so but we're gonna do this.
+
+125
+00:07:04,720 --> 00:07:09,039
+Okay.
+
+126
+00:07:05,639 --> 00:07:12,960
+So it turns out it's easy. You can do it
+
+127
+00:07:09,039 --> 00:07:15,759
+in a most fundamental geometric way
+
+128
+00:07:12,960 --> 00:07:18,400
+because you observe you know first of
+
+129
+00:07:15,759 --> 00:07:20,880
+all you in order to do this first of all
+
+130
+00:07:18,400 --> 00:07:22,800
+what you need to know is what exactly it
+
+131
+00:07:20,880 --> 00:07:25,039
+is doing.
+
+132
+00:07:22,800 --> 00:07:27,039
+In physics terms, you just, you know,
+
+133
+00:07:25,039 --> 00:07:29,360
+it's just ball bouncing. But in
+
+134
+00:07:27,039 --> 00:07:32,360
+geometry, you so you observe the first
+
+135
+00:07:29,360 --> 00:07:36,000
+ball. So you can
+
+136
+00:07:32,360 --> 00:07:38,080
+determine basically the balls their path
+
+137
+00:07:36,000 --> 00:07:39,560
+is always the same. So the first the top
+
+138
+00:07:38,080 --> 00:07:43,440
+ball
+
+139
+00:07:39,560 --> 00:07:45,919
+always always move in the same path. It
+
+140
+00:07:43,440 --> 00:07:48,639
+never falls down. So it's not actually
+
+141
+00:07:45,919 --> 00:07:51,440
+physics emulation. It just go back and
+
+142
+00:07:48,639 --> 00:07:54,800
+forth. So for each every ball they
+
+143
+00:07:51,440 --> 00:07:57,919
+traverse in the same exact path. Then
+
+144
+00:07:54,800 --> 00:08:00,240
+the you can you can know that by just wa
+
+145
+00:07:57,919 --> 00:08:03,400
+you know just watching focus on the
+
+146
+00:08:00,240 --> 00:08:06,800
+first ball you know the the dark
+
+147
+00:08:03,400 --> 00:08:09,039
+red and then you can observe the last
+
+148
+00:08:06,800 --> 00:08:11,440
+ball. You can also see their position
+
+149
+00:08:09,039 --> 00:08:13,680
+the path is always the same. Okay that's
+
+150
+00:08:11,440 --> 00:08:16,479
+the position of each ball. The other
+
+151
+00:08:13,680 --> 00:08:18,240
+thing you determine is are they have do
+
+152
+00:08:16,479 --> 00:08:20,560
+they have different speed? That's one
+
+153
+00:08:18,240 --> 00:08:23,840
+question. The other question is do they
+
+154
+00:08:20,560 --> 00:08:26,720
+have do the speed change? So you can
+
+155
+00:08:23,840 --> 00:08:28,280
+observe each ball in the animation. You
+
+156
+00:08:26,720 --> 00:08:31,599
+can then you
+
+157
+00:08:28,280 --> 00:08:34,240
+know the top ball will have faster speed
+
+158
+00:08:31,599 --> 00:08:36,880
+because then the last ball because when
+
+159
+00:08:34,240 --> 00:08:38,959
+you look at the first frame you see the
+
+160
+00:08:36,880 --> 00:08:42,120
+first ball traverse all the way back
+
+161
+00:08:38,959 --> 00:08:44,959
+here while the last ball is much slower.
+
+162
+00:08:42,120 --> 00:08:50,120
+So the higher the ball the speed is
+
+163
+00:08:44,959 --> 00:08:53,279
+faster. So that answers one question.
+
+164
+00:08:50,120 --> 00:08:55,600
+Um that is each ball have different
+
+165
+00:08:53,279 --> 00:08:57,760
+speed. Okay. Now the second question
+
+166
+00:08:55,600 --> 00:09:00,240
+does the speed change? If you watch the
+
+167
+00:08:57,760 --> 00:09:03,240
+video you'll see that the speed does not
+
+168
+00:09:00,240 --> 00:09:06,000
+change. So each ball have one
+
+169
+00:09:03,240 --> 00:09:08,320
+speed and they they they don't change
+
+170
+00:09:06,000 --> 00:09:10,800
+and they traverse the same path. Okay.
+
+171
+00:09:08,320 --> 00:09:13,920
+So so this whole thing becomes very
+
+172
+00:09:10,800 --> 00:09:16,160
+simple. It's just geometry. Each boat
+
+173
+00:09:13,920 --> 00:09:19,440
+traverse the same path.
+
+174
+00:09:16,160 --> 00:09:23,040
+the the first ball has higher speed than
+
+175
+00:09:19,440 --> 00:09:25,440
+the last. Uh and they the speed never
+
+176
+00:09:23,040 --> 00:09:28,160
+changes for each ball. Okay. So that's
+
+177
+00:09:25,440 --> 00:09:30,600
+all you need to know. So once you know
+
+178
+00:09:28,160 --> 00:09:33,839
+that you know I've written out you know
+
+179
+00:09:30,600 --> 00:09:36,800
+because I I written out. So once you
+
+180
+00:09:33,839 --> 00:09:39,519
+know that then you can determine each
+
+181
+00:09:36,800 --> 00:09:41,440
+frames object position and you can
+
+182
+00:09:39,519 --> 00:09:44,560
+create the animation. So we're going to
+
+183
+00:09:41,440 --> 00:09:47,360
+do that. uh some you know I posted this
+
+184
+00:09:44,560 --> 00:09:49,040
+I posted this yesterday and someone at
+
+185
+00:09:47,360 --> 00:09:53,200
+you know it's fascinating and someone
+
+186
+00:09:49,040 --> 00:09:54,200
+asked um like someone asked do this in
+
+187
+00:09:53,200 --> 00:09:57,279
+wuam
+
+188
+00:09:54,200 --> 00:10:00,880
+language and I was like I don't know how
+
+189
+00:09:57,279 --> 00:10:03,200
+to do that so you know because this kind
+
+190
+00:10:00,880 --> 00:10:05,040
+of physics emulation I've never done so
+
+191
+00:10:03,200 --> 00:10:07,519
+I thought about it then it turns out
+
+192
+00:10:05,040 --> 00:10:11,120
+pretty simple so let's begin okay so
+
+193
+00:10:07,519 --> 00:10:13,720
+let's begin uh let let me try to do like
+
+194
+00:10:11,120 --> 00:10:17,680
+kind of as fast as I
+
+195
+00:10:13,720 --> 00:10:20,959
+can. So that um so we start a woofam
+
+196
+00:10:17,680 --> 00:10:25,240
+language uh code uh because this might
+
+197
+00:10:20,959 --> 00:10:28,279
+take an hour because I never done this
+
+198
+00:10:25,240 --> 00:10:32,200
+before okay starting wam
+
+199
+00:10:28,279 --> 00:10:36,160
+language comments any comments nobody
+
+200
+00:10:32,200 --> 00:10:41,399
+okay so wam language let's start it okay
+
+201
+00:10:36,160 --> 00:10:44,920
+so let's say three to evaluate shift
+
+202
+00:10:41,399 --> 00:10:49,600
+enter to start a kernel and magn
+
+203
+00:10:44,920 --> 00:10:51,079
+magnify so it's easier to see. Okay, so
+
+204
+00:10:49,600 --> 00:10:55,440
+we got
+
+205
+00:10:51,079 --> 00:10:55,440
+um Okay, now let's save
+
+206
+00:10:56,839 --> 00:11:02,720
+it. Save
+
+207
+00:10:58,920 --> 00:11:06,160
+it. Animation just random name. Okay.
+
+208
+00:11:02,720 --> 00:11:06,160
+Okay. So, we
+
+209
+00:11:07,160 --> 00:11:12,480
+um start to code. So, we going to write
+
+210
+00:11:10,160 --> 00:11:15,200
+the animation to do this. Uh hold on a
+
+211
+00:11:12,480 --> 00:11:18,560
+second. Let me see.
+
+212
+00:11:15,200 --> 00:11:18,560
+Uh, can can you guys see
+
+213
+00:11:26,600 --> 00:11:36,040
+it? Okay. So, we want to uh Yeah. So, we
+
+214
+00:11:31,680 --> 00:11:36,040
+want to Okay.
+
+215
+00:11:43,120 --> 00:11:48,720
+Okay. So let's begin.
+
+216
+00:11:45,160 --> 00:11:54,160
+Okay. So we Okay. Let's just start.
+
+217
+00:11:48,720 --> 00:11:57,680
+Okay. Uh B. So B is a graphics
+
+218
+00:11:54,160 --> 00:11:59,480
+primitive. Okay. So do I have um Okay.
+
+219
+00:11:57,680 --> 00:12:01,839
+Look up the B
+
+220
+00:11:59,480 --> 00:12:04,040
+documentation. B is a function that
+
+221
+00:12:01,839 --> 00:12:10,079
+represents a
+
+222
+00:12:04,040 --> 00:12:12,480
+uh represents a uh a a disk. Okay. So we
+
+223
+00:12:10,079 --> 00:12:14,760
+want uh Okay. We don't want B. We don't
+
+224
+00:12:12,480 --> 00:12:17,760
+we we want
+
+225
+00:12:14,760 --> 00:12:17,760
+um
+
+226
+00:12:19,399 --> 00:12:27,279
+disk which represent you know like a
+
+227
+00:12:22,440 --> 00:12:31,760
+ball. Okay. So uh this radius okay so
+
+228
+00:12:27,279 --> 00:12:33,959
+let's say zero uh position at zero
+
+229
+00:12:31,760 --> 00:12:36,880
+radius uh one.
+
+230
+00:12:33,959 --> 00:12:40,560
+Okay. Now we want to show this in
+
+231
+00:12:36,880 --> 00:12:40,560
+graphics. So you have to
+
+232
+00:12:41,800 --> 00:12:49,800
+do is put the disk inside. Okay. Then
+
+233
+00:12:48,399 --> 00:12:53,600
+when
+
+234
+00:12:49,800 --> 00:12:57,639
+it you can see a disk. Okay. Then we can
+
+235
+00:12:53,600 --> 00:12:57,639
+say access true.
+
+236
+00:13:16,000 --> 00:13:20,600
+Okay. So, uh actually then we need to
+
+237
+00:13:18,959 --> 00:13:22,680
+plot
+
+238
+00:13:20,600 --> 00:13:31,480
+range. Plot
+
+239
+00:13:22,680 --> 00:13:31,480
+range. Uh let's say -1 to 1 times 10.
+
+240
+00:13:34,440 --> 00:13:45,360
+Then same for y axis. Okay. So copy
+
+241
+00:13:39,800 --> 00:13:48,240
+that. Uh copy that. Let's do this. Okay.
+
+242
+00:13:45,360 --> 00:13:48,240
+So copy
+
+243
+00:13:48,360 --> 00:13:57,000
+that. Okay. We got kind of b. So range
+
+244
+00:13:52,240 --> 00:13:57,000
+let's increase to uh 20
+
+245
+00:13:57,160 --> 00:14:04,480
+uh 30. Okay.
+
+246
+00:14:00,320 --> 00:14:08,040
+So we got this. Uh so that's one ball.
+
+247
+00:14:04,480 --> 00:14:14,000
+Okay. So that's one uh
+
+248
+00:14:08,040 --> 00:14:16,920
+ball. Uh so now we do so I'm coding this
+
+249
+00:14:14,000 --> 00:14:20,959
+in EMAC using
+
+250
+00:14:16,920 --> 00:14:23,680
+kasawan mod. You can download it. It's
+
+251
+00:14:20,959 --> 00:14:28,240
+linked on my talk show. You can download
+
+252
+00:14:23,680 --> 00:14:30,720
+it warm mod. Okay. On GitHub. So I do
+
+253
+00:14:28,240 --> 00:14:33,920
+this in Emacs because for me it's easier
+
+254
+00:14:30,720 --> 00:14:36,560
+to code you you can you can directly
+
+255
+00:14:33,920 --> 00:14:37,320
+code in the wuam notebook or Jupiter if
+
+256
+00:14:36,560 --> 00:14:40,880
+you
+
+257
+00:14:37,320 --> 00:14:43,519
+want. So we got this. So so now we just
+
+258
+00:14:40,880 --> 00:14:47,440
+got a static graphics. Now we want to uh
+
+259
+00:14:43,519 --> 00:14:47,440
+move. Okay. So let's do a move.
+
+260
+00:14:47,480 --> 00:14:52,320
+Okay. Manipulate. Let's look at the
+
+261
+00:14:50,240 --> 00:14:54,880
+documentation. I kind of already know
+
+262
+00:14:52,320 --> 00:14:57,440
+what that does. So manipulate I mean
+
+263
+00:14:54,880 --> 00:14:57,440
+takes a
+
+264
+00:14:57,560 --> 00:15:03,000
+expression and takes a range. So this is
+
+265
+00:15:01,199 --> 00:15:07,600
+going to be
+
+266
+00:15:03,000 --> 00:15:13,279
+time let's say x time from uh zero to
+
+267
+00:15:07,600 --> 00:15:16,639
+let's say uh 0 to one. Okay. So then in
+
+268
+00:15:13,279 --> 00:15:20,639
+this the expression with variable x time
+
+269
+00:15:16,639 --> 00:15:24,560
+will change. Okay. So now let's say
+
+270
+00:15:20,639 --> 00:15:24,560
+let's put the graphics in here.
+
+271
+00:15:24,760 --> 00:15:28,079
+Uh let's
+
+272
+00:15:34,199 --> 00:15:39,839
+see.
+
+273
+00:15:36,839 --> 00:15:41,959
+Okay. Let's say animation equals to
+
+274
+00:15:39,839 --> 00:15:45,279
+that.
+
+275
+00:15:41,959 --> 00:15:46,279
+Okay. Then you need a time thing. Okay.
+
+276
+00:15:45,279 --> 00:15:49,600
+So
+
+277
+00:15:46,279 --> 00:15:49,600
+wait. Okay.
+
+278
+00:15:50,600 --> 00:15:57,680
+So, so this animation you need the
+
+279
+00:15:54,040 --> 00:16:01,199
+time. So, the time will be the position.
+
+280
+00:15:57,680 --> 00:16:02,519
+Okay. So, let's change the X axis. Okay.
+
+281
+00:16:01,199 --> 00:16:06,320
+Time
+
+282
+00:16:02,519 --> 00:16:10,480
+there. So, so that's the animation. Then
+
+283
+00:16:06,320 --> 00:16:10,480
+you um Okay.
+
+284
+00:16:13,079 --> 00:16:19,839
+So,
+
+285
+00:16:14,839 --> 00:16:19,839
+so let's just do that. Let's see if that
+
+286
+00:16:20,040 --> 00:16:27,839
+works. Uh, so 0 to one instead of zero
+
+287
+00:16:23,759 --> 00:16:31,279
+to one, let's say 0 to 10. Let's say -10
+
+288
+00:16:27,839 --> 00:16:31,279
+to 10. Okay, copy
+
+289
+00:16:32,920 --> 00:16:44,560
+that. Paste. Run it. Okay, got a problem
+
+290
+00:16:39,800 --> 00:16:48,160
+because so uh time -10 to 10 uh this
+
+291
+00:16:44,560 --> 00:16:48,160
+needs to evaluate I
+
+292
+00:16:51,959 --> 00:17:01,000
+think. Okay, there we have it. So let's
+
+293
+00:16:58,360 --> 00:17:04,240
+um so can you
+
+294
+00:17:01,000 --> 00:17:07,199
+uh you need to drag it. Okay, so you can
+
+295
+00:17:04,240 --> 00:17:10,520
+see we got animation. You get back and
+
+296
+00:17:07,199 --> 00:17:12,839
+forth, back and forth. Okay,
+
+297
+00:17:10,520 --> 00:17:15,839
+fantastic.
+
+298
+00:17:12,839 --> 00:17:18,640
+Now, this ball, we we have to draw
+
+299
+00:17:15,839 --> 00:17:21,520
+several balls. Okay, so so we got an
+
+300
+00:17:18,640 --> 00:17:24,919
+animation of one ball. Uh, of course, we
+
+301
+00:17:21,520 --> 00:17:29,240
+need to color it. Uh, but
+
+302
+00:17:24,919 --> 00:17:33,720
+um but why why is it no auto
+
+303
+00:17:29,240 --> 00:17:38,120
+play? Uh, usually there's a play.
+
+304
+00:17:33,720 --> 00:17:38,120
+Uh, okay. So,
+
+305
+00:17:39,000 --> 00:17:44,600
+uh, oh yeah. Okay. So, you click on that
+
+306
+00:17:42,480 --> 00:17:50,600
+and say back and
+
+307
+00:17:44,600 --> 00:17:53,840
+forth. Okay. Then we got a ball.
+
+308
+00:17:50,600 --> 00:17:56,720
+Uh, so we need to change the ball path.
+
+309
+00:17:53,840 --> 00:17:59,720
+Then we need to draw two kind of bars.
+
+310
+00:17:56,720 --> 00:17:59,720
+Okay.
+
+311
+00:18:03,559 --> 00:18:09,679
+So okay so I need to think about it
+
+312
+00:18:06,480 --> 00:18:12,960
+because uh so you need so this you know
+
+313
+00:18:09,679 --> 00:18:16,640
+so okay let me just you know like keep
+
+314
+00:18:12,960 --> 00:18:19,600
+typing keep typing that's a key for live
+
+315
+00:18:16,640 --> 00:18:22,640
+coding because you know don't think okay
+
+316
+00:18:19,600 --> 00:18:27,600
+let's just keep typing so graphics disc
+
+317
+00:18:22,640 --> 00:18:31,240
+um dis that thing uh and uh and uh so
+
+318
+00:18:27,600 --> 00:18:34,400
+this time is going to be a parabola.
+
+319
+00:18:31,240 --> 00:18:38,880
+Okay, so it's going to be a parabola. So
+
+320
+00:18:34,400 --> 00:18:42,480
+parabola uh so uh the the curve for a
+
+321
+00:18:38,880 --> 00:18:42,480
+parabola is just
+
+322
+00:18:42,600 --> 00:18:51,600
+um just x squ.
+
+323
+00:18:46,520 --> 00:18:51,600
+Okay, for example, you can plot
+
+324
+00:18:51,960 --> 00:19:01,280
+that you know. So if you go negative uh
+
+325
+00:18:55,840 --> 00:19:04,320
+-1 to 1 uh let's say -9 to 9 shift enter
+
+326
+00:19:01,280 --> 00:19:08,080
+there you go okay but now it it wants a
+
+327
+00:19:04,320 --> 00:19:11,760
+inverted parabola so this is a basic
+
+328
+00:19:08,080 --> 00:19:14,640
+analytic geometry pre-calculus analytic
+
+329
+00:19:11,760 --> 00:19:17,360
+geometry you learn this before you do
+
+330
+00:19:14,640 --> 00:19:19,320
+calculus so you want to invert the axis
+
+331
+00:19:17,360 --> 00:19:23,039
+so it's just negative
+
+332
+00:19:19,320 --> 00:19:23,039
+okay so
+
+333
+00:19:25,640 --> 00:19:30,120
+Um okay you got something like that and
+
+334
+00:19:29,280 --> 00:19:33,760
+uh
+
+335
+00:19:30,120 --> 00:19:36,120
+then okay so this is the so the the the
+
+336
+00:19:33,760 --> 00:19:39,840
+path for this
+
+337
+00:19:36,120 --> 00:19:43,280
+um the position of the ball will be
+
+338
+00:19:39,840 --> 00:19:45,600
+let's say the position of the ball will
+
+339
+00:19:43,280 --> 00:19:48,799
+be
+
+340
+00:19:45,600 --> 00:19:52,840
+uh the param parameter formula okay so
+
+341
+00:19:48,799 --> 00:19:56,160
+which is Um let's let's write it out
+
+342
+00:19:52,840 --> 00:20:01,440
+here. So it's a parametric equation of
+
+343
+00:19:56,160 --> 00:20:03,760
+two things x and x and two. Okay. So uh
+
+344
+00:20:01,440 --> 00:20:07,080
+so instead of using x time let's just
+
+345
+00:20:03,760 --> 00:20:12,200
+say x. It's f it's simpler. Okay.
+
+346
+00:20:07,080 --> 00:20:15,600
+So time is just x. Okay.
+
+347
+00:20:12,200 --> 00:20:15,600
+So uh
+
+348
+00:20:15,640 --> 00:20:18,960
+so so
+
+349
+00:20:24,440 --> 00:20:30,799
+now
+
+350
+00:20:26,919 --> 00:20:37,360
+okay so now this you got a parabola
+
+351
+00:20:30,799 --> 00:20:40,960
+there uh and uh and uh yeah so x is
+
+352
+00:20:37,360 --> 00:20:40,960
+let's change x to time
+
+353
+00:20:48,600 --> 00:20:55,679
+tree. Okay. Because it's uh easier to
+
+354
+00:20:51,679 --> 00:20:59,120
+see. So So you got um let's just do it.
+
+355
+00:20:55,679 --> 00:21:02,080
+Okay. Keep keep typing. Keep typing is a
+
+356
+00:20:59,120 --> 00:21:05,960
+key for live live stream. Okay. You got
+
+357
+00:21:02,080 --> 00:21:09,039
+a problem. Uh oh yeah, you forgot to
+
+358
+00:21:05,960 --> 00:21:12,080
+evaluate. So manipulate. You got me need
+
+359
+00:21:09,039 --> 00:21:12,080
+to evaluate.
+
+360
+00:21:12,120 --> 00:21:18,000
+Okay, evaluate at add at add at add at
+
+361
+00:21:14,720 --> 00:21:21,880
+is a shortcut for the square bracket.
+
+362
+00:21:18,000 --> 00:21:26,400
+Okay, it's a prefix notation. Copy
+
+363
+00:21:21,880 --> 00:21:28,600
+that. Paste. Bet. Now, now how do I
+
+364
+00:21:26,400 --> 00:21:31,240
+play? Uh,
+
+365
+00:21:28,600 --> 00:21:36,760
+expand.
+
+366
+00:21:31,240 --> 00:21:36,760
+Play. Okay, there we have it.
+
+367
+00:21:39,280 --> 00:21:47,919
+Okay. So the parabola right you invert
+
+368
+00:21:43,640 --> 00:21:52,000
+it. You invert the parabola. Uh okay.
+
+369
+00:21:47,919 --> 00:21:52,000
+Now we can do something. You can
+
+370
+00:21:52,919 --> 00:22:02,159
+see now what is 10 squared? 10 squared
+
+371
+00:21:58,600 --> 00:22:05,840
+is 100. So it actually went all the way
+
+372
+00:22:02,159 --> 00:22:09,720
+to 100. So let's stop that.
+
+373
+00:22:05,840 --> 00:22:12,440
+Let's change it to 012 to
+
+374
+00:22:09,720 --> 00:22:17,679
+um let's say
+
+375
+00:22:12,440 --> 00:22:17,679
+uh change to 222.
+
+376
+00:22:20,360 --> 00:22:27,360
+Okay. Play back and
+
+377
+00:22:24,200 --> 00:22:31,440
+forth. Okay. So you kind of see where
+
+378
+00:22:27,360 --> 00:22:36,640
+it's going. Okay. Then let's shrink the
+
+379
+00:22:31,440 --> 00:22:36,640
+range. Okay. Now 22 two and shrink the
+
+380
+00:22:38,440 --> 00:22:48,000
+range two 22 two is four let's say
+
+381
+00:22:43,400 --> 00:22:51,760
+four the plot range is four and uh the
+
+382
+00:22:48,000 --> 00:22:51,760
+the time is from
+
+383
+00:22:52,679 --> 00:22:56,480
+-2 to two
+
+384
+00:22:57,400 --> 00:23:02,320
+okay copy that do it
+
+385
+00:23:03,080 --> 00:23:09,200
+here. Oh, now the the ball is
+
+386
+00:23:06,480 --> 00:23:09,200
+huge.
+
+387
+00:23:12,679 --> 00:23:21,000
+Okay, we got the ball going. Something
+
+388
+00:23:15,840 --> 00:23:24,320
+like that. Okay, now. Okay, stop
+
+389
+00:23:21,000 --> 00:23:24,320
+that. Stop
+
+390
+00:23:25,080 --> 00:23:32,480
+that. Delete that.
+
+391
+00:23:28,440 --> 00:23:35,440
+Okay, delete that. Okay, now the ball is
+
+392
+00:23:32,480 --> 00:23:38,120
+too big of course. Now the radius will
+
+393
+00:23:35,440 --> 00:23:42,320
+be uh 0.2 let's
+
+394
+00:23:38,120 --> 00:23:44,720
+say. Okay, and uh the plot range is
+
+395
+00:23:42,320 --> 00:23:49,960
+going to be
+
+396
+00:23:44,720 --> 00:23:56,320
+uh the yaxis is going to be
+
+397
+00:23:49,960 --> 00:23:57,880
+-4 to to zero. Okay, let's say 0.5. So,
+
+398
+00:23:56,320 --> 00:24:01,280
+so
+
+399
+00:23:57,880 --> 00:24:02,600
+that so that will be much better. So,
+
+400
+00:24:01,280 --> 00:24:06,960
+let's try
+
+401
+00:24:02,600 --> 00:24:06,960
+it. Paste run
+
+402
+00:24:12,600 --> 00:24:17,000
+it. Something like that. Okay. So,
+
+403
+00:24:15,520 --> 00:24:19,000
+that's one
+
+404
+00:24:17,000 --> 00:24:22,840
+ball. Okay.
+
+405
+00:24:19,000 --> 00:24:25,919
+Next, we can add a color. Okay. So,
+
+406
+00:24:22,840 --> 00:24:31,520
+color. So all you have to do is add a
+
+407
+00:24:25,919 --> 00:24:34,320
+color hue. Okay. Uh hue zero. That's a
+
+408
+00:24:31,520 --> 00:24:37,679
+rainbow color. Zero is red. Okay. So we
+
+409
+00:24:34,320 --> 00:24:41,039
+got a ball. Now we got we need several
+
+410
+00:24:37,679 --> 00:24:45,200
+other balls. Okay. So let's add them. So
+
+411
+00:24:41,039 --> 00:24:49,360
+we create a list. So this is one ball.
+
+412
+00:24:45,200 --> 00:24:53,440
+Uh let's put another ball here. Okay. So
+
+413
+00:24:49,360 --> 00:24:58,440
+copy. Now here this one let's say three.
+
+414
+00:24:53,440 --> 00:25:03,679
+Okay. 3 uh 0 4 is blue. Okay. 04 is
+
+415
+00:24:58,440 --> 00:25:06,240
+blue. Hu 04. So, and this but the the
+
+416
+00:25:03,679 --> 00:25:09,000
+path for the second ball if you look at
+
+417
+00:25:06,240 --> 00:25:11,640
+the um
+
+418
+00:25:09,000 --> 00:25:16,960
+animation. Okay. Can we
+
+419
+00:25:11,640 --> 00:25:16,960
+uh can we show the animation here?
+
+420
+00:25:17,799 --> 00:25:23,559
+Okay. So, the
+
+421
+00:25:20,840 --> 00:25:26,320
+path. Okay. So it's
+
+422
+00:25:23,559 --> 00:25:28,320
+actually red to blue the rainbow. It's
+
+423
+00:25:26,320 --> 00:25:30,400
+not the whole rainbow color. It's like
+
+424
+00:25:28,320 --> 00:25:33,400
+one/ird of the rainbow color. Let's
+
+425
+00:25:30,400 --> 00:25:37,039
+let's make our whole rainbow color.
+
+426
+00:25:33,400 --> 00:25:41,360
+Okay. Uh so that each ball is very
+
+427
+00:25:37,039 --> 00:25:44,640
+distinct color. Okay. So uh but but the
+
+428
+00:25:41,360 --> 00:25:48,159
+second ball Yeah. You see if you observe
+
+429
+00:25:44,640 --> 00:25:51,039
+that the you see you look at the second
+
+430
+00:25:48,159 --> 00:25:53,600
+ball like the this one. Okay.
+
+431
+00:25:51,039 --> 00:25:55,919
+Look at their path. It's a bit lower. So
+
+432
+00:25:53,600 --> 00:26:00,400
+basically a bit lower. So how do you
+
+433
+00:25:55,919 --> 00:26:03,600
+make the parabola lower? That's a basic
+
+434
+00:26:00,400 --> 00:26:07,440
+analytic geometry. So you got the
+
+435
+00:26:03,600 --> 00:26:12,240
+parametric curve uh lower just yaxis
+
+436
+00:26:07,440 --> 00:26:15,919
+minus. Okay. So you just minus uh like
+
+437
+00:26:12,240 --> 00:26:19,720
+minus let's let's try 0.2. Okay. So
+
+438
+00:26:15,919 --> 00:26:19,720
+let's see if that works.
+
+439
+00:26:20,120 --> 00:26:26,480
+Explore exploratory programming. Okay,
+
+440
+00:26:23,120 --> 00:26:29,760
+we got a error, comma, error, shift,
+
+441
+00:26:26,480 --> 00:26:32,799
+enter again. Okay, we got two balls.
+
+442
+00:26:29,760 --> 00:26:35,279
+Okay, we got green instead. Blue is
+
+443
+00:26:32,799 --> 00:26:35,279
+point
+
+444
+00:26:35,640 --> 00:26:41,880
+um 6. Okay, so there we there they go.
+
+445
+00:26:40,799 --> 00:26:44,159
+So they
+
+446
+00:26:41,880 --> 00:26:46,640
+actually, you know, they actually have
+
+447
+00:26:44,159 --> 00:26:49,080
+exactly the same path, but one is lower
+
+448
+00:26:46,640 --> 00:26:53,120
+than the other.
+
+449
+00:26:49,080 --> 00:26:53,120
+Okay. And increase the
+
+450
+00:26:56,039 --> 00:27:04,640
+speed. Fantastic. Okay. Now, you
+
+451
+00:27:01,320 --> 00:27:07,919
+see now one of them, you know, this this
+
+452
+00:27:04,640 --> 00:27:11,440
+is going to get a bit complicated. So,
+
+453
+00:27:07,919 --> 00:27:13,520
+so this ball uh let's just say red.
+
+454
+00:27:11,440 --> 00:27:17,120
+Okay. Let's just not with the
+
+455
+00:27:13,520 --> 00:27:20,400
+color. Let's say blue. Okay.
+
+456
+00:27:17,120 --> 00:27:24,080
+easier to read. So, red ball, blue ball.
+
+457
+00:27:20,400 --> 00:27:28,320
+Now, blue ball needs a slightly lower.
+
+458
+00:27:24,080 --> 00:27:33,520
+Okay. And uh it needs the path needs to
+
+459
+00:27:28,320 --> 00:27:37,279
+be smaller. Okay? Because so so the so
+
+460
+00:27:33,520 --> 00:27:37,279
+you will need to
+
+461
+00:27:38,520 --> 00:27:47,679
+um so you see the time is a parameter.
+
+462
+00:27:43,080 --> 00:27:47,679
+So t goes from
+
+463
+00:27:47,880 --> 00:27:57,520
+-22. Now for the blue ball the the range
+
+464
+00:27:52,960 --> 00:28:01,440
+must be smaller. Okay. Um so how do you
+
+465
+00:27:57,520 --> 00:28:05,200
+do that? The range must be smaller. You
+
+466
+00:28:01,440 --> 00:28:05,200
+can manually code it
+
+467
+00:28:05,559 --> 00:28:12,240
+by it. You see it the time varies. So
+
+468
+00:28:09,919 --> 00:28:15,840
+you cannot just minus something. You
+
+469
+00:28:12,240 --> 00:28:20,200
+need a oh yeah multiply. Okay. So again
+
+470
+00:28:15,840 --> 00:28:22,720
+this is fundamental of like calculus
+
+471
+00:28:20,200 --> 00:28:26,640
+like you know that's the first thing you
+
+472
+00:28:22,720 --> 00:28:30,440
+really need to master about about how
+
+473
+00:28:26,640 --> 00:28:36,080
+the parametric equation uh affect the
+
+474
+00:28:30,440 --> 00:28:40,559
+graph. So you can time 0.9. Okay. So
+
+475
+00:28:36,080 --> 00:28:40,559
+that time 0.9. Okay.
+
+476
+00:28:41,720 --> 00:28:51,360
+0.9. And uh this part
+
+477
+00:28:46,520 --> 00:28:54,480
+um same thing. Okay. So
+
+478
+00:28:51,360 --> 00:28:58,760
+uh let's put the negative outside. Okay.
+
+479
+00:28:54,480 --> 00:29:02,960
+Let's try it. Explore exploratory
+
+480
+00:28:58,760 --> 00:29:04,760
+graphics coding. Do it. Okay, we got red
+
+481
+00:29:02,960 --> 00:29:09,240
+and blue. Let's
+
+482
+00:29:04,760 --> 00:29:12,440
+see. Play it back and forth. Back and
+
+483
+00:29:09,240 --> 00:29:17,960
+forth. Increase
+
+484
+00:29:12,440 --> 00:29:22,880
+time. Doop doop doo. Fantastic.
+
+485
+00:29:17,960 --> 00:29:26,320
+Okay, now next we need to Hello. Hello.
+
+486
+00:29:22,880 --> 00:29:28,480
+Anyone here? Angan says, "Hi, I don't
+
+487
+00:29:26,320 --> 00:29:30,720
+know much about physics and math yet.
+
+488
+00:29:28,480 --> 00:29:33,520
+God recommended this. Could you tell me
+
+489
+00:29:30,720 --> 00:29:36,000
+what wu fam is and why are you doing it?
+
+490
+00:29:33,520 --> 00:29:38,480
+Okay, we're doing it to show
+
+491
+00:29:36,000 --> 00:29:40,960
+programming. It's a fun programming task
+
+492
+00:29:38,480 --> 00:29:43,760
+and it's doing animation graphics. So,
+
+493
+00:29:40,960 --> 00:29:46,880
+it's about graphics programming. So if
+
+494
+00:29:43,760 --> 00:29:49,600
+you are a student learning calculus or
+
+495
+00:29:46,880 --> 00:29:53,880
+mathematics or programming graphics or
+
+496
+00:29:49,600 --> 00:29:56,399
+you are a engineer uh or if you are a
+
+497
+00:29:53,880 --> 00:29:58,399
+professional scientist you want to learn
+
+498
+00:29:56,399 --> 00:30:01,360
+something about wufam language you heard
+
+499
+00:29:58,399 --> 00:30:03,240
+about it you never used it this is the
+
+500
+00:30:01,360 --> 00:30:06,960
+video to watch
+
+501
+00:30:03,240 --> 00:30:10,480
+okay and uh I've so I explained many
+
+502
+00:30:06,960 --> 00:30:12,799
+times in my past videos uh talk show so
+
+503
+00:30:10,480 --> 00:30:15,360
+there's a entire wam language tutorial
+
+504
+00:30:12,799 --> 00:30:18,240
+utorial where do you download it and
+
+505
+00:30:15,360 --> 00:30:23,720
+entire graphics tutorial I've I've done
+
+506
+00:30:18,240 --> 00:30:23,720
+like a 100 videos on wam language okay
+
+507
+00:30:25,399 --> 00:30:31,399
+uh okay so back to this so yeah did we
+
+508
+00:30:29,200 --> 00:30:33,000
+try this successful
+
+509
+00:30:31,399 --> 00:30:36,080
+fantastic
+
+510
+00:30:33,000 --> 00:30:39,039
+jud now we need to con connect the line
+
+511
+00:30:36,080 --> 00:30:42,799
+between the balls okay and actually we
+
+512
+00:30:39,039 --> 00:30:46,480
+can play a sound but uh yes we can Uh
+
+513
+00:30:42,799 --> 00:30:48,760
+well yeah you uh yeah yeah yeah you can.
+
+514
+00:30:46,480 --> 00:30:52,480
+So anyway so connect the line that's
+
+515
+00:30:48,760 --> 00:30:56,840
+easy. So you need a line
+
+516
+00:30:52,480 --> 00:31:01,440
+uh wait. Okay so you need the
+
+517
+00:30:56,840 --> 00:31:03,679
+line line takes a list of points. So one
+
+518
+00:31:01,440 --> 00:31:08,000
+point two point
+
+519
+00:31:03,679 --> 00:31:11,710
+uh or three points or more. Okay. So, so
+
+520
+00:31:08,000 --> 00:31:13,000
+let's let's add another ball
+
+521
+00:31:11,710 --> 00:31:16,200
+[Music]
+
+522
+00:31:13,000 --> 00:31:20,240
+actually. Okay. Now, this one is
+
+523
+00:31:16,200 --> 00:31:24,080
+green. Okay. Green ball. Let's say let's
+
+524
+00:31:20,240 --> 00:31:27,159
+this one eight. Okay. 8. And this point
+
+525
+00:31:24,080 --> 00:31:30,799
+uh six.
+
+526
+00:31:27,159 --> 00:31:34,000
+Okay. Three balls. Now, you need a line
+
+527
+00:31:30,799 --> 00:31:36,679
+connecting the three dots. Okay. Oh god.
+
+528
+00:31:34,000 --> 00:31:40,320
+So this you need to copy
+
+529
+00:31:36,679 --> 00:31:43,360
+that. That's the position of that one.
+
+530
+00:31:40,320 --> 00:31:46,480
+Then position of the second one. Then
+
+531
+00:31:43,360 --> 00:31:48,399
+position of the third one. Okay. So
+
+532
+00:31:46,480 --> 00:31:50,480
+after you done this, you can clean up
+
+533
+00:31:48,399 --> 00:31:54,240
+the code so that you know you don't have
+
+534
+00:31:50,480 --> 00:31:54,240
+to like repeat all these.
+
+535
+00:31:55,960 --> 00:32:01,919
+Okay. Okay. That's the
+
+536
+00:31:58,679 --> 00:32:05,120
+line. Now double check you got it right.
+
+537
+00:32:01,919 --> 00:32:07,919
+Yeah. So you got the line. Yes. And uh
+
+538
+00:32:05,120 --> 00:32:07,919
+make the whole
+
+539
+00:32:07,960 --> 00:32:14,480
+thing a bracket. Okay. So once you have
+
+540
+00:32:11,679 --> 00:32:16,720
+a bracket, you know, you can add colors
+
+541
+00:32:14,480 --> 00:32:18,600
+and stuff. Okay. But let's just try
+
+542
+00:32:16,720 --> 00:32:23,360
+that.
+
+543
+00:32:18,600 --> 00:32:23,360
+Okay. Fantastic. Are we are we
+
+544
+00:32:31,000 --> 00:32:34,399
+good? Increase
+
+545
+00:32:34,840 --> 00:32:39,279
+speed. Okay. Something is not
+
+546
+00:32:39,720 --> 00:32:44,159
+correct.
+
+547
+00:32:41,320 --> 00:32:47,840
+Wait. Okay. You forgot to lower them.
+
+548
+00:32:44,159 --> 00:32:51,120
+You see the green ball is too high.
+
+549
+00:32:47,840 --> 00:32:54,000
+So you need to um Yeah, you forgot to
+
+550
+00:32:51,120 --> 00:32:56,679
+lower them. Yeah. So the green ball is
+
+551
+00:32:54,000 --> 00:32:58,919
+uh let's say
+
+552
+00:32:56,679 --> 00:33:01,919
+0.3
+
+553
+00:32:58,919 --> 00:33:01,919
+0.6.
+
+554
+00:33:03,720 --> 00:33:08,399
+So back to language
+
+555
+00:33:09,480 --> 00:33:14,600
+here. Paste.
+
+556
+00:33:12,080 --> 00:33:19,840
+Now control shift
+
+557
+00:33:14,600 --> 00:33:22,720
+N to type set it. Now it's beautiful.
+
+558
+00:33:19,840 --> 00:33:24,880
+Now you see the type set automatically
+
+559
+00:33:22,720 --> 00:33:29,279
+formats on the fly. It's much better
+
+560
+00:33:24,880 --> 00:33:32,159
+than Python or Hascal or C or C++. You
+
+561
+00:33:29,279 --> 00:33:34,200
+know this technology has been around in
+
+562
+00:33:32,159 --> 00:33:37,120
+Wuam language since
+
+563
+00:33:34,200 --> 00:33:39,840
+1996. So you never need to worry about
+
+564
+00:33:37,120 --> 00:33:43,120
+tabs and space. You see there's no no
+
+565
+00:33:39,840 --> 00:33:45,840
+tab here. No, no indentation, but the
+
+566
+00:33:43,120 --> 00:33:48,559
+Wufam language you see, automatically
+
+567
+00:33:45,840 --> 00:33:50,640
+does it for you and on the fly, you
+
+568
+00:33:48,559 --> 00:33:54,080
+know, depending, you know, so as you
+
+569
+00:33:50,640 --> 00:33:56,760
+type, it automatically formats. So all
+
+570
+00:33:54,080 --> 00:33:58,360
+the, you know, industrial coders, the
+
+571
+00:33:56,760 --> 00:34:02,679
+Python,
+
+572
+00:33:58,360 --> 00:34:05,559
+Java, Goland, Hascal, this they are all
+
+573
+00:34:02,679 --> 00:34:07,240
+crap. They need to have this feature,
+
+574
+00:34:05,559 --> 00:34:11,040
+okay?
+
+575
+00:34:07,240 --> 00:34:13,359
+Automatic formatting on the fly. So I
+
+576
+00:34:11,040 --> 00:34:16,720
+talked about this in many videos in past
+
+577
+00:34:13,359 --> 00:34:20,800
+videos. Search for it. Uh the last one
+
+578
+00:34:16,720 --> 00:34:23,040
+is like three month ago. Search for you
+
+579
+00:34:20,800 --> 00:34:25,679
+know the Unix line truncation. You'll
+
+580
+00:34:23,040 --> 00:34:28,240
+find it my YouTube. Okay. So anyway, so
+
+581
+00:34:25,679 --> 00:34:30,560
+we got this. So shift enter to run it.
+
+582
+00:34:28,240 --> 00:34:35,720
+Okay. We got this animation. Let's play
+
+583
+00:34:30,560 --> 00:34:39,720
+it. Play it back and forth. Increase
+
+584
+00:34:35,720 --> 00:34:39,720
+speed. Okay.
+
+585
+00:34:42,960 --> 00:34:49,040
+Okay. Now you forgot to uh you see you
+
+586
+00:34:46,560 --> 00:34:50,040
+changed the formula here. So you forgot
+
+587
+00:34:49,040 --> 00:34:52,839
+to
+
+588
+00:34:50,040 --> 00:34:57,640
+Yeah. So
+
+589
+00:34:52,839 --> 00:35:03,280
+actually paste paste. Do it.
+
+590
+00:34:57,640 --> 00:35:03,280
+Okay. Play back and forth
+
+591
+00:35:05,160 --> 00:35:11,760
+faster. Okay. Now the balls needs to be
+
+592
+00:35:08,800 --> 00:35:14,240
+lower a lot. Okay, I think we got our
+
+593
+00:35:11,760 --> 00:35:16,079
+formula wrong. The green ball, look at
+
+594
+00:35:14,240 --> 00:35:19,119
+the green ball. They need to be much
+
+595
+00:35:16,079 --> 00:35:23,079
+lower. So there is something wrong in
+
+596
+00:35:19,119 --> 00:35:26,000
+our formula. Okay. Oh wait,
+
+597
+00:35:23,079 --> 00:35:30,720
+uh so the formula starts to get
+
+598
+00:35:26,000 --> 00:35:30,720
+complicated. Oh yeah, you forgot. So
+
+599
+00:35:31,000 --> 00:35:36,880
+wait, you inverted
+
+600
+00:35:34,079 --> 00:35:39,440
+uh you see we inverted. Oh, okay. So the
+
+601
+00:35:36,880 --> 00:35:41,720
+negative needs to apply to the hole. So
+
+602
+00:35:39,440 --> 00:35:44,280
+you got Yeah.
+
+603
+00:35:41,720 --> 00:35:50,079
+So
+
+604
+00:35:44,280 --> 00:35:50,079
+yeah. Okay. And you need to do the same
+
+605
+00:35:52,839 --> 00:36:03,119
+here. Copy back here. Paste. Run
+
+606
+00:35:59,240 --> 00:36:07,520
+it. Now it looks better. Now it looks
+
+607
+00:36:03,119 --> 00:36:07,520
+good. Back and forth. Increase speed.
+
+608
+00:36:07,880 --> 00:36:14,079
+play
+
+609
+00:36:09,960 --> 00:36:14,079
+Jun. Okay, that's
+
+610
+00:36:14,520 --> 00:36:19,640
+wrong. Okay, but similar. Okay, so you
+
+611
+00:36:18,079 --> 00:36:22,560
+know, so
+
+612
+00:36:19,640 --> 00:36:25,119
+but it's not correct. Well, the the
+
+613
+00:36:22,560 --> 00:36:29,040
+reason is because we need to ded with
+
+614
+00:36:25,119 --> 00:36:30,920
+this um this parabola. So let's think
+
+615
+00:36:29,040 --> 00:36:33,760
+about
+
+616
+00:36:30,920 --> 00:36:38,119
+it. Okay, so you shouldn't apply the
+
+617
+00:36:33,760 --> 00:36:41,400
+whole. So you invert it by applying a
+
+618
+00:36:38,119 --> 00:36:42,450
+negative then you need to move it
+
+619
+00:36:41,400 --> 00:36:44,200
+down.
+
+620
+00:36:42,450 --> 00:36:49,119
+[Music]
+
+621
+00:36:44,200 --> 00:36:51,839
+Uh you so you invert so parabola is like
+
+622
+00:36:49,119 --> 00:36:56,320
+that you invert it like that then you
+
+623
+00:36:51,839 --> 00:37:00,599
+move it down just minus right. So why is
+
+624
+00:36:56,320 --> 00:37:05,599
+our code not correct?
+
+625
+00:37:00,599 --> 00:37:05,599
+Um did we forget something?
+
+626
+00:37:05,760 --> 00:37:09,760
+You know why? Why is our code not
+
+627
+00:37:11,400 --> 00:37:18,640
+correct? Oh, then now you forgot the
+
+628
+00:37:14,240 --> 00:37:18,640
+line. Oh, yeah. For you see, did
+
+629
+00:37:21,480 --> 00:37:27,800
+you now? It's like the line is not
+
+630
+00:37:24,800 --> 00:37:27,800
+connected.
+
+631
+00:37:34,960 --> 00:37:39,280
+So instead of this you know now it's
+
+632
+00:37:37,280 --> 00:37:41,720
+getting complicated you should write a
+
+633
+00:37:39,280 --> 00:37:45,720
+formula so you don't have to repeat
+
+634
+00:37:41,720 --> 00:37:49,400
+this. So but
+
+635
+00:37:45,720 --> 00:37:54,160
+um so disk of
+
+636
+00:37:49,400 --> 00:37:57,599
+size two 0.2 into radius. And this
+
+637
+00:37:54,160 --> 00:38:03,440
+formula is that
+
+638
+00:37:57,599 --> 00:38:05,320
+uh so what is so you negative in oh that
+
+639
+00:38:03,440 --> 00:38:09,320
+uh wait you
+
+640
+00:38:05,320 --> 00:38:11,880
+negative negative the y axis you invert
+
+641
+00:38:09,320 --> 00:38:16,200
+it then
+
+642
+00:38:11,880 --> 00:38:20,119
+you move down right minus
+
+643
+00:38:16,200 --> 00:38:24,119
+0 three
+
+644
+00:38:20,119 --> 00:38:27,119
+uh but the line is not connected did
+
+645
+00:38:24,119 --> 00:38:27,119
+y.
+
+646
+00:38:28,119 --> 00:38:34,400
+So, so
+
+647
+00:38:30,920 --> 00:38:35,880
+the Okay. So, make sure we got this
+
+648
+00:38:34,400 --> 00:38:39,800
+correct.
+
+649
+00:38:35,880 --> 00:38:42,520
+Yeah. Need needs to be exact
+
+650
+00:38:39,800 --> 00:38:45,599
+copy. Okay. Yeah. So,
+
+651
+00:38:42,520 --> 00:38:49,400
+we missed that's why the green ball is
+
+652
+00:38:45,599 --> 00:38:49,400
+like not connected.
+
+653
+00:38:49,680 --> 00:38:57,359
+But
+
+654
+00:38:52,440 --> 00:39:00,200
+um but how are they different? 0.4
+
+655
+00:38:57,359 --> 00:39:02,599
+squared minus 0.4
+
+656
+00:39:00,200 --> 00:39:06,720
+Wait, how is it
+
+657
+00:39:02,599 --> 00:39:06,720
+different? Why is it
+
+658
+00:39:09,240 --> 00:39:14,599
+not? Oh. Oh yeah. So you forgot to
+
+659
+00:39:12,800 --> 00:39:19,160
+remove that.
+
+660
+00:39:14,599 --> 00:39:19,160
+Yeah. Let's try it.
+
+661
+00:39:23,160 --> 00:39:27,440
+play back and forth.
+
+662
+00:39:31,000 --> 00:39:34,720
+Increase. Okay.
+
+663
+00:39:37,400 --> 00:39:44,800
+So, so you need to be much lower. Okay.
+
+664
+00:39:41,200 --> 00:39:47,240
+So, but essentially we effectively did
+
+665
+00:39:44,800 --> 00:39:54,359
+this. Okay. So
+
+666
+00:39:47,240 --> 00:39:56,920
+0.3 is going to be one. Let's say okay
+
+667
+00:39:54,359 --> 00:40:01,119
+0.6 is going to
+
+668
+00:39:56,920 --> 00:40:01,119
+be two.
+
+669
+00:40:05,079 --> 00:40:11,359
+Wait two.
+
+670
+00:40:08,200 --> 00:40:14,240
+Okay. You know we need to figure out. So
+
+671
+00:40:11,359 --> 00:40:17,760
+you got a several balls and each one
+
+672
+00:40:14,240 --> 00:40:20,880
+their position differs slightly uh and
+
+673
+00:40:17,760 --> 00:40:22,960
+uh you know so you need to write a
+
+674
+00:40:20,880 --> 00:40:25,680
+formula so that you don't have to like
+
+675
+00:40:22,960 --> 00:40:29,320
+hardcode each one you can just so it's
+
+676
+00:40:25,680 --> 00:40:34,079
+systematic you know 0.8 0.6 6
+
+677
+00:40:29,320 --> 00:40:37,280
+0 4 you know uh you know but but the
+
+678
+00:40:34,079 --> 00:40:39,680
+basics is like this. Okay. So actually
+
+679
+00:40:37,280 --> 00:40:39,680
+you need
+
+680
+00:40:42,359 --> 00:40:48,880
+to now it's more like it you
+
+681
+00:40:45,720 --> 00:40:50,960
+see. Okay. So then you need to change
+
+682
+00:40:48,880 --> 00:40:55,119
+the range. The range will be different
+
+683
+00:40:50,960 --> 00:40:57,640
+for each ball. Uh that is the range.
+
+684
+00:40:55,119 --> 00:41:02,480
+That is the
+
+685
+00:40:57,640 --> 00:41:06,200
+um yeah the time this this 08 06 you
+
+686
+00:41:02,480 --> 00:41:10,920
+know that that changes this uh
+
+687
+00:41:06,200 --> 00:41:15,880
+range and you need to do some geometry
+
+688
+00:41:10,920 --> 00:41:17,640
+to figure out you know so given a curve
+
+689
+00:41:15,880 --> 00:41:22,640
+parabola
+
+690
+00:41:17,640 --> 00:41:25,280
+x² you know minus x^2 and plus or minus
+
+691
+00:41:22,640 --> 00:41:30,720
+some constant you need to figure out
+
+692
+00:41:25,280 --> 00:41:34,520
+when do they all align on the on the
+
+693
+00:41:30,720 --> 00:41:38,040
+uh you know kind of like V-shaped
+
+694
+00:41:34,520 --> 00:41:42,040
+axis. Once you know that the initial
+
+695
+00:41:38,040 --> 00:41:45,440
+initial time parameter for the parabola
+
+696
+00:41:42,040 --> 00:41:50,960
+then that's how you and how they relate
+
+697
+00:41:45,440 --> 00:41:54,480
+to two. So you want to make this -2 plus
+
+698
+00:41:50,960 --> 00:41:57,440
+or times or minus something. So that for
+
+699
+00:41:54,480 --> 00:42:01,760
+each one of them they will all start at
+
+700
+00:41:57,440 --> 00:42:04,560
+the uh at that. So that is some that
+
+701
+00:42:01,760 --> 00:42:06,240
+that part is mathematics. Uh you can
+
+702
+00:42:04,560 --> 00:42:07,560
+figure it out. You know you you need to
+
+703
+00:42:06,240 --> 00:42:09,640
+do some
+
+704
+00:42:07,560 --> 00:42:13,040
+plot.
+
+705
+00:42:09,640 --> 00:42:18,200
+Uh you know you can experimentally
+
+706
+00:42:13,040 --> 00:42:20,880
+figure it out how the initial
+
+707
+00:42:18,200 --> 00:42:23,160
+position is. You know how do you make
+
+708
+00:42:20,880 --> 00:42:27,760
+the initial position
+
+709
+00:42:23,160 --> 00:42:30,160
+align on a bar on on a diagonal bar? Or
+
+710
+00:42:27,760 --> 00:42:32,640
+you can solve this by mathematics
+
+711
+00:42:30,160 --> 00:42:34,319
+mathematically figure out you know the
+
+712
+00:42:32,640 --> 00:42:37,319
+square root. Yeah, you can actually
+
+713
+00:42:34,319 --> 00:42:41,359
+square root equals
+
+714
+00:42:37,319 --> 00:42:44,400
+to equal equals to a number on the x
+
+715
+00:42:41,359 --> 00:42:47,040
+axis and y axis. Okay. Yeah, you can
+
+716
+00:42:44,400 --> 00:42:50,319
+figure that out by solving a equation
+
+717
+00:42:47,040 --> 00:42:53,200
+very you know the most simple
+
+718
+00:42:50,319 --> 00:42:57,040
+uh and but basically we got this done
+
+719
+00:42:53,200 --> 00:42:57,040
+basically. So we got this
+
+720
+00:42:58,680 --> 00:43:06,560
+um we can now actually make make a
+
+721
+00:43:02,640 --> 00:43:06,560
+sound. Can we how do we play the
+
+722
+00:43:10,680 --> 00:43:18,160
+sound? Okay. Adding the sound will be a
+
+723
+00:43:14,000 --> 00:43:18,160
+a bit more difficult because right
+
+724
+00:43:18,359 --> 00:43:25,319
+now because Okay. So actually we got a
+
+725
+00:43:21,839 --> 00:43:28,400
+problem. Uh this is not correct
+
+726
+00:43:25,319 --> 00:43:29,640
+because the framework so far is not
+
+727
+00:43:28,400 --> 00:43:33,200
+correct
+
+728
+00:43:29,640 --> 00:43:35,040
+because the way we are doing it the the
+
+729
+00:43:33,200 --> 00:43:39,400
+order balls are just going back and
+
+730
+00:43:35,040 --> 00:43:41,680
+forth. They never become out of
+
+731
+00:43:39,400 --> 00:43:45,480
+synchronization. So you need to make
+
+732
+00:43:41,680 --> 00:43:48,640
+them out of synchronization. Okay.
+
+733
+00:43:45,480 --> 00:43:52,520
+So you know in that case you need to you
+
+734
+00:43:48,640 --> 00:43:55,920
+need to to start to use s and cosine
+
+735
+00:43:52,520 --> 00:43:58,240
+because s cosine that's how yeah we need
+
+736
+00:43:55,920 --> 00:43:58,240
+to do
+
+737
+00:43:59,480 --> 00:44:02,720
+that. Hey
+
+738
+00:44:04,520 --> 00:44:13,599
+Hank. So we coding this animation. So
+
+739
+00:44:10,040 --> 00:44:16,400
+um you know you can look at my website
+
+740
+00:44:13,599 --> 00:44:18,839
+talk show today on the link at the
+
+741
+00:44:16,400 --> 00:44:21,960
+description you can check out what we're
+
+742
+00:44:18,839 --> 00:44:25,760
+doing. So so
+
+743
+00:44:21,960 --> 00:44:29,119
+now we need to make this go back and
+
+744
+00:44:25,760 --> 00:44:32,960
+forth. Okay then that is okay let me let
+
+745
+00:44:29,119 --> 00:44:35,599
+me try to get that then that's it then
+
+746
+00:44:32,960 --> 00:44:39,160
+that that's basically it. So we need to
+
+747
+00:44:35,599 --> 00:44:42,640
+get the both. So right now the ball all
+
+748
+00:44:39,160 --> 00:44:46,000
+sink. Okay, that's not what we want. We
+
+749
+00:44:42,640 --> 00:44:49,040
+need to get the ball out of the sink. So
+
+750
+00:44:46,000 --> 00:44:50,040
+in order, you know, so in other words,
+
+751
+00:44:49,040 --> 00:44:55,440
+the
+
+752
+00:44:50,040 --> 00:44:56,359
+cycle is not just the beginning and end
+
+753
+00:44:55,440 --> 00:45:03,359
+you
+
+754
+00:44:56,359 --> 00:45:07,960
+see of the of the time range parameter.
+
+755
+00:45:03,359 --> 00:45:13,359
+So you in order to do that you need
+
+756
+00:45:07,960 --> 00:45:17,079
+to so between -2 and two you need to
+
+757
+00:45:13,359 --> 00:45:21,520
+start to get s cosine because
+
+758
+00:45:17,079 --> 00:45:24,079
+s is the function to repeat in
+
+759
+00:45:21,520 --> 00:45:25,880
+mathematics. Okay when you want a
+
+760
+00:45:24,079 --> 00:45:30,800
+function to
+
+761
+00:45:25,880 --> 00:45:32,960
+repeat basically sign is the function.
+
+762
+00:45:30,800 --> 00:45:35,680
+uh well sign is a smooth function. I
+
+763
+00:45:32,960 --> 00:45:38,560
+mean you know you could also define a
+
+764
+00:45:35,680 --> 00:45:42,160
+function such that you know during zero
+
+765
+00:45:38,560 --> 00:45:45,040
+and one is one from one to two it's
+
+766
+00:45:42,160 --> 00:45:48,000
+negative one things like that but then
+
+767
+00:45:45,040 --> 00:45:52,000
+it's not continuous stuff. So usually
+
+768
+00:45:48,000 --> 00:45:56,280
+sign is the best thing in math to to get
+
+769
+00:45:52,000 --> 00:45:59,920
+a cycle. Okay. So you want
+
+770
+00:45:56,280 --> 00:46:03,400
+um you want the let's just focus on one
+
+771
+00:45:59,920 --> 00:46:08,000
+ball. Okay. On on the on one
+
+772
+00:46:03,400 --> 00:46:11,200
+ball you want it to repeat this path. So
+
+773
+00:46:08,000 --> 00:46:12,760
+you want so so what you want is a
+
+774
+00:46:11,200 --> 00:46:15,319
+parametric
+
+775
+00:46:12,760 --> 00:46:19,920
+formula you know like this
+
+776
+00:46:15,319 --> 00:46:19,920
+one for x and y such
+
+777
+00:46:20,359 --> 00:46:28,319
+that such that doesn't matter where x is
+
+778
+00:46:24,720 --> 00:46:32,400
+the input the output is always back and
+
+779
+00:46:28,319 --> 00:46:37,160
+forth. Okay. So you want a function such
+
+780
+00:46:32,400 --> 00:46:40,800
+that let's say x goes from 0 to
+
+781
+00:46:37,160 --> 00:46:42,040
+10 but however your functions x will
+
+782
+00:46:40,800 --> 00:46:45,359
+will
+
+783
+00:46:42,040 --> 00:46:48,280
+become from 0 to one and back to zero
+
+784
+00:46:45,359 --> 00:46:53,040
+zero to one back to zero and so on.
+
+785
+00:46:48,280 --> 00:46:53,040
+Okay. So you can do that
+
+786
+00:46:54,280 --> 00:47:01,040
+by sign. That's right. You know, again,
+
+787
+00:46:58,640 --> 00:47:04,240
+let's just keep typing. Okay, let's just
+
+788
+00:47:01,040 --> 00:47:06,800
+keep typing and we'll see. So, you can,
+
+789
+00:47:04,240 --> 00:47:09,319
+you know, then you got you're gonna have
+
+790
+00:47:06,800 --> 00:47:12,640
+lots of fancy graphics.
+
+791
+00:47:09,319 --> 00:47:14,760
+Okay, so we got a sign. Let's just say
+
+792
+00:47:12,640 --> 00:47:17,760
+let's just say that it's going to be
+
+793
+00:47:14,760 --> 00:47:17,760
+like
+
+794
+00:47:18,200 --> 00:47:27,960
+wild. Okay, back here. Paste evaluate.
+
+795
+00:47:24,359 --> 00:47:31,190
+Okay. Show
+
+796
+00:47:27,960 --> 00:47:34,229
+uh back and forth increase
+
+797
+00:47:31,190 --> 00:47:34,229
+[Music]
+
+798
+00:47:34,359 --> 00:47:40,800
+speed. So you see they do they get out
+
+799
+00:47:37,680 --> 00:47:43,680
+of sync. Okay. So I don't know. Okay.
+
+800
+00:47:40,800 --> 00:47:46,960
+Yeah. In order for sign to work the
+
+801
+00:47:43,680 --> 00:47:50,800
+parameter needs to increase because sign
+
+802
+00:47:46,960 --> 00:47:54,680
+the period of sign is 2 pi. So the
+
+803
+00:47:50,800 --> 00:47:58,480
+parameter needs to be like
+
+804
+00:47:54,680 --> 00:47:58,480
+um like 20
+
+805
+00:48:01,400 --> 00:48:05,680
+pi. Okay. So something like
+
+806
+00:48:05,720 --> 00:48:11,680
+that. Yeah. We we can we can we can
+
+807
+00:48:08,720 --> 00:48:11,680
+check out what's going
+
+808
+00:48:13,160 --> 00:48:18,359
+on. Okay. Something happened.
+
+809
+00:48:28,280 --> 00:48:35,200
+increase. Okay, they went. Yeah. So, I
+
+810
+00:48:31,920 --> 00:48:38,559
+know. So, now let's keep doing. Okay,
+
+811
+00:48:35,200 --> 00:48:41,839
+before we do that, let's have a backup.
+
+812
+00:48:38,559 --> 00:48:44,839
+Actually, let's have a previous version
+
+813
+00:48:41,839 --> 00:48:50,920
+saved before we did the sign.
+
+814
+00:48:44,839 --> 00:48:54,920
+Okay. So this is before we do any
+
+815
+00:48:50,920 --> 00:48:54,920
+sign. Okay.
+
+816
+00:48:56,599 --> 00:49:00,640
+So okay this is
+
+817
+00:49:05,640 --> 00:49:15,720
+um all the balls are in sync from
+
+818
+00:49:11,119 --> 00:49:20,720
+beginning time param
+
+819
+00:49:15,720 --> 00:49:23,839
+to to end of time param. Okay that's
+
+820
+00:49:20,720 --> 00:49:27,920
+this version. Now we're going to start
+
+821
+00:49:23,839 --> 00:49:27,920
+to have them to be out of sync.
+
+822
+00:49:28,680 --> 00:49:38,079
+So this will be uh wait. So this need
+
+823
+00:49:33,040 --> 00:49:38,079
+needs Okay. So this needs to be
+
+824
+00:49:40,200 --> 00:49:45,400
+copy. This needs to be inside.
+
+825
+00:49:50,400 --> 00:49:58,240
+This needs to be inside. Okay. Now, all
+
+826
+00:49:53,200 --> 00:49:58,240
+we change all the parameters. Okay. So,
+
+827
+00:49:58,520 --> 00:50:02,000
+again, okay.
+
+828
+00:50:02,440 --> 00:50:06,040
+So,
+
+829
+00:50:04,040 --> 00:50:07,960
+copy
+
+830
+00:50:06,040 --> 00:50:12,520
+paste.
+
+831
+00:50:07,960 --> 00:50:15,520
+Copy paste. Okay.
+
+832
+00:50:12,520 --> 00:50:15,520
+Now,
+
+833
+00:50:16,200 --> 00:50:21,280
+now Yep. Now, let's try
+
+834
+00:50:27,160 --> 00:50:32,440
+Copy. Oh, and uh wait, let's just run
+
+835
+00:50:30,800 --> 00:50:34,200
+it. Uh
+
+836
+00:50:32,440 --> 00:50:39,079
+wait,
+
+837
+00:50:34,200 --> 00:50:42,440
+stop all the way to the bottom. Run
+
+838
+00:50:39,079 --> 00:50:44,359
+this. Uh wait, did we do
+
+839
+00:50:42,440 --> 00:50:48,480
+it?
+
+840
+00:50:44,359 --> 00:50:52,800
+Wait, this this there's no sign. Okay.
+
+841
+00:50:48,480 --> 00:50:52,800
+No, not that one. So,
+
+842
+00:50:56,040 --> 00:51:02,119
+copy, paste, run it. Okay, this is the
+
+843
+00:51:01,040 --> 00:51:09,119
+new
+
+844
+00:51:02,119 --> 00:51:12,480
+version. Play back and forth. Increase.
+
+845
+00:51:09,119 --> 00:51:12,480
+Okay. So they
+
+846
+00:51:16,359 --> 00:51:23,079
+don't wait. So this is not correct. We
+
+847
+00:51:20,400 --> 00:51:27,040
+are not seeing the effect of
+
+848
+00:51:23,079 --> 00:51:30,240
+sign. The effect of sign is should at
+
+849
+00:51:27,040 --> 00:51:32,119
+least have two cycles. So it should go
+
+850
+00:51:30,240 --> 00:51:36,520
+back. You
+
+851
+00:51:32,119 --> 00:51:39,359
+see if we play it just
+
+852
+00:51:36,520 --> 00:51:41,680
+forward you know it should automatically
+
+853
+00:51:39,359 --> 00:51:41,680
+come
+
+854
+00:51:42,040 --> 00:51:48,920
+back. Yeah because because we put the
+
+855
+00:51:45,599 --> 00:51:48,920
+sign there.
+
+856
+00:51:49,119 --> 00:51:54,720
+Uh but why is it not doing that? And see
+
+857
+00:52:01,000 --> 00:52:07,359
+sign. Let's make it all positive. Okay.
+
+858
+00:52:04,559 --> 00:52:10,400
+So sign becomes positive and negative.
+
+859
+00:52:07,359 --> 00:52:13,680
+Positive and negative. We want the x
+
+860
+00:52:10,400 --> 00:52:17,720
+axis to be
+
+861
+00:52:13,680 --> 00:52:17,720
+uh always positive.
+
+862
+00:52:18,559 --> 00:52:21,040
+Yeah.
+
+863
+00:52:25,559 --> 00:52:28,559
+So,
+
+864
+00:52:39,880 --> 00:52:47,000
+okay. Wait, did we get the error
+
+865
+00:52:43,280 --> 00:52:47,000
+somewhere here?
+
+866
+00:52:51,160 --> 00:52:58,640
+What? Paste. Okay. Do it now. Run
+
+867
+00:52:59,400 --> 00:53:05,640
+this. There it is. You see it started to
+
+868
+00:53:03,839 --> 00:53:10,000
+shrink back.
+
+869
+00:53:05,640 --> 00:53:10,000
+Okay. So now all you have to
+
+870
+00:53:10,200 --> 00:53:18,319
+do Yeah. So the x axis you see I see now
+
+871
+00:53:15,599 --> 00:53:20,440
+it's limited you see sign output is
+
+872
+00:53:18,319 --> 00:53:23,920
+always less than
+
+873
+00:53:20,440 --> 00:53:28,160
+one you know negative one positive one
+
+874
+00:53:23,920 --> 00:53:30,040
+okay cycles in between so you need to
+
+875
+00:53:28,160 --> 00:53:34,720
+increase
+
+876
+00:53:30,040 --> 00:53:34,720
+that to two okay
+
+877
+00:53:36,839 --> 00:53:42,960
+so god okay it's becoming more complex
+
+878
+00:53:50,760 --> 00:53:54,720
+X but we getting
+
+879
+00:53:55,400 --> 00:53:58,400
+closer.
+
+880
+00:53:59,160 --> 00:54:03,400
+Yeah, run it.
+
+881
+00:54:12,839 --> 00:54:20,440
+play. Okay.
+
+882
+00:54:16,240 --> 00:54:24,079
+Uh then we need to so they uh
+
+883
+00:54:20,440 --> 00:54:24,079
+so let's say
+
+884
+00:54:34,520 --> 00:54:41,319
+four. Uh now we got too many. Hold on a
+
+885
+00:54:38,319 --> 00:54:41,319
+second.
+
+886
+00:54:47,240 --> 00:54:51,760
+Copy paste run
+
+887
+00:54:56,200 --> 00:55:02,960
+it. Okay. Why is that 4 pi to 2
+
+888
+00:55:05,000 --> 00:55:09,800
+pi? It's not cycling.
+
+889
+00:55:11,280 --> 00:55:13,839
+I'll put
+
+890
+00:55:14,599 --> 00:55:18,240
+two. Okay.
+
+891
+00:55:20,200 --> 00:55:23,599
+So, okay.
+
+892
+00:55:24,119 --> 00:55:31,200
+So, so far so
+
+893
+00:55:26,920 --> 00:55:31,200
+good. Okay. So
+
+894
+00:55:32,280 --> 00:55:45,440
+um so so the input the time -4 pi * 2 pi
+
+895
+00:55:40,720 --> 00:55:45,440
+to 4 pi * 2 pi so the
+
+896
+00:55:46,040 --> 00:55:51,400
+input
+
+897
+00:55:48,040 --> 00:55:56,480
+is you know a huge
+
+898
+00:55:51,400 --> 00:56:00,480
+range 2 pi is like six * 4 is like 24
+
+899
+00:55:56,480 --> 00:56:06,640
+okay so we and change that to 24 you
+
+900
+00:56:00,480 --> 00:56:09,520
+know um 24 - 24 to 24 that's the time.
+
+901
+00:56:06,640 --> 00:56:09,520
+So when
+
+902
+00:56:10,119 --> 00:56:18,480
+-4 time s it always becomes -1 to one
+
+903
+00:56:16,160 --> 00:56:20,119
+you know then your absolute it's always
+
+904
+00:56:18,480 --> 00:56:23,480
+0ero to
+
+905
+00:56:20,119 --> 00:56:25,240
+one oh it needs to be
+
+906
+00:56:23,480 --> 00:56:29,119
+-2
+
+907
+00:56:25,240 --> 00:56:31,760
+so because par parabola you want to yeah
+
+908
+00:56:29,119 --> 00:56:34,559
+it needs to be negative so not absolute
+
+909
+00:56:31,760 --> 00:56:34,559
+so delete
+
+910
+00:56:37,640 --> 00:56:44,720
+that. Okay. Yeah. So that would be
+
+911
+00:56:41,640 --> 00:56:49,200
+better. So you need to be go between
+
+912
+00:56:44,720 --> 00:56:55,079
+okay between -2 to2. Okay. So that's
+
+913
+00:56:49,200 --> 00:57:00,000
+output for x axis. X- axis -2
+
+914
+00:56:55,079 --> 00:57:04,319
+to2 cycle them. Okay. The y axis don't
+
+915
+00:57:00,000 --> 00:57:04,319
+cycle. Okay. No, let's This should
+
+916
+00:57:04,760 --> 00:57:09,400
+do.
+
+917
+00:57:06,520 --> 00:57:12,119
+Um,
+
+918
+00:57:09,400 --> 00:57:15,760
+wait.
+
+919
+00:57:12,119 --> 00:57:15,760
+Paste. Evaluate
+
+920
+00:57:16,760 --> 00:57:20,000
+it. Run
+
+921
+00:57:21,079 --> 00:57:28,000
+it. Okay, it's not coming back. You see
+
+922
+00:57:24,559 --> 00:57:31,839
+this? Just one shot fast. Now, let's You
+
+923
+00:57:28,000 --> 00:57:35,799
+need to adjust the plot range.
+
+924
+00:57:31,839 --> 00:57:41,319
+plot range uh -4 to
+
+925
+00:57:35,799 --> 00:57:49,480
+4 x axis y axis is negative let's say
+
+926
+00:57:41,319 --> 00:57:54,240
+10 y axis -10 to uh to one okay to 0.5
+
+927
+00:57:49,480 --> 00:57:54,240
+okay let's say zero okay shift
+
+928
+00:57:54,920 --> 00:57:57,920
+enter
+
+929
+00:58:03,480 --> 00:58:10,599
+play. Where did they go? Okay, plot
+
+930
+00:58:06,240 --> 00:58:14,680
+range. It it disappears to the
+
+931
+00:58:10,599 --> 00:58:18,640
+uh let's look at this one.
+
+932
+00:58:14,680 --> 00:58:21,760
+Okay, we are not seeing cycling. Okay,
+
+933
+00:58:18,640 --> 00:58:23,640
+why is that?
+
+934
+00:58:21,760 --> 00:58:27,119
+So you go
+
+935
+00:58:23,640 --> 00:58:27,119
+through this is
+
+936
+00:58:29,880 --> 00:58:35,079
+like 24 let's say 30. Okay. So this is
+
+937
+00:58:33,920 --> 00:58:42,079
+like
+
+938
+00:58:35,079 --> 00:58:45,559
+30 30 to 30. Okay. And then t then sign
+
+939
+00:58:42,079 --> 00:58:45,559
+sin time
+
+940
+00:58:47,599 --> 00:58:52,760
+uh sine
+
+941
+00:58:49,160 --> 00:58:57,520
+time is always negative -1 to
+
+942
+00:58:52,760 --> 00:59:01,760
+one. So it will go back and forth -1 to
+
+943
+00:58:57,520 --> 00:59:01,760
+one. Then you multiply by
+
+944
+00:59:02,119 --> 00:59:09,760
+two. Uh wait you multiply when so it's
+
+945
+00:59:06,640 --> 00:59:12,599
+less than one. you actually shrink it.
+
+946
+00:59:09,760 --> 00:59:17,200
+So you want instead of divided
+
+947
+00:59:12,599 --> 00:59:21,440
+by two wait so this is negative one to
+
+948
+00:59:17,200 --> 00:59:24,920
+one let's just say zero zero to one you
+
+949
+00:59:21,440 --> 00:59:24,920
+* 2
+
+950
+00:59:26,000 --> 00:59:32,359
+uh u *
+
+951
+00:59:28,920 --> 00:59:38,200
+2 yeah time two is right
+
+952
+00:59:32,359 --> 00:59:38,200
+okay so you get um that
+
+953
+00:59:38,559 --> 00:59:44,200
+So, but why is that? So, plot range uh
+
+954
+00:59:42,240 --> 00:59:45,720
+let's say plot
+
+955
+00:59:44,200 --> 00:59:48,839
+range
+
+956
+00:59:45,720 --> 00:59:51,839
+10. Let's say pl range
+
+957
+00:59:48,839 --> 00:59:51,839
+20.
+
+958
+00:59:56,200 --> 01:00:06,319
+Copy. Paste. Evaluate
+
+959
+01:00:00,520 --> 01:00:06,319
+it. What is this? Hide controls. Uh,
+
+960
+01:00:07,079 --> 01:00:12,319
+play. There you go. So, it's kind
+
+961
+01:00:13,400 --> 01:00:18,240
+of
+
+962
+01:00:15,160 --> 01:00:21,839
+fascinating. Now, I'm not sure why.
+
+963
+01:00:18,240 --> 01:00:24,440
+Okay. So, it's it is doing a cycle, but
+
+964
+01:00:21,839 --> 01:00:27,960
+it is not doing the right
+
+965
+01:00:24,440 --> 01:00:33,400
+cycle. You see, it is doing
+
+966
+01:00:27,960 --> 01:00:33,400
+a Wait, it's not doing a cycle.
+
+967
+01:00:43,040 --> 01:00:47,040
+So there is something we did
+
+968
+01:00:49,640 --> 01:00:59,559
+wrong. Okay, we already coded for one
+
+969
+01:00:53,480 --> 01:00:59,559
+hour. I think maybe we should stop. Uh
+
+970
+01:01:05,680 --> 01:01:08,640
+So what is
+
+971
+01:01:08,680 --> 01:01:17,559
+wrong? So do we need to change the
+
+972
+01:01:12,599 --> 01:01:20,559
+yaxis the the function for
+
+973
+01:01:17,559 --> 01:01:20,559
+y?
+
+974
+01:01:21,079 --> 01:01:28,559
+No. Wait. Let's look at the x axis.
+
+975
+01:01:25,359 --> 01:01:32,880
+So you see if you look at the position
+
+976
+01:01:28,559 --> 01:01:37,440
+of the balls their xaxxis position it's
+
+977
+01:01:32,880 --> 01:01:40,880
+always within two and two you see right
+
+978
+01:01:37,440 --> 01:01:46,640
+so now we can if we inc in uh change two
+
+979
+01:01:40,880 --> 01:01:46,640
+to three then we got a wider thing
+
+980
+01:01:48,359 --> 01:01:52,640
+okay two two
+
+981
+01:01:53,079 --> 01:02:00,880
+three okay So then you get
+
+982
+01:01:56,520 --> 01:02:00,880
+wider. Now what about the y
+
+983
+01:02:01,160 --> 01:02:04,880
+axis? The y
+
+984
+01:02:06,599 --> 01:02:14,960
+axis. Why are they going up down so
+
+985
+01:02:11,559 --> 01:02:17,760
+much? Let's observe. Let's look at the
+
+986
+01:02:14,960 --> 01:02:17,760
+red ball.
+
+987
+01:02:18,440 --> 01:02:22,839
+Okay, let's stop.
+
+988
+01:02:24,319 --> 01:02:30,400
+So you go move you go. So when
+
+989
+01:02:32,359 --> 01:02:40,720
+it's Oh, I see. You see the yaxis they
+
+990
+01:02:37,520 --> 01:02:41,559
+become huge when when you range over a
+
+991
+01:02:40,720 --> 01:02:45,520
+large
+
+992
+01:02:41,559 --> 01:02:48,799
+number the y becomes very large that's
+
+993
+01:02:45,520 --> 01:02:52,559
+why they disappear at the bottom. So you
+
+994
+01:02:48,799 --> 01:02:56,119
+need to clamp them. So, so what you do
+
+995
+01:02:52,559 --> 01:03:00,480
+is you can you know so
+
+996
+01:02:56,119 --> 01:03:04,960
+again basic analytic geometry so you
+
+997
+01:03:00,480 --> 01:03:09,920
+need to clamp them by how much 30 squar
+
+998
+01:03:04,960 --> 01:03:14,000
+is 300 okay 30 squared is 300 you want
+
+999
+01:03:09,920 --> 01:03:15,559
+to limit it to between zero and let's
+
+1000
+01:03:14,000 --> 01:03:20,319
+say
+
+1001
+01:03:15,559 --> 01:03:22,599
+10 so so you need to uh yeah so you need
+
+1002
+01:03:20,319 --> 01:03:26,480
+to
+
+1003
+01:03:22,599 --> 01:03:34,720
+uh let's say two let's say what range we
+
+1004
+01:03:26,480 --> 01:03:38,400
+want 10 okay so 2 * 2 is 4 3 * 3 is nine
+
+1005
+01:03:34,720 --> 01:03:42,280
+so we let's say limited to nine we want
+
+1006
+01:03:38,400 --> 01:03:45,319
+the y range to be within
+
+1007
+01:03:42,280 --> 01:03:49,319
+nine okay so this
+
+1008
+01:03:45,319 --> 01:03:54,000
+part this part should be within nine
+
+1009
+01:03:49,319 --> 01:03:57,280
+Okay. So um and uh but you are ranging
+
+1010
+01:03:54,000 --> 01:03:57,280
+over to 30.
+
+1011
+01:03:57,720 --> 01:04:05,440
+So 30 times a number equals to 9. So
+
+1012
+01:04:01,440 --> 01:04:10,079
+that means 9 / 30. So okay. So you want
+
+1013
+01:04:05,440 --> 01:04:10,079
+to time 9 / 30 something like
+
+1014
+01:04:10,599 --> 01:04:15,160
+that. Something like that.
+
+1015
+01:04:24,559 --> 01:04:34,839
+which is 3 over 10. Okay. But
+
+1016
+01:04:29,559 --> 01:04:39,359
+um Okay. But let's do it.
+
+1017
+01:04:34,839 --> 01:04:39,359
+So Okay. Then you Yeah.
+
+1018
+01:04:39,400 --> 01:04:45,799
+So So this is you need to do that before
+
+1019
+01:04:44,079 --> 01:04:48,520
+you move. Okay.
+
+1020
+01:04:45,799 --> 01:04:51,160
+So
+
+1021
+01:04:48,520 --> 01:04:54,920
+that that
+
+1022
+01:04:51,160 --> 01:04:59,520
+that before you move
+
+1023
+01:04:54,920 --> 01:04:59,520
+them. That's right.
+
+1024
+01:05:01,640 --> 01:05:05,640
+So
+
+1025
+01:05:03,799 --> 01:05:08,599
+there,
+
+1026
+01:05:05,640 --> 01:05:12,480
+there, there.
+
+1027
+01:05:08,599 --> 01:05:12,480
+Okay. Let's add a
+
+1028
+01:05:13,000 --> 01:05:19,760
+space. Copy.
+
+1029
+01:05:16,160 --> 01:05:19,760
+Now let's see.
+
+1030
+01:05:24,039 --> 01:05:27,039
+Fantastic.
+
+1031
+01:05:27,319 --> 01:05:30,319
+Play.
+
+1032
+01:05:34,520 --> 01:05:39,079
+Whoa. Okay. Stop.
+
+1033
+01:05:48,079 --> 01:05:55,119
+Now look at the red ball. The red ball
+
+1034
+01:05:50,720 --> 01:05:55,119
+is doing some kind of figure eight
+
+1035
+01:05:59,960 --> 01:06:04,559
+curve. The red ball is
+
+1036
+01:06:04,599 --> 01:06:09,160
+going. So if you look at the red ball
+
+1037
+01:06:07,920 --> 01:06:13,359
+the x
+
+1038
+01:06:09,160 --> 01:06:15,160
+axis it's within two and two okay it's
+
+1039
+01:06:13,359 --> 01:06:19,119
+within three and
+
+1040
+01:06:15,160 --> 01:06:21,720
+three but if you look at the y axis it's
+
+1041
+01:06:19,119 --> 01:06:24,720
+going all the way to
+
+1042
+01:06:21,720 --> 01:06:24,720
+20
+
+1043
+01:06:26,920 --> 01:06:36,799
+so so this is not right if you so and
+
+1044
+01:06:31,599 --> 01:06:36,799
+and uh let's see the look at the y axis
+
+1045
+01:06:40,079 --> 01:06:45,640
+Look at the red ball y axis. So it's
+
+1046
+01:06:42,960 --> 01:06:49,359
+going up and
+
+1047
+01:06:45,640 --> 01:06:52,359
+down. It's going up and down in one
+
+1048
+01:06:49,359 --> 01:06:52,359
+cycle.
+
+1049
+01:07:02,640 --> 01:07:09,960
+It's going up and going
+
+1050
+01:07:05,559 --> 01:07:09,960
+down. One cycle.
+
+1051
+01:07:28,240 --> 01:07:35,559
+So something wrong with the
+
+1052
+01:07:31,319 --> 01:07:40,839
+y the part for the the function for the
+
+1053
+01:07:35,559 --> 01:07:40,839
+y. Okay, we don't want
+
+1054
+01:07:51,280 --> 01:07:58,319
+So why is that going all the
+
+1055
+01:07:54,200 --> 01:07:58,319
+way? So it becomes
+
+1056
+01:07:59,559 --> 01:08:10,359
+20. So 30 squared is 300. Okay. So you
+
+1057
+01:08:04,839 --> 01:08:10,359
+Yeah. 30 squared is 300.
+
+1058
+01:08:10,480 --> 01:08:13,440
+Uh so
+
+1059
+01:08:14,760 --> 01:08:22,759
+actually okay let's let's fix part range
+
+1060
+01:08:19,759 --> 01:08:27,520
+x is 3 to
+
+1061
+01:08:22,759 --> 01:08:27,520
+three. So let's make
+
+1062
+01:08:28,839 --> 01:08:35,480
+um x
+
+1063
+01:08:31,239 --> 01:08:40,560
+width equals to three. Okay let's make
+
+1064
+01:08:35,480 --> 01:08:40,560
+it easier to understand.
+
+1065
+01:08:41,799 --> 01:08:44,799
+Three.
+
+1066
+01:08:48,359 --> 01:08:54,040
+Uh,
+
+1067
+01:08:51,239 --> 01:08:59,000
+three.
+
+1068
+01:08:54,040 --> 01:09:05,640
+Three. Uh, three.
+
+1069
+01:08:59,000 --> 01:09:05,640
+Three. Three. Okay, that's a width of X.
+
+1070
+01:09:07,960 --> 01:09:14,080
+[Music]
+
+1071
+01:09:10,600 --> 01:09:14,080
+No. And
+
+1072
+01:09:21,960 --> 01:09:29,199
+uh and uh so it's becoming more
+
+1073
+01:09:25,880 --> 01:09:29,199
+complicated. So
+
+1074
+01:09:34,040 --> 01:09:38,040
+y x2
+
+1075
+01:09:42,000 --> 01:09:45,839
+So let's say time
+
+1076
+01:09:51,000 --> 01:09:58,480
+range time range equals
+
+1077
+01:09:54,120 --> 01:09:58,480
+to let's say 30.
+
+1078
+01:10:00,600 --> 01:10:04,280
+Okay
+
+1079
+01:10:02,199 --> 01:10:10,400
+20.
+
+1080
+01:10:04,280 --> 01:10:10,400
+Okay. So then we got X range time
+
+1081
+01:10:10,840 --> 01:10:18,280
+range.
+
+1082
+01:10:12,840 --> 01:10:21,280
+Okay. Then you got um X range time
+
+1083
+01:10:18,280 --> 01:10:21,280
+range.
+
+1084
+01:10:25,640 --> 01:10:30,960
+Uh so Y width. What about Y
+
+1085
+01:10:31,880 --> 01:10:38,719
+width? Uh Y hat.
+
+1086
+01:10:36,239 --> 01:10:38,719
+Why
+
+1087
+01:10:39,400 --> 01:10:42,880
+good? Uh,
+
+1088
+01:10:46,199 --> 01:10:54,800
+y let's say y width. Okay, y width is
+
+1089
+01:10:50,880 --> 01:10:57,800
+should be uh just nine. Okay, negative
+
+1090
+01:10:54,800 --> 01:10:57,800
+nine.
+
+1091
+01:11:05,199 --> 01:11:12,400
+So if you want to
+
+1092
+01:11:07,320 --> 01:11:12,400
+rename, so why is it Y going
+
+1093
+01:11:13,239 --> 01:11:21,159
+up? You need to think about this. X
+
+1094
+01:11:17,320 --> 01:11:25,719
+is X is
+
+1095
+01:11:21,159 --> 01:11:25,719
+traversing. X is
+
+1096
+01:11:33,560 --> 01:11:40,159
+XMath
+
+1097
+01:11:35,239 --> 01:11:40,159
+Max. Okay. So, let's use a bit of
+
+1098
+01:11:45,800 --> 01:11:49,800
+name. Okay.
+
+1099
+01:12:09,199 --> 01:12:14,880
+Okay.
+
+1100
+01:12:10,199 --> 01:12:14,880
+So x maxx time
+
+1101
+01:12:14,920 --> 01:12:20,199
+max
+
+1102
+01:12:16,600 --> 01:12:21,800
+xmath max
+
+1103
+01:12:20,199 --> 01:12:24,280
+then
+
+1104
+01:12:21,800 --> 01:12:29,040
+yax. So now
+
+1105
+01:12:24,280 --> 01:12:33,040
+yax what should yaxx be?
+
+1106
+01:12:29,040 --> 01:12:33,040
+So now yax should
+
+1107
+01:12:38,120 --> 01:12:42,040
+be yax should
+
+1108
+01:12:40,350 --> 01:12:46,080
+[Music]
+
+1109
+01:12:42,040 --> 01:12:46,080
+be time max
+
+1110
+01:12:46,440 --> 01:12:50,159
+squared divided
+
+1111
+01:12:55,480 --> 01:13:00,480
+by you want Uh, let's say
+
+1112
+01:13:04,040 --> 01:13:10,400
+five. Let's just say five. Okay, we want
+
+1113
+01:13:07,600 --> 01:13:10,400
+it to be
+
+1114
+01:13:10,679 --> 01:13:18,159
+five. So, we don't want it to go below
+
+1115
+01:13:13,840 --> 01:13:21,360
+five. Okay, then. So, if you don't want
+
+1116
+01:13:18,159 --> 01:13:24,360
+it to go below five, then the value
+
+1117
+01:13:21,360 --> 01:13:30,080
+should be dynamic. It should be
+
+1118
+01:13:24,360 --> 01:13:30,080
+um should be uh max
+
+1119
+01:13:31,560 --> 01:13:41,040
+squared time something = to 5 5
+
+1120
+01:13:37,080 --> 01:13:41,040
+/ that should be
+
+1121
+01:13:43,320 --> 01:13:53,840
+uh something that like
+
+1122
+01:13:46,600 --> 01:13:53,840
+that. Okay. y max divided by x * max^
+
+1123
+01:13:54,040 --> 01:13:57,520
+squar. Yeah.
+
+1124
+01:14:05,080 --> 01:14:09,440
+So something like that.
+
+1125
+01:14:10,280 --> 01:14:15,120
+Okay. So this would be
+
+1126
+01:14:15,640 --> 01:14:23,400
+five. Okay. So now you're getting
+
+1127
+01:14:20,120 --> 01:14:28,199
+elaborate. Since you are defining
+
+1128
+01:14:23,400 --> 01:14:33,080
+variables, you need to kind of clean
+
+1129
+01:14:28,199 --> 01:14:37,239
+them. You see we here we use a uh double
+
+1130
+01:14:33,080 --> 01:14:41,199
+colon equal. So that means it's computed
+
+1131
+01:14:37,239 --> 01:14:41,199
+dynamically. Okay? Not just
+
+1132
+01:14:43,640 --> 01:14:50,199
+static. You see here this this double
+
+1133
+01:14:47,760 --> 01:14:54,400
+colon equal that means it's computed
+
+1134
+01:14:50,199 --> 01:14:58,040
+dynamically. Okay. So now you yax needs
+
+1135
+01:14:54,400 --> 01:14:58,040
+to be this.
+
+1136
+01:15:14,280 --> 01:15:19,600
+Okay, now it's much simpler. Is it
+
+1137
+01:15:19,800 --> 01:15:28,080
+good? It should be all
+
+1138
+01:15:22,760 --> 01:15:33,320
+good. Okay, now copy that and it's
+
+1139
+01:15:28,080 --> 01:15:35,880
+please make it work. Please. Oh god,
+
+1140
+01:15:33,320 --> 01:15:38,280
+error. What
+
+1141
+01:15:35,880 --> 01:15:41,920
+error?
+
+1142
+01:15:38,280 --> 01:15:44,400
+Check coordinate something cell context
+
+1143
+01:15:41,920 --> 01:15:46,679
+Y should be a pair. Okay, we got some
+
+1144
+01:15:44,400 --> 01:15:51,080
+kind of
+
+1145
+01:15:46,679 --> 01:15:56,080
+um some kind of syntax
+
+1146
+01:15:51,080 --> 01:15:56,080
+error. Okay, that's the error message
+
+1147
+01:15:58,120 --> 01:16:06,239
+there. Coordinate something sale context
+
+1148
+01:16:02,880 --> 01:16:06,239
+Y. Okay.
+
+1149
+01:16:10,840 --> 01:16:20,159
+So, oh wait, this wait this is this is
+
+1150
+01:16:15,360 --> 01:16:20,159
+this is wrong. This should be five.
+
+1151
+01:16:25,320 --> 01:16:28,320
+Yeah.
+
+1152
+01:16:31,159 --> 01:16:36,679
+Copy.
+
+1153
+01:16:33,480 --> 01:16:38,180
+paste it.
+
+1154
+01:16:36,679 --> 01:16:40,120
+Fantastic. Let's
+
+1155
+01:16:38,180 --> 01:16:42,120
+[Music]
+
+1156
+01:16:40,120 --> 01:16:45,120
+see.
+
+1157
+01:16:42,120 --> 01:16:47,440
+Woohoo. Now we talking. You see,
+
+1158
+01:16:45,120 --> 01:16:51,360
+thinking does the work. You always need
+
+1159
+01:16:47,440 --> 01:16:54,400
+to think. You cannot just like trial and
+
+1160
+01:16:51,360 --> 01:16:56,719
+error. Okay. So, now we need to adjust
+
+1161
+01:16:54,400 --> 01:17:01,080
+the plot range because we don't need the
+
+1162
+01:16:56,719 --> 01:17:04,480
+whole thing blank under.
+
+1163
+01:17:01,080 --> 01:17:07,040
+So you see because we we made it made
+
+1164
+01:17:04,480 --> 01:17:12,920
+sure it's just five. You see that's
+
+1165
+01:17:07,040 --> 01:17:12,920
+magic number. So let's define it
+
+1166
+01:17:15,040 --> 01:17:17,920
+uh something like
+
+1167
+01:17:22,920 --> 01:17:28,400
+that equals to equals to
+
+1168
+01:17:28,840 --> 01:17:39,239
+5. So you got one more variable yax
+
+1169
+01:17:34,400 --> 01:17:42,480
+height. Okay. So y max height equals to
+
+1170
+01:17:39,239 --> 01:17:43,880
+five. Then you just the plot range is
+
+1171
+01:17:42,480 --> 01:17:48,480
+just
+
+1172
+01:17:43,880 --> 01:17:51,880
+uh negative yaxx height. And the plot
+
+1173
+01:17:48,480 --> 01:17:55,840
+range for x is just x max
+
+1174
+01:17:51,880 --> 01:17:55,840
+here. Fantastic.
+
+1175
+01:17:56,520 --> 01:18:04,800
+Beautiful. Yeah. Copy. Make a backup. We
+
+1176
+01:18:01,199 --> 01:18:07,440
+don't want to lose our code. Paste. Run
+
+1177
+01:18:04,800 --> 01:18:07,440
+it.
+
+1178
+01:18:10,360 --> 01:18:13,360
+Ren.
+
+1179
+01:18:14,920 --> 01:18:19,199
+Beautiful. Slow down. Slow
+
+1180
+01:18:23,480 --> 01:18:26,480
+down.
+
+1181
+01:18:28,040 --> 01:18:35,320
+Fantastic. Okay, I think that's
+
+1182
+01:18:30,520 --> 01:18:35,320
+it. Let's play this again.
+
+1183
+01:18:52,960 --> 01:18:56,060
+[Music]
+
+1184
+01:19:16,560 --> 01:19:26,340
+[Music]
+
+1185
+01:19:29,520 --> 01:19:38,520
+Fantastic. Beautiful. They come back to
+
+1186
+01:19:33,400 --> 01:19:42,960
+harmony. Hi, Black. So, we so we can um
+
+1187
+01:19:38,520 --> 01:19:42,960
+now now let's look at our
+
+1188
+01:19:45,570 --> 01:19:56,199
+[Music]
+
+1189
+01:19:51,640 --> 01:19:59,560
+version. Okay. So, let's speed up. Let's
+
+1190
+01:19:56,199 --> 01:20:03,600
+see. And let's play back and forth.
+
+1191
+01:19:59,560 --> 01:20:03,600
+Okay. So, we are very
+
+1192
+01:20:03,719 --> 01:20:09,920
+close now. Something is not still right.
+
+1193
+01:20:06,960 --> 01:20:12,640
+The you see just look at the red ball.
+
+1194
+01:20:09,920 --> 01:20:14,960
+It's going up and down. It should
+
+1195
+01:20:12,640 --> 01:20:18,000
+shouldn't go up and down. Okay. It
+
+1196
+01:20:14,960 --> 01:20:20,320
+should stay in the same path. But we
+
+1197
+01:20:18,000 --> 01:20:22,640
+need to fix it. Okay. But we, you know,
+
+1198
+01:20:20,320 --> 01:20:25,199
+so that's how you do it.
+
+1199
+01:20:22,640 --> 01:20:29,360
+Uh is there anything critical that we
+
+1200
+01:20:25,199 --> 01:20:31,679
+are missing of trying to emulate that
+
+1201
+01:20:29,360 --> 01:20:34,960
+thing? Is there something critical? Let
+
+1202
+01:20:31,679 --> 01:20:37,360
+me think. So path by the way you can
+
+1203
+01:20:34,960 --> 01:20:40,800
+change the path to any other curve. Then
+
+1204
+01:20:37,360 --> 01:20:43,920
+it's going to be um you see the path the
+
+1205
+01:20:40,800 --> 01:20:46,159
+path of the balls is this formula. Right
+
+1206
+01:20:43,920 --> 01:20:51,120
+now we are using a parabola but you can
+
+1207
+01:20:46,159 --> 01:20:53,679
+change it to like x² + minus y you know
+
+1208
+01:20:51,120 --> 01:20:57,280
+x3 power or something you know so you're
+
+1209
+01:20:53,679 --> 01:21:00,719
+gonna be uh it's going to be like crazy
+
+1210
+01:20:57,280 --> 01:21:03,719
+very interesting uh effects that's what
+
+1211
+01:21:00,719 --> 01:21:06,640
+these things are they are just visual
+
+1212
+01:21:03,719 --> 01:21:09,440
+effects they are not actually simulating
+
+1213
+01:21:06,640 --> 01:21:13,679
+physics visual effects so you need to
+
+1214
+01:21:09,440 --> 01:21:18,800
+add some music. Uh now about adding
+
+1215
+01:21:13,679 --> 01:21:23,120
+music um that can be done by um you see
+
+1216
+01:21:18,800 --> 01:21:25,679
+the trick is to figure out when for
+
+1217
+01:21:23,120 --> 01:21:29,040
+example when does a sound occur and
+
+1218
+01:21:25,679 --> 01:21:30,199
+which sound. So a sound occurs when the
+
+1219
+01:21:29,040 --> 01:21:34,000
+red
+
+1220
+01:21:30,199 --> 01:21:37,320
+ball hits the boundary on on either
+
+1221
+01:21:34,000 --> 01:21:42,080
+side. Okay. So when the red
+
+1222
+01:21:37,320 --> 01:21:45,440
+ball x value is near a certain number
+
+1223
+01:21:42,080 --> 01:21:48,560
+like -3 or and three then you play a
+
+1224
+01:21:45,440 --> 01:21:50,480
+sound. Okay. And for each ball that's
+
+1225
+01:21:48,560 --> 01:21:52,560
+the same thing but each ball have a
+
+1226
+01:21:50,480 --> 01:21:58,159
+different sound. Okay. So you need to
+
+1227
+01:21:52,560 --> 01:21:58,159
+add that. Yeah. So,
+
+1228
+01:22:00,440 --> 01:22:05,679
+um, you can do that, but I, you know, I
+
+1229
+01:22:03,600 --> 01:22:07,840
+don't know how to, you know, I never
+
+1230
+01:22:05,679 --> 01:22:12,520
+done this before, but you can do that by
+
+1231
+01:22:07,840 --> 01:22:16,719
+just um add, you know,
+
+1232
+01:22:12,520 --> 01:22:19,840
+like when x is within three, the value
+
+1233
+01:22:16,719 --> 01:22:23,880
+of x, which is this part, you know, the
+
+1234
+01:22:19,840 --> 01:22:28,159
+the the value of this part is is
+
+1235
+01:22:23,880 --> 01:22:29,719
+is near near let's say three then you
+
+1236
+01:22:28,159 --> 01:22:33,360
+play a sound
+
+1237
+01:22:29,719 --> 01:22:35,639
+okay like a quick sound like 0.1 second
+
+1238
+01:22:33,360 --> 01:22:38,080
+t of certain
+
+1239
+01:22:35,639 --> 01:22:40,880
+frequency you know you can play a sound
+
+1240
+01:22:38,080 --> 01:22:44,280
+by uh in wam language you play a sound
+
+1241
+01:22:40,880 --> 01:22:49,840
+by by this function
+
+1242
+01:22:44,280 --> 01:22:53,000
+okay play just just say play okay play
+
+1243
+01:22:49,840 --> 01:22:55,639
+uh play let's say sine
+
+1244
+01:22:53,000 --> 01:22:57,480
+wave sine wave If
+
+1245
+01:22:55,639 --> 01:23:05,760
+x
+
+1246
+01:22:57,480 --> 01:23:08,280
+um x goes from uh let's say uh zero to 9
+
+1247
+01:23:05,760 --> 01:23:12,800
+pi something like that.
+
+1248
+01:23:08,280 --> 01:23:12,800
+Okay, that plays a pure
+
+1249
+01:23:12,840 --> 01:23:21,080
+tone. That's too um that's too low a
+
+1250
+01:23:16,719 --> 01:23:23,080
+tone. So you don't wait 800
+
+1251
+01:23:21,080 --> 01:23:26,239
+hertz.
+
+1252
+01:23:23,080 --> 01:23:30,199
+Uh I I don't think we can hear it maybe.
+
+1253
+01:23:26,239 --> 01:23:33,679
+So let's times um 10
+
+1254
+01:23:30,199 --> 01:23:37,679
+something. Wait times is increasing the
+
+1255
+01:23:33,679 --> 01:23:40,440
+volume amplitude. So you need to
+
+1256
+01:23:37,679 --> 01:23:43,000
+uh you need to
+
+1257
+01:23:40,440 --> 01:23:46,920
+um increase the
+
+1258
+01:23:43,000 --> 01:23:49,760
+frequency. See something like
+
+1259
+01:23:46,920 --> 01:23:52,000
+that. Okay. No sound. Well, there's a
+
+1260
+01:23:49,760 --> 01:23:54,960
+sound. Can you hear it?
+
+1261
+01:23:52,000 --> 01:23:57,880
+But it's too um let's look at the
+
+1262
+01:23:54,960 --> 01:24:01,600
+documentation for
+
+1263
+01:23:57,880 --> 01:24:04,880
+play play function. So play that
+
+1264
+01:24:01,600 --> 01:24:09,040
+function from t min to t max. There's a
+
+1265
+01:24:04,880 --> 01:24:11,639
+good example here. 400. Okay. 400. Oh
+
+1266
+01:24:09,040 --> 01:24:15,920
+yeah, you forgot the pi. So that's a
+
+1267
+01:24:11,639 --> 01:24:19,679
+period. The natural period for sign is 2
+
+1268
+01:24:15,920 --> 01:24:22,560
+pi. So let's add that to
+
+1269
+01:24:19,679 --> 01:24:22,560
+uh
+
+1270
+01:24:24,840 --> 01:24:33,760
+pi. Okay. So 10 is too low. So you need
+
+1271
+01:24:30,320 --> 01:24:37,760
+for example they are using 400. 400 is
+
+1272
+01:24:33,760 --> 01:24:39,159
+concert A. So that's a key in the middle
+
+1273
+01:24:37,760 --> 01:24:42,960
+of a
+
+1274
+01:24:39,159 --> 01:24:45,199
+piano about five semmit tones below.
+
+1275
+01:24:42,960 --> 01:24:45,199
+Okay.
+
+1276
+01:24:49,400 --> 01:24:56,719
+So stop. Okay, that's the pure tone
+
+1277
+01:24:53,360 --> 01:24:58,880
+concert A. So but you can you can they
+
+1278
+01:24:56,719 --> 01:25:02,960
+have lots of interesting sound. So
+
+1279
+01:24:58,880 --> 01:25:06,040
+that's a s sound wave. Okay. So you can
+
+1280
+01:25:02,960 --> 01:25:10,440
+specify how the duration where is the
+
+1281
+01:25:06,040 --> 01:25:13,679
+duration play function sample rate
+
+1282
+01:25:10,440 --> 01:25:17,280
+um play middle a sine wave for one
+
+1283
+01:25:13,679 --> 01:25:21,400
+second. Oh, this uh duration is Oh,
+
+1284
+01:25:17,280 --> 01:25:21,400
+yeah. Here actually
+
+1285
+01:25:22,000 --> 01:25:28,560
+uh wait is it
+
+1286
+01:25:25,159 --> 01:25:28,560
+uh yeah
+
+1287
+01:25:33,239 --> 01:25:40,159
+so 0.1
+
+1288
+01:25:36,600 --> 01:25:43,159
+second then it's just a beep. Shift
+
+1289
+01:25:40,159 --> 01:25:43,159
+enter.
+
+1290
+01:25:44,920 --> 01:25:50,199
+Fantastic. Now, if we double the
+
+1291
+01:25:47,800 --> 01:25:54,960
+frequency, it's
+
+1292
+01:25:50,199 --> 01:25:54,960
+the A one octave
+
+1293
+01:25:57,080 --> 01:26:00,080
+above.
+
+1294
+01:26:01,159 --> 01:26:07,719
+Okay. Okay. So, if we copy
+
+1295
+01:26:05,159 --> 01:26:10,760
+that then
+
+1296
+01:26:07,719 --> 01:26:13,679
+um then somewhere
+
+1297
+01:26:10,760 --> 01:26:17,520
+here we add
+
+1298
+01:26:13,679 --> 01:26:21,320
+We need a condition. Okay. So, so the
+
+1299
+01:26:17,520 --> 01:26:23,080
+graphics. Okay. So, here is the
+
+1300
+01:26:21,320 --> 01:26:26,520
+graphics.
+
+1301
+01:26:23,080 --> 01:26:30,560
+Wait. Mismatch Kin. What the
+
+1302
+01:26:26,520 --> 01:26:30,560
+ Did I up
+
+1303
+01:26:36,760 --> 01:26:44,159
+somewhere? Wait, why is my parade not
+
+1304
+01:26:40,000 --> 01:26:44,159
+matching? Something is wrong.
+
+1305
+01:26:54,320 --> 01:27:00,159
+I think I screwed up
+
+1306
+01:26:57,000 --> 01:27:03,120
+somewhere. Okay, so hold on a second.
+
+1307
+01:27:00,159 --> 01:27:03,120
+Let me make a
+
+1308
+01:27:04,840 --> 01:27:13,080
+copy. Undo. Undo. Undo. Undo. Undo.
+
+1309
+01:27:09,080 --> 01:27:13,080
+Undo. Undo.
+
+1310
+01:27:15,199 --> 01:27:17,440
+and
+
+1311
+01:27:28,840 --> 01:27:33,440
+do. Okay. Redo.
+
+1312
+01:27:37,239 --> 01:27:42,480
+Redo. Actually, just copy that.
+
+1313
+01:27:43,040 --> 01:27:45,520
+Copy
+
+1314
+01:27:46,760 --> 01:27:53,600
+that. Paste. Okay. Now you need to make
+
+1315
+01:27:51,280 --> 01:27:53,600
+a
+
+1316
+01:27:54,199 --> 01:28:02,159
+sound. Now you need to make a sound. So
+
+1317
+01:27:58,639 --> 01:28:02,159
+the sound is
+
+1318
+01:28:02,360 --> 01:28:08,320
+here. Okay. Now you need to make a
+
+1319
+01:28:05,040 --> 01:28:11,800
+sound. So you have to do back up. All
+
+1320
+01:28:08,320 --> 01:28:17,440
+you have to do is this graphics
+
+1321
+01:28:11,800 --> 01:28:17,440
+part. Uh yeah, the graphic the
+
+1322
+01:28:26,440 --> 01:28:30,520
+animation. Actually, we don't need the
+
+1323
+01:28:28,639 --> 01:28:34,239
+animation.
+
+1324
+01:28:30,520 --> 01:28:37,800
+So the graphic spot, you just grab the
+
+1325
+01:28:34,239 --> 01:28:37,800
+graphic spot.
+
+1326
+01:28:42,800 --> 01:28:51,639
+Okay, leave it. So, animation add a
+
+1327
+01:28:46,760 --> 01:28:54,880
+semicolon. So, that's evaluated
+
+1328
+01:28:51,639 --> 01:28:58,239
+dynamically variable here. Then we don't
+
+1329
+01:28:54,880 --> 01:29:03,239
+need evaluate anymore. Okay. So, for
+
+1330
+01:28:58,239 --> 01:29:03,239
+example, double check. Go back here.
+
+1331
+01:29:03,880 --> 01:29:09,440
+paste. Yeah. What is the
+
+1332
+01:29:11,400 --> 01:29:16,400
+problem? Did we have a comma
+
+1333
+01:29:23,239 --> 01:29:27,679
+somewhere
+
+1334
+01:29:25,080 --> 01:29:31,920
+coordinate? Where did we up? It
+
+1335
+01:29:27,679 --> 01:29:35,199
+works here. Shift enter.
+
+1336
+01:29:31,920 --> 01:29:35,199
+Yeah, the code works
+
+1337
+01:29:36,360 --> 01:29:43,560
+there.
+
+1338
+01:29:38,679 --> 01:29:48,360
+Copy. Let's not try to uh you
+
+1339
+01:29:43,560 --> 01:29:52,340
+know. So anyway, so that works. So
+
+1340
+01:29:48,360 --> 01:29:55,609
+uh I don't like this format.
+
+1341
+01:29:52,340 --> 01:29:55,609
+[Music]
+
+1342
+01:30:00,159 --> 01:30:04,560
+Okay, let's manually fix
+
+1343
+01:30:05,239 --> 01:30:11,760
+it. So, graphics animation. So, that is
+
+1344
+01:30:09,440 --> 01:30:11,760
+our
+
+1345
+01:30:11,800 --> 01:30:18,280
+animation and manually fix
+
+1346
+01:30:16,040 --> 01:30:23,480
+it. There's one
+
+1347
+01:30:18,280 --> 01:30:23,480
+more. Yeah, this tedious.
+
+1348
+01:30:28,080 --> 01:30:32,560
+Uh then then there is
+
+1349
+01:30:33,800 --> 01:30:43,000
+that. Yeah. So that's graphics. Then
+
+1350
+01:30:37,280 --> 01:30:48,159
+then that then you want to also
+
+1351
+01:30:43,000 --> 01:30:48,159
+do. So that's animation. And
+
+1352
+01:30:48,199 --> 01:30:56,639
+uh then you add you want to add the
+
+1353
+01:30:52,400 --> 01:30:56,639
+play. Okay, let's just
+
+1354
+01:31:04,920 --> 01:31:09,600
+play. Let's play when
+
+1355
+01:31:19,000 --> 01:31:23,000
+um if
+
+1356
+01:31:23,120 --> 01:31:25,600
+X
+
+1357
+01:31:26,280 --> 01:31:32,719
+time is greater
+
+1358
+01:31:28,920 --> 01:31:32,719
+than X time
+
+1359
+01:31:42,360 --> 01:31:46,560
+maxus min - X
+
+1360
+01:31:47,000 --> 01:31:56,840
+max. Okay. So if if the time parameter
+
+1361
+01:31:51,400 --> 01:32:01,800
+is near the Xmaxx boundary then we play
+
+1362
+01:31:56,840 --> 01:32:07,320
+this sound. Okay. Play
+
+1363
+01:32:01,800 --> 01:32:12,080
+else no. Okay. Else else
+
+1364
+01:32:07,320 --> 01:32:12,080
+um you know we can we can remove
+
+1365
+01:32:13,560 --> 01:32:18,920
+it. Okay. Now we added sound. Let's hope
+
+1366
+01:32:17,360 --> 01:32:23,239
+it will
+
+1367
+01:32:18,920 --> 01:32:28,159
+work. Paste evaluate.
+
+1368
+01:32:23,239 --> 01:32:28,159
+Yeah. Uh you can do what's
+
+1369
+01:32:29,000 --> 01:32:35,120
+nor manipulate is a
+
+1370
+01:32:32,120 --> 01:32:35,120
+list.
+
+1371
+01:32:36,840 --> 01:32:41,719
+So what is the problem?
+
+1372
+01:32:44,880 --> 01:32:50,000
+Coordinate three signs. Something wrong
+
+1373
+01:32:47,360 --> 01:32:50,000
+with our
+
+1374
+01:32:52,199 --> 01:32:55,199
+coordinates.
+
+1375
+01:32:59,800 --> 01:33:02,800
+What?
+
+1376
+01:33:09,800 --> 01:33:14,520
+What? Yeah. Very annoying.
+
+1377
+01:33:23,600 --> 01:33:28,560
+Oh god. What? What is our
+
+1378
+01:33:33,320 --> 01:33:43,000
+problem? Corner three x
+
+1379
+01:33:37,960 --> 01:33:43,000
+times. What is our problem?
+
+1380
+01:33:43,679 --> 01:33:50,560
+Check syntax check
+
+1381
+01:33:45,880 --> 01:33:56,920
+syntax animation that okay so you don't
+
+1382
+01:33:50,560 --> 01:34:01,000
+need evaluate let's redo this so if x
+
+1383
+01:33:56,920 --> 01:34:02,520
+time is if x time equals
+
+1384
+01:34:01,000 --> 01:34:07,719
+to
+
+1385
+01:34:02,520 --> 01:34:07,719
+max x x max minus
+
+1386
+01:34:12,199 --> 01:34:16,800
+X. So if it's greater
+
+1387
+01:34:18,199 --> 01:34:22,560
+than Yeah. So this is
+
+1388
+01:34:22,600 --> 01:34:33,000
+wrong. So X maxx X maxx minus
+
+1389
+01:34:29,960 --> 01:34:35,800
+so minus
+
+1390
+01:34:33,000 --> 01:34:41,239
+0.2 some small
+
+1391
+01:34:35,800 --> 01:34:45,840
+number. Okay. then play the sound and
+
+1392
+01:34:41,239 --> 01:34:47,840
+uh and what what else? So plot range. So
+
+1393
+01:34:45,840 --> 01:34:49,679
+let's double check everything. So
+
+1394
+01:34:47,840 --> 01:34:53,679
+animation
+
+1395
+01:34:49,679 --> 01:34:56,840
+uh you need declare a variable there.
+
+1396
+01:34:53,679 --> 01:35:02,360
+So x time x
+
+1397
+01:34:56,840 --> 01:35:05,239
+max okay x max height y max
+
+1398
+01:35:02,360 --> 01:35:10,520
+height color
+
+1399
+01:35:05,239 --> 01:35:14,320
+it okay uh divided by animation
+
+1400
+01:35:10,520 --> 01:35:21,800
+red. So animation you got three balls
+
+1401
+01:35:14,320 --> 01:35:21,800
+one ball two ball three then you got um
+
+1402
+01:35:22,719 --> 01:35:27,560
+Then you got
+
+1403
+01:35:24,840 --> 01:35:30,560
+uh three
+
+1404
+01:35:27,560 --> 01:35:33,239
+lines I mean connecting the lines
+
+1405
+01:35:30,560 --> 01:35:35,719
+connecting each ball. So one,
+
+1406
+01:35:33,239 --> 01:35:37,719
+two, three.
+
+1407
+01:35:35,719 --> 01:35:41,639
+Correct.
+
+1408
+01:35:37,719 --> 01:35:45,080
+Correct. Then axis true and plot
+
+1409
+01:35:41,639 --> 01:35:49,679
+range. That's the graphics. That's
+
+1410
+01:35:45,080 --> 01:35:49,679
+good. Okay. Then you do
+
+1411
+01:35:50,280 --> 01:35:55,159
+manipulate. Okay, it should be actually
+
+1412
+01:35:53,040 --> 01:35:58,719
+should be like that. Then
+
+1413
+01:35:55,159 --> 01:35:59,960
+manipulate of two things. The first one
+
+1414
+01:35:58,719 --> 01:36:05,679
+is the
+
+1415
+01:35:59,960 --> 01:36:05,679
+animation we define. The second one is
+
+1416
+01:36:05,960 --> 01:36:12,679
+sound. Okay. So the sound
+
+1417
+01:36:09,000 --> 01:36:15,920
+is so if it's x
+
+1418
+01:36:12,679 --> 01:36:19,000
+time. Okay. So let's try this again.
+
+1419
+01:36:15,920 --> 01:36:22,239
+Hopefully it will be correct. You
+
+1420
+01:36:19,000 --> 01:36:22,239
+play do
+
+1421
+01:36:24,280 --> 01:36:30,080
+it coordinate three sign context
+
+1422
+01:36:27,679 --> 01:36:32,560
+something something minor is wrong.
+
+1423
+01:36:30,080 --> 01:36:32,560
+Okay.
+
+1424
+01:36:38,360 --> 01:36:45,040
+Something Yeah. So let's let's let's
+
+1425
+01:36:41,440 --> 01:36:47,320
+just clean up this thing. Let's just go
+
+1426
+01:36:45,040 --> 01:36:51,159
+full
+
+1427
+01:36:47,320 --> 01:36:52,160
+out. Full out make this simpler. Okay.
+
+1428
+01:36:51,159 --> 01:36:53,880
+Uh
+
+1429
+01:36:52,160 --> 01:36:58,520
+[Music]
+
+1430
+01:36:53,880 --> 01:37:02,679
+so function one equals
+
+1431
+01:36:58,520 --> 01:37:06,679
+to Okay. Function one equals
+
+1432
+01:37:02,679 --> 01:37:06,679
+to that
+
+1433
+01:37:11,880 --> 01:37:16,639
+uh function two equals
+
+1434
+01:37:16,840 --> 01:37:23,080
+to
+
+1435
+01:37:19,320 --> 01:37:27,480
+that it's named B
+
+1436
+01:37:23,080 --> 01:37:31,159
+one B one uh B
+
+1437
+01:37:27,480 --> 01:37:37,199
+one position.
+
+1438
+01:37:31,159 --> 01:37:40,639
+Okay. So, ball two position one, two,
+
+1439
+01:37:37,199 --> 01:37:43,920
+three. Okay. So, you got ball one, you
+
+1440
+01:37:40,639 --> 01:37:48,760
+got ball two, then you got ball three
+
+1441
+01:37:43,920 --> 01:37:52,760
+position, which is that. Okay.
+
+1442
+01:37:48,760 --> 01:37:56,440
+Then now then
+
+1443
+01:37:52,760 --> 01:38:00,560
+um now then
+
+1444
+01:37:56,440 --> 01:38:05,360
+then okay you got B one B two B three
+
+1445
+01:38:00,560 --> 01:38:05,360
+then you can now simplify all
+
+1446
+01:38:06,840 --> 01:38:14,199
+this B one position.
+
+1447
+01:38:09,719 --> 01:38:16,360
+Okay. B2 position for
+
+1448
+01:38:14,199 --> 01:38:22,080
+three or
+
+1449
+01:38:16,360 --> 01:38:22,080
+two. Okay. So then here is the
+
+1450
+01:38:25,719 --> 01:38:35,159
+same. So line now it's so simpler.
+
+1451
+01:38:31,000 --> 01:38:42,080
+Okay. You don't need that
+
+1452
+01:38:35,159 --> 01:38:42,080
+complicated. So now it's simpler. is P
+
+1453
+01:38:42,760 --> 01:38:52,480
+three, P two. Okay, now
+
+1454
+01:38:47,239 --> 01:38:55,679
+it's we needed this make it legible. So
+
+1455
+01:38:52,480 --> 01:38:58,800
+position now. Okay, so position.
+
+1456
+01:38:55,679 --> 01:38:58,800
+Now let's just
+
+1457
+01:39:05,400 --> 01:39:09,199
+add let's just
+
+1458
+01:39:13,560 --> 01:39:23,440
+clean what
+
+1459
+01:39:16,920 --> 01:39:23,440
+the let's make it okay. So
+
+1460
+01:39:28,840 --> 01:39:34,159
+now
+
+1461
+01:39:31,080 --> 01:39:38,000
+yep. Okay. Now let's see what errors do
+
+1462
+01:39:34,159 --> 01:39:39,639
+you have. So B and position depends on
+
+1463
+01:39:38,000 --> 01:39:45,320
+the
+
+1464
+01:39:39,639 --> 01:39:48,719
+variables T max. So time is there.
+
+1465
+01:39:45,320 --> 01:39:48,719
+Yeah. Okay.
+
+1466
+01:39:53,719 --> 01:40:01,360
+So don't don't give me arrow. it.
+
+1467
+01:39:57,679 --> 01:40:01,360
+No. What the I don't
+
+1468
+01:40:02,600 --> 01:40:07,520
+know what what if you just remove
+
+1469
+01:40:11,000 --> 01:40:16,800
+that. Okay. Yeah, you got you got some
+
+1470
+01:40:13,920 --> 01:40:19,360
+kind of coordinate syntax wrong
+
+1471
+01:40:16,800 --> 01:40:19,360
+somewhere
+
+1472
+01:40:19,960 --> 01:40:27,400
+here. Why is
+
+1473
+01:40:22,760 --> 01:40:30,400
+it Oh, you got ball zero. So that's an
+
+1474
+01:40:27,400 --> 01:40:30,400
+error.
+
+1475
+01:40:30,840 --> 01:40:38,719
+Um y is zero. B two ball
+
+1476
+01:40:35,080 --> 01:40:42,679
+three. Search for ball. One, two, three.
+
+1477
+01:40:38,719 --> 01:40:45,159
+One, two, three. One. No, this is
+
+1478
+01:40:42,679 --> 01:40:49,119
+two.
+
+1479
+01:40:45,159 --> 01:40:50,360
+Okay, just copy and paste this. Abuse
+
+1480
+01:40:49,119 --> 01:40:53,560
+the
+
+1481
+01:40:50,360 --> 01:40:56,800
+system. Yeah, same thing. Okay,
+
+1482
+01:40:53,560 --> 01:40:56,800
+so same
+
+1483
+01:40:57,400 --> 01:41:06,920
+thing sine 3 0. Context
+
+1484
+01:41:03,320 --> 01:41:12,400
+time coordinate sine
+
+1485
+01:41:06,920 --> 01:41:12,400
+0.6 0.8. So this all
+
+1486
+01:41:14,679 --> 01:41:18,719
+wrong. It was working
+
+1487
+01:41:19,639 --> 01:41:25,360
+before. Xmax
+
+1488
+01:41:22,400 --> 01:41:25,360
+uh
+
+1489
+01:41:25,480 --> 01:41:31,719
+YAX. So where is So where is Yax used
+
+1490
+01:41:30,560 --> 01:41:34,719
+there?
+
+1491
+01:41:31,719 --> 01:41:34,719
+Okay.
+
+1492
+01:41:35,400 --> 01:41:44,239
+Right. So Okay. So I don't know why is
+
+1493
+01:41:40,920 --> 01:41:44,239
+it run
+
+1494
+01:41:45,159 --> 01:41:54,000
+that run that okay 41
+
+1495
+01:41:50,520 --> 01:41:56,679
+position what is the value okay it
+
+1496
+01:41:54,000 --> 01:42:00,960
+depends on the x time that's
+
+1497
+01:41:56,679 --> 01:42:03,840
+right so when x time is manipulate why
+
+1498
+01:42:00,960 --> 01:42:03,840
+is it not
+
+1499
+01:42:26,520 --> 01:42:35,600
+Okay. So somewhere the coordinate is
+
+1500
+01:42:30,560 --> 01:42:35,600
+incorrect. So why is it the coordinate
+
+1501
+01:42:36,520 --> 01:42:42,960
+incorrect? You know, I'm thinking it's
+
+1502
+01:42:39,360 --> 01:42:42,960
+some short syntax
+
+1503
+01:42:51,159 --> 01:42:58,520
+error. So this position is incorrect.
+
+1504
+01:42:55,760 --> 01:43:02,960
+This should be two. This should be
+
+1505
+01:42:58,520 --> 01:43:05,760
+three. So they lower. So right. So this
+
+1506
+01:43:02,960 --> 01:43:07,639
+should be position two. This should be
+
+1507
+01:43:05,760 --> 01:43:13,159
+three.
+
+1508
+01:43:07,639 --> 01:43:16,159
+Okay. Position one, two, three.
+
+1509
+01:43:13,159 --> 01:43:16,159
+Position.
+
+1510
+01:43:18,360 --> 01:43:26,360
+Um that's right. B position two. Now if
+
+1511
+01:43:22,800 --> 01:43:29,840
+you say both position two and
+
+1512
+01:43:26,360 --> 01:43:29,840
+replace x
+
+1513
+01:43:39,000 --> 01:43:42,000
+time
+
+1514
+01:43:43,239 --> 01:43:47,040
+what we not
+
+1515
+01:43:50,280 --> 01:43:59,480
+max
+
+1516
+01:43:52,280 --> 01:44:03,199
+time replace by let's say x let's say mm
+
+1517
+01:43:59,480 --> 01:44:07,239
+okay so that should work now if you
+
+1518
+01:44:03,199 --> 01:44:10,719
+replace it by one you got a coordinate
+
+1519
+01:44:07,239 --> 01:44:13,920
+okay now but why are so what what about
+
+1520
+01:44:10,719 --> 01:44:18,000
+if position is ball one position
+
+1521
+01:44:13,920 --> 01:44:21,600
+evaluate that's good now ball two ball
+
+1522
+01:44:18,000 --> 01:44:25,440
+three evaluate you got a number Okay.
+
+1523
+01:44:21,600 --> 01:44:27,520
+41, two, three. You got a number. I
+
+1524
+01:44:25,440 --> 01:44:31,320
+mean, you got a coordinate when x time
+
+1525
+01:44:27,520 --> 01:44:35,760
+is replaced to a number.
+
+1526
+01:44:31,320 --> 01:44:41,080
+So, so you do have a uh So, you do have
+
+1527
+01:44:35,760 --> 01:44:43,560
+a coordinate. Okay. So, this is B one, B
+
+1528
+01:44:41,080 --> 01:44:46,960
+two, B
+
+1529
+01:44:43,560 --> 01:44:51,920
+three. Let's change it position. Yeah.
+
+1530
+01:44:46,960 --> 01:44:51,920
+Let's say just say P one.
+
+1531
+01:44:53,440 --> 01:44:57,560
+Let's not rename. Okay, let's just leave
+
+1532
+01:44:55,679 --> 01:45:02,159
+it
+
+1533
+01:44:57,560 --> 01:45:06,880
+this. Okay. B1 B two B3 position. You
+
+1534
+01:45:02,159 --> 01:45:12,320
+got that right. Uh and so this whole
+
+1535
+01:45:06,880 --> 01:45:12,320
+thing. Oh Wait. So
+
+1536
+01:45:13,560 --> 01:45:21,520
+graphics then you got the line. Okay.
+
+1537
+01:45:18,480 --> 01:45:24,800
+You got the line of three coordinates.
+
+1538
+01:45:21,520 --> 01:45:25,719
+One, two, three. Okay. And then the
+
+1539
+01:45:24,800 --> 01:45:30,239
+whole
+
+1540
+01:45:25,719 --> 01:45:30,239
+thing. Wait, how is this
+
+1541
+01:45:30,520 --> 01:45:36,119
+work? Did
+
+1542
+01:45:33,480 --> 01:45:40,080
+I screw up
+
+1543
+01:45:36,119 --> 01:45:45,080
+the Okay, you don't need that. Okay,
+
+1544
+01:45:40,080 --> 01:45:50,320
+then the graphics. That's right. Okay.
+
+1545
+01:45:45,080 --> 01:45:50,320
+So, so something is
+
+1546
+01:45:50,520 --> 01:45:57,360
+incorrect. Something is incorrect. Let's
+
+1547
+01:45:53,679 --> 01:46:00,080
+try the animation there. Okay. Now,
+
+1548
+01:45:57,360 --> 01:46:01,719
+remove the semicolon because that
+
+1549
+01:46:00,080 --> 01:46:04,280
+suppress the
+
+1550
+01:46:01,719 --> 01:46:07,639
+output. So,
+
+1551
+01:46:04,280 --> 01:46:11,199
+animation, copy that. If you just run
+
+1552
+01:46:07,639 --> 01:46:14,440
+that, you got the problem.
+
+1553
+01:46:11,199 --> 01:46:18,400
+And the problem
+
+1554
+01:46:14,440 --> 01:46:21,840
+is it keeps telling you the cell.
+
+1555
+01:46:18,400 --> 01:46:21,840
+What the What
+
+1556
+01:46:23,639 --> 01:46:29,119
+rational? Okay. So what we do is we save
+
+1557
+01:46:29,480 --> 01:46:38,239
+this. Control S. Save it. Close it. Now
+
+1558
+01:46:34,080 --> 01:46:40,000
+a new notebook. And we restart from
+
+1559
+01:46:38,239 --> 01:46:43,000
+scratch.
+
+1560
+01:46:40,000 --> 01:46:43,000
+We
+
+1561
+01:46:43,440 --> 01:46:50,119
+uh
+
+1562
+01:46:44,840 --> 01:46:53,520
+we evaluate quit kernel. Okay. So quit
+
+1563
+01:46:50,119 --> 01:46:58,800
+kernel. Quit local kernel. Do you want
+
+1564
+01:46:53,520 --> 01:46:58,800
+to quit? Yes. And we
+
+1565
+01:46:59,239 --> 01:47:07,440
+restart. Okay. Initial. So now we paste
+
+1566
+01:47:04,280 --> 01:47:12,679
+this. Let's let's just double check.
+
+1567
+01:47:07,440 --> 01:47:18,000
+Okay. We got the time max. Okay.
+
+1568
+01:47:12,679 --> 01:47:20,679
+Now time max is yellow. Okay. Xmaxx is
+
+1569
+01:47:18,000 --> 01:47:23,320
+pink. Yes. Xmaxx
+
+1570
+01:47:20,679 --> 01:47:27,679
+there. Yax
+
+1571
+01:47:23,320 --> 01:47:30,560
+height. That's that's blue. Yax height
+
+1572
+01:47:27,679 --> 01:47:33,639
+there. There. There. That's correct. Yax
+
+1573
+01:47:30,560 --> 01:47:38,800
+is a dynamic variable
+
+1574
+01:47:33,639 --> 01:47:43,040
+there. And X animation is this. Okay.
+
+1575
+01:47:38,800 --> 01:47:43,040
+Now the boss comes before the
+
+1576
+01:47:43,639 --> 01:47:50,560
+animation. Okay. Then then the
+
+1577
+01:47:47,119 --> 01:47:54,560
+animation. Okay. So we got pause one,
+
+1578
+01:47:50,560 --> 01:47:56,880
+two, three. Are they pairs? Yes. And we
+
+1579
+01:47:54,560 --> 01:48:00,560
+got animation. This seems correct. I
+
+1580
+01:47:56,880 --> 01:48:03,520
+don't see anything wrong. Backup time
+
+1581
+01:48:00,560 --> 01:48:03,520
+max. Okay.
+
+1582
+01:48:04,119 --> 01:48:09,960
+So,
+
+1583
+01:48:06,600 --> 01:48:13,360
+copy paste run
+
+1584
+01:48:09,960 --> 01:48:15,560
+it. Okay. Maybe maybe we shouldn't have
+
+1585
+01:48:13,360 --> 01:48:19,800
+the
+
+1586
+01:48:15,560 --> 01:48:23,679
+uh that that bracket all along. Okay.
+
+1587
+01:48:19,800 --> 01:48:26,400
+So, so remove that brackets in the
+
+1588
+01:48:23,679 --> 01:48:26,400
+animation
+
+1589
+01:48:27,800 --> 01:48:33,000
+there. Yeah, I don't think it helped.
+
+1590
+01:48:33,480 --> 01:48:39,119
+So, so it's saying it's
+
+1591
+01:48:44,679 --> 01:48:54,679
+saying, okay, now I'm uh fairly pissed.
+
+1592
+01:48:50,040 --> 01:48:59,600
+We basically did this 10 minutes
+
+1593
+01:48:54,679 --> 01:49:01,400
+ago, but now I uh started to got this
+
+1594
+01:48:59,600 --> 01:49:06,080
+kind of error.
+
+1595
+01:49:01,400 --> 01:49:06,080
+So somewhere something is
+
+1596
+01:49:08,600 --> 01:49:17,679
+wrong. So it says let's copy that error.
+
+1597
+01:49:12,560 --> 01:49:17,679
+So it says the error message
+
+1598
+01:49:17,880 --> 01:49:23,480
+says
+
+1599
+01:49:20,119 --> 01:49:26,960
+coordinate coordinate that first
+
+1600
+01:49:23,480 --> 01:49:32,400
+element and the second element. So we
+
+1601
+01:49:26,960 --> 01:49:35,639
+got the rational rational -1 over 80.
+
+1602
+01:49:32,400 --> 01:49:40,760
+Then we got the cell context
+
+1603
+01:49:35,639 --> 01:49:44,239
+time is not a uh sale
+
+1604
+01:49:40,760 --> 01:49:45,080
+context. Okay, this cell context this is
+
+1605
+01:49:44,239 --> 01:49:48,800
+a
+
+1606
+01:49:45,080 --> 01:49:51,119
+uh should be a pair of numbers. Okay, I
+
+1607
+01:49:48,800 --> 01:49:55,480
+think I know
+
+1608
+01:49:51,119 --> 01:49:57,880
+uh animation x time. So we yeah you need
+
+1609
+01:49:55,480 --> 01:50:00,840
+evaluate I
+
+1610
+01:49:57,880 --> 01:50:05,840
+think
+
+1611
+01:50:00,840 --> 01:50:10,400
+yeah that's probably why okay we remove
+
+1612
+01:50:05,840 --> 01:50:10,400
+that and we got all these errors
+
+1613
+01:50:11,159 --> 01:50:18,400
+fact we tried to be more efficient we
+
+1614
+01:50:14,880 --> 01:50:22,600
+removed the evaluate then we got this
+
+1615
+01:50:18,400 --> 01:50:26,159
+error and that cost us like 15
+
+1616
+01:50:22,600 --> 01:50:29,440
+minutes. Okay. So, you
+
+1617
+01:50:26,159 --> 01:50:32,400
+always need to think you trial and
+
+1618
+01:50:29,440 --> 01:50:36,400
+error, you waste time. Okay. If we think
+
+1619
+01:50:32,400 --> 01:50:40,400
+about it, you know, we probably know
+
+1620
+01:50:36,400 --> 01:50:43,360
+anyway. So, so, so this code works. Now,
+
+1621
+01:50:40,400 --> 01:50:46,560
+remember, we need to add the the the
+
+1622
+01:50:43,360 --> 01:50:50,239
+play. Okay. The the the sound. Okay.
+
+1623
+01:50:46,560 --> 01:50:55,360
+Let's add a sound now.
+
+1624
+01:50:50,239 --> 01:50:57,600
+Uh so make a list of things. Okay, this
+
+1625
+01:50:55,360 --> 01:51:00,000
+is how you play sound and put the
+
+1626
+01:50:57,600 --> 01:51:01,400
+animation. So the animation is the first
+
+1627
+01:51:00,000 --> 01:51:03,400
+thing.
+
+1628
+01:51:01,400 --> 01:51:05,960
+Then
+
+1629
+01:51:03,400 --> 01:51:08,040
+if if
+
+1630
+01:51:05,960 --> 01:51:11,159
+if x
+
+1631
+01:51:08,040 --> 01:51:14,040
+time is greater
+
+1632
+01:51:11,159 --> 01:51:16,520
+than x
+
+1633
+01:51:14,040 --> 01:51:20,840
+time
+
+1634
+01:51:16,520 --> 01:51:26,239
+max minus a small number let's say
+
+1635
+01:51:20,840 --> 01:51:30,040
+0.2 then play the song. Okay. Then play
+
+1636
+01:51:26,239 --> 01:51:33,239
+the song else do nothing. Okay. So
+
+1637
+01:51:30,040 --> 01:51:39,679
+now we can just run this
+
+1638
+01:51:33,239 --> 01:51:39,679
+part. Paste it. Run it. Okay.
+
+1639
+01:51:45,000 --> 01:51:48,719
+Fantastic. Where is the
+
+1640
+01:51:54,920 --> 01:52:00,320
+sound? And that's not too fast. Slow it
+
+1641
+01:52:08,040 --> 01:52:16,719
+down. Okay. So, let's try again. If
+
+1642
+01:52:11,520 --> 01:52:19,000
+greater than x time max, x time max is
+
+1643
+01:52:16,719 --> 01:52:22,360
+uh
+
+1644
+01:52:19,000 --> 01:52:27,199
+20. Okay. So,
+
+1645
+01:52:22,360 --> 01:52:31,159
+wait. x time max is 20. Oh, not that.
+
+1646
+01:52:27,199 --> 01:52:35,040
+Yeah, that's not what you want. You want
+
+1647
+01:52:31,159 --> 01:52:40,520
+to x equals to Yeah. So you want to the
+
+1648
+01:52:35,040 --> 01:52:46,400
+x width. So there x max. Okay. So when
+
+1649
+01:52:40,520 --> 01:52:48,800
+it's when x time the time parameter is
+
+1650
+01:52:46,400 --> 01:52:51,080
+greater than that then play a sound.
+
+1651
+01:52:48,800 --> 01:52:55,080
+Okay. Let's try
+
+1652
+01:52:51,080 --> 01:52:55,080
+again. Yeah.
+
+1653
+01:52:56,159 --> 01:53:01,199
+And uh this no I don't want the no.
+
+1654
+01:53:04,360 --> 01:53:09,520
+So yeah. So I don't want no. Okay.
+
+1655
+01:53:13,800 --> 01:53:21,960
+So nothing represents nothing. Okay.
+
+1656
+01:53:18,480 --> 01:53:25,679
+Nothing in wam language is
+
+1657
+01:53:21,960 --> 01:53:28,000
+like like when it's inside the list and
+
+1658
+01:53:25,679 --> 01:53:29,639
+when you nothing it automatically
+
+1659
+01:53:28,000 --> 01:53:32,880
+disappears.
+
+1660
+01:53:29,639 --> 01:53:34,560
+Okay. This kind of a feature you don't
+
+1661
+01:53:32,880 --> 01:53:37,000
+see
+
+1662
+01:53:34,560 --> 01:53:41,000
+um you don't see in other languages.
+
+1663
+01:53:37,000 --> 01:53:45,679
+Okay. So that will remove the
+
+1664
+01:53:41,000 --> 01:53:48,080
+new. Okay. Back here paste. Do it. So
+
+1665
+01:53:45,679 --> 01:53:50,239
+now you don't see the no. But what about
+
+1666
+01:53:48,080 --> 01:53:53,040
+the par You don't want the par
+
+1667
+01:53:50,239 --> 01:53:55,719
+neither. Yeah, that's Oh, yeah. So, it's
+
+1668
+01:53:53,040 --> 01:53:58,119
+easy. So, you should
+
+1669
+01:53:55,719 --> 01:54:01,119
+um you just
+
+1670
+01:53:58,119 --> 01:54:01,119
+animation.
+
+1671
+01:54:02,280 --> 01:54:07,760
+Uh yeah. Well, let's worry about it
+
+1672
+01:54:04,880 --> 01:54:11,080
+later. Okay. So, anyway, so now we
+
+1673
+01:54:07,760 --> 01:54:13,480
+should have a sound. Let's
+
+1674
+01:54:11,080 --> 01:54:18,880
+try.
+
+1675
+01:54:13,480 --> 01:54:22,440
+No. Okay. It It play. Yeah. You see it?
+
+1676
+01:54:18,880 --> 01:54:25,679
+It does that. That's not what we
+
+1677
+01:54:22,440 --> 01:54:28,480
+want. You see, you want to actually play
+
+1678
+01:54:25,679 --> 01:54:30,400
+it. So, how do you actually play it?
+
+1679
+01:54:28,480 --> 01:54:35,199
+Well, you need to look at the
+
+1680
+01:54:30,400 --> 01:54:38,440
+documentation for uh play. Okay. So, the
+
+1681
+01:54:35,199 --> 01:54:42,400
+documentation for
+
+1682
+01:54:38,440 --> 01:54:46,040
+play, how do you actually automatically
+
+1683
+01:54:42,400 --> 01:54:49,760
+play the sound? Okay. scope at sound
+
+1684
+01:54:46,040 --> 01:54:53,599
+audio audio play
+
+1685
+01:54:49,760 --> 01:54:57,800
+uh in fact we can use emit sound emit
+
+1686
+01:54:53,599 --> 01:55:00,290
+sound emits a sound when evaluated
+
+1687
+01:54:57,800 --> 01:55:12,120
+okay let's try
+
+1688
+01:55:00,290 --> 01:55:12,120
+[Music]
+
+1689
+01:55:15,040 --> 01:55:19,800
+Okay. So that's one thing you can try
+
+1690
+01:55:18,800 --> 01:55:24,119
+and
+
+1691
+01:55:19,800 --> 01:55:27,599
+uh use image sound or you can
+
+1692
+01:55:24,119 --> 01:55:30,750
+try let's just use image sound. Let's
+
+1693
+01:55:27,599 --> 01:55:32,360
+let's I'm done for today.
+
+1694
+01:55:30,750 --> 01:55:34,119
+[Music]
+
+1695
+01:55:32,360 --> 01:55:38,450
+So
+
+1696
+01:55:34,119 --> 01:55:40,840
+emit sound add that. Okay.
+
+1697
+01:55:38,450 --> 01:55:43,800
+[Music]
+
+1698
+01:55:40,840 --> 01:55:48,080
+Copy. Paste. Run
+
+1699
+01:55:43,800 --> 01:55:48,080
+it. Expand.
+
+1700
+01:55:50,440 --> 01:55:59,679
+Play. There it
+
+1701
+01:55:53,080 --> 01:56:02,080
+is. Stop. Okay. Now the sound should be
+
+1702
+01:55:59,679 --> 01:56:05,280
+uh why is it playing in so long? Should
+
+1703
+01:56:02,080 --> 01:56:05,280
+be 0.1
+
+1704
+01:56:06,280 --> 01:56:15,000
+second. It may
+
+1705
+01:56:08,440 --> 01:56:15,000
+sound it should be 0.1 second. Okay.
+
+1706
+01:56:20,510 --> 01:56:28,060
+[Music]
+
+1707
+01:56:31,320 --> 01:56:34,380
+[Music]
+
+1708
+01:56:39,760 --> 01:56:42,639
+This is phone
+
+1709
+01:56:47,800 --> 01:56:55,000
+tone. Okay. So 0.1 second. Uh let's say
+
+1710
+01:56:53,900 --> 01:57:02,679
+[Music]
+
+1711
+01:56:55,000 --> 01:57:02,679
+0.0 five second. Play the damn thing.
+
+1712
+01:57:13,120 --> 01:57:23,920
+[Music]
+
+1713
+01:57:20,480 --> 01:57:26,239
+Okay, I don't know what's going on, but
+
+1714
+01:57:23,920 --> 01:57:28,679
+take some time to learn about that.
+
+1715
+01:57:26,239 --> 01:57:32,400
+That's it for today. Thank you guys for
+
+1716
+01:57:28,679 --> 01:57:35,440
+watching. Bye, guys. If you like my
+
+1717
+01:57:32,400 --> 01:57:39,119
+stuff, okay, go to my website, Kasi Talk
+
+1718
+01:57:35,440 --> 01:57:42,159
+Show. Today's talk show. Uh, let's put
+
+1719
+01:57:39,119 --> 01:57:44,679
+the code back. Okay, let's put the code
+
+1720
+01:57:42,159 --> 01:57:49,440
+back. show in
+
+1721
+01:57:44,679 --> 01:57:50,920
+browser and uh syntax color there is
+
+1722
+01:57:49,440 --> 01:57:54,880
+today's
+
+1723
+01:57:50,920 --> 01:57:57,080
+exploration and uh we go to the uh yeah
+
+1724
+01:57:54,880 --> 01:57:59,840
+go to my website
+
+1725
+01:57:57,080 --> 01:58:03,199
+kasali.info pay me okay kasali.info
+
+1726
+01:57:59,840 --> 01:58:05,520
+info. Uh, go all the way to the bottom.
+
+1727
+01:58:03,199 --> 01:58:08,560
+Patreon me, Amazon gift card, and
+
+1728
+01:58:05,520 --> 01:58:08,560
+PayPal. Okay, thank
+
+1729
+01:58:09,880 --> 01:58:16,800
+you. So, we end up doing two hours. Uh,
+
+1730
+01:58:14,159 --> 01:58:19,000
+we actually kind of finished in first
+
+1731
+01:58:16,800 --> 01:58:22,159
+hour, but we
+
+1732
+01:58:19,000 --> 01:58:25,159
+got Thank you. Thank you, Black Automo.
+
+1733
+01:58:22,159 --> 01:58:25,159
+Bye.
+

@@ -1,0 +1,10408 @@
+1
+00:00:04,680 --> 00:00:11,040
+good morning everyone welcome to another
+
+2
+00:00:07,080 --> 00:00:14,400
+episode of Star Talk Show today we are
+
+3
+00:00:11,040 --> 00:00:16,379
+going to do Advent of code problem
+
+4
+00:00:14,400 --> 00:00:19,160
+number two
+
+5
+00:00:16,379 --> 00:00:23,939
+or as the Christians would say day two
+
+6
+00:00:19,160 --> 00:00:28,199
+Advent of code so yesterday we did a
+
+7
+00:00:23,939 --> 00:00:31,279
+live stream of the event of code day one
+
+8
+00:00:28,199 --> 00:00:34,980
+solving problem one
+
+9
+00:00:31,279 --> 00:00:38,760
+exploratively so in wufam language and
+
+10
+00:00:34,980 --> 00:00:40,280
+here's a solution fantastic and today we
+
+11
+00:00:38,760 --> 00:00:43,980
+are going to continue
+
+12
+00:00:40,280 --> 00:00:46,260
+to problem number two
+
+13
+00:00:43,980 --> 00:00:49,440
+okay so we're gonna coding wolfam
+
+14
+00:00:46,260 --> 00:00:51,719
+language and it's gonna be fun chatty so
+
+15
+00:00:49,440 --> 00:00:54,960
+if you have questions comments ask me
+
+16
+00:00:51,719 --> 00:00:59,280
+okay I'm gonna code this live
+
+17
+00:00:54,960 --> 00:01:02,699
+so today uh problem number two I already
+
+18
+00:00:59,280 --> 00:01:05,820
+read the problem which is this one
+
+19
+00:01:02,699 --> 00:01:08,700
+uh wait uh at the end of a cold so you
+
+20
+00:01:05,820 --> 00:01:12,180
+go there that's a website so number two
+
+21
+00:01:08,700 --> 00:01:13,799
+okay now this problem you know the
+
+22
+00:01:12,180 --> 00:01:16,439
+Advent of code
+
+23
+00:01:13,799 --> 00:01:18,600
+half of the problem is actually it's not
+
+24
+00:01:16,439 --> 00:01:21,540
+about coding it's actually understand
+
+25
+00:01:18,600 --> 00:01:23,939
+what is the problem
+
+26
+00:01:21,540 --> 00:01:26,700
+you know like I don't like this because
+
+27
+00:01:23,939 --> 00:01:29,700
+I like I like you know like
+
+28
+00:01:26,700 --> 00:01:32,820
+um mathematical quiz you know you
+
+29
+00:01:29,700 --> 00:01:34,979
+specify the problem in a precise manner
+
+30
+00:01:32,820 --> 00:01:37,200
+technically you know what's your
+
+31
+00:01:34,979 --> 00:01:40,020
+function you know your your job is to
+
+32
+00:01:37,200 --> 00:01:42,119
+write a function this is the input and
+
+33
+00:01:40,020 --> 00:01:43,200
+this is output and what your function
+
+34
+00:01:42,119 --> 00:01:46,140
+should do
+
+35
+00:01:43,200 --> 00:01:48,540
+you know that's the precise that's a
+
+36
+00:01:46,140 --> 00:01:51,720
+typical programming problem
+
+37
+00:01:48,540 --> 00:01:53,220
+but in advance of a code they don't they
+
+38
+00:01:51,720 --> 00:01:55,920
+don't describe the problem that way
+
+39
+00:01:53,220 --> 00:01:59,100
+instead of instead they tell you the
+
+40
+00:01:55,920 --> 00:02:02,759
+story that describe the problem
+
+41
+00:01:59,100 --> 00:02:06,659
+so but this is actually quite important
+
+42
+00:02:02,759 --> 00:02:08,580
+it has a merit of its own because most
+
+43
+00:02:06,659 --> 00:02:11,160
+problem programming problems in real
+
+44
+00:02:08,580 --> 00:02:13,739
+world is of this nature you don't have
+
+45
+00:02:11,160 --> 00:02:16,020
+respect you know you roughly have some
+
+46
+00:02:13,739 --> 00:02:19,319
+idea of what is the problem you know
+
+47
+00:02:16,020 --> 00:02:21,680
+because maybe your client or even you
+
+48
+00:02:19,319 --> 00:02:25,280
+know even in your own coding exercise
+
+49
+00:02:21,680 --> 00:02:29,040
+you don't have a nice fully specified
+
+50
+00:02:25,280 --> 00:02:32,160
+mathematical description of the problem
+
+51
+00:02:29,040 --> 00:02:34,860
+you know but instead you have some some
+
+52
+00:02:32,160 --> 00:02:39,540
+idea oh I need to do this turn this into
+
+53
+00:02:34,860 --> 00:02:42,300
+that but you you you are usually
+
+54
+00:02:39,540 --> 00:02:45,780
+um you don't have the full description
+
+55
+00:02:42,300 --> 00:02:48,720
+now from the step of giving a problem in
+
+56
+00:02:45,780 --> 00:02:51,720
+English in human you know need
+
+57
+00:02:48,720 --> 00:02:54,599
+to a full mathematical description of
+
+58
+00:02:51,720 --> 00:02:57,239
+the problem it's not trivial okay so
+
+59
+00:02:54,599 --> 00:02:59,640
+this is actually a quite important skill
+
+60
+00:02:57,239 --> 00:03:02,580
+you need to develop
+
+61
+00:02:59,640 --> 00:03:04,280
+in fact this is I would say this is what
+
+62
+00:03:02,580 --> 00:03:06,440
+mathematicians do
+
+63
+00:03:04,280 --> 00:03:09,599
+mathematicians when you see a problem
+
+64
+00:03:06,440 --> 00:03:12,360
+you start to analyze almost
+
+65
+00:03:09,599 --> 00:03:15,840
+instinctively what exactly
+
+66
+00:03:12,360 --> 00:03:18,360
+is the input what exactly
+
+67
+00:03:15,840 --> 00:03:21,200
+is going to happen you know you you
+
+68
+00:03:18,360 --> 00:03:25,080
+transform the problem description into a
+
+69
+00:03:21,200 --> 00:03:28,500
+exact mathematical specification and
+
+70
+00:03:25,080 --> 00:03:31,019
+that is extremely important in fact I
+
+71
+00:03:28,500 --> 00:03:33,840
+would say that constitute the essence of
+
+72
+00:03:31,019 --> 00:03:35,819
+mathematics okay very important
+
+73
+00:03:33,840 --> 00:03:37,800
+important skill
+
+74
+00:03:35,819 --> 00:03:40,379
+of course in real life usually the
+
+75
+00:03:37,800 --> 00:03:43,080
+problem changes also like you have a
+
+76
+00:03:40,379 --> 00:03:45,120
+fussy idea for example be on the website
+
+77
+00:03:43,080 --> 00:03:47,760
+you know maybe you have a client to
+
+78
+00:03:45,120 --> 00:03:49,560
+build a website you you know the client
+
+79
+00:03:47,760 --> 00:03:51,599
+don't exactly know what they want they
+
+80
+00:03:49,560 --> 00:03:54,000
+just have some idea then you have to
+
+81
+00:03:51,599 --> 00:03:56,580
+turn that into more specific and anyway
+
+82
+00:03:54,000 --> 00:03:58,860
+in real life it's more fuzzy but anyway
+
+83
+00:03:56,580 --> 00:04:02,459
+so what I'm saying is that this
+
+84
+00:03:58,860 --> 00:04:04,980
+this skill of turning a kind of a
+
+85
+00:04:02,459 --> 00:04:07,200
+description a general you know fuzzy
+
+86
+00:04:04,980 --> 00:04:09,060
+concept of the problem into a
+
+87
+00:04:07,200 --> 00:04:14,040
+mathematical essence
+
+88
+00:04:09,060 --> 00:04:16,799
+that is that is if you take it
+
+89
+00:04:14,040 --> 00:04:18,000
+um deeply that is actually
+
+90
+00:04:16,799 --> 00:04:21,180
+a
+
+91
+00:04:18,000 --> 00:04:23,820
+that's a that's that's almost the uh
+
+92
+00:04:21,180 --> 00:04:25,860
+half of the field of mathematics and
+
+93
+00:04:23,820 --> 00:04:28,979
+logic you know mathematical Foundation
+
+94
+00:04:25,860 --> 00:04:31,380
+the foundation of math
+
+95
+00:04:28,979 --> 00:04:33,240
+because that's the nature of mathematics
+
+96
+00:04:31,380 --> 00:04:36,000
+you need to condense you need to
+
+97
+00:04:33,240 --> 00:04:39,720
+eliminate it all the fluffs so for
+
+98
+00:04:36,000 --> 00:04:44,340
+example this event of code problem
+
+99
+00:04:39,720 --> 00:04:46,380
+number two day two rock paper scissors
+
+100
+00:04:44,340 --> 00:04:48,900
+you know it's a bit long you know I
+
+101
+00:04:46,380 --> 00:04:51,600
+already read it you know trying to save
+
+102
+00:04:48,900 --> 00:04:54,240
+time uh live stream
+
+103
+00:04:51,600 --> 00:04:57,320
+so how many people three people grand
+
+104
+00:04:54,240 --> 00:04:57,320
+total of three okay
+
+105
+00:04:57,380 --> 00:05:01,500
+zero zero concurrent viewers what the
+
+106
+00:05:00,600 --> 00:05:04,080
+[ __ ]
+
+107
+00:05:01,500 --> 00:05:07,320
+okay so so this
+
+108
+00:05:04,080 --> 00:05:10,139
+so this example Paper Rock Scissors you
+
+109
+00:05:07,320 --> 00:05:14,780
+know it takes sometimes to uh read I
+
+110
+00:05:10,139 --> 00:05:14,780
+already did and you have to
+
+111
+00:05:14,820 --> 00:05:20,460
+uh it's it's it's actually uh not
+
+112
+00:05:17,400 --> 00:05:21,500
+trivial hey hey hey Jay ah okay first
+
+113
+00:05:20,460 --> 00:05:24,060
+guy
+
+114
+00:05:21,500 --> 00:05:27,620
+like some of you uh talk to your
+
+115
+00:05:24,060 --> 00:05:27,620
+Watchers okay let's go to it
+
+116
+00:05:27,900 --> 00:05:34,139
+so let me describe the problem you know
+
+117
+00:05:31,320 --> 00:05:35,639
+it's uh it's you know they wrote up the
+
+118
+00:05:34,139 --> 00:05:37,680
+problem but it's
+
+119
+00:05:35,639 --> 00:05:40,020
+um takes some time to read so I'm not
+
+120
+00:05:37,680 --> 00:05:43,199
+going to read them I'm just going to
+
+121
+00:05:40,020 --> 00:05:46,740
+tell you what the problem is okay so you
+
+122
+00:05:43,199 --> 00:05:49,440
+are given you are given a string of that
+
+123
+00:05:46,740 --> 00:05:52,259
+nature you know let's write it out so
+
+124
+00:05:49,440 --> 00:05:55,740
+you are given a string
+
+125
+00:05:52,259 --> 00:05:59,820
+uh a string like that you know
+
+126
+00:05:55,740 --> 00:06:03,720
+and the string has several lines
+
+127
+00:05:59,820 --> 00:06:05,160
+each line has two letters okay so column
+
+128
+00:06:03,720 --> 00:06:07,560
+one column two
+
+129
+00:06:05,160 --> 00:06:10,500
+and the letters the First Column is
+
+130
+00:06:07,560 --> 00:06:13,979
+gonna be ABC okay the second column is
+
+131
+00:06:10,500 --> 00:06:15,240
+gonna be any of the x y z so the first
+
+132
+00:06:13,979 --> 00:06:19,440
+column
+
+133
+00:06:15,240 --> 00:06:22,680
+can be the possible types the possible
+
+134
+00:06:19,440 --> 00:06:26,639
+characters is either a or b or c the
+
+135
+00:06:22,680 --> 00:06:28,919
+second column is either X or Y or Z
+
+136
+00:06:26,639 --> 00:06:32,160
+you know so
+
+137
+00:06:28,919 --> 00:06:34,259
+so given a stream of several lines each
+
+138
+00:06:32,160 --> 00:06:37,440
+line contains two characters
+
+139
+00:06:34,259 --> 00:06:40,259
+the first character is a or b or Z the
+
+140
+00:06:37,440 --> 00:06:43,740
+second character is why
+
+141
+00:06:40,259 --> 00:06:45,479
+X or Y or Z okay that's that is the
+
+142
+00:06:43,740 --> 00:06:48,300
+problem input
+
+143
+00:06:45,479 --> 00:06:49,680
+from a program of its point of view
+
+144
+00:06:48,300 --> 00:06:50,759
+now
+
+145
+00:06:49,680 --> 00:06:53,039
+um
+
+146
+00:06:50,759 --> 00:06:56,759
+sorry this is a good question to ask but
+
+147
+00:06:53,039 --> 00:06:59,699
+is a worthwhile and save task to become
+
+148
+00:06:56,759 --> 00:07:02,160
+an efficient hacker that depends on your
+
+149
+00:06:59,699 --> 00:07:04,680
+personality you know if you are an
+
+150
+00:07:02,160 --> 00:07:07,800
+engineer type if you are a programmer
+
+151
+00:07:04,680 --> 00:07:10,919
+you write a lot code you know if you are
+
+152
+00:07:07,800 --> 00:07:13,500
+engineer architect mathematician then
+
+153
+00:07:10,919 --> 00:07:15,120
+hacker is not for you
+
+154
+00:07:13,500 --> 00:07:17,280
+well it depends on what you mean by
+
+155
+00:07:15,120 --> 00:07:19,500
+hacker hacker has many meanings hacker
+
+156
+00:07:17,280 --> 00:07:22,380
+do you mean cracker like do you mean you
+
+157
+00:07:19,500 --> 00:07:23,699
+know you want to break into password uh
+
+158
+00:07:22,380 --> 00:07:27,360
+you know find you know break into
+
+159
+00:07:23,699 --> 00:07:30,000
+website crack passwords or find security
+
+160
+00:07:27,360 --> 00:07:33,300
+problems or if you are a white hat
+
+161
+00:07:30,000 --> 00:07:36,780
+hacker you know security problems or you
+
+162
+00:07:33,300 --> 00:07:40,560
+want to develop your company's firewall
+
+163
+00:07:36,780 --> 00:07:42,060
+or whatever to prevent uh malware or
+
+164
+00:07:40,560 --> 00:07:45,539
+viruses
+
+165
+00:07:42,060 --> 00:07:47,639
+so that's a security or hacking you know
+
+166
+00:07:45,539 --> 00:07:51,900
+security field
+
+167
+00:07:47,639 --> 00:07:55,080
+of of programming okay of and there's no
+
+168
+00:07:51,900 --> 00:07:58,199
+anyway so that's a security field and
+
+169
+00:07:55,080 --> 00:08:01,500
+part of it also includes crypto analysis
+
+170
+00:07:58,199 --> 00:08:05,940
+you know like cryptocurrency and crypto
+
+171
+00:08:01,500 --> 00:08:08,280
+you know stuff like that encryption so
+
+172
+00:08:05,940 --> 00:08:12,599
+depends on what you mean by hacker there
+
+173
+00:08:08,280 --> 00:08:16,319
+are two primary two different primary
+
+174
+00:08:12,599 --> 00:08:18,000
+meanings one is kind of someone works in
+
+175
+00:08:16,319 --> 00:08:21,000
+the security field
+
+176
+00:08:18,000 --> 00:08:23,520
+okay that's a hacker the other
+
+177
+00:08:21,000 --> 00:08:26,879
+kind of more classic meaning of a hacker
+
+178
+00:08:23,520 --> 00:08:30,060
+just means a great programmer who a
+
+179
+00:08:26,879 --> 00:08:33,000
+programmer who is able to quickly solve
+
+180
+00:08:30,060 --> 00:08:35,700
+the problem such as advantable code I'm
+
+181
+00:08:33,000 --> 00:08:37,919
+I'm actually not that type of person so
+
+182
+00:08:35,700 --> 00:08:40,560
+this type of person typically they are
+
+183
+00:08:37,919 --> 00:08:43,740
+good in Unix they love Unix they are
+
+184
+00:08:40,560 --> 00:08:45,720
+good in C or C plus plus they are good
+
+185
+00:08:43,740 --> 00:08:47,760
+in very practical languages or
+
+186
+00:08:45,720 --> 00:08:51,779
+JavaScript or python
+
+187
+00:08:47,760 --> 00:08:53,660
+you know but usually C C plus plus Java
+
+188
+00:08:51,779 --> 00:08:58,320
+this type of guy had
+
+189
+00:08:53,660 --> 00:09:01,980
+and they are usually not interested in
+
+190
+00:08:58,320 --> 00:09:05,160
+in let's say scheme list in Haskell they
+
+191
+00:09:01,980 --> 00:09:08,339
+are not interested in elegant or elegant
+
+192
+00:09:05,160 --> 00:09:10,380
+language or great design that they are
+
+193
+00:09:08,339 --> 00:09:12,360
+not interested in that you know this
+
+194
+00:09:10,380 --> 00:09:15,540
+type of this hacker you know the classic
+
+195
+00:09:12,360 --> 00:09:17,880
+meaning which is Richard Solomon uh
+
+196
+00:09:15,540 --> 00:09:22,140
+which installment that generation of
+
+197
+00:09:17,880 --> 00:09:25,140
+hackers MIT hackers okay they are they
+
+198
+00:09:22,140 --> 00:09:28,620
+are quick to code they they love clever
+
+199
+00:09:25,140 --> 00:09:31,920
+code they love you know clever code you
+
+200
+00:09:28,620 --> 00:09:34,040
+know they to make things work so for
+
+201
+00:09:31,920 --> 00:09:36,480
+example let's say you know the famous
+
+202
+00:09:34,040 --> 00:09:38,880
+game programmer
+
+203
+00:09:36,480 --> 00:09:41,519
+karmac
+
+204
+00:09:38,880 --> 00:09:44,399
+hammock or however you pronounce name
+
+205
+00:09:41,519 --> 00:09:48,740
+he's that type he's a hacker you know he
+
+206
+00:09:44,399 --> 00:09:52,140
+can code esoteric you know graphics
+
+207
+00:09:48,740 --> 00:09:55,620
+uh you know computer Graphics graphics
+
+208
+00:09:52,140 --> 00:09:57,420
+card diving into assembly how CPU Works
+
+209
+00:09:55,620 --> 00:10:01,320
+they don't actually care about design
+
+210
+00:09:57,420 --> 00:10:03,420
+they they are very good at you know tons
+
+211
+00:10:01,320 --> 00:10:06,480
+of code millions of lines they just get
+
+212
+00:10:03,420 --> 00:10:09,660
+things to work and and and one of their
+
+213
+00:10:06,480 --> 00:10:13,080
+like most prestigious thing for them is
+
+214
+00:10:09,660 --> 00:10:16,140
+speed like you you your code is very
+
+215
+00:10:13,080 --> 00:10:19,160
+tight very fast but incomprehensible
+
+216
+00:10:16,140 --> 00:10:22,860
+they love that clever involves lots of
+
+217
+00:10:19,160 --> 00:10:26,100
+cleverness walk around okay that's a
+
+218
+00:10:22,860 --> 00:10:27,240
+type that's the MIT classic
+
+219
+00:10:26,100 --> 00:10:29,399
+type
+
+220
+00:10:27,240 --> 00:10:33,019
+meaning of hacker
+
+221
+00:10:29,399 --> 00:10:33,019
+okay that's that type
+
+222
+00:10:33,180 --> 00:10:40,560
+okay so so so so so this type of people
+
+223
+00:10:37,320 --> 00:10:41,940
+I despise that's not my type that not my
+
+224
+00:10:40,560 --> 00:10:44,339
+personality it depends on your
+
+225
+00:10:41,940 --> 00:10:48,120
+personality I despise these type of
+
+226
+00:10:44,339 --> 00:10:52,680
+people typically C C plus plus Unix love
+
+227
+00:10:48,120 --> 00:10:55,680
+us enjoy us of C or C plus or Unix this
+
+228
+00:10:52,680 --> 00:10:57,000
+type idiots okay but I mean different
+
+229
+00:10:55,680 --> 00:10:59,220
+people different type of people
+
+230
+00:10:57,000 --> 00:11:02,040
+different personality have different
+
+231
+00:10:59,220 --> 00:11:03,720
+stronghold you know you're good you're
+
+232
+00:11:02,040 --> 00:11:05,880
+good at something good bad at something
+
+233
+00:11:03,720 --> 00:11:07,920
+so that type you know that's one type I
+
+234
+00:11:05,880 --> 00:11:09,720
+don't like
+
+235
+00:11:07,920 --> 00:11:13,560
+I like
+
+236
+00:11:09,720 --> 00:11:15,620
+great design or these a great engineer a
+
+237
+00:11:13,560 --> 00:11:18,779
+great programmer great computer
+
+238
+00:11:15,620 --> 00:11:21,120
+scientist you know I understand you know
+
+239
+00:11:18,779 --> 00:11:24,120
+a great mathematician great logician
+
+240
+00:11:21,120 --> 00:11:25,320
+that's that's what I'm inclined to you
+
+241
+00:11:24,120 --> 00:11:27,959
+know
+
+242
+00:11:25,320 --> 00:11:30,660
+I don't want clever I don't want
+
+243
+00:11:27,959 --> 00:11:34,260
+cleverness in my code if there's a
+
+244
+00:11:30,660 --> 00:11:36,779
+language or CPU design that requires you
+
+245
+00:11:34,260 --> 00:11:39,480
+to like work around this that's such a
+
+246
+00:11:36,779 --> 00:11:41,880
+[ __ ] [ __ ] okay that's a [ __ ] idiot
+
+247
+00:11:39,480 --> 00:11:46,019
+this hacker created those things
+
+248
+00:11:41,880 --> 00:11:49,740
+that which incumber incumbents burdens
+
+249
+00:11:46,019 --> 00:11:53,220
+or the other programmers okay this see
+
+250
+00:11:49,740 --> 00:11:57,060
+particularly C and all the Unix in that
+
+251
+00:11:53,220 --> 00:12:00,660
+entirety of the Unix facts the these
+
+252
+00:11:57,060 --> 00:12:02,760
+hacker types created that okay so the
+
+253
+00:12:00,660 --> 00:12:04,140
+extreme complexity
+
+254
+00:12:02,760 --> 00:12:07,200
+you know I don't want
+
+255
+00:12:04,140 --> 00:12:09,779
+I'm more like you know I prefer
+
+256
+00:12:07,200 --> 00:12:11,820
+you know mathematician logician you you
+
+257
+00:12:09,779 --> 00:12:13,980
+and you create programming languages
+
+258
+00:12:11,820 --> 00:12:17,220
+that's great design and also efficient
+
+259
+00:12:13,980 --> 00:12:18,959
+you know okay anyway hacker so that's
+
+260
+00:12:17,220 --> 00:12:21,720
+one type the other
+
+261
+00:12:18,959 --> 00:12:24,180
+more more mother meaning of hacker
+
+262
+00:12:21,720 --> 00:12:28,260
+especially propagated by mainstream
+
+263
+00:12:24,180 --> 00:12:31,440
+media is is basically people breaking
+
+264
+00:12:28,260 --> 00:12:33,480
+law hacking you know government websites
+
+265
+00:12:31,440 --> 00:12:36,660
+or whatever Corporation websites release
+
+266
+00:12:33,480 --> 00:12:38,940
+password you know league league you know
+
+267
+00:12:36,660 --> 00:12:41,940
+passwords credit cards you know those
+
+268
+00:12:38,940 --> 00:12:43,980
+and then you have people who try to
+
+269
+00:12:41,940 --> 00:12:46,079
+prevent that so that's another meaning
+
+270
+00:12:43,980 --> 00:12:48,600
+of hack to different things two
+
+271
+00:12:46,079 --> 00:12:51,300
+different things Okay so
+
+272
+00:12:48,600 --> 00:12:53,339
+so your question you know uh how do you
+
+273
+00:12:51,300 --> 00:12:56,880
+is it worthwhile
+
+274
+00:12:53,339 --> 00:12:57,899
+and you know to become efficient so what
+
+275
+00:12:56,880 --> 00:13:01,320
+do you mean
+
+276
+00:12:57,899 --> 00:13:04,860
+maintaining a stronghold on a
+
+277
+00:13:01,320 --> 00:13:07,260
+Eon system with constant Wi-Fi outages
+
+278
+00:13:04,860 --> 00:13:11,220
+be a good case for more way of
+
+279
+00:13:07,260 --> 00:13:13,740
+prevention okay and I am a asparian
+
+280
+00:13:11,220 --> 00:13:17,339
+software engineer but I'm not on that
+
+281
+00:13:13,740 --> 00:13:20,100
+level of programmer okay so I guess your
+
+282
+00:13:17,339 --> 00:13:22,440
+sense of hacker is people working in a
+
+283
+00:13:20,100 --> 00:13:25,680
+security field
+
+284
+00:13:22,440 --> 00:13:28,500
+okay which is becoming a very important
+
+285
+00:13:25,680 --> 00:13:31,079
+more and more important which is so is
+
+286
+00:13:28,500 --> 00:13:33,420
+it worthwhile yeah sure you know if you
+
+287
+00:13:31,079 --> 00:13:36,660
+are incline you love that kind of work
+
+288
+00:13:33,420 --> 00:13:37,940
+about security about crypto analysis
+
+289
+00:13:36,660 --> 00:13:41,700
+about
+
+290
+00:13:37,940 --> 00:13:43,980
+passwords how they are created where are
+
+291
+00:13:41,700 --> 00:13:46,740
+they stored how to prevent people you
+
+292
+00:13:43,980 --> 00:13:49,980
+know and how does virus work
+
+293
+00:13:46,740 --> 00:13:52,820
+um if you like that yeah sure you can go
+
+294
+00:13:49,980 --> 00:13:52,820
+into that field
+
+295
+00:13:53,639 --> 00:13:58,639
+what do I think of oding programming
+
+296
+00:13:56,160 --> 00:14:01,139
+language I don't know what about or what
+
+297
+00:13:58,639 --> 00:14:03,779
+you know there are so many so I don't
+
+298
+00:14:01,139 --> 00:14:05,579
+know usually I get questions about what
+
+299
+00:14:03,779 --> 00:14:06,600
+do you think about this language or that
+
+300
+00:14:05,579 --> 00:14:08,660
+language
+
+301
+00:14:06,600 --> 00:14:08,660
+um
+
+302
+00:14:10,620 --> 00:14:16,800
+I don't know what he's holding let's get
+
+303
+00:14:12,660 --> 00:14:20,220
+back to at the end of code okay
+
+304
+00:14:16,800 --> 00:14:23,160
+yeah cyber security yeah you know I mean
+
+305
+00:14:20,220 --> 00:14:25,740
+it's a CD question is it worthwhile that
+
+306
+00:14:23,160 --> 00:14:28,560
+you know so first of all
+
+307
+00:14:25,740 --> 00:14:30,600
+if you are a programmer or you know the
+
+308
+00:14:28,560 --> 00:14:32,820
+security the hacker types you know the
+
+309
+00:14:30,600 --> 00:14:35,399
+the field you are talking about they are
+
+310
+00:14:32,820 --> 00:14:37,560
+typically they are not programmers
+
+311
+00:14:35,399 --> 00:14:40,980
+you know like because when you get into
+
+312
+00:14:37,560 --> 00:14:42,720
+detail you there's a big difference for
+
+313
+00:14:40,980 --> 00:14:46,500
+example there's programmers there's
+
+314
+00:14:42,720 --> 00:14:49,260
+certain mean or uh you know system mean
+
+315
+00:14:46,500 --> 00:14:51,420
+or these days what they call Dev app you
+
+316
+00:14:49,260 --> 00:14:54,959
+know so you have programmers
+
+317
+00:14:51,420 --> 00:14:59,040
+you have devops or seasoning then you
+
+318
+00:14:54,959 --> 00:15:01,620
+have the security cyber security kind of
+
+319
+00:14:59,040 --> 00:15:03,600
+Staff people okay
+
+320
+00:15:01,620 --> 00:15:05,820
+yeah they all deal with code but when
+
+321
+00:15:03,600 --> 00:15:09,300
+you get into the details they they it's
+
+322
+00:15:05,820 --> 00:15:13,380
+very different requires slightly quite
+
+323
+00:15:09,300 --> 00:15:16,800
+different skills okay and so and but all
+
+324
+00:15:13,380 --> 00:15:19,740
+these are viable they you know there's a
+
+325
+00:15:16,800 --> 00:15:21,839
+lot of jobs and money as especially when
+
+326
+00:15:19,740 --> 00:15:26,880
+times goes on it requires more and more
+
+327
+00:15:21,839 --> 00:15:29,100
+so it's good for you to get into so yeah
+
+328
+00:15:26,880 --> 00:15:31,139
+so Odin programming language I don't
+
+329
+00:15:29,100 --> 00:15:34,260
+know what they said I don't know what
+
+330
+00:15:31,139 --> 00:15:35,760
+happened have I heard of it let's see
+
+331
+00:15:34,260 --> 00:15:37,920
+uh
+
+332
+00:15:35,760 --> 00:15:41,579
+you know programming language is like
+
+333
+00:15:37,920 --> 00:15:45,180
+lame you know don't don't you know don't
+
+334
+00:15:41,579 --> 00:15:48,120
+don't you know like you typically this
+
+335
+00:15:45,180 --> 00:15:50,699
+is a question young people ask you know
+
+336
+00:15:48,120 --> 00:15:53,579
+what do you think of Huska when Haskell
+
+337
+00:15:50,699 --> 00:15:55,440
+is hot what do you think of just oh rust
+
+338
+00:15:53,579 --> 00:15:58,019
+is gonna be something something when
+
+339
+00:15:55,440 --> 00:16:02,000
+Russ was hot now there's a lot there's
+
+340
+00:15:58,019 --> 00:16:02,000
+name there's Odin there's a lot okay
+
+341
+00:16:03,959 --> 00:16:08,360
+uh let's go back to uh
+
+342
+00:16:09,120 --> 00:16:13,980
+so for example if you go to kasabi's dot
+
+343
+00:16:12,420 --> 00:16:16,800
+info
+
+344
+00:16:13,980 --> 00:16:19,320
+so I have a article about that okay
+
+345
+00:16:16,800 --> 00:16:21,180
+programming languages proliferation of
+
+346
+00:16:19,320 --> 00:16:24,120
+programming languages you have a lot
+
+347
+00:16:21,180 --> 00:16:27,560
+Mathematica wolf and language you have a
+
+348
+00:16:24,120 --> 00:16:29,899
+new list this is old actually 1991.
+
+349
+00:16:27,560 --> 00:16:34,260
+Oculus program
+
+350
+00:16:29,899 --> 00:16:37,920
+Chiles which became Shen you know 2011
+
+351
+00:16:34,260 --> 00:16:40,860
+then you closure so to me these are kind
+
+352
+00:16:37,920 --> 00:16:43,980
+of new young kids in town but to you
+
+353
+00:16:40,860 --> 00:16:46,440
+guys you got new one you got other new
+
+354
+00:16:43,980 --> 00:16:50,339
+ones so generation so you know
+
+355
+00:16:46,440 --> 00:16:52,500
+then scheme the granddaddy of lisp
+
+356
+00:16:50,339 --> 00:16:55,680
+and then you have lots of you know you
+
+357
+00:16:52,500 --> 00:16:57,420
+have Dylan at one time it's very you
+
+358
+00:16:55,680 --> 00:16:59,600
+know it's a like do you like Dylan
+
+359
+00:16:57,420 --> 00:17:04,679
+everyone is talking about didn't around
+
+360
+00:16:59,600 --> 00:17:06,839
+1992. okay Dylan is kind of a this deal
+
+361
+00:17:04,679 --> 00:17:09,720
+is a lisp
+
+362
+00:17:06,839 --> 00:17:12,380
+supposed to be the replacement of common
+
+363
+00:17:09,720 --> 00:17:16,260
+disp it's supposed to be a revolution
+
+364
+00:17:12,380 --> 00:17:18,720
+Dylan is created by Apple okay Apple
+
+365
+00:17:16,260 --> 00:17:21,240
+Dylan you know it's supposed to be a
+
+366
+00:17:18,720 --> 00:17:24,120
+revolution you know originally it has
+
+367
+00:17:21,240 --> 00:17:25,980
+the same syntax of nested parents at
+
+368
+00:17:24,120 --> 00:17:29,700
+least but eventually they dropped that
+
+369
+00:17:25,980 --> 00:17:32,520
+they adopted the C language circuit
+
+370
+00:17:29,700 --> 00:17:36,240
+syntax but the language the nature of
+
+371
+00:17:32,520 --> 00:17:38,820
+the language is still uh lisp so Dylan
+
+372
+00:17:36,240 --> 00:17:42,840
+but then it died you know Steve Jobs
+
+373
+00:17:38,820 --> 00:17:46,260
+took over and basically skipped uh
+
+374
+00:17:42,840 --> 00:17:50,700
+Steve Job took over Apple when he came
+
+375
+00:17:46,260 --> 00:17:52,740
+back around 1997 you know I CEO you know
+
+376
+00:17:50,700 --> 00:17:54,660
+iMac iBook
+
+377
+00:17:52,740 --> 00:17:57,860
+iPad
+
+378
+00:17:54,660 --> 00:18:01,200
+and he's a Ico
+
+379
+00:17:57,860 --> 00:18:03,780
+and he killed lots of projects because
+
+380
+00:18:01,200 --> 00:18:05,940
+apple is dying apple is you know but
+
+381
+00:18:03,780 --> 00:18:08,880
+Steve Job is a great
+
+382
+00:18:05,940 --> 00:18:12,020
+business innovator you know he's a he's
+
+383
+00:18:08,880 --> 00:18:16,340
+got a vision he's a great and he's got a
+
+384
+00:18:12,020 --> 00:18:19,500
+spectacular impeccable uh articulation
+
+385
+00:18:16,340 --> 00:18:22,440
+skills you know convince you
+
+386
+00:18:19,500 --> 00:18:26,039
+yeah and he he has a vision he is he's
+
+387
+00:18:22,440 --> 00:18:28,620
+able to see what is good what is bad he
+
+388
+00:18:26,039 --> 00:18:30,960
+creates things that people need as
+
+389
+00:18:28,620 --> 00:18:33,179
+opposed to as opposed to what do you
+
+390
+00:18:30,960 --> 00:18:35,340
+think of Odin what do you think of rust
+
+391
+00:18:33,179 --> 00:18:38,039
+what do you think of Haskell those those
+
+392
+00:18:35,340 --> 00:18:40,679
+are typically
+
+393
+00:18:38,039 --> 00:18:42,240
+nerds they create things trying to find
+
+394
+00:18:40,679 --> 00:18:44,880
+a solution
+
+395
+00:18:42,240 --> 00:18:47,520
+typically okay roughly you know but
+
+396
+00:18:44,880 --> 00:18:50,700
+Steve Jobs is almost the opposite he
+
+397
+00:18:47,520 --> 00:18:53,280
+creates things that people need okay
+
+398
+00:18:50,700 --> 00:18:55,799
+but once he you know since he passed
+
+399
+00:18:53,280 --> 00:18:59,160
+away about 10 years ago then Apple
+
+400
+00:18:55,799 --> 00:19:01,860
+become corrupt and they create uh mostly
+
+401
+00:18:59,160 --> 00:19:05,580
+idiotic facts
+
+402
+00:19:01,860 --> 00:19:07,980
+Steve Jobs great guy okay so Dylan he's
+
+403
+00:19:05,580 --> 00:19:10,140
+a fam you know so then you have F sharp
+
+404
+00:19:07,980 --> 00:19:11,940
+you know it's amazing you know when I
+
+405
+00:19:10,140 --> 00:19:14,820
+talk about programming languages I
+
+406
+00:19:11,940 --> 00:19:16,440
+cannot stop so it's gonna be a one-hour
+
+407
+00:19:14,820 --> 00:19:19,860
+digression
+
+408
+00:19:16,440 --> 00:19:23,160
+so you know then you start you then you
+
+409
+00:19:19,860 --> 00:19:24,860
+have F sharp which is the first time a
+
+410
+00:19:23,160 --> 00:19:28,080
+giant Corporation
+
+411
+00:19:24,860 --> 00:19:31,860
+embraced functional programming
+
+412
+00:19:28,080 --> 00:19:35,280
+you know it's this is year 2005 F sharp
+
+413
+00:19:31,860 --> 00:19:39,600
+F sharp is a derivative of O camo which
+
+414
+00:19:35,280 --> 00:19:41,520
+is a derivative of ml meta language okay
+
+415
+00:19:39,600 --> 00:19:43,320
+so when you when when people you know
+
+416
+00:19:41,520 --> 00:19:45,419
+new people they
+
+417
+00:19:43,320 --> 00:19:46,740
+um the [ __ ] you look at the [ __ ]
+
+418
+00:19:45,419 --> 00:19:49,080
+spammers
+
+419
+00:19:46,740 --> 00:19:52,860
+you know this is a rumored Malaysian
+
+420
+00:19:49,080 --> 00:19:57,780
+generation the [ __ ] [ __ ]
+
+421
+00:19:52,860 --> 00:20:01,460
+so F sharp 2005 Microsoft created it you
+
+422
+00:19:57,780 --> 00:20:01,460
+know in their dot net
+
+423
+00:20:01,740 --> 00:20:06,620
+framework Enterprise in.net today's open
+
+424
+00:20:04,919 --> 00:20:09,720
+source 100
+
+425
+00:20:06,620 --> 00:20:12,600
+amazing how things have changed you know
+
+426
+00:20:09,720 --> 00:20:14,640
+turned in so then you have you know lots
+
+427
+00:20:12,600 --> 00:20:17,700
+of languages you know the new generation
+
+428
+00:20:14,640 --> 00:20:20,220
+don't know uh then of course there you
+
+429
+00:20:17,700 --> 00:20:22,980
+you have erlang you have Haskell Mercury
+
+430
+00:20:20,220 --> 00:20:27,000
+you have q you have ours you have Pearl
+
+431
+00:20:22,980 --> 00:20:30,840
+PHP uh Ruby and Scala groovy and and and
+
+432
+00:20:27,000 --> 00:20:33,299
+a lot okay TCR Lua
+
+433
+00:20:30,840 --> 00:20:35,580
+and why the list and creating a
+
+434
+00:20:33,299 --> 00:20:37,799
+programming language is relative easy
+
+435
+00:20:35,580 --> 00:20:40,860
+okay I'm not going to talk about
+
+436
+00:20:37,799 --> 00:20:43,940
+languages uh let's go back to uh event
+
+437
+00:20:40,860 --> 00:20:43,940
+of code okay
+
+438
+00:20:44,580 --> 00:20:48,900
+basically if you you know let me put it
+
+439
+00:20:47,460 --> 00:20:51,840
+dramatically
+
+440
+00:20:48,900 --> 00:20:53,520
+if you ask me if someone typically young
+
+441
+00:20:51,840 --> 00:20:55,080
+people and student you know they ask
+
+442
+00:20:53,520 --> 00:20:58,020
+what do you think of the programming
+
+443
+00:20:55,080 --> 00:21:00,660
+language it's idiotic okay
+
+444
+00:20:58,020 --> 00:21:03,419
+learn a programming language you know
+
+445
+00:21:00,660 --> 00:21:04,980
+depends on your goal Okay so
+
+446
+00:21:03,419 --> 00:21:08,400
+okay
+
+447
+00:21:04,980 --> 00:21:10,559
+so actually let me just uh point
+
+448
+00:21:08,400 --> 00:21:14,820
+uh you
+
+449
+00:21:10,559 --> 00:21:15,780
+to a you know go to sally.info scroll
+
+450
+00:21:14,820 --> 00:21:20,000
+down
+
+451
+00:21:15,780 --> 00:21:23,100
+you'll see this video okay
+
+452
+00:21:20,000 --> 00:21:26,820
+characteristics of Haskell Pearl Ruby
+
+453
+00:21:23,100 --> 00:21:30,059
+python Java closure JavaScript lisp and
+
+454
+00:21:26,820 --> 00:21:32,280
+Wolfram language so watch that video and
+
+455
+00:21:30,059 --> 00:21:36,120
+actually several videos before this one
+
+456
+00:21:32,280 --> 00:21:39,000
+so I tell you you know why
+
+457
+00:21:36,120 --> 00:21:41,640
+you know it's a very common question
+
+458
+00:21:39,000 --> 00:21:43,260
+what language should I learn oh what do
+
+459
+00:21:41,640 --> 00:21:44,460
+you think this language you know that's
+
+460
+00:21:43,260 --> 00:21:47,580
+those are
+
+461
+00:21:44,460 --> 00:21:48,659
+typically in Practical and idiotic
+
+462
+00:21:47,580 --> 00:21:50,220
+questions
+
+463
+00:21:48,659 --> 00:21:53,820
+okay
+
+464
+00:21:50,220 --> 00:21:56,460
+so if you want to if you need to learn a
+
+465
+00:21:53,820 --> 00:21:58,100
+language to get a job find those
+
+466
+00:21:56,460 --> 00:22:02,280
+languages
+
+467
+00:21:58,100 --> 00:22:06,960
+heavily used in industry such as
+
+468
+00:22:02,280 --> 00:22:09,299
+C C plus plus python Golan
+
+469
+00:22:06,960 --> 00:22:11,880
+okay JavaScript
+
+470
+00:22:09,299 --> 00:22:14,159
+and Java okay these are basically top
+
+471
+00:22:11,880 --> 00:22:16,919
+five and Ruby you know you might count
+
+472
+00:22:14,159 --> 00:22:20,340
+Ruby as well if you want a job okay
+
+473
+00:22:16,919 --> 00:22:23,280
+start stop asking oh should I you learn
+
+474
+00:22:20,340 --> 00:22:24,480
+rust should I learn this or that [ __ ]
+
+475
+00:22:23,280 --> 00:22:27,419
+okay
+
+476
+00:22:24,480 --> 00:22:29,940
+no that's practical advice
+
+477
+00:22:27,419 --> 00:22:32,100
+most people need a job especially young
+
+478
+00:22:29,940 --> 00:22:34,820
+people especially the type of people
+
+479
+00:22:32,100 --> 00:22:38,400
+asking these kind of questions so
+
+480
+00:22:34,820 --> 00:22:41,340
+practical need-based do you need a job
+
+481
+00:22:38,400 --> 00:22:43,860
+yes probably you do you know instead of
+
+482
+00:22:41,340 --> 00:22:47,780
+leaving your mom's basement so you want
+
+483
+00:22:43,860 --> 00:22:50,700
+a job Focus learn Master one language
+
+484
+00:22:47,780 --> 00:22:55,340
+that's used in industry and I would
+
+485
+00:22:50,700 --> 00:22:58,860
+recommend go land I recommend Golan
+
+486
+00:22:55,340 --> 00:23:00,679
+python Ruby well you know is in Java you
+
+487
+00:22:58,860 --> 00:23:03,539
+know many of these
+
+488
+00:23:00,679 --> 00:23:06,360
+very popular industrial languages are
+
+489
+00:23:03,539 --> 00:23:07,679
+not good languages okay so anyway
+
+490
+00:23:06,360 --> 00:23:09,780
+practical
+
+491
+00:23:07,679 --> 00:23:14,400
+you know if you have a need
+
+492
+00:23:09,780 --> 00:23:18,120
+then you the language is chooses you not
+
+493
+00:23:14,400 --> 00:23:21,000
+the other way okay on the other hand
+
+494
+00:23:18,120 --> 00:23:23,760
+on the other hand if you already have
+
+495
+00:23:21,000 --> 00:23:26,120
+money you are silver spooned you are
+
+496
+00:23:23,760 --> 00:23:28,860
+born in America
+
+497
+00:23:26,120 --> 00:23:30,960
+you don't need to find a job you know
+
+498
+00:23:28,860 --> 00:23:34,919
+you can you know you can say you are
+
+499
+00:23:30,960 --> 00:23:37,860
+poop and smoking a crack or whatever and
+
+500
+00:23:34,919 --> 00:23:39,960
+use iPad and complain all the time and
+
+501
+00:23:37,860 --> 00:23:42,720
+sipping Starbucks coffee and saying
+
+502
+00:23:39,960 --> 00:23:45,720
+complain oh I'm poor shut the [ __ ] up
+
+503
+00:23:42,720 --> 00:23:48,360
+okay but anyway if you don't if money is
+
+504
+00:23:45,720 --> 00:23:50,760
+not your concern you are interested in
+
+505
+00:23:48,360 --> 00:23:53,960
+languages just for the pure you know
+
+506
+00:23:50,760 --> 00:23:53,960
+whatever interesting
+
+507
+00:23:54,000 --> 00:23:58,679
+you know then you have lots of other
+
+508
+00:23:56,220 --> 00:24:02,159
+choice different choices you can is to
+
+509
+00:23:58,679 --> 00:24:04,380
+skim this you can do Haskell you can do
+
+510
+00:24:02,159 --> 00:24:06,659
+wufam language buffum language if
+
+511
+00:24:04,380 --> 00:24:09,120
+especially if you are a mathematician or
+
+512
+00:24:06,659 --> 00:24:12,000
+physics not a programmer okay
+
+513
+00:24:09,120 --> 00:24:15,059
+uh and then you can look at oh oh ding
+
+514
+00:24:12,000 --> 00:24:16,860
+or name and they're quite quite a lot
+
+515
+00:24:15,059 --> 00:24:18,659
+okay
+
+516
+00:24:16,860 --> 00:24:21,840
+so what is so ding Odin is the general
+
+517
+00:24:18,659 --> 00:24:24,960
+you know and and and we have people in
+
+518
+00:24:21,840 --> 00:24:28,080
+our Discord Saudi Discord you know
+
+519
+00:24:24,960 --> 00:24:30,600
+mentioning cop you know there's also a
+
+520
+00:24:28,080 --> 00:24:34,200
+lot of lots of crystal
+
+521
+00:24:30,600 --> 00:24:37,320
+pop cop is a lisp
+
+522
+00:24:34,200 --> 00:24:38,940
+with static typing okay crystal is like
+
+523
+00:24:37,320 --> 00:24:41,520
+a python
+
+524
+00:24:38,940 --> 00:24:44,059
+uh
+
+525
+00:24:41,520 --> 00:24:47,159
+python in
+
+526
+00:24:44,059 --> 00:24:48,419
+a fast python something like that it is
+
+527
+00:24:47,159 --> 00:24:51,360
+a lot okay
+
+528
+00:24:48,419 --> 00:24:54,480
+so what is the
+
+529
+00:24:51,360 --> 00:24:57,120
+language with distinct typing build for
+
+530
+00:24:54,480 --> 00:24:59,580
+high performance modern systems and data
+
+531
+00:24:57,120 --> 00:25:01,880
+oriented programming or this is a c
+
+532
+00:24:59,580 --> 00:25:04,860
+alternative
+
+533
+00:25:01,880 --> 00:25:09,179
+see alternative there is a c alternative
+
+534
+00:25:04,860 --> 00:25:12,900
+I approve Golan okay
+
+535
+00:25:09,179 --> 00:25:15,900
+wipe C and C plus plus out of this Earth
+
+536
+00:25:12,900 --> 00:25:20,880
+the [ __ ] these are C and C plus plus
+
+537
+00:25:15,900 --> 00:25:23,960
+they are created by this hacker idiots
+
+538
+00:25:20,880 --> 00:25:23,960
+extremely complex
+
+539
+00:25:24,120 --> 00:25:27,900
+okay I don't I don't know about Odin I
+
+540
+00:25:26,400 --> 00:25:29,760
+don't care
+
+541
+00:25:27,900 --> 00:25:31,799
+uh
+
+542
+00:25:29,760 --> 00:25:34,140
+so I mean if you ask me what's my
+
+543
+00:25:31,799 --> 00:25:37,799
+question or then it's [ __ ] it's a pure
+
+544
+00:25:34,140 --> 00:25:40,440
+[ __ ] [ __ ] unless unless you know some
+
+545
+00:25:37,799 --> 00:25:43,620
+other reason come up that's that's my
+
+546
+00:25:40,440 --> 00:25:45,840
+opinion and that's that's also I would
+
+547
+00:25:43,620 --> 00:25:48,059
+say
+
+548
+00:25:45,840 --> 00:25:52,100
+this is probably you know that I would
+
+549
+00:25:48,059 --> 00:25:52,100
+say that about rust too
+
+550
+00:25:52,559 --> 00:26:00,960
+okay so uh God we digressed so much uh
+
+551
+00:25:58,020 --> 00:26:04,159
+30 minutes already we haven't started to
+
+552
+00:26:00,960 --> 00:26:04,159
+do the Advent of coding
+
+553
+00:26:08,220 --> 00:26:11,880
+you need the knowledge you know continue
+
+554
+00:26:10,020 --> 00:26:15,659
+discussing the language I need the
+
+555
+00:26:11,880 --> 00:26:19,820
+knowledge pay me okay Jr who are you
+
+556
+00:26:15,659 --> 00:26:19,820
+pay me did you donate
+
+557
+00:26:25,500 --> 00:26:30,419
+okay let's go back to Advent of uh event
+
+558
+00:26:28,799 --> 00:26:32,960
+of
+
+559
+00:26:30,419 --> 00:26:32,960
+code
+
+560
+00:26:34,799 --> 00:26:37,580
+uh
+
+561
+00:26:40,620 --> 00:26:46,740
+okay so yeah let's try to finish this
+
+562
+00:26:44,159 --> 00:26:49,440
+you know we meant to do this today so
+
+563
+00:26:46,740 --> 00:26:51,960
+let's try so so the problem is you know
+
+564
+00:26:49,440 --> 00:26:55,260
+given a string of lines each line has
+
+565
+00:26:51,960 --> 00:26:59,760
+two letters the first letter is a or b
+
+566
+00:26:55,260 --> 00:27:03,299
+or c the second letter is x or y or Z
+
+567
+00:26:59,760 --> 00:27:04,919
+and uh and uh
+
+568
+00:27:03,299 --> 00:27:08,520
+and then
+
+569
+00:27:04,919 --> 00:27:10,679
+you want to compute you you you need to
+
+570
+00:27:08,520 --> 00:27:14,100
+write a function that takes this string
+
+571
+00:27:10,679 --> 00:27:17,640
+as input and output a number okay but
+
+572
+00:27:14,100 --> 00:27:21,179
+how does the how does it work so you so
+
+573
+00:27:17,640 --> 00:27:22,799
+here is how it works okay so again this
+
+574
+00:27:21,179 --> 00:27:25,440
+problem
+
+575
+00:27:22,799 --> 00:27:28,620
+you know more than 60 percent like I
+
+576
+00:27:25,440 --> 00:27:30,659
+would say 70 percent
+
+577
+00:27:28,620 --> 00:27:34,559
+of
+
+578
+00:27:30,659 --> 00:27:38,460
+of on the of solving this problem is
+
+579
+00:27:34,559 --> 00:27:41,039
+about analytic skills not about coding
+
+580
+00:27:38,460 --> 00:27:44,100
+skill okay so you need to be able to
+
+581
+00:27:41,039 --> 00:27:48,000
+read this and and be able to think about
+
+582
+00:27:44,100 --> 00:27:50,279
+to analyze to distill the essence of the
+
+583
+00:27:48,000 --> 00:27:52,919
+problem because the problem you know
+
+584
+00:27:50,279 --> 00:27:55,980
+they they use lots of words in stories
+
+585
+00:27:52,919 --> 00:27:59,880
+you know Caesars rock paper scissors
+
+586
+00:27:55,980 --> 00:28:02,820
+game rock is represented by a you know
+
+587
+00:27:59,880 --> 00:28:05,940
+Caesar is represented you know by a
+
+588
+00:28:02,820 --> 00:28:09,419
+paper is represented by b b and Cesar is
+
+589
+00:28:05,940 --> 00:28:11,820
+driven you know blah blah blah blah so
+
+590
+00:28:09,419 --> 00:28:13,679
+anyway so let's let me let me get down
+
+591
+00:28:11,820 --> 00:28:15,779
+to the problem so you need to write a
+
+592
+00:28:13,679 --> 00:28:18,720
+function that takes a string as input
+
+593
+00:28:15,779 --> 00:28:22,279
+and and the function must return a
+
+594
+00:28:18,720 --> 00:28:22,279
+number integer okay
+
+595
+00:28:22,500 --> 00:28:28,380
+and but how does it work so let me let
+
+596
+00:28:25,080 --> 00:28:31,380
+me try to uh do that that that's the
+
+597
+00:28:28,380 --> 00:28:33,779
+essence of solving this problem
+
+598
+00:28:31,380 --> 00:28:36,360
+uh less about coding
+
+599
+00:28:33,779 --> 00:28:37,440
+so okay close that close that close that
+
+600
+00:28:36,360 --> 00:28:39,480
+okay
+
+601
+00:28:37,440 --> 00:28:41,159
+so
+
+602
+00:28:39,480 --> 00:28:43,679
+so let's
+
+603
+00:28:41,159 --> 00:28:46,140
+um let's do that's ready and mount okay
+
+604
+00:28:43,679 --> 00:28:48,659
+I want to focus on this problem and
+
+605
+00:28:46,140 --> 00:28:51,299
+solve it in today
+
+606
+00:28:48,659 --> 00:28:53,940
+let you know I don't want to get
+
+607
+00:28:51,299 --> 00:28:56,179
+distracted and become something else not
+
+608
+00:28:53,940 --> 00:28:56,179
+today
+
+609
+00:28:58,020 --> 00:29:03,480
+thank you Jr so I don't mean to be rude
+
+610
+00:29:00,659 --> 00:29:05,820
+but sometimes I it turns out that way I
+
+611
+00:29:03,480 --> 00:29:07,500
+don't mean to be rude
+
+612
+00:29:05,820 --> 00:29:12,059
+uh
+
+613
+00:29:07,500 --> 00:29:14,460
+so let's go back to the problem so
+
+614
+00:29:12,059 --> 00:29:16,140
+so this problem you know actually to
+
+615
+00:29:14,460 --> 00:29:17,460
+write a
+
+616
+00:29:16,140 --> 00:29:20,580
+spec
+
+617
+00:29:17,460 --> 00:29:22,500
+of this problem is actually not easy so
+
+618
+00:29:20,580 --> 00:29:25,559
+that's what we are doing that's what I'm
+
+619
+00:29:22,500 --> 00:29:27,840
+doing here so given a string of two
+
+620
+00:29:25,559 --> 00:29:30,120
+letters each line
+
+621
+00:29:27,840 --> 00:29:32,480
+so how do you what does your function do
+
+622
+00:29:30,120 --> 00:29:32,480
+so
+
+623
+00:29:32,760 --> 00:29:36,140
+write a function
+
+624
+00:29:38,100 --> 00:29:44,159
+uh F okay
+
+625
+00:29:40,200 --> 00:29:46,080
+F returns a integer okay
+
+626
+00:29:44,159 --> 00:29:49,500
+and
+
+627
+00:29:46,080 --> 00:29:52,679
+and how do you describe it okay so a
+
+628
+00:29:49,500 --> 00:29:56,460
+means one so basically you know rock
+
+629
+00:29:52,679 --> 00:30:00,539
+paper rock paper scissors they are
+
+630
+00:29:56,460 --> 00:30:02,640
+playing this game so a represents Rock B
+
+631
+00:30:00,539 --> 00:30:06,779
+represents
+
+632
+00:30:02,640 --> 00:30:08,460
+uh paper C represents Caesar so Caesar
+
+633
+00:30:06,779 --> 00:30:11,520
+Beats
+
+634
+00:30:08,460 --> 00:30:15,740
+you know so basically the latter one
+
+635
+00:30:11,520 --> 00:30:19,980
+speeds the previous one B beats a c b
+
+636
+00:30:15,740 --> 00:30:23,640
+and a b c so it's a cyclic
+
+637
+00:30:19,980 --> 00:30:26,520
+uh ABC so and uh
+
+638
+00:30:23,640 --> 00:30:29,039
+but they so it's about rock scissor and
+
+639
+00:30:26,520 --> 00:30:30,840
+paper but there's a Twist rock paper
+
+640
+00:30:29,039 --> 00:30:34,980
+scissors there's a twist
+
+641
+00:30:30,840 --> 00:30:36,480
+you see a has a score of one B has a
+
+642
+00:30:34,980 --> 00:30:40,500
+score of two
+
+643
+00:30:36,480 --> 00:30:42,360
+C which is a Caesar has a score of 3. so
+
+644
+00:30:40,500 --> 00:30:44,700
+when you play this game
+
+645
+00:30:42,360 --> 00:30:46,919
+you know
+
+646
+00:30:44,700 --> 00:30:48,179
+when you put out Caesar you have a
+
+647
+00:30:46,919 --> 00:30:50,820
+higher score
+
+648
+00:30:48,179 --> 00:30:52,559
+if you know if you win and but you know
+
+649
+00:30:50,820 --> 00:30:55,080
+so depending on what you put out you
+
+650
+00:30:52,559 --> 00:30:57,480
+actually have a higher score so you know
+
+651
+00:30:55,080 --> 00:30:58,980
+that you you you you want
+
+652
+00:30:57,480 --> 00:31:00,840
+you know if you are creating an
+
+653
+00:30:58,980 --> 00:31:03,779
+algorithm to play this particular
+
+654
+00:31:00,840 --> 00:31:04,799
+variation of rock paper scissor you want
+
+655
+00:31:03,779 --> 00:31:07,620
+to
+
+656
+00:31:04,799 --> 00:31:10,200
+increase your chances of using Caesar
+
+657
+00:31:07,620 --> 00:31:15,000
+you know but of course if you do that
+
+658
+00:31:10,200 --> 00:31:17,640
+then the opponent strategy will you know
+
+659
+00:31:15,000 --> 00:31:20,640
+another way they will increase using
+
+660
+00:31:17,640 --> 00:31:23,340
+Rock so because they know you are going
+
+661
+00:31:20,640 --> 00:31:25,080
+to put a lot of each one you know they
+
+662
+00:31:23,340 --> 00:31:29,340
+are trying to put a lot of scissors so
+
+663
+00:31:25,080 --> 00:31:32,220
+but so this is very interesting
+
+664
+00:31:29,340 --> 00:31:34,380
+intricate variation okay but anyway back
+
+665
+00:31:32,220 --> 00:31:38,039
+to this problem
+
+666
+00:31:34,380 --> 00:31:40,919
+so a is you know a b c means one two
+
+667
+00:31:38,039 --> 00:31:46,500
+three you know you know each one has a
+
+668
+00:31:40,919 --> 00:31:48,840
+score but also x y z you know so it's
+
+669
+00:31:46,500 --> 00:31:50,220
+confusing they also use x y z to
+
+670
+00:31:48,840 --> 00:31:54,480
+represent
+
+671
+00:31:50,220 --> 00:32:00,179
+ABC so x y z x is
+
+672
+00:31:54,480 --> 00:32:02,340
+Rock Y is paper Z is Caesar so that's
+
+673
+00:32:00,179 --> 00:32:06,000
+the second player so also that means one
+
+674
+00:32:02,340 --> 00:32:08,720
+two three that's a score okay but
+
+675
+00:32:06,000 --> 00:32:08,720
+but
+
+676
+00:32:08,760 --> 00:32:14,159
+so first of all your function when you
+
+677
+00:32:11,279 --> 00:32:17,220
+see a you have a score of one when you
+
+678
+00:32:14,159 --> 00:32:19,260
+see B you have a score of two when you
+
+679
+00:32:17,220 --> 00:32:21,059
+see C
+
+680
+00:32:19,260 --> 00:32:24,539
+you have a score of three you need to
+
+681
+00:32:21,059 --> 00:32:28,919
+add you know so so for example this line
+
+682
+00:32:24,539 --> 00:32:33,659
+a y immediately you have a a is what
+
+683
+00:32:28,919 --> 00:32:35,940
+there so you have one and y y is two
+
+684
+00:32:33,659 --> 00:32:38,640
+so a and Y
+
+685
+00:32:35,940 --> 00:32:41,220
+you have a score of two already then you
+
+686
+00:32:38,640 --> 00:32:43,380
+have to determine which one wins so in
+
+687
+00:32:41,220 --> 00:32:46,020
+this case
+
+688
+00:32:43,380 --> 00:32:54,240
+Y is
+
+689
+00:32:46,020 --> 00:32:54,240
+uh Y is why is paper and a is Rock so
+
+690
+00:32:54,899 --> 00:33:01,860
+the the second player wins
+
+691
+00:32:58,740 --> 00:33:03,179
+so that means so here's so that's why
+
+692
+00:33:01,860 --> 00:33:05,340
+it's um
+
+693
+00:33:03,179 --> 00:33:07,740
+not trivial to describe this problem
+
+694
+00:33:05,340 --> 00:33:09,899
+mathematically
+
+695
+00:33:07,740 --> 00:33:12,480
+so basically
+
+696
+00:33:09,899 --> 00:33:16,620
+um when it's a draw you get a score of
+
+697
+00:33:12,480 --> 00:33:18,360
+zero you are the second player Okay so
+
+698
+00:33:16,620 --> 00:33:21,260
+if you
+
+699
+00:33:18,360 --> 00:33:21,260
+um lose
+
+700
+00:33:21,360 --> 00:33:25,980
+wait if you lose you get zero so if you
+
+701
+00:33:24,840 --> 00:33:29,220
+draw
+
+702
+00:33:25,980 --> 00:33:31,220
+you get a score of
+
+703
+00:33:29,220 --> 00:33:31,220
+um
+
+704
+00:33:33,240 --> 00:33:38,659
+you know these these story like problem
+
+705
+00:33:45,600 --> 00:33:54,659
+okay so here zero if you lost three if
+
+706
+00:33:50,399 --> 00:33:56,580
+if it's a draw six if you win okay so
+
+707
+00:33:54,659 --> 00:34:01,679
+you are the second player you know the
+
+708
+00:33:56,580 --> 00:34:03,539
+XYZ so lose zero draw three and the win
+
+709
+00:34:01,679 --> 00:34:05,760
+you get six
+
+710
+00:34:03,539 --> 00:34:08,879
+so your function needs to basically
+
+711
+00:34:05,760 --> 00:34:12,060
+compute you know given this list of rock
+
+712
+00:34:08,879 --> 00:34:15,599
+paper scissors you need to compute the
+
+713
+00:34:12,060 --> 00:34:17,940
+the score for you the second player okay
+
+714
+00:34:15,599 --> 00:34:21,720
+so what does this function needs to do
+
+715
+00:34:17,940 --> 00:34:23,339
+is so draw loose so for example when you
+
+716
+00:34:21,720 --> 00:34:27,020
+have a y
+
+717
+00:34:23,339 --> 00:34:30,960
+what happens is that
+
+718
+00:34:27,020 --> 00:34:33,060
+becomes uh okay so
+
+719
+00:34:30,960 --> 00:34:38,460
+so a is one
+
+720
+00:34:33,060 --> 00:34:41,119
+Y is 2 so a uh one plus two
+
+721
+00:34:38,460 --> 00:34:41,119
+then
+
+722
+00:34:41,580 --> 00:34:49,980
+because Y is
+
+723
+00:34:44,280 --> 00:34:54,359
+paper beats a rock so you win so you get
+
+724
+00:34:49,980 --> 00:34:58,280
+six plus six okay now it's becoming
+
+725
+00:34:54,359 --> 00:34:58,280
+clear what what to do so
+
+726
+00:34:58,440 --> 00:35:01,460
+for example
+
+727
+00:35:02,640 --> 00:35:07,339
+let's write them out like that okay
+
+728
+00:35:13,320 --> 00:35:17,780
+okay so let's let's see
+
+729
+00:35:17,940 --> 00:35:24,740
+okay
+
+730
+00:35:19,859 --> 00:35:24,740
+which is equals to what
+
+731
+00:35:32,160 --> 00:35:39,480
+9. so if you get a y the outcome is nine
+
+732
+00:35:36,480 --> 00:35:42,780
+so your function needs to do this for
+
+733
+00:35:39,480 --> 00:35:46,940
+every one of them and sum them up I
+
+734
+00:35:42,780 --> 00:35:46,940
+think yeah sum them together okay
+
+735
+00:35:47,160 --> 00:35:51,660
+so we need to write this in Wolfram so
+
+736
+00:35:49,560 --> 00:35:54,420
+yeah we're gonna write this in Wolfram
+
+737
+00:35:51,660 --> 00:35:57,660
+language so let's start
+
+738
+00:35:54,420 --> 00:36:00,060
+okay we got 20 more minutes I hope you
+
+739
+00:35:57,660 --> 00:36:03,119
+know we can finish yes we can in 20
+
+740
+00:36:00,060 --> 00:36:06,660
+minutes but we probably don't have time
+
+741
+00:36:03,119 --> 00:36:09,180
+to write this in JavaScript or
+
+742
+00:36:06,660 --> 00:36:13,619
+emac this okay
+
+743
+00:36:09,180 --> 00:36:15,900
+so start computed come start the kernel
+
+744
+00:36:13,619 --> 00:36:17,880
+Okay so
+
+745
+00:36:15,900 --> 00:36:20,579
+you know this is a preparation to
+
+746
+00:36:17,880 --> 00:36:23,900
+understand the problem so the function
+
+747
+00:36:20,579 --> 00:36:23,900
+basically the function
+
+748
+00:36:26,820 --> 00:36:32,540
+function
+
+749
+00:36:28,440 --> 00:36:32,540
+compute three numbers
+
+750
+00:36:33,839 --> 00:36:38,040
+basically
+
+751
+00:36:35,339 --> 00:36:42,140
+for each line
+
+752
+00:36:38,040 --> 00:36:42,140
+the function compute three numbers
+
+753
+00:36:43,740 --> 00:36:49,800
+and sum them okay
+
+754
+00:36:46,380 --> 00:36:52,020
+okay and
+
+755
+00:36:49,800 --> 00:36:54,119
+so the first two numbers are easy to
+
+756
+00:36:52,020 --> 00:36:57,300
+compute because they just correspond to
+
+757
+00:36:54,119 --> 00:36:59,660
+one two three the
+
+758
+00:36:57,300 --> 00:37:04,680
+the third number
+
+759
+00:36:59,660 --> 00:37:07,500
+depends on this Windows draw so
+
+760
+00:37:04,680 --> 00:37:09,420
+that's that's kind of the a little hard
+
+761
+00:37:07,500 --> 00:37:11,880
+problem so
+
+762
+00:37:09,420 --> 00:37:14,280
+so for example so you need to convert
+
+763
+00:37:11,880 --> 00:37:18,560
+these numbers you need to determine who
+
+764
+00:37:14,280 --> 00:37:18,560
+which one wins Okay so
+
+765
+00:37:19,680 --> 00:37:24,480
+you know there are many ways to do it
+
+766
+00:37:21,060 --> 00:37:27,780
+but one way is you you represent ABC or
+
+767
+00:37:24,480 --> 00:37:31,800
+XYZ by numbers by this one two three
+
+768
+00:37:27,780 --> 00:37:35,339
+themselves then you can easily compare
+
+769
+00:37:31,800 --> 00:37:37,380
+using modular arithmetics to see which
+
+770
+00:37:35,339 --> 00:37:42,060
+one is greater than
+
+771
+00:37:37,380 --> 00:37:46,020
+to see if the second one is greater
+
+772
+00:37:42,060 --> 00:37:47,940
+by one then the first one if it is that
+
+773
+00:37:46,020 --> 00:37:49,859
+means you want you are the second player
+
+774
+00:37:47,940 --> 00:37:53,339
+that means you won't
+
+775
+00:37:49,859 --> 00:37:55,800
+if it's the same then it's a draw
+
+776
+00:37:53,339 --> 00:37:57,599
+which you get three if you win you get
+
+777
+00:37:55,800 --> 00:37:59,839
+six
+
+778
+00:37:57,599 --> 00:38:04,640
+nobody however is
+
+779
+00:37:59,839 --> 00:38:04,640
+you know if their difference is by two
+
+780
+00:38:05,640 --> 00:38:08,640
+then then you get
+
+781
+00:38:07,680 --> 00:38:11,099
+um
+
+782
+00:38:08,640 --> 00:38:12,780
+then you lose you get zero okay so
+
+783
+00:38:11,099 --> 00:38:14,700
+that's already that's how we start
+
+784
+00:38:12,780 --> 00:38:18,180
+that's so basically that's the algorithm
+
+785
+00:38:14,700 --> 00:38:22,820
+we already solved it so let me tell you
+
+786
+00:38:18,180 --> 00:38:22,820
+let's write out the algorithm okay
+
+787
+00:38:28,700 --> 00:38:34,020
+convert the letters to
+
+788
+00:38:32,520 --> 00:38:37,339
+numbers
+
+789
+00:38:34,020 --> 00:38:47,579
+a to uh
+
+790
+00:38:37,339 --> 00:38:49,740
+a21 B2 2 c 2 3 and same for x y z
+
+791
+00:38:47,579 --> 00:38:51,060
+add them
+
+792
+00:38:49,740 --> 00:38:52,859
+then
+
+793
+00:38:51,060 --> 00:38:55,680
+compare
+
+794
+00:38:52,859 --> 00:38:58,680
+the modular
+
+795
+00:38:55,680 --> 00:38:58,680
+arithmetic
+
+796
+00:38:59,820 --> 00:39:03,720
+uh
+
+797
+00:39:01,560 --> 00:39:09,540
+modular 2 3
+
+798
+00:39:03,720 --> 00:39:12,420
+actually modular 2 2 because 0 counts so
+
+799
+00:39:09,540 --> 00:39:16,140
+so the input is one two three but you
+
+800
+00:39:12,420 --> 00:39:17,940
+want a cycle of three so so you have 0 1
+
+801
+00:39:16,140 --> 00:39:27,000
+2 instead
+
+802
+00:39:17,940 --> 00:39:27,000
+so modular 2 2 and if the diff is 1 then
+
+803
+00:39:28,260 --> 00:39:30,920
+add
+
+804
+00:39:31,020 --> 00:39:36,079
+three if at six
+
+805
+00:39:36,480 --> 00:39:42,000
+if if the
+
+806
+00:39:39,960 --> 00:39:44,220
+something like that okay we'll work out
+
+807
+00:39:42,000 --> 00:39:47,099
+the detail if the
+
+808
+00:39:44,220 --> 00:39:49,800
+div is two
+
+809
+00:39:47,099 --> 00:39:55,079
+if the
+
+810
+00:39:49,800 --> 00:39:57,960
+then add three if zero has zero okay
+
+811
+00:39:55,079 --> 00:40:01,920
+that's an algorithm basically
+
+812
+00:39:57,960 --> 00:40:04,380
+okay so okay so let's let's let's put
+
+813
+00:40:01,920 --> 00:40:08,359
+this into a list
+
+814
+00:40:04,380 --> 00:40:08,359
+so we can view it in browser
+
+815
+00:40:10,020 --> 00:40:14,880
+so that's a problem description and
+
+816
+00:40:12,359 --> 00:40:16,980
+that's the algorithm description we have
+
+817
+00:40:14,880 --> 00:40:20,700
+it okay let's write start to write the
+
+818
+00:40:16,980 --> 00:40:23,280
+code okay so input
+
+819
+00:40:20,700 --> 00:40:27,440
+uh
+
+820
+00:40:23,280 --> 00:40:29,060
+okay so let's trade in Wolfram language
+
+821
+00:40:27,440 --> 00:40:31,140
+in
+
+822
+00:40:29,060 --> 00:40:34,560
+emacsawwal fan mod
+
+823
+00:40:31,140 --> 00:40:39,500
+so X input equals to
+
+824
+00:40:34,560 --> 00:40:39,500
+okay so let's see what's the Stream
+
+825
+00:40:42,180 --> 00:40:49,760
+okay so we have a string
+
+826
+00:40:44,760 --> 00:40:53,040
+so first of all the problem is uh Define
+
+827
+00:40:49,760 --> 00:40:54,260
+function okay so we want to define a
+
+828
+00:40:53,040 --> 00:40:58,099
+function
+
+829
+00:40:54,260 --> 00:40:58,099
+function equals to
+
+830
+00:40:58,859 --> 00:41:06,800
+okay so function is X is a string I'll
+
+831
+00:41:03,720 --> 00:41:06,800
+put a number okay
+
+832
+00:41:07,079 --> 00:41:14,119
+I'll put a number that's the function we
+
+833
+00:41:09,300 --> 00:41:14,119
+need to write okay and first of all
+
+834
+00:41:17,400 --> 00:41:23,760
+okay let's start to do okay okay let's
+
+835
+00:41:19,380 --> 00:41:23,760
+start to explore X
+
+836
+00:41:25,320 --> 00:41:31,140
+first of all split you know turn the
+
+837
+00:41:27,720 --> 00:41:34,560
+string turn one giant one blob above
+
+838
+00:41:31,140 --> 00:41:38,180
+string into a list of items and convert
+
+839
+00:41:34,560 --> 00:41:38,180
+these ABC to numbers okay
+
+840
+00:41:38,220 --> 00:41:42,500
+so turn the split okay
+
+841
+00:41:52,980 --> 00:41:58,440
+Spirit string X input
+
+842
+00:41:56,820 --> 00:42:00,960
+uh
+
+843
+00:41:58,440 --> 00:42:05,180
+so
+
+844
+00:42:00,960 --> 00:42:05,180
+okay so we got a list
+
+845
+00:42:05,280 --> 00:42:08,599
+uh lines okay
+
+846
+00:42:11,220 --> 00:42:16,680
+so each element is a string of lines but
+
+847
+00:42:15,119 --> 00:42:19,320
+before we do
+
+848
+00:42:16,680 --> 00:42:21,660
+before we change it turn the string into
+
+849
+00:42:19,320 --> 00:42:23,400
+a list we first of all we do a
+
+850
+00:42:21,660 --> 00:42:26,099
+conversion to change all those into
+
+851
+00:42:23,400 --> 00:42:27,660
+numbers okay because numbers is much
+
+852
+00:42:26,099 --> 00:42:31,260
+easier to
+
+853
+00:42:27,660 --> 00:42:32,760
+we need to use numbers to compare them
+
+854
+00:42:31,260 --> 00:42:37,220
+so
+
+855
+00:42:32,760 --> 00:42:37,220
+so we got a string replace
+
+856
+00:42:40,440 --> 00:42:45,839
+okay I need to look up documentation
+
+857
+00:42:42,599 --> 00:42:48,900
+what's the Syntax for string replace
+
+858
+00:42:45,839 --> 00:42:53,280
+turn JavaScript
+
+859
+00:42:48,900 --> 00:42:55,560
+okay string replace uh pattern yeah so
+
+860
+00:42:53,280 --> 00:42:58,619
+yeah that's what we want to do
+
+861
+00:42:55,560 --> 00:43:01,020
+let's see what about alternative string
+
+862
+00:42:58,619 --> 00:43:03,560
+DDD string so what is the String replace
+
+863
+00:43:01,020 --> 00:43:03,560
+list
+
+864
+00:43:04,319 --> 00:43:09,240
+gives a list of the strings obtained by
+
+865
+00:43:06,960 --> 00:43:11,900
+replacing each individual occurrence of
+
+866
+00:43:09,240 --> 00:43:11,900
+substitution
+
+867
+00:43:15,000 --> 00:43:20,060
+okay so let's see example
+
+868
+00:43:25,920 --> 00:43:32,900
+okay so when there's multiple occurrence
+
+869
+00:43:29,300 --> 00:43:35,839
+the string replace this just
+
+870
+00:43:32,900 --> 00:43:38,520
+returns order possible
+
+871
+00:43:35,839 --> 00:43:40,440
+Replacements you know for each possible
+
+872
+00:43:38,520 --> 00:43:43,680
+occurrence
+
+873
+00:43:40,440 --> 00:43:47,420
+so that's not that's that's that's not
+
+874
+00:43:43,680 --> 00:43:47,420
+what we want uh
+
+875
+00:43:48,180 --> 00:43:55,380
+yeah we want to string replace all so if
+
+876
+00:43:52,079 --> 00:43:59,099
+there's for example if this
+
+877
+00:43:55,380 --> 00:44:01,920
+you know what because when you click the
+
+878
+00:43:59,099 --> 00:44:07,160
+you know get your personal input you'll
+
+879
+00:44:01,920 --> 00:44:07,160
+see a you know here's here's the input
+
+880
+00:44:08,880 --> 00:44:14,040
+you know you have a huge number of them
+
+881
+00:44:11,099 --> 00:44:17,819
+you know that's the input
+
+882
+00:44:14,040 --> 00:44:19,440
+so we want to replace all a by B okay I
+
+883
+00:44:17,819 --> 00:44:20,400
+mean all a by
+
+884
+00:44:19,440 --> 00:44:23,359
+um
+
+885
+00:44:20,400 --> 00:44:23,359
+easy so
+
+886
+00:44:27,839 --> 00:44:35,099
+uh should we use one based or zero base
+
+887
+00:44:30,780 --> 00:44:36,240
+let's just stick with one okay so
+
+888
+00:44:35,099 --> 00:44:38,460
+um so
+
+889
+00:44:36,240 --> 00:44:41,720
+stream replace
+
+890
+00:44:38,460 --> 00:44:41,720
+X input
+
+891
+00:44:44,940 --> 00:44:51,300
+and here is a list of replacement
+
+892
+00:44:49,020 --> 00:44:56,420
+okay let me show you how that's done
+
+893
+00:44:51,300 --> 00:44:56,420
+okay so 8 replaced by one
+
+894
+00:44:57,300 --> 00:44:59,420
+um
+
+895
+00:45:00,660 --> 00:45:05,300
+yeah string replace
+
+896
+00:45:02,880 --> 00:45:05,300
+um yep
+
+897
+00:45:13,920 --> 00:45:19,760
+okay so actually let's do this
+
+898
+00:45:24,300 --> 00:45:28,940
+okay so it now it's easier to see
+
+899
+00:45:41,460 --> 00:45:46,859
+okay so one
+
+900
+00:45:44,780 --> 00:45:48,619
+two three
+
+901
+00:45:46,859 --> 00:45:52,859
+ah
+
+902
+00:45:48,619 --> 00:45:55,380
+one two three now let's you know as I
+
+903
+00:45:52,859 --> 00:45:58,319
+write this you know it occurs to you
+
+904
+00:45:55,380 --> 00:46:00,839
+sometimes there's different algorithms
+
+905
+00:45:58,319 --> 00:46:03,720
+that might be better but let's not worry
+
+906
+00:46:00,839 --> 00:46:06,599
+about that let's just stick with this
+
+907
+00:46:03,720 --> 00:46:08,160
+this way and go through
+
+908
+00:46:06,599 --> 00:46:09,240
+okay so
+
+909
+00:46:08,160 --> 00:46:12,599
+um
+
+910
+00:46:09,240 --> 00:46:17,839
+ABC is one two three x y z is one two
+
+911
+00:46:12,599 --> 00:46:20,940
+three that's rock paper scissors okay uh
+
+912
+00:46:17,839 --> 00:46:21,780
+and uh in Wolfram language you cannot
+
+913
+00:46:20,940 --> 00:46:23,660
+have
+
+914
+00:46:21,780 --> 00:46:27,000
+you know
+
+915
+00:46:23,660 --> 00:46:28,640
+extraneous coma at the end okay so
+
+916
+00:46:27,000 --> 00:46:31,940
+string
+
+917
+00:46:28,640 --> 00:46:31,940
+input that
+
+918
+00:46:32,280 --> 00:46:38,640
+so then here you turn that into a list
+
+919
+00:46:37,140 --> 00:46:41,280
+first of all you do the stream
+
+920
+00:46:38,640 --> 00:46:44,099
+replacement okay
+
+921
+00:46:41,280 --> 00:46:47,819
+uh
+
+922
+00:46:44,099 --> 00:46:50,720
+okay let's assign it then
+
+923
+00:46:47,819 --> 00:46:50,720
+X2
+
+924
+00:46:59,220 --> 00:47:05,000
+becomes lines okay and then
+
+925
+00:47:06,480 --> 00:47:08,480
+um
+
+926
+00:47:10,079 --> 00:47:14,160
+you need to split again
+
+927
+00:47:12,240 --> 00:47:17,819
+so you split
+
+928
+00:47:14,160 --> 00:47:23,420
+and you need to split again
+
+929
+00:47:17,819 --> 00:47:23,420
+so because you want to turn this into a
+
+930
+00:47:23,760 --> 00:47:27,319
+a list of
+
+931
+00:47:27,540 --> 00:47:32,400
+least
+
+932
+00:47:29,940 --> 00:47:35,640
+so this first line
+
+933
+00:47:32,400 --> 00:47:37,920
+would be a list of two items yes a list
+
+934
+00:47:35,640 --> 00:47:40,319
+of least and the elements would be
+
+935
+00:47:37,920 --> 00:47:43,020
+numbers okay so just like yesterday
+
+936
+00:47:40,319 --> 00:47:45,540
+similar to yesterday
+
+937
+00:47:43,020 --> 00:47:49,339
+so you split it first
+
+938
+00:47:45,540 --> 00:47:49,339
+and let's say X3 okay
+
+939
+00:47:49,800 --> 00:47:56,240
+so you split it first then X4 equals to
+
+940
+00:47:58,980 --> 00:48:02,599
+okay function
+
+941
+00:48:05,940 --> 00:48:10,400
+okay
+
+942
+00:48:07,079 --> 00:48:14,480
+X so this function
+
+943
+00:48:10,400 --> 00:48:14,480
+you want to map it
+
+944
+00:48:18,420 --> 00:48:23,460
+and this time when you split it needs to
+
+945
+00:48:21,720 --> 00:48:26,640
+be a space
+
+946
+00:48:23,460 --> 00:48:29,880
+space is a separator okay
+
+947
+00:48:26,640 --> 00:48:33,980
+so actually let's just run it so instead
+
+948
+00:48:29,880 --> 00:48:33,980
+of just let's run it okay
+
+949
+00:48:34,079 --> 00:48:39,240
+looks like we got it
+
+950
+00:48:37,020 --> 00:48:41,780
+close not quite
+
+951
+00:48:39,240 --> 00:48:41,780
+okay
+
+952
+00:48:43,500 --> 00:48:47,940
+uh so X4
+
+953
+00:48:46,680 --> 00:48:50,180
+um
+
+954
+00:48:47,940 --> 00:48:50,180
+foreign
+
+955
+00:48:58,380 --> 00:49:06,380
+am I still doing good what's up guys
+
+956
+00:49:03,119 --> 00:49:06,380
+let's see okay so
+
+957
+00:49:07,140 --> 00:49:13,020
+okay so we I want to finish this oh [ __ ]
+
+958
+00:49:10,859 --> 00:49:15,140
+five more minutes
+
+959
+00:49:13,020 --> 00:49:15,140
+um
+
+960
+00:49:21,300 --> 00:49:28,800
+he placed him by numbers okay then you
+
+961
+00:49:25,800 --> 00:49:28,800
+split
+
+962
+00:49:29,579 --> 00:49:34,929
+right when you split it's still
+
+963
+00:49:31,800 --> 00:49:34,929
+[Music]
+
+964
+00:49:38,819 --> 00:49:42,380
+oh okay actually
+
+965
+00:49:43,260 --> 00:49:46,579
+yeah when you split
+
+966
+00:49:47,060 --> 00:49:53,640
+when you split by your end of line
+
+967
+00:49:50,220 --> 00:49:56,460
+character so each one each each line
+
+968
+00:49:53,640 --> 00:50:00,900
+becomes
+
+969
+00:49:56,460 --> 00:50:05,040
+so this Y is true this is one two okay
+
+970
+00:50:00,900 --> 00:50:08,540
+so that's the one two
+
+971
+00:50:05,040 --> 00:50:08,540
+okay like that
+
+972
+00:50:09,540 --> 00:50:16,560
+but okay so there's something wrong here
+
+973
+00:50:13,740 --> 00:50:21,119
+when you split the first time
+
+974
+00:50:16,560 --> 00:50:24,660
+you need to say we want to split by
+
+975
+00:50:21,119 --> 00:50:26,940
+new line I think they assume both new
+
+976
+00:50:24,660 --> 00:50:31,319
+line and
+
+977
+00:50:26,940 --> 00:50:34,700
+space because you can test length at
+
+978
+00:50:31,319 --> 00:50:34,700
+output number four
+
+979
+00:50:35,160 --> 00:50:39,300
+so let's
+
+980
+00:50:36,300 --> 00:50:42,420
+so by default when you split stream it
+
+981
+00:50:39,300 --> 00:50:43,980
+assumes you want to split by any y space
+
+982
+00:50:42,420 --> 00:50:46,619
+I suppose
+
+983
+00:50:43,980 --> 00:50:49,440
+that's what happens there so let's look
+
+984
+00:50:46,619 --> 00:50:53,760
+up the function I mean let's look at the
+
+985
+00:50:49,440 --> 00:50:55,740
+documentation and we are C
+
+986
+00:50:53,760 --> 00:50:58,319
+yeah you see
+
+987
+00:50:55,740 --> 00:51:00,540
+speed string into a list of substrings
+
+988
+00:50:58,319 --> 00:51:03,920
+separated by white space we don't want
+
+989
+00:51:00,540 --> 00:51:03,920
+that we just want to
+
+990
+00:51:05,880 --> 00:51:11,700
+we want to split by end of line then
+
+991
+00:51:08,760 --> 00:51:12,660
+split by space but another way we can do
+
+992
+00:51:11,700 --> 00:51:14,940
+this
+
+993
+00:51:12,660 --> 00:51:17,160
+by the because of the power of wufan
+
+994
+00:51:14,940 --> 00:51:19,740
+language is but before we do that let me
+
+995
+00:51:17,160 --> 00:51:22,619
+just show you this way it works okay so
+
+996
+00:51:19,740 --> 00:51:23,760
+run it there it is that's what we want a
+
+997
+00:51:22,619 --> 00:51:26,460
+better way
+
+998
+00:51:23,760 --> 00:51:27,660
+we can do it is like this okay let me
+
+999
+00:51:26,460 --> 00:51:31,740
+show you
+
+1000
+00:51:27,660 --> 00:51:35,599
+so split by yeah so just split
+
+1001
+00:51:31,740 --> 00:51:35,599
+that and then
+
+1002
+00:51:37,440 --> 00:51:40,400
+partition
+
+1003
+00:51:42,859 --> 00:51:49,859
+this thing into two parts Okay so
+
+1004
+00:51:54,119 --> 00:51:59,460
+okay so these two lines
+
+1005
+00:51:57,300 --> 00:52:02,300
+is equivalent to this one single line
+
+1006
+00:51:59,460 --> 00:52:02,300
+let's try it
+
+1007
+00:52:03,780 --> 00:52:09,540
+yeah yeah so let's for example let's try
+
+1008
+00:52:07,260 --> 00:52:14,220
+it copy all
+
+1009
+00:52:09,540 --> 00:52:17,119
+Lego paste run see fantastic we reduce
+
+1010
+00:52:14,220 --> 00:52:17,119
+them into one
+
+1011
+00:52:19,319 --> 00:52:23,819
+and is it more efficient yes more
+
+1012
+00:52:22,140 --> 00:52:28,020
+efficient than these two
+
+1013
+00:52:23,819 --> 00:52:31,079
+okay now we got a pairs now for each one
+
+1014
+00:52:28,020 --> 00:52:33,119
+of the item we need to turn it into a
+
+1015
+00:52:31,079 --> 00:52:36,260
+number right now they are still streams
+
+1016
+00:52:33,119 --> 00:52:36,260
+Okay so
+
+1017
+00:52:38,700 --> 00:52:45,559
+X5 equals to 2
+
+1018
+00:52:41,880 --> 00:52:45,559
+expression okay
+
+1019
+00:52:45,720 --> 00:52:52,020
+copy all select paste then
+
+1020
+00:52:49,500 --> 00:52:56,839
+okay now they are actually numbers for
+
+1021
+00:52:52,020 --> 00:52:56,839
+example because you can see output 17
+
+1022
+00:52:57,000 --> 00:53:01,579
+the first part
+
+1023
+00:52:58,859 --> 00:53:01,579
+first part
+
+1024
+00:53:02,280 --> 00:53:07,460
+equals to
+
+1025
+00:53:04,160 --> 00:53:07,460
+equals to
+
+1026
+00:53:08,400 --> 00:53:15,240
+you can say
+
+1027
+00:53:11,220 --> 00:53:19,020
+number Q okay I'll return true
+
+1028
+00:53:15,240 --> 00:53:22,319
+that means percent 17 means the output
+
+1029
+00:53:19,020 --> 00:53:24,720
+17 okay that's a shortcut or you can
+
+1030
+00:53:22,319 --> 00:53:29,280
+write that way okay
+
+1031
+00:53:24,720 --> 00:53:34,220
+so output 17 which is this thing and
+
+1032
+00:53:29,280 --> 00:53:34,220
+this double square bracket means
+
+1033
+00:53:34,260 --> 00:53:39,540
+the function part okay so that means the
+
+1034
+00:53:37,680 --> 00:53:43,740
+first part
+
+1035
+00:53:39,540 --> 00:53:46,980
+open language is one based index so the
+
+1036
+00:53:43,740 --> 00:53:49,800
+first element is that one then first
+
+1037
+00:53:46,980 --> 00:53:52,440
+element so that would be that one
+
+1038
+00:53:49,800 --> 00:53:55,319
+and is it number number Q means is a
+
+1039
+00:53:52,440 --> 00:54:00,059
+number and this is a post-fixed notation
+
+1040
+00:53:55,319 --> 00:54:05,339
+so if you have X slash slash F
+
+1041
+00:54:00,059 --> 00:54:08,460
+that is equivalent to F bracket X you
+
+1042
+00:54:05,339 --> 00:54:10,559
+know very you know it's exactly the same
+
+1043
+00:54:08,460 --> 00:54:14,760
+as the Unix pipe
+
+1044
+00:54:10,559 --> 00:54:19,020
+okay slash slash okay so we got that
+
+1045
+00:54:14,760 --> 00:54:22,260
+uh that's the explanation so now next so
+
+1046
+00:54:19,020 --> 00:54:24,780
+we got into a numbers now
+
+1047
+00:54:22,260 --> 00:54:27,960
+you need to compute a score
+
+1048
+00:54:24,780 --> 00:54:31,200
+so for each pair
+
+1049
+00:54:27,960 --> 00:54:34,920
+so you want to do a map okay
+
+1050
+00:54:31,200 --> 00:54:37,680
+for each pair map takes two arguments
+
+1051
+00:54:34,920 --> 00:54:41,220
+okay the first argument is a function
+
+1052
+00:54:37,680 --> 00:54:44,880
+okay so we're gonna write a function
+
+1053
+00:54:41,220 --> 00:54:48,780
+the second argument is the is a list
+
+1054
+00:54:44,880 --> 00:54:51,720
+okay so we want to process this this
+
+1055
+00:54:48,780 --> 00:54:55,020
+basically summoning sum them up
+
+1056
+00:54:51,720 --> 00:54:58,740
+so we map we want to turn each of the
+
+1057
+00:54:55,020 --> 00:55:03,300
+pair into a single number okay
+
+1058
+00:54:58,740 --> 00:55:05,420
+so this function will take
+
+1059
+00:55:03,300 --> 00:55:05,420
+um
+
+1060
+00:55:06,660 --> 00:55:14,960
+your take
+
+1061
+00:55:09,260 --> 00:55:20,220
+here take a variable X let's say
+
+1062
+00:55:14,960 --> 00:55:20,220
+and what does it do so okay
+
+1063
+00:55:22,319 --> 00:55:26,000
+first of all add them up
+
+1064
+00:55:27,180 --> 00:55:32,640
+okay so the function
+
+1065
+00:55:29,819 --> 00:55:35,760
+yeah the function takes that
+
+1066
+00:55:32,640 --> 00:55:36,660
+takes one argument this argument is a
+
+1067
+00:55:35,760 --> 00:55:38,520
+pair
+
+1068
+00:55:36,660 --> 00:55:41,940
+and
+
+1069
+00:55:38,520 --> 00:55:43,559
+a Google user why the end right why the
+
+1070
+00:55:41,940 --> 00:55:45,660
+Red theme
+
+1071
+00:55:43,559 --> 00:55:50,460
+well not because it's Christmas because
+
+1072
+00:55:45,660 --> 00:55:52,980
+Red theme it gives me this red border so
+
+1073
+00:55:50,460 --> 00:55:55,859
+that when you have lots of windows in
+
+1074
+00:55:52,980 --> 00:55:59,460
+the in the Microsoft Windows idioc or
+
+1075
+00:55:55,859 --> 00:56:01,440
+flat design it's easier to see the edges
+
+1076
+00:55:59,460 --> 00:56:02,579
+you know which actually is a window is
+
+1077
+00:56:01,440 --> 00:56:06,540
+that's why
+
+1078
+00:56:02,579 --> 00:56:08,760
+and no significant reason anyway I just
+
+1079
+00:56:06,540 --> 00:56:11,160
+changed my thing
+
+1080
+00:56:08,760 --> 00:56:13,260
+so
+
+1081
+00:56:11,160 --> 00:56:16,460
+you know you guys ask questions you know
+
+1082
+00:56:13,260 --> 00:56:16,460
+focus on the topic
+
+1083
+00:56:16,940 --> 00:56:21,420
+you guys just here for the drama you
+
+1084
+00:56:19,859 --> 00:56:24,780
+want to come here to see because our
+
+1085
+00:56:21,420 --> 00:56:27,180
+talk show oh rent and whatever right
+
+1086
+00:56:24,780 --> 00:56:30,980
+learn something learn to you know learn
+
+1087
+00:56:27,180 --> 00:56:30,980
+learn coding and stuff
+
+1088
+00:56:33,000 --> 00:56:41,780
+uh so so okay I need to finish this
+
+1089
+00:56:37,740 --> 00:56:41,780
+so let's let me just code it
+
+1090
+00:56:41,940 --> 00:56:46,500
+don't worry about it okay I'm just
+
+1091
+00:56:44,099 --> 00:56:47,880
+commenting you know for fun so don't
+
+1092
+00:56:46,500 --> 00:56:50,280
+worry about it
+
+1093
+00:56:47,880 --> 00:56:53,099
+you know I I have no idea who guys you
+
+1094
+00:56:50,280 --> 00:56:56,640
+guys are you know uh so don't worry
+
+1095
+00:56:53,099 --> 00:56:59,099
+about it this is this is sad talk show
+
+1096
+00:56:56,640 --> 00:57:00,839
+okay so we need to finish this so
+
+1097
+00:56:59,099 --> 00:57:05,760
+function um
+
+1098
+00:57:00,839 --> 00:57:08,960
+function takes this input it's so
+
+1099
+00:57:05,760 --> 00:57:13,200
+let me let me see what we can do
+
+1100
+00:57:08,960 --> 00:57:15,359
+function takes that input so you want to
+
+1101
+00:57:13,200 --> 00:57:18,359
+say A and B okay
+
+1102
+00:57:15,359 --> 00:57:18,359
+uh
+
+1103
+00:57:18,480 --> 00:57:24,859
+so let's not worry about let's let's
+
+1104
+00:57:21,420 --> 00:57:24,859
+write a separate um
+
+1105
+00:57:27,300 --> 00:57:32,819
+let's say compute line score
+
+1106
+00:57:30,599 --> 00:57:34,880
+uh let's compute
+
+1107
+00:57:32,819 --> 00:57:34,880
+um
+
+1108
+00:57:35,099 --> 00:57:42,500
+you know so what what's the What's the
+
+1109
+00:57:38,220 --> 00:57:42,500
+phrase they use to describe this
+
+1110
+00:57:45,859 --> 00:57:51,359
+each round
+
+1111
+00:57:48,960 --> 00:57:55,140
+your total score is some of your scores
+
+1112
+00:57:51,359 --> 00:57:57,619
+in school for a single round okay so you
+
+1113
+00:57:55,140 --> 00:57:57,619
+can say
+
+1114
+00:57:59,160 --> 00:58:04,920
+let's just say line instead of round
+
+1115
+00:58:01,500 --> 00:58:07,680
+okay so here's a function
+
+1116
+00:58:04,920 --> 00:58:10,700
+you you want to write a function okay
+
+1117
+00:58:07,680 --> 00:58:12,960
+compute this computer single line okay
+
+1118
+00:58:10,700 --> 00:58:16,380
+uh actually
+
+1119
+00:58:12,960 --> 00:58:19,099
+let's write it in a different way okay
+
+1120
+00:58:16,380 --> 00:58:19,099
+so
+
+1121
+00:58:20,880 --> 00:58:25,339
+F okay F takes
+
+1122
+00:58:29,160 --> 00:58:40,619
+yeah actually idiotic okay X Y so it
+
+1123
+00:58:35,040 --> 00:58:45,020
+takes a kind of a vector okay and uh
+
+1124
+00:58:40,619 --> 00:58:45,020
+and what do you want to do so
+
+1125
+00:58:46,500 --> 00:58:52,980
+God I need to go to the bathroom so you
+
+1126
+00:58:49,920 --> 00:58:56,760
+you give it a module so module is kind
+
+1127
+00:58:52,980 --> 00:58:59,640
+of like lips let okay module is for
+
+1128
+00:58:56,760 --> 00:59:03,599
+local variables Okay so
+
+1129
+00:58:59,640 --> 00:59:06,599
+and here's a body okay so module let's
+
+1130
+00:59:03,599 --> 00:59:12,480
+see empty no variables so the body will
+
+1131
+00:59:06,599 --> 00:59:16,880
+be X Plus y that's that's the Caesar
+
+1132
+00:59:12,480 --> 00:59:16,880
+Rock score you know this is a rock paper
+
+1133
+00:59:17,160 --> 00:59:21,960
+you know that's that's those A's one two
+
+1134
+00:59:20,160 --> 00:59:23,819
+you know so first of all you add them
+
+1135
+00:59:21,960 --> 00:59:25,319
+together
+
+1136
+00:59:23,819 --> 00:59:27,540
+then
+
+1137
+00:59:25,319 --> 00:59:30,599
+then you add
+
+1138
+00:59:27,540 --> 00:59:34,700
+okay the last part is a bit complex
+
+1139
+00:59:30,599 --> 00:59:34,700
+modular rhythmics okay
+
+1140
+00:59:37,380 --> 00:59:41,280
+mod
+
+1141
+00:59:38,819 --> 00:59:43,380
+okay mod
+
+1142
+00:59:41,280 --> 00:59:44,940
+two okay
+
+1143
+00:59:43,380 --> 00:59:47,660
+so
+
+1144
+00:59:44,940 --> 00:59:47,660
+if
+
+1145
+00:59:51,680 --> 00:59:55,400
+if mod
+
+1146
+00:59:59,280 --> 01:00:02,299
+X smart
+
+1147
+01:00:06,000 --> 01:00:13,559
+so hold on a second
+
+1148
+01:00:08,220 --> 01:00:15,299
+minus so if y mod minus
+
+1149
+01:00:13,559 --> 01:00:17,540
+X Mod
+
+1150
+01:00:15,299 --> 01:00:20,760
+is
+
+1151
+01:00:17,540 --> 01:00:23,760
+equals to
+
+1152
+01:00:20,760 --> 01:00:23,760
+zero
+
+1153
+01:00:24,720 --> 01:00:27,559
+then
+
+1154
+01:00:28,079 --> 01:00:32,339
+no no difference they are the same okay
+
+1155
+01:00:30,780 --> 01:00:36,059
+so
+
+1156
+01:00:32,339 --> 01:00:39,119
+so that means zero so it's a draw so
+
+1157
+01:00:36,059 --> 01:00:43,140
+when wait when it's a draw you have a
+
+1158
+01:00:39,119 --> 01:00:47,280
+point of three so instead of if you need
+
+1159
+01:00:43,140 --> 01:00:51,119
+a condition okay so first of all
+
+1160
+01:00:47,280 --> 01:00:52,740
+so this is getting uh
+
+1161
+01:00:51,119 --> 01:00:55,799
+Queen
+
+1162
+01:00:52,740 --> 01:00:57,480
+so score
+
+1163
+01:00:55,799 --> 01:01:02,640
+wait
+
+1164
+01:00:57,480 --> 01:01:05,040
+ing Do's or Draw status okay
+
+1165
+01:01:02,640 --> 01:01:08,040
+let's say so we Define a variable
+
+1166
+01:01:05,040 --> 01:01:08,040
+outcome
+
+1167
+01:01:09,420 --> 01:01:15,380
+okay so outcome is a variable
+
+1168
+01:01:12,540 --> 01:01:15,380
+wait
+
+1169
+01:01:18,420 --> 01:01:22,579
+t2e G3 company
+
+1170
+01:01:25,319 --> 01:01:31,559
+right oh yeah we did [ __ ] it okay so
+
+1171
+01:01:29,099 --> 01:01:34,500
+I'll come is a variable yeah
+
+1172
+01:01:31,559 --> 01:01:37,619
+so first of all we need to
+
+1173
+01:01:34,500 --> 01:01:40,400
+so here's a body so we need to Define
+
+1174
+01:01:37,619 --> 01:01:40,400
+outcome
+
+1175
+01:01:41,280 --> 01:01:47,940
+so so we we need to Define several local
+
+1176
+01:01:45,119 --> 01:01:52,880
+variables okay
+
+1177
+01:01:47,940 --> 01:01:52,880
+mod x mod Y okay
+
+1178
+01:01:54,960 --> 01:01:59,359
+mod x equals to
+
+1179
+01:02:02,040 --> 01:02:06,260
+that
+
+1180
+01:02:03,780 --> 01:02:10,799
+okay
+
+1181
+01:02:06,260 --> 01:02:14,579
+and the mod Y equals to okay mod x
+
+1182
+01:02:10,799 --> 01:02:18,619
+equals to that mod Y equals to that and
+
+1183
+01:02:14,579 --> 01:02:18,619
+so let's remove that
+
+1184
+01:02:27,299 --> 01:02:33,119
+okay
+
+1185
+01:02:29,460 --> 01:02:35,220
+so mod mod x
+
+1186
+01:02:33,119 --> 01:02:37,680
+mod x
+
+1187
+01:02:35,220 --> 01:02:38,780
+let's make sure it's right so one two
+
+1188
+01:02:37,680 --> 01:02:41,819
+three
+
+1189
+01:02:38,780 --> 01:02:47,839
+mod two
+
+1190
+01:02:41,819 --> 01:02:47,839
+mod 2 means the possible outcome is
+
+1191
+01:02:49,020 --> 01:02:54,680
+so oh wait so we better use now we
+
+1192
+01:02:52,020 --> 01:02:54,680
+cannot use
+
+1193
+01:02:58,559 --> 01:03:06,299
+we have to say mod three
+
+1194
+01:03:02,160 --> 01:03:08,599
+mod 3. okay so actually so the whole
+
+1195
+01:03:06,299 --> 01:03:08,599
+thing
+
+1196
+01:03:08,760 --> 01:03:13,380
+yeah so it's it's actually better if we
+
+1197
+01:03:11,280 --> 01:03:15,780
+use zero based index
+
+1198
+01:03:13,380 --> 01:03:19,619
+yeah so we have to change the whole we
+
+1199
+01:03:15,780 --> 01:03:21,960
+need to use zero based indexes okay
+
+1200
+01:03:19,619 --> 01:03:24,119
+which is better because it works with
+
+1201
+01:03:21,960 --> 01:03:26,480
+Mod
+
+1202
+01:03:24,119 --> 01:03:26,480
+okay
+
+1203
+01:03:27,900 --> 01:03:35,480
+so now you have zero based index you can
+
+1204
+01:03:31,500 --> 01:03:35,480
+say mod three
+
+1205
+01:03:37,619 --> 01:03:42,540
+wait Mark two or three uh
+
+1206
+01:03:53,339 --> 01:03:58,740
+wait you don't even need to mod
+
+1207
+01:03:57,119 --> 01:04:00,839
+is that right
+
+1208
+01:03:58,740 --> 01:04:02,400
+yeah you don't even need modular
+
+1209
+01:04:00,839 --> 01:04:06,240
+arithmetics
+
+1210
+01:04:02,400 --> 01:04:09,440
+because to compare win or lose
+
+1211
+01:04:06,240 --> 01:04:09,440
+he's just
+
+1212
+01:04:10,740 --> 01:04:14,760
+because there are only two conditions
+
+1213
+01:04:13,020 --> 01:04:17,579
+two or three one two three you know
+
+1214
+01:04:14,760 --> 01:04:21,119
+three possible conditions it's not like
+
+1215
+01:04:17,579 --> 01:04:24,839
+there's ten so when there's only three
+
+1216
+01:04:21,119 --> 01:04:26,400
+possible conditions you can just use a
+
+1217
+01:04:24,839 --> 01:04:27,660
+uh
+
+1218
+01:04:26,400 --> 01:04:29,700
+you know
+
+1219
+01:04:27,660 --> 01:04:32,160
+two or three if statements or
+
+1220
+01:04:29,700 --> 01:04:36,020
+conditional statements
+
+1221
+01:04:32,160 --> 01:04:36,020
+oh God epic run time
+
+1222
+01:04:36,480 --> 01:04:41,700
+okay so
+
+1223
+01:04:38,339 --> 01:04:44,760
+um God this is taking too long we need
+
+1224
+01:04:41,700 --> 01:04:47,660
+to finish it okay so okay
+
+1225
+01:04:44,760 --> 01:04:47,660
+finish it
+
+1226
+01:04:49,680 --> 01:04:55,640
+let's see should we use zero based or
+
+1227
+01:04:52,920 --> 01:04:55,640
+one based
+
+1228
+01:04:56,520 --> 01:05:03,780
+yeah I want to use one based okay
+
+1229
+01:04:59,819 --> 01:05:05,099
+so I don't you know zero base these
+
+1230
+01:05:03,780 --> 01:05:09,920
+cryptic
+
+1231
+01:05:05,099 --> 01:05:09,920
+so when based so the outcome
+
+1232
+01:05:12,180 --> 01:05:17,000
+one two three one two three so wrong
+
+1233
+01:05:14,819 --> 01:05:20,599
+season let's see
+
+1234
+01:05:17,000 --> 01:05:20,599
+one two three
+
+1235
+01:05:23,240 --> 01:05:26,660
+so if
+
+1236
+01:05:29,760 --> 01:05:38,940
+so we don't we don't
+
+1237
+01:05:33,059 --> 01:05:43,440
+we don't even need that so if y minus X
+
+1238
+01:05:38,940 --> 01:05:43,440
+equals to one
+
+1239
+01:05:46,740 --> 01:05:53,700
+uh so there's a decision problem should
+
+1240
+01:05:50,220 --> 01:05:57,180
+you use modular arithmics or not
+
+1241
+01:05:53,700 --> 01:05:59,880
+so you rule thank you so much shade I
+
+1242
+01:05:57,180 --> 01:06:00,660
+need to go to the bathroom
+
+1243
+01:05:59,880 --> 01:06:04,260
+um
+
+1244
+01:06:00,660 --> 01:06:06,299
+so X Y if x is
+
+1245
+01:06:04,260 --> 01:06:10,680
+one more then
+
+1246
+01:06:06,299 --> 01:06:15,540
+if Y is one more than x then you win
+
+1247
+01:06:10,680 --> 01:06:18,000
+so your score is six okay let's let's
+
+1248
+01:06:15,540 --> 01:06:20,460
+see let's
+
+1249
+01:06:18,000 --> 01:06:24,799
+you know compare let's see let's let's
+
+1250
+01:06:20,460 --> 01:06:24,799
+try the possible possible so
+
+1251
+01:06:25,319 --> 01:06:28,859
+one
+
+1252
+01:06:26,940 --> 01:06:31,079
+one
+
+1253
+01:06:28,859 --> 01:06:33,599
+two
+
+1254
+01:06:31,079 --> 01:06:37,200
+and three that's one possible
+
+1255
+01:06:33,599 --> 01:06:40,799
+input of a line so the second possible
+
+1256
+01:06:37,200 --> 01:06:43,859
+input of the line is
+
+1257
+01:06:40,799 --> 01:06:48,619
+okay and the third possible so this is
+
+1258
+01:06:43,859 --> 01:06:48,619
+all possible input of the line
+
+1259
+01:06:48,780 --> 01:06:55,920
+one one one one versus one one two one
+
+1260
+01:06:51,660 --> 01:06:57,299
+three uh so let's write
+
+1261
+01:06:55,920 --> 01:07:00,079
+sure
+
+1262
+01:06:57,299 --> 01:07:00,079
+wing
+
+1263
+01:07:00,359 --> 01:07:03,680
+loose okay
+
+1264
+01:07:19,440 --> 01:07:24,100
+Okay so
+
+1265
+01:07:20,740 --> 01:07:24,100
+[Music]
+
+1266
+01:07:32,880 --> 01:07:41,240
+and on this column let's put the modular
+
+1267
+01:07:37,619 --> 01:07:44,520
+let's put the difference
+
+1268
+01:07:41,240 --> 01:07:45,720
+of the second number minus the first
+
+1269
+01:07:44,520 --> 01:07:48,980
+number
+
+1270
+01:07:45,720 --> 01:07:50,760
+I don't think we need modular rhythmics
+
+1271
+01:07:48,980 --> 01:07:53,520
+arithmetics
+
+1272
+01:07:50,760 --> 01:07:56,220
+so the difference is one here the
+
+1273
+01:07:53,520 --> 01:07:58,559
+difference is one
+
+1274
+01:07:56,220 --> 01:08:03,420
+here the difference is
+
+1275
+01:07:58,559 --> 01:08:06,900
+2 okay lose here the difference is 1
+
+1276
+01:08:03,420 --> 01:08:09,599
+minus 2 is -1 okay
+
+1277
+01:08:06,900 --> 01:08:12,180
+here the difference is zero
+
+1278
+01:08:09,599 --> 01:08:16,020
+so when the difference is zero it's
+
+1279
+01:08:12,180 --> 01:08:18,600
+always true okay so Wing is one so the
+
+1280
+01:08:16,020 --> 01:08:21,500
+difference is one is always win okay now
+
+1281
+01:08:18,600 --> 01:08:24,600
+it becomes clear you see when we when we
+
+1282
+01:08:21,500 --> 01:08:27,839
+enumerate them out we get
+
+1283
+01:08:24,600 --> 01:08:29,339
+we obtain the uh Clarity in the whole
+
+1284
+01:08:27,839 --> 01:08:31,259
+logic
+
+1285
+01:08:29,339 --> 01:08:34,920
+and then we can decide whether we're
+
+1286
+01:08:31,259 --> 01:08:38,100
+gonna use modular arithmetic or not
+
+1287
+01:08:34,920 --> 01:08:39,600
+so here the difference is negative two
+
+1288
+01:08:38,100 --> 01:08:42,140
+wait
+
+1289
+01:08:39,600 --> 01:08:42,140
+uh
+
+1290
+01:08:44,699 --> 01:08:48,420
+oh wait so
+
+1291
+01:08:46,980 --> 01:08:50,880
+one
+
+1292
+01:08:48,420 --> 01:08:54,900
+is Rock
+
+1293
+01:08:50,880 --> 01:08:58,440
+three is Caesar so here is you win
+
+1294
+01:08:54,900 --> 01:09:00,779
+but one minus three is negative two oh
+
+1295
+01:08:58,440 --> 01:09:04,219
+so we got actually
+
+1296
+01:09:00,779 --> 01:09:04,219
+Okay so
+
+1297
+01:09:05,819 --> 01:09:11,699
+okay so wait so Wing here is One Wing
+
+1298
+01:09:10,020 --> 01:09:14,880
+here is one
+
+1299
+01:09:11,699 --> 01:09:17,480
+uh maybe you do need modular arithmetics
+
+1300
+01:09:14,880 --> 01:09:21,020
+[ __ ]
+
+1301
+01:09:17,480 --> 01:09:21,020
+loose means
+
+1302
+01:09:22,020 --> 01:09:32,279
+lose means so 2 minus 3 is negative one
+
+1303
+01:09:28,500 --> 01:09:36,920
+draw is zero so draw is always zero but
+
+1304
+01:09:32,279 --> 01:09:36,920
+let's see the pattern for wing and lose
+
+1305
+01:09:37,140 --> 01:09:41,660
+so here is a win here is win
+
+1306
+01:09:44,819 --> 01:09:49,440
+so can we
+
+1307
+01:09:46,560 --> 01:09:51,480
+so here's a pattern so you can we find a
+
+1308
+01:09:49,440 --> 01:09:52,859
+way
+
+1309
+01:09:51,480 --> 01:09:57,300
+either
+
+1310
+01:09:52,859 --> 01:09:59,460
+differences between these two numbers or
+
+1311
+01:09:57,300 --> 01:10:04,320
+differences between
+
+1312
+01:09:59,460 --> 01:10:08,640
+you know both numbers smart three
+
+1313
+01:10:04,320 --> 01:10:11,640
+and come out the number that
+
+1314
+01:10:08,640 --> 01:10:13,920
+that clearly indicates it's always a
+
+1315
+01:10:11,640 --> 01:10:17,420
+draw or win or lose in this case you
+
+1316
+01:10:13,920 --> 01:10:17,420
+know in in our current way
+
+1317
+01:10:17,760 --> 01:10:23,880
+you have one is a win but negative two
+
+1318
+01:10:21,239 --> 01:10:27,659
+is also a win
+
+1319
+01:10:23,880 --> 01:10:30,600
+so to be to make this work we can just
+
+1320
+01:10:27,659 --> 01:10:33,300
+be inelegant and just use all statement
+
+1321
+01:10:30,600 --> 01:10:36,300
+so if the difference is 1 or negative
+
+1322
+01:10:33,300 --> 01:10:40,159
+two it's both win
+
+1323
+01:10:36,300 --> 01:10:43,320
+um yeah we can do that so lose you see
+
+1324
+01:10:40,159 --> 01:10:45,659
+those is also a bit you know you know
+
+1325
+01:10:43,320 --> 01:10:48,739
+there's two different uh
+
+1326
+01:10:45,659 --> 01:10:48,739
+numbers for lose
+
+1327
+01:10:49,560 --> 01:10:55,260
+okay that's not elegant I don't want I
+
+1328
+01:10:52,679 --> 01:10:58,739
+don't want I don't want in elegant
+
+1329
+01:10:55,260 --> 01:11:02,420
+solution I want so we we do want to use
+
+1330
+01:10:58,739 --> 01:11:02,420
+modular arithmetics
+
+1331
+01:11:04,260 --> 01:11:06,920
+foreign
+
+1332
+01:11:08,820 --> 01:11:15,320
+is the result of Y minus X okay
+
+1333
+01:11:18,540 --> 01:11:23,420
+okay now let's try a different scenario
+
+1334
+01:11:25,100 --> 01:11:31,040
+let's try a different scenario here
+
+1335
+01:11:28,679 --> 01:11:31,040
+okay
+
+1336
+01:11:32,760 --> 01:11:38,580
+uh
+
+1337
+01:11:34,620 --> 01:11:41,699
+so this is already for uh
+
+1338
+01:11:38,580 --> 01:11:43,199
+70 90 minutes we still haven't solved
+
+1339
+01:11:41,699 --> 01:11:47,400
+this problem yet
+
+1340
+01:11:43,199 --> 01:11:49,440
+third column is a result of so here
+
+1341
+01:11:47,400 --> 01:11:51,420
+let's do
+
+1342
+01:11:49,440 --> 01:11:54,659
+so actually the best
+
+1343
+01:11:51,420 --> 01:11:56,340
+the fastest solution is if you think
+
+1344
+01:11:54,659 --> 01:11:59,239
+about it
+
+1345
+01:11:56,340 --> 01:11:59,239
+so
+
+1346
+01:12:04,560 --> 01:12:10,980
+yeah so if you use modular arithmetics
+
+1347
+01:12:07,760 --> 01:12:14,760
+then you can simply
+
+1348
+01:12:10,980 --> 01:12:15,840
+take the second number minus the first
+
+1349
+01:12:14,760 --> 01:12:17,940
+number
+
+1350
+01:12:15,840 --> 01:12:21,360
+and
+
+1351
+01:12:17,940 --> 01:12:22,739
+if it's zero it's true if it's one it's
+
+1352
+01:12:21,360 --> 01:12:25,080
+win
+
+1353
+01:12:22,739 --> 01:12:27,300
+otherwise
+
+1354
+01:12:25,080 --> 01:12:30,260
+it's
+
+1355
+01:12:27,300 --> 01:12:30,260
+lose okay
+
+1356
+01:12:31,980 --> 01:12:37,040
+so so first of all let's see what uh
+
+1357
+01:12:42,000 --> 01:12:49,440
+well but if you use mod then you
+
+1358
+01:12:45,000 --> 01:12:51,480
+actually need to be zero based
+
+1359
+01:12:49,440 --> 01:12:56,540
+yeah so this is one of the those
+
+1360
+01:12:51,480 --> 01:12:56,540
+problems off by one very annoying
+
+1361
+01:12:58,860 --> 01:13:04,280
+what oh what
+
+1362
+01:13:02,280 --> 01:13:04,280
+what
+
+1363
+01:13:12,900 --> 01:13:19,520
+oh yeah mod right right the the mod
+
+1364
+01:13:15,840 --> 01:13:19,520
+cannot be zero that's right
+
+1365
+01:13:20,400 --> 01:13:24,800
+so let's do a table yeah
+
+1366
+01:13:27,420 --> 01:13:30,260
+[ __ ] around
+
+1367
+01:14:00,540 --> 01:14:03,540
+foreign
+
+1368
+01:14:20,840 --> 01:14:26,340
+so many ways to
+
+1369
+01:14:23,760 --> 01:14:30,360
+to go
+
+1370
+01:14:26,340 --> 01:14:33,360
+but taking too long
+
+1371
+01:14:30,360 --> 01:14:33,360
+so
+
+1372
+01:14:37,560 --> 01:14:42,360
+so yeah I was trying to avoid thinking
+
+1373
+01:14:40,560 --> 01:14:45,260
+about this but actually you need to
+
+1374
+01:14:42,360 --> 01:14:45,260
+think about this
+
+1375
+01:14:59,880 --> 01:15:03,980
+zero one two three
+
+1376
+01:15:10,159 --> 01:15:14,659
+ah zero one two three
+
+1377
+01:15:20,020 --> 01:15:23,229
+[Music]
+
+1378
+01:15:43,739 --> 01:15:48,719
+Okay so
+
+1379
+01:15:45,960 --> 01:15:50,040
+I don't think we have to change base
+
+1380
+01:15:48,719 --> 01:15:52,880
+okay
+
+1381
+01:15:50,040 --> 01:15:52,880
+so
+
+1382
+01:15:53,100 --> 01:15:57,560
+so let's go to the
+
+1383
+01:15:59,159 --> 01:16:02,840
+let's go to the talk show
+
+1384
+01:16:03,000 --> 01:16:08,179
+okay so let's let's write them here
+
+1385
+01:16:18,360 --> 01:16:22,280
+okay so something like that
+
+1386
+01:16:25,920 --> 01:16:28,920
+and
+
+1387
+01:16:31,380 --> 01:16:36,440
+um
+
+1388
+01:16:32,460 --> 01:16:36,440
+yeah so we so
+
+1389
+01:17:05,600 --> 01:17:14,179
+we can actually do all possible outcomes
+
+1390
+01:17:11,280 --> 01:17:14,179
+so
+
+1391
+01:17:46,620 --> 01:17:51,500
+okay let's just see what we get
+
+1392
+01:17:51,659 --> 01:17:53,880
+this is
+
+1393
+01:17:53,159 --> 01:17:56,699
+um
+
+1394
+01:17:53,880 --> 01:17:58,500
+trying to be lazy instead of thinking
+
+1395
+01:17:56,699 --> 01:18:01,140
+hard we just
+
+1396
+01:17:58,500 --> 01:18:04,280
+doing the code and see what are the
+
+1397
+01:18:01,140 --> 01:18:04,280
+whole possible outcomes
+
+1398
+01:18:07,320 --> 01:18:12,620
+okay yeah so what we can do is uh
+
+1399
+01:18:16,920 --> 01:18:24,020
+so do you see what I'm doing
+
+1400
+01:18:20,640 --> 01:18:24,020
+I hope you do
+
+1401
+01:18:39,239 --> 01:18:41,239
+um
+
+1402
+01:18:42,300 --> 01:18:44,960
+okay
+
+1403
+01:19:28,020 --> 01:19:34,199
+okay so now it's easier to see so if the
+
+1404
+01:19:31,980 --> 01:19:37,739
+input is 1 1
+
+1405
+01:19:34,199 --> 01:19:41,520
+the amount is also one one and it's a
+
+1406
+01:19:37,739 --> 01:19:45,500
+draw so if the input is one two
+
+1407
+01:19:41,520 --> 01:19:45,500
+their mod is also one two
+
+1408
+01:19:47,219 --> 01:19:51,739
+so now we we need to see
+
+1409
+01:19:54,420 --> 01:19:59,340
+so wait so I actually just focus on this
+
+1410
+01:19:58,440 --> 01:20:02,400
+one
+
+1411
+01:19:59,340 --> 01:20:04,920
+one is a draw
+
+1412
+01:20:02,400 --> 01:20:08,719
+one two is a wing
+
+1413
+01:20:04,920 --> 01:20:08,719
+so Wing is negative one
+
+1414
+01:20:08,820 --> 01:20:15,540
+one three is a lose lose is one
+
+1415
+01:20:13,500 --> 01:20:18,239
+okay
+
+1416
+01:20:15,540 --> 01:20:22,080
+now so we have three states
+
+1417
+01:20:18,239 --> 01:20:23,460
+win draw lose we want three distinct
+
+1418
+01:20:22,080 --> 01:20:27,480
+numbers
+
+1419
+01:20:23,460 --> 01:20:30,179
+to represent them so here is apparently
+
+1420
+01:20:27,480 --> 01:20:33,420
+not correct because the you can see
+
+1421
+01:20:30,179 --> 01:20:36,239
+sometimes you got one sometimes you got
+
+1422
+01:20:33,420 --> 01:20:39,239
+negative ones sometimes you got two
+
+1423
+01:20:36,239 --> 01:20:41,340
+so that means your modular arithmetics
+
+1424
+01:20:39,239 --> 01:20:45,659
+is incorrect
+
+1425
+01:20:41,340 --> 01:20:48,540
+so you either need to reduce your ABC
+
+1426
+01:20:45,659 --> 01:20:51,000
+instead of one two three you want zero
+
+1427
+01:20:48,540 --> 01:20:53,580
+one two
+
+1428
+01:20:51,000 --> 01:20:57,000
+or
+
+1429
+01:20:53,580 --> 01:21:01,580
+yeah so you need to yeah so
+
+1430
+01:20:57,000 --> 01:21:01,580
+God this this Sealy problem
+
+1431
+01:21:03,179 --> 01:21:09,900
+so you want to change your index to 0 1
+
+1432
+01:21:07,080 --> 01:21:12,780
+2 based okay yeah let's do that let's
+
+1433
+01:21:09,900 --> 01:21:17,340
+seems more logical now it's clear
+
+1434
+01:21:12,780 --> 01:21:20,159
+uh your index needs to be zero one two
+
+1435
+01:21:17,340 --> 01:21:24,540
+okay zero one
+
+1436
+01:21:20,159 --> 01:21:28,920
+two okay that's the index to represent a
+
+1437
+01:21:24,540 --> 01:21:34,020
+b c x y z or rock paper scissor
+
+1438
+01:21:28,920 --> 01:21:37,620
+okay rock paper scissor okay then here
+
+1439
+01:21:34,020 --> 01:21:39,000
+the sum you just need to add extra two
+
+1440
+01:21:37,620 --> 01:21:41,100
+because
+
+1441
+01:21:39,000 --> 01:21:42,900
+you know
+
+1442
+01:21:41,100 --> 01:21:47,280
+okay
+
+1443
+01:21:42,900 --> 01:21:49,800
+so and now back to the mod so now we
+
+1444
+01:21:47,280 --> 01:21:52,620
+started you know it's pretty messy so
+
+1445
+01:21:49,800 --> 01:21:57,600
+it's pretty messy so now we know
+
+1446
+01:21:52,620 --> 01:22:01,620
+so we can try this so so instead of uh
+
+1447
+01:21:57,600 --> 01:22:05,580
+one two three so we have 0 to 2 okay X
+
+1448
+01:22:01,620 --> 01:22:09,960
+and Y possible values for X 0 to 2
+
+1449
+01:22:05,580 --> 01:22:12,719
+possible values so for y 0 to 2 and here
+
+1450
+01:22:09,960 --> 01:22:15,020
+the mod is just O2 okay so let's work
+
+1451
+01:22:12,719 --> 01:22:15,020
+here
+
+1452
+01:22:18,960 --> 01:22:26,280
+okay and replace three by two
+
+1453
+01:22:22,739 --> 01:22:29,340
+okay so here's our code and go down here
+
+1454
+01:22:26,280 --> 01:22:32,340
+run it with
+
+1455
+01:22:29,340 --> 01:22:36,960
+table form okay
+
+1456
+01:22:32,340 --> 01:22:39,250
+yeah okay let's do it again you need
+
+1457
+01:22:36,960 --> 01:22:40,500
+the you need them to be
+
+1458
+01:22:39,250 --> 01:22:43,460
+[Music]
+
+1459
+01:22:40,500 --> 01:22:47,940
+on the same line okay there
+
+1460
+01:22:43,460 --> 01:22:52,260
+fantastic you see all the outcomes is is
+
+1461
+01:22:47,940 --> 01:22:54,960
+zero is either zero or negative one
+
+1462
+01:22:52,260 --> 01:22:57,840
+or one one
+
+1463
+01:22:54,960 --> 01:22:59,460
+you know so negative one is win because
+
+1464
+01:22:57,840 --> 01:23:01,620
+you
+
+1465
+01:22:59,460 --> 01:23:03,900
+you know we are
+
+1466
+01:23:01,620 --> 01:23:06,960
+Computing the difference x minus y
+
+1467
+01:23:03,900 --> 01:23:10,260
+instead of Y minus X so this is perfect
+
+1468
+01:23:06,960 --> 01:23:11,820
+that's what we want this code okay this
+
+1469
+01:23:10,260 --> 01:23:14,040
+line of code
+
+1470
+01:23:11,820 --> 01:23:17,280
+this line of code let's reverse the
+
+1471
+01:23:14,040 --> 01:23:21,920
+order so anyway we got the
+
+1472
+01:23:17,280 --> 01:23:21,920
+okay let's let's make them into a
+
+1473
+01:23:22,380 --> 01:23:30,440
+so now all these are useful again now so
+
+1474
+01:23:25,620 --> 01:23:30,440
+X Y X smart equals to
+
+1475
+01:23:33,239 --> 01:23:35,960
+okay
+
+1476
+01:23:36,239 --> 01:23:42,800
+mod Y equals to that
+
+1477
+01:23:40,260 --> 01:23:42,800
+okay
+
+1478
+01:23:43,380 --> 01:23:49,800
+okay those are our variables okay
+
+1479
+01:23:47,159 --> 01:23:51,480
+we are writing this function okay
+
+1480
+01:23:49,800 --> 01:23:55,159
+and uh
+
+1481
+01:23:51,480 --> 01:23:55,159
+outcome equals to
+
+1482
+01:23:55,260 --> 01:24:00,540
+uh you know the
+
+1483
+01:23:57,659 --> 01:24:02,760
+later variables do not have the value of
+
+1484
+01:24:00,540 --> 01:24:04,800
+the previous variable so you need to
+
+1485
+01:24:02,760 --> 01:24:08,400
+Define outcome here
+
+1486
+01:24:04,800 --> 01:24:11,060
+the outcome is just equals to that this
+
+1487
+01:24:08,400 --> 01:24:11,060
+basically
+
+1488
+01:24:15,000 --> 01:24:17,719
+and
+
+1489
+01:24:18,360 --> 01:24:24,659
+fantastic it took a while to work out
+
+1490
+01:24:21,120 --> 01:24:27,719
+the logic but I believe that's correct
+
+1491
+01:24:24,659 --> 01:24:31,620
+so now all you have to do instead of
+
+1492
+01:24:27,719 --> 01:24:34,020
+this if the if if then else if
+
+1493
+01:24:31,620 --> 01:24:36,300
+we just get you know just add the
+
+1494
+01:24:34,020 --> 01:24:39,300
+outcome
+
+1495
+01:24:36,300 --> 01:24:41,940
+oh wait you still need outcome you still
+
+1496
+01:24:39,300 --> 01:24:45,239
+need so if outcome is
+
+1497
+01:24:41,940 --> 01:24:47,659
+um you see because the problem if the
+
+1498
+01:24:45,239 --> 01:24:47,659
+outcome
+
+1499
+01:24:48,840 --> 01:24:52,880
+then let's write it okay let's
+
+1500
+01:25:00,060 --> 01:25:07,760
+if outcome is zero you get zero so if
+
+1501
+01:25:03,239 --> 01:25:07,760
+outcome is one which means you win
+
+1502
+01:25:09,179 --> 01:25:15,800
+wait if if outcome is zero that means
+
+1503
+01:25:12,000 --> 01:25:15,800
+you lose wait what
+
+1504
+01:25:17,520 --> 01:25:23,280
+wait so wait
+
+1505
+01:25:20,100 --> 01:25:26,840
+let's write down so negative one so
+
+1506
+01:25:23,280 --> 01:25:26,840
+what's the score for the
+
+1507
+01:25:29,400 --> 01:25:32,840
+the outcome so
+
+1508
+01:25:42,480 --> 01:25:52,880
+zero if you lose three if it's a draw
+
+1509
+01:25:47,940 --> 01:25:52,880
+okay six win okay
+
+1510
+01:25:53,640 --> 01:26:01,860
+zero is loose
+
+1511
+01:25:55,860 --> 01:26:04,500
+zero so draw is three so one is six six
+
+1512
+01:26:01,860 --> 01:26:08,040
+you know one means you win so
+
+1513
+01:26:04,500 --> 01:26:10,739
+so now the problem a sub problem is how
+
+1514
+01:26:08,040 --> 01:26:14,040
+do you turn these numbers to to these
+
+1515
+01:26:10,739 --> 01:26:18,000
+numbers so negative one becomes zero
+
+1516
+01:26:14,040 --> 01:26:20,699
+zero becomes three and one becomes six
+
+1517
+01:26:18,000 --> 01:26:23,040
+okay that's uh
+
+1518
+01:26:20,699 --> 01:26:25,560
+you know again you can just manually
+
+1519
+01:26:23,040 --> 01:26:28,380
+code the if statement or conditional
+
+1520
+01:26:25,560 --> 01:26:31,400
+statement to get to turn these numbers
+
+1521
+01:26:28,380 --> 01:26:31,400
+but um
+
+1522
+01:26:36,300 --> 01:26:42,000
+but is there a more elegant way
+
+1523
+01:26:39,719 --> 01:26:46,860
+yeah of course there is
+
+1524
+01:26:42,000 --> 01:26:50,040
+you add one to each you add one to each
+
+1525
+01:26:46,860 --> 01:26:52,739
+of the input so this will become one
+
+1526
+01:26:50,040 --> 01:26:55,860
+I mean this will become zero this
+
+1527
+01:26:52,739 --> 01:27:00,199
+becomes one this becomes two then you
+
+1528
+01:26:55,860 --> 01:27:02,639
+multiply by three fantastic
+
+1529
+01:27:00,199 --> 01:27:03,600
+so here
+
+1530
+01:27:02,639 --> 01:27:07,440
+um
+
+1531
+01:27:03,600 --> 01:27:10,020
+so you see here's the outcome you add
+
+1532
+01:27:07,440 --> 01:27:13,320
+one to it
+
+1533
+01:27:10,020 --> 01:27:14,880
+uh wait so actually you need to put the
+
+1534
+01:27:13,320 --> 01:27:19,860
+pattern okay
+
+1535
+01:27:14,880 --> 01:27:22,219
+add one then multiply by
+
+1536
+01:27:19,860 --> 01:27:25,800
+by three
+
+1537
+01:27:22,219 --> 01:27:28,920
+fantastic okay that captures that
+
+1538
+01:27:25,800 --> 01:27:31,920
+so all you have to do is yeah so that's
+
+1539
+01:27:28,920 --> 01:27:32,940
+the result fantastic okay so let's move
+
+1540
+01:27:31,920 --> 01:27:37,320
+that
+
+1541
+01:27:32,940 --> 01:27:39,780
+let's move these lines to our
+
+1542
+01:27:37,320 --> 01:27:44,780
+talk show
+
+1543
+01:27:39,780 --> 01:27:44,780
+page don't close that don't um
+
+1544
+01:27:45,960 --> 01:27:49,940
+okay that's our notes okay
+
+1545
+01:27:50,159 --> 01:27:54,620
+so actually so let's
+
+1546
+01:27:55,380 --> 01:28:02,940
+okay so here's our code let's let's
+
+1547
+01:28:00,060 --> 01:28:05,400
+let's see if we can
+
+1548
+01:28:02,940 --> 01:28:08,400
+that's our code okay
+
+1549
+01:28:05,400 --> 01:28:08,400
+fantastic
+
+1550
+01:28:10,500 --> 01:28:16,739
+so again here's the input and here is a
+
+1551
+01:28:14,880 --> 01:28:22,080
+string replacement
+
+1552
+01:28:16,739 --> 01:28:26,040
+okay replace the ABC by numbers then
+
+1553
+01:28:22,080 --> 01:28:28,739
+then we do this
+
+1554
+01:28:26,040 --> 01:28:32,639
+to let's leave those
+
+1555
+01:28:28,739 --> 01:28:36,360
+then we just do this to turn them into a
+
+1556
+01:28:32,639 --> 01:28:39,239
+list of lists okay then
+
+1557
+01:28:36,360 --> 01:28:40,679
+change all of them to
+
+1558
+01:28:39,239 --> 01:28:43,380
+numbers
+
+1559
+01:28:40,679 --> 01:28:47,040
+okay like turn a string into numbers
+
+1560
+01:28:43,380 --> 01:28:50,540
+okay then here's a function to compute
+
+1561
+01:28:47,040 --> 01:28:50,540
+one single pair
+
+1562
+01:28:54,420 --> 01:29:01,020
+okay and then we just map
+
+1563
+01:28:58,520 --> 01:29:03,679
+this function
+
+1564
+01:29:01,020 --> 01:29:07,760
+to
+
+1565
+01:29:03,679 --> 01:29:11,760
+F5 then we got the list of numbers okay
+
+1566
+01:29:07,760 --> 01:29:14,280
+copy all back to from language
+
+1567
+01:29:11,760 --> 01:29:16,260
+paste it here
+
+1568
+01:29:14,280 --> 01:29:19,260
+run it
+
+1569
+01:29:16,260 --> 01:29:19,260
+fantastic
+
+1570
+01:29:19,380 --> 01:29:23,639
+so our score is 939
+
+1571
+01:29:24,719 --> 01:29:29,699
+so we just because there are three
+
+1572
+01:29:27,120 --> 01:29:30,659
+rounds you see there are three rounds
+
+1573
+01:29:29,699 --> 01:29:32,940
+there
+
+1574
+01:29:30,659 --> 01:29:36,320
+so now all we have to do is just sum
+
+1575
+01:29:32,940 --> 01:29:36,320
+those numbers total
+
+1576
+01:29:38,280 --> 01:29:45,120
+oh God this is I hope this is the
+
+1577
+01:29:41,880 --> 01:29:46,739
+solution you know just total you know so
+
+1578
+01:29:45,120 --> 01:29:52,800
+21.
+
+1579
+01:29:46,739 --> 01:29:54,659
+9 plus 9 is 18 plus 3 is 21 okay so now
+
+1580
+01:29:52,800 --> 01:29:57,960
+you know to begin get your personal
+
+1581
+01:29:54,659 --> 01:29:58,980
+input which is this huge input let's try
+
+1582
+01:29:57,960 --> 01:30:01,620
+it
+
+1583
+01:29:58,980 --> 01:30:03,120
+God I want I want to go finish this damn
+
+1584
+01:30:01,620 --> 01:30:05,940
+thing
+
+1585
+01:30:03,120 --> 01:30:07,920
+so first of all copy that
+
+1586
+01:30:05,940 --> 01:30:10,139
+copy that
+
+1587
+01:30:07,920 --> 01:30:14,940
+copy that
+
+1588
+01:30:10,139 --> 01:30:16,980
+paste so that's a huge input copy all
+
+1589
+01:30:14,940 --> 01:30:20,480
+select all
+
+1590
+01:30:16,980 --> 01:30:22,860
+and this is uh interim Mathematica
+
+1591
+01:30:20,480 --> 01:30:26,719
+computation so
+
+1592
+01:30:22,860 --> 01:30:26,719
+let me do a screenshot of it
+
+1593
+01:30:26,940 --> 01:30:30,739
+so that we have um
+
+1594
+01:30:35,219 --> 01:30:40,040
+a record later on I need to
+
+1595
+01:30:45,659 --> 01:30:52,219
+put on my website okay
+
+1596
+01:30:48,900 --> 01:30:52,219
+to a screenshot
+
+1597
+01:30:57,000 --> 01:31:02,520
+okay now
+
+1598
+01:30:59,340 --> 01:31:06,900
+copy the entire code here
+
+1599
+01:31:02,520 --> 01:31:09,320
+select or paste so here is a problem you
+
+1600
+01:31:06,900 --> 01:31:09,320
+can see
+
+1601
+01:31:09,480 --> 01:31:13,400
+here's a problem okay input
+
+1602
+01:31:15,600 --> 01:31:20,219
+okay so now let's run it
+
+1603
+01:31:18,300 --> 01:31:22,800
+you're in it
+
+1604
+01:31:20,219 --> 01:31:23,940
+oh God then we have to repeat that and
+
+1605
+01:31:22,800 --> 01:31:28,280
+it's
+
+1606
+01:31:23,940 --> 01:31:28,280
+okay let's why not just show it
+
+1607
+01:31:28,440 --> 01:31:31,280
+the bottom
+
+1608
+01:31:36,179 --> 01:31:41,340
+okay here's the result
+
+1609
+01:31:38,480 --> 01:31:44,880
+eighteen thousand two hundred ninety six
+
+1610
+01:31:41,340 --> 01:31:47,760
+I hope that's correct we don't know but
+
+1611
+01:31:44,880 --> 01:31:50,699
+um let's put some semicolon when you put
+
+1612
+01:31:47,760 --> 01:31:55,320
+a semicolon into the expression it
+
+1613
+01:31:50,699 --> 01:31:58,940
+suppresses the output okay so let's put
+
+1614
+01:31:55,320 --> 01:31:58,940
+the same I call it okay
+
+1615
+01:32:01,620 --> 01:32:06,620
+okay and here let's clean up the code
+
+1616
+01:32:07,980 --> 01:32:11,659
+so that um
+
+1617
+01:32:14,820 --> 01:32:27,480
+let's clear up the code X1 X2 X 3 x 4 X5
+
+1618
+01:32:23,100 --> 01:32:32,400
+just just for the sake of Okay so
+
+1619
+01:32:27,480 --> 01:32:36,239
+there there there X3 X4 X5
+
+1620
+01:32:32,400 --> 01:32:40,560
+um yeah and then
+
+1621
+01:32:36,239 --> 01:32:42,840
+hex result uh X answer okay
+
+1622
+01:32:40,560 --> 01:32:44,760
+equals to that
+
+1623
+01:32:42,840 --> 01:32:48,360
+basically
+
+1624
+01:32:44,760 --> 01:32:51,960
+and also put that here okay
+
+1625
+01:32:48,360 --> 01:32:54,420
+okay that's the answer but
+
+1626
+01:32:51,960 --> 01:32:57,600
+okay copy all
+
+1627
+01:32:54,420 --> 01:33:02,580
+copy your selego paste
+
+1628
+01:32:57,600 --> 01:33:05,219
+eval okay that's clean now I will be now
+
+1629
+01:33:02,580 --> 01:33:07,380
+we basically done go back to advantage
+
+1630
+01:33:05,219 --> 01:33:09,239
+of code and paste the answer here that
+
+1631
+01:33:07,380 --> 01:33:11,480
+should be it but I want to make sure
+
+1632
+01:33:09,239 --> 01:33:14,040
+make sure you are doing
+
+1633
+01:33:11,480 --> 01:33:17,300
+I don't want to get the wrong answer
+
+1634
+01:33:14,040 --> 01:33:17,300
+okay so first of all
+
+1635
+01:33:17,340 --> 01:33:22,260
+cut that
+
+1636
+01:33:19,139 --> 01:33:25,219
+paste it here so I want to make sure
+
+1637
+01:33:22,260 --> 01:33:25,219
+this is correct
+
+1638
+01:33:27,900 --> 01:33:35,300
+you know double check your code so
+
+1639
+01:33:31,440 --> 01:33:35,300
+so that's our code right okay
+
+1640
+01:33:41,340 --> 01:33:47,340
+so in this example they didn't oh total
+
+1641
+01:33:44,940 --> 01:33:50,340
+score oh they say okay so in this
+
+1642
+01:33:47,340 --> 01:33:51,659
+example the score should be 15 okay so
+
+1643
+01:33:50,340 --> 01:33:54,920
+let's try
+
+1644
+01:33:51,659 --> 01:33:54,920
+so is it 15
+
+1645
+01:33:55,679 --> 01:33:58,679
+incorrect
+
+1646
+01:33:58,920 --> 01:34:04,159
+okay so that's so incorrect something we
+
+1647
+01:34:01,560 --> 01:34:04,159
+need to fix
+
+1648
+01:34:07,860 --> 01:34:12,719
+rock paper scissor
+
+1649
+01:34:10,560 --> 01:34:16,199
+each one has
+
+1650
+01:34:12,719 --> 01:34:18,840
+um one for rock two for paper three for
+
+1651
+01:34:16,199 --> 01:34:24,620
+these season
+
+1652
+01:34:18,840 --> 01:34:24,620
+okay so here we add two is correct
+
+1653
+01:34:24,780 --> 01:34:28,219
+then um
+
+1654
+01:34:32,360 --> 01:34:36,560
+this can be shortened
+
+1655
+01:34:41,460 --> 01:34:48,739
+okay
+
+1656
+01:34:43,500 --> 01:34:48,739
+ma oh mod okay so why no wonder
+
+1657
+01:34:50,760 --> 01:34:57,800
+no wonder we got it wrong wait
+
+1658
+01:34:54,480 --> 01:34:57,800
+mod Y
+
+1659
+01:34:58,020 --> 01:35:03,920
+mod Y minus mod x that should be correct
+
+1660
+01:35:13,320 --> 01:35:21,020
+mod Y minus mod x what mod Y minus mod x
+
+1661
+01:35:18,420 --> 01:35:21,020
+first one
+
+1662
+01:35:21,840 --> 01:35:24,679
+uh
+
+1663
+01:35:29,540 --> 01:35:39,920
+understandable what what what you guys
+
+1664
+01:35:34,139 --> 01:35:39,920
+so have cheaper for review mod x minus
+
+1665
+01:35:39,980 --> 01:35:48,060
+oh fantastic Hefty buffer that's
+
+1666
+01:35:45,300 --> 01:35:50,580
+that's great suggestion yeah
+
+1667
+01:35:48,060 --> 01:35:51,780
+oh okay so actually yeah you are right
+
+1668
+01:35:50,580 --> 01:35:53,580
+so
+
+1669
+01:35:51,780 --> 01:35:57,000
+oh [ __ ]
+
+1670
+01:35:53,580 --> 01:35:58,679
+we did we wasted a lot of time so here's
+
+1671
+01:35:57,000 --> 01:36:00,360
+a solution we don't have to change the
+
+1672
+01:35:58,679 --> 01:36:01,679
+base
+
+1673
+01:36:00,360 --> 01:36:06,360
+um
+
+1674
+01:36:01,679 --> 01:36:08,760
+I'm glad somebody's you know actually
+
+1675
+01:36:06,360 --> 01:36:13,380
+focusing on the problem
+
+1676
+01:36:08,760 --> 01:36:17,000
+okay so so right now we got the arrow so
+
+1677
+01:36:13,380 --> 01:36:17,000
+mod why mod x
+
+1678
+01:36:20,940 --> 01:36:26,719
+mod Y mod x
+
+1679
+01:36:23,940 --> 01:36:26,719
+plus one
+
+1680
+01:36:31,080 --> 01:36:36,920
+hey why is it not right oh God [ __ ]
+
+1681
+01:36:39,620 --> 01:36:43,520
+let's do this first
+
+1682
+01:36:46,139 --> 01:36:52,820
+so here it says the solution should be
+
+1683
+01:36:49,679 --> 01:36:52,820
+15 why
+
+1684
+01:36:53,460 --> 01:37:02,280
+a 1 6 8 1 6.
+
+1685
+01:36:58,860 --> 01:37:05,940
+so the first round your opponent is rock
+
+1686
+01:37:02,280 --> 01:37:09,360
+and you should you have paper
+
+1687
+01:37:05,940 --> 01:37:13,199
+so win for you
+
+1688
+01:37:09,360 --> 01:37:15,500
+score of 8 okay 2 because you choose
+
+1689
+01:37:13,199 --> 01:37:15,500
+paper
+
+1690
+01:37:15,679 --> 01:37:22,679
+oh you do not add your enemies Ah that's
+
+1691
+01:37:20,219 --> 01:37:26,580
+right you you don't add your enemies
+
+1692
+01:37:22,679 --> 01:37:27,659
+number so you just y plus one okay you
+
+1693
+01:37:26,580 --> 01:37:32,100
+don't add
+
+1694
+01:37:27,659 --> 01:37:34,620
+your enemies whatever the city okay
+
+1695
+01:37:32,100 --> 01:37:38,159
+let's do it again
+
+1696
+01:37:34,620 --> 01:37:40,520
+a16 it was uh since this is 15 that's
+
+1697
+01:37:38,159 --> 01:37:44,880
+correct
+
+1698
+01:37:40,520 --> 01:37:48,980
+fantastic okay a16
+
+1699
+01:37:44,880 --> 01:37:48,980
+so that's the answer that's it
+
+1700
+01:37:49,020 --> 01:37:54,600
+copy the whole
+
+1701
+01:37:51,540 --> 01:37:56,159
+paste this giant input here
+
+1702
+01:37:54,600 --> 01:38:01,280
+go back here
+
+1703
+01:37:56,159 --> 01:38:01,280
+and you need you need to say total again
+
+1704
+01:38:05,280 --> 01:38:11,460
+copy all
+
+1705
+01:38:07,199 --> 01:38:15,300
+slego paste it run it that's it anyway
+
+1706
+01:38:11,460 --> 01:38:19,199
+I'm just gonna paste the answer
+
+1707
+01:38:15,300 --> 01:38:19,199
+paste submit
+
+1708
+01:38:21,179 --> 01:38:25,100
+that's not the right answer [ __ ]
+
+1709
+01:38:31,139 --> 01:38:33,679
+what
+
+1710
+01:38:36,960 --> 01:38:41,520
+yeah this is shitty
+
+1711
+01:38:39,659 --> 01:38:44,820
+your answer is I don't want you know
+
+1712
+01:38:41,520 --> 01:38:46,860
+this is I don't want it to this is what
+
+1713
+01:38:44,820 --> 01:38:50,960
+happens when you
+
+1714
+01:38:46,860 --> 01:38:53,520
+don't I'm not careful
+
+1715
+01:38:50,960 --> 01:38:55,739
+accuracy is the right answer for someone
+
+1716
+01:38:53,520 --> 01:38:58,800
+else you might be logged into the wrong
+
+1717
+01:38:55,739 --> 01:39:01,580
+account what the [ __ ]
+
+1718
+01:38:58,800 --> 01:39:01,580
+Jesus
+
+1719
+01:39:01,800 --> 01:39:09,260
+need to be using your personal input so
+
+1720
+01:39:05,699 --> 01:39:09,260
+that's my personal input
+
+1721
+01:39:09,840 --> 01:39:13,280
+your personal input
+
+1722
+01:39:14,460 --> 01:39:17,060
+tonight
+
+1723
+01:39:30,659 --> 01:39:36,620
+and see what is the my previous personal
+
+1724
+01:39:34,020 --> 01:39:36,620
+input
+
+1725
+01:39:36,920 --> 01:39:44,520
+CX
+
+1726
+01:39:38,699 --> 01:39:49,580
+b y c z c z b x
+
+1727
+01:39:44,520 --> 01:39:49,580
+c z b x wait P X
+
+1728
+01:39:49,679 --> 01:39:52,880
+huh it's different
+
+1729
+01:39:55,139 --> 01:40:08,940
+c y b y c z c z b x c c c z v x p y
+
+1730
+01:40:03,980 --> 01:40:10,800
+VZ VZ VZ c x c y b y that's correct
+
+1731
+01:40:08,940 --> 01:40:16,580
+that's the same
+
+1732
+01:40:10,800 --> 01:40:16,580
+CZ okay so all the way to the bottom
+
+1733
+01:40:20,400 --> 01:40:28,880
+BX c y a x okay that's is
+
+1734
+01:40:25,380 --> 01:40:28,880
+that is my input
+
+1735
+01:40:38,580 --> 01:40:42,380
+yeah that's the same input
+
+1736
+01:40:54,540 --> 01:40:57,440
+go back
+
+1737
+01:41:00,120 --> 01:41:04,219
+and
+
+1738
+01:41:01,620 --> 01:41:04,219
+got go
+
+1739
+01:41:12,600 --> 01:41:16,040
+x y z
+
+1740
+01:41:16,620 --> 01:41:19,400
+and
+
+1741
+01:41:19,560 --> 01:41:23,480
+addition to expression
+
+1742
+01:41:23,540 --> 01:41:29,699
+compute School
+
+1743
+01:41:26,400 --> 01:41:32,219
+mod x smart y
+
+1744
+01:41:29,699 --> 01:41:35,719
+uh come
+
+1745
+01:41:32,219 --> 01:41:35,719
+so what is the
+
+1746
+01:41:43,800 --> 01:41:47,300
+negative zero
+
+1747
+01:41:59,580 --> 01:42:07,020
+so so you do the any any suggestions
+
+1748
+01:42:35,760 --> 01:42:40,280
+I don't understand why is it
+
+1749
+01:43:15,659 --> 01:43:23,000
+so on that one it's correct
+
+1750
+01:43:19,260 --> 01:43:27,500
+on the on the example input
+
+1751
+01:43:23,000 --> 01:43:27,500
+a16 is correct
+
+1752
+01:43:27,659 --> 01:43:33,860
+okay
+
+1753
+01:43:29,340 --> 01:43:39,960
+under example input is correct
+
+1754
+01:43:33,860 --> 01:43:44,780
+a16 a16 result is 15.
+
+1755
+01:43:39,960 --> 01:43:44,780
+now what what possibly can go wrong
+
+1756
+01:43:50,520 --> 01:43:55,320
+did I forgot some kind of local
+
+1757
+01:43:53,699 --> 01:43:58,679
+variables
+
+1758
+01:43:55,320 --> 01:44:01,520
+leak of local variables
+
+1759
+01:43:58,679 --> 01:44:01,520
+uh
+
+1760
+01:44:03,300 --> 01:44:06,500
+how did I
+
+1761
+01:44:24,980 --> 01:44:34,139
+so miserable here
+
+1762
+01:44:29,280 --> 01:44:37,159
+no no uh F6 f
+
+1763
+01:44:34,139 --> 01:44:40,460
+6 this is closing this is running into
+
+1764
+01:44:37,159 --> 01:44:40,460
+two hours
+
+1765
+01:44:43,560 --> 01:44:47,659
+so compute x y
+
+1766
+01:45:03,239 --> 01:45:06,440
+yeah so
+
+1767
+01:45:09,000 --> 01:45:15,380
+I'll choose six four five he's incorrect
+
+1768
+01:45:16,199 --> 01:45:19,760
+Okay so
+
+1769
+01:45:26,580 --> 01:45:30,739
+don't know what's the problem so
+
+1770
+01:45:49,980 --> 01:45:55,760
+let's clean up the code
+
+1771
+01:45:52,320 --> 01:45:55,760
+two expression
+
+1772
+01:46:14,280 --> 01:46:18,860
+okay so you don't even need
+
+1773
+01:46:34,440 --> 01:46:41,400
+Okay so
+
+1774
+01:46:37,500 --> 01:46:44,360
+so where's the input
+
+1775
+01:46:41,400 --> 01:46:44,360
+try
+
+1776
+01:46:51,060 --> 01:46:53,540
+okay
+
+1777
+01:47:00,960 --> 01:47:06,480
+oh the input is not what
+
+1778
+01:47:07,800 --> 01:47:14,600
+oh yeah so there is still stream speed
+
+1779
+01:47:10,679 --> 01:47:14,600
+oh yeah I forgot about here
+
+1780
+01:47:15,300 --> 01:47:22,159
+so you still need extra here so
+
+1781
+01:47:19,619 --> 01:47:22,159
+two
+
+1782
+01:47:31,260 --> 01:47:36,440
+so this part let's let's
+
+1783
+01:47:37,260 --> 01:47:42,119
+put it here okay now so now the code is
+
+1784
+01:47:40,800 --> 01:47:44,580
+completely
+
+1785
+01:47:42,119 --> 01:47:47,400
+incomprehensible
+
+1786
+01:47:44,580 --> 01:47:51,060
+hmm
+
+1787
+01:47:47,400 --> 01:47:53,880
+yeah so he can do that do that do that
+
+1788
+01:47:51,060 --> 01:47:57,480
+yeah that's correct now
+
+1789
+01:47:53,880 --> 01:48:00,060
+copy the whole input paste it here run
+
+1790
+01:47:57,480 --> 01:48:02,400
+it and now
+
+1791
+01:48:00,060 --> 01:48:04,860
+compute these two
+
+1792
+01:48:02,400 --> 01:48:08,420
+lines
+
+1793
+01:48:04,860 --> 01:48:08,420
+so that's the
+
+1794
+01:48:09,239 --> 01:48:14,699
+that's the outcome for each
+
+1795
+01:48:12,600 --> 01:48:18,020
+round
+
+1796
+01:48:14,699 --> 01:48:18,020
+in 12
+
+1797
+01:48:18,179 --> 01:48:25,820
+645
+
+1798
+01:48:21,119 --> 01:48:25,820
+but it says it's incorrect
+
+1799
+01:48:25,860 --> 01:48:29,179
+I don't get it
+
+1800
+01:48:31,739 --> 01:48:38,520
+what what is what what would your total
+
+1801
+01:48:36,060 --> 01:48:41,699
+score be if everything goes exactly
+
+1802
+01:48:38,520 --> 01:48:43,320
+according to your strategy guide right
+
+1803
+01:48:41,699 --> 01:48:46,080
+so you
+
+1804
+01:48:43,320 --> 01:48:48,719
+you sum them up
+
+1805
+01:48:46,080 --> 01:48:50,580
+you sum them up
+
+1806
+01:48:48,719 --> 01:48:54,320
+and uh
+
+1807
+01:48:50,580 --> 01:48:54,320
+that's what it's supposed to be
+
+1808
+01:49:09,420 --> 01:49:13,219
+and I gotta go
+
+1809
+01:49:14,340 --> 01:49:17,880
+so let's
+
+1810
+01:49:16,139 --> 01:49:22,380
+um let's do this let's take a break
+
+1811
+01:49:17,880 --> 01:49:25,920
+let's not stop I want to so I want to
+
+1812
+01:49:22,380 --> 01:49:27,239
+actually finish this code [ __ ] I got
+
+1813
+01:49:25,920 --> 01:49:29,699
+pissed
+
+1814
+01:49:27,239 --> 01:49:32,460
+you know it's like playing a video game
+
+1815
+01:49:29,699 --> 01:49:35,820
+you know when you get cannot pass the
+
+1816
+01:49:32,460 --> 01:49:38,520
+boss level you play until you drop dead
+
+1817
+01:49:35,820 --> 01:49:39,480
+you know you play non-stop no eating no
+
+1818
+01:49:38,520 --> 01:49:42,000
+sleep
+
+1819
+01:49:39,480 --> 01:49:44,159
+so I'm going to finish this problem I
+
+1820
+01:49:42,000 --> 01:49:46,080
+need to go to the bathroom badly so I'm
+
+1821
+01:49:44,159 --> 01:49:49,080
+going to the bathroom and it's
+
+1822
+01:49:46,080 --> 01:49:49,080
+intermission
+
+1823
+01:49:57,420 --> 01:50:02,119
+okay guys
+
+1824
+01:49:58,920 --> 01:50:02,119
+I'll be right back
+
+1825
+01:50:04,199 --> 01:50:08,300
+the meanwhile on his show um
+
+1826
+01:50:09,600 --> 01:50:14,600
+indeed see you in five minutes okay
+
+1827
+01:50:17,699 --> 01:50:21,560
+see my video settings
+
+1828
+01:50:24,600 --> 01:50:28,159
+be right back five minutes
+
+1829
+01:50:31,380 --> 01:50:34,159
+foreign
+
+1830
+01:52:03,060 --> 01:52:06,020
+foreign
+
+1831
+01:57:03,800 --> 01:57:07,639
+okay I'm back
+
+1832
+01:57:08,580 --> 01:57:15,380
+gonna find out what the [ __ ]
+
+1833
+01:57:11,639 --> 01:57:15,380
+is going on with the problem
+
+1834
+01:57:22,139 --> 01:57:27,739
+miss my toots or masterton masterton is
+
+1835
+01:57:25,380 --> 01:57:27,739
+no good
+
+1836
+01:57:35,099 --> 01:57:40,860
+masterton is one of the open source
+
+1837
+01:57:38,099 --> 01:57:42,619
+fantasy you know there's quite a few
+
+1838
+01:57:40,860 --> 01:57:46,199
+before it
+
+1839
+01:57:42,619 --> 01:57:48,420
+canoe social you know for example
+
+1840
+01:57:46,199 --> 01:57:51,840
+there's quite a few before in the past
+
+1841
+01:57:48,420 --> 01:57:54,960
+in the past 15 years and each one of
+
+1842
+01:57:51,840 --> 01:57:57,780
+them just fails you know you got
+
+1843
+01:57:54,960 --> 01:58:00,599
+a handful of nerds
+
+1844
+01:57:57,780 --> 01:58:03,480
+high-powered you know very smart you
+
+1845
+01:58:00,599 --> 01:58:06,119
+know coding like Linux Fanatics emacs
+
+1846
+01:58:03,480 --> 01:58:09,540
+phonetics theme phonetics those people
+
+1847
+01:58:06,119 --> 01:58:11,099
+Unix phonetics c c plus you know they
+
+1848
+01:58:09,540 --> 01:58:14,340
+were gathered there
+
+1849
+01:58:11,099 --> 01:58:16,080
+fraught with problems mastered in you
+
+1850
+01:58:14,340 --> 01:58:18,719
+know each instance they ban each other
+
+1851
+01:58:16,080 --> 01:58:22,080
+you know in theory the idea of the
+
+1852
+01:58:18,719 --> 01:58:25,380
+vision is that oh masterton Federated no
+
+1853
+01:58:22,080 --> 01:58:27,719
+central control very good idea great and
+
+1854
+01:58:25,380 --> 01:58:31,139
+so you have Federation each instance
+
+1855
+01:58:27,719 --> 01:58:34,679
+communicate with each other but in
+
+1856
+01:58:31,139 --> 01:58:37,199
+reality lots of problems one your
+
+1857
+01:58:34,679 --> 01:58:38,880
+password is open to admins you know you
+
+1858
+01:58:37,199 --> 01:58:42,000
+don't know who the [ __ ] is running it
+
+1859
+01:58:38,880 --> 01:58:44,639
+your or your password or your private
+
+1860
+01:58:42,000 --> 01:58:46,980
+messages communicate on Master them
+
+1861
+01:58:44,639 --> 01:58:49,500
+everyone you know you you don't know who
+
+1862
+01:58:46,980 --> 01:58:52,080
+is reading it okay that's one thing and
+
+1863
+01:58:49,500 --> 01:58:54,599
+this centralized systems they have
+
+1864
+01:58:52,080 --> 01:58:57,179
+people who are responsible of course
+
+1865
+01:58:54,599 --> 01:58:59,400
+there's a lot of problems but
+
+1866
+01:58:57,179 --> 01:59:01,260
+what I'm saying is that mastered and the
+
+1867
+01:58:59,400 --> 01:59:04,260
+ideals Federated you know it doesn't
+
+1868
+01:59:01,260 --> 01:59:06,119
+work in reality so first problem you
+
+1869
+01:59:04,260 --> 01:59:08,400
+don't know who is running it and they
+
+1870
+01:59:06,119 --> 01:59:10,679
+can you know it's open source but the
+
+1871
+01:59:08,400 --> 01:59:14,400
+the person who is running the instance
+
+1872
+01:59:10,679 --> 01:59:15,719
+maybe maybe [ __ ] around with the code
+
+1873
+01:59:14,400 --> 01:59:17,580
+you don't know
+
+1874
+01:59:15,719 --> 01:59:19,260
+you know you can say you know show me
+
+1875
+01:59:17,580 --> 01:59:20,760
+the instance the source code you are
+
+1876
+01:59:19,260 --> 01:59:24,300
+running you don't know what they did to
+
+1877
+01:59:20,760 --> 01:59:27,119
+it okay so all your private messages is
+
+1878
+01:59:24,300 --> 01:59:31,679
+public or your password
+
+1879
+01:59:27,119 --> 01:59:33,719
+is is you can consider it public or your
+
+1880
+01:59:31,679 --> 01:59:36,960
+secret or whatever
+
+1881
+01:59:33,719 --> 01:59:38,760
+okay no security first of all then the
+
+1882
+01:59:36,960 --> 01:59:41,639
+Federation you know whoever you want to
+
+1883
+01:59:38,760 --> 01:59:43,860
+follow you can see them you cannot see
+
+1884
+01:59:41,639 --> 01:59:46,380
+their messages because
+
+1885
+01:59:43,860 --> 01:59:49,500
+Master than in real life each instance
+
+1886
+01:59:46,380 --> 01:59:51,960
+span you each other as in particular in
+
+1887
+01:59:49,500 --> 01:59:54,900
+America for example you have the social
+
+1888
+01:59:51,960 --> 01:59:57,619
+justice group of Gan then you have the
+
+1889
+01:59:54,900 --> 02:00:00,480
+anti-social Justice group of gang or
+
+1890
+01:59:57,619 --> 02:00:02,580
+Democratic party supporters versus the
+
+1891
+02:00:00,480 --> 02:00:05,400
+Republicans voters they ban each other
+
+1892
+02:00:02,580 --> 02:00:07,320
+well typically the social justice can
+
+1893
+02:00:05,400 --> 02:00:11,780
+ban the Republican
+
+1894
+02:00:07,320 --> 02:00:15,000
+you know or Nazi you know instances so
+
+1895
+02:00:11,780 --> 02:00:17,159
+ideally you know you you follow someone
+
+1896
+02:00:15,000 --> 02:00:19,320
+you know you like they are in different
+
+1897
+02:00:17,159 --> 02:00:22,020
+instances but you can see their messages
+
+1898
+02:00:19,320 --> 02:00:23,699
+like you don't know who you know you you
+
+1899
+02:00:22,020 --> 02:00:25,860
+can't see them
+
+1900
+02:00:23,699 --> 02:00:28,280
+that's the second major problem you
+
+1901
+02:00:25,860 --> 02:00:31,380
+cannot actually communicate each other
+
+1902
+02:00:28,280 --> 02:00:35,580
+except on your local instance
+
+1903
+02:00:31,380 --> 02:00:38,699
+then so so your audience or who you can
+
+1904
+02:00:35,580 --> 02:00:41,900
+follow is very small because you know
+
+1905
+02:00:38,699 --> 02:00:45,560
+then then there's a complexity problem
+
+1906
+02:00:41,900 --> 02:00:49,739
+the extreme complexity of the interface
+
+1907
+02:00:45,560 --> 02:00:52,199
+like you know you might see people the
+
+1908
+02:00:49,739 --> 02:00:55,560
+posting of the people on your instance
+
+1909
+02:00:52,199 --> 02:00:58,500
+then there's a concept of the post from
+
+1910
+02:00:55,560 --> 02:00:59,820
+Federated instances you don't know who
+
+1911
+02:00:58,500 --> 02:01:03,239
+they are you don't know where they came
+
+1912
+02:00:59,820 --> 02:01:04,619
+from yeah like it matters sometimes you
+
+1913
+02:01:03,239 --> 02:01:07,679
+know
+
+1914
+02:01:04,619 --> 02:01:10,440
+and then so lots of problems you you
+
+1915
+02:01:07,679 --> 02:01:12,840
+know you want to follow someone in a
+
+1916
+02:01:10,440 --> 02:01:15,420
+different instance very complex okay
+
+1917
+02:01:12,840 --> 02:01:17,820
+very complex
+
+1918
+02:01:15,420 --> 02:01:20,040
+so Macedon
+
+1919
+02:01:17,820 --> 02:01:23,179
+it's a failure you know it's being a
+
+1920
+02:01:20,040 --> 02:01:23,179
+failure for you know
+
+1921
+02:01:23,340 --> 02:01:28,260
+so Hefty buffer thank you so much you
+
+1922
+02:01:25,920 --> 02:01:31,260
+know you are like the only one who is
+
+1923
+02:01:28,260 --> 02:01:34,380
+actually paying attention to the to the
+
+1924
+02:01:31,260 --> 02:01:35,760
+coding problem today so here's our code
+
+1925
+02:01:34,380 --> 02:01:39,239
+so
+
+1926
+02:01:35,760 --> 02:01:41,940
+so uh Hefty buffer is helping me solve
+
+1927
+02:01:39,239 --> 02:01:45,060
+the let's go back to the coding okay
+
+1928
+02:01:41,940 --> 02:01:46,860
+so I think your motto is incorrect oh he
+
+1929
+02:01:45,060 --> 02:01:48,480
+says my model is incorrect consider
+
+1930
+02:01:46,860 --> 02:01:51,239
+winning payer
+
+1931
+02:01:48,480 --> 02:01:55,920
+3 1
+
+1932
+02:01:51,239 --> 02:01:58,800
+3 1 so 1 wins yeah well if you use one
+
+1933
+02:01:55,920 --> 02:02:01,380
+two three then yeah so you win the
+
+1934
+02:01:58,800 --> 02:02:03,500
+second player win
+
+1935
+02:02:01,380 --> 02:02:03,500
+um
+
+1936
+02:02:04,440 --> 02:02:08,520
+YouTube doesn't let you format your
+
+1937
+02:02:06,420 --> 02:02:10,980
+messages don't worry about it
+
+1938
+02:02:08,520 --> 02:02:16,260
+so let's see what you are saying I mean
+
+1939
+02:02:10,980 --> 02:02:19,159
+maybe you you you have a point okay
+
+1940
+02:02:16,260 --> 02:02:19,159
+uh
+
+1941
+02:02:19,219 --> 02:02:25,500
+what
+
+1942
+02:02:20,900 --> 02:02:25,500
+what am I doing yeah
+
+1943
+02:02:27,000 --> 02:02:29,659
+all right
+
+1944
+02:02:29,900 --> 02:02:33,920
+okay that's not good
+
+1945
+02:02:34,820 --> 02:02:38,639
+okay
+
+1946
+02:02:36,599 --> 02:02:40,139
+I think your motto is incorrect consider
+
+1947
+02:02:38,639 --> 02:02:46,320
+winning pair
+
+1948
+02:02:40,139 --> 02:02:46,320
+V1 enjoying pair one one so
+
+1949
+02:02:49,139 --> 02:02:52,940
+so what uh
+
+1950
+02:03:12,239 --> 02:03:20,639
+okay see so if we got three one uh you
+
+1951
+02:03:16,920 --> 02:03:23,040
+know we we change it to two to zero
+
+1952
+02:03:20,639 --> 02:03:25,199
+based so it's two zero
+
+1953
+02:03:23,040 --> 02:03:28,820
+and then
+
+1954
+02:03:25,199 --> 02:03:28,820
+modular arithmetics
+
+1955
+02:03:31,380 --> 02:03:36,719
+no wait uh okay so
+
+1956
+02:03:34,440 --> 02:03:38,760
+basically you are seeing both of them
+
+1957
+02:03:36,719 --> 02:03:42,960
+become zero
+
+1958
+02:03:38,760 --> 02:03:46,739
+oh so my model is incorrect okay
+
+1959
+02:03:42,960 --> 02:03:48,480
+so so basically you are saying both
+
+1960
+02:03:46,739 --> 02:03:51,900
+situations
+
+1961
+02:03:48,480 --> 02:03:55,980
+one is Wing one is draw they should
+
+1962
+02:03:51,900 --> 02:03:58,260
+return two different numbers but in my
+
+1963
+02:03:55,980 --> 02:04:00,840
+model they return the same number
+
+1964
+02:03:58,260 --> 02:04:03,540
+uh but why is that
+
+1965
+02:04:00,840 --> 02:04:07,560
+so you are saying so when they are the
+
+1966
+02:04:03,540 --> 02:04:09,800
+same obviously this works out so let's
+
+1967
+02:04:07,560 --> 02:04:09,800
+let's
+
+1968
+02:04:10,380 --> 02:04:16,080
+let's format our code so okay
+
+1969
+02:04:13,920 --> 02:04:20,280
+so let's copy that
+
+1970
+02:04:16,080 --> 02:04:23,520
+you know you can format your code
+
+1971
+02:04:20,280 --> 02:04:27,360
+I cannot do it in subwoofer mod but here
+
+1972
+02:04:23,520 --> 02:04:30,619
+you can okay so here's easier to read
+
+1973
+02:04:27,360 --> 02:04:30,619
+so um
+
+1974
+02:04:31,380 --> 02:04:36,960
+so my model is incorrect so that will go
+
+1975
+02:04:34,260 --> 02:04:39,060
+back to this code this code is the
+
+1976
+02:04:36,960 --> 02:04:43,280
+essence
+
+1977
+02:04:39,060 --> 02:04:43,280
+so let's review the model okay
+
+1978
+02:04:44,219 --> 02:04:49,440
+you know I if I just think about it now
+
+1979
+02:04:47,580 --> 02:04:52,580
+I'll probably find out
+
+1980
+02:04:49,440 --> 02:04:52,580
+so you mod
+
+1981
+02:04:53,280 --> 02:04:56,540
+you mod them
+
+1982
+02:04:58,500 --> 02:05:03,320
+actually you don't need to mod each each
+
+1983
+02:05:00,900 --> 02:05:03,320
+element
+
+1984
+02:05:06,000 --> 02:05:10,739
+yeah you do the
+
+1985
+02:05:08,040 --> 02:05:13,980
+you you do the difference then you mod
+
+1986
+02:05:10,739 --> 02:05:16,199
+them you can add three to each I mean I
+
+1987
+02:05:13,980 --> 02:05:19,040
+add two to each so you do the difference
+
+1988
+02:05:16,199 --> 02:05:22,520
+and you mount them
+
+1989
+02:05:19,040 --> 02:05:22,520
+so uh
+
+1990
+02:05:25,199 --> 02:05:31,619
+but let's look at your your example
+
+1991
+02:05:28,440 --> 02:05:34,699
+so you are saying three one we change it
+
+1992
+02:05:31,619 --> 02:05:34,699
+to two zero
+
+1993
+02:05:34,860 --> 02:05:40,380
+uh and then
+
+1994
+02:05:37,800 --> 02:05:41,820
+mod 2.
+
+1995
+02:05:40,380 --> 02:05:47,219
+uh
+
+1996
+02:05:41,820 --> 02:05:49,760
+too much to is zero
+
+1997
+02:05:47,219 --> 02:05:49,760
+what
+
+1998
+02:05:50,760 --> 02:05:56,639
+oh yeah so you are right so I I kind of
+
+1999
+02:05:54,300 --> 02:06:00,179
+figured out so what you have to do
+
+2000
+02:05:56,639 --> 02:06:02,520
+is add three we we didn't add three so I
+
+2001
+02:06:00,179 --> 02:06:05,580
+mean in this case add two
+
+2002
+02:06:02,520 --> 02:06:07,260
+I think okay that's just my guess I'm
+
+2003
+02:06:05,580 --> 02:06:10,460
+pretty I'm pretty sure because when you
+
+2004
+02:06:07,260 --> 02:06:10,460
+do mod arithmetics
+
+2005
+02:06:15,960 --> 02:06:22,940
+maybe maybe that's right so I don't know
+
+2006
+02:06:19,739 --> 02:06:22,940
+let's just try it okay
+
+2007
+02:06:29,040 --> 02:06:32,639
+Bennett
+
+2008
+02:06:30,960 --> 02:06:36,179
+correct
+
+2009
+02:06:32,639 --> 02:06:39,560
+okay now let's run it with a big input
+
+2010
+02:06:36,179 --> 02:06:39,560
+who has a big input
+
+2011
+02:06:42,119 --> 02:06:48,780
+so evaluate the big input
+
+2012
+02:06:45,179 --> 02:06:51,560
+and now let's run this
+
+2013
+02:06:48,780 --> 02:06:51,560
+same number
+
+2014
+02:06:52,800 --> 02:06:56,639
+two
+
+2015
+02:06:55,619 --> 02:07:02,099
+um
+
+2016
+02:06:56,639 --> 02:07:04,619
+one two six four five same number no
+
+2017
+02:07:02,099 --> 02:07:07,699
+oh yeah we didn't we didn't modify the
+
+2018
+02:07:04,619 --> 02:07:07,699
+code did we
+
+2019
+02:07:11,280 --> 02:07:14,239
+we are here
+
+2020
+02:07:19,520 --> 02:07:25,800
+add to add to
+
+2021
+02:07:22,800 --> 02:07:25,800
+so
+
+2022
+02:07:27,719 --> 02:07:33,800
+okay split
+
+2023
+02:07:30,179 --> 02:07:33,800
+then run that code
+
+2024
+02:07:34,679 --> 02:07:37,520
+then
+
+2025
+02:07:42,239 --> 02:07:47,099
+split
+
+2026
+02:07:44,040 --> 02:07:50,179
+then run that code
+
+2027
+02:07:47,099 --> 02:07:50,179
+yeah [ __ ]
+
+2028
+02:07:50,940 --> 02:07:55,340
+it's just yeah let's just select all
+
+2029
+02:07:56,159 --> 02:08:02,280
+right okay that works now let's get the
+
+2030
+02:07:59,880 --> 02:08:07,679
+input
+
+2031
+02:08:02,280 --> 02:08:10,739
+copy new buffer paste the input here
+
+2032
+02:08:07,679 --> 02:08:13,520
+okay huge input minute
+
+2033
+02:08:10,739 --> 02:08:13,520
+and now
+
+2034
+02:08:15,679 --> 02:08:20,360
+now let's just copy this part
+
+2035
+02:08:28,920 --> 02:08:32,219
+yeah
+
+2036
+02:08:30,060 --> 02:08:34,679
+[ __ ] big numbers
+
+2037
+02:08:32,219 --> 02:08:36,719
+one two six four five that doesn't
+
+2038
+02:08:34,679 --> 02:08:41,400
+change nothing so
+
+2039
+02:08:36,719 --> 02:08:43,199
+but uh so let's go back to your example
+
+2040
+02:08:41,400 --> 02:08:45,980
+what's going on
+
+2041
+02:08:43,199 --> 02:08:45,980
+to think
+
+2042
+02:08:46,260 --> 02:08:48,980
+so
+
+2043
+02:08:51,060 --> 02:08:55,760
+mod 2 2 mod 2 is 0.
+
+2044
+02:08:56,699 --> 02:09:06,540
+0 mod 2. is also zero that's right
+
+2045
+02:09:02,460 --> 02:09:09,420
+so two Z so zero minus zero is zero so
+
+2046
+02:09:06,540 --> 02:09:10,619
+this is incorrect so my model is
+
+2047
+02:09:09,420 --> 02:09:13,280
+incorrect
+
+2048
+02:09:10,619 --> 02:09:13,280
+so
+
+2049
+02:09:16,619 --> 02:09:24,179
+so
+
+2050
+02:09:19,139 --> 02:09:27,360
+so yeah two two directions to go one is
+
+2051
+02:09:24,179 --> 02:09:30,000
+figure out exactly why is it incorrect
+
+2052
+02:09:27,360 --> 02:09:32,480
+where is the logic
+
+2053
+02:09:30,000 --> 02:09:34,860
+that's incorrect that's One Direction
+
+2054
+02:09:32,480 --> 02:09:37,020
+figure out exactly
+
+2055
+02:09:34,860 --> 02:09:39,780
+where the logic is wrong
+
+2056
+02:09:37,020 --> 02:09:42,900
+the other direction is simply just guess
+
+2057
+02:09:39,780 --> 02:09:44,940
+walk trial and arrow I kind of you know
+
+2058
+02:09:42,900 --> 02:09:47,340
+I kind of know
+
+2059
+02:09:44,940 --> 02:09:49,320
+because all you have to do is
+
+2060
+02:09:47,340 --> 02:09:52,400
+um you know instead of that
+
+2061
+02:09:49,320 --> 02:09:52,400
+you just do
+
+2062
+02:09:53,099 --> 02:10:02,599
+y minus X
+
+2063
+02:09:56,699 --> 02:10:02,599
+mod okay mod Y minus X smart two
+
+2064
+02:10:03,179 --> 02:10:06,300
+okay
+
+2065
+02:10:05,340 --> 02:10:09,179
+um
+
+2066
+02:10:06,300 --> 02:10:13,820
+that will probably be walk
+
+2067
+02:10:09,179 --> 02:10:13,820
+let's just run it and see what happens
+
+2068
+02:10:21,119 --> 02:10:24,119
+uh
+
+2069
+02:10:25,580 --> 02:10:35,300
+21 that's not correct oh [ __ ]
+
+2070
+02:10:29,699 --> 02:10:35,300
+oh God this little problem [ __ ] [ __ ]
+
+2071
+02:10:36,179 --> 02:10:43,440
+that's supposed to be 15 a one six eight
+
+2072
+02:10:40,320 --> 02:10:49,159
+one six so we got a seven here
+
+2073
+02:10:43,440 --> 02:10:49,159
+seven means this one is wrong yeah [ __ ]
+
+2074
+02:10:54,840 --> 02:11:01,159
+okay we have to rework we have to
+
+2075
+02:10:57,900 --> 02:11:01,159
+think about this
+
+2076
+02:11:07,739 --> 02:11:14,780
+okay we have to think about this okay so
+
+2077
+02:11:11,099 --> 02:11:14,780
+I'm going to think about this
+
+2078
+02:11:29,580 --> 02:11:35,760
+X and Y
+
+2079
+02:11:31,920 --> 02:11:37,800
+which is in our case Zero
+
+2080
+02:11:35,760 --> 02:11:40,080
+one two
+
+2081
+02:11:37,800 --> 02:11:43,500
+zero one two
+
+2082
+02:11:40,080 --> 02:11:46,020
+so what you can do is
+
+2083
+02:11:43,500 --> 02:11:48,739
+so you who you all you have to do is
+
+2084
+02:11:46,020 --> 02:11:48,739
+first two
+
+2085
+02:11:52,500 --> 02:11:56,179
+first two for the Y
+
+2086
+02:11:57,119 --> 02:12:00,679
+plus two for the Y
+
+2087
+02:12:01,500 --> 02:12:04,280
+and
+
+2088
+02:12:07,440 --> 02:12:10,440
+so
+
+2089
+02:12:10,800 --> 02:12:17,820
+when you lose you get zero okay when you
+
+2090
+02:12:14,580 --> 02:12:20,900
+lose you get zero so if we do this
+
+2091
+02:12:17,820 --> 02:12:20,900
+X and Y
+
+2092
+02:12:31,199 --> 02:12:36,659
+you know here that's the part where
+
+2093
+02:12:33,719 --> 02:12:39,060
+that's the part where we need to fix you
+
+2094
+02:12:36,659 --> 02:12:41,580
+know either that that or that
+
+2095
+02:12:39,060 --> 02:12:44,360
+of that
+
+2096
+02:12:41,580 --> 02:12:44,360
+so
+
+2097
+02:12:45,540 --> 02:12:48,860
+x minus
+
+2098
+02:12:49,020 --> 02:12:54,119
+okay so let's add let's not add two
+
+2099
+02:12:51,900 --> 02:12:57,000
+because that's gonna be the same anyway
+
+2100
+02:12:54,119 --> 02:13:01,260
+you know you know you mod 2 plus 2
+
+2101
+02:12:57,000 --> 02:13:04,920
+doesn't matter so this here is you is
+
+2102
+02:13:01,260 --> 02:13:06,540
+where you need to add two okay evaluate
+
+2103
+02:13:04,920 --> 02:13:09,420
+it
+
+2104
+02:13:06,540 --> 02:13:09,960
+I don't know exactly the logic yet but
+
+2105
+02:13:09,420 --> 02:13:13,880
+um
+
+2106
+02:13:09,960 --> 02:13:13,880
+no so the
+
+2107
+02:13:14,900 --> 02:13:20,540
+so maybe you know you don't need to
+
+2108
+02:13:17,340 --> 02:13:20,540
+press one now okay
+
+2109
+02:13:21,960 --> 02:13:29,480
+yeah this is your own fat [ __ ] it
+
+2110
+02:13:26,340 --> 02:13:29,480
+forget the problem
+
+2111
+02:13:30,119 --> 02:13:36,540
+so we need to go back to where is our
+
+2112
+02:13:32,699 --> 02:13:39,079
+other code for the model here
+
+2113
+02:13:36,540 --> 02:13:39,079
+okay
+
+2114
+02:13:41,520 --> 02:13:48,860
+here is the model
+
+2115
+02:13:44,460 --> 02:13:48,860
+so let's try it again
+
+2116
+02:14:14,820 --> 02:14:21,480
+so
+
+2117
+02:14:16,340 --> 02:14:22,619
+so in your example three one which is 2
+
+2118
+02:14:21,480 --> 02:14:28,099
+0
+
+2119
+02:14:22,619 --> 02:14:28,099
+so that's two zero so this is wrong
+
+2120
+02:14:31,280 --> 02:14:35,900
+so this this is wrong
+
+2121
+02:14:38,400 --> 02:14:41,599
+yeah you are right
+
+2122
+02:14:44,000 --> 02:14:47,719
+so 2 0
+
+2123
+02:14:47,780 --> 02:14:56,760
+zero is Rock
+
+2124
+02:14:51,360 --> 02:14:59,420
+2 is Caesar so rock beats Caesar so we
+
+2125
+02:14:56,760 --> 02:14:59,420
+should have
+
+2126
+02:15:12,300 --> 02:15:21,739
+wait we got the god
+
+2127
+02:15:16,320 --> 02:15:21,739
+here is X x minus y
+
+2128
+02:15:26,159 --> 02:15:32,420
+c y minus X
+
+2129
+02:15:29,699 --> 02:15:32,420
+got
+
+2130
+02:15:44,340 --> 02:15:50,780
+zero the same
+
+2131
+02:15:47,159 --> 02:15:50,780
+if you look at this part
+
+2132
+02:15:53,219 --> 02:15:56,719
+x minus my
+
+2133
+02:16:00,540 --> 02:16:05,480
+okay so you really need to think about
+
+2134
+02:16:02,940 --> 02:16:05,480
+this
+
+2135
+02:16:16,440 --> 02:16:22,099
+so y minus X Y minus X
+
+2136
+02:16:37,019 --> 02:16:44,840
+0 is when you lose
+
+2137
+02:16:41,099 --> 02:16:44,840
+Okay so
+
+2138
+02:16:46,320 --> 02:16:52,519
+zero one two
+
+2139
+02:16:49,139 --> 02:16:52,519
+zero one two
+
+2140
+02:16:54,660 --> 02:16:59,939
+zero one two
+
+2141
+02:16:57,599 --> 02:17:02,179
+oh yeah so we need two first one don't
+
+2142
+02:16:59,939 --> 02:17:02,179
+we
+
+2143
+02:17:05,519 --> 02:17:08,780
+let's just try it again
+
+2144
+02:17:11,700 --> 02:17:14,179
+now
+
+2145
+02:17:25,019 --> 02:17:31,920
+so the answer should be 15.
+
+2146
+02:17:28,920 --> 02:17:31,920
+a16
+
+2147
+02:17:34,559 --> 02:17:39,599
+this tricky [ __ ] you know they gave an
+
+2148
+02:17:37,500 --> 02:17:41,760
+example where
+
+2149
+02:17:39,599 --> 02:17:45,500
+you know
+
+2150
+02:17:41,760 --> 02:17:45,500
+where a different input
+
+2151
+02:17:47,939 --> 02:17:55,760
+uh even if your algorithm is wrong you
+
+2152
+02:17:51,059 --> 02:17:55,760
+you still arrived at the correct answer
+
+2153
+02:17:55,979 --> 02:18:02,219
+okay so actually so you know
+
+2154
+02:17:59,099 --> 02:18:05,000
+you really need to think about the
+
+2155
+02:18:02,219 --> 02:18:05,000
+problem so
+
+2156
+02:18:08,639 --> 02:18:12,500
+what do you think about the problem so
+
+2157
+02:18:13,559 --> 02:18:18,139
+x y z x y z
+
+2158
+02:18:18,719 --> 02:18:21,719
+mod
+
+2159
+02:18:28,439 --> 02:18:32,660
+so here is our table
+
+2160
+02:18:34,679 --> 02:18:39,599
+okay
+
+2161
+02:18:36,240 --> 02:18:42,420
+so here is a table here is a key to find
+
+2162
+02:18:39,599 --> 02:18:43,559
+out what's going on let's let's make a
+
+2163
+02:18:42,420 --> 02:18:46,939
+copy
+
+2164
+02:18:43,559 --> 02:18:46,939
+and the
+
+2165
+02:18:50,519 --> 02:18:57,359
+so you don't really need to mod it here
+
+2166
+02:18:54,540 --> 02:19:00,660
+because you see the first two row is
+
+2167
+02:18:57,359 --> 02:19:05,540
+always the same zero zero zero zero zero
+
+2168
+02:19:00,660 --> 02:19:05,540
+one oh wait here's the difference
+
+2169
+02:19:11,760 --> 02:19:14,660
+what what
+
+2170
+02:19:18,260 --> 02:19:24,320
+zero one two so when it's zero two
+
+2171
+02:19:36,420 --> 02:19:44,760
+okay so you yeah so you don't want you
+
+2172
+02:19:40,080 --> 02:19:47,160
+definitely don't want to mod each
+
+2173
+02:19:44,760 --> 02:19:50,479
+you want to
+
+2174
+02:19:47,160 --> 02:19:50,479
+take their difference
+
+2175
+02:19:53,100 --> 02:19:57,840
+name plus two they mod okay let's try
+
+2176
+02:19:56,820 --> 02:20:01,020
+that
+
+2177
+02:19:57,840 --> 02:20:05,540
+so first of all here's the old result
+
+2178
+02:20:01,020 --> 02:20:05,540
+the new result is going to be
+
+2179
+02:20:13,800 --> 02:20:17,420
+okay so you don't want
+
+2180
+02:20:20,640 --> 02:20:25,740
+you want to x minus
+
+2181
+02:20:23,580 --> 02:20:28,260
+y minus X
+
+2182
+02:20:25,740 --> 02:20:30,180
+Plus 2.
+
+2183
+02:20:28,260 --> 02:20:33,359
+okay
+
+2184
+02:20:30,180 --> 02:20:35,880
+then U mod 2. so that you don't get
+
+2185
+02:20:33,359 --> 02:20:40,020
+negative numbers
+
+2186
+02:20:35,880 --> 02:20:42,840
+so the output will be zero
+
+2187
+02:20:40,020 --> 02:20:45,979
+one or two okay
+
+2188
+02:20:42,840 --> 02:20:45,979
+so let's try it
+
+2189
+02:20:46,439 --> 02:20:51,140
+zero
+
+2190
+02:20:48,600 --> 02:20:51,140
+wait
+
+2191
+02:20:53,220 --> 02:20:57,200
+there should be three outputs
+
+2192
+02:21:00,960 --> 02:21:09,600
+oh God this is so tricky
+
+2193
+02:21:06,000 --> 02:21:12,540
+there should be three outputs so in this
+
+2194
+02:21:09,600 --> 02:21:17,540
+case we only have two possible outputs
+
+2195
+02:21:12,540 --> 02:21:17,540
+zero and one therefore it's not correct
+
+2196
+02:21:20,819 --> 02:21:26,840
+so when is the secret you you need to
+
+2197
+02:21:23,760 --> 02:21:26,840
+add three I think
+
+2198
+02:21:29,160 --> 02:21:33,380
+God modular arithmetics
+
+2199
+02:21:42,840 --> 02:21:47,700
+the result should be three possible
+
+2200
+02:21:45,300 --> 02:21:50,840
+results so this is only
+
+2201
+02:21:47,700 --> 02:21:50,840
+this is also wrong
+
+2202
+02:21:59,520 --> 02:22:09,680
+so from 0 to 2 so X is zero one or two
+
+2203
+02:22:04,800 --> 02:22:13,040
+why why is also zero one or two
+
+2204
+02:22:09,680 --> 02:22:13,040
+and uh
+
+2205
+02:22:13,140 --> 02:22:17,240
+okay and uh
+
+2206
+02:22:18,800 --> 02:22:24,220
+[Music]
+
+2207
+02:22:26,060 --> 02:22:29,479
+oh God
+
+2208
+02:22:35,100 --> 02:22:44,639
+why why do we just have
+
+2209
+02:22:38,070 --> 02:22:44,639
+[Music]
+
+2210
+02:22:45,120 --> 02:22:54,920
+no comments probably zero watching now
+
+2211
+02:22:50,220 --> 02:22:54,920
+anyone still watching what do you say
+
+2212
+02:22:56,880 --> 02:22:59,920
+probably
+
+2213
+02:22:58,620 --> 02:23:03,600
+you are coding it
+
+2214
+02:22:59,920 --> 02:23:05,040
+[Music]
+
+2215
+02:23:03,600 --> 02:23:07,040
+so
+
+2216
+02:23:05,040 --> 02:23:07,040
+um
+
+2217
+02:23:12,840 --> 02:23:16,979
+so again I think it would be better if
+
+2218
+02:23:16,200 --> 02:23:19,740
+we
+
+2219
+02:23:16,979 --> 02:23:23,420
+do this again you know
+
+2220
+02:23:19,740 --> 02:23:23,420
+actually tabulate
+
+2221
+02:23:30,510 --> 02:23:36,560
+[Music]
+
+2222
+02:23:32,520 --> 02:23:36,560
+oh two won't be up but
+
+2223
+02:23:37,680 --> 02:23:45,680
+oh so we actually we should mod three
+
+2224
+02:23:40,740 --> 02:23:45,680
+right God the you know
+
+2225
+02:23:51,000 --> 02:23:53,899
+that's right
+
+2226
+02:23:54,260 --> 02:24:02,399
+let's see let's see our old result
+
+2227
+02:23:59,220 --> 02:24:06,859
+no our old result has three possible
+
+2228
+02:24:02,399 --> 02:24:06,859
+outcomes zero one and negative one
+
+2229
+02:24:10,080 --> 02:24:15,859
+so actually
+
+2230
+02:24:12,960 --> 02:24:15,859
+oh God
+
+2231
+02:24:17,340 --> 02:24:20,300
+that's
+
+2232
+02:24:21,600 --> 02:24:26,780
+that's let's go back to the mod
+
+2233
+02:24:29,640 --> 02:24:33,439
+what's your first comment
+
+2234
+02:24:47,160 --> 02:24:51,899
+oh Mark three okay
+
+2235
+02:24:49,859 --> 02:24:54,740
+that's right so you are saying we need
+
+2236
+02:24:51,899 --> 02:24:54,740
+to mod three
+
+2237
+02:24:56,880 --> 02:25:00,150
+okay that's okay you got the correct
+
+2238
+02:24:59,040 --> 02:25:02,479
+answer already
+
+2239
+02:25:00,150 --> 02:25:08,120
+[Laughter]
+
+2240
+02:25:02,479 --> 02:25:08,120
+let's just see there it is okay
+
+2241
+02:25:08,460 --> 02:25:14,700
+you are probably right
+
+2242
+02:25:11,520 --> 02:25:18,240
+tired of this problem
+
+2243
+02:25:14,700 --> 02:25:19,740
+so here yeah Mark three you don't need
+
+2244
+02:25:18,240 --> 02:25:21,899
+to add one
+
+2245
+02:25:19,740 --> 02:25:24,920
+so let's copy it
+
+2246
+02:25:21,899 --> 02:25:24,920
+and let's run
+
+2247
+02:25:25,200 --> 02:25:32,479
+uh language and it's open new one paste
+
+2248
+02:25:29,040 --> 02:25:32,479
+it there run it
+
+2249
+02:25:34,080 --> 02:25:38,359
+five seven three fifteen
+
+2250
+02:25:40,200 --> 02:25:46,319
+okay
+
+2251
+02:25:42,780 --> 02:25:48,240
+it's kind of right but the solution is
+
+2252
+02:25:46,319 --> 02:25:51,800
+correct but
+
+2253
+02:25:48,240 --> 02:25:51,800
+the numbers are different
+
+2254
+02:25:52,680 --> 02:25:57,660
+what a headache
+
+2255
+02:25:55,319 --> 02:26:00,479
+you know
+
+2256
+02:25:57,660 --> 02:26:03,359
+all this guessing
+
+2257
+02:26:00,479 --> 02:26:06,420
+is no good I really need to think about
+
+2258
+02:26:03,359 --> 02:26:10,080
+modular arithmetics
+
+2259
+02:26:06,420 --> 02:26:14,399
+so let's use this notation so
+
+2260
+02:26:10,080 --> 02:26:18,560
+possible number is zero
+
+2261
+02:26:14,399 --> 02:26:18,560
+mod 2 let's see
+
+2262
+02:26:20,720 --> 02:26:25,580
+zero mod 2 equals to
+
+2263
+02:26:28,380 --> 02:26:34,880
+zero okay
+
+2264
+02:26:30,899 --> 02:26:34,880
+one mod two is one
+
+2265
+02:26:34,979 --> 02:26:42,800
+two mod two is zero so that's no good
+
+2266
+02:26:39,120 --> 02:26:42,800
+let's try mod three
+
+2267
+02:26:43,260 --> 02:26:48,560
+um actually so it's easier it's so much
+
+2268
+02:26:45,720 --> 02:26:48,560
+easier if we
+
+2269
+02:27:56,340 --> 02:27:59,780
+okay let's do that
+
+2270
+02:28:06,859 --> 02:28:14,420
+very embarrassing problem so Mark 3 is
+
+2271
+02:28:11,399 --> 02:28:14,420
+the correct Behavior
+
+2272
+02:28:14,600 --> 02:28:19,680
+that's right I forgot of course
+
+2273
+02:28:16,979 --> 02:28:22,260
+obviously zero one two
+
+2274
+02:28:19,680 --> 02:28:25,859
+three possible numbers you want to mark
+
+2275
+02:28:22,260 --> 02:28:28,080
+three okay now once you mod three mod
+
+2276
+02:28:25,859 --> 02:28:32,580
+three is the correct
+
+2277
+02:28:28,080 --> 02:28:35,220
+answer okay so all these confusing [ __ ]
+
+2278
+02:28:32,580 --> 02:28:39,120
+Mark 2 is not correct answer so you want
+
+2279
+02:28:35,220 --> 02:28:40,979
+to mod three okay so now you know you
+
+2280
+02:28:39,120 --> 02:28:43,580
+want to mod three
+
+2281
+02:28:40,979 --> 02:28:43,580
+so
+
+2282
+02:28:44,100 --> 02:28:46,520
+so
+
+2283
+02:28:47,760 --> 02:28:53,760
+do you need to mod individual item or
+
+2284
+02:28:51,359 --> 02:28:56,220
+not you know I think you are probably
+
+2285
+02:28:53,760 --> 02:28:58,760
+right you already give you already gave
+
+2286
+02:28:56,220 --> 02:28:58,760
+the answer
+
+2287
+02:29:05,880 --> 02:29:12,020
+multiply by 3 assumes that loss is zero
+
+2288
+02:29:09,300 --> 02:29:12,020
+draw is
+
+2289
+02:29:13,680 --> 02:29:17,720
+One Wing is two
+
+2290
+02:29:18,000 --> 02:29:21,120
+that's right that's what we did here
+
+2291
+02:29:20,040 --> 02:29:24,180
+right
+
+2292
+02:29:21,120 --> 02:29:26,939
+so anyway so the first question you know
+
+2293
+02:29:24,180 --> 02:29:28,939
+I want to know is do we need to mod each
+
+2294
+02:29:26,939 --> 02:29:33,120
+number individually
+
+2295
+02:29:28,939 --> 02:29:35,460
+uh no because first of all it should be
+
+2296
+02:29:33,120 --> 02:29:37,920
+three not two okay
+
+2297
+02:29:35,460 --> 02:29:40,319
+second secondly
+
+2298
+02:29:37,920 --> 02:29:43,260
+you don't need to do it
+
+2299
+02:29:40,319 --> 02:29:45,960
+zero one two Mark three is still the
+
+2300
+02:29:43,260 --> 02:29:49,939
+same so you don't need this smart X
+
+2301
+02:29:45,960 --> 02:29:49,939
+smart y okay so let's just
+
+2302
+02:29:50,220 --> 02:29:54,660
+take them out
+
+2303
+02:29:52,020 --> 02:29:56,819
+okay so the outcome
+
+2304
+02:29:54,660 --> 02:29:59,960
+the outcome so
+
+2305
+02:29:56,819 --> 02:29:59,960
+so why
+
+2306
+02:30:00,979 --> 02:30:07,740
+minus X
+
+2307
+02:30:03,060 --> 02:30:11,760
+so you here let's add three so Y at
+
+2308
+02:30:07,740 --> 02:30:14,220
+three then minus X then
+
+2309
+02:30:11,760 --> 02:30:15,600
+mod 3.
+
+2310
+02:30:14,220 --> 02:30:18,920
+then
+
+2311
+02:30:15,600 --> 02:30:18,920
+you should have
+
+2312
+02:30:21,660 --> 02:30:25,220
+so we have to try that
+
+2313
+02:30:33,180 --> 02:30:38,340
+okay so like again you are probably
+
+2314
+02:30:35,460 --> 02:30:43,920
+right and you got you know I got the
+
+2315
+02:30:38,340 --> 02:30:46,800
+win last thing wrong loss is two
+
+2316
+02:30:43,920 --> 02:30:49,460
+okay okay you are probably right
+
+2317
+02:30:46,800 --> 02:30:49,460
+so
+
+2318
+02:30:51,920 --> 02:30:57,899
+yeah okay I get I see what you are
+
+2319
+02:30:54,840 --> 02:31:00,240
+saying you know you are probably right
+
+2320
+02:30:57,899 --> 02:31:02,580
+but for me to
+
+2321
+02:31:00,240 --> 02:31:04,200
+come out you know to do the correct code
+
+2322
+02:31:02,580 --> 02:31:08,300
+I have to think
+
+2323
+02:31:04,200 --> 02:31:13,740
+I have to think myself so anyway
+
+2324
+02:31:08,300 --> 02:31:17,220
+Bros so yeah so this is uh God tedious
+
+2325
+02:31:13,740 --> 02:31:18,780
+so here let's try let's try the code
+
+2326
+02:31:17,220 --> 02:31:20,220
+here
+
+2327
+02:31:18,780 --> 02:31:22,280
+so
+
+2328
+02:31:20,220 --> 02:31:22,280
+um
+
+2329
+02:31:24,479 --> 02:31:30,200
+so you don't need to mod individual
+
+2330
+02:31:28,920 --> 02:31:33,720
+number
+
+2331
+02:31:30,200 --> 02:31:38,040
+instead you just um
+
+2332
+02:31:33,720 --> 02:31:39,359
+let's see give an extra number here
+
+2333
+02:31:38,040 --> 02:31:41,580
+okay
+
+2334
+02:31:39,359 --> 02:31:45,560
+so here
+
+2335
+02:31:41,580 --> 02:31:45,560
+let's see what happens okay
+
+2336
+02:31:47,280 --> 02:31:49,520
+foreign
+
+2337
+02:31:53,780 --> 02:31:57,260
+so here
+
+2338
+02:32:05,580 --> 02:32:09,740
+what is this three what
+
+2339
+02:32:09,899 --> 02:32:19,500
+oh okay uh table form
+
+2340
+02:32:14,760 --> 02:32:21,120
+so zero zero zero okay zero one
+
+2341
+02:32:19,500 --> 02:32:24,920
+one
+
+2342
+02:32:21,120 --> 02:32:24,920
+this is the wing okay
+
+2343
+02:32:25,859 --> 02:32:33,660
+this is a win zero one one this is a win
+
+2344
+02:32:29,660 --> 02:32:36,359
+zero two two so two is loose
+
+2345
+02:32:33,660 --> 02:32:39,140
+you are correct okay
+
+2346
+02:32:36,359 --> 02:32:39,140
+and then
+
+2347
+02:32:40,319 --> 02:32:46,620
+two is loose one zero two that's loose
+
+2348
+02:32:43,500 --> 02:32:52,500
+one one zero let's draw
+
+2349
+02:32:46,620 --> 02:32:56,240
+one two one one means win so one is wing
+
+2350
+02:32:52,500 --> 02:32:56,240
+lose is 2.
+
+2351
+02:32:56,760 --> 02:33:01,740
+so basically you need to in order to
+
+2352
+02:32:59,640 --> 02:33:04,399
+make them the right order you have to
+
+2353
+02:33:01,740 --> 02:33:04,399
+cycle it
+
+2354
+02:33:07,800 --> 02:33:15,540
+so you have to cycle it so what you can
+
+2355
+02:33:10,859 --> 02:33:18,140
+do is just add one something like that
+
+2356
+02:33:15,540 --> 02:33:18,140
+and see
+
+2357
+02:33:20,220 --> 02:33:27,479
+add one in mod again so lose add one two
+
+2358
+02:33:24,300 --> 02:33:31,920
+add Y is three three more three is zero
+
+2359
+02:33:27,479 --> 02:33:34,680
+that's correct so so thank you
+
+2360
+02:33:31,920 --> 02:33:36,680
+so we all we have to do is
+
+2361
+02:33:34,680 --> 02:33:36,680
+um
+
+2362
+02:33:39,540 --> 02:33:45,479
+add one in mod okay so basically what we
+
+2363
+02:33:42,660 --> 02:33:48,260
+have to do is here so let's Okay and
+
+2364
+02:33:45,479 --> 02:33:48,260
+write a new one
+
+2365
+02:33:56,580 --> 02:34:02,180
+add one mod three again okay
+
+2366
+02:34:08,280 --> 02:34:10,760
+I think
+
+2367
+02:34:28,460 --> 02:34:32,520
+zero zero one
+
+2368
+02:34:30,600 --> 02:34:36,840
+let's draw
+
+2369
+02:34:32,520 --> 02:34:40,560
+0 1 0 1 is win two
+
+2370
+02:34:36,840 --> 02:34:43,500
+zero two Let's Lose 0.
+
+2371
+02:34:40,560 --> 02:34:46,399
+when you lose you got zero so no score
+
+2372
+02:34:43,500 --> 02:34:50,880
+that's right
+
+2373
+02:34:46,399 --> 02:34:54,780
+one zero means you lose so zero again
+
+2374
+02:34:50,880 --> 02:34:58,260
+one one is a draw so one
+
+2375
+02:34:54,780 --> 02:35:00,680
+one is one so one is draw so that is the
+
+2376
+02:34:58,260 --> 02:35:00,680
+correct
+
+2377
+02:35:01,200 --> 02:35:08,040
+solution
+
+2378
+02:35:03,300 --> 02:35:10,939
+mod twice [ __ ] [ __ ]
+
+2379
+02:35:08,040 --> 02:35:10,939
+so here
+
+2380
+02:35:14,819 --> 02:35:19,319
+that is the correct solution comment
+
+2381
+02:35:17,460 --> 02:35:21,660
+that out
+
+2382
+02:35:19,319 --> 02:35:24,780
+it's an outcome okay
+
+2383
+02:35:21,660 --> 02:35:28,560
+so I'll come so so now you don't even
+
+2384
+02:35:24,780 --> 02:35:32,899
+need a variable outcome anymore
+
+2385
+02:35:28,560 --> 02:35:32,899
+because it's just one
+
+2386
+02:35:33,180 --> 02:35:38,660
+you know so actually so this becomes
+
+2387
+02:35:35,520 --> 02:35:38,660
+much simpler
+
+2388
+02:35:39,120 --> 02:35:43,700
+that's just that
+
+2389
+02:35:40,859 --> 02:35:43,700
+that function
+
+2390
+02:35:44,120 --> 02:35:51,020
+with a pen
+
+2391
+02:35:46,260 --> 02:35:51,020
+okay so now let's let's try it
+
+2392
+02:35:51,479 --> 02:35:58,439
+copy or copy your
+
+2393
+02:35:55,260 --> 02:36:03,840
+new buffer paste it computed
+
+2394
+02:35:58,439 --> 02:36:08,520
+there it is eight six eight one six
+
+2395
+02:36:03,840 --> 02:36:11,359
+eight one six and result is 15 correct
+
+2396
+02:36:08,520 --> 02:36:11,359
+what the [ __ ]
+
+2397
+02:36:11,640 --> 02:36:16,800
+now let's get the
+
+2398
+02:36:14,220 --> 02:36:18,479
+the big input okay
+
+2399
+02:36:16,800 --> 02:36:24,020
+so
+
+2400
+02:36:18,479 --> 02:36:27,960
+copy that new buffer paste and uh
+
+2401
+02:36:24,020 --> 02:36:31,380
+xava mod and remove this [ __ ]
+
+2402
+02:36:27,960 --> 02:36:34,680
+and remove the input
+
+2403
+02:36:31,380 --> 02:36:37,819
+get the new input here
+
+2404
+02:36:34,680 --> 02:36:39,780
+paste it here that's our code okay
+
+2405
+02:36:37,819 --> 02:36:42,540
+select all
+
+2406
+02:36:39,780 --> 02:36:46,460
+back to Wolfram language let's open a
+
+2407
+02:36:42,540 --> 02:36:46,460
+new one paste it compute it
+
+2408
+02:36:49,500 --> 02:36:55,939
+back pain I need to now walk back and
+
+2409
+02:36:53,520 --> 02:36:55,939
+forth
+
+2410
+02:36:57,420 --> 02:37:04,340
+okay so now let's go to the bottom here
+
+2411
+02:37:01,260 --> 02:37:08,640
+is a result I'm just going to copy it
+
+2412
+02:37:04,340 --> 02:37:10,740
+and just challenge the [ __ ]
+
+2413
+02:37:08,640 --> 02:37:13,439
+paste
+
+2414
+02:37:10,740 --> 02:37:17,280
+submit to use
+
+2415
+02:37:13,439 --> 02:37:20,040
+no that's a great answer you you are one
+
+2416
+02:37:17,280 --> 02:37:23,780
+code star cursor to collection enough
+
+2417
+02:37:20,040 --> 02:37:23,780
+star fruit [ __ ]
+
+2418
+02:37:27,540 --> 02:37:32,220
+that's two hours of coding two hours and
+
+2419
+02:37:31,140 --> 02:37:34,979
+what
+
+2420
+02:37:32,220 --> 02:37:39,479
+one two three two hours almost three
+
+2421
+02:37:34,979 --> 02:37:43,080
+hours okay let's continue to part two
+
+2422
+02:37:39,479 --> 02:37:46,680
+the [ __ ] Advent of Coach [ __ ]
+
+2423
+02:37:43,080 --> 02:37:49,680
+uh the L finishes helping with the tent
+
+2424
+02:37:46,680 --> 02:37:51,960
+and sneaks back over to you
+
+2425
+02:37:49,680 --> 02:37:53,520
+anyway the second column says how the
+
+2426
+02:37:51,960 --> 02:37:56,580
+round needs to end
+
+2427
+02:37:53,520 --> 02:37:59,399
+X means you need to lose y means you
+
+2428
+02:37:56,580 --> 02:38:03,080
+need to end the round in a draw and Z
+
+2429
+02:37:59,399 --> 02:38:03,080
+means you need to win good luck
+
+2430
+02:38:03,720 --> 02:38:09,660
+right so it changes changes the meaning
+
+2431
+02:38:07,319 --> 02:38:11,399
+the total score is still calculated in
+
+2432
+02:38:09,660 --> 02:38:13,080
+the same way but now you need to figure
+
+2433
+02:38:11,399 --> 02:38:16,080
+out what shape
+
+2434
+02:38:13,080 --> 02:38:17,880
+to choose so the round ends as indicated
+
+2435
+02:38:16,080 --> 02:38:21,740
+now now God
+
+2436
+02:38:17,880 --> 02:38:26,220
+okay I think it's an interesting problem
+
+2437
+02:38:21,740 --> 02:38:28,859
+events of code quality programming
+
+2438
+02:38:26,220 --> 02:38:29,960
+problem and
+
+2439
+02:38:28,859 --> 02:38:33,300
+yeah
+
+2440
+02:38:29,960 --> 02:38:35,280
+okay thank you guys for watching
+
+2441
+02:38:33,300 --> 02:38:38,700
+I don't know if this is good video
+
+2442
+02:38:35,280 --> 02:38:43,800
+probably very shitty
+
+2443
+02:38:38,700 --> 02:38:46,680
+ah and uh that's it for today
+
+2444
+02:38:43,800 --> 02:38:49,920
+close to three hours I think
+
+2445
+02:38:46,680 --> 02:38:53,540
+bye guys and thank you Hefty buffer
+
+2446
+02:38:49,920 --> 02:38:53,540
+Hefty buffer who are you
+
+2447
+02:38:56,880 --> 02:39:03,060
+okay who else is saying things he said
+
+2448
+02:39:00,479 --> 02:39:07,520
+you know much time referred me to the
+
+2449
+02:39:03,060 --> 02:39:07,520
+new website yeah that's you know
+
+2450
+02:39:16,800 --> 02:39:19,760
+laughs
+
+2451
+02:39:27,840 --> 02:39:31,439
+okay that's it for today thank you guys
+
+2452
+02:39:30,180 --> 02:39:33,960
+for watching
+
+2453
+02:39:31,439 --> 02:39:36,120
+shutting down I'm gonna clean up and
+
+2454
+02:39:33,960 --> 02:39:39,359
+shut down okay
+
+2455
+02:39:36,120 --> 02:39:41,520
+so here's the input go to the talk show
+
+2456
+02:39:39,359 --> 02:39:44,100
+page
+
+2457
+02:39:41,520 --> 02:39:46,979
+here's the input I'm just going to talk
+
+2458
+02:39:44,100 --> 02:39:49,819
+show page and create a page that says
+
+2459
+02:39:46,979 --> 02:39:49,819
+input okay
+
+2460
+02:39:50,700 --> 02:39:58,280
+you just just save this
+
+2461
+02:39:53,939 --> 02:39:58,280
+okay don't not in temp
+
+2462
+02:39:58,560 --> 02:40:02,780
+here paste it save
+
+2463
+02:40:04,680 --> 02:40:09,140
+the event of code
+
+2464
+02:40:08,520 --> 02:40:12,840
+to
+
+2465
+02:40:09,140 --> 02:40:15,000
+input okay something like that save it
+
+2466
+02:40:12,840 --> 02:40:16,520
+drop to diet
+
+2467
+02:40:15,000 --> 02:40:20,399
+add
+
+2468
+02:40:16,520 --> 02:40:24,060
+underscore instead of space low line to
+
+2469
+02:40:20,399 --> 02:40:27,060
+it then modify the buffer
+
+2470
+02:40:24,060 --> 02:40:31,740
+change the file name add the text okay
+
+2471
+02:40:27,060 --> 02:40:34,979
+commit open it that's correct copy the
+
+2472
+02:40:31,740 --> 02:40:39,300
+file path close it close it paste the
+
+2473
+02:40:34,979 --> 02:40:43,140
+file path linkify linkify and now let's
+
+2474
+02:40:39,300 --> 02:40:45,540
+try to open it again on oh
+
+2475
+02:40:43,140 --> 02:40:48,359
+open and again that's correct that's so
+
+2476
+02:40:45,540 --> 02:40:49,620
+that's the input now go back to our code
+
+2477
+02:40:48,359 --> 02:40:54,300
+here
+
+2478
+02:40:49,620 --> 02:40:56,580
+now this input is too long let's
+
+2479
+02:40:54,300 --> 02:40:58,680
+let's get back to the original input
+
+2480
+02:40:56,580 --> 02:41:02,399
+Okay so
+
+2481
+02:40:58,680 --> 02:41:04,260
+so today's fruit it finally is just one
+
+2482
+02:41:02,399 --> 02:41:07,200
+this simple
+
+2483
+02:41:04,260 --> 02:41:09,300
+uh computation this simple function does
+
+2484
+02:41:07,200 --> 02:41:12,780
+it okay
+
+2485
+02:41:09,300 --> 02:41:14,880
+and uh yeah this simple this is a
+
+2486
+02:41:12,780 --> 02:41:16,680
+solution okay it takes a while and
+
+2487
+02:41:14,880 --> 02:41:18,540
+that's only part one we haven't done
+
+2488
+02:41:16,680 --> 02:41:22,620
+part two yet
+
+2489
+02:41:18,540 --> 02:41:25,080
+uh sad and this part you know lots of
+
+2490
+02:41:22,620 --> 02:41:28,319
+nesting because Wolfram language is like
+
+2491
+02:41:25,080 --> 02:41:32,000
+lisp and but you don't have to write all
+
+2492
+02:41:28,319 --> 02:41:35,160
+this nesting so we can do a lot clean up
+
+2493
+02:41:32,000 --> 02:41:38,700
+but uh
+
+2494
+02:41:35,160 --> 02:41:42,600
+okay good close
+
+2495
+02:41:38,700 --> 02:41:46,380
+yeah so uh oh yeah so we need to clean
+
+2496
+02:41:42,600 --> 02:41:48,899
+up this okay here is the
+
+2497
+02:41:46,380 --> 02:41:53,600
+Hefty buffers comment
+
+2498
+02:41:48,899 --> 02:41:53,600
+uh fantastic Hefty buffer
+
+2499
+02:41:53,640 --> 02:41:57,899
+um
+
+2500
+02:41:55,319 --> 02:42:02,240
+so I have tip of a great suggestion
+
+2501
+02:41:57,899 --> 02:42:05,340
+solve the problem and here is like
+
+2502
+02:42:02,240 --> 02:42:09,740
+exploration about the mod you know
+
+2503
+02:42:05,340 --> 02:42:09,740
+finally you know you have to so
+
+2504
+02:42:10,319 --> 02:42:15,319
+I'm just mumbling okay so when you do
+
+2505
+02:42:12,899 --> 02:42:19,080
+lots of programming
+
+2506
+02:42:15,319 --> 02:42:20,399
+oftentimes trial and error doesn't get
+
+2507
+02:42:19,080 --> 02:42:23,460
+too far
+
+2508
+02:42:20,399 --> 02:42:25,560
+so when you do several trials and errors
+
+2509
+02:42:23,460 --> 02:42:27,420
+you find you still you know that happens
+
+2510
+02:42:25,560 --> 02:42:29,760
+to me a lot
+
+2511
+02:42:27,420 --> 02:42:31,920
+like you find you you you think the
+
+2512
+02:42:29,760 --> 02:42:34,680
+answer is right there so all you have to
+
+2513
+02:42:31,920 --> 02:42:37,140
+do is just change something hello George
+
+2514
+02:42:34,680 --> 02:42:39,479
+it's been you know I've been coding this
+
+2515
+02:42:37,140 --> 02:42:42,660
+for the past three hours I'm about to
+
+2516
+02:42:39,479 --> 02:42:45,780
+shut down so when you we you know when
+
+2517
+02:42:42,660 --> 02:42:49,080
+you think the answer is right there but
+
+2518
+02:42:45,780 --> 02:42:51,540
+you haven't thoroughly thought out about
+
+2519
+02:42:49,080 --> 02:42:53,580
+the logic
+
+2520
+02:42:51,540 --> 02:42:56,700
+some programming problems are like like
+
+2521
+02:42:53,580 --> 02:42:58,620
+that in real life so but you think the
+
+2522
+02:42:56,700 --> 02:43:01,140
+answer is right there so maybe you just
+
+2523
+02:42:58,620 --> 02:43:03,899
+add one or change the loop you know
+
+2524
+02:43:01,140 --> 02:43:05,220
+limit you know add y minus one something
+
+2525
+02:43:03,899 --> 02:43:07,620
+and
+
+2526
+02:43:05,220 --> 02:43:10,560
+sometimes you still get wrong answers
+
+2527
+02:43:07,620 --> 02:43:14,899
+and you struggle for hours
+
+2528
+02:43:10,560 --> 02:43:20,120
+and eventually finally you are forced to
+
+2529
+02:43:14,899 --> 02:43:21,979
+really really think about your logic
+
+2530
+02:43:20,120 --> 02:43:25,080
+you know
+
+2531
+02:43:21,979 --> 02:43:27,600
+then you realize exactly what needs to
+
+2532
+02:43:25,080 --> 02:43:30,359
+be you know I think mod is a good
+
+2533
+02:43:27,600 --> 02:43:33,420
+example because I do have uh
+
+2534
+02:43:30,359 --> 02:43:36,439
+from past experience that happened
+
+2535
+02:43:33,420 --> 02:43:36,439
+so you know
+
+2536
+02:43:37,859 --> 02:43:42,660
+yeah okay so that's that's so here's a
+
+2537
+02:43:40,920 --> 02:43:47,640
+test code
+
+2538
+02:43:42,660 --> 02:43:49,620
+let's copy that and to talk show let's
+
+2539
+02:43:47,640 --> 02:43:51,899
+add a wolf
+
+2540
+02:43:49,620 --> 02:43:54,960
+so we are shutting down
+
+2541
+02:43:51,899 --> 02:43:57,540
+and here is by the way so George here is
+
+2542
+02:43:54,960 --> 02:43:59,280
+the Wolfram language solution so let's
+
+2543
+02:43:57,540 --> 02:44:02,520
+pop it back
+
+2544
+02:43:59,280 --> 02:44:04,560
+let's syntax color it
+
+2545
+02:44:02,520 --> 02:44:07,680
+and show in browser
+
+2546
+02:44:04,560 --> 02:44:11,880
+on a second syntax color the whole thing
+
+2547
+02:44:07,680 --> 02:44:15,479
+showing browser so here is today's talk
+
+2548
+02:44:11,880 --> 02:44:19,859
+show we are trying to do
+
+2549
+02:44:15,479 --> 02:44:24,420
+Advent of code problem number two after
+
+2550
+02:44:19,859 --> 02:44:28,979
+three hours with Hefty buffers help we
+
+2551
+02:44:24,420 --> 02:44:32,280
+solved it uh and uh
+
+2552
+02:44:28,979 --> 02:44:35,640
+here is a result in Wolfram language
+
+2553
+02:44:32,280 --> 02:44:38,220
+and during these three hours we
+
+2554
+02:44:35,640 --> 02:44:39,840
+you know the first 40 minutes I was
+
+2555
+02:44:38,220 --> 02:44:42,840
+talking about something else about
+
+2556
+02:44:39,840 --> 02:44:44,520
+programming languages but then
+
+2557
+02:44:42,840 --> 02:44:48,300
+here's uh
+
+2558
+02:44:44,520 --> 02:44:49,560
+you know uh notes when we think about
+
+2559
+02:44:48,300 --> 02:44:53,280
+the problem
+
+2560
+02:44:49,560 --> 02:44:55,319
+so we have several notes uh eventually
+
+2561
+02:44:53,280 --> 02:44:58,080
+we got it right
+
+2562
+02:44:55,319 --> 02:45:00,240
+and that's only first part of the
+
+2563
+02:44:58,080 --> 02:45:01,500
+problem there's also there's the second
+
+2564
+02:45:00,240 --> 02:45:04,520
+part
+
+2565
+02:45:01,500 --> 02:45:04,520
+second part
+
+2566
+02:45:04,920 --> 02:45:09,780
+well that's a lot that's gonna be more
+
+2567
+02:45:07,740 --> 02:45:12,240
+thinking to do so
+
+2568
+02:45:09,780 --> 02:45:15,780
+but anyway so now we have this code
+
+2569
+02:45:12,240 --> 02:45:20,760
+that's a solution what I want to do is I
+
+2570
+02:45:15,780 --> 02:45:22,880
+want to you know why not I want to just
+
+2571
+02:45:20,760 --> 02:45:27,720
+I want to
+
+2572
+02:45:22,880 --> 02:45:29,460
+uh elegantify this code so to you know
+
+2573
+02:45:27,720 --> 02:45:32,420
+this is wolfam language
+
+2574
+02:45:29,460 --> 02:45:32,420
+so I can
+
+2575
+02:45:32,580 --> 02:45:38,520
+make it more elegant okay let's see
+
+2576
+02:45:35,939 --> 02:45:40,620
+actually in that case there's not much
+
+2577
+02:45:38,520 --> 02:45:42,060
+we can do that's that's it
+
+2578
+02:45:40,620 --> 02:45:44,960
+yeah
+
+2579
+02:45:42,060 --> 02:45:48,060
+there's no
+
+2580
+02:45:44,960 --> 02:45:50,040
+elegant vacation you know you can make
+
+2581
+02:45:48,060 --> 02:45:51,899
+it one line
+
+2582
+02:45:50,040 --> 02:45:53,960
+but
+
+2583
+02:45:51,899 --> 02:45:53,960
+um
+
+2584
+02:45:54,359 --> 02:46:00,960
+yeah uh you can replace the map by a
+
+2585
+02:45:58,380 --> 02:46:06,840
+shortcut syntax but that's
+
+2586
+02:46:00,960 --> 02:46:10,740
+that doesn't do much okay and uh
+
+2587
+02:46:06,840 --> 02:46:13,920
+okay so let's not do that then
+
+2588
+02:46:10,740 --> 02:46:15,420
+then about the modular arithmetics we
+
+2589
+02:46:13,920 --> 02:46:17,280
+can also
+
+2590
+02:46:15,420 --> 02:46:20,600
+go back to
+
+2591
+02:46:17,280 --> 02:46:20,600
+one based
+
+2592
+02:46:21,420 --> 02:46:28,500
+thing yeah so instead of 0 1 2 we can go
+
+2593
+02:46:26,160 --> 02:46:32,640
+back to one two three
+
+2594
+02:46:28,500 --> 02:46:34,560
+and that means we'll change something
+
+2595
+02:46:32,640 --> 02:46:38,220
+here
+
+2596
+02:46:34,560 --> 02:46:40,399
+you know more thinking but let's not do
+
+2597
+02:46:38,220 --> 02:46:40,399
+that
+
+2598
+02:46:41,100 --> 02:46:52,040
+so okay so here is a result bye guys
+
+2599
+02:46:46,280 --> 02:46:52,040
+yeah so let's remove the this remove
+
+2600
+02:46:54,960 --> 02:46:59,420
+why why is it more
+
+2601
+02:46:56,939 --> 02:46:59,420
+what
+
+2602
+02:47:20,939 --> 02:47:25,460
+yeah tired three hours bye
+

@@ -1,0 +1,6312 @@
+1
+00:00:10,400 --> 00:00:13,759
+good morning everyone
+
+2
+00:00:11,519 --> 00:00:16,080
+welcome to another episode of sun talk
+
+3
+00:00:13,759 --> 00:00:18,000
+show today we're gonna talk about mufam
+
+4
+00:00:16,080 --> 00:00:21,119
+language mathematica
+
+5
+00:00:18,000 --> 00:00:23,600
+lots of interesting things and uh so
+
+6
+00:00:21,119 --> 00:00:24,640
+it's mostly gonna be woofing language uh
+
+7
+00:00:23,600 --> 00:00:27,680
+post your questions
+
+8
+00:00:24,640 --> 00:00:30,640
+in in the chat box
+
+9
+00:00:27,680 --> 00:00:32,719
+and uh so we i'm going to show i'm going
+
+10
+00:00:30,640 --> 00:00:36,160
+to do some demo of wufang language
+
+11
+00:00:32,719 --> 00:00:39,360
+mathematica and i'm going to give you
+
+12
+00:00:36,160 --> 00:00:40,480
+a basic tutorial for programmers how to
+
+13
+00:00:39,360 --> 00:00:42,879
+program mathematica
+
+14
+00:00:40,480 --> 00:00:44,160
+mathematica is huge you know you know
+
+15
+00:00:42,879 --> 00:00:46,719
+now it's got 6
+
+16
+00:00:44,160 --> 00:00:47,920
+000 functions building you don't need to
+
+17
+00:00:46,719 --> 00:00:50,640
+load any libraries
+
+18
+00:00:47,920 --> 00:00:52,160
+6 000 artificial intelligence uh
+
+19
+00:00:50,640 --> 00:00:56,320
+functions building
+
+20
+00:00:52,160 --> 00:00:58,079
+uh and you know uh so i'm going to
+
+21
+00:00:56,320 --> 00:00:59,920
+so i'm going to first of all i'm going
+
+22
+00:00:58,079 --> 00:01:00,960
+to tell you how to get wufang language
+
+23
+00:00:59,920 --> 00:01:05,600
+for free
+
+24
+00:01:00,960 --> 00:01:06,000
+and uh um and there are three videos i
+
+25
+00:01:05,600 --> 00:01:08,080
+did
+
+26
+00:01:06,000 --> 00:01:09,600
+before on wolfram language on the on the
+
+27
+00:01:08,080 --> 00:01:12,960
+nature of the wufang language
+
+28
+00:01:09,600 --> 00:01:14,159
+and you know mostly my audience you guys
+
+29
+00:01:12,960 --> 00:01:16,479
+are programmers that's
+
+30
+00:01:14,159 --> 00:01:17,520
+that's what i'm uh that's my topic it's
+
+31
+00:01:16,479 --> 00:01:19,680
+going to about i'm
+
+32
+00:01:17,520 --> 00:01:21,200
+talking about um language for
+
+33
+00:01:19,680 --> 00:01:23,759
+programmers
+
+34
+00:01:21,200 --> 00:01:25,280
+so you know you can ask me questions in
+
+35
+00:01:23,759 --> 00:01:28,400
+comparison to python
+
+36
+00:01:25,280 --> 00:01:30,320
+lisp you know things like that uh and
+
+37
+00:01:28,400 --> 00:01:32,479
+so i'm going to so i did three videos
+
+38
+00:01:30,320 --> 00:01:33,520
+before check them out in the past month
+
+39
+00:01:32,479 --> 00:01:35,600
+you know
+
+40
+00:01:33,520 --> 00:01:36,960
+it's on my youtube just search for my
+
+41
+00:01:35,600 --> 00:01:39,920
+name and mathematica
+
+42
+00:01:36,960 --> 00:01:41,280
+or ufam language so i'm going to show
+
+43
+00:01:39,920 --> 00:01:44,399
+then i'm going to show you
+
+44
+00:01:41,280 --> 00:01:47,600
+um a very interesting thing about
+
+45
+00:01:44,399 --> 00:01:50,880
+uh about this
+
+46
+00:01:47,600 --> 00:01:53,840
+contour plot plot okay this is a
+
+47
+00:01:50,880 --> 00:01:55,280
+this is a problem in a computational
+
+48
+00:01:53,840 --> 00:01:57,600
+geometry
+
+49
+00:01:55,280 --> 00:01:59,439
+and uh it's very interesting because you
+
+50
+00:01:57,600 --> 00:02:02,000
+can try to implement this
+
+51
+00:01:59,439 --> 00:02:03,439
+in in your favorite language in python
+
+52
+00:02:02,000 --> 00:02:06,079
+you know
+
+53
+00:02:03,439 --> 00:02:06,719
+with ai or whatever in golan in scheme
+
+54
+00:02:06,079 --> 00:02:08,720
+list
+
+55
+00:02:06,719 --> 00:02:10,959
+you know you can try you know and you
+
+56
+00:02:08,720 --> 00:02:13,120
+you of course you need a graphics
+
+57
+00:02:10,959 --> 00:02:14,720
+uh library or something to do this but
+
+58
+00:02:13,120 --> 00:02:17,280
+this is a very
+
+59
+00:02:14,720 --> 00:02:18,400
+hard problem okay and it's very easy to
+
+60
+00:02:17,280 --> 00:02:22,080
+understand i'm going to
+
+61
+00:02:18,400 --> 00:02:22,720
+explain and show you so uh then i'm
+
+62
+00:02:22,080 --> 00:02:25,360
+going to
+
+63
+00:02:22,720 --> 00:02:25,840
+so basic tutorial on wolfen language and
+
+64
+00:02:25,360 --> 00:02:27,840
+i'm
+
+65
+00:02:25,840 --> 00:02:29,040
+also going to show you uh you know
+
+66
+00:02:27,840 --> 00:02:32,400
+wolfram language is
+
+67
+00:02:29,040 --> 00:02:36,080
+tremendous huge um
+
+68
+00:02:32,400 --> 00:02:38,800
+uh wolfram language doc okay
+
+69
+00:02:36,080 --> 00:02:39,840
+it's 6 000 functions i'm going to show
+
+70
+00:02:38,800 --> 00:02:42,480
+you
+
+71
+00:02:39,840 --> 00:02:44,560
+how to learn it you know you know like
+
+72
+00:02:42,480 --> 00:02:46,319
+how is the tutorial i mean their
+
+73
+00:02:44,560 --> 00:02:48,160
+documentation structured
+
+74
+00:02:46,319 --> 00:02:50,000
+you know you know one of one of the
+
+75
+00:02:48,160 --> 00:02:52,160
+interesting questions as a
+
+76
+00:02:50,000 --> 00:02:53,680
+technical writer documentation writer
+
+77
+00:02:52,160 --> 00:02:55,840
+you know if you are a programmer
+
+78
+00:02:53,680 --> 00:02:57,280
+you read about documentation in python
+
+79
+00:02:55,840 --> 00:02:59,120
+language in golan
+
+80
+00:02:57,280 --> 00:03:01,120
+in this you know each one has their
+
+81
+00:02:59,120 --> 00:03:04,720
+different documentation
+
+82
+00:03:01,120 --> 00:03:08,159
+writing style and style
+
+83
+00:03:04,720 --> 00:03:10,319
+and uh uh
+
+84
+00:03:08,159 --> 00:03:12,319
+yeah they have you know pearl python
+
+85
+00:03:10,319 --> 00:03:14,640
+ruby they all have different styles and
+
+86
+00:03:12,319 --> 00:03:18,159
+they're you know java for example
+
+87
+00:03:14,640 --> 00:03:19,760
+uh with the javadoc so so one of the
+
+88
+00:03:18,159 --> 00:03:21,760
+interesting problem
+
+89
+00:03:19,760 --> 00:03:23,519
+is about organization and how do you
+
+90
+00:03:21,760 --> 00:03:25,519
+specify a function you know
+
+91
+00:03:23,519 --> 00:03:27,280
+for example if you have a function you
+
+92
+00:03:25,519 --> 00:03:29,200
+know it takes several arguments
+
+93
+00:03:27,280 --> 00:03:30,400
+and some of the arguments are optional
+
+94
+00:03:29,200 --> 00:03:32,159
+how do you
+
+95
+00:03:30,400 --> 00:03:33,599
+you know write it how do you present
+
+96
+00:03:32,159 --> 00:03:35,280
+that you know
+
+97
+00:03:33,599 --> 00:03:37,519
+in different programming languages they
+
+98
+00:03:35,280 --> 00:03:39,360
+all have different styles and so
+
+99
+00:03:37,519 --> 00:03:41,360
+and one of the interesting problem for
+
+100
+00:03:39,360 --> 00:03:44,480
+wolfen language is that you have
+
+101
+00:03:41,360 --> 00:03:47,360
+6 000 functions built in
+
+102
+00:03:44,480 --> 00:03:48,799
+so you know how do you categorize it for
+
+103
+00:03:47,360 --> 00:03:50,640
+example in java
+
+104
+00:03:48,799 --> 00:03:51,840
+you know you know you know you know in
+
+105
+00:03:50,640 --> 00:03:55,040
+if you are a
+
+106
+00:03:51,840 --> 00:03:56,640
+programmer for java or python
+
+107
+00:03:55,040 --> 00:03:58,080
+or golan you know each one have
+
+108
+00:03:56,640 --> 00:03:59,519
+different style how do you find your
+
+109
+00:03:58,080 --> 00:04:02,480
+function you want
+
+110
+00:03:59,519 --> 00:04:03,680
+so for example in java they categorize
+
+111
+00:04:02,480 --> 00:04:06,879
+everything into a
+
+112
+00:04:03,680 --> 00:04:11,439
+object tree kind of so you have the left
+
+113
+00:04:06,879 --> 00:04:12,879
+panel of interfaces and objects and for
+
+114
+00:04:11,439 --> 00:04:14,879
+python it's a mess
+
+115
+00:04:12,879 --> 00:04:16,239
+for php you just search for the function
+
+116
+00:04:14,879 --> 00:04:18,720
+name or your or
+
+117
+00:04:16,239 --> 00:04:20,959
+what you try to do array you know take
+
+118
+00:04:18,720 --> 00:04:23,360
+elements of array for php
+
+119
+00:04:20,959 --> 00:04:24,560
+uh usually you'll find it right away and
+
+120
+00:04:23,360 --> 00:04:26,160
+for emac list
+
+121
+00:04:24,560 --> 00:04:28,479
+for example the documentation
+
+122
+00:04:26,160 --> 00:04:30,240
+organization is hell
+
+123
+00:04:28,479 --> 00:04:32,160
+basically they want you to read from the
+
+124
+00:04:30,240 --> 00:04:34,240
+beginning page to the end
+
+125
+00:04:32,160 --> 00:04:36,720
+yeah very hard to find exactly what you
+
+126
+00:04:34,240 --> 00:04:38,320
+need so different styles you know
+
+127
+00:04:36,720 --> 00:04:40,320
+so one of the problem in writing a
+
+128
+00:04:38,320 --> 00:04:43,440
+documentation for programming language
+
+129
+00:04:40,320 --> 00:04:45,280
+is how do you organize or
+
+130
+00:04:43,440 --> 00:04:47,440
+you know organize your functions you
+
+131
+00:04:45,280 --> 00:04:48,240
+know some you know this fairly complex
+
+132
+00:04:47,440 --> 00:04:49,600
+because sometimes
+
+133
+00:04:48,240 --> 00:04:51,360
+they you know you have building
+
+134
+00:04:49,600 --> 00:04:54,720
+variables sometimes you have
+
+135
+00:04:51,360 --> 00:04:56,639
+um you know functions
+
+136
+00:04:54,720 --> 00:04:58,479
+sometimes the function belongs to in
+
+137
+00:04:56,639 --> 00:05:00,320
+another library so you have you know
+
+138
+00:04:58,479 --> 00:05:02,080
+default libraries come with a language
+
+139
+00:05:00,320 --> 00:05:06,000
+such as python so-called
+
+140
+00:05:02,080 --> 00:05:06,800
+battery included so if python is battery
+
+141
+00:05:06,000 --> 00:05:09,360
+included
+
+142
+00:05:06,800 --> 00:05:11,120
+then wufang language is the whole earth
+
+143
+00:05:09,360 --> 00:05:13,360
+included
+
+144
+00:05:11,120 --> 00:05:14,400
+you know so six thousand functions how
+
+145
+00:05:13,360 --> 00:05:17,280
+do you
+
+146
+00:05:14,400 --> 00:05:18,400
+you know you know write a documentation
+
+147
+00:05:17,280 --> 00:05:20,320
+for them so that
+
+148
+00:05:18,400 --> 00:05:24,000
+things are easy to find i'm gonna show
+
+149
+00:05:20,320 --> 00:05:26,320
+you how uh to go about because nobody
+
+150
+00:05:24,000 --> 00:05:28,639
+yeah even including stefan wolfham the
+
+151
+00:05:26,320 --> 00:05:31,280
+guy who created language you know
+
+152
+00:05:28,639 --> 00:05:33,039
+made half of the you know a lot a lot of
+
+153
+00:05:31,280 --> 00:05:35,440
+the functions he
+
+154
+00:05:33,039 --> 00:05:37,759
+may not remember and don't use you know
+
+155
+00:05:35,440 --> 00:05:39,680
+because you know it has become very few
+
+156
+00:05:37,759 --> 00:05:42,320
+huge
+
+157
+00:05:39,680 --> 00:05:42,800
+and uh so how do you how do you go about
+
+158
+00:05:42,320 --> 00:05:44,960
+uh
+
+159
+00:05:42,800 --> 00:05:46,479
+learning the wufan language and i'm also
+
+160
+00:05:44,960 --> 00:05:47,840
+going to tell you which
+
+161
+00:05:46,479 --> 00:05:49,280
+there you know there are quite a few
+
+162
+00:05:47,840 --> 00:05:50,639
+books on wolfen language there are
+
+163
+00:05:49,280 --> 00:05:53,199
+tutorials i'm
+
+164
+00:05:50,639 --> 00:05:54,479
+going to tell you which one i recommend
+
+165
+00:05:53,199 --> 00:05:56,560
+and
+
+166
+00:05:54,479 --> 00:05:58,400
+so then i'm going to give you a basic
+
+167
+00:05:56,560 --> 00:06:01,120
+introduction to from language
+
+168
+00:05:58,400 --> 00:06:01,919
+i'm going to go fast today okay to focus
+
+169
+00:06:01,120 --> 00:06:04,160
+on this
+
+170
+00:06:01,919 --> 00:06:05,360
+and i'm going to show you type settings
+
+171
+00:06:04,160 --> 00:06:08,319
+in mathematica
+
+172
+00:06:05,360 --> 00:06:08,880
+some synthetical features how how often
+
+173
+00:06:08,319 --> 00:06:12,160
+language
+
+174
+00:06:08,880 --> 00:06:14,639
+is um shares the nature of lisp
+
+175
+00:06:12,160 --> 00:06:15,600
+or the lisp characteristics okay and
+
+176
+00:06:14,639 --> 00:06:18,880
+that's about it and
+
+177
+00:06:15,600 --> 00:06:21,039
+i'm yeah and also you can
+
+178
+00:06:18,880 --> 00:06:22,960
+find a notebook you know what is the
+
+179
+00:06:21,039 --> 00:06:24,479
+notebook uh how it is
+
+180
+00:06:22,960 --> 00:06:26,080
+you know in fact you can think of
+
+181
+00:06:24,479 --> 00:06:29,520
+notebook is
+
+182
+00:06:26,080 --> 00:06:32,800
+uh a magnet uh it's like a org mod you
+
+183
+00:06:29,520 --> 00:06:35,919
+know my my audience like oaks oak mod
+
+184
+00:06:32,800 --> 00:06:38,080
+language is one magnitude beyond that
+
+185
+00:06:35,919 --> 00:06:40,560
+it's just like oak mod you know but it's
+
+186
+00:06:38,080 --> 00:06:42,880
+one magnitude beyond you can evaluate
+
+187
+00:06:40,560 --> 00:06:43,840
+uh evaluate code you can create headers
+
+188
+00:06:42,880 --> 00:06:45,600
+and footers you have
+
+189
+00:06:43,840 --> 00:06:46,960
+images and so on and including
+
+190
+00:06:45,600 --> 00:06:49,919
+animations and
+
+191
+00:06:46,960 --> 00:06:50,720
+synthesizer yeah yes you have functions
+
+192
+00:06:49,919 --> 00:06:52,880
+that creates
+
+193
+00:06:50,720 --> 00:06:54,479
+sounds you know you give a a wave
+
+194
+00:06:52,880 --> 00:06:58,400
+function for a sound you hear
+
+195
+00:06:54,479 --> 00:06:59,840
+play it so six six thousand functions
+
+196
+00:06:58,400 --> 00:07:01,680
+you know one way to
+
+197
+00:06:59,840 --> 00:07:03,840
+uh characterize language languages
+
+198
+00:07:01,680 --> 00:07:06,960
+saying you know it's a ai
+
+199
+00:07:03,840 --> 00:07:08,960
+it uh it's a ai programming language
+
+200
+00:07:06,960 --> 00:07:10,800
+okay it's an ai
+
+201
+00:07:08,960 --> 00:07:12,960
+building ai programming language you can
+
+202
+00:07:10,800 --> 00:07:16,160
+think of uh it as that
+
+203
+00:07:12,960 --> 00:07:18,160
+in fact it has a natural voice natural
+
+204
+00:07:16,160 --> 00:07:19,039
+language recognition so instead of
+
+205
+00:07:18,160 --> 00:07:22,240
+typing
+
+206
+00:07:19,039 --> 00:07:25,199
+you know instead of typing code
+
+207
+00:07:22,240 --> 00:07:26,800
+i never actually use this function but
+
+208
+00:07:25,199 --> 00:07:30,319
+let's try it okay plot
+
+209
+00:07:26,800 --> 00:07:32,880
+sign okay let's magnify
+
+210
+00:07:30,319 --> 00:07:33,440
+natural language recognition okay so
+
+211
+00:07:32,880 --> 00:07:36,479
+that's what
+
+212
+00:07:33,440 --> 00:07:38,880
+you know suppose this will work let's
+
+213
+00:07:36,479 --> 00:07:38,880
+try it
+
+214
+00:07:40,000 --> 00:07:46,160
+okay actually uh yes so how how do you
+
+215
+00:07:44,000 --> 00:07:49,520
+actually okay you just click on that
+
+216
+00:07:46,160 --> 00:07:49,520
+indeed fantastic
+
+217
+00:07:49,680 --> 00:07:56,639
+what wait where's the output
+
+218
+00:07:53,039 --> 00:08:02,000
+uh this is this is
+
+219
+00:07:56,639 --> 00:08:02,000
+okay wait so actually from what i know
+
+220
+00:08:03,039 --> 00:08:08,639
+uh sign so cut that you don't need you
+
+221
+00:08:06,720 --> 00:08:11,680
+don't want to evaluate okay
+
+222
+00:08:08,639 --> 00:08:14,720
+paste let's try that
+
+223
+00:08:11,680 --> 00:08:17,280
+ah what's going on
+
+224
+00:08:14,720 --> 00:08:19,039
+okay maybe i need to restart mathematica
+
+225
+00:08:17,280 --> 00:08:23,120
+let's try again okay
+
+226
+00:08:19,039 --> 00:08:26,319
+uh evaluation quit kernel
+
+227
+00:08:23,120 --> 00:08:27,919
+quit local kernel yes so that you know
+
+228
+00:08:26,319 --> 00:08:31,280
+maybe i did something that
+
+229
+00:08:27,919 --> 00:08:35,360
+screwed up things mathematica
+
+230
+00:08:31,280 --> 00:08:41,839
+so uh let's do 1 plus
+
+231
+00:08:35,360 --> 00:08:41,839
+3 plus 2 okay
+
+232
+00:08:43,200 --> 00:08:50,480
+okay uh the kernel began
+
+233
+00:08:46,800 --> 00:08:54,959
+let's magnify a bit okay so
+
+234
+00:08:50,480 --> 00:08:58,000
+now i want to use natural language
+
+235
+00:08:54,959 --> 00:09:02,240
+recognition okay plot
+
+236
+00:08:58,000 --> 00:09:03,839
+plot sine plot cosine okay cosine let's
+
+237
+00:09:02,240 --> 00:09:08,720
+see
+
+238
+00:09:03,839 --> 00:09:11,920
+what happens
+
+239
+00:09:08,720 --> 00:09:13,760
+okay so i never used this before
+
+240
+00:09:11,920 --> 00:09:16,240
+so it's telling you you know it's
+
+241
+00:09:13,760 --> 00:09:18,560
+interpret interpreting
+
+242
+00:09:16,240 --> 00:09:20,080
+the meaning of plus sign and it gives
+
+243
+00:09:18,560 --> 00:09:23,360
+this result
+
+244
+00:09:20,080 --> 00:09:24,000
+and this result is supposed supposed to
+
+245
+00:09:23,360 --> 00:09:27,519
+be the
+
+246
+00:09:24,000 --> 00:09:29,360
+syntax for uh wufang language to plot
+
+247
+00:09:27,519 --> 00:09:32,080
+cosine so let me just
+
+248
+00:09:29,360 --> 00:09:34,839
+copy that so you just click on that it
+
+249
+00:09:32,080 --> 00:09:37,200
+becomes that
+
+250
+00:09:34,839 --> 00:09:40,880
+evaluate wait
+
+251
+00:09:37,200 --> 00:09:40,880
+what happened to my mathematica
+
+252
+00:09:42,560 --> 00:09:44,959
+this is
+
+253
+00:09:48,080 --> 00:09:51,920
+okay that's embarrassing so let's try it
+
+254
+00:09:51,279 --> 00:09:55,680
+manually
+
+255
+00:09:51,920 --> 00:09:59,440
+plot psi
+
+256
+00:09:55,680 --> 00:10:02,480
+x then x from negative seven
+
+257
+00:09:59,440 --> 00:10:06,330
+to seven enter okay
+
+258
+00:10:02,480 --> 00:10:09,440
+i think that's a bug jesus
+
+259
+00:10:06,330 --> 00:10:11,760
+[Laughter]
+
+260
+00:10:09,440 --> 00:10:12,880
+natural language processing that that
+
+261
+00:10:11,760 --> 00:10:16,000
+doesn't work
+
+262
+00:10:12,880 --> 00:10:20,959
+for some reason i have to figure it out
+
+263
+00:10:16,000 --> 00:10:20,959
+okay i have to show all results
+
+264
+00:10:21,440 --> 00:10:28,079
+input interpretation okay and
+
+265
+00:10:24,959 --> 00:10:30,640
+and okay it actually plots it
+
+266
+00:10:28,079 --> 00:10:30,640
+but then
+
+267
+00:10:31,440 --> 00:10:35,519
+wait can i actually adjust this
+
+268
+00:10:37,760 --> 00:10:44,399
+uh i should be able to but something is
+
+269
+00:10:42,240 --> 00:10:46,800
+wrong i'm not sure i never used this
+
+270
+00:10:44,399 --> 00:10:48,320
+before but anyway
+
+271
+00:10:46,800 --> 00:10:50,079
+so let's go back so if you have
+
+272
+00:10:48,320 --> 00:10:50,320
+questions posted okay i'd love to see
+
+273
+00:10:50,079 --> 00:10:54,000
+you
+
+274
+00:10:50,320 --> 00:10:56,399
+hi uh victor okay
+
+275
+00:10:54,000 --> 00:10:58,560
+so how do you get it for free first of
+
+276
+00:10:56,399 --> 00:11:00,720
+all so you go to my website
+
+277
+00:10:58,560 --> 00:11:02,640
+very easy okay so let me show you you go
+
+278
+00:11:00,720 --> 00:11:06,320
+to just go to my website
+
+279
+00:11:02,640 --> 00:11:09,279
+sardi dot info
+
+280
+00:11:06,320 --> 00:11:10,640
+and you go to programming you go to
+
+281
+00:11:09,279 --> 00:11:13,680
+programming tutorials
+
+282
+00:11:10,640 --> 00:11:15,839
+you go to wolfram language then you know
+
+283
+00:11:13,680 --> 00:11:17,279
+here's one of the video i did on wufang
+
+284
+00:11:15,839 --> 00:11:20,240
+language you know two of them
+
+285
+00:11:17,279 --> 00:11:21,680
+actually is three by now you know i'm
+
+286
+00:11:20,240 --> 00:11:25,440
+beginning to update this
+
+287
+00:11:21,680 --> 00:11:27,519
+uh page so then here is how do you get
+
+288
+00:11:25,440 --> 00:11:30,000
+wufang language for free so you can buy
+
+289
+00:11:27,519 --> 00:11:31,600
+either buy a raspberry pi it's included
+
+290
+00:11:30,000 --> 00:11:34,480
+the full version okay
+
+291
+00:11:31,600 --> 00:11:34,959
+uh but you can only run it on raspberry
+
+292
+00:11:34,480 --> 00:11:37,440
+pi
+
+293
+00:11:34,959 --> 00:11:40,160
+or you can uh download you know for free
+
+294
+00:11:37,440 --> 00:11:43,279
+the wolfram engine the wolfram script
+
+295
+00:11:40,160 --> 00:11:46,160
+it's free actually uh in fact i
+
+296
+00:11:43,279 --> 00:11:46,640
+recommend you just buy it okay so copy
+
+297
+00:11:46,160 --> 00:11:50,560
+that
+
+298
+00:11:46,640 --> 00:11:52,959
+back to emacs let me write down
+
+299
+00:11:50,560 --> 00:11:54,560
+uh how to get wu from language for free
+
+300
+00:11:52,959 --> 00:11:56,560
+yeah okay
+
+301
+00:11:54,560 --> 00:11:58,480
+so i did three videos before let's go
+
+302
+00:11:56,560 --> 00:12:00,000
+over the topic and let me show you okay
+
+303
+00:11:58,480 --> 00:12:03,440
+so now let's talk about
+
+304
+00:12:00,000 --> 00:12:06,720
+this very interesting uh uh
+
+305
+00:12:03,440 --> 00:12:08,160
+computational geometry problem i just
+
+306
+00:12:06,720 --> 00:12:10,320
+discovered today
+
+307
+00:12:08,160 --> 00:12:11,839
+you know i'm i programmed movement
+
+308
+00:12:10,320 --> 00:12:15,040
+language for like 10 years
+
+309
+00:12:11,839 --> 00:12:17,200
+mostly in the 1990s like i i read the 1
+
+310
+00:12:15,040 --> 00:12:18,399
+000 page documentation in fact that is
+
+311
+00:12:17,200 --> 00:12:20,160
+still good okay
+
+312
+00:12:18,399 --> 00:12:21,680
+you uh they don't sell it anymore but
+
+313
+00:12:20,160 --> 00:12:24,959
+you go to so i
+
+314
+00:12:21,680 --> 00:12:25,680
+uh the last printed book for wufang
+
+315
+00:12:24,959 --> 00:12:28,959
+language
+
+316
+00:12:25,680 --> 00:12:32,240
+is called the mathematica book
+
+317
+00:12:28,959 --> 00:12:35,839
+okay you go to amazon you type the
+
+318
+00:12:32,240 --> 00:12:35,839
+mathematica book
+
+319
+00:12:36,720 --> 00:12:41,120
+okay this one okay so the mathematical
+
+320
+00:12:39,040 --> 00:12:42,079
+book the fifth version i believe that's
+
+321
+00:12:41,120 --> 00:12:45,279
+the last one this
+
+322
+00:12:42,079 --> 00:12:47,279
+is uh and this is version four so
+
+323
+00:12:45,279 --> 00:12:48,320
+the mathematical book okay so when you
+
+324
+00:12:47,279 --> 00:12:52,480
+click on that
+
+325
+00:12:48,320 --> 00:12:55,360
+this is um so 18 used from 22.
+
+326
+00:12:52,480 --> 00:12:56,320
+this is like a thousand 200 pages this
+
+327
+00:12:55,360 --> 00:12:59,920
+thick okay it's
+
+328
+00:12:56,320 --> 00:13:03,200
+very heavy so in the 1990s
+
+329
+00:12:59,920 --> 00:13:05,200
+i read this book three times from cover
+
+330
+00:13:03,200 --> 00:13:06,720
+to cover from the first word preface
+
+331
+00:13:05,200 --> 00:13:08,560
+whatever
+
+332
+00:13:06,720 --> 00:13:11,200
+to the last word three times in
+
+333
+00:13:08,560 --> 00:13:11,760
+different years so i'm a master you can
+
+334
+00:13:11,200 --> 00:13:13,680
+well
+
+335
+00:13:11,760 --> 00:13:15,680
+yeah i'm a master of mathematica but i
+
+336
+00:13:13,680 --> 00:13:16,320
+haven't been coding mathematica for 15
+
+337
+00:13:15,680 --> 00:13:18,160
+years
+
+338
+00:13:16,320 --> 00:13:20,000
+the nature of the language doesn't
+
+339
+00:13:18,160 --> 00:13:23,360
+change okay mathematica
+
+340
+00:13:20,000 --> 00:13:25,200
+so uh do they have a picture you know so
+
+341
+00:13:23,360 --> 00:13:26,720
+you know you if you search online you'll
+
+342
+00:13:25,200 --> 00:13:30,480
+find a picture of this book
+
+343
+00:13:26,720 --> 00:13:33,600
+this thick uh so this book
+
+344
+00:13:30,480 --> 00:13:35,920
+actually i still recommend
+
+345
+00:13:33,600 --> 00:13:37,440
+it's cheap you know you can you you know
+
+346
+00:13:35,920 --> 00:13:40,480
+i still recommend it because
+
+347
+00:13:37,440 --> 00:13:43,120
+it uh if you read this book it
+
+348
+00:13:40,480 --> 00:13:45,120
+you'll learn the fundamentals the core
+
+349
+00:13:43,120 --> 00:13:47,600
+of mathematica you know since
+
+350
+00:13:45,120 --> 00:13:48,720
+since let's say year 2000 i mean before
+
+351
+00:13:47,600 --> 00:13:51,360
+year 2000
+
+352
+00:13:48,720 --> 00:13:52,000
+after year 2000 they just added tons of
+
+353
+00:13:51,360 --> 00:13:54,880
+new
+
+354
+00:13:52,000 --> 00:13:56,000
+um functions you know each function is
+
+355
+00:13:54,880 --> 00:13:59,040
+like a little
+
+356
+00:13:56,000 --> 00:14:00,639
+artificial intelligence program you'll
+
+357
+00:13:59,040 --> 00:14:01,600
+see okay let me show you let me start to
+
+358
+00:14:00,639 --> 00:14:03,519
+talk about that
+
+359
+00:14:01,600 --> 00:14:05,120
+why is mathematica i i call it
+
+360
+00:14:03,519 --> 00:14:06,560
+artificial intelligence language you
+
+361
+00:14:05,120 --> 00:14:08,560
+know building
+
+362
+00:14:06,560 --> 00:14:09,600
+so let me show you this very interesting
+
+363
+00:14:08,560 --> 00:14:13,120
+problem
+
+364
+00:14:09,600 --> 00:14:14,160
+uh wufang language notes okay these are
+
+365
+00:14:13,120 --> 00:14:16,399
+the kind of the
+
+366
+00:14:14,160 --> 00:14:18,720
+my to do things you know i'm writing
+
+367
+00:14:16,399 --> 00:14:20,480
+them down so there is this list contour
+
+368
+00:14:18,720 --> 00:14:23,519
+plot 3d okay
+
+369
+00:14:20,480 --> 00:14:26,880
+so uh let's go to wufang language so
+
+370
+00:14:23,519 --> 00:14:31,760
+this contour plot 3d uh let me show you
+
+371
+00:14:26,880 --> 00:14:34,240
+list con to plot 3d
+
+372
+00:14:31,760 --> 00:14:36,560
+okay let's go to the documentation but
+
+373
+00:14:34,240 --> 00:14:38,480
+so you are looking at the documentation
+
+374
+00:14:36,560 --> 00:14:41,920
+of the wufang language and by the way
+
+375
+00:14:38,480 --> 00:14:43,760
+this is exactly the same thing
+
+376
+00:14:41,920 --> 00:14:45,040
+if you go to the woofan language
+
+377
+00:14:43,760 --> 00:14:47,519
+documentation
+
+378
+00:14:45,040 --> 00:14:48,160
+web page it's exactly the same thing you
+
+379
+00:14:47,519 --> 00:14:51,360
+know you
+
+380
+00:14:48,160 --> 00:14:53,600
+i just have a local version
+
+381
+00:14:51,360 --> 00:14:55,040
+so i'm gonna tell you i'm going to tell
+
+382
+00:14:53,600 --> 00:14:56,560
+you how do you uh
+
+383
+00:14:55,040 --> 00:14:58,240
+you know which part to read because
+
+384
+00:14:56,560 --> 00:15:00,800
+there are too many you can read it for
+
+385
+00:14:58,240 --> 00:15:02,560
+a few years but first of all let me show
+
+386
+00:15:00,800 --> 00:15:05,920
+you uh this very interesting
+
+387
+00:15:02,560 --> 00:15:08,160
+uh thing so there's a building function
+
+388
+00:15:05,920 --> 00:15:11,199
+that's a list contour plot 3d
+
+389
+00:15:08,160 --> 00:15:14,560
+so what that does what does it do
+
+390
+00:15:11,199 --> 00:15:16,240
+so you give it a array uh
+
+391
+00:15:14,560 --> 00:15:17,600
+you know three dimensional array
+
+392
+00:15:16,240 --> 00:15:20,320
+basically your nested
+
+393
+00:15:17,600 --> 00:15:21,839
+uh you know just like a matrix okay 3d
+
+394
+00:15:20,320 --> 00:15:25,279
+make
+
+395
+00:15:21,839 --> 00:15:25,519
+three-dimensional matrix then it plots
+
+396
+00:15:25,279 --> 00:15:29,440
+it
+
+397
+00:15:25,519 --> 00:15:29,440
+you know it plots it as a contour
+
+398
+00:15:29,680 --> 00:15:33,040
+so so what that means is that you know
+
+399
+00:15:32,560 --> 00:15:35,040
+uh
+
+400
+00:15:33,040 --> 00:15:36,639
+let me show you okay so maybe i can show
+
+401
+00:15:35,040 --> 00:15:39,680
+you um
+
+402
+00:15:36,639 --> 00:15:42,560
+okay it'll take some time to
+
+403
+00:15:39,680 --> 00:15:43,360
+show these but but anyway let's evaluate
+
+404
+00:15:42,560 --> 00:15:47,199
+these okay
+
+405
+00:15:43,360 --> 00:15:50,720
+let me explain what these uh do
+
+406
+00:15:47,199 --> 00:15:52,560
+so basically basically you have a
+
+407
+00:15:50,720 --> 00:15:54,320
+let me first explain okay so basically
+
+408
+00:15:52,560 --> 00:15:56,160
+uh okay evaluate
+
+409
+00:15:54,320 --> 00:15:57,519
+so basically and then you can rotate it
+
+410
+00:15:56,160 --> 00:16:00,000
+so you you know
+
+411
+00:15:57,519 --> 00:16:01,839
+this is like an implicit plot by the way
+
+412
+00:16:00,000 --> 00:16:02,480
+but it's a three-dimensional implicit
+
+413
+00:16:01,839 --> 00:16:04,800
+plot
+
+414
+00:16:02,480 --> 00:16:05,920
+you know two plot is implicit functions
+
+415
+00:16:04,800 --> 00:16:09,440
+is uh
+
+416
+00:16:05,920 --> 00:16:10,639
+is hard okay it's a computational
+
+417
+00:16:09,440 --> 00:16:14,160
+geometry problem
+
+418
+00:16:10,639 --> 00:16:17,279
+good morning reaper good morning dizzy
+
+419
+00:16:14,160 --> 00:16:19,600
+i learned math in english uh when i was
+
+420
+00:16:17,279 --> 00:16:20,079
+like studying in my when i was 20 years
+
+421
+00:16:19,600 --> 00:16:21,839
+old
+
+422
+00:16:20,079 --> 00:16:24,480
+have you read an article about math
+
+423
+00:16:21,839 --> 00:16:27,519
+learning roadmap what to learn
+
+424
+00:16:24,480 --> 00:16:32,320
+uh first and next uh yeah but
+
+425
+00:16:27,519 --> 00:16:34,240
+um but can you run a wrapper for wolfram
+
+426
+00:16:32,320 --> 00:16:36,959
+in global emacs yes you can
+
+427
+00:16:34,240 --> 00:16:37,440
+there are several packages to do that
+
+428
+00:16:36,959 --> 00:16:40,800
+you know
+
+429
+00:16:37,440 --> 00:16:45,759
+it there was a package even in the 19
+
+430
+00:16:40,800 --> 00:16:48,160
+in year 2000 okay but over the years
+
+431
+00:16:45,759 --> 00:16:49,519
+uh there's a lot of change a lot of
+
+432
+00:16:48,160 --> 00:16:52,000
+change you know
+
+433
+00:16:49,519 --> 00:16:52,720
+in the 1990s wufang language actually
+
+434
+00:16:52,000 --> 00:16:55,040
+supports
+
+435
+00:16:52,720 --> 00:16:57,839
+emacs key binding you know this option
+
+436
+00:16:55,040 --> 00:16:58,639
+but they dropped that around 2005
+
+437
+00:16:57,839 --> 00:17:00,720
+because the
+
+438
+00:16:58,639 --> 00:17:02,639
+you know the the emacs people they be
+
+439
+00:17:00,720 --> 00:17:03,120
+they dwindled and drinker and dwindle
+
+440
+00:17:02,639 --> 00:17:06,319
+and
+
+441
+00:17:03,120 --> 00:17:09,360
+and in the 1990s it's fairly popular
+
+442
+00:17:06,319 --> 00:17:12,160
+for uh for for lots of applica you know
+
+443
+00:17:09,360 --> 00:17:12,559
+editors to support emacs key binding but
+
+444
+00:17:12,160 --> 00:17:15,360
+not
+
+445
+00:17:12,559 --> 00:17:16,079
+not today they they begin to remove it
+
+446
+00:17:15,360 --> 00:17:20,000
+around
+
+447
+00:17:16,079 --> 00:17:23,360
+uh 2005 also because either emacs
+
+448
+00:17:20,000 --> 00:17:25,439
+you know group they just shrinked
+
+449
+00:17:23,360 --> 00:17:26,640
+and by the way stefan wuform is also an
+
+450
+00:17:25,439 --> 00:17:29,039
+emacs user
+
+451
+00:17:26,640 --> 00:17:31,679
+he was i'm not sure today but he was in
+
+452
+00:17:29,039 --> 00:17:34,960
+the 1990s
+
+453
+00:17:31,679 --> 00:17:35,760
+so uh so they are still i i think they
+
+454
+00:17:34,960 --> 00:17:40,240
+are still
+
+455
+00:17:35,760 --> 00:17:42,720
+uh emac emacs packages that connects
+
+456
+00:17:40,240 --> 00:17:45,200
+to the wolfram language so you can code
+
+457
+00:17:42,720 --> 00:17:46,000
+inside emacs list but i i'm not sure how
+
+458
+00:17:45,200 --> 00:17:48,480
+robust
+
+459
+00:17:46,000 --> 00:17:50,559
+uh are they i don't think none of them
+
+460
+00:17:48,480 --> 00:17:53,760
+are very good
+
+461
+00:17:50,559 --> 00:17:53,760
+so uh anyway so
+
+462
+00:17:54,400 --> 00:17:57,840
+you know the reason you can do that is
+
+463
+00:17:56,000 --> 00:17:59,280
+because like i talked about last time
+
+464
+00:17:57,840 --> 00:18:02,080
+wufam language you know
+
+465
+00:17:59,280 --> 00:18:03,120
+it comes in two parts the kernel or
+
+466
+00:18:02,080 --> 00:18:05,520
+server you know it's
+
+467
+00:18:03,120 --> 00:18:07,200
+commonly known as server and the front
+
+468
+00:18:05,520 --> 00:18:09,520
+end front end is what you see
+
+469
+00:18:07,200 --> 00:18:11,360
+the notebook so front end whenever you
+
+470
+00:18:09,520 --> 00:18:13,280
+evaluate something it talks through so
+
+471
+00:18:11,360 --> 00:18:16,320
+it sends the information to the server
+
+472
+00:18:13,280 --> 00:18:18,480
+server replies then uh via wufam
+
+473
+00:18:16,320 --> 00:18:19,600
+language protocol that was used to known
+
+474
+00:18:18,480 --> 00:18:21,440
+as math link
+
+475
+00:18:19,600 --> 00:18:22,799
+but i think they changed the name it was
+
+476
+00:18:21,440 --> 00:18:25,840
+known as math link
+
+477
+00:18:22,799 --> 00:18:27,679
+okay that's a protocol for uh
+
+478
+00:18:25,840 --> 00:18:28,880
+for uh language communicating to the
+
+479
+00:18:27,679 --> 00:18:31,520
+front end and
+
+480
+00:18:28,880 --> 00:18:32,799
+and the server the kernel it's called
+
+481
+00:18:31,520 --> 00:18:36,080
+kernel
+
+482
+00:18:32,799 --> 00:18:39,360
+so so you can write you know you can any
+
+483
+00:18:36,080 --> 00:18:39,760
+any ide you know in emacs in veeam even
+
+484
+00:18:39,360 --> 00:18:42,400
+i
+
+485
+00:18:39,760 --> 00:18:43,039
+i suppose if veeam script can do that i
+
+486
+00:18:42,400 --> 00:18:46,559
+mean
+
+487
+00:18:43,039 --> 00:18:49,600
+in basically uh in vs code
+
+488
+00:18:46,559 --> 00:18:50,640
+you can write you can you can write the
+
+489
+00:18:49,600 --> 00:18:52,480
+interface to
+
+490
+00:18:50,640 --> 00:18:56,080
+from language you know using the math
+
+491
+00:18:52,480 --> 00:18:58,240
+link protocol whatever it's called today
+
+492
+00:18:56,080 --> 00:18:59,679
+so anyway so so let me show yeah let me
+
+493
+00:18:58,240 --> 00:19:02,320
+explain this thing okay so
+
+494
+00:18:59,679 --> 00:19:03,360
+this thing is a yeah let me just explain
+
+495
+00:19:02,320 --> 00:19:05,919
+okay so this
+
+496
+00:19:03,360 --> 00:19:06,960
+this function what's interesting about
+
+497
+00:19:05,919 --> 00:19:10,640
+this function this
+
+498
+00:19:06,960 --> 00:19:15,440
+function involves a okay or rather
+
+499
+00:19:10,640 --> 00:19:18,240
+it involves a lot computational geometry
+
+500
+00:19:15,440 --> 00:19:20,000
+okay let me put this way you you could
+
+501
+00:19:18,240 --> 00:19:21,679
+implement this function it will take you
+
+502
+00:19:20,000 --> 00:19:24,160
+a year okay
+
+503
+00:19:21,679 --> 00:19:25,200
+it will take you a year just to
+
+504
+00:19:24,160 --> 00:19:28,400
+implement this
+
+505
+00:19:25,200 --> 00:19:31,440
+one function to to plot this thing
+
+506
+00:19:28,400 --> 00:19:34,080
+uh how is it so it's a lot of different
+
+507
+00:19:31,440 --> 00:19:35,520
+uh computational geometry knowledge
+
+508
+00:19:34,080 --> 00:19:36,400
+involved you you need to do it
+
+509
+00:19:35,520 --> 00:19:39,200
+efficiently
+
+510
+00:19:36,400 --> 00:19:40,960
+so efficiently so so so what does this
+
+511
+00:19:39,200 --> 00:19:44,160
+do is that you have a
+
+512
+00:19:40,960 --> 00:19:46,480
+um so you given
+
+513
+00:19:44,160 --> 00:19:48,160
+you are given a three-dimensional matrix
+
+514
+00:19:46,480 --> 00:19:50,720
+okay let me show you the matrix
+
+515
+00:19:48,160 --> 00:19:53,360
+okay let's just show it okay so this
+
+516
+00:19:50,720 --> 00:19:55,280
+actually generates a matrix
+
+517
+00:19:53,360 --> 00:19:56,799
+uh let me show you okay so here's the
+
+518
+00:19:55,280 --> 00:20:00,240
+expression x squared y
+
+519
+00:19:56,799 --> 00:20:03,039
+squared minus z squared and
+
+520
+00:20:00,240 --> 00:20:06,320
+plus a random number so they you know
+
+521
+00:20:03,039 --> 00:20:08,240
+why do they put that because
+
+522
+00:20:06,320 --> 00:20:09,679
+i guess they put that you know they add
+
+523
+00:20:08,240 --> 00:20:11,840
+a little random numbers
+
+524
+00:20:09,679 --> 00:20:13,840
+to jiggle them a little bit so it
+
+525
+00:20:11,840 --> 00:20:14,640
+actually shows the power of this
+
+526
+00:20:13,840 --> 00:20:16,559
+function the
+
+527
+00:20:14,640 --> 00:20:18,480
+the function actually we will find the
+
+528
+00:20:16,559 --> 00:20:19,440
+nearby points and connect them into a
+
+529
+00:20:18,480 --> 00:20:22,159
+surface
+
+530
+00:20:19,440 --> 00:20:23,039
+but anyway so so this expression is just
+
+531
+00:20:22,159 --> 00:20:26,480
+basically x
+
+532
+00:20:23,039 --> 00:20:29,520
+plus x squared y squared squared minus
+
+533
+00:20:26,480 --> 00:20:32,400
+z squared and that if you set that
+
+534
+00:20:29,520 --> 00:20:32,960
+equals to zero what you get is this cone
+
+535
+00:20:32,400 --> 00:20:35,600
+okay
+
+536
+00:20:32,960 --> 00:20:38,240
+you know very sharp clear double coil
+
+537
+00:20:35,600 --> 00:20:42,080
+actually we can plot that
+
+538
+00:20:38,240 --> 00:20:44,480
+uh yeah plus 3d i think
+
+539
+00:20:42,080 --> 00:20:44,480
+um
+
+540
+00:20:45,360 --> 00:20:51,039
+you know it's been a while i uh
+
+541
+00:20:48,400 --> 00:20:51,919
+use mathematica so i have two yeah like
+
+542
+00:20:51,039 --> 00:20:54,720
+i suppose
+
+543
+00:20:51,919 --> 00:20:54,720
+these um
+
+544
+00:20:58,799 --> 00:21:02,480
+no not plot 3d because this this is kind
+
+545
+00:21:01,919 --> 00:21:05,440
+of a
+
+546
+00:21:02,480 --> 00:21:07,120
+implicit yeah so you see anyway so
+
+547
+00:21:05,440 --> 00:21:09,280
+here's the expression okay
+
+548
+00:21:07,120 --> 00:21:10,960
+you know that if you said that equals to
+
+549
+00:21:09,280 --> 00:21:13,840
+a constant
+
+550
+00:21:10,960 --> 00:21:14,080
+so you get a equation of three variables
+
+551
+00:21:13,840 --> 00:21:17,039
+x
+
+552
+00:21:14,080 --> 00:21:17,679
+y z and to find the solution the
+
+553
+00:21:17,039 --> 00:21:21,120
+solution
+
+554
+00:21:17,679 --> 00:21:23,520
+solution set if you plot it it's going
+
+555
+00:21:21,120 --> 00:21:25,360
+to be a you know double cone
+
+556
+00:21:23,520 --> 00:21:26,880
+so they added a little bit random number
+
+557
+00:21:25,360 --> 00:21:29,039
+but anyway so this
+
+558
+00:21:26,880 --> 00:21:30,320
+expression if you want to generate a
+
+559
+00:21:29,039 --> 00:21:33,280
+matrix you
+
+560
+00:21:30,320 --> 00:21:33,679
+you can use this table function so here
+
+561
+00:21:33,280 --> 00:21:36,880
+x
+
+562
+00:21:33,679 --> 00:21:40,640
+goes from negative 2 to 2 instead of
+
+563
+00:21:36,880 --> 00:21:43,600
+in steps of 0.2 and similarly for y
+
+564
+00:21:40,640 --> 00:21:44,000
+and z okay so let's evaluate it so you
+
+565
+00:21:43,600 --> 00:21:47,600
+got
+
+566
+00:21:44,000 --> 00:21:49,679
+huge number of uh a huge
+
+567
+00:21:47,600 --> 00:21:50,799
+number of output that's why you see
+
+568
+00:21:49,679 --> 00:21:53,280
+these
+
+569
+00:21:50,799 --> 00:21:54,480
+kind of uh condensed you know output so
+
+570
+00:21:53,280 --> 00:21:57,520
+let me let me do a
+
+571
+00:21:54,480 --> 00:22:00,159
+little let's say
+
+572
+00:21:57,520 --> 00:22:00,799
+in step of 0.5 so we're going we don't
+
+573
+00:22:00,159 --> 00:22:04,080
+get that
+
+574
+00:22:00,799 --> 00:22:06,960
+huge uh output
+
+575
+00:22:04,080 --> 00:22:08,159
+so that you can actually see the
+
+576
+00:22:06,960 --> 00:22:10,559
+structure so here
+
+577
+00:22:08,159 --> 00:22:12,640
+is the matrix three-dimensional matrix
+
+578
+00:22:10,559 --> 00:22:17,360
+basically you have basically it's
+
+579
+00:22:12,640 --> 00:22:20,480
+just a nested list okay so for example
+
+580
+00:22:17,360 --> 00:22:23,760
+this is the uh one
+
+581
+00:22:20,480 --> 00:22:26,960
+one row of the list you know 3d list so
+
+582
+00:22:23,760 --> 00:22:30,159
+it's nested twice so you got a bunch of
+
+583
+00:22:26,960 --> 00:22:33,200
+uh points uh not you know
+
+584
+00:22:30,159 --> 00:22:35,440
+a bunch of values not points so you know
+
+585
+00:22:33,200 --> 00:22:38,720
+3d matrix you you got a bunch of
+
+586
+00:22:35,440 --> 00:22:39,600
+values so you uh you want interpreted
+
+587
+00:22:38,720 --> 00:22:41,840
+you know each
+
+588
+00:22:39,600 --> 00:22:43,440
+each value has an index for example
+
+589
+00:22:41,840 --> 00:22:46,799
+first element is one
+
+590
+00:22:43,440 --> 00:22:47,760
+second element is two now so for example
+
+591
+00:22:46,799 --> 00:22:50,720
+this one
+
+592
+00:22:47,760 --> 00:22:51,280
+the index for this number is one one one
+
+593
+00:22:50,720 --> 00:22:54,640
+because
+
+594
+00:22:51,280 --> 00:22:56,400
+that's of in the first um because that's
+
+595
+00:22:54,640 --> 00:22:59,600
+the first
+
+596
+00:22:56,400 --> 00:23:02,799
+row and inside this row
+
+597
+00:22:59,600 --> 00:23:05,039
+it's the first
+
+598
+00:23:02,799 --> 00:23:06,240
+you know another dimensional row and
+
+599
+00:23:05,039 --> 00:23:08,480
+inside this row
+
+600
+00:23:06,240 --> 00:23:10,159
+it's the first item so the index for
+
+601
+00:23:08,480 --> 00:23:12,240
+this number is one one one
+
+602
+00:23:10,159 --> 00:23:15,039
+uh the index for this number is one one
+
+603
+00:23:12,240 --> 00:23:18,640
+two and so on and for this one is
+
+604
+00:23:15,039 --> 00:23:19,440
+one one one two one okay so each element
+
+605
+00:23:18,640 --> 00:23:22,559
+in the 3d
+
+606
+00:23:19,440 --> 00:23:24,559
+array has a index so an
+
+607
+00:23:22,559 --> 00:23:26,320
+index is three numbers so the three
+
+608
+00:23:24,559 --> 00:23:28,159
+numbers you can consider them as
+
+609
+00:23:26,320 --> 00:23:31,120
+coordinate in 3d space
+
+610
+00:23:28,159 --> 00:23:31,919
+x y z so essentially what you get is a
+
+611
+00:23:31,120 --> 00:23:35,440
+you know you get
+
+612
+00:23:31,919 --> 00:23:38,320
+you got a space 3d space that
+
+613
+00:23:35,440 --> 00:23:39,360
+each grid point is a value okay so all
+
+614
+00:23:38,320 --> 00:23:42,480
+these values
+
+615
+00:23:39,360 --> 00:23:46,320
+correspond to you know figure out the
+
+616
+00:23:42,480 --> 00:23:48,640
+space in a cube now in order to so
+
+617
+00:23:46,320 --> 00:23:50,080
+that's a 3d matrix okay 3d array
+
+618
+00:23:48,640 --> 00:23:51,200
+whatever you call it in different
+
+619
+00:23:50,080 --> 00:23:54,240
+languages
+
+620
+00:23:51,200 --> 00:23:56,960
+now in order to so so what this function
+
+621
+00:23:54,240 --> 00:23:59,600
+does you know this contour plot is that
+
+622
+00:23:56,960 --> 00:24:00,320
+so you you it takes a 3d matrix you know
+
+623
+00:23:59,600 --> 00:24:03,279
+like what do
+
+624
+00:24:00,320 --> 00:24:05,360
+we had a 3d matrix a bunch of numbers
+
+625
+00:24:03,279 --> 00:24:07,760
+that feels a space you want to find out
+
+626
+00:24:05,360 --> 00:24:10,240
+first the first job is to find
+
+627
+00:24:07,760 --> 00:24:12,080
+all the numbers that have the same value
+
+628
+00:24:10,240 --> 00:24:13,679
+okay
+
+629
+00:24:12,080 --> 00:24:16,320
+you want to find all the numbers that's
+
+630
+00:24:13,679 --> 00:24:16,880
+the same value or approximately the same
+
+631
+00:24:16,320 --> 00:24:19,039
+now
+
+632
+00:24:16,880 --> 00:24:20,559
+this thing alone you know you can write
+
+633
+00:24:19,039 --> 00:24:22,400
+this in python
+
+634
+00:24:20,559 --> 00:24:24,240
+you know not too difficult you know in
+
+635
+00:24:22,400 --> 00:24:27,440
+an hour but
+
+636
+00:24:24,240 --> 00:24:29,679
+to do this efficiently that's
+
+637
+00:24:27,440 --> 00:24:31,120
+not that's not a trivial problem because
+
+638
+00:24:29,679 --> 00:24:32,720
+essentially you have to compare each
+
+639
+00:24:31,120 --> 00:24:35,039
+number to every other number
+
+640
+00:24:32,720 --> 00:24:36,480
+and repeat so it's exponential if you do
+
+641
+00:24:35,039 --> 00:24:39,520
+it in a
+
+642
+00:24:36,480 --> 00:24:40,000
+uh you know brute force way so first
+
+643
+00:24:39,520 --> 00:24:43,440
+problem
+
+644
+00:24:40,000 --> 00:24:46,000
+if you is that you have to find
+
+645
+00:24:43,440 --> 00:24:48,000
+you know given a thousand potentially
+
+646
+00:24:46,000 --> 00:24:49,840
+thou tens of thousands of numbers you
+
+647
+00:24:48,000 --> 00:24:52,080
+have to find
+
+648
+00:24:49,840 --> 00:24:53,120
+all uh you know in other words
+
+649
+00:24:52,080 --> 00:24:55,760
+equivalent
+
+650
+00:24:53,120 --> 00:24:57,200
+equivalent class you have to categorize
+
+651
+00:24:55,760 --> 00:24:58,720
+the numbers so that you know you
+
+652
+00:24:57,200 --> 00:25:00,720
+you have to find all the numbers that
+
+653
+00:24:58,720 --> 00:25:03,919
+are the same now the
+
+654
+00:25:00,720 --> 00:25:06,559
+that's the first step you know not
+
+655
+00:25:03,919 --> 00:25:08,400
+easy to implement efficiently the second
+
+656
+00:25:06,559 --> 00:25:11,840
+step is that you want to
+
+657
+00:25:08,400 --> 00:25:12,880
+if two numbers okay so if two numbers in
+
+658
+00:25:11,840 --> 00:25:16,000
+this matrix
+
+659
+00:25:12,880 --> 00:25:18,480
+have the same value uh for example that
+
+660
+00:25:16,000 --> 00:25:19,039
+can we find it no it will be hard to you
+
+661
+00:25:18,480 --> 00:25:21,279
+know
+
+662
+00:25:19,039 --> 00:25:23,320
+for example this number is 5 you know
+
+663
+00:25:21,279 --> 00:25:26,400
+maybe there's another number that's also
+
+664
+00:25:23,320 --> 00:25:29,039
+5.29 something if the
+
+665
+00:25:26,400 --> 00:25:30,480
+if two numbers are the same you want to
+
+666
+00:25:29,039 --> 00:25:32,960
+see
+
+667
+00:25:30,480 --> 00:25:34,960
+if they are adjacent you know you know
+
+668
+00:25:32,960 --> 00:25:36,640
+you want to see if they are adjacent to
+
+669
+00:25:34,960 --> 00:25:38,960
+each other if they are
+
+670
+00:25:36,640 --> 00:25:40,159
+then they kind of form a connection if
+
+671
+00:25:38,960 --> 00:25:42,000
+you know you want to see if they are
+
+672
+00:25:40,159 --> 00:25:44,640
+connected if they are not adjacent they
+
+673
+00:25:42,000 --> 00:25:45,360
+are they are not now how do you tell if
+
+674
+00:25:44,640 --> 00:25:48,159
+they are
+
+675
+00:25:45,360 --> 00:25:49,039
+adjacent you know basically you tell by
+
+676
+00:25:48,159 --> 00:25:51,520
+the matrix
+
+677
+00:25:49,039 --> 00:25:52,559
+index because remember these numbers
+
+678
+00:25:51,520 --> 00:25:55,760
+correspond to
+
+679
+00:25:52,559 --> 00:25:59,679
+you know like grid points in the
+
+680
+00:25:55,760 --> 00:26:01,760
+in in in this cube so you want to find
+
+681
+00:25:59,679 --> 00:26:03,840
+which numbers are adjacent the same
+
+682
+00:26:01,760 --> 00:26:07,520
+numbers are adjacent and that's
+
+683
+00:26:03,840 --> 00:26:08,320
+again that's a a very computational
+
+684
+00:26:07,520 --> 00:26:11,440
+intensive
+
+685
+00:26:08,320 --> 00:26:15,600
+problem that's also that you know in
+
+686
+00:26:11,440 --> 00:26:15,600
+computational geometry you study this
+
+687
+00:26:16,240 --> 00:26:20,320
+so that's the second thing then after
+
+688
+00:26:19,440 --> 00:26:22,159
+that suppose
+
+689
+00:26:20,320 --> 00:26:23,600
+then after that you got a bunch of
+
+690
+00:26:22,159 --> 00:26:25,919
+numbers that you know
+
+691
+00:26:23,600 --> 00:26:26,880
+should represent this cone you know 3d
+
+692
+00:26:25,919 --> 00:26:30,080
+coordinates
+
+693
+00:26:26,880 --> 00:26:32,000
+each you know each number is not
+
+694
+00:26:30,080 --> 00:26:32,799
+actually a coordinate each number is
+
+695
+00:26:32,000 --> 00:26:35,600
+just a number
+
+696
+00:26:32,799 --> 00:26:38,640
+but but their index forms the
+
+697
+00:26:35,600 --> 00:26:41,279
+coordinates so so after
+
+698
+00:26:38,640 --> 00:26:42,320
+so after that you got a bunch of uh
+
+699
+00:26:41,279 --> 00:26:45,760
+basically dots
+
+700
+00:26:42,320 --> 00:26:48,000
+points you want to draw a surface and
+
+701
+00:26:45,760 --> 00:26:50,720
+how do you do that that's another
+
+702
+00:26:48,000 --> 00:26:52,000
+computational geometry problem you got a
+
+703
+00:26:50,720 --> 00:26:54,080
+bunch of numbers they form
+
+704
+00:26:52,000 --> 00:26:57,120
+a surface you want to mesh you you want
+
+705
+00:26:54,080 --> 00:26:59,840
+to create a mesh out of it
+
+706
+00:26:57,120 --> 00:27:00,159
+so let's see uh for example let let's do
+
+707
+00:26:59,840 --> 00:27:02,799
+a
+
+708
+00:27:00,159 --> 00:27:06,240
+one with mesh okay so you can actually
+
+709
+00:27:02,799 --> 00:27:09,360
+see the mesh
+
+710
+00:27:06,240 --> 00:27:09,919
+you know okay they they do the mesh in
+
+711
+00:27:09,360 --> 00:27:11,760
+another
+
+712
+00:27:09,919 --> 00:27:13,520
+in a different way but typically it's
+
+713
+00:27:11,760 --> 00:27:15,120
+triangulation okay so you
+
+714
+00:27:13,520 --> 00:27:19,360
+for every three points you want to
+
+715
+00:27:15,120 --> 00:27:22,720
+connect them and that's not easy
+
+716
+00:27:19,360 --> 00:27:23,919
+so so that is the that is this is what
+
+717
+00:27:22,720 --> 00:27:27,200
+this function does
+
+718
+00:27:23,919 --> 00:27:28,799
+you know so uh
+
+719
+00:27:27,200 --> 00:27:31,200
+so that's what i'm talking about that's
+
+720
+00:27:28,799 --> 00:27:34,799
+uh that's experience that
+
+721
+00:27:31,200 --> 00:27:36,320
+uh okay so uh how long have i been
+
+722
+00:27:34,799 --> 00:27:39,360
+talking 51 minutes
+
+723
+00:27:36,320 --> 00:27:42,480
+ i gotta go in 20 minutes
+
+724
+00:27:39,360 --> 00:27:43,200
+i didn't even begin to talk about lots
+
+725
+00:27:42,480 --> 00:27:48,559
+of the
+
+726
+00:27:43,200 --> 00:27:52,159
+things i want to talk about
+
+727
+00:27:48,559 --> 00:27:53,039
+okay so so okay let me continue with
+
+728
+00:27:52,159 --> 00:27:57,039
+this then
+
+729
+00:27:53,039 --> 00:27:59,760
+now so you got this list contour
+
+730
+00:27:57,039 --> 00:28:01,679
+plot okay now there is another one
+
+731
+00:27:59,760 --> 00:28:04,799
+that's actually more
+
+732
+00:28:01,679 --> 00:28:08,080
+complex you know one step more
+
+733
+00:28:04,799 --> 00:28:10,960
+difficult let's go to home
+
+734
+00:28:08,080 --> 00:28:10,960
+let's go to
+
+735
+00:28:12,159 --> 00:28:16,159
+visualization and graphics okay data
+
+736
+00:28:14,840 --> 00:28:19,039
+visualization
+
+737
+00:28:16,159 --> 00:28:21,919
+then you know you have tens of functions
+
+738
+00:28:19,039 --> 00:28:21,919
+that does plot
+
+739
+00:28:22,000 --> 00:28:30,399
+uh so i want to show you
+
+740
+00:28:25,919 --> 00:28:33,840
+so i just showed you this list contour
+
+741
+00:28:30,399 --> 00:28:36,159
+3d then let me show you another one this
+
+742
+00:28:33,840 --> 00:28:36,159
+contour
+
+743
+00:28:41,039 --> 00:28:44,399
+okay now the next function this one okay
+
+744
+00:28:44,000 --> 00:28:47,440
+this
+
+745
+00:28:44,399 --> 00:28:50,559
+contour plot list slice
+
+746
+00:28:47,440 --> 00:28:51,520
+contour plot 3d so basically you now you
+
+747
+00:28:50,559 --> 00:28:54,399
+have a contour
+
+748
+00:28:51,520 --> 00:28:55,760
+uh you have a contour you know basically
+
+749
+00:28:54,399 --> 00:28:58,799
+a
+
+750
+00:28:55,760 --> 00:29:01,919
+a plot of a implicit
+
+751
+00:28:58,799 --> 00:29:04,320
+equation with three variables
+
+752
+00:29:01,919 --> 00:29:05,679
+now this is more advanced you know this
+
+753
+00:29:04,320 --> 00:29:08,799
+now now you want to
+
+754
+00:29:05,679 --> 00:29:11,279
+slice it with a plane then you want to
+
+755
+00:29:08,799 --> 00:29:14,000
+draw the contours on the plane
+
+756
+00:29:11,279 --> 00:29:14,799
+so so what does that mean well it means
+
+757
+00:29:14,000 --> 00:29:17,919
+you have one
+
+758
+00:29:14,799 --> 00:29:20,240
+suppose you have one surface in 3d space
+
+759
+00:29:17,919 --> 00:29:21,919
+then you have another plane that
+
+760
+00:29:20,240 --> 00:29:23,760
+intersects the surface
+
+761
+00:29:21,919 --> 00:29:26,799
+so basically what you want to do is you
+
+762
+00:29:23,760 --> 00:29:30,799
+want to find the points of intersections
+
+763
+00:29:26,799 --> 00:29:32,880
+and draw that intersection as a curve
+
+764
+00:29:30,799 --> 00:29:34,000
+on the plane so that's what this
+
+765
+00:29:32,880 --> 00:29:37,520
+function is about
+
+766
+00:29:34,000 --> 00:29:41,279
+this list slice
+
+767
+00:29:37,520 --> 00:29:43,520
+contour plot 3d okay and but
+
+768
+00:29:41,279 --> 00:29:45,200
+not just that the you know the
+
+769
+00:29:43,520 --> 00:29:48,399
+intersection the plane
+
+770
+00:29:45,200 --> 00:29:50,799
+can be can actually be any surface
+
+771
+00:29:48,399 --> 00:29:52,480
+so basically you have a surface then you
+
+772
+00:29:50,799 --> 00:29:55,600
+have another surface
+
+773
+00:29:52,480 --> 00:29:57,520
+they intersect
+
+774
+00:29:55,600 --> 00:29:58,720
+then you can you you can use this
+
+775
+00:29:57,520 --> 00:30:02,480
+function to plot it
+
+776
+00:29:58,720 --> 00:30:06,840
+and the other intersections will become
+
+777
+00:30:02,480 --> 00:30:08,559
+curves on this uh you know on this
+
+778
+00:30:06,840 --> 00:30:11,919
+surface
+
+779
+00:30:08,559 --> 00:30:13,360
+so that um so that's my you know that
+
+780
+00:30:11,919 --> 00:30:15,760
+that's very interesting that
+
+781
+00:30:13,360 --> 00:30:18,000
+so this is you know one of the 6 000
+
+782
+00:30:15,760 --> 00:30:21,679
+functions in mathematica that's what i
+
+783
+00:30:18,000 --> 00:30:24,720
+why i say that mathematica is kind of
+
+784
+00:30:21,679 --> 00:30:27,039
+kind of um gather you know how the set
+
+785
+00:30:24,720 --> 00:30:29,360
+the way stefan wufran put it would be
+
+786
+00:30:27,039 --> 00:30:32,399
+the knowledge base
+
+787
+00:30:29,360 --> 00:30:34,080
+you know knowledge base means
+
+788
+00:30:32,399 --> 00:30:37,440
+computation something like that
+
+789
+00:30:34,080 --> 00:30:40,480
+basically it embodies you know
+
+790
+00:30:37,440 --> 00:30:43,919
+the the ufam language embodies all
+
+791
+00:30:40,480 --> 00:30:44,960
+knowledge essentially oh okay well or in
+
+792
+00:30:43,919 --> 00:30:47,840
+a practical sense
+
+793
+00:30:44,960 --> 00:30:49,200
+embodies all computational knowledge
+
+794
+00:30:47,840 --> 00:30:51,440
+that is whatever
+
+795
+00:30:49,200 --> 00:30:52,320
+all the algorithms we know if it's
+
+796
+00:30:51,440 --> 00:30:55,760
+useful
+
+797
+00:30:52,320 --> 00:30:58,159
+it's already in language for example um
+
+798
+00:30:55,760 --> 00:30:59,200
+you know you might heard of you know
+
+799
+00:30:58,159 --> 00:31:02,480
+coding problems
+
+800
+00:30:59,200 --> 00:31:06,320
+interview coding problems like like
+
+801
+00:31:02,480 --> 00:31:06,320
+for example the linear distance
+
+802
+00:31:06,640 --> 00:31:12,640
+uh that computes the distances
+
+803
+00:31:10,240 --> 00:31:14,399
+between strings something like that okay
+
+804
+00:31:12,640 --> 00:31:18,240
+so you have several
+
+805
+00:31:14,399 --> 00:31:21,760
+articles on that
+
+806
+00:31:18,240 --> 00:31:25,440
+i spelled it wrong
+
+807
+00:31:21,760 --> 00:31:27,279
+hey wait there's a wikipedia article on
+
+808
+00:31:25,440 --> 00:31:32,960
+that okay
+
+809
+00:31:27,279 --> 00:31:36,480
+there is there it is
+
+810
+00:31:32,960 --> 00:31:39,360
+uh okay revenge
+
+811
+00:31:36,480 --> 00:31:40,799
+ten distance revenge then distance is a
+
+812
+00:31:39,360 --> 00:31:43,919
+way to calculate
+
+813
+00:31:40,799 --> 00:31:46,880
+how different two words uh
+
+814
+00:31:43,919 --> 00:31:48,159
+are from one another okay like sometimes
+
+815
+00:31:46,880 --> 00:31:51,600
+this is posted
+
+816
+00:31:48,159 --> 00:31:53,039
+posted as a interview uh problem you
+
+817
+00:31:51,600 --> 00:31:55,840
+know you have to be smart
+
+818
+00:31:53,039 --> 00:31:57,760
+to implement that but you know so so
+
+819
+00:31:55,840 --> 00:32:00,960
+this is one of the algorithm
+
+820
+00:31:57,760 --> 00:32:02,880
+about strings and using i believe it is
+
+821
+00:32:00,960 --> 00:32:06,000
+in wufang language okay
+
+822
+00:32:02,880 --> 00:32:06,000
+so let's try it
+
+823
+00:32:09,600 --> 00:32:15,679
+uh no lev and
+
+824
+00:32:12,640 --> 00:32:18,080
+okay i don't see it uh
+
+825
+00:32:15,679 --> 00:32:18,080
+okay
+
+826
+00:32:19,440 --> 00:32:29,039
+let me let me do this okay uh oops
+
+827
+00:32:22,799 --> 00:32:43,840
+what did i do is type
+
+828
+00:32:29,039 --> 00:32:43,840
+multiply wait wait is multiply sign
+
+829
+00:32:44,399 --> 00:32:47,440
+okay that's wrong
+
+830
+00:32:54,080 --> 00:32:58,720
+okay i i don't see that levy sevilla
+
+831
+00:32:57,279 --> 00:33:02,159
+tensor
+
+832
+00:32:58,720 --> 00:33:05,279
+whatever that is uh
+
+833
+00:33:02,159 --> 00:33:08,559
+levy civita tensor gives the
+
+834
+00:33:05,279 --> 00:33:12,000
+the dimensional levy sivatar totally uh
+
+835
+00:33:08,559 --> 00:33:13,600
+anti-symmetric cancer tensor is
+
+836
+00:33:12,000 --> 00:33:16,640
+basically
+
+837
+00:33:13,600 --> 00:33:19,279
+like a multi-dimensional matrix
+
+838
+00:33:16,640 --> 00:33:21,200
+levee distribution represents a levy
+
+839
+00:33:19,279 --> 00:33:22,799
+levy distribution i don't know what that
+
+840
+00:33:21,200 --> 00:33:25,600
+is
+
+841
+00:33:22,799 --> 00:33:26,640
+so but anyway this shows some of the
+
+842
+00:33:25,600 --> 00:33:29,840
+examples
+
+843
+00:33:26,640 --> 00:33:32,240
+of you know let's look up wikipedia what
+
+844
+00:33:29,840 --> 00:33:32,880
+what the hell is levy distribution now
+
+845
+00:33:32,240 --> 00:33:35,760
+let's
+
+846
+00:33:32,880 --> 00:33:38,240
+first of all see the documentation okay
+
+847
+00:33:35,760 --> 00:33:42,640
+levy distribution you know some yeah
+
+848
+00:33:38,240 --> 00:33:42,640
+some some distribution in statistics
+
+849
+00:33:44,399 --> 00:33:52,559
+okay so in now i'm pretty sure there
+
+850
+00:33:48,880 --> 00:33:56,559
+is a uh wikipedia article
+
+851
+00:33:52,559 --> 00:33:56,559
+on that but
+
+852
+00:33:58,480 --> 00:34:02,000
+it may use a different name sometimes
+
+853
+00:34:01,039 --> 00:34:04,640
+the you know
+
+854
+00:34:02,000 --> 00:34:09,359
+the choice of naming is different oh
+
+855
+00:34:04,640 --> 00:34:12,879
+there it is file every distribution png
+
+856
+00:34:09,359 --> 00:34:12,879
+now where is this used
+
+857
+00:34:15,440 --> 00:34:21,760
+okay interesting there is no um
+
+858
+00:34:18,720 --> 00:34:25,119
+there's actually no english version
+
+859
+00:34:21,760 --> 00:34:28,800
+of this distribution there is uh french
+
+860
+00:34:25,119 --> 00:34:31,839
+polish something something uk
+
+861
+00:34:28,800 --> 00:34:34,800
+uh wait what is the russian there's no
+
+862
+00:34:31,839 --> 00:34:38,320
+english article on this
+
+863
+00:34:34,800 --> 00:34:40,639
+anyway so so that's why i say wufam
+
+864
+00:34:38,320 --> 00:34:41,839
+language is you know embodiment you know
+
+865
+00:34:40,639 --> 00:34:44,800
+it's kind of a
+
+866
+00:34:41,839 --> 00:34:46,000
+ai language construction okay let's go
+
+867
+00:34:44,800 --> 00:34:49,040
+on to the next topic
+
+868
+00:34:46,000 --> 00:34:50,960
+okay let's see what the next thing i
+
+869
+00:34:49,040 --> 00:34:55,040
+want to talk about i need to go
+
+870
+00:34:50,960 --> 00:34:55,040
+in like in like 20 minutes
+
+871
+00:34:56,240 --> 00:35:01,680
+okay how do how to learn wufang language
+
+872
+00:34:59,040 --> 00:35:03,520
+show stefan wufam's tutorial yeah okay
+
+873
+00:35:01,680 --> 00:35:08,720
+so
+
+874
+00:35:03,520 --> 00:35:08,720
+okay so back to language you know how um
+
+875
+00:35:09,520 --> 00:35:12,800
+you know 6 000 functions where do you
+
+876
+00:35:12,240 --> 00:35:16,079
+begin
+
+877
+00:35:12,800 --> 00:35:20,079
+okay first of all you
+
+878
+00:35:16,079 --> 00:35:23,280
+can use wufang language as a fantastic
+
+879
+00:35:20,079 --> 00:35:26,160
+graphics calculator okay just you know
+
+880
+00:35:23,280 --> 00:35:27,119
+they categorize their functions into
+
+881
+00:35:26,160 --> 00:35:28,960
+fields
+
+882
+00:35:27,119 --> 00:35:31,440
+for example if you are interested in
+
+883
+00:35:28,960 --> 00:35:34,400
+sound and video sound generation
+
+884
+00:35:31,440 --> 00:35:36,480
+uh let's say sound okay you know play
+
+885
+00:35:34,400 --> 00:35:41,839
+display sound sound notes okay let's
+
+886
+00:35:36,480 --> 00:35:41,839
+let's go sound okay you can
+
+887
+00:35:42,160 --> 00:35:46,800
+okay so sound note c that plays the note
+
+888
+00:35:45,359 --> 00:35:49,200
+c
+
+889
+00:35:46,800 --> 00:35:50,240
+c and g okay i don't know if you can
+
+890
+00:35:49,200 --> 00:35:53,200
+hear it can you
+
+891
+00:35:50,240 --> 00:35:53,200
+hear it let's see
+
+892
+00:35:54,720 --> 00:35:59,839
+let me play it again uh
+
+893
+00:36:03,119 --> 00:36:07,680
+yeah you can hear it and then you can
+
+894
+00:36:05,520 --> 00:36:10,400
+also give a function
+
+895
+00:36:07,680 --> 00:36:13,680
+uh you know a wave function so here is a
+
+896
+00:36:10,400 --> 00:36:15,440
+sine wave which is a pure function
+
+897
+00:36:13,680 --> 00:36:17,359
+you know they actually they they play
+
+898
+00:36:15,440 --> 00:36:21,340
+two different uh
+
+899
+00:36:17,359 --> 00:36:25,680
+waves so let's play it let's evaluate
+
+900
+00:36:21,340 --> 00:36:27,920
+[Music]
+
+901
+00:36:25,680 --> 00:36:29,119
+so this is kind of so you can imagine
+
+902
+00:36:27,920 --> 00:36:31,520
+this as a
+
+903
+00:36:29,119 --> 00:36:33,520
+fundamentals of a synthesizer so you can
+
+904
+00:36:31,520 --> 00:36:36,880
+actually start to write a program
+
+905
+00:36:33,520 --> 00:36:39,599
+to build your own frequency modulation
+
+906
+00:36:36,880 --> 00:36:42,000
+synthesizer or addictive synthesizer
+
+907
+00:36:39,599 --> 00:36:42,960
+you know you can do that in fact there's
+
+908
+00:36:42,000 --> 00:36:45,839
+a blog
+
+909
+00:36:42,960 --> 00:36:46,960
+someone uh actually did it you know so
+
+910
+00:36:45,839 --> 00:36:48,720
+you're
+
+911
+00:36:46,960 --> 00:36:50,240
+you know if you have a woofing language
+
+912
+00:36:48,720 --> 00:36:51,839
+you can create you know you can write
+
+913
+00:36:50,240 --> 00:36:53,440
+your own synthesizers because
+
+914
+00:36:51,839 --> 00:36:54,880
+you know these functions are building so
+
+915
+00:36:53,440 --> 00:36:56,720
+that's why i say you know
+
+916
+00:36:54,880 --> 00:36:58,320
+have you ever seen a language that does
+
+917
+00:36:56,720 --> 00:37:00,640
+that no
+
+918
+00:36:58,320 --> 00:37:03,520
+you know not haskell not not the fancy
+
+919
+00:37:00,640 --> 00:37:05,119
+haskell not erlang you know that
+
+920
+00:37:03,520 --> 00:37:07,920
+of course they have different purposes
+
+921
+00:37:05,119 --> 00:37:09,440
+rust you know judea but wufam language
+
+922
+00:37:07,920 --> 00:37:11,839
+is kind of the
+
+923
+00:37:09,440 --> 00:37:12,880
+giant engine that includes everything
+
+924
+00:37:11,839 --> 00:37:15,200
+you know you just see
+
+925
+00:37:12,880 --> 00:37:16,079
+sit here like in my power station and
+
+926
+00:37:15,200 --> 00:37:18,320
+you just
+
+927
+00:37:16,079 --> 00:37:19,119
+you can compute almost every anything
+
+928
+00:37:18,320 --> 00:37:23,920
+that's
+
+929
+00:37:19,119 --> 00:37:26,960
+practically uh in a language
+
+930
+00:37:23,920 --> 00:37:27,920
+so so sound function so what else i want
+
+931
+00:37:26,960 --> 00:37:30,960
+to say
+
+932
+00:37:27,920 --> 00:37:32,960
+okay so so so i was saying you know so
+
+933
+00:37:30,960 --> 00:37:34,000
+first of all you can just play with
+
+934
+00:37:32,960 --> 00:37:36,000
+language you know
+
+935
+00:37:34,000 --> 00:37:37,280
+you know you look at the you know
+
+936
+00:37:36,000 --> 00:37:40,320
+different categories
+
+937
+00:37:37,280 --> 00:37:42,640
+visualization uh you know like
+
+938
+00:37:40,320 --> 00:37:43,440
+i just did you know i i i'm trying to
+
+939
+00:37:42,640 --> 00:37:45,359
+get a
+
+940
+00:37:43,440 --> 00:37:47,760
+you know because i haven't been coding
+
+941
+00:37:45,359 --> 00:37:50,720
+language for like 15 years seriously
+
+942
+00:37:47,760 --> 00:37:51,920
+so i i wanted to get an overview what
+
+943
+00:37:50,720 --> 00:37:54,960
+what is new
+
+944
+00:37:51,920 --> 00:37:55,760
+you know so i started to look you know
+
+945
+00:37:54,960 --> 00:37:58,880
+in detail
+
+946
+00:37:55,760 --> 00:38:01,599
+in the you know the whole documentation
+
+947
+00:37:58,880 --> 00:38:02,320
+and visualization is one of my primary
+
+948
+00:38:01,599 --> 00:38:05,920
+interests
+
+949
+00:38:02,320 --> 00:38:08,000
+so i started to look so so one way
+
+950
+00:38:05,920 --> 00:38:09,359
+easily you know you can just explore you
+
+951
+00:38:08,000 --> 00:38:14,240
+know just different
+
+952
+00:38:09,359 --> 00:38:17,680
+um things sound videos so if you are in
+
+953
+00:38:14,240 --> 00:38:20,880
+uh interested in for example uh
+
+954
+00:38:17,680 --> 00:38:22,880
+here is image manipulation you can
+
+955
+00:38:20,880 --> 00:38:26,000
+actually build a photoshop
+
+956
+00:38:22,880 --> 00:38:28,480
+with code uh
+
+957
+00:38:26,000 --> 00:38:30,720
+you know this this is new i haven't used
+
+958
+00:38:28,480 --> 00:38:33,200
+any of these but
+
+959
+00:38:30,720 --> 00:38:35,040
+any image manipulation higher
+
+960
+00:38:33,200 --> 00:38:37,760
+mathematical computation
+
+961
+00:38:35,040 --> 00:38:39,680
+now this is a kind of the traditional
+
+962
+00:38:37,760 --> 00:38:41,839
+computer algebra system you can solve
+
+963
+00:38:39,680 --> 00:38:44,400
+linear algebra tensor algebra
+
+964
+00:38:41,839 --> 00:38:47,200
+polynomial algebra you know whatever
+
+965
+00:38:44,400 --> 00:38:49,760
+degree 10th degree polynomial
+
+966
+00:38:47,200 --> 00:38:50,320
+real complex analysis you know uh
+
+967
+00:38:49,760 --> 00:38:53,359
+integral
+
+968
+00:38:50,320 --> 00:38:55,599
+and so on discrete calculus
+
+969
+00:38:53,359 --> 00:38:57,920
+iterated maps and fractals neural
+
+970
+00:38:55,599 --> 00:39:00,800
+networks there it is you know ai
+
+971
+00:38:57,920 --> 00:39:02,880
+probability theory and so on so that's a
+
+972
+00:39:00,800 --> 00:39:06,560
+category of
+
+973
+00:39:02,880 --> 00:39:09,599
+math which is the classic
+
+974
+00:39:06,560 --> 00:39:12,320
+uh purpose of mathematica wufam language
+
+975
+00:39:09,599 --> 00:39:13,040
+so uh string and text you know here is a
+
+976
+00:39:12,320 --> 00:39:15,760
+category
+
+977
+00:39:13,040 --> 00:39:16,800
+you programmers or system admin are
+
+978
+00:39:15,760 --> 00:39:19,520
+interested you know
+
+979
+00:39:16,800 --> 00:39:20,079
+all about manipulating strings and
+
+980
+00:39:19,520 --> 00:39:21,680
+actually
+
+981
+00:39:20,079 --> 00:39:24,480
+you know i discovered the wolfram
+
+982
+00:39:21,680 --> 00:39:27,599
+language is regular expression is
+
+983
+00:39:24,480 --> 00:39:29,040
+is i i don't want to say it now because
+
+984
+00:39:27,599 --> 00:39:31,520
+i haven't actually looked into
+
+985
+00:39:29,040 --> 00:39:32,400
+in detail but i i got an impression it's
+
+986
+00:39:31,520 --> 00:39:34,560
+far more
+
+987
+00:39:32,400 --> 00:39:37,119
+powerful than regular expression yeah
+
+988
+00:39:34,560 --> 00:39:39,920
+pearl whatever
+
+989
+00:39:37,119 --> 00:39:41,359
+because because anyway i'm not going to
+
+990
+00:39:39,920 --> 00:39:44,400
+get into because i haven't
+
+991
+00:39:41,359 --> 00:39:44,720
+you know i'm not too sure i only looked
+
+992
+00:39:44,400 --> 00:39:47,440
+at
+
+993
+00:39:44,720 --> 00:39:48,320
+it you know i got you know uh for a
+
+994
+00:39:47,440 --> 00:39:50,960
+minute
+
+995
+00:39:48,320 --> 00:39:52,640
+so uh graphs and networks if you are
+
+996
+00:39:50,960 --> 00:39:55,280
+into graph theory
+
+997
+00:39:52,640 --> 00:39:58,240
+here is you know graph theory stuff
+
+998
+00:39:55,280 --> 00:40:01,119
+let's see graph plot
+
+999
+00:39:58,240 --> 00:40:03,839
+so given any graph you can plot it and
+
+1000
+00:40:01,119 --> 00:40:05,119
+you will automatically figure out how to
+
+1001
+00:40:03,839 --> 00:40:08,240
+arrange the points
+
+1002
+00:40:05,119 --> 00:40:11,680
+so that it came out something
+
+1003
+00:40:08,240 --> 00:40:14,880
+easy to read so you have uh
+
+1004
+00:40:11,680 --> 00:40:14,880
+you have tree plot
+
+1005
+00:40:15,280 --> 00:40:19,839
+uh you know you know i know there are
+
+1006
+00:40:18,240 --> 00:40:22,400
+packages doing that
+
+1007
+00:40:19,839 --> 00:40:24,880
+and and you know doing this it's not
+
+1008
+00:40:22,400 --> 00:40:28,880
+easy again it
+
+1009
+00:40:24,880 --> 00:40:31,440
+it's not trivial okay it's a another um
+
+1010
+00:40:28,880 --> 00:40:33,280
+yeah layout of graphs it's computational
+
+1011
+00:40:31,440 --> 00:40:35,599
+geometry problem
+
+1012
+00:40:33,280 --> 00:40:36,480
+you know you are given a graph okay you
+
+1013
+00:40:35,599 --> 00:40:39,760
+can actually
+
+1014
+00:40:36,480 --> 00:40:41,200
+manufacture you know so this is a graph
+
+1015
+00:40:39,760 --> 00:40:43,680
+so how do you represent a graph
+
+1016
+00:40:41,200 --> 00:40:46,480
+basically you give you give a list of
+
+1017
+00:40:43,680 --> 00:40:46,960
+labels then you give a list of edges
+
+1018
+00:40:46,480 --> 00:40:49,680
+each
+
+1019
+00:40:46,960 --> 00:40:50,240
+basically array okay each element of the
+
+1020
+00:40:49,680 --> 00:40:53,839
+array
+
+1021
+00:40:50,240 --> 00:40:56,240
+is two labels that represent an edge
+
+1022
+00:40:53,839 --> 00:40:57,760
+edge of a graph so you just a bunch of
+
+1023
+00:40:56,240 --> 00:41:00,960
+data you know
+
+1024
+00:40:57,760 --> 00:41:02,319
+you know a bunch of edges so that rivers
+
+1025
+00:41:00,960 --> 00:41:04,560
+you know the
+
+1026
+00:41:02,319 --> 00:41:05,839
+that represents which points are which
+
+1027
+00:41:04,560 --> 00:41:07,760
+label or whatever
+
+1028
+00:41:05,839 --> 00:41:09,119
+symbol you are connected to which like
+
+1029
+00:41:07,760 --> 00:41:12,079
+each label can be a b
+
+1030
+00:41:09,119 --> 00:41:12,400
+c d e f g you know each one of these not
+
+1031
+00:41:12,079 --> 00:41:14,480
+is
+
+1032
+00:41:12,400 --> 00:41:16,319
+you know a b c d f g you have you can
+
+1033
+00:41:14,480 --> 00:41:17,920
+have thousands of them
+
+1034
+00:41:16,319 --> 00:41:19,760
+then you have a list of data that says
+
+1035
+00:41:17,920 --> 00:41:22,240
+which are connected to which so it's
+
+1036
+00:41:19,760 --> 00:41:23,280
+just a bunch of data but you want to
+
+1037
+00:41:22,240 --> 00:41:26,240
+show it you know
+
+1038
+00:41:23,280 --> 00:41:27,520
+so how does mathematica know you know in
+
+1039
+00:41:26,240 --> 00:41:30,079
+in the case of this
+
+1040
+00:41:27,520 --> 00:41:31,359
+this particular graph it's symmetric you
+
+1041
+00:41:30,079 --> 00:41:34,640
+know it has a
+
+1042
+00:41:31,359 --> 00:41:37,280
+bilateral symmetry you know it's
+
+1043
+00:41:34,640 --> 00:41:39,040
+it's it's uh it's a it's a non-trivial
+
+1044
+00:41:37,280 --> 00:41:41,839
+problem
+
+1045
+00:41:39,040 --> 00:41:44,079
+given the arbitrary graph to format it
+
+1046
+00:41:41,839 --> 00:41:46,720
+for visual representation
+
+1047
+00:41:44,079 --> 00:41:47,520
+in the best way you know so for this
+
+1048
+00:41:46,720 --> 00:41:48,640
+graph
+
+1049
+00:41:47,520 --> 00:41:50,560
+there are so many different
+
+1050
+00:41:48,640 --> 00:41:51,119
+visualizations you can plot it like a
+
+1051
+00:41:50,560 --> 00:41:53,680
+tree
+
+1052
+00:41:51,119 --> 00:41:55,680
+or you you or you know in this case a
+
+1053
+00:41:53,680 --> 00:41:58,160
+circular
+
+1054
+00:41:55,680 --> 00:41:59,280
+so mathematica we actually automatically
+
+1055
+00:41:58,160 --> 00:42:01,119
+figure it out
+
+1056
+00:41:59,280 --> 00:42:03,200
+that's a you know that's another that's
+
+1057
+00:42:01,119 --> 00:42:03,520
+what i mean by mathematica it's kind of
+
+1058
+00:42:03,200 --> 00:42:06,720
+has
+
+1059
+00:42:03,520 --> 00:42:09,119
+you know all the ai buildings so if you
+
+1060
+00:42:06,720 --> 00:42:10,319
+um for example if you are a computer
+
+1061
+00:42:09,119 --> 00:42:12,960
+scientist
+
+1062
+00:42:10,319 --> 00:42:13,440
+a phd suppose you are a phd in computer
+
+1063
+00:42:12,960 --> 00:42:15,599
+science
+
+1064
+00:42:13,440 --> 00:42:16,960
+you know in computer science you there
+
+1065
+00:42:15,599 --> 00:42:18,880
+are so many subfields
+
+1066
+00:42:16,960 --> 00:42:21,839
+you know computational geometry graph
+
+1067
+00:42:18,880 --> 00:42:24,640
+theory you know
+
+1068
+00:42:21,839 --> 00:42:26,640
+so you have x x you have lots of
+
+1069
+00:42:24,640 --> 00:42:28,000
+algorithms you know finding the path of
+
+1070
+00:42:26,640 --> 00:42:31,040
+a graph and so on
+
+1071
+00:42:28,000 --> 00:42:33,119
+and also representation of a graph
+
+1072
+00:42:31,040 --> 00:42:34,880
+and you know you can go to wikipedia
+
+1073
+00:42:33,119 --> 00:42:37,359
+then you'll see hundred articles about
+
+1074
+00:42:34,880 --> 00:42:40,000
+graph theory and algorithms
+
+1075
+00:42:37,359 --> 00:42:42,400
+so the point about mathematica is that
+
+1076
+00:42:40,000 --> 00:42:44,720
+you know if there's algorithm known
+
+1077
+00:42:42,400 --> 00:42:46,240
+it's building okay so so how does
+
+1078
+00:42:44,720 --> 00:42:48,319
+mathematica know
+
+1079
+00:42:46,240 --> 00:42:50,480
+to plot this this way because you know
+
+1080
+00:42:48,319 --> 00:42:53,839
+it has algorithms it
+
+1081
+00:42:50,480 --> 00:42:56,720
+and it automatically choose
+
+1082
+00:42:53,839 --> 00:42:59,359
+using ai kind of ai to choose the you
+
+1083
+00:42:56,720 --> 00:43:01,440
+know represent representation for you
+
+1084
+00:42:59,359 --> 00:43:03,599
+so that that's what i mean so so first
+
+1085
+00:43:01,440 --> 00:43:05,760
+of all to in order to learn mathematica
+
+1086
+00:43:03,599 --> 00:43:06,400
+you know the 6 000 functions you can
+
+1087
+00:43:05,760 --> 00:43:09,839
+just
+
+1088
+00:43:06,400 --> 00:43:10,240
+explore all these okay then let me tell
+
+1089
+00:43:09,839 --> 00:43:13,359
+you
+
+1090
+00:43:10,240 --> 00:43:16,880
+two um let me tell you
+
+1091
+00:43:13,359 --> 00:43:21,280
+two two things to learn systematically
+
+1092
+00:43:16,880 --> 00:43:21,280
+now as a programmer okay one of the way
+
+1093
+00:43:21,599 --> 00:43:24,880
+okay when you look at this page the the
+
+1094
+00:43:24,480 --> 00:43:27,920
+thing
+
+1095
+00:43:24,880 --> 00:43:30,480
+you really want to understand
+
+1096
+00:43:27,920 --> 00:43:33,599
+as a programmer is this the first part
+
+1097
+00:43:30,480 --> 00:43:37,040
+core language and structure okay
+
+1098
+00:43:33,599 --> 00:43:39,520
+uh again there's so many so let's begin
+
+1099
+00:43:37,040 --> 00:43:41,359
+with language overview so this is as a
+
+1100
+00:43:39,520 --> 00:43:44,640
+programmer this is this part
+
+1101
+00:43:41,359 --> 00:43:47,760
+is what you want to uh go
+
+1102
+00:43:44,640 --> 00:43:51,359
+through if you want to if you
+
+1103
+00:43:47,760 --> 00:43:53,599
+if your goal is to master mathematics
+
+1104
+00:43:51,359 --> 00:43:55,200
+i mean that's the wolfram language i
+
+1105
+00:43:53,599 --> 00:43:55,440
+mean first of all you play with it you
+
+1106
+00:43:55,200 --> 00:43:58,400
+know
+
+1107
+00:43:55,440 --> 00:43:59,119
+you look at all the fancy functions
+
+1108
+00:43:58,400 --> 00:44:01,200
+which is
+
+1109
+00:43:59,119 --> 00:44:02,880
+vast majority of math you know wolfen
+
+1110
+00:44:01,200 --> 00:44:04,560
+language users do you know they are
+
+1111
+00:44:02,880 --> 00:44:06,400
+scientists you know they are not really
+
+1112
+00:44:04,560 --> 00:44:08,240
+usually they are not programmers
+
+1113
+00:44:06,400 --> 00:44:09,760
+you know they just want to you know they
+
+1114
+00:44:08,240 --> 00:44:10,880
+have lots of data they just want to
+
+1115
+00:44:09,760 --> 00:44:14,079
+visualize it
+
+1116
+00:44:10,880 --> 00:44:14,720
+or do computations so you you try a
+
+1117
+00:44:14,079 --> 00:44:16,720
+function
+
+1118
+00:44:14,720 --> 00:44:18,960
+and there are a lot of examples you know
+
+1119
+00:44:16,720 --> 00:44:21,920
+you just you just try it
+
+1120
+00:44:18,960 --> 00:44:22,960
+and usually you know so that's first
+
+1121
+00:44:21,920 --> 00:44:25,280
+thing you look around
+
+1122
+00:44:22,960 --> 00:44:26,800
+then but if you really want to master
+
+1123
+00:44:25,280 --> 00:44:29,839
+mathematica you plan to
+
+1124
+00:44:26,800 --> 00:44:31,760
+really know it well as a programmer
+
+1125
+00:44:29,839 --> 00:44:33,520
+this part is what you want to know you
+
+1126
+00:44:31,760 --> 00:44:34,240
+want to dive in depth you want to
+
+1127
+00:44:33,520 --> 00:44:37,040
+understand
+
+1128
+00:44:34,240 --> 00:44:38,240
+each and uh yeah basically each and
+
+1129
+00:44:37,040 --> 00:44:41,599
+every
+
+1130
+00:44:38,240 --> 00:44:42,240
+of these functions in this uh core
+
+1131
+00:44:41,599 --> 00:44:46,160
+language
+
+1132
+00:44:42,240 --> 00:44:49,119
+stroke and structure okay basically
+
+1133
+00:44:46,160 --> 00:44:51,520
+the first one okay um that's what you
+
+1134
+00:44:49,119 --> 00:44:53,520
+want to go through
+
+1135
+00:44:51,520 --> 00:44:55,440
+so that's one thing for programmers if
+
+1136
+00:44:53,520 --> 00:44:56,640
+you want to really master mathematica
+
+1137
+00:44:55,440 --> 00:44:59,040
+now if you
+
+1138
+00:44:56,640 --> 00:45:00,560
+now again now now if you are a
+
+1139
+00:44:59,040 --> 00:45:02,960
+programmer but you don't
+
+1140
+00:45:00,560 --> 00:45:04,160
+really you know you are beginner
+
+1141
+00:45:02,960 --> 00:45:07,280
+programmer okay
+
+1142
+00:45:04,160 --> 00:45:10,400
+what do you do to uh
+
+1143
+00:45:07,280 --> 00:45:12,240
+to get the introduction okay so what you
+
+1144
+00:45:10,400 --> 00:45:16,319
+do is you follow this
+
+1145
+00:45:12,240 --> 00:45:16,960
+um this tutorial written by wufam
+
+1146
+00:45:16,319 --> 00:45:20,640
+himself
+
+1147
+00:45:16,960 --> 00:45:20,640
+okay let me show you where
+
+1148
+00:45:21,040 --> 00:45:26,000
+uh fast introduction to fan language no
+
+1149
+00:45:24,079 --> 00:45:30,800
+that's not what i want
+
+1150
+00:45:26,000 --> 00:45:30,800
+that's not um
+
+1151
+00:45:30,960 --> 00:45:37,040
+let's see um this
+
+1152
+00:45:34,400 --> 00:45:38,560
+rule and patterns okay let's try that
+
+1153
+00:45:37,040 --> 00:45:40,880
+i'm i'm trying to find you
+
+1154
+00:45:38,560 --> 00:45:40,880
+the
+
+1155
+00:45:43,680 --> 00:45:51,119
+the book okay the easiest way is just
+
+1156
+00:45:47,200 --> 00:45:51,119
+search for stefan
+
+1157
+00:45:52,079 --> 00:45:57,680
+wolfram tutorial
+
+1158
+00:45:58,839 --> 00:46:01,839
+okay
+
+1159
+00:46:02,400 --> 00:46:06,319
+oh yeah that's the one uh wait
+
+1160
+00:46:07,680 --> 00:46:11,520
+no that's not the one okay here here
+
+1161
+00:46:10,800 --> 00:46:14,000
+okay
+
+1162
+00:46:11,520 --> 00:46:16,400
+an elementary introduction to oofam
+
+1163
+00:46:14,000 --> 00:46:16,400
+language
+
+1164
+00:46:17,440 --> 00:46:21,599
+okay this this um the page you are
+
+1165
+00:46:19,760 --> 00:46:23,200
+looking at the fast introduction for
+
+1166
+00:46:21,599 --> 00:46:26,720
+programmers
+
+1167
+00:46:23,200 --> 00:46:29,760
+i'm not sure it's a uh
+
+1168
+00:46:26,720 --> 00:46:32,800
+i'm not sure it's um
+
+1169
+00:46:29,760 --> 00:46:33,040
+very good no is it very bad i don't know
+
+1170
+00:46:32,800 --> 00:46:35,520
+i
+
+1171
+00:46:33,040 --> 00:46:37,040
+you know i but actually what i recommend
+
+1172
+00:46:35,520 --> 00:46:39,520
+is this one
+
+1173
+00:46:37,040 --> 00:46:40,640
+an elementary introduction to wufam
+
+1174
+00:46:39,520 --> 00:46:42,720
+language and
+
+1175
+00:46:40,640 --> 00:46:44,000
+in fact he sent me a copy like five
+
+1176
+00:46:42,720 --> 00:46:47,200
+years ago
+
+1177
+00:46:44,000 --> 00:46:49,839
+when he when he wrote this
+
+1178
+00:46:47,200 --> 00:46:51,040
+so and i recommend this book okay you
+
+1179
+00:46:49,839 --> 00:46:52,480
+just go through
+
+1180
+00:46:51,040 --> 00:46:54,560
+chapter one two three if you are a
+
+1181
+00:46:52,480 --> 00:46:55,359
+programmer you can go through very fast
+
+1182
+00:46:54,560 --> 00:46:57,599
+you know uh
+
+1183
+00:46:55,359 --> 00:46:59,680
+five minutes for each chapter or three
+
+1184
+00:46:57,599 --> 00:47:01,839
+minutes
+
+1185
+00:46:59,680 --> 00:47:03,839
+you know go through this one okay stefan
+
+1186
+00:47:01,839 --> 00:47:05,359
+wu from an elementary introduction to
+
+1187
+00:47:03,839 --> 00:47:07,839
+the wufang language
+
+1188
+00:47:05,359 --> 00:47:09,200
+so in summer in summary to learn
+
+1189
+00:47:07,839 --> 00:47:12,480
+mathematica
+
+1190
+00:47:09,200 --> 00:47:16,400
+there are a few ways one is
+
+1191
+00:47:12,480 --> 00:47:17,359
+that you just explore like play with it
+
+1192
+00:47:16,400 --> 00:47:19,599
+as a
+
+1193
+00:47:17,359 --> 00:47:20,880
+fantastic giant graphing calculator you
+
+1194
+00:47:19,599 --> 00:47:23,200
+just play with it
+
+1195
+00:47:20,880 --> 00:47:25,359
+you know just click on what area you are
+
+1196
+00:47:23,200 --> 00:47:27,760
+interested in just try it
+
+1197
+00:47:25,359 --> 00:47:29,920
+that's one way so first first of all you
+
+1198
+00:47:27,760 --> 00:47:32,319
+do that you get you get a feel of what's
+
+1199
+00:47:29,920 --> 00:47:35,440
+a notebook and so on
+
+1200
+00:47:32,319 --> 00:47:38,160
+then the second way is to study this
+
+1201
+00:47:35,440 --> 00:47:40,240
+this book wufam language an elementary
+
+1202
+00:47:38,160 --> 00:47:42,400
+introduction by wufa
+
+1203
+00:47:40,240 --> 00:47:44,160
+then another way then after that you
+
+1204
+00:47:42,400 --> 00:47:45,200
+want if you really want to master
+
+1205
+00:47:44,160 --> 00:47:48,160
+mathematica
+
+1206
+00:47:45,200 --> 00:47:49,040
+uh study this part okay call language
+
+1207
+00:47:48,160 --> 00:47:52,079
+structure
+
+1208
+00:47:49,040 --> 00:47:55,280
+now this this is the part that basically
+
+1209
+00:47:52,079 --> 00:47:59,280
+haven't changed uh for
+
+1210
+00:47:55,280 --> 00:48:02,720
+30 years they added a few
+
+1211
+00:47:59,280 --> 00:48:05,920
+you know they added like 10 or 20 new
+
+1212
+00:48:02,720 --> 00:48:07,760
+uh new conditional constructs you know
+
+1213
+00:48:05,920 --> 00:48:11,200
+but basically it's the same
+
+1214
+00:48:07,760 --> 00:48:13,119
+mathematica i know i know of anyway i
+
+1215
+00:48:11,200 --> 00:48:13,599
+don't have time to explain today i have
+
+1216
+00:48:13,119 --> 00:48:17,040
+to go
+
+1217
+00:48:13,599 --> 00:48:20,640
+actually so any questions any
+
+1218
+00:48:17,040 --> 00:48:22,240
+questions and comments
+
+1219
+00:48:20,640 --> 00:48:24,800
+okay five more minutes i'm going to
+
+1220
+00:48:22,240 --> 00:48:26,319
+close so i i you know i because i have
+
+1221
+00:48:24,800 --> 00:48:28,480
+to go
+
+1222
+00:48:26,319 --> 00:48:30,559
+so because otherwise i'm going to
+
+1223
+00:48:28,480 --> 00:48:33,599
+actually teach you
+
+1224
+00:48:30,559 --> 00:48:36,079
+the fundamentals of mathematica as for
+
+1225
+00:48:33,599 --> 00:48:38,240
+programmers okay
+
+1226
+00:48:36,079 --> 00:48:40,160
+you know because because i've been
+
+1227
+00:48:38,240 --> 00:48:44,480
+coding it for 10 years i also
+
+1228
+00:48:40,160 --> 00:48:48,160
+work at wolfram for a while in 1995 so i
+
+1229
+00:48:44,480 --> 00:48:49,599
+um the language is essentially
+
+1230
+00:48:48,160 --> 00:48:51,440
+you know the nature you know the
+
+1231
+00:48:49,599 --> 00:48:52,800
+construct how do you program you know
+
+1232
+00:48:51,440 --> 00:48:55,440
+it's essentially the same
+
+1233
+00:48:52,800 --> 00:48:56,000
+they just added two they just added
+
+1234
+00:48:55,440 --> 00:48:58,240
+three
+
+1235
+00:48:56,000 --> 00:48:59,200
+three thousand more ai functions like
+
+1236
+00:48:58,240 --> 00:49:00,960
+one function
+
+1237
+00:48:59,200 --> 00:49:03,040
+you know you know some of these
+
+1238
+00:49:00,960 --> 00:49:04,559
+functions like for example we showed the
+
+1239
+00:49:03,040 --> 00:49:07,839
+this contour plot
+
+1240
+00:49:04,559 --> 00:49:11,200
+how many lines of that is in haskell
+
+1241
+00:49:07,839 --> 00:49:14,480
+ten thousand okay yeah that's true
+
+1242
+00:49:11,200 --> 00:49:17,680
+how many lines to write this in haskell
+
+1243
+00:49:14,480 --> 00:49:19,760
+ten thousand yeah not enough 20
+
+1244
+00:49:17,680 --> 00:49:22,079
+000 okay just for this function you have
+
+1245
+00:49:19,760 --> 00:49:25,359
+to write 20 000
+
+1246
+00:49:22,079 --> 00:49:28,319
+lines of haskell now if
+
+1247
+00:49:25,359 --> 00:49:30,800
+that's not even including graphics
+
+1248
+00:49:28,319 --> 00:49:31,920
+functions i mean haskell doesn't you
+
+1249
+00:49:30,800 --> 00:49:34,880
+know most languages
+
+1250
+00:49:31,920 --> 00:49:36,960
+doesn't have built-in graphical api they
+
+1251
+00:49:34,880 --> 00:49:39,599
+cannot show a graph like that you know
+
+1252
+00:49:36,960 --> 00:49:41,119
+if you count the graphic graphics stuff
+
+1253
+00:49:39,599 --> 00:49:43,680
+that's like 10 million
+
+1254
+00:49:41,119 --> 00:49:44,720
+you know 1 million lines of code right
+
+1255
+00:49:43,680 --> 00:49:47,040
+away
+
+1256
+00:49:44,720 --> 00:49:48,160
+but we let's let's not count that let's
+
+1257
+00:49:47,040 --> 00:49:50,400
+just say
+
+1258
+00:49:48,160 --> 00:49:52,240
+to be able to find the points that's the
+
+1259
+00:49:50,400 --> 00:49:54,240
+same you know a bunch of points that
+
+1260
+00:49:52,240 --> 00:49:56,160
+forms a mesh
+
+1261
+00:49:54,240 --> 00:49:57,440
+you know to do that it has got uh yeah
+
+1262
+00:49:56,160 --> 00:50:00,960
+20 000 or
+
+1263
+00:49:57,440 --> 00:50:02,720
+maybe ten thousand lines of code in asco
+
+1264
+00:50:00,960 --> 00:50:05,599
+and you see it's one thousand one
+
+1265
+00:50:02,720 --> 00:50:08,079
+hundred thousand lines of code
+
+1266
+00:50:05,599 --> 00:50:08,720
+so that's why and mathematica has has
+
+1267
+00:50:08,079 --> 00:50:10,319
+fixed
+
+1268
+00:50:08,720 --> 00:50:12,720
+you know that's why each function in
+
+1269
+00:50:10,319 --> 00:50:16,480
+mathematica is kind of
+
+1270
+00:50:12,720 --> 00:50:19,280
+very condensed you know that lets you do
+
+1271
+00:50:16,480 --> 00:50:21,280
+prototype or some idea about sound of
+
+1272
+00:50:19,280 --> 00:50:23,280
+about visualization about
+
+1273
+00:50:21,280 --> 00:50:24,400
+you know getting info information from
+
+1274
+00:50:23,280 --> 00:50:27,440
+statistics
+
+1275
+00:50:24,400 --> 00:50:28,400
+or artificial intelligence research you
+
+1276
+00:50:27,440 --> 00:50:31,839
+know prototype
+
+1277
+00:50:28,400 --> 00:50:32,240
+you know machine learning um that's why
+
+1278
+00:50:31,839 --> 00:50:34,880
+it's
+
+1279
+00:50:32,240 --> 00:50:36,079
+incredible okay incredible let me let's
+
+1280
+00:50:34,880 --> 00:50:38,720
+look at some of the
+
+1281
+00:50:36,079 --> 00:50:39,280
+uh questions post questions okay i'm
+
+1282
+00:50:38,720 --> 00:50:43,599
+gonna
+
+1283
+00:50:39,280 --> 00:50:46,319
+shut down have you ever used
+
+1284
+00:50:43,599 --> 00:50:47,280
+mathematica industry for just uh or just
+
+1285
+00:50:46,319 --> 00:50:50,319
+for fun
+
+1286
+00:50:47,280 --> 00:50:52,240
+well i of course i
+
+1287
+00:50:50,319 --> 00:50:53,680
+you know wufang language they they are
+
+1288
+00:50:52,240 --> 00:50:56,079
+in a different industry
+
+1289
+00:50:53,680 --> 00:50:57,920
+then programming okay i gotta go you
+
+1290
+00:50:56,079 --> 00:51:01,280
+know in most programming languages
+
+1291
+00:50:57,920 --> 00:51:04,880
+python let's i gotta go
+
+1292
+00:51:01,280 --> 00:51:06,720
+my alarm clock went off let me talk
+
+1293
+00:51:04,880 --> 00:51:07,920
+four or five minutes okay so you most
+
+1294
+00:51:06,720 --> 00:51:11,040
+likely like golan
+
+1295
+00:51:07,920 --> 00:51:13,440
+cc plus first what's their industry well
+
+1296
+00:51:11,040 --> 00:51:14,559
+uh you know see for example writing
+
+1297
+00:51:13,440 --> 00:51:17,599
+operating systems
+
+1298
+00:51:14,559 --> 00:51:18,400
+embedded devices uh you know linux
+
+1299
+00:51:17,599 --> 00:51:20,800
+kernel
+
+1300
+00:51:18,400 --> 00:51:21,440
+or driver smart driver you know you need
+
+1301
+00:51:20,800 --> 00:51:24,319
+c
+
+1302
+00:51:21,440 --> 00:51:25,200
+you know or c like languages rust for
+
+1303
+00:51:24,319 --> 00:51:27,680
+example
+
+1304
+00:51:25,200 --> 00:51:28,720
+uh what about c plus plus well some of
+
+1305
+00:51:27,680 --> 00:51:30,880
+them you can do with c
+
+1306
+00:51:28,720 --> 00:51:31,839
+plus plus but usually not then c plus
+
+1307
+00:51:30,880 --> 00:51:34,400
+plus is
+
+1308
+00:51:31,839 --> 00:51:36,079
+often used for you know gaming gaming
+
+1309
+00:51:34,400 --> 00:51:38,640
+you know you write 3d game
+
+1310
+00:51:36,079 --> 00:51:39,920
+engines right and gold line is kind of
+
+1311
+00:51:38,640 --> 00:51:44,319
+similar okay
+
+1312
+00:51:39,920 --> 00:51:47,599
+uh and rust you know just you know
+
+1313
+00:51:44,319 --> 00:51:50,240
+kind of also fits that wheel now
+
+1314
+00:51:47,599 --> 00:51:51,839
+for python ruby bash what they you know
+
+1315
+00:51:50,240 --> 00:51:53,040
+what's their industry usually web
+
+1316
+00:51:51,839 --> 00:51:55,119
+programming is
+
+1317
+00:51:53,040 --> 00:51:56,400
+usually higher level web programming
+
+1318
+00:51:55,119 --> 00:52:00,240
+prototyping
+
+1319
+00:51:56,400 --> 00:52:02,240
+uh you know or artificial or interface
+
+1320
+00:52:00,240 --> 00:52:03,040
+to artificial intelligence for example
+
+1321
+00:52:02,240 --> 00:52:06,559
+google has
+
+1322
+00:52:03,040 --> 00:52:07,119
+quite a few neural networks or machine
+
+1323
+00:52:06,559 --> 00:52:09,520
+learning
+
+1324
+00:52:07,119 --> 00:52:11,119
+libraries they are usually written in c
+
+1325
+00:52:09,520 --> 00:52:14,000
+or java you know
+
+1326
+00:52:11,119 --> 00:52:16,000
+but the the interface to them is usually
+
+1327
+00:52:14,000 --> 00:52:19,599
+python
+
+1328
+00:52:16,000 --> 00:52:21,119
+so python will ruby or bash you know
+
+1329
+00:52:19,599 --> 00:52:22,960
+you know python ruby are they are good
+
+1330
+00:52:21,119 --> 00:52:26,000
+they're higher level they are you know
+
+1331
+00:52:22,960 --> 00:52:27,920
+they you can write a web application
+
+1332
+00:52:26,000 --> 00:52:29,520
+you can write interface with them that's
+
+1333
+00:52:27,920 --> 00:52:31,760
+basically their industry
+
+1334
+00:52:29,520 --> 00:52:33,920
+you know you don't you don't write the
+
+1335
+00:52:31,760 --> 00:52:38,079
+operating system with python okay
+
+1336
+00:52:33,920 --> 00:52:41,200
+almost never uh
+
+1337
+00:52:38,079 --> 00:52:43,520
+then so in a similar way mathematica has
+
+1338
+00:52:41,200 --> 00:52:45,839
+it you know so what ways mathematical
+
+1339
+00:52:43,520 --> 00:52:47,680
+use you know you you it's not right you
+
+1340
+00:52:45,839 --> 00:52:49,440
+know you don't use mathematica to write
+
+1341
+00:52:47,680 --> 00:52:51,599
+operating system it's not low level
+
+1342
+00:52:49,440 --> 00:52:53,200
+you don't use it to write a game engine
+
+1343
+00:52:51,599 --> 00:52:56,240
+you don't use to write
+
+1344
+00:52:53,200 --> 00:52:59,040
+right so what do you use it for
+
+1345
+00:52:56,240 --> 00:53:01,040
+it's usually not used by programmers
+
+1346
+00:52:59,040 --> 00:53:02,960
+it's used by
+
+1347
+00:53:01,040 --> 00:53:04,800
+well today a lot of programmers let me
+
+1348
+00:53:02,960 --> 00:53:06,079
+explain okay but mostly it's used by
+
+1349
+00:53:04,800 --> 00:53:08,960
+mathematicians
+
+1350
+00:53:06,079 --> 00:53:10,160
+physicists engineers engineers in
+
+1351
+00:53:08,960 --> 00:53:13,359
+diverse fields in
+
+1352
+00:53:10,160 --> 00:53:16,640
+geology biology biochemistry
+
+1353
+00:53:13,359 --> 00:53:18,800
+in chemistry in physics you do research
+
+1354
+00:53:16,640 --> 00:53:19,440
+you have lots of data from nasa you know
+
+1355
+00:53:18,800 --> 00:53:22,079
+space
+
+1356
+00:53:19,440 --> 00:53:22,640
+stars you know telescopes data you want
+
+1357
+00:53:22,079 --> 00:53:25,920
+to
+
+1358
+00:53:22,640 --> 00:53:27,680
+analyze the data that's what you know
+
+1359
+00:53:25,920 --> 00:53:29,440
+mathematica is for or if you are an
+
+1360
+00:53:27,680 --> 00:53:31,599
+engineer you are building a car
+
+1361
+00:53:29,440 --> 00:53:33,680
+you are designing a new engine you want
+
+1362
+00:53:31,599 --> 00:53:36,960
+to prototype or you want to
+
+1363
+00:53:33,680 --> 00:53:38,880
+uh have a heat you know
+
+1364
+00:53:36,960 --> 00:53:40,160
+if suppose you are building a you know
+
+1365
+00:53:38,880 --> 00:53:42,960
+the engine for a
+
+1366
+00:53:40,160 --> 00:53:44,960
+jet you know jet fighter you know huge
+
+1367
+00:53:42,960 --> 00:53:48,079
+um
+
+1368
+00:53:44,960 --> 00:53:51,520
+uh how do you call those engines uh
+
+1369
+00:53:48,079 --> 00:53:53,760
+turbines you know you want to
+
+1370
+00:53:51,520 --> 00:53:54,720
+model or you want to model whether you
+
+1371
+00:53:53,760 --> 00:53:57,520
+know science
+
+1372
+00:53:54,720 --> 00:53:58,559
+science and engineering that's that's
+
+1373
+00:53:57,520 --> 00:54:01,040
+the scientists and
+
+1374
+00:53:58,559 --> 00:54:02,000
+engineers that's the people that's where
+
+1375
+00:54:01,040 --> 00:54:05,200
+wolverine language
+
+1376
+00:54:02,000 --> 00:54:09,520
+is used in typically not programmers but
+
+1377
+00:54:05,200 --> 00:54:12,319
+beginning around year to year uh 2010
+
+1378
+00:54:09,520 --> 00:54:12,880
+lots of programmers as well because why
+
+1379
+00:54:12,319 --> 00:54:15,599
+because
+
+1380
+00:54:12,880 --> 00:54:16,559
+machine learning artificial intelligence
+
+1381
+00:54:15,599 --> 00:54:18,000
+neural networks
+
+1382
+00:54:16,559 --> 00:54:20,240
+you know google is you know very big
+
+1383
+00:54:18,000 --> 00:54:21,040
+with it you need you know programmers
+
+1384
+00:54:20,240 --> 00:54:23,119
+started to
+
+1385
+00:54:21,040 --> 00:54:26,400
+for example today there are quite a few
+
+1386
+00:54:23,119 --> 00:54:28,559
+jobs of data science you know
+
+1387
+00:54:26,400 --> 00:54:29,760
+where you don't just you know you are
+
+1388
+00:54:28,559 --> 00:54:31,839
+not you know you have to be a
+
+1389
+00:54:29,760 --> 00:54:34,960
+mathematician statistician
+
+1390
+00:54:31,839 --> 00:54:36,720
+but you also have to code coding is
+
+1391
+00:54:34,960 --> 00:54:37,520
+actually part of your main job you have
+
+1392
+00:54:36,720 --> 00:54:40,880
+to code
+
+1393
+00:54:37,520 --> 00:54:43,040
+a lot so
+
+1394
+00:54:40,880 --> 00:54:45,040
+so that's where mathematica is used
+
+1395
+00:54:43,040 --> 00:54:47,040
+these days by programmers as well high
+
+1396
+00:54:45,040 --> 00:54:50,160
+level programmers not
+
+1397
+00:54:47,040 --> 00:54:53,119
+not the typical see just
+
+1398
+00:54:50,160 --> 00:54:53,920
+those type of people guys who talk about
+
+1399
+00:54:53,119 --> 00:54:57,119
+memory and
+
+1400
+00:54:53,920 --> 00:54:57,119
+indian float all the time
+
+1401
+00:54:57,280 --> 00:55:01,040
+okay that's it for today i gotta go so
+
+1402
+00:54:59,440 --> 00:55:04,160
+thank you guys for watching
+
+1403
+00:55:01,040 --> 00:55:04,559
+by my tutorial so donate patreon me if
+
+1404
+00:55:04,160 --> 00:55:07,920
+you
+
+1405
+00:55:04,559 --> 00:55:10,480
+uh like my stuff and again you can
+
+1406
+00:55:07,920 --> 00:55:11,200
+um you know i got wufang language for
+
+1407
+00:55:10,480 --> 00:55:14,000
+free
+
+1408
+00:55:11,200 --> 00:55:16,400
+you can get well because they send it to
+
+1409
+00:55:14,000 --> 00:55:19,760
+me okay so
+
+1410
+00:55:16,400 --> 00:55:21,280
+and uh but you can also get it for free
+
+1411
+00:55:19,760 --> 00:55:22,880
+uh you know
+
+1412
+00:55:21,280 --> 00:55:26,559
+[Music]
+
+1413
+00:55:22,880 --> 00:55:28,079
+uh very cheap or free so i have a link i
+
+1414
+00:55:26,559 --> 00:55:31,599
+talked about it in the
+
+1415
+00:55:28,079 --> 00:55:33,440
+beginning of my video where's my link i
+
+1416
+00:55:31,599 --> 00:55:38,160
+don't have the link but anyway
+
+1417
+00:55:33,440 --> 00:55:38,160
+so thank you guys for watching bye guys
+
+1418
+00:55:38,240 --> 00:55:43,839
+uh okay i'm shutting down in one minute
+
+1419
+00:55:40,880 --> 00:55:43,839
+any more questions
+
+1420
+00:55:47,280 --> 00:55:50,799
+so yeah in 1990s i do visualization kind
+
+1421
+00:55:50,559 --> 00:55:53,280
+of
+
+1422
+00:55:50,799 --> 00:55:54,720
+if you want to say you know the question
+
+1423
+00:55:53,280 --> 00:55:57,359
+is do have i ever used
+
+1424
+00:55:54,720 --> 00:55:59,440
+for industry yeah i wrote lots of
+
+1425
+00:55:57,359 --> 00:56:01,920
+programs for example i showed in my last
+
+1426
+00:55:59,440 --> 00:56:03,680
+video or these programs
+
+1427
+00:56:01,920 --> 00:56:05,520
+basically you can say they are in
+
+1428
+00:56:03,680 --> 00:56:08,160
+educational industry
+
+1429
+00:56:05,520 --> 00:56:08,640
+let me show you my let me show you my
+
+1430
+00:56:08,160 --> 00:56:12,000
+first
+
+1431
+00:56:08,640 --> 00:56:12,000
+most popular project
+
+1432
+00:56:12,160 --> 00:56:18,960
+visual dictionary of
+
+1433
+00:56:15,359 --> 00:56:21,520
+playing curves so this is a math
+
+1434
+00:56:18,960 --> 00:56:25,119
+education industry you can say that so i
+
+1435
+00:56:21,520 --> 00:56:27,680
+wrote all this this is 1997.
+
+1436
+00:56:25,119 --> 00:56:28,640
+i wrote all these in wolfen language
+
+1437
+00:56:27,680 --> 00:56:32,480
+they tell you
+
+1438
+00:56:28,640 --> 00:56:32,480
+lots of the properties
+
+1439
+00:56:33,200 --> 00:56:38,319
+of curves you know they especially
+
+1440
+00:56:36,160 --> 00:56:39,359
+visually so you can easily understand
+
+1441
+00:56:38,319 --> 00:56:42,240
+for example this
+
+1442
+00:56:39,359 --> 00:56:42,799
+curve there are quite a few spirals you
+
+1443
+00:56:42,240 --> 00:56:44,880
+know this
+
+1444
+00:56:42,799 --> 00:56:46,640
+this one is archimedean spiral this one
+
+1445
+00:56:44,880 --> 00:56:49,440
+is equal angular spiral
+
+1446
+00:56:46,640 --> 00:56:52,160
+this one is called liters liters is
+
+1447
+00:56:49,440 --> 00:56:54,319
+interesting because you can see
+
+1448
+00:56:52,160 --> 00:56:56,559
+uh let me magnify okay so you can see
+
+1449
+00:56:54,319 --> 00:56:57,440
+it's used in you know it's a model of
+
+1450
+00:56:56,559 --> 00:57:00,880
+the
+
+1451
+00:56:57,440 --> 00:57:03,200
+pope's arch bishop
+
+1452
+00:57:00,880 --> 00:57:04,400
+corsia it's this thing is called corsia
+
+1453
+00:57:03,200 --> 00:57:06,640
+so it has
+
+1454
+00:57:04,400 --> 00:57:09,359
+history and it's also you know the
+
+1455
+00:57:06,640 --> 00:57:12,000
+violent squirrel
+
+1456
+00:57:09,359 --> 00:57:13,599
+are modeled after this curve so if you
+
+1457
+00:57:12,000 --> 00:57:14,960
+are building a violent you know if you
+
+1458
+00:57:13,599 --> 00:57:16,960
+are a carpenter building a
+
+1459
+00:57:14,960 --> 00:57:19,760
+how do you how do you create this thing
+
+1460
+00:57:16,960 --> 00:57:21,920
+well mathematics okay this is this curve
+
+1461
+00:57:19,760 --> 00:57:24,319
+is called liters
+
+1462
+00:57:21,920 --> 00:57:26,480
+uh and you know this formula so so i
+
+1463
+00:57:24,319 --> 00:57:29,920
+wrote this mathematical programs
+
+1464
+00:57:26,480 --> 00:57:31,680
+to kind of for math education you know
+
+1465
+00:57:29,920 --> 00:57:32,960
+when you are studying calculus so you
+
+1466
+00:57:31,680 --> 00:57:35,200
+can easily see oh
+
+1467
+00:57:32,960 --> 00:57:38,079
+oh you know once you see this oh you
+
+1468
+00:57:35,200 --> 00:57:40,079
+really you understand it right away
+
+1469
+00:57:38,079 --> 00:57:41,680
+lots of properties so there are
+
+1470
+00:57:40,079 --> 00:57:44,480
+different spirals
+
+1471
+00:57:41,680 --> 00:57:46,559
+how they differ for example this one you
+
+1472
+00:57:44,480 --> 00:57:48,880
+all this one you you also see very
+
+1473
+00:57:46,559 --> 00:57:50,640
+uh very popular you see it all the time
+
+1474
+00:57:48,880 --> 00:57:52,640
+like all the
+
+1475
+00:57:50,640 --> 00:57:54,079
+especially all the memes let me show you
+
+1476
+00:57:52,640 --> 00:57:56,960
+some you know for example
+
+1477
+00:57:54,079 --> 00:57:57,599
+seashells or this cauliflower you know
+
+1478
+00:57:56,960 --> 00:57:59,680
+this uh
+
+1479
+00:57:57,599 --> 00:58:01,839
+fractal cauliflower this actually you
+
+1480
+00:57:59,680 --> 00:58:04,640
+can buy
+
+1481
+00:58:01,839 --> 00:58:05,520
+uh you know and the growth of seashells
+
+1482
+00:58:04,640 --> 00:58:08,960
+okay
+
+1483
+00:58:05,520 --> 00:58:11,599
+you know so uh and this page
+
+1484
+00:58:08,960 --> 00:58:13,599
+the mathematics of seashell this this is
+
+1485
+00:58:11,599 --> 00:58:17,200
+again plotted with mathematica
+
+1486
+00:58:13,599 --> 00:58:19,760
+uh back in 1995 okay so i wrote this
+
+1487
+00:58:17,200 --> 00:58:21,359
+uh so so what so what's special about
+
+1488
+00:58:19,760 --> 00:58:23,599
+this spiral why is it
+
+1489
+00:58:21,359 --> 00:58:25,359
+like what do you mean equal angular this
+
+1490
+00:58:23,599 --> 00:58:26,240
+this this one is called equi-angular
+
+1491
+00:58:25,359 --> 00:58:29,760
+spiral also
+
+1492
+00:58:26,240 --> 00:58:32,799
+known as logarithmic spiral
+
+1493
+00:58:29,760 --> 00:58:34,720
+uh a bit history and description uh why
+
+1494
+00:58:32,799 --> 00:58:37,920
+is it equal angular because
+
+1495
+00:58:34,720 --> 00:58:40,000
+if you draw a line from the center
+
+1496
+00:58:37,920 --> 00:58:41,760
+you know the chord the center or pole of
+
+1497
+00:58:40,000 --> 00:58:44,799
+the spiral
+
+1498
+00:58:41,760 --> 00:58:49,280
+you you draw a line okay
+
+1499
+00:58:44,799 --> 00:58:52,319
+then the line will always always
+
+1500
+00:58:49,280 --> 00:58:54,559
+across the curve in a d
+
+1501
+00:58:52,319 --> 00:58:56,400
+in a degree in an angle that's constant
+
+1502
+00:58:54,559 --> 00:58:58,880
+doesn't matter where the line is it'll
+
+1503
+00:58:56,400 --> 00:59:00,720
+be constant everywhere
+
+1504
+00:58:58,880 --> 00:59:02,640
+so this curve is actually there's a
+
+1505
+00:59:00,720 --> 00:59:05,599
+family of them all these any
+
+1506
+00:59:02,640 --> 00:59:07,359
+any one of these uh or equal angular
+
+1507
+00:59:05,599 --> 00:59:09,200
+spiral so they just have different
+
+1508
+00:59:07,359 --> 00:59:10,400
+constant you know the angle is different
+
+1509
+00:59:09,200 --> 00:59:12,799
+for each one of them
+
+1510
+00:59:10,400 --> 00:59:14,079
+so you draw a line you know for any one
+
+1511
+00:59:12,799 --> 00:59:16,960
+of them they'll be
+
+1512
+00:59:14,079 --> 00:59:18,559
+the same angle every for any line so
+
+1513
+00:59:16,960 --> 00:59:21,200
+that's why it's called equiangular
+
+1514
+00:59:18,559 --> 00:59:22,960
+and and there's lots of properties and
+
+1515
+00:59:21,200 --> 00:59:24,319
+famous
+
+1516
+00:59:22,960 --> 00:59:27,599
+stories you know one of the
+
+1517
+00:59:24,319 --> 00:59:30,319
+mathematician uh who's this name history
+
+1518
+00:59:27,599 --> 00:59:32,079
+who who died you know when he said you
+
+1519
+00:59:30,319 --> 00:59:35,119
+know when he died he says
+
+1520
+00:59:32,079 --> 00:59:36,240
+you know when i die on my grave i want
+
+1521
+00:59:35,119 --> 00:59:38,960
+the tombstone
+
+1522
+00:59:36,240 --> 00:59:39,599
+that says i shall rise the same though
+
+1523
+00:59:38,960 --> 00:59:42,960
+changed
+
+1524
+00:59:39,599 --> 00:59:45,440
+okay that is you know in
+
+1525
+00:59:42,960 --> 00:59:47,200
+in latin i don't know how do you know
+
+1526
+00:59:45,440 --> 00:59:48,400
+jacob bernoulli one of the famous
+
+1527
+00:59:47,200 --> 00:59:51,920
+mathematician
+
+1528
+00:59:48,400 --> 00:59:54,000
+uh in 1600s
+
+1529
+00:59:51,920 --> 00:59:55,280
+uh so i don't think you can actually see
+
+1530
+00:59:54,000 --> 00:59:57,760
+the tom stone
+
+1531
+00:59:55,280 --> 01:00:01,839
+okay you actually you know on wikipedia
+
+1532
+00:59:57,760 --> 01:00:01,839
+you'll see it
+
+1533
+01:00:02,400 --> 01:00:06,559
+uh yeah there's a tome stone but yeah
+
+1534
+01:00:05,119 --> 01:00:09,680
+yeah so here is a
+
+1535
+01:00:06,559 --> 01:00:12,720
+uh john jonathan jacob
+
+1536
+01:00:09,680 --> 01:00:14,720
+jacob bernoulli's tom stone you know you
+
+1537
+01:00:12,720 --> 01:00:16,799
+can see an equi angular
+
+1538
+01:00:14,720 --> 01:00:18,400
+you know back then you know so all these
+
+1539
+01:00:16,799 --> 01:00:20,400
+properties how do you how do you know
+
+1540
+01:00:18,400 --> 01:00:22,960
+well
+
+1541
+01:00:20,400 --> 01:00:23,599
+you know in 1500 mathematicians study
+
+1542
+01:00:22,960 --> 01:00:27,040
+and you know
+
+1543
+01:00:23,599 --> 01:00:29,839
+studied it it doesn't come free you know
+
+1544
+01:00:27,040 --> 01:00:32,559
+today it's very easy to explain and so
+
+1545
+01:00:29,839 --> 01:00:34,559
+on but before you don't know
+
+1546
+01:00:32,559 --> 01:00:36,400
+so anyway so that's one of my projects
+
+1547
+01:00:34,559 --> 01:00:39,839
+so technically it would be
+
+1548
+01:00:36,400 --> 01:00:41,920
+in educational math education industry
+
+1549
+01:00:39,839 --> 01:00:43,920
+and archimedes spiral is also very
+
+1550
+01:00:41,920 --> 01:00:46,160
+interesting
+
+1551
+01:00:43,920 --> 01:00:47,839
+it's a spiral such that the growth you
+
+1552
+01:00:46,160 --> 01:00:51,200
+know the length of this
+
+1553
+01:00:47,839 --> 01:00:53,760
+uh how do you say the it's um
+
+1554
+01:00:51,200 --> 01:00:55,760
+yeah the the turning rate of the spiral
+
+1555
+01:00:53,760 --> 01:00:58,559
+is the same as the
+
+1556
+01:00:55,760 --> 01:00:59,520
+arc length uh the constant ratio
+
+1557
+01:00:58,559 --> 01:01:02,799
+something like that
+
+1558
+01:00:59,520 --> 01:01:05,760
+you know i did this 25 years ago
+
+1559
+01:01:02,799 --> 01:01:07,839
+uh so this is called archimedes why is
+
+1560
+01:01:05,760 --> 01:01:10,960
+it archimedean because archimedes
+
+1561
+01:01:07,839 --> 01:01:14,079
+you know the greek mathematician like uh
+
+1562
+01:01:10,960 --> 01:01:16,720
+2000 years ago he knew this
+
+1563
+01:01:14,079 --> 01:01:17,359
+he knew this and he created he actually
+
+1564
+01:01:16,720 --> 01:01:22,640
+created
+
+1565
+01:01:17,359 --> 01:01:22,640
+a device to um
+
+1566
+01:01:22,880 --> 01:01:26,000
+to get the water is of something you
+
+1567
+01:01:25,359 --> 01:01:27,920
+know you can
+
+1568
+01:01:26,000 --> 01:01:29,280
+so this you know this today there's a
+
+1569
+01:01:27,920 --> 01:01:31,520
+wikipedia article on
+
+1570
+01:01:29,280 --> 01:01:32,559
+on any of these curves so they give they
+
+1571
+01:01:31,520 --> 01:01:35,040
+have a lot of photos
+
+1572
+01:01:32,559 --> 01:01:36,000
+and and history much more than what i
+
+1573
+01:01:35,040 --> 01:01:39,680
+have
+
+1574
+01:01:36,000 --> 01:01:40,960
+today uh so i did this in 1995 so that's
+
+1575
+01:01:39,680 --> 01:01:45,760
+it for today um
+
+1576
+01:01:40,960 --> 01:01:45,760
+okay uh
+
+1577
+01:01:47,040 --> 01:01:53,839
+okay i gotta go thank you guys bye
+
+1578
+01:02:00,400 --> 01:02:06,880
+uh where's the chat in stream
+

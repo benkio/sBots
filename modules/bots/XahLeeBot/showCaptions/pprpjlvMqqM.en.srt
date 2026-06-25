@@ -1,0 +1,3552 @@
+1
+00:00:05,680 --> 00:00:10,800
+hello guys welcome to another episode of
+
+2
+00:00:08,320 --> 00:00:14,160
+some talk show
+
+3
+00:00:10,800 --> 00:00:17,279
+we are going to code emacs lisp today
+
+4
+00:00:14,160 --> 00:00:20,400
+so thanks to info who is sponsored for
+
+5
+00:00:17,279 --> 00:00:22,160
+today's talk show so i'm going to write
+
+6
+00:00:20,400 --> 00:00:23,920
+a emacs list
+
+7
+00:00:22,160 --> 00:00:27,439
+emacs command we are going to write
+
+8
+00:00:23,920 --> 00:00:30,400
+command that does this bionic reading
+
+9
+00:00:27,439 --> 00:00:32,960
+okay now what is bionic reading if you
+
+10
+00:00:30,400 --> 00:00:35,600
+go here you know there's it looks like a
+
+11
+00:00:32,960 --> 00:00:36,719
+new fad you know i don't believe it but
+
+12
+00:00:35,600 --> 00:00:37,600
+info
+
+13
+00:00:36,719 --> 00:00:39,680
+think
+
+14
+00:00:37,600 --> 00:00:42,239
+uh thinks that this might be fun so
+
+15
+00:00:39,680 --> 00:00:44,399
+basically bionic reading uh you know
+
+16
+00:00:42,239 --> 00:00:46,960
+this is something you know basically
+
+17
+00:00:44,399 --> 00:00:48,879
+they change the word you know beginning
+
+18
+00:00:46,960 --> 00:00:52,399
+of every word
+
+19
+00:00:48,879 --> 00:00:54,079
+uh they bold it so supposedly this makes
+
+20
+00:00:52,399 --> 00:00:54,879
+reading easier
+
+21
+00:00:54,079 --> 00:00:57,360
+uh
+
+22
+00:00:54,879 --> 00:00:59,680
+especially maybe for some people with
+
+23
+00:00:57,360 --> 00:01:01,840
+dyslexia or something
+
+24
+00:00:59,680 --> 00:01:03,760
+so this is bionic reading so we are
+
+25
+00:01:01,840 --> 00:01:04,879
+going to write the e magnificent command
+
+26
+00:01:03,760 --> 00:01:07,520
+that
+
+27
+00:01:04,879 --> 00:01:09,600
+that does that okay that you know change
+
+28
+00:01:07,520 --> 00:01:11,600
+text in the emax buffer that does that
+
+29
+00:01:09,600 --> 00:01:14,240
+so let's begin okay so
+
+30
+00:01:11,600 --> 00:01:17,360
+so this is just going to be pure emacs
+
+31
+00:01:14,240 --> 00:01:19,680
+the uh emacs list coding okay am i alive
+
+32
+00:01:17,360 --> 00:01:22,159
+in a live and kicking
+
+33
+00:01:19,680 --> 00:01:23,680
+video check let's see video check audio
+
+34
+00:01:22,159 --> 00:01:26,720
+check
+
+35
+00:01:23,680 --> 00:01:30,640
+streaming uh is
+
+36
+00:01:26,720 --> 00:01:33,200
+is is going okay so let's see
+
+37
+00:01:30,640 --> 00:01:34,960
+okay so we are going to start code now
+
+38
+00:01:33,200 --> 00:01:37,360
+and if you have questions comments and
+
+39
+00:01:34,960 --> 00:01:39,280
+post it about emacs okay and on the ping
+
+40
+00:01:37,360 --> 00:01:41,840
+window you can see all my command calls
+
+41
+00:01:39,280 --> 00:01:44,720
+and key strokes i type okay let's code
+
+42
+00:01:41,840 --> 00:01:47,280
+this bionic reading okay uh
+
+43
+00:01:44,720 --> 00:01:50,479
+write the emax command info bionic
+
+44
+00:01:47,280 --> 00:01:53,119
+reading let's do it okay so let's begin
+
+45
+00:01:50,479 --> 00:01:56,560
+hopefully in 30 minutes i think maybe 40
+
+46
+00:01:53,119 --> 00:01:58,719
+minutes we can finish it okay
+
+47
+00:01:56,560 --> 00:02:00,399
+so let's start our info
+
+48
+00:01:58,719 --> 00:02:03,040
+bionicreading.ell
+
+49
+00:02:00,399 --> 00:02:05,600
+create the file open new buffer create
+
+50
+00:02:03,040 --> 00:02:07,600
+it and save it okay already saved so
+
+51
+00:02:05,600 --> 00:02:10,640
+define
+
+52
+00:02:07,600 --> 00:02:12,959
+fun paste info bionic reading fantastic
+
+53
+00:02:10,640 --> 00:02:14,959
+and let's put a version date
+
+54
+00:02:12,959 --> 00:02:17,840
+version number
+
+55
+00:02:14,959 --> 00:02:22,480
+let's say uh bo documentation all
+
+56
+00:02:17,840 --> 00:02:26,640
+important board the first
+
+57
+00:02:22,480 --> 00:02:30,080
+a few charts of each
+
+58
+00:02:26,640 --> 00:02:30,080
+of every word okay
+
+59
+00:02:30,640 --> 00:02:35,360
+in current buffer
+
+60
+00:02:33,120 --> 00:02:39,760
+okay so this is gonna be your command
+
+61
+00:02:35,360 --> 00:02:39,760
+but maybe later on we can turn it into a
+
+62
+00:02:39,840 --> 00:02:44,480
+minor mod or major mod i'm not too sure
+
+63
+00:02:42,239 --> 00:02:46,959
+about that because if you are if it's a
+
+64
+00:02:44,480 --> 00:02:49,280
+minor model major mod it may interfere
+
+65
+00:02:46,959 --> 00:02:51,200
+with whatever the mods highlighting so
+
+66
+00:02:49,280 --> 00:02:53,920
+i'm not sure which one you want to be
+
+67
+00:02:51,200 --> 00:02:53,920
+priority
+
+68
+00:02:54,800 --> 00:02:59,120
+you know it's probably doable but anyway
+
+69
+00:02:57,120 --> 00:03:01,360
+for now let's just you know
+
+70
+00:02:59,120 --> 00:03:03,519
+you know simple you know uh command so
+
+71
+00:03:01,360 --> 00:03:06,720
+you can highlight it and call it and
+
+72
+00:03:03,519 --> 00:03:08,400
+you'll make it the first few words bold
+
+73
+00:03:06,720 --> 00:03:11,440
+okay so
+
+74
+00:03:08,400 --> 00:03:13,040
+let's begin so uh it's going to be the
+
+75
+00:03:11,440 --> 00:03:16,560
+entire buffer right
+
+76
+00:03:13,040 --> 00:03:18,879
+or is it going to be so so first of all
+
+77
+00:03:16,560 --> 00:03:19,840
+decisions about the design of this
+
+78
+00:03:18,879 --> 00:03:22,800
+command
+
+79
+00:03:19,840 --> 00:03:25,120
+so is this going to be if there's no if
+
+80
+00:03:22,800 --> 00:03:27,840
+there's a selection then do everything
+
+81
+00:03:25,120 --> 00:03:27,840
+on the selection
+
+82
+00:03:28,239 --> 00:03:32,480
+and if there's no selection just do the
+
+83
+00:03:31,120 --> 00:03:34,159
+current paragraph
+
+84
+00:03:32,480 --> 00:03:36,400
+now let's um
+
+85
+00:03:34,159 --> 00:03:36,400
+or
+
+86
+00:03:37,920 --> 00:03:41,040
+or just do the whole buffer you know
+
+87
+00:03:40,159 --> 00:03:43,200
+that's
+
+88
+00:03:41,040 --> 00:03:46,640
+design decision we can decide later on
+
+89
+00:03:43,200 --> 00:03:48,480
+for right now let's just say uh
+
+90
+00:03:46,640 --> 00:03:52,560
+let's just say current region okay let's
+
+91
+00:03:48,480 --> 00:03:55,439
+make it simpler simpler so if you do r
+
+92
+00:03:52,560 --> 00:03:59,200
+so let's say begin end okay so let's
+
+93
+00:03:55,439 --> 00:04:01,760
+give it two parameters and you put the
+
+94
+00:03:59,200 --> 00:04:02,959
+interactive uh this interactive line
+
+95
+00:04:01,760 --> 00:04:06,000
+makes
+
+96
+00:04:02,959 --> 00:04:08,319
+makes every emac makes the
+
+97
+00:04:06,000 --> 00:04:10,640
+the function the emac this function to
+
+98
+00:04:08,319 --> 00:04:13,200
+become a command that's what this
+
+99
+00:04:10,640 --> 00:04:14,879
+interactive okay hold on a second uh
+
+100
+00:04:13,200 --> 00:04:17,519
+calculator no
+
+101
+00:04:14,879 --> 00:04:20,079
+that's what this interactive is for and
+
+102
+00:04:17,519 --> 00:04:21,840
+when you put r to the interactive that
+
+103
+00:04:20,079 --> 00:04:24,639
+means region that means
+
+104
+00:04:21,840 --> 00:04:27,040
+emax will automatically feed the
+
+105
+00:04:24,639 --> 00:04:29,120
+functions parameters beginning end to be
+
+106
+00:04:27,040 --> 00:04:30,880
+the beginning and end positions of the
+
+107
+00:04:29,120 --> 00:04:33,120
+region okay so that's what this
+
+108
+00:04:30,880 --> 00:04:34,320
+interactive art makes it a command
+
+109
+00:04:33,120 --> 00:04:36,639
+and
+
+110
+00:04:34,320 --> 00:04:39,040
+feed the beginning end positions to the
+
+111
+00:04:36,639 --> 00:04:40,400
+parameters of the function okay so now
+
+112
+00:04:39,040 --> 00:04:43,199
+let's do
+
+113
+00:04:40,400 --> 00:04:46,000
+okay now so we have a region begin end
+
+114
+00:04:43,199 --> 00:04:46,000
+so let
+
+115
+00:04:48,160 --> 00:04:54,560
+so we have okay let's uh let's let's
+
+116
+00:04:50,720 --> 00:04:57,120
+begin coding this hello hello luis
+
+117
+00:04:54,560 --> 00:04:59,440
+audio video check okay uh got stream
+
+118
+00:04:57,120 --> 00:05:01,600
+live hey hey hey hey cherry
+
+119
+00:04:59,440 --> 00:05:03,600
+okay so
+
+120
+00:05:01,600 --> 00:05:05,840
+so we're gonna start to call this bionic
+
+121
+00:05:03,600 --> 00:05:09,680
+reading okay um
+
+122
+00:05:05,840 --> 00:05:11,680
+so now we got a region now we want to
+
+123
+00:05:09,680 --> 00:05:15,039
+bold
+
+124
+00:05:11,680 --> 00:05:16,160
+the first few characters of every word
+
+125
+00:05:15,039 --> 00:05:19,600
+um
+
+126
+00:05:16,160 --> 00:05:22,240
+so both the few first characters um
+
+127
+00:05:19,600 --> 00:05:24,479
+of every word okay so
+
+128
+00:05:22,240 --> 00:05:27,199
+and how many characters to bold i'm not
+
+129
+00:05:24,479 --> 00:05:31,520
+sure yet but it looks like according to
+
+130
+00:05:27,199 --> 00:05:34,080
+this you know their website you know uh
+
+131
+00:05:31,520 --> 00:05:36,160
+according to their website you basically
+
+132
+00:05:34,080 --> 00:05:40,639
+bought almost the
+
+133
+00:05:36,160 --> 00:05:44,080
+the first half of each word
+
+134
+00:05:40,639 --> 00:05:44,880
+you see half or less something like that
+
+135
+00:05:44,080 --> 00:05:48,479
+now
+
+136
+00:05:44,880 --> 00:05:50,639
+do they um break at
+
+137
+00:05:48,479 --> 00:05:52,400
+vowel points or something we don't know
+
+138
+00:05:50,639 --> 00:05:55,280
+let's just you know
+
+139
+00:05:52,400 --> 00:05:55,280
+both the first half
+
+140
+00:05:57,199 --> 00:06:02,000
+letters of each word okay
+
+141
+00:06:00,160 --> 00:06:03,680
+and uh
+
+142
+00:06:02,000 --> 00:06:06,479
+okay
+
+143
+00:06:03,680 --> 00:06:08,080
+both the first okay so for every word
+
+144
+00:06:06,479 --> 00:06:10,080
+search for um
+
+145
+00:06:08,080 --> 00:06:12,240
+so how we gonna do this
+
+146
+00:06:10,080 --> 00:06:12,240
+so
+
+147
+00:06:14,639 --> 00:06:18,400
+so i want to do this quickly you know
+
+148
+00:06:16,319 --> 00:06:21,440
+i'm doing a live stream so i want to do
+
+149
+00:06:18,400 --> 00:06:23,520
+just just start to code you know
+
+150
+00:06:21,440 --> 00:06:25,520
+but still i have to think about
+
+151
+00:06:23,520 --> 00:06:28,639
+something so
+
+152
+00:06:25,520 --> 00:06:31,440
+for every word how so for every word how
+
+153
+00:06:28,639 --> 00:06:31,440
+do you um
+
+154
+00:06:31,520 --> 00:06:36,400
+skip charts for let's see skip charts
+
+155
+00:06:36,800 --> 00:06:39,600
+forward
+
+156
+00:06:43,360 --> 00:06:47,520
+so there are two problems
+
+157
+00:06:45,520 --> 00:06:49,680
+the first problem is that you know you
+
+158
+00:06:47,520 --> 00:06:51,039
+have a buffer you have a region you know
+
+159
+00:06:49,680 --> 00:06:54,080
+lots of words
+
+160
+00:06:51,039 --> 00:06:56,960
+you want to do this to every character
+
+161
+00:06:54,080 --> 00:06:59,280
+so how do you like
+
+162
+00:06:56,960 --> 00:06:59,280
+do you
+
+163
+00:06:59,840 --> 00:07:04,800
+so there are two problems one one of the
+
+164
+00:07:02,560 --> 00:07:06,880
+problem is given a word you know
+
+165
+00:07:04,800 --> 00:07:09,680
+beginning end position of a word you
+
+166
+00:07:06,880 --> 00:07:12,080
+just spoke the first few characters that
+
+167
+00:07:09,680 --> 00:07:13,039
+part is easy now the other part is how
+
+168
+00:07:12,080 --> 00:07:17,240
+do you
+
+169
+00:07:13,039 --> 00:07:17,240
+how do you repeat this process
+
+170
+00:07:17,759 --> 00:07:21,919
+how do you repeat this process you know
+
+171
+00:07:19,759 --> 00:07:24,080
+there are many ways but
+
+172
+00:07:21,919 --> 00:07:27,360
+how do you repeat this process
+
+173
+00:07:24,080 --> 00:07:27,360
+so we think
+
+174
+00:07:29,599 --> 00:07:33,199
+um
+
+175
+00:07:30,960 --> 00:07:35,440
+let's just put the first word okay let's
+
+176
+00:07:33,199 --> 00:07:38,720
+just start to code you know instead of
+
+177
+00:07:35,440 --> 00:07:41,120
+talking and thinking so given a word
+
+178
+00:07:38,720 --> 00:07:43,680
+uh let's see
+
+179
+00:07:41,120 --> 00:07:46,400
+length okay so
+
+180
+00:07:43,680 --> 00:07:49,120
+given a word okay so p1
+
+181
+00:07:46,400 --> 00:07:50,879
+would begin let's let's start to uh
+
+182
+00:07:49,120 --> 00:07:54,800
+add some
+
+183
+00:07:50,879 --> 00:07:57,520
+uh local variables okay word begin
+
+184
+00:07:54,800 --> 00:07:59,759
+word end okay
+
+185
+00:07:57,520 --> 00:08:04,080
+so that's uh
+
+186
+00:07:59,759 --> 00:08:04,080
+suppose we got that position then
+
+187
+00:08:04,479 --> 00:08:09,120
+okay so
+
+188
+00:08:06,319 --> 00:08:10,560
+let me let me just do this okay current
+
+189
+00:08:09,120 --> 00:08:13,120
+word okay
+
+190
+00:08:10,560 --> 00:08:14,000
+so current word is a function
+
+191
+00:08:13,120 --> 00:08:16,319
+that
+
+192
+00:08:14,000 --> 00:08:16,319
+um
+
+193
+00:08:16,479 --> 00:08:21,120
+let me show the pink window current word
+
+194
+00:08:18,400 --> 00:08:23,280
+is a function that
+
+195
+00:08:21,120 --> 00:08:25,360
+returned the word at
+
+196
+00:08:23,280 --> 00:08:27,680
+okay we cannot use that
+
+197
+00:08:25,360 --> 00:08:30,160
+because it returns the word as a string
+
+198
+00:08:27,680 --> 00:08:34,800
+rather we want the position beginning in
+
+199
+00:08:30,160 --> 00:08:34,800
+position of that so we cannot use that
+
+200
+00:08:36,159 --> 00:08:41,839
+uh in that well in okay so let's look at
+
+201
+00:08:39,839 --> 00:08:44,000
+let's jump to the source code let's see
+
+202
+00:08:41,839 --> 00:08:45,600
+you know this is this is
+
+203
+00:08:44,000 --> 00:08:48,080
+this is pretty
+
+204
+00:08:45,600 --> 00:08:50,000
+you know this
+
+205
+00:08:48,080 --> 00:08:52,480
+it's narrow to defend okay so this
+
+206
+00:08:50,000 --> 00:08:55,760
+function current word is kind of long
+
+207
+00:08:52,480 --> 00:08:57,760
+and that also means it implies it's slow
+
+208
+00:08:55,760 --> 00:08:59,839
+so we don't want that
+
+209
+00:08:57,760 --> 00:09:02,560
+but anyway we want the start and end
+
+210
+00:08:59,839 --> 00:09:02,560
+position so
+
+211
+00:09:03,200 --> 00:09:09,760
+yeah this is to um
+
+212
+00:09:06,640 --> 00:09:11,839
+skip syntax forward
+
+213
+00:09:09,760 --> 00:09:13,920
+okay we can use that
+
+214
+00:09:11,839 --> 00:09:17,760
+that gets you see the start and end
+
+215
+00:09:13,920 --> 00:09:20,240
+positions skip syntax forward sync taxes
+
+216
+00:09:17,760 --> 00:09:20,240
+program
+
+217
+00:09:21,200 --> 00:09:26,399
+so this is a part where we want to find
+
+218
+00:09:23,600 --> 00:09:26,399
+each word and
+
+219
+00:09:26,880 --> 00:09:31,279
+let's just uh okay so let's not use that
+
+220
+00:09:29,040 --> 00:09:32,880
+we need a position
+
+221
+00:09:31,279 --> 00:09:37,839
+so the position
+
+222
+00:09:32,880 --> 00:09:37,839
+of a word the current word is let's see
+
+223
+00:09:39,440 --> 00:09:44,080
+okay
+
+224
+00:09:40,880 --> 00:09:46,480
+emac list let's go to my emacs this
+
+225
+00:09:44,080 --> 00:09:50,240
+tutorial so because i have thought this
+
+226
+00:09:46,480 --> 00:09:51,279
+out before so let's see uh mark region
+
+227
+00:09:50,240 --> 00:09:53,519
+uh
+
+228
+00:09:51,279 --> 00:09:54,480
+emac this tutorial
+
+229
+00:09:53,519 --> 00:09:57,680
+uh
+
+230
+00:09:54,480 --> 00:10:00,560
+so we want to grab uh okay work with
+
+231
+00:09:57,680 --> 00:10:03,839
+lines get both a string there get buffer
+
+232
+00:10:00,560 --> 00:10:07,120
+string from region from selection from
+
+233
+00:10:03,839 --> 00:10:09,519
+current character current word okay
+
+234
+00:10:07,120 --> 00:10:11,839
+okay so it's you know current word
+
+235
+00:10:09,519 --> 00:10:13,360
+that's not we want
+
+236
+00:10:11,839 --> 00:10:15,440
+because
+
+237
+00:10:13,360 --> 00:10:16,880
+it doesn't return the position we want
+
+238
+00:10:15,440 --> 00:10:21,600
+the position
+
+239
+00:10:16,880 --> 00:10:24,720
+so get kind of word and the
+
+240
+00:10:21,600 --> 00:10:26,000
+syntax table syntax table is no good get
+
+241
+00:10:24,720 --> 00:10:28,000
+current line
+
+242
+00:10:26,000 --> 00:10:30,640
+get thing at point thing at point is
+
+243
+00:10:28,000 --> 00:10:33,120
+what we want
+
+244
+00:10:30,640 --> 00:10:35,279
+okay but thing at point is slow okay so
+
+245
+00:10:33,120 --> 00:10:38,079
+anyway let's just blast through
+
+246
+00:10:35,279 --> 00:10:41,360
+uh thing at point okay so thing at point
+
+247
+00:10:38,079 --> 00:10:43,600
+so what there it is
+
+248
+00:10:41,360 --> 00:10:46,160
+uh in fact that just return the current
+
+249
+00:10:43,600 --> 00:10:48,959
+word as a string but what rather we want
+
+250
+00:10:46,160 --> 00:10:50,320
+the boundaries we want the positions so
+
+251
+00:10:48,959 --> 00:10:51,839
+uh
+
+252
+00:10:50,320 --> 00:10:53,440
+bounce of
+
+253
+00:10:51,839 --> 00:10:56,399
+thing at point
+
+254
+00:10:53,440 --> 00:11:00,160
+okay that's what we want so
+
+255
+00:10:56,399 --> 00:11:02,640
+it's going to be what
+
+256
+00:11:00,160 --> 00:11:05,680
+okay bounce of thin point it returns a
+
+257
+00:11:02,640 --> 00:11:05,680
+cons pair so
+
+258
+00:11:08,000 --> 00:11:12,160
+bounce okay so let's uh
+
+259
+00:11:12,560 --> 00:11:17,440
+set q
+
+260
+00:11:14,640 --> 00:11:20,480
+okay god we need to go this way we need
+
+261
+00:11:17,440 --> 00:11:23,120
+to go faster because otherwise it's
+
+262
+00:11:20,480 --> 00:11:24,959
+going to be
+
+263
+00:11:23,120 --> 00:11:27,040
+not done in 30 minutes
+
+264
+00:11:24,959 --> 00:11:29,120
+okay so now bounce is the beginning and
+
+265
+00:11:27,040 --> 00:11:31,600
+end position it's a pair so now we get
+
+266
+00:11:29,120 --> 00:11:34,240
+we we we we want to get the pair so
+
+267
+00:11:31,600 --> 00:11:38,240
+let's say position one uh instead of
+
+268
+00:11:34,240 --> 00:11:39,360
+let's say p1 xp2 okay
+
+269
+00:11:38,240 --> 00:11:42,640
+yeah
+
+270
+00:11:39,360 --> 00:11:45,440
+you know i have a habit of changing uh
+
+271
+00:11:42,640 --> 00:11:47,200
+variable names obsessive making them
+
+272
+00:11:45,440 --> 00:11:48,399
+anyway so let's
+
+273
+00:11:47,200 --> 00:11:50,720
+set
+
+274
+00:11:48,399 --> 00:11:50,720
+car
+
+275
+00:11:51,040 --> 00:11:56,560
+bounce
+
+276
+00:11:53,279 --> 00:11:59,120
+okay that's how you get the beginning
+
+277
+00:11:56,560 --> 00:12:01,440
+position from from the bounce okay
+
+278
+00:11:59,120 --> 00:12:04,800
+and copy that
+
+279
+00:12:01,440 --> 00:12:05,600
+and word end is cut
+
+280
+00:12:04,800 --> 00:12:08,160
+okay
+
+281
+00:12:05,600 --> 00:12:10,720
+that's how you so now what begin
+
+282
+00:12:08,160 --> 00:12:13,519
+what end is the positions begin end of
+
+283
+00:12:10,720 --> 00:12:15,120
+the word of the current word now
+
+284
+00:12:13,519 --> 00:12:16,800
+now we got a board
+
+285
+00:12:15,120 --> 00:12:19,680
+we want to
+
+286
+00:12:16,800 --> 00:12:22,480
+add text properties we want to bold it
+
+287
+00:12:19,680 --> 00:12:24,959
+so in order to build it how you do it is
+
+288
+00:12:22,480 --> 00:12:27,120
+you add text properties okay
+
+289
+00:12:24,959 --> 00:12:27,120
+so
+
+290
+00:12:27,839 --> 00:12:30,720
+but first of all you need to know the
+
+291
+00:12:29,600 --> 00:12:33,279
+length
+
+292
+00:12:30,720 --> 00:12:33,279
+okay so
+
+293
+00:12:34,240 --> 00:12:39,600
+okay so what length so a new variable
+
+294
+00:12:37,600 --> 00:12:42,399
+let's add it here
+
+295
+00:12:39,600 --> 00:12:42,399
+what length
+
+296
+00:12:50,000 --> 00:12:52,959
+okay so
+
+297
+00:12:51,200 --> 00:12:54,959
+x what
+
+298
+00:12:52,959 --> 00:12:57,600
+and
+
+299
+00:12:54,959 --> 00:12:57,600
+minus
+
+300
+00:12:59,680 --> 00:13:03,040
+x
+
+301
+00:13:00,639 --> 00:13:03,040
+would
+
+302
+00:13:03,839 --> 00:13:06,399
+begin okay
+
+303
+00:13:05,360 --> 00:13:09,040
+so
+
+304
+00:13:06,399 --> 00:13:11,920
+now we have the
+
+305
+00:13:09,040 --> 00:13:14,240
+count of letters of the current word now
+
+306
+00:13:11,920 --> 00:13:14,240
+next
+
+307
+00:13:16,720 --> 00:13:21,040
+so next
+
+308
+00:13:19,279 --> 00:13:22,959
+we have the count of the letters of the
+
+309
+00:13:21,040 --> 00:13:24,160
+current word okay
+
+310
+00:13:22,959 --> 00:13:26,000
+now
+
+311
+00:13:24,160 --> 00:13:28,240
+divided by 2
+
+312
+00:13:26,000 --> 00:13:28,240
+and
+
+313
+00:13:28,880 --> 00:13:36,320
+and divided by 2
+
+314
+00:13:32,079 --> 00:13:36,320
+okay now we need to divide this by two
+
+315
+00:13:37,760 --> 00:13:42,959
+divided by two now if it's even then
+
+316
+00:13:40,480 --> 00:13:44,800
+it's good but if the character number is
+
+317
+00:13:42,959 --> 00:13:47,920
+odd let's say three
+
+318
+00:13:44,800 --> 00:13:50,639
+then we get a fraction so let's see what
+
+319
+00:13:47,920 --> 00:13:50,639
+we um
+
+320
+00:13:51,360 --> 00:13:56,240
+three evaluated so in the mini buffer
+
+321
+00:13:54,399 --> 00:13:58,320
+that says one
+
+322
+00:13:56,240 --> 00:13:58,610
+so it returns the
+
+323
+00:13:58,320 --> 00:14:00,240
+um
+
+324
+00:13:58,610 --> 00:14:02,560
+[Music]
+
+325
+00:14:00,240 --> 00:14:05,199
+the floor of the division yeah this it
+
+326
+00:14:02,560 --> 00:14:05,199
+returns the
+
+327
+00:14:06,959 --> 00:14:13,680
+the uh
+
+328
+00:14:08,880 --> 00:14:13,680
+dividend divisor and returns the uh
+
+329
+00:14:14,639 --> 00:14:20,000
+hey how do you call that division um
+
+330
+00:14:17,680 --> 00:14:24,800
+quotient it returns the quotient as an
+
+331
+00:14:20,000 --> 00:14:24,800
+integer and ignore the remainder okay
+
+332
+00:14:29,360 --> 00:14:34,639
+okay we got we're gonna do this
+
+333
+00:14:31,760 --> 00:14:37,680
+faster it's more to go so
+
+334
+00:14:34,639 --> 00:14:39,920
+so this works fine so what what if it's
+
+335
+00:14:37,680 --> 00:14:39,920
+two
+
+336
+00:14:40,320 --> 00:14:45,600
+so
+
+337
+00:14:42,160 --> 00:14:47,279
+if it's true it also returns two what if
+
+338
+00:14:45,600 --> 00:14:51,120
+it's one let's see
+
+339
+00:14:47,279 --> 00:14:53,279
+you know these are edge cases
+
+340
+00:14:51,120 --> 00:14:56,160
+okay when when the single character
+
+341
+00:14:53,279 --> 00:14:57,279
+searches a a you know the capital letter
+
+342
+00:14:56,160 --> 00:15:01,120
+a
+
+343
+00:14:57,279 --> 00:15:01,120
+then it returns zero that means
+
+344
+00:15:02,399 --> 00:15:07,839
+uh so that would mean do not build a
+
+345
+00:15:05,440 --> 00:15:10,079
+single character letter so he said so
+
+346
+00:15:07,839 --> 00:15:13,120
+let's look at their example do they have
+
+347
+00:15:10,079 --> 00:15:16,399
+a example of a single letter do they
+
+348
+00:15:13,120 --> 00:15:16,399
+okay they also bold it
+
+349
+00:15:18,000 --> 00:15:24,639
+okay so the easiest is actually just
+
+350
+00:15:20,079 --> 00:15:27,120
+divided by two and add one okay so
+
+351
+00:15:24,639 --> 00:15:29,440
+so increment
+
+352
+00:15:27,120 --> 00:15:29,440
+that
+
+353
+00:15:29,839 --> 00:15:33,199
+okay
+
+354
+00:15:31,920 --> 00:15:37,600
+cha
+
+355
+00:15:33,199 --> 00:15:37,600
+two bold okay so that's another
+
+356
+00:15:37,759 --> 00:15:43,440
+uh variable
+
+357
+00:15:39,519 --> 00:15:43,440
+number of charts to both okay
+
+358
+00:15:45,680 --> 00:15:48,800
+so chart to bold
+
+359
+00:15:48,959 --> 00:15:51,759
+set that
+
+360
+00:15:52,399 --> 00:15:57,839
+that okay so remove that okay so this is
+
+361
+00:15:55,839 --> 00:16:00,000
+the number of characters we want to bold
+
+362
+00:15:57,839 --> 00:16:00,000
+it
+
+363
+00:16:06,079 --> 00:16:09,440
+okay so now
+
+364
+00:16:08,480 --> 00:16:12,480
+so
+
+365
+00:16:09,440 --> 00:16:14,639
+now we we arrived at the uh now we want
+
+366
+00:16:12,480 --> 00:16:17,440
+to get the beginning position we want to
+
+367
+00:16:14,639 --> 00:16:20,079
+start to bold and we want to get the end
+
+368
+00:16:17,440 --> 00:16:21,519
+position we start to bolt so let's add
+
+369
+00:16:20,079 --> 00:16:22,639
+another
+
+370
+00:16:21,519 --> 00:16:27,360
+variable
+
+371
+00:16:22,639 --> 00:16:27,360
+uh you know for fast coding purposes
+
+372
+00:16:29,120 --> 00:16:33,120
+bold and position okay let's just name
+
+373
+00:16:32,320 --> 00:16:38,240
+that
+
+374
+00:16:33,120 --> 00:16:40,320
+so this we this is going to be plus
+
+375
+00:16:38,240 --> 00:16:43,519
+uh the
+
+376
+00:16:40,320 --> 00:16:43,519
+x word begin
+
+377
+00:16:45,120 --> 00:16:47,839
+plus
+
+378
+00:16:46,320 --> 00:16:51,199
+that
+
+379
+00:16:47,839 --> 00:16:53,440
+okay so actually so that is already a
+
+380
+00:16:51,199 --> 00:16:53,440
+there
+
+381
+00:16:53,839 --> 00:17:00,079
+okay that's
+
+382
+00:16:56,560 --> 00:17:01,440
+so expo end position now now let's board
+
+383
+00:17:00,079 --> 00:17:05,199
+so the
+
+384
+00:17:01,440 --> 00:17:08,319
+we want to bold
+
+385
+00:17:05,199 --> 00:17:10,640
+at these two positions okay
+
+386
+00:17:08,319 --> 00:17:12,480
+at these two positions
+
+387
+00:17:10,640 --> 00:17:14,720
+that's right we want to vote at these
+
+388
+00:17:12,480 --> 00:17:16,640
+two positions and uh
+
+389
+00:17:14,720 --> 00:17:19,839
+how do you how do you do that you know
+
+390
+00:17:16,640 --> 00:17:21,919
+you go back to the emacs tutorial
+
+391
+00:17:19,839 --> 00:17:25,199
+and you want to
+
+392
+00:17:21,919 --> 00:17:25,199
+text properties okay
+
+393
+00:17:30,640 --> 00:17:35,520
+okay uh click search and uh
+
+394
+00:17:35,960 --> 00:17:42,640
+txt properties
+
+395
+00:17:39,679 --> 00:17:46,000
+okay there it is text properties so this
+
+396
+00:17:42,640 --> 00:17:48,480
+this is how you do so let's copy that
+
+397
+00:17:46,000 --> 00:17:48,480
+code
+
+398
+00:17:50,640 --> 00:17:56,320
+okay i'm gonna show you how to do this
+
+399
+00:17:53,039 --> 00:17:58,400
+so this is a full code uh and we are
+
+400
+00:17:56,320 --> 00:18:02,160
+going to
+
+401
+00:17:58,400 --> 00:18:02,160
+comments questions am i doing good
+
+402
+00:18:05,840 --> 00:18:12,240
+uh so we are the the the main thing we
+
+403
+00:18:08,720 --> 00:18:15,520
+want the main part is this line okay
+
+404
+00:18:12,240 --> 00:18:16,960
+put text properties okay so let's paste
+
+405
+00:18:15,520 --> 00:18:20,080
+it here
+
+406
+00:18:16,960 --> 00:18:24,880
+begin end position here
+
+407
+00:18:20,080 --> 00:18:27,200
+okay and the font lock font lock face
+
+408
+00:18:24,880 --> 00:18:31,280
+foreground red let's say just that for
+
+409
+00:18:27,200 --> 00:18:33,919
+now okay then delete this part
+
+410
+00:18:31,280 --> 00:18:36,480
+okay so now we complete we we kind of
+
+411
+00:18:33,919 --> 00:18:38,880
+have a preliminary version of this
+
+412
+00:18:36,480 --> 00:18:41,440
+function it actually just
+
+413
+00:18:38,880 --> 00:18:43,760
+both the current word okay so let's
+
+414
+00:18:41,440 --> 00:18:45,600
+evaluate it
+
+415
+00:18:43,760 --> 00:18:48,799
+open a new buffer
+
+416
+00:18:45,600 --> 00:18:49,600
+something in water okay
+
+417
+00:18:48,799 --> 00:18:52,320
+and
+
+418
+00:18:49,600 --> 00:18:53,760
+turn off this highlight and put the
+
+419
+00:18:52,320 --> 00:18:55,760
+cursor here
+
+420
+00:18:53,760 --> 00:18:58,000
+and let's call this command and
+
+421
+00:18:55,760 --> 00:19:00,080
+hopefully it will uphold
+
+422
+00:18:58,000 --> 00:19:01,120
+the first three characters of this word
+
+423
+00:19:00,080 --> 00:19:03,200
+okay
+
+424
+00:19:01,120 --> 00:19:06,880
+coet
+
+425
+00:19:03,200 --> 00:19:06,880
+info bionic reading
+
+426
+00:19:07,200 --> 00:19:11,160
+oh
+
+427
+00:19:08,400 --> 00:19:14,559
+it worked
+
+428
+00:19:11,160 --> 00:19:17,120
+fantastic fantastic
+
+429
+00:19:14,559 --> 00:19:19,360
+fantastic
+
+430
+00:19:17,120 --> 00:19:21,280
+okay so now
+
+431
+00:19:19,360 --> 00:19:24,320
+okay we need to of course we need to
+
+432
+00:19:21,280 --> 00:19:25,280
+there's a lot to do so wait
+
+433
+00:19:24,320 --> 00:19:27,919
+um
+
+434
+00:19:25,280 --> 00:19:30,799
+so if you do it here so yeah you can
+
+435
+00:19:27,919 --> 00:19:33,520
+just do it for each word you know for
+
+436
+00:19:30,799 --> 00:19:34,960
+now it's red we can make it a bold
+
+437
+00:19:33,520 --> 00:19:39,120
+instead
+
+438
+00:19:34,960 --> 00:19:40,720
+so now it works for each word
+
+439
+00:19:39,120 --> 00:19:43,120
+uh
+
+440
+00:19:40,720 --> 00:19:45,120
+now we get back to the problem of how do
+
+441
+00:19:43,120 --> 00:19:48,080
+you repeat this thing okay so that you
+
+442
+00:19:45,120 --> 00:19:51,120
+know there are many ways
+
+443
+00:19:48,080 --> 00:19:52,720
+so now okay so this this section
+
+444
+00:19:51,120 --> 00:19:55,760
+basically
+
+445
+00:19:52,720 --> 00:19:57,200
+this this section
+
+446
+00:19:55,760 --> 00:20:00,080
+uh
+
+447
+00:19:57,200 --> 00:20:00,080
+this section
+
+448
+00:20:03,520 --> 00:20:09,280
+okay here is the bounce okay bounce of
+
+449
+00:20:06,400 --> 00:20:09,280
+the current word
+
+450
+00:20:15,600 --> 00:20:23,200
+let's let's see for what okay move to
+
+451
+00:20:19,120 --> 00:20:23,200
+the beginning okay so let's see
+
+452
+00:20:28,720 --> 00:20:33,880
+so right now it takes a selection
+
+453
+00:20:34,159 --> 00:20:38,159
+uh let's not let's forget about the
+
+454
+00:20:36,240 --> 00:20:39,840
+selection let's just
+
+455
+00:20:38,159 --> 00:20:42,640
+walk with
+
+456
+00:20:39,840 --> 00:20:45,039
+let's just do the whole buffer okay
+
+457
+00:20:42,640 --> 00:20:47,280
+we can change it easily later
+
+458
+00:20:45,039 --> 00:20:50,000
+but for now for simplicity let's just do
+
+459
+00:20:47,280 --> 00:20:50,000
+the whole buffer
+
+460
+00:20:50,880 --> 00:20:53,120
+and
+
+461
+00:20:53,840 --> 00:20:58,320
+okay so now
+
+462
+00:20:56,080 --> 00:21:00,559
+for the whole buffer so first of all you
+
+463
+00:20:58,320 --> 00:21:03,200
+need to go to
+
+464
+00:21:00,559 --> 00:21:07,039
+buffer beginning okay
+
+465
+00:21:03,200 --> 00:21:08,720
+point mean okay point mean returns the
+
+466
+00:21:07,039 --> 00:21:10,960
+first position of the character
+
+467
+00:21:08,720 --> 00:21:13,960
+basically the beginning of the buffer
+
+468
+00:21:10,960 --> 00:21:13,960
+okay
+
+469
+00:21:18,240 --> 00:21:23,720
+uh
+
+470
+00:21:19,039 --> 00:21:23,720
+position one okay so let's see
+
+471
+00:21:36,799 --> 00:21:43,280
+okay that's position one then position
+
+472
+00:21:39,520 --> 00:21:44,960
+two is uh go to child point max
+
+473
+00:21:43,280 --> 00:21:47,200
+actually you don't have to go to a chart
+
+474
+00:21:44,960 --> 00:21:47,200
+so
+
+475
+00:21:48,000 --> 00:21:50,880
+what am i doing
+
+476
+00:21:52,640 --> 00:21:57,760
+uh yeah just go to chart okay don't you
+
+477
+00:21:54,799 --> 00:22:00,080
+don't need a position yeah
+
+478
+00:21:57,760 --> 00:22:01,120
+so go to move to the beginning of the
+
+479
+00:22:00,080 --> 00:22:02,799
+buffer
+
+480
+00:22:01,120 --> 00:22:03,600
+then
+
+481
+00:22:02,799 --> 00:22:07,280
+then
+
+482
+00:22:03,600 --> 00:22:08,799
+you want to do this okay this block
+
+483
+00:22:07,280 --> 00:22:10,159
+that
+
+484
+00:22:08,799 --> 00:22:12,720
+that
+
+485
+00:22:10,159 --> 00:22:14,320
+do the first word okay
+
+486
+00:22:12,720 --> 00:22:15,120
+uh and
+
+487
+00:22:14,320 --> 00:22:17,679
+so
+
+488
+00:22:15,120 --> 00:22:20,000
+this block is kind of a sub function
+
+489
+00:22:17,679 --> 00:22:20,000
+okay
+
+490
+00:22:23,360 --> 00:22:27,000
+go to chart
+
+491
+00:22:33,039 --> 00:22:38,960
+so so we need to
+
+492
+00:22:35,840 --> 00:22:38,960
+repeat this okay
+
+493
+00:22:39,039 --> 00:22:43,760
+so go to the beginning of the character
+
+494
+00:22:41,760 --> 00:22:45,120
+then bold it
+
+495
+00:22:43,760 --> 00:22:47,600
+uh
+
+496
+00:22:45,120 --> 00:22:50,960
+be sure we are not moving cruisers here
+
+497
+00:22:47,600 --> 00:22:52,840
+so we are not moving cursors here
+
+498
+00:22:50,960 --> 00:22:55,919
+after you voted
+
+499
+00:22:52,840 --> 00:22:58,960
+then we
+
+500
+00:22:55,919 --> 00:23:04,200
+forward okay forward word
+
+501
+00:22:58,960 --> 00:23:04,200
+that moves the cursor to the next word
+
+502
+00:23:08,240 --> 00:23:10,799
+okay
+
+503
+00:23:09,280 --> 00:23:13,440
+then we
+
+504
+00:23:10,799 --> 00:23:16,559
+basically do this again now let's just
+
+505
+00:23:13,440 --> 00:23:18,159
+be silly and do this repetition just to
+
+506
+00:23:16,559 --> 00:23:20,480
+make sure
+
+507
+00:23:18,159 --> 00:23:22,799
+you know our code works you see here
+
+508
+00:23:20,480 --> 00:23:26,080
+this block of code is repeated but let's
+
+509
+00:23:22,799 --> 00:23:28,720
+run it okay eval the buffer
+
+510
+00:23:26,080 --> 00:23:30,880
+and let's test it okay
+
+511
+00:23:28,720 --> 00:23:34,000
+now let's just copy for example let's
+
+512
+00:23:30,880 --> 00:23:34,000
+copy this text
+
+513
+00:23:34,480 --> 00:23:38,880
+new buffer paste it there okay let's
+
+514
+00:23:37,120 --> 00:23:41,120
+just call the command
+
+515
+00:23:38,880 --> 00:23:45,600
+it should bold at least the first two
+
+516
+00:23:41,120 --> 00:23:45,600
+words okay the emac these okay do it
+
+517
+00:23:46,559 --> 00:23:51,120
+okay so it's
+
+518
+00:23:48,240 --> 00:23:53,440
+it doesn't work it only did the first
+
+519
+00:23:51,120 --> 00:23:55,760
+character the first word okay let's go
+
+520
+00:23:53,440 --> 00:23:55,760
+back
+
+521
+00:23:59,679 --> 00:24:05,279
+let's try it again new buffer
+
+522
+00:24:02,880 --> 00:24:08,640
+call it
+
+523
+00:24:05,279 --> 00:24:10,799
+i want to i want to see where the cursor
+
+524
+00:24:08,640 --> 00:24:14,640
+ends
+
+525
+00:24:10,799 --> 00:24:16,000
+okay so it ends at here
+
+526
+00:24:14,640 --> 00:24:19,360
+yeah that's
+
+527
+00:24:16,000 --> 00:24:21,200
+so that that is expected because we
+
+528
+00:24:19,360 --> 00:24:23,760
+are at the beginning of the buffer then
+
+529
+00:24:21,200 --> 00:24:25,039
+we move forward what one time so that's
+
+530
+00:24:23,760 --> 00:24:29,000
+expected
+
+531
+00:24:25,039 --> 00:24:29,000
+so we need to fix this
+
+532
+00:24:33,360 --> 00:24:39,279
+okay put this here okay
+
+533
+00:24:37,039 --> 00:24:42,480
+go to the beginning of a buffer then
+
+534
+00:24:39,279 --> 00:24:42,480
+forward word
+
+535
+00:24:44,880 --> 00:24:49,279
+okay then um
+
+536
+00:24:47,760 --> 00:24:52,400
+then do it
+
+537
+00:24:49,279 --> 00:24:54,480
+then forward again
+
+538
+00:24:52,400 --> 00:24:57,039
+okay you are the buffer
+
+539
+00:24:54,480 --> 00:25:00,320
+new buffer paste the
+
+540
+00:24:57,039 --> 00:25:03,320
+whole text call the command do it
+
+541
+00:25:00,320 --> 00:25:03,320
+fantastic
+
+542
+00:25:04,240 --> 00:25:08,480
+we did it we did it fantastic
+
+543
+00:25:09,840 --> 00:25:14,159
+do i prefer wolfram lang or emac these
+
+544
+00:25:12,400 --> 00:25:16,159
+of course woofam wufam lam wufang line
+
+545
+00:25:14,159 --> 00:25:18,240
+is the magnitude beyond the emac beast
+
+546
+00:25:16,159 --> 00:25:20,960
+you know because and woof online is a
+
+547
+00:25:18,240 --> 00:25:22,320
+general purpose language emac this is
+
+548
+00:25:20,960 --> 00:25:24,559
+only
+
+549
+00:25:22,320 --> 00:25:26,720
+for emacs for basically
+
+550
+00:25:24,559 --> 00:25:29,200
+basically useless outside of emacs and
+
+551
+00:25:26,720 --> 00:25:32,400
+mostly primarily it's just for text
+
+552
+00:25:29,200 --> 00:25:34,880
+processing you cannot to you cannot use
+
+553
+00:25:32,400 --> 00:25:36,720
+it to write a server or
+
+554
+00:25:34,880 --> 00:25:38,880
+uh you know
+
+555
+00:25:36,720 --> 00:25:40,240
+or artificial intelligence machinery you
+
+556
+00:25:38,880 --> 00:25:42,799
+cannot you know
+
+557
+00:25:40,240 --> 00:25:44,720
+you can kind of if you push it but you
+
+558
+00:25:42,799 --> 00:25:45,760
+know it's not suitable
+
+559
+00:25:44,720 --> 00:25:48,400
+so
+
+560
+00:25:45,760 --> 00:25:50,400
+so the proper
+
+561
+00:25:48,400 --> 00:25:51,600
+comparison would be wufam language
+
+562
+00:25:50,400 --> 00:25:54,640
+versus
+
+563
+00:25:51,600 --> 00:25:56,960
+commonly or skim disk or racket is you
+
+564
+00:25:54,640 --> 00:25:58,480
+know there then it's more proper
+
+565
+00:25:56,960 --> 00:26:01,039
+comparison because
+
+566
+00:25:58,480 --> 00:26:04,400
+these are general purpose languages
+
+567
+00:26:01,039 --> 00:26:07,120
+and in that case i prefer wufang
+
+568
+00:26:04,400 --> 00:26:09,120
+language by by far because uh language
+
+569
+00:26:07,120 --> 00:26:10,640
+is much more higher level i did a lot of
+
+570
+00:26:09,120 --> 00:26:13,039
+videos about that okay that's a
+
+571
+00:26:10,640 --> 00:26:14,960
+decoration let's go back to this
+
+572
+00:26:13,039 --> 00:26:17,360
+okay so now
+
+573
+00:26:14,960 --> 00:26:20,880
+now if we repeat this you know now we
+
+574
+00:26:17,360 --> 00:26:22,799
+repeat this three times eval the buffer
+
+575
+00:26:20,880 --> 00:26:26,000
+now we can um
+
+576
+00:26:22,799 --> 00:26:28,320
+new buffer paste paste paste paste okay
+
+577
+00:26:26,000 --> 00:26:29,840
+now let's try it it should uh do the
+
+578
+00:26:28,320 --> 00:26:32,799
+first three words
+
+579
+00:26:29,840 --> 00:26:35,679
+do it fantastic okay now so we now we
+
+580
+00:26:32,799 --> 00:26:39,360
+got the pattern we started to see
+
+581
+00:26:35,679 --> 00:26:41,679
+uh you know how this uh works so we can
+
+582
+00:26:39,360 --> 00:26:43,039
+just do a while loop or something okay
+
+583
+00:26:41,679 --> 00:26:44,400
+so it's
+
+584
+00:26:43,039 --> 00:26:47,039
+it's
+
+585
+00:26:44,400 --> 00:26:47,039
+calculus
+
+586
+00:26:54,799 --> 00:26:57,360
+turn off
+
+587
+00:27:00,240 --> 00:27:04,559
+okay uh wait what is this uh okay so
+
+588
+00:27:03,360 --> 00:27:07,559
+let's
+
+589
+00:27:04,559 --> 00:27:07,559
+yep
+
+590
+00:27:07,679 --> 00:27:11,919
+link
+
+591
+00:27:09,279 --> 00:27:14,320
+okay so that's what we did today you
+
+592
+00:27:11,919 --> 00:27:16,960
+know we are writing this code
+
+593
+00:27:14,320 --> 00:27:18,720
+okay and so far so good so far so good
+
+594
+00:27:16,960 --> 00:27:20,960
+yes so good
+
+595
+00:27:18,720 --> 00:27:22,480
+uh so here is the pattern we started to
+
+596
+00:27:20,960 --> 00:27:23,440
+see so we
+
+597
+00:27:22,480 --> 00:27:27,919
+can
+
+598
+00:27:23,440 --> 00:27:29,039
+do a while loop so let's write it while
+
+599
+00:27:27,919 --> 00:27:31,279
+while
+
+600
+00:27:29,039 --> 00:27:32,640
+something something something okay now
+
+601
+00:27:31,279 --> 00:27:35,120
+that something something would be
+
+602
+00:27:32,640 --> 00:27:37,360
+forward i think
+
+603
+00:27:35,120 --> 00:27:38,559
+you know it each time it moves closer by
+
+604
+00:27:37,360 --> 00:27:41,679
+one word
+
+605
+00:27:38,559 --> 00:27:43,840
+then we highlight it then do it again so
+
+606
+00:27:41,679 --> 00:27:48,080
+so the critical thing we want to know is
+
+607
+00:27:43,840 --> 00:27:49,200
+the forward word does it does it return
+
+608
+00:27:48,080 --> 00:27:52,320
+neo
+
+609
+00:27:49,200 --> 00:27:54,480
+when it reaches the end of the uh buffer
+
+610
+00:27:52,320 --> 00:27:56,240
+you know we want it to return we want
+
+611
+00:27:54,480 --> 00:27:57,200
+something that returns
+
+612
+00:27:56,240 --> 00:28:00,399
+false
+
+613
+00:27:57,200 --> 00:28:02,240
+so that the loop will stop okay
+
+614
+00:28:00,399 --> 00:28:05,120
+so let's read the documentation describe
+
+615
+00:28:02,240 --> 00:28:07,200
+function for what is the interactive uh
+
+616
+00:28:05,120 --> 00:28:11,200
+however
+
+617
+00:28:07,200 --> 00:28:11,200
+okay so normally return t
+
+618
+00:28:12,399 --> 00:28:18,480
+if an edge of the buffer or a field
+
+619
+00:28:15,440 --> 00:28:20,559
+boundary is reached point is left there
+
+620
+00:28:18,480 --> 00:28:21,919
+and the function returns neo that's what
+
+621
+00:28:20,559 --> 00:28:24,919
+we want
+
+622
+00:28:21,919 --> 00:28:24,919
+okay
+
+623
+00:28:38,240 --> 00:28:44,960
+okay we did you know now it's 30 minutes
+
+624
+00:28:41,919 --> 00:28:46,080
+good we are on track so this is what we
+
+625
+00:28:44,960 --> 00:28:47,520
+want so
+
+626
+00:28:46,080 --> 00:28:50,000
+so um
+
+627
+00:28:47,520 --> 00:28:51,360
+so while forward word
+
+628
+00:28:50,000 --> 00:28:54,320
+then
+
+629
+00:28:51,360 --> 00:28:55,760
+then this block of code okay remove
+
+630
+00:28:54,320 --> 00:28:59,520
+remove okay
+
+631
+00:28:55,760 --> 00:29:01,360
+prettify the whole code
+
+632
+00:28:59,520 --> 00:29:04,080
+and move to the top so you can see the
+
+633
+00:29:01,360 --> 00:29:06,080
+whole code so there it is this is this
+
+634
+00:29:04,080 --> 00:29:07,840
+is our command so let's double check
+
+635
+00:29:06,080 --> 00:29:09,039
+before we run it
+
+636
+00:29:07,840 --> 00:29:11,840
+while
+
+637
+00:29:09,039 --> 00:29:14,000
+so first of all go to the uh go to the
+
+638
+00:29:11,840 --> 00:29:16,880
+buffer beginning then while
+
+639
+00:29:14,000 --> 00:29:16,880
+forward word
+
+640
+00:29:16,960 --> 00:29:21,200
+then
+
+641
+00:29:18,960 --> 00:29:21,200
+then
+
+642
+00:29:21,440 --> 00:29:28,480
+both the
+
+643
+00:29:23,840 --> 00:29:30,240
+first half of the world to the left of
+
+644
+00:29:28,480 --> 00:29:33,360
+kuza
+
+645
+00:29:30,240 --> 00:29:35,600
+kuza okay so that's what this block do
+
+646
+00:29:33,360 --> 00:29:35,600
+so
+
+647
+00:29:37,279 --> 00:29:42,080
+okay that's i think that's it now
+
+648
+00:29:39,600 --> 00:29:44,159
+eval the buffer
+
+649
+00:29:42,080 --> 00:29:46,880
+create a new buffer
+
+650
+00:29:44,159 --> 00:29:48,880
+go back here let's copy
+
+651
+00:29:46,880 --> 00:29:50,720
+copy this whole thing
+
+652
+00:29:48,880 --> 00:29:54,640
+paste it there
+
+653
+00:29:50,720 --> 00:29:58,480
+and we if we call the command it should
+
+654
+00:29:54,640 --> 00:29:59,760
+we should have this bionic reading
+
+655
+00:29:58,480 --> 00:30:02,000
+let's see
+
+656
+00:29:59,760 --> 00:30:04,240
+you know let's let's hope there's no
+
+657
+00:30:02,000 --> 00:30:07,360
+infinite loop because whenever you use
+
+658
+00:30:04,240 --> 00:30:10,720
+while loop in images sometimes you get
+
+659
+00:30:07,360 --> 00:30:12,399
+into infinite loop so make sure we saved
+
+660
+00:30:10,720 --> 00:30:14,480
+it
+
+661
+00:30:12,399 --> 00:30:19,440
+uh you know
+
+662
+00:30:14,480 --> 00:30:20,840
+okay call it meta x info bionic reading
+
+663
+00:30:19,440 --> 00:30:24,480
+do it
+
+664
+00:30:20,840 --> 00:30:26,000
+oh fantastic and it's fast
+
+665
+00:30:24,480 --> 00:30:28,240
+that's a success
+
+666
+00:30:26,000 --> 00:30:30,480
+success
+
+667
+00:30:28,240 --> 00:30:32,880
+now we just need to change the red to
+
+668
+00:30:30,480 --> 00:30:35,039
+bold okay
+
+669
+00:30:32,880 --> 00:30:37,120
+yeah it's good
+
+670
+00:30:35,039 --> 00:30:39,120
+now close that
+
+671
+00:30:37,120 --> 00:30:40,960
+now we uh so
+
+672
+00:30:39,120 --> 00:30:43,360
+so change the
+
+673
+00:30:40,960 --> 00:30:44,720
+color to bold that that would be this
+
+674
+00:30:43,360 --> 00:30:48,799
+part
+
+675
+00:30:44,720 --> 00:30:50,559
+so foreground red so here you can just
+
+676
+00:30:48,799 --> 00:30:52,880
+say both i think
+
+677
+00:30:50,559 --> 00:30:52,880
+let's
+
+678
+00:30:54,640 --> 00:30:57,919
+okay
+
+679
+00:30:55,520 --> 00:30:59,200
+eval the buffer
+
+680
+00:30:57,919 --> 00:31:02,000
+new buffer
+
+681
+00:30:59,200 --> 00:31:05,200
+paste paste paste previous okay we got
+
+682
+00:31:02,000 --> 00:31:07,440
+the whole text now called meta x info
+
+683
+00:31:05,200 --> 00:31:10,240
+bionic reading
+
+684
+00:31:07,440 --> 00:31:12,559
+fantastic
+
+685
+00:31:10,240 --> 00:31:12,559
+then
+
+686
+00:31:12,880 --> 00:31:19,679
+it's let's double check okay let's let's
+
+687
+00:31:15,519 --> 00:31:22,000
+uh let's copy their code oh god this you
+
+688
+00:31:19,679 --> 00:31:25,679
+know this modern zoomer male engine zuma
+
+689
+00:31:22,000 --> 00:31:25,679
+website you cannot copy text
+
+690
+00:31:28,080 --> 00:31:31,760
+you know it's funny they
+
+691
+00:31:29,679 --> 00:31:35,279
+they do bionic reading but they they
+
+692
+00:31:31,760 --> 00:31:38,159
+don't you know they put an image here
+
+693
+00:31:35,279 --> 00:31:42,559
+okay let's go so but we need
+
+694
+00:31:38,159 --> 00:31:44,960
+we need the text to compare right
+
+695
+00:31:42,559 --> 00:31:47,840
+and you know they put the image there
+
+696
+00:31:44,960 --> 00:31:47,840
+yeah incredible
+
+697
+00:31:48,159 --> 00:31:52,799
+idiotic zoom off
+
+698
+00:31:50,480 --> 00:31:55,120
+out there then there comes you know in
+
+699
+00:31:52,799 --> 00:31:58,000
+the viet
+
+700
+00:31:55,120 --> 00:32:01,120
+anyway so
+
+701
+00:31:58,000 --> 00:32:04,159
+bionic reading okay so uh yeah well i
+
+702
+00:32:01,120 --> 00:32:07,120
+cannot copy that this text so we cannot
+
+703
+00:32:04,159 --> 00:32:09,120
+do actual comparison
+
+704
+00:32:07,120 --> 00:32:11,039
+do they actually have some
+
+705
+00:32:09,120 --> 00:32:15,000
+that's the image again
+
+706
+00:32:11,039 --> 00:32:15,000
+that's the image again
+
+707
+00:32:15,440 --> 00:32:20,399
+yeah
+
+708
+00:32:16,480 --> 00:32:20,399
+okay it's created by this guy
+
+709
+00:32:20,480 --> 00:32:22,799
+okay
+
+710
+00:32:23,840 --> 00:32:27,279
+okay so
+
+711
+00:32:25,039 --> 00:32:29,840
+yeah but looks like this is uh let's
+
+712
+00:32:27,279 --> 00:32:34,440
+let's type
+
+713
+00:32:29,840 --> 00:32:38,399
+ionic reading is a new method
+
+714
+00:32:34,440 --> 00:32:43,559
+facilitating the reading process by
+
+715
+00:32:38,399 --> 00:32:43,559
+guiding the eyes through
+
+716
+00:32:43,760 --> 00:32:51,039
+through text with
+
+717
+00:32:45,760 --> 00:32:52,799
+artificial fixation points okay
+
+718
+00:32:51,039 --> 00:32:53,840
+okay let's
+
+719
+00:32:52,799 --> 00:32:54,960
+do it
+
+720
+00:32:53,840 --> 00:32:57,120
+do it
+
+721
+00:32:54,960 --> 00:33:00,399
+let's go to the top
+
+722
+00:32:57,120 --> 00:33:00,399
+let's compare a little bit
+
+723
+00:33:00,720 --> 00:33:03,919
+bionic
+
+724
+00:33:01,840 --> 00:33:06,799
+reading is
+
+725
+00:33:03,919 --> 00:33:09,200
+okay so you see this uh sometimes you
+
+726
+00:33:06,799 --> 00:33:11,519
+know i mean it's exact not exactly the
+
+727
+00:33:09,200 --> 00:33:14,640
+same so is
+
+728
+00:33:11,519 --> 00:33:16,880
+in our in our case it's both highlighted
+
+729
+00:33:14,640 --> 00:33:17,760
+but in their case it's just the first
+
+730
+00:33:16,880 --> 00:33:20,080
+letter
+
+731
+00:33:17,760 --> 00:33:23,080
+but i think it's uh it's the same okay
+
+732
+00:33:20,080 --> 00:33:23,080
+basically
+
+733
+00:33:24,480 --> 00:33:28,320
+okay
+
+734
+00:33:25,360 --> 00:33:31,200
+i think that's it for this command uh
+
+735
+00:33:28,320 --> 00:33:32,720
+info is at work so he's not you know
+
+736
+00:33:31,200 --> 00:33:34,799
+watching this
+
+737
+00:33:32,720 --> 00:33:36,840
+with us right now
+
+738
+00:33:34,799 --> 00:33:40,080
+but i think that's it
+
+739
+00:33:36,840 --> 00:33:42,159
+so so of course we need to clean up you
+
+740
+00:33:40,080 --> 00:33:43,679
+know so basically this is a command
+
+741
+00:33:42,159 --> 00:33:44,720
+right now this command does the whole
+
+742
+00:33:43,679 --> 00:33:47,600
+buffer
+
+743
+00:33:44,720 --> 00:33:49,760
+we should write a another version that
+
+744
+00:33:47,600 --> 00:33:52,640
+does the region it's easy okay it's
+
+745
+00:33:49,760 --> 00:33:56,399
+trivial let's just do it
+
+746
+00:33:52,640 --> 00:33:58,000
+purify the code prefix so copy the code
+
+747
+00:33:56,399 --> 00:34:02,799
+and put it here
+
+748
+00:33:58,000 --> 00:34:04,720
+and name this region okay so that means
+
+749
+00:34:02,799 --> 00:34:05,760
+it will only work on the current region
+
+750
+00:34:04,720 --> 00:34:07,360
+so
+
+751
+00:34:05,760 --> 00:34:09,440
+begin end
+
+752
+00:34:07,360 --> 00:34:12,720
+so by my convention i use capital
+
+753
+00:34:09,440 --> 00:34:15,040
+letters for parameter names
+
+754
+00:34:12,720 --> 00:34:17,839
+beginning end then you you need to
+
+755
+00:34:15,040 --> 00:34:19,839
+remember to put a r here for the
+
+756
+00:34:17,839 --> 00:34:20,879
+interactive clause
+
+757
+00:34:19,839 --> 00:34:22,879
+then
+
+758
+00:34:20,879 --> 00:34:24,399
+you need to
+
+759
+00:34:22,879 --> 00:34:27,520
+you need to add the beginning end
+
+760
+00:34:24,399 --> 00:34:27,520
+somewhere here so
+
+761
+00:34:31,760 --> 00:34:36,320
+so yeah so in this case it's not from
+
+762
+00:34:34,000 --> 00:34:36,570
+the buffer beginning but rather it's
+
+763
+00:34:36,320 --> 00:34:38,560
+from
+
+764
+00:34:36,570 --> 00:34:40,720
+[Music]
+
+765
+00:34:38,560 --> 00:34:43,520
+uh go to char
+
+766
+00:34:40,720 --> 00:34:44,560
+not point meme
+
+767
+00:34:43,520 --> 00:34:46,639
+uh
+
+768
+00:34:44,560 --> 00:34:49,679
+basically we need we need to start at
+
+769
+00:34:46,639 --> 00:34:51,839
+beginning and end so we need to so let
+
+770
+00:34:49,679 --> 00:34:52,639
+me show you how to do that okay
+
+771
+00:34:51,839 --> 00:34:55,359
+uh
+
+772
+00:34:52,639 --> 00:34:58,720
+narrow to region that's very useful so
+
+773
+00:34:55,359 --> 00:35:02,160
+narrator region begin end there it is
+
+774
+00:34:58,720 --> 00:35:04,480
+so we narrow the buffer to the region
+
+775
+00:35:02,160 --> 00:35:06,320
+and save restriction means when the
+
+776
+00:35:04,480 --> 00:35:08,800
+command is done
+
+777
+00:35:06,320 --> 00:35:10,880
+revert it you you know
+
+778
+00:35:08,800 --> 00:35:13,839
+remove the narrow region
+
+779
+00:35:10,880 --> 00:35:14,960
+but so so this part just focus you know
+
+780
+00:35:13,839 --> 00:35:17,760
+narrow the
+
+781
+00:35:14,960 --> 00:35:20,720
+the buffer into a specific begin
+
+782
+00:35:17,760 --> 00:35:23,040
+position then we just put our whole code
+
+783
+00:35:20,720 --> 00:35:23,040
+here
+
+784
+00:35:23,440 --> 00:35:28,880
+cut
+
+785
+00:35:24,320 --> 00:35:28,880
+put it here prefi that's it
+
+786
+00:35:29,119 --> 00:35:34,000
+yeah so we you know
+
+787
+00:35:31,359 --> 00:35:36,720
+so this is a region version beginning
+
+788
+00:35:34,000 --> 00:35:38,240
+and end then interactive r
+
+789
+00:35:36,720 --> 00:35:41,920
+which means when you call the command
+
+790
+00:35:38,240 --> 00:35:44,720
+meta x it will automatically feed
+
+791
+00:35:41,920 --> 00:35:48,560
+field the parameters begin and end okay
+
+792
+00:35:44,720 --> 00:35:52,320
+so then we now to region and you know
+
+793
+00:35:48,560 --> 00:35:55,040
+okay eval the code evaluate the buffer
+
+794
+00:35:52,320 --> 00:35:56,000
+then let's um
+
+795
+00:35:55,040 --> 00:35:58,640
+let's
+
+796
+00:35:56,000 --> 00:35:59,760
+let's let's again copy this
+
+797
+00:35:58,640 --> 00:36:01,599
+paste
+
+798
+00:35:59,760 --> 00:36:03,599
+okay now let's say
+
+799
+00:36:01,599 --> 00:36:06,400
+let's make this
+
+800
+00:36:03,599 --> 00:36:06,400
+short okay
+
+801
+00:36:10,880 --> 00:36:14,560
+okay so let's say let's select this
+
+802
+00:36:12,880 --> 00:36:16,800
+region okay we don't want to do the
+
+803
+00:36:14,560 --> 00:36:18,800
+whole buffer let's select this region
+
+804
+00:36:16,800 --> 00:36:19,920
+and now call
+
+805
+00:36:18,800 --> 00:36:22,800
+info
+
+806
+00:36:19,920 --> 00:36:24,160
+bionic reading
+
+807
+00:36:22,800 --> 00:36:26,640
+uh by
+
+808
+00:36:24,160 --> 00:36:27,839
+bionic reading region
+
+809
+00:36:26,640 --> 00:36:30,400
+do it
+
+810
+00:36:27,839 --> 00:36:33,359
+fantastic it just you see
+
+811
+00:36:30,400 --> 00:36:35,200
+perfect it only did to this region okay
+
+812
+00:36:33,359 --> 00:36:37,040
+close it
+
+813
+00:36:35,200 --> 00:36:38,720
+okay now we have two versions of the
+
+814
+00:36:37,040 --> 00:36:41,280
+command now
+
+815
+00:36:38,720 --> 00:36:43,839
+so so this version should be uh named
+
+816
+00:36:41,280 --> 00:36:45,599
+buffer okay more properly by emacs
+
+817
+00:36:43,839 --> 00:36:47,599
+convention you know if you if you have a
+
+818
+00:36:45,599 --> 00:36:49,359
+command that works on the whole buffer
+
+819
+00:36:47,599 --> 00:36:51,520
+you should uh
+
+820
+00:36:49,359 --> 00:36:54,000
+the command name should you know contain
+
+821
+00:36:51,520 --> 00:36:56,560
+word buffer okay so we have a buffer
+
+822
+00:36:54,000 --> 00:36:58,160
+region buffer version we have the region
+
+823
+00:36:56,560 --> 00:36:58,520
+version
+
+824
+00:36:58,160 --> 00:37:00,079
+um
+
+825
+00:36:58,520 --> 00:37:03,040
+[Music]
+
+826
+00:37:00,079 --> 00:37:06,160
+i think that's it okay yeah let's let's
+
+827
+00:37:03,040 --> 00:37:08,640
+let's you know that's it for this
+
+828
+00:37:06,160 --> 00:37:11,760
+talk show
+
+829
+00:37:08,640 --> 00:37:15,920
+okay again thanks to info on our discord
+
+830
+00:37:11,760 --> 00:37:18,240
+who requested this who sponsored this
+
+831
+00:37:15,920 --> 00:37:20,400
+and uh
+
+832
+00:37:18,240 --> 00:37:22,640
+and you know that we can do some
+
+833
+00:37:20,400 --> 00:37:27,040
+refinement for example this can be made
+
+834
+00:37:22,640 --> 00:37:27,040
+into a minor mod or major mod
+
+835
+00:37:29,359 --> 00:37:31,760
+but it
+
+836
+00:37:30,720 --> 00:37:35,200
+you know
+
+837
+00:37:31,760 --> 00:37:36,880
+not necessarily a good thing because
+
+838
+00:37:35,200 --> 00:37:40,640
+you know because
+
+839
+00:37:36,880 --> 00:37:43,200
+if you make this into a minor mod
+
+840
+00:37:40,640 --> 00:37:45,040
+that means you know it interferes with
+
+841
+00:37:43,200 --> 00:37:46,960
+the coloring of the current buffer of
+
+842
+00:37:45,040 --> 00:37:49,960
+the current major mod
+
+843
+00:37:46,960 --> 00:37:49,960
+so
+
+844
+00:37:52,800 --> 00:37:57,839
+i'm not sure it can co-exist well you
+
+845
+00:37:55,680 --> 00:38:00,880
+know you know we have to look into
+
+846
+00:37:57,839 --> 00:38:02,400
+and if you make this into a
+
+847
+00:38:00,880 --> 00:38:04,880
+major mod
+
+848
+00:38:02,400 --> 00:38:07,839
+then the problem potential possible
+
+849
+00:38:04,880 --> 00:38:07,839
+problem is that
+
+850
+00:38:08,160 --> 00:38:12,079
+you know then you don't have the you
+
+851
+00:38:09,760 --> 00:38:15,200
+know coloring the default coloring of
+
+852
+00:38:12,079 --> 00:38:17,359
+programming languages or whatever
+
+853
+00:38:15,200 --> 00:38:19,520
+so that all depends depends on what you
+
+854
+00:38:17,359 --> 00:38:22,000
+really want the command to be i mean if
+
+855
+00:38:19,520 --> 00:38:24,560
+if you all you want this command to be
+
+856
+00:38:22,000 --> 00:38:25,920
+is for bionic reading
+
+857
+00:38:24,560 --> 00:38:27,520
+of only
+
+858
+00:38:25,920 --> 00:38:30,320
+you know text
+
+859
+00:38:27,520 --> 00:38:33,920
+that you you know like a novel
+
+860
+00:38:30,320 --> 00:38:36,240
+not arbitrary email or whatever then you
+
+861
+00:38:33,920 --> 00:38:40,079
+know but anyway right now this this
+
+862
+00:38:36,240 --> 00:38:40,079
+command is convenient okay so
+
+863
+00:38:40,560 --> 00:38:45,520
+so make a backup copy it
+
+864
+00:38:43,440 --> 00:38:47,760
+go to back go back to talk show that's
+
+865
+00:38:45,520 --> 00:38:48,800
+it for today thank you guys for watching
+
+866
+00:38:47,760 --> 00:38:51,440
+okay
+
+867
+00:38:48,800 --> 00:38:55,119
+uh let's go to talk show so today's talk
+
+868
+00:38:51,440 --> 00:38:55,119
+show let's put the code here so
+
+869
+00:38:56,800 --> 00:39:04,880
+emax lisp paste the code showing browser
+
+870
+00:39:01,599 --> 00:39:07,520
+fantastic that's a code and now let's
+
+871
+00:39:04,880 --> 00:39:11,200
+sync text color it back to browser
+
+872
+00:39:07,520 --> 00:39:13,200
+refresh that's what we have okay
+
+873
+00:39:11,200 --> 00:39:16,800
+okay bye guys
+
+874
+00:39:13,200 --> 00:39:19,440
+now i'm going to set up for a um for my
+
+875
+00:39:16,800 --> 00:39:22,400
+next talk show you know recently i did a
+
+876
+00:39:19,440 --> 00:39:24,640
+lot so i'm gonna set a youtube
+
+877
+00:39:22,400 --> 00:39:26,160
+within the next
+
+878
+00:39:24,640 --> 00:39:28,800
+hour or two i think i'm going to do
+
+879
+00:39:26,160 --> 00:39:32,400
+another youtube
+
+880
+00:39:28,800 --> 00:39:35,520
+uh in in two or three hours
+
+881
+00:39:32,400 --> 00:39:37,599
+on keyboards on um
+
+882
+00:39:35,520 --> 00:39:40,079
+let me show you okay lots of tons of
+
+883
+00:39:37,599 --> 00:39:42,800
+keyboard new stuff i worked on keyboard
+
+884
+00:39:40,079 --> 00:39:45,040
+in the past um
+
+885
+00:39:42,800 --> 00:39:45,040
+week
+
+886
+00:39:46,079 --> 00:39:51,720
+okay so check out my youtube okay
+
+887
+00:39:48,480 --> 00:39:51,720
+bye guys
+
+888
+00:40:04,800 --> 00:40:06,880
+you
+

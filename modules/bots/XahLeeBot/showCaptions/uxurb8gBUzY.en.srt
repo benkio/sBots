@@ -1,0 +1,6012 @@
+1
+00:00:01,400 --> 00:00:04,680
+Hello guys.
+
+2
+00:00:02,840 --> 00:00:07,760
+Hello guys. Good morning, guys. Good
+
+3
+00:00:04,680 --> 00:00:10,840
+afternoon. Good evening.
+
+4
+00:00:07,760 --> 00:00:14,640
+Video check. Audio check. Welcome to
+
+5
+00:00:10,840 --> 00:00:16,880
+another episode of Tsar Talk Show.
+
+6
+00:00:14,640 --> 00:00:17,920
+We are going to do
+
+7
+00:00:16,880 --> 00:00:21,800
+coding,
+
+8
+00:00:17,920 --> 00:00:24,960
+geometry, and Wolfram language, okay?
+
+9
+00:00:21,800 --> 00:00:27,200
+Let's see. To do close. Let's go to
+
+10
+00:00:24,960 --> 00:00:30,080
+today's talk show.
+
+11
+00:00:27,200 --> 00:00:32,640
+Talk show. That's there.
+
+12
+00:00:30,080 --> 00:00:35,560
+Tsar Talk Show index. And today's talk
+
+13
+00:00:32,640 --> 00:00:38,920
+show coding, Wolfram language, geometry,
+
+14
+00:00:35,560 --> 00:00:41,120
+tangent lines, normal lines. That's what
+
+15
+00:00:38,920 --> 00:00:43,160
+we are not going to do. Geometry, okay?
+
+16
+00:00:41,120 --> 00:00:45,280
+Tangent and coding, okay? So, we are
+
+17
+00:00:43,160 --> 00:00:49,960
+going to just do a lot coding. This is
+
+18
+00:00:45,280 --> 00:00:53,600
+my office hours. So, I do my work and
+
+19
+00:00:49,960 --> 00:00:55,440
+you can come here, watch me code, or ask
+
+20
+00:00:53,600 --> 00:00:57,720
+me questions. So, [snorts] we got a
+
+21
+00:00:55,440 --> 00:00:59,360
+question from William. Now, William, are
+
+22
+00:00:57,720 --> 00:01:00,760
+you still here?
+
+23
+00:00:59,360 --> 00:01:03,120
+Because
+
+24
+00:01:00,760 --> 00:01:05,840
+uh if you are still here, say hi. So,
+
+25
+00:01:03,120 --> 00:01:08,240
+I'm going to answer your question, okay?
+
+26
+00:01:05,840 --> 00:01:10,160
+So,
+
+27
+00:01:08,240 --> 00:01:12,680
+William, you here?
+
+28
+00:01:10,160 --> 00:01:12,680
+Uh
+
+29
+00:01:12,840 --> 00:01:16,600
+So, William asked a question about
+
+30
+00:01:14,560 --> 00:01:19,440
+Bertrand Russell. Could you say a few
+
+31
+00:01:16,600 --> 00:01:23,000
+words about Bertrand Russell, who is one
+
+32
+00:01:19,440 --> 00:01:24,760
+of your favorite author? How was How has
+
+33
+00:01:23,000 --> 00:01:27,600
+he influenced you?
+
+34
+00:01:24,760 --> 00:01:30,120
+I talked that about that in the past.
+
+35
+00:01:27,600 --> 00:01:34,320
+So, Bertrand Russell is one of my
+
+36
+00:01:30,120 --> 00:01:39,200
+favorite author. And he is also
+
+37
+00:01:34,320 --> 00:01:43,200
+the guy who has influenced me the most.
+
+38
+00:01:39,200 --> 00:01:43,200
+Okay, let me tag William. So,
+
+39
+00:01:43,560 --> 00:01:48,640
+What?
+
+40
+00:01:45,240 --> 00:01:52,080
+Oh god. You know, so this
+
+41
+00:01:48,640 --> 00:01:52,080
+Are you still here, William?
+
+42
+00:01:52,240 --> 00:01:56,360
+Anyway, so William, you know,
+
+43
+00:01:57,520 --> 00:02:01,680
+So, anyway, let's wait um
+
+44
+00:02:08,960 --> 00:02:13,280
+So if you are still here, say so. Then I
+
+45
+00:02:11,520 --> 00:02:15,080
+answer your question. Otherwise, I'm not
+
+46
+00:02:13,280 --> 00:02:17,640
+going to going to talk about it because
+
+47
+00:02:15,080 --> 00:02:20,480
+we I talked about that before because I
+
+48
+00:02:17,640 --> 00:02:23,440
+got to work on my um
+
+49
+00:02:20,480 --> 00:02:25,520
+my special plane curves, okay? I got to
+
+50
+00:02:23,440 --> 00:02:29,000
+do work. So
+
+51
+00:02:25,520 --> 00:02:31,160
+uh the first task to do is we got this
+
+52
+00:02:29,000 --> 00:02:33,800
+tangent line, okay?
+
+53
+00:02:31,160 --> 00:02:37,720
+This tangent line open it showing
+
+54
+00:02:33,800 --> 00:02:40,600
+browser. So this this code needs to be
+
+55
+00:02:37,720 --> 00:02:42,959
+rewritten because right now this code
+
+56
+00:02:40,600 --> 00:02:45,320
+requires my package. If you don't know
+
+57
+00:02:42,959 --> 00:02:48,440
+about Wolfram Language, watch
+
+58
+00:02:45,320 --> 00:02:50,560
+uh my previous talk in the past week. I
+
+59
+00:02:48,440 --> 00:02:52,760
+talked about Wolfram Language for in
+
+60
+00:02:50,560 --> 00:02:55,880
+hundreds of videos. So
+
+61
+00:02:52,760 --> 00:02:58,080
+and the location to download my packages
+
+62
+00:02:55,880 --> 00:03:00,519
+plane curve plot, okay? So you can find
+
+63
+00:02:58,080 --> 00:03:03,080
+it. Just search for visual dictionary of
+
+64
+00:03:00,519 --> 00:03:07,560
+plane special plane curves and you'll
+
+65
+00:03:03,080 --> 00:03:10,080
+find the packages uh plane curves. So
+
+66
+00:03:07,560 --> 00:03:13,920
+info about this side references uh
+
+67
+00:03:10,080 --> 00:03:13,920
+miscellaneous gallery what um
+
+68
+00:03:14,959 --> 00:03:21,000
+Uh oh [ __ ] these are old. So these are
+
+69
+00:03:18,160 --> 00:03:22,560
+my packages. They are on GitHub, okay?
+
+70
+00:03:21,000 --> 00:03:24,400
+And Wolfram Language, you can also
+
+71
+00:03:22,560 --> 00:03:26,280
+download for free. I talked about many
+
+72
+00:03:24,400 --> 00:03:29,280
+times.
+
+73
+00:03:26,280 --> 00:03:32,320
+But anyway, so today so this this code
+
+74
+00:03:29,280 --> 00:03:33,320
+is relying on my package
+
+75
+00:03:32,320 --> 00:03:36,480
+uh
+
+76
+00:03:33,320 --> 00:03:39,440
+but let's make it not do that. Let's
+
+77
+00:03:36,480 --> 00:03:41,519
+make it independent so that anyone can
+
+78
+00:03:39,440 --> 00:03:43,120
+run this code in Wolfram Language and it
+
+79
+00:03:41,519 --> 00:03:47,560
+will draw
+
+80
+00:03:43,120 --> 00:03:47,560
+um tangent, okay? Let's do that.
+
+81
+00:03:55,720 --> 00:04:00,200
+>> Okay, where is the Wolfram? Did it start
+
+82
+00:03:58,440 --> 00:04:02,680
+yet?
+
+83
+00:04:00,200 --> 00:04:05,440
+Okay, there.
+
+84
+00:04:02,680 --> 00:04:07,200
+So, Wolfram language, so
+
+85
+00:04:05,440 --> 00:04:10,720
+um
+
+86
+00:04:07,200 --> 00:04:13,920
+So, you see, so if you copy the code,
+
+87
+00:04:10,720 --> 00:04:17,680
+and paste it here.
+
+88
+00:04:13,920 --> 00:04:19,840
+Paste the code. What?
+
+89
+00:04:17,680 --> 00:04:22,440
+Yeah, so there it is. You paste it
+
+90
+00:04:19,840 --> 00:04:24,880
+twice. Select all, paste, okay. Shift
+
+91
+00:04:22,440 --> 00:04:24,880
+enter.
+
+92
+00:04:25,200 --> 00:04:29,960
+It will load my packages, plain curve
+
+93
+00:04:27,040 --> 00:04:32,760
+plot, and we'll plot it.
+
+94
+00:04:29,960 --> 00:04:35,040
+Why is it taking so long?
+
+95
+00:04:32,760 --> 00:04:38,600
+Am I
+
+96
+00:04:35,040 --> 00:04:40,160
+Shift control escape. Am I running into
+
+97
+00:04:38,600 --> 00:04:44,000
+some kind of
+
+98
+00:04:40,160 --> 00:04:44,000
+CPU issues?
+
+99
+00:04:46,080 --> 00:04:49,800
+Red wine. So, there it is.
+
+100
+00:04:57,000 --> 00:05:01,240
+Okay, so that's the code, uh but we want
+
+101
+00:04:59,240 --> 00:05:03,440
+to make it independent. So, that's the
+
+102
+00:05:01,240 --> 00:05:04,400
+first job, so people can copy and paste
+
+103
+00:05:03,440 --> 00:05:08,000
+and
+
+104
+00:05:04,400 --> 00:05:08,000
+and run it right away.
+
+105
+00:05:08,080 --> 00:05:12,720
+Uh in this case, so okay. So, tangent,
+
+106
+00:05:11,080 --> 00:05:16,280
+so you need um
+
+107
+00:05:12,720 --> 00:05:20,400
+tribute to okay. So, let's put it back.
+
+108
+00:05:16,280 --> 00:05:23,919
+Copy, paste. Sync task color all, and
+
+109
+00:05:20,400 --> 00:05:26,040
+now let's show in browser.
+
+110
+00:05:23,919 --> 00:05:28,600
+Let's make a new copy, okay. Let's work
+
+111
+00:05:26,040 --> 00:05:31,640
+on the new copy, okay.
+
+112
+00:05:28,600 --> 00:05:31,640
+So, um
+
+113
+00:05:32,919 --> 00:05:35,520
+So, uh
+
+114
+00:05:34,280 --> 00:05:38,720
+wait.
+
+115
+00:05:35,520 --> 00:05:41,640
+Parametric plot, okay. So, we want to do
+
+116
+00:05:38,720 --> 00:05:44,360
+a parametric plot
+
+117
+00:05:41,640 --> 00:05:44,360
+of
+
+118
+00:05:45,320 --> 00:05:51,520
+Okay, parametric plot,
+
+119
+00:05:47,440 --> 00:05:54,080
+and uh remove that. Okay, so remove
+
+120
+00:05:51,520 --> 00:05:58,440
+that. Okay, so
+
+121
+00:05:54,080 --> 00:06:01,640
+those are not what we want.
+
+122
+00:05:58,440 --> 00:06:04,800
+Plot range aspect ratio automatic. Okay,
+
+123
+00:06:01,640 --> 00:06:07,680
+that's good. That's good. That's good.
+
+124
+00:06:04,800 --> 00:06:09,840
+So this is the Wolfram language default
+
+125
+00:06:07,680 --> 00:06:11,320
+when you want to plot
+
+126
+00:06:09,840 --> 00:06:15,120
+this. Okay.
+
+127
+00:06:11,320 --> 00:06:15,120
+So let me show you.
+
+128
+00:06:16,560 --> 00:06:24,520
+There it is. A sign. Okay. Now you want
+
+129
+00:06:19,280 --> 00:06:24,520
+to Now you want to draw a tangent. So
+
+130
+00:06:27,919 --> 00:06:31,520
+Uh yeah.
+
+131
+00:06:33,640 --> 00:06:39,560
+Tangent vector. So you want to write a
+
+132
+00:06:36,840 --> 00:06:39,560
+function.
+
+133
+00:06:41,240 --> 00:06:45,520
+Tangent vector a function.
+
+134
+00:06:43,919 --> 00:06:47,640
+Uh
+
+135
+00:06:45,520 --> 00:06:51,320
+You First of all, you want a derivative.
+
+136
+00:06:47,640 --> 00:06:53,400
+Okay, so you want a derivative
+
+137
+00:06:51,320 --> 00:06:55,440
+of
+
+138
+00:06:53,400 --> 00:06:55,440
+um
+
+139
+00:07:00,880 --> 00:07:06,960
+Oh god.
+
+140
+00:07:03,760 --> 00:07:09,040
+So William, are you still there?
+
+141
+00:07:06,960 --> 00:07:10,720
+So William's got a question. If you are
+
+142
+00:07:09,040 --> 00:07:12,360
+still there,
+
+143
+00:07:10,720 --> 00:07:13,840
+say hi and
+
+144
+00:07:12,360 --> 00:07:16,160
+you know, ask me about the Bertrand
+
+145
+00:07:13,840 --> 00:07:18,880
+Russell. I'll answer it. Meanwhile, are
+
+146
+00:07:16,160 --> 00:07:20,720
+watching this is my office hours. I'm
+
+147
+00:07:18,880 --> 00:07:22,919
+just going to work on my website. If you
+
+148
+00:07:20,720 --> 00:07:25,120
+have questions, post it. Okay.
+
+149
+00:07:22,919 --> 00:07:28,560
+So let's see where where is my
+
+150
+00:07:25,120 --> 00:07:28,560
+description. Um
+
+151
+00:07:29,080 --> 00:07:34,760
+Okay, so
+
+152
+00:07:31,760 --> 00:07:34,760
+let's see.
+
+153
+00:07:39,640 --> 00:07:46,120
+I work on my website, coding
+
+154
+00:07:44,320 --> 00:07:49,000
+geometry
+
+155
+00:07:46,120 --> 00:07:51,560
+in Wolfram language.
+
+156
+00:07:49,000 --> 00:07:56,440
+Watch me.
+
+157
+00:07:51,560 --> 00:07:56,440
+You can ask questions
+
+158
+00:07:56,800 --> 00:07:59,160
+here.
+
+159
+00:08:02,120 --> 00:08:07,320
+Or just watch me, okay? So, that is the
+
+160
+00:08:05,360 --> 00:08:09,960
+premise.
+
+161
+00:08:07,320 --> 00:08:11,160
+So, let me post that there. So, there.
+
+162
+00:08:09,960 --> 00:08:13,320
+Okay.
+
+163
+00:08:11,160 --> 00:08:14,880
+Okay, so William, so let me answer
+
+164
+00:08:13,320 --> 00:08:16,520
+William's question. So, another
+
+165
+00:08:14,880 --> 00:08:18,880
+question. Hi Sai, I am a complete
+
+166
+00:08:16,520 --> 00:08:21,200
+beginner in math and programming, but I
+
+167
+00:08:18,880 --> 00:08:22,800
+want to learn linear algebra. Good
+
+168
+00:08:21,200 --> 00:08:25,560
+choice.
+
+169
+00:08:22,800 --> 00:08:27,720
+Multivariable calculus. Good choice. And
+
+170
+00:08:25,560 --> 00:08:29,120
+statistics for machine learning. Good
+
+171
+00:08:27,720 --> 00:08:31,200
+choice. How would you recommend
+
+172
+00:08:29,120 --> 00:08:33,479
+starting? Okay. So, let me answer the
+
+173
+00:08:31,200 --> 00:08:34,240
+Bertrand Russell question first. That's
+
+174
+00:08:33,479 --> 00:08:36,280
+um
+
+175
+00:08:34,240 --> 00:08:38,320
+that might take 5 or 10 minutes. In
+
+176
+00:08:36,280 --> 00:08:40,320
+fact, I can talk about 1 hour. So,
+
+177
+00:08:38,320 --> 00:08:43,159
+Bertrand Russell
+
+178
+00:08:40,320 --> 00:08:45,480
+Okay, so let let's um well
+
+179
+00:08:43,159 --> 00:08:47,320
+let's be thorough. Why not? You know,
+
+180
+00:08:45,480 --> 00:08:49,320
+since we are talking about because
+
+181
+00:08:47,320 --> 00:08:52,160
+people don't know who the who who is
+
+182
+00:08:49,320 --> 00:08:52,160
+Bertrand Russell.
+
+183
+00:08:53,400 --> 00:08:58,839
+Okay, so Bertrand Russell is one of the
+
+184
+00:08:56,040 --> 00:09:00,960
+greatest philosopher and mathematician.
+
+185
+00:08:58,839 --> 00:09:02,680
+In fact, logician. Okay, so Bertrand
+
+186
+00:09:00,960 --> 00:09:04,839
+Russell Wikipedia, you can read about
+
+187
+00:09:02,680 --> 00:09:06,560
+it. He is
+
+188
+00:09:04,839 --> 00:09:09,280
+He Bertrand Russell is one of my
+
+189
+00:09:06,560 --> 00:09:12,440
+favorite author. Let's say top three or
+
+190
+00:09:09,280 --> 00:09:15,320
+even top one, okay? He He is also the
+
+191
+00:09:12,440 --> 00:09:18,440
+person who has influenced me
+
+192
+00:09:15,320 --> 00:09:19,920
+kind of my life the most. Even greater
+
+193
+00:09:18,440 --> 00:09:20,800
+than
+
+194
+00:09:19,920 --> 00:09:23,800
+you know, I
+
+195
+00:09:20,800 --> 00:09:25,400
+I would say like the most. Almost like
+
+196
+00:09:23,800 --> 00:09:28,920
+you know, may you know
+
+197
+00:09:25,400 --> 00:09:31,839
+may be not greater than my dad, okay?
+
+198
+00:09:28,920 --> 00:09:34,680
+So, influenced me, my thoughts the most.
+
+199
+00:09:31,839 --> 00:09:37,040
+And is the person who I admired the
+
+200
+00:09:34,680 --> 00:09:38,960
+most. Basically, more or less.
+
+201
+00:09:37,040 --> 00:09:42,440
+Especially when I was younger. When you
+
+202
+00:09:38,960 --> 00:09:44,400
+get older, you you you you you um
+
+203
+00:09:42,440 --> 00:09:47,160
+like you don't have like oh, I admire
+
+204
+00:09:44,400 --> 00:09:48,440
+this guy that that kind of thinking
+
+205
+00:09:47,160 --> 00:09:50,440
+much, you know, but when you are
+
+206
+00:09:48,440 --> 00:09:51,120
+younger, you know, so
+
+207
+00:09:50,440 --> 00:09:53,200
+uh
+
+208
+00:09:51,120 --> 00:09:55,560
+throughout my 20s and 30s, okay?
+
+209
+00:09:53,200 --> 00:09:57,600
+Bertrand Russell has influenced my
+
+210
+00:09:55,560 --> 00:10:00,280
+thoughts the most.
+
+211
+00:09:57,600 --> 00:10:02,040
+I admire the most. He's a mostly he's a
+
+212
+00:10:00,280 --> 00:10:04,320
+logician
+
+213
+00:10:02,040 --> 00:10:06,640
+uh you know, well-known mathematician,
+
+214
+00:10:04,320 --> 00:10:07,280
+specifically logician,
+
+215
+00:10:06,640 --> 00:10:10,440
+um
+
+216
+00:10:07,280 --> 00:10:13,960
+whose greatest work is the Principia
+
+217
+00:10:10,440 --> 00:10:16,920
+Mathematica, which is trying to
+
+218
+00:10:13,960 --> 00:10:19,240
+build a logical foundation of mathe-
+
+219
+00:10:16,920 --> 00:10:20,680
+mathematics by pure logic, okay? Which
+
+220
+00:10:19,240 --> 00:10:24,000
+spurred
+
+221
+00:10:20,680 --> 00:10:27,640
+today's proof theory
+
+222
+00:10:24,000 --> 00:10:31,080
+uh you know, and type theory
+
+223
+00:10:27,640 --> 00:10:33,680
+you know, like foundational figure.
+
+224
+00:10:31,080 --> 00:10:35,800
+And he's also a philosopher, so mostly
+
+225
+00:10:33,680 --> 00:10:38,400
+he's well-known for he's well-known for
+
+226
+00:10:35,800 --> 00:10:42,160
+quite a few things. So, mathematics,
+
+227
+00:10:38,400 --> 00:10:45,360
+logic, and philosophy is a he's a
+
+228
+00:10:42,160 --> 00:10:47,640
+prominent force in philosophy, Western
+
+229
+00:10:45,360 --> 00:10:50,120
+Western philosophy, okay?
+
+230
+00:10:47,640 --> 00:10:51,280
+So, mathematician, philosophy, and he is
+
+231
+00:10:50,120 --> 00:10:54,680
+also
+
+232
+00:10:51,280 --> 00:10:57,720
+uh literature, okay?
+
+233
+00:10:54,680 --> 00:10:58,880
+He's a great writer. He's like a like
+
+234
+00:10:57,720 --> 00:11:00,960
+like
+
+235
+00:10:58,880 --> 00:11:03,760
+uh common educator, he's a writer, okay?
+
+236
+00:11:00,960 --> 00:11:06,280
+So, he write about lots of things. What
+
+237
+00:11:03,760 --> 00:11:07,839
+we might call blog today.
+
+238
+00:11:06,280 --> 00:11:09,080
+He wrote several books, you know, many
+
+239
+00:11:07,839 --> 00:11:10,200
+many books.
+
+240
+00:11:09,080 --> 00:11:12,920
+So,
+
+241
+00:11:10,200 --> 00:11:15,520
+so Principia Mathematica, which is very
+
+242
+00:11:12,920 --> 00:11:19,360
+difficult. I mean, okay, it it you know,
+
+243
+00:11:15,520 --> 00:11:21,280
+one of my uh top interest, but I
+
+244
+00:11:19,360 --> 00:11:23,680
+this this book is very hard to read,
+
+245
+00:11:21,280 --> 00:11:25,880
+okay? But usually so usually even if you
+
+246
+00:11:23,680 --> 00:11:28,360
+are in this field, proof theory, usually
+
+247
+00:11:25,880 --> 00:11:29,880
+you don't read this book any anymore.
+
+248
+00:11:28,360 --> 00:11:32,480
+So, [snorts] this is written like 200
+
+249
+00:11:29,880 --> 00:11:36,040
+years ago or is it or is it um 19 Okay,
+
+250
+00:11:32,480 --> 00:11:38,280
+100 years ago, 1910.
+
+251
+00:11:36,040 --> 00:11:41,360
+Anyway, so, Bertrand Russell influenced
+
+252
+00:11:38,280 --> 00:11:43,600
+me the most. I admire the most most my
+
+253
+00:11:41,360 --> 00:11:45,240
+favorite writer among the top, let's
+
+254
+00:11:43,600 --> 00:11:48,040
+say, three, okay.
+
+255
+00:11:45,240 --> 00:11:51,800
+The other one is
+
+256
+00:11:48,040 --> 00:11:54,440
+Li Ao. That's a Chinese guy
+
+257
+00:11:51,800 --> 00:11:56,880
+in Taiwan, born in China.
+
+258
+00:11:54,440 --> 00:11:59,640
+He who who he died about 5 years ago,
+
+259
+00:11:56,880 --> 00:12:02,120
+actually, by now, 10 years ago. Li Ao,
+
+260
+00:11:59,640 --> 00:12:04,440
+okay. In English, you spell it, okay,
+
+261
+00:12:02,120 --> 00:12:07,040
+let me show.
+
+262
+00:12:04,440 --> 00:12:08,200
+So, that's one of my other favorite
+
+263
+00:12:07,040 --> 00:12:11,920
+author.
+
+264
+00:12:08,200 --> 00:12:13,960
+Not not this not not this.
+
+265
+00:12:11,920 --> 00:12:13,960
+Uh
+
+266
+00:12:18,480 --> 00:12:22,840
+Okay, they you know, they they you know,
+
+267
+00:12:20,840 --> 00:12:26,120
+[ __ ] deep state, you know, it used to
+
+268
+00:12:22,840 --> 00:12:29,000
+it it's not this guy. Deep state made a
+
+269
+00:12:26,120 --> 00:12:31,360
+change so that you don't you don't find
+
+270
+00:12:29,000 --> 00:12:32,880
+the guy this guy, okay?
+
+271
+00:12:31,360 --> 00:12:36,760
+This guy.
+
+272
+00:12:32,880 --> 00:12:40,120
+Yeah, this guy. So,
+
+273
+00:12:36,760 --> 00:12:44,040
+I have no idea who is this first
+
+274
+00:12:40,120 --> 00:12:46,320
+Chinese operative bass baritone on that.
+
+275
+00:12:44,040 --> 00:12:49,920
+Okay, so, Wikipedia, so, Li Ao is a
+
+276
+00:12:46,320 --> 00:12:50,880
+Chinese historian. He died in 2008.
+
+277
+00:12:49,920 --> 00:12:53,400
+Okay.
+
+278
+00:12:50,880 --> 00:12:55,760
+Wow, 15 eight yeah, quite a few ago,
+
+279
+00:12:53,400 --> 00:13:01,000
+almost 20 years ago by now.
+
+280
+00:12:55,760 --> 00:13:03,120
+2008. So, he is my also my favorite
+
+281
+00:13:01,000 --> 00:13:03,839
+writer and thinker, okay? Influenced me
+
+282
+00:13:03,120 --> 00:13:07,240
+the
+
+283
+00:13:03,839 --> 00:13:08,839
+the most, okay? Him and Bertrand Russell
+
+284
+00:13:07,240 --> 00:13:12,360
+and what's the
+
+285
+00:13:08,839 --> 00:13:12,360
+other possibly um
+
+286
+00:13:12,880 --> 00:13:16,720
+Well, mostly mostly these two, I would
+
+287
+00:13:15,200 --> 00:13:20,320
+say. You know, I think there are other
+
+288
+00:13:16,720 --> 00:13:22,400
+people and and and also Stephen Wolfram,
+
+289
+00:13:20,320 --> 00:13:25,720
+actually. Stephen Wolfram, the guy who
+
+290
+00:13:22,400 --> 00:13:27,960
+creates Mathematica. He's thinking about
+
+291
+00:13:25,720 --> 00:13:30,280
+about computation, about math, the way
+
+292
+00:13:27,960 --> 00:13:31,920
+he thinks I
+
+293
+00:13:30,280 --> 00:13:34,000
+agree with
+
+294
+00:13:31,920 --> 00:13:36,080
+very much and influenced me very much.
+
+295
+00:13:34,000 --> 00:13:39,800
+Okay, Stephen Wolfram. The the way he
+
+296
+00:13:36,080 --> 00:13:41,240
+look at computation mathematics. Okay.
+
+297
+00:13:39,800 --> 00:13:43,680
+So anyway, Bertrand Russell. Okay, one
+
+298
+00:13:41,240 --> 00:13:45,240
+of my favorite and and so what is your
+
+299
+00:13:43,680 --> 00:13:46,880
+question? So
+
+300
+00:13:45,240 --> 00:13:48,840
+meanwhile, let me show you guys my
+
+301
+00:13:46,880 --> 00:13:51,360
+website. Okay.
+
+302
+00:13:48,840 --> 00:13:51,360
+Um
+
+303
+00:13:51,440 --> 00:13:57,200
+Well, if I go show my website, that's
+
+304
+00:13:53,760 --> 00:13:59,200
+going to be like controversial like
+
+305
+00:13:57,200 --> 00:14:02,720
+xahlee.org. Okay.
+
+306
+00:13:59,200 --> 00:14:05,960
+xahlee.music. Let's go to xahlee.org. So
+
+307
+00:14:02,720 --> 00:14:08,960
+you can go there by you know, this this
+
+308
+00:14:05,960 --> 00:14:08,960
+scums.
+
+309
+00:14:10,199 --> 00:14:13,160
+>> [laughter]
+
+310
+00:14:10,640 --> 00:14:14,800
+>> This you know, I don't have a website on
+
+311
+00:14:13,160 --> 00:14:16,760
+last.fm.
+
+312
+00:14:14,800 --> 00:14:19,720
+But someone
+
+313
+00:14:16,760 --> 00:14:21,800
+like someone must have someone created
+
+314
+00:14:19,720 --> 00:14:23,920
+listen to music from xahlee like the
+
+315
+00:14:21,800 --> 00:14:26,440
+most efficient Emacs workflow more
+
+316
+00:14:23,920 --> 00:14:28,040
+efficient than Vim. Open source Richard
+
+317
+00:14:26,440 --> 00:14:31,040
+Stallman. Why?
+
+318
+00:14:28,040 --> 00:14:34,040
+What what what did someone put me on
+
+319
+00:14:31,040 --> 00:14:34,040
+last.fm?
+
+320
+00:14:35,600 --> 00:14:41,920
+Oh, someone did I guess long ago. This
+
+321
+00:14:38,920 --> 00:14:46,040
+you know, must uh
+
+322
+00:14:41,920 --> 00:14:49,640
+This is not me. So
+
+323
+00:14:46,040 --> 00:14:52,600
+interesting. Okay, I guess someone
+
+324
+00:14:49,640 --> 00:14:54,560
+Or is it generated? I don't know, but
+
+325
+00:14:52,600 --> 00:14:57,760
+apparently
+
+326
+00:14:54,560 --> 00:15:00,040
+some some of my videos back in you know,
+
+327
+00:14:57,760 --> 00:15:03,560
+in 2021,
+
+328
+00:15:00,040 --> 00:15:05,800
+4 years ago, someone put it on last.fm.
+
+329
+00:15:03,560 --> 00:15:08,520
+I don't use this site. Okay. So anyway,
+
+330
+00:15:05,800 --> 00:15:09,839
+go back. So here is my music blog. So
+
+331
+00:15:08,520 --> 00:15:12,480
+you go there.
+
+332
+00:15:09,839 --> 00:15:12,480
+Uh
+
+333
+00:15:12,520 --> 00:15:17,000
+What?
+
+334
+00:15:14,440 --> 00:15:19,320
+Oh god, what's going on? So you need to
+
+335
+00:15:17,000 --> 00:15:22,720
+click on that.
+
+336
+00:15:19,320 --> 00:15:25,760
+Yeah. So xah music blog. Also, let me
+
+337
+00:15:22,720 --> 00:15:28,240
+mention again, I got some issues with my
+
+338
+00:15:25,760 --> 00:15:30,960
+web hosting provider, so I have not been
+
+339
+00:15:28,240 --> 00:15:33,720
+able to update my website for about a
+
+340
+00:15:30,960 --> 00:15:37,080
+month. So, you are looking at the last
+
+341
+00:15:33,720 --> 00:15:39,200
+update is January 20th. So, for about
+
+342
+00:15:37,080 --> 00:15:42,040
+month, I haven't been able to update my
+
+343
+00:15:39,200 --> 00:15:45,680
+website, okay? Anyway, so, if we you
+
+344
+00:15:42,040 --> 00:15:45,680
+know, we going to search um
+
+345
+00:15:46,160 --> 00:15:51,720
+Yeah, yeah, you can search from here
+
+346
+00:15:48,920 --> 00:15:53,920
+because that's limits to uh music
+
+347
+00:15:51,720 --> 00:15:57,120
+search. You want to search periodic
+
+348
+00:15:53,920 --> 00:15:58,800
+dosage. Okay.
+
+349
+00:15:57,120 --> 00:16:00,840
+Well, let's
+
+350
+00:15:58,800 --> 00:16:05,160
+I don't want to do that. So, let's just
+
+351
+00:16:00,840 --> 00:16:08,280
+say Bertrand Russell Xadi, just search
+
+352
+00:16:05,160 --> 00:16:09,320
+that. General web search, okay? So, I
+
+353
+00:16:08,280 --> 00:16:12,760
+have
+
+354
+00:16:09,320 --> 00:16:16,280
+uh posted several of his articles on my
+
+355
+00:16:12,760 --> 00:16:18,000
+website like 10 20 years ago, okay?
+
+356
+00:16:16,280 --> 00:16:20,960
+So, for example,
+
+357
+00:16:18,000 --> 00:16:23,120
+uh one of his article is What desires
+
+358
+00:16:20,960 --> 00:16:25,960
+are politically important by Bertrand
+
+359
+00:16:23,120 --> 00:16:28,200
+Russell, 1950, okay? So, this is
+
+360
+00:16:25,960 --> 00:16:30,720
+Bertrand Russell's Nobel lecture,
+
+361
+00:16:28,200 --> 00:16:33,440
+November 1950.
+
+362
+00:16:30,720 --> 00:16:36,000
+December 1950. So, by the way, he won a
+
+363
+00:16:33,440 --> 00:16:38,880
+Nobel Prize for literature, which is
+
+364
+00:16:36,000 --> 00:16:42,360
+which is kind of silly because he he the
+
+365
+00:16:38,880 --> 00:16:44,480
+the the greatest um contribution of
+
+366
+00:16:42,360 --> 00:16:47,320
+Bertrand Russell is in mathematics and
+
+367
+00:16:44,480 --> 00:16:48,240
+philosophy. He In philosophy, he created
+
+368
+00:16:47,320 --> 00:16:49,960
+the
+
+369
+00:16:48,240 --> 00:16:52,680
+positivism
+
+370
+00:16:49,960 --> 00:16:55,640
+and analytic philosophy, okay? That is
+
+371
+00:16:52,680 --> 00:16:58,560
+actually my philosophy, okay? Analytic
+
+372
+00:16:55,640 --> 00:17:00,760
+philosophy, which renders many of the
+
+373
+00:16:58,560 --> 00:17:02,480
+metaphysics question
+
+374
+00:17:00,760 --> 00:17:04,560
+useless.
+
+375
+00:17:02,480 --> 00:17:07,760
+Meaningless, okay? So, anyway, that's
+
+376
+00:17:04,560 --> 00:17:10,800
+another topic. So, Bertrand Russell, um
+
+377
+00:17:07,760 --> 00:17:12,520
+he won Nobel Prize for literature, very
+
+378
+00:17:10,800 --> 00:17:15,160
+silly because his contribution is
+
+379
+00:17:12,520 --> 00:17:17,160
+actually in mathematics and philosophy,
+
+380
+00:17:15,160 --> 00:17:19,640
+far more greater, you know? Bertrand
+
+381
+00:17:17,160 --> 00:17:23,280
+Russell is also a peacemaker, you know,
+
+382
+00:17:19,640 --> 00:17:26,520
+he he and Einstein wrote a letter to USA
+
+383
+00:17:23,280 --> 00:17:29,000
+president to stop nuclear
+
+384
+00:17:26,520 --> 00:17:31,800
+proliferation, you know, nuclear bomb
+
+385
+00:17:29,000 --> 00:17:33,200
+and things like that. And also he got
+
+386
+00:17:31,800 --> 00:17:34,320
+he got
+
+387
+00:17:33,200 --> 00:17:36,520
+uh
+
+388
+00:17:34,320 --> 00:17:38,760
+persecuted by Christians, okay,
+
+389
+00:17:36,520 --> 00:17:41,880
+Christians are very nasty group of
+
+390
+00:17:38,760 --> 00:17:43,880
+people. Today, there's more nasty
+
+391
+00:17:41,880 --> 00:17:47,280
+religious people like you know, in in in
+
+392
+00:17:43,880 --> 00:17:50,000
+in the the the same branch Abrahamic
+
+393
+00:17:47,280 --> 00:17:52,360
+religions, okay. It's quite quite nasty,
+
+394
+00:17:50,000 --> 00:17:55,080
+but but Chris Christian is was one of
+
+395
+00:17:52,360 --> 00:17:55,080
+the nasty.
+
+396
+00:17:55,120 --> 00:18:02,440
+So, he got put to jail by Christian in
+
+397
+00:17:58,040 --> 00:18:04,680
+USA and prevented and forbid, I think
+
+398
+00:18:02,440 --> 00:18:06,657
+it's in New York City or New York State.
+
+399
+00:18:04,680 --> 00:18:06,840
+They forbid him from
+
+400
+00:18:06,657 --> 00:18:09,040
+>> [laughter]
+
+401
+00:18:06,840 --> 00:18:11,520
+>> uh holding a teaching job, you know, a
+
+402
+00:18:09,040 --> 00:18:14,240
+professor or teacher, you know.
+
+403
+00:18:11,520 --> 00:18:16,360
+He's been put to jail for like a
+
+404
+00:18:14,240 --> 00:18:18,360
+a couple of years or something. But
+
+405
+00:18:16,360 --> 00:18:20,440
+anyway, he won Nobel literature prize.
+
+406
+00:18:18,360 --> 00:18:22,720
+So, so this is one of his article, What
+
+407
+00:18:20,440 --> 00:18:24,342
+desires are politically important by
+
+408
+00:18:22,720 --> 00:18:26,760
+Bertrand Russell, okay. So, that's
+
+409
+00:18:24,342 --> 00:18:29,200
+[snorts] one of his article and I
+
+410
+00:18:26,760 --> 00:18:31,720
+annotated it, okay. So, this you see
+
+411
+00:18:29,200 --> 00:18:32,840
+those uh this uh you see this
+
+412
+00:18:31,720 --> 00:18:34,920
+are my
+
+413
+00:18:32,840 --> 00:18:37,640
+annotations, you know, the
+
+414
+00:18:34,920 --> 00:18:40,520
+you know, this markup markup and this
+
+415
+00:18:37,640 --> 00:18:43,200
+rape of the Sabine.
+
+416
+00:18:40,520 --> 00:18:45,800
+It's that's a that's a classic Western
+
+417
+00:18:43,200 --> 00:18:47,320
+history, okay. Rape, like the the
+
+418
+00:18:45,800 --> 00:18:49,600
+Western white man society, they're
+
+419
+00:18:47,320 --> 00:18:51,520
+talking about rape all every day. Rape
+
+420
+00:18:49,600 --> 00:18:54,240
+rape rape they rape, you know, [ __ ]
+
+421
+00:18:51,520 --> 00:18:56,720
+idiots, the white people. But they
+
+422
+00:18:54,240 --> 00:18:58,640
+uh since since like ancient times, okay,
+
+423
+00:18:56,720 --> 00:18:59,960
+rape of the Sabines, you know, from
+
+424
+00:18:58,640 --> 00:19:03,640
+Roman
+
+425
+00:18:59,960 --> 00:19:05,600
+you know, kind of Roman uh era.
+
+426
+00:19:03,640 --> 00:19:07,720
+So, he's talking, you know, so there's
+
+427
+00:19:05,600 --> 00:19:10,120
+Islam. So, but Bertrand was Russell,
+
+428
+00:19:07,720 --> 00:19:12,680
+What desires are politically important,
+
+429
+00:19:10,120 --> 00:19:15,120
+okay. So, you go down, so
+
+430
+00:19:12,680 --> 00:19:17,000
+uh you know, my annotation um the love
+
+431
+00:19:15,120 --> 00:19:21,480
+of power, okay? Did you see that? The
+
+432
+00:19:17,000 --> 00:19:25,800
+love love of excitement. And
+
+433
+00:19:21,480 --> 00:19:32,160
+and um love of power, you see? Today, we
+
+434
+00:19:25,800 --> 00:19:33,920
+have a a a big war going on in Iran.
+
+435
+00:19:32,160 --> 00:19:36,160
+There's some of the reasons going on
+
+436
+00:19:33,920 --> 00:19:37,040
+there, okay?
+
+437
+00:19:36,160 --> 00:19:40,160
+Love
+
+438
+00:19:37,040 --> 00:19:42,440
+love the power love of excitement.
+
+439
+00:19:40,160 --> 00:19:45,720
+Okay, Bertrand Russell, "What desires
+
+440
+00:19:42,440 --> 00:19:47,560
+are politically important?" 1950, okay?
+
+441
+00:19:45,720 --> 00:19:48,480
+Anyway, so I have several articles of
+
+442
+00:19:47,560 --> 00:19:52,320
+him.
+
+443
+00:19:48,480 --> 00:19:54,320
+And then, okay, two more article by him.
+
+444
+00:19:52,320 --> 00:19:56,800
+Uh let's open that.
+
+445
+00:19:54,320 --> 00:20:00,080
+So, one of them has religion made useful
+
+446
+00:19:56,800 --> 00:20:02,160
+contributions to civilization. Okay. Has
+
+447
+00:20:00,080 --> 00:20:04,640
+you know, did did religion ever make
+
+448
+00:20:02,160 --> 00:20:06,640
+actually useful things?
+
+449
+00:20:04,640 --> 00:20:08,720
+Contribution.
+
+450
+00:20:06,640 --> 00:20:11,440
+There's one article and another article,
+
+451
+00:20:08,720 --> 00:20:13,160
+"Why I am not a Christian?" Okay? So,
+
+452
+00:20:11,440 --> 00:20:16,080
+1927.
+
+453
+00:20:13,160 --> 00:20:18,600
+And the other one is 1930s, okay?
+
+454
+00:20:16,080 --> 00:20:21,800
+Cheers. So, anyway, Bertrand Russell,
+
+455
+00:20:18,600 --> 00:20:24,040
+that's you know, um
+
+456
+00:20:21,800 --> 00:20:27,120
+you know, is my favorite author
+
+457
+00:20:24,040 --> 00:20:29,160
+influenced me the most. And what is what
+
+458
+00:20:27,120 --> 00:20:30,600
+is your question? I hope you are doing
+
+459
+00:20:29,160 --> 00:20:32,840
+well.
+
+460
+00:20:30,600 --> 00:20:34,880
+I am, thank you. Could you say a few
+
+461
+00:20:32,840 --> 00:20:37,080
+words about Bertrand Russell, who is one
+
+462
+00:20:34,880 --> 00:20:40,560
+of your favorite author? How has he
+
+463
+00:20:37,080 --> 00:20:42,360
+influenced you? Okay. So,
+
+464
+00:20:40,560 --> 00:20:44,560
+I talked about Bertrand Russell before
+
+465
+00:20:42,360 --> 00:20:48,040
+in my live stream because but well, but
+
+466
+00:20:44,560 --> 00:20:50,640
+you may not see it because
+
+467
+00:20:48,040 --> 00:20:53,480
+because I I almost do it live stream
+
+468
+00:20:50,640 --> 00:20:54,880
+every day. By now, I have 700. So, you
+
+469
+00:20:53,480 --> 00:20:57,440
+know, by the way, another thing
+
+470
+00:20:54,880 --> 00:20:59,520
+interesting is about the live stream
+
+471
+00:20:57,440 --> 00:21:01,840
+thing. You see,
+
+472
+00:20:59,520 --> 00:21:04,320
+technology has
+
+473
+00:21:01,840 --> 00:21:07,040
+communication technology, that's what
+
+474
+00:21:04,320 --> 00:21:09,320
+made live stream possible starting like
+
+475
+00:21:07,040 --> 00:21:11,240
+even 20 years ago, you know. First of
+
+476
+00:21:09,320 --> 00:21:12,640
+all, we have YouTube.
+
+477
+00:21:11,240 --> 00:21:15,160
+Actually, some other website, you know,
+
+478
+00:21:12,640 --> 00:21:17,880
+videos, like tiny videos even 30 years
+
+479
+00:21:15,160 --> 00:21:20,560
+ago. Then we started up live stream
+
+480
+00:21:17,880 --> 00:21:22,920
+like live
+
+481
+00:21:20,560 --> 00:21:24,920
+chat video, instant chat video. You you
+
+482
+00:21:22,920 --> 00:21:27,320
+can talk to grandma, your grandma, or
+
+483
+00:21:24,920 --> 00:21:29,120
+your grandparents, or your girlfriend in
+
+484
+00:21:27,320 --> 00:21:31,760
+some other place, you know. Then you
+
+485
+00:21:29,120 --> 00:21:33,760
+started to have lots of YouTube, and
+
+486
+00:21:31,760 --> 00:21:35,640
+then you have started to have kind of
+
+487
+00:21:33,760 --> 00:21:37,720
+live stream things. You can, you know,
+
+488
+00:21:35,640 --> 00:21:39,400
+people do live stream on Twitch, you
+
+489
+00:21:37,720 --> 00:21:41,400
+know, for example.
+
+490
+00:21:39,400 --> 00:21:42,600
+And more and more. So So today you got
+
+491
+00:21:41,400 --> 00:21:44,920
+like every
+
+492
+00:21:42,600 --> 00:21:47,120
+every second you got like thousands or
+
+493
+00:21:44,920 --> 00:21:49,680
+tens of thousands, or you would say even
+
+494
+00:21:47,120 --> 00:21:52,320
+millions people doing live stream. But
+
+495
+00:21:49,680 --> 00:21:54,920
+So but the then you got a issue that so
+
+496
+00:21:52,320 --> 00:21:56,760
+many videos, like
+
+497
+00:21:54,920 --> 00:21:59,480
+like even if you are watching me, how do
+
+498
+00:21:56,760 --> 00:22:01,880
+you possibly like nobody actually
+
+499
+00:21:59,480 --> 00:22:04,080
+possibly watch every video. So I was
+
+500
+00:22:01,880 --> 00:22:08,200
+asking So I have the question. I was
+
+501
+00:22:04,080 --> 00:22:11,680
+asking Kwok about it. Like do people
+
+502
+00:22:08,200 --> 00:22:14,120
+the fans of some some live streamers, do
+
+503
+00:22:11,680 --> 00:22:15,360
+they watch every show, or like what what
+
+504
+00:22:14,120 --> 00:22:18,000
+do they do?
+
+505
+00:22:15,360 --> 00:22:20,800
+Like many of the streamers today popular
+
+506
+00:22:18,000 --> 00:22:24,440
+so-called influencers, influencers, they
+
+507
+00:22:20,800 --> 00:22:27,040
+have like millions of followers, right?
+
+508
+00:22:24,440 --> 00:22:29,400
+So I asked Kwok one of the question, AI
+
+509
+00:22:27,040 --> 00:22:34,120
+fascinating.
+
+510
+00:22:29,400 --> 00:22:34,120
+Uh somewhere somewhere in my Kwok um
+
+511
+00:22:34,600 --> 00:22:39,640
+What? Yeah, I don't want stupid, you
+
+512
+00:22:37,080 --> 00:22:41,520
+know, like sometimes you click some
+
+513
+00:22:39,640 --> 00:22:44,280
+thing by mistake. Right now it's like
+
+514
+00:22:41,520 --> 00:22:47,560
+telling me what is Ksardi. Like who is
+
+515
+00:22:44,280 --> 00:22:48,520
+Ksardi? Kwok is going to tell me who is
+
+516
+00:22:47,560 --> 00:22:51,360
+me.
+
+517
+00:22:48,520 --> 00:22:54,880
+It happened a few times. Ksardi is a
+
+518
+00:22:51,360 --> 00:22:57,320
+dedicated math and coding enthusiast
+
+519
+00:22:54,880 --> 00:22:59,120
+who has authored specialized book on
+
+520
+00:22:57,320 --> 00:23:02,000
+JavaScript, Emacs Lisp, and Wolfram
+
+521
+00:22:59,120 --> 00:23:06,360
+Language, sharing nerdy insights through
+
+522
+00:23:02,000 --> 00:23:06,360
+regular in live streams and uh uh
+
+523
+00:23:12,040 --> 00:23:16,480
+share sharing nerdy insights through
+
+524
+00:23:14,320 --> 00:23:18,640
+regular live streams on geometry plane
+
+525
+00:23:16,480 --> 00:23:21,520
+curves and programming optimizations.
+
+526
+00:23:18,640 --> 00:23:24,400
+Okay, that's actually
+
+527
+00:23:21,520 --> 00:23:26,880
+just like my latest happening because I
+
+528
+00:23:24,400 --> 00:23:30,040
+noticed, you know, Grok usually whatever
+
+529
+00:23:26,880 --> 00:23:31,560
+summary Grok does is usually at least on
+
+530
+00:23:30,040 --> 00:23:33,480
+Twitter is just
+
+531
+00:23:31,560 --> 00:23:35,720
+like past few months.
+
+532
+00:23:33,480 --> 00:23:37,720
+So, in the past few months if if you
+
+533
+00:23:35,720 --> 00:23:42,000
+talk about something, Grok think you are
+
+534
+00:23:37,720 --> 00:23:42,000
+that guy, you know, it's kind of silly.
+
+535
+00:23:42,200 --> 00:23:46,400
+So, anyway, that's not what I want. I
+
+536
+00:23:43,960 --> 00:23:48,480
+wanted to tell you about
+
+537
+00:23:46,400 --> 00:23:48,480
+um
+
+538
+00:23:48,640 --> 00:23:53,800
+uh tangent geometry uh
+
+539
+00:23:51,560 --> 00:23:56,400
+quite a lots of interesting things going
+
+540
+00:23:53,800 --> 00:23:58,280
+on. Okay, so um
+
+541
+00:23:56,400 --> 00:24:01,360
+evolution of online communication
+
+542
+00:23:58,280 --> 00:24:04,800
+technologies, okay, what uh method of
+
+543
+00:24:01,360 --> 00:24:08,560
+normals by Descartes. That's a new
+
+544
+00:24:04,800 --> 00:24:08,560
+very interesting technique.
+
+545
+00:24:08,840 --> 00:24:13,600
+Okay, let let me focus, okay, let me get
+
+546
+00:24:10,760 --> 00:24:13,600
+to the point.
+
+547
+00:24:15,280 --> 00:24:19,840
+Yeah, one thing annoying about AI is
+
+548
+00:24:17,120 --> 00:24:22,600
+that they they changed they retitle your
+
+549
+00:24:19,840 --> 00:24:25,560
+question. For example, my question was
+
+550
+00:24:22,600 --> 00:24:27,920
+when fans watch streamers, do they watch
+
+551
+00:24:25,560 --> 00:24:29,480
+every episode? Isn't that few hours a
+
+552
+00:24:27,920 --> 00:24:31,800
+day?
+
+553
+00:24:29,480 --> 00:24:33,960
+Like even if you are a fan of someone,
+
+554
+00:24:31,800 --> 00:24:36,080
+you can't possibly watch every episode,
+
+555
+00:24:33,960 --> 00:24:38,360
+right? And usually these streamers, as
+
+556
+00:24:36,080 --> 00:24:40,760
+far as I know, I I I
+
+557
+00:24:38,360 --> 00:24:43,160
+I I checked out some of the, you know,
+
+558
+00:24:40,760 --> 00:24:45,080
+teenagers, you know, there's a speed guy
+
+559
+00:24:43,160 --> 00:24:48,200
+or, you know, there's all kind of also
+
+560
+00:24:45,080 --> 00:24:49,720
+girls, but like what the [ __ ] they do?
+
+561
+00:24:48,200 --> 00:24:51,960
+They got millions of followers, you
+
+562
+00:24:49,720 --> 00:24:54,120
+know, they do live stream. Usually like
+
+563
+00:24:51,960 --> 00:24:56,320
+few hours a day, so it's even more than
+
+564
+00:24:54,120 --> 00:24:58,040
+me. Like I was wondering
+
+565
+00:24:56,320 --> 00:25:01,800
+they got few million followers, Like,
+
+566
+00:24:58,040 --> 00:25:04,552
+what what the [ __ ] do they do?
+
+567
+00:25:01,800 --> 00:25:05,760
+Okay, for the girls, obviously
+
+568
+00:25:04,552 --> 00:25:07,240
+>> [laughter]
+
+569
+00:25:05,760 --> 00:25:09,000
+>> half [snorts] of the reason is because
+
+570
+00:25:07,240 --> 00:25:10,520
+they are pretty. You know, you just
+
+571
+00:25:09,000 --> 00:25:13,400
+watch girls. That's
+
+572
+00:25:10,520 --> 00:25:15,480
+That's natural, okay? Like, and girls
+
+573
+00:25:13,400 --> 00:25:17,560
+also watch girls.
+
+574
+00:25:15,480 --> 00:25:19,160
+So, you got to have charisma, you know?
+
+575
+00:25:17,560 --> 00:25:21,640
+You You just watch them, you know? You
+
+576
+00:25:19,160 --> 00:25:23,320
+like that's fundamental human nature.
+
+577
+00:25:21,640 --> 00:25:25,000
+You watch
+
+578
+00:25:23,320 --> 00:25:27,360
+beautiful people, okay?
+
+579
+00:25:25,000 --> 00:25:29,360
+And all successful and rich people. So,
+
+580
+00:25:27,360 --> 00:25:31,600
+if you if you are very rich, people will
+
+581
+00:25:29,360 --> 00:25:34,200
+watch you. You know, because people
+
+582
+00:25:31,600 --> 00:25:35,240
+follow, you know? Anyway, so
+
+583
+00:25:34,200 --> 00:25:37,880
+then
+
+584
+00:25:35,240 --> 00:25:39,360
+there's a young teen guys. Like, like
+
+585
+00:25:37,880 --> 00:25:41,600
+usually they also
+
+586
+00:25:39,360 --> 00:25:43,400
+Okay, so like
+
+587
+00:25:41,600 --> 00:25:45,240
+also partially because they are
+
+588
+00:25:43,400 --> 00:25:46,200
+handsome. They are handsome, they are
+
+589
+00:25:45,240 --> 00:25:48,000
+young.
+
+590
+00:25:46,200 --> 00:25:49,720
+Um anyway, so
+
+591
+00:25:48,000 --> 00:25:53,080
+so turns out people do not watch it
+
+592
+00:25:49,720 --> 00:25:55,440
+every every day, you know? But
+
+593
+00:25:53,080 --> 00:25:58,600
+um you know, so anyways
+
+594
+00:25:55,440 --> 00:26:00,560
+So, I was So, I was So, let's go back to
+
+595
+00:25:58,600 --> 00:26:03,000
+the Bertrand Russell. So, I was saying
+
+596
+00:26:00,560 --> 00:26:06,840
+that um
+
+597
+00:26:03,000 --> 00:26:08,800
+I So, I was saying that um
+
+598
+00:26:06,840 --> 00:26:13,760
+live stream. So, you know, I talked
+
+599
+00:26:08,800 --> 00:26:13,760
+about what What I was I saying? So
+
+600
+00:26:14,120 --> 00:26:16,680
+uh
+
+601
+00:26:18,720 --> 00:26:25,000
+Anyway, Bertrand Russell, right? How did
+
+602
+00:26:21,080 --> 00:26:27,160
+I get into that live stream [ __ ]
+
+603
+00:26:25,000 --> 00:26:28,960
+Medium, are you still here?
+
+604
+00:26:27,160 --> 00:26:31,040
+So
+
+605
+00:26:28,960 --> 00:26:33,840
+So, more specifically, how would you
+
+606
+00:26:31,040 --> 00:26:35,840
+recommend Wait, you are saying that how
+
+607
+00:26:33,840 --> 00:26:39,320
+has he influenced
+
+608
+00:26:35,840 --> 00:26:42,280
+you? So, Bertrand Russell influenced me
+
+609
+00:26:39,320 --> 00:26:44,760
+in thinking about mathematics, the way
+
+610
+00:26:42,280 --> 00:26:46,240
+he views mathematics, philosophy of
+
+611
+00:26:44,760 --> 00:26:48,640
+mathematics.
+
+612
+00:26:46,240 --> 00:26:50,920
+And Bertrand Russell also influenced me
+
+613
+00:26:48,640 --> 00:26:54,400
+deeply about
+
+614
+00:26:50,920 --> 00:26:56,120
+philosophy, okay? Because he created the
+
+615
+00:26:54,400 --> 00:26:59,520
+the uh
+
+616
+00:26:56,120 --> 00:26:59,520
+uh positivism.
+
+617
+00:27:01,480 --> 00:27:06,240
+Positivism, that's a branch of
+
+618
+00:27:03,400 --> 00:27:08,240
+philosophy. And it's actually
+
+619
+00:27:06,240 --> 00:27:10,440
+Bertrand Russell created analytic
+
+620
+00:27:08,240 --> 00:27:13,000
+philosophy, okay? So,
+
+621
+00:27:10,440 --> 00:27:15,840
+you see, positivism is a philosophical
+
+622
+00:27:13,000 --> 00:27:18,160
+school that holds that all genuine
+
+623
+00:27:15,840 --> 00:27:22,880
+knowledge is either true by definition
+
+624
+00:27:18,160 --> 00:27:25,160
+or positive, meaning a pos- teriorary
+
+625
+00:27:22,880 --> 00:27:27,320
+fact derived by reason and logic from
+
+626
+00:27:25,160 --> 00:27:30,120
+sensory experience, okay? Philosophy can
+
+627
+00:27:27,320 --> 00:27:32,720
+get quite esoteric, but
+
+628
+00:27:30,120 --> 00:27:36,640
+uh but that's not
+
+629
+00:27:32,720 --> 00:27:39,400
+So, let me uh see um
+
+630
+00:27:36,640 --> 00:27:42,720
+Let me just randomly show you what I
+
+631
+00:27:39,400 --> 00:27:47,160
+wanted to show you um
+
+632
+00:27:42,720 --> 00:27:47,160
+uh positive logicism uh
+
+633
+00:27:50,160 --> 00:27:53,760
+Wait, what was it uh
+
+634
+00:27:55,200 --> 00:28:02,520
+positive logicism, I think. Um
+
+635
+00:27:59,880 --> 00:28:04,280
+Uh actually
+
+636
+00:28:02,520 --> 00:28:06,040
+Actually, you can just go to Bertrand
+
+637
+00:28:04,280 --> 00:28:08,920
+Russell article, okay? So, Bertrand
+
+638
+00:28:06,040 --> 00:28:10,640
+Russell, you just search for
+
+639
+00:28:08,920 --> 00:28:13,200
+analytic
+
+640
+00:28:10,640 --> 00:28:15,800
+philosophy, okay? So, there it is,
+
+641
+00:28:13,200 --> 00:28:17,920
+Bertrand Russell analytic philosophy.
+
+642
+00:28:15,800 --> 00:28:19,640
+That is a branch of philosophy.
+
+643
+00:28:17,920 --> 00:28:22,000
+Basically, he
+
+644
+00:28:19,640 --> 00:28:25,000
+founded it, okay?
+
+645
+00:28:22,000 --> 00:28:28,000
+So, what is So, in short, analytic
+
+646
+00:28:25,000 --> 00:28:30,680
+philosophy is basically
+
+647
+00:28:28,000 --> 00:28:32,960
+taking the science approach to
+
+648
+00:28:30,680 --> 00:28:35,080
+philosophy. Okay? Instead of just
+
+649
+00:28:32,960 --> 00:28:38,000
+thinking and talking, you take more of a
+
+650
+00:28:35,080 --> 00:28:40,120
+scientific approach, where you can
+
+651
+00:28:38,000 --> 00:28:42,840
+verify things, you can try to prove
+
+652
+00:28:40,120 --> 00:28:45,960
+things, you can, you know, end argument
+
+653
+00:28:42,840 --> 00:28:48,120
+by formal logic and analysis of
+
+654
+00:28:45,960 --> 00:28:49,760
+language, like because language is how
+
+655
+00:28:48,120 --> 00:28:52,040
+we communicate. We talk about
+
+656
+00:28:49,760 --> 00:28:54,160
+philosophy. So, what does language mean?
+
+657
+00:28:52,040 --> 00:28:56,040
+What Why, you know,
+
+658
+00:28:54,160 --> 00:28:58,680
+things like that. So, linguistic and,
+
+659
+00:28:56,040 --> 00:29:02,360
+you know, is part of it. So, analytic
+
+660
+00:28:58,680 --> 00:29:05,480
+philosophy, which is philosophy from a
+
+661
+00:29:02,360 --> 00:29:08,040
+scientific approach. Okay? So, this
+
+662
+00:29:05,480 --> 00:29:09,080
+basically began by Bertrand Russell in,
+
+663
+00:29:08,040 --> 00:29:11,040
+uh,
+
+664
+00:29:09,080 --> 00:29:12,680
+1900s. Okay?
+
+665
+00:29:11,040 --> 00:29:14,760
+And one of the, uh,
+
+666
+00:29:12,680 --> 00:29:18,840
+and and one of the, uh,
+
+667
+00:29:14,760 --> 00:29:21,160
+thing is logical positivism. Okay? So,
+
+668
+00:29:18,840 --> 00:29:23,640
+search for logical
+
+669
+00:29:21,160 --> 00:29:23,640
+positivism.
+
+670
+00:29:23,800 --> 00:29:30,120
+Positivism. There it is. Okay? So,
+
+671
+00:29:25,880 --> 00:29:32,560
+logical, uh, so, so there it is.
+
+672
+00:29:30,120 --> 00:29:35,320
+Logical positivist.
+
+673
+00:29:32,560 --> 00:29:37,400
+Okay? So, there So, let's just go there.
+
+674
+00:29:35,320 --> 00:29:40,200
+Okay?
+
+675
+00:29:37,400 --> 00:29:43,360
+Logical positivism. That is the
+
+676
+00:29:40,200 --> 00:29:45,640
+philosophy I
+
+677
+00:29:43,360 --> 00:29:48,040
+follow. Okay?
+
+678
+00:29:45,640 --> 00:29:50,240
+Kind of even today. Even though, I mean,
+
+679
+00:29:48,040 --> 00:29:52,880
+like almost every philosophy, there are
+
+680
+00:29:50,240 --> 00:29:55,160
+also deniers. I mean, there are also
+
+681
+00:29:52,880 --> 00:29:57,280
+criticisms, like
+
+682
+00:29:55,160 --> 00:29:59,480
+Okay. So, like when you have a bunch of
+
+683
+00:29:57,280 --> 00:30:01,400
+philosophy, there's always criticism
+
+684
+00:29:59,480 --> 00:30:03,640
+saying that, "Oh, well, that doesn't
+
+685
+00:30:01,400 --> 00:30:05,480
+work because this or that."
+
+686
+00:30:03,640 --> 00:30:08,080
+There's always that.
+
+687
+00:30:05,480 --> 00:30:10,320
+Like in or in in every school of
+
+688
+00:30:08,080 --> 00:30:13,960
+philosophy. But anyway, basically
+
+689
+00:30:10,320 --> 00:30:15,200
+logical positivism positivism is my
+
+690
+00:30:13,960 --> 00:30:17,560
+philosophy.
+
+691
+00:30:15,200 --> 00:30:19,640
+Which is basically basically you can
+
+692
+00:30:17,560 --> 00:30:23,680
+just say scientific science-based
+
+693
+00:30:19,640 --> 00:30:25,760
+philosophy. Okay? Scientific philosophy.
+
+694
+00:30:23,680 --> 00:30:27,520
+So, that's what I believe. And how do I
+
+695
+00:30:25,760 --> 00:30:29,680
+know this? Well, because Bertrand
+
+696
+00:30:27,520 --> 00:30:31,040
+Russell. Okay? Because I read a lot of
+
+697
+00:30:29,680 --> 00:30:34,800
+Bertrand Russell. I
+
+698
+00:30:31,040 --> 00:30:36,480
+read quite a lot. So, almost
+
+699
+00:30:34,800 --> 00:30:39,040
+you know, quite quite a lot of his books
+
+700
+00:30:36,480 --> 00:30:41,960
+and his, uh, biography. I think, you
+
+701
+00:30:39,040 --> 00:30:41,960
+know, biography.
+
+702
+00:30:50,800 --> 00:30:55,560
+>> And in fact
+
+703
+00:30:53,160 --> 00:30:59,840
+logical positivism
+
+704
+00:30:55,560 --> 00:31:03,080
+is basically the practical philosophy
+
+705
+00:30:59,840 --> 00:31:07,040
+done in Western society reflected in
+
+706
+00:31:03,080 --> 00:31:09,160
+Western society in the past 100 years.
+
+707
+00:31:07,040 --> 00:31:11,120
+You got all these sciences going on.
+
+708
+00:31:09,160 --> 00:31:13,600
+Basically, that's because of this
+
+709
+00:31:11,120 --> 00:31:15,880
+logical positivism. Okay.
+
+710
+00:31:13,600 --> 00:31:18,160
+So, I think that I answered that your
+
+711
+00:31:15,880 --> 00:31:19,920
+question. William James, are you still
+
+712
+00:31:18,160 --> 00:31:20,480
+here? If you are
+
+713
+00:31:19,920 --> 00:31:22,960
+uh
+
+714
+00:31:20,480 --> 00:31:25,360
+say hi and uh that would I would
+
+715
+00:31:22,960 --> 00:31:26,880
+appreciate.
+
+716
+00:31:25,360 --> 00:31:29,160
+I think I answered your question about
+
+717
+00:31:26,880 --> 00:31:31,320
+Bertrand Russell. So, I showed you
+
+718
+00:31:29,160 --> 00:31:32,800
+several articles I have on Bertrand
+
+719
+00:31:31,320 --> 00:31:36,400
+Russell.
+
+720
+00:31:32,800 --> 00:31:39,200
+Basically, who he is and what he has
+
+721
+00:31:36,400 --> 00:31:42,080
+done in philosophy and uh
+
+722
+00:31:39,200 --> 00:31:44,960
+and what he has done in mathematics and
+
+723
+00:31:42,080 --> 00:31:47,560
+my other favorite author, the uh
+
+724
+00:31:44,960 --> 00:31:50,520
+historian. By the way, this Wikipedia
+
+725
+00:31:47,560 --> 00:31:52,560
+article is very short. It doesn't say
+
+726
+00:31:50,520 --> 00:31:55,040
+much and it's
+
+727
+00:31:52,560 --> 00:31:56,880
+So, the the important things is they are
+
+728
+00:31:55,040 --> 00:32:00,320
+it's not mentioned here even though it's
+
+729
+00:31:56,880 --> 00:32:02,480
+some somewhat long. But but this but
+
+730
+00:32:00,320 --> 00:32:04,560
+you know, so if you really want to know
+
+731
+00:32:02,480 --> 00:32:07,600
+Basically, if you want to know about
+
+732
+00:32:04,560 --> 00:32:10,240
+Chinese stuff, China or Taiwan, or you
+
+733
+00:32:07,600 --> 00:32:13,360
+know, philosophy, you basically you have
+
+734
+00:32:10,240 --> 00:32:16,160
+to know Chinese. Okay. You cannot rely
+
+735
+00:32:13,360 --> 00:32:18,120
+on English. You you
+
+736
+00:32:16,160 --> 00:32:20,040
+um
+
+737
+00:32:18,120 --> 00:32:22,160
+You can you can. I mean, English is
+
+738
+00:32:20,040 --> 00:32:25,720
+still pretty good, but because it's
+
+739
+00:32:22,160 --> 00:32:28,400
+tremendous because I even in Wikipedia
+
+740
+00:32:25,720 --> 00:32:30,240
+I was amazed. I mean, even if you just
+
+741
+00:32:28,400 --> 00:32:33,880
+read English
+
+742
+00:32:30,240 --> 00:32:37,360
+you can learn so much so much about very
+
+743
+00:32:33,880 --> 00:32:38,960
+extremely esoteric details about Chinese
+
+744
+00:32:37,360 --> 00:32:42,402
+Chinese culture
+
+745
+00:32:38,960 --> 00:32:42,440
+or and and even Chinese history, okay?
+
+746
+00:32:42,402 --> 00:32:45,080
+>> [snorts]
+
+747
+00:32:42,440 --> 00:32:48,320
+>> Even if you just read English
+
+748
+00:32:45,080 --> 00:32:49,840
+on Wikipedia alone.
+
+749
+00:32:48,320 --> 00:32:51,600
+Even suppose you don't read anything
+
+750
+00:32:49,840 --> 00:32:53,800
+else, just Wikipedia, the English
+
+751
+00:32:51,600 --> 00:32:56,080
+version on anything about Chinese
+
+752
+00:32:53,800 --> 00:32:57,440
+Chinese history, you know, Chinese you
+
+753
+00:32:56,080 --> 00:33:00,000
+know, all these for example, you can
+
+754
+00:32:57,440 --> 00:33:02,120
+start to follow this all these links.
+
+755
+00:33:00,000 --> 00:33:05,800
+Tangwai movement, I don't even know what
+
+756
+00:33:02,120 --> 00:33:08,120
+that is, you know, for democracy 1970s,
+
+757
+00:33:05,800 --> 00:33:09,520
+you know, so new party and whatever. So
+
+758
+00:33:08,120 --> 00:33:11,800
+you can read you you know, you can
+
+759
+00:33:09,520 --> 00:33:14,440
+actually literally spend years reading
+
+760
+00:33:11,800 --> 00:33:17,320
+about Chinese history, Chinese
+
+761
+00:33:14,440 --> 00:33:19,440
+philosophy, Chinese culture on Wikipedia
+
+762
+00:33:17,320 --> 00:33:21,600
+in English
+
+763
+00:33:19,440 --> 00:33:22,720
+by yourself, okay? So it's quite
+
+764
+00:33:21,600 --> 00:33:24,280
+amazing.
+
+765
+00:33:22,720 --> 00:33:27,200
+The the amount of information about
+
+766
+00:33:24,280 --> 00:33:29,480
+Chinese is quite large, okay? But most
+
+767
+00:33:27,200 --> 00:33:32,040
+Americans like the most the vast
+
+768
+00:33:29,480 --> 00:33:34,120
+majority of English speakers, they talk
+
+769
+00:33:32,040 --> 00:33:36,040
+on Twitter about China or Taiwan, they
+
+770
+00:33:34,120 --> 00:33:38,040
+don't know a thing. They
+
+771
+00:33:36,040 --> 00:33:39,920
+they don't they don't know not a thing.
+
+772
+00:33:38,040 --> 00:33:41,720
+They just like babble is it's just like
+
+773
+00:33:39,920 --> 00:33:43,960
+the typical
+
+774
+00:33:41,720 --> 00:33:47,200
+drama Twitter, you know, brainless like
+
+775
+00:33:43,960 --> 00:33:49,200
+or fortune people like the they they
+
+776
+00:33:47,200 --> 00:33:51,200
+brainless, you know.
+
+777
+00:33:49,200 --> 00:33:53,800
+So anyway, so if you but if you really
+
+778
+00:33:51,200 --> 00:33:55,720
+for those who really want to know what's
+
+779
+00:33:53,800 --> 00:33:58,440
+going on in China or you know, the
+
+780
+00:33:55,720 --> 00:34:00,960
+Chinese history which is huge, what one
+
+781
+00:33:58,440 --> 00:34:03,000
+of the most ancient civilization and
+
+782
+00:34:00,960 --> 00:34:04,480
+today became the most powerful
+
+783
+00:34:03,000 --> 00:34:08,560
+basically.
+
+784
+00:34:04,480 --> 00:34:10,120
+You you can start to read, okay? But
+
+785
+00:34:08,560 --> 00:34:12,600
+but what I'm saying is that but of
+
+786
+00:34:10,120 --> 00:34:14,600
+course if you read Chinese, if you
+
+787
+00:34:12,600 --> 00:34:18,760
+actually learn to read Chinese which is
+
+788
+00:34:14,600 --> 00:34:21,000
+not trivial, you know, it takes 5 years
+
+789
+00:34:18,760 --> 00:34:23,879
+to actually learn about reading Chinese.
+
+790
+00:34:21,000 --> 00:34:26,720
+Well, 3 years if you if you spend 1 hour
+
+791
+00:34:23,879 --> 00:34:29,720
+every day, I would say you can become
+
+792
+00:34:26,720 --> 00:34:31,360
+reasonable. You can get reasonable skill
+
+793
+00:34:29,720 --> 00:34:33,760
+in reading
+
+794
+00:34:31,360 --> 00:34:36,040
+actual reading Chinese
+
+795
+00:34:33,760 --> 00:34:38,080
+in 3 years, okay?
+
+796
+00:34:36,040 --> 00:34:40,520
+Provided you spend 1 hour every day.
+
+797
+00:34:38,080 --> 00:34:42,879
+Every day you must, you know, spend 1
+
+798
+00:34:40,520 --> 00:34:44,919
+hour. Then in 3 years you'll have
+
+799
+00:34:42,879 --> 00:34:47,200
+reasonable skill in reading Chinese,
+
+800
+00:34:44,919 --> 00:34:49,360
+okay? So, but once you read another
+
+801
+00:34:47,200 --> 00:34:50,360
+language, I mean, include Chinese or
+
+802
+00:34:49,360 --> 00:34:53,440
+even
+
+803
+00:34:50,360 --> 00:34:56,159
+including Russian or Arabic, you you you
+
+804
+00:34:53,440 --> 00:34:58,560
+kind of expanded your view.
+
+805
+00:34:56,159 --> 00:35:00,920
+You you can start to see opinions that
+
+806
+00:34:58,560 --> 00:35:03,080
+you never seen before.
+
+807
+00:35:00,920 --> 00:35:06,080
+Okay? Like when you expand your you
+
+808
+00:35:03,080 --> 00:35:08,440
+know, like not not in English, but most
+
+809
+00:35:06,080 --> 00:35:10,240
+American idiots, like the white people,
+
+810
+00:35:08,440 --> 00:35:12,240
+American idiots,
+
+811
+00:35:10,240 --> 00:35:14,360
+they they just read English, right? But
+
+812
+00:35:12,240 --> 00:35:14,360
+they
+
+813
+00:35:14,760 --> 00:35:19,560
+You you might think you might argue, you
+
+814
+00:35:17,160 --> 00:35:21,440
+know, well, but English is pervasive,
+
+815
+00:35:19,560 --> 00:35:24,320
+you know, there's always translations
+
+816
+00:35:21,440 --> 00:35:26,160
+you can, you know, but not really.
+
+817
+00:35:24,320 --> 00:35:28,320
+Because
+
+818
+00:35:26,160 --> 00:35:30,920
+here's the thing, you know,
+
+819
+00:35:28,320 --> 00:35:34,440
+the logic the logical way to explain
+
+820
+00:35:30,920 --> 00:35:37,800
+this is that when you um
+
+821
+00:35:34,440 --> 00:35:39,880
+Am I still Am I still going
+
+822
+00:35:37,800 --> 00:35:41,520
+Are you guys still like watching this?
+
+823
+00:35:39,880 --> 00:35:43,000
+Okay, William says, "Thank you." Thank
+
+824
+00:35:41,520 --> 00:35:44,440
+you, William.
+
+825
+00:35:43,000 --> 00:35:46,960
+Uh
+
+826
+00:35:44,440 --> 00:35:49,480
+is my answer satisfactory? Are there
+
+827
+00:35:46,960 --> 00:35:51,280
+like follow-up questions?
+
+828
+00:35:49,480 --> 00:35:54,280
+Anyway, so
+
+829
+00:35:51,280 --> 00:35:57,200
+uh so I was randomly uh talking about uh
+
+830
+00:35:54,280 --> 00:35:59,240
+languages. So,
+
+831
+00:35:57,200 --> 00:36:01,480
+the the logical reason is that, you
+
+832
+00:35:59,240 --> 00:36:01,480
+know,
+
+833
+00:36:01,920 --> 00:36:07,400
+like you you might, you know, you might
+
+834
+00:36:04,680 --> 00:36:09,760
+say logically, today translation
+
+835
+00:36:07,400 --> 00:36:12,960
+technology is so powerful, especially
+
+836
+00:36:09,760 --> 00:36:16,040
+because of AI, right? So, you might say
+
+837
+00:36:12,960 --> 00:36:18,280
+that any possible idea have been
+
+838
+00:36:16,040 --> 00:36:20,280
+expressed in English
+
+839
+00:36:18,280 --> 00:36:22,200
+uh already,
+
+840
+00:36:20,280 --> 00:36:25,600
+which is kind of true
+
+841
+00:36:22,200 --> 00:36:28,320
+by all the translations. And And so so
+
+842
+00:36:25,600 --> 00:36:31,440
+so it doesn't hurt if you only know
+
+843
+00:36:28,320 --> 00:36:34,080
+English. It you know, literally doesn't
+
+844
+00:36:31,440 --> 00:36:36,040
+matter. You don't have to know another
+
+845
+00:36:34,080 --> 00:36:38,320
+language because
+
+846
+00:36:36,040 --> 00:36:40,840
+anything possibly you know, any idea is
+
+847
+00:36:38,320 --> 00:36:42,600
+basically already written in English in
+
+848
+00:36:40,840 --> 00:36:45,360
+one way or another.
+
+849
+00:36:42,600 --> 00:36:47,360
+So, that's that's a common you know,
+
+850
+00:36:45,360 --> 00:36:50,840
+Americans you know, idiot idiotic
+
+851
+00:36:47,360 --> 00:36:53,000
+American English or UK Brits [ __ ]
+
+852
+00:36:50,840 --> 00:36:56,200
+I started to hate them despise them so
+
+853
+00:36:53,000 --> 00:36:58,080
+much in the past few years.
+
+854
+00:36:56,200 --> 00:37:01,600
+You know, you might think that.
+
+855
+00:36:58,080 --> 00:37:04,640
+But actually no, because because because
+
+856
+00:37:01,600 --> 00:37:07,600
+most most of the time you you know,
+
+857
+00:37:04,640 --> 00:37:10,400
+human animals we are not machines. You
+
+858
+00:37:07,600 --> 00:37:12,840
+know, you are not born
+
+859
+00:37:10,400 --> 00:37:15,280
+a machine then you're going to logically
+
+860
+00:37:12,840 --> 00:37:18,040
+find all possible opinions and read
+
+861
+00:37:15,280 --> 00:37:20,520
+about it. That's not what you do.
+
+862
+00:37:18,040 --> 00:37:24,800
+We are just here to just you know,
+
+863
+00:37:20,520 --> 00:37:27,320
+like human like kind of this petty thing
+
+864
+00:37:24,800 --> 00:37:30,400
+who make you know, we have to live. We
+
+865
+00:37:27,320 --> 00:37:32,320
+have to eat eat and we meet some friends
+
+866
+00:37:30,400 --> 00:37:34,760
+like a couple of friends.
+
+867
+00:37:32,320 --> 00:37:36,520
+Uh meanwhile there are you know, 8
+
+868
+00:37:34,760 --> 00:37:38,760
+billions of people
+
+869
+00:37:36,520 --> 00:37:41,160
+and all over the place, right?
+
+870
+00:37:38,760 --> 00:37:43,960
+So, what do you actually
+
+871
+00:37:41,160 --> 00:37:47,320
+do everyday and what we actually know
+
+872
+00:37:43,960 --> 00:37:48,840
+everyday is just what happens to be
+
+873
+00:37:47,320 --> 00:37:50,920
+around us.
+
+874
+00:37:48,840 --> 00:37:53,680
+You happen to be
+
+875
+00:37:50,920 --> 00:37:55,800
+like speaking English or white people or
+
+876
+00:37:53,680 --> 00:37:58,040
+whatever culture you came from. You
+
+877
+00:37:55,800 --> 00:38:01,280
+happen to be
+
+878
+00:37:58,040 --> 00:38:03,520
+No no, you know, you happen to know me.
+
+879
+00:38:01,280 --> 00:38:05,280
+So, that that influenced your view a
+
+880
+00:38:03,520 --> 00:38:08,440
+little bit. You happen to know you know,
+
+881
+00:38:05,280 --> 00:38:11,440
+whatever your environment. So,
+
+882
+00:38:08,440 --> 00:38:14,640
+so that is why when you
+
+883
+00:38:11,440 --> 00:38:17,160
+speak only English you
+
+884
+00:38:14,640 --> 00:38:19,320
+your exposure to
+
+885
+00:38:17,160 --> 00:38:23,640
+the kind of information and point of
+
+886
+00:38:19,320 --> 00:38:24,720
+view is limited. Okay, so for example,
+
+887
+00:38:23,640 --> 00:38:27,760
+if
+
+888
+00:38:24,720 --> 00:38:30,000
+you also, you know, if you know Spanish,
+
+889
+00:38:27,760 --> 00:38:32,320
+which is very common in USA, you know,
+
+890
+00:38:30,000 --> 00:38:33,360
+or if you happen to also know, let's
+
+891
+00:38:32,320 --> 00:38:35,240
+say,
+
+892
+00:38:33,360 --> 00:38:36,600
+German. Well, German is kind of, you
+
+893
+00:38:35,240 --> 00:38:38,520
+know, German,
+
+894
+00:38:36,600 --> 00:38:41,120
+French,
+
+895
+00:38:38,520 --> 00:38:42,440
+uh UK, they are kind of like related,
+
+896
+00:38:41,120 --> 00:38:45,120
+okay? But
+
+897
+00:38:42,440 --> 00:38:48,240
+but it also helps, okay? But if you
+
+898
+00:38:45,120 --> 00:38:52,960
+happen to know more different
+
+899
+00:38:48,240 --> 00:38:56,240
+uh languages, like Russian, or Islamic,
+
+900
+00:38:52,960 --> 00:38:59,600
+uh or Japanese, then you suddenly then
+
+901
+00:38:56,240 --> 00:39:01,800
+you will see opinions that's very that's
+
+902
+00:38:59,600 --> 00:39:05,680
+more different than what you are used
+
+903
+00:39:01,800 --> 00:39:09,120
+to, okay? That's the my point.
+
+904
+00:39:05,680 --> 00:39:12,640
+So, even logically, yes, every idea
+
+905
+00:39:09,120 --> 00:39:15,880
+basic almost is almost every, you know,
+
+906
+00:39:12,640 --> 00:39:18,760
+every idea that a person can practically
+
+907
+00:39:15,880 --> 00:39:22,280
+ever read in a lifetime is already in
+
+908
+00:39:18,760 --> 00:39:25,320
+English, but
+
+909
+00:39:22,280 --> 00:39:26,520
+it is not true that you can, you know,
+
+910
+00:39:25,320 --> 00:39:28,560
+if you learn
+
+911
+00:39:26,520 --> 00:39:29,920
+another language, you will not change
+
+912
+00:39:28,560 --> 00:39:32,200
+your view.
+
+913
+00:39:29,920 --> 00:39:34,880
+It's very likely if you know another
+
+914
+00:39:32,200 --> 00:39:37,360
+language, fluent in another language, it
+
+915
+00:39:34,880 --> 00:39:38,880
+will change your view. Like your your
+
+916
+00:39:37,360 --> 00:39:40,520
+opinion, your your head will be
+
+917
+00:39:38,880 --> 00:39:43,080
+different.
+
+918
+00:39:40,520 --> 00:39:45,720
+Okay, your behavior will be different
+
+919
+00:39:43,080 --> 00:39:48,560
+when you see things differently, then
+
+920
+00:39:45,720 --> 00:39:51,080
+your behavior will become different.
+
+921
+00:39:48,560 --> 00:39:52,680
+Your your behavior, your daily pattern,
+
+922
+00:39:51,080 --> 00:39:54,680
+okay? That's
+
+923
+00:39:52,680 --> 00:39:56,560
+So, that So, we are talking about the
+
+924
+00:39:54,680 --> 00:39:59,040
+language, okay? So,
+
+925
+00:39:56,560 --> 00:39:59,040
+anyway.
+
+926
+00:40:01,080 --> 00:40:08,360
+Okay, so that's that's one question. So,
+
+927
+00:40:03,600 --> 00:40:08,360
+the other um question is um
+
+928
+00:40:10,427 --> 00:40:13,160
+>> [sighs and gasps]
+
+929
+00:40:10,880 --> 00:40:15,080
+>> I'm a complete beginner in math and
+
+930
+00:40:13,160 --> 00:40:17,480
+programming, but I want to learn linear
+
+931
+00:40:15,080 --> 00:40:19,960
+algebra, multivariable calculus, and
+
+932
+00:40:17,480 --> 00:40:22,400
+statistics for machine learning. How
+
+933
+00:40:19,960 --> 00:40:25,360
+would you recommend starting? Okay. So,
+
+934
+00:40:22,400 --> 00:40:28,880
+those topics, linear algebra,
+
+935
+00:40:25,360 --> 00:40:32,720
+calculus, and uh statistics, they are
+
+936
+00:40:28,880 --> 00:40:35,760
+basics in any college education.
+
+937
+00:40:32,720 --> 00:40:38,160
+So, they are almost required in high
+
+938
+00:40:35,760 --> 00:40:40,120
+school. Uh I mean, like high Yeah, high
+
+939
+00:40:38,160 --> 00:40:43,680
+school beginning high school.
+
+940
+00:40:40,120 --> 00:40:47,640
+In USA, in any Western countries, in
+
+941
+00:40:43,680 --> 00:40:50,320
+China, in Japan, in any um
+
+942
+00:40:47,640 --> 00:40:53,680
+modern countries. So, they are required
+
+943
+00:40:50,320 --> 00:40:58,000
+subjects. So, I don't know who you are.
+
+944
+00:40:53,680 --> 00:40:58,000
+So, you 2614.
+
+945
+00:40:58,120 --> 00:41:02,040
+Like, I don't know who you are, how old
+
+946
+00:41:00,160 --> 00:41:03,880
+you are, where where like which country
+
+947
+00:41:02,040 --> 00:41:08,760
+you are. So, those those are topics
+
+948
+00:41:03,880 --> 00:41:08,760
+required in almost every country.
+
+949
+00:41:09,280 --> 00:41:13,840
+So, one way to learn them
+
+950
+00:41:11,720 --> 00:41:16,120
+is just follow through.
+
+951
+00:41:13,840 --> 00:41:17,720
+Just be a good student.
+
+952
+00:41:16,120 --> 00:41:19,800
+You know, you go to high school, you
+
+953
+00:41:17,720 --> 00:41:22,120
+will learn
+
+954
+00:41:19,800 --> 00:41:23,680
+Well, actually, so
+
+955
+00:41:22,120 --> 00:41:25,400
+Yeah, yeah, I mean, depending on high
+
+956
+00:41:23,680 --> 00:41:28,680
+school, depending on, you know, how
+
+957
+00:41:25,400 --> 00:41:31,840
+high, you know, how how what quality or
+
+958
+00:41:28,680 --> 00:41:34,400
+what what is your progress. So, linear
+
+959
+00:41:31,840 --> 00:41:36,960
+algebra, multi-variable calculus, and
+
+960
+00:41:34,400 --> 00:41:39,520
+statistics, they are usually
+
+961
+00:41:36,960 --> 00:41:42,520
+taught At least in USA, they are taught
+
+962
+00:41:39,520 --> 00:41:43,840
+in first and second years of
+
+963
+00:41:42,520 --> 00:41:46,800
+college.
+
+964
+00:41:43,840 --> 00:41:52,240
+Also known as university, okay? So, it
+
+965
+00:41:46,800 --> 00:41:52,240
+was known as freshman and sophomore.
+
+966
+00:41:53,000 --> 00:41:58,680
+They don't call it freshman anymore.
+
+967
+00:41:55,160 --> 00:42:01,200
+Freshman in in in English in USA means
+
+968
+00:41:58,680 --> 00:42:03,480
+the first year of university, but they
+
+969
+00:42:01,200 --> 00:42:06,120
+don't call that anymore in the past 10
+
+970
+00:42:03,480 --> 00:42:08,320
+years because the social justice
+
+971
+00:42:06,120 --> 00:42:11,160
+[ __ ] the deep state, you know,
+
+972
+00:42:08,320 --> 00:42:13,840
+they twisted They they they think sex is
+
+973
+00:42:11,160 --> 00:42:15,760
+a construct, so they don't want any
+
+974
+00:42:13,840 --> 00:42:16,760
+English word
+
+975
+00:42:15,760 --> 00:42:18,720
+for
+
+976
+00:42:16,760 --> 00:42:20,520
+thousands of years that contains the
+
+977
+00:42:18,720 --> 00:42:24,440
+word men.
+
+978
+00:42:20,520 --> 00:42:27,240
+So this when they say you know freshman
+
+979
+00:42:24,440 --> 00:42:27,240
+freshman
+
+980
+00:42:29,120 --> 00:42:35,920
+By the way freshman is a idiosyncrasy of
+
+981
+00:42:32,360 --> 00:42:38,280
+American of either American or or the
+
+982
+00:42:35,920 --> 00:42:39,760
+Brits, okay? Because it's a
+
+983
+00:42:38,280 --> 00:42:42,200
+you know like you
+
+984
+00:42:39,760 --> 00:42:44,520
+funny you know it's a idiom. Anyway the
+
+985
+00:42:42,200 --> 00:42:47,880
+social justice warriors deep state in
+
+986
+00:42:44,520 --> 00:42:50,480
+the past years past 10 years they forbid
+
+987
+00:42:47,880 --> 00:42:52,080
+this word because it this word contains
+
+988
+00:42:50,480 --> 00:42:54,080
+the word men.
+
+989
+00:42:52,080 --> 00:42:56,520
+They say no you can't you cannot be
+
+990
+00:42:54,080 --> 00:43:00,440
+didn't include women or it didn't
+
+991
+00:42:56,520 --> 00:43:03,640
+include trans later on. So they forbid
+
+992
+00:43:00,440 --> 00:43:05,720
+freshman they have to say fresh people.
+
+993
+00:43:03,640 --> 00:43:07,760
+But the problem the problem is when you
+
+994
+00:43:05,720 --> 00:43:09,440
+say fresh people it like doesn't make
+
+995
+00:43:07,760 --> 00:43:11,920
+sense it's not
+
+996
+00:43:09,440 --> 00:43:15,200
+you know because freshman is like kind
+
+997
+00:43:11,920 --> 00:43:17,720
+of idiosyncratic it has it has a
+
+998
+00:43:15,200 --> 00:43:21,120
+cultural background you know.
+
+999
+00:43:17,720 --> 00:43:23,480
+So you if you say fresh people it kind
+
+1000
+00:43:21,120 --> 00:43:25,440
+of what do you mean fresh people right?
+
+1001
+00:43:23,480 --> 00:43:27,760
+So they stop saying freshman they you
+
+1002
+00:43:25,440 --> 00:43:30,120
+know they just say first year college
+
+1003
+00:43:27,760 --> 00:43:33,080
+student something like that okay? It's
+
+1004
+00:43:30,120 --> 00:43:35,240
+this Wikipedia so this this is a little
+
+1005
+00:43:33,080 --> 00:43:37,360
+linguistic detail.
+
+1006
+00:43:35,240 --> 00:43:40,040
+You see this this is you see this is you
+
+1007
+00:43:37,360 --> 00:43:43,080
+know by the way you have to understand
+
+1008
+00:43:40,040 --> 00:43:45,360
+especially of you white people. This is
+
+1009
+00:43:43,080 --> 00:43:47,400
+white man's history.
+
+1010
+00:43:45,360 --> 00:43:50,520
+By white man I mean like Brits and
+
+1011
+00:43:47,400 --> 00:43:52,160
+German or engine kind of okay? That's I
+
+1012
+00:43:50,520 --> 00:43:55,080
+learned the hard way that's what white
+
+1013
+00:43:52,160 --> 00:43:57,840
+man means okay? So
+
+1014
+00:43:55,080 --> 00:44:00,840
+so if you are that kind of you know that
+
+1015
+00:43:57,840 --> 00:44:03,720
+that that blood blood line this is your
+
+1016
+00:44:00,840 --> 00:44:06,080
+history okay? Freshman fresher first
+
+1017
+00:44:03,720 --> 00:44:07,360
+year or colloquially
+
+1018
+00:44:06,080 --> 00:44:09,960
+frosh
+
+1019
+00:44:07,360 --> 00:44:12,600
+is a person in the first year at an
+
+1020
+00:44:09,960 --> 00:44:15,360
+educational institution, usually a
+
+1021
+00:44:12,600 --> 00:44:17,760
+secondary school or at the college and
+
+1022
+00:44:15,360 --> 00:44:19,920
+university level, but also in other
+
+1023
+00:44:17,760 --> 00:44:21,760
+forms of post-secondary educational
+
+1024
+00:44:19,920 --> 00:44:24,440
+institutions, okay?
+
+1025
+00:44:21,760 --> 00:44:26,320
+One bunch of mouthful. But anyway,
+
+1026
+00:44:24,440 --> 00:44:28,840
+this is like um
+
+1027
+00:44:26,320 --> 00:44:31,000
+this is like a idiom for you know, for
+
+1028
+00:44:28,840 --> 00:44:32,760
+some reason.
+
+1029
+00:44:31,000 --> 00:44:36,160
+But the funny you know,
+
+1030
+00:44:32,760 --> 00:44:38,120
+so I find it funny and insulting and
+
+1031
+00:44:36,160 --> 00:44:40,720
+kind of like
+
+1032
+00:44:38,120 --> 00:44:43,360
+like twisted is that in the past 10
+
+1033
+00:44:40,720 --> 00:44:45,960
+years, the white people, the same the
+
+1034
+00:44:43,360 --> 00:44:48,600
+same group you you know, the white man,
+
+1035
+00:44:45,960 --> 00:44:50,600
+they forbid.
+
+1036
+00:44:48,600 --> 00:44:53,800
+Now, they forbid this
+
+1037
+00:44:50,600 --> 00:44:53,800
+this terminology.
+
+1038
+00:44:53,880 --> 00:44:58,240
+Because it contains the word men. They
+
+1039
+00:44:55,800 --> 00:45:01,080
+say, "No, you cannot be allowed, you
+
+1040
+00:44:58,240 --> 00:45:03,280
+know, for the [ __ ] scum."
+
+1041
+00:45:01,080 --> 00:45:07,120
+So let's see. Did Do they mention that
+
+1042
+00:45:03,280 --> 00:45:07,120
+here? So you see um
+
+1043
+00:45:07,240 --> 00:45:11,560
+You see,
+
+1044
+00:45:08,280 --> 00:45:14,880
+freshman is you know, in United States
+
+1045
+00:45:11,560 --> 00:45:19,320
+beginner freshman is commonly
+
+1046
+00:45:14,880 --> 00:45:23,320
+in use as a US English idiomatic
+
+1047
+00:45:19,320 --> 00:45:25,720
+term to describe a beginner or novice,
+
+1048
+00:45:23,320 --> 00:45:29,160
+someone who is naive,
+
+1049
+00:45:25,720 --> 00:45:31,400
+a first effort, instance, or a student
+
+1050
+00:45:29,160 --> 00:45:35,240
+in the first year of study. You see,
+
+1051
+00:45:31,400 --> 00:45:37,080
+idiomatic, like what I said.
+
+1052
+00:45:35,240 --> 00:45:39,680
+Uh but anyway, so
+
+1053
+00:45:37,080 --> 00:45:42,440
+do they mention the did did they mention
+
+1054
+00:45:39,680 --> 00:45:44,920
+the like the change of terminology like
+
+1055
+00:45:42,440 --> 00:45:46,640
+forbidden?
+
+1056
+00:45:44,920 --> 00:45:50,400
+I think they did. I think they do
+
+1057
+00:45:46,640 --> 00:45:50,400
+somewhere. Let's see.
+
+1058
+00:45:51,400 --> 00:45:54,880
+Let's see
+
+1059
+00:45:52,800 --> 00:45:54,880
+um
+
+1060
+00:45:55,280 --> 00:46:03,200
+It would be interesting if they didn't
+
+1061
+00:45:57,120 --> 00:46:03,200
+because Wikipedia has been very much um
+
+1062
+00:46:03,920 --> 00:46:09,040
+because this is like polit- becoming
+
+1063
+00:46:05,920 --> 00:46:12,360
+political um issue. So, Wikipedia has
+
+1064
+00:46:09,040 --> 00:46:15,360
+been corrupted in past in the past 10
+
+1065
+00:46:12,360 --> 00:46:17,480
+years. They So, they change
+
+1066
+00:46:15,360 --> 00:46:20,320
+uh I find so
+
+1067
+00:46:17,480 --> 00:46:20,320
+they did not
+
+1068
+00:46:21,960 --> 00:46:26,560
+This article may contain original
+
+1069
+00:46:24,200 --> 00:46:29,520
+research blah blah blah.
+
+1070
+00:46:26,560 --> 00:46:29,520
+Okay, so
+
+1071
+00:46:30,680 --> 00:46:37,520
+I find it interesting social justice
+
+1072
+00:46:33,960 --> 00:46:41,960
+warrior [ __ ] did not
+
+1073
+00:46:37,520 --> 00:46:41,960
+change things on this page.
+
+1074
+00:46:46,720 --> 00:46:52,160
+Okay, I don't I
+
+1075
+00:46:48,040 --> 00:46:54,080
+It looks like they didn't mention it.
+
+1076
+00:46:52,160 --> 00:46:56,000
+They didn't mention this is like
+
+1077
+00:46:54,080 --> 00:46:58,720
+controversial or something. That's
+
+1078
+00:46:56,000 --> 00:47:00,480
+interesting because I'm sure they have
+
+1079
+00:46:58,720 --> 00:47:03,080
+done.
+
+1080
+00:47:00,480 --> 00:47:05,320
+In the next step is to go into view
+
+1081
+00:47:03,080 --> 00:47:07,800
+history and start to do research, you
+
+1082
+00:47:05,320 --> 00:47:10,880
+know, spend a year an hour or two or
+
+1083
+00:47:07,800 --> 00:47:14,480
+several hours to see
+
+1084
+00:47:10,880 --> 00:47:16,080
+to see how did it change, who changed
+
+1085
+00:47:14,480 --> 00:47:17,840
+it.
+
+1086
+00:47:16,080 --> 00:47:19,120
+You know, that's typically that's what I
+
+1087
+00:47:17,840 --> 00:47:21,760
+do.
+
+1088
+00:47:19,120 --> 00:47:24,440
+Um anyway, that's a lot. That's going to
+
+1089
+00:47:21,760 --> 00:47:26,920
+be a few hours.
+
+1090
+00:47:24,440 --> 00:47:28,360
+So, anyway, so your topic you're you're
+
+1091
+00:47:26,920 --> 00:47:32,440
+talking about linear algebra,
+
+1092
+00:47:28,360 --> 00:47:33,960
+statistics, and calculus. They are basic
+
+1093
+00:47:32,440 --> 00:47:36,880
+standard [snorts]
+
+1094
+00:47:33,960 --> 00:47:39,960
+educational courses
+
+1095
+00:47:36,880 --> 00:47:42,200
+in mandatory you know, in in this
+
+1096
+00:47:39,960 --> 00:47:43,920
+so-called institutionalized
+
+1097
+00:47:42,200 --> 00:47:47,480
+education.
+
+1098
+00:47:43,920 --> 00:47:49,400
+And often is mandatory. So,
+
+1099
+00:47:47,480 --> 00:47:52,320
+in
+
+1100
+00:47:49,400 --> 00:47:55,840
+in Western societies and and also not
+
+1101
+00:47:52,320 --> 00:47:58,840
+just Western societies, but in any
+
+1102
+00:47:55,840 --> 00:48:01,320
+um so-called industrialized
+
+1103
+00:47:58,840 --> 00:48:03,720
+societies, modern societies, you know,
+
+1104
+00:48:01,320 --> 00:48:06,240
+well-to-do societies.
+
+1105
+00:48:03,720 --> 00:48:06,240
+So,
+
+1106
+00:48:07,480 --> 00:48:11,960
+so what do you mean? So, so so how old
+
+1107
+00:48:09,800 --> 00:48:14,040
+are you? So, maybe you are younger,
+
+1108
+00:48:11,960 --> 00:48:16,760
+maybe you are like 10 years old, 14
+
+1109
+00:48:14,040 --> 00:48:19,480
+years old. So, you haven't begin high
+
+1110
+00:48:16,760 --> 00:48:22,000
+school, okay? So, I'm 19 and from
+
+1111
+00:48:19,480 --> 00:48:24,400
+Ireland. My school didn't cover much
+
+1112
+00:48:22,000 --> 00:48:26,320
+advanced math. So, I'm starting from the
+
+1113
+00:48:24,400 --> 00:48:28,840
+basics. Okay.
+
+1114
+00:48:26,320 --> 00:48:28,840
+So, anyway,
+
+1115
+00:48:29,480 --> 00:48:34,440
+linear algebra, calculus, and
+
+1116
+00:48:31,440 --> 00:48:37,600
+statistics, they are like the most basic
+
+1117
+00:48:34,440 --> 00:48:39,160
+and required, kind of required for any
+
+1118
+00:48:37,600 --> 00:48:41,880
+college.
+
+1119
+00:48:39,160 --> 00:48:44,200
+Required in the sense that it's even if
+
+1120
+00:48:41,880 --> 00:48:46,280
+you don't major in mathematics, for
+
+1121
+00:48:44,200 --> 00:48:49,720
+example,
+
+1122
+00:48:46,280 --> 00:48:52,200
+my experience is from USA, okay? So, in
+
+1123
+00:48:49,720 --> 00:48:54,560
+USA, in college, in university, like
+
+1124
+00:48:52,200 --> 00:48:57,040
+usually 4 years,
+
+1125
+00:48:54,560 --> 00:48:59,200
+after the first 2 years, then you start
+
+1126
+00:48:57,040 --> 00:49:01,840
+to you you you have to pick a major,
+
+1127
+00:48:59,200 --> 00:49:03,760
+like what you specialize in.
+
+1128
+00:49:01,840 --> 00:49:05,920
+Do you want to be a mathematician? Do
+
+1129
+00:49:03,760 --> 00:49:08,080
+you want to be a physicist? Do you want
+
+1130
+00:49:05,920 --> 00:49:10,440
+to be a chemist? Do you want to be a
+
+1131
+00:49:08,080 --> 00:49:12,680
+engineer? Do you want to be a program
+
+1132
+00:49:10,440 --> 00:49:14,760
+programmer? Computer science? Or do you
+
+1133
+00:49:12,680 --> 00:49:17,080
+want to be a lawyer? A writer? You know,
+
+1134
+00:49:14,760 --> 00:49:19,880
+like you start to have a major,
+
+1135
+00:49:17,080 --> 00:49:22,040
+so-called. That meaning that, you know,
+
+1136
+00:49:19,880 --> 00:49:23,320
+what you specialize, okay?
+
+1137
+00:49:22,040 --> 00:49:25,680
+But,
+
+1138
+00:49:23,320 --> 00:49:27,360
+linear algebra, calculus, and
+
+1139
+00:49:25,680 --> 00:49:29,680
+statistics,
+
+1140
+00:49:27,360 --> 00:49:31,400
+they are not even part of the major.
+
+1141
+00:49:29,680 --> 00:49:34,360
+They are like part of the general
+
+1142
+00:49:31,400 --> 00:49:36,720
+education. So, in the first 2 years,
+
+1143
+00:49:34,360 --> 00:49:38,400
+before you even have decided you're
+
+1144
+00:49:36,720 --> 00:49:40,360
+going to Oh, I'm going to study math.
+
+1145
+00:49:38,400 --> 00:49:43,120
+I'm going to be mathematician. Even
+
+1146
+00:49:40,360 --> 00:49:46,800
+before that, they are so basic
+
+1147
+00:49:43,120 --> 00:49:49,720
+that for any, basically any engineering
+
+1148
+00:49:46,800 --> 00:49:51,800
+student or any kind of people who are
+
+1149
+00:49:49,720 --> 00:49:53,160
+more interested in sciences and
+
+1150
+00:49:51,800 --> 00:49:56,440
+engineering,
+
+1151
+00:49:53,160 --> 00:49:58,160
+They have to take one of these, okay?
+
+1152
+00:49:56,440 --> 00:49:59,880
+Linear algebra,
+
+1153
+00:49:58,160 --> 00:50:03,360
+statistics,
+
+1154
+00:49:59,880 --> 00:50:05,480
+statistics and calculus. Um you know,
+
+1155
+00:50:03,360 --> 00:50:09,200
+usually they they will do calculus,
+
+1156
+00:50:05,480 --> 00:50:12,600
+okay? So, these three are so basic and
+
+1157
+00:50:09,200 --> 00:50:13,760
+fundamental that
+
+1158
+00:50:12,600 --> 00:50:16,320
+that
+
+1159
+00:50:13,760 --> 00:50:17,240
+that any
+
+1160
+00:50:16,320 --> 00:50:19,280
+um
+
+1161
+00:50:17,240 --> 00:50:21,160
+you know, people who want interested in
+
+1162
+00:50:19,280 --> 00:50:25,000
+physics or engineering
+
+1163
+00:50:21,160 --> 00:50:25,880
+or in chemistry, they have to take it.
+
+1164
+00:50:25,000 --> 00:50:28,600
+Okay.
+
+1165
+00:50:25,880 --> 00:50:32,000
+So, that's how fundamental they are.
+
+1166
+00:50:28,600 --> 00:50:34,120
+So, if you are in Ireland in 19, you
+
+1167
+00:50:32,000 --> 00:50:36,160
+know, maybe even you know, maybe you'll
+
+1168
+00:50:34,120 --> 00:50:38,680
+go to college or something. You you you
+
+1169
+00:50:36,160 --> 00:50:41,000
+know, you'll you'll you'll run into it.
+
+1170
+00:50:38,680 --> 00:50:43,320
+But otherwise, you may not because a lot
+
+1171
+00:50:41,000 --> 00:50:46,200
+people, you know, maybe for a lot
+
+1172
+00:50:43,320 --> 00:50:50,080
+people, you know, they don't
+
+1173
+00:50:46,200 --> 00:50:52,000
+they they don't like for a lot people,
+
+1174
+00:50:50,080 --> 00:50:53,640
+not mainstream. They are not in the
+
+1175
+00:50:52,000 --> 00:50:56,680
+mainstream. So, they don't have a
+
+1176
+00:50:53,640 --> 00:50:59,000
+channel to go to the
+
+1177
+00:50:56,680 --> 00:51:01,120
+this institutionalized
+
+1178
+00:50:59,000 --> 00:51:03,000
+educational system. You know, they don't
+
+1179
+00:51:01,120 --> 00:51:05,440
+have that channel. For example, I don't
+
+1180
+00:51:03,000 --> 00:51:08,920
+I didn't have
+
+1181
+00:51:05,440 --> 00:51:08,920
+that path, okay?
+
+1182
+00:51:09,440 --> 00:51:14,520
+I never I never had I never I can I
+
+1183
+00:51:12,320 --> 00:51:17,040
+don't even have the
+
+1184
+00:51:14,520 --> 00:51:18,680
+uh opportunity, the path to go to high
+
+1185
+00:51:17,040 --> 00:51:20,640
+school, okay?
+
+1186
+00:51:18,680 --> 00:51:23,360
+So, for those of people who want to
+
+1187
+00:51:20,640 --> 00:51:24,080
+learn it, you can you know, today
+
+1188
+00:51:23,360 --> 00:51:25,480
+if
+
+1189
+00:51:24,080 --> 00:51:28,120
+So, you can learn it. So, this is
+
+1190
+00:51:25,480 --> 00:51:29,920
+important actually. So, in fact, it may
+
+1191
+00:51:28,120 --> 00:51:32,200
+be even better
+
+1192
+00:51:29,920 --> 00:51:34,760
+than going to college to learn about
+
+1193
+00:51:32,200 --> 00:51:37,080
+these topics, okay? This is the
+
+1194
+00:51:34,760 --> 00:51:38,720
+This is actually my answer to you. This
+
+1195
+00:51:37,080 --> 00:51:41,200
+is more important.
+
+1196
+00:51:38,720 --> 00:51:44,000
+Today, if you want to learn any linear
+
+1197
+00:51:41,200 --> 00:51:44,000
+algebra,
+
+1198
+00:51:44,560 --> 00:51:48,000
+you know, you No, or statistics or
+
+1199
+00:51:46,320 --> 00:51:49,080
+calculus, okay? You can just search the
+
+1200
+00:51:48,000 --> 00:51:50,880
+web.
+
+1201
+00:51:49,080 --> 00:51:53,200
+The first stop you will see is
+
+1202
+00:51:50,880 --> 00:51:55,520
+Wikipedia, of course.
+
+1203
+00:51:53,200 --> 00:51:57,720
+Massive Wikipedia. So, you you can start
+
+1204
+00:51:55,520 --> 00:51:59,760
+to read it. That's what I do, okay?
+
+1205
+00:51:57,720 --> 00:52:02,640
+Like any topic as do like do you know
+
+1206
+00:51:59,760 --> 00:52:04,280
+how to read? Of course, you do.
+
+1207
+00:52:02,640 --> 00:52:08,316
+Start to read it.
+
+1208
+00:52:04,280 --> 00:52:08,960
+Begin like you can like begin today.
+
+1209
+00:52:08,316 --> 00:52:10,760
+>> [laughter]
+
+1210
+00:52:08,960 --> 00:52:12,320
+>> After watching my video, like you can
+
+1211
+00:52:10,760 --> 00:52:14,760
+begin today.
+
+1212
+00:52:12,320 --> 00:52:16,600
+Like what So, part of math So, it
+
+1213
+00:52:14,760 --> 00:52:18,720
+begins, you know, it says linear algebra
+
+1214
+00:52:16,600 --> 00:52:21,120
+is a branch of mathematics concerning
+
+1215
+00:52:18,720 --> 00:52:23,280
+linear equations. Oh, Jesus. What is
+
+1216
+00:52:21,120 --> 00:52:24,600
+linear equations? Click
+
+1217
+00:52:23,280 --> 00:52:25,960
+and read.
+
+1218
+00:52:24,600 --> 00:52:28,640
+So, you can click and read, you know,
+
+1219
+00:52:25,960 --> 00:52:31,000
+you just start reading about it today.
+
+1220
+00:52:28,640 --> 00:52:32,400
+Read and read 1 hour a day. Just
+
+1221
+00:52:31,000 --> 00:52:35,280
+fascinating.
+
+1222
+00:52:32,400 --> 00:52:38,080
+Linear algebra is actually my favorite
+
+1223
+00:52:35,280 --> 00:52:40,000
+math topic, too. More than calculus,
+
+1224
+00:52:38,080 --> 00:52:41,440
+linear algebra. And so
+
+1225
+00:52:40,000 --> 00:52:43,200
+And so,
+
+1226
+00:52:41,440 --> 00:52:45,440
+it's one of my favorite, okay? Linear
+
+1227
+00:52:43,200 --> 00:52:47,040
+algebra. More than calculus and more
+
+1228
+00:52:45,440 --> 00:52:49,920
+than statistics.
+
+1229
+00:52:47,040 --> 00:52:51,960
+Statistics is my least favorite
+
+1230
+00:52:49,920 --> 00:52:54,320
+mathematics.
+
+1231
+00:52:51,960 --> 00:52:57,160
+It's kind of boring, statistics. But so,
+
+1232
+00:52:54,320 --> 00:52:59,840
+anyway, so these are the fundamental
+
+1233
+00:52:57,160 --> 00:53:02,680
+uh required classes, okay? So, it's good
+
+1234
+00:52:59,840 --> 00:53:04,600
+to learn. So, you can
+
+1235
+00:53:02,680 --> 00:53:06,840
+So, they are and there are many ways.
+
+1236
+00:53:04,600 --> 00:53:08,720
+So, the first stop is linear algebra.
+
+1237
+00:53:06,840 --> 00:53:11,640
+You can just start to read and read on
+
+1238
+00:53:08,720 --> 00:53:14,360
+on I mean on Wikipedia, okay? Then, of
+
+1239
+00:53:11,640 --> 00:53:18,960
+course, there's there's 1,000 videos.
+
+1240
+00:53:14,360 --> 00:53:21,680
+The the Khan Academy is very well known.
+
+1241
+00:53:18,960 --> 00:53:25,120
+That that's the people who began who
+
+1242
+00:53:21,680 --> 00:53:28,040
+kind of began the video tutorials, okay?
+
+1243
+00:53:25,120 --> 00:53:30,200
+This Khan Academy, okay?
+
+1244
+00:53:28,040 --> 00:53:31,720
+Uh turn JavaScript. So, you can start to
+
+1245
+00:53:30,200 --> 00:53:33,000
+read there.
+
+1246
+00:53:31,720 --> 00:53:36,040
+Okay.
+
+1247
+00:53:33,000 --> 00:53:39,400
+You see and and uh what the [ __ ] accept
+
+1248
+00:53:36,040 --> 00:53:41,720
+cookies, okay? Uh Jesus, they start to
+
+1249
+00:53:39,400 --> 00:53:44,760
+ask for money.
+
+1250
+00:53:41,720 --> 00:53:47,877
+I never I actually never used uh Khan
+
+1251
+00:53:44,760 --> 00:53:49,680
+Academy because select amount
+
+1252
+00:53:47,877 --> 00:53:52,240
+>> [laughter]
+
+1253
+00:53:49,680 --> 00:53:53,800
+>> donate. What is So where where is the
+
+1254
+00:53:52,240 --> 00:53:56,160
+video like
+
+1255
+00:53:53,800 --> 00:53:59,240
+Anyway, so there's a lot of them. Okay,
+
+1256
+00:53:56,160 --> 00:54:01,920
+so this besides Khan Academy there's a
+
+1257
+00:53:59,240 --> 00:54:04,160
+lot a lot. So you can learn.
+
+1258
+00:54:01,920 --> 00:54:07,000
+And YouTube of course is tremendous.
+
+1259
+00:54:04,160 --> 00:54:10,600
+Then you can also pick Encyclopedia
+
+1260
+00:54:07,000 --> 00:54:11,760
+Britannica. Okay, there's YouTube. Okay,
+
+1261
+00:54:10,600 --> 00:54:13,720
+so
+
+1262
+00:54:11,760 --> 00:54:18,200
+you can learn in all sorts of ways and
+
+1263
+00:54:13,720 --> 00:54:21,520
+plenty and so what So my advice to you
+
+1264
+00:54:18,200 --> 00:54:23,680
+is that you can just start to learn it.
+
+1265
+00:54:21,520 --> 00:54:25,760
+Looks like you have the will to learn
+
+1266
+00:54:23,680 --> 00:54:27,600
+you know you you you really want to you
+
+1267
+00:54:25,760 --> 00:54:29,760
+are interested.
+
+1268
+00:54:27,600 --> 00:54:31,440
+That solves a major problem.
+
+1269
+00:54:29,760 --> 00:54:34,560
+Then you just start to read it. Okay,
+
+1270
+00:54:31,440 --> 00:54:37,160
+just start you know watch video
+
+1271
+00:54:34,560 --> 00:54:39,000
+or read Wikipedia or read books there's
+
+1272
+00:54:37,160 --> 00:54:41,360
+quite a lot
+
+1273
+00:54:39,000 --> 00:54:42,400
+professional level
+
+1274
+00:54:41,360 --> 00:54:44,920
+free
+
+1275
+00:54:42,400 --> 00:54:46,640
+books like uh textbooks on linear
+
+1276
+00:54:44,920 --> 00:54:50,280
+algebra that's free.
+
+1277
+00:54:46,640 --> 00:54:53,360
+In fact my website has it. Okay.
+
+1278
+00:54:50,280 --> 00:54:55,040
+Sal linear algebra. Okay, so you can
+
+1279
+00:54:53,360 --> 00:54:57,440
+find
+
+1280
+00:54:55,040 --> 00:55:01,360
+personal info about Sal whatever you
+
+1281
+00:54:57,440 --> 00:55:04,480
+know Sal profile contact. Okay, Sal math
+
+1282
+00:55:01,360 --> 00:55:06,720
+linear algebra notes. Okay, so
+
+1283
+00:55:04,480 --> 00:55:08,920
+yeah I I you know so I have lots of
+
+1284
+00:55:06,720 --> 00:55:11,120
+notes like 20 years ago those are not
+
+1285
+00:55:08,920 --> 00:55:13,480
+good. But you you just you know you just
+
+1286
+00:55:11,120 --> 00:55:15,280
+go to like um
+
+1287
+00:55:13,480 --> 00:55:18,440
+you'll find a lot free books. Okay,
+
+1288
+00:55:15,280 --> 00:55:20,640
+there free math textbooks.
+
+1289
+00:55:18,440 --> 00:55:24,600
+By the way this book linear algebra by
+
+1290
+00:55:20,640 --> 00:55:29,000
+David C. Lay is the one I read and I
+
+1291
+00:55:24,600 --> 00:55:32,600
+liked it very much in 1993.
+
+1292
+00:55:29,000 --> 00:55:32,600
+Okay, but it's not free. Um
+
+1293
+00:55:33,160 --> 00:55:38,760
+yeah I don't think it's free and also he
+
+1294
+00:55:35,640 --> 00:55:40,000
+the guy died in 2018,
+
+1295
+00:55:38,760 --> 00:55:43,040
+I learned.
+
+1296
+00:55:40,000 --> 00:55:46,280
+Anyway, that's just my like
+
+1297
+00:55:43,040 --> 00:55:48,400
+personal nostalgic notes, okay? But what
+
+1298
+00:55:46,280 --> 00:55:51,480
+do you want is go to free math
+
+1299
+00:55:48,400 --> 00:55:53,400
+textbooks. This calculus several free,
+
+1300
+00:55:51,480 --> 00:55:54,840
+completely free. They are like open
+
+1301
+00:55:53,400 --> 00:55:57,680
+source and this
+
+1302
+00:55:54,840 --> 00:56:00,920
+linear algebra, okay? So that is not
+
+1303
+00:55:57,680 --> 00:56:02,920
+free. Oh, but $10 on Amazon.
+
+1304
+00:56:00,920 --> 00:56:06,360
+And this linear algebra by, you know,
+
+1305
+00:56:02,920 --> 00:56:07,560
+other people free PDF and comes in PDF,
+
+1306
+00:56:06,360 --> 00:56:10,160
+okay?
+
+1307
+00:56:07,560 --> 00:56:12,320
+And same thing with statistics and
+
+1308
+00:56:10,160 --> 00:56:15,680
+calculus, okay? For example, calculus,
+
+1309
+00:56:12,320 --> 00:56:17,320
+okay? These are free books.
+
+1310
+00:56:15,680 --> 00:56:19,920
+Uh by the way, if you're going to buy a
+
+1311
+00:56:17,320 --> 00:56:22,160
+textbook, I don't recommend buying any
+
+1312
+00:56:19,920 --> 00:56:24,160
+textbook, okay?
+
+1313
+00:56:22,160 --> 00:56:27,200
+Like for example, this like
+
+1314
+00:56:24,160 --> 00:56:29,160
+commercialized textbooks they are used
+
+1315
+00:56:27,200 --> 00:56:30,920
+in colleges today.
+
+1316
+00:56:29,160 --> 00:56:34,400
+Never buy them.
+
+1317
+00:56:30,920 --> 00:56:36,200
+Because they become super extremely
+
+1318
+00:56:34,400 --> 00:56:38,200
+corrupted.
+
+1319
+00:56:36,200 --> 00:56:40,880
+In several ways. First of all, they
+
+1320
+00:56:38,200 --> 00:56:43,040
+become they are now today very expe-
+
+1321
+00:56:40,880 --> 00:56:45,560
+expensive. Like they are few hundred
+
+1322
+00:56:43,040 --> 00:56:47,160
+dollars for one like one book. One
+
+1323
+00:56:45,560 --> 00:56:49,840
+[ __ ] book.
+
+1324
+00:56:47,160 --> 00:56:52,480
+Few hundred dollars. Amazing. Why?
+
+1325
+00:56:49,840 --> 00:56:54,240
+Search my web, you'll find a blog.
+
+1326
+00:56:52,480 --> 00:56:56,840
+You you'll find an article about why
+
+1327
+00:56:54,240 --> 00:56:59,000
+textbooks are expensive because
+
+1328
+00:56:56,840 --> 00:57:02,960
+tremendous deep state corruption in the
+
+1329
+00:56:59,000 --> 00:57:04,760
+past 20 years in USA, okay?
+
+1330
+00:57:02,960 --> 00:57:07,400
+So anyway, I don't recommend so do not
+
+1331
+00:57:04,760 --> 00:57:10,120
+buy any textbooks. Of course, if unless
+
+1332
+00:57:07,400 --> 00:57:11,680
+you are going to university, it's re-
+
+1333
+00:57:10,120 --> 00:57:14,160
+required,
+
+1334
+00:57:11,680 --> 00:57:15,640
+then you are, you know, you are in this
+
+1335
+00:57:14,160 --> 00:57:17,960
+trap.
+
+1336
+00:57:15,640 --> 00:57:20,240
+Then you owe a lot money to the
+
+1337
+00:57:17,960 --> 00:57:21,800
+government, you know, student debt and
+
+1338
+00:57:20,240 --> 00:57:23,800
+so on. Anyway,
+
+1339
+00:57:21,800 --> 00:57:25,920
+but you are in Ireland. Okay, so anyway,
+
+1340
+00:57:23,800 --> 00:57:27,040
+so I so I don't recommend
+
+1341
+00:57:25,920 --> 00:57:32,520
+uh
+
+1342
+00:57:27,040 --> 00:57:35,960
+buying any modern textbooks recent
+
+1343
+00:57:32,520 --> 00:57:39,480
+edition, I don't recommend it, but I do
+
+1344
+00:57:35,960 --> 00:57:41,800
+recommend that textbooks on calculus, on
+
+1345
+00:57:39,480 --> 00:57:44,440
+algebra, on linear algebra, on
+
+1346
+00:57:41,800 --> 00:57:47,480
+statistics, okay, all these textbooks on
+
+1347
+00:57:44,440 --> 00:57:49,360
+chemistry, on physics from
+
+1348
+00:57:47,480 --> 00:57:51,840
+20 years ago.
+
+1349
+00:57:49,360 --> 00:57:53,600
+Okay? Just buy, you know, go to used
+
+1350
+00:57:51,840 --> 00:57:56,000
+bookstore
+
+1351
+00:57:53,600 --> 00:57:58,040
+and pick one of these, you know, classic
+
+1352
+00:57:56,000 --> 00:58:00,000
+topics, calculus,
+
+1353
+00:57:58,040 --> 00:58:02,680
+uh geometry,
+
+1354
+00:58:00,000 --> 00:58:04,840
+uh physics, you know, engineering,
+
+1355
+00:58:02,680 --> 00:58:06,320
+mechanical engineering, all these basic,
+
+1356
+00:58:04,840 --> 00:58:09,480
+you know, fundamental engineering,
+
+1357
+00:58:06,320 --> 00:58:11,480
+linear algebra, uh complex, even real
+
+1358
+00:58:09,480 --> 00:58:15,600
+analysis, complex analysis, differential
+
+1359
+00:58:11,480 --> 00:58:18,840
+geometry, those are advanced. Anyway, so
+
+1360
+00:58:15,600 --> 00:58:22,000
+pick a book from 20 years ago.
+
+1361
+00:58:18,840 --> 00:58:24,600
+20 or even 30 years ago, okay? Those are
+
+1362
+00:58:22,000 --> 00:58:27,680
+good. Those are the best. They they cost
+
+1363
+00:58:24,600 --> 00:58:31,600
+you like $2, okay? Like
+
+1364
+00:58:27,680 --> 00:58:34,040
+like literally two $2, $3, okay?
+
+1365
+00:58:31,600 --> 00:58:36,520
+Almost all or free, you know.
+
+1366
+00:58:34,040 --> 00:58:38,920
+Get those books, okay? Don't get the the
+
+1367
+00:58:36,520 --> 00:58:41,360
+the like modern, the latest edition
+
+1368
+00:58:38,920 --> 00:58:43,560
+because they First of all, they are like
+
+1369
+00:58:41,360 --> 00:58:45,840
+few hundred dollars. There's tremendous
+
+1370
+00:58:43,560 --> 00:58:47,040
+corruption. You don't even know it, you
+
+1371
+00:58:45,840 --> 00:58:52,320
+know, you don't know.
+
+1372
+00:58:47,040 --> 00:58:52,320
+Then Then, secondly, they
+
+1373
+00:58:53,480 --> 00:59:00,000
+they temp they contaminate contaminated
+
+1374
+00:58:57,280 --> 00:59:03,120
+all the content by the modern social
+
+1375
+00:59:00,000 --> 00:59:05,520
+justice [ __ ] okay? They started to say,
+
+1376
+00:59:03,120 --> 00:59:07,840
+for example, there there are books on
+
+1377
+00:59:05,520 --> 00:59:11,760
+history of mathematics, okay? So, do I
+
+1378
+00:59:07,840 --> 00:59:14,600
+have Do I show you somewhere you know,
+
+1379
+00:59:11,760 --> 00:59:14,600
+uh
+
+1380
+00:59:15,720 --> 00:59:21,640
+Okay, they are For example, I read quite
+
+1381
+00:59:17,720 --> 00:59:23,840
+a lot history of math books, okay?
+
+1382
+00:59:21,640 --> 00:59:26,240
+You know, so in the past few years I I
+
+1383
+00:59:23,840 --> 00:59:28,600
+have the occasion to check what is the
+
+1384
+00:59:26,240 --> 00:59:30,520
+current edition, what's going on.
+
+1385
+00:59:28,600 --> 00:59:33,680
+It turns out
+
+1386
+00:59:30,520 --> 00:59:36,160
+the current edition, they they add lots
+
+1387
+00:59:33,680 --> 00:59:40,040
+of like
+
+1388
+00:59:36,160 --> 00:59:41,920
+political things. Like, for example,
+
+1389
+00:59:40,040 --> 00:59:43,960
+they they add, for example, history of
+
+1390
+00:59:41,920 --> 00:59:46,440
+mathematics, they add women
+
+1391
+00:59:43,960 --> 00:59:49,960
+mathematicians. They started to have a
+
+1392
+00:59:46,440 --> 00:59:52,160
+lot to say about all of a sudden, "Oh,
+
+1393
+00:59:49,960 --> 00:59:55,000
+women are important in mathematics
+
+1394
+00:59:52,160 --> 00:59:57,760
+because this or that." They added that.
+
+1395
+00:59:55,000 --> 00:59:59,800
+And all all the trans part, okay? They
+
+1396
+00:59:57,760 --> 01:00:01,480
+suddenly added, "Oh, by the way, sex is
+
+1397
+00:59:59,800 --> 01:00:04,200
+not important.
+
+1398
+01:00:01,480 --> 01:00:06,840
+It's just a thought."
+
+1399
+01:00:04,200 --> 01:00:09,600
+They started to add that in statistics
+
+1400
+01:00:06,840 --> 01:00:12,240
+books, I noticed. You know, they added
+
+1401
+01:00:09,600 --> 01:00:14,800
+like, "Oh, because the court
+
+1402
+01:00:12,240 --> 01:00:17,040
+judge in USA, you know, the
+
+1403
+01:00:14,800 --> 01:00:20,160
+because racial issues, black people or
+
+1404
+01:00:17,040 --> 01:00:23,040
+trans or gay sex, gay marriage,
+
+1405
+01:00:20,160 --> 01:00:25,920
+therefore, we have this case example in
+
+1406
+01:00:23,040 --> 01:00:27,760
+the court, and because of statistics,
+
+1407
+01:00:25,920 --> 01:00:30,000
+this or that, therefore, it is because
+
+1408
+01:00:27,760 --> 01:00:31,240
+that way." You know, in the statistics
+
+1409
+01:00:30,000 --> 01:00:33,520
+books.
+
+1410
+01:00:31,240 --> 01:00:36,280
+The current edition.
+
+1411
+01:00:33,520 --> 01:00:39,680
+You know, these things doesn't occur
+
+1412
+01:00:36,280 --> 01:00:41,320
+in in few editions before. They Why is
+
+1413
+01:00:39,680 --> 01:00:44,320
+it in the current edition? Because they
+
+1414
+01:00:41,320 --> 01:00:45,480
+want to, you know, it's it's politics.
+
+1415
+01:00:44,320 --> 01:00:47,480
+Because
+
+1416
+01:00:45,480 --> 01:00:49,080
+that's how people want it to be, you
+
+1417
+01:00:47,480 --> 01:00:51,160
+know, because this
+
+1418
+01:00:49,080 --> 01:00:52,640
+um
+
+1419
+01:00:51,160 --> 01:00:54,440
+Anyway.
+
+1420
+01:00:52,640 --> 01:00:56,080
+Do you guys Do you guys get what I'm
+
+1421
+01:00:54,440 --> 01:00:57,240
+saying?
+
+1422
+01:00:56,080 --> 01:00:59,520
+So,
+
+1423
+01:00:57,240 --> 01:01:03,600
+so that's about textbooks. I don't
+
+1424
+01:00:59,520 --> 01:01:05,320
+recommend any of the modern textbooks,
+
+1425
+01:01:03,600 --> 01:01:09,800
+okay?
+
+1426
+01:01:05,320 --> 01:01:12,720
+Uh buy them from 20 or 30 years ago from
+
+1427
+01:01:09,800 --> 01:01:13,720
+used book store. That I can recommend.
+
+1428
+01:01:12,720 --> 01:01:17,160
+Or
+
+1429
+01:01:13,720 --> 01:01:20,560
+just check out the many online
+
+1430
+01:01:17,160 --> 01:01:22,000
+free PDF versions, okay?
+
+1431
+01:01:20,560 --> 01:01:23,880
+They are
+
+1432
+01:01:22,000 --> 01:01:25,920
+they are um
+
+1433
+01:01:23,880 --> 01:01:28,200
+open source
+
+1434
+01:01:25,920 --> 01:01:30,880
+by license, okay? For example, the Moon
+
+1435
+01:01:28,200 --> 01:01:32,480
+Calculus open source by license.
+
+1436
+01:01:30,880 --> 01:01:34,480
+Uh you can
+
+1437
+01:01:32,480 --> 01:01:37,720
+you know, open it. I mean let me show
+
+1438
+01:01:34,480 --> 01:01:41,960
+you, okay? So, there a wait.
+
+1439
+01:01:37,720 --> 01:01:46,480
+Uh why is it on GitHub?
+
+1440
+01:01:41,960 --> 01:01:46,480
+I forgot. Why did I put on GitHub?
+
+1441
+01:01:54,680 --> 01:01:57,400
+What?
+
+1442
+01:02:00,120 --> 01:02:04,640
+Okay, because I think because it's huge.
+
+1443
+01:02:03,760 --> 01:02:07,280
+Uh
+
+1444
+01:02:04,640 --> 01:02:12,800
+Wait. So, why does it show why does it
+
+1445
+01:02:07,280 --> 01:02:16,720
+not show? Unable to render code block.
+
+1446
+01:02:12,800 --> 01:02:16,720
+What's going on with the GitHub?
+
+1447
+01:02:18,640 --> 01:02:24,240
+Okay, so it's a huge PDF, okay? So,
+
+1448
+01:02:21,600 --> 01:02:27,000
+let's see math books. Anyway, there's
+
+1449
+01:02:24,240 --> 01:02:27,000
+quite a few.
+
+1450
+01:02:27,840 --> 01:02:31,800
+Yeah, so they are in that they are open
+
+1451
+01:02:29,800 --> 01:02:32,840
+source, okay? So, they are open source
+
+1452
+01:02:31,800 --> 01:02:34,880
+books.
+
+1453
+01:02:32,840 --> 01:02:34,880
+Um
+
+1454
+01:02:40,440 --> 01:02:47,120
+So, because I I think it's because it's
+
+1455
+01:02:43,280 --> 01:02:51,160
+huge PDF, so that's why
+
+1456
+01:02:47,120 --> 01:02:54,120
+the GitHub page stopped rendering it.
+
+1457
+01:02:51,160 --> 01:02:57,640
+No, but can you actually download it?
+
+1458
+01:02:54,120 --> 01:03:00,280
+Uh something is going on on GitHub.
+
+1459
+01:02:57,640 --> 01:03:04,320
+You see, this this this is a nasty thing
+
+1460
+01:03:00,280 --> 01:03:04,320
+about all these websites.
+
+1461
+01:03:11,400 --> 01:03:18,800
+So, let's see. So, can you actually
+
+1462
+01:03:14,280 --> 01:03:18,800
+download it? Save pages.
+
+1463
+01:03:37,200 --> 01:03:43,680
+Okay, so you can download.
+
+1464
+01:03:40,880 --> 01:03:43,680
+Right.
+
+1465
+01:03:45,160 --> 01:03:50,440
+That's right. Okay, so that's right. So
+
+1466
+01:03:48,280 --> 01:03:52,880
+you can still download. That's good.
+
+1467
+01:03:50,440 --> 01:03:56,880
+Okay, for example, this is a
+
+1468
+01:03:52,880 --> 01:03:59,640
+open source calculus book. Okay.
+
+1469
+01:03:56,880 --> 01:04:02,600
+You see there's a license there.
+
+1470
+01:03:59,640 --> 01:04:08,360
+Gregory Hartman
+
+1471
+01:04:02,600 --> 01:04:08,360
+uh calculus. Okay, so we you know, okay.
+
+1472
+01:04:12,640 --> 01:04:19,120
+Okay, so I think that's it.
+
+1473
+01:04:16,480 --> 01:04:22,320
+Um
+
+1474
+01:04:19,120 --> 01:04:24,680
+Well, I was going to work on the math.
+
+1475
+01:04:22,320 --> 01:04:27,480
+Turns out we didn't work on the math. We
+
+1476
+01:04:24,680 --> 01:04:30,560
+talked about Bertrand Russell and we
+
+1477
+01:04:27,480 --> 01:04:33,560
+talked about lots of things. Okay.
+
+1478
+01:04:30,560 --> 01:04:33,560
+Um
+
+1479
+01:04:36,200 --> 01:04:44,880
+So I've been talking for an hour. So
+
+1480
+01:04:42,480 --> 01:04:48,280
+now
+
+1481
+01:04:44,880 --> 01:04:51,240
+what do we do? So do we um
+
+1482
+01:04:48,280 --> 01:04:51,240
+I can
+
+1483
+01:04:51,520 --> 01:04:58,400
+Uh okay, I can continue to code this or
+
+1484
+01:04:55,040 --> 01:04:58,400
+I can stop.
+
+1485
+01:04:58,480 --> 01:05:04,920
+I think it's better I stop because I
+
+1486
+01:05:01,000 --> 01:05:07,440
+talked for 1 hour about Bertrand Russell
+
+1487
+01:05:04,920 --> 01:05:09,320
+and about
+
+1488
+01:05:07,440 --> 01:05:12,880
+basically
+
+1489
+01:05:09,320 --> 01:05:15,280
+education, learning mathematics
+
+1490
+01:05:12,880 --> 01:05:18,240
+and about
+
+1491
+01:05:15,280 --> 01:05:18,240
+textbooks.
+
+1492
+01:05:25,200 --> 01:05:30,400
+People like male live streamers because
+
+1493
+01:05:27,640 --> 01:05:32,640
+they are rich and act with low
+
+1494
+01:05:30,400 --> 01:05:34,760
+inhibition.
+
+1495
+01:05:32,640 --> 01:05:34,760
+Uh
+
+1496
+01:05:41,440 --> 01:05:44,600
+Okay, bye guys.
+
+1497
+01:05:48,840 --> 01:05:51,760
+Yeah, so
+
+1498
+01:05:52,800 --> 01:05:59,680
+So, this thing this thing is about
+
+1499
+01:05:55,960 --> 01:06:02,200
+drawing a tangent, okay?
+
+1500
+01:05:59,680 --> 01:06:03,680
+Creating a Wolfram language code to draw
+
+1501
+01:06:02,200 --> 01:06:06,960
+the tangent. Uh
+
+1502
+01:06:03,680 --> 01:06:06,960
+I'll do it offline.
+
+1503
+01:06:07,160 --> 01:06:09,680
+Bye.
+

@@ -1,0 +1,5700 @@
+1
+00:00:02,560 --> 00:00:07,120
+Hello, good morning, good evening.
+
+2
+00:00:04,319 --> 00:00:09,760
+Welcome to another episode of Kasan Talk
+
+3
+00:00:07,120 --> 00:00:14,000
+Show. We are going to talk about
+
+4
+00:00:09,760 --> 00:00:17,039
+programming language design on stream.
+
+5
+00:00:14,000 --> 00:00:20,000
+So, am I live? Check. Video check. Audio
+
+6
+00:00:17,039 --> 00:00:23,039
+check. Yes, good to go. Uh, programming
+
+7
+00:00:20,000 --> 00:00:27,039
+language design. So the topic is the
+
+8
+00:00:23,039 --> 00:00:31,519
+programming language C sprint f or print
+
+9
+00:00:27,039 --> 00:00:35,040
+f crime and best new syntax for string
+
+10
+00:00:31,519 --> 00:00:37,680
+called rock rock string. Okay, that's a
+
+11
+00:00:35,040 --> 00:00:40,800
+string syntax I just designed. So if you
+
+12
+00:00:37,680 --> 00:00:43,040
+are watching this offline, play at 1.5
+
+13
+00:00:40,800 --> 00:00:44,800
+speed minimum. If you are watching here
+
+14
+00:00:43,040 --> 00:00:47,600
+live, say hi. Okay, love to see your
+
+15
+00:00:44,800 --> 00:00:51,360
+comments. So this is uh kind of
+
+16
+00:00:47,600 --> 00:00:54,079
+technical uh for those programmers
+
+17
+00:00:51,360 --> 00:00:58,000
+you know if you have like you know one
+
+18
+00:00:54,079 --> 00:01:00,160
+year experience of programming and uh so
+
+19
+00:00:58,000 --> 00:01:05,199
+I'm going to talk about the problem of
+
+20
+00:01:00,160 --> 00:01:09,600
+C's printf and uh many of the issues on
+
+21
+00:01:05,199 --> 00:01:12,240
+uh string syntax design and uh at the
+
+22
+00:01:09,600 --> 00:01:14,960
+end I'm going to show you a new uh
+
+23
+00:01:12,240 --> 00:01:18,720
+string syntax that solves all the
+
+24
+00:01:14,960 --> 00:01:20,880
+problems. I think at least okay that is
+
+25
+00:01:18,720 --> 00:01:24,080
+one of my best work I think I just came
+
+26
+00:01:20,880 --> 00:01:26,960
+up uh you know yesterday but based on
+
+27
+00:01:24,080 --> 00:01:30,560
+from based from my 20 years experience
+
+28
+00:01:26,960 --> 00:01:32,479
+from you know coding and uh learning the
+
+29
+00:01:30,560 --> 00:01:34,079
+many different programming languages
+
+30
+00:01:32,479 --> 00:01:38,960
+lisp
+
+31
+00:01:34,079 --> 00:01:40,720
+uh list PHP pearl python javascript you
+
+32
+00:01:38,960 --> 00:01:43,840
+know their design and the problems I
+
+33
+00:01:40,720 --> 00:01:46,479
+found and and bash and shell so let's
+
+34
+00:01:43,840 --> 00:01:51,280
+let's begin Okay, so let me just go
+
+35
+00:01:46,479 --> 00:01:53,920
+through my uh notes. Niha, GPS, Niha.
+
+36
+00:01:51,280 --> 00:01:57,360
+Uh so C and Unix, you know, I'm a big
+
+37
+00:01:53,920 --> 00:02:00,799
+hater, giant hater of C. Okay, I think
+
+38
+00:01:57,360 --> 00:02:02,719
+that C and Unix caused pervasive harm in
+
+39
+00:02:00,799 --> 00:02:05,920
+programming languages and computing
+
+40
+00:02:02,719 --> 00:02:08,399
+industry. Okay, that's my claim. Now C
+
+41
+00:02:05,920 --> 00:02:10,640
+print F, I'm going to explain what that
+
+42
+00:02:08,399 --> 00:02:13,440
+is. Okay, is the quintessence of its
+
+43
+00:02:10,640 --> 00:02:15,760
+hack nature. Okay, I hate C very much.
+
+44
+00:02:13,440 --> 00:02:18,800
+If you are interested, you can look at
+
+45
+00:02:15,760 --> 00:02:24,480
+one of my article I've written why I
+
+46
+00:02:18,800 --> 00:02:26,640
+hate C the language written in um 2012
+
+47
+00:02:24,480 --> 00:02:29,440
+why I hate C. So you know there are many
+
+48
+00:02:26,640 --> 00:02:33,440
+reasons I gave and what and one of the
+
+49
+00:02:29,440 --> 00:02:37,440
+reason you know so if I can capture the
+
+50
+00:02:33,440 --> 00:02:40,480
+essence of why why YC is the worst hack
+
+51
+00:02:37,440 --> 00:02:44,160
+possible like no design no brain worst
+
+52
+00:02:40,480 --> 00:02:47,920
+hack possible I would say it is you can
+
+53
+00:02:44,160 --> 00:02:50,160
+you can see it from from the C print F
+
+54
+00:02:47,920 --> 00:02:52,239
+syntax okay
+
+55
+00:02:50,160 --> 00:02:54,160
+so let me quickly so actually I can show
+
+56
+00:02:52,239 --> 00:02:57,440
+you so I don't have C I don't know
+
+57
+00:02:54,160 --> 00:03:00,800
+actually I don't call C but the C sprint
+
+58
+00:02:57,440 --> 00:03:03,120
+f function has been borrowed to so many
+
+59
+00:03:00,800 --> 00:03:06,879
+languages because C is like a virus. So
+
+60
+00:03:03,120 --> 00:03:10,560
+it's in Python, it's in EMAC list, it's
+
+61
+00:03:06,879 --> 00:03:12,640
+in uh Python emacs list, it's in Goland.
+
+62
+00:03:10,560 --> 00:03:15,280
+Actually I don't have you know I should
+
+63
+00:03:12,640 --> 00:03:18,720
+link to Goland. So you know you can see
+
+64
+00:03:15,280 --> 00:03:22,800
+Python PowerShell. It's also you know
+
+65
+00:03:18,720 --> 00:03:25,599
+went to PowerShell. It's in in pearl.
+
+66
+00:03:22,800 --> 00:03:28,879
+Okay I didn't prepare. So it's in Python
+
+67
+00:03:25,599 --> 00:03:32,080
+pearl I I should have a link powershell
+
+68
+00:03:28,879 --> 00:03:35,680
+emac this you can see there and uh and
+
+69
+00:03:32,080 --> 00:03:38,400
+more okay so um actually I don't have an
+
+70
+00:03:35,680 --> 00:03:40,480
+article for per pearl print f okay but I
+
+71
+00:03:38,400 --> 00:03:43,599
+can I can quickly let me just quickly
+
+72
+00:03:40,480 --> 00:03:47,200
+show you what print f means okay so
+
+73
+00:03:43,599 --> 00:03:54,080
+python uh let's start a python code okay
+
+74
+00:03:47,200 --> 00:03:55,840
+so print okay let's say uh x equals to 3
+
+75
+00:03:54,080 --> 00:04:00,799
+uh
+
+76
+00:03:55,840 --> 00:04:04,319
+some random number. Okay. Uh 3.256.
+
+77
+00:04:00,799 --> 00:04:08,120
+Okay. So, uh
+
+78
+00:04:04,319 --> 00:04:08,120
+and let's say
+
+79
+00:04:11,200 --> 00:04:19,840
+the price is X. Okay. So, and then you
+
+80
+00:04:16,320 --> 00:04:22,000
+you put a percentage sign then X. Okay.
+
+81
+00:04:19,840 --> 00:04:27,400
+Actually, you put percentage sign there
+
+82
+00:04:22,000 --> 00:04:27,400
+and F. Okay. Now run the code.
+
+83
+00:04:28,400 --> 00:04:35,520
+Wait, is it running? Uh, not yet. Wait,
+
+84
+00:04:32,479 --> 00:04:38,000
+what? What?
+
+85
+00:04:35,520 --> 00:04:44,759
+Okay, so you can see the output. But but
+
+86
+00:04:38,000 --> 00:04:44,759
+why is that? I can't run this. Uh,
+
+87
+00:04:46,960 --> 00:04:51,320
+okay. But anyway, here's output.
+
+88
+00:04:54,000 --> 00:05:00,720
+Oh wait, this is uh incorrect. We are
+
+89
+00:04:56,800 --> 00:05:04,320
+running in closure mod for some reason.
+
+90
+00:05:00,720 --> 00:05:08,680
+Okay, Python. Okay, so
+
+91
+00:05:04,320 --> 00:05:08,680
+so wait, this is incorrect.
+
+92
+00:05:09,759 --> 00:05:15,360
+Cut it. Okay, now run it. Okay, here. So
+
+93
+00:05:12,639 --> 00:05:17,600
+here's output. So you see you want to
+
+94
+00:05:15,360 --> 00:05:20,320
+basically you got a number and you you
+
+95
+00:05:17,600 --> 00:05:24,639
+this is kind of function as a um string
+
+96
+00:05:20,320 --> 00:05:27,360
+template and that percent f means means
+
+97
+00:05:24,639 --> 00:05:31,199
+that's a argument and it came from this
+
+98
+00:05:27,360 --> 00:05:35,440
+x which is defined here and that f means
+
+99
+00:05:31,199 --> 00:05:37,840
+it's a floating number. So and uh so
+
+100
+00:05:35,440 --> 00:05:41,039
+this is output. Now let's say if you
+
+101
+00:05:37,840 --> 00:05:42,880
+want to uh show just two decimal places
+
+102
+00:05:41,039 --> 00:05:46,240
+at the end because you know this is not
+
+103
+00:05:42,880 --> 00:05:48,800
+good. You don't want you know 0.25600 0.
+
+104
+00:05:46,240 --> 00:05:52,000
+So what you do is like I believe two.
+
+105
+00:05:48,800 --> 00:05:55,360
+Okay. So let's run this again. So there
+
+106
+00:05:52,000 --> 00:05:57,919
+is the result. So you see so this this
+
+107
+00:05:55,360 --> 00:06:00,160
+this
+
+108
+00:05:57,919 --> 00:06:02,080
+thing this kind of the you know
+
+109
+00:06:00,160 --> 00:06:04,880
+percentage sign dot something something
+
+110
+00:06:02,080 --> 00:06:07,600
+f or uh let's let's show another
+
+111
+00:06:04,880 --> 00:06:09,759
+example. Okay. So let's show another
+
+112
+00:06:07,600 --> 00:06:14,080
+example. Let's say a hexadimal. Let's
+
+113
+00:06:09,759 --> 00:06:19,840
+say hexadimal. Um let's say
+
+114
+00:06:14,080 --> 00:06:24,479
+hex equals to um 17. Okay. So you want
+
+115
+00:06:19,840 --> 00:06:27,199
+to print x let's say y. Okay. Not x. Uh
+
+116
+00:06:24,479 --> 00:06:30,000
+okay. So you say y. You want to convert
+
+117
+00:06:27,199 --> 00:06:32,880
+that number to a hexadimal. So what you
+
+118
+00:06:30,000 --> 00:06:34,960
+do here is you have to put x. Okay. Now
+
+119
+00:06:32,880 --> 00:06:36,960
+run it.
+
+120
+00:06:34,960 --> 00:06:41,880
+Okay. Okay. The price. Okay. So, wait.
+
+121
+00:06:36,960 --> 00:06:41,880
+So, let's change this hexadimal
+
+122
+00:06:43,120 --> 00:06:47,800
+of
+
+123
+00:06:44,800 --> 00:06:47,800
+y
+
+124
+00:06:48,800 --> 00:06:55,840
+um of of y. So, this is how you do it.
+
+125
+00:06:52,639 --> 00:06:58,479
+Okay. So, you have to put a d there. D
+
+126
+00:06:55,840 --> 00:07:02,080
+stand for decimal. So, this you know is
+
+127
+00:06:58,479 --> 00:07:04,720
+this. Okay. So, you just do y I believe.
+
+128
+00:07:02,080 --> 00:07:07,759
+So, let's try it. Okay. Wrong. So you
+
+129
+00:07:04,720 --> 00:07:11,039
+need a comma here.
+
+130
+00:07:07,759 --> 00:07:14,039
+Okay. Run it. Uh
+
+131
+00:07:11,039 --> 00:07:14,039
+wait
+
+132
+00:07:14,880 --> 00:07:20,400
+code. Uh type not enough argument for
+
+133
+00:07:17,199 --> 00:07:25,560
+format. Why is it not enough argument?
+
+134
+00:07:20,400 --> 00:07:25,560
+You got Y and Y. Um
+
+135
+00:07:25,759 --> 00:07:28,759
+okay.
+
+136
+00:07:29,759 --> 00:07:36,560
+Perhaps you forgot a comma. Wait, I just
+
+137
+00:07:32,240 --> 00:07:39,039
+add a comma there. So
+
+138
+00:07:36,560 --> 00:07:42,000
+not enough argument. Why is that? I
+
+139
+00:07:39,039 --> 00:07:44,240
+don't know. But
+
+140
+00:07:42,000 --> 00:07:47,360
+you know this is a python issue but
+
+141
+00:07:44,240 --> 00:07:50,000
+anyway so so this is what basically this
+
+142
+00:07:47,360 --> 00:07:52,080
+is what cintf do. Okay. So now let's go
+
+143
+00:07:50,000 --> 00:07:54,800
+back now let's let's talk about the
+
+144
+00:07:52,080 --> 00:07:58,879
+problem. So C and Unix is causes
+
+145
+00:07:54,800 --> 00:08:01,280
+pervasive harm in my opinion.
+
+146
+00:07:58,879 --> 00:08:03,440
+Yeah. So you GPS you are talking about
+
+147
+00:08:01,280 --> 00:08:05,680
+the new Python syntax. Okay. That's kind
+
+148
+00:08:03,440 --> 00:08:07,919
+of a bit different. What I'm doing is
+
+149
+00:08:05,680 --> 00:08:11,360
+the classic, you know, I I want to
+
+150
+00:08:07,919 --> 00:08:13,840
+demonstrate the C sprint f. Okay. And
+
+151
+00:08:11,360 --> 00:08:17,919
+that is borrowed in Python's this
+
+152
+00:08:13,840 --> 00:08:20,720
+percent thing. Okay. So, so because C
+
+153
+00:08:17,919 --> 00:08:23,759
+sprint f is so lousy, such a hack that
+
+154
+00:08:20,720 --> 00:08:26,000
+every language creates a new syntax. So
+
+155
+00:08:23,759 --> 00:08:28,720
+Python in the case of Python it creates
+
+156
+00:08:26,000 --> 00:08:31,680
+it over the you know 10 or 20 years it
+
+157
+00:08:28,720 --> 00:08:33,519
+it has three different syntax for uh
+
+158
+00:08:31,680 --> 00:08:36,959
+formatting strings. So you can look at
+
+159
+00:08:33,519 --> 00:08:40,000
+here. So so first of all we demonstrated
+
+160
+00:08:36,959 --> 00:08:42,959
+the you know print f I mean the print
+
+161
+00:08:40,000 --> 00:08:45,120
+with a percentage sign. Oh you need okay
+
+162
+00:08:42,959 --> 00:08:49,000
+I I've just found out what is wrong. So
+
+163
+00:08:45,120 --> 00:08:49,000
+you need a paren here
+
+164
+00:08:49,279 --> 00:08:55,760
+you need so the percentage percentage
+
+165
+00:08:51,920 --> 00:08:58,959
+sign goes here and paren okay now let's
+
+166
+00:08:55,760 --> 00:09:02,160
+dd the error okay now run this okay so
+
+167
+00:08:58,959 --> 00:09:04,720
+it says hexad decimal of 17 is 11 okay
+
+168
+00:09:02,160 --> 00:09:07,120
+that's how you do it now this put it
+
+169
+00:09:04,720 --> 00:09:09,120
+back syntax color show in browser
+
+170
+00:09:07,120 --> 00:09:13,120
+today's talk show at bottom so that's
+
+171
+00:09:09,120 --> 00:09:15,279
+what we code it okay so c print f is so
+
+172
+00:09:13,120 --> 00:09:17,440
+lousy like every language they they kind
+
+173
+00:09:15,279 --> 00:09:20,480
+of so in the case of Python they have
+
+174
+00:09:17,440 --> 00:09:22,800
+three they have actually four different
+
+175
+00:09:20,480 --> 00:09:26,640
+um like three
+
+176
+00:09:22,800 --> 00:09:31,200
+um syntax for to do what the C print F
+
+177
+00:09:26,640 --> 00:09:34,240
+does okay so the earliest the original
+
+178
+00:09:31,200 --> 00:09:37,040
+is this print f I mean print okay with a
+
+179
+00:09:34,240 --> 00:09:40,399
+percentage sign then they later on they
+
+180
+00:09:37,040 --> 00:09:46,000
+created the format format so you like so
+
+181
+00:09:40,399 --> 00:09:49,920
+this is similar to uh C sprint F the S
+
+182
+00:09:46,000 --> 00:09:52,399
+stand for string. So S print F that's a
+
+183
+00:09:49,920 --> 00:09:54,240
+that's a that's a name of the C's
+
+184
+00:09:52,399 --> 00:09:56,480
+function. So in the Python case they
+
+185
+00:09:54,240 --> 00:09:58,720
+changed it. So they don't use you know
+
+186
+00:09:56,480 --> 00:10:01,040
+they longer no longer use you know they
+
+187
+00:09:58,720 --> 00:10:03,279
+don't have like S sprint F something
+
+188
+00:10:01,040 --> 00:10:07,120
+something they so they created a entire
+
+189
+00:10:03,279 --> 00:10:10,880
+new kind of uh syntax they call it
+
+190
+00:10:07,120 --> 00:10:14,000
+format method. Okay. But and instead of
+
+191
+00:10:10,880 --> 00:10:17,920
+using percentage sign they use the they
+
+192
+00:10:14,000 --> 00:10:21,360
+use the curly braces to stand for uh
+
+193
+00:10:17,920 --> 00:10:23,360
+placeholder for the argument. Okay. Then
+
+194
+00:10:21,360 --> 00:10:28,160
+later on like five years ago they
+
+195
+00:10:23,360 --> 00:10:30,880
+created a new another new you know uh
+
+196
+00:10:28,160 --> 00:10:34,160
+function or syntax s you know basically
+
+197
+00:10:30,880 --> 00:10:37,120
+doing exactly what the C's print f does.
+
+198
+00:10:34,160 --> 00:10:40,000
+Okay that is the that's called f string.
+
+199
+00:10:37,120 --> 00:10:41,760
+So you just um so here are some examples
+
+200
+00:10:40,000 --> 00:10:44,320
+you know.
+
+201
+00:10:41,760 --> 00:10:46,720
+So why is Python create you know have
+
+202
+00:10:44,320 --> 00:10:48,720
+this all these diverse ways to do it?
+
+203
+00:10:46,720 --> 00:10:52,399
+Basically they do the same thing. Okay
+
+204
+00:10:48,720 --> 00:10:56,079
+that is because the C scum the C you
+
+205
+00:10:52,399 --> 00:10:58,320
+know the so extremely lousy uh print f.
+
+206
+00:10:56,079 --> 00:11:00,240
+So you know in the beginning like 30
+
+207
+00:10:58,320 --> 00:11:02,880
+years ago Python just borrowed it
+
+208
+00:11:00,240 --> 00:11:05,120
+because C is very popular you know. So
+
+209
+00:11:02,880 --> 00:11:07,440
+pearl borrowed it python borrowed it le
+
+210
+00:11:05,120 --> 00:11:09,920
+borrowed it and so many others. Okay.
+
+211
+00:11:07,440 --> 00:11:11,680
+And so they borrowed it. Then event, you
+
+212
+00:11:09,920 --> 00:11:14,720
+know, after 10 years they found out, you
+
+213
+00:11:11,680 --> 00:11:16,800
+know, it really sucks. So that's why um
+
+214
+00:11:14,720 --> 00:11:18,720
+really sucks. So they created a new
+
+215
+00:11:16,800 --> 00:11:20,320
+thing, you know, oh, we need the dot
+
+216
+00:11:18,720 --> 00:11:23,440
+format method. That's because that's
+
+217
+00:11:20,320 --> 00:11:25,920
+more clear, you know. Then then after 10
+
+218
+00:11:23,440 --> 00:11:28,480
+more years, they they they found that oh
+
+219
+00:11:25,920 --> 00:11:30,880
+that's actually not, you know, optimal.
+
+220
+00:11:28,480 --> 00:11:34,720
+So we need to create the fing. So that's
+
+221
+00:11:30,880 --> 00:11:37,680
+a story. So, so, so,
+
+222
+00:11:34,720 --> 00:11:41,519
+so the Python having these three
+
+223
+00:11:37,680 --> 00:11:45,279
+different formatting string uh ways in
+
+224
+00:11:41,519 --> 00:11:50,880
+my opinion is significantly partly due
+
+225
+00:11:45,279 --> 00:11:53,360
+to the C print F hack. Okay, so that's a
+
+226
+00:11:50,880 --> 00:11:55,200
+Python case. Now, in in in other case,
+
+227
+00:11:53,360 --> 00:11:57,360
+similar situation. For example, in
+
+228
+00:11:55,200 --> 00:11:59,920
+PowerShell, in PowerShell, they also
+
+229
+00:11:57,360 --> 00:12:04,240
+have like
+
+230
+00:11:59,920 --> 00:12:07,040
+very similar to the C uh print f with
+
+231
+00:12:04,240 --> 00:12:08,880
+the uh with you know this little code.
+
+232
+00:12:07,040 --> 00:12:11,279
+Let me show you. Okay. So, for example,
+
+233
+00:12:08,880 --> 00:12:13,600
+here. So, okay. So, let me show you.
+
+234
+00:12:11,279 --> 00:12:18,000
+Okay. So, let's just run it. Okay. So,
+
+235
+00:12:13,600 --> 00:12:21,040
+here. So, let's save this as as xx
+
+236
+00:12:18,000 --> 00:12:22,880
+uh ps1. That's a file name extension for
+
+237
+00:12:21,040 --> 00:12:25,360
+powershell. So, now it's this is
+
+238
+00:12:22,880 --> 00:12:29,120
+powershell. So you want to format this
+
+239
+00:12:25,360 --> 00:12:31,600
+this big number and you want to add you
+
+240
+00:12:29,120 --> 00:12:34,000
+know show this two decimal places with
+
+241
+00:12:31,600 --> 00:12:36,880
+grouping comma that's what you do. So
+
+242
+00:12:34,000 --> 00:12:39,760
+let's run it. Okay. So
+
+243
+00:12:36,880 --> 00:12:41,279
+uh let's do it here. Okay. New. So run
+
+244
+00:12:39,760 --> 00:12:43,839
+it.
+
+245
+00:12:41,279 --> 00:12:46,079
+Okay. So you can see now what what if
+
+246
+00:12:43,839 --> 00:12:48,079
+you want to convert to hexadimal. Okay.
+
+247
+00:12:46,079 --> 00:12:51,040
+So let's try it. Okay. So let's delete
+
+248
+00:12:48,079 --> 00:12:55,200
+that. Uh let's try hexadimal. So
+
+249
+00:12:51,040 --> 00:13:00,079
+hexadimal 17 just like before and here I
+
+250
+00:12:55,200 --> 00:13:06,399
+believe it's x. Okay. So you write 11.
+
+251
+00:13:00,079 --> 00:13:09,399
+Okay. So you say uh the number the
+
+252
+00:13:06,399 --> 00:13:09,399
+decimal
+
+253
+00:13:10,160 --> 00:13:13,240
+number number.
+
+254
+00:13:14,720 --> 00:13:19,320
+So you put a D here for decimal
+
+255
+00:13:19,680 --> 00:13:25,680
+in hexadimal
+
+256
+00:13:21,760 --> 00:13:28,079
+is that. Okay. So let's do it. There you
+
+257
+00:13:25,680 --> 00:13:31,440
+go. So the decimal number 17 in
+
+258
+00:13:28,079 --> 00:13:34,399
+hexodimal is one one. Okay. So let's uh
+
+259
+00:13:31,440 --> 00:13:39,360
+put it back. Wait. So copy it. Delete
+
+260
+00:13:34,399 --> 00:13:41,839
+it. Let's make a new example here.
+
+261
+00:13:39,360 --> 00:13:43,839
+PowerShell. Okay. Paste the code. Syntax
+
+262
+00:13:41,839 --> 00:13:46,320
+showing browser. Today's talk show. go
+
+263
+00:13:43,839 --> 00:13:48,399
+to the bottom. So that is a PowerShell
+
+264
+00:13:46,320 --> 00:13:52,000
+example. So you can see PowerShell also
+
+265
+00:13:48,399 --> 00:13:54,320
+kind of borrowed from the C print F. You
+
+266
+00:13:52,000 --> 00:13:56,560
+know they didn't borrow the percentage
+
+267
+00:13:54,320 --> 00:14:00,399
+sign but act but but they use the this
+
+268
+00:13:56,560 --> 00:14:04,480
+this cryptic code D for decimal X for
+
+269
+00:14:00,399 --> 00:14:07,040
+hexodimal. Okay. So
+
+270
+00:14:04,480 --> 00:14:09,760
+so C and Unix
+
+271
+00:14:07,040 --> 00:14:12,639
+creates pervasive harm for like 30 years
+
+272
+00:14:09,760 --> 00:14:14,800
+in programming languages. Now C print F
+
+273
+00:14:12,639 --> 00:14:17,519
+is the quintessence of the hack nature
+
+274
+00:14:14,800 --> 00:14:19,600
+of C. Okay, that's my clear. Now why is
+
+275
+00:14:17,519 --> 00:14:21,680
+print F a problem? I mean what's what's
+
+276
+00:14:19,600 --> 00:14:22,800
+the problem? You just you know of course
+
+277
+00:14:21,680 --> 00:14:25,199
+you have to learn a programming
+
+278
+00:14:22,800 --> 00:14:29,279
+language. So that's so you have to learn
+
+279
+00:14:25,199 --> 00:14:31,680
+this uh cryptic code. Well
+
+280
+00:14:29,279 --> 00:14:34,240
+so bit so the problem is that the C
+
+281
+00:14:31,680 --> 00:14:36,480
+print effectively creates a mini
+
+282
+00:14:34,240 --> 00:14:38,000
+language that is cryptic,
+
+283
+00:14:36,480 --> 00:14:40,800
+incomprehensible
+
+284
+00:14:38,000 --> 00:14:44,480
+and hard to use and not extensible.
+
+285
+00:14:40,800 --> 00:14:47,519
+Okay. Uh so it's cryptic you know
+
+286
+00:14:44,480 --> 00:14:50,720
+percentage f percentage x percentage d
+
+287
+00:14:47,519 --> 00:14:53,680
+that's cryptic incomprehensible and and
+
+288
+00:14:50,720 --> 00:14:56,800
+uh if you want to uh you know have two
+
+289
+00:14:53,680 --> 00:15:00,240
+decimals you have to use you know like
+
+290
+00:14:56,800 --> 00:15:04,079
+um like 2f that means two decimal
+
+291
+00:15:00,240 --> 00:15:05,839
+places. So it's very bad and like every
+
+292
+00:15:04,079 --> 00:15:07,440
+time you need to do something you you
+
+293
+00:15:05,839 --> 00:15:10,160
+read the documentation. For example,
+
+294
+00:15:07,440 --> 00:15:13,440
+let's let's look at the uh documentation
+
+295
+00:15:10,160 --> 00:15:17,120
+for Python's print f. Okay.
+
+296
+00:15:13,440 --> 00:15:19,920
+Uh open Python doc. Okay. So here is a
+
+297
+00:15:17,120 --> 00:15:25,360
+feature documentation of Python. And uh
+
+298
+00:15:19,920 --> 00:15:27,680
+let's let's search for um uh
+
+299
+00:15:25,360 --> 00:15:30,240
+print. Okay. So let's see if we can find
+
+300
+00:15:27,680 --> 00:15:34,120
+the documentation for print for that
+
+301
+00:15:30,240 --> 00:15:34,120
+percentage thing.
+
+302
+00:15:35,199 --> 00:15:40,399
+Okay. print converts print statement to
+
+303
+00:15:37,600 --> 00:15:42,800
+print f function. Okay, so there it is.
+
+304
+00:15:40,399 --> 00:15:46,720
+Uh print print system output something
+
+305
+00:15:42,800 --> 00:15:49,680
+something class class class property. Uh
+
+306
+00:15:46,720 --> 00:15:52,399
+and uh where does it show the percentage
+
+307
+00:15:49,680 --> 00:15:55,120
+sign
+
+308
+00:15:52,399 --> 00:15:56,800
+you know? So we want to find that the
+
+309
+00:15:55,120 --> 00:16:00,040
+the
+
+310
+00:15:56,800 --> 00:16:00,040
+uh code
+
+311
+00:16:01,360 --> 00:16:06,639
+Python doc is really sucks. Okay. So I
+
+312
+00:16:04,079 --> 00:16:10,360
+don't know where do you find uh format.
+
+313
+00:16:06,639 --> 00:16:10,360
+Let's search for format.
+
+314
+00:16:12,160 --> 00:16:16,160
+Okay, let's let's look at format because
+
+315
+00:16:14,320 --> 00:16:18,880
+it's kind of similar. So, here's a
+
+316
+00:16:16,160 --> 00:16:21,519
+documentation for Python format and
+
+317
+00:16:18,880 --> 00:16:25,560
+where does it show the the bunch of
+
+318
+00:16:21,519 --> 00:16:25,560
+percentage sign code.
+
+319
+00:16:26,800 --> 00:16:32,720
+Uh so, format specification mini
+
+320
+00:16:30,399 --> 00:16:34,959
+language. You see why you know they they
+
+321
+00:16:32,720 --> 00:16:38,160
+literally called it a mini language. So,
+
+322
+00:16:34,959 --> 00:16:40,480
+there they are. So you can see in the
+
+323
+00:16:38,160 --> 00:16:44,399
+format. So let's go to the Python uh
+
+324
+00:16:40,480 --> 00:16:46,480
+example. Uh yeah. So you see this
+
+325
+00:16:44,399 --> 00:16:48,959
+placeholder
+
+326
+00:16:46,480 --> 00:16:53,839
+is a mini language because you can if
+
+327
+00:16:48,959 --> 00:16:57,040
+you put percent.2 that two there f that
+
+328
+00:16:53,839 --> 00:17:00,240
+means um it shows two decimal places.
+
+329
+00:16:57,040 --> 00:17:04,720
+Okay. Now you can also have um you can
+
+330
+00:17:00,240 --> 00:17:07,520
+also have like let's say three.
+
+331
+00:17:04,720 --> 00:17:10,240
+Okay. So let let me try that. Okay. So
+
+332
+00:17:07,520 --> 00:17:12,160
+one, two, three. Let's see what this
+
+333
+00:17:10,240 --> 00:17:15,760
+returns. I don't know because like
+
+334
+00:17:12,160 --> 00:17:18,240
+because they are cryptic. So 3.2F that
+
+335
+00:17:15,760 --> 00:17:23,360
+means print three decimal. Okay. So what
+
+336
+00:17:18,240 --> 00:17:25,839
+what if you say five? Does it
+
+337
+00:17:23,360 --> 00:17:30,160
+you know it does nothing. Okay. It gets
+
+338
+00:17:25,839 --> 00:17:32,880
+interesting. So but but if you say
+
+339
+00:17:30,160 --> 00:17:34,799
+uh zero
+
+340
+00:17:32,880 --> 00:17:40,640
+let's see what it does. Okay. It does
+
+341
+00:17:34,799 --> 00:17:42,559
+nothing. So, what I want is padding. Um,
+
+342
+00:17:40,640 --> 00:17:44,720
+I don't know. You know, you can pad zero
+
+343
+00:17:42,559 --> 00:17:47,600
+in front of it, but I'm not sure how to
+
+344
+00:17:44,720 --> 00:17:52,320
+do it. You and also you can control how
+
+345
+00:17:47,600 --> 00:17:55,280
+many total number of uh integer digits
+
+346
+00:17:52,320 --> 00:17:58,400
+uh digits in the integer part. So, let's
+
+347
+00:17:55,280 --> 00:18:01,280
+say let's say nine. What does this do?
+
+348
+00:17:58,400 --> 00:18:02,799
+There it is. Okay. So you can see now it
+
+349
+00:18:01,280 --> 00:18:06,160
+adds
+
+350
+00:18:02,799 --> 00:18:11,840
+spaces in front of the number. Okay. So
+
+351
+00:18:06,160 --> 00:18:15,520
+9.2F means total of nine uh nine uh
+
+352
+00:18:11,840 --> 00:18:18,559
+slots and uh two
+
+353
+00:18:15,520 --> 00:18:21,280
+uh two of them in the decimal places.
+
+354
+00:18:18,559 --> 00:18:24,799
+Okay. But how do you pad? Let's say how
+
+355
+00:18:21,280 --> 00:18:27,679
+do you pad? I want to pad with zero.
+
+356
+00:18:24,799 --> 00:18:30,400
+Okay. So this is not correct. I don't
+
+357
+00:18:27,679 --> 00:18:32,160
+know. So that's what I that's why I say
+
+358
+00:18:30,400 --> 00:18:34,640
+it's cryptic. So you look at the
+
+359
+00:18:32,160 --> 00:18:38,080
+documentation and you can also control
+
+360
+00:18:34,640 --> 00:18:42,080
+whether you want uh to add the uh
+
+361
+00:18:38,080 --> 00:18:44,080
+positive sign or negative sign or uh
+
+362
+00:18:42,080 --> 00:18:46,480
+grouping operations. Yeah, the group you
+
+363
+00:18:44,080 --> 00:18:49,280
+know this group separators like every
+
+364
+00:18:46,480 --> 00:18:52,799
+three digits you add a comma and then
+
+365
+00:18:49,280 --> 00:18:56,320
+type you see you got B for bite C for
+
+366
+00:18:52,799 --> 00:18:59,840
+character I believe D for decimal number
+
+367
+00:18:56,320 --> 00:19:02,799
+E for exponential notation for number
+
+368
+00:18:59,840 --> 00:19:06,240
+and okay there are two version capital E
+
+369
+00:19:02,799 --> 00:19:08,160
+and lowerase E uh I I forgot the
+
+370
+00:19:06,240 --> 00:19:10,559
+difference so you can check there so
+
+371
+00:19:08,160 --> 00:19:13,360
+it's cryptic then F for float and
+
+372
+00:19:10,559 --> 00:19:15,440
+capital F I don't know what is capital
+
+373
+00:19:13,360 --> 00:19:18,240
+F. So each programming language they
+
+374
+00:19:15,440 --> 00:19:20,320
+borrow borrowed from C and then and they
+
+375
+00:19:18,240 --> 00:19:23,679
+got this kind of little mini language
+
+376
+00:19:20,320 --> 00:19:25,840
+thing to format the number. Yeah.
+
+377
+00:19:23,679 --> 00:19:28,080
+Typically for formatting numbers and
+
+378
+00:19:25,840 --> 00:19:31,280
+they differ slightly. Okay. Because they
+
+379
+00:19:28,080 --> 00:19:34,080
+try to improve it. So that's why I say
+
+380
+00:19:31,280 --> 00:19:38,400
+that the C print F is one of the extreme
+
+381
+00:19:34,080 --> 00:19:41,280
+hack and very very bad. Okay. Like brain
+
+382
+00:19:38,400 --> 00:19:43,039
+listing. Okay. So you can see here the
+
+383
+00:19:41,280 --> 00:19:46,559
+Python documentation, you know, they got
+
+384
+00:19:43,039 --> 00:19:49,360
+several 10 p 20 pages to just to explain
+
+385
+00:19:46,559 --> 00:19:50,960
+this this formatting issue.
+
+386
+00:19:49,360 --> 00:19:54,480
+Okay.
+
+387
+00:19:50,960 --> 00:19:57,520
+So and that's also true for lisp for for
+
+388
+00:19:54,480 --> 00:19:59,679
+example let me show you a list uh uh
+
+389
+00:19:57,520 --> 00:20:02,400
+version. Okay. So actually we can we can
+
+390
+00:19:59,679 --> 00:20:05,280
+actually demonstrate this version. So we
+
+391
+00:20:02,400 --> 00:20:07,520
+demonstrate python syntax color and we
+
+392
+00:20:05,280 --> 00:20:11,760
+demonstrate powershell. Then let's
+
+393
+00:20:07,520 --> 00:20:14,880
+demonstrate uh emacisp. Okay. So, print
+
+394
+00:20:11,760 --> 00:20:19,520
+uh format there it is list use format.
+
+395
+00:20:14,880 --> 00:20:25,679
+So, uh let's say hexadimal. So,
+
+396
+00:20:19,520 --> 00:20:29,520
+so um this uh decimal number
+
+397
+00:20:25,679 --> 00:20:33,840
+uh let's say let's create a local
+
+398
+00:20:29,520 --> 00:20:38,799
+variable. Okay. So, x = to 3. Okay. So,
+
+399
+00:20:33,840 --> 00:20:43,120
+wait x = to 17. So decimal number
+
+400
+00:20:38,799 --> 00:20:47,760
+that in hexad decimal
+
+401
+00:20:43,120 --> 00:20:49,840
+is percent x. Okay. Then you put the
+
+402
+00:20:47,760 --> 00:20:55,200
+argument. Where do you put the argument?
+
+403
+00:20:49,840 --> 00:20:57,919
+Uh here. Okay. So uh x and x. Okay. So
+
+404
+00:20:55,200 --> 00:21:00,919
+now we can run this code.
+
+405
+00:20:57,919 --> 00:21:00,919
+Uh
+
+406
+00:21:01,679 --> 00:21:06,880
+there it is. Decimal number 17 in
+
+407
+00:21:03,919 --> 00:21:09,440
+hexodimal is 11. Okay. Emac list. So put
+
+408
+00:21:06,880 --> 00:21:12,720
+it back. Show in browser. Show in
+
+409
+00:21:09,440 --> 00:21:15,760
+browser. And you can see here's a list
+
+410
+00:21:12,720 --> 00:21:18,000
+example. So this C print F went also
+
+411
+00:21:15,760 --> 00:21:20,320
+went to lisp.
+
+412
+00:21:18,000 --> 00:21:22,240
+Okay. So that I demonstrated the
+
+413
+00:21:20,320 --> 00:21:24,640
+complexities. Okay. Cryptic,
+
+414
+00:21:22,240 --> 00:21:27,039
+incomprehensible and hard to use and not
+
+415
+00:21:24,640 --> 00:21:29,679
+extensible because you see every
+
+416
+00:21:27,039 --> 00:21:32,240
+language when they try to explain when
+
+417
+00:21:29,679 --> 00:21:34,880
+they try to extend it, they basically
+
+418
+00:21:32,240 --> 00:21:37,760
+create incompatible syntax. Okay?
+
+419
+00:21:34,880 --> 00:21:40,400
+there's no way around it. So this lisp
+
+420
+00:21:37,760 --> 00:21:42,880
+way you know they are you know mini code
+
+421
+00:21:40,400 --> 00:21:45,600
+and python is not compatible and not
+
+422
+00:21:42,880 --> 00:21:47,600
+compatible with the C neither okay and
+
+423
+00:21:45,600 --> 00:21:50,640
+and powershell not compatible with
+
+424
+00:21:47,600 --> 00:21:53,760
+powershell neither neither okay so each
+
+425
+00:21:50,640 --> 00:21:56,720
+one becomes a mini language you know so
+
+426
+00:21:53,760 --> 00:21:59,200
+very bad okay now next point the reason
+
+427
+00:21:56,720 --> 00:22:02,080
+why print f is hard to use explain okay
+
+428
+00:21:59,200 --> 00:22:05,200
+I I did because it combines okay here's
+
+429
+00:22:02,080 --> 00:22:09,600
+a key because it combines
+
+430
+00:22:05,200 --> 00:22:13,679
+several distinct operations into one and
+
+431
+00:22:09,600 --> 00:22:16,960
+uses a cryptic ad hoc syntax for them.
+
+432
+00:22:13,679 --> 00:22:19,760
+Okay, so uh short article. So actually I
+
+433
+00:22:16,960 --> 00:22:23,280
+have written this out uh so I just
+
+434
+00:22:19,760 --> 00:22:28,080
+written this uh article new article uh
+
+435
+00:22:23,280 --> 00:22:30,720
+recent like a few weeks uh last week
+
+436
+00:22:28,080 --> 00:22:34,000
+computer language the hack of cintf
+
+437
+00:22:30,720 --> 00:22:36,000
+format string the origin format code
+
+438
+00:22:34,000 --> 00:22:38,080
+percent f percent x in programming
+
+439
+00:22:36,000 --> 00:22:42,640
+language where it came from it came from
+
+440
+00:22:38,080 --> 00:22:44,960
+C okay not from this not from uh forran
+
+441
+00:22:42,640 --> 00:22:47,440
+some people will say it's forran we had
+
+442
+00:22:44,960 --> 00:22:50,799
+an argument in Saudi code but actually
+
+443
+00:22:47,440 --> 00:22:53,280
+it came from C. Okay. Basically, you
+
+444
+00:22:50,799 --> 00:22:55,120
+know, C borrowed it from B and you know
+
+445
+00:22:53,280 --> 00:22:58,400
+a little bit but basically the the the
+
+446
+00:22:55,120 --> 00:23:02,320
+the way we see it today basically from
+
+447
+00:22:58,400 --> 00:23:05,120
+C. Okay. Then the C programming language
+
+448
+00:23:02,320 --> 00:23:07,360
+print format damage. Okay. It it create
+
+449
+00:23:05,120 --> 00:23:10,159
+a damage in computing industry in all
+
+450
+00:23:07,360 --> 00:23:14,640
+the programming languages. uh effective
+
+451
+00:23:10,159 --> 00:23:16,720
+effectively a mini language and um uh
+
+452
+00:23:14,640 --> 00:23:18,880
+why other programming language borrow it
+
+453
+00:23:16,720 --> 00:23:21,520
+from C because C is popular you know
+
+454
+00:23:18,880 --> 00:23:24,159
+because people because by habit you know
+
+455
+00:23:21,520 --> 00:23:26,320
+most people already know C you know back
+
+456
+00:23:24,159 --> 00:23:28,240
+then 30 years ago so when they create a
+
+457
+00:23:26,320 --> 00:23:30,559
+new language oh I already know you know
+
+458
+00:23:28,240 --> 00:23:32,559
+let's just do the C you know it's easy
+
+459
+00:23:30,559 --> 00:23:35,520
+no-brainer you know you just copy it
+
+460
+00:23:32,559 --> 00:23:38,960
+copy the you know the design of C so
+
+461
+00:23:35,520 --> 00:23:40,960
+that's why it went to uh C++ It went to
+
+462
+00:23:38,960 --> 00:23:44,000
+Java. It went to Python. It went to
+
+463
+00:23:40,960 --> 00:23:46,640
+Pearl. It went to PHP because PHP came
+
+464
+00:23:44,000 --> 00:23:49,679
+from Pearl. Borrow you know PHP was was
+
+465
+00:23:46,640 --> 00:23:52,159
+basically Pearl script and went to Ruby.
+
+466
+00:23:49,679 --> 00:23:54,320
+Went to Go language went to Emac this.
+
+467
+00:23:52,159 --> 00:23:57,039
+So what about Goland? We can see it.
+
+468
+00:23:54,320 --> 00:23:59,120
+Okay. So let me show you Golan.
+
+469
+00:23:57,039 --> 00:24:02,720
+Golan is a great language. My you know
+
+470
+00:23:59,120 --> 00:24:05,919
+my favorite lowle language. So you can
+
+471
+00:24:02,720 --> 00:24:08,400
+uh Goland you go to print f. So there
+
+472
+00:24:05,919 --> 00:24:11,679
+there you see it. Okay,
+
+473
+00:24:08,400 --> 00:24:13,679
+Golan is basically a family of the C
+
+474
+00:24:11,679 --> 00:24:16,400
+kind of. Okay, but Golan is a very good
+
+475
+00:24:13,679 --> 00:24:19,440
+language. It it it fixed you know
+
+476
+00:24:16,400 --> 00:24:22,799
+majority or the problem of C. Okay, but
+
+477
+00:24:19,440 --> 00:24:26,240
+however it you know it also borrow the C
+
+478
+00:24:22,799 --> 00:24:28,320
+print F. Okay, so you can see Golan
+
+479
+00:24:26,240 --> 00:24:32,400
+should should I demo the code? Okay. So,
+
+480
+00:24:28,320 --> 00:24:35,520
+let's um Okay. Let's do so copy it and
+
+481
+00:24:32,400 --> 00:24:39,840
+go line tutorial close and uh let's
+
+482
+00:24:35,520 --> 00:24:43,840
+let's create a new section. Go paste the
+
+483
+00:24:39,840 --> 00:24:46,799
+code there. Copy the URL and paste the
+
+484
+00:24:43,840 --> 00:24:51,200
+URL here somewhere. Python Python
+
+485
+00:24:46,799 --> 00:24:55,200
+PowerShell Emac Lisp uh and Golan. Okay.
+
+486
+00:24:51,200 --> 00:24:59,200
+Link it. And now let's go to our Golan
+
+487
+00:24:55,200 --> 00:25:02,080
+code here. Pop it out and let's demo run
+
+488
+00:24:59,200 --> 00:25:05,440
+it.
+
+489
+00:25:02,080 --> 00:25:10,000
+So two variables X and Y. X is a string
+
+490
+00:25:05,440 --> 00:25:12,799
+John and Y is 36. So print name is print
+
+491
+00:25:10,000 --> 00:25:15,120
+name is John age is 36. That's how you
+
+492
+00:25:12,799 --> 00:25:17,279
+do it. Okay. So if you want to let's say
+
+493
+00:25:15,120 --> 00:25:21,760
+you let's say I want to convert decimal
+
+494
+00:25:17,279 --> 00:25:24,880
+to hexadimal. So let's say x is um x is
+
+495
+00:25:21,760 --> 00:25:28,080
+a number. Okay. So 17. Let's try again.
+
+496
+00:25:24,880 --> 00:25:32,720
+So uh decimal
+
+497
+00:25:28,080 --> 00:25:35,200
+uh let's use v v is new in golan. Okay
+
+498
+00:25:32,720 --> 00:25:40,400
+the percent v that's you know golan
+
+499
+00:25:35,200 --> 00:25:42,559
+created its own. So uh decimal v in
+
+500
+00:25:40,400 --> 00:25:46,880
+hexadimal
+
+501
+00:25:42,559 --> 00:25:50,480
+is then you say uh x okay then you don't
+
+502
+00:25:46,880 --> 00:25:53,440
+need the new line. Okay. So that that um
+
+503
+00:25:50,480 --> 00:25:56,480
+that back slash N that stand for new
+
+504
+00:25:53,440 --> 00:25:58,799
+line character. That's another hack from
+
+505
+00:25:56,480 --> 00:26:02,000
+C. Okay. Actually this in this case I'm
+
+506
+00:25:58,799 --> 00:26:04,240
+not sure it's exactly from C. This this
+
+507
+00:26:02,000 --> 00:26:07,760
+thing we'll talk about later. Okay. It's
+
+508
+00:26:04,240 --> 00:26:10,000
+another major harm damage to computing
+
+509
+00:26:07,760 --> 00:26:12,799
+industry that back slashn called it's
+
+510
+00:26:10,000 --> 00:26:15,039
+called escape sequence. Okay. So it just
+
+511
+00:26:12,799 --> 00:26:18,159
+stand for new line in in embedded in
+
+512
+00:26:15,039 --> 00:26:21,200
+this printf format. Okay. So now decimal
+
+513
+00:26:18,159 --> 00:26:26,080
+x uh hex a decimal let's let's not use v
+
+514
+00:26:21,200 --> 00:26:30,000
+let's use d okay so is uh so y okay so
+
+515
+00:26:26,080 --> 00:26:32,159
+uh x uh x okay remove that now run the
+
+516
+00:26:30,000 --> 00:26:36,720
+code
+
+517
+00:26:32,159 --> 00:26:39,279
+there it is copy and and uh uh copy that
+
+518
+00:26:36,720 --> 00:26:42,159
+and paste it to your output okay format
+
+519
+00:26:39,279 --> 00:26:45,440
+the code fantastic okay so this
+
+520
+00:26:42,159 --> 00:26:48,000
+demonstrate that this printf thing is
+
+521
+00:26:45,440 --> 00:26:49,760
+also in golan
+
+522
+00:26:48,000 --> 00:26:51,840
+Okay.
+
+523
+00:26:49,760 --> 00:26:54,240
+Now, so let's go back to so we talked
+
+524
+00:26:51,840 --> 00:26:56,880
+about the reason why print f is hard to
+
+525
+00:26:54,240 --> 00:27:00,159
+use. Okay. Because it combines several
+
+526
+00:26:56,880 --> 00:27:03,120
+distinct operations into one and use a
+
+527
+00:27:00,159 --> 00:27:05,520
+cryptic adhar syntax for them. Okay. So
+
+528
+00:27:03,120 --> 00:27:09,120
+I showed the article. So so what are the
+
+529
+00:27:05,520 --> 00:27:12,559
+distinct operations of print f? So let
+
+530
+00:27:09,120 --> 00:27:14,799
+so so the article is here. So let's take
+
+531
+00:27:12,559 --> 00:27:17,919
+it apart. Okay. Let's dive into detail.
+
+532
+00:27:14,799 --> 00:27:22,320
+Why? What exactly in technical detail?
+
+533
+00:27:17,919 --> 00:27:24,640
+Why is the print f very bad? Okay. So
+
+534
+00:27:22,320 --> 00:27:27,279
+what the first thing is that it compi
+
+535
+00:27:24,640 --> 00:27:29,440
+combines several things very distinct
+
+536
+00:27:27,279 --> 00:27:32,480
+operation you want to do. So what what
+
+537
+00:27:29,440 --> 00:27:35,200
+are the things you want to do? One one
+
+538
+00:27:32,480 --> 00:27:36,799
+of them is a string template system. So
+
+539
+00:27:35,200 --> 00:27:39,120
+when you have a string sometimes you
+
+540
+00:27:36,799 --> 00:27:41,520
+want to embed variables inside it. So
+
+541
+00:27:39,120 --> 00:27:44,080
+that's a string template system. That's
+
+542
+00:27:41,520 --> 00:27:48,159
+one thing it does. The other thing is it
+
+543
+00:27:44,080 --> 00:27:50,000
+does number two string conversion
+
+544
+00:27:48,159 --> 00:27:53,200
+uh you know so number two string
+
+545
+00:27:50,000 --> 00:27:56,159
+conversion so it basically print f does
+
+546
+00:27:53,200 --> 00:27:57,919
+it okay why do you want to convert
+
+547
+00:27:56,159 --> 00:27:59,919
+number two to string because when you
+
+548
+00:27:57,919 --> 00:28:01,919
+print a report whatever programming
+
+549
+00:27:59,919 --> 00:28:04,399
+language that's also that's often
+
+550
+00:28:01,919 --> 00:28:07,440
+necessary right you want to you know
+
+551
+00:28:04,399 --> 00:28:10,000
+print a report and another thing okay
+
+552
+00:28:07,440 --> 00:28:12,320
+template system number string two string
+
+553
+00:28:10,000 --> 00:28:14,960
+conversion and it also does format
+
+554
+00:28:12,320 --> 00:28:16,799
+formatting number. Okay. So why do you
+
+555
+00:28:14,960 --> 00:28:19,200
+need format for for example number of
+
+556
+00:28:16,799 --> 00:28:22,080
+digits number of decimal places
+
+557
+00:28:19,200 --> 00:28:26,159
+important for f in finance because you
+
+558
+00:28:22,080 --> 00:28:30,080
+want to print you know uh 3.25
+
+559
+00:28:26,159 --> 00:28:32,799
+you don't want to print 3.25769 25 769
+
+560
+00:28:30,080 --> 00:28:35,279
+you know you want number of places and
+
+561
+00:28:32,799 --> 00:28:37,600
+sometimes in in another another report
+
+562
+00:28:35,279 --> 00:28:41,039
+you want to uh put zero in front like
+
+563
+00:28:37,600 --> 00:28:43,279
+padding uh for example if you want to uh
+
+564
+00:28:41,039 --> 00:28:45,520
+print ID
+
+565
+00:28:43,279 --> 00:28:47,200
+identifier numbers you know if there's a
+
+566
+00:28:45,520 --> 00:28:49,520
+zero in front usually you want to
+
+567
+00:28:47,200 --> 00:28:52,320
+include that you know like you want to
+
+568
+00:28:49,520 --> 00:28:54,880
+print let's say credit card number you
+
+569
+00:28:52,320 --> 00:28:56,880
+know there's like 12 digits you know the
+
+570
+00:28:54,880 --> 00:28:58,240
+if there's zero in front you you want to
+
+571
+00:28:56,880 --> 00:29:01,919
+print zero
+
+572
+00:28:58,240 --> 00:29:05,520
+Okay. So formatting number that's that's
+
+573
+00:29:01,919 --> 00:29:07,200
+one task which is very different from a
+
+574
+00:29:05,520 --> 00:29:10,480
+string template system very different
+
+575
+00:29:07,200 --> 00:29:13,679
+from number to string. Okay. Then you
+
+576
+00:29:10,480 --> 00:29:17,279
+also what it also does is convert
+
+577
+00:29:13,679 --> 00:29:19,279
+decimal number to binary or hexadimal.
+
+578
+00:29:17,279 --> 00:29:22,320
+Okay. Why do you want to do that?
+
+579
+00:29:19,279 --> 00:29:25,679
+Because uh in digital computers which is
+
+580
+00:29:22,320 --> 00:29:28,240
+what we use today since like 50 years
+
+581
+00:29:25,679 --> 00:29:30,559
+ago digital computers you know the
+
+582
+00:29:28,240 --> 00:29:34,240
+circuits they happen to be binary number
+
+583
+00:29:30,559 --> 00:29:37,039
+because the electronics on and off uh
+
+584
+00:29:34,240 --> 00:29:39,360
+most easily reflected in binary numbers.
+
+585
+00:29:37,039 --> 00:29:41,039
+So in other words binary number is most
+
+586
+00:29:39,360 --> 00:29:47,520
+suitable
+
+587
+00:29:41,039 --> 00:29:50,399
+uh for for uh mirroring uh digital uh
+
+588
+00:29:47,520 --> 00:29:52,000
+electronics. So that's why we use binary
+
+589
+00:29:50,399 --> 00:29:54,799
+numbers. By the way, there's also
+
+590
+00:29:52,000 --> 00:29:58,320
+tonary, but that because but the but it
+
+591
+00:29:54,799 --> 00:30:00,799
+turns out it is not too uh it turns out
+
+592
+00:29:58,320 --> 00:30:03,120
+binary is actually better. So anyway, it
+
+593
+00:30:00,799 --> 00:30:05,679
+it so happens we use binary numbers. So
+
+594
+00:30:03,120 --> 00:30:08,159
+when you say and and why do you need hex
+
+595
+00:30:05,679 --> 00:30:10,960
+hexadimal? Because hexadimal number why
+
+596
+00:30:08,159 --> 00:30:13,919
+do we need them? Because they they
+
+597
+00:30:10,960 --> 00:30:17,360
+happen hexodimal is a a very condensed
+
+598
+00:30:13,919 --> 00:30:20,720
+form to represent binary numbers. That
+
+599
+00:30:17,360 --> 00:30:24,960
+is why we have we use hexadimal numbers
+
+600
+00:30:20,720 --> 00:30:28,080
+a lot. For example, in unic code uh for
+
+601
+00:30:24,960 --> 00:30:31,279
+example in unic code each character
+
+602
+00:30:28,080 --> 00:30:33,760
+has a character ID which is a integer.
+
+603
+00:30:31,279 --> 00:30:37,360
+Okay. Each unic code character may be
+
+604
+00:30:33,760 --> 00:30:39,919
+emoji may be you know this uh using
+
+605
+00:30:37,360 --> 00:30:44,480
+French may be mathematical symbols
+
+606
+00:30:39,919 --> 00:30:46,880
+summation or dagger or hard or copyright
+
+607
+00:30:44,480 --> 00:30:50,159
+symbol or trademark symbol. Each
+
+608
+00:30:46,880 --> 00:30:52,880
+character has a character ID. Okay,
+
+609
+00:30:50,159 --> 00:30:55,760
+which is a integer. And the standard way
+
+610
+00:30:52,880 --> 00:30:58,559
+to represent represent that integer is
+
+611
+00:30:55,760 --> 00:31:02,720
+by by this. Let me show you. Okay, so
+
+612
+00:30:58,559 --> 00:31:05,520
+let me let me let's go to emoji.
+
+613
+00:31:02,720 --> 00:31:09,520
+Uh okay. So does it show here? There it
+
+614
+00:31:05,520 --> 00:31:11,840
+is. Can you see? So the you see that u U
+
+615
+00:31:09,520 --> 00:31:13,600
++ 1 F0
+
+616
+00:31:11,840 --> 00:31:18,159
+605
+
+617
+00:31:13,600 --> 00:31:21,120
+that is you know U plus is a kind of
+
+618
+00:31:18,159 --> 00:31:24,559
+stand for unic code and then what
+
+619
+00:31:21,120 --> 00:31:28,399
+follows the plus that's the hexadimal
+
+620
+00:31:24,559 --> 00:31:31,200
+so that is a hexadimal representation of
+
+621
+00:31:28,399 --> 00:31:33,440
+the integer that is the ID for this
+
+622
+00:31:31,200 --> 00:31:36,000
+character okay so in unic code every
+
+623
+00:31:33,440 --> 00:31:38,960
+character has has ID and the standard
+
+624
+00:31:36,000 --> 00:31:41,840
+notation to to show that ID is to show
+
+625
+00:31:38,960 --> 00:31:45,679
+them as hexod hexodimal because it's
+
+626
+00:31:41,840 --> 00:31:48,480
+short and compact. Okay, so it's used in
+
+627
+00:31:45,679 --> 00:31:51,200
+unic code. So let's go back here. Uh so
+
+628
+00:31:48,480 --> 00:31:53,919
+this page explains unic code character
+
+629
+00:31:51,200 --> 00:31:56,159
+set encoding UTF8 code point. Okay, so
+
+630
+00:31:53,919 --> 00:31:59,760
+you should read that offline. Okay, so
+
+631
+00:31:56,159 --> 00:32:02,640
+let me post the link to my talk show.
+
+632
+00:31:59,760 --> 00:32:05,519
+Uh so let's uh post the link to the talk
+
+633
+00:32:02,640 --> 00:32:08,320
+show. So here. Okay.
+
+634
+00:32:05,519 --> 00:32:12,640
+So, so we are talking about so let's go
+
+635
+00:32:08,320 --> 00:32:15,519
+back to uh the C uh
+
+636
+00:32:12,640 --> 00:32:19,519
+the the hack of C printer formatting
+
+637
+00:32:15,519 --> 00:32:21,120
+string. Okay. So it it it does all these
+
+638
+00:32:19,519 --> 00:32:23,519
+things
+
+639
+00:32:21,120 --> 00:32:26,320
+template system string template system
+
+640
+00:32:23,519 --> 00:32:29,600
+number to string format number convert
+
+641
+00:32:26,320 --> 00:32:32,799
+decimal to binary or hexadimal. Okay. So
+
+642
+00:32:29,600 --> 00:32:37,600
+it does these basically four things
+
+643
+00:32:32,799 --> 00:32:39,760
+combine them to one print f and uh
+
+644
+00:32:37,600 --> 00:32:41,760
+and so that's very bad and also it
+
+645
+00:32:39,760 --> 00:32:44,799
+creates a mini language you know the the
+
+646
+00:32:41,760 --> 00:32:47,760
+cryptic codes okay so what uh but there
+
+647
+00:32:44,799 --> 00:32:50,080
+are but meanwhile there are also related
+
+648
+00:32:47,760 --> 00:32:52,720
+things it does not do because when you
+
+649
+00:32:50,080 --> 00:32:54,559
+convert a number to hexadimal typically
+
+650
+00:32:52,720 --> 00:32:57,679
+you also want to convert it back a
+
+651
+00:32:54,559 --> 00:33:01,039
+hexodimal to back to number so string to
+
+652
+00:32:57,679 --> 00:33:04,320
+number The print f doesn't do obviously
+
+653
+00:33:01,039 --> 00:33:06,799
+and convert binary to hex or hexadimal
+
+654
+00:33:04,320 --> 00:33:09,279
+to number the print f also does not do
+
+655
+00:33:06,799 --> 00:33:11,679
+but they are kind of very related. So on
+
+656
+00:33:09,279 --> 00:33:14,240
+the other hand, so what is the better
+
+657
+00:33:11,679 --> 00:33:16,480
+way to do to to to code you know to
+
+658
+00:33:14,240 --> 00:33:19,679
+design the print f you should have a
+
+659
+00:33:16,480 --> 00:33:22,640
+separate function uh function to for
+
+660
+00:33:19,679 --> 00:33:24,320
+string template which in many of today's
+
+661
+00:33:22,640 --> 00:33:27,120
+programming language they have that for
+
+662
+00:33:24,320 --> 00:33:31,919
+example Python
+
+663
+00:33:27,120 --> 00:33:34,640
+Python's fing is a string template okay
+
+664
+00:33:31,919 --> 00:33:36,399
+you can use it without the percent code
+
+665
+00:33:34,640 --> 00:33:38,640
+you know whatever it's it's simply a
+
+666
+00:33:36,399 --> 00:33:42,320
+string template system okay that's
+
+667
+00:33:38,640 --> 00:33:45,840
+available in Python in in PowerShell in
+
+668
+00:33:42,320 --> 00:33:48,159
+um you know as a separate thing like not
+
+669
+00:33:45,840 --> 00:33:50,320
+exactly tied to printf okay so you
+
+670
+00:33:48,159 --> 00:33:53,120
+should have a string template then you
+
+671
+00:33:50,320 --> 00:33:55,360
+should have a convert number to string
+
+672
+00:33:53,120 --> 00:33:57,679
+function by itself then you should have
+
+673
+00:33:55,360 --> 00:34:00,799
+a convert number to hexadimal or binary
+
+674
+00:33:57,679 --> 00:34:04,159
+by itself then you should have a format
+
+675
+00:34:00,799 --> 00:34:08,879
+format number uh function by itself okay
+
+676
+00:34:04,159 --> 00:34:11,839
+that's that is how it should
+
+677
+00:34:08,879 --> 00:34:13,760
+So and here is you know example in
+
+678
+00:34:11,839 --> 00:34:16,000
+different uh programming languages and
+
+679
+00:34:13,760 --> 00:34:18,480
+and also another thing interesting to
+
+680
+00:34:16,000 --> 00:34:20,240
+note is JavaScript. So JavaScript for
+
+681
+00:34:18,480 --> 00:34:23,679
+example they have a template string
+
+682
+00:34:20,240 --> 00:34:26,879
+which is created like 10 years ago. So
+
+683
+00:34:23,679 --> 00:34:30,480
+in this template string it's a string
+
+684
+00:34:26,879 --> 00:34:32,960
+template system but nothing to do with
+
+685
+00:34:30,480 --> 00:34:35,599
+uh print f you know percent sign formats
+
+686
+00:34:32,960 --> 00:34:38,879
+you know stuff and nothing to do with
+
+687
+00:34:35,599 --> 00:34:41,919
+converting a number to decimal to to a
+
+688
+00:34:38,879 --> 00:34:44,240
+decimal number to hexadimal okay nothing
+
+689
+00:34:41,919 --> 00:34:46,560
+so it's a template string system by
+
+690
+00:34:44,240 --> 00:34:49,440
+itself which is great JavaScript
+
+691
+00:34:46,560 --> 00:34:52,560
+JavaScript hap so happened JavaScript is
+
+692
+00:34:49,440 --> 00:34:55,679
+kind of odd in that it is one of the
+
+693
+00:34:52,560 --> 00:34:59,839
+early language age from 1995 that did
+
+694
+00:34:55,679 --> 00:35:02,160
+not borrow anything of the C's print f.
+
+695
+00:34:59,839 --> 00:35:04,079
+Okay. So you can convert string to
+
+696
+00:35:02,160 --> 00:35:08,000
+number you know using this method.
+
+697
+00:35:04,079 --> 00:35:10,400
+nothing to do with the C print F percent
+
+698
+00:35:08,000 --> 00:35:12,800
+and you can uh convert decimal and
+
+699
+00:35:10,400 --> 00:35:16,320
+binary number to uh and convert
+
+700
+00:35:12,800 --> 00:35:19,119
+hexodimal and also convert to string a
+
+701
+00:35:16,320 --> 00:35:22,880
+ded a dedicated function convert to
+
+702
+00:35:19,119 --> 00:35:26,240
+string uh and uh and pass integer which
+
+703
+00:35:22,880 --> 00:35:28,800
+is the inverse of converting a hexadimal
+
+704
+00:35:26,240 --> 00:35:32,240
+back to a number. Okay, hexadimal or
+
+705
+00:35:28,800 --> 00:35:35,440
+binary back to a number which also
+
+706
+00:35:32,240 --> 00:35:38,320
+implies string to number. Okay. So, so
+
+707
+00:35:35,440 --> 00:35:41,200
+JavaScript. Okay. So, that is this
+
+708
+00:35:38,320 --> 00:35:44,800
+article. Okay. So, the hack of C print
+
+709
+00:35:41,200 --> 00:35:49,280
+format string. So, now let's go to the
+
+710
+00:35:44,800 --> 00:35:51,760
+next point. Uh so, so here's a question.
+
+711
+00:35:49,280 --> 00:35:53,599
+You know C was designed 40 years ago
+
+712
+00:35:51,760 --> 00:35:56,400
+actually. Act actually 50 years ago.
+
+713
+00:35:53,599 --> 00:36:00,480
+Okay. So, this actually I think it's 50.
+
+714
+00:35:56,400 --> 00:36:05,599
+It's from 1970. Okay. 1970 to today is
+
+715
+00:36:00,480 --> 00:36:09,119
+50 50 years ago. Okay. So uh
+
+716
+00:36:05,599 --> 00:36:12,079
+okay so C is designed 50 years ago why
+
+717
+00:36:09,119 --> 00:36:14,640
+blame C because obviously it's all
+
+718
+00:36:12,079 --> 00:36:17,040
+technology right but you know would are
+
+719
+00:36:14,640 --> 00:36:20,240
+you you know just blame C for the s you
+
+720
+00:36:17,040 --> 00:36:22,960
+know you you it's not fair
+
+721
+00:36:20,240 --> 00:36:26,560
+so my opinion so why do I blame C I
+
+722
+00:36:22,960 --> 00:36:29,839
+think C deserve the blame because you
+
+723
+00:36:26,560 --> 00:36:32,320
+see many many technology after decades
+
+724
+00:36:29,839 --> 00:36:34,640
+they become old then you can
+
+725
+00:36:32,320 --> 00:36:36,880
+You know the design is bad you know like
+
+726
+00:36:34,640 --> 00:36:40,480
+design is difficult you know but once
+
+727
+00:36:36,880 --> 00:36:42,240
+somebody designs something and you as a
+
+728
+00:36:40,480 --> 00:36:44,320
+look looking into that design you might
+
+729
+00:36:42,240 --> 00:36:46,800
+say oh you got this flow you got that
+
+730
+00:36:44,320 --> 00:36:49,599
+that flow but you are not the original
+
+731
+00:36:46,800 --> 00:36:52,560
+designer because it's easy to criticize
+
+732
+00:36:49,599 --> 00:36:54,800
+once something is designed but it's not
+
+733
+00:36:52,560 --> 00:36:57,119
+easy when you are actually designed okay
+
+734
+00:36:54,800 --> 00:36:59,760
+so you can always look back retro in
+
+735
+00:36:57,119 --> 00:37:03,920
+retrospect saying it's bad this way or
+
+736
+00:36:59,760 --> 00:37:07,760
+that way Okay. So I don't blame
+
+737
+00:37:03,920 --> 00:37:10,480
+bad design but however I blame C because
+
+738
+00:37:07,760 --> 00:37:13,920
+C creates a code. C and Unix they create
+
+739
+00:37:10,480 --> 00:37:16,320
+a code such that even today they instill
+
+740
+00:37:13,920 --> 00:37:19,680
+a notion to programmers that C is the
+
+741
+00:37:16,320 --> 00:37:23,040
+best design. Even today like today even
+
+742
+00:37:19,680 --> 00:37:25,680
+today you you you you can constantly see
+
+743
+00:37:23,040 --> 00:37:28,079
+that many of the C fanatics they will
+
+744
+00:37:25,680 --> 00:37:29,920
+say you know C is the best language you
+
+745
+00:37:28,079 --> 00:37:32,880
+know it's kind of a code because they
+
+746
+00:37:29,920 --> 00:37:35,119
+you also often associate it with like
+
+747
+00:37:32,880 --> 00:37:36,960
+the concept of C is a real man's
+
+748
+00:37:35,119 --> 00:37:39,520
+programming language because it's
+
+749
+00:37:36,960 --> 00:37:42,400
+cryptic because it's hard to it's very
+
+750
+00:37:39,520 --> 00:37:44,560
+hard therefore it's the best you also
+
+751
+00:37:42,400 --> 00:37:47,520
+see that because why because it's a kind
+
+752
+00:37:44,560 --> 00:37:50,960
+of a code C and Unix
+
+753
+00:37:47,520 --> 00:37:52,960
+you know so that's why I blame C you
+
+754
+00:37:50,960 --> 00:37:55,520
+know not because
+
+755
+00:37:52,960 --> 00:37:57,280
+the design is bad because C and Unix
+
+756
+00:37:55,520 --> 00:38:00,160
+they they they
+
+757
+00:37:57,280 --> 00:38:03,359
+are affiliated with this kind of the
+
+758
+00:38:00,160 --> 00:38:05,119
+code phenomen phenomenon okay so that's
+
+759
+00:38:03,359 --> 00:38:08,000
+why I think it you know they create
+
+760
+00:38:05,119 --> 00:38:11,760
+pervasive damage in programming
+
+761
+00:38:08,000 --> 00:38:13,920
+languages and the computing industry
+
+762
+00:38:11,760 --> 00:38:17,200
+like today I'm talking about the you
+
+763
+00:38:13,920 --> 00:38:19,520
+know the problem of C print f but if you
+
+764
+00:38:17,200 --> 00:38:21,920
+show this my talk show to other people a
+
+765
+00:38:19,520 --> 00:38:23,599
+lot we'll say no you are wrong you know
+
+766
+00:38:21,920 --> 00:38:25,119
+they they don't read the details they
+
+767
+00:38:23,599 --> 00:38:28,640
+don't you know they they don't know
+
+768
+00:38:25,119 --> 00:38:31,359
+anything they'll just say you are wrong
+
+769
+00:38:28,640 --> 00:38:33,359
+okay that's a problem of C okay so I I
+
+770
+00:38:31,359 --> 00:38:36,800
+think I explained that so what is the
+
+771
+00:38:33,359 --> 00:38:38,880
+proper fix uh which the proper fix is to
+
+772
+00:38:36,800 --> 00:38:41,359
+create
+
+773
+00:38:38,880 --> 00:38:43,920
+separate functions for each of the
+
+774
+00:38:41,359 --> 00:38:46,800
+things that print f
+
+775
+00:38:43,920 --> 00:38:49,040
+do Okay.
+
+776
+00:38:46,800 --> 00:38:51,200
+So now I kind of covered so that's
+
+777
+00:38:49,040 --> 00:38:53,760
+that's the most the things I want to
+
+778
+00:38:51,200 --> 00:38:57,280
+cover. Now now there are two other
+
+779
+00:38:53,760 --> 00:38:59,760
+things I want to talk about uh but I may
+
+780
+00:38:57,280 --> 00:39:03,119
+skip them one of them. So one of the
+
+781
+00:38:59,760 --> 00:39:06,560
+thing is the let's see one one of the
+
+782
+00:39:03,119 --> 00:39:09,839
+thing I might skip is the wam language
+
+783
+00:39:06,560 --> 00:39:12,880
+okay wam language design wam language uh
+
+784
+00:39:09,839 --> 00:39:14,720
+I don't have a link here which is
+
+785
+00:39:12,880 --> 00:39:17,920
+entirely different. So it doesn't you
+
+786
+00:39:14,720 --> 00:39:21,839
+know have the percent something uh not
+
+787
+00:39:17,920 --> 00:39:24,640
+based on print f. So but
+
+788
+00:39:21,839 --> 00:39:27,920
+that's a bit involved because both wof
+
+789
+00:39:24,640 --> 00:39:29,680
+language they have a you know like
+
+790
+00:39:27,920 --> 00:39:32,480
+typically in all these programming
+
+791
+00:39:29,680 --> 00:39:35,520
+languages when you convert to when you
+
+792
+00:39:32,480 --> 00:39:37,359
+want to let's say
+
+793
+00:39:35,520 --> 00:39:40,960
+um
+
+794
+00:39:37,359 --> 00:39:45,200
+control the display let's say the you
+
+795
+00:39:40,960 --> 00:39:47,280
+want to print a decimal number with two
+
+796
+00:39:45,200 --> 00:39:49,839
+decimal places
+
+797
+00:39:47,280 --> 00:39:52,240
+inevitably they always converted to
+
+798
+00:39:49,839 --> 00:39:55,119
+string because there's no no other way.
+
+799
+00:39:52,240 --> 00:39:57,599
+You must convert a number
+
+800
+00:39:55,119 --> 00:40:00,800
+with many dis you know a number to a
+
+801
+00:39:57,599 --> 00:40:04,320
+string first then you decide how many
+
+802
+00:40:00,800 --> 00:40:06,320
+decimal places after the period right it
+
+803
+00:40:04,320 --> 00:40:09,359
+became a string there's no other way but
+
+804
+00:40:06,320 --> 00:40:12,400
+wam language doesn't do that wam
+
+805
+00:40:09,359 --> 00:40:14,079
+language um actually have a form that
+
+806
+00:40:12,400 --> 00:40:16,240
+that
+
+807
+00:40:14,079 --> 00:40:18,000
+uh actually in order to explain that I
+
+808
+00:40:16,240 --> 00:40:19,920
+need to start to show you the code okay
+
+809
+00:40:18,000 --> 00:40:21,680
+so actually so wuam language separate
+
+810
+00:40:19,920 --> 00:40:24,400
+you know it doesn't convert a number to
+
+811
+00:40:21,680 --> 00:40:28,160
+string it. You can tell woof language to
+
+812
+00:40:24,400 --> 00:40:31,200
+show all strings in this expression with
+
+813
+00:40:28,160 --> 00:40:33,520
+three decimal places or you can show all
+
+814
+00:40:31,200 --> 00:40:36,960
+numbers in binary
+
+815
+00:40:33,520 --> 00:40:38,800
+binary uh notation. You can also tell
+
+816
+00:40:36,960 --> 00:40:41,920
+you tell it to show all numbers in
+
+817
+00:40:38,800 --> 00:40:46,000
+hexadimal notation but does not actually
+
+818
+00:40:41,920 --> 00:40:47,680
+convert the number to a string at all.
+
+819
+00:40:46,000 --> 00:40:52,960
+So let me let me quickly demonstrate
+
+820
+00:40:47,680 --> 00:40:55,760
+that. Okay, because that um um
+
+821
+00:40:52,960 --> 00:40:58,560
+wra language. Okay, so let's pop it out.
+
+822
+00:40:55,760 --> 00:41:00,800
+So let's say three uh let's say
+
+823
+00:40:58,560 --> 00:41:02,400
+hexadimal. Okay, so let's type the same
+
+824
+00:41:00,800 --> 00:41:08,960
+thing.
+
+825
+00:41:02,400 --> 00:41:12,720
+Decimal number 17 in hexa decimal is uh
+
+826
+00:41:08,960 --> 00:41:15,599
+is 17. Okay, so let's say x equals to
+
+827
+00:41:12,720 --> 00:41:17,680
+17. This is wam language. And how how do
+
+828
+00:41:15,599 --> 00:41:23,520
+you what do you do that? So what what
+
+829
+00:41:17,680 --> 00:41:27,200
+you do is um uh I don't remember. So um
+
+830
+00:41:23,520 --> 00:41:29,760
+so let's look up my wam documentation.
+
+831
+00:41:27,200 --> 00:41:31,520
+So the wufam tutorial, search for it,
+
+832
+00:41:29,760 --> 00:41:34,560
+you'll find it and you can download it
+
+833
+00:41:31,520 --> 00:41:38,720
+for free. Just search for kasaw wufam
+
+834
+00:41:34,560 --> 00:41:43,520
+language tutorial and it's on.info.
+
+835
+00:41:38,720 --> 00:41:45,920
+Okay, so http no s. Okay, then you go to
+
+836
+00:41:43,520 --> 00:41:48,640
+uh so recently I was working on it. So
+
+837
+00:41:45,920 --> 00:41:50,800
+you go you go to the string section. Uh
+
+838
+00:41:48,640 --> 00:41:55,599
+so you you go to wufam language for
+
+839
+00:41:50,800 --> 00:41:57,680
+programmers. Then there's uh
+
+840
+00:41:55,599 --> 00:42:00,240
+okay there's download there's basics
+
+841
+00:41:57,680 --> 00:42:03,599
+common string. So print uh and string
+
+842
+00:42:00,240 --> 00:42:05,920
+okay go to string then you go then you
+
+843
+00:42:03,599 --> 00:42:08,640
+go to the string template format. Okay
+
+844
+00:42:05,920 --> 00:42:11,520
+so this function string template is does
+
+845
+00:42:08,640 --> 00:42:14,160
+just one thing. It's a string template
+
+846
+00:42:11,520 --> 00:42:16,400
+system just like JavaScript.
+
+847
+00:42:14,160 --> 00:42:19,359
+It doesn't combine you know the
+
+848
+00:42:16,400 --> 00:42:21,359
+converting a number to hexadimal or
+
+849
+00:42:19,359 --> 00:42:23,680
+formatting string it doesn't command
+
+850
+00:42:21,359 --> 00:42:26,319
+okay just template so we need to use
+
+851
+00:42:23,680 --> 00:42:30,240
+string temp template okay so so let me
+
+852
+00:42:26,319 --> 00:42:33,440
+copy that and go to s talk show uh so
+
+853
+00:42:30,240 --> 00:42:37,119
+let me paste the link here
+
+854
+00:42:33,440 --> 00:42:38,880
+uh so so wam okay so now let's go to
+
+855
+00:42:37,119 --> 00:42:44,000
+precode
+
+856
+00:42:38,880 --> 00:42:47,040
+uh so let's go to yeah so this string
+
+857
+00:42:44,000 --> 00:42:49,839
+template. Okay. So that's what you want.
+
+858
+00:42:47,040 --> 00:42:54,000
+Yeah. So I remember. So you uh paste the
+
+859
+00:42:49,839 --> 00:42:57,119
+string there and 17 will be uh
+
+860
+00:42:54,000 --> 00:42:59,440
+grave grave accent. Okay. So two grave
+
+861
+00:42:57,119 --> 00:43:02,000
+accent. That's the argument. Okay. So
+
+862
+00:42:59,440 --> 00:43:05,280
+that's a template string. Then you pass
+
+863
+00:43:02,000 --> 00:43:07,839
+the argument x.
+
+864
+00:43:05,280 --> 00:43:11,079
+Okay. So
+
+865
+00:43:07,839 --> 00:43:11,079
+run that.
+
+866
+00:43:12,640 --> 00:43:18,319
+Okay, starting wam language. The first
+
+867
+00:43:15,040 --> 00:43:21,680
+time it's a bit slow.
+
+868
+00:43:18,319 --> 00:43:24,160
+There it is. Okay. So,
+
+869
+00:43:21,680 --> 00:43:26,160
+okay. So, it prints 17. That's the x.
+
+870
+00:43:24,160 --> 00:43:29,200
+So, let's suppress the output. So,
+
+871
+00:43:26,160 --> 00:43:33,280
+decimal number 17 and in x decimal is
+
+872
+00:43:29,200 --> 00:43:35,760
+17. Wait. Uh. Oh. Oh. Okay. So, wait.
+
+873
+00:43:33,280 --> 00:43:38,240
+So, this remember this is only string
+
+874
+00:43:35,760 --> 00:43:40,079
+template. It doesn't do the uh
+
+875
+00:43:38,240 --> 00:43:43,599
+conversion. So when you want to convert
+
+876
+00:43:40,079 --> 00:43:45,920
+you you do it here. Okay. So um so
+
+877
+00:43:43,599 --> 00:43:48,640
+decimal so this is you want to convert a
+
+878
+00:43:45,920 --> 00:43:52,880
+decimal to hexadimal. Okay. So how do
+
+879
+00:43:48,640 --> 00:43:56,240
+you do that? Uh so let's let's put this
+
+880
+00:43:52,880 --> 00:44:01,280
+here. Okay. Two string
+
+881
+00:43:56,240 --> 00:44:06,040
+uh two string and uh two string x and uh
+
+882
+00:44:01,280 --> 00:44:06,040
+and uh uh
+
+883
+00:44:06,880 --> 00:44:12,560
+uh I don't remember. So let's go down.
+
+884
+00:44:10,240 --> 00:44:14,640
+So convert to string. Convert binary
+
+885
+00:44:12,560 --> 00:44:18,079
+heximal.
+
+886
+00:44:14,640 --> 00:44:20,400
+Convert to binary hexodimal or base 64
+
+887
+00:44:18,079 --> 00:44:23,800
+integer string. Okay. That is what I
+
+888
+00:44:20,400 --> 00:44:23,800
+want. Uh
+
+889
+00:44:24,240 --> 00:44:30,800
+integer string. Okay. X. And so delete
+
+890
+00:44:28,160 --> 00:44:34,400
+that. So integer string X. And you want
+
+891
+00:44:30,800 --> 00:44:38,920
+it in hexadimal. So that's 16. Okay. So
+
+892
+00:44:34,400 --> 00:44:38,920
+delete that. Run the code.
+
+893
+00:44:43,359 --> 00:44:46,359
+Uh,
+
+894
+00:44:48,160 --> 00:44:52,119
+why is it so slow?
+
+895
+00:44:53,200 --> 00:44:59,040
+Invalid syntax. Okay, we got it wrong.
+
+896
+00:44:56,240 --> 00:45:02,480
+So, what is the integer string? Uh,
+
+897
+00:44:59,040 --> 00:45:09,040
+integer string base. Integer string
+
+898
+00:45:02,480 --> 00:45:12,720
+number base. So integer string number
+
+899
+00:45:09,040 --> 00:45:16,440
+base. So why is it wrong? Okay. So you
+
+900
+00:45:12,720 --> 00:45:16,440
+got uh
+
+901
+00:45:16,720 --> 00:45:22,880
+Oh yeah. So okay. So it needs to be I
+
+902
+00:45:19,920 --> 00:45:25,280
+think it needs to be one line.
+
+903
+00:45:22,880 --> 00:45:28,240
+Yes. It needs to be one line. Okay. So
+
+904
+00:45:25,280 --> 00:45:33,680
+hold on a second.
+
+905
+00:45:28,240 --> 00:45:36,480
+Uh let's put it one line. Run it.
+
+906
+00:45:33,680 --> 00:45:38,800
+There it is. Decimal number 17 in
+
+907
+00:45:36,480 --> 00:45:41,839
+hexadimal is 11. Okay, that's how you do
+
+908
+00:45:38,800 --> 00:45:45,440
+it. Now this is
+
+909
+00:45:41,839 --> 00:45:48,160
+this is uh this is an example but but
+
+910
+00:45:45,440 --> 00:45:51,760
+what I want to show is another example.
+
+911
+00:45:48,160 --> 00:45:54,640
+Let's start wan language. Uh so I was
+
+912
+00:45:51,760 --> 00:45:57,599
+talking about you can make it show all
+
+913
+00:45:54,640 --> 00:45:59,760
+numbers in binary form, binary notation
+
+914
+00:45:57,599 --> 00:46:01,440
+or hexodimal notation. How do you do
+
+915
+00:45:59,760 --> 00:46:03,280
+that?
+
+916
+00:46:01,440 --> 00:46:08,160
+In order to do that, you have to do it
+
+917
+00:46:03,280 --> 00:46:12,400
+in uh the wolf notebook. Okay, so let's
+
+918
+00:46:08,160 --> 00:46:18,160
+uh start it. Evaluate three to start the
+
+919
+00:46:12,400 --> 00:46:21,200
+kernel and magnify 150. Okay, so so but
+
+920
+00:46:18,160 --> 00:46:23,839
+this is one example syntax color showing
+
+921
+00:46:21,200 --> 00:46:26,640
+browser and go down. So here is a woofer
+
+922
+00:46:23,839 --> 00:46:31,599
+language example. And now I want to show
+
+923
+00:46:26,640 --> 00:46:34,800
+you how do you um turn all numbers to um
+
+924
+00:46:31,599 --> 00:46:39,599
+to show them in binary notation or
+
+925
+00:46:34,800 --> 00:46:42,079
+hexodimal. So let's so let's um
+
+926
+00:46:39,599 --> 00:46:44,640
+so let's do another example but for that
+
+927
+00:46:42,079 --> 00:46:46,880
+you cannot do it in
+
+928
+00:46:44,640 --> 00:46:48,720
+in the wuam script which is what I'm
+
+929
+00:46:46,880 --> 00:46:55,680
+using. So let's give us some examples.
+
+930
+00:46:48,720 --> 00:46:59,119
+So uh 1 517 okay three numbers now let's
+
+931
+00:46:55,680 --> 00:47:04,160
+say uh let's say 0157 okay so you want
+
+932
+00:46:59,119 --> 00:47:09,000
+to show it in binary form so base form
+
+933
+00:47:04,160 --> 00:47:09,000
+base form this expression
+
+934
+00:47:09,359 --> 00:47:16,400
+and in what base let's say two okay so
+
+935
+00:47:12,160 --> 00:47:20,640
+delete that okay so copy that
+
+936
+00:47:16,400 --> 00:47:22,880
+paste it show Right? You see
+
+937
+00:47:20,640 --> 00:47:25,359
+now this this part the first argument
+
+938
+00:47:22,880 --> 00:47:28,319
+can be any expression can be integral
+
+939
+00:47:25,359 --> 00:47:31,040
+can be a can be whatever long list can
+
+940
+00:47:28,319 --> 00:47:34,640
+be a matrix can be whatever okay so
+
+941
+00:47:31,040 --> 00:47:38,079
+here's you know but it shows them in
+
+942
+00:47:34,640 --> 00:47:40,800
+decimal um I mean in binary notation so
+
+943
+00:47:38,079 --> 00:47:43,920
+if you want hexadimal
+
+944
+00:47:40,800 --> 00:47:46,720
+all you do all you have to do is say 16
+
+945
+00:47:43,920 --> 00:47:49,680
+you see and let's say if you want you
+
+946
+00:47:46,720 --> 00:47:54,720
+know in base 36. Okay, you can actually
+
+947
+00:47:49,680 --> 00:48:00,720
+do it in base 36. Okay. Uh, shift enter.
+
+948
+00:47:54,720 --> 00:48:03,920
+You see H, you know, 17 in base 36 is H.
+
+949
+00:48:00,720 --> 00:48:07,520
+Okay. So, here's an example. Okay. So,
+
+950
+00:48:03,920 --> 00:48:12,720
+now let's um
+
+951
+00:48:07,520 --> 00:48:17,240
+Okay, let's make a copy of that so I can
+
+952
+00:48:12,720 --> 00:48:17,240
+um I mean, let's make a screenshot.
+
+953
+00:48:23,040 --> 00:48:29,200
+Okay. So,
+
+954
+00:48:26,240 --> 00:48:31,599
+so what the so wam language separates
+
+955
+00:48:29,200 --> 00:48:35,119
+the display of the number from the
+
+956
+00:48:31,599 --> 00:48:36,960
+number itself. It never changes actually
+
+957
+00:48:35,119 --> 00:48:38,720
+even you know if you have a variable it
+
+958
+00:48:36,960 --> 00:48:42,000
+doesn't change it. It doesn't turn it
+
+959
+00:48:38,720 --> 00:48:44,880
+into a string. So in order to have this
+
+960
+00:48:42,000 --> 00:48:47,200
+kind of feature you need a renderer. So
+
+961
+00:48:44,880 --> 00:48:50,400
+that's why you can do this in the wuam
+
+962
+00:48:47,200 --> 00:48:53,040
+notebook. You cannot do this here. So if
+
+963
+00:48:50,400 --> 00:48:55,839
+I do this here, it just return itself.
+
+964
+00:48:53,040 --> 00:48:59,599
+You know because this is a text based.
+
+965
+00:48:55,839 --> 00:49:01,760
+You see it just return itself. So if but
+
+966
+00:48:59,599 --> 00:49:05,280
+you can you can you can turn this to
+
+967
+00:49:01,760 --> 00:49:08,079
+string though. So let's see two string.
+
+968
+00:49:05,280 --> 00:49:11,040
+Okay. Two string then that. Okay. Let's
+
+969
+00:49:08,079 --> 00:49:14,000
+see what it does.
+
+970
+00:49:11,040 --> 00:49:18,559
+You see it it returns this thing. Okay.
+
+971
+00:49:14,000 --> 00:49:22,319
+So uh delete let's okay so it returns
+
+972
+00:49:18,559 --> 00:49:26,160
+that okay so
+
+973
+00:49:22,319 --> 00:49:28,640
+so you can see this is a asified
+
+974
+00:49:26,160 --> 00:49:31,440
+version of the two-dimensional display
+
+975
+00:49:28,640 --> 00:49:33,599
+with subscript if you want the actual
+
+976
+00:49:31,440 --> 00:49:36,240
+subscript and type setting you have to
+
+977
+00:49:33,599 --> 00:49:38,319
+have kind of a front end or like a
+
+978
+00:49:36,240 --> 00:49:40,559
+browser you know like you have source
+
+979
+00:49:38,319 --> 00:49:43,119
+code
+
+980
+00:49:40,559 --> 00:49:45,440
+let first of all let's put it back okay
+
+981
+00:49:43,119 --> 00:49:47,839
+let's put it back syntax show in
+
+982
+00:49:45,440 --> 00:49:50,319
+browser. So we are looking at the HTML
+
+983
+00:49:47,839 --> 00:49:52,800
+source code but when you render it it
+
+984
+00:49:50,319 --> 00:49:55,119
+shows differently so that's so the
+
+985
+00:49:52,800 --> 00:49:58,640
+browser is functioning as a kind of the
+
+986
+00:49:55,119 --> 00:50:00,960
+rendering engine. So similarly if you
+
+987
+00:49:58,640 --> 00:50:04,880
+want to do this kind of notation you
+
+988
+00:50:00,960 --> 00:50:07,920
+know type set you need um you need uh
+
+989
+00:50:04,880 --> 00:50:11,040
+the you know the renderer the the front
+
+990
+00:50:07,920 --> 00:50:13,760
+end the notebook. Okay. So if you really
+
+991
+00:50:11,040 --> 00:50:16,800
+want this kind of formatting
+
+992
+00:50:13,760 --> 00:50:19,040
+uh feature, you need a renderer. Okay.
+
+993
+00:50:16,800 --> 00:50:20,880
+So that that's a demo of wraim language.
+
+994
+00:50:19,040 --> 00:50:24,559
+Okay. I think that's it for today. But
+
+995
+00:50:20,880 --> 00:50:27,440
+one more thing the so I came up with a
+
+996
+00:50:24,559 --> 00:50:29,920
+new design of string.
+
+997
+00:50:27,440 --> 00:50:32,640
+So how many people are watching? So
+
+998
+00:50:29,920 --> 00:50:36,480
+let's go to YouTube.
+
+999
+00:50:32,640 --> 00:50:39,119
+Um that's it. Uh 10 more minutes and and
+
+1000
+00:50:36,480 --> 00:50:41,119
+that's it for today. So let's go to
+
+1001
+00:50:39,119 --> 00:50:44,079
+YouTube
+
+1002
+00:50:41,119 --> 00:50:47,680
+six people. Okay, say hi. So one more
+
+1003
+00:50:44,079 --> 00:50:50,880
+thing this is um I you know this is a
+
+1004
+00:50:47,680 --> 00:50:54,160
+great work I believe I did uh that is a
+
+1005
+00:50:50,880 --> 00:50:56,640
+programming language design a new
+
+1006
+00:50:54,160 --> 00:51:00,000
+programming language string syntax
+
+1007
+00:50:56,640 --> 00:51:04,559
+design and I decided to call it rock
+
+1008
+00:51:00,000 --> 00:51:07,119
+screen uh rock string rock string. Okay.
+
+1009
+00:51:04,559 --> 00:51:10,960
+So what why do you need a new string
+
+1010
+00:51:07,119 --> 00:51:13,200
+syntax? Because in this syntax it fixed
+
+1011
+00:51:10,960 --> 00:51:15,040
+several problems
+
+1012
+00:51:13,200 --> 00:51:17,119
+of the string syntax in all other
+
+1013
+00:51:15,040 --> 00:51:19,359
+programming languages in Python, in
+
+1014
+00:51:17,119 --> 00:51:22,880
+JavaScript, in Goland. So what what are
+
+1015
+00:51:19,359 --> 00:51:24,480
+the problem? What first of all no escape
+
+1016
+00:51:22,880 --> 00:51:26,800
+sequence
+
+1017
+00:51:24,480 --> 00:51:29,599
+escape sequence creates a major problem.
+
+1018
+00:51:26,800 --> 00:51:33,520
+Okay, so uh why? Because let me show
+
+1019
+00:51:29,599 --> 00:51:37,839
+you. Okay. So, let's search for um uh
+
+1020
+00:51:33,520 --> 00:51:40,880
+truth pick. Okay. So, if you code long
+
+1021
+00:51:37,839 --> 00:51:43,359
+enough, you you are probably familiar
+
+1022
+00:51:40,880 --> 00:51:45,760
+with this toothpick syndrome. You know,
+
+1023
+00:51:43,359 --> 00:51:47,920
+back slash slash especially when you
+
+1024
+00:51:45,760 --> 00:51:50,880
+have regular expression. That's
+
+1025
+00:51:47,920 --> 00:51:53,040
+extremely painful especially in EMAC. So
+
+1026
+00:51:50,880 --> 00:51:55,920
+you you know you can see here you got
+
+1027
+00:51:53,040 --> 00:51:59,359
+seven seven backslash and here you got
+
+1028
+00:51:55,920 --> 00:52:01,440
+you know 10 backslash to escape escape
+
+1029
+00:51:59,359 --> 00:52:04,400
+and here you got like 20 backs slash
+
+1030
+00:52:01,440 --> 00:52:07,200
+this the longest record. So 17 here you
+
+1031
+00:52:04,400 --> 00:52:08,960
+got the 17 backslash
+
+1032
+00:52:07,200 --> 00:52:10,640
+incomprehensible especially when you
+
+1033
+00:52:08,960 --> 00:52:12,720
+have regular expression. Okay that's
+
+1034
+00:52:10,640 --> 00:52:14,559
+extremely painful.
+
+1035
+00:52:12,720 --> 00:52:16,960
+What is the cause of this? Why do you
+
+1036
+00:52:14,559 --> 00:52:19,520
+need back? You know what why what caused
+
+1037
+00:52:16,960 --> 00:52:21,839
+this to happen? That's because escape.
+
+1038
+00:52:19,520 --> 00:52:24,880
+So what is the hard the heart of the
+
+1039
+00:52:21,839 --> 00:52:27,440
+problem? Let me copy the link. Okay. So
+
+1040
+00:52:24,880 --> 00:52:30,880
+uh copy the link. So let me paste the
+
+1041
+00:52:27,440 --> 00:52:33,839
+link here so you can see uh all the
+
+1042
+00:52:30,880 --> 00:52:38,800
+things we talked about. Um
+
+1043
+00:52:33,839 --> 00:52:42,400
+okay the heart of the problem is that is
+
+1044
+00:52:38,800 --> 00:52:45,280
+that when you have a string you have
+
+1045
+00:52:42,400 --> 00:52:48,079
+some kind of escape mechanism inside the
+
+1046
+00:52:45,280 --> 00:52:50,880
+string. So the string is not literal. So
+
+1047
+00:52:48,079 --> 00:52:53,520
+you know like if you want a new line you
+
+1048
+00:52:50,880 --> 00:52:56,960
+say back slashn. If you want a tab you
+
+1049
+00:52:53,520 --> 00:52:59,599
+want you say back slasht. So let's show
+
+1050
+00:52:56,960 --> 00:53:02,720
+some example. Do I have an example? Yes.
+
+1051
+00:52:59,599 --> 00:53:05,440
+So for example uh string escape sequence
+
+1052
+00:53:02,720 --> 00:53:08,400
+in Python. So you got this little code
+
+1053
+00:53:05,440 --> 00:53:10,880
+back slash little code for ask bell for
+
+1054
+00:53:08,400 --> 00:53:14,240
+backspace for form feed for line feed
+
+1055
+00:53:10,880 --> 00:53:16,640
+for carriage return for horizontal tab
+
+1056
+00:53:14,240 --> 00:53:18,960
+and so on and for unic code. Why do you
+
+1057
+00:53:16,640 --> 00:53:21,280
+need it? You kind of need it because
+
+1058
+00:53:18,960 --> 00:53:24,480
+because for example line feed the new
+
+1059
+00:53:21,280 --> 00:53:26,480
+line character is invisible. uh and and
+
+1060
+00:53:24,480 --> 00:53:29,280
+some of the unical characters such as
+
+1061
+00:53:26,480 --> 00:53:32,880
+you have a non-breaking space or
+
+1062
+00:53:29,280 --> 00:53:36,079
+non-breaking new line or uh right to
+
+1063
+00:53:32,880 --> 00:53:39,040
+left marker you know for languages such
+
+1064
+00:53:36,079 --> 00:53:41,040
+as Arabic you have right to left
+
+1065
+00:53:39,040 --> 00:53:43,440
+beginning right to left writing so you
+
+1066
+00:53:41,040 --> 00:53:46,160
+have this invisible characters or tab
+
+1067
+00:53:43,440 --> 00:53:48,240
+you want to present them but if you put
+
+1068
+00:53:46,160 --> 00:53:50,559
+it literally in the string it's like
+
+1069
+00:53:48,240 --> 00:53:53,119
+invisible you know so you can't see it
+
+1070
+00:53:50,559 --> 00:53:55,680
+so that's so in those situations you
+
+1071
+00:53:53,119 --> 00:53:58,480
+want you want to code them like give a
+
+1072
+00:53:55,680 --> 00:54:00,640
+little code to represent them. So that's
+
+1073
+00:53:58,480 --> 00:54:02,480
+why
+
+1074
+00:54:00,640 --> 00:54:05,200
+that's a purpose. I mean that's that's
+
+1075
+00:54:02,480 --> 00:54:07,680
+kind of that's why you need to have this
+
+1076
+00:54:05,200 --> 00:54:10,079
+escape sequences.
+
+1077
+00:54:07,680 --> 00:54:12,640
+But however this came from C. Okay.
+
+1078
+00:54:10,079 --> 00:54:14,400
+However C is very bad design badly
+
+1079
+00:54:12,640 --> 00:54:16,559
+designed. They they put these things
+
+1080
+00:54:14,400 --> 00:54:18,240
+inside the string. So when you have a
+
+1081
+00:54:16,559 --> 00:54:20,800
+string you it's not literal. You have
+
+1082
+00:54:18,240 --> 00:54:25,040
+this but in other words you have to
+
+1083
+00:54:20,800 --> 00:54:28,000
+decode them. So that is why you start to
+
+1084
+00:54:25,040 --> 00:54:31,480
+have this backslash toothpick syndrome
+
+1085
+00:54:28,000 --> 00:54:31,480
+issue. Okay.
+
+1086
+00:54:31,680 --> 00:54:37,839
+Uh so that's so so whenever a string has
+
+1087
+00:54:34,640 --> 00:54:40,880
+a backslash it has a special meaning. It
+
+1088
+00:54:37,839 --> 00:54:44,240
+creates tremendous complexity especially
+
+1089
+00:54:40,880 --> 00:54:46,480
+in regular expression. Okay.
+
+1090
+00:54:44,240 --> 00:54:48,160
+So so this is very bad. You don't want
+
+1091
+00:54:46,480 --> 00:54:51,440
+you don't want this back. You don't want
+
+1092
+00:54:48,160 --> 00:54:53,920
+this uh escape sequence. This is in in
+
+1093
+00:54:51,440 --> 00:54:55,680
+Python, in JavaScript, in basically in
+
+1094
+00:54:53,920 --> 00:54:57,200
+all all languages. Okay, you don't want
+
+1095
+00:54:55,680 --> 00:54:59,680
+this.
+
+1096
+00:54:57,200 --> 00:55:01,599
+But however, you do want to to have the
+
+1097
+00:54:59,680 --> 00:55:05,119
+solution to represent invisible
+
+1098
+00:55:01,599 --> 00:55:08,319
+characters. Okay, so so that's why u
+
+1099
+00:55:05,119 --> 00:55:10,079
+this new string design rock string
+
+1100
+00:55:08,319 --> 00:55:13,680
+solved the problem. Okay, so let's go
+
+1101
+00:55:10,079 --> 00:55:16,800
+back. So you uh so I have a new syntax
+
+1102
+00:55:13,680 --> 00:55:18,880
+for this rock string. So no no no escape
+
+1103
+00:55:16,800 --> 00:55:21,599
+se sequence
+
+1104
+00:55:18,880 --> 00:55:26,319
+syntax designed so that you do not need
+
+1105
+00:55:21,599 --> 00:55:30,160
+escape se sequence. Okay. But and has
+
+1106
+00:55:26,319 --> 00:55:34,240
+ways to embed nonprintable characters or
+
+1107
+00:55:30,160 --> 00:55:36,559
+any unic code such as new line tab, no
+
+1108
+00:55:34,240 --> 00:55:40,480
+break space or right to left mark. Okay,
+
+1109
+00:55:36,559 --> 00:55:42,640
+you can embed them and can embed
+
+1110
+00:55:40,480 --> 00:55:45,040
+expressions. So you don't need typical
+
+1111
+00:55:42,640 --> 00:55:48,559
+print f. In other words, it also
+
+1112
+00:55:45,040 --> 00:55:50,319
+functions as a string template system.
+
+1113
+00:55:48,559 --> 00:55:52,319
+Why? You know, first of all, why do you
+
+1114
+00:55:50,319 --> 00:55:54,559
+need string template system? Well,
+
+1115
+00:55:52,319 --> 00:55:57,200
+because you want to embed variables so
+
+1116
+00:55:54,559 --> 00:55:59,200
+that a string you don't have you don't
+
+1117
+00:55:57,200 --> 00:56:01,520
+you don't want all the variables at the
+
+1118
+00:55:59,200 --> 00:56:03,599
+end you know you want to like embed them
+
+1119
+00:56:01,520 --> 00:56:06,799
+so you can actually read them you know I
+
+1120
+00:56:03,599 --> 00:56:09,839
+have x cats you know that x is a
+
+1121
+00:56:06,799 --> 00:56:12,640
+variable you don't want I have something
+
+1122
+00:56:09,839 --> 00:56:15,119
+cats and then argument argument argument
+
+1123
+00:56:12,640 --> 00:56:18,319
+so that's unreadable so string tempe
+
+1124
+00:56:15,119 --> 00:56:22,319
+system so this rock string syntax does
+
+1125
+00:56:18,319 --> 00:56:24,799
+that and simple grammar uh only one
+
+1126
+00:56:22,319 --> 00:56:27,599
+single syntax no use of different
+
+1127
+00:56:24,799 --> 00:56:29,839
+delimiters or triple quote. So for
+
+1128
+00:56:27,599 --> 00:56:32,559
+example in Python in different languages
+
+1129
+00:56:29,839 --> 00:56:35,599
+they have like variety of uh string
+
+1130
+00:56:32,559 --> 00:56:38,319
+syntax. For example, in Python, you have
+
+1131
+00:56:35,599 --> 00:56:41,200
+a, you know, you have single double
+
+1132
+00:56:38,319 --> 00:56:44,240
+quote, you have,
+
+1133
+00:56:41,200 --> 00:56:47,280
+you know, the apostro apostrophe quote,
+
+1134
+00:56:44,240 --> 00:56:50,240
+then you have triple double quote, then
+
+1135
+00:56:47,280 --> 00:56:54,400
+you have triple apostro apostrophe
+
+1136
+00:56:50,240 --> 00:56:57,200
+quote. Very complex. Then then you need
+
+1137
+00:56:54,400 --> 00:56:59,359
+then then you need um
+
+1138
+00:56:57,200 --> 00:57:01,839
+then you need then you have in Python
+
+1139
+00:56:59,359 --> 00:57:04,720
+you have these prefixes U for unic code
+
+1140
+00:57:01,839 --> 00:57:08,640
+F for format string R for raw string B
+
+1141
+00:57:04,720 --> 00:57:10,880
+for bytes you know and similarly in
+
+1142
+00:57:08,640 --> 00:57:14,240
+Pearl for example you have single quote
+
+1143
+00:57:10,880 --> 00:57:16,640
+versus double quote in PowerShell you
+
+1144
+00:57:14,240 --> 00:57:19,839
+have similar okay single quote versus uh
+
+1145
+00:57:16,640 --> 00:57:22,480
+double quote so let's show PowerShell so
+
+1146
+00:57:19,839 --> 00:57:24,799
+in PowerShell you have single quote
+
+1147
+00:57:22,480 --> 00:57:28,880
+like that then you also have double
+
+1148
+00:57:24,799 --> 00:57:31,200
+quote. Okay, but in in my syntax in this
+
+1149
+00:57:28,880 --> 00:57:33,680
+rock string syntax you only have one.
+
+1150
+00:57:31,200 --> 00:57:36,160
+Okay, so here here's how here's how it
+
+1151
+00:57:33,680 --> 00:57:38,480
+works. Okay, so the basic string syntax
+
+1152
+00:57:36,160 --> 00:57:43,520
+is just double quote. Okay, something
+
+1153
+00:57:38,480 --> 00:57:46,400
+then you can have a like a prefix uh any
+
+1154
+00:57:43,520 --> 00:57:49,599
+uh character okay uh up to 10 random
+
+1155
+00:57:46,400 --> 00:57:52,079
+character. So this is a syntax for
+
+1156
+00:57:49,599 --> 00:57:56,240
+string and that's it. That's the only
+
+1157
+00:57:52,079 --> 00:57:58,240
+syntax you have. So so this random
+
+1158
+00:57:56,240 --> 00:58:01,280
+prefix you can for example here's
+
+1159
+00:57:58,240 --> 00:58:05,280
+another example of a string
+
+1160
+00:58:01,280 --> 00:58:07,599
+uh here the random string must be the
+
+1161
+00:58:05,280 --> 00:58:10,000
+same in the beginning and end. Okay. So
+
+1162
+00:58:07,599 --> 00:58:12,960
+when two strings are separated by white
+
+1163
+00:58:10,000 --> 00:58:16,240
+space they are joined. So string aa
+
+1164
+00:58:12,960 --> 00:58:18,480
+string bbb is the same as a a bb. Okay.
+
+1165
+00:58:16,240 --> 00:58:21,119
+Then what if you want to include a
+
+1166
+00:58:18,480 --> 00:58:24,880
+quotation mark so what you do is just
+
+1167
+00:58:21,119 --> 00:58:26,720
+you know very simple you start with ss
+
+1168
+00:58:24,880 --> 00:58:28,720
+you know so that doesn't happen inside
+
+1169
+00:58:26,720 --> 00:58:31,200
+the string so basically it's like
+
+1170
+00:58:28,720 --> 00:58:33,760
+literal okay there's nothing special he
+
+1171
+00:58:31,200 --> 00:58:37,040
+said quote something quote end quote
+
+1172
+00:58:33,760 --> 00:58:39,280
+okay nothing there's no in other words
+
+1173
+00:58:37,040 --> 00:58:41,599
+every string you create it's literal
+
+1174
+00:58:39,280 --> 00:58:43,760
+okay there's nothing special you never
+
+1175
+00:58:41,599 --> 00:58:46,559
+add something inside it there's nothing
+
+1176
+00:58:43,760 --> 00:58:49,520
+special in in your string Okay, so this
+
+1177
+00:58:46,559 --> 00:58:51,839
+is how you saw you know double quote
+
+1178
+00:58:49,520 --> 00:58:53,920
+mark thing
+
+1179
+00:58:51,839 --> 00:58:56,160
+and what if you want to embed some
+
+1180
+00:58:53,920 --> 00:58:58,640
+variable so you have a function you know
+
+1181
+00:58:56,160 --> 00:59:01,920
+character that's uh C you know stand for
+
+1182
+00:58:58,640 --> 00:59:06,640
+character so the N is the character ID
+
+1183
+00:59:01,920 --> 00:59:09,760
+so tab is C9 line feed is C10 and the
+
+1184
+00:59:06,640 --> 00:59:12,559
+non-breaking space is C 160 okay that's
+
+1185
+00:59:09,760 --> 00:59:16,319
+a unic code character ID for them so a
+
+1186
+00:59:12,559 --> 00:59:18,240
+typical JavaScript a back slash and B
+
+1187
+00:59:16,319 --> 00:59:20,079
+that would be like this. Okay, very
+
+1188
+00:59:18,240 --> 00:59:22,480
+simple.
+
+1189
+00:59:20,079 --> 00:59:24,400
+So CN can take multiple argument to
+
+1190
+00:59:22,480 --> 00:59:27,200
+represent multiple characters that's
+
+1191
+00:59:24,400 --> 00:59:29,520
+like extra addition. So that so you know
+
+1192
+00:59:27,200 --> 00:59:32,319
+that's a minor detail. So we can design
+
+1193
+00:59:29,520 --> 00:59:34,480
+C. Now if you find the C you know the
+
+1194
+00:59:32,319 --> 00:59:37,440
+character ID incomprehensible because
+
+1195
+00:59:34,480 --> 00:59:40,400
+it's a character ID you can also create
+
+1196
+00:59:37,440 --> 00:59:42,960
+it such that C the argument can be a
+
+1197
+00:59:40,400 --> 00:59:45,520
+string for example string new line or
+
+1198
+00:59:42,960 --> 00:59:48,400
+string then breaking space or string tab
+
+1199
+00:59:45,520 --> 00:59:51,920
+you know to represent new line or tab so
+
+1200
+00:59:48,400 --> 00:59:54,880
+it's readable okay but so it's a minor
+
+1201
+00:59:51,920 --> 00:59:57,599
+detail so what what if you want to embed
+
+1202
+00:59:54,880 --> 01:00:01,280
+expression very simple so just like that
+
+1203
+00:59:57,599 --> 01:00:04,960
+okay you know x= equals to four I have
+
+1204
+01:00:01,280 --> 01:00:06,960
+xc cats two string join okay so this can
+
+1205
+01:00:04,960 --> 01:00:09,839
+serve as a template string you don't
+
+1206
+01:00:06,960 --> 01:00:14,960
+even have to have a special function
+
+1207
+01:00:09,839 --> 01:00:17,680
+okay so that's my new string syntax so I
+
+1208
+01:00:14,960 --> 01:00:19,440
+cannot implement it you know it would be
+
+1209
+01:00:17,680 --> 01:00:22,079
+nice if I have an example I can run it
+
+1210
+01:00:19,440 --> 01:00:25,280
+but that means I have to create a new
+
+1211
+01:00:22,079 --> 01:00:29,680
+programming language so uh and right now
+
+1212
+01:00:25,280 --> 01:00:31,920
+I I I don't know enough to do it you
+
+1213
+01:00:29,680 --> 01:00:35,839
+So I cannot do it. So but that's my
+
+1214
+01:00:31,920 --> 01:00:37,760
+idea. Uh I and I call this uh new syntax
+
+1215
+01:00:35,839 --> 01:00:40,079
+rock string.
+
+1216
+01:00:37,760 --> 01:00:43,680
+This is from my like 20 years of coding
+
+1217
+01:00:40,079 --> 01:00:46,880
+and study about all these programming
+
+1218
+01:00:43,680 --> 01:00:49,920
+language string problems. Okay. So
+
+1219
+01:00:46,880 --> 01:00:53,520
+there's a article I wrote uh programming
+
+1220
+01:00:49,920 --> 01:00:57,200
+language design string syntax uh written
+
+1221
+01:00:53,520 --> 01:01:00,319
+back in 2010 uh when kind of popular
+
+1222
+01:00:57,200 --> 01:01:02,880
+when to hack a news. So you know one of
+
+1223
+01:01:00,319 --> 01:01:05,760
+the problem is the backslash toothpick
+
+1224
+01:01:02,880 --> 01:01:07,280
+syndrome and another problem is that you
+
+1225
+01:01:05,760 --> 01:01:10,000
+know for example you have regular
+
+1226
+01:01:07,280 --> 01:01:13,280
+expression right so suppose you want to
+
+1227
+01:01:10,000 --> 01:01:15,359
+find you have a python you know let's
+
+1228
+01:01:13,280 --> 01:01:18,960
+say you code python you have 10
+
+1229
+01:01:15,359 --> 01:01:21,920
+thousands of code 10 thousands of files
+
+1230
+01:01:18,960 --> 01:01:24,240
+and you you want to find a particular
+
+1231
+01:01:21,920 --> 01:01:27,520
+regular expression you used in your
+
+1232
+01:01:24,240 --> 01:01:29,040
+python code and that becomes basically
+
+1233
+01:01:27,520 --> 01:01:32,079
+impossible
+
+1234
+01:01:29,040 --> 01:01:34,240
+Because when you want to quote a regular
+
+1235
+01:01:32,079 --> 01:01:36,880
+expression backslash, you need to add
+
+1236
+01:01:34,240 --> 01:01:39,839
+more backslash. So it be basically
+
+1237
+01:01:36,880 --> 01:01:42,400
+becomes hell. So it becomes impossible
+
+1238
+01:01:39,839 --> 01:01:45,280
+to find a regular expression in your
+
+1239
+01:01:42,400 --> 01:01:49,359
+source code using regular expression.
+
+1240
+01:01:45,280 --> 01:01:51,520
+That's another kind of effect with the
+
+1241
+01:01:49,359 --> 01:01:55,040
+escape sequence sequence. That's the
+
+1242
+01:01:51,520 --> 01:01:57,200
+result harmful consequence of the escape
+
+1243
+01:01:55,040 --> 01:02:00,000
+sequence. Okay.
+
+1244
+01:01:57,200 --> 01:02:02,880
+Another problem besides toothpick
+
+1245
+01:02:00,000 --> 01:02:04,640
+syndrome is like when you want to pass a
+
+1246
+01:02:02,880 --> 01:02:08,640
+string
+
+1247
+01:02:04,640 --> 01:02:12,640
+to shell you know then the back backcape
+
+1248
+01:02:08,640 --> 01:02:15,920
+becomes a hell. Okay. So so anyway so I
+
+1249
+01:02:12,640 --> 01:02:18,559
+hope this uh uh you know the
+
+1250
+01:02:15,920 --> 01:02:21,280
+uh rock string syntax solve all these
+
+1251
+01:02:18,559 --> 01:02:25,359
+problems. Okay that's it for today.
+
+1252
+01:02:21,280 --> 01:02:28,240
+Thank you guys for watching. So uh KBTXX
+
+1253
+01:02:25,359 --> 01:02:30,480
+says what what are the random characters
+
+1254
+01:02:28,240 --> 01:02:34,640
+on both sides of the strings supposed to
+
+1255
+01:02:30,480 --> 01:02:37,760
+show that is just that's that is idea
+
+1256
+01:02:34,640 --> 01:02:39,280
+borrowed from here do dark okay you
+
+1257
+01:02:37,760 --> 01:02:42,240
+probably
+
+1258
+01:02:39,280 --> 01:02:44,720
+young to know so here do dark began with
+
+1259
+01:02:42,240 --> 01:02:49,760
+with pearl okay so do I have a pearl no
+
+1260
+01:02:44,720 --> 01:02:52,720
+so let's uh let's add pearl tutorial so
+
+1261
+01:02:49,760 --> 01:02:55,680
+you go to pearl my pearl tutorial or
+
+1262
+01:02:52,720 --> 01:02:58,480
+search for it. You will find it per
+
+1263
+01:02:55,680 --> 01:03:02,240
+tutorial on kasadi.info.
+
+1264
+01:02:58,480 --> 01:03:05,280
+Uh go to string and uh go to here
+
+1265
+01:03:02,240 --> 01:03:08,640
+string. So here do is a syntax beginning
+
+1266
+01:03:05,280 --> 01:03:11,760
+with pearl that allows you to quote
+
+1267
+01:03:08,640 --> 01:03:14,400
+arbitrary long text. Let's say 10
+
+1268
+01:03:11,760 --> 01:03:17,200
+million words. You know you want to grab
+
+1269
+01:03:14,400 --> 01:03:19,280
+you you you know you have literature of
+
+1270
+01:03:17,200 --> 01:03:22,400
+he Shakespeare or programming language
+
+1271
+01:03:19,280 --> 01:03:24,079
+or whatever. you know 10 billion
+
+1272
+01:03:22,400 --> 01:03:27,680
+characters. You want to make it into a
+
+1273
+01:03:24,079 --> 01:03:29,680
+string. So normally when you use double
+
+1274
+01:03:27,680 --> 01:03:31,920
+quote or Python triple quote it may not
+
+1275
+01:03:29,680 --> 01:03:33,680
+work because the string the text itself
+
+1276
+01:03:31,920 --> 01:03:37,200
+may contain triple quotes. So it will
+
+1277
+01:03:33,680 --> 01:03:41,760
+ it up. So Pearl has this thing
+
+1278
+01:03:37,200 --> 01:03:46,240
+called um he do. Okay. So that allows
+
+1279
+01:03:41,760 --> 01:03:50,400
+you to quote arbitrarily long uh text.
+
+1280
+01:03:46,240 --> 01:03:53,520
+What you do is you use two less than
+
+1281
+01:03:50,400 --> 01:03:56,640
+equal sign then a sequence of random
+
+1282
+01:03:53,520 --> 01:03:59,280
+characters. Okay, like this BB whatever
+
+1283
+01:03:56,640 --> 01:04:02,720
+random sequence then at the end of the
+
+1284
+01:03:59,280 --> 01:04:05,440
+string you have that occurrence of that
+
+1285
+01:04:02,720 --> 01:04:07,599
+random sequence again. So this random
+
+1286
+01:04:05,440 --> 01:04:10,400
+sequence of characters serves as a
+
+1287
+01:04:07,599 --> 01:04:12,319
+delimiter. So when you have a random
+
+1288
+01:04:10,400 --> 01:04:15,280
+sequence it's almost imp you know one
+
+1289
+01:04:12,319 --> 01:04:18,559
+one in a gab billion you know
+
+1290
+01:04:15,280 --> 01:04:21,359
+possibility you know for it to occur in
+
+1291
+01:04:18,559 --> 01:04:25,359
+a string. So this is a robust way this
+
+1292
+01:04:21,359 --> 01:04:28,000
+is a bulletproof way to ensure whatever
+
+1293
+01:04:25,359 --> 01:04:30,400
+text you know this syntax can allow any
+
+1294
+01:04:28,000 --> 01:04:34,160
+arbitrary text.
+
+1295
+01:04:30,400 --> 01:04:37,039
+Okay, as far as we you know practicality
+
+1296
+01:04:34,160 --> 01:04:39,839
+is concerned you know unless you have
+
+1297
+01:04:37,039 --> 01:04:42,160
+like infinite you know text. So this
+
+1298
+01:04:39,839 --> 01:04:45,920
+this began with pearl like about 30
+
+1299
+01:04:42,160 --> 01:04:49,599
+years ago in 1990. Okay.
+
+1300
+01:04:45,920 --> 01:04:53,119
+So then it came also it came to uh PHP
+
+1301
+01:04:49,599 --> 01:04:56,799
+because PHP is kind of a derivative from
+
+1302
+01:04:53,119 --> 01:04:59,200
+pearl uh and the syntax uh varies
+
+1303
+01:04:56,799 --> 01:05:04,079
+slightly. So let me post link here.
+
+1304
+01:04:59,200 --> 01:05:09,039
+Okay. So um toothpick syndrome
+
+1305
+01:05:04,079 --> 01:05:12,880
+and u pearl let's say PHP and so PHP
+
+1306
+01:05:09,039 --> 01:05:15,200
+tutorial my P my PHP tutorial is not
+
+1307
+01:05:12,880 --> 01:05:18,480
+very good okay but anyway so you can see
+
+1308
+01:05:15,200 --> 01:05:21,839
+the PHP version of here do they differ
+
+1309
+01:05:18,480 --> 01:05:24,799
+slightly from pearl okay so let's um
+
+1310
+01:05:21,839 --> 01:05:29,359
+copy the link here and that's it for
+
+1311
+01:05:24,799 --> 01:05:31,760
+today so and then we have uh powershell
+
+1312
+01:05:29,359 --> 01:05:34,000
+Okay, so PowerShell also kind of
+
+1313
+01:05:31,760 --> 01:05:38,000
+borrowed the here doc. Okay, they call
+
+1314
+01:05:34,000 --> 01:05:40,400
+it here string. Okay, so PowerShell
+
+1315
+01:05:38,000 --> 01:05:42,720
+instead of using random sequence of
+
+1316
+01:05:40,400 --> 01:05:48,319
+characters, they use the add sign in
+
+1317
+01:05:42,720 --> 01:05:50,960
+front but with the caveat that this this
+
+1318
+01:05:48,319 --> 01:05:55,359
+delimiter must happen in a new line at
+
+1319
+01:05:50,960 --> 01:05:57,440
+the end. Okay, so this is a PowerShell.
+
+1320
+01:05:55,359 --> 01:06:01,359
+They kind of borrowed from the here dot
+
+1321
+01:05:57,440 --> 01:06:03,760
+concept but does not involve random
+
+1322
+01:06:01,359 --> 01:06:07,200
+sequence of characters. So can this
+
+1323
+01:06:03,760 --> 01:06:10,640
+actually work? So in in the PowerShell
+
+1324
+01:06:07,200 --> 01:06:13,039
+uh way the PowerShell syntax syntax the
+
+1325
+01:06:10,640 --> 01:06:15,359
+problem is that let's let's post the
+
+1326
+01:06:13,039 --> 01:06:18,160
+link here. Okay. So, okay. So, the
+
+1327
+01:06:15,359 --> 01:06:24,000
+PowerShell issue is that you must be
+
+1328
+01:06:18,160 --> 01:06:27,920
+sure that your text must not contain
+
+1329
+01:06:24,000 --> 01:06:29,520
+apostrophe at as a line by itself. Okay,
+
+1330
+01:06:27,920 --> 01:06:31,920
+that's the only thing you must watch
+
+1331
+01:06:29,520 --> 01:06:34,480
+out. So, the text cannot contain
+
+1332
+01:06:31,920 --> 01:06:37,920
+apostrophe at
+
+1333
+01:06:34,480 --> 01:06:43,200
+that is a problem when that's a problem
+
+1334
+01:06:37,920 --> 01:06:45,359
+when you embed PowerShell source code as
+
+1335
+01:06:43,200 --> 01:06:47,680
+text. Okay, so powershell actually do
+
+1336
+01:06:45,359 --> 01:06:50,480
+have a problem. This this back slashes
+
+1337
+01:06:47,680 --> 01:06:53,680
+escape problem often occurs when you are
+
+1338
+01:06:50,480 --> 01:06:56,079
+embedding the language by itself.
+
+1339
+01:06:53,680 --> 01:06:58,400
+So for example, you want to pass regular
+
+1340
+01:06:56,079 --> 01:07:00,000
+expression by a regular expression like
+
+1341
+01:06:58,400 --> 01:07:02,880
+you want to search for a regular
+
+1342
+01:07:00,000 --> 01:07:06,000
+expression by a regular expression. It's
+
+1343
+01:07:02,880 --> 01:07:08,079
+a problem. uh backlash when you you know
+
+1344
+01:07:06,000 --> 01:07:10,880
+the escape syndrome when you want to
+
+1345
+01:07:08,079 --> 01:07:15,200
+escape another escape that's why you got
+
+1346
+01:07:10,880 --> 01:07:17,440
+the toothpick syndrome so similarly when
+
+1347
+01:07:15,200 --> 01:07:19,200
+you when your powershell code is
+
+1348
+01:07:17,440 --> 01:07:21,920
+actually processing powershell source
+
+1349
+01:07:19,200 --> 01:07:24,559
+code then this becomes a problem because
+
+1350
+01:07:21,920 --> 01:07:26,880
+this text body
+
+1351
+01:07:24,559 --> 01:07:31,520
+you know we are likely very likely to
+
+1352
+01:07:26,880 --> 01:07:34,160
+contain a you know apostrophe at okay so
+
+1353
+01:07:31,520 --> 01:07:36,640
+but as long as you don't you
+
+1354
+01:07:34,160 --> 01:07:38,960
+you know you know you know you you are
+
+1355
+01:07:36,640 --> 01:07:41,440
+the text is not powershell s code source
+
+1356
+01:07:38,960 --> 01:07:43,119
+code this is not likely to happen okay
+
+1357
+01:07:41,440 --> 01:07:46,079
+so that's a powershell solution they
+
+1358
+01:07:43,119 --> 01:07:49,599
+don't they don't allow the arbitrary um
+
+1359
+01:07:46,079 --> 01:07:53,359
+random sequence of characters okay
+
+1360
+01:07:49,599 --> 01:07:56,240
+so that's it so so my uh my rock string
+
+1361
+01:07:53,359 --> 01:07:58,559
+design
+
+1362
+01:07:56,240 --> 01:08:01,520
+you are required to have arbitrary
+
+1363
+01:07:58,559 --> 01:08:03,280
+strings you know as delimiters and it
+
+1364
+01:08:01,520 --> 01:08:05,440
+must match at the
+
+1365
+01:08:03,280 --> 01:08:09,039
+And they do not need to be aligned by
+
+1366
+01:08:05,440 --> 01:08:10,799
+themselves. Okay. So, okay. So, that's
+
+1367
+01:08:09,039 --> 01:08:12,799
+it.
+
+1368
+01:08:10,799 --> 01:08:14,799
+Bye guys. Bye guys. Thank you for
+
+1369
+01:08:12,799 --> 01:08:17,679
+watching. So, if you like my stuff,
+
+1370
+01:08:14,799 --> 01:08:20,239
+okay, support me. Okay. Um, you know, go
+
+1371
+01:08:17,679 --> 01:08:24,480
+to my website.info.
+
+1372
+01:08:20,239 --> 01:08:27,120
+http no s. Okay. Uh, and go down. You
+
+1373
+01:08:24,480 --> 01:08:30,719
+can see my PayPal link, PayPal, Patreon,
+
+1374
+01:08:27,120 --> 01:08:34,719
+me, Amazon gift card, me, PayPal coffee,
+
+1375
+01:08:30,719 --> 01:08:37,279
+$10, $10, $20, buy me a dinner, dinner,
+
+1376
+01:08:34,719 --> 01:08:41,120
+if you work at a job, you know, pay me
+
+1377
+01:08:37,279 --> 01:08:43,359
+$100, you know. Thank you guys. So,
+
+1378
+01:08:41,120 --> 01:08:48,080
+that's it. We We shut down in one
+
+1379
+01:08:43,359 --> 01:08:50,960
+minute. So, it's been uh 70 minutes
+
+1380
+01:08:48,080 --> 01:08:54,359
+talk. Okay. Fantastic.
+
+1381
+01:08:50,960 --> 01:08:54,359
+Bye, guys.
+
+1382
+01:08:55,040 --> 01:08:59,839
+uh spread my videos, okay? Share it on
+
+1383
+01:08:57,440 --> 01:09:02,319
+Twitter or your blog or tell your friend
+
+1384
+01:08:59,839 --> 01:09:04,560
+to watch it, okay? Because Google, you
+
+1385
+01:09:02,319 --> 01:09:06,560
+know, they don't they don't, you know,
+
+1386
+01:09:04,560 --> 01:09:09,600
+they don't promote live stream. uh and
+
+1387
+01:09:06,560 --> 01:09:12,400
+also because
+
+1388
+01:09:09,600 --> 01:09:14,319
+you know I don't talk in a way like
+
+1389
+01:09:12,400 --> 01:09:16,080
+pleasing you know like for the mass
+
+1390
+01:09:14,319 --> 01:09:19,920
+audience like when you when when you
+
+1391
+01:09:16,080 --> 01:09:22,719
+search for Google Python tutorial
+
+1392
+01:09:19,920 --> 01:09:25,359
+uh you you know like YouTube you know
+
+1393
+01:09:22,719 --> 01:09:29,920
+you you search for Python tutorial then
+
+1394
+01:09:25,359 --> 01:09:33,319
+all you see is this like meme
+
+1395
+01:09:29,920 --> 01:09:33,319
+you know for example
+
+1396
+01:09:33,440 --> 01:09:37,920
+you know you got Python in two hours you
+
+1397
+01:09:35,600 --> 01:09:40,880
+know like smiley face you know friendly
+
+1398
+01:09:37,920 --> 01:09:43,520
+you know and this what the whatever
+
+1399
+01:09:40,880 --> 01:09:46,960
+generation genius why does it show up
+
+1400
+01:09:43,520 --> 01:09:49,600
+here I'm searching for Python tutorial
+
+1401
+01:09:46,960 --> 01:09:52,080
+but people but that's the way marketing
+
+1402
+01:09:49,600 --> 01:09:55,040
+you know that's way you know smiley talk
+
+1403
+01:09:52,080 --> 01:09:57,360
+hi everyone uh this my you know my name
+
+1404
+01:09:55,040 --> 01:10:00,400
+is Kali today I'm going to introduce you
+
+1405
+01:09:57,360 --> 01:10:02,960
+Python you can learn it in one hour uh I
+
+1406
+01:10:00,400 --> 01:10:06,239
+have been programming professional for
+
+1407
+01:10:02,960 --> 01:10:09,679
+30 years and uh if you like this please
+
+1408
+01:10:06,239 --> 01:10:12,080
+support me sponsor you know you you and
+
+1409
+01:10:09,679 --> 01:10:14,159
+then you have to do promotion then some
+
+1410
+01:10:12,080 --> 01:10:17,280
+of the promotion are nasty because they
+
+1411
+01:10:14,159 --> 01:10:19,199
+are paid uh and uh you know so you you
+
+1412
+01:10:17,280 --> 01:10:21,840
+see these kind of things and often most
+
+1413
+01:10:19,199 --> 01:10:25,600
+most of the time they are not good
+
+1414
+01:10:21,840 --> 01:10:28,000
+tutorials they are and you see you know
+
+1415
+01:10:25,600 --> 01:10:31,520
+then you got Python in 100 seconds this
+
+1416
+01:10:28,000 --> 01:10:34,000
+is popular two 2.99 million views you
+
+1417
+01:10:31,520 --> 01:10:35,120
+know you got you you got post you know
+
+1418
+01:10:34,000 --> 01:10:37,440
+put a
+
+1419
+01:10:35,120 --> 01:10:39,840
+Guo vonome, you know, and then you got
+
+1420
+01:10:37,440 --> 01:10:42,320
+post, you got to have this, you know,
+
+1421
+01:10:39,840 --> 01:10:45,120
+thumbnail of hacking, you know, 0 one
+
+1422
+01:10:42,320 --> 01:10:48,000
+01. That's crap.
+
+1423
+01:10:45,120 --> 01:10:51,360
+I don't I don't do this. Okay. So, so
+
+1424
+01:10:48,000 --> 01:10:56,880
+consequently, you know, my video is not
+
+1425
+01:10:51,360 --> 01:10:56,880
+very popular. Okay. Thank you. Bye guys.
+

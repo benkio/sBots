@@ -1,0 +1,3584 @@
+1
+00:00:03,080 --> 00:00:15,049
+come on everyone welcome to Kentucky Oh
+
+2
+00:00:07,080 --> 00:00:18,900
+today is June 14th 2019 5 o clock p.m.
+
+3
+00:00:15,049 --> 00:00:23,460
+California time California and the sunny
+
+4
+00:00:18,900 --> 00:00:28,640
+state and today we have a purpose
+
+5
+00:00:23,460 --> 00:00:32,460
+today's topic is going to be Emacs Lisp
+
+6
+00:00:28,640 --> 00:00:35,670
+live coding demo first tutorial because
+
+7
+00:00:32,460 --> 00:00:39,719
+when I'm you know coding it I will also
+
+8
+00:00:35,670 --> 00:00:44,040
+explain you know something about Emacs
+
+9
+00:00:39,719 --> 00:00:49,579
+Lisp so you can learn it from learn
+
+10
+00:00:44,040 --> 00:00:53,730
+learn from it let me fix the title here
+
+11
+00:00:49,579 --> 00:00:56,789
+let's see I'm alive yes that is correct
+
+12
+00:00:53,730 --> 00:01:02,160
+so let me fix the title so Santa chokes
+
+13
+00:00:56,789 --> 00:01:06,689
+out talk show and today state and live
+
+14
+00:01:02,160 --> 00:01:13,979
+demo today ok ok let's put that here
+
+15
+00:01:06,689 --> 00:01:18,090
+Emacs live demo first tutorial ok copy
+
+16
+00:01:13,979 --> 00:01:23,430
+that over here press a key press a key
+
+17
+00:01:18,090 --> 00:01:26,759
+paste and o single button operation this
+
+18
+00:01:23,430 --> 00:01:30,450
+is the utmost efficiency good morning
+
+19
+00:01:26,759 --> 00:01:32,340
+one guy watching good morning say hi and
+
+20
+00:01:30,450 --> 00:01:35,909
+so let's get on with it
+
+21
+00:01:32,340 --> 00:01:39,720
+so on the Left window as you know it
+
+22
+00:01:35,909 --> 00:01:46,649
+lists all Emacs commands I call doesn't
+
+23
+00:01:39,720 --> 00:01:51,270
+matter it's by meta X or by key so so
+
+24
+00:01:46,649 --> 00:01:53,729
+okay so Emacs like demo that's right so
+
+25
+00:01:51,270 --> 00:01:59,119
+what we're gonna do is okay let's begin
+
+26
+00:01:53,729 --> 00:02:01,430
+the topic so I have a command called
+
+27
+00:01:59,119 --> 00:02:04,590
+soccer field line or region for example
+
+28
+00:02:01,430 --> 00:02:07,619
+suppose I want to copy this line so I
+
+29
+00:02:04,590 --> 00:02:10,530
+just press a key it's already copied you
+
+30
+00:02:07,619 --> 00:02:13,140
+can see on the left window there is you
+
+31
+00:02:10,530 --> 00:02:13,620
+know I just called soccer field line or
+
+32
+00:02:13,140 --> 00:02:16,560
+region
+
+33
+00:02:13,620 --> 00:02:20,040
+and the key I used is jae-hyung vorak
+
+34
+00:02:16,560 --> 00:02:23,940
+layout I'm using a very big layout and
+
+35
+00:02:20,040 --> 00:02:26,370
+as usual let me just show you you know
+
+36
+00:02:23,940 --> 00:02:27,890
+this is my keyboard you see this is the
+
+37
+00:02:26,370 --> 00:02:33,950
+Evora keyboard
+
+38
+00:02:27,890 --> 00:02:36,750
+it's a Canisius advant advantage too and
+
+39
+00:02:33,950 --> 00:02:39,720
+you know it's an economic keyboard I
+
+40
+00:02:36,750 --> 00:02:42,379
+have a review on my website just such
+
+41
+00:02:39,720 --> 00:02:46,500
+folks ollie keyboard and you are see it
+
+42
+00:02:42,379 --> 00:02:57,030
+and also let me let's fix up this thing
+
+43
+00:02:46,500 --> 00:03:03,560
+this window this this window and see we
+
+44
+00:02:57,030 --> 00:03:03,560
+don't want that thing okay so
+
+45
+00:03:11,709 --> 00:03:17,650
+okay so that's good so I have this
+
+46
+00:03:14,379 --> 00:03:19,329
+command soccer field I know region now
+
+47
+00:03:17,650 --> 00:03:25,239
+let me show you something interesting
+
+48
+00:03:19,329 --> 00:03:27,700
+okay so some thing interesting suppose
+
+49
+00:03:25,239 --> 00:03:33,670
+suppose I want to copy these three lines
+
+50
+00:03:27,700 --> 00:03:36,459
+okay now I I can do echo kusakabe line
+
+51
+00:03:33,670 --> 00:03:40,239
+or region and it moves the cursor to the
+
+52
+00:03:36,459 --> 00:03:42,609
+next line and I can call that command
+
+53
+00:03:40,239 --> 00:03:47,169
+again and call it again
+
+54
+00:03:42,609 --> 00:03:47,620
+now I paste you see it places all the
+
+55
+00:03:47,169 --> 00:03:50,730
+lines
+
+56
+00:03:47,620 --> 00:03:53,560
+so this is very extremely convenient and
+
+57
+00:03:50,730 --> 00:03:56,980
+you know this is part of the feature of
+
+58
+00:03:53,560 --> 00:04:00,519
+the Sacopee line or region there is
+
+59
+00:03:56,980 --> 00:04:02,620
+another feature that is you do not have
+
+60
+00:04:00,519 --> 00:04:04,510
+to make a selection first like normally
+
+61
+00:04:02,620 --> 00:04:07,269
+if you want to copy this line for
+
+62
+00:04:04,510 --> 00:04:10,419
+example you make a selection first then
+
+63
+00:04:07,269 --> 00:04:12,909
+you copy then you can paste but you
+
+64
+00:04:10,419 --> 00:04:18,280
+don't have to for example it's let's say
+
+65
+00:04:12,909 --> 00:04:19,959
+I want to copy this line okay I just you
+
+66
+00:04:18,280 --> 00:04:23,650
+know call the command you know by okey
+
+67
+00:04:19,959 --> 00:04:25,180
+then I can paste it here you see so no
+
+68
+00:04:23,650 --> 00:04:28,930
+need to make a selection
+
+69
+00:04:25,180 --> 00:04:31,810
+however if if you have a selection it
+
+70
+00:04:28,930 --> 00:04:34,539
+will copy the selection you see so
+
+71
+00:04:31,810 --> 00:04:36,490
+that's a feature and you can copy
+
+72
+00:04:34,539 --> 00:04:40,000
+multiple lines you know copy copy copy
+
+73
+00:04:36,490 --> 00:04:43,180
+and you know paste multiple lines so
+
+74
+00:04:40,000 --> 00:04:45,610
+those are the features of akkad copy
+
+75
+00:04:43,180 --> 00:04:49,539
+line or region now let me show you the
+
+76
+00:04:45,610 --> 00:04:50,550
+command so I call describe function okay
+
+77
+00:04:49,539 --> 00:04:53,919
+copy that
+
+78
+00:04:50,550 --> 00:04:58,449
+describe function so copyrino region
+
+79
+00:04:53,919 --> 00:05:01,530
+show it okay so it says copy current
+
+80
+00:04:58,449 --> 00:05:05,380
+line or text selection if there is one
+
+81
+00:05:01,530 --> 00:05:09,659
+when code repeatedly apply copy sub seek
+
+82
+00:05:05,380 --> 00:05:12,550
+a pen copy subsequent lines so you see
+
+83
+00:05:09,659 --> 00:05:15,310
+when universal argument is called first
+
+84
+00:05:12,550 --> 00:05:18,039
+copy hole buffer so for example if I
+
+85
+00:05:15,310 --> 00:05:20,469
+want to copy the entire buffer I press
+
+86
+00:05:18,039 --> 00:05:22,870
+ctrl you first okay
+
+87
+00:05:20,469 --> 00:05:25,960
+then I call the command now it's copied
+
+88
+00:05:22,870 --> 00:05:30,010
+the entire buffer now I open a new
+
+89
+00:05:25,960 --> 00:05:32,800
+paste you see or 700 lines it's you know
+
+90
+00:05:30,010 --> 00:05:35,190
+it's copied now let's close that so
+
+91
+00:05:32,800 --> 00:05:40,260
+those are the features of car
+
+92
+00:05:35,190 --> 00:05:43,540
+Shakopee Lyle region and I have the code
+
+93
+00:05:40,260 --> 00:05:47,680
+here so Inc you know if you want to use
+
+94
+00:05:43,540 --> 00:05:57,400
+it go to this URL and you know you've
+
+95
+00:05:47,680 --> 00:06:00,490
+got a code this this beginning 2010 you
+
+96
+00:05:57,400 --> 00:06:03,610
+know the first one is the command the
+
+97
+00:06:00,490 --> 00:06:06,370
+other one is the another command of
+
+98
+00:06:03,610 --> 00:06:09,910
+variation you know so you can go and use
+
+99
+00:06:06,370 --> 00:06:11,920
+it now there is a problem though there's
+
+100
+00:06:09,910 --> 00:06:15,690
+a problem which is what we are going to
+
+101
+00:06:11,920 --> 00:06:20,230
+do today we are trying to fix that is
+
+102
+00:06:15,690 --> 00:06:27,030
+when you let's say some okay when you
+
+103
+00:06:20,230 --> 00:06:27,030
+copy let's say when you copy these and
+
+104
+00:06:29,610 --> 00:06:37,180
+you know the problem is that sometimes
+
+105
+00:06:32,140 --> 00:06:42,010
+it will copy the same line twice let's
+
+106
+00:06:37,180 --> 00:06:44,620
+see if I can duplicate it yeah sometimes
+
+107
+00:06:42,010 --> 00:06:48,460
+it copies twice now I have to you know I
+
+108
+00:06:44,620 --> 00:06:53,100
+have to remember how to duplicate it it
+
+109
+00:06:48,460 --> 00:06:57,360
+happens you know every few days to me
+
+110
+00:06:53,100 --> 00:06:58,900
+but what is the condition that happens
+
+111
+00:06:57,360 --> 00:07:04,960
+let me see
+
+112
+00:06:58,900 --> 00:07:08,980
+copy okay I know so I'm going we are
+
+113
+00:07:04,960 --> 00:07:11,560
+going to duplicate duplicate the book
+
+114
+00:07:08,980 --> 00:07:14,920
+which is it copied the same thing twice
+
+115
+00:07:11,560 --> 00:07:18,430
+so that basically I you know let me show
+
+116
+00:07:14,920 --> 00:07:21,640
+you so so there's a line here I copy
+
+117
+00:07:18,430 --> 00:07:24,430
+okay hold on a second let me just copy
+
+118
+00:07:21,640 --> 00:07:26,860
+something else so in case we get mixed
+
+119
+00:07:24,430 --> 00:07:30,810
+up so we don't get mixed up so here we
+
+120
+00:07:26,860 --> 00:07:36,090
+chose us here we copy the line and
+
+121
+00:07:30,810 --> 00:07:36,090
+actually let's start a new window
+
+122
+00:07:38,009 --> 00:07:47,110
+hold on a second so let's start a new
+
+123
+00:07:41,949 --> 00:07:49,479
+window new buffer and we can this
+
+124
+00:07:47,110 --> 00:07:57,509
+another command let me show you this
+
+125
+00:07:49,479 --> 00:08:03,099
+command is wait this command is this
+
+126
+00:07:57,509 --> 00:08:05,220
+show Sascha Keil ring so now basically
+
+127
+00:08:03,099 --> 00:08:08,699
+when you call this command it will
+
+128
+00:08:05,220 --> 00:08:13,150
+create a new buffer and show all the
+
+129
+00:08:08,699 --> 00:08:15,759
+history of copy and paste you see so you
+
+130
+00:08:13,150 --> 00:08:19,630
+see we have here this is the latest item
+
+131
+00:08:15,759 --> 00:08:23,139
+then we have here this is the previous
+
+132
+00:08:19,630 --> 00:08:26,020
+item then we have some Sun then we have
+
+133
+00:08:23,139 --> 00:08:29,229
+this and then we have this entire buffer
+
+134
+00:08:26,020 --> 00:08:36,390
+but we copied copied that so this is
+
+135
+00:08:29,229 --> 00:08:38,890
+long then we have this is quite long
+
+136
+00:08:36,390 --> 00:08:42,789
+then we have other things so I copied
+
+137
+00:08:38,890 --> 00:08:45,130
+before so close that so that is another
+
+138
+00:08:42,789 --> 00:08:47,890
+command you might find useful so let me
+
+139
+00:08:45,130 --> 00:08:52,720
+show you what is the command describe
+
+140
+00:08:47,890 --> 00:08:57,750
+key and this is the command sorry ok
+
+141
+00:08:52,720 --> 00:09:01,630
+ring so you can get the code at this URL
+
+142
+00:08:57,750 --> 00:09:05,800
+it's very useful command and both of
+
+143
+00:09:01,630 --> 00:09:08,350
+them are part of supply keys so if you
+
+144
+00:09:05,800 --> 00:09:13,270
+use cross surf like is you you have
+
+145
+00:09:08,350 --> 00:09:18,399
+these or these so now ok now let's go
+
+146
+00:09:13,270 --> 00:09:25,050
+back so so what I'm going to show you is
+
+147
+00:09:18,399 --> 00:09:29,920
+that we are going to duplicate trying to
+
+148
+00:09:25,050 --> 00:09:31,930
+reproduce the bug where a line is copied
+
+149
+00:09:29,920 --> 00:09:37,270
+twice let me show you what that means
+
+150
+00:09:31,930 --> 00:09:46,140
+so I copy this line so let's try again
+
+151
+00:09:37,270 --> 00:09:46,140
+so ABC ok ABC I copy this line then
+
+152
+00:09:52,490 --> 00:09:58,940
+wait how do we how do you reproduce that
+
+153
+00:09:55,910 --> 00:10:07,310
+then I switch to Chrome for example okay
+
+154
+00:09:58,940 --> 00:10:13,520
+now I switch back to Emacs then I gone
+
+155
+00:10:07,310 --> 00:10:22,310
+how do you duplicate the book I paste
+
+156
+00:10:13,520 --> 00:10:34,420
+okay so copy the line I cannot duplicate
+
+157
+00:10:22,310 --> 00:10:34,420
+the bug what that problem copy the line
+
+158
+00:10:35,020 --> 00:10:45,470
+switch to Chrome you know do something
+
+159
+00:10:38,630 --> 00:10:48,110
+there then get back to Emacs then copy
+
+160
+00:10:45,470 --> 00:10:49,000
+the line again now let's see what we
+
+161
+00:10:48,110 --> 00:10:53,120
+have
+
+162
+00:10:49,000 --> 00:10:55,670
+paste no you know what should happen is
+
+163
+00:10:53,120 --> 00:10:58,370
+that I should get these this happens to
+
+164
+00:10:55,670 --> 00:11:01,210
+me sometimes like I would when I paste I
+
+165
+00:10:58,370 --> 00:11:08,530
+would get you know the line to repeat it
+
+166
+00:11:01,210 --> 00:11:15,589
+once okay but we have problem
+
+167
+00:11:08,530 --> 00:11:20,030
+reproducing the bug okay how do you read
+
+168
+00:11:15,589 --> 00:11:30,100
+reproduce the bug this happens usually
+
+169
+00:11:20,030 --> 00:11:30,100
+why want to go to white to Twitter stuff
+
+170
+00:11:35,890 --> 00:11:49,040
+copy the line switch to Chrome
+
+171
+00:11:42,910 --> 00:11:53,410
+switch back to Emacs copy again okay now
+
+172
+00:11:49,040 --> 00:12:06,140
+let's see what we have taste that is it
+
+173
+00:11:53,410 --> 00:12:07,540
+so that is the problem a b c d e f DF so
+
+174
+00:12:06,140 --> 00:12:10,760
+let's try it again
+
+175
+00:12:07,540 --> 00:12:18,080
+copy switch to Chrome
+
+176
+00:12:10,760 --> 00:12:19,130
+switch back to Emacs copy okay that's
+
+177
+00:12:18,080 --> 00:12:27,980
+not it
+
+178
+00:12:19,130 --> 00:12:29,720
+good morning pace good morning paste so
+
+179
+00:12:27,980 --> 00:12:34,190
+we're trying to duplicate the bug let's
+
+180
+00:12:29,720 --> 00:12:37,750
+try again so base are you using Emacs
+
+181
+00:12:34,190 --> 00:12:48,920
+your Emacs user right or you are you not
+
+182
+00:12:37,750 --> 00:12:50,840
+so let's see some things let's make this
+
+183
+00:12:48,920 --> 00:12:59,200
+line long okay
+
+184
+00:12:50,840 --> 00:12:59,200
+so sometimes I want to copy the line
+
+185
+00:13:02,070 --> 00:13:10,800
+copy that i Kapila the line switched to
+
+186
+00:13:09,960 --> 00:13:16,310
+crumbs
+
+187
+00:13:10,800 --> 00:13:20,820
+switch back to Emacs copy again paste
+
+188
+00:13:16,310 --> 00:13:24,120
+okay I don't think this is a bug then so
+
+189
+00:13:20,820 --> 00:13:26,400
+we actually yeah I don't think it's a
+
+190
+00:13:24,120 --> 00:13:28,110
+bug you see basically what happens is
+
+191
+00:13:26,400 --> 00:13:32,790
+that let me show you the code some
+
+192
+00:13:28,110 --> 00:13:36,840
+coffee Lyon region okay so let's go to
+
+193
+00:13:32,790 --> 00:13:39,660
+the the code stop like he's here C
+
+194
+00:13:36,840 --> 00:13:42,510
+source code so let's so let's look at
+
+195
+00:13:39,660 --> 00:13:49,020
+that coffee that caused it make a new
+
+196
+00:13:42,510 --> 00:13:52,800
+buffer paste and let's make saw Emacs be
+
+197
+00:13:49,020 --> 00:13:55,800
+smart okay so here's a code so what what
+
+198
+00:13:52,800 --> 00:14:02,580
+did happen what did does is that when
+
+199
+00:13:55,800 --> 00:14:06,360
+you copy your line okay instead of
+
+200
+00:14:02,580 --> 00:14:08,880
+trying to fix the bug because because
+
+201
+00:14:06,360 --> 00:14:12,360
+now we cannot I don't think he's a bug
+
+202
+00:14:08,880 --> 00:14:14,490
+you know now thinking about it it's
+
+203
+00:14:12,360 --> 00:14:18,390
+likely you know it's not the bug it's
+
+204
+00:14:14,490 --> 00:14:22,080
+just the way it works so instead of
+
+205
+00:14:18,390 --> 00:14:24,810
+instead of fixing the bug let's just
+
+206
+00:14:22,080 --> 00:14:27,480
+turn this to I'm going to give you a
+
+207
+00:14:24,810 --> 00:14:30,030
+walk through how these command works so
+
+208
+00:14:27,480 --> 00:14:32,760
+hopefully you can learn some email is
+
+209
+00:14:30,030 --> 00:14:37,170
+you know retaining the original purpose
+
+210
+00:14:32,760 --> 00:14:40,680
+where you learn some emag bees so bases
+
+211
+00:14:37,170 --> 00:14:42,960
+I've dabbled in the basics of Emacs but
+
+212
+00:14:40,680 --> 00:14:46,680
+because I mainly do dot network I'm
+
+213
+00:14:42,960 --> 00:14:51,570
+pretty tied to visual studio and me as
+
+214
+00:14:46,680 --> 00:14:54,240
+code cool okay great so I'm interested
+
+215
+00:14:51,570 --> 00:14:57,860
+in Emacs though so yeah PS code I heard
+
+216
+00:14:54,240 --> 00:15:02,310
+it's very good I really want to try it
+
+217
+00:14:57,860 --> 00:15:05,580
+you know you know Emacs has lots of
+
+218
+00:15:02,310 --> 00:15:08,850
+problems mostly mostly the community the
+
+219
+00:15:05,580 --> 00:15:13,260
+free software foundation they the Emacs
+
+220
+00:15:08,850 --> 00:15:14,100
+has a code problem so you know but I've
+
+221
+00:15:13,260 --> 00:15:17,029
+been
+
+222
+00:15:14,100 --> 00:15:21,899
+you know leaving Emax for 20 years now
+
+223
+00:15:17,029 --> 00:15:25,110
+and exactly basically exactly 20 years
+
+224
+00:15:21,899 --> 00:15:28,470
+or you know living in emacs 20 years
+
+225
+00:15:25,110 --> 00:15:30,209
+everyday you know many hours and you
+
+226
+00:15:28,470 --> 00:15:33,630
+know so I've spent huge amount of
+
+227
+00:15:30,209 --> 00:15:37,649
+investment in Emacs Lisp I started
+
+228
+00:15:33,630 --> 00:15:43,709
+coding Emacs Lisp in 2006 so you know
+
+229
+00:15:37,649 --> 00:15:46,220
+that's 15 years so V so Emacs has lots
+
+230
+00:15:43,709 --> 00:15:48,930
+of problems code and you know which
+
+231
+00:15:46,220 --> 00:15:51,600
+basically it ends up you know there's no
+
+232
+00:15:48,930 --> 00:15:55,290
+progress there's lots of inefficiencies
+
+233
+00:15:51,600 --> 00:15:57,029
+it's still pretty good but depending on
+
+234
+00:15:55,290 --> 00:16:00,180
+what you how you compare you know how
+
+235
+00:15:57,029 --> 00:16:04,199
+you judge but it's got lots of problems
+
+236
+00:16:00,180 --> 00:16:06,329
+and it's stagnating and the user base is
+
+237
+00:16:04,199 --> 00:16:09,569
+strengthening and grinding of course to
+
+238
+00:16:06,329 --> 00:16:12,240
+us you know many of us Emacs fans we
+
+239
+00:16:09,569 --> 00:16:15,779
+think you know we perceive emacs's oh
+
+240
+00:16:12,240 --> 00:16:18,120
+the greatest thing that Oh more people
+
+241
+00:16:15,779 --> 00:16:20,459
+are using actually no that's not true
+
+242
+00:16:18,120 --> 00:16:23,430
+less and less people are using you you
+
+243
+00:16:20,459 --> 00:16:27,899
+know it it's like steadily down here Oh
+
+244
+00:16:23,430 --> 00:16:31,019
+since 20 years ago yeah that's about
+
+245
+00:16:27,899 --> 00:16:35,970
+right you know is basically is basically
+
+246
+00:16:31,019 --> 00:16:38,880
+less and less people using and you know
+
+247
+00:16:35,970 --> 00:16:41,189
+if you are a Emacs fan if you are
+
+248
+00:16:38,880 --> 00:16:44,370
+typically math user you may not agree
+
+249
+00:16:41,189 --> 00:16:51,060
+but I don't think you know Emacs user
+
+250
+00:16:44,370 --> 00:16:54,180
+base the number of users is declining so
+
+251
+00:16:51,060 --> 00:16:58,579
+but so that but the the essence of the
+
+252
+00:16:54,180 --> 00:17:02,610
+Emacs idea is that essentially it's a
+
+253
+00:16:58,579 --> 00:17:06,240
+you know some people call it it's a list
+
+254
+00:17:02,610 --> 00:17:08,520
+machine environment basically what that
+
+255
+00:17:06,240 --> 00:17:12,720
+means is that it it's got this language
+
+256
+00:17:08,520 --> 00:17:15,049
+Lisp in this case Emacs this that is the
+
+257
+00:17:12,720 --> 00:17:18,839
+main thing basically the whole Emacs is
+
+258
+00:17:15,049 --> 00:17:20,850
+essentially a environment or you you
+
+259
+00:17:18,839 --> 00:17:23,880
+some people say operating system it's an
+
+260
+00:17:20,850 --> 00:17:26,579
+environment to learn Lisp and everything
+
+261
+00:17:23,880 --> 00:17:27,990
+you do is actually you know it's it's
+
+262
+00:17:26,579 --> 00:17:30,470
+you know everything you do
+
+263
+00:17:27,990 --> 00:17:34,020
+including moving closer is actually all
+
+264
+00:17:30,470 --> 00:17:36,320
+calling list commands for example I
+
+265
+00:17:34,020 --> 00:17:41,179
+moved kusa it's actually calling
+
+266
+00:17:36,320 --> 00:17:45,050
+backward and actually why I type
+
+267
+00:17:41,179 --> 00:17:47,940
+something here it's actually calling
+
+268
+00:17:45,050 --> 00:17:51,780
+insert character you don't see it
+
+269
+00:17:47,940 --> 00:17:54,300
+because in command log mod you know when
+
+270
+00:17:51,780 --> 00:17:57,240
+you call that command it's suppressed
+
+271
+00:17:54,300 --> 00:18:00,030
+but let me show you just the example let
+
+272
+00:17:57,240 --> 00:18:01,800
+me turn that back on so you can see so
+
+273
+00:18:00,030 --> 00:18:05,250
+the idea basically what I'm saying is
+
+274
+00:18:01,800 --> 00:18:07,350
+that every everything is calling a Emax
+
+275
+00:18:05,250 --> 00:18:09,870
+list command I'm gonna show you that
+
+276
+00:18:07,350 --> 00:18:15,120
+later okay so you might be so in my
+
+277
+00:18:09,870 --> 00:18:17,460
+Emacs is a this environment so the most
+
+278
+00:18:15,120 --> 00:18:21,330
+important idea about Emacs is
+
+279
+00:18:17,460 --> 00:18:23,820
+essentially it has a language the
+
+280
+00:18:21,330 --> 00:18:25,890
+programming language that that that is
+
+281
+00:18:23,820 --> 00:18:28,740
+the foundation that is actually the
+
+282
+00:18:25,890 --> 00:18:31,590
+heart the core of Emacs everything you
+
+283
+00:18:28,740 --> 00:18:33,410
+do including you know inserting
+
+284
+00:18:31,590 --> 00:18:36,000
+characters switching windows whatever
+
+285
+00:18:33,410 --> 00:18:39,950
+anything anything past you know if
+
+286
+00:18:36,000 --> 00:18:45,410
+anything happens in Emacs is is because
+
+287
+00:18:39,950 --> 00:18:49,500
+some eMac this function is running and
+
+288
+00:18:45,410 --> 00:18:51,840
+the way you interact interact with it is
+
+289
+00:18:49,500 --> 00:18:55,500
+that because every key you know this is
+
+290
+00:18:51,840 --> 00:18:57,150
+an another essential part of Emacs is
+
+291
+00:18:55,500 --> 00:19:01,110
+that every keystroke
+
+292
+00:18:57,150 --> 00:19:04,710
+is gone through it is functional say
+
+293
+00:19:01,110 --> 00:19:08,550
+interface every keystroke including like
+
+294
+00:19:04,710 --> 00:19:10,890
+when you type something something s ome
+
+295
+00:19:08,550 --> 00:19:15,330
+you know when you type when you type s
+
+296
+00:19:10,890 --> 00:19:18,150
+for example any keystroke that is feed
+
+297
+00:19:15,330 --> 00:19:21,900
+into Emacs then Emacs determines what
+
+298
+00:19:18,150 --> 00:19:24,660
+commands should run for that key so in a
+
+299
+00:19:21,900 --> 00:19:26,280
+case when you press s Emacs says we are
+
+300
+00:19:24,660 --> 00:19:30,300
+going to run the command insert
+
+301
+00:19:26,280 --> 00:19:38,240
+character then it inserts the character
+
+302
+00:19:30,300 --> 00:19:41,530
+s so everything so so let me get back to
+
+303
+00:19:38,240 --> 00:19:44,900
+talking about the essence of Emacs
+
+304
+00:19:41,530 --> 00:19:47,360
+let me say two things one fundamentally
+
+305
+00:19:44,900 --> 00:19:49,640
+it's a list machine you know everything
+
+306
+00:19:47,360 --> 00:19:52,040
+is running around the core there's a
+
+307
+00:19:49,640 --> 00:19:54,590
+language you know the language that's
+
+308
+00:19:52,040 --> 00:19:56,750
+running is the whole thing is an
+
+309
+00:19:54,590 --> 00:20:00,050
+environment for the language that's one
+
+310
+00:19:56,750 --> 00:20:04,220
+thing the second thing is that every
+
+311
+00:20:00,050 --> 00:20:06,550
+keystroke is the interface of two users
+
+312
+00:20:04,220 --> 00:20:10,220
+II is that every keystroke is
+
+313
+00:20:06,550 --> 00:20:14,150
+interpreted to into running a list
+
+314
+00:20:10,220 --> 00:20:18,050
+function or command you know so that is
+
+315
+00:20:14,150 --> 00:20:21,380
+a two thing about Emacs that and that is
+
+316
+00:20:18,050 --> 00:20:24,770
+kind of what makes it tremendously
+
+317
+00:20:21,380 --> 00:20:28,160
+powerful now you you might know if you
+
+318
+00:20:24,770 --> 00:20:36,110
+know Emacs that Emacs was originally the
+
+319
+00:20:28,160 --> 00:20:37,490
+name Emacs stand for at editor let's see
+
+320
+00:20:36,110 --> 00:20:41,300
+Emacs
+
+321
+00:20:37,490 --> 00:20:46,220
+so it's editors maybe not it has
+
+322
+00:20:41,300 --> 00:20:51,280
+something add mark well it's not editor
+
+323
+00:20:46,220 --> 00:20:51,280
+it's something but anyway it's something
+
+324
+00:20:52,090 --> 00:21:00,620
+mark was editor mark was I think that's
+
+325
+00:20:57,620 --> 00:21:06,550
+what it it is so let's look up Wikipedia
+
+326
+00:21:00,620 --> 00:21:06,550
+okay you know that will give us the
+
+327
+00:21:11,029 --> 00:21:17,850
+magnify magnify move it to the right so
+
+328
+00:21:16,470 --> 00:21:21,950
+you can see it
+
+329
+00:21:17,850 --> 00:21:27,990
+so the original acronym for Emacs is
+
+330
+00:21:21,950 --> 00:21:32,179
+let's see mark oh yeah ed editor Marcus
+
+331
+00:21:27,990 --> 00:21:36,230
+you know that that is the what Emacs
+
+332
+00:21:32,179 --> 00:21:41,210
+originally stand for editor Marcus so
+
+333
+00:21:36,230 --> 00:21:41,210
+you can see from this abbreviation that
+
+334
+00:21:41,240 --> 00:21:47,250
+you see the whole thing about Emacs is
+
+335
+00:21:44,010 --> 00:21:50,159
+just editor Marcos meaning that key
+
+336
+00:21:47,250 --> 00:21:52,980
+Marcos meaning that the essence of Emacs
+
+337
+00:21:50,159 --> 00:21:56,669
+is that you define what each key does
+
+338
+00:21:52,980 --> 00:21:59,250
+you know each key becomes a marker so so
+
+339
+00:21:56,669 --> 00:22:03,630
+that ties to what I'm saying so Emacs is
+
+340
+00:21:59,250 --> 00:22:05,490
+first of all a lisp environment the
+
+341
+00:22:03,630 --> 00:22:08,370
+other thing is that it's a chemical
+
+342
+00:22:05,490 --> 00:22:11,039
+system this you know for the entire
+
+343
+00:22:08,370 --> 00:22:13,110
+thing every key you press including
+
+344
+00:22:11,039 --> 00:22:16,049
+control something in our something it
+
+345
+00:22:13,110 --> 00:22:19,380
+it's a macro it runs the command you
+
+346
+00:22:16,049 --> 00:22:21,960
+know to do something - you know - it may
+
+347
+00:22:19,380 --> 00:22:23,909
+type other keys or whatever it's a
+
+348
+00:22:21,960 --> 00:22:26,880
+editor Marcos so that's the two things
+
+349
+00:22:23,909 --> 00:22:31,890
+about Emacs the nature of Emacs and and
+
+350
+00:22:26,880 --> 00:22:35,730
+what made it powerful but this idea this
+
+351
+00:22:31,890 --> 00:22:38,250
+idea is not a very complicated idea by
+
+352
+00:22:35,730 --> 00:22:41,399
+the way this idea came from history it
+
+353
+00:22:38,250 --> 00:22:43,980
+is not you know someone you know think
+
+354
+00:22:41,399 --> 00:22:46,620
+you know sit down and think oh what
+
+355
+00:22:43,980 --> 00:22:49,020
+should an editor be what should be the
+
+356
+00:22:46,620 --> 00:22:52,309
+you know the most powerful editor should
+
+357
+00:22:49,020 --> 00:22:55,409
+be like then he decided oh let's do a
+
+358
+00:22:52,309 --> 00:22:56,850
+language environment and keyboard mark
+
+359
+00:22:55,409 --> 00:22:59,850
+oh no it's not like that
+
+360
+00:22:56,850 --> 00:23:02,820
+things happen what most things happen we
+
+361
+00:22:59,850 --> 00:23:04,860
+see every day they it's from history so
+
+362
+00:23:02,820 --> 00:23:08,820
+Emacs became this ways because
+
+363
+00:23:04,860 --> 00:23:13,110
+originally it was you know editor Marco
+
+364
+00:23:08,820 --> 00:23:16,110
+it was you know key a set of markers
+
+365
+00:23:13,110 --> 00:23:21,330
+people have started to do for the editor
+
+366
+00:23:16,110 --> 00:23:23,909
+at a time what's the editor called tech
+
+367
+00:23:21,330 --> 00:23:24,610
+oh yeah Tico is the editor so it's
+
+368
+00:23:23,909 --> 00:23:27,720
+basically
+
+369
+00:23:24,610 --> 00:23:30,370
+just a collection of you know convenient
+
+370
+00:23:27,720 --> 00:23:33,280
+markers you know keyboard macros that
+
+371
+00:23:30,370 --> 00:23:35,110
+people start to collect and you know
+
+372
+00:23:33,280 --> 00:23:37,600
+start to collect and bigger and bigger
+
+373
+00:23:35,110 --> 00:23:40,179
+then people have tried to make it
+
+374
+00:23:37,600 --> 00:23:45,400
+consistent refi it eventually
+
+375
+00:23:40,179 --> 00:23:47,650
+that is what Emacs is so you know that's
+
+376
+00:23:45,400 --> 00:23:50,770
+the history of Emacs you know it's this
+
+377
+00:23:47,650 --> 00:23:52,510
+idea but okay so let's get back to so
+
+378
+00:23:50,770 --> 00:23:54,880
+what I'm saying is that so Emacs is
+
+379
+00:23:52,510 --> 00:23:59,650
+these two things a list of environment
+
+380
+00:23:54,880 --> 00:24:04,600
+and key markers this is a great idea but
+
+381
+00:23:59,650 --> 00:24:07,540
+now this idea came from history it's a
+
+382
+00:24:04,600 --> 00:24:11,260
+from you know for history historical
+
+383
+00:24:07,540 --> 00:24:14,530
+reasons this way and but this turns out
+
+384
+00:24:11,260 --> 00:24:17,230
+to be a great idea and this idea is not
+
+385
+00:24:14,530 --> 00:24:19,270
+very complex as you can see it's pretty
+
+386
+00:24:17,230 --> 00:24:21,490
+simple you know you had you just have
+
+387
+00:24:19,270 --> 00:24:23,799
+keyboard markers you have a lisp
+
+388
+00:24:21,490 --> 00:24:25,720
+environment then you have keyboard
+
+389
+00:24:23,799 --> 00:24:28,059
+markers as an interface you have a
+
+390
+00:24:25,720 --> 00:24:30,880
+language you know firming language and
+
+391
+00:24:28,059 --> 00:24:33,970
+with keyboard marco as an interface to
+
+392
+00:24:30,880 --> 00:24:36,940
+the language so this is a simple very
+
+393
+00:24:33,970 --> 00:24:40,750
+simple idea and it's a great idea so so
+
+394
+00:24:36,940 --> 00:24:46,120
+this idea in my opinion I think it can
+
+395
+00:24:40,750 --> 00:24:51,640
+be duplicated in modern environment for
+
+396
+00:24:46,120 --> 00:24:54,100
+example with JavaScript so I don't think
+
+397
+00:24:51,640 --> 00:24:57,120
+it's too hard I think it's not a hard
+
+398
+00:24:54,100 --> 00:25:01,299
+thing to do so you know in the past
+
+399
+00:24:57,120 --> 00:25:07,809
+decades we've seen Adam editor which is
+
+400
+00:25:01,299 --> 00:25:10,059
+a editor you know say you know it's it's
+
+401
+00:25:07,809 --> 00:25:12,280
+almost like Emacs because you can think
+
+402
+00:25:10,059 --> 00:25:15,640
+of Adam editor is written in JavaScript
+
+403
+00:25:12,280 --> 00:25:18,900
+pure JavaScript you know ands and then
+
+404
+00:25:15,640 --> 00:25:22,330
+we have vs code which is Microsoft's
+
+405
+00:25:18,900 --> 00:25:26,400
+version you know it's a editor written
+
+406
+00:25:22,330 --> 00:25:32,290
+entirely in JavaScript on top of the
+
+407
+00:25:26,400 --> 00:25:36,040
+Google Chrome browser engine v8 so
+
+408
+00:25:32,290 --> 00:25:37,900
+chromium you know be a VAD is a
+
+409
+00:25:36,040 --> 00:25:41,020
+JavaScript compiler
+
+410
+00:25:37,900 --> 00:25:44,140
+chronium is the open source part of
+
+411
+00:25:41,020 --> 00:25:47,110
+Google Chrome browser so Quan Quan Yin
+
+412
+00:25:44,140 --> 00:25:51,580
+contains the v8 corneum is like open
+
+413
+00:25:47,110 --> 00:25:53,920
+source okay so so browser becomes so
+
+414
+00:25:51,580 --> 00:25:58,740
+complicated and powerful today so it
+
+415
+00:25:53,920 --> 00:26:01,390
+becomes actually a it became a kind of a
+
+416
+00:25:58,740 --> 00:26:04,240
+desktop widget system you know GUI
+
+417
+00:26:01,390 --> 00:26:06,970
+system so you can write editors on top
+
+418
+00:26:04,240 --> 00:26:10,540
+of browser so when you start atom editor
+
+419
+00:26:06,970 --> 00:26:14,050
+of vyas code whatever you see is
+
+420
+00:26:10,540 --> 00:26:16,000
+actually just a browser you know you
+
+421
+00:26:14,050 --> 00:26:18,190
+know it's basically essentially a
+
+422
+00:26:16,000 --> 00:26:21,700
+browser but without all the you know
+
+423
+00:26:18,190 --> 00:26:25,510
+process specific features but it is a
+
+424
+00:26:21,700 --> 00:26:28,690
+you know a browser running JavaScript so
+
+425
+00:26:25,510 --> 00:26:31,260
+but the idea is like you know it is
+
+426
+00:26:28,690 --> 00:26:39,670
+basically you have JavaScript as a core
+
+427
+00:26:31,260 --> 00:26:41,350
+language and you know and and as far as
+
+428
+00:26:39,670 --> 00:26:43,510
+I know you can also define keyboard
+
+429
+00:26:41,350 --> 00:26:46,150
+macros of course obviously you can
+
+430
+00:26:43,510 --> 00:26:49,360
+create your own shortcuts so to me I
+
+431
+00:26:46,150 --> 00:26:54,570
+have always thought that maybe that is
+
+432
+00:26:49,360 --> 00:26:57,309
+the modern idea of Emacs you know so I
+
+433
+00:26:54,570 --> 00:27:00,040
+i-i've been wanting to look into them
+
+434
+00:26:57,309 --> 00:27:03,610
+but I never got to I never spent much
+
+435
+00:27:00,040 --> 00:27:05,800
+time into them but it looks like V s
+
+436
+00:27:03,610 --> 00:27:10,510
+code is very successful and you know
+
+437
+00:27:05,800 --> 00:27:12,760
+today extremely popular so yeah so I'm
+
+438
+00:27:10,510 --> 00:27:15,490
+thinking you know maybe vs code or atom
+
+439
+00:27:12,760 --> 00:27:18,070
+could be a you know possible replacement
+
+440
+00:27:15,490 --> 00:27:22,150
+but however I've you know I haven't
+
+441
+00:27:18,070 --> 00:27:24,550
+looked into myself but I I've seen some
+
+442
+00:27:22,150 --> 00:27:29,320
+people I trust you know some other Emacs
+
+443
+00:27:24,550 --> 00:27:31,090
+users David Capello for example you know
+
+444
+00:27:29,320 --> 00:27:32,980
+I you know sometimes you don't have time
+
+445
+00:27:31,090 --> 00:27:35,470
+to do something yourself but you can
+
+446
+00:27:32,980 --> 00:27:38,320
+look up people you trust you know what
+
+447
+00:27:35,470 --> 00:27:44,320
+they say it seems like that like that
+
+448
+00:27:38,320 --> 00:27:46,510
+they it's not like that you know it
+
+449
+00:27:44,320 --> 00:27:49,179
+seems like you know although they are
+
+450
+00:27:46,510 --> 00:27:51,400
+you know system based on JavaScript you
+
+451
+00:27:49,179 --> 00:27:54,790
+know similar idea to Emacs
+
+452
+00:27:51,400 --> 00:27:59,590
+they they don't really function that way
+
+453
+00:27:54,790 --> 00:28:01,960
+so you know it seems that they don't
+
+454
+00:27:59,590 --> 00:28:05,920
+have the essence you know the essential
+
+455
+00:28:01,960 --> 00:28:08,590
+power like like Emacs so I don't know
+
+456
+00:28:05,920 --> 00:28:10,480
+for sure you know you know as people as
+
+457
+00:28:08,590 --> 00:28:13,059
+they say you know when you want to know
+
+458
+00:28:10,480 --> 00:28:16,240
+something the only ways you have to do
+
+459
+00:28:13,059 --> 00:28:21,130
+it yourself like you like I would have
+
+460
+00:28:16,240 --> 00:28:25,600
+to spend days to actually see for myself
+
+461
+00:28:21,130 --> 00:28:30,340
+where the vs code or ad editor can
+
+462
+00:28:25,600 --> 00:28:32,980
+really function like Emacs if it is the
+
+463
+00:28:30,340 --> 00:28:36,100
+case then you know we don't really need
+
+464
+00:28:32,980 --> 00:28:40,330
+Emacs because everything because because
+
+465
+00:28:36,100 --> 00:28:43,390
+because if we assume at a meditator and
+
+466
+00:28:40,330 --> 00:28:47,559
+V s code has the same kind of nature's
+
+467
+00:28:43,390 --> 00:28:52,900
+Emacs namely a language environment plus
+
+468
+00:28:47,559 --> 00:28:54,820
+a key interface to it then it has the
+
+469
+00:28:52,900 --> 00:28:57,730
+same nature as Emacs then you don't need
+
+470
+00:28:54,820 --> 00:29:02,260
+Emacs it has all the powers of Emacs and
+
+471
+00:28:57,730 --> 00:29:07,890
+more why because we to realize that
+
+472
+00:29:02,260 --> 00:29:10,860
+JavaScript the JavaScript community is
+
+473
+00:29:07,890 --> 00:29:13,809
+like what hundred times bigger than
+
+474
+00:29:10,860 --> 00:29:16,480
+Emacs you know the number of libraries
+
+475
+00:29:13,809 --> 00:29:18,990
+the number of people the number of money
+
+476
+00:29:16,480 --> 00:29:23,110
+resources going into JavaScript you know
+
+477
+00:29:18,990 --> 00:29:25,600
+hundred times no a thousand times no ten
+
+478
+00:29:23,110 --> 00:29:28,000
+thousand times yeah maybe that is true
+
+479
+00:29:25,600 --> 00:29:32,080
+you know that the resources put into
+
+480
+00:29:28,000 --> 00:29:35,010
+JavaScript and the browser is ten ten
+
+481
+00:29:32,080 --> 00:29:38,110
+thousand times more than Emacs is not a
+
+482
+00:29:35,010 --> 00:29:40,690
+you know hyperbola you know it's it's
+
+483
+00:29:38,110 --> 00:29:44,190
+it's it's reality let's just say a
+
+484
+00:29:40,690 --> 00:29:47,080
+thousand times so it's so far bigger
+
+485
+00:29:44,190 --> 00:29:49,090
+yeah of course but that's not what Emacs
+
+486
+00:29:47,080 --> 00:29:50,950
+fans like to hear you know you Mac you
+
+487
+00:29:49,090 --> 00:29:54,309
+you want to believe whatever you you
+
+488
+00:29:50,950 --> 00:29:57,690
+believe but you know that's some of the
+
+489
+00:29:54,309 --> 00:30:00,760
+fact that JavaScript community is really
+
+490
+00:29:57,690 --> 00:30:03,220
+the resources in the number of libraries
+
+491
+00:30:00,760 --> 00:30:05,260
+the the improvements to the language is
+
+492
+00:30:03,220 --> 00:30:13,030
+a thousand times
+
+493
+00:30:05,260 --> 00:30:16,000
+larger than Emacs so so you know so I'm
+
+494
+00:30:13,030 --> 00:30:19,210
+thinking that is why I've been wanting
+
+495
+00:30:16,000 --> 00:30:23,230
+to look into a demand vs code because
+
+496
+00:30:19,210 --> 00:30:26,860
+you know so if they have the nature of
+
+497
+00:30:23,230 --> 00:30:28,770
+Emacs then Emacs is really a video
+
+498
+00:30:26,860 --> 00:30:31,510
+Gunnar
+
+499
+00:30:28,770 --> 00:30:34,090
+but but of course there are some other
+
+500
+00:30:31,510 --> 00:30:38,980
+minor flaws and things you know like
+
+501
+00:30:34,090 --> 00:30:41,950
+social social issues a for example let's
+
+502
+00:30:38,980 --> 00:30:45,790
+assume first of all let's assume that BS
+
+503
+00:30:41,950 --> 00:30:50,620
+code truly has the same nature as Emacs
+
+504
+00:30:45,790 --> 00:30:53,620
+namely a language core with the key
+
+505
+00:30:50,620 --> 00:30:59,680
+markers interface let's assume that is
+
+506
+00:30:53,620 --> 00:31:03,430
+true but however even even if that is
+
+507
+00:30:59,680 --> 00:31:06,700
+true so in a technical sense you know vs
+
+508
+00:31:03,430 --> 00:31:10,660
+code or atom release is superior to
+
+509
+00:31:06,700 --> 00:31:12,790
+Emacs by far but however there are some
+
+510
+00:31:10,660 --> 00:31:18,700
+other problems not related to technology
+
+511
+00:31:12,790 --> 00:31:21,040
+for example vs code atom the JavaScript
+
+512
+00:31:18,700 --> 00:31:24,670
+the chromium browser they are run by
+
+513
+00:31:21,040 --> 00:31:27,210
+these greedy corporations you know the
+
+514
+00:31:24,670 --> 00:31:30,400
+billion dot me PD billion-dollar
+
+515
+00:31:27,210 --> 00:31:32,650
+powerful corporations to in censorship
+
+516
+00:31:30,400 --> 00:31:35,470
+or whatever they can to you know get
+
+517
+00:31:32,650 --> 00:31:37,870
+more money even though they are open
+
+518
+00:31:35,470 --> 00:31:40,270
+source but you cannot ignore the
+
+519
+00:31:37,870 --> 00:31:45,130
+background because they they do things
+
+520
+00:31:40,270 --> 00:31:49,770
+and and well meanwhile Emacs is run by
+
+521
+00:31:45,130 --> 00:31:54,010
+this by this by this richard stallman
+
+522
+00:31:49,770 --> 00:31:58,990
+guy okay he's a very he's not a very
+
+523
+00:31:54,010 --> 00:32:01,980
+good guy today but anyway he is he he is
+
+524
+00:31:58,990 --> 00:32:05,950
+known to be this nerd you know he is not
+
+525
+00:32:01,980 --> 00:32:08,500
+greedy let's say you know ed you know he
+
+526
+00:32:05,950 --> 00:32:10,990
+makes he takes a lot donations you know
+
+527
+00:32:08,500 --> 00:32:14,500
+for himself because he was you know the
+
+528
+00:32:10,990 --> 00:32:16,810
+goon the free software foundation he is
+
+529
+00:32:14,500 --> 00:32:18,230
+comfortable you know having he doesn't
+
+530
+00:32:16,810 --> 00:32:20,090
+have to do anything money
+
+531
+00:32:18,230 --> 00:32:22,940
+come to him and he sings you know
+
+532
+00:32:20,090 --> 00:32:25,280
+software do you know his job is just to
+
+533
+00:32:22,940 --> 00:32:28,100
+sing the song of free software and to
+
+534
+00:32:25,280 --> 00:32:29,690
+make sure that he will have money you
+
+535
+00:32:28,100 --> 00:32:33,080
+know to go to his pocket
+
+536
+00:32:29,690 --> 00:32:36,200
+you know then he's not worried about you
+
+537
+00:32:33,080 --> 00:32:41,510
+or other people anyway Richard Stallman
+
+538
+00:32:36,200 --> 00:32:44,450
+but but in any case he's not a greedy
+
+539
+00:32:41,510 --> 00:32:48,710
+guy you know although he's you know he's
+
+540
+00:32:44,450 --> 00:32:51,950
+not you know he's not there to lie or
+
+541
+00:32:48,710 --> 00:32:54,470
+cheat your money he's not intentionally
+
+542
+00:32:51,950 --> 00:32:56,360
+or you know explicit way so he anyway
+
+543
+00:32:54,470 --> 00:33:02,080
+the point is that he's not you know
+
+544
+00:32:56,360 --> 00:33:05,030
+these giant big corporations so you can
+
+545
+00:33:02,080 --> 00:33:07,640
+you can trust him you know you can trust
+
+546
+00:33:05,030 --> 00:33:11,809
+the Richard Stallman even though he did
+
+547
+00:33:07,640 --> 00:33:14,510
+many things bad as leaders of Emax you
+
+548
+00:33:11,809 --> 00:33:16,730
+know but but still you know all things
+
+549
+00:33:14,510 --> 00:33:18,559
+considered compared to the you know
+
+550
+00:33:16,730 --> 00:33:21,919
+whatever who is running Microsoft or
+
+551
+00:33:18,559 --> 00:33:24,380
+Google these days you know you reach a
+
+552
+00:33:21,919 --> 00:33:29,030
+storm is one you can trust
+
+553
+00:33:24,380 --> 00:33:34,490
+much more so it matters because because
+
+554
+00:33:29,030 --> 00:33:38,480
+then you know who how do you know that
+
+555
+00:33:34,490 --> 00:33:39,980
+vs code or a tomato respecto to FBI when
+
+556
+00:33:38,480 --> 00:33:42,049
+you know government you know government
+
+557
+00:33:39,980 --> 00:33:45,020
+is another big entity you know there are
+
+558
+00:33:42,049 --> 00:33:47,690
+billions dollars tax money from people
+
+559
+00:33:45,020 --> 00:33:50,480
+so they say okay you know one day they
+
+560
+00:33:47,690 --> 00:33:53,330
+say Oh Microsoft you know we have
+
+561
+00:33:50,480 --> 00:33:56,120
+concerns about security and stings so
+
+562
+00:33:53,330 --> 00:33:59,000
+let let's let me give you a deal you
+
+563
+00:33:56,120 --> 00:34:00,830
+know AG I sponsor you you know 1 billion
+
+564
+00:33:59,000 --> 00:34:04,340
+dollars for some project you know to
+
+565
+00:34:00,830 --> 00:34:06,320
+help humanity you know let's say I talk
+
+566
+00:34:04,340 --> 00:34:08,899
+to Google we're gonna give you 1 million
+
+567
+00:34:06,320 --> 00:34:10,909
+dollar 1 billion dollars to help you
+
+568
+00:34:08,899 --> 00:34:14,480
+know your Google search or whatever or
+
+569
+00:34:10,909 --> 00:34:17,270
+make oh I'll let you help us to create a
+
+570
+00:34:14,480 --> 00:34:20,780
+I for military purposes so you know
+
+571
+00:34:17,270 --> 00:34:23,480
+you're gonna benefit because the
+
+572
+00:34:20,780 --> 00:34:27,560
+military AI is a billion dollar industry
+
+573
+00:34:23,480 --> 00:34:29,480
+you know we gonna hire you and but you
+
+574
+00:34:27,560 --> 00:34:31,540
+cannot to us of a favor let's you know
+
+575
+00:34:29,480 --> 00:34:33,850
+we want this
+
+576
+00:34:31,540 --> 00:34:39,570
+corneum code to change a little bit here
+
+577
+00:34:33,850 --> 00:34:42,730
+and so then you got back back to-- and
+
+578
+00:34:39,570 --> 00:34:45,310
+the con comeon you know JavaScript
+
+579
+00:34:42,730 --> 00:34:48,190
+engine chromium you know how do you know
+
+580
+00:34:45,310 --> 00:34:50,410
+do you you know few very few people
+
+581
+00:34:48,190 --> 00:34:52,720
+actually are able to look into this
+
+582
+00:34:50,410 --> 00:34:57,190
+source code you know millions of lines
+
+583
+00:34:52,720 --> 00:34:59,620
+you know you don't know even if you are
+
+584
+00:34:57,190 --> 00:35:02,050
+open source or Security phonetic these
+
+585
+00:34:59,620 --> 00:35:04,840
+days because it's technology grows
+
+586
+00:35:02,050 --> 00:35:07,750
+exponentially it's impossible for one
+
+587
+00:35:04,840 --> 00:35:10,060
+person to know that you know million
+
+588
+00:35:07,750 --> 00:35:12,670
+lines of all the things happening
+
+589
+00:35:10,060 --> 00:35:15,910
+plugging libraries you know so you don't
+
+590
+00:35:12,670 --> 00:35:20,860
+know so so back to the point the point
+
+591
+00:35:15,910 --> 00:35:24,130
+is that quote you know oh this atom vs
+
+592
+00:35:20,860 --> 00:35:26,950
+code even though if they are technically
+
+593
+00:35:24,130 --> 00:35:29,170
+superior than Emacs but because they are
+
+594
+00:35:26,950 --> 00:35:32,230
+learned by corporations you know and you
+
+595
+00:35:29,170 --> 00:35:36,730
+know you cannot you know you cannot
+
+596
+00:35:32,230 --> 00:35:39,520
+trust it trust it as much as Emacs why
+
+597
+00:35:36,730 --> 00:35:40,230
+our Emacs is this little kind of little
+
+598
+00:35:39,520 --> 00:35:43,630
+guy you know
+
+599
+00:35:40,230 --> 00:35:46,030
+cranky lots of code problems you know
+
+600
+00:35:43,630 --> 00:35:48,190
+lots of these this free software and
+
+601
+00:35:46,030 --> 00:35:53,980
+open source phonetics you know
+
+602
+00:35:48,190 --> 00:35:56,200
+they do they believe in in in in fake
+
+603
+00:35:53,980 --> 00:35:58,570
+news they believe that what they want to
+
+604
+00:35:56,200 --> 00:36:02,140
+believe which not reality you know they
+
+605
+00:35:58,570 --> 00:36:04,480
+have you know it's a code but still they
+
+606
+00:36:02,140 --> 00:36:08,350
+are not these big corporations so you
+
+607
+00:36:04,480 --> 00:36:11,110
+can somewhat trusted more so it will not
+
+608
+00:36:08,350 --> 00:36:14,620
+it would be much less likely it's not
+
+609
+00:36:11,110 --> 00:36:16,720
+likely that one day you know Emacs will
+
+610
+00:36:14,620 --> 00:36:19,030
+contain some backdoor code you know
+
+611
+00:36:16,720 --> 00:36:22,270
+because when government tries to talk to
+
+612
+00:36:19,030 --> 00:36:24,430
+Richard Stallman you I can trust Richard
+
+613
+00:36:22,270 --> 00:36:28,200
+Stallman to he would say no you know I
+
+614
+00:36:24,430 --> 00:36:31,420
+this this part and this I can trust and
+
+615
+00:36:28,200 --> 00:36:34,360
+lots of the you know you guys you know
+
+616
+00:36:31,420 --> 00:36:37,780
+free free software open-source phonetics
+
+617
+00:36:34,360 --> 00:36:39,970
+you will say you know you will you will
+
+618
+00:36:37,780 --> 00:36:43,060
+cry out loud when you when you when you
+
+619
+00:36:39,970 --> 00:36:46,830
+see any such thing so this aspect is is
+
+620
+00:36:43,060 --> 00:36:46,830
+great yeah that that is why
+
+621
+00:36:47,039 --> 00:36:53,199
+you know so so you can trust me Mac said
+
+622
+00:36:49,839 --> 00:36:57,189
+that so that is it that is why even if
+
+623
+00:36:53,199 --> 00:36:59,739
+you know vs code anthem editor are you
+
+624
+00:36:57,189 --> 00:37:04,419
+know like Emacs and technically superior
+
+625
+00:36:59,739 --> 00:37:07,869
+but because of the social issues they
+
+626
+00:37:04,419 --> 00:37:11,349
+are also still good reasons to stick
+
+627
+00:37:07,869 --> 00:37:18,309
+with Emacs yeah that's my point about
+
+628
+00:37:11,349 --> 00:37:22,749
+that yeah okay so let's go back to talk
+
+629
+00:37:18,309 --> 00:37:25,539
+about the so this one one thing I want
+
+630
+00:37:22,749 --> 00:37:27,669
+to show you before I mentioned that let
+
+631
+00:37:25,539 --> 00:37:33,789
+me show you command log mod so describe
+
+632
+00:37:27,669 --> 00:37:37,089
+function command log mod so here is the
+
+633
+00:37:33,789 --> 00:37:39,429
+mod that I'm running that allows the
+
+634
+00:37:37,089 --> 00:37:45,159
+commands to show on the Left window so
+
+635
+00:37:39,429 --> 00:37:47,140
+we look at this code and you can see let
+
+636
+00:37:45,159 --> 00:37:52,149
+me modify something here you can see you
+
+637
+00:37:47,140 --> 00:37:59,619
+see this this block of code okay so
+
+638
+00:37:52,149 --> 00:38:02,769
+that's so this block of code you see it
+
+639
+00:37:59,619 --> 00:38:04,569
+does theater it filters are certain
+
+640
+00:38:02,769 --> 00:38:07,449
+commands you don't want to show on the
+
+641
+00:38:04,569 --> 00:38:11,889
+on the window so for example I have
+
+642
+00:38:07,449 --> 00:38:15,569
+filtered out self insert command you
+
+643
+00:38:11,889 --> 00:38:20,339
+know I filtered it out let's comment
+
+644
+00:38:15,569 --> 00:38:24,369
+comment it out and give out the function
+
+645
+00:38:20,339 --> 00:38:29,380
+now if I type self-insert he should
+
+646
+00:38:24,369 --> 00:38:34,449
+possibly show for example something you
+
+647
+00:38:29,380 --> 00:38:36,849
+see now if I type some thing ABC on the
+
+648
+00:38:34,449 --> 00:38:43,029
+Left panel you can see I'm calling self
+
+649
+00:38:36,849 --> 00:38:45,599
+inside command 25 times so that that pax
+
+650
+00:38:43,029 --> 00:38:48,159
+that my point about how Emacs is a
+
+651
+00:38:45,599 --> 00:38:52,269
+keyboard interface you know chemical
+
+652
+00:38:48,159 --> 00:38:57,339
+system any character any key you type is
+
+653
+00:38:52,269 --> 00:38:58,930
+bound to a list function or command so
+
+654
+00:38:57,339 --> 00:39:01,000
+you know so even
+
+655
+00:38:58,930 --> 00:39:03,849
+you are inserting something or pressing
+
+656
+00:39:01,000 --> 00:39:06,730
+enter now when I press enter you don't
+
+657
+00:39:03,849 --> 00:39:10,390
+see anything here because that command
+
+658
+00:39:06,730 --> 00:39:13,660
+is also filled theater feel filtered out
+
+659
+00:39:10,390 --> 00:39:17,230
+you see this this this one new line so
+
+660
+00:39:13,660 --> 00:39:20,950
+if I comment that line out avow the
+
+661
+00:39:17,230 --> 00:39:24,180
+function now now when I press enter you
+
+662
+00:39:20,950 --> 00:39:27,099
+can see that new line has says you see
+
+663
+00:39:24,180 --> 00:39:30,040
+so this is the power of Emacs you know
+
+664
+00:39:27,099 --> 00:39:33,460
+everything is in in real-time and
+
+665
+00:39:30,040 --> 00:39:36,280
+interactive you can you can edit the
+
+666
+00:39:33,460 --> 00:39:38,650
+list code in real time you know you make
+
+667
+00:39:36,280 --> 00:39:42,550
+a change like right now you make a
+
+668
+00:39:38,650 --> 00:39:44,530
+change you run it and Emacs behaves
+
+669
+00:39:42,550 --> 00:39:47,170
+differently you know according to your
+
+670
+00:39:44,530 --> 00:39:52,500
+change so that that is the power of
+
+671
+00:39:47,170 --> 00:39:57,099
+Emacs okay so that is about that let's
+
+672
+00:39:52,500 --> 00:40:01,900
+let's let's leave that like that
+
+673
+00:39:57,099 --> 00:40:04,780
+okay so let's close this and let's see
+
+674
+00:40:01,900 --> 00:40:07,780
+maybe we should explain this Sacopee
+
+675
+00:40:04,780 --> 00:40:13,660
+lion region code let's see how long I've
+
+676
+00:40:07,780 --> 00:40:17,109
+been talking 40 minutes maybe that's
+
+677
+00:40:13,660 --> 00:40:20,950
+about it so we got five people watching
+
+678
+00:40:17,109 --> 00:40:24,869
+so guys you know so he said should we
+
+679
+00:40:20,950 --> 00:40:29,230
+stop or should we do you guys want to
+
+680
+00:40:24,869 --> 00:40:33,369
+listen to how you know I explained some
+
+681
+00:40:29,230 --> 00:40:36,790
+emag list stuff you know technically mac
+
+682
+00:40:33,369 --> 00:40:38,950
+based coding you know because Mike's a
+
+683
+00:40:36,790 --> 00:40:40,809
+talk show has been you know you know it
+
+684
+00:40:38,950 --> 00:40:43,240
+has been running longer and longer
+
+685
+00:40:40,809 --> 00:40:46,660
+you know before it's like 40 minutes it
+
+686
+00:40:43,240 --> 00:40:47,470
+becomes an hour day in 90 minutes two
+
+687
+00:40:46,660 --> 00:40:49,660
+hours
+
+688
+00:40:47,470 --> 00:40:52,540
+you know because every time I it becomes
+
+689
+00:40:49,660 --> 00:40:57,790
+non-stop it's too long for people to
+
+690
+00:40:52,540 --> 00:41:01,180
+watch so today we talked about the we
+
+691
+00:40:57,790 --> 00:41:03,099
+talked about some the nature of Emacs
+
+692
+00:41:01,180 --> 00:41:06,130
+you know what makes it powerful we
+
+693
+00:41:03,099 --> 00:41:10,000
+talked about a little bit about you know
+
+694
+00:41:06,130 --> 00:41:12,140
+atom editor and vs code how they are how
+
+695
+00:41:10,000 --> 00:41:15,890
+they compare you know what you should
+
+696
+00:41:12,140 --> 00:41:21,230
+P and we talked about a little you know
+
+697
+00:41:15,890 --> 00:41:26,890
+things about Mike saw copyrino region
+
+698
+00:41:21,230 --> 00:41:29,780
+command so so that I would say the main
+
+699
+00:41:26,890 --> 00:41:33,170
+topic the useful topic is about the
+
+700
+00:41:29,780 --> 00:41:35,360
+nature of Emacs you know when you do a
+
+701
+00:41:33,170 --> 00:41:38,630
+talk show like when I do a talk show
+
+702
+00:41:35,360 --> 00:41:41,120
+I consider or if you are writing a book
+
+703
+00:41:38,630 --> 00:41:45,200
+or blog you know there are certain
+
+704
+00:41:41,120 --> 00:41:48,050
+content that is everywhere for example
+
+705
+00:41:45,200 --> 00:41:51,380
+if I talk if I teach you about Emacs
+
+706
+00:41:48,050 --> 00:41:53,300
+Lisp that is not a new topic you know
+
+707
+00:41:51,380 --> 00:41:56,330
+everyone you know lots of people have
+
+708
+00:41:53,300 --> 00:42:01,100
+you know teach can teach you Emacs Lisp
+
+709
+00:41:56,330 --> 00:42:03,710
+or Emacs okay so in terms of human
+
+710
+00:42:01,100 --> 00:42:06,740
+history in terms of a humanity that that
+
+711
+00:42:03,710 --> 00:42:10,490
+is tried you know know if anyone can do
+
+712
+00:42:06,740 --> 00:42:14,450
+it but however when you write a book or
+
+713
+00:42:10,490 --> 00:42:19,880
+blog or you know or video some certain
+
+714
+00:42:14,450 --> 00:42:23,330
+content that is rather unique that that
+
+715
+00:42:19,880 --> 00:42:26,060
+you don't see anywhere for example today
+
+716
+00:42:23,330 --> 00:42:28,580
+I was talking about the nature of Emacs
+
+717
+00:42:26,060 --> 00:42:30,440
+now you know I was talking about how
+
+718
+00:42:28,580 --> 00:42:33,890
+Emacs is you know the Kois
+
+719
+00:42:30,440 --> 00:42:38,600
+Lisp environment then the interface is a
+
+720
+00:42:33,890 --> 00:42:41,540
+you know chemical system that of course
+
+721
+00:42:38,600 --> 00:42:44,300
+this is not a unique idea other people
+
+722
+00:42:41,540 --> 00:42:48,680
+has said that too but however this part
+
+723
+00:42:44,300 --> 00:42:54,440
+of the content is rather more unique you
+
+724
+00:42:48,680 --> 00:42:57,890
+know it's rare and so and and what I
+
+725
+00:42:54,440 --> 00:43:01,220
+want to say is that it tends to be so if
+
+726
+00:42:57,890 --> 00:43:03,950
+I teach eMac list or or if I teach Emacs
+
+727
+00:43:01,220 --> 00:43:06,890
+people love that it tends you know a lot
+
+728
+00:43:03,950 --> 00:43:08,990
+of people we will you know uploaded it
+
+729
+00:43:06,890 --> 00:43:10,580
+you know we are hearted because it's
+
+730
+00:43:08,990 --> 00:43:12,440
+useful it's practical
+
+731
+00:43:10,580 --> 00:43:15,080
+you know people come to your show or
+
+732
+00:43:12,440 --> 00:43:17,690
+your blog you know they know they learn
+
+733
+00:43:15,080 --> 00:43:21,700
+something they can use you know but on
+
+734
+00:43:17,690 --> 00:43:21,700
+the other hand if you talk about this
+
+735
+00:43:21,850 --> 00:43:26,180
+philosophical topic about nature of
+
+736
+00:43:23,960 --> 00:43:28,279
+Emacs few people are interested
+
+737
+00:43:26,180 --> 00:43:30,410
+I mean you you can tell by statistics
+
+738
+00:43:28,279 --> 00:43:35,450
+you know like the number of likes you
+
+739
+00:43:30,410 --> 00:43:37,819
+know this is where it's few so this is
+
+740
+00:43:35,450 --> 00:43:41,960
+interesting because this applies to
+
+741
+00:43:37,819 --> 00:43:46,609
+books too because the most useful common
+
+742
+00:43:41,960 --> 00:43:48,500
+topic that gets you cells or money you
+
+743
+00:43:46,609 --> 00:43:50,990
+know like when you when you when you
+
+744
+00:43:48,500 --> 00:43:54,500
+talk to a publisher you know you plan to
+
+745
+00:43:50,990 --> 00:43:58,520
+write a book the the the type of content
+
+746
+00:43:54,500 --> 00:44:00,740
+that sells is often often the common you
+
+747
+00:43:58,520 --> 00:44:02,569
+know the tutorial about JavaScript
+
+748
+00:44:00,740 --> 00:44:04,430
+JavaScript tutorial you know programming
+
+749
+00:44:02,569 --> 00:44:10,309
+language you know those kind of thing
+
+750
+00:44:04,430 --> 00:44:14,210
+common you sell you sell things but no
+
+751
+00:44:10,309 --> 00:44:17,450
+value vd of little value to with respect
+
+752
+00:44:14,210 --> 00:44:20,390
+to humanity on the other hand if you
+
+753
+00:44:17,450 --> 00:44:22,970
+want to talk about unique opinions or
+
+754
+00:44:20,390 --> 00:44:25,029
+ideas such as you know like for example
+
+755
+00:44:22,970 --> 00:44:28,490
+philosophy or programming languages
+
+756
+00:44:25,029 --> 00:44:31,069
+philosophy of Emax this kind of thing it
+
+757
+00:44:28,490 --> 00:44:34,099
+doesn't sell nobody nobody give a
+
+758
+00:44:31,069 --> 00:44:37,910
+you know nobody cares about you know you
+
+759
+00:44:34,099 --> 00:44:41,450
+know your opinions even though it's even
+
+760
+00:44:37,910 --> 00:44:42,980
+if it is you know lots of wisdoms you
+
+761
+00:44:41,450 --> 00:44:45,440
+know nobody care about those kind of
+
+762
+00:44:42,980 --> 00:44:48,500
+things but however if you look at
+
+763
+00:44:45,440 --> 00:44:51,980
+humanity like history like if you try to
+
+764
+00:44:48,500 --> 00:44:56,329
+read you know 50 years ago what computer
+
+765
+00:44:51,980 --> 00:44:58,190
+you know programmers are doing you will
+
+766
+00:44:56,329 --> 00:45:00,619
+see a lot of programming tutorials those
+
+767
+00:44:58,190 --> 00:45:03,260
+you don't care rather the the thing that
+
+768
+00:45:00,619 --> 00:45:04,970
+interests you is the the ideas about
+
+769
+00:45:03,260 --> 00:45:08,180
+what what they are doing you know what's
+
+770
+00:45:04,970 --> 00:45:10,970
+the philosophy you know so the this kind
+
+771
+00:45:08,180 --> 00:45:14,119
+of thing becomes important with respect
+
+772
+00:45:10,970 --> 00:45:18,980
+to human history you know that that that
+
+773
+00:45:14,119 --> 00:45:24,529
+is the thing so when I'm doing my talk
+
+774
+00:45:18,980 --> 00:45:26,089
+show I have kind of this conflict I mean
+
+775
+00:45:24,529 --> 00:45:29,299
+this surprise to every every author
+
+776
+00:45:26,089 --> 00:45:31,789
+every you know bloggers you know such as
+
+777
+00:45:29,299 --> 00:45:34,579
+yourself you have this kind of conflict
+
+778
+00:45:31,789 --> 00:45:37,130
+on my hand if you want if you want
+
+779
+00:45:34,579 --> 00:45:39,650
+clicks you you want you know popularity
+
+780
+00:45:37,130 --> 00:45:39,920
+you want you know people to like you you
+
+781
+00:45:39,650 --> 00:45:42,260
+know
+
+782
+00:45:39,920 --> 00:45:44,599
+you you write practical stuff like how
+
+783
+00:45:42,260 --> 00:45:46,250
+oh how do you you know how do you delete
+
+784
+00:45:44,599 --> 00:45:49,339
+the line how do you copy your line you
+
+785
+00:45:46,250 --> 00:45:51,920
+know you do that but if you want you
+
+786
+00:45:49,339 --> 00:45:55,700
+know something that's really substantial
+
+787
+00:45:51,920 --> 00:46:00,769
+to history or you know to humanity on
+
+788
+00:45:55,700 --> 00:46:03,470
+the whole as a whole you want to do
+
+789
+00:46:00,769 --> 00:46:05,990
+something more unique but you you don't
+
+790
+00:46:03,470 --> 00:46:10,010
+get you know nobody read it that it that
+
+791
+00:46:05,990 --> 00:46:12,829
+is interesting that is my you know my
+
+792
+00:46:10,010 --> 00:46:15,049
+thought about this this this interesting
+
+793
+00:46:12,829 --> 00:46:18,589
+thing this this happens to book
+
+794
+00:46:15,049 --> 00:46:21,019
+publishers because to you know in in in
+
+795
+00:46:18,589 --> 00:46:24,529
+lots of areas because I've looked you
+
+796
+00:46:21,019 --> 00:46:26,180
+know I've looked you know into like you
+
+797
+00:46:24,529 --> 00:46:28,279
+can do to you know you can start a
+
+798
+00:46:26,180 --> 00:46:31,700
+research you know so-called research you
+
+799
+00:46:28,279 --> 00:46:33,250
+you know if you are curious about you
+
+800
+00:46:31,700 --> 00:46:36,650
+know suppose you want to write a book
+
+801
+00:46:33,250 --> 00:46:39,680
+you know there are people you know in in
+
+802
+00:46:36,650 --> 00:46:42,529
+book publishing or author communities
+
+803
+00:46:39,680 --> 00:46:44,299
+they talk about books you know what to
+
+804
+00:46:42,529 --> 00:46:47,450
+write what happens when you talk to a
+
+805
+00:46:44,299 --> 00:46:50,240
+publisher you know what kind of topics
+
+806
+00:46:47,450 --> 00:46:52,670
+you know sells what kind of topic
+
+807
+00:46:50,240 --> 00:46:56,119
+doesn't sell and things like that and I
+
+808
+00:46:52,670 --> 00:46:58,549
+have read you know as part of my
+
+809
+00:46:56,119 --> 00:47:02,359
+experience you know you know looking at
+
+810
+00:46:58,549 --> 00:47:04,549
+all different things that you know you
+
+811
+00:47:02,359 --> 00:47:07,369
+know so some publishers in you know
+
+812
+00:47:04,549 --> 00:47:09,079
+author that's a community you know you
+
+813
+00:47:07,369 --> 00:47:11,329
+have to look into different community
+
+814
+00:47:09,079 --> 00:47:14,089
+communities to know things so they talk
+
+815
+00:47:11,329 --> 00:47:17,660
+about you know things about that so when
+
+816
+00:47:14,089 --> 00:47:19,670
+you look so so apparently a lot authors
+
+817
+00:47:17,660 --> 00:47:22,099
+when they write a book you know they
+
+818
+00:47:19,670 --> 00:47:24,589
+talk to a publisher they say they think
+
+819
+00:47:22,099 --> 00:47:26,240
+oh I have this idea that's new I've
+
+820
+00:47:24,589 --> 00:47:28,309
+never seen anywhere you know I'm gonna
+
+821
+00:47:26,240 --> 00:47:30,849
+write a book but the purpose you're
+
+822
+00:47:28,309 --> 00:47:36,109
+gonna tell you know we don't want that
+
+823
+00:47:30,849 --> 00:47:38,960
+get out we want we want you to write a
+
+824
+00:47:36,109 --> 00:47:40,880
+book that everyone is writing a book
+
+825
+00:47:38,960 --> 00:47:43,130
+about that like there are already ten
+
+826
+00:47:40,880 --> 00:47:46,640
+books about it you know we want you to
+
+827
+00:47:43,130 --> 00:47:49,279
+write that because that sells if you
+
+828
+00:47:46,640 --> 00:47:52,490
+want you to write a unique ideas about
+
+829
+00:47:49,279 --> 00:47:53,570
+some human history of philosophy the
+
+830
+00:47:52,490 --> 00:47:57,620
+political
+
+831
+00:47:53,570 --> 00:48:01,450
+whatever you know nah we don't want you
+
+832
+00:47:57,620 --> 00:48:04,490
+don't get it because they don't sell
+
+833
+00:48:01,450 --> 00:48:06,920
+even though but but hist
+
+834
+00:48:04,490 --> 00:48:10,520
+but if you look at the thing from
+
+835
+00:48:06,920 --> 00:48:13,460
+historical you know from human animal
+
+836
+00:48:10,520 --> 00:48:19,550
+point of view long-term those are
+
+837
+00:48:13,460 --> 00:48:22,810
+actually more valuable topics so so when
+
+838
+00:48:19,550 --> 00:48:25,970
+I'm doing my stuff I am conscious about
+
+839
+00:48:22,810 --> 00:48:28,040
+you know with you know I'm attends to
+
+840
+00:48:25,970 --> 00:48:32,390
+you know talk show this is my talk show
+
+841
+00:48:28,040 --> 00:48:35,680
+so when I talk about eMac this tutorial
+
+842
+00:48:32,390 --> 00:48:39,170
+that's not really important because
+
+843
+00:48:35,680 --> 00:48:42,350
+there's there's a lot other people can
+
+844
+00:48:39,170 --> 00:48:46,130
+teach you Emacs you know eMac this
+
+845
+00:48:42,350 --> 00:48:48,830
+coding or programming stuff but but the
+
+846
+00:48:46,130 --> 00:48:50,990
+part you know where my some of my weird
+
+847
+00:48:48,830 --> 00:48:53,960
+you know it's like people like sometimes
+
+848
+00:48:50,990 --> 00:48:56,210
+people say they like to see my rant when
+
+849
+00:48:53,960 --> 00:48:58,340
+I get into a rant things becomes
+
+850
+00:48:56,210 --> 00:49:01,580
+interesting so there are certain
+
+851
+00:48:58,340 --> 00:49:04,850
+opinions or things I've you know that
+
+852
+00:49:01,580 --> 00:49:08,720
+only I do because you know it's me you
+
+853
+00:49:04,850 --> 00:49:15,170
+know so so this is like you know this
+
+854
+00:49:08,720 --> 00:49:19,040
+interesting thing so much data and says
+
+855
+00:49:15,170 --> 00:49:22,580
+please continue okay thank you do you
+
+856
+00:49:19,040 --> 00:49:26,930
+may paces do you want to do I mean do
+
+857
+00:49:22,580 --> 00:49:33,550
+what you want to do okay so so okay so I
+
+858
+00:49:26,930 --> 00:49:36,170
+guess that's it for today because yeah
+
+859
+00:49:33,550 --> 00:49:38,600
+so you know forty minutes that's a good
+
+860
+00:49:36,170 --> 00:49:41,680
+time to stop so I was going to you know
+
+861
+00:49:38,600 --> 00:49:45,740
+explain some of these eMac lists code
+
+862
+00:49:41,680 --> 00:49:48,050
+but you know let me put a little plug
+
+863
+00:49:45,740 --> 00:49:50,360
+you know if you really want to learn em
+
+864
+00:49:48,050 --> 00:49:52,490
+at least this written tutorial is is
+
+865
+00:49:50,360 --> 00:49:54,740
+very good you know just because they
+
+866
+00:49:52,490 --> 00:49:56,780
+start from the beginning they start from
+
+867
+00:49:54,740 --> 00:49:59,710
+the beginning you know you spend an hour
+
+868
+00:49:56,780 --> 00:50:05,120
+or two you know start from the beginning
+
+869
+00:49:59,710 --> 00:50:07,370
+you read this first seven articles in
+
+870
+00:50:05,120 --> 00:50:11,510
+this in the
+
+871
+00:50:07,370 --> 00:50:15,490
+brach eMac emacs this basics that's how
+
+872
+00:50:11,510 --> 00:50:19,370
+you you'll get up very fast you you know
+
+873
+00:50:15,490 --> 00:50:22,840
+on the other hand not many people are
+
+874
+00:50:19,370 --> 00:50:27,350
+actually email is coders so if I is
+
+875
+00:50:22,840 --> 00:50:31,970
+explain this I don't think they are you
+
+876
+00:50:27,350 --> 00:50:34,940
+know many people are you know you
+
+877
+00:50:31,970 --> 00:50:39,170
+valuable to a lot of people so okay
+
+878
+00:50:34,940 --> 00:50:42,640
+that's it for today I yeah so that's it
+
+879
+00:50:39,170 --> 00:50:42,640
+for today thank you guys for watching
+
+880
+00:50:43,360 --> 00:50:49,460
+so I'm gonna shut down in ten more
+
+881
+00:50:46,910 --> 00:50:57,050
+seconds you got 10 seconds to you know
+
+882
+00:50:49,460 --> 00:50:59,480
+post last comment so question yeah so
+
+883
+00:50:57,050 --> 00:51:03,310
+then I'm going to get on with my life
+
+884
+00:50:59,480 --> 00:51:07,790
+for today I woke up about four hours ago
+
+885
+00:51:03,310 --> 00:51:09,260
+and you know then my life is about you
+
+886
+00:51:07,790 --> 00:51:13,040
+know just working on my website
+
+887
+00:51:09,260 --> 00:51:15,560
+JavaScript email please update my
+
+888
+00:51:13,040 --> 00:51:18,080
+websites you know that I have like by
+
+889
+00:51:15,560 --> 00:51:21,940
+you know 20 years of blogging I have
+
+890
+00:51:18,080 --> 00:51:25,700
+like seven thousand six thousand
+
+891
+00:51:21,940 --> 00:51:36,040
+original articles that to maintain its
+
+892
+00:51:25,700 --> 00:51:38,540
+huge pain you know walk everyday stuff
+
+893
+00:51:36,040 --> 00:51:44,000
+tree function this this is actually
+
+894
+00:51:38,540 --> 00:51:47,500
+interesting actually I can digress yeah
+
+895
+00:51:44,000 --> 00:51:50,500
+but anyway okay I have a good day guys
+
+896
+00:51:47,500 --> 00:51:50,500
+bye
+

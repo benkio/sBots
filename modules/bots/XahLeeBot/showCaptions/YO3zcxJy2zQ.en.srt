@@ -1,0 +1,6888 @@
+1
+00:00:07,259 --> 00:00:12,300
+hello guys welcome to another episode of
+
+2
+00:00:10,080 --> 00:00:15,480
+Star Talk Show today we are going to
+
+3
+00:00:12,300 --> 00:00:18,180
+code emacs lisp nothing but emac lisp
+
+4
+00:00:15,480 --> 00:00:19,400
+okay so emac this we are going to write
+
+5
+00:00:18,180 --> 00:00:22,920
+a
+
+6
+00:00:19,400 --> 00:00:24,779
+HTML or XML validator
+
+7
+00:00:22,920 --> 00:00:28,560
+so let me show you my keyboard first
+
+8
+00:00:24,779 --> 00:00:30,840
+this is glove 80. if you search for
+
+9
+00:00:28,560 --> 00:00:34,079
+Sardi keyboard you will find my review
+
+10
+00:00:30,840 --> 00:00:37,380
+and the video review fantastic this is
+
+11
+00:00:34,079 --> 00:00:41,100
+Ultimate hacking keyboard version 2. I
+
+12
+00:00:37,380 --> 00:00:44,460
+also have a review and I use ottoman
+
+13
+00:00:41,100 --> 00:00:46,920
+hacking as my keyboard macro and I also
+
+14
+00:00:44,460 --> 00:00:51,480
+and another keyboard I like to recommend
+
+15
+00:00:46,920 --> 00:00:54,120
+is Xpose okay so these are three of the
+
+16
+00:00:51,480 --> 00:00:55,559
+great keyboard okay so why don't I show
+
+17
+00:00:54,120 --> 00:00:58,199
+you for a minute
+
+18
+00:00:55,559 --> 00:01:03,140
+keyboard blog so you just go to search
+
+19
+00:00:58,199 --> 00:01:07,619
+for keyboard blog and you can go to
+
+20
+00:01:03,140 --> 00:01:12,060
+ergonomic keyboards and you can see here
+
+21
+00:01:07,619 --> 00:01:15,900
+is Club 80. Kinesis is also great
+
+22
+00:01:12,060 --> 00:01:20,220
+Kinesis and and then there is exposed
+
+23
+00:01:15,900 --> 00:01:22,799
+night I highly recommend this okay and
+
+24
+00:01:20,220 --> 00:01:25,140
+here is Ultimate hacking keyboard
+
+25
+00:01:22,799 --> 00:01:27,060
+okay I don't know if you missed it so
+
+26
+00:01:25,140 --> 00:01:29,939
+that's my keyboard
+
+27
+00:01:27,060 --> 00:01:33,180
+okay and and now
+
+28
+00:01:29,939 --> 00:01:35,640
+yeah so let's go to let's start to code
+
+29
+00:01:33,180 --> 00:01:38,880
+emac Beast so this is gonna be purely
+
+30
+00:01:35,640 --> 00:01:43,259
+technical for those of you uh into emac
+
+31
+00:01:38,880 --> 00:01:48,000
+Beast coding okay hello Huang hello co
+
+32
+00:01:43,259 --> 00:01:51,119
+so on the pink window you can see all my
+
+33
+00:01:48,000 --> 00:01:54,180
+command course and the keystrokes I'm
+
+34
+00:01:51,119 --> 00:01:57,540
+using soft light keys
+
+35
+00:01:54,180 --> 00:02:00,119
+I'm using soft light Keys you uh it's
+
+36
+00:01:57,540 --> 00:02:02,399
+which is a key binding system efficient
+
+37
+00:02:00,119 --> 00:02:05,640
+key binding model
+
+38
+00:02:02,399 --> 00:02:08,399
+system for emacs so you can
+
+39
+00:02:05,640 --> 00:02:12,420
+go there and use it so you don't have to
+
+40
+00:02:08,399 --> 00:02:14,940
+press Ctrl keys or meta and uh I'm also
+
+41
+00:02:12,420 --> 00:02:17,340
+using over and keyboard layout okay so
+
+42
+00:02:14,940 --> 00:02:21,660
+anyway let's begin the
+
+43
+00:02:17,340 --> 00:02:24,780
+um coding emac this so so uh so what
+
+44
+00:02:21,660 --> 00:02:28,140
+we're gonna do so we're gonna write a uh
+
+45
+00:02:24,780 --> 00:02:33,180
+HTML or XML validator so let me explain
+
+46
+00:02:28,140 --> 00:02:37,319
+okay so let's start a new page okay so
+
+47
+00:02:33,180 --> 00:02:40,080
+I'm using HTML mods so we add a template
+
+48
+00:02:37,319 --> 00:02:44,400
+so this is what HTML looks like so let
+
+49
+00:02:40,080 --> 00:02:49,519
+me uh clean it up so this is a sample
+
+50
+00:02:44,400 --> 00:02:51,780
+file XML so let's uh name it XX HTML
+
+51
+00:02:49,519 --> 00:02:56,280
+let's just start
+
+52
+00:02:51,780 --> 00:03:00,540
+so uh wait there's already exist name it
+
+53
+00:02:56,280 --> 00:03:02,879
+XXX dot HTML okay
+
+54
+00:03:00,540 --> 00:03:05,400
+so go to the directory so here's the
+
+55
+00:03:02,879 --> 00:03:07,739
+file open it so this is a sample file
+
+56
+00:03:05,400 --> 00:03:10,860
+we're gonna validate so what does you
+
+57
+00:03:07,739 --> 00:03:12,200
+know we are going to simply not a
+
+58
+00:03:10,860 --> 00:03:15,599
+complete
+
+59
+00:03:12,200 --> 00:03:18,540
+HTML validate data but rather we check
+
+60
+00:03:15,599 --> 00:03:20,159
+the well-formedness so meaning that
+
+61
+00:03:18,540 --> 00:03:23,640
+every
+
+62
+00:03:20,159 --> 00:03:26,819
+um tag for example here's HTML check
+
+63
+00:03:23,640 --> 00:03:30,900
+that tag matches there's no missing end
+
+64
+00:03:26,819 --> 00:03:32,280
+tag you know technically in HTML5 sum up
+
+65
+00:03:30,900 --> 00:03:35,959
+the tag
+
+66
+00:03:32,280 --> 00:03:39,239
+uh do not need to be closed for example
+
+67
+00:03:35,959 --> 00:03:40,280
+we add a paragraph here so technically
+
+68
+00:03:39,239 --> 00:03:43,560
+in
+
+69
+00:03:40,280 --> 00:03:46,500
+HTML5 you do not need the closing tag
+
+70
+00:03:43,560 --> 00:03:49,560
+for the P tag but that's not what we
+
+71
+00:03:46,500 --> 00:03:50,580
+want in XML you always need a closing
+
+72
+00:03:49,560 --> 00:03:55,319
+tag
+
+73
+00:03:50,580 --> 00:04:01,500
+or for example there is the BR tag
+
+74
+00:03:55,319 --> 00:04:05,819
+in and in XML any tag if it ends with a
+
+75
+00:04:01,500 --> 00:04:07,980
+slash then that is self-closing so you
+
+76
+00:04:05,819 --> 00:04:11,299
+don't so you don't need
+
+77
+00:04:07,980 --> 00:04:14,939
+I mean there is no closing tag for br
+
+78
+00:04:11,299 --> 00:04:18,900
+similarly for HR
+
+79
+00:04:14,939 --> 00:04:20,820
+so but in HTML or HTML5 you don't you
+
+80
+00:04:18,900 --> 00:04:24,300
+know you can you know you can just do
+
+81
+00:04:20,820 --> 00:04:26,040
+that so how do you know if a tag needs a
+
+82
+00:04:24,300 --> 00:04:28,740
+closing tag or not actually you don't
+
+83
+00:04:26,040 --> 00:04:31,860
+know you have to go by the semantic spec
+
+84
+00:04:28,740 --> 00:04:35,340
+so in other words there's no syntactical
+
+85
+00:04:31,860 --> 00:04:39,360
+way to tell if a tag needs to be close
+
+86
+00:04:35,340 --> 00:04:42,360
+or not in HTML but however in XML every
+
+87
+00:04:39,360 --> 00:04:46,199
+tag needs to be close you know it needs
+
+88
+00:04:42,360 --> 00:04:49,020
+to be closed or it can be self-closing
+
+89
+00:04:46,199 --> 00:04:50,460
+syntactically just by having a slash
+
+90
+00:04:49,020 --> 00:04:52,860
+there
+
+91
+00:04:50,460 --> 00:04:56,400
+so that's a that's a situation so we're
+
+92
+00:04:52,860 --> 00:04:58,380
+gonna write a command to validate to
+
+93
+00:04:56,400 --> 00:05:01,380
+make sure that you know we don't have a
+
+94
+00:04:58,380 --> 00:05:05,100
+mismatch tag or something like that you
+
+95
+00:05:01,380 --> 00:05:08,040
+know reverse order or uh or something
+
+96
+00:05:05,100 --> 00:05:11,300
+like for example
+
+97
+00:05:08,040 --> 00:05:11,300
+uh let's see
+
+98
+00:05:13,919 --> 00:05:19,620
+something a b okay so we can we can have
+
+99
+00:05:18,060 --> 00:05:22,199
+a paragraph here
+
+100
+00:05:19,620 --> 00:05:23,940
+I mean paragraph in the boat so for
+
+101
+00:05:22,199 --> 00:05:27,180
+example showing browser
+
+102
+00:05:23,940 --> 00:05:31,560
+so that's how it looks like so a is bold
+
+103
+00:05:27,180 --> 00:05:32,940
+but however sometimes you can have uh
+
+104
+00:05:31,560 --> 00:05:35,460
+let's say
+
+105
+00:05:32,940 --> 00:05:37,979
+okay so for example if you move the
+
+106
+00:05:35,460 --> 00:05:41,340
+closing B to here then that's invalid
+
+107
+00:05:37,979 --> 00:05:42,240
+okay showing browser it's invalid Okay
+
+108
+00:05:41,340 --> 00:05:44,759
+so
+
+109
+00:05:42,240 --> 00:05:48,660
+we are going to write a validator just
+
+110
+00:05:44,759 --> 00:05:52,620
+to check every tag is matched okay
+
+111
+00:05:48,660 --> 00:05:56,220
+so let me also mention HTML
+
+112
+00:05:52,620 --> 00:06:02,220
+um so if you go to kasari
+
+113
+00:05:56,220 --> 00:06:05,580
+I have a HTML tutorial and there is one
+
+114
+00:06:02,220 --> 00:06:08,759
+page about self-closing tags so these
+
+115
+00:06:05,580 --> 00:06:10,320
+tags in HTML they are special they don't
+
+116
+00:06:08,759 --> 00:06:13,080
+have very close intact they are
+
+117
+00:06:10,320 --> 00:06:15,840
+self-closing uh
+
+118
+00:06:13,080 --> 00:06:19,259
+but in HTML you don't have such a thing
+
+119
+00:06:15,840 --> 00:06:23,220
+you always go by syntax so HTML I mean
+
+120
+00:06:19,259 --> 00:06:25,139
+XML so XML is a very much Superior
+
+121
+00:06:23,220 --> 00:06:27,120
+technology
+
+122
+00:06:25,139 --> 00:06:30,840
+because you don't have to go you know
+
+123
+00:06:27,120 --> 00:06:32,460
+because you can syntactically
+
+124
+00:06:30,840 --> 00:06:34,919
+uh
+
+125
+00:06:32,460 --> 00:06:36,300
+verify where the attack needs to be a
+
+126
+00:06:34,919 --> 00:06:39,479
+closed or not
+
+127
+00:06:36,300 --> 00:06:43,039
+okay so anyway so let's go back to so
+
+128
+00:06:39,479 --> 00:06:46,259
+let's uh so let's just write a
+
+129
+00:06:43,039 --> 00:06:49,199
+uh some
+
+130
+00:06:46,259 --> 00:06:51,479
+so let's just validate a simple page
+
+131
+00:06:49,199 --> 00:06:53,819
+like this you know we are going to start
+
+132
+00:06:51,479 --> 00:06:58,280
+to write a program for this okay happy
+
+133
+00:06:53,819 --> 00:06:58,280
+cross close so let's put a link here
+
+134
+00:06:58,680 --> 00:07:06,900
+any questions about you know what I'm
+
+135
+00:07:01,259 --> 00:07:09,600
+coding doing emacs things ask me okay so
+
+136
+00:07:06,900 --> 00:07:12,080
+so here's today's talk show page so we
+
+137
+00:07:09,600 --> 00:07:16,800
+are going to start to write a program
+
+138
+00:07:12,080 --> 00:07:21,660
+okay a new buffer uh
+
+139
+00:07:16,800 --> 00:07:22,680
+a new buffer let's save it as XX dot e l
+
+140
+00:07:21,660 --> 00:07:27,360
+okay
+
+141
+00:07:22,680 --> 00:07:29,039
+just for now and now let's put a comment
+
+142
+00:07:27,360 --> 00:07:31,759
+date
+
+143
+00:07:29,039 --> 00:07:31,759
+uh
+
+144
+00:07:32,940 --> 00:07:40,020
+write a valid uh validator
+
+145
+00:07:38,039 --> 00:07:44,699
+for XML
+
+146
+00:07:40,020 --> 00:07:44,699
+to check where formedness
+
+147
+00:07:46,139 --> 00:07:53,960
+okay that's all we're gonna do so let's
+
+148
+00:07:48,840 --> 00:07:53,960
+check the uh if he
+
+149
+00:07:54,180 --> 00:07:58,020
+okay
+
+150
+00:07:55,259 --> 00:08:00,240
+focus on emac this today that's the
+
+151
+00:07:58,020 --> 00:08:03,300
+topic Okay so
+
+152
+00:08:00,240 --> 00:08:05,940
+so how do we gonna write it so let me
+
+153
+00:08:03,300 --> 00:08:08,580
+explain so I I I don't actually have an
+
+154
+00:08:05,940 --> 00:08:11,099
+experience writing a parcel but in our
+
+155
+00:08:08,580 --> 00:08:12,120
+case this is a very simple one you don't
+
+156
+00:08:11,099 --> 00:08:12,780
+need
+
+157
+00:08:12,120 --> 00:08:15,840
+um
+
+158
+00:08:12,780 --> 00:08:17,940
+to go elaborate in writing a puzzle you
+
+159
+00:08:15,840 --> 00:08:20,280
+know with the password Theory all you
+
+160
+00:08:17,940 --> 00:08:21,960
+need is some kind of text processing
+
+161
+00:08:20,280 --> 00:08:24,660
+okay that's what that's what we are
+
+162
+00:08:21,960 --> 00:08:26,160
+going to do so let me show you at the
+
+163
+00:08:24,660 --> 00:08:28,020
+top level
+
+164
+00:08:26,160 --> 00:08:32,039
+how do you do it
+
+165
+00:08:28,020 --> 00:08:34,740
+okay so for each opening and closing tag
+
+166
+00:08:32,039 --> 00:08:36,899
+you can think of it as parenthesis so
+
+167
+00:08:34,740 --> 00:08:40,680
+you have situation like that nested
+
+168
+00:08:36,899 --> 00:08:43,200
+parenthesis for example uh let me also
+
+169
+00:08:40,680 --> 00:08:46,099
+show the
+
+170
+00:08:43,200 --> 00:08:46,099
+uh
+
+171
+00:08:48,420 --> 00:08:52,459
+let me also show the
+
+172
+00:08:54,180 --> 00:09:00,600
+show the example HTML file so
+
+173
+00:08:58,200 --> 00:09:04,500
+so you have nested parentheses like that
+
+174
+00:09:00,600 --> 00:09:06,959
+or you have sequential uh parentheses
+
+175
+00:09:04,500 --> 00:09:10,100
+like that so you can imagine each
+
+176
+00:09:06,959 --> 00:09:13,980
+opening parenthesis correspond to the
+
+177
+00:09:10,100 --> 00:09:16,440
+opening tag and closing parenthesis is a
+
+178
+00:09:13,980 --> 00:09:18,660
+closing tag so you have two situations
+
+179
+00:09:16,440 --> 00:09:21,360
+either one either you know they are just
+
+180
+00:09:18,660 --> 00:09:24,420
+nested or they are sequential okay it's
+
+181
+00:09:21,360 --> 00:09:27,060
+sequential for example like that
+
+182
+00:09:24,420 --> 00:09:30,060
+so we have to so what we are going to do
+
+183
+00:09:27,060 --> 00:09:33,839
+is write the code so that we take you
+
+184
+00:09:30,060 --> 00:09:36,600
+know each of the tag is delimited by
+
+185
+00:09:33,839 --> 00:09:40,200
+this less than equal sign and greater in
+
+186
+00:09:36,600 --> 00:09:42,720
+equal sign angle brackets so we can just
+
+187
+00:09:40,200 --> 00:09:45,720
+consider each of the angle bracket as
+
+188
+00:09:42,720 --> 00:09:48,360
+deliminator you know the start point and
+
+189
+00:09:45,720 --> 00:09:52,820
+between them we grab
+
+190
+00:09:48,360 --> 00:09:57,180
+the text we grab it then
+
+191
+00:09:52,820 --> 00:09:59,940
+we can put it into a list or vector you
+
+192
+00:09:57,180 --> 00:10:03,240
+know a sequence of things then we can
+
+193
+00:09:59,940 --> 00:10:06,120
+you know if the first item is a opening
+
+194
+00:10:03,240 --> 00:10:10,380
+paren for example opening tag then we
+
+195
+00:10:06,120 --> 00:10:13,500
+check the next item if the next item is
+
+196
+00:10:10,380 --> 00:10:15,240
+a closing paren then they cancel each
+
+197
+00:10:13,500 --> 00:10:18,480
+out you know you can just remove them
+
+198
+00:10:15,240 --> 00:10:21,000
+because they are valid you know they are
+
+199
+00:10:18,480 --> 00:10:23,580
+well formed
+
+200
+00:10:21,000 --> 00:10:26,279
+so but if the next one is not closing
+
+201
+00:10:23,580 --> 00:10:28,920
+then you go to the next one
+
+202
+00:10:26,279 --> 00:10:31,200
+you know then you you keep doing this
+
+203
+00:10:28,920 --> 00:10:33,060
+keep checking until you find a closing
+
+204
+00:10:31,200 --> 00:10:34,380
+one when you find a closing one it
+
+205
+00:10:33,060 --> 00:10:37,680
+cancels out
+
+206
+00:10:34,380 --> 00:10:40,500
+okay what what so so what about the text
+
+207
+00:10:37,680 --> 00:10:43,260
+in between for example this you know
+
+208
+00:10:40,500 --> 00:10:45,200
+this title in that case that would be
+
+209
+00:10:43,260 --> 00:10:49,320
+something like something you know
+
+210
+00:10:45,200 --> 00:10:51,360
+something here uh you know
+
+211
+00:10:49,320 --> 00:10:54,959
+uh
+
+212
+00:10:51,360 --> 00:10:56,640
+something here so those texts in between
+
+213
+00:10:54,959 --> 00:10:59,480
+you can
+
+214
+00:10:56,640 --> 00:11:03,060
+actually just ignore them
+
+215
+00:10:59,480 --> 00:11:04,980
+uh yeah you can kind of for example if
+
+216
+00:11:03,060 --> 00:11:08,519
+you have some text here
+
+217
+00:11:04,980 --> 00:11:10,980
+technically it's actually valid you know
+
+218
+00:11:08,519 --> 00:11:13,019
+so you can actually you can ignore them
+
+219
+00:11:10,980 --> 00:11:15,600
+except you cannot have the text at the
+
+220
+00:11:13,019 --> 00:11:17,640
+beginning you know that would be I think
+
+221
+00:11:15,600 --> 00:11:20,519
+that would that is invaded technically
+
+222
+00:11:17,640 --> 00:11:22,760
+in XML anyway so anyway so that's what
+
+223
+00:11:20,519 --> 00:11:26,579
+we that's the outline okay
+
+224
+00:11:22,760 --> 00:11:31,019
+so yeah so let's start to write the code
+
+225
+00:11:26,579 --> 00:11:32,279
+let's go to the emac base so let's
+
+226
+00:11:31,019 --> 00:11:35,279
+um
+
+227
+00:11:32,279 --> 00:11:38,399
+okay this is this this video is gonna be
+
+228
+00:11:35,279 --> 00:11:41,100
+uh one hour I'm not going to rush
+
+229
+00:11:38,399 --> 00:11:43,920
+and I'm going I'm doing this live I
+
+230
+00:11:41,100 --> 00:11:47,160
+haven't coded this before but I do have
+
+231
+00:11:43,920 --> 00:11:50,459
+some experience so we think our we will
+
+232
+00:11:47,160 --> 00:11:52,560
+have probably something okay
+
+233
+00:11:50,459 --> 00:11:55,019
+so are you using any protein to write
+
+234
+00:11:52,560 --> 00:11:56,880
+HTML seems that you are wrapping text in
+
+235
+00:11:55,019 --> 00:12:01,140
+tag of course I talked about this many
+
+236
+00:11:56,880 --> 00:12:01,920
+times I'm using PSI HTML mod okay so
+
+237
+00:12:01,140 --> 00:12:06,180
+um
+
+238
+00:12:01,920 --> 00:12:08,519
+so you know you just saw emacs so you
+
+239
+00:12:06,180 --> 00:12:10,260
+just go to my Excel emacs website I want
+
+240
+00:12:08,519 --> 00:12:12,060
+to show it because this is my stuff
+
+241
+00:12:10,260 --> 00:12:15,600
+important
+
+242
+00:12:12,060 --> 00:12:16,760
+um you know I moved to sally.info no
+
+243
+00:12:15,600 --> 00:12:19,440
+longer in
+
+244
+00:12:16,760 --> 00:12:21,959
+urbanemax.org so you know you you'll
+
+245
+00:12:19,440 --> 00:12:25,680
+find it Max tutorial you go to the home
+
+246
+00:12:21,959 --> 00:12:32,459
+page table of contents then you have uh
+
+247
+00:12:25,680 --> 00:12:35,100
+XA emacs packages so I'm using HTML mod
+
+248
+00:12:32,459 --> 00:12:37,279
+so that's why you can that's why you see
+
+249
+00:12:35,100 --> 00:12:41,760
+uh you know I demonstrated
+
+250
+00:12:37,279 --> 00:12:43,920
+I demonstrated it many times okay HTML
+
+251
+00:12:41,760 --> 00:12:47,880
+mod here so you can see a lot of
+
+252
+00:12:43,920 --> 00:12:50,940
+features okay so it was free for like 10
+
+253
+00:12:47,880 --> 00:12:53,940
+years but now you know you pay to pay me
+
+254
+00:12:50,940 --> 00:12:56,940
+if you like my stuff pay me I'll send it
+
+255
+00:12:53,940 --> 00:12:57,899
+to you okay so HTML mod is what I'm
+
+256
+00:12:56,940 --> 00:13:00,720
+using
+
+257
+00:12:57,899 --> 00:13:03,420
+you can for example you can for example
+
+258
+00:13:00,720 --> 00:13:05,399
+you can delete for example I press a
+
+259
+00:13:03,420 --> 00:13:07,560
+button look at the pink window you'll
+
+260
+00:13:05,399 --> 00:13:11,459
+see the camera press the button you see
+
+261
+00:13:07,560 --> 00:13:14,040
+the head tag is good by pair you see one
+
+262
+00:13:11,459 --> 00:13:15,060
+here one here or I can press a button to
+
+263
+00:13:14,040 --> 00:13:18,000
+select
+
+264
+00:13:15,060 --> 00:13:20,399
+this tag you know I can press this
+
+265
+00:13:18,000 --> 00:13:22,320
+button you know Select Title press again
+
+266
+00:13:20,399 --> 00:13:26,100
+select the
+
+267
+00:13:22,320 --> 00:13:28,079
+the tag above it together and press it
+
+268
+00:13:26,100 --> 00:13:30,899
+again to select more and press it again
+
+269
+00:13:28,079 --> 00:13:34,019
+you'll include the whole head you know
+
+270
+00:13:30,899 --> 00:13:38,519
+like like so and first again the whole
+
+271
+00:13:34,019 --> 00:13:41,040
+HTML you know so let's saw HTML mod
+
+272
+00:13:38,519 --> 00:13:41,760
+okay pay me if you like it pay me to get
+
+273
+00:13:41,040 --> 00:13:44,519
+it
+
+274
+00:13:41,760 --> 00:13:48,899
+okay back to writing the valid data okay
+
+275
+00:13:44,519 --> 00:13:51,660
+so so yeah so I'm gonna just go slow and
+
+276
+00:13:48,899 --> 00:13:54,000
+explain things in in about hour we
+
+277
+00:13:51,660 --> 00:13:57,060
+should be able to do it I need to do
+
+278
+00:13:54,000 --> 00:13:59,180
+faster Okay so
+
+279
+00:13:57,060 --> 00:13:59,180
+oh
+
+280
+00:13:59,579 --> 00:14:06,000
+so so first of all
+
+281
+00:14:03,480 --> 00:14:10,680
+age tag
+
+282
+00:14:06,000 --> 00:14:13,760
+must I'm typing too slow must have a
+
+283
+00:14:10,680 --> 00:14:13,760
+closing tag
+
+284
+00:14:14,519 --> 00:14:20,040
+have a opening tag and a closing tag
+
+285
+00:14:18,779 --> 00:14:22,880
+okay
+
+286
+00:14:20,040 --> 00:14:22,880
+except
+
+287
+00:14:23,339 --> 00:14:29,220
+if the tag
+
+288
+00:14:25,920 --> 00:14:33,600
+ends in slash that
+
+289
+00:14:29,220 --> 00:14:35,519
+then it is a self closing okay
+
+290
+00:14:33,600 --> 00:14:38,880
+in XML
+
+291
+00:14:35,519 --> 00:14:43,339
+we're gonna assume is XML because X XML
+
+292
+00:14:38,880 --> 00:14:47,100
+is more the more uh simple and
+
+293
+00:14:43,339 --> 00:14:52,980
+well-formed syntax much more Superior
+
+294
+00:14:47,100 --> 00:14:54,420
+than HTML or HTML5 HTML5 is is is no
+
+295
+00:14:52,980 --> 00:14:55,860
+good
+
+296
+00:14:54,420 --> 00:14:59,279
+Okay so
+
+297
+00:14:55,860 --> 00:15:01,160
+and so for for my pages you know I have
+
+298
+00:14:59,279 --> 00:15:04,740
+written uh
+
+299
+00:15:01,160 --> 00:15:10,079
+after 20 years I have like 6 000
+
+300
+00:15:04,740 --> 00:15:12,120
+manually HTML articles in HTML and they
+
+301
+00:15:10,079 --> 00:15:16,139
+you know I keep them
+
+302
+00:15:12,120 --> 00:15:17,300
+I keep the XML syntax in mind so all my
+
+303
+00:15:16,139 --> 00:15:21,060
+pages
+
+304
+00:15:17,300 --> 00:15:23,480
+all my pages are
+
+305
+00:15:21,060 --> 00:15:23,480
+uh
+
+306
+00:15:24,060 --> 00:15:29,820
+all my pages are valid XML in theory so
+
+307
+00:15:28,079 --> 00:15:33,120
+we'll find out once we write the
+
+308
+00:15:29,820 --> 00:15:34,860
+validator we can apply it to all files
+
+309
+00:15:33,120 --> 00:15:37,199
+in your directory you know thousands of
+
+310
+00:15:34,860 --> 00:15:38,160
+files and tell me if I'm missing
+
+311
+00:15:37,199 --> 00:15:39,839
+something
+
+312
+00:15:38,160 --> 00:15:44,100
+Okay so
+
+313
+00:15:39,839 --> 00:15:47,760
+so here is the explanation except if the
+
+314
+00:15:44,100 --> 00:15:50,639
+tag ends in that so okay so opening tag
+
+315
+00:15:47,760 --> 00:15:53,279
+closing tag self closing tag okay now
+
+316
+00:15:50,639 --> 00:15:55,860
+let's explain the next one
+
+317
+00:15:53,279 --> 00:16:01,820
+uh
+
+318
+00:15:55,860 --> 00:16:01,820
+tag sequence occur in two ways
+
+319
+00:16:02,279 --> 00:16:08,000
+one is nested
+
+320
+00:16:04,980 --> 00:16:08,000
+like so
+
+321
+00:16:09,420 --> 00:16:18,740
+okay and uh
+
+322
+00:16:13,199 --> 00:16:18,740
+the other situation is sequential
+
+323
+00:16:23,339 --> 00:16:29,880
+I'm also using SAR emac this mod so you
+
+324
+00:16:26,639 --> 00:16:32,040
+can see this parade matches that the in
+
+325
+00:16:29,880 --> 00:16:34,920
+the end but I can delete them both by
+
+326
+00:16:32,040 --> 00:16:37,380
+pressing this key so you see so this is
+
+327
+00:16:34,920 --> 00:16:40,380
+the example of sequential
+
+328
+00:16:37,380 --> 00:16:40,380
+tax
+
+329
+00:16:46,980 --> 00:16:53,160
+algorithm
+
+330
+00:16:49,920 --> 00:16:55,820
+I'm typing too slow today and I haven't
+
+331
+00:16:53,160 --> 00:16:55,820
+warmed up
+
+332
+00:17:00,720 --> 00:17:05,160
+so so there are many ways to do it so
+
+333
+00:17:03,180 --> 00:17:09,839
+one way is you just grab the whole file
+
+334
+00:17:05,160 --> 00:17:12,480
+the text and split them into a list okay
+
+335
+00:17:09,839 --> 00:17:15,179
+so you got sequence of items then you
+
+336
+00:17:12,480 --> 00:17:19,280
+can uh you can just
+
+337
+00:17:15,179 --> 00:17:19,280
+um check them you know so
+
+338
+00:17:20,699 --> 00:17:24,600
+so algorithm outline but I'm not sure
+
+339
+00:17:23,040 --> 00:17:27,059
+that's the way we're gonna do it because
+
+340
+00:17:24,600 --> 00:17:30,299
+if you do it that way then you don't
+
+341
+00:17:27,059 --> 00:17:32,580
+have so once you find a mismatching tag
+
+342
+00:17:30,299 --> 00:17:34,860
+you don't have the position typically
+
+343
+00:17:32,580 --> 00:17:36,539
+when you find that error you need you
+
+344
+00:17:34,860 --> 00:17:39,539
+want to know the position where it
+
+345
+00:17:36,539 --> 00:17:43,260
+occurs so you can show a curse on this
+
+346
+00:17:39,539 --> 00:17:46,500
+line so you can go to it and fix it
+
+347
+00:17:43,260 --> 00:17:50,460
+but if you grab the whole text and split
+
+348
+00:17:46,500 --> 00:17:52,559
+into a list then that way when you find
+
+349
+00:17:50,460 --> 00:17:55,880
+the error you have no idea where where
+
+350
+00:17:52,559 --> 00:17:55,880
+it is so
+
+351
+00:17:56,039 --> 00:18:01,080
+so if you do it that way that can still
+
+352
+00:17:58,679 --> 00:18:02,640
+tell you if the file is valid or not but
+
+353
+00:18:01,080 --> 00:18:04,980
+you wouldn't know
+
+354
+00:18:02,640 --> 00:18:08,100
+where is the error unless you then you
+
+355
+00:18:04,980 --> 00:18:09,900
+start to search for um anyway so but
+
+356
+00:18:08,100 --> 00:18:12,600
+this way is very simple okay so
+
+357
+00:18:09,900 --> 00:18:14,520
+algorithm let me just explain
+
+358
+00:18:12,600 --> 00:18:16,620
+I mean let me just let's just let's just
+
+359
+00:18:14,520 --> 00:18:18,960
+go through okay instead of talking uh
+
+360
+00:18:16,620 --> 00:18:22,320
+keep talking
+
+361
+00:18:18,960 --> 00:18:23,820
+so um algorithm online so
+
+362
+00:18:22,320 --> 00:18:25,860
+one way
+
+363
+00:18:23,820 --> 00:18:30,059
+is to
+
+364
+00:18:25,860 --> 00:18:34,160
+grab whole file
+
+365
+00:18:30,059 --> 00:18:34,160
+split into a list
+
+366
+00:18:34,200 --> 00:18:41,280
+then process each item
+
+367
+00:18:38,700 --> 00:18:43,020
+so that's one way another way is let me
+
+368
+00:18:41,280 --> 00:18:44,760
+show you okay another way is you don't
+
+369
+00:18:43,020 --> 00:18:47,100
+you don't grab the whole file you just
+
+370
+00:18:44,760 --> 00:18:48,419
+start at the beginning of file then you
+
+371
+00:18:47,100 --> 00:18:50,039
+search for
+
+372
+00:18:48,419 --> 00:18:51,299
+the
+
+373
+00:18:50,039 --> 00:18:54,780
+the
+
+374
+00:18:51,299 --> 00:18:57,539
+angle brackets so once you find it you
+
+375
+00:18:54,780 --> 00:19:00,059
+can push it to a stack then you search
+
+376
+00:18:57,539 --> 00:19:02,039
+for another angle bracket then you push
+
+377
+00:19:00,059 --> 00:19:03,600
+it to a stack and once you have
+
+378
+00:19:02,039 --> 00:19:05,760
+something in your stack you start to
+
+379
+00:19:03,600 --> 00:19:08,039
+match to see if you know if you have an
+
+380
+00:19:05,760 --> 00:19:11,160
+opening one if the next one is closing
+
+381
+00:19:08,039 --> 00:19:13,559
+one if so then they cancel out remove
+
+382
+00:19:11,160 --> 00:19:16,620
+them from the stack if the next one is
+
+383
+00:19:13,559 --> 00:19:19,200
+opening one again then you push the then
+
+384
+00:19:16,620 --> 00:19:21,360
+you push again until you find a closing
+
+385
+00:19:19,200 --> 00:19:24,840
+one once you find the closing one you
+
+386
+00:19:21,360 --> 00:19:27,660
+remove the pair from the stack so you
+
+387
+00:19:24,840 --> 00:19:29,820
+continue until the whole file until you
+
+388
+00:19:27,660 --> 00:19:33,240
+find for example
+
+389
+00:19:29,820 --> 00:19:36,919
+you start to find a closing tag
+
+390
+00:19:33,240 --> 00:19:36,919
+where there's no opening before
+
+391
+00:19:37,679 --> 00:19:39,799
+um
+
+392
+00:19:41,820 --> 00:19:47,100
+yeah that that that's when there's an
+
+393
+00:19:44,400 --> 00:19:49,500
+error then when that happens you know
+
+394
+00:19:47,100 --> 00:19:51,840
+because your Cruiser is right at that
+
+395
+00:19:49,500 --> 00:19:54,480
+position position you can just report it
+
+396
+00:19:51,840 --> 00:19:56,400
+we found the arrow so which way do we so
+
+397
+00:19:54,480 --> 00:19:57,480
+but this way is more
+
+398
+00:19:56,400 --> 00:20:00,179
+um
+
+399
+00:19:57,480 --> 00:20:02,220
+more kind of complicated because you
+
+400
+00:20:00,179 --> 00:20:04,320
+have to move the cruiser
+
+401
+00:20:02,220 --> 00:20:06,780
+but I think this is the better way
+
+402
+00:20:04,320 --> 00:20:11,240
+because the other way if you just grab
+
+403
+00:20:06,780 --> 00:20:11,240
+the whole thing and split into a list
+
+404
+00:20:12,120 --> 00:20:16,679
+yeah there's no way to know which
+
+405
+00:20:14,280 --> 00:20:18,960
+position it is
+
+406
+00:20:16,679 --> 00:20:22,140
+yeah but that way is simpler though okay
+
+407
+00:20:18,960 --> 00:20:25,080
+so let's try the
+
+408
+00:20:22,140 --> 00:20:28,460
+let's try the text processing you know
+
+409
+00:20:25,080 --> 00:20:28,460
+move the clues away because
+
+410
+00:20:28,620 --> 00:20:35,340
+because that's likely what we want okay
+
+411
+00:20:31,620 --> 00:20:37,020
+so we may not be able to finish this if
+
+412
+00:20:35,340 --> 00:20:39,900
+not you know we'll continue maybe
+
+413
+00:20:37,020 --> 00:20:42,360
+another day or I'll finish offline but
+
+414
+00:20:39,900 --> 00:20:46,380
+I'll you know so you but however you get
+
+415
+00:20:42,360 --> 00:20:48,919
+the basic idea how emac this works okay
+
+416
+00:20:46,380 --> 00:20:48,919
+so
+
+417
+00:20:50,460 --> 00:20:55,760
+Okay so
+
+418
+00:20:51,840 --> 00:20:55,760
+let's write down the second way
+
+419
+00:20:56,280 --> 00:21:01,980
+open the file first then
+
+420
+00:21:00,000 --> 00:21:03,660
+move closer
+
+421
+00:21:01,980 --> 00:21:06,380
+to beginning
+
+422
+00:21:03,660 --> 00:21:06,380
+then
+
+423
+00:21:07,039 --> 00:21:13,620
+then search for the next occurrence of
+
+424
+00:21:12,000 --> 00:21:16,500
+angle
+
+425
+00:21:13,620 --> 00:21:19,140
+bracket
+
+426
+00:21:16,500 --> 00:21:21,720
+then grab
+
+427
+00:21:19,140 --> 00:21:25,320
+then grab it
+
+428
+00:21:21,720 --> 00:21:29,880
+it is a tag maybe opening
+
+429
+00:21:25,320 --> 00:21:32,220
+may be opening tag or closing
+
+430
+00:21:29,880 --> 00:21:36,559
+put
+
+431
+00:21:32,220 --> 00:21:36,559
+it onto stack
+
+432
+00:21:37,740 --> 00:21:41,520
+continue
+
+433
+00:21:39,360 --> 00:21:43,919
+okay
+
+434
+00:21:41,520 --> 00:21:46,440
+then once you have more than one thing
+
+435
+00:21:43,919 --> 00:21:49,020
+on the stack you start to check you know
+
+436
+00:21:46,440 --> 00:21:50,340
+anyway so that's that's the that's this
+
+437
+00:21:49,020 --> 00:21:54,299
+okay so
+
+438
+00:21:50,340 --> 00:21:56,280
+we're gonna do this okay so first of all
+
+439
+00:21:54,299 --> 00:21:58,980
+we're gonna start to write a function
+
+440
+00:21:56,280 --> 00:22:01,980
+that just checked the buffer okay
+
+441
+00:21:58,980 --> 00:22:03,539
+once you check the current buffer so we
+
+442
+00:22:01,980 --> 00:22:06,299
+start to write a function or command
+
+443
+00:22:03,539 --> 00:22:11,220
+that simply try to validate the current
+
+444
+00:22:06,299 --> 00:22:13,799
+buffer okay so this so This example uh
+
+445
+00:22:11,220 --> 00:22:16,740
+once we have that done then we can
+
+446
+00:22:13,799 --> 00:22:18,780
+trivially modify the code so that it
+
+447
+00:22:16,740 --> 00:22:21,059
+takes a file as input
+
+448
+00:22:18,780 --> 00:22:22,919
+you know then then we can use that to
+
+449
+00:22:21,059 --> 00:22:24,900
+check all the files in a directory so
+
+450
+00:22:22,919 --> 00:22:28,200
+for the first one is to write a function
+
+451
+00:22:24,900 --> 00:22:30,600
+that that just um
+
+452
+00:22:28,200 --> 00:22:33,000
+check the current buffer
+
+453
+00:22:30,600 --> 00:22:35,220
+with the Assumption the buffer
+
+454
+00:22:33,000 --> 00:22:37,440
+um the buffer does not even needs to be
+
+455
+00:22:35,220 --> 00:22:40,020
+a file yeah because we are all we are
+
+456
+00:22:37,440 --> 00:22:43,320
+doing is checking the syntax okay so
+
+457
+00:22:40,020 --> 00:22:45,320
+this command will call will be named
+
+458
+00:22:43,320 --> 00:22:50,039
+validate
+
+459
+00:22:45,320 --> 00:22:51,299
+HTML XML okay let's just say let's say
+
+460
+00:22:50,039 --> 00:22:53,820
+XML
+
+461
+00:22:51,299 --> 00:22:55,500
+because it's technically more correct
+
+462
+00:22:53,820 --> 00:22:59,460
+what we are doing
+
+463
+00:22:55,500 --> 00:23:03,200
+okay validate HTML XML so dark stream
+
+464
+00:22:59,460 --> 00:23:03,200
+let's just give today's date
+
+465
+00:23:04,500 --> 00:23:10,039
+okay
+
+466
+00:23:05,640 --> 00:23:15,900
+uh okay so let's start to write it
+
+467
+00:23:10,039 --> 00:23:16,740
+validate H valid date H uh XML buffer
+
+468
+00:23:15,900 --> 00:23:18,840
+okay
+
+469
+00:23:16,740 --> 00:23:21,960
+so that's a full name so let's start to
+
+470
+00:23:18,840 --> 00:23:26,000
+write it so so the foot so of course
+
+471
+00:23:21,960 --> 00:23:26,000
+first of all go to the
+
+472
+00:23:26,100 --> 00:23:34,380
+go to the buffer beginning
+
+473
+00:23:28,500 --> 00:23:36,360
+go uh go to char buff point point mean
+
+474
+00:23:34,380 --> 00:23:38,400
+okay point mean Returns the cruiser
+
+475
+00:23:36,360 --> 00:23:40,559
+position for the beginning of the buffer
+
+476
+00:23:38,400 --> 00:23:43,080
+typically it's one unless you have
+
+477
+00:23:40,559 --> 00:23:45,419
+narrow to region when you have narrowed
+
+478
+00:23:43,080 --> 00:23:49,140
+to region
+
+479
+00:23:45,419 --> 00:23:50,940
+uh then it doesn't see you know you see
+
+480
+00:23:49,140 --> 00:23:53,340
+just part of the buffer but actually
+
+481
+00:23:50,940 --> 00:23:55,380
+there's more so the when in that case
+
+482
+00:23:53,340 --> 00:23:59,640
+the beginning of the buffer is not one
+
+483
+00:23:55,380 --> 00:24:01,980
+okay so now widen
+
+484
+00:23:59,640 --> 00:24:05,400
+okay so that's why you have to call
+
+485
+00:24:01,980 --> 00:24:07,559
+point mean because it returns you know
+
+486
+00:24:05,400 --> 00:24:11,940
+the the current
+
+487
+00:24:07,559 --> 00:24:16,860
+the topmost Cruiser position okay so go
+
+488
+00:24:11,940 --> 00:24:19,799
+to chart point mean then search forward
+
+489
+00:24:16,860 --> 00:24:21,600
+you know I'm just coding it fast you
+
+490
+00:24:19,799 --> 00:24:24,120
+know because when you are doing a video
+
+491
+00:24:21,600 --> 00:24:26,520
+the best thing is just just to stop keep
+
+492
+00:24:24,120 --> 00:24:29,520
+coding then maybe after you have
+
+493
+00:24:26,520 --> 00:24:32,220
+something rewrited offline otherwise
+
+494
+00:24:29,520 --> 00:24:35,520
+I'll be stuck in you know thinking and
+
+495
+00:24:32,220 --> 00:24:37,500
+no activity so search for what search
+
+496
+00:24:35,520 --> 00:24:39,600
+forward so actually we want regular
+
+497
+00:24:37,500 --> 00:24:43,140
+expression search forward because we
+
+498
+00:24:39,600 --> 00:24:44,580
+want to search both either either the
+
+499
+00:24:43,140 --> 00:24:47,340
+you know the
+
+500
+00:24:44,580 --> 00:24:50,760
+opening angle bracket will close so
+
+501
+00:24:47,340 --> 00:24:53,820
+research forward that that is search for
+
+502
+00:24:50,760 --> 00:24:57,659
+by regular expression okay so we want to
+
+503
+00:24:53,820 --> 00:25:01,080
+search either that or that
+
+504
+00:24:57,659 --> 00:25:04,260
+okay so uh yeah
+
+505
+00:25:01,080 --> 00:25:08,580
+okay so optional bound no we don't care
+
+506
+00:25:04,260 --> 00:25:08,580
+about no error uh
+
+507
+00:25:08,700 --> 00:25:13,520
+bound we don't care Neo no Arrow
+
+508
+00:25:14,520 --> 00:25:20,039
+okay no error true we don't so no error
+
+509
+00:25:17,700 --> 00:25:24,480
+means if if it's not found what you're
+
+510
+00:25:20,039 --> 00:25:27,419
+gonna do so if no error is true
+
+511
+00:25:24,480 --> 00:25:29,400
+then just ignore it if not it's if it's
+
+512
+00:25:27,419 --> 00:25:33,240
+not found that's okay don't do anything
+
+513
+00:25:29,400 --> 00:25:35,220
+but if no arrow is near
+
+514
+00:25:33,240 --> 00:25:37,260
+then
+
+515
+00:25:35,220 --> 00:25:39,659
+if it's not found you'll stop the
+
+516
+00:25:37,260 --> 00:25:44,240
+program you'll say cannot find it okay
+
+517
+00:25:39,659 --> 00:25:44,240
+so we we want it true true no error
+
+518
+00:25:44,820 --> 00:25:50,820
+so search for forward will actually move
+
+519
+00:25:47,159 --> 00:25:53,700
+the cruiser to um so let's go back so
+
+520
+00:25:50,820 --> 00:25:56,880
+let's go so move the cruiser to the
+
+521
+00:25:53,700 --> 00:25:59,940
+beginning search forward so there is one
+
+522
+00:25:56,880 --> 00:26:03,000
+occurrence right there okay so
+
+523
+00:25:59,940 --> 00:26:07,080
+so we need to keep track the position so
+
+524
+00:26:03,000 --> 00:26:09,360
+let's have xp1 xp2
+
+525
+00:26:07,080 --> 00:26:10,799
+that's position one position two
+
+526
+00:26:09,360 --> 00:26:13,580
+variable
+
+527
+00:26:10,799 --> 00:26:13,580
+so
+
+528
+00:26:14,880 --> 00:26:18,779
+so remember we need to make this into a
+
+529
+00:26:17,520 --> 00:26:21,960
+loop
+
+530
+00:26:18,779 --> 00:26:23,220
+um so there's a lot to code we have to
+
+531
+00:26:21,960 --> 00:26:27,200
+think about
+
+532
+00:26:23,220 --> 00:26:27,200
+um there's a lot to code
+
+533
+00:26:28,919 --> 00:26:35,279
+uh okay so what we uh we're gonna do it
+
+534
+00:26:31,860 --> 00:26:38,700
+so let me show you let's let's
+
+535
+00:26:35,279 --> 00:26:41,960
+put this over here so that
+
+536
+00:26:38,700 --> 00:26:41,960
+we can see
+
+537
+00:26:43,980 --> 00:26:51,740
+and uh that's over here we
+
+538
+00:26:48,200 --> 00:26:51,740
+look at the code
+
+539
+00:27:01,140 --> 00:27:05,120
+okay so documentation
+
+540
+00:27:09,059 --> 00:27:12,679
+uh okay so
+
+541
+00:27:14,460 --> 00:27:21,000
+so we begin here so we once found it we
+
+542
+00:27:19,260 --> 00:27:23,120
+what we're gonna do
+
+543
+00:27:21,000 --> 00:27:23,120
+um
+
+544
+00:27:24,480 --> 00:27:28,100
+and so God
+
+545
+00:27:30,240 --> 00:27:35,100
+Cody the start of coding the most
+
+546
+00:27:32,940 --> 00:27:37,380
+difficult thing about coding is that you
+
+547
+00:27:35,100 --> 00:27:40,200
+are going to do something yourself from
+
+548
+00:27:37,380 --> 00:27:42,299
+scratch you know typically there's
+
+549
+00:27:40,200 --> 00:27:44,580
+already some code on GitHub so you
+
+550
+00:27:42,299 --> 00:27:46,880
+modify you read you modify that's much
+
+551
+00:27:44,580 --> 00:27:50,340
+easier but if you need to do something
+
+552
+00:27:46,880 --> 00:27:52,440
+from scratch yourself that's more
+
+553
+00:27:50,340 --> 00:27:55,559
+difficult that's the that's the actually
+
+554
+00:27:52,440 --> 00:27:57,840
+the skill you want to master to be a
+
+555
+00:27:55,559 --> 00:28:00,059
+coder you know if you call yourself a
+
+556
+00:27:57,840 --> 00:28:03,659
+coder you should be able you must be
+
+557
+00:28:00,059 --> 00:28:07,260
+able to write some project from scratch
+
+558
+00:28:03,659 --> 00:28:10,140
+that's what really coding means not from
+
+559
+00:28:07,260 --> 00:28:12,799
+you know GitHub open source modify
+
+560
+00:28:10,140 --> 00:28:12,799
+somebody else
+
+561
+00:28:12,960 --> 00:28:21,480
+so okay so yeah we I need to think so
+
+562
+00:28:18,059 --> 00:28:23,820
+so you find it then you find it you're
+
+563
+00:28:21,480 --> 00:28:28,559
+gonna keep finding the you know you're
+
+564
+00:28:23,820 --> 00:28:32,220
+gonna keep finding the delimiters so
+
+565
+00:28:28,559 --> 00:28:34,380
+so this needs to be a loop right so it
+
+566
+00:28:32,220 --> 00:28:36,840
+needs to continue it needs through your
+
+567
+00:28:34,380 --> 00:28:40,380
+Loop so
+
+568
+00:28:36,840 --> 00:28:43,200
+so you so you need you you I need some
+
+569
+00:28:40,380 --> 00:28:45,659
+kind of loop structure but what is the
+
+570
+00:28:43,200 --> 00:28:50,840
+thing inside the loop I mean what is one
+
+571
+00:28:45,659 --> 00:28:50,840
+single step so one single step is you
+
+572
+00:28:51,960 --> 00:28:57,960
+you start at a position Mark that
+
+573
+00:28:54,600 --> 00:28:59,520
+position then you find the next angle
+
+574
+00:28:57,960 --> 00:29:03,000
+bracket
+
+575
+00:28:59,520 --> 00:29:06,059
+okay then you grab the text in between
+
+576
+00:29:03,000 --> 00:29:09,240
+okay then you push that
+
+577
+00:29:06,059 --> 00:29:12,120
+that's a tag okay it may it may be a
+
+578
+00:29:09,240 --> 00:29:15,240
+closing tag or opening tag so you got a
+
+579
+00:29:12,120 --> 00:29:18,059
+tag for example this one opening tag for
+
+580
+00:29:15,240 --> 00:29:21,360
+title or closing tag so once you got a
+
+581
+00:29:18,059 --> 00:29:24,659
+tag you push it to the stack
+
+582
+00:29:21,360 --> 00:29:27,600
+okay so we have to uh have a variable
+
+583
+00:29:24,659 --> 00:29:30,179
+stack
+
+584
+00:29:27,600 --> 00:29:34,080
+uh so X
+
+585
+00:29:30,179 --> 00:29:36,360
+stack you know I X stack my naming
+
+586
+00:29:34,080 --> 00:29:38,340
+convention is every local variable start
+
+587
+00:29:36,360 --> 00:29:41,760
+with x
+
+588
+00:29:38,340 --> 00:29:43,740
+so that way it's highlighted it's insa
+
+589
+00:29:41,760 --> 00:29:46,440
+emac be smart that
+
+590
+00:29:43,740 --> 00:29:48,179
+makes it easier to see variable is
+
+591
+00:29:46,440 --> 00:29:50,840
+actually the most important variables
+
+592
+00:29:48,179 --> 00:29:53,720
+and functions most important for syntax
+
+593
+00:29:50,840 --> 00:29:56,100
+highlighting not
+
+594
+00:29:53,720 --> 00:29:57,960
+usually not the other things the most
+
+595
+00:29:56,100 --> 00:30:00,600
+important thing is you want to
+
+596
+00:29:57,960 --> 00:30:02,460
+easily see the variables and functions
+
+597
+00:30:00,600 --> 00:30:06,059
+okay
+
+598
+00:30:02,460 --> 00:30:08,820
+so vast majority of syntax coloring is
+
+599
+00:30:06,059 --> 00:30:13,320
+actually not optimal in you know many
+
+600
+00:30:08,820 --> 00:30:17,100
+editors on that anyway so so we need a
+
+601
+00:30:13,320 --> 00:30:20,580
+stack as a variable that so the stack is
+
+602
+00:30:17,100 --> 00:30:24,720
+going to be a list okay so uh at least
+
+603
+00:30:20,580 --> 00:30:28,559
+is starting with empty this okay mtdc is
+
+604
+00:30:24,720 --> 00:30:31,380
+written that way or just Neo okay so you
+
+605
+00:30:28,559 --> 00:30:34,820
+so again the steps are
+
+606
+00:30:31,380 --> 00:30:34,820
+um let's let's write it
+
+607
+00:30:46,020 --> 00:30:51,059
+okay the current position
+
+608
+00:30:47,940 --> 00:30:54,600
+find the next angle bracket
+
+609
+00:30:51,059 --> 00:30:54,600
+position then
+
+610
+00:30:56,880 --> 00:31:04,020
+grab text in between
+
+611
+00:31:01,020 --> 00:31:07,559
+that's one tag
+
+612
+00:31:04,020 --> 00:31:09,419
+push it to stack okay that's basically
+
+613
+00:31:07,559 --> 00:31:12,779
+that's the thing
+
+614
+00:31:09,419 --> 00:31:15,480
+that's the algorithm so
+
+615
+00:31:12,779 --> 00:31:17,880
+so okay so
+
+616
+00:31:15,480 --> 00:31:24,720
+so the current position okay so let's
+
+617
+00:31:17,880 --> 00:31:27,360
+set XP one point point is a Returns the
+
+618
+00:31:24,720 --> 00:31:32,940
+position of the current Cruiser location
+
+619
+00:31:27,360 --> 00:31:35,600
+okay so set 0.1 then search forward
+
+620
+00:31:32,940 --> 00:31:35,600
+for
+
+621
+00:31:38,159 --> 00:31:45,240
+yeah we assume
+
+622
+00:31:41,100 --> 00:31:47,520
+wait do we use you know do we assume the
+
+623
+00:31:45,240 --> 00:31:50,279
+beginning is already opening no because
+
+624
+00:31:47,520 --> 00:31:53,399
+sometimes you may have a space in uh in
+
+625
+00:31:50,279 --> 00:31:56,279
+front of a file so
+
+626
+00:31:53,399 --> 00:31:59,340
+or sometimes even common okay but I mean
+
+627
+00:31:56,279 --> 00:32:02,880
+the first character is not a angle
+
+628
+00:31:59,340 --> 00:32:04,980
+bracket okay so we cannot assume we
+
+629
+00:32:02,880 --> 00:32:07,679
+begin with the angle bracket okay so
+
+630
+00:32:04,980 --> 00:32:11,340
+actually so this is wrong there
+
+631
+00:32:07,679 --> 00:32:15,260
+so go to the beginning then we search
+
+632
+00:32:11,340 --> 00:32:15,260
+for angle bracket okay
+
+633
+00:32:16,620 --> 00:32:23,940
+no error true okay then we
+
+634
+00:32:21,299 --> 00:32:27,000
+we mark it
+
+635
+00:32:23,940 --> 00:32:29,779
+you know we we say that as the first
+
+636
+00:32:27,000 --> 00:32:29,779
+point okay
+
+637
+00:32:32,159 --> 00:32:38,220
+and uh
+
+638
+00:32:34,320 --> 00:32:42,179
+then search forward again
+
+639
+00:32:38,220 --> 00:32:45,179
+then set xp2
+
+640
+00:32:42,179 --> 00:32:48,299
+at the uh in the current position okay
+
+641
+00:32:45,179 --> 00:32:50,880
+so that's kind of so this part is one
+
+642
+00:32:48,299 --> 00:32:53,100
+unit right I think so
+
+643
+00:32:50,880 --> 00:32:57,419
+so then we need to grab the text in
+
+644
+00:32:53,100 --> 00:33:02,039
+between so how do you do that you use uh
+
+645
+00:32:57,419 --> 00:33:04,220
+purpose of string no properties Okay so
+
+646
+00:33:02,039 --> 00:33:05,880
+xp1
+
+647
+00:33:04,220 --> 00:33:10,020
+xp2
+
+648
+00:33:05,880 --> 00:33:15,919
+so you'll give it a name
+
+649
+00:33:10,020 --> 00:33:15,919
+so that name will be X tag okay
+
+650
+00:33:17,159 --> 00:33:24,120
+so
+
+651
+00:33:19,140 --> 00:33:28,440
+so X tag is a variable okay
+
+652
+00:33:24,120 --> 00:33:33,000
+and uh then
+
+653
+00:33:28,440 --> 00:33:35,159
+so we what we do is set X tag
+
+654
+00:33:33,000 --> 00:33:40,039
+should be
+
+655
+00:33:35,159 --> 00:33:40,039
+that okay that's a text in between
+
+656
+00:33:40,440 --> 00:33:47,760
+cool thank you very smart can you escape
+
+657
+00:33:42,960 --> 00:33:50,840
+you can also Escape closing tag yes
+
+658
+00:33:47,760 --> 00:33:53,519
+uh that student I just talked about that
+
+659
+00:33:50,840 --> 00:33:56,340
+in the bi and stuff
+
+660
+00:33:53,519 --> 00:33:59,519
+head oxide and chat uh hello what we
+
+661
+00:33:56,340 --> 00:34:02,039
+working on okay you can read you know so
+
+662
+00:33:59,519 --> 00:34:04,919
+we are writing so you guys are late so I
+
+663
+00:34:02,039 --> 00:34:07,860
+I need to push on so we are writing a
+
+664
+00:34:04,919 --> 00:34:11,580
+XML value data okay
+
+665
+00:34:07,860 --> 00:34:14,220
+so we so this is one unit of code we
+
+666
+00:34:11,580 --> 00:34:17,520
+need to make them into a loop repeat
+
+667
+00:34:14,220 --> 00:34:20,460
+this process so again
+
+668
+00:34:17,520 --> 00:34:22,440
+we search for what so we start at the
+
+669
+00:34:20,460 --> 00:34:25,560
+beginning of the buffer we search
+
+670
+00:34:22,440 --> 00:34:29,040
+forward for angle bracket then we Mark
+
+671
+00:34:25,560 --> 00:34:32,700
+that point xp1 position
+
+672
+00:34:29,040 --> 00:34:34,919
+then we search for the next so let's see
+
+673
+00:34:32,700 --> 00:34:37,099
+so we found it and we search for the
+
+674
+00:34:34,919 --> 00:34:37,099
+next
+
+675
+00:34:38,760 --> 00:34:43,859
+oh okay so what happens what what but
+
+676
+00:34:41,760 --> 00:34:46,139
+what if you have
+
+677
+00:34:43,859 --> 00:34:49,639
+um you know something
+
+678
+00:34:46,139 --> 00:34:49,639
+bad like that
+
+679
+00:34:53,399 --> 00:34:59,400
+Okay so
+
+680
+00:34:55,740 --> 00:35:02,400
+if you so here is a problem you see this
+
+681
+00:34:59,400 --> 00:35:05,460
+file right now is invalid
+
+682
+00:35:02,400 --> 00:35:08,280
+okay so let's see how we're gonna
+
+683
+00:35:05,460 --> 00:35:10,440
+validate this file so we you know we go
+
+684
+00:35:08,280 --> 00:35:12,420
+to the beginning we search for angle
+
+685
+00:35:10,440 --> 00:35:15,300
+bracket we found it
+
+686
+00:35:12,420 --> 00:35:18,480
+then we search for another angle bracket
+
+687
+00:35:15,300 --> 00:35:21,060
+we found it we pushed to stack but that
+
+688
+00:35:18,480 --> 00:35:24,500
+already is invalid
+
+689
+00:35:21,060 --> 00:35:26,940
+it's already invalid so when you search
+
+690
+00:35:24,500 --> 00:35:29,820
+for a
+
+691
+00:35:26,940 --> 00:35:31,920
+so okay so
+
+692
+00:35:29,820 --> 00:35:35,339
+so when you search for the first angle
+
+693
+00:35:31,920 --> 00:35:37,920
+bracket you that needs to be
+
+694
+00:35:35,339 --> 00:35:40,320
+the left angle bracket because otherwise
+
+695
+00:35:37,920 --> 00:35:42,359
+you will be invalid okay
+
+696
+00:35:40,320 --> 00:35:44,940
+so
+
+697
+00:35:42,359 --> 00:35:47,359
+so we already need to start to check
+
+698
+00:35:44,940 --> 00:35:47,359
+here
+
+699
+00:35:48,000 --> 00:35:52,740
+so we need to check so once you search
+
+700
+00:35:50,520 --> 00:35:54,000
+you'll move the cruiser to that
+
+701
+00:35:52,740 --> 00:35:56,339
+character
+
+702
+00:35:54,000 --> 00:35:59,280
+to whatever text you searched so you
+
+703
+00:35:56,339 --> 00:36:01,500
+need to make sure that character is the
+
+704
+00:35:59,280 --> 00:36:03,359
+opening one
+
+705
+00:36:01,500 --> 00:36:06,020
+okay over here
+
+706
+00:36:03,359 --> 00:36:06,020
+so
+
+707
+00:36:07,500 --> 00:36:13,400
+so you can do uh what you can do is uh
+
+708
+00:36:14,900 --> 00:36:20,839
+there is there so you want to grab the
+
+709
+00:36:18,180 --> 00:36:20,839
+current character
+
+710
+00:36:21,480 --> 00:36:27,359
+okay I don't remember what command that
+
+711
+00:36:24,420 --> 00:36:32,640
+is so let's look at let's go to
+
+712
+00:36:27,359 --> 00:36:36,839
+practical emac this my website and uh
+
+713
+00:36:32,640 --> 00:36:39,800
+text editing uh Mark and region get
+
+714
+00:36:36,839 --> 00:36:39,800
+buffer string
+
+715
+00:36:39,900 --> 00:36:44,579
+there it is get buffer string from
+
+716
+00:36:42,119 --> 00:36:47,640
+region from selection from current get
+
+717
+00:36:44,579 --> 00:36:49,440
+current chart there chart before that's
+
+718
+00:36:47,640 --> 00:36:52,380
+what we want okay
+
+719
+00:36:49,440 --> 00:36:54,960
+so chart before Returns the
+
+720
+00:36:52,380 --> 00:36:59,040
+an integer that represents the character
+
+721
+00:36:54,960 --> 00:37:00,780
+right before the Cruiser okay in e-max
+
+722
+00:36:59,040 --> 00:37:04,140
+Cruiser is actually between characters
+
+723
+00:37:00,780 --> 00:37:07,579
+the position Okay so
+
+724
+00:37:04,140 --> 00:37:07,579
+so chart before
+
+725
+00:37:09,599 --> 00:37:12,619
+chart before
+
+726
+00:37:14,400 --> 00:37:19,200
+so chart before Returns the current
+
+727
+00:37:16,680 --> 00:37:22,800
+chart so you so that Returns the integer
+
+728
+00:37:19,200 --> 00:37:25,500
+the code point of the unit code of the
+
+729
+00:37:22,800 --> 00:37:27,900
+character that Returns the integer so
+
+730
+00:37:25,500 --> 00:37:29,940
+you want to make sure that is equals to
+
+731
+00:37:27,900 --> 00:37:35,520
+the
+
+732
+00:37:29,940 --> 00:37:38,940
+the left angle bracket so
+
+733
+00:37:35,520 --> 00:37:42,000
+so you can use equal to check let's see
+
+734
+00:37:38,940 --> 00:37:45,480
+equal three three true okay so you can
+
+735
+00:37:42,000 --> 00:37:46,560
+use EQ to check equality of integers
+
+736
+00:37:45,480 --> 00:37:49,260
+okay
+
+737
+00:37:46,560 --> 00:37:53,220
+so you can put that there
+
+738
+00:37:49,260 --> 00:37:55,260
+and what is the integer for the
+
+739
+00:37:53,220 --> 00:37:57,839
+character
+
+740
+00:37:55,260 --> 00:38:01,260
+that so
+
+741
+00:37:57,839 --> 00:38:03,800
+that would be 60 so you can see here so
+
+742
+00:38:01,260 --> 00:38:03,800
+you can
+
+743
+00:38:04,020 --> 00:38:08,660
+you can write 6C here
+
+744
+00:38:06,180 --> 00:38:08,660
+okay
+
+745
+00:38:10,440 --> 00:38:17,280
+and another Syntax for a character is
+
+746
+00:38:13,800 --> 00:38:18,900
+question mark that that's actually you
+
+747
+00:38:17,280 --> 00:38:21,119
+know question mark that that's another
+
+748
+00:38:18,900 --> 00:38:23,700
+Syntax for you can see in the mini
+
+749
+00:38:21,119 --> 00:38:27,240
+buffer it says 6C okay
+
+750
+00:38:23,700 --> 00:38:29,640
+so that's the same tax so in emacs
+
+751
+00:38:27,240 --> 00:38:33,240
+there's no character type okay there's
+
+752
+00:38:29,640 --> 00:38:36,300
+no data type for a character however a
+
+753
+00:38:33,240 --> 00:38:38,160
+character is represented as integer so
+
+754
+00:38:36,300 --> 00:38:40,380
+when you have an integer it may
+
+755
+00:38:38,160 --> 00:38:42,480
+represent the integer or a character
+
+756
+00:38:40,380 --> 00:38:47,579
+depends
+
+757
+00:38:42,480 --> 00:38:49,619
+so emacs has a way so when you want to
+
+758
+00:38:47,579 --> 00:38:52,800
+compare character you can say compare it
+
+759
+00:38:49,619 --> 00:38:55,500
+to 60 because 60 represent the
+
+760
+00:38:52,800 --> 00:38:58,140
+left bracket angle bracket or you can
+
+761
+00:38:55,500 --> 00:38:59,940
+use this syntax this syntax is more
+
+762
+00:38:58,140 --> 00:39:02,760
+intuitive you know question mark
+
+763
+00:38:59,940 --> 00:39:04,200
+character so
+
+764
+00:39:02,760 --> 00:39:05,520
+if
+
+765
+00:39:04,200 --> 00:39:11,220
+that
+
+766
+00:39:05,520 --> 00:39:11,220
+then do nothing new otherwise error
+
+767
+00:39:13,760 --> 00:39:18,980
+arrow and before the position Okay so
+
+768
+00:39:20,099 --> 00:39:23,060
+error found
+
+769
+00:39:23,280 --> 00:39:27,119
+and
+
+770
+00:39:25,440 --> 00:39:29,339
+error found
+
+771
+00:39:27,119 --> 00:39:31,920
+and position
+
+772
+00:39:29,339 --> 00:39:35,520
+okay
+
+773
+00:39:31,920 --> 00:39:38,880
+a position point
+
+774
+00:39:35,520 --> 00:39:41,460
+okay so we already starting to do some
+
+775
+00:39:38,880 --> 00:39:43,700
+validation there we can try it on this
+
+776
+00:39:41,460 --> 00:39:43,700
+file
+
+777
+00:39:44,099 --> 00:39:50,400
+okay so search forward if
+
+778
+00:39:47,820 --> 00:39:54,500
+that character is not that okay we
+
+779
+00:39:50,400 --> 00:39:54,500
+already found the error then
+
+780
+00:39:55,020 --> 00:40:02,339
+because otherwise uh otherwise so
+
+781
+00:39:59,160 --> 00:40:06,119
+if it's that then set the point
+
+782
+00:40:02,339 --> 00:40:08,660
+otherwise error okay then search forward
+
+783
+00:40:06,119 --> 00:40:08,660
+again
+
+784
+00:40:11,579 --> 00:40:14,240
+okay
+
+785
+00:40:14,940 --> 00:40:21,079
+this time we need to compare to the
+
+786
+00:40:17,640 --> 00:40:21,079
+right angle bracket
+
+787
+00:40:21,660 --> 00:40:24,780
+so
+
+788
+00:40:22,800 --> 00:40:27,420
+if it matches
+
+789
+00:40:24,780 --> 00:40:30,900
+set xp2
+
+790
+00:40:27,420 --> 00:40:34,320
+otherwise Arrow okay
+
+791
+00:40:30,900 --> 00:40:38,280
+so then grab the tag okay so here is the
+
+792
+00:40:34,320 --> 00:40:41,040
+code and shrink it a bit so this is
+
+793
+00:40:38,280 --> 00:40:44,880
+actually valid code already let's run it
+
+794
+00:40:41,040 --> 00:40:46,320
+so now emacs knows this command so we
+
+795
+00:40:44,880 --> 00:40:48,900
+can actually
+
+796
+00:40:46,320 --> 00:40:50,579
+doing it on this buffer so let's try it
+
+797
+00:40:48,900 --> 00:40:54,599
+meta X
+
+798
+00:40:50,579 --> 00:40:56,880
+avier did XML buffer let's try please
+
+799
+00:40:54,599 --> 00:41:00,359
+make it work do it
+
+800
+00:40:56,880 --> 00:41:02,579
+Arrow found at position three fantastic
+
+801
+00:41:00,359 --> 00:41:04,200
+can you see it the mini buffer at the
+
+802
+00:41:02,579 --> 00:41:08,359
+bottom
+
+803
+00:41:04,200 --> 00:41:08,359
+so let's show the message buffer you see
+
+804
+00:41:08,460 --> 00:41:15,900
+fantastic now now
+
+805
+00:41:11,820 --> 00:41:17,520
+you see if we uh let's let's type some
+
+806
+00:41:15,900 --> 00:41:21,920
+random character here
+
+807
+00:41:17,520 --> 00:41:21,920
+so okay so now let's run it again
+
+808
+00:41:22,040 --> 00:41:28,619
+XML buffer Arrow found in position 10
+
+809
+00:41:25,619 --> 00:41:30,780
+you see before it was position three now
+
+810
+00:41:28,619 --> 00:41:31,920
+it's position ten so it
+
+811
+00:41:30,780 --> 00:41:32,880
+already
+
+812
+00:41:31,920 --> 00:41:35,339
+um
+
+813
+00:41:32,880 --> 00:41:37,619
+that's one progress
+
+814
+00:41:35,339 --> 00:41:42,839
+so next
+
+815
+00:41:37,619 --> 00:41:46,140
+so okay so we know this code is a Lube
+
+816
+00:41:42,839 --> 00:41:50,700
+I mean this is a unit of code that that
+
+817
+00:41:46,140 --> 00:41:54,780
+so since it's a unit why don't we make
+
+818
+00:41:50,700 --> 00:41:59,660
+it a p i o g n so that's one unit
+
+819
+00:41:54,780 --> 00:42:02,700
+you know one one great advantage of this
+
+820
+00:41:59,660 --> 00:42:05,820
+lisp language is that
+
+821
+00:42:02,700 --> 00:42:08,579
+you can represent semantic unit
+
+822
+00:42:05,820 --> 00:42:11,700
+correspond to syntactical units so this
+
+823
+00:42:08,579 --> 00:42:14,520
+is like one unit of code instead of like
+
+824
+00:42:11,700 --> 00:42:17,940
+C or Java where they count lines of code
+
+825
+00:42:14,520 --> 00:42:19,800
+because it's hard there's no syntactical
+
+826
+00:42:17,940 --> 00:42:23,280
+the limit
+
+827
+00:42:19,800 --> 00:42:25,560
+delimiter for a semantic unit but in
+
+828
+00:42:23,280 --> 00:42:28,260
+this typically you can
+
+829
+00:42:25,560 --> 00:42:31,980
+so anyway so this block is one unit so
+
+830
+00:42:28,260 --> 00:42:34,880
+we need to repeat this block block
+
+831
+00:42:31,980 --> 00:42:34,880
+Okay so
+
+832
+00:42:35,339 --> 00:42:40,680
+so we push it to a stack okay so that's
+
+833
+00:42:38,220 --> 00:42:44,359
+one thing so
+
+834
+00:42:40,680 --> 00:42:44,359
+this needs to be a loop
+
+835
+00:42:45,119 --> 00:42:51,780
+so how do we uh how do we do a loop well
+
+836
+00:42:48,780 --> 00:42:56,300
+the condition of the loop is that
+
+837
+00:42:51,780 --> 00:42:56,300
+once you fail to find
+
+838
+00:42:57,000 --> 00:43:02,099
+uh angle bracket that's the end of the
+
+839
+00:42:59,940 --> 00:43:04,380
+loop okay because you can keep going
+
+840
+00:43:02,099 --> 00:43:05,700
+keep going until you fail to find the
+
+841
+00:43:04,380 --> 00:43:07,140
+angle bracket
+
+842
+00:43:05,700 --> 00:43:09,420
+or
+
+843
+00:43:07,140 --> 00:43:11,780
+when you have some error you you know
+
+844
+00:43:09,420 --> 00:43:15,119
+exit the program like like we did okay
+
+845
+00:43:11,780 --> 00:43:17,880
+so the whole thing will be a loop a
+
+846
+00:43:15,119 --> 00:43:21,540
+while loop yeah
+
+847
+00:43:17,880 --> 00:43:24,900
+so let's write while
+
+848
+00:43:21,540 --> 00:43:27,960
+okay when I Loop the condition
+
+849
+00:43:24,900 --> 00:43:31,040
+and the body okay so the condition will
+
+850
+00:43:27,960 --> 00:43:31,040
+be actually this
+
+851
+00:43:31,859 --> 00:43:38,339
+okay let's put it here that's a
+
+852
+00:43:35,819 --> 00:43:42,000
+search for word if it's found your
+
+853
+00:43:38,339 --> 00:43:44,040
+return true okay when it's not found
+
+854
+00:43:42,000 --> 00:43:47,339
+your return Neo so
+
+855
+00:43:44,040 --> 00:43:49,800
+so this is the while loop okay then we
+
+856
+00:43:47,339 --> 00:43:52,400
+can put the whole thing inside here
+
+857
+00:43:49,800 --> 00:43:52,400
+okay
+
+858
+00:43:53,099 --> 00:43:58,200
+so right now it's a code here is our
+
+859
+00:43:55,980 --> 00:44:00,900
+code
+
+860
+00:43:58,200 --> 00:44:04,339
+here's our complete code let's let's try
+
+861
+00:44:00,900 --> 00:44:04,339
+to compact it
+
+862
+00:44:07,680 --> 00:44:11,960
+do I make sense everything good
+
+863
+00:44:14,400 --> 00:44:18,000
+okay
+
+864
+00:44:15,720 --> 00:44:21,300
+now we evaluate let's just run it
+
+865
+00:44:18,000 --> 00:44:22,619
+evaluate it go back to here now let's
+
+866
+00:44:21,300 --> 00:44:25,740
+call it
+
+867
+00:44:22,619 --> 00:44:28,440
+Minix validate do it it will find a
+
+868
+00:44:25,740 --> 00:44:30,480
+position 10 fantastic okay now if we
+
+869
+00:44:28,440 --> 00:44:32,940
+remove this Arrow
+
+870
+00:44:30,480 --> 00:44:35,220
+call it again do it
+
+871
+00:44:32,940 --> 00:44:37,560
+you see the cursor went to the bottom
+
+872
+00:44:35,220 --> 00:44:40,200
+and nothing is done
+
+873
+00:44:37,560 --> 00:44:43,619
+which is exactly right that's what we
+
+874
+00:44:40,200 --> 00:44:46,880
+that's that's the code we have we we
+
+875
+00:44:43,619 --> 00:44:46,880
+haven't actually start to
+
+876
+00:44:46,980 --> 00:44:51,660
+check the
+
+877
+00:44:48,260 --> 00:44:55,260
+mismatching of the tag yet that that
+
+878
+00:44:51,660 --> 00:44:58,560
+needs to be done with the stack okay
+
+879
+00:44:55,260 --> 00:45:03,140
+so once you have this step okay so let's
+
+880
+00:44:58,560 --> 00:45:03,140
+let's so once you have this step
+
+881
+00:45:04,319 --> 00:45:07,520
+um
+
+882
+00:45:05,819 --> 00:45:10,380
+again
+
+883
+00:45:07,520 --> 00:45:14,579
+you search for uh okay let's not repeat
+
+884
+00:45:10,380 --> 00:45:17,339
+the thing uh what's the next thing
+
+885
+00:45:14,579 --> 00:45:18,900
+you see we need to start to validate to
+
+886
+00:45:17,339 --> 00:45:20,819
+check the
+
+887
+00:45:18,900 --> 00:45:23,520
+tag
+
+888
+00:45:20,819 --> 00:45:27,119
+oh yeah we need to push it to stack did
+
+889
+00:45:23,520 --> 00:45:30,859
+we push it to stack yet no no so what
+
+890
+00:45:27,119 --> 00:45:30,859
+you have to say is push
+
+891
+00:45:30,900 --> 00:45:36,420
+X tag to
+
+892
+00:45:34,740 --> 00:45:40,619
+um yeah
+
+893
+00:45:36,420 --> 00:45:45,480
+push extract to the X stack
+
+894
+00:45:40,619 --> 00:45:49,280
+stack right yeah so this part will also
+
+895
+00:45:45,480 --> 00:45:49,280
+be part of the code here
+
+896
+00:45:52,200 --> 00:45:56,339
+push it to stack now
+
+897
+00:46:00,119 --> 00:46:07,579
+okay that's one unit of code the next
+
+898
+00:46:03,720 --> 00:46:07,579
+thing we need to check the stack
+
+899
+00:46:09,020 --> 00:46:16,319
+so because so now you see
+
+900
+00:46:13,680 --> 00:46:20,000
+before the stack is empty now we just
+
+901
+00:46:16,319 --> 00:46:20,000
+push one item to the stack
+
+902
+00:46:21,420 --> 00:46:26,220
+we'll need start to check it when the
+
+903
+00:46:24,240 --> 00:46:30,680
+start when the stack is more than one
+
+904
+00:46:26,220 --> 00:46:30,680
+item okay let me think about it
+
+905
+00:46:33,660 --> 00:46:39,060
+uh I just here I have XML related issue
+
+906
+00:46:36,960 --> 00:46:42,599
+I was never able to solve how can I make
+
+907
+00:46:39,060 --> 00:46:45,020
+scheme validation for Android XML files
+
+908
+00:46:42,599 --> 00:46:45,020
+on Android
+
+909
+00:46:45,359 --> 00:46:52,280
+it does not seem to be a skin file that
+
+910
+00:46:48,180 --> 00:46:52,280
+can be referenced in an idea
+
+911
+00:46:52,920 --> 00:46:58,400
+no I don't know I don't know anything
+
+912
+00:46:55,020 --> 00:46:58,400
+about Android okay
+
+913
+00:46:58,440 --> 00:47:01,819
+so you have to you know
+
+914
+00:47:02,099 --> 00:47:08,640
+Focus uh don't we have any emac these
+
+915
+00:47:05,819 --> 00:47:10,920
+people 10 people watching okay so focus
+
+916
+00:47:08,640 --> 00:47:13,619
+on emac Beast so if you have questions
+
+917
+00:47:10,920 --> 00:47:15,300
+especially relevant to what we are doing
+
+918
+00:47:13,619 --> 00:47:17,400
+today
+
+919
+00:47:15,300 --> 00:47:19,380
+you know if you some you have you have
+
+920
+00:47:17,400 --> 00:47:22,260
+some simple emac these questions I can
+
+921
+00:47:19,380 --> 00:47:24,660
+answer quickly I'll do okay
+
+922
+00:47:22,260 --> 00:47:27,660
+today is just focused on iMac lives
+
+923
+00:47:24,660 --> 00:47:30,780
+coding so we so we now we need to so
+
+924
+00:47:27,660 --> 00:47:33,900
+Stacks okay so we pushed
+
+925
+00:47:30,780 --> 00:47:36,300
+so far we pushed one element such as
+
+926
+00:47:33,900 --> 00:47:39,540
+this to the stack
+
+927
+00:47:36,300 --> 00:47:42,560
+okay let's let's let's do this okay so
+
+928
+00:47:39,540 --> 00:47:42,560
+now we print
+
+929
+00:47:43,500 --> 00:47:52,859
+stack okay so that's a whole code doing
+
+930
+00:47:46,260 --> 00:47:52,859
+it go over here run it do it fantastic
+
+931
+00:47:52,920 --> 00:47:59,900
+so this is what this is uh what's this
+
+932
+00:47:56,220 --> 00:47:59,900
+is what a stack looks like
+
+933
+00:48:00,480 --> 00:48:04,500
+oh so the print needs to be outside the
+
+934
+00:48:03,240 --> 00:48:07,280
+loop okay
+
+935
+00:48:04,500 --> 00:48:07,280
+so
+
+936
+00:48:07,619 --> 00:48:12,960
+yeah so print stack evaluated go back
+
+937
+00:48:11,280 --> 00:48:15,960
+here close that
+
+938
+00:48:12,960 --> 00:48:19,200
+okay this is sample file blender code do
+
+939
+00:48:15,960 --> 00:48:22,680
+it go to the message buffer
+
+940
+00:48:19,200 --> 00:48:23,880
+okay so here is our stack open a new
+
+941
+00:48:22,680 --> 00:48:27,420
+buffer
+
+942
+00:48:23,880 --> 00:48:30,359
+make it each line by a line
+
+943
+00:48:27,420 --> 00:48:32,099
+split by space so this is what a stack
+
+944
+00:48:30,359 --> 00:48:34,560
+looks like
+
+945
+00:48:32,099 --> 00:48:39,020
+okay so the bottom one is the first one
+
+946
+00:48:34,560 --> 00:48:39,020
+so it doesn't look good because
+
+947
+00:48:40,500 --> 00:48:47,599
+uh because you see it's missing it's
+
+948
+00:48:43,800 --> 00:48:47,599
+missing the opening bracket
+
+949
+00:48:48,480 --> 00:48:55,380
+oh yeah that I know why because
+
+950
+00:48:52,380 --> 00:48:59,099
+because when we
+
+951
+00:48:55,380 --> 00:49:02,300
+when we search for the left one
+
+952
+00:48:59,099 --> 00:49:02,300
+we need to
+
+953
+00:49:02,400 --> 00:49:06,300
+when we push it actually we need to push
+
+954
+00:49:05,520 --> 00:49:08,579
+it
+
+955
+00:49:06,300 --> 00:49:10,880
+you know when when emacs search for the
+
+956
+00:49:08,579 --> 00:49:10,880
+file
+
+957
+00:49:11,339 --> 00:49:18,560
+it actually moves the cursor to it to
+
+958
+00:49:14,640 --> 00:49:18,560
+the right of it so
+
+959
+00:49:25,560 --> 00:49:31,260
+yeah so when if you um you know so if
+
+960
+00:49:29,099 --> 00:49:33,359
+you are searching for the
+
+961
+00:49:31,260 --> 00:49:35,640
+angle bracket
+
+962
+00:49:33,359 --> 00:49:37,980
+you know you're fine the cruiser will
+
+963
+00:49:35,640 --> 00:49:42,380
+end up here you know you start from the
+
+964
+00:49:37,980 --> 00:49:42,380
+beginning when you search for it
+
+965
+00:49:43,500 --> 00:49:47,520
+with this code the cruiser will end up
+
+966
+00:49:46,560 --> 00:49:48,839
+here
+
+967
+00:49:47,520 --> 00:49:52,619
+so
+
+968
+00:49:48,839 --> 00:49:54,180
+so now when you try to push the point to
+
+969
+00:49:52,619 --> 00:49:56,040
+xp1
+
+970
+00:49:54,180 --> 00:49:58,200
+you know
+
+971
+00:49:56,040 --> 00:50:01,079
+that's over there that's not over here
+
+972
+00:49:58,200 --> 00:50:03,319
+so you need to so here you need to minus
+
+973
+00:50:01,079 --> 00:50:03,319
+one
+
+974
+00:50:06,680 --> 00:50:11,480
+uh does that just uh
+
+975
+00:50:12,420 --> 00:50:19,319
+so I believe there's a decrement
+
+976
+00:50:15,900 --> 00:50:22,579
+yeah so one minus is the
+
+977
+00:50:19,319 --> 00:50:22,579
+function name okay
+
+978
+00:50:24,119 --> 00:50:31,800
+yeah so let's run a code go back here
+
+979
+00:50:27,740 --> 00:50:35,640
+let's go and so uh close this one close
+
+980
+00:50:31,800 --> 00:50:37,079
+this one close this one close time one
+
+981
+00:50:35,640 --> 00:50:40,280
+uh
+
+982
+00:50:37,079 --> 00:50:43,079
+go back here this is our sample file
+
+983
+00:50:40,280 --> 00:50:46,800
+metax code
+
+984
+00:50:43,079 --> 00:50:50,760
+go to the messages buffer copy it new
+
+985
+00:50:46,800 --> 00:50:52,559
+buffer then make them into each line so
+
+986
+00:50:50,760 --> 00:50:55,079
+here is
+
+987
+00:50:52,559 --> 00:51:00,020
+better but still wrong
+
+988
+00:50:55,079 --> 00:51:00,020
+so you can see the first one is X
+
+989
+00:51:00,960 --> 00:51:06,680
+okay so this is correct okay so so
+
+990
+00:51:04,020 --> 00:51:10,920
+that's the first tag we found fantastic
+
+991
+00:51:06,680 --> 00:51:14,280
+fantastic can you see tag tag second tag
+
+992
+00:51:10,920 --> 00:51:16,260
+third tag then this tag
+
+993
+00:51:14,280 --> 00:51:19,280
+then this
+
+994
+00:51:16,260 --> 00:51:19,280
+um then title
+
+995
+00:51:20,760 --> 00:51:25,740
+so this way we actually ignored all the
+
+996
+00:51:23,819 --> 00:51:28,579
+text in between because we don't see
+
+997
+00:51:25,740 --> 00:51:28,579
+them in a stack
+
+998
+00:51:33,960 --> 00:51:38,420
+okay so but
+
+999
+00:51:36,359 --> 00:51:38,420
+um
+
+1000
+00:51:38,700 --> 00:51:43,260
+so this is also one tag
+
+1001
+00:51:41,640 --> 00:51:45,140
+yeah so
+
+1002
+00:51:43,260 --> 00:51:49,400
+so far
+
+1003
+00:51:45,140 --> 00:51:49,400
+seems so good okay
+
+1004
+00:51:52,440 --> 00:52:02,640
+uh so you can see this is a this this
+
+1005
+00:51:58,619 --> 00:52:05,700
+tag is a self-closing tag this one is
+
+1006
+00:52:02,640 --> 00:52:09,180
+opening tag this one is opening tag this
+
+1007
+00:52:05,700 --> 00:52:14,720
+one is self-closing tag
+
+1008
+00:52:09,180 --> 00:52:14,720
+this one is self-closing tag okay
+
+1009
+00:52:17,760 --> 00:52:22,920
+I I should have a
+
+1010
+00:52:20,640 --> 00:52:25,500
+slash there
+
+1011
+00:52:22,920 --> 00:52:26,640
+and this one is opening time closing tag
+
+1012
+00:52:25,500 --> 00:52:28,020
+okay
+
+1013
+00:52:26,640 --> 00:52:30,900
+so
+
+1014
+00:52:28,020 --> 00:52:34,260
+here is what we need to do once you have
+
+1015
+00:52:30,900 --> 00:52:38,420
+more than one item on the stack you'll
+
+1016
+00:52:34,260 --> 00:52:38,420
+start to you need to check it
+
+1017
+00:52:43,559 --> 00:52:49,440
+again the algorithm is that if
+
+1018
+00:52:47,339 --> 00:52:52,880
+so suppose you have two
+
+1019
+00:52:49,440 --> 00:52:52,880
+items on the stack
+
+1020
+00:52:53,520 --> 00:52:58,859
+if the first one is opening one you
+
+1021
+00:52:56,280 --> 00:53:01,980
+check for the second item
+
+1022
+00:52:58,859 --> 00:53:03,540
+if it's closing then they cancel out
+
+1023
+00:53:01,980 --> 00:53:05,940
+remove them both
+
+1024
+00:53:03,540 --> 00:53:07,260
+but if it's opening again
+
+1025
+00:53:05,940 --> 00:53:11,280
+then you
+
+1026
+00:53:07,260 --> 00:53:14,579
+try to get the next one okay
+
+1027
+00:53:11,280 --> 00:53:16,740
+so how do we incorporate that into the
+
+1028
+00:53:14,579 --> 00:53:18,920
+code
+
+1029
+00:53:16,740 --> 00:53:18,920
+um
+
+1030
+00:53:21,839 --> 00:53:29,240
+so we need some kind of some code
+
+1031
+00:53:25,260 --> 00:53:29,240
+through check stack here
+
+1032
+00:53:37,380 --> 00:53:46,940
+okay so some code to check stack huh
+
+1033
+00:53:42,200 --> 00:53:46,940
+is tedious let me get my copy
+
+1034
+00:53:49,920 --> 00:53:55,020
+you know I'm tempted just go to Ram to
+
+1035
+00:53:52,859 --> 00:53:58,020
+start to ramble on other things because
+
+1036
+00:53:55,020 --> 00:54:01,500
+that's fun and easy but but now we need
+
+1037
+00:53:58,020 --> 00:54:04,220
+to focus on this for this video okay
+
+1038
+00:54:01,500 --> 00:54:04,220
+some coffee
+
+1039
+00:54:09,599 --> 00:54:13,400
+voice check video check yeah
+
+1040
+00:54:19,440 --> 00:54:24,859
+that's right that's a good um good point
+
+1041
+00:54:24,900 --> 00:54:30,300
+that one says don't add tags like meta
+
+1042
+00:54:27,839 --> 00:54:32,940
+into the stack that's true
+
+1043
+00:54:30,300 --> 00:54:33,900
+so in other words don't add self-closing
+
+1044
+00:54:32,940 --> 00:54:36,180
+tags
+
+1045
+00:54:33,900 --> 00:54:38,700
+so once you find the tag you can check
+
+1046
+00:54:36,180 --> 00:54:41,819
+if they are self-closing or not
+
+1047
+00:54:38,700 --> 00:54:44,040
+so if it's self closing ignore it good
+
+1048
+00:54:41,819 --> 00:54:47,640
+point so let's let's work on that
+
+1049
+00:54:44,040 --> 00:54:52,160
+because that's one step forward
+
+1050
+00:54:47,640 --> 00:54:52,160
+um so we write a different
+
+1051
+00:54:54,839 --> 00:55:03,140
+is self closing okay let's just say that
+
+1052
+00:54:58,559 --> 00:55:03,140
+okay so given a string
+
+1053
+00:55:10,680 --> 00:55:14,839
+let's just say tag stream okay
+
+1054
+00:55:14,900 --> 00:55:20,520
+okay so one argument so
+
+1055
+00:55:18,000 --> 00:55:22,980
+so
+
+1056
+00:55:20,520 --> 00:55:25,559
+this function will just take a string
+
+1057
+00:55:22,980 --> 00:55:28,619
+and
+
+1058
+00:55:25,559 --> 00:55:30,980
+return true if that's a self-closing tag
+
+1059
+00:55:28,619 --> 00:55:30,980
+okay
+
+1060
+00:55:33,119 --> 00:55:38,900
+so how do you how do you uh so you need
+
+1061
+00:55:35,819 --> 00:55:38,900
+to so for example
+
+1062
+00:55:40,440 --> 00:55:46,559
+so for example
+
+1063
+00:55:42,900 --> 00:55:49,800
+this is a self-closing tag meta okay so
+
+1064
+00:55:46,559 --> 00:55:53,579
+what you do is you
+
+1065
+00:55:49,800 --> 00:55:55,619
+you check if it ends with that okay then
+
+1066
+00:55:53,579 --> 00:55:58,079
+it's self-closing okay so how do you
+
+1067
+00:55:55,619 --> 00:56:01,040
+check so you you need to grab the string
+
+1068
+00:55:58,079 --> 00:56:01,040
+substring okay
+
+1069
+00:56:01,440 --> 00:56:04,819
+if something
+
+1070
+00:56:05,940 --> 00:56:13,160
+string equal okay
+
+1071
+00:56:09,720 --> 00:56:13,160
+then substring
+
+1072
+00:56:17,220 --> 00:56:21,260
+uh actually we can just say
+
+1073
+00:56:23,819 --> 00:56:27,500
+if that equals to
+
+1074
+00:56:32,760 --> 00:56:36,420
+okay then
+
+1075
+00:56:40,260 --> 00:56:47,160
+tag stream
+
+1076
+00:56:42,180 --> 00:56:50,700
+so substring of text string from
+
+1077
+00:56:47,160 --> 00:56:55,819
+form two so from negative two
+
+1078
+00:56:50,700 --> 00:56:55,819
+I believe that's it okay let's check
+
+1079
+00:56:57,920 --> 00:57:04,619
+ABCD okay run it
+
+1080
+00:57:01,380 --> 00:57:06,540
+returns CD Returns the last two
+
+1081
+00:57:04,619 --> 00:57:07,859
+character so that's the right syntax
+
+1082
+00:57:06,540 --> 00:57:10,319
+okay
+
+1083
+00:57:07,859 --> 00:57:12,720
+so now
+
+1084
+00:57:10,319 --> 00:57:16,020
+if that equals through that then return
+
+1085
+00:57:12,720 --> 00:57:19,260
+true okay otherwise return
+
+1086
+00:57:16,020 --> 00:57:21,240
+other Rock rise let's say return Neo for
+
+1087
+00:57:19,260 --> 00:57:24,800
+now okay
+
+1088
+00:57:21,240 --> 00:57:24,800
+so we have this code
+
+1089
+00:57:26,940 --> 00:57:33,440
+okay we don't need that actually so this
+
+1090
+00:57:30,540 --> 00:57:33,440
+very simple code
+
+1091
+00:57:41,280 --> 00:57:43,819
+okay
+
+1092
+00:57:43,980 --> 00:57:46,760
+fantastic
+
+1093
+00:57:47,040 --> 00:57:51,559
+so now we can call the code here
+
+1094
+00:58:02,280 --> 00:58:09,119
+okay if
+
+1095
+00:58:05,160 --> 00:58:12,900
+if it's if it's self closing
+
+1096
+00:58:09,119 --> 00:58:12,900
+do nothing else
+
+1097
+00:58:13,079 --> 00:58:17,220
+push to stack fantastic
+
+1098
+00:58:18,180 --> 00:58:24,000
+okay evaluate the whole buffer go back
+
+1099
+00:58:21,660 --> 00:58:27,079
+here close this
+
+1100
+00:58:24,000 --> 00:58:30,540
+try on this buffer call it do it
+
+1101
+00:58:27,079 --> 00:58:35,339
+fantastic go to the message buffer so we
+
+1102
+00:58:30,540 --> 00:58:36,839
+got that open new paste then now we want
+
+1103
+00:58:35,339 --> 00:58:40,559
+to
+
+1104
+00:58:36,839 --> 00:58:43,859
+replace that by
+
+1105
+00:58:40,559 --> 00:58:45,540
+that okay make them into line so
+
+1106
+00:58:43,859 --> 00:58:48,780
+fantastic
+
+1107
+00:58:45,540 --> 00:58:51,000
+so now you see one of the one of the
+
+1108
+00:58:48,780 --> 00:58:55,160
+self-closing tag is gone
+
+1109
+00:58:51,000 --> 00:58:55,160
+because before we had
+
+1110
+00:58:56,819 --> 00:59:03,000
+you see this line is gone
+
+1111
+00:58:59,700 --> 00:59:05,880
+it's not here now this line actually
+
+1112
+00:59:03,000 --> 00:59:08,099
+they need to be you know that
+
+1113
+00:59:05,880 --> 00:59:11,099
+you know they need you know I should
+
+1114
+00:59:08,099 --> 00:59:12,780
+have that so this this is a minor detail
+
+1115
+00:59:11,099 --> 00:59:13,740
+I mean this is the detail we have to
+
+1116
+00:59:12,780 --> 00:59:16,280
+work out
+
+1117
+00:59:13,740 --> 00:59:16,280
+you know
+
+1118
+00:59:16,559 --> 00:59:22,500
+because in HTML5
+
+1119
+00:59:19,619 --> 00:59:25,859
+you don't need that but and it's still
+
+1120
+00:59:22,500 --> 00:59:28,619
+valid however in XML you need to have
+
+1121
+00:59:25,859 --> 00:59:30,660
+that so in my code I don't have it
+
+1122
+00:59:28,619 --> 00:59:33,359
+that's actually a mistake so that's a
+
+1123
+00:59:30,660 --> 00:59:35,880
+good find you know so in fact I need to
+
+1124
+00:59:33,359 --> 00:59:38,400
+go to all my
+
+1125
+00:59:35,880 --> 00:59:42,780
+all my files
+
+1126
+00:59:38,400 --> 00:59:45,180
+and start to add you know do a find
+
+1127
+00:59:42,780 --> 00:59:47,640
+replace globally start to add the
+
+1128
+00:59:45,180 --> 00:59:50,220
+backslash over this meta so by the way
+
+1129
+00:59:47,640 --> 00:59:52,260
+this meta viewport thing that's
+
+1130
+00:59:50,220 --> 00:59:53,760
+non-standard tag
+
+1131
+00:59:52,260 --> 00:59:56,040
+you know it
+
+1132
+00:59:53,760 --> 00:59:59,520
+meta viewport with
+
+1133
+00:59:56,040 --> 01:00:02,640
+device with initial screen scale that's
+
+1134
+00:59:59,520 --> 01:00:04,079
+non-standard tag from Apple Apple's
+
+1135
+01:00:02,640 --> 01:00:07,380
+iPhone
+
+1136
+01:00:04,079 --> 01:00:09,059
+it began around 2008 or so it's
+
+1137
+01:00:07,380 --> 01:00:11,940
+non-standard okay so that's just
+
+1138
+01:00:09,059 --> 01:00:14,339
+something Apple did so that's very
+
+1139
+01:00:11,940 --> 01:00:17,400
+annoying
+
+1140
+01:00:14,339 --> 01:00:21,920
+so but anyway I should add that
+
+1141
+01:00:17,400 --> 01:00:21,920
+um that okay so anyway so that's
+
+1142
+01:00:22,559 --> 01:00:26,299
+that's one thing but also
+
+1143
+01:00:26,940 --> 01:00:32,940
+also by the way eventually this code
+
+1144
+01:00:30,780 --> 01:00:37,500
+cannot rely
+
+1145
+01:00:32,940 --> 01:00:42,540
+on the syntax because vast majority of
+
+1146
+01:00:37,500 --> 01:00:45,900
+HTML files on the web they are HTML5
+
+1147
+01:00:42,540 --> 01:00:48,780
+and even so that's majority like 99 of
+
+1148
+01:00:45,900 --> 01:00:50,819
+them are invalid okay so they have four
+
+1149
+01:00:48,780 --> 01:00:52,559
+of arrows you know if you're gonna
+
+1150
+01:00:50,819 --> 01:00:54,960
+validate them they light up like
+
+1151
+01:00:52,559 --> 01:00:57,740
+Christmas tree full like that that's a
+
+1152
+01:00:54,960 --> 01:01:00,680
+scum situation of the coding industry
+
+1153
+01:00:57,740 --> 01:01:04,619
+meanwhile we have the you know lispers
+
+1154
+01:01:00,680 --> 01:01:07,079
+scheme you know the rust people Golan
+
+1155
+01:01:04,619 --> 01:01:09,240
+Haskell they are saying oh wow our
+
+1156
+01:01:07,079 --> 01:01:12,240
+language is great because this feature
+
+1157
+01:01:09,240 --> 01:01:15,540
+because memory or because functional but
+
+1158
+01:01:12,240 --> 01:01:19,140
+they but but their website if you go
+
+1159
+01:01:15,540 --> 01:01:20,760
+check is invalid HTML that's an insult
+
+1160
+01:01:19,140 --> 01:01:24,000
+to the face
+
+1161
+01:01:20,760 --> 01:01:27,240
+okay the the coding industry you know
+
+1162
+01:01:24,000 --> 01:01:29,339
+let's say Haskell and rust okay they are
+
+1163
+01:01:27,240 --> 01:01:31,740
+kind of different camp and these people
+
+1164
+01:01:29,339 --> 01:01:33,420
+too you know they they are saying our
+
+1165
+01:01:31,740 --> 01:01:35,839
+language is great the fanaticism
+
+1166
+01:01:33,420 --> 01:01:39,240
+everywhere or even python you know
+
+1167
+01:01:35,839 --> 01:01:43,260
+finances everywhere but the most simple
+
+1168
+01:01:39,240 --> 01:01:46,619
+thing about HTML validation
+
+1169
+01:01:43,260 --> 01:01:48,480
+their home page is all invalid you can
+
+1170
+01:01:46,619 --> 01:01:51,780
+check right now here because I did it
+
+1171
+01:01:48,480 --> 01:01:57,839
+over the past 20 years every few years I
+
+1172
+01:01:51,780 --> 01:02:01,380
+you know including the w3c website
+
+1173
+01:01:57,839 --> 01:02:04,020
+10 years ago invalid HTML you know
+
+1174
+01:02:01,380 --> 01:02:07,440
+imagine the organization that specified
+
+1175
+01:02:04,020 --> 01:02:09,960
+the HTML specification their home page
+
+1176
+01:02:07,440 --> 01:02:14,160
+most of their pages are invalid
+
+1177
+01:02:09,960 --> 01:02:17,460
+including the RFC the Unix phonetics IFC
+
+1178
+01:02:14,160 --> 01:02:19,799
+Pages invalid HTML you know I have like
+
+1179
+01:02:17,460 --> 01:02:23,339
+I have um
+
+1180
+01:02:19,799 --> 01:02:25,740
+tens of articles about it
+
+1181
+01:02:23,339 --> 01:02:29,660
+let me just digress a little bit okay I
+
+1182
+01:02:25,740 --> 01:02:29,660
+will go back to the coding okay
+
+1183
+01:02:29,760 --> 01:02:36,059
+okay HTML validation Okay so here's one
+
+1184
+01:02:33,839 --> 01:02:39,420
+article but you go to actually you go to
+
+1185
+01:02:36,059 --> 01:02:43,099
+webtech history so all these Tech these
+
+1186
+01:02:39,420 --> 01:02:43,099
+articles about 20 of them
+
+1187
+01:02:45,420 --> 01:02:51,900
+are about HTML webtech history
+
+1188
+01:02:48,960 --> 01:02:54,420
+the story of XML you know the and the
+
+1189
+01:02:51,900 --> 01:02:57,180
+invalid you know Google promote invaded
+
+1190
+01:02:54,420 --> 01:03:02,579
+HTML and uh
+
+1191
+01:02:57,180 --> 01:03:04,559
+even the W3 HTML value data is invalid
+
+1192
+01:03:02,579 --> 01:03:06,839
+in some cases
+
+1193
+01:03:04,559 --> 01:03:09,359
+you know I have details so you know this
+
+1194
+01:03:06,839 --> 01:03:12,839
+is done in the past 20 you know these
+
+1195
+01:03:09,359 --> 01:03:16,200
+articles uh past 20 years so the web
+
+1196
+01:03:12,839 --> 01:03:17,700
+industry the coding industry is kind of
+
+1197
+01:03:16,200 --> 01:03:20,880
+a fast
+
+1198
+01:03:17,700 --> 01:03:22,799
+meanwhile you hear these leaders you
+
+1199
+01:03:20,880 --> 01:03:25,200
+know the hack on Hacker News typically
+
+1200
+01:03:22,799 --> 01:03:27,720
+or famous coders you know they are
+
+1201
+01:03:25,200 --> 01:03:31,319
+saying singing songs so we I wrote I
+
+1202
+01:03:27,720 --> 01:03:35,119
+wrote rust because I think this way but
+
+1203
+01:03:31,319 --> 01:03:35,119
+ joke okay
+
+1204
+01:03:35,760 --> 01:03:41,520
+nobody knows nobody knows they promoted
+
+1205
+01:03:38,400 --> 01:03:44,220
+a lot of promotion and this or that but
+
+1206
+01:03:41,520 --> 01:03:46,079
+the fundamental basic people forgot
+
+1207
+01:03:44,220 --> 01:03:48,900
+because
+
+1208
+01:03:46,079 --> 01:03:52,319
+this was important all the Nerds now
+
+1209
+01:03:48,900 --> 01:03:54,599
+remember you see you see this you see
+
+1210
+01:03:52,319 --> 01:03:59,880
+this w3s
+
+1211
+01:03:54,599 --> 01:04:03,440
+C HTML 4.0 check mark badge in the 1990s
+
+1212
+01:03:59,880 --> 01:04:07,440
+and early 2000s that badge is everywhere
+
+1213
+01:04:03,440 --> 01:04:11,099
+promoted by nerds by the Unix
+
+1214
+01:04:07,440 --> 01:04:13,559
+Tech notes by the Unix phonetics this
+
+1215
+01:04:11,099 --> 01:04:16,559
+batch but now it's forgotten like the
+
+1216
+01:04:13,559 --> 01:04:19,920
+Next Generation had you know
+
+1217
+01:04:16,559 --> 01:04:23,900
+a lot of story okay let's go back to um
+
+1218
+01:04:19,920 --> 01:04:23,900
+let's go back to coding this okay
+
+1219
+01:04:24,359 --> 01:04:31,079
+so yeah so so that's a you know this is
+
+1220
+01:04:28,440 --> 01:04:33,359
+a detailed point we eventually we I can
+
+1221
+01:04:31,079 --> 01:04:37,500
+you know eventually this code for
+
+1222
+01:04:33,359 --> 01:04:40,799
+validating XML or HTML
+
+1223
+01:04:37,500 --> 01:04:44,700
+cannot rely on this syntactic or this
+
+1224
+01:04:40,799 --> 01:04:47,579
+HTML syntax to indicate where the tag is
+
+1225
+01:04:44,700 --> 01:04:49,920
+self-closing but rather you have to get
+
+1226
+01:04:47,579 --> 01:04:52,380
+the you have to find the head of the tag
+
+1227
+01:04:49,920 --> 01:04:54,680
+the tag name
+
+1228
+01:04:52,380 --> 01:04:58,579
+then
+
+1229
+01:04:54,680 --> 01:04:58,579
+verify according to
+
+1230
+01:04:58,859 --> 01:05:05,339
+to um
+
+1231
+01:05:01,799 --> 01:05:07,920
+and did I already close it
+
+1232
+01:05:05,339 --> 01:05:10,859
+Saudi package okay
+
+1233
+01:05:07,920 --> 01:05:15,500
+search for Sally
+
+1234
+01:05:10,859 --> 01:05:15,500
+self closing tag okay
+
+1235
+01:05:19,799 --> 01:05:23,599
+now now they don't show my page
+
+1236
+01:05:25,700 --> 01:05:35,359
+self closing tag Okay so
+
+1237
+01:05:30,119 --> 01:05:35,359
+okay Sally HTML tutorial
+
+1238
+01:05:37,079 --> 01:05:42,299
+yeah
+
+1239
+01:05:38,700 --> 01:05:44,579
+it shows my resume my resume is like 10
+
+1240
+01:05:42,299 --> 01:05:47,339
+years old on my website
+
+1241
+01:05:44,579 --> 01:05:49,400
+I haven't updated
+
+1242
+01:05:47,339 --> 01:05:49,400
+um
+
+1243
+01:05:50,700 --> 01:05:55,559
+oh my God they don't they don't they
+
+1244
+01:05:52,680 --> 01:06:00,140
+don't show they don't show my um
+
+1245
+01:05:55,559 --> 01:06:00,140
+stuff let's say JavaScript tutorial
+
+1246
+01:06:00,240 --> 01:06:04,500
+that should show yeah okay because
+
+1247
+01:06:02,220 --> 01:06:07,920
+that's more popular so you go to
+
+1248
+01:06:04,500 --> 01:06:11,099
+JavaScript tutorial then you go to HTML
+
+1249
+01:06:07,920 --> 01:06:11,940
+then you go to this page self-closing
+
+1250
+01:06:11,099 --> 01:06:14,520
+tax
+
+1251
+01:06:11,940 --> 01:06:17,220
+So eventually the code actually just
+
+1252
+01:06:14,520 --> 01:06:18,599
+needs to check the tag name so these are
+
+1253
+01:06:17,220 --> 01:06:21,839
+the official
+
+1254
+01:06:18,599 --> 01:06:24,119
+set of self-closing tags so if they
+
+1255
+01:06:21,839 --> 01:06:25,680
+match that means this uh the tag is
+
+1256
+01:06:24,119 --> 01:06:28,819
+self-closing
+
+1257
+01:06:25,680 --> 01:06:28,819
+eventually okay
+
+1258
+01:06:29,760 --> 01:06:36,359
+uh but why don't we write it now because
+
+1259
+01:06:33,539 --> 01:06:40,020
+we we have to write it but we haven't
+
+1260
+01:06:36,359 --> 01:06:42,599
+got the general structure down yet
+
+1261
+01:06:40,020 --> 01:06:44,339
+yeah so all we have to do is modify this
+
+1262
+01:06:42,599 --> 01:06:47,160
+code so
+
+1263
+01:06:44,339 --> 01:06:51,260
+so another thing we need is to get the
+
+1264
+01:06:47,160 --> 01:06:51,260
+tag name okay so let's write it
+
+1265
+01:06:52,440 --> 01:06:57,960
+so
+
+1266
+01:06:54,240 --> 01:07:00,420
+get tag name okay
+
+1267
+01:06:57,960 --> 01:07:02,660
+so this function will return the tab
+
+1268
+01:07:00,420 --> 01:07:02,660
+name
+
+1269
+01:07:04,020 --> 01:07:09,059
+okay so how do you do it you
+
+1270
+01:07:07,500 --> 01:07:11,780
+um
+
+1271
+01:07:09,059 --> 01:07:11,780
+you
+
+1272
+01:07:12,780 --> 01:07:19,920
+use uh so given a tag
+
+1273
+01:07:16,559 --> 01:07:24,299
+you want to return the tag name for
+
+1274
+01:07:19,920 --> 01:07:26,640
+example meta so you want to find
+
+1275
+01:07:24,299 --> 01:07:31,880
+um well how do you do that
+
+1276
+01:07:26,640 --> 01:07:31,880
+okay so if yeah so I know what to do
+
+1277
+01:07:33,480 --> 01:07:37,520
+so let's copy the code here
+
+1278
+01:07:38,520 --> 01:07:41,180
+if
+
+1279
+01:07:41,280 --> 01:07:44,280
+substream
+
+1280
+01:07:45,299 --> 01:07:51,079
+if substream
+
+1281
+01:07:47,579 --> 01:07:51,079
+0 to 1.
+
+1282
+01:07:53,520 --> 01:08:01,280
+let's see form two yeah okay so string
+
+1283
+01:07:56,760 --> 01:08:01,280
+index start at zero so zero to one
+
+1284
+01:08:02,280 --> 01:08:07,819
+is equals to opening tag
+
+1285
+01:08:08,880 --> 01:08:14,339
+wait they already always equals to open
+
+1286
+01:08:11,039 --> 01:08:16,760
+intact so so so we want to the second
+
+1287
+01:08:14,339 --> 01:08:16,760
+tag
+
+1288
+01:08:18,839 --> 01:08:24,319
+so one two two so one two two
+
+1289
+01:08:25,500 --> 01:08:31,319
+so the second tag if it equals through
+
+1290
+01:08:28,560 --> 01:08:33,179
+that that means it's a closing tag
+
+1291
+01:08:31,319 --> 01:08:36,719
+then
+
+1292
+01:08:33,179 --> 01:08:40,380
+you want to find
+
+1293
+01:08:36,719 --> 01:08:42,960
+okay but so if it's not you basically
+
+1294
+01:08:40,380 --> 01:08:44,699
+you need to find you you need to search
+
+1295
+01:08:42,960 --> 01:08:47,580
+for space
+
+1296
+01:08:44,699 --> 01:08:49,020
+uh but actually some tag don't have
+
+1297
+01:08:47,580 --> 01:08:53,400
+space in them
+
+1298
+01:08:49,020 --> 01:08:56,339
+yeah okay so good tag name actually
+
+1299
+01:08:53,400 --> 01:08:58,620
+I have written that before so let's look
+
+1300
+01:08:56,339 --> 01:09:00,120
+for that code
+
+1301
+01:08:58,620 --> 01:09:05,100
+uh
+
+1302
+01:09:00,120 --> 01:09:09,660
+so let's go to search HTML mod okay so
+
+1303
+01:09:05,100 --> 01:09:11,279
+this is HTML mod and search for attack
+
+1304
+01:09:09,660 --> 01:09:13,980
+name
+
+1305
+01:09:11,279 --> 01:09:18,980
+because I have written this
+
+1306
+01:09:13,980 --> 01:09:18,980
+yeah so I also have written this before
+
+1307
+01:09:22,140 --> 01:09:26,100
+yeah I have written this before so this
+
+1308
+01:09:24,900 --> 01:09:29,219
+code
+
+1309
+01:09:26,100 --> 01:09:31,440
+side HTML tag self closing tag this
+
+1310
+01:09:29,219 --> 01:09:34,679
+actually check a list of self closing
+
+1311
+01:09:31,440 --> 01:09:38,339
+tags so if you search for you know so
+
+1312
+01:09:34,679 --> 01:09:41,880
+here is a list of self-closing tags here
+
+1313
+01:09:38,339 --> 01:09:41,880
+Okay so
+
+1314
+01:09:42,420 --> 01:09:47,759
+so this function is great that solves
+
+1315
+01:09:45,120 --> 01:09:52,339
+our problem okay so
+
+1316
+01:09:47,759 --> 01:09:52,339
+so actually let's copy the name here
+
+1317
+01:09:55,140 --> 01:10:00,140
+maybe we want to use that okay
+
+1318
+01:09:58,920 --> 01:10:03,600
+um then
+
+1319
+01:10:00,140 --> 01:10:05,460
+what we want is we want to get the tag
+
+1320
+01:10:03,600 --> 01:10:08,160
+name okay so
+
+1321
+01:10:05,460 --> 01:10:11,640
+uh yeah so Search for Attack name let's
+
+1322
+01:10:08,160 --> 01:10:14,400
+see if there's a function that
+
+1323
+01:10:11,640 --> 01:10:17,300
+I'm pretty sure I have it somewhere get
+
+1324
+01:10:14,400 --> 01:10:17,300
+tag type
+
+1325
+01:10:18,540 --> 01:10:22,100
+okay get tag type
+
+1326
+01:10:24,480 --> 01:10:27,140
+no
+
+1327
+01:10:29,659 --> 01:10:35,600
+so this is my HTML mod that's right now
+
+1328
+01:10:34,440 --> 01:10:40,020
+it's
+
+1329
+01:10:35,600 --> 01:10:42,300
+5600 lines so now this whole line is
+
+1330
+01:10:40,020 --> 01:10:45,239
+containing different so we get the list
+
+1331
+01:10:42,300 --> 01:10:48,440
+of functions Now search for
+
+1332
+01:10:45,239 --> 01:10:48,440
+tag name
+
+1333
+01:10:49,219 --> 01:10:57,900
+go to closing tag and comment tag open
+
+1334
+01:10:53,400 --> 01:11:00,000
+tag true get tag name there it is
+
+1335
+01:10:57,900 --> 01:11:04,080
+open it
+
+1336
+01:11:00,000 --> 01:11:06,960
+okay so here is the function that
+
+1337
+01:11:04,080 --> 01:11:09,300
+get tag name let's see
+
+1338
+01:11:06,960 --> 01:11:12,060
+okay so this function only you accept
+
+1339
+01:11:09,300 --> 01:11:14,760
+tag begin
+
+1340
+01:11:12,060 --> 01:11:17,540
+we need a function that also accept the
+
+1341
+01:11:14,760 --> 01:11:17,540
+ending tag
+
+1342
+01:11:18,060 --> 01:11:20,480
+oh
+
+1343
+01:11:30,239 --> 01:11:37,860
+so this function actually takes a
+
+1344
+01:11:32,820 --> 01:11:40,020
+position as input not a string
+
+1345
+01:11:37,860 --> 01:11:42,840
+that can work too actually that's more
+
+1346
+01:11:40,020 --> 01:11:44,100
+efficient because instead of grabbing it
+
+1347
+01:11:42,840 --> 01:11:47,960
+and the
+
+1348
+01:11:44,100 --> 01:11:47,960
+anyway so let's see
+
+1349
+01:11:50,580 --> 01:11:55,040
+so this function gets a tag name
+
+1350
+01:11:55,739 --> 01:12:01,980
+tag begin okay tag to begin the cruiser
+
+1351
+01:11:58,920 --> 01:12:04,320
+must be on the left of a opening angle
+
+1352
+01:12:01,980 --> 01:12:07,679
+bracket
+
+1353
+01:12:04,320 --> 01:12:10,260
+okay and it can be opening or closing
+
+1354
+01:12:07,679 --> 01:12:12,600
+tag okay so that's fantastic
+
+1355
+01:12:10,260 --> 01:12:13,860
+so this function takes a cruiser
+
+1356
+01:12:12,600 --> 01:12:16,620
+position
+
+1357
+01:12:13,860 --> 01:12:20,640
+and The crucial position is presumably
+
+1358
+01:12:16,620 --> 01:12:23,820
+to be on the left of a
+
+1359
+01:12:20,640 --> 01:12:25,440
+of the attack begin it may be a open
+
+1360
+01:12:23,820 --> 01:12:28,560
+interact like that
+
+1361
+01:12:25,440 --> 01:12:30,540
+oh it may be like that a closing tag in
+
+1362
+01:12:28,560 --> 01:12:34,560
+either case it must the cruiser must be
+
+1363
+01:12:30,540 --> 01:12:36,060
+on the left of a opening angle bracket
+
+1364
+01:12:34,560 --> 01:12:37,980
+okay
+
+1365
+01:12:36,060 --> 01:12:39,420
+so when when that's the case you'll
+
+1366
+01:12:37,980 --> 01:12:43,080
+return the tag name
+
+1367
+01:12:39,420 --> 01:12:45,659
+okay so let's use this code okay now
+
+1368
+01:12:43,080 --> 01:12:49,500
+close it close it
+
+1369
+01:12:45,659 --> 01:12:53,600
+go go back to our code
+
+1370
+01:12:49,500 --> 01:12:57,440
+so here is the code get tag name
+
+1371
+01:12:53,600 --> 01:12:57,440
+uh and uh
+
+1372
+01:12:58,920 --> 01:13:02,300
+okay I you know
+
+1373
+01:13:02,640 --> 01:13:12,179
+oh we already coded for our
+
+1374
+01:13:06,440 --> 01:13:16,080
+yeah okay let's finish this part so
+
+1375
+01:13:12,179 --> 01:13:20,960
+let's see what you guys are seeing
+
+1376
+01:13:16,080 --> 01:13:20,960
+so uh so get tag name
+
+1377
+01:13:24,360 --> 01:13:28,460
+so get tag name we
+
+1378
+01:13:28,739 --> 01:13:33,080
+is self closing tag no
+
+1379
+01:13:40,380 --> 01:13:46,679
+uh
+
+1380
+01:13:43,380 --> 01:13:49,980
+where are we so we push to stack
+
+1381
+01:13:46,679 --> 01:13:52,640
+and now the get tag name why do we need
+
+1382
+01:13:49,980 --> 01:13:52,640
+the tag name
+
+1383
+01:13:59,520 --> 01:14:05,699
+uh
+
+1384
+01:14:02,340 --> 01:14:11,000
+let's look up this one oh yeah because
+
+1385
+01:14:05,699 --> 01:14:11,000
+the self closing requires a tag name
+
+1386
+01:14:11,820 --> 01:14:17,400
+yeah because if we want to
+
+1387
+01:14:14,820 --> 01:14:20,659
+call this function it requires a tag
+
+1388
+01:14:17,400 --> 01:14:20,659
+name okay
+
+1389
+01:14:20,760 --> 01:14:26,820
+so anyway so this is one thing to write
+
+1390
+01:14:23,580 --> 01:14:29,040
+we need to write now let and you know
+
+1391
+01:14:26,820 --> 01:14:31,380
+right now we have this function that
+
+1392
+01:14:29,040 --> 01:14:35,580
+checks whether tag itself closing
+
+1393
+01:14:31,380 --> 01:14:38,760
+syntactically that can that works too
+
+1394
+01:14:35,580 --> 01:14:41,640
+let's go back to the overall structure
+
+1395
+01:14:38,760 --> 01:14:45,080
+overall let's maybe we can
+
+1396
+01:14:41,640 --> 01:14:45,080
+make some progress there
+
+1397
+01:14:46,440 --> 01:14:52,020
+so we push to stack uh we we actually
+
+1398
+01:14:49,679 --> 01:14:54,659
+really need to start to check the stack
+
+1399
+01:14:52,020 --> 01:14:59,239
+because so far we don't have much
+
+1400
+01:14:54,659 --> 01:14:59,239
+validation going on at all
+
+1401
+01:14:59,880 --> 01:15:05,120
+let's just code Okay so
+
+1402
+01:15:05,340 --> 01:15:11,699
+so stack here is uh what Stacks looks
+
+1403
+01:15:08,520 --> 01:15:16,219
+like so you take
+
+1404
+01:15:11,699 --> 01:15:16,219
+this is the the bottom
+
+1405
+01:15:17,340 --> 01:15:22,140
+okay so you
+
+1406
+01:15:19,260 --> 01:15:23,940
+you take
+
+1407
+01:15:22,140 --> 01:15:25,679
+so
+
+1408
+01:15:23,940 --> 01:15:28,440
+God
+
+1409
+01:15:25,679 --> 01:15:30,420
+so one stack has more than one item you
+
+1410
+01:15:28,440 --> 01:15:33,179
+can start to check out
+
+1411
+01:15:30,420 --> 01:15:36,960
+okay so okay now I know
+
+1412
+01:15:33,179 --> 01:15:40,380
+so when we start to check the validation
+
+1413
+01:15:36,960 --> 01:15:42,600
+you know the like a matching parents
+
+1414
+01:15:40,380 --> 01:15:46,560
+the the first thing you you need to know
+
+1415
+01:15:42,600 --> 01:15:49,140
+is like we said here you need to know if
+
+1416
+01:15:46,560 --> 01:15:51,360
+the current tag is opening or closed
+
+1417
+01:15:49,140 --> 01:15:53,219
+that's the most important
+
+1418
+01:15:51,360 --> 01:15:56,760
+you need to know it's opening or close
+
+1419
+01:15:53,219 --> 01:15:58,800
+Okay so let's have a let's get the
+
+1420
+01:15:56,760 --> 01:15:59,780
+function to do that we need to know if
+
+1421
+01:15:58,800 --> 01:16:02,400
+that
+
+1422
+01:15:59,780 --> 01:16:04,920
+is opening or closed because without
+
+1423
+01:16:02,400 --> 01:16:07,920
+knowing that you can you can start to
+
+1424
+01:16:04,920 --> 01:16:09,600
+match that you know so
+
+1425
+01:16:07,920 --> 01:16:12,780
+again
+
+1426
+01:16:09,600 --> 01:16:14,659
+go to site HTML mod
+
+1427
+01:16:12,780 --> 01:16:17,159
+then
+
+1428
+01:16:14,659 --> 01:16:22,679
+open the source code
+
+1429
+01:16:17,159 --> 01:16:25,580
+these the functions then search for
+
+1430
+01:16:22,679 --> 01:16:25,580
+closing
+
+1431
+01:16:25,620 --> 01:16:28,100
+okay
+
+1432
+01:16:31,500 --> 01:16:38,760
+okay there that's the function we want
+
+1433
+01:16:34,199 --> 01:16:40,440
+so open intact p p means predicate it
+
+1434
+01:16:38,760 --> 01:16:42,060
+means this function returns true or
+
+1435
+01:16:40,440 --> 01:16:44,580
+false okay
+
+1436
+01:16:42,060 --> 01:16:48,620
+so this function will tell us that the
+
+1437
+01:16:44,580 --> 01:16:48,620
+tag is opening tag or not
+
+1438
+01:16:50,940 --> 01:16:55,560
+okay this function is pretty short too
+
+1439
+01:16:53,280 --> 01:16:57,840
+it just check characters
+
+1440
+01:16:55,560 --> 01:16:59,699
+it just check the second character if
+
+1441
+01:16:57,840 --> 01:17:01,199
+the second character contains the slash
+
+1442
+01:16:59,699 --> 01:17:04,199
+it's a closing
+
+1443
+01:17:01,199 --> 01:17:06,739
+okay so we need to use this function
+
+1444
+01:17:04,199 --> 01:17:06,739
+okay
+
+1445
+01:17:07,920 --> 01:17:12,239
+okay copy it let's go back go back go
+
+1446
+01:17:11,219 --> 01:17:14,719
+back
+
+1447
+01:17:12,239 --> 01:17:18,380
+yeah so
+
+1448
+01:17:14,719 --> 01:17:18,380
+somewhere here
+
+1449
+01:17:20,940 --> 01:17:24,260
+okay we being over
+
+1450
+01:17:24,440 --> 01:17:32,600
+50 uh 70 minutes already
+
+1451
+01:17:28,199 --> 01:17:32,600
+so let's see what you guys are saying
+
+1452
+01:17:37,260 --> 01:17:42,179
+don't add tags like beta okay do you
+
+1453
+01:17:39,840 --> 01:17:43,920
+don't like green tea I like green tea
+
+1454
+01:17:42,179 --> 01:17:45,900
+because how do you validate your text
+
+1455
+01:17:43,920 --> 01:17:48,600
+now from the stack
+
+1456
+01:17:45,900 --> 01:17:51,480
+right we have to I mean we haven't done
+
+1457
+01:17:48,600 --> 01:17:54,960
+anything about that yet that's what we
+
+1458
+01:17:51,480 --> 01:17:58,380
+are trying to do so the next step is to
+
+1459
+01:17:54,960 --> 01:17:59,580
+know if the contact is opening or not
+
+1460
+01:17:58,380 --> 01:18:02,100
+so
+
+1461
+01:17:59,580 --> 01:18:04,980
+X says you are over complicating this
+
+1462
+01:18:02,100 --> 01:18:08,340
+way too much just read like
+
+1463
+01:18:04,980 --> 01:18:11,040
+read uh like at a time
+
+1464
+01:18:08,340 --> 01:18:12,300
+first check for the opening then then
+
+1465
+01:18:11,040 --> 01:18:14,820
+closing
+
+1466
+01:18:12,300 --> 01:18:15,410
+one is missing then save line number is
+
+1467
+01:18:14,820 --> 01:18:16,520
+zeros
+
+1468
+01:18:15,410 --> 01:18:21,120
+[Laughter]
+
+1469
+01:18:16,520 --> 01:18:24,360
+this x guy it's very easy to say things
+
+1470
+01:18:21,120 --> 01:18:26,460
+try to code it show me show me show me
+
+1471
+01:18:24,360 --> 01:18:28,199
+you know I haven't so far I've been
+
+1472
+01:18:26,460 --> 01:18:29,580
+looking for it I haven't found one
+
+1473
+01:18:28,199 --> 01:18:32,400
+better data
+
+1474
+01:18:29,580 --> 01:18:35,520
+that you can download and use
+
+1475
+01:18:32,400 --> 01:18:37,920
+I haven't found one open source those
+
+1476
+01:18:35,520 --> 01:18:40,739
+ones you know you can go to 8w3
+
+1477
+01:18:37,920 --> 01:18:43,080
+validator those some of them you know
+
+1478
+01:18:40,739 --> 01:18:45,560
+they have a source code but that's ten
+
+1479
+01:18:43,080 --> 01:18:50,100
+thousand lines and they don't they they
+
+1480
+01:18:45,560 --> 01:18:52,920
+you know they HTML is extremely complex
+
+1481
+01:18:50,100 --> 01:18:55,440
+okay they validate lots of things
+
+1482
+01:18:52,920 --> 01:18:56,179
+you know but what I really want is a
+
+1483
+01:18:55,440 --> 01:18:58,739
+simple
+
+1484
+01:18:56,179 --> 01:19:00,000
+syntactical Checker okay I don't want
+
+1485
+01:18:58,739 --> 01:19:03,239
+the complicated
+
+1486
+01:19:00,000 --> 01:19:05,460
+anyway you download those tools then you
+
+1487
+01:19:03,239 --> 01:19:07,679
+have to compile it in order to compile
+
+1488
+01:19:05,460 --> 01:19:09,600
+it you need to download 10 000 other
+
+1489
+01:19:07,679 --> 01:19:12,420
+libraries you know
+
+1490
+01:19:09,600 --> 01:19:15,679
+that's the situation because HTML is is
+
+1491
+01:19:12,420 --> 01:19:15,679
+completely up
+
+1492
+01:19:16,739 --> 01:19:20,580
+so X is saying oh you're doing too
+
+1493
+01:19:18,960 --> 01:19:25,280
+complicated you can do it this way right
+
+1494
+01:19:20,580 --> 01:19:25,280
+one right one right one the health
+
+1495
+01:19:41,780 --> 01:19:48,239
+uh could we use XML past region
+
+1496
+01:19:45,840 --> 01:19:51,360
+you know emacs
+
+1497
+01:19:48,239 --> 01:19:53,159
+you know so right now we are doing this
+
+1498
+01:19:51,360 --> 01:19:58,020
+from scratch we are writing the code
+
+1499
+01:19:53,159 --> 01:20:00,739
+ourselves but emacs does have
+
+1500
+01:19:58,020 --> 01:20:06,719
+a very good X XML
+
+1501
+01:20:00,739 --> 01:20:10,320
+validator okay by by this XML expert so
+
+1502
+01:20:06,719 --> 01:20:13,560
+but however the code is fairly complex
+
+1503
+01:20:10,320 --> 01:20:16,800
+okay so you are suggesting
+
+1504
+01:20:13,560 --> 01:20:19,320
+Andrew is suggesting this XML past
+
+1505
+01:20:16,800 --> 01:20:22,040
+region I haven't you know I I looked
+
+1506
+01:20:19,320 --> 01:20:25,260
+into a little bit okay so this one
+
+1507
+01:20:22,040 --> 01:20:27,780
+xml.el is written by this guy that's not
+
+1508
+01:20:25,260 --> 01:20:30,840
+the guy the one you want is
+
+1509
+01:20:27,780 --> 01:20:32,940
+um let me show you the ones you want to
+
+1510
+01:20:30,840 --> 01:20:35,100
+you know if I'm gonna use the building
+
+1511
+01:20:32,940 --> 01:20:37,920
+thing
+
+1512
+01:20:35,100 --> 01:20:38,780
+the one I want to use is let's search
+
+1513
+01:20:37,920 --> 01:20:43,140
+for
+
+1514
+01:20:38,780 --> 01:20:46,800
+x uh nxml mod okay
+
+1515
+01:20:43,140 --> 01:20:49,380
+so look for a XML mod go to the source
+
+1516
+01:20:46,800 --> 01:20:53,040
+code go to the top
+
+1517
+01:20:49,380 --> 01:20:57,060
+gems clock okay James Clark is one of
+
+1518
+01:20:53,040 --> 01:21:00,780
+the top expert on XML he wrote the C
+
+1519
+01:20:57,060 --> 01:21:04,320
+passer very fast C parcel for XML valid
+
+1520
+01:21:00,780 --> 01:21:07,199
+you know including that also validates
+
+1521
+01:21:04,320 --> 01:21:09,719
+and he also is he's a big fan of free
+
+1522
+01:21:07,199 --> 01:21:11,000
+software Foundation he also wrote this
+
+1523
+01:21:09,719 --> 01:21:12,840
+XML
+
+1524
+01:21:11,000 --> 01:21:16,699
+axml mod
+
+1525
+01:21:12,840 --> 01:21:21,239
+he also wrote the previous one XML mod
+
+1526
+01:21:16,699 --> 01:21:24,120
+so this this is the best XXX uh
+
+1527
+01:21:21,239 --> 01:21:25,679
+XML validator as you type you know you
+
+1528
+01:21:24,120 --> 01:21:28,199
+don't have to run a camera as you type
+
+1529
+01:21:25,679 --> 01:21:31,380
+for example I can show you for example
+
+1530
+01:21:28,199 --> 01:21:34,560
+let's go to my emacs blog showing
+
+1531
+01:21:31,380 --> 01:21:37,560
+browser you see emacs blog now I go to
+
+1532
+01:21:34,560 --> 01:21:42,300
+the directory search for XML so this
+
+1533
+01:21:37,560 --> 01:21:43,739
+file is my atom the RSS feed you know
+
+1534
+01:21:42,300 --> 01:21:46,980
+that's an atom
+
+1535
+01:21:43,739 --> 01:21:50,640
+protocol which is XML so when you open
+
+1536
+01:21:46,980 --> 01:21:53,460
+it it's in this nxml mod you can see at
+
+1537
+01:21:50,640 --> 01:21:56,520
+the bottom and you can see it says valid
+
+1538
+01:21:53,460 --> 01:21:59,520
+now if I type something
+
+1539
+01:21:56,520 --> 01:22:02,699
+you know if I type something like that
+
+1540
+01:21:59,520 --> 01:22:07,800
+you see it says invalid it validates as
+
+1541
+01:22:02,699 --> 01:22:12,000
+you type so this so this is so this is
+
+1542
+01:22:07,800 --> 01:22:16,260
+this written by this James Clark guy a
+
+1543
+01:22:12,000 --> 01:22:17,699
+top expert in XML in C and in emac this
+
+1544
+01:22:16,260 --> 01:22:20,100
+as well
+
+1545
+01:22:17,699 --> 01:22:22,440
+but most people you know you you go
+
+1546
+01:22:20,100 --> 01:22:24,780
+around emacs communities almost nobody
+
+1547
+01:22:22,440 --> 01:22:27,179
+knows because they
+
+1548
+01:22:24,780 --> 01:22:29,159
+you know they they got corrupted they
+
+1549
+01:22:27,179 --> 01:22:30,900
+focused on the latest you know whatever
+
+1550
+01:22:29,159 --> 01:22:33,420
+you know
+
+1551
+01:22:30,900 --> 01:22:36,540
+anyway
+
+1552
+01:22:33,420 --> 01:22:39,480
+so this code
+
+1553
+01:22:36,540 --> 01:22:41,699
+it's you know this file is two thousand
+
+1554
+01:22:39,480 --> 01:22:43,860
+five hundred lines but actually it's a
+
+1555
+01:22:41,699 --> 01:22:47,460
+lot more because they've been the glue
+
+1556
+01:22:43,860 --> 01:22:50,219
+emacs people has been splitted into you
+
+1557
+01:22:47,460 --> 01:22:55,500
+know separate different libraries it was
+
+1558
+01:22:50,219 --> 01:22:58,739
+it was 10 000 lines of code this nxml
+
+1559
+01:22:55,500 --> 01:23:02,400
+mod 10 000 lines of code Okay so
+
+1560
+01:22:58,739 --> 01:23:07,800
+so one way to write a validator the way
+
+1561
+01:23:02,400 --> 01:23:09,060
+I want it is to use the existing code
+
+1562
+01:23:07,800 --> 01:23:12,239
+but
+
+1563
+01:23:09,060 --> 01:23:14,280
+actually I think for my purposes this is
+
+1564
+01:23:12,239 --> 01:23:17,520
+gonna be more involved so that means I'm
+
+1565
+01:23:14,280 --> 01:23:20,640
+gonna spend days days and days to
+
+1566
+01:23:17,520 --> 01:23:22,920
+understand this code enabled in order to
+
+1567
+01:23:20,640 --> 01:23:26,699
+use it meanwhile
+
+1568
+01:23:22,920 --> 01:23:29,219
+uh meanwhile wait and do meanwhile if I
+
+1569
+01:23:26,699 --> 01:23:32,400
+want to write what I want to do
+
+1570
+01:23:29,219 --> 01:23:35,580
+you know today I can finish it in one
+
+1571
+01:23:32,400 --> 01:23:37,260
+day you are reasonable you know not as
+
+1572
+01:23:35,580 --> 01:23:41,659
+elaborate you know
+
+1573
+01:23:37,260 --> 01:23:45,179
+his code this axml is actually real
+
+1574
+01:23:41,659 --> 01:23:47,400
+XML valid data but you know
+
+1575
+01:23:45,179 --> 01:23:50,179
+yeah but if I want to use that code I
+
+1576
+01:23:47,400 --> 01:23:54,560
+have to spend much more time to study it
+
+1577
+01:23:50,179 --> 01:23:59,699
+and I need to modify it because
+
+1578
+01:23:54,560 --> 01:24:02,940
+HTML5 is not XML vast majority of web
+
+1579
+01:23:59,699 --> 01:24:06,000
+pages they are in HTML5 they are you
+
+1580
+01:24:02,940 --> 01:24:08,340
+know XML is kind of dead
+
+1581
+01:24:06,000 --> 01:24:12,780
+you know supposedly there's a version of
+
+1582
+01:24:08,340 --> 01:24:14,159
+X HTML5 you know called xhtml5 that's
+
+1583
+01:24:12,780 --> 01:24:17,460
+kind of
+
+1584
+01:24:14,159 --> 01:24:21,659
+but but basically
+
+1585
+01:24:17,460 --> 01:24:22,679
+XML is died okay so you don't code XML
+
+1586
+01:24:21,659 --> 01:24:24,900
+anymore
+
+1587
+01:24:22,679 --> 01:24:26,600
+so anyway for my purposes I want a
+
+1588
+01:24:24,900 --> 01:24:29,880
+syntactical
+
+1589
+01:24:26,600 --> 01:24:32,940
+validator that check you know well from
+
+1590
+01:24:29,880 --> 01:24:37,260
+this it would take me much more time
+
+1591
+01:24:32,940 --> 01:24:41,239
+I would say 5 or 10 times more time
+
+1592
+01:24:37,260 --> 01:24:41,239
+to use the existing code
+
+1593
+01:24:41,520 --> 01:24:46,860
+and I also need to modify it for
+
+1594
+01:24:44,280 --> 01:24:47,699
+practical HTML you see that's a that's a
+
+1595
+01:24:46,860 --> 01:24:50,159
+problem
+
+1596
+01:24:47,699 --> 01:24:53,239
+so that that's why I haven't you know I
+
+1597
+01:24:50,159 --> 01:24:53,239
+haven't really looked into
+
+1598
+01:24:53,280 --> 01:24:55,400
+um
+
+1599
+01:24:57,360 --> 01:25:04,080
+the existing code and and this one is
+
+1600
+01:25:00,300 --> 01:25:05,699
+XML written by so let's see let's you
+
+1601
+01:25:04,080 --> 01:25:08,580
+know I think that's it for today I
+
+1602
+01:25:05,699 --> 01:25:11,280
+cannot finish it we made some progress
+
+1603
+01:25:08,580 --> 01:25:14,460
+you know we made some progress anyway so
+
+1604
+01:25:11,280 --> 01:25:17,280
+this XML past region passed the region
+
+1605
+01:25:14,460 --> 01:25:20,100
+from begin to end in buffer return XML
+
+1606
+01:25:17,280 --> 01:25:22,260
+past three to raise an error if the
+
+1607
+01:25:20,100 --> 01:25:23,960
+region does not contain well formed XL
+
+1608
+01:25:22,260 --> 01:25:28,260
+that's fantastic
+
+1609
+01:25:23,960 --> 01:25:30,780
+maybe thank you maybe that that's
+
+1610
+01:25:28,260 --> 01:25:33,679
+maybe you know that's it
+
+1611
+01:25:30,780 --> 01:25:33,679
+uh
+
+1612
+01:25:34,320 --> 01:25:38,699
+um yeah but usually I have my doubts
+
+1613
+01:25:36,960 --> 01:25:41,360
+because usually they they become
+
+1614
+01:25:38,699 --> 01:25:41,360
+elaborate
+
+1615
+01:25:41,580 --> 01:25:47,480
+that's a good uh suggestion though yeah
+
+1616
+01:25:44,040 --> 01:25:47,480
+so I can look into that
+
+1617
+01:25:48,840 --> 01:25:56,520
+you know so it's interesting let's see
+
+1618
+01:25:52,520 --> 01:26:00,960
+if the nxml
+
+1619
+01:25:56,520 --> 01:26:03,480
+actually use any code in this XML
+
+1620
+01:26:00,960 --> 01:26:06,179
+password I don't think so you see now
+
+1621
+01:26:03,480 --> 01:26:07,860
+let's go to a directory
+
+1622
+01:26:06,179 --> 01:26:09,540
+yeah so they are in different
+
+1623
+01:26:07,860 --> 01:26:12,480
+directories so they are separate
+
+1624
+01:26:09,540 --> 01:26:16,320
+projects entirely so if you search for
+
+1625
+01:26:12,480 --> 01:26:19,260
+that in the nxml directory to see if
+
+1626
+01:26:16,320 --> 01:26:22,679
+they used it let's see so search for
+
+1627
+01:26:19,260 --> 01:26:25,260
+that I don't think so okay search for
+
+1628
+01:26:22,679 --> 01:26:27,420
+that no you see so they are totally
+
+1629
+01:26:25,260 --> 01:26:30,000
+separate
+
+1630
+01:26:27,420 --> 01:26:31,800
+so if I want to use building code now
+
+1631
+01:26:30,000 --> 01:26:34,679
+there's another question that require
+
+1632
+01:26:31,800 --> 01:26:38,840
+research which one you're gonna use a
+
+1633
+01:26:34,679 --> 01:26:38,840
+lot a lot of time to study to look into
+
+1634
+01:26:43,080 --> 01:26:48,239
+okay maybe I think that's it for today
+
+1635
+01:26:45,440 --> 01:26:50,580
+great suggestion that when
+
+1636
+01:26:48,239 --> 01:26:53,400
+Andrew
+
+1637
+01:26:50,580 --> 01:26:56,280
+and do it yourself code is more often
+
+1638
+01:26:53,400 --> 01:26:59,340
+exactly because when I write my own I
+
+1639
+01:26:56,280 --> 01:27:01,560
+have you know very tight control I know
+
+1640
+01:26:59,340 --> 01:27:04,380
+exactly every word you know I know
+
+1641
+01:27:01,560 --> 01:27:06,420
+exactly what I want uh and I can do it
+
+1642
+01:27:04,380 --> 01:27:08,639
+you know because I've been coding emac
+
+1643
+01:27:06,420 --> 01:27:11,840
+this for over 10 years
+
+1644
+01:27:08,639 --> 01:27:11,840
+simple you know
+
+1645
+01:27:16,440 --> 01:27:21,780
+is it possible to solve online problem
+
+1646
+01:27:18,600 --> 01:27:25,320
+in emacs yes it's coming up okay emacs
+
+1647
+01:27:21,780 --> 01:27:29,699
+29 I've heard emacs29 actually solved
+
+1648
+01:27:25,320 --> 01:27:32,820
+that problem almost or 99 of it okay so
+
+1649
+01:27:29,699 --> 01:27:36,300
+wait for emacs 29.
+
+1650
+01:27:32,820 --> 01:27:38,040
+I think it's you know almost uh there's
+
+1651
+01:27:36,300 --> 01:27:39,719
+already better you can use okay that's
+
+1652
+01:27:38,040 --> 01:27:43,020
+it for today
+
+1653
+01:27:39,719 --> 01:27:45,420
+do you use AI to help your code no I'm
+
+1654
+01:27:43,020 --> 01:27:47,219
+not the type in also I don't think it
+
+1655
+01:27:45,420 --> 01:27:49,679
+will help that much
+
+1656
+01:27:47,219 --> 01:27:52,139
+that's a big topic okay because you'll
+
+1657
+01:27:49,679 --> 01:27:54,780
+hear a lot of people oh AI is uh you
+
+1658
+01:27:52,139 --> 01:27:56,460
+know programming taking over programming
+
+1659
+01:27:54,780 --> 01:28:00,659
+you you are not going to have a job
+
+1660
+01:27:56,460 --> 01:28:04,020
+anymore that's false that's false
+
+1661
+01:28:00,659 --> 01:28:05,520
+AI with AI code we'll
+
+1662
+01:28:04,020 --> 01:28:08,040
+in fact
+
+1663
+01:28:05,520 --> 01:28:09,420
+require more programmers so as a
+
+1664
+01:28:08,040 --> 01:28:12,179
+programmer if you are a programmer you
+
+1665
+01:28:09,420 --> 01:28:14,460
+will have more jobs now even more
+
+1666
+01:28:12,179 --> 01:28:17,219
+you know AI is not reading of
+
+1667
+01:28:14,460 --> 01:28:22,020
+programming jobs AI is reading of other
+
+1668
+01:28:17,219 --> 01:28:25,320
+jobs meanwhile for programming
+
+1669
+01:28:22,020 --> 01:28:27,540
+it's not and anyway okay that's it for
+
+1670
+01:28:25,320 --> 01:28:30,659
+today thank you guys for watching donate
+
+1671
+01:28:27,540 --> 01:28:33,420
+okay donate to me go to my website you
+
+1672
+01:28:30,659 --> 01:28:37,260
+can you know it is some you know go to
+
+1673
+01:28:33,420 --> 01:28:42,600
+my website you can buy my complete emacs
+
+1674
+01:28:37,260 --> 01:28:44,639
+lisp and emacs tutorial you know or
+
+1675
+01:28:42,600 --> 01:28:47,460
+so you can't have you know fast
+
+1676
+01:28:44,639 --> 01:28:49,620
+reference immediate you know access uh
+
+1677
+01:28:47,460 --> 01:28:54,000
+download reference emac this practical
+
+1678
+01:28:49,620 --> 01:28:57,480
+emac this it might be examples uh and uh
+
+1679
+01:28:54,000 --> 01:29:00,300
+you know buy my emacs tutorial or buy my
+
+1680
+01:28:57,480 --> 01:29:02,880
+emacs packages you know like the whole
+
+1681
+01:29:00,300 --> 01:29:05,280
+thing we did today is oh my oh my code
+
+1682
+01:29:02,880 --> 01:29:07,560
+basically these days I don't use any
+
+1683
+01:29:05,280 --> 01:29:10,380
+other almost almost
+
+1684
+01:29:07,560 --> 01:29:13,139
+like you can see my email directory
+
+1685
+01:29:10,380 --> 01:29:15,239
+there's almost no
+
+1686
+01:29:13,139 --> 01:29:17,239
+uh no
+
+1687
+01:29:15,239 --> 01:29:17,239
+um
+
+1688
+01:29:18,120 --> 01:29:24,620
+no packages let's see Alpha
+
+1689
+01:29:22,139 --> 01:29:28,139
+Apple script actually I don't need
+
+1690
+01:29:24,620 --> 01:29:30,540
+buying Keys uh actually I don't need or
+
+1691
+01:29:28,139 --> 01:29:32,520
+camo mod I need Haskell mod I need
+
+1692
+01:29:30,540 --> 01:29:35,940
+actually I don't because I don't code
+
+1693
+01:29:32,520 --> 01:29:38,520
+them mark down mod okay to wreck is okay
+
+1694
+01:29:35,940 --> 01:29:40,920
+mob you know and use package I don't use
+
+1695
+01:29:38,520 --> 01:29:42,840
+so anyway I don't use like none of these
+
+1696
+01:29:40,920 --> 01:29:44,940
+I use
+
+1697
+01:29:42,840 --> 01:29:47,159
+I haven't been using them for several
+
+1698
+01:29:44,940 --> 01:29:49,500
+months so I don't use at these days I
+
+1699
+01:29:47,159 --> 01:29:51,120
+don't use none of the
+
+1700
+01:29:49,500 --> 01:29:54,600
+packages
+
+1701
+01:29:51,120 --> 01:29:58,560
+uh because I've been you know coding
+
+1702
+01:29:54,600 --> 01:30:01,260
+emacs to these for over 15 years
+
+1703
+01:29:58,560 --> 01:30:04,080
+okay so buy my stuff donate or you can
+
+1704
+01:30:01,260 --> 01:30:08,540
+patreon me Amazon gift card PayPal okay
+
+1705
+01:30:04,080 --> 01:30:08,540
+thank you guys for watching bye guys
+
+1706
+01:30:14,280 --> 01:30:20,520
+next video is I think
+
+1707
+01:30:17,159 --> 01:30:23,159
+let's see Monday Tuesday maybe in two
+
+1708
+01:30:20,520 --> 01:30:25,020
+days or so I'm starting I'm going to
+
+1709
+01:30:23,159 --> 01:30:28,860
+start to do more
+
+1710
+01:30:25,020 --> 01:30:30,659
+live stream regularly okay so and I'm
+
+1711
+01:30:28,860 --> 01:30:32,280
+going to start to code wolf and language
+
+1712
+01:30:30,659 --> 01:30:34,080
+again
+
+1713
+01:30:32,280 --> 01:30:37,820
+uh
+
+1714
+01:30:34,080 --> 01:30:40,920
+and they might do a political
+
+1715
+01:30:37,820 --> 01:30:42,000
+comment commentate you know comment on
+
+1716
+01:30:40,920 --> 01:30:44,639
+politics
+
+1717
+01:30:42,000 --> 01:30:45,840
+um on my
+
+1718
+01:30:44,639 --> 01:30:48,600
+Odyssey
+
+1719
+01:30:45,840 --> 01:30:51,420
+so check you know look for my Twitter if
+
+1720
+01:30:48,600 --> 01:30:53,940
+you haven't yet follow me on my Twitter
+
+1721
+01:30:51,420 --> 01:30:57,199
+okay or join my Discord
+
+1722
+01:30:53,940 --> 01:30:57,199
+okay bye
+

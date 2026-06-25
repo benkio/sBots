@@ -1,0 +1,5132 @@
+1
+00:00:02,399 --> 00:00:08,880
+Good morning, good evening. Welcome to
+
+2
+00:00:05,520 --> 00:00:13,599
+another episode of Exar Talk Show. We
+
+3
+00:00:08,880 --> 00:00:18,240
+are coding Emac list. Today we are doing
+
+4
+00:00:13,599 --> 00:00:21,680
+uh writing a command to move a directory
+
+5
+00:00:18,240 --> 00:00:26,080
+up to the parent directory.
+
+6
+00:00:21,680 --> 00:00:28,800
+So play at 1.5 speed. If you are here,
+
+7
+00:00:26,080 --> 00:00:32,640
+say hi. Okay, so we're going to begin.
+
+8
+00:00:28,800 --> 00:00:34,719
+So you know if so in Emacs the most
+
+9
+00:00:32,640 --> 00:00:38,000
+powerful editor
+
+10
+00:00:34,719 --> 00:00:41,040
+uh you are looking at and here is my
+
+11
+00:00:38,000 --> 00:00:44,640
+current directory. So you can see uh let
+
+12
+00:00:41,040 --> 00:00:48,480
+me increase the window width. Okay so
+
+13
+00:00:44,640 --> 00:00:52,079
+for example here is a um YouTube
+
+14
+00:00:48,480 --> 00:00:54,960
+thumbnail. Open it. Okay, that's Emacs
+
+15
+00:00:52,079 --> 00:00:59,039
+track ball customized track ball with
+
+16
+00:00:54,960 --> 00:01:02,000
+Emacs logo on it and happy hacking
+
+17
+00:00:59,039 --> 00:01:05,600
+keyboard. Okay, so this is a file I want
+
+18
+00:01:02,000 --> 00:01:08,799
+to move it up one directory. So normally
+
+19
+00:01:05,600 --> 00:01:12,240
+manually what I do is split the window.
+
+20
+00:01:08,799 --> 00:01:16,320
+Uh wait, so this key split the window
+
+21
+00:01:12,240 --> 00:01:19,600
+then you go up a directory that's the
+
+22
+00:01:16,320 --> 00:01:23,920
+correct. So you can see right now we are
+
+23
+00:01:19,600 --> 00:01:26,240
+in si info and and here is talkshaw
+
+24
+00:01:23,920 --> 00:01:29,360
+directory. So you move the cruiser to
+
+25
+00:01:26,240 --> 00:01:32,240
+the files you want and you can select
+
+26
+00:01:29,360 --> 00:01:35,600
+more than one. Okay then you press
+
+27
+00:01:32,240 --> 00:01:38,400
+capital R and you'll say where do you
+
+28
+00:01:35,600 --> 00:01:41,280
+want to move it to? Okay there. Yes.
+
+29
+00:01:38,400 --> 00:01:44,799
+Okay. So you can see the two files has
+
+30
+00:01:41,280 --> 00:01:47,840
+been moved here. Now refresh they'll be
+
+31
+00:01:44,799 --> 00:01:50,640
+they will be sorted you know. So, so now
+
+32
+00:01:47,840 --> 00:01:54,720
+they are here
+
+33
+00:01:50,640 --> 00:01:57,200
+and uh now let's split again split the
+
+34
+00:01:54,720 --> 00:02:00,399
+window and move it back. So, go to
+
+35
+00:01:57,200 --> 00:02:04,880
+talksh show directory open it now go
+
+36
+00:02:00,399 --> 00:02:08,160
+down. Now select these two capital R
+
+37
+00:02:04,880 --> 00:02:12,319
+then do it. So you see you move them
+
+38
+00:02:08,160 --> 00:02:15,040
+back. So this is a manual process
+
+39
+00:02:12,319 --> 00:02:17,440
+manual. I want to write a command that
+
+40
+00:02:15,040 --> 00:02:17,440
+just do it you know I just call move
+
+41
+00:02:17,440 --> 00:02:17,440
+move move move move move move move move
+
+42
+00:02:17,440 --> 00:02:17,520
+move move move move move move move move
+
+43
+00:02:17,440 --> 00:02:17,520
+move move move move move move move move
+
+44
+00:02:17,520 --> 00:02:17,599
+move move move move move move move move
+
+45
+00:02:17,520 --> 00:02:17,599
+move move move move move move move move
+
+46
+00:02:17,599 --> 00:02:17,599
+move move move move move move move move
+
+47
+00:02:17,599 --> 00:02:18,239
+move move move move move move move move
+
+48
+00:02:17,599 --> 00:02:19,920
+move move move move up one one d d d d d
+
+49
+00:02:18,239 --> 00:02:22,640
+d d d d d d d d d d d d d d d do it. So
+
+50
+00:02:19,920 --> 00:02:25,200
+that's what we're going to do today.
+
+51
+00:02:22,640 --> 00:02:29,840
+Okay, today's talk show. And there is
+
+52
+00:02:25,200 --> 00:02:32,160
+another command HTML icon linkify. Uh if
+
+53
+00:02:29,840 --> 00:02:35,599
+we have time, we're going to do that. Uh
+
+54
+00:02:32,160 --> 00:02:39,599
+otherwise not. Okay, so we'll see how it
+
+55
+00:02:35,599 --> 00:02:43,440
+feels the mood. Nobody is here. So
+
+56
+00:02:39,599 --> 00:02:47,599
+so uh let's begin. Okay. So, uh write a
+
+57
+00:02:43,440 --> 00:02:51,200
+so write the uh command start emac visp.
+
+58
+00:02:47,599 --> 00:02:54,319
+Okay. Start it default define a function
+
+59
+00:02:51,200 --> 00:02:57,040
+and the function name is what the
+
+60
+00:02:54,319 --> 00:02:59,680
+function name I already have it here
+
+61
+00:02:57,040 --> 00:03:05,280
+there. So copy that
+
+62
+00:02:59,680 --> 00:03:11,599
+switch back paste it. Okay. So that is
+
+63
+00:03:05,280 --> 00:03:16,800
+the command. So move move current file
+
+64
+00:03:11,599 --> 00:03:19,840
+or marked file up one. Okay that's the
+
+65
+00:03:16,800 --> 00:03:22,400
+documentation and version date create
+
+66
+00:03:19,840 --> 00:03:24,640
+created date. Okay then here we're going
+
+67
+00:03:22,400 --> 00:03:29,840
+to start to code. So the first thing you
+
+68
+00:03:24,640 --> 00:03:32,799
+want to do so uh this is uh this is the
+
+69
+00:03:29,840 --> 00:03:36,560
+add. Okay. This is like you you call the
+
+70
+00:03:32,799 --> 00:03:41,680
+command D I R E
+
+71
+00:03:36,560 --> 00:03:43,840
+D. I call it I pronounce it diode but
+
+72
+00:03:41,680 --> 00:03:46,239
+some people pronounce it the ED because
+
+73
+00:03:43,840 --> 00:03:48,879
+that's what it standard stand for
+
+74
+00:03:46,239 --> 00:03:52,000
+directory editor.
+
+75
+00:03:48,879 --> 00:03:55,280
+Uh that's the old old name for file
+
+76
+00:03:52,000 --> 00:03:57,439
+manager. So close that. So for example,
+
+77
+00:03:55,280 --> 00:04:00,879
+if you don't know, let's go to the
+
+78
+00:03:57,439 --> 00:04:05,840
+talksh show talksh show directory and uh
+
+79
+00:04:00,879 --> 00:04:08,400
+open in uh Windows file manager. So the
+
+80
+00:04:05,840 --> 00:04:11,599
+model name for this is file manager. In
+
+81
+00:04:08,400 --> 00:04:15,439
+the case of Windows, it's called um
+
+82
+00:04:11,599 --> 00:04:19,199
+Windows file explorer. On the Mac it's
+
+83
+00:04:15,439 --> 00:04:21,359
+called finder. On Linux depending on
+
+84
+00:04:19,199 --> 00:04:24,320
+what droid you are using but in general
+
+85
+00:04:21,359 --> 00:04:28,240
+the name is file manager. Okay. There
+
+86
+00:04:24,320 --> 00:04:32,960
+are quite a few on Linux. So, but in
+
+87
+00:04:28,240 --> 00:04:35,759
+EMAC it's called the ED or diode. That's
+
+88
+00:04:32,960 --> 00:04:38,479
+that's how I like to call it diode. So,
+
+89
+00:04:35,759 --> 00:04:43,040
+you are looking at diode right now. You
+
+90
+00:04:38,479 --> 00:04:46,479
+can view uh you can view images or uh
+
+91
+00:04:43,040 --> 00:04:48,000
+other files. So, these are uh my YouTube
+
+92
+00:04:46,479 --> 00:04:51,040
+thumbnails.
+
+93
+00:04:48,000 --> 00:04:52,880
+This one is long ago, six years ago. So,
+
+94
+00:04:51,040 --> 00:04:55,199
+anyway, so we're going to start to write
+
+95
+00:04:52,880 --> 00:04:57,680
+a command. Okay, so let's go back to the
+
+96
+00:04:55,199 --> 00:05:02,240
+code. So the first thing you want to do
+
+97
+00:04:57,680 --> 00:05:05,360
+in a directory if uh is that you want to
+
+98
+00:05:02,240 --> 00:05:07,440
+get a list of marked files like you can
+
+99
+00:05:05,360 --> 00:05:13,280
+mark them.
+
+100
+00:05:07,440 --> 00:05:16,880
+Uh so actually all this so uh wait
+
+101
+00:05:13,280 --> 00:05:19,120
+a mark all mark all then mark all the
+
+102
+00:05:16,880 --> 00:05:21,840
+backup files. Press this key. You can
+
+103
+00:05:19,120 --> 00:05:24,320
+see the ping window shows all my command
+
+104
+00:05:21,840 --> 00:05:26,800
+calls. Uh wait
+
+105
+00:05:24,320 --> 00:05:29,680
+cancel the pink window on the left you
+
+106
+00:05:26,800 --> 00:05:33,759
+can see that's all my command calls and
+
+107
+00:05:29,680 --> 00:05:37,039
+uh and keystrokes on the left okay so
+
+108
+00:05:33,759 --> 00:05:40,000
+for example black backup files that's
+
+109
+00:05:37,039 --> 00:05:44,080
+what I just did so this become red then
+
+110
+00:05:40,000 --> 00:05:46,479
+I press the key x
+
+111
+00:05:44,080 --> 00:05:50,080
+that will delete them do you want to
+
+112
+00:05:46,479 --> 00:05:53,039
+delete them 69 files yes you see all
+
+113
+00:05:50,080 --> 00:05:55,360
+these backup files are deleted it now to
+
+114
+00:05:53,039 --> 00:05:58,560
+so the first thing you want to do is to
+
+115
+00:05:55,360 --> 00:06:03,199
+know the list of marked files. If
+
+116
+00:05:58,560 --> 00:06:05,680
+there's none basically that's then it's
+
+117
+00:06:03,199 --> 00:06:08,639
+you know the file your cursor is under
+
+118
+00:06:05,680 --> 00:06:10,479
+is considered the current file. So in
+
+119
+00:06:08,639 --> 00:06:15,520
+either case you want to get the list of
+
+120
+00:06:10,479 --> 00:06:20,880
+them. So what you can do is diode
+
+121
+00:06:15,520 --> 00:06:25,400
+uh wait. So describe function
+
+122
+00:06:20,880 --> 00:06:25,400
+uh what describe function.
+
+123
+00:06:31,600 --> 00:06:38,960
+Okay. Uh mark files uh mark file
+
+124
+00:06:36,319 --> 00:06:40,800
+subdirectory mark file. So hold on a
+
+125
+00:06:38,960 --> 00:06:43,199
+second.
+
+126
+00:06:40,800 --> 00:06:46,360
+My alarm clock is beeping. Let me turn
+
+127
+00:06:43,199 --> 00:06:46,360
+it off.
+
+128
+00:06:57,280 --> 00:07:04,479
+Okay. Hello aspiring Windows compositor.
+
+129
+00:07:00,880 --> 00:07:08,080
+Hi. I hope every day we are coding. Good
+
+130
+00:07:04,479 --> 00:07:09,759
+to know. Good good uh good hope. So
+
+131
+00:07:08,080 --> 00:07:15,479
+yeah, me too.
+
+132
+00:07:09,759 --> 00:07:15,479
+have some red wine uh with some juice.
+
+133
+00:07:18,479 --> 00:07:24,160
+So the first job is to get marked files
+
+134
+00:07:21,680 --> 00:07:26,960
+and that's that's the command name for
+
+135
+00:07:24,160 --> 00:07:32,479
+that is
+
+136
+00:07:26,960 --> 00:07:37,319
+diet get marked files that one. Okay. So
+
+137
+00:07:32,479 --> 00:07:37,319
+uh so completion
+
+138
+00:07:37,520 --> 00:07:42,800
+there that is the command. Okay. Now
+
+139
+00:07:40,000 --> 00:07:46,720
+look up the documentation. So you say
+
+140
+00:07:42,800 --> 00:07:48,960
+say option or local builder
+
+141
+00:07:46,720 --> 00:07:53,039
+you don't care about any op options.
+
+142
+00:07:48,960 --> 00:07:54,879
+Okay. So create a local variable X
+
+143
+00:07:53,039 --> 00:07:59,759
+files.
+
+144
+00:07:54,879 --> 00:08:03,280
+Um yeah. So then you just set the value
+
+145
+00:07:59,759 --> 00:08:06,160
+of that to this the output of this
+
+146
+00:08:03,280 --> 00:08:08,160
+command. So you'll get it. Then you can
+
+147
+00:08:06,160 --> 00:08:13,319
+say
+
+148
+00:08:08,160 --> 00:08:13,319
+uh you can just say messages. Okay.
+
+149
+00:08:13,680 --> 00:08:19,599
+Let's just print them. Okay.
+
+150
+00:08:16,560 --> 00:08:23,680
+So evaluate the buffer
+
+151
+00:08:19,599 --> 00:08:26,960
+now. Now go to the uh now put it back.
+
+152
+00:08:23,680 --> 00:08:31,520
+Go to the directory and hold on. Uh,
+
+153
+00:08:26,960 --> 00:08:34,320
+copy the command name. Go to the diet
+
+154
+00:08:31,520 --> 00:08:37,760
+meta x call the command because I move
+
+155
+00:08:34,320 --> 00:08:40,800
+to parent. Do it. Then go to the
+
+156
+00:08:37,760 --> 00:08:44,320
+messages buffer. You can see the output.
+
+157
+00:08:40,800 --> 00:08:48,080
+So it only list one file. Can you see
+
+158
+00:08:44,320 --> 00:08:50,480
+which is that file episode 712
+
+159
+00:08:48,080 --> 00:08:53,279
+correct? Okay. Now let's try again. This
+
+160
+00:08:50,480 --> 00:08:54,800
+time let's let's mark several files.
+
+161
+00:08:53,279 --> 00:08:58,959
+Okay.
+
+162
+00:08:54,800 --> 00:09:01,040
+metax call the command and you can see
+
+163
+00:08:58,959 --> 00:09:03,760
+now it
+
+164
+00:09:01,040 --> 00:09:06,720
+you know the least it list three files.
+
+165
+00:09:03,760 --> 00:09:09,680
+So open a new buffer paste it make it
+
+166
+00:09:06,720 --> 00:09:13,279
+one line per file so we can see three
+
+167
+00:09:09,680 --> 00:09:17,360
+files. So that's what we want. Okay. Now
+
+168
+00:09:13,279 --> 00:09:20,560
+close that. Now pop this out. So this is
+
+169
+00:09:17,360 --> 00:09:25,200
+doing things correctly. Okay. So we got
+
+170
+00:09:20,560 --> 00:09:27,440
+a list of files. Now we just uh
+
+171
+00:09:25,200 --> 00:09:30,440
+you want to find the parent directory.
+
+172
+00:09:27,440 --> 00:09:30,440
+So
+
+173
+00:09:32,160 --> 00:09:37,040
+the so parent directory. Okay. So what's
+
+174
+00:09:35,200 --> 00:09:41,120
+the command for parent directory? I
+
+175
+00:09:37,040 --> 00:09:45,839
+forgot. You go to kasali.info
+
+176
+00:09:41,120 --> 00:09:49,680
+http no s. Okay. So or search for kxali
+
+177
+00:09:45,839 --> 00:09:54,800
+emac lisp tutorial. Then you go to emac
+
+178
+00:09:49,680 --> 00:09:57,600
+lisp. Then you go to um so that's all
+
+179
+00:09:54,800 --> 00:10:00,720
+the tutorials you can read the most
+
+180
+00:09:57,600 --> 00:10:04,640
+comprehensive online
+
+181
+00:10:00,720 --> 00:10:09,040
+uh and better than any EMAC books
+
+182
+00:10:04,640 --> 00:10:11,200
+printed books or uh yeah better than any
+
+183
+00:10:09,040 --> 00:10:14,160
+printed books you can find because
+
+184
+00:10:11,200 --> 00:10:16,399
+there's actually none. There's one one
+
+185
+00:10:14,160 --> 00:10:18,160
+or two but mine is like the most
+
+186
+00:10:16,399 --> 00:10:21,440
+comprehensive.
+
+187
+00:10:18,160 --> 00:10:24,640
+Okay. So, so you want to go to uh in in
+
+188
+00:10:21,440 --> 00:10:29,600
+our case eac lisp
+
+189
+00:10:24,640 --> 00:10:33,040
+the eis the lisp basics covers
+
+190
+00:10:29,600 --> 00:10:36,320
+um emac lisp of all the things that's
+
+191
+00:10:33,040 --> 00:10:39,040
+available in other languages such as
+
+192
+00:10:36,320 --> 00:10:41,760
+what's a you know what's a string how do
+
+193
+00:10:39,040 --> 00:10:44,640
+you do string string and how do you do a
+
+194
+00:10:41,760 --> 00:10:48,320
+list sequence data structure how do you
+
+195
+00:10:44,640 --> 00:10:50,560
+do uh numbers input numbers or binary
+
+196
+00:10:48,320 --> 00:10:53,839
+numbers or how do you what is a true and
+
+197
+00:10:50,560 --> 00:10:56,560
+false in EMAC listp what's a how do you
+
+198
+00:10:53,839 --> 00:10:59,440
+create a variable and how do you define
+
+199
+00:10:56,560 --> 00:11:02,480
+a function things like that conditional
+
+200
+00:10:59,440 --> 00:11:05,279
+if then else equality test and how do
+
+201
+00:11:02,480 --> 00:11:10,480
+you do loop okay and data structure so
+
+202
+00:11:05,279 --> 00:11:12,880
+that is the uh lisp basics that that are
+
+203
+00:11:10,480 --> 00:11:15,920
+things that's available in every
+
+204
+00:11:12,880 --> 00:11:20,079
+programming language okay then you go to
+
+205
+00:11:15,920 --> 00:11:24,000
+eac lisp this section is emac specific
+
+206
+00:11:20,079 --> 00:11:27,200
+things that doesn't exist in other
+
+207
+00:11:24,000 --> 00:11:29,600
+programming languages such as deleting
+
+208
+00:11:27,200 --> 00:11:33,040
+you know creating a buffer deleting text
+
+209
+00:11:29,600 --> 00:11:35,920
+insert text uh things like that. So
+
+210
+00:11:33,040 --> 00:11:38,560
+anyway in our case we want to go to
+
+211
+00:11:35,920 --> 00:11:41,360
+given a file path we want to find the
+
+212
+00:11:38,560 --> 00:11:43,040
+parent path. So that is in the path
+
+213
+00:11:41,360 --> 00:11:46,079
+section writing a command text
+
+214
+00:11:43,040 --> 00:11:50,560
+processing co shell command get user
+
+215
+00:11:46,079 --> 00:11:54,480
+input file and buffer there. So uh read
+
+216
+00:11:50,560 --> 00:11:58,480
+file read read file buffer functions
+
+217
+00:11:54,480 --> 00:12:03,680
+uh write file file path functions there.
+
+218
+00:11:58,480 --> 00:12:06,720
+Okay. So you want to uh file name
+
+219
+00:12:03,680 --> 00:12:09,519
+directory. That's how you get the parent
+
+220
+00:12:06,720 --> 00:12:14,639
+directory. Yeah,
+
+221
+00:12:09,519 --> 00:12:18,360
+I forgot. Okay, so file name directory
+
+222
+00:12:14,639 --> 00:12:18,360
+and uh
+
+223
+00:12:18,639 --> 00:12:24,959
+car car gets the first element of a
+
+224
+00:12:21,760 --> 00:12:31,320
+list. Okay. So that
+
+225
+00:12:24,959 --> 00:12:31,320
+so this will be so let's create a um
+
+226
+00:12:31,920 --> 00:12:41,680
+let's say parent the okay let's just say
+
+227
+00:12:36,160 --> 00:12:44,320
+that okay now set parent directory to be
+
+228
+00:12:41,680 --> 00:12:46,079
+that
+
+229
+00:12:44,320 --> 00:12:50,000
+okay
+
+230
+00:12:46,079 --> 00:12:52,160
+and now let's just delete that.
+
+231
+00:12:50,000 --> 00:12:55,519
+So you set the parent directory and you
+
+232
+00:12:52,160 --> 00:12:57,760
+just move uh file rename. Okay. So to
+
+233
+00:12:55,519 --> 00:13:00,760
+move a file the command name is file
+
+234
+00:12:57,760 --> 00:13:00,760
+rename
+
+235
+00:13:02,240 --> 00:13:06,440
+uh rename file actually.
+
+236
+00:13:08,079 --> 00:13:17,040
+Okay. So rename file. So it
+
+237
+00:13:13,839 --> 00:13:21,440
+this command can rename a file or move a
+
+238
+00:13:17,040 --> 00:13:24,800
+file uh following the Unix convention.
+
+239
+00:13:21,440 --> 00:13:29,519
+So what you guys are saying?
+
+240
+00:13:24,800 --> 00:13:31,920
+Cheers. Any questions ask me. Okay.
+
+241
+00:13:29,519 --> 00:13:34,880
+So let's see. Hi. As always, I
+
+242
+00:13:31,920 --> 00:13:38,399
+appreciate your videos. Thank you. Truly
+
+243
+00:13:34,880 --> 00:13:40,959
+godson. Thank you.
+
+244
+00:13:38,399 --> 00:13:43,600
+Uh
+
+245
+00:13:40,959 --> 00:13:46,880
+I like this time for stream. Okay. So
+
+246
+00:13:43,600 --> 00:13:50,160
+yeah, usually for the past two or three
+
+247
+00:13:46,880 --> 00:13:53,680
+years I've been doing in the morning USA
+
+248
+00:13:50,160 --> 00:13:58,639
+time, usually noon. So that means people
+
+249
+00:13:53,680 --> 00:14:01,279
+in China, Japan, Taiwan, Hong Kong or
+
+250
+00:13:58,639 --> 00:14:04,800
+India or
+
+251
+00:14:01,279 --> 00:14:07,440
+um or much of Europe, you know, and and
+
+252
+00:14:04,800 --> 00:14:11,839
+uh Middle East,
+
+253
+00:14:07,440 --> 00:14:15,040
+uh Iran, Saudi Arabia, Egypt, they have
+
+254
+00:14:11,839 --> 00:14:17,279
+a hard time to watch my video.
+
+255
+00:14:15,040 --> 00:14:21,440
+So
+
+256
+00:14:17,279 --> 00:14:23,680
+you know but three years ago I was doing
+
+257
+00:14:21,440 --> 00:14:27,760
+you know some sometimes I was doing at
+
+258
+00:14:23,680 --> 00:14:30,720
+this time. So let's look at the clock.
+
+259
+00:14:27,760 --> 00:14:33,040
+So this I love the sun clock. So you are
+
+260
+00:14:30,720 --> 00:14:37,519
+seeing the sun clock so that that you
+
+261
+00:14:33,040 --> 00:14:40,000
+it's a easy way to to have a glance of
+
+262
+00:14:37,519 --> 00:14:43,120
+the daytime and nighttime of all over
+
+263
+00:14:40,000 --> 00:14:45,680
+the place. So you see China, Japan,
+
+264
+00:14:43,120 --> 00:14:49,760
+Australia. Oh, I forgot Australia. I got
+
+265
+00:14:45,680 --> 00:14:53,040
+a few audience in Australia. So, Africa,
+
+266
+00:14:49,760 --> 00:14:56,040
+Middle East. So, you see they are now uh
+
+267
+00:14:53,040 --> 00:14:56,040
+daytime
+
+268
+00:14:59,120 --> 00:15:06,000
+while United Kingdom right now it's like
+
+269
+00:15:02,480 --> 00:15:08,320
+um 3:00 a.m. or something. London 500
+
+270
+00:15:06,000 --> 00:15:11,560
+a.m.
+
+271
+00:15:08,320 --> 00:15:11,560
+So anyway,
+
+272
+00:15:12,160 --> 00:15:19,680
+so I I'll I'll maybe uh yeah do more,
+
+273
+00:15:16,480 --> 00:15:22,000
+you know, uh at night.
+
+274
+00:15:19,680 --> 00:15:24,240
+Actually have a question. This related.
+
+275
+00:15:22,000 --> 00:15:27,760
+Fantastic. I can't seem to understand
+
+276
+00:15:24,240 --> 00:15:30,959
+about dealing with car and cad. When I'm
+
+277
+00:15:27,760 --> 00:15:33,040
+looking at the nested cells, I seem to
+
+278
+00:15:30,959 --> 00:15:35,600
+get it wrong every single time I'm
+
+279
+00:15:33,040 --> 00:15:40,079
+trying to select.
+
+280
+00:15:35,600 --> 00:15:43,760
+Uh, okay, I'll answer that. Let's see.
+
+281
+00:15:40,079 --> 00:15:48,560
+I too like this time. Okay.
+
+282
+00:15:43,760 --> 00:15:52,720
+Are you so uh you are in India, right?
+
+283
+00:15:48,560 --> 00:15:56,320
+Aspiring window compositor. Okay. Let's
+
+284
+00:15:52,720 --> 00:15:59,320
+see. India is there.
+
+285
+00:15:56,320 --> 00:15:59,320
+Uh
+
+286
+00:16:00,240 --> 00:16:05,839
+no but the name is a pretty common
+
+287
+00:16:02,240 --> 00:16:07,839
+Bengali name. Okay.
+
+288
+00:16:05,839 --> 00:16:11,839
+So, let's So, yeah. So, the question
+
+289
+00:16:07,839 --> 00:16:15,040
+about Kai and Carter um you know did did
+
+290
+00:16:11,839 --> 00:16:19,600
+you read my tutorial because
+
+291
+00:16:15,040 --> 00:16:24,240
+I covered it uh you go to lisp basics
+
+292
+00:16:19,600 --> 00:16:28,079
+and uh you go to you know string
+
+293
+00:16:24,240 --> 00:16:31,600
+working with eac lisp string then number
+
+294
+00:16:28,079 --> 00:16:34,240
+boolean variable conditional loop and
+
+295
+00:16:31,600 --> 00:16:36,160
+data structure. So there's a list. Now
+
+296
+00:16:34,240 --> 00:16:38,320
+when you are when you go to the list
+
+297
+00:16:36,160 --> 00:16:42,560
+data structure
+
+298
+00:16:38,320 --> 00:16:44,800
+uh it will explain car and cer here for
+
+299
+00:16:42,560 --> 00:16:49,199
+example you go all the way down you will
+
+300
+00:16:44,800 --> 00:16:51,680
+see a section that's all about the list
+
+301
+00:16:49,199 --> 00:16:53,680
+data structure. How to create a list?
+
+302
+00:16:51,680 --> 00:16:56,720
+You know, first first of all, intro, you
+
+303
+00:16:53,680 --> 00:17:00,800
+know, intro section about what is a list
+
+304
+00:16:56,720 --> 00:17:02,800
+and uh and length and new.
+
+305
+00:17:00,800 --> 00:17:05,199
+Then you have a section how to create a
+
+306
+00:17:02,800 --> 00:17:07,760
+list. You know, you can create them
+
+307
+00:17:05,199 --> 00:17:11,520
+literally or you can create them
+
+308
+00:17:07,760 --> 00:17:13,439
+programmatically using make list or you
+
+309
+00:17:11,520 --> 00:17:16,000
+can create one, two, three, four, five
+
+310
+00:17:13,439 --> 00:17:20,400
+by calling this number sequence. In
+
+311
+00:17:16,000 --> 00:17:23,679
+Python, it's called range. Okay. So,
+
+312
+00:17:20,400 --> 00:17:25,520
+so then you got you know uh you got a
+
+313
+00:17:23,679 --> 00:17:27,039
+bunch of functions that gets the
+
+314
+00:17:25,520 --> 00:17:31,440
+element.
+
+315
+00:17:27,039 --> 00:17:35,600
+So about car and cur that's one of the
+
+316
+00:17:31,440 --> 00:17:37,760
+ancient um kind of issue in in list.
+
+317
+00:17:35,600 --> 00:17:40,080
+Okay. So let me explain it. So all you
+
+318
+00:17:37,760 --> 00:17:42,880
+have to do is you you need to go to the
+
+319
+00:17:40,080 --> 00:17:45,760
+console.
+
+320
+00:17:42,880 --> 00:17:50,640
+So let me go to it. Okay. So basically
+
+321
+00:17:45,760 --> 00:17:53,840
+list in the list data structure in lisp
+
+322
+00:17:50,640 --> 00:17:56,640
+is not a
+
+323
+00:17:53,840 --> 00:17:59,600
+uh is not like the atomic data
+
+324
+00:17:56,640 --> 00:18:02,880
+structure. It's actually made up of con
+
+325
+00:17:59,600 --> 00:18:05,840
+cell cones. So you can see here list
+
+326
+00:18:02,880 --> 00:18:07,840
+structure. So when you have a list of
+
+327
+00:18:05,840 --> 00:18:09,840
+like let's say you have a list of one
+
+328
+00:18:07,840 --> 00:18:12,320
+two three. Let me write it actually it's
+
+329
+00:18:09,840 --> 00:18:16,400
+easier.
+
+330
+00:18:12,320 --> 00:18:22,000
+So you have a list uh and okay so what
+
+331
+00:18:16,400 --> 00:18:25,440
+uh list one uh wait one two three so
+
+332
+00:18:22,000 --> 00:18:28,320
+that's a list okay when you have and and
+
+333
+00:18:25,440 --> 00:18:31,200
+also it's complicated by because this
+
+334
+00:18:28,320 --> 00:18:34,160
+can also be written like that so that
+
+335
+00:18:31,200 --> 00:18:36,559
+creates a complication uh that's called
+
+336
+00:18:34,160 --> 00:18:39,440
+quote okay you can also read about it
+
+337
+00:18:36,559 --> 00:18:43,039
+here okay so anyway
+
+338
+00:18:39,440 --> 00:18:44,960
+these two uh
+
+339
+00:18:43,039 --> 00:18:48,000
+not exactly the same but they are
+
+340
+00:18:44,960 --> 00:18:50,720
+effectively the same. That's a little
+
+341
+00:18:48,000 --> 00:18:52,880
+bit more detail. Okay. So, but anyway,
+
+342
+00:18:50,720 --> 00:18:58,640
+so let's just assume you have a list
+
+343
+00:18:52,880 --> 00:19:02,400
+like that. Okay. Then what actually it
+
+344
+00:18:58,640 --> 00:19:08,000
+create you know what what it actually is
+
+345
+00:19:02,400 --> 00:19:11,000
+is this. Okay. um cons
+
+346
+00:19:08,000 --> 00:19:11,000
+cause cons.
+
+347
+00:19:12,480 --> 00:19:20,360
+So it's a nested thing. So So let me
+
+348
+00:19:15,600 --> 00:19:20,360
+show you. Okay. So this is one,
+
+349
+00:19:20,480 --> 00:19:26,640
+this is two
+
+350
+00:19:22,880 --> 00:19:32,320
+and here it's three and this part is
+
+351
+00:19:26,640 --> 00:19:35,840
+new. Okay. So So let me let me uh format
+
+352
+00:19:32,320 --> 00:19:40,400
+it. Okay. So when you have a list it
+
+353
+00:19:35,840 --> 00:19:43,120
+actually is equivalent to that. So list
+
+354
+00:19:40,400 --> 00:19:45,440
+data structure is actually a composite
+
+355
+00:19:43,120 --> 00:19:49,280
+data structure. So what you actually
+
+356
+00:19:45,440 --> 00:19:52,400
+have is this thing. Okay.
+
+357
+00:19:49,280 --> 00:19:56,960
+Then the car.
+
+358
+00:19:52,400 --> 00:19:59,360
+So, so basically the what what you have
+
+359
+00:19:56,960 --> 00:20:05,280
+you have a core data structure called
+
+360
+00:19:59,360 --> 00:20:07,440
+cons which is just uh a pair okay just
+
+361
+00:20:05,280 --> 00:20:10,880
+two things okay that's a fundamental
+
+362
+00:20:07,440 --> 00:20:13,280
+that's a core data structure when you
+
+363
+00:20:10,880 --> 00:20:16,400
+create a list is actually expressed in
+
+364
+00:20:13,280 --> 00:20:18,880
+terms of cons in this way [snorts] the
+
+365
+00:20:16,400 --> 00:20:22,160
+so when you have a cons you got a pair
+
+366
+00:20:18,880 --> 00:20:25,760
+of things a and b the first part is
+
+367
+00:20:22,160 --> 00:20:28,960
+called car c a r the second part is
+
+368
+00:20:25,760 --> 00:20:31,679
+called ka okay so for example you can
+
+369
+00:20:28,960 --> 00:20:34,960
+you can car is a function you do that
+
+370
+00:20:31,679 --> 00:20:37,679
+you get a okay so actually you need to
+
+371
+00:20:34,960 --> 00:20:41,360
+let's not use a let's use one two
+
+372
+00:20:37,679 --> 00:20:43,760
+because when you use a those are symbols
+
+373
+00:20:41,360 --> 00:20:46,080
+then you need to quote them then it gets
+
+374
+00:20:43,760 --> 00:20:50,159
+more the idea gets more complex
+
+375
+00:20:46,080 --> 00:20:54,159
+complicated okay so anyway conell is a
+
+376
+00:20:50,159 --> 00:20:56,480
+pair okay Then you call the first part
+
+377
+00:20:54,159 --> 00:20:58,640
+is called car.
+
+378
+00:20:56,480 --> 00:21:01,039
+The second part is called ker. Okay,
+
+379
+00:20:58,640 --> 00:21:05,039
+you'll see it. Uh let me show you. Okay,
+
+380
+00:21:01,039 --> 00:21:06,799
+cdr. Okay, you pronounce it,
+
+381
+00:21:05,039 --> 00:21:09,919
+you know, different people pronounce it
+
+382
+00:21:06,799 --> 00:21:13,120
+differently. I just call it car and cur.
+
+383
+00:21:09,919 --> 00:21:15,440
+Okay, so car is also a function that
+
+384
+00:21:13,120 --> 00:21:18,640
+returns the first part of con cell. So
+
+385
+00:21:15,440 --> 00:21:21,360
+for example, if I evaluate this, okay,
+
+386
+00:21:18,640 --> 00:21:24,000
+you get one. Now kad refers to the
+
+387
+00:21:21,360 --> 00:21:26,480
+second part of the con cell. So if I
+
+388
+00:21:24,000 --> 00:21:29,440
+evaluate that
+
+389
+00:21:26,480 --> 00:21:33,919
+uh you get two okay so that's so
+
+390
+00:21:29,440 --> 00:21:37,840
+remember cons is a fundamental data
+
+391
+00:21:33,919 --> 00:21:41,120
+structure in lisp
+
+392
+00:21:37,840 --> 00:21:45,200
+not in closure though but in eac lisp
+
+393
+00:21:41,120 --> 00:21:49,960
+common lisp skin this scheme racket lisp
+
+394
+00:21:45,200 --> 00:21:49,960
+and in general the traditional lisp
+
+395
+00:21:50,159 --> 00:21:56,480
+cons is a pair okay that's a fundamental
+
+396
+00:21:53,280 --> 00:21:59,039
+data structure. Okay. Then list is
+
+397
+00:21:56,480 --> 00:22:01,679
+actually just nested cons. You know you
+
+398
+00:21:59,039 --> 00:22:05,039
+nest cons in the in in this particular
+
+399
+00:22:01,679 --> 00:22:08,720
+way. And with the last
+
+400
+00:22:05,039 --> 00:22:13,039
+cad the last cons of the kadur part
+
+401
+00:22:08,720 --> 00:22:17,280
+should be neo. So that tells that tells
+
+402
+00:22:13,039 --> 00:22:21,760
+emacisp that this lists terminates at
+
+403
+00:22:17,280 --> 00:22:24,559
+this value. Okay. So these two are
+
+404
+00:22:21,760 --> 00:22:28,240
+identical. I mean they they are you know
+
+405
+00:22:24,559 --> 00:22:30,480
+they are basically identical. Okay.
+
+406
+00:22:28,240 --> 00:22:33,039
+So your question you know when you get
+
+407
+00:22:30,480 --> 00:22:35,840
+it wrong well you just have to practice.
+
+408
+00:22:33,039 --> 00:22:39,200
+Okay. That that's that's all that's all
+
+409
+00:22:35,840 --> 00:22:41,919
+because this this is kind of confusing.
+
+410
+00:22:39,200 --> 00:22:45,520
+This is kind of idiotic. It's that way
+
+411
+00:22:41,919 --> 00:22:49,360
+because back then 40 years ago by now
+
+412
+00:22:45,520 --> 00:22:51,360
+yeah some 40 years ago the list machine
+
+413
+00:22:49,360 --> 00:22:54,159
+um
+
+414
+00:22:51,360 --> 00:22:57,280
+uh let me show you guys uh I showed this
+
+415
+00:22:54,159 --> 00:23:00,880
+many times before list machine
+
+416
+00:22:57,280 --> 00:23:03,919
+keyboards. Okay. So you can see all the
+
+417
+00:23:00,880 --> 00:23:08,320
+list machine keyboards. So the first one
+
+418
+00:23:03,919 --> 00:23:11,520
+the cell keyboard cell s a i l keyboard
+
+419
+00:23:08,320 --> 00:23:14,480
+that stand for Stanford artificial
+
+420
+00:23:11,520 --> 00:23:17,280
+intelligence lab
+
+421
+00:23:14,480 --> 00:23:19,679
+this sale
+
+422
+00:23:17,280 --> 00:23:22,960
+artificial you know Stanford that's
+
+423
+00:23:19,679 --> 00:23:27,440
+that's a Stanford University right here
+
+424
+00:23:22,960 --> 00:23:29,919
+uh 30 minutes drive from my home in in
+
+425
+00:23:27,440 --> 00:23:32,400
+mountain in Palo Alto
+
+426
+00:23:29,919 --> 00:23:35,280
+basically around San Francisco okay San
+
+427
+00:23:32,400 --> 00:23:38,080
+Francisco. That's Stanford AI lab.
+
+428
+00:23:35,280 --> 00:23:42,880
+Stanford is a university and that was
+
+429
+00:23:38,080 --> 00:23:45,200
+created in 1963 by John McCarthy. John
+
+430
+00:23:42,880 --> 00:23:48,720
+McCarthy is the inventor of Lisp
+
+431
+00:23:45,200 --> 00:23:51,919
+programming language. Okay. So,
+
+432
+00:23:48,720 --> 00:23:54,400
+so back then you know beginning 1970s
+
+433
+00:23:51,919 --> 00:23:58,000
+1980s you know the hardware is not like
+
+434
+00:23:54,400 --> 00:24:01,200
+today like if you have one
+
+435
+00:23:58,000 --> 00:24:05,120
+one kilobyte of memory that's like huge
+
+436
+00:24:01,200 --> 00:24:07,520
+that's cost you $10,000 you know so it's
+
+437
+00:24:05,120 --> 00:24:10,559
+not like today. So back then the
+
+438
+00:24:07,520 --> 00:24:12,240
+hardware happens to be happens to have
+
+439
+00:24:10,559 --> 00:24:15,840
+like
+
+440
+00:24:12,240 --> 00:24:20,320
+it happens to have like some kind of
+
+441
+00:24:15,840 --> 00:24:23,600
+cell like consisting of two things. So
+
+442
+00:24:20,320 --> 00:24:26,080
+that's why you got these cons.
+
+443
+00:24:23,600 --> 00:24:28,400
+So if you want more than two things you
+
+444
+00:24:26,080 --> 00:24:32,480
+nest them. That's that's how you get
+
+445
+00:24:28,400 --> 00:24:34,720
+this nested cons to represent a list.
+
+446
+00:24:32,480 --> 00:24:37,520
+Okay, that's a history. Once you know
+
+447
+00:24:34,720 --> 00:24:41,200
+the history you it helps you understand.
+
+448
+00:24:37,520 --> 00:24:42,799
+Okay. So
+
+449
+00:24:41,200 --> 00:24:45,760
+car
+
+450
+00:24:42,799 --> 00:24:48,559
+refers to the f the first part of the
+
+451
+00:24:45,760 --> 00:24:50,640
+con is called car. The second part is
+
+452
+00:24:48,559 --> 00:24:53,679
+called ker.
+
+453
+00:24:50,640 --> 00:24:55,440
+Sometimes people call it first and last.
+
+454
+00:24:53,679 --> 00:24:58,880
+Okay. You can also call it first and
+
+455
+00:24:55,440 --> 00:25:01,679
+last. Okay. So car is also a function.
+
+456
+00:24:58,880 --> 00:25:06,720
+So you can extract
+
+457
+00:25:01,679 --> 00:25:10,360
+the first part of a console. Okay. Now
+
+458
+00:25:06,720 --> 00:25:10,360
+what if you do
+
+459
+00:25:10,640 --> 00:25:18,640
+what if you do car and the list?
+
+460
+00:25:14,559 --> 00:25:20,559
+Same thing because the list is actually
+
+461
+00:25:18,640 --> 00:25:24,640
+remember the list is actually just
+
+462
+00:25:20,559 --> 00:25:29,120
+nested car sales. So when you call car
+
+463
+00:25:24,640 --> 00:25:33,520
+on a list you just get you know the
+
+464
+00:25:29,120 --> 00:25:36,640
+argument to car is a conell true you
+
+465
+00:25:33,520 --> 00:25:39,120
+know it's a con cell. So car means the
+
+466
+00:25:36,640 --> 00:25:44,120
+first element. So when you call that you
+
+467
+00:25:39,120 --> 00:25:44,120
+just get this one. So we can try it.
+
+468
+00:25:44,400 --> 00:25:48,240
+You see
+
+469
+00:25:46,240 --> 00:25:51,279
+so that's how you how it works. What
+
+470
+00:25:48,240 --> 00:25:53,919
+what if you call kad on on this list?
+
+471
+00:25:51,279 --> 00:25:55,919
+Okay, let's try
+
+472
+00:25:53,919 --> 00:26:00,240
+cut.
+
+473
+00:25:55,919 --> 00:26:02,320
+So again think think of it
+
+474
+00:26:00,240 --> 00:26:05,440
+you know refer it to the to the
+
+475
+00:26:02,320 --> 00:26:08,400
+fundamental structure. So so what is the
+
+476
+00:26:05,440 --> 00:26:11,440
+second part of a con cell? So the first
+
+477
+00:26:08,400 --> 00:26:15,120
+part of the conell is one the second
+
+478
+00:26:11,440 --> 00:26:18,000
+part of the con cell is this thing.
+
+479
+00:26:15,120 --> 00:26:21,200
+So when you call cader list one two
+
+480
+00:26:18,000 --> 00:26:26,640
+three you will get
+
+481
+00:26:21,200 --> 00:26:29,520
+you will get um that okay which is which
+
+482
+00:26:26,640 --> 00:26:32,520
+is just list one two okay so let's try
+
+483
+00:26:29,520 --> 00:26:32,520
+it
+
+484
+00:26:32,960 --> 00:26:38,880
+uh two three right so again there's a
+
+485
+00:26:36,480 --> 00:26:41,840
+complication because it doesn't print
+
+486
+00:26:38,880 --> 00:26:44,159
+the the least head it just print that so
+
+487
+00:26:41,840 --> 00:26:49,520
+anyway you you you kind of you know get
+
+488
+00:26:44,159 --> 00:26:53,320
+get used to it. Okay. So, let's um
+
+489
+00:26:49,520 --> 00:26:53,320
+Does that make sense?
+
+490
+00:26:57,360 --> 00:27:02,640
+Okay. Yes, I do understand the list.
+
+491
+00:26:59,760 --> 00:27:07,080
+It's more so about using the referencing
+
+492
+00:27:02,640 --> 00:27:07,080
+of the alternative names.
+
+493
+00:27:07,440 --> 00:27:14,320
+for instance
+
+494
+00:27:09,440 --> 00:27:17,120
+um cut or even cut
+
+495
+00:27:14,320 --> 00:27:21,200
+I can't seem to understand when we are
+
+496
+00:27:17,120 --> 00:27:22,799
+nesting and ignoring Neo okay [laughter]
+
+497
+00:27:21,200 --> 00:27:25,279
+that's
+
+498
+00:27:22,799 --> 00:27:28,000
+well the short answer is don't use those
+
+499
+00:27:25,279 --> 00:27:30,880
+okay nobody use those okay let me
+
+500
+00:27:28,000 --> 00:27:35,679
+explain
+
+501
+00:27:30,880 --> 00:27:38,240
+okay now okay so so so what do you so
+
+502
+00:27:35,679 --> 00:27:40,480
+you know given these So now so far so
+
+503
+00:27:38,240 --> 00:27:43,600
+good. You understand this part, right?
+
+504
+00:27:40,480 --> 00:27:45,039
+So far so good. Uh let me remove the
+
+505
+00:27:43,600 --> 00:27:48,000
+quote because that's another
+
+506
+00:27:45,039 --> 00:27:51,200
+complication you know.
+
+507
+00:27:48,000 --> 00:27:54,720
+So now let's say we want to get the
+
+508
+00:27:51,200 --> 00:27:58,159
+second part. Okay, we just want to get
+
+509
+00:27:54,720 --> 00:28:00,559
+the two. Okay, so what how do you to you
+
+510
+00:27:58,159 --> 00:28:03,360
+know I don't want the two and three. I
+
+511
+00:28:00,559 --> 00:28:08,399
+just want I want exactly just two. How
+
+512
+00:28:03,360 --> 00:28:12,360
+do you do that? Easy. Okay. So,
+
+513
+00:28:08,399 --> 00:28:12,360
+do you know how to do that?
+
+514
+00:28:12,640 --> 00:28:16,559
+Yeah. Don't don't use them. Yeah.
+
+515
+00:28:14,399 --> 00:28:18,880
+Basically, don't use those. Okay. But
+
+516
+00:28:16,559 --> 00:28:21,440
+let me let me try let me explain it.
+
+517
+00:28:18,880 --> 00:28:24,080
+Okay. What are those cutter cutter?
+
+518
+00:28:21,440 --> 00:28:27,200
+That's that's Basically, like 20
+
+519
+00:28:24,080 --> 00:28:29,760
+years ago, I complained to the this
+
+520
+00:28:27,200 --> 00:28:32,480
+communist news group, you know, like
+
+521
+00:28:29,760 --> 00:28:35,600
+what the is that? Those kind of
+
+522
+00:28:32,480 --> 00:28:38,799
+idiotic. Okay, that's just history.
+
+523
+00:28:35,600 --> 00:28:41,200
+So, and people and today basically you
+
+524
+00:28:38,799 --> 00:28:43,360
+don't use those. Okay, you just use nth
+
+525
+00:28:41,200 --> 00:28:48,080
+or you use the rest, you know that like
+
+526
+00:28:43,360 --> 00:28:50,320
+higher level commands. Um,
+
+527
+00:28:48,080 --> 00:28:52,640
+so back to list keyboards, you know,
+
+528
+00:28:50,320 --> 00:28:57,840
+there's a lot history. Very interesting.
+
+529
+00:28:52,640 --> 00:29:00,559
+So, let's copy that and uh let's um hold
+
+530
+00:28:57,840 --> 00:29:03,679
+on a second. Let me I I'll get to the
+
+531
+00:29:00,559 --> 00:29:07,039
+explanation. Okay, let's paste the link
+
+532
+00:29:03,679 --> 00:29:11,360
+here. And we talked a little bit about
+
+533
+00:29:07,039 --> 00:29:14,799
+the cell keyboard. Stanford University,
+
+534
+00:29:11,360 --> 00:29:17,279
+Stanford artificial intelligence lab.
+
+535
+00:29:14,799 --> 00:29:21,200
+You know, this is the father of
+
+536
+00:29:17,279 --> 00:29:25,600
+artificial intelligence. Okay. Now, uh
+
+537
+00:29:21,200 --> 00:29:29,120
+this is my todo stuff. Okay. So, now
+
+538
+00:29:25,600 --> 00:29:31,039
+yeah. Now let's let's um by the way
+
+539
+00:29:29,120 --> 00:29:33,840
+we'll get back to the move to parent
+
+540
+00:29:31,039 --> 00:29:37,360
+directory. It's almost done.
+
+541
+00:29:33,840 --> 00:29:41,120
+Uh but let me explain this thing because
+
+542
+00:29:37,360 --> 00:29:44,000
+it is you know pertinent to what we are
+
+543
+00:29:41,120 --> 00:29:47,360
+doing today. Okay. So so far so good
+
+544
+00:29:44,000 --> 00:29:49,760
+about the sales. Okay. Now so you want
+
+545
+00:29:47,360 --> 00:29:52,640
+to get just the two. How do you do that?
+
+546
+00:29:49,760 --> 00:29:57,279
+Let me show you. Okay.
+
+547
+00:29:52,640 --> 00:30:00,399
+So first of all you want to get uh kad
+
+548
+00:29:57,279 --> 00:30:02,799
+because two you know kad returns two and
+
+549
+00:30:00,399 --> 00:30:05,360
+three so you know that's there so you
+
+550
+00:30:02,799 --> 00:30:11,520
+want to get ka because you don't want
+
+551
+00:30:05,360 --> 00:30:14,000
+the first one right uh actually so let's
+
+552
+00:30:11,520 --> 00:30:18,399
+put that there so we can easily see them
+
+553
+00:30:14,000 --> 00:30:22,640
+both okay so you want to do kad
+
+554
+00:30:18,399 --> 00:30:25,360
+that will get you two three okay So that
+
+555
+00:30:22,640 --> 00:30:27,919
+will get you this. So once you have
+
+556
+00:30:25,360 --> 00:30:31,520
+that, what you want to do to get what do
+
+557
+00:30:27,919 --> 00:30:36,799
+you have to do to get the two car. Okay.
+
+558
+00:30:31,520 --> 00:30:39,919
+So you just want to have a car in front.
+
+559
+00:30:36,799 --> 00:30:42,640
+Okay. That will get you two. Exactly.
+
+560
+00:30:39,919 --> 00:30:44,240
+Okay. Let's try it.
+
+561
+00:30:42,640 --> 00:30:48,559
+Exactly.
+
+562
+00:30:44,240 --> 00:30:50,480
+Perfect. Okay. So, so every time so you
+
+563
+00:30:48,559 --> 00:30:52,640
+if you have a long list you know every
+
+564
+00:30:50,480 --> 00:30:56,159
+time you want to get a particular
+
+565
+00:30:52,640 --> 00:30:59,520
+element basically what you end up with a
+
+566
+00:30:56,159 --> 00:31:03,279
+bunch of car
+
+567
+00:30:59,520 --> 00:31:06,799
+car things like that. Okay.
+
+568
+00:31:03,279 --> 00:31:08,480
+So that's why the lispers they created
+
+569
+00:31:06,799 --> 00:31:11,360
+shortcut.
+
+570
+00:31:08,480 --> 00:31:15,520
+So this car and kad
+
+571
+00:31:11,360 --> 00:31:19,399
+like this way can be written in short
+
+572
+00:31:15,520 --> 00:31:19,399
+like um
+
+573
+00:31:20,399 --> 00:31:26,640
+like uh
+
+574
+00:31:23,919 --> 00:31:29,679
+okay so like I don't yeah you know I
+
+575
+00:31:26,640 --> 00:31:33,760
+don't even have a abbreviation for that
+
+576
+00:31:29,679 --> 00:31:36,080
+okay so this you know this is you know
+
+577
+00:31:33,760 --> 00:31:40,000
+kad
+
+578
+00:31:36,080 --> 00:31:44,240
+c a d is shortcut for that. So when you
+
+579
+00:31:40,000 --> 00:31:46,720
+co so when you run this uh run this you
+
+580
+00:31:44,240 --> 00:31:48,559
+get two you see because they are exactly
+
+581
+00:31:46,720 --> 00:31:51,679
+the same. In fact we can look at the
+
+582
+00:31:48,559 --> 00:31:54,799
+source code. Let's see let's see if it's
+
+583
+00:31:51,679 --> 00:31:57,679
+written in C. No. Okay. So you can see
+
+584
+00:31:54,799 --> 00:31:59,519
+let's look at the source code. It
+
+585
+00:31:57,679 --> 00:32:03,760
+basically
+
+586
+00:31:59,519 --> 00:32:08,320
+it will call car and cut it. It's
+
+587
+00:32:03,760 --> 00:32:11,440
+defined that way. Okay. So wait,
+
+588
+00:32:08,320 --> 00:32:13,919
+C A D R lookup.
+
+589
+00:32:11,440 --> 00:32:19,240
+Go to the source code.
+
+590
+00:32:13,919 --> 00:32:19,240
+There it is. So you see exactly.
+
+591
+00:32:19,440 --> 00:32:24,080
+So So then they, you know, they just got
+
+592
+00:32:21,679 --> 00:32:28,640
+a bunch of shortcuts, you know, uh
+
+593
+00:32:24,080 --> 00:32:33,760
+cutter, uh wait, uh
+
+594
+00:32:28,640 --> 00:32:36,240
+c a d, you know, like d cut,
+
+595
+00:32:33,760 --> 00:32:41,200
+you know, this bunch of That's idiotic
+
+596
+00:32:36,240 --> 00:32:44,159
+silly That's that's why I despise
+
+597
+00:32:41,200 --> 00:32:46,880
+common dispers
+
+598
+00:32:44,159 --> 00:32:49,200
+they fanatics they don't know they
+
+599
+00:32:46,880 --> 00:32:50,880
+that's their tradition you know. So
+
+600
+00:32:49,200 --> 00:32:52,559
+let's look at the source code. So you
+
+601
+00:32:50,880 --> 00:32:56,480
+can see
+
+602
+00:32:52,559 --> 00:32:59,480
+you know this just the nesting of this
+
+603
+00:32:56,480 --> 00:32:59,480
+kadaka.
+
+604
+00:33:03,840 --> 00:33:09,919
+You see that's the CD.
+
+605
+00:33:08,000 --> 00:33:11,600
+Okay. So
+
+606
+00:33:09,919 --> 00:33:16,960
+basically you don't don't don't use
+
+607
+00:33:11,600 --> 00:33:19,360
+those. Okay. So you go back to this. So
+
+608
+00:33:16,960 --> 00:33:21,760
+here you know this page I explain the
+
+609
+00:33:19,360 --> 00:33:23,919
+con sales.
+
+610
+00:33:21,760 --> 00:33:25,519
+You guys should read it. So let me post
+
+611
+00:33:23,919 --> 00:33:28,720
+it.
+
+612
+00:33:25,519 --> 00:33:31,279
+Uh so put it back and paste the link
+
+613
+00:33:28,720 --> 00:33:37,279
+here.
+
+614
+00:33:31,279 --> 00:33:40,960
+Okay. Then you go to uh get elements. So
+
+615
+00:33:37,279 --> 00:33:43,840
+use this function nth that will directly
+
+616
+00:33:40,960 --> 00:33:45,360
+get you nth. Uh does it include the
+
+617
+00:33:43,840 --> 00:33:48,240
+rest?
+
+618
+00:33:45,360 --> 00:33:52,880
+No. Okay. So for example
+
+619
+00:33:48,240 --> 00:33:56,480
+uh so for example let's do this again.
+
+620
+00:33:52,880 --> 00:34:00,279
+So if you want that element too, you can
+
+621
+00:33:56,480 --> 00:34:00,279
+just say nth.
+
+622
+00:34:01,760 --> 00:34:09,280
+Okay. So nth. So because eac list is
+
+623
+00:34:05,760 --> 00:34:12,879
+zero based indexing. So you want the
+
+624
+00:34:09,280 --> 00:34:15,679
+second that would be one index one that
+
+625
+00:34:12,879 --> 00:34:18,320
+will get you two.
+
+626
+00:34:15,679 --> 00:34:21,599
+Okay.
+
+627
+00:34:18,320 --> 00:34:24,800
+Okay. Put it back. So you know use these
+
+628
+00:34:21,599 --> 00:34:27,200
+higher functions. Uh
+
+629
+00:34:24,800 --> 00:34:34,280
+the only time you want to use car and
+
+630
+00:34:27,200 --> 00:34:34,280
+cader is is if your um if your list is
+
+631
+00:34:34,879 --> 00:34:41,520
+you know if you are using your list as a
+
+632
+00:34:37,839 --> 00:34:44,480
+stack like you always just push an item
+
+633
+00:34:41,520 --> 00:34:47,359
+to the front or push another item push
+
+634
+00:34:44,480 --> 00:34:51,040
+one item you know or remove one one item
+
+635
+00:34:47,359 --> 00:34:53,359
+from the front. So when you are using
+
+636
+00:34:51,040 --> 00:34:56,000
+list and you should use list like that
+
+637
+00:34:53,359 --> 00:34:58,880
+okay that's the purpose of list okay
+
+638
+00:34:56,000 --> 00:35:02,800
+it's a s stack basically all you can do
+
+639
+00:34:58,880 --> 00:35:05,839
+is just add one item in the front or
+
+640
+00:35:02,800 --> 00:35:07,680
+remove one item in the front you should
+
+641
+00:35:05,839 --> 00:35:10,000
+never
+
+642
+00:35:07,680 --> 00:35:13,920
+insert an item somewhere in the middle
+
+643
+00:35:10,000 --> 00:35:17,839
+okay or to the to the end never okay if
+
+644
+00:35:13,920 --> 00:35:20,400
+you want to do that use vector okay so
+
+645
+00:35:17,839 --> 00:35:24,079
+go to the list
+
+646
+00:35:20,400 --> 00:35:26,560
+uh and uh then go to vector. Okay,
+
+647
+00:35:24,079 --> 00:35:31,200
+vector is just like C's array or
+
+648
+00:35:26,560 --> 00:35:35,440
+Python's uh list. Okay, so you can you
+
+649
+00:35:31,200 --> 00:35:38,160
+can uh wait vector does not allow to you
+
+650
+00:35:35,440 --> 00:35:40,480
+to add items. Okay, anyway that's a
+
+651
+00:35:38,160 --> 00:35:43,280
+limitation.
+
+652
+00:35:40,480 --> 00:35:46,720
+So I would say this is a limitation of
+
+653
+00:35:43,280 --> 00:35:49,280
+list because in Python you know there
+
+654
+00:35:46,720 --> 00:35:52,240
+list is actually array dynamic array you
+
+655
+00:35:49,280 --> 00:35:54,079
+can add elements to the front to the end
+
+656
+00:35:52,240 --> 00:35:55,920
+or anywhere in the middle or you know
+
+657
+00:35:54,079 --> 00:36:00,240
+you can you can it can grow it can
+
+658
+00:35:55,920 --> 00:36:03,760
+shrink you know uh but in eag you have
+
+659
+00:36:00,240 --> 00:36:06,960
+vector which is like python's tuple you
+
+660
+00:36:03,760 --> 00:36:09,760
+cannot once once created you cannot add
+
+661
+00:36:06,960 --> 00:36:10,560
+more item to it you cannot remove item
+
+662
+00:36:09,760 --> 00:36:14,640
+from
+
+663
+00:36:10,560 --> 00:36:16,880
+Okay, that's vector. Meanwhile, the list
+
+664
+00:36:14,640 --> 00:36:21,200
+data structure
+
+665
+00:36:16,880 --> 00:36:25,680
+you can you you are supposed to just add
+
+666
+00:36:21,200 --> 00:36:27,280
+or remove one item from the front.
+
+667
+00:36:25,680 --> 00:36:29,920
+That's
+
+668
+00:36:27,280 --> 00:36:32,079
+that's what you are supposed to do. You
+
+669
+00:36:29,920 --> 00:36:35,839
+could, it's possible to add in the
+
+670
+00:36:32,079 --> 00:36:39,359
+middle by just you know removing a bunch
+
+671
+00:36:35,839 --> 00:36:41,599
+then add then add your new item then add
+
+672
+00:36:39,359 --> 00:36:45,200
+the whatever you removed you know
+
+673
+00:36:41,599 --> 00:36:47,119
+basically the result is inefficient.
+
+674
+00:36:45,200 --> 00:36:49,680
+Okay.
+
+675
+00:36:47,119 --> 00:36:51,680
+So anyway,
+
+676
+00:36:49,680 --> 00:36:54,320
+so you should use you know the higher
+
+677
+00:36:51,680 --> 00:36:56,800
+level functions like uh you know get
+
+678
+00:36:54,320 --> 00:37:00,400
+elements or
+
+679
+00:36:56,800 --> 00:37:02,400
+uh you can modify elements push and pop.
+
+680
+00:37:00,400 --> 00:37:04,880
+Yeah, push you know and you know and
+
+681
+00:37:02,400 --> 00:37:09,920
+don't use car and cu just use push and
+
+682
+00:37:04,880 --> 00:37:11,520
+pop. Okay, push and pop.
+
+683
+00:37:09,920 --> 00:37:13,839
+Uh
+
+684
+00:37:11,520 --> 00:37:16,000
+yeah, so basically the issue is you just
+
+685
+00:37:13,839 --> 00:37:20,200
+get used to it. Okay. When you code a
+
+686
+00:37:16,000 --> 00:37:20,200
+lot, you just get used to it.
+
+687
+00:37:27,280 --> 00:37:33,359
+When when you are tra you know uh the
+
+688
+00:37:31,440 --> 00:37:36,160
+direction is the other way. Okay. So
+
+689
+00:37:33,359 --> 00:37:39,599
+when you are traversing the list they
+
+690
+00:37:36,160 --> 00:37:42,240
+always go from left to right. So when
+
+691
+00:37:39,599 --> 00:37:45,280
+you are tra traversing the list they go
+
+692
+00:37:42,240 --> 00:37:48,400
+from left to right. Okay. So even if you
+
+693
+00:37:45,280 --> 00:37:52,480
+get the length and let's say let's say
+
+694
+00:37:48,400 --> 00:37:55,119
+you have a list of um
+
+695
+00:37:52,480 --> 00:37:57,040
+uh
+
+696
+00:37:55,119 --> 00:38:00,480
+okay
+
+697
+00:37:57,040 --> 00:38:03,480
+let's say uh
+
+698
+00:38:00,480 --> 00:38:03,480
+number
+
+699
+00:38:04,800 --> 00:38:13,200
+uh se sequence okay let's create 100
+
+700
+00:38:10,160 --> 00:38:20,320
+okay so actually
+
+701
+00:38:13,200 --> 00:38:23,119
+from zero to 100 increment one. So if we
+
+702
+00:38:20,320 --> 00:38:26,720
+do that you got two you got a list of
+
+703
+00:38:23,119 --> 00:38:30,160
+200 items. Okay. So actually it
+
+704
+00:38:26,720 --> 00:38:32,960
+truncated uh
+
+705
+00:38:30,160 --> 00:38:37,920
+you know it truncated the uh print
+
+706
+00:38:32,960 --> 00:38:41,520
+output but you can uh
+
+707
+00:38:37,920 --> 00:38:44,760
+for example you can do length
+
+708
+00:38:41,520 --> 00:38:44,760
+uh what
+
+709
+00:38:50,560 --> 00:38:56,480
+201 because you got a zero in front.
+
+710
+00:38:53,760 --> 00:38:59,200
+Okay. So when you have a long list, when
+
+711
+00:38:56,480 --> 00:39:02,000
+you have a long list, even when you get
+
+712
+00:38:59,200 --> 00:39:04,320
+the length, it has to traverse each
+
+713
+00:39:02,000 --> 00:39:08,640
+element. So remember that's the thing
+
+714
+00:39:04,320 --> 00:39:12,640
+about list. You see? So if this is if
+
+715
+00:39:08,640 --> 00:39:15,760
+this is 2,000, it's slow, you know. If
+
+716
+00:39:12,640 --> 00:39:19,599
+if it's 20 200,000, it's very slow
+
+717
+00:39:15,760 --> 00:39:21,680
+because it has to it has to go through
+
+718
+00:39:19,599 --> 00:39:24,079
+the cons, you know, go through the cons.
+
+719
+00:39:21,680 --> 00:39:27,280
+Did it end yet? No. Go to the next one.
+
+720
+00:39:24,079 --> 00:39:29,680
+Is it a neo? Is a cer part neo? No. Go
+
+721
+00:39:27,280 --> 00:39:32,320
+to the next one. Is a cer part neo yet?
+
+722
+00:39:29,680 --> 00:39:35,359
+No. So it just repeat until it reach
+
+723
+00:39:32,320 --> 00:39:38,240
+neo. Then it tells you how many. That's
+
+724
+00:39:35,359 --> 00:39:40,240
+the length function. Okay.
+
+725
+00:39:38,240 --> 00:39:42,320
+Slow.
+
+726
+00:39:40,240 --> 00:39:44,400
+But that's the nature that's just
+
+727
+00:39:42,320 --> 00:39:48,079
+remember this. That's the nature that's
+
+728
+00:39:44,400 --> 00:39:51,839
+the nature of the list. Okay. In this is
+
+729
+00:39:48,079 --> 00:39:54,000
+the case in eagisp and in commonisp.
+
+730
+00:39:51,839 --> 00:39:57,599
+So
+
+731
+00:39:54,000 --> 00:40:01,599
+you are not supposed to actually
+
+732
+00:39:57,599 --> 00:40:04,960
+um you know use it like a array. Okay.
+
+733
+00:40:01,599 --> 00:40:08,160
+So for example to validate what I'm just
+
+734
+00:40:04,960 --> 00:40:11,119
+said about the length
+
+735
+00:40:08,160 --> 00:40:13,440
+today you have a new function. Okay. So
+
+736
+00:40:11,119 --> 00:40:15,920
+if you want to say if you want to check
+
+737
+00:40:13,440 --> 00:40:19,119
+if the length is greater than 200 you
+
+738
+00:40:15,920 --> 00:40:20,720
+usually what you do is um
+
+739
+00:40:19,119 --> 00:40:26,200
+um
+
+740
+00:40:20,720 --> 00:40:26,200
+greater than let's say 200
+
+741
+00:40:26,240 --> 00:40:34,079
+uh you see that's what you usually do.
+
+742
+00:40:28,880 --> 00:40:37,040
+So let's say uh my list okay length my
+
+743
+00:40:34,079 --> 00:40:41,119
+list you see you can do that but if your
+
+744
+00:40:37,040 --> 00:40:44,720
+list is long long that's very slow okay
+
+745
+00:40:41,119 --> 00:40:47,720
+so now they have a new function
+
+746
+00:40:44,720 --> 00:40:47,720
+um
+
+747
+00:40:49,359 --> 00:40:54,839
+okay so you do it this way instead it.
+
+748
+00:40:59,200 --> 00:41:06,640
+Uh, wait. So, the actually the logic
+
+749
+00:41:02,560 --> 00:41:09,520
+here doesn't work. Should you use um
+
+750
+00:41:06,640 --> 00:41:11,920
+Yeah. Uh, it makes sense if you use less
+
+751
+00:41:09,520 --> 00:41:16,240
+than.
+
+752
+00:41:11,920 --> 00:41:19,880
+Okay. So, this would be length
+
+753
+00:41:16,240 --> 00:41:19,880
+less than. Yeah.
+
+754
+00:41:23,119 --> 00:41:28,640
+Okay. So if you want to know if a list
+
+755
+00:41:25,839 --> 00:41:31,200
+is less than 200 items, you can normal
+
+756
+00:41:28,640 --> 00:41:34,079
+normally this is what you do. But this
+
+757
+00:41:31,200 --> 00:41:36,240
+is inefficient because it has to find
+
+758
+00:41:34,079 --> 00:41:40,079
+the length of the list first. So it has
+
+759
+00:41:36,240 --> 00:41:42,800
+to you know go through traverse it. On
+
+760
+00:41:40,079 --> 00:41:45,200
+the other hand there's a new function
+
+761
+00:41:42,800 --> 00:41:48,880
+length smaller than you can read the
+
+762
+00:41:45,200 --> 00:41:51,359
+documentation. So you can see
+
+763
+00:41:48,880 --> 00:41:53,839
+it basically does exactly the same thing
+
+764
+00:41:51,359 --> 00:41:55,440
+like that but it's more efficient
+
+765
+00:41:53,839 --> 00:41:57,520
+because
+
+766
+00:41:55,440 --> 00:42:00,079
+um
+
+767
+00:41:57,520 --> 00:42:03,200
+wait this should be not length it should
+
+768
+00:42:00,079 --> 00:42:08,000
+be just it's more efficient because it
+
+769
+00:42:03,200 --> 00:42:12,240
+does not try to go through it okay so
+
+770
+00:42:08,000 --> 00:42:15,119
+that's that kind of validate what I was
+
+771
+00:42:12,240 --> 00:42:18,560
+saying about how even if you want to
+
+772
+00:42:15,119 --> 00:42:22,160
+find the length of a list. It it's pro
+
+773
+00:42:18,560 --> 00:42:25,280
+it takes proportionally longer time
+
+774
+00:42:22,160 --> 00:42:27,680
+proportional to the length of items in
+
+775
+00:42:25,280 --> 00:42:30,640
+the list. Okay.
+
+776
+00:42:27,680 --> 00:42:33,040
+Um okay, that's it. Let's let's get back
+
+777
+00:42:30,640 --> 00:42:35,760
+to the
+
+778
+00:42:33,040 --> 00:42:37,680
+uh let's put it back. Syntax collect
+
+779
+00:42:35,760 --> 00:42:39,440
+show in browser. So that's what we
+
+780
+00:42:37,680 --> 00:42:42,720
+talked about.
+
+781
+00:42:39,440 --> 00:42:45,440
+Let's let's go back to that command.
+
+782
+00:42:42,720 --> 00:42:48,720
+Let's just get it done. Uh, it's almost
+
+783
+00:42:45,440 --> 00:42:50,880
+done. So, [clears throat]
+
+784
+00:42:48,720 --> 00:42:54,200
+let me quickly code it. Okay. Any any
+
+785
+00:42:50,880 --> 00:42:54,200
+other questions.
+
+786
+00:43:01,280 --> 00:43:06,800
+Okay. So, do we still have people? 10
+
+787
+00:43:04,079 --> 00:43:09,119
+people. Great. Okay. So let's get back
+
+788
+00:43:06,800 --> 00:43:11,280
+to uh
+
+789
+00:43:09,119 --> 00:43:14,560
+write the code that moves the current
+
+790
+00:43:11,280 --> 00:43:18,920
+file or selected files up to a parent
+
+791
+00:43:14,560 --> 00:43:18,920
+directory. Okay. So
+
+792
+00:43:23,040 --> 00:43:31,760
+so map a function map to map a lambda to
+
+793
+00:43:29,520 --> 00:43:35,040
+list of
+
+794
+00:43:31,760 --> 00:43:40,319
+files. And what the what does the lambda
+
+795
+00:43:35,040 --> 00:43:44,079
+do? It will rename the file file name x
+
+796
+00:43:40,319 --> 00:43:47,200
+the new name will be um [clears throat]
+
+797
+00:43:44,079 --> 00:43:49,839
+the new name it will be the same. Okay
+
+798
+00:43:47,200 --> 00:43:52,880
+wait uh wait
+
+799
+00:43:49,839 --> 00:43:56,000
+the new name will be oh god so the new
+
+800
+00:43:52,880 --> 00:43:59,119
+name will be the parent directory minus
+
+801
+00:43:56,000 --> 00:44:01,599
+the current directory. So,
+
+802
+00:43:59,119 --> 00:44:05,520
+okay, it gets a little bit complicated
+
+803
+00:44:01,599 --> 00:44:08,319
+because you have to check if the file
+
+804
+00:44:05,520 --> 00:44:12,000
+actually have a parent directory because
+
+805
+00:44:08,319 --> 00:44:13,839
+you might be on the root. Um,
+
+806
+00:44:12,000 --> 00:44:15,440
+yeah. And then you have to do some error
+
+807
+00:44:13,839 --> 00:44:17,760
+checking.
+
+808
+00:44:15,440 --> 00:44:21,520
+Um,
+
+809
+00:44:17,760 --> 00:44:25,839
+okay. So, something like that. Okay. So,
+
+810
+00:44:21,520 --> 00:44:27,440
+so this part will be something like
+
+811
+00:44:25,839 --> 00:44:30,960
+parent.
+
+812
+00:44:27,440 --> 00:44:33,280
+This this part should be
+
+813
+00:44:30,960 --> 00:44:35,920
+oh path
+
+814
+00:44:33,280 --> 00:44:38,800
+of parent
+
+815
+00:44:35,920 --> 00:44:41,920
+with
+
+816
+00:44:38,800 --> 00:44:44,960
+file name something like that. Okay. And
+
+817
+00:44:41,920 --> 00:44:48,000
+okay if already exist
+
+818
+00:44:44,960 --> 00:44:50,319
+no. Okay. So,
+
+819
+00:44:48,000 --> 00:44:54,440
+so but then you have to check parent
+
+820
+00:44:50,319 --> 00:44:54,440
+directory. Okay. So,
+
+821
+00:44:54,880 --> 00:44:59,839
+oh god.
+
+822
+00:44:57,119 --> 00:45:04,400
+So, this does not check because for
+
+823
+00:44:59,839 --> 00:45:07,599
+example if file name
+
+824
+00:45:04,400 --> 00:45:12,119
+uh so you know instead of using car we
+
+825
+00:45:07,599 --> 00:45:12,119
+should have just used um
+
+826
+00:45:12,880 --> 00:45:18,160
+we don't want to use pop. Yeah, actually
+
+827
+00:45:15,839 --> 00:45:22,720
+we use car.
+
+828
+00:45:18,160 --> 00:45:24,800
+Actually, you can use mth. Um,
+
+829
+00:45:22,720 --> 00:45:28,240
+yeah, but let's not worry about it.
+
+830
+00:45:24,800 --> 00:45:30,240
+Okay, so file name directory. So, if you
+
+831
+00:45:28,240 --> 00:45:34,720
+have, for example, let me show you why
+
+832
+00:45:30,240 --> 00:45:41,200
+this may not work. ABC AB, let's say you
+
+833
+00:45:34,720 --> 00:45:44,560
+have the directory ABC. Okay, ABC and uh
+
+834
+00:45:41,200 --> 00:45:49,760
+my cat JPEG. Okay, let's say your file.
+
+835
+00:45:44,560 --> 00:45:52,800
+So that will return ABC do it.
+
+836
+00:45:49,760 --> 00:45:55,599
+Okay. But if you are at the root
+
+837
+00:45:52,800 --> 00:45:57,680
+directory
+
+838
+00:45:55,599 --> 00:45:59,760
+you know like that
+
+839
+00:45:57,680 --> 00:46:03,920
+it will
+
+840
+00:45:59,760 --> 00:46:07,920
+uh wait what
+
+841
+00:46:03,920 --> 00:46:11,359
+run it. It will return the slash
+
+842
+00:46:07,920 --> 00:46:14,640
+because there is no parent directory. So
+
+843
+00:46:11,359 --> 00:46:16,720
+what this means is that you are the
+
+844
+00:46:14,640 --> 00:46:19,040
+result of this is not the parent
+
+845
+00:46:16,720 --> 00:46:21,520
+directory because in the ca in this case
+
+846
+00:46:19,040 --> 00:46:24,800
+there's no parent directory.
+
+847
+00:46:21,520 --> 00:46:27,680
+So when you do this this this name is
+
+848
+00:46:24,800 --> 00:46:30,079
+actually incorrect.
+
+849
+00:46:27,680 --> 00:46:32,160
+It is not necessarily parent directory.
+
+850
+00:46:30,079 --> 00:46:34,640
+So you cannot just move it like you know
+
+851
+00:46:32,160 --> 00:46:39,280
+parent directory here.
+
+852
+00:46:34,640 --> 00:46:44,760
+You know you'll get errors. Um
+
+853
+00:46:39,280 --> 00:46:44,760
+so we have to do some error checking. Uh
+
+854
+00:46:45,359 --> 00:46:48,359
+God
+
+855
+00:46:49,760 --> 00:46:55,520
+but let's assume
+
+856
+00:46:52,960 --> 00:46:59,359
+you know so what happens if you rename
+
+857
+00:46:55,520 --> 00:47:02,560
+file to the same directory
+
+858
+00:46:59,359 --> 00:47:06,119
+let yeah so let's let's skip the error
+
+859
+00:47:02,560 --> 00:47:06,119
+checking. Okay.
+
+860
+00:47:06,240 --> 00:47:12,000
+So,
+
+861
+00:47:08,240 --> 00:47:14,640
+so the second argument will be let's
+
+862
+00:47:12,000 --> 00:47:19,119
+let's create this second argument. Okay.
+
+863
+00:47:14,640 --> 00:47:23,960
+So, the second argument will be
+
+864
+00:47:19,119 --> 00:47:23,960
+uh let's let's just copy the code
+
+865
+00:47:24,720 --> 00:47:34,480
+uh file name file name sense the
+
+866
+00:47:30,480 --> 00:47:39,119
+file name sense directory. Okay, wait.
+
+867
+00:47:34,480 --> 00:47:42,160
+File sense directory. Uh, file name none
+
+868
+00:47:39,119 --> 00:47:46,560
+directory. What the what the is the
+
+869
+00:47:42,160 --> 00:47:51,440
+command? So, let's go back to the we are
+
+870
+00:47:46,560 --> 00:47:54,160
+coding too slow today. Uh,
+
+871
+00:47:51,440 --> 00:47:57,920
+so let's go back to the what is this
+
+872
+00:47:54,160 --> 00:48:04,599
+modify? Let's go back to
+
+873
+00:47:57,920 --> 00:48:04,599
+um Vmac this file path
+
+874
+00:48:06,079 --> 00:48:12,319
+buffer functions
+
+875
+00:48:08,960 --> 00:48:14,800
+file path functions file name non
+
+876
+00:48:12,319 --> 00:48:17,920
+directory file name directory file name
+
+877
+00:48:14,800 --> 00:48:21,200
+n directory oh yeah file name none
+
+878
+00:48:17,920 --> 00:48:24,480
+directory stupid eac list this name you
+
+879
+00:48:21,200 --> 00:48:28,720
+know what this should be
+
+880
+00:48:24,480 --> 00:48:30,240
+It should be none dash directory none-
+
+881
+00:48:28,720 --> 00:48:32,720
+directory
+
+882
+00:48:30,240 --> 00:48:35,920
+but emac you know so that's like a
+
+883
+00:48:32,720 --> 00:48:38,480
+naming issue anyway
+
+884
+00:48:35,920 --> 00:48:40,800
+okay so file name none directory so that
+
+885
+00:48:38,480 --> 00:48:44,319
+returns the file name so file name none
+
+886
+00:48:40,800 --> 00:48:48,440
+directory uh that would be
+
+887
+00:48:44,319 --> 00:48:48,440
+uh let's just make this
+
+888
+00:48:49,839 --> 00:48:58,280
+first x first file okay so the First
+
+889
+00:48:54,400 --> 00:48:58,280
+file made
+
+890
+00:49:01,200 --> 00:49:05,720
+first file. Okay. So
+
+891
+00:49:08,559 --> 00:49:12,520
+set first file
+
+892
+00:49:14,400 --> 00:49:20,160
+car. Okay. So now you got the first
+
+893
+00:49:17,359 --> 00:49:23,359
+file, you got parent directory, and uh
+
+894
+00:49:20,160 --> 00:49:28,319
+then you got then then then
+
+895
+00:49:23,359 --> 00:49:32,800
+let's move that out here. Then you got
+
+896
+00:49:28,319 --> 00:49:36,400
+um the first file current directory.
+
+897
+00:49:32,800 --> 00:49:39,520
+Then you uh file name
+
+898
+00:49:36,400 --> 00:49:43,839
+directory. Okay.
+
+899
+00:49:39,520 --> 00:49:46,960
+Then you want the file name. Okay.
+
+900
+00:49:43,839 --> 00:49:54,200
+file name directory.
+
+901
+00:49:46,960 --> 00:49:54,200
+Okay. So anyway, oh yeah, here. So um
+
+902
+00:49:56,079 --> 00:50:00,920
+concat parent directory.
+
+903
+00:50:01,119 --> 00:50:07,559
+Uh how do we get this move to parent
+
+904
+00:50:03,760 --> 00:50:07,559
+directory? So
+
+905
+00:50:13,440 --> 00:50:16,440
+what?
+
+906
+00:50:17,440 --> 00:50:22,480
+Oh, so this is actually not the parent
+
+907
+00:50:19,920 --> 00:50:24,880
+directory. This is a current. So we got
+
+908
+00:50:22,480 --> 00:50:28,200
+do this twice.
+
+909
+00:50:24,880 --> 00:50:28,200
+Oh god.
+
+910
+00:50:34,400 --> 00:50:41,400
+Okay, let's let's just do it. Let's do
+
+911
+00:50:36,800 --> 00:50:41,400
+it. Okay, so don't worry.
+
+912
+00:50:56,319 --> 00:51:04,079
+Okay. Current parent. So this is a
+
+913
+00:50:59,200 --> 00:51:08,240
+current uh and parent uh will be
+
+914
+00:51:04,079 --> 00:51:13,040
+the directory of the current.
+
+915
+00:51:08,240 --> 00:51:16,520
+Okay. So, and uh this
+
+916
+00:51:13,040 --> 00:51:16,520
+uh let's just
+
+917
+00:51:19,200 --> 00:51:25,040
+print
+
+918
+00:51:21,119 --> 00:51:28,839
+and uh what god
+
+919
+00:51:25,040 --> 00:51:28,839
+and x print.
+
+920
+00:51:29,599 --> 00:51:36,520
+Okay, print current and print current.
+
+921
+00:51:32,079 --> 00:51:36,520
+Okay, let's just run it.
+
+922
+00:51:36,640 --> 00:51:45,119
+Okay. So, evaluate the buffer. Evaluate
+
+923
+00:51:39,760 --> 00:51:46,960
+the buffer and go to the diode mark. We
+
+924
+00:51:45,119 --> 00:51:51,839
+don't don't need to mark call the
+
+925
+00:51:46,960 --> 00:51:55,040
+command. Do it. Show message buffer. So,
+
+926
+00:51:51,839 --> 00:51:58,880
+current is equals to the temp. That's
+
+927
+00:51:55,040 --> 00:52:01,760
+correct. Parender is incorrect.
+
+928
+00:51:58,880 --> 00:52:07,000
+Okay. So, the parent this our code is
+
+929
+00:52:01,760 --> 00:52:07,000
+incorrect. So parent is the
+
+930
+00:52:08,720 --> 00:52:15,680
+Oh god. So this file name directory does
+
+931
+00:52:11,680 --> 00:52:17,599
+not remove it. Oh god.
+
+932
+00:52:15,680 --> 00:52:19,520
+Jesus.
+
+933
+00:52:17,599 --> 00:52:22,640
+So
+
+934
+00:52:19,520 --> 00:52:25,200
+do we actually have a parent directory?
+
+935
+00:52:22,640 --> 00:52:27,119
+File name. Oh, there's a function file
+
+936
+00:52:25,200 --> 00:52:30,119
+name parent directory. I've never used
+
+937
+00:52:27,119 --> 00:52:30,119
+it.
+
+938
+00:52:30,800 --> 00:52:35,920
+It's interesting. I never used this
+
+939
+00:52:32,720 --> 00:52:40,559
+command. Let's look up. Okay, I think
+
+940
+00:52:35,920 --> 00:52:48,319
+it's new. Is it new? No, it's in EMAC
+
+941
+00:52:40,559 --> 00:52:51,520
+29. That's like 10 years ago. Okay, so
+
+942
+00:52:48,319 --> 00:52:54,520
+cut. Okay, so file name parent
+
+943
+00:52:51,520 --> 00:52:54,520
+directory.
+
+944
+00:52:55,200 --> 00:53:01,599
+Okay, so file name parent directory. Uh
+
+945
+00:52:59,040 --> 00:53:04,800
+first file. Okay,
+
+946
+00:53:01,599 --> 00:53:06,960
+evaluate the buffer. Go to a diet call
+
+947
+00:53:04,800 --> 00:53:11,520
+the command. Do it. Go to messageages
+
+948
+00:53:06,960 --> 00:53:16,599
+buffer and look. So current is temp and
+
+949
+00:53:11,520 --> 00:53:16,599
+parent is incorrect.
+
+950
+00:53:16,880 --> 00:53:22,000
+Jesus.
+
+951
+00:53:18,960 --> 00:53:24,319
+So parent file name return directory
+
+952
+00:53:22,000 --> 00:53:26,800
+name of the parent directory of file
+
+953
+00:53:24,319 --> 00:53:29,200
+name.
+
+954
+00:53:26,800 --> 00:53:33,800
+Okay. So
+
+955
+00:53:29,200 --> 00:53:33,800
+yeah. So you got the issue. So
+
+956
+00:53:34,720 --> 00:53:43,040
+stupid Okay, I I think I know what
+
+957
+00:53:38,960 --> 00:53:46,640
+to do. Okay, so let's fix it again. So
+
+958
+00:53:43,040 --> 00:53:50,800
+parent this part should be current.
+
+959
+00:53:46,640 --> 00:53:54,319
+Okay, evaluate the buffer. Go to diet.
+
+960
+00:53:50,800 --> 00:53:57,680
+Call the command. Do it. Go to messages
+
+961
+00:53:54,319 --> 00:54:00,160
+buffer. So let's look at there it is. So
+
+962
+00:53:57,680 --> 00:54:03,160
+now it's correct parent.
+
+963
+00:54:00,160 --> 00:54:03,160
+Okay.
+
+964
+00:54:09,200 --> 00:54:14,960
+Uh what's your question
+
+965
+00:54:12,079 --> 00:54:18,640
+ACPJR?
+
+966
+00:54:14,960 --> 00:54:21,119
+So I think we we we we did what you know
+
+967
+00:54:18,640 --> 00:54:25,839
+what you are saying. I think we did.
+
+968
+00:54:21,119 --> 00:54:28,400
+Okay. So this is good. Um so now so now
+
+969
+00:54:25,839 --> 00:54:31,040
+this is correct. We made sure we got the
+
+970
+00:54:28,400 --> 00:54:34,880
+parent directory. Now let's let's do the
+
+971
+00:54:31,040 --> 00:54:38,160
+actual rename. Okay. So rename file
+
+972
+00:54:34,880 --> 00:54:41,839
+rename the current file map you know map
+
+973
+00:54:38,160 --> 00:54:46,960
+to all the files. So okay then you start
+
+974
+00:54:41,839 --> 00:54:52,240
+by rename it. Then then you want contact
+
+975
+00:54:46,960 --> 00:54:56,319
+the parent x parent directory.
+
+976
+00:54:52,240 --> 00:54:58,400
+Uh yeah. Yes. Did we get the slash? Yes,
+
+977
+00:54:56,319 --> 00:55:00,160
+we do have a slash. So, the parent
+
+978
+00:54:58,400 --> 00:55:04,800
+directory
+
+979
+00:55:00,160 --> 00:55:07,800
+then file name. Okay. Then file name.
+
+980
+00:55:04,800 --> 00:55:07,800
+Um,
+
+981
+00:55:07,920 --> 00:55:13,119
+yeah. Okay.
+
+982
+00:55:09,920 --> 00:55:16,319
+So, the parent directory uh then file
+
+983
+00:55:13,119 --> 00:55:20,280
+name none directory
+
+984
+00:55:16,319 --> 00:55:20,280
+first file. Okay.
+
+985
+00:55:20,720 --> 00:55:24,640
+Uh, wait. That's the file name n
+
+986
+00:55:22,800 --> 00:55:27,839
+directory. That's x. That's the current
+
+987
+00:55:24,640 --> 00:55:30,319
+file. Okay. So remove that.
+
+988
+00:55:27,839 --> 00:55:34,079
+So that
+
+989
+00:55:30,319 --> 00:55:36,640
+okay. So wait rename file that that and
+
+990
+00:55:34,079 --> 00:55:38,480
+we and what is his file name? N
+
+991
+00:55:36,640 --> 00:55:43,440
+directory.
+
+992
+00:55:38,480 --> 00:55:46,839
+Uh no no I think that's it. Okay. I
+
+993
+00:55:43,440 --> 00:55:46,839
+think that's it.
+
+994
+00:55:48,079 --> 00:55:55,603
+Yeah. File new name. Okay. If it exists.
+
+995
+00:55:51,520 --> 00:55:57,440
+No. Okay. So I think that's it.
+
+996
+00:55:55,603 --> 00:56:00,559
+>> [laughter]
+
+997
+00:55:57,440 --> 00:56:04,400
+>> map lambda. So, I've been coding too
+
+998
+00:56:00,559 --> 00:56:07,760
+slow today. Uh, and my back is now
+
+999
+00:56:04,400 --> 00:56:10,799
+starting to hurt. I think that's it.
+
+1000
+00:56:07,760 --> 00:56:14,319
+Conc parent. Let's check one last time.
+
+1001
+00:56:10,799 --> 00:56:19,520
+Okay. Conc rename file. the current file
+
+1002
+00:56:14,319 --> 00:56:23,040
+X2 a full path and the full path is made
+
+1003
+00:56:19,520 --> 00:56:27,280
+of conc concatenating the parent
+
+1004
+00:56:23,040 --> 00:56:29,040
+directory with the current file name.
+
+1005
+00:56:27,280 --> 00:56:30,559
+That's right. Okay, I think that's it.
+
+1006
+00:56:29,040 --> 00:56:34,640
+So,
+
+1007
+00:56:30,559 --> 00:56:38,559
+so evaluate the buffer. Okay, now let's
+
+1008
+00:56:34,640 --> 00:56:43,359
+let's um let's do it here. Can we do it
+
+1009
+00:56:38,559 --> 00:56:47,280
+here? Let's not do it here. So,
+
+1010
+00:56:43,359 --> 00:56:51,359
+so evaluate it. Put the code back.
+
+1011
+00:56:47,280 --> 00:56:54,160
+Syntax correct show in browser. We got a
+
+1012
+00:56:51,359 --> 00:56:56,480
+code here. Okay. Now, go to the
+
+1013
+00:56:54,160 --> 00:56:59,200
+directory here. Let's do it here. Okay.
+
+1014
+00:56:56,480 --> 00:57:02,799
+Now, let's
+
+1015
+00:56:59,200 --> 00:57:07,599
+So, let's move this picture to the
+
+1016
+00:57:02,799 --> 00:57:10,480
+parent directory. Okay. So,
+
+1017
+00:57:07,599 --> 00:57:14,400
+uh, wait, actually, let's move this
+
+1018
+00:57:10,480 --> 00:57:21,480
+file, AI morality, which is some podcast
+
+1019
+00:57:14,400 --> 00:57:21,480
+I did several month ago. Okay, so wait,
+
+1020
+00:57:23,440 --> 00:57:29,440
+close. So, let's move this file to the
+
+1021
+00:57:26,160 --> 00:57:32,240
+parent directory. Okay, so coette,
+
+1022
+00:57:29,440 --> 00:57:37,359
+make sure the cruiser is on this line,
+
+1023
+00:57:32,240 --> 00:57:41,119
+right? Call it move to parent. Do it.
+
+1024
+00:57:37,359 --> 00:57:43,440
+Looks like it's done. Now refresh. Oh,
+
+1025
+00:57:41,119 --> 00:57:47,680
+it's gone. Fantastic. Now go to the
+
+1026
+00:57:43,440 --> 00:57:50,480
+parent directory. Search for morality.
+
+1027
+00:57:47,680 --> 00:57:54,640
+There it is. Fantastic. We can we you
+
+1028
+00:57:50,480 --> 00:57:58,240
+know we we did it. And now let's move it
+
+1029
+00:57:54,640 --> 00:58:02,559
+back. Search for talk.
+
+1030
+00:57:58,240 --> 00:58:06,720
+Okay. Capital R to move it back. back
+
+1031
+00:58:02,559 --> 00:58:09,520
+here. It's here. Refresh there. Okay.
+
+1032
+00:58:06,720 --> 00:58:11,359
+So, actually, so this command is
+
+1033
+00:58:09,520 --> 00:58:14,960
+success.
+
+1034
+00:58:11,359 --> 00:58:17,359
+Actually, we need to um do extra
+
+1035
+00:58:14,960 --> 00:58:20,880
+checking to make sure there exist a
+
+1036
+00:58:17,359 --> 00:58:23,520
+parent directory. Uh and also print out
+
+1037
+00:58:20,880 --> 00:58:25,680
+some messages about
+
+1038
+00:58:23,520 --> 00:58:27,280
+about the parent directory. It's moved
+
+1039
+00:58:25,680 --> 00:58:31,440
+to.
+
+1040
+00:58:27,280 --> 00:58:34,240
+So, but okay. But I'm tired.
+
+1041
+00:58:31,440 --> 00:58:36,559
+Is it good? That's it for today. Thank
+
+1042
+00:58:34,240 --> 00:58:39,680
+you guys for watching.
+
+1043
+00:58:36,559 --> 00:58:42,400
+Any questions? So, we shut down in let's
+
+1044
+00:58:39,680 --> 00:58:45,280
+say three two minutes. Okay. It's
+
+1045
+00:58:42,400 --> 00:58:47,040
+annoying thing.
+
+1046
+00:58:45,280 --> 00:58:51,040
+I think there's a function to get the
+
+1047
+00:58:47,040 --> 00:58:55,599
+current in diode. No need to get the
+
+1048
+00:58:51,040 --> 00:58:59,119
+current of the first mark fire. Okay.
+
+1049
+00:58:55,599 --> 00:59:01,440
+Yeah. I mean, even it's true. It doesn't
+
+1050
+00:58:59,119 --> 00:59:03,680
+doesn't make doesn't make sense because
+
+1051
+00:59:01,440 --> 00:59:06,559
+actually when you call things in diet
+
+1052
+00:59:03,680 --> 00:59:09,440
+it's more inefficient. I mean it's more
+
+1053
+00:59:06,559 --> 00:59:13,119
+code because diet is specialized.
+
+1054
+00:59:09,440 --> 00:59:16,160
+Meanwhile when you call the um
+
+1055
+00:59:13,119 --> 00:59:19,839
+get parent directory let's say file name
+
+1056
+00:59:16,160 --> 00:59:23,119
+get directory that just um
+
+1057
+00:59:19,839 --> 00:59:26,160
+you know car is is is very efficient. Um
+
+1058
+00:59:23,119 --> 00:59:30,480
+but but actually we don't need this. We
+
+1059
+00:59:26,160 --> 00:59:32,480
+can compact this code a lot. So, uh
+
+1060
+00:59:30,480 --> 00:59:36,119
+yeah. So, we don't need the first file.
+
+1061
+00:59:32,480 --> 00:59:36,119
+I'll delete it.
+
+1062
+00:59:36,960 --> 00:59:41,920
+Then, let's just remove the variables.
+
+1063
+00:59:39,359 --> 00:59:46,166
+Okay. And we don't even need the current
+
+1064
+00:59:41,920 --> 00:59:48,186
+uh let's see. Okay. Delete those.
+
+1065
+00:59:46,166 --> 00:59:48,186
+[laughter]
+
+1066
+00:59:48,960 --> 00:59:55,920
+Yeah. So, current uh we don't need it.
+
+1067
+00:59:52,240 --> 00:59:58,640
+Yeah. It's It's nice to have them there.
+
+1068
+00:59:55,920 --> 01:00:02,079
+So that it doesn't so that it's you know
+
+1069
+00:59:58,640 --> 01:00:04,319
+it's easier reading because you can you
+
+1070
+01:00:02,079 --> 01:00:08,319
+can compact the whole thing into one
+
+1071
+01:00:04,319 --> 01:00:11,599
+single line without any variables. You
+
+1072
+01:00:08,319 --> 01:00:13,839
+can do that and still remain efficient
+
+1073
+01:00:11,599 --> 01:00:17,760
+but then the code becomes less readable
+
+1074
+01:00:13,839 --> 01:00:19,440
+because that because I'm obsessed in
+
+1075
+01:00:17,760 --> 01:00:23,040
+doing that because that's pure
+
+1076
+01:00:19,440 --> 01:00:25,440
+functional style in a way that you don't
+
+1077
+01:00:23,040 --> 01:00:28,000
+even have constants you know I used to
+
+1078
+01:00:25,440 --> 01:00:30,400
+do that to do that a lot in wuam
+
+1079
+01:00:28,000 --> 01:00:33,920
+language in the 1990s
+
+1080
+01:00:30,400 --> 01:00:36,960
+so no use of constant or any variable at
+
+1081
+01:00:33,920 --> 01:00:40,640
+all not even constants so what you end
+
+1082
+01:00:36,960 --> 01:00:43,920
+up is just like one
+
+1083
+01:00:40,640 --> 01:00:47,040
+huge kind of sequential or nested
+
+1084
+01:00:43,920 --> 01:00:50,160
+function call okay with one argument at
+
+1085
+01:00:47,040 --> 01:00:52,400
+the end you know this you know so it's
+
+1086
+01:00:50,160 --> 01:00:56,079
+like transformation it's all just
+
+1087
+01:00:52,400 --> 01:00:58,319
+transformation of one single value you
+
+1088
+01:00:56,079 --> 01:01:00,799
+can do that right here you know actually
+
+1089
+01:00:58,319 --> 01:01:03,280
+I can show you I can try to I can show
+
+1090
+01:01:00,799 --> 01:01:07,839
+you how to do it so you don't you don't
+
+1091
+01:01:03,280 --> 01:01:10,319
+have any variables at all but the The
+
+1092
+01:01:07,839 --> 01:01:12,880
+it's kind of elegant but the problem is
+
+1093
+01:01:10,319 --> 01:01:15,440
+it's not practical because then because
+
+1094
+01:01:12,880 --> 01:01:18,240
+these variables the these constants they
+
+1095
+01:01:15,440 --> 01:01:19,839
+help they actually serve as a
+
+1096
+01:01:18,240 --> 01:01:22,400
+documentation.
+
+1097
+01:01:19,839 --> 01:01:24,559
+You see these these variables they serve
+
+1098
+01:01:22,400 --> 01:01:28,720
+as a documentation as you can you know
+
+1099
+01:01:24,559 --> 01:01:31,280
+as you read it. Um you know
+
+1100
+01:01:28,720 --> 01:01:34,079
+but we can you know let's say let's put
+
+1101
+01:01:31,280 --> 01:01:36,160
+it here. So we can let's try some fun.
+
+1102
+01:01:34,079 --> 01:01:38,799
+Okay, let's you know let's try some
+
+1103
+01:01:36,160 --> 01:01:41,839
+variation. So let me show you. So here
+
+1104
+01:01:38,799 --> 01:01:46,400
+is original and we just made a copy and
+
+1105
+01:01:41,839 --> 01:01:49,680
+let let me try to uh so first step to
+
+1106
+01:01:46,400 --> 01:01:53,119
+make the code more kind of compact is
+
+1107
+01:01:49,680 --> 01:01:56,079
+use less star. Okay wait
+
+1108
+01:01:53,119 --> 01:02:00,640
+uh less star. Okay. So that will allow
+
+1109
+01:01:56,079 --> 01:02:03,280
+you to set subsequent
+
+1110
+01:02:00,640 --> 01:02:05,520
+values
+
+1111
+01:02:03,280 --> 01:02:09,040
+using the previous value. You see
+
+1112
+01:02:05,520 --> 01:02:12,000
+because X files is used here and we are
+
+1113
+01:02:09,040 --> 01:02:15,040
+using here again. If you use the normal
+
+1114
+01:02:12,000 --> 01:02:16,640
+let that won't work because the later
+
+1115
+01:02:15,040 --> 01:02:19,680
+variables
+
+1116
+01:02:16,640 --> 01:02:22,160
+do not have access to the value of the
+
+1117
+01:02:19,680 --> 01:02:24,480
+previous variables.
+
+1118
+01:02:22,160 --> 01:02:28,000
+So if you want that you want to use lead
+
+1119
+01:02:24,480 --> 01:02:30,640
+star. So now we can so and in fact we
+
+1120
+01:02:28,000 --> 01:02:32,559
+don't need this uh we can move this
+
+1121
+01:02:30,640 --> 01:02:35,119
+here.
+
+1122
+01:02:32,559 --> 01:02:39,760
+Okay. So they all become inside the
+
+1123
+01:02:35,119 --> 01:02:42,400
+lead. Okay. So this is kind of more ed
+
+1124
+01:02:39,760 --> 01:02:45,920
+idiomatic. Okay. So you can you can
+
+1125
+01:02:42,400 --> 01:02:49,359
+compare you can see uh it's more
+
+1126
+01:02:45,920 --> 01:02:51,920
+compact. Okay. But we can further
+
+1127
+01:02:49,359 --> 01:02:55,280
+reduce. Okay. Let let's for fun let's uh
+
+1128
+01:02:51,920 --> 01:02:57,760
+let's do this. Okay,
+
+1129
+01:02:55,280 --> 01:03:00,319
+so we we want to remove all variables.
+
+1130
+01:02:57,760 --> 01:03:02,799
+Let's see. Actually, maybe I shouldn't
+
+1131
+01:03:00,319 --> 01:03:04,640
+because I'm already tired.
+
+1132
+01:03:02,799 --> 01:03:08,720
+Uh
+
+1133
+01:03:04,640 --> 01:03:11,359
+thank you. Take care, Balash.
+
+1134
+01:03:08,720 --> 01:03:14,799
+Okay, so uh let me try try a little bit.
+
+1135
+01:03:11,359 --> 01:03:18,880
+Okay. So, um,
+
+1136
+01:03:14,799 --> 01:03:20,799
+so this current is only used once. So,
+
+1137
+01:03:18,880 --> 01:03:22,880
+we don't need it. You know, actually, we
+
+1138
+01:03:20,799 --> 01:03:28,000
+don't need this variable. It's only used
+
+1139
+01:03:22,880 --> 01:03:31,520
+once. Okay. So, so put that there.
+
+1140
+01:03:28,000 --> 01:03:35,200
+Remove that. Okay. Now, it's now just
+
+1141
+01:03:31,520 --> 01:03:38,000
+two constants. Okay. X files and parent.
+
+1142
+01:03:35,200 --> 01:03:42,240
+And parent is only used once here. So,
+
+1143
+01:03:38,000 --> 01:03:44,799
+you don't even need it. So [laughter]
+
+1144
+01:03:42,240 --> 01:03:47,440
+parent is only used once. When it's used
+
+1145
+01:03:44,799 --> 01:03:50,440
+once, you don't you know you don't need
+
+1146
+01:03:47,440 --> 01:03:50,440
+it.
+
+1147
+01:03:50,960 --> 01:03:56,640
+Okay. And here now it become too long.
+
+1148
+01:03:54,480 --> 01:03:58,799
+So you format it in multiple lines. So
+
+1149
+01:03:56,640 --> 01:04:02,559
+there. So now you don't need the less
+
+1150
+01:03:58,799 --> 01:04:05,039
+stars anymore. Just one file.
+
+1151
+01:04:02,559 --> 01:04:08,319
+Okay. Now
+
+1152
+01:04:05,039 --> 01:04:10,960
+yeah, this is good. So this I would do
+
+1153
+01:04:08,319 --> 01:04:14,640
+this. Okay. So this this will go to my
+
+1154
+01:04:10,960 --> 01:04:19,839
+init file. So for example go to my a
+
+1155
+01:04:14,640 --> 01:04:22,960
+brief file go to a directory and for now
+
+1156
+01:04:19,839 --> 01:04:27,280
+search for miscellaneous go to the open
+
+1157
+01:04:22,960 --> 01:04:30,240
+the miscellaneous file and uh add it at
+
+1158
+01:04:27,280 --> 01:04:34,079
+the end. So this this is now part of my
+
+1159
+01:04:30,240 --> 01:04:37,440
+emacs in it have done today. You know I
+
+1160
+01:04:34,079 --> 01:04:39,680
+have this command move to parent.
+
+1161
+01:04:37,440 --> 01:04:44,640
+So I don't have to manually split the
+
+1162
+01:04:39,680 --> 01:04:46,559
+window and uh press capital R then check
+
+1163
+01:04:44,640 --> 01:04:49,039
+what it says do you want to move this
+
+1164
+01:04:46,559 --> 01:04:51,359
+directory are you sure this is the one
+
+1165
+01:04:49,039 --> 01:04:54,559
+you know I don't have to I just call the
+
+1166
+01:04:51,359 --> 01:04:56,880
+command you I can give it a key press it
+
+1167
+01:04:54,559 --> 01:05:00,799
+two or three keys and you just do it
+
+1168
+01:04:56,880 --> 01:05:02,880
+okay fantastic that's today's result and
+
+1169
+01:05:00,799 --> 01:05:05,119
+there's one more thing you see this non
+
+1170
+01:05:02,880 --> 01:05:10,079
+uh anyway let's forget about that okay
+
+1171
+01:05:05,119 --> 01:05:13,440
+so save it go to directory. Go uh make a
+
+1172
+01:05:10,079 --> 01:05:15,920
+backup. Go to directory B4 by compile.
+
+1173
+01:05:13,440 --> 01:05:19,039
+Yes. Is there error? No arrow.
+
+1174
+01:05:15,920 --> 01:05:23,119
+Fantastic. Okay. Now that's good. Now
+
+1175
+01:05:19,039 --> 01:05:27,760
+close close. Now let me show you a new
+
+1176
+01:05:23,119 --> 01:05:30,640
+way. Okay. So let's further. So this so
+
+1177
+01:05:27,760 --> 01:05:33,520
+what we are doing is like the science of
+
+1178
+01:05:30,640 --> 01:05:35,520
+functional programming supreme.
+
+1179
+01:05:33,520 --> 01:05:37,440
+You don't even see the lispers do it
+
+1180
+01:05:35,520 --> 01:05:39,920
+because I've been coding wufam language
+
+1181
+01:05:37,440 --> 01:05:43,440
+for like
+
+1182
+01:05:39,920 --> 01:05:48,000
+you know like 10 years in the 1990s
+
+1183
+01:05:43,440 --> 01:05:51,440
+alone. So uh so the question here is how
+
+1184
+01:05:48,000 --> 01:05:53,920
+do you move this how do you remove this
+
+1185
+01:05:51,440 --> 01:05:56,640
+x files variable
+
+1186
+01:05:53,920 --> 01:05:59,920
+without becoming inefficient.
+
+1187
+01:05:56,640 --> 01:06:03,280
+Okay one easy way is you just duplicate
+
+1188
+01:05:59,920 --> 01:06:06,640
+it. Okay. So you see so we are uh we
+
+1189
+01:06:03,280 --> 01:06:10,799
+made a copy. So we have like you know
+
+1190
+01:06:06,640 --> 01:06:13,039
+the original version then the more
+
+1191
+01:06:10,799 --> 01:06:16,640
+compact version
+
+1192
+01:06:13,039 --> 01:06:20,640
+using the lead star instead of let you
+
+1193
+01:06:16,640 --> 01:06:23,599
+know let star then you have the one
+
+1194
+01:06:20,640 --> 01:06:26,640
+single variable one single constant
+
+1195
+01:06:23,599 --> 01:06:29,760
+version but now we're going to remove
+
+1196
+01:06:26,640 --> 01:06:33,039
+that constant. Okay. So one easy way is
+
+1197
+01:06:29,760 --> 01:06:36,799
+simply just um
+
+1198
+01:06:33,039 --> 01:06:39,200
+simply simply just duplicate there
+
+1199
+01:06:36,799 --> 01:06:43,520
+duplicate there and then you don't need
+
+1200
+01:06:39,200 --> 01:06:46,240
+the lead anymore remove it. Okay, there
+
+1201
+01:06:43,520 --> 01:06:49,760
+you don't have any constant at all. But
+
+1202
+01:06:46,240 --> 01:06:52,400
+however this is inefficient
+
+1203
+01:06:49,760 --> 01:06:56,480
+because
+
+1204
+01:06:52,400 --> 01:06:59,760
+because this you see this the diet get
+
+1205
+01:06:56,480 --> 01:07:04,880
+marked file are called twice.
+
+1206
+01:06:59,760 --> 01:07:07,200
+Now what if that function is expensive?
+
+1207
+01:07:04,880 --> 01:07:09,359
+You are being inefficient
+
+1208
+01:07:07,200 --> 01:07:11,599
+because you are call because you are
+
+1209
+01:07:09,359 --> 01:07:15,280
+calling a function twice.
+
+1210
+01:07:11,599 --> 01:07:19,200
+So how do you make that
+
+1211
+01:07:15,280 --> 01:07:20,720
+you know how do you solve this problem
+
+1212
+01:07:19,200 --> 01:07:25,039
+meanwhile
+
+1213
+01:07:20,720 --> 01:07:27,039
+not creating a new constant okay that's
+
+1214
+01:07:25,039 --> 01:07:29,359
+that's that's the thing I'm going to
+
+1215
+01:07:27,039 --> 01:07:31,680
+show you okay so you you create a
+
+1216
+01:07:29,359 --> 01:07:36,039
+function okay so actually can you do
+
+1217
+01:07:31,680 --> 01:07:36,039
+that it's get complicated
+
+1218
+01:07:36,880 --> 01:07:44,640
+let me just do it okay let me quickly do
+
+1219
+01:07:39,440 --> 01:07:46,880
+it so So, so let's make a new copy. So,
+
+1220
+01:07:44,640 --> 01:07:51,599
+we we have progressive, you know,
+
+1221
+01:07:46,880 --> 01:07:54,240
+progressive um advancement. So, so how
+
+1222
+01:07:51,599 --> 01:07:58,000
+do you do this? Okay, so what you can do
+
+1223
+01:07:54,240 --> 01:08:00,240
+is you create a lambda. Okay,
+
+1224
+01:07:58,000 --> 01:08:05,200
+so lambda
+
+1225
+01:08:00,240 --> 01:08:08,200
+then fun. Okay, so let me just show you
+
+1226
+01:08:05,200 --> 01:08:08,200
+fun.
+
+1227
+01:08:09,039 --> 01:08:17,679
+Okay. Fun call fun call
+
+1228
+01:08:13,760 --> 01:08:21,120
+fun call this function lambda and uh the
+
+1229
+01:08:17,679 --> 01:08:23,759
+argument here. Okay. So the argument
+
+1230
+01:08:21,120 --> 01:08:27,199
+will be
+
+1231
+01:08:23,759 --> 01:08:31,120
+this thing. Okay. So let me show you how
+
+1232
+01:08:27,199 --> 01:08:33,839
+to how to do this. Okay. Uh
+
+1233
+01:08:31,120 --> 01:08:37,759
+this is argument. So we don't need that.
+
+1234
+01:08:33,839 --> 01:08:40,560
+Okay. Fun call lambda argument. Okay.
+
+1235
+01:08:37,759 --> 01:08:44,880
+Now the lambda argument let's call this
+
+1236
+01:08:40,560 --> 01:08:49,440
+uh y okay that's the argument so so you
+
+1237
+01:08:44,880 --> 01:08:53,520
+just so now you just cut that yeah cut
+
+1238
+01:08:49,440 --> 01:08:57,520
+that go to the body part
+
+1239
+01:08:53,520 --> 01:08:59,839
+then this will be just y this will be
+
+1240
+01:08:57,520 --> 01:09:01,759
+just y white y
+
+1241
+01:08:59,839 --> 01:09:08,920
+fantastic
+
+1242
+01:09:01,759 --> 01:09:08,920
+okay so this is how this is how you Um
+
+1243
+01:09:09,040 --> 01:09:15,759
+you know you you re you remove any use I
+
+1244
+01:09:13,359 --> 01:09:18,159
+mean you you remove yeah you remove any
+
+1245
+01:09:15,759 --> 01:09:21,679
+use of a
+
+1246
+01:09:18,159 --> 01:09:25,520
+constant or variable. Okay, you can do
+
+1247
+01:09:21,679 --> 01:09:29,040
+it this way, but now it cost the this
+
+1248
+01:09:25,520 --> 01:09:35,000
+function twice which is inefficient
+
+1249
+01:09:29,040 --> 01:09:35,000
+but so you can fix it this way by
+
+1250
+01:09:35,120 --> 01:09:42,400
+by using a lambda. So the lambda
+
+1251
+01:09:39,440 --> 01:09:45,199
+you know you do a function call
+
+1252
+01:09:42,400 --> 01:09:49,199
+of a function lambda and the lambda
+
+1253
+01:09:45,199 --> 01:09:52,480
+takes the argument y y okay and the y so
+
+1254
+01:09:49,199 --> 01:09:52,640
+let's color it color it so the y y y y y
+
+1255
+01:09:52,480 --> 01:09:52,719
+y y y y y y y y y y y y y y y y y y y y
+
+1256
+01:09:52,640 --> 01:09:53,520
+y y y y y y y y y y y y y y y y y y y y
+
+1257
+01:09:52,719 --> 01:09:56,320
+y y y y y y y y y y y y y y y y will
+
+1258
+01:09:53,520 --> 01:10:00,080
+come
+
+1259
+01:09:56,320 --> 01:10:00,239
+what yeah will come into two pl the y y
+
+1260
+01:10:00,080 --> 01:10:00,320
+y y y y y y y y y y y y y y y y y y y y
+
+1261
+01:10:00,239 --> 01:10:00,560
+y y y y y y y y y y y y y y y y y y y y
+
+1262
+01:10:00,320 --> 01:10:03,040
+y y y y y y y y y y y y y y y y y y y
+
+1263
+01:10:00,560 --> 01:10:07,600
+actually here is the argument that's
+
+1264
+01:10:03,040 --> 01:10:12,000
+that will become the y okay and the Y is
+
+1265
+01:10:07,600 --> 01:10:14,880
+computed only once but it's it's fed
+
+1266
+01:10:12,000 --> 01:10:16,560
+into two places. So let's try this.
+
+1267
+01:10:14,880 --> 01:10:22,320
+Okay. Make sure our function still
+
+1268
+01:10:16,560 --> 01:10:25,280
+works. Okay. Evaluate it. Um
+
+1269
+01:10:22,320 --> 01:10:28,480
+put the code back. Syntax show in
+
+1270
+01:10:25,280 --> 01:10:32,400
+browser. Okay. So you got so we see uh
+
+1271
+01:10:28,480 --> 01:10:34,960
+our code. Okay. Now go to the directory.
+
+1272
+01:10:32,400 --> 01:10:37,840
+Now let's say let's try this. Move this
+
+1273
+01:10:34,960 --> 01:10:41,040
+AI morality again. So do it. Move to
+
+1274
+01:10:37,840 --> 01:10:45,040
+parent directory. Do it.
+
+1275
+01:10:41,040 --> 01:10:48,480
+Refresh. Fantastic. It's done. Go to our
+
+1276
+01:10:45,040 --> 01:10:51,280
+directory. Search for morality. There it
+
+1277
+01:10:48,480 --> 01:10:54,400
+is. Okay. Fantastic. So now it's
+
+1278
+01:10:51,280 --> 01:11:01,440
+working. Let's put it back. Search for
+
+1279
+01:10:54,400 --> 01:11:04,239
+talk show. Uh uh. Open it. Move it. Do
+
+1280
+01:11:01,440 --> 01:11:09,520
+it.
+
+1281
+01:11:04,239 --> 01:11:12,840
+Fantastic. Okay, our code is done. So,
+
+1282
+01:11:09,520 --> 01:11:12,840
+bye guys.
+
+1283
+01:11:17,920 --> 01:11:20,920
+Fantastic.
+

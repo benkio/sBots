@@ -1,0 +1,3164 @@
+1
+00:00:20,980 --> 00:00:31,300
+welcome okay now here I am welcome to
+
+2
+00:00:26,029 --> 00:00:31,300
+another episode of exotic show impromptu
+
+3
+00:00:31,480 --> 00:00:38,690
+talk-show extempore today we're gonna
+
+4
+00:00:35,090 --> 00:00:45,890
+talk about a specific topic which is the
+
+5
+00:00:38,690 --> 00:00:48,949
+scourge of HTML XML entities now this is
+
+6
+00:00:45,890 --> 00:00:50,769
+very interesting topic it's related to
+
+7
+00:00:48,949 --> 00:00:55,789
+writing systems
+
+8
+00:00:50,769 --> 00:01:00,260
+human-animal writing systems and human
+
+9
+00:00:55,789 --> 00:01:03,640
+more reading systems and and HTML XML
+
+10
+00:01:00,260 --> 00:01:05,990
+technology and Unicode in symbols
+
+11
+00:01:03,640 --> 00:01:12,470
+symbology you know the meaning of
+
+12
+00:01:05,990 --> 00:01:15,310
+symbols so here are the entities let me
+
+13
+00:01:12,470 --> 00:01:17,990
+explain what is entities entities is
+
+14
+00:01:15,310 --> 00:01:20,000
+okay let me explain so you have these
+
+15
+00:01:17,990 --> 00:01:26,030
+characters right these are you know
+
+16
+00:01:20,000 --> 00:01:29,239
+asking ABCD efg all these symbols now
+
+17
+00:01:26,030 --> 00:01:31,399
+before you know in the 1990s you know
+
+18
+00:01:29,239 --> 00:01:33,649
+you you cannot type these symbols
+
+19
+00:01:31,399 --> 00:01:36,649
+directly because you know Unicode is not
+
+20
+00:01:33,649 --> 00:01:39,920
+popular yet so instead you have these
+
+21
+00:01:36,649 --> 00:01:44,270
+so-called entities so in order to type
+
+22
+00:01:39,920 --> 00:01:49,129
+this character for example the inverted
+
+23
+00:01:44,270 --> 00:01:54,110
+exclamation mark you can you know eight
+
+24
+00:01:49,129 --> 00:01:58,879
+you know XHTML file for example this is
+
+25
+00:01:54,110 --> 00:02:04,879
+my HTML file so you let's say you type
+
+26
+00:01:58,879 --> 00:02:10,039
+this okay so I II xcl so you type a
+
+27
+00:02:04,879 --> 00:02:15,140
+ampersand let me magnify I am percent
+
+28
+00:02:10,039 --> 00:02:20,390
+ten percent then that okay like this
+
+29
+00:02:15,140 --> 00:02:24,040
+okay and you show in browser you can see
+
+30
+00:02:20,390 --> 00:02:31,960
+here you see this line that's the
+
+31
+00:02:24,040 --> 00:02:36,260
+exclamation inverted exclamation okay so
+
+32
+00:02:31,960 --> 00:02:41,300
+yes I'm explaining entities so entities
+
+33
+00:02:36,260 --> 00:02:43,550
+allows you to type a character without
+
+34
+00:02:41,300 --> 00:02:49,400
+actually typing the character you type a
+
+35
+00:02:43,550 --> 00:02:53,510
+kind of a coded string to represent a
+
+36
+00:02:49,400 --> 00:02:55,640
+character so so in the night you know
+
+37
+00:02:53,510 --> 00:03:00,160
+you know HTML entities you have these
+
+38
+00:02:55,640 --> 00:03:03,380
+bunch of entities and today I saw this
+
+39
+00:03:00,160 --> 00:03:05,930
+post by this guy very interesting guy
+
+40
+00:03:03,380 --> 00:03:09,410
+you should follow him okay this guy
+
+41
+00:03:05,930 --> 00:03:16,420
+Frederic Brennan
+
+42
+00:03:09,410 --> 00:03:16,420
+he is the his story is amazing okay
+
+43
+00:03:16,600 --> 00:03:22,730
+looking at look looking up you know
+
+44
+00:03:19,610 --> 00:03:25,700
+looking at Wikipedia your CEO article
+
+45
+00:03:22,730 --> 00:03:31,400
+about him and also look up a photo of
+
+46
+00:03:25,700 --> 00:03:34,340
+him he's got brittle bone disease so he
+
+47
+00:03:31,400 --> 00:03:37,190
+sits on we were he was born like that so
+
+48
+00:03:34,340 --> 00:03:41,390
+he he sits on a wheelchair you know he's
+
+49
+00:03:37,190 --> 00:03:43,069
+a disabled person but this guy is
+
+50
+00:03:41,390 --> 00:03:45,770
+incredible you know because he's
+
+51
+00:03:43,069 --> 00:03:48,230
+disabled so he focus on programming and
+
+52
+00:03:45,770 --> 00:03:53,780
+computer stuff and he became a great
+
+53
+00:03:48,230 --> 00:03:59,060
+programmer and he started the 8chan chat
+
+54
+00:03:53,780 --> 00:04:02,930
+and you know that became you know on the
+
+55
+00:03:59,060 --> 00:04:08,810
+news this month last last month you know
+
+56
+00:04:02,930 --> 00:04:12,410
+but he he stopped he quit agent in 2016
+
+57
+00:04:08,810 --> 00:04:14,660
+so anyway look up this guy Frederic
+
+58
+00:04:12,410 --> 00:04:18,739
+Brennan on we keep Wikipedia and
+
+59
+00:04:14,660 --> 00:04:21,949
+elsewhere look up his photo okay so this
+
+60
+00:04:18,739 --> 00:04:24,410
+guy says says this you know the fact
+
+61
+00:04:21,949 --> 00:04:27,620
+that there is not a named html5
+
+62
+00:04:24,410 --> 00:04:30,080
+character entity for every character is
+
+63
+00:04:27,620 --> 00:04:32,780
+a tragedy wouldn't you agree
+
+64
+00:04:30,080 --> 00:04:35,630
+sorry no I don't agree okay but anyway
+
+65
+00:04:32,780 --> 00:04:37,240
+then he says here's an interesting
+
+66
+00:04:35,630 --> 00:04:40,569
+example he gave me
+
+67
+00:04:37,240 --> 00:04:42,910
+like seriously this contour integral you
+
+68
+00:04:40,569 --> 00:04:43,660
+have you know the math single contour
+
+69
+00:04:42,910 --> 00:04:48,150
+integral
+
+70
+00:04:43,660 --> 00:04:53,460
+it has a named entity but the
+
+71
+00:04:48,150 --> 00:04:56,830
+right-pointing index finger hand logo a
+
+72
+00:04:53,460 --> 00:04:59,259
+common type of graphical symbol at least
+
+73
+00:04:56,830 --> 00:05:03,520
+before widespread use of word processors
+
+74
+00:04:59,259 --> 00:05:06,849
+does not have a entity so this that is
+
+75
+00:05:03,520 --> 00:05:09,940
+true okay that hint that pointing let me
+
+76
+00:05:06,849 --> 00:05:17,289
+show you since we are doing XR talk show
+
+77
+00:05:09,940 --> 00:05:20,979
+and unicode so sorry unicode so go to my
+
+78
+00:05:17,289 --> 00:05:24,880
+you Nicole page and I'm going to show
+
+79
+00:05:20,979 --> 00:05:35,199
+you these hand symbols so go to Unicode
+
+80
+00:05:24,880 --> 00:05:38,139
+characters and go to hands okay
+
+81
+00:05:35,199 --> 00:05:40,930
+so you can see all these many of them
+
+82
+00:05:38,139 --> 00:05:42,159
+hands emoji many of them are emoji but
+
+83
+00:05:40,930 --> 00:05:47,650
+some of them are not
+
+84
+00:05:42,159 --> 00:05:50,080
+you see so this right pointing index
+
+85
+00:05:47,650 --> 00:05:52,630
+finger and there are several versions
+
+86
+00:05:50,080 --> 00:05:57,340
+you know in a beginning there are only
+
+87
+00:05:52,630 --> 00:05:59,949
+like four of them I forgot which one you
+
+88
+00:05:57,340 --> 00:06:02,949
+know II different operating systems Mac
+
+89
+00:05:59,949 --> 00:06:06,909
+OS or Windows the hand shows differently
+
+90
+00:06:02,949 --> 00:06:10,389
+but anyway one of them is extremely
+
+91
+00:06:06,909 --> 00:06:12,550
+popular before computer age you know
+
+92
+00:06:10,389 --> 00:06:13,360
+that that is this one either that one or
+
+93
+00:06:12,550 --> 00:06:16,330
+that one
+
+94
+00:06:13,360 --> 00:06:19,139
+so basically a right pointing or left
+
+95
+00:06:16,330 --> 00:06:25,719
+left all right point in index finger
+
+96
+00:06:19,139 --> 00:06:28,240
+that is used to refer to like see you
+
+97
+00:06:25,719 --> 00:06:31,509
+know like a reference mark mark like see
+
+98
+00:06:28,240 --> 00:06:33,580
+then a footnote to something see this
+
+99
+00:06:31,509 --> 00:06:37,539
+article you know with a finger pointing
+
+100
+00:06:33,580 --> 00:06:42,909
+to that so anyway that that symbol is
+
+101
+00:06:37,539 --> 00:06:47,169
+why it was very popular because for for
+
+102
+00:06:42,909 --> 00:06:49,240
+time being I was planning to use a
+
+103
+00:06:47,169 --> 00:06:51,819
+Unicode in place
+
+104
+00:06:49,240 --> 00:06:53,860
+see something-something a link you know
+
+105
+00:06:51,819 --> 00:06:55,780
+in place of see something because the
+
+106
+00:06:53,860 --> 00:06:58,569
+see because in my articles for example
+
+107
+00:06:55,780 --> 00:07:01,419
+JavaScript reference lots of places you
+
+108
+00:06:58,569 --> 00:07:04,930
+have see this link see that think you
+
+109
+00:07:01,419 --> 00:07:07,000
+know some technical stuff of JavaScript
+
+110
+00:07:04,930 --> 00:07:09,479
+like objects what is object what is
+
+111
+00:07:07,000 --> 00:07:13,330
+property what is you know the type of
+
+112
+00:07:09,479 --> 00:07:16,539
+property key so I have lots of see see
+
+113
+00:07:13,330 --> 00:07:19,630
+see link link link so I was hoping you
+
+114
+00:07:16,539 --> 00:07:22,630
+know to find a Unicode replacement in
+
+115
+00:07:19,630 --> 00:07:27,220
+his instead of the word see so I was
+
+116
+00:07:22,630 --> 00:07:30,930
+using this character so actually let me
+
+117
+00:07:27,220 --> 00:07:38,650
+show you about that article sorry
+
+118
+00:07:30,930 --> 00:07:42,039
+Unicode eg so I have a few articles of
+
+119
+00:07:38,650 --> 00:07:46,500
+that nature about how to use Unicode for
+
+120
+00:07:42,039 --> 00:07:53,560
+example let's see this one symbol
+
+121
+00:07:46,500 --> 00:07:55,720
+semantics design Unicode for eg dot so
+
+122
+00:07:53,560 --> 00:07:58,060
+this article discuss at one time I was
+
+123
+00:07:55,720 --> 00:08:02,110
+trying to find a Unicode symbol to
+
+124
+00:07:58,060 --> 00:08:05,340
+represent the Latin eat dot G dot which
+
+125
+00:08:02,110 --> 00:08:11,889
+is for example which means for example
+
+126
+00:08:05,340 --> 00:08:19,180
+and you know so that Arco discuss about
+
+127
+00:08:11,889 --> 00:08:21,580
+that but then yeah this basically this
+
+128
+00:08:19,180 --> 00:08:24,340
+is the article where I try to find a
+
+129
+00:08:21,580 --> 00:08:30,250
+replacement either for the eat out G dot
+
+130
+00:08:24,340 --> 00:08:32,500
+or see something you know so this you
+
+131
+00:08:30,250 --> 00:08:36,459
+know I searched all the Unicode symbols
+
+132
+00:08:32,500 --> 00:08:40,060
+and you know he's and I also must check
+
+133
+00:08:36,459 --> 00:08:41,680
+the history of their usage because when
+
+134
+00:08:40,060 --> 00:08:45,700
+you are doing something like this you
+
+135
+00:08:41,680 --> 00:08:47,890
+know replacing all common you know not
+
+136
+00:08:45,700 --> 00:08:51,670
+English what you know some kind you know
+
+137
+00:08:47,890 --> 00:08:55,570
+cut the common word or phrase by a
+
+138
+00:08:51,670 --> 00:08:58,839
+symbol that's addresses such as that you
+
+139
+00:08:55,570 --> 00:09:00,850
+wanted to be you know compatible with
+
+140
+00:08:58,839 --> 00:09:03,609
+history I mean
+
+141
+00:09:00,850 --> 00:09:05,859
+in a sense it's a new invention but you
+
+142
+00:09:03,609 --> 00:09:09,009
+you you want to have good reasons for it
+
+143
+00:09:05,859 --> 00:09:12,249
+you know if you choose a symbol but why
+
+144
+00:09:09,009 --> 00:09:15,459
+do I want to replace it Archie dot you
+
+145
+00:09:12,249 --> 00:09:18,609
+know because that is Latin for exempli
+
+146
+00:09:15,459 --> 00:09:24,579
+gratia i don't know how to pronounce it
+
+147
+00:09:18,609 --> 00:09:30,819
+but basically ichi means for example or
+
+148
+00:09:24,579 --> 00:09:33,459
+to wit so it is not a intuitive word
+
+149
+00:09:30,819 --> 00:09:36,160
+it's it's a word that's used in academia
+
+150
+00:09:33,459 --> 00:09:40,499
+often by the way there is also another
+
+151
+00:09:36,160 --> 00:09:50,769
+similar abbreviation i thought e dot IE
+
+152
+00:09:40,499 --> 00:09:52,629
+now IE means i means that is you know if
+
+153
+00:09:50,769 --> 00:09:56,350
+you want to translate to english IE
+
+154
+00:09:52,629 --> 00:09:59,100
+means that is EG means for example so
+
+155
+00:09:56,350 --> 00:10:02,169
+they are slightly different and these
+
+156
+00:09:59,100 --> 00:10:06,039
+abbreviations this EG and IE
+
+157
+00:10:02,169 --> 00:10:09,939
+are used in academia often at least you
+
+158
+00:10:06,039 --> 00:10:13,329
+know in the 1990s so before they are
+
+159
+00:10:09,939 --> 00:10:19,749
+very popular in academia publications
+
+160
+00:10:13,329 --> 00:10:21,999
+writings but they are not really good
+
+161
+00:10:19,749 --> 00:10:24,399
+because they are you know first of all
+
+162
+00:10:21,999 --> 00:10:27,609
+they are not english words the it's it's
+
+163
+00:10:24,399 --> 00:10:30,519
+it's a more advanced acquired learning
+
+164
+00:10:27,609 --> 00:10:33,069
+so rather you you can simply say
+
+165
+00:10:30,519 --> 00:10:35,949
+whenever there's ichi you can just say
+
+166
+00:10:33,069 --> 00:10:40,329
+for example when there is IE you can
+
+167
+00:10:35,949 --> 00:10:43,029
+just say that is you know and there's a
+
+168
+00:10:40,329 --> 00:10:49,059
+lot alternative way to express the same
+
+169
+00:10:43,029 --> 00:10:52,929
+idea so so but why do I want to replace
+
+170
+00:10:49,059 --> 00:10:55,629
+it out G by único why can I just say for
+
+171
+00:10:52,929 --> 00:10:58,119
+example well because for example that's
+
+172
+00:10:55,629 --> 00:11:01,179
+kind of a long word the word is like too
+
+173
+00:10:58,119 --> 00:11:03,399
+long and then when I write write
+
+174
+00:11:01,179 --> 00:11:05,350
+technical articles you have lots of eg
+
+175
+00:11:03,399 --> 00:11:07,329
+so lots of places you have for example
+
+176
+00:11:05,350 --> 00:11:10,750
+for example for example you know it's
+
+177
+00:11:07,329 --> 00:11:16,910
+written it's kind of too long and
+
+178
+00:11:10,750 --> 00:11:19,370
+it Curtis the page crota's writing so I
+
+179
+00:11:16,910 --> 00:11:21,350
+want to use the symbol instead when you
+
+180
+00:11:19,370 --> 00:11:24,740
+have a symbol such as for example this
+
+181
+00:11:21,350 --> 00:11:26,720
+arrow key or for example the you know at
+
+182
+00:11:24,740 --> 00:11:30,620
+one point I was using the pointing
+
+183
+00:11:26,720 --> 00:11:35,270
+finger I don't know I don't remember if
+
+184
+00:11:30,620 --> 00:11:38,180
+I if it's this article I have written
+
+185
+00:11:35,270 --> 00:11:48,470
+another article yeah at one point I was
+
+186
+00:11:38,180 --> 00:11:51,440
+using the pointing finger symbol but but
+
+187
+00:11:48,470 --> 00:12:01,220
+I don't remember if I mentioned here or
+
+188
+00:11:51,440 --> 00:12:04,430
+if it is another article symbol syntax
+
+189
+00:12:01,220 --> 00:12:08,150
+semantics design use of único ellipsis
+
+190
+00:12:04,430 --> 00:12:12,740
+symbol versus dot dot ok probable
+
+191
+00:12:08,150 --> 00:12:15,589
+congestion semantic symbols examples
+
+192
+00:12:12,740 --> 00:12:22,100
+Unicode simple usage okay let's look at
+
+193
+00:12:15,589 --> 00:12:25,339
+that so all these articles are all
+
+194
+00:12:22,100 --> 00:12:27,740
+related about the usage of symbols in
+
+195
+00:12:25,339 --> 00:12:34,100
+the problems of not using them properly
+
+196
+00:12:27,740 --> 00:12:35,959
+for example when when in unity in you
+
+197
+00:12:34,100 --> 00:12:39,680
+know you have for example you have the
+
+198
+00:12:35,959 --> 00:12:45,260
+backs backslash escape characters that's
+
+199
+00:12:39,680 --> 00:12:47,959
+very annoying and error-prone oh yeah ok
+
+200
+00:12:45,260 --> 00:12:51,770
+so here is the page where I talk about
+
+201
+00:12:47,959 --> 00:12:56,570
+the use of the index finger there okay
+
+202
+00:12:51,770 --> 00:13:01,430
+it's this one so so you see these are
+
+203
+00:12:56,570 --> 00:13:04,850
+about you know symbol usage so if I
+
+204
+00:13:01,430 --> 00:13:08,060
+replace eg by some symbols such as arrow
+
+205
+00:13:04,850 --> 00:13:09,890
+then arrow is kind of universal I mean
+
+206
+00:13:08,060 --> 00:13:14,089
+people do not you don't really actually
+
+207
+00:13:09,890 --> 00:13:16,670
+need to know to read the word you know
+
+208
+00:13:14,089 --> 00:13:18,589
+for example people understand you know
+
+209
+00:13:16,670 --> 00:13:19,270
+it's an example you know with the arrow
+
+210
+00:13:18,589 --> 00:13:24,550
+you know arrow
+
+211
+00:13:19,270 --> 00:13:27,280
+kind of a universal so that is why I
+
+212
+00:13:24,550 --> 00:13:29,520
+decided to you know do that but
+
+213
+00:13:27,280 --> 00:13:33,340
+eventually after several years of
+
+214
+00:13:29,520 --> 00:13:37,810
+experiment at night I went back just to
+
+215
+00:13:33,340 --> 00:13:40,180
+say sometimes eg sometimes for example
+
+216
+00:13:37,810 --> 00:13:43,390
+instead of a symbol because symbol when
+
+217
+00:13:40,180 --> 00:13:46,300
+you use symbol in a contrary manner
+
+218
+00:13:43,390 --> 00:13:49,360
+meaning in a fashion that is not widely
+
+219
+00:13:46,300 --> 00:13:51,970
+used you introduce lots of other
+
+220
+00:13:49,360 --> 00:13:56,080
+problems for example such engine will
+
+221
+00:13:51,970 --> 00:13:58,090
+get confused about your use use of
+
+222
+00:13:56,080 --> 00:14:00,820
+symbol even though it's obvious to
+
+223
+00:13:58,090 --> 00:14:04,570
+humans but you know that's one of the
+
+224
+00:14:00,820 --> 00:14:06,940
+problem with AI because AI on one hand
+
+225
+00:14:04,570 --> 00:14:08,590
+they are very efficient you they you
+
+226
+00:14:06,940 --> 00:14:11,290
+know Google search for example they
+
+227
+00:14:08,590 --> 00:14:16,000
+press process massive amount of info but
+
+228
+00:14:11,290 --> 00:14:20,410
+however the AI at least today they don't
+
+229
+00:14:16,000 --> 00:14:24,520
+really actually understand text so you
+
+230
+00:14:20,410 --> 00:14:28,240
+know so in in my example here if I you
+
+231
+00:14:24,520 --> 00:14:30,880
+know if my pages use the arrow humor may
+
+232
+00:14:28,240 --> 00:14:34,210
+understand that better than adult eg you
+
+233
+00:14:30,880 --> 00:14:36,910
+know it are G dot but machines don't
+
+234
+00:14:34,210 --> 00:14:39,730
+know what a heck because that's not a
+
+235
+00:14:36,910 --> 00:14:44,260
+popular usage they machine then wheel
+
+236
+00:14:39,730 --> 00:14:47,560
+you see there's a difference this is an
+
+237
+00:14:44,260 --> 00:14:49,600
+illustration of AI technology massive
+
+238
+00:14:47,560 --> 00:14:53,260
+use of AI in today's society
+
+239
+00:14:49,600 --> 00:14:55,420
+it influences what otherwise the
+
+240
+00:14:53,260 --> 00:14:59,320
+decisions and behaviors of humans
+
+241
+00:14:55,420 --> 00:15:02,740
+because if without AI then I would have
+
+242
+00:14:59,320 --> 00:15:06,250
+gone ahead and use one of the you know
+
+243
+00:15:02,740 --> 00:15:08,260
+obvious symbols for my page but then
+
+244
+00:15:06,250 --> 00:15:10,900
+search engine will get confused
+
+245
+00:15:08,260 --> 00:15:12,700
+therefore I cannot use it because you
+
+246
+00:15:10,900 --> 00:15:15,700
+know if search engine to not find my
+
+247
+00:15:12,700 --> 00:15:19,630
+website like you know I get this is hot
+
+248
+00:15:15,700 --> 00:15:24,790
+you know less less readers and that's no
+
+249
+00:15:19,630 --> 00:15:27,910
+good so it it changes in influences my
+
+250
+00:15:24,790 --> 00:15:30,580
+decision so I decided I have after a few
+
+251
+00:15:27,910 --> 00:15:33,140
+you know few years of experiment I
+
+252
+00:15:30,580 --> 00:15:36,080
+decided not to use
+
+253
+00:15:33,140 --> 00:15:39,920
+you know the Unicode fancy Unicode
+
+254
+00:15:36,080 --> 00:15:43,070
+symbols for to replace what eg but this
+
+255
+00:15:39,920 --> 00:15:46,010
+decision is influenced by you know the
+
+256
+00:15:43,070 --> 00:15:48,380
+stupid search engine technology and not
+
+257
+00:15:46,010 --> 00:15:50,720
+that's just not it's not just me it's
+
+258
+00:15:48,380 --> 00:15:54,050
+influencing it's influencing massive
+
+259
+00:15:50,720 --> 00:15:57,170
+amount of people you know so that is a
+
+260
+00:15:54,050 --> 00:16:01,490
+problem so humans you know we human
+
+261
+00:15:57,170 --> 00:16:04,220
+animals our behavior becomes you know in
+
+262
+00:16:01,490 --> 00:16:06,350
+a sense we become slaves of technology
+
+263
+00:16:04,220 --> 00:16:07,910
+you know this is one example one small
+
+264
+00:16:06,350 --> 00:16:09,920
+example but they are a lot they are
+
+265
+00:16:07,910 --> 00:16:12,920
+there they are tons of examples I can
+
+266
+00:16:09,920 --> 00:16:16,370
+talk about for example file name you
+
+267
+00:16:12,920 --> 00:16:19,160
+know he used to be in the 1990s file
+
+268
+00:16:16,370 --> 00:16:22,790
+name space is represented by an
+
+269
+00:16:19,160 --> 00:16:25,310
+underscore low-lying character you know
+
+270
+00:16:22,790 --> 00:16:28,940
+file name that's the most popular but
+
+271
+00:16:25,310 --> 00:16:34,610
+because of Google search engine kind of
+
+272
+00:16:28,940 --> 00:16:36,740
+by a mistake then the dash becomes more
+
+273
+00:16:34,610 --> 00:16:39,860
+popular you know because every one every
+
+274
+00:16:36,740 --> 00:16:42,680
+one one wanted to follow Google's search
+
+275
+00:16:39,860 --> 00:16:46,760
+engine suggestions so everyone started
+
+276
+00:16:42,680 --> 00:16:50,360
+to use the - instead of underscore so
+
+277
+00:16:46,760 --> 00:16:54,620
+that's another example of this AI you
+
+278
+00:16:50,360 --> 00:16:57,320
+know machine that's changing human
+
+279
+00:16:54,620 --> 00:17:01,340
+behavior for not for the better
+
+280
+00:16:57,320 --> 00:17:03,850
+for WASC for kind of wars you know this
+
+281
+00:17:01,340 --> 00:17:08,600
+these are just two small examples but
+
+282
+00:17:03,850 --> 00:17:12,170
+you know there's to illustrate there
+
+283
+00:17:08,600 --> 00:17:16,610
+there's actually big problems but anyway
+
+284
+00:17:12,170 --> 00:17:20,060
+I digress a lot so I was talking about
+
+285
+00:17:16,610 --> 00:17:22,189
+my use of Unicode symbols so I was
+
+286
+00:17:20,060 --> 00:17:24,620
+talking about so there are several
+
+287
+00:17:22,189 --> 00:17:27,470
+topics we have we talked about either
+
+288
+00:17:24,620 --> 00:17:32,450
+you know the use of the you know the
+
+289
+00:17:27,470 --> 00:17:38,690
+symbol index finger it was very popular
+
+290
+00:17:32,450 --> 00:17:44,900
+and in my use of it to replace eg and ie
+
+291
+00:17:38,690 --> 00:17:48,680
+words and Google search engine knows AI
+
+292
+00:17:44,900 --> 00:17:53,240
+and as an example that influences human
+
+293
+00:17:48,680 --> 00:17:57,010
+behavior for the worse so that's so far
+
+294
+00:17:53,240 --> 00:18:03,680
+we've talked about but I digress
+
+295
+00:17:57,010 --> 00:18:09,230
+let's get back to the topic of of this
+
+296
+00:18:03,680 --> 00:18:12,080
+guy so this guy Frederic Twain and so he
+
+297
+00:18:09,230 --> 00:18:15,920
+mentioned you know so you have this
+
+298
+00:18:12,080 --> 00:18:18,110
+contour integral sign as an entity but
+
+299
+00:18:15,920 --> 00:18:22,490
+you don't have the index finger sign or
+
+300
+00:18:18,110 --> 00:18:26,090
+the entity that's kind of strange and I
+
+301
+00:18:22,490 --> 00:18:27,710
+learned two things from these then
+
+302
+00:18:26,090 --> 00:18:31,460
+there's a lot more I'm going to talk
+
+303
+00:18:27,710 --> 00:18:34,880
+about the whole HTML XML entity scourge
+
+304
+00:18:31,460 --> 00:18:37,490
+you know crap so I learned two things
+
+305
+00:18:34,880 --> 00:18:39,380
+from this his post so he's very
+
+306
+00:18:37,490 --> 00:18:43,280
+interesting guy you know the interesting
+
+307
+00:18:39,380 --> 00:18:45,290
+guys so one example is that when he put
+
+308
+00:18:43,280 --> 00:18:48,020
+when interesting person post something
+
+309
+00:18:45,290 --> 00:18:48,860
+you learn something new not the old
+
+310
+00:18:48,020 --> 00:18:51,800
+hacker news
+
+311
+00:18:48,860 --> 00:18:54,350
+ you know every every programmer
+
+312
+00:18:51,800 --> 00:18:56,960
+whitey programmers you know they're
+
+313
+00:18:54,350 --> 00:19:01,160
+telling you what to do so anyway he
+
+314
+00:18:56,960 --> 00:19:03,530
+posts this and you know so the first
+
+315
+00:19:01,160 --> 00:19:06,830
+thing I learned is that oh there is a
+
+316
+00:19:03,530 --> 00:19:09,230
+contour integral named entity I did not
+
+317
+00:19:06,830 --> 00:19:15,740
+know that because I wrote this page
+
+318
+00:19:09,230 --> 00:19:20,650
+which is a complete list of H HTML XML
+
+319
+00:19:15,740 --> 00:19:23,870
+entities based on the w3c standard
+
+320
+00:19:20,650 --> 00:19:27,200
+organization they published article so I
+
+321
+00:19:23,870 --> 00:19:30,770
+did not know that now there is a named
+
+322
+00:19:27,200 --> 00:19:35,510
+entity for contour integral so I
+
+323
+00:19:30,770 --> 00:19:41,870
+searched you know it's made such for
+
+324
+00:19:35,510 --> 00:19:48,490
+HTML entities you know so you go to
+
+325
+00:19:41,870 --> 00:19:51,920
+Wikipedia you know I check this every
+
+326
+00:19:48,490 --> 00:19:54,620
+you know pages like this every few years
+
+327
+00:19:51,920 --> 00:19:55,850
+so I didn't notice so you know you look
+
+328
+00:19:54,620 --> 00:19:59,000
+at Wikipedia
+
+329
+00:19:55,850 --> 00:20:01,429
+and indeed you have all these new
+
+330
+00:19:59,000 --> 00:20:04,130
+entities I wasn't aware of before for
+
+331
+00:20:01,429 --> 00:20:08,330
+example we scroll down they are like
+
+332
+00:20:04,130 --> 00:20:16,010
+thousands of them let's go down yeah all
+
+333
+00:20:08,330 --> 00:20:18,200
+these are new this is from as from you
+
+334
+00:20:16,010 --> 00:20:20,440
+know and all these are new entities so I
+
+335
+00:20:18,200 --> 00:20:26,150
+didn't know that so I looked about and
+
+336
+00:20:20,440 --> 00:20:32,240
+you can actually so I read it you can
+
+337
+00:20:26,150 --> 00:20:36,740
+see that they say in html5 html5 adopted
+
+338
+00:20:32,240 --> 00:20:40,190
+the XML entities named character
+
+339
+00:20:36,740 --> 00:20:46,510
+references however it restates them with
+
+340
+00:20:40,190 --> 00:20:49,640
+now references the html5 specification
+
+341
+00:20:46,510 --> 00:20:50,980
+additionally provides mappings from the
+
+342
+00:20:49,640 --> 00:20:55,010
+names to Unicode
+
+343
+00:20:50,980 --> 00:21:00,169
+so anyway the the the gist is that I
+
+344
+00:20:55,010 --> 00:21:04,010
+think that ok I don't know who created
+
+345
+00:21:00,169 --> 00:21:09,380
+this the first time for anyway the Jesus
+
+346
+00:21:04,010 --> 00:21:13,610
+is same thing html5 we have turned more
+
+347
+00:21:09,380 --> 00:21:17,179
+entities so here is a list you know like
+
+348
+00:21:13,610 --> 00:21:21,260
+there are probably over a thousand
+
+349
+00:21:17,179 --> 00:21:27,830
+entities new entities including lots of
+
+350
+00:21:21,260 --> 00:21:36,799
+math symbols so let's go to math symbols
+
+351
+00:21:27,830 --> 00:21:40,460
+math so let's search for integral int eg
+
+352
+00:21:36,799 --> 00:21:48,980
+ha you see so in Unicode you have all
+
+353
+00:21:40,460 --> 00:21:51,650
+these integral signs so this is ok with
+
+354
+00:21:48,980 --> 00:21:54,799
+one circle integral sign with one
+
+355
+00:21:51,650 --> 00:22:00,470
+circles contour integral two circles a
+
+356
+00:21:54,799 --> 00:22:04,390
+surface integral ok 3/3 integral sign is
+
+357
+00:22:00,470 --> 00:22:04,390
+a volume integral
+
+358
+00:22:05,350 --> 00:22:12,860
+that's for multivariable calculus now I
+
+359
+00:22:11,030 --> 00:22:20,540
+cannot define I cannot tell you what
+
+360
+00:22:12,860 --> 00:22:22,880
+they are I've forgot but anyway so so I
+
+361
+00:22:20,540 --> 00:22:25,490
+learned yeah so there's now there's a
+
+362
+00:22:22,880 --> 00:22:28,450
+bunch of new named entities I also
+
+363
+00:22:25,490 --> 00:22:34,940
+learned apparently you have this tool
+
+364
+00:22:28,450 --> 00:22:37,040
+called utf-8 to ent so so basically I
+
+365
+00:22:34,940 --> 00:22:39,950
+suppose that allows you to type any
+
+366
+00:22:37,040 --> 00:22:47,900
+Unicode character and it will tell you
+
+367
+00:22:39,950 --> 00:22:50,950
+the named entity code for it or the the
+
+368
+00:22:47,900 --> 00:22:55,760
+hexadecimal for the code point in the
+
+369
+00:22:50,950 --> 00:22:58,130
+HTML syntax you can use either one of
+
+370
+00:22:55,760 --> 00:23:02,500
+these so entities you know edged
+
+371
+00:22:58,130 --> 00:23:07,010
+entities HTML entities so is such that
+
+372
+00:23:02,500 --> 00:23:09,470
+ok let me explain so ok first of all let
+
+373
+00:23:07,010 --> 00:23:12,140
+me summarize so I learned two things now
+
+374
+00:23:09,470 --> 00:23:19,940
+we have a bunch of new entities and also
+
+375
+00:23:12,140 --> 00:23:26,290
+there's this utf-8 to ent command-line
+
+376
+00:23:19,940 --> 00:23:32,180
+so let me see if it's in on a Mac utf-8
+
+377
+00:23:26,290 --> 00:23:36,410
+to int okay there's not no such command
+
+378
+00:23:32,180 --> 00:23:42,550
+but however let's let's search it maybe
+
+379
+00:23:36,410 --> 00:23:42,550
+we'll find it utf-8 to ent
+
+380
+00:23:47,170 --> 00:24:00,800
+okay so so it looks like it might be a
+
+381
+00:23:55,840 --> 00:24:05,390
+tool he created himself of this guy
+
+382
+00:24:00,800 --> 00:24:09,070
+Frederic Brennan yeah so it possibly
+
+383
+00:24:05,390 --> 00:24:11,900
+it's a tool he create he wrote himself
+
+384
+00:24:09,070 --> 00:24:15,590
+because otherwise usually if you search
+
+385
+00:24:11,900 --> 00:24:18,050
+it you know if it's a commonly used to
+
+386
+00:24:15,590 --> 00:24:23,150
+tour it should show up but it's not here
+
+387
+00:24:18,050 --> 00:24:28,010
+yeah so maybe he created himself very
+
+388
+00:24:23,150 --> 00:24:34,010
+interesting so okay so two things new
+
+389
+00:24:28,010 --> 00:24:35,900
+entities okay now there's a lot of
+
+390
+00:24:34,010 --> 00:24:37,700
+interesting things going on I'm gonna
+
+391
+00:24:35,900 --> 00:24:42,080
+talk about them one by one
+
+392
+00:24:37,700 --> 00:24:45,980
+but let me finish here so so so first of
+
+393
+00:24:42,080 --> 00:24:47,540
+all I so I told him you know I didn't
+
+394
+00:24:45,980 --> 00:24:52,340
+know that that's interesting there's a
+
+395
+00:24:47,540 --> 00:24:54,740
+new entities named entities so as far as
+
+396
+00:24:52,340 --> 00:24:57,800
+his question you know he asked me your
+
+397
+00:24:54,740 --> 00:25:01,220
+question you know the fact that there is
+
+398
+00:24:57,800 --> 00:25:03,559
+not a named html5 characters entity for
+
+399
+00:25:01,220 --> 00:25:05,900
+every character is a tragedy
+
+400
+00:25:03,559 --> 00:25:09,530
+wouldn't you agree so he asked me do I
+
+401
+00:25:05,900 --> 00:25:12,679
+agree I don't agree because I think my
+
+402
+00:25:09,530 --> 00:25:15,200
+opinion on this is that entities should
+
+403
+00:25:12,679 --> 00:25:17,390
+be banned altogether you should have not
+
+404
+00:25:15,200 --> 00:25:21,559
+have that in the first place in the
+
+405
+00:25:17,390 --> 00:25:24,500
+1990s before the Unicode you know yeah
+
+406
+00:25:21,559 --> 00:25:27,470
+you can have you know you you created
+
+407
+00:25:24,500 --> 00:25:33,170
+entities that's a good because back then
+
+408
+00:25:27,470 --> 00:25:35,540
+there's no way it would be you know with
+
+409
+00:25:33,170 --> 00:25:37,850
+our entities will be hard entities is
+
+410
+00:25:35,540 --> 00:25:41,350
+quite useful back then but not today I
+
+411
+00:25:37,850 --> 00:25:46,970
+don't think it's it creates confusion
+
+412
+00:25:41,350 --> 00:25:49,640
+and and and but particularly when you
+
+413
+00:25:46,970 --> 00:25:54,400
+have entities that function as a escape
+
+414
+00:25:49,640 --> 00:25:57,530
+such as you know ampersand a.m. P
+
+415
+00:25:54,400 --> 00:26:00,220
+semicolon you know for the that's the
+
+416
+00:25:57,530 --> 00:26:05,540
+named entity for the ampersand
+
+417
+00:26:00,220 --> 00:26:07,850
+sigh okay and emphasis and alt semicolon
+
+418
+00:26:05,540 --> 00:26:11,570
+that's the entity for the less than sign
+
+419
+00:26:07,850 --> 00:26:14,840
+and you have also the entity GT for the
+
+420
+00:26:11,570 --> 00:26:18,470
+greater than sign now these three
+
+421
+00:26:14,840 --> 00:26:22,760
+entities they function as a sort of
+
+422
+00:26:18,470 --> 00:26:26,540
+escape character because in your HTML if
+
+423
+00:26:22,760 --> 00:26:28,790
+you need to type these characters you
+
+424
+00:26:26,540 --> 00:26:33,050
+know these characters are used by HTML
+
+425
+00:26:28,790 --> 00:26:35,870
+itself so when you want to use these
+
+426
+00:26:33,050 --> 00:26:38,840
+characters you have to escape them so
+
+427
+00:26:35,870 --> 00:26:43,370
+that's so that is the purpose you know
+
+428
+00:26:38,840 --> 00:26:45,170
+they function as escape characters but
+
+429
+00:26:43,370 --> 00:26:50,270
+that's not a good solution because a
+
+430
+00:26:45,170 --> 00:26:54,860
+good solution is that you shouldn't you
+
+431
+00:26:50,270 --> 00:26:58,340
+should have you should have a infinitely
+
+432
+00:26:54,860 --> 00:27:02,570
+variable delimiters instead instead of
+
+433
+00:26:58,340 --> 00:27:08,690
+us escape artists it creates a huge
+
+434
+00:27:02,570 --> 00:27:11,510
+amount problems I talked about in here
+
+435
+00:27:08,690 --> 00:27:14,230
+in this article you can see at the
+
+436
+00:27:11,510 --> 00:27:17,180
+bottom let me show you some example here
+
+437
+00:27:14,230 --> 00:27:20,600
+problems of symbol congestion in
+
+438
+00:27:17,180 --> 00:27:24,650
+computer languages ASCII Jam versus you
+
+439
+00:27:20,600 --> 00:27:28,570
+know Unicode so here's another here's an
+
+440
+00:27:24,650 --> 00:27:28,570
+article that talks about this in detail
+
+441
+00:27:30,040 --> 00:27:39,530
+you know this is actually this is a
+
+442
+00:27:35,270 --> 00:27:42,470
+related article the article the the
+
+443
+00:27:39,530 --> 00:27:44,390
+point I'm talking about how escape
+
+444
+00:27:42,470 --> 00:27:48,770
+characters are harmful is another
+
+445
+00:27:44,390 --> 00:27:51,880
+article so let me find it actually so so
+
+446
+00:27:48,770 --> 00:27:51,880
+you can read it offline
+
+447
+00:27:55,330 --> 00:28:10,490
+so just go to just search the stream
+
+448
+00:28:01,700 --> 00:28:14,659
+syntax okay this article computer
+
+449
+00:28:10,490 --> 00:28:16,429
+language design stream syntax now you
+
+450
+00:28:14,659 --> 00:28:20,210
+know how in programming languages you
+
+451
+00:28:16,429 --> 00:28:22,490
+have you have strings but sometimes you
+
+452
+00:28:20,210 --> 00:28:25,850
+need to escape them like if you use
+
+453
+00:28:22,490 --> 00:28:28,370
+double quote for a string but if your
+
+454
+00:28:25,850 --> 00:28:31,760
+texts contain double quote then you need
+
+455
+00:28:28,370 --> 00:28:36,470
+like you need to have a backslash double
+
+456
+00:28:31,760 --> 00:28:41,120
+quote to like escape it then you also
+
+457
+00:28:36,470 --> 00:28:47,269
+have you know so eight HTML entities is
+
+458
+00:28:41,120 --> 00:28:49,779
+also a form of escape but then in
+
+459
+00:28:47,269 --> 00:28:53,330
+different computer languages you have
+
+460
+00:28:49,779 --> 00:28:55,940
+alternative string delimiters for
+
+461
+00:28:53,330 --> 00:29:00,230
+example in Python you can use triple
+
+462
+00:28:55,940 --> 00:29:03,830
+quote that way you don't have to escape
+
+463
+00:29:00,230 --> 00:29:08,149
+you know stuff in your text and this is
+
+464
+00:29:03,830 --> 00:29:10,970
+extremely convenient and it's in a
+
+465
+00:29:08,149 --> 00:29:16,600
+similar way you have that in perl and in
+
+466
+00:29:10,970 --> 00:29:20,740
+PHP you also have that in a restrict
+
+467
+00:29:16,600 --> 00:29:20,740
+restricted form in :
+
+468
+00:29:22,029 --> 00:29:27,980
+but you don't have that in eMac eMac
+
+469
+00:29:24,500 --> 00:29:32,269
+sleaze so if I think this is pretty bad
+
+470
+00:29:27,980 --> 00:29:34,659
+here so anyway this is a problem about
+
+471
+00:29:32,269 --> 00:29:38,419
+string syntax that's why you need escape
+
+472
+00:29:34,659 --> 00:29:42,019
+escape characters are often paying the
+
+473
+00:29:38,419 --> 00:29:44,630
+ass to deal with because because
+
+474
+00:29:42,019 --> 00:29:47,690
+normally without escape all you have to
+
+475
+00:29:44,630 --> 00:29:50,779
+do when you try to pass the text is to
+
+476
+00:29:47,690 --> 00:29:52,519
+you just search the delimiters when you
+
+477
+00:29:50,779 --> 00:29:54,679
+say when you find the end
+
+478
+00:29:52,519 --> 00:29:58,580
+delimiters and the beginning delimiter
+
+479
+00:29:54,679 --> 00:30:02,200
+then whatever in between is the text but
+
+480
+00:29:58,580 --> 00:30:05,299
+if you have escape characters that
+
+481
+00:30:02,200 --> 00:30:06,890
+complicated the whole thing by a lot
+
+482
+00:30:05,299 --> 00:30:09,140
+because
+
+483
+00:30:06,890 --> 00:30:11,179
+then you then in the text you have to
+
+484
+00:30:09,140 --> 00:30:15,429
+search you know which one characters are
+
+485
+00:30:11,179 --> 00:30:19,040
+escaped you have to process the text and
+
+486
+00:30:15,429 --> 00:30:22,880
+this becomes more complex very
+
+487
+00:30:19,040 --> 00:30:25,520
+pronounced when you have for example for
+
+488
+00:30:22,880 --> 00:30:28,460
+example if you are coding a programming
+
+489
+00:30:25,520 --> 00:30:31,280
+language you have to call shell command
+
+490
+00:30:28,460 --> 00:30:34,059
+you have to translate the escape into
+
+491
+00:30:31,280 --> 00:30:38,929
+the shells escape then the shell command
+
+492
+00:30:34,059 --> 00:30:46,100
+you know uses a regular expression you
+
+493
+00:30:38,929 --> 00:30:49,160
+see you see you probably have experience
+
+494
+00:30:46,100 --> 00:30:51,799
+with this this is extremely headache in
+
+495
+00:30:49,160 --> 00:30:55,010
+fact it's it's a problem that is not
+
+496
+00:30:51,799 --> 00:31:00,169
+practically solvable for example you
+
+497
+00:30:55,010 --> 00:31:05,150
+know if if I if if I'm programming
+
+498
+00:31:00,169 --> 00:31:07,850
+Python and I'm using a rejects I'm using
+
+499
+00:31:05,150 --> 00:31:12,080
+a regular expression to find another
+
+500
+00:31:07,850 --> 00:31:17,870
+regular expression but however I need to
+
+501
+00:31:12,080 --> 00:31:24,530
+call this I need to pass this this code
+
+502
+00:31:17,870 --> 00:31:29,510
+into into let's say shell bash so so
+
+503
+00:31:24,530 --> 00:31:32,270
+when you have rejects to such another
+
+504
+00:31:29,510 --> 00:31:35,210
+rich extreme the escape becomes
+
+505
+00:31:32,270 --> 00:31:37,429
+extremely impossible to read then you
+
+506
+00:31:35,210 --> 00:31:41,809
+have to translate it to patch because
+
+507
+00:31:37,429 --> 00:31:45,049
+smash has its own escape code stuff you
+
+508
+00:31:41,809 --> 00:31:46,910
+know so in practice this is a real
+
+509
+00:31:45,049 --> 00:31:49,640
+problem you know we see it every day
+
+510
+00:31:46,910 --> 00:31:52,700
+it cannot be done I learned a great
+
+511
+00:31:49,640 --> 00:31:54,770
+technique from this David guy you know
+
+512
+00:31:52,700 --> 00:31:56,450
+one solution to solve this problem is
+
+513
+00:31:54,770 --> 00:32:05,690
+that you encode the host
+
+514
+00:31:56,450 --> 00:32:08,559
+howtechs into let's say into some hex
+
+515
+00:32:05,690 --> 00:32:12,620
+hex string format hex string
+
+516
+00:32:08,559 --> 00:32:16,100
+you know like pure ascii hex string then
+
+517
+00:32:12,620 --> 00:32:17,270
+at bash at the destination bash or
+
+518
+00:32:16,100 --> 00:32:19,430
+something you
+
+519
+00:32:17,270 --> 00:32:21,200
+decoded you know back to the stream so
+
+520
+00:32:19,430 --> 00:32:23,780
+you don't have any of these escapes
+
+521
+00:32:21,200 --> 00:32:29,120
+anymore it's just you know without
+
+522
+00:32:23,780 --> 00:32:31,550
+there's no backslash of stuff so
+
+523
+00:32:29,120 --> 00:32:33,950
+basically to capture this whole problem
+
+524
+00:32:31,550 --> 00:32:37,250
+the problem with the string syntax with
+
+525
+00:32:33,950 --> 00:32:40,190
+escapes is that when you have escaped
+
+526
+00:32:37,250 --> 00:32:42,440
+you know nested stream especially from
+
+527
+00:32:40,190 --> 00:32:47,000
+different languages spatch to Python to
+
+528
+00:32:42,440 --> 00:32:49,280
+shout to you know to HTML you know when
+
+529
+00:32:47,000 --> 00:32:51,790
+you especially when they are nested it
+
+530
+00:32:49,280 --> 00:32:55,790
+becomes practically impossible to
+
+531
+00:32:51,790 --> 00:32:59,120
+convert or pass them so that is the
+
+532
+00:32:55,790 --> 00:33:04,030
+problem with the escape now if so what
+
+533
+00:32:59,120 --> 00:33:07,970
+is the solution well one way is to use
+
+534
+00:33:04,030 --> 00:33:10,250
+delimiters you know variable that like
+
+535
+00:33:07,970 --> 00:33:13,640
+different derivatives like triple quad
+
+536
+00:33:10,250 --> 00:33:15,890
+because from Python is an example now
+
+537
+00:33:13,640 --> 00:33:19,940
+but what what if your string contains
+
+538
+00:33:15,890 --> 00:33:22,310
+triple quote well in that case you use
+
+539
+00:33:19,940 --> 00:33:25,040
+triple single quote or triple double
+
+540
+00:33:22,310 --> 00:33:27,350
+quote now what if your string contains
+
+541
+00:33:25,040 --> 00:33:30,380
+triples in single quote or triple double
+
+542
+00:33:27,350 --> 00:33:32,750
+quote then you could use some other you
+
+543
+00:33:30,380 --> 00:33:35,570
+know delimiter that the point is the
+
+544
+00:33:32,750 --> 00:33:40,700
+solution is basically you want infinite
+
+545
+00:33:35,570 --> 00:33:42,230
+possibilities of the devii meters so so
+
+546
+00:33:40,700 --> 00:33:46,250
+you want to make the delimiters
+
+547
+00:33:42,230 --> 00:33:48,890
+consistent in some regular way that's
+
+548
+00:33:46,250 --> 00:33:50,990
+easy to identify once you have that you
+
+549
+00:33:48,890 --> 00:33:55,400
+have you know all sort of delimiters
+
+550
+00:33:50,990 --> 00:33:58,130
+which is by probability it's not likely
+
+551
+00:33:55,400 --> 00:33:59,390
+ever to appear in stream you know the
+
+552
+00:33:58,130 --> 00:34:01,850
+chances of findings
+
+553
+00:33:59,390 --> 00:34:06,880
+such as delimiter inner stream would be
+
+554
+00:34:01,850 --> 00:34:12,830
+less than you know you got strike by a
+
+555
+00:34:06,880 --> 00:34:18,590
+lighting so one such example is here dog
+
+556
+00:34:12,830 --> 00:34:22,820
+let's say sorry your dog now this is the
+
+557
+00:34:18,590 --> 00:34:24,910
+tradition jargon for this thing for
+
+558
+00:34:22,820 --> 00:34:24,910
+example
+
+559
+00:34:25,750 --> 00:34:39,770
+here doc so so this is PHP here doc here
+
+560
+00:34:36,080 --> 00:34:42,919
+doc is basically a way to quote long
+
+561
+00:34:39,770 --> 00:34:46,690
+text so here's an example I have a long
+
+562
+00:34:42,919 --> 00:34:51,100
+text and you can use triple less than
+
+563
+00:34:46,690 --> 00:34:54,020
+sign then followed by a random stream
+
+564
+00:34:51,100 --> 00:34:58,040
+that random stream will be your
+
+565
+00:34:54,020 --> 00:35:01,490
+delimiter so this way this is one
+
+566
+00:34:58,040 --> 00:35:07,100
+example this way is a solution to quote
+
+567
+00:35:01,490 --> 00:35:12,230
+any long text without having to deal
+
+568
+00:35:07,100 --> 00:35:15,590
+with escape sequences so in so if you
+
+569
+00:35:12,230 --> 00:35:20,650
+have this so I call so here talk is one
+
+570
+00:35:15,590 --> 00:35:27,670
+of the implementation of the idea of
+
+571
+00:35:20,650 --> 00:35:30,609
+infinite variable stream delimiters okay
+
+572
+00:35:27,670 --> 00:35:34,190
+that's not the only idea by the way
+
+573
+00:35:30,609 --> 00:35:37,640
+so once you have the infinite variable
+
+574
+00:35:34,190 --> 00:35:44,080
+delimiters then you don't have this
+
+575
+00:35:37,640 --> 00:35:44,080
+problem of translating you know of
+
+576
+00:35:47,140 --> 00:35:51,460
+sending text from one programming
+
+577
+00:35:49,670 --> 00:35:55,970
+language to another programming language
+
+578
+00:35:51,460 --> 00:35:57,859
+because you know whatever his text is
+
+579
+00:35:55,970 --> 00:35:59,810
+just text you just pass it through
+
+580
+00:35:57,859 --> 00:36:01,970
+different programming languages or
+
+581
+00:35:59,810 --> 00:36:04,490
+protocols or network you know no problem
+
+582
+00:36:01,970 --> 00:36:08,540
+no problem you don't have to deal with
+
+583
+00:36:04,490 --> 00:36:11,150
+escapes so yeah escape is a very bad
+
+584
+00:36:08,540 --> 00:36:16,790
+thing improving languages usually you
+
+585
+00:36:11,150 --> 00:36:19,010
+should avoid that now okay it's actually
+
+586
+00:36:16,790 --> 00:36:22,820
+more complex than that some escape is
+
+587
+00:36:19,010 --> 00:36:29,630
+actually maybe good you know for example
+
+588
+00:36:22,820 --> 00:36:31,340
+the new line escaped that's a different
+
+589
+00:36:29,630 --> 00:36:33,830
+unit you see and we are getting into
+
+590
+00:36:31,340 --> 00:36:35,020
+details here the new line escape like
+
+591
+00:36:33,830 --> 00:36:38,700
+backslash
+
+592
+00:36:35,020 --> 00:36:42,250
+in there stand for new line that is not
+
+593
+00:36:38,700 --> 00:36:47,320
+the the functionality of that escape
+
+594
+00:36:42,250 --> 00:36:49,570
+is is it's like a entity it's not you
+
+595
+00:36:47,320 --> 00:36:51,970
+see it has nothing to do you see that
+
+596
+00:36:49,570 --> 00:36:55,690
+new line character is not a core
+
+597
+00:36:51,970 --> 00:36:59,560
+delimiter so you see it has a different
+
+598
+00:36:55,690 --> 00:37:02,550
+purpose so in other words if we look at
+
+599
+00:36:59,560 --> 00:37:06,460
+all the escape seek characters or
+
+600
+00:37:02,550 --> 00:37:11,200
+sequences some of them serve the purpose
+
+601
+00:37:06,460 --> 00:37:13,840
+of replacing some characters by code and
+
+602
+00:37:11,200 --> 00:37:15,580
+why do we want to do that because for
+
+603
+00:37:13,840 --> 00:37:18,430
+example the newline character is
+
+604
+00:37:15,580 --> 00:37:21,280
+invisible character sometimes you don't
+
+605
+00:37:18,430 --> 00:37:23,920
+want invisible characters you want to
+
+606
+00:37:21,280 --> 00:37:28,990
+represent invisible characters by a
+
+607
+00:37:23,920 --> 00:37:32,440
+visible one such as tab or control
+
+608
+00:37:28,990 --> 00:37:34,570
+control sequences you know in ascii so
+
+609
+00:37:32,440 --> 00:37:37,720
+that's one purpose but another purpose
+
+610
+00:37:34,570 --> 00:37:40,270
+of escape characters is to is when you
+
+611
+00:37:37,720 --> 00:37:45,310
+have a character that is the same
+
+612
+00:37:40,270 --> 00:37:47,710
+characters your string delimiter so we
+
+613
+00:37:45,310 --> 00:37:51,670
+are talking about this case in this case
+
+614
+00:37:47,710 --> 00:38:00,190
+we don't want these escapes characters
+
+615
+00:37:51,670 --> 00:38:04,360
+we want infinitely variable DV meters so
+
+616
+00:38:00,190 --> 00:38:06,940
+anyway that is a case about that yeah we
+
+617
+00:38:04,360 --> 00:38:16,000
+actually talked a lot about this okay so
+
+618
+00:38:06,940 --> 00:38:19,270
+let me get back to the the these guys so
+
+619
+00:38:16,000 --> 00:38:22,210
+so that so that's my answer to this
+
+620
+00:38:19,270 --> 00:38:24,670
+guy's question you know he's asking me a
+
+621
+00:38:22,210 --> 00:38:28,480
+question not really you know he's just
+
+622
+00:38:24,670 --> 00:38:31,600
+this is just a common way of introducing
+
+623
+00:38:28,480 --> 00:38:34,180
+a topic you know he so my opinion is
+
+624
+00:38:31,600 --> 00:38:37,000
+that no you know I don't think I think
+
+625
+00:38:34,180 --> 00:38:42,760
+entities should be banned at least the
+
+626
+00:38:37,000 --> 00:38:45,850
+the entities that function as escape for
+
+627
+00:38:42,760 --> 00:38:47,880
+the string delimiters those type should
+
+628
+00:38:45,850 --> 00:38:51,490
+be banned at the
+
+629
+00:38:47,880 --> 00:38:55,570
+we should not use those so anyway that
+
+630
+00:38:51,490 --> 00:39:01,540
+that finishes that topic about why I
+
+631
+00:38:55,570 --> 00:39:04,690
+think it should be banned now now let's
+
+632
+00:39:01,540 --> 00:39:08,140
+talk about the entities itself which is
+
+633
+00:39:04,690 --> 00:39:13,780
+why I'm doing a talk show today the
+
+634
+00:39:08,140 --> 00:39:17,860
+entities let me look at check if I was
+
+635
+00:39:13,780 --> 00:39:20,770
+still talking correctly and let's check
+
+636
+00:39:17,860 --> 00:39:28,150
+who how many people are watching one
+
+637
+00:39:20,770 --> 00:39:32,290
+people that's strange for the past few
+
+638
+00:39:28,150 --> 00:39:35,590
+days it's always one people I'm
+
+639
+00:39:32,290 --> 00:39:39,190
+wondering if it Google is you know not
+
+640
+00:39:35,590 --> 00:39:45,220
+showing me my stuff so anyway so let's
+
+641
+00:39:39,190 --> 00:39:51,640
+go back to entities yeah so entities so
+
+642
+00:39:45,220 --> 00:39:55,120
+there is this you know I'm telling you I
+
+643
+00:39:51,640 --> 00:40:02,980
+found a mistake in this spec so we go to
+
+644
+00:39:55,120 --> 00:40:04,780
+the html5 spec of entities so you see
+
+645
+00:40:02,980 --> 00:40:08,620
+this long list okay
+
+646
+00:40:04,780 --> 00:40:11,650
+you see this long list then ok scroll
+
+647
+00:40:08,620 --> 00:40:14,920
+all the way down then he says the
+
+648
+00:40:11,650 --> 00:40:18,520
+data is also available as JSON file so I
+
+649
+00:40:14,920 --> 00:40:22,750
+look up open the JSON file so you see
+
+650
+00:40:18,520 --> 00:40:27,820
+this big file so let's copy it copy go
+
+651
+00:40:22,750 --> 00:40:37,270
+to Emacs create a new file paste okay
+
+652
+00:40:27,820 --> 00:40:43,360
+save xx entity Jace let's put today's
+
+653
+00:40:37,270 --> 00:40:46,910
+date okay hold on a second it's name is
+
+654
+00:40:43,360 --> 00:40:50,730
+JavaScript okay
+
+655
+00:40:46,910 --> 00:40:53,010
+so you know so they are how many how
+
+656
+00:40:50,730 --> 00:40:58,680
+many are there they are two thousand two
+
+657
+00:40:53,010 --> 00:41:05,790
+hundred thirty of them and let's search
+
+658
+00:40:58,680 --> 00:41:08,820
+for LT semicolon you see so you can see
+
+659
+00:41:05,790 --> 00:41:18,300
+they are several of them however you do
+
+660
+00:41:08,820 --> 00:41:19,050
+not find one that just says oh you find
+
+661
+00:41:18,300 --> 00:41:22,680
+it here
+
+662
+00:41:19,050 --> 00:41:25,310
+no T no wait
+
+663
+00:41:22,680 --> 00:41:31,520
+there's a there's a problem here you see
+
+664
+00:41:25,310 --> 00:41:36,090
+so LT this should be less less than sy
+
+665
+00:41:31,520 --> 00:41:40,260
+but you see this one LT doesn't have a
+
+666
+00:41:36,090 --> 00:41:42,510
+semicolon that's all so that's I think
+
+667
+00:41:40,260 --> 00:41:45,720
+that's a error right
+
+668
+00:41:42,510 --> 00:41:49,710
+because entities must always ending a
+
+669
+00:41:45,720 --> 00:41:53,910
+semicolon so so this one is odd and then
+
+670
+00:41:49,710 --> 00:42:00,180
+they have the capital letter case which
+
+671
+00:41:53,910 --> 00:42:07,500
+is I'm not sure what what is a deal with
+
+672
+00:42:00,180 --> 00:42:10,740
+a capital letter case and then then you
+
+673
+00:42:07,500 --> 00:42:12,620
+have the mixed lowercase and capital
+
+674
+00:42:10,740 --> 00:42:18,270
+case this so this is strange
+
+675
+00:42:12,620 --> 00:42:23,220
+so if you look at these five lines let's
+
+676
+00:42:18,270 --> 00:42:30,210
+copy it go over here and paste you can
+
+677
+00:42:23,220 --> 00:42:36,300
+see that they let's magnify so the first
+
+678
+00:42:30,210 --> 00:42:39,720
+four is all the code point is 60 okay
+
+679
+00:42:36,300 --> 00:42:43,530
+but the last one is 880 110 now what
+
+680
+00:42:39,720 --> 00:42:46,530
+character is that you know with the mist
+
+681
+00:42:43,530 --> 00:42:51,120
+case capital L and lowercase T so this
+
+682
+00:42:46,530 --> 00:42:54,750
+is all very strange it's it's strange in
+
+683
+00:42:51,120 --> 00:42:58,550
+two possible ways one you know one is
+
+684
+00:42:54,750 --> 00:43:01,610
+that maybe the spec
+
+685
+00:42:58,550 --> 00:43:03,570
+is incorrect you know they got an error
+
+686
+00:43:01,610 --> 00:43:04,640
+typographical error and some sort of
+
+687
+00:43:03,570 --> 00:43:08,540
+error here
+
+688
+00:43:04,640 --> 00:43:11,850
+the second way it's strange is because
+
+689
+00:43:08,540 --> 00:43:17,180
+we have this mix you know you see we
+
+690
+00:43:11,850 --> 00:43:21,540
+have the capital case LT then we have
+
+691
+00:43:17,180 --> 00:43:25,380
+the capital k ZL and lowercase T what
+
+692
+00:43:21,540 --> 00:43:29,070
+you know what what does that mean and it
+
+693
+00:43:25,380 --> 00:43:32,460
+points to this character 8 8 1 10 so
+
+694
+00:43:29,070 --> 00:43:39,030
+let's find out which unicode character
+
+695
+00:43:32,460 --> 00:43:45,840
+is this 881 10 so 8 you know I got UNIX
+
+696
+00:43:39,030 --> 00:43:47,070
+code you know called search here 8 8 1 8
+
+697
+00:43:45,840 --> 00:43:55,890
+1 0
+
+698
+00:43:47,070 --> 00:44:01,230
+yeah so 8 8 0 is this character this one
+
+699
+00:43:55,890 --> 00:44:07,890
+turbo let's equal sign oh it's a ok the
+
+700
+00:44:01,230 --> 00:44:10,890
+único name is much less than okay so
+
+701
+00:44:07,890 --> 00:44:14,760
+that is very strange actually much less
+
+702
+00:44:10,890 --> 00:44:26,780
+than so let's try let's try create HTML
+
+703
+00:44:14,760 --> 00:44:31,980
+file save xx dot HTML okay then okay
+
+704
+00:44:26,780 --> 00:44:38,550
+then let's say title h1 okay
+
+705
+00:44:31,980 --> 00:44:43,310
+showing browser oh holy cow okay so this
+
+706
+00:44:38,550 --> 00:44:43,310
+is very interesting so this means that
+
+707
+00:44:43,670 --> 00:44:57,980
+later case matters wait this really case
+
+708
+00:44:52,140 --> 00:45:01,110
+matters always okay I don't remember I
+
+709
+00:44:57,980 --> 00:45:08,660
+looked into that issue whether later
+
+710
+00:45:01,110 --> 00:45:08,660
+case matters in entity in HTML entities
+
+711
+00:45:10,090 --> 00:45:15,670
+but I've apparently it's showing in
+
+712
+00:45:13,750 --> 00:45:20,230
+Safari and let's see if it's the same
+
+713
+00:45:15,670 --> 00:45:23,760
+behavior okay so looks like it's so late
+
+714
+00:45:20,230 --> 00:45:23,760
+later case matters
+
+715
+00:45:26,900 --> 00:45:33,950
+okay now let's do another thing let's go
+
+716
+00:45:29,600 --> 00:45:36,700
+back to the Jason okay now let's look at
+
+717
+00:45:33,950 --> 00:45:36,700
+the source code
+
+718
+00:45:37,090 --> 00:45:42,170
+command-u
+
+719
+00:45:39,130 --> 00:45:47,810
+let's look at the source code copy
+
+720
+00:45:42,170 --> 00:45:52,240
+everything copy back to Emacs open the
+
+721
+00:45:47,810 --> 00:45:55,240
+new buffer paste search for our T
+
+722
+00:45:52,240 --> 00:45:55,240
+semicolon
+
+723
+00:46:02,920 --> 00:46:14,380
+okay nevermind because you know what I'm
+
+724
+00:46:10,779 --> 00:46:17,859
+trying to show you his knees let me see
+
+725
+00:46:14,380 --> 00:46:23,769
+if I can reproduce it so let's copy the
+
+726
+00:46:17,859 --> 00:46:31,230
+URL for the SPECT of entities so let's
+
+727
+00:46:23,769 --> 00:46:35,430
+go to Chrome paste it and her this is
+
+728
+00:46:31,230 --> 00:46:44,160
+Rea this is a Chrome browser
+
+729
+00:46:35,430 --> 00:46:44,160
+okay so HTML and it's a huge document
+
+730
+00:46:46,819 --> 00:46:49,989
+still loading
+
+731
+00:46:59,140 --> 00:47:03,450
+yeah it's still loading
+
+732
+00:47:41,010 --> 00:47:46,040
+now this is this is taking too long so
+
+733
+00:47:47,930 --> 00:47:56,369
+so basically the problem I had is that
+
+734
+00:47:52,100 --> 00:48:01,560
+when I clicked that Jason link you know
+
+735
+00:47:56,369 --> 00:48:05,070
+as a JSON file I open it and the file
+
+736
+00:48:01,560 --> 00:48:08,369
+name you know ends in not Jason so it's
+
+737
+00:48:05,070 --> 00:48:11,670
+not HTML but however when I copy and
+
+738
+00:48:08,369 --> 00:48:16,470
+paste to Emacs I noticed that some of
+
+739
+00:48:11,670 --> 00:48:21,540
+the LT some of them becomes less inside
+
+740
+00:48:16,470 --> 00:48:24,960
+you know instead of the entities so I so
+
+741
+00:48:21,540 --> 00:48:28,320
+you know so I think that's a that's a
+
+742
+00:48:24,960 --> 00:48:30,060
+bug in browser because these days brows
+
+743
+00:48:28,320 --> 00:48:33,270
+that when you open a file sometimes they
+
+744
+00:48:30,060 --> 00:48:39,060
+try to you know it tries to pretend it's
+
+745
+00:48:33,270 --> 00:48:41,369
+a HTML file actually actually
+
+746
+00:48:39,060 --> 00:48:45,420
+technically it has to do with how the
+
+747
+00:48:41,369 --> 00:48:48,330
+server is set up because when you have a
+
+748
+00:48:45,420 --> 00:48:50,359
+file that Jason or Dargis or not
+
+749
+00:48:48,330 --> 00:48:55,710
+whatever
+
+750
+00:48:50,359 --> 00:48:58,530
+technically what what format that file
+
+751
+00:48:55,710 --> 00:49:02,520
+supposed to be is not does not depends
+
+752
+00:48:58,530 --> 00:49:04,859
+on the file name suffix you know does
+
+753
+00:49:02,520 --> 00:49:08,970
+not depends on the file name extension
+
+754
+00:49:04,859 --> 00:49:20,010
+but rather depends on the servers so as
+
+755
+00:49:08,970 --> 00:49:24,290
+the media code you know the the main you
+
+756
+00:49:20,010 --> 00:49:28,170
+know the media code so so when a server
+
+757
+00:49:24,290 --> 00:49:30,660
+you know it may say that Jason is
+
+758
+00:49:28,170 --> 00:49:35,580
+supposed to HTML which is wrong though
+
+759
+00:49:30,660 --> 00:49:37,920
+it's it would be incorrect set up so
+
+760
+00:49:35,580 --> 00:49:41,340
+anyway here we have the entities so you
+
+761
+00:49:37,920 --> 00:49:44,119
+go all the way down to to the end to the
+
+762
+00:49:41,340 --> 00:49:44,119
+JSON pod
+
+763
+00:49:44,520 --> 00:49:54,619
+see okay there is a JSON file let's open
+
+764
+00:49:50,940 --> 00:49:54,619
+that income
+
+765
+00:49:56,220 --> 00:50:05,700
+now copy that copy go to Emacs open a
+
+766
+00:50:02,280 --> 00:50:12,599
+new buffer paste search for all lines
+
+767
+00:50:05,700 --> 00:50:14,970
+containing LT semicolon okay so he so
+
+768
+00:50:12,599 --> 00:50:17,040
+somehow I got the arrow before that must
+
+769
+00:50:14,970 --> 00:50:21,329
+be my mistake
+
+770
+00:50:17,040 --> 00:50:27,060
+anyways still this this interesting part
+
+771
+00:50:21,329 --> 00:50:31,020
+you know so so in summary something
+
+772
+00:50:27,060 --> 00:50:36,619
+interesting we found today is that there
+
+773
+00:50:31,020 --> 00:50:39,810
+are a lot more HTML entities in html5
+
+774
+00:50:36,619 --> 00:50:45,089
+this must happen in the past 5 years I
+
+775
+00:50:39,810 --> 00:50:50,869
+guess or became popular so yeah new
+
+776
+00:50:45,089 --> 00:50:54,119
+entities then the letter-case matters
+
+777
+00:50:50,869 --> 00:50:56,069
+that's another interesting thing and
+
+778
+00:50:54,119 --> 00:50:58,770
+also another interesting thing is that
+
+779
+00:50:56,069 --> 00:51:01,589
+apparently this is a mistake
+
+780
+00:50:58,770 --> 00:51:10,220
+you know LT with our semicolon it's a
+
+781
+00:51:01,589 --> 00:51:10,220
+mistake by you know w3c or something
+
+782
+00:51:10,290 --> 00:51:22,950
+the and yeah that that's about it for
+
+783
+00:51:17,250 --> 00:51:25,250
+for that okay so that that is it for
+
+784
+00:51:22,950 --> 00:51:25,250
+today
+
+785
+00:51:32,720 --> 00:51:40,930
+oh the privacy it's private that's a
+
+786
+00:51:36,680 --> 00:51:40,930
+mistake that is why
+
+787
+00:51:41,230 --> 00:51:51,290
+privacy private that's a mistake that's
+
+788
+00:51:45,260 --> 00:51:53,680
+why all my talk shows are in the past
+
+789
+00:51:51,290 --> 00:51:56,480
+two days it's like oh it's all hidden
+
+790
+00:51:53,680 --> 00:52:00,579
+one person watching okay that's it for
+
+791
+00:51:56,480 --> 00:52:00,579
+today bye
+

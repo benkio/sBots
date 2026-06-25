@@ -1,0 +1,2896 @@
+1
+00:00:00,280 --> 00:00:06,839
+everyone welcome to another episode of
+
+2
+00:00:03,800 --> 00:00:09,960
+kasan talk show we are going to code
+
+3
+00:00:06,839 --> 00:00:13,960
+wolam language Mathematica today on
+
+4
+00:00:09,960 --> 00:00:17,160
+mathematics geometry plain curves
+
+5
+00:00:13,960 --> 00:00:19,560
+hyperbola and uh I'm going to show you
+
+6
+00:00:17,160 --> 00:00:23,199
+how to create
+
+7
+00:00:19,560 --> 00:00:26,160
+animations uh uh animations in wolam
+
+8
+00:00:23,199 --> 00:00:28,760
+language there are two kinds one is
+
+9
+00:00:26,160 --> 00:00:32,960
+interactive that is for example you can
+
+10
+00:00:28,760 --> 00:00:35,719
+create a polom a curve then you can
+
+11
+00:00:32,960 --> 00:00:38,480
+create several sliders you adjust the
+
+12
+00:00:35,719 --> 00:00:40,920
+sliders and you see the graph change
+
+13
+00:00:38,480 --> 00:00:44,800
+interactively as you move the
+
+14
+00:00:40,920 --> 00:00:46,960
+slider that's interactive animation okay
+
+15
+00:00:44,800 --> 00:00:48,920
+or interactive Graphics of course then
+
+16
+00:00:46,960 --> 00:00:52,600
+you can rotate you can create a surface
+
+17
+00:00:48,920 --> 00:00:55,719
+3D surface or 3D object rotate it change
+
+18
+00:00:52,600 --> 00:00:58,320
+parameters in real time and see a change
+
+19
+00:00:55,719 --> 00:01:01,519
+the other thing uh is creating an
+
+20
+00:00:58,320 --> 00:01:04,799
+animation so let me show you an
+
+21
+00:01:01,519 --> 00:01:06,159
+animation so yesterday we did uh
+
+22
+00:01:04,799 --> 00:01:09,799
+yesterday we
+
+23
+00:01:06,159 --> 00:01:12,640
+did Unicode math symbols in programming
+
+24
+00:01:09,799 --> 00:01:17,280
+languages in emac we talked about this
+
+25
+00:01:12,640 --> 00:01:20,320
+guy uh uh so check out yesterday and uh
+
+26
+00:01:17,280 --> 00:01:23,159
+so today but today we back to wolam
+
+27
+00:01:20,320 --> 00:01:26,040
+language uh in the past two weeks I've
+
+28
+00:01:23,159 --> 00:01:28,720
+done several wam language so we did
+
+29
+00:01:26,040 --> 00:01:31,159
+Parabola we did this one see the optical
+
+30
+00:01:28,720 --> 00:01:34,240
+properties beautiful but okay so but let
+
+31
+00:01:31,159 --> 00:01:37,040
+me go to today what we want to what we
+
+32
+00:01:34,240 --> 00:01:40,640
+want to do okay so you can see this
+
+33
+00:01:37,040 --> 00:01:44,960
+beautiful uh 3D surfaces okay we did
+
+34
+00:01:40,640 --> 00:01:48,600
+this one live this is hyperboloid of one
+
+35
+00:01:44,960 --> 00:01:51,360
+sheet okay H this is called hyperboloid
+
+36
+00:01:48,600 --> 00:01:53,719
+one sheet why one sheet because there's
+
+37
+00:01:51,360 --> 00:01:57,680
+only one sheet because there is also
+
+38
+00:01:53,719 --> 00:02:00,680
+hyperbola hyper hyperboloid of two
+
+39
+00:01:57,680 --> 00:02:04,240
+sheets okay so this is hyper the one
+
+40
+00:02:00,680 --> 00:02:07,240
+sheet we did this Live on YouTube about
+
+41
+00:02:04,240 --> 00:02:09,039
+3 years ago is that beautiful you know
+
+42
+00:02:07,240 --> 00:02:12,680
+this so you can
+
+43
+00:02:09,039 --> 00:02:15,560
+see take out go to your kitchen in your
+
+44
+00:02:12,680 --> 00:02:18,920
+kitchen cupboard take out a bunch of
+
+45
+00:02:15,560 --> 00:02:20,000
+spaghetti you know long noodles you put
+
+46
+00:02:18,920 --> 00:02:24,120
+them in a
+
+47
+00:02:20,000 --> 00:02:26,760
+jar you know to it a little bit then you
+
+48
+00:02:24,120 --> 00:02:30,200
+get this this they you know the
+
+49
+00:02:26,760 --> 00:02:33,599
+spaghetti fall into these old chopsticks
+
+50
+00:02:30,200 --> 00:02:36,800
+and they form a surface they form a
+
+51
+00:02:33,599 --> 00:02:39,280
+surface that is hyperbola of Revolution
+
+52
+00:02:36,800 --> 00:02:42,319
+so you take a
+
+53
+00:02:39,280 --> 00:02:44,879
+hyperbola you take a hyperbola like like
+
+54
+00:02:42,319 --> 00:02:47,800
+this you know just just a curve PL curve
+
+55
+00:02:44,879 --> 00:02:52,040
+you rotate it around the center axis
+
+56
+00:02:47,800 --> 00:02:55,200
+then you get that um hyperboloid of one
+
+57
+00:02:52,040 --> 00:02:57,720
+sheet beautiful okay so so you have to
+
+58
+00:02:55,200 --> 00:03:01,680
+see each one of these
+
+59
+00:02:57,720 --> 00:03:04,560
+glorious beautiful math mathematics now
+
+60
+00:03:01,680 --> 00:03:07,640
+as we talked about mathematics beauty of
+
+61
+00:03:04,560 --> 00:03:11,280
+mathematics there are two parts one is
+
+62
+00:03:07,640 --> 00:03:15,120
+just the sheer visual Beauty like this
+
+63
+00:03:11,280 --> 00:03:17,959
+one hyperboloid one sheet so you can see
+
+64
+00:03:15,120 --> 00:03:21,959
+one of the property immediately came out
+
+65
+00:03:17,959 --> 00:03:24,920
+is that this surface is actually made of
+
+66
+00:03:21,959 --> 00:03:29,439
+straight lines every point on the
+
+67
+00:03:24,920 --> 00:03:32,480
+surface is is is is a line so is a line
+
+68
+00:03:29,439 --> 00:03:37,360
+on the surface okay so this surface is
+
+69
+00:03:32,480 --> 00:03:41,680
+actually made of of straight lines and
+
+70
+00:03:37,360 --> 00:03:44,319
+and then it is also a hyp hyperbola of
+
+71
+00:03:41,680 --> 00:03:47,120
+Revolution you know you rotate it so
+
+72
+00:03:44,319 --> 00:03:49,599
+there's so many interesting fascinating
+
+73
+00:03:47,120 --> 00:03:52,200
+beautiful properties and this picture
+
+74
+00:03:49,599 --> 00:03:55,680
+you see this is in Second
+
+75
+00:03:52,200 --> 00:03:59,360
+Life Second Life we I you know I lived
+
+76
+00:03:55,680 --> 00:04:02,159
+in Second Life for like three four years
+
+77
+00:03:59,360 --> 00:04:05,680
+second is another interesting topic okay
+
+78
+00:04:02,159 --> 00:04:09,079
+so you can play chess you can have this
+
+79
+00:04:05,680 --> 00:04:10,640
+uh fireworks in Second Life it's
+
+80
+00:04:09,079 --> 00:04:12,720
+immersive you know when you are in
+
+81
+00:04:10,640 --> 00:04:17,239
+Second Life like you can walk around and
+
+82
+00:04:12,720 --> 00:04:20,680
+turn your head and then you see this
+
+83
+00:04:17,239 --> 00:04:24,280
+um uh immersive you get immersive
+
+84
+00:04:20,680 --> 00:04:26,639
+experience so but today you got 3D
+
+85
+00:04:24,280 --> 00:04:29,520
+goggles okay so but anyway where's that
+
+86
+00:04:26,639 --> 00:04:31,759
+chess indoor games that chess I wanted
+
+87
+00:04:29,520 --> 00:04:35,160
+to to show this one
+
+88
+00:04:31,759 --> 00:04:37,080
+so a a mouse character is playing chess
+
+89
+00:04:35,160 --> 00:04:39,720
+so you can play chess in Second Life you
+
+90
+00:04:37,080 --> 00:04:43,800
+know you can move those uh chess pieces
+
+91
+00:04:39,720 --> 00:04:46,440
+so it's I had tremendous fun uh around
+
+92
+00:04:43,800 --> 00:04:49,520
+2007 to
+
+93
+00:04:46,440 --> 00:04:52,039
+20111 basically I spend like five hours
+
+94
+00:04:49,520 --> 00:04:55,639
+a day in Second Life you can also play
+
+95
+00:04:52,039 --> 00:05:00,199
+all sort of games okay Al second live is
+
+96
+00:04:55,639 --> 00:05:04,360
+a interesting thing but let's go back um
+
+97
+00:05:00,199 --> 00:05:06,240
+let's go back um because that's not
+
+98
+00:05:04,360 --> 00:05:09,120
+today you know we were talking about
+
+99
+00:05:06,240 --> 00:05:12,600
+hyperbola okay so
+
+100
+00:05:09,120 --> 00:05:15,880
+hyperbola so I was saying by the way if
+
+101
+00:05:12,600 --> 00:05:20,000
+you roll a dice a cube you know you spin
+
+102
+00:05:15,880 --> 00:05:23,000
+it that shape the silate formed on the
+
+103
+00:05:20,000 --> 00:05:26,240
+side is a hyperbola why because
+
+104
+00:05:23,000 --> 00:05:30,680
+obviously just like this rotation of a
+
+105
+00:05:26,240 --> 00:05:35,400
+bar you know so so the seway of a
+
+106
+00:05:30,680 --> 00:05:38,840
+rotating cube is a hyperboloid okay
+
+107
+00:05:35,400 --> 00:05:43,000
+hyperbola okay so you know and and this
+
+108
+00:05:38,840 --> 00:05:47,120
+this uh is also intriguing you you can
+
+109
+00:05:43,000 --> 00:05:47,120
+see uh can you play it
+
+110
+00:05:47,960 --> 00:05:53,520
+Loop you see intriguing It seems
+
+111
+00:05:51,039 --> 00:05:57,440
+impossible you see but it demonstrate
+
+112
+00:05:53,520 --> 00:06:00,160
+how the hyperboloid surface is
+
+113
+00:05:57,440 --> 00:06:04,280
+actually a surface made of a a single
+
+114
+00:06:00,160 --> 00:06:07,080
+line called ruled surface okay any
+
+115
+00:06:04,280 --> 00:06:11,160
+surface that can be made by just moving
+
+116
+00:06:07,080 --> 00:06:12,680
+a line those surfaces are called ruled
+
+117
+00:06:11,160 --> 00:06:15,880
+surfaces
+
+118
+00:06:12,680 --> 00:06:19,560
+okay and then you hyperbola is you can
+
+119
+00:06:15,880 --> 00:06:21,720
+see a lot of hyperboloid of one sheet or
+
+120
+00:06:19,560 --> 00:06:23,680
+two sheets in
+
+121
+00:06:21,720 --> 00:06:27,039
+architecture uh in
+
+122
+00:06:23,680 --> 00:06:31,479
+planetariums in uh in Towers this one is
+
+123
+00:06:27,039 --> 00:06:36,440
+Tokyo Tower spectacular Tokyo uh Koto is
+
+124
+00:06:31,479 --> 00:06:39,960
+it Tokyo or Koto cob okay cob C Kobe or
+
+125
+00:06:36,440 --> 00:06:42,360
+cob in Japan okay then you have the gear
+
+126
+00:06:39,960 --> 00:06:45,599
+so I need to update this gear picture so
+
+127
+00:06:42,360 --> 00:06:47,680
+that it's actual actually a photo so
+
+128
+00:06:45,599 --> 00:06:53,319
+this gear allows you
+
+129
+00:06:47,680 --> 00:06:55,599
+to have two axess in a a configuration
+
+130
+00:06:53,319 --> 00:06:58,080
+so you want to for example car
+
+131
+00:06:55,599 --> 00:07:01,000
+transmission system you see but with the
+
+132
+00:06:58,080 --> 00:07:03,360
+car transmission it's orthogonal you
+
+133
+00:07:01,000 --> 00:07:06,160
+know but you you want it to be able to
+
+134
+00:07:03,360 --> 00:07:11,240
+if they are not orthogonal so you got
+
+135
+00:07:06,160 --> 00:07:13,240
+this hyperboloid gear okay so I need so
+
+136
+00:07:11,240 --> 00:07:15,759
+if you know if you guys in the
+
+137
+00:07:13,240 --> 00:07:19,680
+mechanical engineering department you
+
+138
+00:07:15,759 --> 00:07:23,240
+know any photo of the real hyperboloid
+
+139
+00:07:19,680 --> 00:07:25,919
+gear uh show me I need to update it this
+
+140
+00:07:23,240 --> 00:07:29,160
+uh drawing because this drawing is not
+
+141
+00:07:25,919 --> 00:07:33,240
+very well made you can tell this drawing
+
+142
+00:07:29,160 --> 00:07:34,560
+is from the book Penrose styles to trap
+
+143
+00:07:33,240 --> 00:07:38,160
+door
+
+144
+00:07:34,560 --> 00:07:42,039
+ciphers it's not very good uh
+
+145
+00:07:38,160 --> 00:07:47,199
+3D draft okay so back in the days 20
+
+146
+00:07:42,039 --> 00:07:49,000
+years ago you don't have computer AED
+
+147
+00:07:47,199 --> 00:07:50,960
+design system you don't have computer
+
+148
+00:07:49,000 --> 00:07:53,520
+Graphics like that so you draw it
+
+149
+00:07:50,960 --> 00:07:56,560
+manually but this one is not well done
+
+150
+00:07:53,520 --> 00:08:00,240
+because you can kind of see it's it's
+
+151
+00:07:56,560 --> 00:08:02,560
+not very well done okay so I was saying
+
+152
+00:08:00,240 --> 00:08:05,879
+now back to previous topic I was saying
+
+153
+00:08:02,560 --> 00:08:10,400
+in mathematics there's two kind of
+
+154
+00:08:05,879 --> 00:08:13,240
+beauty one is the sheer visual Beauty
+
+155
+00:08:10,400 --> 00:08:16,080
+like so far we've talked about sheer
+
+156
+00:08:13,240 --> 00:08:19,120
+visual Beauty but the other beauty is
+
+157
+00:08:16,080 --> 00:08:22,560
+intrinsic that's that's these equations
+
+158
+00:08:19,120 --> 00:08:24,280
+you know that takes you know so like
+
+159
+00:08:22,560 --> 00:08:27,840
+that's this this is what gets
+
+160
+00:08:24,280 --> 00:08:29,759
+mathematician excited because when you
+
+161
+00:08:27,840 --> 00:08:32,080
+understand the formula the cature you
+
+162
+00:08:29,759 --> 00:08:36,159
+know then you see the properties then
+
+163
+00:08:32,080 --> 00:08:37,200
+it's sheer abstract beauty without you
+
+164
+00:08:36,159 --> 00:08:41,360
+know
+
+165
+00:08:37,200 --> 00:08:45,800
+without any pictures geometry okay so
+
+166
+00:08:41,360 --> 00:08:48,279
+this is hyperboloid of one sheet now so
+
+167
+00:08:45,800 --> 00:08:50,680
+what is hyperboloid of two sheet that's
+
+168
+00:08:48,279 --> 00:08:54,120
+like that okay so you again rotate
+
+169
+00:08:50,680 --> 00:09:00,519
+hyperbola but you rotate this
+
+170
+00:08:54,120 --> 00:09:04,399
+time uh this time you rotate around
+
+171
+00:09:00,519 --> 00:09:08,040
+the horizontal axis okay that's called
+
+172
+00:09:04,399 --> 00:09:13,640
+transverse axis then you get
+
+173
+00:09:08,040 --> 00:09:15,640
+this hyperboloid of two sheet okay um
+
+174
+00:09:13,640 --> 00:09:19,240
+okay so anyway so what we going to do
+
+175
+00:09:15,640 --> 00:09:23,000
+today so am I is the introduction good
+
+176
+00:09:19,240 --> 00:09:24,920
+I'm going to start to code okay say hi
+
+177
+00:09:23,000 --> 00:09:27,040
+if you are here say hi love to see your
+
+178
+00:09:24,920 --> 00:09:29,920
+comments if you're are not here skip
+
+179
+00:09:27,040 --> 00:09:32,560
+around play at 1.5 speed
+
+180
+00:09:29,920 --> 00:09:36,680
+uh so we're going to do animation okay
+
+181
+00:09:32,560 --> 00:09:40,760
+let me finish the hyperboloid um yeah so
+
+182
+00:09:36,680 --> 00:09:44,120
+hyperboloid of one sheet hyperboloid of
+
+183
+00:09:40,760 --> 00:09:47,839
+of um two
+
+184
+00:09:44,120 --> 00:09:50,320
+sheets one sheet and two sheets and then
+
+185
+00:09:47,839 --> 00:09:51,920
+we were talking about hyperbola and we
+
+186
+00:09:50,320 --> 00:09:55,000
+were talking about the beauty of
+
+187
+00:09:51,920 --> 00:09:58,160
+mathematics of two aspects one is purely
+
+188
+00:09:55,000 --> 00:10:01,440
+visual the other one is intrinsic the
+
+189
+00:09:58,160 --> 00:10:05,640
+abstract you know you know the group
+
+190
+00:10:01,440 --> 00:10:08,959
+Theory uh field Theory ring Theory
+
+191
+00:10:05,640 --> 00:10:12,079
+abstract algebra those are or topology
+
+192
+00:10:08,959 --> 00:10:15,399
+or complex analysis or analysis you know
+
+193
+00:10:12,079 --> 00:10:18,640
+that the sheer abstract
+
+194
+00:10:15,399 --> 00:10:21,720
+Beauty okay so but what is it we're
+
+195
+00:10:18,640 --> 00:10:25,560
+going to do today so you can see this
+
+196
+00:10:21,720 --> 00:10:27,160
+animation this animation illustrates one
+
+197
+00:10:25,560 --> 00:10:30,440
+of the
+
+198
+00:10:27,160 --> 00:10:33,200
+properties to gener generate a hyper
+
+199
+00:10:30,440 --> 00:10:36,480
+blood or to draw a hyper blood in other
+
+200
+00:10:33,200 --> 00:10:40,560
+words this is a way to construct that's
+
+201
+00:10:36,480 --> 00:10:43,480
+how they say construct a hypera okay you
+
+202
+00:10:40,560 --> 00:10:47,519
+so you can by this mechanical
+
+203
+00:10:43,480 --> 00:10:50,040
+means create a h hyperbola but okay so
+
+204
+00:10:47,519 --> 00:10:54,839
+those are animation I created 30 years
+
+205
+00:10:50,040 --> 00:10:54,839
+ago today we're going to do this real
+
+206
+00:10:55,320 --> 00:11:02,279
+time okay am I good check video check
+
+207
+00:10:58,880 --> 00:11:04,320
+audio check I think I'm good so say hi
+
+208
+00:11:02,279 --> 00:11:07,959
+okay say hi say
+
+209
+00:11:04,320 --> 00:11:11,200
+hi okay so let's start to code okay show
+
+210
+00:11:07,959 --> 00:11:14,760
+in browser this is today talk show and
+
+211
+00:11:11,200 --> 00:11:19,880
+go to hyperbola so this move this to the
+
+212
+00:11:14,760 --> 00:11:23,320
+top hypera okay let's go there open the
+
+213
+00:11:19,880 --> 00:11:26,519
+page showing browser okay now there's a
+
+214
+00:11:23,320 --> 00:11:30,399
+notebook go back to here notebook make a
+
+215
+00:11:26,519 --> 00:11:32,760
+backup open it so this is Wolf
+
+216
+00:11:30,399 --> 00:11:35,399
+Mathematica wam language you can
+
+217
+00:11:32,760 --> 00:11:38,279
+download for free uh all you have to do
+
+218
+00:11:35,399 --> 00:11:41,920
+is check out my website okay S Talk Show
+
+219
+00:11:38,279 --> 00:11:44,440
+wam Language tutorial about the author
+
+220
+00:11:41,920 --> 00:11:47,399
+wam language in depth download you know
+
+221
+00:11:44,440 --> 00:11:47,399
+you can download for
+
+222
+00:11:49,000 --> 00:11:56,399
+free okay so here is my old notebook so
+
+223
+00:11:53,399 --> 00:11:59,480
+there's one last thing remain to do so
+
+224
+00:11:56,399 --> 00:12:04,399
+this is 30 years old notebook or I have
+
+225
+00:11:59,480 --> 00:12:08,040
+all I want to do is just convert these
+
+226
+00:12:04,399 --> 00:12:10,639
+animations update it put a code on my
+
+227
+00:12:08,040 --> 00:12:12,399
+website then basically delete this
+
+228
+00:12:10,639 --> 00:12:17,279
+notebook
+
+229
+00:12:12,399 --> 00:12:20,120
+okay so let's begin okay so close this
+
+230
+00:12:17,279 --> 00:12:20,920
+uh showing browser so we want to go to
+
+231
+00:12:20,120 --> 00:12:24,880
+the
+
+232
+00:12:20,920 --> 00:12:29,600
+section where go down go down go down go
+
+233
+00:12:24,880 --> 00:12:35,519
+down go down go down rectangular hyper
+
+234
+00:12:29,600 --> 00:12:38,639
+okay this is x * y = 1 very simple so
+
+235
+00:12:35,519 --> 00:12:42,839
+this is a hyperbola rotated you know uh
+
+236
+00:12:38,639 --> 00:12:46,000
+45 degrees and uh and they they are they
+
+237
+00:12:42,839 --> 00:12:50,480
+are rectangular hyperbola meaning that
+
+238
+00:12:46,000 --> 00:12:54,040
+there asymptot asymptotes forms a
+
+239
+00:12:50,480 --> 00:12:56,680
+orthogonal forms across okay so
+
+240
+00:12:54,040 --> 00:13:00,920
+rectangular hyperbola there pointwise
+
+241
+00:12:56,680 --> 00:13:05,040
+construction Okay so this method is
+
+242
+00:13:00,920 --> 00:13:09,600
+derived from the parametric formula for
+
+243
+00:13:05,040 --> 00:13:13,680
+hyperbola secant and tangent x equal to
+
+244
+00:13:09,600 --> 00:13:16,519
+secant t y equal to tangent t Okay where
+
+245
+00:13:13,680 --> 00:13:19,760
+AB are radius is of the concentric
+
+246
+00:13:16,519 --> 00:13:22,720
+Circle okay if a equals to B then the
+
+247
+00:13:19,760 --> 00:13:24,040
+curve traced is a rectangular hyperbola
+
+248
+00:13:22,720 --> 00:13:25,760
+okay
+
+249
+00:13:24,040 --> 00:13:28,639
+so
+
+250
+00:13:25,760 --> 00:13:30,880
+um so we can do this let me show you
+
+251
+00:13:28,639 --> 00:13:34,480
+another thing thing that's G algebra
+
+252
+00:13:30,880 --> 00:13:38,279
+okay so this is G algebra you can
+
+253
+00:13:34,480 --> 00:13:41,920
+see we I constructed you know like over
+
+254
+00:13:38,279 --> 00:13:43,760
+100 of this in the past 20 years so you
+
+255
+00:13:41,920 --> 00:13:47,199
+can adjust
+
+256
+00:13:43,760 --> 00:13:49,800
+the so the way you do this is that it's
+
+257
+00:13:47,199 --> 00:13:54,040
+magnify okay so the way you do this you
+
+258
+00:13:49,800 --> 00:13:57,920
+start with two fixed circles A and B so
+
+259
+00:13:54,040 --> 00:14:00,440
+you see A and B two fixed circles okay
+
+260
+00:13:57,920 --> 00:14:04,360
+then you draw dra a
+
+261
+00:14:00,440 --> 00:14:07,320
+line let's see then you draw two
+
+262
+00:14:04,360 --> 00:14:10,240
+lines touching that's tangent to the
+
+263
+00:14:07,320 --> 00:14:13,800
+circle so you got the circle a you draw
+
+264
+00:14:10,240 --> 00:14:15,759
+a vertical line tangent to it okay then
+
+265
+00:14:13,800 --> 00:14:17,880
+you have another Circle you do the same
+
+266
+00:14:15,759 --> 00:14:20,120
+thing you have a line tangent to it so
+
+267
+00:14:17,880 --> 00:14:23,199
+you got two
+
+268
+00:14:20,120 --> 00:14:24,560
+lines okay two vertical lines parallel
+
+269
+00:14:23,199 --> 00:14:28,440
+to each
+
+270
+00:14:24,560 --> 00:14:32,560
+other then what you do then you draw a
+
+271
+00:14:28,440 --> 00:14:36,000
+line from the center of the circle okay
+
+272
+00:14:32,560 --> 00:14:37,320
+to to any point on on the on the circle
+
+273
+00:14:36,000 --> 00:14:41,040
+B
+
+274
+00:14:37,320 --> 00:14:45,480
+okay then so let's see if we can magnify
+
+275
+00:14:41,040 --> 00:14:48,560
+this yes we can okay so let me just do
+
+276
+00:14:45,480 --> 00:14:52,519
+this CLE can you guys
+
+277
+00:14:48,560 --> 00:14:55,880
+see so two circles A and B and two
+
+278
+00:14:52,519 --> 00:15:00,040
+vertical lines here and here then you
+
+279
+00:14:55,880 --> 00:15:03,720
+draw a ray from the center of the circle
+
+280
+00:15:00,040 --> 00:15:07,680
+okay then let's see how it works so you
+
+281
+00:15:03,720 --> 00:15:11,440
+see visual mathematics is such that you
+
+282
+00:15:07,680 --> 00:15:15,880
+can just look at this graph and see how
+
+283
+00:15:11,440 --> 00:15:18,040
+how this works so you can see this blue
+
+284
+00:15:15,880 --> 00:15:21,279
+curve is a
+
+285
+00:15:18,040 --> 00:15:26,320
+hyperbola so but how is it formed let's
+
+286
+00:15:21,279 --> 00:15:26,320
+see um so you draw a
+
+287
+00:15:26,759 --> 00:15:34,959
+aray okay so the ray will intersect
+
+288
+00:15:30,560 --> 00:15:39,319
+these two vertical lines at Point A1 and
+
+289
+00:15:34,959 --> 00:15:40,399
+B1 you can see A1 and B1 so they in so
+
+290
+00:15:39,319 --> 00:15:43,880
+this
+
+291
+00:15:40,399 --> 00:15:48,839
+Ray this Ray will intersect these two
+
+292
+00:15:43,880 --> 00:15:50,959
+vertical lines at Point A1 and B1
+
+293
+00:15:48,839 --> 00:15:55,040
+okay
+
+294
+00:15:50,959 --> 00:15:59,600
+now now take the inner vertical line
+
+295
+00:15:55,040 --> 00:16:02,440
+draw a circle you got this you got this
+
+296
+00:15:59,600 --> 00:16:05,639
+this green circle can you
+
+297
+00:16:02,440 --> 00:16:10,319
+see you see they okay so let's start
+
+298
+00:16:05,639 --> 00:16:10,319
+moving so take the in you
+
+299
+00:16:10,440 --> 00:16:17,279
+know you draw a circle passing the A1
+
+300
+00:16:14,600 --> 00:16:21,279
+okay you form this curve I mean this
+
+301
+00:16:17,279 --> 00:16:24,519
+circle then then you draw another ver
+
+302
+00:16:21,279 --> 00:16:27,880
+vertical line tangent to to the New
+
+303
+00:16:24,519 --> 00:16:29,519
+Circle okay then you draw a horizontal
+
+304
+00:16:27,880 --> 00:16:32,639
+line passing the
+
+305
+00:16:29,519 --> 00:16:35,880
+B1 then the intersection of these two
+
+306
+00:16:32,639 --> 00:16:39,880
+new lines is a point on
+
+307
+00:16:35,880 --> 00:16:44,079
+hyperbola okay there so you can see as
+
+308
+00:16:39,880 --> 00:16:47,199
+you change this this direction of the
+
+309
+00:16:44,079 --> 00:16:50,880
+aray they trace out different points so
+
+310
+00:16:47,199 --> 00:16:57,160
+for example right at here you
+
+311
+00:16:50,880 --> 00:17:00,839
+got okay can you see you got oh wait you
+
+312
+00:16:57,160 --> 00:17:00,839
+got uh
+
+313
+00:17:01,839 --> 00:17:08,240
+so you got this
+
+314
+00:17:03,439 --> 00:17:11,240
+line and this okay so you canot use the
+
+315
+00:17:08,240 --> 00:17:11,240
+pen
+
+316
+00:17:11,959 --> 00:17:18,400
+uh you got this circle you got this
+
+317
+00:17:15,760 --> 00:17:22,600
+vertical green line then you got this
+
+318
+00:17:18,400 --> 00:17:24,360
+horizontal line their Cross Point is the
+
+319
+00:17:22,600 --> 00:17:28,240
+point on
+
+320
+00:17:24,360 --> 00:17:31,200
+hyperbola now if you change this Ray
+
+321
+00:17:28,240 --> 00:17:33,280
+let's say is smaller let's say same
+
+322
+00:17:31,200 --> 00:17:35,960
+thing
+
+323
+00:17:33,280 --> 00:17:39,039
+okay same thing you know exactly the
+
+324
+00:17:35,960 --> 00:17:42,720
+same rule apply then then you got a
+
+325
+00:17:39,039 --> 00:17:45,120
+point uh here you see you see the the
+
+326
+00:17:42,720 --> 00:17:48,640
+point for the hyperbola is the two green
+
+327
+00:17:45,120 --> 00:17:52,200
+lines okay so let's go
+
+328
+00:17:48,640 --> 00:17:56,200
+slowly look at the two green lines can
+
+329
+00:17:52,200 --> 00:18:00,520
+you guys see it okay we losing user stop
+
+330
+00:17:56,200 --> 00:18:02,760
+the philosophical zombies I love wam
+
+331
+00:18:00,520 --> 00:18:02,760
+okay
+
+332
+00:18:03,000 --> 00:18:09,280
+so I'm not sure actually you guys can
+
+333
+00:18:06,320 --> 00:18:12,799
+see this because the lines are too thin
+
+334
+00:18:09,280 --> 00:18:17,760
+okay maybe I wasted time but
+
+335
+00:18:12,799 --> 00:18:22,559
+anyway um okay let's go back here so I
+
+336
+00:18:17,760 --> 00:18:25,840
+want to this code is in my package okay
+
+337
+00:18:22,559 --> 00:18:25,840
+so let's go to the
+
+338
+00:18:26,840 --> 00:18:36,000
+package so here's a Cod code search
+
+339
+00:18:31,440 --> 00:18:38,200
+for hyperbola generator so there it is
+
+340
+00:18:36,000 --> 00:18:43,799
+so you can
+
+341
+00:18:38,200 --> 00:18:48,559
+see here is a code and the code is
+
+342
+00:18:43,799 --> 00:18:52,880
+about 50 lines okay so in fact there's a
+
+343
+00:18:48,559 --> 00:18:56,960
+lot of tabs okay I want to remove
+
+344
+00:18:52,880 --> 00:18:59,960
+that okay uh show I space let let me do
+
+345
+00:18:56,960 --> 00:19:02,480
+that hold on a second
+
+346
+00:18:59,960 --> 00:19:02,480
+so
+
+347
+00:19:03,919 --> 00:19:13,440
+replace tab by space okay do it do it do
+
+348
+00:19:10,200 --> 00:19:13,440
+it do
+
+349
+00:19:27,280 --> 00:19:37,080
+it okay we we kind of done it so let's
+
+350
+00:19:32,919 --> 00:19:39,679
+see let me just copy it here okay so go
+
+351
+00:19:37,080 --> 00:19:44,240
+back to wam language open a new one
+
+352
+00:19:39,679 --> 00:19:47,080
+paste it so now it might look better
+
+353
+00:19:44,240 --> 00:19:50,360
+here so let's
+
+354
+00:19:47,080 --> 00:19:52,039
+magnify so here's a code to generate
+
+355
+00:19:50,360 --> 00:19:56,559
+this this
+
+356
+00:19:52,039 --> 00:19:59,240
+animation and uh let's make
+
+357
+00:19:56,559 --> 00:20:02,200
+it shift control
+
+358
+00:19:59,240 --> 00:20:04,080
+n so that they
+
+359
+00:20:02,200 --> 00:20:07,400
+are
+
+360
+00:20:04,080 --> 00:20:10,919
+formatted type set okay so you can see
+
+361
+00:20:07,400 --> 00:20:14,840
+the square root there okay so let's look
+
+362
+00:20:10,919 --> 00:20:19,760
+at the code so I believe that's it this
+
+363
+00:20:14,840 --> 00:20:23,880
+is a independent code okay
+
+364
+00:20:19,760 --> 00:20:27,640
+yeah okay so this is actual this this
+
+365
+00:20:23,880 --> 00:20:30,400
+part actual CA the function so let's try
+
+366
+00:20:27,640 --> 00:20:36,840
+that
+
+367
+00:20:30,400 --> 00:20:36,840
+copy uh so go down here go down there
+
+368
+00:20:37,039 --> 00:20:43,360
+paste control shift n to make it typ
+
+369
+00:20:44,799 --> 00:20:51,000
+set now go
+
+370
+00:20:48,159 --> 00:20:55,080
+up now let's
+
+371
+00:20:51,000 --> 00:20:55,080
+see where does this
+
+372
+00:20:55,200 --> 00:21:00,600
+begin okay so split
+
+373
+00:21:01,679 --> 00:21:08,960
+and uh I want to hold on a second copy
+
+374
+00:21:06,039 --> 00:21:08,960
+that go to the
+
+375
+00:21:09,080 --> 00:21:14,840
+top
+
+376
+00:21:11,720 --> 00:21:19,000
+clear clear this symbol so that's the
+
+377
+00:21:14,840 --> 00:21:21,640
+only symbol we are defining okay so this
+
+378
+00:21:19,000 --> 00:21:24,320
+defines the option for the parameter for
+
+379
+00:21:21,640 --> 00:21:28,799
+for this
+
+380
+00:21:24,320 --> 00:21:32,440
+so hyperbola generator given a radius
+
+381
+00:21:28,799 --> 00:21:34,559
+least so you need the radius you need
+
+382
+00:21:32,440 --> 00:21:37,559
+two circles
+
+383
+00:21:34,559 --> 00:21:37,559
+okay
+
+384
+00:21:38,960 --> 00:21:45,240
+okay can you guys see can you guys see
+
+385
+00:21:42,279 --> 00:21:45,240
+the pictures
+
+386
+00:21:45,600 --> 00:21:50,720
+well can can you guys see this picture
+
+387
+00:21:48,200 --> 00:21:56,360
+well let me know is a is the line too
+
+388
+00:21:50,720 --> 00:21:56,360
+thin to see is it visible at all
+
+389
+00:21:58,640 --> 00:22:05,039
+so anyway so you need so this function
+
+390
+00:22:01,720 --> 00:22:06,240
+takes two radius that's radius of two
+
+391
+00:22:05,039 --> 00:22:10,799
+given
+
+392
+00:22:06,240 --> 00:22:13,840
+circles then you take a range list okay
+
+393
+00:22:10,799 --> 00:22:18,320
+range that's 0er to 2 pi that's how how
+
+394
+00:22:13,840 --> 00:22:21,919
+much you want to sweep okay if you Adit
+
+395
+00:22:18,320 --> 00:22:25,640
+it then it's going to be 0 to 1.4 okay
+
+396
+00:22:21,919 --> 00:22:28,080
+that's the default value okay then then
+
+397
+00:22:25,640 --> 00:22:30,760
+whatever come after that is just the
+
+398
+00:22:28,080 --> 00:22:32,840
+option which is number of frames okay
+
+399
+00:22:30,760 --> 00:22:36,600
+now I know how to use this
+
+400
+00:22:32,840 --> 00:22:39,799
+function um the function has a usage
+
+401
+00:22:36,600 --> 00:22:44,720
+documentation which is here so we can
+
+402
+00:22:39,799 --> 00:22:47,520
+let's might as well paste it there
+
+403
+00:22:44,720 --> 00:22:50,039
+okay so that's a documentation for this
+
+404
+00:22:47,520 --> 00:22:55,039
+function okay but I already know how to
+
+405
+00:22:50,039 --> 00:22:59,520
+use it so here so here is two radius two
+
+406
+00:22:55,039 --> 00:23:01,679
+and one then from 0 to 2.1
+
+407
+00:22:59,520 --> 00:23:06,080
+25 so that would
+
+408
+00:23:01,679 --> 00:23:11,039
+be uh about less than half pi so Pi is 1
+
+409
+00:23:06,080 --> 00:23:15,679
+Point Pi is 3.14 something half pi is
+
+410
+00:23:11,039 --> 00:23:18,159
+1.56 something so 1.25 is a little bit
+
+411
+00:23:15,679 --> 00:23:21,919
+less than half
+
+412
+00:23:18,159 --> 00:23:23,120
+pi so that you know basically 80°
+
+413
+00:23:21,919 --> 00:23:26,520
+something
+
+414
+00:23:23,120 --> 00:23:29,120
+okay so last frame only true okay let's
+
+415
+00:23:26,520 --> 00:23:33,600
+evolve the whole thing let's just eval
+
+416
+00:23:29,120 --> 00:23:38,440
+evaluated shift enter
+
+417
+00:23:33,600 --> 00:23:40,760
+fantastic fantastic you see it generates
+
+418
+00:23:38,440 --> 00:23:43,880
+array
+
+419
+00:23:40,760 --> 00:23:47,360
+fantastic now there is some uh minor
+
+420
+00:23:43,880 --> 00:23:49,159
+issue here so option unknown option last
+
+421
+00:23:47,360 --> 00:23:52,279
+frame
+
+422
+00:23:49,159 --> 00:23:58,600
+only okay I think I remove that option
+
+423
+00:23:52,279 --> 00:24:02,760
+let's see yeah I remove that option so
+
+424
+00:23:58,600 --> 00:24:06,919
+so delete that let's do it again okay so
+
+425
+00:24:02,760 --> 00:24:09,640
+you can see can you actually see it
+
+426
+00:24:06,919 --> 00:24:12,440
+yeah okay so now we want to make this
+
+427
+00:24:09,640 --> 00:24:16,120
+animation okay so let's do
+
+428
+00:24:12,440 --> 00:24:19,000
+that all you have to do in wam language
+
+429
+00:24:16,120 --> 00:24:19,000
+is to say
+
+430
+00:24:19,840 --> 00:24:29,000
+animate Okay add that expression shift
+
+431
+00:24:24,919 --> 00:24:31,760
+enter uh no so anime is actually
+
+432
+00:24:29,000 --> 00:24:34,279
+we let's see the
+
+433
+00:24:31,760 --> 00:24:36,039
+documentation animate expression
+
+434
+00:24:34,279 --> 00:24:39,360
+something
+
+435
+00:24:36,039 --> 00:24:40,080
+something okay so that's not the command
+
+436
+00:24:39,360 --> 00:24:43,760
+we
+
+437
+00:24:40,080 --> 00:24:47,320
+want this is the animate okay so let me
+
+438
+00:24:43,760 --> 00:24:47,320
+show you this so you
+
+439
+00:24:50,440 --> 00:25:00,200
+see so if you have a sign you want to
+
+440
+00:24:55,120 --> 00:25:02,320
+plus sign x + a where X is a variable
+
+441
+00:25:00,200 --> 00:25:05,440
+and a is a constant but you want to
+
+442
+00:25:02,320 --> 00:25:07,679
+change a you know you see what happens
+
+443
+00:25:05,440 --> 00:25:11,919
+then you can plot it then you can say
+
+444
+00:25:07,679 --> 00:25:14,520
+anime okay but what we want here is not
+
+445
+00:25:11,919 --> 00:25:17,559
+this and also you can do it
+
+446
+00:25:14,520 --> 00:25:20,520
+interactively so for example so that's
+
+447
+00:25:17,559 --> 00:25:22,480
+the power of wolam language let me copy
+
+448
+00:25:20,520 --> 00:25:27,240
+it so let me show
+
+449
+00:25:22,480 --> 00:25:27,240
+you stop stop
+
+450
+00:25:29,840 --> 00:25:37,840
+play parameter change parameter a stop
+
+451
+00:25:34,240 --> 00:25:41,919
+play change parameter B so you can drag
+
+452
+00:25:37,840 --> 00:25:45,320
+the slider and you can see how a
+
+453
+00:25:41,919 --> 00:25:49,600
+parameter to a function changes the
+
+454
+00:25:45,320 --> 00:25:51,919
+graph so this is really tremendous okay
+
+455
+00:25:49,600 --> 00:25:54,760
+this is tremendous technology if you are
+
+456
+00:25:51,919 --> 00:25:57,919
+studying mathematics this is
+
+457
+00:25:54,760 --> 00:26:00,880
+tremendous so UAM language is free just
+
+458
+00:25:57,919 --> 00:26:04,480
+down load it okay I recommend
+
+459
+00:26:00,880 --> 00:26:07,279
+it uh so but that's not what I want what
+
+460
+00:26:04,480 --> 00:26:10,919
+I want is the least anime because we
+
+461
+00:26:07,279 --> 00:26:14,520
+already have like one bunch of Graphics
+
+462
+00:26:10,919 --> 00:26:14,520
+okay so what we do is
+
+463
+00:26:15,039 --> 00:26:21,080
+just this animate okay shift
+
+464
+00:26:19,520 --> 00:26:23,840
+enter
+
+465
+00:26:21,080 --> 00:26:29,000
+fantastic can you see
+
+466
+00:26:23,840 --> 00:26:32,320
+that the generation of a hyperbola okay
+
+467
+00:26:29,000 --> 00:26:32,320
+the construction of
+
+468
+00:26:34,880 --> 00:26:40,520
+hyperbola so you can let's play it
+
+469
+00:26:37,679 --> 00:26:40,520
+backward and
+
+470
+00:26:42,279 --> 00:26:46,799
+forward
+
+471
+00:26:44,120 --> 00:26:50,600
+beautiful uh so I wrote this like 30
+
+472
+00:26:46,799 --> 00:26:53,640
+years ago okay when I was young 30 years
+
+473
+00:26:50,600 --> 00:26:59,360
+ago and the code is just here the code
+
+474
+00:26:53,640 --> 00:27:00,679
+is um you know this about 100 lines okay
+
+475
+00:26:59,360 --> 00:27:04,320
+this
+
+476
+00:27:00,679 --> 00:27:07,960
+um this is a body
+
+477
+00:27:04,320 --> 00:27:10,159
+okay okay what to do
+
+478
+00:27:07,960 --> 00:27:14,279
+next
+
+479
+00:27:10,159 --> 00:27:14,279
+uh what to do next
+
+480
+00:27:14,600 --> 00:27:19,240
+well I mean for me I just need to update
+
+481
+00:27:18,000 --> 00:27:24,159
+these
+
+482
+00:27:19,240 --> 00:27:27,679
+Graphics uh so I can export it to uh
+
+483
+00:27:24,159 --> 00:27:29,480
+this animation I can export it to an
+
+484
+00:27:27,679 --> 00:27:31,840
+animation so let's
+
+485
+00:27:29,480 --> 00:27:35,360
+try right
+
+486
+00:27:31,840 --> 00:27:40,640
+click convert two from canvas get
+
+487
+00:27:35,360 --> 00:27:45,200
+coordinates uh make graphics print code
+
+488
+00:27:40,640 --> 00:27:45,200
+Graphics save graphicss
+
+489
+00:27:45,960 --> 00:27:54,039
+as uh no I believe there is
+
+490
+00:27:50,600 --> 00:27:56,720
+a animation I forgot what what's a
+
+491
+00:27:54,039 --> 00:28:00,120
+command to create an animation so hold
+
+492
+00:27:56,720 --> 00:28:00,120
+on a second let's see
+
+493
+00:28:03,270 --> 00:28:07,559
+[Music]
+
+494
+00:28:04,559 --> 00:28:07,559
+uh
+
+495
+00:28:08,919 --> 00:28:16,480
+edit I forgot what's the command you
+
+496
+00:28:11,919 --> 00:28:22,840
+know how do you uh you so let's see okay
+
+497
+00:28:16,480 --> 00:28:24,760
+so go back talk show today's talk show
+
+498
+00:28:22,840 --> 00:28:30,679
+wam Language
+
+499
+00:28:24,760 --> 00:28:36,240
+tutorial go down you see number ping
+
+500
+00:28:30,679 --> 00:28:38,320
+list expression atom head just like lisp
+
+501
+00:28:36,240 --> 00:28:41,000
+variables how to how to declare
+
+502
+00:28:38,320 --> 00:28:43,600
+variables conditionals Loop and
+
+503
+00:28:41,000 --> 00:28:46,399
+iteration function pattern matching data
+
+504
+00:28:43,600 --> 00:28:49,600
+structure getting advanced advanced
+
+505
+00:28:46,399 --> 00:28:52,120
+symbol principles full form then there's
+
+506
+00:28:49,600 --> 00:28:55,760
+Graphics programming that's what we
+
+507
+00:28:52,120 --> 00:28:59,080
+want there it is at the bottom animation
+
+508
+00:28:55,760 --> 00:29:02,600
+okay okay so this uh section is still
+
+509
+00:28:59,080 --> 00:29:05,480
+working progress so here is how you do
+
+510
+00:29:02,600 --> 00:29:06,880
+animation but my question now is how do
+
+511
+00:29:05,480 --> 00:29:10,000
+you
+
+512
+00:29:06,880 --> 00:29:13,039
+save oh I
+
+513
+00:29:10,000 --> 00:29:17,039
+forgot uh so we already got the
+
+514
+00:29:13,039 --> 00:29:19,200
+animation here we just want to save it
+
+515
+00:29:17,039 --> 00:29:22,080
+what what is a
+
+516
+00:29:19,200 --> 00:29:25,360
+save export something okay get
+
+517
+00:29:22,080 --> 00:29:28,799
+coordinate make standard size save
+
+518
+00:29:25,360 --> 00:29:35,640
+Graphics as let's try that again
+
+519
+00:29:28,799 --> 00:29:38,279
+PDF HTML BMP EPS that's postcript
+
+520
+00:29:35,640 --> 00:29:41,120
+give okay I don't want to give I want
+
+521
+00:29:38,279 --> 00:29:43,840
+the movie format
+
+522
+00:29:41,120 --> 00:29:49,080
+okay wait
+
+523
+00:29:43,840 --> 00:29:49,080
+how I have notes somewhere but
+
+524
+00:29:53,440 --> 00:30:03,159
+uh but I forgot what is the um
+
+525
+00:29:58,519 --> 00:30:03,159
+okay let's finish that and that's it for
+
+526
+00:30:07,440 --> 00:30:14,120
+today okay I forgot what is the command
+
+527
+00:30:10,480 --> 00:30:17,880
+to export to animation let's see the
+
+528
+00:30:14,120 --> 00:30:20,720
+documentation so this anime okay that's
+
+529
+00:30:17,880 --> 00:30:20,720
+not what we
+
+530
+00:30:25,000 --> 00:30:29,320
+care okay manipulate
+
+531
+00:30:29,559 --> 00:30:38,039
+so this a bunch of animations and uh oh
+
+532
+00:30:35,440 --> 00:30:38,039
+moon
+
+533
+00:30:41,200 --> 00:30:47,360
+phase so let's shrink this a little bit
+
+534
+00:30:51,440 --> 00:30:55,640
+resize I forgot let's
+
+535
+00:30:55,840 --> 00:31:04,200
+say export and animation let's see
+
+536
+00:31:00,279 --> 00:31:08,960
+search importing exporting
+
+537
+00:31:04,200 --> 00:31:08,960
+video okay it's try
+
+538
+00:31:10,960 --> 00:31:20,360
+that okay so again you can import MP4
+
+539
+00:31:15,600 --> 00:31:23,120
+video you can import audio part of it
+
+540
+00:31:20,360 --> 00:31:26,159
+you can import
+
+541
+00:31:23,120 --> 00:31:29,559
+MP4 uh as a list of
+
+542
+00:31:26,159 --> 00:31:35,120
+images you can in import
+
+543
+00:31:29,559 --> 00:31:39,080
+MP4 as a uh a duration no you can like
+
+544
+00:31:35,120 --> 00:31:43,880
+import just the how long is the
+
+545
+00:31:39,080 --> 00:31:48,240
+video uh export okay so export there it
+
+546
+00:31:43,880 --> 00:31:51,039
+is export so export there it there it is
+
+547
+00:31:48,240 --> 00:31:56,559
+now I remember I have a notes about you
+
+548
+00:31:51,039 --> 00:31:56,559
+see so hold on a second let me show you
+
+549
+00:31:58,120 --> 00:32:06,480
+okay let's go back here and uh let's
+
+550
+00:32:01,919 --> 00:32:11,240
+save this to a variable
+
+551
+00:32:06,480 --> 00:32:12,880
+so x x x
+
+552
+00:32:11,240 --> 00:32:18,480
+animation
+
+553
+00:32:12,880 --> 00:32:22,840
+x movie equals to okay and
+
+554
+00:32:18,480 --> 00:32:28,960
+uh don't produce output shift enter
+
+555
+00:32:22,840 --> 00:32:32,120
+then now all you have to do is just say
+
+556
+00:32:28,960 --> 00:32:36,039
+this animate x
+
+557
+00:32:32,120 --> 00:32:41,440
+movie okay there you have the movie then
+
+558
+00:32:36,039 --> 00:32:41,440
+what we want to do now is to say
+
+559
+00:32:43,360 --> 00:32:53,240
+export okay export
+
+560
+00:32:47,600 --> 00:32:55,559
+then uh so export of that okay so but
+
+561
+00:32:53,240 --> 00:32:58,679
+first of all you need a name so what is
+
+562
+00:32:55,559 --> 00:33:03,039
+the name you want it to will
+
+563
+00:32:58,679 --> 00:33:04,720
+be X Test movie
+
+564
+00:33:03,039 --> 00:33:07,639
+okay
+
+565
+00:33:04,720 --> 00:33:10,600
+dot um let's
+
+566
+00:33:07,639 --> 00:33:15,919
+try give
+
+567
+00:33:10,600 --> 00:33:19,440
+first okay then this part will be
+
+568
+00:33:15,919 --> 00:33:19,440
+that okay do
+
+569
+00:33:24,159 --> 00:33:29,760
+it let's see how long it it shouldn't be
+
+570
+00:33:27,159 --> 00:33:29,760
+take to
+
+571
+00:33:33,480 --> 00:33:39,880
+long it's okay thank you
+
+572
+00:33:36,960 --> 00:33:44,480
+Thiago fantastic Thiago are you in
+
+573
+00:33:39,880 --> 00:33:44,480
+Brazil I forgot are you the guys in
+
+574
+00:33:44,519 --> 00:33:53,159
+Brazil it's done fantastic guys so let's
+
+575
+00:33:48,760 --> 00:33:53,159
+go to desktop I believe it's save in
+
+576
+00:33:54,159 --> 00:34:03,120
+desktop uh no wait what is
+
+577
+00:33:58,480 --> 00:34:03,120
+This Test movie where is it
+
+578
+00:34:04,559 --> 00:34:08,760
+saved uh documents
+
+579
+00:34:09,720 --> 00:34:15,760
+okay there it
+
+580
+00:34:11,839 --> 00:34:19,879
+is there it is okay now let's open the
+
+581
+00:34:15,760 --> 00:34:22,159
+gift let's see there it is fantastic can
+
+582
+00:34:19,879 --> 00:34:24,679
+you guys see
+
+583
+00:34:22,159 --> 00:34:27,800
+it
+
+584
+00:34:24,679 --> 00:34:32,679
+beautiful now the final size is eight
+
+585
+00:34:27,800 --> 00:34:35,520
+800 kilobytes okay now let's try it
+
+586
+00:34:32,679 --> 00:34:37,839
+again but now instead of gi gi is not
+
+587
+00:34:35,520 --> 00:34:40,560
+good okay let's try
+
+588
+00:34:37,839 --> 00:34:44,040
+MP4 shift
+
+589
+00:34:40,560 --> 00:34:48,119
+enter processing expression for video
+
+590
+00:34:44,040 --> 00:34:50,960
+export remaining time 20 seconds 19
+
+591
+00:34:48,119 --> 00:34:55,119
+seconds 16
+
+592
+00:34:50,960 --> 00:34:58,560
+seconds beautiful wo F language that's
+
+593
+00:34:55,119 --> 00:35:00,599
+why I'm telling you guys wam language is
+
+594
+00:34:58,560 --> 00:35:03,960
+magnitude
+
+595
+00:35:00,599 --> 00:35:07,760
+beyond anything you've seen hascal or
+
+596
+00:35:03,960 --> 00:35:11,839
+whatever closure hasal
+
+597
+00:35:07,760 --> 00:35:14,240
+rust okay it's done
+
+598
+00:35:11,839 --> 00:35:20,599
+refresh there it
+
+599
+00:35:14,240 --> 00:35:20,599
+is MP4 90 kilobytes open
+
+600
+00:35:21,280 --> 00:35:29,640
+it fantastic this is even more beautiful
+
+601
+00:35:25,359 --> 00:35:29,640
+okay can can you like uh
+
+602
+00:35:31,200 --> 00:35:37,200
+what
+
+603
+00:35:32,720 --> 00:35:40,200
+yeah oh stupid this VC player
+
+604
+00:35:37,200 --> 00:35:43,400
+stupid idiotic from the open source
+
+605
+00:35:40,200 --> 00:35:46,119
+Linux like every every time you like
+
+606
+00:35:43,400 --> 00:35:49,960
+after it plays it becomes this thing you
+
+607
+00:35:46,119 --> 00:35:52,720
+can just play uh click play again you
+
+608
+00:35:49,960 --> 00:35:55,680
+see the Linux
+
+609
+00:35:52,720 --> 00:35:58,119
+idiots and Unix idiots they are
+
+610
+00:35:55,680 --> 00:36:01,480
+incapable of creating any sort software
+
+611
+00:35:58,119 --> 00:36:04,119
+that involves a user
+
+612
+00:36:01,480 --> 00:36:07,240
+interface let me explain this one okay
+
+613
+00:36:04,119 --> 00:36:10,440
+because this is Extreme idiotic to the
+
+614
+00:36:07,240 --> 00:36:13,960
+extreme degree typical very typical
+
+615
+00:36:10,440 --> 00:36:18,000
+example of the Unix Linux situation
+
+616
+00:36:13,960 --> 00:36:21,400
+including the C idiots okay so you see
+
+617
+00:36:18,000 --> 00:36:25,680
+you got a movie right so if you play
+
+618
+00:36:21,400 --> 00:36:28,240
+this in let's say in Microsoft um you
+
+619
+00:36:25,680 --> 00:36:33,400
+know any player on the Mac go you know
+
+620
+00:36:28,240 --> 00:36:37,079
+let's say uh Windows Media Player okay I
+
+621
+00:36:33,400 --> 00:36:39,319
+don't like Windows Media Player but um
+
+622
+00:36:37,079 --> 00:36:41,800
+you know actually I don't you know I
+
+623
+00:36:39,319 --> 00:36:41,800
+don't want
+
+624
+00:36:44,599 --> 00:36:51,160
+to yeah I don't I don't even want to try
+
+625
+00:36:48,319 --> 00:36:55,280
+but anyway if you open in the VC you
+
+626
+00:36:51,160 --> 00:36:58,079
+know V vcl player which is the open
+
+627
+00:36:55,280 --> 00:36:59,760
+source Linux so you get that
+
+628
+00:36:58,079 --> 00:37:04,079
+but
+
+629
+00:36:59,760 --> 00:37:09,240
+once wait click finish you know like
+
+630
+00:37:04,079 --> 00:37:13,800
+once it finishes it becomes this index
+
+631
+00:37:09,240 --> 00:37:19,440
+page which video player does that you
+
+632
+00:37:13,800 --> 00:37:23,200
+know what incredible ID idiy
+
+633
+00:37:19,440 --> 00:37:26,680
+idiocy this brainless look you know you
+
+634
+00:37:23,200 --> 00:37:30,359
+play a video when it finish okay it for
+
+635
+00:37:26,680 --> 00:37:31,880
+some reason it's stops um but continue
+
+636
+00:37:30,359 --> 00:37:36,560
+oh it's the
+
+637
+00:37:31,880 --> 00:37:39,319
+end you know like you extremely idiotic
+
+638
+00:37:36,560 --> 00:37:43,280
+this is like the you you user interface
+
+639
+00:37:39,319 --> 00:37:46,880
+aspect of the Unix and Linux thing okay
+
+640
+00:37:43,280 --> 00:37:49,720
+but anyway our video are successful so
+
+641
+00:37:46,880 --> 00:37:54,119
+let's just copy it let's copy both of
+
+642
+00:37:49,720 --> 00:37:58,720
+them you can also try um you can also
+
+643
+00:37:54,119 --> 00:38:02,079
+try to export mov uh let's try okay
+
+644
+00:37:58,720 --> 00:38:05,319
+actually I want to see I did this
+
+645
+00:38:02,079 --> 00:38:11,040
+before I want to see which one produces
+
+646
+00:38:05,319 --> 00:38:15,760
+the maximum quality with the least file
+
+647
+00:38:11,040 --> 00:38:15,760
+size so now it's a do movie
+
+648
+00:38:23,560 --> 00:38:33,319
+file okay done so now refresh now we got
+
+649
+00:38:27,160 --> 00:38:36,800
+three files so so the mov is
+
+650
+00:38:33,319 --> 00:38:39,800
+actually okay 300 megabyte MP4 is the
+
+651
+00:38:36,800 --> 00:38:45,480
+best okay but anyway copy the file path
+
+652
+00:38:39,800 --> 00:38:51,079
+close close close close go to the
+
+653
+00:38:45,480 --> 00:38:51,079
+hyperbola Page open then go to the
+
+654
+00:38:51,280 --> 00:38:56,319
+construction Point Wise Construction
+
+655
+00:38:53,720 --> 00:39:00,000
+let's just paste them there okay now
+
+656
+00:38:56,319 --> 00:39:04,880
+make make it into a embedded
+
+657
+00:39:00,000 --> 00:39:07,400
+GIF uh make it a make you know so it's
+
+658
+00:39:04,880 --> 00:39:10,000
+so fast you don't know what's going on
+
+659
+00:39:07,400 --> 00:39:12,440
+so but let's change let's move the file
+
+660
+00:39:10,000 --> 00:39:16,079
+into the current directory okay so if
+
+661
+00:39:12,440 --> 00:39:20,680
+you show it in browser now go down go
+
+662
+00:39:16,079 --> 00:39:24,480
+down go down go down go down go down go
+
+663
+00:39:20,680 --> 00:39:28,599
+down go down down you see there we have
+
+664
+00:39:24,480 --> 00:39:33,560
+it so the first one is
+
+665
+00:39:28,599 --> 00:39:35,839
+um the first one is GIF okay now the
+
+666
+00:39:33,560 --> 00:39:39,839
+second one
+
+667
+00:39:35,839 --> 00:39:43,599
+is do move it won't play in the browser
+
+668
+00:39:39,839 --> 00:39:46,119
+so S6 doesn't play in Firefox the third
+
+669
+00:39:43,599 --> 00:39:48,400
+one is
+
+670
+00:39:46,119 --> 00:39:52,640
+MP4 click
+
+671
+00:39:48,400 --> 00:39:57,960
+Play Beautiful okay now let's show this
+
+672
+00:39:52,640 --> 00:40:00,359
+page in in in a Chrome browser okay
+
+673
+00:39:57,960 --> 00:40:02,920
+so but before we do that let's change
+
+674
+00:40:00,359 --> 00:40:06,040
+you know let's change the file path into
+
+675
+00:40:02,920 --> 00:40:08,720
+the current directory because this is my
+
+676
+00:40:06,040 --> 00:40:11,640
+website you know you don't want it to
+
+677
+00:40:08,720 --> 00:40:15,680
+link to the your document directory so I
+
+678
+00:40:11,640 --> 00:40:18,960
+have a easy command press press press
+
+679
+00:40:15,680 --> 00:40:22,079
+okay let's just say I okay done so it's
+
+680
+00:40:18,960 --> 00:40:27,720
+automatic press press press
+
+681
+00:40:22,079 --> 00:40:30,359
+I okay so press press press I
+
+682
+00:40:27,720 --> 00:40:34,119
+so they moved into the
+
+683
+00:40:30,359 --> 00:40:36,760
+current directory there so you see there
+
+684
+00:40:34,119 --> 00:40:42,280
+there there okay so the command I just
+
+685
+00:40:36,760 --> 00:40:45,079
+called is isar HTML move source file
+
+686
+00:40:42,280 --> 00:40:47,640
+path you know that's part of my own
+
+687
+00:40:45,079 --> 00:40:52,920
+command you can get it if you want to
+
+688
+00:40:47,640 --> 00:40:58,040
+you know pay me $30 $40 go to Kar emac
+
+689
+00:40:52,920 --> 00:41:01,680
+website search for Kar emac HTML mod you
+
+690
+00:40:58,040 --> 00:41:05,119
+know pay me PayPal me I'll send it to
+
+691
+00:41:01,680 --> 00:41:07,400
+you you know the uh so okay so we got so
+
+692
+00:41:05,119 --> 00:41:11,200
+wait what are we doing so you got you
+
+693
+00:41:07,400 --> 00:41:13,920
+got these files now show this file in a
+
+694
+00:41:11,200 --> 00:41:15,440
+Chrome browser you see right now here
+
+695
+00:41:13,920 --> 00:41:20,040
+it's
+
+696
+00:41:15,440 --> 00:41:24,319
+Firefox but let's show close that V VLC
+
+697
+00:41:20,040 --> 00:41:28,480
+idiotic let's go to the this is a brave
+
+698
+00:41:24,319 --> 00:41:31,040
+browser okay Brave browser so
+
+699
+00:41:28,480 --> 00:41:34,319
+press press press
+
+700
+00:41:31,040 --> 00:41:38,640
+press there it is in bra browser now go
+
+701
+00:41:34,319 --> 00:41:44,319
+down go down go down down down down down
+
+702
+00:41:38,640 --> 00:41:49,359
+down down down down down there it is
+
+703
+00:41:44,319 --> 00:41:52,200
+give okay this is the move file mov it
+
+704
+00:41:49,359 --> 00:41:56,040
+doesn't play okay so okay movie file is
+
+705
+00:41:52,200 --> 00:41:58,400
+not good MP3 is good
+
+706
+00:41:56,040 --> 00:42:01,000
+play that's that's it for today thank
+
+707
+00:41:58,400 --> 00:42:01,000
+you guys for
+
+708
+00:42:01,079 --> 00:42:08,240
+watching uh okay if you enjoy my stuff
+
+709
+00:42:04,560 --> 00:42:13,520
+just pay me okay just go to PayPal go to
+
+710
+00:42:08,240 --> 00:42:18,520
+go toad. info. info and
+
+711
+00:42:13,520 --> 00:42:22,480
+the.info the the the is the site is
+
+712
+00:42:18,520 --> 00:42:24,359
+called SAR code then SC all the way down
+
+713
+00:42:22,480 --> 00:42:26,359
+you got all these tutorials for
+
+714
+00:42:24,359 --> 00:42:28,839
+programming languages all the way down
+
+715
+00:42:26,359 --> 00:42:29,960
+just PayPal me okay PayPal Amazon gift
+
+716
+00:42:28,839 --> 00:42:33,280
+card
+
+717
+00:42:29,960 --> 00:42:33,280
+$100 bye
+
+718
+00:42:33,680 --> 00:42:40,800
+guys my VLC Player on Linux is normal I
+
+719
+00:42:37,599 --> 00:42:42,440
+think it's just uh Windows okay yeah
+
+720
+00:42:40,800 --> 00:42:48,319
+maybe you are right but
+
+721
+00:42:42,440 --> 00:42:48,319
+VLC I've been using VLC on Linux lots of
+
+722
+00:42:49,599 --> 00:42:52,920
+problems bye
+
+723
+00:42:56,119 --> 00:43:03,280
+guys so we talked for like yeah 5050
+
+724
+00:42:59,400 --> 00:43:03,280
+minutes that's good
+

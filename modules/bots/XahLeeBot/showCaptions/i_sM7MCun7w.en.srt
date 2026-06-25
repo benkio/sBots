@@ -1,0 +1,4495 @@
+1
+00:00:01,199 --> 00:00:08,559
+Good evening everyone. Good evening
+
+2
+00:00:04,400 --> 00:00:11,519
+everyone. Welcome to another episode of
+
+3
+00:00:08,559 --> 00:00:16,720
+talk show. We are going to code wufam
+
+4
+00:00:11,519 --> 00:00:19,199
+language on advanc of code 2025 day six
+
+5
+00:00:16,720 --> 00:00:22,560
+problem one. Let me introduce my
+
+6
+00:00:19,199 --> 00:00:26,560
+keyboards. Ultimate hacking keyboard 80
+
+7
+00:00:22,560 --> 00:00:30,320
+UHK 80. Search for YouTube you will find
+
+8
+00:00:26,560 --> 00:00:35,360
+my reviews and unboxing.
+
+9
+00:00:30,320 --> 00:00:37,360
+Uh let's switch to my uh desktop screen.
+
+10
+00:00:35,360 --> 00:00:39,760
+So this is what we're going to do.
+
+11
+00:00:37,360 --> 00:00:45,040
+Advent of code
+
+12
+00:00:39,760 --> 00:00:49,760
+2025 day six. Okay. So on wam language.
+
+13
+00:00:45,040 --> 00:00:53,039
+So this is advent of code 2025 website.
+
+14
+00:00:49,760 --> 00:00:55,600
+Let's go to that's day five. Now let's
+
+15
+00:00:53,039 --> 00:01:00,480
+do day six.
+
+16
+00:00:55,600 --> 00:01:03,199
+By the way, I asked I asked Guac AI
+
+17
+00:01:00,480 --> 00:01:08,000
+about how long does it take to do a vin
+
+18
+00:01:03,199 --> 00:01:10,960
+of code. So usually uh on the early days
+
+19
+00:01:08,000 --> 00:01:13,600
+easier problem it's about one or two
+
+20
+00:01:10,960 --> 00:01:17,200
+hours
+
+21
+00:01:13,600 --> 00:01:19,680
+but in the mid med medium difficulty
+
+22
+00:01:17,200 --> 00:01:24,240
+problems two to four hours two to four
+
+23
+00:01:19,680 --> 00:01:27,600
+hours and uh for the last few days it's
+
+24
+00:01:24,240 --> 00:01:31,360
+more than four hours or several days. So
+
+25
+00:01:27,600 --> 00:01:33,520
+it it is not a trivial
+
+26
+00:01:31,360 --> 00:01:37,920
+puzzle programming puzzle at the end of
+
+27
+00:01:33,520 --> 00:01:41,840
+code. So this is the guac AI answer.
+
+28
+00:01:37,920 --> 00:01:44,240
+Now that's for average programmers,
+
+29
+00:01:41,840 --> 00:01:49,040
+experienced average programmers. But
+
+30
+00:01:44,240 --> 00:01:52,079
+there are speed coding uh programmers
+
+31
+00:01:49,040 --> 00:01:54,560
+they you know some of them solve in 10
+
+32
+00:01:52,079 --> 00:01:57,840
+minutes like in in some in instance
+
+33
+00:01:54,560 --> 00:02:01,040
+solve it in one minute. That means it
+
+34
+00:01:57,840 --> 00:02:03,040
+takes just one minute even just to type
+
+35
+00:02:01,040 --> 00:02:04,560
+the solution. So that's like almost
+
+36
+00:02:03,040 --> 00:02:07,119
+impossible.
+
+37
+00:02:04,560 --> 00:02:11,280
+Some of them are questionable uh like
+
+38
+00:02:07,119 --> 00:02:13,200
+cheating or uh using libraries designed
+
+39
+00:02:11,280 --> 00:02:16,480
+for the v of code. So those kind of
+
+40
+00:02:13,200 --> 00:02:19,840
+things. So anyway, but they are very uh
+
+41
+00:02:16,480 --> 00:02:23,360
+talented speed coders which is very
+
+42
+00:02:19,840 --> 00:02:25,280
+different from actual uh real world
+
+43
+00:02:23,360 --> 00:02:27,200
+coders but because they are kind of
+
+44
+00:02:25,280 --> 00:02:29,920
+different
+
+45
+00:02:27,200 --> 00:02:32,560
+so speed coders you know. So anyway, so
+
+46
+00:02:29,920 --> 00:02:35,280
+that's I guess that's why they removed
+
+47
+00:02:32,560 --> 00:02:38,400
+the leaderboard for the advent of code
+
+48
+00:02:35,280 --> 00:02:40,959
+global leaderboard. They said they said
+
+49
+00:02:38,400 --> 00:02:43,599
+they removed it because there's abuse
+
+50
+00:02:40,959 --> 00:02:46,720
+and so on. I don't really know the
+
+51
+00:02:43,599 --> 00:02:49,280
+details. Okay. Top competitors
+
+52
+00:02:46,720 --> 00:02:51,200
+historical record global leadership
+
+53
+00:02:49,280 --> 00:02:54,160
+under five minutes. You know those are
+
+54
+00:02:51,200 --> 00:02:57,440
+crazy. So anyway, so let's do the venue
+
+55
+00:02:54,160 --> 00:02:59,440
+code. Okay. Close close open that start
+
+56
+00:02:57,440 --> 00:03:01,599
+talk show. So we're going to write it in
+
+57
+00:02:59,440 --> 00:03:04,159
+Wufam language the most advanced
+
+58
+00:03:01,599 --> 00:03:08,000
+programming language
+
+59
+00:03:04,159 --> 00:03:12,080
+and uh if you don't know Wufam language
+
+60
+00:03:08,000 --> 00:03:13,760
+about last week we did a one hour
+
+61
+00:03:12,080 --> 00:03:17,040
+introduction.
+
+62
+00:03:13,760 --> 00:03:20,599
+Okay so Wuam language you go to S talk
+
+63
+00:03:17,040 --> 00:03:20,599
+show episode
+
+64
+00:03:21,360 --> 00:03:24,360
+731
+
+65
+00:03:24,480 --> 00:03:29,599
+there. So we spent 1 hour introduction
+
+66
+00:03:27,360 --> 00:03:31,760
+on woofam language but today you can
+
+67
+00:03:29,599 --> 00:03:34,159
+just you know so if you don't know about
+
+68
+00:03:31,760 --> 00:03:36,799
+wuam language go to my website
+
+69
+00:03:34,159 --> 00:03:39,200
+kasadi.info info search for just search
+
+70
+00:03:36,799 --> 00:03:41,360
+for my name kasardi wuam language for
+
+71
+00:03:39,200 --> 00:03:43,360
+programmers you'll find complete
+
+72
+00:03:41,360 --> 00:03:44,879
+tutorial from the ground up for
+
+73
+00:03:43,360 --> 00:03:48,799
+programmers
+
+74
+00:03:44,879 --> 00:03:51,440
+and a download link at
+
+75
+00:03:48,799 --> 00:03:52,959
+wufam.com/developer
+
+76
+00:03:51,440 --> 00:03:57,920
+so you can download the whole thing
+
+77
+00:03:52,959 --> 00:04:00,799
+that's like 45 gigabytes for free okay
+
+78
+00:03:57,920 --> 00:04:04,000
+and if you are watching this offline
+
+79
+00:04:00,799 --> 00:04:07,040
+play at 1.5 speed or twice as fast if
+
+80
+00:04:04,000 --> 00:04:09,200
+you are watching in this
+
+81
+00:04:07,040 --> 00:04:11,519
+live. If you are here, say hi. Love to
+
+82
+00:04:09,200 --> 00:04:16,479
+see your comments. Okay. Start Wan
+
+83
+00:04:11,519 --> 00:04:19,680
+language and magnify 250. Okay. So,
+
+84
+00:04:16,479 --> 00:04:22,079
+that's going to be our
+
+85
+00:04:19,680 --> 00:04:24,320
+code.
+
+86
+00:04:22,079 --> 00:04:26,400
+Okay, we just going to go relaxed, you
+
+87
+00:04:24,320 --> 00:04:31,280
+know. I'm just going to play with the uh
+
+88
+00:04:26,400 --> 00:04:34,560
+this advant of code. So, uh again, play
+
+89
+00:04:31,280 --> 00:04:36,479
+it at twice as fast.
+
+90
+00:04:34,560 --> 00:04:39,280
+Okay.
+
+91
+00:04:36,479 --> 00:04:42,000
+So, let's see.
+
+92
+00:04:39,280 --> 00:04:43,840
+So, it's day six. So, it might be a bit
+
+93
+00:04:42,000 --> 00:04:46,880
+difficult. I don't know if I can finish
+
+94
+00:04:43,840 --> 00:04:49,600
+it in 1 hour. Plus, I need to talk and
+
+95
+00:04:46,880 --> 00:04:53,120
+explain things.
+
+96
+00:04:49,600 --> 00:04:55,520
+So, day six. So what uh so basics yeah
+
+97
+00:04:53,120 --> 00:04:58,880
+so first of all the advanced code is the
+
+98
+00:04:55,520 --> 00:05:04,000
+web design is fixed layout extremely
+
+99
+00:04:58,880 --> 00:05:06,080
+lousy and also dark background which is
+
+100
+00:05:04,000 --> 00:05:09,680
+basically unreadable
+
+101
+00:05:06,080 --> 00:05:11,520
+and you can as an evidence of that you
+
+102
+00:05:09,680 --> 00:05:16,000
+can see that when you are watching
+
+103
+00:05:11,520 --> 00:05:21,039
+YouTube wi and with some website with
+
+104
+00:05:16,000 --> 00:05:24,320
+dark theme white text black background
+
+105
+00:05:21,039 --> 00:05:28,800
+uh became unreadable. So let's try it in
+
+106
+00:05:24,320 --> 00:05:31,919
+um in Firefox. And so you can turn CSS
+
+107
+00:05:28,800 --> 00:05:34,320
+off actually. So let me actually delete
+
+108
+00:05:31,919 --> 00:05:36,960
+my history
+
+109
+00:05:34,320 --> 00:05:42,560
+browsing histories. So okay, so you go
+
+110
+00:05:36,960 --> 00:05:47,240
+to uh view page style, no style. Okay,
+
+111
+00:05:42,560 --> 00:05:47,240
+it seems better. Okay.
+
+112
+00:05:49,120 --> 00:05:57,199
+Okay, let's let's start to work on this.
+
+113
+00:05:52,639 --> 00:05:59,759
+Okay. Hello, surface. So late day 607.
+
+114
+00:05:57,199 --> 00:06:03,039
+Day six.
+
+115
+00:05:59,759 --> 00:06:07,280
+Uh I haven't done day six. So day six.
+
+116
+00:06:03,039 --> 00:06:10,639
+Okay. Is that right? Did I get confused?
+
+117
+00:06:07,280 --> 00:06:13,840
+Yeah, last time. Yeah, last time is day
+
+118
+00:06:10,639 --> 00:06:17,400
+five. Today is day six. Okay,
+
+119
+00:06:13,840 --> 00:06:17,400
+so let's see.
+
+120
+00:06:19,600 --> 00:06:24,639
+Uh, day six, trash compactor. After
+
+121
+00:06:22,960 --> 00:06:27,039
+helping the elves in the kitchen, you
+
+122
+00:06:24,639 --> 00:06:29,840
+were uh taking a break and helping them
+
+123
+00:06:27,039 --> 00:06:32,000
+reenact a movie scene when you
+
+124
+00:06:29,840 --> 00:06:36,639
+overenthusiastically jump into the
+
+125
+00:06:32,000 --> 00:06:39,600
+garbage shoot. A brief fall later, you
+
+126
+00:06:36,639 --> 00:06:41,520
+find yourself in a garbage smasher.
+
+127
+00:06:39,600 --> 00:06:45,520
+Unfortunately, the doors been
+
+128
+00:06:41,520 --> 00:06:48,160
+magnetically sealed. As you try to find
+
+129
+00:06:45,520 --> 00:06:50,240
+out a way out, you are approached by a
+
+130
+00:06:48,160 --> 00:06:53,759
+family of
+
+131
+00:06:50,240 --> 00:06:56,720
+the fow parts. You are pretty sure they
+
+132
+00:06:53,759 --> 00:06:58,960
+can get the door open, but it will take
+
+133
+00:06:56,720 --> 00:07:02,240
+some time. While you wait, they are
+
+134
+00:06:58,960 --> 00:07:04,319
+curious if you can help the youngest
+
+135
+00:07:02,240 --> 00:07:08,880
+Salaflo
+
+136
+00:07:04,319 --> 00:07:11,680
+Sallallow part with her math homework.
+
+137
+00:07:08,880 --> 00:07:15,120
+Okay. Some interesting back background.
+
+138
+00:07:11,680 --> 00:07:18,120
+What what what is safod?
+
+139
+00:07:15,120 --> 00:07:18,120
+Safalopod.
+
+140
+00:07:20,000 --> 00:07:26,319
+What is this? Oh, some kind of squid.
+
+141
+00:07:24,560 --> 00:07:31,360
+Salafopod
+
+142
+00:07:26,319 --> 00:07:34,800
+is any member of a molluskan class.
+
+143
+00:07:31,360 --> 00:07:38,080
+Okay. Squid, octopus, cottofish,
+
+144
+00:07:34,800 --> 00:07:41,280
+nautilus. Okay. So you got this laugh
+
+145
+00:07:38,080 --> 00:07:43,280
+part. They can help you
+
+146
+00:07:41,280 --> 00:07:45,440
+and you need to help with their
+
+147
+00:07:43,280 --> 00:07:47,520
+homework. So let's see. You see they
+
+148
+00:07:45,440 --> 00:07:50,479
+linked to math homework. So what exactly
+
+149
+00:07:47,520 --> 00:07:53,680
+is it? Let's see.
+
+150
+00:07:50,479 --> 00:07:57,360
+Advent of code 2021.
+
+151
+00:07:53,680 --> 00:08:00,360
+Okay. Go back. Salafopod.
+
+152
+00:07:57,360 --> 00:08:00,360
+Safalopod.
+
+153
+00:08:07,199 --> 00:08:13,759
+Excuse me, some lingering cough. SL pot
+
+154
+00:08:11,039 --> 00:08:16,759
+math doesn't look like that different
+
+155
+00:08:13,759 --> 00:08:16,759
+from
+
+156
+00:08:21,120 --> 00:08:28,160
+Okay, sorry we are wasting time here.
+
+157
+00:08:25,440 --> 00:08:31,199
+Safal part math doesn't look that
+
+158
+00:08:28,160 --> 00:08:34,159
+different from normal math. the math
+
+159
+00:08:31,199 --> 00:08:37,279
+worksheet. Your puzzle input consists of
+
+160
+00:08:34,159 --> 00:08:39,680
+a list of problems.
+
+161
+00:08:37,279 --> 00:08:42,320
+A list of problems. Each problem has a
+
+162
+00:08:39,680 --> 00:08:44,720
+group of numbers that needs to be either
+
+163
+00:08:42,320 --> 00:08:46,720
+added or multiply together. So, a bunch
+
+164
+00:08:44,720 --> 00:08:49,440
+of numbers. Each line is a bunch of
+
+165
+00:08:46,720 --> 00:08:51,200
+numbers. You either need to add them or
+
+166
+00:08:49,440 --> 00:08:53,360
+multiply.
+
+167
+00:08:51,200 --> 00:08:56,800
+However, the problems are arranged a
+
+168
+00:08:53,360 --> 00:08:59,440
+little strangely. They seem to be
+
+169
+00:08:56,800 --> 00:09:05,240
+presented next to each other in a very
+
+170
+00:08:59,440 --> 00:09:05,240
+long horizontal list. For example, okay,
+
+171
+00:09:05,279 --> 00:09:10,080
+each problem's numbers are arranged
+
+172
+00:09:07,440 --> 00:09:12,480
+vertically.
+
+173
+00:09:10,080 --> 00:09:14,480
+At the bottom of the problem is a symbol
+
+174
+00:09:12,480 --> 00:09:17,600
+for the operations that needs to be
+
+175
+00:09:14,480 --> 00:09:20,399
+performed. Okay. So instead of
+
+176
+00:09:17,600 --> 00:09:23,600
+horizontal columns by column or line by
+
+177
+00:09:20,399 --> 00:09:26,399
+line, you have like vertical. In that
+
+178
+00:09:23,600 --> 00:09:29,920
+case you just do a matrix trans
+
+179
+00:09:26,399 --> 00:09:32,560
+transpose that will
+
+180
+00:09:29,920 --> 00:09:34,640
+reorient it.
+
+181
+00:09:32,560 --> 00:09:36,560
+Okay. The problem the bottom of the
+
+182
+00:09:34,640 --> 00:09:38,800
+problem is the symbol for the operation
+
+183
+00:09:36,560 --> 00:09:41,920
+that needs to be performed. Problems are
+
+184
+00:09:38,800 --> 00:09:45,040
+separated by a full column of only
+
+185
+00:09:41,920 --> 00:09:48,880
+spaces. Okay. The left right alignment
+
+186
+00:09:45,040 --> 00:09:50,800
+of numbers with in each problem can be
+
+187
+00:09:48,880 --> 00:09:52,800
+ignored.
+
+188
+00:09:50,800 --> 00:09:56,160
+Okay.
+
+189
+00:09:52,800 --> 00:09:58,320
+So that means you trim white space when
+
+190
+00:09:56,160 --> 00:10:00,800
+you get a number which is string there
+
+191
+00:09:58,320 --> 00:10:03,279
+are white space around it you trim you
+
+192
+00:10:00,800 --> 00:10:05,600
+remove them
+
+193
+00:10:03,279 --> 00:10:07,680
+uh you know like the typical programming
+
+194
+00:10:05,600 --> 00:10:11,600
+solution that's what you do you call
+
+195
+00:10:07,680 --> 00:10:14,480
+trim or chop function
+
+196
+00:10:11,600 --> 00:10:19,760
+so this worksheet contains four problems
+
+197
+00:10:14,480 --> 00:10:23,120
+1 2 3 * 45 * 6 there it is the first
+
+198
+00:10:19,760 --> 00:10:25,040
+column then the second column
+
+199
+00:10:23,120 --> 00:10:28,079
+Okay. Then the third column something
+
+200
+00:10:25,040 --> 00:10:31,279
+something plus or multiply. Then the
+
+201
+00:10:28,079 --> 00:10:35,360
+fourth column is plus sum of three
+
+202
+00:10:31,279 --> 00:10:38,240
+numbers. To check their work
+
+203
+00:10:35,360 --> 00:10:40,880
+safo part students are given the grand
+
+204
+00:10:38,240 --> 00:10:43,120
+total of adding together all of the
+
+205
+00:10:40,880 --> 00:10:47,920
+answers to the individual problems in
+
+206
+00:10:43,120 --> 00:10:50,240
+this worksheet. The grand total is 33210
+
+207
+00:10:47,920 --> 00:10:53,279
+plus 490
+
+208
+00:10:50,240 --> 00:10:56,320
+plus big number plus something then
+
+209
+00:10:53,279 --> 00:10:59,120
+equals to that. Okay. Of course the
+
+210
+00:10:56,320 --> 00:11:02,079
+actual worksheet is much wider. Okay. So
+
+211
+00:10:59,120 --> 00:11:04,399
+you got lots of columns. You'll need to
+
+212
+00:11:02,079 --> 00:11:07,360
+make sure to enroll it completely so
+
+213
+00:11:04,399 --> 00:11:09,839
+that you can read the problems clearly.
+
+214
+00:11:07,360 --> 00:11:14,160
+That means the long line formatting.
+
+215
+00:11:09,839 --> 00:11:15,920
+Okay. to play. Please identify yourself.
+
+216
+00:11:14,160 --> 00:11:18,480
+Okay. Solve the problem on the math
+
+217
+00:11:15,920 --> 00:11:21,200
+worksheet. What is the grand total found
+
+218
+00:11:18,480 --> 00:11:23,680
+by adding together all the answers to
+
+219
+00:11:21,200 --> 00:11:26,480
+the individual problems? Okay. This is a
+
+220
+00:11:23,680 --> 00:11:30,959
+very trivial problem. So all you have to
+
+221
+00:11:26,480 --> 00:11:33,200
+do is turn the input
+
+222
+00:11:30,959 --> 00:11:37,279
+text
+
+223
+00:11:33,200 --> 00:11:39,680
+into a matrix. Then you just do a matrix
+
+224
+00:11:37,279 --> 00:11:42,880
+transposition.
+
+225
+00:11:39,680 --> 00:11:45,440
+that will invert it. I mean that will
+
+226
+00:11:42,880 --> 00:11:48,320
+transpose so-called transpose or you can
+
+227
+00:11:45,440 --> 00:11:50,399
+kind of think of it as invert but
+
+228
+00:11:48,320 --> 00:11:53,680
+actually no because invert in matrix
+
+229
+00:11:50,399 --> 00:11:56,000
+means something else. So transpose just
+
+230
+00:11:53,680 --> 00:11:58,399
+means you swap the columns with the
+
+231
+00:11:56,000 --> 00:12:00,640
+rows. So columns becomes rows, rows
+
+232
+00:11:58,399 --> 00:12:02,880
+become columns. Okay, that's called
+
+233
+00:12:00,640 --> 00:12:06,639
+transposition in matrix if you have
+
+234
+00:12:02,880 --> 00:12:09,200
+studied linear algebra. So in most in
+
+235
+00:12:06,639 --> 00:12:12,079
+all basically every programming language
+
+236
+00:12:09,200 --> 00:12:13,760
+well not every but mo in most
+
+237
+00:12:12,079 --> 00:12:15,920
+programming language that has that
+
+238
+00:12:13,760 --> 00:12:18,480
+function you just need to load linear
+
+239
+00:12:15,920 --> 00:12:22,079
+algebra
+
+240
+00:12:18,480 --> 00:12:25,120
+in wam language it's built in of course
+
+241
+00:12:22,079 --> 00:12:27,760
+okay so where is my woofam so let's uh
+
+242
+00:12:25,120 --> 00:12:31,279
+let's make this go here and let's put
+
+243
+00:12:27,760 --> 00:12:33,760
+that here so you know
+
+244
+00:12:31,279 --> 00:12:36,160
+so that's trivial that's very trivial
+
+245
+00:12:33,760 --> 00:12:38,000
+problem so let's copy the input. Okay,
+
+246
+00:12:36,160 --> 00:12:41,920
+but first of all, let's get the user
+
+247
+00:12:38,000 --> 00:12:45,120
+input. What is my custom input? Get your
+
+248
+00:12:41,920 --> 00:12:49,839
+puzzle input. So, select all copy. Close
+
+249
+00:12:45,120 --> 00:12:52,399
+that. Back to Emacs. Search for txt. So,
+
+250
+00:12:49,839 --> 00:12:57,519
+adventure code. I already prepared this
+
+251
+00:12:52,399 --> 00:13:01,279
+file. This file uh paste it. Uh
+
+252
+00:12:57,519 --> 00:13:04,399
+uh did I not copy it? Select or select
+
+253
+00:13:01,279 --> 00:13:06,639
+or copy.
+
+254
+00:13:04,399 --> 00:13:11,000
+Okay. Cut. You cannot cut. So you have
+
+255
+00:13:06,639 --> 00:13:11,000
+to Okay. What?
+
+256
+00:13:11,120 --> 00:13:15,839
+So that's one line.
+
+257
+00:13:13,839 --> 00:13:19,600
+That's one line. That's right. The
+
+258
+00:13:15,839 --> 00:13:22,560
+operations are all at the bottom. And uh
+
+259
+00:13:19,600 --> 00:13:25,200
+notice that they have extra white space
+
+260
+00:13:22,560 --> 00:13:29,120
+in the last line. Interesting. But
+
+261
+00:13:25,200 --> 00:13:33,440
+anyway, save it. Close it. Okay. So,
+
+262
+00:13:29,120 --> 00:13:37,200
+close that. So, and let's copy the uh
+
+263
+00:13:33,440 --> 00:13:40,560
+the toy sample input.
+
+264
+00:13:37,200 --> 00:13:43,440
+So, let's start code on it. Start
+
+265
+00:13:40,560 --> 00:13:47,680
+coding.
+
+266
+00:13:43,440 --> 00:13:49,519
+So far so good. Say hi guys. Okay. So,
+
+267
+00:13:47,680 --> 00:13:53,200
+let's say
+
+268
+00:13:49,519 --> 00:13:57,120
+start a wam language. Paste the input.
+
+269
+00:13:53,200 --> 00:14:02,240
+And here say solution
+
+270
+00:13:57,120 --> 00:14:05,680
+markup. Okay. pop out and x input as
+
+271
+00:14:02,240 --> 00:14:09,440
+usual we make this whole thing into a
+
+272
+00:14:05,680 --> 00:14:12,079
+string that I mean supposedly
+
+273
+00:14:09,440 --> 00:14:14,240
+okay so that's a string so all you have
+
+274
+00:14:12,079 --> 00:14:16,959
+to first of all you turn this into a
+
+275
+00:14:14,240 --> 00:14:19,600
+matrix you know we can we done that
+
+276
+00:14:16,959 --> 00:14:22,160
+multiple times in adv of code because
+
+277
+00:14:19,600 --> 00:14:23,680
+advent of the code they liked this kind
+
+278
+00:14:22,160 --> 00:14:27,279
+of
+
+279
+00:14:23,680 --> 00:14:29,600
+like uh maze input you know a bunch of
+
+280
+00:14:27,279 --> 00:14:33,440
+numbers like
+
+281
+00:14:29,600 --> 00:14:36,240
+like they they treat a list of lines of
+
+282
+00:14:33,440 --> 00:14:39,120
+numbers as some kind of matrix or a
+
+283
+00:14:36,240 --> 00:14:43,360
+maze. So you have to actually navigate.
+
+284
+00:14:39,120 --> 00:14:46,320
+So that's very common um phenomenon.
+
+285
+00:14:43,360 --> 00:14:49,680
+That's a very common situation in Venom
+
+286
+00:14:46,320 --> 00:14:52,160
+code. So in day five we turned it into a
+
+287
+00:14:49,680 --> 00:14:56,600
+matrix. So we need to turn a bunch of
+
+288
+00:14:52,160 --> 00:14:56,600
+numbers into a matrix by
+
+289
+00:14:57,519 --> 00:15:03,800
+excuse me uh by where is this code? So
+
+290
+00:15:06,800 --> 00:15:11,440
+yeah so basically some code like that
+
+291
+00:15:09,519 --> 00:15:13,680
+you know we can do it on the fly. So
+
+292
+00:15:11,440 --> 00:15:16,560
+okay let's do it on the fly. Okay let me
+
+293
+00:15:13,680 --> 00:15:21,519
+just start to code it.
+
+294
+00:15:16,560 --> 00:15:27,279
+Say hi. Okay say hi if you are here. So,
+
+295
+00:15:21,519 --> 00:15:31,079
+first turn it into a matrix.
+
+296
+00:15:27,279 --> 00:15:31,079
+Turn the
+
+297
+00:15:31,680 --> 00:15:37,600
+X block into a matrix
+
+298
+00:15:35,120 --> 00:15:43,079
+of numbers. Okay? Because we deal with
+
+299
+00:15:37,600 --> 00:15:43,079
+numbers except the last row
+
+300
+00:15:45,519 --> 00:15:49,560
+remain string. Okay?
+
+301
+00:15:50,639 --> 00:15:56,839
+Okay. So
+
+302
+00:15:53,360 --> 00:15:56,839
+let's do it.
+
+303
+00:15:58,639 --> 00:16:05,279
+String split by default they split on
+
+304
+00:16:01,920 --> 00:16:08,000
+any white space. So we need to say we
+
+305
+00:16:05,279 --> 00:16:10,000
+don't want any white space. We want just
+
+306
+00:16:08,000 --> 00:16:14,079
+the
+
+307
+00:16:10,000 --> 00:16:17,680
+line ending. Okay. So you split that. So
+
+308
+00:16:14,079 --> 00:16:20,160
+here is your input.
+
+309
+00:16:17,680 --> 00:16:23,680
+You split that. So that becomes list of
+
+310
+00:16:20,160 --> 00:16:27,560
+lines. Then you map.
+
+311
+00:16:23,680 --> 00:16:27,560
+You map each line.
+
+312
+00:16:27,920 --> 00:16:36,000
+You map in each line by split again. So
+
+313
+00:16:31,680 --> 00:16:39,279
+you map. Okay. Map takes a function
+
+314
+00:16:36,000 --> 00:16:42,000
+something. We'll write it here. Okay. A
+
+315
+00:16:39,279 --> 00:16:44,160
+function something something that will
+
+316
+00:16:42,000 --> 00:16:47,440
+involve that. Okay. Then the second
+
+317
+00:16:44,160 --> 00:16:49,600
+argument is this input. We already
+
+318
+00:16:47,440 --> 00:16:51,519
+already split that's a list of lines.
+
+319
+00:16:49,600 --> 00:16:54,560
+Okay. Now what is the function? The
+
+320
+00:16:51,519 --> 00:16:57,680
+function will do it takes each line.
+
+321
+00:16:54,560 --> 00:17:01,600
+This is a line. Let's make it clear.
+
+322
+00:16:57,680 --> 00:17:03,839
+Line is the parameter. Okay. So it takes
+
+323
+00:17:01,600 --> 00:17:07,559
+a line. Then what you do with the line
+
+324
+00:17:03,839 --> 00:17:07,559
+you split by
+
+325
+00:17:15,919 --> 00:17:22,280
+you split by white space which is a
+
+326
+00:17:18,400 --> 00:17:22,280
+default. Okay.
+
+327
+00:17:23,280 --> 00:17:28,280
+Okay. Then you um
+
+328
+00:17:29,360 --> 00:17:36,880
+then you have the question about this
+
+329
+00:17:32,400 --> 00:17:38,720
+last line. Okay. So for example so for
+
+330
+00:17:36,880 --> 00:17:41,919
+so so okay. Okay. So you split into two
+
+331
+00:17:38,720 --> 00:17:46,120
+lines. Then then what you have to do is
+
+332
+00:17:41,919 --> 00:17:46,120
+that you have to turn it
+
+333
+00:17:55,039 --> 00:18:04,200
+to turn it into expression. So
+
+334
+00:17:58,400 --> 00:18:04,200
+so function lines then um
+
+335
+00:18:05,600 --> 00:18:12,160
+two expression. Okay. At that will turn
+
+336
+00:18:10,080 --> 00:18:15,840
+everything into expression. In fact, we
+
+337
+00:18:12,160 --> 00:18:18,960
+can run it. Okay. Now, when you do this,
+
+338
+00:18:15,840 --> 00:18:22,080
+the interesting thing is to observe what
+
+339
+00:18:18,960 --> 00:18:25,039
+will happen to the last line because all
+
+340
+00:18:22,080 --> 00:18:29,360
+the other lines are just numbers. When
+
+341
+00:18:25,039 --> 00:18:32,080
+you do two expression to uh to a list of
+
+342
+00:18:29,360 --> 00:18:36,080
+numbers, they turn the string into
+
+343
+00:18:32,080 --> 00:18:39,360
+numbers. So, those are strings. But what
+
+344
+00:18:36,080 --> 00:18:43,200
+happens when you do two expression to to
+
+345
+00:18:39,360 --> 00:18:48,960
+these kind of symbols? Let's see. Uh we
+
+346
+00:18:43,200 --> 00:18:52,000
+can try it out. Okay. So two expression
+
+347
+00:18:48,960 --> 00:18:55,440
+that's that's the way uh similar in
+
+348
+00:18:52,000 --> 00:18:58,000
+other languages of string to number.
+
+349
+00:18:55,440 --> 00:19:01,840
+Okay. So we can try what happens with
+
+350
+00:18:58,000 --> 00:19:04,160
+this. Okay. We can run it here. Run and
+
+351
+00:19:01,840 --> 00:19:06,480
+show the output.
+
+352
+00:19:04,160 --> 00:19:11,000
+Now, let's have some
+
+353
+00:19:06,480 --> 00:19:11,000
+red wine and apple juice.
+
+354
+00:19:15,039 --> 00:19:19,760
+Okay, you can you can see
+
+355
+00:19:18,160 --> 00:19:22,960
+invalid.
+
+356
+00:19:19,760 --> 00:19:25,360
+So when you are given a list of these
+
+357
+00:19:22,960 --> 00:19:28,799
+operators, Wuam language will say
+
+358
+00:19:25,360 --> 00:19:30,880
+invalid. They cannot turn that into
+
+359
+00:19:28,799 --> 00:19:33,919
+expression. In other words, they cannot
+
+360
+00:19:30,880 --> 00:19:37,039
+interpret it. it doesn't know what to do
+
+361
+00:19:33,919 --> 00:19:39,840
+with this you know what you know so you
+
+362
+00:19:37,039 --> 00:19:43,520
+you so when you do two expression you
+
+363
+00:19:39,840 --> 00:19:45,440
+cannot do it here you have to omit
+
+364
+00:19:43,520 --> 00:19:48,080
+um
+
+365
+00:19:45,440 --> 00:19:50,799
+you cannot apply to the last one okay so
+
+366
+00:19:48,080 --> 00:19:54,840
+let me just do this okay so let's do
+
+367
+00:19:50,799 --> 00:19:54,840
+this quickly um
+
+368
+00:19:58,400 --> 00:20:06,480
+x input list okay so that will turn into
+
+369
+00:20:02,799 --> 00:20:08,480
+a list. Okay, so just run it. You'll
+
+370
+00:20:06,480 --> 00:20:10,880
+see.
+
+371
+00:20:08,480 --> 00:20:14,960
+So that's what we got. Each one of these
+
+372
+00:20:10,880 --> 00:20:16,720
+are actually strings. Okay, wait.
+
+373
+00:20:14,960 --> 00:20:20,440
+Uh,
+
+374
+00:20:16,720 --> 00:20:20,440
+no, you got
+
+375
+00:20:22,559 --> 00:20:32,240
+it. It should be a it should be a nested
+
+376
+00:20:26,400 --> 00:20:34,799
+list, not one single. So did we?
+
+377
+00:20:32,240 --> 00:20:39,799
+Yeah. Annoying. Okay. So let me just do
+
+378
+00:20:34,799 --> 00:20:39,799
+this again. Okay. So what happens to
+
+379
+00:20:51,679 --> 00:20:58,480
+what you get? Oh, this is not slash. It
+
+380
+00:20:56,480 --> 00:21:03,520
+should be backslash.
+
+381
+00:20:58,480 --> 00:21:06,240
+So my coding arrow. Okay. Slash
+
+382
+00:21:03,520 --> 00:21:12,760
+slash and backslash. So this is uh
+
+383
+00:21:06,240 --> 00:21:12,760
+backslash that key. Okay. Now do it.
+
+384
+00:21:13,120 --> 00:21:19,640
+There it is. And beautiful. Now you need
+
+385
+00:21:16,080 --> 00:21:19,640
+to turn this.
+
+386
+00:21:20,240 --> 00:21:31,880
+Now turn them from string to number
+
+387
+00:21:26,159 --> 00:21:31,880
+except the last line. Okay.
+
+388
+00:21:32,960 --> 00:21:40,640
+Okay. So what what do you do? So um so
+
+389
+00:21:35,760 --> 00:21:43,039
+let's do so hello. Well only uh
+
+390
+00:21:40,640 --> 00:21:45,600
+used to be more a few years ago. Well
+
+391
+00:21:43,039 --> 00:21:48,600
+only three viewers used to be more.
+
+392
+00:21:45,600 --> 00:21:48,600
+Yeah.
+
+393
+00:21:49,360 --> 00:21:56,520
+Well, yeah, that's a situation. Well,
+
+394
+00:21:52,480 --> 00:21:56,520
+anyway, so
+
+395
+00:21:57,120 --> 00:22:02,000
+so you guys you can introduce yourself,
+
+396
+00:21:59,520 --> 00:22:05,039
+you know, where you from like are you a
+
+397
+00:22:02,000 --> 00:22:08,400
+student coders or are you a professional
+
+398
+00:22:05,039 --> 00:22:11,280
+or mathematicians or whatever. So you
+
+399
+00:22:08,400 --> 00:22:14,159
+can like help the channel, you know, the
+
+400
+00:22:11,280 --> 00:22:16,799
+busier the chat the better.
+
+401
+00:22:14,159 --> 00:22:20,480
+Uh, I don't do advertising. I don't do
+
+402
+00:22:16,799 --> 00:22:23,600
+memes. I don't do like oh new discovery
+
+403
+00:22:20,480 --> 00:22:26,080
+whatever that drama Okay. So
+
+404
+00:22:23,600 --> 00:22:28,320
+anyway, we we now we turn them from
+
+405
+00:22:26,080 --> 00:22:32,080
+string to number. Okay. Except the last
+
+406
+00:22:28,320 --> 00:22:34,240
+line. Okay. Easy. Okay.
+
+407
+00:22:32,080 --> 00:22:40,440
+Uh
+
+408
+00:22:34,240 --> 00:22:40,440
+so we can do uh so uh
+
+409
+00:22:41,840 --> 00:22:52,880
+okay let's take the last expression of
+
+410
+00:22:45,520 --> 00:22:57,880
+that and uh uh and uh drop
+
+411
+00:22:52,880 --> 00:22:57,880
+means remove element. Okay,
+
+412
+00:23:00,640 --> 00:23:06,960
+that will return everything except the
+
+413
+00:23:03,919 --> 00:23:10,760
+last line and you just say to
+
+414
+00:23:06,960 --> 00:23:10,760
+expression. Okay,
+
+415
+00:23:12,400 --> 00:23:18,840
+then the last input list. Um,
+
+416
+00:23:21,919 --> 00:23:27,520
+okay. So before we do this,
+
+417
+00:23:24,799 --> 00:23:33,080
+before we do this, let's transpose it.
+
+418
+00:23:27,520 --> 00:23:33,080
+Okay, that's a heart of the solution.
+
+419
+00:23:38,559 --> 00:23:44,640
+Okay, that is just like that. We'll just
+
+420
+00:23:40,960 --> 00:23:48,559
+do it. That basically solve the problem.
+
+421
+00:23:44,640 --> 00:23:52,720
+Uh yeah, we we haven't uh okay, we need
+
+422
+00:23:48,559 --> 00:23:56,640
+to select or paste shift enter. So you
+
+423
+00:23:52,720 --> 00:23:59,280
+got a matrix of strings. Each element is
+
+424
+00:23:56,640 --> 00:24:01,440
+a string and all you have to do is
+
+425
+00:23:59,280 --> 00:24:06,280
+transpose
+
+426
+00:24:01,440 --> 00:24:06,280
+transpose input list
+
+427
+00:24:07,919 --> 00:24:12,799
+shift enter. Can you see that? That's
+
+428
+00:24:11,200 --> 00:24:16,559
+beautiful.
+
+429
+00:24:12,799 --> 00:24:21,360
+After this point it's trivial. Okay.
+
+430
+00:24:16,559 --> 00:24:24,360
+Then you can do is uh then you now
+
+431
+00:24:21,360 --> 00:24:24,360
+uh
+
+432
+00:24:27,679 --> 00:24:35,120
+now you need to uh well before you uh
+
+433
+00:24:31,760 --> 00:24:37,760
+before you transpose actually
+
+434
+00:24:35,120 --> 00:24:40,480
+we want to remove okay so let's remove
+
+435
+00:24:37,760 --> 00:24:43,480
+the operations. So let's let's do this.
+
+436
+00:24:40,480 --> 00:24:43,480
+Okay.
+
+437
+00:24:44,720 --> 00:24:50,120
+Opterator list equals to
+
+438
+00:24:52,240 --> 00:25:00,799
+uh there.
+
+439
+00:24:54,640 --> 00:25:03,799
+So operator list equals to the the last
+
+440
+00:25:00,799 --> 00:25:03,799
+uh
+
+441
+00:25:04,480 --> 00:25:11,120
+row. Okay, we didn't do transport yet.
+
+442
+00:25:06,799 --> 00:25:13,520
+Okay, we did not do transpose yet. So
+
+443
+00:25:11,120 --> 00:25:19,320
+this is the last row. So operator list
+
+444
+00:25:13,520 --> 00:25:19,320
+is the last row. Then
+
+445
+00:25:22,799 --> 00:25:30,320
+numbers list. Okay. So let's say number
+
+446
+00:25:26,240 --> 00:25:33,960
+uh list in uh let's say number matrix
+
+447
+00:25:30,320 --> 00:25:33,960
+equals to
+
+448
+00:25:35,760 --> 00:25:43,200
+that. Okay. Superb.
+
+449
+00:25:39,679 --> 00:25:48,039
+Then then you uh then you want to
+
+450
+00:25:43,200 --> 00:25:48,039
+transpose the numbers. Okay. So actually
+
+451
+00:25:48,400 --> 00:25:55,640
+so uh number matrix equals two.
+
+452
+00:25:56,720 --> 00:26:02,559
+Drop the last row. Then you do a
+
+453
+00:25:59,919 --> 00:26:08,120
+transpose. Then you do two expression.
+
+454
+00:26:02,559 --> 00:26:08,120
+Okay. So this is beautiful. Copy all.
+
+455
+00:26:16,240 --> 00:26:26,080
+Copy all back to wam notebook. Select or
+
+456
+00:26:21,279 --> 00:26:29,039
+paste. Shift enter. Ah, back. We got
+
+457
+00:26:26,080 --> 00:26:31,200
+some error somewhere. Uh, what? Well,
+
+458
+00:26:29,039 --> 00:26:34,200
+drop
+
+459
+00:26:31,200 --> 00:26:34,200
+uh
+
+460
+00:26:34,799 --> 00:26:40,720
+Oh, yeah. So, this this need to be input
+
+461
+00:26:37,200 --> 00:26:44,080
+list not easy because
+
+462
+00:26:40,720 --> 00:26:47,240
+this is the input and the input list is
+
+463
+00:26:44,080 --> 00:26:47,240
+a matrix.
+
+464
+00:26:47,760 --> 00:26:54,080
+So let's change the name input based uh
+
+465
+00:26:50,880 --> 00:26:59,279
+x input
+
+466
+00:26:54,080 --> 00:27:01,039
+string matrix just just make it like
+
+467
+00:26:59,279 --> 00:27:04,720
+obvious.
+
+468
+00:27:01,039 --> 00:27:07,840
+Okay, close it. Reopen,
+
+469
+00:27:04,720 --> 00:27:11,279
+highlight that. Highlight that so you
+
+470
+00:27:07,840 --> 00:27:16,080
+can see all the variables. Copy it to
+
+471
+00:27:11,279 --> 00:27:17,520
+language. Select all. Paste. Shift
+
+472
+00:27:16,080 --> 00:27:22,320
+enter.
+
+473
+00:27:17,520 --> 00:27:25,279
+So now you can query X operation list.
+
+474
+00:27:22,320 --> 00:27:29,760
+Shift enter. Fantastic. Each one is a
+
+475
+00:27:25,279 --> 00:27:32,960
+string. Now X number matrix. Shift
+
+476
+00:27:29,760 --> 00:27:36,960
+enter. Fantastic.
+
+477
+00:27:32,960 --> 00:27:40,720
+Did we already transpose it? Yes. Yes.
+
+478
+00:27:36,960 --> 00:27:44,080
+Okay. So you just for each for so for
+
+479
+00:27:40,720 --> 00:27:46,159
+the first row you just apply
+
+480
+00:27:44,080 --> 00:27:47,679
+multiplication. For the second row, you
+
+481
+00:27:46,159 --> 00:27:51,640
+just apply the operate, you know,
+
+482
+00:27:47,679 --> 00:27:51,640
+corresponding to the operators.
+
+483
+00:27:53,039 --> 00:27:59,840
+Trivial. Okay. So, let me just do it.
+
+484
+00:27:56,880 --> 00:28:01,919
+Map thread.
+
+485
+00:27:59,840 --> 00:28:05,440
+Okay. There's a function map thread
+
+486
+00:28:01,919 --> 00:28:11,679
+takes two arguments. A function there
+
+487
+00:28:05,440 --> 00:28:14,559
+and the second argument is a list
+
+488
+00:28:11,679 --> 00:28:17,120
+one.
+
+489
+00:28:14,559 --> 00:28:21,279
+list
+
+490
+00:28:17,120 --> 00:28:23,840
+two. It will map F to the first element
+
+491
+00:28:21,279 --> 00:28:27,200
+of the first list and first element of
+
+492
+00:28:23,840 --> 00:28:29,760
+the second list then map to the second
+
+493
+00:28:27,200 --> 00:28:31,840
+element of the of their list you know
+
+494
+00:28:29,760 --> 00:28:36,080
+and so on.
+
+495
+00:28:31,840 --> 00:28:40,320
+So what we do is map a function we write
+
+496
+00:28:36,080 --> 00:28:45,760
+a function here. Okay then list one is
+
+497
+00:28:40,320 --> 00:28:49,600
+uh X number matrix. Okay, list two is x
+
+498
+00:28:45,760 --> 00:28:51,679
+operation list. Fantastic.
+
+499
+00:28:49,600 --> 00:28:57,000
+Okay, and what is the expression? It
+
+500
+00:28:51,679 --> 00:28:57,000
+needs two arguments. So
+
+501
+00:28:57,440 --> 00:29:02,080
+uh
+
+502
+00:28:59,760 --> 00:29:06,000
+so the first argument is a row of
+
+503
+00:29:02,080 --> 00:29:10,240
+numbers. The second argument is ops
+
+504
+00:29:06,000 --> 00:29:12,960
+operator. Okay. So let's so exactly what
+
+505
+00:29:10,240 --> 00:29:16,720
+does does it do? That's this part
+
+506
+00:29:12,960 --> 00:29:19,039
+expression. Okay. So uh so what is the
+
+507
+00:29:16,720 --> 00:29:22,880
+expression? So what you want to do is
+
+508
+00:29:19,039 --> 00:29:28,080
+you want to apply
+
+509
+00:29:22,880 --> 00:29:31,200
+uh depending on what this this uh so
+
+510
+00:29:28,080 --> 00:29:35,559
+okay so it depends on what that that
+
+511
+00:29:31,200 --> 00:29:35,559
+string is. So if
+
+512
+00:29:35,600 --> 00:29:41,799
+x ops
+
+513
+00:29:38,240 --> 00:29:41,799
+equals to
+
+514
+00:29:44,880 --> 00:29:47,880
+Plus
+
+515
+00:29:48,880 --> 00:29:54,559
+actually we can simplify this because in
+
+516
+00:29:51,200 --> 00:29:58,159
+wam language this this multiplication
+
+517
+00:29:54,559 --> 00:30:01,120
+and plus are represented by a function.
+
+518
+00:29:58,159 --> 00:30:03,600
+Why don't we do that? Yeah. Okay. Let's
+
+519
+00:30:01,120 --> 00:30:07,120
+let's not jump around. Let's just keep
+
+520
+00:30:03,600 --> 00:30:10,679
+doing this. Okay. So if the operation is
+
+521
+00:30:07,120 --> 00:30:10,679
+the plus sign
+
+522
+00:30:11,760 --> 00:30:17,039
+then
+
+523
+00:30:13,760 --> 00:30:21,200
+then you just total
+
+524
+00:30:17,039 --> 00:30:26,919
+total is a function you apply total to
+
+525
+00:30:21,200 --> 00:30:26,919
+the num row. Okay. So what you can do is
+
+526
+00:30:26,960 --> 00:30:33,600
+yeah that will work.
+
+527
+00:30:29,679 --> 00:30:36,480
+Num row. Okay. So let me let's try that
+
+528
+00:30:33,600 --> 00:30:40,960
+out. So
+
+529
+00:30:36,480 --> 00:30:44,880
+3 4 run it
+
+530
+00:30:40,960 --> 00:30:47,840
+seven. Fantastic and beautiful. Okay. So
+
+531
+00:30:44,880 --> 00:30:50,480
+that works. Now if it's not plus it's
+
+532
+00:30:47,840 --> 00:30:55,600
+either plus or multiply. So if it's not
+
+533
+00:30:50,480 --> 00:30:59,760
+plus then you you just do times. Okay.
+
+534
+00:30:55,600 --> 00:31:04,760
+Time is a function times add num row.
+
+535
+00:30:59,760 --> 00:31:04,760
+Okay. Now let's test times.
+
+536
+00:31:05,120 --> 00:31:09,559
+three four run it
+
+537
+00:31:10,640 --> 00:31:17,279
+okay so that won't work why because well
+
+538
+00:31:14,240 --> 00:31:22,679
+instead you have to do this okay I can I
+
+539
+00:31:17,279 --> 00:31:22,679
+show you okay at add
+
+540
+00:31:23,279 --> 00:31:29,360
+that will work okay
+
+541
+00:31:26,480 --> 00:31:32,320
+now you see 12 now what does this mean
+
+542
+00:31:29,360 --> 00:31:36,320
+exactly well what that that that add at
+
+543
+00:31:32,320 --> 00:31:41,320
+is a shortcut syntax. So what that add
+
+544
+00:31:36,320 --> 00:31:41,320
+at at actually means is this
+
+545
+00:31:42,159 --> 00:31:46,600
+apply times
+
+546
+00:31:48,399 --> 00:31:56,080
+it actually means that okay so yeah so
+
+547
+00:31:52,080 --> 00:31:58,320
+if we run this you'll get se uh 12 okay
+
+548
+00:31:56,080 --> 00:31:58,320
+run
+
+549
+00:32:04,480 --> 00:32:10,720
+So that's some examples. Let's uh um
+
+550
+00:32:08,080 --> 00:32:12,640
+let's comment it out. So I mean let's
+
+551
+00:32:10,720 --> 00:32:15,640
+comment it so people know what we're
+
+552
+00:32:12,640 --> 00:32:15,640
+doing.
+
+553
+00:32:20,880 --> 00:32:31,200
+Shortcut syntax for that. Okay. So let's
+
+554
+00:32:26,320 --> 00:32:34,320
+cut that cut go back to talk show and uh
+
+555
+00:32:31,200 --> 00:32:36,640
+let's put a example here so that people
+
+556
+00:32:34,320 --> 00:32:39,360
+know what we you know what what's that
+
+557
+00:32:36,640 --> 00:32:42,640
+cryptic at add at
+
+558
+00:32:39,360 --> 00:32:45,360
+okay not back here so here we just say
+
+559
+00:32:42,640 --> 00:32:49,200
+add add at
+
+560
+00:32:45,360 --> 00:32:54,799
+okay so if if it's plus sign then do the
+
+561
+00:32:49,200 --> 00:32:57,279
+total else do the times okay so Let's
+
+562
+00:32:54,799 --> 00:32:58,799
+should we just Yeah. Okay. Let's use the
+
+563
+00:32:57,279 --> 00:33:02,320
+more
+
+564
+00:32:58,799 --> 00:33:05,440
+universal syntax so people understand
+
+565
+00:33:02,320 --> 00:33:09,919
+better. Not the shortcut syntax. Okay.
+
+566
+00:33:05,440 --> 00:33:13,279
+Apply times to num row. Okay.
+
+567
+00:33:09,919 --> 00:33:15,440
+And in fact this total you can actually
+
+568
+00:33:13,279 --> 00:33:18,440
+do
+
+569
+00:33:15,440 --> 00:33:18,440
+uh
+
+570
+00:33:19,279 --> 00:33:24,080
+total you can actually do. Let me let me
+
+571
+00:33:22,000 --> 00:33:26,640
+show you. Okay,
+
+572
+00:33:24,080 --> 00:33:30,559
+total three four
+
+573
+00:33:26,640 --> 00:33:33,559
+you can actually write it as
+
+574
+00:33:30,559 --> 00:33:33,559
+first
+
+575
+00:33:35,120 --> 00:33:44,399
+that. Okay. So for example, run it
+
+576
+00:33:40,000 --> 00:33:47,360
+seven and you apply plus to that you get
+
+577
+00:33:44,399 --> 00:33:49,519
+seven too. So that's another
+
+578
+00:33:47,360 --> 00:33:53,360
+convenience.
+
+579
+00:33:49,519 --> 00:33:57,279
+So cut it. Go back to the talk show.
+
+580
+00:33:53,360 --> 00:34:00,320
+Let's put it into example so people know
+
+581
+00:33:57,279 --> 00:34:03,840
+what you're doing. Okay. So now go back
+
+582
+00:34:00,320 --> 00:34:07,840
+to our code. And in fact, let's be more
+
+583
+00:34:03,840 --> 00:34:11,839
+consistent. Let's just use apply plus
+
+584
+00:34:07,840 --> 00:34:14,240
+apply times. Okay. So if the if it's
+
+585
+00:34:11,839 --> 00:34:17,760
+plus sign, then do plus otherwise just
+
+586
+00:34:14,240 --> 00:34:20,079
+do times. Okay. Then the ops. Yeah. So
+
+587
+00:34:17,760 --> 00:34:22,079
+that that's it. Uh that's the function.
+
+588
+00:34:20,079 --> 00:34:25,919
+Let's see. That's a function. You map
+
+589
+00:34:22,079 --> 00:34:29,879
+thread to uh to that. Then you just
+
+590
+00:34:25,919 --> 00:34:29,879
+total them all together.
+
+591
+00:34:33,119 --> 00:34:37,760
+Okay, I believe that's a whole solution.
+
+592
+00:34:35,280 --> 00:34:41,480
+Let's double check one more time. That's
+
+593
+00:34:37,760 --> 00:34:41,480
+a complete solution.
+
+594
+00:34:41,520 --> 00:34:46,079
+Uh let's look at map thread
+
+595
+00:34:43,440 --> 00:34:49,679
+documentation. Okay.
+
+596
+00:34:46,079 --> 00:34:53,119
+Yep, that's what we want. Uh okay. So
+
+597
+00:34:49,679 --> 00:34:56,800
+actually uh you need them to be in one
+
+598
+00:34:53,119 --> 00:35:00,400
+list. Yeah. So okay. So error here. So
+
+599
+00:34:56,800 --> 00:35:03,800
+these two things needs to be in one
+
+600
+00:35:00,400 --> 00:35:03,800
+single list.
+
+601
+00:35:03,920 --> 00:35:11,400
+Are you sure? Yes. Can we run it? Yes.
+
+602
+00:35:07,760 --> 00:35:11,400
+Run the whole thing.
+
+603
+00:35:11,839 --> 00:35:17,000
+There is the number 4276679.
+
+604
+00:35:17,839 --> 00:35:25,400
+I think that is correct.
+
+605
+00:35:20,720 --> 00:35:25,400
+Did we 4277556?
+
+606
+00:35:25,680 --> 00:35:32,520
+What?
+
+607
+00:35:28,079 --> 00:35:32,520
+Okay, that is not correct.
+
+608
+00:35:33,119 --> 00:35:38,680
+Jesus.
+
+609
+00:35:35,680 --> 00:35:38,680
+What?
+
+610
+00:35:38,720 --> 00:35:45,040
+That is not correct.
+
+611
+00:35:41,440 --> 00:35:47,599
+Okay, we need to be careful here. So, we
+
+612
+00:35:45,040 --> 00:35:51,839
+got a wrong solution. So let's run this
+
+613
+00:35:47,599 --> 00:35:54,240
+in wra language. So you can see
+
+614
+00:35:51,839 --> 00:35:56,560
+4276
+
+615
+00:35:54,240 --> 00:36:00,000
+679
+
+616
+00:35:56,560 --> 00:36:03,200
+which is not correct because the correct
+
+617
+00:36:00,000 --> 00:36:04,960
+answer is 427
+
+618
+00:36:03,200 --> 00:36:07,960
+7
+
+619
+00:36:04,960 --> 00:36:07,960
+4277556.
+
+620
+00:36:08,240 --> 00:36:15,760
+Now what the
+
+621
+00:36:11,680 --> 00:36:17,359
+What could be wrong? I don't know. Any
+
+622
+00:36:15,760 --> 00:36:20,079
+comments?
+
+623
+00:36:17,359 --> 00:36:23,200
+Comments, guys. Okay.
+
+624
+00:36:20,079 --> 00:36:26,520
+So, what the is wrong here? So,
+
+625
+00:36:23,200 --> 00:36:26,520
+let's see.
+
+626
+00:36:30,800 --> 00:36:39,480
+So, that is supposed correct solution.
+
+627
+00:36:33,760 --> 00:36:39,480
+Did we get everything anything wrong?
+
+628
+00:36:42,160 --> 00:36:48,440
+1 2 3 3 28. Oh, we didn't.
+
+629
+00:36:49,200 --> 00:36:54,160
+What
+
+630
+00:36:51,119 --> 00:36:57,880
+did we do? Transposition.
+
+631
+00:36:54,160 --> 00:36:57,880
+Yes, we did.
+
+632
+00:36:58,880 --> 00:37:03,960
+Transpose.
+
+633
+00:37:00,960 --> 00:37:03,960
+Uh,
+
+634
+00:37:09,920 --> 00:37:12,920
+what?
+
+635
+00:37:24,800 --> 00:37:31,040
+Uh let's see what does what is the drop
+
+636
+00:37:27,599 --> 00:37:35,520
+syntax? Give a list with its last n
+
+637
+00:37:31,040 --> 00:37:40,320
+element dropped. So that is correct.
+
+638
+00:37:35,520 --> 00:37:43,839
+So instead of drop you can say most
+
+639
+00:37:40,320 --> 00:37:47,920
+you can actually say most because most
+
+640
+00:37:43,839 --> 00:37:52,280
+will just drop the last element you see.
+
+641
+00:37:47,920 --> 00:37:52,280
+So make it simpler.
+
+642
+00:37:54,320 --> 00:38:03,200
+Okay. And most is added to wraim
+
+643
+00:37:57,839 --> 00:38:07,200
+language when 2003. Okay. That's good. I
+
+644
+00:38:03,200 --> 00:38:08,640
+don't want use functions that are too
+
+645
+00:38:07,200 --> 00:38:10,960
+new.
+
+646
+00:38:08,640 --> 00:38:16,400
+Okay, so
+
+647
+00:38:10,960 --> 00:38:20,960
+this um Okay, let's double check
+
+648
+00:38:16,400 --> 00:38:27,440
+what is punk is going on.
+
+649
+00:38:20,960 --> 00:38:29,760
+Copy all go to wra select all paste.
+
+650
+00:38:27,440 --> 00:38:36,000
+Run it
+
+651
+00:38:29,760 --> 00:38:41,320
+and uh set tag plus is protected. We are
+
+652
+00:38:36,000 --> 00:38:41,320
+Did we have a syntax error somewhere?
+
+653
+00:38:41,599 --> 00:38:46,119
+Uh
+
+654
+00:38:43,119 --> 00:38:46,119
+what?
+
+655
+00:38:48,079 --> 00:38:55,280
+Okay. I don't know. So
+
+656
+00:38:50,960 --> 00:38:58,400
+there is something wrong here.
+
+657
+00:38:55,280 --> 00:39:01,839
+Now what is my
+
+658
+00:38:58,400 --> 00:39:03,760
+x operator list?
+
+659
+00:39:01,839 --> 00:39:07,200
+Okay.
+
+660
+00:39:03,760 --> 00:39:11,200
+And uh
+
+661
+00:39:07,200 --> 00:39:19,400
+what is my x
+
+662
+00:39:11,200 --> 00:39:19,400
+number matrix? Shift enter. 1 2 3 4 5 6.
+
+663
+00:39:19,839 --> 00:39:28,440
+1 2 3 4 5 6. That's correct. Okay. You
+
+664
+00:39:24,079 --> 00:39:28,440
+need to make sure. So,
+
+665
+00:39:28,720 --> 00:39:36,640
+you know, check
+
+666
+00:39:30,640 --> 00:39:41,680
+one uh 1 2 3 4 5 6. Okay. Then
+
+667
+00:39:36,640 --> 00:39:45,040
+then you got 328 6498
+
+668
+00:39:41,680 --> 00:39:46,800
+328 6498.
+
+669
+00:39:45,040 --> 00:39:51,440
+Correct.
+
+670
+00:39:46,800 --> 00:39:54,400
+Then you got 51 387215.
+
+671
+00:39:51,440 --> 00:39:57,720
+51 387215.
+
+672
+00:39:54,400 --> 00:39:57,720
+That's correct.
+
+673
+00:39:58,720 --> 00:40:03,599
+I think I know what's going on. Then you
+
+674
+00:40:00,800 --> 00:40:08,960
+got 6423
+
+675
+00:40:03,599 --> 00:40:12,079
+314. 64 23 314. That's correct.
+
+676
+00:40:08,960 --> 00:40:14,880
+So what is going on is that our you know
+
+677
+00:40:12,079 --> 00:40:19,240
+we forgot to trim.
+
+678
+00:40:14,880 --> 00:40:19,240
+Did we forget to trim this
+
+679
+00:40:21,520 --> 00:40:29,119
+uh this operation? So did we forget uh
+
+680
+00:40:25,760 --> 00:40:32,119
+string split? Uh
+
+681
+00:40:29,119 --> 00:40:32,119
+wait.
+
+682
+00:40:32,400 --> 00:40:38,880
+So this is this we didn't I don't think
+
+683
+00:40:35,760 --> 00:40:42,800
+we forgot anything. So this each one of
+
+684
+00:40:38,880 --> 00:40:45,119
+these is a string. Okay.
+
+685
+00:40:42,800 --> 00:40:48,119
+So for example,
+
+686
+00:40:45,119 --> 00:40:48,119
+burst
+
+687
+00:40:48,320 --> 00:40:51,320
+at
+
+688
+00:40:51,680 --> 00:40:55,320
+operation list
+
+689
+00:40:56,160 --> 00:41:03,200
+use slash slash
+
+690
+00:40:59,359 --> 00:41:06,640
+string Q slash slash is a postfix
+
+691
+00:41:03,200 --> 00:41:10,480
+notation. So we apply string q means is
+
+692
+00:41:06,640 --> 00:41:13,480
+it a script string true.
+
+693
+00:41:10,480 --> 00:41:13,480
+Okay.
+
+694
+00:41:13,680 --> 00:41:20,160
+And uh we can you know so so let's just
+
+695
+00:41:16,720 --> 00:41:23,599
+do this. Okay.
+
+696
+00:41:20,160 --> 00:41:26,480
+String Q
+
+697
+00:41:23,599 --> 00:41:32,440
+uh map
+
+698
+00:41:26,480 --> 00:41:32,440
+X uh X operation list.
+
+699
+00:41:34,480 --> 00:41:42,000
+It's all string. And uh and then you can
+
+700
+00:41:39,280 --> 00:41:44,960
+do length. I think they are all one.
+
+701
+00:41:42,000 --> 00:41:48,000
+Okay.
+
+702
+00:41:44,960 --> 00:41:51,000
+Paste shift enter.
+
+703
+00:41:48,000 --> 00:41:51,000
+What?
+
+704
+00:41:51,119 --> 00:41:56,119
+Oh, you need string length. Okay.
+
+705
+00:41:59,599 --> 00:42:04,839
+Stream length. Okay. God, stupid.
+
+706
+00:42:07,359 --> 00:42:14,960
+Shift enter one one. So we made sure
+
+707
+00:42:11,440 --> 00:42:19,640
+that this actually each one is a string.
+
+708
+00:42:14,960 --> 00:42:19,640
+So So what is going on? So
+
+709
+00:42:22,560 --> 00:42:25,880
+So you
+
+710
+00:42:30,079 --> 00:42:36,960
+What is going on?
+
+711
+00:42:33,280 --> 00:42:40,319
+Oh, this this part stupid. I said plus
+
+712
+00:42:36,960 --> 00:42:45,359
+three four obvious.
+
+713
+00:42:40,319 --> 00:42:48,160
+Oh god. Okay, so that fixed it. Okay, so
+
+714
+00:42:45,359 --> 00:42:50,720
+let's
+
+715
+00:42:48,160 --> 00:42:53,839
+copy the whole thing. Go to wra
+
+716
+00:42:50,720 --> 00:42:58,920
+language. Select or paste it. Shift
+
+717
+00:42:53,839 --> 00:42:58,920
+enter. 4 277556.
+
+718
+00:43:00,000 --> 00:43:08,640
+4 277556
+
+719
+00:43:02,800 --> 00:43:12,480
+that is correct. Okay, we solved it.
+
+720
+00:43:08,640 --> 00:43:15,280
+So let's remove this Remove remove
+
+721
+00:43:12,480 --> 00:43:18,960
+run the whole thing
+
+722
+00:43:15,280 --> 00:43:22,960
+using saw mode. Okay, so there is a
+
+723
+00:43:18,960 --> 00:43:26,560
+solution. Correct solution. Okay,
+
+724
+00:43:22,960 --> 00:43:28,720
+so let's put it back. So let's uh make
+
+725
+00:43:26,560 --> 00:43:30,720
+sure our comment is still correct. First
+
+726
+00:43:28,720 --> 00:43:33,200
+turn the text block into a matrix of
+
+727
+00:43:30,720 --> 00:43:38,280
+numbers except the last row remain
+
+728
+00:43:33,200 --> 00:43:38,280
+string. Okay. Uh so
+
+729
+00:43:38,480 --> 00:43:43,000
+uh let's make it better. Okay.
+
+730
+00:43:43,520 --> 00:43:52,920
+Matrix of strings. Okay. We turn it into
+
+731
+00:43:46,720 --> 00:43:52,920
+a matrix of strings. Then then
+
+732
+00:43:53,520 --> 00:43:56,800
+extract
+
+733
+00:43:55,280 --> 00:44:01,119
+the
+
+734
+00:43:56,800 --> 00:44:04,119
+last row as operator
+
+735
+00:44:01,119 --> 00:44:04,119
+strings
+
+736
+00:44:04,160 --> 00:44:11,839
+list of okay extract the last last row
+
+737
+00:44:09,200 --> 00:44:15,680
+as list of operated operator strings.
+
+738
+00:44:11,839 --> 00:44:21,440
+Okay. Now turn
+
+739
+00:44:15,680 --> 00:44:24,640
+the top rows from string to number.
+
+740
+00:44:21,440 --> 00:44:28,480
+Turn the top rows.
+
+741
+00:44:24,640 --> 00:44:33,520
+First of all, transpose
+
+742
+00:44:28,480 --> 00:44:35,359
+the top rows. Then turn them from string
+
+743
+00:44:33,520 --> 00:44:38,000
+to number.
+
+744
+00:44:35,359 --> 00:44:41,839
+That's what this does. Okay, this line.
+
+745
+00:44:38,000 --> 00:44:44,240
+Okay. Then then you you just uh then
+
+746
+00:44:41,839 --> 00:44:46,560
+that's it.
+
+747
+00:44:44,240 --> 00:44:50,839
+Okay. Perfect.
+
+748
+00:44:46,560 --> 00:44:50,839
+Now put it back.
+
+749
+00:44:51,520 --> 00:44:59,119
+Cut it. Wait. Okay. Cut it. Paste and
+
+750
+00:44:56,160 --> 00:45:02,720
+paste one more time. Syntax. Cut the
+
+751
+00:44:59,119 --> 00:45:06,160
+whole page. Show in browser. So, we
+
+752
+00:45:02,720 --> 00:45:08,880
+finished today's talk show, but we need
+
+753
+00:45:06,160 --> 00:45:11,440
+to do our personal input.
+
+754
+00:45:08,880 --> 00:45:13,440
+But before we do personal input, well,
+
+755
+00:45:11,440 --> 00:45:18,079
+actually, let's just do personal input.
+
+756
+00:45:13,440 --> 00:45:22,160
+Okay. Uh, so search for txt
+
+757
+00:45:18,079 --> 00:45:27,359
+there. There. Open it. Copy it. Close
+
+758
+00:45:22,160 --> 00:45:31,200
+it. Okay. Then, uh, then go to here.
+
+759
+00:45:27,359 --> 00:45:35,280
+Then select or may actually select uh
+
+760
+00:45:31,200 --> 00:45:39,040
+select inside the string. Paste it. So
+
+761
+00:45:35,280 --> 00:45:41,839
+we got now a gigant.
+
+762
+00:45:39,040 --> 00:45:46,000
+Let's remove the last blank blank line.
+
+763
+00:45:41,839 --> 00:45:48,720
+Okay. A gigant text. Okay.
+
+764
+00:45:46,000 --> 00:45:50,560
+So go to the bottom. We just do like
+
+765
+00:45:48,720 --> 00:45:53,560
+before. Run it. Just run the whole
+
+766
+00:45:50,560 --> 00:45:53,560
+thing.
+
+767
+00:45:56,400 --> 00:46:00,440
+Okay, that's our solution.
+
+768
+00:46:00,880 --> 00:46:03,880
+Cut.
+
+769
+00:46:04,079 --> 00:46:10,960
+Uh, are you sure? Yes.
+
+770
+00:46:07,520 --> 00:46:12,560
+Paste it. Enter.
+
+771
+00:46:10,960 --> 00:46:14,319
+That is the right answer.
+
+772
+00:46:12,560 --> 00:46:17,359
+Congratulations.
+
+773
+00:46:14,319 --> 00:46:20,400
+Congratulate me, guys.
+
+774
+00:46:17,359 --> 00:46:24,800
+Solution obtained.
+
+775
+00:46:20,400 --> 00:46:28,319
+Okay, now we can do some clean up.
+
+776
+00:46:24,800 --> 00:46:30,240
+Why? Because um so that it looks better.
+
+777
+00:46:28,319 --> 00:46:34,280
+You know, the whole thing can be just
+
+778
+00:46:30,240 --> 00:46:34,280
+one single line.
+
+779
+00:46:36,079 --> 00:46:44,240
+Yeah. So, you know, so
+
+780
+00:46:39,520 --> 00:46:48,160
+let's make it one single line. Okay.
+
+781
+00:46:44,240 --> 00:46:50,640
+Uh it's let me just do it. Okay. Uh,
+
+782
+00:46:48,160 --> 00:46:52,640
+remove all the comments. Remove all the
+
+783
+00:46:50,640 --> 00:46:54,319
+comments. Remove all the comments. So, I
+
+784
+00:46:52,640 --> 00:46:56,480
+know what I'm doing. So, I don't need
+
+785
+00:46:54,319 --> 00:47:00,319
+all these comments.
+
+786
+00:46:56,480 --> 00:47:03,680
+Um, so that's the input.
+
+787
+00:47:00,319 --> 00:47:07,160
+So, let's turn them into the shortest
+
+788
+00:47:03,680 --> 00:47:07,160
+code possible.
+
+789
+00:47:19,200 --> 00:47:22,200
+Okay.
+
+790
+00:47:30,640 --> 00:47:34,839
+Okay. So,
+
+791
+00:48:32,480 --> 00:48:40,960
+one single line. We removed one
+
+792
+00:48:37,200 --> 00:48:45,319
+uh variable and we're going to remove
+
+793
+00:48:40,960 --> 00:48:45,319
+these two variables too.
+
+794
+00:48:48,800 --> 00:48:56,079
+Yep. Just delete it.
+
+795
+00:48:52,720 --> 00:48:58,559
+Delete it. Okay. And uh and what is
+
+796
+00:48:56,079 --> 00:49:04,119
+this? Yeah. So
+
+797
+00:48:58,559 --> 00:49:04,119
+So this input is just
+
+798
+00:49:05,599 --> 00:49:09,480
+here. Okay.
+
+799
+00:49:12,720 --> 00:49:17,000
+Okay. So we can run it
+
+800
+00:49:17,440 --> 00:49:24,680
+at error.
+
+801
+00:49:19,760 --> 00:49:24,680
+Uh, okay. So, we got
+
+802
+00:49:27,359 --> 00:49:33,400
+So, hold on a second. We can fix this.
+
+803
+00:49:30,079 --> 00:49:33,400
+No worries.
+
+804
+00:49:56,640 --> 00:50:04,800
+So that is correct. So this is correct.
+
+805
+00:50:01,839 --> 00:50:07,800
+And
+
+806
+00:50:04,800 --> 00:50:07,800
+the
+
+807
+00:50:10,640 --> 00:50:16,280
+why is the whole thing not correct? I
+
+808
+00:50:13,040 --> 00:50:16,280
+don't understand.
+
+809
+00:50:36,319 --> 00:50:40,920
+Why are you returning that
+
+810
+00:50:46,480 --> 00:50:49,880
+Ah
+
+811
+00:51:20,480 --> 00:51:24,119
+Okay. So,
+
+812
+00:51:38,960 --> 00:51:48,040
+you got the order re you got the orders
+
+813
+00:51:42,160 --> 00:51:48,040
+wrong. Okay. So this this part
+
+814
+00:51:48,640 --> 00:51:56,480
+this part needs to go here. That's why
+
+815
+00:51:53,520 --> 00:51:59,280
+simple error.
+
+816
+00:51:56,480 --> 00:52:02,280
+Okay. So simple arrow
+
+817
+00:51:59,280 --> 00:52:02,280
+it
+
+818
+00:52:02,559 --> 00:52:10,319
+is. Okay. So
+
+819
+00:52:06,000 --> 00:52:12,720
+remove remove. Okay. We simplified the
+
+820
+00:52:10,319 --> 00:52:15,280
+whole problem into this.
+
+821
+00:52:12,720 --> 00:52:17,920
+Now it can be further simplified. Okay,
+
+822
+00:52:15,280 --> 00:52:21,839
+let's shall we do it? Yeah, let's why
+
+823
+00:52:17,920 --> 00:52:23,839
+not? So, first we'll put it back. Cut.
+
+824
+00:52:21,839 --> 00:52:27,040
+Make a copy.
+
+825
+00:52:23,839 --> 00:52:32,319
+Syntax color the whole buffer. Pop the
+
+826
+00:52:27,040 --> 00:52:35,319
+copy out. And let's improve on this.
+
+827
+00:52:32,319 --> 00:52:35,319
+Uh,
+
+828
+00:52:38,079 --> 00:52:43,160
+okay. Let's replace string replace.
+
+829
+00:52:46,240 --> 00:52:51,839
+Yeah. So the in fact the whole thing can
+
+830
+00:52:48,880 --> 00:52:53,760
+be done.
+
+831
+00:52:51,839 --> 00:52:57,160
+God,
+
+832
+00:52:53,760 --> 00:52:57,160
+so trivioly.
+
+833
+00:52:58,240 --> 00:53:01,240
+Uh
+
+834
+00:53:34,559 --> 00:53:40,640
+Okay, that's going to replace the
+
+835
+00:53:36,720 --> 00:53:43,280
+operators by warm languages function for
+
+836
+00:53:40,640 --> 00:53:46,000
+plus and times
+
+837
+00:53:43,280 --> 00:53:48,000
+and
+
+838
+00:53:46,000 --> 00:53:50,480
+okay so
+
+839
+00:53:48,000 --> 00:53:52,400
+actually you know the input is annoying.
+
+840
+00:53:50,480 --> 00:53:55,400
+It It would be better if you move it
+
+841
+00:53:52,400 --> 00:53:55,400
+out.
+
+842
+00:53:56,160 --> 00:54:03,040
+You know, it doesn't dis
+
+843
+00:54:00,000 --> 00:54:06,480
+distract the elegance of the program if
+
+844
+00:54:03,040 --> 00:54:10,839
+you move the input up.
+
+845
+00:54:06,480 --> 00:54:10,839
+So, okay. So,
+
+846
+00:54:22,559 --> 00:54:27,319
+So you get you rotate
+
+847
+00:54:28,960 --> 00:54:31,960
+rotate
+
+848
+00:54:33,440 --> 00:54:38,440
+right. Okay. So you
+
+849
+00:54:46,000 --> 00:54:49,000
+right.
+
+850
+00:55:02,800 --> 00:55:11,319
+Okay, let me just do this. Okay. Copy.
+
+851
+00:55:08,319 --> 00:55:11,319
+So,
+
+852
+00:55:15,440 --> 00:55:25,640
+so you got that. So, you you have that
+
+853
+00:55:21,119 --> 00:55:25,640
+you rotate, right?
+
+854
+00:55:40,000 --> 00:55:44,200
+Okay, let me try something
+
+855
+00:55:45,119 --> 00:55:51,200
+two expression
+
+856
+00:55:48,240 --> 00:55:54,200
+first.
+
+857
+00:55:51,200 --> 00:55:54,200
+Three.
+
+858
+00:55:55,760 --> 00:55:59,319
+Does it work?
+
+859
+00:56:01,920 --> 00:56:04,920
+No,
+
+860
+00:56:17,280 --> 00:56:24,839
+but we can make it work. Okay. So,
+
+861
+00:56:21,440 --> 00:56:24,839
+not difficult.
+
+862
+00:56:36,240 --> 00:56:42,839
+Okay, fantastic.
+
+863
+00:56:38,559 --> 00:56:42,839
+Now, let's try this.
+
+864
+00:56:47,280 --> 00:56:56,440
+Fantastic. Okay. So we
+
+865
+00:56:51,760 --> 00:56:56,440
+so all we have to do is
+
+866
+00:56:56,960 --> 00:57:03,200
+two expression and that whole thing.
+
+867
+00:57:00,160 --> 00:57:08,599
+Okay. Then we don't even need to deal
+
+868
+00:57:03,200 --> 00:57:08,599
+with this taking taking them apart
+
+869
+00:57:08,720 --> 00:57:15,359
+and the two expression the whole thing.
+
+870
+00:57:12,400 --> 00:57:18,359
+Then we just
+
+871
+00:57:15,359 --> 00:57:18,359
+map
+
+872
+00:57:19,760 --> 00:57:28,640
+Okay, we don't even map thread.
+
+873
+00:57:23,599 --> 00:57:33,319
+Okay, map something to that. And what is
+
+874
+00:57:28,640 --> 00:57:33,319
+the function here? It is
+
+875
+00:57:48,960 --> 00:57:53,440
+Apply
+
+876
+00:57:50,960 --> 00:57:56,440
+the first element
+
+877
+00:57:53,440 --> 00:57:56,440
+to
+
+878
+00:57:59,839 --> 00:58:07,280
+rest.
+
+879
+00:58:01,839 --> 00:58:11,640
+Okay, I think that's it. So, let's
+
+880
+00:58:07,280 --> 00:58:11,640
+So, let's comment this out.
+
+881
+00:58:11,680 --> 00:58:17,359
+And I think this is our new code. Much
+
+882
+00:58:15,440 --> 00:58:20,720
+shorter.
+
+883
+00:58:17,359 --> 00:58:24,960
+Just this. Okay.
+
+884
+00:58:20,720 --> 00:58:28,319
+Uh yes. So hold on a second. Let's
+
+885
+00:58:24,960 --> 00:58:32,240
+delete that.
+
+886
+00:58:28,319 --> 00:58:36,240
+Delete that. Okay. So actually just that
+
+887
+00:58:32,240 --> 00:58:40,559
+input then that. Okay. Let's try this in
+
+888
+00:58:36,240 --> 00:58:42,079
+wam language notebook. Paste it. Shift
+
+889
+00:58:40,559 --> 00:58:44,640
+enter.
+
+890
+00:58:42,079 --> 00:58:48,240
+Invalid syntax. Okay, I up
+
+891
+00:58:44,640 --> 00:58:51,240
+somewhere. Back to the drawing board.
+
+892
+00:58:48,240 --> 00:58:51,240
+Okay.
+
+893
+00:58:55,280 --> 00:59:00,200
+Oh, yeah. First X obviously.
+
+894
+00:59:07,280 --> 00:59:12,520
+Okay.
+
+895
+00:59:09,520 --> 00:59:12,520
+Copy.
+
+896
+00:59:14,640 --> 00:59:21,079
+Paste. Shift. Enter.
+
+897
+00:59:18,079 --> 00:59:21,079
+
+898
+00:59:27,599 --> 00:59:34,839
+What's going on? Okay. So, we need to
+
+899
+00:59:30,880 --> 00:59:34,839
+try this uh
+
+900
+00:59:51,520 --> 00:59:59,760
+so what why are we getting errors true
+
+901
+00:59:54,960 --> 01:00:02,799
+expression invalid syntax in OB4 four.
+
+902
+00:59:59,760 --> 01:00:04,880
+Now, two expression.
+
+903
+01:00:02,799 --> 01:00:09,640
+What's wrong with the two expression?
+
+904
+01:00:04,880 --> 01:00:09,640
+Let's try. Let's see. What's this?
+
+905
+01:00:10,240 --> 01:00:17,040
+You see, that's what we get.
+
+906
+01:00:13,119 --> 01:00:21,640
+And uh Oh, you forgot to replace. Oh,
+
+907
+01:00:17,040 --> 01:00:21,640
+you forgot to replace. That's why.
+
+908
+01:00:25,040 --> 01:00:30,920
+Yeah, you forgot to replace uh you know
+
+909
+01:00:34,720 --> 01:00:38,559
+uh wait
+
+910
+01:00:36,960 --> 01:00:43,760
+string
+
+911
+01:00:38,559 --> 01:00:47,559
+replace. Okay. Oh we deleted our
+
+912
+01:00:43,760 --> 01:00:47,559
+code, didn't we?
+
+913
+01:00:48,400 --> 01:00:51,400
+Refresh.
+
+914
+01:00:54,000 --> 01:00:59,280
+Did we delete our string replace? Let's
+
+915
+01:00:57,040 --> 01:01:01,520
+type it again.
+
+916
+01:00:59,280 --> 01:01:06,079
+So something
+
+917
+01:01:01,520 --> 01:01:11,599
+uh first sign replaced by
+
+918
+01:01:06,079 --> 01:01:16,000
+first symbol and multiply sign replaced
+
+919
+01:01:11,599 --> 01:01:20,359
+by time symbol. Okay. And what do you
+
+920
+01:01:16,000 --> 01:01:20,359
+want to replace this on?
+
+921
+01:01:28,240 --> 01:01:37,760
+You can do this in the string. Yep.
+
+922
+01:01:33,440 --> 01:01:42,160
+So you can even do it this before
+
+923
+01:01:37,760 --> 01:01:46,319
+and not there. Okay. So
+
+924
+01:01:42,160 --> 01:01:47,839
+there. Okay. So let's copy it again.
+
+925
+01:01:46,319 --> 01:01:51,920
+Copy
+
+926
+01:01:47,839 --> 01:01:56,599
+back to Wuam Notepad notebook. Paste.
+
+927
+01:01:51,920 --> 01:01:56,599
+Shift enter. Yeah.
+
+928
+01:01:58,319 --> 01:02:04,799
+Okay. Hold on a second. Hold on a
+
+929
+01:02:00,240 --> 01:02:08,880
+second. I I gotta go, guys.
+
+930
+01:02:04,799 --> 01:02:12,400
+I gotta go, guys. My wife is back. Okay.
+
+931
+01:02:08,880 --> 01:02:14,319
+Let me quickly finish this.
+
+932
+01:02:12,400 --> 01:02:16,640
+Uh
+
+933
+01:02:14,319 --> 01:02:19,440
+Anyone
+
+934
+01:02:16,640 --> 01:02:23,680
+here? Nobody here. So, okay. So, let me
+
+935
+01:02:19,440 --> 01:02:26,680
+quickly finish this. Okay. So,
+
+936
+01:02:23,680 --> 01:02:26,680
+um
+
+937
+01:02:30,799 --> 01:02:34,280
+so input
+
+938
+01:02:34,880 --> 01:02:44,920
+replace that by times then
+
+939
+01:02:38,559 --> 01:02:44,920
+fit. Then what you do then you uh
+
+940
+01:03:05,760 --> 01:03:10,559
+Yeah, that's that should get you what
+
+941
+01:03:08,640 --> 01:03:16,040
+you want.
+
+942
+01:03:10,559 --> 01:03:16,040
+So, shift enter. Yeah.
+
+943
+01:03:25,119 --> 01:03:30,039
+What are we doing? God. Okay.
+
+944
+01:03:32,000 --> 01:03:36,119
+Oh, this is wrong.
+
+945
+01:03:36,319 --> 01:03:39,960
+Why is it wrong?
+
+946
+01:04:06,000 --> 01:04:12,079
+Oh, you can't when it's string you
+
+947
+01:04:08,240 --> 01:04:15,039
+cannot replace it by uh
+
+948
+01:04:12,079 --> 01:04:19,119
+yeah it's it's a string you you cannot
+
+949
+01:04:15,039 --> 01:04:23,039
+replace part of the string into a symbol
+
+950
+01:04:19,119 --> 01:04:26,079
+that is why so yeah okay so you you just
+
+951
+01:04:23,039 --> 01:04:28,079
+need to put them into
+
+952
+01:04:26,079 --> 01:04:32,799
+uh string.
+
+953
+01:04:28,079 --> 01:04:36,000
+Okay. So now paste it. Shift enter.
+
+954
+01:04:32,799 --> 01:04:40,559
+That's much better. Now copy the whole
+
+955
+01:04:36,000 --> 01:04:44,520
+thing. Actually just copy that and paste
+
+956
+01:04:40,559 --> 01:04:44,520
+it. Shift enter.
+
+957
+01:04:48,240 --> 01:04:53,880
+Okay. So something is wrong.
+
+958
+01:04:50,880 --> 01:04:53,880
+Um
+
+959
+01:04:56,559 --> 01:05:04,559
+okay. So two expressions. So
+
+960
+01:05:00,880 --> 01:05:08,960
+copy that. Copy.
+
+961
+01:05:04,559 --> 01:05:11,839
+Paste. What do we get? Yes.
+
+962
+01:05:08,960 --> 01:05:16,200
+And uh
+
+963
+01:05:11,839 --> 01:05:16,200
+and those uh
+
+964
+01:05:16,960 --> 01:05:20,920
+so that
+
+965
+01:05:22,960 --> 01:05:27,200
+see
+
+966
+01:05:25,359 --> 01:05:30,200
+first
+
+967
+01:05:27,200 --> 01:05:30,200
+first
+
+968
+01:05:30,240 --> 01:05:33,640
+is times
+
+969
+01:05:41,359 --> 01:05:46,200
+It's a simple belief.
+
+970
+01:05:52,640 --> 01:05:58,280
+Uh, no.
+
+971
+01:05:55,280 --> 01:05:58,280
+What?
+
+972
+01:06:11,920 --> 01:06:16,200
+So, it's not a string.
+
+973
+01:06:33,119 --> 01:06:39,480
+It's not the symbols either. What the
+
+974
+01:06:36,000 --> 01:06:39,480
+ is that?
+
+975
+01:06:51,280 --> 01:06:55,000
+Time is Yes.
+
+976
+01:06:55,440 --> 01:06:59,640
+ A little
+
+977
+01:08:01,680 --> 01:08:09,480
+Yeah, bro.
+
+978
+01:08:04,559 --> 01:08:09,480
+No. What? What exactly is that
+
+979
+01:08:09,920 --> 01:08:12,920
+thing?
+
+980
+01:08:30,000 --> 01:08:34,440
+Oh, simple Q.
+
+981
+01:08:35,839 --> 01:08:38,839
+What?
+
+982
+01:08:41,359 --> 01:08:52,040
+No. What is symbol Q?
+
+983
+01:08:45,359 --> 01:08:52,040
+Uh we it's it's undefined function.
+
+984
+01:08:56,239 --> 01:09:01,159
+We got a typo that's why.
+
+985
+01:09:04,640 --> 01:09:13,560
+Now, is there a isn't that simple queue
+
+986
+01:09:08,719 --> 01:09:13,560
+that supposed to check if uh
+
+987
+01:09:15,600 --> 01:09:21,359
+Okay, I'm almost done. Okay, we already
+
+988
+01:09:18,319 --> 01:09:24,799
+solved the problem, but we are trying to
+
+989
+01:09:21,359 --> 01:09:28,000
+shorten it significantly.
+
+990
+01:09:24,799 --> 01:09:33,799
+So, symbol
+
+991
+01:09:28,000 --> 01:09:33,799
+symbol operation isn't uh
+
+992
+01:09:38,480 --> 01:09:43,880
+Is there a function called symbol Q?
+
+993
+01:09:53,359 --> 01:10:02,280
+No, I assume it's just correct.
+
+994
+01:09:56,960 --> 01:10:02,280
+Okay. So why can't you just map it?
+
+995
+01:10:05,840 --> 01:10:10,760
+So the problem is here. Okay.
+
+996
+01:10:29,679 --> 01:10:34,679
+Seven.
+
+997
+01:10:31,679 --> 01:10:34,679
+Correct.
+
+998
+01:10:39,520 --> 01:10:47,600
+Oh, except the first one.
+
+999
+01:10:43,520 --> 01:10:50,600
+Yeah, stupid. Because Yeah, I know. Why?
+
+1000
+01:10:47,600 --> 01:10:50,600
+Eight.
+
+1001
+01:10:53,679 --> 01:10:59,080
+So, why can't we just do it here?
+
+1002
+01:11:04,080 --> 01:11:11,320
+Did we transpose? We forgot to
+
+1003
+01:11:06,320 --> 01:11:11,320
+transpose. idiotic.
+
+1004
+01:11:15,280 --> 01:11:23,480
+We forgot to transpose. That's why Jesus
+
+1005
+01:11:20,480 --> 01:11:23,480
+uh
+
+1006
+01:11:30,400 --> 01:11:37,760
+Double check to make sure. That's right.
+
+1007
+01:11:33,840 --> 01:11:41,280
+So, here is our solution.
+
+1008
+01:11:37,760 --> 01:11:45,640
+Paste it. Shift enter. That's right. And
+
+1009
+01:11:41,280 --> 01:11:45,640
+just do a total on it.
+
+1010
+01:11:49,360 --> 01:11:54,640
+Okay. So, delete that.
+
+1011
+01:11:52,080 --> 01:11:57,880
+So now
+
+1012
+01:11:54,640 --> 01:11:57,880
+run it.
+
+1013
+01:12:00,320 --> 01:12:06,280
+Here is the solution. Is that correct?
+
+1014
+01:12:03,280 --> 01:12:06,280
+Yes.
+
+1015
+01:12:08,239 --> 01:12:15,679
+Fantastic and beautiful. So our whole
+
+1016
+01:12:10,719 --> 01:12:19,800
+code shortened to this one. Okay.
+
+1017
+01:12:15,679 --> 01:12:19,800
+Fantastic and beautiful.
+
+1018
+01:12:21,360 --> 01:12:30,560
+Fantastic and beautiful.
+
+1019
+01:12:24,800 --> 01:12:35,120
+Copy paste. Now let's use the uh custom
+
+1020
+01:12:30,560 --> 01:12:38,320
+input just to be sure that our code can
+
+1021
+01:12:35,120 --> 01:12:41,520
+still work on the
+
+1022
+01:12:38,320 --> 01:12:46,880
+custom input.
+
+1023
+01:12:41,520 --> 01:12:49,600
+Yeah. Here. Backup. Do it.
+
+1024
+01:12:46,880 --> 01:12:52,840
+Select that. Do it.
+
+1025
+01:12:49,600 --> 01:12:52,840
+run it.
+
+1026
+01:12:55,520 --> 01:13:02,960
+Okay, so here is the answer. Now delete
+
+1027
+01:12:59,760 --> 01:13:05,960
+that. Put the code back
+
+1028
+01:13:02,960 --> 01:13:05,960
+and
+
+1029
+01:13:06,159 --> 01:13:14,080
+search for that number.
+
+1030
+01:13:10,239 --> 01:13:16,239
+There it is. Okay, so that is correct.
+
+1031
+01:13:14,080 --> 01:13:20,080
+Syntax color the whole page showing
+
+1032
+01:13:16,239 --> 01:13:22,640
+browser. So this is today's fruit.
+
+1033
+01:13:20,080 --> 01:13:27,719
+Hope you guys learned something. Uh
+
+1034
+01:13:22,640 --> 01:13:27,719
+three watching but it's at the top
+
+1035
+01:13:28,560 --> 01:13:34,960
+but it would elite.
+
+1036
+01:13:31,199 --> 01:13:40,480
+Thank you. So fantastic. Okay. Advent of
+
+1037
+01:13:34,960 --> 01:13:43,520
+code 2025 day A6 problem one. We coded
+
+1038
+01:13:40,480 --> 01:13:46,640
+we explained some syntax shortcuts and
+
+1039
+01:13:43,520 --> 01:13:49,760
+here is our complete solution.
+
+1040
+01:13:46,640 --> 01:13:53,600
+uh we break it down by example
+
+1041
+01:13:49,760 --> 01:13:56,480
+into parts. Then we solved our personal
+
+1042
+01:13:53,600 --> 01:14:01,120
+input this huge
+
+1043
+01:13:56,480 --> 01:14:05,120
+uh number of numbers. Okay. But now so
+
+1044
+01:14:01,120 --> 01:14:08,320
+we solved it. So 663 something. Okay.
+
+1045
+01:14:05,120 --> 01:14:11,280
+But now we we compact the code. We
+
+1046
+01:14:08,320 --> 01:14:16,000
+actually changed our algorithm
+
+1047
+01:14:11,280 --> 01:14:18,960
+to use um Wra's supreme solution.
+
+1048
+01:14:16,000 --> 01:14:21,679
+Actually this part is repeated. Okay, we
+
+1049
+01:14:18,960 --> 01:14:25,840
+we we we use this one. So this part is
+
+1050
+01:14:21,679 --> 01:14:29,960
+repeated. Let me remove it.
+
+1051
+01:14:25,840 --> 01:14:29,960
+Uh okay. So
+
+1052
+01:14:39,360 --> 01:14:45,440
+yeah, I I think that part is remove
+
+1053
+01:14:42,159 --> 01:14:49,920
+repeated. So refresh. Yeah, remove that.
+
+1054
+01:14:45,440 --> 01:14:53,040
+So we compact the code into this this
+
+1055
+01:14:49,920 --> 01:14:57,679
+like oneline solution. Fantastic and
+
+1056
+01:14:53,040 --> 01:15:00,400
+beautiful. You see first first of all do
+
+1057
+01:14:57,679 --> 01:15:04,719
+a string replacement a plus sign two
+
+1058
+01:15:00,400 --> 01:15:07,679
+plus and multiplication sign two times
+
+1059
+01:15:04,719 --> 01:15:11,600
+okay that's string replace then we split
+
+1060
+01:15:07,679 --> 01:15:15,280
+them we turn it into a matrix function
+
+1061
+01:15:11,600 --> 01:15:18,080
+split string okay by the y space then so
+
+1062
+01:15:15,280 --> 01:15:21,920
+we got the list of we got a matrix of
+
+1063
+01:15:18,080 --> 01:15:24,480
+strings okay then we rotate right so
+
+1064
+01:15:21,920 --> 01:15:28,560
+that means the symbols The bottom row of
+
+1065
+01:15:24,480 --> 01:15:30,800
+symbols now goes through the top. Okay.
+
+1066
+01:15:28,560 --> 01:15:33,440
+Then we do two expression that converts
+
+1067
+01:15:30,800 --> 01:15:37,040
+the entire string of the matrix of
+
+1068
+01:15:33,440 --> 01:15:39,199
+strings to matrix of numbers. Okay. Then
+
+1069
+01:15:37,040 --> 01:15:44,719
+we do a transpose
+
+1070
+01:15:39,199 --> 01:15:48,080
+so that now the top row was a row of of
+
+1071
+01:15:44,719 --> 01:15:49,760
+operators. Now we do a transpose so that
+
+1072
+01:15:48,080 --> 01:15:53,360
+the
+
+1073
+01:15:49,760 --> 01:15:56,400
+the row of operators becomes the the the
+
+1074
+01:15:53,360 --> 01:15:58,800
+first column. Then we got you know each
+
+1075
+01:15:56,400 --> 01:16:01,920
+row start with a operator then a bunch
+
+1076
+01:15:58,800 --> 01:16:04,719
+of numbers. Then you just apply the
+
+1077
+01:16:01,920 --> 01:16:07,120
+function to each row. So apply the first
+
+1078
+01:16:04,719 --> 01:16:10,400
+element is operator
+
+1079
+01:16:07,120 --> 01:16:13,040
+uh apply it to the rest of the elements.
+
+1080
+01:16:10,400 --> 01:16:15,520
+In fact this part this can be uh
+
+1081
+01:16:13,040 --> 01:16:19,360
+shortened and anyway then we just total
+
+1082
+01:16:15,520 --> 01:16:21,840
+it. Okay. So it's like fantastic oneline
+
+1083
+01:16:19,360 --> 01:16:24,960
+solution.
+
+1084
+01:16:21,840 --> 01:16:28,480
+I will say this is the shortest possible
+
+1085
+01:16:24,960 --> 01:16:30,239
+in any programming language. Okay. You
+
+1086
+01:16:28,480 --> 01:16:35,440
+know if you are into advanced code try
+
+1087
+01:16:30,239 --> 01:16:37,679
+to find the language Julia Python ascal
+
+1088
+01:16:35,440 --> 01:16:43,120
+advanced programming language like uh
+
+1089
+01:16:37,679 --> 01:16:46,000
+and uh common this scheme this name rust
+
+1090
+01:16:43,120 --> 01:16:50,800
+whatever. Okay
+
+1091
+01:16:46,000 --> 01:16:53,520
+I believe now including APL. Yeah, you
+
+1092
+01:16:50,800 --> 01:16:56,640
+can include APL actually. I believe this
+
+1093
+01:16:53,520 --> 01:16:58,640
+is the shortest code possible in all
+
+1094
+01:16:56,640 --> 01:17:02,239
+programming languages
+
+1095
+01:16:58,640 --> 01:17:04,239
+by the token count. You you don't want
+
+1096
+01:17:02,239 --> 01:17:07,120
+to count, you know, the function names
+
+1097
+01:17:04,239 --> 01:17:09,840
+because obviously if you you know that
+
+1098
+01:17:07,120 --> 01:17:12,880
+doesn't really matter. You want to count
+
+1099
+01:17:09,840 --> 01:17:14,719
+the tokens. So I believe this is the
+
+1100
+01:17:12,880 --> 01:17:16,880
+shortest code of all programming
+
+1101
+01:17:14,719 --> 01:17:19,040
+languages.
+
+1102
+01:17:16,880 --> 01:17:21,679
+Okay, bye guys. Thank you guys for
+
+1103
+01:17:19,040 --> 01:17:23,840
+watching. If you like my stuff, go to my
+
+1104
+01:17:21,679 --> 01:17:27,760
+talk show.info.
+
+1105
+01:17:23,840 --> 01:17:30,000
+Go to my.info homepage. Uh, go all the
+
+1106
+01:17:27,760 --> 01:17:33,760
+way down. PayPal me, Patreon me, Amazon
+
+1107
+01:17:30,000 --> 01:17:36,800
+gift card me. Okay, thank you guys. Bye.
+
+1108
+01:17:33,760 --> 01:17:40,320
+We shut down in one minute.
+
+1109
+01:17:36,800 --> 01:17:43,440
+So, we got uh three watching elite. We
+
+1110
+01:17:40,320 --> 01:17:45,040
+got the elitist mathematicians, coders
+
+1111
+01:17:43,440 --> 01:17:47,920
+watching.
+
+1112
+01:17:45,040 --> 01:17:51,360
+Fantastic.
+
+1113
+01:17:47,920 --> 01:17:54,320
+Okay, we solved it. Fantastic. So,
+
+1114
+01:17:51,360 --> 01:17:57,199
+anything else? Let's see. Uh,
+
+1115
+01:17:54,320 --> 01:17:59,040
+yeah. Did we Did we not include that?
+
+1116
+01:17:57,199 --> 01:18:01,040
+Uh,
+
+1117
+01:17:59,040 --> 01:18:05,360
+do we have that? Make sure we don't we
+
+1118
+01:18:01,040 --> 01:18:07,600
+we don't want to delete it by mistake.
+
+1119
+01:18:05,360 --> 01:18:11,040
+Oh, actually, we want it back because
+
+1120
+01:18:07,600 --> 01:18:13,600
+that's a compact version. Okay.
+
+1121
+01:18:11,040 --> 01:18:17,120
+The compact version of our first
+
+1122
+01:18:13,600 --> 01:18:21,080
+solution. Okay. Showing browser. Okay.
+
+1123
+01:18:17,120 --> 01:18:21,080
+So, bye.
+
+1124
+01:18:31,600 --> 01:18:36,239
+Close. Stop streaming.
+

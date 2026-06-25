@@ -1,0 +1,6764 @@
+1
+00:00:04,130 --> 00:00:10,099
+good morning everyone welcome to another
+
+2
+00:00:07,170 --> 00:00:15,660
+episode of Santa's Show
+
+3
+00:00:10,099 --> 00:00:19,080
+today's topic is Emacs Lisp so we are
+
+4
+00:00:15,660 --> 00:00:23,189
+going to teach Emacs Lisp in conjunction
+
+5
+00:00:19,080 --> 00:00:26,400
+with Python so the plan is I'm going to
+
+6
+00:00:23,189 --> 00:00:29,880
+show Titan code and how do you do that
+
+7
+00:00:26,400 --> 00:00:32,940
+in emag peas so we are this is going to
+
+8
+00:00:29,880 --> 00:00:37,440
+be for beginners so this is so you can
+
+9
+00:00:32,940 --> 00:00:39,420
+see if you know Python you would like it
+
+10
+00:00:37,440 --> 00:00:41,610
+because you know I'm going to show you
+
+11
+00:00:39,420 --> 00:00:46,230
+how do you how do you do you know loops
+
+12
+00:00:41,610 --> 00:00:51,230
+and so on in Emacs Lisp variables and so
+
+13
+00:00:46,230 --> 00:00:59,100
+on and so let's let me see if I'm
+
+14
+00:00:51,230 --> 00:01:04,879
+nobody's here yet I'm surprised I make
+
+15
+00:00:59,100 --> 00:01:04,879
+sure I am live okay
+
+16
+00:01:07,010 --> 00:01:11,130
+that's strange
+
+17
+00:01:08,580 --> 00:01:18,509
+because I've set this up yesterday but
+
+18
+00:01:11,130 --> 00:01:24,689
+anyway so okay so let's to eMac this so
+
+19
+00:01:18,509 --> 00:01:27,330
+let me start saw Emacs saw start command
+
+20
+00:01:24,689 --> 00:01:34,110
+knock mod so you can see all my Emacs
+
+21
+00:01:27,330 --> 00:01:38,040
+commands on the left window here such as
+
+22
+00:01:34,110 --> 00:01:41,729
+forward backward backward move kusudama
+
+23
+00:01:38,040 --> 00:01:43,439
+browser up or beginning of a buffer or
+
+24
+00:01:41,729 --> 00:01:45,450
+such things like that
+
+25
+00:01:43,439 --> 00:01:49,890
+all the commands will show up on the
+
+26
+00:01:45,450 --> 00:01:54,030
+left panel so finally we got people here
+
+27
+00:01:49,890 --> 00:01:57,270
+this wrong crazy good morning been a yak
+
+28
+00:01:54,030 --> 00:02:00,119
+good morning Pano's group good morning
+
+29
+00:01:57,270 --> 00:02:02,820
+Orlick good morning good morning guys so
+
+30
+00:02:00,119 --> 00:02:08,390
+we are going to do a Mac PC Mac this
+
+31
+00:02:02,820 --> 00:02:08,390
+great eMac this tutorial with Python
+
+32
+00:02:08,420 --> 00:02:13,710
+again keep your comments coming okay so
+
+33
+00:02:11,690 --> 00:02:20,340
+because that way
+
+34
+00:02:13,710 --> 00:02:25,350
+see it gets the chat more fun good
+
+35
+00:02:20,340 --> 00:02:28,110
+morning Oleg good morning Seema's so who
+
+36
+00:02:25,350 --> 00:02:31,410
+who was it asked for Emacs Lisp with
+
+37
+00:02:28,110 --> 00:02:32,400
+Python so anyway so II make this with
+
+38
+00:02:31,410 --> 00:02:34,710
+Python
+
+39
+00:02:32,400 --> 00:02:39,810
+you know let's begin you know it's
+
+40
+00:02:34,710 --> 00:02:43,100
+always it's always a bit hard to to to
+
+41
+00:02:39,810 --> 00:02:43,100
+like where do we begin
+
+42
+00:02:44,780 --> 00:02:51,140
+okay so eMac this with pythons of
+
+43
+00:02:47,840 --> 00:02:54,450
+surface why I guess I go to my website
+
+44
+00:02:51,140 --> 00:02:58,940
+practical email list and I'm going to
+
+45
+00:02:54,450 --> 00:02:58,940
+show also my Python tutorial website
+
+46
+00:02:59,930 --> 00:03:06,090
+Python tutorial so I have this python
+
+47
+00:03:02,850 --> 00:03:07,530
+tutorial this is great for beginners if
+
+48
+00:03:06,090 --> 00:03:09,060
+you don't know Python you know check out
+
+49
+00:03:07,530 --> 00:03:12,780
+my tutorial you can just search for
+
+50
+00:03:09,060 --> 00:03:15,690
+sorry python tutorial my name and you'll
+
+51
+00:03:12,780 --> 00:03:22,650
+find it and similarly for such folks are
+
+52
+00:03:15,690 --> 00:03:24,300
+the practical eMac list okay so so
+
+53
+00:03:22,650 --> 00:03:27,990
+that's the that's the python tutorial
+
+54
+00:03:24,300 --> 00:03:31,260
+and that's we're gonna start some talk
+
+55
+00:03:27,990 --> 00:03:36,660
+show today focus on e eMac basement
+
+56
+00:03:31,260 --> 00:03:39,450
+Python so today is going to be technical
+
+57
+00:03:36,660 --> 00:03:42,390
+very technical you know technical topic
+
+58
+00:03:39,450 --> 00:03:45,210
+it's you know restrict ourselves to
+
+59
+00:03:42,390 --> 00:03:48,120
+technical topics so you have if you have
+
+60
+00:03:45,210 --> 00:03:50,400
+questions or even Emacs questions feel
+
+61
+00:03:48,120 --> 00:03:56,010
+free to ask me okay you know just type
+
+62
+00:03:50,400 --> 00:03:59,460
+it I'm talking and I don't have a plan
+
+63
+00:03:56,010 --> 00:04:02,670
+so how shall we begin so let's see let's
+
+64
+00:03:59,460 --> 00:04:05,760
+see that let me show you how shall we
+
+65
+00:04:02,670 --> 00:04:10,230
+begin you know beginning beginning is
+
+66
+00:04:05,760 --> 00:04:12,210
+always a Python three basics so Python
+
+67
+00:04:10,230 --> 00:04:14,730
+as you know you have Python two and
+
+68
+00:04:12,210 --> 00:04:15,570
+Python three and Python three is gaining
+
+69
+00:04:14,730 --> 00:04:18,390
+traction
+
+70
+00:04:15,570 --> 00:04:22,109
+it's got like 60 percent usage in
+
+71
+00:04:18,390 --> 00:04:25,560
+industry so it's good time to start to
+
+72
+00:04:22,109 --> 00:04:27,060
+learn Python three but I think I assume
+
+73
+00:04:25,560 --> 00:04:31,260
+you guys already know Python
+
+74
+00:04:27,060 --> 00:04:34,950
+because otherwise I am I'm kid you know
+
+75
+00:04:31,260 --> 00:04:37,950
+I'm using Python to teach you eMac B's
+
+76
+00:04:34,950 --> 00:04:40,110
+somewhat like that what about these
+
+77
+00:04:37,950 --> 00:04:43,110
+schmuck was okay I don't actually
+
+78
+00:04:40,110 --> 00:04:46,320
+useless ma close myself because I don't
+
+79
+00:04:43,110 --> 00:04:49,889
+like it and anything basically almost
+
+80
+00:04:46,320 --> 00:04:51,600
+99% of things you can do in any
+
+81
+00:04:49,889 --> 00:04:53,970
+programming language you can do without
+
+82
+00:04:51,600 --> 00:04:55,860
+Marcos Marcos is one of those things
+
+83
+00:04:53,970 --> 00:04:58,830
+that's dramatic you know people always
+
+84
+00:04:55,860 --> 00:05:02,820
+like to oh this has Marcos you need to
+
+85
+00:04:58,830 --> 00:05:05,639
+use Marcos and most of the time I would
+
+86
+00:05:02,820 --> 00:05:08,330
+say more than 50% of the time when you
+
+87
+00:05:05,639 --> 00:05:10,919
+see Marco code in emag B's that's
+
+88
+00:05:08,330 --> 00:05:12,660
+necessary it's it's better to do without
+
+89
+00:05:10,919 --> 00:05:16,050
+so I'm not going to cover mark Wells
+
+90
+00:05:12,660 --> 00:05:19,770
+because it's kind of more advanced I'm
+
+91
+00:05:16,050 --> 00:05:22,169
+going to give a basics about images for
+
+92
+00:05:19,770 --> 00:05:24,660
+beginners for those of you have never
+
+93
+00:05:22,169 --> 00:05:28,070
+seen you Mac these people so okay so
+
+94
+00:05:24,660 --> 00:05:33,450
+let's let's just start above emag nice
+
+95
+00:05:28,070 --> 00:05:39,479
+so we we start a eMac this buffer let's
+
+96
+00:05:33,450 --> 00:05:40,770
+say we can do message message equals you
+
+97
+00:05:39,479 --> 00:05:45,140
+know it's let's say this is how you
+
+98
+00:05:40,770 --> 00:05:45,140
+print in eMac this so I just run it
+
+99
+00:05:45,440 --> 00:05:51,930
+alright I run it and you can see the
+
+100
+00:05:48,539 --> 00:05:54,360
+answer at the bottom it says one okay so
+
+101
+00:05:51,930 --> 00:05:56,820
+let me start another buffer and this
+
+102
+00:05:54,360 --> 00:05:59,820
+buffer I'm going to switch to the
+
+103
+00:05:56,820 --> 00:06:02,160
+message buffer so message buffer when
+
+104
+00:05:59,820 --> 00:06:04,650
+you print something in Emacs it prints
+
+105
+00:06:02,160 --> 00:06:06,870
+to the message buffer so you just you
+
+106
+00:06:04,650 --> 00:06:09,900
+know the buffer name is star messages
+
+107
+00:06:06,870 --> 00:06:12,539
+star so you can switch there usually it
+
+108
+00:06:09,900 --> 00:06:14,639
+will print in the mini buffer but then
+
+109
+00:06:12,539 --> 00:06:16,610
+your disappear after a second or so but
+
+110
+00:06:14,639 --> 00:06:19,710
+you can always see the whole thing in
+
+111
+00:06:16,610 --> 00:06:22,229
+message above message buffer is they
+
+112
+00:06:19,710 --> 00:06:26,490
+score off so you know it's kind of like
+
+113
+00:06:22,229 --> 00:06:28,500
+just not it's not permanent and of
+
+114
+00:06:26,490 --> 00:06:30,900
+course you can print to another buffer
+
+115
+00:06:28,500 --> 00:06:33,180
+if you wanted permanent permanent but
+
+116
+00:06:30,900 --> 00:06:35,159
+anyway anyway so this so first of all
+
+117
+00:06:33,180 --> 00:06:37,890
+before we do anything I'm going to base
+
+118
+00:06:35,159 --> 00:06:40,919
+on you know kind of my tutorial this
+
+119
+00:06:37,890 --> 00:06:43,650
+talk on my on my own pages you know my
+
+120
+00:06:40,919 --> 00:06:47,819
+python tutorial and my email is tutorial
+
+121
+00:06:43,650 --> 00:06:50,879
+so in this image this tutorial this
+
+122
+00:06:47,819 --> 00:06:54,270
+folks first section eMac this basics
+
+123
+00:06:50,879 --> 00:06:56,819
+that's where you want to begin okay just
+
+124
+00:06:54,270 --> 00:06:58,919
+like you know after the talk you can
+
+125
+00:06:56,819 --> 00:07:00,889
+read them like they have the solid
+
+126
+00:06:58,919 --> 00:07:05,520
+information summarized you know
+
+127
+00:07:00,889 --> 00:07:07,469
+imprecise and summarized form so oh you
+
+128
+00:07:05,520 --> 00:07:10,319
+can you know you should take notes you
+
+129
+00:07:07,469 --> 00:07:16,860
+know so this is like a lecture you can
+
+130
+00:07:10,319 --> 00:07:21,990
+take notes and let me try to you know
+
+131
+00:07:16,860 --> 00:07:24,539
+let's let me try to you know be prepared
+
+132
+00:07:21,990 --> 00:07:25,229
+you know get on track and let's start to
+
+133
+00:07:24,539 --> 00:07:30,029
+talk about it
+
+134
+00:07:25,229 --> 00:07:32,430
+so eMac these basics so okay first first
+
+135
+00:07:30,029 --> 00:07:34,680
+thing and before you learn eMac this you
+
+136
+00:07:32,430 --> 00:07:37,729
+know if you are using Emacs you are
+
+137
+00:07:34,680 --> 00:07:41,999
+public for me the first important thing
+
+138
+00:07:37,729 --> 00:07:46,860
+first first thing to know about eMac
+
+139
+00:07:41,999 --> 00:07:51,839
+this is the miniatures right notes how
+
+140
+00:07:46,860 --> 00:07:55,830
+to eval functions or how do we Eva
+
+141
+00:07:51,839 --> 00:08:00,509
+eatest code okay and let me just write
+
+142
+00:07:55,830 --> 00:08:07,050
+it up and the function that the describe
+
+143
+00:08:00,509 --> 00:08:10,199
+function let me show you some of the
+
+144
+00:08:07,050 --> 00:08:11,939
+most important Emacs commands you need
+
+145
+00:08:10,199 --> 00:08:14,969
+to know you know because you are going
+
+146
+00:08:11,939 --> 00:08:17,189
+to call them every every tank every
+
+147
+00:08:14,969 --> 00:08:18,360
+every minute every few minutes okay when
+
+148
+00:08:17,189 --> 00:08:20,310
+you call eMac this
+
+149
+00:08:18,360 --> 00:08:23,669
+so the first thing you want to learn is
+
+150
+00:08:20,310 --> 00:08:27,089
+how to evolve over how to evolve a lisp
+
+151
+00:08:23,669 --> 00:08:33,120
+code so there are several ways so one of
+
+152
+00:08:27,089 --> 00:08:36,000
+them is the most important is evil as
+
+153
+00:08:33,120 --> 00:08:43,880
+sex I'm going to show you how to do that
+
+154
+00:08:36,000 --> 00:08:49,160
+and then Eva buffer okay okay Eva buffer
+
+155
+00:08:43,880 --> 00:08:49,160
+okay so let me know Eva
+
+156
+00:08:49,830 --> 00:09:07,440
+this is text hello close that switch
+
+157
+00:08:54,850 --> 00:09:07,440
+switch switch switch Evo that
+
+158
+00:09:26,640 --> 00:09:35,290
+okay this so evil as sex evil buffer
+
+159
+00:09:32,560 --> 00:09:39,640
+does this to an evil region let me just
+
+160
+00:09:35,290 --> 00:09:41,320
+type it up Eva Eva region these three
+
+161
+00:09:39,640 --> 00:09:44,050
+are the most important thing you need to
+
+162
+00:09:41,320 --> 00:09:46,150
+know these are the ways to evaluate eMac
+
+163
+00:09:44,050 --> 00:09:51,150
+this code because you know you need to
+
+164
+00:09:46,150 --> 00:09:53,890
+evaluate it so Emacs knows about it and
+
+165
+00:09:51,150 --> 00:09:55,870
+description describe function is the
+
+166
+00:09:53,890 --> 00:09:57,940
+most important command whenever you have
+
+167
+00:09:55,870 --> 00:10:00,360
+a function for example what what is the
+
+168
+00:09:57,940 --> 00:10:03,970
+verb of you need to know then you code
+
+169
+00:10:00,360 --> 00:10:06,100
+describe function then you know type IVA
+
+170
+00:10:03,970 --> 00:10:08,500
+buffer then LLL tell you the
+
+171
+00:10:06,100 --> 00:10:10,600
+documentation for that function so this
+
+172
+00:10:08,500 --> 00:10:12,520
+is critical you're gonna you need to do
+
+173
+00:10:10,600 --> 00:10:14,710
+this every minute when you start to
+
+174
+00:10:12,520 --> 00:10:19,630
+learn eMac this so this wave function
+
+175
+00:10:14,710 --> 00:10:25,180
+and and let me show you another command
+
+176
+00:10:19,630 --> 00:10:27,640
+that's all critical so basically okay so
+
+177
+00:10:25,180 --> 00:10:29,650
+it let me just continue eval is code so
+
+178
+00:10:27,640 --> 00:10:31,959
+that's all covered here you know there
+
+179
+00:10:29,650 --> 00:10:35,410
+are several commands you can use to
+
+180
+00:10:31,959 --> 00:10:38,770
+evaluate the function you know what to
+
+181
+00:10:35,410 --> 00:10:41,410
+evaluate it but the most important thing
+
+182
+00:10:38,770 --> 00:10:46,600
+is what I said here eval eval has sex
+
+183
+00:10:41,410 --> 00:10:48,430
+IVA region eval bhava and the describe
+
+184
+00:10:46,600 --> 00:10:51,880
+function okay yeah let me let's just
+
+185
+00:10:48,430 --> 00:10:54,160
+cover this this describe function is the
+
+186
+00:10:51,880 --> 00:10:56,560
+most important it shows the
+
+187
+00:10:54,160 --> 00:10:59,470
+documentation of a function and there's
+
+188
+00:10:56,560 --> 00:11:03,010
+another one called describe variable it
+
+189
+00:10:59,470 --> 00:11:05,410
+is also useful because when you have a
+
+190
+00:11:03,010 --> 00:11:09,940
+variable let me show you let me just
+
+191
+00:11:05,410 --> 00:11:12,850
+show you then let's say set Q okay set Q
+
+192
+00:11:09,940 --> 00:11:16,480
+x equals to 3 now let's say eMac this
+
+193
+00:11:12,850 --> 00:11:18,940
+code you set 3 to X okay now you want to
+
+194
+00:11:16,480 --> 00:11:21,520
+run it they are two ways there are
+
+195
+00:11:18,940 --> 00:11:22,180
+several ways they are there is evil ass
+
+196
+00:11:21,520 --> 00:11:24,130
+sex
+
+197
+00:11:22,180 --> 00:11:26,709
+let me just demo that evil ass sex
+
+198
+00:11:24,130 --> 00:11:29,050
+that's a command you put the cursor at
+
+199
+00:11:26,709 --> 00:11:29,980
+the end of the parenthesis and you just
+
+200
+00:11:29,050 --> 00:11:34,630
+call it
+
+201
+00:11:29,980 --> 00:11:37,960
+Eva last sex you know that that is can I
+
+202
+00:11:34,630 --> 00:11:41,260
+just call it now you see the bottom is
+
+203
+00:11:37,960 --> 00:11:43,870
+h3 let me switch for third you see it
+
+204
+00:11:41,260 --> 00:11:46,330
+says in a message before you can say you
+
+205
+00:11:43,870 --> 00:11:50,080
+can see it says three so that means you
+
+206
+00:11:46,330 --> 00:11:54,160
+know Emacs know now X is three so that
+
+207
+00:11:50,080 --> 00:11:57,010
+is a demonstration of eval asks X X now
+
+208
+00:11:54,160 --> 00:11:59,740
+in Emacs many commands has a shortcut
+
+209
+00:11:57,010 --> 00:12:02,230
+you can call this skype function to find
+
+210
+00:11:59,740 --> 00:12:04,780
+out a shortcut for example let's let's
+
+211
+00:12:02,230 --> 00:12:06,850
+disco describe function you know we are
+
+212
+00:12:04,780 --> 00:12:15,250
+going we are demonstrating several of
+
+213
+00:12:06,850 --> 00:12:18,940
+these things here so we are let's call
+
+214
+00:12:15,250 --> 00:12:22,330
+describe function okay I have a shortcut
+
+215
+00:12:18,940 --> 00:12:26,200
+describe function let's type IVA last
+
+216
+00:12:22,330 --> 00:12:29,860
+sex okay and you see here is a
+
+217
+00:12:26,200 --> 00:12:33,010
+documentation for evil as sex and it
+
+218
+00:12:29,860 --> 00:12:36,340
+will also tell you what are the key
+
+219
+00:12:33,010 --> 00:12:39,550
+bindings so I'm used you know so
+
+220
+00:12:36,340 --> 00:12:41,290
+whenever you see a eMac eMac commands or
+
+221
+00:12:39,550 --> 00:12:43,780
+eMac this function you can just call
+
+222
+00:12:41,290 --> 00:12:46,720
+this web function then you can learn
+
+223
+00:12:43,780 --> 00:12:48,820
+about the shortcuts in my half it may or
+
+224
+00:12:46,720 --> 00:12:51,700
+may not have and the documentation you
+
+225
+00:12:48,820 --> 00:12:54,280
+know by the way if you know when you
+
+226
+00:12:51,700 --> 00:12:56,290
+start to learn Emacs Lisp you know
+
+227
+00:12:54,280 --> 00:12:59,470
+sometimes you don't quite understand
+
+228
+00:12:56,290 --> 00:13:02,500
+what what the documentation says because
+
+229
+00:12:59,470 --> 00:13:04,810
+it uses many jargons but just keep going
+
+230
+00:13:02,500 --> 00:13:07,660
+just you know just read a lot then you
+
+231
+00:13:04,810 --> 00:13:11,310
+gradually you are know this is you know
+
+232
+00:13:07,660 --> 00:13:15,160
+common issue you just keep reading it so
+
+233
+00:13:11,310 --> 00:13:19,450
+so we have showed we have demonstrated
+
+234
+00:13:15,160 --> 00:13:21,010
+evil ask set eval last sex now let me
+
+235
+00:13:19,450 --> 00:13:23,620
+demonstrate and we have also
+
+236
+00:13:21,010 --> 00:13:24,880
+demonstrated then demonstrated eval
+
+237
+00:13:23,620 --> 00:13:28,060
+function let me demonstrate
+
+238
+00:13:24,880 --> 00:13:31,540
+eval variable so you see we have defined
+
+239
+00:13:28,060 --> 00:13:33,610
+x equals to 3 here now if you want to
+
+240
+00:13:31,540 --> 00:13:34,900
+know you know suppose you have thousands
+
+241
+00:13:33,610 --> 00:13:36,940
+of lines you don't know what the
+
+242
+00:13:34,900 --> 00:13:40,420
+variable value is you want to know so
+
+243
+00:13:36,940 --> 00:13:43,470
+you call describe Wow
+
+244
+00:13:40,420 --> 00:13:47,820
+okay describe variable enter the
+
+245
+00:13:43,470 --> 00:13:50,940
+type of variable named X okay enter UK
+
+246
+00:13:47,820 --> 00:13:53,940
+you see now it says it tells you X value
+
+247
+00:13:50,940 --> 00:13:55,800
+is three documentation no documentation
+
+248
+00:13:53,940 --> 00:13:57,570
+is variable you know that's that's no
+
+249
+00:13:55,800 --> 00:14:02,070
+more because we don't have documentation
+
+250
+00:13:57,570 --> 00:14:05,700
+here so if so that is a demonstration of
+
+251
+00:14:02,070 --> 00:14:07,680
+described variable so again you know
+
+252
+00:14:05,700 --> 00:14:11,250
+this web function and described variable
+
+253
+00:14:07,680 --> 00:14:17,430
+very useful the the two most useful
+
+254
+00:14:11,250 --> 00:14:19,830
+commands you want to know and okay so so
+
+255
+00:14:17,430 --> 00:14:23,220
+that's cover that now let's go back to
+
+256
+00:14:19,830 --> 00:14:27,090
+how to evaluate emag this code so we
+
+257
+00:14:23,220 --> 00:14:29,220
+have showed Ivar last six let's try it
+
+258
+00:14:27,090 --> 00:14:31,980
+again so let's let's try it let's try
+
+259
+00:14:29,220 --> 00:14:33,990
+something first three four okay now I
+
+260
+00:14:31,980 --> 00:14:37,560
+move the cursor to the bottom of the
+
+261
+00:14:33,990 --> 00:14:41,190
+code and I call eval asked says six I
+
+262
+00:14:37,560 --> 00:14:43,110
+have a shortcut okay I press it and at
+
+263
+00:14:41,190 --> 00:14:51,570
+the bottom you are C seven so it's
+
+264
+00:14:43,110 --> 00:14:57,750
+evaluated you see okay now what about
+
+265
+00:14:51,570 --> 00:15:00,060
+eval region that's another way to to to
+
+266
+00:14:57,750 --> 00:15:03,840
+evaluate you know you Magnus code let's
+
+267
+00:15:00,060 --> 00:15:09,660
+say for example let's say for example
+
+268
+00:15:03,840 --> 00:15:12,030
+set x equals to four now I have several
+
+269
+00:15:09,660 --> 00:15:14,520
+lines of code I want to evaluate them
+
+270
+00:15:12,030 --> 00:15:18,690
+all you know so I can select them all
+
+271
+00:15:14,520 --> 00:15:22,830
+and coeval region eval region okay
+
+272
+00:15:18,690 --> 00:15:30,180
+enter now it's done its evaluated okay
+
+273
+00:15:22,830 --> 00:15:33,720
+and now now if we call describe variable
+
+274
+00:15:30,180 --> 00:15:38,370
+on X again described variable of X you
+
+275
+00:15:33,720 --> 00:15:41,280
+see now it says four so if our region is
+
+276
+00:15:38,370 --> 00:15:43,680
+another useful command then the last one
+
+277
+00:15:41,280 --> 00:15:45,900
+I'm going to show is eval petha because
+
+278
+00:15:43,680 --> 00:15:48,720
+now I have this butter it's already
+
+279
+00:15:45,900 --> 00:15:50,610
+saved as a file name you see any one of
+
+280
+00:15:48,720 --> 00:15:52,980
+these you don't have to you don't you
+
+281
+00:15:50,610 --> 00:15:56,260
+know for example if I open a new buffer
+
+282
+00:15:52,980 --> 00:16:04,480
+which is not saved you know I can say
+
+283
+00:15:56,260 --> 00:16:06,580
+I can say set Q okay okay you know I
+
+284
+00:16:04,480 --> 00:16:09,070
+came for example I go to this buffer
+
+285
+00:16:06,580 --> 00:16:14,710
+let's just go through my HTML file so I
+
+286
+00:16:09,070 --> 00:16:18,840
+can say here set Q X equals to 99 okay
+
+287
+00:16:14,710 --> 00:16:25,330
+now I can evaluate that evil ass sex
+
+288
+00:16:18,840 --> 00:16:27,400
+nice s 99 you see and I can do evaluate
+
+289
+00:16:25,330 --> 00:16:30,280
+buffer eval buffer that is when the
+
+290
+00:16:27,400 --> 00:16:32,410
+whole buffer is eMac this code you want
+
+291
+00:16:30,280 --> 00:16:35,980
+to just give out the whole thing so I
+
+292
+00:16:32,410 --> 00:16:37,870
+call it it's done it just evaluated the
+
+293
+00:16:35,980 --> 00:16:41,740
+whole thing now if I could describe
+
+294
+00:16:37,870 --> 00:16:44,800
+variable X then it says for again
+
+295
+00:16:41,740 --> 00:16:48,070
+remember we just we just made it 99 but
+
+296
+00:16:44,800 --> 00:16:50,710
+now it's back to 4 and this eval Bertha
+
+297
+00:16:48,070 --> 00:16:54,390
+is very useful by the way for example if
+
+298
+00:16:50,710 --> 00:17:00,310
+you are let's go to my Emacs in it okay
+
+299
+00:16:54,390 --> 00:17:03,010
+so I have so here is my email in it you
+
+300
+00:17:00,310 --> 00:17:05,260
+know it's you know it's my image in it
+
+301
+00:17:03,010 --> 00:17:07,960
+you know it's I got a bunch of eMac this
+
+302
+00:17:05,260 --> 00:17:11,020
+this is very useful these eval functions
+
+303
+00:17:07,960 --> 00:17:13,510
+you know you just added some you know
+
+304
+00:17:11,020 --> 00:17:17,110
+setting and you don't want to restart
+
+305
+00:17:13,510 --> 00:17:19,570
+Emacs so you can just say for example if
+
+306
+00:17:17,110 --> 00:17:23,650
+you want to you know suppose I just
+
+307
+00:17:19,570 --> 00:17:26,550
+added that ya suppose if you just added
+
+308
+00:17:23,650 --> 00:17:29,860
+that you can just now call eval as sex
+
+309
+00:17:26,550 --> 00:17:32,320
+then Emacs will evaluate this you don't
+
+310
+00:17:29,860 --> 00:17:36,280
+need to restart Emacs usually because
+
+311
+00:17:32,320 --> 00:17:41,110
+usually simple settings you don't need
+
+312
+00:17:36,280 --> 00:17:42,910
+to sometimes you need to restart Emacs
+
+313
+00:17:41,110 --> 00:17:44,920
+well because there are other code
+
+314
+00:17:42,910 --> 00:17:46,990
+there's older you know just because once
+
+315
+00:17:44,920 --> 00:17:48,910
+the once you run this some others you
+
+316
+00:17:46,990 --> 00:17:51,520
+know it overrides others things like
+
+317
+00:17:48,910 --> 00:17:53,710
+that but in general if you just added
+
+318
+00:17:51,520 --> 00:17:57,310
+some settings you can just say if our
+
+319
+00:17:53,710 --> 00:18:00,100
+last six or selected you know suppose I
+
+320
+00:17:57,310 --> 00:18:04,060
+just added these two selected then
+
+321
+00:18:00,100 --> 00:18:06,220
+coeval region all if you just created a
+
+322
+00:18:04,060 --> 00:18:09,559
+new you know complete new in it you can
+
+323
+00:18:06,220 --> 00:18:12,679
+say eval buffer okay that's how you
+
+324
+00:18:09,559 --> 00:18:15,210
+evaluate them without restarting Emacs
+
+325
+00:18:12,679 --> 00:18:19,469
+usually we start in Emacs is kind of
+
+326
+00:18:15,210 --> 00:18:22,109
+more cream because it so so that's
+
+327
+00:18:19,469 --> 00:18:24,059
+that's about some of the critical you
+
+328
+00:18:22,109 --> 00:18:26,759
+are going to use these all the time so
+
+329
+00:18:24,059 --> 00:18:30,109
+let's move on actually so you know we
+
+330
+00:18:26,759 --> 00:18:34,950
+have not began to talk about Emacs Lisp
+
+331
+00:18:30,109 --> 00:18:36,989
+actually yet but okay so those are those
+
+332
+00:18:34,950 --> 00:18:38,879
+things are the critical the most
+
+333
+00:18:36,989 --> 00:18:41,399
+important now this actually one more
+
+334
+00:18:38,879 --> 00:18:44,609
+thing I want to show you so let's type
+
+335
+00:18:41,399 --> 00:18:47,219
+it here so this one is about how do you
+
+336
+00:18:44,609 --> 00:18:49,619
+find out what functions are there for
+
+337
+00:18:47,219 --> 00:18:56,129
+example you want to you want a function
+
+338
+00:18:49,619 --> 00:18:59,309
+to you want a function that that gets
+
+339
+00:18:56,129 --> 00:19:02,279
+the file file names extension for
+
+340
+00:18:59,309 --> 00:19:06,210
+example you have an image my cat dot jpg
+
+341
+00:19:02,279 --> 00:19:09,089
+you want to get the jpg part so what is
+
+342
+00:19:06,210 --> 00:19:11,759
+a function name well normally you you go
+
+343
+00:19:09,089 --> 00:19:13,289
+with the eMac this documentation 900
+
+344
+00:19:11,759 --> 00:19:18,779
+pages you know I have a link here
+
+345
+00:19:13,289 --> 00:19:22,830
+somewhere so for example for example
+
+346
+00:19:18,779 --> 00:19:27,179
+let's go to Elise basic functions file
+
+347
+00:19:22,830 --> 00:19:30,419
+the path so here is about file directory
+
+348
+00:19:27,179 --> 00:19:32,909
+path ok file path functions file name
+
+349
+00:19:30,419 --> 00:19:35,249
+directory file name none directory file
+
+350
+00:19:32,909 --> 00:19:38,639
+name extension this is the command you
+
+351
+00:19:35,249 --> 00:19:42,629
+want so normally you go read Emacs this
+
+352
+00:19:38,639 --> 00:19:48,299
+documentation you can access that by
+
+353
+00:19:42,629 --> 00:19:51,539
+calling info you know MX info and that's
+
+354
+00:19:48,299 --> 00:19:55,489
+you know eMac this info you know then
+
+355
+00:19:51,539 --> 00:19:55,489
+you can just go to eMac this
+
+356
+00:19:56,539 --> 00:20:01,169
+documentation let's see
+
+357
+00:19:59,070 --> 00:20:06,179
+so that's eMac this stock documentation
+
+358
+00:20:01,169 --> 00:20:08,519
+I have a HTML prettified HTML version so
+
+359
+00:20:06,179 --> 00:20:10,919
+anyway you can read it is documentation
+
+360
+00:20:08,519 --> 00:20:14,460
+but usually it's long and it's hard to
+
+361
+00:20:10,919 --> 00:20:16,229
+find so there is a way to find a if you
+
+362
+00:20:14,460 --> 00:20:18,210
+forgot you know you just remember
+
+363
+00:20:16,229 --> 00:20:20,940
+there's a name called file name
+
+364
+00:20:18,210 --> 00:20:22,920
+something you don't remember exactly you
+
+365
+00:20:20,940 --> 00:20:26,580
+can call
+
+366
+00:20:22,920 --> 00:20:29,100
+this is how you find functions how you
+
+367
+00:20:26,580 --> 00:20:32,190
+search functions stock lookup wait not
+
+368
+00:20:29,100 --> 00:20:43,560
+search doc okay so you want to call a
+
+369
+00:20:32,190 --> 00:20:45,570
+purpose command actually yeah okay so
+
+370
+00:20:43,560 --> 00:20:48,300
+let me show you a purpose command you
+
+371
+00:20:45,570 --> 00:20:53,340
+want to press control you first then go
+
+372
+00:20:48,300 --> 00:20:55,350
+apropos command around second so so this
+
+373
+00:20:53,340 --> 00:21:00,200
+is the great function you need to know
+
+374
+00:20:55,350 --> 00:21:08,030
+apropos command this is for for finding
+
+375
+00:21:00,200 --> 00:21:12,440
+release function press see you then
+
+376
+00:21:08,030 --> 00:21:17,550
+MX a pop-up that's how you do it okay
+
+377
+00:21:12,440 --> 00:21:19,220
+you press ok so you want to press
+
+378
+00:21:17,550 --> 00:21:22,230
+control you first
+
+379
+00:21:19,220 --> 00:21:25,500
+that means universal command then you
+
+380
+00:21:22,230 --> 00:21:29,240
+tell you you call papac's command Y
+
+381
+00:21:25,500 --> 00:21:33,060
+because that way it will search or
+
+382
+00:21:29,240 --> 00:21:33,750
+functions that contains the name so
+
+383
+00:21:33,060 --> 00:21:37,470
+let's do it
+
+384
+00:21:33,750 --> 00:21:44,220
+so for example I press control you then
+
+385
+00:21:37,470 --> 00:21:46,500
+I do met-rx then I say fire - name you
+
+386
+00:21:44,220 --> 00:21:48,120
+know there's some function that I don't
+
+387
+00:21:46,500 --> 00:21:52,610
+remember name but I remember there's a
+
+388
+00:21:48,120 --> 00:21:52,610
+file - naming it so I press Enter
+
+389
+00:21:55,640 --> 00:22:03,930
+what shadow marking being able I don't
+
+390
+00:22:01,980 --> 00:22:08,550
+know what is a shot shot I came that's
+
+391
+00:22:03,930 --> 00:22:19,560
+miss let's do it again control you meter
+
+392
+00:22:08,550 --> 00:22:20,790
+X proposed a PRP OS a propyl apropos
+
+393
+00:22:19,560 --> 00:22:24,480
+command okay
+
+394
+00:22:20,790 --> 00:22:29,400
+enter then you type the name now I typed
+
+395
+00:22:24,480 --> 00:22:33,360
+fire - name okay now Emacs will show me
+
+396
+00:22:29,400 --> 00:22:36,030
+all functions that contains whose name
+
+397
+00:22:33,360 --> 00:22:36,810
+contains file name you know the word
+
+398
+00:22:36,030 --> 00:22:38,790
+file names
+
+399
+00:22:36,810 --> 00:22:42,750
+now you can look at this you can scan it
+
+400
+00:22:38,790 --> 00:22:44,370
+and you can see you know you can you can
+
+401
+00:22:42,750 --> 00:22:46,410
+find you know all those related
+
+402
+00:22:44,370 --> 00:22:49,670
+functions for example the one we want is
+
+403
+00:22:46,410 --> 00:22:52,050
+file name extension you know you can
+
+404
+00:22:49,670 --> 00:22:54,960
+press tab to go there
+
+405
+00:22:52,050 --> 00:22:58,980
+press ENTER that's you know then you are
+
+406
+00:22:54,960 --> 00:23:01,050
+the in the describe function box then
+
+407
+00:22:58,980 --> 00:23:04,680
+it's a documentation then oh that's the
+
+408
+00:23:01,050 --> 00:23:09,150
+one I need so he that's how you've such
+
+409
+00:23:04,680 --> 00:23:11,610
+the how you find function how you know
+
+410
+00:23:09,150 --> 00:23:15,090
+one of the ways to find function and one
+
+411
+00:23:11,610 --> 00:23:17,160
+of the most useful way but otherwise you
+
+412
+00:23:15,090 --> 00:23:19,880
+can you know there are other ways you
+
+413
+00:23:17,160 --> 00:23:23,400
+can for example you can start to search
+
+414
+00:23:19,880 --> 00:23:25,680
+you can start to search eMac this
+
+415
+00:23:23,400 --> 00:23:27,690
+documentation you can see on this page
+
+416
+00:23:25,680 --> 00:23:30,090
+I'll show you how to do that but
+
+417
+00:23:27,690 --> 00:23:32,610
+typically your purpose it's useful a
+
+418
+00:23:30,090 --> 00:23:35,760
+proper command if you do not press the
+
+419
+00:23:32,610 --> 00:23:38,310
+control you first what will happen is I
+
+420
+00:23:35,760 --> 00:23:41,430
+will only search commands like
+
+421
+00:23:38,310 --> 00:23:44,430
+interactive commands it will not list it
+
+422
+00:23:41,430 --> 00:23:47,670
+will not beasts file name extension that
+
+423
+00:23:44,430 --> 00:23:50,700
+function because file name extension is
+
+424
+00:23:47,670 --> 00:23:53,130
+a function meaning that it's not a
+
+425
+00:23:50,700 --> 00:23:56,910
+command meaning that it's not something
+
+426
+00:23:53,130 --> 00:24:03,140
+you can call meta X you know you if you
+
+427
+00:23:56,910 --> 00:24:05,730
+commit IX and you type file name
+
+428
+00:24:03,140 --> 00:24:08,370
+extension there's no such command no
+
+429
+00:24:05,730 --> 00:24:12,690
+match because it's not a interactive
+
+430
+00:24:08,370 --> 00:24:17,640
+command it's only for it's a dysfunction
+
+431
+00:24:12,690 --> 00:24:19,800
+you using images so that is why you need
+
+432
+00:24:17,640 --> 00:24:21,750
+to press control you before you call a
+
+433
+00:24:19,800 --> 00:24:25,740
+purpose command otherwise the purpose
+
+434
+00:24:21,750 --> 00:24:28,110
+command with just such only commands so
+
+435
+00:24:25,740 --> 00:24:31,320
+these are actually the most important so
+
+436
+00:24:28,110 --> 00:24:37,080
+let's begin let's begin to actually show
+
+437
+00:24:31,320 --> 00:24:40,590
+some eMac this so let me be the comment
+
+438
+00:24:37,080 --> 00:24:43,440
+let's see if we are 24 minutes already
+
+439
+00:24:40,590 --> 00:24:46,260
+you know you say it's this takes a long
+
+440
+00:24:43,440 --> 00:24:48,660
+time to go over
+
+441
+00:24:46,260 --> 00:24:53,309
+happy to be here so let me read the
+
+442
+00:24:48,660 --> 00:24:55,710
+comments how about this smoke was yeah
+
+443
+00:24:53,309 --> 00:24:59,400
+okay so greetings everyone
+
+444
+00:24:55,710 --> 00:25:05,850
+describe function describe function yeah
+
+445
+00:24:59,400 --> 00:25:09,030
+you can could do that as well yes that's
+
+446
+00:25:05,850 --> 00:25:14,309
+how you call that as a emag this code
+
+447
+00:25:09,030 --> 00:25:16,620
+yeah you you are you are advanced so so
+
+448
+00:25:14,309 --> 00:25:25,500
+Seema says if equals to three message
+
+449
+00:25:16,620 --> 00:25:27,720
+true message yeah so okay so so they
+
+450
+00:25:25,500 --> 00:25:31,559
+speaking dead speaking with the actual
+
+451
+00:25:27,720 --> 00:25:34,260
+code then okay let's do this then let's
+
+452
+00:25:31,559 --> 00:25:37,020
+go over the let's try try this style
+
+453
+00:25:34,260 --> 00:25:41,960
+let's you don't go over Python code then
+
+454
+00:25:37,020 --> 00:25:41,960
+let's see how how we do that in eMac B's
+
+455
+00:25:43,520 --> 00:25:48,750
+okay so Python here is this okay strings
+
+456
+00:25:46,710 --> 00:25:51,900
+how do you assign a string E string is
+
+457
+00:25:48,750 --> 00:25:54,660
+super easy set Q say Q is how you create
+
+458
+00:25:51,900 --> 00:25:58,080
+a variable okay SEC you then just stream
+
+459
+00:25:54,660 --> 00:26:00,840
+something okay that's how you do it and
+
+460
+00:25:58,080 --> 00:26:02,790
+in eMac this remember it's always double
+
+461
+00:26:00,840 --> 00:26:06,690
+quote there is no variation so always
+
+462
+00:26:02,790 --> 00:26:08,760
+double s he quote and there's no single
+
+463
+00:26:06,690 --> 00:26:14,669
+quote this doesn't work here always that
+
+464
+00:26:08,760 --> 00:26:16,350
+so I let's evaluate evil ass says you
+
+465
+00:26:14,669 --> 00:26:19,290
+can see in a mini buffer you say
+
+466
+00:26:16,350 --> 00:26:21,809
+something okay let's go to the message
+
+467
+00:26:19,290 --> 00:26:26,690
+before you can also see here by the way
+
+468
+00:26:21,809 --> 00:26:31,230
+a shortcut to message buffer is ctrl H
+
+469
+00:26:26,690 --> 00:26:33,720
+ctrl H H let's try I don't remember the
+
+470
+00:26:31,230 --> 00:26:36,540
+default Emacs keys because I'm using my
+
+471
+00:26:33,720 --> 00:26:43,230
+own let's try ctrl H edge
+
+472
+00:26:36,540 --> 00:26:47,870
+no that's incorrect ctrl H M view Marta
+
+473
+00:26:43,230 --> 00:26:47,870
+what wait let's try it again
+
+474
+00:26:52,400 --> 00:26:58,340
+I forgot what's a default Emacs command
+
+475
+00:26:56,450 --> 00:27:03,110
+so it's just let's let's call this
+
+476
+00:26:58,340 --> 00:27:05,809
+squared function V lost let me just
+
+477
+00:27:03,110 --> 00:27:08,510
+describe key okay describe key because
+
+478
+00:27:05,809 --> 00:27:13,900
+I'm familiar with my keys okay describe
+
+479
+00:27:08,510 --> 00:27:16,940
+key then I press my my key for describe
+
+480
+00:27:13,900 --> 00:27:20,450
+what are we talking about a view message
+
+481
+00:27:16,940 --> 00:27:23,210
+sorry I did so describe key I press my
+
+482
+00:27:20,450 --> 00:27:25,820
+key for for the command to pop up the
+
+483
+00:27:23,210 --> 00:27:29,330
+message buffer then oh yeah the command
+
+484
+00:27:25,820 --> 00:27:31,850
+name is view echo area messages that is
+
+485
+00:27:29,330 --> 00:27:34,280
+the command to switch to the message
+
+486
+00:27:31,850 --> 00:27:36,320
+buffer of course you can just not use
+
+487
+00:27:34,280 --> 00:27:39,140
+you can always just use no more
+
+488
+00:27:36,320 --> 00:27:39,650
+switching buffer command that that works
+
+489
+00:27:39,140 --> 00:27:43,030
+as well
+
+490
+00:27:39,650 --> 00:27:46,880
+but this one is dedicated the command to
+
+491
+00:27:43,030 --> 00:27:51,140
+to switch to the message spa and the
+
+492
+00:27:46,880 --> 00:27:55,550
+default key is och II that's right
+
+493
+00:27:51,140 --> 00:27:58,550
+control H II so let's let's try it
+
+494
+00:27:55,550 --> 00:28:03,679
+control H II yeah you know it the pops
+
+495
+00:27:58,550 --> 00:28:06,530
+of the message messages buffer okay so
+
+496
+00:28:03,679 --> 00:28:09,559
+so yeah so yeah so that we got the
+
+497
+00:28:06,530 --> 00:28:12,530
+string now in Emacs strings just
+
+498
+00:28:09,559 --> 00:28:15,260
+remember always it's very simple it's
+
+499
+00:28:12,530 --> 00:28:17,360
+just double quote and if you want a
+
+500
+00:28:15,260 --> 00:28:19,720
+double quote inside you just escape it
+
+501
+00:28:17,360 --> 00:28:23,510
+with a backslash
+
+502
+00:28:19,720 --> 00:28:29,270
+okay so let's avoid and let's describe
+
+503
+00:28:23,510 --> 00:28:32,300
+variable X enter then it says x value is
+
+504
+00:28:29,270 --> 00:28:36,080
+X um you know it's a stream then we can
+
+505
+00:28:32,300 --> 00:28:39,440
+print it let's printed message let's say
+
+506
+00:28:36,080 --> 00:28:42,350
+X okay now let's give our hold on a
+
+507
+00:28:39,440 --> 00:28:45,730
+second now Eve our buffer you can see
+
+508
+00:28:42,350 --> 00:28:45,730
+you know it's printed
+
+509
+00:28:48,989 --> 00:28:54,759
+yeah yeah okay so message is a function
+
+510
+00:28:53,409 --> 00:28:59,220
+we want to print something
+
+511
+00:28:54,759 --> 00:29:04,529
+so that's strings you Maglis so
+
+512
+00:28:59,220 --> 00:29:07,299
+substring okay substring is easy this
+
+513
+00:29:04,529 --> 00:29:09,999
+substring substring is actually not a
+
+514
+00:29:07,299 --> 00:29:13,749
+function you use often in images you can
+
+515
+00:29:09,999 --> 00:29:16,389
+see this the functions here substring so
+
+516
+00:29:13,749 --> 00:29:20,799
+substring you give it a string let's say
+
+517
+00:29:16,389 --> 00:29:25,989
+let's say a b c d e be okay
+
+518
+00:29:20,799 --> 00:29:30,220
+from - okay from 0 then optional - let's
+
+519
+00:29:25,989 --> 00:29:36,249
+say - now let's give up give our last
+
+520
+00:29:30,220 --> 00:29:39,489
+six you can see the result is a B a B
+
+521
+00:29:36,249 --> 00:29:42,429
+that's the substring you know actually
+
+522
+00:29:39,489 --> 00:29:46,139
+going through Python to show to teach
+
+523
+00:29:42,429 --> 00:29:48,820
+eMac this exactly he is actually not
+
+524
+00:29:46,139 --> 00:29:52,690
+efficient way to learn email is actually
+
+525
+00:29:48,820 --> 00:29:57,609
+because because you know Python is a
+
+526
+00:29:52,690 --> 00:30:00,909
+general-purpose language so an email is
+
+527
+00:29:57,609 --> 00:30:04,119
+not when you use eMac this typically you
+
+528
+00:30:00,909 --> 00:30:06,549
+want to you know the purpose is that you
+
+529
+00:30:04,119 --> 00:30:09,820
+you want to manipulate buffers you want
+
+530
+00:30:06,549 --> 00:30:13,359
+to manipulate strings in eMac beasts you
+
+531
+00:30:09,820 --> 00:30:16,179
+want to manipulate kusa position whose
+
+532
+00:30:13,359 --> 00:30:18,369
+the position you know move kusa delete
+
+533
+00:30:16,179 --> 00:30:20,979
+the current line you know inside the
+
+534
+00:30:18,369 --> 00:30:23,710
+line switch to a different buffer now
+
+535
+00:30:20,979 --> 00:30:26,470
+those things are not in Python you see
+
+536
+00:30:23,710 --> 00:30:31,119
+because in Python those are those are
+
+537
+00:30:26,470 --> 00:30:33,309
+not Python is not a editor you see so
+
+538
+00:30:31,119 --> 00:30:36,489
+when you learn when you go when you try
+
+539
+00:30:33,309 --> 00:30:39,460
+to learn Emacs we we are the Python
+
+540
+00:30:36,489 --> 00:30:43,840
+things you know you are not you are not
+
+541
+00:30:39,460 --> 00:30:46,720
+learning what you need to do most of the
+
+542
+00:30:43,840 --> 00:30:49,389
+time in Emacs Lisp because you are not
+
+543
+00:30:46,720 --> 00:30:52,450
+dealing with buffers and cruisers and
+
+544
+00:30:49,389 --> 00:30:55,450
+forward or delete current word things
+
+545
+00:30:52,450 --> 00:30:59,440
+like that those those things are
+
+546
+00:30:55,450 --> 00:31:01,250
+actually the most useful to to typical
+
+547
+00:30:59,440 --> 00:31:03,080
+Emacs programmers email
+
+548
+00:31:01,250 --> 00:31:05,630
+these programmers in Emacs because
+
+549
+00:31:03,080 --> 00:31:07,580
+that's what you most people program us
+
+550
+00:31:05,630 --> 00:31:10,280
+you begin with that then you can create
+
+551
+00:31:07,580 --> 00:31:12,830
+a major mod you can create a minor mod
+
+552
+00:31:10,280 --> 00:31:15,230
+you can create a shell you know that's
+
+553
+00:31:12,830 --> 00:31:17,480
+but those things you know create you
+
+554
+00:31:15,230 --> 00:31:20,420
+know font if I you know syntax coloring
+
+555
+00:31:17,480 --> 00:31:23,660
+a buffer for a new language those things
+
+556
+00:31:20,420 --> 00:31:27,980
+are not in Python you see so teaching
+
+557
+00:31:23,660 --> 00:31:30,140
+eMac this free a Python is kind of you
+
+558
+00:31:27,980 --> 00:31:34,310
+can we can do that but you are missing
+
+559
+00:31:30,140 --> 00:31:36,530
+you know it's not proficient that that's
+
+560
+00:31:34,310 --> 00:31:39,500
+the point you know because if you read
+
+561
+00:31:36,530 --> 00:31:41,240
+my tutorial here you begin right away
+
+562
+00:31:39,500 --> 00:31:45,490
+after you learned about how to evaluate
+
+563
+00:31:41,240 --> 00:31:49,730
+code you know what are the basic syntax
+
+564
+00:31:45,490 --> 00:31:53,540
+you know you know the basics in task 4 +
+
+565
+00:31:49,730 --> 00:31:57,200
+- you know with medics for converting
+
+566
+00:31:53,540 --> 00:32:00,340
+flow to integer for true/false you know
+
+567
+00:31:57,200 --> 00:32:02,660
+the basic concept and how to look up
+
+568
+00:32:00,340 --> 00:32:06,650
+documentation and so on then then you
+
+569
+00:32:02,660 --> 00:32:08,900
+immediately begin to learn about cool
+
+570
+00:32:06,650 --> 00:32:11,540
+suppositions the concept of kusa
+
+571
+00:32:08,900 --> 00:32:14,000
+positions let's immediately it's called
+
+572
+00:32:11,540 --> 00:32:16,580
+a point point point you know that's a
+
+573
+00:32:14,000 --> 00:32:21,800
+function it returns to the kusa position
+
+574
+00:32:16,580 --> 00:32:24,890
+in every buffer the first when when your
+
+575
+00:32:21,800 --> 00:32:28,010
+cursor is at the beginning that position
+
+576
+00:32:24,890 --> 00:32:31,090
+is 0 now think of a cursor is between us
+
+577
+00:32:28,010 --> 00:32:34,610
+between characters that's that's a
+
+578
+00:32:31,090 --> 00:32:38,630
+technical way to think of kusa position
+
+579
+00:32:34,610 --> 00:32:40,640
+it's actually between characters so when
+
+580
+00:32:38,630 --> 00:32:44,030
+when the cursor is at beginning your
+
+581
+00:32:40,640 --> 00:32:46,220
+cursor position is 0 and the the
+
+582
+00:32:44,030 --> 00:32:48,940
+function point will tell you what is
+
+583
+00:32:46,220 --> 00:32:52,550
+your current position let's try it ok
+
+584
+00:32:48,940 --> 00:32:58,240
+point you know a point and okay we have
+
+585
+00:32:52,550 --> 00:33:02,780
+it eval above a weight have our last six
+
+586
+00:32:58,240 --> 00:33:06,110
+now I say 777 you see because my kusa
+
+587
+00:33:02,780 --> 00:33:09,380
+position right now it's 77 another way
+
+588
+00:33:06,110 --> 00:33:12,710
+to show that is describe char so I'm
+
+589
+00:33:09,380 --> 00:33:14,900
+going to call describe char you see now
+
+590
+00:33:12,710 --> 00:33:18,530
+he says position 77
+
+591
+00:33:14,900 --> 00:33:22,220
+of a77 because that's actually the last
+
+592
+00:33:18,530 --> 00:33:25,880
+position you know so point is the
+
+593
+00:33:22,220 --> 00:33:28,190
+function that returns kusa position so
+
+594
+00:33:25,880 --> 00:33:30,800
+anyway so these are commands that's
+
+595
+00:33:28,190 --> 00:33:33,260
+actually the most useful when you begin
+
+596
+00:33:30,800 --> 00:33:35,540
+to learn new Magnus but the all these
+
+597
+00:33:33,260 --> 00:33:38,450
+things are not in Python because python
+
+598
+00:33:35,540 --> 00:33:43,700
+is not dealing with you know it's not
+
+599
+00:33:38,450 --> 00:33:46,820
+dealing with editor things so at this
+
+600
+00:33:43,700 --> 00:33:48,440
+point should we continue with the Python
+
+601
+00:33:46,820 --> 00:33:53,470
+style you know let's you know go through
+
+602
+00:33:48,440 --> 00:33:56,090
+Python you know it's this can be fun but
+
+603
+00:33:53,470 --> 00:33:59,240
+maybe we should just continue just you
+
+604
+00:33:56,090 --> 00:34:03,550
+know because just you know so type your
+
+605
+00:33:59,240 --> 00:34:03,550
+comments okay opinions comments type it
+
+606
+00:34:04,330 --> 00:34:11,720
+Christiaan I don't know my dudes DeYoung
+
+607
+00:34:06,980 --> 00:34:15,610
+hey DeYoung so you hear the CMOS says so
+
+608
+00:34:11,720 --> 00:34:18,710
+why is that Q not corset okay you know
+
+609
+00:34:15,610 --> 00:34:20,480
+one thing about emag beasts we said when
+
+610
+00:34:18,710 --> 00:34:23,899
+you start to learn you have all these
+
+611
+00:34:20,480 --> 00:34:26,750
+questions very valid questions but
+
+612
+00:34:23,899 --> 00:34:29,409
+actually they are not practical things
+
+613
+00:34:26,750 --> 00:34:32,240
+to know because you know if you actually
+
+614
+00:34:29,409 --> 00:34:33,919
+like suppose if you want to really want
+
+615
+00:34:32,240 --> 00:34:36,169
+to be efficient you just you know you
+
+616
+00:34:33,919 --> 00:34:38,540
+want to spend you know let's say 20
+
+617
+00:34:36,169 --> 00:34:40,820
+hours do you want to in these 20 hours
+
+618
+00:34:38,540 --> 00:34:43,520
+you want to learn the maximum practical
+
+619
+00:34:40,820 --> 00:34:45,200
+emag beasts you start to write that you
+
+620
+00:34:43,520 --> 00:34:47,540
+know you start to write a major mod or
+
+621
+00:34:45,200 --> 00:34:50,810
+something or some command to manipulate
+
+622
+00:34:47,540 --> 00:34:53,090
+to refactor your code you know most of
+
+623
+00:34:50,810 --> 00:34:57,050
+you are programmers to refactor to help
+
+624
+00:34:53,090 --> 00:35:01,520
+you do something you you want to be
+
+625
+00:34:57,050 --> 00:35:03,470
+efficient in 20 20 hours then what do
+
+626
+00:35:01,520 --> 00:35:05,870
+you have to do well the best thing to do
+
+627
+00:35:03,470 --> 00:35:08,600
+is actually just just start to read this
+
+628
+00:35:05,870 --> 00:35:11,360
+you know don't ask any questions that's
+
+629
+00:35:08,600 --> 00:35:15,430
+not there just this is just you know set
+
+630
+00:35:11,360 --> 00:35:17,660
+you you say set Q just to set you but
+
+631
+00:35:15,430 --> 00:35:19,850
+okay that's that's one way okay but
+
+632
+00:35:17,660 --> 00:35:22,160
+obviously a lot of people we all wonder
+
+633
+00:35:19,850 --> 00:35:25,430
+you know what why said Q okay why say Q
+
+634
+00:35:22,160 --> 00:35:29,080
+why not set and why not you know for
+
+635
+00:35:25,430 --> 00:35:29,080
+example another question about
+
+636
+00:35:29,230 --> 00:35:36,859
+what is the other question we just came
+
+637
+00:35:32,900 --> 00:35:38,900
+up you know but basically yeah eMac nice
+
+638
+00:35:36,859 --> 00:35:40,460
+you know it's first of all it's a list
+
+639
+00:35:38,900 --> 00:35:43,730
+is so kind of different from other
+
+640
+00:35:40,460 --> 00:35:46,220
+languages but then there's also lots of
+
+641
+00:35:43,730 --> 00:35:48,559
+things like big becoming started to
+
+642
+00:35:46,220 --> 00:35:50,450
+become technical details I mean you can
+
+643
+00:35:48,559 --> 00:35:53,240
+code actually you can code for one year
+
+644
+00:35:50,450 --> 00:35:58,150
+and you don't have to know what Y said q
+
+645
+00:35:53,240 --> 00:36:00,829
+not set because that that gets into
+
+646
+00:35:58,150 --> 00:36:04,819
+technical details okay let me tell you
+
+647
+00:36:00,829 --> 00:36:08,569
+why why because set because okay to to
+
+648
+00:36:04,819 --> 00:36:11,930
+explain that track saying e track tracks
+
+649
+00:36:08,569 --> 00:36:15,559
+in the concept of symbols in this
+
+650
+00:36:11,930 --> 00:36:19,099
+language in this language you have the
+
+651
+00:36:15,559 --> 00:36:24,230
+concept of symbols which is not in any
+
+652
+00:36:19,099 --> 00:36:26,599
+language or basically not in XD well I
+
+653
+00:36:24,230 --> 00:36:30,530
+guess the only one I know is Mathematica
+
+654
+00:36:26,599 --> 00:36:33,470
+okay Mathematica is considered Lisp okay
+
+655
+00:36:30,530 --> 00:36:37,160
+so in this family you have symbols but
+
+656
+00:36:33,470 --> 00:36:42,309
+not in a any other not not in Java C C
+
+657
+00:36:37,160 --> 00:36:44,349
+sharp C++ JavaScript Python Ruby pearl
+
+658
+00:36:42,309 --> 00:36:50,869
+shell
+
+659
+00:36:44,349 --> 00:36:54,319
+Fortran Haskell okay mo F sharp just
+
+660
+00:36:50,869 --> 00:36:56,540
+they don't have symbols okay they you
+
+661
+00:36:54,319 --> 00:36:58,700
+know for example in Ruby you do have
+
+662
+00:36:56,540 --> 00:37:01,220
+symbols in JavaScript you also have
+
+663
+00:36:58,700 --> 00:37:04,160
+symbols but they are like a specific
+
+664
+00:37:01,220 --> 00:37:07,010
+particular type but not not nothing like
+
+665
+00:37:04,160 --> 00:37:09,790
+this this every variable everything you
+
+666
+00:37:07,010 --> 00:37:13,099
+know but right now you see the set Q X
+
+667
+00:37:09,790 --> 00:37:17,210
+the set every function name every
+
+668
+00:37:13,099 --> 00:37:19,849
+variable name is a symbol so you know so
+
+669
+00:37:17,210 --> 00:37:22,819
+if so we can start to explain what is
+
+670
+00:37:19,849 --> 00:37:25,790
+the symbol for example so actually so we
+
+671
+00:37:22,819 --> 00:37:28,790
+are digressing so much but it's good
+
+672
+00:37:25,790 --> 00:37:30,589
+okay so practically maybe if you go down
+
+673
+00:37:28,790 --> 00:37:33,530
+you see I put it at the bottom it's
+
+674
+00:37:30,589 --> 00:37:35,380
+actually kind of advanced like you can
+
+675
+00:37:33,530 --> 00:37:37,910
+you can you can do a Mac this
+
+676
+00:37:35,380 --> 00:37:41,119
+practically for one to three years
+
+677
+00:37:37,910 --> 00:37:41,369
+without actually understanding what the
+
+678
+00:37:41,119 --> 00:37:44,430
+hell
+
+679
+00:37:41,369 --> 00:37:47,130
+he's symbol okay that's that's true you
+
+680
+00:37:44,430 --> 00:37:49,680
+know if you want to be practical and
+
+681
+00:37:47,130 --> 00:37:50,819
+just get on with your you know just you
+
+682
+00:37:49,680 --> 00:37:53,880
+know get on with it
+
+683
+00:37:50,819 --> 00:37:55,979
+on the other hand now if you are the
+
+684
+00:37:53,880 --> 00:37:58,529
+type of you know person who are
+
+685
+00:37:55,979 --> 00:38:01,859
+interested in programming languages in
+
+686
+00:37:58,529 --> 00:38:04,460
+computer science you know which is kind
+
+687
+00:38:01,859 --> 00:38:07,410
+of like me and maybe you guys too then
+
+688
+00:38:04,460 --> 00:38:09,509
+of course then you are interested in
+
+689
+00:38:07,410 --> 00:38:12,420
+what what is symbols you know that's so
+
+690
+00:38:09,509 --> 00:38:14,369
+fascinating why is it you know like
+
+691
+00:38:12,420 --> 00:38:18,719
+these kind of questions said and versus
+
+692
+00:38:14,369 --> 00:38:21,239
+ed Q yeah but okay that's that's good so
+
+693
+00:38:18,719 --> 00:38:24,299
+I'm trying to give the eggs you know I'm
+
+694
+00:38:21,239 --> 00:38:26,609
+trying to give you the picture why you
+
+695
+00:38:24,299 --> 00:38:30,029
+know the the place of things you know
+
+696
+00:38:26,609 --> 00:38:32,219
+those are not actually practical things
+
+697
+00:38:30,029 --> 00:38:35,489
+that those are things when you want to
+
+698
+00:38:32,219 --> 00:38:38,130
+learn about you know this esoteric
+
+699
+00:38:35,489 --> 00:38:41,069
+language you know why do you know you
+
+700
+00:38:38,130 --> 00:38:41,819
+what aspect in computer science you have
+
+701
+00:38:41,069 --> 00:38:44,279
+symbols
+
+702
+00:38:41,819 --> 00:38:46,170
+I mean how it relates to lambda calculus
+
+703
+00:38:44,279 --> 00:38:48,930
+those kind of you know you go that way
+
+704
+00:38:46,170 --> 00:38:51,150
+then you learn that you know that's kind
+
+705
+00:38:48,930 --> 00:38:53,969
+of like like that a little for example
+
+706
+00:38:51,150 --> 00:38:58,109
+you could learn you know the the sick
+
+707
+00:38:53,969 --> 00:39:01,049
+the the you know book you know that any
+
+708
+00:38:58,109 --> 00:39:03,719
+anyway that's not exactly practical
+
+709
+00:39:01,049 --> 00:39:06,059
+things you know if you want to be
+
+710
+00:39:03,719 --> 00:39:08,249
+practical that's you don't want to do
+
+711
+00:39:06,059 --> 00:39:10,680
+that but anyway is in for symbols what
+
+712
+00:39:08,249 --> 00:39:12,509
+is a symbol you see at the bottom you
+
+713
+00:39:10,680 --> 00:39:15,900
+know my tutorial you can learn about
+
+714
+00:39:12,509 --> 00:39:19,019
+symbols I explain what is a symbol what
+
+715
+00:39:15,900 --> 00:39:23,190
+what is the concept of eMac this symbol
+
+716
+00:39:19,019 --> 00:39:27,690
+and what are special forms then you know
+
+717
+00:39:23,190 --> 00:39:30,479
+what what exactly is a function you know
+
+718
+00:39:27,690 --> 00:39:33,539
+it's you start to get into those symbols
+
+719
+00:39:30,479 --> 00:39:37,829
+so in order to define what is set was a
+
+720
+00:39:33,539 --> 00:39:40,469
+set cue you you know I don't even have a
+
+721
+00:39:37,829 --> 00:39:44,369
+you know expansion for set because
+
+722
+00:39:40,469 --> 00:39:46,349
+nobody ever you actually use it but but
+
+723
+00:39:44,369 --> 00:39:50,099
+anyway so for example let me show you
+
+724
+00:39:46,349 --> 00:39:53,369
+this okay so let's say set Youth set Q 3
+
+725
+00:39:50,099 --> 00:39:55,290
+another way to write it to do exactly
+
+726
+00:39:53,369 --> 00:40:02,940
+the same thing is like this
+
+727
+00:39:55,290 --> 00:40:08,520
+set q ' X 3 X these two have exact
+
+728
+00:40:02,940 --> 00:40:11,750
+hundred-percent exact outcome so you
+
+729
+00:40:08,520 --> 00:40:15,000
+have to so say set Q is like set quote
+
+730
+00:40:11,750 --> 00:40:18,590
+so it stand for said quote so what is a
+
+731
+00:40:15,000 --> 00:40:23,130
+said quote quote is a mechanism to get
+
+732
+00:40:18,590 --> 00:40:27,900
+get get a symbol or itself not the
+
+733
+00:40:23,130 --> 00:40:30,450
+symbols value okay so set Q said quote
+
+734
+00:40:27,900 --> 00:40:33,930
+actually just means these so actually
+
+735
+00:40:30,450 --> 00:40:42,420
+this is a shortcut for let me show you
+
+736
+00:40:33,930 --> 00:40:44,700
+okay quote okay so let me show you okay
+
+737
+00:40:42,420 --> 00:40:47,900
+so these three okay these three this is
+
+738
+00:40:44,700 --> 00:40:52,860
+this is a this gives you a clear idea
+
+739
+00:40:47,900 --> 00:40:58,050
+what what are the differences so in a
+
+740
+00:40:52,860 --> 00:41:01,320
+beginning you know in the beginning you
+
+741
+00:40:58,050 --> 00:41:04,380
+have this okay said quote X 3 what does
+
+742
+00:41:01,320 --> 00:41:06,720
+that mean you want to set something the
+
+743
+00:41:04,380 --> 00:41:11,130
+first argument must be a must be a
+
+744
+00:41:06,720 --> 00:41:13,080
+symbol so you say quote X Y quote why
+
+745
+00:41:11,130 --> 00:41:15,150
+not just you know like why can't you
+
+746
+00:41:13,080 --> 00:41:19,850
+just say say that because when you if
+
+747
+00:41:15,150 --> 00:41:23,760
+you say set X 3 then X gets evaluated
+
+748
+00:41:19,850 --> 00:41:26,160
+eMac base tries to evaluate X X may have
+
+749
+00:41:23,760 --> 00:41:28,980
+a value of 4 or it's undefined you know
+
+750
+00:41:26,160 --> 00:41:31,860
+Neal you know undefined you know it's
+
+751
+00:41:28,980 --> 00:41:35,220
+something so when you do that X becomes
+
+752
+00:41:31,860 --> 00:41:35,760
+4 then you try to set 4 to 3 it doesn't
+
+753
+00:41:35,220 --> 00:41:38,160
+work
+
+754
+00:41:35,760 --> 00:41:44,250
+so that's the problem so what you need
+
+755
+00:41:38,160 --> 00:41:47,250
+to do is set quote x3y quote because in
+
+756
+00:41:44,250 --> 00:41:49,680
+this you have the the concept of symbols
+
+757
+00:41:47,250 --> 00:41:53,130
+everything is you can have a symbol
+
+758
+00:41:49,680 --> 00:41:55,470
+itself or its value so now when you say
+
+759
+00:41:53,130 --> 00:41:57,480
+quote quote means don't evaluate it
+
+760
+00:41:55,470 --> 00:42:00,660
+basically yes that's the essence do not
+
+761
+00:41:57,480 --> 00:42:03,590
+evaluate this symbol you know just just
+
+762
+00:42:00,660 --> 00:42:06,150
+return the symbol itself so now
+
+763
+00:42:03,590 --> 00:42:08,820
+so when you say quote X now you are
+
+764
+00:42:06,150 --> 00:42:12,080
+trying to set you know the symbol X
+
+765
+00:42:08,820 --> 00:42:15,330
+now now that you know it works you see
+
+766
+00:42:12,080 --> 00:42:17,100
+so for example we can ship we can
+
+767
+00:42:15,330 --> 00:42:22,020
+actually run the code for example let's
+
+768
+00:42:17,100 --> 00:42:24,270
+do it you know so if our last sex now
+
+769
+00:42:22,020 --> 00:42:28,980
+you can see the value here for you know
+
+770
+00:42:24,270 --> 00:42:32,610
+then we can describe variable X it says
+
+771
+00:42:28,980 --> 00:42:34,470
+for you see now you see now if we can
+
+772
+00:42:32,610 --> 00:42:39,240
+let's do it again let's do it again
+
+773
+00:42:34,470 --> 00:42:42,900
+somewhere okay so let's so let's say if
+
+774
+00:42:39,240 --> 00:42:46,350
+we try to run this set X set x3 let's
+
+775
+00:42:42,900 --> 00:42:49,050
+run it arrow you see debugger entered
+
+776
+00:42:46,350 --> 00:42:52,590
+arrow this arrow run type argument
+
+777
+00:42:49,050 --> 00:42:56,670
+symbol P for what what is trying to say
+
+778
+00:42:52,590 --> 00:42:59,940
+is that it wants a symbol but he
+
+779
+00:42:56,670 --> 00:43:02,730
+actually got four because he Mac this is
+
+780
+00:42:59,940 --> 00:43:04,860
+trying to run the function symbol P on
+
+781
+00:43:02,730 --> 00:43:07,670
+the first argument so when you run
+
+782
+00:43:04,860 --> 00:43:10,290
+symbol P on four you got arrow because
+
+783
+00:43:07,670 --> 00:43:13,440
+symbol P returns true or false
+
+784
+00:43:10,290 --> 00:43:16,350
+you know symbol P if it's a symbol the
+
+785
+00:43:13,440 --> 00:43:18,300
+instru symbol P argument if it's the
+
+786
+00:43:16,350 --> 00:43:22,590
+argument is not symbol it runs force
+
+787
+00:43:18,300 --> 00:43:24,960
+so essentially says symbol P returns
+
+788
+00:43:22,590 --> 00:43:30,030
+false and that's that's wrong because it
+
+789
+00:43:24,960 --> 00:43:32,520
+wants a symbol so you see that's but so
+
+790
+00:43:30,030 --> 00:43:35,010
+anyway this is an example of a Mac list
+
+791
+00:43:32,520 --> 00:43:37,800
+arrow you will encounter this very
+
+792
+00:43:35,010 --> 00:43:40,410
+frequently when you learn emag piece you
+
+793
+00:43:37,800 --> 00:43:44,550
+know at you know and it shows the error
+
+794
+00:43:40,410 --> 00:43:46,890
+in this kind of strange way you know
+
+795
+00:43:44,550 --> 00:43:48,990
+just keep going you'll get used to it
+
+796
+00:43:46,890 --> 00:43:53,460
+you start to understand you know after a
+
+797
+00:43:48,990 --> 00:43:56,550
+while so yeah so you just you know you
+
+798
+00:43:53,460 --> 00:43:58,800
+see that often so anyway so now that if
+
+799
+00:43:56,550 --> 00:44:02,160
+we do this now remember let's to
+
+800
+00:43:58,800 --> 00:44:05,430
+describe variable for X now current
+
+801
+00:44:02,160 --> 00:44:06,960
+value of x is 4 so now let's run this
+
+802
+00:44:05,430 --> 00:44:10,320
+okay
+
+803
+00:44:06,960 --> 00:44:14,910
+no wait okay let's run this so let's run
+
+804
+00:44:10,320 --> 00:44:18,270
+it then you see it's 3 again so so you
+
+805
+00:44:14,910 --> 00:44:20,580
+see so this is actually so this 3 code
+
+806
+00:44:18,270 --> 00:44:22,260
+that that's what this 3 code are
+
+807
+00:44:20,580 --> 00:44:26,520
+equivalent these 3
+
+808
+00:44:22,260 --> 00:44:29,310
+lines of code and they they are about
+
+809
+00:44:26,520 --> 00:44:33,990
+the concept of a symbol so you see
+
+810
+00:44:29,310 --> 00:44:37,410
+nobody ever you know practically
+
+811
+00:44:33,990 --> 00:44:39,630
+speaking in fact in eMac this code you
+
+812
+00:44:37,410 --> 00:44:43,290
+will not see these okay you will almost
+
+813
+00:44:39,630 --> 00:44:45,720
+never see set then quote X you know you
+
+814
+00:44:43,290 --> 00:44:48,150
+will not see that you will not see this
+
+815
+00:44:45,720 --> 00:44:51,170
+either you just see set Q X is three
+
+816
+00:44:48,150 --> 00:44:55,260
+that's you know that's that's practical
+
+817
+00:44:51,170 --> 00:44:58,619
+so if you want to get into about you
+
+818
+00:44:55,260 --> 00:45:01,680
+know eMac these technical details that's
+
+819
+00:44:58,619 --> 00:45:04,500
+that's that's you know that's it's
+
+820
+00:45:01,680 --> 00:45:06,960
+actually not a practical thing and also
+
+821
+00:45:04,500 --> 00:45:08,760
+about Marcos yeah I remember the Marcos
+
+822
+00:45:06,960 --> 00:45:10,859
+thing you lease Marcos you know at least
+
+823
+00:45:08,760 --> 00:45:13,470
+Marco is a dramatic thing everyone is
+
+824
+00:45:10,859 --> 00:45:15,869
+like oh what is this Marcos everyone
+
+825
+00:45:13,470 --> 00:45:19,350
+start to you know they among these
+
+826
+00:45:15,869 --> 00:45:22,310
+fanatics they often say this Marco is
+
+827
+00:45:19,350 --> 00:45:26,369
+you know you are you're here it you know
+
+828
+00:45:22,310 --> 00:45:26,910
+and other proportions like everyday on
+
+829
+00:45:26,369 --> 00:45:29,520
+Twitter
+
+830
+00:45:26,910 --> 00:45:32,850
+we need this Marco Solis Marco is so
+
+831
+00:45:29,520 --> 00:45:37,470
+powerful it changes the world but
+
+832
+00:45:32,850 --> 00:45:41,460
+actually it's not that great utility
+
+833
+00:45:37,470 --> 00:45:43,560
+okay and this mark was and to understand
+
+834
+00:45:41,460 --> 00:45:47,430
+this Marcos you have to understand this
+
+835
+00:45:43,560 --> 00:45:50,420
+simple symbol well with our list symbols
+
+836
+00:45:47,430 --> 00:45:54,180
+just just like the example we explained
+
+837
+00:45:50,420 --> 00:45:57,090
+but you know here you need you need to
+
+838
+00:45:54,180 --> 00:46:00,570
+understand these symbols very well then
+
+839
+00:45:57,090 --> 00:46:02,310
+it is possible with our lisping symbols
+
+840
+00:46:00,570 --> 00:46:05,190
+you can now it's impossible to have
+
+841
+00:46:02,310 --> 00:46:07,619
+these markers after you have lists mean
+
+842
+00:46:05,190 --> 00:46:11,040
+symbols you can have a concept of Marcos
+
+843
+00:46:07,619 --> 00:46:14,100
+which is about holding evaluation we
+
+844
+00:46:11,040 --> 00:46:17,580
+write basically like rewriting anyway
+
+845
+00:46:14,100 --> 00:46:21,750
+four days ago I did entire hour about
+
+846
+00:46:17,580 --> 00:46:23,880
+list about list Marcos about this
+
+847
+00:46:21,750 --> 00:46:26,340
+language okay just such you know go to
+
+848
+00:46:23,880 --> 00:46:30,060
+my YouTube five days ago something like
+
+849
+00:46:26,340 --> 00:46:34,500
+last week one hour about this Marco's
+
+850
+00:46:30,060 --> 00:46:35,760
+you know you can try to watch that
+
+851
+00:46:34,500 --> 00:46:37,440
+because
+
+852
+00:46:35,760 --> 00:46:39,600
+if you are interested in computer
+
+853
+00:46:37,440 --> 00:46:41,040
+programming language you know language
+
+854
+00:46:39,600 --> 00:46:44,280
+design that kind of thing
+
+855
+00:46:41,040 --> 00:46:46,650
+miss Markos then you understand you you
+
+856
+00:46:44,280 --> 00:46:48,720
+get a lot understanding because this
+
+857
+00:46:46,650 --> 00:46:50,250
+marker then you have pattern matching
+
+858
+00:46:48,720 --> 00:46:52,170
+you know then you have what's called
+
+859
+00:46:50,250 --> 00:46:59,790
+symbolic pattern matching then you have
+
+860
+00:46:52,170 --> 00:47:02,609
+what's called computer algebra systems
+
+861
+00:46:59,790 --> 00:47:05,130
+which you need symbolic pattern matching
+
+862
+00:47:02,609 --> 00:47:08,820
+which basically you need the concept of
+
+863
+00:47:05,130 --> 00:47:11,100
+symbols and in turn this marker is kind
+
+864
+00:47:08,820 --> 00:47:16,770
+of like part of it is a small part of it
+
+865
+00:47:11,100 --> 00:47:19,950
+anyway so that's about these symbols you
+
+866
+00:47:16,770 --> 00:47:22,560
+know then more technical detail is about
+
+867
+00:47:19,950 --> 00:47:25,619
+this symbol cells because it's simple
+
+868
+00:47:22,560 --> 00:47:28,470
+it's not just symbol and value it this
+
+869
+00:47:25,619 --> 00:47:32,190
+has symbol cells that's when you get
+
+870
+00:47:28,470 --> 00:47:38,369
+into you know anyway that that's that's
+
+871
+00:47:32,190 --> 00:47:41,820
+not practical okay so so this so that
+
+872
+00:47:38,369 --> 00:47:50,220
+that's symbols we so that's a giant
+
+873
+00:47:41,820 --> 00:47:51,810
+digression so 47 minutes we always so at
+
+874
+00:47:50,220 --> 00:47:55,619
+this point we can you know either
+
+875
+00:47:51,810 --> 00:47:58,260
+continue with trying to teach Python I
+
+876
+00:47:55,619 --> 00:48:07,619
+mean trying to translate Python code
+
+877
+00:47:58,260 --> 00:48:09,930
+where is it a Python code yeah we can we
+
+878
+00:48:07,619 --> 00:48:13,380
+can continue with this how to do this
+
+879
+00:48:09,930 --> 00:48:17,520
+Python eMac this may be we continue that
+
+880
+00:48:13,380 --> 00:48:21,420
+road so that you know today is just you
+
+881
+00:48:17,520 --> 00:48:24,630
+know in this path and also I did a
+
+882
+00:48:21,420 --> 00:48:28,410
+tutorial on eMac this you know I did a
+
+883
+00:48:24,630 --> 00:48:30,840
+few a few months ago you can also check
+
+884
+00:48:28,410 --> 00:48:34,080
+them out one hour
+
+885
+00:48:30,840 --> 00:48:37,650
+you know I as I do this live live you
+
+886
+00:48:34,080 --> 00:48:40,430
+know tutorials I get better so so the
+
+887
+00:48:37,650 --> 00:48:44,430
+next time I do this I will immediately
+
+888
+00:48:40,430 --> 00:48:47,550
+skip those questions so we actually get
+
+889
+00:48:44,430 --> 00:48:49,430
+onto useful you know we get into useful
+
+890
+00:48:47,550 --> 00:48:51,630
+actually useful
+
+891
+00:48:49,430 --> 00:48:57,830
+practical stuff you know immediately
+
+892
+00:48:51,630 --> 00:49:01,380
+skip those questions so where are we
+
+893
+00:48:57,830 --> 00:49:04,380
+these symbols yeah so actually all these
+
+894
+00:49:01,380 --> 00:49:08,460
+close close then because what's a
+
+895
+00:49:04,380 --> 00:49:10,680
+function curse because yeah so those are
+
+896
+00:49:08,460 --> 00:49:12,690
+advanced you know you want to get
+
+897
+00:49:10,680 --> 00:49:18,240
+practical you want to you know start to
+
+898
+00:49:12,690 --> 00:49:20,570
+learn about cruises yeah so anyway so
+
+899
+00:49:18,240 --> 00:49:23,250
+let me read a comment and maybe we
+
+900
+00:49:20,570 --> 00:49:26,550
+suppose your questions anything you have
+
+901
+00:49:23,250 --> 00:49:33,810
+and and maybe we continue on a road
+
+902
+00:49:26,550 --> 00:49:35,670
+about Python in this so nick says how
+
+903
+00:49:33,810 --> 00:49:39,540
+can you start creating a functionality
+
+904
+00:49:35,670 --> 00:49:45,330
+like go to definition for Python with
+
+905
+00:49:39,540 --> 00:49:47,310
+lit for go through definition well what
+
+906
+00:49:45,330 --> 00:49:50,280
+do you mean like what do you mean go to
+
+907
+00:49:47,310 --> 00:49:54,000
+definition like go to like you you mean
+
+908
+00:49:50,280 --> 00:49:59,490
+the programming construct go to a Mac
+
+909
+00:49:54,000 --> 00:50:01,650
+this Nick so answer okay so Dion says I
+
+910
+00:49:59,490 --> 00:50:03,570
+found out why logical operators for
+
+911
+00:50:01,650 --> 00:50:06,390
+control flow is bad by the way okay
+
+912
+00:50:03,570 --> 00:50:08,790
+great so yesterday we talked about that
+
+913
+00:50:06,390 --> 00:50:10,620
+yeah you know something why why I'm
+
+914
+00:50:08,790 --> 00:50:13,440
+talking I you know I said that why I'm
+
+915
+00:50:10,620 --> 00:50:15,750
+talking with people usually I don't do I
+
+916
+00:50:13,440 --> 00:50:17,190
+don't do well you know I'm but I'm
+
+917
+00:50:15,750 --> 00:50:19,380
+getting better
+
+918
+00:50:17,190 --> 00:50:21,990
+Dion says chase down that disclosure
+
+919
+00:50:19,380 --> 00:50:25,170
+quote you had on your site conditional
+
+920
+00:50:21,990 --> 00:50:27,960
+control flow makes program deviation
+
+921
+00:50:25,170 --> 00:50:31,140
+from post conditions and preconditions
+
+922
+00:50:27,960 --> 00:50:35,120
+difficult yeah and and it's also its
+
+923
+00:50:31,140 --> 00:50:38,730
+abusive operator because when you read
+
+924
+00:50:35,120 --> 00:50:41,340
+you know when you you know programming
+
+925
+00:50:38,730 --> 00:50:44,960
+languages almost everyone it's I think
+
+926
+00:50:41,340 --> 00:50:49,320
+it's almost unavoidable that they have
+
+927
+00:50:44,960 --> 00:50:51,390
+words that that is why you have
+
+928
+00:50:49,320 --> 00:50:54,330
+programming style guide you know they
+
+929
+00:50:51,390 --> 00:50:57,660
+try to put you in in a right path you
+
+930
+00:50:54,330 --> 00:50:59,610
+know because almost any programming
+
+931
+00:50:57,660 --> 00:51:02,580
+language you can you can writing a
+
+932
+00:50:59,610 --> 00:51:06,360
+convoluted way you know that's
+
+933
+00:51:02,580 --> 00:51:08,880
+the essence of those the reason you you
+
+934
+00:51:06,360 --> 00:51:13,380
+are it's possible to write something up
+
+935
+00:51:08,880 --> 00:51:16,380
+few stated or convoluted or golf way is
+
+936
+00:51:13,380 --> 00:51:19,410
+because programming languages you can
+
+937
+00:51:16,380 --> 00:51:20,010
+abuse them you know and achieve the same
+
+938
+00:51:19,410 --> 00:51:22,380
+result
+
+939
+00:51:20,010 --> 00:51:24,510
+you know algorithms algorithmic we at
+
+940
+00:51:22,380 --> 00:51:28,350
+the end maybe you achieve the same
+
+941
+00:51:24,510 --> 00:51:31,950
+result but the path leading to it can be
+
+942
+00:51:28,350 --> 00:51:35,450
+convoluted in arbitrary ways that is why
+
+943
+00:51:31,950 --> 00:51:38,030
+you have a few stock Asian golf or
+
+944
+00:51:35,450 --> 00:51:41,490
+programming style guide things like that
+
+945
+00:51:38,030 --> 00:51:44,070
+so when you want to do flow control like
+
+946
+00:51:41,490 --> 00:51:47,070
+if something true or false do this or do
+
+947
+00:51:44,070 --> 00:51:50,220
+that you can do it in a way using all
+
+948
+00:51:47,070 --> 00:51:53,390
+operator because all operator because
+
+949
+00:51:50,220 --> 00:51:56,430
+one of the issue is that they need to
+
+950
+00:51:53,390 --> 00:52:01,310
+programming languages not formal logic
+
+951
+00:51:56,430 --> 00:52:03,960
+therefore you need to specify the
+
+952
+00:52:01,310 --> 00:52:06,180
+evaluation order you know once you run
+
+953
+00:52:03,960 --> 00:52:08,850
+into something is true you evaluate that
+
+954
+00:52:06,180 --> 00:52:13,020
+part you actually don't need to evaluate
+
+955
+00:52:08,850 --> 00:52:15,690
+the rest of it so oh so the or operator
+
+956
+00:52:13,020 --> 00:52:18,750
+now becomes actually can be used as a
+
+957
+00:52:15,690 --> 00:52:21,210
+flow control you just evaluate something
+
+958
+00:52:18,750 --> 00:52:24,120
+you know once you evaluate and that is
+
+959
+00:52:21,210 --> 00:52:26,070
+true you know don't evaluate you've had
+
+960
+00:52:24,120 --> 00:52:28,440
+you know don't run the rest of the code
+
+961
+00:52:26,070 --> 00:52:30,660
+the rest come where other commands you
+
+962
+00:52:28,440 --> 00:52:32,820
+know so people do that in shell all the
+
+963
+00:52:30,660 --> 00:52:35,730
+time and people start to do that in
+
+964
+00:52:32,820 --> 00:52:37,440
+Python you know in Python JavaScript you
+
+965
+00:52:35,730 --> 00:52:40,320
+know like when you have a variable you
+
+966
+00:52:37,440 --> 00:52:43,080
+don't know if that variable has a value
+
+967
+00:52:40,320 --> 00:52:45,300
+if it doesn't have a value you can just
+
+968
+00:52:43,080 --> 00:52:47,220
+say oh then give a default value you
+
+969
+00:52:45,300 --> 00:52:50,970
+know that's a that's a idiom you know
+
+970
+00:52:47,220 --> 00:52:53,640
+but that is they abuse of the or
+
+971
+00:52:50,970 --> 00:52:55,110
+operator it becomes so common you know
+
+972
+00:52:53,640 --> 00:52:58,890
+people don't think that's that's
+
+973
+00:52:55,110 --> 00:53:01,560
+actually abusive or operator because for
+
+974
+00:52:58,890 --> 00:53:03,810
+programmer you know a lot of people into
+
+975
+00:53:01,560 --> 00:53:04,860
+oak mods you know you are thinking good
+
+976
+00:53:03,810 --> 00:53:07,410
+news news
+
+977
+00:53:04,860 --> 00:53:10,500
+you know literal literate programming
+
+978
+00:53:07,410 --> 00:53:14,190
+the purpose is that you community you
+
+979
+00:53:10,500 --> 00:53:16,290
+communicate to programmers as priority
+
+980
+00:53:14,190 --> 00:53:18,210
+not communicate to the machine
+
+981
+00:53:16,290 --> 00:53:21,660
+you know you communicate to programmers
+
+982
+00:53:18,210 --> 00:53:24,150
+humans a lot of people into that but
+
+983
+00:53:21,660 --> 00:53:26,340
+they've they fail to see the operators
+
+984
+00:53:24,150 --> 00:53:27,869
+abusive you know these typical
+
+985
+00:53:26,340 --> 00:53:30,660
+programmers they don't understand the
+
+986
+00:53:27,869 --> 00:53:35,700
+thing you see when you use all operators
+
+987
+00:53:30,660 --> 00:53:37,980
+as a as a you know as a idiom to to to
+
+988
+00:53:35,700 --> 00:53:39,930
+to see which one you know evaluate and
+
+989
+00:53:37,980 --> 00:53:42,390
+you know to see your variable has
+
+990
+00:53:39,930 --> 00:53:45,270
+already as a value that's abuse that's
+
+991
+00:53:42,390 --> 00:53:49,080
+abuse of programming language okay
+
+992
+00:53:45,270 --> 00:53:52,350
+that's abuse of programming language so
+
+993
+00:53:49,080 --> 00:53:54,600
+you see in terms of a communication you
+
+994
+00:53:52,350 --> 00:53:57,390
+know the source code is a communication
+
+995
+00:53:54,600 --> 00:54:00,630
+to human animals you know to human that
+
+996
+00:53:57,390 --> 00:54:03,920
+that is not communication you know the
+
+997
+00:54:00,630 --> 00:54:08,040
+proper communication when you want to
+
+998
+00:54:03,920 --> 00:54:11,190
+you know control flow is if statement if
+
+999
+00:54:08,040 --> 00:54:14,609
+you know this variable equals to new
+
+1000
+00:54:11,190 --> 00:54:16,830
+doesn't value then assign it a value you
+
+1001
+00:54:14,609 --> 00:54:18,900
+know that that is actual communication
+
+1002
+00:54:16,830 --> 00:54:21,930
+you know if something you know you tell
+
+1003
+00:54:18,900 --> 00:54:24,810
+a human being that you know the if then
+
+1004
+00:54:21,930 --> 00:54:27,000
+we want to assign otherwise assign it a
+
+1005
+00:54:24,810 --> 00:54:32,700
+default value color equals to red here
+
+1006
+00:54:27,000 --> 00:54:37,080
+you know but when you say Oh color then
+
+1007
+00:54:32,700 --> 00:54:38,730
+if it's not true then red that is abuse
+
+1008
+00:54:37,080 --> 00:54:40,560
+that that's not communication that's
+
+1009
+00:54:38,730 --> 00:54:44,100
+that's logic operator
+
+1010
+00:54:40,560 --> 00:54:46,320
+you know that's formal logic or operator
+
+1011
+00:54:44,100 --> 00:54:49,290
+means which one is true you know that's
+
+1012
+00:54:46,320 --> 00:54:51,810
+just by chance by side effect you know
+
+1013
+00:54:49,290 --> 00:54:53,880
+youíve add you know you are using it as
+
+1014
+00:54:51,810 --> 00:54:59,790
+a control flow that's that's my point
+
+1015
+00:54:53,880 --> 00:55:02,010
+anyway we digressed against so much okay
+
+1016
+00:54:59,790 --> 00:55:05,250
+so but see oh we did the explain so many
+
+1017
+00:55:02,010 --> 00:55:13,520
+monkeys so let's read let's read on
+
+1018
+00:55:05,250 --> 00:55:16,200
+about questions okay so okay so actually
+
+1019
+00:55:13,520 --> 00:55:21,440
+okay next time you know I learned you
+
+1020
+00:55:16,200 --> 00:55:21,440
+know sorry improve rest your life
+
+1021
+00:55:22,660 --> 00:55:36,509
+check test test okay I guess I am okay
+
+1022
+00:55:33,279 --> 00:55:36,509
+let's read the comments
+
+1023
+00:55:38,700 --> 00:55:46,239
+why caught my car and not first why not
+
+1024
+00:55:42,309 --> 00:55:50,920
+okay that's you are joining me
+
+1025
+00:55:46,239 --> 00:55:54,130
+oh my camo this digressing for so much
+
+1026
+00:55:50,920 --> 00:55:58,630
+it's a new tag on social media his new
+
+1027
+00:55:54,130 --> 00:56:00,609
+tag on social media translating - oh my
+
+1028
+00:55:58,630 --> 00:56:06,460
+god you are awesome I'm learning a lot
+
+1029
+00:56:00,609 --> 00:56:08,589
+with website in videos thank you what is
+
+1030
+00:56:06,460 --> 00:56:11,529
+difference between message and print
+
+1031
+00:56:08,589 --> 00:56:13,269
+okay semen semen ask what's the
+
+1032
+00:56:11,529 --> 00:56:16,029
+difference between message and print
+
+1033
+00:56:13,269 --> 00:56:19,420
+that's okay that's that's kind of also
+
+1034
+00:56:16,029 --> 00:56:23,079
+advanced but that's a good question so
+
+1035
+00:56:19,420 --> 00:56:24,940
+message now message just message is the
+
+1036
+00:56:23,079 --> 00:56:27,009
+one you want to use the most of the time
+
+1037
+00:56:24,940 --> 00:56:29,859
+especially when you are starting to
+
+1038
+00:56:27,009 --> 00:56:32,440
+learn eMac this it just sprint to the
+
+1039
+00:56:29,859 --> 00:56:38,109
+message buffer okay now message buffer
+
+1040
+00:56:32,440 --> 00:56:40,569
+is a special buffer for output but off
+
+1041
+00:56:38,109 --> 00:56:45,400
+but but sometimes you want to use print
+
+1042
+00:56:40,569 --> 00:56:48,099
+okay is it's a print is a print is
+
+1043
+00:56:45,400 --> 00:56:49,989
+actually the proper way okay print 20 is
+
+1044
+00:56:48,099 --> 00:56:52,210
+actually more proper when you want to
+
+1045
+00:56:49,989 --> 00:56:57,190
+print something now typically when you
+
+1046
+00:56:52,210 --> 00:56:59,739
+say print print sum you know something
+
+1047
+00:56:57,190 --> 00:57:03,099
+it also prints to the message buffer you
+
+1048
+00:56:59,739 --> 00:57:07,630
+can see you see also print - message
+
+1049
+00:57:03,099 --> 00:57:13,599
+buffer but however you can with tempura
+
+1050
+00:57:07,630 --> 00:57:15,339
+okay so with tempura let me show you for
+
+1051
+00:57:13,599 --> 00:57:18,249
+example you can print to a different
+
+1052
+00:57:15,339 --> 00:57:25,749
+buffer for example with temper images
+
+1053
+00:57:18,249 --> 00:57:29,609
+show some something within buffer create
+
+1054
+00:57:25,749 --> 00:57:29,609
+a temp of evap of a body
+
+1055
+00:57:31,730 --> 00:57:36,619
+let's try that okay this stretch is just
+
+1056
+00:57:34,140 --> 00:57:40,099
+when let's see what happens with temp of
+
+1057
+00:57:36,619 --> 00:57:44,310
+print something okay let's burn the code
+
+1058
+00:57:40,099 --> 00:57:48,660
+okay it still wind goes to the temp of
+
+1059
+00:57:44,310 --> 00:57:51,450
+but anyway I have a tutorial here but
+
+1060
+00:57:48,660 --> 00:57:58,920
+anyway so the print is actually when you
+
+1061
+00:57:51,450 --> 00:58:02,390
+want to you can target above it how do i
+
+1062
+00:57:58,920 --> 00:58:09,780
+how do I explain this with Tim buffer
+
+1063
+00:58:02,390 --> 00:58:16,680
+with Tim buffer you need okay so with
+
+1064
+00:58:09,780 --> 00:58:19,080
+Tim buffered they are circumstances
+
+1065
+00:58:16,680 --> 00:58:20,849
+which basically they are circum actually
+
+1066
+00:58:19,080 --> 00:58:23,640
+when you actually need when the
+
+1067
+00:58:20,849 --> 00:58:26,340
+circumstances when the situation comes
+
+1068
+00:58:23,640 --> 00:58:28,650
+up you will know because when the
+
+1069
+00:58:26,340 --> 00:58:30,720
+situation comes up you know you don't
+
+1070
+00:58:28,650 --> 00:58:33,390
+want to paint to message buffer then you
+
+1071
+00:58:30,720 --> 00:58:37,050
+know you know you know that's when you
+
+1072
+00:58:33,390 --> 00:58:39,000
+want to use print and by the way I also
+
+1073
+00:58:37,050 --> 00:58:42,960
+have a tutorial you know in my image
+
+1074
+00:58:39,000 --> 00:58:45,420
+just you know there's a print print you
+
+1075
+00:58:42,960 --> 00:58:49,050
+know print and output so this article is
+
+1076
+00:58:45,420 --> 00:58:50,849
+explains message insert insert is a
+
+1077
+00:58:49,050 --> 00:58:53,670
+function when you actually to insert
+
+1078
+00:58:50,849 --> 00:58:56,130
+text in a buffer that's actually more
+
+1079
+00:58:53,670 --> 00:58:59,550
+useful so message and insert is the most
+
+1080
+00:58:56,130 --> 00:59:01,260
+useful print and variations you don't
+
+1081
+00:58:59,550 --> 00:59:03,900
+you don't actually use that much you
+
+1082
+00:59:01,260 --> 00:59:07,020
+know that's actually you know I have you
+
+1083
+00:59:03,900 --> 00:59:09,720
+know you don't use that much but message
+
+1084
+00:59:07,020 --> 00:59:12,720
+use it all the time and then you use
+
+1085
+00:59:09,720 --> 00:59:16,770
+insert all the time insert is for insert
+
+1086
+00:59:12,720 --> 00:59:20,609
+into the current buffer XYZ okay let's
+
+1087
+00:59:16,770 --> 00:59:23,910
+run it you see now I got XYZ so you can
+
+1088
+00:59:20,609 --> 00:59:25,290
+say switch to buffer let's say let me
+
+1089
+00:59:23,910 --> 00:59:29,490
+show you let's just show an example
+
+1090
+00:59:25,290 --> 00:59:32,099
+let's go to my exotic okay let's let's
+
+1091
+00:59:29,490 --> 00:59:34,710
+say here let's see what what is my
+
+1092
+00:59:32,099 --> 00:59:37,290
+current position let's say describe cha
+
+1093
+00:59:34,710 --> 00:59:41,040
+so the current position is six eight
+
+1094
+00:59:37,290 --> 00:59:44,130
+eight - okay here six eight a two so now
+
+1095
+00:59:41,040 --> 00:59:48,840
+close that so we want to
+
+1096
+00:59:44,130 --> 00:59:52,590
+let's try this so switch to buffer okay
+
+1097
+00:59:48,840 --> 00:59:56,370
+switch to buffer the buffer name the
+
+1098
+00:59:52,590 --> 01:00:02,730
+perform this buffer is okay so the
+
+1099
+00:59:56,370 --> 01:00:05,340
+Puffin aim current buffer let's just
+
+1100
+01:00:02,730 --> 01:00:10,620
+show you some practical let's see ivar
+
+1101
+01:00:05,340 --> 01:00:18,270
+buffer okay I got a buffer name so let's
+
+1102
+01:00:10,620 --> 01:00:20,370
+see what's it prints in one rebo
+
+1103
+01:00:18,270 --> 01:00:23,790
+unreadable way I guess no that's a
+
+1104
+01:00:20,370 --> 01:00:27,420
+perform your duties so I'm going to
+
+1105
+01:00:23,790 --> 01:00:30,930
+switch to buffer kiba string then ii
+
+1106
+01:00:27,420 --> 01:00:35,550
+talk show the optional optional we don't
+
+1107
+01:00:30,930 --> 01:00:39,750
+care we don't want optional parameters
+
+1108
+01:00:35,550 --> 01:00:47,660
+okay then let's say then let's say go to
+
+1109
+01:00:39,750 --> 01:00:49,980
+cha wait go to cha go to cha 6 8 a 4
+
+1110
+01:00:47,660 --> 01:00:54,590
+okay which is right here okay right
+
+1111
+01:00:49,980 --> 01:00:58,260
+right right here okay then we say insert
+
+1112
+01:00:54,590 --> 01:01:00,690
+XYZ okay now we want to run these three
+
+1113
+01:00:58,260 --> 01:01:04,230
+lines now remember there's a command
+
+1114
+01:01:00,690 --> 01:01:08,280
+eval perfe all-important so we do that
+
+1115
+01:01:04,230 --> 01:01:11,250
+we select these three lines we call eval
+
+1116
+01:01:08,280 --> 01:01:15,420
+buffer now I have a shortcut but let's
+
+1117
+01:01:11,250 --> 01:01:18,660
+just called meta X eval we evolved each
+
+1118
+01:01:15,420 --> 01:01:21,480
+enough of a give our region okay now
+
+1119
+01:01:18,660 --> 01:01:24,450
+watch watch that sound talk show buffer
+
+1120
+01:01:21,480 --> 01:01:28,560
+you're getting inserted watch that do it
+
+1121
+01:01:24,450 --> 01:01:31,080
+you see you see that gets inserted so
+
+1122
+01:01:28,560 --> 01:01:33,020
+that's you know that so that so that is
+
+1123
+01:01:31,080 --> 01:01:36,600
+about the command
+
+1124
+01:01:33,020 --> 01:01:39,630
+that's about the command insert so it's
+
+1125
+01:01:36,600 --> 01:01:43,470
+a way to print in a way you can say it's
+
+1126
+01:01:39,630 --> 01:01:45,360
+a print function so message is most
+
+1127
+01:01:43,470 --> 01:01:49,680
+important and the insert is the most
+
+1128
+01:01:45,360 --> 01:01:53,100
+important okay there's also print not
+
+1129
+01:01:49,680 --> 01:01:55,890
+actually used often but you know you'll
+
+1130
+01:01:53,100 --> 01:01:57,809
+get to it when you need when you when
+
+1131
+01:01:55,890 --> 01:02:09,630
+you you you will know when you need it
+
+1132
+01:01:57,809 --> 01:02:12,390
+okay yeah okay so yeah I now remember
+
+1133
+01:02:09,630 --> 01:02:17,339
+there's a there's a with Tim proffer
+
+1134
+01:02:12,390 --> 01:02:20,130
+there is a command there is a command
+
+1135
+01:02:17,339 --> 01:02:23,249
+let's there's a command called with with
+
+1136
+01:02:20,130 --> 01:02:25,410
+temp output buffer okay yeah let me let
+
+1137
+01:02:23,249 --> 01:02:28,680
+me let me do this let me do a demo of
+
+1138
+01:02:25,410 --> 01:02:31,170
+that there is a Emax function called
+
+1139
+01:02:28,680 --> 01:02:34,979
+some something like with temp output
+
+1140
+01:02:31,170 --> 01:02:39,029
+buffer so what that function do is that
+
+1141
+01:02:34,979 --> 01:02:40,829
+is it's like within buffer okay what
+
+1142
+01:02:39,029 --> 01:02:44,609
+that function do is that within that
+
+1143
+01:02:40,829 --> 01:02:47,069
+code when you print something that's
+
+1144
+01:02:44,609 --> 01:02:51,239
+something we always go to that buffer
+
+1145
+01:02:47,069 --> 01:02:53,279
+you see so that is a way to to temporary
+
+1146
+01:02:51,239 --> 01:02:55,709
+temporary you have a block of a code
+
+1147
+01:02:53,279 --> 01:02:58,469
+every time you print when you use a
+
+1148
+01:02:55,709 --> 01:03:01,049
+function print something it will print
+
+1149
+01:02:58,469 --> 01:03:03,150
+out to that buffer so it's kind of like
+
+1150
+01:03:01,049 --> 01:03:05,819
+insert now you know it's kind of like
+
+1151
+01:03:03,150 --> 01:03:06,329
+insert but when you use the insert
+
+1152
+01:03:05,819 --> 01:03:08,910
+function
+
+1153
+01:03:06,329 --> 01:03:12,539
+it always inserts to the current buffer
+
+1154
+01:03:08,910 --> 01:03:15,299
+so you need to you need to switch to
+
+1155
+01:03:12,539 --> 01:03:17,459
+that buffer first then whatever you do
+
+1156
+01:03:15,299 --> 01:03:19,559
+insert insert to that buffer but
+
+1157
+01:03:17,459 --> 01:03:22,589
+sometimes you don't want to switch to
+
+1158
+01:03:19,559 --> 01:03:24,209
+you know other buffers you you you just
+
+1159
+01:03:22,589 --> 01:03:27,479
+want to call a function that I always
+
+1160
+01:03:24,209 --> 01:03:29,519
+just just you know insert to that buffer
+
+1161
+01:03:27,479 --> 01:03:30,689
+so that here's how you let's see let's
+
+1162
+01:03:29,519 --> 01:03:34,019
+do some demo of that
+
+1163
+01:03:30,689 --> 01:03:35,939
+so the function I forgot the name you
+
+1164
+01:03:34,019 --> 01:03:37,859
+see so that's that's you know remember
+
+1165
+01:03:35,939 --> 01:03:41,869
+there's a proper command that's how you
+
+1166
+01:03:37,859 --> 01:03:46,519
+find a function so let me do that ctrl C
+
+1167
+01:03:41,869 --> 01:03:50,039
+then call a proper apropos command
+
+1168
+01:03:46,519 --> 01:03:53,880
+there's okay then we call a proposed
+
+1169
+01:03:50,039 --> 01:03:57,319
+command then type a string so that
+
+1170
+01:03:53,880 --> 01:04:00,630
+function is something called with temp
+
+1171
+01:03:57,319 --> 01:04:05,880
+output buffer okay so let let's type
+
+1172
+01:04:00,630 --> 01:04:09,269
+with temp okay enter then your list all
+
+1173
+01:04:05,880 --> 01:04:10,830
+functions with that as part of the name
+
+1174
+01:04:09,269 --> 01:04:15,450
+so
+
+1175
+01:04:10,830 --> 01:04:17,880
+it's not here so we have with temp of
+
+1176
+01:04:15,450 --> 01:04:20,880
+with temp of a window with you know
+
+1177
+01:04:17,880 --> 01:04:24,480
+magic and with temp message okay that's
+
+1178
+01:04:20,880 --> 01:04:25,080
+not that's not what I want so let's try
+
+1179
+01:04:24,480 --> 01:04:30,420
+it again
+
+1180
+01:04:25,080 --> 01:04:37,200
+control see let's try it again control
+
+1181
+01:04:30,420 --> 01:04:39,390
+see metallics apropos command so I
+
+1182
+01:04:37,200 --> 01:04:42,620
+remember the function name contains as
+
+1183
+01:04:39,390 --> 01:04:53,030
+the word output so output type output
+
+1184
+01:04:42,620 --> 01:04:53,030
+enter now let's see let's see
+
+1185
+01:04:58,220 --> 01:05:02,320
+without put there there it is there it
+
+1186
+01:05:01,520 --> 01:05:06,560
+is
+
+1187
+01:05:02,320 --> 01:05:08,600
+with put to temp buffer so this is the
+
+1188
+01:05:06,560 --> 01:05:13,640
+one I want this is the one we want so
+
+1189
+01:05:08,600 --> 01:05:16,280
+let's tap to it and enter and do show
+
+1190
+01:05:13,640 --> 01:05:18,950
+the function documentation so he says
+
+1191
+01:05:16,280 --> 01:05:22,160
+with output Tim buffer is a lease Marco
+
+1192
+01:05:18,950 --> 01:05:24,470
+okay then it says this construct maced
+
+1193
+01:05:22,160 --> 01:05:28,610
+makes buffer buffer named empty before
+
+1194
+01:05:24,470 --> 01:05:33,710
+running body okay it it does not make
+
+1195
+01:05:28,610 --> 01:05:35,510
+blah blah it it then says basically the
+
+1196
+01:05:33,710 --> 01:05:36,880
+the important thing is general you know
+
+1197
+01:05:35,510 --> 01:05:41,150
+anything
+
+1198
+01:05:36,880 --> 01:05:43,160
+so instead instead of buying standard
+
+1199
+01:05:41,150 --> 01:05:45,500
+output to that buffer so that helpful
+
+1200
+01:05:43,160 --> 01:05:47,660
+generate with print and similar
+
+1201
+01:05:45,500 --> 01:05:49,520
+functions will go into that buffer
+
+1202
+01:05:47,660 --> 01:05:52,310
+that's basically that's what it is okay
+
+1203
+01:05:49,520 --> 01:05:55,220
+let's try this so let's try this let's
+
+1204
+01:05:52,310 --> 01:05:58,280
+do a demo of that close close so we want
+
+1205
+01:05:55,220 --> 01:06:02,590
+we want that okay so let's keep a buffer
+
+1206
+01:05:58,280 --> 01:06:08,420
+name let's say let's say your random
+
+1207
+01:06:02,590 --> 01:06:10,610
+let's say let's say ABC so that's that
+
+1208
+01:06:08,420 --> 01:06:13,460
+will actually create a temp of a named
+
+1209
+01:06:10,610 --> 01:06:16,040
+ABC okay then the body
+
+1210
+01:06:13,460 --> 01:06:20,500
+okay this odd so let's put the body here
+
+1211
+01:06:16,040 --> 01:06:20,500
+so let's in the body let's say print
+
+1212
+01:06:20,650 --> 01:06:26,780
+raining today okay
+
+1213
+01:06:23,240 --> 01:06:32,030
+so here's a code we're gonna run it so
+
+1214
+01:06:26,780 --> 01:06:34,010
+this you know so let's so look at let's
+
+1215
+01:06:32,030 --> 01:06:37,370
+try to you know look at all the windows
+
+1216
+01:06:34,010 --> 01:06:42,740
+you know let's see what happens so evil
+
+1217
+01:06:37,370 --> 01:06:46,550
+ask sex okay let's call it co-ed there
+
+1218
+01:06:42,740 --> 01:06:49,130
+it is so you see it actually created it
+
+1219
+01:06:46,550 --> 01:06:52,610
+generated a new buffer you can check the
+
+1220
+01:06:49,130 --> 01:06:55,520
+buffer name ABC there it generated a new
+
+1221
+01:06:52,610 --> 01:06:57,230
+buffer and it just sprinted what we
+
+1222
+01:06:55,520 --> 01:07:03,200
+wanted you know tween you know raining
+
+1223
+01:06:57,230 --> 01:07:06,260
+today so that's how you use print that's
+
+1224
+01:07:03,200 --> 01:07:09,750
+how how that's how you do it
+
+1225
+01:07:06,260 --> 01:07:13,770
+okay so maybe that's it for today today
+
+1226
+01:07:09,750 --> 01:07:15,870
+we have some random random email list
+
+1227
+01:07:13,770 --> 01:07:21,650
+stuff you know it's still interesting
+
+1228
+01:07:15,870 --> 01:07:24,960
+random stuff so any income any questions
+
+1229
+01:07:21,650 --> 01:07:26,940
+so we got no more comments you have been
+
+1230
+01:07:24,960 --> 01:07:32,820
+watching comments guys comment and I
+
+1231
+01:07:26,940 --> 01:07:36,020
+think maybe that's it for today we could
+
+1232
+01:07:32,820 --> 01:07:44,240
+talk another five minutes
+
+1233
+01:07:36,020 --> 01:07:44,240
+jump to definition so forbidden says so
+
+1234
+01:07:57,380 --> 01:08:03,319
+okay so yeah so Nick says like I'm
+
+1235
+01:08:00,170 --> 01:08:06,950
+editing a Python script and I want to
+
+1236
+01:08:03,319 --> 01:08:09,739
+jump to the place it defines it okay a
+
+1237
+01:08:06,950 --> 01:08:13,400
+function of a variable well in Emacs
+
+1238
+01:08:09,739 --> 01:08:15,589
+this that's already building you know
+
+1239
+01:08:13,400 --> 01:08:18,679
+that's that's already building so let me
+
+1240
+01:08:15,589 --> 01:08:21,080
+show you okay in Emacs this for example
+
+1241
+01:08:18,679 --> 01:08:21,980
+you want to go to the definition with
+
+1242
+01:08:21,080 --> 01:08:25,639
+tempo feh
+
+1243
+01:08:21,980 --> 01:08:26,960
+I mean with tempo with tempera is
+
+1244
+01:08:25,639 --> 01:08:29,569
+already building it's a building
+
+1245
+01:08:26,960 --> 01:08:32,449
+function but you this works for your own
+
+1246
+01:08:29,569 --> 01:08:34,730
+code as well so you want to know you
+
+1247
+01:08:32,449 --> 01:08:37,429
+know you just call this web described
+
+1248
+01:08:34,730 --> 01:08:38,659
+variable I mean this work described
+
+1249
+01:08:37,429 --> 01:08:41,900
+function okay let's do it
+
+1250
+01:08:38,659 --> 01:08:45,080
+describe function with ten buffer
+
+1251
+01:08:41,900 --> 01:08:48,469
+enter then it shows you see it shows the
+
+1252
+01:08:45,080 --> 01:08:50,659
+documentation but it also shows the file
+
+1253
+01:08:48,469 --> 01:08:53,569
+where it is defined so you just move
+
+1254
+01:08:50,659 --> 01:08:56,449
+kusa there you press tab you press tab
+
+1255
+01:08:53,569 --> 01:09:00,020
+to move the cursor they are enter then
+
+1256
+01:08:56,449 --> 01:09:02,989
+it it opens the file and put the cursor
+
+1257
+01:09:00,020 --> 01:09:05,389
+on the on a source code where it is
+
+1258
+01:09:02,989 --> 01:09:08,960
+defined so here is you know where it is
+
+1259
+01:09:05,389 --> 01:09:13,520
+defined this is part of coffee max so
+
+1260
+01:09:08,960 --> 01:09:16,969
+you know it's and the better way so this
+
+1261
+01:09:13,520 --> 01:09:19,069
+is one way to learn emag least to you
+
+1262
+01:09:16,969 --> 01:09:22,009
+can just look up any function it will
+
+1263
+01:09:19,069 --> 01:09:24,440
+jump to the élysée code you can see you
+
+1264
+01:09:22,009 --> 01:09:27,679
+know how they do it but usually this is
+
+1265
+01:09:24,440 --> 01:09:31,400
+not for beginners you know for the first
+
+1266
+01:09:27,679 --> 01:09:34,009
+half a year you this is nothing not a
+
+1267
+01:09:31,400 --> 01:09:36,859
+good way because it involves quite a lot
+
+1268
+01:09:34,009 --> 01:09:38,599
+of things you know yeah so anyway that's
+
+1269
+01:09:36,859 --> 01:09:40,429
+how you jump to function it's already
+
+1270
+01:09:38,599 --> 01:09:42,889
+building just you know the function name
+
+1271
+01:09:40,429 --> 01:09:45,859
+is just describe function you know
+
+1272
+01:09:42,889 --> 01:09:48,080
+that's how you jump to source code so
+
+1273
+01:09:45,859 --> 01:09:51,949
+you do not have to write it you for
+
+1274
+01:09:48,080 --> 01:09:54,310
+yourself that's already building if
+
+1275
+01:09:51,949 --> 01:10:02,599
+that's your question
+
+1276
+01:09:54,310 --> 01:10:04,610
+yeah let's ease same thing with variable
+
+1277
+01:10:02,599 --> 01:10:07,040
+for example let's say for example we
+
+1278
+01:10:04,610 --> 01:10:10,190
+have already defined X room remember we
+
+1279
+01:10:07,040 --> 01:10:11,210
+already defined X so let's say I mean a
+
+1280
+01:10:10,190 --> 01:10:14,989
+different buffer
+
+1281
+01:10:11,210 --> 01:10:17,390
+let's go sleaze temple across that let's
+
+1282
+01:10:14,989 --> 01:10:20,330
+go and cosine hello
+
+1283
+01:10:17,390 --> 01:10:24,080
+let's go to yeah so I mean my talkshow
+
+1284
+01:10:20,330 --> 01:10:28,219
+page I want to know I want to let's go
+
+1285
+01:10:24,080 --> 01:10:30,710
+describe variable X okay okay then it
+
+1286
+01:10:28,219 --> 01:10:34,130
+shows X is something something but it
+
+1287
+01:10:30,710 --> 01:10:36,110
+doesn't show me where the where X is
+
+1288
+01:10:34,130 --> 01:10:38,449
+defined you know suppose I want to know
+
+1289
+01:10:36,110 --> 01:10:42,500
+where it is defined I can do that
+
+1290
+01:10:38,449 --> 01:10:46,780
+it doesn't show me right now because so
+
+1291
+01:10:42,500 --> 01:10:50,840
+far we have been using eve our last six
+
+1292
+01:10:46,780 --> 01:10:54,650
+to evaluate this x that's why it doesn't
+
+1293
+01:10:50,840 --> 01:10:58,580
+show you know but for example let's do
+
+1294
+01:10:54,650 --> 01:11:00,650
+this okay so that's let's comment all
+
+1295
+01:10:58,580 --> 01:11:03,530
+this out and let's come and all this up
+
+1296
+01:11:00,650 --> 01:11:07,790
+okay comment it out so we only have that
+
+1297
+01:11:03,530 --> 01:11:13,580
+now let's let's say let's say the
+
+1298
+01:11:07,790 --> 01:11:16,730
+sixties wait okay 66 now let's do eval
+
+1299
+01:11:13,580 --> 01:11:20,090
+buffer okay let's do IVA buffer okay
+
+1300
+01:11:16,730 --> 01:11:23,420
+give our buffer is done now let's switch
+
+1301
+01:11:20,090 --> 01:11:24,949
+back to my talk show page now let's you
+
+1302
+01:11:23,420 --> 01:11:26,810
+know let's say I'm doing something I
+
+1303
+01:11:24,949 --> 01:11:29,810
+have one hour after coming back from
+
+1304
+01:11:26,810 --> 01:11:38,179
+lunch I want to know where is X defined
+
+1305
+01:11:29,810 --> 01:11:41,679
+okay described variable X enter x value
+
+1306
+01:11:38,179 --> 01:11:50,860
+is 66 he still doesn't show the buffered
+
+1307
+01:11:41,679 --> 01:11:53,659
+it doesn't show me the fire so actually
+
+1308
+01:11:50,860 --> 01:11:55,760
+let me call you var buffer directly so
+
+1309
+01:11:53,659 --> 01:11:57,110
+because I was using my own command let's
+
+1310
+01:11:55,760 --> 01:12:03,890
+see
+
+1311
+01:11:57,110 --> 01:12:08,659
+MX avow buffer okay enter okay close it
+
+1312
+01:12:03,890 --> 01:12:11,150
+now described variable X enter is still
+
+1313
+01:12:08,659 --> 01:12:14,989
+doesn't show okay so let's let's open
+
+1314
+01:12:11,150 --> 01:12:17,600
+that again so if let me show you another
+
+1315
+01:12:14,989 --> 01:12:20,360
+way tip me let me show you another way
+
+1316
+01:12:17,600 --> 01:12:23,780
+you know for variable it maybe not but
+
+1317
+01:12:20,360 --> 01:12:25,129
+you usually does for functions but let
+
+1318
+01:12:23,780 --> 01:12:29,439
+me show you another way
+
+1319
+01:12:25,129 --> 01:12:33,169
+so let's go to diet let's go to diet
+
+1320
+01:12:29,439 --> 01:12:36,289
+yeah the current directory so this is
+
+1321
+01:12:33,169 --> 01:12:40,340
+the file this is the file and now let's
+
+1322
+01:12:36,289 --> 01:12:44,389
+press capital L what capital L kept
+
+1323
+01:12:40,340 --> 01:12:47,539
+capital l will call the command and load
+
+1324
+01:12:44,389 --> 01:12:50,989
+load file which is kind of equivalent to
+
+1325
+01:12:47,539 --> 01:12:53,629
+evolve over okay so first of all we can
+
+1326
+01:12:50,989 --> 01:12:57,409
+let let me show you describe key so
+
+1327
+01:12:53,629 --> 01:13:03,260
+let's call describe key then I press on
+
+1328
+01:12:57,409 --> 01:13:08,780
+a second I call describe key I press the
+
+1329
+01:13:03,260 --> 01:13:12,349
+key capital L then he says I all runs
+
+1330
+01:13:08,780 --> 01:13:14,269
+the function tired to load Elrond's the
+
+1331
+01:13:12,349 --> 01:13:17,239
+function tired to load okay basically
+
+1332
+01:13:14,269 --> 01:13:17,629
+loads the file okay so let's try that
+
+1333
+01:13:17,239 --> 01:13:20,869
+again
+
+1334
+01:13:17,629 --> 01:13:25,070
+so let's go to diet now I press capital
+
+1335
+01:13:20,869 --> 01:13:28,849
+L he asked me to if I want to load that
+
+1336
+01:13:25,070 --> 01:13:32,749
+file I press space for it yes okay it's
+
+1337
+01:13:28,849 --> 01:13:36,129
+loaded now like now now I go back now I
+
+1338
+01:13:32,749 --> 01:13:40,849
+close this go back to my talk show page
+
+1339
+01:13:36,129 --> 01:13:45,519
+now let's go describe variable type X
+
+1340
+01:13:40,849 --> 01:13:48,379
+enter okay it does SEO doesn't show
+
+1341
+01:13:45,519 --> 01:13:50,780
+variable where it is defined the setup
+
+1342
+01:13:48,379 --> 01:13:57,729
+actually does it show yes yeah I know it
+
+1343
+01:13:50,780 --> 01:14:00,889
+does I guess it does not because okay
+
+1344
+01:13:57,729 --> 01:14:04,489
+let's let's press on let's get that to
+
+1345
+01:14:00,889 --> 01:14:07,699
+work we need to get it to work so let's
+
+1346
+01:14:04,489 --> 01:14:10,760
+try this okay load I'm gonna do hard
+
+1347
+01:14:07,699 --> 01:14:12,609
+call I mean let's go listen we need to
+
+1348
+01:14:10,760 --> 01:14:15,949
+get this to work
+
+1349
+01:14:12,609 --> 01:14:18,679
+phase this okay so so we are going to
+
+1350
+01:14:15,949 --> 01:14:20,780
+call the load command load command is
+
+1351
+01:14:18,679 --> 01:14:23,570
+when you want to load a file like you've
+
+1352
+01:14:20,780 --> 01:14:26,510
+avowed a four-hole file and we give the
+
+1353
+01:14:23,570 --> 01:14:29,929
+whole full path okay then we don't need
+
+1354
+01:14:26,510 --> 01:14:35,619
+the optional parameters okay so we're
+
+1355
+01:14:29,929 --> 01:14:35,619
+gonna evaluate this okay so even last
+
+1356
+01:14:39,580 --> 01:14:45,969
+if our last sex
+
+1357
+01:14:42,639 --> 01:14:48,370
+so it says era hello fire and there's
+
+1358
+01:14:45,969 --> 01:14:51,639
+error on number of arguments oh okay so
+
+1359
+01:14:48,370 --> 01:14:52,480
+run number arguments so what I what I
+
+1360
+01:14:51,639 --> 01:15:01,690
+was I doing
+
+1361
+01:14:52,480 --> 01:15:03,090
+what wrong number of arguments but let's
+
+1362
+01:15:01,690 --> 01:15:13,449
+try it again
+
+1363
+01:15:03,090 --> 01:15:16,929
+evil ask set last sex recursive load oh
+
+1364
+01:15:13,449 --> 01:15:19,179
+ because well hello this it tries to
+
+1365
+01:15:16,929 --> 01:15:22,719
+load this file then it's loading that
+
+1366
+01:15:19,179 --> 01:15:27,909
+fire that nya get bigger seem duct okay
+
+1367
+01:15:22,719 --> 01:15:30,639
+so now they did but but actually it's
+
+1368
+01:15:27,909 --> 01:15:32,949
+already loaded okay it's already loaded
+
+1369
+01:15:30,639 --> 01:15:35,580
+so let's try that described from
+
+1370
+01:15:32,949 --> 01:15:41,730
+describe bow again so let's describe law
+
+1371
+01:15:35,580 --> 01:15:44,500
+type X enter it still doesn't show the
+
+1372
+01:15:41,730 --> 01:15:46,650
+you know it doesn't show the file where
+
+1373
+01:15:44,500 --> 01:15:50,800
+it is loaded so let's try you again so
+
+1374
+01:15:46,650 --> 01:15:53,560
+remove this low line create a new buffer
+
+1375
+01:15:50,800 --> 01:15:57,250
+paste a low line here but meanwhile
+
+1376
+01:15:53,560 --> 01:15:59,260
+let's change this to 67 so if it
+
+1377
+01:15:57,250 --> 01:16:02,679
+actually loaded then we know you know
+
+1378
+01:15:59,260 --> 01:16:06,850
+the value becomes 67 so let's now avow
+
+1379
+01:16:02,679 --> 01:16:14,199
+this okay now we can just evolved a last
+
+1380
+01:16:06,850 --> 01:16:19,389
+sex do it it's done now describe
+
+1381
+01:16:14,199 --> 01:16:29,050
+variable type X enter it still doesn't
+
+1382
+01:16:19,389 --> 01:16:31,420
+give us the file name it normally it
+
+1383
+01:16:29,050 --> 01:16:35,889
+does okay now maybe there's some details
+
+1384
+01:16:31,420 --> 01:16:41,230
+I forgot this is getting into details so
+
+1385
+01:16:35,889 --> 01:16:44,139
+Whitney went why is it not for example
+
+1386
+01:16:41,230 --> 01:16:46,840
+let me show you a variable I mean let me
+
+1387
+01:16:44,139 --> 01:16:49,480
+show you why it it does for example
+
+1388
+01:16:46,840 --> 01:16:53,020
+let's go to my Emacs in a fire okay
+
+1389
+01:16:49,480 --> 01:16:56,680
+let's go to my Emacs innate file go to
+
+1390
+01:16:53,020 --> 01:16:58,860
+the directory then search for settings
+
+1391
+01:16:56,680 --> 01:17:02,680
+so this file
+
+1392
+01:16:58,860 --> 01:17:09,880
+Emacs settings is all my Emacs Co
+
+1393
+01:17:02,680 --> 01:17:13,870
+settings for example for example I have
+
+1394
+01:17:09,880 --> 01:17:18,280
+some setting of variables let's see
+
+1395
+01:17:13,870 --> 01:17:22,600
+there it is okay set Q global Mochrie
+
+1396
+01:17:18,280 --> 01:17:27,970
+max 5 okay so global Mochrie is a
+
+1397
+01:17:22,600 --> 01:17:30,430
+variable okay and you know I've said it
+
+1398
+01:17:27,970 --> 01:17:33,790
+in in this file when Emacs starts it
+
+1399
+01:17:30,430 --> 01:17:36,760
+loads this file so when Co describe
+
+1400
+01:17:33,790 --> 01:17:39,400
+variable on this variable it should it
+
+1401
+01:17:36,760 --> 01:17:41,980
+should I think you should show me this
+
+1402
+01:17:39,400 --> 01:17:43,500
+file okay so I can jump to it so let's
+
+1403
+01:17:41,980 --> 01:17:48,850
+let's try it
+
+1404
+01:17:43,500 --> 01:17:54,880
+so describe variable global marker min
+
+1405
+01:17:48,850 --> 01:17:57,730
+max enter okay yeah it so it shows you
+
+1406
+01:17:54,880 --> 01:18:00,340
+know it shows global mark grogg global
+
+1407
+01:17:57,730 --> 01:18:00,850
+Mochrie max is variable defined in this
+
+1408
+01:18:00,340 --> 01:18:05,230
+file
+
+1409
+01:18:00,850 --> 01:18:08,560
+simple DL and its value is final its
+
+1410
+01:18:05,230 --> 01:18:10,270
+value is 5 or in general value is 16 so
+
+1411
+01:18:08,560 --> 01:18:14,860
+I know what's going on now so let's jump
+
+1412
+01:18:10,270 --> 01:18:18,700
+to the file you see it's there okay so
+
+1413
+01:18:14,860 --> 01:18:21,520
+basically Emacs will remember when if
+
+1414
+01:18:18,700 --> 01:18:24,490
+it's a variable Emacs we all remember
+
+1415
+01:18:21,520 --> 01:18:27,970
+the file location if you are using
+
+1416
+01:18:24,490 --> 01:18:30,850
+define different de Foix let me show you
+
+1417
+01:18:27,970 --> 01:18:37,060
+okay therefore okay close this closes
+
+1418
+01:18:30,850 --> 01:18:40,510
+wait this is closest okay here is here
+
+1419
+01:18:37,060 --> 01:18:44,910
+is when it will remember the fire
+
+1420
+01:18:40,510 --> 01:18:48,220
+location so suppose we want to do depth
+
+1421
+01:18:44,910 --> 01:18:51,340
+depth Y okay actually this video is
+
+1422
+01:18:48,220 --> 01:18:55,360
+getting long we want to define variable
+
+1423
+01:18:51,340 --> 01:18:58,570
+y equals to 2 e maybe you do not need to
+
+1424
+01:18:55,360 --> 01:19:01,450
+declare variables but usually you if you
+
+1425
+01:18:58,570 --> 01:19:03,339
+are writing a mod usually it's a good
+
+1426
+01:19:01,450 --> 01:19:06,609
+thing to define
+
+1427
+01:19:03,339 --> 01:19:08,349
+to declare a variable the way you do
+
+1428
+01:19:06,609 --> 01:19:13,829
+that is you use the file
+
+1429
+01:19:08,349 --> 01:19:17,739
+de Foix okay Teflon so you say def Y
+
+1430
+01:19:13,829 --> 01:19:22,300
+then optional in the initial value is 2
+
+1431
+01:19:17,739 --> 01:19:29,769
+and then you give a Docstoc string this
+
+1432
+01:19:22,300 --> 01:19:32,109
+is my Y okay so so suppose that now you
+
+1433
+01:19:29,769 --> 01:19:37,539
+can evaluate this so let's do it
+
+1434
+01:19:32,109 --> 01:19:42,929
+evil last six evaluated done now let's
+
+1435
+01:19:37,539 --> 01:19:50,379
+call describe bar let's go ahead type Y
+
+1436
+01:19:42,929 --> 01:19:54,099
+enter made so okay it works by snowed it
+
+1437
+01:19:50,379 --> 01:19:56,619
+doesn't give you the file location well
+
+1438
+01:19:54,099 --> 01:20:00,959
+that's maybe because let's try to load
+
+1439
+01:19:56,619 --> 01:20:04,559
+file let's try load file loaded
+
+1440
+01:20:00,959 --> 01:20:10,389
+yes load the file and it's described
+
+1441
+01:20:04,559 --> 01:20:14,079
+variable Y enter no now it does ok now
+
+1442
+01:20:10,389 --> 01:20:16,209
+ok finally Y is a variable defined in
+
+1443
+01:20:14,079 --> 01:20:20,289
+this file now you can just press ENTER
+
+1444
+01:20:16,209 --> 01:20:23,139
+to jump to it you see yeah so now that's
+
+1445
+01:20:20,289 --> 01:20:26,079
+a run about that's ok that's that that
+
+1446
+01:20:23,139 --> 01:20:28,659
+that is so so if you want a variable
+
+1447
+01:20:26,079 --> 01:20:31,510
+such that Emacs jumps through the
+
+1448
+01:20:28,659 --> 01:20:32,800
+original definition location you have to
+
+1449
+01:20:31,510 --> 01:20:37,329
+use devoir
+
+1450
+01:20:32,800 --> 01:20:40,089
+and also the way you evaluate this you
+
+1451
+01:20:37,329 --> 01:20:41,709
+know evil as safe sex doesn't work
+
+1452
+01:20:40,089 --> 01:20:44,349
+because that's usually used for
+
+1453
+01:20:41,709 --> 01:20:49,329
+temporary purposes when you are working
+
+1454
+01:20:44,349 --> 01:20:53,249
+on you know eMac this usually when you
+
+1455
+01:20:49,329 --> 01:20:57,609
+use load file whenever load files code
+
+1456
+01:20:53,249 --> 01:21:00,399
+that will remember any deflower location
+
+1457
+01:20:57,609 --> 01:21:02,589
+you know that then then you code this
+
+1458
+01:21:00,399 --> 01:21:05,679
+sky bar it will show you the location
+
+1459
+01:21:02,589 --> 01:21:07,329
+you can jump to but you see this anyway
+
+1460
+01:21:05,679 --> 01:21:10,319
+so that's that's you know that's a
+
+1461
+01:21:07,329 --> 01:21:10,319
+little details
+
+1462
+01:21:15,000 --> 01:21:20,860
+so let's see see so maybe so that's it
+
+1463
+01:21:17,920 --> 01:21:23,140
+yeah so comments you know type your
+
+1464
+01:21:20,860 --> 01:21:25,600
+questions you know you have 30 seconds
+
+1465
+01:21:23,140 --> 01:21:33,610
+then we close down in 30 seconds maybe
+
+1466
+01:21:25,600 --> 01:21:35,620
+yeah so anta's stash says Nick do you
+
+1467
+01:21:33,610 --> 01:21:38,140
+try to find a library function okay so
+
+1468
+01:21:35,620 --> 01:21:42,940
+it's addressing Nick you should install
+
+1469
+01:21:38,140 --> 01:21:46,380
+package LP yeah there's some packages
+
+1470
+01:21:42,940 --> 01:21:50,110
+you can use help you go to definition
+
+1471
+01:21:46,380 --> 01:21:52,960
+well in Emacs that always work okay you
+
+1472
+01:21:50,110 --> 01:21:55,090
+can use describe function okay yeah let
+
+1473
+01:21:52,960 --> 01:21:58,390
+me explain that in Emacs if you are
+
+1474
+01:21:55,090 --> 01:22:01,570
+coding eMac this described function
+
+1475
+01:21:58,390 --> 01:22:04,510
+always work provided provided that you
+
+1476
+01:22:01,570 --> 01:22:07,780
+are loading you know you are using load
+
+1477
+01:22:04,510 --> 01:22:11,860
+file like if you are like me temporarily
+
+1478
+01:22:07,780 --> 01:22:14,800
+coding something then like if you are
+
+1479
+01:22:11,860 --> 01:22:18,370
+always calling eval region or evil
+
+1480
+01:22:14,800 --> 01:22:22,600
+purple or evil ass sex those those
+
+1481
+01:22:18,370 --> 01:22:28,360
+commands are for temporary functions
+
+1482
+01:22:22,600 --> 01:22:30,910
+kind of so so so if you do those then if
+
+1483
+01:22:28,360 --> 01:22:33,850
+you call describe function Emacs may not
+
+1484
+01:22:30,910 --> 01:22:36,940
+show may not know what the file or
+
+1485
+01:22:33,850 --> 01:22:38,890
+buffer it came from because you know
+
+1486
+01:22:36,940 --> 01:22:41,650
+those are perfect for me hopefully it's
+
+1487
+01:22:38,890 --> 01:22:44,890
+not permanent it's not a file but when
+
+1488
+01:22:41,650 --> 01:22:47,950
+you do load like you jump to the tire
+
+1489
+01:22:44,890 --> 01:22:51,490
+tired fire location you press capital a
+
+1490
+01:22:47,950 --> 01:22:54,610
+capital L to load the file then Emacs we
+
+1491
+01:22:51,490 --> 01:22:56,560
+all know this is a file then when you
+
+1492
+01:22:54,610 --> 01:23:01,330
+call this scribe function will show the
+
+1493
+01:22:56,560 --> 01:23:04,570
+file name okay so this always working if
+
+1494
+01:23:01,330 --> 01:23:07,150
+you work in a Mac this your walk now if
+
+1495
+01:23:04,570 --> 01:23:10,900
+you are working in Python you want to
+
+1496
+01:23:07,150 --> 01:23:12,730
+jump to some functions location then of
+
+1497
+01:23:10,900 --> 01:23:15,040
+course describe function doesn't work
+
+1498
+01:23:12,730 --> 01:23:19,000
+describe function is only for eMac this
+
+1499
+01:23:15,040 --> 01:23:22,750
+code then in those cases yeah you need
+
+1500
+01:23:19,000 --> 01:23:24,700
+some other packages LP LP go to or
+
+1501
+01:23:22,750 --> 01:23:26,139
+something
+
+1502
+01:23:24,700 --> 01:23:28,769
+yeah and how
+
+1503
+01:23:26,139 --> 01:23:32,409
+do you write that how do you write that
+
+1504
+01:23:28,769 --> 01:23:40,030
+you can you know you can look into a LP
+
+1505
+01:23:32,409 --> 01:23:42,239
+go to but you know we can I don't know
+
+1506
+01:23:40,030 --> 01:23:52,719
+if and you you have to think about it
+
+1507
+01:23:42,239 --> 01:23:58,539
+I'm kind of tired now so so Seema's say
+
+1508
+01:23:52,719 --> 01:24:01,329
+this Simon Says the dis the describe
+
+1509
+01:23:58,539 --> 01:24:06,550
+wasn't working before causing the buffer
+
+1510
+01:24:01,329 --> 01:24:10,079
+wasn't written to disk yes yes yes and
+
+1511
+01:24:06,550 --> 01:24:12,519
+also you have to use teflon sake you
+
+1512
+01:24:10,079 --> 01:24:14,349
+won't walk you know you have to use that
+
+1513
+01:24:12,519 --> 01:24:20,979
+yeah that's extra do you have to you
+
+1514
+01:24:14,349 --> 01:24:23,860
+also you Steph devoured f custom II let
+
+1515
+01:24:20,979 --> 01:24:29,889
+me let me say that so you Mak this set
+
+1516
+01:24:23,860 --> 01:24:32,260
+you you know is you walk but if you
+
+1517
+01:24:29,889 --> 01:24:36,399
+actually try to write something a
+
+1518
+01:24:32,260 --> 01:24:39,159
+project you don't you typically don't
+
+1519
+01:24:36,399 --> 01:24:46,719
+use set you you never use set you okay
+
+1520
+01:24:39,159 --> 01:24:52,599
+you use let let okay X then well then
+
+1521
+01:24:46,719 --> 01:24:59,679
+then set you x3 okay you use that or you
+
+1522
+01:24:52,599 --> 01:25:05,919
+say let then x3 something okay
+
+1523
+01:24:59,679 --> 01:25:08,289
+you do either that or oh that so you
+
+1524
+01:25:05,919 --> 01:25:10,780
+typically don't use set you okay you
+
+1525
+01:25:08,289 --> 01:25:14,320
+don't typically you don't use sec you
+
+1526
+01:25:10,780 --> 01:25:17,050
+said queue is like you know fold for
+
+1527
+01:25:14,320 --> 01:25:19,510
+learning this that's great okay but
+
+1528
+01:25:17,050 --> 01:25:20,349
+usually so let is creating local
+
+1529
+01:25:19,510 --> 01:25:23,949
+variables
+
+1530
+01:25:20,349 --> 01:25:26,349
+you know once this is code next X
+
+1531
+01:25:23,949 --> 01:25:29,919
+doesn't exist anymore let's say let's
+
+1532
+01:25:26,349 --> 01:25:35,080
+say H okay for example that let's do
+
+1533
+01:25:29,919 --> 01:25:39,409
+this message H okay and let's run it
+
+1534
+01:25:35,080 --> 01:25:43,909
+rennet you see it's three now let's say
+
+1535
+01:25:39,409 --> 01:25:47,900
+describe variable H it isn't there is no
+
+1536
+01:25:43,909 --> 01:25:52,219
+such edge okay yeah because let creates
+
+1537
+01:25:47,900 --> 01:25:54,620
+local variables set Q is kind of create
+
+1538
+01:25:52,219 --> 01:25:57,280
+local a create a variable for the
+
+1539
+01:25:54,620 --> 01:25:59,989
+current session but however say Q is
+
+1540
+01:25:57,280 --> 01:26:02,780
+tremendously useful when you are
+
+1541
+01:25:59,989 --> 01:26:06,500
+starting to learn eMac this yeah so you
+
+1542
+01:26:02,780 --> 01:26:09,500
+know so let me make make a point it is
+
+1543
+01:26:06,500 --> 01:26:12,469
+tremendously useful because when you do
+
+1544
+01:26:09,500 --> 01:26:14,090
+H you know when you use local variable
+
+1545
+01:26:12,469 --> 01:26:16,219
+you cannot see it like right now you
+
+1546
+01:26:14,090 --> 01:26:17,989
+want to see described variable H it's
+
+1547
+01:26:16,219 --> 01:26:20,420
+not there it so you know it's local it's
+
+1548
+01:26:17,989 --> 01:26:22,489
+already gone you cannot see it so when
+
+1549
+01:26:20,420 --> 01:26:26,690
+you actually start to learn e eMac B's
+
+1550
+01:26:22,489 --> 01:26:29,120
+you do want to use lots of set Q so you
+
+1551
+01:26:26,690 --> 01:26:32,179
+can then you can say you know described
+
+1552
+01:26:29,120 --> 01:26:33,560
+variable or you can you can just let me
+
+1553
+01:26:32,179 --> 01:26:35,780
+show you another trick
+
+1554
+01:26:33,560 --> 01:26:41,719
+okay very useful you can just type X
+
+1555
+01:26:35,780 --> 01:26:45,139
+here then call that evil-ass 6ko it it
+
+1556
+01:26:41,719 --> 01:26:47,960
+shows the value 67 so it's tremendously
+
+1557
+01:26:45,139 --> 01:26:50,570
+helpful you know it because all the
+
+1558
+01:26:47,960 --> 01:26:52,340
+value stays you can see you know what's
+
+1559
+01:26:50,570 --> 01:26:55,550
+going on you know because when you start
+
+1560
+01:26:52,340 --> 01:26:58,790
+to learn you Maggie's error message is
+
+1561
+01:26:55,550 --> 01:27:01,850
+syntax error you get confused so you
+
+1562
+01:26:58,790 --> 01:27:05,120
+just do everything you know global say Q
+
+1563
+01:27:01,850 --> 01:27:06,800
+and so on so you can you can you can get
+
+1564
+01:27:05,120 --> 01:27:08,770
+idea you know maybe something is
+
+1565
+01:27:06,800 --> 01:27:11,270
+overriding something things like that
+
+1566
+01:27:08,770 --> 01:27:13,219
+then when you are good
+
+1567
+01:27:11,270 --> 01:27:15,230
+it once you you know you write a
+
+1568
+01:27:13,219 --> 01:27:18,770
+prototype of something you want to do
+
+1569
+01:27:15,230 --> 01:27:22,940
+then you start to you know then you
+
+1570
+01:27:18,770 --> 01:27:27,440
+start to you know defund for example D
+
+1571
+01:27:22,940 --> 01:27:30,770
+fun then let X you know pack then you
+
+1572
+01:27:27,440 --> 01:27:34,219
+start to refactor and pack all your code
+
+1573
+01:27:30,770 --> 01:27:36,290
+into a function and with Papa let and
+
+1574
+01:27:34,219 --> 01:27:38,780
+because by that time you already know it
+
+1575
+01:27:36,290 --> 01:27:41,210
+works because you've tried as so many
+
+1576
+01:27:38,780 --> 01:27:43,489
+times with so many frustrations there
+
+1577
+01:27:41,210 --> 01:27:46,850
+now finally you have this beautiful you
+
+1578
+01:27:43,489 --> 01:27:48,649
+know command with you know cream input
+
+1579
+01:27:46,850 --> 01:27:53,499
+then you put this in your
+
+1580
+01:27:48,649 --> 01:27:59,209
+so yeah so that's about set Q and let
+
+1581
+01:27:53,499 --> 01:28:00,229
+and if okay so what about de Foix now
+
+1582
+01:27:59,209 --> 01:28:05,809
+deep tefa
+
+1583
+01:28:00,229 --> 01:28:08,510
+is actually one level up now as we
+
+1584
+01:28:05,809 --> 01:28:12,110
+mentioned you know you can have def tea
+
+1585
+01:28:08,510 --> 01:28:13,729
+fun that's clean right D fun that's a
+
+1586
+01:28:12,110 --> 01:28:16,099
+time when you have a difference
+
+1587
+01:28:13,729 --> 01:28:17,329
+something you put that in your uni file
+
+1588
+01:28:16,099 --> 01:28:19,879
+then that's good
+
+1589
+01:28:17,329 --> 01:28:21,919
+that's good for you but now level up
+
+1590
+01:28:19,879 --> 01:28:25,070
+when you want to write your code for the
+
+1591
+01:28:21,919 --> 01:28:27,079
+public for other people usually you
+
+1592
+01:28:25,070 --> 01:28:28,999
+don't tell them to oh just for this in
+
+1593
+01:28:27,079 --> 01:28:31,399
+your uni file just put this command you
+
+1594
+01:28:28,999 --> 01:28:34,039
+know just for this define your any file
+
+1595
+01:28:31,399 --> 01:28:36,469
+because then everyone has thousands of
+
+1596
+01:28:34,039 --> 01:28:40,039
+difference you know they they crash and
+
+1597
+01:28:36,469 --> 01:28:41,719
+things like that so next level is when
+
+1598
+01:28:40,039 --> 01:28:45,699
+you want to write a package you know
+
+1599
+01:28:41,719 --> 01:28:48,469
+then then in a package when you have a
+
+1600
+01:28:45,699 --> 01:28:51,050
+when you have variables that's intended
+
+1601
+01:28:48,469 --> 01:28:54,739
+to be global but sometimes you need that
+
+1602
+01:28:51,050 --> 01:28:56,860
+you know that's when you use def law you
+
+1603
+01:28:54,739 --> 01:29:00,590
+know when you use Stef are you actually
+
+1604
+01:28:56,860 --> 01:29:03,439
+declare a variable to be part of the
+
+1605
+01:29:00,590 --> 01:29:06,320
+package actually Scoble because Emacs
+
+1606
+01:29:03,439 --> 01:29:08,479
+Emacs does not have namespace everything
+
+1607
+01:29:06,320 --> 01:29:11,659
+every packages package is actually
+
+1608
+01:29:08,479 --> 01:29:16,639
+global so when you so you want to use
+
+1609
+01:29:11,659 --> 01:29:19,039
+teflon my prefix and something like that
+
+1610
+01:29:16,639 --> 01:29:22,729
+okay def variable global for your
+
+1611
+01:29:19,039 --> 01:29:25,809
+package name then initial value if if
+
+1612
+01:29:22,729 --> 01:29:29,300
+it's appropriate then a documentation
+
+1613
+01:29:25,809 --> 01:29:31,189
+then this is when you actually have a
+
+1614
+01:29:29,300 --> 01:29:33,199
+documentation for your variable you know
+
+1615
+01:29:31,189 --> 01:29:34,939
+it's not not like let you know let
+
+1616
+01:29:33,199 --> 01:29:37,999
+doesn't doesn't have documentation this
+
+1617
+01:29:34,939 --> 01:29:40,159
+is when when you call describe var or
+
+1618
+01:29:37,999 --> 01:29:42,469
+variable it actually have a
+
+1619
+01:29:40,159 --> 01:29:46,999
+documentation you know so it's kind of
+
+1620
+01:29:42,469 --> 01:29:49,010
+like permanent and not temporary so yeah
+
+1621
+01:29:46,999 --> 01:29:50,689
+so when you do packages when you write
+
+1622
+01:29:49,010 --> 01:29:53,510
+packages that's when you want to use
+
+1623
+01:29:50,689 --> 01:29:55,840
+death law and there's more there's also
+
+1624
+01:29:53,510 --> 01:29:55,840
+actually
+
+1625
+01:30:01,570 --> 01:30:12,949
+let's let's see what are the others
+
+1626
+01:30:04,159 --> 01:30:17,889
+they've come death because they've
+
+1627
+01:30:12,949 --> 01:30:22,520
+custom okay deaf custom is a way my son
+
+1628
+01:30:17,889 --> 01:30:26,449
+column wait okay the Deaf custom is
+
+1629
+01:30:22,520 --> 01:30:30,199
+another way to define a variable for a
+
+1630
+01:30:26,449 --> 01:30:33,020
+package in a package you know for public
+
+1631
+01:30:30,199 --> 01:30:36,590
+consumption so what's the difference
+
+1632
+01:30:33,020 --> 01:30:38,420
+it's it's very similar to de Foix the
+
+1633
+01:30:36,590 --> 01:30:44,690
+difference is that when you use staff
+
+1634
+01:30:38,420 --> 01:30:49,219
+custom then people can use people can
+
+1635
+01:30:44,690 --> 01:30:52,219
+call the command custom people can call
+
+1636
+01:30:49,219 --> 01:30:54,590
+the command custom group then type your
+
+1637
+01:30:52,219 --> 01:30:57,949
+package name like some major mod make
+
+1638
+01:30:54,590 --> 01:31:00,260
+like my my Elise MA or Java screamin you
+
+1639
+01:30:57,949 --> 01:31:03,980
+know then people can type a major mod
+
+1640
+01:31:00,260 --> 01:31:07,670
+name then all those deaf custom
+
+1641
+01:31:03,980 --> 01:31:09,920
+variables will show up you know so so
+
+1642
+01:31:07,670 --> 01:31:12,289
+this is a way you know custom group is a
+
+1643
+01:31:09,920 --> 01:31:15,289
+way for people to customize a package
+
+1644
+01:31:12,289 --> 01:31:17,840
+without knowing or the you know these
+
+1645
+01:31:15,289 --> 01:31:20,090
+details they can just see oh these are
+
+1646
+01:31:17,840 --> 01:31:22,039
+the variables you can you can you know
+
+1647
+01:31:20,090 --> 01:31:23,780
+customize you know their values they
+
+1648
+01:31:22,039 --> 01:31:27,730
+have documentation so that so that's
+
+1649
+01:31:23,780 --> 01:31:30,920
+about deaf custom so these are the
+
+1650
+01:31:27,730 --> 01:31:33,530
+different ways to define variables you
+
+1651
+01:31:30,920 --> 01:31:36,380
+know baby was and did have this more
+
+1652
+01:31:33,530 --> 01:31:40,510
+actually so this is local there's a
+
+1653
+01:31:36,380 --> 01:31:40,510
+buffalo CO variables and anyway
+
+1654
+01:31:45,610 --> 01:31:53,719
+so yeah so that's it for today I'm
+
+1655
+01:31:48,050 --> 01:31:58,400
+getting hungry now I gotta go eat and so
+
+1656
+01:31:53,719 --> 01:32:01,699
+I've given up on vim and not sure what
+
+1657
+01:31:58,400 --> 01:32:03,560
+he max is using so yeah okay if you like
+
+1658
+01:32:01,699 --> 01:32:05,780
+my tutorial you know go buy it you know
+
+1659
+01:32:03,560 --> 01:32:09,199
+I'm you know I read I dried them I sell
+
+1660
+01:32:05,780 --> 01:32:12,260
+them no I working on them you know go to
+
+1661
+01:32:09,199 --> 01:32:17,449
+my website sorry Emacs tutorial and buy
+
+1662
+01:32:12,260 --> 01:32:20,030
+it you know as a token you know that you
+
+1663
+01:32:17,449 --> 01:32:23,420
+are going to you dedicated you are going
+
+1664
+01:32:20,030 --> 01:32:25,250
+to actually you know as start to learn
+
+1665
+01:32:23,420 --> 01:32:26,869
+you Mack this and that's good for me so
+
+1666
+01:32:25,250 --> 01:32:28,760
+anyway thank you guys for watching
+
+1667
+01:32:26,869 --> 01:32:31,159
+that's for that's it for today and
+
+1668
+01:32:28,760 --> 01:32:33,889
+tomorrow is probably going to be the
+
+1669
+01:32:31,159 --> 01:32:35,210
+same time twelve o'clock noon San
+
+1670
+01:32:33,889 --> 01:32:36,409
+Francisco time in tomorrow
+
+1671
+01:32:35,210 --> 01:32:40,489
+[Music]
+
+1672
+01:32:36,409 --> 01:32:41,510
+the topics it could be I think what's
+
+1673
+01:32:40,489 --> 01:32:44,210
+the topic tomorrow
+
+1674
+01:32:41,510 --> 01:32:47,719
+you know today so tomorrow let maybe do
+
+1675
+01:32:44,210 --> 01:32:50,750
+something else something else goal and I
+
+1676
+01:32:47,719 --> 01:32:54,920
+don't know pay the piper
+
+1677
+01:32:50,750 --> 01:32:56,570
+yeah pitiful thankful so I don't know
+
+1678
+01:32:54,920 --> 01:33:00,849
+what's the topic yet but you can always
+
+1679
+01:32:56,570 --> 01:33:04,760
+go to like let's see it's not talk show
+
+1680
+01:33:00,849 --> 01:33:07,849
+life this like this you are you know
+
+1681
+01:33:04,760 --> 01:33:11,360
+YouTube siik saris like that usually
+
+1682
+01:33:07,849 --> 01:33:13,219
+walk like I have to go say that up you
+
+1683
+01:33:11,360 --> 01:33:16,699
+know I have to go so I'm going to
+
+1684
+01:33:13,219 --> 01:33:19,130
+schedule it sometimes later tonight now
+
+1685
+01:33:16,699 --> 01:33:21,619
+sometimes later so by tomorrow morning
+
+1686
+01:33:19,130 --> 01:33:24,079
+you'll see it you can go to that you URL
+
+1687
+01:33:21,619 --> 01:33:26,980
+you'll be you know it will be your sake
+
+1688
+01:33:24,079 --> 01:33:30,170
+coming up you know it's certain hours
+
+1689
+01:33:26,980 --> 01:33:32,329
+yes and then you can type topics or
+
+1690
+01:33:30,170 --> 01:33:37,060
+whatever so that's it for today so okay
+
+1691
+01:33:32,329 --> 01:33:37,060
+now you guys for watching bye
+

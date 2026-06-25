@@ -1,0 +1,8972 @@
+1
+00:00:05,279 --> 00:00:10,480
+good morning everyone welcome to another
+
+2
+00:00:07,919 --> 00:00:12,400
+episode of the pixar talk show
+
+3
+00:00:10,480 --> 00:00:15,200
+today we are going to do coding
+
+4
+00:00:12,400 --> 00:00:18,480
+javascript and wufang language
+
+5
+00:00:15,200 --> 00:00:21,199
+so uh how are you guys the dearly
+
+6
+00:00:18,480 --> 00:00:25,039
+beloved people from all over the world
+
+7
+00:00:21,199 --> 00:00:27,119
+good morning luis and uh
+
+8
+00:00:25,039 --> 00:00:29,279
+seth uh from
+
+9
+00:00:27,119 --> 00:00:31,679
+who is from brazil okay
+
+10
+00:00:29,279 --> 00:00:34,480
+so we are going to do javascript uh
+
+11
+00:00:31,679 --> 00:00:36,640
+let's begin let's begin fast okay video
+
+12
+00:00:34,480 --> 00:00:39,440
+check audio check and you are looking at
+
+13
+00:00:36,640 --> 00:00:40,559
+my keyboard this is kinesis advantage
+
+14
+00:00:39,440 --> 00:00:43,360
+two
+
+15
+00:00:40,559 --> 00:00:45,280
+red switches this is ultimate hacking
+
+16
+00:00:43,360 --> 00:00:48,559
+and this is uh
+
+17
+00:00:45,280 --> 00:00:50,960
+my mouse this logitech with a spin wheel
+
+18
+00:00:48,559 --> 00:00:52,960
+fantastic okay i talked about in the
+
+19
+00:00:50,960 --> 00:00:55,920
+past two or three videos
+
+20
+00:00:52,960 --> 00:00:57,840
+so uh let's begin quickly so uh you know
+
+21
+00:00:55,920 --> 00:01:00,320
+we gonna not waste time and start to
+
+22
+00:00:57,840 --> 00:01:02,719
+call javascript so let me tell you what
+
+23
+00:01:00,320 --> 00:01:05,360
+is it i'm going to do
+
+24
+00:01:02,719 --> 00:01:07,520
+so if you just go to so let's start a
+
+25
+00:01:05,360 --> 00:01:10,479
+browser let's uh
+
+26
+00:01:07,520 --> 00:01:12,479
+hold on a second let me turn this off
+
+27
+00:01:10,479 --> 00:01:14,080
+let's begin the browser
+
+28
+00:01:12,479 --> 00:01:16,000
+okay
+
+29
+00:01:14,080 --> 00:01:20,479
+sorry
+
+30
+00:01:16,000 --> 00:01:20,479
+uh you search for unicode arrow okay
+
+31
+00:01:21,680 --> 00:01:28,320
+search for unicode arrows and you can
+
+32
+00:01:23,920 --> 00:01:31,040
+see that one is mine no that's [ __ ]
+
+33
+00:01:28,320 --> 00:01:33,680
+some somebody
+
+34
+00:01:31,040 --> 00:01:37,680
+okay you want to click my link okay oh
+
+35
+00:01:33,680 --> 00:01:40,159
+[ __ ] these people copied my website
+
+36
+00:01:37,680 --> 00:01:42,240
+okay so this one unicode arrows sari
+
+37
+00:01:40,159 --> 00:01:44,399
+okay so you can see
+
+38
+00:01:42,240 --> 00:01:46,799
+here we have unicode arrows you move the
+
+39
+00:01:44,399 --> 00:01:48,640
+cursor there and we'll it will have a
+
+40
+00:01:46,799 --> 00:01:53,040
+popup showing the
+
+41
+00:01:48,640 --> 00:01:55,600
+character name and the code point the id
+
+42
+00:01:53,040 --> 00:01:57,200
+in decimal and the code point in
+
+43
+00:01:55,600 --> 00:01:59,600
+hexadecimal
+
+44
+00:01:57,200 --> 00:02:00,960
+so this is fantastic
+
+45
+00:01:59,600 --> 00:02:03,280
+and
+
+46
+00:02:00,960 --> 00:02:06,159
+and let's go to emoji
+
+47
+00:02:03,280 --> 00:02:08,720
+the millennial generations thing
+
+48
+00:02:06,159 --> 00:02:12,560
+emoji and i just added a feature
+
+49
+00:02:08,720 --> 00:02:14,800
+recently that allows you to uh
+
+50
+00:02:12,560 --> 00:02:18,000
+click on the show character info so
+
+51
+00:02:14,800 --> 00:02:20,080
+let's close this panel
+
+52
+00:02:18,000 --> 00:02:23,120
+there's a you know there's a new feature
+
+53
+00:02:20,080 --> 00:02:25,920
+so that when you move so you can your uh
+
+54
+00:02:23,120 --> 00:02:28,080
+if your mouse moves away from the panel
+
+55
+00:02:25,920 --> 00:02:30,400
+it won't disappear so you can actually
+
+56
+00:02:28,080 --> 00:02:32,720
+copy you know select and copy the
+
+57
+00:02:30,400 --> 00:02:36,800
+information or click close
+
+58
+00:02:32,720 --> 00:02:39,360
+so but i also added a feature such that
+
+59
+00:02:36,800 --> 00:02:41,519
+if you click show character info
+
+60
+00:02:39,360 --> 00:02:43,760
+then you can see all the
+
+61
+00:02:41,519 --> 00:02:45,120
+unicode name
+
+62
+00:02:43,760 --> 00:02:47,280
+for the character
+
+63
+00:02:45,120 --> 00:02:50,000
+and the
+
+64
+00:02:47,280 --> 00:02:52,800
+hexadecimal code point for the character
+
+65
+00:02:50,000 --> 00:02:55,680
+for all characters you can see
+
+66
+00:02:52,800 --> 00:02:56,959
+so this is um page down
+
+67
+00:02:55,680 --> 00:02:58,800
+let's
+
+68
+00:02:56,959 --> 00:03:01,120
+close that
+
+69
+00:02:58,800 --> 00:03:03,920
+page down you know so you can see all
+
+70
+00:03:01,120 --> 00:03:05,599
+the unicode character names this is
+
+71
+00:03:03,920 --> 00:03:07,440
+sometimes useful because sometimes you
+
+72
+00:03:05,599 --> 00:03:09,040
+want to search for
+
+73
+00:03:07,440 --> 00:03:10,480
+let's say
+
+74
+00:03:09,040 --> 00:03:12,239
+heart
+
+75
+00:03:10,480 --> 00:03:14,480
+you know so you know there is one
+
+76
+00:03:12,239 --> 00:03:16,840
+occurrence this is you know there's uh
+
+77
+00:03:14,480 --> 00:03:20,239
+multiple occurrences this is
+
+78
+00:03:16,840 --> 00:03:22,640
+a smiling face with heart shaped eyes
+
+79
+00:03:20,239 --> 00:03:25,599
+and then you have this smiling face with
+
+80
+00:03:22,640 --> 00:03:26,480
+smiling eyes and three hearts
+
+81
+00:03:25,599 --> 00:03:28,720
+and
+
+82
+00:03:26,480 --> 00:03:30,080
+then you have the smiling cat face with
+
+83
+00:03:28,720 --> 00:03:34,319
+heart shape
+
+84
+00:03:30,080 --> 00:03:36,959
+so you get so that's a useful feature so
+
+85
+00:03:34,319 --> 00:03:39,920
+this is hide character info show
+
+86
+00:03:36,959 --> 00:03:43,920
+character info hi character info or just
+
+87
+00:03:39,920 --> 00:03:46,480
+move your mouse to a emoji and it will
+
+88
+00:03:43,920 --> 00:03:48,560
+show
+
+89
+00:03:46,480 --> 00:03:51,440
+now another feature let me mention so at
+
+90
+00:03:48,560 --> 00:03:53,680
+the bottom of each of this page
+
+91
+00:03:51,440 --> 00:03:57,120
+you have
+
+92
+00:03:53,680 --> 00:03:59,360
+for uh unicode search so you can type
+
+93
+00:03:57,120 --> 00:04:03,840
+h e a
+
+94
+00:03:59,360 --> 00:04:04,720
+it will show as you type h-e-a-r
+
+95
+00:04:03,840 --> 00:04:07,519
+so
+
+96
+00:04:04,720 --> 00:04:10,000
+these are the unicode characters
+
+97
+00:04:07,519 --> 00:04:12,400
+whose name or contains the word
+
+98
+00:04:10,000 --> 00:04:14,640
+h-e-a-r-t
+
+99
+00:04:12,400 --> 00:04:16,560
+you know you can add a t so that removes
+
+100
+00:04:14,640 --> 00:04:18,160
+one
+
+101
+00:04:16,560 --> 00:04:21,040
+so these are the unicode characters
+
+102
+00:04:18,160 --> 00:04:23,120
+showing the heart you know has the word
+
+103
+00:04:21,040 --> 00:04:27,040
+hot in their name
+
+104
+00:04:23,120 --> 00:04:29,360
+okay so that is unicode uh and very
+
+105
+00:04:27,040 --> 00:04:31,040
+interesting and uh
+
+106
+00:04:29,360 --> 00:04:33,520
+then okay let me
+
+107
+00:04:31,040 --> 00:04:35,600
+since we are on this subject let's tell
+
+108
+00:04:33,520 --> 00:04:38,080
+you keep the comments coming okay i'm
+
+109
+00:04:35,600 --> 00:04:39,520
+going to um
+
+110
+00:04:38,080 --> 00:04:41,919
+answer every question if you have a
+
+111
+00:04:39,520 --> 00:04:46,560
+question specifically specifically for
+
+112
+00:04:41,919 --> 00:04:49,440
+me uh tag my name like add sardi
+
+113
+00:04:46,560 --> 00:04:52,400
+so let me mention some other features of
+
+114
+00:04:49,440 --> 00:04:54,800
+my unicode collection okay so this is uh
+
+115
+00:04:52,400 --> 00:04:57,199
+useful if you are working on unicode or
+
+116
+00:04:54,800 --> 00:04:59,680
+emoji or you if you want to if you are a
+
+117
+00:04:57,199 --> 00:05:02,000
+programmer then you want to go to the
+
+118
+00:04:59,680 --> 00:05:04,639
+bottom
+
+119
+00:05:02,000 --> 00:05:07,280
+unicode for programmers so you can have
+
+120
+00:05:04,639 --> 00:05:09,919
+a complete understanding all you need to
+
+121
+00:05:07,280 --> 00:05:12,400
+know essentially what is unicode so
+
+122
+00:05:09,919 --> 00:05:15,360
+unicode basics character set encoding
+
+123
+00:05:12,400 --> 00:05:18,000
+utf encode point what exactly are they
+
+124
+00:05:15,360 --> 00:05:19,039
+what is a character set what is a
+
+125
+00:05:18,000 --> 00:05:22,560
+encoding
+
+126
+00:05:19,039 --> 00:05:25,520
+encoding essentially is a
+
+127
+00:05:22,560 --> 00:05:26,800
+id a number okay for a character and
+
+128
+00:05:25,520 --> 00:05:28,479
+what is uh
+
+129
+00:05:26,800 --> 00:05:31,120
+character set what is the coding
+
+130
+00:05:28,479 --> 00:05:35,280
+encoding system you know what is utf-8
+
+131
+00:05:31,120 --> 00:05:36,000
+what is utf-16 and and all that
+
+132
+00:05:35,280 --> 00:05:38,479
+so
+
+133
+00:05:36,000 --> 00:05:40,479
+yeah so you can click on that so let's
+
+134
+00:05:38,479 --> 00:05:43,199
+copy that let's go back to talk show
+
+135
+00:05:40,479 --> 00:05:45,360
+showing browser back to emacs and and we
+
+136
+00:05:43,199 --> 00:05:48,639
+are in emacs and in the pink window you
+
+137
+00:05:45,360 --> 00:05:50,720
+can see all my command cores and uh
+
+138
+00:05:48,639 --> 00:05:53,280
+and the keystroke i'm using stuff like
+
+139
+00:05:50,720 --> 00:05:55,440
+keys and i'm using um
+
+140
+00:05:53,280 --> 00:05:57,600
+soft like keys and
+
+141
+00:05:55,440 --> 00:05:59,759
+emacs package and i'm using vora
+
+142
+00:05:57,600 --> 00:06:01,440
+keyboard okay for a keyboard layout so
+
+143
+00:05:59,759 --> 00:06:05,600
+let's also
+
+144
+00:06:01,440 --> 00:06:07,759
+go back unicode for programmers go back
+
+145
+00:06:05,600 --> 00:06:12,000
+then we have unicode stars click on
+
+146
+00:06:07,759 --> 00:06:12,000
+unicode emoji copy it back here
+
+147
+00:06:12,160 --> 00:06:16,240
+paste it
+
+148
+00:06:13,440 --> 00:06:19,440
+yeah this is something
+
+149
+00:06:16,240 --> 00:06:20,479
+showing browser so back to emacs
+
+150
+00:06:19,440 --> 00:06:23,199
+connect
+
+151
+00:06:20,479 --> 00:06:26,560
+connect the list showing browser so you
+
+152
+00:06:23,199 --> 00:06:27,600
+can see what we have talked about okay
+
+153
+00:06:26,560 --> 00:06:30,000
+so
+
+154
+00:06:27,600 --> 00:06:32,160
+yeah so let me demonstrate some of other
+
+155
+00:06:30,000 --> 00:06:34,400
+features okay uh
+
+156
+00:06:32,160 --> 00:06:36,479
+now you have seen the
+
+157
+00:06:34,400 --> 00:06:37,840
+unicode introduction for programmers a
+
+158
+00:06:36,479 --> 00:06:40,800
+tutorial
+
+159
+00:06:37,840 --> 00:06:43,440
+uh but let me also show you okay click
+
+160
+00:06:40,800 --> 00:06:46,840
+on back to unicode so this is now this
+
+161
+00:06:43,440 --> 00:06:49,919
+page is upside down so
+
+162
+00:06:46,840 --> 00:06:53,360
+you it's magnify
+
+163
+00:06:49,919 --> 00:06:57,520
+you can type anything here
+
+164
+00:06:53,360 --> 00:06:59,680
+and the upside down version
+
+165
+00:06:57,520 --> 00:07:01,199
+will show as
+
+166
+00:06:59,680 --> 00:07:04,000
+you type
+
+167
+00:07:01,199 --> 00:07:07,680
+okay that's a very interesting website
+
+168
+00:07:04,000 --> 00:07:10,160
+upside down so you can copy it and paste
+
+169
+00:07:07,680 --> 00:07:12,000
+it you know on twitter or whatever
+
+170
+00:07:10,160 --> 00:07:15,520
+upside down text
+
+171
+00:07:12,000 --> 00:07:18,319
+then there's a few more upside down
+
+172
+00:07:15,520 --> 00:07:20,720
+so click so copy the url let's pick
+
+173
+00:07:18,319 --> 00:07:22,960
+let's paste it here
+
+174
+00:07:20,720 --> 00:07:22,960
+um
+
+175
+00:07:23,759 --> 00:07:27,599
+okay this is annoying what is the result
+
+176
+00:07:26,639 --> 00:07:29,759
+is
+
+177
+00:07:27,599 --> 00:07:32,319
+okay let me okay
+
+178
+00:07:29,759 --> 00:07:34,960
+digression let me modify
+
+179
+00:07:32,319 --> 00:07:37,919
+the my emacs this code let me let me
+
+180
+00:07:34,960 --> 00:07:40,800
+explain what's going on okay so you see
+
+181
+00:07:37,919 --> 00:07:43,680
+so undo so you can magnify
+
+182
+00:07:40,800 --> 00:07:46,319
+uh global highlight line one okay so now
+
+183
+00:07:43,680 --> 00:07:49,039
+you can see this line this is a url i
+
+184
+00:07:46,319 --> 00:07:51,280
+want to make it into a list okay so i
+
+185
+00:07:49,039 --> 00:07:53,039
+press one key now watch the pink window
+
+186
+00:07:51,280 --> 00:07:55,360
+you can see the command name and the
+
+187
+00:07:53,039 --> 00:07:59,039
+keystroke so i press
+
+188
+00:07:55,360 --> 00:08:02,319
+two keys okay now it becomes
+
+189
+00:07:59,039 --> 00:08:04,800
+a link uh you know not just link bit but
+
+190
+00:08:02,319 --> 00:08:06,560
+also becomes a list so undo let's do it
+
+191
+00:08:04,800 --> 00:08:10,720
+again
+
+192
+00:08:06,560 --> 00:08:13,440
+press two keys then it becomes a
+
+193
+00:08:10,720 --> 00:08:15,280
+list with the link in it so if you show
+
+194
+00:08:13,440 --> 00:08:17,759
+in browser you can see
+
+195
+00:08:15,280 --> 00:08:20,000
+that is this one unicode uh
+
+196
+00:08:17,759 --> 00:08:22,080
+invert text
+
+197
+00:08:20,000 --> 00:08:24,479
+okay but there's a problem
+
+198
+00:08:22,080 --> 00:08:28,000
+so let's undo let's undo let me tell you
+
+199
+00:08:24,479 --> 00:08:29,759
+what is the problem uh where is it undo
+
+200
+00:08:28,000 --> 00:08:32,320
+undo undo
+
+201
+00:08:29,759 --> 00:08:33,680
+undo okay so here
+
+202
+00:08:32,320 --> 00:08:35,839
+so when we
+
+203
+00:08:33,680 --> 00:08:38,240
+when i make this into a list you'll
+
+204
+00:08:35,839 --> 00:08:41,039
+notice it jumps the whole frame to the
+
+205
+00:08:38,240 --> 00:08:42,560
+top you see let me try it again do it
+
+206
+00:08:41,039 --> 00:08:46,080
+you see it moves the whole thing to the
+
+207
+00:08:42,560 --> 00:08:48,480
+top i don't want that okay so
+
+208
+00:08:46,080 --> 00:08:50,399
+why does that happen because my code i
+
+209
+00:08:48,480 --> 00:08:51,839
+added a
+
+210
+00:08:50,399 --> 00:08:53,600
+print
+
+211
+00:08:51,839 --> 00:08:56,480
+that's
+
+212
+00:08:53,600 --> 00:08:59,920
+it's a quark of emac these so let's just
+
+213
+00:08:56,480 --> 00:09:02,880
+fix the code quickly so um so let me do
+
+214
+00:08:59,920 --> 00:09:06,000
+it okay so the command is this one
+
+215
+00:09:02,880 --> 00:09:09,920
+html lines to list and jump to the
+
+216
+00:09:06,000 --> 00:09:12,240
+source code so here is the function
+
+217
+00:09:09,920 --> 00:09:15,279
+not too many lines so what happened is
+
+218
+00:09:12,240 --> 00:09:19,600
+that so let's narrow to region okay
+
+219
+00:09:15,279 --> 00:09:19,600
+narrow to function so message
+
+220
+00:09:19,680 --> 00:09:22,680
+um
+
+221
+00:09:23,279 --> 00:09:27,360
+okay so
+
+222
+00:09:24,560 --> 00:09:31,600
+this happens in this function actually
+
+223
+00:09:27,360 --> 00:09:33,839
+excite tml any to link so
+
+224
+00:09:31,600 --> 00:09:37,040
+show the description of the inline
+
+225
+00:09:33,839 --> 00:09:40,160
+documentation of this function html any
+
+226
+00:09:37,040 --> 00:09:41,519
+two link and jump to the source code of
+
+227
+00:09:40,160 --> 00:09:44,959
+this function
+
+228
+00:09:41,519 --> 00:09:46,640
+and it is in this
+
+229
+00:09:44,959 --> 00:09:48,880
+function called that
+
+230
+00:09:46,640 --> 00:09:52,000
+there is some code that screw up that
+
+231
+00:09:48,880 --> 00:09:55,040
+made it jump so let's narrow to region
+
+232
+00:09:52,000 --> 00:09:57,040
+so we show the entire
+
+233
+00:09:55,040 --> 00:09:58,640
+function definition in
+
+234
+00:09:57,040 --> 00:10:01,600
+you know uh
+
+235
+00:09:58,640 --> 00:10:05,839
+in this buffer so now let's search for
+
+236
+00:10:01,600 --> 00:10:05,839
+search for message okay
+
+237
+00:10:07,040 --> 00:10:11,600
+okay it's actually some other function
+
+238
+00:10:10,160 --> 00:10:15,120
+because
+
+239
+00:10:11,600 --> 00:10:18,399
+you know that jump happened because
+
+240
+00:10:15,120 --> 00:10:21,120
+because i'm doing a message
+
+241
+00:10:18,399 --> 00:10:24,399
+okay so let me actually i want let's
+
+242
+00:10:21,120 --> 00:10:24,399
+just quickly fix it
+
+243
+00:10:26,399 --> 00:10:30,160
+yeah okay i'm not going to explain
+
+244
+00:10:28,640 --> 00:10:33,760
+because um
+
+245
+00:10:30,160 --> 00:10:35,519
+it's getting a bit complex so
+
+246
+00:10:33,760 --> 00:10:36,640
+copy that
+
+247
+00:10:35,519 --> 00:10:38,959
+go to
+
+248
+00:10:36,640 --> 00:10:42,880
+my agree file
+
+249
+00:10:38,959 --> 00:10:43,920
+and here is all my personal emacs
+
+250
+00:10:42,880 --> 00:10:44,839
+stuff
+
+251
+00:10:43,920 --> 00:10:48,800
+search
+
+252
+00:10:44,839 --> 00:10:52,320
+for html any to link pre-hook
+
+253
+00:10:48,800 --> 00:10:52,320
+okay search for all
+
+254
+00:10:52,959 --> 00:10:59,040
+emac these files okay now there's one
+
+255
+00:10:55,760 --> 00:11:01,600
+result this is uh from the package casa
+
+256
+00:10:59,040 --> 00:11:05,440
+find okay and this functions are fine
+
+257
+00:11:01,600 --> 00:11:08,320
+text so jump to it okay open it so here
+
+258
+00:11:05,440 --> 00:11:09,040
+is the hook
+
+259
+00:11:08,320 --> 00:11:11,600
+so
+
+260
+00:11:09,040 --> 00:11:15,040
+i added a hook of this function
+
+261
+00:11:11,600 --> 00:11:19,680
+site html link to transform
+
+262
+00:11:15,040 --> 00:11:22,399
+site html link transform so
+
+263
+00:11:19,680 --> 00:11:24,640
+describe function to show the inline doc
+
+264
+00:11:22,399 --> 00:11:26,720
+for that function
+
+265
+00:11:24,640 --> 00:11:29,279
+jump to the source code here is the
+
+266
+00:11:26,720 --> 00:11:32,320
+source code and you see here is a
+
+267
+00:11:29,279 --> 00:11:36,079
+message there is a tool message
+
+268
+00:11:32,320 --> 00:11:38,640
+link remove them okay that those are
+
+269
+00:11:36,079 --> 00:11:40,959
+causing a problem wherever
+
+270
+00:11:38,640 --> 00:11:43,360
+you have okay here's a technical detail
+
+271
+00:11:40,959 --> 00:11:45,680
+for you emac these coders whenever you
+
+272
+00:11:43,360 --> 00:11:47,200
+have an arrow to region in your emac
+
+273
+00:11:45,680 --> 00:11:48,000
+list code
+
+274
+00:11:47,200 --> 00:11:51,279
+and
+
+275
+00:11:48,000 --> 00:11:53,920
+during that code execution whenever you
+
+276
+00:11:51,279 --> 00:11:54,800
+have you print something like message
+
+277
+00:11:53,920 --> 00:11:58,079
+something
+
+278
+00:11:54,800 --> 00:12:00,079
+then it will cause the buffer to move
+
+279
+00:11:58,079 --> 00:12:01,279
+that's a problem so let's comment this
+
+280
+00:12:00,079 --> 00:12:04,160
+out
+
+281
+00:12:01,279 --> 00:12:06,959
+eval the function
+
+282
+00:12:04,160 --> 00:12:09,519
+close it save it save it close it close
+
+283
+00:12:06,959 --> 00:12:10,720
+it close it close it
+
+284
+00:12:09,519 --> 00:12:12,240
+close it
+
+285
+00:12:10,720 --> 00:12:15,200
+okay close it
+
+286
+00:12:12,240 --> 00:12:18,720
+now let's try again do it you see
+
+287
+00:12:15,200 --> 00:12:22,720
+fantastic undo you see here's the url i
+
+288
+00:12:18,720 --> 00:12:26,480
+want to linkify it and i also want to
+
+289
+00:12:22,720 --> 00:12:29,680
+make it a html list okay url
+
+290
+00:12:26,480 --> 00:12:31,920
+do it now it becomes a beast but
+
+291
+00:12:29,680 --> 00:12:33,600
+but the buffer you know doesn't
+
+292
+00:12:31,920 --> 00:12:37,600
+it doesn't shift
+
+293
+00:12:33,600 --> 00:12:41,279
+okay that's fixed showing browser
+
+294
+00:12:37,600 --> 00:12:43,360
+fantastic it's right here okay fantastic
+
+295
+00:12:41,279 --> 00:12:47,040
+okay that's the digression
+
+296
+00:12:43,360 --> 00:12:49,040
+to emac this let's go back okay go to
+
+297
+00:12:47,040 --> 00:12:52,000
+talk show yeah open it
+
+298
+00:12:49,040 --> 00:12:55,519
+uh actually net renamed you see there is
+
+299
+00:12:52,000 --> 00:12:58,160
+a underscore that's a arrow yeah so
+
+300
+00:12:55,519 --> 00:13:00,000
+digression to emac this again
+
+301
+00:12:58,160 --> 00:13:03,200
+you see
+
+302
+00:13:00,000 --> 00:13:05,040
+this link start talk show
+
+303
+00:13:03,200 --> 00:13:06,399
+if i press enter
+
+304
+00:13:05,040 --> 00:13:08,720
+it will open the file
+
+305
+00:13:06,399 --> 00:13:11,600
+and now show in browser that is today's
+
+306
+00:13:08,720 --> 00:13:14,639
+talk show page go back to emacs close
+
+307
+00:13:11,600 --> 00:13:16,800
+this buffer now we are back to this link
+
+308
+00:13:14,639 --> 00:13:19,200
+talk show link now you notice there's an
+
+309
+00:13:16,800 --> 00:13:21,600
+underscore there we don't want that so
+
+310
+00:13:19,200 --> 00:13:23,920
+we what we need to do is to rename the
+
+311
+00:13:21,600 --> 00:13:26,240
+file without the underscore
+
+312
+00:13:23,920 --> 00:13:29,360
+so normally what you do is you open the
+
+313
+00:13:26,240 --> 00:13:31,680
+file you go to direct
+
+314
+00:13:29,360 --> 00:13:33,680
+hide the unix information so this is the
+
+315
+00:13:31,680 --> 00:13:36,079
+file you can see there's an underscore
+
+316
+00:13:33,680 --> 00:13:39,360
+there and what what you can do
+
+317
+00:13:36,079 --> 00:13:39,360
+you can you can call
+
+318
+00:13:40,160 --> 00:13:45,360
+you can call this function uh
+
+319
+00:13:42,480 --> 00:13:48,959
+toggle read only mod then you can start
+
+320
+00:13:45,360 --> 00:13:51,279
+to change name change name okay
+
+321
+00:13:48,959 --> 00:13:54,240
+for example dd that or whatever
+
+322
+00:13:51,279 --> 00:13:55,920
+then press ctrl c ctrl c
+
+323
+00:13:54,240 --> 00:13:57,040
+that name is changed
+
+324
+00:13:55,920 --> 00:13:58,639
+open it
+
+325
+00:13:57,040 --> 00:14:01,760
+showing browser
+
+326
+00:13:58,639 --> 00:14:05,279
+you can see the url field that file name
+
+327
+00:14:01,760 --> 00:14:10,240
+has been changed okay that's the typical
+
+328
+00:14:05,279 --> 00:14:13,120
+way you change a file name in emacs
+
+329
+00:14:10,240 --> 00:14:14,800
+very useful okay now close that now we
+
+330
+00:14:13,120 --> 00:14:16,720
+are back in this link
+
+331
+00:14:14,800 --> 00:14:19,040
+now this link will no longer work
+
+332
+00:14:16,720 --> 00:14:21,360
+because we already changed the file name
+
+333
+00:14:19,040 --> 00:14:26,079
+you see if i press enter it says file
+
+334
+00:14:21,360 --> 00:14:28,639
+not not exist okay if i show in browser
+
+335
+00:14:26,079 --> 00:14:31,279
+that's this link click it
+
+336
+00:14:28,639 --> 00:14:33,199
+you know it doesn't work because we just
+
+337
+00:14:31,279 --> 00:14:34,720
+changed the name
+
+338
+00:14:33,199 --> 00:14:36,720
+okay now
+
+339
+00:14:34,720 --> 00:14:40,560
+let me let me do this quickly and change
+
+340
+00:14:36,720 --> 00:14:40,560
+the name back okay so
+
+341
+00:14:40,720 --> 00:14:45,279
+uh toggle read only
+
+342
+00:14:43,600 --> 00:14:49,199
+and delete that
+
+343
+00:14:45,279 --> 00:14:51,760
+okay do it you see that's done close it
+
+344
+00:14:49,199 --> 00:14:54,240
+now back in browser click on that it's
+
+345
+00:14:51,760 --> 00:14:55,040
+work it worked again so what we have
+
+346
+00:14:54,240 --> 00:14:56,560
+done
+
+347
+00:14:55,040 --> 00:14:59,600
+we have just done
+
+348
+00:14:56,560 --> 00:15:02,720
+the changing file names in emacs very
+
+349
+00:14:59,600 --> 00:15:02,720
+supremely efficient
+
+350
+00:15:03,040 --> 00:15:06,000
+okay with this a lot of digressions here
+
+351
+00:15:05,199 --> 00:15:08,000
+so
+
+352
+00:15:06,000 --> 00:15:10,320
+why two keyboards okay i'm gonna answer
+
+353
+00:15:08,000 --> 00:15:13,839
+answer that well if you watch my
+
+354
+00:15:10,320 --> 00:15:13,839
+past three videos you'll see
+
+355
+00:15:14,480 --> 00:15:19,040
+uh well the two key
+
+356
+00:15:16,320 --> 00:15:21,199
+okay so this keyboard is used as a macro
+
+357
+00:15:19,040 --> 00:15:23,040
+keypad marker so everything you know
+
+358
+00:15:21,199 --> 00:15:27,120
+switch browser i explained that many
+
+359
+00:15:23,040 --> 00:15:30,720
+times in my past videos so switch tab
+
+360
+00:15:27,120 --> 00:15:32,000
+switch tab switch to last window
+
+361
+00:15:30,720 --> 00:15:34,240
+open a new
+
+362
+00:15:32,000 --> 00:15:36,959
+uh
+
+363
+00:15:34,240 --> 00:15:38,959
+open a new tab for example uh wait this
+
+364
+00:15:36,959 --> 00:15:42,720
+one okay open a new tab
+
+365
+00:15:38,959 --> 00:15:44,480
+close it you know things like that
+
+366
+00:15:42,720 --> 00:15:47,199
+that's what so that's the ultimate
+
+367
+00:15:44,480 --> 00:15:49,839
+hacking keyboard i use it a as a
+
+368
+00:15:47,199 --> 00:15:52,639
+keyboard macro and
+
+369
+00:15:49,839 --> 00:15:56,399
+go to keyboard blog just search for xrd
+
+370
+00:15:52,639 --> 00:15:59,199
+keyboard bug and click on ergo keyboards
+
+371
+00:15:56,399 --> 00:16:01,440
+you can see my review of the kinesis
+
+372
+00:15:59,199 --> 00:16:02,880
+advantage 2
+
+373
+00:16:01,440 --> 00:16:06,480
+lots of photos
+
+374
+00:16:02,880 --> 00:16:08,880
+details detailed review and video review
+
+375
+00:16:06,480 --> 00:16:11,600
+that's kinesis advantage too
+
+376
+00:16:08,880 --> 00:16:14,959
+so back and the ultimate hacking
+
+377
+00:16:11,600 --> 00:16:18,399
+keyboard is this one fantastic okay so
+
+378
+00:16:14,959 --> 00:16:20,560
+go buy them for my amazon link
+
+379
+00:16:18,399 --> 00:16:22,880
+support me and if you you know like my
+
+380
+00:16:20,560 --> 00:16:26,399
+stuff donate okay
+
+381
+00:16:22,880 --> 00:16:28,880
+donate paypal patreon uh uh amazon gift
+
+382
+00:16:26,399 --> 00:16:31,120
+card and i have all links on the you
+
+383
+00:16:28,880 --> 00:16:34,399
+know yeah watch this video watch this
+
+384
+00:16:31,120 --> 00:16:35,440
+one or this this one keyboard guide you
+
+385
+00:16:34,399 --> 00:16:39,600
+can see
+
+386
+00:16:35,440 --> 00:16:43,199
+i go over the keyboards but not today
+
+387
+00:16:39,600 --> 00:16:46,959
+okay so the open last opened so let's ah
+
+388
+00:16:43,199 --> 00:16:50,160
+[ __ ] like you see that that one is uh
+
+389
+00:16:46,959 --> 00:16:52,959
+this marker is old f4 which close the
+
+390
+00:16:50,160 --> 00:16:57,519
+window so i want to reload relaunch the
+
+391
+00:16:52,959 --> 00:16:57,519
+bavardi browser this button okay
+
+392
+00:16:57,680 --> 00:17:02,800
+uh where can i see it
+
+393
+00:17:00,560 --> 00:17:05,120
+yeah you can see so this button okay you
+
+394
+00:17:02,800 --> 00:17:08,079
+can barely see it
+
+395
+00:17:05,120 --> 00:17:09,760
+let's see if i can adjust it okay press
+
+396
+00:17:08,079 --> 00:17:13,600
+it
+
+397
+00:17:09,760 --> 00:17:15,919
+my body is back okay now hide this uh
+
+398
+00:17:13,600 --> 00:17:19,039
+obs
+
+399
+00:17:15,919 --> 00:17:21,839
+okay so what i want to uh yeah so we
+
+400
+00:17:19,039 --> 00:17:24,799
+digress a little bit so let me get back
+
+401
+00:17:21,839 --> 00:17:27,199
+so we have just done the changing file
+
+402
+00:17:24,799 --> 00:17:28,880
+names in emacs so what is this page
+
+403
+00:17:27,199 --> 00:17:31,520
+keyboard page okay
+
+404
+00:17:28,880 --> 00:17:36,400
+back to emacs copy the file path close
+
+405
+00:17:31,520 --> 00:17:36,400
+it open saudi talk show
+
+406
+00:17:37,039 --> 00:17:42,080
+paste it here
+
+407
+00:17:38,559 --> 00:17:44,480
+linkify and make a list show in browser
+
+408
+00:17:42,080 --> 00:17:47,039
+there it is that's the things we talked
+
+409
+00:17:44,480 --> 00:17:48,960
+about if actually
+
+410
+00:17:47,039 --> 00:17:50,559
+i want to link to
+
+411
+00:17:48,960 --> 00:17:53,600
+this one so
+
+412
+00:17:50,559 --> 00:17:56,480
+so people can actually see it okay
+
+413
+00:17:53,600 --> 00:17:59,360
+i mean the the video okay so close that
+
+414
+00:17:56,480 --> 00:18:01,200
+back to switch close that
+
+415
+00:17:59,360 --> 00:18:04,559
+emoji okay let's
+
+416
+00:18:01,200 --> 00:18:04,559
+go back to emoji so
+
+417
+00:18:05,039 --> 00:18:10,559
+digression about how to change file
+
+418
+00:18:07,760 --> 00:18:12,799
+names in emacs but we haven't done yet
+
+419
+00:18:10,559 --> 00:18:15,600
+okay so i mean there's more so close
+
+420
+00:18:12,799 --> 00:18:17,039
+this so back to this thing okay let me
+
+421
+00:18:15,600 --> 00:18:18,080
+talk about this
+
+422
+00:18:17,039 --> 00:18:19,679
+uh
+
+423
+00:18:18,080 --> 00:18:20,880
+so before
+
+424
+00:18:19,679 --> 00:18:24,320
+we
+
+425
+00:18:20,880 --> 00:18:28,080
+open the file go to diet hide the unix
+
+426
+00:18:24,320 --> 00:18:30,880
+part then we change the file name by
+
+427
+00:18:28,080 --> 00:18:33,120
+calling toggle um the command is let me
+
+428
+00:18:30,880 --> 00:18:36,559
+show you the name
+
+429
+00:18:33,120 --> 00:18:38,480
+the command is styled toggle read only
+
+430
+00:18:36,559 --> 00:18:41,039
+once you call that you can you can just
+
+431
+00:18:38,480 --> 00:18:43,200
+edit find replace whatever and press a
+
+432
+00:18:41,039 --> 00:18:45,840
+button all file names will be changed
+
+433
+00:18:43,200 --> 00:18:49,039
+fantastic but now there's another more
+
+434
+00:18:45,840 --> 00:18:53,280
+efficient way more efficient
+
+435
+00:18:49,039 --> 00:18:55,600
+html mod so if you are in html mod
+
+436
+00:18:53,280 --> 00:18:57,600
+if you are a blogger
+
+437
+00:18:55,600 --> 00:19:00,880
+and if you are using emacs and if you
+
+438
+00:18:57,600 --> 00:19:02,960
+are using html mod which is a package
+
+439
+00:19:00,880 --> 00:19:05,679
+excel on my website just search it
+
+440
+00:19:02,960 --> 00:19:09,679
+search for it there's a more quick way
+
+441
+00:19:05,679 --> 00:19:09,679
+to change the file name
+
+442
+00:19:09,840 --> 00:19:13,919
+in in a link
+
+443
+00:19:11,760 --> 00:19:15,840
+you know without going to diet so for
+
+444
+00:19:13,919 --> 00:19:18,960
+example right now
+
+445
+00:19:15,840 --> 00:19:21,280
+on this file i can open it close it now
+
+446
+00:19:18,960 --> 00:19:25,280
+i want to rename it without underscore
+
+447
+00:19:21,280 --> 00:19:26,799
+so what i do i just press three keys
+
+448
+00:19:25,280 --> 00:19:28,640
+okay
+
+449
+00:19:26,799 --> 00:19:30,160
+so you can see at the bottom
+
+450
+00:19:28,640 --> 00:19:32,559
+it says
+
+451
+00:19:30,160 --> 00:19:33,840
+you know new name okay so i just edit it
+
+452
+00:19:32,559 --> 00:19:34,799
+here
+
+453
+00:19:33,840 --> 00:19:37,679
+do it
+
+454
+00:19:34,799 --> 00:19:38,960
+done okay now you can see underscore is
+
+455
+00:19:37,679 --> 00:19:40,720
+gone
+
+456
+00:19:38,960 --> 00:19:43,280
+press enter to open it
+
+457
+00:19:40,720 --> 00:19:44,320
+showing browser fantastic
+
+458
+00:19:43,280 --> 00:19:45,280
+close it
+
+459
+00:19:44,320 --> 00:19:47,360
+now this
+
+460
+00:19:45,280 --> 00:19:50,320
+now this is the previous you know with
+
+461
+00:19:47,360 --> 00:19:53,120
+underscore if you reload that no longer
+
+462
+00:19:50,320 --> 00:19:54,960
+exists correct close it
+
+463
+00:19:53,120 --> 00:19:58,400
+okay
+
+464
+00:19:54,960 --> 00:20:01,520
+so that's digression so uh so okay so
+
+465
+00:19:58,400 --> 00:20:02,799
+let's put it uh put we
+
+466
+00:20:01,520 --> 00:20:06,400
+so
+
+467
+00:20:02,799 --> 00:20:08,960
+combine the list combine the list
+
+468
+00:20:06,400 --> 00:20:10,640
+let's put what we talked about here okay
+
+469
+00:20:08,960 --> 00:20:14,000
+so
+
+470
+00:20:10,640 --> 00:20:14,000
+so the command name is
+
+471
+00:20:15,919 --> 00:20:22,640
+okay and this one in fact there is a url
+
+472
+00:20:20,720 --> 00:20:25,360
+so if you want the code you can actually
+
+473
+00:20:22,640 --> 00:20:27,600
+grab it here or you can just get
+
+474
+00:20:25,360 --> 00:20:32,240
+html mod okay
+
+475
+00:20:27,600 --> 00:20:32,240
+this is my mod let's turn on javascript
+
+476
+00:20:33,039 --> 00:20:39,200
+okay so this is a kind of demo of size
+
+477
+00:20:36,240 --> 00:20:41,760
+html mod you can buy it it's open source
+
+478
+00:20:39,200 --> 00:20:44,320
+but you have to pay me okay
+
+479
+00:20:41,760 --> 00:20:45,520
+so copy that back to emacs
+
+480
+00:20:44,320 --> 00:20:48,640
+close that
+
+481
+00:20:45,520 --> 00:20:49,919
+and actually reopen that okay so anyway
+
+482
+00:20:48,640 --> 00:20:51,919
+so
+
+483
+00:20:49,919 --> 00:20:53,679
+we are we paste the link
+
+484
+00:20:51,919 --> 00:20:56,720
+and
+
+485
+00:20:53,679 --> 00:20:56,720
+describe function
+
+486
+00:20:57,679 --> 00:21:00,880
+that
+
+487
+00:20:58,799 --> 00:21:05,039
+and this
+
+488
+00:21:00,880 --> 00:21:07,360
+and go to the website copy the url back
+
+489
+00:21:05,039 --> 00:21:09,120
+to emacs
+
+490
+00:21:07,360 --> 00:21:11,120
+close this window
+
+491
+00:21:09,120 --> 00:21:12,159
+expand unsplit
+
+492
+00:21:11,120 --> 00:21:16,000
+then
+
+493
+00:21:12,159 --> 00:21:18,240
+enter paste the url then linkify link
+
+494
+00:21:16,000 --> 00:21:18,240
+them
+
+495
+00:21:21,440 --> 00:21:25,039
+okay they jumped again but anyway so
+
+496
+00:21:24,000 --> 00:21:28,159
+link it
+
+497
+00:21:25,039 --> 00:21:29,840
+remove the you know remove the extra url
+
+498
+00:21:28,159 --> 00:21:31,440
+there do it
+
+499
+00:21:29,840 --> 00:21:34,400
+combine the lines
+
+500
+00:21:31,440 --> 00:21:39,200
+combine the lines show in browser
+
+501
+00:21:34,400 --> 00:21:40,480
+okay that's the size html mod
+
+502
+00:21:39,200 --> 00:21:43,679
+and
+
+503
+00:21:40,480 --> 00:21:46,320
+rename file source html rename source
+
+504
+00:21:43,679 --> 00:21:48,559
+file path okay we
+
+505
+00:21:46,320 --> 00:21:52,000
+we went over several different things
+
+506
+00:21:48,559 --> 00:21:54,480
+now let's get back to unicode
+
+507
+00:21:52,000 --> 00:21:57,120
+good morning andrew
+
+508
+00:21:54,480 --> 00:21:59,280
+uh and okay so and good good morning
+
+509
+00:21:57,120 --> 00:22:01,840
+alan i'll get back to the comments in a
+
+510
+00:21:59,280 --> 00:22:03,280
+bit so let me continue
+
+511
+00:22:01,840 --> 00:22:04,960
+talking about
+
+512
+00:22:03,280 --> 00:22:07,760
+unicode okay
+
+513
+00:22:04,960 --> 00:22:08,559
+uh unicode and javascript so this you
+
+514
+00:22:07,760 --> 00:22:12,000
+know
+
+515
+00:22:08,559 --> 00:22:15,039
+we demonstrated copy it did we have the
+
+516
+00:22:12,000 --> 00:22:17,840
+yeah we have an invert text so go back
+
+517
+00:22:15,039 --> 00:22:21,120
+let me show you some others so this one
+
+518
+00:22:17,840 --> 00:22:24,080
+is gothic okay this is called
+
+519
+00:22:21,120 --> 00:22:24,840
+uh math font okay
+
+520
+00:22:24,080 --> 00:22:28,320
+so
+
+521
+00:22:24,840 --> 00:22:31,200
+again you can just type
+
+522
+00:22:28,320 --> 00:22:32,240
+anything here okay you'll convert them
+
+523
+00:22:31,200 --> 00:22:35,360
+to this
+
+524
+00:22:32,240 --> 00:22:36,960
+uh unicode gothic font and you can
+
+525
+00:22:35,360 --> 00:22:40,559
+change them to
+
+526
+00:22:36,960 --> 00:22:42,559
+double stroke font magnify
+
+527
+00:22:40,559 --> 00:22:44,880
+or math bold
+
+528
+00:22:42,559 --> 00:22:47,200
+math italic
+
+529
+00:22:44,880 --> 00:22:48,559
+math script
+
+530
+00:22:47,200 --> 00:22:51,360
+math mono
+
+531
+00:22:48,559 --> 00:22:53,360
+math bono is not interesting now this is
+
+532
+00:22:51,360 --> 00:22:56,480
+the unicode characters they are mono
+
+533
+00:22:53,360 --> 00:22:58,400
+spaced but however it's not
+
+534
+00:22:56,480 --> 00:22:59,440
+it's actually not changing font it's
+
+535
+00:22:58,400 --> 00:23:03,280
+just a
+
+536
+00:22:59,440 --> 00:23:04,799
+unicode characters so you can copy this
+
+537
+00:23:03,280 --> 00:23:07,039
+copy it
+
+538
+00:23:04,799 --> 00:23:07,039
+and
+
+539
+00:23:07,520 --> 00:23:11,840
+go to twitter
+
+540
+00:23:09,600 --> 00:23:13,039
+the drama stuff and paste it there you
+
+541
+00:23:11,840 --> 00:23:15,600
+can see
+
+542
+00:23:13,039 --> 00:23:18,000
+that's how you do that
+
+543
+00:23:15,600 --> 00:23:20,880
+without you know changing font and stuff
+
+544
+00:23:18,000 --> 00:23:23,679
+okay close that do i want to save
+
+545
+00:23:20,880 --> 00:23:27,360
+stupid twitter close that
+
+546
+00:23:23,679 --> 00:23:29,679
+okay so that's math font
+
+547
+00:23:27,360 --> 00:23:32,080
+demonstration okay so
+
+548
+00:23:29,679 --> 00:23:34,799
+click that copy the url
+
+549
+00:23:32,080 --> 00:23:37,840
+back to emacs let's let's paste them
+
+550
+00:23:34,799 --> 00:23:37,840
+here so
+
+551
+00:23:38,799 --> 00:23:41,840
+so we have a record of what we talked
+
+552
+00:23:40,880 --> 00:23:44,240
+about
+
+553
+00:23:41,840 --> 00:23:48,320
+go back now let me show you now this is
+
+554
+00:23:44,240 --> 00:23:48,320
+spectacular this is roon
+
+555
+00:23:49,039 --> 00:23:54,720
+this is spec
+
+556
+00:23:52,000 --> 00:23:54,720
+s-p-c
+
+557
+00:23:54,919 --> 00:24:02,320
+t-a-c-u-l-a-r
+
+558
+00:23:56,480 --> 00:24:05,279
+this is unicode roon okay now this is uh
+
+559
+00:24:02,320 --> 00:24:07,600
+white people's obsession they love these
+
+560
+00:24:05,279 --> 00:24:10,720
+room characters so you have you there
+
+561
+00:24:07,600 --> 00:24:14,240
+are several versions of you roon is the
+
+562
+00:24:10,720 --> 00:24:16,640
+kind of the ancestor of the english
+
+563
+00:24:14,240 --> 00:24:19,200
+writing system okay
+
+564
+00:24:16,640 --> 00:24:21,039
+so you get you have elder roon or
+
+565
+00:24:19,200 --> 00:24:21,919
+germanic okay you know something like
+
+566
+00:24:21,039 --> 00:24:23,200
+that
+
+567
+00:24:21,919 --> 00:24:25,360
+so um
+
+568
+00:24:23,200 --> 00:24:26,400
+so you have several versions in history
+
+569
+00:24:25,360 --> 00:24:27,600
+elder
+
+570
+00:24:26,400 --> 00:24:29,039
+june
+
+571
+00:24:27,600 --> 00:24:32,640
+anglo-saxon
+
+572
+00:24:29,039 --> 00:24:35,279
+tolkien you know lord of the rings of
+
+573
+00:24:32,640 --> 00:24:38,240
+it's a fantasy the obsession of many
+
+574
+00:24:35,279 --> 00:24:40,159
+nerds tokyo
+
+575
+00:24:38,240 --> 00:24:42,799
+you know that that load of the rings i
+
+576
+00:24:40,159 --> 00:24:44,000
+didn't like it that much rather i like
+
+577
+00:24:42,799 --> 00:24:45,840
+the
+
+578
+00:24:44,000 --> 00:24:48,559
+you know the modern one game of the
+
+579
+00:24:45,840 --> 00:24:52,159
+thrones i like that
+
+580
+00:24:48,559 --> 00:24:53,679
+that uh tv series series very much but
+
+581
+00:24:52,159 --> 00:24:55,039
+the tokens
+
+582
+00:24:53,679 --> 00:24:58,320
+you know the lord of the rings the
+
+583
+00:24:55,039 --> 00:25:00,720
+movies i didn't like it
+
+584
+00:24:58,320 --> 00:25:02,960
+so you have several versions of room
+
+585
+00:25:00,720 --> 00:25:05,360
+medieval okay so that's unicode room
+
+586
+00:25:02,960 --> 00:25:08,080
+copy the url back to emacs
+
+587
+00:25:05,360 --> 00:25:10,799
+paste it here back to unicode
+
+588
+00:25:08,080 --> 00:25:11,840
+back to previous page and now you have
+
+589
+00:25:10,799 --> 00:25:15,840
+the
+
+590
+00:25:11,840 --> 00:25:15,840
+cricut unicode braille okay
+
+591
+00:25:16,480 --> 00:25:21,120
+select all
+
+592
+00:25:17,919 --> 00:25:24,240
+unicode braille
+
+593
+00:25:21,120 --> 00:25:27,440
+so this is a
+
+594
+00:25:24,240 --> 00:25:27,440
+poor man
+
+595
+00:25:27,760 --> 00:25:30,760
+cryptograph
+
+596
+00:25:30,880 --> 00:25:35,039
+okay
+
+597
+00:25:32,480 --> 00:25:38,159
+so and you can also copy that
+
+598
+00:25:35,039 --> 00:25:39,919
+copy that go back here select go paste
+
+599
+00:25:38,159 --> 00:25:42,559
+it and
+
+600
+00:25:39,919 --> 00:25:46,400
+and convert it back to english so you
+
+601
+00:25:42,559 --> 00:25:48,240
+can use this as a cryptograph
+
+602
+00:25:46,400 --> 00:25:50,400
+among friends
+
+603
+00:25:48,240 --> 00:25:53,360
+okay unicode braille copy the url back
+
+604
+00:25:50,400 --> 00:25:55,200
+to emacs paste it here linkify and make
+
+605
+00:25:53,360 --> 00:25:57,360
+them into a list and delete the
+
+606
+00:25:55,200 --> 00:26:00,799
+redundant ul
+
+607
+00:25:57,360 --> 00:26:03,039
+and compact the lines shown in browser
+
+608
+00:26:00,799 --> 00:26:05,760
+so that is what we have talked about
+
+609
+00:26:03,039 --> 00:26:08,159
+today so far fantastic now
+
+610
+00:26:05,760 --> 00:26:09,679
+to the kind of the main topic what i
+
+611
+00:26:08,159 --> 00:26:11,200
+wanted to do
+
+612
+00:26:09,679 --> 00:26:13,440
+is to
+
+613
+00:26:11,200 --> 00:26:15,679
+let's say let's go to food
+
+614
+00:26:13,440 --> 00:26:17,600
+okay let's go to let's go to something
+
+615
+00:26:15,679 --> 00:26:20,159
+interesting food in
+
+616
+00:26:17,600 --> 00:26:22,799
+vehicles okay food
+
+617
+00:26:20,159 --> 00:26:24,400
+now i want to so you can see
+
+618
+00:26:22,799 --> 00:26:27,440
+okay let me explain what's going on
+
+619
+00:26:24,400 --> 00:26:29,600
+first okay show character info high
+
+620
+00:26:27,440 --> 00:26:31,039
+character info let me explain
+
+621
+00:26:29,600 --> 00:26:32,960
+what is it
+
+622
+00:26:31,039 --> 00:26:36,240
+that we uh
+
+623
+00:26:32,960 --> 00:26:39,120
+okay here is a great example unicode
+
+624
+00:26:36,240 --> 00:26:42,080
+cultural and religious symbols okay so
+
+625
+00:26:39,120 --> 00:26:45,200
+you have the christians cross of
+
+626
+00:26:42,080 --> 00:26:48,159
+diverse varieties now these are all
+
+627
+00:26:45,200 --> 00:26:50,000
+greek cross which is used as a logo of
+
+628
+00:26:48,159 --> 00:26:52,799
+the red cross
+
+629
+00:26:50,000 --> 00:26:55,200
+you know the the kind of uh
+
+630
+00:26:52,799 --> 00:26:57,520
+medical emergency you know red cross
+
+631
+00:26:55,200 --> 00:27:00,240
+then you have various you know uh greek
+
+632
+00:26:57,520 --> 00:27:03,600
+cross you have uh
+
+633
+00:27:00,240 --> 00:27:06,000
+black cross on shield you know
+
+634
+00:27:03,600 --> 00:27:08,720
+your you know varieties you know many of
+
+635
+00:27:06,000 --> 00:27:10,720
+these uh cross symbols are ancient you
+
+636
+00:27:08,720 --> 00:27:13,279
+know two thousand two thousand years ago
+
+637
+00:27:10,720 --> 00:27:15,600
+so then then you have the latin cross
+
+638
+00:27:13,279 --> 00:27:18,399
+which is very classic okay then you have
+
+639
+00:27:15,600 --> 00:27:20,159
+other you know this um
+
+640
+00:27:18,399 --> 00:27:23,200
+permanent you know this this is a
+
+641
+00:27:20,159 --> 00:27:25,360
+christian's symbol you know orthodox
+
+642
+00:27:23,200 --> 00:27:27,600
+typical symbol for
+
+643
+00:27:25,360 --> 00:27:30,399
+lower rank feast okay
+
+644
+00:27:27,600 --> 00:27:32,000
+i'm not familiar with it but alan
+
+645
+00:27:30,399 --> 00:27:34,720
+probably you know
+
+646
+00:27:32,000 --> 00:27:36,480
+about these symbols you study
+
+647
+00:27:34,720 --> 00:27:38,640
+um orthodox
+
+648
+00:27:36,480 --> 00:27:41,200
+christian symbols and you know so there
+
+649
+00:27:38,640 --> 00:27:43,440
+are many diverse oh and this one the
+
+650
+00:27:41,200 --> 00:27:46,720
+dramatic the american the white people's
+
+651
+00:27:43,440 --> 00:27:49,120
+obsession this cross okay and there's
+
+652
+00:27:46,720 --> 00:27:53,679
+there is this
+
+653
+00:27:49,120 --> 00:27:56,880
+this cross variety okay
+
+654
+00:27:53,679 --> 00:27:58,960
+let's not talk about that okay and uh
+
+655
+00:27:56,880 --> 00:27:59,919
+some of them are not shown because you
+
+656
+00:27:58,960 --> 00:28:01,919
+know the
+
+657
+00:27:59,919 --> 00:28:04,399
+you know the people you know they they
+
+658
+00:28:01,919 --> 00:28:06,640
+haven't developed the
+
+659
+00:28:04,399 --> 00:28:08,799
+font yet even though it's already two
+
+660
+00:28:06,640 --> 00:28:10,320
+years old but they just
+
+661
+00:28:08,799 --> 00:28:14,559
+kind of you know this is kind of
+
+662
+00:28:10,320 --> 00:28:16,880
+implicit implicit refusal to create the
+
+663
+00:28:14,559 --> 00:28:19,520
+funds for these characters now this deep
+
+664
+00:28:16,880 --> 00:28:21,760
+history of these characters this this
+
+665
+00:28:19,520 --> 00:28:23,919
+character let me tell you
+
+666
+00:28:21,760 --> 00:28:26,799
+when did it origin you know to the
+
+667
+00:28:23,919 --> 00:28:30,399
+typical american or you know you might
+
+668
+00:28:26,799 --> 00:28:32,240
+say oh that's a 1940s
+
+669
+00:28:30,399 --> 00:28:33,840
+you know a certain country in europe
+
+670
+00:28:32,240 --> 00:28:36,880
+wrong
+
+671
+00:28:33,840 --> 00:28:39,440
+this is chinese character asian
+
+672
+00:28:36,880 --> 00:28:41,760
+africa the origin is actually indian
+
+673
+00:28:39,440 --> 00:28:44,080
+okay two more than two thousand years
+
+674
+00:28:41,760 --> 00:28:48,159
+old okay
+
+675
+00:28:44,080 --> 00:28:50,399
+uh so i like these symbols okay that's
+
+676
+00:28:48,159 --> 00:28:51,760
+not whatever you think it is you [ __ ]
+
+677
+00:28:50,399 --> 00:28:54,080
+[ __ ]
+
+678
+00:28:51,760 --> 00:28:56,720
+you you know the the the telling people
+
+679
+00:28:54,080 --> 00:28:58,880
+what to do okay this is
+
+680
+00:28:56,720 --> 00:29:02,640
+buddhist symbol
+
+681
+00:28:58,880 --> 00:29:04,880
+in india and china okay and in fact this
+
+682
+00:29:02,640 --> 00:29:07,039
+this particular you can see the unicode
+
+683
+00:29:04,880 --> 00:29:10,559
+name for this character is
+
+684
+00:29:07,039 --> 00:29:12,880
+cjk idiograph okay it's not whatever you
+
+685
+00:29:10,559 --> 00:29:13,760
+know the name you know i don't even want
+
+686
+00:29:12,880 --> 00:29:16,880
+to
+
+687
+00:29:13,760 --> 00:29:19,279
+uh say the name because today's society
+
+688
+00:29:16,880 --> 00:29:21,679
+you know the social justice scan
+
+689
+00:29:19,279 --> 00:29:23,760
+in america especially in particular are
+
+690
+00:29:21,679 --> 00:29:25,520
+so [ __ ] up like you know they're gonna
+
+691
+00:29:23,760 --> 00:29:28,320
+censor you
+
+692
+00:29:25,520 --> 00:29:30,159
+if you talk about these things okay so
+
+693
+00:29:28,320 --> 00:29:32,480
+that's another digression but let's go
+
+694
+00:29:30,159 --> 00:29:34,880
+back so christian cross there are many
+
+695
+00:29:32,480 --> 00:29:39,120
+varieties and this one this is not
+
+696
+00:29:34,880 --> 00:29:42,240
+exactly a cross this is anch okay it's a
+
+697
+00:29:39,120 --> 00:29:44,240
+origin is egyptian okay it's egyptian
+
+698
+00:29:42,240 --> 00:29:45,279
+symbol
+
+699
+00:29:44,240 --> 00:29:47,200
+uh
+
+700
+00:29:45,279 --> 00:29:50,080
+you know you can look up wikipedia it
+
+701
+00:29:47,200 --> 00:29:52,559
+has uh some details okay
+
+702
+00:29:50,080 --> 00:29:56,000
+so they you know so many of these are
+
+703
+00:29:52,559 --> 00:29:58,159
+like cultural and religious symbols
+
+704
+00:29:56,000 --> 00:30:00,720
+okay now that's a bit digression and
+
+705
+00:29:58,159 --> 00:30:02,559
+also another digression is you see
+
+706
+00:30:00,720 --> 00:30:05,200
+this this
+
+707
+00:30:02,559 --> 00:30:07,600
+series of characters you know look
+
+708
+00:30:05,200 --> 00:30:09,200
+prosperity they are not sure because
+
+709
+00:30:07,600 --> 00:30:10,799
+they are not sure because there is no
+
+710
+00:30:09,200 --> 00:30:12,960
+fund why
+
+711
+00:30:10,799 --> 00:30:17,279
+racism
+
+712
+00:30:12,960 --> 00:30:19,679
+racism by the social justice factors
+
+713
+00:30:17,279 --> 00:30:21,520
+these are chinese characters but why why
+
+714
+00:30:19,679 --> 00:30:22,720
+didn't they just just like these okay
+
+715
+00:30:21,520 --> 00:30:24,399
+just like these
+
+716
+00:30:22,720 --> 00:30:26,640
+you have the characters you know you
+
+717
+00:30:24,399 --> 00:30:28,880
+have the characters in microsoft font
+
+718
+00:30:26,640 --> 00:30:31,679
+right now in my microsoft platform right
+
+719
+00:30:28,880 --> 00:30:34,320
+microsoft windows you have all these
+
+720
+00:30:31,679 --> 00:30:36,480
+but these why are they
+
+721
+00:30:34,320 --> 00:30:39,039
+how come you don't have fun
+
+722
+00:30:36,480 --> 00:30:44,320
+well i would i would say
+
+723
+00:30:39,039 --> 00:30:44,320
+it's kind of an implicit resistance okay
+
+724
+00:30:44,399 --> 00:30:48,320
+uh so they don't you know they don't
+
+725
+00:30:46,000 --> 00:30:50,399
+create fun for it and by the way related
+
+726
+00:30:48,320 --> 00:30:51,760
+let me show you another interesting
+
+727
+00:30:50,399 --> 00:30:52,799
+interesting
+
+728
+00:30:51,760 --> 00:30:56,159
+thing
+
+729
+00:30:52,799 --> 00:30:58,799
+censorship okay so we have many ancient
+
+730
+00:30:56,159 --> 00:31:01,519
+uh you know human writing systems
+
+731
+00:30:58,799 --> 00:31:03,200
+then one of the oldest
+
+732
+00:31:01,519 --> 00:31:07,840
+three thousand or four thousand years
+
+733
+00:31:03,200 --> 00:31:09,519
+old is egyptian okay let me show you
+
+734
+00:31:07,840 --> 00:31:12,159
+so egyptian
+
+735
+00:31:09,519 --> 00:31:15,360
+heliograph where is it
+
+736
+00:31:12,159 --> 00:31:17,679
+so you have tamil you have tibetan
+
+737
+00:31:15,360 --> 00:31:20,000
+tibetan is by the way spectacular it's
+
+738
+00:31:17,679 --> 00:31:20,000
+also
+
+739
+00:31:20,080 --> 00:31:23,919
+it's also very political the on these
+
+740
+00:31:22,559 --> 00:31:26,240
+topics for
+
+741
+00:31:23,919 --> 00:31:27,840
+many reasons okay so let me show you the
+
+742
+00:31:26,240 --> 00:31:30,240
+egyptian
+
+743
+00:31:27,840 --> 00:31:33,919
+so asian okay so this
+
+744
+00:31:30,240 --> 00:31:35,600
+helio glyph cuneiform kuniform is the
+
+745
+00:31:33,919 --> 00:31:38,000
+first
+
+746
+00:31:35,600 --> 00:31:42,480
+not the first okay good well
+
+747
+00:31:38,000 --> 00:31:44,159
+kuniform is even before hideo graph okay
+
+748
+00:31:42,480 --> 00:31:47,440
+so let me just show you show you okay
+
+749
+00:31:44,159 --> 00:31:50,080
+this spectacular spectacular unicorn
+
+750
+00:31:47,440 --> 00:31:52,880
+stuff ancient human writing systems
+
+751
+00:31:50,080 --> 00:31:54,559
+humanity history of human animals okay
+
+752
+00:31:52,880 --> 00:31:56,799
+this is cuneiform
+
+753
+00:31:54,559 --> 00:31:58,320
+uh then we have
+
+754
+00:31:56,799 --> 00:32:00,880
+linear b
+
+755
+00:31:58,320 --> 00:32:04,559
+again no font okay
+
+756
+00:32:00,880 --> 00:32:06,159
+then we have phoenician phonician is
+
+757
+00:32:04,559 --> 00:32:09,600
+kind of we
+
+758
+00:32:06,159 --> 00:32:12,000
+say it is the grand daddy the grand
+
+759
+00:32:09,600 --> 00:32:14,720
+grand grand you know the the first the
+
+760
+00:32:12,000 --> 00:32:17,440
+the we say that it's the root of the
+
+761
+00:32:14,720 --> 00:32:19,360
+english alphabet so you have phoenician
+
+762
+00:32:17,440 --> 00:32:21,360
+then you have the greek then you have
+
+763
+00:32:19,360 --> 00:32:23,600
+you know latin you know then you have
+
+764
+00:32:21,360 --> 00:32:25,840
+you know uh others but they all
+
+765
+00:32:23,600 --> 00:32:27,200
+originated from
+
+766
+00:32:25,840 --> 00:32:29,360
+they are orange
+
+767
+00:32:27,200 --> 00:32:32,480
+this phonation
+
+768
+00:32:29,360 --> 00:32:33,760
+is actually originated from the egyptian
+
+769
+00:32:32,480 --> 00:32:36,480
+heliograph
+
+770
+00:32:33,760 --> 00:32:39,519
+heliograph okay
+
+771
+00:32:36,480 --> 00:32:42,159
+uh and okay so asian characters so then
+
+772
+00:32:39,519 --> 00:32:43,440
+you have ruin is not that old ruin is
+
+773
+00:32:42,159 --> 00:32:46,080
+like uh
+
+774
+00:32:43,440 --> 00:32:48,480
+year one thousand year eight hundred
+
+775
+00:32:46,080 --> 00:32:52,240
+something somewhere around there but the
+
+776
+00:32:48,480 --> 00:32:55,360
+oldest that are the heliogram helioglyph
+
+777
+00:32:52,240 --> 00:32:58,240
+cuneiform linear b okay these three
+
+778
+00:32:55,360 --> 00:33:00,799
+linear b and no font by the way on the
+
+779
+00:32:58,240 --> 00:33:02,960
+mac you have the font okay
+
+780
+00:33:00,799 --> 00:33:05,679
+now google is telling me uh install
+
+781
+00:33:02,960 --> 00:33:06,640
+google translate no you cannot translate
+
+782
+00:33:05,679 --> 00:33:09,039
+it
+
+783
+00:33:06,640 --> 00:33:12,320
+linear b and linear a
+
+784
+00:33:09,039 --> 00:33:14,480
+okay so that's how they look i have a
+
+785
+00:33:12,320 --> 00:33:17,039
+image
+
+786
+00:33:14,480 --> 00:33:19,039
+so but what about the censorship okay so
+
+787
+00:33:17,039 --> 00:33:23,440
+let me show you so let's go back to the
+
+788
+00:33:19,039 --> 00:33:27,200
+egyptian helioglyph so this is uh
+
+789
+00:33:23,440 --> 00:33:28,799
+fantastic okay egyptian heliograph
+
+790
+00:33:27,200 --> 00:33:31,039
+so let's look
+
+791
+00:33:28,799 --> 00:33:32,399
+look okay let me just show you some
+
+792
+00:33:31,039 --> 00:33:35,360
+random
+
+793
+00:33:32,399 --> 00:33:38,320
+pages okay heliograph
+
+794
+00:33:35,360 --> 00:33:40,960
+you know they have cows their bulls in
+
+795
+00:33:38,320 --> 00:33:43,360
+different different postures
+
+796
+00:33:40,960 --> 00:33:44,880
+you know kneading and cut you know car
+
+797
+00:33:43,360 --> 00:33:46,159
+with a young
+
+798
+00:33:44,880 --> 00:33:48,399
+sucking
+
+799
+00:33:46,159 --> 00:33:51,440
+circling circling you know that's called
+
+800
+00:33:48,399 --> 00:33:55,200
+circling you marine gen idiots
+
+801
+00:33:51,440 --> 00:33:57,519
+which is sucking on tits okay
+
+802
+00:33:55,200 --> 00:34:01,279
+uh egyptian you know cow sucking uh you
+
+803
+00:33:57,519 --> 00:34:02,799
+know and deer and whatever meow horse
+
+804
+00:34:01,279 --> 00:34:05,600
+okay so
+
+805
+00:34:02,799 --> 00:34:06,480
+uh these are egyptian and what is this
+
+806
+00:34:05,600 --> 00:34:09,919
+one
+
+807
+00:34:06,480 --> 00:34:14,000
+so in monkey baboon so you have baboon
+
+808
+00:34:09,919 --> 00:34:16,399
+and you have um you know uh lions or um
+
+809
+00:34:14,000 --> 00:34:17,440
+you know big cats
+
+810
+00:34:16,399 --> 00:34:20,240
+panther
+
+811
+00:34:17,440 --> 00:34:22,800
+uh and you know lots of things
+
+812
+00:34:20,240 --> 00:34:22,800
+asian and
+
+813
+00:34:23,280 --> 00:34:27,760
+what is this i don't know
+
+814
+00:34:25,599 --> 00:34:31,599
+then you have paper clips
+
+815
+00:34:27,760 --> 00:34:31,599
+the microsoft clipper
+
+816
+00:34:33,200 --> 00:34:37,839
+hieroglyph okay right that's how you
+
+817
+00:34:35,200 --> 00:34:39,200
+pronounce it hieroglyph yeah not not he
+
+818
+00:34:37,839 --> 00:34:42,000
+you know not
+
+819
+00:34:39,200 --> 00:34:44,960
+hero hieroglyph okay so then then you
+
+820
+00:34:42,000 --> 00:34:48,960
+have you know birds you have uh you know
+
+821
+00:34:44,960 --> 00:34:53,359
+owls you have um
+
+822
+00:34:48,960 --> 00:34:55,040
+uh word vulture vulture eagle
+
+823
+00:34:53,359 --> 00:34:57,359
+uh you know
+
+824
+00:34:55,040 --> 00:34:59,520
+and you have queens
+
+825
+00:34:57,359 --> 00:35:00,720
+fascinating fascinating okay then you
+
+826
+00:34:59,520 --> 00:35:02,640
+have you know
+
+827
+00:35:00,720 --> 00:35:06,000
+uh whatever
+
+828
+00:35:02,640 --> 00:35:07,119
+sparrows or whatever duck you know geese
+
+829
+00:35:06,000 --> 00:35:08,240
+goose
+
+830
+00:35:07,119 --> 00:35:10,800
+uh
+
+831
+00:35:08,240 --> 00:35:13,760
+what is this
+
+832
+00:35:10,800 --> 00:35:17,280
+so eat you know snake eat and cobra you
+
+833
+00:35:13,760 --> 00:35:18,880
+know and frog pepe the frog there it is
+
+834
+00:35:17,280 --> 00:35:21,200
+in turtle
+
+835
+00:35:18,880 --> 00:35:25,520
+turtle and crocodile okay
+
+836
+00:35:21,200 --> 00:35:26,640
+very in and fly it you know flies in the
+
+837
+00:35:25,520 --> 00:35:29,200
+wasp
+
+838
+00:35:26,640 --> 00:35:31,520
+and beast and centipede
+
+839
+00:35:29,200 --> 00:35:33,920
+and whatever that that's a beetle must
+
+840
+00:35:31,520 --> 00:35:36,000
+be you know that's something like that
+
+841
+00:35:33,920 --> 00:35:39,040
+okay so very interesting then okay
+
+842
+00:35:36,000 --> 00:35:43,119
+there's a lot like you know there's uh
+
+843
+00:35:39,040 --> 00:35:44,960
+a thousand or two i i forgot
+
+844
+00:35:43,119 --> 00:35:48,320
+then you have you see
+
+845
+00:35:44,960 --> 00:35:51,440
+you have [ __ ] you have penis there
+
+846
+00:35:48,320 --> 00:35:54,480
+that's part of the egyptian helio glyph
+
+847
+00:35:51,440 --> 00:35:57,119
+okay so you have lots of thumbs those
+
+848
+00:35:54,480 --> 00:35:59,119
+are tardis like one one thumb two thumbs
+
+849
+00:35:57,119 --> 00:36:01,680
+three thumbs four thumbs
+
+850
+00:35:59,119 --> 00:36:04,640
+then five six seven you know then you
+
+851
+00:36:01,680 --> 00:36:06,079
+have this you know
+
+852
+00:36:04,640 --> 00:36:09,440
+what is that
+
+853
+00:36:06,079 --> 00:36:10,960
+a penis with a tower over it
+
+854
+00:36:09,440 --> 00:36:13,760
+so
+
+855
+00:36:10,960 --> 00:36:16,400
+so but look look okay so let's search
+
+856
+00:36:13,760 --> 00:36:19,359
+for let's let's see where are they so
+
+857
+00:36:16,400 --> 00:36:22,800
+that's the image okay
+
+858
+00:36:19,359 --> 00:36:25,520
+but microsoft windows they censored it
+
+859
+00:36:22,800 --> 00:36:27,520
+you know microsoft windows so you have
+
+860
+00:36:25,520 --> 00:36:30,000
+fonts all these things but
+
+861
+00:36:27,520 --> 00:36:31,839
+but those penises are censored they
+
+862
+00:36:30,000 --> 00:36:33,040
+don't have a they don't have a character
+
+863
+00:36:31,839 --> 00:36:34,960
+in the font
+
+864
+00:36:33,040 --> 00:36:37,920
+where is it let me let me show you okay
+
+865
+00:36:34,960 --> 00:36:37,920
+stop showing that
+
+866
+00:36:41,520 --> 00:36:49,920
+so go up go up we want to look for the
+
+867
+00:36:45,040 --> 00:36:49,920
+fingers part okay where is the fingers
+
+868
+00:36:50,000 --> 00:36:53,480
+lots of fingers
+
+869
+00:36:54,320 --> 00:36:56,400
+there
+
+870
+00:36:55,280 --> 00:36:59,359
+okay
+
+871
+00:36:56,400 --> 00:36:59,359
+where's the [ __ ]
+
+872
+00:36:59,520 --> 00:37:04,800
+there you see that square square square
+
+873
+00:37:03,920 --> 00:37:06,960
+that's
+
+874
+00:37:04,800 --> 00:37:08,880
+censorship
+
+875
+00:37:06,960 --> 00:37:12,560
+they censor
+
+876
+00:37:08,880 --> 00:37:15,280
+human animals you know uh history that's
+
+877
+00:37:12,560 --> 00:37:19,680
+what going on that's what is happening
+
+878
+00:37:15,280 --> 00:37:22,079
+censorship big story in america
+
+879
+00:37:19,680 --> 00:37:24,480
+by the christians by the christians
+
+880
+00:37:22,079 --> 00:37:27,680
+before and now by the social justice
+
+881
+00:37:24,480 --> 00:37:30,480
+warriors you know we are witnessing the
+
+882
+00:37:27,680 --> 00:37:32,720
+change you know the ebb and flow of
+
+883
+00:37:30,480 --> 00:37:34,480
+history you know what
+
+884
+00:37:32,720 --> 00:37:36,400
+you know what
+
+885
+00:37:34,480 --> 00:37:40,079
+you know they censor these things but
+
+886
+00:37:36,400 --> 00:37:43,520
+meanwhile the pornography is all over
+
+887
+00:37:40,079 --> 00:37:44,480
+town all over over you have cam girls
+
+888
+00:37:43,520 --> 00:37:46,800
+you know
+
+889
+00:37:44,480 --> 00:37:48,960
+only fans you know it's over but they
+
+890
+00:37:46,800 --> 00:37:51,599
+have to they they need to censor this
+
+891
+00:37:48,960 --> 00:37:54,880
+these these asian symbols
+
+892
+00:37:51,599 --> 00:37:57,040
+and also including google
+
+893
+00:37:54,880 --> 00:37:59,359
+let me tell you my sad story that you
+
+894
+00:37:57,040 --> 00:38:02,960
+know i'm trying to make a few
+
+895
+00:37:59,359 --> 00:38:07,200
+cents few dollars via google ads and
+
+896
+00:38:02,960 --> 00:38:07,200
+google keeps spamming me because
+
+897
+00:38:07,440 --> 00:38:11,280
+that's a digression but shall we talk
+
+898
+00:38:09,359 --> 00:38:14,920
+should i talk about it maybe a little
+
+899
+00:38:11,280 --> 00:38:14,920
+bit okay so
+
+900
+00:38:20,160 --> 00:38:25,680
+search for sally architectural beauties
+
+901
+00:38:22,880 --> 00:38:28,560
+okay now you see these are photos from
+
+902
+00:38:25,680 --> 00:38:29,839
+my website so just click on that link
+
+903
+00:38:28,560 --> 00:38:31,280
+you can see
+
+904
+00:38:29,839 --> 00:38:32,560
+so you can see
+
+905
+00:38:31,280 --> 00:38:34,560
+this one
+
+906
+00:38:32,560 --> 00:38:37,599
+now you you can see if you know what it
+
+907
+00:38:34,560 --> 00:38:40,480
+is you know this is ancient okay so this
+
+908
+00:38:37,599 --> 00:38:41,520
+is uh 1 000 years ago
+
+909
+00:38:40,480 --> 00:38:43,359
+indian
+
+910
+00:38:41,520 --> 00:38:45,680
+you know this is very
+
+911
+00:38:43,359 --> 00:38:48,160
+by the way this is very famous very
+
+912
+00:38:45,680 --> 00:38:50,240
+popular because it's shocking it's a
+
+913
+00:38:48,160 --> 00:38:52,079
+it's shocking to the white people you
+
+914
+00:38:50,240 --> 00:38:56,079
+know the white people
+
+915
+00:38:52,079 --> 00:38:58,240
+so this 1000 years ago in india you know
+
+916
+00:38:56,079 --> 00:39:00,320
+kind of buddhist stuff you know would
+
+917
+00:38:58,240 --> 00:39:03,040
+you know related to buddhism they have
+
+918
+00:39:00,320 --> 00:39:04,720
+these asian sculptures and they have you
+
+919
+00:39:03,040 --> 00:39:05,920
+know they have all these things
+
+920
+00:39:04,720 --> 00:39:06,240
+sculpture
+
+921
+00:39:05,920 --> 00:39:07,839
+um
+
+922
+00:39:06,240 --> 00:39:08,720
+[Music]
+
+923
+00:39:07,839 --> 00:39:11,680
+you know
+
+924
+00:39:08,720 --> 00:39:11,680
+as a temple
+
+925
+00:39:11,839 --> 00:39:16,160
+so i i have this this page and then
+
+926
+00:39:14,320 --> 00:39:17,760
+google says
+
+927
+00:39:16,160 --> 00:39:20,160
+google says
+
+928
+00:39:17,760 --> 00:39:22,880
+your page is illegal you know we cannot
+
+929
+00:39:20,160 --> 00:39:25,599
+allow you to have these with google ads
+
+930
+00:39:22,880 --> 00:39:27,520
+they're gonna ban the entire website
+
+931
+00:39:25,599 --> 00:39:29,680
+well i was
+
+932
+00:39:27,520 --> 00:39:32,400
+dying of hunger
+
+933
+00:39:29,680 --> 00:39:34,560
+you know so this is one of the incident
+
+934
+00:39:32,400 --> 00:39:36,320
+there's more okay there's more but i'm
+
+935
+00:39:34,560 --> 00:39:38,480
+not going to um
+
+936
+00:39:36,320 --> 00:39:40,560
+you know but you get you you get the
+
+937
+00:39:38,480 --> 00:39:44,400
+idea you know what happened
+
+938
+00:39:40,560 --> 00:39:46,160
+to me so i have actually a page if you
+
+939
+00:39:44,400 --> 00:39:49,839
+i have actually
+
+940
+00:39:46,160 --> 00:39:52,880
+you know i'm a observer of humanity
+
+941
+00:39:49,839 --> 00:39:54,960
+of human animals so i write down i tried
+
+942
+00:39:52,880 --> 00:39:56,400
+to or the incident that occurred
+
+943
+00:39:54,960 --> 00:39:58,640
+occurred
+
+944
+00:39:56,400 --> 00:40:00,960
+as a record of history
+
+945
+00:39:58,640 --> 00:40:03,040
+at least you know some of my personal
+
+946
+00:40:00,960 --> 00:40:05,839
+history so you can see
+
+947
+00:40:03,040 --> 00:40:05,839
+if you search for
+
+948
+00:40:06,880 --> 00:40:11,440
+saudi google ban
+
+949
+00:40:09,040 --> 00:40:15,200
+okay there it is the article google
+
+950
+00:40:11,440 --> 00:40:17,280
+adsense span on asian asian goddesses
+
+951
+00:40:15,200 --> 00:40:19,920
+okay click on that
+
+952
+00:40:17,280 --> 00:40:22,720
+so you can see this is my documentation
+
+953
+00:40:19,920 --> 00:40:25,599
+of what happened google you know i have
+
+954
+00:40:22,720 --> 00:40:28,480
+this page and it looks like that
+
+955
+00:40:25,599 --> 00:40:29,839
+and google sends sends me an email
+
+956
+00:40:28,480 --> 00:40:33,760
+saying
+
+957
+00:40:29,839 --> 00:40:36,880
+uh hello this email is to alert you that
+
+958
+00:40:33,760 --> 00:40:38,800
+one of your website is not currently in
+
+959
+00:40:36,880 --> 00:40:41,599
+compliance
+
+960
+00:40:38,800 --> 00:40:43,040
+compliance with our adsense program
+
+961
+00:40:41,599 --> 00:40:45,599
+policies
+
+962
+00:40:43,040 --> 00:40:47,760
+and as a result ad serving has been
+
+963
+00:40:45,599 --> 00:40:49,200
+disabled on your website
+
+964
+00:40:47,760 --> 00:40:50,640
+that is me
+
+965
+00:40:49,200 --> 00:40:53,760
+trying to back
+
+966
+00:40:50,640 --> 00:40:54,640
+a quarter or two to survive
+
+967
+00:40:53,760 --> 00:40:58,319
+and
+
+968
+00:40:54,640 --> 00:41:00,319
+google the all benevolent empire banned
+
+969
+00:40:58,319 --> 00:41:02,079
+me for it
+
+970
+00:41:00,319 --> 00:41:03,839
+and you cannot you know there's nothing
+
+971
+00:41:02,079 --> 00:41:05,440
+you can do they don't they don't give a
+
+972
+00:41:03,839 --> 00:41:06,960
+[ __ ] you know
+
+973
+00:41:05,440 --> 00:41:09,359
+so that's uh
+
+974
+00:41:06,960 --> 00:41:11,200
+that's more digression okay today i
+
+975
+00:41:09,359 --> 00:41:13,440
+don't think we are going we are going to
+
+976
+00:41:11,200 --> 00:41:14,960
+talk about wufang language so because we
+
+977
+00:41:13,440 --> 00:41:18,640
+already
+
+978
+00:41:14,960 --> 00:41:22,000
+talked for 50 40 minutes yeah
+
+979
+00:41:18,640 --> 00:41:23,280
+and so we let's just talk about unicode
+
+980
+00:41:22,000 --> 00:41:26,880
+and uh
+
+981
+00:41:23,280 --> 00:41:26,880
+and uh related stuff
+
+982
+00:41:27,040 --> 00:41:33,119
+okay so so that is that we copy the url
+
+983
+00:41:30,720 --> 00:41:35,839
+and that is that back to emacs paste it
+
+984
+00:41:33,119 --> 00:41:38,079
+here show the pink window please
+
+985
+00:41:35,839 --> 00:41:40,720
+and close this one
+
+986
+00:41:38,079 --> 00:41:43,440
+back to the browser just move the mouse
+
+987
+00:41:40,720 --> 00:41:46,400
+no click no all tab crap
+
+988
+00:41:43,440 --> 00:41:47,440
+if you watch my past three videos you'll
+
+989
+00:41:46,400 --> 00:41:49,040
+see
+
+990
+00:41:47,440 --> 00:41:51,839
+i
+
+991
+00:41:49,040 --> 00:41:54,240
+discussed that efficiency of operating
+
+992
+00:41:51,839 --> 00:41:55,920
+the keyboard the computer in detail
+
+993
+00:41:54,240 --> 00:41:58,040
+so this tempo
+
+994
+00:41:55,920 --> 00:42:00,720
+back to
+
+995
+00:41:58,040 --> 00:42:02,640
+architectural beauties so i have a
+
+996
+00:42:00,720 --> 00:42:05,280
+website that because i
+
+997
+00:42:02,640 --> 00:42:08,000
+what i love architectures you know many
+
+998
+00:42:05,280 --> 00:42:10,400
+cathedrals these are huge
+
+999
+00:42:08,000 --> 00:42:12,640
+monuments of humanity you know doesn't
+
+1000
+00:42:10,400 --> 00:42:15,119
+matter you are religious or not it's a
+
+1001
+00:42:12,640 --> 00:42:18,560
+fact they are you know
+
+1002
+00:42:15,119 --> 00:42:20,960
+huge part of human history and even
+
+1003
+00:42:18,560 --> 00:42:22,720
+today and you know of course
+
+1004
+00:42:20,960 --> 00:42:25,200
+lots of wars
+
+1005
+00:42:22,720 --> 00:42:28,560
+millions of people dead
+
+1006
+00:42:25,200 --> 00:42:33,040
+has been because of it religion okay and
+
+1007
+00:42:28,560 --> 00:42:36,079
+even today iraq war for example
+
+1008
+00:42:33,040 --> 00:42:38,800
+so uh so let me just post uh you know uh
+
+1009
+00:42:36,079 --> 00:42:40,800
+post of some of the uh yeah so so this
+
+1010
+00:42:38,800 --> 00:42:42,240
+arch you know so why do i you know i
+
+1011
+00:42:40,800 --> 00:42:44,960
+like
+
+1012
+00:42:42,240 --> 00:42:48,400
+why do i like architecture
+
+1013
+00:42:44,960 --> 00:42:51,520
+well mostly because architecture is a
+
+1014
+00:42:48,400 --> 00:42:54,400
+manifestation of geometry
+
+1015
+00:42:51,520 --> 00:42:56,000
+you can see and i love geometry geometry
+
+1016
+00:42:54,400 --> 00:42:57,520
+is part of mathematics i love
+
+1017
+00:42:56,000 --> 00:42:59,040
+mathematics
+
+1018
+00:42:57,520 --> 00:43:01,520
+so um
+
+1019
+00:42:59,040 --> 00:43:02,960
+so you can see architecture and you know
+
+1020
+00:43:01,520 --> 00:43:05,200
+these are all
+
+1021
+00:43:02,960 --> 00:43:08,160
+giant cathedrals and they are the best
+
+1022
+00:43:05,200 --> 00:43:10,079
+known for the most beautiful grand
+
+1023
+00:43:08,160 --> 00:43:12,560
+architectures built in you know
+
+1024
+00:43:10,079 --> 00:43:16,480
+thousands of years ago it
+
+1025
+00:43:12,560 --> 00:43:17,280
+take few hundred years to build them
+
+1026
+00:43:16,480 --> 00:43:20,560
+a
+
+1027
+00:43:17,280 --> 00:43:23,839
+huge part you know the cathedral
+
+1028
+00:43:20,560 --> 00:43:27,440
+itself is a huge part of western's
+
+1029
+00:43:23,839 --> 00:43:30,000
+history okay like giant you know you you
+
+1030
+00:43:27,440 --> 00:43:32,560
+could you could even say the western
+
+1031
+00:43:30,000 --> 00:43:36,480
+history is mostly cathedrals okay in
+
+1032
+00:43:32,560 --> 00:43:39,440
+short it's you know christianity
+
+1033
+00:43:36,480 --> 00:43:42,319
+so and my opinion is that doesn't matter
+
+1034
+00:43:39,440 --> 00:43:44,640
+you believe in uh christianity or not
+
+1035
+00:43:42,319 --> 00:43:46,319
+it's part of the history okay if you are
+
+1036
+00:43:44,640 --> 00:43:48,720
+american especially
+
+1037
+00:43:46,319 --> 00:43:50,240
+you know i'm a chinese-american but for
+
+1038
+00:43:48,720 --> 00:43:52,000
+many of you guys are white american
+
+1039
+00:43:50,240 --> 00:43:54,960
+that's part of your history okay you
+
+1040
+00:43:52,000 --> 00:43:57,599
+cannot deny it
+
+1041
+00:43:54,960 --> 00:43:59,839
+uh and you know so then we are seeing
+
+1042
+00:43:57,599 --> 00:44:01,839
+other architectures we have modern ones
+
+1043
+00:43:59,839 --> 00:44:04,160
+so this is a mod this one for example
+
+1044
+00:44:01,839 --> 00:44:06,400
+it's a modern church
+
+1045
+00:44:04,160 --> 00:44:08,720
+lotus temple okay it's a temple it's
+
+1046
+00:44:06,400 --> 00:44:11,040
+well so so it's you know different
+
+1047
+00:44:08,720 --> 00:44:14,400
+religion they have different names for
+
+1048
+00:44:11,040 --> 00:44:18,720
+their buildings of worship so when it's
+
+1049
+00:44:14,400 --> 00:44:21,280
+when if it's buddhism you call it temple
+
+1050
+00:44:18,720 --> 00:44:23,280
+so for example we have cathedral we have
+
+1051
+00:44:21,280 --> 00:44:24,720
+church we have you know
+
+1052
+00:44:23,280 --> 00:44:26,319
+you know uh
+
+1053
+00:44:24,720 --> 00:44:28,560
+well i i don't know much about
+
+1054
+00:44:26,319 --> 00:44:29,760
+christianity so
+
+1055
+00:44:28,560 --> 00:44:32,240
+many of you
+
+1056
+00:44:29,760 --> 00:44:33,839
+know but anyway cathedral temple uh
+
+1057
+00:44:32,240 --> 00:44:36,720
+church you know
+
+1058
+00:44:33,839 --> 00:44:38,319
+mosque that's islam mosque
+
+1059
+00:44:36,720 --> 00:44:41,280
+this is many varieties actually
+
+1060
+00:44:38,319 --> 00:44:43,599
+different names and actually that ties
+
+1061
+00:44:41,280 --> 00:44:44,800
+us back to unicode so let me show you a
+
+1062
+00:44:43,599 --> 00:44:47,119
+few
+
+1063
+00:44:44,800 --> 00:44:50,319
+so but wait wait a second
+
+1064
+00:44:47,119 --> 00:44:51,599
+did we already have the heliograph now
+
+1065
+00:44:50,319 --> 00:44:54,240
+so
+
+1066
+00:44:51,599 --> 00:44:57,119
+so let me show you a few for example
+
+1067
+00:44:54,240 --> 00:45:00,400
+in emoji which is millennial generations
+
+1068
+00:44:57,119 --> 00:45:02,000
+thing so if we go to places
+
+1069
+00:45:00,400 --> 00:45:02,839
+you can see
+
+1070
+00:45:02,000 --> 00:45:04,800
+they
+
+1071
+00:45:02,839 --> 00:45:08,319
+added
+
+1072
+00:45:04,800 --> 00:45:10,400
+you know so this one is is church
+
+1073
+00:45:08,319 --> 00:45:12,079
+church
+
+1074
+00:45:10,400 --> 00:45:14,880
+then you have
+
+1075
+00:45:12,079 --> 00:45:18,640
+shinto shrine no that's japanese that's
+
+1076
+00:45:14,880 --> 00:45:22,000
+japanese version of buddhism
+
+1077
+00:45:18,640 --> 00:45:26,079
+originated from india then it migrated
+
+1078
+00:45:22,000 --> 00:45:27,200
+to china and become the main religion
+
+1079
+00:45:26,079 --> 00:45:29,680
+china i think
+
+1080
+00:45:27,200 --> 00:45:32,480
+infused with chinese philosophy
+
+1081
+00:45:29,680 --> 00:45:34,079
+so today when we speak of buddhism it's
+
+1082
+00:45:32,480 --> 00:45:36,480
+mostly china
+
+1083
+00:45:34,079 --> 00:45:38,960
+you know indian
+
+1084
+00:45:36,480 --> 00:45:41,680
+or although buddhism originated from
+
+1085
+00:45:38,960 --> 00:45:43,119
+india but however india india they have
+
+1086
+00:45:41,680 --> 00:45:46,000
+their own really you know other
+
+1087
+00:45:43,119 --> 00:45:48,160
+religions which is more predominant in
+
+1088
+00:45:46,000 --> 00:45:50,560
+india so
+
+1089
+00:45:48,160 --> 00:45:52,800
+so as far from my perspective as far as
+
+1090
+00:45:50,560 --> 00:45:55,440
+i know as a chinese i grew up in taiwan
+
+1091
+00:45:52,800 --> 00:45:56,720
+so buddhism is mostly
+
+1092
+00:45:55,440 --> 00:45:57,839
+china you know
+
+1093
+00:45:56,720 --> 00:45:59,359
+you know
+
+1094
+00:45:57,839 --> 00:46:01,680
+religion
+
+1095
+00:45:59,359 --> 00:46:03,599
+indian you know indian they have the
+
+1096
+00:46:01,680 --> 00:46:05,520
+they you know they are multi you know
+
+1097
+00:46:03,599 --> 00:46:07,040
+they their religion have multi gods you
+
+1098
+00:46:05,520 --> 00:46:08,400
+know for example you are familiar with
+
+1099
+00:46:07,040 --> 00:46:09,839
+the elephant
+
+1100
+00:46:08,400 --> 00:46:12,560
+uh god you know
+
+1101
+00:46:09,839 --> 00:46:14,800
+that's that's mostly the indian
+
+1102
+00:46:12,560 --> 00:46:16,960
+uh main religions
+
+1103
+00:46:14,800 --> 00:46:18,319
+you know the guy with the elephant
+
+1104
+00:46:16,960 --> 00:46:20,880
+head
+
+1105
+00:46:18,319 --> 00:46:22,079
+so shinto you know shinto and
+
+1106
+00:46:20,880 --> 00:46:24,400
+zen
+
+1107
+00:46:22,079 --> 00:46:27,359
+you know the word zen that those are the
+
+1108
+00:46:24,400 --> 00:46:29,280
+variety of buddhism in japan which came
+
+1109
+00:46:27,359 --> 00:46:32,240
+from china okay
+
+1110
+00:46:29,280 --> 00:46:34,160
+then you so you have most mosque okay i
+
+1111
+00:46:32,240 --> 00:46:36,720
+don't know much about
+
+1112
+00:46:34,160 --> 00:46:37,920
+mosque and synagogue okay mosque is
+
+1113
+00:46:36,720 --> 00:46:39,839
+islam's
+
+1114
+00:46:37,920 --> 00:46:41,040
+building for worship
+
+1115
+00:46:39,839 --> 00:46:43,680
+you call it
+
+1116
+00:46:41,040 --> 00:46:47,280
+mosque then synagogue i be so it's
+
+1117
+00:46:43,680 --> 00:46:49,200
+jewish it's a judaism i guess
+
+1118
+00:46:47,280 --> 00:46:51,040
+okay then there's kaba you know so i
+
+1119
+00:46:49,200 --> 00:46:53,599
+don't know exactly what's the difference
+
+1120
+00:46:51,040 --> 00:46:57,040
+between mosque and kaaba
+
+1121
+00:46:53,599 --> 00:47:00,480
+if you know type it
+
+1122
+00:46:57,040 --> 00:47:02,720
+so kaaba is also islam some you know uh
+
+1123
+00:47:00,480 --> 00:47:05,200
+variation yeah i don't really know
+
+1124
+00:47:02,720 --> 00:47:09,839
+then you have hindu temple exactly so
+
+1125
+00:47:05,200 --> 00:47:13,280
+hindu has their unique style of their uh
+
+1126
+00:47:09,839 --> 00:47:17,839
+religious worship buildings you know
+
+1127
+00:47:13,280 --> 00:47:17,839
+for example the most famous is that
+
+1128
+00:47:18,160 --> 00:47:24,240
+majaat taj mahal or something okay so
+
+1129
+00:47:21,599 --> 00:47:26,319
+it looks like that
+
+1130
+00:47:24,240 --> 00:47:29,040
+then you have a generic symbol so you
+
+1131
+00:47:26,319 --> 00:47:31,920
+know this uh emoji you know the
+
+1132
+00:47:29,040 --> 00:47:34,079
+emoji the history of emoji the very
+
+1133
+00:47:31,920 --> 00:47:36,000
+first one oh this doesn't exist okay
+
+1134
+00:47:34,079 --> 00:47:39,359
+okay i can tell you
+
+1135
+00:47:36,000 --> 00:47:42,800
+the only one that emoji originated from
+
+1136
+00:47:39,359 --> 00:47:44,400
+emoticon pictures in japan japan's cell
+
+1137
+00:47:42,800 --> 00:47:46,839
+phone so in the beginning there's
+
+1138
+00:47:44,400 --> 00:47:49,119
+nothing none of these you know
+
+1139
+00:47:46,839 --> 00:47:52,160
+multi-cultural [ __ ]
+
+1140
+00:47:49,119 --> 00:47:54,000
+you know japanese they are very
+
+1141
+00:47:52,160 --> 00:47:56,720
+you know according to the social justice
+
+1142
+00:47:54,000 --> 00:47:57,920
+[ __ ] they are they are racist okay
+
+1143
+00:47:56,720 --> 00:48:01,359
+japan
+
+1144
+00:47:57,920 --> 00:48:03,680
+china or just about every country
+
+1145
+00:48:01,359 --> 00:48:06,160
+by the social justice ideas they are all
+
+1146
+00:48:03,680 --> 00:48:08,880
+racists
+
+1147
+00:48:06,160 --> 00:48:12,400
+but anyway so japan begin emoji okay so
+
+1148
+00:48:08,880 --> 00:48:13,920
+there's only this one shinto shrine why
+
+1149
+00:48:12,400 --> 00:48:15,839
+because it's practical that's what
+
+1150
+00:48:13,920 --> 00:48:18,240
+people want you know japanese people
+
+1151
+00:48:15,839 --> 00:48:20,319
+they need they want they need you know
+
+1152
+00:48:18,240 --> 00:48:21,200
+they are not going to be oh we but but
+
+1153
+00:48:20,319 --> 00:48:24,000
+but
+
+1154
+00:48:21,200 --> 00:48:27,119
+but we need to be multicultural so they
+
+1155
+00:48:24,000 --> 00:48:29,680
+we we how come how dare you you missed
+
+1156
+00:48:27,119 --> 00:48:31,040
+you you know the you missed the
+
+1157
+00:48:29,680 --> 00:48:34,880
+the
+
+1158
+00:48:31,040 --> 00:48:36,880
+the other religions you know so this
+
+1159
+00:48:34,880 --> 00:48:40,000
+also you know so that's
+
+1160
+00:48:36,880 --> 00:48:41,440
+you know japan okay japan china asia in
+
+1161
+00:48:40,000 --> 00:48:42,800
+general they they don't know what the
+
+1162
+00:48:41,440 --> 00:48:45,200
+[ __ ] is you know
+
+1163
+00:48:42,800 --> 00:48:47,920
+the american social justice
+
+1164
+00:48:45,200 --> 00:48:51,040
+things are different culture so if you
+
+1165
+00:48:47,920 --> 00:48:53,280
+really want to be inclusive
+
+1166
+00:48:51,040 --> 00:48:55,920
+of you know of different cultures you
+
+1167
+00:48:53,280 --> 00:48:57,359
+need to take you need to respect
+
+1168
+00:48:55,920 --> 00:48:58,480
+chinese
+
+1169
+00:48:57,359 --> 00:49:01,280
+me
+
+1170
+00:48:58,480 --> 00:49:03,839
+my culture japanese culture which
+
+1171
+00:49:01,280 --> 00:49:06,240
+don't give a [ __ ] about the
+
+1172
+00:49:03,839 --> 00:49:08,800
+western white concept of multicultural
+
+1173
+00:49:06,240 --> 00:49:10,800
+you know [ __ ]
+
+1174
+00:49:08,800 --> 00:49:13,280
+so that is my culture okay if you want
+
+1175
+00:49:10,800 --> 00:49:14,800
+my respect my culture it's you know we
+
+1176
+00:49:13,280 --> 00:49:17,119
+don't have these notions that's your
+
+1177
+00:49:14,800 --> 00:49:20,079
+notion about this you know many of the
+
+1178
+00:49:17,119 --> 00:49:20,079
+western notions
+
+1179
+00:49:20,240 --> 00:49:26,480
+that's your notion okay
+
+1180
+00:49:22,559 --> 00:49:28,000
+stop infringing our culture
+
+1181
+00:49:26,480 --> 00:49:29,599
+you know i get
+
+1182
+00:49:28,000 --> 00:49:32,640
+angry on these things because it's
+
+1183
+00:49:29,599 --> 00:49:34,400
+pretty big you know so um
+
+1184
+00:49:32,640 --> 00:49:35,760
+and then and then the millennial
+
+1185
+00:49:34,400 --> 00:49:38,240
+generation they don't know nothing you
+
+1186
+00:49:35,760 --> 00:49:40,880
+know there's the social justice people
+
+1187
+00:49:38,240 --> 00:49:42,839
+then there's the chan people the
+
+1188
+00:49:40,880 --> 00:49:46,240
+the right
+
+1189
+00:49:42,839 --> 00:49:49,599
+wing the right wing
+
+1190
+00:49:46,240 --> 00:49:52,160
+all this all this is china's fault
+
+1191
+00:49:49,599 --> 00:49:55,119
+china censorship
+
+1192
+00:49:52,160 --> 00:49:57,440
+we need democracy
+
+1193
+00:49:55,119 --> 00:50:00,400
+okay so these are the you know symbols
+
+1194
+00:49:57,440 --> 00:50:01,920
+okay emoji okay copy that back to emacs
+
+1195
+00:50:00,400 --> 00:50:04,640
+so we
+
+1196
+00:50:01,920 --> 00:50:07,760
+we went into politics which
+
+1197
+00:50:04,640 --> 00:50:12,440
+i didn't really want to because
+
+1198
+00:50:07,760 --> 00:50:12,440
+uh you know lots of uh
+
+1199
+00:50:12,880 --> 00:50:17,839
+blood blow boiling you know that's what
+
+1200
+00:50:15,599 --> 00:50:19,040
+when it comes to this kind of thing okay
+
+1201
+00:50:17,839 --> 00:50:22,640
+so wait
+
+1202
+00:50:19,040 --> 00:50:22,640
+so there's an error somewhere
+
+1203
+00:50:23,839 --> 00:50:29,119
+showing browser there it is we have a
+
+1204
+00:50:26,400 --> 00:50:31,599
+record of what we talked about today
+
+1205
+00:50:29,119 --> 00:50:34,559
+all the links so we
+
+1206
+00:50:31,599 --> 00:50:37,839
+digressed to emoji we came we talked we
+
+1207
+00:50:34,559 --> 00:50:40,400
+were talking about censorship of the
+
+1208
+00:50:37,839 --> 00:50:42,880
+penis you know this video is probably
+
+1209
+00:50:40,400 --> 00:50:45,119
+gonna gonna be banned by google saying
+
+1210
+00:50:42,880 --> 00:50:46,800
+oh you cannot monetize it because it's
+
+1211
+00:50:45,119 --> 00:50:49,520
+not suitable
+
+1212
+00:50:46,800 --> 00:50:51,839
+so then we have architecture do we have
+
+1213
+00:50:49,520 --> 00:50:51,839
+a link
+
+1214
+00:50:52,000 --> 00:50:59,520
+okay we we do uh
+
+1215
+00:50:56,400 --> 00:51:02,720
+let's let's put it here okay
+
+1216
+00:50:59,520 --> 00:51:05,119
+so we i talked for one hour we are about
+
+1217
+00:51:02,720 --> 00:51:09,839
+to shut down but we haven't got to the
+
+1218
+00:51:05,119 --> 00:51:09,839
+main topic of javascript coding yet
+
+1219
+00:51:10,480 --> 00:51:15,920
+we'll get into it just in a moment so
+
+1220
+00:51:13,280 --> 00:51:19,280
+architecture i love it because geometry
+
+1221
+00:51:15,920 --> 00:51:22,079
+they they are a manifestation of
+
+1222
+00:51:19,280 --> 00:51:24,319
+geometry in real world you know that's
+
+1223
+00:51:22,079 --> 00:51:25,760
+geometry for example this we are seeing
+
+1224
+00:51:24,319 --> 00:51:28,079
+another church
+
+1225
+00:51:25,760 --> 00:51:32,720
+so what is this one cathedral of
+
+1226
+00:51:28,079 --> 00:51:35,359
+cathedral of vassar okay basilar is a um
+
+1227
+00:51:32,720 --> 00:51:36,800
+brazil i think it's brazilian sitting in
+
+1228
+00:51:35,359 --> 00:51:38,240
+brazil
+
+1229
+00:51:36,800 --> 00:51:41,280
+by the way i have
+
+1230
+00:51:38,240 --> 00:51:43,599
+i used to have links to wikipedia and to
+
+1231
+00:51:41,280 --> 00:51:46,640
+google maps and all the mainstream
+
+1232
+00:51:43,599 --> 00:51:50,280
+website now today it's organ we you know
+
+1233
+00:51:46,640 --> 00:51:50,280
+removed them
+
+1234
+00:51:50,400 --> 00:51:55,359
+so if you want to look at google maps
+
+1235
+00:51:52,480 --> 00:51:59,280
+you copy the link so here is
+
+1236
+00:51:55,359 --> 00:52:00,400
+here is the cathedral of basilia what is
+
+1237
+00:51:59,280 --> 00:52:01,599
+this
+
+1238
+00:52:00,400 --> 00:52:03,520
+expert
+
+1239
+00:52:01,599 --> 00:52:05,359
+esplanata
+
+1240
+00:52:03,520 --> 00:52:07,520
+those
+
+1241
+00:52:05,359 --> 00:52:10,160
+ministerials
+
+1242
+00:52:07,520 --> 00:52:12,480
+you know that's spanish okay so brazil
+
+1243
+00:52:10,160 --> 00:52:14,000
+indeed shrink shrink so
+
+1244
+00:52:12,480 --> 00:52:15,680
+shrink
+
+1245
+00:52:14,000 --> 00:52:18,880
+shrink shrink
+
+1246
+00:52:15,680 --> 00:52:21,040
+shrink shrink brazil now how do you
+
+1247
+00:52:18,880 --> 00:52:24,559
+actually act did i even pronounce the
+
+1248
+00:52:21,040 --> 00:52:27,680
+city correctly brasilia
+
+1249
+00:52:24,559 --> 00:52:29,280
+okay so in brazil in portuguese it's
+
+1250
+00:52:27,680 --> 00:52:32,720
+brasilia
+
+1251
+00:52:29,280 --> 00:52:34,079
+that's a city or
+
+1252
+00:52:32,720 --> 00:52:35,680
+yeah
+
+1253
+00:52:34,079 --> 00:52:38,160
+okay that's a
+
+1254
+00:52:35,680 --> 00:52:40,079
+cathedral okay i believe cathedral is
+
+1255
+00:52:38,160 --> 00:52:43,839
+the name for
+
+1256
+00:52:40,079 --> 00:52:45,920
+for catholics right the the name the
+
+1257
+00:52:43,839 --> 00:52:48,400
+the the building of worship for
+
+1258
+00:52:45,920 --> 00:52:49,359
+catholics in particular you don't call
+
+1259
+00:52:48,400 --> 00:52:50,960
+it
+
+1260
+00:52:49,359 --> 00:52:52,079
+um
+
+1261
+00:52:50,960 --> 00:52:56,000
+what's the
+
+1262
+00:52:52,079 --> 00:52:58,960
+uh or the name anyway so there it is
+
+1263
+00:52:56,000 --> 00:53:01,440
+you know modern modern
+
+1264
+00:52:58,960 --> 00:53:04,079
+you know um these temples you know
+
+1265
+00:53:01,440 --> 00:53:07,200
+temples and temples and you know
+
+1266
+00:53:04,079 --> 00:53:09,520
+buildings of worship they are
+
+1267
+00:53:07,200 --> 00:53:11,119
+particularly artful they are particular
+
+1268
+00:53:09,520 --> 00:53:12,960
+they exhibit
+
+1269
+00:53:11,119 --> 00:53:16,720
+you know they are particularly
+
+1270
+00:53:12,960 --> 00:53:18,400
+uh glorious beautiful okay uh just you
+
+1271
+00:53:16,720 --> 00:53:20,240
+know
+
+1272
+00:53:18,400 --> 00:53:23,839
+so this is uh
+
+1273
+00:53:20,240 --> 00:53:24,640
+you know a modern cathedral of brazil
+
+1274
+00:53:23,839 --> 00:53:27,119
+uh
+
+1275
+00:53:24,640 --> 00:53:30,400
+of the catholics i suppose
+
+1276
+00:53:27,119 --> 00:53:31,920
+and and this one in particular it's
+
+1277
+00:53:30,400 --> 00:53:34,800
+modeled you know the shape of the
+
+1278
+00:53:31,920 --> 00:53:37,599
+building is modeled on polyhedra okay do
+
+1279
+00:53:34,800 --> 00:53:40,079
+i have a link here no okay but
+
+1280
+00:53:37,599 --> 00:53:43,520
+but but
+
+1281
+00:53:40,079 --> 00:53:46,160
+okay copy the link let's let's copy the
+
+1282
+00:53:43,520 --> 00:53:49,200
+link and post it here
+
+1283
+00:53:46,160 --> 00:53:51,040
+so we want to
+
+1284
+00:53:49,200 --> 00:53:52,880
+okay then we
+
+1285
+00:53:51,040 --> 00:53:55,880
+let me show you
+
+1286
+00:53:52,880 --> 00:53:55,880
+sally
+
+1287
+00:53:56,160 --> 00:54:00,800
+hyperboloid
+
+1288
+00:53:58,000 --> 00:54:03,680
+so you can see those buildings okay i
+
+1289
+00:54:00,800 --> 00:54:06,480
+don't want wikipedia i want xrd
+
+1290
+00:54:03,680 --> 00:54:08,880
+page okay this is my page okay go back
+
+1291
+00:54:06,480 --> 00:54:11,839
+here and
+
+1292
+00:54:08,880 --> 00:54:11,839
+make a record of it
+
+1293
+00:54:13,359 --> 00:54:19,680
+okay that's
+
+1294
+00:54:15,680 --> 00:54:22,160
+that cathedral this one is modeled on
+
+1295
+00:54:19,680 --> 00:54:24,880
+this mathematical surface called
+
+1296
+00:54:22,160 --> 00:54:27,440
+hyperboloid of one sheet and this
+
+1297
+00:54:24,880 --> 00:54:29,599
+surface is very interesting has very
+
+1298
+00:54:27,440 --> 00:54:32,319
+interesting mathematical properties
+
+1299
+00:54:29,599 --> 00:54:35,680
+because this surface is made of just
+
+1300
+00:54:32,319 --> 00:54:39,040
+lines straight lines okay so you can see
+
+1301
+00:54:35,680 --> 00:54:40,640
+okay so actually let's shrink
+
+1302
+00:54:39,040 --> 00:54:42,960
+so you can see it's made of string
+
+1303
+00:54:40,640 --> 00:54:45,200
+straight lines depending on how slanted
+
+1304
+00:54:42,960 --> 00:54:46,000
+are the lines you have different shapes
+
+1305
+00:54:45,200 --> 00:54:47,920
+so
+
+1306
+00:54:46,000 --> 00:54:49,920
+very interesting i talked about this
+
+1307
+00:54:47,920 --> 00:54:52,319
+before and we did actually we used the
+
+1308
+00:54:49,920 --> 00:54:55,359
+wufang language which i was going to
+
+1309
+00:54:52,319 --> 00:54:58,799
+planning to do today to you know we did
+
+1310
+00:54:55,359 --> 00:55:01,359
+this video i used language this code
+
+1311
+00:54:58,799 --> 00:55:03,680
+yeah let's show it let's copy it
+
+1312
+00:55:01,359 --> 00:55:06,720
+so we talk all over the place so wufang
+
+1313
+00:55:03,680 --> 00:55:08,319
+language paste it here okay that's kind
+
+1314
+00:55:06,720 --> 00:55:10,319
+of big
+
+1315
+00:55:08,319 --> 00:55:11,839
+okay so
+
+1316
+00:55:10,319 --> 00:55:16,319
+shrink
+
+1317
+00:55:11,839 --> 00:55:16,319
+shrink shrink okay so this code
+
+1318
+00:55:17,200 --> 00:55:22,480
+so this code evaluate there you see
+
+1319
+00:55:20,240 --> 00:55:24,559
+there you see the um
+
+1320
+00:55:22,480 --> 00:55:26,880
+then you can rotate it let's magnify
+
+1321
+00:55:24,559 --> 00:55:26,880
+okay
+
+1322
+00:55:28,079 --> 00:55:32,960
+so you can see
+
+1323
+00:55:29,680 --> 00:55:36,480
+uh different versions of these
+
+1324
+00:55:32,960 --> 00:55:37,520
+hyperboloid of one sheet
+
+1325
+00:55:36,480 --> 00:55:40,319
+okay so
+
+1326
+00:55:37,520 --> 00:55:41,839
+so now let's go back to
+
+1327
+00:55:40,319 --> 00:55:44,000
+yeah so that's
+
+1328
+00:55:41,839 --> 00:55:45,839
+that is the model
+
+1329
+00:55:44,000 --> 00:55:48,160
+of this cathedral
+
+1330
+00:55:45,839 --> 00:55:52,640
+and there there's quite a few there's a
+
+1331
+00:55:48,160 --> 00:55:52,640
+lot of buildings modeled with these um
+
+1332
+00:55:52,799 --> 00:55:58,240
+these things so let me play this video
+
+1333
+00:55:55,280 --> 00:56:01,599
+very and somewhat counter intuitive how
+
+1334
+00:55:58,240 --> 00:56:05,119
+is it possible for a surface that's made
+
+1335
+00:56:01,599 --> 00:56:07,040
+of single line to be curved you see this
+
+1336
+00:56:05,119 --> 00:56:09,440
+surface if you look at this picture you
+
+1337
+00:56:07,040 --> 00:56:10,480
+see obviously it's very curved but
+
+1338
+00:56:09,440 --> 00:56:13,040
+however
+
+1339
+00:56:10,480 --> 00:56:15,040
+every point on the surface
+
+1340
+00:56:13,040 --> 00:56:16,960
+i mean the entire surface is made of
+
+1341
+00:56:15,040 --> 00:56:20,559
+straight lines that's a that's an
+
+1342
+00:56:16,960 --> 00:56:22,799
+interesting property of this surface
+
+1343
+00:56:20,559 --> 00:56:24,559
+this surface is made of straight lines
+
+1344
+00:56:22,799 --> 00:56:26,400
+however it's not
+
+1345
+00:56:24,559 --> 00:56:29,440
+you know it's not straight it's curved
+
+1346
+00:56:26,400 --> 00:56:31,160
+you know so that's you know so this this
+
+1347
+00:56:29,440 --> 00:56:34,160
+video shows the
+
+1348
+00:56:31,160 --> 00:56:36,240
+counter-intuitive part of it
+
+1349
+00:56:34,160 --> 00:56:37,200
+okay and there's lots of buildings or
+
+1350
+00:56:36,240 --> 00:56:39,920
+towers
+
+1351
+00:56:37,200 --> 00:56:43,280
+made out of this uh idea
+
+1352
+00:56:39,920 --> 00:56:43,280
+okay so that's about that
+
+1353
+00:56:43,680 --> 00:56:50,640
+okay so now close that back to so i was
+
+1354
+00:56:47,119 --> 00:56:53,440
+talking about why am i interested in
+
+1355
+00:56:50,640 --> 00:56:55,520
+architecture you know so there's so many
+
+1356
+00:56:53,440 --> 00:56:57,760
+interesting and beautiful ones for
+
+1357
+00:56:55,520 --> 00:56:58,400
+example this one in particular
+
+1358
+00:56:57,760 --> 00:57:00,240
+this
+
+1359
+00:56:58,400 --> 00:57:02,720
+is called arc
+
+1360
+00:57:00,240 --> 00:57:04,799
+art deco style
+
+1361
+00:57:02,720 --> 00:57:08,000
+this style is a very you know very
+
+1362
+00:57:04,799 --> 00:57:09,040
+beautiful and grand i love it however
+
+1363
+00:57:08,000 --> 00:57:10,319
+it's not
+
+1364
+00:57:09,040 --> 00:57:12,799
+it's not
+
+1365
+00:57:10,319 --> 00:57:14,079
+based on geometry like many of the
+
+1366
+00:57:12,799 --> 00:57:15,280
+cathedrals
+
+1367
+00:57:14,079 --> 00:57:18,880
+or
+
+1368
+00:57:15,280 --> 00:57:21,119
+you know like many of the cathedrals are
+
+1369
+00:57:18,880 --> 00:57:24,079
+the the beauty of
+
+1370
+00:57:21,119 --> 00:57:27,359
+cathedrals is primarily
+
+1371
+00:57:24,079 --> 00:57:29,599
+of a geometric nature
+
+1372
+00:57:27,359 --> 00:57:31,119
+okay actually i failed to show you some
+
+1373
+00:57:29,599 --> 00:57:32,079
+of the islamic
+
+1374
+00:57:31,119 --> 00:57:34,640
+uh
+
+1375
+00:57:32,079 --> 00:57:36,400
+uh their mosque you know
+
+1376
+00:57:34,640 --> 00:57:38,960
+they have their own style and also
+
+1377
+00:57:36,400 --> 00:57:42,079
+geometry okay so the beauty of
+
+1378
+00:57:38,960 --> 00:57:43,440
+cathedrals and the mosque
+
+1379
+00:57:42,079 --> 00:57:46,160
+primarily
+
+1380
+00:57:43,440 --> 00:57:47,359
+is due to the geometry elements
+
+1381
+00:57:46,160 --> 00:57:48,400
+but here
+
+1382
+00:57:47,359 --> 00:57:50,799
+the arc
+
+1383
+00:57:48,400 --> 00:57:53,920
+art deco style is not just it's not
+
+1384
+00:57:50,799 --> 00:57:56,160
+geometry but rather it's about kind of
+
+1385
+00:57:53,920 --> 00:57:56,160
+the
+
+1386
+00:57:56,960 --> 00:58:03,200
+it's less of a geometry for example here
+
+1387
+00:57:59,599 --> 00:58:08,480
+is another art deco okay this one is in
+
+1388
+00:58:03,200 --> 00:58:11,599
+usa you know you have this kind of uh
+
+1389
+00:58:08,480 --> 00:58:14,240
+angel hero character this is in syracuse
+
+1390
+00:58:11,599 --> 00:58:14,240
+new york
+
+1391
+00:58:14,480 --> 00:58:20,480
+beautiful okay arc deco and this another
+
+1392
+00:58:17,359 --> 00:58:23,839
+one beautiful fantastic this is a also
+
+1393
+00:58:20,480 --> 00:58:26,079
+in usa ohio
+
+1394
+00:58:23,839 --> 00:58:30,319
+cleveland ohio
+
+1395
+00:58:26,079 --> 00:58:33,440
+fantastic beautiful art art deco
+
+1396
+00:58:30,319 --> 00:58:36,240
+also includes the u.s entire state
+
+1397
+00:58:33,440 --> 00:58:37,799
+building okay which is one of the first
+
+1398
+00:58:36,240 --> 00:58:40,960
+or was it the first
+
+1399
+00:58:37,799 --> 00:58:43,599
+skyscraper okay architecture that's why
+
+1400
+00:58:40,960 --> 00:58:46,960
+i love it geometry
+
+1401
+00:58:43,599 --> 00:58:48,079
+okay so i showed some of these um
+
+1402
+00:58:46,960 --> 00:58:51,520
+so let's
+
+1403
+00:58:48,079 --> 00:58:54,000
+i want to copy
+
+1404
+00:58:51,520 --> 00:58:56,559
+uh yeah actually i want
+
+1405
+00:58:54,000 --> 00:58:59,839
+let me let me just talk random okay so
+
+1406
+00:58:56,559 --> 00:59:01,119
+let's now copy that paste it
+
+1407
+00:58:59,839 --> 00:59:03,119
+copy that
+
+1408
+00:59:01,119 --> 00:59:05,119
+paste it
+
+1409
+00:59:03,119 --> 00:59:07,119
+okay that already copied so okay some of
+
+1410
+00:59:05,119 --> 00:59:10,079
+these architectures
+
+1411
+00:59:07,119 --> 00:59:12,400
+um and uh there are so so much so many
+
+1412
+00:59:10,079 --> 00:59:14,480
+more okay so many more action pictures
+
+1413
+00:59:12,400 --> 00:59:17,440
+so this this one
+
+1414
+00:59:14,480 --> 00:59:21,760
+you know this this one is now abandoned
+
+1415
+00:59:17,440 --> 00:59:24,799
+okay this in uh eastern europe is it uh
+
+1416
+00:59:21,760 --> 00:59:27,440
+burgers bulgaria okay
+
+1417
+00:59:24,799 --> 00:59:29,599
+then there is um
+
+1418
+00:59:27,440 --> 00:59:34,880
+there is you know it's
+
+1419
+00:59:29,599 --> 00:59:37,040
+a mixture of modern you know the alien
+
+1420
+00:59:34,880 --> 00:59:39,440
+xenomorph you know that's what they call
+
+1421
+00:59:37,040 --> 00:59:43,680
+ada and this alien movie
+
+1422
+00:59:39,440 --> 00:59:47,520
+uh with asian cathedral goggle concept
+
+1423
+00:59:43,680 --> 00:59:47,520
+so they made a goggle out of this
+
+1424
+00:59:48,160 --> 00:59:51,119
+thing
+
+1425
+00:59:49,599 --> 00:59:53,040
+uh
+
+1426
+00:59:51,119 --> 00:59:56,079
+okay so that's that's some of the
+
+1427
+00:59:53,040 --> 00:59:58,000
+interesting things okay the architecture
+
+1428
+00:59:56,079 --> 01:00:00,319
+now let's go back to
+
+1429
+00:59:58,000 --> 01:00:02,000
+unicode okay
+
+1430
+01:00:00,319 --> 01:00:04,720
+so unicode we're gonna finish in five
+
+1431
+01:00:02,000 --> 01:00:08,000
+minutes so okay we already talked for
+
+1432
+01:00:04,720 --> 01:00:08,000
+one hour any questions
+
+1433
+01:00:08,160 --> 01:00:12,640
+that's it for me okay i think that's it
+
+1434
+01:00:10,000 --> 01:00:15,839
+for today uh
+
+1435
+01:00:12,640 --> 01:00:18,319
+i'm i was i was going to
+
+1436
+01:00:15,839 --> 01:00:19,119
+actually code some javascript
+
+1437
+01:00:18,319 --> 01:00:21,680
+uh
+
+1438
+01:00:19,119 --> 01:00:21,680
+about
+
+1439
+01:00:22,000 --> 01:00:26,079
+i want to change font okay the reason i
+
+1440
+01:00:24,160 --> 01:00:29,119
+mentioned okay let's go back
+
+1441
+01:00:26,079 --> 01:00:31,119
+let's see if i can still do it and we
+
+1442
+01:00:29,119 --> 01:00:33,359
+have time
+
+1443
+01:00:31,119 --> 01:00:34,799
+it should be easy though but let's go
+
+1444
+01:00:33,359 --> 01:00:36,480
+back to
+
+1445
+01:00:34,799 --> 01:00:37,599
+yeah culture
+
+1446
+01:00:36,480 --> 01:00:40,799
+uh
+
+1447
+01:00:37,599 --> 01:00:42,880
+so is it cross shapes box keyboard
+
+1448
+01:00:40,799 --> 01:00:45,440
+common punctuation
+
+1449
+01:00:42,880 --> 01:00:47,839
+culture okay this page
+
+1450
+01:00:45,440 --> 01:00:51,280
+copy it back to emacs
+
+1451
+01:00:47,839 --> 01:00:51,280
+and do we have it
+
+1452
+01:00:51,440 --> 01:00:56,319
+let's see
+
+1453
+01:00:52,880 --> 01:00:57,920
+no we don't so make a link
+
+1454
+01:00:56,319 --> 01:00:59,760
+and
+
+1455
+01:00:57,920 --> 01:01:02,160
+and put it
+
+1456
+01:00:59,760 --> 01:01:03,119
+back here somewhere so
+
+1457
+01:01:02,160 --> 01:01:04,160
+okay
+
+1458
+01:01:03,119 --> 01:01:06,960
+so
+
+1459
+01:01:04,160 --> 01:01:09,839
+now i want to talk about you see some of
+
+1460
+01:01:06,960 --> 01:01:11,359
+these characters are rendered as emoji
+
+1461
+01:01:09,839 --> 01:01:13,839
+while others
+
+1462
+01:01:11,359 --> 01:01:16,880
+are not why is that
+
+1463
+01:01:13,839 --> 01:01:20,240
+well that happened because the unix the
+
+1464
+01:01:16,880 --> 01:01:23,119
+unicode idiocy the unicode consortium
+
+1465
+01:01:20,240 --> 01:01:26,480
+made a mistake about
+
+1466
+01:01:23,119 --> 01:01:26,480
+and 2009-2000 also
+
+1467
+01:01:27,760 --> 01:01:32,240
+so that when you have a character
+
+1468
+01:01:29,440 --> 01:01:34,240
+sometimes it uh it appears as an emoji
+
+1469
+01:01:32,240 --> 01:01:37,040
+but sometimes not okay
+
+1470
+01:01:34,240 --> 01:01:39,359
+so the the reason for that is this
+
+1471
+01:01:37,040 --> 01:01:40,559
+article here
+
+1472
+01:01:39,359 --> 01:01:43,760
+uh
+
+1473
+01:01:40,559 --> 01:01:47,119
+where unicode for emoji versus emoticon
+
+1474
+01:01:43,760 --> 01:01:49,200
+symbol becomes emoji this article okay
+
+1475
+01:01:47,119 --> 01:01:51,440
+so for example if you are writing about
+
+1476
+01:01:49,200 --> 01:01:54,400
+mathematics you know
+
+1477
+01:01:51,440 --> 01:01:56,799
+you you have this character you know
+
+1478
+01:01:54,400 --> 01:01:59,119
+so here's the example you see
+
+1479
+01:01:56,799 --> 01:02:00,960
+so you let me magnify okay
+
+1480
+01:01:59,119 --> 01:02:02,400
+so you can see
+
+1481
+01:02:00,960 --> 01:02:05,359
+this character
+
+1482
+01:02:02,400 --> 01:02:08,000
+you know it's a plane
+
+1483
+01:02:05,359 --> 01:02:10,000
+you know a symbol but over but however
+
+1484
+01:02:08,000 --> 01:02:12,319
+here is shown it's a show it's showing
+
+1485
+01:02:10,000 --> 01:02:14,640
+like an emoji
+
+1486
+01:02:12,319 --> 01:02:17,760
+so if you are a mathematician you know
+
+1487
+01:02:14,640 --> 01:02:20,160
+when unicode became it was you know is
+
+1488
+01:02:17,760 --> 01:02:22,319
+invented and became popular you know you
+
+1489
+01:02:20,160 --> 01:02:24,720
+think it's that's fantastic now you can
+
+1490
+01:02:22,319 --> 01:02:26,640
+write you know you can write mathematics
+
+1491
+01:02:24,720 --> 01:02:29,119
+with unicode for example let's go to
+
+1492
+01:02:26,640 --> 01:02:29,119
+arrows
+
+1493
+01:02:30,799 --> 01:02:35,839
+uh
+
+1494
+01:02:31,760 --> 01:02:35,839
+let me go to errors or close that
+
+1495
+01:02:36,480 --> 01:02:40,119
+shrink shrink
+
+1496
+01:02:48,240 --> 01:02:53,119
+so when you if you are a mathematician
+
+1497
+01:02:50,720 --> 01:02:55,920
+you know you have all these symbols you
+
+1498
+01:02:53,119 --> 01:02:58,559
+know infinity so it's fantastic and you
+
+1499
+01:02:55,920 --> 01:03:01,359
+can also have all these arrows you know
+
+1500
+01:02:58,559 --> 01:03:04,720
+double headed arrow or whatever uh which
+
+1501
+01:03:01,359 --> 01:03:07,920
+is very often used in math for example
+
+1502
+01:03:04,720 --> 01:03:07,920
+this arrow and
+
+1503
+01:03:08,319 --> 01:03:13,680
+and let me show you some of the arrows
+
+1504
+01:03:11,039 --> 01:03:16,480
+commonly used in mathematics for this
+
+1505
+01:03:13,680 --> 01:03:18,720
+for example this one left right triangle
+
+1506
+01:03:16,480 --> 01:03:19,599
+headed arrow you know so they point both
+
+1507
+01:03:18,720 --> 01:03:21,119
+ways
+
+1508
+01:03:19,599 --> 01:03:23,039
+uh
+
+1509
+01:03:21,119 --> 01:03:24,880
+so you are writing math you know you are
+
+1510
+01:03:23,039 --> 01:03:27,440
+a mathematician you write
+
+1511
+01:03:24,880 --> 01:03:29,839
+then all of a sudden you know after two
+
+1512
+01:03:27,440 --> 01:03:32,559
+years it becomes this [ __ ]
+
+1513
+01:03:29,839 --> 01:03:35,680
+it becomes an emoji like
+
+1514
+01:03:32,559 --> 01:03:38,000
+in your mathematical formulas it becomes
+
+1515
+01:03:35,680 --> 01:03:39,760
+this idiotic thing and same thing
+
+1516
+01:03:38,000 --> 01:03:42,559
+happens when you write for example when
+
+1517
+01:03:39,760 --> 01:03:44,880
+you i you know i write about keyboard
+
+1518
+01:03:42,559 --> 01:03:47,760
+keyboard symbols on keyboard so you know
+
+1519
+01:03:44,880 --> 01:03:49,280
+the multimedia keys you know stop play
+
+1520
+01:03:47,760 --> 01:03:52,240
+pause next
+
+1521
+01:03:49,280 --> 01:03:54,559
+mute you know volume up then
+
+1522
+01:03:52,240 --> 01:03:56,640
+you know you write a documentation about
+
+1523
+01:03:54,559 --> 01:03:59,039
+which key to press then
+
+1524
+01:03:56,640 --> 01:04:02,799
+after two years it becomes this
+
+1525
+01:03:59,039 --> 01:04:07,520
+this us this speak speaker um
+
+1526
+01:04:02,799 --> 01:04:10,319
+image to [ __ ] [ __ ] up your document
+
+1527
+01:04:07,520 --> 01:04:13,359
+so why how so why is that that's because
+
+1528
+01:04:10,319 --> 01:04:15,920
+unicode unicode one day decided they
+
+1529
+01:04:13,359 --> 01:04:17,680
+they are going to have merged emoji with
+
+1530
+01:04:15,920 --> 01:04:19,760
+symbols so that's what happens it's a
+
+1531
+01:04:17,680 --> 01:04:21,599
+problem it's a mistake okay even the
+
+1532
+01:04:19,760 --> 01:04:23,119
+unicode consortium
+
+1533
+01:04:21,599 --> 01:04:24,559
+you know the people who created unicode
+
+1534
+01:04:23,119 --> 01:04:26,640
+they admit
+
+1535
+01:04:24,559 --> 01:04:28,000
+you know it's it's a consensus it's a
+
+1536
+01:04:26,640 --> 01:04:30,799
+mistake okay
+
+1537
+01:04:28,000 --> 01:04:33,839
+that's what happens that so that is why
+
+1538
+01:04:30,799 --> 01:04:36,559
+okay so that is this page is this is the
+
+1539
+01:04:33,839 --> 01:04:36,559
+reason why
+
+1540
+01:04:38,160 --> 01:04:45,240
+hold on a second let me add this here so
+
+1541
+01:04:41,119 --> 01:04:45,240
+this is the reason why
+
+1542
+01:04:55,280 --> 01:04:58,319
+this is the reason why some of these
+
+1543
+01:04:57,200 --> 01:05:01,119
+symbols
+
+1544
+01:04:58,319 --> 01:05:03,440
+are shown as emoji while others not it's
+
+1545
+01:05:01,119 --> 01:05:05,280
+become incongruent you know it's become
+
+1546
+01:05:03,440 --> 01:05:07,200
+inconsistent [ __ ]
+
+1547
+01:05:05,280 --> 01:05:10,400
+that's what that's why that's what
+
+1548
+01:05:07,200 --> 01:05:12,400
+happens so what is the solution i mean
+
+1549
+01:05:10,400 --> 01:05:15,039
+when so if you have this for example
+
+1550
+01:05:12,400 --> 01:05:17,039
+this latin cross symbol
+
+1551
+01:05:15,039 --> 01:05:19,599
+but you don't want it to be shown as
+
+1552
+01:05:17,039 --> 01:05:20,839
+emoji you you want it to be just like
+
+1553
+01:05:19,599 --> 01:05:23,839
+you know a
+
+1554
+01:05:20,839 --> 01:05:26,319
+plane lateral symbol what do you have to
+
+1555
+01:05:23,839 --> 01:05:28,480
+do you have to actually use you know
+
+1556
+01:05:26,319 --> 01:05:30,000
+change the font you want to use the
+
+1557
+01:05:28,480 --> 01:05:32,240
+symbol font
+
+1558
+01:05:30,000 --> 01:05:34,400
+but if you want this character to be
+
+1559
+01:05:32,240 --> 01:05:36,480
+shown as an emoji then you have to use
+
+1560
+01:05:34,400 --> 01:05:38,960
+the emoji font so
+
+1561
+01:05:36,480 --> 01:05:42,240
+i was so that's the issue you know and
+
+1562
+01:05:38,960 --> 01:05:44,559
+it's complex because then
+
+1563
+01:05:42,240 --> 01:05:46,480
+a character ceases to become a character
+
+1564
+01:05:44,559 --> 01:05:48,559
+for example if you type
+
+1565
+01:05:46,480 --> 01:05:50,799
+english letters you know you
+
+1566
+01:05:48,559 --> 01:05:52,799
+you don't say you know oh but i want
+
+1567
+01:05:50,799 --> 01:05:55,440
+this c to be emoji like some of these
+
+1568
+01:05:52,799 --> 01:05:58,160
+characters become emoji [ __ ] up your
+
+1569
+01:05:55,440 --> 01:05:59,599
+writing [ __ ] up the human animals
+
+1570
+01:05:58,160 --> 01:06:00,400
+writing system
+
+1571
+01:05:59,599 --> 01:06:02,480
+you know
+
+1572
+01:06:00,400 --> 01:06:05,359
+[ __ ] it up the [ __ ] unicorns
+
+1573
+01:06:02,480 --> 01:06:07,760
+consortium idiocy you know and the
+
+1574
+01:06:05,359 --> 01:06:09,920
+millennial generation [ __ ] they
+
+1575
+01:06:07,760 --> 01:06:11,280
+they did this okay the
+
+1576
+01:06:09,920 --> 01:06:13,520
+millennial generation they don't know
+
+1577
+01:06:11,280 --> 01:06:15,599
+what they what what they're doing
+
+1578
+01:06:13,520 --> 01:06:17,200
+so we have this situation and today it's
+
+1579
+01:06:15,599 --> 01:06:19,359
+worse because on
+
+1580
+01:06:17,200 --> 01:06:21,520
+on twitter on discord everywhere if you
+
+1581
+01:06:19,359 --> 01:06:22,960
+haven't joined this code yet join saudi
+
+1582
+01:06:21,520 --> 01:06:25,680
+discord
+
+1583
+01:06:22,960 --> 01:06:28,480
+they you know they instead of emoji they
+
+1584
+01:06:25,680 --> 01:06:30,720
+actually show them as a pictures so it
+
+1585
+01:06:28,480 --> 01:06:34,160
+ceases to be characters
+
+1586
+01:06:30,720 --> 01:06:36,640
+it [ __ ] up the foundation the original
+
+1587
+01:06:34,160 --> 01:06:39,119
+purpose of unicode
+
+1588
+01:06:36,640 --> 01:06:41,599
+the purpose of unicode is that they have
+
+1589
+01:06:39,119 --> 01:06:44,880
+you know they provide a way
+
+1590
+01:06:41,599 --> 01:06:48,079
+for any human animals to
+
+1591
+01:06:44,880 --> 01:06:51,920
+write any character in human history any
+
+1592
+01:06:48,079 --> 01:06:53,200
+language okay in a consistent way
+
+1593
+01:06:51,920 --> 01:06:56,480
+but now
+
+1594
+01:06:53,200 --> 01:06:59,440
+when emoji is introduced
+
+1595
+01:06:56,480 --> 01:07:00,480
+why they include emoji in unicode
+
+1596
+01:06:59,440 --> 01:07:02,480
+because
+
+1597
+01:07:00,480 --> 01:07:05,200
+japanese you know japanese you know
+
+1598
+01:07:02,480 --> 01:07:06,960
+teenagers they use their phone you know
+
+1599
+01:07:05,200 --> 01:07:08,559
+so they have you know they want to you
+
+1600
+01:07:06,960 --> 01:07:11,200
+know it's fun you know it's part of
+
+1601
+01:07:08,559 --> 01:07:13,920
+human what we do you know we want to you
+
+1602
+01:07:11,200 --> 01:07:16,000
+know girls especially among girls they
+
+1603
+01:07:13,920 --> 01:07:17,920
+want the heart you know they
+
+1604
+01:07:16,000 --> 01:07:20,000
+they want you know sometimes the kids
+
+1605
+01:07:17,920 --> 01:07:21,440
+are hot and you know they like that or
+
+1606
+01:07:20,000 --> 01:07:25,280
+smiley right
+
+1607
+01:07:21,440 --> 01:07:27,680
+it's common need okay so japan japanese
+
+1608
+01:07:25,280 --> 01:07:30,640
+their phone they also it's a commercial
+
+1609
+01:07:27,680 --> 01:07:33,920
+competition so they created emoji
+
+1610
+01:07:30,640 --> 01:07:37,680
+evolved from emoticon which also happens
+
+1611
+01:07:33,920 --> 01:07:41,280
+in usa as well for example back in
+
+1612
+01:07:37,680 --> 01:07:44,000
+around year 2000 you have the yahoo
+
+1613
+01:07:41,280 --> 01:07:46,480
+instant messenger you have microsoft
+
+1614
+01:07:44,000 --> 01:07:49,119
+instant messenger you know
+
+1615
+01:07:46,480 --> 01:07:50,880
+so emote you know emoji came from emoji
+
+1616
+01:07:49,119 --> 01:07:52,799
+cons okay so let me show you another
+
+1617
+01:07:50,880 --> 01:07:54,960
+article
+
+1618
+01:07:52,799 --> 01:07:57,680
+so you know
+
+1619
+01:07:54,960 --> 01:08:02,160
+here i explain what is emoticon so
+
+1620
+01:07:57,680 --> 01:08:04,720
+emoticon is you know smiley frown wink
+
+1621
+01:08:02,160 --> 01:08:07,559
+again big history and controversy
+
+1622
+01:08:04,720 --> 01:08:11,280
+because when emoticon was created in
+
+1623
+01:08:07,559 --> 01:08:13,280
+1980s 1970s you know some many of the
+
+1624
+01:08:11,280 --> 01:08:16,000
+nuts resist
+
+1625
+01:08:13,280 --> 01:08:19,279
+it you know they in their opinion these
+
+1626
+01:08:16,000 --> 01:08:21,600
+nerds or today's you know python priests
+
+1627
+01:08:19,279 --> 01:08:23,279
+you know the unix philosophy many of
+
+1628
+01:08:21,600 --> 01:08:26,400
+these people you know this
+
+1629
+01:08:23,279 --> 01:08:28,319
+these programmers they think they say no
+
+1630
+01:08:26,400 --> 01:08:30,799
+no you cannot do that you need to write
+
+1631
+01:08:28,319 --> 01:08:32,400
+proper english
+
+1632
+01:08:30,799 --> 01:08:35,120
+a lot of people back then that's the
+
+1633
+01:08:32,400 --> 01:08:37,359
+case just like today among you many
+
+1634
+01:08:35,120 --> 01:08:39,920
+nerds oh you need to use linux oh you
+
+1635
+01:08:37,359 --> 01:08:44,080
+need to open source the [ __ ] idiots
+
+1636
+01:08:39,920 --> 01:08:44,080
+okay come and go you know there's
+
+1637
+01:08:44,560 --> 01:08:47,920
+uh
+
+1638
+01:08:45,679 --> 01:08:50,319
+thy guys you know that's what they say
+
+1639
+01:08:47,920 --> 01:08:54,159
+you know the the thinking comes in go so
+
+1640
+01:08:50,319 --> 01:08:56,799
+back then when emoticon was first
+
+1641
+01:08:54,159 --> 01:08:59,759
+introduced many people among the
+
+1642
+01:08:56,799 --> 01:09:03,440
+programming community in particular the
+
+1643
+01:08:59,759 --> 01:09:05,279
+hacker types the elite hacker types you
+
+1644
+01:09:03,440 --> 01:09:08,400
+know typically those are you know back
+
+1645
+01:09:05,279 --> 01:09:10,719
+then it's a c or these programmers you
+
+1646
+01:09:08,400 --> 01:09:13,600
+know that hardcore compiler right you
+
+1647
+01:09:10,719 --> 01:09:16,080
+know these type unix and unix users bash
+
+1648
+01:09:13,600 --> 01:09:18,799
+you know this type of people they will
+
+1649
+01:09:16,080 --> 01:09:20,880
+say no no no you you know stop using
+
+1650
+01:09:18,799 --> 01:09:22,960
+emoticons you don't know you need to
+
+1651
+01:09:20,880 --> 01:09:25,359
+learn proper english
+
+1652
+01:09:22,960 --> 01:09:28,080
+that's a mentality very common
+
+1653
+01:09:25,359 --> 01:09:29,600
+even throughout 1990s okay throughout
+
+1654
+01:09:28,080 --> 01:09:32,400
+1990s
+
+1655
+01:09:29,600 --> 01:09:35,120
+so that's emoticon okay that's origin
+
+1656
+01:09:32,400 --> 01:09:37,120
+you know of emoji gun look up wikipedia
+
+1657
+01:09:35,120 --> 01:09:39,440
+okay just search for emoticon you'll
+
+1658
+01:09:37,120 --> 01:09:42,000
+find a full detailed history which i
+
+1659
+01:09:39,440 --> 01:09:43,520
+think is pretty good
+
+1660
+01:09:42,000 --> 01:09:45,520
+because i read them you know i read
+
+1661
+01:09:43,520 --> 01:09:46,719
+wikipedia
+
+1662
+01:09:45,520 --> 01:09:49,920
+you know
+
+1663
+01:09:46,719 --> 01:09:52,400
+since 2002 and encyclopedia before that
+
+1664
+01:09:49,920 --> 01:09:55,520
+every day every day fit several hours
+
+1665
+01:09:52,400 --> 01:09:56,480
+and in fact one of my video talk show
+
+1666
+01:09:55,520 --> 01:09:58,640
+uh
+
+1667
+01:09:56,480 --> 01:10:00,400
+in two months or three months ago
+
+1668
+01:09:58,640 --> 01:10:02,719
+there's an entire talk show about
+
+1669
+01:10:00,400 --> 01:10:04,480
+encyclopedia okay
+
+1670
+01:10:02,719 --> 01:10:06,800
+so i've read them you know emojicon you
+
+1671
+01:10:04,480 --> 01:10:09,520
+know the you know you know
+
+1672
+01:10:06,800 --> 01:10:11,600
+and so emoticon you can look up history
+
+1673
+01:10:09,520 --> 01:10:13,360
+of emoticon then
+
+1674
+01:10:11,600 --> 01:10:14,840
+it gradually became
+
+1675
+01:10:13,360 --> 01:10:16,480
+emoji why
+
+1676
+01:10:14,840 --> 01:10:18,960
+because
+
+1677
+01:10:16,480 --> 01:10:21,199
+because emojicon is kind of a hack you
+
+1678
+01:10:18,960 --> 01:10:23,440
+know right back then you don't have
+
+1679
+01:10:21,199 --> 01:10:25,040
+unicode you know you have you know you
+
+1680
+01:10:23,440 --> 01:10:27,760
+so you
+
+1681
+01:10:25,040 --> 01:10:31,280
+you hack you know you you you know you
+
+1682
+01:10:27,760 --> 01:10:32,800
+type a colon in that red parenthesis if
+
+1683
+01:10:31,280 --> 01:10:34,719
+you look at this way it looks like
+
+1684
+01:10:32,800 --> 01:10:36,560
+smiling you know that's why they are
+
+1685
+01:10:34,719 --> 01:10:37,840
+called smiley
+
+1686
+01:10:36,560 --> 01:10:39,600
+so it's a hack
+
+1687
+01:10:37,840 --> 01:10:41,600
+you know hack means you don't have a
+
+1688
+01:10:39,600 --> 01:10:42,400
+proper solution but you make do you know
+
+1689
+01:10:41,600 --> 01:10:43,280
+you
+
+1690
+01:10:42,400 --> 01:10:45,679
+you know
+
+1691
+01:10:43,280 --> 01:10:49,120
+you make do by the way there's also each
+
+1692
+01:10:45,679 --> 01:10:51,760
+you know here is a a japanese style or
+
+1693
+01:10:49,120 --> 01:10:54,400
+engineered from japan
+
+1694
+01:10:51,760 --> 01:10:56,480
+you know they have their own uh emoticon
+
+1695
+01:10:54,400 --> 01:10:58,880
+okay they don't use the western ones
+
+1696
+01:10:56,480 --> 01:11:00,000
+this these are the white white people
+
+1697
+01:10:58,880 --> 01:11:02,080
+yeah
+
+1698
+01:11:00,000 --> 01:11:04,960
+western okay western
+
+1699
+01:11:02,080 --> 01:11:07,920
+emoticon then in asia japan mostly
+
+1700
+01:11:04,960 --> 01:11:13,080
+primarily you have a whole set of it and
+
+1701
+01:11:07,920 --> 01:11:13,080
+also i also have a holocaust on that
+
+1702
+01:11:20,880 --> 01:11:25,440
+okay so this you know
+
+1703
+01:11:23,040 --> 01:11:27,520
+actually i don't yeah actually i do yeah
+
+1704
+01:11:25,440 --> 01:11:30,320
+so these are some of actually this is a
+
+1705
+01:11:27,520 --> 01:11:33,360
+mixture of unicode uh
+
+1706
+01:11:30,320 --> 01:11:37,679
+a asia japanese style
+
+1707
+01:11:33,360 --> 01:11:39,520
+unicode emoji kong okay but these are
+
+1708
+01:11:37,679 --> 01:11:42,719
+using unicode
+
+1709
+01:11:39,520 --> 01:11:45,560
+back then in 1990s there's no unicode
+
+1710
+01:11:42,719 --> 01:11:48,719
+unicode began in 1990
+
+1711
+01:11:45,560 --> 01:11:51,920
+1988 something like that but unico was
+
+1712
+01:11:48,719 --> 01:11:53,360
+not popular until after year 2000.
+
+1713
+01:11:51,920 --> 01:11:56,000
+so anyway so
+
+1714
+01:11:53,360 --> 01:11:58,719
+so i'm kind of going over so i wanted to
+
+1715
+01:11:56,000 --> 01:12:02,000
+say i'm telling you about the history of
+
+1716
+01:11:58,719 --> 01:12:04,480
+emoticon and emoji okay so in the
+
+1717
+01:12:02,000 --> 01:12:06,320
+beginning in the west you have emoji
+
+1718
+01:12:04,480 --> 01:12:09,040
+kong and
+
+1719
+01:12:06,320 --> 01:12:12,320
+and in japan i think the west start
+
+1720
+01:12:09,040 --> 01:12:15,600
+first emoticon japan created their own
+
+1721
+01:12:12,320 --> 01:12:19,360
+version of emoticon okay it's all based
+
+1722
+01:12:15,600 --> 01:12:22,880
+on ascii characters no unicode then
+
+1723
+01:12:19,360 --> 01:12:24,400
+unicode became popular then emoticon
+
+1724
+01:12:22,880 --> 01:12:28,400
+emoji began
+
+1725
+01:12:24,400 --> 01:12:29,840
+to appear why because emoticon is a hack
+
+1726
+01:12:28,400 --> 01:12:32,640
+you know so
+
+1727
+01:12:29,840 --> 01:12:35,440
+as technology progresses you know people
+
+1728
+01:12:32,640 --> 01:12:36,400
+say when you're wait why don't we type a
+
+1729
+01:12:35,440 --> 01:12:38,239
+actual
+
+1730
+01:12:36,400 --> 01:12:41,280
+smiling face
+
+1731
+01:12:38,239 --> 01:12:43,520
+image instead of this hack
+
+1732
+01:12:41,280 --> 01:12:46,320
+so you know instead you know for example
+
+1733
+01:12:43,520 --> 01:12:49,520
+the classic one
+
+1734
+01:12:46,320 --> 01:12:52,159
+you can still see today you see this one
+
+1735
+01:12:49,520 --> 01:12:53,520
+that is the first ever
+
+1736
+01:12:52,159 --> 01:12:56,239
+emoticon
+
+1737
+01:12:53,520 --> 01:12:58,800
+it came from emoji
+
+1738
+01:12:56,239 --> 01:13:00,159
+okay so emoji is there first
+
+1739
+01:12:58,800 --> 01:13:00,880
+so this one
+
+1740
+01:13:00,159 --> 01:13:02,320
+so
+
+1741
+01:13:00,880 --> 01:13:04,640
+people are thinking you know the
+
+1742
+01:13:02,320 --> 01:13:05,600
+programmers you know who create websites
+
+1743
+01:13:04,640 --> 01:13:08,400
+and stuff
+
+1744
+01:13:05,600 --> 01:13:09,199
+chat rooms you know uh yeah it begin in
+
+1745
+01:13:08,400 --> 01:13:11,440
+the
+
+1746
+01:13:09,199 --> 01:13:12,239
+instant message
+
+1747
+01:13:11,440 --> 01:13:14,719
+uh
+
+1748
+01:13:12,239 --> 01:13:18,239
+applications such as yahoo
+
+1749
+01:13:14,719 --> 01:13:21,120
+instant message aol instant message you
+
+1750
+01:13:18,239 --> 01:13:24,480
+know microsoft instant message then
+
+1751
+01:13:21,120 --> 01:13:27,280
+skype those are dead today
+
+1752
+01:13:24,480 --> 01:13:29,679
+except skype but the skype is dead too
+
+1753
+01:13:27,280 --> 01:13:32,320
+going good you know dying
+
+1754
+01:13:29,679 --> 01:13:35,280
+today's you know you got discord uh and
+
+1755
+01:13:32,320 --> 01:13:37,679
+others anyway so emoticon
+
+1756
+01:13:35,280 --> 01:13:39,440
+then it became emoji because people
+
+1757
+01:13:37,679 --> 01:13:43,440
+thought you know why not just
+
+1758
+01:13:39,440 --> 01:13:46,800
+replace those hack with a picture then
+
+1759
+01:13:43,440 --> 01:13:49,120
+unicode became popular the unicode
+
+1760
+01:13:46,800 --> 01:13:50,800
+people are thinking why don't we create
+
+1761
+01:13:49,120 --> 01:13:53,199
+a standardized
+
+1762
+01:13:50,800 --> 01:13:54,719
+character that represent
+
+1763
+01:13:53,199 --> 01:13:57,040
+emoticon
+
+1764
+01:13:54,719 --> 01:13:58,840
+why not so now we have you know instead
+
+1765
+01:13:57,040 --> 01:14:02,320
+of each
+
+1766
+01:13:58,840 --> 01:14:05,600
+application create their own icon for
+
+1767
+01:14:02,320 --> 01:14:07,920
+the smiley why don't we standardize it
+
+1768
+01:14:05,600 --> 01:14:10,960
+so you know so we actually have a
+
+1769
+01:14:07,920 --> 01:14:13,199
+character for these different smileys
+
+1770
+01:14:10,960 --> 01:14:15,679
+that's a good idea this began
+
+1771
+01:14:13,199 --> 01:14:16,560
+around 2006
+
+1772
+01:14:15,679 --> 01:14:19,120
+okay
+
+1773
+01:14:16,560 --> 01:14:23,679
+so the idea is to unify them to have a
+
+1774
+01:14:19,120 --> 01:14:23,679
+standard way to have these characters
+
+1775
+01:14:24,000 --> 01:14:26,239
+then
+
+1776
+01:14:27,920 --> 01:14:33,120
+then the millennial generation happened
+
+1777
+01:14:30,320 --> 01:14:35,520
+they [ __ ] up everything okay i haven't
+
+1778
+01:14:33,120 --> 01:14:38,719
+begin even talking about the story yet
+
+1779
+01:14:35,520 --> 01:14:38,719
+the millennial generation
+
+1780
+01:14:38,960 --> 01:14:44,320
+why because
+
+1781
+01:14:41,760 --> 01:14:46,960
+then then we then we got into then we
+
+1782
+01:14:44,320 --> 01:14:51,679
+start to get into the skin color issue
+
+1783
+01:14:46,960 --> 01:14:55,280
+okay uh happened around year 2010 2012
+
+1784
+01:14:51,679 --> 01:14:58,480
+okay then then the skin colors then
+
+1785
+01:14:55,280 --> 01:15:01,199
+then all the characters the people are
+
+1786
+01:14:58,480 --> 01:15:03,679
+no longer looking like human animals
+
+1787
+01:15:01,199 --> 01:15:06,800
+anymore because
+
+1788
+01:15:03,679 --> 01:15:08,880
+very sad story all the people they don't
+
+1789
+01:15:06,800 --> 01:15:10,960
+look like people anymore they look like
+
+1790
+01:15:08,880 --> 01:15:12,880
+this fake doll
+
+1791
+01:15:10,960 --> 01:15:15,760
+you know uh you know because and it
+
+1792
+01:15:12,880 --> 01:15:18,800
+actually become part of the unicode
+
+1793
+01:15:15,760 --> 01:15:21,199
+consortium's policy they say one of
+
+1794
+01:15:18,800 --> 01:15:24,159
+their policy if you go
+
+1795
+01:15:21,199 --> 01:15:25,920
+go research okay go research what i say
+
+1796
+01:15:24,159 --> 01:15:28,640
+one of their policies not you know
+
+1797
+01:15:25,920 --> 01:15:30,800
+because of the social justice movement
+
+1798
+01:15:28,640 --> 01:15:32,960
+in usa
+
+1799
+01:15:30,800 --> 01:15:35,920
+they say when you have a picture you
+
+1800
+01:15:32,960 --> 01:15:39,040
+know when you have an emoji that is
+
+1801
+01:15:35,920 --> 01:15:41,199
+that is representation of a human animal
+
+1802
+01:15:39,040 --> 01:15:44,239
+they say you cannot have it to be
+
+1803
+01:15:41,199 --> 01:15:47,360
+realistic you know it may it must it
+
+1804
+01:15:44,239 --> 01:15:50,000
+must be very generic it doesn't actually
+
+1805
+01:15:47,360 --> 01:15:51,199
+represent any actual person you know so
+
+1806
+01:15:50,000 --> 01:15:54,080
+that's why
+
+1807
+01:15:51,199 --> 01:15:56,400
+that's why today's version of uh emote
+
+1808
+01:15:54,080 --> 01:15:58,560
+emoji doesn't matter on microsoft
+
+1809
+01:15:56,400 --> 01:16:00,080
+windows or on apple
+
+1810
+01:15:58,560 --> 01:16:02,719
+you see these
+
+1811
+01:16:00,080 --> 01:16:05,040
+faces as cartoon face they don't
+
+1812
+01:16:02,719 --> 01:16:06,880
+represent you know like
+
+1813
+01:16:05,040 --> 01:16:08,560
+actual you know
+
+1814
+01:16:06,880 --> 01:16:11,120
+uh human face
+
+1815
+01:16:08,560 --> 01:16:14,239
+you know artificial and they also have a
+
+1816
+01:16:11,120 --> 01:16:16,000
+rule that says you can have the color
+
+1817
+01:16:14,239 --> 01:16:19,040
+of the of these
+
+1818
+01:16:16,000 --> 01:16:21,600
+faces to be real you you need to use a
+
+1819
+01:16:19,040 --> 01:16:24,560
+fake color that doesn't actually
+
+1820
+01:16:21,600 --> 01:16:27,440
+actually look like a human animal why
+
+1821
+01:16:24,560 --> 01:16:30,000
+because if you actually use a actual you
+
+1822
+01:16:27,440 --> 01:16:33,199
+know skin color then then oh my god it's
+
+1823
+01:16:30,000 --> 01:16:36,800
+racist racist because you forgot the
+
+1824
+01:16:33,199 --> 01:16:38,800
+black people or the other the other
+
+1825
+01:16:36,800 --> 01:16:42,239
+or the red skinned people or the yellow
+
+1826
+01:16:38,800 --> 01:16:45,120
+skinned people oh my god it is racist so
+
+1827
+01:16:42,239 --> 01:16:47,760
+so you need you must make them all fake
+
+1828
+01:16:45,120 --> 01:16:49,199
+that's what happened to emoji so we have
+
+1829
+01:16:47,760 --> 01:16:52,239
+all these
+
+1830
+01:16:49,199 --> 01:16:54,880
+many uh made many of them become creepy
+
+1831
+01:16:52,239 --> 01:16:57,040
+okay very creepy
+
+1832
+01:16:54,880 --> 01:16:59,600
+so you know look at the santa claus you
+
+1833
+01:16:57,040 --> 01:17:01,840
+know father of christmas santa claus
+
+1834
+01:16:59,600 --> 01:17:04,640
+you know and and and very creepy you
+
+1835
+01:17:01,840 --> 01:17:06,320
+know for even fantasy creatures you know
+
+1836
+01:17:04,640 --> 01:17:08,400
+this
+
+1837
+01:17:06,320 --> 01:17:10,800
+mage or wizard okay
+
+1838
+01:17:08,400 --> 01:17:13,280
+this fairy do when you you know
+
+1839
+01:17:10,800 --> 01:17:15,280
+cartoon so they they they make it into
+
+1840
+01:17:13,280 --> 01:17:17,920
+like cartoon like
+
+1841
+01:17:15,280 --> 01:17:21,760
+then you have elf okay does this
+
+1842
+01:17:17,920 --> 01:17:21,760
+actually you know make you
+
+1843
+01:17:22,080 --> 01:17:26,960
+you know f elf doesn't look like elf
+
+1844
+01:17:24,960 --> 01:17:29,520
+mermaid doesn't look like you know the
+
+1845
+01:17:26,960 --> 01:17:31,120
+traditional what people actually want to
+
+1846
+01:17:29,520 --> 01:17:33,120
+have a mermaid character this doesn't
+
+1847
+01:17:31,120 --> 01:17:35,199
+look you know mermaid is a
+
+1848
+01:17:33,120 --> 01:17:36,719
+representation of the
+
+1849
+01:17:35,199 --> 01:17:40,159
+attractiveness
+
+1850
+01:17:36,719 --> 01:17:42,800
+of human female you know a fantasy
+
+1851
+01:17:40,159 --> 01:17:46,480
+creature back in ancient two thousand
+
+1852
+01:17:42,800 --> 01:17:49,440
+years ago greek mythology okay back in
+
+1853
+01:17:46,480 --> 01:17:51,280
+greek um well it's a mixture of several
+
+1854
+01:17:49,440 --> 01:17:53,280
+mythologies greek and
+
+1855
+01:17:51,280 --> 01:17:55,360
+and northern europe okay it's a mixture
+
+1856
+01:17:53,280 --> 01:17:59,120
+of several things but even back in the
+
+1857
+01:17:55,360 --> 01:18:00,400
+greek mythology they have
+
+1858
+01:17:59,120 --> 01:18:03,840
+uh
+
+1859
+01:18:00,400 --> 01:18:06,239
+what's the origin of mermaid you know
+
+1860
+01:18:03,840 --> 01:18:07,679
+anyway it's a mixture of things okay so
+
+1861
+01:18:06,239 --> 01:18:10,960
+you so
+
+1862
+01:18:07,679 --> 01:18:13,920
+and this genie genie is from
+
+1863
+01:18:10,960 --> 01:18:16,159
+the origin of genie the fantasy creature
+
+1864
+01:18:13,920 --> 01:18:18,560
+is of the origin
+
+1865
+01:18:16,159 --> 01:18:21,199
+middle east okay that's the origin of
+
+1866
+01:18:18,560 --> 01:18:25,480
+the genie you know i you know
+
+1867
+01:18:21,199 --> 01:18:25,480
+because i know because i
+
+1868
+01:18:26,880 --> 01:18:31,840
+saudi word english okay let's see
+
+1869
+01:18:29,280 --> 01:18:34,719
+saudi.org okay you can let me tell you
+
+1870
+01:18:31,840 --> 01:18:37,600
+where to find how do i know okay so you
+
+1871
+01:18:34,719 --> 01:18:39,360
+click on wordy english which is
+
+1872
+01:18:37,600 --> 01:18:42,800
+the view of
+
+1873
+01:18:39,360 --> 01:18:45,280
+the duo of vocabulary the depth of
+
+1874
+01:18:42,800 --> 01:18:49,120
+literature the question of style the
+
+1875
+01:18:45,280 --> 01:18:51,920
+logic of linguistics the ears of english
+
+1876
+01:18:49,120 --> 01:18:53,360
+and the cure by writing so all these
+
+1877
+01:18:51,920 --> 01:18:55,840
+sections
+
+1878
+01:18:53,360 --> 01:18:58,400
+a thousand articles about
+
+1879
+01:18:55,840 --> 01:19:00,800
+about linguistics writing grammar
+
+1880
+01:18:58,400 --> 01:19:01,679
+literature vocabulary those kind of
+
+1881
+01:19:00,800 --> 01:19:03,600
+things
+
+1882
+01:19:01,679 --> 01:19:07,040
+so we go here
+
+1883
+01:19:03,600 --> 01:19:10,000
+literature classics and this one arabian
+
+1884
+01:19:07,040 --> 01:19:12,800
+nights okay this is not not what you
+
+1885
+01:19:10,000 --> 01:19:15,199
+think what it is as you know as you've
+
+1886
+01:19:12,800 --> 01:19:17,520
+learned from disney okay
+
+1887
+01:19:15,199 --> 01:19:20,400
+arabian night is not not what you think
+
+1888
+01:19:17,520 --> 01:19:23,040
+it is okay this is the real arabian
+
+1889
+01:19:20,400 --> 01:19:26,480
+nights okay let me show you a few photos
+
+1890
+01:19:23,040 --> 01:19:28,080
+so you can see what is the actual
+
+1891
+01:19:26,480 --> 01:19:31,280
+arabian nights
+
+1892
+01:19:28,080 --> 01:19:34,480
+arabian nights is was written it's a
+
+1893
+01:19:31,280 --> 01:19:35,520
+stories from middle east you know around
+
+1894
+01:19:34,480 --> 01:19:38,640
+iran
+
+1895
+01:19:35,520 --> 01:19:39,520
+persia okay uh from
+
+1896
+01:19:38,640 --> 01:19:41,920
+from
+
+1897
+01:19:39,520 --> 01:19:41,920
+year
+
+1898
+01:19:42,320 --> 01:19:49,679
+800 or something okay year 800 okay this
+
+1899
+01:19:46,000 --> 01:19:51,199
+is the true nature of arabian nights and
+
+1900
+01:19:49,679 --> 01:19:53,840
+you can read them
+
+1901
+01:19:51,199 --> 01:19:55,440
+in my blog in my you know
+
+1902
+01:19:53,840 --> 01:19:57,120
+org
+
+1903
+01:19:55,440 --> 01:19:59,520
+so arabian nights you know i have the
+
+1904
+01:19:57,120 --> 01:20:02,480
+full article and annotated you know
+
+1905
+01:19:59,520 --> 01:20:04,960
+annotated with javascript you see
+
+1906
+01:20:02,480 --> 01:20:07,280
+you know so this version when you read
+
+1907
+01:20:04,960 --> 01:20:08,239
+arabian nights you want to read the
+
+1908
+01:20:07,280 --> 01:20:09,760
+version
+
+1909
+01:20:08,239 --> 01:20:12,880
+by this guy
+
+1910
+01:20:09,760 --> 01:20:17,280
+sir richard burton okay he's a great
+
+1911
+01:20:12,880 --> 01:20:19,760
+scholar okay and alan or alan here about
+
+1912
+01:20:17,280 --> 01:20:22,320
+part of the book
+
+1913
+01:20:19,760 --> 01:20:24,400
+uh so you want to be this is a real
+
+1914
+01:20:22,320 --> 01:20:28,159
+arabian night all these old by this guy
+
+1915
+01:20:24,400 --> 01:20:30,320
+who's hussein had a way this is a modern
+
+1916
+01:20:28,159 --> 01:20:33,040
+genuine authentic translation not the
+
+1917
+01:20:30,320 --> 01:20:35,440
+disney you know disney
+
+1918
+01:20:33,040 --> 01:20:37,600
+you know when you watch disney arabian
+
+1919
+01:20:35,440 --> 01:20:40,239
+nights that's not that's not arabian
+
+1920
+01:20:37,600 --> 01:20:44,000
+nights that's american
+
+1921
+01:20:40,239 --> 01:20:44,719
+american story okay with a dog and with
+
+1922
+01:20:44,000 --> 01:20:47,440
+a
+
+1923
+01:20:44,719 --> 01:20:49,840
+girl that's an american story that's not
+
+1924
+01:20:47,440 --> 01:20:53,520
+the arabian night but the real arabian
+
+1925
+01:20:49,840 --> 01:20:53,520
+nights is what you see here
+
+1926
+01:20:56,480 --> 01:21:01,760
+let me show you some of the
+
+1927
+01:20:59,360 --> 01:21:05,360
+pictures so you can you you know that's
+
+1928
+01:21:01,760 --> 01:21:05,360
+the real arabian nights
+
+1929
+01:21:06,880 --> 01:21:13,920
+uh okay so then um and there is also
+
+1930
+01:21:11,040 --> 01:21:17,760
+monsters you know huge monsters and
+
+1931
+01:21:13,920 --> 01:21:19,120
+fantastic okay huge monsters and uh
+
+1932
+01:21:17,760 --> 01:21:21,679
+you know um
+
+1933
+01:21:19,120 --> 01:21:25,040
+and uh okay so
+
+1934
+01:21:21,679 --> 01:21:28,719
+we were talking about this because genie
+
+1935
+01:21:25,040 --> 01:21:31,199
+okay here is the genie okay there it is
+
+1936
+01:21:28,719 --> 01:21:33,760
+here is a picture of the
+
+1937
+01:21:31,199 --> 01:21:36,239
+kind of the you know
+
+1938
+01:21:33,760 --> 01:21:39,120
+real genie you as you know you might say
+
+1939
+01:21:36,239 --> 01:21:42,400
+not not not the
+
+1940
+01:21:39,120 --> 01:21:44,320
+certainty not the emoji [ __ ] okay
+
+1941
+01:21:42,400 --> 01:21:46,480
+we we are we were talking about arabian
+
+1942
+01:21:44,320 --> 01:21:49,040
+nights because you know from emoji you
+
+1943
+01:21:46,480 --> 01:21:51,360
+know so here is genie
+
+1944
+01:21:49,040 --> 01:21:54,000
+genie came from middle east countries
+
+1945
+01:21:51,360 --> 01:21:57,920
+that's their culture that's their
+
+1946
+01:21:54,000 --> 01:21:59,199
+uh mythology okay uh and uh
+
+1947
+01:21:57,920 --> 01:22:00,719
+you know
+
+1948
+01:21:59,199 --> 01:22:03,120
+okay
+
+1949
+01:22:00,719 --> 01:22:04,000
+then vampire is western thing mostly i
+
+1950
+01:22:03,120 --> 01:22:06,639
+mean
+
+1951
+01:22:04,000 --> 01:22:09,760
+in particular this one this now this is
+
+1952
+01:22:06,639 --> 01:22:11,920
+this is a disrespect of chinese culture
+
+1953
+01:22:09,760 --> 01:22:14,560
+because chinese culture we also have
+
+1954
+01:22:11,920 --> 01:22:17,120
+vampire okay but not like this okay
+
+1955
+01:22:14,560 --> 01:22:20,080
+nothing like this more like these but
+
+1956
+01:22:17,120 --> 01:22:22,000
+however this one is zombie uh this you
+
+1957
+01:22:20,080 --> 01:22:24,400
+know again western you know all these
+
+1958
+01:22:22,000 --> 01:22:27,920
+are like western you know
+
+1959
+01:22:24,400 --> 01:22:29,600
+western culture meanwhile they pretend
+
+1960
+01:22:27,920 --> 01:22:31,760
+what they are doing these millennial
+
+1961
+01:22:29,600 --> 01:22:33,920
+generations social justice people they
+
+1962
+01:22:31,760 --> 01:22:36,080
+pretend they are doing justice
+
+1963
+01:22:33,920 --> 01:22:36,080
+to
+
+1964
+01:22:36,840 --> 01:22:39,679
+multiculturalism
+
+1965
+01:22:38,560 --> 01:22:41,679
+uh
+
+1966
+01:22:39,679 --> 01:22:44,000
+uh you know
+
+1967
+01:22:41,679 --> 01:22:47,120
+so that's a story okay so that's why we
+
+1968
+01:22:44,000 --> 01:22:49,280
+talking about arabian nights okay
+
+1969
+01:22:47,120 --> 01:22:50,239
+i think that's it for today so back to
+
+1970
+01:22:49,280 --> 01:22:51,440
+let's
+
+1971
+01:22:50,239 --> 01:22:53,840
+um
+
+1972
+01:22:51,440 --> 01:22:55,760
+you know i love this story so this is
+
+1973
+01:22:53,840 --> 01:22:57,120
+here is another genie
+
+1974
+01:22:55,760 --> 01:22:59,440
+so you know
+
+1975
+01:22:57,120 --> 01:23:02,000
+illustration so this this is the first
+
+1976
+01:22:59,440 --> 01:23:05,840
+story of arabian nights okay
+
+1977
+01:23:02,000 --> 01:23:06,639
+and here is a genie okay
+
+1978
+01:23:05,840 --> 01:23:09,199
+yeah
+
+1979
+01:23:06,639 --> 01:23:11,040
+uh and there here's another rendition
+
+1980
+01:23:09,199 --> 01:23:14,239
+you know of the imagination the
+
+1981
+01:23:11,040 --> 01:23:14,239
+mythology the genie
+
+1982
+01:23:14,560 --> 01:23:21,920
+okay uh and uh then then um we were why
+
+1983
+01:23:18,880 --> 01:23:24,880
+are we talking about so let's go back
+
+1984
+01:23:21,920 --> 01:23:27,120
+to history of emoji
+
+1985
+01:23:24,880 --> 01:23:27,120
+uh
+
+1986
+01:23:28,239 --> 01:23:31,280
+yeah there's more i want to say but
+
+1987
+01:23:30,239 --> 01:23:32,239
+let's
+
+1988
+01:23:31,280 --> 01:23:34,800
+let's
+
+1989
+01:23:32,239 --> 01:23:37,440
+call it a day that's it
+
+1990
+01:23:34,800 --> 01:23:40,560
+so we shut down in
+
+1991
+01:23:37,440 --> 01:23:45,000
+five minutes no more for sure so let me
+
+1992
+01:23:40,560 --> 01:23:45,000
+read what you guys are saying
+
+1993
+01:23:51,760 --> 01:23:56,080
+so bye guys if you like my stuff donate
+
+1994
+01:23:54,000 --> 01:23:58,560
+donate okay that's what i'm here for
+
+1995
+01:23:56,080 --> 01:23:58,560
+donate
+
+1996
+01:23:59,199 --> 01:24:03,360
+to my patreon paypal and you know i have
+
+1997
+01:24:01,520 --> 01:24:05,600
+links on my website
+
+1998
+01:24:03,360 --> 01:24:08,000
+you can find it easily
+
+1999
+01:24:05,600 --> 01:24:10,560
+and uh
+
+2000
+01:24:08,000 --> 01:24:13,840
+you know the typical youtube crap you
+
+2001
+01:24:10,560 --> 01:24:15,920
+know subscribe please subscribe [ __ ] and
+
+2002
+01:24:13,840 --> 01:24:17,600
+please thumb up if you please thumb up
+
+2003
+01:24:15,920 --> 01:24:19,760
+if you like it please thumbs down if you
+
+2004
+01:24:17,600 --> 01:24:21,920
+otherwise so please do comment let me
+
+2005
+01:24:19,760 --> 01:24:23,600
+know what you think oh please do please
+
+2006
+01:24:21,920 --> 01:24:26,400
+let me know what you think i just talked
+
+2007
+01:24:23,600 --> 01:24:28,960
+about this pregnant woman
+
+2008
+01:24:26,400 --> 01:24:31,440
+the [ __ ] millennial generation in the
+
+2009
+01:24:28,960 --> 01:24:34,560
+google empire you know this because they
+
+2010
+01:24:31,440 --> 01:24:37,280
+what why are they doing that because
+
+2011
+01:24:34,560 --> 01:24:39,760
+the youtubers do that because that's the
+
+2012
+01:24:37,280 --> 01:24:42,560
+way to get you more viewers
+
+2013
+01:24:39,760 --> 01:24:44,800
+and ultimately that's a way to get you
+
+2014
+01:24:42,560 --> 01:24:47,440
+more money donation you know
+
+2015
+01:24:44,800 --> 01:24:48,880
+donational ads you know
+
+2016
+01:24:47,440 --> 01:24:51,040
+but why
+
+2017
+01:24:48,880 --> 01:24:53,120
+but why can't they just ask for donation
+
+2018
+01:24:51,040 --> 01:24:55,360
+why do they have to please subscribe
+
+2019
+01:24:53,120 --> 01:24:57,520
+please hit on the bell you see that in
+
+2020
+01:24:55,360 --> 01:24:58,800
+every youtube you know please this you
+
+2021
+01:24:57,520 --> 01:25:02,080
+know please say
+
+2022
+01:24:58,800 --> 01:25:04,320
+why because google google is behind all
+
+2023
+01:25:02,080 --> 01:25:08,000
+this youtube and google is the money
+
+2024
+01:25:04,320 --> 01:25:11,280
+machine google love love you youtubers
+
+2025
+01:25:08,000 --> 01:25:13,920
+google says you know we are here to make
+
+2026
+01:25:11,280 --> 01:25:17,040
+your life you know to make humanity to
+
+2027
+01:25:13,920 --> 01:25:19,520
+help humanities to spread information so
+
+2028
+01:25:17,040 --> 01:25:22,080
+that all of you can now can do youtube
+
+2029
+01:25:19,520 --> 01:25:25,040
+you know can do live stream free
+
+2030
+01:25:22,080 --> 01:25:27,360
+and we also we are we help you know you
+
+2031
+01:25:25,040 --> 01:25:30,320
+as a creator we will help you so you can
+
+2032
+01:25:27,360 --> 01:25:33,040
+run ads you know with our system
+
+2033
+01:25:30,320 --> 01:25:34,800
+of course they take they take 50
+
+2034
+01:25:33,040 --> 01:25:35,679
+of the money
+
+2035
+01:25:34,800 --> 01:25:39,280
+and
+
+2036
+01:25:35,679 --> 01:25:43,199
+so money that is the thing that that is
+
+2037
+01:25:39,280 --> 01:25:44,159
+what's all this is happening money is
+
+2038
+01:25:43,199 --> 01:25:44,960
+talking
+
+2039
+01:25:44,159 --> 01:25:47,360
+so
+
+2040
+01:25:44,960 --> 01:25:49,120
+and google have algorithms you know then
+
+2041
+01:25:47,360 --> 01:25:50,560
+the thumbs up a thumb down then the
+
+2042
+01:25:49,120 --> 01:25:52,560
+comments why
+
+2043
+01:25:50,560 --> 01:25:54,400
+why they want you to comment because the
+
+2044
+01:25:52,560 --> 01:25:56,480
+more common
+
+2045
+01:25:54,400 --> 01:25:57,679
+drama you know the more comment on
+
+2046
+01:25:56,480 --> 01:25:59,920
+youtube
+
+2047
+01:25:57,679 --> 01:26:01,760
+every video
+
+2048
+01:25:59,920 --> 01:26:03,520
+people see you know people usually like
+
+2049
+01:26:01,760 --> 01:26:06,480
+to see what other people are saying
+
+2050
+01:26:03,520 --> 01:26:07,280
+about a particular video
+
+2051
+01:26:06,480 --> 01:26:09,360
+so
+
+2052
+01:26:07,280 --> 01:26:11,679
+uh you know so
+
+2053
+01:26:09,360 --> 01:26:13,520
+drama is the thing okay anyway that's it
+
+2054
+01:26:11,679 --> 01:26:16,320
+that's it for today so
+
+2055
+01:26:13,520 --> 01:26:19,280
+you know well if you like my stuff
+
+2056
+01:26:16,320 --> 01:26:21,040
+donate and you know about the thumb of
+
+2057
+01:26:19,280 --> 01:26:23,199
+you know yeah of course i like it too
+
+2058
+01:26:21,040 --> 01:26:26,560
+but this because there's nothing i can
+
+2059
+01:26:23,199 --> 01:26:28,880
+do if your youtube if you if
+
+2060
+01:26:26,560 --> 01:26:30,960
+you are doing live stream on on twitch
+
+2061
+01:26:28,880 --> 01:26:32,400
+or youtube anywhere if you don't get
+
+2062
+01:26:30,960 --> 01:26:34,639
+much thumb up
+
+2063
+01:26:32,400 --> 01:26:36,400
+you know you don't get you know your
+
+2064
+01:26:34,639 --> 01:26:38,159
+video doesn't spread so what you know
+
+2065
+01:26:36,400 --> 01:26:41,280
+there's nothing i can do i don't like i
+
+2066
+01:26:38,159 --> 01:26:44,639
+despise these these google [ __ ]
+
+2067
+01:26:41,280 --> 01:26:44,639
+like they're doing these things
+
+2068
+01:26:45,120 --> 01:26:49,679
+nothing i can do
+
+2069
+01:26:46,960 --> 01:26:54,159
+uh okay so that's it that's my that's my
+
+2070
+01:26:49,679 --> 01:26:54,159
+stance about this youtube thing so
+
+2071
+01:26:54,239 --> 01:26:57,480
+bye guys
+
+2072
+01:27:06,080 --> 01:27:09,080
+um
+
+2073
+01:27:27,840 --> 01:27:32,719
+i'm not sure what you mean why isn't
+
+2074
+01:27:30,639 --> 01:27:35,360
+your website linked
+
+2075
+01:27:32,719 --> 01:27:38,400
+in the description or do you do that
+
+2076
+01:27:35,360 --> 01:27:38,400
+after live stream
+
+2077
+01:27:38,960 --> 01:27:44,560
+oh yeah it's usually
+
+2078
+01:27:41,760 --> 01:27:48,159
+you know so the question is for example
+
+2079
+01:27:44,560 --> 01:27:48,159
+let's go to saudi youtube
+
+2080
+01:27:49,199 --> 01:27:54,000
+okay so you can see this is my youtube
+
+2081
+01:27:52,080 --> 01:27:55,920
+yeah go to it
+
+2082
+01:27:54,000 --> 01:27:56,880
+okay stop
+
+2083
+01:27:55,920 --> 01:27:59,520
+and
+
+2084
+01:27:56,880 --> 01:28:00,800
+so this is my youtube you go to
+
+2085
+01:27:59,520 --> 01:28:02,159
+click on that
+
+2086
+01:28:00,800 --> 01:28:03,760
+so
+
+2087
+01:28:02,159 --> 01:28:06,560
+lots of videos
+
+2088
+01:28:03,760 --> 01:28:08,719
+uh you know you know i yeah watch my
+
+2089
+01:28:06,560 --> 01:28:10,719
+videos okay talk i talk about wolfen
+
+2090
+01:28:08,719 --> 01:28:12,320
+language coding in the past few and
+
+2091
+01:28:10,719 --> 01:28:15,600
+other things
+
+2092
+01:28:12,320 --> 01:28:20,000
+and keyboard and stuff by now i've been
+
+2093
+01:28:15,600 --> 01:28:21,360
+doing youtube for like uh two two years
+
+2094
+01:28:20,000 --> 01:28:23,679
+two or three
+
+2095
+01:28:21,360 --> 01:28:26,800
+and they get better and better just like
+
+2096
+01:28:23,679 --> 01:28:29,840
+everyone else and so the question is for
+
+2097
+01:28:26,800 --> 01:28:32,480
+example for example let's click on
+
+2098
+01:28:29,840 --> 01:28:35,520
+let's click on the one before
+
+2099
+01:28:32,480 --> 01:28:36,239
+today we i did this two days ago
+
+2100
+01:28:35,520 --> 01:28:38,320
+so
+
+2101
+01:28:36,239 --> 01:28:41,600
+why don't i have a link in the
+
+2102
+01:28:38,320 --> 01:28:44,719
+description to my website
+
+2103
+01:28:41,600 --> 01:28:47,120
+i used to okay but now i started to not
+
+2104
+01:28:44,719 --> 01:28:49,120
+to do that because
+
+2105
+01:28:47,120 --> 01:28:51,199
+why do i do that
+
+2106
+01:28:49,120 --> 01:28:52,880
+you know what so what's the purpose so
+
+2107
+01:28:51,199 --> 01:28:55,120
+the purpose is
+
+2108
+01:28:52,880 --> 01:28:57,679
+for one reason
+
+2109
+01:28:55,120 --> 01:28:59,360
+so that people who watch my view to it's
+
+2110
+01:28:57,679 --> 01:29:01,440
+convenient you know it's part of the
+
+2111
+01:28:59,360 --> 01:29:04,159
+service you know i'm doing star talk
+
+2112
+01:29:01,440 --> 01:29:06,719
+show so those people are interested in
+
+2113
+01:29:04,159 --> 01:29:08,800
+star talk show they
+
+2114
+01:29:06,719 --> 01:29:10,880
+you know they probably want also to see
+
+2115
+01:29:08,800 --> 01:29:13,440
+my website because my website the
+
+2116
+01:29:10,880 --> 01:29:16,880
+corresponding page has links to all
+
+2117
+01:29:13,440 --> 01:29:20,239
+these relevant information i've written
+
+2118
+01:29:16,880 --> 01:29:21,040
+right so you want a link so that's part
+
+2119
+01:29:20,239 --> 01:29:23,600
+what
+
+2120
+01:29:21,040 --> 01:29:25,360
+that's part of the purpose of the
+
+2121
+01:29:23,600 --> 01:29:27,520
+youtube description
+
+2122
+01:29:25,360 --> 01:29:30,560
+and also describe what what you talked
+
+2123
+01:29:27,520 --> 01:29:31,760
+about you know what's this video about
+
+2124
+01:29:30,560 --> 01:29:34,800
+us so
+
+2125
+01:29:31,760 --> 01:29:36,639
+part of the purpose is a service to
+
+2126
+01:29:34,800 --> 01:29:39,280
+you know what i'm doing what each
+
+2127
+01:29:36,639 --> 01:29:42,880
+youtuber is doing now there's another
+
+2128
+01:29:39,280 --> 01:29:45,360
+part the on the other big reason very
+
+2129
+01:29:42,880 --> 01:29:46,880
+big reason for the youtube description
+
+2130
+01:29:45,360 --> 01:29:47,840
+as they are used
+
+2131
+01:29:46,880 --> 01:29:51,120
+is
+
+2132
+01:29:47,840 --> 01:29:54,239
+money okay money is the answer like
+
+2133
+01:29:51,120 --> 01:29:57,120
+amazon affiliate links you know i like
+
+2134
+01:29:54,239 --> 01:29:59,040
+this keyboard why don't i put a amazon
+
+2135
+01:29:57,120 --> 01:30:00,960
+feed affiliate
+
+2136
+01:29:59,040 --> 01:30:04,000
+where you can you know people can click
+
+2137
+01:30:00,960 --> 01:30:06,480
+and buy it and i get money why not why
+
+2138
+01:30:04,000 --> 01:30:09,760
+not in amazon get money
+
+2139
+01:30:06,480 --> 01:30:12,239
+amazon get a lot you know i got i i will
+
+2140
+01:30:09,760 --> 01:30:15,040
+get a few dollars
+
+2141
+01:30:12,239 --> 01:30:16,560
+so amazon affiliate links or patreon you
+
+2142
+01:30:15,040 --> 01:30:18,320
+know if you like this video please you
+
+2143
+01:30:16,560 --> 01:30:20,719
+know click on the patreon right there so
+
+2144
+01:30:18,320 --> 01:30:23,600
+convenient for you
+
+2145
+01:30:20,719 --> 01:30:25,840
+as a service to my youtubers so
+
+2146
+01:30:23,600 --> 01:30:28,239
+convenient i just put a link to my
+
+2147
+01:30:25,840 --> 01:30:32,000
+amazon paypal so you can just click it
+
+2148
+01:30:28,239 --> 01:30:34,400
+so simple so simple
+
+2149
+01:30:32,000 --> 01:30:36,639
+so that's the other
+
+2150
+01:30:34,400 --> 01:30:38,480
+part of the reason of the youtube
+
+2151
+01:30:36,639 --> 01:30:41,120
+description okay
+
+2152
+01:30:38,480 --> 01:30:43,040
+commercial purposes
+
+2153
+01:30:41,120 --> 01:30:46,639
+now
+
+2154
+01:30:43,040 --> 01:30:48,880
+so um i started to not doing i don't you
+
+2155
+01:30:46,639 --> 01:30:49,679
+know i started i'm not that
+
+2156
+01:30:48,880 --> 01:30:53,280
+you know
+
+2157
+01:30:49,679 --> 01:30:53,280
+well so what's the reason you know
+
+2158
+01:30:54,880 --> 01:30:58,960
+there are several reasons i stopped
+
+2159
+01:30:56,480 --> 01:31:00,480
+doing you know link to my website on
+
+2160
+01:30:58,960 --> 01:31:01,199
+youtube
+
+2161
+01:31:00,480 --> 01:31:03,520
+one
+
+2162
+01:31:01,199 --> 01:31:04,719
+let me just ramble about some of the
+
+2163
+01:31:03,520 --> 01:31:06,400
+reasons
+
+2164
+01:31:04,719 --> 01:31:09,040
+one is that today
+
+2165
+01:31:06,400 --> 01:31:11,520
+you know youtube google empire they
+
+2166
+01:31:09,040 --> 01:31:13,440
+track everything so
+
+2167
+01:31:11,520 --> 01:31:14,239
+so of course you put a link they don't
+
+2168
+01:31:13,440 --> 01:31:16,000
+know
+
+2169
+01:31:14,239 --> 01:31:17,679
+they already know they know already i
+
+2170
+01:31:16,000 --> 01:31:19,840
+mean yeah
+
+2171
+01:31:17,679 --> 01:31:21,679
+but i mean you put a link so they they
+
+2172
+01:31:19,840 --> 01:31:25,120
+they you know they they can see that
+
+2173
+01:31:21,679 --> 01:31:26,800
+it's connected to this page or that page
+
+2174
+01:31:25,120 --> 01:31:29,280
+i don't want that i don't want that i
+
+2175
+01:31:26,800 --> 01:31:33,120
+don't want to give google
+
+2176
+01:31:29,280 --> 01:31:36,800
+some explicit you know education i mean
+
+2177
+01:31:33,120 --> 01:31:39,280
+what's the point if you like my video
+
+2178
+01:31:36,800 --> 01:31:41,679
+if you are really interested in what i'm
+
+2179
+01:31:39,280 --> 01:31:43,920
+talking about you will go look for it
+
+2180
+01:31:41,679 --> 01:31:46,719
+you don't need you don't need a
+
+2181
+01:31:43,920 --> 01:31:49,520
+convenient link right there okay if you
+
+2182
+01:31:46,719 --> 01:31:52,000
+are the type of person who is gonna
+
+2183
+01:31:49,520 --> 01:31:54,159
+donate to me you already did it
+
+2184
+01:31:52,000 --> 01:31:56,320
+you don't need a convenient link to my
+
+2185
+01:31:54,159 --> 01:31:59,840
+amazon page or whatever patreon you
+
+2186
+01:31:56,320 --> 01:31:59,840
+don't need you don't need it okay
+
+2187
+01:32:01,360 --> 01:32:06,320
+you know it's possible maybe i have a
+
+2188
+01:32:03,360 --> 01:32:08,719
+link then it induces some people to
+
+2189
+01:32:06,320 --> 01:32:11,360
+click that not really okay that's a bad
+
+2190
+01:32:08,719 --> 01:32:13,679
+thing okay i want people you know
+
+2191
+01:32:11,360 --> 01:32:14,960
+it's a generally good thing
+
+2192
+01:32:13,679 --> 01:32:17,760
+let people
+
+2193
+01:32:14,960 --> 01:32:20,000
+do what they do okay so i don't need to
+
+2194
+01:32:17,760 --> 01:32:22,960
+say please subscribe please oh please
+
+2195
+01:32:20,000 --> 01:32:25,760
+you know donate those people you know
+
+2196
+01:32:22,960 --> 01:32:28,320
+they see things think for themselves you
+
+2197
+01:32:25,760 --> 01:32:30,719
+see it you truly like it or something
+
+2198
+01:32:28,320 --> 01:32:32,960
+you will do it you don't need
+
+2199
+01:32:30,719 --> 01:32:37,280
+the marketing okay that's that's the
+
+2200
+01:32:32,960 --> 01:32:39,840
+thing marketing has become very bad
+
+2201
+01:32:37,280 --> 01:32:42,960
+marketing especially in america you know
+
+2202
+01:32:39,840 --> 01:32:45,360
+which is a very capital district
+
+2203
+01:32:42,960 --> 01:32:47,120
+and also
+
+2204
+01:32:45,360 --> 01:32:50,000
+i think that's a great idea you know
+
+2205
+01:32:47,120 --> 01:32:52,719
+capitalism but however in usa there's a
+
+2206
+01:32:50,000 --> 01:32:55,520
+lot of corruption so today you have all
+
+2207
+01:32:52,719 --> 01:32:58,639
+these ads full of marketing and
+
+2208
+01:32:55,520 --> 01:33:00,639
+packaging you know like unboxing like if
+
+2209
+01:32:58,639 --> 01:33:02,400
+i don't if i'm going to review a
+
+2210
+01:33:00,639 --> 01:33:04,480
+keyboard
+
+2211
+01:33:02,400 --> 01:33:06,960
+i don't just review the keyboard i need
+
+2212
+01:33:04,480 --> 01:33:09,520
+to do the unboxing of it
+
+2213
+01:33:06,960 --> 01:33:11,840
+because the box becomes important you
+
+2214
+01:33:09,520 --> 01:33:14,880
+know what they say
+
+2215
+01:33:11,840 --> 01:33:17,040
+malenchen idiots
+
+2216
+01:33:14,880 --> 01:33:19,920
+so marketing so i so i tried you know
+
+2217
+01:33:17,040 --> 01:33:22,960
+that's that's not my style so
+
+2218
+01:33:19,920 --> 01:33:24,880
+so for this kind of several reasons i
+
+2219
+01:33:22,960 --> 01:33:26,560
+do not
+
+2220
+01:33:24,880 --> 01:33:28,719
+you know take the time also it takes a
+
+2221
+01:33:26,560 --> 01:33:29,920
+lot of time you know it you know takes
+
+2222
+01:33:28,719 --> 01:33:31,199
+time to
+
+2223
+01:33:29,920 --> 01:33:32,800
+put my links
+
+2224
+01:33:31,199 --> 01:33:34,239
+add my links into the youtube
+
+2225
+01:33:32,800 --> 01:33:37,120
+description
+
+2226
+01:33:34,239 --> 01:33:38,960
+then if my some of my link changed or
+
+2227
+01:33:37,120 --> 01:33:41,520
+something it sometimes
+
+2228
+01:33:38,960 --> 01:33:42,239
+rarely it does happen
+
+2229
+01:33:41,520 --> 01:33:43,840
+then
+
+2230
+01:33:42,239 --> 01:33:46,080
+then it's
+
+2231
+01:33:43,840 --> 01:33:48,000
+very painful to modify all your links in
+
+2232
+01:33:46,080 --> 01:33:50,320
+the past because if you look at other
+
+2233
+01:33:48,000 --> 01:33:52,880
+people's youtube you look at them 10
+
+2234
+01:33:50,320 --> 01:33:54,880
+years ago all the links are broken you
+
+2235
+01:33:52,880 --> 01:33:56,639
+know
+
+2236
+01:33:54,880 --> 01:33:59,440
+anyway that's some of the reasons okay
+
+2237
+01:33:56,639 --> 01:34:03,639
+that's it that's it bye guys bye bye bye
+
+2238
+01:33:59,440 --> 01:34:03,639
+thank you guys for watching bye
+
+2239
+01:34:15,040 --> 01:34:18,719
+is my
+
+2240
+01:34:16,480 --> 01:34:20,560
+google okay so google
+
+2241
+01:34:18,719 --> 01:34:23,600
+oh yeah so i need to
+
+2242
+01:34:20,560 --> 01:34:26,880
+hit the end stream 11 concurrent viewers
+
+2243
+01:34:23,600 --> 01:34:26,880
+fantastic thank you guys
+

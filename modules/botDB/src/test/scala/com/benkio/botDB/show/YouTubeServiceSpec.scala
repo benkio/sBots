@@ -25,7 +25,8 @@ class YouTubeServiceSpec extends CatsEffectSuite {
             youtubeSources = List.empty, // avoid any network calls
             botId = "testbot",
             captionLanguage = "it",
-            outputFilePath = "/tmp/test_shows.json"
+            outputFilePath = "/tmp/test_shows.json",
+            captionFolderPath = "/tmp/test_captions"
           )
         ),
         runShowFetching = false,
@@ -40,6 +41,7 @@ class YouTubeServiceSpec extends CatsEffectSuite {
       YouTubeBotIds(
         botId = SBotId("testbot"),
         outputFilePath = "/tmp/test_shows.json",
+        captionFolderPath = "/tmp/test_captions",
         captionLanguage = "it",
         videoIds = List.empty
       )

@@ -1,0 +1,8308 @@
+1
+00:00:05,839 --> 00:00:09,760
+good morning everyone
+
+2
+00:00:07,200 --> 00:00:10,800
+welcome to another episode of xl talk
+
+3
+00:00:09,760 --> 00:00:16,800
+show
+
+4
+00:00:10,800 --> 00:00:20,800
+today is 2017 2021 uh
+
+5
+00:00:16,800 --> 00:00:24,080
+april 24th and today we are going to do
+
+6
+00:00:20,800 --> 00:00:27,439
+uh lisp and mathematica lisp
+
+7
+00:00:24,080 --> 00:00:30,640
+and wufang language so this episode
+
+8
+00:00:27,439 --> 00:00:32,640
+would be interest to those of you
+
+9
+00:00:30,640 --> 00:00:35,120
+who are interested in programming
+
+10
+00:00:32,640 --> 00:00:38,960
+language syntax design
+
+11
+00:00:35,120 --> 00:00:41,280
+or if you are a lisp programmer
+
+12
+00:00:38,960 --> 00:00:42,640
+or if you are you know just interested
+
+13
+00:00:41,280 --> 00:00:45,520
+in wolfram language
+
+14
+00:00:42,640 --> 00:00:46,640
+mathematica then you'll find this
+
+15
+00:00:45,520 --> 00:00:50,079
+episode fun
+
+16
+00:00:46,640 --> 00:00:52,640
+and informal informative so good morning
+
+17
+00:00:50,079 --> 00:00:56,000
+bart good morning
+
+18
+00:00:52,640 --> 00:00:59,039
+jazke and friends
+
+19
+00:00:56,000 --> 00:01:02,559
+jason and jason from
+
+20
+00:00:59,039 --> 00:01:06,560
+friends oh hi jason khalif
+
+21
+00:01:02,559 --> 00:01:09,200
+and who who
+
+22
+00:01:06,560 --> 00:01:12,880
+introduced me to some technologies of
+
+23
+00:01:09,200 --> 00:01:15,920
+microphone and audio and good morning
+
+24
+00:01:12,880 --> 00:01:16,640
+uh this russian guy i don't know how to
+
+25
+00:01:15,920 --> 00:01:18,960
+pronounce
+
+26
+00:01:16,640 --> 00:01:21,000
+okay so we are going uh we are going to
+
+27
+00:01:18,960 --> 00:01:24,640
+do
+
+28
+00:01:21,000 --> 00:01:26,640
+2021 okay we are going to start to code
+
+29
+00:01:24,640 --> 00:01:28,240
+lisp and mathematic mathematica i'm
+
+30
+00:01:26,640 --> 00:01:31,759
+going to explain
+
+31
+00:01:28,240 --> 00:01:34,000
+the isomorphism of lisp syntax in
+
+32
+00:01:31,759 --> 00:01:35,920
+mathematica you know remember in uh let
+
+33
+00:01:34,000 --> 00:01:39,040
+me show let me tell you about
+
+34
+00:01:35,920 --> 00:01:40,320
+a few episodes before so if you look at
+
+35
+00:01:39,040 --> 00:01:42,560
+my uh
+
+36
+00:01:40,320 --> 00:01:44,560
+you know just search for talk show and
+
+37
+00:01:42,560 --> 00:01:47,600
+you arrive at my page
+
+38
+00:01:44,560 --> 00:01:48,880
+i did several episodes on mathematica
+
+39
+00:01:47,600 --> 00:01:52,840
+okay actually that's
+
+40
+00:01:48,880 --> 00:01:56,159
+it's easier if we just go to youtube
+
+41
+00:01:52,840 --> 00:01:59,840
+youtube then sally
+
+42
+00:01:56,159 --> 00:02:02,560
+okay i did a few episode on mathematica
+
+43
+00:01:59,840 --> 00:02:04,000
+and you would be interested to watch
+
+44
+00:02:02,560 --> 00:02:07,200
+okay where do i
+
+45
+00:02:04,000 --> 00:02:11,360
+uh videos okay let me show you okay
+
+46
+00:02:07,200 --> 00:02:14,560
+so starting with this one
+
+47
+00:02:11,360 --> 00:02:18,800
+uh star talk show 2021
+
+48
+00:02:14,560 --> 00:02:21,200
+february 6th then since then i did about
+
+49
+00:02:18,800 --> 00:02:22,319
+five videos on mathematica so you may
+
+50
+00:02:21,200 --> 00:02:24,560
+you know if you are interested in
+
+51
+00:02:22,319 --> 00:02:28,480
+mathematical start with that one
+
+52
+00:02:24,560 --> 00:02:32,080
+uh in fact i have a kind of a youtube uh
+
+53
+00:02:28,480 --> 00:02:34,640
+play list of my mathematical videos
+
+54
+00:02:32,080 --> 00:02:35,599
+okay so anyway let me begin okay let me
+
+55
+00:02:34,640 --> 00:02:39,120
+let's start
+
+56
+00:02:35,599 --> 00:02:42,080
+to talk about this serious topic lisp
+
+57
+00:02:39,120 --> 00:02:42,560
+versus wufang language versus emax oak
+
+58
+00:02:42,080 --> 00:02:45,040
+so
+
+59
+00:02:42,560 --> 00:02:47,120
+i'm going to show you the isomorphism
+
+60
+00:02:45,040 --> 00:02:48,000
+between this syntax and mathematica
+
+61
+00:02:47,120 --> 00:02:51,519
+syntax
+
+62
+00:02:48,000 --> 00:02:55,040
+and also the least symbolic form
+
+63
+00:02:51,519 --> 00:02:56,640
+and meta form if you are a lisp coder
+
+64
+00:02:55,040 --> 00:02:59,760
+you know what i'm talking about
+
+65
+00:02:56,640 --> 00:03:00,560
+and i'm going to uh explain the concepts
+
+66
+00:02:59,760 --> 00:03:04,159
+of prefix
+
+67
+00:03:00,560 --> 00:03:07,280
+infix postfix notations uh
+
+68
+00:03:04,159 --> 00:03:08,239
+and also then i'm going to do some demo
+
+69
+00:03:07,280 --> 00:03:10,640
+of typesetting
+
+70
+00:03:08,239 --> 00:03:11,440
+mathematica that i'm going to show
+
+71
+00:03:10,640 --> 00:03:14,480
+eventually
+
+72
+00:03:11,440 --> 00:03:18,280
+i'm going to show how the similarity
+
+73
+00:03:14,480 --> 00:03:19,519
+of uemax uses org mod users many
+
+74
+00:03:18,280 --> 00:03:22,560
+similarities
+
+75
+00:03:19,519 --> 00:03:24,959
+and functional equivalence you know you
+
+76
+00:03:22,560 --> 00:03:27,599
+know functional similarities about
+
+77
+00:03:24,959 --> 00:03:28,959
+using a mathematical notebook wufang
+
+78
+00:03:27,599 --> 00:03:32,159
+language in a book
+
+79
+00:03:28,959 --> 00:03:35,360
+and ogmod it can do essentially it's um
+
+80
+00:03:32,159 --> 00:03:36,879
+it's almost like oak mod everything ogma
+
+81
+00:03:35,360 --> 00:03:40,400
+can do mathematica can do
+
+82
+00:03:36,879 --> 00:03:40,799
+and much more actually so let's begin
+
+83
+00:03:40,400 --> 00:03:42,959
+okay
+
+84
+00:03:40,799 --> 00:03:44,799
+and and lastly let me okay let me show
+
+85
+00:03:42,959 --> 00:03:45,599
+you let me let me tell you about this
+
+86
+00:03:44,799 --> 00:03:49,599
+okay
+
+87
+00:03:45,599 --> 00:03:53,200
+so you go to uh xari yeah let me get
+
+88
+00:03:49,599 --> 00:03:54,080
+get this uh out first so you go to
+
+89
+00:03:53,200 --> 00:03:57,120
+programming
+
+90
+00:03:54,080 --> 00:03:59,040
+you go to wufam language uh so i have
+
+91
+00:03:57,120 --> 00:04:00,159
+two videos there you you know watch this
+
+92
+00:03:59,040 --> 00:04:03,439
+too uh
+
+93
+00:04:00,159 --> 00:04:06,400
+then then you go to
+
+94
+00:04:03,439 --> 00:04:07,840
+uh download wufam language for free you
+
+95
+00:04:06,400 --> 00:04:10,480
+know if you are a programmer
+
+96
+00:04:07,840 --> 00:04:11,200
+if you don't if you just want to try it
+
+97
+00:04:10,480 --> 00:04:13,040
+out
+
+98
+00:04:11,200 --> 00:04:15,439
+you know you there are several ways and
+
+99
+00:04:13,040 --> 00:04:17,440
+actually they are officially free wolfam
+
+100
+00:04:15,439 --> 00:04:17,919
+engine is free willful and script is
+
+101
+00:04:17,440 --> 00:04:20,239
+free
+
+102
+00:04:17,919 --> 00:04:21,680
+they are essentially the entire wolfram
+
+103
+00:04:20,239 --> 00:04:23,840
+language so you can
+
+104
+00:04:21,680 --> 00:04:25,759
+play and try it you can also try it
+
+105
+00:04:23,840 --> 00:04:28,639
+online okay
+
+106
+00:04:25,759 --> 00:04:29,600
+so okay copy that let's go back to emacs
+
+107
+00:04:28,639 --> 00:04:32,639
+and uh let's
+
+108
+00:04:29,600 --> 00:04:34,960
+um uh
+
+109
+00:04:32,639 --> 00:04:38,400
+uh language for free okay let's start to
+
+110
+00:04:34,960 --> 00:04:41,520
+do what we are going to do today so
+
+111
+00:04:38,400 --> 00:04:45,360
+so okay so uh
+
+112
+00:04:41,520 --> 00:04:48,639
+so first of all um
+
+113
+00:04:45,360 --> 00:04:50,400
+okay so if you have seen lisp
+
+114
+00:04:48,639 --> 00:04:53,919
+you know if you have not seen this
+
+115
+00:04:50,400 --> 00:04:56,400
+syntax for example this is a lisp syntax
+
+116
+00:04:53,919 --> 00:04:57,440
+uh this is my stuff like keys you can
+
+117
+00:04:56,400 --> 00:04:59,759
+see
+
+118
+00:04:57,440 --> 00:05:01,440
+this syntax is essentially lots of
+
+119
+00:04:59,759 --> 00:05:04,639
+parentheses
+
+120
+00:05:01,440 --> 00:05:05,360
+almost purely nested parenthesis that is
+
+121
+00:05:04,639 --> 00:05:09,759
+the list
+
+122
+00:05:05,360 --> 00:05:12,080
+syntax okay and the list syntax
+
+123
+00:05:09,759 --> 00:05:14,400
+essentially they you can generate the
+
+124
+00:05:12,080 --> 00:05:17,199
+entire syntax
+
+125
+00:05:14,400 --> 00:05:19,360
+uh let me let me just do the simple way
+
+126
+00:05:17,199 --> 00:05:20,000
+okay i mean let me explain in a simple
+
+127
+00:05:19,360 --> 00:05:24,479
+manner
+
+128
+00:05:20,000 --> 00:05:28,080
+instead of being formal okay so in
+
+129
+00:05:24,479 --> 00:05:31,440
+in in essence every this syntax
+
+130
+00:05:28,080 --> 00:05:34,639
+is this form okay they are either
+
+131
+00:05:31,440 --> 00:05:38,160
+an atom f or three or f
+
+132
+00:05:34,639 --> 00:05:41,280
+or two or three or three 3.5
+
+133
+00:05:38,160 --> 00:05:43,600
+or a string those are called atoms so
+
+134
+00:05:41,280 --> 00:05:45,199
+either they are atoms or they have the
+
+135
+00:05:43,600 --> 00:05:48,000
+form a parenthesis
+
+136
+00:05:45,199 --> 00:05:50,320
+then a sequence of atoms and it can be
+
+137
+00:05:48,000 --> 00:05:53,759
+nested so you can have that
+
+138
+00:05:50,320 --> 00:05:56,880
+or you can have uh that
+
+139
+00:05:53,759 --> 00:06:00,080
+that you know arbitrarily nested
+
+140
+00:05:56,880 --> 00:06:00,960
+this syntax so this is in lisp languages
+
+141
+00:06:00,080 --> 00:06:04,240
+this is called
+
+142
+00:06:00,960 --> 00:06:06,240
+symbolic expression okay symbolic
+
+143
+00:06:04,240 --> 00:06:08,400
+expression so forget about the atoms
+
+144
+00:06:06,240 --> 00:06:11,440
+basically just look like that
+
+145
+00:06:08,400 --> 00:06:12,240
+and you can see here check you know they
+
+146
+00:06:11,440 --> 00:06:15,520
+uh let me
+
+147
+00:06:12,240 --> 00:06:18,720
+show you some some uh
+
+148
+00:06:15,520 --> 00:06:22,080
+you know you see you see this uh you see
+
+149
+00:06:18,720 --> 00:06:24,800
+it's full of nesting you know
+
+150
+00:06:22,080 --> 00:06:25,759
+almost everything is nested brackets
+
+151
+00:06:24,800 --> 00:06:28,720
+parentheses
+
+152
+00:06:25,759 --> 00:06:29,919
+okay round brackets as the you united
+
+153
+00:06:28,720 --> 00:06:33,600
+kingdom
+
+154
+00:06:29,919 --> 00:06:35,840
+calls it okay now that's lisp syntax
+
+155
+00:06:33,600 --> 00:06:35,840
+okay
+
+156
+00:06:38,160 --> 00:06:41,919
+now let me tell you so there's
+
+157
+00:06:39,759 --> 00:06:44,479
+isomorphism between lisp syntax and
+
+158
+00:06:41,919 --> 00:06:46,240
+mathematics mathematical syntax okay uh
+
+159
+00:06:44,479 --> 00:06:49,520
+by the way lisp syntax
+
+160
+00:06:46,240 --> 00:06:53,919
+uh the use
+
+161
+00:06:49,520 --> 00:06:57,039
+space to separate atoms
+
+162
+00:06:53,919 --> 00:06:57,440
+for example okay for example you can
+
+163
+00:06:57,039 --> 00:06:59,840
+have
+
+164
+00:06:57,440 --> 00:07:02,560
+f34 you know there's a space in between
+
+165
+00:06:59,840 --> 00:07:04,560
+that means they are separate you know
+
+166
+00:07:02,560 --> 00:07:06,000
+so that's these syntax now what about
+
+167
+00:07:04,560 --> 00:07:08,960
+mathematica syntax
+
+168
+00:07:06,000 --> 00:07:10,639
+let me type it okay wufang language
+
+169
+00:07:08,960 --> 00:07:13,680
+syntax now they are almost
+
+170
+00:07:10,639 --> 00:07:14,160
+exactly the same in fact take take any
+
+171
+00:07:13,680 --> 00:07:17,039
+list
+
+172
+00:07:14,160 --> 00:07:18,400
+syntax you can transform it in a
+
+173
+00:07:17,039 --> 00:07:21,919
+systematic way
+
+174
+00:07:18,400 --> 00:07:22,880
+to obtain the equivalent mathematical
+
+175
+00:07:21,919 --> 00:07:25,360
+syntax
+
+176
+00:07:22,880 --> 00:07:27,440
+language syntax for example so
+
+177
+00:07:25,360 --> 00:07:27,919
+mathematica syntax let me show you so
+
+178
+00:07:27,440 --> 00:07:31,120
+it's
+
+179
+00:07:27,919 --> 00:07:33,680
+gonna be like that uh
+
+180
+00:07:31,120 --> 00:07:36,720
+let's simplify okay uh let's let's just
+
+181
+00:07:33,680 --> 00:07:36,720
+say that okay so
+
+182
+00:07:36,800 --> 00:07:41,039
+so what about how about this one how do
+
+183
+00:07:38,800 --> 00:07:45,840
+i how do you do that in mathematica
+
+184
+00:07:41,039 --> 00:07:45,840
+simple like that
+
+185
+00:07:46,879 --> 00:07:52,879
+you see that versus that
+
+186
+00:07:50,000 --> 00:07:55,440
+that versus that you see in the list
+
+187
+00:07:52,879 --> 00:07:58,319
+syntax you start with the parenthesis
+
+188
+00:07:55,440 --> 00:07:59,280
+then then you have several items inside
+
+189
+00:07:58,319 --> 00:08:02,160
+the first item
+
+190
+00:07:59,280 --> 00:08:02,639
+is considered the function and they
+
+191
+00:08:02,160 --> 00:08:05,520
+asked
+
+192
+00:08:02,639 --> 00:08:06,080
+uh usually okay and and and that the
+
+193
+00:08:05,520 --> 00:08:08,639
+first
+
+194
+00:08:06,080 --> 00:08:09,919
+item is usually called the head of the
+
+195
+00:08:08,639 --> 00:08:11,599
+expression head like
+
+196
+00:08:09,919 --> 00:08:13,680
+your head you know head of the
+
+197
+00:08:11,599 --> 00:08:15,360
+expression so in this syntax
+
+198
+00:08:13,680 --> 00:08:17,039
+this thing is called the head of
+
+199
+00:08:15,360 --> 00:08:19,120
+expression uh as an
+
+200
+00:08:17,039 --> 00:08:21,759
+actual example if we go here you see
+
+201
+00:08:19,120 --> 00:08:24,960
+this expression
+
+202
+00:08:21,759 --> 00:08:26,319
+so you can see this you know this real
+
+203
+00:08:24,960 --> 00:08:30,319
+life this
+
+204
+00:08:26,319 --> 00:08:33,680
+code this is the head of
+
+205
+00:08:30,319 --> 00:08:36,080
+that expression and similarly in this
+
+206
+00:08:33,680 --> 00:08:36,719
+expression the narrative region is the
+
+207
+00:08:36,080 --> 00:08:40,479
+head
+
+208
+00:08:36,719 --> 00:08:42,240
+and so on okay so in mathematica okay so
+
+209
+00:08:40,479 --> 00:08:42,959
+anyway let's go back to mathematica so
+
+210
+00:08:42,240 --> 00:08:44,800
+that's the least
+
+211
+00:08:42,959 --> 00:08:47,200
+syntax and that and this is the
+
+212
+00:08:44,800 --> 00:08:48,880
+mathematical syntax so in this
+
+213
+00:08:47,200 --> 00:08:51,040
+you start with a parenthesis then you
+
+214
+00:08:48,880 --> 00:08:53,360
+have a bunch of items
+
+215
+00:08:51,040 --> 00:08:55,200
+uh where the first one is the head of
+
+216
+00:08:53,360 --> 00:08:55,839
+the expression now in mathematica it's
+
+217
+00:08:55,200 --> 00:08:59,360
+similar
+
+218
+00:08:55,839 --> 00:09:02,240
+except you put the head
+
+219
+00:08:59,360 --> 00:09:02,959
+in the beginning then you put a square
+
+220
+00:09:02,240 --> 00:09:06,839
+brackets
+
+221
+00:09:02,959 --> 00:09:10,640
+they're nest or the same so for example
+
+222
+00:09:06,839 --> 00:09:12,399
+uh uh so for example okay and also in
+
+223
+00:09:10,640 --> 00:09:15,600
+mathematica you use comma
+
+224
+00:09:12,399 --> 00:09:17,560
+to separate items for example uh let me
+
+225
+00:09:15,600 --> 00:09:21,120
+let me write this okay so
+
+226
+00:09:17,560 --> 00:09:24,560
+f34 in mathematica would be written like
+
+227
+00:09:21,120 --> 00:09:27,279
+that three four okay
+
+228
+00:09:24,560 --> 00:09:30,240
+now now but let me show you what uh what
+
+229
+00:09:27,279 --> 00:09:30,240
+were we talking about
+
+230
+00:09:30,959 --> 00:09:38,080
+uh what was i going to say i i forgot
+
+231
+00:09:35,360 --> 00:09:39,200
+so anyway i i hope you see the the
+
+232
+00:09:38,080 --> 00:09:42,080
+equivalence
+
+233
+00:09:39,200 --> 00:09:42,399
+uh you know the kind of the isomorphism
+
+234
+00:09:42,080 --> 00:09:45,600
+in
+
+235
+00:09:42,399 --> 00:09:49,040
+in mathematics you kind of call that uh
+
+236
+00:09:45,600 --> 00:09:53,120
+isomorphism meaning that from one
+
+237
+00:09:49,040 --> 00:09:55,040
+thing there is a map one two one map
+
+238
+00:09:53,120 --> 00:09:56,640
+that transform this one thing to the
+
+239
+00:09:55,040 --> 00:09:59,519
+other thing and uh
+
+240
+00:09:56,640 --> 00:09:59,920
+preserve their structure so that applies
+
+241
+00:09:59,519 --> 00:10:03,120
+to
+
+242
+00:09:59,920 --> 00:10:05,839
+list this syntax and mathematical syntax
+
+243
+00:10:03,120 --> 00:10:06,399
+meaning you can transform one to the
+
+244
+00:10:05,839 --> 00:10:10,640
+other
+
+245
+00:10:06,399 --> 00:10:12,240
+and preserve their structure exactly
+
+246
+00:10:10,640 --> 00:10:14,240
+you just all you have to do is move the
+
+247
+00:10:12,240 --> 00:10:17,680
+head to the outside
+
+248
+00:10:14,240 --> 00:10:18,000
+then replace space by comma or comma by
+
+249
+00:10:17,680 --> 00:10:21,920
+space
+
+250
+00:10:18,000 --> 00:10:25,120
+vice versa so that is the um
+
+251
+00:10:21,920 --> 00:10:25,519
+okay so that concludes the isomorphism
+
+252
+00:10:25,120 --> 00:10:28,320
+thing
+
+253
+00:10:25,519 --> 00:10:29,680
+about lisp syntax in mathematica now go
+
+254
+00:10:28,320 --> 00:10:32,640
+back let's go back to
+
+255
+00:10:29,680 --> 00:10:34,079
+my talk show page let's write it down
+
+256
+00:10:32,640 --> 00:10:37,120
+okay
+
+257
+00:10:34,079 --> 00:10:37,120
+let's write it down
+
+258
+00:10:40,160 --> 00:10:46,560
+okay showing browser so we kind of
+
+259
+00:10:42,160 --> 00:10:49,360
+explained the first part
+
+260
+00:10:46,560 --> 00:10:50,800
+okay so first explain the isomorphism of
+
+261
+00:10:49,360 --> 00:10:54,240
+ideas leave syntax and
+
+262
+00:10:50,800 --> 00:10:56,959
+wu from language full form okay so
+
+263
+00:10:54,240 --> 00:10:57,760
+okay that's one thing now i have article
+
+264
+00:10:56,959 --> 00:11:00,880
+concepts
+
+265
+00:10:57,760 --> 00:11:03,519
+and confusions a prefix infix postfix
+
+266
+00:11:00,880 --> 00:11:04,700
+and lisp notations
+
+267
+00:11:03,519 --> 00:11:07,739
+now you need to go to
+
+268
+00:11:04,700 --> 00:11:07,739
+[Music]
+
+269
+00:11:08,800 --> 00:11:15,279
+concepts of prefix
+
+270
+00:11:12,240 --> 00:11:18,160
+infix post fix
+
+271
+00:11:15,279 --> 00:11:18,800
+this okay search for that there this
+
+272
+00:11:18,160 --> 00:11:21,839
+article
+
+273
+00:11:18,800 --> 00:11:24,240
+okay concepts and confusions of
+
+274
+00:11:21,839 --> 00:11:27,040
+prefix infix postfix and display
+
+275
+00:11:24,240 --> 00:11:29,440
+notations let me
+
+276
+00:11:27,040 --> 00:11:30,720
+okay let me quickly go of the go over
+
+277
+00:11:29,440 --> 00:11:33,120
+these notations so
+
+278
+00:11:30,720 --> 00:11:35,200
+in fixed notation looks like that this
+
+279
+00:11:33,120 --> 00:11:38,160
+is your typical arithmetic
+
+280
+00:11:35,200 --> 00:11:38,800
+you know uh traditional normal math
+
+281
+00:11:38,160 --> 00:11:41,360
+notation
+
+282
+00:11:38,800 --> 00:11:43,600
+five times two plus three then you have
+
+283
+00:11:41,360 --> 00:11:47,200
+post fixed notation this is actually
+
+284
+00:11:43,600 --> 00:11:50,720
+a polish post fix so you say
+
+285
+00:11:47,200 --> 00:11:53,440
+5 2 multiply that means 5 times 2
+
+286
+00:11:50,720 --> 00:11:54,079
+then you say 3 then you say plus that
+
+287
+00:11:53,440 --> 00:11:58,160
+means
+
+288
+00:11:54,079 --> 00:12:01,040
+add whatever previous two items that's a
+
+289
+00:11:58,160 --> 00:12:03,360
+postfix notation then you have the
+
+290
+00:12:01,040 --> 00:12:04,399
+prefix notation which is kind of just
+
+291
+00:12:03,360 --> 00:12:06,880
+the
+
+292
+00:12:04,399 --> 00:12:08,000
+reverse of the postfix notation so you
+
+293
+00:12:06,880 --> 00:12:09,760
+say
+
+294
+00:12:08,000 --> 00:12:12,079
+so you kind of work from right to the
+
+295
+00:12:09,760 --> 00:12:15,360
+left you know five
+
+296
+00:12:12,079 --> 00:12:16,399
+two and five then you multiply them then
+
+297
+00:12:15,360 --> 00:12:19,760
+you put three
+
+298
+00:12:16,399 --> 00:12:22,560
+then you add three and whatever
+
+299
+00:12:19,760 --> 00:12:23,600
+the sum of five and two that's a prefix
+
+300
+00:12:22,560 --> 00:12:27,839
+notation
+
+301
+00:12:23,600 --> 00:12:30,560
+then you have the lisp notation now
+
+302
+00:12:27,839 --> 00:12:31,360
+that needs no explanation we just did
+
+303
+00:12:30,560 --> 00:12:35,120
+before
+
+304
+00:12:31,360 --> 00:12:38,160
+so then you have the typical functional
+
+305
+00:12:35,120 --> 00:12:41,440
+notation in traditional math
+
+306
+00:12:38,160 --> 00:12:44,000
+mathematics for example sine cosine
+
+307
+00:12:41,440 --> 00:12:44,800
+uh you know so you put f then
+
+308
+00:12:44,000 --> 00:12:48,000
+parenthesis
+
+309
+00:12:44,800 --> 00:12:48,000
+then arguments okay
+
+310
+00:12:48,240 --> 00:12:52,800
+then you have kind of so-called match
+
+311
+00:12:50,720 --> 00:12:56,000
+fixed notation now
+
+312
+00:12:52,800 --> 00:12:58,800
+now this is also very common so you
+
+313
+00:12:56,000 --> 00:12:58,800
+essentially you
+
+314
+00:12:59,120 --> 00:13:05,360
+you bracket everything together
+
+315
+00:13:02,720 --> 00:13:06,160
+now you can you can see i have example
+
+316
+00:13:05,360 --> 00:13:09,200
+here but
+
+317
+00:13:06,160 --> 00:13:12,560
+most of you will probably familiar in
+
+318
+00:13:09,200 --> 00:13:15,760
+i mean any language pearl python ruby
+
+319
+00:13:12,560 --> 00:13:17,040
+c gold line c plus plus c sharp java
+
+320
+00:13:15,760 --> 00:13:20,560
+they all have that
+
+321
+00:13:17,040 --> 00:13:23,120
+for example array three four
+
+322
+00:13:20,560 --> 00:13:23,760
+five you know this is a typical array uh
+
+323
+00:13:23,120 --> 00:13:27,120
+syntax
+
+324
+00:13:23,760 --> 00:13:27,839
+in all these languages or you have a
+
+325
+00:13:27,120 --> 00:13:30,959
+block
+
+326
+00:13:27,839 --> 00:13:35,040
+of text uh three plus five you know
+
+327
+00:13:30,959 --> 00:13:38,480
+uh and and semicolon and return
+
+328
+00:13:35,040 --> 00:13:41,279
+let's say return okay return
+
+329
+00:13:38,480 --> 00:13:41,279
+so this is uh
+
+330
+00:13:42,160 --> 00:13:49,279
+these are this these these are called
+
+331
+00:13:46,240 --> 00:13:51,199
+match fix notation in
+
+332
+00:13:49,279 --> 00:13:53,279
+in a way okay there is actually no
+
+333
+00:13:51,199 --> 00:13:54,079
+standard name for this kind of notation
+
+334
+00:13:53,279 --> 00:13:57,360
+but
+
+335
+00:13:54,079 --> 00:13:59,360
+but in to be consistent with the infix
+
+336
+00:13:57,360 --> 00:14:01,839
+postfix prefix kind of thing
+
+337
+00:13:59,360 --> 00:14:03,519
+we call them match fix this is what
+
+338
+00:14:01,839 --> 00:14:07,600
+mathematica calls it
+
+339
+00:14:03,519 --> 00:14:10,720
+so when you have array example
+
+340
+00:14:07,600 --> 00:14:14,839
+array or list
+
+341
+00:14:10,720 --> 00:14:17,120
+in most languages
+
+342
+00:14:14,839 --> 00:14:19,279
+okay you have that
+
+343
+00:14:17,120 --> 00:14:21,120
+you know you just bracket them and and
+
+344
+00:14:19,279 --> 00:14:22,399
+what does that bracket mean that's kind
+
+345
+00:14:21,120 --> 00:14:25,360
+of a
+
+346
+00:14:22,399 --> 00:14:26,399
+that's kind of the operator matched
+
+347
+00:14:25,360 --> 00:14:29,600
+operator
+
+348
+00:14:26,399 --> 00:14:32,720
+so that means uh you know array and
+
+349
+00:14:29,600 --> 00:14:35,199
+for the code block
+
+350
+00:14:32,720 --> 00:14:36,000
+or sometimes scope block you know that
+
+351
+00:14:35,199 --> 00:14:39,600
+similar
+
+352
+00:14:36,000 --> 00:14:39,600
+match fix notation okay
+
+353
+00:14:42,160 --> 00:14:46,160
+okay let's copy that let's cut that and
+
+354
+00:14:44,720 --> 00:14:49,040
+let's put
+
+355
+00:14:46,160 --> 00:14:49,920
+uh that to here so we have kind of a
+
+356
+00:14:49,040 --> 00:14:53,199
+documentation
+
+357
+00:14:49,920 --> 00:14:56,720
+of what we did today there
+
+358
+00:14:53,199 --> 00:14:58,880
+match fixed notation okay so
+
+359
+00:14:56,720 --> 00:15:01,199
+anyway that's the digression digression
+
+360
+00:14:58,880 --> 00:15:03,279
+something about the syntax
+
+361
+00:15:01,199 --> 00:15:04,800
+but mostly i want to go back to
+
+362
+00:15:03,279 --> 00:15:07,839
+explaining lisp
+
+363
+00:15:04,800 --> 00:15:11,199
+and uh wolfram language okay so
+
+364
+00:15:07,839 --> 00:15:15,360
+so now we got comments
+
+365
+00:15:11,199 --> 00:15:18,160
+comments okay if you have a question to
+
+366
+00:15:15,360 --> 00:15:21,440
+me put my name to it
+
+367
+00:15:18,160 --> 00:15:24,399
+okay so so we have now
+
+368
+00:15:21,440 --> 00:15:25,839
+explained the isomorphism between these
+
+369
+00:15:24,399 --> 00:15:29,199
+syntax in mathematic
+
+370
+00:15:25,839 --> 00:15:32,000
+mathematical syntax now let me explain
+
+371
+00:15:29,199 --> 00:15:32,280
+the full glory of mathematical syntax
+
+372
+00:15:32,000 --> 00:15:35,279
+okay
+
+373
+00:15:32,280 --> 00:15:38,240
+[Laughter]
+
+374
+00:15:35,279 --> 00:15:39,519
+this is when we are going to go to
+
+375
+00:15:38,240 --> 00:15:44,320
+mathematica let me
+
+376
+00:15:39,519 --> 00:15:44,320
+demonstrate okay let me let me show you
+
+377
+00:15:45,040 --> 00:15:49,440
+okay so three plus five now you see that
+
+378
+00:15:48,079 --> 00:15:52,000
+three plus five uh
+
+379
+00:15:49,440 --> 00:15:53,839
+i mean three plus two right equals to
+
+380
+00:15:52,000 --> 00:15:54,800
+five now let's do three plus one equals
+
+381
+00:15:53,839 --> 00:15:56,800
+through four
+
+382
+00:15:54,800 --> 00:15:58,880
+you might be wondering hey exactly you
+
+383
+00:15:56,800 --> 00:16:01,279
+just said that mathematica has
+
+384
+00:15:58,880 --> 00:16:02,320
+you know it its syntax is fully
+
+385
+00:16:01,279 --> 00:16:06,959
+bracketed
+
+386
+00:16:02,320 --> 00:16:09,199
+you know fully nested brackets then
+
+387
+00:16:06,959 --> 00:16:11,519
+where do you get you know where do you
+
+388
+00:16:09,199 --> 00:16:13,680
+get that three plus one what's going on
+
+389
+00:16:11,519 --> 00:16:15,360
+i mean that should be embedded syntax
+
+390
+00:16:13,680 --> 00:16:16,480
+right that's not mathematical syntax
+
+391
+00:16:15,360 --> 00:16:19,600
+well let me explain
+
+392
+00:16:16,480 --> 00:16:23,279
+so mathematica syntax have
+
+393
+00:16:19,600 --> 00:16:26,320
+these um you know it's purely
+
+394
+00:16:23,279 --> 00:16:29,680
+nested brackets just like lisp okay
+
+395
+00:16:26,320 --> 00:16:31,360
+however it has a layer it has a
+
+396
+00:16:29,680 --> 00:16:34,560
+systematic
+
+397
+00:16:31,360 --> 00:16:37,920
+layer syntactical layer that
+
+398
+00:16:34,560 --> 00:16:41,279
+can transform any
+
+399
+00:16:37,920 --> 00:16:44,800
+uh nested expression to
+
+400
+00:16:41,279 --> 00:16:48,560
+to kind of a more a shorthand or
+
+401
+00:16:44,800 --> 00:16:50,399
+sometimes it's known as syntax sugar but
+
+402
+00:16:48,560 --> 00:16:52,320
+in mathematica it's very strict and
+
+403
+00:16:50,399 --> 00:16:53,759
+systematic now remember the word
+
+404
+00:16:52,320 --> 00:16:56,399
+systematic that means
+
+405
+00:16:53,759 --> 00:16:58,079
+for any expression you let me explain it
+
+406
+00:16:56,399 --> 00:17:00,000
+it's uh
+
+407
+00:16:58,079 --> 00:17:01,519
+it's easier if i just start to show you
+
+408
+00:17:00,000 --> 00:17:04,000
+okay
+
+409
+00:17:01,519 --> 00:17:06,079
+so in mathematica how do you write three
+
+410
+00:17:04,000 --> 00:17:09,360
+plus two you write it this way okay
+
+411
+00:17:06,079 --> 00:17:12,799
+plus three two
+
+412
+00:17:09,360 --> 00:17:16,240
+enter you see seven now is that
+
+413
+00:17:12,799 --> 00:17:19,039
+purely nested uh syntax yes you know
+
+414
+00:17:16,240 --> 00:17:19,919
+plus is the head of the expression and
+
+415
+00:17:19,039 --> 00:17:22,480
+three and four
+
+416
+00:17:19,919 --> 00:17:24,000
+is the kind of argument and you have
+
+417
+00:17:22,480 --> 00:17:26,240
+comma that separates
+
+418
+00:17:24,000 --> 00:17:27,039
+so how do you how do you do a three
+
+419
+00:17:26,240 --> 00:17:30,559
+times two
+
+420
+00:17:27,039 --> 00:17:33,919
+okay times
+
+421
+00:17:30,559 --> 00:17:37,200
+three two uh two okay enter
+
+422
+00:17:33,919 --> 00:17:40,320
+that's six correct how do you do
+
+423
+00:17:37,200 --> 00:17:43,520
+a okay so and similar for uh motor
+
+424
+00:17:40,320 --> 00:17:45,520
+for for divide and so on okay so let's
+
+425
+00:17:43,520 --> 00:17:49,039
+do a more complex
+
+426
+00:17:45,520 --> 00:17:49,039
+examples so let's say 3
+
+427
+00:17:49,280 --> 00:17:53,760
+3 plus 3 plus 2
+
+428
+00:17:52,440 --> 00:17:56,799
+[Music]
+
+429
+00:17:53,760 --> 00:18:01,440
+3 plus 2 times
+
+430
+00:17:56,799 --> 00:18:02,080
+2 okay so two and two is four four times
+
+431
+00:18:01,440 --> 00:18:06,240
+three is
+
+432
+00:18:02,080 --> 00:18:09,360
+uh sensor 12 right
+
+433
+00:18:06,240 --> 00:18:12,240
+oh wait oh first yeah so
+
+434
+00:18:09,360 --> 00:18:13,760
+three plus two times two is seven now
+
+435
+00:18:12,240 --> 00:18:16,400
+what is the
+
+436
+00:18:13,760 --> 00:18:18,720
+you know what what is the um the
+
+437
+00:18:16,400 --> 00:18:21,520
+mathematical nested syntax for that that
+
+438
+00:18:18,720 --> 00:18:24,799
+is easy let me show you
+
+439
+00:18:21,520 --> 00:18:25,200
+plus three actually you can imagine what
+
+440
+00:18:24,799 --> 00:18:28,880
+it is
+
+441
+00:18:25,200 --> 00:18:33,120
+right plus three then nested okay then
+
+442
+00:18:28,880 --> 00:18:36,240
+times two and two
+
+443
+00:18:33,120 --> 00:18:38,559
+okay enter seven so
+
+444
+00:18:36,240 --> 00:18:39,600
+let me make a point here so you see
+
+445
+00:18:38,559 --> 00:18:43,120
+these two
+
+446
+00:18:39,600 --> 00:18:46,440
+kind of different syntax but equivalent
+
+447
+00:18:43,120 --> 00:18:50,480
+now let me emphasize this they are
+
+448
+00:18:46,440 --> 00:18:53,679
+syntactically equivalent 100 percent
+
+449
+00:18:50,480 --> 00:18:55,520
+in fact whenever mathematica
+
+450
+00:18:53,679 --> 00:18:57,679
+you know whenever you evaluate some
+
+451
+00:18:55,520 --> 00:19:00,320
+expression the first thing mathematica
+
+452
+00:18:57,679 --> 00:19:00,720
+the kernel you know the engine does is
+
+453
+00:19:00,320 --> 00:19:04,160
+to
+
+454
+00:19:00,720 --> 00:19:06,960
+transform all these all these uh
+
+455
+00:19:04,160 --> 00:19:09,280
+you know infix or whatever shorthand
+
+456
+00:19:06,960 --> 00:19:12,080
+syntax sugar to the full form
+
+457
+00:19:09,280 --> 00:19:13,039
+so you can see the full form here so let
+
+458
+00:19:12,080 --> 00:19:16,080
+me show you another
+
+459
+00:19:13,039 --> 00:19:19,280
+a bit different example for example uh
+
+460
+00:19:16,080 --> 00:19:21,440
+list okay so let's say
+
+461
+00:19:19,280 --> 00:19:22,480
+example list okay so how do you do this
+
+462
+00:19:21,440 --> 00:19:24,960
+in mathematica
+
+463
+00:19:22,480 --> 00:19:25,840
+this is at list three four five oh array
+
+464
+00:19:24,960 --> 00:19:28,000
+okay emotion
+
+465
+00:19:25,840 --> 00:19:30,400
+in many languages you call it array in
+
+466
+00:19:28,000 --> 00:19:33,520
+mathematica you call it list okay
+
+467
+00:19:30,400 --> 00:19:36,080
+so uh let's say my list
+
+468
+00:19:33,520 --> 00:19:37,600
+equals two three four five okay now you
+
+469
+00:19:36,080 --> 00:19:38,720
+want to take the first element what do
+
+470
+00:19:37,600 --> 00:19:42,240
+you do
+
+471
+00:19:38,720 --> 00:19:45,440
+my list okay uh
+
+472
+00:19:42,240 --> 00:19:48,559
+okay uh my list first element
+
+473
+00:19:45,440 --> 00:19:51,120
+uh the index starts at one okay
+
+474
+00:19:48,559 --> 00:19:52,400
+in mathematical languages index start at
+
+475
+00:19:51,120 --> 00:19:56,400
+1 not 0.
+
+476
+00:19:52,400 --> 00:20:00,480
+this includes mathematica matlab
+
+477
+00:19:56,400 --> 00:20:03,520
+maple julia okay basically any any
+
+478
+00:20:00,480 --> 00:20:05,360
+math oriented language and api okay so
+
+479
+00:20:03,520 --> 00:20:07,760
+how do you take the first element of a
+
+480
+00:20:05,360 --> 00:20:10,559
+list you do it this way okay
+
+481
+00:20:07,760 --> 00:20:11,360
+you see my list bracket bracket one just
+
+482
+00:20:10,559 --> 00:20:13,440
+like python
+
+483
+00:20:11,360 --> 00:20:15,440
+or ruby you know similar to many others
+
+484
+00:20:13,440 --> 00:20:19,120
+except you use two
+
+485
+00:20:15,440 --> 00:20:21,520
+square bracket now so you might ask
+
+486
+00:20:19,120 --> 00:20:24,080
+again so wait wait a minute this is not
+
+487
+00:20:21,520 --> 00:20:26,080
+fully nested brackets what's going on
+
+488
+00:20:24,080 --> 00:20:27,840
+this is you know this is also not you
+
+489
+00:20:26,080 --> 00:20:29,360
+know they are syntax sugars so let me
+
+490
+00:20:27,840 --> 00:20:32,799
+show you the full form okay
+
+491
+00:20:29,360 --> 00:20:36,960
+let me do the same thing so
+
+492
+00:20:32,799 --> 00:20:40,159
+you said set okay set
+
+493
+00:20:36,960 --> 00:20:41,280
+x okay let's say uh okay my list okay my
+
+494
+00:20:40,159 --> 00:20:46,320
+list
+
+495
+00:20:41,280 --> 00:20:46,320
+uh list then you say list
+
+496
+00:20:47,039 --> 00:20:53,679
+three four five you see that
+
+497
+00:20:50,240 --> 00:20:54,960
+so this one is gonna be equivalent to
+
+498
+00:20:53,679 --> 00:20:58,159
+that one
+
+499
+00:20:54,960 --> 00:20:58,159
+okay let's evaluate
+
+500
+00:21:00,960 --> 00:21:04,880
+okay let's not say three four five let's
+
+501
+00:21:02,960 --> 00:21:08,640
+say three fours uh let's say
+
+502
+00:21:04,880 --> 00:21:11,679
+uh let's say nine four five okay
+
+503
+00:21:08,640 --> 00:21:17,280
+evaluate so that's at least so
+
+504
+00:21:11,679 --> 00:21:20,000
+so this this is the full form of the
+
+505
+00:21:17,280 --> 00:21:21,440
+of that okay so so and let me continue
+
+506
+00:21:20,000 --> 00:21:22,799
+and then okay let me show you this one
+
+507
+00:21:21,440 --> 00:21:24,720
+okay how do you
+
+508
+00:21:22,799 --> 00:21:27,200
+what's the full form of this you know
+
+509
+00:21:24,720 --> 00:21:31,840
+take the first element of a list
+
+510
+00:21:27,200 --> 00:21:31,840
+uh let me show you this way parts
+
+511
+00:21:32,040 --> 00:21:36,559
+[Music]
+
+512
+00:21:33,280 --> 00:21:40,240
+part okay part
+
+513
+00:21:36,559 --> 00:21:44,880
+then yeah my list okay my list
+
+514
+00:21:40,240 --> 00:21:47,600
+then then one the first element you see
+
+515
+00:21:44,880 --> 00:21:50,799
+here again we have a fully nested syntax
+
+516
+00:21:47,600 --> 00:21:53,440
+okay let's evaluate it
+
+517
+00:21:50,799 --> 00:21:55,679
+nine you see because our first element
+
+518
+00:21:53,440 --> 00:21:58,799
+is nine
+
+519
+00:21:55,679 --> 00:22:00,159
+so so let me emphasize again so in
+
+520
+00:21:58,799 --> 00:22:02,880
+mathematica
+
+521
+00:22:00,159 --> 00:22:03,679
+you the math the wolfram language uh
+
+522
+00:22:02,880 --> 00:22:08,000
+syntax
+
+523
+00:22:03,679 --> 00:22:12,080
+is a purely 100 fully nested brackets
+
+524
+00:22:08,000 --> 00:22:15,200
+isomorphic to lisp however
+
+525
+00:22:12,080 --> 00:22:16,080
+mathematica has a layer of a systematic
+
+526
+00:22:15,200 --> 00:22:20,080
+layer of
+
+527
+00:22:16,080 --> 00:22:22,559
+shortcuts of sugar syntax okay so
+
+528
+00:22:20,080 --> 00:22:23,280
+so instead of writing lists like that
+
+529
+00:22:22,559 --> 00:22:25,360
+every time
+
+530
+00:22:23,280 --> 00:22:26,400
+you can just use the you know curly
+
+531
+00:22:25,360 --> 00:22:28,960
+brackets
+
+532
+00:22:26,400 --> 00:22:29,919
+instead of set when you want to set x
+
+533
+00:22:28,960 --> 00:22:32,880
+equals to 3
+
+534
+00:22:29,919 --> 00:22:33,760
+instead of set instead of saying set
+
+535
+00:22:32,880 --> 00:22:37,200
+brackets
+
+536
+00:22:33,760 --> 00:22:39,919
+and x comma 3 you can
+
+537
+00:22:37,200 --> 00:22:41,600
+you can just use the equal sign you know
+
+538
+00:22:39,919 --> 00:22:44,799
+x equals through three
+
+539
+00:22:41,600 --> 00:22:46,000
+so this feature is fantastic because
+
+540
+00:22:44,799 --> 00:22:49,280
+this feature this
+
+541
+00:22:46,000 --> 00:22:53,039
+this systematic syntax layer
+
+542
+00:22:49,280 --> 00:22:55,280
+allows you to have very convenient uh
+
+543
+00:22:53,039 --> 00:22:56,640
+uh expressions for example if you are
+
+544
+00:22:55,280 --> 00:22:58,159
+doing a lot of math
+
+545
+00:22:56,640 --> 00:22:59,760
+for example if you are doing a lot of
+
+546
+00:22:58,159 --> 00:23:02,000
+math you know
+
+547
+00:22:59,760 --> 00:23:03,200
+which is what wolfram language is
+
+548
+00:23:02,000 --> 00:23:06,720
+designed for let's say
+
+549
+00:23:03,200 --> 00:23:10,400
+x third power uh
+
+550
+00:23:06,720 --> 00:23:13,840
+plus y times
+
+551
+00:23:10,400 --> 00:23:15,600
+x z squared
+
+552
+00:23:13,840 --> 00:23:16,880
+you know let's say let's say that
+
+553
+00:23:15,600 --> 00:23:19,280
+expression
+
+554
+00:23:16,880 --> 00:23:20,400
+how do you do that in this oh my god
+
+555
+00:23:19,280 --> 00:23:21,840
+that's gonna be
+
+556
+00:23:20,400 --> 00:23:23,760
+you know if you're gonna write this in
+
+557
+00:23:21,840 --> 00:23:26,559
+this it's gonna be a headache
+
+558
+00:23:23,760 --> 00:23:27,840
+for example let me show you so in this
+
+559
+00:23:26,559 --> 00:23:31,360
+it's gonna be something like
+
+560
+00:23:27,840 --> 00:23:34,640
+uh uh power
+
+561
+00:23:31,360 --> 00:23:37,600
+x three then uh okay
+
+562
+00:23:34,640 --> 00:23:39,120
+it's it's it's a pen okay so let me let
+
+563
+00:23:37,600 --> 00:23:42,320
+me show you how
+
+564
+00:23:39,120 --> 00:23:42,320
+how you might write that
+
+565
+00:23:42,880 --> 00:23:50,240
+uh power plus
+
+566
+00:23:47,039 --> 00:23:52,000
+okay actually we should we we shouldn't
+
+567
+00:23:50,240 --> 00:23:54,080
+do this in mathematica because
+
+568
+00:23:52,000 --> 00:23:55,760
+you know that's not mathematical syntax
+
+569
+00:23:54,080 --> 00:23:56,480
+it's going to show you lots of errors so
+
+570
+00:23:55,760 --> 00:23:59,919
+let's go
+
+571
+00:23:56,480 --> 00:24:00,799
+do it in this okay so if you want to do
+
+572
+00:23:59,919 --> 00:24:05,840
+this expression
+
+573
+00:24:00,799 --> 00:24:05,840
+in this
+
+574
+00:24:09,279 --> 00:24:13,520
+so common in fixed notation for
+
+575
+00:24:11,520 --> 00:24:16,559
+polynomial if you want to
+
+576
+00:24:13,520 --> 00:24:20,000
+in lisp form would be
+
+577
+00:24:16,559 --> 00:24:24,880
+okay so power x3 plus
+
+578
+00:24:20,000 --> 00:24:24,880
+uh okay so plus then plus
+
+579
+00:24:25,200 --> 00:24:29,120
+times okay uh now it's it's gonna be
+
+580
+00:24:28,240 --> 00:24:32,240
+painful
+
+581
+00:24:29,120 --> 00:24:36,080
+and unreadable times y
+
+582
+00:24:32,240 --> 00:24:39,760
+then okay then power
+
+583
+00:24:36,080 --> 00:24:42,960
+z two so you see that
+
+584
+00:24:39,760 --> 00:24:46,000
+that versus that uh you know the
+
+585
+00:24:42,960 --> 00:24:50,720
+that that so so you can
+
+586
+00:24:46,000 --> 00:24:54,400
+see so here is an important point
+
+587
+00:24:50,720 --> 00:24:56,720
+a side point okay you you can see here
+
+588
+00:24:54,400 --> 00:24:58,320
+the importance of syntax in the
+
+589
+00:24:56,720 --> 00:25:00,400
+programming language
+
+590
+00:24:58,320 --> 00:25:01,600
+because when and that's a common
+
+591
+00:25:00,400 --> 00:25:04,480
+complaint in these
+
+592
+00:25:01,600 --> 00:25:04,960
+languages over the past 40 years many
+
+593
+00:25:04,480 --> 00:25:08,480
+many
+
+594
+00:25:04,960 --> 00:25:11,279
+great uh lisp pioneers have tried to
+
+595
+00:25:08,480 --> 00:25:14,000
+introduce the infix form but it never
+
+596
+00:25:11,279 --> 00:25:16,720
+became popular for one reason or another
+
+597
+00:25:14,000 --> 00:25:18,640
+but you can see why it is necessary
+
+598
+00:25:16,720 --> 00:25:19,600
+especially if you do a lot of math you
+
+599
+00:25:18,640 --> 00:25:22,720
+do want
+
+600
+00:25:19,600 --> 00:25:24,559
+this kind of uh infix notation because
+
+601
+00:25:22,720 --> 00:25:26,480
+because this is just unreadable
+
+602
+00:25:24,559 --> 00:25:26,799
+especially when it gets complex okay we
+
+603
+00:25:26,480 --> 00:25:30,240
+are
+
+604
+00:25:26,799 --> 00:25:32,640
+we i'm going to talk about
+
+605
+00:25:30,240 --> 00:25:35,279
+especially when when the expression gets
+
+606
+00:25:32,640 --> 00:25:38,640
+complex you know you have
+
+607
+00:25:35,279 --> 00:25:41,679
+you have the you know uh
+
+608
+00:25:38,640 --> 00:25:44,320
+the formula for uh
+
+609
+00:25:41,679 --> 00:25:46,000
+polynomial of second degree or series
+
+610
+00:25:44,320 --> 00:25:46,480
+and sequence you know in this point is
+
+611
+00:25:46,000 --> 00:25:49,360
+it's
+
+612
+00:25:46,480 --> 00:25:49,360
+unreadable okay
+
+613
+00:25:49,840 --> 00:25:52,720
+okay so now
+
+614
+00:25:53,039 --> 00:25:59,360
+so so let's summarize
+
+615
+00:25:56,720 --> 00:26:00,240
+mathematic mathematical notation has two
+
+616
+00:25:59,360 --> 00:26:04,159
+layers
+
+617
+00:26:00,240 --> 00:26:07,279
+one is a purely nested uh
+
+618
+00:26:04,159 --> 00:26:11,919
+form that's syntactic that's one
+
+619
+00:26:07,279 --> 00:26:14,720
+that's isomorphic to the least syntax
+
+620
+00:26:11,919 --> 00:26:15,679
+two mathematical has a layer that is a
+
+621
+00:26:14,720 --> 00:26:19,440
+systematic
+
+622
+00:26:15,679 --> 00:26:22,960
+short should uh short syntax system
+
+623
+00:26:19,440 --> 00:26:26,720
+which is 100 percent equivalent to the
+
+624
+00:26:22,960 --> 00:26:28,720
+fully nested brackets okay so let's copy
+
+625
+00:26:26,720 --> 00:26:33,039
+it let's cut that and put this
+
+626
+00:26:28,720 --> 00:26:33,039
+into our explanation uh
+
+627
+00:26:34,159 --> 00:26:38,000
+okay showing browser so we have
+
+628
+00:26:36,159 --> 00:26:39,279
+explained several things about the
+
+629
+00:26:38,000 --> 00:26:42,320
+mathematical syntax
+
+630
+00:26:39,279 --> 00:26:44,320
+now okay now if you now hear something
+
+631
+00:26:42,320 --> 00:26:47,440
+interesting in mathematica now if you
+
+632
+00:26:44,320 --> 00:26:49,919
+are good morning
+
+633
+00:26:47,440 --> 00:26:50,559
+good morning lucas so i'm doing all
+
+634
+00:26:49,919 --> 00:26:54,000
+right
+
+635
+00:26:50,559 --> 00:26:56,480
+any any comments questions
+
+636
+00:26:54,000 --> 00:26:59,440
+video check audio check so now back to
+
+637
+00:26:56,480 --> 00:26:59,440
+mathematica so
+
+638
+00:26:59,679 --> 00:27:06,080
+there is a way for you to
+
+639
+00:27:03,679 --> 00:27:08,159
+get the notation okay so you all you
+
+640
+00:27:06,080 --> 00:27:12,080
+have to do in mathematica you just type
+
+641
+00:27:08,159 --> 00:27:13,679
+full form and any any expression and
+
+642
+00:27:12,080 --> 00:27:16,880
+mathematica will show
+
+643
+00:27:13,679 --> 00:27:18,799
+what is the full form syntax by the way
+
+644
+00:27:16,880 --> 00:27:21,120
+this purely nested thing
+
+645
+00:27:18,799 --> 00:27:23,600
+that syntax in mathematica is called
+
+646
+00:27:21,120 --> 00:27:27,679
+full form okay
+
+647
+00:27:23,600 --> 00:27:31,760
+so for example let's say uh hold okay
+
+648
+00:27:27,679 --> 00:27:34,240
+one plus two uh
+
+649
+00:27:31,760 --> 00:27:35,360
+so if you do that it will it will tell
+
+650
+00:27:34,240 --> 00:27:37,919
+you something like
+
+651
+00:27:35,360 --> 00:27:38,559
+um it will it'll return something like
+
+652
+00:27:37,919 --> 00:27:40,720
+that
+
+653
+00:27:38,559 --> 00:27:42,240
+but why do you put why do you put a hole
+
+654
+00:27:40,720 --> 00:27:42,960
+there because if you don't put hold
+
+655
+00:27:42,240 --> 00:27:45,440
+there
+
+656
+00:27:42,960 --> 00:27:46,320
+then one plus two will evaluate you'll
+
+657
+00:27:45,440 --> 00:27:48,559
+become three
+
+658
+00:27:46,320 --> 00:27:49,520
+so you just get three so but if we do it
+
+659
+00:27:48,559 --> 00:27:53,360
+this way
+
+660
+00:27:49,520 --> 00:27:54,080
+evaluate you can see okay let's not use
+
+661
+00:27:53,360 --> 00:27:57,120
+hold let's
+
+662
+00:27:54,080 --> 00:28:00,720
+say hold form okay it's a bit
+
+663
+00:27:57,120 --> 00:28:00,720
+yeah okay let's use hold
+
+664
+00:28:00,880 --> 00:28:04,000
+so you can see mathematica shows you
+
+665
+00:28:03,120 --> 00:28:05,760
+this plus
+
+666
+00:28:04,000 --> 00:28:09,919
+square bracket and and let me show you
+
+667
+00:28:05,760 --> 00:28:12,000
+another one okay let's say for example
+
+668
+00:28:09,919 --> 00:28:14,080
+so i'm explaining the syntax of
+
+669
+00:28:12,000 --> 00:28:15,120
+mathematica so for example let's do a
+
+670
+00:28:14,080 --> 00:28:18,799
+list
+
+671
+00:28:15,120 --> 00:28:21,039
+three four five okay then
+
+672
+00:28:18,799 --> 00:28:22,159
+mathematica tells you that the full form
+
+673
+00:28:21,039 --> 00:28:25,520
+is actually that
+
+674
+00:28:22,159 --> 00:28:28,640
+okay uh let's what about this one
+
+675
+00:28:25,520 --> 00:28:31,840
+this uh polynomial okay we can do the
+
+676
+00:28:28,640 --> 00:28:31,840
+same thing
+
+677
+00:28:33,760 --> 00:28:41,360
+okay so we paste the polynomial there
+
+678
+00:28:37,440 --> 00:28:45,200
+wait paste yeah so evaluate
+
+679
+00:28:41,360 --> 00:28:48,320
+you can see the full form of
+
+680
+00:28:45,200 --> 00:28:50,720
+that polynomial okay polynomial of three
+
+681
+00:28:48,320 --> 00:28:53,440
+variables
+
+682
+00:28:50,720 --> 00:28:55,760
+okay so that concludes our discussion
+
+683
+00:28:53,440 --> 00:28:58,480
+about the isomorphism
+
+684
+00:28:55,760 --> 00:28:59,120
+of mathematical syntax and lisp syntax
+
+685
+00:28:58,480 --> 00:29:02,159
+and
+
+686
+00:28:59,120 --> 00:29:05,360
+the layer the full form of
+
+687
+00:29:02,159 --> 00:29:09,520
+the wolfram language which
+
+688
+00:29:05,360 --> 00:29:12,880
+this do not have now in 1960
+
+689
+00:29:09,520 --> 00:29:16,240
+when john mccarthy who invented lisp
+
+690
+00:29:12,880 --> 00:29:16,880
+he has the idea okay he says that the
+
+691
+00:29:16,240 --> 00:29:20,080
+least
+
+692
+00:29:16,880 --> 00:29:24,240
+syntax should be two parts one
+
+693
+00:29:20,080 --> 00:29:24,240
+is called symbolic expression
+
+694
+00:29:24,559 --> 00:29:31,360
+which is the nested brackets okay
+
+695
+00:29:28,720 --> 00:29:32,799
+uh let me write it let me write it out
+
+696
+00:29:31,360 --> 00:29:36,159
+there so
+
+697
+00:29:32,799 --> 00:29:39,679
+so this syntax
+
+698
+00:29:36,159 --> 00:29:42,960
+called uh let's magnify a bit more
+
+699
+00:29:39,679 --> 00:29:46,559
+symbolic expression
+
+700
+00:29:42,960 --> 00:29:49,840
+aka s-e-x-p is often known
+
+701
+00:29:46,559 --> 00:29:52,159
+as sex okay that's a
+
+702
+00:29:49,840 --> 00:29:53,440
+symbol that you know that's so this
+
+703
+00:29:52,159 --> 00:29:55,760
+nested
+
+704
+00:29:53,440 --> 00:29:56,960
+parenthesis parenthesis it's called
+
+705
+00:29:55,760 --> 00:29:59,520
+symbolic expression
+
+706
+00:29:56,960 --> 00:30:00,080
+so when john mccarthy created invented
+
+707
+00:29:59,520 --> 00:30:02,240
+this
+
+708
+00:30:00,080 --> 00:30:04,640
+he says that okay it should have the
+
+709
+00:30:02,240 --> 00:30:07,200
+symbolic expression nested parenthesis
+
+710
+00:30:04,640 --> 00:30:08,320
+he also says that it should have what's
+
+711
+00:30:07,200 --> 00:30:11,520
+called a
+
+712
+00:30:08,320 --> 00:30:14,559
+meta expression now what is meta
+
+713
+00:30:11,520 --> 00:30:17,520
+expression it never developed
+
+714
+00:30:14,559 --> 00:30:18,960
+okay it never got created because people
+
+715
+00:30:17,520 --> 00:30:20,720
+got used to symbolic
+
+716
+00:30:18,960 --> 00:30:23,279
+you know the nested parenthesis
+
+717
+00:30:20,720 --> 00:30:26,399
+parentheses and it just stopped there
+
+718
+00:30:23,279 --> 00:30:26,960
+so it's like in indefinite delay so it
+
+719
+00:30:26,399 --> 00:30:29,679
+never
+
+720
+00:30:26,960 --> 00:30:31,520
+kind of never happened except many
+
+721
+00:30:29,679 --> 00:30:34,399
+people tried to do it but
+
+722
+00:30:31,520 --> 00:30:35,360
+so in mathematica it happened there you
+
+723
+00:30:34,399 --> 00:30:39,200
+know mathematic
+
+724
+00:30:35,360 --> 00:30:42,320
+so lisp is began in 1960
+
+725
+00:30:39,200 --> 00:30:46,320
+mathematica began in 1986 you know so
+
+726
+00:30:42,320 --> 00:30:49,120
+there's almost 30 years so
+
+727
+00:30:46,320 --> 00:30:50,159
+so you know stefan wufam i i guess and
+
+728
+00:30:49,120 --> 00:30:53,360
+you know i know he
+
+729
+00:30:50,159 --> 00:30:53,919
+he he he you know he he knows a lot at
+
+730
+00:30:53,360 --> 00:30:55,760
+least
+
+731
+00:30:53,919 --> 00:30:57,279
+you know he borrowed idea he said oh
+
+732
+00:30:55,760 --> 00:31:00,480
+that's a good idea we need
+
+733
+00:30:57,279 --> 00:31:02,159
+this meta expression uh but in
+
+734
+00:31:00,480 --> 00:31:04,559
+mathematica they don't call that that
+
+735
+00:31:02,159 --> 00:31:07,360
+you know they they just call it full
+
+736
+00:31:04,559 --> 00:31:10,399
+form okay so
+
+737
+00:31:07,360 --> 00:31:11,919
+so here's another interesting uh by way
+
+738
+00:31:10,399 --> 00:31:14,880
+okay segway
+
+739
+00:31:11,919 --> 00:31:16,240
+why so you know this is about the
+
+740
+00:31:14,880 --> 00:31:18,720
+jargons you know name
+
+741
+00:31:16,240 --> 00:31:19,840
+jargons jargons in computer science the
+
+742
+00:31:18,720 --> 00:31:22,960
+naming of things
+
+743
+00:31:19,840 --> 00:31:24,880
+so if you are a language creator and
+
+744
+00:31:22,960 --> 00:31:26,640
+there are many technical
+
+745
+00:31:24,880 --> 00:31:28,559
+concepts you know in programming
+
+746
+00:31:26,640 --> 00:31:31,279
+language design right
+
+747
+00:31:28,559 --> 00:31:32,159
+for example lambda for example lambda
+
+748
+00:31:31,279 --> 00:31:35,279
+currying
+
+749
+00:31:32,159 --> 00:31:39,200
+currying or arity of a function you know
+
+750
+00:31:35,279 --> 00:31:41,760
+and and and tail recursion and
+
+751
+00:31:39,200 --> 00:31:42,799
+lots of you know these jargons so but if
+
+752
+00:31:41,760 --> 00:31:46,159
+you are
+
+753
+00:31:42,799 --> 00:31:48,080
+designing a programming language you
+
+754
+00:31:46,159 --> 00:31:50,080
+you know you you have a choice like
+
+755
+00:31:48,080 --> 00:31:51,679
+which jargon among jargons which one
+
+756
+00:31:50,080 --> 00:31:54,480
+should you choose so it
+
+757
+00:31:51,679 --> 00:31:55,840
+so here's here's one example where
+
+758
+00:31:54,480 --> 00:31:57,519
+stephen wolfram
+
+759
+00:31:55,840 --> 00:31:59,120
+made his decision which is
+
+760
+00:31:57,519 --> 00:32:01,200
+characteristics of his
+
+761
+00:31:59,120 --> 00:32:02,159
+choices in mathematica instead of
+
+762
+00:32:01,200 --> 00:32:05,279
+calling it
+
+763
+00:32:02,159 --> 00:32:08,640
+metaphor or meta expression
+
+764
+00:32:05,279 --> 00:32:11,919
+he calls it full form why
+
+765
+00:32:08,640 --> 00:32:12,159
+why does he make that decision of course
+
+766
+00:32:11,919 --> 00:32:15,200
+i
+
+767
+00:32:12,159 --> 00:32:17,440
+i don't i don't know i mean exactly what
+
+768
+00:32:15,200 --> 00:32:19,120
+he thought but i read enough of wolfram
+
+769
+00:32:17,440 --> 00:32:22,960
+stuff i i can tell you
+
+770
+00:32:19,120 --> 00:32:25,440
+why because usually the the jargon the
+
+771
+00:32:22,960 --> 00:32:26,399
+choices of words or concept in
+
+772
+00:32:25,440 --> 00:32:29,679
+mathematica
+
+773
+00:32:26,399 --> 00:32:31,919
+is chosen so that in the english
+
+774
+00:32:29,679 --> 00:32:32,960
+language the general english language
+
+775
+00:32:31,919 --> 00:32:36,000
+human language
+
+776
+00:32:32,960 --> 00:32:39,039
+it makes the most sense okay so
+
+777
+00:32:36,000 --> 00:32:42,159
+for example compare meta expression
+
+778
+00:32:39,039 --> 00:32:45,200
+versus full form which one is more
+
+779
+00:32:42,159 --> 00:32:46,080
+intuitive you know like you you you
+
+780
+00:32:45,200 --> 00:32:48,159
+don't
+
+781
+00:32:46,080 --> 00:32:49,600
+you know we are not asking for you know
+
+782
+00:32:48,159 --> 00:32:52,960
+specialized
+
+783
+00:32:49,600 --> 00:32:53,360
+uh list experts i mean just in general
+
+784
+00:32:52,960 --> 00:32:56,000
+in the
+
+785
+00:32:53,360 --> 00:32:58,159
+english language if you have this thing
+
+786
+00:32:56,000 --> 00:33:01,279
+you want most people to understand it
+
+787
+00:32:58,159 --> 00:33:04,720
+which one is more intuitive full form
+
+788
+00:33:01,279 --> 00:33:08,159
+versus meta expression okay i would say
+
+789
+00:33:04,720 --> 00:33:11,440
+full form yes
+
+790
+00:33:08,159 --> 00:33:13,200
+i would yes so this is just one example
+
+791
+00:33:11,440 --> 00:33:13,600
+you know maybe this example is not the
+
+792
+00:33:13,200 --> 00:33:15,760
+best
+
+793
+00:33:13,600 --> 00:33:17,200
+best example but but if you use
+
+794
+00:33:15,760 --> 00:33:19,679
+mathematica enough you
+
+795
+00:33:17,200 --> 00:33:21,760
+you'll know you know actually i'm trying
+
+796
+00:33:19,679 --> 00:33:24,320
+to tell you something so
+
+797
+00:33:21,760 --> 00:33:25,039
+so you get a sense of how things in
+
+798
+00:33:24,320 --> 00:33:27,039
+mathematic
+
+799
+00:33:25,039 --> 00:33:28,080
+mathematica you know wolfham language is
+
+800
+00:33:27,039 --> 00:33:31,039
+named
+
+801
+00:33:28,080 --> 00:33:32,399
+usually they go for let me let me tell
+
+802
+00:33:31,039 --> 00:33:33,279
+you another example that's more
+
+803
+00:33:32,399 --> 00:33:36,480
+interesting
+
+804
+00:33:33,279 --> 00:33:37,279
+uh that's more illustrative okay for
+
+805
+00:33:36,480 --> 00:33:40,880
+example
+
+806
+00:33:37,279 --> 00:33:43,679
+in lisp and in in
+
+807
+00:33:40,880 --> 00:33:44,720
+in many languages in this in python for
+
+808
+00:33:43,679 --> 00:33:47,679
+example
+
+809
+00:33:44,720 --> 00:33:48,320
+uh and in ruby for example you have the
+
+810
+00:33:47,679 --> 00:33:51,679
+jargon
+
+811
+00:33:48,320 --> 00:33:53,519
+lambda okay lambda what the
+
+812
+00:33:51,679 --> 00:33:54,130
+what what is lambda what the does
+
+813
+00:33:53,519 --> 00:33:55,279
+that mean
+
+814
+00:33:54,130 --> 00:33:58,320
+[Laughter]
+
+815
+00:33:55,279 --> 00:34:00,159
+nobody knows unless you are a programmer
+
+816
+00:33:58,320 --> 00:34:02,480
+or computer scientist
+
+817
+00:34:00,159 --> 00:34:03,360
+in mathematica there's no such thing
+
+818
+00:34:02,480 --> 00:34:06,799
+called lambda
+
+819
+00:34:03,360 --> 00:34:08,639
+okay you call it function okay
+
+820
+00:34:06,799 --> 00:34:10,320
+uh let me show you an example okay so
+
+821
+00:34:08,639 --> 00:34:13,599
+let's do an actual
+
+822
+00:34:10,320 --> 00:34:16,800
+uh example of lisp coding okay so let's
+
+823
+00:34:13,599 --> 00:34:19,440
+start a emac list okay so let's start a
+
+824
+00:34:16,800 --> 00:34:19,440
+emac list
+
+825
+00:34:19,760 --> 00:34:23,919
+so i type lambda let's say i want to
+
+826
+00:34:22,240 --> 00:34:27,280
+create a function that
+
+827
+00:34:23,919 --> 00:34:32,639
+adds the two arguments okay lambda y
+
+828
+00:34:27,280 --> 00:34:35,679
+x and here return will be
+
+829
+00:34:32,639 --> 00:34:39,599
+okay that's how i define lambda now you
+
+830
+00:34:35,679 --> 00:34:42,480
+can evaluate this expression by
+
+831
+00:34:39,599 --> 00:34:43,599
+uh you know so so you want to put two
+
+832
+00:34:42,480 --> 00:34:47,119
+argument to it so
+
+833
+00:34:43,599 --> 00:34:49,280
+let's see if i can i'm not sure i can do
+
+834
+00:34:47,119 --> 00:34:54,000
+it this way but let's try okay
+
+835
+00:34:49,280 --> 00:34:54,000
+so lambda 2 and 3 okay
+
+836
+00:34:54,399 --> 00:35:00,880
+so this if we evaluate this thing
+
+837
+00:34:58,240 --> 00:35:02,560
+it should actually return 5 because it's
+
+838
+00:35:00,880 --> 00:35:05,920
+adding two and three okay
+
+839
+00:35:02,560 --> 00:35:08,320
+i'm not sure it will work in this
+
+840
+00:35:05,920 --> 00:35:11,599
+yeah it did okay so actually let me show
+
+841
+00:35:08,320 --> 00:35:15,359
+you the message but first so you can see
+
+842
+00:35:11,599 --> 00:35:18,800
+yeah i don't know if you can see it uh
+
+843
+00:35:15,359 --> 00:35:21,680
+okay let's let's do it this way okay so
+
+844
+00:35:18,800 --> 00:35:23,680
+you're so so okay so let's remove that
+
+845
+00:35:21,680 --> 00:35:26,960
+it's pretty five
+
+846
+00:35:23,680 --> 00:35:28,480
+let's add a comment this creates a
+
+847
+00:35:26,960 --> 00:35:32,720
+function
+
+848
+00:35:28,480 --> 00:35:36,320
+and apply it to two
+
+849
+00:35:32,720 --> 00:35:39,680
+arguments two and three
+
+850
+00:35:36,320 --> 00:35:42,960
+okay it should
+
+851
+00:35:39,680 --> 00:35:45,760
+return five okay that's what
+
+852
+00:35:42,960 --> 00:35:46,400
+this is okay now if we evaluate it
+
+853
+00:35:45,760 --> 00:35:48,240
+you'll see
+
+854
+00:35:46,400 --> 00:35:50,560
+in this message buffer you're say five
+
+855
+00:35:48,240 --> 00:35:54,079
+in fact you see it here okay
+
+856
+00:35:50,560 --> 00:35:57,359
+so let's do it again evaluate
+
+857
+00:35:54,079 --> 00:36:00,400
+you see five so okay so this is a list
+
+858
+00:35:57,359 --> 00:36:04,160
+okay let's copy it uh
+
+859
+00:36:00,400 --> 00:36:09,599
+paste it here pd5 show in browser
+
+860
+00:36:04,160 --> 00:36:11,839
+magnify so we can we have our code there
+
+861
+00:36:09,599 --> 00:36:16,000
+now let's let's show you the mathematica
+
+862
+00:36:11,839 --> 00:36:18,240
+equivalent to this lambda thing okay
+
+863
+00:36:16,000 --> 00:36:20,000
+now we are actually uh digressing
+
+864
+00:36:18,240 --> 00:36:22,480
+because we are now talking about
+
+865
+00:36:20,000 --> 00:36:25,119
+uh naming of functions and naming of
+
+866
+00:36:22,480 --> 00:36:27,280
+things naming of concepts
+
+867
+00:36:25,119 --> 00:36:29,119
+different philosophy different uh you
+
+868
+00:36:27,280 --> 00:36:31,680
+know predilection
+
+869
+00:36:29,119 --> 00:36:34,400
+okay so let me let me show you so so we
+
+870
+00:36:31,680 --> 00:36:36,560
+you want to create a function
+
+871
+00:36:34,400 --> 00:36:38,320
+so this is how you do in mathematica
+
+872
+00:36:36,560 --> 00:36:41,359
+function two variables
+
+873
+00:36:38,320 --> 00:36:45,200
+x y okay and what do you want to
+
+874
+00:36:41,359 --> 00:36:45,920
+return x plus y okay that's one way to
+
+875
+00:36:45,200 --> 00:36:49,280
+do it
+
+876
+00:36:45,920 --> 00:36:51,440
+and so and you want this to be evaluated
+
+877
+00:36:49,280 --> 00:36:54,800
+with two arguments two and three right
+
+878
+00:36:51,440 --> 00:36:55,440
+so let's do it here remember because
+
+879
+00:36:54,800 --> 00:36:58,160
+remember
+
+880
+00:36:55,440 --> 00:36:59,839
+the mathematica form is like the
+
+881
+00:36:58,160 --> 00:37:01,839
+function name then bracket
+
+882
+00:36:59,839 --> 00:37:03,440
+which contains the argument so the first
+
+883
+00:37:01,839 --> 00:37:06,839
+part is a function now
+
+884
+00:37:03,440 --> 00:37:11,200
+so now you just say two and three
+
+885
+00:37:06,839 --> 00:37:16,079
+okay now evaluate it
+
+886
+00:37:11,200 --> 00:37:16,079
+five okay so that's how you do it in um
+
+887
+00:37:17,839 --> 00:37:21,119
+in in mathematica so what is the point
+
+888
+00:37:20,560 --> 00:37:23,160
+here
+
+889
+00:37:21,119 --> 00:37:24,480
+now my point is that you see the
+
+890
+00:37:23,160 --> 00:37:26,400
+lamp.jargon
+
+891
+00:37:24,480 --> 00:37:28,240
+mathematica do not use it you know
+
+892
+00:37:26,400 --> 00:37:32,079
+stefan wufang language
+
+893
+00:37:28,240 --> 00:37:32,560
+no lambda what the what what the heck is
+
+894
+00:37:32,079 --> 00:37:34,800
+that
+
+895
+00:37:32,560 --> 00:37:36,640
+that's not a good naming name okay
+
+896
+00:37:34,800 --> 00:37:39,920
+that's not a good name for the concept
+
+897
+00:37:36,640 --> 00:37:42,560
+it should just be called function
+
+898
+00:37:39,920 --> 00:37:43,680
+you know so this this is a good example
+
+899
+00:37:42,560 --> 00:37:47,359
+that illustrates
+
+900
+00:37:43,680 --> 00:37:49,280
+the choice of jargons of concepts
+
+901
+00:37:47,359 --> 00:37:50,640
+in programming languages you know
+
+902
+00:37:49,280 --> 00:37:52,960
+depending on who you are
+
+903
+00:37:50,640 --> 00:37:54,079
+you are python you know guido one rosam
+
+904
+00:37:52,960 --> 00:37:57,200
+created python
+
+905
+00:37:54,079 --> 00:37:58,160
+or you know the the library world who
+
+906
+00:37:57,200 --> 00:38:00,960
+created pearl
+
+907
+00:37:58,160 --> 00:38:01,920
+or uh gosling who created java you know
+
+908
+00:38:00,960 --> 00:38:04,560
+they
+
+909
+00:38:01,920 --> 00:38:07,680
+you know you you it's uh interesting
+
+910
+00:38:04,560 --> 00:38:07,680
+naming of things okay
+
+911
+00:38:08,720 --> 00:38:12,640
+okay so that's about the naming of
+
+912
+00:38:10,560 --> 00:38:13,359
+things let me write down this quickly so
+
+913
+00:38:12,640 --> 00:38:16,880
+we have a
+
+914
+00:38:13,359 --> 00:38:20,720
+record of what we've talked about um
+
+915
+00:38:16,880 --> 00:38:24,800
+okay okay so
+
+916
+00:38:20,720 --> 00:38:28,240
+uh so naming of things uh
+
+917
+00:38:24,800 --> 00:38:32,480
+site note naming of
+
+918
+00:38:28,240 --> 00:38:35,280
+things naming of
+
+919
+00:38:32,480 --> 00:38:35,280
+concepts
+
+920
+00:38:37,119 --> 00:38:40,480
+and jargons okay
+
+921
+00:38:40,880 --> 00:38:44,960
+so this is interesting because you'll
+
+922
+00:38:42,560 --> 00:38:47,520
+see this this is a common issue
+
+923
+00:38:44,960 --> 00:38:49,520
+in computer language i mean in program
+
+924
+00:38:47,520 --> 00:38:51,599
+in uh computer science and programming
+
+925
+00:38:49,520 --> 00:38:55,280
+languages you'll see this everywhere
+
+926
+00:38:51,599 --> 00:38:57,440
+object you know object uh setter
+
+927
+00:38:55,280 --> 00:39:00,079
+getter you know you have tons of those
+
+928
+00:38:57,440 --> 00:39:02,640
+or you know properties
+
+929
+00:39:00,079 --> 00:39:05,040
+you know you or for example another
+
+930
+00:39:02,640 --> 00:39:08,960
+popular you know for example array
+
+931
+00:39:05,040 --> 00:39:12,560
+list uh uh that's you know
+
+932
+00:39:08,960 --> 00:39:15,040
+two different name vector array list
+
+933
+00:39:12,560 --> 00:39:16,320
+vector turple you know depending on
+
+934
+00:39:15,040 --> 00:39:18,079
+which language you are in
+
+935
+00:39:16,320 --> 00:39:19,359
+sometimes they mean the same thing
+
+936
+00:39:18,079 --> 00:39:23,440
+sometimes not really
+
+937
+00:39:19,359 --> 00:39:26,480
+you know then you also have
+
+938
+00:39:23,440 --> 00:39:27,440
+hash table hash or hash table or
+
+939
+00:39:26,480 --> 00:39:30,160
+dictionary
+
+940
+00:39:27,440 --> 00:39:32,000
+or map you know in python it's called
+
+941
+00:39:30,160 --> 00:39:33,760
+dictionary key value pairs
+
+942
+00:39:32,000 --> 00:39:36,160
+but sometimes they are called hash or
+
+943
+00:39:33,760 --> 00:39:37,040
+hash table in in perl and ruby for
+
+944
+00:39:36,160 --> 00:39:40,079
+example
+
+945
+00:39:37,040 --> 00:39:42,640
+in in in java and javascript it's called
+
+946
+00:39:40,079 --> 00:39:45,440
+map okay key value pairs so it's a
+
+947
+00:39:42,640 --> 00:39:49,119
+naming of things very interesting
+
+948
+00:39:45,440 --> 00:39:51,839
+uh let me write down okay list array
+
+949
+00:39:49,119 --> 00:39:52,800
+turbo vector you know vector is a is a
+
+950
+00:39:51,839 --> 00:39:56,240
+term
+
+951
+00:39:52,800 --> 00:39:59,599
+lisp uses which is kind of equivalent to
+
+952
+00:39:56,240 --> 00:40:00,480
+uh python's turpo which is kind of
+
+953
+00:39:59,599 --> 00:40:04,319
+equivalent to
+
+954
+00:40:00,480 --> 00:40:05,040
+c's array okay which is uh usually not
+
+955
+00:40:04,319 --> 00:40:07,359
+the same as
+
+956
+00:40:05,040 --> 00:40:08,720
+beast you know the different languages
+
+957
+00:40:07,359 --> 00:40:12,079
+they they have different
+
+958
+00:40:08,720 --> 00:40:15,520
+meanings okay
+
+959
+00:40:12,079 --> 00:40:19,280
+for example uh
+
+960
+00:40:15,520 --> 00:40:22,839
+and example another example is hash
+
+961
+00:40:19,280 --> 00:40:26,000
+hash table dictionary
+
+962
+00:40:22,839 --> 00:40:30,240
+and uh and uh map
+
+963
+00:40:26,000 --> 00:40:33,680
+okay so let's put that
+
+964
+00:40:30,240 --> 00:40:33,680
+put that there okay so
+
+965
+00:40:34,000 --> 00:40:40,480
+sync now we have our notes of what
+
+966
+00:40:37,359 --> 00:40:42,160
+today's lecture notes
+
+967
+00:40:40,480 --> 00:40:44,240
+okay naming of things that's a
+
+968
+00:40:42,160 --> 00:40:46,240
+digression about you know so let's go
+
+969
+00:40:44,240 --> 00:40:48,960
+back to mathematica
+
+970
+00:40:46,240 --> 00:40:51,440
+now let me go back to okay so how long
+
+971
+00:40:48,960 --> 00:40:54,640
+have i been talking i need to
+
+972
+00:40:51,440 --> 00:40:57,200
+i actually have a lot more to cover
+
+973
+00:40:54,640 --> 00:41:00,160
+uh i've been talking for 40 minutes oh
+
+974
+00:40:57,200 --> 00:41:00,160
+my god
+
+975
+00:41:00,319 --> 00:41:04,720
+let me show you one more example of of
+
+976
+00:41:02,319 --> 00:41:06,240
+the syntax equivalent thing okay for
+
+977
+00:41:04,720 --> 00:41:08,640
+example how do you write this
+
+978
+00:41:06,240 --> 00:41:10,000
+actually you actually you should know
+
+979
+00:41:08,640 --> 00:41:12,880
+okay so let me
+
+980
+00:41:10,000 --> 00:41:16,640
+write this by hand okay in the full form
+
+981
+00:41:12,880 --> 00:41:19,200
+okay so let me just type it by hand and
+
+982
+00:41:16,640 --> 00:41:20,400
+so we uh yeah let me do this quickly
+
+983
+00:41:19,200 --> 00:41:24,800
+actually we shouldn't
+
+984
+00:41:20,400 --> 00:41:24,800
+waste time on this but let me just
+
+985
+00:41:26,640 --> 00:41:38,000
+okay so
+
+986
+00:41:34,640 --> 00:41:40,480
+so you see this this
+
+987
+00:41:38,000 --> 00:41:42,160
+part is exactly identical it's
+
+988
+00:41:40,480 --> 00:41:45,599
+syntactically equivalent
+
+989
+00:41:42,160 --> 00:41:47,119
+100 to this part like i said before
+
+990
+00:41:45,599 --> 00:41:49,599
+whenever mathematica
+
+991
+00:41:47,119 --> 00:41:50,880
+start to evaluate the expression the
+
+992
+00:41:49,599 --> 00:41:52,880
+first thing
+
+993
+00:41:50,880 --> 00:41:53,920
+i believe so i'm not exactly sure
+
+994
+00:41:52,880 --> 00:41:56,720
+because i never
+
+995
+00:41:53,920 --> 00:41:57,040
+uh worked with the internal you know the
+
+996
+00:41:56,720 --> 00:42:00,079
+the
+
+997
+00:41:57,040 --> 00:42:01,920
+implementation of mathematica but i
+
+998
+00:42:00,079 --> 00:42:03,599
+i'm pretty sure that's correct okay so
+
+999
+00:42:01,920 --> 00:42:05,520
+the first thing mathematica do will
+
+1000
+00:42:03,599 --> 00:42:06,480
+transform to a transformation of the
+
+1001
+00:42:05,520 --> 00:42:09,040
+syntax
+
+1002
+00:42:06,480 --> 00:42:09,839
+transform everything into the full form
+
+1003
+00:42:09,040 --> 00:42:12,720
+like that
+
+1004
+00:42:09,839 --> 00:42:13,040
+so these two are exactly identical this
+
+1005
+00:42:12,720 --> 00:42:15,440
+is
+
+1006
+00:42:13,040 --> 00:42:16,560
+very different from the sugar syntax of
+
+1007
+00:42:15,440 --> 00:42:19,200
+many languages
+
+1008
+00:42:16,560 --> 00:42:20,800
+in many other languages python or skim
+
+1009
+00:42:19,200 --> 00:42:22,319
+disk
+
+1010
+00:42:20,800 --> 00:42:25,440
+you know sometimes you have two things
+
+1011
+00:42:22,319 --> 00:42:27,760
+that's oh that's a sugar syntax for this
+
+1012
+00:42:25,440 --> 00:42:28,720
+but their sugar syntax notion is kind of
+
+1013
+00:42:27,760 --> 00:42:31,040
+fuzzy
+
+1014
+00:42:28,720 --> 00:42:34,240
+because they are not exactly the same
+
+1015
+00:42:31,040 --> 00:42:36,319
+for example let me show you an example
+
+1016
+00:42:34,240 --> 00:42:37,520
+uh for example let me show you an
+
+1017
+00:42:36,319 --> 00:42:41,280
+example okay
+
+1018
+00:42:37,520 --> 00:42:41,280
+the notion of sugar syntax
+
+1019
+00:42:42,400 --> 00:42:47,200
+uh notion of sugar syntax
+
+1020
+00:42:48,560 --> 00:42:55,200
+is not
+
+1021
+00:42:51,839 --> 00:42:58,319
+well defined but
+
+1022
+00:42:55,200 --> 00:43:01,520
+but for example okay i
+
+1023
+00:42:58,319 --> 00:43:05,200
+plus plus versus i
+
+1024
+00:43:01,520 --> 00:43:08,640
+equals to i plus one
+
+1025
+00:43:05,200 --> 00:43:09,760
+okay uh i forgot which one is before or
+
+1026
+00:43:08,640 --> 00:43:12,160
+which one is after
+
+1027
+00:43:09,760 --> 00:43:13,280
+a plus plus i let's just say that okay
+
+1028
+00:43:12,160 --> 00:43:15,520
+if i
+
+1029
+00:43:13,280 --> 00:43:16,400
+i know i i you know you know what i mean
+
+1030
+00:43:15,520 --> 00:43:19,520
+okay so
+
+1031
+00:43:16,400 --> 00:43:20,319
+don't don't pick don't need pick okay so
+
+1032
+00:43:19,520 --> 00:43:22,880
+in c
+
+1033
+00:43:20,319 --> 00:43:24,079
+and c plus plus the worst language of
+
+1034
+00:43:22,880 --> 00:43:26,720
+humanity
+
+1035
+00:43:24,079 --> 00:43:28,079
+the worst screw-up in company in
+
+1036
+00:43:26,720 --> 00:43:31,119
+programming industry c
+
+1037
+00:43:28,079 --> 00:43:32,960
+and c plus first the grand daddy of
+
+1038
+00:43:31,119 --> 00:43:35,760
+everything that is wrong
+
+1039
+00:43:32,960 --> 00:43:36,480
+in computing industry they have this
+
+1040
+00:43:35,760 --> 00:43:40,000
+syntax
+
+1041
+00:43:36,480 --> 00:43:43,680
+i plus plus you know in fact that
+
+1042
+00:43:40,000 --> 00:43:46,800
+that is the that is why c is named c
+
+1043
+00:43:43,680 --> 00:43:48,560
+plus plus as a point to this syntax so
+
+1044
+00:43:46,800 --> 00:43:50,640
+what what does i plus first mean it
+
+1045
+00:43:48,560 --> 00:43:54,000
+means add
+
+1046
+00:43:50,640 --> 00:43:57,280
+one to the variable i and return okay
+
+1047
+00:43:54,000 --> 00:44:00,480
+so it's kind of equivalent to these okay
+
+1048
+00:43:57,280 --> 00:44:02,880
+i equals i plus one so you say oh
+
+1049
+00:44:00,480 --> 00:44:04,240
+normally you know most people will say
+
+1050
+00:44:02,880 --> 00:44:07,760
+oh that's a
+
+1051
+00:44:04,240 --> 00:44:10,240
+syntax sugar for this one but not really
+
+1052
+00:44:07,760 --> 00:44:13,839
+because they these two forms they
+
+1053
+00:44:10,240 --> 00:44:16,800
+actually compile two different things
+
+1054
+00:44:13,839 --> 00:44:18,800
+uh well today the compiler becomes very
+
+1055
+00:44:16,800 --> 00:44:19,760
+smart so today they may compile to the
+
+1056
+00:44:18,800 --> 00:44:23,040
+same thing
+
+1057
+00:44:19,760 --> 00:44:23,760
+if the context is right but but not
+
+1058
+00:44:23,040 --> 00:44:25,200
+always
+
+1059
+00:44:23,760 --> 00:44:26,880
+that's a problem you see that's a
+
+1060
+00:44:25,200 --> 00:44:29,359
+problem
+
+1061
+00:44:26,880 --> 00:44:30,560
+so anyway my point is these two are not
+
+1062
+00:44:29,359 --> 00:44:33,119
+actually not
+
+1063
+00:44:30,560 --> 00:44:34,160
+syntactically equivalent you know the
+
+1064
+00:44:33,119 --> 00:44:36,079
+compiler doesn't
+
+1065
+00:44:34,160 --> 00:44:38,000
+when the compiler sees this it doesn't
+
+1066
+00:44:36,079 --> 00:44:40,480
+simply translate into that
+
+1067
+00:44:38,000 --> 00:44:42,480
+then start to compile it doesn't do that
+
+1068
+00:44:40,480 --> 00:44:45,200
+these two actually will compile
+
+1069
+00:44:42,480 --> 00:44:45,599
+compile into different assembly code you
+
+1070
+00:44:45,200 --> 00:44:48,240
+know
+
+1071
+00:44:45,599 --> 00:44:49,440
+depending on context so that's it so so
+
+1072
+00:44:48,240 --> 00:44:52,560
+for the c
+
+1073
+00:44:49,440 --> 00:44:55,599
+c and c plus plus you know smart
+
+1074
+00:44:52,560 --> 00:44:58,240
+smarties you know they do
+
+1075
+00:44:55,599 --> 00:44:58,720
+up fused to cated you know c programming
+
+1076
+00:44:58,240 --> 00:45:00,560
+you know
+
+1077
+00:44:58,720 --> 00:45:02,880
+they know the difference in detail
+
+1078
+00:45:00,560 --> 00:45:05,040
+intimately and they are proud of it
+
+1079
+00:45:02,880 --> 00:45:06,960
+you know they they are called their c
+
+1080
+00:45:05,040 --> 00:45:08,760
+code with very smart you know
+
+1081
+00:45:06,960 --> 00:45:10,160
+impossible to understand
+
+1082
+00:45:08,760 --> 00:45:11,839
+incomprehensible thing
+
+1083
+00:45:10,160 --> 00:45:14,800
+sometimes they'll use that because they
+
+1084
+00:45:11,839 --> 00:45:17,200
+know this is actually faster than the
+
+1085
+00:45:14,800 --> 00:45:18,960
+that you know than this than the second
+
+1086
+00:45:17,200 --> 00:45:20,560
+one
+
+1087
+00:45:18,960 --> 00:45:22,640
+so that's a that's a problem anyway my
+
+1088
+00:45:20,560 --> 00:45:25,599
+point is that syntax sugar is
+
+1089
+00:45:22,640 --> 00:45:26,480
+often not well defined okay but in the
+
+1090
+00:45:25,599 --> 00:45:29,119
+mathematica
+
+1091
+00:45:26,480 --> 00:45:29,520
+situation in the mathematical language
+
+1092
+00:45:29,119 --> 00:45:33,280
+they
+
+1093
+00:45:29,520 --> 00:45:36,720
+are syntactically equivalent
+
+1094
+00:45:33,280 --> 00:45:39,200
+100 and the the the two layers the mid
+
+1095
+00:45:36,720 --> 00:45:40,240
+you know the full form versus the input
+
+1096
+00:45:39,200 --> 00:45:43,359
+from they are
+
+1097
+00:45:40,240 --> 00:45:44,800
+100 equivalent and systematic like
+
+1098
+00:45:43,359 --> 00:45:46,960
+there's no exceptions
+
+1099
+00:45:44,800 --> 00:45:48,800
+there there's no exceptions by the way
+
+1100
+00:45:46,960 --> 00:45:50,240
+by the way mathematica i also have these
+
+1101
+00:45:48,800 --> 00:45:52,720
+okay
+
+1102
+00:45:50,240 --> 00:45:53,520
+i plus plus let me show you okay so
+
+1103
+00:45:52,720 --> 00:45:57,359
+let's say i
+
+1104
+00:45:53,520 --> 00:46:00,560
+equals to uh one okay enter so i equals
+
+1105
+00:45:57,359 --> 00:46:01,760
+one let's say i equals to 1. then let's
+
+1106
+00:46:00,560 --> 00:46:05,200
+say i plus first
+
+1107
+00:46:01,760 --> 00:46:07,920
+okay evaluate okay
+
+1108
+00:46:05,200 --> 00:46:09,040
+it returns one okay then let's type i
+
+1109
+00:46:07,920 --> 00:46:11,920
+again
+
+1110
+00:46:09,040 --> 00:46:13,040
+it becomes true you see mathematica
+
+1111
+00:46:11,920 --> 00:46:16,880
+supports
+
+1112
+00:46:13,040 --> 00:46:19,920
+these syntax because it it
+
+1113
+00:46:16,880 --> 00:46:22,640
+you know it has short hands to emulate
+
+1114
+00:46:19,920 --> 00:46:23,520
+uh two so you so it becomes easier for
+
+1115
+00:46:22,640 --> 00:46:26,319
+you to learn
+
+1116
+00:46:23,520 --> 00:46:26,640
+in short basically because you came from
+
+1117
+00:46:26,319 --> 00:46:28,800
+c
+
+1118
+00:46:26,640 --> 00:46:30,560
+or you know you came from industry you
+
+1119
+00:46:28,800 --> 00:46:32,000
+you want to code mathematica so that
+
+1120
+00:46:30,560 --> 00:46:34,240
+makes it easy for you
+
+1121
+00:46:32,000 --> 00:46:35,680
+so but what is this form in mathematica
+
+1122
+00:46:34,240 --> 00:46:38,560
+let me show you okay so let's
+
+1123
+00:46:35,680 --> 00:46:40,240
+let's do let's use the power of the full
+
+1124
+00:46:38,560 --> 00:46:42,560
+form
+
+1125
+00:46:40,240 --> 00:46:44,240
+then you have to say hold because you
+
+1126
+00:46:42,560 --> 00:46:47,440
+don't want to evaluate
+
+1127
+00:46:44,240 --> 00:46:47,839
+let's say okay so let's say uh i plus
+
+1128
+00:46:47,440 --> 00:46:50,560
+plus
+
+1129
+00:46:47,839 --> 00:46:52,240
+okay let's see what uh returns okay
+
+1130
+00:46:50,560 --> 00:46:52,640
+you'll read i don't remember exactly
+
+1131
+00:46:52,240 --> 00:46:56,960
+what
+
+1132
+00:46:52,640 --> 00:46:59,599
+uh set plus one or something
+
+1133
+00:46:56,960 --> 00:47:00,319
+okay increment that's a good name great
+
+1134
+00:46:59,599 --> 00:47:03,520
+name
+
+1135
+00:47:00,319 --> 00:47:07,359
+so you see this form
+
+1136
+00:47:03,520 --> 00:47:11,599
+i press first or x plus plus you know
+
+1137
+00:47:07,359 --> 00:47:14,240
+is actually syntactically equivalent to
+
+1138
+00:47:11,599 --> 00:47:15,280
+this kind of function increment then a
+
+1139
+00:47:14,240 --> 00:47:18,640
+variable name okay
+
+1140
+00:47:15,280 --> 00:47:22,000
+so this is kind of in my in my
+
+1141
+00:47:18,640 --> 00:47:24,400
+point of in my in my view this is a
+
+1142
+00:47:22,000 --> 00:47:26,319
+very beautiful part of mathematica
+
+1143
+00:47:24,400 --> 00:47:28,240
+systematic
+
+1144
+00:47:26,319 --> 00:47:29,760
+and you know systematic consistent
+
+1145
+00:47:28,240 --> 00:47:33,440
+there's no exception
+
+1146
+00:47:29,760 --> 00:47:38,400
+systematic in the and 100
+
+1147
+00:47:33,440 --> 00:47:41,040
+equivalent layers
+
+1148
+00:47:38,400 --> 00:47:41,440
+and uh okay so that's uh that's about
+
+1149
+00:47:41,040 --> 00:47:43,760
+that
+
+1150
+00:47:41,440 --> 00:47:43,760
+um
+
+1151
+00:47:49,119 --> 00:47:52,240
+okay so let me let me talk let me let me
+
+1152
+00:47:51,680 --> 00:47:54,400
+continue
+
+1153
+00:47:52,240 --> 00:47:56,960
+to the next thing i want to talk about
+
+1154
+00:47:54,400 --> 00:48:00,880
+actually i spent a lot of time on this
+
+1155
+00:47:56,960 --> 00:48:04,559
+um i don't know if i'm too repetitive
+
+1156
+00:48:00,880 --> 00:48:08,640
+um okay let me let me get a drink and
+
+1157
+00:48:04,559 --> 00:48:08,640
+let's move on to the next topic i think
+
+1158
+00:48:13,839 --> 00:48:20,000
+by the way uh why do i talk about this
+
+1159
+00:48:17,200 --> 00:48:21,200
+these kind of full form thing syntactic
+
+1160
+00:48:20,000 --> 00:48:25,200
+syntactic
+
+1161
+00:48:21,200 --> 00:48:28,160
+equivalence for so long because in fact
+
+1162
+00:48:25,200 --> 00:48:28,960
+this is one of the most important thing
+
+1163
+00:48:28,160 --> 00:48:31,359
+you need to
+
+1164
+00:48:28,960 --> 00:48:32,000
+understand about wufang language when
+
+1165
+00:48:31,359 --> 00:48:35,200
+you become
+
+1166
+00:48:32,000 --> 00:48:36,400
+advanced wufang language programmer this
+
+1167
+00:48:35,200 --> 00:48:40,800
+is this becomes
+
+1168
+00:48:36,400 --> 00:48:44,079
+critical uh you must understand
+
+1169
+00:48:40,800 --> 00:48:46,480
+almost by heart how every
+
+1170
+00:48:44,079 --> 00:48:48,480
+every x almost every you know when you
+
+1171
+00:48:46,480 --> 00:48:50,880
+become when you have for example
+
+1172
+00:48:48,480 --> 00:48:52,559
+after one years of of experience
+
+1173
+00:48:50,880 --> 00:48:54,880
+programming mathematica
+
+1174
+00:48:52,559 --> 00:48:56,559
+you must become almost by heart given
+
+1175
+00:48:54,880 --> 00:48:59,680
+any expression you by heart
+
+1176
+00:48:56,559 --> 00:49:00,880
+know what is these what what is its full
+
+1177
+00:48:59,680 --> 00:49:04,240
+form
+
+1178
+00:49:00,880 --> 00:49:06,720
+why do you need to know that so
+
+1179
+00:49:04,240 --> 00:49:08,160
+why because late you know when you
+
+1180
+00:49:06,720 --> 00:49:11,599
+provide mathematica you
+
+1181
+00:49:08,160 --> 00:49:14,319
+you you will be uh using symbolic
+
+1182
+00:49:11,599 --> 00:49:16,240
+pattern matching a lot
+
+1183
+00:49:14,319 --> 00:49:18,720
+and when you do that those pattern
+
+1184
+00:49:16,240 --> 00:49:21,520
+matching they are not matching these
+
+1185
+00:49:18,720 --> 00:49:23,359
+you know these sugar syntaxes they are
+
+1186
+00:49:21,520 --> 00:49:26,400
+matching the full form
+
+1187
+00:49:23,359 --> 00:49:28,240
+that is the full form that all your code
+
+1188
+00:49:26,400 --> 00:49:30,240
+using pattern matching is going to match
+
+1189
+00:49:28,240 --> 00:49:32,720
+with okay
+
+1190
+00:49:30,240 --> 00:49:34,160
+this is again this is there's a
+
+1191
+00:49:32,720 --> 00:49:37,599
+counterpart in lisp
+
+1192
+00:49:34,160 --> 00:49:39,920
+this is similar to lisps macro okay
+
+1193
+00:49:37,599 --> 00:49:41,760
+so when you code these you know these
+
+1194
+00:49:39,920 --> 00:49:44,160
+disperse they like macro you know
+
+1195
+00:49:41,760 --> 00:49:44,880
+these markers you need to understand you
+
+1196
+00:49:44,160 --> 00:49:47,839
+know
+
+1197
+00:49:44,880 --> 00:49:49,200
+well since lisp doesn't have this you
+
+1198
+00:49:47,839 --> 00:49:52,079
+know it doesn't have these
+
+1199
+00:49:49,200 --> 00:49:53,440
+uh infix notation so you always see the
+
+1200
+00:49:52,079 --> 00:49:55,599
+full form so
+
+1201
+00:49:53,440 --> 00:49:57,040
+my point is that when you program this
+
+1202
+00:49:55,599 --> 00:49:59,760
+you have the least marker
+
+1203
+00:49:57,040 --> 00:50:01,760
+list marker one of the important thing
+
+1204
+00:49:59,760 --> 00:50:02,720
+for it to happen is that you need to
+
+1205
+00:50:01,760 --> 00:50:06,000
+have this
+
+1206
+00:50:02,720 --> 00:50:07,119
+fully nested regular syntax for it to
+
+1207
+00:50:06,000 --> 00:50:09,280
+work
+
+1208
+00:50:07,119 --> 00:50:10,160
+because once you have this you know once
+
+1209
+00:50:09,280 --> 00:50:12,400
+you have these
+
+1210
+00:50:10,160 --> 00:50:13,760
+you know three plus two syntax your
+
+1211
+00:50:12,400 --> 00:50:17,359
+macro
+
+1212
+00:50:13,760 --> 00:50:19,359
+becomes very complex you know easy
+
+1213
+00:50:17,359 --> 00:50:20,640
+so in the same way in the same way when
+
+1214
+00:50:19,359 --> 00:50:23,280
+you become
+
+1215
+00:50:20,640 --> 00:50:23,760
+advanced mathematica programmer you do a
+
+1216
+00:50:23,280 --> 00:50:25,359
+lot
+
+1217
+00:50:23,760 --> 00:50:27,440
+pattern matching symbolic pattern
+
+1218
+00:50:25,359 --> 00:50:30,559
+matching you
+
+1219
+00:50:27,440 --> 00:50:33,839
+need to understand uh be very
+
+1220
+00:50:30,559 --> 00:50:36,960
+familiar with how every expression
+
+1221
+00:50:33,839 --> 00:50:38,880
+is uh corresponds you know
+
+1222
+00:50:36,960 --> 00:50:40,319
+is equivalent you know what their full
+
+1223
+00:50:38,880 --> 00:50:42,400
+form looks like like
+
+1224
+00:50:40,319 --> 00:50:45,680
+for example like that one okay that's
+
+1225
+00:50:42,400 --> 00:50:45,680
+why it's uh important
+
+1226
+00:50:46,079 --> 00:50:55,839
+okay so now let's shrink uh
+
+1227
+00:50:49,119 --> 00:50:55,839
+so let's uh kind of uh
+
+1228
+00:50:56,000 --> 00:51:03,480
+let's write down okay these are not
+
+1229
+00:50:59,240 --> 00:51:05,520
+syntactically these are not
+
+1230
+00:51:03,480 --> 00:51:09,839
+syntactically
+
+1231
+00:51:05,520 --> 00:51:09,839
+equivalent no
+
+1232
+00:51:11,079 --> 00:51:14,960
+semantically equivalent okay that's an
+
+1233
+00:51:13,680 --> 00:51:18,559
+important thing
+
+1234
+00:51:14,960 --> 00:51:22,319
+i plus plus versus i equals two
+
+1235
+00:51:18,559 --> 00:51:24,319
+i plus one they are not syntactic
+
+1236
+00:51:22,319 --> 00:51:25,680
+synthetically equivalent of course they
+
+1237
+00:51:24,319 --> 00:51:28,480
+are not but they are no
+
+1238
+00:51:25,680 --> 00:51:29,040
+no are they semantically equivalent so
+
+1239
+00:51:28,480 --> 00:51:31,040
+when
+
+1240
+00:51:29,040 --> 00:51:33,200
+when next time when you say oh that's
+
+1241
+00:51:31,040 --> 00:51:35,839
+just a sugar syntax of something
+
+1242
+00:51:33,200 --> 00:51:36,640
+for example that happens a lot in in
+
+1243
+00:51:35,839 --> 00:51:40,000
+scheme list
+
+1244
+00:51:36,640 --> 00:51:42,880
+or in javascript think again okay what
+
+1245
+00:51:40,000 --> 00:51:45,520
+you mean exactly sugar syntax
+
+1246
+00:51:42,880 --> 00:51:48,000
+okay like try to come up with a precise
+
+1247
+00:51:45,520 --> 00:51:49,920
+definition
+
+1248
+00:51:48,000 --> 00:51:51,359
+uh and there i mean not just these
+
+1249
+00:51:49,920 --> 00:51:53,680
+examples there are tons of other
+
+1250
+00:51:51,359 --> 00:51:55,440
+examples okay uh but anyway so let's go
+
+1251
+00:51:53,680 --> 00:51:58,079
+on so
+
+1252
+00:51:55,440 --> 00:51:58,079
+uh so
+
+1253
+00:51:58,960 --> 00:52:02,480
+okay so let's go on with uh let's go on
+
+1254
+00:52:01,440 --> 00:52:05,440
+let's see
+
+1255
+00:52:02,480 --> 00:52:05,760
+where are we i need to move on to next
+
+1256
+00:52:05,440 --> 00:52:09,200
+uh
+
+1257
+00:52:05,760 --> 00:52:09,920
+interesting topic uh full form input
+
+1258
+00:52:09,200 --> 00:52:13,680
+form okay
+
+1259
+00:52:09,920 --> 00:52:16,400
+analogous to this symbolic expression
+
+1260
+00:52:13,680 --> 00:52:20,319
+and meta expression okay
+
+1261
+00:52:16,400 --> 00:52:23,119
+start easy uh explain this in that okay
+
+1262
+00:52:20,319 --> 00:52:24,319
+show my articles i've shown this uh okay
+
+1263
+00:52:23,119 --> 00:52:27,040
+where is my article
+
+1264
+00:52:24,319 --> 00:52:28,640
+i've shown these articles here concepts
+
+1265
+00:52:27,040 --> 00:52:31,200
+and confusions the prefix
+
+1266
+00:52:28,640 --> 00:52:32,240
+infix and posifix notations in this
+
+1267
+00:52:31,200 --> 00:52:34,960
+notations okay
+
+1268
+00:52:32,240 --> 00:52:37,040
+this article there's quite a lot so you
+
+1269
+00:52:34,960 --> 00:52:38,960
+might be interested to look into because
+
+1270
+00:52:37,040 --> 00:52:41,440
+in this article
+
+1271
+00:52:38,960 --> 00:52:43,200
+i pretty much explained what i i
+
+1272
+00:52:41,440 --> 00:52:45,359
+explained now
+
+1273
+00:52:43,200 --> 00:52:46,880
+uh actually there's more okay there's
+
+1274
+00:52:45,359 --> 00:52:50,880
+more here
+
+1275
+00:52:46,880 --> 00:52:53,200
+um let's skip that okay
+
+1276
+00:52:50,880 --> 00:52:53,920
+because i got other things i need to
+
+1277
+00:52:53,200 --> 00:52:56,720
+explain
+
+1278
+00:52:53,920 --> 00:52:58,240
+i mean there's a postfix notation and
+
+1279
+00:52:56,720 --> 00:53:01,280
+prefix notation
+
+1280
+00:52:58,240 --> 00:53:03,599
+in mathematica too
+
+1281
+00:53:01,280 --> 00:53:03,599
+um
+
+1282
+00:53:05,040 --> 00:53:08,079
+should i um
+
+1283
+00:53:12,160 --> 00:53:18,400
+okay so so now remember
+
+1284
+00:53:16,079 --> 00:53:19,599
+okay so anyway so you know i already
+
+1285
+00:53:18,400 --> 00:53:21,359
+explained these things
+
+1286
+00:53:19,599 --> 00:53:23,040
+so let me move on to the next
+
+1287
+00:53:21,359 --> 00:53:26,839
+interesting thing
+
+1288
+00:53:23,040 --> 00:53:28,800
+actually how long have i been talking
+
+1289
+00:53:26,839 --> 00:53:33,280
+today
+
+1290
+00:53:28,800 --> 00:53:36,559
+56 minutes okay i think
+
+1291
+00:53:33,280 --> 00:53:38,079
+let that be that so today this video is
+
+1292
+00:53:36,559 --> 00:53:41,520
+just about the syntax
+
+1293
+00:53:38,079 --> 00:53:42,000
+okay because i was going to i was going
+
+1294
+00:53:41,520 --> 00:53:46,079
+to
+
+1295
+00:53:42,000 --> 00:53:48,960
+uh explain how wufam language does
+
+1296
+00:53:46,079 --> 00:53:51,440
+typesetting okay then i was going to
+
+1297
+00:53:48,960 --> 00:53:55,440
+explain
+
+1298
+00:53:51,440 --> 00:53:58,400
+some analogous features of mathematica
+
+1299
+00:53:55,440 --> 00:53:59,040
+notebook versus the ogmod you know emac
+
+1300
+00:53:58,400 --> 00:54:02,160
+emax
+
+1301
+00:53:59,040 --> 00:54:03,520
+oak mod where you can have outline you
+
+1302
+00:54:02,160 --> 00:54:05,839
+can have headers you can
+
+1303
+00:54:03,520 --> 00:54:07,119
+outline you can collapse them you can
+
+1304
+00:54:05,839 --> 00:54:10,720
+expand them
+
+1305
+00:54:07,119 --> 00:54:13,680
+you can export to html or latex
+
+1306
+00:54:10,720 --> 00:54:16,240
+or any other things uh you know you can
+
+1307
+00:54:13,680 --> 00:54:18,079
+export to lots of formats
+
+1308
+00:54:16,240 --> 00:54:19,680
+in fact that's exactly the same with
+
+1309
+00:54:18,079 --> 00:54:23,280
+math with wolfram language
+
+1310
+00:54:19,680 --> 00:54:26,800
+uh notebook okay so so i'm going
+
+1311
+00:54:23,280 --> 00:54:28,640
+so let's not do that today so let this
+
+1312
+00:54:26,800 --> 00:54:32,000
+video today just be
+
+1313
+00:54:28,640 --> 00:54:35,200
+the syntax okay i think that's it
+
+1314
+00:54:32,000 --> 00:54:38,400
+actually pretty much any
+
+1315
+00:54:35,200 --> 00:54:40,640
+other thing exactly so jason
+
+1316
+00:54:38,400 --> 00:54:40,640
+con
+
+1317
+00:54:41,839 --> 00:54:45,839
+i believe jason you are also a wufang
+
+1318
+00:54:43,839 --> 00:54:47,839
+language coder right
+
+1319
+00:54:45,839 --> 00:54:51,280
+so yeah the next thing i want to talk
+
+1320
+00:54:47,839 --> 00:54:53,599
+about the syntax is the prefix postfix
+
+1321
+00:54:51,280 --> 00:54:56,240
+again they are systematic okay let me
+
+1322
+00:54:53,599 --> 00:54:56,240
+expand okay
+
+1323
+00:54:56,640 --> 00:55:02,000
+um so in mathematica so
+
+1324
+00:54:59,760 --> 00:55:03,280
+normally right so normally you write
+
+1325
+00:55:02,000 --> 00:55:06,319
+things like that
+
+1326
+00:55:03,280 --> 00:55:08,880
+you know a function name square bracket
+
+1327
+00:55:06,319 --> 00:55:08,880
+arguments
+
+1328
+00:55:09,440 --> 00:55:13,599
+but mathematica has a also a systematic
+
+1329
+00:55:12,880 --> 00:55:16,720
+way
+
+1330
+00:55:13,599 --> 00:55:20,079
+to write this expression without
+
+1331
+00:55:16,720 --> 00:55:23,359
+the square brackets
+
+1332
+00:55:20,079 --> 00:55:25,440
+you know the fully nested notation
+
+1333
+00:55:23,359 --> 00:55:26,799
+is kind of nice because they show you
+
+1334
+00:55:25,440 --> 00:55:29,119
+the structure
+
+1335
+00:55:26,799 --> 00:55:29,839
+of the whole expression similar to the
+
+1336
+00:55:29,119 --> 00:55:32,799
+lisps
+
+1337
+00:55:29,839 --> 00:55:33,359
+you know nested parenthesis but however
+
+1338
+00:55:32,799 --> 00:55:35,040
+as
+
+1339
+00:55:33,359 --> 00:55:37,119
+you know we as we explain they are
+
+1340
+00:55:35,040 --> 00:55:37,839
+cumbersome some sometimes they are just
+
+1341
+00:55:37,119 --> 00:55:39,359
+not good
+
+1342
+00:55:37,839 --> 00:55:41,359
+when you want you know when you have a
+
+1343
+00:55:39,359 --> 00:55:44,720
+polynomial or lots of
+
+1344
+00:55:41,359 --> 00:55:48,079
+calculations so
+
+1345
+00:55:44,720 --> 00:55:51,920
+uh so besides
+
+1346
+00:55:48,079 --> 00:55:55,680
+sugar syntax for each hey thank you
+
+1347
+00:55:51,920 --> 00:55:55,680
+thousand for five dollars
+
+1348
+00:55:56,000 --> 00:56:00,319
+and the question is are you a citizen of
+
+1349
+00:55:58,160 --> 00:56:03,599
+cape cakistan
+
+1350
+00:56:00,319 --> 00:56:07,280
+uh yes i am
+
+1351
+00:56:03,599 --> 00:56:09,839
+yes next time i should uh
+
+1352
+00:56:07,280 --> 00:56:13,040
+i think i've showed you my id already
+
+1353
+00:56:09,839 --> 00:56:17,440
+okay i wanna see the server
+
+1354
+00:56:13,040 --> 00:56:20,400
+okay youtube is going to buy me now
+
+1355
+00:56:17,440 --> 00:56:22,000
+okay so so wufang language has a
+
+1356
+00:56:20,400 --> 00:56:24,480
+systematic
+
+1357
+00:56:22,000 --> 00:56:26,640
+uh prefix notation okay let me show you
+
+1358
+00:56:24,480 --> 00:56:28,640
+okay so so
+
+1359
+00:56:26,640 --> 00:56:29,760
+what's the example sign okay let's say
+
+1360
+00:56:28,640 --> 00:56:31,680
+sign okay
+
+1361
+00:56:29,760 --> 00:56:33,119
+now you know sine is the sine function
+
+1362
+00:56:31,680 --> 00:56:35,760
+you know sine pi
+
+1363
+00:56:33,119 --> 00:56:36,880
+sine pi equals to zero right okay let's
+
+1364
+00:56:35,760 --> 00:56:40,880
+do something fun
+
+1365
+00:56:36,880 --> 00:56:45,520
+plot so we are doing some math
+
+1366
+00:56:40,880 --> 00:56:49,359
+uh plot sine x and x from
+
+1367
+00:56:45,520 --> 00:56:49,359
+x from let's say 0 to
+
+1368
+00:56:49,440 --> 00:56:56,160
+9 okay let's say 10.
+
+1369
+00:56:52,960 --> 00:57:00,240
+show it fantastic now so
+
+1370
+00:56:56,160 --> 00:57:04,160
+sine as 0 is 0 right everyone knows that
+
+1371
+00:57:00,240 --> 00:57:06,880
+i mean sine at pi is 0 okay sine of 0 is
+
+1372
+00:57:04,160 --> 00:57:09,119
+0 as well so this here is pi okay let me
+
+1373
+00:57:06,880 --> 00:57:12,480
+show you something fancier okay
+
+1374
+00:57:09,119 --> 00:57:15,359
+so we want to do i believe
+
+1375
+00:57:12,480 --> 00:57:15,359
+ticks
+
+1376
+00:57:17,920 --> 00:57:21,760
+okay zero pi
+
+1377
+00:57:21,839 --> 00:57:28,319
+uh zero pi okay zero half pi
+
+1378
+00:57:25,599 --> 00:57:29,839
+actually i should use the range okay so
+
+1379
+00:57:28,319 --> 00:57:33,040
+let's do range
+
+1380
+00:57:29,839 --> 00:57:36,240
+range is like python's range okay 0
+
+1381
+00:57:33,040 --> 00:57:39,599
+to 3 pi jump
+
+1382
+00:57:36,240 --> 00:57:40,880
+by pi over 2 increment by pi over two
+
+1383
+00:57:39,599 --> 00:57:44,799
+okay
+
+1384
+00:57:40,880 --> 00:57:48,480
+ah wrong uh it should be
+
+1385
+00:57:44,799 --> 00:57:54,880
+axis labels uh okay i hate this
+
+1386
+00:57:48,480 --> 00:57:58,079
+because i forgot the syntax not ticks uh
+
+1387
+00:57:54,880 --> 00:58:02,400
+i think it sticks wait a minute uh
+
+1388
+00:57:58,079 --> 00:58:02,400
+wait let me try this again okay
+
+1389
+00:58:03,359 --> 00:58:10,000
+there it is okay so you see this
+
+1390
+00:58:06,559 --> 00:58:13,440
+is sign you know pi so we change
+
+1391
+00:58:10,000 --> 00:58:18,079
+the axis the label for the x axis
+
+1392
+00:58:13,440 --> 00:58:20,160
+pi over 2 pi anyway so that's a sign so
+
+1393
+00:58:18,079 --> 00:58:22,240
+what's my point my point is let's go
+
+1394
+00:58:20,160 --> 00:58:25,920
+back to the sine pi okay
+
+1395
+00:58:22,240 --> 00:58:28,079
+oh yeah prefix notation so sine pi
+
+1396
+00:58:25,920 --> 00:58:28,960
+so i was saying sometimes the nested
+
+1397
+00:58:28,079 --> 00:58:31,599
+brackets
+
+1398
+00:58:28,960 --> 00:58:32,880
+the fully nested brackets is kind of
+
+1399
+00:58:31,599 --> 00:58:35,920
+annoying right
+
+1400
+00:58:32,880 --> 00:58:38,559
+so so one one of the convenient
+
+1401
+00:58:35,920 --> 00:58:39,440
+convenient way to avoid lots of nested
+
+1402
+00:58:38,559 --> 00:58:42,400
+parentheses
+
+1403
+00:58:39,440 --> 00:58:44,559
+is uh prefix notation so you can say
+
+1404
+00:58:42,400 --> 00:58:48,000
+instead of sine pi you can say
+
+1405
+00:58:44,559 --> 00:58:49,440
+sine at pi okay that's that is the
+
+1406
+00:58:48,000 --> 00:58:52,640
+prefix notation
+
+1407
+00:58:49,440 --> 00:58:55,280
+let's try another example sign at
+
+1408
+00:58:52,640 --> 00:58:56,319
+one okay let's see what is what's the
+
+1409
+00:58:55,280 --> 00:58:59,520
+value okay so
+
+1410
+00:58:56,319 --> 00:59:00,000
+that's a symbolic result let's say sign
+
+1411
+00:58:59,520 --> 00:59:03,520
+point
+
+1412
+00:59:00,000 --> 00:59:06,400
+sign sign at 1.0 okay
+
+1413
+00:59:03,520 --> 00:59:07,760
+so you got 0.84 something so you can
+
+1414
+00:59:06,400 --> 00:59:12,000
+also write it uh
+
+1415
+00:59:07,760 --> 00:59:14,240
+as sine bracket 1.0
+
+1416
+00:59:12,000 --> 00:59:16,240
+so you you compare these two notations
+
+1417
+00:59:14,240 --> 00:59:19,599
+sine add versus sine you know
+
+1418
+00:59:16,240 --> 00:59:22,799
+bracket so the add is
+
+1419
+00:59:19,599 --> 00:59:25,200
+is a prefix notation and this works for
+
+1420
+00:59:22,799 --> 00:59:26,400
+any function not just sine okay so in in
+
+1421
+00:59:25,200 --> 00:59:30,960
+general
+
+1422
+00:59:26,400 --> 00:59:34,480
+whenever you have x that
+
+1423
+00:59:30,960 --> 00:59:37,760
+can be written as x
+
+1424
+00:59:34,480 --> 00:59:41,520
+you know f at x okay
+
+1425
+00:59:37,760 --> 00:59:44,480
+so any function any okay any function
+
+1426
+00:59:41,520 --> 00:59:45,280
+that takes one argument instead of
+
+1427
+00:59:44,480 --> 00:59:46,799
+saying you know
+
+1428
+00:59:45,280 --> 00:59:48,640
+instead of using the square bracket you
+
+1429
+00:59:46,799 --> 00:59:51,760
+can just write it you know f
+
+1430
+00:59:48,640 --> 00:59:55,119
+at x in the same way you can
+
+1431
+00:59:51,760 --> 01:00:01,359
+post fixed notation okay so
+
+1432
+00:59:55,119 --> 01:00:04,880
+uh okay so let me turn this into a um
+
+1433
+01:00:01,359 --> 01:00:06,240
+cell format uh i want to what is it
+
+1434
+01:00:04,880 --> 01:00:10,640
+format
+
+1435
+01:00:06,240 --> 01:00:14,559
+style okay uh alt 807 text okay
+
+1436
+01:00:10,640 --> 01:00:18,400
+so i forgot o7 it's not
+
+1437
+01:00:14,559 --> 01:00:18,400
+key yeah okay so
+
+1438
+01:00:18,799 --> 01:00:26,319
+and in the same way
+
+1439
+01:00:22,319 --> 01:00:29,839
+so f at x this is called
+
+1440
+01:00:26,319 --> 01:00:29,839
+prefix notation
+
+1441
+01:00:29,920 --> 01:00:37,920
+and in some way there is post
+
+1442
+01:00:33,280 --> 01:00:41,440
+fixed notation okay
+
+1443
+01:00:37,920 --> 01:00:45,200
+f square
+
+1444
+01:00:41,440 --> 01:00:48,480
+x can be written
+
+1445
+01:00:45,200 --> 01:00:50,799
+as x slash slash f
+
+1446
+01:00:48,480 --> 01:00:52,720
+okay that's the post notation by the way
+
+1447
+01:00:50,799 --> 01:00:56,640
+this post notation
+
+1448
+01:00:52,720 --> 01:01:00,400
+is similar similar to unix pipe okay
+
+1449
+01:00:56,640 --> 01:01:01,200
+unix pipe you know in unix is common you
+
+1450
+01:01:00,400 --> 01:01:03,359
+know something
+
+1451
+01:01:01,200 --> 01:01:04,240
+type something that means return output
+
+1452
+01:01:03,359 --> 01:01:06,559
+and
+
+1453
+01:01:04,240 --> 01:01:07,280
+feed it to the next function's input and
+
+1454
+01:01:06,559 --> 01:01:09,440
+so on
+
+1455
+01:01:07,280 --> 01:01:11,119
+so in mathematica you know you can think
+
+1456
+01:01:09,440 --> 01:01:15,040
+of it as a
+
+1457
+01:01:11,119 --> 01:01:18,880
+postfix notation and in mathematica the
+
+1458
+01:01:15,040 --> 01:01:21,680
+the syntax is slash slash so again
+
+1459
+01:01:18,880 --> 01:01:22,799
+this works for any function not just you
+
+1460
+01:01:21,680 --> 01:01:25,440
+know any
+
+1461
+01:01:22,799 --> 01:01:25,920
+so any function with one argument so for
+
+1462
+01:01:25,440 --> 01:01:29,440
+example
+
+1463
+01:01:25,920 --> 01:01:32,960
+sign so for example 1.0
+
+1464
+01:01:29,440 --> 01:01:36,240
+slash slash sign okay
+
+1465
+01:01:32,960 --> 01:01:37,359
+enter equals to 0.84 just like before so
+
+1466
+01:01:36,240 --> 01:01:40,240
+they you know
+
+1467
+01:01:37,359 --> 01:01:41,760
+and you can mix any of these notation
+
+1468
+01:01:40,240 --> 01:01:44,880
+prefix infix
+
+1469
+01:01:41,760 --> 01:01:48,400
+or fully nested you know
+
+1470
+01:01:44,880 --> 01:01:50,799
+you can mix them in any way
+
+1471
+01:01:48,400 --> 01:01:52,960
+and so this is uh so again let me
+
+1472
+01:01:50,799 --> 01:01:55,280
+emphasize this is this is systematic
+
+1473
+01:01:52,960 --> 01:01:57,599
+there is no exceptions it's like the
+
+1474
+01:01:55,280 --> 01:01:59,119
+rules are very simple you just like
+
+1475
+01:01:57,599 --> 01:02:01,280
+one two three four you know just for
+
+1476
+01:01:59,119 --> 01:02:04,960
+these four rules and you can create
+
+1477
+01:02:01,280 --> 01:02:08,079
+the combinatorial variations
+
+1478
+01:02:04,960 --> 01:02:10,640
+of expression is phenomenal i mean it's
+
+1479
+01:02:08,079 --> 01:02:14,160
+exponential it's kind of
+
+1480
+01:02:10,640 --> 01:02:16,400
+so you know it in the 1990s the pearl
+
+1481
+01:02:14,160 --> 01:02:17,599
+people the programming language they
+
+1482
+01:02:16,400 --> 01:02:19,680
+used to say
+
+1483
+01:02:17,599 --> 01:02:20,960
+there are more than one way to do it
+
+1484
+01:02:19,680 --> 01:02:23,599
+they are so proud
+
+1485
+01:02:20,960 --> 01:02:24,240
+you know of the pearl uh syntax because
+
+1486
+01:02:23,599 --> 01:02:26,559
+it's like
+
+1487
+01:02:24,240 --> 01:02:28,000
+incomprehensible there are 100 ways to
+
+1488
+01:02:26,559 --> 01:02:31,440
+write the same thing
+
+1489
+01:02:28,000 --> 01:02:33,680
+but in mathematica they are
+
+1490
+01:02:31,440 --> 01:02:34,480
+systematic way and there's actually more
+
+1491
+01:02:33,680 --> 01:02:37,760
+variations
+
+1492
+01:02:34,480 --> 01:02:41,839
+than purp then it is possible than pearl
+
+1493
+01:02:37,760 --> 01:02:41,839
+yet it's systematic and simple
+
+1494
+01:02:41,920 --> 01:02:44,960
+so in fact i have lots of articles on
+
+1495
+01:02:43,839 --> 01:02:48,000
+that let's forget
+
+1496
+01:02:44,960 --> 01:02:50,000
+about that okay so so let me show you
+
+1497
+01:02:48,000 --> 01:02:51,119
+yeah okay let me show you some articles
+
+1498
+01:02:50,000 --> 01:02:54,720
+about this uh
+
+1499
+01:02:51,119 --> 01:02:56,799
+postfix notation and prefix notation
+
+1500
+01:02:54,720 --> 01:03:00,559
+because they are very interesting
+
+1501
+01:02:56,799 --> 01:03:03,280
+so you go to so so first of all you know
+
+1502
+01:03:00,559 --> 01:03:03,680
+you might want to read this uh article
+
+1503
+01:03:03,280 --> 01:03:06,160
+okay
+
+1504
+01:03:03,680 --> 01:03:07,440
+uh concepts and confusions of prefix
+
+1505
+01:03:06,160 --> 01:03:10,799
+infix postfix
+
+1506
+01:03:07,440 --> 01:03:11,920
+and lisp notations by the way that title
+
+1507
+01:03:10,799 --> 01:03:14,160
+is a clickbait
+
+1508
+01:03:11,920 --> 01:03:16,960
+[Laughter]
+
+1509
+01:03:14,160 --> 01:03:17,839
+this this is written in 2006 before the
+
+1510
+01:03:16,960 --> 01:03:20,160
+word click
+
+1511
+01:03:17,839 --> 01:03:20,160
+bait
+
+1512
+01:03:20,880 --> 01:03:25,119
+that's why they call me a troll okay so
+
+1513
+01:03:23,359 --> 01:03:27,520
+so anyway so
+
+1514
+01:03:25,119 --> 01:03:28,160
+but i also give you concrete solid
+
+1515
+01:03:27,520 --> 01:03:32,240
+information
+
+1516
+01:03:28,160 --> 01:03:34,799
+about history of kind of you know
+
+1517
+01:03:32,240 --> 01:03:35,839
+the history of notations the naming of
+
+1518
+01:03:34,799 --> 01:03:38,000
+notations why
+
+1519
+01:03:35,839 --> 01:03:40,160
+you know the what does it mean to be
+
+1520
+01:03:38,000 --> 01:03:40,880
+algebraic notations you know i give you
+
+1521
+01:03:40,160 --> 01:03:43,280
+a
+
+1522
+01:03:40,880 --> 01:03:44,960
+uh clarity of understanding you know
+
+1523
+01:03:43,280 --> 01:03:47,200
+these kind of things
+
+1524
+01:03:44,960 --> 01:03:48,880
+so this is one article so that you know
+
+1525
+01:03:47,200 --> 01:03:52,079
+you go to my website
+
+1526
+01:03:48,880 --> 01:03:55,280
+then you go to uh let's shrink shrink
+
+1527
+01:03:52,079 --> 01:03:58,799
+then you go to hacker code then you go
+
+1528
+01:03:55,280 --> 01:04:02,319
+to um
+
+1529
+01:03:58,799 --> 01:04:05,039
+uh syntax soup okay here is a collection
+
+1530
+01:04:02,319 --> 01:04:06,000
+of articles or about syntax programming
+
+1531
+01:04:05,039 --> 01:04:08,880
+languages
+
+1532
+01:04:06,000 --> 01:04:09,280
+and there's a video i did before then
+
+1533
+01:04:08,880 --> 01:04:12,559
+there
+
+1534
+01:04:09,280 --> 01:04:15,280
+are the point i want to talk about is
+
+1535
+01:04:12,559 --> 01:04:16,240
+i have one two three four five six seven
+
+1536
+01:04:15,280 --> 01:04:20,799
+seven
+
+1537
+01:04:16,240 --> 01:04:22,559
+articles related to the pipe notation
+
+1538
+01:04:20,799 --> 01:04:24,240
+because there's so many things to dive
+
+1539
+01:04:22,559 --> 01:04:26,480
+into
+
+1540
+01:04:24,240 --> 01:04:28,079
+for example we talked about unix pipe
+
+1541
+01:04:26,480 --> 01:04:30,079
+you know uh let me show you some
+
+1542
+01:04:28,079 --> 01:04:31,520
+example you familiar with unix pipe
+
+1543
+01:04:30,079 --> 01:04:33,359
+right
+
+1544
+01:04:31,520 --> 01:04:36,720
+yeah i you know i explained some of
+
+1545
+01:04:33,359 --> 01:04:39,039
+these uh things back in 2002
+
+1546
+01:04:36,720 --> 01:04:41,119
+you know this is a post posted to the
+
+1547
+01:04:39,039 --> 01:04:43,359
+mac making this
+
+1548
+01:04:41,119 --> 01:04:44,319
+so anyway let me show you yeah here is
+
+1549
+01:04:43,359 --> 01:04:47,760
+the unix
+
+1550
+01:04:44,319 --> 01:04:51,200
+you know prototypical unix slot uh
+
+1551
+01:04:47,760 --> 01:04:54,400
+pipe you know in bash for example
+
+1552
+01:04:51,200 --> 01:04:56,960
+ps you know w auwx oak
+
+1553
+01:04:54,400 --> 01:04:58,559
+something then sort then x ax echo you
+
+1554
+01:04:56,960 --> 01:05:01,359
+know that's typical so
+
+1555
+01:04:58,559 --> 01:05:02,160
+pipe notation so i mean in unix unix is
+
+1556
+01:05:01,359 --> 01:05:05,039
+called pipe
+
+1557
+01:05:02,160 --> 01:05:06,319
+so you can from a notational point of
+
+1558
+01:05:05,039 --> 01:05:10,319
+view
+
+1559
+01:05:06,319 --> 01:05:12,160
+this is called post-fix notation
+
+1560
+01:05:10,319 --> 01:05:13,760
+why do i say notational point of view
+
+1561
+01:05:12,160 --> 01:05:15,440
+because they are different point of view
+
+1562
+01:05:13,760 --> 01:05:17,119
+you know the pipe is actually i mean
+
+1563
+01:05:15,440 --> 01:05:19,920
+it's not just notation
+
+1564
+01:05:17,119 --> 01:05:20,559
+it's also about how it does computation
+
+1565
+01:05:19,920 --> 01:05:23,920
+it
+
+1566
+01:05:20,559 --> 01:05:26,240
+you know it you know so i mean
+
+1567
+01:05:23,920 --> 01:05:28,480
+for example in bash you don't usually
+
+1568
+01:05:26,240 --> 01:05:28,880
+consider these commands as functions
+
+1569
+01:05:28,480 --> 01:05:30,480
+because
+
+1570
+01:05:28,880 --> 01:05:32,319
+actually they have lots of side effects
+
+1571
+01:05:30,480 --> 01:05:33,599
+but anyway from a notational point of
+
+1572
+01:05:32,319 --> 01:05:37,200
+view
+
+1573
+01:05:33,599 --> 01:05:39,359
+the unix pipe is a post-fix notation
+
+1574
+01:05:37,200 --> 01:05:42,240
+okay so that's one article explaining
+
+1575
+01:05:39,359 --> 01:05:43,680
+that unix pipe as functional language
+
+1576
+01:05:42,240 --> 01:05:45,920
+okay
+
+1577
+01:05:43,680 --> 01:05:47,280
+and by the way that that occu that
+
+1578
+01:05:45,920 --> 01:05:50,880
+article
+
+1579
+01:05:47,280 --> 01:05:54,400
+has um where are we that article has
+
+1580
+01:05:50,880 --> 01:05:56,400
+uh the creator the inventor of the oak
+
+1581
+01:05:54,400 --> 01:05:59,440
+language
+
+1582
+01:05:56,400 --> 01:06:00,160
+alfred a ho you know he made some
+
+1583
+01:05:59,440 --> 01:06:03,599
+comments
+
+1584
+01:06:00,160 --> 01:06:04,559
+about why he what he think what he
+
+1585
+01:06:03,599 --> 01:06:07,039
+thinks about pipe
+
+1586
+01:06:04,559 --> 01:06:07,839
+you know so there's a it's a it's from
+
+1587
+01:06:07,039 --> 01:06:09,520
+an interview
+
+1588
+01:06:07,839 --> 01:06:11,200
+is there a connection you know someone
+
+1589
+01:06:09,520 --> 01:06:11,760
+asking is there a connection between the
+
+1590
+01:06:11,200 --> 01:06:14,720
+idea
+
+1591
+01:06:11,760 --> 01:06:15,839
+of composing programs together from a
+
+1592
+01:06:14,720 --> 01:06:18,559
+command line
+
+1593
+01:06:15,839 --> 01:06:20,640
+through through pipes and the idea of
+
+1594
+01:06:18,559 --> 01:06:22,240
+writing little languages each for a
+
+1595
+01:06:20,640 --> 01:06:24,160
+specific domain so
+
+1596
+01:06:22,240 --> 01:06:25,839
+you know so he said uh uh i think
+
+1597
+01:06:24,160 --> 01:06:27,599
+there's a connection certainly in the
+
+1598
+01:06:25,839 --> 01:06:31,119
+early early days of unix
+
+1599
+01:06:27,599 --> 01:06:31,920
+pipes facilitated functional composition
+
+1600
+01:06:31,119 --> 01:06:34,480
+on the command
+
+1601
+01:06:31,920 --> 01:06:36,319
+command line so you can see the idea of
+
+1602
+01:06:34,480 --> 01:06:39,760
+functional programming is there
+
+1603
+01:06:36,319 --> 01:06:41,760
+from the creator of the awk language
+
+1604
+01:06:39,760 --> 01:06:44,480
+okay then he says you could take an
+
+1605
+01:06:41,760 --> 01:06:46,480
+input perform some transformation on it
+
+1606
+01:06:44,480 --> 01:06:48,160
+and then pipe the output into another
+
+1607
+01:06:46,480 --> 01:06:51,200
+program exactly
+
+1608
+01:06:48,160 --> 01:06:54,640
+that is what that is the paradigm
+
+1609
+01:06:51,200 --> 01:06:57,680
+of functional programming input output
+
+1610
+01:06:54,640 --> 01:07:01,280
+input output pi pi pi pipe
+
+1611
+01:06:57,680 --> 01:07:05,760
+the entire program is one giant pipe
+
+1612
+01:07:01,280 --> 01:07:08,240
+that is the that is kind of the
+
+1613
+01:07:05,760 --> 01:07:09,760
+that is actually in reality in real
+
+1614
+01:07:08,240 --> 01:07:14,400
+world that's kind of how
+
+1615
+01:07:09,760 --> 01:07:16,480
+functional programming works oh you know
+
+1616
+01:07:14,400 --> 01:07:17,760
+you know as much as you can you know it
+
+1617
+01:07:16,480 --> 01:07:20,960
+is
+
+1618
+01:07:17,760 --> 01:07:23,039
+um and you know uh
+
+1619
+01:07:20,960 --> 01:07:24,160
+and uh okay so anyway that that's about
+
+1620
+01:07:23,039 --> 01:07:26,240
+that article
+
+1621
+01:07:24,160 --> 01:07:28,079
+okay so unix piper as functional
+
+1622
+01:07:26,240 --> 01:07:30,000
+language let me copy that and put it
+
+1623
+01:07:28,079 --> 01:07:32,400
+here so we have a record of what we
+
+1624
+01:07:30,000 --> 01:07:35,200
+talked about
+
+1625
+01:07:32,400 --> 01:07:37,839
+so later on you can see in my youtube
+
+1626
+01:07:35,200 --> 01:07:37,839
+description
+
+1627
+01:07:38,319 --> 01:07:44,160
+uh okay so i'm about actually i should
+
+1628
+01:07:42,000 --> 01:07:46,240
+stop soon okay so let me return to the
+
+1629
+01:07:44,160 --> 01:07:47,520
+article so i have like six articles
+
+1630
+01:07:46,240 --> 01:07:50,559
+about
+
+1631
+01:07:47,520 --> 01:07:54,839
+pipe and let me mention this start okay
+
+1632
+01:07:50,559 --> 01:07:58,880
+dot notation okay so this has to do
+
+1633
+01:07:54,839 --> 01:08:01,119
+so so let me first of all let me
+
+1634
+01:07:58,880 --> 01:08:02,160
+tell you about method training post
+
+1635
+01:08:01,119 --> 01:08:05,280
+operator and
+
+1636
+01:08:02,160 --> 01:08:08,559
+object oriented programming okay so
+
+1637
+01:08:05,280 --> 01:08:10,400
+if you program in ub or if you have
+
+1638
+01:08:08,559 --> 01:08:12,319
+programmed in javascript
+
+1639
+01:08:10,400 --> 01:08:14,240
+you will be or even if you have
+
+1640
+01:08:12,319 --> 01:08:16,000
+programmed in java
+
+1641
+01:08:14,240 --> 01:08:17,679
+you will be very familiar with this
+
+1642
+01:08:16,000 --> 01:08:20,480
+syntax something
+
+1643
+01:08:17,679 --> 01:08:21,759
+dot something dot something okay dot
+
+1644
+01:08:20,480 --> 01:08:24,400
+notation
+
+1645
+01:08:21,759 --> 01:08:26,480
+sometimes known as method training okay
+
+1646
+01:08:24,400 --> 01:08:28,640
+especially in javascript
+
+1647
+01:08:26,480 --> 01:08:29,839
+and ruby okay especially in javascript
+
+1648
+01:08:28,640 --> 01:08:31,920
+and ruby very
+
+1649
+01:08:29,839 --> 01:08:33,759
+uh very popular you know you see
+
+1650
+01:08:31,920 --> 01:08:35,199
+programmers talk about it all the time
+
+1651
+01:08:33,759 --> 01:08:38,159
+but they don't know
+
+1652
+01:08:35,199 --> 01:08:39,199
+what they are talking about okay so
+
+1653
+01:08:38,159 --> 01:08:42,719
+method chaining
+
+1654
+01:08:39,199 --> 01:08:46,880
+again from a notational point of view
+
+1655
+01:08:42,719 --> 01:08:50,560
+that is post fixed notation okay postfix
+
+1656
+01:08:46,880 --> 01:08:54,880
+operator in other words the dot is a is
+
+1657
+01:08:50,560 --> 01:08:57,040
+can be considered a postfix operator
+
+1658
+01:08:54,880 --> 01:08:59,120
+again there's many details because
+
+1659
+01:08:57,040 --> 01:09:02,400
+because for example in javascript
+
+1660
+01:08:59,120 --> 01:09:04,159
+when you say x dot f dot g it's it's not
+
+1661
+01:09:02,400 --> 01:09:08,560
+actually not postfix note
+
+1662
+01:09:04,159 --> 01:09:12,560
+notation actually the x must return
+
+1663
+01:09:08,560 --> 01:09:16,960
+a object that must contain a method
+
+1664
+01:09:12,560 --> 01:09:19,520
+called f then you can x dot f
+
+1665
+01:09:16,960 --> 01:09:20,000
+then if that returns the object and if
+
+1666
+01:09:19,520 --> 01:09:23,040
+that
+
+1667
+01:09:20,000 --> 01:09:24,080
+object contains a method g then you can
+
+1668
+01:09:23,040 --> 01:09:25,839
+dot g
+
+1669
+01:09:24,080 --> 01:09:27,199
+if it doesn't contain that you know if
+
+1670
+01:09:25,839 --> 01:09:29,679
+it doesn't return object and
+
+1671
+01:09:27,199 --> 01:09:31,520
+it doesn't doesn't contain the next
+
+1672
+01:09:29,679 --> 01:09:32,560
+whatever dot you're gonna dot you cannot
+
+1673
+01:09:31,520 --> 01:09:35,120
+dot
+
+1674
+01:09:32,560 --> 01:09:35,920
+it's gonna be your error so it's not
+
+1675
+01:09:35,120 --> 01:09:40,000
+exactly
+
+1676
+01:09:35,920 --> 01:09:43,040
+a postfix notation okay it's it's not
+
+1677
+01:09:40,000 --> 01:09:46,239
+but from a notational point of view
+
+1678
+01:09:43,040 --> 01:09:47,040
+you can see it is like a posifix
+
+1679
+01:09:46,239 --> 01:09:50,560
+notation
+
+1680
+01:09:47,040 --> 01:09:51,520
+in fact i in fact i have a created i
+
+1681
+01:09:50,560 --> 01:09:54,400
+have wrote a
+
+1682
+01:09:51,520 --> 01:09:55,760
+um let me show you okay i have a wrote a
+
+1683
+01:09:54,400 --> 01:09:59,120
+javascript code
+
+1684
+01:09:55,760 --> 01:10:02,159
+that actually allows you to have postfix
+
+1685
+01:09:59,120 --> 01:10:05,280
+postfix notation postfix
+
+1686
+01:10:02,159 --> 01:10:07,520
+function composition or like unix pipe
+
+1687
+01:10:05,280 --> 01:10:08,400
+so here's the javascript code it's just
+
+1688
+01:10:07,520 --> 01:10:11,280
+uh
+
+1689
+01:10:08,400 --> 01:10:12,480
+two lines of code okay actually i'm
+
+1690
+01:10:11,280 --> 01:10:14,159
+proud of this code
+
+1691
+01:10:12,480 --> 01:10:17,760
+because i thought about this for a long
+
+1692
+01:10:14,159 --> 01:10:20,880
+time and come up with that
+
+1693
+01:10:17,760 --> 01:10:22,480
+so anyway let's go back so so i want to
+
+1694
+01:10:20,880 --> 01:10:24,800
+talk about this a lot to
+
+1695
+01:10:22,480 --> 01:10:26,239
+um you know just just on this issue
+
+1696
+01:10:24,800 --> 01:10:30,239
+there's a lot to talk about
+
+1697
+01:10:26,239 --> 01:10:32,880
+so let me just grab the url and post in
+
+1698
+01:10:30,239 --> 01:10:36,159
+my talk show so we have a record of it
+
+1699
+01:10:32,880 --> 01:10:38,320
+okay so so okay
+
+1700
+01:10:36,159 --> 01:10:39,360
+so now you know about let's close that
+
+1701
+01:10:38,320 --> 01:10:40,880
+you know about
+
+1702
+01:10:39,360 --> 01:10:45,679
+you know the method chaining very
+
+1703
+01:10:40,880 --> 01:10:49,920
+popular in ruby and javascript
+
+1704
+01:10:45,679 --> 01:10:52,000
+uh and now you i as i explained you see
+
+1705
+01:10:49,920 --> 01:10:52,719
+there's kind of a connection between the
+
+1706
+01:10:52,000 --> 01:10:56,159
+postfix
+
+1707
+01:10:52,719 --> 01:10:57,920
+operator and also a connection with op
+
+1708
+01:10:56,159 --> 01:11:01,199
+because method chaining
+
+1709
+01:10:57,920 --> 01:11:03,920
+is not exactly a post postfix operator
+
+1710
+01:11:01,199 --> 01:11:06,960
+although syntactically it looks like it
+
+1711
+01:11:03,920 --> 01:11:09,920
+it's similar but it requires the
+
+1712
+01:11:06,960 --> 01:11:10,640
+oop semantics but you know it requires
+
+1713
+01:11:09,920 --> 01:11:12,400
+they return
+
+1714
+01:11:10,640 --> 01:11:14,880
+object and have the next method
+
+1715
+01:11:12,400 --> 01:11:17,600
+otherwise it doesn't work
+
+1716
+01:11:14,880 --> 01:11:21,520
+okay so that so so that's what this uh
+
+1717
+01:11:17,600 --> 01:11:21,520
+article is trying to explain okay
+
+1718
+01:11:22,400 --> 01:11:27,840
+uh then then there are other issues okay
+
+1719
+01:11:24,840 --> 01:11:27,840
+so
+
+1720
+01:11:29,120 --> 01:11:35,120
+so there's a concept of namespace comes
+
+1721
+01:11:32,239 --> 01:11:36,239
+in okay so namespace you know for
+
+1722
+01:11:35,120 --> 01:11:38,159
+example
+
+1723
+01:11:36,239 --> 01:11:41,120
+dot notation you know you know so you
+
+1724
+01:11:38,159 --> 01:11:43,679
+have dot notation in javascript
+
+1725
+01:11:41,120 --> 01:11:44,400
+but however that notation is not just
+
+1726
+01:11:43,679 --> 01:11:47,360
+you know you
+
+1727
+01:11:44,400 --> 01:11:48,239
+okay so on one hand you can consider it
+
+1728
+01:11:47,360 --> 01:11:50,640
+as a
+
+1729
+01:11:48,239 --> 01:11:51,600
+post fixed notation but on the other
+
+1730
+01:11:50,640 --> 01:11:54,560
+hand
+
+1731
+01:11:51,600 --> 01:11:55,120
+you can consider it as tied to name name
+
+1732
+01:11:54,560 --> 01:11:58,800
+space
+
+1733
+01:11:55,120 --> 01:11:58,800
+name space mechanism
+
+1734
+01:12:00,400 --> 01:12:06,960
+yeah so that's what this article kind of
+
+1735
+01:12:03,679 --> 01:12:08,080
+tries to explain okay so there so there
+
+1736
+01:12:06,960 --> 01:12:11,280
+are quite a few
+
+1737
+01:12:08,080 --> 01:12:13,199
+issues about these uh so i have several
+
+1738
+01:12:11,280 --> 01:12:16,640
+articles on that
+
+1739
+01:12:13,199 --> 01:12:19,199
+uh then there's another question um
+
+1740
+01:12:16,640 --> 01:12:21,280
+yeah so this question dot before data or
+
+1741
+01:12:19,199 --> 01:12:22,400
+after data so all these also have to do
+
+1742
+01:12:21,280 --> 01:12:24,400
+with oop
+
+1743
+01:12:22,400 --> 01:12:25,679
+they they they do not exist in
+
+1744
+01:12:24,400 --> 01:12:27,920
+functional programming
+
+1745
+01:12:25,679 --> 01:12:30,480
+so for example should you should you
+
+1746
+01:12:27,920 --> 01:12:33,600
+have object dot method name
+
+1747
+01:12:30,480 --> 01:12:35,760
+or should you have uh sometimes it's
+
+1748
+01:12:33,600 --> 01:12:38,080
+different okay i mean
+
+1749
+01:12:35,760 --> 01:12:39,520
+for example in python you have string
+
+1750
+01:12:38,080 --> 01:12:42,880
+dot split
+
+1751
+01:12:39,520 --> 01:12:44,159
+that splits the string but in python's
+
+1752
+01:12:42,880 --> 01:12:47,280
+regular expression
+
+1753
+01:12:44,159 --> 01:12:49,520
+you have re dot sub you know re is a
+
+1754
+01:12:47,280 --> 01:12:51,199
+regular expression object so here you
+
+1755
+01:12:49,520 --> 01:12:53,120
+know so
+
+1756
+01:12:51,199 --> 01:12:55,600
+and in javascript you have the same
+
+1757
+01:12:53,120 --> 01:12:56,159
+thing so javascript you have string dot
+
+1758
+01:12:55,600 --> 01:12:59,840
+split
+
+1759
+01:12:56,159 --> 01:13:01,520
+or string dot replace you know the
+
+1760
+01:12:59,840 --> 01:13:03,440
+you know you begin with a string which
+
+1761
+01:13:01,520 --> 01:13:05,679
+is the thing you want to work on
+
+1762
+01:13:03,440 --> 01:13:06,960
+then you dot the method you know what
+
+1763
+01:13:05,679 --> 01:13:10,400
+you want to do with it
+
+1764
+01:13:06,960 --> 01:13:13,600
+but but there's inconsistency
+
+1765
+01:13:10,400 --> 01:13:15,840
+when you want to use regular expression
+
+1766
+01:13:13,600 --> 01:13:17,120
+you have the regular expression first
+
+1767
+01:13:15,840 --> 01:13:18,960
+then start
+
+1768
+01:13:17,120 --> 01:13:20,560
+a method of regular expression then you
+
+1769
+01:13:18,960 --> 01:13:22,239
+put the string so
+
+1770
+01:13:20,560 --> 01:13:23,760
+there's actually two kind of
+
+1771
+01:13:22,239 --> 01:13:26,640
+inconsistent so this
+
+1772
+01:13:23,760 --> 01:13:26,640
+so this is a
+
+1773
+01:13:27,199 --> 01:13:30,320
+and so this is you know so this is a
+
+1774
+01:13:29,679 --> 01:13:34,080
+design
+
+1775
+01:13:30,320 --> 01:13:36,800
+issue this is a dilemma kind of a
+
+1776
+01:13:34,080 --> 01:13:37,600
+among two different design choices
+
+1777
+01:13:36,800 --> 01:13:41,360
+that's
+
+1778
+01:13:37,600 --> 01:13:44,719
+very common in object oriented languages
+
+1779
+01:13:41,360 --> 01:13:46,719
+so if you are a designer of a oop
+
+1780
+01:13:44,719 --> 01:13:48,640
+language what you're going to do how do
+
+1781
+01:13:46,719 --> 01:13:52,400
+you avoid this
+
+1782
+01:13:48,640 --> 01:13:53,280
+inconsistency in fact it's a problem
+
+1783
+01:13:52,400 --> 01:13:56,159
+there's no way to
+
+1784
+01:13:53,280 --> 01:13:57,120
+avoid it it exists this problem exists
+
+1785
+01:13:56,159 --> 01:14:00,800
+in python
+
+1786
+01:13:57,120 --> 01:14:03,520
+exists in javascript exist in java
+
+1787
+01:14:00,800 --> 01:14:04,239
+as well the most typical example is
+
+1788
+01:14:03,520 --> 01:14:06,800
+number
+
+1789
+01:14:04,239 --> 01:14:07,600
+should you have a number dot plus number
+
+1790
+01:14:06,800 --> 01:14:11,120
+dot times
+
+1791
+01:14:07,600 --> 01:14:13,199
+number dot uh
+
+1792
+01:14:11,120 --> 01:14:14,640
+divide you know like that or should you
+
+1793
+01:14:13,199 --> 01:14:18,080
+have a math
+
+1794
+01:14:14,640 --> 01:14:21,440
+class math dot then two numbers math
+
+1795
+01:14:18,080 --> 01:14:23,120
+dot times two numbers math dot divide
+
+1796
+01:14:21,440 --> 01:14:25,840
+two numbers you know so
+
+1797
+01:14:23,120 --> 01:14:27,199
+it's very income inconsistent and this
+
+1798
+01:14:25,840 --> 01:14:29,920
+problem is very common
+
+1799
+01:14:27,199 --> 01:14:29,920
+in oop
+
+1800
+01:14:31,040 --> 01:14:36,320
+so this article i'm trying to explain
+
+1801
+01:14:33,440 --> 01:14:38,719
+that aspect
+
+1802
+01:14:36,320 --> 01:14:40,239
+so what's the really i mean so so what's
+
+1803
+01:14:38,719 --> 01:14:42,320
+the whole thing so the whole thing is
+
+1804
+01:14:40,239 --> 01:14:43,280
+about you know the dot notation the pipe
+
+1805
+01:14:42,320 --> 01:14:45,600
+notation this
+
+1806
+01:14:43,280 --> 01:14:48,480
+uh mini aspect of it so okay that's it
+
+1807
+01:14:45,600 --> 01:14:48,480
+for today i think
+
+1808
+01:14:48,560 --> 01:14:59,440
+so uh thank you fassin and uh
+
+1809
+01:14:57,920 --> 01:15:01,280
+then you know people who can get over
+
+1810
+01:14:59,440 --> 01:15:01,679
+the syntax never actually get this
+
+1811
+01:15:01,280 --> 01:15:04,880
+that's
+
+1812
+01:15:01,679 --> 01:15:08,400
+incorrect danielle i have
+
+1813
+01:15:04,880 --> 01:15:10,640
+a i have i i did like two three videos
+
+1814
+01:15:08,400 --> 01:15:14,480
+one hour each
+
+1815
+01:15:10,640 --> 01:15:16,560
+explaining how incorrect is that
+
+1816
+01:15:14,480 --> 01:15:18,719
+is that statement you know the statement
+
+1817
+01:15:16,560 --> 01:15:20,239
+is people who don't get over syntax
+
+1818
+01:15:18,719 --> 01:15:22,800
+never actually get this okay let me
+
+1819
+01:15:20,239 --> 01:15:26,320
+explain one more one thing
+
+1820
+01:15:22,800 --> 01:15:30,640
+uh as a retort to that statement okay
+
+1821
+01:15:26,320 --> 01:15:32,560
+many these phonetics they will say
+
+1822
+01:15:30,640 --> 01:15:35,280
+uh you know if you don't get over the
+
+1823
+01:15:32,560 --> 01:15:36,159
+syntax oh you you are not qualified to
+
+1824
+01:15:35,280 --> 01:15:37,679
+study this
+
+1825
+01:15:36,159 --> 01:15:39,199
+you don't get it because you know you
+
+1826
+01:15:37,679 --> 01:15:41,120
+think the parenthesis
+
+1827
+01:15:39,199 --> 01:15:42,800
+necessary parenthesis is too much
+
+1828
+01:15:41,120 --> 01:15:45,199
+problem
+
+1829
+01:15:42,800 --> 01:15:46,320
+but let me tell you the nested
+
+1830
+01:15:45,199 --> 01:15:49,679
+parenthesis
+
+1831
+01:15:46,320 --> 01:15:50,000
+actually syntax is the most important
+
+1832
+01:15:49,679 --> 01:15:53,600
+thing
+
+1833
+01:15:50,000 --> 01:15:56,640
+because without the nested parentheses
+
+1834
+01:15:53,600 --> 01:15:57,840
+the lisp will not come up with the idea
+
+1835
+01:15:56,640 --> 01:16:02,080
+of this macros
+
+1836
+01:15:57,840 --> 01:16:02,880
+okay that's how syntax how important
+
+1837
+01:16:02,080 --> 01:16:06,719
+syntax
+
+1838
+01:16:02,880 --> 01:16:10,960
+is so for example
+
+1839
+01:16:06,719 --> 01:16:13,280
+um for example
+
+1840
+01:16:10,960 --> 01:16:14,960
+if you have if you don't have the syntax
+
+1841
+01:16:13,280 --> 01:16:17,520
+of apl
+
+1842
+01:16:14,960 --> 01:16:18,159
+then it will be difficult to have to
+
+1843
+01:16:17,520 --> 01:16:20,800
+come up
+
+1844
+01:16:18,159 --> 01:16:22,320
+with the idea the concept of array
+
+1845
+01:16:20,800 --> 01:16:26,159
+programming languages
+
+1846
+01:16:22,320 --> 01:16:29,360
+which includes api mathematica julia
+
+1847
+01:16:26,159 --> 01:16:31,760
+matlab okay which is very convenient
+
+1848
+01:16:29,360 --> 01:16:33,520
+when you work on matrices or trees
+
+1849
+01:16:31,760 --> 01:16:34,880
+like almost you know instead of working
+
+1850
+01:16:33,520 --> 01:16:37,679
+on one number at a time
+
+1851
+01:16:34,880 --> 01:16:39,520
+almost all your uh every time you call a
+
+1852
+01:16:37,679 --> 01:16:41,520
+function or operator it's always on
+
+1853
+01:16:39,520 --> 01:16:44,239
+a bunch of numbers matrices that's
+
+1854
+01:16:41,520 --> 01:16:48,080
+called array programming languages okay
+
+1855
+01:16:44,239 --> 01:16:50,320
+but the first thing you need to have is
+
+1856
+01:16:48,080 --> 01:16:51,840
+kind of this syntactical you know the
+
+1857
+01:16:50,320 --> 01:16:55,120
+syntax of apl
+
+1858
+01:16:51,840 --> 01:16:57,679
+once you have that then that that idea
+
+1859
+01:16:55,120 --> 01:16:57,679
+develops
+
+1860
+01:16:57,920 --> 01:17:02,640
+and similarly in the so what's a good
+
+1861
+01:17:01,040 --> 01:17:06,480
+point about the list
+
+1862
+01:17:02,640 --> 01:17:10,000
+nested parentheses syntax the good point
+
+1863
+01:17:06,480 --> 01:17:14,560
+is that it
+
+1864
+01:17:10,000 --> 01:17:16,719
+shows a clarity between the structure
+
+1865
+01:17:14,560 --> 01:17:18,159
+and the semantics okay the structure of
+
+1866
+01:17:16,719 --> 01:17:20,000
+the syntax this is a kind of a
+
+1867
+01:17:18,159 --> 01:17:21,040
+correspondence of the structure of the
+
+1868
+01:17:20,000 --> 01:17:24,080
+syntax
+
+1869
+01:17:21,040 --> 01:17:25,600
+and the the semantics okay or sometimes
+
+1870
+01:17:24,080 --> 01:17:28,560
+they they are called you know the
+
+1871
+01:17:25,600 --> 01:17:29,040
+the nerds okay the c c plus plus they'll
+
+1872
+01:17:28,560 --> 01:17:32,640
+say
+
+1873
+01:17:29,040 --> 01:17:35,679
+uh abstract syntax tree
+
+1874
+01:17:32,640 --> 01:17:38,080
+idiotic okay so anyway
+
+1875
+01:17:35,679 --> 01:17:39,280
+the least the the the good property
+
+1876
+01:17:38,080 --> 01:17:42,080
+about this list
+
+1877
+01:17:39,280 --> 01:17:44,480
+list syntax is that it gives you a
+
+1878
+01:17:42,080 --> 01:17:46,640
+clarity of the
+
+1879
+01:17:44,480 --> 01:17:47,520
+from the structure of the syntax you can
+
+1880
+01:17:46,640 --> 01:17:50,880
+see
+
+1881
+01:17:47,520 --> 01:17:53,040
+the semantics of the expression okay
+
+1882
+01:17:50,880 --> 01:17:55,120
+what so what's good about that what's
+
+1883
+01:17:53,040 --> 01:17:58,239
+going to do with that
+
+1884
+01:17:55,120 --> 01:17:59,120
+well then you started to develop you
+
+1885
+01:17:58,239 --> 01:18:03,040
+start to think
+
+1886
+01:17:59,120 --> 01:18:05,840
+it these syntax give you uh
+
+1887
+01:18:03,040 --> 01:18:07,440
+it suggests to you the notion of macros
+
+1888
+01:18:05,840 --> 01:18:08,320
+then you started to have the concept of
+
+1889
+01:18:07,440 --> 01:18:10,800
+macros
+
+1890
+01:18:08,320 --> 01:18:11,440
+which all the lispers love you know a
+
+1891
+01:18:10,800 --> 01:18:13,760
+very
+
+1892
+01:18:11,440 --> 01:18:14,560
+uh great concept transformation of
+
+1893
+01:18:13,760 --> 01:18:16,640
+syntax
+
+1894
+01:18:14,560 --> 01:18:18,640
+at least marcus that's what it does
+
+1895
+01:18:16,640 --> 01:18:22,400
+which which mathematica does
+
+1896
+01:18:18,640 --> 01:18:23,679
+far more you know uh in a far more
+
+1897
+01:18:22,400 --> 01:18:26,640
+advanced ways
+
+1898
+01:18:23,679 --> 01:18:27,520
+which which then becomes symbolic
+
+1899
+01:18:26,640 --> 01:18:30,400
+pattern matching
+
+1900
+01:18:27,520 --> 01:18:31,120
+okay if you expand the least marker idea
+
+1901
+01:18:30,400 --> 01:18:32,960
+what you get
+
+1902
+01:18:31,120 --> 01:18:35,360
+is symbolic pattern matching in
+
+1903
+01:18:32,960 --> 01:18:37,800
+mathematica
+
+1904
+01:18:35,360 --> 01:18:39,040
+okay but there are there are
+
+1905
+01:18:37,800 --> 01:18:40,880
+disadvantages
+
+1906
+01:18:39,040 --> 01:18:42,800
+okay for example if you want to
+
+1907
+01:18:40,880 --> 01:18:44,800
+polynomials
+
+1908
+01:18:42,800 --> 01:18:46,640
+like i explained earlier in the video in
+
+1909
+01:18:44,800 --> 01:18:48,719
+this it's a pain in the ass
+
+1910
+01:18:46,640 --> 01:18:50,000
+it makes you basically your language is
+
+1911
+01:18:48,719 --> 01:18:51,920
+not suitable anymore
+
+1912
+01:18:50,000 --> 01:18:54,159
+if you're gonna do polynomials all day
+
+1913
+01:18:51,920 --> 01:18:57,120
+and every day your least language is
+
+1914
+01:18:54,159 --> 01:18:58,080
+gonna be problematic unless then you
+
+1915
+01:18:57,120 --> 01:19:00,640
+have to create
+
+1916
+01:18:58,080 --> 01:19:01,199
+like a rendering system like maxima you
+
+1917
+01:19:00,640 --> 01:19:03,040
+know many
+
+1918
+01:19:01,199 --> 01:19:05,199
+computer algebra systems are written in
+
+1919
+01:19:03,040 --> 01:19:07,600
+this um
+
+1920
+01:19:05,199 --> 01:19:10,159
+anyway i'm digressing too much that's it
+
+1921
+01:19:07,600 --> 01:19:10,159
+for that
+
+1922
+01:19:14,640 --> 01:19:19,440
+so so jason says the structure of lisp
+
+1923
+01:19:17,600 --> 01:19:22,560
+is pure math the syntax
+
+1924
+01:19:19,440 --> 01:19:25,679
+is optional i don't agree i disagree
+
+1925
+01:19:22,560 --> 01:19:29,920
+because anyway so that's getting uh
+
+1926
+01:19:25,679 --> 01:19:32,800
+philosophical okay that's it for today
+
+1927
+01:19:29,920 --> 01:19:33,760
+uh if you guys like my stuff donate
+
+1928
+01:19:32,800 --> 01:19:36,239
+paypal me
+
+1929
+01:19:33,760 --> 01:19:37,040
+buy my stuff you know you uh or buy my
+
+1930
+01:19:36,239 --> 01:19:40,480
+emacs list
+
+1931
+01:19:37,040 --> 01:19:42,560
+tutorial or buy my javascript in depth
+
+1932
+01:19:40,480 --> 01:19:44,239
+you know where to find it you know it's
+
+1933
+01:19:42,560 --> 01:19:47,440
+everywhere on my website you
+
+1934
+01:19:44,239 --> 01:19:50,560
+should see a patreon link and
+
+1935
+01:19:47,440 --> 01:19:52,960
+my paypal on my home page okay thank you
+
+1936
+01:19:50,560 --> 01:19:56,560
+guys bye
+
+1937
+01:19:52,960 --> 01:20:00,800
+i'm gonna yeah i'm gonna shut down in
+
+1938
+01:19:56,560 --> 01:20:00,800
+in a minute happening in half a minute
+
+1939
+01:20:01,040 --> 01:20:06,560
+this is the opportunity for the last
+
+1940
+01:20:04,159 --> 01:20:06,560
+words
+
+1941
+01:20:15,920 --> 01:20:19,840
+did i did i miss anything i want to talk
+
+1942
+01:20:18,239 --> 01:20:23,040
+about syntax
+
+1943
+01:20:19,840 --> 01:20:23,040
+well we covered enough
+
+1944
+01:20:23,440 --> 01:20:30,000
+uh yeah so tabs type setting
+
+1945
+01:20:26,719 --> 01:20:30,639
+and type setting and the org mod
+
+1946
+01:20:30,000 --> 01:20:33,280
+features
+
+1947
+01:20:30,639 --> 01:20:34,560
+we're gonna talk about next time
+
+1948
+01:20:33,280 --> 01:20:38,480
+notebook
+
+1949
+01:20:34,560 --> 01:20:41,600
+and so-called uh reproducible research
+
+1950
+01:20:38,480 --> 01:20:44,960
+okay we're gonna do that next time
+
+1951
+01:20:41,600 --> 01:20:46,159
+uh and we have a lot to do you know in
+
+1952
+01:20:44,960 --> 01:20:48,320
+my talk show i'm
+
+1953
+01:20:46,159 --> 01:20:50,000
+i think i'm gonna start to do regularly
+
+1954
+01:20:48,320 --> 01:20:52,320
+i like schedule every
+
+1955
+01:20:50,000 --> 01:20:53,360
+every almost every day every other day
+
+1956
+01:20:52,320 --> 01:20:55,440
+or something
+
+1957
+01:20:53,360 --> 01:20:56,960
+three times a week or or four times a
+
+1958
+01:20:55,440 --> 01:20:59,440
+week
+
+1959
+01:20:56,960 --> 01:21:00,000
+uh yeah so anyway just watch for my
+
+1960
+01:20:59,440 --> 01:21:02,639
+youtube
+
+1961
+01:21:00,000 --> 01:21:05,840
+channel right now i haven't decided what
+
+1962
+01:21:02,639 --> 01:21:08,400
+to do but anyway i have
+
+1963
+01:21:05,840 --> 01:21:09,120
+you know i have for example topic notes
+
+1964
+01:21:08,400 --> 01:21:11,920
+there's uh
+
+1965
+01:21:09,120 --> 01:21:14,159
+quite a lot of things i want to do about
+
+1966
+01:21:11,920 --> 01:21:17,440
+emacs and emac lists
+
+1967
+01:21:14,159 --> 01:21:18,239
+where for example i'm thinking about to
+
+1968
+01:21:17,440 --> 01:21:22,000
+create a
+
+1969
+01:21:18,239 --> 01:21:22,560
+emacs xr emacs distro so it's going to
+
+1970
+01:21:22,000 --> 01:21:26,000
+be
+
+1971
+01:21:22,560 --> 01:21:29,280
+like a competitor to doom emacs
+
+1972
+01:21:26,000 --> 01:21:31,199
+and space max okay so you just download
+
+1973
+01:21:29,280 --> 01:21:32,880
+emacs and everything works out of the
+
+1974
+01:21:31,199 --> 01:21:36,080
+box you have like
+
+1975
+01:21:32,880 --> 01:21:38,480
+my style of you know
+
+1976
+01:21:36,080 --> 01:21:39,920
+maybe you'll like it maybe not but i
+
+1977
+01:21:38,480 --> 01:21:41,600
+think a lot of people you know a lot of
+
+1978
+01:21:39,920 --> 01:21:45,120
+people want it
+
+1979
+01:21:41,600 --> 01:21:46,719
+it's not you know it's not difficult for
+
+1980
+01:21:45,120 --> 01:21:49,520
+me to create it
+
+1981
+01:21:46,719 --> 01:21:50,719
+i can create it like almost the whole
+
+1982
+01:21:49,520 --> 01:21:53,679
+thing in one hour
+
+1983
+01:21:50,719 --> 01:21:55,199
+you know in one hour or two okay but the
+
+1984
+01:21:53,679 --> 01:21:58,239
+the
+
+1985
+01:21:55,199 --> 01:21:59,920
+the problem is once i created it you
+
+1986
+01:21:58,239 --> 01:22:02,480
+know put on github
+
+1987
+01:21:59,920 --> 01:22:05,199
+then the questions will start to come in
+
+1988
+01:22:02,480 --> 01:22:07,120
+you know i becomes the tech support
+
+1989
+01:22:05,199 --> 01:22:08,480
+you know every day will say oh cymax it
+
+1990
+01:22:07,120 --> 01:22:09,360
+doesn't work how do you do this how do
+
+1991
+01:22:08,480 --> 01:22:14,560
+you do that
+
+1992
+01:22:09,360 --> 01:22:14,560
+oh yeah you know text vote and usually
+
+1993
+01:22:15,040 --> 01:22:19,440
+for my past experience i don't get money
+
+1994
+01:22:17,280 --> 01:22:22,480
+okay you know maybe ten dollars a
+
+1995
+01:22:19,440 --> 01:22:25,840
+month fifty dollars a month i cannot
+
+1996
+01:22:22,480 --> 01:22:28,080
+do that i have to leave so
+
+1997
+01:22:25,840 --> 01:22:30,480
+anyway i'm thinking of doing you know
+
+1998
+01:22:28,080 --> 01:22:33,120
+emacs distro maybe
+
+1999
+01:22:30,480 --> 01:22:34,800
+you know i i don't know i don't know
+
+2000
+01:22:33,120 --> 01:22:38,560
+about the money issue
+
+2001
+01:22:34,800 --> 01:22:40,960
+uh that's the issue right so
+
+2002
+01:22:38,560 --> 01:22:42,800
+i yeah i don't know if i if i create
+
+2003
+01:22:40,960 --> 01:22:44,000
+that it's going to be tech support i'm
+
+2004
+01:22:42,800 --> 01:22:47,920
+not
+
+2005
+01:22:44,000 --> 01:22:53,840
+i'm too old for that anyway so
+
+2006
+01:22:47,920 --> 01:22:53,840
+bye guys
+
+2007
+01:22:54,560 --> 01:22:59,600
+yes jason uh you know i so jason asked
+
+2008
+01:22:57,840 --> 01:23:01,440
+the question let me answer that a little
+
+2009
+01:22:59,600 --> 01:23:05,120
+bit okay so if you go
+
+2010
+01:23:01,440 --> 01:23:08,159
+uh if you go to my uh programming blog
+
+2011
+01:23:05,120 --> 01:23:10,400
+if you go to programming lisp
+
+2012
+01:23:08,159 --> 01:23:11,440
+you know there's a funny uh image i i
+
+2013
+01:23:10,400 --> 01:23:14,960
+did i did
+
+2014
+01:23:11,440 --> 01:23:15,760
+more than two i did several uh one-hour
+
+2015
+01:23:14,960 --> 01:23:18,400
+videos
+
+2016
+01:23:15,760 --> 01:23:20,080
+on lisp syntax okay so there's a lot of
+
+2017
+01:23:18,400 --> 01:23:23,199
+detail and i have like
+
+2018
+01:23:20,080 --> 01:23:26,239
+50 or 100 articles about lisp
+
+2019
+01:23:23,199 --> 01:23:30,080
+syntax so one of them
+
+2020
+01:23:26,239 --> 01:23:35,840
+is what you just addressed or you
+
+2021
+01:23:30,080 --> 01:23:35,840
+you claimed for example that's um
+
+2022
+01:23:40,480 --> 01:23:44,320
+uh that's the the the infix notation
+
+2023
+01:23:43,679 --> 01:23:47,199
+right
+
+2024
+01:23:44,320 --> 01:23:48,400
+so you are saying many people has
+
+2025
+01:23:47,199 --> 01:23:51,600
+created infix
+
+2026
+01:23:48,400 --> 01:23:55,040
+notation exactly and i have a collection
+
+2027
+01:23:51,600 --> 01:23:58,400
+of them all uh let's see
+
+2028
+01:23:55,040 --> 01:24:00,239
+where uh but at least it does okay this
+
+2029
+01:23:58,400 --> 01:24:01,679
+what the symbolic language mean okay
+
+2030
+01:24:00,239 --> 01:24:04,880
+this mark will change list
+
+2031
+01:24:01,679 --> 01:24:07,120
+syntax list apostrophe quote
+
+2032
+01:24:04,880 --> 01:24:08,639
+came from mac lisp that's a history of
+
+2033
+01:24:07,120 --> 01:24:11,679
+that apostrophe
+
+2034
+01:24:08,639 --> 01:24:14,960
+syntax syntax mathematica versus list
+
+2035
+01:24:11,679 --> 01:24:17,679
+syntax xml versus list
+
+2036
+01:24:14,960 --> 01:24:18,239
+syntax you know there's lots of issues
+
+2037
+01:24:17,679 --> 01:24:22,400
+uh
+
+2038
+01:24:18,239 --> 01:24:22,400
+systematic syntax okay um
+
+2039
+01:24:22,830 --> 01:24:28,000
+[Music]
+
+2040
+01:24:24,639 --> 01:24:31,199
+there okay so this article lisp infix
+
+2041
+01:24:28,000 --> 01:24:34,719
+syntax survey
+
+2042
+01:24:31,199 --> 01:24:35,679
+here i collect from you know the
+
+2043
+01:24:34,719 --> 01:24:39,199
+beginning of list
+
+2044
+01:24:35,679 --> 01:24:42,239
+1958 all the pioneers of these
+
+2045
+01:24:39,199 --> 01:24:45,280
+programmers who have created infix
+
+2046
+01:24:42,239 --> 01:24:46,880
+syntax for lisp okay well including
+
+2047
+01:24:45,280 --> 01:24:50,400
+mathematica okay
+
+2048
+01:24:46,880 --> 01:24:54,159
+so it's up to 2007
+
+2049
+01:24:50,400 --> 01:24:56,880
+then closure uh oculus 2009
+
+2050
+01:24:54,159 --> 01:24:58,000
+they have they have kind of variation
+
+2051
+01:24:56,880 --> 01:25:00,480
+then racket list
+
+2052
+01:24:58,000 --> 01:25:01,360
+which also supports not just parentheses
+
+2053
+01:25:00,480 --> 01:25:04,480
+but also
+
+2054
+01:25:01,360 --> 01:25:06,880
+square brackets and braces but
+
+2055
+01:25:04,480 --> 01:25:08,480
+although it's not infix but however
+
+2056
+01:25:06,880 --> 01:25:12,000
+there are several
+
+2057
+01:25:08,480 --> 01:25:16,000
+scheme packages that supports infix
+
+2058
+01:25:12,000 --> 01:25:19,280
+syntax then up to 2015 the closure
+
+2059
+01:25:16,000 --> 01:25:22,000
+in fix you know this as a project then
+
+2060
+01:25:19,280 --> 01:25:23,040
+then quite a lot so every three five
+
+2061
+01:25:22,000 --> 01:25:26,320
+years there are
+
+2062
+01:25:23,040 --> 01:25:29,520
+some these programmers trying to do that
+
+2063
+01:25:26,320 --> 01:25:33,280
+then often they get ridiculed
+
+2064
+01:25:29,520 --> 01:25:36,159
+ridiculed by whispers
+
+2065
+01:25:33,280 --> 01:25:38,320
+uh you know they that's wrong okay
+
+2066
+01:25:36,159 --> 01:25:41,760
+that's a code problem that's
+
+2067
+01:25:38,320 --> 01:25:43,840
+a code problem so anyway lots of
+
+2068
+01:25:41,760 --> 01:25:44,159
+articles and in earliest you know lots
+
+2069
+01:25:43,840 --> 01:25:47,600
+of
+
+2070
+01:25:44,159 --> 01:25:50,880
+examples in fact as i said the
+
+2071
+01:25:47,600 --> 01:25:52,080
+very first lisp by created by john
+
+2072
+01:25:50,880 --> 01:25:55,520
+mccarthy
+
+2073
+01:25:52,080 --> 01:25:56,480
+he wanted a infix notation called meta
+
+2074
+01:25:55,520 --> 01:25:59,280
+expression
+
+2075
+01:25:56,480 --> 01:25:59,840
+which is the main topic we talked about
+
+2076
+01:25:59,280 --> 01:26:06,800
+today
+
+2077
+01:25:59,840 --> 01:26:06,800
+okay that's it bye
+

@@ -1,0 +1,5808 @@
+1
+00:00:06,080 --> 00:00:10,719
+hello welcome to another episode of song
+
+2
+00:00:08,800 --> 00:00:13,599
+talk show
+
+3
+00:00:10,719 --> 00:00:16,000
+so today we are going to cover wufang
+
+4
+00:00:13,599 --> 00:00:17,920
+language this is a tutorial from the
+
+5
+00:00:16,000 --> 00:00:20,720
+ground up on wolfram language or
+
+6
+00:00:17,920 --> 00:00:21,840
+mathematica this is a continuation from
+
+7
+00:00:20,720 --> 00:00:25,119
+yesterday
+
+8
+00:00:21,840 --> 00:00:26,320
+from yesterday's um
+
+9
+00:00:25,119 --> 00:00:28,560
+live stream
+
+10
+00:00:26,320 --> 00:00:32,320
+so video check audio check so good
+
+11
+00:00:28,560 --> 00:00:32,320
+morning clatterland
+
+12
+00:00:32,800 --> 00:00:38,640
+talent talent kegma okay so
+
+13
+00:00:36,399 --> 00:00:41,120
+wufang language from the ground up for
+
+14
+00:00:38,640 --> 00:00:44,000
+programmers so it would be great if you
+
+15
+00:00:41,120 --> 00:00:47,920
+have some experience with programming
+
+16
+00:00:44,000 --> 00:00:50,800
+with python php javascript golan go
+
+17
+00:00:47,920 --> 00:00:52,640
+golan or any any other
+
+18
+00:00:50,800 --> 00:00:56,160
+so if you have some experience for
+
+19
+00:00:52,640 --> 00:00:58,879
+programming this is for you this is uh
+
+20
+00:00:56,160 --> 00:01:01,520
+but you never used language before and
+
+21
+00:00:58,879 --> 00:01:04,320
+you never used mathematica before so
+
+22
+00:01:01,520 --> 00:01:05,519
+this is for you i'm not going to cover
+
+23
+00:01:04,320 --> 00:01:08,000
+not
+
+24
+00:01:05,519 --> 00:01:10,840
+calculus derivative equations
+
+25
+00:01:08,000 --> 00:01:14,640
+differential equations you know linear
+
+26
+00:01:10,840 --> 00:01:16,960
+algebra number theory those are things
+
+27
+00:01:14,640 --> 00:01:19,600
+used by scientists often mathematician
+
+28
+00:01:16,960 --> 00:01:22,080
+scientists engineers who use wolfram
+
+29
+00:01:19,600 --> 00:01:24,400
+language mathematica the most often
+
+30
+00:01:22,080 --> 00:01:25,920
+that's those things but that's not what
+
+31
+00:01:24,400 --> 00:01:28,479
+i'm going to teach you i'm going to
+
+32
+00:01:25,920 --> 00:01:30,320
+teach you the programming aspect okay so
+
+33
+00:01:28,479 --> 00:01:32,560
+if you're a programmer especially you
+
+34
+00:01:30,320 --> 00:01:33,680
+industrial programmers working with you
+
+35
+00:01:32,560 --> 00:01:35,759
+know web
+
+36
+00:01:33,680 --> 00:01:38,159
+web dev or you know
+
+37
+00:01:35,759 --> 00:01:40,320
+drivers linux you know that this is for
+
+38
+00:01:38,159 --> 00:01:41,280
+you because wufang language is very
+
+39
+00:01:40,320 --> 00:01:43,920
+different
+
+40
+00:01:41,280 --> 00:01:46,640
+from all the industrial languages ufam
+
+41
+00:01:43,920 --> 00:01:49,200
+language is a term rewriting system okay
+
+42
+00:01:46,640 --> 00:01:50,720
+so this is continuation from yesterday
+
+43
+00:01:49,200 --> 00:01:53,439
+good morning so
+
+44
+00:01:50,720 --> 00:01:55,920
+let me first of all tell you repeat you
+
+45
+00:01:53,439 --> 00:01:57,759
+know you can go to um let me show you
+
+46
+00:01:55,920 --> 00:01:59,840
+okay so sardi
+
+47
+00:01:57,759 --> 00:02:02,320
+will friend
+
+48
+00:01:59,840 --> 00:02:04,640
+land okay so just kasady wu from land
+
+49
+00:02:02,320 --> 00:02:05,840
+search it you will find it my tutorial
+
+50
+00:02:04,640 --> 00:02:09,039
+i've done
+
+51
+00:02:05,840 --> 00:02:11,120
+uh okay so go to the topham language
+
+52
+00:02:09,039 --> 00:02:13,120
+i've done so many videos in the past you
+
+53
+00:02:11,120 --> 00:02:14,480
+can see on graphics on
+
+54
+00:02:13,120 --> 00:02:16,720
+this is
+
+55
+00:02:14,480 --> 00:02:19,680
+these graphics in particular i'm very
+
+56
+00:02:16,720 --> 00:02:22,560
+proud of this is a geometry
+
+57
+00:02:19,680 --> 00:02:25,200
+visualization of a uh
+
+58
+00:02:22,560 --> 00:02:27,360
+decorative pattern yeah so anyway um
+
+59
+00:02:25,200 --> 00:02:29,120
+language i've done many videos you know
+
+60
+00:02:27,360 --> 00:02:30,959
+over 10 before but
+
+61
+00:02:29,120 --> 00:02:32,319
+today is ground up okay
+
+62
+00:02:30,959 --> 00:02:34,160
+so um
+
+63
+00:02:32,319 --> 00:02:36,400
+so first of all download okay so you go
+
+64
+00:02:34,160 --> 00:02:39,440
+that you go here and you download it
+
+65
+00:02:36,400 --> 00:02:41,440
+from the wufan developer okay and uh let
+
+66
+00:02:39,440 --> 00:02:43,200
+me explain again what's the difference
+
+67
+00:02:41,440 --> 00:02:45,360
+who from engine from script and
+
+68
+00:02:43,200 --> 00:02:47,200
+mathematica so wolfram engine
+
+69
+00:02:45,360 --> 00:02:50,080
+you download it free
+
+70
+00:02:47,200 --> 00:02:52,720
+uh it's a compiler it's basically the
+
+71
+00:02:50,080 --> 00:02:54,239
+compiler and wolfram script is the uh
+
+72
+00:02:52,720 --> 00:02:56,959
+user the
+
+73
+00:02:54,239 --> 00:02:59,120
+con command line interface
+
+74
+00:02:56,959 --> 00:03:01,519
+so let me demo something different from
+
+75
+00:02:59,120 --> 00:03:03,519
+yesterday okay uh
+
+76
+00:03:01,519 --> 00:03:05,680
+this is going to be about an hour 50
+
+77
+00:03:03,519 --> 00:03:06,640
+minutes or something so
+
+78
+00:03:05,680 --> 00:03:09,599
+uh
+
+79
+00:03:06,640 --> 00:03:11,920
+input one uh so let's do something okay
+
+80
+00:03:09,599 --> 00:03:14,720
+so let's let's say
+
+81
+00:03:11,920 --> 00:03:16,239
+nest we want a
+
+82
+00:03:14,720 --> 00:03:20,239
+nester function
+
+83
+00:03:16,239 --> 00:03:22,800
+f applied to x three times okay
+
+84
+00:03:20,239 --> 00:03:25,040
+so you know that's that's recursion okay
+
+85
+00:03:22,800 --> 00:03:26,959
+you don't have this feature in all the
+
+86
+00:03:25,040 --> 00:03:29,920
+even functional languages i don't think
+
+87
+00:03:26,959 --> 00:03:32,400
+you even have it in haskell or lisp so
+
+88
+00:03:29,920 --> 00:03:34,400
+this is how you can do recursion using a
+
+89
+00:03:32,400 --> 00:03:36,239
+function to do recursion instead of the
+
+90
+00:03:34,400 --> 00:03:38,480
+function calling itself you know you
+
+91
+00:03:36,239 --> 00:03:40,720
+simply call the next function
+
+92
+00:03:38,480 --> 00:03:42,640
+and you can also do
+
+93
+00:03:40,720 --> 00:03:44,799
+for example next list
+
+94
+00:03:42,640 --> 00:03:47,519
+which shows you all the history you
+
+95
+00:03:44,799 --> 00:03:52,159
+create a list of the nesting so
+
+96
+00:03:47,519 --> 00:03:55,760
+no nesting x then first nesting fx then
+
+97
+00:03:52,159 --> 00:03:57,360
+ffx then fffx so nest list very useful
+
+98
+00:03:55,760 --> 00:03:59,519
+so let me show you something very
+
+99
+00:03:57,360 --> 00:04:02,720
+interesting so you are looking at uh the
+
+100
+00:03:59,519 --> 00:04:05,200
+wolfram script which is the interface to
+
+101
+00:04:02,720 --> 00:04:07,439
+the wolfram language so wolfram script
+
+102
+00:04:05,200 --> 00:04:10,319
+whenever you evaluate something it sends
+
+103
+00:04:07,439 --> 00:04:12,480
+sensor expression to the wolfram engine
+
+104
+00:04:10,319 --> 00:04:15,439
+so when you download the oofam engine 3
+
+105
+00:04:12,480 --> 00:04:17,759
+it comes with script okay so we'll find
+
+106
+00:04:15,439 --> 00:04:19,600
+script is a command command line
+
+107
+00:04:17,759 --> 00:04:21,840
+interface so let me show you something
+
+108
+00:04:19,600 --> 00:04:24,479
+interesting so let's define f
+
+109
+00:04:21,840 --> 00:04:28,320
+to be a function okay so let me type the
+
+110
+00:04:24,479 --> 00:04:33,440
+whole thing so actually let me type in
+
+111
+00:04:28,320 --> 00:04:33,440
+in emacs so because i have wolfram uh
+
+112
+00:04:33,919 --> 00:04:39,199
+woofer mod which allows me to type
+
+113
+00:04:36,160 --> 00:04:42,080
+things much simpler much easier so
+
+114
+00:04:39,199 --> 00:04:44,160
+so let's define a function let's magnify
+
+115
+00:04:42,080 --> 00:04:45,199
+okay
+
+116
+00:04:44,160 --> 00:04:46,560
+function
+
+117
+00:04:45,199 --> 00:04:48,560
+2b
+
+118
+00:04:46,560 --> 00:04:49,520
+okay completion
+
+119
+00:04:48,560 --> 00:04:53,919
+x
+
+120
+00:04:49,520 --> 00:04:53,919
+we want the function to be 1 over
+
+121
+00:04:54,720 --> 00:04:58,639
+square root of
+
+122
+00:04:57,360 --> 00:05:01,360
+x
+
+123
+00:04:58,639 --> 00:05:02,960
+squared plus one okay that's the
+
+124
+00:05:01,360 --> 00:05:06,560
+expression
+
+125
+00:05:02,960 --> 00:05:08,320
+so copy that and go back to the wolfram
+
+126
+00:05:06,560 --> 00:05:10,880
+script paste it here
+
+127
+00:05:08,320 --> 00:05:13,680
+so we define the function you see it uh
+
+128
+00:05:10,880 --> 00:05:15,680
+formatted in ascii way so now
+
+129
+00:05:13,680 --> 00:05:17,840
+let's do the
+
+130
+00:05:15,680 --> 00:05:20,800
+nest again
+
+131
+00:05:17,840 --> 00:05:23,759
+three times so you see you get this
+
+132
+00:05:20,800 --> 00:05:26,400
+kind of like continued fraction you know
+
+133
+00:05:23,759 --> 00:05:27,919
+and now so this is a this is a demo of
+
+134
+00:05:26,400 --> 00:05:30,720
+the wolfram script
+
+135
+00:05:27,919 --> 00:05:32,479
+command line interface okay now let's do
+
+136
+00:05:30,720 --> 00:05:35,039
+um
+
+137
+00:05:32,479 --> 00:05:36,639
+now let's go to the wolfram
+
+138
+00:05:35,039 --> 00:05:39,280
+desktop
+
+139
+00:05:36,639 --> 00:05:41,440
+i recommend you buy it so now i'm going
+
+140
+00:05:39,280 --> 00:05:43,600
+to show you the
+
+141
+00:05:41,440 --> 00:05:46,240
+notebook interface which is a graphical
+
+142
+00:05:43,600 --> 00:05:48,800
+interface okay we are going to uh do
+
+143
+00:05:46,240 --> 00:05:52,800
+exactly the same thing uh so
+
+144
+00:05:48,800 --> 00:05:55,120
+first of all let me copy this here
+
+145
+00:05:52,800 --> 00:05:58,319
+so that we can
+
+146
+00:05:55,120 --> 00:06:01,440
+okay so delete that so let's so this is
+
+147
+00:05:58,319 --> 00:06:04,840
+today's talk show this i'm in emacs
+
+148
+00:06:01,440 --> 00:06:09,280
+and let's create a wolfram line
+
+149
+00:06:04,840 --> 00:06:10,560
+code and so here is our code we delete
+
+150
+00:06:09,280 --> 00:06:12,400
+output
+
+151
+00:06:10,560 --> 00:06:15,280
+delete the
+
+152
+00:06:12,400 --> 00:06:18,800
+output okay so
+
+153
+00:06:15,280 --> 00:06:22,400
+what is this yeah delete output and
+
+154
+00:06:18,800 --> 00:06:22,400
+delete all this input
+
+155
+00:06:22,720 --> 00:06:28,800
+so now let's show you in the front end
+
+156
+00:06:25,520 --> 00:06:29,840
+okay so nesting a function next list
+
+157
+00:06:28,800 --> 00:06:32,639
+and
+
+158
+00:06:29,840 --> 00:06:34,319
+now let's do it again just show the
+
+159
+00:06:32,639 --> 00:06:36,560
+nesting
+
+160
+00:06:34,319 --> 00:06:38,240
+nest okay a function nested because
+
+161
+00:06:36,560 --> 00:06:42,000
+recursion three times
+
+162
+00:06:38,240 --> 00:06:42,000
+and now let's define the function
+
+163
+00:06:43,919 --> 00:06:49,599
+function equals to one over square root
+
+164
+00:06:46,720 --> 00:06:51,840
+of x squared plus one okay we define the
+
+165
+00:06:49,599 --> 00:06:55,840
+function now let's
+
+166
+00:06:51,840 --> 00:06:55,840
+let's do the nest again so
+
+167
+00:06:57,120 --> 00:07:02,000
+you see so this is the
+
+168
+00:06:59,919 --> 00:07:04,400
+you can compare this is the graphical
+
+169
+00:07:02,000 --> 00:07:08,080
+user interface you got this nice type
+
+170
+00:07:04,400 --> 00:07:09,680
+setting and compared to these uh
+
+171
+00:07:08,080 --> 00:07:11,759
+wolfram script
+
+172
+00:07:09,680 --> 00:07:13,680
+command line interface
+
+173
+00:07:11,759 --> 00:07:16,319
+now when you when you download wolfram
+
+174
+00:07:13,680 --> 00:07:18,720
+free okay let's go to download wolfram
+
+175
+00:07:16,319 --> 00:07:20,319
+free when you download wolfram free you
+
+176
+00:07:18,720 --> 00:07:22,479
+get the wolfram engine which is the
+
+177
+00:07:20,319 --> 00:07:24,080
+compiler required for you know either
+
+178
+00:07:22,479 --> 00:07:26,639
+the notebook or the
+
+179
+00:07:24,080 --> 00:07:29,039
+or the woofing script you also get
+
+180
+00:07:26,639 --> 00:07:30,880
+woofen script free which you can use
+
+181
+00:07:29,039 --> 00:07:33,280
+here but you don't have the notebook
+
+182
+00:07:30,880 --> 00:07:36,400
+okay you don't have this
+
+183
+00:07:33,280 --> 00:07:38,479
+you know if you want this graphical user
+
+184
+00:07:36,400 --> 00:07:39,199
+interface the wolfram notebook you have
+
+185
+00:07:38,479 --> 00:07:41,039
+to
+
+186
+00:07:39,199 --> 00:07:44,000
+either buy it or
+
+187
+00:07:41,039 --> 00:07:45,919
+or buy the buy a raspberry pi it comes
+
+188
+00:07:44,000 --> 00:07:49,280
+with it wolfen
+
+189
+00:07:45,919 --> 00:07:50,080
+mathematica come with it free
+
+190
+00:07:49,280 --> 00:07:52,960
+so
+
+191
+00:07:50,080 --> 00:07:56,160
+so that's about the wolfram engine which
+
+192
+00:07:52,960 --> 00:07:58,240
+is the compiler then the
+
+193
+00:07:56,160 --> 00:08:00,319
+front end the notebook which is a
+
+194
+00:07:58,240 --> 00:08:03,120
+graphical user interface and you can
+
+195
+00:08:00,319 --> 00:08:05,840
+also do graphics fantastic okay so
+
+196
+00:08:03,120 --> 00:08:05,840
+such as we
+
+197
+00:08:06,240 --> 00:08:10,319
+have shown before you know you can
+
+198
+00:08:07,759 --> 00:08:12,800
+rotate it and so on interactively
+
+199
+00:08:10,319 --> 00:08:15,199
+so front end and woofing script okay so
+
+200
+00:08:12,800 --> 00:08:18,479
+now let's exit wolfram script let me
+
+201
+00:08:15,199 --> 00:08:21,599
+again show you my uh wolfram uh
+
+202
+00:08:18,479 --> 00:08:23,919
+xl wolfen mod okay so we can evaluate
+
+203
+00:08:21,599 --> 00:08:25,440
+this in here
+
+204
+00:08:23,919 --> 00:08:27,280
+so let's see
+
+205
+00:08:25,440 --> 00:08:30,800
+you know evaluate it
+
+206
+00:08:27,280 --> 00:08:32,560
+okay so here is the output you can see
+
+207
+00:08:30,800 --> 00:08:34,800
+let's see
+
+208
+00:08:32,560 --> 00:08:38,719
+you can see we defined the function
+
+209
+00:08:34,800 --> 00:08:41,360
+there it's magnified and then here's the
+
+210
+00:08:38,719 --> 00:08:42,560
+here here is the output of
+
+211
+00:08:41,360 --> 00:08:45,039
+uh
+
+212
+00:08:42,560 --> 00:08:45,039
+wait what
+
+213
+00:08:46,800 --> 00:08:52,320
+yeah so you see you in in
+
+214
+00:08:50,240 --> 00:08:55,279
+so you are looking at
+
+215
+00:08:52,320 --> 00:08:56,640
+some fan mod okay so here's the output
+
+216
+00:08:55,279 --> 00:08:57,839
+it doesn't do
+
+217
+00:08:56,640 --> 00:08:59,680
+these
+
+218
+00:08:57,839 --> 00:09:01,920
+ascii type settings it doesn't do
+
+219
+00:08:59,680 --> 00:09:04,000
+typesetting it rather it returns the
+
+220
+00:09:01,920 --> 00:09:06,800
+expression like
+
+221
+00:09:04,000 --> 00:09:09,680
+you know pure ascii
+
+222
+00:09:06,800 --> 00:09:12,640
+so this is this is uh someone find mod
+
+223
+00:09:09,680 --> 00:09:12,640
+okay so let me show you
+
+224
+00:09:13,760 --> 00:09:19,440
+okay you can see the source code so this
+
+225
+00:09:16,399 --> 00:09:23,959
+is uh you know the emac this source code
+
+226
+00:09:19,440 --> 00:09:27,200
+for subwoofer mod and it's about 2050
+
+227
+00:09:23,959 --> 00:09:31,440
+2500 lines and mostly it's the wolfram
+
+228
+00:09:27,200 --> 00:09:34,640
+functions you know um let me show you
+
+229
+00:09:31,440 --> 00:09:37,120
+so lots of code but a lot of it is the
+
+230
+00:09:34,640 --> 00:09:40,000
+uh you know these are wolfram
+
+231
+00:09:37,120 --> 00:09:41,680
+language functions there are by default
+
+232
+00:09:40,000 --> 00:09:44,240
+7 000 of them
+
+233
+00:09:41,680 --> 00:09:48,399
+so you can see and you can get this for
+
+234
+00:09:44,240 --> 00:09:51,279
+free here is on github so let's open my
+
+235
+00:09:48,399 --> 00:09:52,800
+uh website for example mod and you can
+
+236
+00:09:51,279 --> 00:09:55,279
+download it on
+
+237
+00:09:52,800 --> 00:09:55,279
+github
+
+238
+00:09:56,800 --> 00:10:01,440
+okay so
+
+239
+00:09:58,480 --> 00:10:02,800
+show javascript to turn on javascript so
+
+240
+00:10:01,440 --> 00:10:06,000
+okay so that's
+
+241
+00:10:02,800 --> 00:10:08,480
+my mod that allows you to
+
+242
+00:10:06,000 --> 00:10:11,120
+code ufam language in emacs which is
+
+243
+00:10:08,480 --> 00:10:12,240
+very convenient so and i'm using stuff
+
+244
+00:10:11,120 --> 00:10:14,800
+like keys
+
+245
+00:10:12,240 --> 00:10:17,279
+uh which is you know and the ping window
+
+246
+00:10:14,800 --> 00:10:19,600
+shows all the command cores i do and the
+
+247
+00:10:17,279 --> 00:10:22,160
+keystroke i use okay so that's the
+
+248
+00:10:19,600 --> 00:10:24,560
+wolfram engine the wolfram script the
+
+249
+00:10:22,160 --> 00:10:27,040
+wolfram notebook you know let's get you
+
+250
+00:10:24,560 --> 00:10:29,680
+started you can start to uh play with
+
+251
+00:10:27,040 --> 00:10:32,160
+wufang language now let's continue on
+
+252
+00:10:29,680 --> 00:10:34,399
+the tutorial the actual starting to
+
+253
+00:10:32,160 --> 00:10:37,040
+let's continue start to uh teach you
+
+254
+00:10:34,399 --> 00:10:39,200
+about wuffan language so
+
+255
+00:10:37,040 --> 00:10:40,800
+everything i talked today is already i
+
+256
+00:10:39,200 --> 00:10:42,880
+have a tutorial you know i already
+
+257
+00:10:40,800 --> 00:10:45,360
+written up so if you prefer reading it
+
+258
+00:10:42,880 --> 00:10:48,000
+you can just follow through you know my
+
+259
+00:10:45,360 --> 00:10:49,920
+website string okay so let's begin on
+
+260
+00:10:48,000 --> 00:10:53,600
+wufang language okay any comments and
+
+261
+00:10:49,920 --> 00:10:53,600
+questions you uh posted here
+
+262
+00:10:58,839 --> 00:11:03,279
+okay couldn't run raspberry in your
+
+263
+00:11:01,360 --> 00:11:05,279
+virtual machine
+
+264
+00:11:03,279 --> 00:11:07,120
+you know if you download the raspberry
+
+265
+00:11:05,279 --> 00:11:08,959
+version i believe you are limited you
+
+266
+00:11:07,120 --> 00:11:10,720
+can only run wufang language on the
+
+267
+00:11:08,959 --> 00:11:12,320
+machine on the raspberry machine you
+
+268
+00:11:10,720 --> 00:11:14,320
+cannot
+
+269
+00:11:12,320 --> 00:11:16,720
+you know kind of cheat you know buy a
+
+270
+00:11:14,320 --> 00:11:20,240
+raspberry pi have the wolfram language
+
+271
+00:11:16,720 --> 00:11:22,800
+free but then you run it on your pc with
+
+272
+00:11:20,240 --> 00:11:24,640
+which is much more powerful cpu i don't
+
+273
+00:11:22,800 --> 00:11:26,160
+think you can do that
+
+274
+00:11:24,640 --> 00:11:28,320
+um
+
+275
+00:11:26,160 --> 00:11:30,560
+so anyway so you know i recommend just
+
+276
+00:11:28,320 --> 00:11:32,800
+buy it because um
+
+277
+00:11:30,560 --> 00:11:34,680
+you know i've been working with language
+
+278
+00:11:32,800 --> 00:11:38,720
+since 1993
+
+279
+00:11:34,680 --> 00:11:40,160
+1993 yes and uh then i got to work at
+
+280
+00:11:38,720 --> 00:11:44,320
+woofan
+
+281
+00:11:40,160 --> 00:11:45,920
+uh research in 1995 for half a year uh
+
+282
+00:11:44,320 --> 00:11:48,480
+anyway
+
+283
+00:11:45,920 --> 00:11:50,880
+so let's begin okay so uh so so we have
+
+284
+00:11:48,480 --> 00:11:53,440
+uh demonstrated wolfram language so let
+
+285
+00:11:50,880 --> 00:11:57,200
+the first of all continue from yesterday
+
+286
+00:11:53,440 --> 00:11:59,600
+everything when you want the stream
+
+287
+00:11:57,200 --> 00:12:02,639
+string is uh created by double straight
+
+288
+00:11:59,600 --> 00:12:04,639
+quote okay nothing else not like python
+
+289
+00:12:02,639 --> 00:12:06,880
+or you know you cannot use single quote
+
+290
+00:12:04,639 --> 00:12:09,360
+you cannot use triple quote or whatever
+
+291
+00:12:06,880 --> 00:12:12,240
+just single double quote okay and if you
+
+292
+00:12:09,360 --> 00:12:12,240
+want to escape
+
+293
+00:12:12,320 --> 00:12:18,000
+if you want to create a double quote you
+
+294
+00:12:14,639 --> 00:12:18,000
+say backslash quote
+
+295
+00:12:18,399 --> 00:12:21,519
+okay
+
+296
+00:12:19,200 --> 00:12:23,279
+so that's string and yesterday we
+
+297
+00:12:21,519 --> 00:12:25,839
+covered everyth
+
+298
+00:12:23,279 --> 00:12:29,440
+in language everything is a function
+
+299
+00:12:25,839 --> 00:12:31,600
+okay now now let me show you let me um
+
+300
+00:12:29,440 --> 00:12:34,000
+everything is a function so
+
+301
+00:12:31,600 --> 00:12:35,839
+everything you ever wanted to do us uh
+
+302
+00:12:34,000 --> 00:12:41,040
+to to to
+
+303
+00:12:35,839 --> 00:12:41,040
+to operate on string is all function so
+
+304
+00:12:41,760 --> 00:12:46,480
+let's let's show again string
+
+305
+00:12:43,920 --> 00:12:48,880
+length okay for example here
+
+306
+00:12:46,480 --> 00:12:50,800
+it gives you the length of string how
+
+307
+00:12:48,880 --> 00:12:52,480
+many characters in here
+
+308
+00:12:50,800 --> 00:12:54,639
+okay so
+
+309
+00:12:52,480 --> 00:12:57,600
+now look at this form okay
+
+310
+00:12:54,639 --> 00:12:58,800
+everything you ever wanted to do
+
+311
+00:12:57,600 --> 00:13:00,880
+anything
+
+312
+00:12:58,800 --> 00:13:03,279
+the entire wolfram language is always
+
+313
+00:13:00,880 --> 00:13:06,320
+just a function call okay there's no
+
+314
+00:13:03,279 --> 00:13:08,959
+class concept there's no object concept
+
+315
+00:13:06,320 --> 00:13:10,320
+there's no reference concept there is no
+
+316
+00:13:08,959 --> 00:13:11,440
+special
+
+317
+00:13:10,320 --> 00:13:15,279
+um
+
+318
+00:13:11,440 --> 00:13:18,160
+no no no object no no abstract class no
+
+319
+00:13:15,279 --> 00:13:22,000
+no static you know no member member of a
+
+320
+00:13:18,160 --> 00:13:24,800
+class no uh you know cons no constant
+
+321
+00:13:22,000 --> 00:13:27,920
+concept nothing okay everything in
+
+322
+00:13:24,800 --> 00:13:30,160
+language is just expression and the way
+
+323
+00:13:27,920 --> 00:13:32,079
+you do computation with expression is
+
+324
+00:13:30,160 --> 00:13:34,560
+you call a function like this so
+
+325
+00:13:32,079 --> 00:13:35,279
+everything now this is important this is
+
+326
+00:13:34,560 --> 00:13:37,760
+a
+
+327
+00:13:35,279 --> 00:13:39,519
+fundamental principle of wufan language
+
+328
+00:13:37,760 --> 00:13:42,720
+anything everything you want to do is
+
+329
+00:13:39,519 --> 00:13:44,720
+just f function name something
+
+330
+00:13:42,720 --> 00:13:47,519
+argument okay and if you have two
+
+331
+00:13:44,720 --> 00:13:50,240
+arguments separated by a comma okay
+
+332
+00:13:47,519 --> 00:13:52,880
+anything and everything okay this is all
+
+333
+00:13:50,240 --> 00:13:56,000
+so this is the main topic today list and
+
+334
+00:13:52,880 --> 00:13:58,720
+expressions in language okay
+
+335
+00:13:56,000 --> 00:14:00,959
+so for uh for example you can see
+
+336
+00:13:58,720 --> 00:14:04,079
+tutorial expression uh list and
+
+337
+00:14:00,959 --> 00:14:07,360
+expression okay so all this section
+
+338
+00:14:04,079 --> 00:14:09,519
+list creating a list position in a list
+
+339
+00:14:07,360 --> 00:14:11,199
+you know like the index of array you
+
+340
+00:14:09,519 --> 00:14:14,160
+know in other languages you call it
+
+341
+00:14:11,199 --> 00:14:17,040
+array index position of the list
+
+342
+00:14:14,160 --> 00:14:19,279
+get elements how do you how do you get
+
+343
+00:14:17,040 --> 00:14:21,760
+you know extract sublist and things like
+
+344
+00:14:19,279 --> 00:14:24,720
+that how do you add element append
+
+345
+00:14:21,760 --> 00:14:27,519
+prepend insert you know in java in
+
+346
+00:14:24,720 --> 00:14:29,600
+javascript for example you have splice
+
+347
+00:14:27,519 --> 00:14:31,839
+uh you have various different different
+
+348
+00:14:29,600 --> 00:14:34,560
+names in python you have you know you
+
+349
+00:14:31,839 --> 00:14:36,639
+have anyway so
+
+350
+00:14:34,560 --> 00:14:39,199
+list how do you delete the element how
+
+351
+00:14:36,639 --> 00:14:40,560
+do you change elements so everything
+
+352
+00:14:39,199 --> 00:14:44,079
+this is what i'm trying to say
+
+353
+00:14:40,560 --> 00:14:46,240
+everything in language is always
+
+354
+00:14:44,079 --> 00:14:48,000
+have the syntax
+
+355
+00:14:46,240 --> 00:14:50,160
+f something
+
+356
+00:14:48,000 --> 00:14:52,560
+and arguments okay so
+
+357
+00:14:50,160 --> 00:14:54,399
+it doesn't matter if you want to work on
+
+358
+00:14:52,560 --> 00:14:55,920
+string or if you want to work on some
+
+359
+00:14:54,399 --> 00:14:59,839
+something it's always just a function
+
+360
+00:14:55,920 --> 00:14:59,839
+it's always have this form okay
+
+361
+00:15:01,600 --> 00:15:05,519
+okay so that's one thing so this is this
+
+362
+00:15:03,839 --> 00:15:08,639
+is a
+
+363
+00:15:05,519 --> 00:15:11,040
+systematic you know a systematic grammar
+
+364
+00:15:08,639 --> 00:15:13,279
+a systematic syntax so there's no
+
+365
+00:15:11,040 --> 00:15:16,320
+special you know there's no
+
+366
+00:15:13,279 --> 00:15:19,279
+you have to create a class then you can
+
+367
+00:15:16,320 --> 00:15:20,959
+create an object out of that class then
+
+368
+00:15:19,279 --> 00:15:23,279
+when you define a class then you can
+
+369
+00:15:20,959 --> 00:15:25,680
+have inheritance you know when you have
+
+370
+00:15:23,279 --> 00:15:28,639
+a class then you have to define
+
+371
+00:15:25,680 --> 00:15:30,880
+members private or something or you can
+
+372
+00:15:28,639 --> 00:15:32,800
+define a method which is
+
+373
+00:15:30,880 --> 00:15:34,560
+you can only call a method
+
+374
+00:15:32,800 --> 00:15:36,079
+from the class
+
+375
+00:15:34,560 --> 00:15:39,120
+but first of all you have to create an
+
+376
+00:15:36,079 --> 00:15:41,440
+object then you can have code method but
+
+377
+00:15:39,120 --> 00:15:43,920
+you can also have static method which is
+
+378
+00:15:41,440 --> 00:15:47,440
+like a function so very complex you know
+
+379
+00:15:43,920 --> 00:15:51,199
+oop which is the case in java
+
+380
+00:15:47,440 --> 00:15:52,320
+python javascript at least and and also
+
+381
+00:15:51,199 --> 00:15:54,880
+ruby
+
+382
+00:15:52,320 --> 00:15:55,920
+so in and also php in all these
+
+383
+00:15:54,880 --> 00:15:58,720
+languages
+
+384
+00:15:55,920 --> 00:16:01,040
+you have these um you know kind of very
+
+385
+00:15:58,720 --> 00:16:03,279
+complex ideas they have relations to
+
+386
+00:16:01,040 --> 00:16:05,040
+each other but in wolfen language
+
+387
+00:16:03,279 --> 00:16:08,720
+there's nothing like that okay
+
+388
+00:16:05,040 --> 00:16:12,959
+everything is an expression three
+
+389
+00:16:08,720 --> 00:16:12,959
+is an expression okay a string
+
+390
+00:16:14,399 --> 00:16:19,600
+is an expression okay those are called
+
+391
+00:16:17,040 --> 00:16:22,399
+atomic expressions because they are like
+
+392
+00:16:19,600 --> 00:16:25,360
+you cannot take them apart then
+
+393
+00:16:22,399 --> 00:16:27,920
+you build other expressions by having a
+
+394
+00:16:25,360 --> 00:16:30,880
+function like a list okay so wolfen
+
+395
+00:16:27,920 --> 00:16:34,160
+language is basically mainly derived
+
+396
+00:16:30,880 --> 00:16:36,240
+from lisp programming language and apl
+
+397
+00:16:34,160 --> 00:16:38,959
+okay i'm not going to explain apr but
+
+398
+00:16:36,240 --> 00:16:42,399
+basically like lisp okay so everything
+
+399
+00:16:38,959 --> 00:16:45,199
+is at least like this but if uh
+
+400
+00:16:42,399 --> 00:16:47,519
+it uses a different syntax from the this
+
+401
+00:16:45,199 --> 00:16:50,880
+parenthesis okay so everything is just a
+
+402
+00:16:47,519 --> 00:16:52,800
+lisp at least like that okay it's called
+
+403
+00:16:50,880 --> 00:16:55,440
+expression
+
+404
+00:16:52,800 --> 00:16:56,800
+it's actually called you know so and so
+
+405
+00:16:55,440 --> 00:16:59,040
+everything is at least
+
+406
+00:16:56,800 --> 00:17:03,040
+that's uh you know there's no
+
+407
+00:16:59,040 --> 00:17:05,679
+class in in references or whatever
+
+408
+00:17:03,040 --> 00:17:08,079
+okay that's one thing so the one of the
+
+409
+00:17:05,679 --> 00:17:09,360
+advantage of this is that if you know
+
+410
+00:17:08,079 --> 00:17:11,280
+all the functions
+
+411
+00:17:09,360 --> 00:17:13,360
+names are fully spelled out so for
+
+412
+00:17:11,280 --> 00:17:17,439
+example you can you can call this
+
+413
+00:17:13,360 --> 00:17:21,039
+function names and give a string a while
+
+414
+00:17:17,439 --> 00:17:23,280
+card so and type string
+
+415
+00:17:21,039 --> 00:17:26,000
+and that will return
+
+416
+00:17:23,280 --> 00:17:29,120
+all functions in language
+
+417
+00:17:26,000 --> 00:17:31,840
+whose name contains the word string
+
+418
+00:17:29,120 --> 00:17:34,240
+and this is important because anything
+
+419
+00:17:31,840 --> 00:17:36,160
+everything you want to do with stream
+
+420
+00:17:34,240 --> 00:17:38,480
+is by calling a function and that
+
+421
+00:17:36,160 --> 00:17:40,559
+function will contain a word stream so
+
+422
+00:17:38,480 --> 00:17:42,880
+all you have to do is get you know find
+
+423
+00:17:40,559 --> 00:17:46,640
+which one function you need you know
+
+424
+00:17:42,880 --> 00:17:49,200
+including regular expression
+
+425
+00:17:46,640 --> 00:17:51,120
+pattern matching for for strings uh you
+
+426
+00:17:49,200 --> 00:17:52,960
+know find the function you need so this
+
+427
+00:17:51,120 --> 00:17:54,960
+applies to the whole language doesn't
+
+428
+00:17:52,960 --> 00:17:58,720
+you know so
+
+429
+00:17:54,960 --> 00:18:02,559
+so in other things like um
+
+430
+00:17:58,720 --> 00:18:05,600
+so anyway anyway so uh so this is
+
+431
+00:18:02,559 --> 00:18:07,200
+uh the advantage allows you to find all
+
+432
+00:18:05,600 --> 00:18:09,840
+the functions easy you don't have to
+
+433
+00:18:07,200 --> 00:18:11,919
+worry about what's special you know the
+
+434
+00:18:09,840 --> 00:18:14,240
+the semantics of the language is very
+
+435
+00:18:11,919 --> 00:18:17,200
+simple just everything is a expression
+
+436
+00:18:14,240 --> 00:18:19,120
+and you call function on it to change to
+
+437
+00:18:17,200 --> 00:18:20,480
+get a new value that's how you do
+
+438
+00:18:19,120 --> 00:18:23,360
+computation
+
+439
+00:18:20,480 --> 00:18:26,240
+okay so let me get on so let's not let's
+
+440
+00:18:23,360 --> 00:18:28,720
+get on uh fast okay so they move uh it's
+
+441
+00:18:26,240 --> 00:18:30,880
+already 20 minutes so
+
+442
+00:18:28,720 --> 00:18:33,039
+okay so function names everything is
+
+443
+00:18:30,880 --> 00:18:35,679
+expression then you have you know your
+
+444
+00:18:33,039 --> 00:18:37,340
+core function to do things then let me
+
+445
+00:18:35,679 --> 00:18:38,480
+tell you about um
+
+446
+00:18:37,340 --> 00:18:42,240
+[Music]
+
+447
+00:18:38,480 --> 00:18:45,520
+shortcut syntax okay why because
+
+448
+00:18:42,240 --> 00:18:47,039
+when you have everything in the form
+
+449
+00:18:45,520 --> 00:18:49,120
+you know if everything is just a
+
+450
+00:18:47,039 --> 00:18:51,120
+function name like that sometimes it's
+
+451
+00:18:49,120 --> 00:18:53,280
+cumbersome to write it for example in
+
+452
+00:18:51,120 --> 00:18:53,280
+this
+
+453
+00:18:53,919 --> 00:19:00,480
+so let's go to wufang language mod okay
+
+454
+00:18:58,240 --> 00:19:02,320
+for example my source code for wolfram
+
+455
+00:19:00,480 --> 00:19:05,200
+language mod
+
+456
+00:19:02,320 --> 00:19:05,200
+so you can see
+
+457
+00:19:05,360 --> 00:19:10,640
+uh let's go let's go up
+
+458
+00:19:07,919 --> 00:19:13,840
+you know so you see you have lots of
+
+459
+00:19:10,640 --> 00:19:15,600
+this nesting that's lisp you know so in
+
+460
+00:19:13,840 --> 00:19:18,000
+the same way in
+
+461
+00:19:15,600 --> 00:19:20,640
+exactly the same way in the wolfen
+
+462
+00:19:18,000 --> 00:19:22,960
+language you're gonna start to have lots
+
+463
+00:19:20,640 --> 00:19:24,960
+of nesting you know some you know
+
+464
+00:19:22,960 --> 00:19:27,280
+nesting is not necessarily good because
+
+465
+00:19:24,960 --> 00:19:29,600
+it's hard to read so movement language
+
+466
+00:19:27,280 --> 00:19:33,520
+has the concept of
+
+467
+00:19:29,600 --> 00:19:36,000
+shortcut syntax okay so let me show you
+
+468
+00:19:33,520 --> 00:19:38,720
+shortcut syntax uh so
+
+469
+00:19:36,000 --> 00:19:40,720
+shortcut syntax so let me show you where
+
+470
+00:19:38,720 --> 00:19:42,640
+okay so this is um
+
+471
+00:19:40,720 --> 00:19:46,960
+this is a principle of fulfillment
+
+472
+00:19:42,640 --> 00:19:50,320
+language okay so symbols uh not here
+
+473
+00:19:46,960 --> 00:19:53,280
+syntax okay so i did a video dedicated
+
+474
+00:19:50,320 --> 00:19:55,919
+to that topic you can uh in particular
+
+475
+00:19:53,280 --> 00:19:58,400
+in comparison to lisp okay so for
+
+476
+00:19:55,919 --> 00:20:01,200
+example you can see
+
+477
+00:19:58,400 --> 00:20:04,320
+you can see this expression
+
+478
+00:20:01,200 --> 00:20:04,320
+let's magnify okay
+
+479
+00:20:04,480 --> 00:20:07,799
+let's magnify
+
+480
+00:20:09,840 --> 00:20:14,960
+so you can see this expression now
+
+481
+00:20:12,400 --> 00:20:17,840
+one thing to note is that everything is
+
+482
+00:20:14,960 --> 00:20:21,440
+just nested okay so in in fact we can
+
+483
+00:20:17,840 --> 00:20:24,960
+evaluate this okay so they copy it let's
+
+484
+00:20:21,440 --> 00:20:27,600
+go here let's paste it there you know
+
+485
+00:20:24,960 --> 00:20:30,080
+all you see is the function name for
+
+486
+00:20:27,600 --> 00:20:31,360
+example the function name here then
+
+487
+00:20:30,080 --> 00:20:34,000
+followed by
+
+488
+00:20:31,360 --> 00:20:36,240
+its argument so this compound expression
+
+489
+00:20:34,000 --> 00:20:38,240
+takes two arguments this is the first
+
+490
+00:20:36,240 --> 00:20:41,600
+one said something this is the second
+
+491
+00:20:38,240 --> 00:20:44,480
+one then the first argument is again f
+
+492
+00:20:41,600 --> 00:20:46,840
+something bracket then it takes several
+
+493
+00:20:44,480 --> 00:20:49,360
+arguments so the first one is some c
+
+494
+00:20:46,840 --> 00:20:52,240
+array so this is another argument
+
+495
+00:20:49,360 --> 00:20:54,240
+coordinate bounds array
+
+496
+00:20:52,240 --> 00:20:56,400
+then this function takes
+
+497
+00:20:54,240 --> 00:20:58,960
+two arguments one is the least nested
+
+498
+00:20:56,400 --> 00:21:02,240
+list and the other one is uh into okay
+
+499
+00:20:58,960 --> 00:21:04,080
+so you can the point here is that see
+
+500
+00:21:02,240 --> 00:21:06,799
+the nesting okay you are seeing the
+
+501
+00:21:04,080 --> 00:21:08,400
+nesting so let's evaluate this
+
+502
+00:21:06,799 --> 00:21:11,679
+so this
+
+503
+00:21:08,400 --> 00:21:13,280
+that code returns this thing okay
+
+504
+00:21:11,679 --> 00:21:14,559
+now there's a shortcut
+
+505
+00:21:13,280 --> 00:21:18,240
+so
+
+506
+00:21:14,559 --> 00:21:21,120
+the code we just evaluated is exactly
+
+507
+00:21:18,240 --> 00:21:23,919
+syntactically equivalent to this
+
+508
+00:21:21,120 --> 00:21:26,159
+okay so you can see in this form it's
+
+509
+00:21:23,919 --> 00:21:29,120
+much more easier to read
+
+510
+00:21:26,159 --> 00:21:31,679
+okay so it's evaluated it returns
+
+511
+00:21:29,120 --> 00:21:33,919
+exactly the same thing
+
+512
+00:21:31,679 --> 00:21:35,919
+so you can so you so you are wondering
+
+513
+00:21:33,919 --> 00:21:38,559
+so what's going on what so
+
+514
+00:21:35,919 --> 00:21:40,480
+so so remember so let me explain this
+
+515
+00:21:38,559 --> 00:21:41,840
+quickly so everything remember
+
+516
+00:21:40,480 --> 00:21:45,919
+everything
+
+517
+00:21:41,840 --> 00:21:48,240
+is in this form okay however
+
+518
+00:21:45,919 --> 00:21:48,240
+um
+
+519
+00:21:48,960 --> 00:21:56,320
+wait oh yeah we defined f we want to
+
+520
+00:21:51,440 --> 00:21:58,400
+clear f because we defined f before
+
+521
+00:21:56,320 --> 00:22:00,480
+so now we clear clearly have fabc so
+
+522
+00:21:58,400 --> 00:22:02,480
+everything is in this form
+
+523
+00:22:00,480 --> 00:22:05,679
+right but however
+
+524
+00:22:02,480 --> 00:22:08,480
+because then then your your source code
+
+525
+00:22:05,679 --> 00:22:11,520
+is going to be lots of this nesting hard
+
+526
+00:22:08,480 --> 00:22:14,159
+to read so some so many of the commonly
+
+527
+00:22:11,520 --> 00:22:16,960
+used functions has a shortcut for
+
+528
+00:22:14,159 --> 00:22:19,200
+example plus
+
+529
+00:22:16,960 --> 00:22:21,840
+plus 3 4 okay
+
+530
+00:22:19,200 --> 00:22:24,559
+that's the full syntax called full form
+
+531
+00:22:21,840 --> 00:22:26,880
+however this for plus for this function
+
+532
+00:22:24,559 --> 00:22:29,360
+plus there's a shortcut syntax so you
+
+533
+00:22:26,880 --> 00:22:33,280
+can do three four three plus four okay
+
+534
+00:22:29,360 --> 00:22:34,240
+same thing with list okay so list
+
+535
+00:22:33,280 --> 00:22:37,039
+z
+
+536
+00:22:34,240 --> 00:22:39,360
+y okay that's a list of two items that's
+
+537
+00:22:37,039 --> 00:22:40,960
+the you know full form
+
+538
+00:22:39,360 --> 00:22:42,960
+but you but
+
+539
+00:22:40,960 --> 00:22:45,039
+there's a shortcut for least so you can
+
+540
+00:22:42,960 --> 00:22:47,360
+write it this way okay that's another
+
+541
+00:22:45,039 --> 00:22:50,159
+example same thing with multiplication
+
+542
+00:22:47,360 --> 00:22:51,600
+okay so for example times that's
+
+543
+00:22:50,159 --> 00:22:53,600
+multiplication
+
+544
+00:22:51,600 --> 00:22:55,280
+three four
+
+545
+00:22:53,600 --> 00:22:58,159
+okay 12.
+
+546
+00:22:55,280 --> 00:23:01,600
+another way to write it is just three
+
+547
+00:22:58,159 --> 00:23:04,000
+star four okay in fact if
+
+548
+00:23:01,600 --> 00:23:06,000
+between you can use use a space you can
+
+549
+00:23:04,000 --> 00:23:09,360
+you know you you can just type a space
+
+550
+00:23:06,000 --> 00:23:11,120
+for it automatically adds this grayed
+
+551
+00:23:09,360 --> 00:23:12,240
+out
+
+552
+00:23:11,120 --> 00:23:14,559
+course
+
+553
+00:23:12,240 --> 00:23:15,840
+stand for you know it it's trying to
+
+554
+00:23:14,559 --> 00:23:17,840
+tell you there's an implicit
+
+555
+00:23:15,840 --> 00:23:20,080
+multiplication okay
+
+556
+00:23:17,840 --> 00:23:22,640
+so anyway so
+
+557
+00:23:20,080 --> 00:23:25,120
+the point to remember here is that every
+
+558
+00:23:22,640 --> 00:23:27,360
+expression is you know function followed
+
+559
+00:23:25,120 --> 00:23:29,840
+by something however for some of the
+
+560
+00:23:27,360 --> 00:23:31,679
+functions some of the commonly used
+
+561
+00:23:29,840 --> 00:23:33,039
+functions such as plus
+
+562
+00:23:31,679 --> 00:23:35,200
+list
+
+563
+00:23:33,039 --> 00:23:39,039
+times and many others there are about
+
+564
+00:23:35,200 --> 00:23:41,360
+maybe maybe 100 of them 50 of them
+
+565
+00:23:39,039 --> 00:23:44,320
+there's a shortcut syntax corresponding
+
+566
+00:23:41,360 --> 00:23:47,200
+to the full form so
+
+567
+00:23:44,320 --> 00:23:47,200
+so that's why
+
+568
+00:23:47,360 --> 00:23:52,400
+so that's why you see
+
+569
+00:23:49,200 --> 00:23:55,120
+here you know this
+
+570
+00:23:52,400 --> 00:23:56,960
+let me let me delete this output
+
+571
+00:23:55,120 --> 00:23:58,240
+so that's why
+
+572
+00:23:56,960 --> 00:24:01,360
+this part
+
+573
+00:23:58,240 --> 00:24:03,600
+is exactly equivalent to that part
+
+574
+00:24:01,360 --> 00:24:07,039
+now another important thing to know is
+
+575
+00:24:03,600 --> 00:24:09,120
+that when you evaluate wolfram language
+
+576
+00:24:07,039 --> 00:24:12,880
+whenever you use the shortcut form for
+
+577
+00:24:09,120 --> 00:24:14,799
+example here's a here is a nested this
+
+578
+00:24:12,880 --> 00:24:17,200
+the compiler the first thing the
+
+579
+00:24:14,799 --> 00:24:19,600
+compiler will do is actually translate
+
+580
+00:24:17,200 --> 00:24:22,000
+transform this shortcut into the full
+
+581
+00:24:19,600 --> 00:24:24,559
+form so you are looking at this nested
+
+582
+00:24:22,000 --> 00:24:26,159
+list you know negative one one negative
+
+583
+00:24:24,559 --> 00:24:28,960
+one one
+
+584
+00:24:26,159 --> 00:24:31,600
+the full form is here okay
+
+585
+00:24:28,960 --> 00:24:34,400
+you see so that's what the compiler do
+
+586
+00:24:31,600 --> 00:24:36,320
+so it will whatever shortcut you typed
+
+587
+00:24:34,400 --> 00:24:39,039
+it will first of all translate
+
+588
+00:24:36,320 --> 00:24:41,279
+internally transform it to the full form
+
+589
+00:24:39,039 --> 00:24:42,960
+then it does computation so in other
+
+590
+00:24:41,279 --> 00:24:45,360
+words
+
+591
+00:24:42,960 --> 00:24:48,880
+unlike many other languages you have
+
+592
+00:24:45,360 --> 00:24:51,360
+so-called sugar syntax okay meaning that
+
+593
+00:24:48,880 --> 00:24:53,360
+you can type this way it kind of
+
+594
+00:24:51,360 --> 00:24:55,200
+equivalent to another way
+
+595
+00:24:53,360 --> 00:24:59,360
+but in the wolfram language case they
+
+596
+00:24:55,200 --> 00:25:02,720
+are exactly equal equivalent 100
+
+597
+00:24:59,360 --> 00:25:03,440
+so this is not just a you know short you
+
+598
+00:25:02,720 --> 00:25:05,279
+know
+
+599
+00:25:03,440 --> 00:25:06,559
+syntax sugar it's
+
+600
+00:25:05,279 --> 00:25:08,559
+100
+
+601
+00:25:06,559 --> 00:25:10,480
+equivalent
+
+602
+00:25:08,559 --> 00:25:12,840
+because the wolfram language transformed
+
+603
+00:25:10,480 --> 00:25:16,080
+this shortcut into the full form first
+
+604
+00:25:12,840 --> 00:25:18,559
+so you know in other words
+
+605
+00:25:16,080 --> 00:25:20,000
+you want when you um program wolfram
+
+606
+00:25:18,559 --> 00:25:21,520
+language
+
+607
+00:25:20,000 --> 00:25:23,760
+uh you want to
+
+608
+00:25:21,520 --> 00:25:25,919
+think of this way so you you want to
+
+609
+00:25:23,760 --> 00:25:28,640
+think of everything as the full form
+
+610
+00:25:25,919 --> 00:25:32,000
+because that is the real thing wolfram
+
+611
+00:25:28,640 --> 00:25:35,200
+computes the shortcut syntax is just for
+
+612
+00:25:32,000 --> 00:25:36,400
+for visual uh easier understanding and
+
+613
+00:25:35,200 --> 00:25:38,720
+uh
+
+614
+00:25:36,400 --> 00:25:41,039
+things like that what actually matters
+
+615
+00:25:38,720 --> 00:25:43,360
+is the full form this is important
+
+616
+00:25:41,039 --> 00:25:45,600
+because when you start to get into
+
+617
+00:25:43,360 --> 00:25:48,480
+advanced programming like pattern
+
+618
+00:25:45,600 --> 00:25:49,840
+matching it's always done with a full
+
+619
+00:25:48,480 --> 00:25:51,360
+form okay it's
+
+620
+00:25:49,840 --> 00:25:53,440
+like when you want to
+
+621
+00:25:51,360 --> 00:25:54,960
+match your pattern like three times
+
+622
+00:25:53,440 --> 00:25:57,039
+something
+
+623
+00:25:54,960 --> 00:26:01,039
+you know and things can be symbolic okay
+
+624
+00:25:57,039 --> 00:26:01,039
+so for example let me show you
+
+625
+00:26:01,360 --> 00:26:04,240
+times
+
+626
+00:26:02,559 --> 00:26:06,240
+x y
+
+627
+00:26:04,240 --> 00:26:08,400
+you know it just returns x y
+
+628
+00:26:06,240 --> 00:26:11,360
+that's symbolic you cannot do this with
+
+629
+00:26:08,400 --> 00:26:14,080
+most languages most other languages it
+
+630
+00:26:11,360 --> 00:26:16,799
+will tell you oh x is not defined y is
+
+631
+00:26:14,080 --> 00:26:18,960
+not defined you cannot multiply them but
+
+632
+00:26:16,799 --> 00:26:22,080
+but in language because it's symbolic
+
+633
+00:26:18,960 --> 00:26:24,720
+you can now this is also symbolic but
+
+634
+00:26:22,080 --> 00:26:27,679
+however this doesn't go all the way so
+
+635
+00:26:24,720 --> 00:26:30,000
+if in this you say x times y
+
+636
+00:26:27,679 --> 00:26:32,080
+it'll give you an error saying that x is
+
+637
+00:26:30,000 --> 00:26:34,000
+not defined
+
+638
+00:26:32,080 --> 00:26:35,760
+you know so that's some technical detail
+
+639
+00:26:34,000 --> 00:26:37,120
+let me show you okay
+
+640
+00:26:35,760 --> 00:26:41,120
+so
+
+641
+00:26:37,120 --> 00:26:45,919
+emac be smart so for example
+
+642
+00:26:41,120 --> 00:26:49,039
+uh let's magnify so times 3 4 so
+
+643
+00:26:45,919 --> 00:26:51,360
+evaluate okay so evaluate it so you can
+
+644
+00:26:49,039 --> 00:26:55,200
+see the output is here 12
+
+645
+00:26:51,360 --> 00:26:55,200
+right but if you say
+
+646
+00:26:55,919 --> 00:27:02,240
+evaluate x y
+
+647
+00:26:59,760 --> 00:27:04,880
+you see error you see debugger entered
+
+648
+00:27:02,240 --> 00:27:06,559
+error avoid variable x okay
+
+649
+00:27:04,880 --> 00:27:07,679
+so
+
+650
+00:27:06,559 --> 00:27:10,640
+uh
+
+651
+00:27:07,679 --> 00:27:13,360
+okay so but if what if you quote it so
+
+652
+00:27:10,640 --> 00:27:16,240
+for example let's try this uh let's try
+
+653
+00:27:13,360 --> 00:27:16,240
+this this way
+
+654
+00:27:17,120 --> 00:27:23,360
+you still get error you see wrong type
+
+655
+00:27:20,480 --> 00:27:24,720
+of argument number or marker p
+
+656
+00:27:23,360 --> 00:27:28,159
+so
+
+657
+00:27:24,720 --> 00:27:28,159
+so even in the
+
+658
+00:27:28,960 --> 00:27:33,520
+so even lisp is also symbolic but it
+
+659
+00:27:31,520 --> 00:27:35,760
+doesn't go all the way so uufam language
+
+660
+00:27:33,520 --> 00:27:38,159
+can
+
+661
+00:27:35,760 --> 00:27:39,679
+so let's let me show you talk about
+
+662
+00:27:38,159 --> 00:27:41,520
+pattern matching a little bit let me i
+
+663
+00:27:39,679 --> 00:27:43,919
+mean let me show you the power i mean
+
+664
+00:27:41,520 --> 00:27:46,799
+what what what's the deal
+
+665
+00:27:43,919 --> 00:27:48,559
+what is the advantage of this you know
+
+666
+00:27:46,799 --> 00:27:50,480
+symbol thing
+
+667
+00:27:48,559 --> 00:27:54,640
+so for example let me show you a pattern
+
+668
+00:27:50,480 --> 00:27:57,600
+matching for example we have done
+
+669
+00:27:54,640 --> 00:28:00,559
+let's start with script okay
+
+670
+00:27:57,600 --> 00:28:03,200
+and we have done
+
+671
+00:28:00,559 --> 00:28:04,559
+let's copy that let's put that to um
+
+672
+00:28:03,200 --> 00:28:06,000
+okay so
+
+673
+00:28:04,559 --> 00:28:08,640
+let me go
+
+674
+00:28:06,000 --> 00:28:10,240
+hold on a second okay
+
+675
+00:28:08,640 --> 00:28:14,000
+let me uh
+
+676
+00:28:10,240 --> 00:28:17,000
+get to my let me log to what we talked
+
+677
+00:28:14,000 --> 00:28:17,000
+about
+
+678
+00:28:20,000 --> 00:28:24,799
+okay so let me log what we talked about
+
+679
+00:28:27,679 --> 00:28:32,000
+so today's talk show we talked about um
+
+680
+00:28:30,559 --> 00:28:33,760
+some of that
+
+681
+00:28:32,000 --> 00:28:36,559
+and uh
+
+682
+00:28:33,760 --> 00:28:38,159
+no we i want to demonstrate symbolic
+
+683
+00:28:36,559 --> 00:28:40,159
+pattern matching the power of pattern
+
+684
+00:28:38,159 --> 00:28:43,039
+matching okay
+
+685
+00:28:40,159 --> 00:28:45,440
+so that that uh so
+
+686
+00:28:43,039 --> 00:28:47,360
+so okay hold on a second
+
+687
+00:28:45,440 --> 00:28:49,760
+close that uh
+
+688
+00:28:47,360 --> 00:28:51,279
+we'll find mod okay i want to show you
+
+689
+00:28:49,760 --> 00:28:52,480
+wolfie mod
+
+690
+00:28:51,279 --> 00:28:54,159
+close that
+
+691
+00:28:52,480 --> 00:28:56,640
+page
+
+692
+00:28:54,159 --> 00:28:56,640
+paste it
+
+693
+00:28:56,840 --> 00:29:01,600
+here because i will find mod so you can
+
+694
+00:28:59,679 --> 00:29:03,440
+have a link to it okay so let me
+
+695
+00:29:01,600 --> 00:29:07,919
+demonstrate symbolic pattern matching
+
+696
+00:29:03,440 --> 00:29:07,919
+okay so first of all let's um
+
+697
+00:29:08,640 --> 00:29:12,559
+let's um
+
+698
+00:29:10,720 --> 00:29:14,559
+copy that okay
+
+699
+00:29:12,559 --> 00:29:16,720
+and paste it here
+
+700
+00:29:14,559 --> 00:29:19,200
+paste anyway yeah
+
+701
+00:29:16,720 --> 00:29:24,240
+so evaluate so you get you get the list
+
+702
+00:29:19,200 --> 00:29:24,240
+okay so let's do it let's do list
+
+703
+00:29:24,480 --> 00:29:29,360
+okay so you get the expression next
+
+704
+00:29:26,559 --> 00:29:29,360
+nested f
+
+705
+00:29:31,279 --> 00:29:33,520
+uh
+
+706
+00:29:35,440 --> 00:29:40,640
+and this is a bug i think there's a bug
+
+707
+00:29:38,159 --> 00:29:43,919
+when you try to copy paste it
+
+708
+00:29:40,640 --> 00:29:47,039
+things got get screwed up
+
+709
+00:29:43,919 --> 00:29:49,360
+so exit you type exit to exit net start
+
+710
+00:29:47,039 --> 00:29:49,360
+again
+
+711
+00:29:50,799 --> 00:29:54,600
+so copy that
+
+712
+00:29:54,640 --> 00:30:00,159
+okay magnify
+
+713
+00:29:56,559 --> 00:30:05,080
+and we want uh
+
+714
+00:30:00,159 --> 00:30:05,080
+we want to nest it okay
+
+715
+00:30:08,720 --> 00:30:13,200
+paste it okay we define the function
+
+716
+00:30:14,880 --> 00:30:18,960
+uh it's still screwed up
+
+717
+00:30:21,200 --> 00:30:26,880
+okay we let's start a new
+
+718
+00:30:24,480 --> 00:30:26,880
+um
+
+719
+00:30:27,360 --> 00:30:31,600
+new terminal
+
+720
+00:30:28,960 --> 00:30:33,200
+now i wonder if it's because the bug
+
+721
+00:30:31,600 --> 00:30:35,919
+came from
+
+722
+00:30:33,200 --> 00:30:38,720
+i wonder if the book came from the
+
+723
+00:30:35,919 --> 00:30:41,200
+windows terminal or powershell
+
+724
+00:30:38,720 --> 00:30:43,919
+terminal right now okay so let's switch
+
+725
+00:30:41,200 --> 00:30:45,039
+to using the powershell terminal
+
+726
+00:30:43,919 --> 00:30:46,960
+because
+
+727
+00:30:45,039 --> 00:30:49,440
+the powershell console because i was
+
+728
+00:30:46,960 --> 00:30:54,480
+using the
+
+729
+00:30:49,440 --> 00:30:54,480
+okay so let's not get distracted uh okay
+
+730
+00:30:55,120 --> 00:31:00,000
+okay if you are using the powershell
+
+731
+00:30:57,360 --> 00:31:02,080
+that you know the windows command exe it
+
+732
+00:31:00,000 --> 00:31:06,240
+doesn't even you can you cannot even
+
+733
+00:31:02,080 --> 00:31:10,799
+post yeah okay let's get back to
+
+734
+00:31:06,240 --> 00:31:10,799
+using the microsoft windows terminal
+
+735
+00:31:11,200 --> 00:31:14,960
+okay let's start it
+
+736
+00:31:13,279 --> 00:31:16,799
+copy it
+
+737
+00:31:14,960 --> 00:31:18,960
+paste it
+
+738
+00:31:16,799 --> 00:31:22,880
+okay now it's it's correct
+
+739
+00:31:18,960 --> 00:31:26,000
+now let's nest this function
+
+740
+00:31:22,880 --> 00:31:26,000
+yeah i don't want that
+
+741
+00:31:27,200 --> 00:31:32,360
+and paste it anyway
+
+742
+00:31:29,360 --> 00:31:32,360
+what
+
+743
+00:31:35,600 --> 00:31:38,880
+i don't want paste lines okay there it
+
+744
+00:31:38,159 --> 00:31:40,640
+is
+
+745
+00:31:38,880 --> 00:31:42,320
+i think what happens is that if you
+
+746
+00:31:40,640 --> 00:31:46,000
+paste something that contains line
+
+747
+00:31:42,320 --> 00:31:47,919
+return you'll screw up things okay so
+
+748
+00:31:46,000 --> 00:31:50,559
+now you see we got the expression now
+
+749
+00:31:47,919 --> 00:31:52,799
+let you know let let's evaluate this in
+
+750
+00:31:50,559 --> 00:31:52,799
+um
+
+751
+00:31:55,519 --> 00:31:58,399
+in the
+
+752
+00:31:56,480 --> 00:32:00,960
+emacs mod i mean
+
+753
+00:31:58,399 --> 00:32:02,640
+fan mod okay so let's do it again let's
+
+754
+00:32:00,960 --> 00:32:04,880
+do it again
+
+755
+00:32:02,640 --> 00:32:09,440
+okay so evaluate it
+
+756
+00:32:04,880 --> 00:32:09,440
+yeah i need to got too much
+
+757
+00:32:09,600 --> 00:32:13,519
+um
+
+758
+00:32:10,720 --> 00:32:14,480
+well it won't let me unless i exit here
+
+759
+00:32:13,519 --> 00:32:16,159
+so
+
+760
+00:32:14,480 --> 00:32:18,640
+it's kind of painful i don't want to
+
+761
+00:32:16,159 --> 00:32:20,720
+exit there because it only allows like
+
+762
+00:32:18,640 --> 00:32:21,840
+one process if you are using the
+
+763
+00:32:20,720 --> 00:32:24,399
+terminal
+
+764
+00:32:21,840 --> 00:32:27,360
+something like that so
+
+765
+00:32:24,399 --> 00:32:29,840
+i can probably fix it because i i have a
+
+766
+00:32:27,360 --> 00:32:29,840
+you know
+
+767
+00:32:30,000 --> 00:32:34,480
+you know the proper wolfram desktop
+
+768
+00:32:32,399 --> 00:32:37,279
+anyway
+
+769
+00:32:34,480 --> 00:32:39,760
+so what i want to show is that yeah okay
+
+770
+00:32:37,279 --> 00:32:42,640
+so anyway so what i want to show is that
+
+771
+00:32:39,760 --> 00:32:45,120
+i what i want to the same the the power
+
+772
+00:32:42,640 --> 00:32:48,720
+of symbolic pattern imagine okay so
+
+773
+00:32:45,120 --> 00:32:51,840
+so right now you see this expression
+
+774
+00:32:48,720 --> 00:32:52,880
+uh square root two
+
+775
+00:32:51,840 --> 00:32:56,159
+let's see
+
+776
+00:32:52,880 --> 00:32:58,480
+nested three times let's say nested four
+
+777
+00:32:56,159 --> 00:32:58,480
+times
+
+778
+00:33:06,720 --> 00:33:12,640
+copy yet let's do it over here
+
+779
+00:33:10,240 --> 00:33:12,640
+okay
+
+780
+00:33:12,880 --> 00:33:15,519
+copy it
+
+781
+00:33:19,600 --> 00:33:25,360
+wait so there is only one square root i
+
+782
+00:33:22,720 --> 00:33:27,760
+want what i want is multiple square
+
+783
+00:33:25,360 --> 00:33:27,760
+roots
+
+784
+00:33:31,760 --> 00:33:36,399
+okay so we can fix this
+
+785
+00:33:34,159 --> 00:33:40,880
+so
+
+786
+00:33:36,399 --> 00:33:40,880
+let's redefine our function to be
+
+787
+00:33:43,039 --> 00:33:48,080
+let's redefine our function 2b
+
+788
+00:33:46,880 --> 00:33:49,519
+plus
+
+789
+00:33:48,080 --> 00:33:53,120
+2 okay
+
+790
+00:33:49,519 --> 00:33:56,080
+let's redefine our function to be that
+
+791
+00:33:53,120 --> 00:33:59,279
+then let's compute that
+
+792
+00:33:56,080 --> 00:34:01,039
+there it is now we got multiple nested
+
+793
+00:33:59,279 --> 00:34:03,760
+square roots okay
+
+794
+00:34:01,039 --> 00:34:07,039
+now suppose you want to um you know you
+
+795
+00:34:03,760 --> 00:34:09,679
+can look so this is a typesetter format
+
+796
+00:34:07,039 --> 00:34:12,879
+okay now you can look at this in full
+
+797
+00:34:09,679 --> 00:34:12,879
+form okay so let's
+
+798
+00:34:13,200 --> 00:34:17,320
+let's um let's
+
+799
+00:34:20,480 --> 00:34:24,879
+so you can see the actual
+
+800
+00:34:22,720 --> 00:34:28,879
+expression you see this is the fully
+
+801
+00:34:24,879 --> 00:34:30,399
+nested syntax so you got power
+
+802
+00:34:28,879 --> 00:34:33,440
+plus something
+
+803
+00:34:30,399 --> 00:34:36,079
+plus 2 plus power
+
+804
+00:34:33,440 --> 00:34:38,399
+you see power over negative one that's
+
+805
+00:34:36,079 --> 00:34:40,879
+the inversion one over something the
+
+806
+00:34:38,399 --> 00:34:43,679
+full form is uh let me show you okay
+
+807
+00:34:40,879 --> 00:34:45,839
+so one over x
+
+808
+00:34:43,679 --> 00:34:48,720
+you know this is a normal form but if
+
+809
+00:34:45,839 --> 00:34:51,679
+you do full form
+
+810
+00:34:48,720 --> 00:34:54,240
+1 over x
+
+811
+00:34:51,679 --> 00:34:57,040
+it's 1 over 2.
+
+812
+00:34:54,240 --> 00:34:59,200
+oh that's rational ah wait
+
+813
+00:34:57,040 --> 00:35:01,280
+i want to do actually
+
+814
+00:34:59,200 --> 00:35:03,760
+1 over x
+
+815
+00:35:01,280 --> 00:35:06,320
+you see so that's power
+
+816
+00:35:03,760 --> 00:35:07,920
+power x raised to negative 1 power
+
+817
+00:35:06,320 --> 00:35:09,280
+that's math okay that they are
+
+818
+00:35:07,920 --> 00:35:10,960
+equivalent
+
+819
+00:35:09,280 --> 00:35:13,359
+so
+
+820
+00:35:10,960 --> 00:35:15,200
+so so you got this expression you know
+
+821
+00:35:13,359 --> 00:35:17,359
+you got this nested
+
+822
+00:35:15,200 --> 00:35:19,119
+square root expression
+
+823
+00:35:17,359 --> 00:35:21,280
+and the full form
+
+824
+00:35:19,119 --> 00:35:23,520
+the full form is this thing
+
+825
+00:35:21,280 --> 00:35:25,920
+and now let's say you want to replace
+
+826
+00:35:23,520 --> 00:35:28,240
+all the square root by
+
+827
+00:35:25,920 --> 00:35:31,200
+let's say square to the third power okay
+
+828
+00:35:28,240 --> 00:35:33,599
+so we can what we can do is that let me
+
+829
+00:35:31,200 --> 00:35:33,599
+show you
+
+830
+00:35:35,839 --> 00:35:40,320
+replace all
+
+831
+00:35:37,440 --> 00:35:41,680
+takes two arguments the first one is the
+
+832
+00:35:40,320 --> 00:35:43,760
+expression
+
+833
+00:35:41,680 --> 00:35:45,599
+whatever you want to replace you know
+
+834
+00:35:43,760 --> 00:35:48,079
+you do replacement
+
+835
+00:35:45,599 --> 00:35:50,160
+the second one is a rule
+
+836
+00:35:48,079 --> 00:35:53,280
+let me use the full form so it's easier
+
+837
+00:35:50,160 --> 00:35:57,200
+to understand so a rule you want to
+
+838
+00:35:53,280 --> 00:35:57,200
+replace or square root by
+
+839
+00:35:57,599 --> 00:35:59,839
+by
+
+840
+00:36:01,599 --> 00:36:08,960
+uh you want to replace all square root
+
+841
+00:36:05,040 --> 00:36:10,839
+of anything inside let's name it x
+
+842
+00:36:08,960 --> 00:36:13,920
+you want to replace it
+
+843
+00:36:10,839 --> 00:36:16,160
+by let's just say y okay
+
+844
+00:36:13,920 --> 00:36:19,200
+let's do it
+
+845
+00:36:16,160 --> 00:36:20,079
+oh god it's replay no this is not
+
+846
+00:36:19,200 --> 00:36:22,400
+correct
+
+847
+00:36:20,079 --> 00:36:22,400
+um
+
+848
+00:36:23,680 --> 00:36:26,560
+let's say this okay
+
+849
+00:36:25,359 --> 00:36:27,520
+okay so
+
+850
+00:36:26,560 --> 00:36:28,720
+wait
+
+851
+00:36:27,520 --> 00:36:31,760
+so
+
+852
+00:36:28,720 --> 00:36:33,839
+what i want to show uh is you want to
+
+853
+00:36:31,760 --> 00:36:37,040
+replace all square root by let's say
+
+854
+00:36:33,839 --> 00:36:37,040
+some function f3
+
+855
+00:36:37,760 --> 00:36:41,839
+okay so
+
+856
+00:36:39,599 --> 00:36:41,839
+what
+
+857
+00:36:45,520 --> 00:36:51,440
+this is
+
+858
+00:36:47,760 --> 00:36:51,440
+we still have square roots
+
+859
+00:36:53,040 --> 00:36:56,240
+uh why is that
+
+860
+00:37:01,359 --> 00:37:09,839
+we want to replace or square root by
+
+861
+00:37:06,160 --> 00:37:09,839
+yeah what's going on
+
+862
+00:37:09,920 --> 00:37:14,400
+okay am i still is it interesting any
+
+863
+00:37:12,800 --> 00:37:18,560
+questions
+
+864
+00:37:14,400 --> 00:37:20,480
+it comes with uh good morning uh wolf um
+
+865
+00:37:18,560 --> 00:37:22,320
+i see
+
+866
+00:37:20,480 --> 00:37:25,359
+you won't work because you are trying to
+
+867
+00:37:22,320 --> 00:37:27,040
+multiply two symbols yes exactly
+
+868
+00:37:25,359 --> 00:37:29,200
+that's what i'm saying but in wolfen
+
+869
+00:37:27,040 --> 00:37:32,800
+language you can do that without you
+
+870
+00:37:29,200 --> 00:37:32,800
+know it just come out symbols
+
+871
+00:37:32,960 --> 00:37:37,720
+then
+
+872
+00:37:34,000 --> 00:37:37,720
+okay anyway so
+
+873
+00:37:39,599 --> 00:37:44,800
+okay so let me demonstrate this okay
+
+874
+00:37:41,760 --> 00:37:48,400
+this is easy to demonstrate times x y
+
+875
+00:37:44,800 --> 00:37:53,200
+okay so you see now if you say x equals
+
+876
+00:37:48,400 --> 00:37:55,359
+to four okay then you re evaluate time x
+
+877
+00:37:53,200 --> 00:37:55,359
+y
+
+878
+00:37:55,839 --> 00:38:02,160
+so now it becomes 4y
+
+879
+00:37:57,839 --> 00:38:02,160
+and if you say y equals to 3
+
+880
+00:38:02,720 --> 00:38:07,839
+and then you re-evaluate this you got
+
+881
+00:38:05,920 --> 00:38:10,000
+12. you see that's
+
+882
+00:38:07,839 --> 00:38:11,760
+that's the symbols you see if a symbol
+
+883
+00:38:10,000 --> 00:38:14,400
+doesn't have a value it's going to
+
+884
+00:38:11,760 --> 00:38:16,640
+compute anyway it's just going to return
+
+885
+00:38:14,400 --> 00:38:18,800
+the symbolic result
+
+886
+00:38:16,640 --> 00:38:21,119
+so this part is more
+
+887
+00:38:18,800 --> 00:38:23,119
+advanced than this this doesn't do that
+
+888
+00:38:21,119 --> 00:38:24,800
+you know you have to your symbols has to
+
+889
+00:38:23,119 --> 00:38:27,760
+become a value
+
+890
+00:38:24,800 --> 00:38:30,079
+otherwise it refused to return it
+
+891
+00:38:27,760 --> 00:38:30,880
+so anyway so that's so this this is a
+
+892
+00:38:30,079 --> 00:38:33,040
+good
+
+893
+00:38:30,880 --> 00:38:35,599
+illustration actually about the term
+
+894
+00:38:33,040 --> 00:38:38,320
+rewriting system so in wolfram language
+
+895
+00:38:35,599 --> 00:38:40,640
+everything is symbolic it just
+
+896
+00:38:38,320 --> 00:38:42,560
+it's just an expression like
+
+897
+00:38:40,640 --> 00:38:45,599
+you know you can almost think of them as
+
+898
+00:38:42,560 --> 00:38:48,160
+a string it just manipulate transform
+
+899
+00:38:45,599 --> 00:38:49,680
+the string that's all it you know the
+
+900
+00:38:48,160 --> 00:38:50,720
+the
+
+901
+00:38:49,680 --> 00:38:52,960
+terms
+
+902
+00:38:50,720 --> 00:38:55,520
+okay so so let me go back to this you
+
+903
+00:38:52,960 --> 00:38:57,839
+know i want to demonstrate this but it
+
+904
+00:38:55,520 --> 00:38:57,839
+failed
+
+905
+00:38:58,160 --> 00:39:02,800
+so i want to actually so i want to
+
+906
+00:39:00,560 --> 00:39:06,079
+replace you know
+
+907
+00:39:02,800 --> 00:39:09,680
+so you see we got this this thing
+
+908
+00:39:06,079 --> 00:39:12,000
+which is full uh form
+
+909
+00:39:09,680 --> 00:39:15,440
+you know which is this i want to replace
+
+910
+00:39:12,000 --> 00:39:18,720
+this expression by uh
+
+911
+00:39:15,440 --> 00:39:21,200
+let me do it the normal way okay
+
+912
+00:39:18,720 --> 00:39:22,800
+the normal way i'm you know the i'm
+
+913
+00:39:21,200 --> 00:39:24,720
+familiar with
+
+914
+00:39:22,800 --> 00:39:27,680
+so
+
+915
+00:39:24,720 --> 00:39:30,480
+square root replace it by oh first of
+
+916
+00:39:27,680 --> 00:39:33,440
+all we need to clear x and y
+
+917
+00:39:30,480 --> 00:39:35,920
+because we defined uh
+
+918
+00:39:33,440 --> 00:39:38,720
+them before so clear x y
+
+919
+00:39:35,920 --> 00:39:41,119
+then i want to and by the way here's
+
+920
+00:39:38,720 --> 00:39:42,400
+another advantage of the
+
+921
+00:39:41,119 --> 00:39:44,400
+of the
+
+922
+00:39:42,400 --> 00:39:47,119
+notebook
+
+923
+00:39:44,400 --> 00:39:49,040
+interface because in notebook interface
+
+924
+00:39:47,119 --> 00:39:51,200
+you can place
+
+925
+00:39:49,040 --> 00:39:54,560
+expressions anywhere like you can go
+
+926
+00:39:51,200 --> 00:39:56,560
+edit here and re-evaluate this part you
+
+927
+00:39:54,560 --> 00:39:59,119
+can go you know and you can see the
+
+928
+00:39:56,560 --> 00:40:02,480
+history of the whole thing
+
+929
+00:39:59,119 --> 00:40:04,640
+you know but not in the com command line
+
+930
+00:40:02,480 --> 00:40:07,520
+interface which the case which is the
+
+931
+00:40:04,640 --> 00:40:09,760
+case for python for ruby you know for
+
+932
+00:40:07,520 --> 00:40:10,800
+javascript deno you know you have you
+
+933
+00:40:09,760 --> 00:40:13,119
+have to
+
+934
+00:40:10,800 --> 00:40:16,240
+you know each time you only see one part
+
+935
+00:40:13,119 --> 00:40:18,960
+and you cannot edit arbitrarily you know
+
+936
+00:40:16,240 --> 00:40:21,839
+so this is the advantage of a notebook
+
+937
+00:40:18,960 --> 00:40:25,280
+interface so but anyway let's go back to
+
+938
+00:40:21,839 --> 00:40:27,839
+here i want to show you
+
+939
+00:40:25,280 --> 00:40:30,960
+uh i want to show you how do you do this
+
+940
+00:40:27,839 --> 00:40:35,040
+okay so i want to replace square root
+
+941
+00:40:30,960 --> 00:40:35,040
+the symbol square root by f3
+
+942
+00:40:36,480 --> 00:40:41,440
+oh yeah that doesn't
+
+943
+00:40:39,119 --> 00:40:44,960
+oh that's why it doesn't work i know now
+
+944
+00:40:41,440 --> 00:40:44,960
+i know you see what you see
+
+945
+00:40:45,119 --> 00:40:50,079
+uh this is actually tricky this is more
+
+946
+00:40:47,839 --> 00:40:53,280
+advanced you know so this
+
+947
+00:40:50,079 --> 00:40:57,839
+so i want to replace or square root by
+
+948
+00:40:53,280 --> 00:40:59,599
+f3 so i i'm expecting a result where all
+
+949
+00:40:57,839 --> 00:41:02,240
+this square root is just a function
+
+950
+00:40:59,599 --> 00:41:04,720
+called f3 f3 will do whatever
+
+951
+00:41:02,240 --> 00:41:07,200
+but it failed you know so why does it
+
+952
+00:41:04,720 --> 00:41:09,520
+fail because actually
+
+953
+00:41:07,200 --> 00:41:10,640
+the the square root does not happen
+
+954
+00:41:09,520 --> 00:41:12,480
+anywhere
+
+955
+00:41:10,640 --> 00:41:14,640
+you see
+
+956
+00:41:12,480 --> 00:41:18,880
+but instead you have the power negative
+
+957
+00:41:14,640 --> 00:41:21,599
+one so power negative one is like the
+
+958
+00:41:18,880 --> 00:41:24,000
+the inversion one over something and but
+
+959
+00:41:21,599 --> 00:41:26,400
+uh you have the rational so what
+
+960
+00:41:24,000 --> 00:41:30,560
+rational stand for so for example this
+
+961
+00:41:26,400 --> 00:41:32,720
+rational one two is one over two so the
+
+962
+00:41:30,560 --> 00:41:34,560
+square root actually doesn't happen
+
+963
+00:41:32,720 --> 00:41:35,440
+anywhere in output
+
+964
+00:41:34,560 --> 00:41:36,560
+so
+
+965
+00:41:35,440 --> 00:41:38,880
+so
+
+966
+00:41:36,560 --> 00:41:40,240
+so this is important that's why i
+
+967
+00:41:38,880 --> 00:41:42,480
+mentioned before
+
+968
+00:41:40,240 --> 00:41:45,200
+when you do computation especially when
+
+969
+00:41:42,480 --> 00:41:47,359
+you get advanced into pattern matching
+
+970
+00:41:45,200 --> 00:41:50,800
+you have to know you have to know what
+
+971
+00:41:47,359 --> 00:41:53,520
+is the actual full form
+
+972
+00:41:50,800 --> 00:41:55,119
+not not the shortcut expression you know
+
+973
+00:41:53,520 --> 00:41:58,079
+not not
+
+974
+00:41:55,119 --> 00:41:59,040
+the shortcut like one plus two uh where
+
+975
+00:41:58,079 --> 00:42:00,560
+is it
+
+976
+00:41:59,040 --> 00:42:02,960
+you know all these are shortcut for
+
+977
+00:42:00,560 --> 00:42:04,720
+example x equals to 4
+
+978
+00:42:02,960 --> 00:42:06,880
+the full form is actually let me show
+
+979
+00:42:04,720 --> 00:42:06,880
+you
+
+980
+00:42:07,280 --> 00:42:12,720
+so full form you call full form you code
+
+981
+00:42:09,680 --> 00:42:15,040
+hold so it doesn't evaluate then you
+
+982
+00:42:12,720 --> 00:42:17,119
+give the expression x equals to 4. it's
+
+983
+00:42:15,040 --> 00:42:19,680
+gonna be set
+
+984
+00:42:17,119 --> 00:42:21,200
+square bracket something you see
+
+985
+00:42:19,680 --> 00:42:22,480
+so
+
+986
+00:42:21,200 --> 00:42:25,200
+so you see
+
+987
+00:42:22,480 --> 00:42:28,480
+the full syntax the full form may not be
+
+988
+00:42:25,200 --> 00:42:31,280
+what it seems so this x equals two four
+
+989
+00:42:28,480 --> 00:42:34,000
+is very convenient very very intuitive
+
+990
+00:42:31,280 --> 00:42:36,640
+you know x equals to 4 but actually you
+
+991
+00:42:34,000 --> 00:42:38,400
+have to know when you get advanced
+
+992
+00:42:36,640 --> 00:42:41,440
+this is important you know so when you
+
+993
+00:42:38,400 --> 00:42:44,560
+start to learn language make this
+
+994
+00:42:41,440 --> 00:42:47,280
+try to make these try to understand this
+
+995
+00:42:44,560 --> 00:42:49,040
+the syntax shortcut is just the visual
+
+996
+00:42:47,280 --> 00:42:52,000
+syntax shortcut every the real
+
+997
+00:42:49,040 --> 00:42:54,960
+computation is always done with the
+
+998
+00:42:52,000 --> 00:42:58,079
+full form so almost by heart you know
+
+999
+00:42:54,960 --> 00:43:00,000
+once you code wufang language for a year
+
+1000
+00:42:58,079 --> 00:43:03,040
+you will
+
+1001
+00:43:00,000 --> 00:43:06,000
+you will or you should know
+
+1002
+00:43:03,040 --> 00:43:08,000
+uh all the syntax shortcuts what they
+
+1003
+00:43:06,000 --> 00:43:08,640
+actually are so let me show you where is
+
+1004
+00:43:08,000 --> 00:43:12,240
+it
+
+1005
+00:43:08,640 --> 00:43:15,040
+so ufon language tutorial uh go so go to
+
+1006
+00:43:12,240 --> 00:43:17,839
+my tutorial from language basics then
+
+1007
+00:43:15,040 --> 00:43:19,359
+you go down to the
+
+1008
+00:43:17,839 --> 00:43:21,520
+syntax
+
+1009
+00:43:19,359 --> 00:43:25,599
+so you know there's a full video on that
+
+1010
+00:43:21,520 --> 00:43:28,000
+so you can see here is a list of all
+
+1011
+00:43:25,599 --> 00:43:30,560
+basically essentially all possible
+
+1012
+00:43:28,000 --> 00:43:32,800
+syntax shortcuts using wolfram language
+
+1013
+00:43:30,560 --> 00:43:34,400
+and how they correspond to full form for
+
+1014
+00:43:32,800 --> 00:43:37,680
+example
+
+1015
+00:43:34,400 --> 00:43:37,680
+let me show you an example
+
+1016
+00:43:39,040 --> 00:43:41,839
+um
+
+1017
+00:43:42,720 --> 00:43:48,319
+so for example so so for example uh for
+
+1018
+00:43:45,839 --> 00:43:50,000
+example this one question mark a
+
+1019
+00:43:48,319 --> 00:43:52,800
+so what does that mean so you when you
+
+1020
+00:43:50,000 --> 00:43:54,400
+type question mark let's say full form
+
+1021
+00:43:52,800 --> 00:43:55,839
+you know you want to know what does what
+
+1022
+00:43:54,400 --> 00:43:58,079
+this function does
+
+1023
+00:43:55,839 --> 00:44:00,240
+that's that's how you do it it
+
+1024
+00:43:58,079 --> 00:44:02,800
+spit out a helpful information then you
+
+1025
+00:44:00,240 --> 00:44:05,200
+can click on that
+
+1026
+00:44:02,800 --> 00:44:07,920
+uh then it tells you the full detail and
+
+1027
+00:44:05,200 --> 00:44:10,000
+the examples how to use it what does
+
+1028
+00:44:07,920 --> 00:44:12,000
+this function do everything is
+
+1029
+00:44:10,000 --> 00:44:14,160
+functioning from language
+
+1030
+00:44:12,000 --> 00:44:16,079
+so but however you see that question
+
+1031
+00:44:14,160 --> 00:44:19,200
+mark that question mark something that
+
+1032
+00:44:16,079 --> 00:44:21,359
+that is not the format of f something so
+
+1033
+00:44:19,200 --> 00:44:24,400
+actually there's a full form for that
+
+1034
+00:44:21,359 --> 00:44:26,880
+and that is the information so
+
+1035
+00:44:24,400 --> 00:44:29,359
+so the proper way to do this is actually
+
+1036
+00:44:26,880 --> 00:44:29,359
+like this
+
+1037
+00:44:31,359 --> 00:44:38,560
+information okay so complete
+
+1038
+00:44:34,160 --> 00:44:40,319
+then a string full form
+
+1039
+00:44:38,560 --> 00:44:42,640
+you see that's actually that's not
+
+1040
+00:44:40,319 --> 00:44:45,200
+equivalent actually um
+
+1041
+00:44:42,640 --> 00:44:46,480
+some anyway that the the point is that
+
+1042
+00:44:45,200 --> 00:44:47,680
+you know
+
+1043
+00:44:46,480 --> 00:44:49,440
+everything is
+
+1044
+00:44:47,680 --> 00:44:52,000
+in this you know uh
+
+1045
+00:44:49,440 --> 00:44:55,119
+fully function uh form with square
+
+1046
+00:44:52,000 --> 00:44:58,079
+brackets okay so let me get back to so
+
+1047
+00:44:55,119 --> 00:45:00,319
+so that's why here we failed but let's
+
+1048
+00:44:58,079 --> 00:45:01,920
+we can get it to work
+
+1049
+00:45:00,319 --> 00:45:04,000
+uh
+
+1050
+00:45:01,920 --> 00:45:07,359
+so instead of a square root let's
+
+1051
+00:45:04,000 --> 00:45:09,520
+replace uh let's go here okay let's so
+
+1052
+00:45:07,359 --> 00:45:12,400
+we want to replace all the square root
+
+1053
+00:45:09,520 --> 00:45:15,280
+to something else so
+
+1054
+00:45:12,400 --> 00:45:18,160
+so we say let's see
+
+1055
+00:45:15,280 --> 00:45:20,640
+rational rational
+
+1056
+00:45:18,160 --> 00:45:20,640
+power
+
+1057
+00:45:20,720 --> 00:45:25,200
+of power negative two okay so and now i
+
+1058
+00:45:22,960 --> 00:45:27,520
+get it so
+
+1059
+00:45:25,200 --> 00:45:27,520
+so
+
+1060
+00:45:28,960 --> 00:45:34,160
+so square root so so so here is uh
+
+1061
+00:45:32,240 --> 00:45:36,800
+the way to see
+
+1062
+00:45:34,160 --> 00:45:38,079
+why it is wrong why it's not working so
+
+1063
+00:45:36,800 --> 00:45:38,960
+you can say
+
+1064
+00:45:38,079 --> 00:45:40,880
+full
+
+1065
+00:45:38,960 --> 00:45:42,319
+form
+
+1066
+00:45:40,880 --> 00:45:43,359
+square root
+
+1067
+00:45:42,319 --> 00:45:44,800
+of
+
+1068
+00:45:43,359 --> 00:45:46,960
+x
+
+1069
+00:45:44,800 --> 00:45:48,960
+plus one okay
+
+1070
+00:45:46,960 --> 00:45:51,359
+uh actually you have to
+
+1071
+00:45:48,960 --> 00:45:54,079
+let's say hold it's always good to say
+
+1072
+00:45:51,359 --> 00:45:56,720
+hold but otherwise you'll just evaluate
+
+1073
+00:45:54,079 --> 00:45:56,720
+it okay
+
+1074
+00:45:57,520 --> 00:46:02,400
+and that's that still doesn't work
+
+1075
+00:46:00,640 --> 00:46:05,119
+okay
+
+1076
+00:46:02,400 --> 00:46:07,520
+this is not a good example because it
+
+1077
+00:46:05,119 --> 00:46:09,599
+um it's getting too tricky i mean the
+
+1078
+00:46:07,520 --> 00:46:11,680
+the tricky part is that
+
+1079
+00:46:09,599 --> 00:46:13,440
+how does the square root you see
+
+1080
+00:46:11,680 --> 00:46:15,359
+basically what happens is that square
+
+1081
+00:46:13,440 --> 00:46:17,599
+root becomes
+
+1082
+00:46:15,359 --> 00:46:21,520
+part of it becomes rational something
+
+1083
+00:46:17,599 --> 00:46:23,920
+and part of it becomes power something
+
+1084
+00:46:21,520 --> 00:46:26,240
+the reason for that is anyway let me
+
+1085
+00:46:23,920 --> 00:46:29,440
+quickly just get it to work okay let me
+
+1086
+00:46:26,240 --> 00:46:33,280
+quickly get this to work so let me
+
+1087
+00:46:29,440 --> 00:46:36,640
+because because i know how it does
+
+1088
+00:46:33,280 --> 00:46:37,839
+so i want to replace everything power
+
+1089
+00:46:36,640 --> 00:46:39,200
+p o w
+
+1090
+00:46:37,839 --> 00:46:40,240
+e r
+
+1091
+00:46:39,200 --> 00:46:41,520
+power
+
+1092
+00:46:40,240 --> 00:46:42,640
+two parts
+
+1093
+00:46:41,520 --> 00:46:46,319
+x
+
+1094
+00:46:42,640 --> 00:46:49,680
+numerator and y the demanded denominator
+
+1095
+00:46:46,319 --> 00:46:50,720
+okay i want to replace it by function
+
+1096
+00:46:49,680 --> 00:46:52,400
+f 3
+
+1097
+00:46:50,720 --> 00:46:55,680
+whatever that is
+
+1098
+00:46:52,400 --> 00:46:58,240
+and replace it by
+
+1099
+00:46:55,680 --> 00:47:00,400
+x y okay
+
+1100
+00:46:58,240 --> 00:47:04,079
+do it
+
+1101
+00:47:00,400 --> 00:47:04,079
+fantastic wait what
+
+1102
+00:47:06,640 --> 00:47:12,560
+yeah it doesn't work well it doesn't
+
+1103
+00:47:09,520 --> 00:47:12,560
+work because
+
+1104
+00:47:15,200 --> 00:47:19,520
+uh you have to say replace repeated okay
+
+1105
+00:47:18,000 --> 00:47:22,839
+let's try again
+
+1106
+00:47:19,520 --> 00:47:24,559
+yeah now it works okay so
+
+1107
+00:47:22,839 --> 00:47:26,079
+uh
+
+1108
+00:47:24,559 --> 00:47:28,240
+okay so that's getting a little bit
+
+1109
+00:47:26,079 --> 00:47:30,559
+complex the reason it
+
+1110
+00:47:28,240 --> 00:47:32,319
+you see it does not work before it
+
+1111
+00:47:30,559 --> 00:47:35,119
+because it only
+
+1112
+00:47:32,319 --> 00:47:37,760
+replaces one instance okay so let me let
+
+1113
+00:47:35,119 --> 00:47:39,440
+me explain since we are on this let me
+
+1114
+00:47:37,760 --> 00:47:41,440
+explain okay
+
+1115
+00:47:39,440 --> 00:47:42,800
+so replace
+
+1116
+00:47:41,440 --> 00:47:45,200
+okay let me
+
+1117
+00:47:42,800 --> 00:47:47,520
+explain the whole thing again so we are
+
+1118
+00:47:45,200 --> 00:47:48,640
+doing
+
+1119
+00:47:47,520 --> 00:47:50,160
+replace
+
+1120
+00:47:48,640 --> 00:47:55,200
+the expression
+
+1121
+00:47:50,160 --> 00:47:58,240
+by a rule and this rule is
+
+1122
+00:47:55,200 --> 00:47:58,240
+this rule is
+
+1123
+00:47:59,359 --> 00:48:01,760
+power
+
+1124
+00:48:02,559 --> 00:48:07,200
+okay whenever you see power replace
+
+1125
+00:48:05,359 --> 00:48:10,559
+through takes two arguments okay the
+
+1126
+00:48:07,200 --> 00:48:13,520
+first part is what is the pattern okay
+
+1127
+00:48:10,559 --> 00:48:15,760
+i mean the rule takes two arguments
+
+1128
+00:48:13,520 --> 00:48:17,920
+so replace takes two arguments the first
+
+1129
+00:48:15,760 --> 00:48:20,559
+part is the expression the second part
+
+1130
+00:48:17,920 --> 00:48:22,400
+is a list of rules okay or just a single
+
+1131
+00:48:20,559 --> 00:48:24,880
+rule so right now we are using a single
+
+1132
+00:48:22,400 --> 00:48:27,760
+rule and the rule
+
+1133
+00:48:24,880 --> 00:48:29,920
+has two arguments one the first part is
+
+1134
+00:48:27,760 --> 00:48:32,160
+the left hand side what do you want to
+
+1135
+00:48:29,920 --> 00:48:35,839
+replace what what what pattern you want
+
+1136
+00:48:32,160 --> 00:48:38,079
+to match the second part is the actual
+
+1137
+00:48:35,839 --> 00:48:40,800
+the thing you want to what you want to
+
+1138
+00:48:38,079 --> 00:48:42,800
+become okay so the pattern right now we
+
+1139
+00:48:40,800 --> 00:48:45,680
+want to say a pattern the pattern is
+
+1140
+00:48:42,800 --> 00:48:49,440
+power something uh power
+
+1141
+00:48:45,680 --> 00:48:50,319
+two things okay and one thing inside is
+
+1142
+00:48:49,440 --> 00:48:52,400
+x
+
+1143
+00:48:50,319 --> 00:48:55,599
+underscore okay the other thing is y
+
+1144
+00:48:52,400 --> 00:48:58,559
+underscore underscore means anything so
+
+1145
+00:48:55,599 --> 00:49:01,040
+you want to match anything that's power
+
+1146
+00:48:58,559 --> 00:49:02,400
+anything two things inside and you name
+
+1147
+00:49:01,040 --> 00:49:04,240
+it x and y
+
+1148
+00:49:02,400 --> 00:49:07,040
+you name it so that you can put it in
+
+1149
+00:49:04,240 --> 00:49:09,760
+the replacement so for example in the
+
+1150
+00:49:07,040 --> 00:49:12,559
+replacement we can say
+
+1151
+00:49:09,760 --> 00:49:15,920
+g okay so g x y
+
+1152
+00:49:12,559 --> 00:49:17,200
+okay now if we evaluate that you see you
+
+1153
+00:49:15,920 --> 00:49:19,760
+still get
+
+1154
+00:49:17,200 --> 00:49:23,280
+you still get square root here which is
+
+1155
+00:49:19,760 --> 00:49:25,440
+a power something negative 1.
+
+1156
+00:49:23,280 --> 00:49:28,480
+the reason is that
+
+1157
+00:49:25,440 --> 00:49:30,960
+this replace function only does it one
+
+1158
+00:49:28,480 --> 00:49:33,599
+time so you'll find the pattern you'll
+
+1159
+00:49:30,960 --> 00:49:34,880
+replace it and return the result
+
+1160
+00:49:33,599 --> 00:49:37,200
+so
+
+1161
+00:49:34,880 --> 00:49:39,599
+if we want to replace all the square
+
+1162
+00:49:37,200 --> 00:49:40,800
+roots we have to say replace repeated
+
+1163
+00:49:39,599 --> 00:49:43,920
+okay
+
+1164
+00:49:40,800 --> 00:49:48,559
+so this is uh advanced detail of pattern
+
+1165
+00:49:43,920 --> 00:49:48,559
+matching so let me let's do it again
+
+1166
+00:49:49,280 --> 00:49:54,960
+so you can just call replace repeat it
+
+1167
+00:49:53,119 --> 00:49:56,480
+okay there it is
+
+1168
+00:49:54,960 --> 00:49:59,119
+now you can see
+
+1169
+00:49:56,480 --> 00:50:02,720
+why it you know works so
+
+1170
+00:49:59,119 --> 00:50:05,920
+we got into some rather advanced part of
+
+1171
+00:50:02,720 --> 00:50:09,040
+um pattern matching which is not not
+
+1172
+00:50:05,920 --> 00:50:10,960
+planned today i was just planning to go
+
+1173
+00:50:09,040 --> 00:50:13,920
+over lists
+
+1174
+00:50:10,960 --> 00:50:17,280
+um but i was trying to show you some
+
+1175
+00:50:13,920 --> 00:50:18,319
+some power of panda matching um plan
+
+1176
+00:50:17,280 --> 00:50:19,920
+and
+
+1177
+00:50:18,319 --> 00:50:22,720
+got screwed up
+
+1178
+00:50:19,920 --> 00:50:23,680
+and got more and more into detail and
+
+1179
+00:50:22,720 --> 00:50:25,520
+and
+
+1180
+00:50:23,680 --> 00:50:28,079
+so kind of imagine
+
+1181
+00:50:25,520 --> 00:50:31,359
+you can find my tutorial
+
+1182
+00:50:28,079 --> 00:50:32,480
+on here first of all introduction and
+
+1183
+00:50:31,359 --> 00:50:35,440
+then
+
+1184
+00:50:32,480 --> 00:50:37,200
+uh pattern syntax so let me since we're
+
+1185
+00:50:35,440 --> 00:50:39,359
+talking about this let me tell you what
+
+1186
+00:50:37,200 --> 00:50:42,000
+pattern matching is about so
+
+1187
+00:50:39,359 --> 00:50:44,400
+again remember in language everything is
+
+1188
+00:50:42,000 --> 00:50:47,520
+symbols symbolic okay it can be
+
+1189
+00:50:44,400 --> 00:50:49,520
+numerical but it can be symbolic so if
+
+1190
+00:50:47,520 --> 00:50:54,040
+you have numbers it return numerical
+
+1191
+00:50:49,520 --> 00:50:54,040
+results if you have symbols
+
+1192
+00:50:54,559 --> 00:50:59,839
+uh so whatever symbols it returns
+
+1193
+00:50:56,880 --> 00:51:00,880
+symbolic result you know once you have a
+
+1194
+00:50:59,839 --> 00:51:03,200
+value
+
+1195
+00:51:00,880 --> 00:51:06,079
+you know it it it gives you numerical
+
+1196
+00:51:03,200 --> 00:51:08,079
+result what whatever so
+
+1197
+00:51:06,079 --> 00:51:10,880
+symbols everything the symbols all
+
+1198
+00:51:08,079 --> 00:51:12,160
+expressions are symbolic okay
+
+1199
+00:51:10,880 --> 00:51:14,480
+uh
+
+1200
+00:51:12,160 --> 00:51:14,480
+then
+
+1201
+00:51:14,880 --> 00:51:18,240
+symbols okay so
+
+1202
+00:51:16,640 --> 00:51:21,280
+then
+
+1203
+00:51:18,240 --> 00:51:23,200
+the because language is a term rewriting
+
+1204
+00:51:21,280 --> 00:51:26,160
+system so what does that mean basically
+
+1205
+00:51:23,200 --> 00:51:29,359
+it just the way it computes is that it
+
+1206
+00:51:26,160 --> 00:51:32,160
+replaces a sequence of symbols by some
+
+1207
+00:51:29,359 --> 00:51:34,720
+other which we have seen
+
+1208
+00:51:32,160 --> 00:51:38,079
+you know like this example we have seen
+
+1209
+00:51:34,720 --> 00:51:40,160
+we replaced all the square root by
+
+1210
+00:51:38,079 --> 00:51:43,359
+um
+
+1211
+00:51:40,160 --> 00:51:45,040
+by f3 so this is uh so here it's easier
+
+1212
+00:51:43,359 --> 00:51:46,800
+to see
+
+1213
+00:51:45,040 --> 00:51:48,880
+here
+
+1214
+00:51:46,800 --> 00:51:51,920
+by the way you know if you are wondering
+
+1215
+00:51:48,880 --> 00:51:54,720
+what what are these slash slash dot and
+
+1216
+00:51:51,920 --> 00:51:56,160
+what is arrow those are just syntactical
+
+1217
+00:51:54,720 --> 00:51:58,800
+shortcuts so
+
+1218
+00:51:56,160 --> 00:51:59,920
+slash slash dot
+
+1219
+00:51:58,800 --> 00:52:02,480
+is a
+
+1220
+00:51:59,920 --> 00:52:06,559
+a synthetic shortcut for
+
+1221
+00:52:02,480 --> 00:52:09,440
+replace repeated okay here and that
+
+1222
+00:52:06,559 --> 00:52:12,800
+and that error symbol is a shortcut for
+
+1223
+00:52:09,440 --> 00:52:14,960
+the rule okay so but if we use these
+
+1224
+00:52:12,800 --> 00:52:17,359
+full syntax it's easier to understand
+
+1225
+00:52:14,960 --> 00:52:19,119
+this is not full syntax yet because we
+
+1226
+00:52:17,359 --> 00:52:21,760
+have the underscore
+
+1227
+00:52:19,119 --> 00:52:23,920
+the full syntax for underscore is blank
+
+1228
+00:52:21,760 --> 00:52:26,000
+something but it gets tedious so i'm not
+
+1229
+00:52:23,920 --> 00:52:28,480
+going to go over that but anyway my
+
+1230
+00:52:26,000 --> 00:52:30,800
+point here is that
+
+1231
+00:52:28,480 --> 00:52:33,200
+we demonstrated
+
+1232
+00:52:30,800 --> 00:52:35,280
+symbolic pattern matching replacement
+
+1233
+00:52:33,200 --> 00:52:37,280
+which is a term rewriting system
+
+1234
+00:52:35,280 --> 00:52:40,000
+everything is a symbols we can just
+
+1235
+00:52:37,280 --> 00:52:43,359
+replace it part of it by a pattern okay
+
+1236
+00:52:40,000 --> 00:52:45,280
+including including deeply nested parts
+
+1237
+00:52:43,359 --> 00:52:49,680
+for example if you are gonna do this in
+
+1238
+00:52:45,280 --> 00:52:52,079
+python in javascript in golan you cannot
+
+1239
+00:52:49,680 --> 00:52:55,119
+okay i mean first of all they they don't
+
+1240
+00:52:52,079 --> 00:52:57,680
+deal with symbols so you can have this
+
+1241
+00:52:55,119 --> 00:52:59,760
+you cannot have this g something
+
+1242
+00:52:57,680 --> 00:53:02,240
+you know because you'll just say g is
+
+1243
+00:52:59,760 --> 00:53:05,280
+undefined x is undefined okay
+
+1244
+00:53:02,240 --> 00:53:08,480
+but even if you give them a number so
+
+1245
+00:53:05,280 --> 00:53:10,480
+suppose we replace our g by
+
+1246
+00:53:08,480 --> 00:53:11,520
+we can do that again for example let's
+
+1247
+00:53:10,480 --> 00:53:12,880
+say
+
+1248
+00:53:11,520 --> 00:53:16,000
+g
+
+1249
+00:53:12,880 --> 00:53:19,119
+becomes three okay so
+
+1250
+00:53:16,000 --> 00:53:21,119
+um let me just use the shortcut syntax
+
+1251
+00:53:19,119 --> 00:53:23,839
+okay so you can
+
+1252
+00:53:21,119 --> 00:53:25,440
+so you can so now it's all symbols or
+
+1253
+00:53:23,839 --> 00:53:27,839
+numbers okay
+
+1254
+00:53:25,440 --> 00:53:30,240
+but anyway
+
+1255
+00:53:27,839 --> 00:53:33,119
+even in python if even if the whole
+
+1256
+00:53:30,240 --> 00:53:35,599
+thing is uh just numbers you still
+
+1257
+00:53:33,119 --> 00:53:39,119
+cannot do this replacement because you
+
+1258
+00:53:35,599 --> 00:53:41,520
+can see deeply nested patterns
+
+1259
+00:53:39,119 --> 00:53:44,800
+you know when you have a in python in
+
+1260
+00:53:41,520 --> 00:53:47,280
+javascript in golan in php when you have
+
+1261
+00:53:44,800 --> 00:53:49,200
+a complicated nested
+
+1262
+00:53:47,280 --> 00:53:51,520
+array or list
+
+1263
+00:53:49,200 --> 00:53:53,200
+you want to replace some part of it you
+
+1264
+00:53:51,520 --> 00:53:55,040
+you know you can't just do a pattern
+
+1265
+00:53:53,200 --> 00:53:58,079
+replacement because they they don't
+
+1266
+00:53:55,040 --> 00:54:00,800
+support pad imaging usually i mean even
+
+1267
+00:53:58,079 --> 00:54:03,200
+in haskell i think i'm i'm pretty sure
+
+1268
+00:54:00,800 --> 00:54:05,520
+in haskell because in haskell you know
+
+1269
+00:54:03,200 --> 00:54:06,480
+camo they have had imaging but they
+
+1270
+00:54:05,520 --> 00:54:08,960
+they
+
+1271
+00:54:06,480 --> 00:54:11,520
+do not allow you to do complicated
+
+1272
+00:54:08,960 --> 00:54:13,920
+nested pattern imagine so but in
+
+1273
+00:54:11,520 --> 00:54:18,000
+language you can you can nest you can
+
+1274
+00:54:13,920 --> 00:54:21,119
+nest it you know the the patterns um in
+
+1275
+00:54:18,000 --> 00:54:23,040
+fairly complex complex ways
+
+1276
+00:54:21,119 --> 00:54:26,640
+so one way to think of this term
+
+1277
+00:54:23,040 --> 00:54:29,040
+rewriting system is to compare it to
+
+1278
+00:54:26,640 --> 00:54:31,280
+a string replacement of regular
+
+1279
+00:54:29,040 --> 00:54:34,160
+expression so imagine if you have a
+
+1280
+00:54:31,280 --> 00:54:36,559
+language that all it does is
+
+1281
+00:54:34,160 --> 00:54:38,480
+do string replacement
+
+1282
+00:54:36,559 --> 00:54:40,319
+with regular expression
+
+1283
+00:54:38,480 --> 00:54:42,480
+you know you call some regular
+
+1284
+00:54:40,319 --> 00:54:46,160
+expression you know using a regular
+
+1285
+00:54:42,480 --> 00:54:46,160
+expression pattern and just repeat
+
+1286
+00:54:46,240 --> 00:54:49,200
+and then
+
+1287
+00:54:48,240 --> 00:54:50,640
+uh
+
+1288
+00:54:49,200 --> 00:54:53,680
+so that's
+
+1289
+00:54:50,640 --> 00:54:56,480
+kind of like how what wufam is language
+
+1290
+00:54:53,680 --> 00:54:59,200
+is doing except you are not dealing with
+
+1291
+00:54:56,480 --> 00:55:01,359
+strings you know strings are just flat
+
+1292
+00:54:59,200 --> 00:55:04,799
+usually so you don't
+
+1293
+00:55:01,359 --> 00:55:06,559
+you don't get to nest you know
+
+1294
+00:55:04,799 --> 00:55:08,640
+you know so
+
+1295
+00:55:06,559 --> 00:55:10,079
+string is hard to work with because you
+
+1296
+00:55:08,640 --> 00:55:14,400
+have to quote you know everything
+
+1297
+00:55:10,079 --> 00:55:16,079
+becomes you cannot take them apart but
+
+1298
+00:55:14,400 --> 00:55:19,760
+if you
+
+1299
+00:55:16,079 --> 00:55:23,599
+so the analogous of string is symbols
+
+1300
+00:55:19,760 --> 00:55:25,839
+symbols you know sequence of symbols
+
+1301
+00:55:23,599 --> 00:55:29,119
+and you replace
+
+1302
+00:55:25,839 --> 00:55:31,440
+them by the pattern becomes
+
+1303
+00:55:29,119 --> 00:55:33,119
+a symbol symbolic
+
+1304
+00:55:31,440 --> 00:55:37,280
+pattern syntax
+
+1305
+00:55:33,119 --> 00:55:40,720
+analogous to a regular expression okay
+
+1306
+00:55:37,280 --> 00:55:40,720
+i think that's it for today
+
+1307
+00:55:40,880 --> 00:55:45,520
+so uh yeah so we talked about for
+
+1308
+00:55:43,839 --> 00:55:47,440
+an hour
+
+1309
+00:55:45,520 --> 00:55:50,079
+and that's it for today
+
+1310
+00:55:47,440 --> 00:55:52,799
+uh so we
+
+1311
+00:55:50,079 --> 00:55:54,640
+we went to some
+
+1312
+00:55:52,799 --> 00:55:56,960
+panel matching
+
+1313
+00:55:54,640 --> 00:55:56,960
+and
+
+1314
+00:55:58,000 --> 00:56:02,079
+that's it for today so we're gonna shut
+
+1315
+00:55:59,839 --> 00:56:04,559
+down in two minutes any any more
+
+1316
+00:56:02,079 --> 00:56:04,559
+questions
+
+1317
+00:56:09,040 --> 00:56:11,280
+so
+
+1318
+00:56:11,520 --> 00:56:16,640
+so so we covered um we covered the
+
+1319
+00:56:14,240 --> 00:56:17,680
+expression quite a bit
+
+1320
+00:56:16,640 --> 00:56:20,640
+and
+
+1321
+00:56:17,680 --> 00:56:22,799
+but i didn't show you every you know all
+
+1322
+00:56:20,640 --> 00:56:25,280
+the other things about these distant
+
+1323
+00:56:22,799 --> 00:56:27,760
+expressions many other functions
+
+1324
+00:56:25,280 --> 00:56:30,880
+so at the end let's show you some
+
+1325
+00:56:27,760 --> 00:56:32,240
+something interesting okay
+
+1326
+00:56:30,880 --> 00:56:35,920
+uh
+
+1327
+00:56:32,240 --> 00:56:38,559
+let's say let's use the table example
+
+1328
+00:56:35,920 --> 00:56:41,440
+so we are going to create massively
+
+1329
+00:56:38,559 --> 00:56:43,520
+nested table okay for example
+
+1330
+00:56:41,440 --> 00:56:46,559
+let's this one
+
+1331
+00:56:43,520 --> 00:56:46,559
+let's see that one
+
+1332
+00:56:47,839 --> 00:56:50,160
+okay
+
+1333
+00:56:50,960 --> 00:56:54,960
+yeah okay let me explain table okay so
+
+1334
+00:56:53,200 --> 00:56:56,960
+first of all let's not
+
+1335
+00:56:54,960 --> 00:56:59,920
+you know let's not do this
+
+1336
+00:56:56,960 --> 00:57:02,319
+massive okay so
+
+1337
+00:56:59,920 --> 00:57:04,480
+so table is a function
+
+1338
+00:57:02,319 --> 00:57:06,799
+that takes two arguments
+
+1339
+00:57:04,480 --> 00:57:09,520
+the first argument is the expression the
+
+1340
+00:57:06,799 --> 00:57:14,319
+second argument is a kind of iteration
+
+1341
+00:57:09,520 --> 00:57:17,760
+spec okay so table is lets you generate
+
+1342
+00:57:14,319 --> 00:57:20,079
+a list or nested list arbitrarily nested
+
+1343
+00:57:17,760 --> 00:57:21,920
+list or you can think of it as a
+
+1344
+00:57:20,079 --> 00:57:23,440
+generate a matrix
+
+1345
+00:57:21,920 --> 00:57:27,359
+of any dimension
+
+1346
+00:57:23,440 --> 00:57:30,720
+or tensor okay so the anag
+
+1347
+00:57:27,359 --> 00:57:32,880
+it it is analogous to python's list
+
+1348
+00:57:30,720 --> 00:57:34,559
+comprehension so let me show you an
+
+1349
+00:57:32,880 --> 00:57:37,839
+example
+
+1350
+00:57:34,559 --> 00:57:42,079
+so let's say x okay so generate remember
+
+1351
+00:57:37,839 --> 00:57:42,079
+it generates a list okay so let's say
+
+1352
+00:57:42,799 --> 00:57:46,960
+x one two five
+
+1353
+00:57:45,200 --> 00:57:49,440
+okay very simple
+
+1354
+00:57:46,960 --> 00:57:52,960
+and you can say x plus y
+
+1355
+00:57:49,440 --> 00:57:55,359
+one two five okay and let's say x
+
+1356
+00:57:52,960 --> 00:57:57,040
+squared
+
+1357
+00:57:55,359 --> 00:58:00,160
+plus y
+
+1358
+00:57:57,040 --> 00:58:03,599
+generate one two five now let's say
+
+1359
+00:58:00,160 --> 00:58:05,839
+one two five but in steps of
+
+1360
+00:58:03,599 --> 00:58:07,200
+one half okay
+
+1361
+00:58:05,839 --> 00:58:09,599
+you see
+
+1362
+00:58:07,200 --> 00:58:10,799
+now remember you see you see these
+
+1363
+00:58:09,599 --> 00:58:13,200
+fractions
+
+1364
+00:58:10,799 --> 00:58:14,400
+these are simplified
+
+1365
+00:58:13,200 --> 00:58:17,200
+rationals
+
+1366
+00:58:14,400 --> 00:58:21,119
+so it will automatically simplify for
+
+1367
+00:58:17,200 --> 00:58:23,599
+example if you have 9 over 3
+
+1368
+00:58:21,119 --> 00:58:26,319
+it simply becomes three but if you have
+
+1369
+00:58:23,599 --> 00:58:28,799
+nine over four it's nine over four so if
+
+1370
+00:58:26,319 --> 00:58:31,359
+you have large number let's say
+
+1371
+00:58:28,799 --> 00:58:32,240
+uh two divided by
+
+1372
+00:58:31,359 --> 00:58:37,040
+over
+
+1373
+00:58:32,240 --> 00:58:40,000
+uh that's another another random number
+
+1374
+00:58:37,040 --> 00:58:42,720
+okay it simplifies for you the fraction
+
+1375
+00:58:40,000 --> 00:58:45,280
+and it doesn't become a float you know
+
+1376
+00:58:42,720 --> 00:58:47,839
+in most languages
+
+1377
+00:58:45,280 --> 00:58:49,440
+most of the time you just get a float
+
+1378
+00:58:47,839 --> 00:58:51,760
+but wufang language remember it's
+
+1379
+00:58:49,440 --> 00:58:53,359
+symbolic so that's why it maintains the
+
+1380
+00:58:51,760 --> 00:58:56,400
+form
+
+1381
+00:58:53,359 --> 00:58:57,280
+so in here we did several table examples
+
+1382
+00:58:56,400 --> 00:58:58,400
+let's
+
+1383
+00:58:57,280 --> 00:59:00,200
+now let's
+
+1384
+00:58:58,400 --> 00:59:02,880
+you know the the function can be
+
+1385
+00:59:00,200 --> 00:59:06,559
+arbitrarily complicated for example
+
+1386
+00:59:02,880 --> 00:59:09,200
+times let's say times our function f x
+
+1387
+00:59:06,559 --> 00:59:10,960
+you know remember we defined f before
+
+1388
+00:59:09,200 --> 00:59:13,119
+so now it becomes
+
+1389
+00:59:10,960 --> 00:59:13,920
+that okay
+
+1390
+00:59:13,119 --> 00:59:16,319
+now
+
+1391
+00:59:13,920 --> 00:59:17,359
+you can have multi-dimensional now let's
+
+1392
+00:59:16,319 --> 00:59:20,160
+say
+
+1393
+00:59:17,359 --> 00:59:22,640
+y go y goes from
+
+1394
+00:59:20,160 --> 00:59:25,119
+one to two
+
+1395
+00:59:22,640 --> 00:59:28,640
+now you are getting a matrix okay so
+
+1396
+00:59:25,119 --> 00:59:31,200
+this is becoming very complex
+
+1397
+00:59:28,640 --> 00:59:34,480
+let's simplify okay so let's simplify
+
+1398
+00:59:31,200 --> 00:59:37,280
+let's not get too complex let's just say
+
+1399
+00:59:34,480 --> 00:59:39,119
+x squared plus y
+
+1400
+00:59:37,280 --> 00:59:42,000
+squared and
+
+1401
+00:59:39,119 --> 00:59:45,359
+x goes from one to three y goes from one
+
+1402
+00:59:42,000 --> 00:59:47,359
+to two so this is easier to understand
+
+1403
+00:59:45,359 --> 00:59:50,799
+wait they got the value we want we don't
+
+1404
+00:59:47,359 --> 00:59:50,799
+want the value clear
+
+1405
+00:59:51,200 --> 00:59:53,359
+x and y
+
+1406
+00:59:52,480 --> 00:59:55,040
+okay
+
+1407
+00:59:53,359 --> 00:59:57,599
+and uh
+
+1408
+00:59:55,040 --> 00:59:57,599
+run that
+
+1409
+00:59:58,559 --> 01:00:02,640
+oh yeah they well
+
+1410
+01:00:01,040 --> 01:00:07,359
+yeah they become a value because
+
+1411
+01:00:02,640 --> 01:00:09,599
+obviously we say one plus we we say um
+
+1412
+01:00:07,359 --> 01:00:11,839
+because they evaluate because x is a
+
+1413
+01:00:09,599 --> 01:00:14,880
+number raised to the second power it
+
+1414
+01:00:11,839 --> 01:00:18,079
+becomes a number but let's say let's say
+
+1415
+01:00:14,880 --> 01:00:19,599
+let's give it a symbol okay
+
+1416
+01:00:18,079 --> 01:00:22,400
+n m
+
+1417
+01:00:19,599 --> 01:00:22,400
+okay so that's
+
+1418
+01:00:22,480 --> 01:00:26,040
+that's the
+
+1419
+01:00:32,559 --> 01:00:36,559
+that's the that's a that's a matrix okay
+
+1420
+01:00:35,440 --> 01:00:38,319
+so
+
+1421
+01:00:36,559 --> 01:00:40,839
+yeah okay so
+
+1422
+01:00:38,319 --> 01:00:45,839
+oh we can do it this way
+
+1423
+01:00:40,839 --> 01:00:45,839
+uh what am i trying to show
+
+1424
+01:00:49,200 --> 01:00:56,319
+let's just say x plus y no let's not
+
+1425
+01:00:52,880 --> 01:00:59,040
+let's just say at least x y okay so this
+
+1426
+01:00:56,319 --> 01:01:00,960
+way it
+
+1427
+01:00:59,040 --> 01:01:04,319
+it gives you yeah that's what it's
+
+1428
+01:01:00,960 --> 01:01:07,280
+supposed to be yeah so for each x you go
+
+1429
+01:01:04,319 --> 01:01:09,920
+uh you know you iterate x equals 1 x
+
+1430
+01:01:07,280 --> 01:01:13,599
+equals to 3 x equals truth
+
+1431
+01:01:09,920 --> 01:01:17,200
+2 to 3 then for each y you repeat
+
+1432
+01:01:13,599 --> 01:01:19,440
+so you can show the result let's say xx
+
+1433
+01:01:17,200 --> 01:01:20,480
+equals to
+
+1434
+01:01:19,440 --> 01:01:24,079
+the
+
+1435
+01:01:20,480 --> 01:01:26,400
+that okay you can say matrix
+
+1436
+01:01:24,079 --> 01:01:26,400
+form
+
+1437
+01:01:27,680 --> 01:01:34,400
+okay so it shows you the matrix form you
+
+1438
+01:01:30,640 --> 01:01:34,400
+can also say treeform
+
+1439
+01:01:37,359 --> 01:01:41,760
+okay so it shows you a tree form so
+
+1440
+01:01:39,599 --> 01:01:44,880
+that's that's what's interesting about
+
+1441
+01:01:41,760 --> 01:01:48,520
+this so now let's do a tree form of this
+
+1442
+01:01:44,880 --> 01:01:48,520
+complex thing
+
+1443
+01:01:58,079 --> 01:02:06,599
+this this complex tree so that's you
+
+1444
+01:02:01,359 --> 01:02:06,599
+know that's the power we can magnify
+
+1445
+01:02:11,839 --> 01:02:16,480
+okay so that's it thank you guys for
+
+1446
+01:02:14,160 --> 01:02:20,670
+watching if you like my stuff donate
+
+1447
+01:02:16,480 --> 01:02:23,440
+okay go to my patreon my paypal
+
+1448
+01:02:20,670 --> 01:02:25,839
+[Music]
+
+1449
+01:02:23,440 --> 01:02:25,839
+stuff
+
+1450
+01:02:27,599 --> 01:02:30,839
+bye guys
+
+1451
+01:02:37,680 --> 01:02:41,880
+shutting down in a minute
+
+1452
+01:03:07,200 --> 01:03:10,200
+bye
+

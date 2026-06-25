@@ -1,0 +1,5996 @@
+1
+00:00:06,960 --> 00:00:11,280
+good morning everyone welcome to another
+
+2
+00:00:09,200 --> 00:00:14,240
+episode of star talk show
+
+3
+00:00:11,280 --> 00:00:19,359
+we are going to code emac list today
+
+4
+00:00:14,240 --> 00:00:21,600
+pure emac this fantastic e max lisp
+
+5
+00:00:19,359 --> 00:00:24,400
+okay so let's begin let's so this is
+
+6
+00:00:21,600 --> 00:00:27,279
+gonna be condensed emacs list
+
+7
+00:00:24,400 --> 00:00:30,080
+live coding and tutorial so what are we
+
+8
+00:00:27,279 --> 00:00:31,279
+going to do we are going to show in
+
+9
+00:00:30,080 --> 00:00:33,200
+browser
+
+10
+00:00:31,279 --> 00:00:35,520
+we are going to write
+
+11
+00:00:33,200 --> 00:00:38,000
+one or two or three commands
+
+12
+00:00:35,520 --> 00:00:40,719
+one is narrow to region xor narrowed
+
+13
+00:00:38,000 --> 00:00:43,520
+region a customized version of it
+
+14
+00:00:40,719 --> 00:00:44,480
+one is sort lines a customized version
+
+15
+00:00:43,520 --> 00:00:46,480
+of it
+
+16
+00:00:44,480 --> 00:00:48,239
+and another one is different it's
+
+17
+00:00:46,480 --> 00:00:50,800
+highlight unicode highlight all
+
+18
+00:00:48,239 --> 00:00:54,239
+characters that's not
+
+19
+00:00:50,800 --> 00:00:55,440
+uh ascii you know such as emoji
+
+20
+00:00:54,239 --> 00:00:58,719
+arrow
+
+21
+00:00:55,440 --> 00:01:00,160
+uh math symbols you know highlight
+
+22
+00:00:58,719 --> 00:01:02,239
+unicode
+
+23
+00:01:00,160 --> 00:01:05,840
+so one you know
+
+24
+00:01:02,239 --> 00:01:10,640
+uh 30 minutes to 40 minutes coding and
+
+25
+00:01:05,840 --> 00:01:12,640
+today is 2022 january 22nd
+
+26
+00:01:10,640 --> 00:01:14,159
+okay let's begin okay so if you have
+
+27
+00:01:12,640 --> 00:01:17,040
+questions for me
+
+28
+00:01:14,159 --> 00:01:19,920
+related to emacs or emac this post it
+
+29
+00:01:17,040 --> 00:01:22,640
+now okay so let's begin so i'm going to
+
+30
+00:01:19,920 --> 00:01:24,000
+so uh i'm going to the pink window shows
+
+31
+00:01:22,640 --> 00:01:28,320
+all my commands
+
+32
+00:01:24,000 --> 00:01:31,280
+cores and keystrokes like uh so
+
+33
+00:01:28,320 --> 00:01:32,240
+uh so let's begin okay so start emac
+
+34
+00:01:31,280 --> 00:01:34,479
+list
+
+35
+00:01:32,240 --> 00:01:36,880
+so this is the the first one we are
+
+36
+00:01:34,479 --> 00:01:39,360
+going to do some narrator region i'm
+
+37
+00:01:36,880 --> 00:01:40,479
+going to explain okay so just open the
+
+38
+00:01:39,360 --> 00:01:42,399
+buffer
+
+39
+00:01:40,479 --> 00:01:44,320
+any buffer will do you know just open
+
+40
+00:01:42,399 --> 00:01:47,119
+our buffer
+
+41
+00:01:44,320 --> 00:01:47,119
+and let's
+
+42
+00:01:47,280 --> 00:01:52,960
+let's um so you are looking at i'm using
+
+43
+00:01:50,399 --> 00:01:55,200
+xa emac be smart because imax really
+
+44
+00:01:52,960 --> 00:01:58,719
+smart okay so
+
+45
+00:01:55,200 --> 00:02:00,479
+d for different expand define function
+
+46
+00:01:58,719 --> 00:02:02,719
+and the function name is narrow to
+
+47
+00:02:00,479 --> 00:02:03,520
+region good good
+
+48
+00:02:02,719 --> 00:02:08,160
+now
+
+49
+00:02:03,520 --> 00:02:10,080
+dot string all important so
+
+50
+00:02:08,160 --> 00:02:12,400
+so now to regen let me explain what that
+
+51
+00:02:10,080 --> 00:02:15,760
+is okay now you there is a command in
+
+52
+00:02:12,400 --> 00:02:18,560
+emacs called narrowed region that lets
+
+53
+00:02:15,760 --> 00:02:21,200
+you focus on particular section of your
+
+54
+00:02:18,560 --> 00:02:23,760
+buffer for example let's say i have
+
+55
+00:02:21,200 --> 00:02:25,840
+several of these so i want to do find
+
+56
+00:02:23,760 --> 00:02:28,080
+and replace for example i want to
+
+57
+00:02:25,840 --> 00:02:29,760
+replace or region the word region to
+
+58
+00:02:28,080 --> 00:02:32,560
+something else
+
+59
+00:02:29,760 --> 00:02:35,440
+but i only want to do it within this
+
+60
+00:02:32,560 --> 00:02:37,760
+paragraph so i can make a selection
+
+61
+00:02:35,440 --> 00:02:40,640
+and call narrow to region
+
+62
+00:02:37,760 --> 00:02:42,560
+you see the buffer only shows this part
+
+63
+00:02:40,640 --> 00:02:44,720
+and you can see the command is over
+
+64
+00:02:42,560 --> 00:02:45,519
+there narrow to region okay
+
+65
+00:02:44,720 --> 00:02:47,360
+so
+
+66
+00:02:45,519 --> 00:02:50,879
+now you can do
+
+67
+00:02:47,360 --> 00:02:54,720
+query replace for example region r e g i
+
+68
+00:02:50,879 --> 00:02:57,840
+o n in the mini buffer replaced with x x
+
+69
+00:02:54,720 --> 00:03:00,879
+for example do it replace
+
+70
+00:02:57,840 --> 00:03:03,680
+for all so now it's done now if you move
+
+71
+00:03:00,879 --> 00:03:05,120
+to all the way up it won't let you move
+
+72
+00:03:03,680 --> 00:03:07,360
+because
+
+73
+00:03:05,120 --> 00:03:10,720
+e max right now is limited to this
+
+74
+00:03:07,360 --> 00:03:14,720
+region so now when when you are done you
+
+75
+00:03:10,720 --> 00:03:17,360
+can call widen okay do it
+
+76
+00:03:14,720 --> 00:03:20,239
+and scroll up you can see now the other
+
+77
+00:03:17,360 --> 00:03:22,640
+parts so you can see the white and white
+
+78
+00:03:20,239 --> 00:03:24,319
+is the command you can call it by meta x
+
+79
+00:03:22,640 --> 00:03:25,680
+white okay
+
+80
+00:03:24,319 --> 00:03:28,480
+uh so
+
+81
+00:03:25,680 --> 00:03:31,280
+okay so so so that is the that that is
+
+82
+00:03:28,480 --> 00:03:33,280
+what narrow to region is but however
+
+83
+00:03:31,280 --> 00:03:35,840
+however let me show you let's go to star
+
+84
+00:03:33,280 --> 00:03:38,560
+talk show okay today's top show you know
+
+85
+00:03:35,840 --> 00:03:41,120
+so you are right now looking at the say
+
+86
+00:03:38,560 --> 00:03:44,640
+today's talk show page which is uh you
+
+87
+00:03:41,120 --> 00:03:45,599
+know this html and you can see this is a
+
+88
+00:03:44,640 --> 00:03:48,319
+buffer
+
+89
+00:03:45,599 --> 00:03:51,840
+now if i want just to focus on these two
+
+90
+00:03:48,319 --> 00:03:53,519
+parts i can make a selection
+
+91
+00:03:51,840 --> 00:03:56,159
+you know uh
+
+92
+00:03:53,519 --> 00:03:58,720
+i can make a selection then narrow to
+
+93
+00:03:56,159 --> 00:04:02,319
+region now any anything
+
+94
+00:03:58,720 --> 00:04:04,959
+i do will be limited to this
+
+95
+00:04:02,319 --> 00:04:08,080
+but when but the other parts are still
+
+96
+00:04:04,959 --> 00:04:09,920
+there so the problem i mean what we are
+
+97
+00:04:08,080 --> 00:04:11,280
+going to do is that when you call out
+
+98
+00:04:09,920 --> 00:04:13,200
+region
+
+99
+00:04:11,280 --> 00:04:14,879
+you have to make a region first you have
+
+100
+00:04:13,200 --> 00:04:17,199
+to make a selection you know start a
+
+101
+00:04:14,879 --> 00:04:20,560
+selection then move your cursor for
+
+102
+00:04:17,199 --> 00:04:23,280
+example up to here then narrow okay now
+
+103
+00:04:20,560 --> 00:04:26,880
+widen again you can see you have to make
+
+104
+00:04:23,280 --> 00:04:29,040
+a selection first but oftentimes
+
+105
+00:04:26,880 --> 00:04:30,400
+you want a command that
+
+106
+00:04:29,040 --> 00:04:32,080
+you don't have to make a selection
+
+107
+00:04:30,400 --> 00:04:33,840
+because make a selection
+
+108
+00:04:32,080 --> 00:04:35,199
+involves you know two or three more
+
+109
+00:04:33,840 --> 00:04:37,600
+keystrokes
+
+110
+00:04:35,199 --> 00:04:39,520
+so you want it if there's no selection
+
+111
+00:04:37,600 --> 00:04:40,800
+you want a narrowed region just work on
+
+112
+00:04:39,520 --> 00:04:43,040
+the current
+
+113
+00:04:40,800 --> 00:04:46,240
+block of text
+
+114
+00:04:43,040 --> 00:04:48,560
+defined by separation of empty lines so
+
+115
+00:04:46,240 --> 00:04:50,720
+you see this empty line here and this
+
+116
+00:04:48,560 --> 00:04:53,199
+empty line there so you can just call
+
+117
+00:04:50,720 --> 00:04:56,960
+the command and we automatically narrow
+
+118
+00:04:53,199 --> 00:04:58,880
+to this part without having to you know
+
+119
+00:04:56,960 --> 00:05:00,960
+without you having to make a selection
+
+120
+00:04:58,880 --> 00:05:03,120
+you know especially with the mouse it's
+
+121
+00:05:00,960 --> 00:05:05,360
+more tedious okay so that's that's the
+
+122
+00:05:03,120 --> 00:05:07,680
+reason we are writing it so let's begin
+
+123
+00:05:05,360 --> 00:05:10,240
+writing it
+
+124
+00:05:07,680 --> 00:05:12,800
+okay so now at region let's uh begin
+
+125
+00:05:10,240 --> 00:05:15,120
+okay so now treat region
+
+126
+00:05:12,800 --> 00:05:16,080
+uh first of all you want uh
+
+127
+00:05:15,120 --> 00:05:17,840
+if
+
+128
+00:05:16,080 --> 00:05:21,199
+you want to check if there's selection
+
+129
+00:05:17,840 --> 00:05:25,199
+first okay so if
+
+130
+00:05:21,199 --> 00:05:27,520
+uh let's put some documentation here
+
+131
+00:05:25,199 --> 00:05:27,520
+okay
+
+132
+00:05:31,120 --> 00:05:37,960
+same as narrowed region
+
+133
+00:05:33,520 --> 00:05:37,960
+but if no selection
+
+134
+00:05:39,280 --> 00:05:44,960
+now to the current block
+
+135
+00:05:43,440 --> 00:05:47,360
+okay
+
+136
+00:05:44,960 --> 00:05:49,600
+that's a documentation version today's
+
+137
+00:05:47,360 --> 00:05:50,639
+date okay now let's begin now first of
+
+138
+00:05:49,600 --> 00:05:52,639
+all
+
+139
+00:05:50,639 --> 00:05:54,800
+the first thing you want to do is check
+
+140
+00:05:52,639 --> 00:05:56,479
+if there is a selection so the way you
+
+141
+00:05:54,800 --> 00:05:57,759
+do that is
+
+142
+00:05:56,479 --> 00:05:59,440
+region
+
+143
+00:05:57,759 --> 00:06:02,240
+active p
+
+144
+00:05:59,440 --> 00:06:05,280
+expand expand good
+
+145
+00:06:02,240 --> 00:06:08,720
+region active p means
+
+146
+00:06:05,280 --> 00:06:11,440
+p in emac this command convention and in
+
+147
+00:06:08,720 --> 00:06:14,479
+this in general when a function ends
+
+148
+00:06:11,440 --> 00:06:16,479
+with p or a variable ends p that p
+
+149
+00:06:14,479 --> 00:06:19,919
+stands for predicate
+
+150
+00:06:16,479 --> 00:06:22,639
+that can form logic so basically
+
+151
+00:06:19,919 --> 00:06:23,759
+practically that means this function or
+
+152
+00:06:22,639 --> 00:06:25,840
+variable
+
+153
+00:06:23,759 --> 00:06:28,960
+this function always returns either true
+
+154
+00:06:25,840 --> 00:06:31,680
+or false so if it ends in p that's a
+
+155
+00:06:28,960 --> 00:06:33,840
+convention it returns true or false or
+
+156
+00:06:31,680 --> 00:06:35,840
+the value of the function is
+
+157
+00:06:33,840 --> 00:06:37,440
+of the variable is true or false so if
+
+158
+00:06:35,840 --> 00:06:39,280
+region is active
+
+159
+00:06:37,440 --> 00:06:40,880
+then
+
+160
+00:06:39,280 --> 00:06:42,639
+then you just say
+
+161
+00:06:40,880 --> 00:06:45,039
+narrow to region
+
+162
+00:06:42,639 --> 00:06:45,039
+okay
+
+163
+00:06:45,120 --> 00:06:49,759
+and narrow to region two arguments two
+
+164
+00:06:47,120 --> 00:06:52,000
+positions region beginning
+
+165
+00:06:49,759 --> 00:06:52,880
+and the region end
+
+166
+00:06:52,000 --> 00:06:54,960
+okay
+
+167
+00:06:52,880 --> 00:06:57,440
+and you don't need the save restrictions
+
+168
+00:06:54,960 --> 00:07:01,680
+so let's remove those okay so hold on a
+
+169
+00:06:57,440 --> 00:07:03,840
+second so remove put that here so
+
+170
+00:07:01,680 --> 00:07:03,840
+what
+
+171
+00:07:04,880 --> 00:07:08,080
+okay
+
+172
+00:07:05,840 --> 00:07:10,000
+narrow to region so if there's a region
+
+173
+00:07:08,080 --> 00:07:12,400
+narrow to region beginning and region
+
+174
+00:07:10,000 --> 00:07:14,720
+end now
+
+175
+00:07:12,400 --> 00:07:17,759
+if there is no region
+
+176
+00:07:14,720 --> 00:07:21,360
+then you need to
+
+177
+00:07:17,759 --> 00:07:23,520
+you need to find the position of the
+
+178
+00:07:21,360 --> 00:07:25,840
+of the
+
+179
+00:07:23,520 --> 00:07:27,440
+of the empty lines beginning and empty
+
+180
+00:07:25,840 --> 00:07:29,440
+lines
+
+181
+00:07:27,440 --> 00:07:31,759
+of the beginning of
+
+182
+00:07:29,440 --> 00:07:34,000
+two empty lines like right here
+
+183
+00:07:31,759 --> 00:07:36,080
+and the end of the region
+
+184
+00:07:34,000 --> 00:07:38,800
+is right here you know they are
+
+185
+00:07:36,080 --> 00:07:41,840
+separated by two empty lines so let's go
+
+186
+00:07:38,800 --> 00:07:44,960
+to my emac this tutorial so you search
+
+187
+00:07:41,840 --> 00:07:47,759
+for practical emac disk
+
+188
+00:07:44,960 --> 00:07:49,280
+and you find
+
+189
+00:07:47,759 --> 00:07:52,879
+and and the
+
+190
+00:07:49,280 --> 00:07:55,280
+practical emac list and you go to
+
+191
+00:07:52,879 --> 00:07:57,440
+there is
+
+192
+00:07:55,280 --> 00:07:59,280
+a code
+
+193
+00:07:57,440 --> 00:08:01,360
+so
+
+194
+00:07:59,280 --> 00:08:03,599
+get text block
+
+195
+00:08:01,360 --> 00:08:07,120
+right there click on that so this is the
+
+196
+00:08:03,599 --> 00:08:08,800
+code you want let's copy it
+
+197
+00:08:07,120 --> 00:08:13,199
+it's already written so
+
+198
+00:08:08,800 --> 00:08:15,360
+it saves time so let's paste it here the
+
+199
+00:08:13,199 --> 00:08:17,120
+essential part is
+
+200
+00:08:15,360 --> 00:08:19,840
+is uh
+
+201
+00:08:17,120 --> 00:08:22,080
+this okay so let's cut it
+
+202
+00:08:19,840 --> 00:08:22,960
+and uh put it here
+
+203
+00:08:22,080 --> 00:08:24,319
+let's
+
+204
+00:08:22,960 --> 00:08:27,360
+remove that
+
+205
+00:08:24,319 --> 00:08:30,720
+predefined code okay so when there is no
+
+206
+00:08:27,360 --> 00:08:32,320
+no region this is the part you want
+
+207
+00:08:30,720 --> 00:08:35,519
+okay wait
+
+208
+00:08:32,320 --> 00:08:40,599
+this part gets you um
+
+209
+00:08:35,519 --> 00:08:40,599
+hold on a second so this part this this
+
+210
+00:08:41,200 --> 00:08:45,519
+so this
+
+211
+00:08:42,560 --> 00:08:47,920
+block of text they returns the beginning
+
+212
+00:08:45,519 --> 00:08:50,399
+position of the block
+
+213
+00:08:47,920 --> 00:08:53,200
+and end position of the block by
+
+214
+00:08:50,399 --> 00:08:54,800
+searching for two empty lines you see
+
+215
+00:08:53,200 --> 00:08:57,440
+search
+
+216
+00:08:54,800 --> 00:09:00,560
+regular expression search backward
+
+217
+00:08:57,440 --> 00:09:02,720
+you search for two empty lines then you
+
+218
+00:09:00,560 --> 00:09:03,519
+move forward so that's the beginning of
+
+219
+00:09:02,720 --> 00:09:05,440
+the
+
+220
+00:09:03,519 --> 00:09:06,720
+of the
+
+221
+00:09:05,440 --> 00:09:07,680
+block
+
+222
+00:09:06,720 --> 00:09:10,320
+and the
+
+223
+00:09:07,680 --> 00:09:13,360
+and when you found it you set the point
+
+224
+00:09:10,320 --> 00:09:15,200
+p1 to it by the way yesterday we we did
+
+225
+00:09:13,360 --> 00:09:17,760
+we explained this whole thing because we
+
+226
+00:09:15,200 --> 00:09:20,800
+did a similar thing uh two days ago
+
+227
+00:09:17,760 --> 00:09:20,800
+uh so watch that
+
+228
+00:09:21,279 --> 00:09:25,279
+so yeah just in scaffold yeah all the
+
+229
+00:09:23,519 --> 00:09:27,120
+code you know you can just find on my
+
+230
+00:09:25,279 --> 00:09:30,640
+you know this that's the best thing
+
+231
+00:09:27,120 --> 00:09:33,519
+practical emac these thousands literally
+
+232
+00:09:30,640 --> 00:09:37,360
+over a thousand pages and examples
+
+233
+00:09:33,519 --> 00:09:39,600
+uh a fast way to learn emac list
+
+234
+00:09:37,360 --> 00:09:41,920
+and emacs so if you like my stuff you
+
+235
+00:09:39,600 --> 00:09:44,640
+guys or whoever is watching you you know
+
+236
+00:09:41,920 --> 00:09:46,720
+you know you can support me by
+
+237
+00:09:44,640 --> 00:09:47,839
+star emacs tutorial
+
+238
+00:09:46,720 --> 00:09:50,160
+buy it
+
+239
+00:09:47,839 --> 00:09:52,320
+it's fantastic it's a gesture and you
+
+240
+00:09:50,160 --> 00:09:54,959
+get it you get the downloaded you know
+
+241
+00:09:52,320 --> 00:09:58,080
+you get the fast version and
+
+242
+00:09:54,959 --> 00:10:00,720
+so full of emac these tutorials and
+
+243
+00:09:58,080 --> 00:10:03,120
+examples and advanced e-magnets and
+
+244
+00:10:00,720 --> 00:10:05,279
+writing how to write a major mod
+
+245
+00:10:03,120 --> 00:10:07,839
+and i did several videos by the way this
+
+246
+00:10:05,279 --> 00:10:10,000
+so this one is yesterday so let's let's
+
+247
+00:10:07,839 --> 00:10:10,880
+focus let's go back to the code okay
+
+248
+00:10:10,000 --> 00:10:12,720
+let's
+
+249
+00:10:10,880 --> 00:10:14,880
+finish this
+
+250
+00:10:12,720 --> 00:10:17,440
+so
+
+251
+00:10:14,880 --> 00:10:20,880
+so once you find the beginning position
+
+252
+00:10:17,440 --> 00:10:23,839
+of the paragraph or block you set you
+
+253
+00:10:20,880 --> 00:10:26,399
+know to p1 so you need a variable
+
+254
+00:10:23,839 --> 00:10:29,800
+so let's make a variable here okay so
+
+255
+00:10:26,399 --> 00:10:29,800
+let's say
+
+256
+00:10:32,399 --> 00:10:36,560
+yeah so let's let
+
+257
+00:10:34,399 --> 00:10:39,360
+let is a local variable
+
+258
+00:10:36,560 --> 00:10:41,839
+and say let's declare two variables p1
+
+259
+00:10:39,360 --> 00:10:44,720
+and p2 you don't need the dollar sign
+
+260
+00:10:41,839 --> 00:10:47,040
+but i use a dollar sign for variable
+
+261
+00:10:44,720 --> 00:10:50,240
+because that way
+
+262
+00:10:47,040 --> 00:10:52,240
+in sub emax least mod it's highlighted
+
+263
+00:10:50,240 --> 00:10:53,440
+you know so it's easier to see all the
+
+264
+00:10:52,240 --> 00:10:55,440
+variables
+
+265
+00:10:53,440 --> 00:10:56,720
+okay so
+
+266
+00:10:55,440 --> 00:10:59,120
+copy that
+
+267
+00:10:56,720 --> 00:11:01,680
+paste it here
+
+268
+00:10:59,120 --> 00:11:04,560
+prettify the code so here's the code
+
+269
+00:11:01,680 --> 00:11:07,440
+so let p1 and p2
+
+270
+00:11:04,560 --> 00:11:09,600
+save excursion save excursion means
+
+271
+00:11:07,440 --> 00:11:11,680
+whenever you move cursor when your
+
+272
+00:11:09,600 --> 00:11:14,160
+function is done you should move the
+
+273
+00:11:11,680 --> 00:11:16,720
+cursor back to where it was otherwise
+
+274
+00:11:14,160 --> 00:11:19,120
+user gets confused you know user calls
+
+275
+00:11:16,720 --> 00:11:20,720
+your command your command
+
+276
+00:11:19,120 --> 00:11:22,959
+moves the cruiser in order to do
+
+277
+00:11:20,720 --> 00:11:24,880
+something when instant
+
+278
+00:11:22,959 --> 00:11:28,880
+normally you should return the cursor to
+
+279
+00:11:24,880 --> 00:11:32,079
+wherever that cursor was so that is what
+
+280
+00:11:28,880 --> 00:11:33,200
+this function save excursion is
+
+281
+00:11:32,079 --> 00:11:35,600
+so
+
+282
+00:11:33,200 --> 00:11:37,680
+you can look describe function okay
+
+283
+00:11:35,600 --> 00:11:40,640
+let's show the pink window describe
+
+284
+00:11:37,680 --> 00:11:44,000
+function save excursion then you see the
+
+285
+00:11:40,640 --> 00:11:46,720
+documentation for the save excursion
+
+286
+00:11:44,000 --> 00:11:49,600
+function okay so let's save excursion
+
+287
+00:11:46,720 --> 00:11:51,680
+then you search for the blank lines
+
+288
+00:11:49,600 --> 00:11:54,240
+search for the empty lines then you set
+
+289
+00:11:51,680 --> 00:11:56,079
+p1 in the same way you search you know
+
+290
+00:11:54,240 --> 00:11:59,600
+you search the end of the empty lines
+
+291
+00:11:56,079 --> 00:12:01,440
+then you get p2 set it then
+
+292
+00:11:59,600 --> 00:12:04,240
+okay then
+
+293
+00:12:01,440 --> 00:12:05,040
+now the code is a bit nested here so
+
+294
+00:12:04,240 --> 00:12:08,240
+then
+
+295
+00:12:05,040 --> 00:12:11,480
+uh you wanna so then you just say narrow
+
+296
+00:12:08,240 --> 00:12:11,480
+to region
+
+297
+00:12:12,480 --> 00:12:20,040
+p1 and p2 and you don't need the save x
+
+298
+00:12:16,240 --> 00:12:20,040
+restrictions so
+
+299
+00:12:24,079 --> 00:12:31,920
+okay so that is it i that is it actually
+
+300
+00:12:28,880 --> 00:12:31,920
+so let's um
+
+301
+00:12:33,600 --> 00:12:40,240
+let's let me clean the code remove the
+
+302
+00:12:36,240 --> 00:12:42,480
+remove uh redundant part for example
+
+303
+00:12:40,240 --> 00:12:42,480
+so
+
+304
+00:12:42,800 --> 00:12:47,279
+okay that that's it so
+
+305
+00:12:45,440 --> 00:12:48,480
+evaluate the code you can see i'm
+
+306
+00:12:47,279 --> 00:12:50,480
+calling run
+
+307
+00:12:48,480 --> 00:12:51,519
+run current file but you you can also
+
+308
+00:12:50,480 --> 00:12:55,680
+call
+
+309
+00:12:51,519 --> 00:12:59,360
+uh eval region okay so
+
+310
+00:12:55,680 --> 00:13:01,120
+so let's try it okay so let's say if i
+
+311
+00:12:59,360 --> 00:13:02,959
+put an empty line here
+
+312
+00:13:01,120 --> 00:13:05,200
+and my cursor is here
+
+313
+00:13:02,959 --> 00:13:07,839
+now if i go narrow to region
+
+314
+00:13:05,200 --> 00:13:09,440
+it should it should just narrow to that
+
+315
+00:13:07,839 --> 00:13:13,360
+part okay
+
+316
+00:13:09,440 --> 00:13:15,440
+without making any selection okay so
+
+317
+00:13:13,360 --> 00:13:16,880
+call it
+
+318
+00:13:15,440 --> 00:13:19,200
+wait is that right
+
+319
+00:13:16,880 --> 00:13:21,200
+undo
+
+320
+00:13:19,200 --> 00:13:24,000
+uh
+
+321
+00:13:21,200 --> 00:13:25,600
+it should begin here and end here
+
+322
+00:13:24,000 --> 00:13:28,959
+because there's no empty lines in
+
+323
+00:13:25,600 --> 00:13:33,480
+between there so let's do it again so
+
+324
+00:13:28,959 --> 00:13:33,480
+make sure we got the code correct
+
+325
+00:13:42,800 --> 00:13:50,480
+okay it should okay let's do it
+
+326
+00:13:47,360 --> 00:13:52,399
+oh okay okay i see i'm not actually i'm
+
+327
+00:13:50,480 --> 00:13:54,720
+i was calling narrator region i was
+
+328
+00:13:52,399 --> 00:13:57,360
+encoding our version so now let's call
+
+329
+00:13:54,720 --> 00:14:00,079
+our version meta x
+
+330
+00:13:57,360 --> 00:14:03,360
+xor narrow to region you can see in in
+
+331
+00:14:00,079 --> 00:14:05,760
+the mini buffer middle extra narrative
+
+332
+00:14:03,360 --> 00:14:05,760
+region
+
+333
+00:14:05,920 --> 00:14:11,199
+fantastic
+
+334
+00:14:08,560 --> 00:14:12,079
+widen now let's let's put the cursor
+
+335
+00:14:11,199 --> 00:14:14,639
+here
+
+336
+00:14:12,079 --> 00:14:17,360
+and it should narrow to you know this
+
+337
+00:14:14,639 --> 00:14:21,839
+part
+
+338
+00:14:17,360 --> 00:14:23,279
+i mean i external to region fantastic
+
+339
+00:14:21,839 --> 00:14:26,959
+widen
+
+340
+00:14:23,279 --> 00:14:28,639
+okay now let's let's let's uh try do
+
+341
+00:14:26,959 --> 00:14:31,839
+some uh
+
+342
+00:14:28,639 --> 00:14:34,320
+you know edge case testing so
+
+343
+00:14:31,839 --> 00:14:36,560
+show white space so let's say the buffer
+
+344
+00:14:34,320 --> 00:14:39,040
+does not have a
+
+345
+00:14:36,560 --> 00:14:40,720
+long end at the end when you con when
+
+346
+00:14:39,040 --> 00:14:42,800
+you call your command what will happen
+
+347
+00:14:40,720 --> 00:14:45,519
+because it's trying to search for empty
+
+348
+00:14:42,800 --> 00:14:47,839
+lines so let's try it
+
+349
+00:14:45,519 --> 00:14:50,160
+sign out region do it
+
+350
+00:14:47,839 --> 00:14:52,639
+fantastic it works
+
+351
+00:14:50,160 --> 00:14:52,639
+widen
+
+352
+00:14:53,040 --> 00:14:58,880
+now what if there is no
+
+353
+00:14:54,880 --> 00:15:02,480
+lines in the beginning so
+
+354
+00:14:58,880 --> 00:15:05,040
+do it fantastic it works so okay this is
+
+355
+00:15:02,480 --> 00:15:06,959
+done so we got this function done now
+
+356
+00:15:05,040 --> 00:15:10,160
+this function is going to be part of
+
+357
+00:15:06,959 --> 00:15:11,519
+sapphire keys so let's put it there so
+
+358
+00:15:10,160 --> 00:15:15,839
+let's
+
+359
+00:15:11,519 --> 00:15:15,839
+delete it wait uh delete it
+
+360
+00:15:16,160 --> 00:15:20,800
+now
+
+361
+00:15:17,199 --> 00:15:22,800
+call describe key then press a key
+
+362
+00:15:20,800 --> 00:15:25,120
+that's one of the functioning stuff like
+
+363
+00:15:22,800 --> 00:15:28,480
+keys so i press this key
+
+364
+00:15:25,120 --> 00:15:30,560
+this key called saffly command oct
+
+365
+00:15:28,480 --> 00:15:31,759
+command mod activate
+
+366
+00:15:30,560 --> 00:15:34,399
+and then
+
+367
+00:15:31,759 --> 00:15:36,720
+so that the documentation pops up so i
+
+368
+00:15:34,399 --> 00:15:40,160
+can just tab to the link
+
+369
+00:15:36,720 --> 00:15:41,519
+softly keys dot el to the file press
+
+370
+00:15:40,160 --> 00:15:44,000
+enter
+
+371
+00:15:41,519 --> 00:15:46,720
+then i'm seeing the source code so this
+
+372
+00:15:44,000 --> 00:15:48,560
+is one of the fastest way
+
+373
+00:15:46,720 --> 00:15:51,519
+now here's a tip okay this is the
+
+374
+00:15:48,560 --> 00:15:55,279
+fastest way when you want to open
+
+375
+00:15:51,519 --> 00:15:57,759
+some emac list package file
+
+376
+00:15:55,279 --> 00:16:00,240
+you know as opposed to
+
+377
+00:15:57,759 --> 00:16:02,160
+call open file then type the directory
+
+378
+00:16:00,240 --> 00:16:04,880
+path but you you don't remember where is
+
+379
+00:16:02,160 --> 00:16:08,160
+it the file located so you have to you
+
+380
+00:16:04,880 --> 00:16:10,320
+know type completions directory com you
+
+381
+00:16:08,160 --> 00:16:11,360
+know that's directory completion that's
+
+382
+00:16:10,320 --> 00:16:14,079
+tedious
+
+383
+00:16:11,360 --> 00:16:16,000
+so instead instead you just call
+
+384
+00:16:14,079 --> 00:16:17,600
+describe key
+
+385
+00:16:16,000 --> 00:16:20,560
+so you he is you can see all the
+
+386
+00:16:17,600 --> 00:16:23,199
+commands here you call describe key
+
+387
+00:16:20,560 --> 00:16:25,279
+then you type the key to one of that
+
+388
+00:16:23,199 --> 00:16:27,360
+code from the command in the in the
+
+389
+00:16:25,279 --> 00:16:29,920
+package then you'll show you the
+
+390
+00:16:27,360 --> 00:16:31,680
+documentation for that
+
+391
+00:16:29,920 --> 00:16:34,000
+function then there's a link to the
+
+392
+00:16:31,680 --> 00:16:36,880
+source code where is it defined then
+
+393
+00:16:34,000 --> 00:16:38,800
+press enter so that's how we got here
+
+394
+00:16:36,880 --> 00:16:41,440
+so
+
+395
+00:16:38,800 --> 00:16:44,000
+so now let's open a new buffer paste it
+
+396
+00:16:41,440 --> 00:16:45,839
+so this is our code okay
+
+397
+00:16:44,000 --> 00:16:47,440
+and let's
+
+398
+00:16:45,839 --> 00:16:49,839
+let's
+
+399
+00:16:47,440 --> 00:16:52,560
+list matching lines let's list all the
+
+400
+00:16:49,839 --> 00:16:55,600
+functions in this package let's see
+
+401
+00:16:52,560 --> 00:16:58,399
+where do i want to put it
+
+402
+00:16:55,600 --> 00:17:02,240
+i mean what order which position so
+
+403
+00:16:58,399 --> 00:17:05,760
+let's see comments and questions
+
+404
+00:17:02,240 --> 00:17:07,679
+okay so let's put in
+
+405
+00:17:05,760 --> 00:17:10,079
+narrow to region so this is some
+
+406
+00:17:07,679 --> 00:17:11,360
+customized narrative region where should
+
+407
+00:17:10,079 --> 00:17:12,640
+you put
+
+408
+00:17:11,360 --> 00:17:14,799
+it
+
+409
+00:17:12,640 --> 00:17:17,199
+you know you want in usually you want to
+
+410
+00:17:14,799 --> 00:17:19,360
+put it where
+
+411
+00:17:17,199 --> 00:17:22,880
+of other functions that does similar
+
+412
+00:17:19,360 --> 00:17:24,559
+things like user
+
+413
+00:17:22,880 --> 00:17:27,600
+okay let's see
+
+414
+00:17:24,559 --> 00:17:30,400
+space to newline field and field
+
+415
+00:17:27,600 --> 00:17:33,760
+up case region toggle case delete
+
+416
+00:17:30,400 --> 00:17:35,840
+backward char copy or forward forward
+
+417
+00:17:33,760 --> 00:17:36,799
+punctuation
+
+418
+00:17:35,840 --> 00:17:38,960
+uh
+
+419
+00:17:36,799 --> 00:17:40,480
+end of line of block beginning of line
+
+420
+00:17:38,960 --> 00:17:42,960
+or block
+
+421
+00:17:40,480 --> 00:17:45,679
+okay somewhere here okay
+
+422
+00:17:42,960 --> 00:17:48,720
+copy or cut or paste or paste previous
+
+423
+00:17:45,679 --> 00:17:48,720
+show kyo ring
+
+424
+00:17:51,280 --> 00:17:55,840
+okay let's put here forward smart quote
+
+425
+00:17:54,480 --> 00:17:57,039
+okay
+
+426
+00:17:55,840 --> 00:17:58,960
+so let's
+
+427
+00:17:57,039 --> 00:18:02,080
+put it
+
+428
+00:17:58,960 --> 00:18:05,039
+yeah okay let's put it here paste it
+
+429
+00:18:02,080 --> 00:18:05,919
+there it is fantastic so narrow to
+
+430
+00:18:05,039 --> 00:18:08,000
+region
+
+431
+00:18:05,919 --> 00:18:08,880
+now save the file
+
+432
+00:18:08,000 --> 00:18:10,640
+now
+
+433
+00:18:08,880 --> 00:18:13,440
+you want to
+
+434
+00:18:10,640 --> 00:18:15,760
+now in software keys there's a key
+
+435
+00:18:13,440 --> 00:18:18,400
+that calls narrow to region let me show
+
+436
+00:18:15,760 --> 00:18:20,400
+you describe key
+
+437
+00:18:18,400 --> 00:18:22,880
+space n n
+
+438
+00:18:20,400 --> 00:18:25,600
+you can see
+
+439
+00:18:22,880 --> 00:18:27,840
+space n n runs the command narrow to
+
+440
+00:18:25,600 --> 00:18:30,240
+region
+
+441
+00:18:27,840 --> 00:18:32,480
+i want to replace that key by calling
+
+442
+00:18:30,240 --> 00:18:33,520
+our own function our own version of the
+
+443
+00:18:32,480 --> 00:18:34,320
+function
+
+444
+00:18:33,520 --> 00:18:37,039
+okay
+
+445
+00:18:34,320 --> 00:18:38,480
+search for narrow to region
+
+446
+00:18:37,039 --> 00:18:40,000
+copy sun
+
+447
+00:18:38,480 --> 00:18:42,000
+out region
+
+448
+00:18:40,000 --> 00:18:45,600
+search narrow to region okay there are
+
+449
+00:18:42,000 --> 00:18:46,799
+so many okay so where is it
+
+450
+00:18:45,600 --> 00:18:48,080
+okay
+
+451
+00:18:46,799 --> 00:18:49,280
+uh
+
+452
+00:18:48,080 --> 00:18:52,400
+there it is
+
+453
+00:18:49,280 --> 00:18:56,240
+okay so you see that line
+
+454
+00:18:52,400 --> 00:18:57,679
+now you want to replace that by xanar to
+
+455
+00:18:56,240 --> 00:18:58,640
+region
+
+456
+00:18:57,679 --> 00:19:01,039
+now
+
+457
+00:18:58,640 --> 00:19:04,160
+fantastic
+
+458
+00:19:01,039 --> 00:19:06,320
+so this is stuff like keys now it just
+
+459
+00:19:04,160 --> 00:19:08,960
+improved okay now let's go all the way
+
+460
+00:19:06,320 --> 00:19:09,760
+to the top and modify the version line
+
+461
+00:19:08,960 --> 00:19:12,160
+so
+
+462
+00:19:09,760 --> 00:19:12,160
+today
+
+463
+00:19:12,640 --> 00:19:18,240
+insert today's date timestamp
+
+464
+00:19:15,679 --> 00:19:20,559
+date and time in seconds
+
+465
+00:19:18,240 --> 00:19:23,280
+then increase the version should we well
+
+466
+00:19:20,559 --> 00:19:24,720
+yeah it's because it's a new feature
+
+467
+00:19:23,280 --> 00:19:28,000
+so
+
+468
+00:19:24,720 --> 00:19:31,200
+a new version of xrfi keys
+
+469
+00:19:28,000 --> 00:19:32,720
+okay it's on github so let's let's push
+
+470
+00:19:31,200 --> 00:19:34,480
+to github so
+
+471
+00:19:32,720 --> 00:19:35,520
+you know you guys can see the code right
+
+472
+00:19:34,480 --> 00:19:37,120
+away
+
+473
+00:19:35,520 --> 00:19:38,960
+so okay so
+
+474
+00:19:37,120 --> 00:19:42,000
+but first of all right now you are
+
+475
+00:19:38,960 --> 00:19:45,039
+looking at xr packages so these are all
+
+476
+00:19:42,000 --> 00:19:47,520
+my uh packages remove the
+
+477
+00:19:45,039 --> 00:19:50,160
+backup files delete them so this is all
+
+478
+00:19:47,520 --> 00:19:52,480
+my packages but i have a dedicated
+
+479
+00:19:50,160 --> 00:19:56,720
+github for soft light keys
+
+480
+00:19:52,480 --> 00:19:56,720
+so open that and call the command
+
+481
+00:19:58,640 --> 00:20:06,799
+that will copy the current file into
+
+482
+00:20:03,440 --> 00:20:11,039
+into the directory of sapphire keys on
+
+483
+00:20:06,799 --> 00:20:13,520
+on you know a dedicated kit for sapphire
+
+484
+00:20:11,039 --> 00:20:16,960
+keys okay so
+
+485
+00:20:13,520 --> 00:20:18,559
+we just copied and now let's call
+
+486
+00:20:16,960 --> 00:20:21,039
+vc diff
+
+487
+00:20:18,559 --> 00:20:22,799
+see what's the difference between the
+
+488
+00:20:21,039 --> 00:20:25,440
+the current version and the previous
+
+489
+00:20:22,799 --> 00:20:27,520
+version in git
+
+490
+00:20:25,440 --> 00:20:30,159
+so you can see we changed the version
+
+491
+00:20:27,520 --> 00:20:32,799
+date and we changed
+
+492
+00:20:30,159 --> 00:20:36,240
+you know so this is this entire block is
+
+493
+00:20:32,799 --> 00:20:38,240
+new start narrow to region
+
+494
+00:20:36,240 --> 00:20:42,320
+okay
+
+495
+00:20:38,240 --> 00:20:44,880
+and some other fixes okay uh
+
+496
+00:20:42,320 --> 00:20:46,880
+yeah some other fixes i did before
+
+497
+00:20:44,880 --> 00:20:48,960
+so anyway so it's there
+
+498
+00:20:46,880 --> 00:20:52,720
+so okay that's good
+
+499
+00:20:48,960 --> 00:20:55,919
+go to isiah emacs show the fastest most
+
+500
+00:20:52,720 --> 00:20:58,320
+convenient show written in emac beast so
+
+501
+00:20:55,919 --> 00:21:00,000
+you see when you master emac list
+
+502
+00:20:58,320 --> 00:21:01,360
+everything is possible
+
+503
+00:21:00,000 --> 00:21:03,679
+so now
+
+504
+00:21:01,360 --> 00:21:06,240
+git status
+
+505
+00:21:03,679 --> 00:21:07,760
+git add
+
+506
+00:21:06,240 --> 00:21:12,400
+git commit
+
+507
+00:21:07,760 --> 00:21:15,120
+okay so you want to say xrfl keys okay
+
+508
+00:21:12,400 --> 00:21:16,559
+so you want to say
+
+509
+00:21:15,120 --> 00:21:19,200
+new
+
+510
+00:21:16,559 --> 00:21:19,200
+okay so
+
+511
+00:21:19,280 --> 00:21:23,440
+what's the name
+
+512
+00:21:20,960 --> 00:21:25,919
+saw narrow to region okay
+
+513
+00:21:23,440 --> 00:21:30,799
+nukes are not region this
+
+514
+00:21:25,919 --> 00:21:31,919
+okay you cannot see it but um
+
+515
+00:21:30,799 --> 00:21:33,600
+okay so
+
+516
+00:21:31,919 --> 00:21:36,240
+get
+
+517
+00:21:33,600 --> 00:21:38,159
+commit message stuff like his nukes are
+
+518
+00:21:36,240 --> 00:21:41,440
+narrow to region okay
+
+519
+00:21:38,159 --> 00:21:44,480
+enter fantastic now
+
+520
+00:21:41,440 --> 00:21:48,480
+get pushed
+
+521
+00:21:44,480 --> 00:21:52,159
+okay now it's on github stuff like keys
+
+522
+00:21:48,480 --> 00:21:55,600
+download it and use it and it's free
+
+523
+00:21:52,159 --> 00:21:56,400
+okay we finished one job
+
+524
+00:21:55,600 --> 00:21:58,400
+now
+
+525
+00:21:56,400 --> 00:22:00,080
+let's close close
+
+526
+00:21:58,400 --> 00:22:03,200
+okay so
+
+527
+00:22:00,080 --> 00:22:03,200
+narrow um
+
+528
+00:22:05,280 --> 00:22:09,280
+i want to
+
+529
+00:22:06,799 --> 00:22:12,280
+i want to update the key so i can use it
+
+530
+00:22:09,280 --> 00:22:12,280
+myself
+
+531
+00:22:12,320 --> 00:22:18,240
+uh let me show you so so right now i'm
+
+532
+00:22:14,880 --> 00:22:20,960
+in this soft light defined keys you know
+
+533
+00:22:18,240 --> 00:22:23,039
+that's the heart of soft flag keys so we
+
+534
+00:22:20,960 --> 00:22:25,039
+need to
+
+535
+00:22:23,039 --> 00:22:27,520
+evaluate this function you know because
+
+536
+00:22:25,039 --> 00:22:29,679
+we made a change so that i don't have to
+
+537
+00:22:27,520 --> 00:22:31,280
+restart emacs i can have it right away
+
+538
+00:22:29,679 --> 00:22:32,400
+so do it
+
+539
+00:22:31,280 --> 00:22:36,559
+okay
+
+540
+00:22:32,400 --> 00:22:38,960
+so now describe key space n n
+
+541
+00:22:36,559 --> 00:22:41,280
+it says
+
+542
+00:22:38,960 --> 00:22:43,360
+runs the command saw narrow to region
+
+543
+00:22:41,280 --> 00:22:45,440
+correct fantastic
+
+544
+00:22:43,360 --> 00:22:47,840
+okay so that's one thing done so let's
+
+545
+00:22:45,440 --> 00:22:49,039
+get on to the next thing close close
+
+546
+00:22:47,840 --> 00:22:50,000
+close
+
+547
+00:22:49,039 --> 00:22:53,960
+uh
+
+548
+00:22:50,000 --> 00:22:53,960
+close don't save
+
+549
+00:22:54,480 --> 00:23:00,320
+undo this is this is our pad you know
+
+550
+00:22:57,520 --> 00:23:02,240
+the temporary pad now press a key to
+
+551
+00:23:00,320 --> 00:23:04,880
+make them go back to the sound talk show
+
+552
+00:23:02,240 --> 00:23:06,559
+page showing browser you can see the
+
+553
+00:23:04,880 --> 00:23:07,760
+code here as well
+
+554
+00:23:06,559 --> 00:23:10,320
+and
+
+555
+00:23:07,760 --> 00:23:10,320
+color it
+
+556
+00:23:11,600 --> 00:23:18,480
+back to browser refresh fantastic color
+
+557
+00:23:16,720 --> 00:23:20,640
+okay next
+
+558
+00:23:18,480 --> 00:23:22,960
+how long have i been talking 22 minutes
+
+559
+00:23:20,640 --> 00:23:26,159
+we can do one or two more
+
+560
+00:23:22,960 --> 00:23:28,960
+comments and questions emacs master
+
+561
+00:23:26,159 --> 00:23:32,000
+peter gade the dude
+
+562
+00:23:28,960 --> 00:23:32,000
+fantastic next
+
+563
+00:23:32,960 --> 00:23:39,200
+write a sarso lines that works on
+
+564
+00:23:35,600 --> 00:23:40,559
+current block if there's no region
+
+565
+00:23:39,200 --> 00:23:43,600
+okay
+
+566
+00:23:40,559 --> 00:23:48,240
+this is very similar to two previous so
+
+567
+00:23:43,600 --> 00:23:48,240
+we're gonna do this fast silent
+
+568
+00:23:48,559 --> 00:23:54,320
+uh it's like silent movies you know um
+
+569
+00:23:51,760 --> 00:23:57,279
+silent era asylum movie so let me just
+
+570
+00:23:54,320 --> 00:23:57,279
+do this quickly
+
+571
+00:23:58,480 --> 00:24:02,000
+the fun
+
+572
+00:24:00,000 --> 00:24:03,440
+uh the command name would be
+
+573
+00:24:02,000 --> 00:24:07,279
+[Music]
+
+574
+00:24:03,440 --> 00:24:07,279
+exacto lines okay
+
+575
+00:24:07,440 --> 00:24:10,080
+put here
+
+576
+00:24:10,799 --> 00:24:13,279
+paste
+
+577
+00:24:14,720 --> 00:24:18,799
+like so lines
+
+578
+00:24:16,559 --> 00:24:23,600
+but if no region
+
+579
+00:24:18,799 --> 00:24:26,000
+do the current block okay
+
+580
+00:24:23,600 --> 00:24:26,000
+version
+
+581
+00:24:26,720 --> 00:24:29,120
+date
+
+582
+00:24:29,200 --> 00:24:33,760
+okay that's
+
+583
+00:24:30,840 --> 00:24:34,640
+the yeah that's the that's the command
+
+584
+00:24:33,760 --> 00:24:35,919
+so
+
+585
+00:24:34,640 --> 00:24:38,960
+again
+
+586
+00:24:35,919 --> 00:24:41,919
+just like narrow to region
+
+587
+00:24:38,960 --> 00:24:44,880
+open a new buffer open a new window
+
+588
+00:24:41,919 --> 00:24:44,880
+let's go to
+
+589
+00:24:45,279 --> 00:24:49,840
+now let's let let me show you some uh
+
+590
+00:24:47,360 --> 00:24:51,679
+variations okay so
+
+591
+00:24:49,840 --> 00:24:55,039
+describe key let's jump to the
+
+592
+00:24:51,679 --> 00:24:59,360
+definition of narrow to region uh
+
+593
+00:24:55,039 --> 00:25:00,640
+sapphire keys okay what what is this
+
+594
+00:24:59,360 --> 00:25:02,960
+okay so
+
+595
+00:25:00,640 --> 00:25:05,679
+so go to sapphire keys
+
+596
+00:25:02,960 --> 00:25:09,120
+search forks are narrow
+
+597
+00:25:05,679 --> 00:25:11,600
+okay here's uh now remember in this
+
+598
+00:25:09,120 --> 00:25:13,679
+in this examination region we need to
+
+599
+00:25:11,600 --> 00:25:15,520
+find the beginning and end position of
+
+600
+00:25:13,679 --> 00:25:18,720
+the text block
+
+601
+00:25:15,520 --> 00:25:21,039
+and we did that using this
+
+602
+00:25:18,720 --> 00:25:22,000
+this code but there's an easy way okay
+
+603
+00:25:21,039 --> 00:25:24,240
+so
+
+604
+00:25:22,000 --> 00:25:25,360
+there's a because i have already written
+
+605
+00:25:24,240 --> 00:25:27,919
+a package
+
+606
+00:25:25,360 --> 00:25:30,400
+you don't need uh you know all these 10
+
+607
+00:25:27,919 --> 00:25:32,159
+lines so there's already a package so
+
+608
+00:25:30,400 --> 00:25:33,600
+let me show you
+
+609
+00:25:32,159 --> 00:25:35,120
+um
+
+610
+00:25:33,600 --> 00:25:38,320
+search for
+
+611
+00:25:35,120 --> 00:25:41,600
+block okay
+
+612
+00:25:38,320 --> 00:25:45,600
+there okay so let me just show you um
+
+613
+00:25:41,600 --> 00:25:45,600
+yeah let me show you okay so
+
+614
+00:25:47,600 --> 00:25:52,559
+so you see this block of code will find
+
+615
+00:25:50,400 --> 00:25:54,799
+the current um
+
+616
+00:25:52,559 --> 00:25:57,039
+the position of the beginning
+
+617
+00:25:54,799 --> 00:25:58,720
+paragraph and end position of n
+
+618
+00:25:57,039 --> 00:26:00,799
+paragraph now
+
+619
+00:25:58,720 --> 00:26:03,039
+you can do that by this one single
+
+620
+00:26:00,799 --> 00:26:04,159
+command star get bounce or block or
+
+621
+00:26:03,039 --> 00:26:05,679
+region
+
+622
+00:26:04,159 --> 00:26:07,840
+target balance of
+
+623
+00:26:05,679 --> 00:26:10,400
+a block or region yeah
+
+624
+00:26:07,840 --> 00:26:11,440
+so let me show you how this works okay
+
+625
+00:26:10,400 --> 00:26:16,880
+so
+
+626
+00:26:11,440 --> 00:26:16,880
+so saves you a lot of code okay so
+
+627
+00:26:18,559 --> 00:26:22,559
+so this command will return a vector of
+
+628
+00:26:21,039 --> 00:26:24,480
+three things
+
+629
+00:26:22,559 --> 00:26:27,200
+beginning position
+
+630
+00:26:24,480 --> 00:26:28,240
+and position
+
+631
+00:26:27,200 --> 00:26:30,159
+uh
+
+632
+00:26:28,240 --> 00:26:32,559
+no it returned two things beginning
+
+633
+00:26:30,159 --> 00:26:35,200
+position and end position what are they
+
+634
+00:26:32,559 --> 00:26:37,600
+if there's if there's a region
+
+635
+00:26:35,200 --> 00:26:40,080
+these positions are of the region if
+
+636
+00:26:37,600 --> 00:26:42,320
+there's no region these positions are
+
+637
+00:26:40,080 --> 00:26:43,360
+the beginning and end of the current
+
+638
+00:26:42,320 --> 00:26:44,080
+block
+
+639
+00:26:43,360 --> 00:26:47,279
+so
+
+640
+00:26:44,080 --> 00:26:48,159
+these two lines replace these 10 lines
+
+641
+00:26:47,279 --> 00:26:49,919
+okay
+
+642
+00:26:48,159 --> 00:26:51,120
+so let's uh
+
+643
+00:26:49,919 --> 00:26:53,919
+yeah so we
+
+644
+00:26:51,120 --> 00:26:56,799
+delete that so
+
+645
+00:26:53,919 --> 00:26:57,840
+delete that we can actually put it here
+
+646
+00:26:56,799 --> 00:26:59,919
+so
+
+647
+00:26:57,840 --> 00:27:02,240
+so now we got the
+
+648
+00:26:59,919 --> 00:27:02,240
+um
+
+649
+00:27:04,240 --> 00:27:11,760
+yeah so now we got the block now sold
+
+650
+00:27:08,000 --> 00:27:11,760
+lines okay salt lines
+
+651
+00:27:12,480 --> 00:27:16,799
+now we need to call salt lines okay
+
+652
+00:27:17,200 --> 00:27:21,440
+now first of all look at the
+
+653
+00:27:18,720 --> 00:27:24,960
+documentation of sold lines describe
+
+654
+00:27:21,440 --> 00:27:28,559
+function sort lines so lines so here is
+
+655
+00:27:24,960 --> 00:27:31,760
+the syntax of solar lines
+
+656
+00:27:28,559 --> 00:27:33,279
+okay begin end is going to be
+
+657
+00:27:31,760 --> 00:27:35,679
+p1
+
+658
+00:27:33,279 --> 00:27:37,840
+p2 that's the beginning and end position
+
+659
+00:27:35,679 --> 00:27:40,480
+now what is reverse reverse is true or
+
+660
+00:27:37,840 --> 00:27:42,080
+false okay so lines in the region
+
+661
+00:27:40,480 --> 00:27:44,000
+alphabetically
+
+662
+00:27:42,080 --> 00:27:47,200
+reverse the neo
+
+663
+00:27:44,000 --> 00:27:49,360
+means descending order okay so reverse
+
+664
+00:27:47,200 --> 00:27:50,000
+is true
+
+665
+00:27:49,360 --> 00:27:52,559
+t
+
+666
+00:27:50,000 --> 00:27:56,240
+is the convention in e magnesium to
+
+667
+00:27:52,559 --> 00:27:57,440
+stand for true t the variable or symbol
+
+668
+00:27:56,240 --> 00:27:58,640
+okay
+
+669
+00:27:57,440 --> 00:28:01,600
+so
+
+670
+00:27:58,640 --> 00:28:03,600
+okay so that's it for this code so
+
+671
+00:28:01,600 --> 00:28:05,679
+simple so nice so if there's no
+
+672
+00:28:03,600 --> 00:28:07,840
+selection just simply sort the current
+
+673
+00:28:05,679 --> 00:28:09,520
+block of text okay
+
+674
+00:28:07,840 --> 00:28:11,919
+about the region
+
+675
+00:28:09,520 --> 00:28:14,080
+now let's move the cursor here first of
+
+676
+00:28:11,919 --> 00:28:18,080
+all copy the function name put the
+
+677
+00:28:14,080 --> 00:28:18,080
+cursor somewhere here call it
+
+678
+00:28:19,039 --> 00:28:23,279
+paste it exactly lines okay
+
+679
+00:28:22,080 --> 00:28:26,240
+do it
+
+680
+00:28:23,279 --> 00:28:26,240
+fantastic
+
+681
+00:28:26,480 --> 00:28:31,840
+now let's copy it duplicate and let's do
+
+682
+00:28:29,520 --> 00:28:31,840
+it again
+
+683
+00:28:32,720 --> 00:28:37,279
+go ahead it you know we if we call it
+
+684
+00:28:34,880 --> 00:28:40,000
+now it should sort the lines here
+
+685
+00:28:37,279 --> 00:28:42,960
+so put this cuz somewhere here call it
+
+686
+00:28:40,000 --> 00:28:45,760
+so lines fantastic it doesn't you see it
+
+687
+00:28:42,960 --> 00:28:47,360
+doesn't go up and it doesn't go down
+
+688
+00:28:45,760 --> 00:28:48,799
+saves you time you don't have to make a
+
+689
+00:28:47,360 --> 00:28:51,840
+selection first
+
+690
+00:28:48,799 --> 00:28:54,880
+you know it's annoying in emac
+
+691
+00:28:51,840 --> 00:28:57,440
+in emacs you know the emacs list
+
+692
+00:28:54,880 --> 00:28:59,279
+the emax command so lines
+
+693
+00:28:57,440 --> 00:29:02,159
+it requires a region
+
+694
+00:28:59,279 --> 00:29:04,399
+but if you don't have a region
+
+695
+00:29:02,159 --> 00:29:06,960
+the behavior is kind of chaotic
+
+696
+00:29:04,399 --> 00:29:08,799
+unpredictable you know it's not easy to
+
+697
+00:29:06,960 --> 00:29:10,320
+figure out because i've tried you know
+
+698
+00:29:08,799 --> 00:29:13,320
+for example
+
+699
+00:29:10,320 --> 00:29:13,320
+um
+
+700
+00:29:13,760 --> 00:29:17,039
+uh because um
+
+701
+00:29:17,600 --> 00:29:22,000
+because for example let's call salt
+
+702
+00:29:19,520 --> 00:29:23,520
+lines you know now we don't have any
+
+703
+00:29:22,000 --> 00:29:26,880
+selection
+
+704
+00:29:23,520 --> 00:29:27,919
+so let's call sword lines
+
+705
+00:29:26,880 --> 00:29:29,120
+okay
+
+706
+00:29:27,919 --> 00:29:30,240
+so
+
+707
+00:29:29,120 --> 00:29:32,320
+what we are
+
+708
+00:29:30,240 --> 00:29:35,760
+i mean which region is
+
+709
+00:29:32,320 --> 00:29:37,760
+going to sort sometimes it's
+
+710
+00:29:35,760 --> 00:29:39,919
+it's the beginning from the beginning of
+
+711
+00:29:37,760 --> 00:29:42,320
+the buffer to your cursor position
+
+712
+00:29:39,919 --> 00:29:44,480
+sometimes it's from the your cruiser
+
+713
+00:29:42,320 --> 00:29:45,760
+position to end of the buffer it depends
+
+714
+00:29:44,480 --> 00:29:49,760
+so it's
+
+715
+00:29:45,760 --> 00:29:49,760
+confusing so let's try it do it
+
+716
+00:29:51,039 --> 00:29:57,440
+okay that does it didn't do anything so
+
+717
+00:29:53,520 --> 00:29:59,360
+apparently if your cursor is
+
+718
+00:29:57,440 --> 00:30:01,520
+on the empty line it doesn't do anything
+
+719
+00:29:59,360 --> 00:30:04,000
+so let's put the cursor here
+
+720
+00:30:01,520 --> 00:30:04,000
+go ahead
+
+721
+00:30:04,480 --> 00:30:08,200
+you see it sorts
+
+722
+00:30:08,720 --> 00:30:12,799
+okay so
+
+723
+00:30:10,159 --> 00:30:14,799
+so the behavior is that it sorts the
+
+724
+00:30:12,799 --> 00:30:17,200
+previous two
+
+725
+00:30:14,799 --> 00:30:19,279
+marks yeah i think that's
+
+726
+00:30:17,200 --> 00:30:21,840
+that's the behavior
+
+727
+00:30:19,279 --> 00:30:23,760
+so anyway we want this one you know
+
+728
+00:30:21,840 --> 00:30:25,520
+without region just sort the current
+
+729
+00:30:23,760 --> 00:30:27,279
+text block
+
+730
+00:30:25,520 --> 00:30:28,559
+okay so now
+
+731
+00:30:27,279 --> 00:30:30,640
+we're gonna
+
+732
+00:30:28,559 --> 00:30:33,840
+we're gonna copy this and put it to
+
+733
+00:30:30,640 --> 00:30:35,279
+start like keys okay do it
+
+734
+00:30:33,840 --> 00:30:38,080
+again
+
+735
+00:30:35,279 --> 00:30:41,840
+these matching lines list or defend and
+
+736
+00:30:38,080 --> 00:30:44,559
+see where do we want to put put it okay
+
+737
+00:30:41,840 --> 00:30:48,320
+search for narrow let's put it around
+
+738
+00:30:44,559 --> 00:30:49,520
+the narrow to region okay so put it here
+
+739
+00:30:48,320 --> 00:30:52,559
+there
+
+740
+00:30:49,520 --> 00:30:56,720
+okay and also let's modify the narrowed
+
+741
+00:30:52,559 --> 00:30:59,679
+region we don't want this uh this giant
+
+742
+00:30:56,720 --> 00:31:00,880
+block of code instead we can just use
+
+743
+00:30:59,679 --> 00:31:03,279
+this
+
+744
+00:31:00,880 --> 00:31:05,840
+you know these two lines okay so let's
+
+745
+00:31:03,279 --> 00:31:05,840
+do that
+
+746
+00:31:28,399 --> 00:31:35,120
+okay so that's it that's
+
+747
+00:31:30,840 --> 00:31:38,320
+um so now we have added
+
+748
+00:31:35,120 --> 00:31:38,320
+exactly lines
+
+749
+00:31:41,120 --> 00:31:47,080
+let's add a key to it so search for salt
+
+750
+00:31:44,080 --> 00:31:47,080
+lines
+
+751
+00:31:47,919 --> 00:31:52,399
+okay so you can see this line
+
+752
+00:31:51,120 --> 00:31:54,640
+i want to
+
+753
+00:31:52,399 --> 00:31:56,240
+now it's going to be exactly lines
+
+754
+00:31:54,640 --> 00:31:59,840
+fantastic
+
+755
+00:31:56,240 --> 00:32:02,880
+evaluate this region
+
+756
+00:31:59,840 --> 00:32:05,120
+okay we did it now we've done uh two
+
+757
+00:32:02,880 --> 00:32:06,559
+things now let's see
+
+758
+00:32:05,120 --> 00:32:10,320
+yeah now let's
+
+759
+00:32:06,559 --> 00:32:10,320
+now we did two functions okay
+
+760
+00:32:10,399 --> 00:32:19,519
+make a backup close it close it close it
+
+761
+00:32:15,679 --> 00:32:22,000
+put it back to the html syntax color it
+
+762
+00:32:19,519 --> 00:32:24,320
+show in browser
+
+763
+00:32:22,000 --> 00:32:24,320
+what
+
+764
+00:32:24,480 --> 00:32:27,480
+wait
+
+765
+00:32:28,640 --> 00:32:32,559
+syntax client
+
+766
+00:32:30,559 --> 00:32:35,440
+expand the buffer
+
+767
+00:32:32,559 --> 00:32:38,080
+showing browser
+
+768
+00:32:35,440 --> 00:32:40,960
+fantastic we finished one function and
+
+769
+00:32:38,080 --> 00:32:45,519
+two functions one more okay one more
+
+770
+00:32:40,960 --> 00:32:47,679
+uh we talked for 30 minutes one more
+
+771
+00:32:45,519 --> 00:32:49,679
+highlight unicode so this is a bit
+
+772
+00:32:47,679 --> 00:32:50,559
+different okay so let's begin to write
+
+773
+00:32:49,679 --> 00:32:52,399
+it
+
+774
+00:32:50,559 --> 00:32:57,320
+close it reopen
+
+775
+00:32:52,399 --> 00:32:57,320
+let's begin to write it
+
+776
+00:32:58,480 --> 00:33:03,679
+define
+
+777
+00:33:00,559 --> 00:33:03,679
+the function name
+
+778
+00:33:07,440 --> 00:33:13,600
+highlight unicode okay documentation
+
+779
+00:33:11,360 --> 00:33:16,240
+height
+
+780
+00:33:13,600 --> 00:33:16,240
+highlight
+
+781
+00:33:16,320 --> 00:33:20,559
+unicode
+
+782
+00:33:17,840 --> 00:33:20,559
+characters
+
+783
+00:33:22,240 --> 00:33:26,080
+highlight all unicode characters in
+
+784
+00:33:25,039 --> 00:33:27,200
+current
+
+785
+00:33:26,080 --> 00:33:29,039
+block
+
+786
+00:33:27,200 --> 00:33:31,120
+or selection
+
+787
+00:33:29,039 --> 00:33:32,799
+okay
+
+788
+00:33:31,120 --> 00:33:34,240
+version
+
+789
+00:33:32,799 --> 00:33:38,159
+date okay
+
+790
+00:33:34,240 --> 00:33:41,760
+again we need to make a selection of the
+
+791
+00:33:38,159 --> 00:33:44,240
+of the current block okay so let's copy
+
+792
+00:33:41,760 --> 00:33:47,840
+code again
+
+793
+00:33:44,240 --> 00:33:47,840
+okay here copy the code
+
+794
+00:33:48,640 --> 00:33:53,279
+by the way so that code that code get
+
+795
+00:33:52,240 --> 00:33:55,679
+bounce
+
+796
+00:33:53,279 --> 00:34:00,080
+of block or region
+
+797
+00:33:55,679 --> 00:34:01,679
+is in one of my packages you can see so
+
+798
+00:34:00,080 --> 00:34:03,440
+you are looking at the source code of
+
+799
+00:34:01,679 --> 00:34:07,679
+that code
+
+800
+00:34:03,440 --> 00:34:10,079
+and if you look at so this command this
+
+801
+00:34:07,679 --> 00:34:12,320
+function is calling this
+
+802
+00:34:10,079 --> 00:34:14,639
+function to do the work so if you go
+
+803
+00:34:12,320 --> 00:34:14,639
+there
+
+804
+00:34:15,280 --> 00:34:20,399
+go to the definition of that function
+
+805
+00:34:17,200 --> 00:34:22,720
+where is it
+
+806
+00:34:20,399 --> 00:34:22,720
+here
+
+807
+00:34:23,040 --> 00:34:27,119
+you see
+
+808
+00:34:24,960 --> 00:34:29,919
+that's the function
+
+809
+00:34:27,119 --> 00:34:30,879
+basically just like we manually coded
+
+810
+00:34:29,919 --> 00:34:34,720
+before
+
+811
+00:34:30,879 --> 00:34:35,520
+it's doing it by searching uh searching
+
+812
+00:34:34,720 --> 00:34:38,399
+for
+
+813
+00:34:35,520 --> 00:34:41,040
+two empty lines using regular expression
+
+814
+00:34:38,399 --> 00:34:44,159
+and this package you can go to the top
+
+815
+00:34:41,040 --> 00:34:45,359
+you can see the url here go to the url
+
+816
+00:34:44,159 --> 00:34:47,440
+open it
+
+817
+00:34:45,359 --> 00:34:50,320
+show in browser
+
+818
+00:34:47,440 --> 00:34:52,960
+uh wait not because i fly keys
+
+819
+00:34:50,320 --> 00:34:52,960
+uh what
+
+820
+00:34:54,480 --> 00:34:58,960
+okay wait no that's not the command what
+
+821
+00:35:00,880 --> 00:35:05,520
+oh never mind i defined it in soft like
+
+822
+00:35:03,440 --> 00:35:06,800
+keys okay but but anyway there's a
+
+823
+00:35:05,520 --> 00:35:08,320
+package
+
+824
+00:35:06,800 --> 00:35:11,920
+um
+
+825
+00:35:08,320 --> 00:35:11,920
+and let me show you here okay
+
+826
+00:35:12,960 --> 00:35:18,079
+so general purpose elise util
+
+827
+00:35:17,040 --> 00:35:20,079
+this one
+
+828
+00:35:18,079 --> 00:35:22,960
+get thing okay
+
+829
+00:35:20,079 --> 00:35:26,240
+so socket thing this is a replacement
+
+830
+00:35:22,960 --> 00:35:28,880
+for the bld emax thing at point
+
+831
+00:35:26,240 --> 00:35:31,599
+because thing at point it's got some
+
+832
+00:35:28,880 --> 00:35:32,640
+problems it's very useful
+
+833
+00:35:31,599 --> 00:35:34,880
+but
+
+834
+00:35:32,640 --> 00:35:37,760
+it doesn't for example it you cannot use
+
+835
+00:35:34,880 --> 00:35:39,280
+it to get the beginning and end position
+
+836
+00:35:37,760 --> 00:35:41,440
+of the current
+
+837
+00:35:39,280 --> 00:35:44,800
+block of code
+
+838
+00:35:41,440 --> 00:35:48,880
+that's why so i wrote this one so if you
+
+839
+00:35:44,800 --> 00:35:50,640
+like it you know buy it it's open source
+
+840
+00:35:48,880 --> 00:35:54,320
+okay so
+
+841
+00:35:50,640 --> 00:35:59,000
+what is it we are doing now so get block
+
+842
+00:35:54,320 --> 00:35:59,000
+of code yeah so we need to um
+
+843
+00:36:04,079 --> 00:36:07,359
+so let's get uh
+
+844
+00:36:08,320 --> 00:36:12,480
+okay close it
+
+845
+00:36:09,920 --> 00:36:16,079
+so
+
+846
+00:36:12,480 --> 00:36:16,460
+oh yeah so the so we want to write
+
+847
+00:36:16,079 --> 00:36:17,839
+um
+
+848
+00:36:16,460 --> 00:36:20,000
+[Music]
+
+849
+00:36:17,839 --> 00:36:23,640
+highlight unicode
+
+850
+00:36:20,000 --> 00:36:23,640
+so first of all
+
+851
+00:36:26,240 --> 00:36:29,119
+okay so
+
+852
+00:36:34,240 --> 00:36:39,920
+so we declare local variables bounce
+
+853
+00:36:37,520 --> 00:36:42,079
+that's beginning position basically p1
+
+854
+00:36:39,920 --> 00:36:44,000
+and p2 that's the beginning position in
+
+855
+00:36:42,079 --> 00:36:48,240
+the end position there
+
+856
+00:36:44,000 --> 00:36:48,240
+i think i had a mistake somewhere
+
+857
+00:36:52,000 --> 00:36:57,839
+so p1 p2 that's our local variable
+
+858
+00:36:55,599 --> 00:36:57,839
+then
+
+859
+00:36:58,240 --> 00:37:04,800
+yeah okay so never anyway so
+
+860
+00:37:01,119 --> 00:37:04,800
+narrow to region we don't need
+
+861
+00:37:05,359 --> 00:37:09,839
+so we define p1 and p2
+
+862
+00:37:11,200 --> 00:37:14,960
+and now
+
+863
+00:37:12,800 --> 00:37:17,040
+so now we got the beginning position and
+
+864
+00:37:14,960 --> 00:37:20,040
+end position so now we just search
+
+865
+00:37:17,040 --> 00:37:20,040
+forward
+
+866
+00:37:25,599 --> 00:37:31,200
+we want to search for any character
+
+867
+00:37:27,920 --> 00:37:31,200
+that's not a unicode
+
+868
+00:37:32,160 --> 00:37:36,640
+okay search for any character that's not
+
+869
+00:37:34,480 --> 00:37:37,410
+unicode so the regular expression is
+
+870
+00:37:36,640 --> 00:37:38,800
+going to be
+
+871
+00:37:37,410 --> 00:37:40,880
+[Music]
+
+872
+00:37:38,800 --> 00:37:41,920
+this okay
+
+873
+00:37:40,880 --> 00:37:44,640
+so
+
+874
+00:37:41,920 --> 00:37:47,280
+the square bracket in regular expression
+
+875
+00:37:44,640 --> 00:37:50,320
+means anything
+
+876
+00:37:47,280 --> 00:37:51,119
+any of the character inside it
+
+877
+00:37:50,320 --> 00:37:53,280
+okay
+
+878
+00:37:51,119 --> 00:37:55,839
+then inside it
+
+879
+00:37:53,280 --> 00:37:58,560
+if you begin with the correct that means
+
+880
+00:37:55,839 --> 00:38:00,000
+not whatever follows okay it kind of
+
+881
+00:37:58,560 --> 00:38:02,880
+reverse so
+
+882
+00:38:00,000 --> 00:38:06,480
+not every any anything follows and what
+
+883
+00:38:02,880 --> 00:38:09,520
+follows you give it a square bracket
+
+884
+00:38:06,480 --> 00:38:10,640
+colon ascii that means any ascii
+
+885
+00:38:09,520 --> 00:38:11,359
+character
+
+886
+00:38:10,640 --> 00:38:13,520
+so
+
+887
+00:38:11,359 --> 00:38:15,359
+this regular expression the you know the
+
+888
+00:38:13,520 --> 00:38:19,280
+whole thing considered
+
+889
+00:38:15,359 --> 00:38:20,800
+it will just find any ascii character
+
+890
+00:38:19,280 --> 00:38:24,880
+for example
+
+891
+00:38:20,800 --> 00:38:24,880
+it will not find things like
+
+892
+00:38:27,040 --> 00:38:30,320
+things like pi
+
+893
+00:38:28,560 --> 00:38:33,320
+alpha greek
+
+894
+00:38:30,320 --> 00:38:33,320
+emoji
+
+895
+00:38:36,720 --> 00:38:40,560
+uh you know like
+
+896
+00:38:38,720 --> 00:38:42,640
+copyright
+
+897
+00:38:40,560 --> 00:38:44,320
+uh those are unicode so you will not
+
+898
+00:38:42,640 --> 00:38:46,800
+find them
+
+899
+00:38:44,320 --> 00:38:49,599
+so anyway so you want to find a ascii
+
+900
+00:38:46,800 --> 00:38:51,119
+you want to find an ascii character one
+
+901
+00:38:49,599 --> 00:38:52,640
+or more okay
+
+902
+00:38:51,119 --> 00:38:54,880
+so
+
+903
+00:38:52,640 --> 00:38:58,800
+so let me do this okay uh let me do
+
+904
+00:38:54,880 --> 00:39:04,079
+write this quickly so narrow to region
+
+905
+00:38:58,800 --> 00:39:05,839
+okay p1 p2 so we work in this region
+
+906
+00:39:04,079 --> 00:39:09,599
+then we say
+
+907
+00:39:05,839 --> 00:39:11,040
+go to char go to char move cursor to
+
+908
+00:39:09,599 --> 00:39:13,680
+point mean
+
+909
+00:39:11,040 --> 00:39:14,720
+to the beginning of the buffer basically
+
+910
+00:39:13,680 --> 00:39:17,599
+then
+
+911
+00:39:14,720 --> 00:39:19,760
+we want to say while
+
+912
+00:39:17,599 --> 00:39:22,960
+okay
+
+913
+00:39:19,760 --> 00:39:22,960
+why or something
+
+914
+00:39:25,520 --> 00:39:29,200
+while we search for a character that's
+
+915
+00:39:28,400 --> 00:39:30,560
+not
+
+916
+00:39:29,200 --> 00:39:33,040
+ascii
+
+917
+00:39:30,560 --> 00:39:35,680
+then we don't want to replace match we
+
+918
+00:39:33,040 --> 00:39:38,400
+want um
+
+919
+00:39:35,680 --> 00:39:40,880
+search for character not ascii then we
+
+920
+00:39:38,400 --> 00:39:43,760
+want to highlight okay so how do you
+
+921
+00:39:40,880 --> 00:39:46,160
+highlight you go to uh
+
+922
+00:39:43,760 --> 00:39:49,359
+emac this tutorial
+
+923
+00:39:46,160 --> 00:39:52,400
+practical emac these
+
+924
+00:39:49,359 --> 00:39:54,000
+emac leaves this by the major mod then
+
+925
+00:39:52,400 --> 00:39:55,440
+you go down
+
+926
+00:39:54,000 --> 00:39:58,320
+uh we
+
+927
+00:39:55,440 --> 00:40:00,400
+covered these two days ago
+
+928
+00:39:58,320 --> 00:40:01,440
+overlay highlighting okay that's what
+
+929
+00:40:00,400 --> 00:40:04,480
+you want
+
+930
+00:40:01,440 --> 00:40:08,240
+and basically you just want this
+
+931
+00:40:04,480 --> 00:40:09,200
+line of code so let me copy that
+
+932
+00:40:08,240 --> 00:40:12,319
+so i
+
+933
+00:40:09,200 --> 00:40:15,040
+so in two two videos ago i explained
+
+934
+00:40:12,319 --> 00:40:17,119
+this okay so i'm not going to explain it
+
+935
+00:40:15,040 --> 00:40:18,800
+now so let's just do it
+
+936
+00:40:17,119 --> 00:40:20,560
+so basically we
+
+937
+00:40:18,800 --> 00:40:22,960
+create an overlay
+
+938
+00:40:20,560 --> 00:40:25,119
+kind of overlays for highlighting so we
+
+939
+00:40:22,960 --> 00:40:28,079
+create an overlay technically it's
+
+940
+00:40:25,119 --> 00:40:30,640
+called overlay so you need two positions
+
+941
+00:40:28,079 --> 00:40:33,760
+beginning and end so beginning position
+
+942
+00:40:30,640 --> 00:40:36,400
+is p1 our variable end position is p2
+
+943
+00:40:33,760 --> 00:40:36,400
+are variable
+
+944
+00:40:36,839 --> 00:40:42,640
+so wait
+
+945
+00:40:39,920 --> 00:40:44,960
+wait okay so actually let me
+
+946
+00:40:42,640 --> 00:40:48,000
+let me start over so big so
+
+947
+00:40:44,960 --> 00:40:48,000
+once it finds
+
+948
+00:40:48,480 --> 00:40:53,040
+a unicode sequence
+
+949
+00:40:51,119 --> 00:40:54,640
+okay
+
+950
+00:40:53,040 --> 00:40:56,400
+a character you know any unicode
+
+951
+00:40:54,640 --> 00:40:58,880
+sequence so
+
+952
+00:40:56,400 --> 00:41:01,200
+the regular expression search for word
+
+953
+00:40:58,880 --> 00:41:03,440
+emacs will save
+
+954
+00:41:01,200 --> 00:41:06,400
+the beginning position and end position
+
+955
+00:41:03,440 --> 00:41:08,800
+of the matched string okay so how do you
+
+956
+00:41:06,400 --> 00:41:10,319
+get that matched string that's a match
+
+957
+00:41:08,800 --> 00:41:14,000
+beginning
+
+958
+00:41:10,319 --> 00:41:14,960
+zero and match end zero
+
+959
+00:41:14,000 --> 00:41:17,119
+so
+
+960
+00:41:14,960 --> 00:41:19,359
+match beginning zero that mean that
+
+961
+00:41:17,119 --> 00:41:21,119
+means the zero means the whole string
+
+962
+00:41:19,359 --> 00:41:23,359
+that means return
+
+963
+00:41:21,119 --> 00:41:25,920
+the beginning position of the matched
+
+964
+00:41:23,359 --> 00:41:28,560
+whole string okay and similarly for
+
+965
+00:41:25,920 --> 00:41:30,400
+match n so let's so that's what this
+
+966
+00:41:28,560 --> 00:41:34,160
+overlay should be here
+
+967
+00:41:30,400 --> 00:41:35,200
+so overlay make overlay match beginning
+
+968
+00:41:34,160 --> 00:41:37,440
+okay
+
+969
+00:41:35,200 --> 00:41:38,880
+then then
+
+970
+00:41:37,440 --> 00:41:41,119
+match end
+
+971
+00:41:38,880 --> 00:41:41,119
+okay
+
+972
+00:41:44,160 --> 00:41:49,839
+and face
+
+973
+00:41:45,680 --> 00:41:49,839
+not bold highlight okay
+
+974
+00:41:51,680 --> 00:41:57,200
+we need the default face let's see
+
+975
+00:41:55,119 --> 00:41:59,520
+face
+
+976
+00:41:57,200 --> 00:42:00,720
+define phase
+
+977
+00:41:59,520 --> 00:42:04,319
+so
+
+978
+00:42:00,720 --> 00:42:05,359
+these are build in face face means a set
+
+979
+00:42:04,319 --> 00:42:08,560
+of
+
+980
+00:42:05,359 --> 00:42:10,480
+font color background color font size
+
+981
+00:42:08,560 --> 00:42:12,480
+things like that that's a face
+
+982
+00:42:10,480 --> 00:42:14,960
+so one of the building phase is
+
+983
+00:42:12,480 --> 00:42:18,160
+highlight h-i-g-h
+
+984
+00:42:14,960 --> 00:42:19,040
+okay spelled out fully highlight
+
+985
+00:42:18,160 --> 00:42:19,839
+okay
+
+986
+00:42:19,040 --> 00:42:22,800
+so
+
+987
+00:42:19,839 --> 00:42:25,359
+make overlay so let's let's make this
+
+988
+00:42:22,800 --> 00:42:27,599
+easier to see so it's pretty fine okay
+
+989
+00:42:25,359 --> 00:42:28,960
+pretty find the code
+
+990
+00:42:27,599 --> 00:42:31,839
+so
+
+991
+00:42:28,960 --> 00:42:35,119
+make overlay beginning and end position
+
+992
+00:42:31,839 --> 00:42:35,119
+that's okay so
+
+993
+00:42:36,079 --> 00:42:41,760
+then face highlight okay then we don't
+
+994
+00:42:39,119 --> 00:42:44,760
+need to active okay
+
+995
+00:42:41,760 --> 00:42:44,760
+so
+
+996
+00:42:49,040 --> 00:42:54,560
+okay basically that's it that's the code
+
+997
+00:42:51,040 --> 00:42:54,560
+that's the whole code and it's
+
+998
+00:42:56,400 --> 00:43:01,200
+so while search that and optional okay
+
+999
+00:42:59,599 --> 00:43:02,319
+bound
+
+1000
+00:43:01,200 --> 00:43:05,200
+neo
+
+1001
+00:43:02,319 --> 00:43:08,400
+no error true count we don't care okay
+
+1002
+00:43:05,200 --> 00:43:08,400
+that's the whole code
+
+1003
+00:43:08,800 --> 00:43:12,760
+so let's double check
+
+1004
+00:43:15,040 --> 00:43:19,119
+okay
+
+1005
+00:43:15,839 --> 00:43:19,119
+highlight unicode
+
+1006
+00:43:20,720 --> 00:43:25,280
+highlight any unicode okay highlight
+
+1007
+00:43:23,440 --> 00:43:27,920
+highlight or unicode characters in
+
+1008
+00:43:25,280 --> 00:43:30,480
+current block or selection okay
+
+1009
+00:43:27,920 --> 00:43:31,599
+now p1 and p2 are the beginning and end
+
+1010
+00:43:30,480 --> 00:43:34,640
+positions
+
+1011
+00:43:31,599 --> 00:43:38,079
+now we call these target bounds block or
+
+1012
+00:43:34,640 --> 00:43:40,640
+region to return the those positions
+
+1013
+00:43:38,079 --> 00:43:43,040
+may be a selection or no selection it's
+
+1014
+00:43:40,640 --> 00:43:46,079
+the beginning and end of paragraph okay
+
+1015
+00:43:43,040 --> 00:43:49,040
+then we save restriction then we narrow
+
+1016
+00:43:46,079 --> 00:43:51,440
+to region then we go to the beginning
+
+1017
+00:43:49,040 --> 00:43:52,319
+then we start to search
+
+1018
+00:43:51,440 --> 00:43:54,480
+and
+
+1019
+00:43:52,319 --> 00:43:56,960
+while if it's found
+
+1020
+00:43:54,480 --> 00:44:00,960
+make an overlay color it okay that's it
+
+1021
+00:43:56,960 --> 00:44:02,880
+evada eva region now we need to test it
+
+1022
+00:44:00,960 --> 00:44:04,800
+so how do we test it
+
+1023
+00:44:02,880 --> 00:44:06,560
+you know we can test it right here but
+
+1024
+00:44:04,800 --> 00:44:09,200
+it won't do anything because there's no
+
+1025
+00:44:06,560 --> 00:44:10,800
+unicode in this buffer so but we can try
+
+1026
+00:44:09,200 --> 00:44:13,119
+call it
+
+1027
+00:44:10,800 --> 00:44:16,400
+highlight unicode do it nothing happens
+
+1028
+00:44:13,119 --> 00:44:16,400
+okay so let's go to
+
+1029
+00:44:17,599 --> 00:44:25,119
+so let's open unicode emoticons okay so
+
+1030
+00:44:21,440 --> 00:44:25,119
+let's let me show you okay
+
+1031
+00:44:28,000 --> 00:44:31,920
+okay so
+
+1032
+00:44:29,280 --> 00:44:34,079
+showing browser so this is my one of my
+
+1033
+00:44:31,920 --> 00:44:36,000
+website html so
+
+1034
+00:44:34,079 --> 00:44:37,200
+let's
+
+1035
+00:44:36,000 --> 00:44:39,760
+so that's my
+
+1036
+00:44:37,200 --> 00:44:41,920
+okay this buffer is too big it's kind of
+
+1037
+00:44:39,760 --> 00:44:44,880
+very big so let's go to something
+
+1038
+00:44:41,920 --> 00:44:47,119
+shorter here hands
+
+1039
+00:44:44,880 --> 00:44:50,119
+okay
+
+1040
+00:44:47,119 --> 00:44:50,119
+so
+
+1041
+00:44:52,560 --> 00:44:59,520
+uh let me go to okay so let's close that
+
+1042
+00:44:56,280 --> 00:45:02,560
+cut copy the url
+
+1043
+00:44:59,520 --> 00:45:04,960
+open the file so here is the file
+
+1044
+00:45:02,560 --> 00:45:06,319
+so you can see all the unicode but let's
+
+1045
+00:45:04,960 --> 00:45:08,800
+copy it
+
+1046
+00:45:06,319 --> 00:45:10,960
+open a new buffer paste it
+
+1047
+00:45:08,800 --> 00:45:13,920
+so that
+
+1048
+00:45:10,960 --> 00:45:16,880
+and right now it's in html mod that's
+
+1049
+00:45:13,920 --> 00:45:18,800
+why you see them yellow so let's turn it
+
+1050
+00:45:16,880 --> 00:45:20,079
+to the
+
+1051
+00:45:18,800 --> 00:45:21,680
+um
+
+1052
+00:45:20,079 --> 00:45:24,720
+fundamental mod
+
+1053
+00:45:21,680 --> 00:45:27,520
+you know fundamental mod is a mod with
+
+1054
+00:45:24,720 --> 00:45:30,480
+no features basically that's uh like no
+
+1055
+00:45:27,520 --> 00:45:32,160
+mod okay so now you are looking at this
+
+1056
+00:45:30,480 --> 00:45:34,560
+file you know typically when you have a
+
+1057
+00:45:32,160 --> 00:45:36,480
+file from internet or whatever
+
+1058
+00:45:34,560 --> 00:45:38,560
+you know sometimes it's quick it's
+
+1059
+00:45:36,480 --> 00:45:40,000
+important it's very useful you want to
+
+1060
+00:45:38,560 --> 00:45:42,079
+know
+
+1061
+00:45:40,000 --> 00:45:44,079
+weird characters like sometimes there's
+
+1062
+00:45:42,079 --> 00:45:46,720
+invisible unicode characters like
+
+1063
+00:45:44,079 --> 00:45:49,040
+non-breaking space things like that so
+
+1064
+00:45:46,720 --> 00:45:50,480
+you want to be able to be able to see
+
+1065
+00:45:49,040 --> 00:45:52,319
+them
+
+1066
+00:45:50,480 --> 00:45:54,400
+you know one of the things you can do is
+
+1067
+00:45:52,319 --> 00:45:57,280
+turn on the
+
+1068
+00:45:54,400 --> 00:45:57,280
+uh turn on the
+
+1069
+00:45:57,359 --> 00:46:01,920
+show white space
+
+1070
+00:45:59,280 --> 00:46:04,079
+in you know but use but some of the unit
+
+1071
+00:46:01,920 --> 00:46:07,440
+but the unicode is not highlighted you
+
+1072
+00:46:04,079 --> 00:46:09,760
+see that one uh so that's why
+
+1073
+00:46:07,440 --> 00:46:12,319
+you want to write the command highlight
+
+1074
+00:46:09,760 --> 00:46:14,400
+unicode you know that's what why we want
+
+1075
+00:46:12,319 --> 00:46:16,480
+to do that highlight unicode okay so
+
+1076
+00:46:14,400 --> 00:46:18,720
+let's try it so you can see there's some
+
+1077
+00:46:16,480 --> 00:46:21,920
+unicode here here
+
+1078
+00:46:18,720 --> 00:46:24,960
+and here turn off the um white space
+
+1079
+00:46:21,920 --> 00:46:26,480
+okay so you can see here here
+
+1080
+00:46:24,960 --> 00:46:28,000
+and here
+
+1081
+00:46:26,480 --> 00:46:30,160
+um
+
+1082
+00:46:28,000 --> 00:46:32,560
+so let's call the command all those
+
+1083
+00:46:30,160 --> 00:46:34,720
+characters should be highlighted okay
+
+1084
+00:46:32,560 --> 00:46:38,000
+cool
+
+1085
+00:46:34,720 --> 00:46:38,000
+highlight unicode do it
+
+1086
+00:46:38,800 --> 00:46:43,920
+failed
+
+1087
+00:46:40,560 --> 00:46:47,119
+wait oh it different success success you
+
+1088
+00:46:43,920 --> 00:46:49,839
+can see you see those characters they
+
+1089
+00:46:47,119 --> 00:46:52,560
+they are highlighted okay so they
+
+1090
+00:46:49,839 --> 00:46:54,880
+so this command only does on the current
+
+1091
+00:46:52,560 --> 00:46:57,200
+paragraph you know the current text
+
+1092
+00:46:54,880 --> 00:46:59,280
+blocks remember
+
+1093
+00:46:57,200 --> 00:47:01,760
+comments and questions okay there's some
+
+1094
+00:46:59,280 --> 00:47:03,839
+comments okay we're gonna uh and i'm
+
+1095
+00:47:01,760 --> 00:47:06,400
+gonna answer it in a bit okay
+
+1096
+00:47:03,839 --> 00:47:08,079
+almost done okay so unicode you get
+
+1097
+00:47:06,400 --> 00:47:10,640
+success
+
+1098
+00:47:08,079 --> 00:47:13,040
+so let's make a modification to the code
+
+1099
+00:47:10,640 --> 00:47:15,440
+to our code because
+
+1100
+00:47:13,040 --> 00:47:17,440
+usually you don't want to do it
+
+1101
+00:47:15,440 --> 00:47:19,520
+in the current block of code you want to
+
+1102
+00:47:17,440 --> 00:47:22,400
+do it to the whole buffer okay so let's
+
+1103
+00:47:19,520 --> 00:47:25,400
+begin so let's let's do to the whole
+
+1104
+00:47:22,400 --> 00:47:25,400
+buffer
+
+1105
+00:47:31,839 --> 00:47:36,880
+buffer okay so p1 and p2 will be
+
+1106
+00:47:47,839 --> 00:47:52,640
+max okay basically that's a buffer
+
+1107
+00:47:50,160 --> 00:47:54,960
+beginning and buffer end positions
+
+1108
+00:47:52,640 --> 00:47:54,960
+okay
+
+1109
+00:47:55,920 --> 00:47:58,400
+that's it
+
+1110
+00:48:01,040 --> 00:48:04,720
+okay if i buffer
+
+1111
+00:48:03,040 --> 00:48:07,839
+now switch to our
+
+1112
+00:48:04,720 --> 00:48:10,720
+uh to our code you can see
+
+1113
+00:48:07,839 --> 00:48:13,920
+there's lots of you know
+
+1114
+00:48:10,720 --> 00:48:15,359
+unicode you see lots of so let's call
+
+1115
+00:48:13,920 --> 00:48:16,960
+the command
+
+1116
+00:48:15,359 --> 00:48:18,400
+it should
+
+1117
+00:48:16,960 --> 00:48:20,640
+you should do
+
+1118
+00:48:18,400 --> 00:48:22,960
+highlight all the unicode characters not
+
+1119
+00:48:20,640 --> 00:48:25,359
+you know in a whole buffer so call it
+
+1120
+00:48:22,960 --> 00:48:25,359
+do it
+
+1121
+00:48:25,920 --> 00:48:30,720
+uh what did we call yes uh okay it
+
+1122
+00:48:29,440 --> 00:48:31,760
+worked
+
+1123
+00:48:30,720 --> 00:48:35,520
+you see
+
+1124
+00:48:31,760 --> 00:48:37,760
+you see all those um
+
+1125
+00:48:35,520 --> 00:48:41,599
+it worked
+
+1126
+00:48:37,760 --> 00:48:41,599
+but i don't like the color okay so
+
+1127
+00:48:43,280 --> 00:48:51,760
+let's save this file xx today's date
+
+1128
+00:48:48,000 --> 00:48:54,160
+so we can open it later close it reopen
+
+1129
+00:48:51,760 --> 00:48:56,800
+so the coloring is good now back to our
+
+1130
+00:48:54,160 --> 00:49:00,240
+code now i don't like the highlight
+
+1131
+00:48:56,800 --> 00:49:01,599
+color we want to make it more
+
+1132
+00:49:00,240 --> 00:49:04,079
+stand out
+
+1133
+00:49:01,599 --> 00:49:05,839
+so let's say red let's say background
+
+1134
+00:49:04,079 --> 00:49:08,720
+red or something
+
+1135
+00:49:05,839 --> 00:49:11,440
+okay background red so let's go back to
+
+1136
+00:49:08,720 --> 00:49:11,440
+the um
+
+1137
+00:49:12,960 --> 00:49:20,640
+we are almost done let's go back to the
+
+1138
+00:49:15,200 --> 00:49:23,200
+xr emacs tutorial where is it yeah
+
+1139
+00:49:20,640 --> 00:49:25,119
+okay let's go to xymax emac this
+
+1140
+00:49:23,200 --> 00:49:28,000
+tutorial
+
+1141
+00:49:25,119 --> 00:49:30,960
+show in browser
+
+1142
+00:49:28,000 --> 00:49:33,680
+then how to write the major mod
+
+1143
+00:49:30,960 --> 00:49:37,680
+define face let's see if there's some
+
+1144
+00:49:33,680 --> 00:49:37,680
+predefined phase we can use
+
+1145
+00:49:39,599 --> 00:49:47,520
+default bold italic body italic
+
+1146
+00:49:42,839 --> 00:49:49,599
+underline shadow link highlight
+
+1147
+00:49:47,520 --> 00:49:52,880
+error warning
+
+1148
+00:49:49,599 --> 00:49:55,839
+okay let's try let's try warning okay
+
+1149
+00:49:52,880 --> 00:49:55,839
+because we wanted
+
+1150
+00:49:56,720 --> 00:50:01,200
+uh we wanted
+
+1151
+00:49:59,040 --> 00:50:02,319
+warning so what's the example of warning
+
+1152
+00:50:01,200 --> 00:50:04,480
+i
+
+1153
+00:50:02,319 --> 00:50:05,520
+so let's see so you can what you can do
+
+1154
+00:50:04,480 --> 00:50:09,119
+is
+
+1155
+00:50:05,520 --> 00:50:11,760
+this faces display call the command
+
+1156
+00:50:09,119 --> 00:50:15,440
+and emax will show
+
+1157
+00:50:11,760 --> 00:50:18,240
+or example predefined faces in emaclis
+
+1158
+00:50:15,440 --> 00:50:19,440
+so we want something standing out like
+
+1159
+00:50:18,240 --> 00:50:22,000
+that
+
+1160
+00:50:19,440 --> 00:50:26,720
+so this is custom group tag one that's
+
+1161
+00:50:22,000 --> 00:50:28,319
+no that's not good custom invalid
+
+1162
+00:50:26,720 --> 00:50:31,040
+something bold
+
+1163
+00:50:28,319 --> 00:50:33,520
+diet warning
+
+1164
+00:50:31,040 --> 00:50:35,599
+diet warning that means you have to you
+
+1165
+00:50:33,520 --> 00:50:40,680
+have to load diet so
+
+1166
+00:50:35,599 --> 00:50:40,680
+i do incomplete regular expression
+
+1167
+00:50:41,040 --> 00:50:45,040
+so
+
+1168
+00:50:41,839 --> 00:50:48,240
+you want something
+
+1169
+00:50:45,040 --> 00:50:50,400
+termed color red okay no
+
+1170
+00:50:48,240 --> 00:50:52,559
+trading white space okay
+
+1171
+00:50:50,400 --> 00:50:54,559
+you know so if you're gonna use some of
+
+1172
+00:50:52,559 --> 00:50:56,240
+these that means you need to load those
+
+1173
+00:50:54,559 --> 00:50:59,119
+package i don't want to load those
+
+1174
+00:50:56,240 --> 00:50:59,119
+package because
+
+1175
+00:50:59,200 --> 00:51:03,920
+because
+
+1176
+00:51:01,680 --> 00:51:05,920
+defining a face is just four lines of
+
+1177
+00:51:03,920 --> 00:51:07,760
+code you know i can just define a face
+
+1178
+00:51:05,920 --> 00:51:10,640
+myself
+
+1179
+00:51:07,760 --> 00:51:12,640
+so the preference is that
+
+1180
+00:51:10,640 --> 00:51:14,559
+the preference is that you want to use a
+
+1181
+00:51:12,640 --> 00:51:17,280
+face that's already building and loaded
+
+1182
+00:51:14,559 --> 00:51:17,280
+by emacs
+
+1183
+00:51:18,720 --> 00:51:22,640
+then
+
+1184
+00:51:20,480 --> 00:51:24,720
+then you pick a package i mean the
+
+1185
+00:51:22,640 --> 00:51:27,599
+package should be something everyone
+
+1186
+00:51:24,720 --> 00:51:30,240
+everybody uses you don't have to load it
+
+1187
+00:51:27,599 --> 00:51:32,480
+so anyway so i'm getting a bit um i
+
+1188
+00:51:30,240 --> 00:51:32,480
+guess
+
+1189
+00:51:33,520 --> 00:51:38,480
+where's warning let's search for warning
+
+1190
+00:51:35,920 --> 00:51:41,200
+okay direct warning front lock one if
+
+1191
+00:51:38,480 --> 00:51:43,760
+okay this one fantastic this is fun lock
+
+1192
+00:51:41,200 --> 00:51:46,400
+is everyone loads phone lock so
+
+1193
+00:51:43,760 --> 00:51:49,119
+so so that's the face we want front lock
+
+1194
+00:51:46,400 --> 00:51:49,119
+warning face
+
+1195
+00:51:49,680 --> 00:51:53,680
+fantastic
+
+1196
+00:51:52,000 --> 00:51:57,200
+okay close it
+
+1197
+00:51:53,680 --> 00:52:00,720
+so close it let's go so here it's gonna
+
+1198
+00:51:57,200 --> 00:52:02,640
+be front lock warning face
+
+1199
+00:52:00,720 --> 00:52:05,680
+about the buffer
+
+1200
+00:52:02,640 --> 00:52:08,079
+go to our test file this one that's
+
+1201
+00:52:05,680 --> 00:52:09,359
+right magnify you see there's lots of
+
+1202
+00:52:08,079 --> 00:52:11,520
+unicode
+
+1203
+00:52:09,359 --> 00:52:12,960
+here
+
+1204
+00:52:11,520 --> 00:52:14,240
+and uh
+
+1205
+00:52:12,960 --> 00:52:17,040
+and that
+
+1206
+00:52:14,240 --> 00:52:19,359
+see so let's call it
+
+1207
+00:52:17,040 --> 00:52:22,960
+faces this this uh
+
+1208
+00:52:19,359 --> 00:52:22,960
+highlight unicode do it
+
+1209
+00:52:23,280 --> 00:52:27,680
+fantastic okay
+
+1210
+00:52:25,359 --> 00:52:29,839
+you know you see here
+
+1211
+00:52:27,680 --> 00:52:33,319
+and uh
+
+1212
+00:52:29,839 --> 00:52:33,319
+okay so
+
+1213
+00:52:33,520 --> 00:52:39,760
+okay so this is
+
+1214
+00:52:36,480 --> 00:52:41,440
+not too bad uh
+
+1215
+00:52:39,760 --> 00:52:44,400
+you know it would be better if they are
+
+1216
+00:52:41,440 --> 00:52:46,720
+more standing up like a background color
+
+1217
+00:52:44,400 --> 00:52:47,920
+or something or big font but this is
+
+1218
+00:52:46,720 --> 00:52:49,520
+this is good
+
+1219
+00:52:47,920 --> 00:52:52,960
+good and then enough for our first
+
+1220
+00:52:49,520 --> 00:52:53,920
+version okay so this is fantastic done
+
+1221
+00:52:52,960 --> 00:52:55,839
+so
+
+1222
+00:52:53,920 --> 00:52:58,319
+now we
+
+1223
+00:52:55,839 --> 00:53:00,640
+copy this uh let's clean up the code
+
+1224
+00:52:58,319 --> 00:53:01,599
+okay remove those comma shrink make it
+
+1225
+00:53:00,640 --> 00:53:03,680
+shrink
+
+1226
+00:53:01,599 --> 00:53:06,800
+highlight the all unicode characters in
+
+1227
+00:53:03,680 --> 00:53:09,200
+current block in current buffer
+
+1228
+00:53:06,800 --> 00:53:11,520
+okay let's say buffer
+
+1229
+00:53:09,200 --> 00:53:13,040
+okay not selection let's just say buffer
+
+1230
+00:53:11,520 --> 00:53:15,359
+okay
+
+1231
+00:53:13,040 --> 00:53:17,200
+actually selection is good okay anyway
+
+1232
+00:53:15,359 --> 00:53:19,040
+that's what we have so
+
+1233
+00:53:17,200 --> 00:53:21,040
+let's
+
+1234
+00:53:19,040 --> 00:53:22,480
+that's good enough
+
+1235
+00:53:21,040 --> 00:53:25,760
+back to
+
+1236
+00:53:22,480 --> 00:53:25,760
+the html page
+
+1237
+00:53:25,839 --> 00:53:32,400
+syntax client shown in browser
+
+1238
+00:53:29,119 --> 00:53:35,200
+so today we did three functions one two
+
+1239
+00:53:32,400 --> 00:53:36,559
+three and let's put highlight unicode
+
+1240
+00:53:35,200 --> 00:53:39,040
+into
+
+1241
+00:53:36,559 --> 00:53:41,520
+where do we want it
+
+1242
+00:53:39,040 --> 00:53:43,119
+that's it let it be for now okay
+
+1243
+00:53:41,520 --> 00:53:45,760
+thank you guys for watching if you like
+
+1244
+00:53:43,119 --> 00:53:49,040
+my stuff buy my emacs tutorial okay and
+
+1245
+00:53:45,760 --> 00:53:52,079
+donate paypal patreon and stuff
+
+1246
+00:53:49,040 --> 00:53:55,040
+five so we did 15 minutes we did three
+
+1247
+00:53:52,079 --> 00:53:57,280
+emac this functions fantastic so i'm
+
+1248
+00:53:55,040 --> 00:53:59,599
+gonna read comments we close in in two
+
+1249
+00:53:57,280 --> 00:53:59,599
+minutes
+
+1250
+00:54:03,040 --> 00:54:07,040
+so have i used
+
+1251
+00:54:05,440 --> 00:54:10,800
+x e max
+
+1252
+00:54:07,040 --> 00:54:12,240
+yes of course i used xe max
+
+1253
+00:54:10,800 --> 00:54:15,359
+for
+
+1254
+00:54:12,240 --> 00:54:18,359
+for five for six years
+
+1255
+00:54:15,359 --> 00:54:21,839
+from 1980
+
+1256
+00:54:18,359 --> 00:54:24,800
+1998 to 2005.
+
+1257
+00:54:21,839 --> 00:54:27,920
+so i used xe xemax
+
+1258
+00:54:24,800 --> 00:54:30,400
+for five four seven years okay
+
+1259
+00:54:27,920 --> 00:54:31,599
+1998
+
+1260
+00:54:30,400 --> 00:54:35,760
+to
+
+1261
+00:54:31,599 --> 00:54:37,440
+2005 or 2006 then i switched
+
+1262
+00:54:35,760 --> 00:54:39,440
+to glue emacs
+
+1263
+00:54:37,440 --> 00:54:42,400
+because
+
+1264
+00:54:39,440 --> 00:54:45,440
+xe mac xd max is kind of dying because
+
+1265
+00:54:42,400 --> 00:54:47,680
+mostly because unicode support gnu emax
+
+1266
+00:54:45,440 --> 00:54:50,480
+has always been inferior
+
+1267
+00:54:47,680 --> 00:54:54,640
+you know opinions differ but
+
+1268
+00:54:50,480 --> 00:54:56,480
+i think google e-max has been inferior
+
+1269
+00:54:54,640 --> 00:54:58,079
+you know so that's history okay so
+
+1270
+00:54:56,480 --> 00:55:01,440
+that's another topic
+
+1271
+00:54:58,079 --> 00:55:03,760
+uh let me show you sardi xe max so
+
+1272
+00:55:01,440 --> 00:55:05,920
+usually if you want to know anything
+
+1273
+00:55:03,760 --> 00:55:07,440
+what i think of just search for for my
+
+1274
+00:55:05,920 --> 00:55:09,839
+name in the
+
+1275
+00:55:07,440 --> 00:55:13,200
+that topic world okay so here's the
+
+1276
+00:55:09,839 --> 00:55:16,880
+article my experience of emacs versus
+
+1277
+00:55:13,200 --> 00:55:19,359
+xemx and another article gnu e max and
+
+1278
+00:55:16,880 --> 00:55:22,559
+xemax schism
+
+1279
+00:55:19,359 --> 00:55:24,720
+so this is the granddaddy history of
+
+1280
+00:55:22,559 --> 00:55:28,559
+open source
+
+1281
+00:55:24,720 --> 00:55:28,559
+you know open source uh you know
+
+1282
+00:55:28,960 --> 00:55:33,760
+emacs
+
+1283
+00:55:30,079 --> 00:55:36,960
+gnu emacs versus xemx is considered to
+
+1284
+00:55:33,760 --> 00:55:40,079
+be the first big example of the
+
+1285
+00:55:36,960 --> 00:55:42,559
+fork okay like folk
+
+1286
+00:55:40,079 --> 00:55:46,000
+anyway today's you know
+
+1287
+00:55:42,559 --> 00:55:48,400
+today's attitude towards four kings is
+
+1288
+00:55:46,000 --> 00:55:50,000
+is totally different because of git
+
+1289
+00:55:48,400 --> 00:55:53,040
+github
+
+1290
+00:55:50,000 --> 00:55:55,839
+for commercial grid greed reasons so
+
+1291
+00:55:53,040 --> 00:55:58,240
+anyway so here's an article about xc max
+
+1292
+00:55:55,839 --> 00:56:00,559
+so yes i used it i used it for seven
+
+1293
+00:55:58,240 --> 00:56:03,839
+years and it's much better
+
+1294
+00:56:00,559 --> 00:56:07,760
+it's much better in a lot of ways than
+
+1295
+00:56:03,839 --> 00:56:12,000
+guru emacs so i have a list of them
+
+1296
+00:56:07,760 --> 00:56:14,640
+uh historical merits of xc max
+
+1297
+00:56:12,000 --> 00:56:18,480
+okay i'm not going to go over so because
+
+1298
+00:56:14,640 --> 00:56:19,920
+today's emac this uh so
+
+1299
+00:56:18,480 --> 00:56:23,680
+uh what about
+
+1300
+00:56:19,920 --> 00:56:26,880
+s x e max x x
+
+1301
+00:56:23,680 --> 00:56:28,960
+s x e max i never used okay i understand
+
+1302
+00:56:26,880 --> 00:56:31,040
+it's a by a guy i you know i was talking
+
+1303
+00:56:28,960 --> 00:56:32,960
+to him on irc
+
+1304
+00:56:31,040 --> 00:56:34,880
+about 15 years ago
+
+1305
+00:56:32,960 --> 00:56:37,920
+just a little bit um
+
+1306
+00:56:34,880 --> 00:56:41,680
+so he's a guy he's a fanatic okay
+
+1307
+00:56:37,920 --> 00:56:43,359
+sxe max the guy who created it
+
+1308
+00:56:41,680 --> 00:56:44,799
+i don't know what's what's happening to
+
+1309
+00:56:43,359 --> 00:56:46,319
+that um
+
+1310
+00:56:44,799 --> 00:56:48,319
+i haven't heard them you know this is
+
+1311
+00:56:46,319 --> 00:56:51,040
+long ago this you know this is 15 years
+
+1312
+00:56:48,319 --> 00:56:53,280
+ago so today's generation is totally
+
+1313
+00:56:51,040 --> 00:56:55,839
+different you know the hacker generation
+
+1314
+00:56:53,280 --> 00:56:58,079
+those x emacs
+
+1315
+00:56:55,839 --> 00:57:00,319
+and you know those generations are dying
+
+1316
+00:56:58,079 --> 00:57:03,119
+out you know it's gone so today you have
+
+1317
+00:57:00,319 --> 00:57:04,319
+the male engine and programmers and the
+
+1318
+00:57:03,119 --> 00:57:06,160
+zoomers
+
+1319
+00:57:04,319 --> 00:57:07,599
+they don't they don't know uh they know
+
+1320
+00:57:06,160 --> 00:57:09,040
+much less
+
+1321
+00:57:07,599 --> 00:57:12,640
+so anyway i don't know what's going on
+
+1322
+00:57:09,040 --> 00:57:14,160
+with the sx emacs i don't i don't think
+
+1323
+00:57:12,640 --> 00:57:15,520
+it's really
+
+1324
+00:57:14,160 --> 00:57:18,559
+that much going
+
+1325
+00:57:15,520 --> 00:57:22,960
+x emax has been dead for many years i
+
+1326
+00:57:18,559 --> 00:57:22,960
+mean like yeah basically dead
+
+1327
+00:57:23,440 --> 00:57:30,720
+what do you think of them compared to
+
+1328
+00:57:25,839 --> 00:57:30,720
+glue ems okay that is my answer xe max
+
+1329
+00:57:31,680 --> 00:57:36,720
+so back in 1990s so this is early you
+
+1330
+00:57:34,640 --> 00:57:38,240
+know this is basically during the whole
+
+1331
+00:57:36,720 --> 00:57:42,319
+1990s
+
+1332
+00:57:38,240 --> 00:57:44,960
+xe max is superior in every aspect lots
+
+1333
+00:57:42,319 --> 00:57:48,079
+of features you need
+
+1334
+00:57:44,960 --> 00:57:50,559
+you know and they are only xemx they are
+
+1335
+00:57:48,079 --> 00:57:51,599
+not in gnu emacs why
+
+1336
+00:57:50,559 --> 00:57:54,720
+the
+
+1337
+00:57:51,599 --> 00:57:58,319
+phonetism of free software foundation
+
+1338
+00:57:54,720 --> 00:58:00,559
+you know the free software foundation
+
+1339
+00:57:58,319 --> 00:58:02,640
+and that phoneticism so they don't do
+
+1340
+00:58:00,559 --> 00:58:04,640
+nothing they don't do anything you know
+
+1341
+00:58:02,640 --> 00:58:08,319
+you have to donate you have to
+
+1342
+00:58:04,640 --> 00:58:09,920
+you know reach a snowman
+
+1343
+00:58:08,319 --> 00:58:12,240
+uh
+
+1344
+00:58:09,920 --> 00:58:14,400
+you know they focus on ethics they focus
+
+1345
+00:58:12,240 --> 00:58:17,839
+on their ideal of ethics they don't
+
+1346
+00:58:14,400 --> 00:58:17,839
+really care about anything else
+
+1347
+00:58:18,640 --> 00:58:24,799
+so but meanwhile
+
+1348
+00:58:20,880 --> 00:58:26,720
+the history of xemax is commercial based
+
+1349
+00:58:24,799 --> 00:58:29,359
+because you know the lease machine the
+
+1350
+00:58:26,720 --> 00:58:31,440
+big history this machine this machine
+
+1351
+00:58:29,359 --> 00:58:34,480
+corporations and all that this creates
+
+1352
+00:58:31,440 --> 00:58:38,319
+lots of commercialization and the xe max
+
+1353
+00:58:34,480 --> 00:58:42,559
+is beginning it was known as lucid emacs
+
+1354
+00:58:38,319 --> 00:58:43,520
+and lucid emax is started by at least
+
+1355
+00:58:42,559 --> 00:58:45,760
+at least
+
+1356
+00:58:43,520 --> 00:58:48,079
+company ai company that says doing
+
+1357
+00:58:45,760 --> 00:58:51,079
+artificial intelligence
+
+1358
+00:58:48,079 --> 00:58:51,079
+and
+
+1359
+00:58:51,280 --> 00:58:56,079
+so this is around 1990
+
+1360
+00:58:53,760 --> 00:58:58,799
+just about the end of ai
+
+1361
+00:58:56,079 --> 00:59:02,480
+period so they are they cannot make much
+
+1362
+00:58:58,799 --> 00:59:06,079
+money then they started to do a ide for
+
+1363
+00:59:02,480 --> 00:59:08,000
+c plus based on e max
+
+1364
+00:59:06,079 --> 00:59:10,799
+so
+
+1365
+00:59:08,000 --> 00:59:13,680
+so they they you know they they work on
+
+1366
+00:59:10,799 --> 00:59:14,799
+they they want to make new e max to be
+
+1367
+00:59:13,680 --> 00:59:17,680
+the best
+
+1368
+00:59:14,799 --> 00:59:19,520
+c plus first ide okay
+
+1369
+00:59:17,680 --> 00:59:21,760
+so they worked on that
+
+1370
+00:59:19,520 --> 00:59:22,960
+and they talked with the gnu people you
+
+1371
+00:59:21,760 --> 00:59:24,640
+know
+
+1372
+00:59:22,960 --> 00:59:27,680
+i mean the the intention is that you
+
+1373
+00:59:24,640 --> 00:59:29,839
+know they are off uh into open source i
+
+1374
+00:59:27,680 --> 00:59:31,440
+mean the not open source but the free
+
+1375
+00:59:29,839 --> 00:59:34,799
+software foundation the intention is
+
+1376
+00:59:31,440 --> 00:59:34,799
+that we're gonna make this great
+
+1377
+00:59:34,880 --> 00:59:39,040
+free software and we can sell you know
+
+1378
+00:59:37,200 --> 00:59:41,040
+that's uh you know you can sell free
+
+1379
+00:59:39,040 --> 00:59:42,880
+software you know
+
+1380
+00:59:41,040 --> 00:59:44,720
+anyway this is long history but because
+
+1381
+00:59:42,880 --> 00:59:46,319
+today's generation you can even know you
+
+1382
+00:59:44,720 --> 00:59:48,079
+don't even know the difference between
+
+1383
+00:59:46,319 --> 00:59:50,720
+open source and free software foundation
+
+1384
+00:59:48,079 --> 00:59:52,240
+they are big enemies you know if you say
+
+1385
+00:59:50,720 --> 00:59:54,079
+thank you richard solomon for your open
+
+1386
+00:59:52,240 --> 00:59:56,240
+source you'll get very very very
+
+1387
+00:59:54,079 --> 00:59:58,400
+offended he'll say yourself you
+
+1388
+00:59:56,240 --> 01:00:00,240
+know they are big enemies free software
+
+1389
+00:59:58,400 --> 01:00:02,720
+and foundation under the open source
+
+1390
+01:00:00,240 --> 01:00:04,559
+open source is beginning by esr the guy
+
+1391
+01:00:02,720 --> 01:00:06,799
+esr kind of
+
+1392
+01:00:04,559 --> 01:00:08,799
+i would say kind of
+
+1393
+01:00:06,799 --> 01:00:09,520
+uh you know i don't yeah i don't think
+
+1394
+01:00:08,799 --> 01:00:11,839
+he
+
+1395
+01:00:09,520 --> 01:00:11,839
+he's
+
+1396
+01:00:12,160 --> 01:00:16,960
+i'm not going to talk about that okay so
+
+1397
+01:00:13,920 --> 01:00:16,960
+that's another day
+
+1398
+01:00:17,280 --> 01:00:20,240
+so anyway so
+
+1399
+01:00:18,960 --> 01:00:23,839
+eventually
+
+1400
+01:00:20,240 --> 01:00:27,119
+the xe max and the you know xe so here's
+
+1401
+01:00:23,839 --> 01:00:30,799
+another famous guy uh the
+
+1402
+01:00:27,119 --> 01:00:33,760
+jwz okay jamie zawinski he's a cocky
+
+1403
+01:00:30,799 --> 01:00:36,160
+ type of guy you know i
+
+1404
+01:00:33,760 --> 01:00:39,920
+admired him for actually you know i kind
+
+1405
+01:00:36,160 --> 01:00:41,280
+of uh you know i like because i mean i i
+
+1406
+01:00:39,920 --> 01:00:44,640
+um
+
+1407
+01:00:41,280 --> 01:00:46,720
+jwz not jzw okay he's i mean you
+
+1408
+01:00:44,640 --> 01:00:48,880
+probably heard of him because he's
+
+1409
+01:00:46,720 --> 01:00:52,000
+famous for the dot-com you know so
+
+1410
+01:00:48,880 --> 01:00:54,319
+there's wikipedia and his his website
+
+1411
+01:00:52,000 --> 01:00:57,839
+looks like that for the past 30 years
+
+1412
+01:00:54,319 --> 01:01:00,000
+2020 for the past 20 years since
+
+1413
+01:00:57,839 --> 01:01:03,680
+you know this is a theme
+
+1414
+01:01:00,000 --> 01:01:06,000
+beginning with a matrix movie you know
+
+1415
+01:01:03,680 --> 01:01:08,880
+uh kind of so that's you know jamie
+
+1416
+01:01:06,000 --> 01:01:08,880
+zawinski so
+
+1417
+01:01:09,280 --> 01:01:13,760
+so jamie zorinsky he's a famous lisp
+
+1418
+01:01:12,640 --> 01:01:17,280
+coder
+
+1419
+01:01:13,760 --> 01:01:20,160
+and he is the main coder for xemax the
+
+1420
+01:01:17,280 --> 01:01:20,960
+lucid emacs it's not called xemx it's
+
+1421
+01:01:20,160 --> 01:01:23,280
+called
+
+1422
+01:01:20,960 --> 01:01:25,760
+lucy emax
+
+1423
+01:01:23,280 --> 01:01:27,520
+so they started to you know
+
+1424
+01:01:25,760 --> 01:01:29,920
+collaborate with
+
+1425
+01:01:27,520 --> 01:01:32,160
+free software foundation google e-max
+
+1426
+01:01:29,920 --> 01:01:35,280
+and they
+
+1427
+01:01:32,160 --> 01:01:38,240
+they enhance it they patch it back but
+
+1428
+01:01:35,280 --> 01:01:40,000
+eventually there's a problem because
+
+1429
+01:01:38,240 --> 01:01:43,200
+communicate you know for many reasons
+
+1430
+01:01:40,000 --> 01:01:45,280
+they started to have problems
+
+1431
+01:01:43,200 --> 01:01:47,440
+the then richard stowman
+
+1432
+01:01:45,280 --> 01:01:49,200
+claimed you know you need to do this
+
+1433
+01:01:47,440 --> 01:01:53,440
+these this
+
+1434
+01:01:49,200 --> 01:01:56,960
+but today they are you know they are a
+
+1435
+01:01:53,440 --> 01:01:59,440
+for-profit corporation right but they
+
+1436
+01:01:56,960 --> 01:02:01,440
+anyway long story i cannot do justice to
+
+1437
+01:01:59,440 --> 01:02:03,280
+the story without screening up the
+
+1438
+01:02:01,440 --> 01:02:05,359
+details because
+
+1439
+01:02:03,280 --> 01:02:06,720
+because to the young people today you
+
+1440
+01:02:05,359 --> 01:02:08,880
+don't know what's you know you don't
+
+1441
+01:02:06,720 --> 01:02:11,039
+know what's going on
+
+1442
+01:02:08,880 --> 01:02:13,520
+so anyway here's a
+
+1443
+01:02:11,039 --> 01:02:16,319
+here is a discussion of the schism by
+
+1444
+01:02:13,520 --> 01:02:18,160
+ben wing ben wins the next
+
+1445
+01:02:16,319 --> 01:02:22,000
+leader of
+
+1446
+01:02:18,160 --> 01:02:26,319
+xemax after jamie zorinsky okay
+
+1447
+01:02:22,000 --> 01:02:26,319
+basically richard stoneman is just uh
+
+1448
+01:02:26,400 --> 01:02:31,520
+very difficult to work with very
+
+1449
+01:02:28,640 --> 01:02:33,680
+impractical you know even though the you
+
+1450
+01:02:31,520 --> 01:02:35,359
+know you have a commercial entity
+
+1451
+01:02:33,680 --> 01:02:37,119
+that's willing to help you you know they
+
+1452
+01:02:35,359 --> 01:02:40,160
+have money they they're gonna they don't
+
+1453
+01:02:37,119 --> 01:02:42,400
+you know they contribute a lot but
+
+1454
+01:02:40,160 --> 01:02:44,160
+you know eventually richard stowman
+
+1455
+01:02:42,400 --> 01:02:46,640
+working with richard stoneman you got
+
+1456
+01:02:44,160 --> 01:02:48,799
+problems richard stowman have problems
+
+1457
+01:02:46,640 --> 01:02:49,599
+with all the linuxes you know
+
+1458
+01:02:48,799 --> 01:02:50,720
+and
+
+1459
+01:02:49,599 --> 01:02:52,240
+all the
+
+1460
+01:02:50,720 --> 01:02:54,319
+debian you know
+
+1461
+01:02:52,240 --> 01:02:56,319
+in the beginning they they all say
+
+1462
+01:02:54,319 --> 01:02:59,280
+richard someone is the god you know
+
+1463
+01:02:56,319 --> 01:03:00,960
+please be our uh chairman or something
+
+1464
+01:02:59,280 --> 01:03:03,280
+then after a few years there's always
+
+1465
+01:03:00,960 --> 01:03:05,039
+problems then eventually people voted
+
+1466
+01:03:03,280 --> 01:03:06,960
+richard stoneman out
+
+1467
+01:03:05,039 --> 01:03:09,119
+and now
+
+1468
+01:03:06,960 --> 01:03:10,640
+after 10 years after 20 years today you
+
+1469
+01:03:09,119 --> 01:03:12,400
+have the marine chain there's something
+
+1470
+01:03:10,640 --> 01:03:13,839
+else social justice
+
+1471
+01:03:12,400 --> 01:03:16,400
+then
+
+1472
+01:03:13,839 --> 01:03:19,599
+they claim richard someone is a
+
+1473
+01:03:16,400 --> 01:03:19,599
+rapist or whatever
+
+1474
+01:03:28,880 --> 01:03:33,520
+so golan golan you know yeah i like
+
+1475
+01:03:31,280 --> 01:03:35,520
+golan but golan
+
+1476
+01:03:33,520 --> 01:03:37,599
+you know golan is not you know i like it
+
+1477
+01:03:35,520 --> 01:03:40,079
+but it's not a language i actually code
+
+1478
+01:03:37,599 --> 01:03:42,400
+that much every day uh so
+
+1479
+01:03:40,079 --> 01:03:45,599
+in order to do golan i have to
+
+1480
+01:03:42,400 --> 01:03:47,839
+be familiar with it uh so
+
+1481
+01:03:45,599 --> 01:03:49,520
+you know otherwise i'm gonna be stuck in
+
+1482
+01:03:47,839 --> 01:03:51,440
+my talk show
+
+1483
+01:03:49,520 --> 01:03:53,520
+often
+
+1484
+01:03:51,440 --> 01:03:56,079
+so dollar sign doesn't mean anything in
+
+1485
+01:03:53,520 --> 01:03:58,960
+magnifice but in my case i use it so
+
+1486
+01:03:56,079 --> 01:04:00,000
+that the variable stands out
+
+1487
+01:03:58,960 --> 01:04:02,960
+in
+
+1488
+01:04:00,000 --> 01:04:02,960
+emac this mod
+
+1489
+01:04:03,039 --> 01:04:07,599
+okay bye guys bye my tutorial okay
+
+1490
+01:04:05,200 --> 01:04:09,920
+donate me buy me a drink
+
+1491
+01:04:07,599 --> 01:04:09,920
+bye
+
+1492
+01:04:10,880 --> 01:04:14,480
+so we shut down in two minutes
+
+1493
+01:04:19,760 --> 01:04:24,240
+so three emac this code fantastic okay
+
+1494
+01:04:23,280 --> 01:04:27,599
+so
+
+1495
+01:04:24,240 --> 01:04:29,119
+let's close that close that don't save
+
+1496
+01:04:27,599 --> 01:04:30,720
+because that
+
+1497
+01:04:29,119 --> 01:04:33,440
+because that
+
+1498
+01:04:30,720 --> 01:04:36,799
+fantastic holy emoji
+
+1499
+01:04:33,440 --> 01:04:36,799
+okay bye
+

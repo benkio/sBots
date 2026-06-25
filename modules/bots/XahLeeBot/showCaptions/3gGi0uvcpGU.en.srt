@@ -1,0 +1,4120 @@
+1
+00:00:02,320 --> 00:00:06,520
+Hello guys. Good morning.
+
+2
+00:00:08,480 --> 00:00:13,920
+Good morning everyone. Welcome to
+
+3
+00:00:10,400 --> 00:00:18,000
+another episode of Kar Talk Show. We are
+
+4
+00:00:13,920 --> 00:00:21,680
+going to code Emac Lisp Emacs the most
+
+5
+00:00:18,000 --> 00:00:24,560
+powerful editor in the world. Okay. So
+
+6
+00:00:21,680 --> 00:00:27,199
+this episode is just for you guys who
+
+7
+00:00:24,560 --> 00:00:29,760
+are using Emacs
+
+8
+00:00:27,199 --> 00:00:34,000
+uh you know
+
+9
+00:00:29,760 --> 00:00:37,840
+Emacs okay the most powerful editor so
+
+10
+00:00:34,000 --> 00:00:39,680
+especially useful for programmers
+
+11
+00:00:37,840 --> 00:00:42,640
+and what we're going to do is we're
+
+12
+00:00:39,680 --> 00:00:45,200
+going to install a spell checker so
+
+13
+00:00:42,640 --> 00:00:48,480
+let's see so close that showing browser
+
+14
+00:00:45,200 --> 00:00:51,120
+okay close that showing browser episode
+
+15
+00:00:48,480 --> 00:00:54,559
+make spell checking in Emacs Microsoft
+
+16
+00:00:51,120 --> 00:00:58,399
+of Windows. Great. Again, now if you are
+
+17
+00:00:54,559 --> 00:01:01,359
+using Linux spell checkers,
+
+18
+00:00:58,399 --> 00:01:03,840
+spellch checking works out of the box.
+
+19
+00:01:01,359 --> 00:01:07,040
+But if you are working on Windows, you
+
+20
+00:01:03,840 --> 00:01:09,840
+got a problem because the GNU people,
+
+21
+00:01:07,040 --> 00:01:12,960
+especially Richard Strowman, they
+
+22
+00:01:09,840 --> 00:01:16,799
+intentionally make Emacs worse on
+
+23
+00:01:12,960 --> 00:01:20,080
+Windows because according to them, they
+
+24
+00:01:16,799 --> 00:01:23,280
+want the great Emacs open, you know,
+
+25
+00:01:20,080 --> 00:01:26,240
+free software, richest free software
+
+26
+00:01:23,280 --> 00:01:30,240
+foundations concept of free software,
+
+27
+00:01:26,240 --> 00:01:34,880
+which is a abuse of the English word
+
+28
+00:01:30,240 --> 00:01:37,280
+free. You know, to them they think free,
+
+29
+00:01:34,880 --> 00:01:40,799
+you know, they abuse the word free to
+
+30
+00:01:37,280 --> 00:01:44,479
+mean freedom and they abuse the word the
+
+31
+00:01:40,799 --> 00:01:47,360
+concept of freedom to mean freedom in
+
+32
+00:01:44,479 --> 00:01:51,920
+software according to their opinions.
+
+33
+00:01:47,360 --> 00:01:55,920
+Okay? Like like typically freedom in
+
+34
+00:01:51,920 --> 00:01:58,240
+western society means am I alive? So if
+
+35
+00:01:55,920 --> 00:02:02,960
+you are watching this offline play at
+
+36
+00:01:58,240 --> 00:02:05,520
+1.2 to uh 1.5 speed because I ramble. Uh
+
+37
+00:02:02,960 --> 00:02:08,479
+if you are watching this online right
+
+38
+00:02:05,520 --> 00:02:11,200
+now, say hi. Okay, so according to
+
+39
+00:02:08,479 --> 00:02:13,680
+Richard Storman, the founder of free
+
+40
+00:02:11,200 --> 00:02:16,480
+software software foundation and the
+
+41
+00:02:13,680 --> 00:02:20,239
+cause of the opensource movement
+
+42
+00:02:16,480 --> 00:02:23,200
+beginning in 1997 also
+
+43
+00:02:20,239 --> 00:02:26,000
+Richard Stallman. Okay. So he founded
+
+44
+00:02:23,200 --> 00:02:29,440
+free software foundation uh and
+
+45
+00:02:26,000 --> 00:02:31,920
+according to him
+
+46
+00:02:29,440 --> 00:02:34,720
+freedom you know so he abused the word
+
+47
+00:02:31,920 --> 00:02:37,920
+freedom. Now the word freedom in western
+
+48
+00:02:34,720 --> 00:02:41,120
+society means you are not controlled by
+
+49
+00:02:37,920 --> 00:02:43,760
+any person you know like free you know
+
+50
+00:02:41,120 --> 00:02:46,239
+you are free to speak about anything
+
+51
+00:02:43,760 --> 00:02:49,040
+about your leaders about your government
+
+52
+00:02:46,239 --> 00:02:51,920
+about politicians you know you are you
+
+53
+00:02:49,040 --> 00:02:56,720
+have the freedom to do that.
+
+54
+00:02:51,920 --> 00:03:00,800
+But according to Richard Stman, he
+
+55
+00:02:56,720 --> 00:03:03,280
+he thinks that freedom includes about
+
+56
+00:03:00,800 --> 00:03:06,080
+the software, you know, that like the
+
+57
+00:03:03,280 --> 00:03:08,080
+software, the the iPad, iPhone,
+
+58
+00:03:06,080 --> 00:03:13,040
+whatever, you know, you the application,
+
+59
+00:03:08,080 --> 00:03:17,120
+the Twitter you use. So in his opinion,
+
+60
+00:03:13,040 --> 00:03:19,920
+freedom includes the ability to for
+
+61
+00:03:17,120 --> 00:03:22,480
+example I write a software and I must
+
+62
+00:03:19,920 --> 00:03:24,480
+give you
+
+63
+00:03:22,480 --> 00:03:26,959
+you know I can sell you my software but
+
+64
+00:03:24,480 --> 00:03:30,080
+I must also include the source the
+
+65
+00:03:26,959 --> 00:03:32,799
+source code so that you can you know
+
+66
+00:03:30,080 --> 00:03:35,360
+copy it you can make modifications and
+
+67
+00:03:32,799 --> 00:03:38,319
+you can resell it.
+
+68
+00:03:35,360 --> 00:03:40,799
+So basically when you resell my software
+
+69
+00:03:38,319 --> 00:03:44,239
+according to Richard Stman's principle
+
+70
+00:03:40,799 --> 00:03:46,799
+then basically you robbed my ability to
+
+71
+00:03:44,239 --> 00:03:49,519
+make money with it. But according to
+
+72
+00:03:46,799 --> 00:03:52,799
+Richard Storman that is you know part of
+
+73
+00:03:49,519 --> 00:03:54,879
+the concept of freedom. Therefore he
+
+74
+00:03:52,799 --> 00:03:57,599
+promote you know that he abused the word
+
+75
+00:03:54,879 --> 00:04:03,360
+you know free software foundation
+
+76
+00:03:57,599 --> 00:04:06,400
+um which is um free software foundation.
+
+77
+00:04:03,360 --> 00:04:10,239
+So for in case you don't know you can
+
+78
+00:04:06,400 --> 00:04:14,319
+look up there it is FSF free software
+
+79
+00:04:10,239 --> 00:04:17,280
+foundation their website and Wikipedia
+
+80
+00:04:14,319 --> 00:04:19,519
+okay so free software foundation and uh
+
+81
+00:04:17,280 --> 00:04:22,960
+you know their website so according to
+
+82
+00:04:19,519 --> 00:04:25,680
+him whenever you sell software uh you
+
+83
+00:04:22,960 --> 00:04:28,479
+must include the source code free you
+
+84
+00:04:25,680 --> 00:04:32,000
+must allow the users to be able to
+
+85
+00:04:28,479 --> 00:04:36,639
+modify it and resell it things like that
+
+86
+00:04:32,000 --> 00:04:38,240
+Okay. Uh so that is his opinion. So but
+
+87
+00:04:36,639 --> 00:04:42,160
+he
+
+88
+00:04:38,240 --> 00:04:45,440
+does not say it's just uh one of the
+
+89
+00:04:42,160 --> 00:04:48,240
+opinion he insist that is the what
+
+90
+00:04:45,440 --> 00:04:50,479
+freedom means. So if you sell your
+
+91
+00:04:48,240 --> 00:04:53,120
+software if you are ethical you know I'm
+
+92
+00:04:50,479 --> 00:04:55,600
+a let's say I'm an ethical person. I
+
+93
+00:04:53,120 --> 00:04:58,160
+create software that does you know very
+
+94
+00:04:55,600 --> 00:05:01,759
+good. that doesn't spy on you, doesn't
+
+95
+00:04:58,160 --> 00:05:04,479
+do any nasty things and I sell to you.
+
+96
+00:05:01,759 --> 00:05:08,240
+But however, I don't allow you to like
+
+97
+00:05:04,479 --> 00:05:11,039
+make a copy and resell my my program.
+
+98
+00:05:08,240 --> 00:05:14,479
+So if I do that, according to Richard
+
+99
+00:05:11,039 --> 00:05:16,160
+Strowman, this guy a [ __ ]
+
+100
+00:05:14,479 --> 00:05:18,080
+you know, do we have a picture of him
+
+101
+00:05:16,160 --> 00:05:20,240
+here? Somewhere somewhere, you know,
+
+102
+00:05:18,080 --> 00:05:24,080
+you'll find it. According to him, you
+
+103
+00:05:20,240 --> 00:05:26,960
+are evil because in his opinion,
+
+104
+00:05:24,080 --> 00:05:30,000
+if you sell a software but not does not
+
+105
+00:05:26,960 --> 00:05:33,199
+let the user like resell it and other
+
+106
+00:05:30,000 --> 00:05:35,360
+things, then you are evil. You are, you
+
+107
+00:05:33,199 --> 00:05:38,400
+know, you are like not promoting
+
+108
+00:05:35,360 --> 00:05:40,320
+freedom. So, we got this Richard Stman
+
+109
+00:05:38,400 --> 00:05:43,360
+[ __ ]
+
+110
+00:05:40,320 --> 00:05:45,840
+Okay. Now he's you know so he's not
+
+111
+00:05:43,360 --> 00:05:48,080
+actually not too bad you know he's not
+
+112
+00:05:45,840 --> 00:05:50,720
+too bad a guy you know because when you
+
+113
+00:05:48,080 --> 00:05:53,520
+talk about bad people in the world you
+
+114
+00:05:50,720 --> 00:05:57,120
+know so many politicians leaders and in
+
+115
+00:05:53,520 --> 00:06:02,440
+history um there are a lot of course and
+
+116
+00:05:57,120 --> 00:06:02,440
+many of them caused millions death.
+
+117
+00:06:02,479 --> 00:06:08,720
+So in general, Richard Storman in my
+
+118
+00:06:05,360 --> 00:06:11,440
+opinion is not, you know, such a great
+
+119
+00:06:08,720 --> 00:06:14,160
+evil person
+
+120
+00:06:11,440 --> 00:06:16,000
+and uh he has, you know, he's the, you
+
+121
+00:06:14,160 --> 00:06:17,840
+know, he's the leader of this free
+
+122
+00:06:16,000 --> 00:06:21,120
+software foundation movement. That's
+
+123
+00:06:17,840 --> 00:06:24,560
+okay because you need different opinions
+
+124
+00:06:21,120 --> 00:06:27,440
+to compete. You, you know, you must
+
+125
+00:06:24,560 --> 00:06:30,400
+allow. So Richard Stman's opinion about
+
+126
+00:06:27,440 --> 00:06:33,600
+software is one of the opinion. You must
+
+127
+00:06:30,400 --> 00:06:36,800
+also allow other opinions to you know to
+
+128
+00:06:33,600 --> 00:06:41,120
+thrive to compete including open source.
+
+129
+00:06:36,800 --> 00:06:44,000
+By the way rich open source is a split
+
+130
+00:06:41,120 --> 00:06:46,639
+split off of the Richard Stoman's free
+
+131
+00:06:44,000 --> 00:06:49,520
+software foundation movement. So they
+
+132
+00:06:46,639 --> 00:06:52,639
+became and they became enemies. the
+
+133
+00:06:49,520 --> 00:06:54,800
+open-source software foundation they
+
+134
+00:06:52,639 --> 00:06:57,919
+their idea is that as long as you
+
+135
+00:06:54,800 --> 00:07:00,720
+include the the source code then you are
+
+136
+00:06:57,919 --> 00:07:04,080
+fine you know but Richard Sman disagree
+
+137
+00:07:00,720 --> 00:07:08,400
+he he he because Richard Sman he you
+
+138
+00:07:04,080 --> 00:07:11,199
+know he deeply believe his own specific
+
+139
+00:07:08,400 --> 00:07:15,440
+principle about morality
+
+140
+00:07:11,199 --> 00:07:18,800
+around software okay so Richard Sman
+
+141
+00:07:15,440 --> 00:07:21,360
+hates despise the open-source movement
+
+142
+00:07:18,800 --> 00:07:24,319
+Okay, they are like they are in a war
+
+143
+00:07:21,360 --> 00:07:26,080
+but open source movement won't of course
+
+144
+00:07:24,319 --> 00:07:27,759
+because today we don't hear free
+
+145
+00:07:26,080 --> 00:07:30,800
+software foundation we just hear open
+
+146
+00:07:27,759 --> 00:07:33,039
+source open source partly because open
+
+147
+00:07:30,800 --> 00:07:36,960
+source has been
+
+148
+00:07:33,039 --> 00:07:39,039
+uh taken by the taken and refried by the
+
+149
+00:07:36,960 --> 00:07:42,319
+deep state you know very powerful
+
+150
+00:07:39,039 --> 00:07:46,160
+organizations like Google like Microsoft
+
+151
+00:07:42,319 --> 00:07:48,400
+Google Microsoft micro systemystems and
+
+152
+00:07:46,160 --> 00:07:50,960
+uh you know Oracle you can count lots of
+
+153
+00:07:48,400 --> 00:07:55,280
+like Facebook, you know, lots of them.
+
+154
+00:07:50,960 --> 00:07:57,759
+So anyway, that is my opinion about
+
+155
+00:07:55,280 --> 00:08:00,560
+Richard Snowman. In summary, I did a lot
+
+156
+00:07:57,759 --> 00:08:02,720
+videos talking about it about like two
+
+157
+00:08:00,560 --> 00:08:06,240
+years, two or three years ago in my
+
+158
+00:08:02,720 --> 00:08:07,840
+older videos. Okay. So why are we
+
+159
+00:08:06,240 --> 00:08:10,960
+talking about this? Because we were
+
+160
+00:08:07,840 --> 00:08:13,120
+talking about Emacs. We want to have a
+
+161
+00:08:10,960 --> 00:08:16,560
+spellch checking ability. Like right now
+
+162
+00:08:13,120 --> 00:08:19,360
+I'm in Emacs as you know, but I cannot
+
+163
+00:08:16,560 --> 00:08:24,720
+spell check. So whenever I want to check
+
+164
+00:08:19,360 --> 00:08:27,599
+something if I spell correctly uh
+
+165
+00:08:24,720 --> 00:08:30,479
+you know I I I wrote a command to look
+
+166
+00:08:27,599 --> 00:08:32,320
+up dictionary. So this correctly is
+
+167
+00:08:30,479 --> 00:08:34,959
+incorrect.
+
+168
+00:08:32,320 --> 00:08:41,039
+So you have to you know so if I want to
+
+169
+00:08:34,959 --> 00:08:43,680
+check a spell that's what I do. Okay. Uh
+
+170
+00:08:41,039 --> 00:08:45,839
+you know so now it's correct. But but
+
+171
+00:08:43,680 --> 00:08:48,080
+this is this is inefficient. You know,
+
+172
+00:08:45,839 --> 00:08:50,720
+usually typically in any text editor,
+
+173
+00:08:48,080 --> 00:08:53,279
+you can press a key and it'll just
+
+174
+00:08:50,720 --> 00:08:55,040
+highlight the incorrect spell word and
+
+175
+00:08:53,279 --> 00:08:58,800
+if you right click it, it'll just
+
+176
+00:08:55,040 --> 00:09:00,800
+correct it, you know. So, Emacs has that
+
+177
+00:08:58,800 --> 00:09:02,320
+feature, but that feature is not
+
+178
+00:09:00,800 --> 00:09:04,480
+available
+
+179
+00:09:02,320 --> 00:09:08,000
+on Windows. When you run Emacs on
+
+180
+00:09:04,480 --> 00:09:10,560
+Windows, so if you run Emacs on Linux,
+
+181
+00:09:08,000 --> 00:09:13,680
+you have that feature kind of built in.
+
+182
+00:09:10,560 --> 00:09:16,959
+And part the reason for this is because
+
+183
+00:09:13,680 --> 00:09:20,480
+Richard Stman and his scan of people you
+
+184
+00:09:16,959 --> 00:09:24,080
+know who who who the Emacs de he he
+
+185
+00:09:20,480 --> 00:09:29,200
+doesn't want Windows version of Emacs to
+
+186
+00:09:24,080 --> 00:09:31,360
+be to be very good. Okay. Okay. That's
+
+187
+00:09:29,200 --> 00:09:33,200
+kind of digression.
+
+188
+00:09:31,360 --> 00:09:36,560
+Hello GPS.
+
+189
+00:09:33,200 --> 00:09:40,560
+So what so what I'm doing today is going
+
+190
+00:09:36,560 --> 00:09:44,160
+to I'm going to try to install to make
+
+191
+00:09:40,560 --> 00:09:47,120
+spell checking work on Windows
+
+192
+00:09:44,160 --> 00:09:50,120
+and I'm having red wine. So this is red
+
+193
+00:09:47,120 --> 00:09:50,120
+wine.
+
+194
+00:09:50,240 --> 00:09:56,320
+So if you are busy man if you are a busy
+
+195
+00:09:53,920 --> 00:10:00,720
+man you just want to get things done
+
+196
+00:09:56,320 --> 00:10:02,800
+this video is not for you. So for you if
+
+197
+00:10:00,720 --> 00:10:05,760
+you are using Emacs on Windows just
+
+198
+00:10:02,800 --> 00:10:09,440
+check out this this page these two
+
+199
+00:10:05,760 --> 00:10:11,120
+pages. Okay. So this EMAC easy wing
+
+200
+00:10:09,440 --> 00:10:15,600
+ports
+
+201
+00:10:11,120 --> 00:10:19,680
+by the Eddie Zaraskki guy. Okay. So this
+
+202
+00:10:15,600 --> 00:10:21,839
+website on source forge easy wing ports.
+
+203
+00:10:19,680 --> 00:10:23,680
+So check it out you know. So basically
+
+204
+00:10:21,839 --> 00:10:28,079
+what you need to do is you need to
+
+205
+00:10:23,680 --> 00:10:31,200
+install hunbell hunspel or aspel
+
+206
+00:10:28,079 --> 00:10:33,440
+that's two programs you need for emac
+
+207
+00:10:31,200 --> 00:10:37,120
+spell checking to work on linux it's
+
+208
+00:10:33,440 --> 00:10:40,320
+already there you know uh and emac is bu
+
+209
+00:10:37,120 --> 00:10:42,399
+so it or just works out of the box but
+
+210
+00:10:40,320 --> 00:10:46,160
+on windows you so you need to install
+
+211
+00:10:42,399 --> 00:10:49,760
+either aspel or hensel and you know from
+
+212
+00:10:46,160 --> 00:10:52,240
+this website easyw ports and then you
+
+213
+00:10:49,760 --> 00:10:54,560
+need to configure get you need to set
+
+214
+00:10:52,240 --> 00:10:57,040
+the path. You need to set in the
+
+215
+00:10:54,560 --> 00:11:00,079
+environment variables. You need to set
+
+216
+00:10:57,040 --> 00:11:03,600
+the execution EMAC execution path and
+
+217
+00:11:00,079 --> 00:11:06,399
+stuff to uh in order to get spell
+
+218
+00:11:03,600 --> 00:11:09,920
+checking to work
+
+219
+00:11:06,399 --> 00:11:13,279
+for Emacs on Windows. Okay. Another
+
+220
+00:11:09,920 --> 00:11:16,079
+website you can check is this old Reddit
+
+221
+00:11:13,279 --> 00:11:18,560
+I mean this Reddit. Okay. So tutorial
+
+222
+00:11:16,079 --> 00:11:21,760
+spellch checking with hunp spell for
+
+223
+00:11:18,560 --> 00:11:26,040
+Emacs on Windows. Okay. So, this post is
+
+224
+00:11:21,760 --> 00:11:26,040
+five years old. 2016
+
+225
+00:11:28,160 --> 00:11:35,279
+uh wait uh 2000 well five years ago. So,
+
+226
+00:11:31,760 --> 00:11:38,640
+that is like 20 um
+
+227
+00:11:35,279 --> 00:11:41,200
+2019 something 2020.
+
+228
+00:11:38,640 --> 00:11:43,519
+Okay, let's turn on JavaScript. So, if
+
+229
+00:11:41,200 --> 00:11:46,560
+you are a busy man, don't watch my
+
+230
+00:11:43,519 --> 00:11:48,720
+video. you know, you can just try to uh
+
+231
+00:11:46,560 --> 00:11:52,560
+go to these two websites and figure out
+
+232
+00:11:48,720 --> 00:11:54,480
+how it works. Yeah. But good luck. So,
+
+233
+00:11:52,560 --> 00:11:57,920
+what I'm going to do today is, you know,
+
+234
+00:11:54,480 --> 00:12:01,560
+I'm going to try to make it work. Okay.
+
+235
+00:11:57,920 --> 00:12:01,560
+So, any comments?
+
+236
+00:12:08,079 --> 00:12:14,880
+Okay. No comments. So, let's see.
+
+237
+00:12:12,639 --> 00:12:17,040
+So in order to get spell checking to
+
+238
+00:12:14,880 --> 00:12:21,360
+work, let's start to work on them. Okay.
+
+239
+00:12:17,040 --> 00:12:25,360
+So go to the source for so they are
+
+240
+00:12:21,360 --> 00:12:28,959
+uh god. So thanks to these people who
+
+241
+00:12:25,360 --> 00:12:32,000
+suggested me you know what to do. So I
+
+242
+00:12:28,959 --> 00:12:35,639
+tried it few years ago but I didn't uh
+
+243
+00:12:32,000 --> 00:12:35,639
+get it done.
+
+244
+00:12:35,920 --> 00:12:42,000
+So okay. So how to get spell checker to
+
+245
+00:12:40,560 --> 00:12:45,760
+work? First of all, what are the
+
+246
+00:12:42,000 --> 00:12:50,240
+commands for spellch checking? What are
+
+247
+00:12:45,760 --> 00:12:53,440
+the commands for spellch checking in
+
+248
+00:12:50,240 --> 00:12:57,440
+Emacs? First of all, that is a question
+
+249
+00:12:53,440 --> 00:12:59,600
+and I know one of them is I spell okay
+
+250
+00:12:57,440 --> 00:13:02,639
+uh let's see
+
+251
+00:12:59,600 --> 00:13:05,519
+uh let's see I spell word okay that's
+
+252
+00:13:02,639 --> 00:13:08,000
+one of the command you can use that will
+
+253
+00:13:05,519 --> 00:13:11,680
+just check the spelling of the word
+
+254
+00:13:08,000 --> 00:13:13,920
+under ka okay it doesn't work right now
+
+255
+00:13:11,680 --> 00:13:17,120
+because I don't have you know because
+
+256
+00:13:13,920 --> 00:13:20,959
+for example let's say put the place ka
+
+257
+00:13:17,120 --> 00:13:25,360
+there call it I spell word do it And
+
+258
+00:13:20,959 --> 00:13:28,800
+what does it say? Uh and uh I spell
+
+259
+00:13:25,360 --> 00:13:32,639
+check version blah blah blah released
+
+260
+00:13:28,800 --> 00:13:36,880
+0.6 or greater is required.
+
+261
+00:13:32,639 --> 00:13:39,680
+So that's the error message I got.
+
+262
+00:13:36,880 --> 00:13:42,639
+Uh okay.
+
+263
+00:13:39,680 --> 00:13:44,880
+So what are commands? So I spell word is
+
+264
+00:13:42,639 --> 00:13:48,720
+one of the command and another command
+
+265
+00:13:44,880 --> 00:13:52,720
+is fly spell something. Okay. Let's try
+
+266
+00:13:48,720 --> 00:13:56,320
+fly spell. Fly spell
+
+267
+00:13:52,720 --> 00:14:02,079
+uh fly spell mode.
+
+268
+00:13:56,320 --> 00:14:07,040
+Okay, so you got several uh so let's
+
+269
+00:14:02,079 --> 00:14:11,040
+do it. Okay, so error. So it says error
+
+270
+00:14:07,040 --> 00:14:14,560
+that release 0.6 or greater is required.
+
+271
+00:14:11,040 --> 00:14:17,760
+So basically I got the same error. So, I
+
+272
+00:14:14,560 --> 00:14:20,079
+got Ice Spell installed last time a few
+
+273
+00:14:17,760 --> 00:14:23,040
+years ago. I tried to make it work, but
+
+274
+00:14:20,079 --> 00:14:28,480
+then it says release 0.6 is required.
+
+275
+00:14:23,040 --> 00:14:32,000
+Okay. So, anyway, so so now let's um
+
+276
+00:14:28,480 --> 00:14:36,000
+but now let's just get the commands.
+
+277
+00:14:32,000 --> 00:14:40,399
+What are the commands I need? Okay, so
+
+278
+00:14:36,000 --> 00:14:44,399
+fly spell mode is one of them. And uh
+
+279
+00:14:40,399 --> 00:14:46,320
+why don't you just do a propose command?
+
+280
+00:14:44,399 --> 00:14:50,240
+So you can see in a pink window a
+
+281
+00:14:46,320 --> 00:14:54,959
+propose command. So that command call it
+
+282
+00:14:50,240 --> 00:14:58,480
+uh by this key. Then type spell it will
+
+283
+00:14:54,959 --> 00:15:01,920
+list all command names containing the
+
+284
+00:14:58,480 --> 00:15:04,639
+word spell. Okay. So you got you got all
+
+285
+00:15:01,920 --> 00:15:06,959
+these commands related to spellch
+
+286
+00:15:04,639 --> 00:15:09,920
+checking.
+
+287
+00:15:06,959 --> 00:15:11,760
+Okay. Uh, check dog. Now, where does
+
+288
+00:15:09,920 --> 00:15:17,320
+check dock came from? I don't know.
+
+289
+00:15:11,760 --> 00:15:17,320
+Let's look up. Check dog. Uh,
+
+290
+00:15:22,480 --> 00:15:28,399
+oh, fancy. Check the style and spelling
+
+291
+00:15:26,320 --> 00:15:31,440
+of everything.
+
+292
+00:15:28,399 --> 00:15:35,199
+So, this package must be something I'm
+
+293
+00:15:31,440 --> 00:15:38,000
+not aware of. Okay. But anyway, I'm just
+
+294
+00:15:35,199 --> 00:15:39,920
+concerned about
+
+295
+00:15:38,000 --> 00:15:42,240
+spellch checking, okay? I don't want to
+
+296
+00:15:39,920 --> 00:15:44,000
+check grammar and stuff. Usually, those
+
+297
+00:15:42,240 --> 00:15:46,079
+are [ __ ]
+
+298
+00:15:44,000 --> 00:15:48,480
+You know, those those software that
+
+299
+00:15:46,079 --> 00:15:52,560
+checks grammar or stuff, usually they
+
+300
+00:15:48,480 --> 00:15:54,399
+are just [ __ ] Okay, you need to learn.
+
+301
+00:15:52,560 --> 00:15:57,600
+So, this is about writing. Okay,
+
+302
+00:15:54,399 --> 00:16:01,279
+spelling is one thing. Of course, you
+
+303
+00:15:57,600 --> 00:16:04,880
+need a spell checker. It helps a lot.
+
+304
+00:16:01,279 --> 00:16:06,720
+Uh but the grammar checker usually they
+
+305
+00:16:04,880 --> 00:16:09,519
+are just [ __ ] Actually today with
+
+306
+00:16:06,720 --> 00:16:11,440
+today's AI there are some good ones but
+
+307
+00:16:09,519 --> 00:16:14,959
+usually they are [ __ ] because when it
+
+308
+00:16:11,440 --> 00:16:17,120
+comes to grammar and writing style
+
+309
+00:16:14,959 --> 00:16:20,079
+usually those suggestions are just bad
+
+310
+00:16:17,120 --> 00:16:23,199
+for you because because when you write
+
+311
+00:16:20,079 --> 00:16:27,040
+the art of writing they are just it's
+
+312
+00:16:23,199 --> 00:16:29,600
+very fluid. Okay. If you use the correct
+
+313
+00:16:27,040 --> 00:16:32,160
+grammar and whatever they suggest your
+
+314
+00:16:29,600 --> 00:16:35,519
+your writing becomes a boring piece of
+
+315
+00:16:32,160 --> 00:16:37,440
+[ __ ] just like today
+
+316
+00:16:35,519 --> 00:16:40,800
+like I read a story you know a few days
+
+317
+00:16:37,440 --> 00:16:43,680
+ago that the professors you know they
+
+318
+00:16:40,800 --> 00:16:46,480
+have to grade homework and a lot
+
+319
+00:16:43,680 --> 00:16:50,480
+homework done by students today are done
+
+320
+00:16:46,480 --> 00:16:53,440
+by AI you know they just ask uh gu you
+
+321
+00:16:50,480 --> 00:16:57,519
+know ask AI bot write please write me a
+
+322
+00:16:53,440 --> 00:17:02,160
+essay about uh let's say the relations
+
+323
+00:16:57,519 --> 00:17:04,079
+of USA and uh and United Kingdom you
+
+324
+00:17:02,160 --> 00:17:06,319
+know give me a short history whatever
+
+325
+00:17:04,079 --> 00:17:08,799
+whatever essay
+
+326
+00:17:06,319 --> 00:17:12,079
+you know so the AI bot will create
+
+327
+00:17:08,799 --> 00:17:15,360
+absolute perfect grammar and well
+
+328
+00:17:12,079 --> 00:17:17,679
+organized thesis you know but the
+
+329
+00:17:15,360 --> 00:17:20,400
+professor you know the per professor can
+
+330
+00:17:17,679 --> 00:17:22,400
+see it right away this is created by AI
+
+331
+00:17:20,400 --> 00:17:26,319
+because when you have something written
+
+332
+00:17:22,400 --> 00:17:29,840
+by AI the grammar is Perfect. Perfect.
+
+333
+00:17:26,319 --> 00:17:33,120
+The organization is perfect. The style
+
+334
+00:17:29,840 --> 00:17:36,400
+is kind of perfect journalism style, you
+
+335
+00:17:33,120 --> 00:17:40,559
+know. Everything is like so perfect. But
+
+336
+00:17:36,400 --> 00:17:42,480
+the content is devoid of humanity. It's
+
+337
+00:17:40,559 --> 00:17:44,720
+like there's nothing empty, you know.
+
+338
+00:17:42,480 --> 00:17:47,200
+It's like written by a robot, you know,
+
+339
+00:17:44,720 --> 00:17:50,080
+basic essentially. There's no spirit.
+
+340
+00:17:47,200 --> 00:17:52,000
+There's no like your your character, you
+
+341
+00:17:50,080 --> 00:17:54,720
+know, what you are thinking. there's
+
+342
+00:17:52,000 --> 00:17:57,039
+none, you know, just like kind of fact
+
+343
+00:17:54,720 --> 00:18:00,640
+and you know, like like logical and
+
+344
+00:17:57,039 --> 00:18:06,240
+fact, you know, so it's bland.
+
+345
+00:18:00,640 --> 00:18:09,919
+Okay. So, so this this this is uh this
+
+346
+00:18:06,240 --> 00:18:12,960
+this is a point that agree with my
+
+347
+00:18:09,919 --> 00:18:15,440
+opinion that all these uh grammar
+
+348
+00:18:12,960 --> 00:18:18,080
+checking software and style checking
+
+349
+00:18:15,440 --> 00:18:20,400
+software they are [ __ ] Do not use it.
+
+350
+00:18:18,080 --> 00:18:24,240
+Okay, my recommendation. This is my
+
+351
+00:18:20,400 --> 00:18:26,880
+personal recommendation because I am a
+
+352
+00:18:24,240 --> 00:18:30,480
+guy I'm into writing very much since
+
+353
+00:18:26,880 --> 00:18:34,480
+1990s. I'm obsessed about writing
+
+354
+00:18:30,480 --> 00:18:36,960
+writing style and all that. Okay. So, so
+
+355
+00:18:34,480 --> 00:18:39,520
+uh that is a piece of experience I'm
+
+356
+00:18:36,960 --> 00:18:41,919
+telling you guys. So if you are into
+
+357
+00:18:39,520 --> 00:18:45,440
+writing you know writing is not a good
+
+358
+00:18:41,919 --> 00:18:48,320
+thing to spend a lot of time into.
+
+359
+00:18:45,440 --> 00:18:50,160
+you want to go somewhere, if you want to
+
+360
+00:18:48,320 --> 00:18:53,679
+go somewhere, if you want to make
+
+361
+00:18:50,160 --> 00:18:56,080
+America great again, go into
+
+362
+00:18:53,679 --> 00:18:59,600
+mathematics, engineering, and
+
+363
+00:18:56,080 --> 00:19:02,559
+programming. Okay, that's a real thing.
+
+364
+00:18:59,600 --> 00:19:05,520
+If you go into, oh, I'm going to study
+
+365
+00:19:02,559 --> 00:19:08,640
+history. I'm going to be study uh
+
+366
+00:19:05,520 --> 00:19:11,360
+English writing, grammar, literature,
+
+367
+00:19:08,640 --> 00:19:14,320
+you know, that's that's no good. That's
+
+368
+00:19:11,360 --> 00:19:17,600
+well it's not no good but it's
+
+369
+00:19:14,320 --> 00:19:20,640
+it's not uh it's not very practical.
+
+370
+00:19:17,600 --> 00:19:23,760
+Okay. It's not very useful and it's not
+
+371
+00:19:20,640 --> 00:19:27,919
+very good. It's not you don't have much
+
+372
+00:19:23,760 --> 00:19:30,559
+job prosperities needed. Okay. So don't
+
+373
+00:19:27,919 --> 00:19:33,039
+go you know go don't go into writing and
+
+374
+00:19:30,559 --> 00:19:36,240
+stuff. But however,
+
+375
+00:19:33,039 --> 00:19:42,320
+writing a good to be able to write well
+
+376
+00:19:36,240 --> 00:19:44,160
+is still a good um a very uh useful uh
+
+377
+00:19:42,320 --> 00:19:47,280
+skill
+
+378
+00:19:44,160 --> 00:19:51,039
+especially your thinking and analysis
+
+379
+00:19:47,280 --> 00:19:55,760
+abilities. So it's good to practice
+
+380
+00:19:51,039 --> 00:19:59,039
+writing because when you write you hone
+
+381
+00:19:55,760 --> 00:20:01,919
+your ability to think about things and
+
+382
+00:19:59,039 --> 00:20:04,480
+analyze it because in order to represent
+
+383
+00:20:01,919 --> 00:20:07,039
+your view you know whatever is essay
+
+384
+00:20:04,480 --> 00:20:10,720
+topic you know you have to think you
+
+385
+00:20:07,039 --> 00:20:12,640
+have to analyze and you have to you know
+
+386
+00:20:10,720 --> 00:20:16,160
+so when you write you have to make a
+
+387
+00:20:12,640 --> 00:20:18,480
+good argument you know or organize your
+
+388
+00:20:16,160 --> 00:20:23,200
+opinion organize your thoughts
+
+389
+00:20:18,480 --> 00:20:26,799
+you know and present it. So it helps
+
+390
+00:20:23,200 --> 00:20:30,400
+writing helps develop your logic
+
+391
+00:20:26,799 --> 00:20:32,159
+abilities, your analysis abilities. Why
+
+392
+00:20:30,400 --> 00:20:35,039
+writing?
+
+393
+00:20:32,159 --> 00:20:38,000
+Well, because when you write, you need
+
+394
+00:20:35,039 --> 00:20:41,600
+to give it out you know publish it for
+
+395
+00:20:38,000 --> 00:20:43,600
+someone else to read it for. So when
+
+396
+00:20:41,600 --> 00:20:46,000
+someone else who don't you know who
+
+397
+00:20:43,600 --> 00:20:48,799
+don't share the brain as you they will
+
+398
+00:20:46,000 --> 00:20:50,559
+be able you know they will be the judge
+
+399
+00:20:48,799 --> 00:20:54,000
+you know when you present your writing
+
+400
+00:20:50,559 --> 00:20:56,159
+they are the judge to see you know to
+
+401
+00:20:54,000 --> 00:20:59,440
+you know so it's up to them to
+
+402
+00:20:56,159 --> 00:21:03,919
+understand exactly what what your logic
+
+403
+00:20:59,440 --> 00:21:06,080
+your argument is. So when you write well
+
+404
+00:21:03,919 --> 00:21:09,440
+they understand they may not agree but
+
+405
+00:21:06,080 --> 00:21:14,000
+they understand. So that is the power of
+
+406
+00:21:09,440 --> 00:21:16,640
+writing and and why writing is a great
+
+407
+00:21:14,000 --> 00:21:19,919
+exercise is a good thing to a good skill
+
+408
+00:21:16,640 --> 00:21:21,440
+to have. Okay. Even if you are not a
+
+409
+00:21:19,919 --> 00:21:24,080
+engineer
+
+410
+00:21:21,440 --> 00:21:27,520
+uh even if you go into whatever you know
+
+411
+00:21:24,080 --> 00:21:32,320
+politics or law you need to writing is
+
+412
+00:21:27,520 --> 00:21:33,840
+uh fairly important still. Okay.
+
+413
+00:21:32,320 --> 00:21:36,640
+Uh
+
+414
+00:21:33,840 --> 00:21:40,400
+okay. So anyway we digressed a lot. We
+
+415
+00:21:36,640 --> 00:21:43,600
+got into fly spell uh many commands.
+
+416
+00:21:40,400 --> 00:21:46,080
+Okay. So let's close that. Close that.
+
+417
+00:21:43,600 --> 00:21:49,360
+So these are some of the most important
+
+418
+00:21:46,080 --> 00:21:52,159
+command for uh spell checking in Emacs.
+
+419
+00:21:49,360 --> 00:21:55,440
+Okay. So showing browser.
+
+420
+00:21:52,159 --> 00:21:58,000
+So oh Jesus another new version of
+
+421
+00:21:55,440 --> 00:22:03,039
+Firefox. You know Firefox been updating
+
+422
+00:21:58,000 --> 00:22:05,840
+every day uh lately. So anyway, so we
+
+423
+00:22:03,039 --> 00:22:08,080
+discovered we we know we know some of
+
+424
+00:22:05,840 --> 00:22:10,159
+the commands for uh spell checking. Now
+
+425
+00:22:08,080 --> 00:22:13,039
+we need to install the programs. Okay,
+
+426
+00:22:10,159 --> 00:22:16,799
+let's see the comments. Ching, thank you
+
+427
+00:22:13,039 --> 00:22:21,120
+Hank again. Do recruiters look for you
+
+428
+00:22:16,799 --> 00:22:25,200
+on your YouTube? Uh recruiters
+
+429
+00:22:21,120 --> 00:22:27,520
+not for my YouTube but for my LinkedIn.
+
+430
+00:22:25,200 --> 00:22:31,039
+You know, I have a LinkedIn. I haven't
+
+431
+00:22:27,520 --> 00:22:33,280
+updated for more than 10 years. I
+
+432
+00:22:31,039 --> 00:22:35,039
+haven't logged in for like 10 years.
+
+433
+00:22:33,280 --> 00:22:37,760
+Yeah, actually I logged in like few
+
+434
+00:22:35,039 --> 00:22:41,200
+years ago, but I haven't touched it for
+
+435
+00:22:37,760 --> 00:22:43,440
+more than 10 years. So, so I get emails
+
+436
+00:22:41,200 --> 00:22:46,799
+like, oh, oh, we saw your resume
+
+437
+00:22:43,440 --> 00:22:50,799
+something, you know, sometimes.
+
+438
+00:22:46,799 --> 00:22:53,360
+But my YouTube, I got I got sponsors,
+
+439
+00:22:50,799 --> 00:22:58,240
+you know, like the keyboard like, you
+
+440
+00:22:53,360 --> 00:23:01,120
+know, a month ago. uh from uh what's the
+
+441
+00:22:58,240 --> 00:23:03,600
+um Razer, you know, the Razer that makes
+
+442
+00:23:01,120 --> 00:23:06,159
+keyboards and gaming devices. They
+
+443
+00:23:03,600 --> 00:23:08,640
+contact me, hey, we like to sponsor, you
+
+444
+00:23:06,159 --> 00:23:11,360
+know, something like, hey, um you know,
+
+445
+00:23:08,640 --> 00:23:13,840
+we like to sponsor you
+
+446
+00:23:11,360 --> 00:23:17,679
+Razer and and and I think another
+
+447
+00:23:13,840 --> 00:23:22,000
+company, but I I didn't reply. So, you
+
+448
+00:23:17,679 --> 00:23:24,320
+know, I'm not into I'm not really into I
+
+449
+00:23:22,000 --> 00:23:27,200
+should I actually should reply. So, I
+
+450
+00:23:24,320 --> 00:23:31,200
+become like one of the no more know me
+
+451
+00:23:27,200 --> 00:23:32,960
+YouTubers, you know, make money,
+
+452
+00:23:31,200 --> 00:23:36,559
+make money. Oh, by the way, today's
+
+453
+00:23:32,960 --> 00:23:41,919
+sponsor is VPN. I Oh, yeah. That reminds
+
+454
+00:23:36,559 --> 00:23:45,520
+me actually I got a sponsorship from VPN
+
+455
+00:23:41,919 --> 00:23:49,520
+request. You know, the like northern you
+
+456
+00:23:45,520 --> 00:23:52,000
+uh like VPN you they are uh very popular
+
+457
+00:23:49,520 --> 00:23:53,600
+on YouTube, you know.
+
+458
+00:23:52,000 --> 00:23:55,520
+you know they send me an email saying
+
+459
+00:23:53,600 --> 00:23:58,000
+that oh do you like to you know work
+
+460
+00:23:55,520 --> 00:24:01,600
+with us you know something
+
+461
+00:23:58,000 --> 00:24:04,000
+maybe I should you know yeah but mostly
+
+462
+00:24:01,600 --> 00:24:06,559
+I want just you guys to donate to me
+
+463
+00:24:04,000 --> 00:24:10,080
+okay I don't want you know I don't want
+
+464
+00:24:06,559 --> 00:24:12,880
+like in the middle of my video this like
+
+465
+00:24:10,080 --> 00:24:14,799
+oh today's sponsor is VPN guys I really
+
+466
+00:24:12,880 --> 00:24:17,440
+like VPN because do you know do you know
+
+467
+00:24:14,799 --> 00:24:19,600
+guys how important is VPN because the
+
+468
+00:24:17,440 --> 00:24:21,679
+virtual network because the government
+
+469
+00:24:19,600 --> 00:24:24,559
+something therefore
+
+470
+00:24:21,679 --> 00:24:28,400
+you know, you just go to this site and
+
+471
+00:24:24,559 --> 00:24:31,760
+use the code kasadi and you'll get 10%
+
+472
+00:24:28,400 --> 00:24:34,080
+discount, you know, like it's kind of,
+
+473
+00:24:31,760 --> 00:24:36,720
+you know, it's marketing. It's a
+
+474
+00:24:34,080 --> 00:24:38,880
+marketing capitalism of the American
+
+475
+00:24:36,720 --> 00:24:40,640
+way.
+
+476
+00:24:38,880 --> 00:24:42,960
+Um,
+
+477
+00:24:40,640 --> 00:24:46,159
+well, I mean, some of it is good, but
+
+478
+00:24:42,960 --> 00:24:47,760
+usually becomes hard when you don't
+
+479
+00:24:46,159 --> 00:24:50,799
+want, you know, when you don't want to
+
+480
+00:24:47,760 --> 00:24:54,480
+talk about [ __ ]
+
+481
+00:24:50,799 --> 00:24:56,880
+um you know so the you know so I don't
+
+482
+00:24:54,480 --> 00:24:59,279
+I'm not really into so I just want you
+
+483
+00:24:56,880 --> 00:25:02,880
+guys to donate to me I'm not making any
+
+484
+00:24:59,279 --> 00:25:06,559
+money okay I'm not you know so thank you
+
+485
+00:25:02,880 --> 00:25:10,919
+Hank and uh you other people you know
+
+486
+00:25:06,559 --> 00:25:10,919
+donate to me by
+
+487
+00:25:12,960 --> 00:25:19,279
+by going to kasadi.info info. Okay.
+
+488
+00:25:15,440 --> 00:25:23,360
+Click click kasar code kasadi.info.
+
+489
+00:25:19,279 --> 00:25:26,480
+Uh and and you can go all the way down
+
+490
+00:25:23,360 --> 00:25:30,559
+to the PayPal section. Patreon, PayPal,
+
+491
+00:25:26,480 --> 00:25:34,240
+Amazon gift card. Pay me $100. Pay me
+
+492
+00:25:30,559 --> 00:25:36,480
+100 bucks. If you
+
+493
+00:25:34,240 --> 00:25:38,400
+have a job, okay? If you are
+
+494
+00:25:36,480 --> 00:25:42,159
+professional programmers or something,
+
+495
+00:25:38,400 --> 00:25:45,840
+you know. Uh
+
+496
+00:25:42,159 --> 00:25:48,480
+okay. So let's see what is uh uh yeah
+
+497
+00:25:45,840 --> 00:25:50,960
+YouTube. Yeah, I got some solicitation
+
+498
+00:25:48,480 --> 00:25:54,640
+from the you know some some keyboard
+
+499
+00:25:50,960 --> 00:25:59,480
+reviews and stuff.
+
+500
+00:25:54,640 --> 00:25:59,480
+Nice keyboard broad. Thank you broad.
+
+501
+00:26:04,080 --> 00:26:10,799
+Hello blue three. Now blue three is a
+
+502
+00:26:06,640 --> 00:26:15,360
+emac advanced EMAC coder. If I recall
+
+503
+00:26:10,799 --> 00:26:18,159
+correctly, blue three wrote a thesis,
+
+504
+00:26:15,360 --> 00:26:21,520
+a bachelor's thesis or master thesis
+
+505
+00:26:18,159 --> 00:26:25,039
+about, you know, some Emacs
+
+506
+00:26:21,520 --> 00:26:27,919
+uh compiler technical details.
+
+507
+00:26:25,039 --> 00:26:30,559
+That's you right if I recall correctly.
+
+508
+00:26:27,919 --> 00:26:34,080
+Blue three says, "What's up with the
+
+509
+00:26:30,559 --> 00:26:37,919
+cyber decks? The handheld computers
+
+510
+00:26:34,080 --> 00:26:41,120
+AliExpress ready with cramped keyboard.
+
+511
+00:26:37,919 --> 00:26:45,120
+think you can work home this
+
+512
+00:26:41,120 --> 00:26:46,880
+home list magic on it. Cyber decks.
+
+513
+00:26:45,120 --> 00:26:49,279
+Okay.
+
+514
+00:26:46,880 --> 00:26:52,080
+Now, I heard of a cyber deck, but I'm
+
+515
+00:26:49,279 --> 00:26:56,000
+not too familiar with it, you know. It's
+
+516
+00:26:52,080 --> 00:26:58,640
+like a little little small screen
+
+517
+00:26:56,000 --> 00:27:02,640
+computer, you know, cyber deck. I don't
+
+518
+00:26:58,640 --> 00:27:05,440
+I'm not too into that
+
+519
+00:27:02,640 --> 00:27:09,279
+cyber deck. Okay, there's a Reddit
+
+520
+00:27:05,440 --> 00:27:12,799
+forum. Now, let's look at some pictures.
+
+521
+00:27:09,279 --> 00:27:14,400
+Uh, yeah, you see this little, you know,
+
+522
+00:27:12,799 --> 00:27:17,200
+computers
+
+523
+00:27:14,400 --> 00:27:20,159
+that, you know, I guess allows you, you
+
+524
+00:27:17,200 --> 00:27:23,760
+know, it's good for hacker types. Let's
+
+525
+00:27:20,159 --> 00:27:27,279
+turn on JavaScript so Google knows who
+
+526
+00:27:23,760 --> 00:27:31,919
+you sleep with. Now, open that. So, you
+
+527
+00:27:27,279 --> 00:27:34,320
+see this is kind of typical cyber deck.
+
+528
+00:27:31,919 --> 00:27:37,440
+What they are good for? They are good
+
+529
+00:27:34,320 --> 00:27:40,480
+for you know if you are on the go if you
+
+530
+00:27:37,440 --> 00:27:43,360
+are a hacker you know you you know
+
+531
+00:27:40,480 --> 00:27:46,880
+that's what you do. Uh but I'm not I'm
+
+532
+00:27:43,360 --> 00:27:50,159
+not that type, you know. I'm a you might
+
+533
+00:27:46,880 --> 00:27:53,039
+call me, you know, I'm a if I may say
+
+534
+00:27:50,159 --> 00:27:56,480
+I'm a computer scientist. I'm a computer
+
+535
+00:27:53,039 --> 00:27:58,640
+engineer. I'm a mathematician.
+
+536
+00:27:56,480 --> 00:28:00,799
+You know, I don't go around like hack.
+
+537
+00:27:58,640 --> 00:28:03,279
+Oh, you got to hack this. You you got to
+
+538
+00:28:00,799 --> 00:28:05,919
+break this network in 10 minutes. You
+
+539
+00:28:03,279 --> 00:28:09,520
+know, that's not my thing. And that
+
+540
+00:28:05,919 --> 00:28:11,679
+field is very different from
+
+541
+00:28:09,520 --> 00:28:16,320
+engineer and from programming from
+
+542
+00:28:11,679 --> 00:28:18,240
+architecture from creating you know uh
+
+543
+00:28:16,320 --> 00:28:22,799
+you know that's you know that's just not
+
+544
+00:28:18,240 --> 00:28:28,320
+my thing hacker cyber deck so cyber deck
+
+545
+00:28:22,799 --> 00:28:30,480
+is uh attractive to the hacker types
+
+546
+00:28:28,320 --> 00:28:33,919
+you know so let's see you know so you
+
+547
+00:28:30,480 --> 00:28:37,200
+got this you know okay cyber deck cyber
+
+548
+00:28:33,919 --> 00:28:38,960
+deck Okay.
+
+549
+00:28:37,200 --> 00:28:42,320
+What what am I going to do it? You know,
+
+550
+00:28:38,960 --> 00:28:44,000
+tiny cable keyboard, tiny screen. You're
+
+551
+00:28:42,320 --> 00:28:46,720
+going to ddle with it. You know, you're
+
+552
+00:28:44,000 --> 00:28:48,799
+going to hack some pass password. You
+
+553
+00:28:46,720 --> 00:28:53,039
+know, Unix. You're going to Unix and
+
+554
+00:28:48,799 --> 00:28:55,760
+Linux and something on this little [ __ ]
+
+555
+00:28:53,039 --> 00:28:58,240
+No, that's that's not my thing. I you
+
+556
+00:28:55,760 --> 00:29:00,799
+know, so I'm into battle station. You
+
+557
+00:28:58,240 --> 00:29:03,679
+know, I have a full screen, full
+
+558
+00:29:00,799 --> 00:29:05,520
+powerful keyboards. Okay. My that's my
+
+559
+00:29:03,679 --> 00:29:07,840
+battle station. That's what I'm into.
+
+560
+00:29:05,520 --> 00:29:12,120
+I'm not into
+
+561
+00:29:07,840 --> 00:29:12,120
+the cyber deck stuff.
+
+562
+00:29:13,840 --> 00:29:17,399
+Okay. So,
+
+563
+00:29:23,360 --> 00:29:29,600
+do you have a preferred or go to
+
+564
+00:29:26,720 --> 00:29:33,039
+programming language for auto automating
+
+565
+00:29:29,600 --> 00:29:34,960
+tasks? Okay. Of course I have a
+
+566
+00:29:33,039 --> 00:29:39,039
+preferred language that would be wam
+
+567
+00:29:34,960 --> 00:29:42,960
+language that will be goland and f okay
+
+568
+00:29:39,039 --> 00:29:46,120
+that is general purpose okay let's write
+
+569
+00:29:42,960 --> 00:29:46,120
+it out
+
+570
+00:29:47,039 --> 00:29:51,640
+preferred programming language okay
+
+571
+00:29:52,399 --> 00:29:57,159
+for industrial programming
+
+572
+00:29:58,240 --> 00:30:04,520
+programming okay
+
+573
+00:30:00,960 --> 00:30:04,520
+and Functional
+
+574
+00:30:07,200 --> 00:30:13,120
+in industrial
+
+575
+00:30:10,720 --> 00:30:16,120
+uh
+
+576
+00:30:13,120 --> 00:30:16,120
+programming
+
+577
+00:30:16,240 --> 00:30:23,360
+programming. Okay. F#
+
+578
+00:30:20,960 --> 00:30:27,080
+wolf frame language
+
+579
+00:30:23,360 --> 00:30:27,080
+general purpose
+
+580
+00:30:31,840 --> 00:30:39,919
+general purpose scientific programming.
+
+581
+00:30:34,159 --> 00:30:44,480
+Okay. Um and so that is my uh preferred
+
+582
+00:30:39,919 --> 00:30:46,960
+languages. Okay. I I have a tutorial for
+
+583
+00:30:44,480 --> 00:30:49,360
+Golan and Wuang.
+
+584
+00:30:46,960 --> 00:30:52,320
+You can see them
+
+585
+00:30:49,360 --> 00:30:56,960
+here.
+
+586
+00:30:52,320 --> 00:30:59,120
+Uh, language. Beautiful. You know, I'm
+
+587
+00:30:56,960 --> 00:31:02,000
+I've been, you know, I'm working on it
+
+588
+00:30:59,120 --> 00:31:05,120
+every day. Uh,
+
+589
+00:31:02,000 --> 00:31:08,480
+fantastic 3D graphics tutorial coming
+
+590
+00:31:05,120 --> 00:31:11,760
+up. So, Golan,
+
+591
+00:31:08,480 --> 00:31:15,039
+one of my best tutorial, Golan. Okay.
+
+592
+00:31:11,760 --> 00:31:17,840
+And, uh, what is this? Um,
+
+593
+00:31:15,039 --> 00:31:20,799
+and the Wuam language and F. I don't
+
+594
+00:31:17,840 --> 00:31:23,440
+have a I don't have a tutorial for F F.
+
+595
+00:31:20,799 --> 00:31:25,679
+Okay.
+
+596
+00:31:23,440 --> 00:31:28,880
+Uh, wait.
+
+597
+00:31:25,679 --> 00:31:30,480
+What? Cuz what's going on?
+
+598
+00:31:28,880 --> 00:31:33,279
+What?
+
+599
+00:31:30,480 --> 00:31:36,240
+Wait. I [ __ ] up something. Okay. Copy
+
+600
+00:31:33,279 --> 00:31:40,559
+that. Wait. Not Cass code.
+
+601
+00:31:36,240 --> 00:31:44,000
+Copy that. Paste. Close. Copy that.
+
+602
+00:31:40,559 --> 00:31:47,360
+Link. Okay. Whatever. So that is my
+
+603
+00:31:44,000 --> 00:31:51,679
+general purpose preferred
+
+604
+00:31:47,360 --> 00:31:55,760
+general purpose programming languages.
+
+605
+00:31:51,679 --> 00:31:58,000
+Okay. Uh let's see. Goland F wound
+
+606
+00:31:55,760 --> 00:32:03,159
+language. What else? Is there anything
+
+607
+00:31:58,000 --> 00:32:03,159
+else? Let's see. Um
+
+608
+00:32:04,080 --> 00:32:10,080
+uh well Emacs list is kind of special.
+
+609
+00:32:07,600 --> 00:32:14,799
+If you do text processing that is the
+
+610
+00:32:10,080 --> 00:32:19,080
+best. Okay. So, Emacs this is best for
+
+611
+00:32:14,799 --> 00:32:19,080
+text processing. Okay,
+
+612
+00:32:25,279 --> 00:32:29,120
+that's the best language for text
+
+613
+00:32:27,279 --> 00:32:32,880
+processing.
+
+614
+00:32:29,120 --> 00:32:36,880
+Okay, what else? Let's see. Uh,
+
+615
+00:32:32,880 --> 00:32:40,000
+Goland PowerShell. Well, PowerShell is
+
+616
+00:32:36,880 --> 00:32:43,679
+is just necessary if you do things on
+
+617
+00:32:40,000 --> 00:32:47,440
+Windows. So if you work with Microsoft
+
+618
+00:32:43,679 --> 00:32:49,039
+Windows as a professional
+
+619
+00:32:47,440 --> 00:32:51,440
+you know whether you are a programmer or
+
+620
+00:32:49,039 --> 00:32:54,960
+whatever you know as a professional so
+
+621
+00:32:51,440 --> 00:32:58,159
+PowerShell okay Python is [ __ ] well but
+
+622
+00:32:54,960 --> 00:33:01,360
+Python is like mostly used for machine
+
+623
+00:32:58,159 --> 00:33:05,600
+uh machine learning stuff okay Java is
+
+624
+00:33:01,360 --> 00:33:07,519
+[ __ ] closure okay anyway so th those
+
+625
+00:33:05,600 --> 00:33:10,159
+these are the my best programming
+
+626
+00:33:07,519 --> 00:33:13,360
+languages now yours particular question
+
+627
+00:33:10,159 --> 00:33:16,399
+is about
+
+628
+00:33:13,360 --> 00:33:19,120
+for automating tasks. Okay, that's a
+
+629
+00:33:16,399 --> 00:33:22,720
+very specific
+
+630
+00:33:19,120 --> 00:33:26,559
+purpose. Okay. Uh so for the purpose of
+
+631
+00:33:22,720 --> 00:33:28,799
+automating automating tasks
+
+632
+00:33:26,559 --> 00:33:32,960
+for automation.
+
+633
+00:33:28,799 --> 00:33:35,200
+Okay. Then your choices are let me tell
+
+634
+00:33:32,960 --> 00:33:42,120
+you
+
+635
+00:33:35,200 --> 00:33:42,120
+your choices are uh on Mac it's
+
+636
+00:33:42,799 --> 00:33:46,279
+Apple script.
+
+637
+00:33:46,960 --> 00:33:52,480
+Okay, that's basically that's that's
+
+638
+00:33:49,679 --> 00:33:55,519
+what you got on Mac is Apple script.
+
+639
+00:33:52,480 --> 00:33:57,600
+Okay. Uh let's see. So you can look up,
+
+640
+00:33:55,519 --> 00:34:00,320
+you can read about Wikipedia, Apple
+
+641
+00:33:57,600 --> 00:34:03,880
+script.
+
+642
+00:34:00,320 --> 00:34:03,880
+Uh on Windows
+
+643
+00:34:04,480 --> 00:34:09,159
+it's
+
+644
+00:34:06,159 --> 00:34:09,159
+PowerShell
+
+645
+00:34:10,159 --> 00:34:17,000
+and
+
+646
+00:34:12,240 --> 00:34:17,000
+auto hard key. Okay.
+
+647
+00:34:18,240 --> 00:34:26,000
+Showing browser go down. Okay. So on
+
+648
+00:34:22,560 --> 00:34:28,720
+Windows you it's necessary. So you study
+
+649
+00:34:26,000 --> 00:34:31,119
+PowerShell and Autoarchy. Okay. So I
+
+650
+00:34:28,720 --> 00:34:34,440
+have a tutorial for them of course.
+
+651
+00:34:31,119 --> 00:34:34,440
+Search for
+
+652
+00:34:35,200 --> 00:34:41,359
+why I love PowerShell. Uh so where is my
+
+653
+00:34:38,639 --> 00:34:43,679
+PowerShell tutorial? PowerShell
+
+654
+00:34:41,359 --> 00:34:46,159
+PowerShell. The PowerShell tutorial.
+
+655
+00:34:43,679 --> 00:34:50,240
+Copy it. Go back.
+
+656
+00:34:46,159 --> 00:34:55,000
+Paste it. Link V list. Okay. And what's
+
+657
+00:34:50,240 --> 00:34:55,000
+the other powershell and auto hotkey?
+
+658
+00:34:56,240 --> 00:35:03,280
+Auto hotkey tutorial. Okay, there. Okay,
+
+659
+00:35:00,000 --> 00:35:05,680
+so on windows if you want automation
+
+660
+00:35:03,280 --> 00:35:09,040
+these two
+
+661
+00:35:05,680 --> 00:35:12,079
+are necessary.
+
+662
+00:35:09,040 --> 00:35:14,000
+Now what is what specific do you have in
+
+663
+00:35:12,079 --> 00:35:16,320
+mind? What do you mean automat
+
+664
+00:35:14,000 --> 00:35:19,200
+automating task? For example, there's
+
+665
+00:35:16,320 --> 00:35:22,720
+another automation of task that is in
+
+666
+00:35:19,200 --> 00:35:26,079
+browser. So if you are a corporation
+
+667
+00:35:22,720 --> 00:35:30,800
+that creates browser uh stuff such as
+
+668
+00:35:26,079 --> 00:35:33,359
+Google or NodeJS you know NJS the
+
+669
+00:35:30,800 --> 00:35:37,359
+corporation or if you are a corporation
+
+670
+00:35:33,359 --> 00:35:41,280
+you have a huge website based on website
+
+671
+00:35:37,359 --> 00:35:44,320
+you need to uh do uh unit testing you
+
+672
+00:35:41,280 --> 00:35:47,680
+need to do lots of testing automation
+
+673
+00:35:44,320 --> 00:35:51,040
+you need to do automated testing of
+
+674
+00:35:47,680 --> 00:35:53,839
+users using your website Then in that
+
+675
+00:35:51,040 --> 00:35:56,880
+case that's more very specific. In that
+
+676
+00:35:53,839 --> 00:35:59,280
+case there are quite a few uh you know
+
+677
+00:35:56,880 --> 00:36:02,160
+either based on Python or JavaScript you
+
+678
+00:35:59,280 --> 00:36:04,480
+know that's so-called headless browsers
+
+679
+00:36:02,160 --> 00:36:09,040
+that does automation. So you can you
+
+680
+00:36:04,480 --> 00:36:11,520
+know you can automating login and user
+
+681
+00:36:09,040 --> 00:36:13,839
+clicking on some buttons you know to get
+
+682
+00:36:11,520 --> 00:36:16,880
+some query or whatever. Okay. So that's
+
+683
+00:36:13,839 --> 00:36:19,280
+very specialized.
+
+684
+00:36:16,880 --> 00:36:25,440
+So what do you mean by automating? Okay.
+
+685
+00:36:19,280 --> 00:36:31,119
+So well on if you are on um Unix then
+
+686
+00:36:25,440 --> 00:36:33,920
+if on Linux then bash Python you you
+
+687
+00:36:31,119 --> 00:36:36,160
+know Python pro you can do lots of you
+
+688
+00:36:33,920 --> 00:36:40,560
+know Linux doesn't really have a
+
+689
+00:36:36,160 --> 00:36:42,240
+automated automation um architecture
+
+690
+00:36:40,560 --> 00:36:44,960
+okay
+
+691
+00:36:42,240 --> 00:36:48,240
+despite you might think it should but
+
+692
+00:36:44,960 --> 00:36:48,240
+Linux actually sucks.
+
+693
+00:36:49,280 --> 00:36:54,560
+you know because I actually I have a
+
+694
+00:36:51,520 --> 00:36:57,760
+story to tell anyway about key key
+
+695
+00:36:54,560 --> 00:37:01,520
+binding. Anyway,
+
+696
+00:36:57,760 --> 00:37:05,680
+Apple has Zshask
+
+697
+00:37:01,520 --> 00:37:09,119
+automation. Well, you know that's that's
+
+698
+00:37:05,680 --> 00:37:13,760
+um well ZSH is just a shell just like
+
+699
+00:37:09,119 --> 00:37:15,760
+bash. It's a better bash, but
+
+700
+00:37:13,760 --> 00:37:18,079
+it doesn't, you know, it's not very
+
+701
+00:37:15,760 --> 00:37:23,119
+specialized for automation because if
+
+702
+00:37:18,079 --> 00:37:26,640
+you argue that on Apple ZSH is great,
+
+703
+00:37:23,119 --> 00:37:30,720
+then you might as well use Python or PHP
+
+704
+00:37:26,640 --> 00:37:34,520
+or even Pearl, Ruby. So like lots of all
+
+705
+00:37:30,720 --> 00:37:34,520
+kind of language works.
+
+706
+00:37:36,160 --> 00:37:40,480
+Another question, do you use a web
+
+707
+00:37:38,160 --> 00:37:44,160
+framework for my website? No, everything
+
+708
+00:37:40,480 --> 00:37:47,040
+is manual, coded by Emacs
+
+709
+00:37:44,160 --> 00:37:51,000
+character by character, uh, tag by tag.
+
+710
+00:37:47,040 --> 00:37:51,000
+Okay, basically
+
+711
+00:37:52,160 --> 00:37:58,960
+uh, love the small autocompletes you do.
+
+712
+00:37:54,880 --> 00:38:02,000
+Is it Emac thing?
+
+713
+00:37:58,960 --> 00:38:03,599
+My autocomplete. Oh yeah. So that so you
+
+714
+00:38:02,000 --> 00:38:05,920
+were talking about. So there are
+
+715
+00:38:03,599 --> 00:38:10,640
+several. Okay. So one of the most
+
+716
+00:38:05,920 --> 00:38:16,240
+powerful is um Emacs a brief feature for
+
+717
+00:38:10,640 --> 00:38:20,079
+example PSW PowerShell you enter so that
+
+718
+00:38:16,240 --> 00:38:25,760
+become powershell w for woofam language
+
+719
+00:38:20,079 --> 00:38:30,480
+u becomes woofam language okay so um
+
+720
+00:38:25,760 --> 00:38:33,359
+you know I got lots of them so that's
+
+721
+00:38:30,480 --> 00:38:35,599
+so you can look at my a file so all
+
+722
+00:38:33,359 --> 00:38:40,640
+these are a brief So for example,
+
+723
+00:38:35,599 --> 00:38:46,000
+probability prob uh probability.
+
+724
+00:38:40,640 --> 00:38:50,000
+Okay. So probably prob probably. Okay.
+
+725
+00:38:46,000 --> 00:38:53,000
+So punctuation punctuation.
+
+726
+00:38:50,000 --> 00:38:53,000
+Okay.
+
+727
+00:38:53,599 --> 00:38:59,599
+Um product is PD and so on. Okay. I got
+
+728
+00:38:57,680 --> 00:39:03,839
+like
+
+729
+00:38:59,599 --> 00:39:07,200
+1,700 of them. something like you know
+
+730
+00:39:03,839 --> 00:39:10,640
+1617. So a brief if you want to know
+
+731
+00:39:07,200 --> 00:39:14,079
+about abbreviation you can just go to my
+
+732
+00:39:10,640 --> 00:39:16,800
+website search for emac abbreviation
+
+733
+00:39:14,079 --> 00:39:21,920
+you'll find my article so in five
+
+734
+00:39:16,800 --> 00:39:25,359
+minutes you can set up what I have okay
+
+735
+00:39:21,920 --> 00:39:28,480
+and another thing
+
+736
+00:39:25,359 --> 00:39:34,320
+okay so let's copy copy that and uh
+
+737
+00:39:28,480 --> 00:39:34,320
+let's um paste the link here so you can
+
+738
+00:39:34,880 --> 00:39:39,920
+abbreviation. Okay, so that's one of the
+
+739
+00:39:37,280 --> 00:39:43,760
+feature for completion. And another
+
+740
+00:39:39,920 --> 00:39:46,400
+thing I use is um is called uh is
+
+741
+00:39:43,760 --> 00:39:51,440
+basically just this. Okay, let's see.
+
+742
+00:39:46,400 --> 00:39:54,560
+Press Z. Wait, press uh what what is the
+
+743
+00:39:51,440 --> 00:39:59,200
+key I press? Yeah. Okay, so that that
+
+744
+00:39:54,560 --> 00:40:02,000
+key. Okay. Uh
+
+745
+00:39:59,200 --> 00:40:05,599
+so if you can look up so the command is
+
+746
+00:40:02,000 --> 00:40:10,000
+called hep expand. Okay he expand is
+
+747
+00:40:05,599 --> 00:40:14,720
+part of emacs building. So what it does
+
+748
+00:40:10,000 --> 00:40:19,440
+is that it allows you to expand any word
+
+749
+00:40:14,720 --> 00:40:23,119
+that occurs in all your buffers. So ABB
+
+750
+00:40:19,440 --> 00:40:27,119
+I do not have a abbreviation for that
+
+751
+00:40:23,119 --> 00:40:31,119
+but however I can expand it to a brief
+
+752
+00:40:27,119 --> 00:40:34,720
+because it occurs in one of the buffer.
+
+753
+00:40:31,119 --> 00:40:38,000
+Okay. So I just press a key it becomes a
+
+754
+00:40:34,720 --> 00:40:40,880
+brief. So let's say let's try another
+
+755
+00:40:38,000 --> 00:40:43,440
+example. So um
+
+756
+00:40:40,880 --> 00:40:48,320
+auto hotkey right? So let's for example
+
+757
+00:40:43,440 --> 00:40:53,520
+auto hotkey here. So if I just type auto
+
+758
+00:40:48,320 --> 00:40:57,200
+h then hippie expand there it is. Okay.
+
+759
+00:40:53,520 --> 00:40:59,599
+So, two things abbreviation you have to
+
+760
+00:40:57,200 --> 00:41:03,119
+set up yourself. That's what I use. Go
+
+761
+00:40:59,599 --> 00:41:05,760
+to this link. Okay. The other thing is
+
+762
+00:41:03,119 --> 00:41:08,319
+hippie expand.
+
+763
+00:41:05,760 --> 00:41:11,040
+It will expand according to whatever you
+
+764
+00:41:08,319 --> 00:41:14,400
+have you know the words in your or in
+
+765
+00:41:11,040 --> 00:41:16,640
+any of your buffers. Okay. Do I have an
+
+766
+00:41:14,400 --> 00:41:20,079
+article on that? Yes, of course. You
+
+767
+00:41:16,640 --> 00:41:24,480
+know, go to my just search for Emacs
+
+768
+00:41:20,079 --> 00:41:27,119
+tutorial. Go to.info. info emac blog
+
+769
+00:41:24,480 --> 00:41:30,079
+search
+
+770
+00:41:27,119 --> 00:41:32,319
+completion okay you will find everything
+
+771
+00:41:30,079 --> 00:41:35,359
+you need to know like all possible
+
+772
+00:41:32,319 --> 00:41:38,400
+features of completion in emacs okay
+
+773
+00:41:35,359 --> 00:41:41,119
+that's like you know 15 articles name
+
+774
+00:41:38,400 --> 00:41:44,400
+completion you click on that then you
+
+775
+00:41:41,119 --> 00:41:48,319
+can see there it is hippie expand click
+
+776
+00:41:44,400 --> 00:41:51,599
+on that that's how you do it okay
+
+777
+00:41:48,319 --> 00:41:54,880
+uh so I have all these tutorials but of
+
+778
+00:41:51,599 --> 00:41:58,480
+Of course, people don't read them. Uh,
+
+779
+00:41:54,880 --> 00:42:01,359
+that's too bad. Okay, so let's copy some
+
+780
+00:41:58,480 --> 00:42:03,599
+of them. Close that. Uh, name
+
+781
+00:42:01,359 --> 00:42:08,400
+completion. Go back, paste the link
+
+782
+00:42:03,599 --> 00:42:14,480
+here. Okay, and search, you know.
+
+783
+00:42:08,400 --> 00:42:18,960
+Anyway, so linkify them and uh listify
+
+784
+00:42:14,480 --> 00:42:20,960
+them showing browser. Okay, now I was
+
+785
+00:42:18,960 --> 00:42:23,280
+going to inst going to install spell
+
+786
+00:42:20,960 --> 00:42:26,960
+checker, but I guess I didn't. You know,
+
+787
+00:42:23,280 --> 00:42:30,079
+we talked random for lots of things. Um,
+
+788
+00:42:26,960 --> 00:42:33,640
+so maybe not. I'm just going to do this
+
+789
+00:42:30,079 --> 00:42:33,640
+offline then.
+
+790
+00:42:33,760 --> 00:42:39,400
+So far so good. So far so good everyone.
+
+791
+00:42:41,119 --> 00:42:47,240
+Eight people watching. Six Six people
+
+792
+00:42:44,240 --> 00:42:47,240
+watching.
+
+793
+00:42:50,880 --> 00:42:57,200
+So, uh, love the small autocomplete. You
+
+794
+00:42:54,400 --> 00:43:00,160
+use a web framework. Okay. Uh, Linux
+
+795
+00:42:57,200 --> 00:43:02,240
+doesn't have an architecture for task
+
+796
+00:43:00,160 --> 00:43:05,599
+automation.
+
+797
+00:43:02,240 --> 00:43:08,240
+Uh, but system D does. Oh, okay. I
+
+798
+00:43:05,599 --> 00:43:10,720
+didn't know. System D is something
+
+799
+00:43:08,240 --> 00:43:13,200
+everyone hates.
+
+800
+00:43:10,720 --> 00:43:18,680
+Yeah, but I'm I haven't been using Linux
+
+801
+00:43:13,200 --> 00:43:18,680
+for 10 years, so I don't know
+
+802
+00:43:24,319 --> 00:43:31,280
+now more about abbreviation. Okay,
+
+803
+00:43:28,240 --> 00:43:34,400
+so you guys mentioned I'm using phonetic
+
+804
+00:43:31,280 --> 00:43:36,560
+alphabet. That is correct.
+
+805
+00:43:34,400 --> 00:43:39,119
+So right now I'm using my bookmark
+
+806
+00:43:36,560 --> 00:43:42,319
+feature to jump to my abbreviation
+
+807
+00:43:39,119 --> 00:43:46,319
+setup. So you can see right here go to
+
+808
+00:43:42,319 --> 00:43:49,839
+the top. Uh so actually I'm building up
+
+809
+00:43:46,319 --> 00:43:52,319
+a shorthand system. So you can see first
+
+810
+00:43:49,839 --> 00:43:56,000
+of all you have the data most used
+
+811
+00:43:52,319 --> 00:43:59,280
+English words. So open that show in
+
+812
+00:43:56,000 --> 00:44:03,839
+browser. So you can you can go to this
+
+813
+00:43:59,280 --> 00:44:06,160
+web page you know just search for.info
+
+814
+00:44:03,839 --> 00:44:09,440
+most used English words. So that will
+
+815
+00:44:06,160 --> 00:44:13,200
+tell you, you know, at least of 5,000
+
+816
+00:44:09,440 --> 00:44:15,119
+most used English words.
+
+817
+00:44:13,200 --> 00:44:17,280
+Why do you need to know that? Because
+
+818
+00:44:15,119 --> 00:44:19,520
+when you design abbreviation, this is
+
+819
+00:44:17,280 --> 00:44:21,599
+important data.
+
+820
+00:44:19,520 --> 00:44:25,680
+You want an abbreviation for the most
+
+821
+00:44:21,599 --> 00:44:30,400
+frequently used words. So for example,
+
+822
+00:44:25,680 --> 00:44:32,079
+U for you. Uh
+
+823
+00:44:30,400 --> 00:44:37,680
+uh
+
+824
+00:44:32,079 --> 00:44:40,560
+W is for width. Okay. So how uh H is for
+
+825
+00:44:37,680 --> 00:44:43,440
+half? Okay. So like Okay. Uh close that.
+
+826
+00:44:40,560 --> 00:44:47,680
+Close that. Wait.
+
+827
+00:44:43,440 --> 00:44:51,599
+Go to it. Copy it. Switch to talk show.
+
+828
+00:44:47,680 --> 00:44:57,119
+Paste a link. Linkify now.
+
+829
+00:44:51,599 --> 00:45:00,160
+Okay. Now go back to my a brief page. Um
+
+830
+00:44:57,119 --> 00:45:02,480
+okay. So that's a most used English
+
+831
+00:45:00,160 --> 00:45:05,119
+words. That's one thing you you want to
+
+832
+00:45:02,480 --> 00:45:08,560
+know. You need to know when you design a
+
+833
+00:45:05,119 --> 00:45:11,920
+abbreviation system that is what kind of
+
+834
+00:45:08,560 --> 00:45:14,560
+characters to expect ex what you know
+
+835
+00:45:11,920 --> 00:45:16,880
+what words you want to have abbreviation
+
+836
+00:45:14,560 --> 00:45:19,359
+and what is the characters you want for
+
+837
+00:45:16,880 --> 00:45:23,920
+that word. Okay.
+
+838
+00:45:19,359 --> 00:45:26,560
+So and a quot you know my own design is
+
+839
+00:45:23,920 --> 00:45:29,920
+is this article kasar shorthand system
+
+840
+00:45:26,560 --> 00:45:32,560
+you can go to it showing browser. So
+
+841
+00:45:29,920 --> 00:45:37,520
+this is kasar shorthand system.
+
+842
+00:45:32,560 --> 00:45:43,119
+B for but, D for does, F for,
+
+843
+00:45:37,520 --> 00:45:46,720
+H for have, K for no, L for let, M for
+
+844
+00:45:43,119 --> 00:45:50,319
+more. So why? Because these are the most
+
+845
+00:45:46,720 --> 00:45:53,119
+frequently used English words. The top
+
+846
+00:45:50,319 --> 00:45:55,119
+100 most frequently used English words.
+
+847
+00:45:53,119 --> 00:45:57,119
+So you got
+
+848
+00:45:55,119 --> 00:45:59,200
+then, you know, then there's others.
+
+849
+00:45:57,119 --> 00:46:01,119
+Okay, so you can read this article if
+
+850
+00:45:59,200 --> 00:46:03,920
+you like.
+
+851
+00:46:01,119 --> 00:46:06,319
+uh if you you know so let's go let's
+
+852
+00:46:03,920 --> 00:46:09,440
+paste it here
+
+853
+00:46:06,319 --> 00:46:12,160
+okay then let's then there is this
+
+854
+00:46:09,440 --> 00:46:16,960
+article which is which tells you how to
+
+855
+00:46:12,160 --> 00:46:20,640
+set it up in EMAC you can have you know
+
+856
+00:46:16,960 --> 00:46:23,440
+abbreviation for commonly used words for
+
+857
+00:46:20,640 --> 00:46:28,079
+arguments you know a arg for argument
+
+858
+00:46:23,440 --> 00:46:32,160
+for example new buffer arg
+
+859
+00:46:28,079 --> 00:46:34,720
+uh or actually actually I changed that
+
+860
+00:46:32,160 --> 00:46:36,480
+you know actually now it's
+
+861
+00:46:34,720 --> 00:46:42,560
+amentment
+
+862
+00:46:36,480 --> 00:46:44,800
+AGM okay so this is slightly not updated
+
+863
+00:46:42,560 --> 00:46:49,200
+anyway this article is about setting up
+
+864
+00:46:44,800 --> 00:46:51,520
+abbreviations in Emacs how to do it
+
+865
+00:46:49,200 --> 00:46:54,640
+okay so
+
+866
+00:46:51,520 --> 00:46:56,880
+so that is how to do it okay so that's
+
+867
+00:46:54,640 --> 00:47:00,640
+that article so let's put to today's
+
+868
+00:46:56,880 --> 00:47:05,520
+talk show go to today's talk show uh and
+
+869
+00:47:00,640 --> 00:47:08,480
+make a link. Make it a list. Go back to
+
+870
+00:47:05,520 --> 00:47:12,960
+uh that. Okay. So, you can see this is
+
+871
+00:47:08,480 --> 00:47:16,079
+my abbreviation. Okay. Um
+
+872
+00:47:12,960 --> 00:47:19,040
+you know there then so there's so you
+
+873
+00:47:16,079 --> 00:47:22,319
+begin with common commonly used English
+
+874
+00:47:19,040 --> 00:47:26,400
+words then you have
+
+875
+00:47:22,319 --> 00:47:29,359
+uh frequ frequency within the top 1,00
+
+876
+00:47:26,400 --> 00:47:30,880
+words. for example
+
+877
+00:47:29,359 --> 00:47:33,520
+anymore
+
+878
+00:47:30,880 --> 00:47:38,680
+you know so my abbreviation is actually
+
+879
+00:47:33,520 --> 00:47:38,680
+based on phonetics good observation
+
+880
+00:47:38,800 --> 00:47:45,599
+anyway this is a this is this is a huge
+
+881
+00:47:43,280 --> 00:47:49,359
+topic you this you know it's very deep
+
+882
+00:47:45,599 --> 00:47:52,240
+you can spend a year dive into the
+
+883
+00:47:49,359 --> 00:47:56,960
+design of abbreviation and shorthand
+
+884
+00:47:52,240 --> 00:47:59,280
+systems and there are historical um
+
+885
+00:47:56,960 --> 00:48:02,640
+there's quite a lot history of design of
+
+886
+00:47:59,280 --> 00:48:04,880
+it. Okay. So for example like sha
+
+887
+00:48:02,640 --> 00:48:08,400
+shavian alphabet
+
+888
+00:48:04,880 --> 00:48:12,720
+uh which we recently talked about you go
+
+889
+00:48:08,400 --> 00:48:16,079
+to unic code um shavian alphabet. Okay
+
+890
+00:48:12,720 --> 00:48:19,920
+so you go down there is uh Asian
+
+891
+00:48:16,079 --> 00:48:23,359
+language construct constructed language
+
+892
+00:48:19,920 --> 00:48:26,720
+shavian alphabet. So this alphabet is
+
+893
+00:48:23,359 --> 00:48:28,880
+designed as a efficient shorthand system
+
+894
+00:48:26,720 --> 00:48:32,720
+for English
+
+895
+00:48:28,880 --> 00:48:36,800
+and it is based on phonetics.
+
+896
+00:48:32,720 --> 00:48:38,800
+So the idea is that you give a you give
+
+897
+00:48:36,800 --> 00:48:44,640
+a character
+
+898
+00:48:38,800 --> 00:48:47,040
+a letter for each phone in English. So
+
+899
+00:48:44,640 --> 00:48:51,280
+when you use this system Shabian
+
+900
+00:48:47,040 --> 00:48:54,079
+alphabet your spelling is 100%
+
+901
+00:48:51,280 --> 00:48:56,480
+corresponding to the pronunciation. So
+
+902
+00:48:54,079 --> 00:49:00,160
+you don't have to guess oh in this case
+
+903
+00:48:56,480 --> 00:49:02,880
+it's you know it's it's a or is it O you
+
+904
+00:49:00,160 --> 00:49:05,280
+know you don't have to guess it's 100%
+
+905
+00:49:02,880 --> 00:49:08,880
+precise.
+
+906
+00:49:05,280 --> 00:49:12,480
+So, Shavian alphabet the history of that
+
+907
+00:49:08,880 --> 00:49:14,880
+is derived from the
+
+908
+00:49:12,480 --> 00:49:20,119
+um short
+
+909
+00:49:14,880 --> 00:49:20,119
+short writing system called um
+
+910
+00:49:20,160 --> 00:49:24,319
+something okay uh there are quite a few
+
+911
+00:49:22,319 --> 00:49:27,440
+okay so anyway there's a big history
+
+912
+00:49:24,319 --> 00:49:30,880
+about shorthand systems of English okay
+
+913
+00:49:27,440 --> 00:49:34,000
+and and you know so you know shavian
+
+914
+00:49:30,880 --> 00:49:34,000
+alphabet is one of
+
+915
+00:49:34,480 --> 00:49:40,640
+Okay. So, let's close that close
+
+916
+00:49:37,839 --> 00:49:43,599
+abbreviation file and start talk show.
+
+917
+00:49:40,640 --> 00:49:46,640
+Yeah. Let's paste the link here. Uh
+
+918
+00:49:43,599 --> 00:49:51,319
+there we have it. You know the things we
+
+919
+00:49:46,640 --> 00:49:51,319
+talked about. Anything else?
+
+920
+00:49:52,400 --> 00:49:57,200
+Do you have one in file name completion
+
+921
+00:49:55,359 --> 00:49:59,599
+tutorial?
+
+922
+00:49:57,200 --> 00:50:03,200
+Uh that one is pretty simple that all
+
+923
+00:49:59,599 --> 00:50:06,400
+you have to do is you Yeah. So
+
+924
+00:50:03,200 --> 00:50:08,720
+um so if you go so you talking about
+
+925
+00:50:06,400 --> 00:50:12,400
+file name completion for example I want
+
+926
+00:50:08,720 --> 00:50:15,680
+to open uh for example
+
+927
+00:50:12,400 --> 00:50:19,280
+okay for example go to my computer
+
+928
+00:50:15,680 --> 00:50:22,960
+programming blog show in browser so that
+
+929
+00:50:19,280 --> 00:50:25,200
+is done by bookmark so I just
+
+930
+00:50:22,960 --> 00:50:27,839
+you know type the key for bookmark
+
+931
+00:50:25,200 --> 00:50:32,240
+cancel so you can see the key here
+
+932
+00:50:27,839 --> 00:50:34,559
+bookmark jump okay so the key, you know,
+
+933
+00:50:32,240 --> 00:50:37,280
+is this easy keys on my special
+
+934
+00:50:34,559 --> 00:50:42,240
+keyboard. Okay, bookmark jump. Okay, so
+
+935
+00:50:37,280 --> 00:50:45,200
+do that and type cp b com computer
+
+936
+00:50:42,240 --> 00:50:47,680
+programming block that open this file.
+
+937
+00:50:45,200 --> 00:50:50,480
+So I don't have to like type and type a
+
+938
+00:50:47,680 --> 00:50:52,240
+file path. Okay, so bookmark is the most
+
+939
+00:50:50,480 --> 00:50:54,400
+important thing showing browser. There
+
+940
+00:50:52,240 --> 00:50:58,400
+it is. Okay,
+
+941
+00:50:54,400 --> 00:51:00,559
+programming block. one of my uh tens of
+
+942
+00:50:58,400 --> 00:51:03,920
+blocks.
+
+943
+00:51:00,559 --> 00:51:05,839
+So once you have that, so this
+
+944
+00:51:03,920 --> 00:51:08,240
+bookmark
+
+945
+00:51:05,839 --> 00:51:12,319
+is critical because you don't have to
+
+946
+00:51:08,240 --> 00:51:16,559
+type the file path. Okay. So is there a
+
+947
+00:51:12,319 --> 00:51:19,119
+tutorial for it? Of course.
+
+948
+00:51:16,559 --> 00:51:22,000
+Of course. Go to Emacs and search for
+
+949
+00:51:19,119 --> 00:51:23,839
+bookmark.
+
+950
+00:51:22,000 --> 00:51:25,760
+Uh in fact, I don't have to search it
+
+951
+00:51:23,839 --> 00:51:29,359
+for it, you know. I can just go to the
+
+952
+00:51:25,760 --> 00:51:32,559
+table of contents Emacs tutorial
+
+953
+00:51:29,359 --> 00:51:36,400
+practical Emacs tutorial. There is a
+
+954
+00:51:32,559 --> 00:51:39,599
+section on file and open save close file
+
+955
+00:51:36,400 --> 00:51:42,400
+manager diet batch rename files and
+
+956
+00:51:39,599 --> 00:51:46,319
+there is bookmark.
+
+957
+00:51:42,400 --> 00:51:48,400
+Okay, you got to read it. So
+
+958
+00:51:46,319 --> 00:51:51,920
+you know you got to be efficient just
+
+959
+00:51:48,400 --> 00:51:53,760
+read stuff. Okay, there it is bookmark.
+
+960
+00:51:51,920 --> 00:51:56,079
+So bookmark
+
+961
+00:51:53,760 --> 00:51:58,319
+is extremely useful. Okay. So you don't
+
+962
+00:51:56,079 --> 00:52:02,160
+have to type you know file path. So
+
+963
+00:51:58,319 --> 00:52:05,599
+that's one thing. But what what if you
+
+964
+00:52:02,160 --> 00:52:08,800
+want to open some file you rarely open
+
+965
+00:52:05,599 --> 00:52:14,800
+like the files you work with every day.
+
+966
+00:52:08,800 --> 00:52:17,680
+You can make a bookmark for them so that
+
+967
+00:52:14,800 --> 00:52:22,440
+so that you don't have to type the file
+
+968
+00:52:17,680 --> 00:52:22,440
+path. Okay. Something went wrong.
+
+969
+00:52:22,800 --> 00:52:26,520
+Uh okay.
+
+970
+00:52:35,359 --> 00:52:39,880
+Is my stream still going?
+
+971
+00:52:51,119 --> 00:52:56,200
+you know what what is going on with the
+
+972
+00:52:53,200 --> 00:52:56,200
+memory
+
+973
+00:52:57,440 --> 00:53:00,920
+Google Chrome.
+
+974
+00:53:01,200 --> 00:53:07,359
+Okay.
+
+975
+00:53:04,000 --> 00:53:09,280
+So the other thing Okay. Thank you. So
+
+976
+00:53:07,359 --> 00:53:11,440
+the other thing Okay. So let me
+
+977
+00:53:09,280 --> 00:53:13,599
+recommend one more thing. Okay. So you
+
+978
+00:53:11,440 --> 00:53:16,240
+just go to
+
+979
+00:53:13,599 --> 00:53:18,079
+um programming block. Close that. Okay.
+
+980
+00:53:16,240 --> 00:53:23,319
+So I don't want to go to programming
+
+981
+00:53:18,079 --> 00:53:23,319
+block. Okay. So, actually
+
+982
+00:53:23,680 --> 00:53:30,400
+close that. Close. Close. Go to today's
+
+983
+00:53:26,240 --> 00:53:33,200
+talk show uh and paste the link. Go to
+
+984
+00:53:30,400 --> 00:53:36,480
+the bookmark. Open it. So, just go to
+
+985
+00:53:33,200 --> 00:53:41,200
+Emacs tutorial. There's a section on
+
+986
+00:53:36,480 --> 00:53:47,680
+completion. Okay. Uh so you go down font
+
+987
+00:53:41,200 --> 00:53:51,680
+font size split window files buffers
+
+988
+00:53:47,680 --> 00:53:55,359
+find text copy text find replace unic
+
+989
+00:53:51,680 --> 00:53:59,040
+code y space and so on and on and just
+
+990
+00:53:55,359 --> 00:54:01,839
+go to uh miscellaneous and emac
+
+991
+00:53:59,040 --> 00:54:05,839
+principles. Okay. So where do you find
+
+992
+00:54:01,839 --> 00:54:09,359
+abbreviation? I mean where do you find
+
+993
+00:54:05,839 --> 00:54:11,280
+uh completion? There it is. EMAX
+
+994
+00:54:09,359 --> 00:54:14,319
+efficiency.
+
+995
+00:54:11,280 --> 00:54:16,960
+So you can see completion hippie expand.
+
+996
+00:54:14,319 --> 00:54:19,200
+We talked about a brief mod. We talked
+
+997
+00:54:16,960 --> 00:54:23,280
+about keyboard macro. That's another
+
+998
+00:54:19,200 --> 00:54:25,680
+thing. So you go to completion.
+
+999
+00:54:23,280 --> 00:54:29,839
+So this page tells you everything you
+
+1000
+00:54:25,680 --> 00:54:33,680
+want to know about completion including
+
+1001
+00:54:29,839 --> 00:54:36,160
+file name completion. Okay. So I can
+
+1002
+00:54:33,680 --> 00:54:40,880
+just recommend you know you know you can
+
+1003
+00:54:36,160 --> 00:54:45,760
+read it but I can tell you that all you
+
+1004
+00:54:40,880 --> 00:54:48,960
+want to do is just turn on um
+
+1005
+00:54:45,760 --> 00:54:51,599
+let's see you know Emac is fairly
+
+1006
+00:54:48,960 --> 00:54:55,160
+complex but anyway all you want to do is
+
+1007
+00:54:51,599 --> 00:54:55,160
+just turn on
+
+1008
+00:54:55,520 --> 00:55:02,160
+uh
+
+1009
+00:54:57,200 --> 00:55:04,160
+fedo mod. Okay this one fedom mod. Wait,
+
+1010
+00:55:02,160 --> 00:55:07,119
+actually turn on feed vertical. Okay,
+
+1011
+00:55:04,160 --> 00:55:09,359
+just turn it on. That's it.
+
+1012
+00:55:07,119 --> 00:55:11,680
+Copy it.
+
+1013
+00:55:09,359 --> 00:55:16,000
+Close the bookmark and paste it here.
+
+1014
+00:55:11,680 --> 00:55:19,280
+Link by make a list show in browser.
+
+1015
+00:55:16,000 --> 00:55:21,520
+Okay, I think that's it for today and
+
+1016
+00:55:19,280 --> 00:55:25,480
+I'm going to install spell checker
+
+1017
+00:55:21,520 --> 00:55:25,480
+offline. Um,
+
+1018
+00:55:27,440 --> 00:55:34,839
+okay. So, we've been talking for an
+
+1019
+00:55:30,160 --> 00:55:34,839
+hour. Anything else?
+
+1020
+00:55:38,000 --> 00:55:44,160
+Um, so we I need to install spell
+
+1021
+00:55:40,960 --> 00:55:45,839
+checker actually. Spell checker.
+
+1022
+00:55:44,160 --> 00:55:48,400
+Uh,
+
+1023
+00:55:45,839 --> 00:55:50,240
+so yeah. So this is going to take me
+
+1024
+00:55:48,400 --> 00:55:53,040
+hour.
+
+1025
+00:55:50,240 --> 00:55:55,280
+You know, you have to install this this
+
+1026
+00:55:53,040 --> 00:55:59,359
+binary, you know, software, then you
+
+1027
+00:55:55,280 --> 00:56:01,440
+have to configure it. Uh, yeah. So
+
+1028
+00:55:59,359 --> 00:56:03,920
+anyway, I'm going to try to do it
+
+1029
+00:56:01,440 --> 00:56:07,319
+offline.
+
+1030
+00:56:03,920 --> 00:56:07,319
+Bye guys.
+

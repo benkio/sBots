@@ -1,0 +1,4060 @@
+1
+00:00:02,840 --> 00:00:13,349
+welcome to our talk show today is June
+
+2
+00:00:07,230 --> 00:00:18,029
+26 2009 teen today we are going to do
+
+3
+00:00:13,349 --> 00:00:25,970
+live coding of JavaScript or Emacs Lisp
+
+4
+00:00:18,029 --> 00:00:28,980
+or goal and so which one to do you know
+
+5
+00:00:25,970 --> 00:00:32,520
+let me know type in the comments which
+
+6
+00:00:28,980 --> 00:00:39,989
+one to do so let me get ready pop this
+
+7
+00:00:32,520 --> 00:00:47,070
+out we're gonna do live coding today
+
+8
+00:00:39,989 --> 00:00:49,489
+live coding one of JavaScript or Emacs
+
+9
+00:00:47,070 --> 00:00:56,520
+Lisp :
+
+10
+00:00:49,489 --> 00:00:59,160
+type here to let me know which okay so
+
+11
+00:00:56,520 --> 00:00:59,699
+before there are nobody nobody is here
+
+12
+00:00:59,160 --> 00:01:05,400
+yet
+
+13
+00:00:59,699 --> 00:01:07,770
+so before we start let us this is sparks
+
+14
+00:01:05,400 --> 00:01:12,320
+music I talked about it yesterday this
+
+15
+00:01:07,770 --> 00:01:15,030
+is fantastic the most cold and austere
+
+16
+00:01:12,320 --> 00:01:18,240
+music there is mathematical perfection
+
+17
+00:01:15,030 --> 00:01:23,570
+that's what they say the common you know
+
+18
+00:01:18,240 --> 00:01:30,360
+common comment about that so let's do
+
+19
+00:01:23,570 --> 00:01:32,430
+either : JavaScript or Emacs Lisp we're
+
+20
+00:01:30,360 --> 00:01:35,250
+gonna do like coding of that but
+
+21
+00:01:32,430 --> 00:01:38,729
+meanwhile you know where I wait for
+
+22
+00:01:35,250 --> 00:01:41,360
+people to come on let me just talk about
+
+23
+00:01:38,729 --> 00:01:45,299
+some random things programming related
+
+24
+00:01:41,360 --> 00:01:48,119
+basically so first of all saw start let
+
+25
+00:01:45,299 --> 00:01:56,930
+me show you this okay since we are in
+
+26
+00:01:48,119 --> 00:01:56,930
+Emacs so we're gonna do saw
+
+27
+00:01:57,230 --> 00:02:05,580
+start command log mod so that you see
+
+28
+00:02:02,670 --> 00:02:09,960
+all the command I call on the left
+
+29
+00:02:05,580 --> 00:02:13,020
+window here okay
+
+30
+00:02:09,960 --> 00:02:18,600
+now this code is typescript typescript
+
+31
+00:02:13,020 --> 00:02:21,360
+is a statically typed JavaScript wrapper
+
+32
+00:02:18,600 --> 00:02:23,640
+that's basically what it is it is
+
+33
+00:02:21,360 --> 00:02:25,710
+greatly useful when you have lots of
+
+34
+00:02:23,640 --> 00:02:32,010
+code when you have you know thousands of
+
+35
+00:02:25,710 --> 00:02:35,870
+lines of code you know typed language
+
+36
+00:02:32,010 --> 00:02:39,030
+versus dynamic and typed languages I
+
+37
+00:02:35,870 --> 00:02:41,040
+usually you know when I was younger you
+
+38
+00:02:39,030 --> 00:02:43,770
+know like ten years ago
+
+39
+00:02:41,040 --> 00:02:47,340
+oh you know the from 1990s I always
+
+40
+00:02:43,770 --> 00:02:53,430
+preferred dynamic languages you know
+
+41
+00:02:47,340 --> 00:02:56,160
+without type because I thought that that
+
+42
+00:02:53,430 --> 00:02:58,140
+that is more natural no more human for
+
+43
+00:02:56,160 --> 00:03:01,050
+example in math you don't say
+
+44
+00:02:58,140 --> 00:03:05,430
+when you say x equals to 2 you don't say
+
+45
+00:03:01,050 --> 00:03:07,230
+oh X is a type number you know but
+
+46
+00:03:05,430 --> 00:03:10,470
+actually there's more detail to that but
+
+47
+00:03:07,230 --> 00:03:13,470
+anyway so I thought dynamic you know not
+
+48
+00:03:10,470 --> 00:03:16,410
+typed languages it's more natural you
+
+49
+00:03:13,470 --> 00:03:20,970
+shouldn't need to declare variables with
+
+50
+00:03:16,410 --> 00:03:25,800
+a type that is actually a byproduct of
+
+51
+00:03:20,970 --> 00:03:27,810
+computer engineering hey guys so we
+
+52
+00:03:25,800 --> 00:03:30,840
+gonna you know do one of JavaScript or
+
+53
+00:03:27,810 --> 00:03:33,510
+email is or Golan so you know type
+
+54
+00:03:30,840 --> 00:03:35,580
+please type in your comments let me know
+
+55
+00:03:33,510 --> 00:03:38,130
+which one you would like to see because
+
+56
+00:03:35,580 --> 00:03:40,650
+that's what I announced but you know
+
+57
+00:03:38,130 --> 00:03:43,470
+since you know I'm waiting for people to
+
+58
+00:03:40,650 --> 00:03:45,900
+come and I'm just going to I was talking
+
+59
+00:03:43,470 --> 00:03:48,300
+about random things typed verses and
+
+60
+00:03:45,900 --> 00:03:51,300
+typed language you know so here is
+
+61
+00:03:48,300 --> 00:03:53,760
+typescript now so I was saying when I
+
+62
+00:03:51,300 --> 00:03:57,269
+was younger I prefer dynamic you know
+
+63
+00:03:53,760 --> 00:04:00,290
+without types because I think that that
+
+64
+00:03:57,269 --> 00:04:03,209
+I thought that was that is more natural
+
+65
+00:04:00,290 --> 00:04:05,819
+as an example you know in math you don't
+
+66
+00:04:03,209 --> 00:04:08,970
+have to declare types to define to
+
+67
+00:04:05,819 --> 00:04:11,640
+define variables or you know
+
+68
+00:04:08,970 --> 00:04:14,250
+functions but there's more detail to
+
+69
+00:04:11,640 --> 00:04:17,400
+that actually anyway so it's more
+
+70
+00:04:14,250 --> 00:04:21,290
+natural because and I thought the thing
+
+71
+00:04:17,400 --> 00:04:25,200
+is that I thought typed languages are
+
+72
+00:04:21,290 --> 00:04:27,810
+for example C and C++ these are the
+
+73
+00:04:25,200 --> 00:04:29,940
+worst everything that's wrong with
+
+74
+00:04:27,810 --> 00:04:33,150
+computer science with with the
+
+75
+00:04:29,940 --> 00:04:36,870
+programming industry start began with
+
+76
+00:04:33,150 --> 00:04:42,450
+see ya then simples president then Java
+
+77
+00:04:36,870 --> 00:04:45,840
+then C Xiao you know Emperor so so why
+
+78
+00:04:42,450 --> 00:04:48,000
+is it a natural white why is typed a
+
+79
+00:04:45,840 --> 00:04:51,420
+natural that that's a byproduct of
+
+80
+00:04:48,000 --> 00:04:53,670
+computer engineering which is like you
+
+81
+00:04:51,420 --> 00:04:56,430
+know C programming language C or C++
+
+82
+00:04:53,670 --> 00:04:59,220
+like you like when you have to do you
+
+83
+00:04:56,430 --> 00:05:03,960
+know variable you have to declare a
+
+84
+00:04:59,220 --> 00:05:07,950
+variable is like short you know int long
+
+85
+00:05:03,960 --> 00:05:10,860
+you know double float well what the [ __ ]
+
+86
+00:05:07,950 --> 00:05:13,620
+is that float yeah and and also with the
+
+87
+00:05:10,860 --> 00:05:17,370
+you know the jargon they choose they've
+
+88
+00:05:13,620 --> 00:05:21,150
+chosen to use you know it's in int int
+
+89
+00:05:17,370 --> 00:05:24,690
+is integer right but then then you have
+
+90
+00:05:21,150 --> 00:05:26,850
+float type which is you know it's very
+
+91
+00:05:24,690 --> 00:05:29,820
+interesting if you study the etymology
+
+92
+00:05:26,850 --> 00:05:31,860
+you know float double you know why would
+
+93
+00:05:29,820 --> 00:05:33,810
+they name float and double like in math
+
+94
+00:05:31,860 --> 00:05:35,180
+there's no such thing there's there are
+
+95
+00:05:33,810 --> 00:05:38,430
+real numbers
+
+96
+00:05:35,180 --> 00:05:41,550
+but there are integers you know which is
+
+97
+00:05:38,430 --> 00:05:43,860
+you know 0 1 2 3 and negative 1 2 3 so
+
+98
+00:05:41,550 --> 00:05:47,220
+on and there are real numbers real
+
+99
+00:05:43,860 --> 00:05:48,960
+numbers are like a elastic band you know
+
+100
+00:05:47,220 --> 00:05:51,450
+there's you know you have an elastic
+
+101
+00:05:48,960 --> 00:05:54,540
+rubber band there's infinite number of
+
+102
+00:05:51,450 --> 00:05:56,760
+them so and real numbers are usually
+
+103
+00:05:54,540 --> 00:06:00,180
+represented when you you know write it
+
+104
+00:05:56,760 --> 00:06:05,270
+out it's represented by decimal notation
+
+105
+00:06:00,180 --> 00:06:08,100
+like you know 3 point 1 2 3 4 you know
+
+106
+00:06:05,270 --> 00:06:10,860
+so in math there is no such thing as
+
+107
+00:06:08,100 --> 00:06:13,380
+double so but why do we have the name
+
+108
+00:06:10,860 --> 00:06:15,750
+turbo and fro well the reason first of
+
+109
+00:06:13,380 --> 00:06:17,970
+all you have floated the reason the sea
+
+110
+00:06:15,750 --> 00:06:21,930
+you know programming from a programming
+
+111
+00:06:17,970 --> 00:06:22,860
+languages have that is because because
+
+112
+00:06:21,930 --> 00:06:26,550
+you have to
+
+113
+00:06:22,860 --> 00:06:29,030
+percent numbers in a memory and you know
+
+114
+00:06:26,550 --> 00:06:31,680
+in CPU and and those are just
+
+115
+00:06:29,030 --> 00:06:34,800
+electronics on and off so in other words
+
+116
+00:06:31,680 --> 00:06:41,009
+it's binary system and you cannot
+
+117
+00:06:34,800 --> 00:06:44,580
+represent yeah actually so this is
+
+118
+00:06:41,009 --> 00:06:46,319
+actually a deep problem you see the the
+
+119
+00:06:44,580 --> 00:06:51,300
+problem is that you want to represent
+
+120
+00:06:46,319 --> 00:06:54,240
+the real number you know how do you do
+
+121
+00:06:51,300 --> 00:06:57,150
+that well on paper we can you know say
+
+122
+00:06:54,240 --> 00:07:00,000
+we can use a fraction we can use a
+
+123
+00:06:57,150 --> 00:07:02,159
+decimal number or you we can actually
+
+124
+00:07:00,000 --> 00:07:04,529
+use let's say you know we can write
+
+125
+00:07:02,159 --> 00:07:06,930
+square root of two that that is the real
+
+126
+00:07:04,529 --> 00:07:10,020
+number you see this is math real number
+
+127
+00:07:06,930 --> 00:07:12,719
+but but if you want to represent on a
+
+128
+00:07:10,020 --> 00:07:15,150
+computer you don't really write square
+
+129
+00:07:12,719 --> 00:07:16,620
+root of two you know square root of the
+
+130
+00:07:15,150 --> 00:07:21,330
+tooth and he's saying that's a number
+
+131
+00:07:16,620 --> 00:07:24,599
+you have to compute it and the many real
+
+132
+00:07:21,330 --> 00:07:27,960
+numbers so we so that is the question
+
+133
+00:07:24,599 --> 00:07:29,550
+actually you see this actually this is
+
+134
+00:07:27,960 --> 00:07:31,229
+this is a very interesting question
+
+135
+00:07:29,550 --> 00:07:36,449
+because the question is how do you
+
+136
+00:07:31,229 --> 00:07:39,000
+represent be your numbers you know we we
+
+137
+00:07:36,449 --> 00:07:42,120
+are taking this into a philosophical
+
+138
+00:07:39,000 --> 00:07:44,669
+context I mean in general like how how
+
+139
+00:07:42,120 --> 00:07:47,909
+you know how do you represent the real
+
+140
+00:07:44,669 --> 00:07:50,520
+numbers on paper by mathematicians or by
+
+141
+00:07:47,909 --> 00:07:52,080
+common people how do they what do they
+
+142
+00:07:50,520 --> 00:07:56,189
+need you know are they are real numbers
+
+143
+00:07:52,080 --> 00:07:58,229
+they don't need or you know then as well
+
+144
+00:07:56,189 --> 00:08:00,060
+you know with respect respect to
+
+145
+00:07:58,229 --> 00:08:02,039
+programmers how do you represent real
+
+146
+00:08:00,060 --> 00:08:05,819
+numbers let's say how do you represent
+
+147
+00:08:02,039 --> 00:08:08,250
+real numbers on abacus so so the
+
+148
+00:08:05,819 --> 00:08:13,080
+question immediately becomes then we
+
+149
+00:08:08,250 --> 00:08:15,150
+have to ask what kind of real numbers
+
+150
+00:08:13,080 --> 00:08:18,150
+you need to represent because you know
+
+151
+00:08:15,150 --> 00:08:18,810
+your numbers there are lots of anyway I
+
+152
+00:08:18,150 --> 00:08:21,629
+digress
+
+153
+00:08:18,810 --> 00:08:24,139
+a lot so anyway the so you know the C
+
+154
+00:08:21,629 --> 00:08:28,650
+and programming languages they they have
+
+155
+00:08:24,139 --> 00:08:31,259
+you know the float well the reason is
+
+156
+00:08:28,650 --> 00:08:33,120
+floaty is because they they want to they
+
+157
+00:08:31,259 --> 00:08:36,269
+they are not actually real numbers you
+
+158
+00:08:33,120 --> 00:08:40,889
+see the float you see they are just
+
+159
+00:08:36,269 --> 00:08:42,919
+a number a decimal number you know they
+
+160
+00:08:40,889 --> 00:08:44,639
+actually fractions you know technically
+
+161
+00:08:42,919 --> 00:08:46,439
+mathematically they are actually
+
+162
+00:08:44,639 --> 00:08:49,139
+fraction they can they can they are
+
+163
+00:08:46,439 --> 00:08:51,929
+beyond numbers because they are numbers
+
+164
+00:08:49,139 --> 00:08:55,230
+represented by fractions in fact so so
+
+165
+00:08:51,929 --> 00:08:57,809
+so the numbers you know um in computer
+
+166
+00:08:55,230 --> 00:08:59,249
+languages such as C they only represent
+
+167
+00:08:57,809 --> 00:09:03,029
+they don't have all the real numbers
+
+168
+00:08:59,249 --> 00:09:05,939
+it's impossible to write any real number
+
+169
+00:09:03,029 --> 00:09:10,319
+you can only have basically fractions
+
+170
+00:09:05,939 --> 00:09:12,509
+and you basically any fraction the the
+
+171
+00:09:10,319 --> 00:09:16,019
+subset of real numbers that can
+
+172
+00:09:12,509 --> 00:09:18,929
+represent it by a fraction you take that
+
+173
+00:09:16,019 --> 00:09:23,579
+fraction then you convert it to you know
+
+174
+00:09:18,929 --> 00:09:26,009
+binary numbers then you store that you
+
+175
+00:09:23,579 --> 00:09:29,670
+know into the CPU or memory you know why
+
+176
+00:09:26,009 --> 00:09:34,110
+in one island of Iona love and so on so
+
+177
+00:09:29,670 --> 00:09:36,959
+so the so they named it float well the
+
+178
+00:09:34,110 --> 00:09:39,749
+the reason they named it float in C is
+
+179
+00:09:36,959 --> 00:09:42,029
+that you know it's it's represented by
+
+180
+00:09:39,749 --> 00:09:44,220
+you have you know they are trying to
+
+181
+00:09:42,029 --> 00:09:47,670
+represent the binary you know a sequence
+
+182
+00:09:44,220 --> 00:09:51,470
+of binary digits with a point in between
+
+183
+00:09:47,670 --> 00:09:55,499
+somewhere so the float is actually like
+
+184
+00:09:51,470 --> 00:09:58,949
+indicates where that you know point is
+
+185
+00:09:55,499 --> 00:10:03,089
+at so it's I think that's why it's
+
+186
+00:09:58,949 --> 00:10:04,920
+called float you know you know in the
+
+187
+00:10:03,089 --> 00:10:07,470
+beginning it's represented by two bytes
+
+188
+00:10:04,920 --> 00:10:09,689
+like eight sixteen bits or something
+
+189
+00:10:07,470 --> 00:10:11,970
+like that then you have double double
+
+190
+00:10:09,689 --> 00:10:17,610
+means you know double precision so
+
+191
+00:10:11,970 --> 00:10:20,549
+that's why they have you know in C you
+
+192
+00:10:17,610 --> 00:10:24,990
+have types float then you have double
+
+193
+00:10:20,549 --> 00:10:26,939
+then you have long I think long is for
+
+194
+00:10:24,990 --> 00:10:31,649
+integers right I don't remember anyway
+
+195
+00:10:26,939 --> 00:10:34,139
+used small bits bits so anyway so I so I
+
+196
+00:10:31,649 --> 00:10:35,819
+Tigris you know II finish in the topic
+
+197
+00:10:34,139 --> 00:10:37,769
+so I was talking about you know
+
+198
+00:10:35,819 --> 00:10:43,679
+programming languages typed verses and
+
+199
+00:10:37,769 --> 00:10:46,829
+typed so I think those typed I thought
+
+200
+00:10:43,679 --> 00:10:49,210
+when I was younger the type top natural
+
+201
+00:10:46,829 --> 00:10:52,360
+because especially
+
+202
+00:10:49,210 --> 00:10:56,950
+with C so you have this you know int
+
+203
+00:10:52,360 --> 00:11:00,610
+double float then you have you know so
+
+204
+00:10:56,950 --> 00:11:03,910
+they are like a byproduct of programming
+
+205
+00:11:00,610 --> 00:11:06,550
+they are like by byproduct of computer
+
+206
+00:11:03,910 --> 00:11:09,430
+engineering you know this was what I say
+
+207
+00:11:06,550 --> 00:11:12,100
+you know when you do engineering you
+
+208
+00:11:09,430 --> 00:11:14,200
+have a lot of pipe a lot of byproducts
+
+209
+00:11:12,100 --> 00:11:17,440
+you know like things you don't want you
+
+210
+00:11:14,200 --> 00:11:20,080
+don't really want but it is there
+
+211
+00:11:17,440 --> 00:11:22,770
+because of the you know many constraints
+
+212
+00:11:20,080 --> 00:11:25,810
+where engine engineering for example
+
+213
+00:11:22,770 --> 00:11:30,010
+when you build when you build a car you
+
+214
+00:11:25,810 --> 00:11:33,250
+know you have the shift manual shift
+
+215
+00:11:30,010 --> 00:11:35,740
+right you know this you know today most
+
+216
+00:11:33,250 --> 00:11:38,170
+cars are automatic you know you don't
+
+217
+00:11:35,740 --> 00:11:40,840
+have to shift the gears but you know
+
+218
+00:11:38,170 --> 00:11:45,460
+before you have manual shifting that is
+
+219
+00:11:40,840 --> 00:11:49,660
+kind of a byproduct of engineering you
+
+220
+00:11:45,460 --> 00:11:52,300
+see because you know in a very beginning
+
+221
+00:11:49,660 --> 00:11:55,000
+you cannot you know automatic shift is
+
+222
+00:11:52,300 --> 00:11:57,040
+now is more complicated in involves lots
+
+223
+00:11:55,000 --> 00:11:59,380
+of you know Universal gears it's more
+
+224
+00:11:57,040 --> 00:12:01,330
+complicated you cannot you know it was
+
+225
+00:11:59,380 --> 00:12:03,370
+not invented so in the beginning you
+
+226
+00:12:01,330 --> 00:12:07,650
+only have you don't have shift at all
+
+227
+00:12:03,370 --> 00:12:11,740
+then you started to have manual shift so
+
+228
+00:12:07,650 --> 00:12:14,650
+that's kind of like the the concept of
+
+229
+00:12:11,740 --> 00:12:17,320
+shift is kind of like a byproduct of
+
+230
+00:12:14,650 --> 00:12:19,840
+engineering because of limitations we
+
+231
+00:12:17,320 --> 00:12:22,000
+have lots of byproduct of engineering
+
+232
+00:12:19,840 --> 00:12:23,890
+for example it caused tires you know you
+
+233
+00:12:22,000 --> 00:12:26,050
+have to pump air every you know every
+
+234
+00:12:23,890 --> 00:12:28,840
+once in a while you have to pump air but
+
+235
+00:12:26,050 --> 00:12:30,790
+that's like when you when you drive a
+
+236
+00:12:28,840 --> 00:12:32,260
+car why do I want to pump the air you
+
+237
+00:12:30,790 --> 00:12:35,500
+know you don't want to but you have to
+
+238
+00:12:32,260 --> 00:12:38,590
+because because we don't have because
+
+239
+00:12:35,500 --> 00:12:40,870
+the you know we say that the air less
+
+240
+00:12:38,590 --> 00:12:43,840
+tire you know now today they have tech
+
+241
+00:12:40,870 --> 00:12:46,210
+new technology where a tire with are
+
+242
+00:12:43,840 --> 00:12:50,550
+without errors so you never have to pump
+
+243
+00:12:46,210 --> 00:12:53,430
+it so that is theoretically better but
+
+244
+00:12:50,550 --> 00:12:56,860
+but I'm not sure what's a current status
+
+245
+00:12:53,430 --> 00:12:59,110
+but anyway so you have to pump air into
+
+246
+00:12:56,860 --> 00:13:01,510
+the tire that's a byproduct of
+
+247
+00:12:59,110 --> 00:13:03,130
+engineering because engineering is not
+
+248
+00:13:01,510 --> 00:13:04,990
+just is not God
+
+249
+00:13:03,130 --> 00:13:07,270
+you know you just say you know make a
+
+250
+00:13:04,990 --> 00:13:08,350
+car and you have a car in every way
+
+251
+00:13:07,270 --> 00:13:12,400
+perfection
+
+252
+00:13:08,350 --> 00:13:14,590
+so byproduct of engineering so I thought
+
+253
+00:13:12,400 --> 00:13:17,560
+you know the types in programming
+
+254
+00:13:14,590 --> 00:13:19,600
+languages the you know see like the
+
+255
+00:13:17,560 --> 00:13:21,460
+language see you know int float you have
+
+256
+00:13:19,600 --> 00:13:24,220
+to declare types before you use a
+
+257
+00:13:21,460 --> 00:13:27,250
+variable that is you know just the
+
+258
+00:13:24,220 --> 00:13:30,010
+byproduct of computer engineering nobody
+
+259
+00:13:27,250 --> 00:13:32,650
+you know you don't need it so this is
+
+260
+00:13:30,010 --> 00:13:35,860
+what I thought when I was you know in
+
+261
+00:13:32,650 --> 00:13:38,710
+you know almost in the past 20 years but
+
+262
+00:13:35,860 --> 00:13:41,560
+in the past five years I started to like
+
+263
+00:13:38,710 --> 00:13:43,150
+well not really like but I appreciate
+
+264
+00:13:41,560 --> 00:13:46,210
+I'm not sure which one I would like
+
+265
+00:13:43,150 --> 00:13:50,860
+prefer but I appreciate those typed
+
+266
+00:13:46,210 --> 00:13:54,960
+languages but not see here but by typed
+
+267
+00:13:50,860 --> 00:14:01,830
+I mean like typed like you know like :
+
+268
+00:13:54,960 --> 00:14:04,660
+Haskell okay now these are more here I
+
+269
+00:14:01,830 --> 00:14:07,630
+started to think that typed languages
+
+270
+00:14:04,660 --> 00:14:11,370
+are not you know the the way they use
+
+271
+00:14:07,630 --> 00:14:15,370
+types in Haskell and Golan they have
+
+272
+00:14:11,370 --> 00:14:18,370
+what you call automatic typing type
+
+273
+00:14:15,370 --> 00:14:21,010
+inference but anyway you know the way
+
+274
+00:14:18,370 --> 00:14:25,350
+you see it you the way you see it is
+
+275
+00:14:21,010 --> 00:14:30,220
+that it's not unnatural because because
+
+276
+00:14:25,350 --> 00:14:34,150
+the type static types used in has cow
+
+277
+00:14:30,220 --> 00:14:36,130
+and : they are a especially in Haskell
+
+278
+00:14:34,150 --> 00:14:39,610
+they are of a entirely different nature
+
+279
+00:14:36,130 --> 00:14:43,060
+than the types in C you know simplest
+
+280
+00:14:39,610 --> 00:14:48,540
+for C Java those kind of languages in
+
+281
+00:14:43,060 --> 00:14:51,400
+Haskell the type they are not exactly
+
+282
+00:14:48,540 --> 00:14:55,780
+byproduct of engineering but rather they
+
+283
+00:14:51,400 --> 00:14:58,480
+are part of the part of the tool useful
+
+284
+00:14:55,780 --> 00:15:00,910
+tool that is you are computing with
+
+285
+00:14:58,480 --> 00:15:03,850
+types you know before you are computing
+
+286
+00:15:00,910 --> 00:15:07,270
+with numbers you know in C well you know
+
+287
+00:15:03,850 --> 00:15:09,520
+and any numbers or strings and you want
+
+288
+00:15:07,270 --> 00:15:11,800
+you need to specify type because
+
+289
+00:15:09,520 --> 00:15:14,680
+otherwise it's not efficient you know
+
+290
+00:15:11,800 --> 00:15:18,639
+that's byproduct of engineering
+
+291
+00:15:14,680 --> 00:15:20,619
+but in Haskell type is part of the tool
+
+292
+00:15:18,639 --> 00:15:22,689
+you know you are not computing with
+
+293
+00:15:20,619 --> 00:15:25,029
+numbers or strings you are computing
+
+294
+00:15:22,689 --> 00:15:27,850
+part you know a significant part of your
+
+295
+00:15:25,029 --> 00:15:31,389
+computing the the reason you use Haskell
+
+296
+00:15:27,850 --> 00:15:33,970
+you know the language is is is such that
+
+297
+00:15:31,389 --> 00:15:37,540
+you are creating a program you know
+
+298
+00:15:33,970 --> 00:15:49,569
+algorithm a system based on types so you
+
+299
+00:15:37,540 --> 00:15:51,610
+have so how do you say you know let's
+
+300
+00:15:49,569 --> 00:15:54,519
+say for example let's say we have a
+
+301
+00:15:51,610 --> 00:15:57,519
+bunch of baskets baskets you you put
+
+302
+00:15:54,519 --> 00:15:59,439
+fruit fruits in you know bananas apples
+
+303
+00:15:57,519 --> 00:16:02,170
+you know you put them in now you have
+
+304
+00:15:59,439 --> 00:16:05,619
+similar basket now suppose I say you
+
+305
+00:16:02,170 --> 00:16:08,410
+know yes suppose you have basket at a
+
+306
+00:16:05,619 --> 00:16:11,410
+home and this specific basket can only
+
+307
+00:16:08,410 --> 00:16:15,399
+allow bananas if you have a pose you
+
+308
+00:16:11,410 --> 00:16:17,410
+need to use another basket you know so
+
+309
+00:16:15,399 --> 00:16:19,899
+every time you put a fruit in a basket
+
+310
+00:16:17,410 --> 00:16:22,720
+you have to you know if you put it in a
+
+311
+00:16:19,899 --> 00:16:25,509
+robot basket you just pop it out you
+
+312
+00:16:22,720 --> 00:16:28,240
+know is it the wrong this is only for
+
+313
+00:16:25,509 --> 00:16:30,279
+pnina's you know so suppose you have
+
+314
+00:16:28,240 --> 00:16:33,399
+these baskets they they only allow
+
+315
+00:16:30,279 --> 00:16:36,429
+certain fruits to be put in now that's a
+
+316
+00:16:33,399 --> 00:16:41,470
+pain that's paying in yes right but
+
+317
+00:16:36,429 --> 00:16:43,959
+however now you know let's you know
+
+318
+00:16:41,470 --> 00:16:45,970
+swap to the other side of the coin and
+
+319
+00:16:43,959 --> 00:16:48,370
+look at this thing from a different
+
+320
+00:16:45,970 --> 00:16:52,170
+perspective now suppose you have this
+
+321
+00:16:48,370 --> 00:16:55,420
+basket just like before they are typed
+
+322
+00:16:52,170 --> 00:16:57,670
+however whenever you put a basket you
+
+323
+00:16:55,420 --> 00:16:58,240
+know a fruit let's say banana into the
+
+324
+00:16:57,670 --> 00:17:02,230
+basket
+
+325
+00:16:58,240 --> 00:17:04,179
+it automatically you know praise the
+
+326
+00:17:02,230 --> 00:17:06,520
+banana you know whatever you put in
+
+327
+00:17:04,179 --> 00:17:09,579
+Apple pay no cherry into the right
+
+328
+00:17:06,520 --> 00:17:13,209
+basket that only contains spanis so in
+
+329
+00:17:09,579 --> 00:17:15,819
+this way you see this basket becomes
+
+330
+00:17:13,209 --> 00:17:17,740
+useful because they automatically sort
+
+331
+00:17:15,819 --> 00:17:19,809
+out you have your fruits you know you
+
+332
+00:17:17,740 --> 00:17:23,139
+can just dump all your fruits but in a
+
+333
+00:17:19,809 --> 00:17:25,299
+banana you know Apple oranges you know
+
+334
+00:17:23,139 --> 00:17:27,520
+Oh dump them into one place it
+
+335
+00:17:25,299 --> 00:17:28,350
+automatically so them out into different
+
+336
+00:17:27,520 --> 00:17:32,820
+basket
+
+337
+00:17:28,350 --> 00:17:35,519
+now that is useful now you see so this
+
+338
+00:17:32,820 --> 00:17:39,080
+is two different ideas so this is how I
+
+339
+00:17:35,519 --> 00:17:44,159
+saw you know how the types becomes
+
+340
+00:17:39,080 --> 00:17:47,639
+useful very useful in Hesco languages
+
+341
+00:17:44,159 --> 00:17:50,279
+okay so we got three people watching
+
+342
+00:17:47,639 --> 00:17:55,130
+yeah you know so what we're gonna do
+
+343
+00:17:50,279 --> 00:17:58,590
+today we're gonna talk we're gonna code
+
+344
+00:17:55,130 --> 00:18:01,470
+let's see we are supposed to be code in
+
+345
+00:17:58,590 --> 00:18:05,370
+JavaScript or go lenore-- my beast so nu
+
+346
+00:18:01,470 --> 00:18:16,769
+anyone got opinions you know so what
+
+347
+00:18:05,370 --> 00:18:21,090
+should we do what should we be coding so
+
+348
+00:18:16,769 --> 00:18:26,299
+we talked about types type two languages
+
+349
+00:18:21,090 --> 00:18:34,350
+versus and type two languages you know
+
+350
+00:18:26,299 --> 00:18:38,519
+how a perspective is different you know
+
+351
+00:18:34,350 --> 00:18:41,399
+but still I mean you see C is still no
+
+352
+00:18:38,519 --> 00:18:44,279
+good CSE first-person Java this kind of
+
+353
+00:18:41,399 --> 00:18:47,549
+language is neo type Leo type is still
+
+354
+00:18:44,279 --> 00:18:49,620
+you know byproduct of computer
+
+355
+00:18:47,549 --> 00:18:53,789
+engineering but has cow it's a different
+
+356
+00:18:49,620 --> 00:18:56,009
+story but anyway so let's go back so I
+
+357
+00:18:53,789 --> 00:18:58,980
+was you know I'm gonna just gonna talk
+
+358
+00:18:56,009 --> 00:19:04,039
+with random things since nobody is
+
+359
+00:18:58,980 --> 00:19:07,110
+saying hey hey good morning shown
+
+360
+00:19:04,039 --> 00:19:10,139
+JavaScript but I'll be watching anything
+
+361
+00:19:07,110 --> 00:19:13,049
+I like your basket na analogy thank you
+
+362
+00:19:10,139 --> 00:19:15,090
+so yeah okay so let's actually let's do
+
+363
+00:19:13,049 --> 00:19:16,950
+Java scripts because I was waiting for
+
+364
+00:19:15,090 --> 00:19:19,409
+people because that's what we're
+
+365
+00:19:16,950 --> 00:19:22,230
+supposed to do you know and you know
+
+366
+00:19:19,409 --> 00:19:22,970
+since you find it useful so let's do
+
+367
+00:19:22,230 --> 00:19:27,269
+that
+
+368
+00:19:22,970 --> 00:19:27,960
+so let's shown so good good morning or
+
+369
+00:19:27,269 --> 00:19:34,169
+good evening
+
+370
+00:19:27,960 --> 00:19:36,350
+so let's go troops okay so blog okay
+
+371
+00:19:34,169 --> 00:19:38,960
+let's go to my web blog I wrote these
+
+372
+00:19:36,350 --> 00:19:41,190
+more things oh by the way Shawn I did
+
+373
+00:19:38,960 --> 00:19:43,650
+JavaScript code yesterday
+
+374
+00:19:41,190 --> 00:19:46,080
+video did you watch it the entire
+
+375
+00:19:43,650 --> 00:19:48,870
+session like one hour is coding
+
+376
+00:19:46,080 --> 00:19:54,440
+JavaScript coding Tom you know right
+
+377
+00:19:48,870 --> 00:19:59,370
+writing a let's see programming blog
+
+378
+00:19:54,440 --> 00:20:01,950
+it's go to woody blog okay so so yeah
+
+379
+00:19:59,370 --> 00:20:05,850
+yes yesterday I think was yesterday or
+
+380
+00:20:01,950 --> 00:20:08,850
+the day before I did a four I'm gonna
+
+381
+00:20:05,850 --> 00:20:13,200
+show you I'm gonna show you now so
+
+382
+00:20:08,850 --> 00:20:20,850
+actually just go to the blog programming
+
+383
+00:20:13,200 --> 00:20:24,110
+blog yeah so and great so we're gonna do
+
+384
+00:20:20,850 --> 00:20:28,170
+another one actually so let's go to sod
+
+385
+00:20:24,110 --> 00:20:38,270
+you know go I go to my website sorry dot
+
+386
+00:20:28,170 --> 00:20:38,270
+info and let's go look at web dev blog
+
+387
+00:20:41,300 --> 00:20:49,620
+also yesterday we did this one Radio
+
+388
+00:20:45,390 --> 00:20:53,640
+gradient generator can you guys see it
+
+389
+00:20:49,620 --> 00:20:58,380
+yes you can okay so let's move this here
+
+390
+00:20:53,640 --> 00:21:00,960
+so wait wait Radio gradients CSS
+
+391
+00:20:58,380 --> 00:21:03,660
+generator so you can click random random
+
+392
+00:21:00,960 --> 00:21:06,450
+and you can get a code here it shows the
+
+393
+00:21:03,660 --> 00:21:10,430
+code here you see random rambin random
+
+394
+00:21:06,450 --> 00:21:16,770
+hold rainbow a change number of colors
+
+395
+00:21:10,430 --> 00:21:21,480
+three four seven and change the position
+
+396
+00:21:16,770 --> 00:21:24,210
+where they may come from you know bottom
+
+397
+00:21:21,480 --> 00:21:26,940
+left and you can also change it to a
+
+398
+00:21:24,210 --> 00:21:29,130
+lisp and you can copy the code here so
+
+399
+00:21:26,940 --> 00:21:33,420
+we did this we wrote this from the
+
+400
+00:21:29,130 --> 00:21:36,690
+ground up without any you know jQuery or
+
+401
+00:21:33,420 --> 00:21:39,750
+framework or whatever it's pretty it's
+
+402
+00:21:36,690 --> 00:21:48,169
+pretty cool so you have all these
+
+403
+00:21:39,750 --> 00:21:51,859
+different radio gradient let's get some
+
+404
+00:21:48,169 --> 00:21:54,080
+let's see for let's show some pretty
+
+405
+00:21:51,859 --> 00:22:00,980
+anyway so yeah so we did this this
+
+406
+00:21:54,080 --> 00:22:04,190
+yesterday and actually test typescript
+
+407
+00:22:00,980 --> 00:22:11,090
+so I was using so that code is actually
+
+408
+00:22:04,190 --> 00:22:11,570
+here oh no this is another one I never
+
+409
+00:22:11,090 --> 00:22:14,119
+mind
+
+410
+00:22:11,570 --> 00:22:17,659
+so anyway we did the gradient and
+
+411
+00:22:14,119 --> 00:22:21,559
+actually our ago I woke up four hour ago
+
+412
+00:22:17,659 --> 00:22:23,570
+and I wrote up this I was trying to do
+
+413
+00:22:21,559 --> 00:22:26,749
+this live but you know I just wrote up
+
+414
+00:22:23,570 --> 00:22:32,119
+quickly let's see how long have I been
+
+415
+00:22:26,749 --> 00:22:35,450
+talking so I think we're gonna do
+
+416
+00:22:32,119 --> 00:22:38,179
+another one so maybe you'll take 20
+
+417
+00:22:35,450 --> 00:22:45,159
+minutes so I did this you know just an
+
+418
+00:22:38,179 --> 00:22:45,159
+hour ago so this is this is the
+
+419
+00:22:47,799 --> 00:22:55,009
+box-shadow
+
+420
+00:22:49,009 --> 00:22:57,409
+so let's see offset offset blur and you
+
+421
+00:22:55,009 --> 00:23:00,799
+know and then we can change the color
+
+422
+00:22:57,409 --> 00:23:03,879
+and change the background color the
+
+423
+00:23:00,799 --> 00:23:08,779
+background color let's speed that okay
+
+424
+00:23:03,879 --> 00:23:15,980
+let's be darker okay so now change the
+
+425
+00:23:08,779 --> 00:23:19,159
+shadow color shadow let's say red so
+
+426
+00:23:15,980 --> 00:23:22,759
+anyway so we did this but it's still not
+
+427
+00:23:19,159 --> 00:23:25,789
+complete we need let's refresh what we
+
+428
+00:23:22,759 --> 00:23:28,279
+need is a random color box so you know
+
+429
+00:23:25,789 --> 00:23:34,850
+we need a button that says generate the
+
+430
+00:23:28,279 --> 00:23:37,129
+random color and we need another well I
+
+431
+00:23:34,850 --> 00:23:39,769
+was thinking we need we we want another
+
+432
+00:23:37,129 --> 00:23:42,139
+part that says you know just generate
+
+433
+00:23:39,769 --> 00:23:45,230
+the whole thing random completely right
+
+434
+00:23:42,139 --> 00:23:50,679
+different different offset let's see if
+
+435
+00:23:45,230 --> 00:23:54,019
+we can play and strain it's super blur
+
+436
+00:23:50,679 --> 00:23:58,749
+and also this user interface is not so
+
+437
+00:23:54,019 --> 00:24:00,500
+good you see you have this offset X&Y
+
+438
+00:23:58,749 --> 00:24:03,860
+and then you
+
+439
+00:24:00,500 --> 00:24:06,070
+these offset why you see offset X you
+
+440
+00:24:03,860 --> 00:24:10,580
+know why is horizontal whines vertical
+
+441
+00:24:06,070 --> 00:24:13,610
+but it's not natural to use because you
+
+442
+00:24:10,580 --> 00:24:16,040
+rather want some kind of like people
+
+443
+00:24:13,610 --> 00:24:23,450
+like people can just just point to a
+
+444
+00:24:16,040 --> 00:24:26,510
+direction yeah a direction than a
+
+445
+00:24:23,450 --> 00:24:28,880
+distance that's more natural you know
+
+446
+00:24:26,510 --> 00:24:30,500
+like the X Y offset they are like a
+
+447
+00:24:28,880 --> 00:24:32,960
+vectors you know like a mathematical
+
+448
+00:24:30,500 --> 00:24:36,200
+idea of vectors the first two numbers
+
+449
+00:24:32,960 --> 00:24:38,810
+here you can see you see the first two
+
+450
+00:24:36,200 --> 00:24:40,940
+numbers here so they are like a vector
+
+451
+00:24:38,810 --> 00:24:43,900
+so they have a length in the direction
+
+452
+00:24:40,940 --> 00:24:57,860
+you know like which which way the shadow
+
+453
+00:24:43,900 --> 00:25:00,620
+goes to yeah so so we're gonna a week so
+
+454
+00:24:57,860 --> 00:25:08,120
+we I'm thinking we're gonna modify you
+
+455
+00:25:00,620 --> 00:25:10,340
+know add the random button and oh the
+
+456
+00:25:08,120 --> 00:25:14,240
+other thing we I want I need to do I
+
+457
+00:25:10,340 --> 00:25:18,680
+want to do is go to you see this is my
+
+458
+00:25:14,240 --> 00:25:21,910
+visual CSS tutorial what I want to do is
+
+459
+00:25:18,680 --> 00:25:25,700
+I want to make a you know a dynamic
+
+460
+00:25:21,910 --> 00:25:27,890
+interactive app for each and every one
+
+461
+00:25:25,700 --> 00:25:33,380
+of them so you know people can easily
+
+462
+00:25:27,890 --> 00:25:37,930
+see how they walk you know but backs the
+
+463
+00:25:33,380 --> 00:25:40,880
+here's a then then there's a text shadow
+
+464
+00:25:37,930 --> 00:25:42,920
+you see take shadowy I don't have a
+
+465
+00:25:40,880 --> 00:25:47,600
+interactive thing it would be nice to
+
+466
+00:25:42,920 --> 00:25:48,700
+have so what do you think Shawn should
+
+467
+00:25:47,600 --> 00:25:53,120
+we start over
+
+468
+00:25:48,700 --> 00:25:56,630
+let's do this text shadow or should we
+
+469
+00:25:53,120 --> 00:26:01,540
+modify the back the box shadowed and add
+
+470
+00:25:56,630 --> 00:26:05,270
+a random color button yeah let me know
+
+471
+00:26:01,540 --> 00:26:08,920
+you know you pick is you pick is whether
+
+472
+00:26:05,270 --> 00:26:08,920
+I feel you know better
+
+473
+00:26:17,659 --> 00:26:25,019
+how do run how - let's try random okay
+
+474
+00:26:21,509 --> 00:26:30,570
+yeah so let's do that let's see how many
+
+475
+00:26:25,019 --> 00:26:34,950
+people so let's add a random button a
+
+476
+00:26:30,570 --> 00:26:40,730
+button okay so so service first of all
+
+477
+00:26:34,950 --> 00:26:40,730
+let's go through the my local website
+
+478
+00:26:41,090 --> 00:26:47,519
+okay so let's open the file so this is
+
+479
+00:26:44,460 --> 00:26:49,919
+the file that's showing Firefox in
+
+480
+00:26:47,519 --> 00:26:52,980
+Firefox I have JavaScript off so you
+
+481
+00:26:49,919 --> 00:26:55,710
+don't see you know this is not not
+
+482
+00:26:52,980 --> 00:27:01,619
+working so we need to go to the chrome
+
+483
+00:26:55,710 --> 00:27:07,289
+so let's go to chrome close that new tab
+
+484
+00:27:01,619 --> 00:27:12,239
+paste enter so here's the chrome and we
+
+485
+00:27:07,289 --> 00:27:14,789
+can let's see so yeah so that so this is
+
+486
+00:27:12,239 --> 00:27:21,899
+the source code this is the source file
+
+487
+00:27:14,789 --> 00:27:30,320
+for that you can see okay let me show so
+
+488
+00:27:21,899 --> 00:27:33,210
+this section this section is the the
+
+489
+00:27:30,320 --> 00:27:35,340
+application application the you know the
+
+490
+00:27:33,210 --> 00:27:40,559
+interactive thing so we have color
+
+491
+00:27:35,340 --> 00:27:42,659
+picker input here so what we gonna do
+
+492
+00:27:40,559 --> 00:27:45,649
+actually so we need to let's just add a
+
+493
+00:27:42,659 --> 00:27:48,649
+random boxes that instead of you know
+
+494
+00:27:45,649 --> 00:27:52,649
+explaining like you know the whole thing
+
+495
+00:27:48,649 --> 00:27:55,679
+so okay we need a new user interface
+
+496
+00:27:52,649 --> 00:28:01,879
+widget that says random button okay so
+
+497
+00:27:55,679 --> 00:28:05,039
+let's do that we need a button element
+
+498
+00:28:01,879 --> 00:28:10,400
+and over here yes
+
+499
+00:28:05,039 --> 00:28:15,470
+so button
+
+500
+00:28:10,400 --> 00:28:25,059
+and type equals two you have to say type
+
+501
+00:28:15,470 --> 00:28:27,830
+equals two button random color okay
+
+502
+00:28:25,059 --> 00:28:34,550
+showing browser there it is
+
+503
+00:28:27,830 --> 00:28:40,430
+random color let's move it up here right
+
+504
+00:28:34,550 --> 00:28:42,710
+sure there that's good and wait wait
+
+505
+00:28:40,430 --> 00:28:48,970
+wherever you see this flash that means
+
+506
+00:28:42,710 --> 00:28:48,970
+let's change the color here FFF
+
+507
+00:28:54,240 --> 00:29:04,950
+okay so hold on a second let me change
+
+508
+00:28:56,910 --> 00:29:07,470
+that so what I'm doing is that well
+
+509
+00:29:04,950 --> 00:29:09,830
+whenever i refresh this page you see
+
+510
+00:29:07,470 --> 00:29:12,420
+there's a flash of the background it was
+
+511
+00:29:09,830 --> 00:29:14,910
+gray then it becomes white
+
+512
+00:29:12,420 --> 00:29:18,420
+the reason it's like that because I have
+
+513
+00:29:14,910 --> 00:29:22,440
+the CSS here it was the gray you know
+
+514
+00:29:18,420 --> 00:29:25,200
+silver then when the JavaScript loads
+
+515
+00:29:22,440 --> 00:29:27,450
+you know the default is white so that's
+
+516
+00:29:25,200 --> 00:29:32,580
+why you see the fash that's no good so
+
+517
+00:29:27,450 --> 00:29:34,710
+let's just change this to white now
+
+518
+00:29:32,580 --> 00:29:38,550
+refresh you don't see that color flash
+
+519
+00:29:34,710 --> 00:29:43,340
+that's good so now let's go back to code
+
+520
+00:29:38,550 --> 00:29:48,150
+here we added a random button here here
+
+521
+00:29:43,340 --> 00:29:53,930
+and now we need to add an ID so let's do
+
+522
+00:29:48,150 --> 00:30:04,470
+an ID then okay so copy that paste here
+
+523
+00:29:53,930 --> 00:30:09,090
+random color button let's say button
+
+524
+00:30:04,470 --> 00:30:15,150
+random color okay so that's our ID good
+
+525
+00:30:09,090 --> 00:30:19,710
+then let's go to then let's go to open
+
+526
+00:30:15,150 --> 00:30:22,080
+the file so this is this javascript file
+
+527
+00:30:19,710 --> 00:30:25,040
+this is actually typescript I'm using
+
+528
+00:30:22,080 --> 00:30:29,280
+typescript now typescript is just a
+
+529
+00:30:25,040 --> 00:30:31,500
+superset of JavaScript so you see
+
+530
+00:30:29,280 --> 00:30:33,480
+basically the whole thing is JavaScript
+
+531
+00:30:31,500 --> 00:30:37,860
+the only difference is that you see this
+
+532
+00:30:33,480 --> 00:30:41,100
+thing here the HTML input element that
+
+533
+00:30:37,860 --> 00:30:41,820
+is that it that is from you can kind of
+
+534
+00:30:41,100 --> 00:30:44,250
+ignore it
+
+535
+00:30:41,820 --> 00:30:46,770
+you know typescript is a statically
+
+536
+00:30:44,250 --> 00:30:49,470
+typed language and it's very useful you
+
+537
+00:30:46,770 --> 00:30:52,560
+know like like I said before it's very
+
+538
+00:30:49,470 --> 00:30:57,180
+useful because it when your program is
+
+539
+00:30:52,560 --> 00:31:00,990
+large it helps in you know avoiding
+
+540
+00:30:57,180 --> 00:31:05,280
+errors coding errors so anyway so we
+
+541
+00:31:00,990 --> 00:31:07,560
+have we just added a button for random
+
+542
+00:31:05,280 --> 00:31:08,400
+color right now there's no action so
+
+543
+00:31:07,560 --> 00:31:13,080
+first of all we
+
+544
+00:31:08,400 --> 00:31:20,420
+to get the get the button you know
+
+545
+00:31:13,080 --> 00:31:28,200
+element it's this smaller than okay so
+
+546
+00:31:20,420 --> 00:31:31,200
+so let's say button random color okay so
+
+547
+00:31:28,200 --> 00:31:33,330
+get an get element by ID then we get
+
+548
+00:31:31,200 --> 00:31:39,180
+that element we you assign it to button
+
+549
+00:31:33,330 --> 00:31:42,540
+and button random color then so we got
+
+550
+00:31:39,180 --> 00:31:45,360
+the element at the then we need to add a
+
+551
+00:31:42,540 --> 00:31:48,270
+event meaning that you know when when
+
+552
+00:31:45,360 --> 00:31:51,810
+people press the button something some
+
+553
+00:31:48,270 --> 00:31:55,590
+function is called so let's let's add
+
+554
+00:31:51,810 --> 00:31:59,520
+the event here so button button random
+
+555
+00:31:55,590 --> 00:32:02,070
+color add event listener and we call the
+
+556
+00:31:59,520 --> 00:32:07,410
+function update now the function update
+
+557
+00:32:02,070 --> 00:32:10,560
+is defined here so the function update
+
+558
+00:32:07,410 --> 00:32:12,990
+basically it gets all the parameters
+
+559
+00:32:10,560 --> 00:32:17,130
+from user you know all those colors you
+
+560
+00:32:12,990 --> 00:32:23,190
+know XY this offset and blue values get
+
+561
+00:32:17,130 --> 00:32:25,890
+all those values then converted to a CSS
+
+562
+00:32:23,190 --> 00:32:30,870
+syntax so you have this result string
+
+563
+00:32:25,890 --> 00:32:35,220
+this is a CSS syntax then you just you
+
+564
+00:32:30,870 --> 00:32:38,910
+know added to the style box shadow you
+
+565
+00:32:35,220 --> 00:32:41,940
+know added here and also you know create
+
+566
+00:32:38,910 --> 00:32:44,940
+a stream box shadow string and and add
+
+567
+00:32:41,940 --> 00:32:49,410
+it to the content so that's how we got
+
+568
+00:32:44,940 --> 00:32:51,870
+you know the text here the CSS syntax so
+
+569
+00:32:49,410 --> 00:32:59,310
+so that is how update is done now
+
+570
+00:32:51,870 --> 00:33:02,660
+remember now we have a random color what
+
+571
+00:32:59,310 --> 00:33:02,660
+we want to do is
+
+572
+00:33:04,679 --> 00:33:13,299
+so we got a button so and we also got a
+
+573
+00:33:09,720 --> 00:33:17,200
+event so when user cricket your core
+
+574
+00:33:13,299 --> 00:33:20,530
+function update now what we are this
+
+575
+00:33:17,200 --> 00:33:23,559
+button do of course it changes the color
+
+576
+00:33:20,530 --> 00:33:29,280
+first of all when we when user cricket
+
+577
+00:33:23,559 --> 00:33:31,750
+it should also change the the color here
+
+578
+00:33:29,280 --> 00:33:38,440
+let me show you what you mean so random
+
+579
+00:33:31,750 --> 00:33:43,900
+color let's see so we go back to the
+
+580
+00:33:38,440 --> 00:33:52,530
+code function update then we we say
+
+581
+00:33:43,900 --> 00:33:55,690
+constant random color okay equals to oh
+
+582
+00:33:52,530 --> 00:33:58,179
+yeah then we need to generate you know
+
+583
+00:33:55,690 --> 00:34:01,660
+we need to generate the random color
+
+584
+00:33:58,179 --> 00:34:06,640
+string luckily we have I have done that
+
+585
+00:34:01,660 --> 00:34:09,310
+before so how do you random hex yeah so
+
+586
+00:34:06,640 --> 00:34:16,000
+we have done that before by just you can
+
+587
+00:34:09,310 --> 00:34:18,730
+go to CSS linear gradient same thing
+
+588
+00:34:16,000 --> 00:34:23,290
+with the radio rate Radio gradient
+
+589
+00:34:18,730 --> 00:34:25,780
+random direction so here there's a you
+
+590
+00:34:23,290 --> 00:34:29,639
+know random color button so we can just
+
+591
+00:34:25,780 --> 00:34:33,760
+open this file and get a code from there
+
+592
+00:34:29,639 --> 00:34:38,859
+so such for JavaScript such such such
+
+593
+00:34:33,760 --> 00:34:43,990
+such such yeah so here is the CSS linear
+
+594
+00:34:38,859 --> 00:34:48,129
+gradient code and so we have this code
+
+595
+00:34:43,990 --> 00:34:51,010
+here it's magnified okay we have this
+
+596
+00:34:48,129 --> 00:34:54,669
+random int it generates a random integer
+
+597
+00:34:51,010 --> 00:34:56,740
+from min to max then we have a random
+
+598
+00:34:54,669 --> 00:34:59,440
+color string that's what we want this
+
+599
+00:34:56,740 --> 00:35:04,890
+function let's copy it it's kiddoes
+
+600
+00:34:59,440 --> 00:35:11,590
+close it close it now we are back in a
+
+601
+00:35:04,890 --> 00:35:15,280
+box shadow code here and that's inserted
+
+602
+00:35:11,590 --> 00:35:19,190
+so we got new these two new functions
+
+603
+00:35:15,280 --> 00:35:21,200
+random int and random color stream so
+
+604
+00:35:19,190 --> 00:35:25,190
+how they work you know random in just
+
+605
+00:35:21,200 --> 00:35:28,310
+give you a random int so so the way this
+
+606
+00:35:25,190 --> 00:35:34,670
+work is that first of all we create a
+
+607
+00:35:28,310 --> 00:35:41,150
+function that that generates two
+
+608
+00:35:34,670 --> 00:35:45,040
+hexadecimals let me let me get this so
+
+609
+00:35:41,150 --> 00:35:45,040
+that it's easier to see
+
+610
+00:35:55,960 --> 00:35:58,860
+okay so
+
+611
+00:36:05,630 --> 00:36:13,010
+so here here is the code it's easier to
+
+612
+00:36:09,500 --> 00:36:14,690
+see now so this random colored string
+
+613
+00:36:13,010 --> 00:36:16,400
+first of all you define our inner
+
+614
+00:36:14,690 --> 00:36:18,470
+function that generates two two
+
+615
+00:36:16,400 --> 00:36:23,960
+characters by calling the two string
+
+616
+00:36:18,470 --> 00:36:26,300
+sixteen then you know if it returns a
+
+617
+00:36:23,960 --> 00:36:28,940
+single digit you just padded
+
+618
+00:36:26,300 --> 00:36:31,760
+you know padded a you know zero in front
+
+619
+00:36:28,940 --> 00:36:34,070
+because you need two extra decimals so
+
+620
+00:36:31,760 --> 00:36:36,290
+this function returns two hex digits
+
+621
+00:36:34,070 --> 00:36:39,440
+then you just return the string you know
+
+622
+00:36:36,290 --> 00:36:41,750
+code three times you know with a pound
+
+623
+00:36:39,440 --> 00:36:45,550
+sign in front so that you know signify
+
+624
+00:36:41,750 --> 00:36:49,940
+color so that's how you get a random
+
+625
+00:36:45,550 --> 00:36:53,060
+random RGB color string okay so now we
+
+626
+00:36:49,940 --> 00:36:55,820
+have that function now we can we can
+
+627
+00:36:53,060 --> 00:37:01,010
+assign the value to the random color we
+
+628
+00:36:55,820 --> 00:37:11,440
+just call this function right so random
+
+629
+00:37:01,010 --> 00:37:11,440
+color will get a random color string
+
+630
+00:37:17,369 --> 00:37:25,289
+so how do we then what then
+
+631
+00:37:22,190 --> 00:37:27,809
+so the random color actually should be
+
+632
+00:37:25,289 --> 00:37:34,339
+the value of shadow color because
+
+633
+00:37:27,809 --> 00:37:34,339
+remember how let's go back to the CSS
+
+634
+00:37:36,410 --> 00:37:42,749
+box shadow you see the color will be
+
+635
+00:37:39,420 --> 00:37:47,609
+used for the shadow so we have a issue
+
+636
+00:37:42,749 --> 00:37:54,329
+here so when people click on the random
+
+637
+00:37:47,609 --> 00:37:57,890
+the shadow color should be you know it
+
+638
+00:37:54,329 --> 00:38:01,769
+should be set to the shadow color value
+
+639
+00:37:57,890 --> 00:38:04,349
+but now the problem is how do we so we
+
+640
+00:38:01,769 --> 00:38:08,420
+so when we click you have to actually
+
+641
+00:38:04,349 --> 00:38:12,680
+find out when keyboard clicked on it
+
+642
+00:38:08,420 --> 00:38:12,680
+wait hold on a second
+
+643
+00:38:13,549 --> 00:38:22,170
+so anyway for now let let's do this it's
+
+644
+00:38:17,849 --> 00:38:26,930
+common this a weight so we have two
+
+645
+00:38:22,170 --> 00:38:34,259
+things here copy it comment them out and
+
+646
+00:38:26,930 --> 00:38:36,150
+let's actually just put this there you
+
+647
+00:38:34,259 --> 00:38:40,680
+know so every time the shadow color is
+
+648
+00:38:36,150 --> 00:38:49,739
+just random okay now we compile the
+
+649
+00:38:40,680 --> 00:38:52,380
+typescript okay it says cannot be
+
+650
+00:38:49,739 --> 00:38:56,279
+declare broad scope variable random
+
+651
+00:38:52,380 --> 00:39:01,950
+color stream okay we must have declared
+
+652
+00:38:56,279 --> 00:39:04,410
+it twice oh we have oh yeah oh oh I
+
+653
+00:39:01,950 --> 00:39:06,539
+already I already have the code there so
+
+654
+00:39:04,410 --> 00:39:15,200
+we don't you know we have the code twice
+
+655
+00:39:06,539 --> 00:39:15,200
+so yeah so we so that's what we do so we
+
+656
+00:39:16,670 --> 00:39:21,770
+remove that okay compile it again
+
+657
+00:39:23,570 --> 00:39:30,540
+correct no error so reload the page so
+
+658
+00:39:28,290 --> 00:39:35,700
+you see every time I reload it's gonna
+
+659
+00:39:30,540 --> 00:39:40,970
+give us who's reopened every time we
+
+660
+00:39:35,700 --> 00:39:40,970
+reload it's gonna give us a new color
+
+661
+00:39:41,450 --> 00:39:52,020
+but that's you know so but what we want
+
+662
+00:39:45,180 --> 00:39:55,920
+is when user click on that okay so
+
+663
+00:39:52,020 --> 00:40:02,790
+here's what we need to do so we need to
+
+664
+00:39:55,920 --> 00:40:06,810
+declare a global variable shadow color
+
+665
+00:40:02,790 --> 00:40:12,960
+okay let's declare a global variable
+
+666
+00:40:06,810 --> 00:40:16,250
+shadow color okay and it's not a
+
+667
+00:40:12,960 --> 00:40:16,250
+constant it's a
+
+668
+00:40:23,260 --> 00:40:34,570
+so we declare a global variable shadow
+
+669
+00:40:26,270 --> 00:40:34,570
+color then for the random color button
+
+670
+00:40:34,810 --> 00:40:41,990
+let's go back go down to the event so
+
+671
+00:40:38,660 --> 00:40:45,260
+when random button button random color
+
+672
+00:40:41,990 --> 00:40:48,290
+is clicked it should call a function
+
+673
+00:40:45,260 --> 00:40:54,220
+that update the color not render the
+
+674
+00:40:48,290 --> 00:40:57,770
+whole thing it just said color okay
+
+675
+00:40:54,220 --> 00:41:00,050
+it will call the function set color and
+
+676
+00:40:57,770 --> 00:41:05,270
+we are going to define the set color
+
+677
+00:41:00,050 --> 00:41:09,580
+here constant arrow function set color
+
+678
+00:41:05,270 --> 00:41:18,980
+okay it will not take no arguments and
+
+679
+00:41:09,580 --> 00:41:26,540
+it will return it will return a hex
+
+680
+00:41:18,980 --> 00:41:32,359
+color stream so we're gonna call random
+
+681
+00:41:26,540 --> 00:41:33,400
+RGB color stream here and AOB yeah so
+
+682
+00:41:32,359 --> 00:41:36,910
+that's it
+
+683
+00:41:33,400 --> 00:41:44,170
+so actually we need to do it like that
+
+684
+00:41:36,910 --> 00:41:48,550
+so the set color wait wait this is wrong
+
+685
+00:41:44,170 --> 00:41:48,550
+so actually we need a blog
+
+686
+00:41:56,250 --> 00:42:04,830
+so color equals to that so we got a
+
+687
+00:42:00,750 --> 00:42:10,470
+color we got a random color here's a
+
+688
+00:42:04,830 --> 00:42:14,099
+stream but you also need to change the
+
+689
+00:42:10,470 --> 00:42:15,960
+shadow color input box here you know
+
+690
+00:42:14,099 --> 00:42:19,320
+it's a nice touch because when you click
+
+691
+00:42:15,960 --> 00:42:21,780
+random color the you know the it shows
+
+692
+00:42:19,320 --> 00:42:24,359
+random color here but it would be nice
+
+693
+00:42:21,780 --> 00:42:27,330
+if the input also changes because
+
+694
+00:42:24,359 --> 00:42:29,310
+otherwise it's inconsistent right like
+
+695
+00:42:27,330 --> 00:42:32,670
+right now you have one pink and one
+
+696
+00:42:29,310 --> 00:42:36,690
+orange so we we need to update the
+
+697
+00:42:32,670 --> 00:42:40,380
+shadow color that's easy okay so the
+
+698
+00:42:36,690 --> 00:42:45,420
+shadow color item we can see on top it's
+
+699
+00:42:40,380 --> 00:42:50,070
+the color picker element so color picker
+
+700
+00:42:45,420 --> 00:42:58,109
+element value equals to CL
+
+701
+00:42:50,070 --> 00:43:00,720
+let's say you're on color okay there so
+
+702
+00:42:58,109 --> 00:43:08,160
+we get a random color and we assign it
+
+703
+00:43:00,720 --> 00:43:10,550
+to the input color picker and a weight
+
+704
+00:43:08,160 --> 00:43:21,089
+actually what we should do is we should
+
+705
+00:43:10,550 --> 00:43:23,940
+assign it a sign to shadow color let's
+
+706
+00:43:21,089 --> 00:43:27,300
+do it like that yeah so we get a random
+
+707
+00:43:23,940 --> 00:43:30,180
+color we assign it to shadow color you
+
+708
+00:43:27,300 --> 00:43:33,890
+know the global variable value then we
+
+709
+00:43:30,180 --> 00:43:41,070
+also assign it to the color picker input
+
+710
+00:43:33,890 --> 00:43:43,140
+then in the update part we don't need
+
+711
+00:43:41,070 --> 00:43:49,050
+the shadow color anymore because it's
+
+712
+00:43:43,140 --> 00:43:53,420
+already defined here but also when you
+
+713
+00:43:49,050 --> 00:43:53,420
+okay let's try to compile the code
+
+714
+00:43:57,279 --> 00:44:07,519
+okay so compile the code is say
+
+715
+00:44:03,160 --> 00:44:08,390
+successful no error and now let's see
+
+716
+00:44:07,519 --> 00:44:12,349
+what happens
+
+717
+00:44:08,390 --> 00:44:20,420
+refresh okay apparently there's an error
+
+718
+00:44:12,349 --> 00:44:23,029
+so let's open console log refresh okay
+
+719
+00:44:20,420 --> 00:44:26,599
+no arrow here those are you know those
+
+720
+00:44:23,029 --> 00:44:30,230
+errors are from Google you know ads so
+
+721
+00:44:26,599 --> 00:44:32,150
+anyway so we don't have a any error here
+
+722
+00:44:30,230 --> 00:44:35,180
+however it's not showing so there is
+
+723
+00:44:32,150 --> 00:44:37,309
+something wrong oh yeah when you'll be
+
+724
+00:44:35,180 --> 00:44:41,240
+fresh you see that's a problem when you
+
+725
+00:44:37,309 --> 00:44:43,519
+refresh the shadow color is not set
+
+726
+00:44:41,240 --> 00:44:45,859
+you know because nobody you know update
+
+727
+00:44:43,519 --> 00:44:49,400
+it's not setting update code it's only
+
+728
+00:44:45,859 --> 00:44:52,249
+set by this function f set color but
+
+729
+00:44:49,400 --> 00:44:56,599
+however nobody has called F set color so
+
+730
+00:44:52,249 --> 00:45:02,539
+we need to call it so we just call it
+
+731
+00:44:56,599 --> 00:45:06,019
+here you know we we call the set color
+
+732
+00:45:02,539 --> 00:45:10,549
+then we call the update so now we
+
+733
+00:45:06,019 --> 00:45:19,549
+compile the typescript code and back to
+
+734
+00:45:10,549 --> 00:45:22,009
+the browser refresh yay yes yeah default
+
+735
+00:45:19,549 --> 00:45:24,859
+default state to begin with so we it
+
+736
+00:45:22,009 --> 00:45:30,410
+looks like we got it working so we click
+
+737
+00:45:24,859 --> 00:45:31,309
+let's try no we click random color and
+
+738
+00:45:30,410 --> 00:45:34,999
+nothing happens
+
+739
+00:45:31,309 --> 00:45:38,630
+oh yeah because in a random color when
+
+740
+00:45:34,999 --> 00:45:43,160
+it's clicked remember we set it to call
+
+741
+00:45:38,630 --> 00:45:45,289
+the set color function but we did not
+
+742
+00:45:43,160 --> 00:45:48,289
+update the whole thing so we also need
+
+743
+00:45:45,289 --> 00:45:50,930
+to update the whole thing so let's say
+
+744
+00:45:48,289 --> 00:45:58,539
+so when random color is clicked we need
+
+745
+00:45:50,930 --> 00:46:03,080
+a function that will call set color then
+
+746
+00:45:58,539 --> 00:46:10,170
+call f update
+
+747
+00:46:03,080 --> 00:46:13,760
+yep so let's compile the code no error
+
+748
+00:46:10,170 --> 00:46:19,290
+that's good let's refresh the browser
+
+749
+00:46:13,760 --> 00:46:26,910
+now let's try it quick gah
+
+750
+00:46:19,290 --> 00:46:32,660
+what's wrong wait so button random color
+
+751
+00:46:26,910 --> 00:46:32,660
+set color and update so what is wrong
+
+752
+00:46:42,250 --> 00:46:48,310
+okay the manual setting color also is
+
+753
+00:46:45,620 --> 00:46:48,310
+not working
+
+754
+00:46:49,520 --> 00:47:07,820
+crickey event oh yeah you are right
+
+755
+00:46:52,180 --> 00:47:09,530
+thank you yeah quick great hey wait okay
+
+756
+00:47:07,820 --> 00:47:12,020
+that's the right direction but this
+
+757
+00:47:09,530 --> 00:47:16,730
+looks like there's still something we
+
+758
+00:47:12,020 --> 00:47:23,150
+did I did wrong here wait
+
+759
+00:47:16,730 --> 00:47:31,030
+quick what's going on click set color
+
+760
+00:47:23,150 --> 00:47:31,030
+and update did we Oh compile type script
+
+761
+00:47:31,300 --> 00:47:40,510
+update by the way Shawn are you are you
+
+762
+00:47:36,950 --> 00:47:43,730
+are you are you using any framework like
+
+763
+00:47:40,510 --> 00:47:48,640
+do you use any framework like or any
+
+764
+00:47:43,730 --> 00:47:48,640
+JavaScript libraries you you use often
+
+765
+00:47:50,470 --> 00:48:02,810
+so what's going on with the set color so
+
+766
+00:47:56,270 --> 00:48:05,170
+set color then update set color show
+
+767
+00:48:02,810 --> 00:48:05,170
+color
+
+768
+00:48:13,520 --> 00:48:19,160
+no just JavaScript okay just learning
+
+769
+00:48:16,310 --> 00:48:22,490
+yeah you know I never got into using the
+
+770
+00:48:19,160 --> 00:48:24,800
+frameworks but right now I'm kind of
+
+771
+00:48:22,490 --> 00:48:28,640
+trying to you know I'm kind of learning
+
+772
+00:48:24,800 --> 00:48:32,869
+the react Jes you know I actually
+
+773
+00:48:28,640 --> 00:48:35,000
+studied react.js for a few days for a
+
+774
+00:48:32,869 --> 00:48:41,090
+week you know a few months ago and I
+
+775
+00:48:35,000 --> 00:48:43,880
+think it's it's very good you know but
+
+776
+00:48:41,090 --> 00:48:47,150
+you know I'm mostly still prefer you
+
+777
+00:48:43,880 --> 00:48:49,970
+know raw JavaScript you know you know
+
+778
+00:48:47,150 --> 00:48:53,690
+like for several reasons for many two
+
+779
+00:48:49,970 --> 00:48:56,150
+reasons one is that you know I like I
+
+780
+00:48:53,690 --> 00:48:58,450
+really like the fundamental technology I
+
+781
+00:48:56,150 --> 00:49:01,190
+don't like the you know the wrappers
+
+782
+00:48:58,450 --> 00:49:03,890
+created by some cooperation because they
+
+783
+00:49:01,190 --> 00:49:06,830
+they can change anytime you know they
+
+784
+00:49:03,890 --> 00:49:08,690
+come and go actually react seems you
+
+785
+00:49:06,830 --> 00:49:12,560
+know to be the big one that you know one
+
+786
+00:49:08,690 --> 00:49:14,570
+of the top three major ones react UJS
+
+787
+00:49:12,560 --> 00:49:18,440
+angular you know these are the three
+
+788
+00:49:14,570 --> 00:49:20,359
+kind of the major ones but you know a
+
+789
+00:49:18,440 --> 00:49:22,760
+few years ago there are lots of other
+
+790
+00:49:20,359 --> 00:49:26,260
+others see you know they like they are
+
+791
+00:49:22,760 --> 00:49:29,390
+turn up turns of others they come and go
+
+792
+00:49:26,260 --> 00:49:33,800
+and you twine is like you know they they
+
+793
+00:49:29,390 --> 00:49:36,320
+are different they are they are fused to
+
+794
+00:49:33,800 --> 00:49:38,750
+Kate right yeah because in there this
+
+795
+00:49:36,320 --> 00:49:41,590
+you know especially in Java you know
+
+796
+00:49:38,750 --> 00:49:44,770
+JavaScript is very different from other
+
+797
+00:49:41,590 --> 00:49:47,359
+languages I mean the JavaScript industry
+
+798
+00:49:44,770 --> 00:49:51,230
+because in other languages you know you
+
+799
+00:49:47,359 --> 00:49:55,280
+see you know I don't know C or C++ but I
+
+800
+00:49:51,230 --> 00:49:57,230
+you know in Perl in Python Ruby :
+
+801
+00:49:55,280 --> 00:50:00,350
+you can use libraries the libraries
+
+802
+00:49:57,230 --> 00:50:03,170
+looks the same as you know you don't
+
+803
+00:50:00,350 --> 00:50:05,090
+have to learn you know like extra but in
+
+804
+00:50:03,170 --> 00:50:07,490
+JavaScript when you use a framework it's
+
+805
+00:50:05,090 --> 00:50:10,460
+like they introduced in it's like you
+
+806
+00:50:07,490 --> 00:50:14,060
+are learning a entire different syntax
+
+807
+00:50:10,460 --> 00:50:19,609
+and also entire different semantics the
+
+808
+00:50:14,060 --> 00:50:22,640
+model you know like the you know the MVC
+
+809
+00:50:19,609 --> 00:50:24,109
+you know whatever you know that crap M
+
+810
+00:50:22,640 --> 00:50:26,750
+easy you know you like every every
+
+811
+00:50:24,109 --> 00:50:32,359
+framework Jelani entire different thing
+
+812
+00:50:26,750 --> 00:50:34,520
+it's nice not good you know yeah so
+
+813
+00:50:32,359 --> 00:50:41,570
+anyway so let's get let's try to get
+
+814
+00:50:34,520 --> 00:50:44,810
+this to work then so what's going on so
+
+815
+00:50:41,570 --> 00:50:47,390
+let's print you know when something is
+
+816
+00:50:44,810 --> 00:50:50,150
+wrong and you don't know what you know
+
+817
+00:50:47,390 --> 00:50:52,880
+the easiest way to debug is oh it's just
+
+818
+00:50:50,150 --> 00:50:59,470
+print print the value let's say show
+
+819
+00:50:52,880 --> 00:51:03,950
+color show the shadow color now refresh
+
+820
+00:50:59,470 --> 00:51:09,140
+okay it's printed okay now but if I
+
+821
+00:51:03,950 --> 00:51:12,680
+click random oh it's working I guess I
+
+822
+00:51:09,140 --> 00:51:15,710
+didn't press refresh before maybe
+
+823
+00:51:12,680 --> 00:51:20,990
+alright but this part is not working
+
+824
+00:51:15,710 --> 00:51:23,540
+okay yeah so when user manually search
+
+825
+00:51:20,990 --> 00:51:24,349
+select a color it's not working we still
+
+826
+00:51:23,540 --> 00:51:28,580
+need to do that
+
+827
+00:51:24,349 --> 00:51:32,030
+so when user manually search select the
+
+828
+00:51:28,580 --> 00:51:35,770
+color okay I guess you what we have to
+
+829
+00:51:32,030 --> 00:51:35,770
+do is just like before
+
+830
+00:51:42,740 --> 00:51:56,599
+okay originally we need a value let's
+
+831
+00:51:48,410 --> 00:52:05,300
+see color picker color picker value okay
+
+832
+00:51:56,599 --> 00:52:09,560
+so here we initialize it to a value but
+
+833
+00:52:05,300 --> 00:52:14,260
+when use okay let's write another
+
+834
+00:52:09,560 --> 00:52:14,260
+function that's that's user update color
+
+835
+00:52:14,619 --> 00:52:21,530
+so let's change one of the function
+
+836
+00:52:17,240 --> 00:52:24,349
+random okay F set color random then we
+
+837
+00:52:21,530 --> 00:52:32,960
+have another function so f set color
+
+838
+00:52:24,349 --> 00:52:35,900
+random here okay so we so we use a click
+
+839
+00:52:32,960 --> 00:52:39,830
+random number we have you know code we
+
+840
+00:52:35,900 --> 00:52:44,210
+call this function but when user click
+
+841
+00:52:39,830 --> 00:52:52,270
+the color picker when user click the
+
+842
+00:52:44,210 --> 00:53:00,260
+color picker we need to call set color
+
+843
+00:52:52,270 --> 00:53:03,070
+let's say set color user okay well
+
+844
+00:53:00,260 --> 00:53:06,070
+actually we need a run we need the whole
+
+845
+00:53:03,070 --> 00:53:06,070
+line
+
+846
+00:53:10,089 --> 00:53:23,480
+then stood like that it goes let's do
+
+847
+00:53:16,250 --> 00:53:26,049
+like that so like that so when color
+
+848
+00:53:23,480 --> 00:53:29,599
+picker is clicked we have the event
+
+849
+00:53:26,049 --> 00:53:33,140
+click oh yeah oh yeah click we have the
+
+850
+00:53:29,599 --> 00:53:37,250
+event click then it will call said user
+
+851
+00:53:33,140 --> 00:53:41,900
+color then update okay that seems good
+
+852
+00:53:37,250 --> 00:53:44,540
+said said color user okay so let's go to
+
+853
+00:53:41,900 --> 00:53:52,569
+the function here we modify the function
+
+854
+00:53:44,540 --> 00:53:54,309
+here the function will be just get that
+
+855
+00:53:52,569 --> 00:53:58,339
+okay
+
+856
+00:53:54,309 --> 00:54:04,339
+then color picker value we don't need
+
+857
+00:53:58,339 --> 00:54:10,430
+that part right so shadow color equals
+
+858
+00:54:04,339 --> 00:54:15,190
+true yeah that let that looks right so
+
+859
+00:54:10,430 --> 00:54:19,280
+let's give our evaluate it compile
+
+860
+00:54:15,190 --> 00:54:23,270
+success okay let's see let's see if it's
+
+861
+00:54:19,280 --> 00:54:26,510
+success refresh looks good
+
+862
+00:54:23,270 --> 00:54:27,559
+random color looks good let's let's pick
+
+863
+00:54:26,510 --> 00:54:31,720
+make it big
+
+864
+00:54:27,559 --> 00:54:35,319
+let's make the default blur bigger
+
+865
+00:54:31,720 --> 00:54:35,319
+because these
+
+866
+00:54:37,860 --> 00:54:50,090
+let's make the default click and it's
+
+867
+00:54:42,530 --> 00:54:54,450
+it's you blow and spread so blur value
+
+868
+00:54:50,090 --> 00:54:59,750
+equals to let's say 20 okay
+
+869
+00:54:54,450 --> 00:55:09,230
+refresh random color random color and
+
+870
+00:54:59,750 --> 00:55:17,540
+color picker wait let's refresh refresh
+
+871
+00:55:09,230 --> 00:55:25,310
+color picker know what's going on
+
+872
+00:55:17,540 --> 00:55:25,310
+open the JavaScript compile it
+
+873
+00:55:29,390 --> 00:55:33,290
+so color picker
+
+874
+00:55:41,110 --> 00:55:53,590
+so when colour picker is called when
+
+875
+00:55:47,800 --> 00:55:56,260
+colour picker is clicked it sets a color
+
+876
+00:55:53,590 --> 00:56:00,220
+value to the shadow colour global
+
+877
+00:55:56,260 --> 00:56:02,820
+variable and the shadow color global
+
+878
+00:56:00,220 --> 00:56:02,820
+variable
+
+879
+00:56:09,310 --> 00:56:15,760
+the color picker III you know it's kind
+
+880
+00:56:12,910 --> 00:56:18,310
+of new it's not there you know in the
+
+881
+00:56:15,760 --> 00:56:22,330
+year 2000 I don't know I don't know
+
+882
+00:56:18,310 --> 00:56:26,890
+Wayne was it added but it's kind of new
+
+883
+00:56:22,330 --> 00:56:32,260
+so but I think the problem is our code
+
+884
+00:56:26,890 --> 00:56:34,180
+it's probably not the problem is our
+
+885
+00:56:32,260 --> 00:56:35,800
+code you know the color picker you just
+
+886
+00:56:34,180 --> 00:56:39,280
+say type equals new color
+
+887
+00:56:35,800 --> 00:56:43,660
+I discovered that but anyway the that
+
+888
+00:56:39,280 --> 00:56:45,280
+seems to be robust you know you know
+
+889
+00:56:43,660 --> 00:56:49,090
+because it's part of the browser
+
+890
+00:56:45,280 --> 00:56:51,310
+I cannot imagine they have a book the
+
+891
+00:56:49,090 --> 00:56:53,200
+problem seems to be wait
+
+892
+00:56:51,310 --> 00:57:01,600
+something happened here the problem I
+
+893
+00:56:53,200 --> 00:57:04,080
+think it's our code where he walked okay
+
+894
+00:57:01,600 --> 00:57:08,010
+there is something wrong here
+
+895
+00:57:04,080 --> 00:57:12,570
+only when you create oh yeah
+
+896
+00:57:08,010 --> 00:57:16,680
+so when you sew it here's what happens
+
+897
+00:57:12,570 --> 00:57:16,680
+and say red okay
+
+898
+00:57:20,530 --> 00:57:24,990
+wait and say refresh
+
+899
+00:57:32,850 --> 00:57:39,270
+it looks like you have to do it one time
+
+900
+00:57:35,700 --> 00:57:48,570
+first then it updates to the last color
+
+901
+00:57:39,270 --> 00:57:54,710
+value when you click off the picker it
+
+902
+00:57:48,570 --> 00:57:54,710
+updates yes I mean
+
+903
+00:57:57,140 --> 00:58:03,560
+it updates there is something wrong it's
+
+904
+00:57:59,810 --> 00:58:08,300
+not updating the thing here you see it's
+
+905
+00:58:03,560 --> 00:58:10,400
+only updating the user input box but
+
+906
+00:58:08,300 --> 00:58:13,250
+that's you know that's from browser that
+
+907
+00:58:10,400 --> 00:58:17,840
+behavior is from browser he should you
+
+908
+00:58:13,250 --> 00:58:22,540
+know also update here so let's print set
+
+909
+00:58:17,840 --> 00:58:36,350
+user color console.log shadow color
+
+910
+00:58:22,540 --> 00:58:40,790
+compare it and refresh refresh random
+
+911
+00:58:36,350 --> 00:58:49,120
+color random color random color is
+
+912
+00:58:40,790 --> 00:58:49,120
+working but when you click shadow picker
+
+913
+00:58:51,700 --> 00:58:59,000
+so let's trace its let's find out what's
+
+914
+00:58:55,370 --> 00:59:01,930
+going on quick shadow picker click
+
+915
+00:58:59,000 --> 00:59:01,930
+shadow picker
+
+916
+00:59:04,810 --> 00:59:11,330
+this is weird click shadow pika green
+
+917
+00:59:08,240 --> 00:59:18,560
+then close it
+
+918
+00:59:11,330 --> 00:59:21,350
+oh I think maybe here we need to say
+
+919
+00:59:18,560 --> 00:59:29,000
+instead of a click and we need to say
+
+920
+00:59:21,350 --> 00:59:33,680
+input oh yeah for color picker you need
+
+921
+00:59:29,000 --> 00:59:34,700
+input that's right I'm pretty sure
+
+922
+00:59:33,680 --> 00:59:37,850
+that's a problem
+
+923
+00:59:34,700 --> 00:59:44,530
+so compile the code back to browser
+
+924
+00:59:37,850 --> 00:59:49,930
+refresh random color random color works
+
+925
+00:59:44,530 --> 00:59:53,560
+now color picker yay so we can like
+
+926
+00:59:49,930 --> 00:59:59,510
+smoothly track and have color change
+
+927
+00:59:53,560 --> 01:00:02,030
+that seems you know so it's working so
+
+928
+00:59:59,510 --> 01:00:06,260
+yeah I think that's great so that's you
+
+929
+01:00:02,030 --> 01:00:10,130
+know great we got it okay I think that's
+
+930
+01:00:06,260 --> 01:00:13,790
+that's it for today let's say console
+
+931
+01:00:10,130 --> 01:00:20,510
+logs we moved the console log compile
+
+932
+01:00:13,790 --> 01:00:25,670
+the code so compare the code so you see
+
+933
+01:00:20,510 --> 01:00:29,660
+so here is the jar here is the the
+
+934
+01:00:25,670 --> 01:00:33,620
+typescript code and let me show you the
+
+935
+01:00:29,660 --> 01:00:37,910
+compiled code have you used typescript
+
+936
+01:00:33,620 --> 01:00:40,550
+if before so compare code you know
+
+937
+01:00:37,910 --> 01:00:43,570
+typescript you know so here is the
+
+938
+01:00:40,550 --> 01:00:46,970
+JavaScript code the typescript generated
+
+939
+01:00:43,570 --> 01:00:51,140
+basically it it tries to basically
+
+940
+01:00:46,970 --> 01:00:53,600
+maintain your you're formatting your
+
+941
+01:00:51,140 --> 01:00:58,370
+indentation everything well actually it
+
+942
+01:00:53,600 --> 01:01:01,520
+indents for you but but it maintains you
+
+943
+01:00:58,370 --> 01:01:05,780
+know even the line numbers typically you
+
+944
+01:01:01,520 --> 01:01:08,060
+often well not not actually no but it
+
+945
+01:01:05,780 --> 01:01:11,150
+tries to though it doesn't you know
+
+946
+01:01:08,060 --> 01:01:15,890
+reformat all your code so anyway so here
+
+947
+01:01:11,150 --> 01:01:16,790
+is the job the generated code 660 lines
+
+948
+01:01:15,890 --> 01:01:19,100
+of code
+
+949
+01:01:16,790 --> 01:01:24,440
+so I think that's it you know this I
+
+950
+01:01:19,100 --> 01:01:26,960
+think this code is actually you know the
+
+951
+01:01:24,440 --> 01:01:29,630
+final form there's not you know I don't
+
+952
+01:01:26,960 --> 01:01:33,710
+there's no I mean usually we can
+
+953
+01:01:29,630 --> 01:01:36,080
+refactor like you know touch up see if
+
+954
+01:01:33,710 --> 01:01:38,240
+there's anything we can clean up or
+
+955
+01:01:36,080 --> 01:01:46,700
+things like that but in this case I
+
+956
+01:01:38,240 --> 01:01:49,190
+think it's pretty good yeah yeah
+
+957
+01:01:46,700 --> 01:01:52,970
+typescript you know typescript is it's
+
+958
+01:01:49,190 --> 01:01:54,860
+very useful for you know for when you
+
+959
+01:01:52,970 --> 01:01:57,470
+have large amount of code like you know
+
+960
+01:01:54,860 --> 01:02:00,950
+over a thousand lines then then it
+
+961
+01:01:57,470 --> 01:02:04,850
+really helps by specifying the type yeah
+
+962
+01:02:00,950 --> 01:02:08,480
+let me show some of the complex
+
+963
+01:02:04,850 --> 01:02:13,430
+typescript code I have here for example
+
+964
+01:02:08,480 --> 01:02:17,360
+here you can see you see for example you
+
+965
+01:02:13,430 --> 01:02:21,350
+can see this line of code it's act it's
+
+966
+01:02:17,360 --> 01:02:24,260
+adding two vectors you know it takes two
+
+967
+01:02:21,350 --> 01:02:27,170
+arguments two vectors like like the
+
+968
+01:02:24,260 --> 01:02:30,440
+first argument is you know array of two
+
+969
+01:02:27,170 --> 01:02:33,320
+numbers the second argument is also
+
+970
+01:02:30,440 --> 01:02:36,260
+another array of two numbers then it
+
+971
+01:02:33,320 --> 01:02:41,750
+just add them together like this a 1 +
+
+972
+01:02:36,260 --> 01:02:43,880
+p1 + a2 + b2 array of two numbers you
+
+973
+01:02:41,750 --> 01:02:48,910
+know so in normal JavaScript you would
+
+974
+01:02:43,880 --> 01:02:48,910
+you would say like that let me show you
+
+975
+01:02:51,270 --> 01:02:58,810
+in normal JavaScript you would not have
+
+976
+01:02:54,640 --> 01:03:01,840
+that it would be much simpler you see
+
+977
+01:02:58,810 --> 01:03:05,830
+you just have these you just have these
+
+978
+01:03:01,840 --> 01:03:08,680
+but in typescript you know so you you
+
+979
+01:03:05,830 --> 01:03:11,860
+started to add types so this you know
+
+980
+01:03:08,680 --> 01:03:14,980
+this first vector array is you know a
+
+981
+01:03:11,860 --> 01:03:18,640
+way of number and number same thing with
+
+982
+01:03:14,980 --> 01:03:21,460
+the second argument and the return
+
+983
+01:03:18,640 --> 01:03:24,520
+result is also array of two numbers so
+
+984
+01:03:21,460 --> 01:03:26,140
+you started to add all these types it
+
+985
+01:03:24,520 --> 01:03:30,090
+can be you know it can be actually
+
+986
+01:03:26,140 --> 01:03:32,250
+tedious and also the color becomes
+
+987
+01:03:30,090 --> 01:03:37,890
+sometimes unreadable
+
+988
+01:03:32,250 --> 01:03:42,760
+for example when you have lots of the
+
+989
+01:03:37,890 --> 01:03:50,310
+let's see you know yeah it for example
+
+990
+01:03:42,760 --> 01:03:53,220
+here you know when you when you use the
+
+991
+01:03:50,310 --> 01:03:58,590
+let's see let me show you the
+
+992
+01:03:53,220 --> 01:03:58,590
+destructuring argument in JavaScript
+
+993
+01:04:06,780 --> 01:04:14,720
+ciao javascript functions functions this
+
+994
+01:04:10,850 --> 01:04:14,720
+argument destructuring
+
+995
+01:04:17,880 --> 01:04:21,960
+like for example like default argument
+
+996
+01:04:20,370 --> 01:04:24,780
+or when you have you know it gets
+
+997
+01:04:21,960 --> 01:04:26,340
+complex anyway that that's that's that's
+
+998
+01:04:24,780 --> 01:04:30,990
+the type script you have to add those
+
+999
+01:04:26,340 --> 01:04:33,300
+but it really helps it yeah I wanted to
+
+1000
+01:04:30,990 --> 01:04:35,970
+say there's another great advantage is
+
+1001
+01:04:33,300 --> 01:04:39,330
+that when you like JavaScript these days
+
+1002
+01:04:35,970 --> 01:04:42,270
+is there's no there's new version every
+
+1003
+01:04:39,330 --> 01:04:44,790
+year but the browsers typically do not
+
+1004
+01:04:42,270 --> 01:04:47,610
+support it you know until one or two
+
+1005
+01:04:44,790 --> 01:04:50,700
+years later so if you want to use the
+
+1006
+01:04:47,610 --> 01:04:52,950
+latest word feature of JavaScript you
+
+1007
+01:04:50,700 --> 01:04:54,750
+can use typescript it will just compile
+
+1008
+01:04:52,950 --> 01:04:57,000
+you know you can use the new features
+
+1009
+01:04:54,750 --> 01:04:59,250
+it will compared to you know the
+
+1010
+01:04:57,000 --> 01:05:02,190
+previous version of JavaScript you can
+
+1011
+01:04:59,250 --> 01:05:07,230
+specify you know which target version of
+
+1012
+01:05:02,190 --> 01:05:11,580
+JavaScript to output anyway okay so yes
+
+1013
+01:05:07,230 --> 01:05:15,660
+so thank you for watching thank you guys
+
+1014
+01:05:11,580 --> 01:05:20,750
+for watching so that's it so have a good
+
+1015
+01:05:15,660 --> 01:05:20,750
+evenin show bye
+

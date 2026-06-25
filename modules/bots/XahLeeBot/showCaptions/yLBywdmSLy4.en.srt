@@ -1,0 +1,4988 @@
+1
+00:00:00,000 --> 00:00:05,279
+welcome to another episode of s talk
+
+2
+00:00:02,360 --> 00:00:09,719
+show today we are going to code emac
+
+3
+00:00:05,279 --> 00:00:13,000
+lisp so this is a big project kind of
+
+4
+00:00:09,719 --> 00:00:16,720
+big so we are going to write a script so
+
+5
+00:00:13,000 --> 00:00:21,560
+that it will go through a a directory of
+
+6
+00:00:16,720 --> 00:00:25,480
+thousands of 10,000 files and uh and uh
+
+7
+00:00:21,560 --> 00:00:29,199
+for each file add a Twitter card to the
+
+8
+00:00:25,480 --> 00:00:30,840
+header of the file of a HTML file so a
+
+9
+00:00:29,199 --> 00:00:32,920
+Twitter card
+
+10
+00:00:30,840 --> 00:00:35,879
+so you know what is a Twitter card
+
+11
+00:00:32,920 --> 00:00:38,840
+Twitter card is basically a little code
+
+12
+00:00:35,879 --> 00:00:42,960
+like that you have to add it to each
+
+13
+00:00:38,840 --> 00:00:43,879
+page so that when people post a link to
+
+14
+00:00:42,960 --> 00:00:47,160
+your
+
+15
+00:00:43,879 --> 00:00:50,800
+website the it will show images and
+
+16
+00:00:47,160 --> 00:00:53,680
+title you know a little summary uh and
+
+17
+00:00:50,800 --> 00:00:57,399
+similarly you have you know so this are
+
+18
+00:00:53,680 --> 00:01:00,120
+meta TX and similarly you have that for
+
+19
+00:00:57,399 --> 00:01:02,120
+Facebook you know Facebook you know this
+
+20
+00:01:00,120 --> 00:01:04,839
+so happens they they they each one
+
+21
+00:01:02,120 --> 00:01:07,520
+created a different format so if you
+
+22
+00:01:04,839 --> 00:01:10,240
+want your link on Facebook to show a
+
+23
+00:01:07,520 --> 00:01:14,960
+little you know thumbnail pictures and
+
+24
+00:01:10,240 --> 00:01:17,840
+title summary you have to add Facebook's
+
+25
+00:01:14,960 --> 00:01:20,439
+card what they call open
+
+26
+00:01:17,840 --> 00:01:23,280
+graph okay so that's what we're going to
+
+27
+00:01:20,439 --> 00:01:24,799
+do we're going to code emac Lis and uh
+
+28
+00:01:23,280 --> 00:01:28,360
+and let's
+
+29
+00:01:24,799 --> 00:01:31,640
+begin if you have comments and questions
+
+30
+00:01:28,360 --> 00:01:35,040
+ask okay so let me tell you about my
+
+31
+00:01:31,640 --> 00:01:38,200
+keyboards glove 80 fantastic keyboard
+
+32
+00:01:35,040 --> 00:01:40,439
+you can search on my website sale.in you
+
+33
+00:01:38,200 --> 00:01:43,560
+have I have reviews and so on on YouTube
+
+34
+00:01:40,439 --> 00:01:46,960
+too so this is Ultimate hacking keyboard
+
+35
+00:01:43,560 --> 00:01:50,759
+This is newa track Boo this is Logitech
+
+36
+00:01:46,960 --> 00:01:55,840
+track B and again this fantastic
+
+37
+00:01:50,759 --> 00:01:59,039
+keyboard is called SAR board SV l b o a
+
+38
+00:01:55,840 --> 00:02:02,159
+r d and I'm going to review it okay not
+
+39
+00:01:59,039 --> 00:02:05,000
+today search it search for it you'll see
+
+40
+00:02:02,159 --> 00:02:08,800
+my uh YouTube introduction about that
+
+41
+00:02:05,000 --> 00:02:11,280
+keyboard and other websites okay so
+
+42
+00:02:08,800 --> 00:02:17,560
+let's go back to my screen and let's
+
+43
+00:02:11,280 --> 00:02:20,120
+begin coding okay let's uh show let's
+
+44
+00:02:17,560 --> 00:02:24,800
+yeah okay so let's let's begin coding
+
+45
+00:02:20,120 --> 00:02:26,400
+this WR a script so this is a big task
+
+46
+00:02:24,800 --> 00:02:29,160
+so let's see what we gonna do if you're
+
+47
+00:02:26,400 --> 00:02:30,840
+gonna you if you are watching this
+
+48
+00:02:29,160 --> 00:02:34,879
+offline
+
+49
+00:02:30,840 --> 00:02:38,160
+uh feel free to speed up or click
+
+50
+00:02:34,879 --> 00:02:42,280
+around I'm going to go leisurely okay
+
+51
+00:02:38,160 --> 00:02:46,440
+I'm not going to rush myself so you need
+
+52
+00:02:42,280 --> 00:02:48,640
+to go through a directory for each file
+
+53
+00:02:46,440 --> 00:02:51,000
+you see to add a Twitter card one of the
+
+54
+00:02:48,640 --> 00:02:53,959
+main thing you have to do is that you
+
+55
+00:02:51,000 --> 00:02:57,720
+have to find a image file for that
+
+56
+00:02:53,959 --> 00:03:01,280
+particular HTML file so for example
+
+57
+00:02:57,720 --> 00:03:04,640
+let's uh let me show you my key keyboard
+
+58
+00:03:01,280 --> 00:03:07,200
+blog so you see all this ergonomic
+
+59
+00:03:04,640 --> 00:03:09,599
+keyboard so for example I go to this
+
+60
+00:03:07,200 --> 00:03:13,959
+page glove at0 keyboard
+
+61
+00:03:09,599 --> 00:03:17,640
+review and uh you have to find a image
+
+62
+00:03:13,959 --> 00:03:21,440
+file that kind of identifies with this
+
+63
+00:03:17,640 --> 00:03:24,799
+HTML page so for this page you know it's
+
+64
+00:03:21,440 --> 00:03:28,480
+probably going going to be this file so
+
+65
+00:03:24,799 --> 00:03:32,400
+basically for each H HTML page you have
+
+66
+00:03:28,480 --> 00:03:35,239
+to pick a image file to go with it okay
+
+67
+00:03:32,400 --> 00:03:37,120
+so that's the major that's basically the
+
+68
+00:03:35,239 --> 00:03:40,319
+main thing about Twitter card because
+
+69
+00:03:37,120 --> 00:03:43,560
+the image is just important the image is
+
+70
+00:03:40,319 --> 00:03:46,319
+the image that catches people's ey but
+
+71
+00:03:43,560 --> 00:03:49,280
+the other thing is you have to add this
+
+72
+00:03:46,319 --> 00:03:52,000
+title you know so title for the page
+
+73
+00:03:49,280 --> 00:03:55,560
+which is kind of redundant because H
+
+74
+00:03:52,000 --> 00:03:58,159
+because every HTML page is required to
+
+75
+00:03:55,560 --> 00:04:00,200
+have a title but anyway if you want you
+
+76
+00:03:58,159 --> 00:04:03,040
+know Twitter to show preview you have to
+
+77
+00:04:00,200 --> 00:04:05,720
+have this title and also you have to
+
+78
+00:04:03,040 --> 00:04:09,680
+have this Twitter card content summary
+
+79
+00:04:05,720 --> 00:04:12,720
+okay and similarly for open graph for
+
+80
+00:04:09,680 --> 00:04:14,920
+Facebook you know so I'm going to add
+
+81
+00:04:12,720 --> 00:04:18,320
+Twitter
+
+82
+00:04:14,920 --> 00:04:20,919
+card so the basically the the the you
+
+83
+00:04:18,320 --> 00:04:24,720
+know the the algorithm you know what we
+
+84
+00:04:20,919 --> 00:04:28,440
+have to do is um let's show let's close
+
+85
+00:04:24,720 --> 00:04:31,400
+that showing browser reopen close that
+
+86
+00:04:28,440 --> 00:04:32,759
+show showing browser so algorithm let's
+
+87
+00:04:31,400 --> 00:04:35,280
+let's write it
+
+88
+00:04:32,759 --> 00:04:41,560
+out
+
+89
+00:04:35,280 --> 00:04:41,560
+uh okay so that's the trt card and
+
+90
+00:04:42,759 --> 00:04:48,840
+uh algorithm
+
+91
+00:04:46,120 --> 00:04:55,240
+okay go
+
+92
+00:04:48,840 --> 00:04:55,240
+through order for each HTML
+
+93
+00:04:57,560 --> 00:05:05,120
+file insert a
+
+94
+00:05:01,400 --> 00:05:09,120
+F meta TX to the
+
+95
+00:05:05,120 --> 00:05:11,720
+header okay uh and what you need to do
+
+96
+00:05:09,120 --> 00:05:14,600
+is in fact
+
+97
+00:05:11,720 --> 00:05:18,919
+actually the algorithm I have expanded
+
+98
+00:05:14,600 --> 00:05:23,039
+here so go through each HTML page in a
+
+99
+00:05:18,919 --> 00:05:26,319
+in a directory get all thumbnail
+
+100
+00:05:23,039 --> 00:05:29,080
+links text okay for each you got a file
+
+101
+00:05:26,319 --> 00:05:31,199
+path and image file path okay it's a bit
+
+102
+00:05:29,080 --> 00:05:34,680
+more complic okay that let me let me
+
+103
+00:05:31,199 --> 00:05:36,840
+explain so for example for so how do you
+
+104
+00:05:34,680 --> 00:05:39,560
+you know one of the main thing we have
+
+105
+00:05:36,840 --> 00:05:43,240
+to do for Twitter card is that to find a
+
+106
+00:05:39,560 --> 00:05:45,880
+image file to go with that file so how
+
+107
+00:05:43,240 --> 00:05:49,800
+do you find the image file well
+
+108
+00:05:45,880 --> 00:05:52,840
+typically it's the first image of that
+
+109
+00:05:49,800 --> 00:05:56,039
+HTML page but not necessarily so for
+
+110
+00:05:52,840 --> 00:05:58,319
+example this is my keyboard blog page
+
+111
+00:05:56,039 --> 00:06:02,440
+but you know this is just the icon for
+
+112
+00:05:58,319 --> 00:06:05,800
+this particular link link uh so so for
+
+113
+00:06:02,440 --> 00:06:08,680
+some pages you may not actually have a
+
+114
+00:06:05,800 --> 00:06:11,639
+you don't want a image to be associated
+
+115
+00:06:08,680 --> 00:06:15,199
+with you know this page but for many
+
+116
+00:06:11,639 --> 00:06:18,360
+other Pages typically you have one image
+
+117
+00:06:15,199 --> 00:06:22,680
+you want to be like used as a thumbnail
+
+118
+00:06:18,360 --> 00:06:25,199
+for that page so so one of the problem
+
+119
+00:06:22,680 --> 00:06:27,560
+we have is how do you pick a file you
+
+120
+00:06:25,199 --> 00:06:30,360
+know so typically it's a first image of
+
+121
+00:06:27,560 --> 00:06:33,160
+that file but it's not always so so it
+
+122
+00:06:30,360 --> 00:06:35,400
+becomes very kind of nasty problem
+
+123
+00:06:33,160 --> 00:06:38,120
+because this is not mechanical you
+
+124
+00:06:35,400 --> 00:06:39,960
+cannot determine it mechanically however
+
+125
+00:06:38,120 --> 00:06:42,319
+what I want to do is actually you see
+
+126
+00:06:39,960 --> 00:06:44,400
+for the each of these thumbnail I
+
+127
+00:06:42,319 --> 00:06:46,599
+already have a thumbnail to go with each
+
+128
+00:06:44,400 --> 00:06:49,120
+so all I have to do is just find that
+
+129
+00:06:46,599 --> 00:06:50,960
+thumbnail so this thumbnail goes for
+
+130
+00:06:49,120 --> 00:06:52,360
+that page this thumbnail is for that
+
+131
+00:06:50,960 --> 00:06:55,919
+page and so
+
+132
+00:06:52,360 --> 00:06:58,599
+on so if we look at the source code of
+
+133
+00:06:55,919 --> 00:07:01,160
+this file let's copy the open that
+
+134
+00:06:58,599 --> 00:07:04,800
+source code so go to the top ergonomic
+
+135
+00:07:01,160 --> 00:07:08,360
+keyboard reviews and blah blah blah dish
+
+136
+00:07:04,800 --> 00:07:10,080
+surface keyboard so that's this part so
+
+137
+00:07:08,360 --> 00:07:13,879
+you can see for
+
+138
+00:07:10,080 --> 00:07:16,639
+each this is the first one and uh here's
+
+139
+00:07:13,879 --> 00:07:19,440
+a link that's that's that file open it
+
+140
+00:07:16,639 --> 00:07:23,560
+close it and here's the image this part
+
+141
+00:07:19,440 --> 00:07:27,440
+so open it you see so that's that
+
+142
+00:07:23,560 --> 00:07:30,240
+so so first task is just go through this
+
+143
+00:07:27,440 --> 00:07:33,960
+file and extract all these paired
+
+144
+00:07:30,240 --> 00:07:36,879
+thumbnail and Link
+
+145
+00:07:33,960 --> 00:07:39,400
+then for each file you got two things
+
+146
+00:07:36,879 --> 00:07:42,319
+you got the file path then you got a
+
+147
+00:07:39,400 --> 00:07:44,919
+image path so you want to put that into
+
+148
+00:07:42,319 --> 00:07:49,479
+a hash table where the key is the file
+
+149
+00:07:44,919 --> 00:07:52,400
+path the value is the image file path
+
+150
+00:07:49,479 --> 00:07:54,680
+then once you have a hash table of all
+
+151
+00:07:52,400 --> 00:07:57,000
+these files and thumbnail
+
+152
+00:07:54,680 --> 00:08:01,879
+images then you just go through the hash
+
+153
+00:07:57,000 --> 00:08:04,599
+table and open each file and insert uh
+
+154
+00:08:01,879 --> 00:08:07,199
+the image tag to the header to the you
+
+155
+00:08:04,599 --> 00:08:08,759
+know to the beginning of the file so
+
+156
+00:08:07,199 --> 00:08:13,400
+that's what we're going to
+
+157
+00:08:08,759 --> 00:08:15,919
+do so uh let's open that again uh okay
+
+158
+00:08:13,400 --> 00:08:20,360
+copy okay let's start to code it okay
+
+159
+00:08:15,919 --> 00:08:24,199
+let's go to um Talk show today's talk
+
+160
+00:08:20,360 --> 00:08:26,560
+show uh so you can you can if you are
+
+161
+00:08:24,199 --> 00:08:32,319
+here late you can see all the details
+
+162
+00:08:26,560 --> 00:08:32,319
+there uh let's just begin coding it okay
+
+163
+00:08:38,120 --> 00:08:48,760
+so so we start a
+
+164
+00:08:41,680 --> 00:08:51,279
+emac page keyboard log to show close um
+
+165
+00:08:48,760 --> 00:08:56,279
+cut okay Define
+
+166
+00:08:51,279 --> 00:09:00,560
+function and uh Define
+
+167
+00:08:56,279 --> 00:09:05,279
+function okay so so what you want to do
+
+168
+00:09:00,560 --> 00:09:08,160
+first you want to open this page and for
+
+169
+00:09:05,279 --> 00:09:11,600
+each of
+
+170
+00:09:08,160 --> 00:09:14,120
+these format for each of these format
+
+171
+00:09:11,600 --> 00:09:14,120
+you want
+
+172
+00:09:16,399 --> 00:09:23,040
+to okay so for each of these
+
+173
+00:09:19,880 --> 00:09:26,279
+format the format looks like that you
+
+174
+00:09:23,040 --> 00:09:30,320
+want to identify this link and ident
+
+175
+00:09:26,279 --> 00:09:33,320
+identify this uh image
+
+176
+00:09:30,320 --> 00:09:33,320
+tag
+
+177
+00:09:34,519 --> 00:09:39,640
+then then you build a hash table okay
+
+178
+00:09:43,839 --> 00:09:47,920
+so right so
+
+179
+00:09:49,079 --> 00:09:54,399
+you so that's one of the that's part of
+
+180
+00:09:52,040 --> 00:09:58,000
+the job you find the in you go you you
+
+181
+00:09:54,399 --> 00:10:01,320
+know you did you go to open each page
+
+182
+00:09:58,000 --> 00:10:04,320
+and if it is a page with the thumbnail
+
+183
+00:10:01,320 --> 00:10:06,760
+you identify them and you build a hash
+
+184
+00:10:04,320 --> 00:10:09,959
+table then you go to the next file so
+
+185
+00:10:06,760 --> 00:10:14,200
+you want to do this for every file in a
+
+186
+00:10:09,959 --> 00:10:18,440
+directory uh potentially 1,000 files so
+
+187
+00:10:14,200 --> 00:10:23,040
+once you get you build hasht okay
+
+188
+00:10:18,440 --> 00:10:26,480
+so uh we have to write it out so we have
+
+189
+00:10:23,040 --> 00:10:26,480
+to given
+
+190
+00:10:26,920 --> 00:10:31,640
+a go through each
+
+191
+00:10:30,079 --> 00:10:33,640
+HTML
+
+192
+00:10:31,640 --> 00:10:38,839
+file if
+
+193
+00:10:33,640 --> 00:10:38,839
+the uh grab or the
+
+194
+00:10:40,480 --> 00:10:50,120
+thumbnail grab all the link with
+
+195
+00:10:45,240 --> 00:10:54,079
+thumbnail you got two
+
+196
+00:10:50,120 --> 00:11:01,240
+parts one is a file
+
+197
+00:10:54,079 --> 00:11:01,240
+path the other is a image file path
+
+198
+00:11:03,360 --> 00:11:11,200
+build a hash
+
+199
+00:11:05,200 --> 00:11:15,079
+table key is the file path value is
+
+200
+00:11:11,200 --> 00:11:18,120
+image path okay
+
+201
+00:11:15,079 --> 00:11:20,600
+then go
+
+202
+00:11:18,120 --> 00:11:27,079
+through hash
+
+203
+00:11:20,600 --> 00:11:31,240
+table for each key open it insert the
+
+204
+00:11:27,079 --> 00:11:31,240
+image path as
+
+205
+00:11:32,360 --> 00:11:41,800
+tag ARA trt card okay so that is the our
+
+206
+00:11:40,120 --> 00:11:45,000
+line of the
+
+207
+00:11:41,800 --> 00:11:48,040
+algorithm okay
+
+208
+00:11:45,000 --> 00:11:49,639
+so so there are you know you know there
+
+209
+00:11:48,040 --> 00:11:52,600
+are several things we need to do we need
+
+210
+00:11:49,639 --> 00:11:56,880
+to Traverse the directory and we need
+
+211
+00:11:52,600 --> 00:12:00,079
+and for each file so let's say
+
+212
+00:11:56,880 --> 00:12:02,120
+uh work okay
+
+213
+00:12:00,079 --> 00:12:04,720
+let's say so that's one of the function
+
+214
+00:12:02,120 --> 00:12:05,680
+we need to write something like that
+
+215
+00:12:04,720 --> 00:12:09,360
+work
+
+216
+00:12:05,680 --> 00:12:10,519
+directory and uh we need to write
+
+217
+00:12:09,360 --> 00:12:16,720
+another
+
+218
+00:12:10,519 --> 00:12:21,079
+function for a given file path you want
+
+219
+00:12:16,720 --> 00:12:24,560
+to uh put uh you know gather all the
+
+220
+00:12:21,079 --> 00:12:30,160
+thumbnail link payers push to a hash
+
+221
+00:12:24,560 --> 00:12:30,160
+table build hash table something
+
+222
+00:12:34,160 --> 00:12:41,560
+yeah so here will be the name okay so so
+
+223
+00:12:38,839 --> 00:12:43,199
+so then over here you're going to
+
+224
+00:12:41,560 --> 00:12:47,800
+call
+
+225
+00:12:43,199 --> 00:12:47,800
+that file okay something like
+
+226
+00:12:51,720 --> 00:12:57,279
+that something like
+
+227
+00:12:53,959 --> 00:12:59,360
+that so you give directory you go
+
+228
+00:12:57,279 --> 00:13:01,320
+through every every file in a directory
+
+229
+00:12:59,360 --> 00:13:04,240
+then for each file you code this
+
+230
+00:13:01,320 --> 00:13:05,519
+function to open the file and build a
+
+231
+00:13:04,240 --> 00:13:08,600
+hash
+
+232
+00:13:05,519 --> 00:13:12,639
+table once it's
+
+233
+00:13:08,600 --> 00:13:16,800
+done uh so the hash table needs to be
+
+234
+00:13:12,639 --> 00:13:19,279
+public I mean kind of uh so we can say
+
+235
+00:13:16,800 --> 00:13:19,279
+the hash
+
+236
+00:13:19,560 --> 00:13:25,160
+table something like that temporarily
+
+237
+00:13:22,440 --> 00:13:28,120
+okay NE do
+
+238
+00:13:25,160 --> 00:13:33,120
+string
+
+239
+00:13:28,120 --> 00:13:33,120
+uh do string so you need a do
+
+240
+00:13:34,480 --> 00:13:41,040
+string each key is
+
+241
+00:13:38,120 --> 00:13:45,279
+a
+
+242
+00:13:41,040 --> 00:13:50,360
+absolute uh each key is a file path and
+
+243
+00:13:45,279 --> 00:13:50,360
+value is a image file
+
+244
+00:13:52,320 --> 00:14:01,040
+path both are full path okay so this is
+
+245
+00:13:57,320 --> 00:14:01,040
+kind of um
+
+246
+00:14:01,759 --> 00:14:08,839
+and we need to define a hash table okay
+
+247
+00:14:06,079 --> 00:14:14,079
+let's rename it
+
+248
+00:14:08,839 --> 00:14:15,839
+um instead of nma let's call it thumb
+
+249
+00:14:14,079 --> 00:14:19,160
+nail
+
+250
+00:14:15,839 --> 00:14:21,839
+links table okay that's more
+
+251
+00:14:19,160 --> 00:14:27,160
+sensible so create a hash
+
+252
+00:14:21,839 --> 00:14:31,199
+table um hash table make hash something
+
+253
+00:14:27,160 --> 00:14:34,000
+make hash table yeah yeah that is the oh
+
+254
+00:14:31,199 --> 00:14:35,800
+we I don't have a template for that any
+
+255
+00:14:34,000 --> 00:14:40,240
+comments
+
+256
+00:14:35,800 --> 00:14:43,399
+questions okay so thumbnail link
+
+257
+00:14:40,240 --> 00:14:47,800
+table uh yeah let's create a hash table
+
+258
+00:14:43,399 --> 00:14:50,199
+so let's look up my emac list tutorial I
+
+259
+00:14:47,800 --> 00:14:53,720
+forgot the syntax but actually you can
+
+260
+00:14:50,199 --> 00:14:57,560
+just look at the syntax by describe
+
+261
+00:14:53,720 --> 00:15:03,040
+function okay yeah but um hashtable size
+
+262
+00:14:57,560 --> 00:15:06,680
+we what it's easier if I just go to lisp
+
+263
+00:15:03,040 --> 00:15:10,560
+Basics my tutorial and go to data
+
+264
+00:15:06,680 --> 00:15:13,680
+structure hash Table and there it is
+
+265
+00:15:10,560 --> 00:15:19,560
+that's essential that's what you
+
+266
+00:15:13,680 --> 00:15:20,880
+need yeah close that so make hash table
+
+267
+00:15:19,560 --> 00:15:25,040
+that
+
+268
+00:15:20,880 --> 00:15:27,000
+okay in fact you can put this part here
+
+269
+00:15:25,040 --> 00:15:29,240
+since you know you are not going to
+
+270
+00:15:27,000 --> 00:15:31,720
+change it actually
+
+271
+00:15:29,240 --> 00:15:34,160
+actually we do want to so actually let's
+
+272
+00:15:31,720 --> 00:15:34,160
+put it
+
+273
+00:15:36,680 --> 00:15:40,000
+here okay
+
+274
+00:15:40,240 --> 00:15:47,920
+so s thumbnail links table so we got the
+
+275
+00:15:44,680 --> 00:15:50,839
+you know we prepare the empty hash table
+
+276
+00:15:47,920 --> 00:15:52,639
+which is key value pairs then this work
+
+277
+00:15:50,839 --> 00:15:55,519
+directory
+
+278
+00:15:52,639 --> 00:15:58,000
+okay yeah let's do that so how do you
+
+279
+00:15:55,519 --> 00:16:00,079
+work a directory okay you can also see
+
+280
+00:15:58,000 --> 00:16:03,920
+my tutorial
+
+281
+00:16:00,079 --> 00:16:03,920
+here uh let's make
+
+282
+00:16:08,680 --> 00:16:15,480
+it let's create a second panel here so
+
+283
+00:16:12,480 --> 00:16:15,480
+let's go to talk
+
+284
+00:16:15,519 --> 00:16:23,319
+show uh so that's the hash table today's
+
+285
+00:16:19,199 --> 00:16:29,399
+talk show hash table and how do you work
+
+286
+00:16:23,319 --> 00:16:31,199
+a directory so that is in emac lisp
+
+287
+00:16:29,399 --> 00:16:33,480
+uh working with
+
+288
+00:16:31,199 --> 00:16:36,279
+lines text
+
+289
+00:16:33,480 --> 00:16:40,560
+processing file and
+
+290
+00:16:36,279 --> 00:16:43,399
+buffer file directory get file info such
+
+291
+00:16:40,560 --> 00:16:46,600
+as file size and so on file path work
+
+292
+00:16:43,399 --> 00:16:50,800
+directory there okay so you need to call
+
+293
+00:16:46,600 --> 00:16:54,440
+this function directory files
+
+294
+00:16:50,800 --> 00:16:56,600
+okay okay let's go back to so work
+
+295
+00:16:54,440 --> 00:17:00,279
+directory here we going to work a
+
+296
+00:16:56,600 --> 00:17:00,279
+directory so
+
+297
+00:17:03,280 --> 00:17:10,280
+um let's name it rud okay because it's
+
+298
+00:17:07,839 --> 00:17:13,319
+always better to have variable names
+
+299
+00:17:10,280 --> 00:17:15,959
+that's not common English words because
+
+300
+00:17:13,319 --> 00:17:19,240
+when you do find and replace and so on
+
+301
+00:17:15,959 --> 00:17:24,079
+you know it's easier to find a unique
+
+302
+00:17:19,240 --> 00:17:26,880
+name so so so right now we need to work
+
+303
+00:17:24,079 --> 00:17:27,640
+directory okay so let's see recursively
+
+304
+00:17:26,880 --> 00:17:33,400
+or
+
+305
+00:17:27,640 --> 00:17:33,400
+not well in general so we do we want
+
+306
+00:17:33,640 --> 00:17:40,400
+recursively yes we
+
+307
+00:17:35,880 --> 00:17:43,480
+do okay this is uh more involved so this
+
+308
+00:17:40,400 --> 00:17:47,240
+see let's see this directory no sub okay
+
+309
+00:17:43,480 --> 00:17:50,360
+so not that this directory and all sub
+
+310
+00:17:47,240 --> 00:17:53,720
+so directory files
+
+311
+00:17:50,360 --> 00:17:56,159
+recursively so directory files
+
+312
+00:17:53,720 --> 00:17:59,280
+recursively yeah we got
+
+313
+00:17:56,159 --> 00:18:00,919
+that so the directory is going going to
+
+314
+00:17:59,280 --> 00:18:05,039
+be root
+
+315
+00:18:00,919 --> 00:18:08,400
+the let's not say root let's say base
+
+316
+00:18:05,039 --> 00:18:11,760
+okay because root has the connotation of
+
+317
+00:18:08,400 --> 00:18:11,760
+the root directory in
+
+318
+00:18:12,440 --> 00:18:19,320
+Unix okay so base
+
+319
+00:18:16,320 --> 00:18:19,320
+directory
+
+320
+00:18:19,440 --> 00:18:25,080
+um Regular expression only return names
+
+321
+00:18:22,520 --> 00:18:27,240
+that contains the pattern so we want so
+
+322
+00:18:25,080 --> 00:18:29,799
+the regular expression is going to be
+
+323
+00:18:27,240 --> 00:18:34,159
+all HTML file
+
+324
+00:18:29,799 --> 00:18:38,480
+so that would be dot plus
+
+325
+00:18:34,159 --> 00:18:41,320
+anything uh and uh back slash dot that
+
+326
+00:18:38,480 --> 00:18:44,280
+means a literal dot then
+
+327
+00:18:41,320 --> 00:18:49,280
+HTML then a dollar sign dollar sign
+
+328
+00:18:44,280 --> 00:18:49,280
+means end of string or End of
+
+329
+00:18:56,559 --> 00:19:01,440
+Line okay so that's regular expression
+
+330
+00:18:59,640 --> 00:19:04,240
+and include
+
+331
+00:19:01,440 --> 00:19:08,240
+directories uh
+
+332
+00:19:04,240 --> 00:19:10,520
+no you see the emac function for working
+
+333
+00:19:08,240 --> 00:19:14,840
+a directory is not very good when you
+
+334
+00:19:10,520 --> 00:19:16,360
+compare to python or Goan or Ruby well I
+
+335
+00:19:14,840 --> 00:19:18,159
+don't know about Ruby but when you
+
+336
+00:19:16,360 --> 00:19:20,200
+compare to Powell
+
+337
+00:19:18,159 --> 00:19:22,080
+Goan uh
+
+338
+00:19:20,200 --> 00:19:24,840
+python other
+
+339
+00:19:22,080 --> 00:19:28,159
+languages because the emac this work
+
+340
+00:19:24,840 --> 00:19:29,919
+directory they are very slow super slow
+
+341
+00:19:28,159 --> 00:19:32,559
+and uh
+
+342
+00:19:29,919 --> 00:19:35,559
+and and not uh
+
+343
+00:19:32,559 --> 00:19:38,960
+flexible uh for example one of the great
+
+344
+00:19:35,559 --> 00:19:41,120
+example is that if you want to list all
+
+345
+00:19:38,960 --> 00:19:43,000
+empty directories that's almost
+
+346
+00:19:41,120 --> 00:19:45,280
+impossible you know I can tell you
+
+347
+00:19:43,000 --> 00:19:48,360
+because I've written the code for it you
+
+348
+00:19:45,280 --> 00:19:51,440
+have to go through a lot Hoops in fact
+
+349
+00:19:48,360 --> 00:19:53,840
+the I can show you the code so list o
+
+350
+00:19:51,440 --> 00:19:53,840
+empty
+
+351
+00:19:54,799 --> 00:20:02,320
+directories okay so list M2 directory so
+
+352
+00:19:58,120 --> 00:20:04,400
+so there's a code there open it diet so
+
+353
+00:20:02,320 --> 00:20:08,799
+you can see here's a
+
+354
+00:20:04,400 --> 00:20:14,000
+code it's slightly Twisted
+
+355
+00:20:08,799 --> 00:20:14,000
+because because then you have to
+
+356
+00:20:18,720 --> 00:20:25,240
+um what was the uh what was the trick
+
+357
+00:20:42,720 --> 00:20:51,919
+uh yeah you have to actually build
+
+358
+00:20:46,799 --> 00:20:55,679
+a push so you have to build the list of
+
+359
+00:20:51,919 --> 00:20:56,960
+it you have to build a list yourself
+
+360
+00:20:55,679 --> 00:21:00,600
+let's
+
+361
+00:20:56,960 --> 00:21:00,600
+see yep
+
+362
+00:21:00,720 --> 00:21:08,240
+yeah anyway close that let's go back to
+
+363
+00:21:05,039 --> 00:21:12,039
+our code so include subdirectories so
+
+364
+00:21:08,240 --> 00:21:12,039
+what does that mean include
+
+365
+00:21:15,640 --> 00:21:22,880
+subdirectories so do I want directory
+
+366
+00:21:18,200 --> 00:21:25,880
+path that include sub director Neo uh
+
+367
+00:21:22,880 --> 00:21:25,880
+predicate
+
+368
+00:21:33,120 --> 00:21:37,240
+okay I need to do this faster
+
+369
+00:21:41,120 --> 00:21:47,480
+so
+
+370
+00:21:43,000 --> 00:21:47,480
+yeah this my function
+
+371
+00:21:53,640 --> 00:22:00,039
+so T directory that can be read ignor
+
+372
+00:21:57,600 --> 00:22:03,320
+all function which called
+
+373
+00:22:00,039 --> 00:22:06,720
+um let's let's just Neo Neo okay we
+
+374
+00:22:03,320 --> 00:22:11,640
+don't care about that it's just Neo Neo
+
+375
+00:22:06,720 --> 00:22:18,200
+so so here is how you build a directory
+
+376
+00:22:11,640 --> 00:22:20,520
+okay X path so you need to set it to so
+
+377
+00:22:18,200 --> 00:22:22,400
+a list of
+
+378
+00:22:20,520 --> 00:22:25,159
+path
+
+379
+00:22:22,400 --> 00:22:28,159
+then hold on second let me close the
+
+380
+00:22:25,159 --> 00:22:28,159
+door
+
+381
+00:22:37,760 --> 00:22:48,559
+so so this is a list of path then then
+
+382
+00:22:41,679 --> 00:22:48,559
+you have to map C you map a function
+
+383
+00:22:51,080 --> 00:22:58,240
+to uh
+
+384
+00:22:53,799 --> 00:23:02,080
+actually so you want to map to all file
+
+385
+00:22:58,240 --> 00:23:06,240
+p PA and the function name is actually
+
+386
+00:23:02,080 --> 00:23:12,200
+that you don't even need Lambda okay so
+
+387
+00:23:06,240 --> 00:23:12,200
+prettyy the code so let's put some
+
+388
+00:23:16,880 --> 00:23:22,840
+documentation uh let's get fancy so
+
+389
+00:23:20,520 --> 00:23:25,760
+let's make this purely functional so
+
+390
+00:23:22,840 --> 00:23:29,000
+this work directory we'll take a
+
+391
+00:23:25,760 --> 00:23:31,760
+directory path then you'll take a
+
+392
+00:23:29,000 --> 00:23:31,760
+function
+
+393
+00:23:32,679 --> 00:23:39,200
+okay let's name it okay work work the
+
+394
+00:23:36,360 --> 00:23:41,400
+directory okay so let's document work
+
+395
+00:23:39,200 --> 00:23:43,480
+the
+
+396
+00:23:41,400 --> 00:23:47,760
+directory and
+
+397
+00:23:43,480 --> 00:23:50,200
+call on it okay call
+
+398
+00:23:47,760 --> 00:23:53,039
+function that's a
+
+399
+00:23:50,200 --> 00:23:56,480
+documentation so now this function is
+
+400
+00:23:53,039 --> 00:23:56,480
+like no side
+
+401
+00:23:56,880 --> 00:24:05,600
+effect and for for each HTML file call
+
+402
+00:24:02,200 --> 00:24:09,520
+function that on it okay in fact we can
+
+403
+00:24:05,600 --> 00:24:12,880
+put this regular expression over as a
+
+404
+00:24:09,520 --> 00:24:15,799
+parameter but let's not do it uh I'm
+
+405
+00:24:12,880 --> 00:24:19,799
+actually like going over you
+
+406
+00:24:15,799 --> 00:24:23,520
+know uh okay so we got this work
+
+407
+00:24:19,799 --> 00:24:25,240
+directory function we got
+
+408
+00:24:23,520 --> 00:24:29,600
+this
+
+409
+00:24:25,240 --> 00:24:32,799
+um thumbnail Global variable we got work
+
+410
+00:24:29,600 --> 00:24:36,440
+directory function which is should be
+
+411
+00:24:32,799 --> 00:24:40,640
+correct and then we got this spild hash
+
+412
+00:24:36,440 --> 00:24:44,960
+table function okay
+
+413
+00:24:40,640 --> 00:24:49,720
+so let's just document
+
+414
+00:24:44,960 --> 00:24:49,720
+it for each
+
+415
+00:24:50,000 --> 00:25:01,120
+for okay uh for
+
+416
+00:24:55,279 --> 00:25:01,120
+each thumbnail Link in file
+
+417
+00:25:01,200 --> 00:25:06,640
+path push it to
+
+418
+00:25:09,399 --> 00:25:12,399
+hashtable
+
+419
+00:25:14,000 --> 00:25:22,679
+that okay let's just say that for now
+
+420
+00:25:17,159 --> 00:25:27,520
+okay uh but in fact let's just uh let's
+
+421
+00:25:22,679 --> 00:25:27,520
+just cheat and let's just say
+
+422
+00:25:29,799 --> 00:25:36,480
+uh let's just say key value table so
+
+423
+00:25:33,320 --> 00:25:38,520
+this is table value let's just say one
+
+424
+00:25:36,480 --> 00:25:41,440
+let's just cheat for now just make this
+
+425
+00:25:38,520 --> 00:25:44,600
+whole code work you know syntactically
+
+426
+00:25:41,440 --> 00:25:47,960
+and semantically valid then we'll change
+
+427
+00:25:44,600 --> 00:25:51,600
+it to do what we want so the key will be
+
+428
+00:25:47,960 --> 00:25:51,600
+just the file path
+
+429
+00:25:52,480 --> 00:25:58,360
+okay so this function now should work
+
+430
+00:25:55,760 --> 00:26:02,600
+build hash table for each file path
+
+431
+00:25:58,360 --> 00:26:05,039
+it'll just add the file path to the to
+
+432
+00:26:02,600 --> 00:26:07,640
+the hash table okay and this will just
+
+433
+00:26:05,039 --> 00:26:10,279
+work the directory and this is just a
+
+434
+00:26:07,640 --> 00:26:14,799
+hash table Global variable okay
+
+435
+00:26:10,279 --> 00:26:16,720
+fantastic so let's clean up a little bit
+
+436
+00:26:14,799 --> 00:26:19,720
+uh remove
+
+437
+00:26:16,720 --> 00:26:19,720
+that
+
+438
+00:26:20,960 --> 00:26:29,279
+um let's put that there actually okay so
+
+439
+00:26:26,000 --> 00:26:33,320
+now this is a summary summary of what we
+
+440
+00:26:29,279 --> 00:26:34,399
+have okay eval the okay make a backup go
+
+441
+00:26:33,320 --> 00:26:38,960
+to
+
+442
+00:26:34,399 --> 00:26:42,360
+diet uh bite compile yes by compiled
+
+443
+00:26:38,960 --> 00:26:46,880
+successfully deleted close okay let's
+
+444
+00:26:42,360 --> 00:26:51,080
+drop down oh so many backup files okay
+
+445
+00:26:46,880 --> 00:26:54,919
+let's uh delete them okay so anyway so
+
+446
+00:26:51,080 --> 00:26:56,919
+here is our code evaluate it and now we
+
+447
+00:26:54,919 --> 00:27:01,240
+can actually run
+
+448
+00:26:56,919 --> 00:27:03,679
+it uh yeah we can run it so let's okay
+
+449
+00:27:01,240 --> 00:27:08,520
+so how do you run it so all you have to
+
+450
+00:27:03,679 --> 00:27:10,880
+do is just call this function there and
+
+451
+00:27:08,520 --> 00:27:12,520
+give it a directory okay
+
+452
+00:27:10,880 --> 00:27:16,960
+so
+
+453
+00:27:12,520 --> 00:27:20,159
+uh let's go to talk show copy the file
+
+454
+00:27:16,960 --> 00:27:22,279
+path put it here there it is so it
+
+455
+00:27:20,159 --> 00:27:27,120
+should be a
+
+456
+00:27:22,279 --> 00:27:30,520
+directory okay so if we run this then we
+
+457
+00:27:27,120 --> 00:27:32,799
+all have a hashtag T of all file names
+
+458
+00:27:30,520 --> 00:27:36,440
+of all files in S Talk
+
+459
+00:27:32,799 --> 00:27:39,600
+Show shall we try it yes let's just run
+
+460
+00:27:36,440 --> 00:27:42,000
+it okay error Lambda base function okay
+
+461
+00:27:39,600 --> 00:27:44,570
+got Ru number of
+
+462
+00:27:42,000 --> 00:27:46,120
+arguments uh message
+
+463
+00:27:44,570 --> 00:27:48,159
+[Music]
+
+464
+00:27:46,120 --> 00:27:52,159
+buffer
+
+465
+00:27:48,159 --> 00:27:54,480
+what uh no not not message buffer so
+
+466
+00:27:52,159 --> 00:27:54,480
+where is
+
+467
+00:27:55,679 --> 00:27:59,679
+it what
+
+468
+00:28:03,000 --> 00:28:08,480
+so compile log C run output there uh
+
+469
+00:28:07,159 --> 00:28:13,279
+nothing
+
+470
+00:28:08,480 --> 00:28:14,720
+what messages scratch compile log uh not
+
+471
+00:28:13,279 --> 00:28:19,240
+compile
+
+472
+00:28:14,720 --> 00:28:19,240
+log what where did the error
+
+473
+00:28:19,840 --> 00:28:27,399
+go there load with code wrong number of
+
+474
+00:28:23,440 --> 00:28:30,120
+arguments Lambda based okay so something
+
+475
+00:28:27,399 --> 00:28:30,120
+Lambda based
+
+476
+00:28:46,200 --> 00:28:49,200
+B
+
+477
+00:28:51,240 --> 00:29:01,679
+what R again Lambda based X
+
+478
+00:28:57,039 --> 00:29:04,159
+function work at the based uh okay wrong
+
+479
+00:29:01,679 --> 00:29:04,159
+number of
+
+480
+00:29:15,720 --> 00:29:25,000
+arguments is that
+
+481
+00:29:18,960 --> 00:29:25,000
+uh let's just let's just try
+
+482
+00:29:25,880 --> 00:29:36,440
+this run it that works so this line is
+
+483
+00:29:32,440 --> 00:29:38,960
+correct map see a function and uh so
+
+484
+00:29:36,440 --> 00:29:41,960
+what is wrong here so also you don't
+
+485
+00:29:38,960 --> 00:29:46,720
+need the interactive so this is not
+
+486
+00:29:41,960 --> 00:29:46,720
+interactive so remove the interactive
+
+487
+00:30:10,919 --> 00:30:15,000
+oh yeah so we only have one function
+
+488
+00:30:13,159 --> 00:30:19,679
+here
+
+489
+00:30:15,000 --> 00:30:21,480
+so okay I got it yeah let's remove let's
+
+490
+00:30:19,679 --> 00:30:25,320
+not be you
+
+491
+00:30:21,480 --> 00:30:25,320
+know let's remove
+
+492
+00:30:26,159 --> 00:30:31,640
+that run it
+
+493
+00:30:28,760 --> 00:30:34,360
+okay it seems successful now let's look
+
+494
+00:30:31,640 --> 00:30:37,960
+at what's the value of our hash table
+
+495
+00:30:34,360 --> 00:30:42,440
+here so describe variable
+
+496
+00:30:37,960 --> 00:30:47,559
+there uh so it has a value okay so it's
+
+497
+00:30:42,440 --> 00:30:47,559
+a value but it's not printable
+
+498
+00:30:49,200 --> 00:30:56,240
+um so what is the how do you get the
+
+499
+00:30:52,760 --> 00:31:01,720
+length of hash table let's
+
+500
+00:30:56,240 --> 00:31:06,679
+see copy the path go back here so this
+
+501
+00:31:01,720 --> 00:31:08,399
+is traversal directory open that hash
+
+502
+00:31:06,679 --> 00:31:12,200
+table
+
+503
+00:31:08,399 --> 00:31:16,480
+so literal expression hash table count
+
+504
+00:31:12,200 --> 00:31:16,480
+okay let's try hashtable
+
+505
+00:31:22,960 --> 00:31:29,120
+count
+
+506
+00:31:24,840 --> 00:31:30,679
+eval there it is 500
+
+507
+00:31:29,120 --> 00:31:34,519
+90
+
+508
+00:31:30,679 --> 00:31:37,120
+entries uh in fact we can print it by
+
+509
+00:31:34,519 --> 00:31:40,720
+default you know you cannot print a hash
+
+510
+00:31:37,120 --> 00:31:46,279
+table so but we have a function here
+
+511
+00:31:40,720 --> 00:31:46,279
+pretty print hash okay so let's
+
+512
+00:31:48,120 --> 00:31:55,960
+actually uh let's print our hash table
+
+513
+00:31:51,200 --> 00:32:00,679
+there so run it there it is beautiful so
+
+514
+00:31:55,960 --> 00:32:04,000
+wait okay so we can see that's correct
+
+515
+00:32:00,679 --> 00:32:08,080
+you know each key is a file path full
+
+516
+00:32:04,000 --> 00:32:11,440
+path each value is a just one okay close
+
+517
+00:32:08,080 --> 00:32:12,679
+that close that so we our whole code is
+
+518
+00:32:11,440 --> 00:32:17,120
+is
+
+519
+00:32:12,679 --> 00:32:18,679
+good uh so copy that that's kind of
+
+520
+00:32:17,120 --> 00:32:23,639
+debug
+
+521
+00:32:18,679 --> 00:32:25,639
+so okay so make a
+
+522
+00:32:23,639 --> 00:32:31,120
+backup put it
+
+523
+00:32:25,639 --> 00:32:34,559
+back HTML Li it color it showing browser
+
+524
+00:32:31,120 --> 00:32:37,200
+show the full Glory so here is our code
+
+525
+00:32:34,559 --> 00:32:40,120
+so far today we have kind of the
+
+526
+00:32:37,200 --> 00:32:42,679
+outline uh but there's a lot to do
+
+527
+00:32:40,120 --> 00:32:46,760
+actually 30
+
+528
+00:32:42,679 --> 00:32:50,519
+minutes uh okay so okay let's continue
+
+529
+00:32:46,760 --> 00:32:53,519
+so make a backup let's pop it out
+
+530
+00:32:50,519 --> 00:32:53,519
+again
+
+531
+00:32:53,960 --> 00:33:01,919
+so so we now we Traverse the directory
+
+532
+00:32:58,080 --> 00:33:06,360
+okay so this SP hash table needs to
+
+533
+00:33:01,919 --> 00:33:09,039
+change um this Bui hash table so first
+
+534
+00:33:06,360 --> 00:33:12,480
+of all let's make we need to clear the
+
+535
+00:33:09,039 --> 00:33:16,080
+hash table so what is
+
+536
+00:33:12,480 --> 00:33:19,080
+the how do you clear a hash table hash
+
+537
+00:33:16,080 --> 00:33:21,559
+table let's see create a hash table
+
+538
+00:33:19,080 --> 00:33:24,960
+literal expression length at entry
+
+539
+00:33:21,559 --> 00:33:28,440
+remove entry check key exist check value
+
+540
+00:33:24,960 --> 00:33:33,320
+removeal entry clear hash okay so you
+
+541
+00:33:28,440 --> 00:33:36,600
+gotta do that because right
+
+542
+00:33:33,320 --> 00:33:39,600
+now you know the naming is not very
+
+543
+00:33:36,600 --> 00:33:42,240
+consistent CLR
+
+544
+00:33:39,600 --> 00:33:46,919
+hash uh but
+
+545
+00:33:42,240 --> 00:33:49,480
+anyway yeah let clear hash table there
+
+546
+00:33:46,919 --> 00:33:52,840
+and and
+
+547
+00:33:49,480 --> 00:33:52,840
+uh okay
+
+548
+00:33:53,240 --> 00:33:58,080
+actually actually when you when when you
+
+549
+00:33:55,720 --> 00:34:03,679
+make a hash table does it automatic
+
+550
+00:33:58,080 --> 00:34:08,200
+clear clear let's try it evaluate that
+
+551
+00:34:03,679 --> 00:34:10,079
+then evaluate this oh it does so you
+
+552
+00:34:08,200 --> 00:34:13,040
+don't actually need to create a hash
+
+553
+00:34:10,079 --> 00:34:14,760
+table it does when you actually just
+
+554
+00:34:13,040 --> 00:34:17,079
+yeah that makes sense because you are
+
+555
+00:34:14,760 --> 00:34:18,960
+creating a new hash table and assign it
+
+556
+00:34:17,079 --> 00:34:22,440
+to this
+
+557
+00:34:18,960 --> 00:34:22,440
+variable uh right
+
+558
+00:34:22,639 --> 00:34:29,879
+so work directory build hash table so
+
+559
+00:34:26,399 --> 00:34:31,919
+this build hash table part that is is
+
+560
+00:34:29,879 --> 00:34:36,760
+what we need to
+
+561
+00:34:31,919 --> 00:34:41,480
+modify because we need to go to
+
+562
+00:34:36,760 --> 00:34:46,040
+a keyboard you know go to a file and uh
+
+563
+00:34:41,480 --> 00:34:46,040
+pass all these thumbnail images
+
+564
+00:34:50,200 --> 00:34:53,200
+okay
+
+565
+00:34:54,599 --> 00:35:02,040
+yeah so open that file so we have a
+
+566
+00:34:58,760 --> 00:35:07,880
+thumbnail images like that okay close
+
+567
+00:35:02,040 --> 00:35:11,280
+it um okay so we have thumbnail images
+
+568
+00:35:07,880 --> 00:35:13,680
+like that so how do you going to uh
+
+569
+00:35:11,280 --> 00:35:13,680
+pause
+
+570
+00:35:14,320 --> 00:35:20,240
+it so you just search okay you go to the
+
+571
+00:35:17,680 --> 00:35:23,110
+file beginning you open the file go to
+
+572
+00:35:20,240 --> 00:35:25,040
+the beginning of file then search
+
+573
+00:35:23,110 --> 00:35:27,760
+[Music]
+
+574
+00:35:25,040 --> 00:35:30,280
+for all right you search for this
+
+575
+00:35:27,760 --> 00:35:33,760
+pattern okay so you search for this
+
+576
+00:35:30,280 --> 00:35:38,960
+pattern up to here because that pattern
+
+577
+00:35:33,760 --> 00:35:42,960
+is always the same for each thumbnailed
+
+578
+00:35:38,960 --> 00:35:46,480
+link okay then you just pause it okay
+
+579
+00:35:42,960 --> 00:35:50,920
+so let's write it
+
+580
+00:35:46,480 --> 00:35:52,599
+out so that you know you people can read
+
+581
+00:35:50,920 --> 00:35:57,599
+you know it's make
+
+582
+00:35:52,599 --> 00:35:57,599
+sense open the file
+
+583
+00:35:57,800 --> 00:36:07,079
+go to top search for a pattern like this
+
+584
+00:36:09,760 --> 00:36:17,560
+okay then grab the
+
+585
+00:36:13,200 --> 00:36:17,560
+link grab both
+
+586
+00:36:18,839 --> 00:36:28,839
+links make relative link to full
+
+587
+00:36:24,599 --> 00:36:32,520
+path then add
+
+588
+00:36:28,839 --> 00:36:38,560
+file path to
+
+589
+00:36:32,520 --> 00:36:41,359
+hash with image path us value okay
+
+590
+00:36:38,560 --> 00:36:45,480
+that's right fantastic that's what we
+
+591
+00:36:41,359 --> 00:36:50,880
+will do okay so let's let's do so here
+
+592
+00:36:45,480 --> 00:36:53,960
+is the um I mean that's the algorithm so
+
+593
+00:36:50,880 --> 00:36:56,839
+so first of all open a file so to open a
+
+594
+00:36:53,960 --> 00:36:58,440
+file in emac disp this a bit tricky
+
+595
+00:36:56,839 --> 00:37:00,760
+because
+
+596
+00:36:58,440 --> 00:37:03,280
+uh you can use find file which is how
+
+597
+00:37:00,760 --> 00:37:07,680
+you usually open a
+
+598
+00:37:03,280 --> 00:37:09,520
+file but in thisp code you you don't
+
+599
+00:37:07,680 --> 00:37:12,839
+want to do that because when you use
+
+600
+00:37:09,520 --> 00:37:16,160
+find file it will turn on I mean it will
+
+601
+00:37:12,839 --> 00:37:19,240
+syntax color the buffer and run lots of
+
+602
+00:37:16,160 --> 00:37:21,880
+hooks when whenever you open a file or
+
+603
+00:37:19,240 --> 00:37:25,200
+you know lots of hooks so you don't want
+
+604
+00:37:21,880 --> 00:37:29,040
+to do that so there's a better way okay
+
+605
+00:37:25,200 --> 00:37:33,680
+so let's let me uh show you
+
+606
+00:37:29,040 --> 00:37:37,160
+uh so you uh go back to the emac list
+
+607
+00:37:33,680 --> 00:37:41,240
+tutorial uh open a file so you go to the
+
+608
+00:37:37,160 --> 00:37:45,160
+open a file section so here's emac list
+
+609
+00:37:41,240 --> 00:37:49,760
+Basics you want to go to emac list
+
+610
+00:37:45,160 --> 00:37:52,640
+okay then the section on file file and
+
+611
+00:37:49,760 --> 00:37:56,440
+directory okay uh perer read file write
+
+612
+00:37:52,640 --> 00:37:57,960
+file so do we do we need to write file
+
+613
+00:37:56,440 --> 00:38:00,480
+no so read file
+
+614
+00:37:57,960 --> 00:38:04,480
+okay open file for read only yeah this
+
+615
+00:38:00,480 --> 00:38:07,040
+is the this is the better way this is
+
+616
+00:38:04,480 --> 00:38:11,480
+efficient way okay so instead of find
+
+617
+00:38:07,040 --> 00:38:15,359
+file then ker after you done you want to
+
+618
+00:38:11,480 --> 00:38:18,359
+do this instead okay so let's remove the
+
+619
+00:38:15,359 --> 00:38:18,359
+function
+
+620
+00:38:18,800 --> 00:38:27,040
+part yeah so you use with temp buffer
+
+621
+00:38:22,680 --> 00:38:31,680
+then insert okay so now let's change the
+
+622
+00:38:27,040 --> 00:38:31,680
+file uh change the name here
+
+623
+00:38:38,720 --> 00:38:43,400
+to to shorten that okay
+
+624
+00:38:45,200 --> 00:38:50,839
+so so insert file contents then do
+
+625
+00:38:48,800 --> 00:38:55,839
+something
+
+626
+00:38:50,839 --> 00:38:59,640
+indeed so what we going to do go to
+
+627
+00:38:55,839 --> 00:39:05,240
+CH Point me main that's above a
+
+628
+00:38:59,640 --> 00:39:08,359
+beginning and uh then we going to search
+
+629
+00:39:05,240 --> 00:39:12,240
+forward while search
+
+630
+00:39:08,359 --> 00:39:15,640
+forward uh in fact we need use to use
+
+631
+00:39:12,240 --> 00:39:18,680
+regular expression so we want to
+
+632
+00:39:15,640 --> 00:39:22,319
+research forward
+
+633
+00:39:18,680 --> 00:39:25,040
+okay so what we're going to search is
+
+634
+00:39:22,319 --> 00:39:27,560
+this pattern okay so we going to need to
+
+635
+00:39:25,040 --> 00:39:30,720
+search this pattern and we don't don't
+
+636
+00:39:27,560 --> 00:39:35,560
+need the replace so we want to search
+
+637
+00:39:30,720 --> 00:39:39,400
+this pattern so let's let's do
+
+638
+00:39:35,560 --> 00:39:42,880
+that open a new buffer so let's turn
+
+639
+00:39:39,400 --> 00:39:47,079
+this thing a concrete text into a
+
+640
+00:39:42,880 --> 00:39:50,119
+regular expression so here we will uh
+
+641
+00:39:47,079 --> 00:39:50,870
+use regular expression so this part we
+
+642
+00:39:50,119 --> 00:39:54,030
+want to
+
+643
+00:39:50,870 --> 00:39:54,030
+[Music]
+
+644
+00:39:54,079 --> 00:40:01,760
+be uh reject string okay the power of
+
+645
+00:39:58,720 --> 00:40:04,599
+emac ab breef so I just typed that and I
+
+646
+00:40:01,760 --> 00:40:06,200
+got this very difficult to type
+
+647
+00:40:04,599 --> 00:40:10,240
+thing
+
+648
+00:40:06,200 --> 00:40:13,160
+cut put here okay now in emac regular
+
+649
+00:40:10,240 --> 00:40:16,599
+expression needs double back slash so
+
+650
+00:40:13,160 --> 00:40:18,480
+you you know this a very annoying part
+
+651
+00:40:16,599 --> 00:40:21,480
+of emac
+
+652
+00:40:18,480 --> 00:40:25,240
+disp uh it's hard to figure out so
+
+653
+00:40:21,480 --> 00:40:29,000
+anyway you want to capture anything that
+
+654
+00:40:25,240 --> 00:40:32,920
+is not a double quote one or more that's
+
+655
+00:40:29,000 --> 00:40:35,720
+right and minimum minimum or
+
+656
+00:40:32,920 --> 00:40:38,000
+maximum maximum okay so you don't want
+
+657
+00:40:35,720 --> 00:40:41,119
+that question mark how do I know because
+
+658
+00:40:38,000 --> 00:40:44,920
+I've been coding regular expression for
+
+659
+00:40:41,119 --> 00:40:47,599
+20 plus years regular expression is
+
+660
+00:40:44,920 --> 00:40:53,400
+actually takes you know take actually
+
+661
+00:40:47,599 --> 00:40:53,400
+takes a few years to really know
+
+662
+00:40:58,680 --> 00:41:04,160
+we got one common hey
+
+663
+00:41:01,160 --> 00:41:04,160
+hey
+
+664
+00:41:04,319 --> 00:41:09,599
+subit is a two variable function but you
+
+665
+00:41:07,440 --> 00:41:14,079
+call in with one argument thank you for
+
+666
+00:41:09,599 --> 00:41:17,160
+catching that yeah we we discovered
+
+667
+00:41:14,079 --> 00:41:19,520
+eventually so regular expression so we
+
+668
+00:41:17,160 --> 00:41:23,400
+got that part double check that's
+
+669
+00:41:19,520 --> 00:41:26,079
+correct copy it and same thing here you
+
+670
+00:41:23,400 --> 00:41:29,880
+know that's a image path
+
+671
+00:41:26,079 --> 00:41:31,680
+okay then then uh thumbnail then this
+
+672
+00:41:29,880 --> 00:41:35,280
+part uh
+
+673
+00:41:31,680 --> 00:41:38,280
+again almost the same thing except that
+
+674
+00:41:35,280 --> 00:41:40,319
+not double quote but
+
+675
+00:41:38,280 --> 00:41:44,240
+um
+
+676
+00:41:40,319 --> 00:41:46,760
+less less than sign okay so that is
+
+677
+00:41:44,240 --> 00:41:46,760
+actually
+
+678
+00:41:46,920 --> 00:41:52,880
+our regular expression but actually not
+
+679
+00:41:50,400 --> 00:41:55,880
+because the whole thing needs to be a
+
+680
+00:41:52,880 --> 00:41:58,040
+string then you also need to add back
+
+681
+00:41:55,880 --> 00:42:02,160
+slash there
+
+682
+00:41:58,040 --> 00:42:05,240
+and oh God this is this is a pen about
+
+683
+00:42:02,160 --> 00:42:05,240
+emac regular
+
+684
+00:42:06,359 --> 00:42:12,760
+expression uh let's see is that right
+
+685
+00:42:09,079 --> 00:42:19,240
+yeah you do need that you do need
+
+686
+00:42:12,760 --> 00:42:19,240
+that emx regular expression extreme
+
+687
+00:42:20,079 --> 00:42:26,400
+pen uh that part okay I think that's it
+
+688
+00:42:23,319 --> 00:42:28,359
+let's put it here here the regular
+
+689
+00:42:26,400 --> 00:42:30,920
+expression part
+
+690
+00:42:28,359 --> 00:42:33,319
+while search for word for that okay
+
+691
+00:42:30,920 --> 00:42:36,920
+let's you know try and
+
+692
+00:42:33,319 --> 00:42:40,280
+go with complicated regular expression
+
+693
+00:42:36,920 --> 00:42:43,960
+almost always you have to like trial and
+
+694
+00:42:40,280 --> 00:42:47,880
+error so okay bound do we need a
+
+695
+00:42:43,960 --> 00:42:49,720
+boundary no Neil no error true okay
+
+696
+00:42:47,880 --> 00:42:52,680
+count we don't care
+
+697
+00:42:49,720 --> 00:42:56,359
+okay so go to the top beginning of the
+
+698
+00:42:52,680 --> 00:42:57,839
+buffer while you find a pattern like
+
+699
+00:42:56,359 --> 00:43:02,400
+that okay
+
+700
+00:42:57,839 --> 00:43:04,880
+then what you do uh is so you got uh
+
+701
+00:43:02,400 --> 00:43:10,839
+three captures the file path the image
+
+702
+00:43:04,880 --> 00:43:10,839
+path and the title okay
+
+703
+00:43:11,720 --> 00:43:18,000
+so so you can start to add to Hash table
+
+704
+00:43:15,400 --> 00:43:21,640
+so let's just add to Hash table so put
+
+705
+00:43:18,000 --> 00:43:21,640
+uh put hash okay so
+
+706
+00:43:24,359 --> 00:43:32,000
+here yeah with 10 buffer open that that
+
+707
+00:43:27,359 --> 00:43:36,839
+file then put hash and uh what do you
+
+708
+00:43:32,000 --> 00:43:40,920
+want to put in the hash uh you want to
+
+709
+00:43:36,839 --> 00:43:42,640
+put the first captured pattern which is
+
+710
+00:43:40,920 --> 00:43:46,280
+the file path
+
+711
+00:43:42,640 --> 00:43:50,400
+so so you say
+
+712
+00:43:46,280 --> 00:43:53,240
+match match string okay one that's
+
+713
+00:43:50,400 --> 00:43:56,480
+correct that's first pattern
+
+714
+00:43:53,240 --> 00:43:57,599
+okay optional we don't care so that's so
+
+715
+00:43:56,480 --> 00:44:00,480
+you want to
+
+716
+00:43:57,599 --> 00:44:04,839
+push that that's a file
+
+717
+00:44:00,480 --> 00:44:06,920
+path and uh the value will
+
+718
+00:44:04,839 --> 00:44:10,880
+be match
+
+719
+00:44:06,920 --> 00:44:12,680
+string two that is going that is the
+
+720
+00:44:10,880 --> 00:44:15,559
+image path
+
+721
+00:44:12,680 --> 00:44:20,520
+here okay let's just try that okay clean
+
+722
+00:44:15,559 --> 00:44:20,520
+the I mean uh optimize the
+
+723
+00:44:21,280 --> 00:44:29,040
+code
+
+724
+00:44:22,800 --> 00:44:29,040
+so I mean clean pretty print the code
+
+725
+00:44:30,280 --> 00:44:37,319
+that's it so this function we've been
+
+726
+00:44:32,960 --> 00:44:40,839
+working on this this B hash table given
+
+727
+00:44:37,319 --> 00:44:44,240
+a file path you open
+
+728
+00:44:40,839 --> 00:44:45,760
+it by creating a temp buffer then you
+
+729
+00:44:44,240 --> 00:44:48,240
+insert the file
+
+730
+00:44:45,760 --> 00:44:52,040
+content then you go to the top of the
+
+731
+00:44:48,240 --> 00:44:55,400
+buffer then you search you do a while
+
+732
+00:44:52,040 --> 00:44:59,040
+loop search for this this kind of
+
+733
+00:44:55,400 --> 00:44:59,040
+thumbnail image
+
+734
+00:45:01,280 --> 00:45:08,680
+pattern and uh then you grab the file
+
+735
+00:45:04,680 --> 00:45:12,640
+path the image path then
+
+736
+00:45:08,680 --> 00:45:17,440
+you push ha push hash
+
+737
+00:45:12,640 --> 00:45:17,440
+okay so I think that's it and
+
+738
+00:45:20,240 --> 00:45:26,359
+now uh now you need to work the you see
+
+739
+00:45:23,800 --> 00:45:29,559
+you need to work the actually why don't
+
+740
+00:45:26,359 --> 00:45:32,760
+we instead of walk why don't we just
+
+741
+00:45:29,559 --> 00:45:36,480
+call this function for now like one
+
+742
+00:45:32,760 --> 00:45:38,440
+shot um and give it this file path
+
+743
+00:45:36,480 --> 00:45:41,280
+because if there's any error we don't
+
+744
+00:45:38,440 --> 00:45:43,760
+have to wait for it to process hundreds
+
+745
+00:45:41,280 --> 00:45:46,680
+of files you know in this directory
+
+746
+00:45:43,760 --> 00:45:51,480
+there's actually a th000
+
+747
+00:45:46,680 --> 00:45:56,359
+files you see my keyboard block is
+
+748
+00:45:51,480 --> 00:45:56,359
+1,000 files this
+
+749
+00:45:57,079 --> 00:46:04,440
+this keyboard block 1,000 files so let's
+
+750
+00:46:00,640 --> 00:46:07,359
+simply just call this one shot to
+
+751
+00:46:04,440 --> 00:46:11,160
+process this particular
+
+752
+00:46:07,359 --> 00:46:14,960
+page okay uh but before we do that so
+
+753
+00:46:11,160 --> 00:46:17,680
+let's remove that so comment out comment
+
+754
+00:46:14,960 --> 00:46:19,359
+out comment out and Evol the whole thing
+
+755
+00:46:17,680 --> 00:46:24,559
+okay I
+
+756
+00:46:19,359 --> 00:46:28,000
+think now I always double check one more
+
+757
+00:46:24,559 --> 00:46:32,920
+time okay let's eval the whole thing
+
+758
+00:46:28,000 --> 00:46:37,559
+eval fantastic no error now we just go
+
+759
+00:46:32,920 --> 00:46:37,559
+to the hash table describe
+
+760
+00:46:38,240 --> 00:46:45,040
+variable you see it's got uh how many
+
+761
+00:46:42,119 --> 00:46:46,800
+items U
+
+762
+00:46:45,040 --> 00:46:49,920
+2565
+
+763
+00:46:46,800 --> 00:46:53,920
+28/65 what does that mean I don't know
+
+764
+00:46:49,920 --> 00:46:58,319
+let's print hash table there so run
+
+765
+00:46:53,920 --> 00:47:00,599
+it go to the messages buffer let's
+
+766
+00:46:58,319 --> 00:47:03,960
+see
+
+767
+00:47:00,599 --> 00:47:07,839
+fantastic so yeah it looks like it's
+
+768
+00:47:03,960 --> 00:47:13,119
+fantastic beginning here to here new
+
+769
+00:47:07,839 --> 00:47:17,280
+buffer paste and let's make the arrow
+
+770
+00:47:13,119 --> 00:47:21,160
+colored so now you can easy easily
+
+771
+00:47:17,280 --> 00:47:25,240
+see what's going on so fantastic you got
+
+772
+00:47:21,160 --> 00:47:28,440
+the file path you got the image
+
+773
+00:47:25,240 --> 00:47:32,520
+path that's one entry the next entry and
+
+774
+00:47:28,440 --> 00:47:32,520
+so on fantastic it seems
+
+775
+00:47:32,800 --> 00:47:40,920
+like beautiful
+
+776
+00:47:36,520 --> 00:47:45,640
+beautiful The Power of One Shot
+
+777
+00:47:40,920 --> 00:47:47,920
+coding uh and the regular expression is
+
+778
+00:47:45,640 --> 00:47:51,720
+correct thanks to
+
+779
+00:47:47,920 --> 00:47:54,359
+my 15 years of coding emac this
+
+780
+00:47:51,720 --> 00:47:57,240
+hello
+
+781
+00:47:54,359 --> 00:48:01,079
+Elia uh
+
+782
+00:47:57,240 --> 00:48:04,520
+IIA Sao says are those two different
+
+783
+00:48:01,079 --> 00:48:06,400
+keyboards and you've
+
+784
+00:48:04,520 --> 00:48:09,200
+uh
+
+785
+00:48:06,400 --> 00:48:11,480
+keyboards uh I talked about keyboards in
+
+786
+00:48:09,200 --> 00:48:14,040
+every one of my videos so you are
+
+787
+00:48:11,480 --> 00:48:16,319
+probably new here so this is glub 0
+
+788
+00:48:14,040 --> 00:48:18,839
+keyboard and that is automate hacking
+
+789
+00:48:16,319 --> 00:48:21,880
+keyboard I use the automate hacking
+
+790
+00:48:18,839 --> 00:48:23,880
+keyboard as a keyboard Mark okay so
+
+791
+00:48:21,880 --> 00:48:27,359
+automat you know a keyboard Mark so I
+
+792
+00:48:23,880 --> 00:48:29,520
+can all these keys are doing control or
+
+793
+00:48:27,359 --> 00:48:34,040
+okay so but I don't have to I just you
+
+794
+00:48:29,520 --> 00:48:38,720
+know one key press for example next tab
+
+795
+00:48:34,040 --> 00:48:43,119
+previous tab close tab last
+
+796
+00:48:38,720 --> 00:48:48,040
+window uh refresh refresh
+
+797
+00:48:43,119 --> 00:48:51,599
+Tab and uh and switch to the the first
+
+798
+00:48:48,040 --> 00:48:54,200
+application the switch to terminal emx
+
+799
+00:48:51,599 --> 00:48:56,799
+switch to Firefox and so
+
+800
+00:48:54,200 --> 00:48:58,599
+on you probably knew here because
+
+801
+00:48:56,799 --> 00:49:02,040
+because I talked about this many times
+
+802
+00:48:58,599 --> 00:49:05,119
+so V says I think he has Mar or
+
+803
+00:49:02,040 --> 00:49:09,200
+something yeah okay let's go back to
+
+804
+00:49:05,119 --> 00:49:10,960
+emac this code we are making progress
+
+805
+00:49:09,200 --> 00:49:13,839
+smoothly
+
+806
+00:49:10,960 --> 00:49:17,119
+smoothly slowly
+
+807
+00:49:13,839 --> 00:49:17,119
+urly no
+
+808
+00:49:17,520 --> 00:49:21,760
+rush coffee need some
+
+809
+00:49:23,680 --> 00:49:31,079
+coffee so if you are new here you you
+
+810
+00:49:26,920 --> 00:49:31,079
+can check
+
+811
+00:49:31,440 --> 00:49:37,799
+um you know in uh wait where is the talk
+
+812
+00:49:34,640 --> 00:49:40,920
+show let's go to you know so let me just
+
+813
+00:49:37,799 --> 00:49:43,799
+let's just close that we don't need it s
+
+814
+00:49:40,920 --> 00:49:47,280
+talk show that's what we are doing okay
+
+815
+00:49:43,799 --> 00:49:51,240
+writing a emac list script to process
+
+816
+00:49:47,280 --> 00:49:54,079
+over 10,000 files for each file you want
+
+817
+00:49:51,240 --> 00:49:57,119
+to grab all kind of the image thumbnails
+
+818
+00:49:54,079 --> 00:50:01,400
+a file path a image path then you build
+
+819
+00:49:57,119 --> 00:50:03,720
+a hash table then you'll get like 10,000
+
+820
+00:50:01,400 --> 00:50:06,240
+entries then you go through each of the
+
+821
+00:50:03,720 --> 00:50:09,480
+hash table entry you open that file you
+
+822
+00:50:06,240 --> 00:50:12,520
+insert a header for like that's the
+
+823
+00:50:09,480 --> 00:50:13,920
+Twitter card that's what we are doing
+
+824
+00:50:12,520 --> 00:50:16,720
+okay so so
+
+825
+00:50:13,920 --> 00:50:20,200
+far here's a
+
+826
+00:50:16,720 --> 00:50:23,359
+code we break we break it down into you
+
+827
+00:50:20,200 --> 00:50:27,240
+know we de declare a hash table here
+
+828
+00:50:23,359 --> 00:50:30,240
+then we uh create a hash table so these
+
+829
+00:50:27,240 --> 00:50:33,079
+two should be together that's about you
+
+830
+00:50:30,240 --> 00:50:34,760
+know Global variable hash table this
+
+831
+00:50:33,079 --> 00:50:38,319
+part is worker
+
+832
+00:50:34,760 --> 00:50:42,839
+directory uh and for each file you call
+
+833
+00:50:38,319 --> 00:50:46,839
+this function to pass to get all the you
+
+834
+00:50:42,839 --> 00:50:50,799
+know links and add them to the hash
+
+835
+00:50:46,839 --> 00:50:54,280
+table so so far so good okay and here is
+
+836
+00:50:50,799 --> 00:50:57,280
+just the test code so far so good so now
+
+837
+00:50:54,280 --> 00:50:58,799
+actually now we can walk a directory so
+
+838
+00:50:57,280 --> 00:51:02,720
+now we're going to
+
+839
+00:50:58,799 --> 00:51:06,359
+create hundreds of hash table entries
+
+840
+00:51:02,720 --> 00:51:09,720
+okay so you need to go to SAR keyboard
+
+841
+00:51:06,359 --> 00:51:12,400
+directory copy the file path so there it
+
+842
+00:51:09,720 --> 00:51:15,040
+is so you're going to build a hash table
+
+843
+00:51:12,400 --> 00:51:17,960
+for thear keyboard directory let's go
+
+844
+00:51:15,040 --> 00:51:19,799
+there you can see this is a keyboard
+
+845
+00:51:17,960 --> 00:51:25,400
+directory
+
+846
+00:51:19,799 --> 00:51:28,119
+1,1 57 files something like that so you
+
+847
+00:51:25,400 --> 00:51:30,240
+walk this directory
+
+848
+00:51:28,119 --> 00:51:32,880
+uh yeah that should be it okay so let's
+
+849
+00:51:30,240 --> 00:51:35,880
+we don't need that we don't need that
+
+850
+00:51:32,880 --> 00:51:39,359
+okay now we run this whole buffer again
+
+851
+00:51:35,880 --> 00:51:42,280
+you can see on the pink window is all my
+
+852
+00:51:39,359 --> 00:51:45,799
+command scores and you know every time I
+
+853
+00:51:42,280 --> 00:51:50,400
+type something it the command name shows
+
+854
+00:51:45,799 --> 00:51:52,359
+up for example delete undo so you can
+
+855
+00:51:50,400 --> 00:51:55,119
+see undo and
+
+856
+00:51:52,359 --> 00:51:59,040
+delete so anyway so we run this whole
+
+857
+00:51:55,119 --> 00:52:02,440
+buffer that should be okay let's do it
+
+858
+00:51:59,040 --> 00:52:04,799
+please let it work seems like it's
+
+859
+00:52:02,440 --> 00:52:07,440
+working you have to wait for a while
+
+860
+00:52:04,799 --> 00:52:10,119
+because now it's very busy you know look
+
+861
+00:52:07,440 --> 00:52:11,119
+opening files temperer and stuff and
+
+862
+00:52:10,119 --> 00:52:14,280
+regular
+
+863
+00:52:11,119 --> 00:52:17,040
+expression now right now it's processing
+
+864
+00:52:14,280 --> 00:52:17,040
+1,000
+
+865
+00:52:22,160 --> 00:52:27,040
+files looks like it's done is it done
+
+866
+00:52:25,559 --> 00:52:29,040
+yes okay
+
+867
+00:52:27,040 --> 00:52:32,160
+now let's
+
+868
+00:52:29,040 --> 00:52:37,760
+see hashtable
+
+869
+00:52:32,160 --> 00:52:39,280
+count evaluated you got 770 entries
+
+870
+00:52:37,760 --> 00:52:42,280
+seems
+
+871
+00:52:39,280 --> 00:52:44,720
+correct shall we print it okay let's
+
+872
+00:52:42,280 --> 00:52:47,760
+print the hash table let's see what we
+
+873
+00:52:44,720 --> 00:52:52,960
+have okay the message buer first of all
+
+874
+00:52:47,760 --> 00:52:55,079
+kill it so we get a fresh one evaluate
+
+875
+00:52:52,960 --> 00:52:58,760
+oh wait
+
+876
+00:52:55,079 --> 00:53:02,920
+evaluated now go to the messages
+
+877
+00:52:58,760 --> 00:53:06,880
+buffer let's see the full Glory
+
+878
+00:53:02,920 --> 00:53:08,400
+772 lines fantastic it looks like
+
+879
+00:53:06,880 --> 00:53:10,240
+correct
+
+880
+00:53:08,400 --> 00:53:13,720
+correct
+
+881
+00:53:10,240 --> 00:53:16,599
+beautiful okay now next we need more
+
+882
+00:53:13,720 --> 00:53:20,040
+things to do now you see each of the
+
+883
+00:53:16,599 --> 00:53:21,640
+hash table link you can see they are
+
+884
+00:53:20,040 --> 00:53:25,319
+actually
+
+885
+00:53:21,640 --> 00:53:28,480
+um relative file path so for example you
+
+886
+00:53:25,319 --> 00:53:32,400
+can see there so so it's Rel relative
+
+887
+00:53:28,480 --> 00:53:35,400
+you need uh the full path okay so for
+
+888
+00:53:32,400 --> 00:53:37,359
+each the final path you actually need
+
+889
+00:53:35,400 --> 00:53:41,799
+full path
+
+890
+00:53:37,359 --> 00:53:45,280
+okay so let's do them let's declare a
+
+891
+00:53:41,799 --> 00:53:45,280
+variable so let's
+
+892
+00:53:45,440 --> 00:53:50,640
+say file path okay so
+
+893
+00:53:51,079 --> 00:54:00,920
+what XF path that's full path X image
+
+894
+00:53:56,079 --> 00:54:04,920
+path that's a image path okay
+
+895
+00:54:00,920 --> 00:54:04,920
+so so we can
+
+896
+00:54:06,960 --> 00:54:15,960
+now what are you going to do here okay
+
+897
+00:54:09,680 --> 00:54:15,960
+well I mean match string expand file
+
+898
+00:54:17,119 --> 00:54:22,359
+name there and relative
+
+899
+00:54:23,040 --> 00:54:29,559
+to relative to the current file path
+
+900
+00:54:26,240 --> 00:54:29,559
+right right
+
+901
+00:54:30,839 --> 00:54:33,839
+so
+
+902
+00:54:36,760 --> 00:54:41,760
+uh file name sense directory file name
+
+903
+00:54:40,599 --> 00:54:44,839
+sense
+
+904
+00:54:41,760 --> 00:54:48,680
+directory yeah stupid emx there's a
+
+905
+00:54:44,839 --> 00:54:51,920
+function that given a file path it
+
+906
+00:54:48,680 --> 00:54:53,640
+Returns the directory it is in so the
+
+907
+00:54:51,920 --> 00:54:55,640
+name of that function is called
+
+908
+00:54:53,640 --> 00:54:59,040
+something like file name without
+
+909
+00:54:55,640 --> 00:55:01,760
+directory or file name sense
+
+910
+00:54:59,040 --> 00:55:05,240
+directory uh but you know it's a bit
+
+911
+00:55:01,760 --> 00:55:09,280
+weird naming so let's go back to
+
+912
+00:55:05,240 --> 00:55:11,680
+emx so you want to go to the files and
+
+913
+00:55:09,280 --> 00:55:15,559
+section so read
+
+914
+00:55:11,680 --> 00:55:18,160
+file file read file right file file
+
+915
+00:55:15,559 --> 00:55:20,559
+directory open that let's see what is is
+
+916
+00:55:18,160 --> 00:55:23,440
+function on file function on directory
+
+917
+00:55:20,559 --> 00:55:26,799
+copy directory make directory we want
+
+918
+00:55:23,440 --> 00:55:30,039
+the file path
+
+919
+00:55:26,799 --> 00:55:34,599
+things so there it is file name
+
+920
+00:55:30,039 --> 00:55:37,160
+directory okay yeah file name directory
+
+921
+00:55:34,599 --> 00:55:42,079
+okay that's a function
+
+922
+00:55:37,160 --> 00:55:45,280
+then FP path okay so this will change a
+
+923
+00:55:42,079 --> 00:55:48,760
+relative name to a full
+
+924
+00:55:45,280 --> 00:55:50,880
+path and we don't need okay let's remove
+
+925
+00:55:48,760 --> 00:55:53,760
+that
+
+926
+00:55:50,880 --> 00:55:55,839
+so yeah you have to be careful here
+
+927
+00:55:53,760 --> 00:55:59,200
+because whenever you do regular
+
+928
+00:55:55,839 --> 00:56:00,480
+expression it will change this match
+
+929
+00:55:59,200 --> 00:56:04,079
+data
+
+930
+00:56:00,480 --> 00:56:06,760
+so so when you want to grab the you know
+
+931
+00:56:04,079 --> 00:56:10,720
+the first capture you want to make sure
+
+932
+00:56:06,760 --> 00:56:14,440
+there's no no code that changes the
+
+933
+00:56:10,720 --> 00:56:18,200
+match data so
+
+934
+00:56:14,440 --> 00:56:19,799
+anyway uh so let's let's make it more
+
+935
+00:56:18,200 --> 00:56:23,319
+readable here
+
+936
+00:56:19,799 --> 00:56:25,839
+so yeah we can yeah that should be do it
+
+937
+00:56:23,319 --> 00:56:28,400
+that should be that should do it and
+
+938
+00:56:25,839 --> 00:56:31,520
+this part it's repeated again we can
+
+939
+00:56:28,400 --> 00:56:32,920
+make a variable but that's not so run
+
+940
+00:56:31,520 --> 00:56:36,760
+the whole thing
+
+941
+00:56:32,920 --> 00:56:38,480
+again and uh show the messages buffer so
+
+942
+00:56:36,760 --> 00:56:42,039
+now you can
+
+943
+00:56:38,480 --> 00:56:47,160
+see each one of them is a full path you
+
+944
+00:56:42,039 --> 00:56:49,799
+see copy new buffer paste and uh break
+
+945
+00:56:47,160 --> 00:56:52,359
+the lines you see the first no it's a
+
+946
+00:56:49,799 --> 00:56:53,920
+full path now the image is also full
+
+947
+00:56:52,359 --> 00:56:58,680
+path
+
+948
+00:56:53,920 --> 00:57:01,200
+fantastic making progress very well next
+
+949
+00:56:58,680 --> 00:57:01,200
+what is the
+
+950
+00:57:02,440 --> 00:57:08,799
+next so now we got a a hash
+
+951
+00:57:06,200 --> 00:57:11,240
+table
+
+952
+00:57:08,799 --> 00:57:15,680
+okay now
+
+953
+00:57:11,240 --> 00:57:18,160
+we have buil a hash
+
+954
+00:57:15,680 --> 00:57:25,200
+table
+
+955
+00:57:18,160 --> 00:57:25,200
+now go through the hash table
+
+956
+00:57:26,559 --> 00:57:31,799
+for each
+
+957
+00:57:28,520 --> 00:57:37,400
+key open the
+
+958
+00:57:31,799 --> 00:57:40,680
+file insert the value to the top of the
+
+959
+00:57:37,400 --> 00:57:42,520
+to the top of the page
+
+960
+00:57:40,680 --> 00:57:45,079
+okay that's
+
+961
+00:57:42,520 --> 00:57:48,240
+easy so now you just need to Loop
+
+962
+00:57:45,079 --> 00:57:51,200
+through a hash table okay so let's
+
+963
+00:57:48,240 --> 00:57:53,640
+remove that remove that but we need to
+
+964
+00:57:51,200 --> 00:57:55,720
+build it okay now you just go through
+
+965
+00:57:53,640 --> 00:58:00,079
+the hash table okay so how do you go
+
+966
+00:57:55,720 --> 00:58:03,160
+through hash table you have um again I
+
+967
+00:58:00,079 --> 00:58:07,880
+forgot what is you
+
+968
+00:58:03,160 --> 00:58:13,720
+know add entry remove entry check
+
+969
+00:58:07,880 --> 00:58:15,920
+existence get all keys No get all values
+
+970
+00:58:13,720 --> 00:58:21,240
+no
+
+971
+00:58:15,920 --> 00:58:21,240
+uh hashtable to list wait
+
+972
+00:58:23,640 --> 00:58:29,240
+what apply function to all entry map
+
+973
+00:58:26,680 --> 00:58:32,680
+hash you see again the naming is a bit
+
+974
+00:58:29,240 --> 00:58:35,880
+inconsistent you know there's no dash so
+
+975
+00:58:32,680 --> 00:58:40,240
+that's why EAC this you know it's a old
+
+976
+00:58:35,880 --> 00:58:42,319
+language 30 years old so map
+
+977
+00:58:40,240 --> 00:58:44,920
+hash that's a
+
+978
+00:58:42,319 --> 00:58:48,640
+function uh you know so it's just like
+
+979
+00:58:44,920 --> 00:58:52,520
+the syntax is just like map C or map car
+
+980
+00:58:48,640 --> 00:58:57,880
+okay function and table okay so map hash
+
+981
+00:58:52,520 --> 00:59:01,319
+uh hash uh wait what is
+
+982
+00:58:57,880 --> 00:59:03,319
+the yeah so you want to map a function
+
+983
+00:59:01,319 --> 00:59:06,839
+to
+
+984
+00:59:03,319 --> 00:59:10,119
+that okay and uh what the function will
+
+985
+00:59:06,839 --> 00:59:12,680
+do well it'll open the file just like
+
+986
+00:59:10,119 --> 00:59:15,640
+before so we don't want to use we don't
+
+987
+00:59:12,680 --> 00:59:19,200
+want to use find file instead we want to
+
+988
+00:59:15,640 --> 00:59:19,200
+use with temp buer
+
+989
+00:59:20,039 --> 00:59:28,520
+okay
+
+990
+00:59:22,319 --> 00:59:33,520
+so so let me clear up this so it's
+
+991
+00:59:28,520 --> 00:59:37,160
+um there okay so map has Lambda function
+
+992
+00:59:33,520 --> 00:59:40,839
+with create a temp buer insert a file
+
+993
+00:59:37,160 --> 00:59:45,480
+path which is X because each of these
+
+994
+00:59:40,839 --> 00:59:48,599
+key is uh wait map hash wait so map hash
+
+995
+00:59:45,480 --> 00:59:53,200
+pass a function the function uh takes
+
+996
+00:59:48,599 --> 00:59:57,559
+two arguments key and value okay so this
+
+997
+00:59:53,200 --> 01:00:02,039
+function has two values
+
+998
+00:59:57,559 --> 01:00:07,680
+key V okay so the key is the file path
+
+999
+01:00:02,039 --> 01:00:11,559
+so we insert the file content and and
+
+1000
+01:00:07,680 --> 01:00:16,400
+what then you just go to uh go to CH
+
+1001
+01:00:11,559 --> 01:00:21,440
+point mean and let's show a HTML page
+
+1002
+01:00:16,400 --> 01:00:23,960
+example then you just search for um so
+
+1003
+01:00:21,440 --> 01:00:27,559
+this part is a bit personal so depends
+
+1004
+01:00:23,960 --> 01:00:31,240
+on what you know what is your HTML file
+
+1005
+01:00:27,559 --> 01:00:35,920
+structure so basically you have this
+
+1006
+01:00:31,240 --> 01:00:39,359
+head head tag that's Universal okay so
+
+1007
+01:00:35,920 --> 01:00:43,079
+where do you want to add it so let's say
+
+1008
+01:00:39,359 --> 01:00:44,640
+I want to add it before title okay I
+
+1009
+01:00:43,079 --> 01:00:47,880
+mean that's a
+
+1010
+01:00:44,640 --> 01:00:50,400
+choice yeah the Twitter cards is not
+
+1011
+01:00:47,880 --> 01:00:51,839
+critical you know the stylesheet should
+
+1012
+01:00:50,400 --> 01:00:56,520
+go above
+
+1013
+01:00:51,839 --> 01:00:58,119
+that uh then this special link you know
+
+1014
+01:00:56,520 --> 01:01:01,520
+for
+
+1015
+01:00:58,119 --> 01:01:05,640
+RSS so it should
+
+1016
+01:01:01,520 --> 01:01:07,799
+go right before the title tag okay so
+
+1017
+01:01:05,640 --> 01:01:10,640
+now you just move the cruiser there
+
+1018
+01:01:07,799 --> 01:01:14,359
+search search
+
+1019
+01:01:10,640 --> 01:01:16,520
+um what what is it
+
+1020
+01:01:14,359 --> 01:01:22,119
+um search
+
+1021
+01:01:16,520 --> 01:01:26,000
+forward search for title tag okay bound
+
+1022
+01:01:22,119 --> 01:01:29,079
+uh bound we don't care no error uh we we
+
+1023
+01:01:26,000 --> 01:01:33,799
+care because we there should be always a
+
+1024
+01:01:29,079 --> 01:01:33,799
+title if there's no title it's Error
+
+1025
+01:01:34,160 --> 01:01:40,440
+okay yeah that's actually kind of true
+
+1026
+01:01:37,720 --> 01:01:43,720
+so search forward search for the title
+
+1027
+01:01:40,440 --> 01:01:48,000
+and go to CH move the cruiser to before
+
+1028
+01:01:43,720 --> 01:01:49,799
+the title okay so what you do is match
+
+1029
+01:01:48,000 --> 01:01:53,640
+beginning
+
+1030
+01:01:49,799 --> 01:01:56,240
+zero zero means the whole match so match
+
+1031
+01:01:53,640 --> 01:01:59,039
+beginning zero means the whole match
+
+1032
+01:01:56,240 --> 01:02:03,079
+beginning position which
+
+1033
+01:01:59,039 --> 01:02:07,440
+means right before the title tag okay so
+
+1034
+01:02:03,079 --> 01:02:11,559
+you put a cluer there then you just
+
+1035
+01:02:07,440 --> 01:02:14,599
+insert uh basically XV okay which is a
+
+1036
+01:02:11,559 --> 01:02:17,079
+value the image path okay fantastic
+
+1037
+01:02:14,599 --> 01:02:22,039
+making very
+
+1038
+01:02:17,079 --> 01:02:25,200
+smooth but trador card has some special
+
+1039
+01:02:22,039 --> 01:02:29,480
+requirement I mean Twitter card has a
+
+1040
+01:02:25,200 --> 01:02:32,920
+some special syntax so let's see let's
+
+1041
+01:02:29,480 --> 01:02:35,599
+copy that so it's actually not you know
+
+1042
+01:02:32,920 --> 01:02:38,160
+you don't just insert a path you need to
+
+1043
+01:02:35,599 --> 01:02:40,400
+insert something
+
+1044
+01:02:38,160 --> 01:02:43,839
+like you
+
+1045
+01:02:40,400 --> 01:02:46,000
+see uh in fact for my case I don't even
+
+1046
+01:02:43,839 --> 01:02:50,680
+want to insert Twitter card I want to
+
+1047
+01:02:46,000 --> 01:02:53,119
+insert some kind of s card because this
+
+1048
+01:02:50,680 --> 01:02:56,319
+you know because the image file is
+
+1049
+01:02:53,119 --> 01:02:58,839
+actually you know this my thumbnail it's
+
+1050
+01:02:56,319 --> 01:03:06,880
+not actually a big
+
+1051
+01:02:58,839 --> 01:03:11,200
+image so do I so um so for example
+
+1052
+01:03:06,880 --> 01:03:14,079
+let's uh but so we need to decide what
+
+1053
+01:03:11,200 --> 01:03:17,000
+exactly this this part will be the image
+
+1054
+01:03:14,079 --> 01:03:18,640
+file path oh and also you need to turn
+
+1055
+01:03:17,000 --> 01:03:23,559
+it into a
+
+1056
+01:03:18,640 --> 01:03:23,559
+URL okay more work to do
+
+1057
+01:03:24,240 --> 01:03:32,240
+ you need to turn this value into a
+
+1058
+01:03:27,920 --> 01:03:35,160
+into a s info URL then you insert
+
+1059
+01:03:32,240 --> 01:03:37,680
+something like that and exactly what you
+
+1060
+01:03:35,160 --> 01:03:39,640
+want to insert uh it's going to be
+
+1061
+01:03:37,680 --> 01:03:44,599
+something like
+
+1062
+01:03:39,640 --> 01:03:47,599
+s thumbnail okay something like
+
+1063
+01:03:44,599 --> 01:03:47,599
+that
+
+1064
+01:03:48,680 --> 01:03:54,799
+yeah then eventually I'm going to also
+
+1065
+01:03:51,640 --> 01:03:56,520
+add the Twitter card but my main goal
+
+1066
+01:03:54,799 --> 01:03:58,920
+today is actually
+
+1067
+01:03:56,520 --> 01:04:01,279
+add the thumbnail because why because
+
+1068
+01:03:58,920 --> 01:04:04,160
+let me tell you
+
+1069
+01:04:01,279 --> 01:04:06,880
+why uh and actually we can you know we
+
+1070
+01:04:04,160 --> 01:04:09,920
+can stop today because we did a lot EAC
+
+1071
+01:04:06,880 --> 01:04:13,760
+this coding like the main thing is done
+
+1072
+01:04:09,920 --> 01:04:16,599
+now the inserting part is easy uh the
+
+1073
+01:04:13,760 --> 01:04:19,279
+main kind of job is done you know not
+
+1074
+01:04:16,599 --> 01:04:22,920
+too many code you know 100 lines of code
+
+1075
+01:04:19,279 --> 01:04:26,640
+not even so but let me show you why do I
+
+1076
+01:04:22,920 --> 01:04:30,160
+need this thing so you see in my
+
+1077
+01:04:26,640 --> 01:04:33,760
+keyboard blog and also elsewhere usually
+
+1078
+01:04:30,160 --> 01:04:37,000
+each thing has a thumbnail it's the
+
+1079
+01:04:33,760 --> 01:04:39,839
+thumbnail are extremely convenient
+
+1080
+01:04:37,000 --> 01:04:42,319
+because for example ergonomic keyboard
+
+1081
+01:04:39,839 --> 01:04:46,000
+history without thumbnail it's you know
+
+1082
+01:04:42,319 --> 01:04:49,520
+it's not good so but for
+
+1083
+01:04:46,000 --> 01:04:52,760
+example this page I want to for example
+
+1084
+01:04:49,520 --> 01:04:56,839
+today let's see keyboard block let's go
+
+1085
+01:04:52,760 --> 01:05:01,200
+to add a new entry you know that's link
+
+1086
+01:04:56,839 --> 01:05:04,319
+linkify it okay now showing browser
+
+1087
+01:05:01,200 --> 01:05:06,880
+so you see I add a new link here so
+
+1088
+01:05:04,319 --> 01:05:10,319
+actually this link should be go
+
+1089
+01:05:06,880 --> 01:05:14,200
+to uh go through
+
+1090
+01:05:10,319 --> 01:05:19,400
+there you see I added a new link here
+
+1091
+01:05:14,200 --> 01:05:22,160
+kesis model 100 right but sometimes I
+
+1092
+01:05:19,400 --> 01:05:24,640
+want the thumbnail but I don't know what
+
+1093
+01:05:22,160 --> 01:05:26,880
+which thumbnail it is and usually it's
+
+1094
+01:05:24,640 --> 01:05:29,599
+very tedious to find find out because
+
+1095
+01:05:26,880 --> 01:05:30,960
+the thumbnail is nowhere contained in
+
+1096
+01:05:29,599 --> 01:05:34,400
+this file
+
+1097
+01:05:30,960 --> 01:05:37,960
+itself so typically what I do is open
+
+1098
+01:05:34,400 --> 01:05:43,279
+the file and find the first Big
+
+1099
+01:05:37,960 --> 01:05:47,160
+Image like that open it okay then go to
+
+1100
+01:05:43,279 --> 01:05:53,359
+diet then check to see if there's a file
+
+1101
+01:05:47,160 --> 01:05:56,319
+name ending in hph s 250 250 means like
+
+1102
+01:05:53,359 --> 01:05:58,880
+the area I mean with
+
+1103
+01:05:56,319 --> 01:06:03,799
+so if there it is open that that that is
+
+1104
+01:05:58,880 --> 01:06:05,240
+a thumbnail you see so but it's tedious
+
+1105
+01:06:03,799 --> 01:06:08,640
+so
+
+1106
+01:06:05,240 --> 01:06:10,839
+um where is my file yeah so close that
+
+1107
+01:06:08,640 --> 01:06:14,039
+let's do it again what is
+
+1108
+01:06:10,839 --> 01:06:19,119
+this uh yeah open it go to the first
+
+1109
+01:06:14,039 --> 01:06:22,200
+image open it drop to diet find the 250
+
+1110
+01:06:19,119 --> 01:06:26,160
+image there it is copy the file path
+
+1111
+01:06:22,200 --> 01:06:31,799
+close close close now back here
+
+1112
+01:06:26,160 --> 01:06:34,920
+so here is a thumbnail then I need to
+
+1113
+01:06:31,799 --> 01:06:39,240
+create you know this this this
+
+1114
+01:06:34,920 --> 01:06:41,000
+thumbnailed link so extract the file
+
+1115
+01:06:39,240 --> 01:06:44,079
+path paste it
+
+1116
+01:06:41,000 --> 01:06:48,160
+here put them together then call this
+
+1117
+01:06:44,079 --> 01:06:53,640
+command there it is now showing
+
+1118
+01:06:48,160 --> 01:06:57,119
+browser you see there it is so the the
+
+1119
+01:06:53,640 --> 01:07:00,440
+the the big time wasting part is to find
+
+1120
+01:06:57,119 --> 01:07:03,559
+this thumbnail image file
+
+1121
+01:07:00,440 --> 01:07:06,079
+path but now with what we are doing
+
+1122
+01:07:03,559 --> 01:07:09,799
+today I don't have to do that anymore
+
+1123
+01:07:06,079 --> 01:07:12,760
+because the this file path will be right
+
+1124
+01:07:09,799 --> 01:07:16,599
+at the top you know somewhere here like
+
+1125
+01:07:12,760 --> 01:07:20,240
+like meta something path you know equals
+
+1126
+01:07:16,599 --> 01:07:23,520
+to so that is why
+
+1127
+01:07:20,240 --> 01:07:26,760
+uh what I'm doing
+
+1128
+01:07:23,520 --> 01:07:30,960
+today okay but I think that's it I mean
+
+1129
+01:07:26,760 --> 01:07:32,839
+we did um you know we did the bulk of
+
+1130
+01:07:30,960 --> 01:07:35,520
+you know the heart of what we need to do
+
+1131
+01:07:32,839 --> 01:07:37,599
+or we have to do is insert you know this
+
+1132
+01:07:35,520 --> 01:07:41,079
+insert you know I need to turn this
+
+1133
+01:07:37,599 --> 01:07:45,520
+image file path full path into
+
+1134
+01:07:41,079 --> 01:07:48,400
+the link which is a bit involved because
+
+1135
+01:07:45,520 --> 01:07:50,839
+you see I have more than one domain so
+
+1136
+01:07:48,400 --> 01:07:52,799
+you have to find out what that F you
+
+1137
+01:07:50,839 --> 01:07:56,119
+know you cannot just
+
+1138
+01:07:52,799 --> 01:07:58,000
+blindly add a domain name HTT GPS you
+
+1139
+01:07:56,119 --> 01:08:00,960
+cannot do that
+
+1140
+01:07:58,000 --> 01:08:03,160
+because for example on your website I
+
+1141
+01:08:00,960 --> 01:08:05,400
+don't know what's your domain you know
+
+1142
+01:08:03,160 --> 01:08:08,960
+so when you call this command you need
+
+1143
+01:08:05,400 --> 01:08:11,000
+to have a system that returns given file
+
+1144
+01:08:08,960 --> 01:08:14,240
+path Returns the domain name in other
+
+1145
+01:08:11,000 --> 01:08:18,640
+words turn the uh full file path into
+
+1146
+01:08:14,240 --> 01:08:21,000
+the URL full qualified URL and when you
+
+1147
+01:08:18,640 --> 01:08:23,640
+have more than one domain it gets more
+
+1148
+01:08:21,000 --> 01:08:25,839
+complicated you see I have I already
+
+1149
+01:08:23,640 --> 01:08:27,560
+have the code to do that but you know
+
+1150
+01:08:25,839 --> 01:08:31,600
+but it's
+
+1151
+01:08:27,560 --> 01:08:34,960
+not you know it's just my personal uh
+
+1152
+01:08:31,600 --> 01:08:36,920
+website you know code in it's inside
+
+1153
+01:08:34,960 --> 01:08:40,520
+HTML mod
+
+1154
+01:08:36,920 --> 01:08:40,520
+so I think that's
+
+1155
+01:08:45,359 --> 01:08:52,440
+it why don't you use Evo mod I suppose
+
+1156
+01:08:49,279 --> 01:08:54,440
+you haven't watched my videos at all
+
+1157
+01:08:52,440 --> 01:08:58,719
+silly very silly
+
+1158
+01:08:54,440 --> 01:09:01,600
+question I'm using Sly Keys okay that is
+
+1159
+01:08:58,719 --> 01:09:03,799
+my tra you know that's what my life is
+
+1160
+01:09:01,600 --> 01:09:07,960
+worth in other words so I've been
+
+1161
+01:09:03,799 --> 01:09:11,000
+working on this for 15 years CAF Keys uh
+
+1162
+01:09:07,960 --> 01:09:14,120
+right now it's 4,000 lines of code and
+
+1163
+01:09:11,000 --> 01:09:18,960
+CAF like is in almost every one of my
+
+1164
+01:09:14,120 --> 01:09:23,880
+video I introdu it this key binding
+
+1165
+01:09:18,960 --> 01:09:27,359
+system is much more efficient than Vim
+
+1166
+01:09:23,880 --> 01:09:27,359
+or the Evo mod
+
+1167
+01:09:27,759 --> 01:09:34,359
+okay s like keys so you are ask me why
+
+1168
+01:09:31,960 --> 01:09:38,000
+why why where
+
+1169
+01:09:34,359 --> 01:09:40,600
+are you don't why don't you use Evo mod
+
+1170
+01:09:38,000 --> 01:09:43,120
+okay but you can try you can try sof
+
+1171
+01:09:40,600 --> 01:09:43,120
+Keys
+
+1172
+01:09:51,319 --> 01:09:56,480
+okay that's right default emac key
+
+1173
+01:09:54,400 --> 01:10:00,640
+binding wheel up your
+
+1174
+01:09:56,480 --> 01:10:03,679
+fingers and that happened to me anyway
+
+1175
+01:10:00,640 --> 01:10:06,040
+so that's it for today I think any any
+
+1176
+01:10:03,679 --> 01:10:06,040
+more
+
+1177
+01:10:06,800 --> 01:10:12,480
+questions we otherwise we shut down in 2
+
+1178
+01:10:13,159 --> 01:10:19,600
+minutes
+
+1179
+01:10:15,880 --> 01:10:23,320
+uh close that okay if you like my stuff
+
+1180
+01:10:19,600 --> 01:10:27,000
+donate to me okay so you can buy my emac
+
+1181
+01:10:23,320 --> 01:10:29,719
+tutorial uh sof like key this is free
+
+1182
+01:10:27,000 --> 01:10:34,040
+you can you know on my website you can
+
+1183
+01:10:29,719 --> 01:10:37,280
+buy my emac tutorial like we did today
+
+1184
+01:10:34,040 --> 01:10:39,000
+we you know very useful documentation
+
+1185
+01:10:37,280 --> 01:10:41,920
+and also as a
+
+1186
+01:10:39,000 --> 01:10:45,280
+reference so you can have the whole
+
+1187
+01:10:41,920 --> 01:10:47,840
+thing about 600 Pages or
+
+1188
+01:10:45,280 --> 01:10:52,159
+something emac
+
+1189
+01:10:47,840 --> 01:10:54,239
+so 900 okay actually 900 in this
+
+1190
+01:10:52,159 --> 01:10:57,880
+directory and
+
+1191
+01:10:54,239 --> 01:10:59,400
+uh and plus 200 files here so together
+
+1192
+01:10:57,880 --> 01:11:02,920
+is like over
+
+1193
+01:10:59,400 --> 01:11:06,320
+1,000 files on
+
+1194
+01:11:02,920 --> 01:11:09,640
+emac tutorial key binding and reference
+
+1195
+01:11:06,320 --> 01:11:12,719
+is emac this okay so if you like my
+
+1196
+01:11:09,640 --> 01:11:15,719
+stuff support me give me money okay
+
+1197
+01:11:12,719 --> 01:11:18,920
+that's the most important uh and now
+
+1198
+01:11:15,719 --> 01:11:20,920
+let's wrap up this code so people know
+
+1199
+01:11:18,920 --> 01:11:22,239
+what is going on search for what let's
+
+1200
+01:11:20,920 --> 01:11:25,960
+just
+
+1201
+01:11:22,239 --> 01:11:29,640
+say uh
+
+1202
+01:11:25,960 --> 01:11:32,440
+let's just wrap this up as a kind of you
+
+1203
+01:11:29,640 --> 01:11:34,760
+know so people when people look at this
+
+1204
+01:11:32,440 --> 01:11:38,560
+file even though it's not complete but
+
+1205
+01:11:34,760 --> 01:11:42,199
+it's semantically complete and
+
+1206
+01:11:38,560 --> 01:11:44,239
+syntactically valid and if you know when
+
+1207
+01:11:42,199 --> 01:11:46,600
+they look at this they they will be able
+
+1208
+01:11:44,239 --> 01:11:49,280
+to know what to do so right now this
+
+1209
+01:11:46,600 --> 01:11:51,520
+code is just insert the you know the
+
+1210
+01:11:49,280 --> 01:11:54,080
+file path into the
+
+1211
+01:11:51,520 --> 01:11:56,920
+header I don't want to do it now because
+
+1212
+01:11:54,080 --> 01:11:59,560
+if I run this is it's going to change
+
+1213
+01:11:56,920 --> 01:12:03,120
+you know 1,000s all the thousands of my
+
+1214
+01:11:59,560 --> 01:12:05,280
+file so it's you know so in order to do
+
+1215
+01:12:03,120 --> 01:12:09,199
+this I need to be sure they work you
+
+1216
+01:12:05,280 --> 01:12:13,320
+know I have to create test files and so
+
+1217
+01:12:09,199 --> 01:12:14,840
+on but anyway so here's today's code put
+
+1218
+01:12:13,320 --> 01:12:18,239
+it back in
+
+1219
+01:12:14,840 --> 01:12:20,280
+HTML syntax color it you can see the
+
+1220
+01:12:18,239 --> 01:12:22,159
+command names are here on the pink
+
+1221
+01:12:20,280 --> 01:12:26,440
+window saw
+
+1222
+01:12:22,159 --> 01:12:30,440
+HTML precode and showing browser there
+
+1223
+01:12:26,440 --> 01:12:33,239
+it is we fantastic we complete the job
+
+1224
+01:12:30,440 --> 01:12:36,199
+with ample anot annotations and
+
+1225
+01:12:33,239 --> 01:12:38,600
+explanations CH Ching thank you Chris
+
+1226
+01:12:36,199 --> 01:12:38,600
+thank you
+
+1227
+01:12:40,199 --> 01:12:48,239
+Chris when will you in your old age play
+
+1228
+01:12:43,719 --> 01:12:51,679
+with the with another text at Acme Acme
+
+1229
+01:12:48,239 --> 01:12:55,239
+uh not likely I'm too old okay you young
+
+1230
+01:12:51,679 --> 01:12:57,440
+guys you can go explore Acme I you know
+
+1231
+01:12:55,239 --> 01:12:59,400
+I got better I got I need to study math
+
+1232
+01:12:57,440 --> 01:13:01,199
+and proof Theory you know I've been
+
+1233
+01:12:59,400 --> 01:13:04,320
+doing coding wolam
+
+1234
+01:13:01,199 --> 01:13:07,120
+language em this almost every day but
+
+1235
+01:13:04,320 --> 01:13:10,679
+you know the the proof Theory that's
+
+1236
+01:13:07,120 --> 01:13:12,800
+something I really need to get back into
+
+1237
+01:13:10,679 --> 01:13:14,960
+and differential geometry the you know
+
+1238
+01:13:12,800 --> 01:13:17,080
+the real mathematics not just you know
+
+1239
+01:13:14,960 --> 01:13:20,760
+writing some animation of calculus you
+
+1240
+01:13:17,080 --> 01:13:23,840
+know PL curves but it's a sad thing you
+
+1241
+01:13:20,760 --> 01:13:27,120
+know when I do math uh less people
+
+1242
+01:13:23,840 --> 01:13:27,120
+watching anyway
+
+1243
+01:13:27,440 --> 01:13:34,679
+anyway okay that's it bye guys let's see
+
+1244
+01:13:30,639 --> 01:13:39,800
+let me Clan up okay that's it we shut
+
+1245
+01:13:34,679 --> 01:13:41,000
+down so emx block close what else close
+
+1246
+01:13:39,800 --> 01:13:45,000
+uh that's
+
+1247
+01:13:41,000 --> 01:13:45,000
+it bye
+

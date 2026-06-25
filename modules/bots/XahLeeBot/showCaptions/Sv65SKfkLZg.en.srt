@@ -1,0 +1,3044 @@
+1
+00:00:00,800 --> 00:00:07,359
+Hello. Hello. I'm alive. Uh hello guys.
+
+2
+00:00:04,480 --> 00:00:11,759
+Welcome to another episode of Sound Talk
+
+3
+00:00:07,359 --> 00:00:14,559
+Show. We are going to do uh install
+
+4
+00:00:11,759 --> 00:00:19,520
+uh spell checker for Emacs running on
+
+5
+00:00:14,559 --> 00:00:23,279
+Windows. Um so, yep, that's so this is
+
+6
+00:00:19,520 --> 00:00:27,039
+for you guys who are using Emacs for you
+
+7
+00:00:23,279 --> 00:00:30,400
+guys extreme Emacs nerds. Okay. So,
+
+8
+00:00:27,039 --> 00:00:34,079
+Emacs is a great powerful text editor
+
+9
+00:00:30,400 --> 00:00:38,879
+for mostly for programmers but also good
+
+10
+00:00:34,079 --> 00:00:42,079
+for writers or anyone who wants to, you
+
+11
+00:00:38,879 --> 00:00:44,239
+know, manipulate text a lot.
+
+12
+00:00:42,079 --> 00:00:47,039
+So, okay, spell checking. So, this is
+
+13
+00:00:44,239 --> 00:00:50,320
+continuation from last talk show. So, we
+
+14
+00:00:47,039 --> 00:00:53,600
+did the last talk show. So, uh, two days
+
+15
+00:00:50,320 --> 00:00:57,480
+ago, three, uh, maybe a week ago,
+
+16
+00:00:53,600 --> 00:00:57,480
+episode 670,
+
+17
+00:00:57,920 --> 00:01:04,159
+make spellch checking in Emacs,
+
+18
+00:01:00,960 --> 00:01:08,240
+Microsoft Windows Great again. So, okay.
+
+19
+00:01:04,159 --> 00:01:10,479
+So, let's open the previous um, because
+
+20
+00:01:08,240 --> 00:01:14,400
+I need to So, let's open the previous
+
+21
+00:01:10,479 --> 00:01:16,560
+one. I need to check I need to get so
+
+22
+00:01:14,400 --> 00:01:19,200
+first of all so some of the tips for
+
+23
+00:01:16,560 --> 00:01:22,400
+spell checking
+
+24
+00:01:19,200 --> 00:01:24,159
+okay and some of the commands okay so so
+
+25
+00:01:22,400 --> 00:01:27,280
+what we going to do so we going to
+
+26
+00:01:24,159 --> 00:01:30,080
+install hunp spell okay so hunp spell do
+
+27
+00:01:27,280 --> 00:01:32,479
+I have it installed no I don't think so
+
+28
+00:01:30,080 --> 00:01:37,479
+let's turn on powershell
+
+29
+00:01:32,479 --> 00:01:37,479
+control scroll to make it large
+
+30
+00:01:38,400 --> 00:01:47,920
+okay and uh let's see gc CM Hunpel
+
+31
+00:01:42,880 --> 00:01:52,079
+Hunpel GCM means get command like which
+
+32
+00:01:47,920 --> 00:01:56,960
+is analogous to Unix which
+
+33
+00:01:52,079 --> 00:02:00,880
+uh yeah so is not installed but a spell
+
+34
+00:01:56,960 --> 00:02:04,320
+is but however my spell is old version
+
+35
+00:02:00,880 --> 00:02:08,000
+so where is it user being a spell okay
+
+36
+00:02:04,320 --> 00:02:11,200
+so we need to install hbell so hpel last
+
+37
+00:02:08,000 --> 00:02:14,720
+time we know if you are here Say hi if
+
+38
+00:02:11,200 --> 00:02:16,480
+you are watching uh
+
+39
+00:02:14,720 --> 00:02:19,040
+you know live. Say hi if you are
+
+40
+00:02:16,480 --> 00:02:23,200
+watching offline. Play at 1.5 speed
+
+41
+00:02:19,040 --> 00:02:26,560
+because I ramble. Hello Tamit. Meow.
+
+42
+00:02:23,200 --> 00:02:29,680
+Hello. Oh dude. Once you started you'll
+
+43
+00:02:26,560 --> 00:02:33,360
+never leave it. You'll never get a life
+
+44
+00:02:29,680 --> 00:02:36,720
+in human life. You mean Emacs? Yes.
+
+45
+00:02:33,360 --> 00:02:40,319
+Emacs is a dark hole.
+
+46
+00:02:36,720 --> 00:02:42,400
+uh I've been using since 1997
+
+47
+00:02:40,319 --> 00:02:46,480
+98
+
+48
+00:02:42,400 --> 00:02:48,239
+about 1999 I live in Emacs. Okay. So get
+
+49
+00:02:46,480 --> 00:02:50,239
+spell checking we're going to complete
+
+50
+00:02:48,239 --> 00:02:52,239
+this today. So on Windows it's not
+
+51
+00:02:50,239 --> 00:02:54,959
+installed. So if you are not sure, you
+
+52
+00:02:52,239 --> 00:02:57,920
+know, check out my previous video few
+
+53
+00:02:54,959 --> 00:02:59,440
+days ago. I talked about especially in
+
+54
+00:02:57,920 --> 00:03:03,760
+the beginning I talked about Richard
+
+55
+00:02:59,440 --> 00:03:05,920
+Stoman uh his abuse of the word free and
+
+56
+00:03:03,760 --> 00:03:10,159
+freedom from the free software
+
+57
+00:03:05,920 --> 00:03:12,239
+foundation and that explains why Emacs
+
+58
+00:03:10,159 --> 00:03:14,879
+on Windows for the Windows version of
+
+59
+00:03:12,239 --> 00:03:17,760
+Emacs spellchecking doesn't work. You
+
+60
+00:03:14,879 --> 00:03:20,080
+have to like ditto to get it to work. So
+
+61
+00:03:17,760 --> 00:03:24,080
+that's what we are going to do to ditto
+
+62
+00:03:20,080 --> 00:03:27,200
+something. So um so let's get that done.
+
+63
+00:03:24,080 --> 00:03:29,120
+Okay. So so this guy
+
+64
+00:03:27,200 --> 00:03:32,080
+uh very helpful. He's on Twitter. He
+
+65
+00:03:29,120 --> 00:03:34,799
+showed me he wrote a blog about how to
+
+66
+00:03:32,080 --> 00:03:38,159
+get it to work. So you can check out his
+
+67
+00:03:34,799 --> 00:03:40,080
+blog. I I haven't watched the video. But
+
+68
+00:03:38,159 --> 00:03:43,200
+let's just follow whatever he says.
+
+69
+00:03:40,080 --> 00:03:46,319
+Okay. Uh spell download. Okay. So you
+
+70
+00:03:43,200 --> 00:03:50,560
+got you got this page. Let's click. You
+
+71
+00:03:46,319 --> 00:03:52,080
+gota download hunbell easy ports. Okay.
+
+72
+00:03:50,560 --> 00:03:55,519
+Hunbell.
+
+73
+00:03:52,080 --> 00:03:58,959
+What the [ __ ] I understand you know the
+
+74
+00:03:55,519 --> 00:04:01,760
+source forge is is not very good
+
+75
+00:03:58,959 --> 00:04:04,720
+websites. Source forge is one of the
+
+76
+00:04:01,760 --> 00:04:06,400
+oldest opensource
+
+77
+00:04:04,720 --> 00:04:09,120
+software
+
+78
+00:04:06,400 --> 00:04:11,280
+repository. Okay. What? Like the oldest
+
+79
+00:04:09,120 --> 00:04:13,760
+since 1999
+
+80
+00:04:11,280 --> 00:04:17,440
+even something. Okay.
+
+81
+00:04:13,760 --> 00:04:21,519
+But but over the so so in 1999 or let's
+
+82
+00:04:17,440 --> 00:04:24,720
+say year 2000s there's no git yet git is
+
+83
+00:04:21,519 --> 00:04:26,800
+created sometimes around 2006
+
+84
+00:04:24,720 --> 00:04:29,919
+then there are several others eventually
+
+85
+00:04:26,800 --> 00:04:33,919
+git one then github was created
+
+86
+00:04:29,919 --> 00:04:37,280
+sometimes in 2008 or something wait 20
+
+87
+00:04:33,919 --> 00:04:40,320
+was it 2008 or something
+
+88
+00:04:37,280 --> 00:04:43,440
+uh no or maybe Jesus I don't even
+
+89
+00:04:40,320 --> 00:04:45,360
+remember now anyway so So, Source Forge
+
+90
+00:04:43,440 --> 00:04:48,400
+was the earliest since like the year
+
+91
+00:04:45,360 --> 00:04:53,360
+2000s. Uh, and there's another one
+
+92
+00:04:48,400 --> 00:04:56,400
+called Fresh Meat, you know, very very
+
+93
+00:04:53,360 --> 00:04:58,720
+juvenile name because they love these
+
+94
+00:04:56,400 --> 00:05:01,600
+kind of names because juvenile because
+
+95
+00:04:58,720 --> 00:05:05,440
+that's a Unix culture which became
+
+96
+00:05:01,600 --> 00:05:08,080
+Linux, you know, fresh meat. Do you guys
+
+97
+00:05:05,440 --> 00:05:10,080
+know fresh meat?
+
+98
+00:05:08,080 --> 00:05:14,880
+I'm not even sure the website is
+
+99
+00:05:10,080 --> 00:05:18,400
+available now. But um but you know fresh
+
+100
+00:05:14,880 --> 00:05:22,240
+meat was the earliest earliest
+
+101
+00:05:18,400 --> 00:05:24,880
+um let's see ripple
+
+102
+00:05:22,240 --> 00:05:28,520
+free code. Oh they renamed it to free
+
+103
+00:05:24,880 --> 00:05:28,520
+code I guess.
+
+104
+00:05:28,960 --> 00:05:36,800
+Fresh meat net 1997 to 2014. Yeah, they
+
+105
+00:05:33,440 --> 00:05:39,280
+shut down because Anyway, so let's so
+
+106
+00:05:36,800 --> 00:05:43,199
+let's let's not digress. Let's get the
+
+107
+00:05:39,280 --> 00:05:46,639
+So So we need to install Huntsbell. So
+
+108
+00:05:43,199 --> 00:05:48,160
+where is it? Okay. Hunsbell
+
+109
+00:05:46,639 --> 00:05:51,520
+um
+
+110
+00:05:48,160 --> 00:05:55,360
+C project
+
+111
+00:05:51,520 --> 00:05:57,360
+uh why is this website? Okay. So so let
+
+112
+00:05:55,360 --> 00:06:01,360
+hold on a second. So let's get unspel.
+
+113
+00:05:57,360 --> 00:06:04,240
+Okay. So I want to go to the previous
+
+114
+00:06:01,360 --> 00:06:06,319
+previous talk show. There's a link to
+
+115
+00:06:04,240 --> 00:06:10,319
+Hunpel.
+
+116
+00:06:06,319 --> 00:06:14,440
+Uh yeah. So there.
+
+117
+00:06:10,319 --> 00:06:14,440
+So HP spell.
+
+118
+00:06:21,440 --> 00:06:27,520
+So I'm just going to go slowly and
+
+119
+00:06:24,240 --> 00:06:30,720
+randomish. Okay. So this video is not
+
+120
+00:06:27,520 --> 00:06:33,600
+worth your time.
+
+121
+00:06:30,720 --> 00:06:37,120
+Uh what the [ __ ] What? How are they
+
+122
+00:06:33,600 --> 00:06:39,440
+arranged? They are not alphabetical. So
+
+123
+00:06:37,120 --> 00:06:41,360
+Jesus.
+
+124
+00:06:39,440 --> 00:06:44,319
+Uh
+
+125
+00:06:41,360 --> 00:06:48,319
+you know this this website is from
+
+126
+00:06:44,319 --> 00:06:53,600
+Ellie's you know Ellie Zeski.
+
+127
+00:06:48,319 --> 00:06:58,000
+He is one of the most senior old Emacs
+
+128
+00:06:53,600 --> 00:07:01,360
+Bast Emacs dev for for maybe 20 years or
+
+129
+00:06:58,000 --> 00:07:06,080
+more and he is actually his focus is on
+
+130
+00:07:01,360 --> 00:07:10,639
+Windows platform. So almost everything
+
+131
+00:07:06,080 --> 00:07:13,759
+of Windows Emacs is made by him, but
+
+132
+00:07:10,639 --> 00:07:16,639
+also he's a very cocky guy, you know,
+
+133
+00:07:13,759 --> 00:07:20,479
+he's like he, you know, he's very cocky.
+
+134
+00:07:16,639 --> 00:07:23,280
+Um, and kind of like a [ __ ] So a lot
+
+135
+00:07:20,479 --> 00:07:25,759
+of people have problem with him,
+
+136
+00:07:23,280 --> 00:07:28,960
+including me, you know, like every time
+
+137
+00:07:25,759 --> 00:07:33,039
+I I say something, he's gonna uh kind of
+
+138
+00:07:28,960 --> 00:07:37,360
+silly. Anyway, so Hunbell
+
+139
+00:07:33,039 --> 00:07:39,280
+Okay, there is hunbell. Let's uh so 1.3
+
+140
+00:07:37,360 --> 00:07:43,919
+132
+
+141
+00:07:39,280 --> 00:07:49,919
+132 uh so this is being so let's get
+
+142
+00:07:43,919 --> 00:07:51,840
+that okay so this is what from 2014
+
+143
+00:07:49,919 --> 00:07:53,840
+Jesus
+
+144
+00:07:51,840 --> 00:07:56,080
+uh
+
+145
+00:07:53,840 --> 00:07:58,080
+you know open source things are always
+
+146
+00:07:56,080 --> 00:08:03,280
+like
+
+147
+00:07:58,080 --> 00:08:05,680
+long outdated okay so there is hell
+
+148
+00:08:03,280 --> 00:08:07,599
+you know this is How I do things? I do
+
+149
+00:08:05,680 --> 00:08:09,840
+things slowly.
+
+150
+00:08:07,599 --> 00:08:12,879
+Now this, you know, this [ __ ]
+
+151
+00:08:09,840 --> 00:08:14,319
+idiotic. Oh, I already downloaded. You
+
+152
+00:08:12,879 --> 00:08:17,520
+just click. Okay. So, I already
+
+153
+00:08:14,319 --> 00:08:21,680
+downloaded. It's in download folder.
+
+154
+00:08:17,520 --> 00:08:24,639
+Okay. Go to download folder. Hell. So,
+
+155
+00:08:21,680 --> 00:08:27,520
+there's a duplicate dat. Okay. So, open
+
+156
+00:08:24,639 --> 00:08:30,000
+this. So, you got what? You got all
+
+157
+00:08:27,520 --> 00:08:32,880
+these directories. So
+
+158
+00:08:30,000 --> 00:08:36,080
+I have read this there's long kind of
+
+159
+00:08:32,880 --> 00:08:39,279
+documentation that you should put this
+
+160
+00:08:36,080 --> 00:08:41,360
+in uh all these programs should be in
+
+161
+00:08:39,279 --> 00:08:46,560
+the same directory whatever this you
+
+162
+00:08:41,360 --> 00:08:50,399
+download. Okay. So let's go to D drive.
+
+163
+00:08:46,560 --> 00:08:53,760
+Uh D drive bing.
+
+164
+00:08:50,399 --> 00:08:56,640
+I already created this. Uh oh, I already
+
+165
+00:08:53,760 --> 00:09:00,959
+downloaded. So this is So let's split
+
+166
+00:08:56,640 --> 00:09:03,279
+split. Let's see. HP spell 1323.
+
+167
+00:09:00,959 --> 00:09:05,519
+HP spell. Okay. So it's already there.
+
+168
+00:09:03,279 --> 00:09:08,880
+Open that. Delete that. Okay. Now we
+
+169
+00:09:05,519 --> 00:09:11,120
+don't need that that. So keep this. So I
+
+170
+00:09:08,880 --> 00:09:13,839
+already
+
+171
+00:09:11,120 --> 00:09:17,440
+did I already expand? Yes, I already
+
+172
+00:09:13,839 --> 00:09:20,240
+expanded. Okay, so HP spell is actually
+
+173
+00:09:17,440 --> 00:09:21,760
+installed.
+
+174
+00:09:20,240 --> 00:09:27,920
+Okay,
+
+175
+00:09:21,760 --> 00:09:30,880
+so copy the file path. Now go to the uh
+
+176
+00:09:27,920 --> 00:09:34,720
+PowerShell but the path is not there. So
+
+177
+00:09:30,880 --> 00:09:38,680
+you need to get the path. So,
+
+178
+00:09:34,720 --> 00:09:38,680
+so that means you
+
+179
+00:09:39,200 --> 00:09:47,200
+you you know you go to uh system
+
+180
+00:09:43,600 --> 00:09:49,040
+system. So, let's uh
+
+181
+00:09:47,200 --> 00:09:51,680
+you know, I want to go to click on the
+
+182
+00:09:49,040 --> 00:09:55,440
+system. Uh let me show you. So, click on
+
+183
+00:09:51,680 --> 00:09:57,760
+the system and go to the um environment
+
+184
+00:09:55,440 --> 00:09:59,279
+environment variables. Okay. But I don't
+
+185
+00:09:57,760 --> 00:10:01,360
+want to click there because I click
+
+186
+00:09:59,279 --> 00:10:04,959
+there it's going to show you show my
+
+187
+00:10:01,360 --> 00:10:08,640
+serial number for Windows whatever maybe
+
+188
+00:10:04,959 --> 00:10:13,200
+personal. So so is there any way to open
+
+189
+00:10:08,640 --> 00:10:15,920
+the environ environment variables
+
+190
+00:10:13,200 --> 00:10:19,440
+uh panel directly? Yes, I think so.
+
+191
+00:10:15,920 --> 00:10:21,440
+Okay. So let's show some tricks of
+
+192
+00:10:19,440 --> 00:10:24,160
+Windows
+
+193
+00:10:21,440 --> 00:10:27,040
+uh actually. So we can just open a
+
+194
+00:10:24,160 --> 00:10:28,959
+windows
+
+195
+00:10:27,040 --> 00:10:33,839
+folder viewer. This is called
+
+196
+00:10:28,959 --> 00:10:36,000
+technically file explorer and just type
+
+197
+00:10:33,839 --> 00:10:38,640
+environment
+
+198
+00:10:36,000 --> 00:10:43,279
+variable. Okay.
+
+199
+00:10:38,640 --> 00:10:45,920
+Does it work? No. [ __ ] idiots.
+
+200
+00:10:43,279 --> 00:10:47,279
+God, this this you know the windows
+
+201
+00:10:45,920 --> 00:10:52,079
+[ __ ] Windows, you know, they they
+
+202
+00:10:47,279 --> 00:10:55,279
+they go to the browser. Idi idiots.
+
+203
+00:10:52,079 --> 00:10:59,120
+Okay, so close settings. So I want Okay.
+
+204
+00:10:55,279 --> 00:11:02,079
+So let's do search setting actually.
+
+205
+00:10:59,120 --> 00:11:04,240
+Yeah. There. Edit the system environment
+
+206
+00:11:02,079 --> 00:11:06,480
+variables. Edit environment variables
+
+207
+00:11:04,240 --> 00:11:10,000
+for your account. So that one. Yeah,
+
+208
+00:11:06,480 --> 00:11:12,320
+that's what we want. So we got our
+
+209
+00:11:10,000 --> 00:11:16,399
+environment variables and what we want
+
+210
+00:11:12,320 --> 00:11:19,360
+to set is the path.
+
+211
+00:11:16,399 --> 00:11:22,000
+Okay. So this is like you know technical
+
+212
+00:11:19,360 --> 00:11:24,800
+and esoteric. You see environment
+
+213
+00:11:22,000 --> 00:11:28,320
+variables is global variable for
+
+214
+00:11:24,800 --> 00:11:31,519
+systemwide and you have that in Unix,
+
+215
+00:11:28,320 --> 00:11:34,000
+Linux and you also have that on Windows.
+
+216
+00:11:31,519 --> 00:11:36,640
+You also have that on the Mac of course
+
+217
+00:11:34,000 --> 00:11:39,680
+but however the Unix environment
+
+218
+00:11:36,640 --> 00:11:41,680
+variables in Unix and Windows are quite
+
+219
+00:11:39,680 --> 00:11:43,920
+different. Okay, they are not not the
+
+220
+00:11:41,680 --> 00:11:47,760
+same. They have different conventions.
+
+221
+00:11:43,920 --> 00:11:51,440
+they have different and but when so inv
+
+222
+00:11:47,760 --> 00:11:56,079
+environment variables in Unix and Linux
+
+223
+00:11:51,440 --> 00:11:58,640
+they are set up by your shell
+
+224
+00:11:56,079 --> 00:12:02,959
+uh you know I'm I'm kind of digressing
+
+225
+00:11:58,640 --> 00:12:04,800
+but um uh
+
+226
+00:12:02,959 --> 00:12:07,839
+actually I don't you know I'm on Windows
+
+227
+00:12:04,800 --> 00:12:12,000
+so I don't have bash so actually do I
+
+228
+00:12:07,839 --> 00:12:15,040
+have bash yeah bash history uh you know
+
+229
+00:12:12,000 --> 00:12:18,560
+you have dot bash or dot profile or dash
+
+230
+00:12:15,040 --> 00:12:21,760
+bash profile things like that. Okay, so
+
+231
+00:12:18,560 --> 00:12:24,079
+let's go to uh
+
+232
+00:12:21,760 --> 00:12:28,320
+I'm digressing all over. Okay, so you
+
+233
+00:12:24,079 --> 00:12:30,800
+you can check out my Linux tutorial.
+
+234
+00:12:28,320 --> 00:12:35,440
+Search for environment. Okay, I don't
+
+235
+00:12:30,800 --> 00:12:38,440
+have a so you know go to um search
+
+236
+00:12:35,440 --> 00:12:38,440
+environment.
+
+237
+00:12:39,040 --> 00:12:44,560
+So I got like tens of tutorials on
+
+238
+00:12:41,839 --> 00:12:46,240
+environment variables on in Wuam
+
+239
+00:12:44,560 --> 00:12:49,360
+language. How how do you set up
+
+240
+00:12:46,240 --> 00:12:52,240
+environment variable from within wam
+
+241
+00:12:49,360 --> 00:12:54,800
+language get their values and stuff and
+
+242
+00:12:52,240 --> 00:12:57,279
+why the environment variable system is
+
+243
+00:12:54,800 --> 00:13:00,279
+bad. Why? Because it's a global
+
+244
+00:12:57,279 --> 00:13:00,279
+variable.
+
+245
+00:13:00,880 --> 00:13:07,279
+This is old block from 2015.
+
+246
+00:13:04,240 --> 00:13:11,920
+2015 is a year when you have this p
+
+247
+00:13:07,279 --> 00:13:15,040
+panorama technology panorama uh videos.
+
+248
+00:13:11,920 --> 00:13:18,720
+So what is this? Uh okay that's a old
+
+249
+00:13:15,040 --> 00:13:20,959
+blog. So what are we doing?
+
+250
+00:13:18,720 --> 00:13:23,279
+Yeah why the environment variable system
+
+251
+00:13:20,959 --> 00:13:25,920
+is bad because it's just a global
+
+252
+00:13:23,279 --> 00:13:27,839
+variable. So avoid it as much as
+
+253
+00:13:25,920 --> 00:13:29,200
+possible. But the Unix people they don't
+
+254
+00:13:27,839 --> 00:13:31,519
+know. They don't know [ __ ] and the
+
+255
+00:13:29,200 --> 00:13:33,440
+Linux people, you know, every program
+
+256
+00:13:31,519 --> 00:13:36,000
+tells you, oh, you need to set up this
+
+257
+00:13:33,440 --> 00:13:40,320
+environment they wrote and stuff.
+
+258
+00:13:36,000 --> 00:13:44,079
+Extreme idiocy for like 40 years. It
+
+259
+00:13:40,320 --> 00:13:47,680
+began by the Unix idiots in 1970s.
+
+260
+00:13:44,079 --> 00:13:49,839
+Okay, the Unix and C idiots.
+
+261
+00:13:47,680 --> 00:13:52,320
+Anyway, so the main difference between
+
+262
+00:13:49,839 --> 00:13:54,639
+Windows environment variables and the
+
+263
+00:13:52,320 --> 00:13:57,279
+Unix ones is that on Windows, the
+
+264
+00:13:54,639 --> 00:13:59,760
+permanent ones are stored in Windows
+
+265
+00:13:57,279 --> 00:14:03,920
+registry. Okay, that's another huge
+
+266
+00:13:59,760 --> 00:14:07,760
+topic. But anyway, so
+
+267
+00:14:03,920 --> 00:14:10,320
+so let's see Windows and you can control
+
+268
+00:14:07,760 --> 00:14:12,720
+Windows environment variables from
+
+269
+00:14:10,320 --> 00:14:16,079
+PowerShell. So for example, this is a
+
+270
+00:14:12,720 --> 00:14:17,920
+tutorial uh that tells you all you need
+
+271
+00:14:16,079 --> 00:14:20,399
+to know about environment variables.
+
+272
+00:14:17,920 --> 00:14:23,519
+Okay, and you can start the environment
+
+273
+00:14:20,399 --> 00:14:28,360
+variable by just running this program
+
+274
+00:14:23,519 --> 00:14:28,360
+like Windows R.
+
+275
+00:14:28,720 --> 00:14:34,000
+uh and you can and and type this system
+
+276
+00:14:31,839 --> 00:14:35,839
+properties advanced you know and this is
+
+277
+00:14:34,000 --> 00:14:38,480
+a full path you can start it in
+
+278
+00:14:35,839 --> 00:14:41,440
+powershell and so on
+
+279
+00:14:38,480 --> 00:14:44,399
+so anyway so you got a full tutorial
+
+280
+00:14:41,440 --> 00:14:48,120
+then you can set it up using powershell
+
+281
+00:14:44,399 --> 00:14:48,120
+so you don't need
+
+282
+00:14:48,959 --> 00:14:54,720
+you know so you don't need to use this
+
+283
+00:14:52,320 --> 00:14:58,160
+um
+
+284
+00:14:54,720 --> 00:15:01,199
+close that wait where is my environment
+
+285
+00:14:58,160 --> 00:15:02,880
+variable windows it went somewhere
+
+286
+00:15:01,199 --> 00:15:05,279
+but but you can you can do it directly
+
+287
+00:15:02,880 --> 00:15:08,760
+in powershell so all these are tutorials
+
+288
+00:15:05,279 --> 00:15:08,760
+but um
+
+289
+00:15:09,199 --> 00:15:16,199
+but
+
+290
+00:15:11,199 --> 00:15:16,199
+but let's let's use um
+
+291
+00:15:16,639 --> 00:15:20,360
+let's use this
+
+292
+00:15:20,560 --> 00:15:25,440
+if I close that does that disappear no
+
+293
+00:15:26,720 --> 00:15:34,880
+But you see another annoying thing about
+
+294
+00:15:29,440 --> 00:15:38,399
+Windows is that this panel
+
+295
+00:15:34,880 --> 00:15:41,360
+does not have a corresponding icon.
+
+296
+00:15:38,399 --> 00:15:45,279
+The [ __ ] stupid Windows
+
+297
+00:15:41,360 --> 00:15:47,440
+Windows is idiotic all the way. So this
+
+298
+00:15:45,279 --> 00:15:50,720
+this window for environment variable,
+
+299
+00:15:47,440 --> 00:15:52,880
+they don't have a corresponding icon on
+
+300
+00:15:50,720 --> 00:15:54,959
+the taskbar.
+
+301
+00:15:52,880 --> 00:15:58,320
+So anyway, lots of digression. So let's
+
+302
+00:15:54,959 --> 00:16:01,839
+go back. So what is this? Uh uh Linux by
+
+303
+00:15:58,320 --> 00:16:04,160
+command line. Close it. What is this? Uh
+
+304
+00:16:01,839 --> 00:16:06,959
+Windows tips. Yeah, environment variable
+
+305
+00:16:04,160 --> 00:16:11,519
+tutorial. Anyway, let's just go set it.
+
+306
+00:16:06,959 --> 00:16:15,839
+So So you need to set the path. Okay. So
+
+307
+00:16:11,519 --> 00:16:19,759
+that is the one uh user variable. Yes.
+
+308
+00:16:15,839 --> 00:16:22,079
+Edit. Okay. So he and you see the
+
+309
+00:16:19,759 --> 00:16:25,600
+windows are tiny.
+
+310
+00:16:22,079 --> 00:16:28,079
+Even if you increase font systemwide,
+
+311
+00:16:25,600 --> 00:16:31,440
+the wind the the fonts here are still
+
+312
+00:16:28,079 --> 00:16:34,160
+tiny. There's no way no it's not
+
+313
+00:16:31,440 --> 00:16:37,360
+possible to enlarge it. You know that's
+
+314
+00:16:34,160 --> 00:16:40,000
+one of the extreme idiocy of Windows.
+
+315
+00:16:37,360 --> 00:16:46,240
+You know the Windows idiots they say oh
+
+316
+00:16:40,000 --> 00:16:48,800
+Windows 11 shiny did they fix this? No.
+
+317
+00:16:46,240 --> 00:16:51,120
+This is the actually critical because
+
+318
+00:16:48,800 --> 00:16:53,680
+for older people or for you know screen
+
+319
+00:16:51,120 --> 00:16:55,759
+size differs a lot. So sometimes you
+
+320
+00:16:53,680 --> 00:16:58,560
+have too small a font. You cannot read
+
+321
+00:16:55,759 --> 00:17:00,480
+it. You know this this font is too small
+
+322
+00:16:58,560 --> 00:17:02,560
+for me to read and right now I'm doing a
+
+323
+00:17:00,480 --> 00:17:05,600
+YouTube so I need larger font so you
+
+324
+00:17:02,560 --> 00:17:07,919
+guys can see but this it is not possible
+
+325
+00:17:05,600 --> 00:17:11,600
+to actually make make it larger. Well,
+
+326
+00:17:07,919 --> 00:17:14,720
+you can you can do something like um you
+
+327
+00:17:11,600 --> 00:17:17,439
+know something like you know like like
+
+328
+00:17:14,720 --> 00:17:21,679
+this kind of [ __ ] you know this you know
+
+329
+00:17:17,439 --> 00:17:25,280
+for for disabled you know who who's got
+
+330
+00:17:21,679 --> 00:17:28,079
+eyesight problems
+
+331
+00:17:25,280 --> 00:17:32,480
+but this is uncanny
+
+332
+00:17:28,079 --> 00:17:34,960
+stupid. So that's Windows and we stuck
+
+333
+00:17:32,480 --> 00:17:36,640
+with that because now how do you get rid
+
+334
+00:17:34,960 --> 00:17:38,320
+of this
+
+335
+00:17:36,640 --> 00:17:42,600
+uh
+
+336
+00:17:38,320 --> 00:17:42,600
+magnifier. Close that.
+
+337
+00:17:42,640 --> 00:17:47,760
+Anyway, so here is environment
+
+338
+00:17:44,640 --> 00:17:52,559
+variables. I want to edit the path. So
+
+339
+00:17:47,760 --> 00:17:55,440
+there and uh I want need to add the
+
+340
+00:17:52,559 --> 00:17:59,600
+unspel path there. Okay. So what is
+
+341
+00:17:55,440 --> 00:18:03,520
+this? Uh close. What is this wordy blog?
+
+342
+00:17:59,600 --> 00:18:07,200
+That's English. Okay. Unspel. So copy
+
+343
+00:18:03,520 --> 00:18:09,679
+the file path. Open it. paste it there
+
+344
+00:18:07,200 --> 00:18:13,600
+and uh
+
+345
+00:18:09,679 --> 00:18:16,480
+back slash to
+
+346
+00:18:13,600 --> 00:18:19,480
+uh wait that's slash so I need slash to
+
+347
+00:18:16,480 --> 00:18:19,480
+backslash
+
+348
+00:18:21,840 --> 00:18:28,400
+okay then you want to okay so then copy
+
+349
+00:18:26,799 --> 00:18:34,080
+that
+
+350
+00:18:28,400 --> 00:18:37,320
+actually so you want just that so the
+
+351
+00:18:34,080 --> 00:18:37,320
+path path.
+
+352
+00:18:39,919 --> 00:18:46,960
+Okay. So, what is this? Yeah, this is
+
+353
+00:18:42,480 --> 00:18:52,880
+the path. So, say new
+
+354
+00:18:46,960 --> 00:18:54,720
+new paste. Okay. And uh okay. So, let's
+
+355
+00:18:52,880 --> 00:18:57,360
+double check.
+
+356
+00:18:54,720 --> 00:19:01,760
+So, you want to modify the path
+
+357
+00:18:57,360 --> 00:19:05,039
+environment variable. So, now it's here.
+
+358
+00:19:01,760 --> 00:19:08,720
+Easy. We import bing.
+
+359
+00:19:05,039 --> 00:19:11,919
+Okay. I should have hunbell. Okay. Okay.
+
+360
+00:19:08,720 --> 00:19:15,919
+So say okay. Say okay.
+
+361
+00:19:11,919 --> 00:19:17,520
+So now if you do gcm get command
+
+362
+00:19:15,919 --> 00:19:20,160
+hunpbell
+
+363
+00:19:17,520 --> 00:19:23,360
+not found because you need to restart
+
+364
+00:19:20,160 --> 00:19:26,960
+powershell. You learned it the hard way.
+
+365
+00:19:23,360 --> 00:19:30,400
+Okay. Why? Because when when you start
+
+366
+00:19:26,960 --> 00:19:32,880
+powershell PowerShell reads the register
+
+367
+00:19:30,400 --> 00:19:34,400
+to get all the environment environment
+
+368
+00:19:32,880 --> 00:19:39,039
+variables.
+
+369
+00:19:34,400 --> 00:19:44,160
+So now if you say GCM let's magnify
+
+370
+00:19:39,039 --> 00:19:47,280
+control scroll up GCM unspel now
+
+371
+00:19:44,160 --> 00:19:50,559
+now it'll say there it is you see and
+
+372
+00:19:47,280 --> 00:19:53,600
+another window idiocy you see you you do
+
+373
+00:19:50,559 --> 00:19:55,280
+you do not see the path but however you
+
+374
+00:19:53,600 --> 00:19:57,200
+want if you want to see the path you
+
+375
+00:19:55,280 --> 00:20:00,480
+need to expand the window and call the
+
+376
+00:19:57,200 --> 00:20:05,600
+command again now you see the path you
+
+377
+00:20:00,480 --> 00:20:08,240
+see anyway so now we have Windows. I
+
+378
+00:20:05,600 --> 00:20:09,840
+mean, we have Huntsbell installed.
+
+379
+00:20:08,240 --> 00:20:11,760
+Fantastic.
+
+380
+00:20:09,840 --> 00:20:16,799
+Any comments?
+
+381
+00:20:11,760 --> 00:20:19,679
+No comments. That mask says, "Hi." Okay,
+
+382
+00:20:16,799 --> 00:20:24,240
+so we got Hale installed.
+
+383
+00:20:19,679 --> 00:20:27,679
+Fantastic. So, what we do next? Um,
+
+384
+00:20:24,240 --> 00:20:31,600
+so we got, you know, we got also Hzip
+
+385
+00:20:27,679 --> 00:20:34,400
+and some some other stuff. Okay.
+
+386
+00:20:31,600 --> 00:20:36,720
+Hi, I'm late. Uh, you integrate hunt
+
+387
+00:20:34,400 --> 00:20:39,120
+spell as a kind of fly checker in the
+
+388
+00:20:36,720 --> 00:20:42,080
+buffer. Yes, I'm basically just making
+
+389
+00:20:39,120 --> 00:20:45,080
+spellch checking work on Emacs in
+
+390
+00:20:42,080 --> 00:20:45,080
+Windows.
+
+391
+00:20:51,840 --> 00:20:56,039
+So, my alarm clock,
+
+392
+00:20:57,200 --> 00:21:04,080
+that's my alarm clock telling me to get
+
+393
+00:20:59,919 --> 00:21:07,840
+up and walk every hour.
+
+394
+00:21:04,080 --> 00:21:10,640
+Otherwise, you get ass rot for you
+
+395
+00:21:07,840 --> 00:21:12,400
+computer professional computer extreme
+
+396
+00:21:10,640 --> 00:21:15,039
+programmers.
+
+397
+00:21:12,400 --> 00:21:17,840
+Okay, let's get hun spell checking to
+
+398
+00:21:15,039 --> 00:21:22,240
+work. So, hunp spell is installed. The
+
+399
+00:21:17,840 --> 00:21:24,640
+path is set. However, in Emacs,
+
+400
+00:21:22,240 --> 00:21:27,200
+you you need to do what several more
+
+401
+00:21:24,640 --> 00:21:30,559
+things. Right now, even though it's set
+
+402
+00:21:27,200 --> 00:21:33,200
+up, but Emacs doesn't know the new
+
+403
+00:21:30,559 --> 00:21:35,919
+updated environment variable. So, you
+
+404
+00:21:33,200 --> 00:21:38,240
+actually need to restart Emacs. Okay,
+
+405
+00:21:35,919 --> 00:21:41,360
+press the button. No, not that button.
+
+406
+00:21:38,240 --> 00:21:46,080
+Oh, I did. I I pressed the two buttons.
+
+407
+00:21:41,360 --> 00:21:50,400
+Okay, so Okay, so here's a new Emacs.
+
+408
+00:21:46,080 --> 00:21:53,679
+Now set up the font to be 23 and this
+
+409
+00:21:50,400 --> 00:21:55,440
+one is old. Let's make it black.
+
+410
+00:21:53,679 --> 00:21:58,320
+Fantastic.
+
+411
+00:21:55,440 --> 00:22:01,840
+Fantastic theme.
+
+412
+00:21:58,320 --> 00:22:05,679
+Okay. So here is a new. So this one
+
+413
+00:22:01,840 --> 00:22:09,679
+knows I spell. This old one doesn't know
+
+414
+00:22:05,679 --> 00:22:13,840
+I spell. So let's make it different
+
+415
+00:22:09,679 --> 00:22:16,640
+color. So that um so what you do meta x
+
+416
+00:22:13,840 --> 00:22:19,840
+customize theme.
+
+417
+00:22:16,640 --> 00:22:23,039
+Okay. So it says
+
+418
+00:22:19,840 --> 00:22:26,400
+what theme do you want?
+
+419
+00:22:23,039 --> 00:22:31,039
+Uh let's say
+
+420
+00:22:26,400 --> 00:22:34,240
+I don't want I'm not color blind. Uh
+
+421
+00:22:31,039 --> 00:22:38,159
+luven buffer is read only. What the [ __ ]
+
+422
+00:22:34,240 --> 00:22:40,559
+there? Louven. Okay that is the old. So
+
+423
+00:22:38,159 --> 00:22:43,760
+you got a different color. So now this
+
+424
+00:22:40,559 --> 00:22:45,760
+one is the fresh new Emacs. That's our
+
+425
+00:22:43,760 --> 00:22:49,520
+main.
+
+426
+00:22:45,760 --> 00:22:53,760
+So this one got unspel path.
+
+427
+00:22:49,520 --> 00:22:57,440
+Okay. So what is next? So if you can you
+
+428
+00:22:53,760 --> 00:23:02,000
+try spell checking. Okay. Correct.
+
+429
+00:22:57,440 --> 00:23:05,760
+So press this key space 9.
+
+430
+00:23:02,000 --> 00:23:07,919
+You see it doesn't work because you you
+
+431
+00:23:05,760 --> 00:23:11,840
+need to set up. Right now it's using a
+
+432
+00:23:07,919 --> 00:23:15,280
+spell. Okay. So now
+
+433
+00:23:11,840 --> 00:23:18,000
+let's see what is this page to do. No, I
+
+434
+00:23:15,280 --> 00:23:21,600
+don't want to do. Okay. Save. Let's go
+
+435
+00:23:18,000 --> 00:23:25,039
+to talk show. Okay. Talk showing
+
+436
+00:23:21,600 --> 00:23:28,960
+browser. Fantastic. And uh let's just
+
+437
+00:23:25,039 --> 00:23:31,600
+paste the word there. Correct.
+
+438
+00:23:28,960 --> 00:23:35,919
+Okay. Where did it go? Let's paste it
+
+439
+00:23:31,600 --> 00:23:38,400
+above here. Showing browser. Correct.
+
+440
+00:23:35,919 --> 00:23:41,360
+Okay. So, there's a few more things to
+
+441
+00:23:38,400 --> 00:23:43,919
+do. You need to set up. So, this guy,
+
+442
+00:23:41,360 --> 00:23:48,640
+thanks to this guy. This guy is, what's
+
+443
+00:23:43,919 --> 00:23:51,520
+his name? But he's Emacs Elements.
+
+444
+00:23:48,640 --> 00:23:54,320
+Uh, he's also a YouTuber. So, you guys
+
+445
+00:23:51,520 --> 00:23:57,200
+check out his tutorial. So, I'm just
+
+446
+00:23:54,320 --> 00:24:01,840
+going to go to his website
+
+447
+00:23:57,200 --> 00:24:05,640
+and just steal his code. So, he's got
+
+448
+00:24:01,840 --> 00:24:05,640
+this bunch of code.
+
+449
+00:24:06,240 --> 00:24:10,200
+Let's just steal it.
+
+450
+00:24:10,400 --> 00:24:16,720
+The ways of the open source
+
+451
+00:24:14,159 --> 00:24:20,480
+code by steel.
+
+452
+00:24:16,720 --> 00:24:24,240
+Okay. Start uh emac this code. Paste it
+
+453
+00:24:20,480 --> 00:24:28,240
+there. Pop it out to its own windows. So
+
+454
+00:24:24,240 --> 00:24:31,919
+it says the only real option is hunel.
+
+455
+00:24:28,240 --> 00:24:36,240
+Okay. Aspel won't work according to him.
+
+456
+00:24:31,919 --> 00:24:39,520
+So I download it and he says uh add it
+
+457
+00:24:36,240 --> 00:24:43,200
+to exec add this directory. Okay add the
+
+458
+00:24:39,520 --> 00:24:47,360
+hpel location to the x to this variable.
+
+459
+00:24:43,200 --> 00:24:50,159
+That's a variable in emacs. You can
+
+460
+00:24:47,360 --> 00:24:53,520
+how do I know? Because I have a tutorial
+
+461
+00:24:50,159 --> 00:24:55,679
+about it. Search
+
+462
+00:24:53,520 --> 00:24:59,279
+execute
+
+463
+00:24:55,679 --> 00:25:00,640
+path. You see fairly complicated. you
+
+464
+00:24:59,279 --> 00:25:03,520
+know what's the difference between
+
+465
+00:25:00,640 --> 00:25:05,919
+execute path and environment variable
+
+466
+00:25:03,520 --> 00:25:09,919
+path and so on. So anyway you can check
+
+467
+00:25:05,919 --> 00:25:14,320
+out and also I have a tutorial about
+
+468
+00:25:09,919 --> 00:25:16,720
+environment variables within Emacs.
+
+469
+00:25:14,320 --> 00:25:20,400
+So you can set up envir environment
+
+470
+00:25:16,720 --> 00:25:22,799
+variables within Emacs without touching
+
+471
+00:25:20,400 --> 00:25:25,600
+the external shell environment variable
+
+472
+00:25:22,799 --> 00:25:28,960
+if you want. So anyway, so I got several
+
+473
+00:25:25,600 --> 00:25:32,080
+tutorials, but now
+
+474
+00:25:28,960 --> 00:25:35,440
+uh now what we doing? So close, close,
+
+475
+00:25:32,080 --> 00:25:39,520
+close. Okay, so he says,
+
+476
+00:25:35,440 --> 00:25:43,840
+okay, so let's see what um what is it we
+
+477
+00:25:39,520 --> 00:25:49,080
+need to do here. Okay, show show space.
+
+478
+00:25:43,840 --> 00:25:49,080
+Okay, let's clean the code a little bit.
+
+479
+00:25:51,360 --> 00:25:58,559
+Okay. So, wait. So, British spelling.
+
+480
+00:25:54,559 --> 00:26:01,279
+No, I don't care about Brits.
+
+481
+00:25:58,559 --> 00:26:04,080
+Do you care about the Brits? I don't
+
+482
+00:26:01,279 --> 00:26:06,080
+care about the Brits. Actually, you
+
+483
+00:26:04,080 --> 00:26:09,520
+know, before I thought Brit British
+
+484
+00:26:06,080 --> 00:26:12,240
+English is sound sounds so nice. Not not
+
+485
+00:26:09,520 --> 00:26:16,279
+today.
+
+486
+00:26:12,240 --> 00:26:16,279
+My preferred English
+
+487
+00:26:16,559 --> 00:26:23,919
+accent is California.
+
+488
+00:26:20,240 --> 00:26:27,440
+California hippies actually not true. So
+
+489
+00:26:23,919 --> 00:26:30,720
+anyway, American spelling. So So what is
+
+490
+00:26:27,440 --> 00:26:32,880
+this saying? I spell program name. Okay.
+
+491
+00:26:30,720 --> 00:26:35,279
+So that's a variable. Let's see what's
+
+492
+00:26:32,880 --> 00:26:38,480
+the value.
+
+493
+00:26:35,279 --> 00:26:40,960
+So right now I have it as hunel. I mean
+
+494
+00:26:38,480 --> 00:26:45,679
+as aspel that's incorrect. So I need to
+
+495
+00:26:40,960 --> 00:26:50,000
+change it. So let's go to D drive. Let's
+
+496
+00:26:45,679 --> 00:26:56,640
+go to hunbel directory again.
+
+497
+00:26:50,000 --> 00:27:00,480
+So, hunsel copy file path close close.
+
+498
+00:26:56,640 --> 00:27:02,960
+So, this is my hunbell path.
+
+499
+00:27:00,480 --> 00:27:04,720
+Okay, so
+
+500
+00:27:02,960 --> 00:27:06,240
+yep,
+
+501
+00:27:04,720 --> 00:27:09,360
+cut
+
+502
+00:27:06,240 --> 00:27:12,799
+paste. Okay, that's what what what I
+
+503
+00:27:09,360 --> 00:27:17,279
+want. And I spell local dictionary. So,
+
+504
+00:27:12,799 --> 00:27:20,559
+what is the value describe var?
+
+505
+00:27:17,279 --> 00:27:25,679
+Oh, I need to um I need to start, you
+
+506
+00:27:20,559 --> 00:27:29,000
+know. So, this this is old. Close that.
+
+507
+00:27:25,679 --> 00:27:29,000
+And now,
+
+508
+00:27:30,720 --> 00:27:38,799
+now exhaust dot command log. Okay. Now,
+
+509
+00:27:36,240 --> 00:27:42,960
+you can see everything every command
+
+510
+00:27:38,799 --> 00:27:44,799
+name and keystrokes I call it will show
+
+511
+00:27:42,960 --> 00:27:47,200
+up there.
+
+512
+00:27:44,799 --> 00:27:51,440
+Okay. for example
+
+513
+00:27:47,200 --> 00:27:56,000
+cut you see okay so now describe
+
+514
+00:27:51,440 --> 00:27:59,440
+variable I spell local dictionary
+
+515
+00:27:56,000 --> 00:28:01,600
+value is new so let's set that and now
+
+516
+00:27:59,440 --> 00:28:05,200
+what is this
+
+517
+00:28:01,600 --> 00:28:08,960
+I spell local dictionary a list stand
+
+518
+00:28:05,200 --> 00:28:12,399
+for association list okay so what does
+
+519
+00:28:08,960 --> 00:28:15,360
+this um
+
+520
+00:28:12,399 --> 00:28:18,559
+I don't know so describe variable
+
+521
+00:28:15,360 --> 00:28:23,960
+Let's see list of local or customized
+
+522
+00:28:18,559 --> 00:28:23,960
+dictionary definitions. Yeah. Okay. So,
+
+523
+00:28:24,460 --> 00:28:30,000
+[Music]
+
+524
+00:28:26,000 --> 00:28:33,960
+so what is this list? So, seems
+
+525
+00:28:30,000 --> 00:28:33,960
+why is it so complicated?
+
+526
+00:28:36,000 --> 00:28:43,120
+So, it's a association beast. Okay.
+
+527
+00:28:41,120 --> 00:28:47,399
+Wait, you're supposed to have a dot if
+
+528
+00:28:43,120 --> 00:28:47,399
+you want associ what
+
+529
+00:28:48,080 --> 00:28:55,520
+I think this is incorrect. That's you
+
+530
+00:28:50,559 --> 00:28:57,679
+know this is not association list.
+
+531
+00:28:55,520 --> 00:29:01,880
+Okay, I think I don't care about this
+
+532
+00:28:57,679 --> 00:29:01,880
+for now. And uh
+
+533
+00:29:03,760 --> 00:29:09,039
+don't run code you don't trust. Okay, in
+
+534
+00:29:07,120 --> 00:29:14,480
+this case I don't need I don't need
+
+535
+00:29:09,039 --> 00:29:16,399
+those. Okay. So then you say if
+
+536
+00:29:14,480 --> 00:29:20,159
+I spell
+
+537
+00:29:16,399 --> 00:29:24,679
+h spell dictionary a list. So if that
+
+538
+00:29:20,159 --> 00:29:24,679
+that's okay. So
+
+539
+00:29:25,039 --> 00:29:32,159
+oh this is another variable Jesus.
+
+540
+00:29:29,200 --> 00:29:34,720
+Now is that bu in
+
+541
+00:29:32,159 --> 00:29:37,279
+it is
+
+542
+00:29:34,720 --> 00:29:40,399
+so it is actually defined. I mean this
+
+543
+00:29:37,279 --> 00:29:44,399
+variable is part of Emacs
+
+544
+00:29:40,399 --> 00:29:46,320
+I spell hpel so it's specific to hpel
+
+545
+00:29:44,399 --> 00:29:48,240
+okay
+
+546
+00:29:46,320 --> 00:29:52,960
+so
+
+547
+00:29:48,240 --> 00:29:56,799
+set that to I spell local dictionary a
+
+548
+00:29:52,960 --> 00:30:00,559
+list oh so it's going to so now you
+
+549
+00:29:56,799 --> 00:30:04,799
+actually need to put this back
+
+550
+00:30:00,559 --> 00:30:07,600
+because it's you know the value of this
+
+551
+00:30:04,799 --> 00:30:10,159
+variable in yellow
+
+552
+00:30:07,600 --> 00:30:13,039
+is referring to the value of this
+
+553
+00:30:10,159 --> 00:30:17,279
+variable in pink. So that's why you need
+
+554
+00:30:13,039 --> 00:30:21,520
+that. Okay. Then hell default
+
+555
+00:30:17,279 --> 00:30:25,679
+dictionary. So describe variable is that
+
+556
+00:30:21,520 --> 00:30:29,760
+so that is also a predefined variable in
+
+557
+00:30:25,679 --> 00:30:32,960
+EMAC in ice very complex complicated
+
+558
+00:30:29,760 --> 00:30:35,039
+[ __ ] you know the in software the most
+
+559
+00:30:32,960 --> 00:30:38,080
+number one important thing is you don't
+
+560
+00:30:35,039 --> 00:30:40,480
+want comp complexity
+
+561
+00:30:38,080 --> 00:30:42,880
+you want the things to be as simple as
+
+562
+00:30:40,480 --> 00:30:45,919
+possible
+
+563
+00:30:42,880 --> 00:30:49,440
+so anyway you see to setting up set up a
+
+564
+00:30:45,919 --> 00:30:52,559
+spell checker Uh it is now fairly
+
+565
+00:30:49,440 --> 00:30:55,919
+complicated. [ __ ] Okay. So anyway, this
+
+566
+00:30:52,559 --> 00:30:59,760
+we need this uh default dictionary
+
+567
+00:30:55,919 --> 00:31:02,559
+check. Okay. So yeah. Okay. So I think
+
+568
+00:30:59,760 --> 00:31:05,200
+we all that's all these what we need.
+
+569
+00:31:02,559 --> 00:31:07,760
+Okay. So
+
+570
+00:31:05,200 --> 00:31:10,640
+before we do anything, let's check let's
+
+571
+00:31:07,760 --> 00:31:14,880
+check spell check and see if it works.
+
+572
+00:31:10,640 --> 00:31:17,840
+So space 9 is my key.
+
+573
+00:31:14,880 --> 00:31:20,320
+Okay. So it does not work because it
+
+574
+00:31:17,840 --> 00:31:24,880
+says a spell
+
+575
+00:31:20,320 --> 00:31:27,919
+version is not correct. Okay. But now
+
+576
+00:31:24,880 --> 00:31:30,159
+so by the way the command I call is uh
+
+577
+00:31:27,919 --> 00:31:35,120
+let me show you. Okay. So the command I
+
+578
+00:31:30,159 --> 00:31:39,519
+just called is I spell word. Okay.
+
+579
+00:31:35,120 --> 00:31:44,480
+Okay. So now I run that
+
+580
+00:31:39,519 --> 00:31:47,600
+and I run that. Okay. You can see Alask
+
+581
+00:31:44,480 --> 00:31:53,200
+six. That's how I run it. Okay, now I
+
+582
+00:31:47,600 --> 00:31:55,760
+eval that. Now I eval that. Now I eval
+
+583
+00:31:53,200 --> 00:31:59,440
+that. So now everything should be set
+
+584
+00:31:55,760 --> 00:32:01,919
+up. Now let's do spell checking again.
+
+585
+00:31:59,440 --> 00:32:06,240
+Space nine.
+
+586
+00:32:01,919 --> 00:32:08,480
+Oh, spelling is correct. Can you see?
+
+587
+00:32:06,240 --> 00:32:12,720
+Successful.
+
+588
+00:32:08,480 --> 00:32:14,960
+Fantastic. That is the beauty of coding
+
+589
+00:32:12,720 --> 00:32:18,840
+or today's effort.
+
+590
+00:32:14,960 --> 00:32:18,840
+is done.
+
+591
+00:32:19,679 --> 00:32:25,679
+Yeah, alarm clock is great because I set
+
+592
+00:32:22,799 --> 00:32:28,720
+it I set it up. Basically, you need to
+
+593
+00:32:25,679 --> 00:32:32,240
+get up, you know, get your fat ass up
+
+594
+00:32:28,720 --> 00:32:34,240
+from the seat,
+
+595
+00:32:32,240 --> 00:32:37,600
+you know, flying by the seat of your
+
+596
+00:32:34,240 --> 00:32:39,679
+pants. You need to get up every hour,
+
+597
+00:32:37,600 --> 00:32:42,720
+walk for a minute or two, for five
+
+598
+00:32:39,679 --> 00:32:45,440
+minutes, actually. at minimum 5 minutes
+
+599
+00:32:42,720 --> 00:32:49,279
+every two hours but actually you you
+
+600
+00:32:45,440 --> 00:32:52,080
+know just get up you know move about for
+
+601
+00:32:49,279 --> 00:32:55,679
+for you know uh for a minute or two that
+
+602
+00:32:52,080 --> 00:32:57,679
+would be good this is advice for you
+
+603
+00:32:55,679 --> 00:33:01,120
+long-term programmers because you're
+
+604
+00:32:57,679 --> 00:33:04,559
+going to you know be coding for 10 20 30
+
+605
+00:33:01,120 --> 00:33:08,000
+years I've been coding for 30 years and
+
+606
+00:33:04,559 --> 00:33:10,159
+for you severe nerds because average
+
+607
+00:33:08,000 --> 00:33:12,320
+coders they they don't sit all day you
+
+608
+00:33:10,159 --> 00:33:13,919
+know They talk, they on the phone, they
+
+609
+00:33:12,320 --> 00:33:15,760
+gonna do something, they going to go
+
+610
+00:33:13,919 --> 00:33:18,640
+meetings, you know, that's normal
+
+611
+00:33:15,760 --> 00:33:21,200
+average coders. They go go to a job and
+
+612
+00:33:18,640 --> 00:33:25,679
+they go home and they eat go out for
+
+613
+00:33:21,200 --> 00:33:29,519
+dinner, whatever. But for a extreme nerd
+
+614
+00:33:25,679 --> 00:33:31,760
+like a mad scientist like me, I sit in
+
+615
+00:33:29,519 --> 00:33:33,679
+my chair for like 10 hours a day like
+
+616
+00:33:31,760 --> 00:33:36,559
+literally.
+
+617
+00:33:33,679 --> 00:33:40,640
+So when you are severe case like that
+
+618
+00:33:36,559 --> 00:33:43,519
+you need all my setup and and because
+
+619
+00:33:40,640 --> 00:33:47,039
+because I I I found out the hard way if
+
+620
+00:33:43,519 --> 00:33:49,600
+you sit you have h back pain eye pain
+
+621
+00:33:47,039 --> 00:33:51,679
+damages your eye all sort of problems.
+
+622
+00:33:49,600 --> 00:33:54,399
+So every every hour or two every two
+
+623
+00:33:51,679 --> 00:33:58,960
+hours you need to actually go out look
+
+624
+00:33:54,399 --> 00:34:02,399
+far which is what I do. Okay. So anyway
+
+625
+00:33:58,960 --> 00:34:05,440
+I spell is working fantastic. Okay. Now
+
+626
+00:34:02,399 --> 00:34:09,440
+put the code back. Color it. Show in
+
+627
+00:34:05,440 --> 00:34:12,159
+browser. So this is what we did today.
+
+628
+00:34:09,440 --> 00:34:16,480
+So let's there's another thing we want
+
+629
+00:34:12,159 --> 00:34:21,879
+to test. Okay. So there's another thing.
+
+630
+00:34:16,480 --> 00:34:21,879
+Um where is this? Um
+
+631
+00:34:21,919 --> 00:34:29,359
+we need to check if fly spell works.
+
+632
+00:34:24,800 --> 00:34:32,399
+Okay. So open that. So there's a command
+
+633
+00:34:29,359 --> 00:34:35,280
+fly spell fly spell buffer. So it will
+
+634
+00:34:32,399 --> 00:34:39,599
+highlight all incorrect words. Okay. So
+
+635
+00:34:35,280 --> 00:34:42,960
+let's open Alice in Wonderland
+
+636
+00:34:39,599 --> 00:34:45,760
+down the rabbit hole. Okay. Copy the
+
+637
+00:34:42,960 --> 00:34:50,720
+path. Open that page. So there it is.
+
+638
+00:34:45,760 --> 00:34:56,679
+Alice was beginning to get very tired.
+
+639
+00:34:50,720 --> 00:34:56,679
+Beginning. Okay. So let's begin.
+
+640
+00:34:57,520 --> 00:35:03,280
+And no
+
+641
+00:35:00,000 --> 00:35:07,440
+not the thing. Let's make it wrong.
+
+642
+00:35:03,280 --> 00:35:09,280
+Okay. Now call the command meta x fly
+
+643
+00:35:07,440 --> 00:35:12,480
+spell
+
+644
+00:35:09,280 --> 00:35:15,119
+buffer. Okay. Do it.
+
+645
+00:35:12,480 --> 00:35:17,119
+Spell checking complete. Fantastic and
+
+646
+00:35:15,119 --> 00:35:20,880
+beautiful. Can you see those red
+
+647
+00:35:17,119 --> 00:35:22,880
+underlines? Ching ching ching.
+
+648
+00:35:20,880 --> 00:35:24,480
+Now spellch checking is working.
+
+649
+00:35:22,880 --> 00:35:26,960
+Fantastic.
+
+650
+00:35:24,480 --> 00:35:28,960
+Beautiful.
+
+651
+00:35:26,960 --> 00:35:33,839
+Okay, I think that's it. Thank you guys
+
+652
+00:35:28,960 --> 00:35:36,800
+for watching. Is it entertaining?
+
+653
+00:35:33,839 --> 00:35:39,280
+Uh, you know, so actually let's turn on
+
+654
+00:35:36,800 --> 00:35:41,920
+visual line mod so that it doesn't cut
+
+655
+00:35:39,280 --> 00:35:45,359
+the words like that. So Alice in
+
+656
+00:35:41,920 --> 00:35:49,359
+Wonderland down the rabbit hole so I can
+
+657
+00:35:45,359 --> 00:35:53,119
+actually screenshot of it
+
+658
+00:35:49,359 --> 00:35:57,680
+to prove that we did this successfully.
+
+659
+00:35:53,119 --> 00:36:02,000
+Okay, now just delete that. Save. Close.
+
+660
+00:35:57,680 --> 00:36:05,280
+Close. Showing browser. Go back here. Go
+
+661
+00:36:02,000 --> 00:36:08,640
+here. And press, press, press. Now
+
+662
+00:36:05,280 --> 00:36:10,880
+screenshot magically appears here.
+
+663
+00:36:08,640 --> 00:36:13,359
+Showing browser. There it is. A
+
+664
+00:36:10,880 --> 00:36:16,400
+documentation of what we did today. So,
+
+665
+00:36:13,359 --> 00:36:20,640
+thank you guys for watching and times
+
+666
+00:36:16,400 --> 00:36:23,760
+it's time to pay me. Go to kasari.info.
+
+667
+00:36:20,640 --> 00:36:27,359
+Go to the bottom. You can see my
+
+668
+00:36:23,760 --> 00:36:28,880
+Patreon, Amazon gift card, PayPal. So if
+
+669
+00:36:27,359 --> 00:36:32,079
+you
+
+670
+00:36:28,880 --> 00:36:35,079
+are working as a professional, pay me
+
+671
+00:36:32,079 --> 00:36:35,079
+$100.
+
+672
+00:36:35,119 --> 00:36:42,079
+Okay, thank you. So let's see what's a
+
+673
+00:36:38,000 --> 00:36:44,640
+comment. Fun idea. Uh yeah, so how does
+
+674
+00:36:42,079 --> 00:36:46,400
+ice spell determine the boundary of the
+
+675
+00:36:44,640 --> 00:36:48,640
+word?
+
+676
+00:36:46,400 --> 00:36:51,280
+Well, that's
+
+677
+00:36:48,640 --> 00:36:53,839
+that um
+
+678
+00:36:51,280 --> 00:36:56,480
+you know that is you know that is not
+
+679
+00:36:53,839 --> 00:36:58,240
+too much of
+
+680
+00:36:56,480 --> 00:37:01,359
+you know that's not too important
+
+681
+00:36:58,240 --> 00:37:03,839
+question because because in English
+
+682
+00:37:01,359 --> 00:37:07,560
+sometimes you have hyphen hyphenated
+
+683
+00:37:03,839 --> 00:37:07,560
+word for example
+
+684
+00:37:08,160 --> 00:37:15,200
+electronic mail
+
+685
+00:37:10,560 --> 00:37:18,240
+okay so which beca it became email then
+
+686
+00:37:15,200 --> 00:37:20,240
+which evolved into just email without
+
+687
+00:37:18,240 --> 00:37:25,200
+the hyphen.
+
+688
+00:37:20,240 --> 00:37:29,200
+Uh and but you also have like one time.
+
+689
+00:37:25,200 --> 00:37:34,119
+Okay, for example, let me show you just
+
+690
+00:37:29,200 --> 00:37:34,119
+a simple one-time payment
+
+691
+00:37:34,240 --> 00:37:39,760
+of
+
+692
+00:37:36,720 --> 00:37:43,079
+of $100
+
+693
+00:37:39,760 --> 00:37:43,079
+to kabi
+
+694
+00:37:44,240 --> 00:37:51,440
+and you will
+
+695
+00:37:47,920 --> 00:37:55,440
+become a good person.
+
+696
+00:37:51,440 --> 00:37:57,280
+Okay. So there's one times simple one
+
+697
+00:37:55,440 --> 00:38:01,599
+time that you know that one time is
+
+698
+00:37:57,280 --> 00:38:04,000
+actually one word. Is that true?
+
+699
+00:38:01,599 --> 00:38:09,440
+Uh I'm pretty sure but you can let's say
+
+700
+00:38:04,000 --> 00:38:12,720
+I spell it. Okay. So uh space 9
+
+701
+00:38:09,440 --> 00:38:15,119
+time is correct. So you can see so you
+
+702
+00:38:12,720 --> 00:38:18,720
+can see it says time is correct. So that
+
+703
+00:38:15,119 --> 00:38:21,920
+means it doesn't pick up the hyphen.
+
+704
+00:38:18,720 --> 00:38:26,960
+But what what if our uh cursor is here?
+
+705
+00:38:21,920 --> 00:38:29,920
+So I spell again space 9 it says one is
+
+706
+00:38:26,960 --> 00:38:32,160
+correct. So that means I spell ignore
+
+707
+00:38:29,920 --> 00:38:34,400
+kind of ignore hyphen the hyphen serves
+
+708
+00:38:32,160 --> 00:38:38,880
+as a boundary.
+
+709
+00:38:34,400 --> 00:38:41,280
+So but is there a way to change that?
+
+710
+00:38:38,880 --> 00:38:44,480
+Uh you can look into but that's not too
+
+711
+00:38:41,280 --> 00:38:47,680
+important you know.
+
+712
+00:38:44,480 --> 00:38:51,680
+You know I can I can look into by uh for
+
+713
+00:38:47,680 --> 00:38:53,760
+example by first of all um describe
+
+714
+00:38:51,680 --> 00:38:58,240
+function
+
+715
+00:38:53,760 --> 00:39:01,920
+I spell word. Okay then you can see the
+
+716
+00:38:58,240 --> 00:39:04,880
+documentation for I spell word and then
+
+717
+00:39:01,920 --> 00:39:06,560
+you can um you can read you know you can
+
+718
+00:39:04,880 --> 00:39:10,880
+read the whole thing. Maybe it'll tell
+
+719
+00:39:06,560 --> 00:39:13,200
+you you know um optional argument what
+
+720
+00:39:10,880 --> 00:39:16,000
+whatever spell
+
+721
+00:39:13,200 --> 00:39:18,640
+I spell dictionaries and stuff you know
+
+722
+00:39:16,000 --> 00:39:21,280
+you can just read it I spell region and
+
+723
+00:39:18,640 --> 00:39:24,000
+know then eventually you jump to the
+
+724
+00:39:21,280 --> 00:39:28,000
+source code and then you know you can
+
+725
+00:39:24,000 --> 00:39:30,640
+spend few hours to dig to see if it's
+
+726
+00:39:28,000 --> 00:39:33,040
+configurable how it determines the
+
+727
+00:39:30,640 --> 00:39:37,119
+boundary of the world
+
+728
+00:39:33,040 --> 00:39:41,280
+okay anyway I don't think I care, right?
+
+729
+00:39:37,119 --> 00:39:45,119
+Or you know. So anyway, successful.
+
+730
+00:39:41,280 --> 00:39:46,880
+Fantastic. Thank you guys for watching.
+
+731
+00:39:45,119 --> 00:39:51,400
+Bye.
+
+732
+00:39:46,880 --> 00:39:51,400
+We shut down in two minutes.
+
+733
+00:39:52,350 --> 00:39:55,580
+[Music]
+
+734
+00:39:57,720 --> 00:40:03,079
+[Music]
+
+735
+00:40:00,079 --> 00:40:03,079
+Mhm.
+
+736
+00:40:04,160 --> 00:40:13,760
+down the rabbit hole. Close. Copy.
+
+737
+00:40:07,520 --> 00:40:17,839
+Uh, paste link. Close. And this is the
+
+738
+00:40:13,760 --> 00:40:20,800
+three days ago episode. And this is
+
+739
+00:40:17,839 --> 00:40:22,400
+execute path. Copy.
+
+740
+00:40:20,800 --> 00:40:27,680
+Paste.
+
+741
+00:40:22,400 --> 00:40:31,040
+Okay. And uh, next. Go back. Uh, close.
+
+742
+00:40:27,680 --> 00:40:34,320
+And this is this guy's documentation.
+
+743
+00:40:31,040 --> 00:40:38,079
+Fantastic. So this guy is Emacs
+
+744
+00:40:34,320 --> 00:40:43,760
+Elements. Okay, check out his check out
+
+745
+00:40:38,079 --> 00:40:48,400
+his you know blog which helped me today
+
+746
+00:40:43,760 --> 00:40:51,280
+very uh easily set up everything.
+
+747
+00:40:48,400 --> 00:40:53,599
+Raul Raul Camino are you are you here
+
+748
+00:40:51,280 --> 00:40:57,040
+Rau Camino?
+
+749
+00:40:53,599 --> 00:41:01,760
+I think sometimes he is here. Okay so
+
+750
+00:40:57,040 --> 00:41:05,760
+check out this guy. Uh then my todo then
+
+751
+00:41:01,760 --> 00:41:09,359
+Windows tips close that. Uh okay reopen.
+
+752
+00:41:05,760 --> 00:41:11,200
+There is Windows tutorial on environment
+
+753
+00:41:09,359 --> 00:41:13,440
+variables. Everything you need to know
+
+754
+00:41:11,200 --> 00:41:17,280
+about it.
+
+755
+00:41:13,440 --> 00:41:23,200
+Okay. Copy the link here. Linkify both.
+
+756
+00:41:17,280 --> 00:41:26,400
+Okay. And uh uh then there is you can uh
+
+757
+00:41:23,200 --> 00:41:28,240
+do in PowerShell
+
+758
+00:41:26,400 --> 00:41:34,240
+PowerShell
+
+759
+00:41:28,240 --> 00:41:38,960
+you know uh okay close that close that
+
+760
+00:41:34,240 --> 00:41:41,920
+Linux back command line. Okay.
+
+761
+00:41:38,960 --> 00:41:41,920
+Okay. Bye.
+

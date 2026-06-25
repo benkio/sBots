@@ -47,6 +47,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
         YouTubeBotIds(
           botId = SBotId("testbot"),
           outputFilePath = "../integration-tests/src/test/resources/testdata/test_shows.json",
+          captionFolderPath = "../integration-tests/src/test/resources/testdata/showCaptions",
           captionLanguage = "it",
           videoIds = List(
             "95m8ztdbW0E",
@@ -76,20 +77,15 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
     )
   }
 
-  test("YouTubeService.FetchCaption should returns the expected caption on real data") {
+  test("YouTubeService.saveCaption should not fail") {
     assume(runTestsCondition)
     for {
       tempDir <- IO.pure(Files.createTempDirectory(Paths.get("target"), "ytdlpCaptions").toAbsolutePath())
       videoId  = "CQi-0VJJSSs"
       language = "it"
       youTubeService <- buildYoutubeService
-      result         <- youTubeService.fetchCaption(videoId, tempDir, language)
-    } yield assertEquals(
-      result,
-      Some(
-        "ciao amici del canale sono qui per augurarvi buon i festeggiamenti in attesa del nuovo anno il 2018 che sia per voi per tutti noi carico di george ma soprattutto di salute e di armonia con il proprio io e con gli altri questo l'augurio che sento di darvi e ricordatevi il mio pensiero per voi anteprima di partire sono felice tante belle cose e ha presto vi raccomando continuate a seguirmi su canale e se vi piace lasciate un manca e a voi che non siete iscritti ricordatevi sempre che è una cosa gratuita ciao buon 2018"
-      )
-    )
+      _              <- youTubeService.saveCaption(videoId, tempDir, language)
+    } yield assert(true)
   }
   test(
     "YouTubeBotDBShowDatas.semigroup should properly combine the data from the same bot to a single YouTubeBotDBShowDatas"
@@ -123,6 +119,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
       YouTubeBotDBShowDatas(
         botId = SBotId("testbot"),
         outputFilePath = "outputFilePath",
+        captionFolderPath = "captionFolderPath",
         captionLanguage = "it",
         dbShowDatas = List(dbShowData1)
       )

@@ -1,0 +1,4168 @@
+1
+00:00:02,639 --> 00:00:09,280
+Good morning everyone. Welcome to
+
+2
+00:00:05,120 --> 00:00:13,920
+another episode of Kar Talk Show. We are
+
+3
+00:00:09,280 --> 00:00:16,880
+doing advent of code 2025
+
+4
+00:00:13,920 --> 00:00:20,480
+day one
+
+5
+00:00:16,880 --> 00:00:22,800
+part two problem two take two continuing
+
+6
+00:00:20,480 --> 00:00:26,800
+from yesterday. So yesterday we got
+
+7
+00:00:22,800 --> 00:00:28,800
+stuck on a bug for like 3 hours. We
+
+8
+00:00:26,800 --> 00:00:31,279
+coded live stream for like three four
+
+9
+00:00:28,800 --> 00:00:34,239
+hours because
+
+10
+00:00:31,279 --> 00:00:36,640
+uh that's pretty bad. I'm kind of sick.
+
+11
+00:00:34,239 --> 00:00:40,079
+So there come So we we just going to be
+
+12
+00:00:36,640 --> 00:00:42,399
+relaxed and have fun. Uh this is might
+
+13
+00:00:40,079 --> 00:00:45,280
+be boring for you. I'm going to code wam
+
+14
+00:00:42,399 --> 00:00:48,559
+language. So if you don't know just
+
+15
+00:00:45,280 --> 00:00:52,480
+search for my website kasali. Uh you'll
+
+16
+00:00:48,559 --> 00:00:57,520
+find everything. I'll say X a H
+
+17
+00:00:52,480 --> 00:01:02,000
+uh let's say Xi L E
+
+18
+00:00:57,520 --> 00:01:04,239
+uh Wam Wam language. Okay. So you you
+
+19
+00:01:02,000 --> 00:01:06,960
+you search it, you'll find everything
+
+20
+00:01:04,239 --> 00:01:08,880
+about my website. Then you can go to the
+
+21
+00:01:06,960 --> 00:01:11,840
+homepage
+
+22
+00:01:08,880 --> 00:01:14,400
+uh my programming tutorials
+
+23
+00:01:11,840 --> 00:01:16,479
+hacker code everything about hackers
+
+24
+00:01:14,400 --> 00:01:18,080
+about type set type type setting about
+
+25
+00:01:16,479 --> 00:01:21,680
+programming languages programming
+
+26
+00:01:18,080 --> 00:01:23,200
+language design oh I got a CSS issue
+
+27
+00:01:21,680 --> 00:01:26,560
+there
+
+28
+00:01:23,200 --> 00:01:28,799
+about unic code about symbols about user
+
+29
+00:01:26,560 --> 00:01:33,200
+interface design and all that and pro
+
+30
+00:01:28,799 --> 00:01:35,119
+and mathematics okay code so anyway wam
+
+31
+00:01:33,200 --> 00:01:38,079
+language so there's a question so what
+
+32
+00:01:35,119 --> 00:01:41,119
+do you Think of hardway translation of
+
+33
+00:01:38,079 --> 00:01:45,200
+Arabianites. Burton seems to be too
+
+34
+00:01:41,119 --> 00:01:49,360
+flamboyant. That's true. So Arabianites.
+
+35
+00:01:45,200 --> 00:01:52,320
+So you for that you go to wordy blog
+
+36
+00:01:49,360 --> 00:01:55,920
+from the hearty emotions of lexicon,
+
+37
+00:01:52,320 --> 00:01:59,680
+stylistic concerns, decipherment of
+
+38
+00:01:55,920 --> 00:02:02,799
+grammar and idioms, linguisticality,
+
+39
+00:01:59,680 --> 00:02:07,040
+literature and logicality. Okay, that's
+
+40
+00:02:02,799 --> 00:02:08,959
+my word blog. disorder of a man of
+
+41
+00:02:07,040 --> 00:02:11,039
+letters
+
+42
+00:02:08,959 --> 00:02:14,160
+letters.
+
+43
+00:02:11,039 --> 00:02:16,400
+So, so this is all about English
+
+44
+00:02:14,160 --> 00:02:19,280
+literature and stuff. So, you click to
+
+45
+00:02:16,400 --> 00:02:22,080
+the you go to the homepage at the bottom
+
+46
+00:02:19,280 --> 00:02:25,200
+navigation bar, then literature
+
+47
+00:02:22,080 --> 00:02:30,239
+classics. Then the first one is Arabian
+
+48
+00:02:25,200 --> 00:02:34,239
+Nights. One of my favorite literature
+
+49
+00:02:30,239 --> 00:02:37,440
+uh top 10 maybe Arabian Knights by Sir
+
+50
+00:02:34,239 --> 00:02:38,959
+Richard Burton. He's a scholar. He's a
+
+51
+00:02:37,440 --> 00:02:42,239
+multi-talented
+
+52
+00:02:38,959 --> 00:02:44,720
+what they call polymath.
+
+53
+00:02:42,239 --> 00:02:47,120
+Okay. So I learned you know I didn't
+
+54
+00:02:44,720 --> 00:02:49,760
+know but you know one day like around
+
+55
+00:02:47,120 --> 00:02:52,720
+2006
+
+56
+00:02:49,760 --> 00:02:56,239
+I started to learn about I wanted to
+
+57
+00:02:52,720 --> 00:03:00,560
+know more about humanities prompted by
+
+58
+00:02:56,239 --> 00:03:02,560
+future reason that is you know with AI
+
+59
+00:03:00,560 --> 00:03:04,800
+robotics
+
+60
+00:03:02,560 --> 00:03:06,560
+uh genetic engineering where are we
+
+61
+00:03:04,800 --> 00:03:11,440
+going to go
+
+62
+00:03:06,560 --> 00:03:14,319
+so before 2005 I was just math and
+
+63
+00:03:11,440 --> 00:03:18,560
+computer and programming a nerd
+
+64
+00:03:14,319 --> 00:03:20,400
+and um you know mechanics, academic,
+
+65
+00:03:18,560 --> 00:03:23,120
+hard sciences you know science and
+
+66
+00:03:20,400 --> 00:03:25,840
+engineering but then starting with the
+
+67
+00:03:23,120 --> 00:03:28,319
+futurism I started to look into like
+
+68
+00:03:25,840 --> 00:03:30,080
+literature, history,
+
+69
+00:03:28,319 --> 00:03:32,239
+society,
+
+70
+00:03:30,080 --> 00:03:35,040
+uh sociology, geography, different
+
+71
+00:03:32,239 --> 00:03:37,840
+countries and and all sort of things. So
+
+72
+00:03:35,040 --> 00:03:41,920
+I started to read ar the Arabian Knights
+
+73
+00:03:37,840 --> 00:03:44,400
+and I discovered Sir Richard Burton.
+
+74
+00:03:41,920 --> 00:03:46,959
+Okay. A polymath.
+
+75
+00:03:44,400 --> 00:03:49,680
+Uh, now I don't know too much about him,
+
+76
+00:03:46,959 --> 00:03:51,680
+but there's like a whole about a whole
+
+77
+00:03:49,680 --> 00:03:55,360
+bunch of history about, you know, he's a
+
+78
+00:03:51,680 --> 00:03:56,879
+Brit. Uh, is he a knight? I I forgot. I
+
+79
+00:03:55,360 --> 00:03:59,200
+don't know. So, Richard Button, it's
+
+80
+00:03:56,879 --> 00:04:02,000
+funny. They locked the article. You see,
+
+81
+00:03:59,200 --> 00:04:06,720
+there's a lot lot of things going on on
+
+82
+00:04:02,000 --> 00:04:10,560
+Wikipedia. Semi protected. Okay. Uh, so,
+
+83
+00:04:06,720 --> 00:04:13,360
+uh, stupid formatting. God.
+
+84
+00:04:10,560 --> 00:04:16,320
+Oh, so Richard. Sir Richard Burton looks
+
+85
+00:04:13,360 --> 00:04:19,680
+uh young when he was young. Looks
+
+86
+00:04:16,320 --> 00:04:24,639
+handsome. A brit.
+
+87
+00:04:19,680 --> 00:04:27,680
+A white man. White man. Okay. But he's a
+
+88
+00:04:24,639 --> 00:04:30,320
+uh wait. Well, not this guy. [ __ ]
+
+89
+00:04:27,680 --> 00:04:33,600
+[ __ ] idiotic.
+
+90
+00:04:30,320 --> 00:04:36,800
+Uh not that guy. Okay.
+
+91
+00:04:33,600 --> 00:04:39,800
+Sir Richard Burton.
+
+92
+00:04:36,800 --> 00:04:39,800
+Sir.
+
+93
+00:04:40,000 --> 00:04:46,479
+Yeah. Richard Francis Burton. Okay,
+
+94
+00:04:43,600 --> 00:04:49,759
+that's a guy. So, you go there.
+
+95
+00:04:46,479 --> 00:04:52,880
+Now, why is this font? Oh god, this this
+
+96
+00:04:49,759 --> 00:04:57,600
+this stupid um you know, because I have
+
+97
+00:04:52,880 --> 00:05:00,320
+super large font. So, he
+
+98
+00:04:57,600 --> 00:05:02,720
+uh Sam says, "Is your website enough for
+
+99
+00:05:00,320 --> 00:05:05,440
+pass a junior backend developer
+
+100
+00:05:02,720 --> 00:05:07,759
+interview?"
+
+101
+00:05:05,440 --> 00:05:10,080
+What do you mean enough? My website
+
+102
+00:05:07,759 --> 00:05:12,400
+kasali.info, info, it's enough for you
+
+103
+00:05:10,080 --> 00:05:14,560
+to get a PhD.
+
+104
+00:05:12,400 --> 00:05:18,000
+Okay, seriously, if you read everything
+
+105
+00:05:14,560 --> 00:05:21,039
+about it, there's like 10,000 pages on
+
+106
+00:05:18,000 --> 00:05:25,680
+mathematics. So, it's it's enough well,
+
+107
+00:05:21,039 --> 00:05:28,960
+not PhD PhD, but it's enough for you to
+
+108
+00:05:25,680 --> 00:05:34,080
+the information there. It contains
+
+109
+00:05:28,960 --> 00:05:38,639
+amount of tutorial is equivalent to
+
+110
+00:05:34,080 --> 00:05:41,919
+the textbook you would read to get a at
+
+111
+00:05:38,639 --> 00:05:44,639
+least a bachelor's degree. Okay. So,
+
+112
+00:05:41,919 --> 00:05:46,400
+it's not like junior backend developer
+
+113
+00:05:44,639 --> 00:05:49,280
+interview.
+
+114
+00:05:46,400 --> 00:05:52,160
+Uh, okay. Anyway, back to Richard
+
+115
+00:05:49,280 --> 00:05:57,520
+Francis Burton. Okay. This guy, he's
+
+116
+00:05:52,160 --> 00:06:01,039
+also a expert at uh sword fighting.
+
+117
+00:05:57,520 --> 00:06:03,680
+and he um anyway so he's a polymath.
+
+118
+00:06:01,039 --> 00:06:07,919
+Okay. So I discovered this book Arabian
+
+119
+00:06:03,680 --> 00:06:12,960
+Nights. Now let's put this uh page back.
+
+120
+00:06:07,919 --> 00:06:15,120
+Arabian Nights. Fantastic. Fantastical
+
+121
+00:06:12,960 --> 00:06:18,240
+stories. Okay.
+
+122
+00:06:15,120 --> 00:06:20,080
+Now it's very elaborate and actually I
+
+123
+00:06:18,240 --> 00:06:23,600
+like it that way. I didn't know you
+
+124
+00:06:20,080 --> 00:06:28,560
+know. So I read I read it. I look up
+
+125
+00:06:23,600 --> 00:06:30,800
+every word I do not understand. Verily,
+
+126
+00:06:28,560 --> 00:06:32,880
+therefore,
+
+127
+00:06:30,800 --> 00:06:35,919
+be tided,
+
+128
+00:06:32,880 --> 00:06:38,160
+farmed. Wait, there's no annotation for
+
+129
+00:06:35,919 --> 00:06:40,960
+that one. Admonition.
+
+130
+00:06:38,160 --> 00:06:43,199
+So, the no annot annotation means, you
+
+131
+00:06:40,960 --> 00:06:45,440
+know, I already know the word, but the
+
+132
+00:06:43,199 --> 00:06:47,680
+one with underscore uh there's a
+
+133
+00:06:45,440 --> 00:06:50,800
+annotation
+
+134
+00:06:47,680 --> 00:06:54,240
+means that uh most people wouldn't know.
+
+135
+00:06:50,800 --> 00:06:57,680
+Okay. Verily there from besided. So it
+
+136
+00:06:54,240 --> 00:07:00,800
+it's using very elaborate uh as you say
+
+137
+00:06:57,680 --> 00:07:02,319
+very elaborate and uh flamboyant
+
+138
+00:07:00,800 --> 00:07:05,919
+English.
+
+139
+00:07:02,319 --> 00:07:08,720
+Um in a way sometimes people criticize
+
+140
+00:07:05,919 --> 00:07:10,960
+him as not being you know not
+
+141
+00:07:08,720 --> 00:07:14,800
+grammatical and you know he's just like
+
+142
+00:07:10,960 --> 00:07:16,560
+doing [ __ ] with with English.
+
+143
+00:07:14,800 --> 00:07:19,120
+But anyway
+
+144
+00:07:16,560 --> 00:07:21,440
+so I annotated.
+
+145
+00:07:19,120 --> 00:07:23,440
+Now the whole book is very thick you
+
+146
+00:07:21,440 --> 00:07:26,800
+know it's like three volumes or
+
+147
+00:07:23,440 --> 00:07:29,599
+something the Arabian Knights okay so I
+
+148
+00:07:26,800 --> 00:07:32,319
+you know I so I only have like 10
+
+149
+00:07:29,599 --> 00:07:35,759
+stories I annotated
+
+150
+00:07:32,319 --> 00:07:38,639
+so I did this like for two years uh and
+
+151
+00:07:35,759 --> 00:07:40,720
+the story is not you know when you see
+
+152
+00:07:38,639 --> 00:07:43,199
+when you when you read about Arabian
+
+153
+00:07:40,720 --> 00:07:46,560
+knights you think of let's say the tale
+
+154
+00:07:43,199 --> 00:07:49,199
+of the bull and the ass you might have
+
+155
+00:07:46,560 --> 00:07:53,599
+heard of this one but the more famous is
+
+156
+00:07:49,199 --> 00:07:55,919
+the fisherman and the genie. Okay, you
+
+157
+00:07:53,599 --> 00:07:58,560
+might have seen it in Disney movies.
+
+158
+00:07:55,919 --> 00:08:02,639
+Okay, so for example, in Disney movies,
+
+159
+00:07:58,560 --> 00:08:06,000
+they tell you the um
+
+160
+00:08:02,639 --> 00:08:10,080
+they tell you the uh where is it?
+
+161
+00:08:06,000 --> 00:08:13,039
+Arabian nights. Uh
+
+162
+00:08:10,080 --> 00:08:15,919
+am I doing good comments, guys? Okay,
+
+163
+00:08:13,039 --> 00:08:19,440
+how many people watching live? Am I Am I
+
+164
+00:08:15,919 --> 00:08:22,240
+Am I alive? Okay, three people. The
+
+165
+00:08:19,440 --> 00:08:27,120
+poverty of my show.
+
+166
+00:08:22,240 --> 00:08:29,280
+Um, so when you are
+
+167
+00:08:27,120 --> 00:08:31,520
+uh Aladdin, you know, you might have
+
+168
+00:08:29,280 --> 00:08:33,760
+heard
+
+169
+00:08:31,520 --> 00:08:36,800
+Arabian Nights, you hear about Aladdin,
+
+170
+00:08:33,760 --> 00:08:39,440
+right? You know, the the Disney movie.
+
+171
+00:08:36,800 --> 00:08:42,080
+So, it turned out the Arabian Knight is
+
+172
+00:08:39,440 --> 00:08:44,800
+nothing like that. It's like it's it's
+
+173
+00:08:42,080 --> 00:08:47,360
+nothing like the Disney story they try
+
+174
+00:08:44,800 --> 00:08:51,200
+to tell you.
+
+175
+00:08:47,360 --> 00:08:54,640
+It's filled with sex. Okay, let's just
+
+176
+00:08:51,200 --> 00:08:58,160
+to be blunt. It's filled the Arabian
+
+177
+00:08:54,640 --> 00:09:02,959
+Knights is filled. You know the easiest
+
+178
+00:08:58,160 --> 00:09:04,959
+way to understand the nature of the work
+
+179
+00:09:02,959 --> 00:09:07,519
+at at least on the surface is just look
+
+180
+00:09:04,959 --> 00:09:09,760
+at the galleries. Okay, these are the
+
+181
+00:09:07,519 --> 00:09:13,279
+galleries illustrations of the Arabian
+
+182
+00:09:09,760 --> 00:09:16,160
+Knights. So the nature you see so you
+
+183
+00:09:13,279 --> 00:09:19,839
+got to look carefully. Okay.
+
+184
+00:09:16,160 --> 00:09:21,519
+Uh the nature of the book is about sex
+
+185
+00:09:19,839 --> 00:09:23,120
+girls,
+
+186
+00:09:21,519 --> 00:09:28,000
+slaves,
+
+187
+00:09:23,120 --> 00:09:33,040
+young hot slave, sex slaves and uh uh
+
+188
+00:09:28,000 --> 00:09:37,040
+tits as fornication
+
+189
+00:09:33,040 --> 00:09:41,680
+uh and you know there. So there you go.
+
+190
+00:09:37,040 --> 00:09:45,279
+Slaves and queen and uh
+
+191
+00:09:41,680 --> 00:09:47,600
+and monsters. Okay. monsters and this
+
+192
+00:09:45,279 --> 00:09:51,120
+part you are probably familiar. So and
+
+193
+00:09:47,600 --> 00:09:55,680
+prince and princess from the Islamic
+
+194
+00:09:51,120 --> 00:09:59,760
+world from Persian. Okay. Persian um
+
+195
+00:09:55,680 --> 00:10:04,000
+kind of and and heavily Islamic. Okay.
+
+196
+00:09:59,760 --> 00:10:07,279
+So the origin of these stories came from
+
+197
+00:10:04,000 --> 00:10:10,880
+uh so I read about it on Wikipedia. They
+
+198
+00:10:07,279 --> 00:10:13,120
+they started around year 600 something.
+
+199
+00:10:10,880 --> 00:10:19,440
+So it's pieces of stories people
+
+200
+00:10:13,120 --> 00:10:21,120
+collected around like in Iraq or Iran
+
+201
+00:10:19,440 --> 00:10:24,079
+somewhere there. Okay. Something you
+
+202
+00:10:21,120 --> 00:10:27,440
+know something of that nature because
+
+203
+00:10:24,079 --> 00:10:29,519
+these myth mythologies and fables you
+
+204
+00:10:27,440 --> 00:10:32,800
+know they have lots of history. So but
+
+205
+00:10:29,519 --> 00:10:35,600
+anyway so it's about
+
+206
+00:10:32,800 --> 00:10:37,519
+1,500 years ago. So you got you know
+
+207
+00:10:35,600 --> 00:10:41,760
+look at these pictures. Okay that's what
+
+208
+00:10:37,519 --> 00:10:44,880
+this this this these stories is about.
+
+209
+00:10:41,760 --> 00:10:50,640
+uh Arabian Knights and uh then you know
+
+210
+00:10:44,880 --> 00:10:53,920
+there's plenty plenty of plenty of tits
+
+211
+00:10:50,640 --> 00:10:56,320
+and ass okay it's like modern you know
+
+212
+00:10:53,920 --> 00:10:58,640
+today you go to social network media you
+
+213
+00:10:56,320 --> 00:11:01,760
+see tits and ass well back then that's
+
+214
+00:10:58,640 --> 00:11:04,959
+also true you cannot deny it you don't
+
+215
+00:11:01,760 --> 00:11:09,600
+want to deny it okay then monsters okay
+
+216
+00:11:04,959 --> 00:11:13,519
+dragons uh travel boats genie okay so
+
+217
+00:11:09,600 --> 00:11:16,480
+you Moini is a particular
+
+218
+00:11:13,519 --> 00:11:19,200
+mythological creature from the from that
+
+219
+00:11:16,480 --> 00:11:21,279
+region.
+
+220
+00:11:19,200 --> 00:11:24,399
+Okay. So that's an introduction to
+
+221
+00:11:21,279 --> 00:11:27,120
+Arabian Knights. So the writing uh to
+
+222
+00:11:24,399 --> 00:11:30,720
+your question, the writing of this
+
+223
+00:11:27,120 --> 00:11:34,560
+version by Sir Richard Burton is
+
+224
+00:11:30,720 --> 00:11:38,399
+extremely uh flamboyant and lots of you
+
+225
+00:11:34,560 --> 00:11:41,519
+know use lots of these kind of um
+
+226
+00:11:38,399 --> 00:11:43,120
+obsolate English. Uh they say you know
+
+227
+00:11:41,519 --> 00:11:47,440
+with
+
+228
+00:11:43,120 --> 00:11:51,680
+in addition therew with okay held pool
+
+229
+00:11:47,440 --> 00:11:56,000
+archaic yeah archaic English there at at
+
+230
+00:11:51,680 --> 00:11:59,680
+that event on account of that extempor
+
+231
+00:11:56,000 --> 00:12:02,480
+of my favorite word talk show extempolo
+
+232
+00:11:59,680 --> 00:12:05,040
+nothing is prepared I do it live for you
+
+233
+00:12:02,480 --> 00:12:07,839
+extemp
+
+234
+00:12:05,040 --> 00:12:10,800
+so so I learned all these words you know
+
+235
+00:12:07,839 --> 00:12:14,880
+English you I vocabulary is one of my
+
+236
+00:12:10,800 --> 00:12:17,440
+thing. So very elaborate and you know if
+
+237
+00:12:14,880 --> 00:12:20,800
+you don't look up it's kind of more
+
+238
+00:12:17,440 --> 00:12:23,440
+difficult to understand. Okay. So uh but
+
+239
+00:12:20,800 --> 00:12:27,600
+I kind of like I love it. I love you
+
+240
+00:12:23,440 --> 00:12:30,160
+know you so so toyo and moyo that's
+
+241
+00:12:27,600 --> 00:12:32,560
+another phrase I love toyo. Okay I
+
+242
+00:12:30,160 --> 00:12:36,480
+learned you know I toyo and moyo on the
+
+243
+00:12:32,560 --> 00:12:38,800
+computer all day day and night.
+
+244
+00:12:36,480 --> 00:12:41,120
+So, and fisher the fisherman and the
+
+245
+00:12:38,800 --> 00:12:44,480
+genie is a great story. Okay. Actually,
+
+246
+00:12:41,120 --> 00:12:47,760
+the the selections I picked all those
+
+247
+00:12:44,480 --> 00:12:51,600
+are great stories. Um, so you can start
+
+248
+00:12:47,760 --> 00:12:53,519
+with the story of King Sha Ra and his
+
+249
+00:12:51,600 --> 00:12:57,200
+brother something. But you can start
+
+250
+00:12:53,519 --> 00:13:00,560
+with the tale of the bo and the ass and
+
+251
+00:12:57,200 --> 00:13:03,519
+the fisherman and the genie. Okay, the
+
+252
+00:13:00,560 --> 00:13:08,480
+fisherman. You see? So, here's a genie
+
+253
+00:13:03,519 --> 00:13:11,360
+and here's a fisherman and in and there
+
+254
+00:13:08,480 --> 00:13:14,800
+it is Solomon. I learned this word King
+
+255
+00:13:11,360 --> 00:13:16,639
+Solomon when I was like 10 in Taiwan. I
+
+256
+00:13:14,800 --> 00:13:18,959
+don't know what it is, you know, like
+
+257
+00:13:16,639 --> 00:13:21,200
+back then you just learned about Sol.
+
+258
+00:13:18,959 --> 00:13:23,120
+Solomon is some kind of great king.
+
+259
+00:13:21,200 --> 00:13:25,680
+Okay. And today [laughter]
+
+260
+00:13:23,120 --> 00:13:29,120
+in the past two years because of
+
+261
+00:13:25,680 --> 00:13:32,160
+politics I learned more about about this
+
+262
+00:13:29,120 --> 00:13:34,079
+Solomon and other things. Okay. Solomon,
+
+263
+00:13:32,160 --> 00:13:38,399
+you know,
+
+264
+00:13:34,079 --> 00:13:41,760
+that changed your perspective. Anyway,
+
+265
+00:13:38,399 --> 00:13:45,600
+so you got this uh the, you know,
+
+266
+00:13:41,760 --> 00:13:48,079
+fantastic tales and also you see you can
+
+267
+00:13:45,600 --> 00:13:51,519
+read them just for the fun of it, you
+
+268
+00:13:48,079 --> 00:13:55,200
+know, fantasy or girls or whatever um
+
+269
+00:13:51,519 --> 00:13:58,079
+like a story, but you can also look into
+
+270
+00:13:55,200 --> 00:14:02,480
+like English, like you know, you look up
+
+271
+00:13:58,079 --> 00:14:04,399
+every word of it. So and the ethmology
+
+272
+00:14:02,480 --> 00:14:06,880
+or or whatever then then you will learn
+
+273
+00:14:04,399 --> 00:14:09,760
+a lot about the
+
+274
+00:14:06,880 --> 00:14:14,399
+evolution or trans transformation of
+
+275
+00:14:09,760 --> 00:14:18,240
+English you know this uh archaic English
+
+276
+00:14:14,399 --> 00:14:22,160
+or and you will also learn about history
+
+277
+00:14:18,240 --> 00:14:24,560
+and of you know uh and and for example
+
+278
+00:14:22,160 --> 00:14:27,120
+Solomon it mentioned Solomon like what
+
+279
+00:14:24,560 --> 00:14:29,519
+what the [ __ ] is Solomon? Well, you look
+
+280
+00:14:27,120 --> 00:14:32,240
+up. Okay, you look up. Then you learned
+
+281
+00:14:29,519 --> 00:14:34,639
+something about history. Part of it is
+
+282
+00:14:32,240 --> 00:14:38,000
+real history, part of it is fiction. But
+
+283
+00:14:34,639 --> 00:14:41,839
+anyway, that's how stories are.
+
+284
+00:14:38,000 --> 00:14:45,440
+Then you also learn about uh so vocabul
+
+285
+00:14:41,839 --> 00:14:51,279
+vocabulary English writing style and uh
+
+286
+00:14:45,440 --> 00:14:54,240
+um history and uh and their
+
+287
+00:14:51,279 --> 00:14:56,399
+particular moor
+
+288
+00:14:54,240 --> 00:14:58,000
+and uh
+
+289
+00:14:56,399 --> 00:15:00,959
+moor
+
+290
+00:14:58,000 --> 00:15:04,320
+meaning morality ethics of certain
+
+291
+00:15:00,959 --> 00:15:08,320
+region or or or a fictional account of
+
+292
+00:15:04,320 --> 00:15:12,240
+it. Or you learn about how they think
+
+293
+00:15:08,320 --> 00:15:16,000
+about women like today it's a big issue
+
+294
+00:15:12,240 --> 00:15:22,079
+like today you know under under the oice
+
+295
+00:15:16,000 --> 00:15:26,000
+opus of USA United States of America
+
+296
+00:15:22,079 --> 00:15:29,760
+under the opice of the white man we have
+
+297
+00:15:26,000 --> 00:15:32,800
+debates about feminism like every day
+
+298
+00:15:29,760 --> 00:15:36,959
+like every [ __ ] day in USA for the
+
+299
+00:15:32,800 --> 00:15:38,880
+past at least 30 years. Oh, feminism.
+
+300
+00:15:36,959 --> 00:15:42,160
+Oh, he and she. Should you when you
+
+301
+00:15:38,880 --> 00:15:44,240
+write, should you also say she? Then it
+
+302
+00:15:42,160 --> 00:15:47,140
+became that that was 30 years ago. Then
+
+303
+00:15:44,240 --> 00:15:48,240
+it became, oh, um,
+
+304
+00:15:47,140 --> 00:15:50,800
+[laughter]
+
+305
+00:15:48,240 --> 00:15:54,160
+feminism, right? You know, you hear it
+
+306
+00:15:50,800 --> 00:15:56,800
+every day at work, at school, uh, you
+
+307
+00:15:54,160 --> 00:15:59,360
+know, uh,
+
+308
+00:15:56,800 --> 00:16:03,360
+dating, date, rape, and whatever, you
+
+309
+00:15:59,360 --> 00:16:05,199
+know, the everything to do with women. I
+
+310
+00:16:03,360 --> 00:16:07,759
+mean you can't you can't escape it
+
+311
+00:16:05,199 --> 00:16:11,839
+because men and women they are you know
+
+312
+00:16:07,759 --> 00:16:14,959
+we are here and then you have trans you
+
+313
+00:16:11,839 --> 00:16:16,800
+know sex okay it's all like related to
+
+314
+00:16:14,959 --> 00:16:20,079
+sex
+
+315
+00:16:16,800 --> 00:16:22,800
+so you learn about their perception or
+
+316
+00:16:20,079 --> 00:16:24,880
+or what whatever the region or fictional
+
+317
+00:16:22,800 --> 00:16:28,160
+version of it
+
+318
+00:16:24,880 --> 00:16:31,600
+1500 years ago um about women they talk
+
+319
+00:16:28,160 --> 00:16:34,880
+about women all over okay uh they and
+
+320
+00:16:31,600 --> 00:16:37,880
+then you learn about um
+
+321
+00:16:34,880 --> 00:16:37,880
+ethology
+
+322
+00:16:38,560 --> 00:16:48,320
+uh you know things like that.
+
+323
+00:16:41,680 --> 00:16:51,519
+So that's Arabian Nights by Richard uh
+
+324
+00:16:48,320 --> 00:16:55,600
+Burton, Sir Richard Burton. Okay, I
+
+325
+00:16:51,519 --> 00:16:58,560
+enjoyed it very much. Now so but if you
+
+326
+00:16:55,600 --> 00:17:02,240
+read if you just want to read about the
+
+327
+00:16:58,560 --> 00:17:04,880
+story so I learned later many years
+
+328
+00:17:02,240 --> 00:17:06,959
+later I learned this new versions by
+
+329
+00:17:04,880 --> 00:17:11,120
+Hussein Hatway
+
+330
+00:17:06,959 --> 00:17:14,000
+so according to reviews it's more
+
+331
+00:17:11,120 --> 00:17:16,480
+it's it simply tells the story it
+
+332
+00:17:14,000 --> 00:17:20,079
+doesn't elaborate it doesn't add fluffs
+
+333
+00:17:16,480 --> 00:17:23,760
+like the Richard uh Sir Richard Burton
+
+334
+00:17:20,079 --> 00:17:26,079
+does like some criticism
+
+335
+00:17:23,760 --> 00:17:28,559
+of Sir Richard Burton. By the way, when
+
+336
+00:17:26,079 --> 00:17:31,200
+he when he translated this, it was
+
+337
+00:17:28,559 --> 00:17:34,000
+banned
+
+338
+00:17:31,200 --> 00:17:37,760
+book in, you know, censored, not allowed
+
+339
+00:17:34,000 --> 00:17:41,039
+to publish because because some people
+
+340
+00:17:37,760 --> 00:17:43,520
+say it's just porn. It's a [ __ ] porn.
+
+341
+00:17:41,039 --> 00:17:46,960
+Pornography
+
+342
+00:17:43,520 --> 00:17:50,080
+banned in UK, United Kingdom.
+
+343
+00:17:46,960 --> 00:17:54,320
+Uh so and and some criticism. It's it's
+
+344
+00:17:50,080 --> 00:17:57,360
+it's just like you know pornography.
+
+345
+00:17:54,320 --> 00:17:59,600
+Uh but then so I learned so this this
+
+346
+00:17:57,360 --> 00:18:02,880
+version by uh some people claim that
+
+347
+00:17:59,600 --> 00:18:05,679
+Richard uh Richard S Burton focus too
+
+348
+00:18:02,880 --> 00:18:08,720
+much more on the sex part you know lots
+
+349
+00:18:05,679 --> 00:18:10,559
+of sex stuff they he he he emphasized
+
+350
+00:18:08,720 --> 00:18:14,559
+it.
+
+351
+00:18:10,559 --> 00:18:17,440
+So, so this this new version by uh
+
+352
+00:18:14,559 --> 00:18:20,640
+Hussean Hatway supposedly
+
+353
+00:18:17,440 --> 00:18:22,880
+is more truthful. It doesn't elaborate
+
+354
+00:18:20,640 --> 00:18:26,080
+about any, you know, sexual part or
+
+355
+00:18:22,880 --> 00:18:27,840
+whatever or doesn't use uh archaic
+
+356
+00:18:26,080 --> 00:18:31,440
+English.
+
+357
+00:18:27,840 --> 00:18:35,280
+So if you really just want to read about
+
+358
+00:18:31,440 --> 00:18:39,679
+the Arabian Knights as it was collected
+
+359
+00:18:35,280 --> 00:18:42,720
+back then you might enjoy these two this
+
+360
+00:18:39,679 --> 00:18:45,280
+version by Hussein Hardway. So I don't
+
+361
+00:18:42,720 --> 00:18:48,320
+have it so I don't know uh I haven't
+
+362
+00:18:45,280 --> 00:18:50,960
+read it I don't know. Okay that's
+
+363
+00:18:48,320 --> 00:18:53,280
+digression into Arabian Nights. I think
+
+364
+00:18:50,960 --> 00:18:57,000
+we already talked for 30 minutes. Are we
+
+365
+00:18:53,280 --> 00:18:57,000
+still coding today?
+
+366
+00:18:57,120 --> 00:19:03,919
+Uh, apparently Aladdin isn't in the
+
+367
+00:19:01,039 --> 00:19:07,039
+original Arabic manuscripts. That's
+
+368
+00:19:03,919 --> 00:19:10,000
+correct. You know, because I started to
+
+369
+00:19:07,039 --> 00:19:12,960
+write about this and annotate it since
+
+370
+00:19:10,000 --> 00:19:15,360
+like 20 years ago. Then one of the
+
+371
+00:19:12,960 --> 00:19:20,400
+question is one of the most famous story
+
+372
+00:19:15,360 --> 00:19:23,679
+is the Aladdin. So where is it? So,
+
+373
+00:19:20,400 --> 00:19:29,280
+so I started to so I learned Aladdin is
+
+374
+00:19:23,679 --> 00:19:31,919
+actually not in original Arabian Nights.
+
+375
+00:19:29,280 --> 00:19:36,160
+Um,
+
+376
+00:19:31,919 --> 00:19:40,480
+and and but then I start to read it uh
+
+377
+00:19:36,160 --> 00:19:44,080
+which is also the version by Rich uh uh
+
+378
+00:19:40,480 --> 00:19:46,880
+sir sir Richard Burton. Okay. Yeah. This
+
+379
+00:19:44,080 --> 00:19:48,880
+is unbolderized
+
+380
+00:19:46,880 --> 00:19:51,679
+version of sir Richard Burton's
+
+381
+00:19:48,880 --> 00:19:55,360
+translation. Okay. Now, now another
+
+382
+00:19:51,679 --> 00:19:58,640
+interesting word unbolderized.
+
+383
+00:19:55,360 --> 00:20:01,600
+So back then 100 years ago or something
+
+384
+00:19:58,640 --> 00:20:04,880
+they used the word embolderized which
+
+385
+00:20:01,600 --> 00:20:08,720
+basically just means uncensored but but
+
+386
+00:20:04,880 --> 00:20:10,559
+but they use the word embolderized.
+
+387
+00:20:08,720 --> 00:20:13,840
+But actually I don't know what's what is
+
+388
+00:20:10,559 --> 00:20:18,559
+the ethmology of that like what so I I
+
+389
+00:20:13,840 --> 00:20:20,960
+suppose borderized was a person's name
+
+390
+00:20:18,559 --> 00:20:23,919
+who started to do some censorship
+
+391
+00:20:20,960 --> 00:20:27,520
+related to you know something.
+
+392
+00:20:23,919 --> 00:20:30,880
+So anyway this Aladdin story I read sir
+
+393
+00:20:27,520 --> 00:20:34,240
+Richard Burton's version and it turns
+
+394
+00:20:30,880 --> 00:20:36,240
+out so it begin with the poor person. Uh
+
+395
+00:20:34,240 --> 00:20:39,919
+in fact the whole thing is just like one
+
+396
+00:20:36,240 --> 00:20:43,679
+there's no sections but I I I separated
+
+397
+00:20:39,919 --> 00:20:48,080
+them into sections by myself you know so
+
+398
+00:20:43,679 --> 00:20:53,600
+this is like the edited edition by Kali
+
+399
+00:20:48,080 --> 00:20:58,240
+Aladdin translated by Sir Richard Burton
+
+400
+00:20:53,600 --> 00:20:59,919
+edited by Kali yours truly. Okay, I put
+
+401
+00:20:58,240 --> 00:21:03,039
+them into these sections because
+
+402
+00:20:59,919 --> 00:21:05,120
+otherwise it's like just one one one big
+
+403
+00:21:03,039 --> 00:21:07,120
+um
+
+404
+00:21:05,120 --> 00:21:10,240
+page
+
+405
+00:21:07,120 --> 00:21:13,840
+and then after I read it, this this
+
+406
+00:21:10,240 --> 00:21:16,480
+story, the Aladdin or the wonderful lamp
+
+407
+00:21:13,840 --> 00:21:19,840
+is the worst. Okay, the least
+
+408
+00:21:16,480 --> 00:21:22,400
+interesting the least interesting among
+
+409
+00:21:19,840 --> 00:21:24,559
+all these Arabianites.
+
+410
+00:21:22,400 --> 00:21:27,520
+That's my imp impression. The big one.
+
+411
+00:21:24,559 --> 00:21:29,280
+Okay, because you know when you when you
+
+412
+00:21:27,520 --> 00:21:31,360
+when you hear about Arabian nights, you
+
+413
+00:21:29,280 --> 00:21:34,559
+thought Aladdin is one of the most
+
+414
+00:21:31,360 --> 00:21:37,440
+popular, right? But then I had read that
+
+415
+00:21:34,559 --> 00:21:41,200
+it's the least interesting. Okay, like
+
+416
+00:21:37,440 --> 00:21:43,520
+the most boring one among among among
+
+417
+00:21:41,200 --> 00:21:47,440
+these stories.
+
+418
+00:21:43,520 --> 00:21:49,280
+So that's interesting to know.
+
+419
+00:21:47,440 --> 00:21:53,919
+Uh,
+
+420
+00:21:49,280 --> 00:21:57,520
+so Moar says I read the Jonathan Scott's
+
+421
+00:21:53,919 --> 00:22:00,400
+translation first, but but
+
+422
+00:21:57,520 --> 00:22:02,960
+when I found out the censored the erotic
+
+423
+00:22:00,400 --> 00:22:06,480
+material, I started again with the
+
+424
+00:22:02,960 --> 00:22:09,360
+Burton one law though I prefer Scott's
+
+425
+00:22:06,480 --> 00:22:13,440
+pros in language. Yeah. Yeah. I don't
+
+426
+00:22:09,360 --> 00:22:16,080
+know Jonathan Scott but I you know I I
+
+427
+00:22:13,440 --> 00:22:18,640
+know it's like this like most of the
+
+428
+00:22:16,080 --> 00:22:21,200
+versions are censored censored either
+
+429
+00:22:18,640 --> 00:22:24,240
+for adults or for children like vast
+
+430
+00:22:21,200 --> 00:22:26,720
+majority of the Arabianites
+
+431
+00:22:24,240 --> 00:22:29,840
+because you don't you know you don't you
+
+432
+00:22:26,720 --> 00:22:32,559
+don't you don't see uh tits and [ __ ]
+
+433
+00:22:29,840 --> 00:22:35,360
+if you read Arabianites
+
+434
+00:22:32,559 --> 00:22:37,120
+and you didn't see any tits and [ __ ]
+
+435
+00:22:35,360 --> 00:22:40,400
+you know what's this story about this
+
+436
+00:22:37,120 --> 00:22:43,440
+this is the story of the first story.
+
+437
+00:22:40,400 --> 00:22:46,159
+Okay. She [laughter]
+
+438
+00:22:43,440 --> 00:22:48,640
+Well, I'm not going to go into it. Okay.
+
+439
+00:22:46,159 --> 00:22:51,280
+So, you see, if you don't see tits and
+
+440
+00:22:48,640 --> 00:22:54,720
+[ __ ] in Arabian Nights, that's not
+
+441
+00:22:51,280 --> 00:22:58,159
+Arabian Knights. Okay. Basically,
+
+442
+00:22:54,720 --> 00:23:02,320
+so all these are illustrations. Okay.
+
+443
+00:22:58,159 --> 00:23:04,320
+Now, look at this one. Decipher it for a
+
+444
+00:23:02,320 --> 00:23:07,320
+moment.
+
+445
+00:23:04,320 --> 00:23:07,320
+Uh
+
+446
+00:23:08,720 --> 00:23:14,960
+yeah. Okay.
+
+447
+00:23:12,080 --> 00:23:18,559
+Now you see they talk about things we
+
+448
+00:23:14,960 --> 00:23:22,960
+talk about even today in USA America you
+
+449
+00:23:18,559 --> 00:23:26,000
+know like if you guys are online people
+
+450
+00:23:22,960 --> 00:23:28,640
+uh or you if you guys read 4chan stuff
+
+451
+00:23:26,000 --> 00:23:32,480
+you you know about the word coke right
+
+452
+00:23:28,640 --> 00:23:34,240
+they talk these teens this te and zuma
+
+453
+00:23:32,480 --> 00:23:37,440
+idiots they talk about it all the time
+
+454
+00:23:34,240 --> 00:23:42,760
+coke that's what this is okay that's
+
+455
+00:23:37,440 --> 00:23:42,760
+what this Arabians was talking about
+
+456
+00:23:43,840 --> 00:23:49,280
+okay I show these pictures I don't know
+
+457
+00:23:46,159 --> 00:23:50,799
+if YouTube is going to like give me like
+
+458
+00:23:49,280 --> 00:23:53,520
+warning
+
+459
+00:23:50,799 --> 00:23:56,640
+you know you you violate comm community
+
+460
+00:23:53,520 --> 00:23:59,440
+guidelines we going to
+
+461
+00:23:56,640 --> 00:24:02,159
+uh I don't know you know oh oh my god
+
+462
+00:23:59,440 --> 00:24:07,440
+this one is spectacular story okay this
+
+463
+00:24:02,159 --> 00:24:09,760
+this is this story this prince his legs
+
+464
+00:24:07,440 --> 00:24:13,120
+became stone
+
+465
+00:24:09,760 --> 00:24:16,559
+Okay. Because of the s sorcerer, you
+
+466
+00:24:13,120 --> 00:24:20,080
+know, made his legs into a stone. So,
+
+467
+00:24:16,559 --> 00:24:23,760
+it's a fantastic story. I love it. Um,
+
+468
+00:24:20,080 --> 00:24:27,679
+and that story you can re read
+
+469
+00:24:23,760 --> 00:24:30,559
+that's about um, so that's after the
+
+470
+00:24:27,679 --> 00:24:32,960
+fisherman and the genie. You see the
+
+471
+00:24:30,559 --> 00:24:35,840
+story is like a recursion. Okay. So,
+
+472
+00:24:32,960 --> 00:24:39,520
+like the end it doesn't really end. So
+
+473
+00:24:35,840 --> 00:24:44,000
+you see there upon the youth began right
+
+474
+00:24:39,520 --> 00:24:47,279
+wondrous and marvelous is my case that
+
+475
+00:24:44,000 --> 00:24:49,360
+and that of these fishes and who eat
+
+476
+00:24:47,279 --> 00:24:53,279
+graven
+
+477
+00:24:49,360 --> 00:24:56,159
+with graver a warner to whoo so would be
+
+478
+00:24:53,279 --> 00:24:59,279
+warned
+
+479
+00:24:56,159 --> 00:25:02,559
+takes a while to understand how is that
+
+480
+00:24:59,279 --> 00:25:06,480
+asked the king and the young man began
+
+481
+00:25:02,559 --> 00:25:10,720
+to tell the tale of The inscurred
+
+482
+00:25:06,480 --> 00:25:12,880
+prince. Okay, that is a story where the
+
+483
+00:25:10,720 --> 00:25:16,799
+prince his
+
+484
+00:25:12,880 --> 00:25:19,200
+lower body parts became a stone. So it
+
+485
+00:25:16,799 --> 00:25:22,880
+continues. You see the story is like a
+
+486
+00:25:19,200 --> 00:25:27,039
+recursion you know story within a story.
+
+487
+00:25:22,880 --> 00:25:30,880
+Okay. So that that is the uh
+
+488
+00:25:27,039 --> 00:25:33,880
+tale of the ins inscer. Okay. Yeah.
+
+489
+00:25:30,880 --> 00:25:33,880
+Here.
+
+490
+00:25:34,400 --> 00:25:40,360
+Fantastic story. Okay. Okay. Anyway,
+
+491
+00:25:40,559 --> 00:25:46,880
+concurrent viewers 10. So, I talk about
+
+492
+00:25:43,760 --> 00:25:48,960
+random stuff. I got more viewers. Uh, so
+
+493
+00:25:46,880 --> 00:25:51,200
+let's see.
+
+494
+00:25:48,960 --> 00:25:53,360
+I guess I hope everything is having a
+
+495
+00:25:51,200 --> 00:25:56,960
+good evening.
+
+496
+00:25:53,360 --> 00:26:01,200
+I my code is still lingering.
+
+497
+00:25:56,960 --> 00:26:03,200
+So, I'm still sick somewhat. So, today,
+
+498
+00:26:01,200 --> 00:26:05,919
+you know,
+
+499
+00:26:03,200 --> 00:26:09,480
+uh yeah. Well, do we should we code?
+
+500
+00:26:05,919 --> 00:26:09,480
+Yeah. Um,
+
+501
+00:26:09,840 --> 00:26:15,279
+you know, so yesterday we we we stuck on
+
+502
+00:26:12,320 --> 00:26:20,080
+a problem, a little bug that should be
+
+503
+00:26:15,279 --> 00:26:22,240
+easy to fix. Uh, but but I think let's
+
+504
+00:26:20,080 --> 00:26:25,919
+not do code today because I already
+
+505
+00:26:22,240 --> 00:26:28,880
+talked for like 40 minutes about some
+
+506
+00:26:25,919 --> 00:26:30,720
+other thing. So, let's not talk about
+
+507
+00:26:28,880 --> 00:26:32,960
+code. Let's talk about random. Okay,
+
+508
+00:26:30,720 --> 00:26:36,000
+this if you have random questions about
+
+509
+00:26:32,960 --> 00:26:39,679
+society, about your life, about the
+
+510
+00:26:36,000 --> 00:26:42,320
+meaning of life, about your religion,
+
+511
+00:26:39,679 --> 00:26:47,640
+about whatever, about love, you can ask
+
+512
+00:26:42,320 --> 00:26:47,640
+me. I give you my wisdom
+
+513
+00:26:53,279 --> 00:27:00,799
+and then we do next video on coding. So,
+
+514
+00:26:56,000 --> 00:27:02,480
+separate them. So, I was going to say
+
+515
+00:27:00,799 --> 00:27:05,120
+Yeah, you know, so let me tell you guys
+
+516
+00:27:02,480 --> 00:27:07,840
+this story. You know,
+
+517
+00:27:05,120 --> 00:27:11,039
+you probably have heard of the term
+
+518
+00:27:07,840 --> 00:27:14,000
+STEM. STM
+
+519
+00:27:11,039 --> 00:27:17,919
+is stand for science, technology,
+
+520
+00:27:14,000 --> 00:27:19,760
+engineering, and mathematics.
+
+521
+00:27:17,919 --> 00:27:23,440
+If you are young, you must have heard of
+
+522
+00:27:19,760 --> 00:27:26,640
+it. You see, because that term is
+
+523
+00:27:23,440 --> 00:27:29,440
+created by deep state.
+
+524
+00:27:26,640 --> 00:27:31,440
+It's one of the tactics
+
+525
+00:27:29,440 --> 00:27:34,320
+Why do they create that term? Well,
+
+526
+00:27:31,440 --> 00:27:37,440
+supposedly so that women and minorities
+
+527
+00:27:34,320 --> 00:27:42,159
+can be part of it.
+
+528
+00:27:37,440 --> 00:27:45,440
+Very funny. You know, STEM, STM,
+
+529
+00:27:42,159 --> 00:27:47,600
+science, technology, engineering,
+
+530
+00:27:45,440 --> 00:27:51,200
+mathematics,
+
+531
+00:27:47,600 --> 00:27:54,240
+women, girls, you need to go into STEM,
+
+532
+00:27:51,200 --> 00:27:58,960
+you know, STEM, cryptic.
+
+533
+00:27:54,240 --> 00:28:04,960
+Um, so I thought we should have another
+
+534
+00:27:58,960 --> 00:28:08,559
+acronym that's called LIVA. Y I V O W
+
+535
+00:28:04,960 --> 00:28:12,320
+Viva. It stand for linguistics,
+
+536
+00:28:08,559 --> 00:28:14,320
+literature, vocabulary, and writing.
+
+537
+00:28:12,320 --> 00:28:17,440
+Okay. Leva
+
+538
+00:28:14,320 --> 00:28:21,520
+so that women and minorities can get
+
+539
+00:28:17,440 --> 00:28:25,440
+into these fields.
+
+540
+00:28:21,520 --> 00:28:25,440
+That's, you know, it's funny.
+
+541
+00:28:27,039 --> 00:28:34,399
+Um, okay. What else?
+
+542
+00:28:30,880 --> 00:28:36,960
+Do you believe in God?
+
+543
+00:28:34,399 --> 00:28:40,399
+That's a good question. Well, that
+
+544
+00:28:36,960 --> 00:28:44,000
+depends on who is asking like what do
+
+545
+00:28:40,399 --> 00:28:48,240
+you know about religion? Okay. So, like
+
+546
+00:28:44,000 --> 00:28:52,720
+how much do you know about religion?
+
+547
+00:28:48,240 --> 00:28:56,080
+How much do you know about religion?
+
+548
+00:28:52,720 --> 00:28:59,360
+Uh in the academic sense
+
+549
+00:28:56,080 --> 00:29:00,960
+like in the word of earthlings, us
+
+550
+00:28:59,360 --> 00:29:05,840
+earthlings,
+
+551
+00:29:00,960 --> 00:29:09,279
+we human animals on this earth
+
+552
+00:29:05,840 --> 00:29:13,200
+there is a thing called religion
+
+553
+00:29:09,279 --> 00:29:15,840
+which is roughly defined as a like
+
+554
+00:29:13,200 --> 00:29:18,880
+system of belief.
+
+555
+00:29:15,840 --> 00:29:22,640
+Okay, roughly defined that way. But you
+
+556
+00:29:18,880 --> 00:29:25,360
+know uh and it
+
+557
+00:29:22,640 --> 00:29:28,399
+relates to it you know contains things
+
+558
+00:29:25,360 --> 00:29:31,600
+like the ultimate you know it contains
+
+559
+00:29:28,399 --> 00:29:33,200
+relates to the uh part of it is
+
+560
+00:29:31,600 --> 00:29:36,480
+lifestyle.
+
+561
+00:29:33,200 --> 00:29:38,159
+Part of it is like certain ultimate
+
+562
+00:29:36,480 --> 00:29:41,200
+answer.
+
+563
+00:29:38,159 --> 00:29:46,399
+What is the meaning of life? Why are you
+
+564
+00:29:41,200 --> 00:29:49,679
+here? Part of it is about cosmology
+
+565
+00:29:46,399 --> 00:29:52,399
+will we like what happen when we die
+
+566
+00:29:49,679 --> 00:29:54,720
+about you know so that's roughly
+
+567
+00:29:52,399 --> 00:29:57,600
+religion okay so do you know how much do
+
+568
+00:29:54,720 --> 00:30:00,720
+you know about that how many religions
+
+569
+00:29:57,600 --> 00:30:02,799
+are there what are they what is their
+
+570
+00:30:00,720 --> 00:30:05,039
+characteristics
+
+571
+00:30:02,799 --> 00:30:08,399
+what is their
+
+572
+00:30:05,039 --> 00:30:12,000
+ontology or classification
+
+573
+00:30:08,399 --> 00:30:12,720
+cate categorize category what type of
+
+574
+00:30:12,000 --> 00:30:16,840
+you
+
+575
+00:30:12,720 --> 00:30:16,840
+So what what you know
+
+576
+00:30:17,360 --> 00:30:23,840
+so next question Sam says no I need to
+
+577
+00:30:21,360 --> 00:30:27,039
+know if you believe that this world has
+
+578
+00:30:23,840 --> 00:30:29,279
+a creator or not you believe yeah that
+
+579
+00:30:27,039 --> 00:30:32,720
+like I said that depends on what you
+
+580
+00:30:29,279 --> 00:30:35,600
+know first okay let me let me just
+
+581
+00:30:32,720 --> 00:30:38,799
+answer instead of going about okay like
+
+582
+00:30:35,600 --> 00:30:41,440
+the what you know one of my personal
+
+583
+00:30:38,799 --> 00:30:45,200
+hero
+
+584
+00:30:41,440 --> 00:30:50,200
+uh is Bertron Russell. Okay. Another
+
+585
+00:30:45,200 --> 00:30:50,200
+British guy, Brit, the white man.
+
+586
+00:30:51,279 --> 00:30:56,000
+Now, you younglings, you probably you
+
+587
+00:30:54,159 --> 00:30:58,640
+may not know. So, let me just show you
+
+588
+00:30:56,000 --> 00:31:02,399
+this guy, Bertron Russell. Okay, let's
+
+589
+00:30:58,640 --> 00:31:06,640
+open a new um
+
+590
+00:31:02,399 --> 00:31:09,279
+uh new tab. And let's also look at the
+
+591
+00:31:06,640 --> 00:31:12,000
+pictures. And he's got lots of videos,
+
+592
+00:31:09,279 --> 00:31:17,279
+too. There's lots of videos of Bertron
+
+593
+00:31:12,000 --> 00:31:21,520
+Russell. Okay. Now he is one of the guy
+
+594
+00:31:17,279 --> 00:31:25,520
+I would say top three that has greatest
+
+595
+00:31:21,520 --> 00:31:29,200
+influence on my life on the way I see
+
+596
+00:31:25,520 --> 00:31:33,120
+the world on my thinking including on my
+
+597
+00:31:29,200 --> 00:31:36,960
+views about religion. Okay he's in short
+
+598
+00:31:33,120 --> 00:31:39,120
+you can say he's one of my idol
+
+599
+00:31:36,960 --> 00:31:43,120
+Bertrron Russell.
+
+600
+00:31:39,120 --> 00:31:46,559
+So what what is he? He is a uh well he's
+
+601
+00:31:43,120 --> 00:31:51,120
+quite a few he's alcohol
+
+602
+00:31:46,559 --> 00:31:53,519
+person. He is a one of the founder in
+
+603
+00:31:51,120 --> 00:31:58,159
+mathematical logic. He's a mathematician
+
+604
+00:31:53,519 --> 00:32:00,240
+logician. Okay. One of the founder um
+
+605
+00:31:58,159 --> 00:32:02,000
+of mathematics. one of the you know
+
+606
+00:32:00,240 --> 00:32:03,919
+let's say
+
+607
+00:32:02,000 --> 00:32:09,200
+the top
+
+608
+00:32:03,919 --> 00:32:12,559
+one among the top 50 most important
+
+609
+00:32:09,200 --> 00:32:15,600
+mathematicians in the past 100 years
+
+610
+00:32:12,559 --> 00:32:18,880
+let's say so he's one of that and he's
+
+611
+00:32:15,600 --> 00:32:22,480
+also one of the greatest philosopher in
+
+612
+00:32:18,880 --> 00:32:25,120
+western society Bertrron Russell okay so
+
+613
+00:32:22,480 --> 00:32:27,919
+do you guys know if you don't know I'm
+
+614
+00:32:25,120 --> 00:32:31,200
+giving you a introduction okay one of
+
+615
+00:32:27,919 --> 00:32:34,720
+the greatest logician mathematician
+
+616
+00:32:31,200 --> 00:32:38,000
+uh and one and and also known as the one
+
+617
+00:32:34,720 --> 00:32:41,919
+of the greatest philosopher of western
+
+618
+00:32:38,000 --> 00:32:44,559
+society. Okay, western philosophy
+
+619
+00:32:41,919 --> 00:32:47,279
+that is what he's most well known for
+
+620
+00:32:44,559 --> 00:32:49,840
+and he also won Nobel Prize by the way
+
+621
+00:32:47,279 --> 00:32:52,799
+for literature which is kind of silly
+
+622
+00:32:49,840 --> 00:32:54,320
+but he you know he won Nobel Prize for
+
+623
+00:32:52,799 --> 00:32:56,880
+literature.
+
+624
+00:32:54,320 --> 00:33:00,640
+Uh, and the other thing he's known for
+
+625
+00:32:56,880 --> 00:33:03,600
+is a peace fighter. You know, he he uh
+
+626
+00:33:00,640 --> 00:33:07,440
+he and Einstein signed a letter to stop
+
+627
+00:33:03,600 --> 00:33:10,320
+nuke bombs. Okay. Anyway, that's what
+
+628
+00:33:07,440 --> 00:33:16,159
+he's mostly known for. And he also been
+
+629
+00:33:10,320 --> 00:33:19,120
+put to jail by whom? By Christians.
+
+630
+00:33:16,159 --> 00:33:24,600
+Okay. Bon Russell
+
+631
+00:33:19,120 --> 00:33:24,600
+got put to jail by Christians.
+
+632
+00:33:24,880 --> 00:33:33,519
+Now I think you probably can guess what
+
+633
+00:33:27,840 --> 00:33:35,760
+is my stance about Christian. Okay. Um
+
+634
+00:33:33,519 --> 00:33:40,159
+so Bertron Russell
+
+635
+00:33:35,760 --> 00:33:44,120
+he's a um if you ask him if he's
+
+636
+00:33:40,159 --> 00:33:44,120
+religious that depends
+
+637
+00:33:45,440 --> 00:33:50,159
+if you don't know anything about
+
+638
+00:33:46,960 --> 00:33:53,519
+religion if you are a Christian like
+
+639
+00:33:50,159 --> 00:33:56,480
+vast majority of Christians or the other
+
+640
+00:33:53,519 --> 00:34:02,080
+the other Abrahamic religions like uh
+
+641
+00:33:56,480 --> 00:34:05,120
+Judaism or Islam people Muhamadans
+
+642
+00:34:02,080 --> 00:34:08,120
+also also known as
+
+643
+00:34:05,120 --> 00:34:08,120
+then
+
+644
+00:34:08,639 --> 00:34:16,000
+Bertron Russell is an atheist. So am I.
+
+645
+00:34:13,200 --> 00:34:18,560
+No, I don't believe in God. Okay. Now,
+
+646
+00:34:16,000 --> 00:34:21,760
+well, you can go elaborate. Well, I do
+
+647
+00:34:18,560 --> 00:34:24,560
+believe in God. Okay.
+
+648
+00:34:21,760 --> 00:34:27,040
+If you know, like, do you believe in
+
+649
+00:34:24,560 --> 00:34:30,159
+God? If you say no, you're going to die.
+
+650
+00:34:27,040 --> 00:34:33,679
+We're gonna kill you. Okay. that you
+
+651
+00:34:30,159 --> 00:34:35,919
+know some of the people
+
+652
+00:34:33,679 --> 00:34:41,280
+uh a lot of those people had that
+
+653
+00:34:35,919 --> 00:34:45,599
+stance. Okay. So well then no I believe
+
+654
+00:34:41,280 --> 00:34:47,440
+in God just not your god. Okay.
+
+655
+00:34:45,599 --> 00:34:51,200
+So
+
+656
+00:34:47,440 --> 00:34:53,200
+you can be an atheist or
+
+657
+00:34:51,200 --> 00:34:55,839
+more correctly
+
+658
+00:34:53,200 --> 00:34:58,000
+am agnostic
+
+659
+00:34:55,839 --> 00:35:00,800
+which means
+
+660
+00:34:58,000 --> 00:35:04,000
+the question about God is not knowable.
+
+661
+00:35:00,800 --> 00:35:05,920
+You cannot know it. Okay? You know it's
+
+662
+00:35:04,000 --> 00:35:09,040
+just like you don't know there's there's
+
+663
+00:35:05,920 --> 00:35:11,680
+no way to know. So that is more
+
+664
+00:35:09,040 --> 00:35:14,000
+technically correct
+
+665
+00:35:11,680 --> 00:35:18,079
+in some sense. But on the whole the
+
+666
+00:35:14,000 --> 00:35:21,359
+question is just like city
+
+667
+00:35:18,079 --> 00:35:26,280
+uh you know there's no like you cannot
+
+668
+00:35:21,359 --> 00:35:26,280
+talk logic about these kind of issues.
+
+669
+00:35:30,000 --> 00:35:34,560
+So let's see what's the next did I miss
+
+670
+00:35:32,560 --> 00:35:36,560
+any questions? So I think maybe that's
+
+671
+00:35:34,560 --> 00:35:39,560
+it for today or is there any other
+
+672
+00:35:36,560 --> 00:35:39,560
+questions?
+
+673
+00:35:40,480 --> 00:35:47,720
+Am I going well? Do you guys enjoy the
+
+674
+00:35:44,720 --> 00:35:47,720
+show?
+
+675
+00:35:48,000 --> 00:35:52,880
+Okay. So, you are right about learning
+
+676
+00:35:50,560 --> 00:35:56,320
+evolution of words. For example, instead
+
+677
+00:35:52,880 --> 00:36:00,079
+of him was in hisstead, which I like
+
+678
+00:35:56,320 --> 00:36:03,119
+more. Okay. Hikar. Hi, Chad.
+
+679
+00:36:00,079 --> 00:36:04,880
+Uh, simple postman. Hi, Sam. Yeah,
+
+680
+00:36:03,119 --> 00:36:08,560
+you're right. What do you think about
+
+681
+00:36:04,880 --> 00:36:10,480
+idealism? Idealism, that's classic
+
+682
+00:36:08,560 --> 00:36:13,480
+philosophy.
+
+683
+00:36:10,480 --> 00:36:13,480
+Uh
+
+684
+00:36:14,079 --> 00:36:20,079
+so analyzing religion from a
+
+685
+00:36:16,880 --> 00:36:21,599
+sociological perspective doesn't answer
+
+686
+00:36:20,079 --> 00:36:24,000
+anything.
+
+687
+00:36:21,599 --> 00:36:27,780
+He ain't going to give clear answer. I
+
+688
+00:36:24,000 --> 00:36:27,780
+don't think so. Okay. [laughter]
+
+689
+00:36:28,480 --> 00:36:35,440
+What do you think about friendship at
+
+690
+00:36:31,599 --> 00:36:37,920
+your age? My life experience shows that
+
+691
+00:36:35,440 --> 00:36:40,079
+it's just a matter of conveniences for
+
+692
+00:36:37,920 --> 00:36:42,800
+the va v vast majority of people not
+
+693
+00:36:40,079 --> 00:36:44,400
+real lifelong connection. Okay. About
+
+694
+00:36:42,800 --> 00:36:48,000
+friendship.
+
+695
+00:36:44,400 --> 00:36:52,800
+Okay. Well, I can tell you something
+
+696
+00:36:48,000 --> 00:36:54,320
+about my you know my experience. So I my
+
+697
+00:36:52,800 --> 00:36:57,280
+personality
+
+698
+00:36:54,320 --> 00:37:01,040
+as it so happens partly because of my
+
+699
+00:36:57,280 --> 00:37:05,839
+gene partly because of my environment my
+
+700
+00:37:01,040 --> 00:37:10,000
+family which is quite [ __ ] up. Okay so
+
+701
+00:37:05,839 --> 00:37:13,760
+my personality I'm a skezoid
+
+702
+00:37:10,000 --> 00:37:16,760
+which is a topic I have talked about
+
+703
+00:37:13,760 --> 00:37:16,760
+often.
+
+704
+00:37:16,960 --> 00:37:24,560
+Okay, that is the word skezoid.
+
+705
+00:37:20,800 --> 00:37:27,920
+Technically, uh, wait, no, stupid Emacs.
+
+706
+00:37:24,560 --> 00:37:31,320
+No, uh, go back. Technically, it's
+
+707
+00:37:27,920 --> 00:37:31,320
+called skezoid.
+
+708
+00:37:33,599 --> 00:37:39,359
+Skizoid personality disorder. Now you
+
+709
+00:37:37,119 --> 00:37:43,839
+can, now let let's show the power of
+
+710
+00:37:39,359 --> 00:37:45,359
+Emacs. Okay, press press. It goes to
+
+711
+00:37:43,839 --> 00:37:48,800
+search.
+
+712
+00:37:45,359 --> 00:37:51,280
+So schizoidic personality disorder mayor
+
+713
+00:37:48,800 --> 00:37:53,839
+clinic then Wikipedia.
+
+714
+00:37:51,280 --> 00:37:57,280
+Now you can also search Wikipedia
+
+715
+00:37:53,839 --> 00:37:59,760
+directly. Press press press press. There
+
+716
+00:37:57,280 --> 00:38:01,359
+it is. Wikipedia.
+
+717
+00:37:59,760 --> 00:38:05,760
+Okay. Blah blah blah blah blah blah blah
+
+718
+00:38:01,359 --> 00:38:07,599
+blah blah. Now press press. Now we go to
+
+719
+00:38:05,760 --> 00:38:11,440
+Guipipedia
+
+720
+00:38:07,599 --> 00:38:13,680
+which is Ellen Musk's new thing. Bak
+
+721
+00:38:11,440 --> 00:38:16,880
+dark theme
+
+722
+00:38:13,680 --> 00:38:19,119
+and skisoid personality disorder which I
+
+723
+00:38:16,880 --> 00:38:21,680
+believe the content is actually exactly
+
+724
+00:38:19,119 --> 00:38:25,359
+the same as Wikipedia
+
+725
+00:38:21,680 --> 00:38:30,000
+for now. So anyway,
+
+726
+00:38:25,359 --> 00:38:32,400
+what does it mean? So I'm I'm a mild
+
+727
+00:38:30,000 --> 00:38:34,400
+skezoid. So what does that mean? Skizoid
+
+728
+00:38:32,400 --> 00:38:37,920
+personality. First of all, it's a
+
+729
+00:38:34,400 --> 00:38:41,599
+personality. Okay. Now what about the
+
+730
+00:38:37,920 --> 00:38:44,400
+disorder? Well, it's a disorder when
+
+731
+00:38:41,599 --> 00:38:48,240
+when you have a personality to a severe
+
+732
+00:38:44,400 --> 00:38:51,839
+degree, you cannot function in society.
+
+733
+00:38:48,240 --> 00:38:54,640
+Then you say it's dis disorder. Okay.
+
+734
+00:38:51,839 --> 00:38:57,839
+There are many type there are many types
+
+735
+00:38:54,640 --> 00:39:02,400
+of personality disorder. For example,
+
+736
+00:38:57,839 --> 00:39:05,119
+there is um histrionic histrionic
+
+737
+00:39:02,400 --> 00:39:06,960
+where people needs to make drama
+
+738
+00:39:05,119 --> 00:39:08,960
+attention. Hey here, oh what happened
+
+739
+00:39:06,960 --> 00:39:13,000
+here? you know something something
+
+740
+00:39:08,960 --> 00:39:13,000
+people are like that okay
+
+741
+00:39:13,040 --> 00:39:19,920
+uh histrionic then there's borderline
+
+742
+00:39:16,720 --> 00:39:22,720
+like women most mostly women they they
+
+743
+00:39:19,920 --> 00:39:24,640
+need to cut themselves they cannot form
+
+744
+00:39:22,720 --> 00:39:27,119
+proper relationships you know there's
+
+745
+00:39:24,640 --> 00:39:29,359
+quite a few okay
+
+746
+00:39:27,119 --> 00:39:32,720
+personality okay it's it's just a
+
+747
+00:39:29,359 --> 00:39:35,839
+personality but if you have such a trait
+
+748
+00:39:32,720 --> 00:39:38,480
+in a severe degree it affected your
+
+749
+00:39:35,839 --> 00:39:41,200
+ability to form home, normal
+
+750
+00:39:38,480 --> 00:39:44,400
+relationships or wife or husband's
+
+751
+00:39:41,200 --> 00:39:48,720
+friendship or work.
+
+752
+00:39:44,400 --> 00:39:51,440
+Then they say it's disorder.
+
+753
+00:39:48,720 --> 00:39:53,200
+Okay, remember that that's like the
+
+754
+00:39:51,440 --> 00:39:55,920
+meaning. Okay, everyone has a
+
+755
+00:39:53,200 --> 00:39:58,720
+personality. Everyone, all of you has a
+
+756
+00:39:55,920 --> 00:40:02,400
+personality. But some some sometimes you
+
+757
+00:39:58,720 --> 00:40:05,200
+have such like strong way as particular
+
+758
+00:40:02,400 --> 00:40:09,280
+personality in a severe degree then you
+
+759
+00:40:05,200 --> 00:40:11,920
+say it's like disorder. Okay.
+
+760
+00:40:09,280 --> 00:40:13,760
+So my so me I am a ski resort. I'm a
+
+761
+00:40:11,920 --> 00:40:16,640
+minor one.
+
+762
+00:40:13,760 --> 00:40:19,040
+Am I functional? Well you could say yes.
+
+763
+00:40:16,640 --> 00:40:21,200
+You could say no. Okay. Yes. Because
+
+764
+00:40:19,040 --> 00:40:24,079
+well I'm talking to you. I'm doing
+
+765
+00:40:21,200 --> 00:40:28,320
+YouTube. I'm great. You know I'm good
+
+766
+00:40:24,079 --> 00:40:31,440
+coder. uh I can teach people. I can you
+
+767
+00:40:28,320 --> 00:40:35,119
+know but in in a way you could say I'm
+
+768
+00:40:31,440 --> 00:40:37,599
+not I'm not exactly functional because
+
+769
+00:40:35,119 --> 00:40:39,903
+uh well a lot of you think you know like
+
+770
+00:40:37,599 --> 00:40:41,119
+I'm crazy. I'm a n job you know
+
+771
+00:40:39,903 --> 00:40:44,560
+[laughter]
+
+772
+00:40:41,119 --> 00:40:48,400
+and uh in fact I haven't worked in a
+
+773
+00:40:44,560 --> 00:40:53,599
+like corporation environment for mo most
+
+774
+00:40:48,400 --> 00:40:56,160
+of my life and during one time about 15
+
+775
+00:40:53,599 --> 00:40:58,319
+years ago I was about to die of hunger
+
+776
+00:40:56,160 --> 00:41:01,040
+in USA
+
+777
+00:40:58,319 --> 00:41:04,079
+so in a sense I'm not exactly you know
+
+778
+00:41:01,040 --> 00:41:07,599
+I'm not normal for sure and you could
+
+779
+00:41:04,079 --> 00:41:10,319
+say I'm kind of dysfunctional
+
+780
+00:41:07,599 --> 00:41:13,280
+okay So is it a disorder? Well, it's a
+
+781
+00:41:10,319 --> 00:41:15,680
+matter of degree, okay? Like who is to
+
+782
+00:41:13,280 --> 00:41:20,480
+judge?
+
+783
+00:41:15,680 --> 00:41:24,319
+So, so what I'm telling you is that I am
+
+784
+00:41:20,480 --> 00:41:26,319
+a schizoid personality. Okay? M a mild
+
+785
+00:41:24,319 --> 00:41:29,280
+one, not severe one. There are severe
+
+786
+00:41:26,319 --> 00:41:32,160
+ones I know. So what but what exactly is
+
+787
+00:41:29,280 --> 00:41:34,880
+skezoid? That's like like in short it's
+
+788
+00:41:32,160 --> 00:41:37,520
+people who are loners
+
+789
+00:41:34,880 --> 00:41:40,319
+especially you you guys probably know
+
+790
+00:41:37,520 --> 00:41:42,480
+you know among programmers or scientists
+
+791
+00:41:40,319 --> 00:41:45,599
+there's a lot loners
+
+792
+00:41:42,480 --> 00:41:47,839
+they prefer to do things alone
+
+793
+00:41:45,599 --> 00:41:49,280
+uh you know
+
+794
+00:41:47,839 --> 00:41:51,920
+uh they they just you know they they
+
+795
+00:41:49,280 --> 00:41:54,800
+they don't make friends they they you
+
+796
+00:41:51,920 --> 00:41:58,640
+know they don't enjoy like going out for
+
+797
+00:41:54,800 --> 00:42:00,480
+example when I go to a bar I feel very
+
+798
+00:41:58,640 --> 00:42:04,400
+nervous like I don't know what to do,
+
+799
+00:42:00,480 --> 00:42:06,079
+what to say like or some people you guys
+
+800
+00:42:04,400 --> 00:42:08,560
+you know let's say you know you have
+
+801
+00:42:06,079 --> 00:42:11,680
+like guys nights what whatever you know
+
+802
+00:42:08,560 --> 00:42:13,760
+go to watch football I I I cannot
+
+803
+00:42:11,680 --> 00:42:15,599
+imagine you know I feel I would feel
+
+804
+00:42:13,760 --> 00:42:18,560
+very uncomfortable
+
+805
+00:42:15,599 --> 00:42:21,839
+or if I feel very uncomfortable to talk
+
+806
+00:42:18,560 --> 00:42:25,599
+any small talks okay if you want to talk
+
+807
+00:42:21,839 --> 00:42:29,680
+about mathematics computers sciences
+
+808
+00:42:25,599 --> 00:42:33,440
+psychology sociology academic subjects I
+
+809
+00:42:29,680 --> 00:42:36,000
+can talk a river. I can talk nonstop.
+
+810
+00:42:33,440 --> 00:42:39,280
+But if you want to talk small talks like
+
+811
+00:42:36,000 --> 00:42:40,880
+how how are you today? How is your um
+
+812
+00:42:39,280 --> 00:42:43,760
+you know what what did you do? You know
+
+813
+00:42:40,880 --> 00:42:45,440
+that I cannot do that. Okay. I I get I
+
+814
+00:42:43,760 --> 00:42:48,640
+get nervous.
+
+815
+00:42:45,440 --> 00:42:53,040
+I don't know what to say. Okay. So it's
+
+816
+00:42:48,640 --> 00:42:56,640
+a loner personality. Okay. That's me.
+
+817
+00:42:53,040 --> 00:42:59,280
+Loner. So in general, so back to your
+
+818
+00:42:56,640 --> 00:43:01,359
+question. Okay. I don't make friends all
+
+819
+00:42:59,280 --> 00:43:03,200
+my life. I basically I haven't you know
+
+820
+00:43:01,359 --> 00:43:05,200
+I don't make I don't have friends
+
+821
+00:43:03,200 --> 00:43:08,160
+because I don't make them. I don't you
+
+822
+00:43:05,200 --> 00:43:11,440
+know what I do every day is like
+
+823
+00:43:08,160 --> 00:43:15,040
+mathematics very cold
+
+824
+00:43:11,440 --> 00:43:17,200
+mathematics truth society or whatever I
+
+825
+00:43:15,040 --> 00:43:21,280
+study literature
+
+826
+00:43:17,200 --> 00:43:26,920
+uh technology sciences okay I I don't do
+
+827
+00:43:21,280 --> 00:43:26,920
+small talks I don't establish friendship
+
+828
+00:43:27,440 --> 00:43:32,800
+that's just me
+
+829
+00:43:30,160 --> 00:43:36,400
+okay so I'm a skisoid so your question
+
+830
+00:43:32,800 --> 00:43:40,000
+about do you make friends. Now,
+
+831
+00:43:36,400 --> 00:43:43,760
+as I get older, I can tell you it is
+
+832
+00:43:40,000 --> 00:43:45,839
+important to make friends. Okay?
+
+833
+00:43:43,760 --> 00:43:49,440
+You want to make long-term friends.
+
+834
+00:43:45,839 --> 00:43:53,280
+Long-term friends who can help you like
+
+835
+00:43:49,440 --> 00:43:55,200
+establish long-term friends to so that
+
+836
+00:43:53,280 --> 00:43:58,440
+the person can help you. You can help
+
+837
+00:43:55,200 --> 00:43:58,440
+each other
+
+838
+00:43:58,640 --> 00:44:03,520
+in life.
+
+839
+00:44:01,280 --> 00:44:06,720
+Okay? Not not just like going out for
+
+840
+00:44:03,520 --> 00:44:08,480
+movies or uh have a dinner together, not
+
+841
+00:44:06,720 --> 00:44:11,119
+like that, but long-term friends when
+
+842
+00:44:08,480 --> 00:44:15,200
+you have crisis or whatever.
+
+843
+00:44:11,119 --> 00:44:18,400
+You want friends, so
+
+844
+00:44:15,200 --> 00:44:20,560
+do what you can. You know, every every
+
+845
+00:44:18,400 --> 00:44:23,440
+person is different. So do what you can.
+
+846
+00:44:20,560 --> 00:44:25,280
+I would recommend
+
+847
+00:44:23,440 --> 00:44:27,760
+if you are a teen, you don't care,
+
+848
+00:44:25,280 --> 00:44:30,079
+right? I mean, whatever happens and you
+
+849
+00:44:27,760 --> 00:44:33,200
+don't know what's going on anyway. But
+
+850
+00:44:30,079 --> 00:44:37,200
+as you get older, when you are like 30s
+
+851
+00:44:33,200 --> 00:44:41,280
+or 40s, you you want to, you know, pick
+
+852
+00:44:37,200 --> 00:44:44,160
+friends, make establish long-term good
+
+853
+00:44:41,280 --> 00:44:47,359
+friends.
+
+854
+00:44:44,160 --> 00:44:49,359
+That's what I say. Okay. Okay. I think
+
+855
+00:44:47,359 --> 00:44:53,040
+that maybe that's it. I've been talking
+
+856
+00:44:49,359 --> 00:44:55,200
+for an hour almost.
+
+857
+00:44:53,040 --> 00:44:56,400
+So that's the question. That's my answer
+
+858
+00:44:55,200 --> 00:44:58,800
+about what do you think about
+
+859
+00:44:56,400 --> 00:45:03,760
+friendship?
+
+860
+00:44:58,800 --> 00:45:08,160
+Okay. As for me, I'm close to 60. I
+
+861
+00:45:03,760 --> 00:45:10,720
+still don't have much friends. Um,
+
+862
+00:45:08,160 --> 00:45:13,280
+you know that well in part because I'm
+
+863
+00:45:10,720 --> 00:45:15,920
+I'm a skezoid by nature. It's it's in
+
+864
+00:45:13,280 --> 00:45:19,280
+it's it's in my brain. Okay. I cannot
+
+865
+00:45:15,920 --> 00:45:21,680
+like talk chithat
+
+866
+00:45:19,280 --> 00:45:26,599
+like some of you join kasawa forum. You
+
+867
+00:45:21,680 --> 00:45:26,599
+might realize too like who who is this?
+
+868
+00:45:28,880 --> 00:45:35,839
+Wait, this is AI generated picture of
+
+869
+00:45:31,520 --> 00:45:38,640
+me. Some stupid guy did that. So,
+
+870
+00:45:35,839 --> 00:45:41,520
+so let's go to uh programming. So, we
+
+871
+00:45:38,640 --> 00:45:43,599
+are doing uh advant of code. So, a lot
+
+872
+00:45:41,520 --> 00:45:46,960
+of people actually are doing it to
+
+873
+00:45:43,599 --> 00:45:50,240
+advant of code in G scheme and others.
+
+874
+00:45:46,960 --> 00:45:52,160
+Anyway, so
+
+875
+00:45:50,240 --> 00:45:54,160
+you know, I'm I you know, I turned out
+
+876
+00:45:52,160 --> 00:45:57,920
+that way.
+
+877
+00:45:54,160 --> 00:45:59,440
+Uh I do what I can to fix my
+
+878
+00:45:57,920 --> 00:46:02,400
+shortcomings,
+
+879
+00:45:59,440 --> 00:46:05,200
+but some other part of me I cannot
+
+880
+00:46:02,400 --> 00:46:07,200
+change. That's just the way I am. Okay?
+
+881
+00:46:05,200 --> 00:46:08,800
+So I don't I don't actually have much
+
+882
+00:46:07,200 --> 00:46:12,359
+friends. Okay? And I don't I don't
+
+883
+00:46:08,800 --> 00:46:12,359
+really make them.
+
+884
+00:46:15,200 --> 00:46:22,400
+Okay? So, do I have kids? I wish, but
+
+885
+00:46:18,480 --> 00:46:25,040
+no. You know, I'm getting to a edge. If
+
+886
+00:46:22,400 --> 00:46:32,119
+if I don't make kids now, I will not
+
+887
+00:46:25,040 --> 00:46:32,119
+have kids. Uh, so hard to say, you know.
+
+888
+00:46:41,200 --> 00:46:47,280
+Uh, J, I could not stay at home for hour
+
+889
+00:46:43,839 --> 00:46:50,240
+a day. No, how you do it? Yeah. So, each
+
+890
+00:46:47,280 --> 00:46:53,920
+person is different. Okay. For me, I can
+
+891
+00:46:50,240 --> 00:46:55,839
+stay by myself 24 hours a day for 10
+
+892
+00:46:53,920 --> 00:46:59,440
+years. No problem. In fact, that's what
+
+893
+00:46:55,839 --> 00:47:01,119
+I did. Like like what like I talked
+
+894
+00:46:59,440 --> 00:47:04,480
+about this before like what you see I
+
+895
+00:47:01,119 --> 00:47:09,119
+sitting in front of a computer 10 hours
+
+896
+00:47:04,480 --> 00:47:13,920
+a day for 10 years. In fact, I did this
+
+897
+00:47:09,119 --> 00:47:18,160
+almost all my life, but very severe from
+
+898
+00:47:13,920 --> 00:47:22,319
+2010 to 2020.
+
+899
+00:47:18,160 --> 00:47:24,000
+that the degree of severity of me just
+
+900
+00:47:22,319 --> 00:47:25,680
+sitting in front of computer doing you
+
+901
+00:47:24,000 --> 00:47:28,880
+know reading about programming languages
+
+902
+00:47:25,680 --> 00:47:34,240
+or math is to a degree that I would say
+
+903
+00:47:28,880 --> 00:47:37,520
+I'm in the like genius like genesis
+
+904
+00:47:34,240 --> 00:47:40,079
+record you know of the person who sits
+
+905
+00:47:37,520 --> 00:47:43,599
+in front of a computer the longest on
+
+906
+00:47:40,079 --> 00:47:48,000
+average for 10 years in USA I would
+
+907
+00:47:43,599 --> 00:47:50,400
+claim I'm among the top 100 that's the
+
+908
+00:47:48,000 --> 00:47:51,680
+severe degree you know I can explain to
+
+909
+00:47:50,400 --> 00:47:54,160
+you guys but you guys wouldn't
+
+910
+00:47:51,680 --> 00:47:57,200
+understand but anyway the the thing
+
+911
+00:47:54,160 --> 00:48:00,880
+about skiso personality is that we just
+
+912
+00:47:57,200 --> 00:48:02,640
+loners okay we just
+
+913
+00:48:00,880 --> 00:48:07,640
+um
+
+914
+00:48:02,640 --> 00:48:07,640
+prepare things to do things alone okay
+
+915
+00:48:15,520 --> 00:48:21,440
+so there's a summary
+
+916
+00:48:18,319 --> 00:48:24,720
+Simple postman says schizoid is a
+
+917
+00:48:21,440 --> 00:48:26,720
+personality disorder characterized by a
+
+918
+00:48:24,720 --> 00:48:29,920
+lack of interest in social
+
+919
+00:48:26,720 --> 00:48:32,720
+relationships. Correct. A tendency
+
+920
+00:48:29,920 --> 00:48:35,359
+towards a solitary or sheltered
+
+921
+00:48:32,720 --> 00:48:37,680
+lifestyle. That's correct.
+
+922
+00:48:35,359 --> 00:48:42,079
+Secretiveness.
+
+923
+00:48:37,680 --> 00:48:44,240
+Uh that's kind of correct. Well, I mean
+
+924
+00:48:42,079 --> 00:48:46,640
+uh and emotional coldness and
+
+925
+00:48:44,240 --> 00:48:50,240
+detachment. That's correct roughly. But
+
+926
+00:48:46,640 --> 00:48:53,359
+you see every skezoid is different you
+
+927
+00:48:50,240 --> 00:48:55,920
+know after all you cannot summarize like
+
+928
+00:48:53,359 --> 00:48:59,040
+what a person's personality is every
+
+929
+00:48:55,920 --> 00:49:02,000
+person is like different so but in
+
+930
+00:48:59,040 --> 00:49:05,119
+general you know you can you can read
+
+931
+00:49:02,000 --> 00:49:07,359
+Wikipedia or you can ask AI you know
+
+932
+00:49:05,119 --> 00:49:10,079
+because Wikipedia they became so
+
+933
+00:49:07,359 --> 00:49:11,599
+academic and mumbo jumbo like you don't
+
+934
+00:49:10,079 --> 00:49:14,079
+know
+
+935
+00:49:11,599 --> 00:49:17,920
+you know Wikipedia in the past 10 20
+
+936
+00:49:14,079 --> 00:49:21,280
+years they they mutated at it into like
+
+937
+00:49:17,920 --> 00:49:23,680
+a academic mumbo jumbo style. So they
+
+938
+00:49:21,280 --> 00:49:25,760
+use lots of jarens you like you read it
+
+939
+00:49:23,680 --> 00:49:29,440
+you don't understand what he's saying
+
+940
+00:49:25,760 --> 00:49:32,079
+but today you can ask AI
+
+941
+00:49:29,440 --> 00:49:35,920
+that will give you much better picture
+
+942
+00:49:32,079 --> 00:49:39,280
+okay so let's let me do it for you guys
+
+943
+00:49:35,920 --> 00:49:44,079
+explain schizoid
+
+944
+00:49:39,280 --> 00:49:48,079
+now personality personality
+
+945
+00:49:44,079 --> 00:49:50,160
+disorder okay let me magnify now in
+
+946
+00:49:48,079 --> 00:49:52,319
+personality disorder there are several
+
+947
+00:49:50,160 --> 00:49:54,880
+for other
+
+948
+00:49:52,319 --> 00:49:57,280
+names that's similar but they are
+
+949
+00:49:54,880 --> 00:50:00,079
+entirely different. There is also
+
+950
+00:49:57,280 --> 00:50:02,640
+schizoooido personality. Okay. And
+
+951
+00:50:00,079 --> 00:50:05,040
+there's also schizophrenic.
+
+952
+00:50:02,640 --> 00:50:08,640
+Schizophrenic is not a personality
+
+953
+00:50:05,040 --> 00:50:10,960
+disorder. Schizophrenic is is your brain
+
+954
+00:50:08,640 --> 00:50:13,359
+is [ __ ] Okay. You see illusions. So
+
+955
+00:50:10,960 --> 00:50:17,760
+it's like totally different. Okay. It's
+
+956
+00:50:13,359 --> 00:50:22,319
+very confusing. So you know uh and skis
+
+957
+00:50:17,760 --> 00:50:26,240
+skisoid skisoido personality is is that
+
+958
+00:50:22,319 --> 00:50:29,200
+they are like they are mystics
+
+959
+00:50:26,240 --> 00:50:31,760
+like they talk about like they saw God
+
+960
+00:50:29,200 --> 00:50:34,480
+you know I saw God today I talked to God
+
+961
+00:50:31,760 --> 00:50:37,440
+you know they everything they see they
+
+962
+00:50:34,480 --> 00:50:40,160
+see like they see things they see
+
+963
+00:50:37,440 --> 00:50:44,319
+spirits they you know like those are
+
+964
+00:50:40,160 --> 00:50:48,000
+shamans those are schizoidal disorder
+
+965
+00:50:44,319 --> 00:50:50,000
+personality. Okay. And we on discord we
+
+966
+00:50:48,000 --> 00:50:53,040
+have a we have we have someone like
+
+967
+00:50:50,000 --> 00:50:56,240
+that. I have I have all kind of people
+
+968
+00:50:53,040 --> 00:50:59,920
+on my discord. So anyway, so you can see
+
+969
+00:50:56,240 --> 00:51:02,640
+here is a guork AI summary
+
+970
+00:50:59,920 --> 00:51:04,960
+explain schizoid explain schizoid
+
+971
+00:51:02,640 --> 00:51:07,839
+personality disorder. personality
+
+972
+00:51:04,960 --> 00:51:11,440
+disorder is a mental health condition
+
+973
+00:51:07,839 --> 00:51:14,319
+classified as a cluster a odd or eentric
+
+974
+00:51:11,440 --> 00:51:15,839
+personality disorder in the DSM
+
+975
+00:51:14,319 --> 00:51:19,680
+something something something something
+
+976
+00:51:15,839 --> 00:51:23,440
+manual it involves a pervasive pattern
+
+977
+00:51:19,680 --> 00:51:27,280
+of detachment from social relationships
+
+978
+00:51:23,440 --> 00:51:30,000
+and restricted range of emotional
+
+979
+00:51:27,280 --> 00:51:31,680
+expression that's true in interpersonal
+
+980
+00:51:30,000 --> 00:51:34,079
+settings
+
+981
+00:51:31,680 --> 00:51:36,880
+people with schizoid personality ity
+
+982
+00:51:34,079 --> 00:51:39,839
+disorder typically prefer solitary
+
+983
+00:51:36,880 --> 00:51:42,079
+activities, show little interest in
+
+984
+00:51:39,839 --> 00:51:44,960
+close relationships, including with
+
+985
+00:51:42,079 --> 00:51:49,280
+family, and appear indifferent to
+
+986
+00:51:44,960 --> 00:51:52,800
+praise, criticism, or opinion of others.
+
+987
+00:51:49,280 --> 00:51:55,040
+That's true. You see, that describes me,
+
+988
+00:51:52,800 --> 00:51:58,319
+you know, like you can praise me, you
+
+989
+00:51:55,040 --> 00:52:00,455
+can criticize me. I don't give a [ __ ]
+
+990
+00:51:58,319 --> 00:52:02,475
+Like what? You don't know. [ __ ]
+
+991
+00:52:00,455 --> 00:52:02,475
+[laughter]
+
+992
+00:52:02,480 --> 00:52:10,240
+That's true. So anyway, here you know
+
+993
+00:52:06,480 --> 00:52:14,640
+here's a summary from from AI. So key
+
+994
+00:52:10,240 --> 00:52:17,040
+symptoms and diagn diagnostic criteria
+
+995
+00:52:14,640 --> 00:52:19,359
+neither desire or enjoy close
+
+996
+00:52:17,040 --> 00:52:21,200
+relationships including being part of a
+
+997
+00:52:19,359 --> 00:52:23,760
+family.
+
+998
+00:52:21,200 --> 00:52:27,119
+Again you know these characteristics
+
+999
+00:52:23,760 --> 00:52:31,119
+each person is different. So not every
+
+1000
+00:52:27,119 --> 00:52:34,480
+characteristics apply to every so-called
+
+1001
+00:52:31,119 --> 00:52:37,440
+skisoid. Okay. So then almost always
+
+1002
+00:52:34,480 --> 00:52:39,520
+choose solitary activities. Okay. Has
+
+1003
+00:52:37,440 --> 00:52:41,520
+little if any interest in sexual
+
+1004
+00:52:39,520 --> 00:52:44,800
+experience with another person. Okay.
+
+1005
+00:52:41,520 --> 00:52:47,520
+That's interesting one.
+
+1006
+00:52:44,800 --> 00:52:50,720
+Uh takes pleasure in few if any
+
+1007
+00:52:47,520 --> 00:52:54,160
+activities. Okay. Lacks close friendship
+
+1008
+00:52:50,720 --> 00:52:57,440
+or com confidants other than firstderee
+
+1009
+00:52:54,160 --> 00:53:01,200
+relatives. Okay. Appears indifferent to
+
+1010
+00:52:57,440 --> 00:53:04,480
+the praise or criticism of others. shows
+
+1011
+00:53:01,200 --> 00:53:07,760
+emotional coldness, detachment or
+
+1012
+00:53:04,480 --> 00:53:10,079
+flattened effect, limited emotional
+
+1013
+00:53:07,760 --> 00:53:13,599
+expression. That's true. You know, lots
+
+1014
+00:53:10,079 --> 00:53:18,760
+of these items apply to me. Okay, I
+
+1015
+00:53:13,599 --> 00:53:18,760
+think that's it. Anything else? Um,
+
+1016
+00:53:20,400 --> 00:53:28,200
+have I have you ever worked at fan
+
+1017
+00:53:23,440 --> 00:53:28,200
+companies? What is fan companies?
+
+1018
+00:53:29,520 --> 00:53:34,839
+Okay, I think that's it for today. Uh,
+
+1019
+00:53:51,599 --> 00:53:58,400
+okay. Bye guys. Uh,
+
+1020
+00:53:55,200 --> 00:54:01,040
+that's it for today. Uh if you guys like
+
+1021
+00:53:58,400 --> 00:54:05,520
+my stuff, okay,
+
+1022
+00:54:01,040 --> 00:54:09,040
+donate, okay, sponsorship by you.
+
+1023
+00:54:05,520 --> 00:54:11,280
+So you just go to go to kali.info
+
+1024
+00:54:09,040 --> 00:54:13,839
+codeali.info.
+
+1025
+00:54:11,280 --> 00:54:16,480
+So go to the bottom
+
+1026
+00:54:13,839 --> 00:54:18,240
+patreon me, Amazon gift card, PayPal me.
+
+1027
+00:54:16,480 --> 00:54:23,800
+Okay.
+
+1028
+00:54:18,240 --> 00:54:23,800
+Uh then we shut down in one minute.
+
+1029
+00:54:28,079 --> 00:54:36,920
+my lingering code. I hope I hope it goes
+
+1030
+00:54:31,760 --> 00:54:36,920
+away maybe by today.
+
+1031
+00:54:47,760 --> 00:54:54,800
+Oh, big five tech companies.
+
+1032
+00:54:50,960 --> 00:54:57,599
+Facebook, Microsoft, Netflix. know the
+
+1033
+00:54:54,800 --> 00:55:04,880
+well the biggest corporation I worked
+
+1034
+00:54:57,599 --> 00:55:07,839
+for kind of is Wuam Wuam Research and uh
+
+1035
+00:55:04,880 --> 00:55:09,680
+Net General uh was it called Net General
+
+1036
+00:55:07,839 --> 00:55:11,680
+or Ntopia?
+
+1037
+00:55:09,680 --> 00:55:15,040
+Uh Ntopia
+
+1038
+00:55:11,680 --> 00:55:17,599
+got bought by Motorola
+
+1039
+00:55:15,040 --> 00:55:22,400
+but by that time I was no longer with
+
+1040
+00:55:17,599 --> 00:55:27,880
+Ntopia. So, so anyway that was like in
+
+1041
+00:55:22,400 --> 00:55:27,880
+the dotcom days. So around year 2000
+
+1042
+00:55:30,713 --> 00:55:32,733
+[sighs]
+

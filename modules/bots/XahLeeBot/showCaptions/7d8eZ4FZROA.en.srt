@@ -1,0 +1,3792 @@
+1
+00:00:00,080 --> 00:00:05,520
+Hello guys. Hello guys. Good morning.
+
+2
+00:00:02,720 --> 00:00:07,919
+Welcome to another episode of S talk
+
+3
+00:00:05,520 --> 00:00:10,800
+show. We are going to code JavaScript.
+
+4
+00:00:07,919 --> 00:00:12,880
+Today so JavaScript we are going to do
+
+5
+00:00:10,800 --> 00:00:16,480
+tool two tips. So let me show you. So
+
+6
+00:00:12,880 --> 00:00:18,960
+you see creating a tool tip. Uh I'm
+
+7
+00:00:16,480 --> 00:00:22,119
+going to live code it. So move the mouse
+
+8
+00:00:18,960 --> 00:00:24,960
+here. Hover over me. Then you see a tool
+
+9
+00:00:22,119 --> 00:00:26,720
+tip. Okay. Show today's talk show. If
+
+10
+00:00:24,960 --> 00:00:30,160
+you are here say hi. If you are not
+
+11
+00:00:26,720 --> 00:00:32,640
+here, play at 1.5 speed because I
+
+12
+00:00:30,160 --> 00:00:34,719
+ramble. Okay, so we're going to code.
+
+13
+00:00:32,640 --> 00:00:37,760
+I'm working on my website. So this is
+
+14
+00:00:34,719 --> 00:00:41,440
+uni code. You got all sort of unic code
+
+15
+00:00:37,760 --> 00:00:46,480
+entire collection annotated. So you can
+
+16
+00:00:41,440 --> 00:00:52,800
+see each unic code name and uh you know
+
+17
+00:00:46,480 --> 00:00:55,600
+name and character uh unic code uh ID
+
+18
+00:00:52,800 --> 00:00:58,719
+called code point and so on. So th those
+
+19
+00:00:55,600 --> 00:01:02,000
+are done as a tool tip or also known as
+
+20
+00:00:58,719 --> 00:01:05,960
+a balloon bubble. Okay. So that's what
+
+21
+00:01:02,000 --> 00:01:09,360
+we going to work on. So okay let's
+
+22
+00:01:05,960 --> 00:01:12,720
+begin. Are we here? So say hi. Hello.
+
+23
+00:01:09,360 --> 00:01:16,880
+Hello. Hello rice wine. We had a great
+
+24
+00:01:12,720 --> 00:01:20,720
+chat yesterday on s discord. Ah time
+
+25
+00:01:16,880 --> 00:01:24,159
+out. Uh you know this this uh cloud fair
+
+26
+00:01:20,720 --> 00:01:26,960
+is a nasty organization.
+
+27
+00:01:24,159 --> 00:01:30,799
+So okay so let's focus on two tips
+
+28
+00:01:26,960 --> 00:01:32,640
+JavaScript coding. Okay. So first of all
+
+29
+00:01:30,799 --> 00:01:35,759
+I'm going to show you how to do it. Uh
+
+30
+00:01:32,640 --> 00:01:39,200
+it's very easy. So here is the entire
+
+31
+00:01:35,759 --> 00:01:42,479
+code with the HTML and the JavaScript.
+
+32
+00:01:39,200 --> 00:01:45,520
+So you can copy it and uh then you have
+
+33
+00:01:42,479 --> 00:01:48,759
+it. So just search for JavaScript DOM
+
+34
+00:01:45,520 --> 00:01:53,040
+create tool tip
+
+35
+00:01:48,759 --> 00:01:55,360
+on.info. Okay. That's like uh that's
+
+36
+00:01:53,040 --> 00:01:58,640
+like all you need to know. Uh but we're
+
+37
+00:01:55,360 --> 00:02:01,920
+going to go over so so what are the
+
+38
+00:01:58,640 --> 00:02:04,240
+technology involved in order to do this?
+
+39
+00:02:01,920 --> 00:02:06,640
+You know here's the code. So what is so
+
+40
+00:02:04,240 --> 00:02:10,520
+first of all so the principle is that
+
+41
+00:02:06,640 --> 00:02:15,080
+you going to use CSS cascading
+
+42
+00:02:10,520 --> 00:02:18,200
+stylesheet. You are going to create a
+
+43
+00:02:15,080 --> 00:02:21,239
+um an element
+
+44
+00:02:18,200 --> 00:02:25,520
+HTML. So you you you are you you have a
+
+45
+00:02:21,239 --> 00:02:27,760
+HTML ML element then you use C. So
+
+46
+00:02:25,520 --> 00:02:29,480
+actually I have a summary here. So use
+
+47
+00:02:27,760 --> 00:02:32,800
+JavaScript to
+
+48
+00:02:29,480 --> 00:02:36,720
+create HTML element. This will be your
+
+49
+00:02:32,800 --> 00:02:38,200
+tool tip box. Okay. Then use the uh
+
+50
+00:02:36,720 --> 00:02:42,480
+cascading
+
+51
+00:02:38,200 --> 00:02:44,879
+stylesheet CSS to make visibility hidden
+
+52
+00:02:42,480 --> 00:02:48,879
+so you don't see it.
+
+53
+00:02:44,879 --> 00:02:52,640
+So then the next step is set the two tip
+
+54
+00:02:48,879 --> 00:02:56,400
+box on its own layer. So using CSS
+
+55
+00:02:52,640 --> 00:02:58,959
+position fixed so that so that when you
+
+56
+00:02:56,400 --> 00:03:01,599
+make this element visible it doesn't
+
+57
+00:02:58,959 --> 00:03:03,840
+interfere with the your current layout.
+
+58
+00:03:01,599 --> 00:03:06,680
+So it'll be like a separate layout.
+
+59
+00:03:03,840 --> 00:03:09,319
+Okay. So that's using
+
+60
+00:03:06,680 --> 00:03:13,360
+CSS by the way. So all the
+
+61
+00:03:09,319 --> 00:03:15,920
+CSS how to is here. So this is uh how to
+
+62
+00:03:13,360 --> 00:03:20,360
+use CSS to make it fixed on its own
+
+63
+00:03:15,920 --> 00:03:24,879
+layer. You see that's what tool tip is.
+
+64
+00:03:20,360 --> 00:03:27,239
+Um and uh then how to make a element
+
+65
+00:03:24,879 --> 00:03:29,159
+invisible that's just that okay
+
+66
+00:03:27,239 --> 00:03:33,920
+visibility
+
+67
+00:03:29,159 --> 00:03:37,680
+hidden okay then so you create a element
+
+68
+00:03:33,920 --> 00:03:40,480
+by default make it hidden using CSS then
+
+69
+00:03:37,680 --> 00:03:43,120
+assign function handler to the mouse
+
+70
+00:03:40,480 --> 00:03:45,680
+hoover and mouse out event for element
+
+71
+00:03:43,120 --> 00:03:48,560
+that you want to tip to appear so that's
+
+72
+00:03:45,680 --> 00:03:51,760
+using JavaScript so using a JavaScript
+
+73
+00:03:48,560 --> 00:03:54,640
+you can set the element such that when
+
+74
+00:03:51,760 --> 00:03:57,519
+the mouse is hovering over that element
+
+75
+00:03:54,640 --> 00:04:02,000
+the browser will fire
+
+76
+00:03:57,519 --> 00:04:05,200
+uh fire an event saying that the mouse
+
+77
+00:04:02,000 --> 00:04:09,080
+is over that element. Okay. So you
+
+78
+00:04:05,200 --> 00:04:13,439
+create that um so that code is
+
+79
+00:04:09,080 --> 00:04:16,079
+um you see here document get element by
+
+80
+00:04:13,439 --> 00:04:19,359
+id the tool tip which is the id for that
+
+81
+00:04:16,079 --> 00:04:22,000
+element then add event listener. So
+
+82
+00:04:19,359 --> 00:04:25,160
+whenever that event happens when mouse
+
+83
+00:04:22,000 --> 00:04:28,800
+is hovering over that element
+
+84
+00:04:25,160 --> 00:04:31,759
+then so then the click is uh named
+
+85
+00:04:28,800 --> 00:04:33,600
+click. So when people click it then you
+
+86
+00:04:31,759 --> 00:04:36,320
+just call a function. So whatever
+
+87
+00:04:33,600 --> 00:04:38,960
+function you write. So finally you just
+
+88
+00:04:36,320 --> 00:04:41,600
+have to write a function to activate the
+
+89
+00:04:38,960 --> 00:04:44,160
+tool tip. So how do you activate it?
+
+90
+00:04:41,600 --> 00:04:47,080
+Basically you just change the CSS
+
+91
+00:04:44,160 --> 00:04:50,880
+visibility to
+
+92
+00:04:47,080 --> 00:04:53,280
+visible. Uh okay. And that's that's it.
+
+93
+00:04:50,880 --> 00:04:55,680
+That's the essence of how to creating
+
+94
+00:04:53,280 --> 00:04:59,440
+the tool tip using different
+
+95
+00:04:55,680 --> 00:05:03,040
+technologies. CSS, HTML to create
+
+96
+00:04:59,440 --> 00:05:05,919
+element, CSS to hide the element, then
+
+97
+00:05:03,040 --> 00:05:10,320
+JavaScript to make a event. So when the
+
+98
+00:05:05,919 --> 00:05:12,160
+mouse hovers, the event fires, then set
+
+99
+00:05:10,320 --> 00:05:16,039
+that event to your function, the
+
+100
+00:05:12,160 --> 00:05:19,280
+function will change CSS from visible to
+
+101
+00:05:16,039 --> 00:05:22,240
+invisible from invisible to visible. So
+
+102
+00:05:19,280 --> 00:05:25,919
+that's how two tip works. Okay, so you
+
+103
+00:05:22,240 --> 00:05:28,240
+can see so okay that's the basics of two
+
+104
+00:05:25,919 --> 00:05:30,560
+tip. But what I need to do you see I
+
+105
+00:05:28,240 --> 00:05:33,160
+have this unic code page you know all
+
+106
+00:05:30,560 --> 00:05:35,000
+sort of unic code entire
+
+107
+00:05:33,160 --> 00:05:38,720
+set
+
+108
+00:05:35,000 --> 00:05:42,199
+and you know so used to be when mouse
+
+109
+00:05:38,720 --> 00:05:44,280
+hoover that tool tip is right under the
+
+110
+00:05:42,199 --> 00:05:47,199
+mouse
+
+111
+00:05:44,280 --> 00:05:49,759
+but over the years I kind of changed
+
+112
+00:05:47,199 --> 00:05:52,600
+back and forth. So because when you have
+
+113
+00:05:49,759 --> 00:05:55,280
+a small screen phone like
+
+114
+00:05:52,600 --> 00:05:58,160
+that and when the tool tip is right
+
+115
+00:05:55,280 --> 00:06:01,120
+under the mouse it kind of blocks the
+
+116
+00:05:58,160 --> 00:06:04,240
+half of the page of the phone. So I
+
+117
+00:06:01,120 --> 00:06:07,160
+decided to make it just on the side. So
+
+118
+00:06:04,240 --> 00:06:10,800
+the tool tip always show on the
+
+119
+00:06:07,160 --> 00:06:13,600
+side. But that is got a problem because
+
+120
+00:06:10,800 --> 00:06:15,919
+if your screen is wide you know like on
+
+121
+00:06:13,600 --> 00:06:18,240
+desktop then every time you move the
+
+122
+00:06:15,919 --> 00:06:20,560
+mouse you have to look at the corner
+
+123
+00:06:18,240 --> 00:06:22,479
+like like you know look at corner. So
+
+124
+00:06:20,560 --> 00:06:26,160
+we're going to change that so that the
+
+125
+00:06:22,479 --> 00:06:29,120
+tool tip will be right under the mouse.
+
+126
+00:06:26,160 --> 00:06:32,560
+It's a bit tedious because because what
+
+127
+00:06:29,120 --> 00:06:36,240
+happens for example if you if your mouse
+
+128
+00:06:32,560 --> 00:06:39,360
+is on this flower emoji that's near the
+
+129
+00:06:36,240 --> 00:06:43,039
+bottom. So the tool tip will show below
+
+130
+00:06:39,360 --> 00:06:47,360
+it but you can't see after it because
+
+131
+00:06:43,039 --> 00:06:49,440
+that's hidden. So So what you need to do
+
+132
+00:06:47,360 --> 00:06:53,440
+then is you need to find the mouse
+
+133
+00:06:49,440 --> 00:06:55,680
+position and check if it's it's near you
+
+134
+00:06:53,440 --> 00:06:58,720
+know it's close to the bottom or to the
+
+135
+00:06:55,680 --> 00:07:00,319
+side to the right or the left or the top
+
+136
+00:06:58,720 --> 00:07:02,319
+you know depending on your two tip
+
+137
+00:07:00,319 --> 00:07:04,880
+position. Like if this is a point, your
+
+138
+00:07:02,319 --> 00:07:07,440
+tooth tip can be upper right, lower
+
+139
+00:07:04,880 --> 00:07:10,720
+right, lower left or upper left, you
+
+140
+00:07:07,440 --> 00:07:15,639
+know. So you want to detect when your
+
+141
+00:07:10,720 --> 00:07:18,560
+mouse is near the windows uh view port
+
+142
+00:07:15,639 --> 00:07:21,520
+border. If that's the case, then change
+
+143
+00:07:18,560 --> 00:07:23,680
+your to tip. Normally it's below, you
+
+144
+00:07:21,520 --> 00:07:25,759
+make it above. So things like that. So
+
+145
+00:07:23,680 --> 00:07:29,120
+it's a bit tedious. That's why I I
+
+146
+00:07:25,759 --> 00:07:33,120
+changed it to always just show it on the
+
+147
+00:07:29,120 --> 00:07:37,520
+corner so it's e easier to code that way
+
+148
+00:07:33,120 --> 00:07:40,160
+and it's predict predictable. Okay. So
+
+149
+00:07:37,520 --> 00:07:42,720
+lots of emojis. Fantastic. Okay. So
+
+150
+00:07:40,160 --> 00:07:46,319
+let's see if we can you know actually so
+
+151
+00:07:42,720 --> 00:07:48,720
+let's see if we want to fix that.
+
+152
+00:07:46,319 --> 00:07:50,880
+Uh maybe not because every time you
+
+153
+00:07:48,720 --> 00:07:54,240
+decided one thing then when you actually
+
+154
+00:07:50,880 --> 00:07:56,080
+change it then you decided oh you know
+
+155
+00:07:54,240 --> 00:07:59,520
+that's the reason I don't want it that
+
+156
+00:07:56,080 --> 00:08:02,479
+way because it's a tedious code. Okay.
+
+157
+00:07:59,520 --> 00:08:06,199
+So anyway, so today's talk show, let's
+
+158
+00:08:02,479 --> 00:08:09,280
+go to uh Unicode stars. Search
+
+159
+00:08:06,199 --> 00:08:14,400
+for There it is. Open it. Show in
+
+160
+00:08:09,280 --> 00:08:14,400
+browser. There it is. So let's see the
+
+161
+00:08:14,840 --> 00:08:20,879
+code.js. So this is a unic code popup.
+
+162
+00:08:18,240 --> 00:08:23,120
+That's the source code. Okay. So you go
+
+163
+00:08:20,879 --> 00:08:25,319
+to a directory. In fact, it's a
+
+164
+00:08:23,120 --> 00:08:27,639
+TypeScript code. So I got the
+
+165
+00:08:25,319 --> 00:08:31,560
+TypeScript. Open that. This is
+
+166
+00:08:27,639 --> 00:08:34,159
+Typescript. Then it compiles to this
+
+167
+00:08:31,560 --> 00:08:36,880
+JavaScript. So for example, let's delete
+
+168
+00:08:34,159 --> 00:08:40,440
+this JavaScript. Delete it. It's gone.
+
+169
+00:08:36,880 --> 00:08:44,000
+You see? Now it's gone. Now close this
+
+170
+00:08:40,440 --> 00:08:47,200
+page. Now this is TypeScript. Now you go
+
+171
+00:08:44,000 --> 00:08:49,680
+back to the browser. Refresh. The tool
+
+172
+00:08:47,200 --> 00:08:51,920
+tip doesn't work anymore. See, because
+
+173
+00:08:49,680 --> 00:08:55,600
+the JavaScript code is gone. Close that.
+
+174
+00:08:51,920 --> 00:08:59,600
+You see this? This code is gone. So now
+
+175
+00:08:55,600 --> 00:09:02,160
+you open that. you open the TypeScript.
+
+176
+00:08:59,600 --> 00:09:04,320
+Let's compile it. So the pink window
+
+177
+00:09:02,160 --> 00:09:06,399
+shows all my Emacs command course and
+
+178
+00:09:04,320 --> 00:09:08,399
+the keystrokes command course on the
+
+179
+00:09:06,399 --> 00:09:11,600
+right, keystroke on the left. In any
+
+180
+00:09:08,399 --> 00:09:13,600
+command you can search the web uh more
+
+181
+00:09:11,600 --> 00:09:16,720
+than half of the time you'll find my
+
+182
+00:09:13,600 --> 00:09:20,880
+source code on.info. So you can copy it
+
+183
+00:09:16,720 --> 00:09:23,600
+and use it. For example, I move cruiser
+
+184
+00:09:20,880 --> 00:09:25,440
+forward one block or backward one block.
+
+185
+00:09:23,600 --> 00:09:26,760
+So you can see those are the command
+
+186
+00:09:25,440 --> 00:09:30,160
+names.
+
+187
+00:09:26,760 --> 00:09:33,880
+beginning end of line or block 10 times
+
+188
+00:09:30,160 --> 00:09:36,800
+beginning of line or block four times.
+
+189
+00:09:33,880 --> 00:09:38,880
+So, so okay. So, command name on the
+
+190
+00:09:36,800 --> 00:09:41,120
+right, keystroke on the left. I'm using
+
+191
+00:09:38,880 --> 00:09:43,680
+a Vora keyboard layout and I'm using
+
+192
+00:09:41,120 --> 00:09:46,720
+SFly keys, the most efficient key
+
+193
+00:09:43,680 --> 00:09:50,160
+binding system for Emacs, more efficient
+
+194
+00:09:46,720 --> 00:09:53,040
+than Vim. And here is the website for it
+
+195
+00:09:50,160 --> 00:09:54,880
+and that's available on GitHub free of
+
+196
+00:09:53,040 --> 00:09:57,839
+charge. And there's a video you can
+
+197
+00:09:54,880 --> 00:10:00,399
+watch introduction. Softly key is more
+
+198
+00:09:57,839 --> 00:10:03,200
+efficient than Vim. Meaning that if you
+
+199
+00:10:00,399 --> 00:10:06,320
+measure the key stroke for doing
+
+200
+00:10:03,200 --> 00:10:08,480
+something uh for a month or for a year,
+
+201
+00:10:06,320 --> 00:10:11,519
+it's going to be less than if you are
+
+202
+00:10:08,480 --> 00:10:14,399
+using Vim or Neo Vim or whatever more
+
+203
+00:10:11,519 --> 00:10:17,600
+efficient than Vim. Okay. So anyway, go
+
+204
+00:10:14,399 --> 00:10:19,760
+to Sunfly Keys, copy the file path,
+
+205
+00:10:17,600 --> 00:10:23,440
+close the source code, close that, close
+
+206
+00:10:19,760 --> 00:10:25,640
+that, close that. Uh unic code star show
+
+207
+00:10:23,440 --> 00:10:29,040
+in browser close it
+
+208
+00:10:25,640 --> 00:10:32,160
+showly keys make a link and the show in
+
+209
+00:10:29,040 --> 00:10:35,920
+today's talk show there okay now go back
+
+210
+00:10:32,160 --> 00:10:38,240
+to unic code stars unic code stars open
+
+211
+00:10:35,920 --> 00:10:40,800
+JavaScript file open it it's empty
+
+212
+00:10:38,240 --> 00:10:44,160
+that's right now go to TypeScript
+
+213
+00:10:40,800 --> 00:10:45,839
+where's the TypeScript here open it now
+
+214
+00:10:44,160 --> 00:10:49,560
+press the button now watch the pink
+
+215
+00:10:45,839 --> 00:10:52,760
+window okay now uh wait press this
+
+216
+00:10:49,560 --> 00:10:55,920
+button it says Running
+
+217
+00:10:52,760 --> 00:11:00,160
+Typescript compile successfully. Show
+
+218
+00:10:55,920 --> 00:11:02,959
+messages buffer. You see? So now you go
+
+219
+00:11:00,160 --> 00:11:07,399
+to the directory. You see there is the
+
+220
+00:11:02,959 --> 00:11:10,959
+now refresh. You see unic code
+
+221
+00:11:07,399 --> 00:11:13,839
+popup.js freshly compiled out of the
+
+222
+00:11:10,959 --> 00:11:17,279
+oven hot. Now go back to the browser.
+
+223
+00:11:13,839 --> 00:11:21,200
+Click on stars. Now you can see the
+
+224
+00:11:17,279 --> 00:11:23,680
+popup. The two tips works again. Now by
+
+225
+00:11:21,200 --> 00:11:26,000
+the way this thing this user interface
+
+226
+00:11:23,680 --> 00:11:28,920
+called two tip on Windows for example
+
+227
+00:11:26,000 --> 00:11:32,480
+you can you
+
+228
+00:11:28,920 --> 00:11:35,120
+know like they they used to pop up on
+
+229
+00:11:32,480 --> 00:11:38,320
+Windows you know that's what you see you
+
+230
+00:11:35,120 --> 00:11:41,920
+see this pop up this little box on
+
+231
+00:11:38,320 --> 00:11:45,600
+Windows that's they call it tool tip but
+
+232
+00:11:41,920 --> 00:11:48,079
+on the Mac it's known as balloons okay
+
+233
+00:11:45,600 --> 00:11:50,000
+so balloons is actually a better name
+
+234
+00:11:48,079 --> 00:11:52,040
+you know text you know balloon it was
+
+235
+00:11:50,000 --> 00:11:54,880
+called balloon everyone since like
+
+236
+00:11:52,040 --> 00:11:57,760
+1990s. But anyway, window is far more
+
+237
+00:11:54,880 --> 00:12:00,959
+popular. So, two tips becomes the more
+
+238
+00:11:57,760 --> 00:12:02,560
+well-known name. Okay. So, let's go
+
+239
+00:12:00,959 --> 00:12:05,519
+let's look at the code. So, we got the
+
+240
+00:12:02,560 --> 00:12:07,360
+JavaScript code. Close. Close. Uh, now
+
+241
+00:12:05,519 --> 00:12:09,519
+here's the TypeScript code. Let's look
+
+242
+00:12:07,360 --> 00:12:12,000
+at the TypeScript code. Go to the
+
+243
+00:12:09,519 --> 00:12:14,440
+bottom. So, it's only 200 lines of code.
+
+244
+00:12:12,000 --> 00:12:17,000
+Can you see
+
+245
+00:12:14,440 --> 00:12:20,480
+it?
+
+246
+00:12:17,000 --> 00:12:24,320
+Yeah. 200 lines of code. So we want to
+
+247
+00:12:20,480 --> 00:12:28,160
+so you can see array unic code font
+
+248
+00:12:24,320 --> 00:12:31,440
+change 23 array from uh what is unic
+
+249
+00:12:28,160 --> 00:12:32,920
+code font change search unic code font
+
+250
+00:12:31,440 --> 00:12:37,360
+change
+
+251
+00:12:32,920 --> 00:12:40,680
+27 variable is document query select all
+
+252
+00:12:37,360 --> 00:12:43,959
+so all input element with unic code font
+
+253
+00:12:40,680 --> 00:12:47,760
+change and that's not what we want
+
+254
+00:12:43,959 --> 00:12:50,399
+that's that is actually this box so you
+
+255
+00:12:47,760 --> 00:12:53,600
+see we got multi-function in this one
+
+256
+00:12:50,399 --> 00:12:57,040
+file. So that box is for show unic code
+
+257
+00:12:53,600 --> 00:12:59,519
+name. You see? So let's go to smileys.
+
+258
+00:12:57,040 --> 00:13:03,600
+Okay. Now you click show unic code name.
+
+259
+00:12:59,519 --> 00:13:07,120
+So this allows you to easily have in one
+
+260
+00:13:03,600 --> 00:13:09,440
+glance all the unic code emojis names.
+
+261
+00:13:07,120 --> 00:13:12,240
+So for example that one is smiling face
+
+262
+00:13:09,440 --> 00:13:14,320
+with sunglasses. This one is smiling
+
+263
+00:13:12,240 --> 00:13:18,880
+face with halo. So then you can use
+
+264
+00:13:14,320 --> 00:13:21,200
+browser search hello. Then you can see
+
+265
+00:13:18,880 --> 00:13:24,240
+uh you know you can use browser search
+
+266
+00:13:21,200 --> 00:13:26,000
+to find the characters you need. But if
+
+267
+00:13:24,240 --> 00:13:28,000
+you actually need to find a character
+
+268
+00:13:26,000 --> 00:13:30,639
+just go to unic code search. So you can
+
+269
+00:13:28,000 --> 00:13:34,240
+search by name and other ways. So anyway
+
+270
+00:13:30,639 --> 00:13:36,720
+back to the emoji page. So you can see
+
+271
+00:13:34,240 --> 00:13:40,639
+so what is this unic code font change.
+
+272
+00:13:36,720 --> 00:13:43,200
+So that's getting all uni code. Um well
+
+273
+00:13:40,639 --> 00:13:46,000
+that's actually so that is about you
+
+274
+00:13:43,200 --> 00:13:49,120
+know show names show names don't show
+
+275
+00:13:46,000 --> 00:13:53,279
+names and show them as symbols or show
+
+276
+00:13:49,120 --> 00:13:56,440
+them as emoji that will have an effect
+
+277
+00:13:53,279 --> 00:14:00,240
+if you are on on page like this for
+
+278
+00:13:56,440 --> 00:14:02,639
+example show them as emoji you see that
+
+279
+00:14:00,240 --> 00:14:04,160
+some of them became emoji show them as
+
+280
+00:14:02,639 --> 00:14:07,440
+symbols
+
+281
+00:14:04,160 --> 00:14:09,680
+uh let's try a different page let's say
+
+282
+00:14:07,440 --> 00:14:12,480
+stars
+
+283
+00:14:09,680 --> 00:14:15,440
+Show them as emoji, show them as symbols
+
+284
+00:14:12,480 --> 00:14:19,079
+because there's a complexity with Unico
+
+285
+00:14:15,440 --> 00:14:21,600
+because certain
+
+286
+00:14:19,079 --> 00:14:24,160
+characters, certain characters, certain
+
+287
+00:14:21,600 --> 00:14:28,000
+subset of Unico characters, they have
+
+288
+00:14:24,160 --> 00:14:30,880
+dual raw. So they can be shown as emoji,
+
+289
+00:14:28,000 --> 00:14:35,440
+they can also be shown as plain text. So
+
+290
+00:14:30,880 --> 00:14:38,320
+for example this star of David
+
+291
+00:14:35,440 --> 00:14:39,720
+uh you click show a symbol you see now
+
+292
+00:14:38,320 --> 00:14:42,480
+they become
+
+293
+00:14:39,720 --> 00:14:44,959
+symbol. So this happened about 10 years
+
+294
+00:14:42,480 --> 00:14:49,000
+ago they they they they basically they
+
+295
+00:14:44,959 --> 00:14:52,240
+added the emoji they kind of merged the
+
+296
+00:14:49,000 --> 00:14:54,800
+emoji purpose with the text purpose. So
+
+297
+00:14:52,240 --> 00:14:57,199
+that's a very bad change. Okay. Anyway
+
+298
+00:14:54,800 --> 00:14:59,279
+that's another topic. So that's why you
+
+299
+00:14:57,199 --> 00:15:01,600
+have this show us emoji or show us
+
+300
+00:14:59,279 --> 00:15:05,519
+symbol especially you know it's very
+
+301
+00:15:01,600 --> 00:15:07,360
+annoying it's a very bad um thing uh
+
+302
+00:15:05,519 --> 00:15:12,000
+that happened to unic code for example
+
+303
+00:15:07,360 --> 00:15:13,880
+this page um this is uh circle numbers
+
+304
+00:15:12,000 --> 00:15:17,199
+let's go to
+
+305
+00:15:13,880 --> 00:15:21,120
+the circle yeah okay circle numbers then
+
+306
+00:15:17,199 --> 00:15:25,440
+you got circle alphabet okay I oh I
+
+307
+00:15:21,120 --> 00:15:29,199
+forgot actually um yeah this okay so you
+
+308
+00:15:25,440 --> 00:15:32,880
+go down. You go down. Circle letters.
+
+309
+00:15:29,199 --> 00:15:36,199
+Circle letters. You see now if you click
+
+310
+00:15:32,880 --> 00:15:41,519
+on show us emoji, you see some of them
+
+311
+00:15:36,199 --> 00:15:45,000
+become emoji. That M circled M. Why is
+
+312
+00:15:41,519 --> 00:15:48,800
+that? Because because in
+
+313
+00:15:45,000 --> 00:15:53,279
+France that circled M stand for metro
+
+314
+00:15:48,800 --> 00:15:56,320
+which means subway in USA.
+
+315
+00:15:53,279 --> 00:15:58,920
+So you know Unico is supposed to contain
+
+316
+00:15:56,320 --> 00:16:04,079
+all characters of the world all
+
+317
+00:15:58,920 --> 00:16:07,680
+iconograph or icons or he he hero life
+
+318
+00:16:04,079 --> 00:16:10,160
+of Egyptians everything you know so
+
+319
+00:16:07,680 --> 00:16:14,800
+that's why they have these characters
+
+320
+00:16:10,160 --> 00:16:17,839
+circled M for metro in France or or such
+
+321
+00:16:14,800 --> 00:16:21,120
+but then they started to merge with text
+
+322
+00:16:17,839 --> 00:16:23,839
+so whenever you have text now it becomes
+
+323
+00:16:21,120 --> 00:16:26,240
+circle if you want it to be text then
+
+324
+00:16:23,839 --> 00:16:29,440
+you have to add a invisible character
+
+325
+00:16:26,240 --> 00:16:32,880
+after that very extremely
+
+326
+00:16:29,440 --> 00:16:35,360
+uh nasty um thing that happened to
+
+327
+00:16:32,880 --> 00:16:38,800
+Unicode. So if you want to know the
+
+328
+00:16:35,360 --> 00:16:43,480
+details about that the issue we we we
+
+329
+00:16:38,800 --> 00:16:47,079
+are just talking about look at this
+
+330
+00:16:43,480 --> 00:16:50,519
+uh look at this article. Okay. uh
+
+331
+00:16:47,079 --> 00:16:53,440
+difference between emoji emoticon
+
+332
+00:16:50,519 --> 00:16:56,880
+pictograph emoji versus text this
+
+333
+00:16:53,440 --> 00:16:59,440
+article you see so I was using unic code
+
+334
+00:16:56,880 --> 00:17:02,160
+I'm a fan of unic code because I'm a fan
+
+335
+00:16:59,440 --> 00:17:04,679
+of human writing system symbology all
+
+336
+00:17:02,160 --> 00:17:07,919
+the symbols so I was writing about
+
+337
+00:17:04,679 --> 00:17:10,480
+keyboard okay fantastic you got this
+
+338
+00:17:07,919 --> 00:17:13,679
+symb now you have unicode symbols to
+
+339
+00:17:10,480 --> 00:17:16,880
+represent some of these multimedia keys
+
+340
+00:17:13,679 --> 00:17:19,760
+in keyboard okay so I wrote
+
+341
+00:17:16,880 --> 00:17:22,400
+Then after a few years the page becomes
+
+342
+00:17:19,760 --> 00:17:24,039
+like that the [ __ ] speakers you know
+
+343
+00:17:22,400 --> 00:17:27,039
+some
+
+344
+00:17:24,039 --> 00:17:28,840
+like the keyboard symbols become like
+
+345
+00:17:27,039 --> 00:17:31,520
+funky
+
+346
+00:17:28,840 --> 00:17:35,120
+cartoons okay that's so that's very bad
+
+347
+00:17:31,520 --> 00:17:37,960
+h happen happening and then when you are
+
+348
+00:17:35,120 --> 00:17:40,480
+I'm writing mathematics because I love
+
+349
+00:17:37,960 --> 00:17:43,120
+mathematics so you have these arrow
+
+350
+00:17:40,480 --> 00:17:46,240
+symbols you know uh left to right arrow
+
+351
+00:17:43,120 --> 00:17:49,120
+and double left to right arrow
+
+352
+00:17:46,240 --> 00:17:52,039
+Then one day it becomes emoji
+
+353
+00:17:49,120 --> 00:17:56,240
+incompatible with the other arrows. You
+
+354
+00:17:52,039 --> 00:18:01,640
+see not all arrows become that. Not all
+
+355
+00:17:56,240 --> 00:18:04,919
+this kind of um gly or pictograph or
+
+356
+00:18:01,640 --> 00:18:06,840
+emoticon or
+
+357
+00:18:04,919 --> 00:18:10,640
+uh
+
+358
+00:18:06,840 --> 00:18:12,679
+um there's another word for it um icons
+
+359
+00:18:10,640 --> 00:18:16,640
+and or
+
+360
+00:18:12,679 --> 00:18:16,640
+um golife and
+
+361
+00:18:16,760 --> 00:18:22,720
+uh symbols. Anyway, there's another word
+
+362
+00:18:19,600 --> 00:18:26,000
+I forgot at the moment, but anyway, so
+
+363
+00:18:22,720 --> 00:18:28,679
+not all of them become emoji like just
+
+364
+00:18:26,000 --> 00:18:31,360
+some of them like extremely
+
+365
+00:18:28,679 --> 00:18:33,679
+idiotic. So for so when you are writing
+
+366
+00:18:31,360 --> 00:18:37,200
+mathematics, some of your arrows become
+
+367
+00:18:33,679 --> 00:18:40,320
+emoji, some of them not. So this is
+
+368
+00:18:37,200 --> 00:18:42,480
+extremely bad. Okay. So then the next
+
+369
+00:18:40,320 --> 00:18:46,000
+step you want to know is that how do you
+
+370
+00:18:42,480 --> 00:18:47,240
+know if a unicode characters is has this
+
+371
+00:18:46,000 --> 00:18:50,640
+dual
+
+372
+00:18:47,240 --> 00:18:52,799
+rule you don't know well there is a
+
+373
+00:18:50,640 --> 00:18:55,520
+documentation for that for example this
+
+374
+00:18:52,799 --> 00:18:59,039
+page I'm documenting it so just search
+
+375
+00:18:55,520 --> 00:19:00,880
+for unic code emoji versus text and it
+
+376
+00:18:59,039 --> 00:19:04,400
+turns out if you want to know if a
+
+377
+00:19:00,880 --> 00:19:07,039
+character has this dual rule then you
+
+378
+00:19:04,400 --> 00:19:09,679
+have to like there uh you know then then
+
+379
+00:19:07,039 --> 00:19:12,679
+you have to so here's is a list of all
+
+380
+00:19:09,679 --> 00:19:17,160
+characters that has only
+
+381
+00:19:12,679 --> 00:19:19,440
+um that has both emoji and text
+
+382
+00:19:17,160 --> 00:19:22,160
+representation but they default to
+
+383
+00:19:19,440 --> 00:19:24,720
+emoji. Okay, so you got this set of
+
+384
+00:19:22,160 --> 00:19:27,600
+characters. Then another set of
+
+385
+00:19:24,720 --> 00:19:30,640
+characters they can be both emoji and
+
+386
+00:19:27,600 --> 00:19:32,880
+text. However, they default to text. So
+
+387
+00:19:30,640 --> 00:19:36,840
+you got these characters. So you can you
+
+388
+00:19:32,880 --> 00:19:38,679
+can see now if you if I click on this
+
+389
+00:19:36,840 --> 00:19:41,520
+uh show
+
+390
+00:19:38,679 --> 00:19:44,559
+symbols you see all these become symbol
+
+391
+00:19:41,520 --> 00:19:47,120
+show emoji
+
+392
+00:19:44,559 --> 00:19:49,440
+uh you see so let's see show symbols you
+
+393
+00:19:47,120 --> 00:19:54,200
+see these characters can be both emoji
+
+394
+00:19:49,440 --> 00:19:56,880
+and s or or symbol but they by
+
+395
+00:19:54,200 --> 00:20:01,200
+default according to the spec they
+
+396
+00:19:56,880 --> 00:20:04,400
+should show as text. Okay, then another
+
+397
+00:20:01,200 --> 00:20:06,080
+set of characters. These are emoji only.
+
+398
+00:20:04,400 --> 00:20:08,480
+There's no way to make them, you know,
+
+399
+00:20:06,080 --> 00:20:11,520
+they don't they never show us text. For
+
+400
+00:20:08,480 --> 00:20:16,400
+example, let's try again symbol. You see
+
+401
+00:20:11,520 --> 00:20:20,080
+none of them then. Uh yeah. So, but then
+
+402
+00:20:16,400 --> 00:20:22,640
+another complexity is that browsers do
+
+403
+00:20:20,080 --> 00:20:25,559
+does not respect this default to
+
+404
+00:20:22,640 --> 00:20:28,559
+whatever you see. For
+
+405
+00:20:25,559 --> 00:20:28,559
+example,
+
+406
+00:20:28,679 --> 00:20:33,760
+um yeah, browser does doesn't respect
+
+407
+00:20:31,440 --> 00:20:36,880
+it. For example, uh for example, let's
+
+408
+00:20:33,760 --> 00:20:39,919
+go to this box. Can be emoji or text.
+
+409
+00:20:36,880 --> 00:20:43,440
+Default to text. But now, if you copy
+
+410
+00:20:39,919 --> 00:20:47,520
+this and paste in Twitter, they all
+
+411
+00:20:43,440 --> 00:20:50,320
+become emoji. Let's try it. New post.
+
+412
+00:20:47,520 --> 00:20:50,320
+Paste these
+
+413
+00:20:50,600 --> 00:20:57,080
+characters. Live stream. Okay. So post
+
+414
+00:20:55,080 --> 00:21:01,240
+it
+
+415
+00:20:57,080 --> 00:21:05,440
+now. You see they all become
+
+416
+00:21:01,240 --> 00:21:08,320
+emoji. [ __ ] disre respect the unic
+
+417
+00:21:05,440 --> 00:21:09,400
+code standard. By the unic code standard
+
+418
+00:21:08,320 --> 00:21:12,159
+these
+
+419
+00:21:09,400 --> 00:21:16,159
+characters is supposed to be default to
+
+420
+00:21:12,159 --> 00:21:19,520
+text not emoji. You see? So you are
+
+421
+00:21:16,159 --> 00:21:21,520
+[ __ ] in either way. You you follow the
+
+422
+00:21:19,520 --> 00:21:25,039
+standard doesn't work. You don't follow
+
+423
+00:21:21,520 --> 00:21:27,840
+the standard doesn't work. He got [ __ ]
+
+424
+00:21:25,039 --> 00:21:32,960
+in all ways. Okay. So this page
+
+425
+00:21:27,840 --> 00:21:37,840
+documents that this this problem problem
+
+426
+00:21:32,960 --> 00:21:37,840
+of the techn [ __ ]
+
+427
+00:21:38,360 --> 00:21:46,159
+created. That's us. That's us my
+
+428
+00:21:43,080 --> 00:21:49,200
+friends. Let's show something wrong. Try
+
+429
+00:21:46,159 --> 00:21:51,440
+reloading. What the [ __ ] Okay. So emoji
+
+430
+00:21:49,200 --> 00:21:55,440
+versus text. That's that's about this
+
+431
+00:21:51,440 --> 00:21:58,000
+topic. Now copy the URL. Close it. Uh
+
+432
+00:21:55,440 --> 00:22:00,480
+what is this? Type script. Yeah, we
+
+433
+00:21:58,000 --> 00:22:03,039
+digressed. Okay, but we'll go back. Uh
+
+434
+00:22:00,480 --> 00:22:07,120
+unic code stars. Close. Show today's
+
+435
+00:22:03,039 --> 00:22:10,919
+talk show. Go down. U keys. Paste a
+
+436
+00:22:07,120 --> 00:22:13,919
+link. Linkify make a list show in
+
+437
+00:22:10,919 --> 00:22:17,440
+browser page down. There it is. The
+
+438
+00:22:13,919 --> 00:22:19,360
+emoji versus text problem of the uni
+
+439
+00:22:17,440 --> 00:22:21,960
+code.
+
+440
+00:22:19,360 --> 00:22:25,640
+This happened around
+
+441
+00:22:21,960 --> 00:22:28,640
+2018. Okay,
+
+442
+00:22:25,640 --> 00:22:32,000
+2018. Okay, so we digress. Let's go back
+
+443
+00:22:28,640 --> 00:22:35,520
+to the topic. So, we were going to code
+
+444
+00:22:32,000 --> 00:22:37,760
+the two tips, right? Two tips. These
+
+445
+00:22:35,520 --> 00:22:40,559
+stars, we want to move these two tips
+
+446
+00:22:37,760 --> 00:22:45,600
+right under the mouse. Okay, let's try
+
+447
+00:22:40,559 --> 00:22:49,480
+that again. Now, go to go to Unicode
+
+448
+00:22:45,600 --> 00:22:52,320
+stars page. Open it. Open the
+
+449
+00:22:49,480 --> 00:22:55,320
+typescript warning typescript exist.
+
+450
+00:22:52,320 --> 00:22:59,520
+Yeah, we opened it. Okay. So you
+
+451
+00:22:55,320 --> 00:23:04,440
+see this is JS. When I press enter,
+
+452
+00:22:59,520 --> 00:23:07,600
+it'll open the file. But if there's a
+
+453
+00:23:04,440 --> 00:23:10,159
+tscript that already exist, it'll open
+
+454
+00:23:07,600 --> 00:23:12,880
+the typescript instead and we'll tell
+
+455
+00:23:10,159 --> 00:23:14,960
+you a warning. So that command if you
+
+456
+00:23:12,880 --> 00:23:18,480
+look at the pink window that would be
+
+457
+00:23:14,960 --> 00:23:22,240
+kasa html open local link that is part
+
+458
+00:23:18,480 --> 00:23:22,240
+of kasar html
+
+459
+00:23:26,840 --> 00:23:34,120
+mod there is a source code and uh that's
+
+460
+00:23:31,799 --> 00:23:39,200
+about that's about
+
+461
+00:23:34,120 --> 00:23:43,520
+10,000 10,000 lines of code s html mod
+
+462
+00:23:39,200 --> 00:23:47,760
+get it pay me. Okay. Pay me to get it.
+
+463
+00:23:43,520 --> 00:23:51,440
+Uh so we Okay. So we uh we let's let's
+
+464
+00:23:47,760 --> 00:23:54,320
+start to um let's start to code this uh
+
+465
+00:23:51,440 --> 00:23:58,080
+for real now. Okay. So typescript. So
+
+466
+00:23:54,320 --> 00:24:01,440
+this part uh the bottom part is about
+
+467
+00:23:58,080 --> 00:24:03,080
+you see this you know about 20 lines of
+
+468
+00:24:01,440 --> 00:24:06,720
+code that's
+
+469
+00:24:03,080 --> 00:24:11,279
+about this show us text and show us
+
+470
+00:24:06,720 --> 00:24:14,240
+emoji. So let's go here. Close that.
+
+471
+00:24:11,279 --> 00:24:17,760
+Show us symbols. Show us emoji. Show us
+
+472
+00:24:14,240 --> 00:24:20,640
+symbols. Show us emoji. Show all names.
+
+473
+00:24:17,760 --> 00:24:23,679
+Hide all names. Okay, that's that's
+
+474
+00:24:20,640 --> 00:24:27,559
+that's this part. But the the part I
+
+475
+00:24:23,679 --> 00:24:27,559
+want to fix is
+
+476
+00:24:32,080 --> 00:24:35,880
+uh what
+
+477
+00:24:40,720 --> 00:24:47,080
+Okay, let's just get to fix it. Let's
+
+478
+00:24:43,200 --> 00:24:49,000
+not digress. How are you guys
+
+479
+00:24:47,080 --> 00:24:54,679
+doing,
+
+480
+00:24:49,000 --> 00:24:54,679
+Sam? Uh, okay. So, let's see.
+
+481
+00:24:55,360 --> 00:25:02,760
+So that's a function to pop off to
+
+482
+00:24:58,080 --> 00:25:07,200
+remove the balloon and uh then add event
+
+483
+00:25:02,760 --> 00:25:10,240
+listeners key down key if it's escape.
+
+484
+00:25:07,200 --> 00:25:12,720
+Yeah. So you can also use escape key. So
+
+485
+00:25:10,240 --> 00:25:15,640
+you see so that's a mobile phone. Let's
+
+486
+00:25:12,720 --> 00:25:19,840
+press escape.
+
+487
+00:25:15,640 --> 00:25:24,320
+Fantastic. Okay. So but we want to
+
+488
+00:25:19,840 --> 00:25:27,279
+change Yeah. We want to um Yeah. Here.
+
+489
+00:25:24,320 --> 00:25:32,720
+Okay. There is a function function pop
+
+490
+00:25:27,279 --> 00:25:32,720
+up on that means show the balloon.
+
+491
+00:25:33,080 --> 00:25:36,080
+Okay.
+
+492
+00:25:37,640 --> 00:25:44,720
+Now, okay. Show the balloon. Let me go
+
+493
+00:25:40,159 --> 00:25:47,440
+you over. So, event target then title uh
+
+494
+00:25:44,720 --> 00:25:50,159
+get char info. Yeah. When you show the
+
+495
+00:25:47,440 --> 00:25:54,240
+emoji, you need to know what emoji it
+
+496
+00:25:50,159 --> 00:25:57,480
+is. the emojis, the unic code characters
+
+497
+00:25:54,240 --> 00:26:02,120
+name and the unic code characters code
+
+498
+00:25:57,480 --> 00:26:08,640
+point. So that's why you got this title
+
+499
+00:26:02,120 --> 00:26:08,640
+um uh data character info title.
+
+500
+00:26:11,400 --> 00:26:20,720
+Okay, then you have to kind of clear the
+
+501
+00:26:14,880 --> 00:26:27,200
+cache and that's why uh so so then xchar
+
+502
+00:26:20,720 --> 00:26:30,559
+first child not value xchar xar name. So
+
+503
+00:26:27,200 --> 00:26:33,640
+that's getting the unic code point. So
+
+504
+00:26:30,559 --> 00:26:37,440
+for example, this one is 1
+
+505
+00:26:33,640 --> 00:26:40,720
+f45. Okay, let's go back to smiley. So
+
+506
+00:26:37,440 --> 00:26:40,720
+this one is 1
+
+507
+00:26:40,919 --> 00:26:49,159
+F603. Okay, so God kind of. So then here
+
+508
+00:26:45,679 --> 00:26:53,360
+is the char name
+
+509
+00:26:49,159 --> 00:26:56,640
+charit slice title last index of okay
+
+510
+00:26:53,360 --> 00:26:59,799
+that's get then what is this part? This
+
+511
+00:26:56,640 --> 00:27:02,960
+this part okay this part is
+
+512
+00:26:59,799 --> 00:27:05,640
+where yeah this is this part is where
+
+513
+00:27:02,960 --> 00:27:08,760
+the about the position of the balloon.
+
+514
+00:27:05,640 --> 00:27:11,279
+Okay so you see visibility make it
+
+515
+00:27:08,760 --> 00:27:15,360
+visible. So when your mouse hover over
+
+516
+00:27:11,279 --> 00:27:18,720
+it makes it visible but but before that
+
+517
+00:27:15,360 --> 00:27:21,880
+you need to set up the position of the
+
+518
+00:27:18,720 --> 00:27:23,799
+balloon. Okay get bounding client
+
+519
+00:27:21,880 --> 00:27:28,000
+rectangle. Okay
+
+520
+00:27:23,799 --> 00:27:28,000
+it's complicated. Don't
+
+521
+00:27:28,039 --> 00:27:37,240
+[ __ ] viewport width, view port
+
+522
+00:27:32,200 --> 00:27:41,320
+height. Okay, so you got a bounding box.
+
+523
+00:27:37,240 --> 00:27:45,200
+Okay, make it visible.
+
+524
+00:27:41,320 --> 00:27:45,200
+Then yeah, so
+
+525
+00:27:45,480 --> 00:27:51,760
+actually let's uncomment it. Yeah,
+
+526
+00:27:48,640 --> 00:27:54,600
+that'll probably just work because I
+
+527
+00:27:51,760 --> 00:27:56,120
+it's so tedious to figure this out.
+
+528
+00:27:54,600 --> 00:28:00,159
+So
+
+529
+00:27:56,120 --> 00:28:03,840
+style.lft. So we add a CSS style to make
+
+530
+00:28:00,159 --> 00:28:05,440
+it align to the left. And how much we
+
+531
+00:28:03,840 --> 00:28:08,720
+align
+
+532
+00:28:05,440 --> 00:28:12,799
+uh complicated for so view port width
+
+533
+00:28:08,720 --> 00:28:17,159
+minus position x position plus popup
+
+534
+00:28:12,799 --> 00:28:21,039
+width. If it's greater than zero
+
+535
+00:28:17,159 --> 00:28:24,279
+then align left to the position of the
+
+536
+00:28:21,039 --> 00:28:28,080
+left which is this one. bounding box
+
+537
+00:28:24,279 --> 00:28:28,080
+lift. Okay. So
+
+538
+00:28:28,200 --> 00:28:35,039
+if you see view port width so when it's
+
+539
+00:28:32,320 --> 00:28:37,520
+wide and you know blah blah blah and
+
+540
+00:28:35,039 --> 00:28:42,000
+otherwise otherwise view port width
+
+541
+00:28:37,520 --> 00:28:44,279
+minus popup width minus 35 pixels dot
+
+542
+00:28:42,000 --> 00:28:47,440
+two string plus
+
+543
+00:28:44,279 --> 00:28:49,919
+pixel. Okay. So you make it a line left
+
+544
+00:28:47,440 --> 00:28:55,159
+and make it a line right. Let's compile
+
+545
+00:28:49,919 --> 00:28:59,440
+it. Okay. Shift C compile the TypeScript
+
+546
+00:28:55,159 --> 00:29:00,360
+code. Successful. Now back to browser.
+
+547
+00:28:59,440 --> 00:29:03,880
+Now
+
+548
+00:29:00,360 --> 00:29:08,480
+refresh. Now move the cursor to
+
+549
+00:29:03,880 --> 00:29:11,960
+the emoji. There you go. Fantastic. I
+
+550
+00:29:08,480 --> 00:29:15,799
+don't even have to think about it
+
+551
+00:29:11,960 --> 00:29:18,120
+because let's leave it like that.
+
+552
+00:29:15,799 --> 00:29:20,559
+Okay.
+
+553
+00:29:18,120 --> 00:29:23,679
+Yeah. Yeah. I don't want to think about
+
+554
+00:29:20,559 --> 00:29:25,480
+this because this bounding box very
+
+555
+00:29:23,679 --> 00:29:28,279
+fairly
+
+556
+00:29:25,480 --> 00:29:31,279
+complicated. Okay, so far so
+
+557
+00:29:28,279 --> 00:29:32,440
+good. Quick question. Are you into bug
+
+558
+00:29:31,279 --> 00:29:37,159
+bounty
+
+559
+00:29:32,440 --> 00:29:41,520
+hunting? Uh not really.
+
+560
+00:29:37,159 --> 00:29:44,679
+Uh not really. So like for for example
+
+561
+00:29:41,520 --> 00:29:49,279
+what show you know type and you
+
+562
+00:29:44,679 --> 00:29:53,200
+know tell us what is Microsoft or Apple
+
+563
+00:29:49,279 --> 00:29:56,799
+or Google is offering bug bounty how
+
+564
+00:29:53,200 --> 00:30:01,600
+much like tell us like typically those
+
+565
+00:29:56,799 --> 00:30:04,080
+things are not easy to do I mean yeah I
+
+566
+00:30:01,600 --> 00:30:06,760
+mean even if you are expert then then
+
+567
+00:30:04,080 --> 00:30:08,600
+it's because it's very very
+
+568
+00:30:06,760 --> 00:30:10,760
+niche
+
+569
+00:30:08,600 --> 00:30:14,840
+Um
+
+570
+00:30:10,760 --> 00:30:17,840
+yeah so okay so that's about
+
+571
+00:30:14,840 --> 00:30:17,840
+that.
+
+572
+00:30:17,880 --> 00:30:25,720
+Um so type script. Okay so let's show
+
+573
+00:30:22,559 --> 00:30:28,880
+yeah so we got that. So what if
+
+574
+00:30:25,720 --> 00:30:29,640
+the you see now it works very nice. You
+
+575
+00:30:28,880 --> 00:30:32,679
+see
+
+576
+00:30:29,640 --> 00:30:37,679
+normally this balloon
+
+577
+00:30:32,679 --> 00:30:40,120
+bubble is below your cursor. You see
+
+578
+00:30:37,679 --> 00:30:43,600
+it's below your
+
+579
+00:30:40,120 --> 00:30:45,559
+cruiser. Now, however, you see, however,
+
+580
+00:30:43,600 --> 00:30:48,559
+you
+
+581
+00:30:45,559 --> 00:30:51,919
+see when you don't have enough space
+
+582
+00:30:48,559 --> 00:30:55,600
+below it, they become they show above
+
+583
+00:30:51,919 --> 00:30:58,799
+the cursor. You see? So, that's why you
+
+584
+00:30:55,600 --> 00:31:00,960
+got those bounding box thing. um you
+
+585
+00:30:58,799 --> 00:31:04,799
+know that that that's why you got this
+
+586
+00:31:00,960 --> 00:31:08,080
+this these two lines which require this
+
+587
+00:31:04,799 --> 00:31:10,399
+these bunch of lines above okay that's
+
+588
+00:31:08,080 --> 00:31:10,399
+about
+
+589
+00:31:10,520 --> 00:31:15,440
+that yeah that's what I want to do but
+
+590
+00:31:13,120 --> 00:31:18,559
+what if we are on a phone you see that's
+
+591
+00:31:15,440 --> 00:31:20,720
+a thing so if we are on the phone shift
+
+592
+00:31:18,559 --> 00:31:24,480
+control I
+
+593
+00:31:20,720 --> 00:31:26,360
+uh then show the mobile phone mod so
+
+594
+00:31:24,480 --> 00:31:29,520
+shift
+
+595
+00:31:26,360 --> 00:31:31,720
+controlm Then let's say right now we are
+
+596
+00:31:29,520 --> 00:31:33,480
+on iPad. Let's
+
+597
+00:31:31,720 --> 00:31:38,159
+say
+
+598
+00:31:33,480 --> 00:31:40,679
+Android Galaxy S20. You see now we are
+
+599
+00:31:38,159 --> 00:31:44,840
+on the phone.
+
+600
+00:31:40,679 --> 00:31:48,000
+Now click. Oh, you have to click.
+
+601
+00:31:44,840 --> 00:31:51,360
+Okay. So you have to Yeah. On the phone
+
+602
+00:31:48,000 --> 00:31:51,360
+because it's, you know,
+
+603
+00:31:51,880 --> 00:31:58,559
+touch. Um now let's let's try iPhone.
+
+604
+00:31:55,600 --> 00:31:58,559
+Okay. iPhone
+
+605
+00:31:59,799 --> 00:32:06,200
+11. Touch
+
+606
+00:32:03,080 --> 00:32:09,919
+refresh. Touch. Yeah. Okay. I'll just
+
+607
+00:32:06,200 --> 00:32:09,919
+use That's not too
+
+608
+00:32:11,240 --> 00:32:16,240
+bad. But what happened to my
+
+609
+00:32:16,440 --> 00:32:23,039
+um Oh,
+
+610
+00:32:19,720 --> 00:32:25,840
+wait. Okay. So, actually my window is so
+
+611
+00:32:23,039 --> 00:32:29,679
+large now. So that's why it doesn't show
+
+612
+00:32:25,840 --> 00:32:33,159
+the hole because my font I my I made my
+
+613
+00:32:29,679 --> 00:32:36,320
+font so large whenever I'm doing live
+
+614
+00:32:33,159 --> 00:32:38,799
+stream. Uh that's what a good tip by the
+
+615
+00:32:36,320 --> 00:32:42,240
+way. So if you are going to do live
+
+616
+00:32:38,799 --> 00:32:44,360
+stream one day doing coding remember
+
+617
+00:32:42,240 --> 00:32:48,640
+make your font like
+
+618
+00:32:44,360 --> 00:32:50,799
+22 at least 22 size to you it's going to
+
+619
+00:32:48,640 --> 00:32:53,279
+be huge but to other people who are
+
+620
+00:32:50,799 --> 00:32:56,720
+watching your live show that would that
+
+621
+00:32:53,279 --> 00:32:58,880
+would be actually normal okay because
+
+622
+00:32:56,720 --> 00:33:01,840
+because otherwise it's tiny impossible
+
+623
+00:32:58,880 --> 00:33:06,640
+to see so anyway that works so let's
+
+624
+00:33:01,840 --> 00:33:09,320
+leave it okay so yeah so we finish one
+
+625
+00:33:06,640 --> 00:33:12,080
+thing unic code popup
+
+626
+00:33:09,320 --> 00:33:14,880
+window. So we talked for 40 minutes
+
+627
+00:33:12,080 --> 00:33:16,799
+already. So let's do next thing. I
+
+628
+00:33:14,880 --> 00:33:19,279
+there's some other things I want to do.
+
+629
+00:33:16,799 --> 00:33:21,640
+Okay. Add unic code replacing that.
+
+630
+00:33:19,279 --> 00:33:25,880
+Okay. So let me show you. So go to
+
+631
+00:33:21,640 --> 00:33:30,399
+JavaScript. Uh actually go to go
+
+632
+00:33:25,880 --> 00:33:31,799
+to info. Um
+
+633
+00:33:30,399 --> 00:33:35,760
+uh let's
+
+634
+00:33:31,799 --> 00:33:39,360
+say get okay close that actually.
+
+635
+00:33:35,760 --> 00:33:42,480
+Okay. JavaScript get status. Can you put
+
+636
+00:33:39,360 --> 00:33:45,720
+a dot there? Yes. So that shows those
+
+637
+00:33:42,480 --> 00:33:50,000
+page changed. Okay. CD
+
+638
+00:33:45,720 --> 00:33:53,360
+above. Then get status. Okay. So these
+
+639
+00:33:50,000 --> 00:33:55,600
+pages change it. Changed. Okay. Let's
+
+640
+00:33:53,360 --> 00:33:55,600
+get
+
+641
+00:33:56,360 --> 00:34:03,120
+commit. Okay. No
+
+642
+00:33:59,240 --> 00:34:06,799
+messages. Fantastic.
+
+643
+00:34:03,120 --> 00:34:09,679
+So we com we committed git. Now I want
+
+644
+00:34:06,799 --> 00:34:13,280
+to do some massive change on thousands
+
+645
+00:34:09,679 --> 00:34:17,280
+of of pages. Let me show you what. Okay.
+
+646
+00:34:13,280 --> 00:34:20,200
+So you can see JavaScript functions. So
+
+647
+00:34:17,280 --> 00:34:23,440
+it's my convention whenever there's a
+
+648
+00:34:20,200 --> 00:34:25,919
+page that shows my own function instead
+
+649
+00:34:23,440 --> 00:34:28,320
+of a building function of JavaScript or
+
+650
+00:34:25,919 --> 00:34:31,079
+emac lisp or wuam language or whatever
+
+651
+00:34:28,320 --> 00:34:34,399
+language python ruby
+
+652
+00:34:31,079 --> 00:34:38,399
+golan if it's my own code for that page
+
+653
+00:34:34,399 --> 00:34:40,639
+I have a rocket showing up there you see
+
+654
+00:34:38,399 --> 00:34:43,679
+so that's my convention so that way you
+
+655
+00:34:40,639 --> 00:34:47,919
+can easily tell for example this topic
+
+656
+00:34:43,679 --> 00:34:51,200
+box of all JavaScript array Okay. Topic
+
+657
+00:34:47,919 --> 00:34:53,599
+you can easily see. Oh, this one is a
+
+658
+00:34:51,200 --> 00:34:57,560
+custom function. Custom function range
+
+659
+00:34:53,599 --> 00:35:01,839
+function for array. See? So that's
+
+660
+00:34:57,560 --> 00:35:04,640
+rocket. So but what I want now is that
+
+661
+00:35:01,839 --> 00:35:08,200
+you know I'm thinking let's change the
+
+662
+00:35:04,640 --> 00:35:11,839
+that emoji to something
+
+663
+00:35:08,200 --> 00:35:15,119
+else because rocket is kind of lame
+
+664
+00:35:11,839 --> 00:35:19,040
+because every everyone is using it. So I
+
+665
+00:35:15,119 --> 00:35:23,200
+wanted to change it to um change to this
+
+666
+00:35:19,040 --> 00:35:26,440
+this this character. Okay. Uh so this
+
+667
+00:35:23,200 --> 00:35:31,400
+character is named
+
+668
+00:35:26,440 --> 00:35:31,400
+sparkles. So let's see. So
+
+669
+00:35:31,520 --> 00:35:39,119
+um so if you know usually when you do
+
+670
+00:35:35,040 --> 00:35:43,000
+that you have to check on iPhone you
+
+671
+00:35:39,119 --> 00:35:47,160
+know on Apple on on Mac on iPad on
+
+672
+00:35:43,000 --> 00:35:50,079
+Android or on in browsers because each
+
+673
+00:35:47,160 --> 00:35:52,839
+platform their emoji shows up they have
+
+674
+00:35:50,079 --> 00:35:55,720
+different you know pictures for
+
+675
+00:35:52,839 --> 00:35:58,560
+emoji. So you want to make sure the
+
+676
+00:35:55,720 --> 00:36:00,160
+choice whenever you want to use emoji
+
+677
+00:35:58,560 --> 00:36:02,520
+for your website you want to make sure
+
+678
+00:36:00,160 --> 00:36:05,119
+that that's the one you like across
+
+679
+00:36:02,520 --> 00:36:09,200
+platforms. So for example then you can
+
+680
+00:36:05,119 --> 00:36:13,200
+go to my emoji database you can so for
+
+681
+00:36:09,200 --> 00:36:16,960
+for our purposes we want some kind of
+
+682
+00:36:13,200 --> 00:36:19,520
+icon to represent custom functions.
+
+683
+00:36:16,960 --> 00:36:21,839
+Okay. So you could, you know, you could
+
+684
+00:36:19,520 --> 00:36:24,960
+use a flower if you want, if you're into
+
+685
+00:36:21,839 --> 00:36:26,839
+that. If you or you could use a sun, you
+
+686
+00:36:24,960 --> 00:36:31,920
+know, smiling
+
+687
+00:36:26,839 --> 00:36:34,160
+sun or you can use a comet, a shooting
+
+688
+00:36:31,920 --> 00:36:37,119
+star. That would be nice. That would
+
+689
+00:36:34,160 --> 00:36:41,800
+that would that would suit my character.
+
+690
+00:36:37,119 --> 00:36:46,640
+So but or you can use a money money
+
+691
+00:36:41,800 --> 00:36:49,119
+bag. Um yeah. So, but I was using uh
+
+692
+00:36:46,640 --> 00:36:51,200
+transportation. I was using the rocket.
+
+693
+00:36:49,119 --> 00:36:56,839
+So, where is the transportation? So,
+
+694
+00:36:51,200 --> 00:37:00,640
+let's see. Office tech things. Office
+
+695
+00:36:56,839 --> 00:37:04,000
+um clock miscellaneous flag culture. So,
+
+696
+00:37:00,640 --> 00:37:06,520
+culture is also rich uh kind of things.
+
+697
+00:37:04,000 --> 00:37:10,800
+Show us emoji.
+
+698
+00:37:06,520 --> 00:37:10,800
+Um then you got
+
+699
+00:37:11,800 --> 00:37:18,800
+um places, buildings, church, hospitals,
+
+700
+00:37:16,079 --> 00:37:22,079
+vehicles there. Okay. So you go to
+
+701
+00:37:18,800 --> 00:37:25,359
+vehicles, then you got you know trains,
+
+702
+00:37:22,079 --> 00:37:27,320
+you got airplanes, then you got rocket
+
+703
+00:37:25,359 --> 00:37:30,800
+or you can use
+
+704
+00:37:27,320 --> 00:37:34,400
+UFO. So you have to decide a symbol you
+
+705
+00:37:30,800 --> 00:37:37,480
+want to use. Now for me my style is kind
+
+706
+00:37:34,400 --> 00:37:42,200
+of more austere
+
+707
+00:37:37,480 --> 00:37:46,440
+austerity. No funny, no smiling, no cute
+
+708
+00:37:42,200 --> 00:37:50,079
+things. So I would pick something more
+
+709
+00:37:46,440 --> 00:37:51,320
+mathematically associated such as uh any
+
+710
+00:37:50,079 --> 00:37:54,480
+one of these
+
+711
+00:37:51,320 --> 00:37:57,200
+punctuations. And in fact I would pick
+
+712
+00:37:54,480 --> 00:37:59,680
+any of these shapes. You know some of
+
+713
+00:37:57,200 --> 00:38:01,520
+these shapes are colored. You don't have
+
+714
+00:37:59,680 --> 00:38:03,440
+to color it by default. So they are
+
+715
+00:38:01,520 --> 00:38:06,240
+colored. So that's one thing nice about
+
+716
+00:38:03,440 --> 00:38:09,760
+emoji. So I was thinking of using that
+
+717
+00:38:06,240 --> 00:38:12,000
+diamond. We can try. But you see then
+
+718
+00:38:09,760 --> 00:38:15,119
+you have to try it on the Apple devices.
+
+719
+00:38:12,000 --> 00:38:17,560
+This diamond on Apple devices they show
+
+720
+00:38:15,119 --> 00:38:20,560
+like a a
+
+721
+00:38:17,560 --> 00:38:22,320
+gemstone you know. So so you have to
+
+722
+00:38:20,560 --> 00:38:25,119
+pick a symbol you make sure you like.
+
+723
+00:38:22,320 --> 00:38:30,240
+But anyway let's try this one. Okay. So
+
+724
+00:38:25,119 --> 00:38:32,760
+what I want to do is we want to
+
+725
+00:38:30,240 --> 00:38:36,640
+uh let's just try it.
+
+726
+00:38:32,760 --> 00:38:39,640
+Okay. So just put this here. Show in
+
+727
+00:38:36,640 --> 00:38:43,160
+browser. Let's see what it looks
+
+728
+00:38:39,640 --> 00:38:45,079
+like. Okay. I'll do that. Yeah.
+
+729
+00:38:43,160 --> 00:38:48,320
+So
+
+730
+00:38:45,079 --> 00:38:51,760
+So now you have to do this change for
+
+731
+00:38:48,320 --> 00:38:55,560
+thousands of files. Okay. So what I want
+
+732
+00:38:51,760 --> 00:38:58,119
+to do is basically copy
+
+733
+00:38:55,560 --> 00:39:02,240
+that now
+
+734
+00:38:58,119 --> 00:39:05,119
+call find replace text. Look at the pink
+
+735
+00:39:02,240 --> 00:39:10,760
+window it says there. So search for all
+
+736
+00:39:05,119 --> 00:39:15,599
+of that character. Enter. Replace
+
+737
+00:39:10,760 --> 00:39:17,480
+by that. Enter. Then what directory? So
+
+738
+00:39:15,599 --> 00:39:22,240
+let's
+
+739
+00:39:17,480 --> 00:39:25,520
+say.info. Okay. do that all HTML files
+
+740
+00:39:22,240 --> 00:39:29,680
+regular expression yes write changes to
+
+741
+00:39:25,520 --> 00:39:33,280
+file let's say no so if you say no it
+
+742
+00:39:29,680 --> 00:39:35,440
+just show you a report of the results
+
+743
+00:39:33,280 --> 00:39:38,880
+then you can look at that and then
+
+744
+00:39:35,440 --> 00:39:42,240
+decide yeah that's what we want then do
+
+745
+00:39:38,880 --> 00:39:42,240
+it again and it'll be
+
+746
+00:39:42,680 --> 00:39:51,079
+done so the first run it has to go over
+
+747
+00:39:47,200 --> 00:39:55,160
+a few thousand you know like 30 uh 30
+
+748
+00:39:51,079 --> 00:40:00,160
+50,000 files of which
+
+749
+00:39:55,160 --> 00:40:02,960
+about 1300 13,000 are HTML files then
+
+750
+00:40:00,160 --> 00:40:06,079
+you have to search those files so the
+
+751
+00:40:02,960 --> 00:40:09,720
+first run will take like 30 minutes
+
+752
+00:40:06,079 --> 00:40:13,119
+because most of the time is loading the
+
+753
+00:40:09,720 --> 00:40:16,480
+file even though I have a flash drive
+
+754
+00:40:13,119 --> 00:40:18,720
+but after the first run it'll be like
+
+755
+00:40:16,480 --> 00:40:18,720
+three
+
+756
+00:40:26,760 --> 00:40:33,440
+seconds. This is coffee with
+
+757
+00:40:30,440 --> 00:40:33,440
+honey.
+
+758
+00:40:33,560 --> 00:40:43,000
+Fantastic. Luxury of middle class
+
+759
+00:40:37,960 --> 00:40:43,000
+American. And this is tea.
+
+760
+00:40:54,119 --> 00:40:59,079
+Mhm. You see these are all the
+
+761
+00:40:57,240 --> 00:41:02,440
+results.
+
+762
+00:40:59,079 --> 00:41:08,079
+Fantastic. So you see there
+
+763
+00:41:02,440 --> 00:41:11,800
+are 29,000 lines of code. Okay. So you
+
+764
+00:41:08,079 --> 00:41:17,040
+can now show all the files.
+
+765
+00:41:11,800 --> 00:41:19,160
+So 78 files. So all these files contain
+
+766
+00:41:17,040 --> 00:41:21,560
+the change.
+
+767
+00:41:19,160 --> 00:41:24,720
+Okay.
+
+768
+00:41:21,560 --> 00:41:26,880
+Then if I decided that's what I want to
+
+769
+00:41:24,720 --> 00:41:30,000
+do, just say yes, run the command again
+
+770
+00:41:26,880 --> 00:41:33,160
+and you'll do it. And we can list all
+
+771
+00:41:30,000 --> 00:41:38,200
+the changes. So all we have to
+
+772
+00:41:33,160 --> 00:41:41,720
+do list matching lines that character
+
+773
+00:41:38,200 --> 00:41:44,400
+show. So there are
+
+774
+00:41:41,720 --> 00:41:47,040
+2,972 changes.
+
+775
+00:41:44,400 --> 00:41:50,119
+So you can quickly have a glance. You
+
+776
+00:41:47,040 --> 00:41:54,119
+can see there's tons of
+
+777
+00:41:50,119 --> 00:41:58,160
+it. Okay. So there's like tons of
+
+778
+00:41:54,119 --> 00:42:00,160
+it. Does it looks fine to me? Do I want
+
+779
+00:41:58,160 --> 00:42:04,880
+to make this change? That's why we are
+
+780
+00:42:00,160 --> 00:42:07,920
+making a git commit. You know just in
+
+781
+00:42:04,880 --> 00:42:11,680
+case we want to revert. Actually I don't
+
+782
+00:42:07,920 --> 00:42:15,599
+need git commit because with this find
+
+783
+00:42:11,680 --> 00:42:15,599
+replace command I can undo it.
+
+784
+00:42:16,079 --> 00:42:21,920
+Yeah, that looks fine. Let's let's make
+
+785
+00:42:18,560 --> 00:42:24,800
+the change. Okay. Are you sure it is
+
+786
+00:42:21,920 --> 00:42:27,520
+going to change like 10,000 files? Yeah,
+
+787
+00:42:24,800 --> 00:42:30,880
+let's do it. Okay. So, to repeat the
+
+788
+00:42:27,520 --> 00:42:35,000
+command, there's a EMAC repeat last
+
+789
+00:42:30,880 --> 00:42:38,160
+complex command. So, I can call it
+
+790
+00:42:35,000 --> 00:42:41,920
+by Okay, that command name is repeat
+
+791
+00:42:38,160 --> 00:42:46,079
+complex command in Emacs. So I can just
+
+792
+00:42:41,920 --> 00:42:50,280
+call it then up arrow. This is the
+
+793
+00:42:46,079 --> 00:42:54,160
+command we want. Cut it.
+
+794
+00:42:50,280 --> 00:42:59,720
+Cancel. Show a new buffer. Paste. So you
+
+795
+00:42:54,160 --> 00:43:03,390
+can see this is replace text
+
+796
+00:42:59,720 --> 00:43:06,429
+command. Uh so let's make it easier to
+
+797
+00:43:03,390 --> 00:43:06,429
+[Music]
+
+798
+00:43:06,440 --> 00:43:13,200
+read. Okay. So that's what we have. So
+
+799
+00:43:10,079 --> 00:43:16,720
+that means change this string to this
+
+800
+00:43:13,200 --> 00:43:20,200
+string in this directory via this
+
+801
+00:43:16,720 --> 00:43:25,200
+regular expression pattern for file
+
+802
+00:43:20,200 --> 00:43:29,280
+names. Uh directory depth 0 to 999 write
+
+803
+00:43:25,200 --> 00:43:34,880
+to file new. Okay. Uh actually we want
+
+804
+00:43:29,280 --> 00:43:34,880
+to write to file yes. Okay. Run
+
+805
+00:43:38,119 --> 00:43:44,800
+it. Fantastic. You see three seconds now
+
+806
+00:43:42,240 --> 00:43:48,319
+you know. So for each file you press
+
+807
+00:43:44,800 --> 00:43:52,160
+enter to open it. So you can see show in
+
+808
+00:43:48,319 --> 00:43:56,800
+browser. This this is about programming
+
+809
+00:43:52,160 --> 00:44:00,319
+blog archive 2022. Okay. Uh it's a long
+
+810
+00:43:56,800 --> 00:44:03,599
+long it's a long file. Okay. But there
+
+811
+00:44:00,319 --> 00:44:07,760
+it is. PowerShell rename files to file
+
+812
+00:44:03,599 --> 00:44:09,839
+hash string. I believe we did a live
+
+813
+00:44:07,760 --> 00:44:14,160
+stream about this one. We wrote this
+
+814
+00:44:09,839 --> 00:44:16,880
+live live. Okay. So you can see the link
+
+815
+00:44:14,160 --> 00:44:18,800
+is changed but however the file title
+
+816
+00:44:16,880 --> 00:44:21,920
+has not changed yet. So we're going to
+
+817
+00:44:18,800 --> 00:44:25,599
+do that. But anyway, but for now we just
+
+818
+00:44:21,920 --> 00:44:28,400
+checking all these. Um let's open this
+
+819
+00:44:25,599 --> 00:44:31,119
+one. What is this one? Uh blog archive.
+
+820
+00:44:28,400 --> 00:44:34,720
+Okay. Let's go to the next file.
+
+821
+00:44:31,119 --> 00:44:37,119
+Okay. So, Emacs, Emacs, uh, validate
+
+822
+00:44:34,720 --> 00:44:39,599
+matching brackets. Let's open that one.
+
+823
+00:44:37,119 --> 00:44:39,599
+Show in
+
+824
+00:44:39,640 --> 00:44:46,880
+browser. Okay. So, there is Yeah. custom
+
+825
+00:44:43,520 --> 00:44:47,960
+command. Yeah, that looks good. Sparkle.
+
+826
+00:44:46,880 --> 00:44:51,760
+Okay.
+
+827
+00:44:47,960 --> 00:44:54,800
+So, yeah, that's good. Yeah, I do. I
+
+828
+00:44:51,760 --> 00:44:57,119
+prefer it over the rocket. Yes. Okay.
+
+829
+00:44:54,800 --> 00:45:00,160
+Let's go. Let's go to the next some
+
+830
+00:44:57,119 --> 00:45:03,920
+next. I don't want to. So let's say this
+
+831
+00:45:00,160 --> 00:45:06,520
+one emac bisp compile typescript which
+
+832
+00:45:03,920 --> 00:45:09,680
+we just demoed
+
+833
+00:45:06,520 --> 00:45:12,440
+today. So you can copy the code then you
+
+834
+00:45:09,680 --> 00:45:15,359
+can compile typescript in
+
+835
+00:45:12,440 --> 00:45:19,520
+emacs. Okay. So you can see there's a
+
+836
+00:45:15,359 --> 00:45:21,319
+bunch of custom custom command. Now
+
+837
+00:45:19,520 --> 00:45:25,040
+click on
+
+838
+00:45:21,319 --> 00:45:28,160
+this emac command. So all of them got
+
+839
+00:45:25,040 --> 00:45:30,520
+that. Fantastic. I like it. So I decided
+
+840
+00:45:28,160 --> 00:45:34,760
+I want to change it.
+
+841
+00:45:30,520 --> 00:45:34,760
+Okay. So now
+
+842
+00:45:35,040 --> 00:45:41,119
+uh now let's do one more thing. Okay. So
+
+843
+00:45:38,160 --> 00:45:45,079
+let me show you. So let copy it. Go to
+
+844
+00:45:41,119 --> 00:45:48,680
+the talk show. Go to today's talk show
+
+845
+00:45:45,079 --> 00:45:54,520
+here. And uh let's
+
+846
+00:45:48,680 --> 00:45:57,760
+uh paste that link list
+
+847
+00:45:54,520 --> 00:46:00,079
+show. There it is. Okay. So, actually
+
+848
+00:45:57,760 --> 00:46:00,079
+there's
+
+849
+00:46:00,119 --> 00:46:08,720
+a Okay. So, we did we did that. Then go
+
+850
+00:46:03,440 --> 00:46:08,720
+back here. What is this? Show
+
+851
+00:46:08,920 --> 00:46:13,560
+co
+
+852
+00:46:10,520 --> 00:46:17,280
+show close
+
+853
+00:46:13,560 --> 00:46:19,839
+show. It's today's talk show. Okay. We
+
+854
+00:46:17,280 --> 00:46:19,839
+run this
+
+855
+00:46:19,960 --> 00:46:26,680
+again. You'll find one file. You see
+
+856
+00:46:22,720 --> 00:46:26,680
+this one single file.
+
+857
+00:46:27,119 --> 00:46:32,400
+Now it's changed. Okay. Now the so let
+
+858
+00:46:30,400 --> 00:46:35,280
+me show you a command. So I have this
+
+859
+00:46:32,400 --> 00:46:38,079
+command because now since I adopted this
+
+860
+00:46:35,280 --> 00:46:40,880
+I want a way to easily type that. So
+
+861
+00:46:38,079 --> 00:46:43,359
+normally I call this command. So this
+
+862
+00:46:40,880 --> 00:46:46,800
+command is insert unic code. You can see
+
+863
+00:46:43,359 --> 00:46:48,960
+in the ping window. So now I can choose
+
+864
+00:46:46,800 --> 00:46:51,960
+you know some of the unic code I use
+
+865
+00:46:48,960 --> 00:46:56,079
+often. So you let's see let's say angry
+
+866
+00:46:51,960 --> 00:46:59,200
+and annotate it with a unic code uh
+
+867
+00:46:56,079 --> 00:47:04,079
+information and make a paragraph show in
+
+868
+00:46:59,200 --> 00:47:04,079
+browser page down. There you go
+
+869
+00:47:04,680 --> 00:47:10,960
+angry. So now if we call that again
+
+870
+00:47:08,000 --> 00:47:13,680
+there is no sparkle. Okay there's no
+
+871
+00:47:10,960 --> 00:47:18,880
+sparkle. So let's add that. So let me
+
+872
+00:47:13,680 --> 00:47:22,800
+show you. So describe key this key go to
+
+873
+00:47:18,880 --> 00:47:27,280
+the source code flag keys open it insert
+
+874
+00:47:22,800 --> 00:47:30,880
+uni code it will insert a choices among
+
+875
+00:47:27,280 --> 00:47:35,000
+this unic code list which is a list of
+
+876
+00:47:30,880 --> 00:47:39,760
+choices you can customize so let's
+
+877
+00:47:35,000 --> 00:47:43,200
+add let's add so let's add that sparkle
+
+878
+00:47:39,760 --> 00:47:44,760
+okay paste paste paste paste paste paste
+
+879
+00:47:43,200 --> 00:47:49,560
+we add
+
+880
+00:47:44,760 --> 00:47:53,440
+there. Okay. So, this name
+
+881
+00:47:49,560 --> 00:47:53,440
+is sparkles.
+
+882
+00:47:55,240 --> 00:48:04,280
+Okay. Okay. Now, evaluate this function.
+
+883
+00:47:59,839 --> 00:48:08,200
+We have it. Close it. Save it. Make a
+
+884
+00:48:04,280 --> 00:48:11,839
+backup. Close it. Now,
+
+885
+00:48:08,200 --> 00:48:13,280
+call spa. There it is. Oh, I already
+
+886
+00:48:11,839 --> 00:48:16,800
+have it.
+
+887
+00:48:13,280 --> 00:48:17,960
+Okay, that's good. Okay, then. Okay,
+
+888
+00:48:16,800 --> 00:48:19,960
+reopen
+
+889
+00:48:17,960 --> 00:48:22,599
+that. Delete
+
+890
+00:48:19,960 --> 00:48:26,680
+that. Search
+
+891
+00:48:22,599 --> 00:48:33,359
+uh sparkles. Yeah, I already have that.
+
+892
+00:48:26,680 --> 00:48:33,359
+Okay, eval close. Close. Okay. Now,
+
+893
+00:48:35,000 --> 00:48:39,559
+now
+
+894
+00:48:37,240 --> 00:48:43,920
+change or
+
+895
+00:48:39,559 --> 00:48:43,920
+title s find replace.
+
+896
+00:48:45,000 --> 00:48:50,480
+Wait, change your title that change to
+
+897
+00:48:51,480 --> 00:48:58,720
+sparkle. Okay, do it.
+
+898
+00:48:54,280 --> 00:49:01,040
+Yes. Yes. Yes. Yes. Yes. Right. Change
+
+899
+00:48:58,720 --> 00:49:01,040
+to
+
+900
+00:49:01,319 --> 00:49:09,240
+file. Fantastic.
+
+901
+00:49:03,800 --> 00:49:11,960
+So these all files there you are show
+
+902
+00:49:09,240 --> 00:49:17,200
+160 files
+
+903
+00:49:11,960 --> 00:49:20,079
+changed. Fantastic. Close it and uh jump
+
+904
+00:49:17,200 --> 00:49:20,079
+to it. Open
+
+905
+00:49:20,359 --> 00:49:26,400
+it. There's one more thing to change
+
+906
+00:49:23,119 --> 00:49:29,599
+because you can see we changed the title
+
+907
+00:49:26,400 --> 00:49:33,280
+but we didn't change H1. So now let's
+
+908
+00:49:29,599 --> 00:49:35,880
+change H1. Okay. Now repeat complex
+
+909
+00:49:33,280 --> 00:49:38,920
+command. Cut,
+
+910
+00:49:35,880 --> 00:49:40,440
+cancel, close,
+
+911
+00:49:38,920 --> 00:49:44,079
+close,
+
+912
+00:49:40,440 --> 00:49:47,359
+close. Now paste. So we got this. Okay,
+
+913
+00:49:44,079 --> 00:49:52,640
+let's paste it in here. So actually cut
+
+914
+00:49:47,359 --> 00:49:57,119
+all. Close close. And uh add a
+
+915
+00:49:52,640 --> 00:50:01,280
+JavaScript uh emac code block. Paste.
+
+916
+00:49:57,119 --> 00:50:04,079
+Pop it out. That's our code. So now
+
+917
+00:50:01,280 --> 00:50:04,079
+let's just
+
+918
+00:50:14,599 --> 00:50:21,280
+purify. Okay. So now, yeah, that's a
+
+919
+00:50:18,640 --> 00:50:26,839
+title. Now I want to change the H1.
+
+920
+00:50:21,280 --> 00:50:31,119
+Okay. Copy that. Paste it here. Now
+
+921
+00:50:26,839 --> 00:50:34,160
+H1 that. Okay. So change it all in sai
+
+922
+00:50:31,119 --> 00:50:34,160
+info. Yes. Do
+
+923
+00:50:35,880 --> 00:50:42,359
+it.
+
+924
+00:50:38,680 --> 00:50:46,800
+Fantastic. Okay. Turns of it. Now put it
+
+925
+00:50:42,359 --> 00:50:49,920
+back. Syntax color show in browser. Page
+
+926
+00:50:46,800 --> 00:50:53,640
+down. Page down. So that's the we did
+
+927
+00:50:49,920 --> 00:50:57,119
+that. So now all files I believe is
+
+928
+00:50:53,640 --> 00:51:02,440
+complete. So you see title H1. So you go
+
+929
+00:50:57,119 --> 00:51:06,480
+down run current file then go back to um
+
+930
+00:51:02,440 --> 00:51:10,160
+show uh let's say is here Emacs there it
+
+931
+00:51:06,480 --> 00:51:13,760
+is emac compile typescript file then
+
+932
+00:51:10,160 --> 00:51:16,640
+click on emac command so all of them is
+
+933
+00:51:13,760 --> 00:51:19,359
+sparkling fantastic that's it for today
+
+934
+00:51:16,640 --> 00:51:19,359
+thank you guys for
+
+935
+00:51:22,440 --> 00:51:28,119
+watching if you like my stuff pay me.
+
+936
+00:51:26,400 --> 00:51:32,040
+Okay. Go to
+
+937
+00:51:28,119 --> 00:51:37,160
+kasali.info and uh all the way
+
+938
+00:51:32,040 --> 00:51:40,480
+down, Patreon, Amazon, PayPal.
+
+939
+00:51:37,160 --> 00:51:43,440
+Okay, let's see what anything else I
+
+940
+00:51:40,480 --> 00:51:43,440
+need to do.
+
+941
+00:51:46,440 --> 00:51:51,440
+So, insert unic code. So, let's
+
+942
+00:51:51,800 --> 00:51:58,599
+see. I think that's it. So sorry insert
+
+943
+00:51:55,119 --> 00:52:03,520
+unic code. You can get the code
+
+944
+00:51:58,599 --> 00:52:07,839
+here. Copy the URL. Close. Close. And
+
+945
+00:52:03,520 --> 00:52:07,839
+let's paste it the link
+
+946
+00:52:08,280 --> 00:52:16,319
+there. So I insert unic code. Okay.
+
+947
+00:52:13,559 --> 00:52:19,960
+Uh and something else I need to do.
+
+948
+00:52:16,319 --> 00:52:19,960
+Okay. Bye guys.
+

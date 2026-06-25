@@ -1,0 +1,4388 @@
+1
+00:00:00,480 --> 00:00:06,560
+Hello, good morning everyone. Welcome to
+
+2
+00:00:03,280 --> 00:00:10,000
+another episode of son talk show. We are
+
+3
+00:00:06,560 --> 00:00:12,880
+going to code auto hotkey. Hello
+
+4
+00:00:10,000 --> 00:00:15,200
+aspiring Windows composer the
+
+5
+00:00:12,880 --> 00:00:17,840
+combinatorics
+
+6
+00:00:15,200 --> 00:00:20,160
+uh student. So we are going to do auto
+
+7
+00:00:17,840 --> 00:00:22,320
+hotkey. Okay if you haven't seen already
+
+8
+00:00:20,160 --> 00:00:26,320
+yesterday I did a review of this
+
+9
+00:00:22,320 --> 00:00:29,359
+ultimate hacking keyboard UHK80.
+
+10
+00:00:26,320 --> 00:00:33,760
+So watch that yesterday. And today we
+
+11
+00:00:29,359 --> 00:00:36,719
+are going to code uh auto hotkey. So on
+
+12
+00:00:33,760 --> 00:00:39,600
+Windows Auto Hotkey is a tool that
+
+13
+00:00:36,719 --> 00:00:41,840
+allows you to do lots of things. Key map
+
+14
+00:00:39,600 --> 00:00:44,559
+you know press F8 to launch an
+
+15
+00:00:41,840 --> 00:00:49,840
+application of any application you want
+
+16
+00:00:44,559 --> 00:00:53,120
+or F3 to copy or cut and paste or um
+
+17
+00:00:49,840 --> 00:00:55,680
+swap old key and control key or disable
+
+18
+00:00:53,120 --> 00:00:57,600
+window key or caps lock or num log or
+
+19
+00:00:55,680 --> 00:01:00,239
+square lock.
+
+20
+00:00:57,600 --> 00:01:03,280
+So it's a keyboard utility. It's a best
+
+21
+00:01:00,239 --> 00:01:05,439
+one for Microsoft Windows. So if you are
+
+22
+00:01:03,280 --> 00:01:07,840
+on Microsoft Windows, this is very
+
+23
+00:01:05,439 --> 00:01:09,439
+useful. So we going to go over auto
+
+24
+00:01:07,840 --> 00:01:11,840
+hotkey
+
+25
+00:01:09,439 --> 00:01:14,960
+in in the first 10 minutes like intro. I
+
+26
+00:01:11,840 --> 00:01:18,000
+can I can give you a intro. U uh then we
+
+27
+00:01:14,960 --> 00:01:22,159
+going to do Emacs sessions for those of
+
+28
+00:01:18,000 --> 00:01:23,840
+you programmers using the Emacs text
+
+29
+00:01:22,159 --> 00:01:25,680
+editor.
+
+30
+00:01:23,840 --> 00:01:29,360
+Okay. And if you are watching this
+
+31
+00:01:25,680 --> 00:01:32,159
+offline, play at 1.5 speed. If you are
+
+32
+00:01:29,360 --> 00:01:34,880
+watching live, say hi. Okay, so we going
+
+33
+00:01:32,159 --> 00:01:38,000
+to start. So, uh, video check. Video
+
+34
+00:01:34,880 --> 00:01:41,040
+check. You can see my screen. Yes, Emacs
+
+35
+00:01:38,000 --> 00:01:43,360
+powerful, the most powerful editor show
+
+36
+00:01:41,040 --> 00:01:46,960
+today's talk show auto key. So, go
+
+37
+00:01:43,360 --> 00:01:50,479
+there. So, okay. So, let's begin. Okay.
+
+38
+00:01:46,960 --> 00:01:53,840
+So, auto key. So, let's um make sure.
+
+39
+00:01:50,479 --> 00:01:56,399
+Okay. So, so auto key is you know it's a
+
+40
+00:01:53,840 --> 00:01:57,920
+keyboard utility you can launch
+
+41
+00:01:56,399 --> 00:02:01,280
+application
+
+42
+00:01:57,920 --> 00:02:03,840
+uh for example I can show you um well
+
+43
+00:02:01,280 --> 00:02:06,399
+I'll show later okay so you can insert
+
+44
+00:02:03,840 --> 00:02:09,440
+text any text you want you know like
+
+45
+00:02:06,399 --> 00:02:12,720
+your company name your name or today's
+
+46
+00:02:09,440 --> 00:02:14,640
+date uh it's not case sensitive and
+
+47
+00:02:12,720 --> 00:02:17,120
+there's common syntax so it's a
+
+48
+00:02:14,640 --> 00:02:20,160
+scripting kind of scripting language
+
+49
+00:02:17,120 --> 00:02:22,080
+okay for uh coders but it's pretty
+
+50
+00:02:20,160 --> 00:02:24,800
+simple Okay. So if you are not a
+
+51
+00:02:22,080 --> 00:02:28,080
+programmer, you can also use it.
+
+52
+00:02:24,800 --> 00:02:30,480
+Uh and the complete key syntax and how
+
+53
+00:02:28,080 --> 00:02:33,040
+do you remap keys? For example, let's
+
+54
+00:02:30,480 --> 00:02:34,640
+see. Single key to switch to previous
+
+55
+00:02:33,040 --> 00:02:36,959
+window. Oh yeah, I can show you that.
+
+56
+00:02:34,640 --> 00:02:40,239
+For example, you know, if you have this
+
+57
+00:02:36,959 --> 00:02:43,280
+code, then for me, I just press this
+
+58
+00:02:40,239 --> 00:02:46,000
+key. So watch my window. Okay. So I can
+
+59
+00:02:43,280 --> 00:02:47,599
+you see actually So let's put this back
+
+60
+00:02:46,000 --> 00:02:50,000
+here.
+
+61
+00:02:47,599 --> 00:02:52,800
+So I press this key. Can you see my
+
+62
+00:02:50,000 --> 00:02:55,040
+keyboard? Press this key. It will uh
+
+63
+00:02:52,800 --> 00:02:56,560
+switch to the last window. Now look,
+
+64
+00:02:55,040 --> 00:03:00,640
+press.
+
+65
+00:02:56,560 --> 00:03:04,080
+So I don't have to press like old tab
+
+66
+00:03:00,640 --> 00:03:07,840
+like old tab and you know and you know
+
+67
+00:03:04,080 --> 00:03:10,319
+so single key press that is the ultimate
+
+68
+00:03:07,840 --> 00:03:13,360
+way okay to save you typing for you
+
+69
+00:03:10,319 --> 00:03:15,840
+professional coders or writers. So you
+
+70
+00:03:13,360 --> 00:03:17,680
+see so that's that's using auto hotkey.
+
+71
+00:03:15,840 --> 00:03:19,200
+So let me show you my auto hotkey
+
+72
+00:03:17,680 --> 00:03:22,000
+script.
+
+73
+00:03:19,200 --> 00:03:24,959
+edge key age. So here is basically my
+
+74
+00:03:22,000 --> 00:03:28,720
+auto hotkey script. Okay. So, you know,
+
+75
+00:03:24,959 --> 00:03:31,280
+I got for example this this block of
+
+76
+00:03:28,720 --> 00:03:33,519
+code that's copy
+
+77
+00:03:31,280 --> 00:03:35,840
+URL from
+
+78
+00:03:33,519 --> 00:03:41,360
+uh from a browser window. For example,
+
+79
+00:03:35,840 --> 00:03:48,400
+what it does is ctr L to put the cruiser
+
+80
+00:03:41,360 --> 00:03:51,599
+on the URL field then then uh Ctrl C to
+
+81
+00:03:48,400 --> 00:03:54,640
+copy it. Then switch switch to Emacs.
+
+82
+00:03:51,599 --> 00:03:58,000
+So, let me demo. Okay. So let's say this
+
+83
+00:03:54,640 --> 00:04:00,560
+page. Okay. Now I press this key. Now
+
+84
+00:03:58,000 --> 00:04:03,280
+can you see? Yes. Okay. Press. Now I'm
+
+85
+00:04:00,560 --> 00:04:07,280
+in EMAC. Okay. Now open a new buffer.
+
+86
+00:04:03,280 --> 00:04:11,280
+Paste. You got the URL. Now in Emacs I
+
+87
+00:04:07,280 --> 00:04:14,319
+have code to make that into a uh full
+
+88
+00:04:11,280 --> 00:04:17,919
+URL. So you can see.
+
+89
+00:04:14,319 --> 00:04:20,560
+So let's magnify. Okay. So So that's a
+
+90
+00:04:17,919 --> 00:04:22,560
+demo. So auto hotkey. Okay. tremendously
+
+91
+00:04:20,560 --> 00:04:25,600
+useful
+
+92
+00:04:22,560 --> 00:04:28,240
+now. So, let me just tell you guys. So,
+
+93
+00:04:25,600 --> 00:04:30,880
+so now they have a auto hotkey version
+
+94
+00:04:28,240 --> 00:04:34,240
+two which is a major upgrade because
+
+95
+00:04:30,880 --> 00:04:38,960
+auto hotkey began like uh some 20 years
+
+96
+00:04:34,240 --> 00:04:42,160
+ago. So, in the late 1990s I believe so
+
+97
+00:04:38,960 --> 00:04:43,680
+the syntax the you know it's very bad
+
+98
+00:04:42,160 --> 00:04:47,120
+meaning that you know it's very
+
+99
+00:04:43,680 --> 00:04:49,520
+inconsistent extremely lousy. So about
+
+100
+00:04:47,120 --> 00:04:51,919
+five or 10 years ago, they started to
+
+101
+00:04:49,520 --> 00:04:55,680
+rewrite. They have a auto hotkey version
+
+102
+00:04:51,919 --> 00:04:57,840
+two, which is much better. So what I'm
+
+103
+00:04:55,680 --> 00:05:01,759
+going to do, you know, I have my
+
+104
+00:04:57,840 --> 00:05:04,080
+tutorial. This is starting in 2009. So
+
+105
+00:05:01,759 --> 00:05:07,199
+now I need to update them to version two
+
+106
+00:05:04,080 --> 00:05:09,520
+because version two, the code is
+
+107
+00:05:07,199 --> 00:05:12,400
+incompatible with version one. So I need
+
+108
+00:05:09,520 --> 00:05:14,400
+to make a few updates.
+
+109
+00:05:12,400 --> 00:05:17,520
+So that's so that's what I'm going to do
+
+110
+00:05:14,400 --> 00:05:21,360
+now. Okay. So for you those of you
+
+111
+00:05:17,520 --> 00:05:23,440
+non-coders or not using Emacs you can
+
+112
+00:05:21,360 --> 00:05:27,280
+you know you can you can just go off and
+
+113
+00:05:23,440 --> 00:05:31,280
+download autoarchy and explore. Um today
+
+114
+00:05:27,280 --> 00:05:33,759
+they have very good documentation
+
+115
+00:05:31,280 --> 00:05:36,720
+uh not so 10 years ago. So you know
+
+116
+00:05:33,759 --> 00:05:39,440
+today you got AI so lots of things. So
+
+117
+00:05:36,720 --> 00:05:41,199
+today they you know go download and
+
+118
+00:05:39,440 --> 00:05:43,120
+documentation
+
+119
+00:05:41,199 --> 00:05:46,000
+you know. So you you want version two.
+
+120
+00:05:43,120 --> 00:05:48,800
+Okay, version one is basically obsolete.
+
+121
+00:05:46,000 --> 00:05:52,000
+Okay, go. So, click on version two. Then
+
+122
+00:05:48,800 --> 00:05:54,320
+you have click on tutorials. Then you
+
+123
+00:05:52,000 --> 00:05:58,560
+can install how to install, how to run,
+
+124
+00:05:54,320 --> 00:06:00,800
+you know, sample code, run programs, uh
+
+125
+00:05:58,560 --> 00:06:02,960
+write hard keys like remap keys or
+
+126
+00:06:00,800 --> 00:06:06,479
+whatever. So today they have good
+
+127
+00:06:02,960 --> 00:06:08,160
+tutorial. My tutorial is kind of, you
+
+128
+00:06:06,479 --> 00:06:09,759
+know, you don't you don't need it, you
+
+129
+00:06:08,160 --> 00:06:11,759
+know.
+
+130
+00:06:09,759 --> 00:06:15,919
+I mean, I give you some different tips.
+
+131
+00:06:11,759 --> 00:06:19,199
+So it's still very useful but um but in
+
+132
+00:06:15,919 --> 00:06:21,600
+general for most people you know they
+
+133
+00:06:19,199 --> 00:06:24,160
+have they have a good you know fairly
+
+134
+00:06:21,600 --> 00:06:27,199
+good tutorial today.
+
+135
+00:06:24,160 --> 00:06:29,440
+So so for those of you you know want to
+
+136
+00:06:27,199 --> 00:06:34,080
+use this you can you can stop watching
+
+137
+00:06:29,440 --> 00:06:36,479
+and go off. But now next 30 minutes what
+
+138
+00:06:34,080 --> 00:06:39,600
+I'm going to do is for Emacs for those
+
+139
+00:06:36,479 --> 00:06:41,840
+of you Emacs coders. So this is more
+
+140
+00:06:39,600 --> 00:06:44,720
+kind of more advanced. So I'm going to
+
+141
+00:06:41,840 --> 00:06:47,360
+demonstrate uh de demonstrate how I
+
+142
+00:06:44,720 --> 00:06:52,000
+update my tutorial like I have massive
+
+143
+00:06:47,360 --> 00:06:54,240
+number of tutorials for for uh complete
+
+144
+00:06:52,000 --> 00:06:56,960
+tutorial you know on Microsoft
+
+145
+00:06:54,240 --> 00:06:59,840
+keybinding another tool this is uh
+
+146
+00:06:56,960 --> 00:07:02,720
+Microsoft power toys it's very good then
+
+147
+00:06:59,840 --> 00:07:05,039
+you go you know the complete tutorial
+
+148
+00:07:02,720 --> 00:07:08,400
+for Linux this is also pretty old you
+
+149
+00:07:05,039 --> 00:07:10,800
+know like there's like 100 pages about
+
+150
+00:07:08,400 --> 00:07:13,919
+key map and key binding on Linux
+
+151
+00:07:10,800 --> 00:07:16,479
+complete tutorial on Mac
+
+152
+00:07:13,919 --> 00:07:19,840
+for key bindings you know uh setup
+
+153
+00:07:16,479 --> 00:07:22,639
+keyboard shortcuts then
+
+154
+00:07:19,840 --> 00:07:24,800
+then you know 1,000 articles on
+
+155
+00:07:22,639 --> 00:07:28,800
+keyboards and mouse and track ball and
+
+156
+00:07:24,800 --> 00:07:33,199
+pen input device and uh then I have like
+
+157
+00:07:28,800 --> 00:07:37,840
+1,000 articles on programming languages
+
+158
+00:07:33,199 --> 00:07:40,960
+okay emacs emac wam language HTML visual
+
+159
+00:07:37,840 --> 00:07:42,560
+CSS JavaScript SV VG, Goland,
+
+160
+00:07:40,960 --> 00:07:45,440
+PowerShell, Python, you know, each one
+
+161
+00:07:42,560 --> 00:07:49,360
+is like hundreds of pages. So that's
+
+162
+00:07:45,440 --> 00:07:52,319
+what I do. That's my obsession. Writing,
+
+163
+00:07:49,360 --> 00:07:55,440
+you know, writing documentation, writing
+
+164
+00:07:52,319 --> 00:07:57,360
+tutorial is part of it, but also explore
+
+165
+00:07:55,440 --> 00:08:00,479
+the, you know, lots of things about
+
+166
+00:07:57,360 --> 00:08:02,720
+computer. Okay. So for those of you
+
+167
+00:08:00,479 --> 00:08:05,520
+interested in Emacs, you can keep on
+
+168
+00:08:02,720 --> 00:08:09,840
+watching. So let's start to do Emac
+
+169
+00:08:05,520 --> 00:08:12,720
+session. Okay. So let's update my uh
+
+170
+00:08:09,840 --> 00:08:15,280
+PowerShell um
+
+171
+00:08:12,720 --> 00:08:17,919
+tutorial. You know, every every half an
+
+172
+00:08:15,280 --> 00:08:21,199
+hour. So this is casual now. Every half
+
+173
+00:08:17,919 --> 00:08:24,000
+hour about every hour I get up and walk
+
+174
+00:08:21,199 --> 00:08:27,599
+back and forth and read my website or
+
+175
+00:08:24,000 --> 00:08:30,319
+read other uh mathematics or computer
+
+176
+00:08:27,599 --> 00:08:35,360
+science research articles and so on. and
+
+177
+00:08:30,319 --> 00:08:38,159
+I take notes and so then I get you know
+
+178
+00:08:35,360 --> 00:08:41,680
+get back on my power station and start
+
+179
+00:08:38,159 --> 00:08:43,599
+to work on them. So today's date state.
+
+180
+00:08:41,680 --> 00:08:46,399
+Okay. So we need to add a PowerShell
+
+181
+00:08:43,599 --> 00:08:48,320
+about how to uh insert today state.
+
+182
+00:08:46,399 --> 00:08:50,560
+Actually I never done that. So meanwhile
+
+183
+00:08:48,320 --> 00:08:58,240
+let's also explore artificial
+
+184
+00:08:50,560 --> 00:09:02,640
+intelligence. Okay. In auto hard key how
+
+185
+00:08:58,240 --> 00:09:04,640
+to insert today's state. So what I want
+
+186
+00:09:02,640 --> 00:09:08,000
+to do is press a key. You'll insert
+
+187
+00:09:04,640 --> 00:09:11,880
+today's state anywhere. Okay. So the AI
+
+188
+00:09:08,000 --> 00:09:11,880
+today will help you.
+
+189
+00:09:15,920 --> 00:09:22,160
+So I'm using Guac. I paid Twitter to
+
+190
+00:09:19,120 --> 00:09:26,959
+have you know guac but guac is the
+
+191
+00:09:22,160 --> 00:09:29,680
+latest AI. You can just go to gr.com
+
+192
+00:09:26,959 --> 00:09:32,640
+uh and use it. I recommend it over all
+
+193
+00:09:29,680 --> 00:09:36,399
+the others. So it's better than um
+
+194
+00:09:32,640 --> 00:09:39,760
+chatgpt and so on. Okay.
+
+195
+00:09:36,399 --> 00:09:41,760
+Uh Okay. So, so here's the code. Let's
+
+196
+00:09:39,760 --> 00:09:45,120
+let's see if it works. So, let's just
+
+197
+00:09:41,760 --> 00:09:48,399
+add it to my
+
+198
+00:09:45,120 --> 00:09:51,519
+auto key. Uh okay. Show version. So, so
+
+199
+00:09:48,399 --> 00:09:55,040
+let's say F. Let's that's that's that's
+
+200
+00:09:51,519 --> 00:10:01,040
+a key for control.
+
+201
+00:09:55,040 --> 00:10:03,519
+Uh and uh what is band for band is shift
+
+202
+00:10:01,040 --> 00:10:06,560
+I believe. I forgot. So let's look up
+
+203
+00:10:03,519 --> 00:10:11,839
+the key binding.
+
+204
+00:10:06,560 --> 00:10:15,839
+We Okay. Uh the exclamation sign is old
+
+205
+00:10:11,839 --> 00:10:19,440
+is old key. Okay. So what what is trying
+
+206
+00:10:15,839 --> 00:10:23,040
+to do here is settl and d to insert
+
+207
+00:10:19,440 --> 00:10:25,200
+today's date. Okay. So
+
+208
+00:10:23,040 --> 00:10:27,440
+okay. So you got to use format time
+
+209
+00:10:25,200 --> 00:10:31,279
+current date. Okay. Let's let's just run
+
+210
+00:10:27,440 --> 00:10:34,560
+it. Update. So it will run when auto
+
+211
+00:10:31,279 --> 00:10:37,440
+hotkey runs you can see this tiny icon
+
+212
+00:10:34,560 --> 00:10:40,000
+on the taskbar
+
+213
+00:10:37,440 --> 00:10:43,279
+uh or system tray you know it was called
+
+214
+00:10:40,000 --> 00:10:45,600
+system tray but what actually
+
+215
+00:10:43,279 --> 00:10:49,040
+technically it wasn't called system tray
+
+216
+00:10:45,600 --> 00:10:52,240
+but it became so popular so I think
+
+217
+00:10:49,040 --> 00:10:55,040
+Microsoft started adopted the name
+
+218
+00:10:52,240 --> 00:10:57,279
+system tray but anyway that's another
+
+219
+00:10:55,040 --> 00:11:00,480
+thing okay now I can press let's let's
+
+220
+00:10:57,279 --> 00:11:02,880
+go to notepad So something simple. So
+
+221
+00:11:00,480 --> 00:11:06,240
+control
+
+222
+00:11:02,880 --> 00:11:09,279
+uh that's control alt d. So control alt
+
+223
+00:11:06,240 --> 00:11:12,320
+d. Fantastic and beautiful. Can you see
+
+224
+00:11:09,279 --> 00:11:14,240
+that? Ctrl D.
+
+225
+00:11:12,320 --> 00:11:16,880
+Okay, that's how you insert today's
+
+226
+00:11:14,240 --> 00:11:21,440
+date. So actually I need to add to my
+
+227
+00:11:16,880 --> 00:11:24,959
+tutorial. So let's see. Fantastic. So
+
+228
+00:11:21,440 --> 00:11:28,240
+uh insert text. So I have a section on
+
+229
+00:11:24,959 --> 00:11:34,320
+insert text. So copy the URL back to
+
+230
+00:11:28,240 --> 00:11:38,320
+Emacs and uh open it back to that. Copy
+
+231
+00:11:34,320 --> 00:11:40,800
+that. Okay. So this is my
+
+232
+00:11:38,320 --> 00:11:45,320
+you are watching my Emacs workflow.
+
+233
+00:11:40,800 --> 00:11:45,320
+Okay. So let's add a new section.
+
+234
+00:11:48,079 --> 00:11:55,519
+Auto hotkey. paste that code
+
+235
+00:11:52,079 --> 00:11:58,240
+and insert today's
+
+236
+00:11:55,519 --> 00:11:59,760
+date.
+
+237
+00:11:58,240 --> 00:12:04,240
+Okay,
+
+238
+00:11:59,760 --> 00:12:06,079
+do that. I'm using kasa
+
+239
+00:12:04,240 --> 00:12:09,360
+um
+
+240
+00:12:06,079 --> 00:12:12,079
+kasar html mode. That's my emac stuff.
+
+241
+00:12:09,360 --> 00:12:14,639
+So, okay, showing browser. There it is.
+
+242
+00:12:12,079 --> 00:12:18,560
+Now, you want to syntax color it. So,
+
+243
+00:12:14,639 --> 00:12:22,000
+press press showing browser.
+
+244
+00:12:18,560 --> 00:12:26,079
+Fantastic. Okay. So, insert today date.
+
+245
+00:12:22,000 --> 00:12:30,720
+Let's then delete it. Okay. Download
+
+246
+00:12:26,079 --> 00:12:34,720
+auto hotkey. 15 years ago it was not
+
+247
+00:12:30,720 --> 00:12:38,720
+forced https but today they want you
+
+248
+00:12:34,720 --> 00:12:40,720
+know most websites are
+
+249
+00:12:38,720 --> 00:12:43,040
+auto hotkey
+
+250
+00:12:40,720 --> 00:12:46,240
+https.
+
+251
+00:12:43,040 --> 00:12:48,320
+Okay. Go to their website. Fantastic.
+
+252
+00:12:46,240 --> 00:12:53,360
+Close back here.
+
+253
+00:12:48,320 --> 00:12:55,920
+download at fantastic then close. Okay.
+
+254
+00:12:53,360 --> 00:13:01,120
+New version two. Now you need to mention
+
+255
+00:12:55,920 --> 00:13:04,160
+new version. Okay. So um
+
+256
+00:13:01,120 --> 00:13:05,760
+auto hotkey
+
+257
+00:13:04,160 --> 00:13:08,760
+versions.
+
+258
+00:13:05,760 --> 00:13:08,760
+Okay.
+
+259
+00:13:09,600 --> 00:13:15,760
+How are you guys doing? Any people
+
+260
+00:13:12,399 --> 00:13:19,440
+watching? This is interesting. So, uh
+
+261
+00:13:15,760 --> 00:13:23,120
+let's just get this to work. Okay.
+
+262
+00:13:19,440 --> 00:13:29,600
+Hold on. How are the versions?
+
+263
+00:13:23,120 --> 00:13:33,040
+Version one. Uh version one is
+
+264
+00:13:29,600 --> 00:13:35,200
+very old since
+
+265
+00:13:33,040 --> 00:13:38,800
+year 2K. Something like that. Okay.
+
+266
+00:13:35,200 --> 00:13:41,120
+Actually, let's look up look up the web.
+
+267
+00:13:38,800 --> 00:13:44,079
+the pink window can you can see all my
+
+268
+00:13:41,120 --> 00:13:47,760
+command calls and keystrokes on the left
+
+269
+00:13:44,079 --> 00:13:50,000
+and command course on the right
+
+270
+00:13:47,760 --> 00:13:53,600
+okay so you can see I'm calling kasan
+
+271
+00:13:50,000 --> 00:13:56,800
+lookup web that's a command I have in
+
+272
+00:13:53,600 --> 00:13:58,560
+emacs okay so auto hotkey let's go to
+
+273
+00:13:56,800 --> 00:14:01,839
+Wikipedia
+
+274
+00:13:58,560 --> 00:14:03,519
+now what's the date originated
+
+275
+00:14:01,839 --> 00:14:06,000
+2003
+
+276
+00:14:03,519 --> 00:14:07,519
+okay so
+
+277
+00:14:06,000 --> 00:14:11,320
+since
+
+278
+00:14:07,519 --> 00:14:11,320
+200 2003.
+
+279
+00:14:13,440 --> 00:14:19,959
+It uh
+
+280
+00:14:16,160 --> 00:14:19,959
+it is absolut.
+
+281
+00:14:24,000 --> 00:14:29,160
+Okay. Now version two.
+
+282
+00:14:32,160 --> 00:14:37,839
+Version two. When did version two start?
+
+283
+00:14:34,639 --> 00:14:41,839
+So this is part of the research when you
+
+284
+00:14:37,839 --> 00:14:44,800
+write a tutorial and stuff. Okay. So
+
+285
+00:14:41,839 --> 00:14:49,000
+2021
+
+286
+00:14:44,800 --> 00:14:49,000
+began in 2021
+
+287
+00:14:49,920 --> 00:15:00,199
+it is incompatible
+
+288
+00:14:53,279 --> 00:15:00,199
+with version one. Okay. version one.
+
+289
+00:15:02,639 --> 00:15:10,600
+It is
+
+290
+00:15:04,959 --> 00:15:10,600
+the current version.
+
+291
+00:15:12,240 --> 00:15:18,480
+Okay. Showing browser. Fantastic. Now we
+
+292
+00:15:16,160 --> 00:15:21,600
+covered the version so people know.
+
+293
+00:15:18,480 --> 00:15:24,480
+Okay. So now there's another convention
+
+294
+00:15:21,600 --> 00:15:26,000
+about the title capitalization
+
+295
+00:15:24,480 --> 00:15:28,720
+conventions. There are several ways.
+
+296
+00:15:26,000 --> 00:15:32,639
+There's American way. You capitalize
+
+297
+00:15:28,720 --> 00:15:35,920
+every word except minor words like and
+
+298
+00:15:32,639 --> 00:15:38,240
+or in, the
+
+299
+00:15:35,920 --> 00:15:41,040
+United Kingdom way is you simply
+
+300
+00:15:38,240 --> 00:15:44,399
+capitalize the first letter of the
+
+301
+00:15:41,040 --> 00:15:47,279
+sentence. So typically I follow American
+
+302
+00:15:44,399 --> 00:15:49,120
+way, but the UK way is actually better
+
+303
+00:15:47,279 --> 00:15:51,120
+because American way then you have to
+
+304
+00:15:49,120 --> 00:15:54,480
+capitalize every word of the sentence.
+
+305
+00:15:51,120 --> 00:15:57,199
+It's kind of like unnecessary.
+
+306
+00:15:54,480 --> 00:16:00,160
+and also complicated because what
+
+307
+00:15:57,199 --> 00:16:03,920
+happens when the title is of two
+
+308
+00:16:00,160 --> 00:16:06,240
+sentences sometimes. So then you become
+
+309
+00:16:03,920 --> 00:16:08,160
+then whether you you you know whether
+
+310
+00:16:06,240 --> 00:16:11,440
+you know like typically you don't you
+
+311
+00:16:08,160 --> 00:16:13,759
+don't need a period after the title but
+
+312
+00:16:11,440 --> 00:16:15,759
+if your title happens to be like one
+
+313
+00:16:13,759 --> 00:16:17,920
+full sentence or two sentence then you
+
+314
+00:16:15,759 --> 00:16:21,759
+need a period. So the American way is
+
+315
+00:16:17,920 --> 00:16:24,240
+like uh more complicated anyway.
+
+316
+00:16:21,759 --> 00:16:28,480
+So let me move on faster. So this one is
+
+317
+00:16:24,240 --> 00:16:31,360
+done. Delete it. So auto hotkey. Now
+
+318
+00:16:28,480 --> 00:16:36,000
+there's a orthography issue. You see
+
+319
+00:16:31,360 --> 00:16:39,040
+auto hotkey should the K be capitalized?
+
+320
+00:16:36,000 --> 00:16:42,399
+Normally yes because auto hotkey each
+
+321
+00:16:39,040 --> 00:16:46,560
+one is supposed you know meant is
+
+322
+00:16:42,399 --> 00:16:49,519
+supposed to be independent auto hotkey.
+
+323
+00:16:46,560 --> 00:16:52,320
+But the auto hotkey convention actually
+
+324
+00:16:49,519 --> 00:16:56,320
+they don't they you know that they
+
+325
+00:16:52,320 --> 00:17:01,279
+consider it as auto hotkey like two
+
+326
+00:16:56,320 --> 00:17:04,959
+words. So I looked up so delete that so
+
+327
+00:17:01,279 --> 00:17:06,640
+you can see I looked up uh did I make a
+
+328
+00:17:04,959 --> 00:17:09,839
+screenshot
+
+329
+00:17:06,640 --> 00:17:13,360
+uh somewhere?
+
+330
+00:17:09,839 --> 00:17:15,679
+Yeah, there you see the official site
+
+331
+00:17:13,360 --> 00:17:19,360
+and Wikipedia they don't capitalize the
+
+332
+00:17:15,679 --> 00:17:21,839
+K. Okay. Delete. So you see when I work
+
+333
+00:17:19,360 --> 00:17:24,880
+on tutorial there's lots of issues to
+
+334
+00:17:21,839 --> 00:17:28,640
+look into if you um pay attention to the
+
+335
+00:17:24,880 --> 00:17:33,840
+details. It's it involves technical
+
+336
+00:17:28,640 --> 00:17:37,440
+writing involves writing style involves
+
+337
+00:17:33,840 --> 00:17:40,480
+auto hard key or hard capital A key
+
+338
+00:17:37,440 --> 00:17:44,000
+involves convention tradition of English
+
+339
+00:17:40,480 --> 00:17:47,200
+you know UK style or American style. The
+
+340
+00:17:44,000 --> 00:17:49,520
+capitalization of the title involves
+
+341
+00:17:47,200 --> 00:17:53,200
+research into you know past versions
+
+342
+00:17:49,520 --> 00:17:56,000
+like when did it start how it began
+
+343
+00:17:53,200 --> 00:17:59,200
+of course I know there's also history it
+
+344
+00:17:56,000 --> 00:18:02,400
+it came from auto it uh kind of open
+
+345
+00:17:59,200 --> 00:18:04,720
+source so you know lots of issues so
+
+346
+00:18:02,400 --> 00:18:10,400
+anyway let's go back to let's see
+
+347
+00:18:04,720 --> 00:18:13,679
+questions um hello pravin what do you
+
+348
+00:18:10,400 --> 00:18:16,400
+think about code editor lamb which is
+
+349
+00:18:13,679 --> 00:18:19,760
+configurable in common spend is a modern
+
+350
+00:18:16,400 --> 00:18:23,600
+similar to Emacs
+
+351
+00:18:19,760 --> 00:18:26,880
+Pavine. Okay. I
+
+352
+00:18:23,600 --> 00:18:29,039
+you know like that's a long history like
+
+353
+00:18:26,880 --> 00:18:31,679
+there there's been different EMACs or
+
+354
+00:18:29,039 --> 00:18:35,840
+EMACs based on common list or EMACs
+
+355
+00:18:31,679 --> 00:18:39,840
+based on scheme since like 30 years ago.
+
+356
+00:18:35,840 --> 00:18:42,080
+Uh and but typically they are they are
+
+357
+00:18:39,840 --> 00:18:44,720
+not very powerful. They are like someone
+
+358
+00:18:42,080 --> 00:18:47,600
+started but just never picked up speed.
+
+359
+00:18:44,720 --> 00:18:49,840
+Okay. They just like you know like one
+
+360
+00:18:47,600 --> 00:18:52,480
+one guy show
+
+361
+00:18:49,840 --> 00:18:56,559
+uh not many users you know 100 a few
+
+362
+00:18:52,480 --> 00:19:00,080
+thousand maybe at best. So
+
+363
+00:18:56,559 --> 00:19:02,240
+lamb have I actually wrote about it I I
+
+364
+00:19:00,080 --> 00:19:07,559
+don't know is that how new is that you
+
+365
+00:19:02,240 --> 00:19:07,559
+know so um let's see lamb editor
+
+366
+00:19:07,840 --> 00:19:12,000
+GitHub lamb project general purpose
+
+367
+00:19:10,080 --> 00:19:16,000
+whatever what do you guys think of let's
+
+368
+00:19:12,000 --> 00:19:17,679
+see magnify okay so now this key to
+
+369
+00:19:16,000 --> 00:19:20,799
+enlarging what do you guys think of
+
+370
+00:19:17,679 --> 00:19:24,799
+editor lamb okay general purpose okay
+
+371
+00:19:20,799 --> 00:19:27,120
+whatever let's open Right.
+
+372
+00:19:24,799 --> 00:19:31,200
+Okay. So, what is the date? Now, you
+
+373
+00:19:27,120 --> 00:19:33,520
+need to uh turn on JavaScript so Google
+
+374
+00:19:31,200 --> 00:19:37,679
+knows where you live and Microsoft
+
+375
+00:19:33,520 --> 00:19:39,760
+knows. And uh let's check what year this
+
+376
+00:19:37,679 --> 00:19:42,320
+project begin.
+
+377
+00:19:39,760 --> 00:19:43,919
+Install nightly build. Okay. It seems
+
+378
+00:19:42,320 --> 00:19:46,799
+pretty new. Do you know what's the year?
+
+379
+00:19:43,919 --> 00:19:49,840
+Say it. Okay.
+
+380
+00:19:46,799 --> 00:19:54,880
+Go whatever. Oh, quite a Okay. So, it's
+
+381
+00:19:49,840 --> 00:19:56,480
+uh looks like it's like newish, you
+
+382
+00:19:54,880 --> 00:19:59,440
+know, they come and go, you know, like
+
+383
+00:19:56,480 --> 00:20:02,720
+for example, 10 years ago or by now 15
+
+384
+00:19:59,440 --> 00:20:06,480
+years ago, there's a new Hascal editor.
+
+385
+00:20:02,720 --> 00:20:08,320
+Then there's also Rust, new Rust editor.
+
+386
+00:20:06,480 --> 00:20:11,679
+Like when they came up, it became like
+
+387
+00:20:08,320 --> 00:20:16,000
+hugely talked about, but after after two
+
+388
+00:20:11,679 --> 00:20:18,880
+three years, it just dies. Okay. So and
+
+389
+00:20:16,000 --> 00:20:22,640
+I have wrote a lot blogs in the past 20
+
+390
+00:20:18,880 --> 00:20:26,000
+years 30 years you know about them then
+
+391
+00:20:22,640 --> 00:20:29,039
+you know it just became history so will
+
+392
+00:20:26,000 --> 00:20:33,280
+this lamb editor last you don't know
+
+393
+00:20:29,039 --> 00:20:36,720
+okay that and I I'm not going to use it
+
+394
+00:20:33,280 --> 00:20:41,600
+I will use it in if it become robust and
+
+395
+00:20:36,720 --> 00:20:45,039
+you know you know such like that so
+
+396
+00:20:41,600 --> 00:20:48,400
+um so what year is it that's important
+
+397
+00:20:45,039 --> 00:20:52,400
+important when did this begin? I think
+
+398
+00:20:48,400 --> 00:20:55,360
+it's recent. Okay. So for me whenever I
+
+399
+00:20:52,400 --> 00:20:57,280
+look into or adopt a technology I have
+
+400
+00:20:55,360 --> 00:21:00,799
+to know the details. I have to know what
+
+401
+00:20:57,280 --> 00:21:03,039
+what year you begin who wrote it. Like
+
+402
+00:21:00,799 --> 00:21:05,280
+typically today it's usually harder to
+
+403
+00:21:03,039 --> 00:21:08,080
+find like who who the actually
+
+404
+00:21:05,280 --> 00:21:10,320
+wrote this and why do you do it? Like
+
+405
+00:21:08,080 --> 00:21:12,960
+they hide they kind of hide it starting
+
+406
+00:21:10,320 --> 00:21:16,240
+like even 20 years ago. the mentality
+
+407
+00:21:12,960 --> 00:21:18,080
+that all fairly up. Okay. So, for
+
+408
+00:21:16,240 --> 00:21:20,799
+example, what right now I want to know
+
+409
+00:21:18,080 --> 00:21:23,280
+who who wrote this?
+
+410
+00:21:20,799 --> 00:21:26,799
+Usually somebody like a single guy wrote
+
+411
+00:21:23,280 --> 00:21:29,520
+it. Who is it? Does it say no? You know
+
+412
+00:21:26,799 --> 00:21:32,640
+these or I call starting with
+
+413
+00:21:29,520 --> 00:21:34,320
+the late Malay Jen and the zoomers are
+
+414
+00:21:32,640 --> 00:21:36,640
+worse, you know, like they they don't
+
+415
+00:21:34,320 --> 00:21:39,280
+say it. They don't say author also
+
+416
+00:21:36,640 --> 00:21:41,360
+because partly because of the deep state
+
+417
+00:21:39,280 --> 00:21:45,600
+influence you know code of conduct you
+
+418
+00:21:41,360 --> 00:21:49,120
+know that you all up. So like the
+
+419
+00:21:45,600 --> 00:21:52,080
+mentality like let me ask you you guys
+
+420
+00:21:49,120 --> 00:21:55,840
+this is a project open source you know
+
+421
+00:21:52,080 --> 00:21:58,880
+so someone spend their time sweat and
+
+422
+00:21:55,840 --> 00:22:01,440
+blur to create it why do they not say
+
+423
+00:21:58,880 --> 00:22:03,200
+author it's written by you know I
+
+424
+00:22:01,440 --> 00:22:06,159
+started this project like usually they
+
+425
+00:22:03,200 --> 00:22:09,039
+don't all this all these you know like
+
+426
+00:22:06,159 --> 00:22:12,000
+and it's mixed in with scams because
+
+427
+00:22:09,039 --> 00:22:14,240
+scams if you are a scammer of course you
+
+428
+00:22:12,000 --> 00:22:16,480
+you don't want to say oh I started this
+
+429
+00:22:14,240 --> 00:22:18,720
+project something, right? So, it's all
+
+430
+00:22:16,480 --> 00:22:21,120
+mixed in. It's like a you know, so but
+
+431
+00:22:18,720 --> 00:22:22,720
+to to the zoomers, you guys like you you
+
+432
+00:22:21,120 --> 00:22:25,440
+guys don't know you you guys don't know
+
+433
+00:22:22,720 --> 00:22:28,720
+a thing. You you just lived you were
+
+434
+00:22:25,440 --> 00:22:31,360
+born into into this way of the internet.
+
+435
+00:22:28,720 --> 00:22:33,840
+You think this is normal. Who the
+
+436
+00:22:31,360 --> 00:22:36,000
+you know puts puts up the name and also
+
+437
+00:22:33,840 --> 00:22:39,280
+you are a coward. you are so-called
+
+438
+00:22:36,000 --> 00:22:41,200
+coward or non a non coward because you
+
+439
+00:22:39,280 --> 00:22:43,600
+don't want to put your name because oh
+
+440
+00:22:41,200 --> 00:22:46,799
+in case you know somebody dug up what
+
+441
+00:22:43,600 --> 00:22:48,480
+you did what you said 10 years ago then
+
+442
+00:22:46,799 --> 00:22:50,880
+you got you're going to be cancelled
+
+443
+00:22:48,480 --> 00:22:53,200
+you're going to be so the rumors
+
+444
+00:22:50,880 --> 00:22:56,400
+you guys yeah I you know no we don't
+
+445
+00:22:53,200 --> 00:22:58,640
+want the authorship so that you know all
+
+446
+00:22:56,400 --> 00:23:01,600
+these you know little things creates a
+
+447
+00:22:58,640 --> 00:23:03,200
+collapse of USA that's going on today
+
+448
+00:23:01,600 --> 00:23:05,440
+okay
+
+449
+00:23:03,200 --> 00:23:07,919
+and but you think Oh, I'm just going to
+
+450
+00:23:05,440 --> 00:23:11,360
+Linux. I'm just going to, you know, be a
+
+451
+00:23:07,919 --> 00:23:13,919
+tech hacker. I'm going to be none and do
+
+452
+00:23:11,360 --> 00:23:16,000
+Linux and prevent all the Google doing
+
+453
+00:23:13,919 --> 00:23:18,880
+things. [laughter]
+
+454
+00:23:16,000 --> 00:23:21,679
+You're kidding yourself.
+
+455
+00:23:18,880 --> 00:23:23,520
+Okay. Anyway, so this project, you don't
+
+456
+00:23:21,679 --> 00:23:25,679
+know who wrote it. It takes a lot of
+
+457
+00:23:23,520 --> 00:23:28,240
+time to dig into. Okay. Then you don't
+
+458
+00:23:25,679 --> 00:23:31,440
+know what year it began and what is, you
+
+459
+00:23:28,240 --> 00:23:34,080
+know, go vision. Uh,
+
+460
+00:23:31,440 --> 00:23:36,240
+yeah. So, yeah. But you know I want
+
+461
+00:23:34,080 --> 00:23:38,159
+personal information. I don't want like
+
+462
+00:23:36,240 --> 00:23:41,360
+the marketing
+
+463
+00:23:38,159 --> 00:23:43,919
+nice words you know like I want to know
+
+464
+00:23:41,360 --> 00:23:45,919
+what you when you wrote it like what
+
+465
+00:23:43,919 --> 00:23:49,280
+exactly why you wrote it something like
+
+466
+00:23:45,919 --> 00:23:52,320
+that or it can be a a corporate
+
+467
+00:23:49,280 --> 00:23:56,159
+sponsored it you know why you you know
+
+468
+00:23:52,320 --> 00:23:59,440
+like real you know authentic from people
+
+469
+00:23:56,159 --> 00:24:02,320
+from people like you and me I don't want
+
+470
+00:23:59,440 --> 00:24:04,640
+the the the the like remove all any
+
+471
+00:24:02,320 --> 00:24:07,840
+personal details like nice wording we
+
+472
+00:24:04,640 --> 00:24:10,480
+going to help uh help Africa we going to
+
+473
+00:24:07,840 --> 00:24:13,520
+you know I you know vision like vision
+
+474
+00:24:10,480 --> 00:24:18,880
+vision the who whose vision
+
+475
+00:24:13,520 --> 00:24:22,240
+I want to know it doesn't say go what
+
+476
+00:24:18,880 --> 00:24:24,720
+you know okay so you see they removed
+
+477
+00:24:22,240 --> 00:24:26,799
+all kind of actual you know real
+
+478
+00:24:24,720 --> 00:24:30,000
+information and that's the situation
+
+479
+00:24:26,799 --> 00:24:32,960
+with the zoomers starting with the late
+
+480
+00:24:30,000 --> 00:24:34,960
+Malay genen faces that's who that's
+
+481
+00:24:32,960 --> 00:24:38,000
+when they created created the like
+
+482
+00:24:34,960 --> 00:24:41,520
+button, the Jack Dorsey on Twitter, the
+
+483
+00:24:38,000 --> 00:24:44,400
+Mark Zuckerberg face, you know, the
+
+484
+00:24:41,520 --> 00:24:46,799
+Facebook face Mark Zuckerberg. So,
+
+485
+00:24:44,400 --> 00:24:49,520
+they created this and you zuma and look
+
+486
+00:24:46,799 --> 00:24:53,120
+at, you know, look at this fox. This is
+
+487
+00:24:49,520 --> 00:24:56,000
+Zuma fox. You know, who is this guy? Oh,
+
+488
+00:24:53,120 --> 00:24:59,120
+this is a bear or otter. Okay, this
+
+489
+00:24:56,000 --> 00:25:02,000
+guy's got a face. Good. And that's a n
+
+490
+00:24:59,120 --> 00:25:05,679
+or this one is a whisper. You know what
+
+491
+00:25:02,000 --> 00:25:08,480
+the This is the collapse of USA.
+
+492
+00:25:05,679 --> 00:25:10,559
+Okay. Okay. I I rambled, you know, I
+
+493
+00:25:08,480 --> 00:25:14,559
+digressed. Let's go back to what I want
+
+494
+00:25:10,559 --> 00:25:17,440
+to do. So, to answer your question, am I
+
+495
+00:25:14,559 --> 00:25:20,080
+interested in this one? Not really.
+
+496
+00:25:17,440 --> 00:25:23,840
+Until you become, you know, robust and
+
+497
+00:25:20,080 --> 00:25:27,520
+good, then I might use it. Okay. So,
+
+498
+00:25:23,840 --> 00:25:31,279
+next update image. Okay. So, let's
+
+499
+00:25:27,520 --> 00:25:33,520
+update that. So uh update the auto hard
+
+500
+00:25:31,279 --> 00:25:37,120
+key.
+
+501
+00:25:33,520 --> 00:25:41,360
+So version two is um okay. So in order
+
+502
+00:25:37,120 --> 00:25:44,320
+to do that so let's create a new um
+
+503
+00:25:41,360 --> 00:25:46,559
+window. Wait
+
+504
+00:25:44,320 --> 00:25:49,600
+create a new buffer
+
+505
+00:25:46,559 --> 00:25:51,200
+and uh magnify. Okay. I don't want
+
+506
+00:25:49,600 --> 00:25:56,080
+actually.
+
+507
+00:25:51,200 --> 00:26:01,480
+So windows D to hide it all. And click
+
+508
+00:25:56,080 --> 00:26:01,480
+on that. And now do a screenshot.
+
+509
+00:26:04,480 --> 00:26:11,039
+Okay, it's got the new uh now Windows D
+
+510
+00:26:08,720 --> 00:26:14,400
+again. That's a no very annoying thing
+
+511
+00:26:11,039 --> 00:26:16,400
+about Windows. Once you Windows D, then
+
+512
+00:26:14,400 --> 00:26:20,159
+you can't get back all the other
+
+513
+00:26:16,400 --> 00:26:23,120
+windows. So then you have to like click,
+
+514
+00:26:20,159 --> 00:26:28,000
+you know, click one by one. You you
+
+515
+00:26:23,120 --> 00:26:30,400
+can't just get them all back.
+
+516
+00:26:28,000 --> 00:26:33,120
+I want all the windows because I have
+
+517
+00:26:30,400 --> 00:26:35,440
+Hoover to activate because I move my my
+
+518
+00:26:33,120 --> 00:26:38,960
+mouse. Can you Can you guys see? Okay.
+
+519
+00:26:35,440 --> 00:26:42,480
+So, let me demo this again. I tal talked
+
+520
+00:26:38,960 --> 00:26:44,720
+about this a million times.
+
+521
+00:26:42,480 --> 00:26:47,039
+Hoover to activate. So, watch my hand.
+
+522
+00:26:44,720 --> 00:26:50,159
+Okay. Right now, I'm using this ultimate
+
+523
+00:26:47,039 --> 00:26:52,799
+hacking keyboard at trackpad. So, I move
+
+524
+00:26:50,159 --> 00:26:56,960
+here. No click. It'll pop up to the
+
+525
+00:26:52,799 --> 00:27:00,480
+front. I move here and with the real big
+
+526
+00:26:56,960 --> 00:27:05,200
+mouse it's easier. So you see I never
+
+527
+00:27:00,480 --> 00:27:07,279
+click because click is um
+
+528
+00:27:05,200 --> 00:27:09,679
+it requires muscle movement. So if
+
+529
+00:27:07,279 --> 00:27:12,880
+you're going to click 1,000 times you
+
+530
+00:27:09,679 --> 00:27:16,000
+know you every day because you are
+
+531
+00:27:12,880 --> 00:27:19,200
+hacker then you're going to have fingers
+
+532
+00:27:16,000 --> 00:27:23,039
+pain you know mouse hand problems. So I
+
+533
+00:27:19,200 --> 00:27:26,720
+don't click. So it's like nondestructive
+
+534
+00:27:23,039 --> 00:27:30,080
+way of navigating your windows. Okay. So
+
+535
+00:27:26,720 --> 00:27:32,320
+I So I need the windows to be like over
+
+536
+00:27:30,080 --> 00:27:36,400
+and have a little corner I can just move
+
+537
+00:27:32,320 --> 00:27:39,200
+the mouse to. So but when you do windows
+
+538
+00:27:36,400 --> 00:27:42,000
+windows D you know in case you want a
+
+539
+00:27:39,200 --> 00:27:44,799
+screenshot or something
+
+540
+00:27:42,000 --> 00:27:48,080
+if you do it right away again then they
+
+541
+00:27:44,799 --> 00:27:50,880
+come back. But if you window D then you
+
+542
+00:27:48,080 --> 00:27:53,120
+did something then they they you know
+
+543
+00:27:50,880 --> 00:27:57,039
+there's no way to get them all back you
+
+544
+00:27:53,120 --> 00:28:00,480
+know stupid Windows like okay I have
+
+545
+00:27:57,039 --> 00:28:02,880
+like 100 articles on the idiocy of
+
+546
+00:28:00,480 --> 00:28:07,120
+Windows okay how Windows sucks my
+
+547
+00:28:02,880 --> 00:28:12,080
+website you'll find it my website is um
+
+548
+00:28:07,120 --> 00:28:15,600
+si.info info. No https, no s. Okay, now
+
+549
+00:28:12,080 --> 00:28:19,440
+let's get back to what we doing. Uh,
+
+550
+00:28:15,600 --> 00:28:23,200
+today I'm popular. I got 17 uh viewers.
+
+551
+00:28:19,440 --> 00:28:26,320
+Is that right? 11. Okay. So, now let's
+
+552
+00:28:23,200 --> 00:28:29,279
+get back. So, I got a new screenshot.
+
+553
+00:28:26,320 --> 00:28:31,440
+Auto hotkey. Go here. Go here. Run
+
+554
+00:28:29,279 --> 00:28:34,240
+script. So, I need to update that. So,
+
+555
+00:28:31,440 --> 00:28:37,039
+search for PNG.
+
+556
+00:28:34,240 --> 00:28:39,039
+Okay. Open.
+
+557
+00:28:37,039 --> 00:28:41,679
+Okay. Okay, that's a version one. So,
+
+558
+00:28:39,039 --> 00:28:44,240
+let's add a version two.
+
+559
+00:28:41,679 --> 00:28:47,200
+Press, press, press, press. Uh, wait.
+
+560
+00:28:44,240 --> 00:28:51,279
+Show the pink window. My Emacs commands.
+
+561
+00:28:47,200 --> 00:28:56,320
+Press press. Okay. You see automatically
+
+562
+00:28:51,279 --> 00:28:58,880
+insert. Now, refresh. Now, that's uh
+
+563
+00:28:56,320 --> 00:29:01,679
+version two. Okay. Now, we need to
+
+564
+00:28:58,880 --> 00:29:04,320
+rename this image. You see? Go to the
+
+565
+00:29:01,679 --> 00:29:07,440
+directory. We need to rename it. many
+
+566
+00:29:04,320 --> 00:29:10,880
+ways but I have the most efficient way
+
+567
+00:29:07,440 --> 00:29:14,559
+which is press
+
+568
+00:29:10,880 --> 00:29:17,039
+okay now just say auto hotkey
+
+569
+00:29:14,559 --> 00:29:21,440
+U2 expand
+
+570
+00:29:17,039 --> 00:29:24,960
+uh B2 okay then a date okay do it
+
+571
+00:29:21,440 --> 00:29:28,080
+fantastic okay you see you you see open
+
+572
+00:29:24,960 --> 00:29:30,880
+open that go to the directory is you
+
+573
+00:29:28,080 --> 00:29:33,440
+know I I don't have to go to the windows
+
+574
+00:29:30,880 --> 00:29:36,799
+um for example the windows explorer
+
+575
+00:29:33,440 --> 00:29:41,120
+important rename you know fantastic okay
+
+576
+00:29:36,799 --> 00:29:44,880
+now update the the figure caption okay
+
+577
+00:29:41,120 --> 00:29:48,880
+so I do press press
+
+578
+00:29:44,880 --> 00:29:52,960
+fantastic okay show in browser
+
+579
+00:29:48,880 --> 00:29:55,600
+so the version two um
+
+580
+00:29:52,960 --> 00:29:59,760
+you know then there's other thing about
+
+581
+00:29:55,600 --> 00:30:03,039
+writing a tutorial uh which is about
+
+582
+00:29:59,760 --> 00:30:05,279
+formatting and uh lots of issues okay
+
+583
+00:30:03,039 --> 00:30:07,919
+So, I've been doing this for 20 years.
+
+584
+00:30:05,279 --> 00:30:11,200
+So, for example,
+
+585
+00:30:07,919 --> 00:30:15,039
+um a running auto key script icon, you
+
+586
+00:30:11,200 --> 00:30:18,399
+know, that's too wordy. So,
+
+587
+00:30:15,039 --> 00:30:20,960
+okay. So, anyway, so rem remove that.
+
+588
+00:30:18,399 --> 00:30:23,760
+Remove that. Okay, that's a image. Okay.
+
+589
+00:30:20,960 --> 00:30:26,559
+Uh let's see if this image is used
+
+590
+00:30:23,760 --> 00:30:30,640
+anywhere else. This is old one. Okay.
+
+591
+00:30:26,559 --> 00:30:34,640
+Now, call command flag command. Uh wait,
+
+592
+00:30:30,640 --> 00:30:37,600
+let's let me show you. Okay,
+
+593
+00:30:34,640 --> 00:30:40,080
+call this command which is s find text.
+
+594
+00:30:37,600 --> 00:30:42,399
+Okay, you pay me, you can get it. Search
+
+595
+00:30:40,080 --> 00:30:45,279
+for it, you'll find it. Okay, now I want
+
+596
+00:30:42,399 --> 00:30:50,399
+to search that to see if this is used
+
+597
+00:30:45,279 --> 00:30:54,640
+anywhere in saudi.info. Okay, search
+
+598
+00:30:50,399 --> 00:30:58,000
+HTML files over like 10,000 HTML files.
+
+599
+00:30:54,640 --> 00:31:01,919
+Okay, only one occurrence that means
+
+600
+00:30:58,000 --> 00:31:03,840
+it's safe to delete it. Normally you
+
+601
+00:31:01,919 --> 00:31:06,640
+can't just delete this because it might
+
+602
+00:31:03,840 --> 00:31:09,679
+be used in other pages. But now we know
+
+603
+00:31:06,640 --> 00:31:13,120
+it's only one occurrence. So open that.
+
+604
+00:31:09,679 --> 00:31:15,279
+Now call a command um
+
+605
+00:31:13,120 --> 00:31:19,279
+or command. Let's see what is the key. I
+
+606
+00:31:15,279 --> 00:31:23,440
+forgot. Let's say move move file to du.
+
+607
+00:31:19,279 --> 00:31:25,600
+Okay. So I just
+
+608
+00:31:23,440 --> 00:31:27,440
+tap m
+
+609
+00:31:25,600 --> 00:31:31,840
+old
+
+610
+00:31:27,440 --> 00:31:34,840
+uh not emac old. uh it's called unused
+
+611
+00:31:31,840 --> 00:31:34,840
+images
+
+612
+00:31:34,960 --> 00:31:44,240
+do it so that we'll move it to uh a
+
+613
+00:31:38,320 --> 00:31:47,919
+bunch of like old images I can show you.
+
+614
+00:31:44,240 --> 00:31:51,279
+So for example this uh so in the past 20
+
+615
+00:31:47,919 --> 00:31:53,120
+years of writing
+
+616
+00:31:51,279 --> 00:31:55,679
+uh programming languages and computer
+
+617
+00:31:53,120 --> 00:31:58,159
+stuff so you can see all hockey this is
+
+618
+00:31:55,679 --> 00:32:02,880
+like 10 years ago. So you can see a lot
+
+619
+00:31:58,159 --> 00:32:06,320
+of old versions Windows auto key. So
+
+620
+00:32:02,880 --> 00:32:10,320
+that one is regist registry editor. This
+
+621
+00:32:06,320 --> 00:32:12,559
+is Windows visa v Vista or something.
+
+622
+00:32:10,320 --> 00:32:15,519
+And back then you have Google plus
+
+623
+00:32:12,559 --> 00:32:19,039
+that's 20 years ago f you know it's very
+
+624
+00:32:15,519 --> 00:32:21,440
+popular to have these icons
+
+625
+00:32:19,039 --> 00:32:24,240
+uh you know old images. So now it's
+
+626
+00:32:21,440 --> 00:32:26,880
+moved to the old images. Okay. Because
+
+627
+00:32:24,240 --> 00:32:31,279
+we don't I don't use that. then delete.
+
+628
+00:32:26,880 --> 00:32:34,000
+Okay, so show browser. Show in browser.
+
+629
+00:32:31,279 --> 00:32:37,039
+Okay, we got a new one. Anyway, I need
+
+630
+00:32:34,000 --> 00:32:39,679
+to edit this text too. So, let me read
+
+631
+00:32:37,039 --> 00:32:42,960
+the comments a bit. Okay, where did the
+
+632
+00:32:39,679 --> 00:32:46,880
+comment go? Okay, here. And we need to
+
+633
+00:32:42,960 --> 00:32:50,600
+move on. Okay, so delete that. Okay. So,
+
+634
+00:32:46,880 --> 00:32:50,600
+let let's see.
+
+635
+00:32:51,600 --> 00:32:54,600
+Uh,
+
+636
+00:32:57,039 --> 00:33:02,880
+now if you like if you guys like my
+
+637
+00:32:59,279 --> 00:33:07,240
+stuff, pay me, okay? Go to my exi.info
+
+638
+00:33:02,880 --> 00:33:07,240
+bottom, PayPal, Patreon.
+
+639
+00:33:11,120 --> 00:33:19,640
+So it's coffee and uh like hi yo
+
+640
+00:33:19,679 --> 00:33:27,760
+important question indeed. Uh the same
+
+641
+00:33:23,279 --> 00:33:29,840
+like with McDonald's who is the owner.
+
+642
+00:33:27,760 --> 00:33:33,679
+Uh for me it's important to know who,
+
+643
+00:33:29,840 --> 00:33:35,760
+why, and how. Okay. Hi. Been a while
+
+644
+00:33:33,679 --> 00:33:38,240
+since I've seen you coffee house
+
+645
+00:33:35,760 --> 00:33:40,880
+philosopher. Okay.
+
+646
+00:33:38,240 --> 00:33:43,840
+It's basic
+
+647
+00:33:40,880 --> 00:33:46,399
+all zumas know GitHub contributor
+
+648
+00:33:43,840 --> 00:33:48,640
+insights
+
+649
+00:33:46,399 --> 00:33:51,360
+h
+
+650
+00:33:48,640 --> 00:33:54,080
+uh contributor insights okay I don't
+
+651
+00:33:51,360 --> 00:33:56,080
+know what you're saying exactly
+
+652
+00:33:54,080 --> 00:34:00,200
+so we are going to bring coffee to
+
+653
+00:33:56,080 --> 00:34:00,200
+everyone around the world
+
+654
+00:34:06,240 --> 00:34:11,760
+one can be a zoomer Do they even know
+
+655
+00:34:08,639 --> 00:34:13,679
+about this? Yeah, that makes sense.
+
+656
+00:34:11,760 --> 00:34:15,599
+Zumas know this because we don't have
+
+657
+00:34:13,679 --> 00:34:21,240
+jobs.
+
+658
+00:34:15,599 --> 00:34:21,240
+That's That's kind of true, too.
+
+659
+00:34:27,599 --> 00:34:33,679
+I need to stop laughing as a hacker and
+
+660
+00:34:31,200 --> 00:34:36,560
+uh more studying and practice. That is
+
+661
+00:34:33,679 --> 00:34:38,560
+true. That's important.
+
+662
+00:34:36,560 --> 00:34:42,879
+And by the way, lpping that's another
+
+663
+00:34:38,560 --> 00:34:46,399
+Zuma's jargon I learned from Allan.
+
+664
+00:34:42,879 --> 00:34:49,040
+Lpping, you know, they have to say lo
+
+665
+00:34:46,399 --> 00:34:54,000
+and gaslighting and all the all the
+
+666
+00:34:49,040 --> 00:34:57,119
+crap. Jesus the Zuma gin. Okay, next. So
+
+667
+00:34:54,000 --> 00:34:59,280
+I'm going to go on a bit 10 more minute
+
+668
+00:34:57,119 --> 00:35:03,520
+20 10 10 20 minutes then we're going to
+
+669
+00:34:59,280 --> 00:35:06,000
+go off. Okay. So this part th this this
+
+670
+00:35:03,520 --> 00:35:09,440
+one is about changing the link auto
+
+671
+00:35:06,000 --> 00:35:12,240
+hardkey mode for Emacs. If you use Emacs
+
+672
+00:35:09,440 --> 00:35:14,320
+you can use auto hotkey mode I wrote it
+
+673
+00:35:12,240 --> 00:35:16,880
+fixes some of the problems I found.
+
+674
+00:35:14,320 --> 00:35:19,760
+Okay. So over there but today you don't
+
+675
+00:35:16,880 --> 00:35:22,720
+need it because you see another thing
+
+676
+00:35:19,760 --> 00:35:27,200
+about writing a tutorial is that over
+
+677
+00:35:22,720 --> 00:35:29,119
+the decades things change writing style
+
+678
+00:35:27,200 --> 00:35:32,000
+change. You know today's English is
+
+679
+00:35:29,119 --> 00:35:34,720
+different from 100 years ago but within
+
+680
+00:35:32,000 --> 00:35:36,240
+every 10 years decade they also change
+
+681
+00:35:34,720 --> 00:35:39,280
+slightly.
+
+682
+00:35:36,240 --> 00:35:42,480
+So for example in fact today my entire
+
+683
+00:35:39,280 --> 00:35:46,800
+auto hotkey tutorial is like kind of
+
+684
+00:35:42,480 --> 00:35:48,640
+obsolate because today you go to AI just
+
+685
+00:35:46,800 --> 00:35:50,960
+ask any question you want. you can
+
+686
+00:35:48,640 --> 00:35:54,640
+actually ask it to write a entire
+
+687
+00:35:50,960 --> 00:35:56,480
+tutorial and it will be 99% correct
+
+688
+00:35:54,640 --> 00:36:01,119
+because I've asked so many times on
+
+689
+00:35:56,480 --> 00:36:03,680
+different languages. Okay. So today,
+
+690
+00:36:01,119 --> 00:36:06,720
+in fact, my entire auto hotkey tutorial
+
+691
+00:36:03,680 --> 00:36:09,440
+is like, you know, not that useful. But
+
+692
+00:36:06,720 --> 00:36:13,119
+it's very different 15 years ago when I
+
+693
+00:36:09,440 --> 00:36:15,680
+begin 2009. Okay? Because back then the
+
+694
+00:36:13,119 --> 00:36:18,720
+official autohockey website is like
+
+695
+00:36:15,680 --> 00:36:22,079
+ idiotic. Sucks. There's no
+
+696
+00:36:18,720 --> 00:36:26,560
+tutorial. Like this, but it's like so
+
+697
+00:36:22,079 --> 00:36:28,400
+bad. So people go to my website or other
+
+698
+00:36:26,560 --> 00:36:30,079
+programmers, bloggers, you know, you go
+
+699
+00:36:28,400 --> 00:36:34,880
+to blogs.
+
+700
+00:36:30,079 --> 00:36:36,720
+So I write you know I do a lot of that.
+
+701
+00:36:34,880 --> 00:36:39,520
+So that's one thing. The other thing is
+
+702
+00:36:36,720 --> 00:36:43,119
+you know so for example this this phrase
+
+703
+00:36:39,520 --> 00:36:45,359
+this you know about Emacs today people
+
+704
+00:36:43,119 --> 00:36:48,320
+don't care you know Emacs users has
+
+705
+00:36:45,359 --> 00:36:51,280
+dwindled so much because the Emacs
+
+706
+00:36:48,320 --> 00:36:54,000
+idiots the Emacs dev the richest stolman
+
+707
+00:36:51,280 --> 00:36:58,400
+the you know in the past like 10 20
+
+708
+00:36:54,000 --> 00:37:00,240
+years is so bad so who cares like what
+
+709
+00:36:58,400 --> 00:37:02,800
+Emacs you you know they just going to
+
+710
+00:37:00,240 --> 00:37:05,200
+use VS code
+
+711
+00:37:02,800 --> 00:37:07,440
+so this passage
+
+712
+00:37:05,200 --> 00:37:09,760
+is done for. Okay. So, let me show you
+
+713
+00:37:07,440 --> 00:37:12,560
+how I do it. Okay. Just copy the link
+
+714
+00:37:09,760 --> 00:37:16,000
+there. Paste a link
+
+715
+00:37:12,560 --> 00:37:21,680
+and uh it became a file path. You see
+
+716
+00:37:16,000 --> 00:37:23,680
+now actual linkify it. Make it a list.
+
+717
+00:37:21,680 --> 00:37:27,520
+Then
+
+718
+00:37:23,680 --> 00:37:29,839
+make it a related topic box. You can see
+
+719
+00:37:27,520 --> 00:37:31,920
+there it's now showing browser. Go to
+
+720
+00:37:29,839 --> 00:37:34,800
+the bottom.
+
+721
+00:37:31,920 --> 00:37:39,440
+You see it was like that. Now you got
+
+722
+00:37:34,800 --> 00:37:43,839
+this related box. Okay. Then you just
+
+723
+00:37:39,440 --> 00:37:47,920
+go here delete delete
+
+724
+00:37:43,839 --> 00:37:50,720
+and in fact delete delete the section
+
+725
+00:37:47,920 --> 00:37:53,920
+tag. Okay. Showing browser
+
+726
+00:37:50,720 --> 00:37:56,800
+go to the bottom. So now it's just this
+
+727
+00:37:53,920 --> 00:37:59,119
+related articles box. So for those of
+
+728
+00:37:56,800 --> 00:38:02,240
+you actually using Emacs they can they
+
+729
+00:37:59,119 --> 00:38:06,400
+can see oh related you know they go to
+
+730
+00:38:02,240 --> 00:38:09,119
+my auto key. Uh yeah so and even this
+
+731
+00:38:06,400 --> 00:38:12,560
+page is not up you know I so I wrote
+
+732
+00:38:09,119 --> 00:38:15,599
+this like 15 years ago
+
+733
+00:38:12,560 --> 00:38:18,960
+and the code is not much updated. So I
+
+734
+00:38:15,599 --> 00:38:21,839
+can show you my old hotkey.
+
+735
+00:38:18,960 --> 00:38:26,079
+Um,
+
+736
+00:38:21,839 --> 00:38:30,400
+okay. So, describe function
+
+737
+00:38:26,079 --> 00:38:34,079
+auto ah kxr
+
+738
+00:38:30,400 --> 00:38:38,560
+key mode. Okay, go there. That's a file.
+
+739
+00:38:34,079 --> 00:38:41,920
+Uh, 400 lines of code. Still very still
+
+740
+00:38:38,560 --> 00:38:46,480
+good, but I really haven't updated it.
+
+741
+00:38:41,920 --> 00:38:49,839
+Okay, so let's go. So in fact this now I
+
+742
+00:38:46,480 --> 00:38:53,359
+realize so in fact remove the entire
+
+743
+00:38:49,839 --> 00:38:57,440
+mention of Emacs because today people
+
+744
+00:38:53,359 --> 00:38:59,200
+don't care things changed after 15
+
+745
+00:38:57,440 --> 00:39:04,160
+years.
+
+746
+00:38:59,200 --> 00:39:07,520
+Okay. So next. So this done. Next.
+
+747
+00:39:04,160 --> 00:39:10,160
+Open file or folder. Okay. Make this H3
+
+748
+00:39:07,520 --> 00:39:13,359
+and update. Okay. Let's show that page.
+
+749
+00:39:10,160 --> 00:39:16,320
+Let me show you. So this page is about
+
+750
+00:39:13,359 --> 00:39:19,280
+launching app. So press a key to copy
+
+751
+00:39:16,320 --> 00:39:22,160
+the URL and switch to Emacs and and
+
+752
+00:39:19,280 --> 00:39:25,760
+press press.
+
+753
+00:39:22,160 --> 00:39:28,400
+This will open whatever file path on the
+
+754
+00:39:25,760 --> 00:39:30,400
+clipboard. Okay. So we are on this page
+
+755
+00:39:28,400 --> 00:39:33,119
+showing browser you can see. Fantastic.
+
+756
+00:39:30,400 --> 00:39:37,520
+Now press a key to switch to previous
+
+757
+00:39:33,119 --> 00:39:40,079
+window. This key now am I doing good? Am
+
+758
+00:39:37,520 --> 00:39:43,280
+I still talking?
+
+759
+00:39:40,079 --> 00:39:45,359
+Okay. Okay. So now show in browser. Now
+
+760
+00:39:43,280 --> 00:39:47,920
+open file.
+
+761
+00:39:45,359 --> 00:39:50,960
+Now this launch app that needs to move
+
+762
+00:39:47,920 --> 00:39:52,960
+to the above section. Okay. So uh search
+
+763
+00:39:50,960 --> 00:39:54,880
+for. So first of all update the date
+
+764
+00:39:52,960 --> 00:39:58,079
+show in browser. You see there's a
+
+765
+00:39:54,880 --> 00:40:00,000
+update last update. Okay. So, press
+
+766
+00:39:58,079 --> 00:40:02,720
+press.
+
+767
+00:40:00,000 --> 00:40:06,960
+So, now you got a new date. Now, search
+
+768
+00:40:02,720 --> 00:40:08,880
+for Emacs. So, this actually uh Yeah.
+
+769
+00:40:06,960 --> 00:40:13,119
+Okay. So,
+
+770
+00:40:08,880 --> 00:40:18,240
+put it back. Cut that. And uh this is
+
+771
+00:40:13,119 --> 00:40:22,960
+launch app here. And uh this cut that
+
+772
+00:40:18,240 --> 00:40:26,240
+paste and launch app with parameters.
+
+773
+00:40:22,960 --> 00:40:30,560
+Okay, that is what this is about. and
+
+774
+00:40:26,240 --> 00:40:34,880
+make this H3. Okay. So,
+
+775
+00:40:30,560 --> 00:40:40,040
+uh press press
+
+776
+00:40:34,880 --> 00:40:40,040
+wait what is the key? Uh
+
+777
+00:40:44,400 --> 00:40:51,280
+yeah, H3. Okay. Now, syntax color or
+
+778
+00:40:48,079 --> 00:40:55,200
+show in browser. So, you got launch app
+
+779
+00:40:51,280 --> 00:40:56,720
+with parameters. Okay. So organize them
+
+780
+00:40:55,200 --> 00:41:00,079
+logically.
+
+781
+00:40:56,720 --> 00:41:05,319
+And the open file also mention open
+
+782
+00:41:00,079 --> 00:41:05,319
+folder. Okay. Open file or folder.
+
+783
+00:41:07,200 --> 00:41:14,160
+Capitalize it American style. Show in
+
+784
+00:41:09,760 --> 00:41:18,560
+browser. Fantastic. Okay. So that is
+
+785
+00:41:14,160 --> 00:41:21,359
+done. Close. And let me demo this part.
+
+786
+00:41:18,560 --> 00:41:26,960
+Okay. So set key to launch app. So that
+
+787
+00:41:21,359 --> 00:41:31,599
+is here. I want now also over the past
+
+788
+00:41:26,960 --> 00:41:37,480
+20 years my coding style has changed. So
+
+789
+00:41:31,599 --> 00:41:37,480
+let me show you here. So search for pre.
+
+790
+00:41:37,520 --> 00:41:43,599
+Okay. So pop it out. Uh not this one.
+
+791
+00:41:40,720 --> 00:41:46,160
+Okay. Search for pre.
+
+792
+00:41:43,599 --> 00:41:49,760
+Uh more example of different key. So you
+
+793
+00:41:46,160 --> 00:41:53,520
+see so now my coding style changed. So
+
+794
+00:41:49,760 --> 00:41:56,560
+copy all wait copy all uh so paste it
+
+795
+00:41:53,520 --> 00:41:59,440
+here. Now let's move. I want the comment
+
+796
+00:41:56,560 --> 00:42:03,920
+to be per line. I no longer like the
+
+797
+00:41:59,440 --> 00:42:05,520
+comment after the end of the line.
+
+798
+00:42:03,920 --> 00:42:08,400
+Traditionally
+
+799
+00:42:05,520 --> 00:42:11,280
+when the comment is short you put it
+
+800
+00:42:08,400 --> 00:42:13,280
+after the line. Doesn't matter. Okay.
+
+801
+00:42:11,280 --> 00:42:15,680
+But actually but today I want you know
+
+802
+00:42:13,280 --> 00:42:18,560
+let's let's let let me demonstrate emacs
+
+803
+00:42:15,680 --> 00:42:22,640
+marquel to make to make all the lines
+
+804
+00:42:18,560 --> 00:42:25,839
+per line. Okay. So, let's see.
+
+805
+00:42:22,640 --> 00:42:27,760
+Uh, so start recording a macro. Watch
+
+806
+00:42:25,839 --> 00:42:32,839
+the pink window. It will show my command
+
+807
+00:42:27,760 --> 00:42:32,839
+course. Okay. Now, uh,
+
+808
+00:42:32,960 --> 00:42:39,920
+okay. Search all that to the end. Then
+
+809
+00:42:36,880 --> 00:42:44,319
+cut it into the beginning of line. Paste
+
+810
+00:42:39,920 --> 00:42:45,839
+it and add a new line. Okay. Then search
+
+811
+00:42:44,319 --> 00:42:49,920
+for
+
+812
+00:42:45,839 --> 00:42:53,760
+semicolon. Okay. Then switch to command
+
+813
+00:42:49,920 --> 00:42:55,760
+mode. Then put the cursor back. Okay.
+
+814
+00:42:53,760 --> 00:43:00,880
+Now
+
+815
+00:42:55,760 --> 00:43:04,720
+stop recording Marco. You see now
+
+816
+00:43:00,880 --> 00:43:08,000
+call the Marco I just recorded. Do it.
+
+817
+00:43:04,720 --> 00:43:11,599
+Fantastic. Now do it again.
+
+818
+00:43:08,000 --> 00:43:14,640
+Instead of pressing three keys to
+
+819
+00:43:11,599 --> 00:43:18,720
+uh to call the marker, I can just call
+
+820
+00:43:14,640 --> 00:43:22,960
+repeat last command like this. Okay. So
+
+821
+00:43:18,720 --> 00:43:26,079
+now press press you see. Okay. So
+
+822
+00:43:22,960 --> 00:43:28,720
+actually uh we can actually do that a
+
+823
+00:43:26,079 --> 00:43:31,200
+little bit. Okay. So so this part this
+
+824
+00:43:28,720 --> 00:43:35,760
+is new
+
+825
+00:43:31,200 --> 00:43:38,560
+above that is old you know. So actually
+
+826
+00:43:35,760 --> 00:43:43,119
+we can compare which is better. Okay.
+
+827
+00:43:38,560 --> 00:43:47,440
+Uh, compare. Let's see.
+
+828
+00:43:43,119 --> 00:43:50,640
+Now put it back. Now make another pre
+
+829
+00:43:47,440 --> 00:43:54,000
+auto hard key. Paste it. Syntax color
+
+830
+00:43:50,640 --> 00:43:57,040
+them all. Show in browser. So now we can
+
+831
+00:43:54,000 --> 00:44:02,079
+compare which looks better to you. So
+
+832
+00:43:57,040 --> 00:44:05,119
+the first one is that is more compact.
+
+833
+00:44:02,079 --> 00:44:08,400
+The second one is like that. I prefer
+
+834
+00:44:05,119 --> 00:44:11,119
+the second one because again after 20
+
+835
+00:44:08,400 --> 00:44:15,599
+years the computer screen is different.
+
+836
+00:44:11,119 --> 00:44:18,079
+So now you got huge screens. So
+
+837
+00:44:15,599 --> 00:44:21,280
+yeah I I prefer the second one because
+
+838
+00:44:18,079 --> 00:44:23,760
+it got more clarity.
+
+839
+00:44:21,280 --> 00:44:26,240
+Uh and people became impatient, you
+
+840
+00:44:23,760 --> 00:44:29,200
+know, they don't want to read like a
+
+841
+00:44:26,240 --> 00:44:31,040
+long sentence, you know, they just you
+
+842
+00:44:29,200 --> 00:44:32,720
+so
+
+843
+00:44:31,040 --> 00:44:36,000
+so
+
+844
+00:44:32,720 --> 00:44:38,480
+okay showing browser we remove the first
+
+845
+00:44:36,000 --> 00:44:43,280
+one. Yeah, let's use that one. So this
+
+846
+00:44:38,480 --> 00:44:44,800
+part per line demo emac then delete
+
+847
+00:44:43,280 --> 00:44:47,119
+that.
+
+848
+00:44:44,800 --> 00:44:52,000
+Okay, so far so good. Now let's see
+
+849
+00:44:47,119 --> 00:44:54,720
+comment. Yes, I'm talking great. ACPJR.
+
+850
+00:44:52,000 --> 00:44:57,119
+Have you reflected on why your coding
+
+851
+00:44:54,720 --> 00:45:00,160
+style has changed? If so, can you share
+
+852
+00:44:57,119 --> 00:45:02,960
+your thought about it? Of course,
+
+853
+00:45:00,160 --> 00:45:06,720
+that would be another that would be huge
+
+854
+00:45:02,960 --> 00:45:12,000
+topic. I can talk about that for hours.
+
+855
+00:45:06,720 --> 00:45:16,280
+Uh, and I have 100 articles about that.
+
+856
+00:45:12,000 --> 00:45:16,280
+Okay? So, you just go to.info.
+
+857
+00:45:16,640 --> 00:45:22,319
+uh you know go to Kasadi go to parents
+
+858
+00:45:19,440 --> 00:45:25,680
+go to parents kasar code kasadi.info
+
+859
+00:45:22,319 --> 00:45:29,040
+info then you go to
+
+860
+00:45:25,680 --> 00:45:32,480
+you can go to uh
+
+861
+00:45:29,040 --> 00:45:34,240
+uh fun ntech programming language
+
+862
+00:45:32,480 --> 00:45:36,640
+tutorials
+
+863
+00:45:34,240 --> 00:45:40,319
+hacker code python documentation so this
+
+864
+00:45:36,640 --> 00:45:43,920
+is about coding idoms and style okay so
+
+865
+00:45:40,319 --> 00:45:46,079
+you can go to um
+
+866
+00:45:43,920 --> 00:45:48,480
+you know it's hard to organize because I
+
+867
+00:45:46,079 --> 00:45:51,680
+have like 10,000 articles so go just go
+
+868
+00:45:48,480 --> 00:45:54,240
+to hawk actually syntax soup semantic
+
+869
+00:45:51,680 --> 00:45:58,640
+noodle those compliment perving. Okay,
+
+870
+00:45:54,240 --> 00:46:01,680
+go there. Compliment perving.
+
+871
+00:45:58,640 --> 00:46:03,839
+When when a girl says you are a pervert,
+
+872
+00:46:01,680 --> 00:46:07,599
+you just show them. Yeah, I'm a
+
+873
+00:46:03,839 --> 00:46:10,160
+compliment perving. Okay, so syntax soup
+
+874
+00:46:07,599 --> 00:46:12,640
+all about syntax. Semantic semantic
+
+875
+00:46:10,160 --> 00:46:15,040
+noodle about semantics object array.
+
+876
+00:46:12,640 --> 00:46:17,119
+What does this mean? What's a exception?
+
+877
+00:46:15,040 --> 00:46:21,119
+Is it exception good or bad? you know
+
+878
+00:46:17,119 --> 00:46:24,400
+each one uh of these got hundred or more
+
+879
+00:46:21,119 --> 00:46:28,319
+articles. Okay. uh and on lisp
+
+880
+00:46:24,400 --> 00:46:30,560
+programming language. Uh so the one you
+
+881
+00:46:28,319 --> 00:46:34,319
+want to go to is about idioms,
+
+882
+00:46:30,560 --> 00:46:37,280
+programming idioms and style
+
+883
+00:46:34,319 --> 00:46:39,680
+and uh expressiveness which to learn
+
+884
+00:46:37,280 --> 00:46:43,359
+programming language hate and love where
+
+885
+00:46:39,680 --> 00:46:48,000
+I document why I hate this land or that
+
+886
+00:46:43,359 --> 00:46:50,880
+land why I love um popularity issues.
+
+887
+00:46:48,000 --> 00:46:54,560
+That's a social issue. You know, why is
+
+888
+00:46:50,880 --> 00:46:58,319
+PHP and JavaScript considered the worst
+
+889
+00:46:54,560 --> 00:47:02,480
+languages by the hackers, by the C
+
+890
+00:46:58,319 --> 00:47:04,960
+ by the lisp But
+
+891
+00:47:02,480 --> 00:47:08,319
+JavaScript and PHP became the most
+
+892
+00:47:04,960 --> 00:47:10,640
+popular ever. That's it's a social
+
+893
+00:47:08,319 --> 00:47:13,440
+issue, okay? Popularity and Python. Why
+
+894
+00:47:10,640 --> 00:47:16,319
+is Python popular? Okay, so you have to
+
+895
+00:47:13,440 --> 00:47:18,960
+dive into. Okay, there it is.
+
+896
+00:47:16,319 --> 00:47:22,560
+programming idoms and coding style. What
+
+897
+00:47:18,960 --> 00:47:24,640
+is a EDM? Is EDM good or bad? Should you
+
+898
+00:47:22,560 --> 00:47:26,480
+follow it? And what's a coding style?
+
+899
+00:47:24,640 --> 00:47:28,800
+What you know Google has a coding style
+
+900
+00:47:26,480 --> 00:47:30,960
+guide. You know, every like every
+
+901
+00:47:28,800 --> 00:47:35,119
+programming language and factions have
+
+902
+00:47:30,960 --> 00:47:38,160
+one. So that's about that. Now regarding
+
+903
+00:47:35,119 --> 00:47:40,880
+this specific case, why should the
+
+904
+00:47:38,160 --> 00:47:44,400
+comma, you know, about this comment, why
+
+905
+00:47:40,880 --> 00:47:47,359
+should it be single line or or multiple
+
+906
+00:47:44,400 --> 00:47:51,680
+lines? You know why do I changed from
+
+907
+00:47:47,359 --> 00:47:58,839
+putting short comma after line to to
+
+908
+00:47:51,680 --> 00:47:58,839
+prefer um one line one uh one um
+
+909
+00:47:59,040 --> 00:48:05,440
+you know or comma on a line by itself
+
+910
+00:48:03,040 --> 00:48:08,640
+that's a minor issue okay I can go
+
+911
+00:48:05,440 --> 00:48:12,160
+either way but but the reason is because
+
+912
+00:48:08,640 --> 00:48:14,319
+when you have comment on a single line
+
+913
+00:48:12,160 --> 00:48:16,319
+that in general provides more clarity
+
+914
+00:48:14,319 --> 00:48:18,640
+clarity, you know, you see this, you
+
+915
+00:48:16,319 --> 00:48:20,800
+know, so you know, so it's basically
+
+916
+00:48:18,640 --> 00:48:24,160
+more clarity.
+
+917
+00:48:20,800 --> 00:48:26,960
+Um, but then you have the compactness
+
+918
+00:48:24,160 --> 00:48:30,800
+issue because now you takes more lines.
+
+919
+00:48:26,960 --> 00:48:32,640
+Um, so if you are in a real life coding,
+
+920
+00:48:30,800 --> 00:48:35,200
+it depends, you know, it really just
+
+921
+00:48:32,640 --> 00:48:37,680
+depends. But for tutorial, for this
+
+922
+00:48:35,200 --> 00:48:40,640
+specific tutorial, I think this way is
+
+923
+00:48:37,680 --> 00:48:44,400
+better for today. Okay. So that is why
+
+924
+00:48:40,640 --> 00:48:47,200
+for that one. Now this key set key to
+
+925
+00:48:44,400 --> 00:48:50,720
+launch app. Now this this section needs
+
+926
+00:48:47,200 --> 00:48:54,960
+to be a new page. Okay. Because on this
+
+927
+00:48:50,720 --> 00:48:58,640
+page is about launching app. Now
+
+928
+00:48:54,960 --> 00:49:02,079
+set key to launch app is related but but
+
+929
+00:48:58,640 --> 00:49:04,559
+in terms of auto hard key is slightly
+
+930
+00:49:02,079 --> 00:49:06,720
+different because auto hard key this
+
+931
+00:49:04,559 --> 00:49:09,119
+when you set a key to do something that
+
+932
+00:49:06,720 --> 00:49:13,440
+involves a separate like separate thing
+
+933
+00:49:09,119 --> 00:49:16,720
+because then it involves the key syntax
+
+934
+00:49:13,440 --> 00:49:19,599
+so kind of like separate. So let's uh
+
+935
+00:49:16,720 --> 00:49:21,839
+let's just make them a new page. Okay.
+
+936
+00:49:19,599 --> 00:49:25,359
+So I already have written emacs command.
+
+937
+00:49:21,839 --> 00:49:27,760
+So what I do is press press
+
+938
+00:49:25,359 --> 00:49:31,200
+five keys. Now show in browser. Now
+
+939
+00:49:27,760 --> 00:49:34,640
+that's a page by itself. Okay. Now close
+
+940
+00:49:31,200 --> 00:49:37,200
+that. Now show this in browser. So now
+
+941
+00:49:34,640 --> 00:49:41,040
+you can see now it becomes a link to
+
+942
+00:49:37,200 --> 00:49:46,200
+that new page. Now now I I want to
+
+943
+00:49:41,040 --> 00:49:46,200
+change let's make sure this um
+
+944
+00:49:46,559 --> 00:49:53,119
+Okay. So let's change the file name.
+
+945
+00:49:50,079 --> 00:49:57,760
+I want to them to be
+
+946
+00:49:53,119 --> 00:50:00,640
+the way I have them before. Okay.
+
+947
+00:49:57,760 --> 00:50:03,440
+Key to launch app.
+
+948
+00:50:00,640 --> 00:50:07,839
+Okay. That's all lower case. Okay. Do
+
+949
+00:50:03,440 --> 00:50:11,040
+it. And uh and also
+
+950
+00:50:07,839 --> 00:50:13,520
+you need let's see yeah you need this uh
+
+951
+00:50:11,040 --> 00:50:15,839
+prefix
+
+952
+00:50:13,520 --> 00:50:18,559
+you know you want to follow the way I
+
+953
+00:50:15,839 --> 00:50:21,680
+have it like I mean I need to follow the
+
+954
+00:50:18,559 --> 00:50:24,079
+way. So if you open that go to the you
+
+955
+00:50:21,680 --> 00:50:27,599
+see all these files start with auto hot
+
+956
+00:50:24,079 --> 00:50:29,760
+keys. So that's my
+
+957
+00:50:27,599 --> 00:50:33,119
+you know you want to stick with the the
+
+958
+00:50:29,760 --> 00:50:36,000
+way they are so it's more consistent.
+
+959
+00:50:33,119 --> 00:50:40,960
+Okay. And here the title you need to add
+
+960
+00:50:36,000 --> 00:50:43,520
+auto hard key abbreviation and uh a
+
+961
+00:50:40,960 --> 00:50:46,559
+colon. Okay. And you you also need to
+
+962
+00:50:43,520 --> 00:50:48,640
+change it here. So you I have a command
+
+963
+00:50:46,559 --> 00:50:51,359
+press press
+
+964
+00:50:48,640 --> 00:50:54,160
+do it. You see it's changed now. Show in
+
+965
+00:50:51,359 --> 00:50:57,119
+browser. Show in browser. Set key to
+
+966
+00:50:54,160 --> 00:50:59,680
+launch app. Fantastic. So now this is a
+
+967
+00:50:57,119 --> 00:51:01,839
+new page. You need to add this to the
+
+968
+00:50:59,680 --> 00:51:03,920
+panel. So let's do that. Okay. Copy
+
+969
+00:51:01,839 --> 00:51:07,359
+that.
+
+970
+00:51:03,920 --> 00:51:10,960
+Here is the panel. Here this is section
+
+971
+00:51:07,359 --> 00:51:14,000
+is the left panel. So you want um so
+
+972
+00:51:10,960 --> 00:51:19,280
+first of all you paste the file name
+
+973
+00:51:14,000 --> 00:51:23,280
+linkify make a list remove the URL okay
+
+974
+00:51:19,280 --> 00:51:26,400
+uh then you want to yeah then you want
+
+975
+00:51:23,280 --> 00:51:31,200
+to uh remove the prefix okay that's what
+
+976
+00:51:26,400 --> 00:51:35,119
+you want cut then you
+
+977
+00:51:31,200 --> 00:51:38,520
+and uh launch okay
+
+978
+00:51:35,119 --> 00:51:38,520
+should you
+
+979
+00:51:38,800 --> 00:51:44,240
+uh let's just do it here. Okay. So, copy
+
+980
+00:51:42,319 --> 00:51:48,079
+those. Now, I'm going to So, what I need
+
+981
+00:51:44,240 --> 00:51:50,880
+to do is for all these files in the
+
+982
+00:51:48,079 --> 00:51:54,000
+directory whenever these two lines
+
+983
+00:51:50,880 --> 00:51:56,480
+occur, change them. Okay. So, let's So,
+
+984
+00:51:54,000 --> 00:51:59,680
+I have a command in Emacs that allows me
+
+985
+00:51:56,480 --> 00:52:01,280
+to do it. Cuz find package. So, press
+
+986
+00:51:59,680 --> 00:52:04,480
+press
+
+987
+00:52:01,280 --> 00:52:06,640
+change these two lines. Okay. And what
+
+988
+00:52:04,480 --> 00:52:10,480
+do you want to change it to? I want to
+
+989
+00:52:06,640 --> 00:52:14,880
+change it to paste paste previous there.
+
+990
+00:52:10,480 --> 00:52:19,280
+So added this new line. So do it in this
+
+991
+00:52:14,880 --> 00:52:21,520
+directory. Yes. All HTML files. Yes.
+
+992
+00:52:19,280 --> 00:52:26,880
+There it is. So now you can see it
+
+993
+00:52:21,520 --> 00:52:31,200
+changed all these files. You see?
+
+994
+00:52:26,880 --> 00:52:34,400
+And press press a list of all the files
+
+995
+00:52:31,200 --> 00:52:37,839
+it changed. Okay. Good. Close. Close.
+
+996
+00:52:34,400 --> 00:52:40,880
+Show in browser. So you can see set key
+
+997
+00:52:37,839 --> 00:52:43,599
+to launch app. Launch app. File name
+
+998
+00:52:40,880 --> 00:52:46,400
+extension. Launch app. Set key to launch
+
+999
+00:52:43,599 --> 00:52:50,400
+app. Insert tech. Fantastic. You see
+
+1000
+00:52:46,400 --> 00:52:53,839
+that's how I update this navigation
+
+1001
+00:52:50,400 --> 00:52:57,839
+panel. Okay. So this one new page is
+
+1002
+00:52:53,839 --> 00:53:01,040
+done. Delete it. Now there's more. Okay.
+
+1003
+00:52:57,839 --> 00:53:04,000
+So is this interesting? Should I go on
+
+1004
+00:53:01,040 --> 00:53:06,400
+or should I just do it offline? Why I
+
+1005
+00:53:04,000 --> 00:53:08,240
+hate C? Why Mr. Exa wants to break my
+
+1006
+00:53:06,400 --> 00:53:12,319
+heart? You know, C is just no good. You
+
+1007
+00:53:08,240 --> 00:53:14,880
+know, it's Asian 40 years 40 years old.
+
+1008
+00:53:12,319 --> 00:53:19,440
+C survives today
+
+1009
+00:53:14,880 --> 00:53:21,359
+in part because um the momentum I mean
+
+1010
+00:53:19,440 --> 00:53:24,960
+because the all the software is written
+
+1011
+00:53:21,359 --> 00:53:28,480
+it you you can't just you you can't kill
+
+1012
+00:53:24,960 --> 00:53:33,680
+it. You know the other reason why there
+
+1013
+00:53:28,480 --> 00:53:38,559
+are new people using C is is majorly
+
+1014
+00:53:33,680 --> 00:53:40,559
+because the C code because C like Unix
+
+1015
+00:53:38,559 --> 00:53:43,839
+has a sense you know like it's very
+
+1016
+00:53:40,559 --> 00:53:46,000
+difficult it's very cryptic therefore it
+
+1017
+00:53:43,839 --> 00:53:48,720
+is the best because it makes things you
+
+1018
+00:53:46,000 --> 00:53:50,640
+know it's for the real man because then
+
+1019
+00:53:48,720 --> 00:53:52,960
+you you know if you know C that means
+
+1020
+00:53:50,640 --> 00:53:55,359
+you are a real computer scientist you
+
+1021
+00:53:52,960 --> 00:53:58,640
+know this
+
+1022
+00:53:55,359 --> 00:54:01,920
+In fact, more actually what is more true
+
+1023
+00:53:58,640 --> 00:54:04,720
+is that C is just so badly designed you
+
+1024
+00:54:01,920 --> 00:54:08,400
+know so so badly designed not because
+
+1025
+00:54:04,720 --> 00:54:10,240
+it's it's oh involves you know advanced
+
+1026
+00:54:08,400 --> 00:54:12,400
+mathematics that's why it's hard you
+
+1027
+00:54:10,240 --> 00:54:15,920
+need to really study hard not that's not
+
+1028
+00:54:12,400 --> 00:54:20,000
+why why you see like hard because it's
+
+1029
+00:54:15,920 --> 00:54:24,800
+so badly like the most worleless
+
+1030
+00:54:20,000 --> 00:54:26,880
+from like 50 years ago Okay. But they
+
+1031
+00:54:24,800 --> 00:54:28,720
+think, you know, the C idiots, you
+
+1032
+00:54:26,880 --> 00:54:31,520
+computing industry idiots. They think,
+
+1033
+00:54:28,720 --> 00:54:33,520
+"Oh, C, C is the real man's language
+
+1034
+00:54:31,520 --> 00:54:35,920
+because, you know, you don't want to be
+
+1035
+00:54:33,520 --> 00:54:37,657
+a JavaScript or Python kitty." They
+
+1036
+00:54:35,920 --> 00:54:39,520
+don't know anything. You know, they
+
+1037
+00:54:37,657 --> 00:54:41,599
+[laughter]
+
+1038
+00:54:39,520 --> 00:54:43,839
+you know, you need to code C because
+
+1039
+00:54:41,599 --> 00:54:45,680
+then you need 10,000 lines to do the
+
+1040
+00:54:43,839 --> 00:54:50,160
+same thing.
+
+1041
+00:54:45,680 --> 00:54:53,760
+Code C idiots. Okay. The the
+
+1042
+00:54:50,160 --> 00:54:55,920
+Unix and C idiots. And what's worse is
+
+1043
+00:54:53,760 --> 00:55:00,640
+C++.
+
+1044
+00:54:55,920 --> 00:55:03,280
+C++. Oh, how to be popular. Okay. To be
+
+1045
+00:55:00,640 --> 00:55:06,319
+the one way, one one tactic, one one one
+
+1046
+00:55:03,280 --> 00:55:10,400
+tactic to be popular is just to to use
+
+1047
+00:55:06,319 --> 00:55:12,559
+to write on the existing popularity.
+
+1048
+00:55:10,400 --> 00:55:15,839
+Therefore, I'm going to create a C
+
+1049
+00:55:12,559 --> 00:55:19,119
+compatible language. C++.
+
+1050
+00:55:15,839 --> 00:55:21,440
+It's C the one you love and very
+
+1051
+00:55:19,119 --> 00:55:28,559
+popular. But I'm gonna make it plus and
+
+1052
+00:55:21,440 --> 00:55:32,319
+plus. That's C++. Another huge story of
+
+1053
+00:55:28,559 --> 00:55:36,359
+um the worst worst Okay. Worst
+
+1054
+00:55:32,319 --> 00:55:36,359
+ in computer science.
+
+1055
+00:55:37,760 --> 00:55:42,480
+Now Rust. Okay. Rust. Okay. So now we
+
+1056
+00:55:40,880 --> 00:55:44,960
+are digressing into programming
+
+1057
+00:55:42,480 --> 00:55:49,040
+languages which is what I talk about a
+
+1058
+00:55:44,960 --> 00:55:53,040
+lot. Uh Rust is kind of different story.
+
+1059
+00:55:49,040 --> 00:55:55,520
+Okay, Rust is first of all it's a new
+
+1060
+00:55:53,040 --> 00:55:58,480
+language you know since like 15 years
+
+1061
+00:55:55,520 --> 00:56:03,520
+ago. So in general for programming
+
+1062
+00:55:58,480 --> 00:56:06,559
+languages if it's more than 20 years old
+
+1063
+00:56:03,520 --> 00:56:10,079
+the the age difference the later ones
+
+1064
+00:56:06,559 --> 00:56:13,200
+are better for sure. Okay. So Rust is
+
+1065
+00:56:10,079 --> 00:56:16,880
+better than C? Absolutely. Is Rust
+
+1066
+00:56:13,200 --> 00:56:19,599
+better than C++? Absolutely. There's no
+
+1067
+00:56:16,880 --> 00:56:23,200
+question about it. ROS is just better
+
+1068
+00:56:19,599 --> 00:56:26,880
+you know if if we can ignore the
+
+1069
+00:56:23,200 --> 00:56:28,240
+existing code or habit you know because
+
+1070
+00:56:26,880 --> 00:56:29,760
+older people they don't you know they
+
+1071
+00:56:28,240 --> 00:56:35,280
+don't know rust you know they they are
+
+1072
+00:56:29,760 --> 00:56:37,200
+used to emacs you know so just remove
+
+1073
+00:56:35,280 --> 00:56:39,839
+them you know so if if they you don't
+
+1074
+00:56:37,200 --> 00:56:42,880
+have old old people or old code then you
+
+1075
+00:56:39,839 --> 00:56:47,280
+then we don't need C and C++ first okay
+
+1076
+00:56:42,880 --> 00:56:49,200
+you can go just all rust and go land
+
+1077
+00:56:47,280 --> 00:56:51,520
+but rust just in my opinion they got
+
+1078
+00:56:49,200 --> 00:56:54,240
+kind of their own problem just because
+
+1079
+00:56:51,520 --> 00:56:57,760
+it's a hot shot you know it's like the
+
+1080
+00:56:54,240 --> 00:57:01,440
+new kid in town or the Zuma idiots you
+
+1081
+00:56:57,760 --> 00:57:03,920
+know they don't really know nothing but
+
+1082
+00:57:01,440 --> 00:57:07,599
+I heard my friend says Rust is much
+
+1083
+00:57:03,920 --> 00:57:10,079
+better that's kind of that's that's kind
+
+1084
+00:57:07,599 --> 00:57:14,480
+of the situation with rust it's also a
+
+1085
+00:57:10,079 --> 00:57:18,640
+coat okay kind of like that so I'm you
+
+1086
+00:57:14,480 --> 00:57:21,920
+know I don't know rust actually So I can
+
+1087
+00:57:18,640 --> 00:57:23,920
+I cannot really say but I do have you
+
+1088
+00:57:21,920 --> 00:57:25,920
+know decades of experience of
+
+1089
+00:57:23,920 --> 00:57:28,559
+programming languages and Rust is kind
+
+1090
+00:57:25,920 --> 00:57:32,799
+of like
+
+1091
+00:57:28,559 --> 00:57:36,280
+very complex. Okay so hold on a second.
+
+1092
+00:57:32,799 --> 00:57:36,280
+Hold on a second.
+
+1093
+00:58:37,200 --> 00:58:41,480
+Okay, I got to go, guys.
+
+1094
+00:58:41,920 --> 00:58:48,640
+So, thank you guys for watching. Let's
+
+1095
+00:58:44,240 --> 00:58:51,440
+turn on back the camera and turn back my
+
+1096
+00:58:48,640 --> 00:58:55,480
+uh system. So, I got to go. Thank you
+
+1097
+00:58:51,440 --> 00:58:55,480
+guys for watching and bye.
+

@@ -1,0 +1,6120 @@
+1
+00:00:03,470 --> 00:00:17,010
+good evening welcome to another episode
+
+2
+00:00:09,630 --> 00:00:21,390
+of our top show so today I'm going to
+
+3
+00:00:17,010 --> 00:00:25,080
+talk about JavaScript Golan and maybe
+
+4
+00:00:21,390 --> 00:00:29,580
+some Emacs in other stuff so let's put
+
+5
+00:00:25,080 --> 00:00:31,910
+the date here correctly and stuff in
+
+6
+00:00:29,580 --> 00:00:34,070
+stuff that's right
+
+7
+00:00:31,910 --> 00:00:41,070
+just stuff
+
+8
+00:00:34,070 --> 00:00:41,750
+select all pasted tab select all that's
+
+9
+00:00:41,070 --> 00:00:48,149
+good
+
+10
+00:00:41,750 --> 00:00:55,489
+okay let's pop this out pop out pop out
+
+11
+00:00:48,149 --> 00:01:00,840
+chat and let's go back to my Emacs and
+
+12
+00:00:55,489 --> 00:01:06,710
+that's good okay mention pay me so if
+
+13
+00:01:00,840 --> 00:01:13,409
+you like my show go to Sally dot info
+
+14
+00:01:06,710 --> 00:01:20,610
+okay so you see a patreon Amazon gift
+
+15
+00:01:13,409 --> 00:01:25,820
+card and PayPal and Bitcoin that is
+
+16
+00:01:20,610 --> 00:01:31,110
+supposed to you know advanced humanity
+
+17
+00:01:25,820 --> 00:01:31,619
+to be so that we are free so if you like
+
+18
+00:01:31,110 --> 00:01:39,390
+my stuff
+
+19
+00:01:31,619 --> 00:01:42,810
+put your money there thank you okay then
+
+20
+00:01:39,390 --> 00:01:47,040
+we're gonna talk about JavaScript Golan
+
+21
+00:01:42,810 --> 00:01:49,890
+and some Emacs and stuff okay I
+
+22
+00:01:47,040 --> 00:01:52,110
+mentioned pay me not talk show yeah
+
+23
+00:01:49,890 --> 00:01:56,810
+so talk show is the page you are looking
+
+24
+00:01:52,110 --> 00:01:56,810
+at which is that one it's on my website
+
+25
+00:01:57,079 --> 00:02:04,070
+and we're gonna let's see
+
+26
+00:02:01,079 --> 00:02:10,760
+are we here yet is people coming in yet
+
+27
+00:02:04,070 --> 00:02:14,400
+for watching fantastic for people say hi
+
+28
+00:02:10,760 --> 00:02:15,660
+um so okay we're gonna start in I'm
+
+29
+00:02:14,400 --> 00:02:19,340
+gonna just start to talk about
+
+30
+00:02:15,660 --> 00:02:23,730
+JavaScript some JavaScript stuff then
+
+31
+00:02:19,340 --> 00:02:26,310
+Scott a friend asked me to maybe we talk
+
+32
+00:02:23,730 --> 00:02:29,220
+about Golan Golan is a wonderful
+
+33
+00:02:26,310 --> 00:02:31,520
+language one of the latest great
+
+34
+00:02:29,220 --> 00:02:34,620
+language okay I'm gonna show you this
+
+35
+00:02:31,520 --> 00:02:38,340
+okay let me show you this this this is
+
+36
+00:02:34,620 --> 00:02:42,780
+Porlock okay this is the today's
+
+37
+00:02:38,340 --> 00:02:47,010
+prologue to saw talk show let me turn on
+
+38
+00:02:42,780 --> 00:02:51,560
+the volume up so you can hear it okay I
+
+39
+00:02:47,010 --> 00:02:51,560
+hope you can hear it now let's see
+
+40
+00:03:25,970 --> 00:03:30,570
+that's Russian
+
+41
+00:03:27,810 --> 00:03:32,970
+well I suppose it is Russian so as I
+
+42
+00:03:30,570 --> 00:03:37,500
+asked people you know someone to show me
+
+43
+00:03:32,970 --> 00:03:39,750
+what she says and she said that a little
+
+44
+00:03:37,500 --> 00:03:43,830
+bit earlier and the Google Translate
+
+45
+00:03:39,750 --> 00:03:47,000
+says I was I was advised that if I said
+
+46
+00:03:43,830 --> 00:03:49,800
+the pattern pattern with the letter P
+
+47
+00:03:47,000 --> 00:03:54,720
+Russian feed I was supposed to pronounce
+
+48
+00:03:49,800 --> 00:03:57,540
+like ah okay then I'm sure to be a hype
+
+49
+00:03:54,720 --> 00:04:00,480
+and I'm not sure what that means then
+
+50
+00:03:57,540 --> 00:04:03,900
+she said well we'll see armoured
+
+51
+00:04:00,480 --> 00:04:08,010
+personnel carrier refrigerator radio
+
+52
+00:04:03,900 --> 00:04:16,410
+reproducer interior interior master
+
+53
+00:04:08,010 --> 00:04:20,609
+interior exterior Terrier then drove hey
+
+54
+00:04:16,410 --> 00:04:22,200
+danielle has going so he here yes six
+
+55
+00:04:20,609 --> 00:04:23,610
+people watching say say say something
+
+56
+00:04:22,200 --> 00:04:27,360
+okay so
+
+57
+00:04:23,610 --> 00:04:29,669
+this this she's on tick-tock now there
+
+58
+00:04:27,360 --> 00:04:32,340
+is a new social website called tick-tock
+
+59
+00:04:29,669 --> 00:04:35,849
+that's from China that's that's quite
+
+60
+00:04:32,340 --> 00:04:38,639
+fascinating because you know USA while
+
+61
+00:04:35,849 --> 00:04:42,389
+most social networks be up like USA you
+
+62
+00:04:38,639 --> 00:04:47,039
+know the Silicon Valley California can
+
+63
+00:04:42,389 --> 00:04:49,590
+okay you know progressives you know we
+
+64
+00:04:47,039 --> 00:04:53,370
+they are known as progressives you know
+
+65
+00:04:49,590 --> 00:04:56,460
+because well anyways it suppose I mean
+
+66
+00:04:53,370 --> 00:04:58,229
+the philosophy is progress of course
+
+67
+00:04:56,460 --> 00:05:01,680
+everyone wants progress but the
+
+68
+00:04:58,229 --> 00:05:04,590
+progressive you know it's kind of a you
+
+69
+00:05:01,680 --> 00:05:06,560
+know a part of the political let's say
+
+70
+00:05:04,590 --> 00:05:09,810
+philosophy so the progressive meaning
+
+71
+00:05:06,560 --> 00:05:13,050
+it's specific they mean that they want
+
+72
+00:05:09,810 --> 00:05:13,860
+to push basically that like they'd like
+
+73
+00:05:13,050 --> 00:05:17,689
+to change
+
+74
+00:05:13,860 --> 00:05:20,520
+they prefer change instead of you know
+
+75
+00:05:17,689 --> 00:05:24,599
+you know the opposite is conservative
+
+76
+00:05:20,520 --> 00:05:27,150
+conservative is like you know I mean you
+
+77
+00:05:24,599 --> 00:05:29,699
+know yeah of course we need to you know
+
+78
+00:05:27,150 --> 00:05:32,250
+you know the word always need to be to
+
+79
+00:05:29,699 --> 00:05:35,699
+have change but you know be careful
+
+80
+00:05:32,250 --> 00:05:38,279
+slowly you know you know that's why they
+
+81
+00:05:35,699 --> 00:05:41,849
+are conservative so the progressive
+
+82
+00:05:38,279 --> 00:05:45,779
+philosophy is like they are more
+
+83
+00:05:41,849 --> 00:05:47,699
+aggressive about change you know in fact
+
+84
+00:05:45,779 --> 00:05:51,419
+actually you know that all that the
+
+85
+00:05:47,699 --> 00:05:54,689
+major changes in society in a whole
+
+86
+00:05:51,419 --> 00:05:56,969
+history of humanity okay and those major
+
+87
+00:05:54,689 --> 00:06:00,120
+changes are always brought about by
+
+88
+00:05:56,969 --> 00:06:03,810
+technology okay so it is actually
+
+89
+00:06:00,120 --> 00:06:07,620
+technology that changes society how we
+
+90
+00:06:03,810 --> 00:06:10,589
+how we work how we function the social
+
+91
+00:06:07,620 --> 00:06:13,379
+structure countries you know come and go
+
+92
+00:06:10,589 --> 00:06:15,689
+you know that's technology so you know
+
+93
+00:06:13,379 --> 00:06:18,719
+we have Industrial Revolution and
+
+94
+00:06:15,689 --> 00:06:22,080
+starting with engines and trains you
+
+95
+00:06:18,719 --> 00:06:25,620
+know and in industrial machinery and
+
+96
+00:06:22,080 --> 00:06:28,169
+then we got Jimi's you know huge Jim is
+
+97
+00:06:25,620 --> 00:06:31,229
+blowing out smoke that pollutes the air
+
+98
+00:06:28,169 --> 00:06:34,259
+then we got then you know that's
+
+99
+00:06:31,229 --> 00:06:37,050
+Industrial Revolution and today we have
+
+100
+00:06:34,259 --> 00:06:40,229
+digital a
+
+101
+00:06:37,050 --> 00:06:44,240
+age digital age in AI you know the
+
+102
+00:06:40,229 --> 00:06:48,569
+societies changing so fast that that
+
+103
+00:06:44,240 --> 00:06:52,860
+okay is anyone here hello hi guys say
+
+104
+00:06:48,569 --> 00:06:55,199
+something can you guys hear me because
+
+105
+00:06:52,860 --> 00:06:59,400
+yesterday I did a video where I talked
+
+106
+00:06:55,199 --> 00:07:02,580
+for 40 minutes and it's silent because I
+
+107
+00:06:59,400 --> 00:07:05,879
+forgot to turn on the microphone is like
+
+108
+00:07:02,580 --> 00:07:08,840
+turned off you know this should be no
+
+109
+00:07:05,879 --> 00:07:12,930
+ain't no man great to see you
+
+110
+00:07:08,840 --> 00:07:15,210
+so yeah so I was talking about you know
+
+111
+00:07:12,930 --> 00:07:17,759
+changing technology and Procrit
+
+112
+00:07:15,210 --> 00:07:20,520
+progressive but anyways so yeah this is
+
+113
+00:07:17,759 --> 00:07:22,770
+this a new social network called tick
+
+114
+00:07:20,520 --> 00:07:25,979
+tock that's quite interesting it's
+
+115
+00:07:22,770 --> 00:07:28,080
+actually from China China is like
+
+116
+00:07:25,979 --> 00:07:29,909
+getting amazing like every day I see
+
+117
+00:07:28,080 --> 00:07:32,789
+things you know I started to follow some
+
+118
+00:07:29,909 --> 00:07:35,099
+Twitter accounts from China some of them
+
+119
+00:07:32,789 --> 00:07:38,039
+some of them are like official you know
+
+120
+00:07:35,099 --> 00:07:40,229
+China is like centralized you know as
+
+121
+00:07:38,039 --> 00:07:42,360
+opposed to American okay like democracy
+
+122
+00:07:40,229 --> 00:07:45,469
+we need democracy everyday democracy
+
+123
+00:07:42,360 --> 00:07:48,240
+these in that you know but China is the
+
+124
+00:07:45,469 --> 00:07:50,460
+China you know China the country like
+
+125
+00:07:48,240 --> 00:07:55,199
+the nation the history has always been
+
+126
+00:07:50,460 --> 00:07:57,810
+like we you know as far as government
+
+127
+00:07:55,199 --> 00:08:02,009
+control so almost always central you
+
+128
+00:07:57,810 --> 00:08:04,349
+know centralized like one one King you
+
+129
+00:08:02,009 --> 00:08:06,779
+know one leader that rules the country
+
+130
+00:08:04,349 --> 00:08:09,090
+and they are good good times in there
+
+131
+00:08:06,779 --> 00:08:11,940
+are bad times you know but anyway the
+
+132
+00:08:09,090 --> 00:08:15,060
+democracy the concept of democracy okay
+
+133
+00:08:11,940 --> 00:08:17,219
+is actually Western concept so it
+
+134
+00:08:15,060 --> 00:08:20,909
+doesn't it's like it doesn't almost
+
+135
+00:08:17,219 --> 00:08:21,389
+doesn't exist in China or in in the Far
+
+136
+00:08:20,909 --> 00:08:24,810
+East
+
+137
+00:08:21,389 --> 00:08:28,169
+you know the entire Asia more or less
+
+138
+00:08:24,810 --> 00:08:29,909
+okay you know the Japan Korea and all
+
+139
+00:08:28,169 --> 00:08:31,889
+the other country I mean the center is
+
+140
+00:08:29,909 --> 00:08:34,769
+China because China is the oldest and
+
+141
+00:08:31,889 --> 00:08:37,199
+and kind of the Chinese culture and
+
+142
+00:08:34,769 --> 00:08:41,159
+thought and philosophy kind of spread
+
+143
+00:08:37,199 --> 00:08:44,099
+out so you know basically though you
+
+144
+00:08:41,159 --> 00:08:47,459
+could say the whole Asia is like you
+
+145
+00:08:44,099 --> 00:08:49,940
+know China philosophy and thoughts so
+
+146
+00:08:47,459 --> 00:08:49,940
+anyway does
+
+147
+00:08:51,020 --> 00:08:58,290
+but I mean that's just a fact okay um
+
+148
+00:08:55,140 --> 00:09:00,930
+but also India in India is also Asian in
+
+149
+00:08:58,290 --> 00:09:04,830
+India's kind of they don't call India as
+
+150
+00:09:00,930 --> 00:09:08,480
+Far East India is like a you know kind
+
+151
+00:09:04,830 --> 00:09:12,090
+of like I'm not sure what's a proper
+
+152
+00:09:08,480 --> 00:09:15,390
+term for the region of India's South
+
+153
+00:09:12,090 --> 00:09:18,870
+South Asia Asia no I don't think that
+
+154
+00:09:15,390 --> 00:09:21,990
+maybe South Asia anyway India is also
+
+155
+00:09:18,870 --> 00:09:22,680
+Asian you know the Buddhism came from
+
+156
+00:09:21,990 --> 00:09:26,810
+India
+
+157
+00:09:22,680 --> 00:09:29,670
+you know it's spread to China you know
+
+158
+00:09:26,810 --> 00:09:32,040
+but anyway so what I was saying yeah
+
+159
+00:09:29,670 --> 00:09:34,610
+China you know historically and the
+
+160
+00:09:32,040 --> 00:09:39,060
+philosophy always just have one ruler
+
+161
+00:09:34,610 --> 00:09:41,690
+you know and so yeah I was saying
+
+162
+00:09:39,060 --> 00:09:45,150
+democracy is is kind of the Western
+
+163
+00:09:41,690 --> 00:09:47,220
+philosophy but in Asia you have like
+
+164
+00:09:45,150 --> 00:09:49,860
+different you don't have that philosophy
+
+165
+00:09:47,220 --> 00:09:52,200
+you have more you have other kind of
+
+166
+00:09:49,860 --> 00:09:56,600
+like like in Western society you are
+
+167
+00:09:52,200 --> 00:09:56,600
+mostly focused on hi Jonathan
+
+168
+00:09:56,730 --> 00:10:03,060
+in Western society you mostly have a
+
+169
+00:09:59,870 --> 00:10:05,850
+okay you have like democracy you have
+
+170
+00:10:03,060 --> 00:10:07,860
+freedom freedom of individuals okay not
+
+171
+00:10:05,850 --> 00:10:11,400
+not other than freed freedom you know
+
+172
+00:10:07,860 --> 00:10:15,030
+like individualism you have concerns
+
+173
+00:10:11,400 --> 00:10:18,690
+about justice and rape like head rape
+
+174
+00:10:15,030 --> 00:10:21,150
+every day you know you know the concept
+
+175
+00:10:18,690 --> 00:10:22,590
+of a being Western societies since since
+
+176
+00:10:21,150 --> 00:10:26,010
+the ancient Greeks
+
+177
+00:10:22,590 --> 00:10:27,900
+you know the since warm and before Rome
+
+178
+00:10:26,010 --> 00:10:33,170
+the Greeks you know they have raped she
+
+179
+00:10:27,900 --> 00:10:36,589
+was you know that the the God she was he
+
+180
+00:10:33,170 --> 00:10:42,210
+he raped every everyone every every
+
+181
+00:10:36,589 --> 00:10:45,089
+every girl in nimes so anyways so these
+
+182
+00:10:42,210 --> 00:10:47,160
+are Western society concepts you know
+
+183
+00:10:45,089 --> 00:10:50,190
+just as individual freedom
+
+184
+00:10:47,160 --> 00:10:53,310
+I mean it's Asian it's it's it's where
+
+185
+00:10:50,190 --> 00:10:54,810
+the Western society sprung up you know
+
+186
+00:10:53,310 --> 00:10:58,680
+they are they revolve around this
+
+187
+00:10:54,810 --> 00:11:03,180
+concept and also very much kind of like
+
+188
+00:10:58,680 --> 00:11:04,470
+materialism and or code logic or physics
+
+189
+00:11:03,180 --> 00:11:10,649
+like you know
+
+190
+00:11:04,470 --> 00:11:12,509
+Oh math you know so in Western society
+
+191
+00:11:10,649 --> 00:11:14,790
+and Western languages I mean everything
+
+192
+00:11:12,509 --> 00:11:19,500
+I mean like you have concepts like
+
+193
+00:11:14,790 --> 00:11:22,550
+precision logic you know you know reason
+
+194
+00:11:19,500 --> 00:11:27,000
+you know the concept of reason is it
+
+195
+00:11:22,550 --> 00:11:28,769
+reasonable like all rational you know so
+
+196
+00:11:27,000 --> 00:11:31,319
+this these are kind of the Western
+
+197
+00:11:28,769 --> 00:11:35,910
+societies philosophy where the Western
+
+198
+00:11:31,319 --> 00:11:38,579
+society floundered I did I get the word
+
+199
+00:11:35,910 --> 00:11:41,399
+right of flounder you know not to be
+
+200
+00:11:38,579 --> 00:11:45,589
+confused with found
+
+201
+00:11:41,399 --> 00:11:48,810
+I think founder is when a ship sinks
+
+202
+00:11:45,589 --> 00:11:53,639
+flourish I forgot what's maybe I wrote
+
+203
+00:11:48,810 --> 00:11:58,560
+did I use a wrong word flounder but I
+
+204
+00:11:53,639 --> 00:12:05,870
+mean I meant to yeah I mean is incorrect
+
+205
+00:11:58,560 --> 00:12:10,079
+or correct let's see if ll f l ru and D
+
+206
+00:12:05,870 --> 00:12:13,800
+that's probably wrong and it's in into
+
+207
+00:12:10,079 --> 00:12:15,509
+it anyway so I was saying talking about
+
+208
+00:12:13,800 --> 00:12:20,459
+Western society correct
+
+209
+00:12:15,509 --> 00:12:24,779
+okay okay let me check quickly cuz I
+
+210
+00:12:20,459 --> 00:12:28,550
+wasn't I want to I mean I don't mean
+
+211
+00:12:24,779 --> 00:12:28,550
+sink I mean like flourish
+
+212
+00:12:33,110 --> 00:12:38,100
+you know the wet merriam-webster is the
+
+213
+00:12:36,750 --> 00:12:39,509
+worst dictionary
+
+214
+00:12:38,100 --> 00:12:42,089
+you know never never used my
+
+215
+00:12:39,509 --> 00:12:44,420
+merriam-webster I can tell you you know
+
+216
+00:12:42,089 --> 00:12:48,930
+because I'm an expert of dictionaries
+
+217
+00:12:44,420 --> 00:12:51,839
+never you know use Merriam West Webster
+
+218
+00:12:48,930 --> 00:12:54,420
+you know web Webster is a general name
+
+219
+00:12:51,839 --> 00:12:58,850
+but merriam-webster is one specific
+
+220
+00:12:54,420 --> 00:13:02,069
+dictionary you never want to use because
+
+221
+00:12:58,850 --> 00:13:04,680
+mostly because the merriam-webster you
+
+222
+00:13:02,069 --> 00:13:06,959
+see online and you see everywhere in
+
+223
+00:13:04,680 --> 00:13:10,379
+bookstores they are like actually they
+
+224
+00:13:06,959 --> 00:13:13,829
+are a British abridged collegiate
+
+225
+00:13:10,379 --> 00:13:16,430
+so-called Collegiate Dictionary and it's
+
+226
+00:13:13,829 --> 00:13:23,439
+one of the worst okay
+
+227
+00:13:16,430 --> 00:13:28,300
+I think yeah I think I used the flounder
+
+228
+00:13:23,439 --> 00:13:28,300
+I mean flourish okay yeah so anyway
+
+229
+00:13:28,720 --> 00:13:35,480
+so the Western society I was talking
+
+230
+00:13:31,939 --> 00:13:39,230
+about Western philosophy then then yeah
+
+231
+00:13:35,480 --> 00:13:42,230
+but the Asian philosophy for example for
+
+232
+00:13:39,230 --> 00:13:47,029
+example logic logic reason rationality
+
+233
+00:13:42,230 --> 00:13:49,490
+okay this concept are entirely foreign I
+
+234
+00:13:47,029 --> 00:13:51,499
+mean they are Western thought but it
+
+235
+00:13:49,490 --> 00:13:53,540
+doesn't mean like Chinese doesn't build
+
+236
+00:13:51,499 --> 00:13:56,120
+ships or you know technology of course
+
+237
+00:13:53,540 --> 00:14:01,069
+China is known for you know the leading
+
+238
+00:13:56,120 --> 00:14:04,759
+the leader of technology up to 1600 or
+
+239
+00:14:01,069 --> 00:14:07,999
+1800 you know they build astronomy you
+
+240
+00:14:04,759 --> 00:14:11,329
+know the the most advanced in what you
+
+241
+00:14:07,999 --> 00:14:15,230
+know at the time but however this this
+
+242
+00:14:11,329 --> 00:14:18,709
+concept you know rationality recent
+
+243
+00:14:15,230 --> 00:14:21,379
+logic it's like they almost doesn't
+
+244
+00:14:18,709 --> 00:14:25,610
+exist in Chinese in Chinese philosophy
+
+245
+00:14:21,379 --> 00:14:27,620
+and they and also okay so you don't have
+
+246
+00:14:25,610 --> 00:14:30,769
+the Western thought of freedom like
+
+247
+00:14:27,620 --> 00:14:33,499
+individual individualism like you
+
+248
+00:14:30,769 --> 00:14:35,689
+emphasize individual and and like you
+
+249
+00:14:33,499 --> 00:14:37,399
+know in America for example you you talk
+
+250
+00:14:35,689 --> 00:14:39,709
+about that every day I mean all these
+
+251
+00:14:37,399 --> 00:14:42,110
+concept you talk about every day you
+
+252
+00:14:39,709 --> 00:14:44,389
+know oh we need freedom Oh individual
+
+253
+00:14:42,110 --> 00:14:47,389
+freedom or journalism is you know free
+
+254
+00:14:44,389 --> 00:14:51,290
+speech free speech and this or that yeah
+
+255
+00:14:47,389 --> 00:14:54,259
+and and justice yeah and then we have
+
+256
+00:14:51,290 --> 00:14:56,569
+now the social justice can they talk
+
+257
+00:14:54,259 --> 00:14:58,429
+about their justice you know so these
+
+258
+00:14:56,569 --> 00:15:00,559
+are ways Western philosophy but right
+
+259
+00:14:58,429 --> 00:15:02,269
+China they don't have that I mean it's
+
+260
+00:15:00,559 --> 00:15:05,259
+just different philosophy you don't you
+
+261
+00:15:02,269 --> 00:15:08,089
+don't have that you don't have you know
+
+262
+00:15:05,259 --> 00:15:12,339
+freedom you know and you don't you don't
+
+263
+00:15:08,089 --> 00:15:15,439
+have individualism you rather you have
+
+264
+00:15:12,339 --> 00:15:18,559
+of course but I mean it doesn't mean
+
+265
+00:15:15,439 --> 00:15:20,629
+that oh you know Oh Chinese likes to be
+
+266
+00:15:18,559 --> 00:15:23,059
+controlled you know like to be slave I
+
+267
+00:15:20,629 --> 00:15:26,360
+mean so it doesn't mean that but you
+
+268
+00:15:23,059 --> 00:15:28,699
+don't the thought you know the concept
+
+269
+00:15:26,360 --> 00:15:29,750
+of freedom just just like it's not in a
+
+270
+00:15:28,699 --> 00:15:32,660
+culture so
+
+271
+00:15:29,750 --> 00:15:36,110
+like it doesn't exist and the same thing
+
+272
+00:15:32,660 --> 00:15:39,530
+with you know logic and and and and you
+
+273
+00:15:36,110 --> 00:15:42,110
+know reason and stuff so for example as
+
+274
+00:15:39,530 --> 00:15:44,780
+opposed to individualism the Chinese you
+
+275
+00:15:42,110 --> 00:15:51,530
+know they focus more on like family
+
+276
+00:15:44,780 --> 00:15:54,590
+family oriented kind of philosophy your
+
+277
+00:15:51,530 --> 00:15:58,280
+life okay for example you always respect
+
+278
+00:15:54,590 --> 00:16:00,680
+the elders okay you respect first of all
+
+279
+00:15:58,280 --> 00:16:02,900
+you have family you have you know elders
+
+280
+00:16:00,680 --> 00:16:05,720
+or you know maybe outside of your family
+
+281
+00:16:02,900 --> 00:16:07,880
+people oh that are you and then you have
+
+282
+00:16:05,720 --> 00:16:09,770
+ancestors you know your dad your
+
+283
+00:16:07,880 --> 00:16:12,350
+granddad your dad's that that's that
+
+284
+00:16:09,770 --> 00:16:16,190
+that you know they died of course you
+
+285
+00:16:12,350 --> 00:16:19,850
+always have a strong respect for them I
+
+286
+00:16:16,190 --> 00:16:23,270
+mean it's it's it's the it's it's in a
+
+287
+00:16:19,850 --> 00:16:27,320
+culture you know everyone do that so you
+
+288
+00:16:23,270 --> 00:16:31,610
+respect your your parents the foremost
+
+289
+00:16:27,320 --> 00:16:33,560
+then they respect you know the their
+
+290
+00:16:31,610 --> 00:16:36,200
+ancestors your ancestors you know
+
+291
+00:16:33,560 --> 00:16:39,140
+whoever you know you're you know last
+
+292
+00:16:36,200 --> 00:16:41,720
+generation or before and you also for
+
+293
+00:16:39,140 --> 00:16:44,060
+example in siblings you know your your
+
+294
+00:16:41,720 --> 00:16:46,550
+sisters or brothers in Chinese I mean
+
+295
+00:16:44,060 --> 00:16:48,650
+it's even part of the language in fact
+
+296
+00:16:46,550 --> 00:16:51,110
+lots of cultures and thinking you can
+
+297
+00:16:48,650 --> 00:16:55,720
+see it's building into the language
+
+298
+00:16:51,110 --> 00:16:59,420
+itself for example in Chinese sibling
+
+299
+00:16:55,720 --> 00:17:01,400
+you have brothers but actually so you
+
+300
+00:16:59,420 --> 00:17:03,890
+have the word brother but actually we
+
+301
+00:17:01,400 --> 00:17:06,680
+have word like elder brother and younger
+
+302
+00:17:03,890 --> 00:17:08,600
+brother it's always you know you don't
+
+303
+00:17:06,680 --> 00:17:11,150
+just say brother they it's like they
+
+304
+00:17:08,600 --> 00:17:13,250
+there is a general term that means
+
+305
+00:17:11,150 --> 00:17:16,699
+oh brother and or sisters but you don't
+
+306
+00:17:13,250 --> 00:17:19,910
+say that I mean average daily use you
+
+307
+00:17:16,699 --> 00:17:21,949
+have elder brother a word okay for elder
+
+308
+00:17:19,910 --> 00:17:25,430
+brother a word for younger brother a
+
+309
+00:17:21,949 --> 00:17:28,820
+word for older sister a word for younger
+
+310
+00:17:25,430 --> 00:17:31,730
+sister and the younger one always need
+
+311
+00:17:28,820 --> 00:17:33,880
+to like that you know it's it's part of
+
+312
+00:17:31,730 --> 00:17:35,780
+the culture you respect the elder
+
+313
+00:17:33,880 --> 00:17:38,990
+brothers or sisters
+
+314
+00:17:35,780 --> 00:17:43,130
+you know so anyway so that's a you know
+
+315
+00:17:38,990 --> 00:17:46,690
+Chinese so I mean so it's just different
+
+316
+00:17:43,130 --> 00:17:51,830
+so so where did we get into this topic
+
+317
+00:17:46,690 --> 00:17:52,640
+where did I start - I was talking about
+
+318
+00:17:51,830 --> 00:17:54,920
+this girl
+
+319
+00:17:52,640 --> 00:17:58,610
+yeah tick tock okay so tick tock is a
+
+320
+00:17:54,920 --> 00:18:00,590
+new social platform it's like Twitter
+
+321
+00:17:58,610 --> 00:18:03,920
+it's like Instagram you know this kind
+
+322
+00:18:00,590 --> 00:18:06,170
+of thing but but it originated from
+
+323
+00:18:03,920 --> 00:18:08,180
+China yes China is you got so many
+
+324
+00:18:06,170 --> 00:18:10,850
+things going on today yeah I was I mean
+
+325
+00:18:08,180 --> 00:18:14,060
+I I was I'm really amazed you know
+
+326
+00:18:10,850 --> 00:18:18,980
+because I grew up in USA or thought
+
+327
+00:18:14,060 --> 00:18:21,320
+since you know I left my country Taiwan
+
+328
+00:18:18,980 --> 00:18:24,410
+I was born Taiwan I left my country when
+
+329
+00:18:21,320 --> 00:18:26,510
+I was fourteen years old so I lived in
+
+330
+00:18:24,410 --> 00:18:31,100
+South America for a year Canada for
+
+331
+00:18:26,510 --> 00:18:35,840
+three years and I came to USA in 1989
+
+332
+00:18:31,100 --> 00:18:39,920
+when I was 21 years old 20 or 21 1989
+
+333
+00:18:35,840 --> 00:18:41,510
+okay being in California so you could
+
+334
+00:18:39,920 --> 00:18:44,180
+say since I'm an adult
+
+335
+00:18:41,510 --> 00:18:47,480
+oh my you know I I you know I live in
+
+336
+00:18:44,180 --> 00:18:50,720
+u.s. so but I do have Chinese roots so
+
+337
+00:18:47,480 --> 00:18:53,750
+you see this is interesting because if I
+
+338
+00:18:50,720 --> 00:18:56,840
+was if I grew up in USA you know since
+
+339
+00:18:53,750 --> 00:19:01,040
+maybe four years old or if I was upon us
+
+340
+00:18:56,840 --> 00:19:02,870
+a then even I look like Chinese but but
+
+341
+00:19:01,040 --> 00:19:04,430
+all my thoughts is just like American
+
+342
+00:19:02,870 --> 00:19:07,670
+just like you know there are a lot
+
+343
+00:19:04,430 --> 00:19:10,580
+Chinese people in so coach ID Chinese
+
+344
+00:19:07,670 --> 00:19:14,870
+Americans they were born in USA they
+
+345
+00:19:10,580 --> 00:19:16,850
+grew up here so but these people when
+
+346
+00:19:14,870 --> 00:19:19,460
+they go to China when they visit China
+
+347
+00:19:16,850 --> 00:19:21,200
+or Taiwan they are not like Chinese I
+
+348
+00:19:19,460 --> 00:19:23,090
+mean everyone can tell you know they are
+
+349
+00:19:21,200 --> 00:19:24,920
+just different you know they don't you
+
+350
+00:19:23,090 --> 00:19:28,310
+don't share they are just like white
+
+351
+00:19:24,920 --> 00:19:31,970
+people or you know American people with
+
+352
+00:19:28,310 --> 00:19:34,370
+the Chinese skin you know body so you
+
+353
+00:19:31,970 --> 00:19:36,680
+know it's it's different the thought of
+
+354
+00:19:34,370 --> 00:19:39,650
+the entire thought behavior you know
+
+355
+00:19:36,680 --> 00:19:44,020
+that your daily behavior your thinking
+
+356
+00:19:39,650 --> 00:19:46,940
+patterns is so different so anyway so I
+
+357
+00:19:44,020 --> 00:19:50,600
+but I grew up in Taiwan and here I was
+
+358
+00:19:46,940 --> 00:19:56,210
+14 they are lived in basically Canada
+
+359
+00:19:50,600 --> 00:19:56,930
+mostly and u.s. USA so so so I kind of
+
+360
+00:19:56,210 --> 00:19:59,570
+have
+
+361
+00:19:56,930 --> 00:20:01,460
+you know I see both coaches you know I
+
+362
+00:19:59,570 --> 00:20:03,650
+and and and by the way when I was
+
+363
+00:20:01,460 --> 00:20:04,340
+younger I don't like the Chinese culture
+
+364
+00:20:03,650 --> 00:20:08,150
+at all
+
+365
+00:20:04,340 --> 00:20:11,150
+I'm like actively organized it you know
+
+366
+00:20:08,150 --> 00:20:13,130
+because well because my dad and you know
+
+367
+00:20:11,150 --> 00:20:15,890
+it's a long history it's a complex
+
+368
+00:20:13,130 --> 00:20:18,650
+history but I don't like you know I'm
+
+369
+00:20:15,890 --> 00:20:21,020
+like a rebel what you might call rebel
+
+370
+00:20:18,650 --> 00:20:24,140
+you know young people always many are
+
+371
+00:20:21,020 --> 00:20:26,150
+like that so I didn't like any any of
+
+372
+00:20:24,140 --> 00:20:28,400
+the Chinese philosophy yeah like I don't
+
+373
+00:20:26,150 --> 00:20:30,650
+I don't like it though I think it's City
+
+374
+00:20:28,400 --> 00:20:32,840
+stupid I want I want the Western
+
+375
+00:20:30,650 --> 00:20:35,470
+philosophy okay I want individual
+
+376
+00:20:32,840 --> 00:20:38,090
+freedom yes I want logic you know I want
+
+377
+00:20:35,470 --> 00:20:40,310
+precision thinking I don't want the you
+
+378
+00:20:38,090 --> 00:20:43,160
+know Zen or Tao or Buddhism you know
+
+379
+00:20:40,310 --> 00:20:45,700
+that roundabout Taiji or everything is
+
+380
+00:20:43,160 --> 00:20:48,470
+you know fuzzy and this is no like
+
+381
+00:20:45,700 --> 00:20:50,720
+position no logic you know I like I want
+
+382
+00:20:48,470 --> 00:20:54,080
+the Western I like quick philosophy you
+
+383
+00:20:50,720 --> 00:20:57,920
+know that was when I was young but no I
+
+384
+00:20:54,080 --> 00:20:59,930
+don't you know I don't really I don't
+
+385
+00:20:57,920 --> 00:21:02,780
+think one is really better than the
+
+386
+00:20:59,930 --> 00:21:07,160
+other you know I appreciate the many
+
+387
+00:21:02,780 --> 00:21:09,530
+Chinese thoughts now anyway so back to
+
+388
+00:21:07,160 --> 00:21:12,230
+yeah so I was talking about social media
+
+389
+00:21:09,530 --> 00:21:18,530
+website so did the Chinese you know
+
+390
+00:21:12,230 --> 00:21:20,720
+China P Ortiz which is koto in social
+
+391
+00:21:18,530 --> 00:21:22,940
+media website and that but in
+
+392
+00:21:20,720 --> 00:21:25,250
+english-speaking countries countries
+
+393
+00:21:22,940 --> 00:21:28,100
+it's called tick tock you can actually
+
+394
+00:21:25,250 --> 00:21:31,970
+go to the website in fact there is a
+
+395
+00:21:28,100 --> 00:21:35,630
+tick tock in fact there's also Wikipedia
+
+396
+00:21:31,970 --> 00:21:40,220
+page you can read so there's a Fisher
+
+397
+00:21:35,630 --> 00:21:44,150
+website you know and and there's also a
+
+398
+00:21:40,220 --> 00:21:52,100
+GPIO here now that's a movie but anyway
+
+399
+00:21:44,150 --> 00:21:54,320
+there is a here yeah here so it's this
+
+400
+00:21:52,100 --> 00:21:57,350
+is quite amazing because tick tock you
+
+401
+00:21:54,320 --> 00:22:00,680
+know it's a it's originates from China
+
+402
+00:21:57,350 --> 00:22:03,430
+so the culture and the rules you know on
+
+403
+00:22:00,680 --> 00:22:06,380
+this sociopath is becoming very popular
+
+404
+00:22:03,430 --> 00:22:09,620
+especially in Western countries it's
+
+405
+00:22:06,380 --> 00:22:12,559
+populated by young people you know
+
+406
+00:22:09,620 --> 00:22:14,870
+a lot of them you know beautiful girls
+
+407
+00:22:12,559 --> 00:22:18,370
+in young people you know but they just
+
+408
+00:22:14,870 --> 00:22:21,200
+do things so so the the point is that
+
+409
+00:22:18,370 --> 00:22:23,840
+because it's from China so it doesn't
+
+410
+00:22:21,200 --> 00:22:26,900
+have these rules you know from the
+
+411
+00:22:23,840 --> 00:22:31,190
+Western American society like Google
+
+412
+00:22:26,900 --> 00:22:33,110
+Facebook Twitter you know YouTube you
+
+413
+00:22:31,190 --> 00:22:35,929
+know if you grew up if you are American
+
+414
+00:22:33,110 --> 00:22:38,659
+you may not know but those they have
+
+415
+00:22:35,929 --> 00:22:41,299
+rules like that like there's just a
+
+416
+00:22:38,659 --> 00:22:44,510
+certain categories that they don't allow
+
+417
+00:22:41,299 --> 00:22:46,490
+you never see for you know I'm not at
+
+418
+00:22:44,510 --> 00:22:49,700
+you know I'm not going to go into that
+
+419
+00:22:46,490 --> 00:22:51,770
+in detail because because these kind of
+
+420
+00:22:49,700 --> 00:22:56,000
+things quickly then it becomes you know
+
+421
+00:22:51,770 --> 00:22:58,370
+it touches politics then then then you
+
+422
+00:22:56,000 --> 00:23:00,559
+know get you know get on to other things
+
+423
+00:22:58,370 --> 00:23:02,360
+in the social justice they're gonna tie
+
+424
+00:23:00,559 --> 00:23:04,640
+me
+
+425
+00:23:02,360 --> 00:23:05,990
+but anyway so tick-tock they don't have
+
+426
+00:23:04,640 --> 00:23:08,029
+these rules I mean the rules are
+
+427
+00:23:05,990 --> 00:23:10,490
+different you know it's from China and
+
+428
+00:23:08,029 --> 00:23:13,090
+then the West the English version is
+
+429
+00:23:10,490 --> 00:23:15,950
+called tick-tock and they'd is just
+
+430
+00:23:13,090 --> 00:23:19,279
+becomes very popular so this Russian
+
+431
+00:23:15,950 --> 00:23:23,960
+girl you know she's talking about this
+
+432
+00:23:19,279 --> 00:23:26,270
+funny I find but you know she's very
+
+433
+00:23:23,960 --> 00:23:39,440
+beautiful you know and she is talking
+
+434
+00:23:26,270 --> 00:23:42,529
+about this not illiterate so that's so
+
+435
+00:23:39,440 --> 00:23:45,230
+that's interesting by the way this is
+
+436
+00:23:42,529 --> 00:23:53,390
+are my were the English website if you
+
+437
+00:23:45,230 --> 00:23:57,799
+want to go to see it Sawadee Sawadee
+
+438
+00:23:53,390 --> 00:24:00,620
+blog that's my that's my website about
+
+439
+00:23:57,799 --> 00:24:07,580
+English writing literature languages
+
+440
+00:24:00,620 --> 00:24:11,200
+linguistics related stuff so anyway so
+
+441
+00:24:07,580 --> 00:24:17,090
+that's that let's talk about JavaScript
+
+442
+00:24:11,200 --> 00:24:18,770
+wow this is a huge branching of talking
+
+443
+00:24:17,090 --> 00:24:21,380
+because I've been talking about this for
+
+444
+00:24:18,770 --> 00:24:23,090
+like twenty four minutes okay I think
+
+445
+00:24:21,380 --> 00:24:27,350
+let's go back to Joe
+
+446
+00:24:23,090 --> 00:24:28,159
+script good usage oh of course she's
+
+447
+00:24:27,350 --> 00:24:31,490
+Russian
+
+448
+00:24:28,159 --> 00:24:38,600
+would you call ASEAN people robotic why
+
+449
+00:24:31,490 --> 00:24:41,600
+I mean how how is that Daniel says
+
+450
+00:24:38,600 --> 00:24:44,379
+tick-tock has been downloaded 80 million
+
+451
+00:24:41,600 --> 00:24:47,690
+times in the United States Wow
+
+452
+00:24:44,379 --> 00:24:51,200
+800 million times worldwide are you you
+
+453
+00:24:47,690 --> 00:24:54,470
+are you a user Danielle then Daniel you
+
+454
+00:24:51,200 --> 00:24:58,249
+are in Los Angeles right yeah I'm you
+
+455
+00:24:54,470 --> 00:25:00,799
+know about the you know Daniel did a
+
+456
+00:24:58,249 --> 00:25:04,399
+pull request to fly keys I'm so sorry I
+
+457
+00:25:00,799 --> 00:25:06,230
+just never got into it because because
+
+458
+00:25:04,399 --> 00:25:09,590
+you know there's a lot to do you know I
+
+459
+00:25:06,230 --> 00:25:12,830
+have to spend literally several hours to
+
+460
+00:25:09,590 --> 00:25:15,379
+I mean not just read the poor request
+
+461
+00:25:12,830 --> 00:25:17,480
+but also I have to get back to coding
+
+462
+00:25:15,379 --> 00:25:20,210
+eMac B's you know I have to get back to
+
+463
+00:25:17,480 --> 00:25:23,330
+know the details about you make these
+
+464
+00:25:20,210 --> 00:25:26,659
+key binding commands you know so I kind
+
+465
+00:25:23,330 --> 00:25:28,639
+of just like procrastinate it but but
+
+466
+00:25:26,659 --> 00:25:32,330
+I'll get back to it for sure because you
+
+467
+00:25:28,639 --> 00:25:34,070
+know because this is my project and you
+
+468
+00:25:32,330 --> 00:25:36,649
+know and and actually are a lot of
+
+469
+00:25:34,070 --> 00:25:39,740
+people other people have issues you know
+
+470
+00:25:36,649 --> 00:25:42,950
+basically in the past month I since I
+
+471
+00:25:39,740 --> 00:25:44,720
+started to doing video I kind of you
+
+472
+00:25:42,950 --> 00:25:47,450
+know I haven't been reading my emails
+
+473
+00:25:44,720 --> 00:25:54,830
+you know all those kind of things I kind
+
+474
+00:25:47,450 --> 00:25:56,600
+of delayed anyway so let's get back to I
+
+475
+00:25:54,830 --> 00:26:02,960
+think we're gonna talk about JavaScript
+
+476
+00:25:56,600 --> 00:26:08,679
+a little bit then we gonna six people
+
+477
+00:26:02,960 --> 00:26:14,740
+watching we're gonna maybe talk about
+
+478
+00:26:08,679 --> 00:26:18,320
+Scott Scott are you there are you here
+
+479
+00:26:14,740 --> 00:26:20,809
+okay so do you guys have a any questions
+
+480
+00:26:18,320 --> 00:26:23,629
+if you have a questions just type it
+
+481
+00:26:20,809 --> 00:26:27,009
+okay you can you know type anything and
+
+482
+00:26:23,629 --> 00:26:30,250
+maybe then we can go into that direction
+
+483
+00:26:27,009 --> 00:26:33,320
+let's talk about JavaScript it's just
+
+484
+00:26:30,250 --> 00:26:36,770
+JavaScript blog let's go to my
+
+485
+00:26:33,320 --> 00:26:41,679
+JavaScript blog blog so
+
+486
+00:26:36,770 --> 00:26:41,679
+Danielle so you are in Los Angeles yep
+
+487
+00:26:43,630 --> 00:26:50,480
+okay JavaScript so I have this
+
+488
+00:26:46,850 --> 00:26:55,580
+JavaScript tutorial I mentioned a few
+
+489
+00:26:50,480 --> 00:26:58,670
+times javascript in depth and you know I
+
+490
+00:26:55,580 --> 00:27:01,670
+started to write a JavaScript tutorial
+
+491
+00:26:58,670 --> 00:27:03,530
+back in 2005 but back then I don't
+
+492
+00:27:01,670 --> 00:27:06,080
+really know what I'm doing so I'm Tim
+
+493
+00:27:03,530 --> 00:27:09,410
+I'm just starting to blog just a little
+
+494
+00:27:06,080 --> 00:27:11,120
+bit about like JavaScript basics like
+
+495
+00:27:09,410 --> 00:27:16,150
+how do how do you write a loop how do
+
+496
+00:27:11,120 --> 00:27:22,550
+you you know closed string you know but
+
+497
+00:27:16,150 --> 00:27:27,320
+until 2014 2014 I started to dive into
+
+498
+00:27:22,550 --> 00:27:30,740
+JavaScript in depth so I have read you
+
+499
+00:27:27,320 --> 00:27:35,300
+know all the JavaScript script specs you
+
+500
+00:27:30,740 --> 00:27:39,340
+know JavaScript 2015 spec and before
+
+501
+00:27:35,300 --> 00:27:43,820
+that like which is called edition 5.1
+
+502
+00:27:39,340 --> 00:27:48,200
+then I've also read you know some of the
+
+503
+00:27:43,820 --> 00:27:51,309
+JavaScript 2016 SPECT now javascript is
+
+504
+00:27:48,200 --> 00:27:54,679
+aspect is interesting you see the name a
+
+505
+00:27:51,309 --> 00:28:03,820
+comma script language specification
+
+506
+00:27:54,679 --> 00:28:10,760
+akuma 262 it is why it's extremely and
+
+507
+00:28:03,820 --> 00:28:16,460
+what's the word complicated no that's if
+
+508
+00:28:10,760 --> 00:28:18,980
+you know the extremely there's a word
+
+509
+00:28:16,460 --> 00:28:23,780
+for for being complicated complicated
+
+510
+00:28:18,980 --> 00:28:26,900
+but I forgot what that is anyway so let
+
+511
+00:28:23,780 --> 00:28:29,030
+me explain what it is okay so the
+
+512
+00:28:26,900 --> 00:28:31,280
+official name for JavaScript the
+
+513
+00:28:29,030 --> 00:28:32,780
+language the standard SPECT okay
+
+514
+00:28:31,280 --> 00:28:37,660
+official name for the language is
+
+515
+00:28:32,780 --> 00:28:40,400
+actually called a comma script now the
+
+516
+00:28:37,660 --> 00:28:44,290
+specification for the a comma script
+
+517
+00:28:40,400 --> 00:28:47,870
+language the official title is a comma
+
+518
+00:28:44,290 --> 00:28:50,450
+262 you know that's a standard a comma
+
+519
+00:28:47,870 --> 00:28:54,019
+262 is a standard
+
+520
+00:28:50,450 --> 00:28:56,389
+for the Akama script language and the
+
+521
+00:28:54,019 --> 00:28:58,309
+ACMA script language is the official
+
+522
+00:28:56,389 --> 00:29:02,149
+name for javascript okay that's the
+
+523
+00:28:58,309 --> 00:29:06,409
+basics and what's a comma a comma is the
+
+524
+00:29:02,149 --> 00:29:08,690
+name of the standard organization the
+
+525
+00:29:06,409 --> 00:29:11,869
+organization that creates standards so
+
+526
+00:29:08,690 --> 00:29:14,869
+that's that organization's name is a
+
+527
+00:29:11,869 --> 00:29:18,859
+comma so what they do they published
+
+528
+00:29:14,869 --> 00:29:22,190
+standards specs for variety of things so
+
+529
+00:29:18,859 --> 00:29:26,210
+one of the Specht is called a comma 262
+
+530
+00:29:22,190 --> 00:29:30,859
+and the subject of that spec is a comma
+
+531
+00:29:26,210 --> 00:29:35,480
+script language that's it's one factor
+
+532
+00:29:30,859 --> 00:29:38,269
+of luck and then so they have editions
+
+533
+00:29:35,480 --> 00:29:42,289
+5.1 then then they start to change your
+
+534
+00:29:38,269 --> 00:29:44,629
+name to instead of saying wow this they
+
+535
+00:29:42,289 --> 00:29:49,070
+start to use the year like a comma
+
+536
+00:29:44,629 --> 00:29:50,899
+script 2015 xmas script 2016 anyway so
+
+537
+00:29:49,070 --> 00:29:53,269
+that's aspect you know by the way
+
+538
+00:29:50,899 --> 00:29:56,239
+JavaScript spec is the worst suspect
+
+539
+00:29:53,269 --> 00:29:59,059
+I've ever read I have read the Java
+
+540
+00:29:56,239 --> 00:30:03,710
+language spec part of it you know a
+
+541
+00:29:59,059 --> 00:30:06,799
+little maybe 20% ok javascript language
+
+542
+00:30:03,710 --> 00:30:12,049
+I have read the scheme Lisp language
+
+543
+00:30:06,799 --> 00:30:16,100
+respect our forests our 4 RS or eyes are
+
+544
+00:30:12,049 --> 00:30:20,109
+for back in 1999 I have read about half
+
+545
+00:30:16,100 --> 00:30:23,840
+of it at least half of it so Java spec
+
+546
+00:30:20,109 --> 00:30:28,369
+JavaScript spec I have read the Python
+
+547
+00:30:23,840 --> 00:30:33,080
+language spec panel language spec I read
+
+548
+00:30:28,369 --> 00:30:35,359
+maybe 30% you know ok I didn't read you
+
+549
+00:30:33,080 --> 00:30:38,809
+know like all the detail but over the
+
+550
+00:30:35,359 --> 00:30:41,239
+years maybe 30% so I have read eMac list
+
+551
+00:30:38,809 --> 00:30:44,509
+spec eMac this doesn't really have
+
+552
+00:30:41,239 --> 00:30:48,159
+aspect but you have a eMac this manual
+
+553
+00:30:44,509 --> 00:30:54,950
+that's 1,000 pages read you know maybe
+
+554
+00:30:48,159 --> 00:31:00,529
+60% 70% over the years I have read the :
+
+555
+00:30:54,950 --> 00:31:04,160
+inspect : spec is the most the the best
+
+556
+00:31:00,529 --> 00:31:07,910
+language spec of them all and it's very
+
+557
+00:31:04,160 --> 00:31:11,860
+short as well the Golan's script the
+
+558
+00:31:07,910 --> 00:31:15,350
+writing quality the precision the
+
+559
+00:31:11,860 --> 00:31:18,010
+clarity the girls go-go language you
+
+560
+00:31:15,350 --> 00:31:20,900
+know spec is the best of them all and
+
+561
+00:31:18,010 --> 00:31:25,370
+JavaScript the spec is the worst the
+
+562
+00:31:20,900 --> 00:31:27,260
+worst you know the existence it's
+
+563
+00:31:25,370 --> 00:31:28,670
+very complicated and it's
+
+564
+00:31:27,260 --> 00:31:31,580
+incomprehensible
+
+565
+00:31:28,670 --> 00:31:35,120
+now javascript the language itself is
+
+566
+00:31:31,580 --> 00:31:38,780
+also it is extremely complicated
+
+567
+00:31:35,120 --> 00:31:41,830
+I would say more complicated by our
+
+568
+00:31:38,780 --> 00:31:46,340
+magnitude than or them all the languages
+
+569
+00:31:41,830 --> 00:31:48,710
+aforementioned languages but that's one
+
+570
+00:31:46,340 --> 00:31:52,300
+thing when you have a language that's
+
+571
+00:31:48,710 --> 00:31:55,790
+very complicated but the specification
+
+572
+00:31:52,300 --> 00:31:58,280
+needs not to be very complicated you
+
+573
+00:31:55,790 --> 00:32:02,030
+know you could you know describe some
+
+574
+00:31:58,280 --> 00:32:08,030
+complicated things with as long as you
+
+575
+00:32:02,030 --> 00:32:13,960
+you know your spec may not be I mean the
+
+576
+00:32:08,030 --> 00:32:17,000
+the complication of the language and the
+
+577
+00:32:13,960 --> 00:32:20,450
+complication of your SPECT they are not
+
+578
+00:32:17,000 --> 00:32:22,850
+like proportional Linea okay the
+
+579
+00:32:20,450 --> 00:32:25,940
+language can get more complicated but
+
+580
+00:32:22,850 --> 00:32:28,460
+the suspect can be written if you if
+
+581
+00:32:25,940 --> 00:32:31,130
+it's good writing it can be still very
+
+582
+00:32:28,460 --> 00:32:35,630
+clear okay but that's not the case for
+
+583
+00:32:31,130 --> 00:32:43,040
+the Java scripts Specter script spec is
+
+584
+00:32:35,630 --> 00:32:45,770
+verbose and and and and the word just
+
+585
+00:32:43,040 --> 00:32:50,050
+came to my turn but I forgot forgot
+
+586
+00:32:45,770 --> 00:32:53,350
+again so the ACMA scripts spec is
+
+587
+00:32:50,050 --> 00:32:57,040
+convoluted that's what I want to use
+
+588
+00:32:53,350 --> 00:33:00,110
+convoluted okay it's a like a noodle and
+
+589
+00:32:57,040 --> 00:33:03,380
+it's it tries to be and it's not even
+
+590
+00:33:00,110 --> 00:33:05,930
+it's not formal eat neither you know if
+
+591
+00:33:03,380 --> 00:33:08,330
+you are a programmer and if you never
+
+592
+00:33:05,930 --> 00:33:10,730
+studied math you might think you know
+
+593
+00:33:08,330 --> 00:33:13,070
+usually programmers admire math you
+
+594
+00:33:10,730 --> 00:33:15,200
+think you know we want to you know oh
+
+595
+00:33:13,070 --> 00:33:17,549
+it's formal like you know they think has
+
+596
+00:33:15,200 --> 00:33:24,070
+cow is but I actually ask
+
+597
+00:33:17,549 --> 00:33:27,400
+this is not math not math formality but
+
+598
+00:33:24,070 --> 00:33:29,679
+anyway so the java language spec is
+
+599
+00:33:27,400 --> 00:33:33,130
+pretty lousy okay it's convoluted and
+
+600
+00:33:29,679 --> 00:33:36,400
+verbose and let's show you example I'm
+
+601
+00:33:33,130 --> 00:33:39,070
+going to show you some examples okay and
+
+602
+00:33:36,400 --> 00:33:40,660
+now let's see okay so I was talking
+
+603
+00:33:39,070 --> 00:33:44,860
+about JavaScript so I wrote these
+
+604
+00:33:40,660 --> 00:33:49,780
+JavaScript in-depth if you don't know
+
+605
+00:33:44,860 --> 00:33:53,440
+JavaScript I recommend it and so let's
+
+606
+00:33:49,780 --> 00:33:57,990
+go to JavaScript so you see they are
+
+607
+00:33:53,440 --> 00:34:08,770
+like maybe 600 pages okay let's go to
+
+608
+00:33:57,990 --> 00:34:14,320
+JavaScript find that name HTML okay in
+
+609
+00:34:08,770 --> 00:34:18,340
+this directory I have 700 pages of them
+
+610
+00:34:14,320 --> 00:34:21,429
+some are HTML about HTML tutorial some
+
+611
+00:34:18,340 --> 00:34:25,060
+are about CSS tutorial but but the
+
+612
+00:34:21,429 --> 00:34:28,810
+JavaScript ones is about 500 or 600
+
+613
+00:34:25,060 --> 00:34:30,730
+pages so although all these pages now
+
+614
+00:34:28,810 --> 00:34:34,750
+when I write them you can see that for
+
+615
+00:34:30,730 --> 00:34:37,810
+example if I go to let's say if I go to
+
+616
+00:34:34,750 --> 00:34:40,450
+this page array form away from
+
+617
+00:34:37,810 --> 00:34:43,450
+JavaScript away from open showing
+
+618
+00:34:40,450 --> 00:34:46,600
+browser you can see that there's a
+
+619
+00:34:43,450 --> 00:34:50,490
+reference so basically in each paragraph
+
+620
+00:34:46,600 --> 00:34:55,080
+I tend to link to the reference where
+
+621
+00:34:50,490 --> 00:34:57,790
+that you know that's the place where
+
+622
+00:34:55,080 --> 00:35:01,690
+relates to what I was talking about in
+
+623
+00:34:57,790 --> 00:35:05,410
+my tutorial okay this you know
+
+624
+00:35:01,690 --> 00:35:08,740
+JavaScript spec is like one one huge
+
+625
+00:35:05,410 --> 00:35:11,980
+HTML like ten megabytes or something so
+
+626
+00:35:08,740 --> 00:35:15,520
+it takes a lot you know huge amount of
+
+627
+00:35:11,980 --> 00:35:18,850
+time to load it okay so this page is
+
+628
+00:35:15,520 --> 00:35:21,940
+talking about array dot from which is a
+
+629
+00:35:18,850 --> 00:35:25,119
+from is a property of the array function
+
+630
+00:35:21,940 --> 00:35:29,020
+object JavaScript is very complex by the
+
+631
+00:35:25,119 --> 00:35:31,100
+way the JavaScript is the object you
+
+632
+00:35:29,020 --> 00:35:35,320
+know JavaScript is also an object
+
+633
+00:35:31,100 --> 00:35:38,480
+oriented language however the object the
+
+634
+00:35:35,320 --> 00:35:43,610
+the object in JavaScript is entirely
+
+635
+00:35:38,480 --> 00:35:46,340
+different from Java Python Ruby tsipras
+
+636
+00:35:43,610 --> 00:35:47,450
+first okay in those languages you have
+
+637
+00:35:46,340 --> 00:35:51,560
+Opie
+
+638
+00:35:47,450 --> 00:35:54,410
+you know what's called class-based OPA
+
+639
+00:35:51,560 --> 00:35:57,620
+class-based object system where you
+
+640
+00:35:54,410 --> 00:36:00,980
+create classes then you create create
+
+641
+00:35:57,620 --> 00:36:05,510
+instances of those classes which is
+
+642
+00:36:00,980 --> 00:36:07,250
+called a object and so on okay but
+
+643
+00:36:05,510 --> 00:36:09,710
+that's class class-based
+
+644
+00:36:07,250 --> 00:36:12,500
+object system now in JavaScript it's
+
+645
+00:36:09,710 --> 00:36:14,600
+entirely different that's why that's one
+
+646
+00:36:12,500 --> 00:36:17,990
+of the reason that makes JavaScript kind
+
+647
+00:36:14,600 --> 00:36:19,790
+of hard to dive into I mean even if you
+
+648
+00:36:17,990 --> 00:36:21,950
+have like two years programming
+
+649
+00:36:19,790 --> 00:36:24,380
+experience in your company working on
+
+650
+00:36:21,950 --> 00:36:26,360
+JavaScript you know I can easily ask you
+
+651
+00:36:24,380 --> 00:36:28,610
+a question you don't know in fact much
+
+652
+00:36:26,360 --> 00:36:33,110
+you know a lot of your code is just
+
+653
+00:36:28,610 --> 00:36:34,910
+wrong you know until you know yeah so
+
+654
+00:36:33,110 --> 00:36:36,440
+JavaScript you know you really have to
+
+655
+00:36:34,910 --> 00:36:40,130
+type into JavaScript
+
+656
+00:36:36,440 --> 00:36:41,540
+you know actually study the language to
+
+657
+00:36:40,130 --> 00:36:43,820
+actually understand what's going on so
+
+658
+00:36:41,540 --> 00:36:46,400
+JavaScript the app the object system
+
+659
+00:36:43,820 --> 00:36:49,190
+javascript is actually is the name is
+
+660
+00:36:46,400 --> 00:36:52,730
+code the system is called prototype
+
+661
+00:36:49,190 --> 00:36:56,360
+based object system okay so it's a
+
+662
+00:36:52,730 --> 00:36:58,540
+prototype based object system we can go
+
+663
+00:36:56,360 --> 00:37:02,090
+into detail on how that works you know
+
+664
+00:36:58,540 --> 00:37:05,120
+if you guys want just remind me okay
+
+665
+00:37:02,090 --> 00:37:08,180
+just type it and I'll explain you know
+
+666
+00:37:05,120 --> 00:37:11,930
+how JavaScript object system works but
+
+667
+00:37:08,180 --> 00:37:14,780
+anyway anyway back to the spec so I had
+
+668
+00:37:11,930 --> 00:37:18,050
+all these links almost on every page one
+
+669
+00:37:14,780 --> 00:37:20,150
+or more links to the spec back in a
+
+670
+00:37:18,050 --> 00:37:22,250
+beginning I put the links because partly
+
+671
+00:37:20,150 --> 00:37:27,770
+when I'm writing tutorial you know it's
+
+672
+00:37:22,250 --> 00:37:30,050
+convenient for me to you know constantly
+
+673
+00:37:27,770 --> 00:37:33,650
+you know Cricut so I can read what the
+
+674
+00:37:30,050 --> 00:37:36,290
+spec actually says and you know I maybe
+
+675
+00:37:33,650 --> 00:37:38,690
+I can improve you know edit my writings
+
+676
+00:37:36,290 --> 00:37:42,920
+so it's correct and you know clear and
+
+677
+00:37:38,690 --> 00:37:44,690
+so on and also also for readers you know
+
+678
+00:37:42,920 --> 00:37:46,579
+so they so you have
+
+679
+00:37:44,690 --> 00:37:49,670
+confirmation like when you read about
+
+680
+00:37:46,579 --> 00:37:51,859
+these you know you might think wait are
+
+681
+00:37:49,670 --> 00:37:54,920
+you how can I trust you you know how do
+
+682
+00:37:51,859 --> 00:37:57,109
+I know you are not you know talking like
+
+683
+00:37:54,920 --> 00:37:59,119
+you know what you are talking about well
+
+684
+00:37:57,109 --> 00:38:02,089
+there is a reference right there you
+
+685
+00:37:59,119 --> 00:38:05,300
+know on every page almost every few
+
+686
+00:38:02,089 --> 00:38:08,390
+paragraphs you can read but actually you
+
+687
+00:38:05,300 --> 00:38:12,800
+know people don't read that I I noticed
+
+688
+00:38:08,390 --> 00:38:15,349
+that actually basically nobody you know
+
+689
+00:38:12,800 --> 00:38:17,900
+go to the spec because well partly
+
+690
+00:38:15,349 --> 00:38:19,970
+because the spec is just
+
+691
+00:38:17,900 --> 00:38:22,810
+incomprehensible like you cannot just
+
+692
+00:38:19,970 --> 00:38:25,730
+read the spec it's like completely
+
+693
+00:38:22,810 --> 00:38:27,290
+incomprehensible I don't care how many
+
+694
+00:38:25,730 --> 00:38:29,660
+years you have experience with
+
+695
+00:38:27,290 --> 00:38:32,839
+JavaScript suppose you work at Google
+
+696
+00:38:29,660 --> 00:38:37,609
+hey mail card hey great to see you now
+
+697
+00:38:32,839 --> 00:38:40,280
+cat let me get back to that I'm gonna
+
+698
+00:38:37,609 --> 00:38:43,640
+read the comments in a few minutes so
+
+699
+00:38:40,280 --> 00:38:48,619
+suppose you are a JavaScript or coder
+
+700
+00:38:43,640 --> 00:38:50,990
+working at Google and suppose you have
+
+701
+00:38:48,619 --> 00:38:54,730
+like let's say two years you know code
+
+702
+00:38:50,990 --> 00:38:58,819
+in JavaScript in Google a Google then
+
+703
+00:38:54,730 --> 00:39:02,329
+you go to this page for example you you
+
+704
+00:38:58,819 --> 00:39:04,849
+read the the Specht about a raid art
+
+705
+00:39:02,329 --> 00:39:07,339
+form you wouldn't understand it you know
+
+706
+00:39:04,849 --> 00:39:11,630
+that's that's what I say you know you
+
+707
+00:39:07,339 --> 00:39:14,780
+can you know you can you know try to
+
+708
+00:39:11,630 --> 00:39:16,400
+verify it yourself you know you you
+
+709
+00:39:14,780 --> 00:39:22,040
+wouldn't understand it I mean in fact
+
+710
+00:39:16,400 --> 00:39:24,950
+you have to yeah anyway so so people
+
+711
+00:39:22,040 --> 00:39:26,960
+don't read that and in fact it so what
+
+712
+00:39:24,950 --> 00:39:31,190
+I'm saying is that the links to the
+
+713
+00:39:26,960 --> 00:39:33,260
+reference do not provide value to the
+
+714
+00:39:31,190 --> 00:39:36,589
+readers actually so I'm starting to
+
+715
+00:39:33,260 --> 00:39:40,760
+remove them so for example a ref I'm
+
+716
+00:39:36,589 --> 00:39:43,819
+going to go here and delete delete show
+
+717
+00:39:40,760 --> 00:39:46,730
+in browser and it's gone so I'm starting
+
+718
+00:39:43,819 --> 00:39:50,810
+to delete them that's what I'm doing so
+
+719
+00:39:46,730 --> 00:39:52,940
+that's one of the things I'm doing so I
+
+720
+00:39:50,810 --> 00:39:57,339
+have collected all my pages that
+
+721
+00:39:52,940 --> 00:39:58,820
+contains reference links they are about
+
+722
+00:39:57,339 --> 00:40:01,970
+200 X
+
+723
+00:39:58,820 --> 00:40:04,370
+300 all these are already done in the
+
+724
+00:40:01,970 --> 00:40:07,100
+past few days so right now they are
+
+725
+00:40:04,370 --> 00:40:11,060
+still 200 pages so I'm just going to go
+
+726
+00:40:07,100 --> 00:40:11,930
+to them and deed them so that's how I
+
+727
+00:40:11,060 --> 00:40:14,840
+work
+
+728
+00:40:11,930 --> 00:40:17,840
+that's what I do you know how I spend my
+
+729
+00:40:14,840 --> 00:40:23,420
+time every day so for example next one
+
+730
+00:40:17,840 --> 00:40:27,050
+array is array so arrays array is is
+
+731
+00:40:23,420 --> 00:40:30,230
+arrays of property name is a property
+
+732
+00:40:27,050 --> 00:40:32,690
+name of the object array the object
+
+733
+00:40:30,230 --> 00:40:35,600
+array is a function that's how
+
+734
+00:40:32,690 --> 00:40:38,650
+JavaScript works so anyway so you see
+
+735
+00:40:35,600 --> 00:40:43,400
+the reference here so I search ref
+
+736
+00:40:38,650 --> 00:40:44,630
+delete delete refresh it's gone so
+
+737
+00:40:43,400 --> 00:40:48,710
+that's what I'm doing
+
+738
+00:40:44,630 --> 00:40:52,100
+so yeah that's what I want to talk about
+
+739
+00:40:48,710 --> 00:40:55,940
+so they I have a lot more to do but
+
+740
+00:40:52,100 --> 00:40:59,660
+basically that's that's what I was going
+
+741
+00:40:55,940 --> 00:41:03,370
+to talk about JavaScript and that's kind
+
+742
+00:40:59,660 --> 00:41:05,810
+of the end I mean this so of course so I
+
+743
+00:41:03,370 --> 00:41:08,630
+doing this time I mentioned lots of
+
+744
+00:41:05,810 --> 00:41:11,660
+other things about JavaScript so if you
+
+745
+00:41:08,630 --> 00:41:13,840
+want me to go in into that direction for
+
+746
+00:41:11,660 --> 00:41:17,120
+example you explain how JavaScript
+
+747
+00:41:13,840 --> 00:41:19,340
+object system differs from the
+
+748
+00:41:17,120 --> 00:41:24,110
+class-based system or give you a
+
+749
+00:41:19,340 --> 00:41:27,050
+overview of JavaScript object system
+
+750
+00:41:24,110 --> 00:41:31,100
+works I can oh I can give you a overview
+
+751
+00:41:27,050 --> 00:41:33,290
+of the JavaScript language so just let
+
+752
+00:41:31,100 --> 00:41:36,950
+me know in the comments now let me read
+
+753
+00:41:33,290 --> 00:41:41,840
+the comments let's see how long I've
+
+754
+00:41:36,950 --> 00:41:48,680
+been going 41 minutes so okay Norman
+
+755
+00:41:41,840 --> 00:41:52,280
+says okay so let me go to top yep
+
+756
+00:41:48,680 --> 00:41:55,160
+oh so then he are you beyond tick-tock
+
+757
+00:41:52,280 --> 00:41:57,290
+great okay so I'm going to join to I
+
+758
+00:41:55,160 --> 00:42:00,080
+think that would be fun you know I just
+
+759
+00:41:57,290 --> 00:42:03,230
+you know I like to see what the new
+
+760
+00:42:00,080 --> 00:42:05,840
+social network so rest rope high-res
+
+761
+00:42:03,230 --> 00:42:09,440
+drop miss Rob says javascript is kind of
+
+762
+00:42:05,840 --> 00:42:11,390
+like play Tahoe you know don't be too
+
+763
+00:42:09,440 --> 00:42:12,680
+sure about that you know like today's
+
+764
+00:42:11,390 --> 00:42:14,740
+JavaScript no they
+
+765
+00:42:12,680 --> 00:42:19,160
+have like a new version every year and
+
+766
+00:42:14,740 --> 00:42:23,420
+in fact since the 2015 version since the
+
+767
+00:42:19,160 --> 00:42:28,550
+2015 version as far as advanced language
+
+768
+00:42:23,420 --> 00:42:30,859
+feature goes you know JavaScript is more
+
+769
+00:42:28,550 --> 00:42:33,770
+Cape you know is equivalent or even
+
+770
+00:42:30,859 --> 00:42:34,869
+possibly more capable than Python Ruby
+
+771
+00:42:33,770 --> 00:42:39,170
+okay
+
+772
+00:42:34,869 --> 00:42:41,059
+Lisp I'm not kidding I mean overall I
+
+773
+00:42:39,170 --> 00:42:45,109
+still consider JavaScript the worst
+
+774
+00:42:41,059 --> 00:42:48,790
+language because all these new versions
+
+775
+00:42:45,109 --> 00:42:52,400
+of JavaScript they they remain
+
+776
+00:42:48,790 --> 00:42:56,270
+compatibility to you know the JavaScript
+
+777
+00:42:52,400 --> 00:42:59,450
+version one you know back in 1995 so
+
+778
+00:42:56,270 --> 00:43:01,780
+that means all the watts of JavaScript
+
+779
+00:42:59,450 --> 00:43:04,490
+you know or the ugliness they didn't fix
+
+780
+00:43:01,780 --> 00:43:05,690
+you know they didn't actually try to fix
+
+781
+00:43:04,490 --> 00:43:09,559
+because they want to remain
+
+782
+00:43:05,690 --> 00:43:11,839
+compatibility so instead you know
+
+783
+00:43:09,559 --> 00:43:14,480
+changing things they add things you know
+
+784
+00:43:11,839 --> 00:43:17,480
+they add things so because of at least
+
+785
+00:43:14,480 --> 00:43:22,640
+because of these javascript is remains a
+
+786
+00:43:17,480 --> 00:43:24,589
+very convoluted and the complex and hard
+
+787
+00:43:22,640 --> 00:43:27,440
+to understand language because there's
+
+788
+00:43:24,589 --> 00:43:31,730
+lots of horse and potholes you know is
+
+789
+00:43:27,440 --> 00:43:34,280
+it's extremely bad but however however
+
+790
+00:43:31,730 --> 00:43:36,440
+if you only consider the language as
+
+791
+00:43:34,280 --> 00:43:39,290
+like you know the features advanced
+
+792
+00:43:36,440 --> 00:43:42,740
+features for example generators you know
+
+793
+00:43:39,290 --> 00:43:46,430
+generally doesn't interface or you know
+
+794
+00:43:42,740 --> 00:43:48,530
+or you know you know the fanciest things
+
+795
+00:43:46,430 --> 00:43:52,549
+we did hacker types you know like to
+
+796
+00:43:48,530 --> 00:43:56,930
+talk about decorators you know foxy you
+
+797
+00:43:52,549 --> 00:44:01,069
+know and you know so javascript is is no
+
+798
+00:43:56,930 --> 00:44:02,630
+worse than actually in many you know in
+
+799
+00:44:01,069 --> 00:44:06,859
+some aspect is actually better than
+
+800
+00:44:02,630 --> 00:44:09,859
+Python or Ruby you know so it's very
+
+801
+00:44:06,859 --> 00:44:13,549
+advanced actually quite advanced
+
+802
+00:44:09,859 --> 00:44:19,160
+language JavaScript is today so for
+
+803
+00:44:13,549 --> 00:44:23,839
+example I have a article here JavaScript
+
+804
+00:44:19,160 --> 00:44:26,750
+so es2015 features where this page
+
+805
+00:44:23,839 --> 00:44:30,619
+summarizes the major features of
+
+806
+00:44:26,750 --> 00:44:35,119
+javascript introduced in in the eggman
+
+807
+00:44:30,619 --> 00:44:38,059
+script to 2015 which came out in 2015
+
+808
+00:44:35,119 --> 00:44:43,970
+now they have one new version every year
+
+809
+00:44:38,059 --> 00:44:47,240
+so you have 2016 2 + 2017 18 and this
+
+810
+00:44:43,970 --> 00:44:49,359
+year you're gonna have 2019 new version
+
+811
+00:44:47,240 --> 00:44:52,670
+so they are like javascript is going
+
+812
+00:44:49,359 --> 00:44:54,519
+incredibly fast and you know they are
+
+813
+00:44:52,670 --> 00:44:57,200
+adding a lot of things you know and
+
+814
+00:44:54,519 --> 00:45:00,200
+actually pattern matching you know the
+
+815
+00:44:57,200 --> 00:45:03,289
+pattern matching which is a feature you
+
+816
+00:45:00,200 --> 00:45:05,779
+only find in a handful of functional
+
+817
+00:45:03,289 --> 00:45:08,359
+languages advanced functional languages
+
+818
+00:45:05,779 --> 00:45:11,359
+is coming to JavaScript I'm not sure
+
+819
+00:45:08,359 --> 00:45:16,089
+when maybe it's in 2019 I don't know yet
+
+820
+00:45:11,359 --> 00:45:19,400
+but it's like it's there oh and bignum
+
+821
+00:45:16,089 --> 00:45:21,049
+anyway so so anyway this page summarizes
+
+822
+00:45:19,400 --> 00:45:24,140
+some of the new things
+
+823
+00:45:21,049 --> 00:45:28,130
+it's like 2015 is a complete new
+
+824
+00:45:24,140 --> 00:45:30,470
+language I mean yeah oh the syntax is
+
+825
+00:45:28,130 --> 00:45:33,740
+it's like a complete complete new
+
+826
+00:45:30,470 --> 00:45:36,589
+language but without actually changing
+
+827
+00:45:33,740 --> 00:45:39,140
+you know the old language so all the old
+
+828
+00:45:36,589 --> 00:45:39,589
+language you know the syntax is still
+
+829
+00:45:39,140 --> 00:45:41,990
+there
+
+830
+00:45:39,589 --> 00:45:45,259
+they still works however they are new
+
+831
+00:45:41,990 --> 00:45:48,529
+adding a complete you know new kind of
+
+832
+00:45:45,259 --> 00:45:51,950
+thing so you have let which is like lisp
+
+833
+00:45:48,529 --> 00:45:54,259
+sled you know it's a local let scope
+
+834
+00:45:51,950 --> 00:45:55,309
+constant you have arrow functions this
+
+835
+00:45:54,259 --> 00:45:59,119
+is great
+
+836
+00:45:55,309 --> 00:46:01,130
+you have function argument if default
+
+837
+00:45:59,119 --> 00:46:04,009
+value okay now you have you know default
+
+838
+00:46:01,130 --> 00:46:05,960
+values yeah I mean that's a basic
+
+839
+00:46:04,009 --> 00:46:09,230
+feature in you know Python Ruby and
+
+840
+00:46:05,960 --> 00:46:11,180
+others but so it's in JavaScript now to
+
+841
+00:46:09,230 --> 00:46:13,250
+you know since 2015
+
+842
+00:46:11,180 --> 00:46:16,339
+you have rest parameters you have
+
+843
+00:46:13,250 --> 00:46:18,349
+destructuring assignment which you do
+
+844
+00:46:16,339 --> 00:46:20,380
+not have among other many other
+
+845
+00:46:18,349 --> 00:46:23,660
+languages you know yet
+
+846
+00:46:20,380 --> 00:46:27,730
+this structuring assignment then you
+
+847
+00:46:23,660 --> 00:46:30,589
+have computer ability keys you have
+
+848
+00:46:27,730 --> 00:46:33,470
+object literal expression okay then you
+
+849
+00:46:30,589 --> 00:46:35,769
+have proto that's getting technical you
+
+850
+00:46:33,470 --> 00:46:38,390
+know some of these are getting you know
+
+851
+00:46:35,769 --> 00:46:39,570
+technicalities of JavaScript you have
+
+852
+00:46:38,390 --> 00:46:41,400
+temporary string
+
+853
+00:46:39,570 --> 00:46:44,250
+that which is also common in other
+
+854
+00:46:41,400 --> 00:46:48,570
+languages Python Ruby pearl you have
+
+855
+00:46:44,250 --> 00:46:53,760
+spread operator which is also fairly you
+
+856
+00:46:48,570 --> 00:46:55,710
+know kind of like advanced you know and
+
+857
+00:46:53,760 --> 00:47:00,990
+then you have set object you have map
+
+858
+00:46:55,710 --> 00:47:03,300
+object you have and you know so this is
+
+859
+00:47:00,990 --> 00:47:09,320
+you know this is overview of JavaScript
+
+860
+00:47:03,300 --> 00:47:09,320
+2015 so let's go back to the comments
+
+861
+00:47:09,830 --> 00:47:16,050
+too busy with tik-tok javascript is kind
+
+862
+00:47:12,840 --> 00:47:21,060
+of a dough I've only read C C++ has cow
+
+863
+00:47:16,050 --> 00:47:24,750
+and rust specs okay wrist Rob says he's
+
+864
+00:47:21,060 --> 00:47:28,800
+read cc first verse has cow in rust
+
+865
+00:47:24,750 --> 00:47:32,180
+specs I never read any of those okay so
+
+866
+00:47:28,800 --> 00:47:34,290
+yeah we are like on the different side
+
+867
+00:47:32,180 --> 00:47:38,660
+mostly for reference okay
+
+868
+00:47:34,290 --> 00:47:43,490
+no man says the Java switch spec was
+
+869
+00:47:38,660 --> 00:47:43,490
+retrospective not surprising it's a mess
+
+870
+00:47:43,820 --> 00:47:48,450
+retrospective what do you mean
+
+871
+00:47:45,560 --> 00:47:52,560
+retrospective you mean the language
+
+872
+00:47:48,450 --> 00:47:54,840
+first then they start to write spec well
+
+873
+00:47:52,560 --> 00:47:58,880
+a lot languages like that well anyway so
+
+874
+00:47:54,840 --> 00:48:02,580
+I mean yeah it's a messy
+
+875
+00:47:58,880 --> 00:48:05,100
+rest Rob says such a horrible language
+
+876
+00:48:02,580 --> 00:48:05,820
+but used everywhere in today's web apps
+
+877
+00:48:05,100 --> 00:48:09,030
+yeah
+
+878
+00:48:05,820 --> 00:48:11,580
+in fact JavaScript is like it's used on
+
+879
+00:48:09,030 --> 00:48:14,400
+desktop apps to you know nothing to do
+
+880
+00:48:11,580 --> 00:48:17,430
+with the web for example the atom editor
+
+881
+00:48:14,400 --> 00:48:20,640
+you know the electron framework you know
+
+882
+00:48:17,430 --> 00:48:24,480
+the the Microsoft vs code that's so
+
+883
+00:48:20,640 --> 00:48:29,460
+JavaScript you know and it's a desktop
+
+884
+00:48:24,480 --> 00:48:33,090
+desktop app so that's how far javascript
+
+885
+00:48:29,460 --> 00:48:35,880
+has like how popular it has become but
+
+886
+00:48:33,090 --> 00:48:37,050
+overall as i you know i really it's
+
+887
+00:48:35,880 --> 00:48:39,660
+really a bad language
+
+888
+00:48:37,050 --> 00:48:42,150
+I mean seriously bad you know I really
+
+889
+00:48:39,660 --> 00:48:45,810
+wish they not to maintain the
+
+890
+00:48:42,150 --> 00:48:48,960
+compatibility so get rid of the old you
+
+891
+00:48:45,810 --> 00:48:51,170
+know but they you know but they don't do
+
+892
+00:48:48,960 --> 00:48:51,170
+that
+
+893
+00:48:52,280 --> 00:48:58,650
+so milk cat hey milk at one time no see
+
+894
+00:48:55,950 --> 00:49:00,089
+man milk ad we should do a video chat
+
+895
+00:48:58,650 --> 00:49:04,440
+you and me man
+
+896
+00:49:00,089 --> 00:49:08,309
+you like you don't do anything so milk
+
+897
+00:49:04,440 --> 00:49:11,480
+ad says just spent 48 hours praying see
+
+898
+00:49:08,309 --> 00:49:16,049
+Lisp that's my idea of fun before I go
+
+899
+00:49:11,480 --> 00:49:18,329
+for sleep in studies again okay see
+
+900
+00:49:16,049 --> 00:49:23,250
+leaves sillies that's an implementation
+
+901
+00:49:18,329 --> 00:49:25,890
+of Common Lisp so restaurant says yeah
+
+902
+00:49:23,250 --> 00:49:32,250
+Jess uses this weird photo type system
+
+903
+00:49:25,890 --> 00:49:37,980
+yeah yeah it's pretty weird but but I
+
+904
+00:49:32,250 --> 00:49:40,559
+mean um yeah okay so so we've dog hey
+
+905
+00:49:37,980 --> 00:49:44,099
+web dog great to see you what do you
+
+906
+00:49:40,559 --> 00:49:48,299
+think about typescript it's way better
+
+907
+00:49:44,099 --> 00:49:50,730
+yeah I mean it's hard to say you know I
+
+908
+00:49:48,299 --> 00:49:52,440
+you know it depends on like what you
+
+909
+00:49:50,730 --> 00:49:55,770
+know what do I think of it I mean it's
+
+910
+00:49:52,440 --> 00:50:01,230
+great so so types temp script you know
+
+911
+00:49:55,770 --> 00:50:04,559
+tab script is a kind of a static typed
+
+912
+00:50:01,230 --> 00:50:09,150
+language that is a layer on top of
+
+913
+00:50:04,559 --> 00:50:11,849
+JavaScript so you know you can say it's
+
+914
+00:50:09,150 --> 00:50:13,710
+a superset of JavaScript so javascript
+
+915
+00:50:11,849 --> 00:50:17,549
+is you know type script you know you
+
+916
+00:50:13,710 --> 00:50:20,279
+could you know it's just but then if you
+
+917
+00:50:17,549 --> 00:50:24,950
+take any JavaScript code you can start
+
+918
+00:50:20,279 --> 00:50:27,869
+to add types let me go let's go to
+
+919
+00:50:24,950 --> 00:50:29,160
+because I have written Chavez I have
+
+920
+00:50:27,869 --> 00:50:35,990
+used typescript
+
+921
+00:50:29,160 --> 00:50:40,140
+in my sorrow application so let's see
+
+922
+00:50:35,990 --> 00:50:42,119
+function frog first I want to work on
+
+923
+00:50:40,140 --> 00:50:43,369
+this project but it's just like got
+
+924
+00:50:42,119 --> 00:50:49,079
+delayed and delayed
+
+925
+00:50:43,369 --> 00:50:52,609
+let's show in Safari so this is a
+
+926
+00:50:49,079 --> 00:50:52,609
+typescript I'm gonna show you
+
+927
+00:50:53,670 --> 00:51:02,539
+oh my god safaris starting up why is it
+
+928
+00:50:59,940 --> 00:51:02,539
+taking so long
+
+929
+00:51:03,920 --> 00:51:09,420
+okay so I wrote these in typescript I
+
+930
+00:51:07,260 --> 00:51:12,799
+mean yeah in typescript so let's go up
+
+931
+00:51:09,420 --> 00:51:15,359
+this is a library for plotting
+
+932
+00:51:12,799 --> 00:51:19,440
+mathematics curves so I'm working on
+
+933
+00:51:15,359 --> 00:51:21,359
+this and okay that one I want to show
+
+934
+00:51:19,440 --> 00:51:25,079
+you character count let me show you that
+
+935
+00:51:21,359 --> 00:51:29,760
+one yeah let me show you two things I
+
+936
+00:51:25,079 --> 00:51:33,210
+wrote about in JavaScript so if you like
+
+937
+00:51:29,760 --> 00:51:35,910
+it spread it okay help me out you know
+
+938
+00:51:33,210 --> 00:51:39,059
+that other people know so one is a
+
+939
+00:51:35,910 --> 00:51:42,029
+Unicode search I'm gonna show you and
+
+940
+00:51:39,059 --> 00:51:45,450
+the other one is keyboards let's go to
+
+941
+00:51:42,029 --> 00:51:50,089
+keyboard character count so if you go to
+
+942
+00:51:45,450 --> 00:51:55,380
+my keyboard block then you go to layout
+
+943
+00:51:50,089 --> 00:51:59,309
+now then you go to here cha frequency
+
+944
+00:51:55,380 --> 00:52:06,269
+counter now this is a interactive app
+
+945
+00:51:59,309 --> 00:52:11,480
+that farts this is a interactive plot
+
+946
+00:52:06,269 --> 00:52:15,059
+that counts the number of characters
+
+947
+00:52:11,480 --> 00:52:16,799
+frequency you see as I type they kind of
+
+948
+00:52:15,059 --> 00:52:22,049
+they start to calculate you know which
+
+949
+00:52:16,799 --> 00:52:25,440
+which letter is used more so try it and
+
+950
+00:52:22,049 --> 00:52:27,779
+if you like it tell your friends shred
+
+951
+00:52:25,440 --> 00:52:31,200
+you know put it on your blog link to it
+
+952
+00:52:27,779 --> 00:52:33,269
+you know I wrote this because I want to
+
+953
+00:52:31,200 --> 00:52:36,000
+study you know the letter frequency when
+
+954
+00:52:33,269 --> 00:52:39,089
+you design keyboard layouts you know
+
+955
+00:52:36,000 --> 00:52:42,109
+when you want to know you know you can
+
+956
+00:52:39,089 --> 00:52:44,730
+also paste like the whole thing paste
+
+957
+00:52:42,109 --> 00:52:49,019
+you know a bunch of things then you're
+
+958
+00:52:44,730 --> 00:52:51,930
+just it's in it's computing in real time
+
+959
+00:52:49,019 --> 00:52:56,880
+so you know as you know you you as as I
+
+960
+00:52:51,930 --> 00:52:59,160
+type you know let's say T et why it
+
+961
+00:52:56,880 --> 00:53:04,200
+doesn't read what you see I typed it
+
+962
+00:52:59,160 --> 00:53:07,000
+here and I want to hold it down and oh I
+
+963
+00:53:04,200 --> 00:53:10,840
+see on the Mac you know
+
+964
+00:53:07,000 --> 00:53:13,180
+anyway so you know it's interactive in
+
+965
+00:53:10,840 --> 00:53:17,830
+real time so that's one JavaScript app
+
+966
+00:53:13,180 --> 00:53:19,840
+I've written you can see the code yeah
+
+967
+00:53:17,830 --> 00:53:21,640
+I'm not gonna show it but you can see it
+
+968
+00:53:19,840 --> 00:53:24,760
+if you if you want to you can of course
+
+969
+00:53:21,640 --> 00:53:28,300
+see the code then the dermis then the
+
+970
+00:53:24,760 --> 00:53:30,400
+other thing is Unicode characters if you
+
+971
+00:53:28,300 --> 00:53:34,360
+just search my name sorry Unicode you'll
+
+972
+00:53:30,400 --> 00:53:36,550
+get to this page so let's say hot this
+
+973
+00:53:34,360 --> 00:53:43,960
+is also real time okay so this way
+
+974
+00:53:36,550 --> 00:53:46,060
+select or delete h-e a you know now it
+
+975
+00:53:43,960 --> 00:53:48,250
+shows all Unicode characters that
+
+976
+00:53:46,060 --> 00:53:54,490
+contains the word whose name contains
+
+977
+00:53:48,250 --> 00:53:59,800
+the word HEA so you got all these let's
+
+978
+00:53:54,490 --> 00:54:02,290
+see her head oh okay so you got a head
+
+979
+00:53:59,800 --> 00:54:05,710
+this is Chinese Chinese character for
+
+980
+00:54:02,290 --> 00:54:11,590
+head this is a variation and then this
+
+981
+00:54:05,710 --> 00:54:15,030
+you have arrow head arrow heads you have
+
+982
+00:54:11,590 --> 00:54:17,620
+you know okay so let's let's try
+
+983
+00:54:15,030 --> 00:54:25,080
+headphone there it is health headphones
+
+984
+00:54:17,620 --> 00:54:27,700
+so let's try H e a ha t yo K that's hot
+
+985
+00:54:25,080 --> 00:54:29,170
+so anyway that's my unicode character
+
+986
+00:54:27,700 --> 00:54:31,840
+search or these are written in
+
+987
+00:54:29,170 --> 00:54:35,640
+JavaScript and they work in real time of
+
+988
+00:54:31,840 --> 00:54:40,630
+course okay now let's go back to
+
+989
+00:54:35,640 --> 00:54:42,270
+typescript let's go back to yeah so I
+
+990
+00:54:40,630 --> 00:54:48,490
+was showing you
+
+991
+00:54:42,270 --> 00:54:52,390
+let's go to let's go back to the the
+
+992
+00:54:48,490 --> 00:55:00,220
+curves the plant so so if you for
+
+993
+00:54:52,390 --> 00:55:03,580
+example let's go to index so you see
+
+994
+00:55:00,220 --> 00:55:08,020
+that parametric plot is this page now
+
+995
+00:55:03,580 --> 00:55:11,600
+I'm going to open that page and that's
+
+996
+00:55:08,020 --> 00:55:14,850
+that page then you go to
+
+997
+00:55:11,600 --> 00:55:14,850
+[Music]
+
+998
+00:55:15,370 --> 00:55:23,770
+you can see I'm loading to JavaScript
+
+999
+00:55:20,090 --> 00:55:27,680
+files here now this one is the library
+
+1000
+00:55:23,770 --> 00:55:28,400
+that does all the you know plotting
+
+1001
+00:55:27,680 --> 00:55:32,510
+stuff
+
+1002
+00:55:28,400 --> 00:55:36,650
+SVG this one is the actual code for this
+
+1003
+00:55:32,510 --> 00:55:38,660
+page so if I open that that's a code so
+
+1004
+00:55:36,650 --> 00:55:42,050
+all you have to do is you know call this
+
+1005
+00:55:38,660 --> 00:55:44,810
+function parametric plot then you know
+
+1006
+00:55:42,050 --> 00:55:47,360
+create an anchor to where you want to
+
+1007
+00:55:44,810 --> 00:55:49,640
+put it you know put the plot then you
+
+1008
+00:55:47,360 --> 00:55:55,880
+just say this is a function arrow
+
+1009
+00:55:49,640 --> 00:56:00,230
+function X X then map to X and math sine
+
+1010
+00:55:55,880 --> 00:56:04,940
+sine curve sine x times X sine squared
+
+1011
+00:56:00,230 --> 00:56:08,150
+okay from 0 to 7 then 8 plots that so I
+
+1012
+00:56:04,940 --> 00:56:10,250
+wrote this and the library let me show
+
+1013
+00:56:08,150 --> 00:56:15,020
+you the library the library is this file
+
+1014
+00:56:10,250 --> 00:56:17,930
+open that and this is JavaScript but
+
+1015
+00:56:15,020 --> 00:56:19,580
+let's go to the directory you can see
+
+1016
+00:56:17,930 --> 00:56:23,600
+it's over here so it's actually
+
+1017
+00:56:19,580 --> 00:56:27,050
+typescript that's the JavaScript that
+
+1018
+00:56:23,600 --> 00:56:32,390
+runs on a web but the the source code is
+
+1019
+00:56:27,050 --> 00:56:34,910
+this one type script so you can see for
+
+1020
+00:56:32,390 --> 00:56:43,250
+example this this is typescript you see
+
+1021
+00:56:34,910 --> 00:56:45,560
+this you know so so no more each in
+
+1022
+00:56:43,250 --> 00:56:50,630
+JavaScript yeah okay that we can show
+
+1023
+00:56:45,560 --> 00:56:53,060
+you this so let's see range so so you
+
+1024
+00:56:50,630 --> 00:56:58,190
+see these two things are the same thing
+
+1025
+00:56:53,060 --> 00:57:00,650
+this part and this part you see both of
+
+1026
+00:56:58,190 --> 00:57:04,220
+them define the same function f range
+
+1027
+00:57:00,650 --> 00:57:06,740
+but notice in a typescript you have the
+
+1028
+00:57:04,220 --> 00:57:09,760
+type of the arguments you see the
+
+1029
+00:57:06,740 --> 00:57:14,180
+argument here is just min Max and Delta
+
+1030
+00:57:09,760 --> 00:57:17,480
+but in typescript you have Ming is the
+
+1031
+00:57:14,180 --> 00:57:22,820
+number number is a type max is a number
+
+1032
+00:57:17,480 --> 00:57:25,310
+type Delta default value is 1 and the
+
+1033
+00:57:22,820 --> 00:57:27,340
+function also returns a value and that
+
+1034
+00:57:25,310 --> 00:57:31,570
+value has is a
+
+1035
+00:57:27,340 --> 00:57:34,690
+of type array and each array element is
+
+1036
+00:57:31,570 --> 00:57:37,660
+a number so what you are seeing is the
+
+1037
+00:57:34,690 --> 00:57:40,480
+type script so they are like a layer on
+
+1038
+00:57:37,660 --> 00:57:43,120
+top of JavaScript so is it good or bad
+
+1039
+00:57:40,480 --> 00:57:45,310
+well I mean it's good in that it helped
+
+1040
+00:57:43,120 --> 00:57:48,820
+because JavaScript we have no types and
+
+1041
+00:57:45,310 --> 00:57:51,940
+JavaScript is pretty convoluted so it's
+
+1042
+00:57:48,820 --> 00:57:56,140
+very extremely easy to create programmer
+
+1043
+00:57:51,940 --> 00:58:00,130
+errors so typescript helps in you know
+
+1044
+00:57:56,140 --> 00:58:02,110
+in that way because you can add type
+
+1045
+00:58:00,130 --> 00:58:04,780
+annotations so code so called type
+
+1046
+00:58:02,110 --> 00:58:08,860
+annotations you add you know types to
+
+1047
+00:58:04,780 --> 00:58:12,330
+values so that the compiler will find
+
+1048
+00:58:08,860 --> 00:58:17,950
+any type errors you know it's helpful
+
+1049
+00:58:12,330 --> 00:58:21,070
+but however it's not really good I mean
+
+1050
+00:58:17,950 --> 00:58:23,200
+it's helpful for sure but it isn't I
+
+1051
+00:58:21,070 --> 00:58:26,880
+mean like you know you couldn't say it's
+
+1052
+00:58:23,200 --> 00:58:30,070
+really good because because you see
+
+1053
+00:58:26,880 --> 00:58:31,860
+JavaScript is a very convoluted language
+
+1054
+00:58:30,070 --> 00:58:35,280
+you know the syntax you know it's
+
+1055
+00:58:31,860 --> 00:58:38,770
+inconsistent and lots of potholes okay
+
+1056
+00:58:35,280 --> 00:58:41,230
+so you begin with that typescript you
+
+1057
+00:58:38,770 --> 00:58:43,180
+know is intended to be just a superset
+
+1058
+00:58:41,230 --> 00:58:45,760
+so it's a hundred percent compatible
+
+1059
+00:58:43,180 --> 00:58:48,670
+with JavaScript so you begin with this
+
+1060
+00:58:45,760 --> 00:58:52,030
+lousy JavaScript then you add you try to
+
+1061
+00:58:48,670 --> 00:58:56,830
+add you know syntax for types you know
+
+1062
+00:58:52,030 --> 00:59:02,230
+to this already very lousy syntax so it
+
+1063
+00:58:56,830 --> 00:59:04,300
+becomes more very complex you know it
+
+1064
+00:59:02,230 --> 00:59:07,650
+really does get becomes you almost
+
+1065
+00:59:04,300 --> 00:59:10,630
+become becoming incomprehensible if you
+
+1066
+00:59:07,650 --> 00:59:13,690
+you can already see a little bit of that
+
+1067
+00:59:10,630 --> 00:59:17,290
+happening you know let's see for example
+
+1068
+00:59:13,690 --> 00:59:20,340
+this this function this function dot
+
+1069
+00:59:17,290 --> 00:59:23,640
+products it's a function that computes
+
+1070
+00:59:20,340 --> 00:59:26,770
+dot product of two vectors you can see
+
+1071
+00:59:23,640 --> 00:59:31,690
+here is the argument then here is the
+
+1072
+00:59:26,770 --> 00:59:34,450
+type declaration you know so it gets you
+
+1073
+00:59:31,690 --> 00:59:37,030
+know the it gets complex even for a
+
+1074
+00:59:34,450 --> 00:59:40,440
+simple function like this you know this
+
+1075
+00:59:37,030 --> 00:59:40,440
+is just one line function
+
+1076
+00:59:41,180 --> 00:59:45,190
+so that's that that is my opinion about
+
+1077
+00:59:43,580 --> 00:59:47,540
+typescript
+
+1078
+00:59:45,190 --> 00:59:49,790
+you know I'm not you know what can you
+
+1079
+00:59:47,540 --> 00:59:51,830
+do about it there's almost nothing you
+
+1080
+00:59:49,790 --> 00:59:54,850
+can do because javascript is used on web
+
+1081
+00:59:51,830 --> 00:59:57,770
+they they don't want to you know
+
+1082
+00:59:54,850 --> 00:59:59,869
+eliminate the old one they want to
+
+1083
+00:59:57,770 --> 01:00:04,040
+remain compatible so you have like 20
+
+1084
+00:59:59,869 --> 01:00:07,220
+years of baggage then typescript tries
+
+1085
+01:00:04,040 --> 01:00:10,160
+to be compatible with JavaScript 100%
+
+1086
+01:00:07,220 --> 01:00:12,590
+you know because you have this
+
+1087
+01:00:10,160 --> 01:00:16,970
+tug-of-war situation of compatibility
+
+1088
+01:00:12,590 --> 01:00:19,040
+and progress you know if you go the the
+
+1089
+01:00:16,970 --> 01:00:22,280
+extreme way of progress where you
+
+1090
+01:00:19,040 --> 01:00:25,730
+eliminate compatibility what happens is
+
+1091
+01:00:22,280 --> 01:00:28,869
+like Python 3 nobody uses nobody want to
+
+1092
+01:00:25,730 --> 01:00:32,180
+adopt you know after 10 years only 50%
+
+1093
+01:00:28,869 --> 01:00:35,840
+adoption so on the other hand you
+
+1094
+01:00:32,180 --> 01:00:37,340
+maintain comparability because of habit
+
+1095
+01:00:35,840 --> 01:00:39,470
+you know people like that because people
+
+1096
+01:00:37,340 --> 01:00:41,450
+don't want to change what they know you
+
+1097
+01:00:39,470 --> 01:00:44,359
+know oh I have to relearn everything you
+
+1098
+01:00:41,450 --> 01:00:49,060
+know they like that so but then you got
+
+1099
+01:00:44,359 --> 01:00:53,930
+this extremely baggage you know a bag of
+
+1100
+01:00:49,060 --> 01:00:56,560
+complex complexities like see see it and
+
+1101
+01:00:53,930 --> 01:01:00,530
+see chaff shop you know see first first
+
+1102
+01:00:56,560 --> 01:01:02,810
+that's what see first first is the same
+
+1103
+01:01:00,530 --> 01:01:05,530
+way but it's popular what can you do you
+
+1104
+01:01:02,810 --> 01:01:11,420
+know that's kind of like that
+
+1105
+01:01:05,530 --> 01:01:14,270
+so typescript so you have this yeah the
+
+1106
+01:01:11,420 --> 01:01:16,460
+fairly complex and you know you have
+
+1107
+01:01:14,270 --> 01:01:18,950
+this situation you know and also
+
+1108
+01:01:16,460 --> 01:01:21,710
+typescript they don't introduce their
+
+1109
+01:01:18,950 --> 01:01:24,470
+own libraries that's their decision they
+
+1110
+01:01:21,710 --> 01:01:28,520
+decided that they're gonna like play
+
+1111
+01:01:24,470 --> 01:01:32,869
+nice you know so they create is this you
+
+1112
+01:01:28,520 --> 01:01:35,000
+know optional type annotation on top of
+
+1113
+01:01:32,869 --> 01:01:38,330
+hundred percent compatible with
+
+1114
+01:01:35,000 --> 01:01:40,760
+JavaScript and you know they don't add
+
+1115
+01:01:38,330 --> 01:01:42,890
+their own libraries like like it's not
+
+1116
+01:01:40,760 --> 01:01:44,600
+like if you walk in typescript then you
+
+1117
+01:01:42,890 --> 01:01:47,090
+have all these libraries part of
+
+1118
+01:01:44,600 --> 01:01:49,670
+typescript you can use that can
+
+1119
+01:01:47,090 --> 01:01:52,030
+automatically compile to JavaScript no
+
+1120
+01:01:49,670 --> 01:01:53,849
+they decided you know they don't do that
+
+1121
+01:01:52,030 --> 01:01:56,009
+instead of they
+
+1122
+01:01:53,849 --> 01:01:58,979
+to play nice with the so called
+
+1123
+01:01:56,009 --> 01:02:01,229
+JavaScript ecosystem so that you know
+
+1124
+01:01:58,979 --> 01:02:03,209
+the JavaScript language doesn't is maybe
+
+1125
+01:02:01,229 --> 01:02:05,759
+it's not too very big you don't have
+
+1126
+01:02:03,209 --> 01:02:08,269
+many things so you rely on the hundreds
+
+1127
+01:02:05,759 --> 01:02:11,999
+of libraries and frameworks out there
+
+1128
+01:02:08,269 --> 01:02:15,150
+now it would be nice if if typescript
+
+1129
+01:02:11,999 --> 01:02:16,920
+creates all the deficiencies that's you
+
+1130
+01:02:15,150 --> 01:02:18,989
+know of JavaScript and include
+
+1131
+01:02:16,920 --> 01:02:21,479
+everything like the Python would say you
+
+1132
+01:02:18,989 --> 01:02:23,819
+know battery battery included it would
+
+1133
+01:02:21,479 --> 01:02:26,219
+be nice if if you can code everything in
+
+1134
+01:02:23,819 --> 01:02:30,089
+typescript and just press a button you
+
+1135
+01:02:26,219 --> 01:02:32,369
+know compile to JavaScript but you know
+
+1136
+01:02:30,089 --> 01:02:34,949
+the typescript decided you know they are
+
+1137
+01:02:32,369 --> 01:02:39,089
+not doing that what they do is only
+
+1138
+01:02:34,949 --> 01:02:41,699
+providing you with you know the types of
+
+1139
+01:02:39,089 --> 01:02:44,009
+type a notation for the JavaScript
+
+1140
+01:02:41,699 --> 01:02:48,150
+language they don't provide extra
+
+1141
+01:02:44,009 --> 01:02:50,930
+libraries for JavaScript so you still
+
+1142
+01:02:48,150 --> 01:02:53,579
+need to use all these variety like
+
+1143
+01:02:50,930 --> 01:02:56,069
+millions of them the libraries out there
+
+1144
+01:02:53,579 --> 01:02:57,329
+some not very bad some are you know you
+
+1145
+01:02:56,069 --> 01:03:00,690
+don't know they are about their
+
+1146
+01:02:57,329 --> 01:03:03,719
+qualities like I mentioned before even a
+
+1147
+01:03:00,690 --> 01:03:07,859
+trim string function like five lines is
+
+1148
+01:03:03,719 --> 01:03:10,469
+a library you know you know used by lots
+
+1149
+01:03:07,859 --> 01:03:11,969
+of frameworks you know it's very bad so
+
+1150
+01:03:10,469 --> 01:03:14,369
+anyway so that's one thing I wish
+
+1151
+01:03:11,969 --> 01:03:17,789
+typescript would do you know like
+
+1152
+01:03:14,369 --> 01:03:20,339
+provide a set of you know standard
+
+1153
+01:03:17,789 --> 01:03:22,410
+libraries as part of typescript so I
+
+1154
+01:03:20,339 --> 01:03:24,749
+don't have to you know use all you know
+
+1155
+01:03:22,410 --> 01:03:27,269
+random libraries out there so I can just
+
+1156
+01:03:24,749 --> 01:03:30,269
+call my typescript press a button it
+
+1157
+01:03:27,269 --> 01:03:32,999
+compiles to JavaScript then you know
+
+1158
+01:03:30,269 --> 01:03:35,789
+then that is the JavaScript you use for
+
+1159
+01:03:32,999 --> 01:03:42,719
+the web you know so that's about
+
+1160
+01:03:35,789 --> 01:03:45,119
+typescript that's my my opinion so such
+
+1161
+01:03:42,719 --> 01:03:47,239
+a hard okay so lots of comments so let
+
+1162
+01:03:45,119 --> 01:03:49,799
+me go quickly over the comments then
+
+1163
+01:03:47,239 --> 01:03:56,729
+answer some questions and maybe they'll
+
+1164
+01:03:49,799 --> 01:04:00,640
+be it for today so are you going to okay
+
+1165
+01:03:56,729 --> 01:04:03,370
+so hold on a second
+
+1166
+01:04:00,640 --> 01:04:05,830
+so are you going to do not jazz tutorial
+
+1167
+01:04:03,370 --> 01:04:12,640
+rest drove says actually I do have one
+
+1168
+01:04:05,830 --> 01:04:21,580
+already let me show you actually just
+
+1169
+01:04:12,640 --> 01:04:25,300
+such sorry not Jas I have like a very
+
+1170
+01:04:21,580 --> 01:04:30,250
+simple one-page tutorial ok
+
+1171
+01:04:25,300 --> 01:04:35,830
+and so not J's tutorial and this is
+
+1172
+01:04:30,250 --> 01:04:40,000
+written like five years ago and okay so
+
+1173
+01:04:35,830 --> 01:04:44,170
+that's so you you you know this is
+
+1174
+01:04:40,000 --> 01:04:47,650
+written I'd 2013 mostly 2013 yeah five
+
+1175
+01:04:44,170 --> 01:04:50,440
+years ago but I think most of them are
+
+1176
+01:04:47,650 --> 01:04:53,260
+still valid because you know they don't
+
+1177
+01:04:50,440 --> 01:04:55,600
+change you know I mean the I mean I'm
+
+1178
+01:04:53,260 --> 01:04:57,580
+just covering the basics so the basics
+
+1179
+01:04:55,600 --> 01:05:00,100
+doesn't change you know it's still valid
+
+1180
+01:04:57,580 --> 01:05:02,050
+you could try to read my tutorial I'm
+
+1181
+01:05:00,100 --> 01:05:04,300
+pretty sure there are a lot better this
+
+1182
+01:05:02,050 --> 01:05:07,480
+is not something I've dived very deep
+
+1183
+01:05:04,300 --> 01:05:09,370
+but if this is your first time it might
+
+1184
+01:05:07,480 --> 01:05:11,760
+be a good tutorial for you
+
+1185
+01:05:09,370 --> 01:05:16,140
+but there's another one at the bottom
+
+1186
+01:05:11,760 --> 01:05:20,080
+which is not j/s tutorial by Ryan doll
+
+1187
+01:05:16,140 --> 01:05:23,380
+he is the guy who created not GEOSS now
+
+1188
+01:05:20,080 --> 01:05:26,650
+this is a video and I annotated with
+
+1189
+01:05:23,380 --> 01:05:29,910
+code you know with code from his video
+
+1190
+01:05:26,650 --> 01:05:33,160
+so you also you could try read this one
+
+1191
+01:05:29,910 --> 01:05:36,250
+again this one you know is even older
+
+1192
+01:05:33,160 --> 01:05:38,590
+like his video is in 2011 so this is
+
+1193
+01:05:36,250 --> 01:05:45,010
+kind of like the beginning of types of
+
+1194
+01:05:38,590 --> 01:05:48,040
+notches the advantage of studying this
+
+1195
+01:05:45,010 --> 01:05:52,600
+tutorial is that you get the vantage
+
+1196
+01:05:48,040 --> 01:05:57,840
+point of the the beginning intentions
+
+1197
+01:05:52,600 --> 01:06:00,850
+and the purpose and goal of not j/s okay
+
+1198
+01:05:57,840 --> 01:06:03,600
+so i still recommend it I mean even it's
+
+1199
+01:06:00,850 --> 01:06:07,080
+pretty old I still recommend it as a
+
+1200
+01:06:03,600 --> 01:06:10,530
+introduction you know this video is like
+
+1201
+01:06:07,080 --> 01:06:14,310
+one hour okay so
+
+1202
+01:06:10,530 --> 01:06:17,160
+it's a good introduction and and this
+
+1203
+01:06:14,310 --> 01:06:19,910
+guy Ryan okay I need to turn on
+
+1204
+01:06:17,160 --> 01:06:19,910
+JavaScript
+
+1205
+01:06:20,690 --> 01:06:40,320
+okay javascript song it's refresh let's
+
+1206
+01:06:25,710 --> 01:06:41,910
+try to play so anyway this guy Ryan Tao
+
+1207
+01:06:40,320 --> 01:06:44,640
+is very interesting guy he's a
+
+1208
+01:06:41,910 --> 01:06:48,540
+mathematician when before he began
+
+1209
+01:06:44,640 --> 01:06:52,680
+before he started not yes he is a like a
+
+1210
+01:06:48,540 --> 01:06:55,260
+post doc PhD student in math in some
+
+1211
+01:06:52,680 --> 01:06:58,200
+very advanced you know some K Theory
+
+1212
+01:06:55,260 --> 01:07:04,530
+chaos opera or something so he's a
+
+1213
+01:06:58,200 --> 01:07:07,140
+mathematician so you know you know so he
+
+1214
+01:07:04,530 --> 01:07:09,420
+he spent like 10 years you know yeah
+
+1215
+01:07:07,140 --> 01:07:12,630
+basically more or less 10 years studying
+
+1216
+01:07:09,420 --> 01:07:17,070
+math he's a mathematician and he got
+
+1217
+01:07:12,630 --> 01:07:19,560
+bored with that and also you know it's
+
+1218
+01:07:17,070 --> 01:07:21,360
+funny with the math you know you math in
+
+1219
+01:07:19,560 --> 01:07:23,760
+the math field you know there are a lot
+
+1220
+01:07:21,360 --> 01:07:25,860
+people fast motor the smarter than you
+
+1221
+01:07:23,760 --> 01:07:28,050
+did I mean they are turn turns of
+
+1222
+01:07:25,860 --> 01:07:30,690
+geniuses really you know I think I'm
+
+1223
+01:07:28,050 --> 01:07:34,140
+smart but I go into the math you know
+
+1224
+01:07:30,690 --> 01:07:36,000
+they are really you know a huge amount
+
+1225
+01:07:34,140 --> 01:07:38,460
+of people you know they they are you
+
+1226
+01:07:36,000 --> 01:07:40,110
+don't hear them because they are and the
+
+1227
+01:07:38,460 --> 01:07:42,210
+other thing about math is is such a
+
+1228
+01:07:40,110 --> 01:07:44,400
+beautiful subject so you have all these
+
+1229
+01:07:42,210 --> 01:07:46,500
+you know Hermits you know they study
+
+1230
+01:07:44,400 --> 01:07:49,200
+math so deep you know they state devote
+
+1231
+01:07:46,500 --> 01:07:51,120
+their life to math but they are poor you
+
+1232
+01:07:49,200 --> 01:07:53,670
+know they don't make money they you know
+
+1233
+01:07:51,120 --> 01:07:56,700
+they you don't hear them you don't see
+
+1234
+01:07:53,670 --> 01:07:58,710
+them and but programming you know you if
+
+1235
+01:07:56,700 --> 01:08:00,720
+you study two years programming oh you
+
+1236
+01:07:58,710 --> 01:08:02,550
+work at Google or something you make a
+
+1237
+01:08:00,720 --> 01:08:04,400
+lot of money you know you drive fancy
+
+1238
+01:08:02,550 --> 01:08:07,920
+cars
+
+1239
+01:08:04,400 --> 01:08:10,770
+so anyway anyway so Ryan is doing PhD in
+
+1240
+01:08:07,920 --> 01:08:13,440
+math right it's a poor guy you know and
+
+1241
+01:08:10,770 --> 01:08:17,250
+but but the subject is so advanced you
+
+1242
+01:08:13,440 --> 01:08:20,430
+know it really takes you you know five
+
+1243
+01:08:17,250 --> 01:08:23,220
+10 years to just understand what just to
+
+1244
+01:08:20,430 --> 01:08:23,700
+get the idea what what is it that he is
+
+1245
+01:08:23,220 --> 01:08:27,090
+the
+
+1246
+01:08:23,700 --> 01:08:30,570
+you know the math so anyways so he's a
+
+1247
+01:08:27,090 --> 01:08:33,090
+very interesting guy and also expands
+
+1248
+01:08:30,570 --> 01:08:36,030
+out becomes extremely capable as a
+
+1249
+01:08:33,090 --> 01:08:36,900
+programmer so he become he works at
+
+1250
+01:08:36,030 --> 01:08:39,830
+Google now
+
+1251
+01:08:36,900 --> 01:08:46,530
+last I heard two years ago at least he
+
+1252
+01:08:39,830 --> 01:08:52,130
+is working on AI project at Google so
+
+1253
+01:08:46,530 --> 01:08:55,230
+anyway so there is another video by him
+
+1254
+01:08:52,130 --> 01:08:59,100
+not as creator Ryan Dao software
+
+1255
+01:08:55,230 --> 01:09:04,610
+complexity and Ryan down on history of
+
+1256
+01:08:59,100 --> 01:09:07,680
+JavaScript I would recommend you you
+
+1257
+01:09:04,610 --> 01:09:13,200
+read them or study them because he's a
+
+1258
+01:09:07,680 --> 01:09:19,320
+very interesting guy so yeah it sees
+
+1259
+01:09:13,200 --> 01:09:22,140
+that that yeah so I got a few links of
+
+1260
+01:09:19,320 --> 01:09:26,070
+his videos this one are he on the
+
+1261
+01:09:22,140 --> 01:09:30,980
+history history of JavaScript okay so
+
+1262
+01:09:26,070 --> 01:09:37,950
+that's Ryan Ryan da very interesting guy
+
+1263
+01:09:30,980 --> 01:09:42,050
+and the yeah he's pretty young to me
+
+1264
+01:09:37,950 --> 01:09:44,940
+okay so American yesterday she was great
+
+1265
+01:09:42,050 --> 01:09:47,210
+okay I'm what do you think about
+
+1266
+01:09:44,940 --> 01:09:52,560
+typescript okay
+
+1267
+01:09:47,210 --> 01:09:56,850
+so normal says a comma script SPECT was
+
+1268
+01:09:52,560 --> 01:09:59,280
+probably written by committee companies
+
+1269
+01:09:56,850 --> 01:10:03,630
+in their worst engineers to waste their
+
+1270
+01:09:59,280 --> 01:10:05,850
+time writing yet me okay AC 0 and
+
+1271
+01:10:03,630 --> 01:10:11,340
+improved syntax for JavaScript like
+
+1272
+01:10:05,850 --> 01:10:14,760
+there's a plug for HTML sass yeah there
+
+1273
+01:10:11,340 --> 01:10:17,910
+is you know back then ten years ago
+
+1274
+01:10:14,760 --> 01:10:20,490
+there is the CoffeeScript you know
+
+1275
+01:10:17,910 --> 01:10:23,730
+you've probably heard of you know so you
+
+1276
+01:10:20,490 --> 01:10:28,350
+but it's kind of died you know very few
+
+1277
+01:10:23,730 --> 01:10:32,220
+uses okay so before javascript 2015
+
+1278
+01:10:28,350 --> 01:10:35,760
+which is a huge you know edition you
+
+1279
+01:10:32,220 --> 01:10:37,560
+know kind of a entire new language so
+
+1280
+01:10:35,760 --> 01:10:42,120
+before 2015
+
+1281
+01:10:37,560 --> 01:10:45,750
+back then even back then even 2008 there
+
+1282
+01:10:42,120 --> 01:10:49,590
+is a coffee script now CoffeeScript is
+
+1283
+01:10:45,750 --> 01:10:53,220
+basically is a layer on top of
+
+1284
+01:10:49,590 --> 01:10:56,340
+JavaScript no well it's kind of a
+
+1285
+01:10:53,220 --> 01:10:59,370
+language for itself you know but it
+
+1286
+01:10:56,340 --> 01:11:02,250
+compares to JavaScript so the idea of
+
+1287
+01:10:59,370 --> 01:11:05,940
+CoffeeScript is that you know it creates
+
+1288
+01:11:02,250 --> 01:11:08,550
+a new syntax that cleans you know get
+
+1289
+01:11:05,940 --> 01:11:10,980
+rid of all the words in JavaScript you
+
+1290
+01:11:08,550 --> 01:11:14,250
+know JavaScript has lots of problems so
+
+1291
+01:11:10,980 --> 01:11:18,420
+you have now a new syntax CoffeeScript
+
+1292
+01:11:14,250 --> 01:11:21,000
+that is kind of clean and it compares to
+
+1293
+01:11:18,420 --> 01:11:25,320
+JavaScript so that that was very popular
+
+1294
+01:11:21,000 --> 01:11:27,480
+JavaScript was hugely popular but today
+
+1295
+01:11:25,320 --> 01:11:32,400
+is kind of its kind of almost
+
+1296
+01:11:27,480 --> 01:11:35,310
+disappeared because javascript 2015 came
+
+1297
+01:11:32,400 --> 01:11:38,030
+along and typescript came along you know
+
+1298
+01:11:35,310 --> 01:11:41,790
+so in CoffeeScript kind of like
+
+1299
+01:11:38,030 --> 01:11:44,910
+disappeared you know kind of just died
+
+1300
+01:11:41,790 --> 01:11:51,120
+so besides CoffeeScript they are quite a
+
+1301
+01:11:44,910 --> 01:11:53,850
+few other other projects that actually
+
+1302
+01:11:51,120 --> 01:11:56,010
+yeah a lot that compares with JavaScript
+
+1303
+01:11:53,850 --> 01:12:01,430
+so depending on what you mean okay so
+
+1304
+01:11:56,010 --> 01:12:01,430
+for example there's a hacksaw let's see
+
+1305
+01:12:02,480 --> 01:12:11,270
+let me go to my websites cocoa sorry
+
+1306
+01:12:06,170 --> 01:12:11,270
+language for leaf raishin
+
+1307
+01:12:14,010 --> 01:12:21,540
+for liberation of computer languages
+
+1308
+01:12:16,650 --> 01:12:27,900
+this is a article I wrote about all kind
+
+1309
+01:12:21,540 --> 01:12:31,350
+of new languages then you have fact so
+
+1310
+01:12:27,900 --> 01:12:34,040
+there was CoffeeScript they start now
+
+1311
+01:12:31,350 --> 01:12:36,960
+dot is a language created by Google
+
+1312
+01:12:34,040 --> 01:12:41,130
+Google intense it will replace
+
+1313
+01:12:36,960 --> 01:12:44,400
+JavaScript but nobody wants to you know
+
+1314
+01:12:41,130 --> 01:12:48,120
+except you know the those start creators
+
+1315
+01:12:44,400 --> 01:12:52,739
+so it kind of is still around you know
+
+1316
+01:12:48,120 --> 01:12:56,460
+but it's not very popular so that that
+
+1317
+01:12:52,739 --> 01:13:00,090
+is like the syntax in so in short in a
+
+1318
+01:12:56,460 --> 01:13:04,739
+nutshell that is like Java syntax in
+
+1319
+01:13:00,090 --> 01:13:07,320
+Java semantics okay it compares to
+
+1320
+01:13:04,739 --> 01:13:11,670
+JavaScript but basically it's like Java
+
+1321
+01:13:07,320 --> 01:13:14,520
+you know I don't like it at all but you
+
+1322
+01:13:11,670 --> 01:13:17,970
+know back then so this is 2011 this is
+
+1323
+01:13:14,520 --> 01:13:21,090
+before 2015 you know the ACMA script
+
+1324
+01:13:17,970 --> 01:13:24,210
+2015 came up so everyone is trying to
+
+1325
+01:13:21,090 --> 01:13:24,630
+fix javascript because it's really bad
+
+1326
+01:13:24,210 --> 01:13:28,590
+you know
+
+1327
+01:13:24,630 --> 01:13:34,650
+so Google created thought as one of the
+
+1328
+01:13:28,590 --> 01:13:37,260
+you know the that's their answer but it
+
+1329
+01:13:34,650 --> 01:13:38,340
+didn't really go far typescript is very
+
+1330
+01:13:37,260 --> 01:13:41,300
+popular today
+
+1331
+01:13:38,340 --> 01:13:44,070
+it's one of the like top five languages
+
+1332
+01:13:41,300 --> 01:13:46,320
+because when when JavaScript becomes
+
+1333
+01:13:44,070 --> 01:13:49,260
+large when you bea start to have like
+
+1334
+01:13:46,320 --> 01:13:52,739
+thousands of lines you need type scripts
+
+1335
+01:13:49,260 --> 01:13:55,680
+to help you but but of course you can
+
+1336
+01:13:52,739 --> 01:13:58,230
+also you start I mean people have some
+
+1337
+01:13:55,680 --> 01:14:01,500
+projects do that so they are quite a lot
+
+1338
+01:13:58,230 --> 01:14:06,900
+and this ASM Dutch is kind of
+
+1339
+01:14:01,500 --> 01:14:10,370
+complicated to explain and Julia and elm
+
+1340
+01:14:06,900 --> 01:14:13,770
+Amy's kind of a JavaScript alternative
+
+1341
+01:14:10,370 --> 01:14:19,320
+then hacks is also a JavaScript
+
+1342
+01:14:13,770 --> 01:14:21,930
+alternative and in fact many of these
+
+1343
+01:14:19,320 --> 01:14:25,200
+elixir is also a JavaScript alternative
+
+1344
+01:14:21,930 --> 01:14:27,510
+so actually they are quite a lot in fact
+
+1345
+01:14:25,200 --> 01:14:30,030
+I mean even I mean
+
+1346
+01:14:27,510 --> 01:14:33,469
+many of these languages they actually a
+
+1347
+01:14:30,030 --> 01:14:35,960
+pure script is also another JavaScript
+
+1348
+01:14:33,469 --> 01:14:40,349
+alternative pure script is like Haskell
+
+1349
+01:14:35,960 --> 01:14:43,949
+okay it's like Haskell for you know
+
+1350
+01:14:40,349 --> 01:14:45,750
+physically the idea is a Haskell but it
+
+1351
+01:14:43,949 --> 01:14:51,119
+compares to JavaScript so they are quite
+
+1352
+01:14:45,750 --> 01:14:53,429
+a lot you know and in fact a lot
+
+1353
+01:14:51,119 --> 01:14:59,969
+languages such as crucial and closure
+
+1354
+01:14:53,429 --> 01:15:02,250
+script Oh camel and so closure you know
+
+1355
+01:14:59,969 --> 01:15:05,880
+closure the list language they also have
+
+1356
+01:15:02,250 --> 01:15:09,420
+a version called closure script which is
+
+1357
+01:15:05,880 --> 01:15:12,239
+like closure syntax but compares to
+
+1358
+01:15:09,420 --> 01:15:14,039
+JavaScript you know for the web then Oh
+
+1359
+01:15:12,239 --> 01:15:17,489
+camera language which is a function
+
+1360
+01:15:14,039 --> 01:15:20,849
+language like like Haskell okay
+
+1361
+01:15:17,489 --> 01:15:24,800
+Oh camo and f-sharp they also have a
+
+1362
+01:15:20,849 --> 01:15:29,579
+project I forgot what's the name yeah
+
+1363
+01:15:24,800 --> 01:15:30,289
+something the book script bug script
+
+1364
+01:15:29,579 --> 01:15:34,170
+okay
+
+1365
+01:15:30,289 --> 01:15:36,989
+which is basically oak ammo but compares
+
+1366
+01:15:34,170 --> 01:15:40,260
+to JavaScript so so they are you know
+
+1367
+01:15:36,989 --> 01:15:43,380
+and also coal and coal and also have a
+
+1368
+01:15:40,260 --> 01:15:46,230
+verge have a project that you write in
+
+1369
+01:15:43,380 --> 01:15:48,000
+gold and but it compiles to JavaScript
+
+1370
+01:15:46,230 --> 01:15:50,190
+so all these thing which are doing that
+
+1371
+01:15:48,000 --> 01:15:52,889
+and if I mean so is this is actually
+
+1372
+01:15:50,190 --> 01:15:54,750
+kind of movement you know people because
+
+1373
+01:15:52,889 --> 01:15:58,050
+people really don't want JavaScript
+
+1374
+01:15:54,750 --> 01:16:01,230
+because it's really very crummy you know
+
+1375
+01:15:58,050 --> 01:16:02,909
+so they so now the new movement is face
+
+1376
+01:16:01,230 --> 01:16:09,300
+down now that now there's another
+
+1377
+01:16:02,909 --> 01:16:16,639
+movement is called this a AMS where was
+
+1378
+01:16:09,300 --> 01:16:25,860
+it we just saw it before helix coming
+
+1379
+01:16:16,639 --> 01:16:28,050
+here angry thing Oh a smj dot J's so so
+
+1380
+01:16:25,860 --> 01:16:31,769
+JavaScript is moving into a direction
+
+1381
+01:16:28,050 --> 01:16:34,380
+where it becomes the assembler you know
+
+1382
+01:16:31,769 --> 01:16:37,159
+it becomes the assembly language where
+
+1383
+01:16:34,380 --> 01:16:39,150
+all the other higher-level languages
+
+1384
+01:16:37,159 --> 01:16:41,489
+compiles to JavaScript
+
+1385
+01:16:39,150 --> 01:16:44,880
+in fact it so JavaScript
+
+1386
+01:16:41,489 --> 01:16:50,190
+created this what's called ASM okay so
+
+1387
+01:16:44,880 --> 01:16:53,869
+ASM da Jia Jia's it that is a subset of
+
+1388
+01:16:50,190 --> 01:16:57,150
+JavaScript so a tiny subset the core of
+
+1389
+01:16:53,869 --> 01:17:00,329
+JavaScript you know a tiny subset and in
+
+1390
+01:16:57,150 --> 01:17:02,820
+this subset it's like assembly language
+
+1391
+01:17:00,329 --> 01:17:05,280
+so very fast so all these other
+
+1392
+01:17:02,820 --> 01:17:07,499
+languages they are trying to I mean
+
+1393
+01:17:05,280 --> 01:17:12,239
+that's that's the vision okay so they
+
+1394
+01:17:07,499 --> 01:17:15,449
+all can compile to ASM then ASM you know
+
+1395
+01:17:12,239 --> 01:17:18,780
+it's like assembly language so it then
+
+1396
+01:17:15,449 --> 01:17:20,969
+ASM you know compares to machine code
+
+1397
+01:17:18,780 --> 01:17:25,769
+from the browser you know by the browser
+
+1398
+01:17:20,969 --> 01:17:29,760
+so so in theory you know the this idea
+
+1399
+01:17:25,769 --> 01:17:32,400
+this idea idea is that you know every
+
+1400
+01:17:29,760 --> 01:17:34,170
+language can you know they compared each
+
+1401
+01:17:32,400 --> 01:17:38,059
+other to JavaScript you know that that
+
+1402
+01:17:34,170 --> 01:17:38,059
+Sun so that's that
+
+1403
+01:17:44,719 --> 01:17:47,920
+so let's see
+
+1404
+01:17:53,380 --> 01:18:03,280
+so vbscript I'm gonna skip some comments
+
+1405
+01:17:59,800 --> 01:18:05,940
+because you know we kind of talking for
+
+1406
+01:18:03,280 --> 01:18:05,940
+80 minutes
+
+1407
+01:18:07,320 --> 01:18:13,420
+vbscript was a far more superior
+
+1408
+01:18:10,270 --> 01:18:19,409
+language but Microsoft never released it
+
+1409
+01:18:13,420 --> 01:18:24,489
+to the community to be standardized yeah
+
+1410
+01:18:19,409 --> 01:18:28,119
+maybe I don't know but what vbscript
+
+1411
+01:18:24,489 --> 01:18:30,489
+oh that's a visual basic like
+
+1412
+01:18:28,119 --> 01:18:33,969
+alternative to JavaScript it never
+
+1413
+01:18:30,489 --> 01:18:39,010
+survived I think like nobody use it uses
+
+1414
+01:18:33,969 --> 01:18:42,550
+it so that kind of died I think so
+
+1415
+01:18:39,010 --> 01:18:46,500
+everyone got on the hand bandwagon you
+
+1416
+01:18:42,550 --> 01:18:46,500
+know we should be free yo
+
+1417
+01:18:50,429 --> 01:18:57,579
+so meow cats so I am I going to write my
+
+1418
+01:18:54,310 --> 01:19:00,310
+language I hope so I mean that's one of
+
+1419
+01:18:57,579 --> 01:19:03,969
+my project I know I hope I can do before
+
+1420
+01:19:00,310 --> 01:19:06,760
+I die you know I'm giving myself five
+
+1421
+01:19:03,969 --> 01:19:11,320
+more years to be actually be able to
+
+1422
+01:19:06,760 --> 01:19:13,540
+code you know I'm old so five more years
+
+1423
+01:19:11,320 --> 01:19:16,300
+you know I don't know if I can do it so
+
+1424
+01:19:13,540 --> 01:19:19,929
+I'm learning compact I've never wrote a
+
+1425
+01:19:16,300 --> 01:19:23,079
+compiler yet so I'm trying to learn that
+
+1426
+01:19:19,929 --> 01:19:25,030
+and you know so I hope to you know
+
+1427
+01:19:23,079 --> 01:19:27,159
+because I have so many criticisms about
+
+1428
+01:19:25,030 --> 01:19:30,400
+language design so it would be great if
+
+1429
+01:19:27,159 --> 01:19:32,260
+I can and also has a great learning
+
+1430
+01:19:30,400 --> 01:19:34,840
+experience to come up with my own
+
+1431
+01:19:32,260 --> 01:19:36,909
+language you know and what I think is
+
+1432
+01:19:34,840 --> 01:19:39,429
+the best language you know on the syntax
+
+1433
+01:19:36,909 --> 01:19:44,530
+on the semantics or whatever you know so
+
+1434
+01:19:39,429 --> 01:19:46,210
+I hope to do that I haven't been that's
+
+1435
+01:19:44,530 --> 01:19:48,579
+my one might go but I haven't been
+
+1436
+01:19:46,210 --> 01:19:55,780
+working on that for the past half a year
+
+1437
+01:19:48,579 --> 01:19:59,550
+I really should so my god what is what
+
+1438
+01:19:55,780 --> 01:20:02,770
+our JavaScript generators
+
+1439
+01:19:59,550 --> 01:20:05,949
+okay JavaScript generators no they are
+
+1440
+01:20:02,770 --> 01:20:06,829
+not like least Marcos it's kind of come
+
+1441
+01:20:05,949 --> 01:20:10,420
+come
+
+1442
+01:20:06,829 --> 01:20:14,300
+complicated maybe we go that into that
+
+1443
+01:20:10,420 --> 01:20:16,639
+maybe next probably next time because
+
+1444
+01:20:14,300 --> 01:20:21,650
+that's gonna be like one topic by itself
+
+1445
+01:20:16,639 --> 01:20:25,280
+and and it's also fairly complicated
+
+1446
+01:20:21,650 --> 01:20:29,889
+let's take a look quickly because I
+
+1447
+01:20:25,280 --> 01:20:29,889
+don't even remember what it does exactly
+
+1448
+01:20:31,599 --> 01:20:39,170
+yeah it's very complicated you know it's
+
+1449
+01:20:35,570 --> 01:20:42,440
+very technically complicated the
+
+1450
+01:20:39,170 --> 01:20:44,210
+JavaScript generators so I mean let me
+
+1451
+01:20:42,440 --> 01:20:46,909
+never cover it cover it for one minute
+
+1452
+01:20:44,210 --> 01:20:49,699
+basically from a technical point of view
+
+1453
+01:20:46,909 --> 01:20:51,710
+a generator object is a object that
+
+1454
+01:20:49,699 --> 01:20:55,400
+conforms to both the iterator and
+
+1455
+01:20:51,710 --> 01:20:57,980
+iterable interfaces so that is the
+
+1456
+01:20:55,400 --> 01:21:01,099
+technical meaning of generators okay
+
+1457
+01:20:57,980 --> 01:21:03,980
+that that is the JavaScript technical
+
+1458
+01:21:01,099 --> 01:21:05,329
+meaning now what does that mean so in
+
+1459
+01:21:03,980 --> 01:21:09,250
+order to understand that you have to
+
+1460
+01:21:05,329 --> 01:21:11,570
+understand iterator and iterable and
+
+1461
+01:21:09,250 --> 01:21:14,179
+before you understand that you have to
+
+1462
+01:21:11,570 --> 01:21:16,790
+understand what is the technical meaning
+
+1463
+01:21:14,179 --> 01:21:19,040
+of JavaScript interface now remember we
+
+1464
+01:21:16,790 --> 01:21:23,449
+are talking about technical meaning not
+
+1465
+01:21:19,040 --> 01:21:24,860
+I mean for example like in many
+
+1466
+01:21:23,449 --> 01:21:28,070
+languages when you see the word
+
+1467
+01:21:24,860 --> 01:21:30,590
+generator you omit immediately have some
+
+1468
+01:21:28,070 --> 01:21:33,829
+kind of thought you know you kind of
+
+1469
+01:21:30,590 --> 01:21:36,139
+think what it is similar similarly for
+
+1470
+01:21:33,829 --> 01:21:37,520
+the word interface or object you know
+
+1471
+01:21:36,139 --> 01:21:39,139
+when you see the word interface you
+
+1472
+01:21:37,520 --> 01:21:43,670
+think oh it's you know it's something
+
+1473
+01:21:39,139 --> 01:21:46,389
+something but in JavaScript but you can
+
+1474
+01:21:43,670 --> 01:21:48,469
+go one step further and go technical
+
+1475
+01:21:46,389 --> 01:21:51,860
+definition you know in the language
+
+1476
+01:21:48,469 --> 01:21:56,389
+JavaScript so you so it's not like that
+
+1477
+01:21:51,860 --> 01:22:00,619
+you know so so anyway so so we cannot
+
+1478
+01:21:56,389 --> 01:22:06,130
+not gonna go into that as today so maybe
+
+1479
+01:22:00,619 --> 01:22:06,130
+next time because it's very advanced
+
+1480
+01:22:08,400 --> 01:22:15,360
+so a generator appears to be a function
+
+1481
+01:22:13,350 --> 01:22:17,880
+but generators function that can stop
+
+1482
+01:22:15,360 --> 01:22:19,920
+Midway yeah that's a good actually
+
+1483
+01:22:17,880 --> 01:22:22,050
+that's a good way to put it Thank You
+
+1484
+01:22:19,920 --> 01:22:24,150
+Danielle so Danielle say is a generator
+
+1485
+01:22:22,050 --> 01:22:26,700
+of years to be a function but a
+
+1486
+01:22:24,150 --> 01:22:29,790
+generator is a function that can stop
+
+1487
+01:22:26,700 --> 01:22:31,140
+Midway and then continue from where it
+
+1488
+01:22:29,790 --> 01:22:33,630
+stops yes
+
+1489
+01:22:31,140 --> 01:22:37,820
+yeah that's actually that's a good way
+
+1490
+01:22:33,630 --> 01:22:37,820
+to put it yeah so great point
+
+1491
+01:22:41,000 --> 01:22:45,950
+go back hell yeah so a generator
+
+1492
+01:22:43,800 --> 01:22:45,950
+function
+
+1493
+01:22:45,980 --> 01:22:59,160
+oh so Ryan mail Cass says Ryan Dow made
+
+1494
+01:22:55,350 --> 01:23:03,000
+a video in 2018 with the ten things he
+
+1495
+01:22:59,160 --> 01:23:05,250
+regretted about nod I'm glad he's still
+
+1496
+01:23:03,000 --> 01:23:07,800
+around because he was gone for a while
+
+1497
+01:23:05,250 --> 01:23:11,210
+oh wow I didn't know that I'm gonna
+
+1498
+01:23:07,800 --> 01:23:14,040
+thank you mail I'm gonna check it out oh
+
+1499
+01:23:11,210 --> 01:23:18,390
+yeah so this is great I'm gonna check it
+
+1500
+01:23:14,040 --> 01:23:22,430
+out because I you know I yeah I admire I
+
+1501
+01:23:18,390 --> 01:23:27,960
+admire his walk a very capable
+
+1502
+01:23:22,430 --> 01:23:30,750
+programmer and CoffeeScript looks screen
+
+1503
+01:23:27,960 --> 01:23:33,900
+I see them come in script - oh wow they
+
+1504
+01:23:30,750 --> 01:23:36,750
+have CoffeeScript - this is a guy
+
+1505
+01:23:33,900 --> 01:23:40,230
+Christian something who wrote a list
+
+1506
+01:23:36,750 --> 01:23:45,360
+that compiles to Arial and to solve
+
+1507
+01:23:40,230 --> 01:23:47,390
+chemistry problems that well what is
+
+1508
+01:23:45,360 --> 01:23:47,390
+that
+
+1509
+01:23:50,090 --> 01:24:00,350
+so okay so anything else I think maybe
+
+1510
+01:23:54,250 --> 01:24:03,820
+it's a good time to call it the end for
+
+1511
+01:24:00,350 --> 01:24:09,860
+the today's talk because it's 18 minutes
+
+1512
+01:24:03,820 --> 01:24:15,230
+kind of like like you know people need
+
+1513
+01:24:09,860 --> 01:24:17,120
+to go to pee I need to go to pee yeah
+
+1514
+01:24:15,230 --> 01:24:20,180
+because we covered okay we talked about
+
+1515
+01:24:17,120 --> 01:24:23,270
+JavaScript that's a great talk I think
+
+1516
+01:24:20,180 --> 01:24:25,880
+you know I think I that's a good talk
+
+1517
+01:24:23,270 --> 01:24:29,330
+about JavaScript so Danielle says
+
+1518
+01:24:25,880 --> 01:24:31,580
+message retracted by the way what does
+
+1519
+01:24:29,330 --> 01:24:38,960
+that happen mean does I mean you typed
+
+1520
+01:24:31,580 --> 01:24:41,200
+something and like you hit delete so I
+
+1521
+01:24:38,960 --> 01:24:47,930
+think that's it for today guys
+
+1522
+01:24:41,200 --> 01:24:50,090
+seven watching so JavaScript so we
+
+1523
+01:24:47,930 --> 01:24:52,730
+didn't get to goal and that's okay so
+
+1524
+01:24:50,090 --> 01:24:56,470
+today is just focus on javascript so
+
+1525
+01:24:52,730 --> 01:24:59,930
+thank you for guys for coming
+
+1526
+01:24:56,470 --> 01:25:02,840
+meow send me a email okay let me know
+
+1527
+01:24:59,930 --> 01:25:06,260
+your because I forgot your name is hard
+
+1528
+01:25:02,840 --> 01:25:08,840
+to search you know so I did you are hard
+
+1529
+01:25:06,260 --> 01:25:15,670
+to catch so thank you guys for coming
+
+1530
+01:25:08,840 --> 01:25:15,670
+and I'll see you next time bye
+

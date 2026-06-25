@@ -1,0 +1,4360 @@
+1
+00:00:03,830 --> 00:00:10,980
+good evening everyone welcome to another
+
+2
+00:00:07,200 --> 00:00:14,719
+episode of talk show and today we are
+
+3
+00:00:10,980 --> 00:00:20,070
+going to do Emacs and Emacs these
+
+4
+00:00:14,719 --> 00:00:23,300
+fantastic Emacs and eMac this hello guys
+
+5
+00:00:20,070 --> 00:00:26,609
+and hello beautiful people
+
+6
+00:00:23,300 --> 00:00:30,660
+hello beautiful people and good morning
+
+7
+00:00:26,609 --> 00:00:34,710
+George emily alyn so we got five people
+
+8
+00:00:30,660 --> 00:00:39,690
+watching so today's juice is apple and
+
+9
+00:00:34,710 --> 00:00:42,000
+cranberry and and grape so we're going
+
+10
+00:00:39,690 --> 00:00:46,350
+to do Emacs Lisp I'm going to show you
+
+11
+00:00:42,000 --> 00:00:49,860
+several commands Emacs commands custom
+
+12
+00:00:46,350 --> 00:00:54,629
+commands related to image manipulation
+
+13
+00:00:49,860 --> 00:01:00,359
+such as scale convert PNG to JPEG and
+
+14
+00:00:54,629 --> 00:01:05,159
+vice versa or resize images crop images
+
+15
+00:01:00,359 --> 00:01:09,030
+and things like that and we are also
+
+16
+00:01:05,159 --> 00:01:12,570
+going to code some eMac B's and I'm
+
+17
+00:01:09,030 --> 00:01:15,390
+going to explain how things work so
+
+18
+00:01:12,570 --> 00:01:21,030
+hello people hello then hello moe
+
+19
+00:01:15,390 --> 00:01:23,400
+damn Morris Day Morris where you from so
+
+20
+00:01:21,030 --> 00:01:27,390
+let let's get going okay let's stop
+
+21
+00:01:23,400 --> 00:01:32,520
+these concurrent Watchers Nye Nye is a
+
+22
+00:01:27,390 --> 00:01:36,630
+crowd three times a crowd so okay EEMA
+
+23
+00:01:32,520 --> 00:01:40,680
+Cleese sad Hawk show sad hop show and go
+
+24
+00:01:36,630 --> 00:01:45,380
+to this page of course today's talk show
+
+25
+00:01:40,680 --> 00:01:50,640
+topics first of all I like to thank John
+
+26
+00:01:45,380 --> 00:01:54,570
+Jeremy Bernhard I think I talked to that
+
+27
+00:01:50,640 --> 00:01:58,890
+name is familiar to me anyway John he's
+
+28
+00:01:54,570 --> 00:02:02,159
+a guy who I thank him for donation big
+
+29
+00:01:58,890 --> 00:02:05,430
+money big money
+
+30
+00:02:02,159 --> 00:02:08,729
+good morning Kathy so he is a guy who
+
+31
+00:02:05,430 --> 00:02:13,680
+created this bunch of keyboards butter
+
+32
+00:02:08,729 --> 00:02:16,709
+stick and and go
+
+33
+00:02:13,680 --> 00:02:20,010
+keyboard Georgie keyboard and Guinea
+
+34
+00:02:16,709 --> 00:02:22,019
+keyboard from G industries so we talked
+
+35
+00:02:20,010 --> 00:02:26,250
+about we did a video on that yesterday
+
+36
+00:02:22,019 --> 00:02:31,200
+so thank him for sponsoring the show in
+
+37
+00:02:26,250 --> 00:02:32,969
+other words and so that's one thing and
+
+38
+00:02:31,200 --> 00:02:37,189
+let's see what's the next thing so we're
+
+39
+00:02:32,969 --> 00:02:43,439
+gonna do eMac list yes that's so that's
+
+40
+00:02:37,189 --> 00:02:49,019
+let's begin okay shall we let me check
+
+41
+00:02:43,439 --> 00:02:50,450
+the comments a bit quick ASM cow okay
+
+42
+00:02:49,019 --> 00:02:54,540
+let's try that
+
+43
+00:02:50,450 --> 00:02:56,010
+melodious no is melodious melodious
+
+44
+00:02:54,540 --> 00:02:58,709
+noise that's right
+
+45
+00:02:56,010 --> 00:03:00,750
+well I'm going to do a show and and I'm
+
+46
+00:02:58,709 --> 00:03:08,489
+going to teach you guys how to do eMac
+
+47
+00:03:00,750 --> 00:03:10,560
+peas okay so ASMR and just in tithing
+
+48
+00:03:08,489 --> 00:03:13,620
+you max to feel inside stream in chat
+
+49
+00:03:10,560 --> 00:03:18,479
+that's fantastic okay hold on a second
+
+50
+00:03:13,620 --> 00:03:19,919
+give me just one second and this I need
+
+51
+00:03:18,479 --> 00:03:26,159
+to replace my glasses
+
+52
+00:03:19,919 --> 00:03:29,280
+these glasses got a scratch on it ASMR
+
+53
+00:03:26,159 --> 00:03:33,510
+so I'm going to put you guys to sleep in
+
+54
+00:03:29,280 --> 00:03:39,120
+the most pleasant way and we are going
+
+55
+00:03:33,510 --> 00:03:42,299
+to start now and shall we begin so Allen
+
+56
+00:03:39,120 --> 00:03:45,810
+says melodious melodious voice does not
+
+57
+00:03:42,299 --> 00:03:51,180
+need your super fancy as ASMR microphone
+
+58
+00:03:45,810 --> 00:03:53,669
+that is correct and it carries over the
+
+59
+00:03:51,180 --> 00:03:58,400
+airway with fine horrible quality not
+
+60
+00:03:53,669 --> 00:04:02,669
+super annoying clicks or anything yeah
+
+61
+00:03:58,400 --> 00:04:09,060
+yeah I need to buy us good microphone so
+
+62
+00:04:02,669 --> 00:04:12,030
+buy me a microphone so let's see what
+
+63
+00:04:09,060 --> 00:04:15,750
+else and we are going to start for those
+
+64
+00:04:12,030 --> 00:04:19,349
+of you impatient and you are going to
+
+65
+00:04:15,750 --> 00:04:23,269
+learn Emacs Lisp in no time you are
+
+66
+00:04:19,349 --> 00:04:23,269
+going to be a expert
+
+67
+00:04:24,540 --> 00:04:31,510
+this is already becoming a routine has
+
+68
+00:04:28,330 --> 00:04:33,730
+anyone tried SMI live programming this
+
+69
+00:04:31,510 --> 00:04:37,330
+could be exhausted to 1 million
+
+70
+00:04:33,730 --> 00:04:41,680
+subscribers that's that that that is
+
+71
+00:04:37,330 --> 00:04:44,140
+good that that that that is good ok
+
+72
+00:04:41,680 --> 00:04:49,870
+let's begin record your hands doing
+
+73
+00:04:44,140 --> 00:04:51,370
+Suffolk he is renting yeah text on blog
+
+74
+00:04:49,870 --> 00:04:55,360
+okay so let's begin
+
+75
+00:04:51,370 --> 00:05:00,250
+so Emacs the power of Emacs the greatest
+
+76
+00:04:55,360 --> 00:05:02,980
+editors guys if you are using Emacs you
+
+77
+00:05:00,250 --> 00:05:06,670
+are using the greatest editor on earth
+
+78
+00:05:02,980 --> 00:05:07,240
+and if you are not you might give it a
+
+79
+00:05:06,670 --> 00:05:09,970
+shot
+
+80
+00:05:07,240 --> 00:05:15,520
+a shot because all the greatest
+
+81
+00:05:09,970 --> 00:05:19,600
+programmers are Emacs users ok so let's
+
+82
+00:05:15,520 --> 00:05:20,590
+go to key words let's begin let's begin
+
+83
+00:05:19,600 --> 00:05:23,530
+five minutes
+
+84
+00:05:20,590 --> 00:05:26,410
+introduction and we go to keyboards we
+
+85
+00:05:23,530 --> 00:05:28,420
+go to keyboard blog so today it's going
+
+86
+00:05:26,410 --> 00:05:32,470
+to be focused on Emacs first so the
+
+87
+00:05:28,420 --> 00:05:35,860
+first stop is the first stop is damaged
+
+88
+00:05:32,470 --> 00:05:39,580
+do some demonstration of how I working
+
+89
+00:05:35,860 --> 00:05:41,770
+on my blog for the powers of Emacs using
+
+90
+00:05:39,580 --> 00:05:43,630
+all the powers of Emacs into the
+
+91
+00:05:41,770 --> 00:05:47,860
+internet and new people in the
+
+92
+00:05:43,630 --> 00:05:50,320
+open-source contributors so on the left
+
+93
+00:05:47,860 --> 00:05:55,540
+window you can see all the Emacs
+
+94
+00:05:50,320 --> 00:05:57,610
+commands I call such as moving cruisers
+
+95
+00:05:55,540 --> 00:06:01,150
+and so on so the first thing I need to
+
+96
+00:05:57,610 --> 00:06:05,710
+do is to fix this image you see this is
+
+97
+00:06:01,150 --> 00:06:11,110
+Microsoft trackball Explorer and people
+
+98
+00:06:05,710 --> 00:06:15,910
+has created a do-it-yourself version ok
+
+99
+00:06:11,110 --> 00:06:19,770
+so i'm but i learned from jeremy that
+
+100
+00:06:15,910 --> 00:06:24,250
+this is actually a product you can buy
+
+101
+00:06:19,770 --> 00:06:26,440
+so you can go and buy it but but now I
+
+102
+00:06:24,250 --> 00:06:28,480
+know it's a product it doesn't belong on
+
+103
+00:06:26,440 --> 00:06:30,640
+this page so this page is about
+
+104
+00:06:28,480 --> 00:06:33,790
+Microsoft trackball Explorer
+
+105
+00:06:30,640 --> 00:06:35,410
+it's about trackball history so I need
+
+106
+00:06:33,790 --> 00:06:42,160
+to create a new page
+
+107
+00:06:35,410 --> 00:06:47,890
+- to properly showcase these
+
+108
+00:06:42,160 --> 00:06:51,640
+do-it-yourself product okay so go to go
+
+109
+00:06:47,890 --> 00:06:54,460
+to this page and you can see that's sure
+
+110
+00:06:51,640 --> 00:06:58,390
+the image oh that's not the page so
+
+111
+00:06:54,460 --> 00:07:01,360
+trackball mouse trackball Mouse who is
+
+112
+00:06:58,390 --> 00:07:03,970
+it Microsoft okay trackball they are
+
+113
+00:07:01,360 --> 00:07:06,520
+here so it's this page showing browser
+
+114
+00:07:03,970 --> 00:07:13,540
+correct go back here go to the bottom
+
+115
+00:07:06,520 --> 00:07:17,760
+and do itself so cut cut cut closed save
+
+116
+00:07:13,540 --> 00:07:21,310
+and back on the keyboard page paste it
+
+117
+00:07:17,760 --> 00:07:24,430
+showing browser you can see I have moved
+
+118
+00:07:21,310 --> 00:07:28,810
+the images here now I need to create a
+
+119
+00:07:24,430 --> 00:07:31,510
+new page so what is this first of all
+
+120
+00:07:28,810 --> 00:07:34,180
+what is what should be the page named it
+
+121
+00:07:31,510 --> 00:07:36,420
+should be named as the name of the
+
+122
+00:07:34,180 --> 00:07:46,630
+product name and the product name is
+
+123
+00:07:36,420 --> 00:07:49,000
+ploopy PL o o py I believe okay so if
+
+124
+00:07:46,630 --> 00:07:53,620
+you guys have any questions Corrections
+
+125
+00:07:49,000 --> 00:07:58,570
+comments opinions flood the chat channel
+
+126
+00:07:53,620 --> 00:08:02,970
+ok flow the chat box so where is roofie
+
+127
+00:07:58,570 --> 00:08:06,100
+okay here it is now I don't want some
+
+128
+00:08:02,970 --> 00:08:09,310
+secondhand website I want the original
+
+129
+00:08:06,100 --> 00:08:13,860
+website but so it's one of these ok but
+
+130
+00:08:09,310 --> 00:08:20,260
+actually them let's go to here and
+
+131
+00:08:13,860 --> 00:08:23,860
+keyboard and Jeremy has posted has
+
+132
+00:08:20,260 --> 00:08:25,480
+alerted to me the situation this by the
+
+133
+00:08:23,860 --> 00:08:28,270
+way this keyboard we are going also
+
+134
+00:08:25,480 --> 00:08:31,870
+going to do today so let me move on fast
+
+135
+00:08:28,270 --> 00:08:38,740
+okay so Emacs stuff
+
+136
+00:08:31,870 --> 00:08:42,430
+Emacs stuff so let's go to John ok so he
+
+137
+00:08:38,740 --> 00:08:45,520
+says wait it's not this one there's
+
+138
+00:08:42,430 --> 00:08:48,610
+there's many messages I haven't read yet
+
+139
+00:08:45,520 --> 00:08:51,640
+today and that is Allen's tech
+
+140
+00:08:48,610 --> 00:08:56,170
+of pressing the control key on the
+
+141
+00:08:51,640 --> 00:09:02,100
+laptop but okay so did so I'm going to
+
+142
+00:08:56,170 --> 00:09:09,460
+focus on Emacs okay so let's go to there
+
+143
+00:09:02,100 --> 00:09:12,130
+so he says okay so this true picot okay
+
+144
+00:09:09,460 --> 00:09:17,860
+this website requires JavaScript so
+
+145
+00:09:12,130 --> 00:09:22,810
+let's turn it on so the word will be a
+
+146
+00:09:17,860 --> 00:09:24,670
+little bit of face and copy the URL we
+
+147
+00:09:22,810 --> 00:09:25,810
+see that's their website that's
+
+148
+00:09:24,670 --> 00:09:29,440
+fantastic
+
+149
+00:09:25,810 --> 00:09:32,800
+we are not going to are go edit for the
+
+150
+00:09:29,440 --> 00:09:37,540
+moment because we are going to focus on
+
+151
+00:09:32,800 --> 00:09:41,730
+Emacs stuff so here's a website link
+
+152
+00:09:37,540 --> 00:09:44,770
+off' i it okay i need to magnify my my
+
+153
+00:09:41,730 --> 00:09:49,270
+font so before we do that let me take
+
+154
+00:09:44,770 --> 00:09:52,920
+one minute to magnify my fonts tracking
+
+155
+00:09:49,270 --> 00:09:56,760
+seconds copy that paste it here magnify
+
+156
+00:09:52,920 --> 00:09:59,620
+this is the line okay sorry max this mod
+
+157
+00:09:56,760 --> 00:10:05,260
+magnify this is the line we need to
+
+158
+00:09:59,620 --> 00:10:07,510
+change middle 14 now manual 15 avow the
+
+159
+00:10:05,260 --> 00:10:14,020
+code now everything is bigger that's
+
+160
+00:10:07,510 --> 00:10:18,040
+good that is good so close that save no
+
+161
+00:10:14,020 --> 00:10:23,980
+codes no safe okay now we have this you
+
+162
+00:10:18,040 --> 00:10:26,790
+can see we have this website link there
+
+163
+00:10:23,980 --> 00:10:32,680
+so this is called poopy so let's call it
+
+164
+00:10:26,790 --> 00:10:36,610
+PL o py track 4 okay and we are going to
+
+165
+00:10:32,680 --> 00:10:42,700
+create a new HTML page so let's do it
+
+166
+00:10:36,610 --> 00:10:46,720
+fast it's our new page okay that creates
+
+167
+00:10:42,700 --> 00:10:49,300
+a web page and you can see we I got all
+
+168
+00:10:46,720 --> 00:10:52,860
+the templates and stuff ready so close
+
+169
+00:10:49,300 --> 00:10:57,100
+that now all I have to do is cut cut cut
+
+170
+00:10:52,860 --> 00:10:58,810
+cut cut everything and open this file
+
+171
+00:10:57,100 --> 00:11:01,779
+again paste it here
+
+172
+00:10:58,810 --> 00:11:06,069
+refresh now you can see I have
+
+173
+00:11:01,779 --> 00:11:09,519
+created a page with the proper product
+
+174
+00:11:06,069 --> 00:11:13,930
+and photo now let's change the title
+
+175
+00:11:09,519 --> 00:11:20,499
+because it needs to be the title needs
+
+176
+00:11:13,930 --> 00:11:23,949
+to be needs to be capitalized proofy
+
+177
+00:11:20,499 --> 00:11:26,110
+trackball yeah okay so let's name it
+
+178
+00:11:23,949 --> 00:11:31,029
+prove he trampled and remove this line
+
+179
+00:11:26,110 --> 00:11:34,569
+and this URL will be where to buy okay
+
+180
+00:11:31,029 --> 00:11:37,689
+where to hold on a second okay where to
+
+181
+00:11:34,569 --> 00:11:41,079
+buy now I want to capitalize the
+
+182
+00:11:37,689 --> 00:11:43,889
+sentence sentence capitalization so
+
+183
+00:11:41,079 --> 00:11:46,899
+press a key and it's done you see that
+
+184
+00:11:43,889 --> 00:11:50,199
+command is called sarted okay's region
+
+185
+00:11:46,899 --> 00:11:53,139
+or line this one by the way all the
+
+186
+00:11:50,199 --> 00:11:55,029
+commands you see here most vast majority
+
+187
+00:11:53,139 --> 00:11:57,850
+of them are on my website so all you
+
+188
+00:11:55,029 --> 00:12:00,939
+have to do is find out the command I
+
+189
+00:11:57,850 --> 00:12:04,089
+call on the left window and you just do
+
+190
+00:12:00,939 --> 00:12:07,420
+a google search web search and you'll
+
+191
+00:12:04,089 --> 00:12:10,120
+find the code then you can put this in
+
+192
+00:12:07,420 --> 00:12:13,360
+your unit and you will have the same
+
+193
+00:12:10,120 --> 00:12:16,379
+power now back to Emacs now I have
+
+194
+00:12:13,360 --> 00:12:21,189
+created this title where to buy make it
+
+195
+00:12:16,379 --> 00:12:24,819
+h2 title and make this a paragraph so
+
+196
+00:12:21,189 --> 00:12:27,790
+you go back to browser you can see there
+
+197
+00:12:24,819 --> 00:12:33,430
+we have it basically I have just created
+
+198
+00:12:27,790 --> 00:12:36,550
+the page of these this product on my
+
+199
+00:12:33,430 --> 00:12:39,370
+blog and the second photo should be on
+
+200
+00:12:36,550 --> 00:12:43,290
+top so showing browser again because the
+
+201
+00:12:39,370 --> 00:12:48,699
+second I mean this this photo is kind of
+
+202
+00:12:43,290 --> 00:12:52,480
+you know it is it's got multiple number
+
+203
+00:12:48,699 --> 00:12:56,860
+of them so so now what we need to do is
+
+204
+00:12:52,480 --> 00:12:59,170
+we need to okay let me show you some let
+
+205
+00:12:56,860 --> 00:13:03,069
+me begin to show some of the commands to
+
+206
+00:12:59,170 --> 00:13:06,100
+manipulate the images so for example on
+
+207
+00:13:03,069 --> 00:13:08,410
+this page if you go to my keyboard blog
+
+208
+00:13:06,100 --> 00:13:11,249
+close that okay
+
+209
+00:13:08,410 --> 00:13:11,249
+showing browser
+
+210
+00:13:11,550 --> 00:13:20,220
+okay this photo needs to be changed
+
+211
+00:13:17,230 --> 00:13:24,070
+because this icon now belongs to this
+
+212
+00:13:20,220 --> 00:13:32,459
+URL not the Microsoft wrapper Explorer
+
+213
+00:13:24,070 --> 00:13:35,350
+so let's just delete that line go here
+
+214
+00:13:32,459 --> 00:13:38,970
+capitalize the sentence okay let me show
+
+215
+00:13:35,350 --> 00:13:42,550
+you okay capitalize the sentence then
+
+216
+00:13:38,970 --> 00:13:43,779
+then paste it here they make a dive
+
+217
+00:13:42,550 --> 00:13:48,550
+that's good
+
+218
+00:13:43,779 --> 00:13:52,390
+showing browser you see now this is good
+
+219
+00:13:48,550 --> 00:13:57,640
+now I need to create a section like like
+
+220
+00:13:52,390 --> 00:14:00,160
+that and let's do it so cut that code
+
+221
+00:13:57,640 --> 00:14:03,190
+the command okay so let's do it again
+
+222
+00:14:00,160 --> 00:14:07,089
+I want to show the window on the left so
+
+223
+00:14:03,190 --> 00:14:11,890
+cut that make a section with today's
+
+224
+00:14:07,089 --> 00:14:15,730
+date and paste that showing browser now
+
+225
+00:14:11,890 --> 00:14:19,180
+that is Papa okay as far as this one we
+
+226
+00:14:15,730 --> 00:14:21,430
+need to put back a icon of that page you
+
+227
+00:14:19,180 --> 00:14:25,500
+know that page also has an icon and we
+
+228
+00:14:21,430 --> 00:14:29,070
+can do that by going to trackball and
+
+229
+00:14:25,500 --> 00:14:29,070
+trackball history
+
+230
+00:14:30,810 --> 00:14:40,959
+copy the URL you can see that one is
+
+231
+00:14:37,390 --> 00:14:41,680
+there so I copy the URL now I call
+
+232
+00:14:40,959 --> 00:14:44,529
+command
+
+233
+00:14:41,680 --> 00:14:48,910
+this command is Excel open file from
+
+234
+00:14:44,529 --> 00:14:51,160
+clipboard so it will just open this page
+
+235
+00:14:48,910 --> 00:14:54,220
+and I search for Microsoft rap or
+
+236
+00:14:51,160 --> 00:15:00,579
+Explorer copy copy that file
+
+237
+00:14:54,220 --> 00:15:03,399
+I mean copy that text block close it now
+
+238
+00:15:00,579 --> 00:15:06,339
+go to the Microsoft section basically
+
+239
+00:15:03,399 --> 00:15:09,399
+paste it and delete that and show in
+
+240
+00:15:06,339 --> 00:15:13,300
+browser let's go down now you can see
+
+241
+00:15:09,399 --> 00:15:16,660
+that is Papa now now since we removed
+
+242
+00:15:13,300 --> 00:15:20,410
+those images from the Microsoft page we
+
+243
+00:15:16,660 --> 00:15:23,589
+need to put a link to the icon to for
+
+244
+00:15:20,410 --> 00:15:24,730
+the link to the new page so people when
+
+245
+00:15:23,589 --> 00:15:26,829
+people browse in the Mac
+
+246
+00:15:24,730 --> 00:15:29,199
+of trackball explore oh they can see Oh
+
+247
+00:15:26,829 --> 00:15:32,769
+someone created a do-it-yourself version
+
+248
+00:15:29,199 --> 00:15:36,250
+I need to go buy it so that information
+
+249
+00:15:32,769 --> 00:15:41,170
+is available to them there for me back
+
+250
+00:15:36,250 --> 00:15:43,180
+to Emacs copy this section open the
+
+251
+00:15:41,170 --> 00:15:52,139
+trackball explore page go to the bottom
+
+252
+00:15:43,180 --> 00:15:56,290
+and here paste it and do-it-yourself
+
+253
+00:15:52,139 --> 00:15:58,839
+version ok I'm not sure that's a proper
+
+254
+00:15:56,290 --> 00:16:01,690
+name you know when you write a blog they
+
+255
+00:15:58,839 --> 00:16:04,779
+are all these little details like naming
+
+256
+00:16:01,690 --> 00:16:08,709
+of the title how you should worded style
+
+257
+00:16:04,779 --> 00:16:11,139
+and all that but I'm going to worry
+
+258
+00:16:08,709 --> 00:16:14,290
+about that later when I'm offline so
+
+259
+00:16:11,139 --> 00:16:17,350
+right now let's let me focus push on the
+
+260
+00:16:14,290 --> 00:16:19,680
+Emacs commands so now anyway so you can
+
+261
+00:16:17,350 --> 00:16:26,290
+see so people can go through that page
+
+262
+00:16:19,680 --> 00:16:29,350
+okay so to yourself version what should
+
+263
+00:16:26,290 --> 00:16:31,959
+I name it through P okay okay yeah yeah
+
+264
+00:16:29,350 --> 00:16:37,350
+let's just say that for now okay close
+
+265
+00:16:31,959 --> 00:16:43,630
+it close it go to the blog again and
+
+266
+00:16:37,350 --> 00:16:46,899
+prepare Apple okay for now I think this
+
+267
+00:16:43,630 --> 00:16:49,660
+will be it for the page of course I'm
+
+268
+00:16:46,899 --> 00:16:52,779
+going to work on it right a lot details
+
+269
+00:16:49,660 --> 00:16:55,589
+like where does this come from how much
+
+270
+00:16:52,779 --> 00:16:58,930
+it causing you give some general
+
+271
+00:16:55,589 --> 00:17:04,569
+annotations about this thing these
+
+272
+00:16:58,930 --> 00:17:09,329
+fantastic thing okay so that will be it
+
+273
+00:17:04,569 --> 00:17:13,650
+for this page now close that close that
+
+274
+00:17:09,329 --> 00:17:21,250
+reopen close that I need clothes that I
+
+275
+00:17:13,650 --> 00:17:24,850
+need to go to the now there's one more
+
+276
+00:17:21,250 --> 00:17:27,370
+thing okay I'm kind of sidetracked track
+
+277
+00:17:24,850 --> 00:17:30,549
+a little bit to how I walk on my blogs
+
+278
+00:17:27,370 --> 00:17:33,010
+but I wanted to focus on Emacs commands
+
+279
+00:17:30,549 --> 00:17:33,580
+that manipulate images we'll get to that
+
+280
+00:17:33,010 --> 00:17:36,120
+in a bit
+
+281
+00:17:33,580 --> 00:17:39,129
+but I'm a bit
+
+282
+00:17:36,120 --> 00:17:41,409
+you know doing all this explainations I
+
+283
+00:17:39,129 --> 00:17:44,470
+have to explain what am i doing because
+
+284
+00:17:41,409 --> 00:17:46,919
+otherwise you may not know what I'm
+
+285
+00:17:44,470 --> 00:17:51,279
+doing because otherwise you just see me
+
+286
+00:17:46,919 --> 00:17:54,850
+punching keyboards so what I want to do
+
+287
+00:17:51,279 --> 00:17:57,909
+is actually the way you see I need to
+
+288
+00:17:54,850 --> 00:18:00,909
+put this here show in browser you see I
+
+289
+00:17:57,909 --> 00:18:05,679
+say it says to do putting like put to
+
+290
+00:18:00,909 --> 00:18:10,200
+index page because that means I need to
+
+291
+00:18:05,679 --> 00:18:14,049
+put that icon into one of these index
+
+292
+00:18:10,200 --> 00:18:15,909
+pages so people can find it otherwise
+
+293
+00:18:14,049 --> 00:18:19,809
+you're just going to have hundreds of
+
+294
+00:18:15,909 --> 00:18:23,460
+blog articles buried somewhere you know
+
+295
+00:18:19,809 --> 00:18:26,559
+after a few days you know the blog
+
+296
+00:18:23,460 --> 00:18:29,980
+entries goes off so you need to put it
+
+297
+00:18:26,559 --> 00:18:35,470
+on index page somewhere organization
+
+298
+00:18:29,980 --> 00:18:37,869
+that part is in fact the most difficult
+
+299
+00:18:35,470 --> 00:18:42,639
+part when you are writing a blog and
+
+300
+00:18:37,869 --> 00:18:46,179
+when you want the blog to be popular
+
+301
+00:18:42,639 --> 00:18:48,220
+because from vast majority of people
+
+302
+00:18:46,179 --> 00:18:50,740
+when you write a blog you just create a
+
+303
+00:18:48,220 --> 00:18:54,669
+page in a score of next month by next
+
+304
+00:18:50,740 --> 00:18:57,340
+month nobody will read it so it's kind
+
+305
+00:18:54,669 --> 00:18:59,529
+of the difference that's one of the
+
+306
+00:18:57,340 --> 00:19:03,369
+major difference between a blog and
+
+307
+00:18:59,529 --> 00:19:05,970
+between a website such as Wikipedia so
+
+308
+00:19:03,369 --> 00:19:10,450
+this organization part is actually
+
+309
+00:19:05,970 --> 00:19:16,090
+tremendous takes tremendous time ok so
+
+310
+00:19:10,450 --> 00:19:19,779
+that's a bit rambling of topic thing
+
+311
+00:19:16,090 --> 00:19:22,119
+about things so we are going to continue
+
+312
+00:19:19,779 --> 00:19:24,850
+we are going to start to do the Emacs
+
+313
+00:19:22,119 --> 00:19:29,820
+commands thing so let me take a moment
+
+314
+00:19:24,850 --> 00:19:29,820
+to read the comments
+
+315
+00:19:31,700 --> 00:19:36,980
+Tempe so far so good we've been to in 20
+
+316
+00:19:34,490 --> 00:19:40,660
+minutes we have a lot to do actually so
+
+317
+00:19:36,980 --> 00:19:40,660
+far so good guys
+
+318
+00:19:50,570 --> 00:19:58,850
+anyone want to be Betty Sun turns on
+
+319
+00:19:53,130 --> 00:20:02,580
+JavaScript doing his stream yes hot girl
+
+320
+00:19:58,850 --> 00:20:07,860
+hi hot girl I see why they copy
+
+321
+00:20:02,580 --> 00:20:11,580
+Microsoft yes and auto good morning
+
+322
+00:20:07,860 --> 00:20:15,830
+although now some of you guys I remember
+
+323
+00:20:11,580 --> 00:20:19,440
+but but not too much I vaguely remember
+
+324
+00:20:15,830 --> 00:20:21,210
+sorry about that because I do I do write
+
+325
+00:20:19,440 --> 00:20:30,960
+blog so I don't I don't remember
+
+326
+00:20:21,210 --> 00:20:33,330
+everyone always yeah so you know Google
+
+327
+00:20:30,960 --> 00:20:41,940
+censored that line is how incredible it
+
+328
+00:20:33,330 --> 00:20:45,090
+is you know sure okay so far so good so
+
+329
+00:20:41,940 --> 00:20:47,400
+no questions so that means I'm doing a
+
+330
+00:20:45,090 --> 00:20:50,580
+good job and thank you guys for
+
+331
+00:20:47,400 --> 00:20:53,850
+listening okay so let's go back to Emacs
+
+332
+00:20:50,580 --> 00:21:00,150
+and let's get on to the main topic where
+
+333
+00:20:53,850 --> 00:21:02,970
+I'm going to modify this page and we are
+
+334
+00:21:00,150 --> 00:21:08,310
+going to do a lot image editing on this
+
+335
+00:21:02,970 --> 00:21:14,550
+page okay so actually there's a lot to
+
+336
+00:21:08,310 --> 00:21:19,530
+do so open such Kiwi such so let's open
+
+337
+00:21:14,550 --> 00:21:23,670
+this page and we are going to open some
+
+338
+00:21:19,530 --> 00:21:25,950
+of the images okay so let me start to
+
+339
+00:21:23,670 --> 00:21:34,950
+show you some of the commands that I use
+
+340
+00:21:25,950 --> 00:21:37,010
+for images so let's how we do that okay
+
+341
+00:21:34,950 --> 00:21:37,010
+so
+
+342
+00:21:44,900 --> 00:21:51,110
+so that is energy drink now tea
+
+343
+00:21:58,040 --> 00:22:04,650
+okay we are going to do Emacs commands
+
+344
+00:22:02,130 --> 00:22:12,870
+to manipulate images let's see how I
+
+345
+00:22:04,650 --> 00:22:15,540
+want to go about this okay let's let's
+
+346
+00:22:12,870 --> 00:22:18,510
+begin let's begin to do it so open this
+
+347
+00:22:15,540 --> 00:22:20,640
+image now I don't let's I don't want
+
+348
+00:22:18,510 --> 00:22:22,650
+this image okay I'm just going go ahead
+
+349
+00:22:20,640 --> 00:22:24,870
+and do lots of things let's say I don't
+
+350
+00:22:22,650 --> 00:22:26,610
+want this image anymore so I call
+
+351
+00:22:24,870 --> 00:22:29,130
+command I press three geez
+
+352
+00:22:26,610 --> 00:22:33,060
+that's Scotty lead current file so that
+
+353
+00:22:29,130 --> 00:22:36,390
+fire is now good you see you won't see
+
+354
+00:22:33,060 --> 00:22:40,280
+it anymore it's gotten so deleted so
+
+355
+00:22:36,390 --> 00:22:45,300
+delete that page to open this delete
+
+356
+00:22:40,280 --> 00:22:49,140
+okay and delete that paragraph open this
+
+357
+00:22:45,300 --> 00:22:51,510
+delete delete a paragraph open this this
+
+358
+00:22:49,140 --> 00:22:55,940
+is a huge image okay press a key to
+
+359
+00:22:51,510 --> 00:22:59,370
+magnify in fact you cannot see so much
+
+360
+00:22:55,940 --> 00:23:04,460
+because it's a huge image but now I
+
+361
+00:22:59,370 --> 00:23:08,600
+I call this command it opens in preview
+
+362
+00:23:04,460 --> 00:23:11,430
+this works in Linux on windows on
+
+363
+00:23:08,600 --> 00:23:14,490
+Microsoft - he'll open whatever your
+
+364
+00:23:11,430 --> 00:23:16,910
+image viewer so we saw that we don't
+
+365
+00:23:14,490 --> 00:23:20,520
+want it delete it
+
+366
+00:23:16,910 --> 00:23:25,590
+okay so so by the way that command is
+
+367
+00:23:20,520 --> 00:23:28,200
+opening external app and okay so what
+
+368
+00:23:25,590 --> 00:23:33,000
+about this image it's big okay so let's
+
+369
+00:23:28,200 --> 00:23:35,460
+open in preview opening external okay
+
+370
+00:23:33,000 --> 00:23:39,930
+let's keep this one let's say okay
+
+371
+00:23:35,460 --> 00:23:43,290
+showing browser now I have you see what
+
+372
+00:23:39,930 --> 00:23:46,880
+I'm trying to do is I'm going to I'm out
+
+373
+00:23:43,290 --> 00:23:49,530
+of a modern if modifying this page and
+
+374
+00:23:46,880 --> 00:23:54,150
+you know to walk towards the way I
+
+375
+00:23:49,530 --> 00:23:56,640
+wanted reviews and information and were
+
+376
+00:23:54,150 --> 00:23:59,310
+part of the important thing is to get
+
+377
+00:23:56,640 --> 00:24:02,520
+the images collect the images and make
+
+378
+00:23:59,310 --> 00:24:04,680
+them attractive for example and make
+
+379
+00:24:02,520 --> 00:24:06,750
+them the right size you don't want for
+
+380
+00:24:04,680 --> 00:24:11,010
+example you don't want a for example
+
+381
+00:24:06,750 --> 00:24:11,760
+this image right now is humongous four
+
+382
+00:24:11,010 --> 00:24:14,850
+thousand pick
+
+383
+00:24:11,760 --> 00:24:18,840
+so spy 3,000 pixels you can see if I
+
+384
+00:24:14,850 --> 00:24:21,650
+enlarge the browser you know it's it's
+
+385
+00:24:18,840 --> 00:24:25,620
+it's it's kind of bigger than my screen
+
+386
+00:24:21,650 --> 00:24:29,010
+so some people are you are on the phone
+
+387
+00:24:25,620 --> 00:24:32,160
+you know they don't need this huge image
+
+388
+00:24:29,010 --> 00:24:34,440
+so you need to do you need to get them
+
+389
+00:24:32,160 --> 00:24:38,070
+to the right size so we are working in
+
+390
+00:24:34,440 --> 00:24:41,970
+HTML and you know we work with HTML so
+
+391
+00:24:38,070 --> 00:24:44,790
+for example so this did this image for
+
+392
+00:24:41,970 --> 00:24:47,120
+example I like to keep I you know I like
+
+393
+00:24:44,790 --> 00:24:50,940
+to keep so people can see it's great and
+
+394
+00:24:47,120 --> 00:24:54,390
+and the one thing so right now it's too
+
+395
+00:24:50,940 --> 00:24:58,140
+big so it's 400 pixels okay so I want to
+
+396
+00:24:54,390 --> 00:25:00,680
+resize it let's say I want to first
+
+397
+00:24:58,140 --> 00:25:06,750
+usually I look at the image okay so this
+
+398
+00:25:00,680 --> 00:25:10,710
+reside resized by 40% okay so I can call
+
+399
+00:25:06,750 --> 00:25:16,130
+command let me show you okay so I open
+
+400
+00:25:10,710 --> 00:25:18,900
+this file go to tired this is the file
+
+401
+00:25:16,130 --> 00:25:23,510
+but before we do anything let's delete
+
+402
+00:25:18,900 --> 00:25:25,790
+the other backup files we don't need so
+
+403
+00:25:23,510 --> 00:25:29,820
+select them
+
+404
+00:25:25,790 --> 00:25:34,610
+press ok delete yes delete no it's clear
+
+405
+00:25:29,820 --> 00:25:39,410
+so so back to this image go to tired
+
+406
+00:25:34,610 --> 00:25:43,350
+here that's the image now I want to
+
+407
+00:25:39,410 --> 00:25:48,570
+resize them let's say 40% so I call
+
+408
+00:25:43,350 --> 00:25:50,760
+command that's not tired scale image you
+
+409
+00:25:48,570 --> 00:25:54,090
+can see on the left window so now it's
+
+410
+00:25:50,760 --> 00:25:58,190
+asked me for a scale let's say 40 okay
+
+411
+00:25:54,090 --> 00:26:01,800
+do I want to sharpen it yes
+
+412
+00:25:58,190 --> 00:26:04,860
+okay success so this is the new image
+
+413
+00:26:01,800 --> 00:26:07,890
+you can see the drastic difference in
+
+414
+00:26:04,860 --> 00:26:12,360
+file size 10 times smaller so now I open
+
+415
+00:26:07,890 --> 00:26:16,920
+this that looks good okay that looks
+
+416
+00:26:12,360 --> 00:26:20,900
+good now I copy the file path close it
+
+417
+00:26:16,920 --> 00:26:23,130
+close it close it now I paste it here
+
+418
+00:26:20,900 --> 00:26:28,679
+link off' i
+
+419
+00:26:23,130 --> 00:26:31,080
+and that's an image you see I press the
+
+420
+00:26:28,679 --> 00:26:34,410
+enter you can see that image and for the
+
+421
+00:26:31,080 --> 00:26:38,090
+big one let's show in browser first so
+
+422
+00:26:34,410 --> 00:26:41,960
+showing browsers so we got two of them
+
+423
+00:26:38,090 --> 00:26:45,210
+they look the same but actually the
+
+424
+00:26:41,960 --> 00:26:48,150
+second one is three times speaker like
+
+425
+00:26:45,210 --> 00:26:53,820
+almost two times speaker so we need to
+
+426
+00:26:48,150 --> 00:26:58,320
+remove the second one so what what I do
+
+427
+00:26:53,820 --> 00:27:01,070
+is I want to copy the file path cut DVDs
+
+428
+00:26:58,320 --> 00:27:04,200
+line okay let me do it again show the
+
+429
+00:27:01,070 --> 00:27:09,900
+command window so copy this file path
+
+430
+00:27:04,200 --> 00:27:13,650
+cut DVDs line then go back here paste
+
+431
+00:27:09,900 --> 00:27:18,240
+then coal command that command is called
+
+432
+00:27:13,650 --> 00:27:21,659
+a HTML full sized image liquify so that
+
+433
+00:27:18,240 --> 00:27:25,890
+will create this link so now if I show
+
+434
+00:27:21,659 --> 00:27:29,940
+him browser you can see that is how I
+
+435
+00:27:25,890 --> 00:27:32,700
+get people to look at the big image if
+
+436
+00:27:29,940 --> 00:27:36,900
+they want they can click on that then
+
+437
+00:27:32,700 --> 00:27:39,179
+they can see the big thing okay so that
+
+438
+00:27:36,900 --> 00:27:45,960
+is one of the commands I want to show
+
+439
+00:27:39,179 --> 00:27:46,980
+about about the resize so where is that
+
+440
+00:27:45,960 --> 00:27:51,929
+scale
+
+441
+00:27:46,980 --> 00:27:55,799
+okay scale saw tired scale image now if
+
+442
+00:27:51,929 --> 00:27:59,270
+use web search you can see the code let
+
+443
+00:27:55,799 --> 00:28:02,760
+me show you the code so use web search
+
+444
+00:27:59,270 --> 00:28:09,049
+like you can just search for sorry
+
+445
+00:28:02,760 --> 00:28:13,500
+Emacs scale image so here is the page
+
+446
+00:28:09,049 --> 00:28:16,049
+and you can see I have actually quite
+
+447
+00:28:13,500 --> 00:28:20,070
+several of them and we are going to use
+
+448
+00:28:16,049 --> 00:28:21,570
+almost half of them today we just begin
+
+449
+00:28:20,070 --> 00:28:24,000
+we just used one of them
+
+450
+00:28:21,570 --> 00:28:26,460
+so that's scale image that's one of them
+
+451
+00:28:24,000 --> 00:28:30,980
+you can just copy this putting your
+
+452
+00:28:26,460 --> 00:28:36,980
+Emacs in it and you will have it too and
+
+453
+00:28:30,980 --> 00:28:40,279
+you do need the Linux command image
+
+454
+00:28:36,980 --> 00:28:44,880
+magic okay you do need that command
+
+455
+00:28:40,279 --> 00:28:48,139
+installed so imagemagick
+
+456
+00:28:44,880 --> 00:28:50,909
+is a command-line utility that
+
+457
+00:28:48,139 --> 00:28:53,880
+manipulate images okay actually let me
+
+458
+00:28:50,909 --> 00:28:57,960
+show you that image magic you need that
+
+459
+00:28:53,880 --> 00:29:02,580
+installed so keyboard program in general
+
+460
+00:28:57,960 --> 00:29:05,909
+so so yeah so this is the discord join
+
+461
+00:29:02,580 --> 00:29:08,940
+my discord okay you can find a link just
+
+462
+00:29:05,909 --> 00:29:11,240
+by searching for sorry discord now let
+
+463
+00:29:08,940 --> 00:29:16,399
+me show you sorry
+
+464
+00:29:11,240 --> 00:29:16,399
+image magic okay
+
+465
+00:29:22,630 --> 00:29:29,559
+so that is my imagemagick to tobio
+
+466
+00:29:26,230 --> 00:29:32,980
+imagemagick is a command-line utility
+
+467
+00:29:29,559 --> 00:29:37,120
+that lets you to convert jpg to be a PNG
+
+468
+00:29:32,980 --> 00:29:41,110
+or vice versa or scale crop or change
+
+469
+00:29:37,120 --> 00:29:44,260
+color or transparency or reduce color or
+
+470
+00:29:41,110 --> 00:29:46,660
+crop images sharpen blue things like
+
+471
+00:29:44,260 --> 00:29:51,360
+that or by a command or by a command so
+
+472
+00:29:46,660 --> 00:29:54,220
+you can see you can go to this page and
+
+473
+00:29:51,360 --> 00:29:57,370
+you know learn it if you are not
+
+474
+00:29:54,220 --> 00:29:59,940
+familiar with so let's go to Chris our
+
+475
+00:29:57,370 --> 00:30:09,370
+talk show and let's put that link here
+
+476
+00:29:59,940 --> 00:30:11,309
+so we have a record of it show in
+
+477
+00:30:09,370 --> 00:30:15,400
+browser there it is
+
+478
+00:30:11,309 --> 00:30:20,760
+close back to Emacs close back to
+
+479
+00:30:15,400 --> 00:30:23,710
+browser copy the URL back to Emacs and
+
+480
+00:30:20,760 --> 00:30:26,950
+reopen this one I also want to place
+
+481
+00:30:23,710 --> 00:30:30,070
+this link here so you can showing
+
+482
+00:30:26,950 --> 00:30:34,990
+browsers so there is my Emacs code so
+
+483
+00:30:30,070 --> 00:30:40,480
+close close back to Emacs close close
+
+484
+00:30:34,990 --> 00:30:43,150
+and we are back to this page okay that's
+
+485
+00:30:40,480 --> 00:30:49,299
+that's one of the command on the Korea
+
+486
+00:30:43,150 --> 00:30:51,850
+keyboard now this image I don't want for
+
+487
+00:30:49,299 --> 00:30:55,450
+this image for this page I don't want
+
+488
+00:30:51,850 --> 00:30:58,710
+all these thing on the background so I
+
+489
+00:30:55,450 --> 00:31:01,710
+want to crop it so the way I do that is
+
+490
+00:30:58,710 --> 00:31:01,710
+you
+
+491
+00:31:03,419 --> 00:31:13,179
+so you actually open the full sized
+
+492
+00:31:06,340 --> 00:31:17,530
+image you go to Safari and we are going
+
+493
+00:31:13,179 --> 00:31:21,700
+to crop it so we're gonna cut it like
+
+494
+00:31:17,530 --> 00:31:26,260
+that but before we do so go back to
+
+495
+00:31:21,700 --> 00:31:28,630
+Emacs press a key it makes a backup so
+
+496
+00:31:26,260 --> 00:31:31,240
+in case I want to go back to that so
+
+497
+00:31:28,630 --> 00:31:34,750
+that command is Samak back up and save
+
+498
+00:31:31,240 --> 00:31:38,620
+you can find on my website
+
+499
+00:31:34,750 --> 00:31:43,419
+so now back to the preview the Mack
+
+500
+00:31:38,620 --> 00:31:46,960
+image editor a simple one so press
+
+501
+00:31:43,419 --> 00:31:49,750
+control press press command K to crop it
+
+502
+00:31:46,960 --> 00:31:54,460
+so this is what I want yes there we have
+
+503
+00:31:49,750 --> 00:31:58,330
+it so this is you know just focus on the
+
+504
+00:31:54,460 --> 00:32:02,130
+keyboard so close that so go back to
+
+505
+00:31:58,330 --> 00:32:06,730
+Emacs wait for a second it will refresh
+
+506
+00:32:02,130 --> 00:32:09,970
+so now we got this image now it's still
+
+507
+00:32:06,730 --> 00:32:12,520
+too big you know the size is too big so
+
+508
+00:32:09,970 --> 00:32:18,450
+we're gonna shrink it again so go to
+
+509
+00:32:12,520 --> 00:32:22,419
+tired here is the file and let's make
+
+510
+00:32:18,450 --> 00:32:25,770
+let's call the command again so so
+
+511
+00:32:22,419 --> 00:32:31,539
+here's a file I call the command and
+
+512
+00:32:25,770 --> 00:32:36,340
+let's type a scale let's say 40 40 okay
+
+513
+00:32:31,539 --> 00:32:39,700
+40 sharpen yes so it creates a new file
+
+514
+00:32:36,340 --> 00:32:44,260
+this one so copy the file path close
+
+515
+00:32:39,700 --> 00:32:47,650
+close close and now go back here paste
+
+516
+00:32:44,260 --> 00:32:50,740
+it here and link a file now the linker
+
+517
+00:32:47,650 --> 00:32:54,549
+file command is this one saw HTML image
+
+518
+00:32:50,740 --> 00:32:58,840
+link a file you if you want that you
+
+519
+00:32:54,549 --> 00:33:00,760
+have to find it inside tml mod just such
+
+520
+00:32:58,840 --> 00:33:04,690
+that you will find it he'd seen that
+
+521
+00:33:00,760 --> 00:33:08,530
+code so now let's show in browser again
+
+522
+00:33:04,690 --> 00:33:11,140
+so here is our old image here is new we
+
+523
+00:33:08,530 --> 00:33:16,179
+don't need the old one anymore so open
+
+524
+00:33:11,140 --> 00:33:22,630
+it delete it and delete the line showing
+
+525
+00:33:16,179 --> 00:33:30,789
+browser fantastic back to Emacs and for
+
+526
+00:33:22,630 --> 00:33:34,419
+this image let's see you know close it
+
+527
+00:33:30,789 --> 00:33:37,000
+okay so I'm wondering okay anyway let's
+
+528
+00:33:34,419 --> 00:33:39,539
+I'm not going it's not worry about the
+
+529
+00:33:37,000 --> 00:33:42,970
+details because I'm going to walk on it
+
+530
+00:33:39,539 --> 00:33:46,179
+how I want my blocks to be but right now
+
+531
+00:33:42,970 --> 00:33:48,130
+let's just focus on the Emacs stuff so
+
+532
+00:33:46,179 --> 00:33:53,650
+this image you see the name
+
+533
+00:33:48,130 --> 00:33:54,039
+that's that - s - s at the end that's no
+
+534
+00:33:53,650 --> 00:33:57,690
+good
+
+535
+00:33:54,039 --> 00:33:59,350
+I just want one s so I call a command
+
+536
+00:33:57,690 --> 00:34:02,110
+press okey
+
+537
+00:33:59,350 --> 00:34:07,750
+he asked me a new file name so I just
+
+538
+00:34:02,110 --> 00:34:12,810
+say - yes enter so what this - is that
+
+539
+00:34:07,750 --> 00:34:15,490
+it will change the file name on disk but
+
+540
+00:34:12,810 --> 00:34:18,940
+you don't have to go to tire and do that
+
+541
+00:34:15,490 --> 00:34:20,830
+you just directly working in the HTML so
+
+542
+00:34:18,940 --> 00:34:24,490
+showing browsers so we got the same
+
+543
+00:34:20,830 --> 00:34:26,919
+image but the name actually changed so
+
+544
+00:34:24,490 --> 00:34:32,800
+the link you know everything in one step
+
+545
+00:34:26,919 --> 00:34:37,450
+so that command is renamed okay so let's
+
+546
+00:34:32,800 --> 00:34:39,700
+see if I have it here let's see yeah
+
+547
+00:34:37,450 --> 00:34:43,960
+this is the command we just caught side
+
+548
+00:34:39,700 --> 00:34:46,990
+Gmail rename source file path and you
+
+549
+00:34:43,960 --> 00:34:52,210
+can also find that in my excited here
+
+550
+00:34:46,990 --> 00:34:57,660
+mail dot DL Emacs package on kid on
+
+551
+00:34:52,210 --> 00:35:01,109
+github so we have done several things
+
+552
+00:34:57,660 --> 00:35:04,600
+now so Kathy says I wonder how he
+
+553
+00:35:01,109 --> 00:35:07,270
+managed passwords with dr. ko maybe with
+
+554
+00:35:04,600 --> 00:35:10,359
+tools like key pass now I don't I don't
+
+555
+00:35:07,270 --> 00:35:12,369
+I don't use I don't have a count on dr.
+
+556
+00:35:10,359 --> 00:35:19,750
+ko I just you know you don't need to
+
+557
+00:35:12,369 --> 00:35:24,119
+create or calm okay so I need to get in
+
+558
+00:35:19,750 --> 00:35:28,270
+touch with the people here so you guys
+
+559
+00:35:24,119 --> 00:35:32,650
+how is it going am i doing good
+
+560
+00:35:28,270 --> 00:35:37,900
+am i doing okay is this the right topic
+
+561
+00:35:32,650 --> 00:35:43,600
+any comments so we are going to continue
+
+562
+00:35:37,900 --> 00:35:49,780
+with Emacs list and Emily are you still
+
+563
+00:35:43,600 --> 00:35:53,980
+here okay let's continue the comments
+
+564
+00:35:49,780 --> 00:35:55,840
+Emily Emily is a big Emacs user and Alan
+
+565
+00:35:53,980 --> 00:35:59,980
+is a wimp
+
+566
+00:35:55,840 --> 00:36:02,839
+I mean evil Mart user right
+
+567
+00:35:59,980 --> 00:36:11,270
+for UAC on yes bruh
+
+568
+00:36:02,839 --> 00:36:16,579
+bah la playa very calming hi George
+
+569
+00:36:11,270 --> 00:36:20,119
+I'm hi ASF what does ask of me okay
+
+570
+00:36:16,579 --> 00:36:23,329
+let's get back to Emacs so now what is
+
+571
+00:36:20,119 --> 00:36:30,260
+the next thing okay so what is the next
+
+572
+00:36:23,329 --> 00:36:37,160
+thing so Cathy am i doing good
+
+573
+00:36:30,260 --> 00:36:38,270
+anything anything any anything
+
+574
+00:36:37,160 --> 00:36:46,130
+interesting
+
+575
+00:36:38,270 --> 00:36:47,990
+posting a chat ok so so we have created
+
+576
+00:36:46,130 --> 00:36:51,440
+this page we have modified we have
+
+577
+00:36:47,990 --> 00:36:56,270
+scaled it let's see what else we are
+
+578
+00:36:51,440 --> 00:36:59,000
+going to do okay let's just just keep
+
+579
+00:36:56,270 --> 00:37:02,960
+walking on this page now let's go to
+
+580
+00:36:59,000 --> 00:37:07,640
+discord and he has showed me several new
+
+581
+00:37:02,960 --> 00:37:11,329
+pages new things it's and I want to use
+
+582
+00:37:07,640 --> 00:37:18,170
+them several new images this guy who
+
+583
+00:37:11,329 --> 00:37:20,900
+created that keyboard P via keyboard so
+
+584
+00:37:18,170 --> 00:37:23,690
+he has created several images we have
+
+585
+00:37:20,900 --> 00:37:26,779
+used one of them but this this is the
+
+586
+00:37:23,690 --> 00:37:29,750
+one actually we want I deleted them
+
+587
+00:37:26,779 --> 00:37:32,359
+before because I started to work on this
+
+588
+00:37:29,750 --> 00:37:34,430
+page but I want to redo them so I can
+
+589
+00:37:32,359 --> 00:37:37,220
+show you guys how this work this is a
+
+590
+00:37:34,430 --> 00:37:41,900
+good example how I use this image
+
+591
+00:37:37,220 --> 00:37:44,480
+commands so Alan says do you usually
+
+592
+00:37:41,900 --> 00:37:50,809
+keep archives of full-size original
+
+593
+00:37:44,480 --> 00:37:54,549
+images no not usually no although these
+
+594
+00:37:50,809 --> 00:37:58,309
+days I try you know sometimes I do
+
+595
+00:37:54,549 --> 00:38:01,700
+because they you know images especially
+
+596
+00:37:58,309 --> 00:38:03,680
+today they get huge very fast when you
+
+597
+00:38:01,700 --> 00:38:06,170
+have hundreds image it's like right now
+
+598
+00:38:03,680 --> 00:38:09,289
+Mike sorry Don info is one chica bites
+
+599
+00:38:06,170 --> 00:38:11,450
+I know chica by one chica by doesn't
+
+600
+00:38:09,289 --> 00:38:13,750
+sound too much but I I kind of still
+
+601
+00:38:11,450 --> 00:38:17,450
+live in the 1991
+
+602
+00:38:13,750 --> 00:38:21,290
+20 megabyte hard disk error 40 megabyte
+
+603
+00:38:17,450 --> 00:38:24,320
+is the standard hard disk so Mike sorry
+
+604
+00:38:21,290 --> 00:38:27,530
+info website I tried to keep the image
+
+605
+00:38:24,320 --> 00:38:30,520
+you know the file size minimal like this
+
+606
+00:38:27,530 --> 00:38:33,050
+obsession about that but as time goes on
+
+607
+00:38:30,520 --> 00:38:34,820
+you know the file size they just get
+
+608
+00:38:33,050 --> 00:38:38,360
+bigger and bigger especially videos
+
+609
+00:38:34,820 --> 00:38:44,570
+right so but images to today one image
+
+610
+00:38:38,360 --> 00:38:46,970
+is 500 500 kilobytes or 1 megabyte you
+
+611
+00:38:44,570 --> 00:38:49,580
+know anyways so for example let's save
+
+612
+00:38:46,970 --> 00:38:51,710
+this one I want I want this image so
+
+613
+00:38:49,580 --> 00:38:53,720
+let's save it lets continuing with Emacs
+
+614
+00:38:51,710 --> 00:38:56,840
+so save it so I'm going to show you
+
+615
+00:38:53,720 --> 00:39:00,050
+another commands ok so I'm going to save
+
+616
+00:38:56,840 --> 00:39:02,750
+it starting with the name EE you will
+
+617
+00:39:00,050 --> 00:39:04,970
+you will you will see why do I do that
+
+618
+00:39:02,750 --> 00:39:05,600
+in a moment moment ok I talked about
+
+619
+00:39:04,970 --> 00:39:08,620
+this before
+
+620
+00:39:05,600 --> 00:39:12,620
+so anyway save it to the download
+
+621
+00:39:08,620 --> 00:39:17,690
+directory okay now close it now I
+
+622
+00:39:12,620 --> 00:39:22,690
+possess that image now I go to Emacs go
+
+623
+00:39:17,690 --> 00:39:25,640
+to Emacs showing browser and I want to
+
+624
+00:39:22,690 --> 00:39:27,620
+this is very useful for those of you
+
+625
+00:39:25,640 --> 00:39:30,260
+writing blocks because when you write a
+
+626
+00:39:27,620 --> 00:39:33,260
+blog you have many photos on the online
+
+627
+00:39:30,260 --> 00:39:36,500
+you want to grab them you know with with
+
+628
+00:39:33,260 --> 00:39:39,170
+credit credit you know you've if that
+
+629
+00:39:36,500 --> 00:39:42,500
+applies so you want to show in your blog
+
+630
+00:39:39,170 --> 00:39:45,230
+so so in now I saved in my download
+
+631
+00:39:42,500 --> 00:39:49,460
+folder so typically you go to the
+
+632
+00:39:45,230 --> 00:39:53,450
+download folder you you try to rename
+
+633
+00:39:49,460 --> 00:39:55,460
+the image sometimes if you you know
+
+634
+00:39:53,450 --> 00:39:58,910
+sometimes you want to do that then you
+
+635
+00:39:55,460 --> 00:40:02,330
+try to move the image file path to your
+
+636
+00:39:58,910 --> 00:40:06,410
+blog's directory then you create a HTML
+
+637
+00:40:02,330 --> 00:40:09,680
+to link to it tedious to tedious okay so
+
+638
+00:40:06,410 --> 00:40:13,550
+I have one command that I call right now
+
+639
+00:40:09,680 --> 00:40:16,130
+it will grab whatever images in my
+
+640
+00:40:13,550 --> 00:40:19,610
+desktop directory in my screenshot
+
+641
+00:40:16,130 --> 00:40:22,970
+directory in my home directory or in my
+
+642
+00:40:19,610 --> 00:40:26,270
+download directory any any directory you
+
+643
+00:40:22,970 --> 00:40:27,800
+can specify or document directory any so
+
+644
+00:40:26,270 --> 00:40:30,890
+any file there if
+
+645
+00:40:27,800 --> 00:40:34,730
+their name begin with EE then it will
+
+646
+00:40:30,890 --> 00:40:37,760
+automatically move it to the current
+
+647
+00:40:34,730 --> 00:40:40,550
+directory my buffer is in you will see
+
+648
+00:40:37,760 --> 00:40:44,090
+ok so let's call that command so we're
+
+649
+00:40:40,550 --> 00:40:46,940
+going to call I'm just going to press
+
+650
+00:40:44,090 --> 00:40:49,010
+two keys so there it is you can see on
+
+651
+00:40:46,940 --> 00:40:52,010
+the left it says some move image file
+
+652
+00:40:49,010 --> 00:40:54,050
+that is a command name and that command
+
+653
+00:40:52,010 --> 00:40:57,710
+is also on my website so you can get a
+
+654
+00:40:54,050 --> 00:41:00,980
+code so he asked me a directory so I say
+
+655
+00:40:57,710 --> 00:41:03,010
+I go okay I want to put that in this
+
+656
+00:41:00,980 --> 00:41:06,620
+directory so press Enter
+
+657
+00:41:03,010 --> 00:41:08,810
+yes confirm then he asked me for a name
+
+658
+00:41:06,620 --> 00:41:16,130
+so I'm going to rename it
+
+659
+00:41:08,810 --> 00:41:19,220
+this is Kiwi keyboard okay and okay
+
+660
+00:41:16,130 --> 00:41:21,590
+there's a date that's okay so there is a
+
+661
+00:41:19,220 --> 00:41:25,210
+name at the mini pava you can see at the
+
+662
+00:41:21,590 --> 00:41:29,210
+bottom so that's the name I want enter
+
+663
+00:41:25,210 --> 00:41:31,850
+back there you go so it by calling this
+
+664
+00:41:29,210 --> 00:41:34,850
+command it automatically generates this
+
+665
+00:41:31,850 --> 00:41:38,900
+nice link for me with for example with
+
+666
+00:41:34,850 --> 00:41:43,250
+the figure tag for the image tag with
+
+667
+00:41:38,900 --> 00:41:49,360
+the width and hate automatically created
+
+668
+00:41:43,250 --> 00:41:53,140
+for you and also the old tag attribute
+
+669
+00:41:49,360 --> 00:41:57,950
+and also figure caption and caption
+
+670
+00:41:53,140 --> 00:41:59,840
+based off from the image name so it's
+
+671
+00:41:57,950 --> 00:42:02,720
+all very nice now let's show in browser
+
+672
+00:41:59,840 --> 00:42:07,040
+so let's see what it looks like there we
+
+673
+00:42:02,720 --> 00:42:11,060
+have it so so that is a very useful
+
+674
+00:42:07,040 --> 00:42:12,440
+command if you write blocks and again
+
+675
+00:42:11,060 --> 00:42:19,880
+that command is called
+
+676
+00:42:12,440 --> 00:42:22,880
+za move move image fire oh my god these
+
+677
+00:42:19,880 --> 00:42:29,350
+commands they fly by very fast so you
+
+678
+00:42:22,880 --> 00:42:29,350
+have to so far so good
+
+679
+00:42:29,770 --> 00:42:38,290
+so far so good so quadcore says these
+
+680
+00:42:35,710 --> 00:42:39,280
+knobs would be better near thumbs in my
+
+681
+00:42:38,290 --> 00:42:45,700
+humble opinion
+
+682
+00:42:39,280 --> 00:42:49,480
+yeah that's impossibly so well back then
+
+683
+00:42:45,700 --> 00:42:57,210
+our images had 2256 colors
+
+684
+00:42:49,480 --> 00:42:57,210
+yes snobby Navi is from the dinosaur era
+
+685
+00:42:58,530 --> 00:43:06,900
+2256 colors that's full color back in
+
+686
+00:43:02,190 --> 00:43:11,700
+1991 and you have to buy a the most
+
+687
+00:43:06,900 --> 00:43:18,030
+cutting-edge monitor for that with was a
+
+688
+00:43:11,700 --> 00:43:23,589
+$2,000 Apple RGB monitor it can display
+
+689
+00:43:18,030 --> 00:43:27,490
+256 colors so anyway so we back on this
+
+690
+00:43:23,589 --> 00:43:29,710
+and so again I need to crop this image
+
+691
+00:43:27,490 --> 00:43:35,710
+so okay let me show you several more
+
+692
+00:43:29,710 --> 00:43:38,500
+commands so by this rate okay hold on
+
+693
+00:43:35,710 --> 00:43:42,160
+second by this rate I'm not going to get
+
+694
+00:43:38,500 --> 00:43:44,830
+into the part where I want to modify the
+
+695
+00:43:42,160 --> 00:43:51,359
+emag Lisp code so it's already 40
+
+696
+00:43:44,830 --> 00:43:54,790
+minutes very time consuming to do this
+
+697
+00:43:51,359 --> 00:43:57,940
+technical stuff so anyway so let me show
+
+698
+00:43:54,790 --> 00:44:02,070
+you some more commands okay so I open
+
+699
+00:43:57,940 --> 00:44:04,839
+this again so showing external app I
+
+700
+00:44:02,070 --> 00:44:07,180
+want to crop it now there are several
+
+701
+00:44:04,839 --> 00:44:10,089
+things I want to do I want to crop it so
+
+702
+00:44:07,180 --> 00:44:13,930
+remove the background also I want to
+
+703
+00:44:10,089 --> 00:44:16,540
+crop it so that I show I have image of
+
+704
+00:44:13,930 --> 00:44:19,599
+just the right hand I think I'll use
+
+705
+00:44:16,540 --> 00:44:22,660
+that for the primary photo for this page
+
+706
+00:44:19,599 --> 00:44:24,220
+the icon possibly I don't know because
+
+707
+00:44:22,660 --> 00:44:28,420
+when you work on blog you don't know for
+
+708
+00:44:24,220 --> 00:44:32,500
+sure until you do and look so first of
+
+709
+00:44:28,420 --> 00:44:36,520
+all first of all let's make a backup
+
+710
+00:44:32,500 --> 00:44:40,660
+copy of this image and make another
+
+711
+00:44:36,520 --> 00:44:44,310
+backup of this image so that's a command
+
+712
+00:44:40,660 --> 00:44:50,859
+make backup and save okay now go to diet
+
+713
+00:44:44,310 --> 00:44:53,710
+refresh you can see you can see these
+
+714
+00:44:50,859 --> 00:44:56,440
+three lines you know one is the full
+
+715
+00:44:53,710 --> 00:45:00,099
+version and the other two are the backup
+
+716
+00:44:56,440 --> 00:45:02,440
+images backup copy so let's show let me
+
+717
+00:45:00,099 --> 00:45:07,510
+show you this okay let's say shrink a
+
+718
+00:45:02,440 --> 00:45:11,890
+little bit so you can actually see so
+
+719
+00:45:07,510 --> 00:45:14,890
+I'm going to press a key that is tired
+
+720
+00:45:11,890 --> 00:45:19,330
+toggle read-only so now I can start to
+
+721
+00:45:14,890 --> 00:45:21,790
+rename the file rename my backups rename
+
+722
+00:45:19,330 --> 00:45:27,400
+my backup so let's say let's call this
+
+723
+00:45:21,790 --> 00:45:33,820
+one crop and let's call this one right
+
+724
+00:45:27,400 --> 00:45:39,010
+hand okay I'm done ctrl c ctrl C now I'm
+
+725
+00:45:33,820 --> 00:45:41,260
+done so so Emacs renamed you know you
+
+726
+00:45:39,010 --> 00:45:44,109
+can rename file that way very powerful
+
+727
+00:45:41,260 --> 00:45:48,940
+command so entired you call you that
+
+728
+00:45:44,109 --> 00:45:51,240
+that command is Targo where is it tired
+
+729
+00:45:48,940 --> 00:45:56,349
+toggle read-only that is a command oh
+
+730
+00:45:51,240 --> 00:45:58,450
+you can also call w tired anyway just
+
+731
+00:45:56,349 --> 00:46:00,130
+just call this toggle read-only because
+
+732
+00:45:58,450 --> 00:46:05,050
+that's universal you can call that
+
+733
+00:46:00,130 --> 00:46:07,720
+command in any buffer that will lock the
+
+734
+00:46:05,050 --> 00:46:10,960
+file to make it read only and you can
+
+735
+00:46:07,720 --> 00:46:14,140
+toggle so anyway we have created you
+
+736
+00:46:10,960 --> 00:46:20,320
+know two copies of the same image so
+
+737
+00:46:14,140 --> 00:46:25,300
+let's so so what we do now okay so go to
+
+738
+00:46:20,320 --> 00:46:27,369
+the dad go to the crop version open it
+
+739
+00:46:25,300 --> 00:46:29,859
+okay before we do that you see the
+
+740
+00:46:27,369 --> 00:46:33,430
+filenames they are named with a space
+
+741
+00:46:29,859 --> 00:46:37,150
+okay let's magnify now I want to rename
+
+742
+00:46:33,430 --> 00:46:40,300
+them so that it uses underscore instead
+
+743
+00:46:37,150 --> 00:46:43,599
+so I have this command I just press a
+
+744
+00:46:40,300 --> 00:46:48,460
+key now look now watch this file and
+
+745
+00:46:43,599 --> 00:46:49,880
+this file okay okay let me shrink okay
+
+746
+00:46:48,460 --> 00:46:55,730
+so let me
+
+747
+00:46:49,880 --> 00:46:58,940
+I mean try to do these okay so here so
+
+748
+00:46:55,730 --> 00:47:00,220
+where you are May so this file in this
+
+749
+00:46:58,940 --> 00:47:05,360
+file
+
+750
+00:47:00,220 --> 00:47:10,390
+space to underscore so so watch press
+
+751
+00:47:05,360 --> 00:47:13,100
+okey then okay press the key again done
+
+752
+00:47:10,390 --> 00:47:16,700
+so what that does you can see now the
+
+753
+00:47:13,100 --> 00:47:26,200
+names with underscore and that command
+
+754
+00:47:16,700 --> 00:47:26,200
+is saw diet rename space to underscore
+
+755
+00:47:26,290 --> 00:47:36,650
+okay let's it's it's here that is also
+
+756
+00:47:34,190 --> 00:47:40,160
+on my website so that command allows you
+
+757
+00:47:36,650 --> 00:47:42,950
+to allows you to rename files from space
+
+758
+00:47:40,160 --> 00:47:47,150
+replace our space by under scope by just
+
+759
+00:47:42,950 --> 00:47:49,880
+pressing your key which is extremely
+
+760
+00:47:47,150 --> 00:47:53,870
+convenient because otherwise you would
+
+761
+00:47:49,880 --> 00:47:56,630
+target iured read then you you you have
+
+762
+00:47:53,870 --> 00:48:01,010
+to do find replace for every files then
+
+763
+00:47:56,630 --> 00:48:02,870
+you have to commit then toggle back you
+
+764
+00:48:01,010 --> 00:48:05,750
+know so so this single key is very
+
+765
+00:48:02,870 --> 00:48:08,660
+convenient so anyway so now we have wait
+
+766
+00:48:05,750 --> 00:48:14,450
+wait do we have it yeah so now we have
+
+767
+00:48:08,660 --> 00:48:18,050
+this crop version again show in image
+
+768
+00:48:14,450 --> 00:48:25,030
+editor in your local oh s image editor
+
+769
+00:48:18,050 --> 00:48:25,030
+so let's crop it in preview on a Mac so
+
+770
+00:48:27,220 --> 00:48:35,750
+let's make that that okay
+
+771
+00:48:30,950 --> 00:48:40,310
+crop that's what we want close it back
+
+772
+00:48:35,750 --> 00:48:43,670
+to Emacs close it and also same thing
+
+773
+00:48:40,310 --> 00:48:48,140
+for the right hand so open opening
+
+774
+00:48:43,670 --> 00:48:51,190
+external app and for this one I just
+
+775
+00:48:48,140 --> 00:48:51,190
+want the right hand
+
+776
+00:48:55,150 --> 00:49:05,420
+okay co-op it that's good
+
+777
+00:49:00,200 --> 00:49:09,520
+close it that's good backing Emax copy
+
+778
+00:49:05,420 --> 00:49:13,160
+the file path close it close it close it
+
+779
+00:49:09,520 --> 00:49:19,790
+open that close it so paste it here
+
+780
+00:49:13,160 --> 00:49:23,780
+actually paste it here magnify and open
+
+781
+00:49:19,790 --> 00:49:27,170
+it go to diet again copy the right hand
+
+782
+00:49:23,780 --> 00:49:30,560
+version close it that is the right hand
+
+783
+00:49:27,170 --> 00:49:35,860
+version actually so open that go to diet
+
+784
+00:49:30,560 --> 00:49:40,940
+copy the cop file path close it close it
+
+785
+00:49:35,860 --> 00:49:45,800
+paste the cop file path here actually
+
+786
+00:49:40,940 --> 00:49:51,080
+paste it below it here and make link so
+
+787
+00:49:45,800 --> 00:49:54,890
+that so now we're showing browser we're
+
+788
+00:49:51,080 --> 00:49:59,110
+gonna do this quickly because these are
+
+789
+00:49:54,890 --> 00:49:59,110
+our things to do I haven't get to yet so
+
+790
+00:50:00,310 --> 00:50:11,540
+okay no comments so MSU are doing good
+
+791
+00:50:05,590 --> 00:50:15,650
+okay so so let's do to do this this is
+
+792
+00:50:11,540 --> 00:50:20,180
+the picture for the right hand is it
+
+793
+00:50:15,650 --> 00:50:25,180
+good sighs yeah that's that's good sighs
+
+794
+00:50:20,180 --> 00:50:26,360
+okay so let's see this cropped version
+
+795
+00:50:25,180 --> 00:50:31,970
+okay
+
+796
+00:50:26,360 --> 00:50:35,810
+and let's see the full version the full
+
+797
+00:50:31,970 --> 00:50:39,650
+version we don't yeah it's got a
+
+798
+00:50:35,810 --> 00:50:44,240
+background we don't need anymore so open
+
+799
+00:50:39,650 --> 00:50:50,680
+it make a backup deleted dear it is
+
+800
+00:50:44,240 --> 00:50:50,680
+block and show in browser
+
+801
+00:51:07,180 --> 00:51:14,980
+okay so I guess that just kind of
+
+802
+00:51:11,210 --> 00:51:17,060
+covered several of the image commands
+
+803
+00:51:14,980 --> 00:51:20,420
+actually I have a lot too
+
+804
+00:51:17,060 --> 00:51:24,410
+- yet I haven't get to the one I wanted
+
+805
+00:51:20,420 --> 00:51:26,210
+to show but but now I want to rename
+
+806
+00:51:24,410 --> 00:51:31,970
+these okay because the name right now
+
+807
+00:51:26,210 --> 00:51:34,670
+it's no good right hand well okay so
+
+808
+00:51:31,970 --> 00:51:37,760
+let's just leave it be leave it for now
+
+809
+00:51:34,670 --> 00:51:42,320
+let's get onto some other things I want
+
+810
+00:51:37,760 --> 00:51:45,530
+to show so now I have this now I need to
+
+811
+00:51:42,320 --> 00:51:50,540
+make an icon to represent this page and
+
+812
+00:51:45,530 --> 00:51:53,240
+the image I want to use will be okay let
+
+813
+00:51:50,540 --> 00:51:55,970
+let me ask you guys should I use the
+
+814
+00:51:53,240 --> 00:52:02,060
+first picture image for the icon or the
+
+815
+00:51:55,970 --> 00:52:06,230
+second one both hands so let me know and
+
+816
+00:52:02,060 --> 00:52:08,180
+like I wait for your hands the first
+
+817
+00:52:06,230 --> 00:52:12,020
+image for the icon or the second which
+
+818
+00:52:08,180 --> 00:52:14,240
+one do you think is better for index
+
+819
+00:52:12,020 --> 00:52:17,990
+file for example you know like that
+
+820
+00:52:14,240 --> 00:52:21,110
+let's go to do it yourself so first or
+
+821
+00:52:17,990 --> 00:52:24,040
+second so you know I need to make an
+
+822
+00:52:21,110 --> 00:52:24,040
+icon like that
+
+823
+00:52:24,430 --> 00:52:30,880
+q yeah so I don't have qu here so what
+
+824
+00:52:27,500 --> 00:52:30,880
+do you think what do you guys think
+
+825
+00:52:35,189 --> 00:52:41,169
+first looks nice okay let's go with
+
+826
+00:52:38,289 --> 00:52:48,579
+first George did you change your profile
+
+827
+00:52:41,169 --> 00:52:52,569
+photo on YouTube okay so let's do first
+
+828
+00:52:48,579 --> 00:52:56,049
+yes that's a good idea because the first
+
+829
+00:52:52,569 --> 00:52:58,209
+image is more squarish so so let me so
+
+830
+00:52:56,049 --> 00:53:02,199
+I'm going to show you another command so
+
+831
+00:52:58,209 --> 00:53:06,339
+I need to I need to kind of resize this
+
+832
+00:53:02,199 --> 00:53:08,409
+image now I have you know let's let me
+
+833
+00:53:06,339 --> 00:53:11,469
+show you so I have a resize command
+
+834
+00:53:08,409 --> 00:53:15,039
+you've seen before for example let me do
+
+835
+00:53:11,469 --> 00:53:17,529
+it again so I open it go to diet so this
+
+836
+00:53:15,039 --> 00:53:21,369
+is the image so I want to resize so I
+
+837
+00:53:17,529 --> 00:53:24,519
+call the command satires scale so tired
+
+838
+00:53:21,369 --> 00:53:28,900
+scale image so I type a percentage let's
+
+839
+00:53:24,519 --> 00:53:31,239
+say 40 okay sharpen yes okay so now it
+
+840
+00:53:28,900 --> 00:53:35,159
+creates you know it's still too big so
+
+841
+00:53:31,239 --> 00:53:40,929
+let's do it again delete that refresh
+
+842
+00:53:35,159 --> 00:53:46,919
+oops so this is image go to diet now I
+
+843
+00:53:40,929 --> 00:53:51,189
+call scale image let's say 20 20 percent
+
+844
+00:53:46,919 --> 00:53:54,880
+okay sharpen so now we have okay that
+
+845
+00:53:51,189 --> 00:53:58,119
+looks right okay but I don't want that
+
+846
+00:53:54,880 --> 00:54:01,169
+because too many steps tedious tedious
+
+847
+00:53:58,119 --> 00:54:04,239
+I don't want tediousness I'm using Emacs
+
+848
+00:54:01,169 --> 00:54:08,529
+4 for Emacs users you can remove
+
+849
+00:54:04,239 --> 00:54:11,109
+tediousness necess so so what I do is I
+
+850
+00:54:08,529 --> 00:54:15,219
+want to you see I want to icon of these
+
+851
+00:54:11,109 --> 00:54:18,369
+so no worry so I want an icon of this
+
+852
+00:54:15,219 --> 00:54:20,650
+being this image okay so I just call
+
+853
+00:54:18,369 --> 00:54:23,439
+command a new command now look on the
+
+854
+00:54:20,650 --> 00:54:26,319
+left window you'll see the name so I
+
+855
+00:54:23,439 --> 00:54:30,489
+just do it so that name is Sal create
+
+856
+00:54:26,319 --> 00:54:35,489
+thumbnail image now at mini buffer you
+
+857
+00:54:30,489 --> 00:54:41,169
+ask me which so 250 is the one I use so
+
+858
+00:54:35,489 --> 00:54:44,859
+250 with okay pixels so enter there it
+
+859
+00:54:41,169 --> 00:54:48,760
+is so what it does is it scared a the
+
+860
+00:54:44,859 --> 00:54:52,470
+image on disk meanwhile it all
+
+861
+00:54:48,760 --> 00:54:55,900
+create the link to the newly created
+
+862
+00:54:52,470 --> 00:54:58,650
+icon so that is this one that is this
+
+863
+00:54:55,900 --> 00:55:02,290
+path so for example I can open it
+
+864
+00:54:58,650 --> 00:55:06,220
+perfect you know unlike before where I
+
+865
+00:55:02,290 --> 00:55:08,620
+have to go to diet I have to call the
+
+866
+00:55:06,220 --> 00:55:11,560
+command to scale the image but then I
+
+867
+00:55:08,620 --> 00:55:13,870
+don't know how + what percentage to make
+
+868
+00:55:11,560 --> 00:55:16,690
+it proper you know so I have to maybe
+
+869
+00:55:13,870 --> 00:55:19,150
+try once or twice but now with this
+
+870
+00:55:16,690 --> 00:55:22,390
+command it's just one key press so I
+
+871
+00:55:19,150 --> 00:55:23,130
+have an image here copy the path close
+
+872
+00:55:22,390 --> 00:55:28,420
+this file
+
+873
+00:55:23,130 --> 00:55:31,240
+yes close it okay and paste the path
+
+874
+00:55:28,420 --> 00:55:33,430
+here so you can see here is an image but
+
+875
+00:55:31,240 --> 00:55:37,000
+hold on a second let me that's showing
+
+876
+00:55:33,430 --> 00:55:41,800
+this in browser so you scroll down you
+
+877
+00:55:37,000 --> 00:55:48,460
+can see the kiria okay let's you know
+
+878
+00:55:41,800 --> 00:55:51,270
+that's that's the old image I'm using so
+
+879
+00:55:48,460 --> 00:55:57,970
+now we have a new image paste it here
+
+880
+00:55:51,270 --> 00:56:00,100
+make a link that's that command is sight
+
+881
+00:55:57,970 --> 00:56:05,310
+female image link vise so it's a link
+
+882
+00:56:00,100 --> 00:56:10,660
+cut it then move here paste it here then
+
+883
+00:56:05,310 --> 00:56:11,940
+go to browser refresh now now that's
+
+884
+00:56:10,660 --> 00:56:15,310
+better
+
+885
+00:56:11,940 --> 00:56:17,470
+let's pick that you know that I think
+
+886
+00:56:15,310 --> 00:56:21,040
+the the left picture is better than the
+
+887
+00:56:17,470 --> 00:56:25,480
+right one so this the creator of this
+
+888
+00:56:21,040 --> 00:56:30,240
+keyboard is so nice to supply my you
+
+889
+00:56:25,480 --> 00:56:34,120
+know to give me new images but I think
+
+890
+00:56:30,240 --> 00:56:35,980
+the left one the issue is that you know
+
+891
+00:56:34,120 --> 00:56:38,650
+it's a white keyboard on a white
+
+892
+00:56:35,980 --> 00:56:41,890
+background so it's it doesn't stand out
+
+893
+00:56:38,650 --> 00:56:45,220
+on the other hand the the left one is
+
+894
+00:56:41,890 --> 00:56:47,230
+you know kind of more bored but
+
+895
+00:56:45,220 --> 00:56:50,980
+meanwhile the background is also black
+
+896
+00:56:47,230 --> 00:56:53,080
+so I you know but it works it kind of
+
+897
+00:56:50,980 --> 00:56:57,700
+works because then you have the neon
+
+898
+00:56:53,080 --> 00:56:59,980
+light that that makes a contrast with
+
+899
+00:56:57,700 --> 00:57:01,750
+the background so this so the left is
+
+900
+00:56:59,980 --> 00:57:02,320
+better so the right we don't need any
+
+901
+00:57:01,750 --> 00:57:05,370
+more so
+
+902
+00:57:02,320 --> 00:57:11,740
+ladies this one press a key to delete it
+
+903
+00:57:05,370 --> 00:57:15,450
+remove that press a make a break show in
+
+904
+00:57:11,740 --> 00:57:19,990
+browser go back go down go down go down
+
+905
+00:57:15,450 --> 00:57:25,150
+there it is we have it so now we have
+
+906
+00:57:19,990 --> 00:57:27,310
+these I'm kind of done so Oh almost
+
+907
+00:57:25,150 --> 00:57:30,360
+depends on what you guys think okay so I
+
+908
+00:57:27,310 --> 00:57:34,060
+kind of done for today I mean that's the
+
+909
+00:57:30,360 --> 00:57:37,240
+that's the main commands I want to show
+
+910
+00:57:34,060 --> 00:57:40,360
+the Emacs commands format manipulating
+
+911
+00:57:37,240 --> 00:57:42,340
+images so what do you guys think any
+
+912
+00:57:40,360 --> 00:57:47,740
+comments posted any comments questions
+
+913
+00:57:42,340 --> 00:57:53,250
+and so on and I was thinking to start to
+
+914
+00:57:47,740 --> 00:57:53,250
+code eMac beasts because there are some
+
+915
+00:57:53,280 --> 00:58:04,390
+some extra niceties I like to have so if
+
+916
+00:57:59,770 --> 00:58:07,420
+you guys are I want to you know watch
+
+917
+00:58:04,390 --> 00:58:09,700
+that let me know so you know so that's
+
+918
+00:58:07,420 --> 00:58:12,300
+going to be eMac beast coding we are
+
+919
+00:58:09,700 --> 00:58:15,280
+going to start to look at the code for
+
+920
+00:58:12,300 --> 00:58:16,450
+all these commands I'd you know we just
+
+921
+00:58:15,280 --> 00:58:19,360
+showed
+
+922
+00:58:16,450 --> 00:58:21,930
+then we're gonna modify it and show you
+
+923
+00:58:19,360 --> 00:58:21,930
+how it works
+
+924
+00:58:22,650 --> 00:58:28,570
+okay so so far so good
+
+925
+00:58:24,820 --> 00:58:34,450
+yeah so let's see so now I have this now
+
+926
+00:58:28,570 --> 00:58:37,420
+I want to go to so actually delete this
+
+927
+00:58:34,450 --> 00:58:40,090
+entire thing delete delete delete and
+
+928
+00:58:37,420 --> 00:58:43,650
+remove the section I'm going to move it
+
+929
+00:58:40,090 --> 00:58:46,780
+to the top so go to the top of the page
+
+930
+00:58:43,650 --> 00:58:48,760
+search for sections so create a new
+
+931
+00:58:46,780 --> 00:58:51,820
+section paste the whole thing here
+
+932
+00:58:48,760 --> 00:58:57,330
+refresh in browser so now it shows on
+
+933
+00:58:51,820 --> 00:59:01,000
+the top now I need to put this icon in
+
+934
+00:58:57,330 --> 00:59:07,890
+the do itself index page right now it's
+
+935
+00:59:01,000 --> 00:59:10,810
+not there so so copy that text block
+
+936
+00:59:07,890 --> 00:59:15,230
+copy it
+
+937
+00:59:10,810 --> 00:59:18,859
+now go to do it you're open to it self
+
+938
+00:59:15,230 --> 00:59:23,300
+keyboard index open it go to the browser
+
+939
+00:59:18,859 --> 00:59:27,380
+let's see where do I want to put it the
+
+940
+00:59:23,300 --> 00:59:34,700
+Kiwi ax will be okay it will be
+
+941
+00:59:27,380 --> 00:59:41,470
+somewhere here so let's put it after
+
+942
+00:59:34,700 --> 00:59:44,780
+iris 54 so search for iris pays it here
+
+943
+00:59:41,470 --> 00:59:49,280
+so Kiwi our keyboard back to browser
+
+944
+00:59:44,780 --> 00:59:53,300
+refresh there we have it now I need to
+
+945
+00:59:49,280 --> 00:59:55,400
+put the key count because you can see
+
+946
+00:59:53,300 --> 00:59:58,820
+they are kind of arranged by how many
+
+947
+00:59:55,400 --> 01:00:03,830
+keys they have so open that key count
+
+948
+00:59:58,820 --> 01:00:05,930
+now we need to count the keys okay let's
+
+949
+01:00:03,830 --> 01:00:11,660
+read the comments let's see what you
+
+950
+01:00:05,930 --> 01:00:15,680
+guys are saying so close that let's see
+
+951
+01:00:11,660 --> 01:00:24,430
+how long have I been talkin Keowee our
+
+952
+01:00:15,680 --> 01:00:27,920
+keyboard general and okay so go to
+
+953
+01:00:24,430 --> 01:00:31,780
+google night people watching one more
+
+954
+01:00:27,920 --> 01:00:34,130
+hour so I think we stopped now we stop
+
+955
+01:00:31,780 --> 01:00:37,250
+two or three more minutes something like
+
+956
+01:00:34,130 --> 01:00:40,690
+that two minutes then we stop that's one
+
+957
+01:00:37,250 --> 01:00:40,690
+hour long good enough
+
+958
+01:00:44,100 --> 01:00:48,810
+first because it's more square like so
+
+959
+01:00:46,740 --> 01:00:51,450
+it might be better for index yes that's
+
+960
+01:00:48,810 --> 01:00:54,680
+true for the grid space it will be I
+
+961
+01:00:51,450 --> 01:00:57,600
+think you can see more yes
+
+962
+01:00:54,680 --> 01:01:02,040
+it used to be brown don't know why it
+
+963
+01:00:57,600 --> 01:01:04,110
+changed left is much more striking okay
+
+964
+01:01:02,040 --> 01:01:11,310
+yeah that's good
+
+965
+01:01:04,110 --> 01:01:16,460
+good judgment okay so that's it about
+
+966
+01:01:11,310 --> 01:01:16,460
+that's I think that's it for today
+
+967
+01:01:22,160 --> 01:01:34,680
+let's do random chat for two minutes
+
+968
+01:01:26,130 --> 01:01:37,680
+then we shut down okay random chat for
+
+969
+01:01:34,680 --> 01:01:40,590
+two minutes then we shut down so I think
+
+970
+01:01:37,680 --> 01:01:45,420
+this thief game you know thief game is
+
+971
+01:01:40,590 --> 01:01:48,900
+like okay thief game George
+
+972
+01:01:45,420 --> 01:01:51,330
+thief game you know George I was
+
+973
+01:01:48,900 --> 01:01:53,970
+thinking your your profile photo should
+
+974
+01:01:51,330 --> 01:01:57,000
+be like that I was kind of looking for
+
+975
+01:01:53,970 --> 01:02:02,820
+that anyway the thief game is I remember
+
+976
+01:01:57,000 --> 01:02:05,970
+you know when in 1998 1998 I was working
+
+977
+01:02:02,820 --> 01:02:08,340
+in a start-up and we have three
+
+978
+01:02:05,970 --> 01:02:12,600
+engineers counting me total of three
+
+979
+01:02:08,340 --> 01:02:16,560
+engineers that's my you know one one of
+
+980
+01:02:12,600 --> 01:02:19,200
+the startup brainpower calm so we have
+
+981
+01:02:16,560 --> 01:02:20,700
+engineers and he one of them is a gamer
+
+982
+01:02:19,200 --> 01:02:25,710
+so
+
+983
+01:02:20,700 --> 01:02:28,890
+thief is a game of that era 1998 and
+
+984
+01:02:25,710 --> 01:02:33,570
+when come out is like one big news
+
+985
+01:02:28,890 --> 01:02:37,260
+because oh the new graphics engine some
+
+986
+01:02:33,570 --> 01:02:39,900
+you know jargons graphics jargons you
+
+987
+01:02:37,260 --> 01:02:42,540
+know technology jargons where they have
+
+988
+01:02:39,900 --> 01:02:44,910
+shadow you know some kind of shadow or
+
+989
+01:02:42,540 --> 01:02:48,990
+with some some sort of light or whatever
+
+990
+01:02:44,910 --> 01:02:54,550
+and then thief is kind of supposedly a
+
+991
+01:02:48,990 --> 01:02:58,690
+different new innovation in
+
+992
+01:02:54,550 --> 01:03:01,020
+in 3d gaming because because supposedly
+
+993
+01:02:58,690 --> 01:03:04,480
+you know I don't know the game too much
+
+994
+01:03:01,020 --> 01:03:07,300
+but supposed to the back then you know
+
+995
+01:03:04,480 --> 01:03:09,490
+you have first-person shooters and
+
+996
+01:03:07,300 --> 01:03:14,110
+everyone is just shoot whatever you see
+
+997
+01:03:09,490 --> 01:03:16,060
+but thief is different where you you
+
+998
+01:03:14,110 --> 01:03:18,250
+don't just go and shoot things you are
+
+999
+01:03:16,060 --> 01:03:22,300
+actually but you try to be a like a
+
+1000
+01:03:18,250 --> 01:03:25,240
+thief you try to quietly go about and
+
+1001
+01:03:22,300 --> 01:03:27,520
+doing your things and then you have to
+
+1002
+01:03:25,240 --> 01:03:30,340
+assess and people sometimes or something
+
+1003
+01:03:27,520 --> 01:03:39,040
+like that so that's what I remember
+
+1004
+01:03:30,340 --> 01:03:40,810
+about that Kim so this one Starcraft
+
+1005
+01:03:39,040 --> 01:03:49,480
+okay Starcraft I don't know much about
+
+1006
+01:03:40,810 --> 01:03:56,080
+that guy random okay so I think that's
+
+1007
+01:03:49,480 --> 01:04:00,150
+it for today so close that frou-frou P
+
+1008
+01:03:56,080 --> 01:04:00,150
+that's fantastic I'm going to read about
+
+1009
+01:04:00,570 --> 01:04:03,570
+show
+
+1010
+01:04:08,309 --> 01:04:17,760
+is there anything else so let's go to my
+
+1011
+01:04:11,260 --> 01:04:24,569
+talk show page talk show show in browser
+
+1012
+01:04:17,760 --> 01:04:32,890
+and this image is created by Alan this
+
+1013
+01:04:24,569 --> 01:04:35,260
+fantastic image let's see QQ or demo
+
+1014
+01:04:32,890 --> 01:04:40,059
+image commands demo all of them if
+
+1015
+01:04:35,260 --> 01:04:44,369
+possible ok so next time maybe next day
+
+1016
+01:04:40,059 --> 01:04:44,369
+we're gonna Kody Maggie's focus on that
+
+1017
+01:04:44,760 --> 01:04:51,640
+green tea I'm drinking green tea so
+
+1018
+01:04:48,430 --> 01:04:56,680
+green tea black tea oolong I'm drinking
+
+1019
+01:04:51,640 --> 01:05:00,130
+green tea out of a teabag but you know
+
+1020
+01:04:56,680 --> 01:05:02,500
+because because I think of the you know
+
+1021
+01:05:00,130 --> 01:05:05,740
+there's a health green tea for some
+
+1022
+01:05:02,500 --> 01:05:08,140
+reason same thing with red wine you know
+
+1023
+01:05:05,740 --> 01:05:10,690
+because of the California people we are
+
+1024
+01:05:08,140 --> 01:05:14,410
+health conscious and we are always
+
+1025
+01:05:10,690 --> 01:05:17,980
+looking for the scientific technology
+
+1026
+01:05:14,410 --> 01:05:22,299
+that tells us what to eat and what to
+
+1027
+01:05:17,980 --> 01:05:25,540
+drink that can prolong our lives so
+
+1028
+01:05:22,299 --> 01:05:28,559
+green tea has been famous because it has
+
+1029
+01:05:25,540 --> 01:05:31,359
+certain you know chemical things that
+
+1030
+01:05:28,559 --> 01:05:36,250
+whatever that supposed to be an
+
+1031
+01:05:31,359 --> 01:05:39,089
+antioxidant something like that ok this
+
+1032
+01:05:36,250 --> 01:05:43,690
+is some particular ingredients and that
+
+1033
+01:05:39,089 --> 01:05:48,760
+this makes you live longer so that is
+
+1034
+01:05:43,690 --> 01:05:52,299
+partially why I choose screen tea but
+
+1035
+01:05:48,760 --> 01:05:54,880
+you know but that's you know but on
+
+1036
+01:05:52,299 --> 01:05:59,520
+second thought that's ok so I
+
+1037
+01:05:54,880 --> 01:06:05,380
+have been a victim of modern marketing
+
+1038
+01:05:59,520 --> 01:06:07,210
+propaganda ok so but if you if I never
+
+1039
+01:06:05,380 --> 01:06:08,170
+heard of you know the green tea is
+
+1040
+01:06:07,210 --> 01:06:11,650
+beautiful
+
+1041
+01:06:08,170 --> 01:06:16,180
+for your health then among tea I would
+
+1042
+01:06:11,650 --> 01:06:19,480
+prefer Mulan ok ok I'm going to tell you
+
+1043
+01:06:16,180 --> 01:06:20,620
+a little story my dad is actually a tea
+
+1044
+01:06:19,480 --> 01:06:24,430
+merchant
+
+1045
+01:06:20,620 --> 01:06:28,210
+so we actually make tea in Taiwan we go
+
+1046
+01:06:24,430 --> 01:06:31,240
+to the mountains by by the tea Leafs
+
+1047
+01:06:28,210 --> 01:06:36,040
+from the farmers okay then we bring home
+
+1048
+01:06:31,240 --> 01:06:40,980
+then we bake them so so I was like from
+
+1049
+01:06:36,040 --> 01:06:45,880
+10 to 14 when I left Taiwan so we I do
+
+1050
+01:06:40,980 --> 01:06:48,490
+those kind of things t so so I would
+
+1051
+01:06:45,880 --> 01:06:51,790
+prefer actually my preference would be
+
+1052
+01:06:48,490 --> 01:06:54,880
+alone so so you have green tea green tea
+
+1053
+01:06:51,790 --> 01:06:59,050
+is essentially unbaked tea
+
+1054
+01:06:54,880 --> 01:07:01,450
+okay so you I guess you bake a little
+
+1055
+01:06:59,050 --> 01:07:04,480
+bit but anyway green tea is like and
+
+1056
+01:07:01,450 --> 01:07:09,060
+baked then you have along or kind of you
+
+1057
+01:07:04,480 --> 01:07:11,080
+know several you know the tea is like
+
+1058
+01:07:09,060 --> 01:07:13,570
+you know there's many complexities
+
+1059
+01:07:11,080 --> 01:07:16,420
+playing where you you bake it then you
+
+1060
+01:07:13,570 --> 01:07:18,790
+have cool own then you bake more then
+
+1061
+01:07:16,420 --> 01:07:21,160
+you have talk you know like black heat
+
+1062
+01:07:18,790 --> 01:07:24,010
+black tea or something like that so
+
+1063
+01:07:21,160 --> 01:07:25,900
+anyway I I would I think prefer gulong
+
+1064
+01:07:24,010 --> 01:07:26,770
+tea usually but anyway I'm drinking out
+
+1065
+01:07:25,900 --> 01:07:37,120
+of teabags
+
+1066
+01:07:26,770 --> 01:07:41,320
+this is cheap teabags when you drink tea
+
+1067
+01:07:37,120 --> 01:07:44,440
+green tea especially green tea it it's
+
+1068
+01:07:41,320 --> 01:07:47,650
+not good for your stomach okay actually
+
+1069
+01:07:44,440 --> 01:07:51,190
+I can i you know you can feel it because
+
+1070
+01:07:47,650 --> 01:07:54,300
+I think it's because what was it acid or
+
+1071
+01:07:51,190 --> 01:07:57,010
+was it the opposite I forgot but anyway
+
+1072
+01:07:54,300 --> 01:07:58,870
+so nobody you should drink especially
+
+1073
+01:07:57,010 --> 01:08:00,670
+green tea if you drink tea you want to
+
+1074
+01:07:58,870 --> 01:08:03,940
+drink it after me or something like that
+
+1075
+01:08:00,670 --> 01:08:06,730
+but anyway in China and in Taiwan we
+
+1076
+01:08:03,940 --> 01:08:09,550
+change in Japan we drink teas all the
+
+1077
+01:08:06,730 --> 01:08:13,170
+time like geez our water we don't you
+
+1078
+01:08:09,550 --> 01:08:13,170
+know we drink tea instead of water
+
+1079
+01:08:13,560 --> 01:08:18,460
+people are getting baked everywhere in
+
+1080
+01:08:16,359 --> 01:08:21,270
+California what do you mean getting
+
+1081
+01:08:18,460 --> 01:08:21,270
+baked
+
+1082
+01:08:24,050 --> 01:08:34,350
+so let us kind of funny enjoy our yoga
+
+1083
+01:08:27,060 --> 01:08:40,290
+yes and combination day of secular
+
+1084
+01:08:34,350 --> 01:08:43,350
+religion indeed indeed and order anyway
+
+1085
+01:08:40,290 --> 01:08:47,760
+so that's it for today thank you guys
+
+1086
+01:08:43,350 --> 01:08:52,800
+for watching good night have a good
+
+1087
+01:08:47,760 --> 01:08:56,490
+night and that concludes exhausts ASMR
+
+1088
+01:08:52,800 --> 01:08:57,430
+and I hope you guys have been well
+
+1089
+01:08:56,490 --> 01:09:01,940
+asleep
+
+1090
+01:08:57,430 --> 01:09:01,940
+[Laughter]
+

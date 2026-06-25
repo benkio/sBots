@@ -1,0 +1,4780 @@
+1
+00:00:06,799 --> 00:00:22,380
+welcome to talk show episode 1013
+
+2
+00:00:14,750 --> 00:00:25,140
+today is June 5th 2019 and today's
+
+3
+00:00:22,380 --> 00:00:32,329
+episode we are going to do a live coding
+
+4
+00:00:25,140 --> 00:00:37,410
+of JavaScript in Emacs so this is also a
+
+5
+00:00:32,329 --> 00:00:48,780
+workflow Emacs workflow demo with stuff
+
+6
+00:00:37,410 --> 00:00:55,850
+like ease and ok they did let's begin
+
+7
+00:00:48,780 --> 00:00:55,850
+let's let's show my Firefox browser
+
+8
+00:01:00,620 --> 00:01:15,410
+and we are going to do a live coding of
+
+9
+00:01:05,180 --> 00:01:21,890
+a XHTML XML entities so let me make sure
+
+10
+00:01:15,410 --> 00:01:23,710
+I am alive and everything yes looks like
+
+11
+00:01:21,890 --> 00:01:28,040
+it
+
+12
+00:01:23,710 --> 00:01:31,760
+so live coding in Emacs with sapphire
+
+13
+00:01:28,040 --> 00:01:35,060
+keys live code in JavaScript and we are
+
+14
+00:01:31,760 --> 00:01:39,560
+going to do the coding the task is HTML
+
+15
+00:01:35,060 --> 00:01:44,240
+and HTML entities so I have this code
+
+16
+00:01:39,560 --> 00:01:49,660
+this is a JavaScript JSON format and you
+
+17
+00:01:44,240 --> 00:01:54,280
+know it's a object and to 2,200 lines
+
+18
+00:01:49,660 --> 00:01:59,390
+and each object property you have the
+
+19
+00:01:54,280 --> 00:02:02,710
+entity name called core point and the
+
+20
+00:01:59,390 --> 00:02:06,470
+characters in JavaScript string format
+
+21
+00:02:02,710 --> 00:02:09,700
+so first of all what is HTML entities if
+
+22
+00:02:06,470 --> 00:02:16,400
+you in case you don't know it is in that
+
+23
+00:02:09,700 --> 00:02:20,270
+HTML you can type for example let's go
+
+24
+00:02:16,400 --> 00:02:28,970
+to the top of the page for example you
+
+25
+00:02:20,270 --> 00:02:33,250
+can type helps let's go here and let's
+
+26
+00:02:28,970 --> 00:02:39,400
+go here so let's let's say X creme name
+
+27
+00:02:33,250 --> 00:02:42,260
+ampersand sign and let's say pound
+
+28
+00:02:39,400 --> 00:02:45,530
+semicolon for the paragraph on it
+
+29
+00:02:42,260 --> 00:02:46,069
+showing browser and you can see a pound
+
+30
+00:02:45,530 --> 00:02:52,370
+sign
+
+31
+00:02:46,069 --> 00:02:56,470
+that's what HTML entities are for they
+
+32
+00:02:52,370 --> 00:02:59,959
+allows you to type a non ASCII character
+
+33
+00:02:56,470 --> 00:03:03,670
+you know of course you can also type the
+
+34
+00:02:59,959 --> 00:03:07,580
+pound sign directly if your HTML and is
+
+35
+00:03:03,670 --> 00:03:11,540
+set to utf-8 for example I type the
+
+36
+00:03:07,580 --> 00:03:14,590
+pound sign should make a paragraph show
+
+37
+00:03:11,540 --> 00:03:18,200
+it you see you see a pound sign
+
+38
+00:03:14,590 --> 00:03:20,959
+so you can use HTML entities for it and
+
+39
+00:03:18,200 --> 00:03:27,709
+this so this you know HTML entities
+
+40
+00:03:20,959 --> 00:03:29,390
+begin with the ampersand sign and so
+
+41
+00:03:27,709 --> 00:03:34,000
+there are a bunch of them there there
+
+42
+00:03:29,390 --> 00:03:37,730
+used to be about 200 of them but since
+
+43
+00:03:34,000 --> 00:03:41,360
+html5 they added so they are like 2,000
+
+44
+00:03:37,730 --> 00:03:43,459
+of them now which is a by the way it's a
+
+45
+00:03:41,360 --> 00:03:47,930
+bad idea it's very bad I talked about
+
+46
+00:03:43,459 --> 00:03:53,269
+this my last talk show where I talked
+
+47
+00:03:47,930 --> 00:03:56,780
+about why HTML entities is very is is a
+
+48
+00:03:53,269 --> 00:04:02,590
+very bad thing you should avoid using it
+
+49
+00:03:56,780 --> 00:04:07,010
+don't use it at all so so that's that's
+
+50
+00:04:02,590 --> 00:04:10,459
+HTML HTML entities it allows you to type
+
+51
+00:04:07,010 --> 00:04:14,440
+in an ASCII character by a code like
+
+52
+00:04:10,459 --> 00:04:18,260
+kind of a code coded sequence of letters
+
+53
+00:04:14,440 --> 00:04:21,139
+now they are act this so so HTML
+
+54
+00:04:18,260 --> 00:04:23,479
+entities but they are three kind of
+
+55
+00:04:21,139 --> 00:04:29,690
+entity there are three ways to type a
+
+56
+00:04:23,479 --> 00:04:31,789
+non ASCII character one way is by by
+
+57
+00:04:29,690 --> 00:04:35,000
+what's called the code point let me show
+
+58
+00:04:31,789 --> 00:04:38,300
+you so I type first first of all let's
+
+59
+00:04:35,000 --> 00:04:42,200
+find out what is the code point for the
+
+60
+00:04:38,300 --> 00:04:44,479
+pound sign so in Emacs we are going to
+
+61
+00:04:42,200 --> 00:04:52,180
+code describe char but before we do it
+
+62
+00:04:44,479 --> 00:04:52,180
+that let me start let me start saw a
+
+63
+00:04:52,300 --> 00:04:55,430
+command dog mod so you can actually see
+
+64
+00:04:55,130 --> 00:05:01,340
+it
+
+65
+00:04:55,430 --> 00:05:04,580
+so start saw start command mod command
+
+66
+00:05:01,340 --> 00:05:08,510
+mod now that that is my command a
+
+67
+00:05:04,580 --> 00:05:11,660
+wrapper command to to start the command
+
+68
+00:05:08,510 --> 00:05:14,180
+log mod you can you can search it may
+
+69
+00:05:11,660 --> 00:05:20,419
+open and you can find that package but
+
+70
+00:05:14,180 --> 00:05:22,490
+the package it's not the design is not
+
+71
+00:05:20,419 --> 00:05:25,789
+so good in my opinion and the
+
+72
+00:05:22,490 --> 00:05:26,960
+documentation is very bad so it requires
+
+73
+00:05:25,789 --> 00:05:30,680
+several
+
+74
+00:05:26,960 --> 00:05:32,930
+and not intuitive commands to start to
+
+75
+00:05:30,680 --> 00:05:35,120
+use it because I'm you know I already
+
+76
+00:05:32,930 --> 00:05:39,380
+started so you can see all the Emacs
+
+77
+00:05:35,120 --> 00:05:41,770
+command icon on the Left panel but I
+
+78
+00:05:39,380 --> 00:05:48,560
+wrote a command cuz I'll start it
+
+79
+00:05:41,770 --> 00:05:50,840
+exhaust start command log mod that that
+
+80
+00:05:48,560 --> 00:05:56,680
+takes care of the starting up you can
+
+81
+00:05:50,840 --> 00:06:02,690
+find that on my my github Emacs in it
+
+82
+00:05:56,680 --> 00:06:04,850
+yeah so let's go back to the entities so
+
+83
+00:06:02,690 --> 00:06:07,639
+we are talking about HTML entities I
+
+84
+00:06:04,850 --> 00:06:11,990
+said they are you know it's a way to
+
+85
+00:06:07,639 --> 00:06:16,610
+type know ASCII characters by a coded
+
+86
+00:06:11,990 --> 00:06:20,599
+stream and and there are three actually
+
+87
+00:06:16,610 --> 00:06:24,289
+three methods to create a h3 kind of
+
+88
+00:06:20,599 --> 00:06:26,449
+HTML entities so one of them is you find
+
+89
+00:06:24,289 --> 00:06:29,780
+out what what is a KO point of the
+
+90
+00:06:26,449 --> 00:06:33,470
+character you want to type so I so I
+
+91
+00:06:29,780 --> 00:06:37,190
+call I call describe function
+
+92
+00:06:33,470 --> 00:06:40,789
+I mean describe cha while kusa is on the
+
+93
+00:06:37,190 --> 00:06:43,610
+pound sign and what I get is this panel
+
+94
+00:06:40,789 --> 00:06:46,039
+and you see the name the character name
+
+95
+00:06:43,610 --> 00:06:48,919
+is pound sign and on the second line you
+
+96
+00:06:46,039 --> 00:06:53,510
+will see that it says the code point is
+
+97
+00:06:48,919 --> 00:06:57,260
+163 and in hexadecimal notation is a 3
+
+98
+00:06:53,510 --> 00:07:02,030
+so anyway so 163 is a KO point so let's
+
+99
+00:06:57,260 --> 00:07:04,310
+put that here and that's gone out so
+
+100
+00:07:02,030 --> 00:07:09,380
+let's type pound sign
+
+101
+00:07:04,310 --> 00:07:14,650
+I mean ampersand and pound sign then
+
+102
+00:07:09,380 --> 00:07:17,630
+then 163 the code point then coma okay
+
+103
+00:07:14,650 --> 00:07:20,180
+then make it paragraph and showing
+
+104
+00:07:17,630 --> 00:07:24,979
+browser you can see that it shows the
+
+105
+00:07:20,180 --> 00:07:28,220
+pound sign so any character you can use
+
+106
+00:07:24,979 --> 00:07:31,460
+HTML entities for it when you know the
+
+107
+00:07:28,220 --> 00:07:34,880
+characters code point so that's one way
+
+108
+00:07:31,460 --> 00:07:40,460
+to use HTML entity now you can also use
+
+109
+00:07:34,880 --> 00:07:44,780
+the hexadecimal notation which is 4
+
+110
+00:07:40,460 --> 00:07:50,539
+pound sign is a three so a three showing
+
+111
+00:07:44,780 --> 00:07:54,080
+browser oh wait you need X here so pun
+
+112
+00:07:50,539 --> 00:07:56,720
+so ampersand pound sign X then the
+
+113
+00:07:54,080 --> 00:07:59,240
+hexadecimal so showing browser so you
+
+114
+00:07:56,720 --> 00:08:02,389
+can see it's a pound sign so this is a
+
+115
+00:07:59,240 --> 00:08:06,560
+second way another way the third way is
+
+116
+00:08:02,389 --> 00:08:09,500
+by what's called named entities so
+
+117
+00:08:06,560 --> 00:08:13,550
+remember entities or all these we've
+
+118
+00:08:09,500 --> 00:08:17,690
+talked about those are entities HTML or
+
+119
+00:08:13,550 --> 00:08:19,970
+XML entities three mates three methods
+
+120
+00:08:17,690 --> 00:08:22,880
+to use it one is by the code point
+
+121
+00:08:19,970 --> 00:08:26,960
+- pad hexadecimal the third way is by
+
+122
+00:08:22,880 --> 00:08:29,870
+what so-called named entities HTML named
+
+123
+00:08:26,960 --> 00:08:33,830
+entities what that means is that for
+
+124
+00:08:29,870 --> 00:08:36,409
+certain characters HTML gives it a name
+
+125
+00:08:33,830 --> 00:08:39,020
+so instead of using code point or
+
+126
+00:08:36,409 --> 00:08:41,659
+hexadecimal you can just type the name
+
+127
+00:08:39,020 --> 00:08:50,300
+so for example we have this ampersand
+
+128
+00:08:41,659 --> 00:08:52,399
+pound semicolon and it shows up you know
+
+129
+00:08:50,300 --> 00:08:55,970
+it shows up as a pound sign
+
+130
+00:08:52,399 --> 00:08:58,250
+so why the named entities well named
+
+131
+00:08:55,970 --> 00:09:00,170
+because so you know it's easier to
+
+132
+00:08:58,250 --> 00:09:02,180
+remember you know when you need the
+
+133
+00:09:00,170 --> 00:09:04,390
+pound sign you just say pound when you
+
+134
+00:09:02,180 --> 00:09:09,020
+need the cent sign you just say
+
+135
+00:09:04,390 --> 00:09:11,120
+ampersand cent semicolon okay
+
+136
+00:09:09,020 --> 00:09:14,360
+sure in browser you can see there's a
+
+137
+00:09:11,120 --> 00:09:18,040
+cent so for all these characters you
+
+138
+00:09:14,360 --> 00:09:23,060
+have some of them has a name and that
+
+139
+00:09:18,040 --> 00:09:25,040
+entity is called HTML named entity now
+
+140
+00:09:23,060 --> 00:09:27,770
+remember it's only only some of these
+
+141
+00:09:25,040 --> 00:09:29,990
+characters has a name not all for those
+
+142
+00:09:27,770 --> 00:09:31,910
+characters that doesn't have a name you
+
+143
+00:09:29,990 --> 00:09:36,589
+can just use the code point or the
+
+144
+00:09:31,910 --> 00:09:38,630
+hexadecimal okay let me check oh for
+
+145
+00:09:36,589 --> 00:09:41,870
+people-watching great good morning
+
+146
+00:09:38,630 --> 00:09:44,540
+so say hi here here you know comment so
+
+147
+00:09:41,870 --> 00:09:47,420
+we talked we so we covered what is the
+
+148
+00:09:44,540 --> 00:09:52,190
+entities and three ways to input
+
+149
+00:09:47,420 --> 00:09:54,320
+entities now so what are some so named
+
+150
+00:09:52,190 --> 00:09:58,280
+entities as I mentioned before they are
+
+151
+00:09:54,320 --> 00:10:01,700
+about 200 of them but because of html5
+
+152
+00:09:58,280 --> 00:10:04,480
+they added now they are like 2,000 to
+
+153
+00:10:01,700 --> 00:10:08,650
+thousands of them so let let's go to the
+
+154
+00:10:04,480 --> 00:10:15,350
+let me show you the JavaScript file
+
+155
+00:10:08,650 --> 00:10:18,320
+actually yeah here so once I can't even
+
+156
+00:10:15,350 --> 00:10:20,900
+close this window so you can see here
+
+157
+00:10:18,320 --> 00:10:24,850
+you know two thousand lines of J this is
+
+158
+00:10:20,900 --> 00:10:32,450
+a JSON file this is a complete list of
+
+159
+00:10:24,850 --> 00:10:35,000
+named entities in html5 so so what I'm
+
+160
+00:10:32,450 --> 00:10:37,550
+going to do today is actually you see I
+
+161
+00:10:35,000 --> 00:10:40,400
+have this web page this is a complete
+
+162
+00:10:37,550 --> 00:10:43,700
+list before html5 to thousands of them
+
+163
+00:10:40,400 --> 00:10:46,910
+200 of them what I'm going to do is I'm
+
+164
+00:10:43,700 --> 00:10:51,940
+going to update this page so it becomes
+
+165
+00:10:46,910 --> 00:10:54,050
+the complete list of HTML named entities
+
+166
+00:10:51,940 --> 00:10:56,240
+so what does that involve
+
+167
+00:10:54,050 --> 00:10:58,550
+that involves you know I got the source
+
+168
+00:10:56,240 --> 00:11:02,780
+data here this is my source data I'm
+
+169
+00:10:58,550 --> 00:11:06,610
+going to you know this is JavaScript
+
+170
+00:11:02,780 --> 00:11:09,350
+code I'm going to convert convert it to
+
+171
+00:11:06,610 --> 00:11:11,420
+manipulated in some way and eventually
+
+172
+00:11:09,350 --> 00:11:14,750
+create a web page you know replacing
+
+173
+00:11:11,420 --> 00:11:17,000
+this page so that's what I'm going to do
+
+174
+00:11:14,750 --> 00:11:21,350
+today and you know so you cannot see
+
+175
+00:11:17,000 --> 00:11:26,920
+some demo of my me using Emacs and and
+
+176
+00:11:21,350 --> 00:11:29,330
+some you know talk about JavaScript and
+
+177
+00:11:26,920 --> 00:11:36,770
+that's it yeah we already talked about
+
+178
+00:11:29,330 --> 00:11:43,370
+what is entities so so I'm like okay so
+
+179
+00:11:36,770 --> 00:11:46,400
+let's do that let's do that so first of
+
+180
+00:11:43,370 --> 00:11:48,950
+all so what how we gonna do this this is
+
+181
+00:11:46,400 --> 00:11:51,140
+unscripted so I don't know actually so
+
+182
+00:11:48,950 --> 00:11:53,450
+let's just figure that out let's see how
+
+183
+00:11:51,140 --> 00:11:55,370
+long have I been talking okay let's
+
+184
+00:11:53,450 --> 00:11:57,530
+let's do for another 10 minutes and
+
+185
+00:11:55,370 --> 00:12:02,390
+let's see how far we go but before that
+
+186
+00:11:57,530 --> 00:12:08,030
+let me get my energy drink today I have
+
+187
+00:12:02,390 --> 00:12:10,820
+tomato juice now this is Dollar Tree
+
+188
+00:12:08,030 --> 00:12:23,710
+store you got one bottle of tomato juice
+
+189
+00:12:10,820 --> 00:12:23,710
+for $1 it's very good and then add a
+
+190
+00:12:24,220 --> 00:12:31,010
+pool of the energy drink this is sugar
+
+191
+00:12:27,620 --> 00:12:36,710
+free energy drink which is basically
+
+192
+00:12:31,010 --> 00:12:39,680
+concentrated coffee so let's let's get
+
+193
+00:12:36,710 --> 00:12:43,580
+back to the task at hand we want to
+
+194
+00:12:39,680 --> 00:12:53,290
+create this turn this JSON file into
+
+195
+00:12:43,580 --> 00:12:58,550
+HTML page so if you have comments
+
+196
+00:12:53,290 --> 00:13:04,250
+questions I'd love to see it post it ok
+
+197
+00:12:58,550 --> 00:13:06,830
+so let's do these so we need to turn
+
+198
+00:13:04,250 --> 00:13:11,410
+this into a HTML page first of all
+
+199
+00:13:06,830 --> 00:13:17,480
+there's this problem this this this file
+
+200
+00:13:11,410 --> 00:13:21,560
+JSON file of the oops of the this JSON
+
+201
+00:13:17,480 --> 00:13:25,460
+file came from the w3c standard website
+
+202
+00:13:21,560 --> 00:13:29,450
+and it's done in this funny way because
+
+203
+00:13:25,460 --> 00:13:31,490
+you see now the key this is a JSON file
+
+204
+00:13:29,450 --> 00:13:34,460
+and you know which is basically is a
+
+205
+00:13:31,490 --> 00:13:37,820
+JavaScript object object is a list of
+
+206
+00:13:34,460 --> 00:13:42,080
+properties key and values now so each
+
+207
+00:13:37,820 --> 00:13:45,650
+key is this string this string is the is
+
+208
+00:13:42,080 --> 00:13:48,500
+the syntax for the named entity so if
+
+209
+00:13:45,650 --> 00:13:54,730
+you type capital a acute it's going to
+
+210
+00:13:48,500 --> 00:13:58,670
+show capital letter a with a with a
+
+211
+00:13:54,730 --> 00:14:05,270
+strike on top of the letter so the keys
+
+212
+00:13:58,670 --> 00:14:08,450
+are the entity name syntax and then then
+
+213
+00:14:05,270 --> 00:14:11,660
+the value is another object and this
+
+214
+00:14:08,450 --> 00:14:15,770
+object has two keys one is code point
+
+215
+00:14:11,660 --> 00:14:19,010
+wines characters the code point is you
+
+216
+00:14:15,770 --> 00:14:21,140
+know obviously the Unicode code point
+
+217
+00:14:19,010 --> 00:14:21,890
+which is the ID that identified the
+
+218
+00:14:21,140 --> 00:14:29,029
+characters
+
+219
+00:14:21,890 --> 00:14:35,050
+so a acute characteristic 0.91 193 then
+
+220
+00:14:29,029 --> 00:14:38,300
+the characters key its value is actually
+
+221
+00:14:35,050 --> 00:14:43,459
+the character so it's been essentially a
+
+222
+00:14:38,300 --> 00:14:49,610
+string of length 1 but it's written in
+
+223
+00:14:43,459 --> 00:14:56,630
+this way now that that is a that is
+
+224
+00:14:49,610 --> 00:15:00,110
+JavaScript syntax to show a character by
+
+225
+00:14:56,630 --> 00:15:03,769
+the Unicode code point so the syntax is
+
+226
+00:15:00,110 --> 00:15:08,390
+backward slash u then followed by four
+
+227
+00:15:03,769 --> 00:15:11,410
+the four digits of hexadecimal this is
+
+228
+00:15:08,390 --> 00:15:14,740
+not a good thing against sort of escape
+
+229
+00:15:11,410 --> 00:15:20,630
+mechanism I talked about yesterday so
+
+230
+00:15:14,740 --> 00:15:22,970
+let's go to my JavaScript blog okay let
+
+231
+00:15:20,630 --> 00:15:25,010
+me try to do this quickly so that you
+
+232
+00:15:22,970 --> 00:15:27,589
+know actually we get somewhere but
+
+233
+00:15:25,010 --> 00:15:31,899
+before so but we need to go to my
+
+234
+00:15:27,589 --> 00:15:34,519
+JavaScript blog too to show you
+
+235
+00:15:31,899 --> 00:15:37,490
+javascript in depth you search for
+
+236
+00:15:34,519 --> 00:15:40,550
+Unicode so you can see here is the
+
+237
+00:15:37,490 --> 00:15:44,449
+syntax this page explains the syntax of
+
+238
+00:15:40,550 --> 00:15:47,740
+the java scripts as unicode escape
+
+239
+00:15:44,449 --> 00:15:51,079
+sequence that's a proper name for it
+
+240
+00:15:47,740 --> 00:15:54,110
+javascript unicode escape sequence so
+
+241
+00:15:51,079 --> 00:15:57,320
+actually the syntax the syntax they are
+
+242
+00:15:54,110 --> 00:16:00,010
+two syntax for it so one of them is
+
+243
+00:15:57,320 --> 00:16:02,170
+backslash you followed by four
+
+244
+00:16:00,010 --> 00:16:04,610
+hexadecimal digits
+
+245
+00:16:02,170 --> 00:16:08,390
+remember only four of them cannot be
+
+246
+00:16:04,610 --> 00:16:14,649
+more cannot be less must be four digits
+
+247
+00:16:08,390 --> 00:16:18,050
+of hexadecimal so the other syntax is
+
+248
+00:16:14,649 --> 00:16:21,860
+backslash you followed by a curly quote
+
+249
+00:16:18,050 --> 00:16:24,320
+then inside it you put anywhere between
+
+250
+00:16:21,860 --> 00:16:27,350
+four to six hexadecimals
+
+251
+00:16:24,320 --> 00:16:31,730
+so you have these two syntax again you
+
+252
+00:16:27,350 --> 00:16:34,110
+know it's bad design it's confusing so i
+
+253
+00:16:31,730 --> 00:16:36,450
+you know i show some examples some
+
+254
+00:16:34,110 --> 00:16:38,250
+examples here so first the first thing
+
+255
+00:16:36,450 --> 00:16:42,570
+that we want to do we want to go through
+
+256
+00:16:38,250 --> 00:16:45,180
+the list and change the the Unicode
+
+257
+00:16:42,570 --> 00:16:47,550
+escape sequence into an actual character
+
+258
+00:16:45,180 --> 00:16:49,649
+so let's turn you know so we can
+
+259
+00:16:47,550 --> 00:16:53,490
+actually see you know some of these
+
+260
+00:16:49,649 --> 00:16:56,730
+characters so okay let's let's begin to
+
+261
+00:16:53,490 --> 00:16:58,430
+do that so first of all we want to loop
+
+262
+00:16:56,730 --> 00:17:01,110
+through the object
+
+263
+00:16:58,430 --> 00:17:03,149
+now this another complexity of
+
+264
+00:17:01,110 --> 00:17:08,280
+JavaScript because when you live through
+
+265
+00:17:03,149 --> 00:17:10,650
+object using the for in loop that is
+
+266
+00:17:08,280 --> 00:17:12,630
+actually a bad bad that's not what you
+
+267
+00:17:10,650 --> 00:17:16,319
+want because that we are actually looped
+
+268
+00:17:12,630 --> 00:17:19,049
+through all the parents properties you
+
+269
+00:17:16,319 --> 00:17:21,209
+know the inherited properties came which
+
+270
+00:17:19,049 --> 00:17:23,819
+which is the parents or parents or
+
+271
+00:17:21,209 --> 00:17:25,980
+parents properties that's not what
+
+272
+00:17:23,819 --> 00:17:28,890
+usually what you want you you only want
+
+273
+00:17:25,980 --> 00:17:32,520
+to loop through the objects own property
+
+274
+00:17:28,890 --> 00:17:38,360
+keys so how do we do that there are many
+
+275
+00:17:32,520 --> 00:17:41,820
+ways so go to JavaScript in-depth
+
+276
+00:17:38,360 --> 00:17:47,280
+JavaScript properties section then you
+
+277
+00:17:41,820 --> 00:17:50,190
+have list properties so here are the
+
+278
+00:17:47,280 --> 00:17:52,650
+several ways we can turn a property into
+
+279
+00:17:50,190 --> 00:17:55,290
+array then we can do through the array
+
+280
+00:17:52,650 --> 00:17:57,900
+which gives us which is much more safer
+
+281
+00:17:55,290 --> 00:18:01,140
+because you don't go into the parents
+
+282
+00:17:57,900 --> 00:18:03,540
+properties and there are many
+
+283
+00:18:01,140 --> 00:18:07,679
+complexities in JavaScript because each
+
+284
+00:18:03,540 --> 00:18:10,290
+property has several attributes one of
+
+285
+00:18:07,679 --> 00:18:13,890
+them is called a network innumerable one
+
+286
+00:18:10,290 --> 00:18:16,110
+is called okay
+
+287
+00:18:13,890 --> 00:18:18,660
+several attribute one of them is in
+
+288
+00:18:16,110 --> 00:18:23,040
+Irbil in them innumerable also
+
+289
+00:18:18,660 --> 00:18:26,429
+javascript property keys can have two
+
+290
+00:18:23,040 --> 00:18:30,660
+possible types data type one is string
+
+291
+00:18:26,429 --> 00:18:33,390
+one is symbol and symbol keys you know
+
+292
+00:18:30,660 --> 00:18:38,150
+those properties with key who is type
+
+293
+00:18:33,390 --> 00:18:40,950
+whose type is symbol is a rarely used
+
+294
+00:18:38,150 --> 00:18:43,800
+like usually you do not want to loop
+
+295
+00:18:40,950 --> 00:18:45,750
+through them so that that is why you
+
+296
+00:18:43,800 --> 00:18:47,370
+have all these complexities you know
+
+297
+00:18:45,750 --> 00:18:51,600
+whether when
+
+298
+00:18:47,370 --> 00:18:54,810
+want to call a method to get all the
+
+299
+00:18:51,600 --> 00:18:57,360
+keys of a object you have to consider
+
+300
+00:18:54,810 --> 00:18:59,730
+whether you if you only want you know in
+
+301
+00:18:57,360 --> 00:19:02,010
+number about keys only or do you want
+
+302
+00:18:59,730 --> 00:19:04,410
+only string keys or you want both string
+
+303
+00:19:02,010 --> 00:19:07,770
+keys and symbol keys or symbol keys only
+
+304
+00:19:04,410 --> 00:19:11,640
+so-so this is one of the example of the
+
+305
+00:19:07,770 --> 00:19:14,490
+extreme complexity of JavaScript so
+
+306
+00:19:11,640 --> 00:19:17,880
+anyway so these options which we which
+
+307
+00:19:14,490 --> 00:19:23,930
+one we're gonna use we we do not want
+
+308
+00:19:17,880 --> 00:19:23,930
+symbols keys we want string keys and
+
+309
+00:19:28,220 --> 00:19:37,950
+okay get on property names so let's go
+
+310
+00:19:32,040 --> 00:19:42,020
+let's constant xx let's go down constant
+
+311
+00:19:37,950 --> 00:19:50,280
+area function wait so we want to object
+
+312
+00:19:42,020 --> 00:19:55,740
+get on property names get on poverty
+
+313
+00:19:50,280 --> 00:19:59,400
+names get home poverty news okay so this
+
+314
+00:19:55,740 --> 00:20:04,020
+is I'm using my own JavaScript so
+
+315
+00:19:59,400 --> 00:20:09,350
+JavaScript mod and the the abbreviation
+
+316
+00:20:04,020 --> 00:20:09,350
+template expansion is a bit it's not
+
+317
+00:20:09,530 --> 00:20:22,140
+inconsistent so anyway I get on property
+
+318
+00:20:14,250 --> 00:20:29,490
+names we have xx so once we get the
+
+319
+00:20:22,140 --> 00:20:31,920
+property names constant okay and so we
+
+320
+00:20:29,490 --> 00:20:38,700
+got our array then we can loop through
+
+321
+00:20:31,920 --> 00:20:42,840
+the array so for in four of four let's
+
+322
+00:20:38,700 --> 00:20:47,100
+use a for loop for of loop is new in
+
+323
+00:20:42,840 --> 00:20:51,450
+2015 what it does it is that it allows
+
+324
+00:20:47,100 --> 00:20:57,320
+you to go through any iterable object so
+
+325
+00:20:51,450 --> 00:20:57,320
+for key in array we want
+
+326
+00:21:02,920 --> 00:21:09,860
+console.log okay let's just say that
+
+327
+00:21:06,380 --> 00:21:14,270
+okay let's just print it and see what we
+
+328
+00:21:09,860 --> 00:21:16,190
+get great so we you know you know we are
+
+329
+00:21:14,270 --> 00:21:20,210
+looking through it and it's spinning all
+
+330
+00:21:16,190 --> 00:21:22,850
+the keys now we are going to do so for
+
+331
+00:21:20,210 --> 00:21:26,500
+each key so what we do we want to print
+
+332
+00:21:22,850 --> 00:21:33,220
+let's just say print key then code point
+
+333
+00:21:26,500 --> 00:21:33,220
+so that's okay so that's
+
+334
+00:21:40,299 --> 00:21:50,469
+so key dot cool points that would be the
+
+335
+00:21:46,119 --> 00:21:55,919
+code point okay then the last part will
+
+336
+00:21:50,469 --> 00:21:55,919
+be characters so that's easy
+
+337
+00:21:59,279 --> 00:22:06,700
+okay let's print it undefined that's
+
+338
+00:22:05,200 --> 00:22:15,429
+incorrect okay
+
+339
+00:22:06,700 --> 00:22:19,690
+oh okay so what we need to do X X dot k
+
+340
+00:22:15,429 --> 00:22:24,309
+dot Kol point then xx dot k k let's
+
+341
+00:22:19,690 --> 00:22:34,089
+print it arrow again coupon code points
+
+342
+00:22:24,309 --> 00:22:37,950
+is undefined so X X is our object oh
+
+343
+00:22:34,089 --> 00:22:37,950
+wait so xx
+
+344
+00:22:41,280 --> 00:22:50,760
+is the object then KK is the key so
+
+345
+00:22:46,289 --> 00:22:53,250
+perhaps we need to do that because right
+
+346
+00:22:50,760 --> 00:22:56,340
+because otherwise KK becomes a stream
+
+347
+00:22:53,250 --> 00:22:59,100
+that now that that is another extreme
+
+348
+00:22:56,340 --> 00:23:01,919
+complexity of JavaScript because when
+
+349
+00:22:59,100 --> 00:23:05,809
+you say you know something thoughts
+
+350
+00:23:01,919 --> 00:23:08,549
+something the second thing big
+
+351
+00:23:05,809 --> 00:23:10,409
+automatically becomes a stream if you do
+
+352
+00:23:08,549 --> 00:23:12,539
+not want to it want it to become a
+
+353
+00:23:10,409 --> 00:23:18,690
+stream you have to use the square
+
+354
+00:23:12,539 --> 00:23:22,770
+bracket notation to access the property
+
+355
+00:23:18,690 --> 00:23:25,350
+so anyway so X X dot k k XX is the
+
+356
+00:23:22,770 --> 00:23:30,210
+object good morning Danielle xx is the
+
+357
+00:23:25,350 --> 00:23:36,030
+object and we want the key k k that's
+
+358
+00:23:30,210 --> 00:23:38,760
+correct and then once we have the key we
+
+359
+00:23:36,030 --> 00:23:44,690
+have the object we want to yes
+
+360
+00:23:38,760 --> 00:23:44,690
+that's I believe that is correct okay
+
+361
+00:23:46,340 --> 00:23:59,159
+let's run it unexpected token what
+
+362
+00:23:52,650 --> 00:24:02,940
+unexpected token oh yeah okay extra
+
+363
+00:23:59,159 --> 00:24:07,110
+extra period syntax a row okay let's run
+
+364
+00:24:02,940 --> 00:24:10,950
+it yeah we got it running it and it's
+
+365
+00:24:07,110 --> 00:24:15,059
+working it's working correctly this is
+
+366
+00:24:10,950 --> 00:24:19,230
+the power of JavaScript and it is the
+
+367
+00:24:15,059 --> 00:24:25,470
+power of understanding you know what's
+
+368
+00:24:19,230 --> 00:24:28,830
+going on what's up Danielle so so okay
+
+369
+00:24:25,470 --> 00:24:33,240
+so so we gotta train it out so we can
+
+370
+00:24:28,830 --> 00:24:36,059
+see this is the entity name this is the
+
+371
+00:24:33,240 --> 00:24:39,690
+code point why do we have a bracket
+
+372
+00:24:36,059 --> 00:24:43,760
+there we don't want the let's switch
+
+373
+00:24:39,690 --> 00:24:51,000
+back we don't want the bracket here oh
+
+374
+00:24:43,760 --> 00:24:53,730
+because a stupid stupid okay you know
+
+375
+00:24:51,000 --> 00:24:54,930
+what this is very you know this JSON
+
+376
+00:24:53,730 --> 00:24:58,050
+data file you see this
+
+377
+00:24:54,930 --> 00:25:00,720
+not 193 that's a cool point but but
+
+378
+00:24:58,050 --> 00:25:05,130
+however they put a square bracket around
+
+379
+00:25:00,720 --> 00:25:07,680
+it meaning that it is actually a way so
+
+380
+00:25:05,130 --> 00:25:10,170
+why do they need an array well usually
+
+381
+00:25:07,680 --> 00:25:14,610
+it means you know if possibly they are
+
+382
+00:25:10,170 --> 00:25:18,210
+more than one element indeed you can see
+
+383
+00:25:14,610 --> 00:25:20,670
+in this line there are two elements so
+
+384
+00:25:18,210 --> 00:25:24,390
+okay so yeah I understand what they are
+
+385
+00:25:20,670 --> 00:25:27,960
+doing because for this character this
+
+386
+00:25:24,390 --> 00:25:32,010
+entity a C capital e now which one what
+
+387
+00:25:27,960 --> 00:25:33,890
+the is AC capital e oh it is this
+
+388
+00:25:32,010 --> 00:25:38,100
+one
+
+389
+00:25:33,890 --> 00:25:43,140
+it's like approximately equal to symbol
+
+390
+00:25:38,100 --> 00:25:47,190
+okay so - so you they actually created a
+
+391
+00:25:43,140 --> 00:25:52,560
+named character for for this this
+
+392
+00:25:47,190 --> 00:25:54,180
+character this is bad this is bad okay
+
+393
+00:25:52,560 --> 00:25:56,520
+that's another topic that's about
+
+394
+00:25:54,180 --> 00:25:59,480
+Unicode composition they should not use
+
+395
+00:25:56,520 --> 00:26:03,180
+that because there is a single character
+
+396
+00:25:59,480 --> 00:26:07,860
+that is of that you know approximately
+
+397
+00:26:03,180 --> 00:26:11,490
+equal to let me show you maybe we should
+
+398
+00:26:07,860 --> 00:26:14,120
+talk about that but if we do then we are
+
+399
+00:26:11,490 --> 00:26:18,330
+not going to have time to finish this
+
+400
+00:26:14,120 --> 00:26:20,100
+you know not in ten minutes we okay
+
+401
+00:26:18,330 --> 00:26:21,360
+we've been yeah let's talk about that
+
+402
+00:26:20,100 --> 00:26:23,700
+you know after all
+
+403
+00:26:21,360 --> 00:26:26,400
+so unicode so let's go to unicode let me
+
+404
+00:26:23,700 --> 00:26:29,400
+tell you what's going on so unicode if
+
+405
+00:26:26,400 --> 00:26:30,330
+you go to unicode you have this math
+
+406
+00:26:29,400 --> 00:26:33,540
+section
+
+407
+00:26:30,330 --> 00:26:37,170
+sorry unicode okay then you can find you
+
+408
+00:26:33,540 --> 00:26:40,610
+can see the there is a section of all
+
+409
+00:26:37,170 --> 00:26:43,080
+symbols about equivalence or or
+
+410
+00:26:40,610 --> 00:26:49,770
+approximately equal to so you you can
+
+411
+00:26:43,080 --> 00:26:55,170
+see what there are all these symbols so
+
+412
+00:26:49,770 --> 00:26:57,030
+the symbol you see so there it is you
+
+413
+00:26:55,170 --> 00:27:03,090
+see this one okay let me let me go to
+
+414
+00:26:57,030 --> 00:27:05,310
+the let's go to google paste so that you
+
+415
+00:27:03,090 --> 00:27:08,820
+have JavaScript on so I can show you
+
+416
+00:27:05,310 --> 00:27:14,400
+better so this is
+
+417
+00:27:08,820 --> 00:27:20,160
+so let's go to let's magnify the window
+
+418
+00:27:14,400 --> 00:27:24,410
+and move it here so you can see and the
+
+419
+00:27:20,160 --> 00:27:24,410
+character we are interested is
+
+420
+00:27:32,990 --> 00:27:40,149
+this one so the Unicode name is
+
+421
+00:27:36,250 --> 00:27:43,820
+approximately equal to so you have a
+
+422
+00:27:40,149 --> 00:27:47,779
+wave then you have an equal sign below
+
+423
+00:27:43,820 --> 00:27:50,809
+it that is one single character that is
+
+424
+00:27:47,779 --> 00:27:55,270
+not composition meaning that made of two
+
+425
+00:27:50,809 --> 00:28:00,110
+characters that is not so basically the
+
+426
+00:27:55,270 --> 00:28:04,720
+HTML entity let's copy that so HTML
+
+427
+00:28:00,110 --> 00:28:11,870
+entity they created the entity named a c
+
+428
+00:28:04,720 --> 00:28:17,000
+then capital e okay and they define that
+
+429
+00:28:11,870 --> 00:28:19,789
+entity as as i've made of two unicode
+
+430
+00:28:17,000 --> 00:28:21,770
+code points you know basically they want
+
+431
+00:28:19,789 --> 00:28:24,380
+this you know approximately equal to
+
+432
+00:28:21,770 --> 00:28:26,450
+character but they they create that
+
+433
+00:28:24,380 --> 00:28:34,399
+character by using two unicode code
+
+434
+00:28:26,450 --> 00:28:36,260
+points it's a composition basically but
+
+435
+00:28:34,399 --> 00:28:47,289
+yeah let's look at what character they
+
+436
+00:28:36,260 --> 00:28:47,289
+used so they have a 766 let's see a 766
+
+437
+00:28:48,610 --> 00:29:00,130
+okay so that is kind of this this symbol
+
+438
+00:28:52,370 --> 00:29:04,399
+this this inverted lazy-s what I do see
+
+439
+00:29:00,130 --> 00:29:08,380
+then the second character is 8 1 9 let's
+
+440
+00:29:04,399 --> 00:29:13,570
+see what that character is so let's
+
+441
+00:29:08,380 --> 00:29:13,570
+paste it here 8 1 9
+
+442
+00:29:17,539 --> 00:29:22,950
+so eight one night character eight one
+
+443
+00:29:20,250 --> 00:29:26,309
+night is this character come the name is
+
+444
+00:29:22,950 --> 00:29:30,150
+combining the bolo lie so basically it's
+
+445
+00:29:26,309 --> 00:29:35,309
+like a equal sign so they are creating
+
+446
+00:29:30,150 --> 00:29:38,690
+this approximately equal to symbol by
+
+447
+00:29:35,309 --> 00:29:43,010
+using a composition you know one is the
+
+448
+00:29:38,690 --> 00:29:48,809
+when is rotated s the other one is the
+
+449
+00:29:43,010 --> 00:29:53,280
+turbo low lying combining oh my god this
+
+450
+00:29:48,809 --> 00:29:55,830
+is what incredible incompetence my guy
+
+451
+00:29:53,280 --> 00:29:58,710
+cannot beat possibly believe that I mean
+
+452
+00:29:55,830 --> 00:30:00,530
+there is is there a reason like you know
+
+453
+00:29:58,710 --> 00:30:03,679
+sometimes you look at this standard
+
+454
+00:30:00,530 --> 00:30:07,350
+standards is there a reason that they
+
+455
+00:30:03,679 --> 00:30:11,370
+use this composition characters then
+
+456
+00:30:07,350 --> 00:30:14,090
+instead of a single yeah I cannot think
+
+457
+00:30:11,370 --> 00:30:15,360
+of one I cannot possibly think that is
+
+458
+00:30:14,090 --> 00:30:20,130
+good
+
+459
+00:30:15,360 --> 00:30:22,590
+I cannot even you know so why are they
+
+460
+00:30:20,130 --> 00:30:25,650
+doing it you know the person who wrote
+
+461
+00:30:22,590 --> 00:30:29,970
+this obviously you know when you write
+
+462
+00:30:25,650 --> 00:30:32,159
+it you know you know you you know unless
+
+463
+00:30:29,970 --> 00:30:33,570
+you are drunk like you're on drugs like
+
+464
+00:30:32,159 --> 00:30:36,409
+you don't know what you are typing they
+
+465
+00:30:33,570 --> 00:30:39,570
+so they must someone must have seen it
+
+466
+00:30:36,409 --> 00:30:44,610
+so what is their reason for using a
+
+467
+00:30:39,570 --> 00:30:48,780
+composition character for this you know
+
+468
+00:30:44,610 --> 00:30:51,480
+for this scribe of you know a wave above
+
+469
+00:30:48,780 --> 00:30:59,510
+equal sign because there is a character
+
+470
+00:30:51,480 --> 00:30:59,510
+like that I don't know so so anyway so
+
+471
+00:30:59,750 --> 00:31:06,870
+so let's try this character let's just
+
+472
+00:31:03,330 --> 00:31:10,770
+see let's just try it please
+
+473
+00:31:06,870 --> 00:31:14,340
+see if that works in browser see see
+
+474
+00:31:10,770 --> 00:31:17,370
+what it shows what this idiocy you see
+
+475
+00:31:14,340 --> 00:31:20,760
+it doesn't even show where you see yeah
+
+476
+00:31:17,370 --> 00:31:22,650
+whenever you use Unicode composition you
+
+477
+00:31:20,760 --> 00:31:24,809
+know character composition meaning you
+
+478
+00:31:22,650 --> 00:31:28,049
+create one single character that's made
+
+479
+00:31:24,809 --> 00:31:30,270
+of two or more characters you often it
+
+480
+00:31:28,049 --> 00:31:32,670
+does not display well
+
+481
+00:31:30,270 --> 00:31:39,000
+so the other symbol we are talking about
+
+482
+00:31:32,670 --> 00:31:41,610
+that a single symbol is let's just you
+
+483
+00:31:39,000 --> 00:31:47,309
+know put it together in comparison so we
+
+484
+00:31:41,610 --> 00:31:53,010
+can see so this character is what we
+
+485
+00:31:47,309 --> 00:31:56,730
+want copy it let's put it here side by
+
+486
+00:31:53,010 --> 00:31:59,370
+side showing browser you see you see
+
+487
+00:31:56,730 --> 00:32:05,070
+this incredible you you know the
+
+488
+00:31:59,370 --> 00:32:07,830
+standard facts so yeah so okay so that
+
+489
+00:32:05,070 --> 00:32:11,040
+so that's a new discovery today while we
+
+490
+00:32:07,830 --> 00:32:14,520
+are doing this incredible fuck-you
+
+491
+00:32:11,040 --> 00:32:16,679
+unicode code point so you know okay so
+
+492
+00:32:14,520 --> 00:32:27,840
+anyway now we understand why they are
+
+493
+00:32:16,679 --> 00:32:30,150
+using array here and okay and what okay
+
+494
+00:32:27,840 --> 00:32:36,990
+what what is the next thing we want to
+
+495
+00:32:30,150 --> 00:32:39,380
+do we have printed out their values okay
+
+496
+00:32:36,990 --> 00:32:44,730
+here here's what I want to do let's
+
+497
+00:32:39,380 --> 00:32:47,130
+create well instead of explaining what
+
+498
+00:32:44,730 --> 00:32:49,500
+we are going to do it's actually faster
+
+499
+00:32:47,130 --> 00:32:51,960
+if we just type it you know just do it
+
+500
+00:32:49,500 --> 00:32:56,840
+okay so let's do it so we are going to
+
+501
+00:32:51,960 --> 00:32:56,840
+create a Unicode template stream
+
+502
+00:33:02,730 --> 00:33:30,340
+so let me do these let's say constant SS
+
+503
+00:33:19,559 --> 00:33:32,230
+equals true Unicode template stream okay
+
+504
+00:33:30,340 --> 00:33:33,940
+I forgot the syntax
+
+505
+00:33:32,230 --> 00:33:38,580
+well I think it's dollar sign that's
+
+506
+00:33:33,940 --> 00:33:38,580
+correct so
+
+507
+00:33:44,120 --> 00:33:51,610
+so what we gonna do is we want to do
+
+508
+00:33:47,090 --> 00:33:56,960
+that we want to create a new JSON file
+
+509
+00:33:51,610 --> 00:33:58,700
+but with a additional additional
+
+510
+00:33:56,960 --> 00:34:01,070
+property that shows the character
+
+511
+00:33:58,700 --> 00:34:04,070
+directly instead of using the Unicode
+
+512
+00:34:01,070 --> 00:34:08,419
+escape syntax because that way then we
+
+513
+00:34:04,070 --> 00:34:11,210
+can see the character you know we can
+
+514
+00:34:08,419 --> 00:34:13,250
+see the character so once we have the
+
+515
+00:34:11,210 --> 00:34:17,419
+new JSON file we can you know use that
+
+516
+00:34:13,250 --> 00:34:20,889
+to work on you know HTML stuff so let's
+
+517
+00:34:17,419 --> 00:34:20,889
+this part will be
+
+518
+00:34:36,880 --> 00:34:41,610
+Oh an issue show you my window so you
+
+519
+00:34:39,910 --> 00:34:53,920
+can see my commands
+
+520
+00:34:41,610 --> 00:35:03,450
+cool pants okay and this is an array so
+
+521
+00:34:53,920 --> 00:35:03,450
+this is an array we need to write
+
+522
+00:35:06,510 --> 00:35:14,100
+we need to put in array syntax actually
+
+523
+00:35:10,050 --> 00:35:29,850
+no it's printed then the last part will
+
+524
+00:35:14,100 --> 00:35:34,700
+be cha ok let's not name let's say
+
+525
+00:35:29,850 --> 00:35:34,700
+string okay string and
+
+526
+00:35:41,060 --> 00:35:46,820
+okay then let's just print it now let's
+
+527
+00:35:45,860 --> 00:35:49,040
+see what happens
+
+528
+00:35:46,820 --> 00:35:54,440
+oops wait we don't want to print the
+
+529
+00:35:49,040 --> 00:36:01,700
+first line so comment that out Lynette
+
+530
+00:35:54,440 --> 00:36:11,930
+oh yeah me we need to print it so
+
+531
+00:36:01,700 --> 00:36:14,120
+console.log is runnin okay so that seems
+
+532
+00:36:11,930 --> 00:36:24,080
+correct that seems correct that seems
+
+533
+00:36:14,120 --> 00:36:26,720
+correct oh okay so now the code point is
+
+534
+00:36:24,080 --> 00:36:30,250
+not correct because you need you do need
+
+535
+00:36:26,720 --> 00:36:30,250
+a bracket so
+
+536
+00:36:40,170 --> 00:36:49,470
+Sokol points is a ray why does it not
+
+537
+00:36:45,160 --> 00:36:49,470
+train the bracket I don't understand
+
+538
+00:36:54,170 --> 00:37:05,180
+because when you when you print a array
+
+539
+00:36:58,150 --> 00:37:16,839
+you when you print a array it usually
+
+540
+00:37:05,180 --> 00:37:16,839
+prints the bracket so let's
+
+541
+00:37:25,890 --> 00:37:46,329
+okay this list is too long let me make
+
+542
+00:37:32,380 --> 00:37:59,099
+it shorter so we can copy save this as
+
+543
+00:37:46,329 --> 00:37:59,099
+backup okay go back here and let's
+
+544
+00:38:02,460 --> 00:38:11,740
+remove all that vennett okay now I don't
+
+545
+00:38:10,540 --> 00:38:20,619
+understand
+
+546
+00:38:11,740 --> 00:38:31,380
+I should have a array bracket there so
+
+547
+00:38:20,619 --> 00:38:31,380
+code point I don't understand
+
+548
+00:38:37,880 --> 00:38:44,609
+yeah you see normally it prints the
+
+549
+00:38:41,039 --> 00:38:48,170
+array okay so that's interesting when
+
+550
+00:38:44,609 --> 00:38:52,980
+you have array in a template string
+
+551
+00:38:48,170 --> 00:38:55,880
+somehow it skips the array brackets is
+
+552
+00:38:52,980 --> 00:38:55,880
+that true because
+
+553
+00:39:21,130 --> 00:39:34,880
+so of course you can just print it by by
+
+554
+00:39:28,160 --> 00:39:36,800
+doing that manually yeah but that's you
+
+555
+00:39:34,880 --> 00:39:40,480
+know we can solve this problem you know
+
+556
+00:39:36,800 --> 00:39:44,030
+it's already solved but however usually
+
+557
+00:39:40,480 --> 00:39:50,380
+you know you should I usually you know
+
+558
+00:39:44,030 --> 00:39:52,910
+look into why why when you have a
+
+559
+00:39:50,380 --> 00:39:57,140
+temporary strain that array is not
+
+560
+00:39:52,910 --> 00:40:00,370
+printed as array for example let's let's
+
+561
+00:39:57,140 --> 00:40:05,150
+say for example it's common this out
+
+562
+00:40:00,370 --> 00:40:14,750
+let's let's say console.log printer
+
+563
+00:40:05,150 --> 00:40:26,590
+array so constant X x equals two one two
+
+564
+00:40:14,750 --> 00:40:26,590
+three then train X okay but if we say
+
+565
+00:40:33,320 --> 00:40:37,430
+if we say that
+
+566
+00:40:41,300 --> 00:40:48,290
+oh this is okay so this is actually
+
+567
+00:40:44,420 --> 00:40:55,790
+interesting so when you have a array in
+
+568
+00:40:48,290 --> 00:40:58,810
+a in your template stream then the array
+
+569
+00:40:55,790 --> 00:41:01,550
+bracket is not printed for some reason
+
+570
+00:40:58,810 --> 00:41:03,650
+now if you don't know what template
+
+571
+00:41:01,550 --> 00:41:07,670
+strings are template strings is new in
+
+572
+00:41:03,650 --> 00:41:11,300
+JavaScript 2015 and basically it allows
+
+573
+00:41:07,670 --> 00:41:14,150
+you to embed expressions or variables
+
+574
+00:41:11,300 --> 00:41:19,210
+inside the string you know this is a
+
+575
+00:41:14,150 --> 00:41:23,660
+popular feature in Python in Ruby in PHP
+
+576
+00:41:19,210 --> 00:41:27,050
+especially P well yeah especially PHP
+
+577
+00:41:23,660 --> 00:41:29,690
+it's a popular feature and pearl pearl
+
+578
+00:41:27,050 --> 00:41:32,390
+began this feature which called
+
+579
+00:41:29,690 --> 00:41:34,400
+interpolate in interpolation of a
+
+580
+00:41:32,390 --> 00:41:37,100
+strange stream at you know basically
+
+581
+00:41:34,400 --> 00:41:41,540
+allows you to embed a variable
+
+582
+00:41:37,100 --> 00:41:47,300
+expression inside the stream so but when
+
+583
+00:41:41,540 --> 00:41:53,360
+we use that oh okay I think I know why
+
+584
+00:41:47,300 --> 00:41:56,270
+now actually I'm not too sure you know
+
+585
+00:41:53,360 --> 00:41:59,710
+basically when when you have a array in
+
+586
+00:41:56,270 --> 00:42:04,630
+a string context like when you print a
+
+587
+00:41:59,710 --> 00:42:08,300
+ray to a string first of all the array
+
+588
+00:42:04,630 --> 00:42:13,280
+will be turned into the to string method
+
+589
+00:42:08,300 --> 00:42:16,160
+will be called on it so here the to
+
+590
+00:42:13,280 --> 00:42:21,260
+string is called and here the to string
+
+591
+00:42:16,160 --> 00:42:23,600
+is also called but however the to string
+
+592
+00:42:21,260 --> 00:42:28,540
+method used here is probably different
+
+593
+00:42:23,600 --> 00:42:35,720
+one from the to string method used here
+
+594
+00:42:28,540 --> 00:42:40,580
+so so anyway let's let's figure this out
+
+595
+00:42:35,720 --> 00:42:45,100
+later okay so let's start up show let's
+
+596
+00:42:40,580 --> 00:42:45,100
+put it here javascript
+
+597
+00:42:47,750 --> 00:43:02,970
+when a array is inside a template string
+
+598
+00:42:55,400 --> 00:43:06,720
+it will not print the square brackets
+
+599
+00:43:02,970 --> 00:43:09,779
+okay that that is the thing okay
+
+600
+00:43:06,720 --> 00:43:15,269
+let's worry about this later so remove
+
+601
+00:43:09,779 --> 00:43:16,069
+that uncomment drain it okay that's what
+
+602
+00:43:15,269 --> 00:43:26,220
+we want
+
+603
+00:43:16,069 --> 00:43:33,750
+remove that remove that donut yes that's
+
+604
+00:43:26,220 --> 00:43:36,920
+what we want and what what is the next
+
+605
+00:43:33,750 --> 00:43:36,920
+thing we need to do
+
+606
+00:43:49,150 --> 00:43:52,710
+so actually
+
+607
+00:43:58,970 --> 00:44:03,650
+so actually you add that
+
+608
+00:44:17,760 --> 00:44:30,410
+yeah so you add a string at the end here
+
+609
+00:44:22,080 --> 00:44:30,410
+so cool point strain
+
+610
+00:44:38,920 --> 00:44:48,400
+there is another thing we need to do is
+
+611
+00:44:41,920 --> 00:44:52,630
+that we need to add the Unicode name you
+
+612
+00:44:48,400 --> 00:44:56,079
+know right now we have a you know entity
+
+613
+00:44:52,630 --> 00:45:01,799
+name we have the code point and we have
+
+614
+00:44:56,079 --> 00:45:04,900
+the actual character but we do not know
+
+615
+00:45:01,799 --> 00:45:08,519
+the characters Unicode name you know
+
+616
+00:45:04,900 --> 00:45:14,230
+describe function this character is
+
+617
+00:45:08,519 --> 00:45:18,010
+Latin capital letter A with acute we
+
+618
+00:45:14,230 --> 00:45:21,010
+need the Unicode name somewhere here but
+
+619
+00:45:18,010 --> 00:45:25,750
+however in JavaScript there is no
+
+620
+00:45:21,010 --> 00:45:31,809
+built-in way to get a unicode characters
+
+621
+00:45:25,750 --> 00:45:33,849
+name there's it doesn't exist it exists
+
+622
+00:45:31,809 --> 00:45:36,160
+in Python and in :
+
+623
+00:45:33,849 --> 00:45:40,269
+you know there's a standard library
+
+624
+00:45:36,160 --> 00:45:44,009
+building but not in JavaScript so in
+
+625
+00:45:40,269 --> 00:45:47,500
+order to do that you probably need to
+
+626
+00:45:44,009 --> 00:45:51,279
+MPN you know fetch some JavaScript
+
+627
+00:45:47,500 --> 00:45:53,410
+library to get the unicode name but we
+
+628
+00:45:51,279 --> 00:45:57,910
+are not going to do that because you
+
+629
+00:45:53,410 --> 00:46:00,849
+know npm is is javascript npm npm is
+
+630
+00:45:57,910 --> 00:46:04,269
+very bad and javascript libraries are in
+
+631
+00:46:00,849 --> 00:46:09,490
+general you can you don't want to trust
+
+632
+00:46:04,269 --> 00:46:12,930
+them so what what we can do we do need
+
+633
+00:46:09,490 --> 00:46:18,609
+we do need a unicode name because
+
+634
+00:46:12,930 --> 00:46:22,119
+because the you know on the h my entity
+
+635
+00:46:18,609 --> 00:46:24,009
+page you want i want i need to say the
+
+636
+00:46:22,119 --> 00:46:27,039
+name of the unicode character so that
+
+637
+00:46:24,009 --> 00:46:31,329
+people understand you know a description
+
+638
+00:46:27,039 --> 00:46:33,099
+for the character so I need a name but
+
+639
+00:46:31,329 --> 00:46:35,410
+how we gonna do it and we don't want to
+
+640
+00:46:33,099 --> 00:46:37,720
+use JavaScript because it's not you know
+
+641
+00:46:35,410 --> 00:46:41,380
+it's not there you have to use the
+
+642
+00:46:37,720 --> 00:46:44,849
+library so we can either use Python or
+
+643
+00:46:41,380 --> 00:46:49,750
+we can use Scotland or we can use Emacs
+
+644
+00:46:44,849 --> 00:46:51,930
+Emacs Lisp the oldest allows me to do
+
+645
+00:46:49,750 --> 00:46:51,930
+that
+
+646
+00:46:52,840 --> 00:47:00,970
+now if if I'm going to do this in Python
+
+647
+00:46:56,890 --> 00:47:04,800
+or Golan what I can do is I since you
+
+648
+00:47:00,970 --> 00:47:10,990
+know I already have a this is a JSON
+
+649
+00:47:04,800 --> 00:47:15,070
+string you know so gold Golan and Python
+
+650
+00:47:10,990 --> 00:47:17,560
+can both read that so I can just you
+
+651
+00:47:15,070 --> 00:47:22,600
+know I can just start switch to Python I
+
+652
+00:47:17,560 --> 00:47:25,780
+encoded or Golan now Python I have I
+
+653
+00:47:22,600 --> 00:47:30,670
+have some experience using the Unicode
+
+654
+00:47:25,780 --> 00:47:34,540
+package so I can do it faster than :
+
+655
+00:47:30,670 --> 00:47:37,180
+because in Golan I have not used the
+
+656
+00:47:34,540 --> 00:47:39,570
+Unicode character package before you
+
+657
+00:47:37,180 --> 00:47:43,750
+know when you need to know the character
+
+658
+00:47:39,570 --> 00:47:46,300
+characters for name and if we are going
+
+659
+00:47:43,750 --> 00:47:50,110
+to do in this in emag list there are two
+
+660
+00:47:46,300 --> 00:47:53,290
+ways one way is just like Python : you
+
+661
+00:47:50,110 --> 00:47:56,950
+know you there's also a JSON video you
+
+662
+00:47:53,290 --> 00:48:00,180
+max list but the other way is to do it
+
+663
+00:47:56,950 --> 00:48:10,240
+interactivity so we can actually just
+
+664
+00:48:00,180 --> 00:48:12,880
+interactively start to add add add the
+
+665
+00:48:10,240 --> 00:48:15,760
+actual character here let me show you
+
+666
+00:48:12,880 --> 00:48:20,020
+how okay let's do that let me show you
+
+667
+00:48:15,760 --> 00:48:22,000
+how to do that interactively in Emacs so
+
+668
+00:48:20,020 --> 00:48:24,640
+once we have a you know we have a
+
+669
+00:48:22,000 --> 00:48:30,250
+character here character name yeah we
+
+670
+00:48:24,640 --> 00:48:33,270
+need character name so okay so then
+
+671
+00:48:30,250 --> 00:48:35,710
+let's do that let's do star tamakwa so
+
+672
+00:48:33,270 --> 00:48:40,060
+in the beginning let's go to beginning
+
+673
+00:48:35,710 --> 00:48:43,180
+on line start mark well okay but before
+
+674
+00:48:40,060 --> 00:48:48,420
+we do that we need to know given a code
+
+675
+00:48:43,180 --> 00:48:48,420
+point how do we show the character
+
+676
+00:48:54,490 --> 00:49:05,240
+in such ah okay right in such our does
+
+677
+00:49:02,090 --> 00:49:09,770
+not take a dismal number you need a
+
+678
+00:49:05,240 --> 00:49:16,180
+hexadecimal the problem is more
+
+679
+00:49:09,770 --> 00:49:16,180
+comfortable more complex than I want so
+
+680
+00:49:16,270 --> 00:49:27,890
+there is a way to to insert a character
+
+681
+00:49:22,150 --> 00:49:30,460
+using the code point but I forgot so in
+
+682
+00:49:27,890 --> 00:49:33,740
+order to do that lets go to my Emacs
+
+683
+00:49:30,460 --> 00:49:37,340
+tutorial so you go to practical Emacs
+
+684
+00:49:33,740 --> 00:49:41,810
+then you go down there is a Unicode
+
+685
+00:49:37,340 --> 00:49:47,030
+topic and there is Unicode tutorial so
+
+686
+00:49:41,810 --> 00:49:49,970
+you go to that page then there is how to
+
+687
+00:49:47,030 --> 00:49:52,640
+set a key to insert a Unicode character
+
+688
+00:49:49,970 --> 00:49:58,130
+how to use a brief to insert unicode
+
+689
+00:49:52,640 --> 00:50:00,980
+character how to insert a yuna character
+
+690
+00:49:58,130 --> 00:50:03,230
+by its hexadecimal how to insert unicode
+
+691
+00:50:00,980 --> 00:50:03,980
+character by its decimal value this is
+
+692
+00:50:03,230 --> 00:50:08,870
+what we want
+
+693
+00:50:03,980 --> 00:50:16,790
+oh so you just need to type pound sign
+
+694
+00:50:08,870 --> 00:50:21,260
+or 10 oh okay let's try that so let's
+
+695
+00:50:16,790 --> 00:50:34,360
+say we want to type the character 193 so
+
+696
+00:50:21,260 --> 00:50:39,370
+we call in such ah then pound sign 1001
+
+697
+00:50:34,360 --> 00:50:43,850
+93 enter there it is
+
+698
+00:50:39,370 --> 00:50:46,640
+great so we got that okay so remember
+
+699
+00:50:43,850 --> 00:50:50,450
+it's pound sign 10 in such a pound sign
+
+700
+00:50:46,640 --> 00:50:58,430
+Tina okay let's do that so let's go back
+
+701
+00:50:50,450 --> 00:50:59,849
+here we're gonna start the macro let me
+
+702
+00:50:58,430 --> 00:51:09,249
+show you the panel
+
+703
+00:50:59,849 --> 00:51:15,299
+start amok we'll move to that move to
+
+704
+00:51:09,249 --> 00:51:19,019
+that move through that and wait
+
+705
+00:51:15,299 --> 00:51:27,969
+start amok well move move
+
+706
+00:51:19,019 --> 00:51:30,489
+copy the whole copy then go through the
+
+707
+00:51:27,969 --> 00:51:38,489
+end go to the end
+
+708
+00:51:30,489 --> 00:51:38,489
+go back inside not put a comma space
+
+709
+00:51:41,339 --> 00:51:52,079
+quote name quote colon space
+
+710
+00:52:01,940 --> 00:52:04,690
+quote
+
+711
+00:52:07,450 --> 00:52:16,530
+command mod called a command insert cha
+
+712
+00:52:16,559 --> 00:52:32,130
+ok then homicide 10 are go to insert mod
+
+713
+00:52:26,760 --> 00:52:32,130
+paste enter
+
+714
+00:52:33,750 --> 00:52:49,800
+quote that is it now hold on a second
+
+715
+00:52:42,330 --> 00:52:52,410
+let's stop Marco okay what this Marco
+
+716
+00:52:49,800 --> 00:52:56,099
+does is that it would just you know add
+
+717
+00:52:52,410 --> 00:52:58,680
+the character here but we actually want
+
+718
+00:52:56,099 --> 00:53:02,220
+the name you know we want one the name
+
+719
+00:52:58,680 --> 00:53:04,380
+of the character buts let's let's hold
+
+720
+00:53:02,220 --> 00:53:09,930
+hold on on that for a moment let's just
+
+721
+00:53:04,380 --> 00:53:12,650
+use this macro to to get all the names
+
+722
+00:53:09,930 --> 00:53:19,859
+so we're gonna select all these nice
+
+723
+00:53:12,650 --> 00:53:27,080
+okay up to here then let's call apply
+
+724
+00:53:19,859 --> 00:53:31,020
+macro to regionalize yay we got it
+
+725
+00:53:27,080 --> 00:53:33,390
+walking so you see now we have the
+
+726
+00:53:31,020 --> 00:53:37,410
+actual character at the end of each line
+
+727
+00:53:33,390 --> 00:53:41,190
+now there is a except this this macro
+
+728
+00:53:37,410 --> 00:53:44,520
+only works for characters that has only
+
+729
+00:53:41,190 --> 00:53:49,560
+one Unicode code point so it does not
+
+730
+00:53:44,520 --> 00:53:51,540
+work for this in this case because yeah
+
+731
+00:53:49,560 --> 00:53:54,150
+because in composition characters that
+
+732
+00:53:51,540 --> 00:53:56,390
+you actually have two characters so it
+
+733
+00:53:54,150 --> 00:53:59,010
+doesn't fit into the scheme there's no
+
+734
+00:53:56,390 --> 00:54:00,510
+one single name you have you know two
+
+735
+00:53:59,010 --> 00:54:03,210
+characters with two names
+
+736
+00:54:00,510 --> 00:54:06,119
+so we have to do something special about
+
+737
+00:54:03,210 --> 00:54:11,339
+the you know the composition characters
+
+738
+00:54:06,119 --> 00:54:14,130
+it's you know truly stupid anyway so
+
+739
+00:54:11,339 --> 00:54:16,380
+this email is smoke well we you know
+
+740
+00:54:14,130 --> 00:54:21,720
+Emacs Marco we just showed Team Aqua
+
+741
+00:54:16,380 --> 00:54:24,330
+that added the characters for us the
+
+742
+00:54:21,720 --> 00:54:27,330
+next step step is to replace the
+
+743
+00:54:24,330 --> 00:54:30,000
+characters to Unicode name so let's do
+
+744
+00:54:27,330 --> 00:54:34,970
+that so first of all shrink it a bit so
+
+745
+00:54:30,000 --> 00:54:43,349
+you can see let's record another macro
+
+746
+00:54:34,970 --> 00:54:45,910
+so start mark well go to the end then
+
+747
+00:54:43,349 --> 00:54:53,680
+one two three
+
+748
+00:54:45,910 --> 00:54:59,210
+move backward three times one more time
+
+749
+00:54:53,680 --> 00:55:00,770
+then that's called describe cha okay now
+
+750
+00:54:59,210 --> 00:55:12,670
+we have a character information now we
+
+751
+00:55:00,770 --> 00:55:12,670
+switch pain then search for name
+
+752
+00:55:14,550 --> 00:55:38,430
+: space okay then we cut the rest of the
+
+753
+00:55:25,590 --> 00:55:42,690
+line we switch back okay so then we move
+
+754
+00:55:38,430 --> 00:55:50,970
+coucil right to the coma and let's just
+
+755
+00:55:42,690 --> 00:55:55,320
+say paste it okay quote paste quote okay
+
+756
+00:55:50,970 --> 00:56:00,570
+let's do that for now and Marco
+
+757
+00:55:55,320 --> 00:56:04,580
+okay so let's select these lines and a
+
+758
+00:56:00,570 --> 00:56:11,670
+primal code to regionalize okay
+
+759
+00:56:04,580 --> 00:56:14,510
+primal code to regionalize there's an
+
+760
+00:56:11,670 --> 00:56:14,510
+error of somewhere
+
+761
+00:56:20,660 --> 00:56:25,820
+okay so I think so this is getting
+
+762
+00:56:23,870 --> 00:56:32,420
+really long so what I think what we
+
+763
+00:56:25,820 --> 00:56:38,540
+let's let's this finish this start mark
+
+764
+00:56:32,420 --> 00:56:44,540
+well go to the end of line one two three
+
+765
+00:56:38,540 --> 00:56:50,030
+four go back four characters core
+
+766
+00:56:44,540 --> 00:56:57,230
+describe Chow switch pain search name
+
+767
+00:56:50,030 --> 00:56:57,980
+colon space enter exit copy the rest of
+
+768
+00:56:57,230 --> 00:57:01,580
+the line
+
+769
+00:56:57,980 --> 00:57:04,400
+oh I know what happens because I was
+
+770
+00:57:01,580 --> 00:57:06,830
+trying to cut when you cut it is an
+
+771
+00:57:04,400 --> 00:57:09,800
+arrow even though the cut is still
+
+772
+00:57:06,830 --> 00:57:12,260
+successful but it doesn't delete it so
+
+773
+00:57:09,800 --> 00:57:14,920
+whenever there's an arrow your key
+
+774
+00:57:12,260 --> 00:57:18,410
+marker exits you know it so that is why
+
+775
+00:57:14,920 --> 00:57:21,680
+so let's not do the cut let's just say
+
+776
+00:57:18,410 --> 00:57:25,610
+copy you know to prevent the arrow which
+
+777
+00:57:21,680 --> 00:57:30,680
+in turn stops our mark key Marco so
+
+778
+00:57:25,610 --> 00:57:34,550
+let's start again okay start Rico key
+
+779
+00:57:30,680 --> 00:57:38,830
+marker go to the end of line backward
+
+780
+00:57:34,550 --> 00:57:43,340
+one two three four times then call
+
+781
+00:57:38,830 --> 00:57:50,960
+describe cha switch closer to the next
+
+782
+00:57:43,340 --> 00:57:55,430
+pin search for name colon space then
+
+783
+00:57:50,960 --> 00:58:00,200
+enter to exit to search then mark then
+
+784
+00:57:55,430 --> 00:58:04,100
+go to the end of mark copy okay no arrow
+
+785
+00:58:00,200 --> 00:58:09,200
+that's good now we switch back actually
+
+786
+00:58:04,100 --> 00:58:12,080
+we switch back to the panel remove all
+
+787
+00:58:09,200 --> 00:58:19,990
+the other panels move closer to the
+
+788
+00:58:12,080 --> 00:58:22,990
+right two times add a comma space quote
+
+789
+00:58:19,990 --> 00:58:22,990
+quote
+
+790
+00:58:23,030 --> 00:58:34,770
+okay backspace paste that is what we
+
+791
+00:58:27,930 --> 00:58:37,650
+want now we exit the key Marco stop team
+
+792
+00:58:34,770 --> 00:58:40,980
+aqua so we have recorded one key Marco
+
+793
+00:58:37,650 --> 00:58:45,660
+and now let's apply that chemical to all
+
+794
+00:58:40,980 --> 00:58:52,829
+these lines okay hop right it makes a
+
+795
+00:58:45,660 --> 00:58:55,500
+very macro to regionalize superb so you
+
+796
+00:58:52,829 --> 00:58:58,079
+can see so okay we have just
+
+797
+00:58:55,500 --> 00:59:02,390
+demonstrated to keyboard markers so you
+
+798
+00:58:58,079 --> 00:59:05,010
+know you Emacs scheme oppose that that
+
+799
+00:59:02,390 --> 00:59:08,880
+transform kind of this JSON file
+
+800
+00:59:05,010 --> 00:59:12,599
+transform interactivity so we have like
+
+801
+00:59:08,880 --> 00:59:17,940
+2000 lines right remember we had to
+
+802
+00:59:12,599 --> 00:59:21,619
+thousands of these these you know entity
+
+803
+00:59:17,940 --> 00:59:24,599
+entities so now we have a way to
+
+804
+00:59:21,619 --> 00:59:28,980
+interactively change over all of them to
+
+805
+00:59:24,599 --> 00:59:30,930
+actually show so what is the purpose of
+
+806
+00:59:28,980 --> 00:59:36,480
+changing them to show the character
+
+807
+00:59:30,930 --> 00:59:40,200
+itself and also the Unicode name of that
+
+808
+00:59:36,480 --> 00:59:43,079
+character so this is one of the great
+
+809
+00:59:40,200 --> 00:59:45,420
+use of Emacs because you know otherwise
+
+810
+00:59:43,079 --> 00:59:49,430
+you have to you know either use a
+
+811
+00:59:45,420 --> 00:59:52,289
+JavaScript library from from the wild or
+
+812
+00:59:49,430 --> 00:59:54,740
+you know start to do this in colon or
+
+813
+00:59:52,289 --> 00:59:54,740
+Python
+
+814
+00:59:54,839 --> 00:59:59,789
+you know and Emacs give us this option
+
+815
+00:59:57,630 --> 01:00:03,480
+just interactively change the you know
+
+816
+00:59:59,789 --> 01:00:06,839
+the cheerson file and we can also do it
+
+817
+01:00:03,480 --> 01:00:10,170
+in do it in Emacs lease you know
+
+818
+01:00:06,839 --> 01:00:15,539
+that's another option so anyway now we
+
+819
+01:00:10,170 --> 01:00:17,460
+have that so basically what I have to do
+
+820
+01:00:15,539 --> 01:00:19,319
+right now is just to print it out you
+
+821
+01:00:17,460 --> 01:00:24,089
+know we have the character name we have
+
+822
+01:00:19,319 --> 01:00:27,119
+the code point we have the you know the
+
+823
+01:00:24,089 --> 01:00:30,480
+character itself so all we have to do is
+
+824
+01:00:27,119 --> 01:00:32,700
+to let's go back to the external page
+
+825
+01:00:30,480 --> 01:00:36,269
+you know here all we have to do is just
+
+826
+01:00:32,700 --> 01:00:46,039
+print print it like for example
+
+827
+01:00:36,269 --> 01:00:46,039
+like this let's magnify HTML mod magnify
+
+828
+01:00:46,189 --> 01:00:58,319
+what we have to do is add a I had a li
+
+829
+01:00:52,259 --> 01:00:58,979
+and let's say now let's print it then
+
+830
+01:00:58,319 --> 01:01:00,689
+why not
+
+831
+01:00:58,979 --> 01:01:04,109
+so first of all let me show you what
+
+832
+01:01:00,689 --> 01:01:15,239
+we're gonna print actually let me copy
+
+833
+01:01:04,109 --> 01:01:28,860
+that just I'm just going to work this
+
+834
+01:01:15,239 --> 01:01:31,919
+quickly without much explanation name
+
+835
+01:01:28,860 --> 01:01:31,919
+[Music]
+
+836
+01:01:38,120 --> 01:01:41,140
+cold point
+
+837
+01:01:49,530 --> 01:01:55,560
+what we want to do is the HTML syntax
+
+838
+01:01:59,430 --> 01:02:02,430
+okay
+
+839
+01:02:31,980 --> 01:02:38,740
+so basically we just want to print lines
+
+840
+01:02:36,160 --> 01:02:40,900
+like that for each line in the JSON file
+
+841
+01:02:38,740 --> 01:02:43,089
+we want to print line lines like that
+
+842
+01:02:40,900 --> 01:02:44,670
+you know I'm simplifying a lots of
+
+843
+01:02:43,089 --> 01:02:47,950
+things for example we are skipping
+
+844
+01:02:44,670 --> 01:02:50,490
+skipped in this composition charts
+
+845
+01:02:47,950 --> 01:02:53,650
+because I don't know how many are there
+
+846
+01:02:50,490 --> 01:02:56,500
+you know you have to think about how to
+
+847
+01:02:53,650 --> 01:02:59,200
+deal with them you know remember our
+
+848
+01:02:56,500 --> 01:03:03,609
+task is to create a HTML page
+
+849
+01:02:59,200 --> 01:03:07,119
+- that lists all the entities named
+
+850
+01:03:03,609 --> 01:03:10,180
+entities obviously this page the purpose
+
+851
+01:03:07,119 --> 01:03:13,150
+is for references purposes and also as a
+
+852
+01:03:10,180 --> 01:03:16,510
+tutorial so when you have a situation
+
+853
+01:03:13,150 --> 01:03:19,020
+like these composition characters you
+
+854
+01:03:16,510 --> 01:03:22,420
+need to kind of explain it you know you
+
+855
+01:03:19,020 --> 01:03:24,640
+cannot just slap it there you know like
+
+856
+01:03:22,420 --> 01:03:29,770
+even right now we have difficulties
+
+857
+01:03:24,640 --> 01:03:32,290
+because you know this this composition
+
+858
+01:03:29,770 --> 01:03:34,930
+characters it it has to you know because
+
+859
+01:03:32,290 --> 01:03:38,650
+it's a two characters so it has two
+
+860
+01:03:34,930 --> 01:03:42,430
+names so it does not fit into our format
+
+861
+01:03:38,650 --> 01:03:45,099
+here you know where each line is a you
+
+862
+01:03:42,430 --> 01:03:46,780
+know the entity name then the Unicode
+
+863
+01:03:45,099 --> 01:03:49,059
+code point but for the case of
+
+864
+01:03:46,780 --> 01:03:51,339
+composition you have more than one cool
+
+865
+01:03:49,059 --> 01:03:54,069
+point so we don't know what to do with
+
+866
+01:03:51,339 --> 01:03:56,880
+that so we are skipping that for now we
+
+867
+01:03:54,069 --> 01:04:00,460
+don't know how much how many are there
+
+868
+01:03:56,880 --> 01:04:03,940
+but let me just you know push through
+
+869
+01:04:00,460 --> 01:04:08,460
+and show you what we're gonna do so for
+
+870
+01:04:03,940 --> 01:04:08,460
+this composition it's just commented out
+
+871
+01:04:09,089 --> 01:04:20,010
+and we are just going to print
+
+872
+01:04:12,180 --> 01:04:20,010
+first of all train days let's let's see
+
+873
+01:04:27,020 --> 01:04:32,800
+so this magnify this is actually wrong
+
+874
+01:04:33,190 --> 01:04:46,850
+let's say it's I'm going to make some
+
+875
+01:04:38,210 --> 01:04:49,190
+modification here but but you can see
+
+876
+01:04:46,850 --> 01:04:52,940
+that if we do the key mark off the first
+
+877
+01:04:49,190 --> 01:05:03,680
+time we can do it correctly we I'm just
+
+878
+01:04:52,940 --> 01:05:07,660
+going to manually add something here so
+
+879
+01:05:03,680 --> 01:05:07,660
+that is actually what we want
+
+880
+01:05:07,750 --> 01:05:19,220
+yes
+
+881
+01:05:09,080 --> 01:05:25,390
+name and for the first one we also need
+
+882
+01:05:19,220 --> 01:05:25,390
+to do that let's just do it manually
+
+883
+01:05:30,970 --> 01:05:41,390
+okay that seems it Shannon so we are
+
+884
+01:05:37,220 --> 01:05:50,650
+making sure that the JSON file syntax is
+
+885
+01:05:41,390 --> 01:05:50,650
+all correct now what is this one a cute
+
+886
+01:05:51,100 --> 01:05:54,190
+[Music]
+
+887
+01:06:05,349 --> 01:06:14,569
+so this is latin small letter with small
+
+888
+01:06:09,920 --> 01:06:19,970
+letter a with acute now noticed is
+
+889
+01:06:14,569 --> 01:06:23,690
+something odd here because notice both
+
+890
+01:06:19,970 --> 01:06:27,440
+this line and this line they have the
+
+891
+01:06:23,690 --> 01:06:30,710
+same character two to five okay let me
+
+892
+01:06:27,440 --> 01:06:33,050
+show you two to five code point but
+
+893
+01:06:30,710 --> 01:06:36,140
+however the the named entities are
+
+894
+01:06:33,050 --> 01:06:38,960
+different one is without the semicolon
+
+895
+01:06:36,140 --> 01:06:42,440
+at the end now that that is one of the
+
+896
+01:06:38,960 --> 01:06:46,309
+problem created by html5 because now
+
+897
+01:06:42,440 --> 01:06:48,740
+they they have several they created
+
+898
+01:06:46,309 --> 01:06:53,510
+several about twenty or thirty entities
+
+899
+01:06:48,740 --> 01:06:56,720
+without the trailing semicolon in the in
+
+900
+01:06:53,510 --> 01:07:00,800
+other words now that the entity the HTML
+
+901
+01:06:56,720 --> 01:07:02,540
+entity syntax is now inconsistent
+
+902
+01:07:00,800 --> 01:07:04,849
+there's no you know it's not regular
+
+903
+01:07:02,540 --> 01:07:08,329
+anymore because some of the named
+
+904
+01:07:04,849 --> 01:07:10,849
+entities do not have to not need to end
+
+905
+01:07:08,329 --> 01:07:14,569
+you know does not ending or same at
+
+906
+01:07:10,849 --> 01:07:19,369
+semicolon that is actually a problem let
+
+907
+01:07:14,569 --> 01:07:22,040
+me show you that you can read about on
+
+908
+01:07:19,369 --> 01:07:25,460
+my on my web blog so you have all these
+
+909
+01:07:22,040 --> 01:07:30,140
+entities named entities without the
+
+910
+01:07:25,460 --> 01:07:32,510
+trailing semicolon this this creates a
+
+911
+01:07:30,140 --> 01:07:35,180
+huge amount of problems when your syntax
+
+912
+01:07:32,510 --> 01:07:38,180
+becomes irregular because then you have
+
+913
+01:07:35,180 --> 01:07:40,480
+all kind of special cases it becomes
+
+914
+01:07:38,180 --> 01:07:44,480
+extremely difficult to pass and
+
+915
+01:07:40,480 --> 01:07:48,980
+error-prone hey good morning
+
+916
+01:07:44,480 --> 01:07:53,180
+elusive I cannot see your message and I
+
+917
+01:07:48,980 --> 01:07:55,670
+don't know when when you typed it so
+
+918
+01:07:53,180 --> 01:07:58,280
+anyway this video is getting too long
+
+919
+01:07:55,670 --> 01:08:00,200
+and we are not you know I start to
+
+920
+01:07:58,280 --> 01:08:03,579
+ramble you know not going anywhere but
+
+921
+01:08:00,200 --> 01:08:06,049
+let's let's just finish printing this
+
+922
+01:08:03,579 --> 01:08:09,200
+yeah we are trying to finish printing
+
+923
+01:08:06,049 --> 01:08:11,569
+this and that'll be it for today I will
+
+924
+01:08:09,200 --> 01:08:13,849
+say ten more minutes but first of all we
+
+925
+01:08:11,569 --> 01:08:18,390
+have to make sure every character here
+
+926
+01:08:13,849 --> 01:08:20,250
+is the JSON file is actually correct
+
+927
+01:08:18,390 --> 01:08:23,190
+format so you see we are missing that
+
+928
+01:08:20,250 --> 01:08:26,000
+one huh let's not worry about it let's
+
+929
+01:08:23,190 --> 01:08:28,530
+just delete it okay it's to save time
+
+930
+01:08:26,000 --> 01:08:29,280
+but you get a point you know we've gone
+
+931
+01:08:28,530 --> 01:08:34,680
+through this
+
+932
+01:08:29,280 --> 01:08:35,820
+so now let's print it it's okay yeah
+
+933
+01:08:34,680 --> 01:08:43,650
+that's correct
+
+934
+01:08:35,820 --> 01:08:46,290
+now we need to print we need to print
+
+935
+01:08:43,650 --> 01:08:55,080
+actually here that's what we want to
+
+936
+01:08:46,290 --> 01:09:06,840
+print in this format so let's go that's
+
+937
+01:08:55,080 --> 01:09:11,340
+how do we do it how do we do this copy
+
+938
+01:09:06,840 --> 01:09:13,370
+that paste it here let's let's just do
+
+939
+01:09:11,340 --> 01:09:13,370
+that
+
+940
+01:09:14,120 --> 01:09:24,710
+that's what we need to print so first of
+
+941
+01:09:18,990 --> 01:09:24,710
+all we need to print the entity but okay
+
+942
+01:09:26,240 --> 01:09:37,220
+constant entity entity syntax equals to
+
+943
+01:09:40,040 --> 01:09:53,220
+let's just say that now that is entity
+
+944
+01:09:46,560 --> 01:09:59,540
+now cool point okay Co point is going to
+
+945
+01:09:53,220 --> 01:09:59,540
+be this
+
+946
+01:10:11,380 --> 01:10:15,000
+that is the core point
+
+947
+01:10:17,100 --> 01:10:27,080
+so we got entities we got cool point
+
+948
+01:10:19,890 --> 01:10:27,080
+then we got the char name okay
+
+949
+01:10:33,920 --> 01:10:37,730
+char name will be
+
+950
+01:10:45,070 --> 01:10:58,230
+name that's right so actually we don't
+
+951
+01:10:49,330 --> 01:10:58,230
+need these stupid me we don't need this
+
+952
+01:10:59,550 --> 01:11:09,070
+so that's much simpler code points name
+
+953
+01:11:03,970 --> 01:11:13,180
+that's right and entity entity is not
+
+954
+01:11:09,070 --> 01:11:14,530
+string actually we don't need the string
+
+955
+01:11:13,180 --> 01:11:19,030
+is stupid
+
+956
+01:11:14,530 --> 01:11:21,760
+so entity is KK and hey base good
+
+957
+01:11:19,030 --> 01:11:23,470
+morning I'm just going to bed but I look
+
+958
+01:11:21,760 --> 01:11:30,280
+forward to watching this stream thank
+
+959
+01:11:23,470 --> 01:11:33,340
+you thank you good night so anyway so
+
+960
+01:11:30,280 --> 01:11:36,970
+yeah so this is almost done
+
+961
+01:11:33,340 --> 01:11:42,120
+and we don't need this line anymore make
+
+962
+01:11:36,970 --> 01:11:56,010
+sure this is correct entity entity
+
+963
+01:11:42,120 --> 01:12:02,080
+string so entity string that's right
+
+964
+01:11:56,010 --> 01:12:05,340
+entity disome oh how the that's a that's
+
+965
+01:12:02,080 --> 01:12:05,340
+a cool point so
+
+966
+01:12:20,100 --> 01:12:26,790
+then we have entity hex name
+
+967
+01:12:34,030 --> 01:12:41,130
+hex so how do you get the hex hex is
+
+968
+01:12:37,929 --> 01:12:41,130
+actually just the
+
+969
+01:12:47,659 --> 01:12:55,230
+so we need to turn a code point to hex
+
+970
+01:12:51,829 --> 01:12:59,210
+but before these before all that lets
+
+971
+01:12:55,230 --> 01:12:59,210
+just trained it just make sure
+
+972
+01:13:20,230 --> 01:13:29,530
+yep that's that's correct and now it's
+
+973
+01:13:23,980 --> 01:13:35,460
+to these we are almost done we print
+
+974
+01:13:29,530 --> 01:13:39,400
+this correctly and we'll be done entity
+
+975
+01:13:35,460 --> 01:13:42,880
+point okay so not right now the problem
+
+976
+01:13:39,400 --> 01:13:47,260
+is you need to convert decimal to
+
+977
+01:13:42,880 --> 01:13:49,900
+hexadecimal so how do we do that we can
+
+978
+01:13:47,260 --> 01:13:57,000
+do that actually the cool point is
+
+979
+01:13:49,900 --> 01:14:01,510
+actually we need to do this ampersand
+
+980
+01:13:57,000 --> 01:14:04,030
+pound you see this is a problem with the
+
+981
+01:14:01,510 --> 01:14:06,370
+entities entities you could you become
+
+982
+01:14:04,030 --> 01:14:14,740
+you are seeing a moment why what you
+
+983
+01:14:06,370 --> 01:14:23,620
+need that m % am P semicolon then here
+
+984
+01:14:14,740 --> 01:14:29,260
+we need we need ampersand : pound sign X
+
+985
+01:14:23,620 --> 01:14:31,090
+and here should be a hex hex decimal so
+
+986
+01:14:29,260 --> 01:14:34,030
+the problem is how do you convert a
+
+987
+01:14:31,090 --> 01:14:37,210
+decimal number to hexadecimal in
+
+988
+01:14:34,030 --> 01:14:41,940
+JavaScript wait the dude's to get the
+
+989
+01:14:37,210 --> 01:14:45,280
+javascript in depth let's search for hex
+
+990
+01:14:41,940 --> 01:14:47,670
+okay it's not there then it's a number
+
+991
+01:14:45,280 --> 01:14:47,670
+section
+
+992
+01:14:51,090 --> 01:14:57,660
+okay eat Robo maybe in a string section
+
+993
+01:14:54,180 --> 01:15:02,280
+string string above you a string escape
+
+994
+01:14:57,660 --> 01:15:04,890
+sequence Unicode escape string up to
+
+995
+01:15:02,280 --> 01:15:08,220
+extreme prototype let's go to object
+
+996
+01:15:04,890 --> 01:15:11,480
+reference object reference number
+
+997
+01:15:08,220 --> 01:15:18,420
+prototype let's go to a number object
+
+998
+01:15:11,480 --> 01:15:26,400
+number object you have a number of wrote
+
+999
+01:15:18,420 --> 01:15:26,880
+I pass int yes passed int 2 hex that's
+
+1000
+01:15:26,400 --> 01:15:30,330
+right
+
+1001
+01:15:26,880 --> 01:15:35,900
+so hexadecimal string to a number binary
+
+1002
+01:15:30,330 --> 01:15:35,900
+string to number dismal string
+
+1003
+01:15:56,809 --> 01:16:03,260
+okay it converts a string to integer
+
+1004
+01:15:59,510 --> 01:16:06,099
+that's not what we want we want we want
+
+1005
+01:16:03,260 --> 01:16:15,920
+to convert a integer to a string
+
+1006
+01:16:06,099 --> 01:16:18,469
+hexadecimal string string to number
+
+1007
+01:16:15,920 --> 01:16:22,610
+number to string let's see string to
+
+1008
+01:16:18,469 --> 01:16:25,309
+number string string to integer string
+
+1009
+01:16:22,610 --> 01:16:27,710
+to decimal number number to stream so we
+
+1010
+01:16:25,309 --> 01:16:31,369
+want this one yeah that one
+
+1011
+01:16:27,710 --> 01:16:40,219
+so number dot to stream radix okay so
+
+1012
+01:16:31,369 --> 01:16:48,110
+here we will have Cole point Co point is
+
+1013
+01:16:40,219 --> 01:16:56,590
+a number that's right dot actually call
+
+1014
+01:16:48,110 --> 01:17:06,980
+point the first element soco point dot
+
+1015
+01:16:56,590 --> 01:17:09,849
+to strain and radix red X will be 16 for
+
+1016
+01:17:06,980 --> 01:17:09,849
+hexadecimal
+
+1017
+01:17:10,090 --> 01:17:17,260
+okay let's just let's try to do this
+
+1018
+01:17:40,449 --> 01:17:48,889
+okay so we got that it's we don't need
+
+1019
+01:17:46,010 --> 01:17:53,679
+that anymore it's running it again so
+
+1020
+01:17:48,889 --> 01:17:56,810
+that is how results copy it
+
+1021
+01:17:53,679 --> 01:18:00,130
+let's go through the HTML and paste it
+
+1022
+01:17:56,810 --> 01:18:02,150
+and see what we get
+
+1023
+01:18:00,130 --> 01:18:06,710
+you go to order
+
+1024
+01:18:02,150 --> 01:18:12,080
+let's open this page open update the
+
+1025
+01:18:06,710 --> 01:18:21,070
+date and let's paste it here so we need
+
+1026
+01:18:12,080 --> 01:18:21,070
+a ul it's at a ul okay show in browser
+
+1027
+01:18:22,060 --> 01:18:29,750
+so we have a HTML
+
+1028
+01:18:25,760 --> 01:18:34,699
+okay so hexadecimal syntax that's
+
+1029
+01:18:29,750 --> 01:18:38,719
+correct this syntax correct we got it
+
+1030
+01:18:34,699 --> 01:18:47,510
+working well there's some some little
+
+1031
+01:18:38,719 --> 01:18:50,260
+errors we need to fix so you know so
+
+1032
+01:18:47,510 --> 01:18:56,480
+let's let's fix it
+
+1033
+01:18:50,260 --> 01:19:04,760
+console.log okay let's print a ul so
+
+1034
+01:18:56,480 --> 01:19:17,389
+that and then we need to hexadecimal
+
+1035
+01:19:04,760 --> 01:19:25,179
+syntax hex hex is we need a semicolon at
+
+1036
+01:19:17,389 --> 01:19:25,179
+the end semicolon at the end
+
+1037
+01:19:29,129 --> 01:19:34,639
+and also the the entity name should be
+
+1038
+01:20:08,119 --> 01:20:14,540
+that needs to fix we need to fix that
+
+1039
+01:20:11,090 --> 01:20:16,850
+because because the entity name issues
+
+1040
+01:20:14,540 --> 01:20:21,469
+as a character because it is actually
+
+1041
+01:20:16,850 --> 01:20:25,909
+showing the entity name such as you know
+
+1042
+01:20:21,469 --> 01:20:30,070
+such as that but instead what you want
+
+1043
+01:20:25,909 --> 01:20:36,350
+is replace that and put ampersand symbol
+
+1044
+01:20:30,070 --> 01:20:39,230
+bye-bye ampersand a MP semicolon you
+
+1045
+01:20:36,350 --> 01:20:42,590
+know so this this is part of the reason
+
+1046
+01:20:39,230 --> 01:20:46,280
+entities is no good any kind of escape
+
+1047
+01:20:42,590 --> 01:20:50,179
+sequence is no good they increase the
+
+1048
+01:20:46,280 --> 01:20:53,960
+passing and you know complication by a
+
+1049
+01:20:50,179 --> 01:20:57,350
+magnitude and also because that it also
+
+1050
+01:20:53,960 --> 01:20:59,510
+it becomes extremely error-prone so you
+
+1051
+01:20:57,350 --> 01:21:02,380
+know you know often you see a webpage
+
+1052
+01:20:59,510 --> 01:21:04,550
+you see these screwed up characters or
+
+1053
+01:21:02,380 --> 01:21:06,530
+actually there are many reasons for that
+
+1054
+01:21:04,550 --> 01:21:11,989
+but part of the reason is because the
+
+1055
+01:21:06,530 --> 01:21:14,060
+parsing it becomes very complex so
+
+1056
+01:21:11,989 --> 01:21:18,139
+anyway let's fix this so the first
+
+1057
+01:21:14,060 --> 01:21:20,869
+factor needs to be fixed that is not
+
+1058
+01:21:18,139 --> 01:21:23,690
+trivial let me let me do that let me
+
+1059
+01:21:20,869 --> 01:21:27,320
+explain but but also the decimal point
+
+1060
+01:21:23,690 --> 01:21:33,130
+is correct the hexadecimal is fixed okay
+
+1061
+01:21:27,320 --> 01:21:33,130
+let's try to run this again let's run it
+
+1062
+01:21:33,670 --> 01:21:49,719
+named entity syntax let's run it okay
+
+1063
+01:21:44,659 --> 01:21:54,010
+copy switch to the HTML buffer paste
+
+1064
+01:21:49,719 --> 01:21:58,340
+showing browser so named syntax that
+
+1065
+01:21:54,010 --> 01:22:01,550
+dismal syntax that hex syntax that name
+
+1066
+01:21:58,340 --> 01:22:03,949
+is that that is good okay that is what
+
+1067
+01:22:01,550 --> 01:22:06,260
+we set out to do now there is one more
+
+1068
+01:22:03,949 --> 01:22:11,239
+error the last arrow is that the name
+
+1069
+01:22:06,260 --> 01:22:14,019
+entity syntax you know it's it's it's
+
+1070
+01:22:11,239 --> 01:22:18,789
+showing the character directory so
+
+1071
+01:22:14,019 --> 01:22:24,329
+so what we need to do is actually we
+
+1072
+01:22:18,789 --> 01:22:24,329
+need to write a program so that so here
+
+1073
+01:22:25,860 --> 01:22:33,249
+okay so we can do this so so so entity
+
+1074
+01:22:30,429 --> 01:22:35,999
+this is actually the character we need
+
+1075
+01:22:33,249 --> 01:22:35,999
+another one
+
+1076
+01:22:43,739 --> 01:22:55,290
+so what's going on is that we need
+
+1077
+01:22:51,210 --> 01:22:59,100
+another one too for the entity string so
+
+1078
+01:22:55,290 --> 01:23:02,280
+we can do that by we want to remove the
+
+1079
+01:22:59,100 --> 01:23:12,290
+first character so actually so we can do
+
+1080
+01:23:02,280 --> 01:23:20,190
+that by so here is a NP that purse then
+
+1081
+01:23:12,290 --> 01:23:21,810
+substring slice okay slice start with 1
+
+1082
+01:23:20,190 --> 01:23:26,960
+2 n okay
+
+1083
+01:23:21,810 --> 01:23:26,960
+that is the answer okay so
+
+1084
+01:23:44,960 --> 01:23:48,469
+let's do this
+
+1085
+01:24:00,979 --> 01:24:10,610
+ciao so we have the character then we
+
+1086
+01:24:04,969 --> 01:24:14,840
+have named sin tanks then we have
+
+1087
+01:24:10,610 --> 01:24:18,650
+decimal syntax we have hex syntax then
+
+1088
+01:24:14,840 --> 01:24:23,389
+the character name in the end okay let's
+
+1089
+01:24:18,650 --> 01:24:28,219
+run it copy it go through the browser go
+
+1090
+01:24:23,389 --> 01:24:39,289
+to the HTML page paste it showing
+
+1091
+01:24:28,219 --> 01:24:42,610
+browser this is still wrong oh oh
+
+1092
+01:24:39,289 --> 01:24:47,679
+because we didn't there it is
+
+1093
+01:24:42,610 --> 01:24:47,679
+granite copy cross
+
+1094
+01:24:53,630 --> 01:25:05,540
+pase showing browser correct okay I
+
+1095
+01:25:01,130 --> 01:25:08,120
+think so that's it so you know we set
+
+1096
+01:25:05,540 --> 01:25:10,940
+out to do this and it's done it's you
+
+1097
+01:25:08,120 --> 01:25:15,710
+know we got so now all we have to do is
+
+1098
+01:25:10,940 --> 01:25:20,720
+I have to work on the whole 2,000
+
+1099
+01:25:15,710 --> 01:25:29,840
+characters of I'd forgot where it is
+
+1100
+01:25:20,720 --> 01:25:31,670
+entity anyway there are two thousand
+
+1101
+01:25:29,840 --> 01:25:34,580
+lines of the new entities I need to
+
+1102
+01:25:31,670 --> 01:25:37,400
+create that and then I need to deal with
+
+1103
+01:25:34,580 --> 01:25:41,000
+the composition characters you know
+
+1104
+01:25:37,400 --> 01:25:43,010
+figure out how to deal with that so
+
+1105
+01:25:41,000 --> 01:25:44,480
+anyway that's it that's it for today
+
+1106
+01:25:43,010 --> 01:25:49,010
+thank you guys for watching
+
+1107
+01:25:44,480 --> 01:25:51,350
+hey Danielle URL cannot contain spaces
+
+1108
+01:25:49,010 --> 01:25:56,090
+it is actually an example of using
+
+1109
+01:25:51,350 --> 01:26:00,050
+character escape it is it is actually an
+
+1110
+01:25:56,090 --> 01:26:09,440
+example of using character escapes
+
+1111
+01:26:00,050 --> 01:26:13,610
+escapes in markup in CSS yeah that that
+
+1112
+01:26:09,440 --> 01:26:19,090
+so so what are you I think what you are
+
+1113
+01:26:13,610 --> 01:26:23,090
+saying is that you are giving a reason
+
+1114
+01:26:19,090 --> 01:26:25,580
+for for the case of using escape
+
+1115
+01:26:23,090 --> 01:26:29,030
+sequences or entities you know there's
+
+1116
+01:26:25,580 --> 01:26:34,280
+there are some valid reason and you are
+
+1117
+01:26:29,030 --> 01:26:41,170
+saying one of the reason is is that is
+
+1118
+01:26:34,280 --> 01:26:41,170
+that you are URL cannot contain spaces
+
+1119
+01:26:44,730 --> 01:26:56,500
+therefore you know yeah I don't know
+
+1120
+01:26:50,050 --> 01:26:59,710
+what yeah so I know what you are saying
+
+1121
+01:26:56,500 --> 01:27:03,520
+so you are saying that is a or might be
+
+1122
+01:26:59,710 --> 01:27:07,180
+a valid reason for any sort of us escape
+
+1123
+01:27:03,520 --> 01:27:09,490
+sequences or you know entities which I
+
+1124
+01:27:07,180 --> 01:27:11,980
+commented earlier that I don't think
+
+1125
+01:27:09,490 --> 01:27:16,630
+those are good but I think you are right
+
+1126
+01:27:11,980 --> 01:27:20,070
+I think there are some cases of valid
+
+1127
+01:27:16,630 --> 01:27:25,180
+reason so so I think escape sequences
+
+1128
+01:27:20,070 --> 01:27:31,240
+are not entirely bad there are some good
+
+1129
+01:27:25,180 --> 01:27:34,840
+uses so the question to me is you know
+
+1130
+01:27:31,240 --> 01:27:37,090
+are they or some actually could valid
+
+1131
+01:27:34,840 --> 01:27:40,450
+reasons to use it or should it be
+
+1132
+01:27:37,090 --> 01:27:43,330
+entirely banned like no there's no one
+
+1133
+01:27:40,450 --> 01:27:45,460
+single good reason for its existence at
+
+1134
+01:27:43,330 --> 01:27:48,160
+all any sort of escape sequence
+
+1135
+01:27:45,460 --> 01:27:51,010
+characters now I haven't thought about
+
+1136
+01:27:48,160 --> 01:27:54,280
+that you know I've talked about before
+
+1137
+01:27:51,010 --> 01:27:56,650
+if you seen my previous video we are
+
+1138
+01:27:54,280 --> 01:27:59,080
+talking about this because there are a
+
+1139
+01:27:56,650 --> 01:28:01,450
+lot situations where these escape
+
+1140
+01:27:59,080 --> 01:28:04,870
+sequences or entities they actually
+
+1141
+01:28:01,450 --> 01:28:08,920
+cause tremendous tremendous harm you
+
+1142
+01:28:04,870 --> 01:28:10,330
+know they are extremely bad design but
+
+1143
+01:28:08,920 --> 01:28:14,230
+now the question is are they are
+
+1144
+01:28:10,330 --> 01:28:16,680
+actually some yes yeah so they are
+
+1145
+01:28:14,230 --> 01:28:19,690
+absolutely are certain cases where
+
+1146
+01:28:16,680 --> 01:28:23,170
+escape sequences are good design and
+
+1147
+01:28:19,690 --> 01:28:27,820
+valid and one example I know of is that
+
+1148
+01:28:23,170 --> 01:28:30,520
+when you have for example when you for
+
+1149
+01:28:27,820 --> 01:28:34,390
+example invisible characters or caps
+
+1150
+01:28:30,520 --> 01:28:37,000
+control sequence characters in ASCII you
+
+1151
+01:28:34,390 --> 01:28:39,670
+usually you sometimes you want to tell
+
+1152
+01:28:37,000 --> 01:28:41,200
+people you know how to you know the for
+
+1153
+01:28:39,670 --> 01:28:43,680
+example you writing a tutorial
+
+1154
+01:28:41,200 --> 01:28:46,870
+explaining what control sequences are
+
+1155
+01:28:43,680 --> 01:28:50,440
+those are invisible characters but you
+
+1156
+01:28:46,870 --> 01:28:52,720
+need to like identify them you know you
+
+1157
+01:28:50,440 --> 01:28:57,230
+you need to make them visible so you can
+
+1158
+01:28:52,720 --> 01:28:59,480
+explain to users so so for example in
+
+1159
+01:28:57,230 --> 01:29:02,570
+the string you have you have backslash
+
+1160
+01:28:59,480 --> 01:29:05,900
+in that stand for new line which is
+
+1161
+01:29:02,570 --> 01:29:07,670
+invisible characters and a slash t for
+
+1162
+01:29:05,900 --> 01:29:10,220
+tab which is another invisible
+
+1163
+01:29:07,670 --> 01:29:12,890
+characters so when you explain in some
+
+1164
+01:29:10,220 --> 01:29:15,920
+programming languages tab matters so you
+
+1165
+01:29:12,890 --> 01:29:19,310
+need you need some kind of a sequence of
+
+1166
+01:29:15,920 --> 01:29:20,900
+code to indicate these invisible
+
+1167
+01:29:19,310 --> 01:29:25,100
+you know character you cannot just say
+
+1168
+01:29:20,900 --> 01:29:29,510
+tab which becomes invisible so so that
+
+1169
+01:29:25,100 --> 01:29:33,680
+for example is a valid use of a kind of
+
+1170
+01:29:29,510 --> 01:29:36,830
+a escape sequence of kind of a code that
+
+1171
+01:29:33,680 --> 01:29:40,940
+we face is another character now in your
+
+1172
+01:29:36,830 --> 01:29:45,350
+case you are saying about you are not
+
+1173
+01:29:40,940 --> 01:29:47,750
+allowing space which is another good use
+
+1174
+01:29:45,350 --> 01:29:51,860
+of escape sequence I think so I haven't
+
+1175
+01:29:47,750 --> 01:29:55,310
+thought you know obviously you are right
+
+1176
+01:29:51,860 --> 01:29:58,040
+but what I'm saying is that I you know I
+
+1177
+01:29:55,310 --> 01:30:00,140
+tend to have you know this philosophy so
+
+1178
+01:29:58,040 --> 01:30:03,680
+I want I need to think about it for one
+
+1179
+01:30:00,140 --> 01:30:07,580
+hour you know I need to walk take a walk
+
+1180
+01:30:03,680 --> 01:30:12,410
+and do monologue for one hour to to have
+
+1181
+01:30:07,580 --> 01:30:14,420
+a conclusion about whether weathers you
+
+1182
+01:30:12,410 --> 01:30:19,060
+know space in you are not allowed
+
+1183
+01:30:14,420 --> 01:30:21,680
+whether that is a good reason to use
+
+1184
+01:30:19,060 --> 01:30:26,989
+escape sequences or some sort of
+
+1185
+01:30:21,680 --> 01:30:29,390
+encoding but but yeah I think that's a
+
+1186
+01:30:26,989 --> 01:30:31,790
+good reason in anyway so so that's
+
+1187
+01:30:29,390 --> 01:30:33,800
+digression okay so thank you guys for
+
+1188
+01:30:31,790 --> 01:30:35,960
+watching well that's not actually
+
+1189
+01:30:33,800 --> 01:30:38,150
+digression it's related to the topic
+
+1190
+01:30:35,960 --> 01:30:41,300
+because the whole topic today is about
+
+1191
+01:30:38,150 --> 01:30:45,140
+these entities so this this would be
+
+1192
+01:30:41,300 --> 01:30:47,390
+part two of the yesterday's entities
+
+1193
+01:30:45,140 --> 01:30:50,840
+topic if you haven't seen it so go watch
+
+1194
+01:30:47,390 --> 01:30:55,540
+it so anyway have a good day Danielle
+
+1195
+01:30:50,840 --> 01:30:55,540
+and thank you guys for watching bye
+

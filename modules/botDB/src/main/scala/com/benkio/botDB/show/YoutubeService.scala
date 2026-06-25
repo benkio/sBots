@@ -13,25 +13,39 @@ import com.google.api.client.http.HttpRequestInitializer
 import com.google.api.client.json.gson.GsonFactory
 import com.google.api.services.youtube.model.*
 import com.google.api.services.youtube.YouTube
-import io.circe.*
-import io.circe.parser.*
 import log.effect.LogWriter
 
-import java.nio.file.Files
 import java.nio.file.Path
 import scala.jdk.CollectionConverters.*
 import scala.sys.process.*
-import scala.util.Try
 
-final case class YouTubeBotFile(botId: SBotId, captionLanguage: String, file: Path)
-final case class YouTubeBotIds(botId: SBotId, outputFilePath: String, captionLanguage: String, videoIds: List[String])
-final case class YouTubeBotVideos(botId: SBotId, outputFilePath: String, captionLanguage: String, videos: List[Video])
+final case class YouTubeBotFile(botId: SBotId, captionLanguage: String, captionFolderPath: String, file: Path)
+final case class YouTubeBotIds(
+    botId: SBotId,
+    outputFilePath: String,
+    captionFolderPath: String,
+    captionLanguage: String,
+    videoIds: List[String]
+)
+final case class YouTubeBotVideos(
+    botId: SBotId,
+    outputFilePath: String,
+    captionFolderPath: String,
+    captionLanguage: String,
+    videos: List[Video]
+)
 final case class YouTubeBotDBShowDatas(
     botId: SBotId,
     outputFilePath: String,
+    captionFolderPath: String,
     captionLanguage: String,
     dbShowDatas: List[DBShowData]
 )
+
+extension (youTubeBotDBShowDatas: YouTubeBotDBShowDatas) {
+  def captionFilePath(show: DBShowData): Path =
+    Path.of(youTubeBotDBShowDatas.captionFolderPath, s"${show.show_id}.${youTubeBotDBShowDatas.captionLanguage}.srt")
+}
 
 object YouTubeBotDBShowDatas {
   given Semigroup[YouTubeBotDBShowDatas] with {
@@ -39,6 +53,7 @@ object YouTubeBotDBShowDatas {
       YouTubeBotDBShowDatas(
         botId = d1.botId,
         outputFilePath = d1.outputFilePath,
+        captionFolderPath = d1.captionFolderPath,
         captionLanguage = d1.captionLanguage,
         dbShowDatas = d1.dbShowDatas ++ d2.dbShowDatas
       )
@@ -50,7 +65,7 @@ trait YouTubeService[F[_]] {
   def getYouTubeVideos(
       videoIds: List[String]
   ): F[List[Video]]
-  def fetchCaption(videoId: String, tempDir: Path, captionLanguage: String): F[Option[String]]
+  def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Unit]
 }
 
 object YouTubeService {
@@ -94,7 +109,7 @@ object YouTubeService {
       for {
         _              <- LogWriter.info("[YouTubeService] Get Youtube playlist Ids from sources")
         botPlaylistIds <- source.traverse {
-          case ShowSourceConfig(youTubeSources, botId, captionLanguage, outputFilePath) =>
+          case ShowSourceConfig(youTubeSources, botId, captionLanguage, outputFilePath, captionFolderPath) =>
             youTubeSources
               .map(YouTubeSource(_))
               .traverse {
@@ -106,17 +121,33 @@ object YouTubeService {
                     youTubeApiKey = youTubeApiKey
                   )
               }
-              .map(YouTubeBotIds(SBotId(botId), outputFilePath, captionLanguage, _))
+              .map((videoIds: List[String]) =>
+                YouTubeBotIds(
+                  botId = SBotId(botId),
+                  outputFilePath = outputFilePath,
+                  captionFolderPath = captionFolderPath,
+                  captionLanguage = captionLanguage,
+                  videoIds = videoIds
+                )
+              )
         }
         _           <- LogWriter.info("[YouTubeService] Get Youtube videos Ids from sources")
         botVideoIds <- botPlaylistIds.traverse {
-          case YouTubeBotIds(botId, outputFilePath, captionLanguage, playlistIds) =>
+          case YouTubeBotIds(botId, outputFilePath, captionFolderPath, captionLanguage, playlistIds) =>
             getYouTubePlaylistsIds(
               youTubeService = youTubeService,
               playlistIds = playlistIds,
               youTubeApiKey = youTubeApiKey
             )
-              .map(videoIds => YouTubeBotIds(botId, outputFilePath, captionLanguage, videoIds))
+              .map(videoIds =>
+                YouTubeBotIds(
+                  botId = botId,
+                  outputFilePath = outputFilePath,
+                  captionFolderPath = captionFolderPath,
+                  captionLanguage = captionLanguage,
+                  videoIds = videoIds
+                )
+              )
         }
       } yield botVideoIds
     }
@@ -146,36 +177,21 @@ object YouTubeService {
       } yield videos
     }
 
-    override def fetchCaption(videoId: String, tempDir: Path, captionLanguage: String): F[Option[String]] = {
+    override def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Unit] = {
       val command =
-        s"""yt-dlp --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format json3 -o "%(id)s" -P $tempDir https://www.youtube.com/watch?v=${videoId}"""
-      val captionDownloadLogic: F[Option[String]] = for {
-        _           <- LogWriter.info(s"[ShowUpdater] ${videoId} - $captionLanguage: fetch caption")
-        _           <- Async[F].delay(command.!)
-        captionFile <- Async[F].delay(tempDir.resolve(s"${videoId}.$captionLanguage.json3"))
-        _           <- LogWriter.info(
-          s"[ShowUpdater] ${videoId} - $captionLanguage: Parse result file: $captionFile"
-        )
-        captionFileContent <- Async[F].fromTry(
-          Try(
-            Files
-              .readAllLines(captionFile)
-              .asScala
-              .mkString("\n")
-          )
-        )
-        captionJson <- Async[F].fromEither(parse(captionFileContent))
-        caption = captionJson.findAllByKey("utf8").map(_.as[String]).collect { case Right(value) => value }.mkString
+        s"""yt-dlp --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format srt -o "%(id)s" -P $captionFolderPath https://www.youtube.com/watch?v=${videoId}"""
+      val captionDownloadLogic: F[Unit] = for {
         _ <- LogWriter.info(
-          s"[ShowUpdater] ${videoId} - $captionLanguage: caption length ${caption.length}"
+          s"[ShowUpdater - ${videoId} - $captionLanguage] Fetch caption into ${captionFolderPath.getName(captionFolderPath.getNameCount() - 1)}"
         )
-      } yield Some(caption.replace("\n", " "))
+        output <- Async[F].delay(command.!!)
+        _      <- LogWriter.debug(s"[ShowUpdater - ${videoId}] yt-dlp output: $output")
+      } yield ()
       captionDownloadLogic
         .handleErrorWith(e =>
           LogWriter.error(
-            s"[ShowUpdater] ❌ ${videoId} - $captionLanguage Downloading Caption: $e"
-          ) >> Async[F]
-            .pure(None)
+            s"[ShowUpdater - ${videoId} - $captionLanguage] ❌ Downloading Caption: $e"
+          ) >> Async[F].unit
         )
     }
   }

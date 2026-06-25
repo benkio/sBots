@@ -1,0 +1,4980 @@
+1
+00:00:00,000 --> 00:00:04,799
+Hello guys, good morning. Good morning.
+
+2
+00:00:02,320 --> 00:00:07,120
+Welcome to another episode of Exar Talk
+
+3
+00:00:04,799 --> 00:00:10,960
+Show. We are going to code Emac this
+
+4
+00:00:07,120 --> 00:00:14,080
+today. Continued from last episode two
+
+5
+00:00:10,960 --> 00:00:16,880
+days ago. Emac this programming
+
+6
+00:00:14,080 --> 00:00:20,640
+language. The best programming language
+
+7
+00:00:16,880 --> 00:00:25,279
+for text processing best than pearl,
+
+8
+00:00:20,640 --> 00:00:27,519
+python, uh, woofam language, hascal, f
+
+9
+00:00:25,279 --> 00:00:30,160
+or camel. Best than any programming
+
+10
+00:00:27,519 --> 00:00:33,440
+language for the task of text
+
+11
+00:00:30,160 --> 00:00:37,280
+processing. Okay, which is a giant huge
+
+12
+00:00:33,440 --> 00:00:39,800
+task. Emac bisp. Uh, I have so much hand
+
+13
+00:00:37,280 --> 00:00:43,120
+pen. So, let me show you my keyboards
+
+14
+00:00:39,800 --> 00:00:45,520
+again. Glove 80. Fantastic keyboard.
+
+15
+00:00:43,120 --> 00:00:48,320
+Ultimate hacking keyboard. Fantastic.
+
+16
+00:00:45,520 --> 00:00:52,079
+Nia track ball. I have a Hoover to
+
+17
+00:00:48,320 --> 00:00:55,000
+activate Windows system. Fantastic. This
+
+18
+00:00:52,079 --> 00:00:57,600
+uh Logitech
+
+19
+00:00:55,000 --> 00:01:00,399
+405502. Got the spin wheel. That's the
+
+20
+00:00:57,600 --> 00:01:03,039
+best thing. Spin forever. Infinite
+
+21
+00:01:00,399 --> 00:01:06,720
+squirrel. Then uh then let me mention
+
+22
+00:01:03,039 --> 00:01:08,840
+this again. I got I type so much. I'm
+
+23
+00:01:06,720 --> 00:01:12,479
+going to become a
+
+24
+00:01:08,840 --> 00:01:16,799
+Uh the the the spot that hurts is right
+
+25
+00:01:12,479 --> 00:01:19,600
+here. Okay, let's see. Like right here
+
+26
+00:01:16,799 --> 00:01:23,040
+for me, left hand. So I'm going to start
+
+27
+00:01:19,600 --> 00:01:27,759
+to learn this again. No guarantees, but
+
+28
+00:01:23,040 --> 00:01:31,040
+this is uh the most advanced fancy input
+
+29
+00:01:27,759 --> 00:01:35,600
+device. This is called SWAR board. SV A
+
+30
+00:01:31,040 --> 00:01:37,439
+L B O A R D. Okay, it's got two pieces.
+
+31
+00:01:35,600 --> 00:01:39,759
+So, I did I have a review for each one
+
+32
+00:01:37,439 --> 00:01:41,400
+of them on YouTube. Now, let's begin
+
+33
+00:01:39,759 --> 00:01:46,399
+coding. If you are watching this
+
+34
+00:01:41,400 --> 00:01:48,799
+offline, play at 1.5 speed. 1.5 speed.
+
+35
+00:01:46,399 --> 00:01:51,520
+Okay? Because I ramble. Otherwise, if
+
+36
+00:01:48,799 --> 00:01:53,840
+you are here, say hi. Love to see your
+
+37
+00:01:51,520 --> 00:01:57,159
+comments. Love to see your comments.
+
+38
+00:01:53,840 --> 00:01:59,360
+Okay. So, let's start to
+
+39
+00:01:57,159 --> 00:02:01,520
+code. Let's see how many of you are
+
+40
+00:01:59,360 --> 00:02:05,200
+watching. Three. Three is a crowd
+
+41
+00:02:01,520 --> 00:02:09,039
+include counting myself. Okay. I'm using
+
+42
+00:02:05,200 --> 00:02:11,680
+um I'm using Emacs the most efficient
+
+43
+00:02:09,039 --> 00:02:14,959
+editor showing browser. This is today's
+
+44
+00:02:11,680 --> 00:02:19,120
+talk show. Uh and I'm using SFY keys
+
+45
+00:02:14,959 --> 00:02:21,840
+which is uh efficient key binding system
+
+46
+00:02:19,120 --> 00:02:24,319
+for Emacs. There's a video you can watch
+
+47
+00:02:21,840 --> 00:02:28,520
+so you don't have to press control keys
+
+48
+00:02:24,319 --> 00:02:32,560
+or old keys or meta almost none. Okay.
+
+49
+00:02:28,520 --> 00:02:36,000
+So the most efficient so more efficient
+
+50
+00:02:32,560 --> 00:02:38,480
+than vim neo vim okay counting
+
+51
+00:02:36,000 --> 00:02:41,440
+keystrokes if you count keystrokes doing
+
+52
+00:02:38,480 --> 00:02:44,879
+the same thing keys is more efficient
+
+53
+00:02:41,440 --> 00:02:47,360
+than vim or neo vim or whatever okay
+
+54
+00:02:44,879 --> 00:02:49,519
+kafly keys that's what I'm using it's
+
+55
+00:02:47,360 --> 00:02:51,519
+you can download for free of course you
+
+56
+00:02:49,519 --> 00:02:56,480
+can watch a video download for free on
+
+57
+00:02:51,519 --> 00:02:58,239
+github uh it's also on gnu alpa and the
+
+58
+00:02:56,480 --> 00:03:00,640
+pink window shows all my commands and
+
+59
+00:02:58,239 --> 00:03:04,599
+call custom commands and keystrokes and
+
+60
+00:03:00,640 --> 00:03:09,200
+I'm using a vorac keyboard layout which
+
+61
+00:03:04,599 --> 00:03:12,560
+is which is uh close that okay uh
+
+62
+00:03:09,200 --> 00:03:15,680
+showing browser uh vorac keyboard layout
+
+63
+00:03:12,560 --> 00:03:19,840
+okay that's looks like that
+
+64
+00:03:15,680 --> 00:03:22,000
+uh most efficient you know so but so
+
+65
+00:03:19,840 --> 00:03:24,560
+should you switch to it or not that
+
+66
+00:03:22,000 --> 00:03:27,959
+depends okay there's lots of uh reasons
+
+67
+00:03:24,560 --> 00:03:31,360
+for most people no just get a
+
+68
+00:03:27,959 --> 00:03:33,440
+keyboard. If you type, you know, if you
+
+69
+00:03:31,360 --> 00:03:35,280
+type eight hours a day or something for
+
+70
+00:03:33,440 --> 00:03:37,599
+10 years, 20 years, if you are a
+
+71
+00:03:35,280 --> 00:03:40,799
+programmer or working with computers as
+
+72
+00:03:37,599 --> 00:03:45,120
+a professional, the first thing, the
+
+73
+00:03:40,799 --> 00:03:46,599
+first most important thing is to get a
+
+74
+00:03:45,120 --> 00:03:50,560
+keyboard
+
+75
+00:03:46,599 --> 00:03:53,440
+with linear light mechanical switches.
+
+76
+00:03:50,560 --> 00:03:57,480
+Okay, key switch guide. So, you can look
+
+77
+00:03:53,440 --> 00:04:00,080
+at my keyboard, you know. So get a
+
+78
+00:03:57,480 --> 00:04:01,920
+linear mechanical switch. That's the
+
+79
+00:04:00,080 --> 00:04:05,200
+most important. Okay. You can get one
+
+80
+00:04:01,920 --> 00:04:09,319
+any one of these or you can you know uh
+
+81
+00:04:05,200 --> 00:04:12,080
+follow me with these fancy keyboards.
+
+82
+00:04:09,319 --> 00:04:14,159
+Okay. So that's about keyboards. Now
+
+83
+00:04:12,080 --> 00:04:19,040
+let's talk about let's let's start to
+
+84
+00:04:14,159 --> 00:04:22,560
+code. Okay. So, so today's talk show now
+
+85
+00:04:19,040 --> 00:04:25,919
+the so it began you know we started um
+
+86
+00:04:22,560 --> 00:04:29,120
+continuation from two days ago which I
+
+87
+00:04:25,919 --> 00:04:32,400
+have to go so this code but before we do
+
+88
+00:04:29,120 --> 00:04:39,280
+that so what we have what we will uh
+
+89
+00:04:32,400 --> 00:04:42,720
+want to do is to add a ID uh to uh HTML
+
+90
+00:04:39,280 --> 00:04:45,199
+dive tag okay so for example you look at
+
+91
+00:04:42,720 --> 00:04:47,639
+this page JavaScript uh let's go to
+
+92
+00:04:45,199 --> 00:04:51,280
+JavaScript class, okay? JavaScript
+
+93
+00:04:47,639 --> 00:04:51,280
+tutorial on
+
+94
+00:04:51,320 --> 00:04:56,800
+kxali.info. kxi.info. Okay. Uh just go
+
+95
+00:04:54,639 --> 00:04:59,440
+there. Then you'll see a JavaScript
+
+96
+00:04:56,800 --> 00:05:01,680
+tutorial. JavaScript in depth. Then you
+
+97
+00:04:59,440 --> 00:05:04,919
+go down. You go to the let's say
+
+98
+00:05:01,680 --> 00:05:08,600
+strings. Okay. String
+
+99
+00:05:04,919 --> 00:05:10,880
+overview. JavaScript string. Fairly
+
+100
+00:05:08,600 --> 00:05:14,000
+complicated. You see because each
+
+101
+00:05:10,880 --> 00:05:15,160
+character is actually code unit code
+
+102
+00:05:14,000 --> 00:05:17,919
+unit from
+
+103
+00:05:15,160 --> 00:05:21,160
+UTF16. So it's not entirely a character
+
+104
+00:05:17,919 --> 00:05:25,520
+anyway. So you see this page you got
+
+105
+00:05:21,160 --> 00:05:28,000
+this topic box. Okay. Copy the URL. Go
+
+106
+00:05:25,520 --> 00:05:29,759
+to Emacs. Open this file. Showing
+
+107
+00:05:28,000 --> 00:05:32,680
+browser. You see that's a file. Go back
+
+108
+00:05:29,759 --> 00:05:35,600
+to Emacs. So you got you see this topic
+
+109
+00:05:32,680 --> 00:05:39,360
+box. Uh wait I don't want to delete. You
+
+110
+00:05:35,600 --> 00:05:42,240
+see topic box JavaScript string. Then
+
+111
+00:05:39,360 --> 00:05:44,960
+each ele then you got a list of items
+
+112
+00:05:42,240 --> 00:05:49,199
+showing browser go to the bottom you can
+
+113
+00:05:44,960 --> 00:05:52,639
+see that so that's so we were doing what
+
+114
+00:05:49,199 --> 00:05:57,199
+we want to do is that find all these
+
+115
+00:05:52,639 --> 00:06:01,840
+topic box among the 10,000 HTML and for
+
+116
+00:05:57,199 --> 00:06:05,680
+each one add a ID attribute
+
+117
+00:06:01,840 --> 00:06:08,160
+uh like this okay then random string so
+
+118
+00:06:05,680 --> 00:06:12,280
+if the topic box is the same for example
+
+119
+00:06:08,160 --> 00:06:16,560
+this one. So for each one of these
+
+120
+00:06:12,280 --> 00:06:20,080
+page change add the ID attribute to this
+
+121
+00:06:16,560 --> 00:06:22,319
+topic box for each one of these. Now
+
+122
+00:06:20,080 --> 00:06:25,680
+some other pages they'll be different.
+
+123
+00:06:22,319 --> 00:06:28,319
+So for example let's say let's go to um
+
+124
+00:06:25,680 --> 00:06:30,639
+JavaScript variable variable. Okay you
+
+125
+00:06:28,319 --> 00:06:32,120
+got a topic box but it's a different
+
+126
+00:06:30,639 --> 00:06:36,080
+topic. Okay.
+
+127
+00:06:32,120 --> 00:06:39,039
+So so for all these page they need an ID
+
+128
+00:06:36,080 --> 00:06:41,039
+of the same ID. Now for different topic
+
+129
+00:06:39,039 --> 00:06:45,600
+box you need a different ID. So you need
+
+130
+00:06:41,039 --> 00:06:49,440
+to go through 10,000 HTML files to add a
+
+131
+00:06:45,600 --> 00:06:51,720
+unique ID for this uh same topic. Okay,
+
+132
+00:06:49,440 --> 00:06:56,080
+that
+
+133
+00:06:51,720 --> 00:06:58,800
+was what we were doing two days ago but
+
+134
+00:06:56,080 --> 00:07:01,960
+we didn't complete but one of the key
+
+135
+00:06:58,800 --> 00:07:05,039
+thing is that you need this ID string.
+
+136
+00:07:01,960 --> 00:07:08,039
+Okay. But okay. So wait, but let's
+
+137
+00:07:05,039 --> 00:07:11,039
+digress. You see, because I want to
+
+138
+00:07:08,039 --> 00:07:14,319
+know because you know when you need to
+
+139
+00:07:11,039 --> 00:07:18,560
+add ID for example this, you know, you
+
+140
+00:07:14,319 --> 00:07:20,400
+you you want to avoid collision. So you
+
+141
+00:07:18,560 --> 00:07:23,599
+want to avoid collision. So you need to
+
+142
+00:07:20,400 --> 00:07:25,240
+know what is the you know the maximum
+
+143
+00:07:23,599 --> 00:07:28,039
+possible ID
+
+144
+00:07:25,240 --> 00:07:31,440
+values. Um and
+
+145
+00:07:28,039 --> 00:07:33,479
+uh okay let me let me do it. Uh let me
+
+146
+00:07:31,440 --> 00:07:37,280
+talk about this issue.
+
+147
+00:07:33,479 --> 00:07:39,840
+Okay. So show in browser close close
+
+148
+00:07:37,280 --> 00:07:42,479
+show in browser that's today's talk show
+
+149
+00:07:39,840 --> 00:07:47,160
+and we are talking about ID stream.
+
+150
+00:07:42,479 --> 00:07:51,400
+Okay. So uh so where so uh so we need to
+
+151
+00:07:47,160 --> 00:07:56,160
+add this make it
+
+152
+00:07:51,400 --> 00:08:00,240
+code code code cut that put here showing
+
+153
+00:07:56,160 --> 00:08:02,879
+browser. So we need to add that you see.
+
+154
+00:08:00,240 --> 00:08:02,879
+So let me
+
+155
+00:08:04,919 --> 00:08:11,960
+expand to each of the topic
+
+156
+00:08:09,800 --> 00:08:15,759
+box like
+
+157
+00:08:11,960 --> 00:08:19,199
+this. Okay, showing browser. You see
+
+158
+00:08:15,759 --> 00:08:21,840
+that's what we want to do. So but before
+
+159
+00:08:19,199 --> 00:08:24,560
+you write a code, you need to come up
+
+160
+00:08:21,840 --> 00:08:26,960
+with the ID. How do you get the ID? In
+
+161
+00:08:24,560 --> 00:08:29,599
+my case, I have a command. So let me
+
+162
+00:08:26,960 --> 00:08:33,279
+show you. Press, press, press. You see
+
+163
+00:08:29,599 --> 00:08:36,240
+you got an ID. Press press press press.
+
+164
+00:08:33,279 --> 00:08:38,279
+That command is insert insert random
+
+165
+00:08:36,240 --> 00:08:41,680
+string.
+
+166
+00:08:38,279 --> 00:08:45,120
+Okay. So you can go here is a source
+
+167
+00:08:41,680 --> 00:08:49,920
+code not too long but actually it call
+
+168
+00:08:45,120 --> 00:08:53,720
+random string. So go up here. So this is
+
+169
+00:08:49,920 --> 00:08:56,959
+random string. So what does it what are
+
+170
+00:08:53,720 --> 00:09:02,240
+the possible characters for random
+
+171
+00:08:56,959 --> 00:09:06,519
+string? They are a toz and zero to nine
+
+172
+00:09:02,240 --> 00:09:09,839
+uppercase and lower case but except
+
+173
+00:09:06,519 --> 00:09:14,160
+vowels. So you don't have a e i o u
+
+174
+00:09:09,839 --> 00:09:17,040
+upper or lower nor do you have l and l
+
+175
+00:09:14,160 --> 00:09:20,800
+you know uppercase l or lowerase l nor
+
+176
+00:09:17,040 --> 00:09:23,160
+do you have zero and one. So this why
+
+177
+00:09:20,800 --> 00:09:26,480
+because to avoid
+
+178
+00:09:23,160 --> 00:09:29,640
+ambiguity. But why do you so? Because L
+
+179
+00:09:26,480 --> 00:09:34,320
+and lower case lowerase L and one look
+
+180
+00:09:29,640 --> 00:09:37,120
+similar and uh zero looks similar to the
+
+181
+00:09:34,320 --> 00:09:40,320
+letter O. That's why you don't want
+
+182
+00:09:37,120 --> 00:09:43,600
+them. But what about vows? What about a
+
+183
+00:09:40,320 --> 00:09:46,720
+E? You know, but I is also similar to
+
+184
+00:09:43,600 --> 00:09:51,200
+one O L. But what about you capital I
+
+185
+00:09:46,720 --> 00:09:53,519
+for example? But what about A, E, and U?
+
+186
+00:09:51,200 --> 00:09:56,880
+Why do you want to remove them? Because
+
+187
+00:09:53,519 --> 00:10:00,000
+when you create a random string and when
+
+188
+00:09:56,880 --> 00:10:03,040
+there's a vow, you tends to form a
+
+189
+00:10:00,000 --> 00:10:05,680
+association of a word sometimes like
+
+190
+00:10:03,040 --> 00:10:08,720
+ you know, you don't want that.
+
+191
+00:10:05,680 --> 00:10:12,880
+It's like it's pretty easy to have a
+
+192
+00:10:08,720 --> 00:10:15,440
+association with a word. So by removing
+
+193
+00:10:12,880 --> 00:10:19,040
+vows, you don't have that problem. Okay.
+
+194
+00:10:15,440 --> 00:10:21,920
+So and this code you can grab the code
+
+195
+00:10:19,040 --> 00:10:24,000
+if you want it yourself. So you got this
+
+196
+00:10:21,920 --> 00:10:26,959
+bunch of functions to insert random
+
+197
+00:10:24,000 --> 00:10:29,760
+string. You can insert a random number,
+
+198
+00:10:26,959 --> 00:10:34,320
+decimal number or random hexadimal
+
+199
+00:10:29,760 --> 00:10:36,880
+number or random string or um and or
+
+200
+00:10:34,320 --> 00:10:41,120
+then you have insert UU ID. Okay, let's
+
+201
+00:10:36,880 --> 00:10:44,600
+talk about that. Copy. So uh close. Let
+
+202
+00:10:41,120 --> 00:10:48,880
+me let me get uh to it. Okay. So, paste
+
+203
+00:10:44,600 --> 00:10:53,120
+that and uh insert random UID. Let me
+
+204
+00:10:48,880 --> 00:10:58,000
+demo. Okay. Copy that. Paste link them
+
+205
+00:10:53,120 --> 00:11:01,200
+both. Make a list. And uh this uh this
+
+206
+00:10:58,000 --> 00:11:04,480
+this make a text. Okay. Now, show in
+
+207
+00:11:01,200 --> 00:11:07,360
+browser. So, you got insert random UID
+
+208
+00:11:04,480 --> 00:11:11,200
+and insert random random string. You can
+
+209
+00:11:07,360 --> 00:11:14,079
+get the code and use them. Fantastic.
+
+210
+00:11:11,200 --> 00:11:17,839
+Thank you, Kasa. If you like my stuff,
+
+211
+00:11:14,079 --> 00:11:20,959
+donate, okay? Grab the code and donate.
+
+212
+00:11:17,839 --> 00:11:22,360
+100 bucks if you have a job. If you work
+
+213
+00:11:20,959 --> 00:11:25,640
+at Google or
+
+214
+00:11:22,360 --> 00:11:28,320
+something, put
+
+215
+00:11:25,640 --> 00:11:32,720
+999. Uh, by the way, someone wants to
+
+216
+00:11:28,320 --> 00:11:35,680
+buy my website, uh, you know, I sell for
+
+217
+00:11:32,720 --> 00:11:39,240
+$300, I send you a zip code. It's about
+
+218
+00:11:35,680 --> 00:11:42,720
+six It's about 6,000
+
+219
+00:11:39,240 --> 00:11:44,279
+unique files, essays, computer language
+
+220
+00:11:42,720 --> 00:11:46,959
+tutorials or
+
+221
+00:11:44,279 --> 00:11:49,040
+mathematics. So, but I haven't sent it
+
+222
+00:11:46,959 --> 00:11:50,720
+yet. Okay, I need to generate it. I make
+
+223
+00:11:49,040 --> 00:11:55,680
+sure, you know, make sure I generate a
+
+224
+00:11:50,720 --> 00:11:57,720
+new one. So, okay, you know, um, so wait
+
+225
+00:11:55,680 --> 00:12:02,640
+for
+
+226
+00:11:57,720 --> 00:12:06,000
+it. So, water says water says I tried to
+
+227
+00:12:02,640 --> 00:12:08,160
+switch to war. It almost broke my mind.
+
+228
+00:12:06,000 --> 00:12:10,880
+I got dizzy trying to practice. I gave
+
+229
+00:12:08,160 --> 00:12:13,000
+up. Yeah, it's not necessary. Okay. So,
+
+230
+00:12:10,880 --> 00:12:16,519
+I learned Vorac back in
+
+231
+00:12:13,000 --> 00:12:18,480
+1993 because I'm obsessed with
+
+232
+00:12:16,519 --> 00:12:21,320
+efficiency. You know, when I learned
+
+233
+00:12:18,480 --> 00:12:24,480
+about a quarty layout, it's like
+
+234
+00:12:21,320 --> 00:12:27,600
+up. Ju just, you know, the the why is
+
+235
+00:12:24,480 --> 00:12:29,839
+the letter arrange, you know, QWE TY as
+
+236
+00:12:27,600 --> 00:12:32,959
+SDF, you know, why is it that way? Oh,
+
+237
+00:12:29,839 --> 00:12:36,160
+because back then about 200 years ago
+
+238
+00:12:32,959 --> 00:12:38,800
+they want to avoid key jam. So they put
+
+239
+00:12:36,160 --> 00:12:42,320
+some frequent words in like different
+
+240
+00:12:38,800 --> 00:12:44,880
+places. So they avoid key jam but not
+
+241
+00:12:42,320 --> 00:12:46,880
+for making you type faster because if
+
+242
+00:12:44,880 --> 00:12:49,600
+you type fast they're going to jam they
+
+243
+00:12:46,880 --> 00:12:52,160
+going to make you slow actually specific
+
+244
+00:12:49,600 --> 00:12:54,240
+for that purpose. You know you go online
+
+245
+00:12:52,160 --> 00:12:56,720
+you read about it lot there's lots of
+
+246
+00:12:54,240 --> 00:12:59,279
+myth and conflict information. Some say
+
+247
+00:12:56,720 --> 00:13:01,519
+some say oh quarterty is actually not
+
+248
+00:12:59,279 --> 00:13:02,279
+designed to slow you down but actually
+
+249
+00:13:01,519 --> 00:13:06,000
+it
+
+250
+00:13:02,279 --> 00:13:08,240
+is the way our letter arrangement on
+
+251
+00:13:06,000 --> 00:13:11,680
+standard keyboard that's called quarti
+
+252
+00:13:08,240 --> 00:13:15,279
+because the first row is quer ty okay
+
+253
+00:13:11,680 --> 00:13:17,240
+invented some 200 years ago it is that
+
+254
+00:13:15,279 --> 00:13:20,320
+way
+
+255
+00:13:17,240 --> 00:13:23,360
+because in a sense it's because to
+
+256
+00:13:20,320 --> 00:13:25,440
+prevent people typing fast. Okay, that's
+
+257
+00:13:23,360 --> 00:13:27,200
+basically the bottom line. But you look
+
+258
+00:13:25,440 --> 00:13:29,600
+online, you you have thousands
+
+259
+00:13:27,200 --> 00:13:31,519
+conflicting info. Some say you are
+
+260
+00:13:29,600 --> 00:13:35,519
+wrong. No, you are wrong. Okay, ignore
+
+261
+00:13:31,519 --> 00:13:37,839
+them. So that's what we got. You know,
+
+262
+00:13:35,519 --> 00:13:40,320
+lots of histories like that. Like for
+
+263
+00:13:37,839 --> 00:13:42,160
+example, in programming languages, why
+
+264
+00:13:40,320 --> 00:13:45,440
+we have the Unix, you know, the
+
+265
+00:13:42,160 --> 00:13:49,040
+complicated bag of Because history
+
+266
+00:13:45,440 --> 00:13:50,880
+and C and all that history. Okay, we
+
+267
+00:13:49,040 --> 00:13:53,040
+can't just change it overnight because
+
+268
+00:13:50,880 --> 00:13:55,200
+we have habits, you know. You know, for
+
+269
+00:13:53,040 --> 00:13:57,040
+example, if you change the keyboard,
+
+270
+00:13:55,200 --> 00:13:59,360
+nobody knows how to type anymore. You're
+
+271
+00:13:57,040 --> 00:14:02,480
+going to relearn. You know, everyone, we
+
+272
+00:13:59,360 --> 00:14:05,680
+don't want to learn new things. We want,
+
+273
+00:14:02,480 --> 00:14:09,120
+you know, we want just to get on. So,
+
+274
+00:14:05,680 --> 00:14:11,760
+habit is a powerful force.
+
+275
+00:14:09,120 --> 00:14:14,160
+So, and you know the traditional math
+
+276
+00:14:11,760 --> 00:14:16,320
+notation, the traditional music
+
+277
+00:14:14,160 --> 00:14:19,279
+notation, you know, the five lines
+
+278
+00:14:16,320 --> 00:14:21,040
+musical staff, it's all kind of
+
+279
+00:14:19,279 --> 00:14:23,839
+convention and including English
+
+280
+00:14:21,040 --> 00:14:27,560
+language, you know, tons of bad
+
+281
+00:14:23,839 --> 00:14:31,279
+spelling, you know, I read it. I read
+
+282
+00:14:27,560 --> 00:14:34,440
+it, you know, and and lots of problems,
+
+283
+00:14:31,279 --> 00:14:37,360
+orthography, and lots of issues,
+
+284
+00:14:34,440 --> 00:14:42,399
+illogical, but we cannot change it. And
+
+285
+00:14:37,360 --> 00:14:44,880
+there's habit involved. So um yeah, so
+
+286
+00:14:42,399 --> 00:14:47,199
+there's so anyway on the keyboard. So
+
+287
+00:14:44,880 --> 00:14:50,959
+you got the quarty layout. I mean then
+
+288
+00:14:47,199 --> 00:14:52,639
+then you got a you got the vorac layout.
+
+289
+00:14:50,959 --> 00:14:57,040
+Okay. Let's talk about that a little
+
+290
+00:14:52,639 --> 00:15:00,079
+bit. So digress. Uh vorac layout. Okay.
+
+291
+00:14:57,040 --> 00:15:03,079
+So let me show you the page
+
+292
+00:15:00,079 --> 00:15:03,079
+uh
+
+293
+00:15:03,199 --> 00:15:09,279
+ergonomic keyboard layout. So it's this
+
+294
+00:15:05,920 --> 00:15:12,120
+this page is all the layouts that exist.
+
+295
+00:15:09,279 --> 00:15:14,920
+You see quot you see
+
+296
+00:15:12,120 --> 00:15:17,600
+borak you see quarty
+
+297
+00:15:14,920 --> 00:15:20,320
+is the bigger the circle the more
+
+298
+00:15:17,600 --> 00:15:22,399
+frequent is that key. Okay. Now if you
+
+299
+00:15:20,320 --> 00:15:25,480
+look at quarti you know it's all over
+
+300
+00:15:22,399 --> 00:15:28,959
+you you know but if you look at
+
+301
+00:15:25,480 --> 00:15:31,519
+vorac design all the most frequently
+
+302
+00:15:28,959 --> 00:15:34,399
+used keys are on your under your
+
+303
+00:15:31,519 --> 00:15:37,839
+fingers. Then you got comac. Then you
+
+304
+00:15:34,399 --> 00:15:41,120
+got QFM, you got workman. So you got a
+
+305
+00:15:37,839 --> 00:15:45,880
+lot of new ones. But the question is,
+
+306
+00:15:41,120 --> 00:15:51,040
+should you relearn any one of these new
+
+307
+00:15:45,880 --> 00:15:54,160
+uh for most people? No. Okay, it's not
+
+308
+00:15:51,040 --> 00:15:54,920
+worth it. Okay, that's my view. I talk
+
+309
+00:15:54,160 --> 00:15:58,320
+about
+
+310
+00:15:54,920 --> 00:16:01,360
+this almost every week for three years.
+
+311
+00:15:58,320 --> 00:16:05,120
+So, in my old tutorial, I mean in my old
+
+312
+00:16:01,360 --> 00:16:08,160
+videos, uh, let's say two or three years
+
+313
+00:16:05,120 --> 00:16:11,759
+ago, you'll see I talk about this almost
+
+314
+00:16:08,160 --> 00:16:15,079
+every week. Okay. So, but so let's not
+
+315
+00:16:11,759 --> 00:16:18,079
+um talk about that keyboard
+
+316
+00:16:15,079 --> 00:16:21,000
+uh stuff. So, that's about you know
+
+317
+00:16:18,079 --> 00:16:24,800
+keyboard layout and stuff and
+
+318
+00:16:21,000 --> 00:16:27,759
+efficiency. Now, back to the
+
+319
+00:16:24,800 --> 00:16:30,639
+uh random stream. Okay. So you have seen
+
+320
+00:16:27,759 --> 00:16:34,320
+I want to insert a random string you
+
+321
+00:16:30,639 --> 00:16:38,399
+know. So one of the common random string
+
+322
+00:16:34,320 --> 00:16:41,720
+in computer industry standard is called
+
+323
+00:16:38,399 --> 00:16:43,320
+UU ID. It stand for something like
+
+324
+00:16:41,720 --> 00:16:46,880
+universal
+
+325
+00:16:43,320 --> 00:16:49,199
+something ID. Okay. So we can insert
+
+326
+00:16:46,880 --> 00:16:52,639
+that. Let's see
+
+327
+00:16:49,199 --> 00:16:56,720
+uh the key insert a random string. Okay.
+
+328
+00:16:52,639 --> 00:16:59,920
+Random string. insert a random digit I
+
+329
+00:16:56,720 --> 00:17:02,680
+mean random number let's say I want 10
+
+330
+00:16:59,920 --> 00:17:06,400
+digit I mean let's say I want
+
+331
+00:17:02,680 --> 00:17:10,959
+nine digits of a decimal random decimal
+
+332
+00:17:06,400 --> 00:17:14,839
+number okay so press that nine then
+
+333
+00:17:10,959 --> 00:17:19,640
+press this wait I press it wrong press
+
+334
+00:17:14,839 --> 00:17:23,679
+nine universal argument nine
+
+335
+00:17:19,640 --> 00:17:26,360
+then there it is now selected
+
+336
+00:17:23,679 --> 00:17:29,520
+and uh call how
+
+337
+00:17:26,360 --> 00:17:32,720
+many call count words. So you got nine
+
+338
+00:17:29,520 --> 00:17:35,200
+characters you can see in the bottom
+
+339
+00:17:32,720 --> 00:17:36,760
+nine characters. Let's say I want 20
+
+340
+00:17:35,200 --> 00:17:42,320
+characters.
+
+341
+00:17:36,760 --> 00:17:46,240
+Okay. Uh press that key 20 uh wait press
+
+342
+00:17:42,320 --> 00:17:48,720
+that key 20 then press the key to insert
+
+343
+00:17:46,240 --> 00:17:51,600
+the random decimal number which is this.
+
+344
+00:17:48,720 --> 00:17:53,520
+You see now you got 20 digits. Same
+
+345
+00:17:51,600 --> 00:17:59,320
+thing with a random string. Now let's
+
+346
+00:17:53,520 --> 00:18:04,200
+say I want 20 digits. Okay, so universal
+
+347
+00:17:59,320 --> 00:18:07,200
+argument 20 then you got
+
+348
+00:18:04,200 --> 00:18:10,240
+20 random string. Okay, all the command
+
+349
+00:18:07,200 --> 00:18:14,160
+names you can see on the pink window.
+
+350
+00:18:10,240 --> 00:18:16,400
+Okay, so random string, random number.
+
+351
+00:18:14,160 --> 00:18:21,559
+What about random hexadimal? Okay, you
+
+352
+00:18:16,400 --> 00:18:26,640
+can do it like that. Okay, that that
+
+353
+00:18:21,559 --> 00:18:31,280
+that. What about 20 digits of it? Okay,
+
+354
+00:18:26,640 --> 00:18:34,200
+universal argument 20 that there you go.
+
+355
+00:18:31,280 --> 00:18:38,559
+Hexad decimal. Okay, 16 base number
+
+356
+00:18:34,200 --> 00:18:40,200
+system. So that's uh that are all these
+
+357
+00:18:38,559 --> 00:18:45,600
+commands.
+
+358
+00:18:40,200 --> 00:18:47,919
+Uh it's all here. Okay, so what about UU
+
+359
+00:18:45,600 --> 00:18:52,480
+ID? Okay, let's insert that. So I
+
+360
+00:18:47,919 --> 00:18:56,880
+believe the key is that uh no uh I
+
+361
+00:18:52,480 --> 00:19:01,840
+forgot what is a key. So you can press
+
+362
+00:18:56,880 --> 00:19:05,679
+show all keys and and search for UU ID.
+
+363
+00:19:01,840 --> 00:19:11,480
+There it is. Okay. Insert random UU ID.
+
+364
+00:19:05,679 --> 00:19:16,840
+Delete TZ. Okay. Delete
+
+365
+00:19:11,480 --> 00:19:19,880
+TZ. There it is. Delete TZ. Okay.
+
+366
+00:19:16,840 --> 00:19:23,120
+DTZ. Okay, this is a
+
+367
+00:19:19,880 --> 00:19:25,320
+standard random string called UU ID. So,
+
+368
+00:19:23,120 --> 00:19:29,320
+it's got
+
+369
+00:19:25,320 --> 00:19:31,240
+basically a specific format
+
+370
+00:19:29,320 --> 00:19:37,280
+of
+
+371
+00:19:31,240 --> 00:19:37,280
+32 digits of hexadisimal. Okay, that's
+
+372
+00:19:37,480 --> 00:19:45,240
+UID. Now, this is
+
+373
+00:19:41,320 --> 00:19:49,360
+uh London hexadismo.
+
+374
+00:19:45,240 --> 00:19:53,240
+Okay, let's uh comment it so make it
+
+375
+00:19:49,360 --> 00:19:55,880
+clear what we doing now. This
+
+376
+00:19:53,240 --> 00:20:01,360
+is
+
+377
+00:19:55,880 --> 00:20:03,320
+random decimal. Okay. And this is this
+
+378
+00:20:01,360 --> 00:20:06,960
+part
+
+379
+00:20:03,320 --> 00:20:06,960
+is random
+
+380
+00:20:07,000 --> 00:20:13,520
+string. Okay. Now put it back show in
+
+381
+00:20:11,039 --> 00:20:16,400
+browser. So we got some examples of
+
+382
+00:20:13,520 --> 00:20:19,600
+random string. Now there's a question
+
+383
+00:20:16,400 --> 00:20:22,640
+when you design a random ID such as in
+
+384
+00:20:19,600 --> 00:20:26,679
+YouTube. So if you notice every time you
+
+385
+00:20:22,640 --> 00:20:29,520
+go to YouTube there is this you know
+
+386
+00:20:26,679 --> 00:20:32,799
+random sequence of characters that's
+
+387
+00:20:29,520 --> 00:20:37,039
+their ID. That's basically each YouTube
+
+388
+00:20:32,799 --> 00:20:38,280
+video got this ID. So this is today's
+
+389
+00:20:37,039 --> 00:20:41,440
+talk
+
+390
+00:20:38,280 --> 00:20:43,679
+show you know. So this is recursive.
+
+391
+00:20:41,440 --> 00:20:47,360
+This is me talking right now. Okay.
+
+392
+00:20:43,679 --> 00:20:50,720
+Close it. So you you see YouTube got ID.
+
+393
+00:20:47,360 --> 00:20:52,600
+Similarly for uh Twitter every time you
+
+394
+00:20:50,720 --> 00:20:55,440
+make a post you see
+
+395
+00:20:52,600 --> 00:20:57,760
+there. There is this guy. This is
+
+396
+00:20:55,440 --> 00:21:00,679
+related to computer science. Our topic
+
+397
+00:20:57,760 --> 00:21:04,000
+today there's this guy Peter
+
+398
+00:21:00,679 --> 00:21:06,400
+Laden. I started to really dislike this
+
+399
+00:21:04,000 --> 00:21:09,280
+guy. He's dead by now. You know he's
+
+400
+00:21:06,400 --> 00:21:13,280
+like uh he died 20 years ago. He's a
+
+401
+00:21:09,280 --> 00:21:15,919
+computer scientist. Okay. Uh I started
+
+402
+00:21:13,280 --> 00:21:19,000
+to not like him because I learned he did
+
+403
+00:21:15,919 --> 00:21:20,919
+a great damage in programming language
+
+404
+00:21:19,000 --> 00:21:23,120
+syntax in
+
+405
+00:21:20,919 --> 00:21:26,480
+particularly in the functional
+
+406
+00:21:23,120 --> 00:21:30,840
+programming languages meta language ML
+
+407
+00:21:26,480 --> 00:21:34,960
+or Hascal or camel rust and python. you
+
+408
+00:21:30,840 --> 00:21:37,559
+know he he he created you know the
+
+409
+00:21:34,960 --> 00:21:40,720
+Python indentation syntax
+
+410
+00:21:37,559 --> 00:21:43,600
+that's partially came from this guy okay
+
+411
+00:21:40,720 --> 00:21:47,360
+and the ok camel's let the Hascal or
+
+412
+00:21:43,600 --> 00:21:50,240
+camel meta language they let something
+
+413
+00:21:47,360 --> 00:21:54,320
+also came from this guy and this guy is
+
+414
+00:21:50,240 --> 00:21:57,640
+kind of a troll okay the Peter Laden why
+
+415
+00:21:54,320 --> 00:22:00,960
+because he wrote the article the next
+
+416
+00:21:57,640 --> 00:22:04,240
+700 programming languages
+
+417
+00:22:00,960 --> 00:22:06,080
+you know, he's he's going to tell you
+
+418
+00:22:04,240 --> 00:22:08,640
+this thing, you know, I'm going to
+
+419
+00:22:06,080 --> 00:22:09,720
+create a syntax for the next 700
+
+420
+00:22:08,640 --> 00:22:14,720
+programming
+
+421
+00:22:09,720 --> 00:22:18,000
+languages. A grifter, okay, a clickbait
+
+422
+00:22:14,720 --> 00:22:20,640
+grifter. This guy, you know, seems a
+
+423
+00:22:18,000 --> 00:22:23,679
+smart guy, Peter Laden. I never heard of
+
+424
+00:22:20,640 --> 00:22:27,280
+him much because he didn't actually
+
+425
+00:22:23,679 --> 00:22:29,360
+create any language, but he's anyway,
+
+426
+00:22:27,280 --> 00:22:31,520
+he's a computer scientist. Okay. So, I
+
+427
+00:22:29,360 --> 00:22:33,240
+started to not like him. But back to our
+
+428
+00:22:31,520 --> 00:22:37,039
+topic. You see each
+
+429
+00:22:33,240 --> 00:22:39,000
+post got this ID. You see, copy that.
+
+430
+00:22:37,039 --> 00:22:43,000
+Okay.
+
+431
+00:22:39,000 --> 00:22:48,480
+So, you see
+
+432
+00:22:43,000 --> 00:22:50,320
+sample x.com ID. Okay. And uh and
+
+433
+00:22:48,480 --> 00:22:53,440
+today's talk show where where is it?
+
+434
+00:22:50,320 --> 00:22:53,440
+Here. Okay.
+
+435
+00:22:53,960 --> 00:23:02,799
+Then sample YouTube ID. You see? So
+
+436
+00:22:59,280 --> 00:23:04,960
+that's just for references purposes. So
+
+437
+00:23:02,799 --> 00:23:07,400
+we got ID. So but you when you design
+
+438
+00:23:04,960 --> 00:23:10,000
+your ID, you want to know how many
+
+439
+00:23:07,400 --> 00:23:11,840
+possible digits are there. I mean how
+
+440
+00:23:10,000 --> 00:23:13,760
+many possibilities are there? Because
+
+441
+00:23:11,840 --> 00:23:16,000
+you don't want collision. So for example
+
+442
+00:23:13,760 --> 00:23:17,919
+in the Twitter case
+
+443
+00:23:16,000 --> 00:23:21,320
+uh Twitter case that's really low. How
+
+444
+00:23:17,919 --> 00:23:24,159
+many how many digits is
+
+445
+00:23:21,320 --> 00:23:27,039
+that? Press press press press 19
+
+446
+00:23:24,159 --> 00:23:30,880
+characters. So it's only got 19
+
+447
+00:23:27,039 --> 00:23:33,559
+characters. So 19 characters is like um
+
+448
+00:23:30,880 --> 00:23:36,480
+that's not much. You're going to have
+
+449
+00:23:33,559 --> 00:23:39,600
+collision. That's interesting. Oh okay.
+
+450
+00:23:36,480 --> 00:23:42,960
+So each person by person. Okay. So for
+
+451
+00:23:39,600 --> 00:23:47,240
+each person you might have this many
+
+452
+00:23:42,960 --> 00:23:47,240
+poss possible posts.
+
+453
+00:23:48,080 --> 00:23:53,600
+So if you po uh post one message per
+
+454
+00:23:51,200 --> 00:23:58,320
+second, you know, for example, one
+
+455
+00:23:53,600 --> 00:24:01,760
+message per second. So 60
+
+456
+00:23:58,320 --> 00:24:03,640
+um let's let's let's do some random
+
+457
+00:24:01,760 --> 00:24:06,039
+coding and chat.
+
+458
+00:24:03,640 --> 00:24:10,279
+Okay,
+
+459
+00:24:06,039 --> 00:24:14,240
+60. So you got 24
+
+460
+00:24:10,279 --> 00:24:17,039
+hours each hour is 60 minutes. Each
+
+461
+00:24:14,240 --> 00:24:19,240
+minutes is 60 seconds. Okay, let's
+
+462
+00:24:17,039 --> 00:24:22,880
+compute
+
+463
+00:24:19,240 --> 00:24:22,880
+that. How many is
+
+464
+00:24:25,559 --> 00:24:32,640
+that? W language takes a while. So
+
+465
+00:24:28,640 --> 00:24:35,080
+that's that many. Okay. No, but but if
+
+466
+00:24:32,640 --> 00:24:39,760
+you do this
+
+467
+00:24:35,080 --> 00:24:46,400
+335 every day, you know, you do this
+
+468
+00:24:39,760 --> 00:24:48,039
+uh let's say one second per post for a
+
+469
+00:24:46,400 --> 00:24:52,200
+year.
+
+470
+00:24:48,039 --> 00:24:55,600
+Okay. What do you get? Show
+
+471
+00:24:52,200 --> 00:24:57,720
+me. Okay. So, you you only got that. So
+
+472
+00:24:55,600 --> 00:25:00,159
+if you do this for 10
+
+473
+00:24:57,720 --> 00:25:02,840
+years you know you then you just add
+
+474
+00:25:00,159 --> 00:25:04,440
+zero right that's not
+
+475
+00:25:02,840 --> 00:25:09,440
+much.
+
+476
+00:25:04,440 --> 00:25:09,440
+So okay let's show in browser. Okay
+
+477
+00:25:09,480 --> 00:25:16,080
+so show in browser. So
+
+478
+00:25:13,240 --> 00:25:19,600
+Twitter's let's see where is Twitter
+
+479
+00:25:16,080 --> 00:25:22,159
+Twitter's ID seems sufficient because if
+
+480
+00:25:19,600 --> 00:25:25,200
+you post one second per post for a year
+
+481
+00:25:22,159 --> 00:25:28,600
+you only get this much and Twitter ID is
+
+482
+00:25:25,200 --> 00:25:32,000
+like uh how many you know 19 digits. So
+
+483
+00:25:28,600 --> 00:25:34,840
+that's that's sufficient. If you post
+
+484
+00:25:32,000 --> 00:25:39,760
+one second per
+
+485
+00:25:34,840 --> 00:25:43,039
+post for 100 years you would not reach
+
+486
+00:25:39,760 --> 00:25:45,760
+the maximum of Twitter. But wait, but
+
+487
+00:25:43,039 --> 00:25:48,080
+these are random numbers. So you still
+
+488
+00:25:45,760 --> 00:25:50,600
+have possibility of collision because
+
+489
+00:25:48,080 --> 00:25:53,440
+these are not sequential. But
+
+490
+00:25:50,600 --> 00:25:56,640
+anyway, okay, that's so anyway that's
+
+491
+00:25:53,440 --> 00:25:58,120
+these are the issues about
+
+492
+00:25:56,640 --> 00:26:00,720
+identity
+
+493
+00:25:58,120 --> 00:26:03,799
+identifier about random identifier
+
+494
+00:26:00,720 --> 00:26:09,039
+design issues. Okay, random identifier
+
+495
+00:26:03,799 --> 00:26:12,640
+design and for that you can look into um
+
+496
+00:26:09,039 --> 00:26:14,600
+our article. Okay. So I digress so much.
+
+497
+00:26:12,640 --> 00:26:17,440
+Uh where is the
+
+498
+00:26:14,600 --> 00:26:20,400
+article? So we are talking about random
+
+499
+00:26:17,440 --> 00:26:24,520
+ID design. Okay. There it is. Okay. So
+
+500
+00:26:20,400 --> 00:26:27,320
+this article dive into detail
+
+501
+00:26:24,520 --> 00:26:30,360
+about what are the total
+
+502
+00:26:27,320 --> 00:26:33,279
+possibilities of a random
+
+503
+00:26:30,360 --> 00:26:35,200
+string design. You know if you are doing
+
+504
+00:26:33,279 --> 00:26:37,600
+YouTube, if if you are going to create a
+
+505
+00:26:35,200 --> 00:26:40,080
+YouTube website or Twitter or anything,
+
+506
+00:26:37,600 --> 00:26:42,320
+you need a like random string like how
+
+507
+00:26:40,080 --> 00:26:45,520
+many digits are you gonna have and also
+
+508
+00:26:42,320 --> 00:26:47,679
+what is your base. You see, you see one
+
+509
+00:26:45,520 --> 00:26:51,200
+thing interesting about YouTube is that
+
+510
+00:26:47,679 --> 00:26:53,480
+they used they include the underscore.
+
+511
+00:26:51,200 --> 00:26:56,559
+You see they also include
+
+512
+00:26:53,480 --> 00:26:58,520
+dash and you know you can you can see
+
+513
+00:26:56,559 --> 00:27:03,679
+they also include
+
+514
+00:26:58,520 --> 00:27:07,080
+vows. So there are 26 English letters
+
+515
+00:27:03,679 --> 00:27:08,600
+upper and lower case together is
+
+516
+00:27:07,080 --> 00:27:12,640
+52
+
+517
+00:27:08,600 --> 00:27:18,640
+possibilities plus 10 digits 0 to 9. So
+
+518
+00:27:12,640 --> 00:27:23,279
+52 + 10 62. So you got 62 based base
+
+519
+00:27:18,640 --> 00:27:23,279
+called radix. Okay, that's called
+
+520
+00:27:24,919 --> 00:27:31,919
+radix. Okay, 62. But in the YouTube case
+
+521
+00:27:29,120 --> 00:27:34,640
+then you also got underscore. Okay, they
+
+522
+00:27:31,919 --> 00:27:36,760
+also include underscore and dash. So you
+
+523
+00:27:34,640 --> 00:27:41,919
+got
+
+524
+00:27:36,760 --> 00:27:43,679
+um 62 + 2 64 base something like that.
+
+525
+00:27:41,919 --> 00:27:46,159
+Okay.
+
+526
+00:27:43,679 --> 00:27:48,720
+Then you want to know then depends on
+
+527
+00:27:46,159 --> 00:27:51,200
+how many digits you have total then you
+
+528
+00:27:48,720 --> 00:27:54,559
+can know what is the potential then you
+
+529
+00:27:51,200 --> 00:27:57,120
+have to think about how many videos each
+
+530
+00:27:54,559 --> 00:27:58,760
+person creates a day things like that
+
+531
+00:27:57,120 --> 00:28:03,559
+you have to
+
+532
+00:27:58,760 --> 00:28:06,480
+consider okay so that's about random uh
+
+533
+00:28:03,559 --> 00:28:10,039
+random string design okay design of
+
+534
+00:28:06,480 --> 00:28:13,360
+random let let me let me type it
+
+535
+00:28:10,039 --> 00:28:17,440
+okay new section
+
+536
+00:28:13,360 --> 00:28:20,120
+design of random
+
+537
+00:28:17,440 --> 00:28:25,640
+uh ID system of
+
+538
+00:28:20,120 --> 00:28:31,679
+random sequence of characters.
+
+539
+00:28:25,640 --> 00:28:31,679
+Okay. Then okay then then then then then
+
+540
+00:28:32,760 --> 00:28:42,080
+then move that down. Move that down.
+
+541
+00:28:36,440 --> 00:28:45,399
+Okay. And uh we want Okay. Cut. Let's
+
+542
+00:28:42,080 --> 00:28:49,520
+let me tell you what's going on. You'll
+
+543
+00:28:45,399 --> 00:28:49,520
+see. So we are talking
+
+544
+00:28:51,960 --> 00:28:59,440
+about Okay. So we got a new section now
+
+545
+00:28:55,760 --> 00:28:59,440
+cleaned up about design
+
+546
+00:28:59,720 --> 00:29:04,120
+of random sequence of characters for an
+
+547
+00:29:03,200 --> 00:29:07,600
+ID
+
+548
+00:29:04,120 --> 00:29:10,240
+system. So now we need to look at this
+
+549
+00:29:07,600 --> 00:29:10,240
+article.
+
+550
+00:29:10,360 --> 00:29:17,760
+So, so, so right now the question is if
+
+551
+00:29:13,919 --> 00:29:18,679
+I'm going to design an ID system for my
+
+552
+00:29:17,760 --> 00:29:22,000
+dive
+
+553
+00:29:18,679 --> 00:29:28,000
+tag, you know, I know my base, my radics
+
+554
+00:29:22,000 --> 00:29:31,039
+is um is uh is I think 50 you know 26
+
+555
+00:29:28,000 --> 00:29:35,640
+letters plus digits minus the vowels and
+
+556
+00:29:31,039 --> 00:29:39,760
+minus zero and one that's that's 48.
+
+557
+00:29:35,640 --> 00:29:42,399
+Okay. So I my radex is 48. So how many
+
+558
+00:29:39,760 --> 00:29:45,520
+digits do I need? That's the question
+
+559
+00:29:42,399 --> 00:29:47,760
+because I want to avoid collision. Okay.
+
+560
+00:29:45,520 --> 00:29:52,640
+So then so that's when you need to look
+
+561
+00:29:47,760 --> 00:29:55,200
+at this article. Okay. So for example my
+
+562
+00:29:52,640 --> 00:29:59,279
+uh why don't we why don't we just
+
+563
+00:29:55,200 --> 00:30:02,159
+compute it? Okay. So so so so that we
+
+564
+00:29:59,279 --> 00:30:07,600
+make this much more clear for those who
+
+565
+00:30:02,159 --> 00:30:07,600
+are later on watching this. Am I
+
+566
+00:30:12,279 --> 00:30:18,240
+good? It's interesting. So, uh um so
+
+567
+00:30:16,480 --> 00:30:20,720
+first of all, Juan says, "Do you think
+
+568
+00:30:18,240 --> 00:30:22,799
+Sufa is difficult?" You are talking
+
+569
+00:30:20,720 --> 00:30:25,480
+about Sufa, which is Chinese
+
+570
+00:30:22,799 --> 00:30:29,200
+calligraphy, which is the Chinese
+
+571
+00:30:25,480 --> 00:30:32,640
+tradition of use using a brush pen to
+
+572
+00:30:29,200 --> 00:30:34,159
+write Chinese characters. That's Chinese
+
+573
+00:30:32,640 --> 00:30:39,360
+calligraphy.
+
+574
+00:30:34,159 --> 00:30:41,720
+Aka Sufa, I want to make some uh for
+
+575
+00:30:39,360 --> 00:30:43,840
+women, for your
+
+576
+00:30:41,720 --> 00:30:44,919
+girlfriend. Yeah, you can do that. That
+
+577
+00:30:43,840 --> 00:30:48,039
+would be
+
+578
+00:30:44,919 --> 00:30:49,799
+fun. But Chinese
+
+579
+00:30:48,039 --> 00:30:53,200
+calligraphy
+
+580
+00:30:49,799 --> 00:30:56,679
+is is useless. It's kind of idiotic.
+
+581
+00:30:53,200 --> 00:30:58,960
+Okay. First first of all, Chinese
+
+582
+00:30:56,679 --> 00:31:00,960
+calligraphy. Now, if you are a white guy
+
+583
+00:30:58,960 --> 00:31:02,240
+or Western guy, if you are not Chinese,
+
+584
+00:31:00,960 --> 00:31:04,960
+then you don't know what I'm talking
+
+585
+00:31:02,240 --> 00:31:08,960
+about. Okay. But for Chinese and
+
+586
+00:31:04,960 --> 00:31:11,080
+Japanese or or or Korean, well, mostly
+
+587
+00:31:08,960 --> 00:31:14,559
+Chinese and Japanese still kind of do
+
+588
+00:31:11,080 --> 00:31:18,480
+it. It's a tradition. It's a cultural
+
+589
+00:31:14,559 --> 00:31:21,440
+tradition and art. Okay. And you kind of
+
+590
+00:31:18,480 --> 00:31:23,919
+also learn some kind of discipline
+
+591
+00:31:21,440 --> 00:31:27,440
+because every day. So have you guys seen
+
+592
+00:31:23,919 --> 00:31:27,440
+a Chinese click? You
+
+593
+00:31:28,840 --> 00:31:34,480
+know, you know, when I was in school
+
+594
+00:31:31,760 --> 00:31:37,440
+age, you know, 10 years old, you know, I
+
+595
+00:31:34,480 --> 00:31:39,840
+have to do this uh lots of Chinese have
+
+596
+00:31:37,440 --> 00:31:43,039
+to do this Chinese calligraphy. Okay, so
+
+597
+00:31:39,840 --> 00:31:43,039
+let me just show p
+
+598
+00:31:43,799 --> 00:31:49,440
+pictures. Uh so kind of like that that
+
+599
+00:31:46,799 --> 00:31:52,720
+okay this is how you do it. So you use a
+
+600
+00:31:49,440 --> 00:31:56,320
+brush pen basically you write Chinese
+
+601
+00:31:52,720 --> 00:32:00,480
+and you just keep doing it. So you kind
+
+602
+00:31:56,320 --> 00:32:02,399
+of de develop a style and and some of
+
+603
+00:32:00,480 --> 00:32:04,799
+them are beautiful. So there are many
+
+604
+00:32:02,399 --> 00:32:07,200
+kind of styles you know. So you that's
+
+605
+00:32:04,799 --> 00:32:09,360
+this these are called Chinese
+
+606
+00:32:07,200 --> 00:32:11,799
+calligraphy. So you see this is more
+
+607
+00:32:09,360 --> 00:32:14,640
+fancy one. There are many different
+
+608
+00:32:11,799 --> 00:32:18,840
+styles. Okay. Chinese calligraphy. So,
+
+609
+00:32:14,640 --> 00:32:18,840
+it's kind of similar to
+
+610
+00:32:19,039 --> 00:32:25,440
+uh to
+
+611
+00:32:21,240 --> 00:32:26,679
+English. Um let's see. Uh wait, uh let's
+
+612
+00:32:25,440 --> 00:32:29,840
+do a
+
+613
+00:32:26,679 --> 00:32:32,919
+screenshot. Do a massive screenshot. So,
+
+614
+00:32:29,840 --> 00:32:37,200
+let's digress and demo
+
+615
+00:32:32,919 --> 00:32:41,039
+calligraphy. Okay. So, snip as
+
+616
+00:32:37,200 --> 00:32:41,039
+um so it's like
+
+617
+00:32:41,720 --> 00:32:45,679
+similar similar
+
+618
+00:32:47,000 --> 00:32:55,360
+to
+
+619
+00:32:48,600 --> 00:32:55,360
+English. E N G L I S H English
+
+620
+00:32:56,200 --> 00:32:59,200
+uh
+
+621
+00:33:01,720 --> 00:33:06,720
+cursive. So, but in western tradition
+
+622
+00:33:04,640 --> 00:33:11,519
+you don't use a bush pen. So, what you
+
+623
+00:33:06,720 --> 00:33:13,440
+use is this um you use this um what's
+
+624
+00:33:11,519 --> 00:33:16,799
+the name of that pen? Ink. you know you
+
+625
+00:33:13,440 --> 00:33:19,919
+have to dip ink pen you know you have to
+
+626
+00:33:16,799 --> 00:33:23,600
+um I forgot you know but it's another
+
+627
+00:33:19,919 --> 00:33:25,080
+topic okay so okay so that's about
+
+628
+00:33:23,600 --> 00:33:28,399
+Chinese
+
+629
+00:33:25,080 --> 00:33:32,240
+calligraphy so it is a tradition okay so
+
+630
+00:33:28,399 --> 00:33:35,200
+wait uh save yes save okay it's a
+
+631
+00:33:32,240 --> 00:33:35,200
+tradition Chinese
+
+632
+00:33:36,039 --> 00:33:41,039
+tradition you know so you kind of learn
+
+633
+00:33:39,039 --> 00:33:43,200
+you know if you are Chinese or Japanese
+
+634
+00:33:41,039 --> 00:33:45,200
+you kind of learn tradition tradition.
+
+635
+00:33:43,200 --> 00:33:48,399
+That's how you learn your culture.
+
+636
+00:33:45,200 --> 00:33:50,799
+That's how you develop a sense of your
+
+637
+00:33:48,399 --> 00:33:53,279
+bloodline. Okay? Just like the western,
+
+638
+00:33:50,799 --> 00:33:56,960
+the white people, they have, you know,
+
+639
+00:33:53,279 --> 00:33:56,960
+their things like Rome
+
+640
+00:33:57,159 --> 00:34:04,080
+and But the question is, is this good?
+
+641
+00:34:01,360 --> 00:34:06,640
+No. Well, it's good in some way, but
+
+642
+00:34:04,080 --> 00:34:10,159
+it's useless. Okay. What you want to do
+
+643
+00:34:06,640 --> 00:34:13,440
+is rocket science, not calligraphy.
+
+644
+00:34:10,159 --> 00:34:17,359
+Okay? you doing Chinese calligraphy does
+
+645
+00:34:13,440 --> 00:34:22,159
+does not make China great. You doing
+
+646
+00:34:17,359 --> 00:34:25,040
+English um you know um
+
+647
+00:34:22,159 --> 00:34:27,520
+um cursive writing, the art of cursive
+
+648
+00:34:25,040 --> 00:34:29,879
+writing does not make America great
+
+649
+00:34:27,520 --> 00:34:33,200
+again. Okay, you want to do rocket
+
+650
+00:34:29,879 --> 00:34:36,560
+science, you want to do Emacs, you want
+
+651
+00:34:33,200 --> 00:34:38,560
+to do coding. Okay, that's the thing. So
+
+652
+00:34:36,560 --> 00:34:40,639
+is it good? Well, you can learn it, you
+
+653
+00:34:38,560 --> 00:34:44,480
+know, as a hobbit or, you know, that's
+
+654
+00:34:40,639 --> 00:34:46,760
+fine, but it's useless basically for
+
+655
+00:34:44,480 --> 00:34:49,919
+modern
+
+656
+00:34:46,760 --> 00:34:51,520
+society. So that so you want to show
+
+657
+00:34:49,919 --> 00:34:51,840
+that to your girlfriend. Yeah, you can
+
+658
+00:34:51,520 --> 00:34:54,839
+do
+
+659
+00:34:51,840 --> 00:34:58,079
+[Laughter]
+
+660
+00:34:54,839 --> 00:35:00,960
+that. So, uh, a says just use a
+
+661
+00:34:58,079 --> 00:35:03,920
+collision resistant ID package. No,
+
+662
+00:35:00,960 --> 00:35:06,400
+that's not good because because you just
+
+663
+00:35:03,920 --> 00:35:09,359
+shove the the problem into other people
+
+664
+00:35:06,400 --> 00:35:11,200
+and you rely on other people's solution,
+
+665
+00:35:09,359 --> 00:35:13,839
+you know. And what is the collision
+
+666
+00:35:11,200 --> 00:35:16,480
+resistant ID package? IDs are typically
+
+667
+00:35:13,839 --> 00:35:19,599
+assigned by the database. No need to
+
+668
+00:35:16,480 --> 00:35:22,480
+design ID. That's totally wrong. Where
+
+669
+00:35:19,599 --> 00:35:26,760
+do you think the database ID came from?
+
+670
+00:35:22,480 --> 00:35:26,760
+Somebody has to design it.
+
+671
+00:35:31,839 --> 00:35:36,640
+Thank you. Anything? And uh Okay, cool.
+
+672
+00:35:34,960 --> 00:35:39,280
+I'm personally here for programming
+
+673
+00:35:36,640 --> 00:35:41,839
+content. Okay, so okay, I'm back back to
+
+674
+00:35:39,280 --> 00:35:41,839
+back to
+
+675
+00:35:42,359 --> 00:35:48,480
+um you see we need to be poly math. You
+
+676
+00:35:46,480 --> 00:35:51,200
+see the other problem with coding is
+
+677
+00:35:48,480 --> 00:35:53,440
+just that you got lots of nerds. Then
+
+678
+00:35:51,200 --> 00:35:55,040
+you started to know nothing else about
+
+679
+00:35:53,440 --> 00:35:58,240
+society. You don't know you don't know
+
+680
+00:35:55,040 --> 00:36:01,680
+how society works. All you know is like
+
+681
+00:35:58,240 --> 00:36:04,400
+coding bits biting you know or
+
+682
+00:36:01,680 --> 00:36:07,280
+mathematics you know then but then you
+
+683
+00:36:04,400 --> 00:36:07,280
+became this
+
+684
+00:36:07,400 --> 00:36:12,400
+narrow you know you you lost you lost
+
+685
+00:36:10,240 --> 00:36:14,800
+the sense of humanity you lost the
+
+686
+00:36:12,400 --> 00:36:17,280
+purpose you lost the appreciation of
+
+687
+00:36:14,800 --> 00:36:19,760
+beauty you don't know why you are here
+
+688
+00:36:17,280 --> 00:36:20,520
+you know you ignored philosophy or you
+
+689
+00:36:19,760 --> 00:36:24,960
+know
+
+690
+00:36:20,520 --> 00:36:27,240
+arts so that's the other problem okay so
+
+691
+00:36:24,960 --> 00:36:32,320
+anyway let's go back to coding
+
+692
+00:36:27,240 --> 00:36:35,599
+Okay. So ID characters um design. So we
+
+693
+00:36:32,320 --> 00:36:37,880
+back to Yeah. So you can actually So for
+
+694
+00:36:35,599 --> 00:36:42,000
+example, so so one way
+
+695
+00:36:37,880 --> 00:36:45,920
+to to know to be safe is just based on
+
+696
+00:36:42,000 --> 00:36:49,320
+the UU ID. Okay. So UU ID is because UU
+
+697
+00:36:45,920 --> 00:36:54,079
+ID uh where is our
+
+698
+00:36:49,320 --> 00:36:55,560
+example? Uh where is it? Show it. So, UU
+
+699
+00:36:54,079 --> 00:36:58,599
+ID is
+
+700
+00:36:55,560 --> 00:37:04,160
+these 32
+
+701
+00:36:58,599 --> 00:37:08,240
+hex heximo um digits hexadimal digits 32
+
+702
+00:37:04,160 --> 00:37:11,040
+of them. So, whatever that should be
+
+703
+00:37:08,240 --> 00:37:14,560
+enough because UID is designed such that
+
+704
+00:37:11,040 --> 00:37:18,320
+if everyone every second create 10,000
+
+705
+00:37:14,560 --> 00:37:21,520
+UID is not likely to collide because the
+
+706
+00:37:18,320 --> 00:37:24,400
+the the numbers are too big. Okay. So,
+
+707
+00:37:21,520 --> 00:37:26,560
+so whatever you are designing you if you
+
+708
+00:37:24,400 --> 00:37:29,920
+make it to be the same number of
+
+709
+00:37:26,560 --> 00:37:31,320
+possibilities of UU ID then it's good.
+
+710
+00:37:29,920 --> 00:37:36,079
+Okay.
+
+711
+00:37:31,320 --> 00:37:41,280
+So, so we can see UU ID is 16 base.
+
+712
+00:37:36,079 --> 00:37:44,920
+Okay. So, 16 and how many how many of
+
+713
+00:37:41,280 --> 00:37:51,119
+them? 32 of them. Okay.
+
+714
+00:37:44,920 --> 00:37:55,599
+So, 32. So the total is is three follow
+
+715
+00:37:51,119 --> 00:37:58,079
+basically a number of 30 38 digits. Okay
+
+716
+00:37:55,599 --> 00:38:01,280
+that's like that's more than the atoms
+
+717
+00:37:58,079 --> 00:38:05,359
+in the universe something like that. So
+
+718
+00:38:01,280 --> 00:38:09,119
+system B if you base on just English
+
+719
+00:38:05,359 --> 00:38:11,160
+letters 26 of them then how many how
+
+720
+00:38:09,119 --> 00:38:15,520
+many uh you
+
+721
+00:38:11,160 --> 00:38:18,079
+need you need a lot. Okay, you need like
+
+722
+00:38:15,520 --> 00:38:18,079
+um let's
+
+723
+00:38:21,960 --> 00:38:30,960
+say okay you need about
+
+724
+00:38:25,320 --> 00:38:34,160
+28 27 to 28 number of digits. Okay, so
+
+725
+00:38:30,960 --> 00:38:36,800
+you kind of save five digits. So you see
+
+726
+00:38:34,160 --> 00:38:39,760
+what we want is that we want you know
+
+727
+00:38:36,800 --> 00:38:43,000
+the same number of possibilities but we
+
+728
+00:38:39,760 --> 00:38:46,560
+want to have smaller string as much as
+
+729
+00:38:43,000 --> 00:38:49,119
+possible. That's a desired uh thing. But
+
+730
+00:38:46,560 --> 00:38:51,040
+however the issue is that if you look at
+
+731
+00:38:49,119 --> 00:38:52,359
+you know if you read this article the
+
+732
+00:38:51,040 --> 00:38:55,440
+graph is
+
+733
+00:38:52,359 --> 00:38:58,400
+that if you just increase one more digit
+
+734
+00:38:55,440 --> 00:39:01,119
+that gives you a lot more possibilities
+
+735
+00:38:58,400 --> 00:39:04,800
+but if you increase the base they don't
+
+736
+00:39:01,119 --> 00:39:06,960
+grow much. Okay. So you so if you want
+
+737
+00:39:04,800 --> 00:39:10,480
+the more possibilities you need to
+
+738
+00:39:06,960 --> 00:39:12,960
+increase the number of digits. Okay. So
+
+739
+00:39:10,480 --> 00:39:15,040
+but but but what we going to do today is
+
+740
+00:39:12,960 --> 00:39:17,480
+something novel. We want to let's just
+
+741
+00:39:15,040 --> 00:39:21,119
+start to write EMAC this code.
+
+742
+00:39:17,480 --> 00:39:23,160
+Okay. So we want to do uh let's begin
+
+743
+00:39:21,119 --> 00:39:28,200
+write EMAC
+
+744
+00:39:23,160 --> 00:39:29,880
+code. Uh okay. So default
+
+745
+00:39:28,200 --> 00:39:33,640
+defa
+
+746
+00:39:29,880 --> 00:39:37,280
+insert random
+
+747
+00:39:33,640 --> 00:39:39,440
+Chinese cha. Okay. So we are going to
+
+748
+00:39:37,280 --> 00:39:42,119
+use Chinese characters for ID system
+
+749
+00:39:39,440 --> 00:39:44,560
+because Chinese characters they are
+
+750
+00:39:42,119 --> 00:39:48,240
+like depending on how you count there
+
+751
+00:39:44,560 --> 00:39:51,280
+are 3,000 common ones but if you count
+
+752
+00:39:48,240 --> 00:39:53,359
+all there are like 10 or 20,000 of it.
+
+753
+00:39:51,280 --> 00:39:55,920
+So one single Chinese random character
+
+754
+00:39:53,359 --> 00:39:55,920
+is like
+
+755
+00:39:55,960 --> 00:40:02,720
+already 10,000 possibilities. Okay. So
+
+756
+00:39:59,520 --> 00:40:05,800
+it's not like English r one English
+
+757
+00:40:02,720 --> 00:40:08,240
+random letter is one out of 26
+
+758
+00:40:05,800 --> 00:40:12,079
+possibilities but one random Chinese
+
+759
+00:40:08,240 --> 00:40:16,000
+character is you know like 10,000 uh
+
+760
+00:40:12,079 --> 00:40:19,680
+possibilities. Okay. Wait, go back. Uh
+
+761
+00:40:16,000 --> 00:40:21,079
+wait, where did we go? Yeah. Okay. Let's
+
+762
+00:40:19,680 --> 00:40:24,079
+write this.
+
+763
+00:40:21,079 --> 00:40:24,079
+Okay.
+
+764
+00:40:26,280 --> 00:40:32,560
+Um,
+
+765
+00:40:28,040 --> 00:40:35,760
+insert random Chinese char five of them.
+
+766
+00:40:32,560 --> 00:40:38,160
+Let's just say. Okay. Um, for now. Okay.
+
+767
+00:40:35,760 --> 00:40:40,960
+So, so first of all, what you need to
+
+768
+00:40:38,160 --> 00:40:44,640
+know is the the range of Chinese
+
+769
+00:40:40,960 --> 00:40:47,599
+characters in Unicode. Okay. Save it.
+
+770
+00:40:44,640 --> 00:40:51,119
+Um, so let let me show you. Chinese
+
+771
+00:40:47,599 --> 00:40:54,960
+characters unic code.info info you'll
+
+772
+00:40:51,119 --> 00:40:57,480
+find the unic code page then there is
+
+773
+00:40:54,960 --> 00:41:00,560
+the
+
+774
+00:40:57,480 --> 00:41:03,160
+Chinese okay there's some sample Chinese
+
+775
+00:41:00,560 --> 00:41:05,160
+characters okay copy
+
+776
+00:41:03,160 --> 00:41:09,280
+that close
+
+777
+00:41:05,160 --> 00:41:12,480
+that paste that okay then but what you
+
+778
+00:41:09,280 --> 00:41:12,480
+need to know is
+
+779
+00:41:12,760 --> 00:41:18,440
+um I need to know the unic code range I
+
+780
+00:41:16,079 --> 00:41:21,720
+don't know what it is so let's look up
+
+781
+00:41:18,440 --> 00:41:26,480
+Wikipedia Chinese encoding.
+
+782
+00:41:21,720 --> 00:41:28,119
+Uh, no. Big five. Okay. Convention. Uh,
+
+783
+00:41:26,480 --> 00:41:31,880
+unic code hand
+
+784
+00:41:28,119 --> 00:41:34,880
+unification. Okay. Open that
+
+785
+00:41:31,880 --> 00:41:37,040
+one. Guia. Okay. We don't care about
+
+786
+00:41:34,880 --> 00:41:39,880
+that. We want the unic code Chinese
+
+787
+00:41:37,040 --> 00:41:44,160
+encoding. Okay.
+
+788
+00:41:39,880 --> 00:41:46,560
+Uh, code page. No. So, let's go to this
+
+789
+00:41:44,160 --> 00:41:49,280
+page. Hand unification. Unicode.
+
+790
+00:41:46,560 --> 00:41:52,880
+Universal character set. character set
+
+791
+00:41:49,280 --> 00:41:55,359
+hand characters. Okay. Uh which is used
+
+792
+00:41:52,880 --> 00:41:59,040
+in Chinese characters used in also
+
+793
+00:41:55,359 --> 00:42:01,240
+Japan, Korea and Vietnamese. Okay. Uh
+
+794
+00:41:59,040 --> 00:42:05,800
+but what is the
+
+795
+00:42:01,240 --> 00:42:10,839
+range? Uh let's just search for unic
+
+796
+00:42:05,800 --> 00:42:14,400
+code hand block uh
+
+797
+00:42:10,839 --> 00:42:18,960
+CJK block. You'll find it directly.
+
+798
+00:42:14,400 --> 00:42:22,720
+There it is. Unicore block CJK stand for
+
+799
+00:42:18,960 --> 00:42:24,440
+Chinese Japanese Korea. Okay. So it's
+
+800
+00:42:22,720 --> 00:42:27,920
+from there it
+
+801
+00:42:24,440 --> 00:42:29,720
+is. So there are 20 of them. 20,000 of
+
+802
+00:42:27,920 --> 00:42:33,640
+them. Can you
+
+803
+00:42:29,720 --> 00:42:35,960
+see? Copy that.
+
+804
+00:42:33,640 --> 00:42:38,280
+Okay. So copy
+
+805
+00:42:35,960 --> 00:42:42,160
+that link
+
+806
+00:42:38,280 --> 00:42:45,359
+list. Okay. Uni code Chinese characters
+
+807
+00:42:42,160 --> 00:42:49,040
+block. And this is the range. Copy that.
+
+808
+00:42:45,359 --> 00:42:52,560
+Go to our code and paste that range.
+
+809
+00:42:49,040 --> 00:42:55,040
+Okay. There are there there are 20,000
+
+810
+00:42:52,560 --> 00:42:55,040
+of
+
+811
+00:42:55,640 --> 00:43:01,599
+it. Okay. So this is the range. Now I
+
+812
+00:42:59,280 --> 00:43:05,200
+want I need to know what is the decimal.
+
+813
+00:43:01,599 --> 00:43:07,599
+Okay. I don't want the uni code uh
+
+814
+00:43:05,200 --> 00:43:10,960
+format. So what is a decimal? You can do
+
+815
+00:43:07,599 --> 00:43:16,319
+in EMAC is that that
+
+816
+00:43:10,960 --> 00:43:20,280
+um yeah. Okay. So Eva wait not that. So
+
+817
+00:43:16,319 --> 00:43:23,839
+this should be pound sign x.
+
+818
+00:43:20,280 --> 00:43:27,200
+Okay there it is. This is a decimal.
+
+819
+00:43:23,839 --> 00:43:27,200
+Okay. And what about
+
+820
+00:43:28,280 --> 00:43:34,560
+this so you can look at the pink window
+
+821
+00:43:30,960 --> 00:43:37,119
+to see what I'm calling eval six. Okay.
+
+822
+00:43:34,560 --> 00:43:41,280
+this uh because you know this works
+
+823
+00:43:37,119 --> 00:43:44,640
+because this pound sign x means the
+
+824
+00:43:41,280 --> 00:43:47,839
+hexadimal input. Okay. So so that is
+
+825
+00:43:44,640 --> 00:43:51,240
+that. Okay. So the range is this to
+
+826
+00:43:47,839 --> 00:43:56,280
+this. Okay. So now we call
+
+827
+00:43:51,240 --> 00:44:00,319
+random random uh limit. Okay. So random
+
+828
+00:43:56,280 --> 00:44:02,359
+limit. So what we need to do is okay. So
+
+829
+00:44:00,319 --> 00:44:04,359
+let's
+
+830
+00:44:02,359 --> 00:44:08,359
+um
+
+831
+00:44:04,359 --> 00:44:08,359
+start and
+
+832
+00:44:09,000 --> 00:44:16,720
+um C start C end. Okay, something like
+
+833
+00:44:12,640 --> 00:44:16,720
+that. Okay, let's set it.
+
+834
+00:44:19,880 --> 00:44:25,270
+Yeah. Okay.
+
+835
+00:44:22,080 --> 00:44:25,270
+[Music]
+
+836
+00:44:25,400 --> 00:44:33,119
+So, C start
+
+837
+00:44:29,280 --> 00:44:36,160
+uh Okay, hold on a second. So, C start
+
+838
+00:44:33,119 --> 00:44:36,160
+will be just
+
+839
+00:44:38,040 --> 00:44:47,200
+that set that. Okay. and C end will
+
+840
+00:44:44,200 --> 00:44:47,200
+be
+
+841
+00:44:49,560 --> 00:44:53,760
+that. Okay.
+
+842
+00:44:58,359 --> 00:45:03,800
+Now,
+
+843
+00:45:00,040 --> 00:45:07,599
+okay. Now we got C start and C end. Then
+
+844
+00:45:03,800 --> 00:45:11,800
+random. I want the random number please.
+
+845
+00:45:07,599 --> 00:45:11,800
+Random number from
+
+846
+00:45:12,400 --> 00:45:18,440
+C
+
+847
+00:45:13,319 --> 00:45:23,440
+end minus CN minus C
+
+848
+00:45:18,440 --> 00:45:25,400
+start. Okay. And uh yeah create a random
+
+849
+00:45:23,440 --> 00:45:33,599
+then
+
+850
+00:45:25,400 --> 00:45:33,599
+plus then plus C start. Okay. So plus C
+
+851
+00:45:36,359 --> 00:45:43,800
+start there. Okay. So that gives you a
+
+852
+00:45:40,720 --> 00:45:46,960
+random character. Now if you
+
+853
+00:45:43,800 --> 00:45:50,160
+now it actually gives you a random
+
+854
+00:45:46,960 --> 00:45:52,640
+number. Okay. Now in Emacs a integer is
+
+855
+00:45:50,160 --> 00:45:54,720
+also means character. So you need to
+
+856
+00:45:52,640 --> 00:45:58,440
+turn this integer to a character. So
+
+857
+00:45:54,720 --> 00:45:58,440
+let's just say insert
+
+858
+00:45:58,520 --> 00:46:07,680
+um char ID. Okay. So char ID.
+
+859
+00:46:03,240 --> 00:46:10,119
+Wait. Set. What? What? What? What? What?
+
+860
+00:46:07,680 --> 00:46:14,720
+What? What? What? Set
+
+861
+00:46:10,119 --> 00:46:17,480
+set char ID that. Okay. Char ID equals
+
+862
+00:46:14,720 --> 00:46:19,079
+to that. Then
+
+863
+00:46:17,480 --> 00:46:22,720
+insert
+
+864
+00:46:19,079 --> 00:46:22,720
+insert chart to
+
+865
+00:46:25,560 --> 00:46:33,760
+string char ID. Okay. Purify the code.
+
+866
+00:46:28,960 --> 00:46:37,480
+That's it. That is the code. Okay. So,
+
+867
+00:46:33,760 --> 00:46:41,359
+evaluate the buffer.
+
+868
+00:46:37,480 --> 00:46:44,480
+Now meta xar insert random Chinese
+
+869
+00:46:41,359 --> 00:46:47,560
+chart. There we go. Fantastic. Now we
+
+870
+00:46:44,480 --> 00:46:49,079
+need to do this five times.
+
+871
+00:46:47,560 --> 00:46:53,880
+Okay.
+
+872
+00:46:49,079 --> 00:46:56,680
+So let's just quickly code it. Okay. Two
+
+873
+00:46:53,880 --> 00:46:58,440
+times two times
+
+874
+00:46:56,680 --> 00:47:01,839
+uh
+
+875
+00:46:58,440 --> 00:47:06,240
+five. I is a variable result. We don't
+
+876
+00:47:01,839 --> 00:47:09,280
+care. uh and uh delete that. And the
+
+877
+00:47:06,240 --> 00:47:09,280
+body will
+
+878
+00:47:11,160 --> 00:47:19,240
+be pg program that groups these two
+
+879
+00:47:15,480 --> 00:47:22,480
+together. Okay, copy
+
+880
+00:47:19,240 --> 00:47:26,800
+that. Paste predify the code. There it
+
+881
+00:47:22,480 --> 00:47:28,560
+is. Two times I from five times. Okay,
+
+882
+00:47:26,800 --> 00:47:32,000
+we don't actually care about the
+
+883
+00:47:28,560 --> 00:47:35,119
+variable. Do do it five times. generate
+
+884
+00:47:32,000 --> 00:47:40,480
+a try ID. In fact, we don't need this
+
+885
+00:47:35,119 --> 00:47:40,480
+variable. Okay, so try ID. Delete
+
+886
+00:47:41,000 --> 00:47:48,040
+it. Delete it. Delete it. Remove that.
+
+887
+00:47:44,560 --> 00:47:51,839
+Cut that. And just move the this thing
+
+888
+00:47:48,040 --> 00:47:55,160
+to here. Okay. And in fact, chart to
+
+889
+00:47:51,839 --> 00:47:59,760
+string, we don't need it. Let's just say
+
+890
+00:47:55,160 --> 00:48:03,599
+format. Okay. Because format 96 is uh
+
+891
+00:47:59,760 --> 00:48:03,599
+lowerase a. Try
+
+892
+00:48:05,400 --> 00:48:10,599
+it. No. Okay. So you need to say char
+
+893
+00:48:08,720 --> 00:48:17,520
+format
+
+894
+00:48:10,599 --> 00:48:20,359
+char. Uh no 95 I believe or is it 65?
+
+895
+00:48:17,520 --> 00:48:24,880
+Okay 65. This
+
+896
+00:48:20,359 --> 00:48:27,839
+asy code guessing. Okay. 65 is the ID
+
+897
+00:48:24,880 --> 00:48:30,720
+for capital A. There we have it. Okay.
+
+898
+00:48:27,839 --> 00:48:35,920
+So you can just say format C. Okay. So
+
+899
+00:48:30,720 --> 00:48:39,400
+let's do it. Do it. So format C. All we
+
+900
+00:48:35,920 --> 00:48:43,280
+have to do is just say format C and then
+
+901
+00:48:39,400 --> 00:48:45,599
+here you just give it a number there.
+
+902
+00:48:43,280 --> 00:48:48,400
+Okay. Then you don't need that. Then but
+
+903
+00:48:45,599 --> 00:48:52,000
+actually you need to say insert. Okay.
+
+904
+00:48:48,400 --> 00:48:54,480
+Pify the code. There it is. Pify. Remove
+
+905
+00:48:52,000 --> 00:48:58,119
+that. Pretty fine. Fantastic. Evaluate
+
+906
+00:48:54,480 --> 00:49:04,440
+the buffer now call. Do
+
+907
+00:48:58,119 --> 00:49:07,440
+it. Do it again. Do it again. Fantastic.
+
+908
+00:49:04,440 --> 00:49:07,440
+Okay.
+
+909
+00:49:07,480 --> 00:49:12,400
+Insert five of them. Okay. So, we got
+
+910
+00:49:10,160 --> 00:49:12,400
+the
+
+911
+00:49:12,920 --> 00:49:21,200
+code sample output. Okay. Put it back.
+
+912
+00:49:17,119 --> 00:49:25,920
+Syntax code show in browser. So today's
+
+913
+00:49:21,200 --> 00:49:28,000
+fruit is exploration of this function to
+
+914
+00:49:25,920 --> 00:49:29,839
+create uh insert random Chinese
+
+915
+00:49:28,000 --> 00:49:32,079
+characters. But how how many are there?
+
+916
+00:49:29,839 --> 00:49:36,960
+So let's see. We forgot to check how
+
+917
+00:49:32,079 --> 00:49:40,079
+many are there. So each letter is um so
+
+918
+00:49:36,960 --> 00:49:40,079
+wow let's check.
+
+919
+00:49:41,640 --> 00:49:49,119
+Okay. Okay. So this is my
+
+920
+00:49:46,200 --> 00:49:52,079
+calculator. Fantastic.
+
+921
+00:49:49,119 --> 00:49:52,079
+So we want
+
+922
+00:49:53,000 --> 00:49:59,880
+um yeah so that minus that okay we don't
+
+923
+00:49:57,440 --> 00:50:04,440
+care about that that
+
+924
+00:49:59,880 --> 00:50:07,960
+that print that that that
+
+925
+00:50:04,440 --> 00:50:13,720
+evaluate. So we got 20,000.
+
+926
+00:50:07,960 --> 00:50:18,079
+Wait. Oh. So you need that then times
+
+927
+00:50:13,720 --> 00:50:21,040
+five because you got five of it. Okay.
+
+928
+00:50:18,079 --> 00:50:23,480
+uh the others we don't care what what I
+
+929
+00:50:21,040 --> 00:50:26,880
+was doing you know this is my
+
+930
+00:50:23,480 --> 00:50:33,520
+calculator calculator pad okay I talked
+
+931
+00:50:26,880 --> 00:50:33,520
+about this so anyway run it so this you
+
+932
+00:50:34,359 --> 00:50:40,400
+got
+
+933
+00:50:35,960 --> 00:50:40,400
+10,000 okay so that's not
+
+934
+00:50:44,119 --> 00:50:50,440
+enough times five this is a power should
+
+935
+00:50:47,359 --> 00:50:53,920
+a power.
+
+936
+00:50:50,440 --> 00:50:57,359
+Yeah, fifth power. So that's why. So the
+
+937
+00:50:53,920 --> 00:50:57,359
+power in EMAC
+
+938
+00:50:58,920 --> 00:51:01,920
+is
+
+939
+00:51:08,040 --> 00:51:17,599
+explic basics string number arithmetics.
+
+940
+00:51:13,520 --> 00:51:19,440
+How do you do power exp? Okay. It's
+
+941
+00:51:17,599 --> 00:51:22,920
+always annoying when a programming
+
+942
+00:51:19,440 --> 00:51:25,319
+language don't have the correct for
+
+943
+00:51:22,920 --> 00:51:31,000
+power. Okay.
+
+944
+00:51:25,319 --> 00:51:31,000
+Exp. Wait, why is it exp
+
+945
+00:51:31,760 --> 00:51:37,640
+uh
+
+946
+00:51:33,000 --> 00:51:40,559
+what? Oh, wait. I'm in Python.
+
+947
+00:51:37,640 --> 00:51:43,400
+idiotic. In Python, the power is just
+
+948
+00:51:40,559 --> 00:51:47,920
+double double um
+
+949
+00:51:43,400 --> 00:51:50,260
+asterisk. Okay. Run it. F that. Okay,
+
+950
+00:51:47,920 --> 00:51:51,480
+that is what we looking for. This is
+
+951
+00:51:50,260 --> 00:51:53,720
+[Music]
+
+952
+00:51:51,480 --> 00:51:58,000
+the Okay.
+
+953
+00:51:53,720 --> 00:52:02,680
+So, save it. Close. Um, now let's create
+
+954
+00:51:58,000 --> 00:52:06,559
+a Python code. Paste it there. Pop out.
+
+955
+00:52:02,680 --> 00:52:06,559
+Comment. This is
+
+956
+00:52:08,200 --> 00:52:16,359
+possible. This is possibility
+
+957
+00:52:12,359 --> 00:52:16,359
+T possibility.
+
+958
+00:52:17,040 --> 00:52:26,599
+of five Chinese chars in uni
+
+959
+00:52:23,000 --> 00:52:30,160
+code CJK block
+
+960
+00:52:26,599 --> 00:52:33,040
+range. Okay, syntax correct show in
+
+961
+00:52:30,160 --> 00:52:35,440
+browser. So that's what we got and this
+
+962
+00:52:33,040 --> 00:52:38,079
+is fantastic. only five Chinese
+
+963
+00:52:35,440 --> 00:52:41,079
+characters and then you got this many
+
+964
+00:52:38,079 --> 00:52:44,480
+this many this many is even bigger than
+
+965
+00:52:41,079 --> 00:52:47,319
+Twitter's you know bigger than Twitter's
+
+966
+00:52:44,480 --> 00:52:52,359
+ID count you know where's Twitter you
+
+967
+00:52:47,319 --> 00:52:57,280
+see wait Twitter compare so copy that uh
+
+968
+00:52:52,359 --> 00:52:59,839
+Python let's say Twitter you see it's 10
+
+969
+00:52:57,280 --> 00:53:03,720
+three digits bigger than Twitter's so
+
+970
+00:52:59,839 --> 00:53:07,119
+this is sufficient this is
+
+971
+00:53:03,720 --> 00:53:09,839
+Beautiful. So, we got we got a fantastic
+
+972
+00:53:07,119 --> 00:53:12,880
+new ID design of Chinese characters,
+
+973
+00:53:09,839 --> 00:53:15,720
+just five of them. And usually when you
+
+974
+00:53:12,880 --> 00:53:19,119
+do this, because in
+
+975
+00:53:15,720 --> 00:53:22,880
+practice the Chinese, each Chinese knows
+
+976
+00:53:19,119 --> 00:53:26,160
+on average 3,000 characters to 5,000.
+
+977
+00:53:22,880 --> 00:53:28,640
+Five 5,000 is kind of tops just like
+
+978
+00:53:26,160 --> 00:53:31,720
+English. Okay. In English, when you read
+
+979
+00:53:28,640 --> 00:53:35,960
+a newspaper, you know, common college
+
+980
+00:53:31,720 --> 00:53:39,200
+educated people, you need 3,000
+
+981
+00:53:35,960 --> 00:53:42,359
+words. Same thing in Chinese. But
+
+982
+00:53:39,200 --> 00:53:46,880
+however, Chinese got, you know, 10,000
+
+983
+00:53:42,359 --> 00:53:48,640
+characters or more. So, so when you
+
+984
+00:53:46,880 --> 00:53:51,400
+create, you know, when you generate a
+
+985
+00:53:48,640 --> 00:53:54,800
+random character sequence of
+
+986
+00:53:51,400 --> 00:53:57,119
+Chinese, like most of the time, all the
+
+987
+00:53:54,800 --> 00:53:59,599
+words you don't know. Okay. Actually I
+
+988
+00:53:57,119 --> 00:54:02,480
+know some of them you know I I know like
+
+989
+00:53:59,599 --> 00:54:04,400
+half of them. I mean for average people
+
+990
+00:54:02,480 --> 00:54:09,040
+but the other half like you never seen
+
+991
+00:54:04,400 --> 00:54:09,040
+the world before. So anyway this is
+
+992
+00:54:10,680 --> 00:54:17,880
+fantastic fantastic new
+
+993
+00:54:14,319 --> 00:54:21,680
+uh ID design using
+
+994
+00:54:17,880 --> 00:54:25,599
+Chinese charts. Okay. Now what is what
+
+995
+00:54:21,680 --> 00:54:28,079
+are the possible flaws of this system?
+
+996
+00:54:25,599 --> 00:54:30,119
+Well, one for one thing you need uni
+
+997
+00:54:28,079 --> 00:54:33,839
+unic code
+
+998
+00:54:30,119 --> 00:54:36,800
+encoding you know which is very popular
+
+999
+00:54:33,839 --> 00:54:39,920
+today UTF8 and also you kind of need
+
+1000
+00:54:36,800 --> 00:54:42,800
+Chinese font but which is also very
+
+1001
+00:54:39,920 --> 00:54:46,079
+popular by default in Mac or in any
+
+1002
+00:54:42,800 --> 00:54:49,000
+system you have Chinese font but however
+
+1003
+00:54:46,079 --> 00:54:52,240
+using Chinese encoding um I
+
+1004
+00:54:49,000 --> 00:54:54,480
+mean if you are dealing with ASI
+
+1005
+00:54:52,240 --> 00:54:57,280
+low-level stuff you usually you don't
+
+1006
+00:54:54,480 --> 00:55:00,640
+want that because then it involves
+
+1007
+00:54:57,280 --> 00:55:02,800
+decoding the unic code. On the other
+
+1008
+00:55:00,640 --> 00:55:06,480
+hand, if you just use ASKI characters
+
+1009
+00:55:02,800 --> 00:55:08,800
+for random string, then any low-level
+
+1010
+00:55:06,480 --> 00:55:12,680
+assembly, you know, even C language, you
+
+1011
+00:55:08,800 --> 00:55:14,800
+know, they have libraries to to read
+
+1012
+00:55:12,680 --> 00:55:16,640
+hexadimal, you know, they, you know,
+
+1013
+00:55:14,800 --> 00:55:18,880
+they don't need to go through unic code
+
+1014
+00:55:16,640 --> 00:55:21,440
+decoding.
+
+1015
+00:55:18,880 --> 00:55:24,200
+But however if you are creating like in
+
+1016
+00:55:21,440 --> 00:55:27,359
+a high level design
+
+1017
+00:55:24,200 --> 00:55:30,760
+application this is pretty good very
+
+1018
+00:55:27,359 --> 00:55:33,599
+short and uh and you have lots of
+
+1019
+00:55:30,760 --> 00:55:36,079
+possibilities. So for example compared
+
+1020
+00:55:33,599 --> 00:55:40,240
+to Twitter you got you know every time
+
+1021
+00:55:36,079 --> 00:55:40,240
+you post you got these 19
+
+1022
+00:55:40,599 --> 00:55:47,920
+digits or the YouTube you know like then
+
+1023
+00:55:45,520 --> 00:55:51,280
+then you need capital some are capital
+
+1024
+00:55:47,920 --> 00:55:53,559
+case some are lower case you know um
+
+1025
+00:55:51,280 --> 00:55:57,280
+okay so that's kind
+
+1026
+00:55:53,559 --> 00:56:00,119
+of I think that's a digression uh we did
+
+1027
+00:55:57,280 --> 00:56:04,480
+but that's a good one talking about
+
+1028
+00:56:00,119 --> 00:56:07,680
+the ID the uh character system. Okay,
+
+1029
+00:56:04,480 --> 00:56:12,400
+that's a good digression. Uh as far as
+
+1030
+00:56:07,680 --> 00:56:14,839
+the task about which we did about you
+
+1031
+00:56:12,400 --> 00:56:17,680
+know adding the ID to the
+
+1032
+00:56:14,839 --> 00:56:20,640
+dive that's not too interesting and we
+
+1033
+00:56:17,680 --> 00:56:23,040
+did we did similar before you know we
+
+1034
+00:56:20,640 --> 00:56:25,760
+did so many videos before but I might I
+
+1035
+00:56:23,040 --> 00:56:27,920
+might do this offline or because I got
+
+1036
+00:56:25,760 --> 00:56:31,040
+lots of other topics you know tomorrow I
+
+1037
+00:56:27,920 --> 00:56:34,160
+I want to go back to wam language coding
+
+1038
+00:56:31,040 --> 00:56:37,200
+lots of topics you know machine learning
+
+1039
+00:56:34,160 --> 00:56:40,480
+lean proof system, F, you know,
+
+1040
+00:56:37,200 --> 00:56:42,160
+programming, uh, lots of other things.
+
+1041
+00:56:40,480 --> 00:56:43,480
+Okay, so I think that's it for today.
+
+1042
+00:56:42,160 --> 00:56:46,000
+Thank you guys for
+
+1043
+00:56:43,480 --> 00:56:49,400
+watching. Don't forget to donate to me.
+
+1044
+00:56:46,000 --> 00:56:52,480
+Okay, so you can go to kasali.info.
+
+1045
+00:56:49,400 --> 00:56:55,040
+kasali.info, my website for programming
+
+1046
+00:56:52,480 --> 00:56:57,680
+stuff is called kasar code. Go to the
+
+1047
+00:56:55,040 --> 00:57:02,119
+bottom, you PayPal me, Patreon me,
+
+1048
+00:56:57,680 --> 00:57:05,200
+PayPal $100 uh, Amazon gift card.
+
+1049
+00:57:02,119 --> 00:57:08,079
+Okay, thank you. Make me happy. Okay.
+
+1050
+00:57:05,200 --> 00:57:11,200
+So, or you can if you want my you know
+
+1051
+00:57:08,079 --> 00:57:14,160
+uh you know you can buy my entire Emac
+
+1052
+00:57:11,200 --> 00:57:18,000
+Lisp and Emacs tutorial
+
+1053
+00:57:14,160 --> 00:57:21,440
+uh for $30 something 32 you know I'll
+
+1054
+00:57:18,000 --> 00:57:24,090
+send you the zip file so that you can
+
+1055
+00:57:21,440 --> 00:57:25,559
+have a easy reference when you
+
+1056
+00:57:24,090 --> 00:57:30,240
+[Music]
+
+1057
+00:57:25,559 --> 00:57:32,960
+learn Emac this similarly I also have
+
+1058
+00:57:30,240 --> 00:57:35,760
+one for JavaScript in depth you know for
+
+1059
+00:57:32,960 --> 00:57:39,760
+for for Emacs list for example you go to
+
+1060
+00:57:35,760 --> 00:57:43,440
+EMAC list then you go to um there buy
+
+1061
+00:57:39,760 --> 00:57:46,640
+Emacs tutorial okay then
+
+1062
+00:57:43,440 --> 00:57:50,160
+u mail to you or if you prefer
+
+1063
+00:57:46,640 --> 00:57:52,720
+JavaScript if you are a webdev you know
+
+1064
+00:57:50,160 --> 00:57:55,280
+I also have one for JavaScript in depth
+
+1065
+00:57:52,720 --> 00:57:59,359
+this is actually more comprehensive than
+
+1066
+00:57:55,280 --> 00:58:03,760
+my eag this tutorial so all the way down
+
+1067
+00:57:59,359 --> 00:58:06,240
+you can see where to buy there by
+
+1068
+00:58:03,760 --> 00:58:08,880
+I'll send you a copy so you can kind of
+
+1069
+00:58:06,240 --> 00:58:11,200
+use it for reference. It's great for
+
+1070
+00:58:08,880 --> 00:58:14,359
+reference because you click on the
+
+1071
+00:58:11,200 --> 00:58:17,520
+JavaScript global reference. You got
+
+1072
+00:58:14,359 --> 00:58:20,599
+object object which is a class object
+
+1073
+00:58:17,520 --> 00:58:22,920
+class. Then you got object constructor
+
+1074
+00:58:20,599 --> 00:58:24,720
+details. Then you got
+
+1075
+00:58:22,920 --> 00:58:27,440
+object.prototype you know. So you got
+
+1076
+00:58:24,720 --> 00:58:31,200
+object create object assign object get
+
+1077
+00:58:27,440 --> 00:58:33,880
+prototype of these are static methods.
+
+1078
+00:58:31,200 --> 00:58:38,400
+Then you go to object
+
+1079
+00:58:33,880 --> 00:58:41,359
+prototype. Then these are uh the methods
+
+1080
+00:58:38,400 --> 00:58:43,920
+you know then you know the the methods.
+
+1081
+00:58:41,359 --> 00:58:46,559
+So you got a few of them you know has
+
+1082
+00:58:43,920 --> 00:58:49,839
+own property is prototype prototype is
+
+1083
+00:58:46,559 --> 00:58:51,720
+number. So but if you go back to u for
+
+1084
+00:58:49,839 --> 00:58:55,520
+example
+
+1085
+00:58:51,720 --> 00:58:58,240
+array you got array constructors fairly
+
+1086
+00:58:55,520 --> 00:59:00,480
+complex array constructors then you got
+
+1087
+00:58:58,240 --> 00:59:03,520
+array properties prototype. These are
+
+1088
+00:59:00,480 --> 00:59:05,960
+static properties. Okay. Then but if you
+
+1089
+00:59:03,520 --> 00:59:08,880
+go to prototype, these are dynamic
+
+1090
+00:59:05,960 --> 00:59:11,920
+methods. This these are the used most
+
+1091
+00:59:08,880 --> 00:59:13,559
+common. For example, push, pop, shift
+
+1092
+00:59:11,920 --> 00:59:17,440
+and shift,
+
+1093
+00:59:13,559 --> 00:59:20,160
+splice and contact, slice, you know, get
+
+1094
+00:59:17,440 --> 00:59:23,920
+the keys and map for each filter, you
+
+1095
+00:59:20,160 --> 00:59:26,640
+know, very uh frequently used. So this
+
+1096
+00:59:23,920 --> 00:59:29,119
+is about my JavaScript tutorial the
+
+1097
+00:59:26,640 --> 00:59:31,599
+reference section and regular expression
+
+1098
+00:59:29,119 --> 00:59:34,000
+the entire documentation of regular
+
+1099
+00:59:31,599 --> 00:59:37,720
+expression and so on. So for example
+
+1100
+00:59:34,000 --> 00:59:40,960
+regular expression syntax very complex
+
+1101
+00:59:37,720 --> 00:59:43,520
+topic okay and it's fully documented
+
+1102
+00:59:40,960 --> 00:59:46,720
+documented and with lots of examples for
+
+1103
+00:59:43,520 --> 00:59:50,000
+example you got this new unic code
+
+1104
+00:59:46,720 --> 00:59:52,160
+property. So if you want to get unic
+
+1105
+00:59:50,000 --> 00:59:55,599
+code let's say you want to grab all
+
+1106
+00:59:52,160 --> 00:59:57,599
+emojis in a file then you need to use
+
+1107
+00:59:55,599 --> 00:59:59,920
+this unic code regular expression you
+
+1108
+00:59:57,599 --> 01:00:02,319
+know so I got examples for that too so
+
+1109
+00:59:59,920 --> 01:00:06,559
+that's my uni uh JavaScript in depth
+
+1110
+01:00:02,319 --> 01:00:10,079
+okay so check it out donate to me thank
+
+1111
+01:00:06,559 --> 01:00:15,000
+you or if you want to like you know have
+
+1112
+01:00:10,079 --> 01:00:19,720
+a local copy you can pay few bucks and
+
+1113
+01:00:15,000 --> 01:00:22,400
+get anything else That's it for
+
+1114
+01:00:19,720 --> 01:00:24,440
+today. So, let's go back. Let's see the
+
+1115
+01:00:22,400 --> 01:00:29,680
+comments. And we shut
+
+1116
+01:00:24,440 --> 01:00:29,680
+down. No comments. No comments. What the
+
+1117
+01:00:35,160 --> 01:00:41,200
+ AZ says, "If you create an app
+
+1118
+01:00:38,480 --> 01:00:43,200
+today, would you design your own ID?
+
+1119
+01:00:41,200 --> 01:00:46,240
+Would you also design the rest of the
+
+1120
+01:00:43,200 --> 01:00:48,799
+database? And do you design ID for every
+
+1121
+01:00:46,240 --> 01:00:52,520
+single table in the database feel like
+
+1122
+01:00:48,799 --> 01:00:56,000
+re reinventing the wheel? Of course you
+
+1123
+01:00:52,520 --> 01:00:58,319
+don't. Of course you don't.
+
+1124
+01:00:56,000 --> 01:01:00,200
+You know in fact if you are industrial
+
+1125
+01:00:58,319 --> 01:01:03,920
+coder professional
+
+1126
+01:01:00,200 --> 01:01:07,559
+coders you don't need to know even
+
+1127
+01:01:03,920 --> 01:01:12,160
+computer science algorithms because
+
+1128
+01:01:07,559 --> 01:01:14,960
+hasht array uh sorting that's big
+
+1129
+01:01:12,160 --> 01:01:16,799
+computer science or searching string how
+
+1130
+01:01:14,960 --> 01:01:19,040
+do you implement regular expression you
+
+1131
+01:01:16,799 --> 01:01:22,240
+don't need to know none of that you can
+
+1132
+01:01:19,040 --> 01:01:24,240
+be a professional coder for Python or
+
+1133
+01:01:22,240 --> 01:01:27,880
+even for machine learning and you don't
+
+1134
+01:01:24,240 --> 01:01:31,920
+need to know about these things but
+
+1135
+01:01:27,880 --> 01:01:34,720
+however I am a lot of time doing random
+
+1136
+01:01:31,920 --> 01:01:38,319
+you know random programming technical
+
+1137
+01:01:34,720 --> 01:01:40,640
+topics computer or uh science or
+
+1138
+01:01:38,319 --> 01:01:43,359
+mathematics or theoretical computer
+
+1139
+01:01:40,640 --> 01:01:44,960
+science and stuff pattern matching and
+
+1140
+01:01:43,359 --> 01:01:49,000
+you know functional programming and
+
+1141
+01:01:44,960 --> 01:01:52,400
+proof systems and type systems so
+
+1142
+01:01:49,000 --> 01:01:56,400
+that's why I'm talking about this kind
+
+1143
+01:01:52,400 --> 01:01:59,599
+of interesting topics about ID design
+
+1144
+01:01:56,400 --> 01:02:03,440
+but in fact today you know today we
+
+1145
+01:01:59,599 --> 01:02:05,480
+created this Chinese random ID in fact I
+
+1146
+01:02:03,440 --> 01:02:11,000
+think that's useful
+
+1147
+01:02:05,480 --> 01:02:15,240
+okay it will be I think it is I would
+
+1148
+01:02:11,000 --> 01:02:19,440
+say 50% of chance okay
+
+1149
+01:02:15,240 --> 01:02:24,319
+50% of chance that in five or 10 years
+
+1150
+01:02:19,440 --> 01:02:27,440
+this will be popular okay because The
+
+1151
+01:02:24,319 --> 01:02:30,799
+advantage of this is because you you
+
+1152
+01:02:27,440 --> 01:02:32,359
+it's pretty short and you avoid a lot of
+
+1153
+01:02:30,799 --> 01:02:35,920
+collision.
+
+1154
+01:02:32,359 --> 01:02:38,880
+Okay. So this is actually a practical
+
+1155
+01:02:35,920 --> 01:02:43,200
+application but I mean not practical
+
+1156
+01:02:38,880 --> 01:02:46,240
+like you need it now but I think there's
+
+1157
+01:02:43,200 --> 01:02:49,839
+a big potential you know down five or 10
+
+1158
+01:02:46,240 --> 01:02:53,280
+years you you might see start to see you
+
+1159
+01:02:49,839 --> 01:02:55,760
+might start to see IDs that comes in
+
+1160
+01:02:53,280 --> 01:02:58,119
+this form okay just like a bunch of unic
+
+1161
+01:02:55,760 --> 01:03:00,720
+code random Chinese
+
+1162
+01:02:58,119 --> 01:03:02,720
+characters and and Chinese characters
+
+1163
+01:03:00,720 --> 01:03:05,119
+among the uni code all the unic code
+
+1164
+01:03:02,720 --> 01:03:08,799
+characters you know there are like I
+
+1165
+01:03:05,119 --> 01:03:11,359
+don't know 30 thousands of them you know
+
+1166
+01:03:08,799 --> 01:03:13,680
+Chinese is actually the most suitable
+
+1167
+01:03:11,359 --> 01:03:16,480
+because when you talk about unic code
+
+1168
+01:03:13,680 --> 01:03:19,520
+you could also let's try you know why
+
+1169
+01:03:16,480 --> 01:03:21,119
+not let let's use all the emojis okay so
+
+1170
+01:03:19,520 --> 01:03:25,200
+for example
+
+1171
+01:03:21,119 --> 01:03:28,039
+uh where is it uh you know let's use all
+
+1172
+01:03:25,200 --> 01:03:31,520
+the emojis uh for example
+
+1173
+01:03:28,039 --> 01:03:35,520
+um you know so include all emojis and
+
+1174
+01:03:31,520 --> 01:03:38,720
+why not let's also So include all um all
+
+1175
+01:03:35,520 --> 01:03:43,039
+arrow keys you know so they there are
+
+1176
+01:03:38,720 --> 01:03:47,640
+like 50 type of arrows or different uh
+
+1177
+01:03:43,039 --> 01:03:52,000
+and also let's include all these exotic
+
+1178
+01:03:47,640 --> 01:03:55,200
+alphabet desolate deseret which is um
+
+1179
+01:03:52,000 --> 01:03:58,799
+phonetic based alphabet created by the
+
+1180
+01:03:55,200 --> 01:04:01,920
+moments moments Christian kind of
+
+1181
+01:03:58,799 --> 01:04:04,839
+Christian okay moments or let's include
+
+1182
+01:04:01,920 --> 01:04:07,839
+include all the Greek letters,
+
+1183
+01:04:04,839 --> 01:04:10,319
+okay? Or include the IPA phonetic
+
+1184
+01:04:07,839 --> 01:04:12,920
+symbols, you know, for pronunciation.
+
+1185
+01:04:10,319 --> 01:04:18,160
+Dad,
+
+1186
+01:04:12,920 --> 01:04:21,599
+uh I iPod, iPad, iPad, you know,
+
+1187
+01:04:18,160 --> 01:04:24,400
+phonetic symbols or let's include uh
+
+1188
+01:04:21,599 --> 01:04:26,880
+historical or chemical symbols. You see
+
+1189
+01:04:24,400 --> 01:04:31,520
+but the problem is if you include this
+
+1190
+01:04:26,880 --> 01:04:34,640
+there are not many you know 50 100 they
+
+1191
+01:04:31,520 --> 01:04:36,640
+don't give you this kind of bravity in
+
+1192
+01:04:34,640 --> 01:04:39,039
+the Chinese characters and for the
+
+1193
+01:04:36,640 --> 01:04:41,680
+Chinese characters there's no upper and
+
+1194
+01:04:39,039 --> 01:04:44,000
+lower case that's very kind of nasty
+
+1195
+01:04:41,680 --> 01:04:46,640
+thing because when you have upper case
+
+1196
+01:04:44,000 --> 01:04:48,480
+and lower case for the same character
+
+1197
+01:04:46,640 --> 01:04:51,119
+then you start to get into the
+
+1198
+01:04:48,480 --> 01:04:55,160
+complexities of oh whether you know in
+
+1199
+01:04:51,119 --> 01:04:58,680
+file in this file system it's um case
+
+1200
+01:04:55,160 --> 01:05:01,039
+insensitive but in that language is case
+
+1201
+01:04:58,680 --> 01:05:03,760
+sensitive you can have these complex
+
+1202
+01:05:01,039 --> 01:05:07,039
+issues you see for example the YouTube
+
+1203
+01:05:03,760 --> 01:05:08,520
+ID the YouTube ID they have some lower
+
+1204
+01:05:07,039 --> 01:05:11,920
+case some capital
+
+1205
+01:05:08,520 --> 01:05:16,039
+case but for some reason let's say you
+
+1206
+01:05:11,920 --> 01:05:19,839
+need to save each YouTube video as a
+
+1207
+01:05:16,039 --> 01:05:22,960
+file but in Mac and on Windows the file
+
+1208
+01:05:19,839 --> 01:05:25,880
+system are not case sensitive by default
+
+1209
+01:05:22,960 --> 01:05:28,319
+So the same ID sometimes
+
+1210
+01:05:25,880 --> 01:05:29,319
+becomes you know they they act you know
+
+1211
+01:05:28,319 --> 01:05:34,119
+the
+
+1212
+01:05:29,319 --> 01:05:36,960
+same YouTube ID string they differ by
+
+1213
+01:05:34,119 --> 01:05:38,880
+case so they meant to be different ID
+
+1214
+01:05:36,960 --> 01:05:41,920
+but on a file system they become the
+
+1215
+01:05:38,880 --> 01:05:44,720
+same file so that's a problem so so you
+
+1216
+01:05:41,920 --> 01:05:46,880
+start to have you know you may get into
+
+1217
+01:05:44,720 --> 01:05:48,839
+a problem so when but when you use
+
+1218
+01:05:46,880 --> 01:05:51,599
+Chinese characters you don't have that
+
+1219
+01:05:48,839 --> 01:05:54,000
+problem also another example so here is
+
+1220
+01:05:51,599 --> 01:05:56,640
+squeeze For example, here's Greek and
+
+1221
+01:05:54,000 --> 01:06:00,359
+variations. You have actually, you know,
+
+1222
+01:05:56,640 --> 01:06:03,680
+this italic and bold. They are not
+
+1223
+01:06:00,359 --> 01:06:06,000
+font. They are not font variations. They
+
+1224
+01:06:03,680 --> 01:06:08,119
+are not, you know, style variation. They
+
+1225
+01:06:06,000 --> 01:06:10,880
+are actual unic code
+
+1226
+01:06:08,119 --> 01:06:13,680
+characters. So you can include Greeks,
+
+1227
+01:06:10,880 --> 01:06:17,119
+you know, that would total of 100
+
+1228
+01:06:13,680 --> 01:06:21,599
+characters, you know, or you can include
+
+1229
+01:06:17,119 --> 01:06:24,559
+critic, you know, the Russian alphabet.
+
+1230
+01:06:21,599 --> 01:06:28,200
+uh but or you can include Japanese uh
+
+1231
+01:06:24,559 --> 01:06:31,359
+phonetic symbols the katakana and
+
+1232
+01:06:28,200 --> 01:06:33,720
+stuff but one thing one problem is
+
+1233
+01:06:31,359 --> 01:06:37,280
+Arabic you don't want that because
+
+1234
+01:06:33,720 --> 01:06:39,520
+Arabic if you use these as random of
+
+1235
+01:06:37,280 --> 01:06:42,440
+characters you they got they got right
+
+1236
+01:06:39,520 --> 01:06:48,400
+to left problem
+
+1237
+01:06:42,440 --> 01:06:51,200
+so you know so so some it's very um it's
+
+1238
+01:06:48,400 --> 01:06:53,520
+not so good because either you stick
+
+1239
+01:06:51,200 --> 01:06:56,880
+with right to left or left to right. You
+
+1240
+01:06:53,520 --> 01:06:59,920
+if you mix them, it's not so good. Okay.
+
+1241
+01:06:56,880 --> 01:07:01,480
+So, so that's, you know, my my uh random
+
+1242
+01:06:59,920 --> 01:07:05,280
+comments about
+
+1243
+01:07:01,480 --> 01:07:05,280
+that. Okay. Bye,
+
+1244
+01:07:06,920 --> 01:07:14,119
+guys.
+
+1245
+01:07:08,680 --> 01:07:14,119
+So, so Okay. So, bye.
+

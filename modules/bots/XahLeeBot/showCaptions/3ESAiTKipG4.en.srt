@@ -1,0 +1,5159 @@
+1
+00:00:02,480 --> 00:00:08,559
+Hello guys, good morning guys. Welcome
+
+2
+00:00:05,200 --> 00:00:11,040
+to another episode of sound talk show.
+
+3
+00:00:08,559 --> 00:00:14,799
+We are going to code wufam language
+
+4
+00:00:11,040 --> 00:00:19,359
+today. Wufam language uh we are going to
+
+5
+00:00:14,799 --> 00:00:22,320
+write a function that exports woofam
+
+6
+00:00:19,359 --> 00:00:24,880
+language uh two-dimensional graphics
+
+7
+00:00:22,320 --> 00:00:27,519
+into SVG.
+
+8
+00:00:24,880 --> 00:00:31,039
+So two-dimensional graphics that's
+
+9
+00:00:27,519 --> 00:00:33,760
+fantastic. Let's try one of them. Okay.
+
+10
+00:00:31,039 --> 00:00:38,079
+So, we're gonna This is going to be kind
+
+11
+00:00:33,760 --> 00:00:41,040
+of boring and dry for you guys because
+
+12
+00:00:38,079 --> 00:00:43,520
+I'm just going to code very technical.
+
+13
+00:00:41,040 --> 00:00:46,559
+Uh if you have questions for me, you can
+
+14
+00:00:43,520 --> 00:00:49,280
+ask me. So, this is Wuam language. We
+
+15
+00:00:46,559 --> 00:00:51,920
+just evaluated this code and it
+
+16
+00:00:49,280 --> 00:00:57,360
+generates that. So, that's 2D graphics.
+
+17
+00:00:51,920 --> 00:01:00,559
+Now, I want to export it. So uh
+
+18
+00:00:57,360 --> 00:01:05,519
+so let's see.
+
+19
+00:01:00,559 --> 00:01:08,479
+Okay. So let's export this one. Okay.
+
+20
+00:01:05,519 --> 00:01:10,159
+Uh it has a built-in function to export
+
+21
+00:01:08,479 --> 00:01:12,960
+graphics.
+
+22
+00:01:10,159 --> 00:01:17,520
+So for example export
+
+23
+00:01:12,960 --> 00:01:20,799
+uh and uh then so you so let me magnify
+
+24
+00:01:17,520 --> 00:01:27,400
+so you can see.
+
+25
+00:01:20,799 --> 00:01:27,400
+So here's a code. Okay. Let's um
+
+26
+00:01:27,840 --> 00:01:32,799
+run it. So it's great. So actually I
+
+27
+00:01:30,720 --> 00:01:35,200
+don't I don't want this. So let's modify
+
+28
+00:01:32,799 --> 00:01:37,680
+this. Okay. So
+
+29
+00:01:35,200 --> 00:01:41,280
+we going to write a function to export
+
+30
+00:01:37,680 --> 00:01:43,200
+SVG graphics. So let's see. So let's you
+
+31
+00:01:41,280 --> 00:01:46,159
+know I'm just going to start working on
+
+32
+00:01:43,200 --> 00:01:49,840
+it. Start a Woof code. Paste it. Pop
+
+33
+00:01:46,159 --> 00:01:54,880
+into a new window. Uh I'm using Safly
+
+34
+00:01:49,840 --> 00:01:58,479
+Keys. uh and I'm using Emacs. So Softly
+
+35
+00:01:54,880 --> 00:02:01,040
+Keys is a package in Emacs that allows
+
+36
+00:01:58,479 --> 00:02:03,920
+the most efficient key binding. So you
+
+37
+00:02:01,040 --> 00:02:06,159
+can search on the web safely keys,
+
+38
+00:02:03,920 --> 00:02:08,479
+you'll find it. It's on GitHub. There's
+
+39
+00:02:06,159 --> 00:02:12,959
+lots of videos. If you are watching this
+
+40
+00:02:08,479 --> 00:02:15,760
+offline play at 1.5 speed minimum okay
+
+41
+00:02:12,959 --> 00:02:17,760
+uh so I'm using softly keys and the pink
+
+42
+00:02:15,760 --> 00:02:20,319
+window shows all my command calls and
+
+43
+00:02:17,760 --> 00:02:22,720
+the names as I type them. So close for
+
+44
+00:02:20,319 --> 00:02:26,319
+example close you can see close current
+
+45
+00:02:22,720 --> 00:02:29,920
+buffer can you see it yes so close that
+
+46
+00:02:26,319 --> 00:02:32,920
+and here I'm using kasawa mod so you can
+
+47
+00:02:29,920 --> 00:02:32,920
+see
+
+48
+00:02:34,560 --> 00:02:39,840
+there it is kasawa wuam mod you can get
+
+49
+00:02:36,879 --> 00:02:42,160
+it it's free on the web so go to the
+
+50
+00:02:39,840 --> 00:02:45,280
+website you search for it you'll find it
+
+51
+00:02:42,160 --> 00:02:49,360
+kasaw wuam mode uh this allows you to
+
+52
+00:02:45,280 --> 00:02:51,840
+code wuam language in emacs and uh Wufam
+
+53
+00:02:49,360 --> 00:02:55,040
+language you can download for free. Just
+
+54
+00:02:51,840 --> 00:02:58,000
+search for kasali.info wuam language
+
+55
+00:02:55,040 --> 00:03:01,440
+tutorial. You can download it for free.
+
+56
+00:02:58,000 --> 00:03:06,159
+It's the most powerful most advanced uh
+
+57
+00:03:01,440 --> 00:03:08,959
+programming language than all others by
+
+58
+00:03:06,159 --> 00:03:12,480
+a magnitude. Okay. So you can download
+
+59
+00:03:08,959 --> 00:03:15,280
+it. Uh you can watch my like hundred
+
+60
+00:03:12,480 --> 00:03:19,120
+over 100 videos on wam language in the
+
+61
+00:03:15,280 --> 00:03:22,720
+past on YouTube. Okay. So example mode.
+
+62
+00:03:19,120 --> 00:03:26,080
+So let's close close that. So so uh let
+
+63
+00:03:22,720 --> 00:03:29,760
+me modify something here. Uh again we're
+
+64
+00:03:26,080 --> 00:03:32,000
+going to write a export to SVG. So but
+
+65
+00:03:29,760 --> 00:03:34,400
+first of all let me show uh get this to
+
+66
+00:03:32,000 --> 00:03:36,959
+work. So
+
+67
+00:03:34,400 --> 00:03:40,159
+so graphics grid I don't want graphics
+
+68
+00:03:36,959 --> 00:03:44,000
+squid. Okay. So let's just say that uh
+
+69
+00:03:40,159 --> 00:03:45,920
+okay so that's so that's two graphics.
+
+70
+00:03:44,000 --> 00:03:48,239
+Okay. So
+
+71
+00:03:45,920 --> 00:03:52,959
+uh
+
+72
+00:03:48,239 --> 00:03:55,120
+copy all go back here select all paste.
+
+73
+00:03:52,959 --> 00:03:57,760
+So that's one of the graphics. This is
+
+74
+00:03:55,120 --> 00:04:02,200
+second graphics. Now let's export it. So
+
+75
+00:03:57,760 --> 00:04:02,200
+let's export.
+
+76
+00:04:02,239 --> 00:04:08,000
+Okay. So export what's the syntax and uh
+
+77
+00:04:05,599 --> 00:04:13,040
+okay. So the first argument is going to
+
+78
+00:04:08,000 --> 00:04:18,479
+be a file name. So xx. SVG. Let's just
+
+79
+00:04:13,040 --> 00:04:21,840
+say that. Uh let's say X X uh Y. Okay.
+
+80
+00:04:18,479 --> 00:04:27,639
+Then okay, select all.
+
+81
+00:04:21,840 --> 00:04:27,639
+Uh yeah, select all graphics. So
+
+82
+00:04:27,680 --> 00:04:31,680
+uh let's look up the documentation for
+
+83
+00:04:30,000 --> 00:04:34,160
+graphics.
+
+84
+00:04:31,680 --> 00:04:37,600
+That's yes, that's what we want. Let's
+
+85
+00:04:34,160 --> 00:04:43,199
+turn on JavaScript. It's already on.
+
+86
+00:04:37,600 --> 00:04:46,880
+Magnify. Okay. So copy the whole go
+
+87
+00:04:43,199 --> 00:04:49,440
+select all paste run it. Okay.
+
+88
+00:04:46,880 --> 00:04:52,960
+Fantastic. Now you can see it's it's
+
+89
+00:04:49,440 --> 00:04:56,160
+exported xxy.svg
+
+90
+00:04:52,960 --> 00:04:59,600
+that's in the document folder.
+
+91
+00:04:56,160 --> 00:05:04,479
+So go to document xxy. There it is. Open
+
+92
+00:04:59,600 --> 00:05:08,960
+it. There it is. Uh open it. Uh so you
+
+93
+00:05:04,479 --> 00:05:12,720
+know SVG is a XML file. So let's switch
+
+94
+00:05:08,960 --> 00:05:16,400
+to Kasa HTML mod. So here is the source
+
+95
+00:05:12,720 --> 00:05:20,400
+code for the SVG. So you can see lots of
+
+96
+00:05:16,400 --> 00:05:24,240
+these repetition lines you know. So this
+
+97
+00:05:20,400 --> 00:05:26,960
+file is 56 kilobytes.
+
+98
+00:05:24,240 --> 00:05:29,280
+Uh it could actually be smaller you know
+
+99
+00:05:26,960 --> 00:05:32,560
+just all these you know these are maybe
+
+100
+00:05:29,280 --> 00:05:35,600
+50 lines or 100 lines. It should be just
+
+101
+00:05:32,560 --> 00:05:39,360
+you know 5 kilobytes. So it the
+
+102
+00:05:35,600 --> 00:05:42,880
+generated SVG is like 10 times larger
+
+103
+00:05:39,360 --> 00:05:46,000
+than necessary. That is why I want to
+
+104
+00:05:42,880 --> 00:05:50,800
+write my own customized
+
+105
+00:05:46,000 --> 00:05:53,440
+export uh to SVG uh command
+
+106
+00:05:50,800 --> 00:05:56,000
+because if you look at SVG so if you
+
+107
+00:05:53,440 --> 00:05:58,720
+don't know SVG uh let's look up. So I
+
+108
+00:05:56,000 --> 00:06:01,600
+have a tutorial on sudi.info just search
+
+109
+00:05:58,720 --> 00:06:05,039
+for it. Uh if you are here, say hi.
+
+110
+00:06:01,600 --> 00:06:06,560
+Okay, let's see. Let's Hello, Simple
+
+111
+00:06:05,039 --> 00:06:08,800
+Postman.
+
+112
+00:06:06,560 --> 00:06:12,080
+So, let's pop this out. If you are
+
+113
+00:06:08,800 --> 00:06:14,319
+watching this offline, play 1.5 uh
+
+114
+00:06:12,080 --> 00:06:16,880
+speed. And if you are uh watching here,
+
+115
+00:06:14,319 --> 00:06:20,240
+say hi. Uh if you have questions about
+
+116
+00:06:16,880 --> 00:06:24,800
+wam language, ask me. Okay, so here's
+
+117
+00:06:20,240 --> 00:06:28,639
+SVG tutorial. SVG is just XML. Okay, so
+
+118
+00:06:24,800 --> 00:06:31,280
+it's just like HTML. So you know you you
+
+119
+00:06:28,639 --> 00:06:33,600
+paste that then you get a line. So
+
+120
+00:06:31,280 --> 00:06:35,759
+because there is a line primitive you
+
+121
+00:06:33,600 --> 00:06:38,639
+can see
+
+122
+00:06:35,759 --> 00:06:42,960
+uh okay so let's magnify let's magnify
+
+123
+00:06:38,639 --> 00:06:46,400
+the browser more. So um so it's larger
+
+124
+00:06:42,960 --> 00:06:50,800
+is always easier to see. So 150 is kind
+
+125
+00:06:46,400 --> 00:06:53,840
+of too large anyway. So here's a line
+
+126
+00:06:50,800 --> 00:06:56,960
+and here's a rectangle by the primitive
+
+127
+00:06:53,840 --> 00:07:00,560
+rectangle and here's a circle by the
+
+128
+00:06:56,960 --> 00:07:04,000
+primitive circle and the line a line is
+
+129
+00:07:00,560 --> 00:07:05,759
+very simple you can see it's just the xy
+
+130
+00:07:04,000 --> 00:07:08,000
+coordinates
+
+131
+00:07:05,759 --> 00:07:11,360
+the starting beginning position and end
+
+132
+00:07:08,000 --> 00:07:16,160
+position okay but what wuang language
+
+133
+00:07:11,360 --> 00:07:19,360
+generates is that it use uh path I mean
+
+134
+00:07:16,160 --> 00:07:21,520
+you see it repeats this style this you
+
+135
+00:07:19,360 --> 00:07:23,599
+for every line, you know, you shouldn't
+
+136
+00:07:21,520 --> 00:07:25,599
+need to. You can put all these styles
+
+137
+00:07:23,599 --> 00:07:30,400
+like all the repetitions, you know, so
+
+138
+00:07:25,599 --> 00:07:32,400
+on and on in into one one place. Can I
+
+139
+00:07:30,400 --> 00:07:34,160
+do it? Yeah, actually I can do it. I can
+
+140
+00:07:32,400 --> 00:07:36,720
+let me show you. Okay, so all these
+
+141
+00:07:34,160 --> 00:07:39,520
+styles. So first of all, go to the
+
+142
+00:07:36,720 --> 00:07:43,039
+directory, make a backup. So in case we
+
+143
+00:07:39,520 --> 00:07:46,960
+made a mistake, now go back here. Now uh
+
+144
+00:07:43,039 --> 00:07:50,479
+now copy this line. Let's modify it and
+
+145
+00:07:46,960 --> 00:07:54,520
+let's make it motor line so I can see
+
+146
+00:07:50,479 --> 00:07:54,520
+it. Uh
+
+147
+00:07:56,000 --> 00:08:00,400
+so you see all these repetitions. Okay.
+
+148
+00:07:58,639 --> 00:08:04,360
+So
+
+149
+00:08:00,400 --> 00:08:04,360
+so the whole style
+
+150
+00:08:05,360 --> 00:08:14,879
+can be make it one line. Okay. Cut it
+
+151
+00:08:09,680 --> 00:08:18,479
+can be placed here. Okay. Then this path
+
+152
+00:08:14,879 --> 00:08:20,879
+um I don't need it. Okay, so that should
+
+153
+00:08:18,479 --> 00:08:23,199
+do. So now we just delete all these
+
+154
+00:08:20,879 --> 00:08:25,520
+styles. So
+
+155
+00:08:23,199 --> 00:08:27,360
+let's
+
+156
+00:08:25,520 --> 00:08:29,680
+Oh god.
+
+157
+00:08:27,360 --> 00:08:34,240
+Copy
+
+158
+00:08:29,680 --> 00:08:36,959
+find replace that by empty. So replace
+
+159
+00:08:34,240 --> 00:08:40,640
+replace replace
+
+160
+00:08:36,959 --> 00:08:45,519
+uh shift and so replace them all. Okay.
+
+161
+00:08:40,640 --> 00:08:48,399
+So you can see and now save.
+
+162
+00:08:45,519 --> 00:08:50,959
+Okay. Now go to directory refresh. Now
+
+163
+00:08:48,399 --> 00:08:54,080
+you see we already saved half of the
+
+164
+00:08:50,959 --> 00:08:56,320
+file size. Fantastic. So you see the
+
+165
+00:08:54,080 --> 00:09:00,640
+problem is just that when you use wam
+
+166
+00:08:56,320 --> 00:09:04,959
+language language to export to SVG it
+
+167
+00:09:00,640 --> 00:09:07,200
+the the result is not too efficient.
+
+168
+00:09:04,959 --> 00:09:10,000
+Uh however we have another command. So
+
+169
+00:09:07,200 --> 00:09:13,600
+let me let me do it again. Okay. So
+
+170
+00:09:10,000 --> 00:09:16,399
+let's say uh wait
+
+171
+00:09:13,600 --> 00:09:21,920
+refresh
+
+172
+00:09:16,399 --> 00:09:25,680
+edit. So let's say uh this is original.
+
+173
+00:09:21,920 --> 00:09:29,519
+Okay. Then
+
+174
+00:09:25,680 --> 00:09:32,240
+this is a
+
+175
+00:09:29,519 --> 00:09:35,200
+Okay. Rename them. So here's original
+
+176
+00:09:32,240 --> 00:09:38,080
+and here is the the one we modified. So
+
+177
+00:09:35,200 --> 00:09:42,240
+now let's make a backup of the original
+
+178
+00:09:38,080 --> 00:09:45,440
+and let's uh let's name
+
+179
+00:09:42,240 --> 00:09:50,800
+replace a space by underscore. Now we
+
+180
+00:09:45,440 --> 00:09:52,959
+want to I want to uh call SVG optimize.
+
+181
+00:09:50,800 --> 00:09:55,200
+Let's see how much it can save. So
+
+182
+00:09:52,959 --> 00:09:59,760
+there's a command. We did a live stream
+
+183
+00:09:55,200 --> 00:10:04,000
+about a a week or two ago. So
+
+184
+00:09:59,760 --> 00:10:07,279
+SVG optimize. Uh there it is. Okay. Type
+
+185
+00:10:04,000 --> 00:10:10,160
+V. So do it.
+
+186
+00:10:07,279 --> 00:10:14,240
+Done. Okay. Refresh.
+
+187
+00:10:10,160 --> 00:10:16,800
+Okay. So it also saved. You see it also
+
+188
+00:10:14,240 --> 00:10:21,680
+saved half of the files. I mean file
+
+189
+00:10:16,800 --> 00:10:25,120
+size. So let's uh put it to HTML mod so
+
+190
+00:10:21,680 --> 00:10:27,519
+we can see the code. And let's just
+
+191
+00:10:25,120 --> 00:10:30,640
+Okay.
+
+192
+00:10:27,519 --> 00:10:35,680
+So let's uh
+
+193
+00:10:30,640 --> 00:10:35,680
+make it multiple lines. Okay.
+
+194
+00:10:36,000 --> 00:10:42,880
+Okay. Go to the top. Okay. So, you can
+
+195
+00:10:39,040 --> 00:10:46,000
+see it did something similar like like
+
+196
+00:10:42,880 --> 00:10:50,200
+what we did. Okay.
+
+197
+00:10:46,000 --> 00:10:50,200
+Uh yeah.
+
+198
+00:10:53,760 --> 00:11:02,079
+Why is this? Uh
+
+199
+00:10:57,120 --> 00:11:02,079
+okay. Yeah, it did something similar.
+
+200
+00:11:02,800 --> 00:11:07,279
+But anyway, this is still inefficient.
+
+201
+00:11:05,200 --> 00:11:11,120
+Okay, because you can see here the
+
+202
+00:11:07,279 --> 00:11:13,200
+stroke is repeated all over.
+
+203
+00:11:11,120 --> 00:11:15,839
+So that's why we are writing we want to
+
+204
+00:11:13,200 --> 00:11:18,320
+write uh oops we saved our original.
+
+205
+00:11:15,839 --> 00:11:21,279
+Okay, that's why we want to write our
+
+206
+00:11:18,320 --> 00:11:24,399
+own uh export to SVG. So let's get
+
+207
+00:11:21,279 --> 00:11:26,959
+started. So this is going to be uh you
+
+208
+00:11:24,399 --> 00:11:28,880
+know extremely technical
+
+209
+00:11:26,959 --> 00:11:33,120
+because
+
+210
+00:11:28,880 --> 00:11:36,959
+so most of you won't understand. Uh I'll
+
+211
+00:11:33,120 --> 00:11:38,959
+explain along the way but um but it's
+
+212
+00:11:36,959 --> 00:11:42,800
+going to be difficult because unless you
+
+213
+00:11:38,959 --> 00:11:45,040
+have programmed wam language for a year
+
+214
+00:11:42,800 --> 00:11:47,120
+the even the my explanation wouldn't
+
+215
+00:11:45,040 --> 00:11:50,240
+help much. So you're going to basically
+
+216
+00:11:47,120 --> 00:11:52,079
+just watch me code. Okay.
+
+217
+00:11:50,240 --> 00:11:55,040
+So that's the reason that's a whole
+
+218
+00:11:52,079 --> 00:11:58,640
+setup about why uh you want to write
+
+219
+00:11:55,040 --> 00:12:02,480
+export to SVG. So here is a sample code.
+
+220
+00:11:58,640 --> 00:12:04,320
+So let's put it back. Syntax code show
+
+221
+00:12:02,480 --> 00:12:07,600
+in browser. So that's what we talked
+
+222
+00:12:04,320 --> 00:12:09,920
+about uh code.
+
+223
+00:12:07,600 --> 00:12:12,240
+Uh
+
+224
+00:12:09,920 --> 00:12:16,079
+okay. So let me uh see the question.
+
+225
+00:12:12,240 --> 00:12:18,959
+Have you ever thought about creating uh
+
+226
+00:12:16,079 --> 00:12:21,440
+creating procedural geometric art for
+
+227
+00:12:18,959 --> 00:12:23,680
+sale? It seems that you are a huge lover
+
+228
+00:12:21,440 --> 00:12:27,600
+of such things according to your blog.
+
+229
+00:12:23,680 --> 00:12:30,480
+Yes. Uh for sale, you know, you're not
+
+230
+00:12:27,600 --> 00:12:32,000
+going to sell anything. Uh you know, the
+
+231
+00:12:30,480 --> 00:12:35,000
+artworks
+
+232
+00:12:32,000 --> 00:12:35,000
+especi
+
+233
+00:12:36,480 --> 00:12:41,760
+you you're going to not going to make
+
+234
+00:12:38,079 --> 00:12:45,040
+money unless you are one in a one in a
+
+235
+00:12:41,760 --> 00:12:47,680
+million or one in 100 million artists.
+
+236
+00:12:45,040 --> 00:12:51,680
+Then maybe you become extremely famous.
+
+237
+00:12:47,680 --> 00:12:54,680
+Then uh you know one in a million very
+
+238
+00:12:51,680 --> 00:12:54,680
+rare
+
+239
+00:12:56,800 --> 00:13:02,240
+especially if you are doing mathematical
+
+240
+00:12:58,880 --> 00:13:05,120
+art like you know the geometry
+
+241
+00:13:02,240 --> 00:13:07,920
+you know there's no money for it
+
+242
+00:13:05,120 --> 00:13:11,200
+uh so mostly I love this subject you
+
+243
+00:13:07,920 --> 00:13:13,680
+know visualization of geometry but this
+
+244
+00:13:11,200 --> 00:13:15,839
+is mostly for
+
+245
+00:13:13,680 --> 00:13:19,120
+you know for the beauty of it and also
+
+246
+00:13:15,839 --> 00:13:22,560
+for like uh illustration for mathematics
+
+247
+00:13:19,120 --> 00:13:25,440
+and educational purposes.
+
+248
+00:13:22,560 --> 00:13:28,560
+Now uh let's digress a little bit. If
+
+249
+00:13:25,440 --> 00:13:32,880
+you don't know, of course there's MC
+
+250
+00:13:28,560 --> 00:13:35,600
+Cher, one of the most famous uh
+
+251
+00:13:32,880 --> 00:13:39,600
+for creating mathematical art. So for
+
+252
+00:13:35,600 --> 00:13:41,680
+example, that's Assher's work. Uh of
+
+253
+00:13:39,600 --> 00:13:45,279
+course, he's not rich, you know, he's
+
+254
+00:13:41,680 --> 00:13:48,399
+pretty poor. He became famous like I
+
+255
+00:13:45,279 --> 00:13:51,920
+think after he died he became more more
+
+256
+00:13:48,399 --> 00:13:55,279
+and more famous. So anyway or his most
+
+257
+00:13:51,920 --> 00:13:58,480
+vast m you know most of his works is
+
+258
+00:13:55,279 --> 00:14:02,079
+math oriented. For example this one one
+
+259
+00:13:58,480 --> 00:14:05,199
+of my favorite this one shows the um
+
+260
+00:14:02,079 --> 00:14:07,360
+perspective okay perspectivity. So you
+
+261
+00:14:05,199 --> 00:14:09,839
+distill. So for example this one
+
+262
+00:14:07,360 --> 00:14:12,720
+beautiful you you distill the
+
+263
+00:14:09,839 --> 00:14:16,079
+mathematical aspect of it. Then you what
+
+264
+00:14:12,720 --> 00:14:18,480
+you get is this. Okay. And you can
+
+265
+00:14:16,079 --> 00:14:21,120
+distill this further by just showing you
+
+266
+00:14:18,480 --> 00:14:23,680
+know this is already pretty much
+
+267
+00:14:21,120 --> 00:14:26,160
+distilled. So because you only see lines
+
+268
+00:14:23,680 --> 00:14:30,160
+and square you going you only see lines.
+
+269
+00:14:26,160 --> 00:14:33,120
+So that you you see this this image is
+
+270
+00:14:30,160 --> 00:14:36,000
+the essence of the mathematical essence
+
+271
+00:14:33,120 --> 00:14:38,959
+of this. But this one is more attractive
+
+272
+00:14:36,000 --> 00:14:41,839
+to in uh you know to average person
+
+273
+00:14:38,959 --> 00:14:45,519
+because it got this you know fantastic
+
+274
+00:14:41,839 --> 00:14:47,760
+creatures but the the mathematical
+
+275
+00:14:45,519 --> 00:14:49,680
+essence is like this and you can
+
+276
+00:14:47,760 --> 00:14:51,920
+generate this you know so it's very you
+
+277
+00:14:49,680 --> 00:14:56,480
+know so I'm very interested in this you
+
+278
+00:14:51,920 --> 00:14:58,800
+can generate this uh using wuam language
+
+279
+00:14:56,480 --> 00:15:01,199
+okay so I've done you know I've done
+
+280
+00:14:58,800 --> 00:15:03,519
+quite you know quite a lot related
+
+281
+00:15:01,199 --> 00:15:06,880
+things like that okay so here here is
+
+282
+00:15:03,519 --> 00:15:09,120
+Another Asia's artwork. Uh this one is
+
+283
+00:15:06,880 --> 00:15:11,600
+named Chameleon. I think you know again
+
+284
+00:15:09,120 --> 00:15:14,959
+it's mathematical because this shows the
+
+285
+00:15:11,600 --> 00:15:18,959
+regular uh this is called uniform
+
+286
+00:15:14,959 --> 00:15:21,760
+polyhedra I believe
+
+287
+00:15:18,959 --> 00:15:25,040
+and then someone build it in second life
+
+288
+00:15:21,760 --> 00:15:28,560
+which is like a virtual reality you know
+
+289
+00:15:25,040 --> 00:15:30,720
+a friend. Um, so this is in Second Life
+
+290
+00:15:28,560 --> 00:15:32,880
+in in in three-dimensional. So you can
+
+291
+00:15:30,720 --> 00:15:35,279
+walk around you can you can you know in
+
+292
+00:15:32,880 --> 00:15:37,440
+Second Life you can walk around as a fly
+
+293
+00:15:35,279 --> 00:15:41,040
+like you can so you can view the whole
+
+294
+00:15:37,440 --> 00:15:44,880
+thing like you are inside the building
+
+295
+00:15:41,040 --> 00:15:46,639
+and she uh you know she also build other
+
+296
+00:15:44,880 --> 00:15:51,920
+things you know it's on YouTube you can
+
+297
+00:15:46,639 --> 00:15:55,920
+watch uh you know just search for
+
+298
+00:15:51,920 --> 00:16:00,480
+math blog on.info info you'll find this.
+
+299
+00:15:55,920 --> 00:16:03,920
+Okay. So I you know so I'm into this um
+
+300
+00:16:00,480 --> 00:16:06,000
+so that's Asher and uh that's another
+
+301
+00:16:03,920 --> 00:16:08,720
+asshure and that's another Asure. Okay.
+
+302
+00:16:06,000 --> 00:16:11,120
+So
+
+303
+00:16:08,720 --> 00:16:14,399
+so yeah so what I'm so yeah so let's get
+
+304
+00:16:11,120 --> 00:16:16,800
+back to this uh yeah let's get back to
+
+305
+00:16:14,399 --> 00:16:18,560
+this expo. So this is going to be very
+
+306
+00:16:16,800 --> 00:16:21,440
+boring. You you are not going to see
+
+307
+00:16:18,560 --> 00:16:27,040
+graphics because this is um that's what
+
+308
+00:16:21,440 --> 00:16:30,000
+I need to do. um today. Okay. So, close
+
+309
+00:16:27,040 --> 00:16:32,240
+that. So, today's talk show. So, what's
+
+310
+00:16:30,000 --> 00:16:35,519
+the next thing? So, you uh yeah, so
+
+311
+00:16:32,240 --> 00:16:38,560
+let's begin to write it. Okay.
+
+312
+00:16:35,519 --> 00:16:40,320
+Uh let's begin
+
+313
+00:16:38,560 --> 00:16:44,240
+from language.
+
+314
+00:16:40,320 --> 00:16:48,160
+Okay. So, are we are we like ready?
+
+315
+00:16:44,240 --> 00:16:52,560
+Yeah. Good. Okay. So
+
+316
+00:16:48,160 --> 00:16:54,800
+write a command to ex let's document
+
+317
+00:16:52,560 --> 00:16:59,680
+first export
+
+318
+00:16:54,800 --> 00:17:06,000
+2D graphics to SVG.
+
+319
+00:16:59,680 --> 00:17:09,000
+We want to do this because the the build
+
+320
+00:17:06,000 --> 00:17:09,000
+in
+
+321
+00:17:09,280 --> 00:17:13,439
+export
+
+322
+00:17:11,679 --> 00:17:15,280
+function
+
+323
+00:17:13,439 --> 00:17:17,760
+creates
+
+324
+00:17:15,280 --> 00:17:22,319
+huge file
+
+325
+00:17:17,760 --> 00:17:26,559
+size. Okay. Okay. Let's begin. So the
+
+326
+00:17:22,319 --> 00:17:30,720
+most most simple one is let's um so
+
+327
+00:17:26,559 --> 00:17:34,799
+let's do a circle
+
+328
+00:17:30,720 --> 00:17:37,360
+circle centered on 0 0 and radius one.
+
+329
+00:17:34,799 --> 00:17:41,799
+Okay, that's a graphics. And to show
+
+330
+00:17:37,360 --> 00:17:41,799
+that graphics, you just say,
+
+331
+00:17:41,919 --> 00:17:50,960
+you just say graphics and that. Okay.
+
+332
+00:17:47,120 --> 00:17:54,160
+Uh uh let's wait.
+
+333
+00:17:50,960 --> 00:17:57,120
+Let's say prim equals to prim stand for
+
+334
+00:17:54,160 --> 00:18:01,679
+graphics primitive. Okay. And then
+
+335
+00:17:57,120 --> 00:18:04,240
+graphics uh prim. Okay. Then option
+
+336
+00:18:01,679 --> 00:18:09,760
+axis.
+
+337
+00:18:04,240 --> 00:18:12,320
+Okay. So you can see if we
+
+338
+00:18:09,760 --> 00:18:16,320
+copy that
+
+339
+00:18:12,320 --> 00:18:19,440
+paste there. Oh, you got an extra comma.
+
+340
+00:18:16,320 --> 00:18:21,919
+Remove it. Shift enter to run it. So you
+
+341
+00:18:19,440 --> 00:18:25,919
+can see we got a circle. Now we can
+
+342
+00:18:21,919 --> 00:18:29,120
+export this. So So we start to write a
+
+343
+00:18:25,919 --> 00:18:32,960
+function. So let let me uh so export uh
+
+344
+00:18:29,120 --> 00:18:38,840
+let me show you. Okay. So export
+
+345
+00:18:32,960 --> 00:18:38,840
+if you export copy that. So
+
+346
+00:18:41,200 --> 00:18:47,360
+xx circle
+
+347
+00:18:43,520 --> 00:18:51,240
+SVG. Okay. We can run this in here.
+
+348
+00:18:47,360 --> 00:18:51,240
+Okay. Run it.
+
+349
+00:18:53,280 --> 00:19:00,799
+Is it done? Uh yes, I think so. Go to
+
+350
+00:18:56,720 --> 00:19:04,160
+the directory. Search for xx. Search for
+
+351
+00:19:00,799 --> 00:19:06,320
+circle. Uh, refresh. Search for search
+
+352
+00:19:04,160 --> 00:19:09,360
+for
+
+353
+00:19:06,320 --> 00:19:12,000
+Okay, not here. So, where did it go? Oh,
+
+354
+00:19:09,360 --> 00:19:14,880
+it's not done yet. No, it's done.
+
+355
+00:19:12,000 --> 00:19:20,240
+Refresh. There. Okay. So, you open this
+
+356
+00:19:14,880 --> 00:19:25,760
+file. Then you uh
+
+357
+00:19:20,240 --> 00:19:28,400
+switch to XML mode. So you can see
+
+358
+00:19:25,760 --> 00:19:31,360
+you know it generates this hugely
+
+359
+00:19:28,400 --> 00:19:33,840
+whenever you have a circle it generates
+
+360
+00:19:31,360 --> 00:19:36,720
+a very inefficient
+
+361
+00:19:33,840 --> 00:19:40,080
+SVG representation because you know it's
+
+362
+00:19:36,720 --> 00:19:42,240
+trying to represent the circle by path
+
+363
+00:19:40,080 --> 00:19:45,679
+so the whole file you know just one
+
+364
+00:19:42,240 --> 00:19:48,559
+single weight actually what you know our
+
+365
+00:19:45,679 --> 00:19:50,799
+circle actually also contain the axis so
+
+366
+00:19:48,559 --> 00:19:54,160
+that makes it more complex but but
+
+367
+00:19:50,799 --> 00:19:56,640
+however the circle itself self is
+
+368
+00:19:54,160 --> 00:20:00,640
+represented by
+
+369
+00:19:56,640 --> 00:20:04,160
+path you you know so it's so the file
+
+370
+00:20:00,640 --> 00:20:08,080
+size is 15 kilobytes very inefficient a
+
+371
+00:20:04,160 --> 00:20:11,440
+circle could be simply just a SVG circle
+
+372
+00:20:08,080 --> 00:20:14,240
+tag okay so for example let's go back to
+
+373
+00:20:11,440 --> 00:20:17,679
+SVG basics
+
+374
+00:20:14,240 --> 00:20:20,080
+and you can see a circle is just that
+
+375
+00:20:17,679 --> 00:20:22,960
+okay
+
+376
+00:20:20,080 --> 00:20:26,000
+let's try again so close And so this
+
+377
+00:20:22,960 --> 00:20:30,640
+time let's not include the axis just
+
+378
+00:20:26,000 --> 00:20:33,520
+circle. Okay. So run it.
+
+379
+00:20:30,640 --> 00:20:37,679
+Okay. Done. Now go to the directory.
+
+380
+00:20:33,520 --> 00:20:40,720
+Refresh. Search for circle. There. Now
+
+381
+00:20:37,679 --> 00:20:46,000
+you see now it's 869
+
+382
+00:20:40,720 --> 00:20:52,000
+bytes. Open it. Circle. Perfect. Now
+
+383
+00:20:46,000 --> 00:20:56,400
+switch to X8 uh XML mode.
+
+384
+00:20:52,000 --> 00:20:58,400
+uh XML. Okay. Now this one single long
+
+385
+00:20:56,400 --> 00:21:01,200
+line. Now
+
+386
+00:20:58,400 --> 00:21:03,919
+now make it
+
+387
+00:21:01,200 --> 00:21:08,559
+separate. Okay. So you can see it
+
+388
+00:21:03,919 --> 00:21:11,200
+represent a circle by using a path.
+
+389
+00:21:08,559 --> 00:21:15,200
+So instead of a single circle like that
+
+390
+00:21:11,200 --> 00:21:18,799
+you know just 50 characters it represent
+
+391
+00:21:15,200 --> 00:21:20,880
+a circle by a path. So you get this huge
+
+392
+00:21:18,799 --> 00:21:26,799
+you know bunch of numbers you know those
+
+393
+00:21:20,880 --> 00:21:29,840
+C the C stand for those are cubic uh
+
+394
+00:21:26,799 --> 00:21:32,640
+uh cubic uh what's what they call cubic
+
+395
+00:21:29,840 --> 00:21:35,840
+um uh let me show you okay so path
+
+396
+00:21:32,640 --> 00:21:40,240
+basics so you go path then you can go
+
+397
+00:21:35,840 --> 00:21:44,720
+down those are uh cubic
+
+398
+00:21:40,240 --> 00:21:47,919
+um what's the name basia curve okay so
+
+399
+00:21:44,720 --> 00:21:49,840
+it represent a circle by using a cubic
+
+400
+00:21:47,919 --> 00:21:53,120
+basio curve which is kind of
+
+401
+00:21:49,840 --> 00:21:56,000
+approximating a circle. So it's not it's
+
+402
+00:21:53,120 --> 00:22:00,159
+not very good. First of all, it bloats
+
+403
+00:21:56,000 --> 00:22:02,720
+up the file size. Then it's not actually
+
+404
+00:22:00,159 --> 00:22:05,200
+100% accurate because it's like
+
+405
+00:22:02,720 --> 00:22:08,960
+approximating a circle. So I don't like
+
+406
+00:22:05,200 --> 00:22:12,240
+this. But I was told by someone that in
+
+407
+00:22:08,960 --> 00:22:15,039
+industry actually all circles
+
+408
+00:22:12,240 --> 00:22:18,559
+in in the end are represented by a lot
+
+409
+00:22:15,039 --> 00:22:21,440
+of it is represented just by uh basia
+
+410
+00:22:18,559 --> 00:22:23,520
+curve I heard
+
+411
+00:22:21,440 --> 00:22:27,360
+but
+
+412
+00:22:23,520 --> 00:22:30,640
+anyway so I want to so I want to ex I
+
+413
+00:22:27,360 --> 00:22:32,400
+want to write a function so it export uh
+
+414
+00:22:30,640 --> 00:22:35,400
+something like this. Okay, let me show
+
+415
+00:22:32,400 --> 00:22:35,400
+you.
+
+416
+00:22:39,440 --> 00:22:47,720
+So, here is our circle. So, let's copy
+
+417
+00:22:42,320 --> 00:22:47,720
+that. So, I want to write a
+
+418
+00:22:48,080 --> 00:22:55,440
+um a function that export just
+
+419
+00:22:52,799 --> 00:22:59,960
+just this this single line instead of
+
+420
+00:22:55,440 --> 00:22:59,960
+these a bunch of things. Okay.
+
+421
+00:23:01,280 --> 00:23:06,559
+Okay. So, let's delete that. Save it.
+
+422
+00:23:04,480 --> 00:23:10,159
+Close. Okay. So, let's go back to the
+
+423
+00:23:06,559 --> 00:23:11,919
+code. So, let's start to write it.
+
+424
+00:23:10,159 --> 00:23:15,520
+Uh,
+
+425
+00:23:11,919 --> 00:23:17,280
+you will not be easy. So, hi Karan. I
+
+426
+00:23:15,520 --> 00:23:19,280
+hope you are having a good day. Yeah,
+
+427
+00:23:17,280 --> 00:23:23,080
+thank you.
+
+428
+00:23:19,280 --> 00:23:23,080
+Um, okay.
+
+429
+00:23:28,000 --> 00:23:32,440
+Uh what's the name? Uh
+
+430
+00:23:44,240 --> 00:23:53,120
+let's just say export graphics. Okay, so
+
+431
+00:23:48,400 --> 00:23:56,000
+you want to define a function. So,
+
+432
+00:23:53,120 --> 00:23:58,080
+so what is a function uh inline
+
+433
+00:23:56,000 --> 00:24:02,640
+documentation?
+
+434
+00:23:58,080 --> 00:24:07,039
+Uh so this is how you define inline
+
+435
+00:24:02,640 --> 00:24:10,000
+documentation in wam language. Okay. And
+
+436
+00:24:07,039 --> 00:24:13,440
+so first of all we need to uh design
+
+437
+00:24:10,000 --> 00:24:16,799
+this function. What is the argument?
+
+438
+00:24:13,440 --> 00:24:20,240
+So this will be graphics.
+
+439
+00:24:16,799 --> 00:24:22,880
+We uh okay. So take a graphics and uh
+
+440
+00:24:20,240 --> 00:24:24,960
+name
+
+441
+00:24:22,880 --> 00:24:26,640
+export
+
+442
+00:24:24,960 --> 00:24:31,440
+graphics
+
+443
+00:24:26,640 --> 00:24:37,360
+object G to a file
+
+444
+00:24:31,440 --> 00:24:41,679
+named name. Okay. Uh
+
+445
+00:24:37,360 --> 00:24:44,679
+in SVG format. Okay.
+
+446
+00:24:41,679 --> 00:24:44,679
+G
+
+447
+00:24:44,799 --> 00:24:49,159
+G is a
+
+448
+00:24:51,039 --> 00:24:54,640
+graphics
+
+449
+00:24:53,039 --> 00:24:58,720
+object.
+
+450
+00:24:54,640 --> 00:25:04,039
+Okay. And uh yeah something like that
+
+451
+00:24:58,720 --> 00:25:04,039
+name name is a string
+
+452
+00:25:06,320 --> 00:25:12,559
+in current.
+
+453
+00:25:08,320 --> 00:25:15,039
+Okay. So that is a uh usage inline
+
+454
+00:25:12,559 --> 00:25:17,600
+documentation.
+
+455
+00:25:15,039 --> 00:25:20,600
+Okay. Now let's write the function. Uh
+
+456
+00:25:17,600 --> 00:25:20,600
+yeah.
+
+457
+00:25:23,600 --> 00:25:28,240
+Okay. So how do you so it takes two
+
+458
+00:25:26,400 --> 00:25:32,240
+arguments. So we're going to use a
+
+459
+00:25:28,240 --> 00:25:34,480
+pattern matching. Uh so there two
+
+460
+00:25:32,240 --> 00:25:39,080
+argument. The first argument, the first
+
+461
+00:25:34,480 --> 00:25:39,080
+thing is a uh
+
+462
+00:25:39,919 --> 00:25:48,080
+graphics. Okay. So what this means it's
+
+463
+00:25:44,320 --> 00:25:51,120
+taking any argument whose head is
+
+464
+00:25:48,080 --> 00:25:53,279
+graphics then it will match. This is uh
+
+465
+00:25:51,120 --> 00:25:57,200
+doing a pattern matching. The second
+
+466
+00:25:53,279 --> 00:26:00,720
+argument must be a string. So file name.
+
+467
+00:25:57,200 --> 00:26:04,000
+Let's just say file name. Okay. uh that
+
+468
+00:26:00,720 --> 00:26:07,039
+means this means anything match anything
+
+469
+00:26:04,000 --> 00:26:08,799
+and name whatever match was file name.
+
+470
+00:26:07,039 --> 00:26:11,840
+Okay.
+
+471
+00:26:08,799 --> 00:26:15,039
+So that so
+
+472
+00:26:11,840 --> 00:26:17,360
+it will um
+
+473
+00:26:15,039 --> 00:26:19,360
+well first of all before we write this
+
+474
+00:26:17,360 --> 00:26:22,880
+it will be nice to output through string
+
+475
+00:26:19,360 --> 00:26:27,720
+okay so so write a function that output
+
+476
+00:26:22,880 --> 00:26:27,720
+to string okay that's the first thing
+
+477
+00:26:28,240 --> 00:26:32,799
+write a function that just return a
+
+478
+00:26:30,159 --> 00:26:36,080
+string then you can later on add a
+
+479
+00:26:32,799 --> 00:26:42,679
+wrapper to export to write write the
+
+480
+00:26:36,080 --> 00:26:42,679
+string to file okay So let's just um
+
+481
+00:26:46,559 --> 00:26:51,440
+yeah let's not let's quickly let's do
+
+482
+00:26:49,360 --> 00:26:53,440
+this. So it it needs to output to
+
+483
+00:26:51,440 --> 00:26:57,200
+string. Okay. So something like that
+
+484
+00:26:53,440 --> 00:27:00,159
+something um
+
+485
+00:26:57,200 --> 00:27:03,600
+oh god we need to go faster. So this is
+
+486
+00:27:00,159 --> 00:27:07,279
+going to be a long video I think but no
+
+487
+00:27:03,600 --> 00:27:09,120
+more than I hope no more
+
+488
+00:27:07,279 --> 00:27:12,799
+you know to complete this it'll take
+
+489
+00:27:09,120 --> 00:27:15,360
+more than three hours four five
+
+490
+00:27:12,799 --> 00:27:18,000
+because there's lots of graphics stuff
+
+491
+00:27:15,360 --> 00:27:21,919
+going on you know lots of and coloring
+
+492
+00:27:18,000 --> 00:27:24,400
+and styles but to create a simple
+
+493
+00:27:21,919 --> 00:27:28,240
+version to just to demonstrate it this
+
+494
+00:27:24,400 --> 00:27:30,880
+works it'll take like an hour or two.
+
+495
+00:27:28,240 --> 00:27:33,200
+Okay. But but I think we're going to
+
+496
+00:27:30,880 --> 00:27:35,120
+just go do for for an hour or 90
+
+497
+00:27:33,200 --> 00:27:38,080
+minutes, then I'm going to stop. Then
+
+498
+00:27:35,120 --> 00:27:40,880
+I'm going to code offline.
+
+499
+00:27:38,080 --> 00:27:44,960
+Okay. So, back to this. So, so it needs
+
+500
+00:27:40,880 --> 00:27:46,880
+to return a string. Okay. So, uh uh uh
+
+501
+00:27:44,960 --> 00:27:48,720
+graphics to string. So, let's rename
+
+502
+00:27:46,880 --> 00:27:52,480
+this. Okay. Let's just go all the way.
+
+503
+00:27:48,720 --> 00:27:54,720
+Okay. Graphics to strings. Uh string. I
+
+504
+00:27:52,480 --> 00:27:58,559
+mean, let's just
+
+505
+00:27:54,720 --> 00:28:03,559
+make this all the way. uh
+
+506
+00:27:58,559 --> 00:28:03,559
+you know go through the whole coding
+
+507
+00:28:06,080 --> 00:28:15,559
+return a string that is a SVG format
+
+508
+00:28:12,559 --> 00:28:15,559
+representing
+
+509
+00:28:16,559 --> 00:28:19,559
+G
+
+510
+00:28:20,240 --> 00:28:24,480
+representing
+
+511
+00:28:21,760 --> 00:28:27,039
+graphics object G. Okay, that's that's
+
+512
+00:28:24,480 --> 00:28:31,200
+that's
+
+513
+00:28:27,039 --> 00:28:35,200
+the uh yeah. Okay, so now let's write
+
+514
+00:28:31,200 --> 00:28:36,960
+that graphics to string. Okay, now you
+
+515
+00:28:35,200 --> 00:28:39,840
+don't now you don't need file name.
+
+516
+00:28:36,960 --> 00:28:44,679
+Worry about that later. Okay, now return
+
+517
+00:28:39,840 --> 00:28:44,679
+uh string. That's it. We done.
+
+518
+00:28:44,720 --> 00:28:51,600
+Okay. So the first thing you have to
+
+519
+00:28:46,480 --> 00:28:55,600
+worry about is what are the SVG um like
+
+520
+00:28:51,600 --> 00:28:58,159
+the the headers you know. So
+
+521
+00:28:55,600 --> 00:29:01,360
+so this will work actually that may not
+
+522
+00:28:58,159 --> 00:29:06,240
+be valid you know.
+
+523
+00:29:01,360 --> 00:29:11,279
+So for example uh some escape quotes.
+
+524
+00:29:06,240 --> 00:29:16,000
+Okay. So this so if you have a SVG as a
+
+525
+00:29:11,279 --> 00:29:18,799
+file let's look at uh this okay so you
+
+526
+00:29:16,000 --> 00:29:20,880
+need this uh I think you need both of
+
+527
+00:29:18,799 --> 00:29:26,039
+them
+
+528
+00:29:20,880 --> 00:29:26,039
+okay so let's copy that close close
+
+529
+00:29:26,159 --> 00:29:33,440
+okay uh escape quotes
+
+530
+00:29:30,480 --> 00:29:37,760
+escape quote okay so you need the SVG
+
+531
+00:29:33,440 --> 00:29:42,159
+XML header Then
+
+532
+00:29:37,760 --> 00:29:44,399
+then uh god. So open that again.
+
+533
+00:29:42,159 --> 00:29:46,559
+Then you need to close it. Yes, of
+
+534
+00:29:44,399 --> 00:29:48,480
+course. Close. Close. And then you need
+
+535
+00:29:46,559 --> 00:29:53,440
+to
+
+536
+00:29:48,480 --> 00:29:57,799
+Yeah. Okay. So no. So XML header then
+
+537
+00:29:53,440 --> 00:29:57,799
+SVG something something something
+
+538
+00:30:00,159 --> 00:30:05,120
+then okay the view box those are
+
+539
+00:30:03,360 --> 00:30:08,600
+complicated.
+
+540
+00:30:05,120 --> 00:30:08,600
+Uh god.
+
+541
+00:30:11,360 --> 00:30:16,159
+So width, height, height. What how
+
+542
+00:30:13,919 --> 00:30:19,279
+should it be? So let's see what's the
+
+543
+00:30:16,159 --> 00:30:22,159
+default width and height. You want the
+
+544
+00:30:19,279 --> 00:30:24,159
+export. So you know
+
+545
+00:30:22,159 --> 00:30:26,240
+actually writing this is fairly
+
+546
+00:30:24,159 --> 00:30:28,880
+complicated because it gets fairly
+
+547
+00:30:26,240 --> 00:30:31,120
+involved. So what's the default width
+
+548
+00:30:28,880 --> 00:30:35,039
+and height?
+
+549
+00:30:31,120 --> 00:30:39,600
+Uh what should it be? So 1,000 pixels by
+
+550
+00:30:35,039 --> 00:30:42,399
+1,000 pixels. Let's say,
+
+551
+00:30:39,600 --> 00:30:45,120
+oh god, this is going to be complicated.
+
+552
+00:30:42,399 --> 00:30:49,840
+So
+
+553
+00:30:45,120 --> 00:30:55,440
+100. Okay. I mean, let's say 1,00. Okay.
+
+554
+00:30:49,840 --> 00:30:58,399
+So, and uh Okay. So then viewbox is the
+
+555
+00:30:55,440 --> 00:31:01,440
+coordinate customized coordinate. In
+
+556
+00:30:58,399 --> 00:31:04,640
+this case, the same. Okay. Then SVG
+
+557
+00:31:01,440 --> 00:31:10,200
+version. Well,
+
+558
+00:31:04,640 --> 00:31:10,200
+okay. I don't know. So, okay. So,
+
+559
+00:31:11,520 --> 00:31:18,320
+so right now this function is just
+
+560
+00:31:14,320 --> 00:31:20,240
+return a static string. Okay. It haven't
+
+561
+00:31:18,320 --> 00:31:26,600
+done anything with the argument yet.
+
+562
+00:31:20,240 --> 00:31:26,600
+Okay. But it works. So, let's try it.
+
+563
+00:31:28,000 --> 00:31:33,360
+Clear just to make sure. So clear the
+
+564
+00:31:31,440 --> 00:31:36,559
+function then define the inline
+
+565
+00:31:33,360 --> 00:31:39,600
+documentation then the function okay and
+
+566
+00:31:36,559 --> 00:31:42,399
+this part this part let's just say that
+
+567
+00:31:39,600 --> 00:31:46,000
+okay so
+
+568
+00:31:42,399 --> 00:31:48,799
+so let's
+
+569
+00:31:46,000 --> 00:31:52,640
+copy that
+
+570
+00:31:48,799 --> 00:31:57,640
+paste all paste run the whole thing
+
+571
+00:31:52,640 --> 00:31:57,640
+then let's just say uh
+
+572
+00:31:58,320 --> 00:32:02,320
+let's say graphics to string string.
+
+573
+00:32:00,399 --> 00:32:05,760
+Okay,
+
+574
+00:32:02,320 --> 00:32:08,480
+call it graphics to string.
+
+575
+00:32:05,760 --> 00:32:12,399
+And what is your graphics? The graphics
+
+576
+00:32:08,480 --> 00:32:14,960
+is going to be let's just say that.
+
+577
+00:32:12,399 --> 00:32:18,880
+Okay, paste it.
+
+578
+00:32:14,960 --> 00:32:22,000
+Shift shift return. Fantastic. So, it
+
+579
+00:32:18,880 --> 00:32:23,840
+just run it return the string. Okay,
+
+580
+00:32:22,000 --> 00:32:27,840
+later on we're going to save the string
+
+581
+00:32:23,840 --> 00:32:30,559
+to a file, right? To file. Okay. But now
+
+582
+00:32:27,840 --> 00:32:33,519
+we need to actually do something with
+
+583
+00:32:30,559 --> 00:32:37,600
+it. You know the input.
+
+584
+00:32:33,519 --> 00:32:40,880
+So how do you turn a So you so you have
+
+585
+00:32:37,600 --> 00:32:44,240
+this something like this circle. Oh god
+
+586
+00:32:40,880 --> 00:32:46,880
+this is going to be very complicated. So
+
+587
+00:32:44,240 --> 00:32:50,760
+example. Okay.
+
+588
+00:32:46,880 --> 00:32:50,760
+So when you have something
+
+589
+00:32:51,200 --> 00:32:57,799
+like that, a circle, you want to turn it
+
+590
+00:32:54,080 --> 00:32:57,799
+into a
+
+591
+00:32:58,240 --> 00:33:02,679
+you want to turn it into
+
+592
+00:33:04,480 --> 00:33:12,559
+this. Okay. So in this case will be 0 0.
+
+593
+00:33:09,279 --> 00:33:15,600
+Oh god. No.
+
+594
+00:33:12,559 --> 00:33:17,840
+So this cx and c y they are the
+
+595
+00:33:15,600 --> 00:33:20,880
+coordinates. So in this case it's
+
+596
+00:33:17,840 --> 00:33:24,240
+arranging 0 0
+
+597
+00:33:20,880 --> 00:33:27,279
+but here you cannot be 0 0. So you know
+
+598
+00:33:24,240 --> 00:33:31,440
+this represent the circle but here you
+
+599
+00:33:27,279 --> 00:33:33,840
+you can't be 0 0 because 0 0 in the SVG
+
+600
+00:33:31,440 --> 00:33:36,559
+coordinate they are on the upper left
+
+601
+00:33:33,840 --> 00:33:40,240
+corner.
+
+602
+00:33:36,559 --> 00:33:44,240
+Oh god this is going to be a lot
+
+603
+00:33:40,240 --> 00:33:46,240
+more work than I expected.
+
+604
+00:33:44,240 --> 00:33:50,240
+Yeah. To write this it's going to be
+
+605
+00:33:46,240 --> 00:33:52,559
+take you know
+
+606
+00:33:50,240 --> 00:33:56,399
+you imagine it'll take two hours but
+
+607
+00:33:52,559 --> 00:34:00,080
+it's more likely is few days
+
+608
+00:33:56,399 --> 00:34:04,240
+30 hours to make it everything.
+
+609
+00:34:00,080 --> 00:34:06,240
+Uh so anyway so here is a coordinate you
+
+610
+00:34:04,240 --> 00:34:11,280
+want to turn that into a string like
+
+611
+00:34:06,240 --> 00:34:16,919
+that and radius one. Okay. But
+
+612
+00:34:11,280 --> 00:34:16,919
+but you got so but um
+
+613
+00:34:17,119 --> 00:34:23,480
+Oh god. To figure out the whole
+
+614
+00:34:19,119 --> 00:34:23,480
+coordinate is very complicated.
+
+615
+00:34:23,520 --> 00:34:26,839
+Oh
+
+616
+00:34:30,560 --> 00:34:38,359
+Yes, it is. Oh god. I think maybe I'll
+
+617
+00:34:34,480 --> 00:34:38,359
+abandon the project.
+
+618
+00:34:43,919 --> 00:34:49,000
+Sherry says, "Thank you." What?
+
+619
+00:34:52,079 --> 00:34:58,079
+Okay. So, this is this is difficult
+
+620
+00:34:55,520 --> 00:35:00,880
+because
+
+621
+00:34:58,079 --> 00:35:04,400
+so you got a single circle at this
+
+622
+00:35:00,880 --> 00:35:07,200
+coordinate 0 0, right?
+
+623
+00:35:04,400 --> 00:35:11,440
+But in real life you know your graphics
+
+624
+00:35:07,200 --> 00:35:14,400
+is likely to have hundreds or thousands
+
+625
+00:35:11,440 --> 00:35:17,839
+of circles and lines. So you have
+
+626
+00:35:14,400 --> 00:35:20,079
+literally few thousand coordinates. Okay
+
+627
+00:35:17,839 --> 00:35:23,079
+you have you have you have few thousand
+
+628
+00:35:20,079 --> 00:35:23,079
+coordinates.
+
+629
+00:35:23,359 --> 00:35:27,680
+So one of the thing you need to do is
+
+630
+00:35:25,680 --> 00:35:31,200
+when you have a graphics you need to
+
+631
+00:35:27,680 --> 00:35:33,760
+know what's the uh boundary like outer
+
+632
+00:35:31,200 --> 00:35:36,079
+bound the maximum x coordinate the
+
+633
+00:35:33,760 --> 00:35:39,920
+minimum x coordinate
+
+634
+00:35:36,079 --> 00:35:42,720
+and the maximum y and minimum y so that
+
+635
+00:35:39,920 --> 00:35:47,599
+you know how many pixels they are in
+
+636
+00:35:42,720 --> 00:35:49,920
+total width and height. Okay that's the
+
+637
+00:35:47,599 --> 00:35:52,160
+that's the first thing you need to know.
+
+638
+00:35:49,920 --> 00:35:55,040
+So,
+
+639
+00:35:52,160 --> 00:35:58,960
+so for example, graphics may be you know
+
+640
+00:35:55,040 --> 00:36:01,119
+many other circles or uh line uh you
+
+641
+00:35:58,960 --> 00:36:06,960
+know line is represented like that for
+
+642
+00:36:01,119 --> 00:36:10,359
+example 0 0 to uh let's say one two okay
+
+643
+00:36:06,960 --> 00:36:10,359
+and actually
+
+644
+00:36:10,720 --> 00:36:17,359
+uh wait
+
+645
+00:36:13,680 --> 00:36:20,320
+so that represent the line okay so in in
+
+646
+00:36:17,359 --> 00:36:23,040
+real life you might have you know
+
+647
+00:36:20,320 --> 00:36:25,440
+thousands of circles and lines in order
+
+648
+00:36:23,040 --> 00:36:32,440
+with different positions.
+
+649
+00:36:25,440 --> 00:36:32,440
+So what so so the whole thing cut
+
+650
+00:36:38,640 --> 00:36:44,640
+so this you know this this may be a real
+
+651
+00:36:42,240 --> 00:36:47,280
+life input.
+
+652
+00:36:44,640 --> 00:36:50,800
+So you so you need to find the boundary
+
+653
+00:36:47,280 --> 00:36:55,920
+maximum minimum. Okay. So
+
+654
+00:36:50,800 --> 00:36:58,320
+yeah that to code that is um
+
+655
+00:36:55,920 --> 00:37:02,480
+there might be a building function to to
+
+656
+00:36:58,320 --> 00:37:06,079
+get that uh that's so that's one thing.
+
+657
+00:37:02,480 --> 00:37:09,200
+So once you know the maximum the
+
+658
+00:37:06,079 --> 00:37:13,520
+boundary the maximum and minimum X and
+
+659
+00:37:09,200 --> 00:37:18,320
+also for Y then you need to
+
+660
+00:37:13,520 --> 00:37:22,560
+scale that to within your SVG
+
+661
+00:37:18,320 --> 00:37:27,920
+width and height output. So your your
+
+662
+00:37:22,560 --> 00:37:31,520
+SVG paper is 1,000 by 1,000 pixels,
+
+663
+00:37:27,920 --> 00:37:34,560
+but you need the internal coordinate to
+
+664
+00:37:31,520 --> 00:37:36,320
+to scale whatever is your max to this
+
+665
+00:37:34,560 --> 00:37:40,640
+1,00.
+
+666
+00:37:36,320 --> 00:37:42,640
+So this part view box is your is your
+
+667
+00:37:40,640 --> 00:37:45,359
+custom coordinates. So you need to scale
+
+668
+00:37:42,640 --> 00:37:47,760
+it there.
+
+669
+00:37:45,359 --> 00:37:52,040
+Then you also need to translate because
+
+670
+00:37:47,760 --> 00:37:52,040
+because the Wufam language
+
+671
+00:37:54,640 --> 00:38:00,560
+you see the coordinate
+
+672
+00:37:58,160 --> 00:38:03,040
+you know the the the middle is you know
+
+673
+00:38:00,560 --> 00:38:07,040
+the it's math coordinate the middle is 0
+
+674
+00:38:03,040 --> 00:38:11,839
+0 but in the SVG
+
+675
+00:38:07,040 --> 00:38:14,240
+0 is at upper left corner so then you
+
+676
+00:38:11,839 --> 00:38:18,079
+need to translate so for example let me
+
+677
+00:38:14,240 --> 00:38:21,359
+just mark mark right here. Okay. So,
+
+678
+00:38:18,079 --> 00:38:25,359
+this will need to time a scale
+
+679
+00:38:21,359 --> 00:38:28,320
+uh x scale and this part will need to
+
+680
+00:38:25,359 --> 00:38:32,160
+time
+
+681
+00:38:28,320 --> 00:38:34,079
+times a y scale. Then you need to
+
+682
+00:38:32,160 --> 00:38:37,040
+translate.
+
+683
+00:38:34,079 --> 00:38:39,040
+So, uh
+
+684
+00:38:37,040 --> 00:38:41,359
+x
+
+685
+00:38:39,040 --> 00:38:44,640
+vector you know you need you need to
+
+686
+00:38:41,359 --> 00:38:47,280
+translate x trans vector. Okay,
+
+687
+00:38:44,640 --> 00:38:50,480
+something like that
+
+688
+00:38:47,280 --> 00:38:53,480
+plus and this will be y trans vector.
+
+689
+00:38:50,480 --> 00:38:53,480
+Okay,
+
+690
+00:38:56,240 --> 00:39:04,680
+something like that. Okay, so yeah. So
+
+691
+00:38:59,440 --> 00:39:04,680
+let me let me clear that up.
+
+692
+00:39:05,119 --> 00:39:08,119
+Uh
+
+693
+00:39:12,480 --> 00:39:18,119
+yeah, something like that. And so
+
+694
+00:39:19,119 --> 00:39:23,599
+very tedious, you know, to do this. You
+
+695
+00:39:21,280 --> 00:39:26,079
+have to think about it, you know, and
+
+696
+00:39:23,599 --> 00:39:29,760
+get it correct.
+
+697
+00:39:26,079 --> 00:39:34,480
+So once we have that then then for each
+
+698
+00:39:29,760 --> 00:39:36,000
+circle you just turn that into this
+
+699
+00:39:34,480 --> 00:39:39,920
+string.
+
+700
+00:39:36,000 --> 00:39:42,960
+Okay, do you guys see what I'm doing?
+
+701
+00:39:39,920 --> 00:39:47,160
+Uh simple postman says my master degree
+
+702
+00:39:42,960 --> 00:39:47,160
+was partially
+
+703
+00:39:48,320 --> 00:39:53,440
+oh my master's degree was partially on
+
+704
+00:39:50,880 --> 00:39:56,800
+mastering complexity. Decide on the
+
+705
+00:39:53,440 --> 00:40:00,800
+expected complete output. Dissect it
+
+706
+00:39:56,800 --> 00:40:02,800
+into major parts and code bottom up to
+
+707
+00:40:00,800 --> 00:40:05,839
+return each part step by step.
+
+708
+00:40:02,800 --> 00:40:11,160
+Hierarchy. Yeah.
+
+709
+00:40:05,839 --> 00:40:11,160
+Uh so wait, how can I magnify?
+
+710
+00:40:15,760 --> 00:40:21,280
+Okay. So
+
+711
+00:40:19,040 --> 00:40:24,720
+yeah, I think you know actually I think
+
+712
+00:40:21,280 --> 00:40:28,960
+I'm going to stop. Oh god, because this
+
+713
+00:40:24,720 --> 00:40:31,040
+is going to be lots of work, boring
+
+714
+00:40:28,960 --> 00:40:33,680
+work.
+
+715
+00:40:31,040 --> 00:40:36,400
+Um
+
+716
+00:40:33,680 --> 00:40:38,800
+I wish it just would work, you know. Why
+
+717
+00:40:36,400 --> 00:40:42,000
+is Wam language, you know, creating a
+
+718
+00:40:38,800 --> 00:40:44,160
+file that's like 100 times larger? I
+
+719
+00:40:42,000 --> 00:40:45,920
+need this. I need I really need this
+
+720
+00:40:44,160 --> 00:40:47,920
+because,
+
+721
+00:40:45,920 --> 00:40:51,280
+you know, in my project, I'm going to
+
+722
+00:40:47,920 --> 00:40:54,640
+need to do
+
+723
+00:40:51,280 --> 00:40:58,680
+I I I need to do hundreds of these uh
+
+724
+00:40:54,640 --> 00:40:58,680
+two-dimensional images.
+
+725
+00:40:59,119 --> 00:41:03,599
+You know, I I talked about this. You can
+
+726
+00:41:01,040 --> 00:41:07,920
+check my YouTube. You know, there's lots
+
+727
+00:41:03,599 --> 00:41:11,839
+of hundreds of 2D images. If you create
+
+728
+00:41:07,920 --> 00:41:14,400
+them in SVG, I mean in PNG,
+
+729
+00:41:11,839 --> 00:41:16,880
+the file size is still pretty large, but
+
+730
+00:41:14,400 --> 00:41:19,280
+they are ugly because you cannot scale
+
+731
+00:41:16,880 --> 00:41:22,400
+it, you know, when you scale it up, it
+
+732
+00:41:19,280 --> 00:41:25,359
+becomes ugly, you know, they be lines
+
+733
+00:41:22,400 --> 00:41:28,640
+become jagged, you know, like like like
+
+734
+00:41:25,359 --> 00:41:31,599
+that. You see, but if it's SVG, then
+
+735
+00:41:28,640 --> 00:41:33,520
+it's perfect. But the problem with SVG,
+
+736
+00:41:31,599 --> 00:41:36,240
+you know, each one of these image is
+
+737
+00:41:33,520 --> 00:41:39,760
+going to be like
+
+738
+00:41:36,240 --> 00:41:42,160
+half megabyte. So that's not good. Oh
+
+739
+00:41:39,760 --> 00:41:44,960
+god, why can't wam why didn't WF
+
+740
+00:41:42,160 --> 00:41:50,440
+language do this correctly?
+
+741
+00:41:44,960 --> 00:41:50,440
+The ex you know the the building export.
+
+742
+00:41:51,119 --> 00:41:56,560
+Yeah. Okay. So let me think about do I
+
+743
+00:41:53,440 --> 00:41:59,440
+really want to write this?
+
+744
+00:41:56,560 --> 00:42:02,400
+It's going to be several days of coding,
+
+745
+00:41:59,440 --> 00:42:05,400
+you know, like 30 hours.
+
+746
+00:42:02,400 --> 00:42:05,400
+Uh
+
+747
+00:42:10,480 --> 00:42:17,880
+so how feasible? Let's see how can I
+
+748
+00:42:13,440 --> 00:42:17,880
+really quickly code this.
+
+749
+00:42:29,359 --> 00:42:35,280
+No, you cannot do that. So I mean you
+
+750
+00:42:32,640 --> 00:42:37,280
+are saying that
+
+751
+00:42:35,280 --> 00:42:40,880
+you are saying that we just take the
+
+752
+00:42:37,280 --> 00:42:42,880
+output and optimize. So you cannot do
+
+753
+00:42:40,880 --> 00:42:47,359
+that because let me show you. So here's
+
+754
+00:42:42,880 --> 00:42:52,240
+a circle and let's turn this into XML
+
+755
+00:42:47,359 --> 00:42:55,839
+mode. So you can see it's using a path.
+
+756
+00:42:52,240 --> 00:43:00,079
+Uh okay. So let me explain this. So so
+
+757
+00:42:55,839 --> 00:43:03,040
+okay. So let's break the lines.
+
+758
+00:43:00,079 --> 00:43:06,000
+Okay. First of all, a bunch of styles.
+
+759
+00:43:03,040 --> 00:43:10,359
+Then here's the data for the path. Okay.
+
+760
+00:43:06,000 --> 00:43:10,359
+It's all just um
+
+761
+00:43:11,520 --> 00:43:16,440
+coordinates. Okay. Uh
+
+762
+00:43:18,000 --> 00:43:23,680
+okay. So all these are just coordinates.
+
+763
+00:43:20,319 --> 00:43:29,680
+So what is doing is that it's this
+
+764
+00:43:23,680 --> 00:43:33,920
+capital C that is uh cubic basier curve.
+
+765
+00:43:29,680 --> 00:43:39,319
+So it's got you know it's it's very
+
+766
+00:43:33,920 --> 00:43:39,319
+complicated cubic basia curve.
+
+767
+00:43:41,200 --> 00:43:47,839
+So let's go back to circle.
+
+768
+00:43:44,400 --> 00:43:51,920
+It should be just a circle but but it's
+
+769
+00:43:47,839 --> 00:43:55,839
+doing it's using the path to emulate
+
+770
+00:43:51,920 --> 00:43:59,119
+circle. So what is the path? So the
+
+771
+00:43:55,839 --> 00:44:02,640
+specification if you want to
+
+772
+00:43:59,119 --> 00:44:05,599
+you know do basio curve and cubic basio
+
+773
+00:44:02,640 --> 00:44:10,720
+curve is that you you you use a command
+
+774
+00:44:05,599 --> 00:44:15,359
+C. So where's C there? Okay. So you see
+
+775
+00:44:10,720 --> 00:44:19,520
+here you know to create this this curve
+
+776
+00:44:15,359 --> 00:44:23,680
+the code is this one. So you
+
+777
+00:44:19,520 --> 00:44:27,359
+start M means move to. So move to 0 0
+
+778
+00:44:23,680 --> 00:44:33,839
+coordinate then cubia you know cubic
+
+779
+00:44:27,359 --> 00:44:36,000
+basia curve then two control points then
+
+780
+00:44:33,839 --> 00:44:40,720
+something something you know so okay
+
+781
+00:44:36,000 --> 00:44:44,800
+here's the explanation so C
+
+782
+00:44:40,720 --> 00:44:48,800
+every C is followed by 1 2 3 4 5 six six
+
+783
+00:44:44,800 --> 00:44:51,440
+numbers that means three
+
+784
+00:44:48,800 --> 00:44:54,000
+coordinates okay two of them are
+
+785
+00:44:51,440 --> 00:44:57,359
+controlled points. The other one is the
+
+786
+00:44:54,000 --> 00:45:00,960
+coordinate on the curve.
+
+787
+00:44:57,359 --> 00:45:02,960
+So if you have played with uh Adobe
+
+788
+00:45:00,960 --> 00:45:05,520
+Illustrator or any kind of vector
+
+789
+00:45:02,960 --> 00:45:08,960
+graphics, you you can see you know you
+
+790
+00:45:05,520 --> 00:45:12,880
+drag the line to control the curve.
+
+791
+00:45:08,960 --> 00:45:16,800
+So that's cubic basia curve. That's what
+
+792
+00:45:12,880 --> 00:45:19,839
+this line is. Okay, this long line. So
+
+793
+00:45:16,800 --> 00:45:22,960
+what it's doing what it is doing is it's
+
+794
+00:45:19,839 --> 00:45:24,480
+it's emulating a circle. Very
+
+795
+00:45:22,960 --> 00:45:27,359
+complicated.
+
+796
+00:45:24,480 --> 00:45:29,839
+So if we want to turn this thing back
+
+797
+00:45:27,359 --> 00:45:34,160
+into a circle
+
+798
+00:45:29,839 --> 00:45:35,920
+that's not easy. Okay. So that's
+
+799
+00:45:34,160 --> 00:45:38,000
+that's that you know that's that's
+
+800
+00:45:35,920 --> 00:45:40,640
+that's
+
+801
+00:45:38,000 --> 00:45:45,839
+a magnitude more difficult. So this is
+
+802
+00:45:40,640 --> 00:45:50,160
+like involving mathematics. Um
+
+803
+00:45:45,839 --> 00:45:54,079
+and uh at best actually you can only do
+
+804
+00:45:50,160 --> 00:45:57,359
+a guess because
+
+805
+00:45:54,079 --> 00:45:59,920
+cubic basia curve cannot represent a
+
+806
+00:45:57,359 --> 00:46:01,520
+circle 100%. They are just
+
+807
+00:45:59,920 --> 00:46:05,119
+approximation.
+
+808
+00:46:01,520 --> 00:46:08,000
+So when you actually try to reverse it
+
+809
+00:46:05,119 --> 00:46:11,920
+back to a circle. So find the circle
+
+810
+00:46:08,000 --> 00:46:15,760
+center and radius. You cannot do it
+
+811
+00:46:11,920 --> 00:46:17,839
+perfectly. I believe um
+
+812
+00:46:15,760 --> 00:46:19,920
+wait yeah actually maybe yeah yes yes
+
+813
+00:46:17,839 --> 00:46:24,000
+you can actually I think you can all you
+
+814
+00:46:19,920 --> 00:46:29,520
+have to do is that so for each C so
+
+815
+00:46:24,000 --> 00:46:34,079
+let's let's show it okay so for each C
+
+816
+00:46:29,520 --> 00:46:36,319
+replace C by a new line C. Okay. So you
+
+817
+00:46:34,079 --> 00:46:41,359
+can now you can make it the structure
+
+818
+00:46:36,319 --> 00:46:44,720
+clear. So that's uh
+
+819
+00:46:41,359 --> 00:46:49,680
+you know that so it's got
+
+820
+00:46:44,720 --> 00:46:52,720
+one 2 3 4 5 6 7 8
+
+821
+00:46:49,680 --> 00:46:56,400
+cubic basier curve.
+
+822
+00:46:52,720 --> 00:46:59,599
+Okay. So so the first two so let's see
+
+823
+00:46:56,400 --> 00:47:01,359
+one two number three number four number.
+
+824
+00:46:59,599 --> 00:47:05,040
+The first four numbers are control
+
+825
+00:47:01,359 --> 00:47:10,319
+points. So this the fifth and sixth
+
+826
+00:47:05,040 --> 00:47:14,400
+number that's the actual coordinates
+
+827
+00:47:10,319 --> 00:47:18,720
+of the curve on the curve. Okay. So for
+
+828
+00:47:14,400 --> 00:47:22,800
+each C you find the last two coordinates
+
+829
+00:47:18,720 --> 00:47:26,240
+that's a point on the circle. Okay. So
+
+830
+00:47:22,800 --> 00:47:29,280
+right now we are trying to reverse this
+
+831
+00:47:26,240 --> 00:47:32,000
+this path emulating a circle back into a
+
+832
+00:47:29,280 --> 00:47:35,040
+circle. So for each of the C you find
+
+833
+00:47:32,000 --> 00:47:37,359
+the last two coordinates and this one
+
+834
+00:47:35,040 --> 00:47:39,440
+and this one this one this one this this
+
+835
+00:47:37,359 --> 00:47:42,400
+one this one this one all those points
+
+836
+00:47:39,440 --> 00:47:46,000
+are the points on the circle then you
+
+837
+00:47:42,400 --> 00:47:48,480
+sum them and average them then you get
+
+838
+00:47:46,000 --> 00:47:50,319
+the center of the circle
+
+839
+00:47:48,480 --> 00:47:52,240
+then
+
+840
+00:47:50,319 --> 00:47:54,720
+from the center of a circle you compute
+
+841
+00:47:52,240 --> 00:47:57,200
+the distance to one of these you get the
+
+842
+00:47:54,720 --> 00:48:00,560
+radius
+
+843
+00:47:57,200 --> 00:48:03,599
+okay so that's how you turn this back
+
+844
+00:48:00,560 --> 00:48:07,119
+into a circle. Um,
+
+845
+00:48:03,599 --> 00:48:11,520
+now it's not trivial. Okay, it's it's
+
+846
+00:48:07,119 --> 00:48:15,599
+not trivial. So, yeah. Okay. But now I
+
+847
+00:48:11,520 --> 00:48:20,400
+understand. Um,
+
+848
+00:48:15,599 --> 00:48:24,079
+okay. So, back to this solution. This is
+
+849
+00:48:20,400 --> 00:48:26,960
+more precise solution. We convert it
+
+850
+00:48:24,079 --> 00:48:29,760
+by ourselves.
+
+851
+00:48:26,960 --> 00:48:32,720
+Uh but
+
+852
+00:48:29,760 --> 00:48:34,880
+how difficult can it get? So you you
+
+853
+00:48:32,720 --> 00:48:37,200
+find the scale then you find the
+
+854
+00:48:34,880 --> 00:48:40,559
+translation.
+
+855
+00:48:37,200 --> 00:48:43,839
+Another problem is that in SVG the
+
+856
+00:48:40,559 --> 00:48:47,040
+y-coordinate goes down. The lower it is
+
+857
+00:48:43,839 --> 00:48:51,040
+the more positive it is. But meanwhile
+
+858
+00:48:47,040 --> 00:48:55,599
+in standard mathematical coordinate the
+
+859
+00:48:51,040 --> 00:48:57,839
+positive for y is up. So you need to
+
+860
+00:48:55,599 --> 00:48:59,839
+flip it again. And so that's a hell, you
+
+861
+00:48:57,839 --> 00:49:02,800
+know, that's usually hell because it's
+
+862
+00:48:59,839 --> 00:49:06,319
+very fairly confusing.
+
+863
+00:49:02,800 --> 00:49:10,240
+So you need to flip the yaxis.
+
+864
+00:49:06,319 --> 00:49:12,079
+Uh god, how do I know it's very complex?
+
+865
+00:49:10,240 --> 00:49:14,880
+Because I have tried to work on it
+
+866
+00:49:12,079 --> 00:49:16,800
+before
+
+867
+00:49:14,880 --> 00:49:20,079
+uh on some other issue because I was
+
+868
+00:49:16,800 --> 00:49:22,800
+trying to write uh plotting software in
+
+869
+00:49:20,079 --> 00:49:26,240
+JavaScript.
+
+870
+00:49:22,800 --> 00:49:28,480
+Uh and I can show you the code. Uh let's
+
+871
+00:49:26,240 --> 00:49:31,440
+see. Uh
+
+872
+00:49:28,480 --> 00:49:34,319
+so
+
+873
+00:49:31,440 --> 00:49:37,119
+let's go to comp. Let's go to my home
+
+874
+00:49:34,319 --> 00:49:38,880
+directory. So that's my website. So
+
+875
+00:49:37,119 --> 00:49:43,599
+JavaScript
+
+876
+00:49:38,880 --> 00:49:46,480
+uh search for draw. So I like like five
+
+877
+00:49:43,599 --> 00:49:49,760
+years ago
+
+878
+00:49:46,480 --> 00:49:52,319
+I was going to write
+
+879
+00:49:49,760 --> 00:49:55,760
+you see. So this is written in
+
+880
+00:49:52,319 --> 00:50:00,480
+JavaScript using SVG
+
+881
+00:49:55,760 --> 00:50:03,760
+uh and uh adaptive sampling prototype.
+
+882
+00:50:00,480 --> 00:50:06,160
+The more curved is a curve there's there
+
+883
+00:50:03,760 --> 00:50:08,079
+will be more points.
+
+884
+00:50:06,160 --> 00:50:11,359
+Okay. So
+
+885
+00:50:08,079 --> 00:50:13,520
+so you can search for JavaScript and you
+
+886
+00:50:11,359 --> 00:50:16,400
+can see the code.
+
+887
+00:50:13,520 --> 00:50:19,760
+So two files the first this file is the
+
+888
+00:50:16,400 --> 00:50:25,440
+library is actually in Typescript.
+
+889
+00:50:19,760 --> 00:50:29,760
+uh 700 lines of code. Uh and the others
+
+890
+00:50:25,440 --> 00:50:32,640
+the other uh the other code is just
+
+891
+00:50:29,760 --> 00:50:36,319
+this.
+
+892
+00:50:32,640 --> 00:50:39,119
+It's well it's still 50 lines of code,
+
+893
+00:50:36,319 --> 00:50:43,200
+60 lines of code.
+
+894
+00:50:39,119 --> 00:50:46,200
+So it's trying to draw a simple um
+
+895
+00:50:43,200 --> 00:50:46,200
+spiral.
+
+896
+00:50:46,720 --> 00:50:51,760
+Yeah. But you can see sign cosine they
+
+897
+00:50:49,839 --> 00:50:54,760
+are tangent.
+
+898
+00:50:51,760 --> 00:50:54,760
+Uh
+
+899
+00:50:56,640 --> 00:51:03,520
+so I know so when you when you want to
+
+900
+00:50:59,520 --> 00:51:06,160
+plot a curve you know s cosine whatever
+
+901
+00:51:03,520 --> 00:51:09,040
+you want to show it in SVG you have to
+
+902
+00:51:06,160 --> 00:51:13,200
+do you have to do this coordinate
+
+903
+00:51:09,040 --> 00:51:15,520
+translation and also flip the y-axis. It
+
+904
+00:51:13,200 --> 00:51:17,839
+it turns out this is fairly confusing.
+
+905
+00:51:15,520 --> 00:51:19,599
+You know, you spend hours to to get it
+
+906
+00:51:17,839 --> 00:51:21,280
+right.
+
+907
+00:51:19,599 --> 00:51:25,440
+Um,
+
+908
+00:51:21,280 --> 00:51:28,800
+yeah. So, let's go back to
+
+909
+00:51:25,440 --> 00:51:33,760
+So, I didn't uh wait, you know, I didn't
+
+910
+00:51:28,800 --> 00:51:35,920
+go too far with this plotting uh curves,
+
+911
+00:51:33,760 --> 00:51:39,280
+but there are libraries like I think
+
+912
+00:51:35,920 --> 00:51:43,920
+there are quite a few.
+
+913
+00:51:39,280 --> 00:51:47,960
+Uh, okay. So, what are we doing? So
+
+914
+00:51:43,920 --> 00:51:47,960
+yeah, back here. So
+
+915
+00:51:48,480 --> 00:51:53,559
+this is fairly complicated man.
+
+916
+00:51:57,119 --> 00:52:04,720
+So we need to do that that and and for
+
+917
+00:52:01,040 --> 00:52:10,839
+each graphics we need to turn it into
+
+918
+00:52:04,720 --> 00:52:10,839
+like that then line similarly
+
+919
+00:52:11,040 --> 00:52:14,040
+then
+
+920
+00:52:15,040 --> 00:52:19,640
+oh god this is difficult.
+
+921
+00:52:22,559 --> 00:52:28,720
+So imagine
+
+922
+00:52:24,720 --> 00:52:33,079
+what I need to do. So typically what I
+
+923
+00:52:28,720 --> 00:52:33,079
+need to do is to
+
+924
+00:52:33,200 --> 00:52:41,119
+you know for my project there are
+
+925
+00:52:37,200 --> 00:52:44,240
+there are hundreds of these thousands
+
+926
+00:52:41,119 --> 00:52:47,680
+over you know over a few thousand over a
+
+927
+00:52:44,240 --> 00:52:50,160
+thousand of these
+
+928
+00:52:47,680 --> 00:52:53,920
+two-dimensional graphics.
+
+929
+00:52:50,160 --> 00:52:55,839
+So you can see each one of them easily
+
+930
+00:52:53,920 --> 00:52:59,480
+have
+
+931
+00:52:55,839 --> 00:52:59,480
+a th00and points.
+
+932
+00:52:59,599 --> 00:53:04,240
+Um
+
+933
+00:53:01,760 --> 00:53:08,839
+so you have to
+
+934
+00:53:04,240 --> 00:53:08,839
+apply translation to this.
+
+935
+00:53:09,520 --> 00:53:15,760
+But then the the other difficulty is
+
+936
+00:53:12,640 --> 00:53:20,559
+that then you have colors and styles for
+
+937
+00:53:15,760 --> 00:53:23,440
+each line or circle. You see? So that
+
+938
+00:53:20,559 --> 00:53:25,839
+means to turn that so that get that's
+
+939
+00:53:23,440 --> 00:53:27,359
+actually more complex because in wufam
+
+940
+00:53:25,839 --> 00:53:30,240
+language
+
+941
+00:53:27,359 --> 00:53:32,319
+whenever you have a a style let's say
+
+942
+00:53:30,240 --> 00:53:35,280
+red here
+
+943
+00:53:32,319 --> 00:53:38,240
+so when you have a style called graphics
+
+944
+00:53:35,280 --> 00:53:44,520
+directive like red or thickness or you
+
+945
+00:53:38,240 --> 00:53:44,520
+know line thickness or color.
+
+946
+00:53:44,800 --> 00:53:50,400
+So where wherever whenever you have a
+
+947
+00:53:47,760 --> 00:53:54,319
+graphics directive it applies to the
+
+948
+00:53:50,400 --> 00:53:56,880
+subsequent elements in a list. So we are
+
+949
+00:53:54,319 --> 00:54:01,040
+having a list here.
+
+950
+00:53:56,880 --> 00:54:03,680
+So if you have let's say blue here
+
+951
+00:54:01,040 --> 00:54:09,119
+that means you know these three circles
+
+952
+00:54:03,680 --> 00:54:12,240
+are red then this the rest here is blue.
+
+953
+00:54:09,119 --> 00:54:14,559
+So each graphics directive applies
+
+954
+00:54:12,240 --> 00:54:18,319
+sequentially until there's another one
+
+955
+00:54:14,559 --> 00:54:20,720
+overriding it. So if this one says
+
+956
+00:54:18,319 --> 00:54:24,640
+thickness
+
+957
+00:54:20,720 --> 00:54:28,000
+that's another directive. Okay. So
+
+958
+00:54:24,640 --> 00:54:30,319
+so you know this won't override over
+
+959
+00:54:28,000 --> 00:54:32,000
+here because there's abs it's absent
+
+960
+00:54:30,319 --> 00:54:35,119
+there.
+
+961
+00:54:32,000 --> 00:54:38,240
+So anyway, the point is that each one
+
+962
+00:54:35,119 --> 00:54:39,760
+affects subsequent style of graphics
+
+963
+00:54:38,240 --> 00:54:43,280
+primitives,
+
+964
+00:54:39,760 --> 00:54:45,040
+but that's not how SVG is done. So for
+
+965
+00:54:43,280 --> 00:54:48,240
+SVG,
+
+966
+00:54:45,040 --> 00:54:52,240
+either you put a style for each of the
+
+967
+00:54:48,240 --> 00:54:54,640
+graphics primitive like here or you
+
+968
+00:54:52,240 --> 00:54:56,480
+group them together and say what style
+
+969
+00:54:54,640 --> 00:55:01,280
+it is.
+
+970
+00:54:56,480 --> 00:55:06,079
+So you need a way to convert this
+
+971
+00:55:01,280 --> 00:55:09,520
+sequential kind of ordering
+
+972
+00:55:06,079 --> 00:55:12,319
+into grouped items. So for example, this
+
+973
+00:55:09,520 --> 00:55:16,000
+red circle circle circle, you need to
+
+974
+00:55:12,319 --> 00:55:18,000
+turn that into a list by itself.
+
+975
+00:55:16,000 --> 00:55:21,920
+And that's not so easy, you know,
+
+976
+00:55:18,000 --> 00:55:24,640
+because you know because from my example
+
+977
+00:55:21,920 --> 00:55:27,520
+it looks very simple.
+
+978
+00:55:24,640 --> 00:55:30,000
+But actually in real life graphics you
+
+979
+00:55:27,520 --> 00:55:34,079
+might have lots of arbitrary nesting. So
+
+980
+00:55:30,000 --> 00:55:37,440
+you you see you might have arbitrary
+
+981
+00:55:34,079 --> 00:55:40,800
+nesting of graphics. So that gets really
+
+982
+00:55:37,440 --> 00:55:45,359
+complex because you have a tree
+
+983
+00:55:40,800 --> 00:55:49,440
+at each depth of a tree the coloring are
+
+984
+00:55:45,359 --> 00:55:52,640
+sequential. Okay. But
+
+985
+00:55:49,440 --> 00:55:55,200
+that's that's for the the the same like
+
+986
+00:55:52,640 --> 00:55:57,359
+brothers and sisters in the same level
+
+987
+00:55:55,200 --> 00:56:00,960
+the curling are sequential but then you
+
+988
+00:55:57,359 --> 00:56:04,079
+got parents and parents and or children
+
+989
+00:56:00,960 --> 00:56:06,640
+in those cases of course the colors spec
+
+990
+00:56:04,079 --> 00:56:09,200
+you know the if the parents specify red
+
+991
+00:56:06,640 --> 00:56:11,040
+all children should be red unless one of
+
+992
+00:56:09,200 --> 00:56:14,319
+the children
+
+993
+00:56:11,040 --> 00:56:17,200
+has a older brother that says different
+
+994
+00:56:14,319 --> 00:56:19,599
+color. You see that's how it's supposed
+
+995
+00:56:17,200 --> 00:56:23,839
+to be you know so that's how complex it
+
+996
+00:56:19,599 --> 00:56:26,559
+is. So to properly convert
+
+997
+00:56:23,839 --> 00:56:29,200
+to properly do the coloring for wam
+
+998
+00:56:26,559 --> 00:56:33,680
+language graphics
+
+999
+00:56:29,200 --> 00:56:36,640
+this hierarchy based and sequential
+
+1000
+00:56:33,680 --> 00:56:39,920
+based when it's in the same level
+
+1001
+00:56:36,640 --> 00:56:42,960
+you need to turn that into a proper
+
+1002
+00:56:39,920 --> 00:56:47,200
+nested hierarchy
+
+1003
+00:56:42,960 --> 00:56:50,400
+or have a style for each element.
+
+1004
+00:56:47,200 --> 00:56:55,839
+So that's the specification of this this
+
+1005
+00:56:50,400 --> 00:57:00,119
+problem and uh that is not easy.
+
+1006
+00:56:55,839 --> 00:57:00,119
+Do you guys see what I'm saying?
+
+1007
+00:57:02,319 --> 00:57:06,839
+Uh yes. So
+
+1008
+00:57:14,640 --> 00:57:20,240
+if you it would mean that you need to
+
+1009
+00:57:17,680 --> 00:57:23,200
+cover each shape with a corresponding
+
+1010
+00:57:20,240 --> 00:57:26,200
+tag. Yes, that's true.
+
+1011
+00:57:23,200 --> 00:57:26,200
+Uh
+
+1012
+00:57:26,880 --> 00:57:32,319
+so path is the most general general way
+
+1013
+00:57:29,520 --> 00:57:36,520
+to represent any shape. So let me get
+
+1014
+00:57:32,319 --> 00:57:36,520
+this. So
+
+1015
+00:57:37,839 --> 00:57:43,680
+yeah, we are not going to call this.
+
+1016
+00:57:39,839 --> 00:57:46,720
+It's it's getting too complicated. God,
+
+1017
+00:57:43,680 --> 00:57:49,119
+I hate when this happens, you know. I'm
+
+1018
+00:57:46,720 --> 00:57:52,559
+gonna I'm going to do a live stream. You
+
+1019
+00:57:49,119 --> 00:57:54,799
+know, this is trivial. Uh then it turns
+
+1020
+00:57:52,559 --> 00:57:57,359
+out then you when you actually do it,
+
+1021
+00:57:54,799 --> 00:57:59,839
+it's not so trivial. It's not
+
+1022
+00:57:57,359 --> 00:58:02,240
+trivial.
+
+1023
+00:57:59,839 --> 00:58:05,040
+Uh
+
+1024
+00:58:02,240 --> 00:58:08,400
+so path is the most general way to
+
+1025
+00:58:05,040 --> 00:58:10,880
+represent any shape. Yes. And that's why
+
+1026
+00:58:08,400 --> 00:58:13,280
+the standard export use it instead of
+
+1027
+00:58:10,880 --> 00:58:17,119
+the specific tag.
+
+1028
+00:58:13,280 --> 00:58:21,040
+Uh yes and no. In general yes but
+
+1029
+00:58:17,119 --> 00:58:23,280
+however understand that path can never
+
+1030
+00:58:21,040 --> 00:58:26,160
+can technically
+
+1031
+00:58:23,280 --> 00:58:27,839
+cannot mathematically represent a circle
+
+1032
+00:58:26,160 --> 00:58:32,400
+perfectly.
+
+1033
+00:58:27,839 --> 00:58:35,200
+So it's doing approximation okay
+
+1034
+00:58:32,400 --> 00:58:38,960
+you know because it's using ba cubic
+
+1035
+00:58:35,200 --> 00:58:42,000
+basier curve to emulate a circle okay
+
+1036
+00:58:38,960 --> 00:58:45,599
+that's not good that's that's a really
+
+1037
+00:58:42,000 --> 00:58:48,720
+kind of a problem okay
+
+1038
+00:58:45,599 --> 00:58:53,520
+uh but the rest of the primitives line
+
+1039
+00:58:48,720 --> 00:58:55,920
+rectangle you know or ellipses
+
+1040
+00:58:53,520 --> 00:58:58,640
+uh actually I'm not sure about ellipse
+
+1041
+00:58:55,920 --> 00:59:02,480
+uh I think so yeah ellipse Yeah, you
+
+1042
+00:58:58,640 --> 00:59:06,839
+actually path has a way to represent
+
+1043
+00:59:02,480 --> 00:59:06,839
+this ellipse exactly. Wait,
+
+1044
+00:59:07,040 --> 00:59:14,720
+if path can represent ellip ellipses
+
+1045
+00:59:11,280 --> 00:59:17,839
+exactly then that also implies it can do
+
+1046
+00:59:14,720 --> 00:59:20,799
+for the circle. So,
+
+1047
+00:59:17,839 --> 00:59:23,520
+oh I see. So, it actually path can
+
+1048
+00:59:20,799 --> 00:59:25,839
+represent the circle precisely.
+
+1049
+00:59:23,520 --> 00:59:29,440
+However,
+
+1050
+00:59:25,839 --> 00:59:33,839
+it's not via cubic basio curve. It's you
+
+1051
+00:59:29,440 --> 00:59:38,000
+have to uh you have to use um
+
+1052
+00:59:33,839 --> 00:59:41,200
+arc you see. So I spent I spent quite a
+
+1053
+00:59:38,000 --> 00:59:44,079
+few months uh doing this you know. So
+
+1054
+00:59:41,200 --> 00:59:46,319
+here's a JavaScript that shows
+
+1055
+00:59:44,079 --> 00:59:49,920
+interactive JavaScript.
+
+1056
+00:59:46,319 --> 00:59:54,400
+So this thing so you can see this thing
+
+1057
+00:59:49,920 --> 01:00:01,119
+which is a el major radius uh let's say
+
+1058
+00:59:54,400 --> 01:00:03,520
+minor radius and you can also rotate it
+
+1059
+01:00:01,119 --> 01:00:06,319
+rotation
+
+1060
+01:00:03,520 --> 01:00:09,280
+uh let's let's go to here okay this one
+
+1061
+01:00:06,319 --> 01:00:11,760
+is easier to see
+
+1062
+01:00:09,280 --> 01:00:16,240
+so it is possible
+
+1063
+01:00:11,760 --> 01:00:22,319
+to use path to represent a circle
+
+1064
+01:00:16,240 --> 01:00:26,480
+or it lists all part of it by the path.
+
+1065
+01:00:22,319 --> 01:00:31,119
+Exactly. Okay. So you can see
+
+1066
+01:00:26,480 --> 01:00:34,480
+but however you must use the command a
+
+1067
+01:00:31,119 --> 01:00:37,280
+for arc. Okay. So a is followed by one
+
+1068
+01:00:34,480 --> 01:00:39,040
+two three four five six seven seven
+
+1069
+01:00:37,280 --> 01:00:43,040
+parameters.
+
+1070
+01:00:39,040 --> 01:00:45,119
+So, so you can
+
+1071
+01:00:43,040 --> 01:00:49,440
+so for example you can represent the
+
+1072
+01:00:45,119 --> 01:00:53,680
+circle exactly using path but not by the
+
+1073
+01:00:49,440 --> 01:00:58,400
+basia curve you have to do it by the um
+
+1074
+01:00:53,680 --> 01:01:02,319
+okay this is too large uh god
+
+1075
+01:00:58,400 --> 01:01:05,839
+you have to do it by using the arc
+
+1076
+01:01:02,319 --> 01:01:08,160
+parameter okay but however the wolfam
+
+1077
+01:01:05,839 --> 01:01:11,359
+language is not using that it's using
+
+1078
+01:01:08,160 --> 01:01:13,119
+basio a curve. So it's like one complete
+
+1079
+01:01:11,359 --> 01:01:15,599
+
+1080
+01:01:13,119 --> 01:01:20,400
+It's just wrong. It shouldn't do that.
+
+1081
+01:01:15,599 --> 01:01:22,160
+Okay. So yes, it is true that path can
+
+1082
+01:01:20,400 --> 01:01:24,480
+represent
+
+1083
+01:01:22,160 --> 01:01:27,200
+path is a general, you know, can
+
+1084
+01:01:24,480 --> 01:01:30,799
+represent any of the
+
+1085
+01:01:27,200 --> 01:01:33,440
+primitives in SVG as far as I know. It
+
+1086
+01:01:30,799 --> 01:01:35,440
+can represent um you know so where is
+
+1087
+01:01:33,440 --> 01:01:37,920
+it? Um
+
+1088
+01:01:35,440 --> 01:01:40,640
+line. It can represent rectangle. It
+
+1089
+01:01:37,920 --> 01:01:44,960
+could represent rectangle with corners.
+
+1090
+01:01:40,640 --> 01:01:48,480
+It can represent circle. It is polygon
+
+1091
+01:01:44,960 --> 01:01:52,240
+and polyline and
+
+1092
+01:01:48,480 --> 01:01:54,559
+and uh and text you know text is font
+
+1093
+01:01:52,240 --> 01:01:57,839
+kind of
+
+1094
+01:01:54,559 --> 01:02:00,839
+uh and cubic spline. Yeah, that's path.
+
+1095
+01:01:57,839 --> 01:02:00,839
+Okay.
+
+1096
+01:02:02,400 --> 01:02:07,680
+Okay. So I mean okay we learned more
+
+1097
+01:02:05,119 --> 01:02:13,319
+about this. So why didn't WUM language
+
+1098
+01:02:07,680 --> 01:02:13,319
+use the arc? You know, it's sucks.
+
+1099
+01:02:25,680 --> 01:02:32,960
+Is an SVG file always plain text? Yes.
+
+1100
+01:02:30,480 --> 01:02:37,119
+Or is it mixture of plain text and
+
+1101
+01:02:32,960 --> 01:02:40,559
+binary? No. It's always plain text, you
+
+1102
+01:02:37,119 --> 01:02:43,920
+know, it's actually just XML. So, I have
+
+1103
+01:02:40,559 --> 01:02:47,280
+the entire tutorial. You can read
+
+1104
+01:02:43,920 --> 01:02:49,599
+practical SVGs, you know. Uh, it's
+
+1105
+01:02:47,280 --> 01:02:54,480
+entirely XML.
+
+1106
+01:02:49,599 --> 01:02:58,079
+You can embed bitmapped images in SVG
+
+1107
+01:02:54,480 --> 01:03:00,480
+like a photograph, you know, but the
+
+1108
+01:02:58,079 --> 01:03:03,920
+format for that bitmapped image is
+
+1109
+01:03:00,480 --> 01:03:09,440
+turned into I believe um
+
+1110
+01:03:03,920 --> 01:03:13,200
+uh is turned into into a ASI um what's
+
+1111
+01:03:09,440 --> 01:03:17,839
+what's it called? Um base 64. I believe
+
+1112
+01:03:13,200 --> 01:03:22,280
+it's using B 64 encoding. So, so in the
+
+1113
+01:03:17,839 --> 01:03:22,280
+end it's still text. Okay.
+
+1114
+01:03:22,400 --> 01:03:26,960
+If the programmer who implemented this
+
+1115
+01:03:24,559 --> 01:03:29,599
+export algorithm didn't use anything
+
+1116
+01:03:26,960 --> 01:03:32,240
+except for path then it's lot of digging
+
+1117
+01:03:29,599 --> 01:03:35,119
+into uh it would mean that you need to
+
+1118
+01:03:32,240 --> 01:03:37,039
+cover each shape. Yeah. I mean they they
+
+1119
+01:03:35,119 --> 01:03:40,960
+have to cover each shape anyway. So
+
+1120
+01:03:37,039 --> 01:03:43,960
+anyway, so what we going to do now? So
+
+1121
+01:03:40,960 --> 01:03:43,960
+um
+
+1122
+01:03:44,400 --> 01:03:53,039
+god this. So I have to think about what
+
+1123
+01:03:49,359 --> 01:03:56,000
+am I going to do? Do I spend so to code
+
+1124
+01:03:53,039 --> 01:03:59,480
+this fully
+
+1125
+01:03:56,000 --> 01:03:59,480
+will take
+
+1126
+01:04:00,160 --> 01:04:05,559
+I would say 30 hours. Okay.
+
+1127
+01:04:06,880 --> 01:04:13,280
+to code this, you know, to write a
+
+1128
+01:04:09,280 --> 01:04:15,280
+robust version of this export graphics
+
+1129
+01:04:13,280 --> 01:04:20,240
+to SVG,
+
+1130
+01:04:15,280 --> 01:04:23,760
+it'll take me 30 hours.
+
+1131
+01:04:20,240 --> 01:04:26,079
+Is it worth it?
+
+1132
+01:04:23,760 --> 01:04:28,640
+So, you see, I'm I'm checking out. I'm
+
+1133
+01:04:26,079 --> 01:04:34,480
+thinking about do I want to do this or
+
+1134
+01:04:28,640 --> 01:04:36,960
+not? 30 hours and say one day. One, two,
+
+1135
+01:04:34,480 --> 01:04:39,280
+three, four, five days. Yeah, something
+
+1136
+01:04:36,960 --> 01:04:42,680
+like
+
+1137
+01:04:39,280 --> 01:04:42,680
+30 hours.
+
+1138
+01:04:43,359 --> 01:04:46,359
+Um,
+
+1139
+01:04:51,119 --> 01:04:59,119
+but I really need it because if I can
+
+1140
+01:04:55,200 --> 01:05:03,839
+get this to, you know, if I did it, then
+
+1141
+01:04:59,119 --> 01:05:07,280
+these thousands of images of my plank
+
+1142
+01:05:03,839 --> 01:05:09,839
+projects, they will be very efficient.
+
+1143
+01:05:07,280 --> 01:05:12,720
+You know, beautiful graphics, small file
+
+1144
+01:05:09,839 --> 01:05:12,720
+size.
+
+1145
+01:05:14,400 --> 01:05:17,400
+Yeah.
+
+1146
+01:05:17,520 --> 01:05:20,520
+Um
+
+1147
+01:05:21,200 --> 01:05:28,160
+but 30 hours. My god.
+
+1148
+01:05:25,760 --> 01:05:30,400
+Okay,
+
+1149
+01:05:28,160 --> 01:05:33,880
+I think that's it for today. Thank you
+
+1150
+01:05:30,400 --> 01:05:33,880
+guys for watching.
+
+1151
+01:05:42,799 --> 01:05:47,400
+Okay. So, I think that's it.
+
+1152
+01:05:50,240 --> 01:05:55,839
+Am I going to do it or not? I don't
+
+1153
+01:05:52,319 --> 01:05:59,039
+know. But I know for sure I can't I
+
+1154
+01:05:55,839 --> 01:06:01,839
+cannot do it like in live stream
+
+1155
+01:05:59,039 --> 01:06:05,359
+because
+
+1156
+01:06:01,839 --> 01:06:09,359
+this will be just you know me coding uh
+
+1157
+01:06:05,359 --> 01:06:12,400
+very complicated stuff.
+
+1158
+01:06:09,359 --> 01:06:15,839
+When it's very complicated live stream
+
+1159
+01:06:12,400 --> 01:06:17,839
+doesn't work because you can't possibly
+
+1160
+01:06:15,839 --> 01:06:21,359
+expand
+
+1161
+01:06:17,839 --> 01:06:23,119
+the steps what you are doing.
+
+1162
+01:06:21,359 --> 01:06:26,720
+Um
+
+1163
+01:06:23,119 --> 01:06:29,599
+and it's very boring to watch.
+
+1164
+01:06:26,720 --> 01:06:34,240
+Uh yeah.
+
+1165
+01:06:29,599 --> 01:06:37,440
+Okay. So, but so I have to think about
+
+1166
+01:06:34,240 --> 01:06:40,960
+am I going to code this because
+
+1167
+01:06:37,440 --> 01:06:42,799
+especially nasty because when you have
+
+1168
+01:06:40,960 --> 01:06:48,319
+you know let me show you when you have
+
+1169
+01:06:42,799 --> 01:06:51,280
+nesting this nesting graphics you see
+
+1170
+01:06:48,319 --> 01:06:53,839
+um
+
+1171
+01:06:51,280 --> 01:06:57,400
+when you need to figure out about this
+
+1172
+01:06:53,839 --> 01:06:57,400
+colors thing.
+
+1173
+01:06:58,240 --> 01:07:02,599
+Okay, let me think about again.
+
+1174
+01:07:03,680 --> 01:07:11,559
+That's still doable though.
+
+1175
+01:07:06,960 --> 01:07:11,559
+So I can definitely do it.
+
+1176
+01:07:13,760 --> 01:07:20,079
+So what is the advantage? So if I write
+
+1177
+01:07:16,480 --> 01:07:22,960
+this, I can publish it so other people
+
+1178
+01:07:20,079 --> 01:07:28,000
+can use it.
+
+1179
+01:07:22,960 --> 01:07:30,880
+There will be you know
+
+1180
+01:07:28,000 --> 01:07:33,760
+benefit to
+
+1181
+01:07:30,880 --> 01:07:36,400
+many people but usually not too many
+
+1182
+01:07:33,760 --> 01:07:38,559
+because very few people use wam language
+
+1183
+01:07:36,400 --> 01:07:41,280
+in the first place
+
+1184
+01:07:38,559 --> 01:07:44,160
+and then they wouldn't know I have
+
+1185
+01:07:41,280 --> 01:07:46,880
+written it because it's you know uh hard
+
+1186
+01:07:44,160 --> 01:07:49,839
+to find.
+
+1187
+01:07:46,880 --> 01:07:54,000
+Uh
+
+1188
+01:07:49,839 --> 01:07:57,280
+yeah, but then but I going to use it
+
+1189
+01:07:54,000 --> 01:08:00,000
+mostly for myself.
+
+1190
+01:07:57,280 --> 01:08:04,280
+I have to think about this. Okay, so
+
+1191
+01:08:00,000 --> 01:08:04,280
+that's it. I think that's it.
+
+1192
+01:08:12,079 --> 01:08:17,880
+God, this is
+
+1193
+01:08:14,880 --> 01:08:17,880
+painful.
+
+1194
+01:08:20,880 --> 01:08:28,759
+W. So is there did someone else have
+
+1195
+01:08:23,920 --> 01:08:28,759
+someone wrote the package? Let's say
+
+1196
+01:08:29,120 --> 01:08:33,159
+let's search. Okay.
+
+1197
+01:08:33,759 --> 01:08:41,239
+X SVG export. Uh okay. Export graphics
+
+1198
+01:08:38,239 --> 01:08:41,239
+directly.
+
+1199
+01:08:42,319 --> 01:08:48,080
+Okay. including
+
+1200
+01:08:45,520 --> 01:08:53,120
+region plot and graphics object. The
+
+1201
+01:08:48,080 --> 01:08:56,719
+exported SV file is mesh meshless and
+
+1202
+01:08:53,120 --> 01:08:59,759
+retain vector quality. Okay. Allowing
+
+1203
+01:08:56,719 --> 01:09:02,480
+for high resolution. Okay.
+
+1204
+01:08:59,759 --> 01:09:05,920
+Oh, export string function can also
+
+1205
+01:09:02,480 --> 01:09:10,480
+generate an SVG string representation.
+
+1206
+01:09:05,920 --> 01:09:14,480
+Fantastic. I didn't know. Export string.
+
+1207
+01:09:10,480 --> 01:09:18,960
+Okay, you learned something new.
+
+1208
+01:09:14,480 --> 01:09:22,159
+Let's see. Is there a documentation?
+
+1209
+01:09:18,960 --> 01:09:24,560
+There it is. Okay. Basically the same
+
+1210
+01:09:22,159 --> 01:09:28,080
+except that it doesn't write to file.
+
+1211
+01:09:24,560 --> 01:09:30,960
+Okay. Fantastic.
+
+1212
+01:09:28,080 --> 01:09:34,640
+Okay. Then
+
+1213
+01:09:30,960 --> 01:09:37,640
+X XML package provide tools like XML
+
+1214
+01:09:34,640 --> 01:09:37,640
+SVG.
+
+1215
+01:09:37,920 --> 01:09:43,120
+Oh,
+
+1216
+01:09:39,600 --> 01:09:48,880
+graphics to symbolic SVG to convert
+
+1217
+01:09:43,120 --> 01:09:52,400
+graphics directly to into symbolic XML.
+
+1218
+01:09:48,880 --> 01:09:55,199
+Oh, which is the foundation of SVG
+
+1219
+01:09:52,400 --> 01:09:58,239
+enabling advanced man manipulation such
+
+1220
+01:09:55,199 --> 01:10:00,800
+as animation.
+
+1221
+01:09:58,239 --> 01:10:03,760
+This capability allows for the creation
+
+1222
+01:10:00,800 --> 01:10:06,480
+of interactive SVG including animations
+
+1223
+01:10:03,760 --> 01:10:09,840
+of moving elements. Okay. While
+
+1224
+01:10:06,480 --> 01:10:13,600
+exporting to SVG is efficient for vector
+
+1225
+01:10:09,840 --> 01:10:16,080
+graphics large or complex uh something
+
+1226
+01:10:13,600 --> 01:10:19,440
+for optimal results especially with
+
+1227
+01:10:16,080 --> 01:10:25,159
+plots containing sharp edges. It's
+
+1228
+01:10:19,440 --> 01:10:25,159
+recommended to use vector formats. Okay.
+
+1229
+01:10:27,760 --> 01:10:31,159
+Yeah, but
+
+1230
+01:10:31,440 --> 01:10:36,440
+okay. So why is
+
+1231
+01:10:41,199 --> 01:10:48,320
+So does anyone actually talk about how
+
+1232
+01:10:45,600 --> 01:10:50,480
+large file it generates?
+
+1233
+01:10:48,320 --> 01:10:54,560
+That's you know that's really advanced
+
+1234
+01:10:50,480 --> 01:10:56,000
+because vast majority of people
+
+1235
+01:10:54,560 --> 01:10:58,880
+they don't know you know they just
+
+1236
+01:10:56,000 --> 01:11:01,040
+generate SVG they don't you know they
+
+1237
+01:10:58,880 --> 01:11:02,880
+don't know the details of SVG so they
+
+1238
+01:11:01,040 --> 01:11:04,480
+don't they they don't even know the
+
+1239
+01:11:02,880 --> 01:11:07,520
+issue
+
+1240
+01:11:04,480 --> 01:11:10,400
+so let's see this guy export hi I'm
+
+1241
+01:11:07,520 --> 01:11:16,040
+using I'm new to wam language I would
+
+1242
+01:11:10,400 --> 01:11:16,040
+like to export plot Uh,
+
+1243
+01:11:18,080 --> 01:11:24,679
+okay. This guy is talking about 3D. No,
+
+1244
+01:11:20,880 --> 01:11:24,679
+you cannot do that.
+
+1245
+01:11:30,320 --> 01:11:34,640
+Okay. I don't think none of this
+
+1246
+01:11:32,159 --> 01:11:36,880
+actually
+
+1247
+01:11:34,640 --> 01:11:40,800
+dives into detail. None of these
+
+1248
+01:11:36,880 --> 01:11:43,280
+actually understand what I'm saying.
+
+1249
+01:11:40,800 --> 01:11:46,239
+uh
+
+1250
+01:11:43,280 --> 01:11:51,320
+because what I'm doing is
+
+1251
+01:11:46,239 --> 01:11:51,320
+advanced. Now let's look at this link.
+
+1252
+01:11:55,440 --> 01:12:03,159
+So did they explain
+
+1253
+01:11:58,480 --> 01:12:03,159
+is does it explain
+
+1254
+01:12:09,840 --> 01:12:13,480
+No, it doesn't.
+
+1255
+01:12:18,719 --> 01:12:23,480
+So, can I customize the command?
+
+1256
+01:12:30,320 --> 01:12:36,600
+No, I don't think so.
+
+1257
+01:12:33,600 --> 01:12:36,600
+Yeah.
+
+1258
+01:12:54,560 --> 01:13:02,360
+You see it turns everything into basio
+
+1259
+01:12:57,600 --> 01:13:02,360
+curve. idiotic.
+
+1260
+01:13:04,080 --> 01:13:07,080
+Okay.
+
+1261
+01:13:27,920 --> 01:13:34,719
+So question,
+
+1262
+01:13:30,960 --> 01:13:36,640
+do you have any desire to discuss lisps?
+
+1263
+01:13:34,719 --> 01:13:39,760
+Yeah, sure. Whenever I'm doing emac
+
+1264
+01:13:36,640 --> 01:13:41,360
+lisp, you can kind of ask me about lisp
+
+1265
+01:13:39,760 --> 01:13:43,920
+usually
+
+1266
+01:13:41,360 --> 01:13:47,040
+unless I'm, you know, seriously trying
+
+1267
+01:13:43,920 --> 01:13:49,120
+to code something. Uh, I've read a lot
+
+1268
+01:13:47,040 --> 01:13:51,600
+of your articles on this topic, but
+
+1269
+01:13:49,120 --> 01:13:54,719
+still can decide if it's a good idea for
+
+1270
+01:13:51,600 --> 01:13:57,760
+me to create my own list that compiles
+
+1271
+01:13:54,719 --> 01:14:00,719
+to see.
+
+1272
+01:13:57,760 --> 01:14:03,679
+I think you only know only you know the
+
+1273
+01:14:00,719 --> 01:14:05,679
+question because for average in for the
+
+1274
+01:14:03,679 --> 01:14:08,239
+general people
+
+1275
+01:14:05,679 --> 01:14:11,760
+you know for for programmers in general
+
+1276
+01:14:08,239 --> 01:14:13,360
+the answer to that is no because you are
+
+1277
+01:14:11,760 --> 01:14:15,120
+just creating you know you are just
+
+1278
+01:14:13,360 --> 01:14:17,360
+creating your own language you know
+
+1279
+01:14:15,120 --> 01:14:20,320
+that's if you like it you have your
+
+1280
+01:14:17,360 --> 01:14:23,520
+reasons only you know if you really love
+
+1281
+01:14:20,320 --> 01:14:28,000
+it you want to do it for hobby just for
+
+1282
+01:14:23,520 --> 01:14:28,000
+the love it whatever uh yeah
+
+1283
+01:14:30,239 --> 01:14:36,960
+So, but if you have to ask somebody
+
+1284
+01:14:33,040 --> 01:14:40,400
+else, the answer is probably no. You
+
+1285
+01:14:36,960 --> 01:14:43,400
+know, only you can decide it's worth it.
+
+1286
+01:14:40,400 --> 01:14:43,400
+So,
+
+1287
+01:14:45,760 --> 01:14:50,719
+yeah, that's it. That's all I know. I
+
+1288
+01:14:48,000 --> 01:14:53,440
+don't know about writing a compiler. I
+
+1289
+01:14:50,719 --> 01:14:57,440
+don't really know about it. So, I cannot
+
+1290
+01:14:53,440 --> 01:14:57,440
+help. Okay, bye guys.
+

@@ -1,0 +1,3652 @@
+1
+00:00:01,680 --> 00:00:05,359
+good morning everyone
+
+2
+00:00:03,040 --> 00:00:06,319
+welcome to another episode of star talk
+
+3
+00:00:05,359 --> 00:00:09,840
+show
+
+4
+00:00:06,319 --> 00:00:13,200
+today is 2020 august
+
+5
+00:00:09,840 --> 00:00:17,600
+4th tuesday 12 30
+
+6
+00:00:13,200 --> 00:00:20,400
+p.m in afternoon san francisco time
+
+7
+00:00:17,600 --> 00:00:21,119
+and uh so today's topic is going to be
+
+8
+00:00:20,400 --> 00:00:23,680
+emacs
+
+9
+00:00:21,119 --> 00:00:24,880
+and emacs list i'm going to do a live
+
+10
+00:00:23,680 --> 00:00:28,240
+coding
+
+11
+00:00:24,880 --> 00:00:31,679
+um first of all let me show you guys uh
+
+12
+00:00:28,240 --> 00:00:36,399
+the background image okay so you go to
+
+13
+00:00:31,679 --> 00:00:36,399
+uh the we got the background image of uh
+
+14
+00:00:36,640 --> 00:00:44,800
+emacs logo emacs sorry okay search for
+
+15
+00:00:40,399 --> 00:00:49,840
+emacs sorry you'll find it
+
+16
+00:00:44,800 --> 00:00:52,160
+so you go to you go to my blog
+
+17
+00:00:49,840 --> 00:00:52,160
+and
+
+18
+00:00:53,920 --> 00:00:58,000
+and let me show you this so so this is
+
+19
+00:00:56,960 --> 00:01:01,760
+interesting this is
+
+20
+00:00:58,000 --> 00:01:04,879
+emacs logo and here's the svg
+
+21
+00:01:01,760 --> 00:01:07,600
+images and here's a he here
+
+22
+00:01:04,879 --> 00:01:11,040
+is a photo i just found someone use this
+
+23
+00:01:07,600 --> 00:01:14,720
+trackball and put the emax logo there
+
+24
+00:01:11,040 --> 00:01:16,400
+uh so that's a background image for
+
+25
+00:01:14,720 --> 00:01:19,360
+today and this trackball is
+
+26
+00:01:16,400 --> 00:01:22,880
+one of the great trackball you can buy
+
+27
+00:01:19,360 --> 00:01:26,720
+it costs about 110 dollars
+
+28
+00:01:22,880 --> 00:01:28,479
+and um so you can go you can check out
+
+29
+00:01:26,720 --> 00:01:31,520
+on my website just search for
+
+30
+00:01:28,479 --> 00:01:35,200
+uh you know this url
+
+31
+00:01:31,520 --> 00:01:38,240
+uh eltrack sally l track trampo
+
+32
+00:01:35,200 --> 00:01:43,040
+and so here is the photo
+
+33
+00:01:38,240 --> 00:01:43,040
+and with the happy hacking keyboard
+
+34
+00:01:44,560 --> 00:01:48,000
+so that's about that that's the
+
+35
+00:01:45,840 --> 00:01:51,680
+background image okay so let's get
+
+36
+00:01:48,000 --> 00:01:51,680
+to the xsa talk show today
+
+37
+00:01:52,720 --> 00:01:59,040
+good morning guys alan cortez
+
+38
+00:01:55,920 --> 00:02:03,040
+el direo muskie
+
+39
+00:01:59,040 --> 00:02:06,159
+and bots and zetron crazy
+
+40
+00:02:03,040 --> 00:02:08,160
+okay uh let me do that
+
+41
+00:02:06,159 --> 00:02:09,599
+okay so we got we are going to start
+
+42
+00:02:08,160 --> 00:02:13,200
+coding emacs list
+
+43
+00:02:09,599 --> 00:02:14,879
+today uh okay and first of all let me
+
+44
+00:02:13,200 --> 00:02:17,520
+mention i want to mention this
+
+45
+00:02:14,879 --> 00:02:18,000
+thank you those of you who have donated
+
+46
+00:02:17,520 --> 00:02:21,120
+to me
+
+47
+00:02:18,000 --> 00:02:24,160
+and especially patron uh guys so
+
+48
+00:02:21,120 --> 00:02:27,599
+since 2017 june i
+
+49
+00:02:24,160 --> 00:02:28,800
+started to have a uh july 2017 i started
+
+50
+00:02:27,599 --> 00:02:31,360
+to have a patreon
+
+51
+00:02:28,800 --> 00:02:32,239
+account and you know i started to got
+
+52
+00:02:31,360 --> 00:02:35,760
+money
+
+53
+00:02:32,239 --> 00:02:37,840
+uh 50 a month then
+
+54
+00:02:35,760 --> 00:02:40,560
+they're near then over a hundred dollars
+
+55
+00:02:37,840 --> 00:02:43,760
+a month now i have like
+
+56
+00:02:40,560 --> 00:02:45,840
+uh two hundred dollars a month so all in
+
+57
+00:02:43,760 --> 00:02:46,800
+total in the past three years i have
+
+58
+00:02:45,840 --> 00:02:49,360
+about
+
+59
+00:02:46,800 --> 00:02:51,680
+four thousand so thank you guys very
+
+60
+00:02:49,360 --> 00:02:52,160
+much and uh the four thousand dollars i
+
+61
+00:02:51,680 --> 00:02:57,120
+can
+
+62
+00:02:52,160 --> 00:02:57,120
+buy a big juicy fat computer
+
+63
+00:02:57,840 --> 00:03:04,239
+uh so thank you guys okay so let's do
+
+64
+00:03:01,280 --> 00:03:06,319
+let's look uh let's let's start to code
+
+65
+00:03:04,239 --> 00:03:06,959
+okay let's talk about emacs and emac
+
+66
+00:03:06,319 --> 00:03:08,720
+these
+
+67
+00:03:06,959 --> 00:03:10,239
+so what i want to do there are several
+
+68
+00:03:08,720 --> 00:03:13,200
+things i want to do okay
+
+69
+00:03:10,239 --> 00:03:13,200
+let me magnify
+
+70
+00:03:13,440 --> 00:03:16,840
+let's see if i
+
+71
+00:03:15,060 --> 00:03:20,800
+[Music]
+
+72
+00:03:16,840 --> 00:03:25,360
+uh let's see if i can
+
+73
+00:03:20,800 --> 00:03:25,360
+show everything is good okay i guess
+
+74
+00:03:25,440 --> 00:03:28,879
+okay emacs so i'm going to write some
+
+75
+00:03:28,080 --> 00:03:32,319
+commands
+
+76
+00:03:28,879 --> 00:03:34,640
+in emac list emacs commanding emac this
+
+77
+00:03:32,319 --> 00:03:35,680
+today first of all okay so let me begin
+
+78
+00:03:34,640 --> 00:03:38,560
+let me show you okay
+
+79
+00:03:35,680 --> 00:03:39,680
+so if you uh questions for emacs and
+
+80
+00:03:38,560 --> 00:03:43,040
+just post it okay
+
+81
+00:03:39,680 --> 00:03:46,560
+ask me questions i'll get to it
+
+82
+00:03:43,040 --> 00:03:49,599
+so let's begin so i have two commands
+
+83
+00:03:46,560 --> 00:03:51,680
+that views uh that launches
+
+84
+00:03:49,599 --> 00:03:52,640
+the current page in browser chrome for
+
+85
+00:03:51,680 --> 00:03:55,599
+example
+
+86
+00:03:52,640 --> 00:03:56,480
+uh let me magnify okay this page okay
+
+87
+00:03:55,599 --> 00:03:58,720
+and
+
+88
+00:03:56,480 --> 00:04:01,519
+okay on the right side this pink window
+
+89
+00:03:58,720 --> 00:04:03,760
+is my order emacs command you can see
+
+90
+00:04:01,519 --> 00:04:05,120
+whenever i call i press some key it
+
+91
+00:04:03,760 --> 00:04:06,480
+involves a command
+
+92
+00:04:05,120 --> 00:04:09,040
+you can see the command name on the
+
+93
+00:04:06,480 --> 00:04:12,080
+right side
+
+94
+00:04:09,040 --> 00:04:15,280
+and okay
+
+95
+00:04:12,080 --> 00:04:15,760
+and so let's so let me show you this
+
+96
+00:04:15,280 --> 00:04:18,880
+command
+
+97
+00:04:15,760 --> 00:04:22,079
+chrome okay so i want to open this page
+
+98
+00:04:18,880 --> 00:04:25,440
+in in safari okay i press the key
+
+99
+00:04:22,079 --> 00:04:28,000
+it's in safari now let's go back and but
+
+100
+00:04:25,440 --> 00:04:33,280
+i have this command cause i'll open
+
+101
+00:04:28,000 --> 00:04:35,759
+link in chrome uh okay i call it
+
+102
+00:04:33,280 --> 00:04:38,240
+open okay because html open in chrome
+
+103
+00:04:35,759 --> 00:04:40,840
+browser press enter
+
+104
+00:04:38,240 --> 00:04:43,120
+you can see it goes to the chrome
+
+105
+00:04:40,840 --> 00:04:47,680
+browser
+
+106
+00:04:43,120 --> 00:04:51,280
+and i have another command that is
+
+107
+00:04:47,680 --> 00:04:52,960
+html open link in chrome okay so there
+
+108
+00:04:51,280 --> 00:04:56,240
+are different commands okay
+
+109
+00:04:52,960 --> 00:04:58,560
+so one is the opening chrome
+
+110
+00:04:56,240 --> 00:05:00,240
+and the other one is open link in chrome
+
+111
+00:04:58,560 --> 00:05:01,759
+so let me show you the open linking
+
+112
+00:05:00,240 --> 00:05:04,160
+chrome
+
+113
+00:05:01,759 --> 00:05:05,759
+let me demo okay so for example this is
+
+114
+00:05:04,160 --> 00:05:09,919
+this youtube url
+
+115
+00:05:05,759 --> 00:05:11,520
+that's a link so i'm going to call uh
+
+116
+00:05:09,919 --> 00:05:15,360
+open linking chrome okay
+
+117
+00:05:11,520 --> 00:05:18,720
+enter so you see it gets
+
+118
+00:05:15,360 --> 00:05:21,600
+you know it it opens the link in chrome
+
+119
+00:05:18,720 --> 00:05:22,400
+now so i have these two commands often i
+
+120
+00:05:21,600 --> 00:05:24,720
+want to send
+
+121
+00:05:22,400 --> 00:05:26,400
+you know the the page to the chrome not
+
+122
+00:05:24,720 --> 00:05:28,240
+not the default browser the default
+
+123
+00:05:26,400 --> 00:05:30,320
+browser i have is 5x
+
+124
+00:05:28,240 --> 00:05:32,240
+so what i want to do is to combine them
+
+125
+00:05:30,320 --> 00:05:35,280
+together because why because
+
+126
+00:05:32,240 --> 00:05:39,039
+often suppose i want to open this page
+
+127
+00:05:35,280 --> 00:05:43,120
+um or if i want to open this link
+
+128
+00:05:39,039 --> 00:05:45,680
+in chrome i have to make a mental effort
+
+129
+00:05:43,120 --> 00:05:47,440
+to choose which command i want to use so
+
+130
+00:05:45,680 --> 00:05:50,320
+i want to combine them so that
+
+131
+00:05:47,440 --> 00:05:51,120
+if the current if the cursor is on a
+
+132
+00:05:50,320 --> 00:05:53,280
+link
+
+133
+00:05:51,120 --> 00:05:55,840
+then you'll just open the link in chrome
+
+134
+00:05:53,280 --> 00:05:57,759
+if the cursor is not on the link
+
+135
+00:05:55,840 --> 00:06:02,160
+then you just open the current buffering
+
+136
+00:05:57,759 --> 00:06:02,160
+chrome so that's what we are going to do
+
+137
+00:06:03,120 --> 00:06:07,919
+okay so so far so good okay so let's
+
+138
+00:06:06,720 --> 00:06:10,319
+just do it okay so
+
+139
+00:06:07,919 --> 00:06:11,840
+open so we are going to so let me going
+
+140
+00:06:10,319 --> 00:06:14,160
+to show you
+
+141
+00:06:11,840 --> 00:06:14,160
+um
+
+142
+00:06:14,960 --> 00:06:18,560
+source code okay so actually we can call
+
+143
+00:06:17,199 --> 00:06:22,160
+this uh let's
+
+144
+00:06:18,560 --> 00:06:22,160
+let's show the source code so
+
+145
+00:06:22,639 --> 00:06:29,520
+open chrome in browser control h
+
+146
+00:06:26,160 --> 00:06:32,479
+f okay so you can see
+
+147
+00:06:29,520 --> 00:06:35,440
+here is the command it's defined inside
+
+148
+00:06:32,479 --> 00:06:40,000
+html mod so let's open that
+
+149
+00:06:35,440 --> 00:06:43,680
+okay and magnify so here is the code
+
+150
+00:06:40,000 --> 00:06:46,880
+um the code is let's see how
+
+151
+00:06:43,680 --> 00:06:46,880
+it's not too big okay
+
+152
+00:06:47,280 --> 00:06:54,240
+so here is uh open in chrome browser
+
+153
+00:06:51,440 --> 00:06:55,199
+and then there is open linking chrome
+
+154
+00:06:54,240 --> 00:06:58,639
+let's
+
+155
+00:06:55,199 --> 00:07:02,000
+let's make let's drag this here so again
+
+156
+00:06:58,639 --> 00:07:04,639
+so you can see bigger
+
+157
+00:07:02,000 --> 00:07:06,160
+okay so then below it is here is the
+
+158
+00:07:04,639 --> 00:07:09,520
+open linking chrome
+
+159
+00:07:06,160 --> 00:07:09,520
+now i'm going to combine them
+
+160
+00:07:10,160 --> 00:07:19,280
+okay so what um
+
+161
+00:07:16,560 --> 00:07:21,759
+okay so what are we going to do we are
+
+162
+00:07:19,280 --> 00:07:21,759
+going to
+
+163
+00:07:22,080 --> 00:07:26,080
+so first of all let's just copy this uh
+
+164
+00:07:24,639 --> 00:07:30,080
+copy these two code
+
+165
+00:07:26,080 --> 00:07:33,199
+so and
+
+166
+00:07:30,080 --> 00:07:36,240
+okay copy it open a new buffer
+
+167
+00:07:33,199 --> 00:07:39,840
+paste it magnify
+
+168
+00:07:36,240 --> 00:07:44,160
+and save it okay
+
+169
+00:07:39,840 --> 00:07:47,919
+dot el okay today's date
+
+170
+00:07:44,160 --> 00:07:47,919
+okay we have the two commands
+
+171
+00:07:48,639 --> 00:07:51,840
+okay so let's just write the command
+
+172
+00:07:50,400 --> 00:07:55,120
+open in chrome let's just
+
+173
+00:07:51,840 --> 00:07:55,120
+start to do it different
+
+174
+00:07:56,800 --> 00:08:03,039
+open in chrome okay and let's do a
+
+175
+00:08:00,240 --> 00:08:07,919
+documentation
+
+176
+00:08:03,039 --> 00:08:07,919
+version today state open
+
+177
+00:08:08,960 --> 00:08:15,680
+current buffer or
+
+178
+00:08:12,319 --> 00:08:21,360
+link under cruiser in
+
+179
+00:08:15,680 --> 00:08:21,360
+chrome browser okay google chrome
+
+180
+00:08:24,240 --> 00:08:29,680
+okay um
+
+181
+00:08:27,520 --> 00:08:32,080
+so first first thing first of all we
+
+182
+00:08:29,680 --> 00:08:35,279
+want to determine if the cursor
+
+183
+00:08:32,080 --> 00:08:40,240
+is on a link how do you do that
+
+184
+00:08:35,279 --> 00:08:44,399
+we can do that by
+
+185
+00:08:40,240 --> 00:08:44,399
+uh let's see what's the command um
+
+186
+00:08:45,040 --> 00:08:51,200
+we want to grab the cur i mean
+
+187
+00:08:48,399 --> 00:08:51,600
+we want to know if the cruiser is on a
+
+188
+00:08:51,200 --> 00:08:56,320
+link
+
+189
+00:08:51,600 --> 00:08:56,320
+or not okay so
+
+190
+00:08:56,560 --> 00:09:00,399
+how do we determine that we can
+
+191
+00:08:58,240 --> 00:09:04,000
+determine that by
+
+192
+00:09:00,399 --> 00:09:06,399
+uh get thing okay get thing at point
+
+193
+00:09:04,000 --> 00:09:07,600
+that's that's uh that's the command okay
+
+194
+00:09:06,399 --> 00:09:10,720
+so let me show you get
+
+195
+00:09:07,600 --> 00:09:10,720
+thing at point
+
+196
+00:09:17,440 --> 00:09:19,680
+what
+
+197
+00:09:20,839 --> 00:09:25,200
+get thing
+
+198
+00:09:27,040 --> 00:09:33,920
+uh thing at point not get okay so
+
+199
+00:09:30,560 --> 00:09:37,680
+thing at point yeah that's a command so
+
+200
+00:09:33,920 --> 00:09:41,120
+thing at point this command will grab
+
+201
+00:09:37,680 --> 00:09:43,920
+the thing under cruiser and that thing
+
+202
+00:09:41,120 --> 00:09:44,320
+may be a word maybe a symbol maybe a
+
+203
+00:09:43,920 --> 00:09:47,680
+list
+
+204
+00:09:44,320 --> 00:09:48,640
+maybe a lisp expression or maybe a
+
+205
+00:09:47,680 --> 00:09:52,240
+function
+
+206
+00:09:48,640 --> 00:09:55,360
+or file name url things like that
+
+207
+00:09:52,240 --> 00:09:56,240
+so so let's just try to do it okay let's
+
+208
+00:09:55,360 --> 00:09:58,640
+let's do this
+
+209
+00:09:56,240 --> 00:10:00,480
+in the simplest way possible then we if
+
+210
+00:09:58,640 --> 00:10:04,800
+we have time we'll refine it
+
+211
+00:10:00,480 --> 00:10:08,000
+questions any questions
+
+212
+00:10:04,800 --> 00:10:10,800
+okay questions uh posted okay let me see
+
+213
+00:10:08,000 --> 00:10:10,800
+if i'm still
+
+214
+00:10:12,240 --> 00:10:15,600
+yeah okay so seeing it seeing a point
+
+215
+00:10:14,800 --> 00:10:19,200
+okay
+
+216
+00:10:15,600 --> 00:10:23,680
+um let's see declare variable
+
+217
+00:10:19,200 --> 00:10:28,720
+um let's say url okay
+
+218
+00:10:23,680 --> 00:10:32,079
+url or file path
+
+219
+00:10:28,720 --> 00:10:35,680
+okay we have two uh
+
+220
+00:10:32,079 --> 00:10:39,360
+set url
+
+221
+00:10:35,680 --> 00:10:42,480
+thing at point okay and
+
+222
+00:10:39,360 --> 00:10:47,760
+this case will be url okay so
+
+223
+00:10:42,480 --> 00:10:50,880
+remove that
+
+224
+00:10:47,760 --> 00:10:54,240
+okay this will get the url and we
+
+225
+00:10:50,880 --> 00:10:54,240
+let's try one more thing
+
+226
+00:10:54,800 --> 00:10:59,360
+let's try set
+
+227
+00:10:59,680 --> 00:11:02,560
+file path
+
+228
+00:11:02,959 --> 00:11:08,399
+and the thing at point and this time we
+
+229
+00:11:06,480 --> 00:11:12,000
+want
+
+230
+00:11:08,399 --> 00:11:15,839
+file name you might be wondering why
+
+231
+00:11:12,000 --> 00:11:15,839
+are you doing them twice because
+
+232
+00:11:20,399 --> 00:11:25,519
+because because if you have a local link
+
+233
+00:11:24,480 --> 00:11:29,360
+let me show you okay
+
+234
+00:11:25,519 --> 00:11:32,880
+actually um
+
+235
+00:11:29,360 --> 00:11:35,440
+yeah let me show you okay so for example
+
+236
+00:11:32,880 --> 00:11:38,399
+on this html page you can see
+
+237
+00:11:35,440 --> 00:11:40,160
+sometimes so for example this link this
+
+238
+00:11:38,399 --> 00:11:43,120
+link is a local path
+
+239
+00:11:40,160 --> 00:11:43,680
+so it it is actually a file name on the
+
+240
+00:11:43,120 --> 00:11:46,240
+other hand
+
+241
+00:11:43,680 --> 00:11:46,720
+some other link for example my patreon
+
+242
+00:11:46,240 --> 00:11:50,959
+link
+
+243
+00:11:46,720 --> 00:11:54,079
+start with https now that is a url
+
+244
+00:11:50,959 --> 00:11:54,480
+well technically both of them are yeah
+
+245
+00:11:54,079 --> 00:11:57,600
+so
+
+246
+00:11:54,480 --> 00:11:58,320
+so the patron this one is a url but but
+
+247
+00:11:57,600 --> 00:12:01,920
+the other one
+
+248
+00:11:58,320 --> 00:12:05,680
+is a file path
+
+249
+00:12:01,920 --> 00:12:07,760
+so so that is why we need to try both
+
+250
+00:12:05,680 --> 00:12:09,600
+okay that is the reason so let me close
+
+251
+00:12:07,760 --> 00:12:13,040
+that so go back to the code
+
+252
+00:12:09,600 --> 00:12:15,279
+and uh um
+
+253
+00:12:13,040 --> 00:12:17,519
+you'll see what i'm doing okay so so
+
+254
+00:12:15,279 --> 00:12:20,720
+first of all get the url here
+
+255
+00:12:17,519 --> 00:12:24,560
+and get the file path okay
+
+256
+00:12:20,720 --> 00:12:27,279
+and for now let's just print them print
+
+257
+00:12:24,560 --> 00:12:29,360
+not print message now message the
+
+258
+00:12:27,279 --> 00:12:30,399
+message command is how you print things
+
+259
+00:12:29,360 --> 00:12:34,320
+in image list
+
+260
+00:12:30,399 --> 00:12:38,000
+okay so let's try print url um
+
+261
+00:12:34,320 --> 00:12:41,519
+url is and let's do it again
+
+262
+00:12:38,000 --> 00:12:44,800
+this time file path okay
+
+263
+00:12:41,519 --> 00:12:48,639
+path is pretty prettify
+
+264
+00:12:44,800 --> 00:12:50,079
+it uh okay so here is our command
+
+265
+00:12:48,639 --> 00:12:54,639
+currently you just
+
+266
+00:12:50,079 --> 00:12:56,560
+print whatever the thing at point does
+
+267
+00:12:54,639 --> 00:12:59,600
+so what it what the thing at point does
+
+268
+00:12:56,560 --> 00:13:01,519
+it grab the text under cruiser and
+
+269
+00:12:59,600 --> 00:13:02,880
+then we are setting it to file path or
+
+270
+00:13:01,519 --> 00:13:07,040
+url okay
+
+271
+00:13:02,880 --> 00:13:09,279
+now evaluate last command okay done
+
+272
+00:13:07,040 --> 00:13:10,480
+save the buffer now let's go back to our
+
+273
+00:13:09,279 --> 00:13:13,600
+html page
+
+274
+00:13:10,480 --> 00:13:15,519
+and let's call on this let's you know
+
+275
+00:13:13,600 --> 00:13:18,480
+let's put the cruiser right here and
+
+276
+00:13:15,519 --> 00:13:20,240
+call the command and see what happens
+
+277
+00:13:18,480 --> 00:13:21,680
+okay what's the command name opening
+
+278
+00:13:20,240 --> 00:13:25,600
+chrome okay so
+
+279
+00:13:21,680 --> 00:13:29,839
+go back so let's try it code
+
+280
+00:13:25,600 --> 00:13:33,040
+open in chrome okay enter
+
+281
+00:13:29,839 --> 00:13:34,000
+okay so you see on in in the mini buffer
+
+282
+00:13:33,040 --> 00:13:36,560
+there's messages
+
+283
+00:13:34,000 --> 00:13:37,200
+now let's switch switch to the messages
+
+284
+00:13:36,560 --> 00:13:40,800
+buffer
+
+285
+00:13:37,200 --> 00:13:44,399
+to see um what we got
+
+286
+00:13:40,800 --> 00:13:47,680
+so message buffer okay
+
+287
+00:13:44,399 --> 00:13:51,680
+there it is you see
+
+288
+00:13:47,680 --> 00:13:54,480
+so so in this case it says url is neo
+
+289
+00:13:51,680 --> 00:13:55,680
+then path is you know path then we got a
+
+290
+00:13:54,480 --> 00:13:58,800
+path here
+
+291
+00:13:55,680 --> 00:14:02,000
+so you see that is how we determine
+
+292
+00:13:58,800 --> 00:14:04,240
+whether it is a url or it's a path now
+
+293
+00:14:02,000 --> 00:14:05,760
+let's try it again this time let's try
+
+294
+00:14:04,240 --> 00:14:10,240
+it under
+
+295
+00:14:05,760 --> 00:14:13,120
+um under a real url for example this
+
+296
+00:14:10,240 --> 00:14:14,839
+uh patreon okay let's call it meta x
+
+297
+00:14:13,120 --> 00:14:17,279
+open in chrome
+
+298
+00:14:14,839 --> 00:14:20,800
+enter
+
+299
+00:14:17,279 --> 00:14:20,800
+okay so now you can see
+
+300
+00:14:21,199 --> 00:14:26,320
+the ui url and paths are both
+
+301
+00:14:27,120 --> 00:14:32,639
+both valid
+
+302
+00:14:30,160 --> 00:14:34,079
+okay so in that case we don't actually
+
+303
+00:14:32,639 --> 00:14:38,880
+need
+
+304
+00:14:34,079 --> 00:14:38,880
+uh because if you say get url
+
+305
+00:14:42,079 --> 00:14:47,600
+so before wait let's see what's going on
+
+306
+00:14:45,199 --> 00:14:47,600
+before
+
+307
+00:14:52,639 --> 00:14:59,839
+so before the url is new but the path
+
+308
+00:14:56,560 --> 00:14:59,839
+is valid
+
+309
+00:15:00,079 --> 00:15:05,519
+when you do it on a file path but if you
+
+310
+00:15:03,360 --> 00:15:08,000
+do it on a url both of them
+
+311
+00:15:05,519 --> 00:15:10,000
+are valid so that means we only need one
+
+312
+00:15:08,000 --> 00:15:12,800
+of them
+
+313
+00:15:10,000 --> 00:15:14,480
+so we just need the path okay so that's
+
+314
+00:15:12,800 --> 00:15:18,800
+of the that resolve the
+
+315
+00:15:14,480 --> 00:15:21,680
+uh problem so let's go back to the code
+
+316
+00:15:18,800 --> 00:15:22,160
+okay so actually we don't need the url
+
+317
+00:15:21,680 --> 00:15:27,120
+part
+
+318
+00:15:22,160 --> 00:15:30,639
+okay let's just comment out for now okay
+
+319
+00:15:27,120 --> 00:15:33,680
+and now let's let's start to
+
+320
+00:15:30,639 --> 00:15:33,680
+okay so if
+
+321
+00:15:38,839 --> 00:15:45,759
+if
+
+322
+00:15:41,600 --> 00:15:47,920
+file path is not neo then
+
+323
+00:15:45,759 --> 00:15:47,920
+we
+
+324
+00:15:49,519 --> 00:15:55,839
+uh then we just call our command okay um
+
+325
+00:16:02,079 --> 00:16:06,639
+there okay so here is what we want to do
+
+326
+00:16:06,959 --> 00:16:11,920
+so if file path is valid then we just
+
+327
+00:16:09,839 --> 00:16:14,959
+call we simply call
+
+328
+00:16:11,920 --> 00:16:15,680
+open linking chrome if the file path is
+
+329
+00:16:14,959 --> 00:16:18,320
+near
+
+330
+00:16:15,680 --> 00:16:19,120
+then we simply call opening chrome okay
+
+331
+00:16:18,320 --> 00:16:21,360
+that
+
+332
+00:16:19,120 --> 00:16:23,519
+that should be it but let me let's uh
+
+333
+00:16:21,360 --> 00:16:27,199
+fix something let's make sure
+
+334
+00:16:23,519 --> 00:16:29,440
+let's try our code one more time
+
+335
+00:16:27,199 --> 00:16:30,880
+so what if the cursor is somewhere else
+
+336
+00:16:29,440 --> 00:16:36,079
+let's say here
+
+337
+00:16:30,880 --> 00:16:39,360
+yeah let's say here okay let's call it
+
+338
+00:16:36,079 --> 00:16:42,000
+and we want to know what uh open a new
+
+339
+00:16:39,360 --> 00:16:43,680
+buffer go to the messages buffer okay we
+
+340
+00:16:42,000 --> 00:16:46,240
+want to actually
+
+341
+00:16:43,680 --> 00:16:46,240
+let's just
+
+342
+00:16:48,560 --> 00:16:52,320
+go to the message buffer and i'm going
+
+343
+00:16:50,639 --> 00:16:55,680
+to call the command
+
+344
+00:16:52,320 --> 00:16:56,399
+while my cruiser is here not on a url
+
+345
+00:16:55,680 --> 00:17:01,680
+okay or
+
+346
+00:16:56,399 --> 00:17:01,680
+path okay call it opening chrome enter
+
+347
+00:17:03,680 --> 00:17:06,720
+oh because well we already changed the
+
+348
+00:17:05,919 --> 00:17:09,760
+command uh
+
+349
+00:17:06,720 --> 00:17:14,000
+let's let's go back we want to make sure
+
+350
+00:17:09,760 --> 00:17:14,000
+uh okay so we want to make sure
+
+351
+00:17:14,160 --> 00:17:19,839
+let's go back to the previous okay
+
+352
+00:17:22,079 --> 00:17:29,200
+eval buffer go back to our code
+
+353
+00:17:25,760 --> 00:17:30,080
+and let's call it uh turn on message
+
+354
+00:17:29,200 --> 00:17:33,360
+buffer
+
+355
+00:17:30,080 --> 00:17:33,840
+call it while the cursor is in empty
+
+356
+00:17:33,360 --> 00:17:37,919
+area
+
+357
+00:17:33,840 --> 00:17:40,640
+correct yeah okay so it says url
+
+358
+00:17:37,919 --> 00:17:41,120
+is near neo and path is near let's try
+
+359
+00:17:40,640 --> 00:17:44,720
+some
+
+360
+00:17:41,120 --> 00:17:47,200
+some more okay just in case let's say
+
+361
+00:17:44,720 --> 00:17:48,960
+now let's put the cursor in a tag let's
+
+362
+00:17:47,200 --> 00:17:51,360
+see what happens
+
+363
+00:17:48,960 --> 00:17:51,360
+call it
+
+364
+00:17:52,480 --> 00:17:57,520
+okay url is near but path is figure
+
+365
+00:17:57,679 --> 00:18:03,200
+so you see what happens so what what
+
+366
+00:17:59,919 --> 00:18:03,200
+that means is that
+
+367
+00:18:04,240 --> 00:18:09,840
+you actually do need to check the ui out
+
+368
+00:18:08,140 --> 00:18:13,120
+[Music]
+
+369
+00:18:09,840 --> 00:18:17,200
+you want to make sure both are new
+
+370
+00:18:13,120 --> 00:18:20,799
+then we know that
+
+371
+00:18:17,200 --> 00:18:21,360
+the cursor is not on a ui or a path or a
+
+372
+00:18:20,799 --> 00:18:23,440
+path
+
+373
+00:18:21,360 --> 00:18:24,799
+because right now if the cursor is an
+
+374
+00:18:23,440 --> 00:18:28,240
+inside the tag
+
+375
+00:18:24,799 --> 00:18:29,360
+is is simply uh grab the tag as a file
+
+376
+00:18:28,240 --> 00:18:32,240
+path
+
+377
+00:18:29,360 --> 00:18:32,240
+so that's no good
+
+378
+00:18:34,000 --> 00:18:38,080
+okay but but but but let's let's do
+
+379
+00:18:36,480 --> 00:18:42,080
+let's fix it later okay
+
+380
+00:18:38,080 --> 00:18:43,760
+let's just do it let's fix it later so
+
+381
+00:18:42,080 --> 00:18:45,280
+i'm showing that you know the live
+
+382
+00:18:43,760 --> 00:18:46,960
+coding the details you
+
+383
+00:18:45,280 --> 00:18:49,039
+you need to figure out so let's just do
+
+384
+00:18:46,960 --> 00:18:51,840
+this you file so we get
+
+385
+00:18:49,039 --> 00:18:54,320
+so we get the file path file path here
+
+386
+00:18:51,840 --> 00:18:58,320
+we get the file path with thing at point
+
+387
+00:18:54,320 --> 00:19:01,440
+and if the file path is near then open
+
+388
+00:18:58,320 --> 00:19:05,039
+if the file path is is not near
+
+389
+00:19:01,440 --> 00:19:07,120
+then we open link in chrome if the
+
+390
+00:19:05,039 --> 00:19:09,039
+file path is new then we just call open
+
+391
+00:19:07,120 --> 00:19:09,679
+in chrome that will open the buffer in
+
+392
+00:19:09,039 --> 00:19:12,799
+chrome
+
+393
+00:19:09,679 --> 00:19:15,520
+okay evaluate buffer
+
+394
+00:19:12,799 --> 00:19:16,559
+go back to our code and let's just call
+
+395
+00:19:15,520 --> 00:19:20,640
+it
+
+396
+00:19:16,559 --> 00:19:23,520
+code fantastic it works
+
+397
+00:19:20,640 --> 00:19:23,919
+it opens the buffer in chrome because
+
+398
+00:19:23,520 --> 00:19:26,960
+our
+
+399
+00:19:23,919 --> 00:19:28,400
+cursor is not under file path now let's
+
+400
+00:19:26,960 --> 00:19:31,280
+say i put the cursor here
+
+401
+00:19:28,400 --> 00:19:33,440
+okay which is the file path okay now
+
+402
+00:19:31,280 --> 00:19:36,880
+code
+
+403
+00:19:33,440 --> 00:19:38,000
+great now that is image so it opens the
+
+404
+00:19:36,880 --> 00:19:40,880
+url uh
+
+405
+00:19:38,000 --> 00:19:43,120
+in chrome that's what we want uh by the
+
+406
+00:19:40,880 --> 00:19:46,080
+way here's a question from someone okay
+
+407
+00:19:43,120 --> 00:19:49,120
+so here is the question
+
+408
+00:19:46,080 --> 00:19:51,600
+uh thank you tian uh
+
+409
+00:19:49,120 --> 00:19:52,720
+oops uh you know this is the email but i
+
+410
+00:19:51,600 --> 00:19:55,360
+guess it's uh
+
+411
+00:19:52,720 --> 00:19:57,360
+you know there's no private information
+
+412
+00:19:55,360 --> 00:19:58,880
+anyway he's asking me a question about
+
+413
+00:19:57,360 --> 00:20:01,919
+oakmod
+
+414
+00:19:58,880 --> 00:20:04,640
+um you know
+
+415
+00:20:01,919 --> 00:20:06,720
+on my website i have ogre mock tutorials
+
+416
+00:20:04,640 --> 00:20:09,840
+but anyway that's um
+
+417
+00:20:06,720 --> 00:20:12,159
+maybe our answer later so anyway
+
+418
+00:20:09,840 --> 00:20:14,559
+so far the command seems to work uh
+
+419
+00:20:12,159 --> 00:20:17,600
+let's try some more okay so
+
+420
+00:20:14,559 --> 00:20:17,600
+uh let's see
+
+421
+00:20:18,880 --> 00:20:26,960
+yeah you know it works okay close it
+
+422
+00:20:22,480 --> 00:20:30,240
+close it close it back to emacs
+
+423
+00:20:26,960 --> 00:20:33,600
+let's say let's put
+
+424
+00:20:30,240 --> 00:20:37,280
+the url on a on here okay
+
+425
+00:20:33,600 --> 00:20:42,400
+on this on the put the cruiser here
+
+426
+00:20:37,280 --> 00:20:42,400
+which is a file path okay let's call it
+
+427
+00:20:42,880 --> 00:20:48,720
+so that works it opens my programming
+
+428
+00:20:46,080 --> 00:20:51,360
+block which is that link
+
+429
+00:20:48,720 --> 00:20:52,480
+uh let's try try one more time let's put
+
+430
+00:20:51,360 --> 00:20:57,280
+it this on
+
+431
+00:20:52,480 --> 00:21:00,960
+on the youtube link okay go ahead
+
+432
+00:20:57,280 --> 00:21:04,320
+okay so it works so that is
+
+433
+00:21:00,960 --> 00:21:07,760
+today's well that we that is our
+
+434
+00:21:04,320 --> 00:21:12,159
+uh purpose we finished that code let's
+
+435
+00:21:07,760 --> 00:21:14,640
+go back look at the code okay now let's
+
+436
+00:21:12,159 --> 00:21:15,200
+yeah let's keep it simple so today let's
+
+437
+00:21:14,640 --> 00:21:17,280
+just
+
+438
+00:21:15,200 --> 00:21:18,400
+that's that's just that let's clean up
+
+439
+00:21:17,280 --> 00:21:21,440
+the code
+
+440
+00:21:18,400 --> 00:21:25,360
+so it looks more traditional
+
+441
+00:21:21,440 --> 00:21:28,240
+so you know so uh otherwise we get
+
+442
+00:21:25,360 --> 00:21:30,000
+complaints from the emacs phonetics you
+
+443
+00:21:28,240 --> 00:21:33,280
+know oh your code is not right it's
+
+444
+00:21:30,000 --> 00:21:34,720
+not intended correctly you don't know
+
+445
+00:21:33,280 --> 00:21:37,919
+how to code
+
+446
+00:21:34,720 --> 00:21:42,240
+okay so now it looks better
+
+447
+00:21:37,919 --> 00:21:46,320
+uh so here's our our code okay so let's
+
+448
+00:21:42,240 --> 00:21:49,760
+let me copy the code back to the html
+
+449
+00:21:46,320 --> 00:21:53,760
+site showing browser and we
+
+450
+00:21:49,760 --> 00:21:57,280
+have it done here one hour code
+
+451
+00:21:53,760 --> 00:22:00,320
+let's create a elise
+
+452
+00:21:57,280 --> 00:22:01,200
+tab here paste the code here show in
+
+453
+00:22:00,320 --> 00:22:04,400
+browser
+
+454
+00:22:01,200 --> 00:22:07,840
+fantastic go back to emacs
+
+455
+00:22:04,400 --> 00:22:10,480
+then clarify it okay
+
+456
+00:22:07,840 --> 00:22:14,640
+then show in browser now you see it's
+
+457
+00:22:10,480 --> 00:22:14,640
+colored fantastic that's that's uh
+
+458
+00:22:14,720 --> 00:22:19,600
+that's successful any questions
+
+459
+00:22:16,720 --> 00:22:24,559
+questions
+
+460
+00:22:19,600 --> 00:22:28,080
+close that hello good morning emily
+
+461
+00:22:24,559 --> 00:22:31,679
+okay so now what we're gonna do next
+
+462
+00:22:28,080 --> 00:22:34,799
+okay so i'm going to ask you guys so
+
+463
+00:22:31,679 --> 00:22:38,559
+we did this code very uh quickly
+
+464
+00:22:34,799 --> 00:22:40,960
+so i hope what you learned
+
+465
+00:22:38,559 --> 00:22:42,559
+so what we learned primarily is how to
+
+466
+00:22:40,960 --> 00:22:44,720
+use thing at point
+
+467
+00:22:42,559 --> 00:22:46,720
+think at point grabs the text under
+
+468
+00:22:44,720 --> 00:22:50,480
+cruiser
+
+469
+00:22:46,720 --> 00:22:51,039
+but i can i can now go over to start to
+
+470
+00:22:50,480 --> 00:22:53,840
+explain
+
+471
+00:22:51,039 --> 00:22:57,200
+how does the opening chrome works how do
+
+472
+00:22:53,840 --> 00:22:59,919
+you get emacs to open a link in chrome
+
+473
+00:22:57,200 --> 00:23:00,799
+or firefox you know in a browser by the
+
+474
+00:22:59,919 --> 00:23:04,159
+way
+
+475
+00:23:00,799 --> 00:23:07,760
+emacs already has a building command to
+
+476
+00:23:04,159 --> 00:23:08,000
+do that but i have some enhancements for
+
+477
+00:23:07,760 --> 00:23:11,440
+my
+
+478
+00:23:08,000 --> 00:23:15,120
+personal use that's why you see um
+
+479
+00:23:11,440 --> 00:23:17,600
+html open linking chrome and so on
+
+480
+00:23:15,120 --> 00:23:19,440
+so now i can go over to explain how that
+
+481
+00:23:17,600 --> 00:23:22,080
+how you know
+
+482
+00:23:19,440 --> 00:23:22,720
+about the command how do you open a you
+
+483
+00:23:22,080 --> 00:23:25,360
+know
+
+484
+00:23:22,720 --> 00:23:26,240
+buffer or linking in chrome or in
+
+485
+00:23:25,360 --> 00:23:32,400
+firefox
+
+486
+00:23:26,240 --> 00:23:32,400
+i can do that or let's see the next item
+
+487
+00:23:32,640 --> 00:23:38,320
+okay the next item
+
+488
+00:23:35,760 --> 00:23:39,280
+is i have a youtube command let me show
+
+489
+00:23:38,320 --> 00:23:42,400
+you okay
+
+490
+00:23:39,280 --> 00:23:44,480
+so we go to a youtube let's go to
+
+491
+00:23:42,400 --> 00:23:46,720
+youtube command
+
+492
+00:23:44,480 --> 00:23:51,440
+i mean i'm going to show you a command
+
+493
+00:23:46,720 --> 00:23:54,480
+youtube okay let's go to youtube.com
+
+494
+00:23:51,440 --> 00:23:59,279
+and let's search for some emacs stuff
+
+495
+00:23:54,480 --> 00:24:03,120
+okay so emacs
+
+496
+00:23:59,279 --> 00:24:04,960
+org mod okay let's see emacs ogmark
+
+497
+00:24:03,120 --> 00:24:09,039
+tutorial so there are some
+
+498
+00:24:04,960 --> 00:24:11,679
+great oakmark ogmod tutorials
+
+499
+00:24:09,039 --> 00:24:14,799
+okay let's see this one augment basics
+
+500
+00:24:11,679 --> 00:24:14,799
+in doom e-max
+
+501
+00:24:15,840 --> 00:24:19,840
+okay now
+
+502
+00:24:20,480 --> 00:24:27,440
+okay stop it so if you are a blogger
+
+503
+00:24:24,480 --> 00:24:29,840
+you know if you write blogs often about
+
+504
+00:24:27,440 --> 00:24:33,360
+emacs or about other any other thing
+
+505
+00:24:29,840 --> 00:24:35,520
+you want to embed this youtube into your
+
+506
+00:24:33,360 --> 00:24:36,640
+blog what so let me show you what i do
+
+507
+00:24:35,520 --> 00:24:40,559
+okay
+
+508
+00:24:36,640 --> 00:24:42,559
+i copy the url i have a macro okay so
+
+509
+00:24:40,559 --> 00:24:45,760
+now the url is copied i
+
+510
+00:24:42,559 --> 00:24:48,000
+switch back to emacs okay
+
+511
+00:24:45,760 --> 00:24:49,039
+now i'm back in emacs and i paste the
+
+512
+00:24:48,000 --> 00:24:52,400
+url
+
+513
+00:24:49,039 --> 00:24:52,799
+okay magnify so you can see the url
+
+514
+00:24:52,400 --> 00:24:55,919
+there
+
+515
+00:24:52,799 --> 00:24:58,400
+okay you can see the url here
+
+516
+00:24:55,919 --> 00:24:59,360
+now if i show in browser that's no good
+
+517
+00:24:58,400 --> 00:25:01,440
+because it's
+
+518
+00:24:59,360 --> 00:25:02,799
+you know it's just show a url you want
+
+519
+00:25:01,440 --> 00:25:06,320
+to
+
+520
+00:25:02,799 --> 00:25:10,240
+make it into a embedded url
+
+521
+00:25:06,320 --> 00:25:12,240
+uh youtube so so now look at
+
+522
+00:25:10,240 --> 00:25:14,000
+look at the pink window okay on the
+
+523
+00:25:12,240 --> 00:25:17,679
+right so i press the i
+
+524
+00:25:14,000 --> 00:25:21,039
+press two keys beside html any linkify
+
+525
+00:25:17,679 --> 00:25:23,520
+now you can see it becomes that now show
+
+526
+00:25:21,039 --> 00:25:27,279
+in browser
+
+527
+00:25:23,520 --> 00:25:32,000
+scroll down there we have it you see so
+
+528
+00:25:27,279 --> 00:25:34,159
+so this command um
+
+529
+00:25:32,000 --> 00:25:36,799
+html link if i actually it's not that
+
+530
+00:25:34,159 --> 00:25:38,720
+command actually because that commands
+
+531
+00:25:36,799 --> 00:25:41,120
+is a wrapper that calls other command
+
+532
+00:25:38,720 --> 00:25:45,600
+but anyway basically it just
+
+533
+00:25:41,120 --> 00:25:48,559
+turns a youtube url into this
+
+534
+00:25:45,600 --> 00:25:49,840
+iframe thing okay this iframe thing now
+
+535
+00:25:48,559 --> 00:25:52,960
+let me show you what the
+
+536
+00:25:49,840 --> 00:25:53,360
+what command exactly do that okay so so
+
+537
+00:25:52,960 --> 00:25:56,400
+we
+
+538
+00:25:53,360 --> 00:25:59,760
+undo we back to the youtube link
+
+539
+00:25:56,400 --> 00:26:03,840
+and we want to call xa
+
+540
+00:25:59,760 --> 00:26:07,279
+youtube html youtube
+
+541
+00:26:03,840 --> 00:26:10,880
+linkify okay this one
+
+542
+00:26:07,279 --> 00:26:13,360
+enter you see that that does it
+
+543
+00:26:10,880 --> 00:26:14,320
+so that's a command so uh let me show
+
+544
+00:26:13,360 --> 00:26:18,640
+you okay
+
+545
+00:26:14,320 --> 00:26:18,640
+let me show you and copy it here
+
+546
+00:26:19,039 --> 00:26:23,120
+so here is the command okay let me show
+
+547
+00:26:21,360 --> 00:26:26,400
+you okay
+
+548
+00:26:23,120 --> 00:26:29,600
+show there is a command
+
+549
+00:26:26,400 --> 00:26:33,279
+html youtube link if i that turns
+
+550
+00:26:29,600 --> 00:26:33,279
+a youtube link into that
+
+551
+00:26:34,799 --> 00:26:41,440
+and these these commands so far
+
+552
+00:26:38,000 --> 00:26:44,559
+we talked about they are in the html
+
+553
+00:26:41,440 --> 00:26:45,279
+mod you can either use that it's on
+
+554
+00:26:44,559 --> 00:26:48,720
+mailpad
+
+555
+00:26:45,279 --> 00:26:51,200
+uh i think it's like it's on my github
+
+556
+00:26:48,720 --> 00:26:51,760
+i don't know if it's maybe it's not alma
+
+557
+00:26:51,200 --> 00:26:53,840
+it's
+
+558
+00:26:51,760 --> 00:26:55,440
+on my just search folks you know you'll
+
+559
+00:26:53,840 --> 00:26:59,120
+find it
+
+560
+00:26:55,440 --> 00:27:02,240
+it's on github now so you can either try
+
+561
+00:26:59,120 --> 00:27:03,520
+to use my html mod or you can use the
+
+562
+00:27:02,240 --> 00:27:06,320
+you know you can
+
+563
+00:27:03,520 --> 00:27:06,880
+grab the individual commands i think
+
+564
+00:27:06,320 --> 00:27:10,640
+these are
+
+565
+00:27:06,880 --> 00:27:12,960
+independent so you can most of them
+
+566
+00:27:10,640 --> 00:27:13,760
+so anyway so what i want to show okay so
+
+567
+00:27:12,960 --> 00:27:16,480
+so you see
+
+568
+00:27:13,760 --> 00:27:17,679
+you have seen how this works let me undo
+
+569
+00:27:16,480 --> 00:27:20,880
+okay
+
+570
+00:27:17,679 --> 00:27:24,720
+actually copy that and do and do we
+
+571
+00:27:20,880 --> 00:27:29,919
+show the polish and do and do and do
+
+572
+00:27:24,720 --> 00:27:32,960
+the emax undo and redo roller coaster
+
+573
+00:27:29,919 --> 00:27:34,799
+okay let's see where are we okay we are
+
+574
+00:27:32,960 --> 00:27:38,799
+back to where we began
+
+575
+00:27:34,799 --> 00:27:41,360
+with a youtube url okay now let me show
+
+576
+00:27:38,799 --> 00:27:43,520
+you some things okay let me put it here
+
+577
+00:27:41,360 --> 00:27:44,880
+uh wait let me okay let me show you
+
+578
+00:27:43,520 --> 00:27:47,919
+something
+
+579
+00:27:44,880 --> 00:27:49,279
+so copy that copy that so i'm gonna
+
+580
+00:27:47,919 --> 00:27:51,440
+linkify
+
+581
+00:27:49,279 --> 00:27:52,880
+and you see when you linkify you got a
+
+582
+00:27:51,440 --> 00:27:54,640
+link like that
+
+583
+00:27:52,880 --> 00:27:56,159
+okay let me put it here you see they are
+
+584
+00:27:54,640 --> 00:27:59,760
+different
+
+585
+00:27:56,159 --> 00:28:03,840
+you see one is the normal youtube url
+
+586
+00:27:59,760 --> 00:28:03,840
+the other one is with the embed
+
+587
+00:28:05,200 --> 00:28:09,360
+so if we for example let's try to call
+
+588
+00:28:08,240 --> 00:28:13,120
+the command we just
+
+589
+00:28:09,360 --> 00:28:14,080
+uh defined open in chrome okay let's try
+
+590
+00:28:13,120 --> 00:28:17,840
+it
+
+591
+00:28:14,080 --> 00:28:20,880
+so we're gonna call opening chrome
+
+592
+00:28:17,840 --> 00:28:21,760
+on the first link you see that's a
+
+593
+00:28:20,880 --> 00:28:25,039
+normal
+
+594
+00:28:21,760 --> 00:28:28,720
+youtube link okay
+
+595
+00:28:25,039 --> 00:28:32,799
+close it go back now let's try the
+
+596
+00:28:28,720 --> 00:28:32,799
+second url opening chrome okay
+
+597
+00:28:34,000 --> 00:28:39,279
+you see now it's different because now
+
+598
+00:28:36,000 --> 00:28:42,559
+this is the url pointing to the embed
+
+599
+00:28:39,279 --> 00:28:46,480
+now what am i going to do what i'm
+
+600
+00:28:42,559 --> 00:28:46,480
+so there's a task i want to do
+
+601
+00:28:47,120 --> 00:28:50,799
+uh so so let me let me answer the
+
+602
+00:28:49,440 --> 00:28:54,000
+question okay in a bit
+
+603
+00:28:50,799 --> 00:28:55,200
+if you have a questions post now okay so
+
+604
+00:28:54,000 --> 00:28:58,399
+what i want to do is
+
+605
+00:28:55,200 --> 00:29:01,039
+if i call the command youtube linkify
+
+606
+00:28:58,399 --> 00:29:03,279
+on the second url it won't work you see
+
+607
+00:29:01,039 --> 00:29:05,279
+if i do it on the first url it'll work
+
+608
+00:29:03,279 --> 00:29:07,600
+because let me show you okay
+
+609
+00:29:05,279 --> 00:29:08,640
+sitehtml youtube link file you see it
+
+610
+00:29:07,600 --> 00:29:11,440
+works
+
+611
+00:29:08,640 --> 00:29:12,480
+but if i do it on the second url let's
+
+612
+00:29:11,440 --> 00:29:14,880
+do it
+
+613
+00:29:12,480 --> 00:29:17,360
+it doesn't work because it does just it
+
+614
+00:29:14,880 --> 00:29:20,559
+doesn't understand this format
+
+615
+00:29:17,360 --> 00:29:25,679
+so what i want to do is i want to modify
+
+616
+00:29:20,559 --> 00:29:28,799
+my my youtube linkify command to work on
+
+617
+00:29:25,679 --> 00:29:28,799
+both of these commands
+
+618
+00:29:29,360 --> 00:29:34,399
+so in summary i can either explain how
+
+619
+00:29:31,840 --> 00:29:38,640
+the emac list code to open
+
+620
+00:29:34,399 --> 00:29:41,360
+open a url or buffer into a browser
+
+621
+00:29:38,640 --> 00:29:43,120
+or i can we or we can start to work on
+
+622
+00:29:41,360 --> 00:29:45,279
+this one uh we so which
+
+623
+00:29:43,120 --> 00:29:46,320
+which one you guys want to do let me
+
+624
+00:29:45,279 --> 00:29:48,559
+know
+
+625
+00:29:46,320 --> 00:29:51,279
+okay which one you guys prefer type it
+
+626
+00:29:48,559 --> 00:29:51,279
+now type it
+
+627
+00:29:51,840 --> 00:29:55,919
+uh and how long have i been talking or
+
+628
+00:29:54,080 --> 00:29:58,559
+maybe that's it for today so
+
+629
+00:29:55,919 --> 00:30:00,799
+how long have i been talking let's see
+
+630
+00:29:58,559 --> 00:30:00,799
+uh
+
+631
+00:30:03,360 --> 00:30:08,000
+34 minutes maybe that's it for today
+
+632
+00:30:05,600 --> 00:30:11,279
+okay let me answer the questions and
+
+633
+00:30:08,000 --> 00:30:14,080
+we'll do it tomorrow you know i'll try
+
+634
+00:30:11,279 --> 00:30:16,880
+to do it more regularly now
+
+635
+00:30:14,080 --> 00:30:17,760
+so emily informatic hey good morning
+
+636
+00:30:16,880 --> 00:30:21,440
+daniel hey
+
+637
+00:30:17,760 --> 00:30:24,559
+good morning danielle so uh roman
+
+638
+00:30:21,440 --> 00:30:27,919
+romario says how to show
+
+639
+00:30:24,559 --> 00:30:27,919
+a keyboard history
+
+640
+00:30:29,919 --> 00:30:35,039
+uh how to show a keyboard history okay
+
+641
+00:30:33,200 --> 00:30:36,720
+there are several ways depending on what
+
+642
+00:30:35,039 --> 00:30:39,520
+you mean
+
+643
+00:30:36,720 --> 00:30:40,480
+so one way one way is via this command
+
+644
+00:30:39,520 --> 00:30:43,360
+so let me show you
+
+645
+00:30:40,480 --> 00:30:43,360
+that command okay
+
+646
+00:30:47,679 --> 00:30:53,120
+okay so i have a command that's called
+
+647
+00:30:53,840 --> 00:31:05,679
+command log okay and that is basically
+
+648
+00:30:57,519 --> 00:31:09,120
+a wrapper to the command log mod
+
+649
+00:31:05,679 --> 00:31:11,440
+uh uh uh library
+
+650
+00:31:09,120 --> 00:31:13,279
+emac this library that is on mail power
+
+651
+00:31:11,440 --> 00:31:16,559
+okay so let me show you okay
+
+652
+00:31:13,279 --> 00:31:20,000
+so let me go to the uh so here is my
+
+653
+00:31:16,559 --> 00:31:22,960
+wrapper start command log
+
+654
+00:31:20,000 --> 00:31:24,000
+so what that does is it basically create
+
+655
+00:31:22,960 --> 00:31:27,039
+a new window
+
+656
+00:31:24,000 --> 00:31:29,039
+make it pink you know
+
+657
+00:31:27,039 --> 00:31:31,360
+and you know that's that's the way i
+
+658
+00:31:29,039 --> 00:31:34,640
+have it but
+
+659
+00:31:31,360 --> 00:31:37,760
+the actual code doing you know
+
+660
+00:31:34,640 --> 00:31:40,000
+logging this command and keys this is
+
+661
+00:31:37,760 --> 00:31:43,039
+fantastic if you are doing a demo
+
+662
+00:31:40,000 --> 00:31:46,480
+is the command log mod okay so let's
+
+663
+00:31:43,039 --> 00:31:49,760
+describe function go to it
+
+664
+00:31:46,480 --> 00:31:52,240
+and go to it here is the file
+
+665
+00:31:49,760 --> 00:31:53,600
+you can download it on mailpad now
+
+666
+00:31:52,240 --> 00:31:56,960
+actually i have
+
+667
+00:31:53,600 --> 00:32:00,320
+modified this file for my own use
+
+668
+00:31:56,960 --> 00:32:01,039
+so so if you download for mailpie it'll
+
+669
+00:32:00,320 --> 00:32:03,519
+be a
+
+670
+00:32:01,039 --> 00:32:05,679
+a bit a bit different so anyway it's our
+
+671
+00:32:03,519 --> 00:32:09,600
+mailbox by these people
+
+672
+00:32:05,679 --> 00:32:13,120
+nick ferrier lei wang um
+
+673
+00:32:09,600 --> 00:32:15,360
+and originally by michael webber
+
+674
+00:32:13,120 --> 00:32:17,039
+michael webber is interesting he's i
+
+675
+00:32:15,360 --> 00:32:20,720
+think he's uh
+
+676
+00:32:17,039 --> 00:32:22,960
+so michael webber he's a creator of the
+
+677
+00:32:20,720 --> 00:32:22,960
+full
+
+678
+00:32:23,200 --> 00:32:33,679
+uh wait did i get confused maybe not
+
+679
+00:32:28,399 --> 00:32:33,679
+uh wait for dark oak let's see
+
+680
+00:32:34,880 --> 00:32:42,320
+fold the oak okay so anyway so this guy
+
+681
+00:32:38,960 --> 00:32:44,880
+silicon valley interesting
+
+682
+00:32:42,320 --> 00:32:44,880
+okay so
+
+683
+00:32:45,600 --> 00:32:50,399
+silicon valley so he's a silicon valley
+
+684
+00:32:48,159 --> 00:32:52,720
+like me
+
+685
+00:32:50,399 --> 00:32:54,159
+so anyway you can check out so anyway he
+
+686
+00:32:52,720 --> 00:32:57,760
+these people wrote this
+
+687
+00:32:54,159 --> 00:32:59,120
+uh very useful okay especially for
+
+688
+00:32:57,760 --> 00:33:01,200
+presentation
+
+689
+00:32:59,120 --> 00:33:03,360
+okay so that's one way to do it just
+
+690
+00:33:01,200 --> 00:33:07,279
+download you know download that
+
+691
+00:33:03,360 --> 00:33:10,399
+the other way building emacs is you call
+
+692
+00:33:07,279 --> 00:33:14,320
+control h l okay let me try it
+
+693
+00:33:10,399 --> 00:33:18,080
+control h l okay so you can see
+
+694
+00:33:14,320 --> 00:33:20,799
+it pops up the window let me magnify
+
+695
+00:33:18,080 --> 00:33:21,600
+now this window so this window will show
+
+696
+00:33:20,799 --> 00:33:24,880
+you
+
+697
+00:33:21,600 --> 00:33:28,399
+all the you know the the 20 or 30 or so
+
+698
+00:33:24,880 --> 00:33:31,760
+the command and keystroke
+
+699
+00:33:28,399 --> 00:33:32,640
+you used so for example i've been doing
+
+700
+00:33:31,760 --> 00:33:35,519
+a lot
+
+701
+00:33:32,640 --> 00:33:36,159
+end of line or block which is this you
+
+702
+00:33:35,519 --> 00:33:39,600
+know
+
+703
+00:33:36,159 --> 00:33:40,559
+i've done a lot next line uh copyline or
+
+704
+00:33:39,600 --> 00:33:43,679
+region
+
+705
+00:33:40,559 --> 00:33:46,960
+uh xr lookup web uh and
+
+706
+00:33:43,679 --> 00:33:49,039
+set mark forward word
+
+707
+00:33:46,960 --> 00:33:51,200
+so let's see so you know all these are
+
+708
+00:33:49,039 --> 00:33:53,360
+navigation commands
+
+709
+00:33:51,200 --> 00:33:54,480
+start text scale increase that's where i
+
+710
+00:33:53,360 --> 00:33:57,840
+magnify
+
+711
+00:33:54,480 --> 00:34:00,000
+the font and uh
+
+712
+00:33:57,840 --> 00:34:02,960
+and we go back enough we'll see the
+
+713
+00:34:00,000 --> 00:34:04,640
+chrome let's search for chrome
+
+714
+00:34:02,960 --> 00:34:06,960
+okay actually it's not there because
+
+715
+00:34:04,640 --> 00:34:08,159
+when you when you code in emacs it
+
+716
+00:34:06,960 --> 00:34:10,720
+scroll fast you
+
+717
+00:34:08,159 --> 00:34:12,159
+actually coding a lot of commands so the
+
+718
+00:34:10,720 --> 00:34:15,040
+top ones just scroll off
+
+719
+00:34:12,159 --> 00:34:17,040
+so anyway so this command is ctrl h l
+
+720
+00:34:15,040 --> 00:34:21,040
+okay
+
+721
+00:34:17,040 --> 00:34:24,000
+ctrl h l and the command name
+
+722
+00:34:21,040 --> 00:34:25,359
+is called view lossage that's a funny
+
+723
+00:34:24,000 --> 00:34:30,320
+name from emacs
+
+724
+00:34:25,359 --> 00:34:32,000
+that's a e-max history view lossage
+
+725
+00:34:30,320 --> 00:34:33,599
+okay actually i don't know what's the
+
+726
+00:34:32,000 --> 00:34:36,159
+etymology for
+
+727
+00:34:33,599 --> 00:34:36,159
+losses
+
+728
+00:34:36,720 --> 00:34:39,760
+yeah that would be something interesting
+
+729
+00:34:38,639 --> 00:34:43,679
+to find out
+
+730
+00:34:39,760 --> 00:34:47,280
+okay view losses
+
+731
+00:34:43,679 --> 00:34:49,359
+you know there's a coding emacs lisp
+
+732
+00:34:47,280 --> 00:34:52,800
+coding laws
+
+733
+00:34:49,359 --> 00:34:53,760
+there so actually we have some entries
+
+734
+00:34:52,800 --> 00:34:56,879
+on what what
+
+735
+00:34:53,760 --> 00:35:03,839
+what's the meaning of losses
+
+736
+00:34:56,879 --> 00:35:03,839
+so let's try
+
+737
+00:35:04,800 --> 00:35:10,640
+okay yeah so it's a hacker okay oh okay
+
+738
+00:35:08,160 --> 00:35:11,520
+great it's from the hacker's dictionary
+
+739
+00:35:10,640 --> 00:35:15,040
+the new
+
+740
+00:35:11,520 --> 00:35:18,560
+hackers dictionary that's from eric
+
+741
+00:35:15,040 --> 00:35:22,800
+raymond esr guy he
+
+742
+00:35:18,560 --> 00:35:26,960
+you know he has modified the original
+
+743
+00:35:22,800 --> 00:35:30,960
+hacker's dictionary which is very least
+
+744
+00:35:26,960 --> 00:35:34,560
+oriented and pd pdp machine
+
+745
+00:35:30,960 --> 00:35:37,599
+he modified it he modified it
+
+746
+00:35:34,560 --> 00:35:38,079
+so it becomes small unix oriented you
+
+747
+00:35:37,599 --> 00:35:41,359
+know
+
+748
+00:35:38,079 --> 00:35:45,040
+unix philosophy crap so anyway
+
+749
+00:35:41,359 --> 00:35:48,079
+the last stage very common the result of
+
+750
+00:35:45,040 --> 00:35:51,040
+a bug or more function
+
+751
+00:35:48,079 --> 00:35:51,920
+okay this is a mass or collective now uh
+
+752
+00:35:51,040 --> 00:35:54,960
+what a loss
+
+753
+00:35:51,920 --> 00:35:58,000
+uh what the losses okay okay
+
+754
+00:35:54,960 --> 00:36:00,240
+anyway yeah so losses came from
+
+755
+00:35:58,000 --> 00:36:01,839
+loss or something result of viewing a
+
+756
+00:36:00,240 --> 00:36:04,880
+bug or something anyway so
+
+757
+00:36:01,839 --> 00:36:05,920
+emacs call so when you call view lossage
+
+758
+00:36:04,880 --> 00:36:09,599
+it shows your
+
+759
+00:36:05,920 --> 00:36:09,599
+uh your commands and keys
+
+760
+00:36:10,000 --> 00:36:15,119
+so that's the second way to do it the
+
+761
+00:36:12,720 --> 00:36:16,880
+third way
+
+762
+00:36:15,119 --> 00:36:18,240
+the third way okay let me show you
+
+763
+00:36:16,880 --> 00:36:21,599
+another way
+
+764
+00:36:18,240 --> 00:36:27,839
+let's call frequency show okay so there
+
+765
+00:36:21,599 --> 00:36:27,839
+is a command
+
+766
+00:36:28,640 --> 00:36:31,920
+okay hold on a second okay okay okay
+
+767
+00:36:31,440 --> 00:36:33,520
+okay
+
+768
+00:36:31,920 --> 00:36:36,400
+frequency show okay let me show you
+
+769
+00:36:33,520 --> 00:36:39,440
+command so it pops up a window
+
+770
+00:36:36,400 --> 00:36:42,560
+so what is this good for this is this
+
+771
+00:36:39,440 --> 00:36:45,119
+this command logs all your commands
+
+772
+00:36:42,560 --> 00:36:45,920
+uh ever since you started to use this
+
+773
+00:36:45,119 --> 00:36:47,920
+module
+
+774
+00:36:45,920 --> 00:36:49,440
+so let me i'm going to show you what's
+
+775
+00:36:47,920 --> 00:36:51,680
+in my for example let me
+
+776
+00:36:49,440 --> 00:36:53,760
+let me first of all show you for example
+
+777
+00:36:51,680 --> 00:36:56,160
+it told it tells me
+
+778
+00:36:53,760 --> 00:36:57,599
+i have called the command self insert
+
+779
+00:36:56,160 --> 00:37:02,560
+command
+
+780
+00:36:57,599 --> 00:37:06,640
+for 1 million times 1 million and
+
+781
+00:37:02,560 --> 00:37:09,920
+199 000 times i have called
+
+782
+00:37:06,640 --> 00:37:10,800
+the command previous line for 4 000
+
+783
+00:37:09,920 --> 00:37:13,520
+times
+
+784
+00:37:10,800 --> 00:37:15,520
+and next line for this money you know it
+
+785
+00:37:13,520 --> 00:37:18,079
+locks basically it's a lot log your
+
+786
+00:37:15,520 --> 00:37:22,079
+command and keys
+
+787
+00:37:18,079 --> 00:37:25,119
+so this file is about i forgot how
+
+788
+00:37:22,079 --> 00:37:27,280
+long is this log starting when like two
+
+789
+00:37:25,119 --> 00:37:28,240
+months ago or three months ago or half a
+
+790
+00:37:27,280 --> 00:37:30,560
+month ago
+
+791
+00:37:28,240 --> 00:37:32,400
+half a year ago i forgot anyway the
+
+792
+00:37:30,560 --> 00:37:34,839
+command is called
+
+793
+00:37:32,400 --> 00:37:37,119
+let's see let's call describe function
+
+794
+00:37:34,839 --> 00:37:40,480
+okay
+
+795
+00:37:37,119 --> 00:37:43,760
+describe function frequency show okay
+
+796
+00:37:40,480 --> 00:37:46,960
+uh keyfreak
+
+797
+00:37:43,760 --> 00:37:51,760
+show okay describe function key
+
+798
+00:37:46,960 --> 00:37:55,920
+freak show okay now
+
+799
+00:37:51,760 --> 00:37:59,280
+here is the command okay now this
+
+800
+00:37:55,920 --> 00:38:03,359
+this command is defined in this uh
+
+801
+00:37:59,280 --> 00:38:07,839
+this module this mod uh keyfreak.er
+
+802
+00:38:03,359 --> 00:38:09,760
+it's available on melpa now this
+
+803
+00:38:07,839 --> 00:38:12,640
+so you can look at the source code okay
+
+804
+00:38:09,760 --> 00:38:16,000
+so here is the source code
+
+805
+00:38:12,640 --> 00:38:19,040
+and magnify go to the top
+
+806
+00:38:16,000 --> 00:38:22,800
+so this uh wait uh
+
+807
+00:38:19,040 --> 00:38:26,000
+okay so this is done by david capello
+
+808
+00:38:22,800 --> 00:38:27,200
+well the first version is by ryan okay
+
+809
+00:38:26,000 --> 00:38:31,599
+ryan and michael
+
+810
+00:38:27,200 --> 00:38:34,960
+mike ryan this this begins in 2006
+
+811
+00:38:31,599 --> 00:38:36,720
+when i was chatting on irc because
+
+812
+00:38:34,960 --> 00:38:38,800
+you know i want a command to log you
+
+813
+00:38:36,720 --> 00:38:40,640
+know i want to know when you design your
+
+814
+00:38:38,800 --> 00:38:41,680
+keybinding for emacs you want to know
+
+815
+00:38:40,640 --> 00:38:44,160
+which command you use
+
+816
+00:38:41,680 --> 00:38:45,520
+most often so i was chatting with him
+
+817
+00:38:44,160 --> 00:38:47,760
+you know so ryan
+
+818
+00:38:45,520 --> 00:38:49,119
+what ryan is a great guy he's the author
+
+819
+00:38:47,760 --> 00:38:52,480
+of irco
+
+820
+00:38:49,119 --> 00:38:55,839
+rcirc in emacs
+
+821
+00:38:52,480 --> 00:38:59,119
+so let's try it okay rcirc it's a
+
+822
+00:38:55,839 --> 00:39:01,520
+irc client written in emacs list
+
+823
+00:38:59,119 --> 00:39:03,200
+so you see we i can now i can start to
+
+824
+00:39:01,520 --> 00:39:06,560
+log into freenot
+
+825
+00:39:03,200 --> 00:39:07,839
+uh the emacs channel i haven't done so
+
+826
+00:39:06,560 --> 00:39:10,880
+for a long time
+
+827
+00:39:07,839 --> 00:39:14,079
+so anyway close it so so ryan
+
+828
+00:39:10,880 --> 00:39:18,000
+kill it yes kill it
+
+829
+00:39:14,079 --> 00:39:20,720
+yes okay uh what
+
+830
+00:39:18,000 --> 00:39:22,400
+kill it do i want to save no okay so so
+
+831
+00:39:20,720 --> 00:39:25,440
+ryan yes key
+
+832
+00:39:22,400 --> 00:39:28,640
+i believe he's in canada he wrote rcrc
+
+833
+00:39:25,440 --> 00:39:30,400
+but anyway he quickly hacked up you know
+
+834
+00:39:28,640 --> 00:39:33,040
+like 10 lines of code
+
+835
+00:39:30,400 --> 00:39:34,720
+that tells you what command you've been
+
+836
+00:39:33,040 --> 00:39:38,800
+using you know a log
+
+837
+00:39:34,720 --> 00:39:43,119
+then michael nasa raised in 2006
+
+838
+00:39:38,800 --> 00:39:46,240
+expanded greatly i modified it
+
+839
+00:39:43,119 --> 00:39:48,720
+a little bit then david capello we
+
+840
+00:39:46,240 --> 00:39:50,480
+rewrote basically the whole thing so
+
+841
+00:39:48,720 --> 00:39:52,800
+that it saves to file
+
+842
+00:39:50,480 --> 00:39:53,520
+when you when you start emacs again it
+
+843
+00:39:52,800 --> 00:39:56,400
+reads log
+
+844
+00:39:53,520 --> 00:39:56,640
+and so you have actual history the of
+
+845
+00:39:56,400 --> 00:40:00,640
+the
+
+846
+00:39:56,640 --> 00:40:02,960
+entire history not just the con session
+
+847
+00:40:00,640 --> 00:40:04,240
+so yeah you so so that's the third way
+
+848
+00:40:02,960 --> 00:40:07,200
+to um
+
+849
+00:40:04,240 --> 00:40:08,839
+to have a log of your keys so let me
+
+850
+00:40:07,200 --> 00:40:11,200
+recap
+
+851
+00:40:08,839 --> 00:40:15,119
+okay
+
+852
+00:40:11,200 --> 00:40:17,440
+one of the way is command log mod
+
+853
+00:40:15,119 --> 00:40:17,440
+okay
+
+854
+00:40:21,200 --> 00:40:24,560
+let me let me show it let me put it in
+
+855
+00:40:23,440 --> 00:40:27,760
+my blog okay
+
+856
+00:40:24,560 --> 00:40:30,079
+close it close it
+
+857
+00:40:27,760 --> 00:40:30,079
+open
+
+858
+00:40:30,880 --> 00:40:34,400
+close it okay let me put it in my blog
+
+859
+00:40:33,520 --> 00:40:39,839
+command log mod
+
+860
+00:40:34,400 --> 00:40:39,839
+is one way
+
+861
+00:40:40,480 --> 00:40:44,319
+view losses is the second way building
+
+862
+00:40:43,200 --> 00:40:53,839
+emacs
+
+863
+00:40:44,319 --> 00:40:53,839
+then the other way is show frequency
+
+864
+00:40:59,680 --> 00:41:10,480
+okay from from these
+
+865
+00:41:07,839 --> 00:41:12,720
+okay i think that's it for today you can
+
+866
+00:41:10,480 --> 00:41:12,720
+see
+
+867
+00:41:13,520 --> 00:41:19,040
+these are the three ways to see a
+
+868
+00:41:16,560 --> 00:41:19,040
+key log
+
+869
+00:41:19,599 --> 00:41:22,240
+anything else
+
+870
+00:41:23,680 --> 00:41:29,280
+30 for 34 minutes 46 minutes okay that's
+
+871
+00:41:28,400 --> 00:41:31,599
+it for today
+
+872
+00:41:29,280 --> 00:41:32,480
+thank you guys for watching and if you
+
+873
+00:41:31,599 --> 00:41:35,920
+like
+
+874
+00:41:32,480 --> 00:41:39,839
+my stuff buy my emacs list tutorial okay
+
+875
+00:41:35,920 --> 00:41:48,640
+i have a tutorial on e-max and e-magnus
+
+876
+00:41:39,839 --> 00:41:52,880
+and just go to uh sally e-max list
+
+877
+00:41:48,640 --> 00:41:56,720
+logo emacs okay so you have
+
+878
+00:41:52,880 --> 00:41:58,560
+emacs list tutorial from the very basic
+
+879
+00:41:56,720 --> 00:42:02,000
+you know nothing about emac list
+
+880
+00:41:58,560 --> 00:42:04,000
+i'll get you started in no time
+
+881
+00:42:02,000 --> 00:42:06,240
+uh you can learn you know you start to
+
+882
+00:42:04,000 --> 00:42:06,240
+learn
+
+883
+00:42:08,079 --> 00:42:16,319
+uh yeah you know just read it
+
+884
+00:42:11,200 --> 00:42:19,440
+you know guide you from from scratch
+
+885
+00:42:16,319 --> 00:42:23,520
+thank you guys uh bye so
+
+886
+00:42:19,440 --> 00:42:23,520
+bar says uh
+
+887
+00:42:23,760 --> 00:42:27,040
+so boss says when will you use stream
+
+888
+00:42:25,839 --> 00:42:30,079
+again okay so let's
+
+889
+00:42:27,040 --> 00:42:30,560
+let me set up a time okay so that so
+
+890
+00:42:30,079 --> 00:42:32,960
+that
+
+891
+00:42:30,560 --> 00:42:34,880
+i i so i have a bit more regular
+
+892
+00:42:32,960 --> 00:42:37,119
+schedule let's say so today today is
+
+893
+00:42:34,880 --> 00:42:39,440
+tuesday tomorrow is wednesday
+
+894
+00:42:37,119 --> 00:42:39,440
+um
+
+895
+00:42:40,960 --> 00:42:44,000
+well the okay tomorrow i don't know what
+
+896
+00:42:43,040 --> 00:42:46,720
+the topic okay
+
+897
+00:42:44,000 --> 00:42:47,119
+so let's say wednesday okay tomorrow
+
+898
+00:42:46,720 --> 00:42:51,760
+okay
+
+899
+00:42:47,119 --> 00:42:54,640
+tomorrow 11 o'clock in the morning
+
+900
+00:42:51,760 --> 00:42:56,839
+okay san francisco time san francisco
+
+901
+00:42:54,640 --> 00:43:00,160
+time
+
+902
+00:42:56,839 --> 00:43:02,960
+wednesday 11 o'clock
+
+903
+00:43:00,160 --> 00:43:03,680
+in the morning okay and the topic will
+
+904
+00:43:02,960 --> 00:43:06,000
+be
+
+905
+00:43:03,680 --> 00:43:08,079
+i don't know yet maybe javascript maybe
+
+906
+00:43:06,000 --> 00:43:11,359
+golan maybe technical
+
+907
+00:43:08,079 --> 00:43:14,480
+uh possibly non-technical i
+
+908
+00:43:11,359 --> 00:43:18,800
+have no idea i'm trying to get away from
+
+909
+00:43:14,480 --> 00:43:21,520
+uh controversial stuff like politics
+
+910
+00:43:18,800 --> 00:43:22,640
+because that's endless so you know maybe
+
+911
+00:43:21,520 --> 00:43:27,839
+tomorrow
+
+912
+00:43:22,640 --> 00:43:27,839
+bye guys thank you
+
+913
+00:43:34,880 --> 00:43:36,960
+you
+

@@ -1,0 +1,3224 @@
+1
+00:00:01,920 --> 00:00:06,720
+Hello guys, good morning everyone.
+
+2
+00:00:03,919 --> 00:00:09,679
+Welcome to another episode of Sound Talk
+
+3
+00:00:06,720 --> 00:00:13,240
+Show. We are going to do wuam language
+
+4
+00:00:09,679 --> 00:00:16,240
+graphics programming uh mathematical
+
+5
+00:00:13,240 --> 00:00:20,160
+artwork. So we we're going to do a
+
+6
+00:00:16,240 --> 00:00:22,039
+density plots of trick expressions. So
+
+7
+00:00:20,160 --> 00:00:26,560
+here are some
+
+8
+00:00:22,039 --> 00:00:29,679
+examples. Uh so this is done like 30
+
+9
+00:00:26,560 --> 00:00:32,079
+years ago and I'm going to update it. So
+
+10
+00:00:29,679 --> 00:00:36,800
+you're going to learn some wam language
+
+11
+00:00:32,079 --> 00:00:40,480
+or also known as mathematica coding and
+
+12
+00:00:36,800 --> 00:00:43,239
+some uh tech techniques of creating
+
+13
+00:00:40,480 --> 00:00:46,879
+mathematical art or generative
+
+14
+00:00:43,239 --> 00:00:51,039
+art. So these are some examples of all
+
+15
+00:00:46,879 --> 00:00:55,199
+these are called density plots or also
+
+16
+00:00:51,039 --> 00:00:57,520
+known as heat map and uh of
+
+17
+00:00:55,199 --> 00:01:00,559
+trigonometric
+
+18
+00:00:57,520 --> 00:01:01,719
+uh functions. Okay. So it's fascinating
+
+19
+00:01:00,559 --> 00:01:04,879
+and
+
+20
+00:01:01,719 --> 00:01:08,000
+beautiful. Okay. So for those of you
+
+21
+00:01:04,879 --> 00:01:11,040
+coders or into science and mathematics
+
+22
+00:01:08,000 --> 00:01:15,040
+and students if you are watching offline
+
+23
+00:01:11,040 --> 00:01:18,640
+play at 1.5 speed because I ramble and I
+
+24
+00:01:15,040 --> 00:01:22,000
+talk slowly more composed that way. So
+
+25
+00:01:18,640 --> 00:01:24,600
+you can play at 1.5 or 1.7
+
+26
+00:01:22,000 --> 00:01:27,759
+uh speed and uh skip
+
+27
+00:01:24,600 --> 00:01:30,240
+around. And my keyboards glove at
+
+28
+00:01:27,759 --> 00:01:35,720
+fantastic. I'm a keyboard obsessive
+
+29
+00:01:30,240 --> 00:01:39,280
+keyboard um uh expert you might say a
+
+30
+00:01:35,720 --> 00:01:43,360
+official. This is uh Gravity ultimate
+
+31
+00:01:39,280 --> 00:01:45,720
+hacking keyboard Nulia Track Logitech
+
+32
+00:01:43,360 --> 00:01:49,600
+405 I think
+
+33
+00:01:45,720 --> 00:01:53,840
+502. And the most fantastic device is
+
+34
+00:01:49,600 --> 00:01:59,439
+this one. Uh this one is called SWAL
+
+35
+00:01:53,840 --> 00:02:03,560
+board. S V A L B O A R D with magnetic
+
+36
+00:01:59,439 --> 00:02:06,640
+uh device. Uh so magnetic switches.
+
+37
+00:02:03,560 --> 00:02:09,200
+Okay. So for each one of these keyboard
+
+38
+00:02:06,640 --> 00:02:12,920
+I talked about I have a video review.
+
+39
+00:02:09,200 --> 00:02:16,640
+Just search for YouTube or search for
+
+40
+00:02:12,920 --> 00:02:16,640
+kasari.info for all these
+
+41
+00:02:16,680 --> 00:02:22,959
+devices. Okay. So play at 1.5 speed. If
+
+42
+00:02:20,560 --> 00:02:24,160
+you are here say hi. Love to see your
+
+43
+00:02:22,959 --> 00:02:29,280
+comments.
+
+44
+00:02:24,160 --> 00:02:33,560
+Okay, pop out chat and put it here. So,
+
+45
+00:02:29,280 --> 00:02:36,800
+let's see. Concurrent viewers zero.
+
+46
+00:02:33,560 --> 00:02:40,760
+Fantastic. Okay, so let's begin wam
+
+47
+00:02:36,800 --> 00:02:44,239
+language coding. Okay, let's Okay,
+
+48
+00:02:40,760 --> 00:02:48,000
+so increase that size. Increase that
+
+49
+00:02:44,239 --> 00:02:51,879
+size. And can you see my screen? Yes.
+
+50
+00:02:48,000 --> 00:02:56,319
+And let's go to the top. This
+
+51
+00:02:51,879 --> 00:02:59,440
+is BW curtain. This artwork I would name
+
+52
+00:02:56,319 --> 00:03:03,360
+it. I actually I just created this an
+
+53
+00:02:59,440 --> 00:03:06,560
+hour ago. Uh so 30 years ago it looks
+
+54
+00:03:03,360 --> 00:03:09,040
+like that but I you know I did a little
+
+55
+00:03:06,560 --> 00:03:12,480
+bit. I changed the expression range. So
+
+56
+00:03:09,040 --> 00:03:14,840
+I created that. So usually so when you
+
+57
+00:03:12,480 --> 00:03:17,680
+create artwork you have to give it a
+
+58
+00:03:14,840 --> 00:03:20,640
+name. So what would this be? Uh, right
+
+59
+00:03:17,680 --> 00:03:23,319
+now it's PW curtain, black and white
+
+60
+00:03:20,640 --> 00:03:27,200
+curtain because it looks
+
+61
+00:03:23,319 --> 00:03:32,200
+like curtain. Okay, so maybe you should
+
+62
+00:03:27,200 --> 00:03:34,799
+call it sinosoid curtain or uh
+
+63
+00:03:32,200 --> 00:03:37,760
+something. Anyway, so let's begin
+
+64
+00:03:34,799 --> 00:03:40,680
+coding. So let's Oh, yeah. So uh I need
+
+65
+00:03:37,760 --> 00:03:45,720
+to get my Emacs over
+
+66
+00:03:40,680 --> 00:03:48,480
+here. Okay. And start wam language.
+
+67
+00:03:45,720 --> 00:03:51,920
+begin. And if you don't know, Wufam
+
+68
+00:03:48,480 --> 00:03:54,480
+language is free since about like six
+
+69
+00:03:51,920 --> 00:03:58,799
+years ago. So if you don't know already,
+
+70
+00:03:54,480 --> 00:04:01,599
+so let's uh go to talk show uh go to
+
+71
+00:03:58,799 --> 00:04:04,200
+today's talk show and uh there is my
+
+72
+00:04:01,599 --> 00:04:07,599
+wuam language tutorial
+
+73
+00:04:04,200 --> 00:04:10,480
+on.info. Just search for it. You'll find
+
+74
+00:04:07,599 --> 00:04:14,080
+uh the location, the link to download
+
+75
+00:04:10,480 --> 00:04:18,079
+free. Uh and if you want to do graphics,
+
+76
+00:04:14,080 --> 00:04:21,919
+you need if you need uh graphics, you
+
+77
+00:04:18,079 --> 00:04:24,919
+need uh to install Jupiter notebook or
+
+78
+00:04:21,919 --> 00:04:28,160
+there's also one called uh wolf
+
+79
+00:04:24,919 --> 00:04:31,199
+JavaScript front end. Okay, so here is
+
+80
+00:04:28,160 --> 00:04:34,680
+Jupyter notebook. So you can code wra
+
+81
+00:04:31,199 --> 00:04:37,199
+language in um with
+
+82
+00:04:34,680 --> 00:04:40,160
+graphics. Okay, so this is Wuam
+
+83
+00:04:37,199 --> 00:04:45,000
+language. Let's magnify. Let's say three
+
+84
+00:04:40,160 --> 00:04:47,759
+shift enter to get it start the kernel.
+
+85
+00:04:45,000 --> 00:04:49,680
+Um you know the wuam the way wam
+
+86
+00:04:47,759 --> 00:04:52,080
+language works is that you have the
+
+87
+00:04:49,680 --> 00:04:55,120
+so-called kernel which is the wuam
+
+88
+00:04:52,080 --> 00:04:57,600
+engine. It does all the computation.
+
+89
+00:04:55,120 --> 00:05:00,000
+Then you have something called front end
+
+90
+00:04:57,600 --> 00:05:03,360
+which is like this one notebook is the
+
+91
+00:05:00,000 --> 00:05:06,080
+front end or editor. It can be emac it
+
+92
+00:05:03,360 --> 00:05:08,320
+can be vs codes you know. So, so the
+
+93
+00:05:06,080 --> 00:05:11,199
+front end is where you type stuff.
+
+94
+00:05:08,320 --> 00:05:14,240
+Whenever you press shift enter, it sends
+
+95
+00:05:11,199 --> 00:05:16,880
+the expression to the woofam engine via
+
+96
+00:05:14,240 --> 00:05:19,280
+a protocol. So, you have the kernel, you
+
+97
+00:05:16,880 --> 00:05:22,000
+have the front end. Front end is your
+
+98
+00:05:19,280 --> 00:05:24,400
+editor or you know VS code, Emacs,
+
+99
+00:05:22,000 --> 00:05:26,560
+notebook, whatever. So, whatever you
+
+100
+00:05:24,400 --> 00:05:28,960
+type, it sends the information to the
+
+101
+00:05:26,560 --> 00:05:32,560
+kernel which is wam engine. Then the
+
+102
+00:05:28,960 --> 00:05:36,720
+kernel send it back. So it it does
+
+103
+00:05:32,560 --> 00:05:39,600
+things in a like a server protocol way
+
+104
+00:05:36,720 --> 00:05:39,600
+since like
+
+105
+00:05:39,720 --> 00:05:45,680
+198689. So anyway, so so if you if you
+
+106
+00:05:43,759 --> 00:05:48,080
+want graphics, you need to install the
+
+107
+00:05:45,680 --> 00:05:50,320
+Wam language kernel for Jupiter
+
+108
+00:05:48,080 --> 00:05:52,000
+notebook. Okay. So there's another one
+
+109
+00:05:50,320 --> 00:05:53,680
+also. You might check out this one.
+
+110
+00:05:52,000 --> 00:05:56,000
+What's the difference between wam
+
+111
+00:05:53,680 --> 00:05:58,960
+language, Mathematica, Wuam Engine, Wuam
+
+112
+00:05:56,000 --> 00:06:01,680
+script? Seems confusing for newbies.
+
+113
+00:05:58,960 --> 00:06:04,000
+Okay. So, today's talk show, let me put
+
+114
+00:06:01,680 --> 00:06:07,199
+the links here. So, let's say show
+
+115
+00:06:04,000 --> 00:06:10,840
+today's talk show link. And uh let's put
+
+116
+00:06:07,199 --> 00:06:13,280
+the link here so people can see it
+
+117
+00:06:10,840 --> 00:06:15,280
+later. So, we talked about Jupiter
+
+118
+00:06:13,280 --> 00:06:18,360
+notebook. That's what you want to get.
+
+119
+00:06:15,280 --> 00:06:20,479
+And go back to wam language tutorial on
+
+120
+00:06:18,360 --> 00:06:23,199
+sardi.infos. Just search for it. You'll
+
+121
+00:06:20,479 --> 00:06:27,120
+find it. Wam language in depth from the
+
+122
+00:06:23,199 --> 00:06:30,639
+ground up. Okay. uh but what we want is
+
+123
+00:06:27,120 --> 00:06:33,759
+like the alternative or clones. So there
+
+124
+00:06:30,639 --> 00:06:36,960
+are many tools other people created. So
+
+125
+00:06:33,759 --> 00:06:40,400
+one of them is Wuham language JavaScript
+
+126
+00:06:36,960 --> 00:06:42,880
+notebook. Okay, I have a friend Huang
+
+127
+00:06:40,400 --> 00:06:45,680
+who told me that this is actually better
+
+128
+00:06:42,880 --> 00:06:47,400
+than Jupiter notebook. So you might try
+
+129
+00:06:45,680 --> 00:06:50,400
+this one
+
+130
+00:06:47,400 --> 00:06:53,039
+instead. Uh I don't use them because I
+
+131
+00:06:50,400 --> 00:06:55,440
+have wam language you know. Uh they sent
+
+132
+00:06:53,039 --> 00:06:56,680
+it to me. I bought it like I bought it
+
+133
+00:06:55,440 --> 00:07:00,240
+in
+
+134
+00:06:56,680 --> 00:07:04,479
+1992. So I became kind of acquaintance
+
+135
+00:07:00,240 --> 00:07:06,800
+with uh Stefan Wuen. So anyway, so Wuen
+
+136
+00:07:04,479 --> 00:07:09,039
+language. Yeah. So let's go back to
+
+137
+00:07:06,800 --> 00:07:13,520
+start to code. Okay. So let me just post
+
+138
+00:07:09,039 --> 00:07:16,800
+that here. So link go to it. Okay. So
+
+139
+00:07:13,520 --> 00:07:19,680
+today we're going to do trick density
+
+140
+00:07:16,800 --> 00:07:23,599
+plots of trick expressions. Okay. These
+
+141
+00:07:19,680 --> 00:07:25,840
+are for artistic purposes artwork. you
+
+142
+00:07:23,599 --> 00:07:28,080
+know if you are a Zoomer generation if
+
+143
+00:07:25,840 --> 00:07:31,360
+you are a young guy you might know it as
+
+144
+00:07:28,080 --> 00:07:34,080
+like generative art but that's no good
+
+145
+00:07:31,360 --> 00:07:36,639
+so yesterday or two days ago we did a
+
+146
+00:07:34,080 --> 00:07:40,319
+talk show on algorithmic mathematical
+
+147
+00:07:36,639 --> 00:07:43,440
+art you might check that one out uh
+
+148
+00:07:40,319 --> 00:07:45,840
+where I tell you all the techniques in
+
+149
+00:07:43,440 --> 00:07:47,280
+creating mathematical artwork and uh
+
+150
+00:07:45,840 --> 00:07:51,520
+what is the difference between
+
+151
+00:07:47,280 --> 00:07:53,440
+generative art and uh mathematical art
+
+152
+00:07:51,520 --> 00:07:55,840
+with a structure. So all these are
+
+153
+00:07:53,440 --> 00:07:59,199
+mathematical art with a structure. It's
+
+154
+00:07:55,840 --> 00:08:02,720
+not random. Okay. So anyway, so let's
+
+155
+00:07:59,199 --> 00:08:05,680
+get to it. Um if you are here, say hi.
+
+156
+00:08:02,720 --> 00:08:10,400
+Okay. So let's go to trick um trick
+
+157
+00:08:05,680 --> 00:08:16,160
+expressions. Um so this one. Okay. So
+
+158
+00:08:10,400 --> 00:08:16,160
+this one is uh here is the code. Okay.
+
+159
+00:08:16,919 --> 00:08:23,599
+So let's go to where the code is. Okay.
+
+160
+00:08:20,160 --> 00:08:25,800
+Save. uh make a backup and pop this out.
+
+161
+00:08:23,599 --> 00:08:29,199
+So this is the
+
+162
+00:08:25,800 --> 00:08:31,919
+expression and uh copy it. Go to wam
+
+163
+00:08:29,199 --> 00:08:35,120
+language. You can plot it. There it is.
+
+164
+00:08:31,919 --> 00:08:37,760
+There it is how it looks like. And uh
+
+165
+00:08:35,120 --> 00:08:40,839
+you see it's kind of fuzzy. You see 30
+
+166
+00:08:37,760 --> 00:08:44,880
+years ago it supposed to look like
+
+167
+00:08:40,839 --> 00:08:46,720
+that. Uh so how do you do that? Well, I
+
+168
+00:08:44,880 --> 00:08:49,760
+can show you. So you need a color
+
+169
+00:08:46,720 --> 00:08:52,080
+function. Okay, copy it. And uh you need
+
+170
+00:08:49,760 --> 00:08:52,080
+to
+
+171
+00:08:52,200 --> 00:09:00,480
+say so here this is the expression and
+
+172
+00:08:55,519 --> 00:09:04,600
+this is the range x from uh wait x from
+
+173
+00:09:00,480 --> 00:09:09,480
+-10 pi to 10 pi okay so actually let's
+
+174
+00:09:04,600 --> 00:09:12,240
+just okay then you want to say color
+
+175
+00:09:09,480 --> 00:09:15,760
+function color function that's how you
+
+176
+00:09:12,240 --> 00:09:18,399
+want to control what color to use. So by
+
+177
+00:09:15,760 --> 00:09:21,360
+the way what is density plot? Okay so
+
+178
+00:09:18,399 --> 00:09:26,160
+that is a plot of a function and this
+
+179
+00:09:21,360 --> 00:09:30,399
+function takes two arguments XY and it
+
+180
+00:09:26,160 --> 00:09:32,480
+returns one thing Z one number. Okay so
+
+181
+00:09:30,399 --> 00:09:36,080
+it takes two numbers and returns one
+
+182
+00:09:32,480 --> 00:09:39,200
+number. So the returned value is like
+
+183
+00:09:36,080 --> 00:09:43,360
+the height. So for example you can plot
+
+184
+00:09:39,200 --> 00:09:46,080
+this one. So well let's um uh let let
+
+185
+00:09:43,360 --> 00:09:49,040
+okay wait. Uh so we got multiple things
+
+186
+00:09:46,080 --> 00:09:52,480
+going on. Let's let's do one thing at a
+
+187
+00:09:49,040 --> 00:09:54,519
+time. Okay. So let's talk about
+
+188
+00:09:52,480 --> 00:09:58,080
+uh plot 3D.
+
+189
+00:09:54,519 --> 00:10:01,040
+Okay. So normally you plot 3D. Suppose
+
+190
+00:09:58,080 --> 00:10:04,800
+you plot a function. So this is uh your
+
+191
+00:10:01,040 --> 00:10:08,160
+function form looks like that. Okay. So
+
+192
+00:10:04,800 --> 00:10:11,480
+um so it's function of two variables.
+
+193
+00:10:08,160 --> 00:10:13,959
+Okay. So let's say
+
+194
+00:10:11,480 --> 00:10:17,120
+sine x
+
+195
+00:10:13,959 --> 00:10:21,360
+y. Okay, that's two variables. Okay,
+
+196
+00:10:17,120 --> 00:10:25,200
+fantastic. And uh and from let's say 3
+
+197
+00:10:21,360 --> 00:10:29,360
+pi to 3 pi. Okay, so same thing here. 3
+
+198
+00:10:25,200 --> 00:10:32,000
+pi to 3 pi. And we don't want color
+
+199
+00:10:29,360 --> 00:10:32,000
+function. So
+
+200
+00:10:33,640 --> 00:10:40,360
+that okay. So it's like uh very you know
+
+201
+00:10:38,079 --> 00:10:43,160
+uh rough that's
+
+202
+00:10:40,360 --> 00:10:46,600
+not okay that's
+
+203
+00:10:43,160 --> 00:10:51,600
+um so you want to increase the plot
+
+204
+00:10:46,600 --> 00:10:55,399
+points plot points okay let's say 30 on
+
+205
+00:10:51,600 --> 00:10:59,120
+each side do it so now it's like more
+
+206
+00:10:55,399 --> 00:11:02,640
+dense and you can you see but it's not
+
+207
+00:10:59,120 --> 00:11:05,440
+it's still not very smooth because this
+
+208
+00:11:02,640 --> 00:11:08,000
+function so happens it goes up up and
+
+209
+00:11:05,440 --> 00:11:11,880
+down very fast. So if you want to
+
+210
+00:11:08,000 --> 00:11:16,120
+increase the smoothness, you have to say
+
+211
+00:11:11,880 --> 00:11:18,640
+um max recursion let's say
+
+212
+00:11:16,120 --> 00:11:23,040
+four. Uh so that's getting a bit
+
+213
+00:11:18,640 --> 00:11:25,279
+technical. That's about that's about um
+
+214
+00:11:23,040 --> 00:11:28,160
+because whenever you plot something when
+
+215
+00:11:25,279 --> 00:11:29,000
+the function's value changes a lot in a
+
+216
+00:11:28,160 --> 00:11:32,320
+short
+
+217
+00:11:29,000 --> 00:11:35,519
+distance the wolf language will try to
+
+218
+00:11:32,320 --> 00:11:39,200
+plot more points you know in that short
+
+219
+00:11:35,519 --> 00:11:41,600
+region so it becomes more smooth
+
+220
+00:11:39,200 --> 00:11:44,160
+uh and that basically how much how many
+
+221
+00:11:41,600 --> 00:11:46,839
+how how many levels that goes is
+
+222
+00:11:44,160 --> 00:11:49,600
+controlled by max recursion so let's try
+
+223
+00:11:46,839 --> 00:11:52,079
+that okay do
+
+224
+00:11:49,600 --> 00:11:55,519
+So basically the plot you see now it's
+
+225
+00:11:52,079 --> 00:11:57,600
+much better. You see very much more fine
+
+226
+00:11:55,519 --> 00:12:01,160
+grain and I don't like the color. So
+
+227
+00:11:57,600 --> 00:12:05,120
+let's change the color. So anyway
+
+228
+00:12:01,160 --> 00:12:09,040
+so plot points and max recursion. These
+
+229
+00:12:05,120 --> 00:12:12,160
+two are uh the fundamental way to
+
+230
+00:12:09,040 --> 00:12:15,040
+control how fine you want the graphics.
+
+231
+00:12:12,160 --> 00:12:18,600
+So let's paste that there. There. So we
+
+232
+00:12:15,040 --> 00:12:22,800
+got a new expression. Uh, delete that.
+
+233
+00:12:18,600 --> 00:12:24,720
+Okay. So, uh, yeah. So, that that and
+
+234
+00:12:22,800 --> 00:12:26,800
+what else we want? Let's change the
+
+235
+00:12:24,720 --> 00:12:30,240
+color of the plot. Okay. Because I don't
+
+236
+00:12:26,800 --> 00:12:33,120
+like this yellowish. That was a new
+
+237
+00:12:30,240 --> 00:12:35,800
+color default color scheme since about
+
+238
+00:12:33,120 --> 00:12:39,120
+like uh 15 years
+
+239
+00:12:35,800 --> 00:12:41,600
+ago. So, color. Well, there are so many
+
+240
+00:12:39,120 --> 00:12:45,519
+options to control color. So, I don't
+
+241
+00:12:41,600 --> 00:12:48,880
+remember. Uh so you look up the
+
+242
+00:12:45,519 --> 00:12:53,279
+documentation for plot 3D and turn on
+
+243
+00:12:48,880 --> 00:12:53,279
+JavaScript and uh okay
+
+244
+00:12:55,399 --> 00:13:02,560
+magnify. Okay. So you have like lots of
+
+245
+00:12:58,720 --> 00:13:06,240
+options. Call out blah blah blah out 3D
+
+246
+00:13:02,560 --> 00:13:10,399
+options axis box ratio clipping style
+
+247
+00:13:06,240 --> 00:13:14,440
+color function. Uh that's not what we
+
+248
+00:13:10,399 --> 00:13:17,120
+want. Uh well color
+
+249
+00:13:14,440 --> 00:13:19,079
+function okay let's try color function
+
+250
+00:13:17,120 --> 00:13:23,839
+black and white
+
+251
+00:13:19,079 --> 00:13:28,360
+okay so color function you so right now
+
+252
+00:13:23,839 --> 00:13:32,200
+I'm using kas emac
+
+253
+00:13:28,360 --> 00:13:36,399
+uh kasawa wuam mod which allows me to
+
+254
+00:13:32,200 --> 00:13:39,760
+code wam language in emacs but you can
+
+255
+00:13:36,399 --> 00:13:42,560
+directly type it here of course I like
+
+256
+00:13:39,760 --> 00:13:45,440
+to use emac because I have I'm using
+
+257
+00:13:42,560 --> 00:13:50,000
+softly keys. If you you know this is for
+
+258
+00:13:45,440 --> 00:13:54,360
+you Emacs users so keys allows me to
+
+259
+00:13:50,000 --> 00:13:57,440
+edit expressions uh much more
+
+260
+00:13:54,360 --> 00:13:59,600
+efficiently. Uh like Vim's model key
+
+261
+00:13:57,440 --> 00:14:01,600
+binding but much more efficient. So you
+
+262
+00:13:59,600 --> 00:14:02,680
+can watch a video there. This is for you
+
+263
+00:14:01,600 --> 00:14:06,079
+Emacs
+
+264
+00:14:02,680 --> 00:14:08,240
+users. Uh you can use VS Code too of
+
+265
+00:14:06,079 --> 00:14:10,199
+course. I think there's a VS Code plugin
+
+266
+00:14:08,240 --> 00:14:13,680
+for Wam language.
+
+267
+00:14:10,199 --> 00:14:15,920
+Yeah. So for but for Emacs users you
+
+268
+00:14:13,680 --> 00:14:18,160
+might check out SFly keys. So you don't
+
+269
+00:14:15,920 --> 00:14:21,440
+have to press hold on control hold on
+
+270
+00:14:18,160 --> 00:14:25,760
+alt hold meta then press then meta
+
+271
+00:14:21,440 --> 00:14:29,279
+something you know. So so that's keys.
+
+272
+00:14:25,760 --> 00:14:29,279
+Okay. And I'm using
+
+273
+00:14:31,240 --> 00:14:39,120
+um wan mod. So you can see kasawa mod
+
+274
+00:14:35,199 --> 00:14:41,440
+here. It's free. uh about 3,000 lines of
+
+275
+00:14:39,120 --> 00:14:43,920
+code. This is the website. Search for
+
+276
+00:14:41,440 --> 00:14:47,440
+it. Kasawa woofer mod Emacs. You will
+
+277
+00:14:43,920 --> 00:14:50,720
+find it. It's on GitHub and Softly Keys
+
+278
+00:14:47,440 --> 00:14:53,680
+is also on GitHub. Okay. So, copy that.
+
+279
+00:14:50,720 --> 00:14:56,880
+Close that. Close that. Go to today's
+
+280
+00:14:53,680 --> 00:15:00,000
+talk show. In fact, do I have uh not
+
+281
+00:14:56,880 --> 00:15:02,959
+here? So, to go to today's talk show.
+
+282
+00:15:00,000 --> 00:15:04,880
+So, you can see like keys there mod.
+
+283
+00:15:02,959 --> 00:15:09,279
+Okay.
+
+284
+00:15:04,880 --> 00:15:12,560
+So now we uh we go back to work on this
+
+285
+00:15:09,279 --> 00:15:16,000
+expression. Okay. So what what uh what I
+
+286
+00:15:12,560 --> 00:15:19,760
+wanted to do color function. Okay. Now
+
+287
+00:15:16,000 --> 00:15:23,120
+uh arrow then gray level. Gray level
+
+288
+00:15:19,760 --> 00:15:26,160
+basically is a function that returns
+
+289
+00:15:23,120 --> 00:15:29,079
+black levels of black and white. So this
+
+290
+00:15:26,160 --> 00:15:32,720
+will just make it black and white.
+
+291
+00:15:29,079 --> 00:15:35,920
+Check. Double check. That's good. Paste
+
+292
+00:15:32,720 --> 00:15:35,920
+it. Run it.
+
+293
+00:15:37,560 --> 00:15:42,639
+Ching Hank, thank you so much, Hank.
+
+294
+00:15:40,800 --> 00:15:46,079
+Thank you so much. And thank you for the
+
+295
+00:15:42,639 --> 00:15:50,399
+PayPal donation and thank you for uh
+
+296
+00:15:46,079 --> 00:15:52,240
+giving me a free game. I have not yet to
+
+297
+00:15:50,399 --> 00:15:53,680
+I have to look it into, you know, I
+
+298
+00:15:52,240 --> 00:15:56,720
+haven't seen it yet, you know, because
+
+299
+00:15:53,680 --> 00:16:00,279
+I'm lazy, you know, my emails piled up,
+
+300
+00:15:56,720 --> 00:16:03,639
+so I'm gonna check it out. Hello. Hello,
+
+301
+00:16:00,279 --> 00:16:07,600
+Mars. So, thank you, Hank.
+
+302
+00:16:03,639 --> 00:16:10,320
+So, so, so yeah. So, now we got this
+
+303
+00:16:07,600 --> 00:16:13,120
+much better. Okay. So, you see this like
+
+304
+00:16:10,320 --> 00:16:17,800
+thousands tens of thousands of points.
+
+305
+00:16:13,120 --> 00:16:21,680
+So, it's um you know, so so let's let's
+
+306
+00:16:17,800 --> 00:16:24,959
+let's change it again. Let's change it
+
+307
+00:16:21,680 --> 00:16:28,600
+so that we don't plot that much uh pi.
+
+308
+00:16:24,959 --> 00:16:34,480
+Let's just say pi. Okay, let's not plot
+
+309
+00:16:28,600 --> 00:16:37,199
+so many. So there. Now paste uh where
+
+310
+00:16:34,480 --> 00:16:38,199
+did you paste and let's go here. Paste.
+
+311
+00:16:37,199 --> 00:16:41,360
+Run
+
+312
+00:16:38,199 --> 00:16:43,920
+it. Fantastic. And beautiful. Now this
+
+313
+00:16:41,360 --> 00:16:48,000
+is more beautiful. Okay. So you can see
+
+314
+00:16:43,920 --> 00:16:50,279
+now it's black and white. Okay. So right
+
+315
+00:16:48,000 --> 00:16:54,079
+now we are plotting a function of two
+
+316
+00:16:50,279 --> 00:16:57,040
+variables. Okay. And the function output
+
+317
+00:16:54,079 --> 00:17:00,880
+a single number that is the height.
+
+318
+00:16:57,040 --> 00:17:04,240
+Okay. So for any such function you can
+
+319
+00:17:00,880 --> 00:17:08,720
+also do density plot. Okay. So let me
+
+320
+00:17:04,240 --> 00:17:11,280
+show you cut paste. Uh let's uh let's I
+
+321
+00:17:08,720 --> 00:17:15,959
+don't want that. Okay. Copy that. Paste
+
+322
+00:17:11,280 --> 00:17:18,360
+it here. Make a breaker. Then here you
+
+323
+00:17:15,959 --> 00:17:21,919
+say
+
+324
+00:17:18,360 --> 00:17:25,600
+density plot. Okay. Instead instead of
+
+325
+00:17:21,919 --> 00:17:28,799
+plot 3D. So what that will do it will
+
+326
+00:17:25,600 --> 00:17:32,160
+instead of creating a 3D image it will
+
+327
+00:17:28,799 --> 00:17:34,880
+just give you a density plot. You see
+
+328
+00:17:32,160 --> 00:17:38,640
+that's what density plot means or you
+
+329
+00:17:34,880 --> 00:17:42,000
+know sometimes you call it um heat map.
+
+330
+00:17:38,640 --> 00:17:44,880
+Okay. So that's what this density plot
+
+331
+00:17:42,000 --> 00:17:47,840
+is about. Let's go back to our you see
+
+332
+00:17:44,880 --> 00:17:49,480
+so all these are like density plot.
+
+333
+00:17:47,840 --> 00:17:53,600
+Okay.
+
+334
+00:17:49,480 --> 00:17:56,320
+Beautiful. Okay. So now we explained you
+
+335
+00:17:53,600 --> 00:17:59,280
+know what is density plot and plot you
+
+336
+00:17:56,320 --> 00:18:02,240
+know so then now what we do yeah we
+
+337
+00:17:59,280 --> 00:18:05,919
+wanted to originally
+
+338
+00:18:02,240 --> 00:18:08,080
+uh yeah originally we were plotting
+
+339
+00:18:05,919 --> 00:18:10,160
+let's go back to the beginning this one
+
+340
+00:18:08,080 --> 00:18:14,440
+we want to make it more beautiful I
+
+341
+00:18:10,160 --> 00:18:19,080
+don't like this one currently is like
+
+342
+00:18:14,440 --> 00:18:24,000
+fuzzy so what you want to do is so
+
+343
+00:18:19,080 --> 00:18:26,480
+okay so Let's uh make a color function.
+
+344
+00:18:24,000 --> 00:18:29,760
+Let's again use uh another thing you can
+
+345
+00:18:26,480 --> 00:18:32,919
+do is you can use hue. Hue is a function
+
+346
+00:18:29,760 --> 00:18:36,840
+that returns all different colors. It's
+
+347
+00:18:32,919 --> 00:18:40,679
+uh hue, saturation, and
+
+348
+00:18:36,840 --> 00:18:44,000
+uh brightness. Okay, that's a color
+
+349
+00:18:40,679 --> 00:18:47,120
+model. So if you say hue, it's going to
+
+350
+00:18:44,000 --> 00:18:51,600
+get you a rainbow color. Okay, so we can
+
+351
+00:18:47,120 --> 00:18:51,600
+try it. Okay, so let's try it here.
+
+352
+00:18:51,720 --> 00:18:55,600
+Uh yeah, paste
+
+353
+00:18:55,960 --> 00:19:01,799
+it. This is much more beautiful. Yeah, I
+
+354
+00:18:59,120 --> 00:19:04,880
+like it.
+
+355
+00:19:01,799 --> 00:19:09,200
+Fantastic. Okay, so let's save this uh
+
+356
+00:19:04,880 --> 00:19:12,720
+save this untitled. Okay, so now what we
+
+357
+00:19:09,200 --> 00:19:17,400
+want to do uh but this is not dense
+
+358
+00:19:12,720 --> 00:19:20,240
+enough. So yeah, so let's let's do
+
+359
+00:19:17,400 --> 00:19:24,720
+another improve it. We don't want 10.
+
+360
+00:19:20,240 --> 00:19:28,880
+So, so you see trig functions s cosine
+
+361
+00:19:24,720 --> 00:19:30,520
+tangent so on they have a peri periodicy
+
+362
+00:19:28,880 --> 00:19:32,760
+of 2
+
+363
+00:19:30,520 --> 00:19:36,000
+pi and
+
+364
+00:19:32,760 --> 00:19:39,600
+uh so so right now what what how many
+
+365
+00:19:36,000 --> 00:19:44,080
+cycle are there like one two three so we
+
+366
+00:19:39,600 --> 00:19:49,200
+have 10 so let's just make it 2 pi okay
+
+367
+00:19:44,080 --> 00:19:53,440
+so replace 10 by two do do okay because
+
+368
+00:19:49,200 --> 00:19:56,520
+we then we get the finer um like we can
+
+369
+00:19:53,440 --> 00:19:59,400
+see uh more of the detail.
+
+370
+00:19:56,520 --> 00:20:02,320
+So, okay, paste it
+
+371
+00:19:59,400 --> 00:20:04,880
+there. Okay, so you see now we started
+
+372
+00:20:02,320 --> 00:20:09,120
+to see the
+
+373
+00:20:04,880 --> 00:20:11,440
+uh small area of it. And now we can like
+
+374
+00:20:09,120 --> 00:20:13,919
+before we can increase the resolution
+
+375
+00:20:11,440 --> 00:20:16,480
+because now it's like fuzzy. Okay, now
+
+376
+00:20:13,919 --> 00:20:20,280
+we want to increase the resolution.
+
+377
+00:20:16,480 --> 00:20:20,280
+That's this two.
+
+378
+00:20:21,840 --> 00:20:27,760
+Copy it and paste it here. Okay. So
+
+379
+00:20:24,400 --> 00:20:31,600
+wait. So we can paste it here. So plot
+
+380
+00:20:27,760 --> 00:20:35,840
+point is the initial number of points to
+
+381
+00:20:31,600 --> 00:20:38,360
+evaluate on each side X and Y. And max
+
+382
+00:20:35,840 --> 00:20:41,880
+recursion four. Okay. Let's do
+
+383
+00:20:38,360 --> 00:20:45,640
+that. Okay. So now we are getting
+
+384
+00:20:41,880 --> 00:20:49,919
+improvements. Paste it there. Run
+
+385
+00:20:45,640 --> 00:20:53,120
+it. Okay. So that's not so you know it's
+
+386
+00:20:49,919 --> 00:20:55,880
+not so it's it's a bit better but not so
+
+387
+00:20:53,120 --> 00:21:00,799
+much. So plot points
+
+388
+00:20:55,880 --> 00:21:05,520
+um let's say 40 will it become better?
+
+389
+00:21:00,799 --> 00:21:05,520
+Not really. Let's say max recursion
+
+390
+00:21:06,039 --> 00:21:11,880
+five.
+
+391
+00:21:08,520 --> 00:21:16,799
+Okay. Max recursion
+
+392
+00:21:11,880 --> 00:21:19,760
+seven. Okay. It's not so good.
+
+393
+00:21:16,799 --> 00:21:24,880
+I mean you can you still see this kind
+
+394
+00:21:19,760 --> 00:21:24,880
+of it's not so smooth. Why is that? And
+
+395
+00:21:25,880 --> 00:21:32,960
+uh and you can for example you can make
+
+396
+00:21:33,240 --> 00:21:39,640
+it plot 3D just to see what this thing
+
+397
+00:21:38,000 --> 00:21:42,720
+looks like in
+
+398
+00:21:39,640 --> 00:21:47,679
+3D. Okay. Yeah, it looks like that.
+
+399
+00:21:42,720 --> 00:21:47,679
+Okay. not not too interesting.
+
+400
+00:21:47,720 --> 00:21:53,720
+Okay. So this is now about artistic
+
+401
+00:21:51,600 --> 00:21:55,600
+design. You see our
+
+402
+00:21:53,720 --> 00:21:57,919
+goal, you know, if you are a
+
+403
+00:21:55,600 --> 00:22:00,720
+mathematician or engineer, you need to
+
+404
+00:21:57,919 --> 00:22:03,039
+know what this function looks like and
+
+405
+00:22:00,720 --> 00:22:07,440
+that's how you do it. Sometimes you need
+
+406
+00:22:03,039 --> 00:22:10,000
+this, you know, heat map form for for
+
+407
+00:22:07,440 --> 00:22:11,520
+reasons, you know. So you better
+
+408
+00:22:10,000 --> 00:22:14,760
+understand, you know, heat map or
+
+409
+00:22:11,520 --> 00:22:18,480
+whatever. heat flow or
+
+410
+00:22:14,760 --> 00:22:22,400
+whatever. But for for for for us, we are
+
+411
+00:22:18,480 --> 00:22:23,799
+doing this like an artwork. So now it's
+
+412
+00:22:22,400 --> 00:22:25,720
+time
+
+413
+00:22:23,799 --> 00:22:28,960
+to, you
+
+414
+00:22:25,720 --> 00:22:31,280
+know, we we want to be able to like we
+
+415
+00:22:28,960 --> 00:22:34,880
+want it to be beautiful. So it's it's
+
+416
+00:22:31,280 --> 00:22:38,080
+about creativity, our taste, you know,
+
+417
+00:22:34,880 --> 00:22:42,280
+what kind of color we want to use it. So
+
+418
+00:22:38,080 --> 00:22:47,200
+for example another color we can use is
+
+419
+00:22:42,280 --> 00:22:48,919
+um red. Okay. So if you say hue uh let's
+
+420
+00:22:47,200 --> 00:22:52,799
+say
+
+421
+00:22:48,919 --> 00:22:57,520
+um hue takes three things. The first
+
+422
+00:22:52,799 --> 00:23:00,480
+element is hue. So zero means red. Hue
+
+423
+00:22:57,520 --> 00:23:03,720
+basically that's a rainbow color. red,
+
+424
+00:23:00,480 --> 00:23:07,039
+red, orange, yellow,
+
+425
+00:23:03,720 --> 00:23:10,240
+green, blue, violet, you know, things
+
+426
+00:23:07,039 --> 00:23:13,120
+like that. So zero is so the the color
+
+427
+00:23:10,240 --> 00:23:16,799
+value range from zero to one. So zero is
+
+428
+00:23:13,120 --> 00:23:19,919
+red and one is red too. So
+
+429
+00:23:16,799 --> 00:23:22,640
+uh and saturation saturation will be a
+
+430
+00:23:19,919 --> 00:23:25,200
+function. Okay. Uh and brightness let's
+
+431
+00:23:22,640 --> 00:23:29,039
+say zero. So we want this to be a
+
+432
+00:23:25,200 --> 00:23:32,440
+function. So let's write a function.
+
+433
+00:23:29,039 --> 00:23:36,080
+Okay. So that Okay. So you can
+
+434
+00:23:32,440 --> 00:23:39,760
+see this expression is a function that
+
+435
+00:23:36,080 --> 00:23:42,640
+takes one number and returns a color.
+
+436
+00:23:39,760 --> 00:23:46,159
+And this color will arrange from
+
+437
+00:23:42,640 --> 00:23:47,080
+basically uh shades of red. Okay. So
+
+438
+00:23:46,159 --> 00:23:52,120
+copy
+
+439
+00:23:47,080 --> 00:23:55,280
+it and go back here and paste
+
+440
+00:23:52,120 --> 00:23:58,159
+it. Okay. We got it incorrect. Something
+
+441
+00:23:55,280 --> 00:23:59,320
+is wrong. So this hue is not returning
+
+442
+00:23:58,159 --> 00:24:01,000
+the correct
+
+443
+00:23:59,320 --> 00:24:03,000
+value.
+
+444
+00:24:01,000 --> 00:24:06,760
+Um color
+
+445
+00:24:03,000 --> 00:24:10,640
+function hue red
+
+446
+00:24:06,760 --> 00:24:12,520
+saturation. Oh, okay. So that's uh wait.
+
+447
+00:24:10,640 --> 00:24:15,919
+That's a saturation. Why is it all
+
+448
+00:24:12,520 --> 00:24:17,799
+black? I don't understand. Okay, hold on
+
+449
+00:24:15,919 --> 00:24:18,860
+a second. my alarm
+
+450
+00:24:17,799 --> 00:24:22,080
+clock.
+
+451
+00:24:18,860 --> 00:24:22,080
+[Music]
+
+452
+00:24:28,440 --> 00:24:37,240
+Uh that is my alarm clock telling me to
+
+453
+00:24:32,320 --> 00:24:40,360
+get up and walk to prevent ass
+
+454
+00:24:37,240 --> 00:24:45,039
+rot from sitting too
+
+455
+00:24:40,360 --> 00:24:47,919
+long. Okay. Comments. Renato says, Weld
+
+456
+00:24:45,039 --> 00:24:49,840
+says, Weld says, "Hello, thank you for
+
+457
+00:24:47,919 --> 00:24:53,039
+your talk show. It's very instructive."
+
+458
+00:24:49,840 --> 00:24:57,360
+Thank you. I can see you got a math, you
+
+459
+00:24:53,039 --> 00:25:00,240
+know, you got a 3D geometry, 3D space,
+
+460
+00:24:57,360 --> 00:25:01,640
+uh, special geometry manifold,
+
+461
+00:25:00,240 --> 00:25:05,720
+threedimensional
+
+462
+00:25:01,640 --> 00:25:08,720
+manifold profile photo. So,
+
+463
+00:25:05,720 --> 00:25:10,960
+fantastic. Uh, Reinato says, "I'm a
+
+464
+00:25:08,720 --> 00:25:13,039
+mathematician." Wow, that works with
+
+465
+00:25:10,960 --> 00:25:15,600
+numerical methods for differential
+
+466
+00:25:13,039 --> 00:25:17,520
+equations and most of the time I use
+
+467
+00:25:15,600 --> 00:25:21,320
+Python
+
+468
+00:25:17,520 --> 00:25:24,159
+uh or parallel C++ that's
+
+469
+00:25:21,320 --> 00:25:28,400
+fantastic you know mathematicians and
+
+470
+00:25:24,159 --> 00:25:33,679
+engineers they are great
+
+471
+00:25:28,400 --> 00:25:38,240
+uh and of Hank says uh hey numpy yeah
+
+472
+00:25:33,679 --> 00:25:41,200
+Python yeah Python is hugely popular um
+
+473
+00:25:38,240 --> 00:25:44,679
+but for you Python is like very super
+
+474
+00:25:41,200 --> 00:25:50,080
+popular you know and it's free too
+
+475
+00:25:44,679 --> 00:25:54,080
+um but um anyway so let's you know so so
+
+476
+00:25:50,080 --> 00:25:56,039
+so I want to find out what is wrong here
+
+477
+00:25:54,080 --> 00:26:00,200
+so
+
+478
+00:25:56,039 --> 00:26:03,600
+um why is that not color function why is
+
+479
+00:26:00,200 --> 00:26:03,600
+that not
+
+480
+00:26:03,880 --> 00:26:11,919
+working so maybe okay so let's try this
+
+481
+00:26:07,360 --> 00:26:16,000
+okay zero X. So that will be from black
+
+482
+00:26:11,919 --> 00:26:16,000
+to red. Uh,
+
+483
+00:26:18,440 --> 00:26:24,960
+no. Oh. Oh, right. That's something I
+
+484
+00:26:21,840 --> 00:26:26,720
+forgot. Zero means black. No saturation.
+
+485
+00:26:24,960 --> 00:26:30,159
+So you need to say one. One is the
+
+486
+00:26:26,720 --> 00:26:34,000
+brightest there. That's what we want. So
+
+487
+00:26:30,159 --> 00:26:37,520
+you see so now it's a matter of creativ
+
+488
+00:26:34,000 --> 00:26:39,760
+artistic vision creativity and taste you
+
+489
+00:26:37,520 --> 00:26:42,640
+know to see you know how you like you
+
+490
+00:26:39,760 --> 00:26:44,760
+know do you want something like that or
+
+491
+00:26:42,640 --> 00:26:47,760
+do you want
+
+492
+00:26:44,760 --> 00:26:51,720
+um you know something like that I I like
+
+493
+00:26:47,760 --> 00:26:54,799
+this one you know I like this one red
+
+494
+00:26:51,720 --> 00:26:58,640
+bloody okay so that's about you know
+
+495
+00:26:54,799 --> 00:27:02,080
+that's basically how all these uh images
+
+496
+00:26:58,640 --> 00:27:05,919
+work Okay. So, this one is created 30
+
+497
+00:27:02,080 --> 00:27:08,880
+years ago. Uh, you know, so and I need
+
+498
+00:27:05,919 --> 00:27:12,240
+to update it. So, let's for now let's
+
+499
+00:27:08,880 --> 00:27:14,400
+just use this one. Okay. Let's, you
+
+500
+00:27:12,240 --> 00:27:17,279
+know, let me show you my like my
+
+501
+00:27:14,400 --> 00:27:18,520
+workflow. How do I create this uh, you
+
+502
+00:27:17,279 --> 00:27:22,240
+know, website
+
+503
+00:27:18,520 --> 00:27:26,240
+page? So, now we know we want this one.
+
+504
+00:27:22,240 --> 00:27:29,240
+Okay. So, let's um make it easier to
+
+505
+00:27:26,240 --> 00:27:29,240
+read.
+
+506
+00:27:29,600 --> 00:27:35,840
+Okay. So, we want this one. And uh what
+
+507
+00:27:32,400 --> 00:27:39,960
+is the previous one? Uh wait, there too
+
+508
+00:27:35,840 --> 00:27:44,000
+many confusing. Okay. Go to top. Delete
+
+509
+00:27:39,960 --> 00:27:46,400
+that. Delete that. Delete that. Delete
+
+510
+00:27:44,000 --> 00:27:50,799
+that. This is what we want. And this is
+
+511
+00:27:46,400 --> 00:27:54,720
+a PL 3D version. Okay, that's good. And
+
+512
+00:27:50,799 --> 00:27:59,120
+this. Delete that. New paste. Go back
+
+513
+00:27:54,720 --> 00:28:02,760
+here. Put it back. color syntax color
+
+514
+00:27:59,120 --> 00:28:07,600
+show it here. Okay, so here's a
+
+515
+00:28:02,760 --> 00:28:11,919
+code and this image dust wave. I don't
+
+516
+00:28:07,600 --> 00:28:16,840
+like it. Delete it. Okay. And now we
+
+517
+00:28:11,919 --> 00:28:22,399
+want uh this kind of red
+
+518
+00:28:16,840 --> 00:28:22,399
+bloody. Yeah. So I like this one. So
+
+519
+00:28:22,520 --> 00:28:29,039
+let's use this one. Okay. So,
+
+520
+00:28:25,559 --> 00:28:29,039
+let's do a
+
+521
+00:28:36,039 --> 00:28:41,200
+screenshot. You can you can also export
+
+522
+00:28:39,039 --> 00:28:45,679
+it, but I usually just prefer
+
+523
+00:28:41,200 --> 00:28:49,799
+screenshot. Okay, screenshot. And then
+
+524
+00:28:45,679 --> 00:28:55,080
+some Emacs magic to move the screenshot
+
+525
+00:28:49,799 --> 00:28:59,120
+here. Open it. Fantastic. And uh let's
+
+526
+00:28:55,080 --> 00:29:01,279
+say what kind of name you know if you
+
+527
+00:28:59,120 --> 00:29:04,960
+are artist you create an image usually
+
+528
+00:29:01,279 --> 00:29:07,960
+you want to name it for easy reference.
+
+529
+00:29:04,960 --> 00:29:07,960
+So
+
+530
+00:29:09,080 --> 00:29:14,080
+uh blood tinge something like
+
+531
+00:29:15,240 --> 00:29:22,120
+that. Okay. You could also say red tinge
+
+532
+00:29:19,360 --> 00:29:24,120
+but red tinge is
+
+533
+00:29:22,120 --> 00:29:27,520
+not is is is
+
+534
+00:29:24,120 --> 00:29:30,960
+is worse name because red just color
+
+535
+00:29:27,520 --> 00:29:34,000
+name. It's not like too meaningful. But
+
+536
+00:29:30,960 --> 00:29:36,559
+if you say blood everyone understand
+
+537
+00:29:34,000 --> 00:29:38,039
+from millions years ago even before we
+
+538
+00:29:36,559 --> 00:29:42,320
+have the word
+
+539
+00:29:38,039 --> 00:29:45,200
+because our blood is red. So I name this
+
+540
+00:29:42,320 --> 00:29:47,000
+let's just say blood tinge for now.
+
+541
+00:29:45,200 --> 00:29:49,840
+Okay. So that's
+
+542
+00:29:47,000 --> 00:29:53,200
+fantastic. Okay. And here's a code.
+
+543
+00:29:49,840 --> 00:29:56,240
+Okay. So we finished one of them and and
+
+544
+00:29:53,200 --> 00:29:59,360
+the rest of them is kind of similar.
+
+545
+00:29:56,240 --> 00:30:03,120
+Okay. So you know you just you just do
+
+546
+00:29:59,360 --> 00:30:07,679
+experiment um about these artistic
+
+547
+00:30:03,120 --> 00:30:08,760
+things. Okay. So now four to make it a
+
+548
+00:30:07,679 --> 00:30:11,720
+new
+
+549
+00:30:08,760 --> 00:30:15,880
+section. Paste it. For example, that
+
+550
+00:30:11,720 --> 00:30:18,960
+one. Oh, that one will take a
+
+551
+00:30:15,880 --> 00:30:21,200
+minute. Uh because this one turn, you
+
+552
+00:30:18,960 --> 00:30:22,440
+know, this black white curtain turns out
+
+553
+00:30:21,200 --> 00:30:25,039
+is
+
+554
+00:30:22,440 --> 00:30:28,080
+very I'll show you. Okay, I'll show you
+
+555
+00:30:25,039 --> 00:30:29,960
+a 3D version of this because the because
+
+556
+00:30:28,080 --> 00:30:32,799
+because just like
+
+557
+00:30:29,960 --> 00:30:37,120
+um you know just like this one it goes
+
+558
+00:30:32,799 --> 00:30:39,600
+up and down and the closer you know so
+
+559
+00:30:37,120 --> 00:30:42,679
+there are many there are infinite number
+
+560
+00:30:39,600 --> 00:30:47,039
+of places it goes up and
+
+561
+00:30:42,679 --> 00:30:50,880
+down in in infinite more more and more
+
+562
+00:30:47,039 --> 00:30:53,440
+frequency. So it's going to so you know
+
+563
+00:30:50,880 --> 00:30:56,240
+this is going to take forever. It take
+
+564
+00:30:53,440 --> 00:30:56,240
+two minutes
+
+565
+00:30:56,919 --> 00:31:05,159
+maybe. So numpy sci torch matt plot
+
+566
+00:31:01,760 --> 00:31:08,520
+live. Yeah those are you know today's
+
+567
+00:31:05,159 --> 00:31:14,480
+popular python
+
+568
+00:31:08,520 --> 00:31:16,279
+stuff. Yeah. Uh you know so yeah. So
+
+569
+00:31:14,480 --> 00:31:19,520
+let's see.
+
+570
+00:31:16,279 --> 00:31:24,320
+Um maybe that's it for today. So you
+
+571
+00:31:19,520 --> 00:31:26,760
+know that's you know we you know the
+
+572
+00:31:24,320 --> 00:31:30,000
+rest of it I can just like try to do it
+
+573
+00:31:26,760 --> 00:31:32,799
+myself. Uh but you get to know you know
+
+574
+00:31:30,000 --> 00:31:32,799
+how to do it
+
+575
+00:31:33,159 --> 00:31:39,640
+basically. Uh let's wait for this to
+
+576
+00:31:36,240 --> 00:31:42,360
+finish maybe. Um
+
+577
+00:31:39,640 --> 00:31:45,600
+well this is okay.
+
+578
+00:31:42,360 --> 00:31:48,320
+So maybe that's it for today. So what
+
+579
+00:31:45,600 --> 00:31:51,360
+else? So the other thing interesting. So
+
+580
+00:31:48,320 --> 00:31:56,799
+this so this is about artistic creation
+
+581
+00:31:51,360 --> 00:31:59,200
+of mathematical art. So but you see I've
+
+582
+00:31:56,799 --> 00:32:02,039
+manually created you know some of these
+
+583
+00:31:59,200 --> 00:32:07,279
+very interesting uh
+
+584
+00:32:02,039 --> 00:32:09,919
+images but you see but but what are the
+
+585
+00:32:07,279 --> 00:32:12,399
+how many possibilities are there? You
+
+586
+00:32:09,919 --> 00:32:14,519
+know, by the way, look at this one. I
+
+587
+00:32:12,399 --> 00:32:17,200
+don't know if you can see it well
+
+588
+00:32:14,519 --> 00:32:19,399
+because via video sometimes, you know,
+
+589
+00:32:17,200 --> 00:32:22,159
+the fine details you don't see, but this
+
+590
+00:32:19,399 --> 00:32:25,200
+one you can see there's a pattern. Okay,
+
+591
+00:32:22,159 --> 00:32:28,519
+there's a cross pattern. Subtle, very
+
+592
+00:32:25,200 --> 00:32:32,600
+subtle. And uh let's let's let's open
+
+593
+00:32:28,519 --> 00:32:35,919
+it. Okay, so if you
+
+594
+00:32:32,600 --> 00:32:37,480
+magnify, you can see very subtle details
+
+595
+00:32:35,919 --> 00:32:39,960
+this
+
+596
+00:32:37,480 --> 00:32:42,600
+one. Uh and
+
+597
+00:32:39,960 --> 00:32:46,480
+uh Okay.
+
+598
+00:32:42,600 --> 00:32:46,480
+So, okay, let's stop
+
+599
+00:32:47,320 --> 00:32:54,159
+that. Yeah. So, so how many
+
+600
+00:32:51,880 --> 00:32:56,559
+possibilities are there? Basically,
+
+601
+00:32:54,159 --> 00:33:01,760
+infinite because you have you can have
+
+602
+00:32:56,559 --> 00:33:04,000
+infinite number of of functions. But
+
+603
+00:33:01,760 --> 00:33:07,720
+what about if you limit the function
+
+604
+00:33:04,000 --> 00:33:11,000
+just to the combination of trigonomic
+
+605
+00:33:07,720 --> 00:33:14,399
+trigonometric expression s
+
+606
+00:33:11,000 --> 00:33:17,279
+cosine tangent or squared of them or
+
+607
+00:33:14,399 --> 00:33:20,640
+square root of them or their product
+
+608
+00:33:17,279 --> 00:33:23,919
+there some stuff like that. How many
+
+609
+00:33:20,640 --> 00:33:27,960
+possibilities? Of course infinite.
+
+610
+00:33:23,919 --> 00:33:31,559
+So you want to be able to create a
+
+611
+00:33:27,960 --> 00:33:36,640
+random expression involving sin cosine
+
+612
+00:33:31,559 --> 00:33:40,080
+power sin cosine power and uh also their
+
+613
+00:33:36,640 --> 00:33:42,840
+sum their product. So you want to get a
+
+614
+00:33:40,080 --> 00:33:45,919
+random possible combination of
+
+615
+00:33:42,840 --> 00:33:47,679
+them that's very interesting. So you
+
+616
+00:33:45,919 --> 00:33:51,080
+know so you can generate a random
+
+617
+00:33:47,679 --> 00:33:54,000
+expression then you can plot it and
+
+618
+00:33:51,080 --> 00:33:56,320
+see you know like like the image you
+
+619
+00:33:54,000 --> 00:33:59,440
+never thought of before because
+
+620
+00:33:56,320 --> 00:34:03,679
+otherwise manually you know you could
+
+621
+00:33:59,440 --> 00:34:07,279
+only came up with a few expressions. So
+
+622
+00:34:03,679 --> 00:34:10,159
+so you want this random sign uh trick
+
+623
+00:34:07,279 --> 00:34:14,480
+function. Okay. So that is what this
+
+624
+00:34:10,159 --> 00:34:17,679
+code did does. Uh but this is this code
+
+625
+00:34:14,480 --> 00:34:22,000
+you know it it it generate a list of 10
+
+626
+00:34:17,679 --> 00:34:25,520
+or more you know by whatever you want um
+
+627
+00:34:22,000 --> 00:34:28,639
+random trick expressions combination of
+
+628
+00:34:25,520 --> 00:34:31,280
+trick expressions
+
+629
+00:34:28,639 --> 00:34:34,159
+uh so but I wrote this code 10 years ago
+
+630
+00:34:31,280 --> 00:34:36,119
+so today it won't run because this this
+
+631
+00:34:34,159 --> 00:34:40,000
+package discrete
+
+632
+00:34:36,119 --> 00:34:42,960
+combinator is gone it's now building uh
+
+633
+00:34:40,000 --> 00:34:44,839
+so you need to I need to find about you
+
+634
+00:34:42,960 --> 00:34:49,599
+know what is a
+
+635
+00:34:44,839 --> 00:34:52,720
+new way to do it but
+
+636
+00:34:49,599 --> 00:34:55,359
+uh but I tried to do it it's not trivial
+
+637
+00:34:52,720 --> 00:34:59,960
+okay so hold on a second let me let me
+
+638
+00:34:55,359 --> 00:35:03,000
+let's clean up this okay uh
+
+639
+00:34:59,960 --> 00:35:06,000
+let's function of
+
+640
+00:35:03,000 --> 00:35:06,000
+two
+
+641
+00:35:07,160 --> 00:35:15,440
+parameters return one value okay So this
+
+642
+00:35:12,000 --> 00:35:19,480
+is like explanation of what this plot
+
+643
+00:35:15,440 --> 00:35:25,160
+and density plot. Okay. So
+
+644
+00:35:19,480 --> 00:35:26,680
+cut close it. Let's uh put in talk show
+
+645
+00:35:25,160 --> 00:35:29,920
+today.
+
+646
+00:35:26,680 --> 00:35:32,240
+So today's talk show. So let's put the
+
+647
+00:35:29,920 --> 00:35:32,240
+code
+
+648
+00:35:33,480 --> 00:35:41,760
+here. Color it show. Okay. That's the
+
+649
+00:35:37,839 --> 00:35:46,160
+explanation of the density plot.
+
+650
+00:35:41,760 --> 00:35:48,200
+Uh okay so but now I wanted to show uh
+
+651
+00:35:46,160 --> 00:35:51,440
+let's
+
+652
+00:35:48,200 --> 00:35:54,720
+see talk show density plot okay talk
+
+653
+00:35:51,440 --> 00:35:58,800
+show what what is it uh oh it came up so
+
+654
+00:35:54,720 --> 00:36:01,440
+it's done you see so now it's done
+
+655
+00:35:58,800 --> 00:36:04,720
+uh what I want to show yeah so I want to
+
+656
+00:36:01,440 --> 00:36:07,640
+talk about you know so so this
+
+657
+00:36:04,720 --> 00:36:10,440
+expression is very
+
+658
+00:36:07,640 --> 00:36:15,400
+um let me yeah so let me talk about
+
+659
+00:36:10,440 --> 00:36:20,520
+that. So paste it here and
+
+660
+00:36:15,400 --> 00:36:27,839
+uh make it saw wa mod. Okay. So that's a
+
+661
+00:36:20,520 --> 00:36:27,839
+code. So what this does is given
+
+662
+00:36:29,640 --> 00:36:37,119
+s
+
+663
+00:36:32,440 --> 00:36:37,119
+cosine at a list of
+
+664
+00:36:37,560 --> 00:36:41,280
+functions. Okay.
+
+665
+00:36:42,280 --> 00:36:52,839
+Write a function that returns a random
+
+666
+00:36:48,599 --> 00:36:55,800
+combination of them that
+
+667
+00:36:52,839 --> 00:36:59,520
+returns a
+
+668
+00:36:55,800 --> 00:36:59,520
+expression that
+
+669
+00:37:04,119 --> 00:37:10,640
+is random combination of them. Okay. So
+
+670
+00:37:07,520 --> 00:37:13,640
+that that is what this code does. Okay.
+
+671
+00:37:10,640 --> 00:37:15,400
+Like you you want to make it all
+
+672
+00:37:13,640 --> 00:37:18,880
+possible
+
+673
+00:37:15,400 --> 00:37:23,359
+subset. Uh but but this code I wrote is
+
+674
+00:37:18,880 --> 00:37:25,960
+like 30 years ago using kind of advanced
+
+675
+00:37:23,359 --> 00:37:28,320
+syntax. So you know it's
+
+676
+00:37:25,960 --> 00:37:29,560
+incomprehensible. So in order to rework
+
+677
+00:37:28,320 --> 00:37:32,800
+this first of
+
+678
+00:37:29,560 --> 00:37:36,160
+all I need to you know this package
+
+679
+00:37:32,800 --> 00:37:38,920
+combinatoria is gun uh but it's built
+
+680
+00:37:36,160 --> 00:37:41,359
+in. So you need to find
+
+681
+00:37:38,920 --> 00:37:45,119
+like you know you need to find the
+
+682
+00:37:41,359 --> 00:37:49,440
+building uh alternative and but first
+
+683
+00:37:45,119 --> 00:37:53,440
+job is to find out what exactly how my
+
+684
+00:37:49,440 --> 00:37:55,280
+code works. That way you can rewrite it.
+
+685
+00:37:53,440 --> 00:37:57,400
+Okay. But this is this is going to take
+
+686
+00:37:55,280 --> 00:38:00,160
+me like two hours
+
+687
+00:37:57,400 --> 00:38:03,839
+because fairly complicated code. So
+
+688
+00:38:00,160 --> 00:38:07,200
+here's a chart challenge. Okay. So for
+
+689
+00:38:03,839 --> 00:38:10,280
+you know if you like to try this is an
+
+690
+00:38:07,200 --> 00:38:12,839
+interesting uh coding
+
+691
+00:38:10,280 --> 00:38:18,359
+problem in Python or
+
+692
+00:38:12,839 --> 00:38:21,920
+whatever in Python or whatever your
+
+693
+00:38:18,359 --> 00:38:21,920
+favorite programming
+
+694
+00:38:22,839 --> 00:38:29,960
+language write a
+
+695
+00:38:25,640 --> 00:38:33,119
+function search that uh search
+
+696
+00:38:29,960 --> 00:38:35,599
+that. So let's give the function a name.
+
+697
+00:38:33,119 --> 00:38:35,599
+So
+
+698
+00:38:35,640 --> 00:38:38,640
+um
+
+699
+00:38:38,680 --> 00:38:41,680
+expression
+
+700
+00:38:41,960 --> 00:38:49,760
+random okay random expression takes
+
+701
+00:38:46,320 --> 00:38:49,760
+uh takes
+
+702
+00:38:52,359 --> 00:39:01,119
+uh takes a list two arguments. Okay. n.
+
+703
+00:38:57,640 --> 00:39:06,079
+Okay. Now the takes two arguments a
+
+704
+00:39:01,119 --> 00:39:07,240
+function list and uh a integer positive
+
+705
+00:39:06,079 --> 00:39:10,599
+integer.
+
+706
+00:39:07,240 --> 00:39:13,960
+Okay. Now function
+
+707
+00:39:10,599 --> 00:39:17,119
+list is a list of
+
+708
+00:39:13,960 --> 00:39:19,320
+functions such as
+
+709
+00:39:17,119 --> 00:39:23,720
+uh let's see such as
+
+710
+00:39:19,320 --> 00:39:28,079
+sine sine cosine
+
+711
+00:39:23,720 --> 00:39:31,599
+um inverse inverse is like 1 /x okay
+
+712
+00:39:28,079 --> 00:39:36,960
+like you know flip it inverse then and
+
+713
+00:39:31,599 --> 00:39:38,280
+the power and uh plus and uh plus is
+
+714
+00:39:36,960 --> 00:39:42,240
+called addition
+
+715
+00:39:38,280 --> 00:39:45,760
+Um addition. So what's what is the name
+
+716
+00:39:42,240 --> 00:39:49,320
+for the function of addition? Usually
+
+717
+00:39:45,760 --> 00:39:53,119
+it's called plus. Okay. Plus and
+
+718
+00:39:49,320 --> 00:39:55,680
+multiply. So multiply. What's the name
+
+719
+00:39:53,119 --> 00:39:59,240
+for the process of multiplication?
+
+720
+00:39:55,680 --> 00:40:02,640
+That's usually called times.
+
+721
+00:39:59,240 --> 00:40:03,720
+Okay. Okay. So function list is a list
+
+722
+00:40:02,640 --> 00:40:06,400
+of such
+
+723
+00:40:03,720 --> 00:40:08,640
+functions. Uh but there's a difference.
+
+724
+00:40:06,400 --> 00:40:10,960
+Okay. So you see sign takes one
+
+725
+00:40:08,640 --> 00:40:14,560
+argument, cosine takes argument, inverse
+
+726
+00:40:10,960 --> 00:40:14,560
+takes one argument, power
+
+727
+00:40:14,839 --> 00:40:20,960
+takes power takes two arguments. So plus
+
+728
+00:40:18,640 --> 00:40:24,240
+also takes two or more arguments.
+
+729
+00:40:20,960 --> 00:40:28,680
+Anyway, you can refine the details. So a
+
+730
+00:40:24,240 --> 00:40:33,920
+list of functions n is a
+
+731
+00:40:28,680 --> 00:40:37,680
+integer for example three. Okay.
+
+732
+00:40:33,920 --> 00:40:37,680
+uh it says how
+
+733
+00:40:38,200 --> 00:40:46,640
+many expressions
+
+734
+00:40:41,240 --> 00:40:49,320
+to return. Now return value return a
+
+735
+00:40:46,640 --> 00:40:51,160
+list of
+
+736
+00:40:49,320 --> 00:40:52,839
+random
+
+737
+00:40:51,160 --> 00:40:55,400
+combination
+
+738
+00:40:52,839 --> 00:40:59,839
+of fun
+
+739
+00:40:55,400 --> 00:41:03,800
+list. Okay, that is the problem. So this
+
+740
+00:40:59,839 --> 00:41:03,800
+is a programming challenge.
+
+741
+00:41:06,640 --> 00:41:10,000
+for you coders out
+
+742
+00:41:13,720 --> 00:41:19,920
+there. Okay. And here is all the wam
+
+743
+00:41:17,520 --> 00:41:22,319
+language solution. That's that's not
+
+744
+00:41:19,920 --> 00:41:25,040
+working. So I I have to work on it.
+
+745
+00:41:22,319 --> 00:41:30,040
+Okay. So but let's put this back. Okay.
+
+746
+00:41:25,040 --> 00:41:32,400
+Cut it. Let's put that in today's talk
+
+747
+00:41:30,040 --> 00:41:35,400
+show. Paste it.
+
+748
+00:41:32,400 --> 00:41:38,960
+syntax color. Show
+
+749
+00:41:35,400 --> 00:41:41,440
+it. Okay. So, I think that's it. Thank
+
+750
+00:41:38,960 --> 00:41:44,400
+you guys for watching. Uh yeah. Is there
+
+751
+00:41:41,440 --> 00:41:45,800
+anything else? I think that's it. Thank
+
+752
+00:41:44,400 --> 00:41:50,160
+you guys for
+
+753
+00:41:45,800 --> 00:41:52,040
+watching. Uh you if you like my stuff,
+
+754
+00:41:50,160 --> 00:41:55,200
+post my
+
+755
+00:41:52,040 --> 00:41:57,839
+YouTube to your Twitter, to your social
+
+756
+00:41:55,200 --> 00:42:00,480
+network, to your Instagram, to your blog
+
+757
+00:41:57,839 --> 00:42:04,400
+or whatever. to tell your friends and
+
+758
+00:42:00,480 --> 00:42:06,119
+you can sponsor me. Thank you to today's
+
+759
+00:42:04,400 --> 00:42:08,119
+sponsor that is
+
+760
+00:42:06,119 --> 00:42:10,960
+you. Okay, go
+
+761
+00:42:08,119 --> 00:42:13,359
+to.info all the way bottom to the
+
+762
+00:42:10,960 --> 00:42:17,839
+bottom. You can PayPal me, Patreon me,
+
+763
+00:42:13,359 --> 00:42:20,119
+Amazon gift card me. Okay, $100 one shot
+
+764
+00:42:17,839 --> 00:42:23,359
+would be
+
+765
+00:42:20,119 --> 00:42:27,119
+appreciated. Anything else? Okay, maybe
+
+766
+00:42:23,359 --> 00:42:29,079
+that's it. I think that's it. Um, we
+
+767
+00:42:27,119 --> 00:42:32,440
+closed down. I
+
+768
+00:42:29,079 --> 00:42:36,560
+think in five minutes in three
+
+769
+00:42:32,440 --> 00:42:36,560
+minutes if there's no more
+
+770
+00:42:37,640 --> 00:42:44,960
+questions. Okay, so we we did this.
+
+771
+00:42:41,280 --> 00:42:48,480
+Yeah, we did this. Um, fantastic. Oh,
+
+772
+00:42:44,960 --> 00:42:50,480
+yeah. So, one more thing, let's show
+
+773
+00:42:48,480 --> 00:42:54,040
+let's show what does this thing actually
+
+774
+00:42:50,480 --> 00:42:58,119
+looks like. Okay, so it's very
+
+775
+00:42:54,040 --> 00:43:02,400
+um complicated. So it's going to be plot
+
+776
+00:42:58,119 --> 00:43:06,400
+3D. So you can easily see now plot
+
+777
+00:43:02,400 --> 00:43:10,760
+points. Let's say um 10 because it's
+
+778
+00:43:06,400 --> 00:43:13,240
+going to take forever. Okay. So
+
+779
+00:43:10,760 --> 00:43:16,480
+let's do
+
+780
+00:43:13,240 --> 00:43:19,880
+it. Okay. So you can you can kind of see
+
+781
+00:43:16,480 --> 00:43:25,480
+how complicated that thing is. You
+
+782
+00:43:19,880 --> 00:43:25,480
+see? Now let's say plot point
+
+783
+00:43:25,680 --> 00:43:31,920
+Wow. You know this going to be very
+
+784
+00:43:28,240 --> 00:43:31,920
+Okay. Power point 20.
+
+785
+00:43:33,560 --> 00:43:41,200
+Okay. Okay. So, you can see you got this
+
+786
+00:43:37,359 --> 00:43:43,000
+like very weird thing. Okay. And you see
+
+787
+00:43:41,200 --> 00:43:45,240
+you see this this
+
+788
+00:43:43,000 --> 00:43:48,800
+this
+
+789
+00:43:45,240 --> 00:43:52,240
+grove you know they are like a hole but
+
+790
+00:43:48,800 --> 00:43:54,720
+inside the hole as you get near near to
+
+791
+00:43:52,240 --> 00:43:56,480
+the center there's more fluctuation the
+
+792
+00:43:54,720 --> 00:43:59,960
+more near to the center of the hole
+
+793
+00:43:56,480 --> 00:44:04,280
+there's more flu fluctuation so it's
+
+794
+00:43:59,960 --> 00:44:09,200
+like black hole you know that that's
+
+795
+00:44:04,280 --> 00:44:11,359
+where chaos you know happens but you see
+
+796
+00:44:09,200 --> 00:44:14,240
+they They don't go much. They don't go
+
+797
+00:44:11,359 --> 00:44:17,200
+up very very big but you know but it's
+
+798
+00:44:14,240 --> 00:44:20,160
+inside there. So that is why when you
+
+799
+00:44:17,200 --> 00:44:22,480
+plot the density plot or heat map it
+
+800
+00:44:20,160 --> 00:44:27,920
+looks like that. You see this you you
+
+801
+00:44:22,480 --> 00:44:27,920
+see this inside. Let's magnify.
+
+802
+00:44:29,560 --> 00:44:36,079
+Okay. Let's
+
+803
+00:44:32,760 --> 00:44:38,319
+see. You see they just go you know like
+
+804
+00:44:36,079 --> 00:44:40,000
+inside there's like lots of things going
+
+805
+00:44:38,319 --> 00:44:44,680
+on.
+
+806
+00:44:40,000 --> 00:44:44,680
+Okay, thank you guys for watching. Bye.
+

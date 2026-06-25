@@ -1,0 +1,1571 @@
+1
+00:00:06,359 --> 00:00:12,599
+hello guys welcome to another episode of
+
+2
+00:00:09,480 --> 00:00:16,619
+sound talk show today we are going to uh
+
+3
+00:00:12,599 --> 00:00:20,760
+Implement and we are going to test a
+
+4
+00:00:16,619 --> 00:00:23,820
+customized stack uh data type in Python
+
+5
+00:00:20,760 --> 00:00:26,100
+we are going to test the efficiency so
+
+6
+00:00:23,820 --> 00:00:29,580
+we have the code already which I
+
+7
+00:00:26,100 --> 00:00:33,300
+struggled yesterday uh uh for one hour
+
+8
+00:00:29,580 --> 00:00:36,239
+and failed but Dion our great guy Dion
+
+9
+00:00:33,300 --> 00:00:39,300
+he he made it you know I was missing
+
+10
+00:00:36,239 --> 00:00:42,239
+I was missing this particular function
+
+11
+00:00:39,300 --> 00:00:46,800
+uh clear that clear method anyway so
+
+12
+00:00:42,239 --> 00:00:49,320
+Dion coded a stack you know a customized
+
+13
+00:00:46,800 --> 00:00:51,780
+stacked data structure in Python which
+
+14
+00:00:49,320 --> 00:00:55,199
+is what I wanted and today we are going
+
+15
+00:00:51,780 --> 00:00:58,680
+to time it we are going to push a
+
+16
+00:00:55,199 --> 00:01:00,840
+thousand items and uh see if it's more
+
+17
+00:00:58,680 --> 00:01:03,359
+efficient than the default python okay
+
+18
+00:01:00,840 --> 00:01:05,159
+so let's and we are I'm going to try
+
+19
+00:01:03,359 --> 00:01:07,140
+something new this is this video is
+
+20
+00:01:05,159 --> 00:01:09,780
+gonna be this live stream is going to be
+
+21
+00:01:07,140 --> 00:01:12,240
+20 minutes no more than that let's see
+
+22
+00:01:09,780 --> 00:01:14,760
+if we can do that okay so video check
+
+23
+00:01:12,240 --> 00:01:16,979
+audio check I don't have my headshot so
+
+24
+00:01:14,760 --> 00:01:20,580
+you are just looking at my keyboard okay
+
+25
+00:01:16,979 --> 00:01:22,799
+so let's begin uh testing efficient
+
+26
+00:01:20,580 --> 00:01:26,040
+stack so I was doing some testing about
+
+27
+00:01:22,799 --> 00:01:27,900
+timing code okay time of function this
+
+28
+00:01:26,040 --> 00:01:31,799
+is how you do it
+
+29
+00:01:27,900 --> 00:01:33,360
+color it and show in browser so okay so
+
+30
+00:01:31,799 --> 00:01:36,420
+we got a code
+
+31
+00:01:33,360 --> 00:01:37,439
+we got a code now we are going to uh
+
+32
+00:01:36,420 --> 00:01:40,700
+push
+
+33
+00:01:37,439 --> 00:01:44,460
+yeah so let's let's try the code okay so
+
+34
+00:01:40,700 --> 00:01:45,900
+Dion's code okay so first of all so okay
+
+35
+00:01:44,460 --> 00:01:50,100
+so
+
+36
+00:01:45,900 --> 00:01:53,880
+so Dion's code make a backup go to the
+
+37
+00:01:50,100 --> 00:01:56,939
+directory DD the existing backup make a
+
+38
+00:01:53,880 --> 00:02:00,720
+new backup close it that make a backup
+
+39
+00:01:56,939 --> 00:02:04,979
+and pop out so here's a Dion's code
+
+40
+00:02:00,720 --> 00:02:07,200
+so a stack using linked list this is uh
+
+41
+00:02:04,979 --> 00:02:12,720
+so let me show you if you run it you see
+
+42
+00:02:07,200 --> 00:02:17,459
+push code so this this stack or list is
+
+43
+00:02:12,720 --> 00:02:19,680
+made of nested uh two items so that's
+
+44
+00:02:17,459 --> 00:02:23,760
+that's how they linked list okay like
+
+45
+00:02:19,680 --> 00:02:25,379
+these cons so okay so so you can run it
+
+46
+00:02:23,760 --> 00:02:28,379
+so
+
+47
+00:02:25,379 --> 00:02:32,400
+okay so what I want to do so let's make
+
+48
+00:02:28,379 --> 00:02:36,360
+a copy let's make a copy here in case we
+
+49
+00:02:32,400 --> 00:02:39,840
+screw up we can quickly go get back okay
+
+50
+00:02:36,360 --> 00:02:42,780
+so uh we got now we want to time it okay
+
+51
+00:02:39,840 --> 00:02:47,459
+so let's remove the testing code
+
+52
+00:02:42,780 --> 00:02:49,260
+and let's time it okay so two time
+
+53
+00:02:47,459 --> 00:02:52,739
+python functions there's a building
+
+54
+00:02:49,260 --> 00:02:52,739
+Library uh
+
+55
+00:02:59,720 --> 00:03:06,000
+there's a building Library there's a
+
+56
+00:03:02,220 --> 00:03:08,580
+guest there's a guest uh uh in my house
+
+57
+00:03:06,000 --> 00:03:11,940
+so anyway so yeah so
+
+58
+00:03:08,580 --> 00:03:17,159
+so we finish at 9 50 okay so we got we
+
+59
+00:03:11,940 --> 00:03:19,319
+got um 20 minutes ago so here's you
+
+60
+00:03:17,159 --> 00:03:20,819
+so okay let's put the timing here okay
+
+61
+00:03:19,319 --> 00:03:23,540
+so
+
+62
+00:03:20,819 --> 00:03:23,540
+uh
+
+63
+00:03:23,819 --> 00:03:29,340
+so here's the timing code and we want to
+
+64
+00:03:26,459 --> 00:03:31,739
+time the start stack okay so we want to
+
+65
+00:03:29,340 --> 00:03:33,540
+first of all create
+
+66
+00:03:31,739 --> 00:03:37,800
+um what's this what's the name create
+
+67
+00:03:33,540 --> 00:03:42,780
+AIO so we're gonna do this fast okay X1
+
+68
+00:03:37,800 --> 00:03:44,840
+equals to create LL create a stack and
+
+69
+00:03:42,780 --> 00:03:48,680
+let's say range
+
+70
+00:03:44,840 --> 00:03:53,220
+uh zero two
+
+71
+00:03:48,680 --> 00:03:58,920
+uh let's say let's say just a list okay
+
+72
+00:03:53,220 --> 00:04:02,220
+let's start with a list okay and push
+
+73
+00:03:58,920 --> 00:04:04,379
+okay we're gonna push
+
+74
+00:04:02,220 --> 00:04:06,599
+let's just push one okay and we're gonna
+
+75
+00:04:04,379 --> 00:04:09,260
+repeat that a thousand times
+
+76
+00:04:06,599 --> 00:04:09,260
+so
+
+77
+00:04:09,299 --> 00:04:17,880
+push push push push push push let's see
+
+78
+00:04:12,680 --> 00:04:20,120
+and now print X1 okay uh forget about
+
+79
+00:04:17,880 --> 00:04:23,639
+that brunette
+
+80
+00:04:20,120 --> 00:04:25,620
+missing one okay yeah push uh push you
+
+81
+00:04:23,639 --> 00:04:29,820
+need a
+
+82
+00:04:25,620 --> 00:04:32,400
+stack there so X1 there it is run it
+
+83
+00:04:29,820 --> 00:04:34,380
+fantastic that's the result okay so
+
+84
+00:04:32,400 --> 00:04:36,660
+you're gonna do the same so that's about
+
+85
+00:04:34,380 --> 00:04:40,380
+stack so okay let's measure the speed of
+
+86
+00:04:36,660 --> 00:04:43,680
+the stack okay uh
+
+87
+00:04:40,380 --> 00:04:46,440
+measures the speed so
+
+88
+00:04:43,680 --> 00:04:48,540
+the here is the speed of the stack here
+
+89
+00:04:46,440 --> 00:04:52,020
+it can be a string or it can be a
+
+90
+00:04:48,540 --> 00:04:54,300
+function so what we want to do we want
+
+91
+00:04:52,020 --> 00:04:55,199
+to
+
+92
+00:04:54,300 --> 00:04:58,919
+um
+
+93
+00:04:55,199 --> 00:05:01,680
+let's see create a
+
+94
+00:04:58,919 --> 00:05:05,580
+we want to
+
+95
+00:05:01,680 --> 00:05:09,600
+let's see uh we want to time it time it
+
+96
+00:05:05,580 --> 00:05:12,000
+so this can be a function uh
+
+97
+00:05:09,600 --> 00:05:17,360
+let's let's just say push okay let's
+
+98
+00:05:12,000 --> 00:05:17,360
+just say push one times okay push it
+
+99
+00:05:17,520 --> 00:05:21,139
+that many times okay let's see what
+
+100
+00:05:19,740 --> 00:05:25,860
+happens
+
+101
+00:05:21,139 --> 00:05:27,840
+uh let's move here okay so
+
+102
+00:05:25,860 --> 00:05:31,560
+okay done it
+
+103
+00:05:27,840 --> 00:05:35,100
+okay stack uh stack push push okay
+
+104
+00:05:31,560 --> 00:05:39,780
+remove that okay so here it needs to be
+
+105
+00:05:35,100 --> 00:05:39,780
+uh yeah so you need to be Lambda
+
+106
+00:05:44,460 --> 00:05:51,860
+oh
+
+107
+00:05:45,840 --> 00:05:51,860
+this oh 50 000 times this is too much
+
+108
+00:05:52,259 --> 00:05:56,419
+oh okay so stop that
+
+109
+00:05:57,900 --> 00:06:05,880
+okay can we start uh Emax okay
+
+110
+00:06:01,199 --> 00:06:07,560
+this is gonna crash emacs
+
+111
+00:06:05,880 --> 00:06:11,300
+fantastic
+
+112
+00:06:07,560 --> 00:06:14,220
+cancel come on cancel uh okay cancel
+
+113
+00:06:11,300 --> 00:06:16,620
+recursion Arrow maximum recursion depth
+
+114
+00:06:14,220 --> 00:06:20,880
+exceeded okay we got 15 more minutes
+
+115
+00:06:16,620 --> 00:06:22,800
+okay so close that now which uh we need
+
+116
+00:06:20,880 --> 00:06:25,620
+to um
+
+117
+00:06:22,800 --> 00:06:27,900
+so there's a print statement that that's
+
+118
+00:06:25,620 --> 00:06:30,780
+that's bad because I was doing testing
+
+119
+00:06:27,900 --> 00:06:33,060
+okay so remove the print statement and
+
+120
+00:06:30,780 --> 00:06:36,240
+the the number of tests let's say 50
+
+121
+00:06:33,060 --> 00:06:37,259
+okay so Lambda push it
+
+122
+00:06:36,240 --> 00:06:41,460
+um
+
+123
+00:06:37,259 --> 00:06:42,840
+let's do it okay so you see you are
+
+124
+00:06:41,460 --> 00:06:47,759
+doing it
+
+125
+00:06:42,840 --> 00:06:50,880
+50 times okay so and we are printing the
+
+126
+00:06:47,759 --> 00:06:53,220
+stack and the result is
+
+127
+00:06:50,880 --> 00:06:56,280
+correct we can assume it's correct okay
+
+128
+00:06:53,220 --> 00:06:59,759
+so that's how we test we push it 50
+
+129
+00:06:56,280 --> 00:07:03,000
+times okay and we don't want to print it
+
+130
+00:06:59,759 --> 00:07:07,680
+because it's gonna be huge
+
+131
+00:07:03,000 --> 00:07:08,580
+let's say 5 500 okay so let's say 5 000
+
+132
+00:07:07,680 --> 00:07:11,340
+times
+
+133
+00:07:08,580 --> 00:07:15,660
+wow it's it's huge
+
+134
+00:07:11,340 --> 00:07:19,139
+uh let's try 50 000 times wow it doesn't
+
+135
+00:07:15,660 --> 00:07:22,560
+take much time okay that's stack now
+
+136
+00:07:19,139 --> 00:07:24,720
+let's try a list okay
+
+137
+00:07:22,560 --> 00:07:25,860
+uh let's let's
+
+138
+00:07:24,720 --> 00:07:31,280
+um
+
+139
+00:07:25,860 --> 00:07:31,280
+rename the variable X1 X stack okay
+
+140
+00:07:31,500 --> 00:07:36,479
+okay so X is a stack now let's try a
+
+141
+00:07:35,099 --> 00:07:38,699
+list okay
+
+142
+00:07:36,479 --> 00:07:42,120
+paste python list
+
+143
+00:07:38,699 --> 00:07:46,580
+okay so python list you begin with just
+
+144
+00:07:42,120 --> 00:07:49,740
+that okay and then you want to time it
+
+145
+00:07:46,580 --> 00:07:53,160
+uh you want to time it so you want to
+
+146
+00:07:49,740 --> 00:07:55,800
+append yeah so python list is a pen now
+
+147
+00:07:53,160 --> 00:07:58,259
+what is exactly the method name or
+
+148
+00:07:55,800 --> 00:08:01,020
+function this method okay
+
+149
+00:07:58,259 --> 00:08:04,919
+python the pen there's append and extend
+
+150
+00:08:01,020 --> 00:08:07,800
+okay uh append a pen just a pen one
+
+151
+00:08:04,919 --> 00:08:10,500
+element while extend
+
+152
+00:08:07,800 --> 00:08:15,120
+removes one level so we want to use a
+
+153
+00:08:10,500 --> 00:08:19,979
+pen okay so so here it would be let's
+
+154
+00:08:15,120 --> 00:08:24,120
+let's test it first x equals to
+
+155
+00:08:19,979 --> 00:08:26,099
+x equals two let's remove that x equals
+
+156
+00:08:24,120 --> 00:08:29,280
+to
+
+157
+00:08:26,099 --> 00:08:32,820
+X list dot append
+
+158
+00:08:29,280 --> 00:08:37,580
+and one argument so let's say one and
+
+159
+00:08:32,820 --> 00:08:37,580
+now print X2 okay run it
+
+160
+00:08:41,039 --> 00:08:46,580
+uh wait this at least and now you append
+
+161
+00:08:46,860 --> 00:08:52,200
+and Y is print X to none
+
+162
+00:08:50,519 --> 00:08:56,279
+that's going on
+
+163
+00:08:52,200 --> 00:08:57,839
+let's move that he uh wait it's
+
+164
+00:08:56,279 --> 00:09:02,279
+the node again
+
+165
+00:08:57,839 --> 00:09:04,620
+train X2 is none oh it doesn't wait what
+
+166
+00:09:02,279 --> 00:09:08,100
+okay the pen doesn't actually return
+
+167
+00:09:04,620 --> 00:09:09,839
+stuff yeah okay it is a imperative
+
+168
+00:09:08,100 --> 00:09:12,480
+programming
+
+169
+00:09:09,839 --> 00:09:17,540
+it doesn't return things okay now let's
+
+170
+00:09:12,480 --> 00:09:17,540
+print this thing fantastic now
+
+171
+00:09:18,660 --> 00:09:25,800
+okay a pen is working okay so this is
+
+172
+00:09:21,959 --> 00:09:28,339
+what you want to test okay now we uh
+
+173
+00:09:25,800 --> 00:09:28,339
+time it
+
+174
+00:09:29,160 --> 00:09:34,040
+okay you want to basically time that
+
+175
+00:09:35,519 --> 00:09:40,980
+okay
+
+176
+00:09:37,680 --> 00:09:43,260
+and for now that's not that many let's
+
+177
+00:09:40,980 --> 00:09:46,519
+just make sure it works okay
+
+178
+00:09:43,260 --> 00:09:46,519
+and uh
+
+179
+00:09:47,940 --> 00:09:52,800
+print it here okay done it fantastic
+
+180
+00:09:50,940 --> 00:09:56,160
+okay
+
+181
+00:09:52,800 --> 00:09:58,860
+oh it takes what oh zero zero uh that's
+
+182
+00:09:56,160 --> 00:10:00,720
+so exponential negative exponential so
+
+183
+00:09:58,860 --> 00:10:04,820
+zero zero zero point is something one
+
+184
+00:10:00,720 --> 00:10:08,279
+second I got 10 more minutes okay
+
+185
+00:10:04,820 --> 00:10:10,940
+oh any comments questions I don't have
+
+186
+00:10:08,279 --> 00:10:13,500
+time to read your comment hello Diego
+
+187
+00:10:10,940 --> 00:10:15,540
+let's pop this up
+
+188
+00:10:13,500 --> 00:10:17,940
+I got 10 more minutes to finish because
+
+189
+00:10:15,540 --> 00:10:21,060
+previously my live stream is like two
+
+190
+00:10:17,940 --> 00:10:23,160
+hours one hour so now now I try to do 20
+
+191
+00:10:21,060 --> 00:10:26,279
+minutes focused on one topic and that's
+
+192
+00:10:23,160 --> 00:10:29,820
+it okay so today it's a comparison of
+
+193
+00:10:26,279 --> 00:10:32,580
+the efficiency of customized stack
+
+194
+00:10:29,820 --> 00:10:34,680
+structure data structure in Python and
+
+195
+00:10:32,580 --> 00:10:36,899
+next week tomorrow and so on we're gonna
+
+196
+00:10:34,680 --> 00:10:39,839
+do it in JavaScript in Wolfram language
+
+197
+00:10:36,899 --> 00:10:40,500
+do the same thing okay so now
+
+198
+00:10:39,839 --> 00:10:44,820
+um
+
+199
+00:10:40,500 --> 00:10:48,240
+now that works okay now we can time both
+
+200
+00:10:44,820 --> 00:10:50,160
+uh let's let's try to print it okay uh
+
+201
+00:10:48,240 --> 00:10:54,959
+yeah so
+
+202
+00:10:50,160 --> 00:10:57,500
+print that what uh
+
+203
+00:10:54,959 --> 00:10:57,500
+what
+
+204
+00:11:03,000 --> 00:11:09,180
+uh you can't beat it twice I guess uh
+
+205
+00:11:07,140 --> 00:11:12,120
+uh yeah print
+
+206
+00:11:09,180 --> 00:11:14,760
+uh what
+
+207
+00:11:12,120 --> 00:11:18,660
+oh they're too big okay maximum
+
+208
+00:11:14,760 --> 00:11:21,860
+recursion so because we the number is
+
+209
+00:11:18,660 --> 00:11:21,860
+too big let's
+
+210
+00:11:22,980 --> 00:11:30,779
+run it okay so one is stack
+
+211
+00:11:26,700 --> 00:11:33,959
+one is list basically 50 items okay so
+
+212
+00:11:30,779 --> 00:11:38,360
+now let's let's don't print and now
+
+213
+00:11:33,959 --> 00:11:38,360
+let's time it five thousand
+
+214
+00:11:38,880 --> 00:11:43,160
+Dragon Ball 9000 okay
+
+215
+00:11:46,519 --> 00:11:52,700
+let's see who is faster stack is
+
+216
+00:11:50,279 --> 00:11:52,700
+losing
+
+217
+00:11:53,399 --> 00:12:01,760
+right is the first one is stack
+
+218
+00:11:57,660 --> 00:12:01,760
+ stuck is losing
+
+219
+00:12:03,060 --> 00:12:10,279
+please
+
+220
+00:12:05,600 --> 00:12:14,880
+same speed list is losing
+
+221
+00:12:10,279 --> 00:12:17,220
+now if we uh um okay if we increase
+
+222
+00:12:14,880 --> 00:12:21,240
+increase when let's say
+
+223
+00:12:17,220 --> 00:12:24,600
+double yeah double
+
+224
+00:12:21,240 --> 00:12:26,700
+or nothing do it it's gonna be take two
+
+225
+00:12:24,600 --> 00:12:30,019
+seconds now
+
+226
+00:12:26,700 --> 00:12:30,019
+yego what do you think
+
+227
+00:12:30,839 --> 00:12:35,579
+he's losing
+
+228
+00:12:33,000 --> 00:12:38,540
+Jesus
+
+229
+00:12:35,579 --> 00:12:38,540
+why is that
+
+230
+00:12:42,300 --> 00:12:49,260
+stack is to taking two seconds
+
+231
+00:12:45,959 --> 00:12:52,339
+point out the um
+
+232
+00:12:49,260 --> 00:12:54,480
+well the uh let's let's let's
+
+233
+00:12:52,339 --> 00:12:56,940
+clarify our code
+
+234
+00:12:54,480 --> 00:12:58,579
+yeah
+
+235
+00:12:56,940 --> 00:13:02,660
+what
+
+236
+00:12:58,579 --> 00:13:02,660
+stack is losing
+
+237
+00:13:05,459 --> 00:13:08,940
+I don't understand let's shrink the
+
+238
+00:13:07,980 --> 00:13:10,620
+number
+
+239
+00:13:08,940 --> 00:13:15,079
+donate again
+
+240
+00:13:10,620 --> 00:13:15,079
+stack is almost three times as slow
+
+241
+00:13:15,360 --> 00:13:22,680
+I don't understand okay so
+
+242
+00:13:19,079 --> 00:13:26,279
+we have seven minutes to go so
+
+243
+00:13:22,680 --> 00:13:32,120
+these efficient implementation of Stack
+
+244
+00:13:26,279 --> 00:13:32,120
+failed what what I why is that
+
+245
+00:13:32,160 --> 00:13:39,240
+because according to my
+
+246
+00:13:36,440 --> 00:13:42,180
+understanding you know if you use
+
+247
+00:13:39,240 --> 00:13:45,000
+Python's default list you know it's a
+
+248
+00:13:42,180 --> 00:13:47,339
+smart array basically so when so when
+
+249
+00:13:45,000 --> 00:13:49,680
+you create a smart array I mean when you
+
+250
+00:13:47,339 --> 00:13:53,339
+create at least of 10 items let's say
+
+251
+00:13:49,680 --> 00:13:55,500
+and if you want to add item append
+
+252
+00:13:53,339 --> 00:13:58,860
+python sees that it's more than that
+
+253
+00:13:55,500 --> 00:14:01,680
+more than the existing size deal we
+
+254
+00:13:58,860 --> 00:14:04,860
+create the array and make it like 20
+
+255
+00:14:01,680 --> 00:14:07,139
+elements with empty spots and we'll it
+
+256
+00:14:04,860 --> 00:14:10,440
+will pretend there's only one 11 I mean
+
+257
+00:14:07,139 --> 00:14:10,440
+11 size
+
+258
+00:14:11,040 --> 00:14:16,980
+so uh so python
+
+259
+00:14:13,920 --> 00:14:21,740
+so every time you append something to
+
+260
+00:14:16,980 --> 00:14:21,740
+the array and when it's
+
+261
+00:14:22,260 --> 00:14:27,899
+uh
+
+262
+00:14:24,779 --> 00:14:30,240
+let's try this okay
+
+263
+00:14:27,899 --> 00:14:32,639
+basically every 10 python when you
+
+264
+00:14:30,240 --> 00:14:35,160
+append items through array and it's
+
+265
+00:14:32,639 --> 00:14:37,920
+beyond the existing size python have to
+
+266
+00:14:35,160 --> 00:14:41,940
+recreate the array so and that is very
+
+267
+00:14:37,920 --> 00:14:44,459
+expensive so I assumed the python array
+
+268
+00:14:41,940 --> 00:14:47,579
+I mean the this python list is going to
+
+269
+00:14:44,459 --> 00:14:50,279
+be slow if you keep adding uh but turns
+
+270
+00:14:47,579 --> 00:14:53,279
+out that's not the case very strange
+
+271
+00:14:50,279 --> 00:14:56,579
+you see stacks
+
+272
+00:14:53,279 --> 00:14:58,519
+is almost three times uh slower let's
+
+273
+00:14:56,579 --> 00:15:02,040
+run again
+
+274
+00:14:58,519 --> 00:15:06,199
+stack is three times slower okay now
+
+275
+00:15:02,040 --> 00:15:09,720
+let's now let's uh try to have a range
+
+276
+00:15:06,199 --> 00:15:12,620
+let's say one thousand
+
+277
+00:15:09,720 --> 00:15:12,620
+okay let's
+
+278
+00:15:15,000 --> 00:15:17,779
+uh
+
+279
+00:15:21,839 --> 00:15:26,660
+let's say x equals to my God
+
+280
+00:15:28,920 --> 00:15:34,980
+you bought the my mouse recommendation
+
+281
+00:15:31,980 --> 00:15:34,980
+fantastic
+
+282
+00:15:35,160 --> 00:15:40,639
+okay now let's see if this works
+
+283
+00:15:43,199 --> 00:15:51,660
+okay so wait uh X1 is range
+
+284
+00:15:48,360 --> 00:15:53,940
+X list is what
+
+285
+00:15:51,660 --> 00:15:59,000
+why is there error
+
+286
+00:15:53,940 --> 00:15:59,000
+object has no no attribute append
+
+287
+00:16:04,260 --> 00:16:09,740
+okay yeah because the python the
+
+288
+00:16:06,600 --> 00:16:09,740
+iterable
+
+289
+00:16:10,260 --> 00:16:15,800
+e-trail will hideously and stir it again
+
+290
+00:16:12,839 --> 00:16:15,800
+what
+
+291
+00:16:18,180 --> 00:16:22,339
+what the wait wait
+
+292
+00:16:22,680 --> 00:16:30,540
+what we had before
+
+293
+00:16:25,860 --> 00:16:34,199
+okay I see I see okay so you yeah python
+
+294
+00:16:30,540 --> 00:16:36,180
+iterable because and let's do it
+
+295
+00:16:34,199 --> 00:16:38,779
+this again okay
+
+296
+00:16:36,180 --> 00:16:41,399
+uh range
+
+297
+00:16:38,779 --> 00:16:44,279
+1000 I have
+
+298
+00:16:41,399 --> 00:16:48,600
+five minutes okay
+
+299
+00:16:44,279 --> 00:16:51,540
+you have to actually say uh at least to
+
+300
+00:16:48,600 --> 00:16:52,500
+convert it to a list okay and let's do
+
+301
+00:16:51,540 --> 00:16:56,160
+it
+
+302
+00:16:52,500 --> 00:16:57,839
+okay so stack is still three times as
+
+303
+00:16:56,160 --> 00:17:00,839
+slow so
+
+304
+00:16:57,839 --> 00:17:03,779
+let's say ten thousand okay stack let's
+
+305
+00:17:00,839 --> 00:17:05,579
+say one hundred thousand now can we use
+
+306
+00:17:03,779 --> 00:17:07,860
+underscore
+
+307
+00:17:05,579 --> 00:17:11,280
+fantastic that's a new feature by the
+
+308
+00:17:07,860 --> 00:17:13,319
+way you can use underscore to uh as a
+
+309
+00:17:11,280 --> 00:17:17,640
+number separator okay
+
+310
+00:17:13,319 --> 00:17:21,839
+now stack is super slow now let's see
+
+311
+00:17:17,640 --> 00:17:25,100
+uh let's say increase that
+
+312
+00:17:21,839 --> 00:17:25,100
+increase that
+
+313
+00:17:27,540 --> 00:17:33,360
+now it's the same speed
+
+314
+00:17:30,000 --> 00:17:35,280
+you see oh okay so there's some tricks
+
+315
+00:17:33,360 --> 00:17:38,280
+in some situations
+
+316
+00:17:35,280 --> 00:17:40,320
+yeah because you know every time python
+
+317
+00:17:38,280 --> 00:17:42,860
+adds its exponential I have three more
+
+318
+00:17:40,320 --> 00:17:42,860
+minutes okay
+
+319
+00:17:44,520 --> 00:17:52,260
+so here now stack is faster no no no no
+
+320
+00:17:47,940 --> 00:17:53,880
+no let's let's increase this
+
+321
+00:17:52,260 --> 00:17:57,840
+
+322
+00:17:53,880 --> 00:18:01,940
+oh now stack is slow again
+
+323
+00:17:57,840 --> 00:18:01,940
+okay I I think I get um
+
+324
+00:18:05,039 --> 00:18:10,200
+there's one way to make a snack faster
+
+325
+00:18:07,320 --> 00:18:13,080
+okay I think so I think so so so let's
+
+326
+00:18:10,200 --> 00:18:17,100
+let's do this one more time okay I think
+
+327
+00:18:13,080 --> 00:18:20,820
+there is a way to make stack faster uh
+
+328
+00:18:17,100 --> 00:18:23,160
+now but let's just comment out
+
+329
+00:18:20,820 --> 00:18:26,760
+okay let's do it here so
+
+330
+00:18:23,160 --> 00:18:30,059
+so you're going to create a huge
+
+331
+00:18:26,760 --> 00:18:34,400
+Beast okay first of all and all you have
+
+332
+00:18:30,059 --> 00:18:34,400
+to do is push it one time
+
+333
+00:18:35,460 --> 00:18:42,240
+because python is gonna hey because with
+
+334
+00:18:39,539 --> 00:18:45,240
+the stack it's instant but with the
+
+335
+00:18:42,240 --> 00:18:48,539
+least python is going to you know oh
+
+336
+00:18:45,240 --> 00:18:51,380
+it's beyond it's gonna recreate a range
+
+337
+00:18:48,539 --> 00:18:51,380
+of like
+
+338
+00:18:51,480 --> 00:19:00,000
+two median uh slots let's see
+
+339
+00:18:56,940 --> 00:19:02,160
+let's hope it's true
+
+340
+00:19:00,000 --> 00:19:05,280
+that
+
+341
+00:19:02,160 --> 00:19:07,940
+is that true close okay hold on a second
+
+342
+00:19:05,280 --> 00:19:07,940
+ten
+
+343
+00:19:09,720 --> 00:19:16,380
+uh those scientific
+
+344
+00:19:13,500 --> 00:19:20,600
+numbers how to see okay I think that's
+
+345
+00:19:16,380 --> 00:19:20,600
+it for today I I got one more minutes
+
+346
+00:19:20,640 --> 00:19:27,299
+yeah so this evening with negative five
+
+347
+00:19:23,400 --> 00:19:30,900
+means uh means you you move it
+
+348
+00:19:27,299 --> 00:19:36,120
+um okay so this E negative five
+
+349
+00:19:30,900 --> 00:19:37,740
+that means you move this point to one
+
+350
+00:19:36,120 --> 00:19:42,260
+to here
+
+351
+00:19:37,740 --> 00:19:42,260
+then two three four five
+
+352
+00:19:43,320 --> 00:19:52,280
+okay so it looks like stack is faster
+
+353
+00:19:47,160 --> 00:19:52,280
+okay let's let's see if we can just uh
+
+354
+00:19:54,600 --> 00:19:59,419
+okay now you can see stack is faster
+
+355
+00:19:59,580 --> 00:20:07,140
+see let's see the trick
+
+356
+00:20:03,480 --> 00:20:11,520
+oh stack is now slow again
+
+357
+00:20:07,140 --> 00:20:14,600
+is DNA again stack is slow again
+
+358
+00:20:11,520 --> 00:20:14,600
+one last
+
+359
+00:20:15,660 --> 00:20:18,840
+wait
+
+360
+00:20:16,740 --> 00:20:21,299
+Bennett
+
+361
+00:20:18,840 --> 00:20:23,760
+a stack is slow again yeah as long as
+
+362
+00:20:21,299 --> 00:20:26,340
+you started to
+
+363
+00:20:23,760 --> 00:20:31,080
+push push push then stack is slow again
+
+364
+00:20:26,340 --> 00:20:34,200
+okay so the conclusion is actually
+
+365
+00:20:31,080 --> 00:20:35,520
+just use Python's default list
+
+366
+00:20:34,200 --> 00:20:38,660
+okay
+
+367
+00:20:35,520 --> 00:20:42,480
+uh yeah building because
+
+368
+00:20:38,660 --> 00:20:45,000
+you know what is the reason maybe maybe
+
+369
+00:20:42,480 --> 00:20:46,020
+because it's written in C and maybe
+
+370
+00:20:45,000 --> 00:20:48,080
+because
+
+371
+00:20:46,020 --> 00:20:48,080
+um
+
+372
+00:20:48,240 --> 00:20:53,120
+um
+
+373
+00:20:49,080 --> 00:20:53,120
+maybe because we can trick
+
+374
+00:20:53,700 --> 00:20:59,400
+uh implementation of Python's stack okay
+
+375
+00:20:57,480 --> 00:21:01,679
+so you go to Mexico talk show that's it
+
+376
+00:20:59,400 --> 00:21:04,799
+for today thank you guys for watching uh
+
+377
+00:21:01,679 --> 00:21:08,039
+if you like my stuff buy my stuff okay I
+
+378
+00:21:04,799 --> 00:21:09,900
+have Python tutorial I have lots of uh
+
+379
+00:21:08,039 --> 00:21:13,260
+computer language tutorials all these
+
+380
+00:21:09,900 --> 00:21:16,020
+wufam language uh this you know this
+
+381
+00:21:13,260 --> 00:21:18,419
+emac this and emacs tutorial is
+
+382
+00:21:16,020 --> 00:21:19,740
+available JavaScript in depth is
+
+383
+00:21:18,419 --> 00:21:22,440
+available
+
+384
+00:21:19,740 --> 00:21:24,900
+uh as a book I mean you buy you get the
+
+385
+00:21:22,440 --> 00:21:27,120
+whole thing they are like uh close to a
+
+386
+00:21:24,900 --> 00:21:29,400
+thousand pages each
+
+387
+00:21:27,120 --> 00:21:31,799
+so I have Python tutorial a woofer
+
+388
+00:21:29,400 --> 00:21:34,980
+language okay support me support me
+
+389
+00:21:31,799 --> 00:21:40,520
+spread my videos comments okay thank you
+
+390
+00:21:34,980 --> 00:21:40,520
+guys and this mouse is fantastic
+
+391
+00:21:40,620 --> 00:21:46,380
+yeah because in particular because
+
+392
+00:21:43,440 --> 00:21:49,460
+because of the spin wheel okay thank you
+
+393
+00:21:46,380 --> 00:21:49,460
+guys bye
+

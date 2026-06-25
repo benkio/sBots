@@ -1,0 +1,10389 @@
+1
+00:00:07,759 --> 00:00:12,080
+good morning everyone
+
+2
+00:00:09,200 --> 00:00:13,040
+welcome to another episode of xl talk
+
+3
+00:00:12,080 --> 00:00:16,240
+show
+
+4
+00:00:13,040 --> 00:00:20,000
+today is 2021
+
+5
+00:00:16,240 --> 00:00:23,600
+april 21st and today
+
+6
+00:00:20,000 --> 00:00:27,760
+we are going to code javascript
+
+7
+00:00:23,600 --> 00:00:30,800
+plus svg we are going to continue
+
+8
+00:00:27,760 --> 00:00:33,920
+our journey last time i did
+
+9
+00:00:30,800 --> 00:00:35,120
+two videos before that is generating
+
+10
+00:00:33,920 --> 00:00:37,920
+javascript with
+
+11
+00:00:35,120 --> 00:00:40,320
+bi-gram let me show you where okay uh
+
+12
+00:00:37,920 --> 00:00:43,920
+hold on a second
+
+13
+00:00:40,320 --> 00:00:47,120
+javascript live coding creating a bar
+
+14
+00:00:43,920 --> 00:00:50,559
+chart in svg so that is april
+
+15
+00:00:47,120 --> 00:00:53,840
+16 2021
+
+16
+00:00:50,559 --> 00:00:57,280
+and 2021
+
+17
+00:00:53,840 --> 00:01:00,879
+april 10th javascript live coding
+
+18
+00:00:57,280 --> 00:01:04,080
+uh writing a interactive diagram
+
+19
+00:01:00,879 --> 00:01:07,680
+count okay so that's two videos i've
+
+20
+00:01:04,080 --> 00:01:11,119
+done before you can just search for my
+
+21
+00:01:07,680 --> 00:01:13,520
+um let's let's go to today's okay
+
+22
+00:01:11,119 --> 00:01:14,240
+so this is actually today this is the
+
+23
+00:01:13,520 --> 00:01:18,640
+part three
+
+24
+00:01:14,240 --> 00:01:18,640
+okay uh let's see
+
+25
+00:01:22,320 --> 00:01:26,000
+so you can see we did two videos before
+
+26
+00:01:24,799 --> 00:01:27,439
+today it's part three
+
+27
+00:01:26,000 --> 00:01:31,200
+we're gonna continue to finish the
+
+28
+00:01:27,439 --> 00:01:31,200
+javascript coding
+
+29
+00:01:32,000 --> 00:01:38,720
+now two good health a little wet red
+
+30
+00:01:35,280 --> 00:01:42,400
+wine a day makes you live for
+
+31
+00:01:38,720 --> 00:01:42,400
+longer maybe possibly
+
+32
+00:01:46,880 --> 00:01:53,680
+so you're gonna see me drunk coding
+
+33
+00:01:50,640 --> 00:01:54,079
+actually you know drunk coding doesn't
+
+34
+00:01:53,680 --> 00:01:59,040
+work
+
+35
+00:01:54,079 --> 00:01:59,040
+okay but a little one won't get me drunk
+
+36
+00:02:03,520 --> 00:02:09,679
+okay so let's start coding
+
+37
+00:02:07,119 --> 00:02:11,440
+uh we don't have people here so i'm just
+
+38
+00:02:09,679 --> 00:02:14,560
+start to code it okay
+
+39
+00:02:11,440 --> 00:02:15,120
+so let me show you what this is about so
+
+40
+00:02:14,560 --> 00:02:18,160
+this is
+
+41
+00:02:15,120 --> 00:02:21,599
+uh what we the state of
+
+42
+00:02:18,160 --> 00:02:24,959
+our condition last time you
+
+43
+00:02:21,599 --> 00:02:28,560
+start to type something
+
+44
+00:02:24,959 --> 00:02:31,599
+and you can see the diagram start
+
+45
+00:02:28,560 --> 00:02:34,640
+to form so you can see
+
+46
+00:02:31,599 --> 00:02:37,760
+a2 happened twice i mean
+
+47
+00:02:34,640 --> 00:02:40,319
+st happened twice ta happened twice
+
+48
+00:02:37,760 --> 00:02:42,560
+all happened twice right now there's
+
+49
+00:02:40,319 --> 00:02:44,879
+every diagram you know so
+
+50
+00:02:42,560 --> 00:02:46,560
+so you have the data and you have a
+
+51
+00:02:44,879 --> 00:02:50,640
+chart
+
+52
+00:02:46,560 --> 00:02:53,840
+and so so this is diagram
+
+53
+00:02:50,640 --> 00:02:57,840
+and as i type more
+
+54
+00:02:53,840 --> 00:03:00,640
+you can start to see a pattern
+
+55
+00:02:57,840 --> 00:03:02,400
+because some background background is a
+
+56
+00:03:00,640 --> 00:03:06,080
+sequence of two letters
+
+57
+00:03:02,400 --> 00:03:10,720
+some diagram will happen
+
+58
+00:03:06,080 --> 00:03:14,080
+more often than others
+
+59
+00:03:10,720 --> 00:03:16,800
+okay so for example thth
+
+60
+00:03:14,080 --> 00:03:17,360
+is one of the most frequent diagram in
+
+61
+00:03:16,800 --> 00:03:21,360
+english
+
+62
+00:03:17,360 --> 00:03:24,799
+in english okay so this is javascript
+
+63
+00:03:21,360 --> 00:03:25,519
+and svg and in last two videos we
+
+64
+00:03:24,799 --> 00:03:29,680
+explained
+
+65
+00:03:25,519 --> 00:03:32,000
+we you know we live coded it but today
+
+66
+00:03:29,680 --> 00:03:34,720
+there's some problems you see now the
+
+67
+00:03:32,000 --> 00:03:37,280
+diagram the bar chart is upside down
+
+68
+00:03:34,720 --> 00:03:38,799
+that's incorrect well that is not
+
+69
+00:03:37,280 --> 00:03:41,920
+necessarily incorrect but
+
+70
+00:03:38,799 --> 00:03:46,000
+it is uh unusual so
+
+71
+00:03:41,920 --> 00:03:48,159
+normally you want to see them as
+
+72
+00:03:46,000 --> 00:03:49,360
+uh let me show you it okay let me show
+
+73
+00:03:48,159 --> 00:03:52,480
+it to you
+
+74
+00:03:49,360 --> 00:03:54,159
+layouts go to layouts uh just go to
+
+75
+00:03:52,480 --> 00:03:57,519
+search for xrd
+
+76
+00:03:54,159 --> 00:04:01,040
+keyboard you'll find so this
+
+77
+00:03:57,519 --> 00:04:05,920
+is how a normal bar chart
+
+78
+00:04:01,040 --> 00:04:09,200
+looks like you know so we need to fix
+
+79
+00:04:05,920 --> 00:04:12,239
+our upside down graph and
+
+80
+00:04:09,200 --> 00:04:14,319
+also we need to add a label
+
+81
+00:04:12,239 --> 00:04:16,880
+so you can actually see what the
+
+82
+00:04:14,319 --> 00:04:19,680
+diagrams are so let's start coding that
+
+83
+00:04:16,880 --> 00:04:20,639
+good morning good morning who is it who
+
+84
+00:04:19,680 --> 00:04:23,600
+comes by
+
+85
+00:04:20,639 --> 00:04:26,000
+lucas zambia hey i remember your i
+
+86
+00:04:23,600 --> 00:04:29,520
+remember lucas zambia good morning
+
+87
+00:04:26,000 --> 00:04:32,400
+good evening so javascript background
+
+88
+00:04:29,520 --> 00:04:33,120
+let's start coding so let's see where
+
+89
+00:04:32,400 --> 00:04:36,320
+are we so
+
+90
+00:04:33,120 --> 00:04:38,880
+on this page okay so for
+
+91
+00:04:36,320 --> 00:04:40,320
+you emacs users the pink window shows
+
+92
+00:04:38,880 --> 00:04:43,520
+all my commands
+
+93
+00:04:40,320 --> 00:04:46,720
+you can see forward word backward word
+
+94
+00:04:43,520 --> 00:04:47,280
+backward chart and previous line next
+
+95
+00:04:46,720 --> 00:04:49,840
+line
+
+96
+00:04:47,280 --> 00:04:50,960
+you can see all my emacs command code or
+
+97
+00:04:49,840 --> 00:04:54,960
+delete
+
+98
+00:04:50,960 --> 00:04:58,160
+uh paragraph undo and you can see
+
+99
+00:04:54,960 --> 00:05:00,639
+also the key i used to
+
+100
+00:04:58,160 --> 00:05:01,360
+call those commands and i'm using soft
+
+101
+00:05:00,639 --> 00:05:04,479
+like keys
+
+102
+00:05:01,360 --> 00:05:07,680
+and this is uh i'm using a vora keyboard
+
+103
+00:05:04,479 --> 00:05:10,720
+okay so actually
+
+104
+00:05:07,680 --> 00:05:14,000
+uh so let me show you
+
+105
+00:05:10,720 --> 00:05:15,680
+the borac keyboard okay every time i
+
+106
+00:05:14,000 --> 00:05:19,280
+have to show this
+
+107
+00:05:15,680 --> 00:05:21,520
+a little bit so you can see
+
+108
+00:05:19,280 --> 00:05:22,720
+the royal keyboard let's okay let's put
+
+109
+00:05:21,520 --> 00:05:26,800
+the
+
+110
+00:05:22,720 --> 00:05:26,800
+focus on the keyboard for a moment
+
+111
+00:05:28,400 --> 00:05:31,680
+so you can actually see what i type when
+
+112
+00:05:30,960 --> 00:05:34,800
+i'm typing
+
+113
+00:05:31,680 --> 00:05:37,039
+okay so this is kinesis advantage
+
+114
+00:05:34,800 --> 00:05:38,000
+keyboard and this is ultimate hacking
+
+115
+00:05:37,039 --> 00:05:41,600
+keyboard i use
+
+116
+00:05:38,000 --> 00:05:45,759
+as a macro pad
+
+117
+00:05:41,600 --> 00:05:46,720
+and if if you like it go to xr keyboard
+
+118
+00:05:45,759 --> 00:05:51,680
+website
+
+119
+00:05:46,720 --> 00:05:55,199
+go to ergo keyboard and you can see
+
+120
+00:05:51,680 --> 00:05:58,319
+reviews of it and there's
+
+121
+00:05:55,199 --> 00:06:01,360
+also video reviews so that's
+
+122
+00:05:58,319 --> 00:06:05,600
+kinesis advantage 2 and
+
+123
+00:06:01,360 --> 00:06:07,840
+ultimate hacking keyboard fantastic
+
+124
+00:06:05,600 --> 00:06:08,960
+go there and buy it they are good for
+
+125
+00:06:07,840 --> 00:06:12,160
+your hands
+
+126
+00:06:08,960 --> 00:06:15,680
+okay let's back to the
+
+127
+00:06:12,160 --> 00:06:20,080
+javascript coding okay so search for
+
+128
+00:06:15,680 --> 00:06:23,199
+javascript so here is the line
+
+129
+00:06:20,080 --> 00:06:25,680
+we open enter to open the file so the
+
+130
+00:06:23,199 --> 00:06:29,360
+file is only 120
+
+131
+00:06:25,680 --> 00:06:33,520
+lines of code okay shall we go over
+
+132
+00:06:29,360 --> 00:06:35,919
+uh yes we shall let me go over
+
+133
+00:06:33,520 --> 00:06:37,919
+the code so we can understand so first
+
+134
+00:06:35,919 --> 00:06:40,400
+of all you have a description
+
+135
+00:06:37,919 --> 00:06:41,360
+javascript app to draw diagram of a
+
+136
+00:06:40,400 --> 00:06:45,039
+given text
+
+137
+00:06:41,360 --> 00:06:47,440
+first part of the problem grab the given
+
+138
+00:06:45,039 --> 00:06:48,400
+text compute the diagrams and print the
+
+139
+00:06:47,440 --> 00:06:52,000
+count of them
+
+140
+00:06:48,400 --> 00:06:55,759
+example input a b c d
+
+141
+00:06:52,000 --> 00:06:58,960
+e t h t h h and the diagrams are
+
+142
+00:06:55,759 --> 00:07:02,080
+abcd you know so the input is a b c
+
+143
+00:06:58,960 --> 00:07:05,360
+d e the biograms are a b b c c
+
+144
+00:07:02,080 --> 00:07:07,440
+d d e okay that's what background means
+
+145
+00:07:05,360 --> 00:07:09,840
+so you want to write a code given a big
+
+146
+00:07:07,440 --> 00:07:12,240
+string you want to
+
+147
+00:07:09,840 --> 00:07:14,400
+sample output okay you can so sample
+
+148
+00:07:12,240 --> 00:07:17,919
+output is a nested array
+
+149
+00:07:14,400 --> 00:07:18,720
+so th occurs three times uh ht occurs
+
+150
+00:07:17,919 --> 00:07:20,880
+twice
+
+151
+00:07:18,720 --> 00:07:22,639
+this is just a sample okay this is not
+
+152
+00:07:20,880 --> 00:07:25,919
+the result of this
+
+153
+00:07:22,639 --> 00:07:29,120
+uh text input okay so that's the first
+
+154
+00:07:25,919 --> 00:07:32,000
+part of the problem compute the diagrams
+
+155
+00:07:29,120 --> 00:07:32,560
+generate a data the second part of the
+
+156
+00:07:32,000 --> 00:07:36,479
+problem
+
+157
+00:07:32,560 --> 00:07:40,479
+is given a map object of the diagram
+
+158
+00:07:36,479 --> 00:07:43,599
+such as this draw a bar chart
+
+159
+00:07:40,479 --> 00:07:46,319
+by generating a svg object
+
+160
+00:07:43,599 --> 00:07:48,160
+so that's my second video i did last
+
+161
+00:07:46,319 --> 00:07:52,319
+time
+
+162
+00:07:48,160 --> 00:07:56,879
+you can see it generates a
+
+163
+00:07:52,319 --> 00:07:56,879
+svg chart so now let's go over the code
+
+164
+00:07:57,360 --> 00:08:02,400
+so lucas says just spot the keyboard
+
+165
+00:08:00,000 --> 00:08:02,720
+from your recommendations the advantage
+
+166
+00:08:02,400 --> 00:08:06,319
+to
+
+167
+00:08:02,720 --> 00:08:09,360
+linear uh the advantage to lf
+
+168
+00:08:06,319 --> 00:08:11,280
+though from uk not us because living in
+
+169
+00:08:09,360 --> 00:08:12,319
+europe i hope it will be good for hand
+
+170
+00:08:11,280 --> 00:08:16,560
+paint i hope so
+
+171
+00:08:12,319 --> 00:08:17,680
+thank you uh i don't get money from uk
+
+172
+00:08:16,560 --> 00:08:21,120
+amazon's
+
+173
+00:08:17,680 --> 00:08:24,479
+it's too bad anyway so
+
+174
+00:08:21,120 --> 00:08:24,800
+so okay background so let's go let's see
+
+175
+00:08:24,479 --> 00:08:26,879
+yeah
+
+176
+00:08:24,800 --> 00:08:28,000
+let's look at the code okay so first of
+
+177
+00:08:26,879 --> 00:08:30,240
+all
+
+178
+00:08:28,000 --> 00:08:31,520
+first of all you want to know so first
+
+179
+00:08:30,240 --> 00:08:35,120
+of all when you code
+
+180
+00:08:31,520 --> 00:08:35,519
+svg when you call javascript you need to
+
+181
+00:08:35,120 --> 00:08:38,640
+be
+
+182
+00:08:35,519 --> 00:08:40,719
+familiar with html okay
+
+183
+00:08:38,640 --> 00:08:41,760
+when you call javascript so let me turn
+
+184
+00:08:40,719 --> 00:08:44,240
+the camera
+
+185
+00:08:41,760 --> 00:08:44,240
+back to
+
+186
+00:08:49,760 --> 00:08:55,839
+back to my face okay so so that
+
+187
+00:08:53,200 --> 00:08:55,839
+um
+
+188
+00:09:02,480 --> 00:09:05,120
+okay so
+
+189
+00:09:06,480 --> 00:09:11,040
+i need to buy a good snack for the
+
+190
+00:09:08,800 --> 00:09:14,080
+camera so i can
+
+191
+00:09:11,040 --> 00:09:17,120
+okay so diagram
+
+192
+00:09:14,080 --> 00:09:23,839
+okay now i'm feeling a little bit effect
+
+193
+00:09:17,120 --> 00:09:23,839
+of the wine
+
+194
+00:09:24,560 --> 00:09:29,040
+just a little red right 200 ml
+
+195
+00:09:29,600 --> 00:09:33,839
+uh okay background so when you call
+
+196
+00:09:33,120 --> 00:09:36,560
+javascript
+
+197
+00:09:33,839 --> 00:09:39,360
+now i'm talking to beginners of course
+
+198
+00:09:36,560 --> 00:09:42,080
+when you call javascript let's go to
+
+199
+00:09:39,360 --> 00:09:44,080
+my javascript website okay javascript i
+
+200
+00:09:42,080 --> 00:09:47,279
+have a javascript in-depth
+
+201
+00:09:44,080 --> 00:09:49,519
+tutorial you should go buy it if you
+
+202
+00:09:47,279 --> 00:09:52,640
+like my stuff
+
+203
+00:09:49,519 --> 00:09:55,360
+go by javascript in depth
+
+204
+00:09:52,640 --> 00:09:56,160
+you'll learn javascript from the ground
+
+205
+00:09:55,360 --> 00:09:58,880
+up
+
+206
+00:09:56,160 --> 00:10:01,120
+for beginners or even if you coded
+
+207
+00:09:58,880 --> 00:10:04,640
+javascript at google for two years
+
+208
+00:10:01,120 --> 00:10:06,880
+it will still benefit you so
+
+209
+00:10:04,640 --> 00:10:09,440
+so i was saying when you call javascript
+
+210
+00:10:06,880 --> 00:10:12,640
+you also need to know
+
+211
+00:10:09,440 --> 00:10:12,640
+okay if you go to
+
+212
+00:10:12,880 --> 00:10:16,640
+web dev tutorials you also need to know
+
+213
+00:10:15,680 --> 00:10:19,760
+html
+
+214
+00:10:16,640 --> 00:10:22,560
+very well okay that's kind of necessary
+
+215
+00:10:19,760 --> 00:10:25,040
+you need to know html very well and you
+
+216
+00:10:22,560 --> 00:10:28,160
+also need to know css very
+
+217
+00:10:25,040 --> 00:10:31,680
+very well so this is my
+
+218
+00:10:28,160 --> 00:10:35,120
+um my so my
+
+219
+00:10:31,680 --> 00:10:38,720
+css tutorial and javascript tutorial
+
+220
+00:10:35,120 --> 00:10:41,440
+it's necessary okay now of course
+
+221
+00:10:38,720 --> 00:10:42,160
+if you are just working at some company
+
+222
+00:10:41,440 --> 00:10:44,560
+uh
+
+223
+00:10:42,160 --> 00:10:45,920
+you know there's lots of libraries lots
+
+224
+00:10:44,560 --> 00:10:48,959
+of you know
+
+225
+00:10:45,920 --> 00:10:49,920
+css generators yeah that's good for
+
+226
+00:10:48,959 --> 00:10:53,360
+beginners but
+
+227
+00:10:49,920 --> 00:10:54,240
+if you really want to uh be a serious
+
+228
+00:10:53,360 --> 00:10:56,959
+javascript
+
+229
+00:10:54,240 --> 00:10:57,680
+programmer for writing web applications
+
+230
+00:10:56,959 --> 00:11:02,000
+you need
+
+231
+00:10:57,680 --> 00:11:05,519
+to know by heart css and html
+
+232
+00:11:02,000 --> 00:11:06,720
+well okay so that for example our
+
+233
+00:11:05,519 --> 00:11:09,600
+diagram
+
+234
+00:11:06,720 --> 00:11:11,040
+our diagram application does not use any
+
+235
+00:11:09,600 --> 00:11:14,959
+libraries there's no
+
+236
+00:11:11,040 --> 00:11:18,720
+npm there's nothing it's only 150
+
+237
+00:11:14,959 --> 00:11:18,720
+lines okay so
+
+238
+00:11:19,440 --> 00:11:23,279
+so it's a diagram okay so uh so let's go
+
+239
+00:11:22,560 --> 00:11:27,680
+back to
+
+240
+00:11:23,279 --> 00:11:30,079
+dot js okay so by gram only 120 lines
+
+241
+00:11:27,680 --> 00:11:30,800
+okay now we're gonna probably add 50
+
+242
+00:11:30,079 --> 00:11:33,680
+more lines
+
+243
+00:11:30,800 --> 00:11:35,920
+so make it complete so let me go fast so
+
+244
+00:11:33,680 --> 00:11:36,959
+you need to understand html you need to
+
+245
+00:11:35,920 --> 00:11:41,680
+know understand
+
+246
+00:11:36,959 --> 00:11:44,480
+uh css then because i'm we are doing svg
+
+247
+00:11:41,680 --> 00:11:46,800
+you also need to know svg well so i have
+
+248
+00:11:44,480 --> 00:11:49,440
+a tutorial here
+
+249
+00:11:46,800 --> 00:11:51,360
+you can see a clock this clock this is
+
+250
+00:11:49,440 --> 00:11:55,040
+generated by
+
+251
+00:11:51,360 --> 00:11:59,360
+javascript and svg and only
+
+252
+00:11:55,040 --> 00:12:02,720
+100 lines okay no library needed needed
+
+253
+00:11:59,360 --> 00:12:06,000
+okay so you know i'm
+
+254
+00:12:02,720 --> 00:12:09,519
+okay so now let's look at uh how do we
+
+255
+00:12:06,000 --> 00:12:11,680
+create a diagram okay so first
+
+256
+00:12:09,519 --> 00:12:15,440
+first of all you need two in three
+
+257
+00:12:11,680 --> 00:12:19,760
+important things here so you can see
+
+258
+00:12:15,440 --> 00:12:23,279
+one is the text area html tag
+
+259
+00:12:19,760 --> 00:12:27,120
+which creates this box let's use a
+
+260
+00:12:23,279 --> 00:12:30,720
+enter text then the other one is
+
+261
+00:12:27,120 --> 00:12:33,839
+span svg display area id
+
+262
+00:12:30,720 --> 00:12:34,160
+so this is basically you just you know
+
+263
+00:12:33,839 --> 00:12:36,800
+just
+
+264
+00:12:34,160 --> 00:12:38,959
+invisible element spam because there's
+
+265
+00:12:36,800 --> 00:12:43,839
+is empty you can see
+
+266
+00:12:38,959 --> 00:12:46,959
+and your javascript will grab that
+
+267
+00:12:43,839 --> 00:12:50,160
+basically it will insert svg code
+
+268
+00:12:46,959 --> 00:12:53,120
+into this place so that's where
+
+269
+00:12:50,160 --> 00:12:54,160
+you see the bar chart and similarly one
+
+270
+00:12:53,120 --> 00:12:57,519
+more thing
+
+271
+00:12:54,160 --> 00:12:59,200
+you need another span or it can be dive
+
+272
+00:12:57,519 --> 00:13:02,480
+as well or any other
+
+273
+00:12:59,200 --> 00:13:03,519
+id show box so this is where javascript
+
+274
+00:13:02,480 --> 00:13:06,880
+will insert
+
+275
+00:13:03,519 --> 00:13:07,360
+the data so that's these that is the
+
+276
+00:13:06,880 --> 00:13:10,800
+three
+
+277
+00:13:07,360 --> 00:13:12,720
+html things you need okay then
+
+278
+00:13:10,800 --> 00:13:14,160
+let's look at the javascript then here's
+
+279
+00:13:12,720 --> 00:13:18,480
+the javascript so you can
+
+280
+00:13:14,160 --> 00:13:21,920
+open the file go to the top you can see
+
+281
+00:13:18,480 --> 00:13:22,880
+uh first of all we we use get element by
+
+282
+00:13:21,920 --> 00:13:26,079
+id
+
+283
+00:13:22,880 --> 00:13:29,120
+to grab those elements so they become
+
+284
+00:13:26,079 --> 00:13:32,800
+dom objects so text area
+
+285
+00:13:29,120 --> 00:13:35,360
+then show box and svg display area okay
+
+286
+00:13:32,800 --> 00:13:36,720
+typically these are named root if you
+
+287
+00:13:35,360 --> 00:13:37,680
+know if you are using one of the
+
+288
+00:13:36,720 --> 00:13:40,399
+libraries like
+
+289
+00:13:37,680 --> 00:13:41,920
+react angular or something they are
+
+290
+00:13:40,399 --> 00:13:44,880
+typically they call it root
+
+291
+00:13:41,920 --> 00:13:46,480
+they they you know they give a id as
+
+292
+00:13:44,880 --> 00:13:49,519
+root
+
+293
+00:13:46,480 --> 00:13:49,839
+but it's the same okay so so first of
+
+294
+00:13:49,519 --> 00:13:52,639
+all
+
+295
+00:13:49,839 --> 00:13:53,360
+we we have a function f string two
+
+296
+00:13:52,639 --> 00:13:56,560
+diagram
+
+297
+00:13:53,360 --> 00:13:57,839
+so this function takes a string and it
+
+298
+00:13:56,560 --> 00:14:02,959
+returns a map
+
+299
+00:13:57,839 --> 00:14:05,199
+javascript map object
+
+300
+00:14:02,959 --> 00:14:05,600
+javascript map object okay i think i'm
+
+301
+00:14:05,199 --> 00:14:08,320
+drunk
+
+302
+00:14:05,600 --> 00:14:12,320
+[Laughter]
+
+303
+00:14:08,320 --> 00:14:17,440
+i'm slightly okay just a little red wine
+
+304
+00:14:12,320 --> 00:14:20,560
+i'm not a drinker uh what are we on
+
+305
+00:14:17,440 --> 00:14:24,000
+so so so that function
+
+306
+00:14:20,560 --> 00:14:24,880
+this function string two diagram takes a
+
+307
+00:14:24,000 --> 00:14:27,839
+string
+
+308
+00:14:24,880 --> 00:14:30,079
+and it returns something like that a map
+
+309
+00:14:27,839 --> 00:14:30,800
+object that is the statistics of the
+
+310
+00:14:30,079 --> 00:14:34,480
+diagram
+
+311
+00:14:30,800 --> 00:14:38,000
+okay so that's that function
+
+312
+00:14:34,480 --> 00:14:41,680
+then then we have the function sort
+
+313
+00:14:38,000 --> 00:14:44,959
+map which takes a
+
+314
+00:14:41,680 --> 00:14:47,279
+which takes a map javascript map object
+
+315
+00:14:44,959 --> 00:14:50,480
+which is key value pairs okay
+
+316
+00:14:47,279 --> 00:14:53,680
+then it sorts them okay and
+
+317
+00:14:50,480 --> 00:14:56,720
+it returns a nested array
+
+318
+00:14:53,680 --> 00:14:59,839
+where each element is a
+
+319
+00:14:56,720 --> 00:15:03,120
+array of two elements like that so it
+
+320
+00:14:59,839 --> 00:15:05,360
+sorts the map basically
+
+321
+00:15:03,120 --> 00:15:07,440
+so that's sort map then another function
+
+322
+00:15:05,360 --> 00:15:10,079
+map filter
+
+323
+00:15:07,440 --> 00:15:10,560
+map filter filter out certain pairs in
+
+324
+00:15:10,079 --> 00:15:12,639
+the map
+
+325
+00:15:10,560 --> 00:15:14,240
+certain keys in the map why why do you
+
+326
+00:15:12,639 --> 00:15:16,959
+need to do that because when you have
+
+327
+00:15:14,240 --> 00:15:20,480
+diagram for example
+
+328
+00:15:16,959 --> 00:15:24,639
+let's say you have uh you know so
+
+329
+00:15:20,480 --> 00:15:28,639
+this is a biogram period
+
+330
+00:15:24,639 --> 00:15:32,079
+and something else now you you see that
+
+331
+00:15:28,639 --> 00:15:35,360
+period so m and period
+
+332
+00:15:32,079 --> 00:15:38,480
+forms one diagram and period
+
+333
+00:15:35,360 --> 00:15:41,600
+and space forms another diagram
+
+334
+00:15:38,480 --> 00:15:44,720
+okay that's technically true you know
+
+335
+00:15:41,600 --> 00:15:48,000
+every two characters is considered
+
+336
+00:15:44,720 --> 00:15:48,800
+a diagram but however that you know we
+
+337
+00:15:48,000 --> 00:15:51,199
+don't want that
+
+338
+00:15:48,800 --> 00:15:52,959
+because typically when you consider
+
+339
+00:15:51,199 --> 00:15:55,600
+statistics or diagram
+
+340
+00:15:52,959 --> 00:15:56,639
+you only consider letters you don't
+
+341
+00:15:55,600 --> 00:15:59,759
+consider the
+
+342
+00:15:56,639 --> 00:16:03,360
+you know any punctuation therefore
+
+343
+00:15:59,759 --> 00:16:06,639
+we need to have a function filter map
+
+344
+00:16:03,360 --> 00:16:08,720
+that removes those pairs and this
+
+345
+00:16:06,639 --> 00:16:11,279
+function is done by using a regular
+
+346
+00:16:08,720 --> 00:16:14,560
+expression you can see
+
+347
+00:16:11,279 --> 00:16:17,519
+regular expression you know a to z
+
+348
+00:16:14,560 --> 00:16:18,240
+capital a case or lowercase and another
+
+349
+00:16:17,519 --> 00:16:22,160
+a to z
+
+350
+00:16:18,240 --> 00:16:24,240
+so we only want a to z if
+
+351
+00:16:22,160 --> 00:16:26,000
+it's not if you know the if the key is
+
+352
+00:16:24,240 --> 00:16:29,440
+not a letter
+
+353
+00:16:26,000 --> 00:16:32,079
+remove it okay
+
+354
+00:16:29,440 --> 00:16:33,519
+actually now since i'm looking at this
+
+355
+00:16:32,079 --> 00:16:37,040
+code this should be
+
+356
+00:16:33,519 --> 00:16:39,279
+um this code needs to be
+
+357
+00:16:37,040 --> 00:16:40,560
+improved because for example if i'm
+
+358
+00:16:39,279 --> 00:16:42,399
+typing chinese
+
+359
+00:16:40,560 --> 00:16:43,839
+you know sometimes you know all other
+
+360
+00:16:42,399 --> 00:16:47,040
+languages russian
+
+361
+00:16:43,839 --> 00:16:50,399
+let's say russian chinese japanese you
+
+362
+00:16:47,040 --> 00:16:52,800
+also need to compute diagram but
+
+363
+00:16:50,399 --> 00:16:54,079
+if you just remove everything that's not
+
+364
+00:16:52,800 --> 00:16:56,480
+english alphabet
+
+365
+00:16:54,079 --> 00:16:58,720
+then then you don't get any backgrounds
+
+366
+00:16:56,480 --> 00:17:02,880
+because chinese is all characters
+
+367
+00:16:58,720 --> 00:17:02,880
+so instead of using alphabet
+
+368
+00:17:03,199 --> 00:17:10,079
+instead of using uh a to z we need to
+
+369
+00:17:07,039 --> 00:17:13,679
+change it so that
+
+370
+00:17:10,079 --> 00:17:16,880
+so that it uses um regular expression
+
+371
+00:17:13,679 --> 00:17:18,319
+of characters uh you can do that with
+
+372
+00:17:16,880 --> 00:17:20,799
+unix
+
+373
+00:17:18,319 --> 00:17:21,360
+with unicode property now this is a
+
+374
+00:17:20,799 --> 00:17:24,480
+little bit
+
+375
+00:17:21,360 --> 00:17:27,520
+advanced yeah this is a
+
+376
+00:17:24,480 --> 00:17:31,200
+advanced topic and i am digressing
+
+377
+00:17:27,520 --> 00:17:34,240
+but let me let me digress okay but
+
+378
+00:17:31,200 --> 00:17:38,080
+if you go to my javascript in depth
+
+379
+00:17:34,240 --> 00:17:42,320
+go to uh object reference
+
+380
+00:17:38,080 --> 00:17:45,360
+then you go to regular expressions
+
+381
+00:17:42,320 --> 00:17:47,600
+and let's magnify okay then
+
+382
+00:17:45,360 --> 00:17:50,559
+here is all you need to know about
+
+383
+00:17:47,600 --> 00:17:53,360
+regular expressions in javascript
+
+384
+00:17:50,559 --> 00:17:55,120
+okay and you can see regular expression
+
+385
+00:17:53,360 --> 00:17:57,200
+so you have a tutorial
+
+386
+00:17:55,120 --> 00:17:59,280
+then you have a list of regular
+
+387
+00:17:57,200 --> 00:18:01,280
+expression functions
+
+388
+00:17:59,280 --> 00:18:03,919
+which is actually what you need to call
+
+389
+00:18:01,280 --> 00:18:06,400
+these are the most useful
+
+390
+00:18:03,919 --> 00:18:07,679
+you know let me but let me digress a
+
+391
+00:18:06,400 --> 00:18:10,240
+little bit again
+
+392
+00:18:07,679 --> 00:18:11,440
+so in javascript javascript is not a
+
+393
+00:18:10,240 --> 00:18:14,400
+very good
+
+394
+00:18:11,440 --> 00:18:15,039
+not a very well designed language
+
+395
+00:18:14,400 --> 00:18:19,200
+because
+
+396
+00:18:15,039 --> 00:18:22,240
+it is designed and implemented
+
+397
+00:18:19,200 --> 00:18:25,360
+in 10 days only now this is true
+
+398
+00:18:22,240 --> 00:18:28,880
+this is actual historical fact
+
+399
+00:18:25,360 --> 00:18:31,520
+javascript language is designed and
+
+400
+00:18:28,880 --> 00:18:32,080
+implemented you know writing a compiler
+
+401
+00:18:31,520 --> 00:18:35,120
+in 10
+
+402
+00:18:32,080 --> 00:18:37,760
+only 10 days so
+
+403
+00:18:35,120 --> 00:18:39,600
+so this got lots of problems but then
+
+404
+00:18:37,760 --> 00:18:43,039
+after 20 years
+
+405
+00:18:39,600 --> 00:18:46,240
+after by now 25 years lots of changes
+
+406
+00:18:43,039 --> 00:18:49,039
+in web technology so you have uh turns
+
+407
+00:18:46,240 --> 00:18:50,240
+a huge amount of baggage okay end of
+
+408
+00:18:49,039 --> 00:18:53,200
+digestion
+
+409
+00:18:50,240 --> 00:18:54,960
+now why am i talking about that because
+
+410
+00:18:53,200 --> 00:18:56,960
+in javascript regular expression
+
+411
+00:18:54,960 --> 00:19:00,000
+functions you have two
+
+412
+00:18:56,960 --> 00:19:02,960
+types one are
+
+413
+00:19:00,000 --> 00:19:04,080
+you know one set of string methods so
+
+414
+00:19:02,960 --> 00:19:06,880
+you have a string
+
+415
+00:19:04,080 --> 00:19:08,880
+and you have a function that takes a
+
+416
+00:19:06,880 --> 00:19:12,240
+regular expression as input
+
+417
+00:19:08,880 --> 00:19:13,039
+so these are string string object
+
+418
+00:19:12,240 --> 00:19:15,919
+methods
+
+419
+00:19:13,039 --> 00:19:17,200
+okay then you have you have actually one
+
+420
+00:19:15,919 --> 00:19:20,880
+two three four five
+
+421
+00:19:17,200 --> 00:19:24,160
+five of them by now then you have
+
+422
+00:19:20,880 --> 00:19:26,640
+two regular expression object
+
+423
+00:19:24,160 --> 00:19:28,240
+based function so you start with the
+
+424
+00:19:26,640 --> 00:19:30,480
+regular expression
+
+425
+00:19:28,240 --> 00:19:32,480
+then you call the method then you give
+
+426
+00:19:30,480 --> 00:19:33,840
+it a string so it's gonna you know it's
+
+427
+00:19:32,480 --> 00:19:36,080
+kind of
+
+428
+00:19:33,840 --> 00:19:37,280
+you may say it's inconsistent but
+
+429
+00:19:36,080 --> 00:19:40,240
+actually this happens
+
+430
+00:19:37,280 --> 00:19:42,880
+in python i believe it happens in python
+
+431
+00:19:40,240 --> 00:19:46,799
+as well so it's one of the problem
+
+432
+00:19:42,880 --> 00:19:49,760
+of designing a language uh
+
+433
+00:19:46,799 --> 00:19:50,799
+object oriented language you have the
+
+434
+00:19:49,760 --> 00:19:53,280
+issue
+
+435
+00:19:50,799 --> 00:19:54,080
+of a dilemma of whether you should put
+
+436
+00:19:53,280 --> 00:19:57,120
+the string
+
+437
+00:19:54,080 --> 00:19:58,640
+as object or or regular expression as
+
+438
+00:19:57,120 --> 00:20:01,200
+object
+
+439
+00:19:58,640 --> 00:20:02,240
+it's hard to decide same issue happens
+
+440
+00:20:01,200 --> 00:20:04,080
+in numbers
+
+441
+00:20:02,240 --> 00:20:05,840
+so if you have a number should the
+
+442
+00:20:04,080 --> 00:20:10,799
+number be the object or should
+
+443
+00:20:05,840 --> 00:20:14,000
+should uh uh should math be the object
+
+444
+00:20:10,799 --> 00:20:16,640
+you know be the be the class you know
+
+445
+00:20:14,000 --> 00:20:17,280
+so if if number is object so you have a
+
+446
+00:20:16,640 --> 00:20:19,520
+number
+
+447
+00:20:17,280 --> 00:20:20,640
+then you say plus dot plus you know
+
+448
+00:20:19,520 --> 00:20:22,480
+first it's a method
+
+449
+00:20:20,640 --> 00:20:24,080
+multiply is a method the right is the
+
+450
+00:20:22,480 --> 00:20:27,120
+method
+
+451
+00:20:24,080 --> 00:20:27,919
+but if you have the math as object math
+
+452
+00:20:27,120 --> 00:20:31,039
+library so
+
+453
+00:20:27,919 --> 00:20:34,159
+you say math then you dot plus
+
+454
+00:20:31,039 --> 00:20:36,960
+then the number becomes arguments you
+
+455
+00:20:34,159 --> 00:20:39,360
+know then you have math dot multiply
+
+456
+00:20:36,960 --> 00:20:40,240
+then arguments numbers you know so so
+
+457
+00:20:39,360 --> 00:20:43,840
+it's a design
+
+458
+00:20:40,240 --> 00:20:46,600
+it's a problem it's a one of the
+
+459
+00:20:43,840 --> 00:20:48,960
+kind of the well-known problem in
+
+460
+00:20:46,600 --> 00:20:51,760
+object-oriented language
+
+461
+00:20:48,960 --> 00:20:52,720
+design because which one which way
+
+462
+00:20:51,760 --> 00:20:56,559
+should you go
+
+463
+00:20:52,720 --> 00:20:59,760
+there you know is is not there's no
+
+464
+00:20:56,559 --> 00:21:02,559
+uh one good answer to that
+
+465
+00:20:59,760 --> 00:21:02,960
+so some languages has both as you've
+
+466
+00:21:02,559 --> 00:21:06,240
+seen
+
+467
+00:21:02,960 --> 00:21:07,840
+here in javascript okay so that's a bit
+
+468
+00:21:06,240 --> 00:21:10,960
+digression again
+
+469
+00:21:07,840 --> 00:21:13,440
+now back to regular expressions so so
+
+470
+00:21:10,960 --> 00:21:15,200
+javascript you have a tutorial
+
+471
+00:21:13,440 --> 00:21:16,799
+you have regular expression functions
+
+472
+00:21:15,200 --> 00:21:21,039
+then you have regular expression
+
+473
+00:21:16,799 --> 00:21:24,480
+syntax now if okay i'm digressing a lot
+
+474
+00:21:21,039 --> 00:21:24,480
+let's get back to the code okay
+
+475
+00:21:26,080 --> 00:21:29,200
+okay so now let's get back to the
+
+476
+00:21:28,720 --> 00:21:32,960
+question
+
+477
+00:21:29,200 --> 00:21:36,080
+of how do you capture characters
+
+478
+00:21:32,960 --> 00:21:38,480
+that is actually a character including
+
+479
+00:21:36,080 --> 00:21:41,440
+english alphabets russian alphabets or
+
+480
+00:21:38,480 --> 00:21:41,440
+chinese characters
+
+481
+00:21:41,760 --> 00:21:45,760
+that can be done if you go to my
+
+482
+00:21:44,400 --> 00:21:49,520
+javascript in depth
+
+483
+00:21:45,760 --> 00:21:54,480
+that can be done if you look into
+
+484
+00:21:49,520 --> 00:21:54,480
+let's see properties okay
+
+485
+00:21:54,559 --> 00:22:01,840
+let's see tutorial do i cover it here
+
+486
+00:21:59,840 --> 00:22:04,799
+no because tutorial is just for
+
+487
+00:22:01,840 --> 00:22:04,799
+beginners okay
+
+488
+00:22:05,200 --> 00:22:09,880
+we are doing advanced javascript now so
+
+489
+00:22:07,919 --> 00:22:12,240
+let's go to
+
+490
+00:22:09,880 --> 00:22:14,880
+properties.prototype go down
+
+491
+00:22:12,240 --> 00:22:14,880
+magnify
+
+492
+00:22:15,919 --> 00:22:27,840
+let me show you how to do that okay this
+
+493
+00:22:18,159 --> 00:22:27,840
+is a kind of a digression
+
+494
+00:22:29,919 --> 00:22:33,360
+so first of all object regular
+
+495
+00:22:31,919 --> 00:22:36,640
+expression we
+
+496
+00:22:33,360 --> 00:22:39,679
+reg xp prototype okay
+
+497
+00:22:36,640 --> 00:22:43,360
+so what what type is it what
+
+498
+00:22:39,679 --> 00:22:45,600
+is its parents what is its purpose
+
+499
+00:22:43,360 --> 00:22:46,799
+then you have properties then you have
+
+500
+00:22:45,600 --> 00:22:49,520
+the two functions
+
+501
+00:22:46,799 --> 00:22:50,960
+test and execute and you also have two
+
+502
+00:22:49,520 --> 00:22:52,960
+string properties
+
+503
+00:22:50,960 --> 00:22:55,520
+then you have a bunch of symbol
+
+504
+00:22:52,960 --> 00:22:57,960
+properties now symbol is a new thing
+
+505
+00:22:55,520 --> 00:22:59,520
+new data type introduced in javascript
+
+506
+00:22:57,960 --> 00:23:02,480
+2015.
+
+507
+00:22:59,520 --> 00:23:03,120
+again that's advanced there it is okay
+
+508
+00:23:02,480 --> 00:23:08,559
+so
+
+509
+00:23:03,120 --> 00:23:11,120
+then you have value properties uh
+
+510
+00:23:08,559 --> 00:23:14,559
+okay actually this is not what we want
+
+511
+00:23:11,120 --> 00:23:14,559
+we are getting complex
+
+512
+00:23:14,720 --> 00:23:21,200
+okay i think i found a flaw
+
+513
+00:23:18,159 --> 00:23:22,559
+in my javascript tutorial because where
+
+514
+00:23:21,200 --> 00:23:25,440
+does it say
+
+515
+00:23:22,559 --> 00:23:26,640
+because right now i want to be able to
+
+516
+00:23:25,440 --> 00:23:29,760
+match
+
+517
+00:23:26,640 --> 00:23:30,400
+characters in unicode not just english
+
+518
+00:23:29,760 --> 00:23:33,760
+alphabet
+
+519
+00:23:30,400 --> 00:23:36,240
+i want to match all possible
+
+520
+00:23:33,760 --> 00:23:37,919
+characters that's considered a character
+
+521
+00:23:36,240 --> 00:23:41,279
+of some language
+
+522
+00:23:37,919 --> 00:23:44,799
+which should include english letters
+
+523
+00:23:41,279 --> 00:23:46,559
+acrylic russian or even chinese
+
+524
+00:23:44,799 --> 00:23:48,400
+characters or japanese characters so
+
+525
+00:23:46,559 --> 00:23:51,200
+there's a way to do that
+
+526
+00:23:48,400 --> 00:23:54,240
+and i'm not seeing it here so let's
+
+527
+00:23:51,200 --> 00:23:54,240
+click on that maybe
+
+528
+00:23:56,559 --> 00:24:02,720
+so this should be considered as a flaw
+
+529
+00:24:00,080 --> 00:24:05,840
+in my tutorial because i there's no easy
+
+530
+00:24:02,720 --> 00:24:05,840
+way to find it
+
+531
+00:24:07,760 --> 00:24:22,159
+but what's going on let's click on flags
+
+532
+00:24:19,520 --> 00:24:22,880
+okay so there i found it so it's one of
+
+533
+00:24:22,159 --> 00:24:26,080
+the flag
+
+534
+00:24:22,880 --> 00:24:26,799
+you two match unicode characters use
+
+535
+00:24:26,080 --> 00:24:30,080
+unicode
+
+536
+00:24:26,799 --> 00:24:32,000
+property syntax c regular expression
+
+537
+00:24:30,080 --> 00:24:34,640
+unicode property okay so
+
+538
+00:24:32,000 --> 00:24:36,799
+here's the example how you do it so
+
+539
+00:24:34,640 --> 00:24:38,080
+let's see let's look at the unicode
+
+540
+00:24:36,799 --> 00:24:40,799
+property
+
+541
+00:24:38,080 --> 00:24:44,080
+regular expression unicode property okay
+
+542
+00:24:40,799 --> 00:24:44,080
+so here's how you do it
+
+543
+00:24:44,559 --> 00:24:48,400
+okay since we are talking about that
+
+544
+00:24:46,559 --> 00:24:52,320
+let's let's continue and
+
+545
+00:24:48,400 --> 00:24:55,520
+implement this this is a bit advanced
+
+546
+00:24:52,320 --> 00:25:00,320
+topic now let's go back to the common
+
+547
+00:24:55,520 --> 00:25:03,200
+let's see what common
+
+548
+00:25:00,320 --> 00:25:03,840
+sorry i missed it did you already go
+
+549
+00:25:03,200 --> 00:25:07,520
+over
+
+550
+00:25:03,840 --> 00:25:07,520
+svg no i did not
+
+551
+00:25:08,640 --> 00:25:12,480
+oh so lucas thank you so lukas is ahead
+
+552
+00:25:11,760 --> 00:25:16,000
+of me
+
+553
+00:25:12,480 --> 00:25:16,320
+he already found it yeah yeah so that is
+
+554
+00:25:16,000 --> 00:25:19,760
+the
+
+555
+00:25:16,320 --> 00:25:21,679
+this page so
+
+556
+00:25:19,760 --> 00:25:22,799
+so we digressed a little bit we are
+
+557
+00:25:21,679 --> 00:25:25,120
+talking about
+
+558
+00:25:22,799 --> 00:25:26,559
+a specific feature of javascript that
+
+559
+00:25:25,120 --> 00:25:29,279
+allows you to match
+
+560
+00:25:26,559 --> 00:25:31,360
+unicode that allows you to match
+
+561
+00:25:29,279 --> 00:25:32,480
+characters of any language not just
+
+562
+00:25:31,360 --> 00:25:35,840
+english alphabet
+
+563
+00:25:32,480 --> 00:25:38,080
+this is how you do it and this example
+
+564
+00:25:35,840 --> 00:25:38,080
+okay
+
+565
+00:25:40,840 --> 00:25:43,840
+so
+
+566
+00:25:43,919 --> 00:25:48,080
+let's just code it then we then let then
+
+567
+00:25:47,039 --> 00:25:51,760
+we continue
+
+568
+00:25:48,080 --> 00:25:54,480
+continue on about the svg thing okay
+
+569
+00:25:51,760 --> 00:25:56,320
+since we talked about this for four five
+
+570
+00:25:54,480 --> 00:25:59,760
+five or ten minutes now
+
+571
+00:25:56,320 --> 00:26:02,320
+so get letters okay here is the code
+
+572
+00:25:59,760 --> 00:26:03,600
+so back to javascript code so we're
+
+573
+00:26:02,320 --> 00:26:06,720
+gonna
+
+574
+00:26:03,600 --> 00:26:10,000
+we're gonna modify this code okay
+
+575
+00:26:06,720 --> 00:26:13,440
+so first of all paste what we did and
+
+576
+00:26:10,000 --> 00:26:16,880
+copy okay then we're gonna modify this
+
+577
+00:26:13,440 --> 00:26:20,320
+copy it paste it make a new version and
+
+578
+00:26:16,880 --> 00:26:25,840
+the javascript code should be p
+
+579
+00:26:20,320 --> 00:26:28,080
+that okay here is the syntax for the
+
+580
+00:26:25,840 --> 00:26:30,400
+here's the syntax if you want to match
+
+581
+00:26:28,080 --> 00:26:30,960
+any character that is considered a
+
+582
+00:26:30,400 --> 00:26:34,320
+letter
+
+583
+00:26:30,960 --> 00:26:35,039
+okay l stands for letter okay so instead
+
+584
+00:26:34,320 --> 00:26:38,520
+of
+
+585
+00:26:35,039 --> 00:26:41,440
+so instead of here instead of instead of
+
+586
+00:26:38,520 --> 00:26:45,520
+azaz which is english alphabet
+
+587
+00:26:41,440 --> 00:26:48,000
+we need to put this here
+
+588
+00:26:45,520 --> 00:26:48,000
+and cut
+
+589
+00:26:49,600 --> 00:26:55,919
+paste that
+
+590
+00:26:53,039 --> 00:26:57,120
+we need these twice okay because we have
+
+591
+00:26:55,919 --> 00:27:00,240
+two
+
+592
+00:26:57,120 --> 00:27:00,960
+we are doing diagrams so two two letter
+
+593
+00:27:00,240 --> 00:27:04,159
+characters
+
+594
+00:27:00,960 --> 00:27:05,200
+okay so we don't need this example
+
+595
+00:27:04,159 --> 00:27:08,320
+anymore
+
+596
+00:27:05,200 --> 00:27:11,120
+delete that and
+
+597
+00:27:08,320 --> 00:27:12,559
+this is the old code comment it out so
+
+598
+00:27:11,120 --> 00:27:15,679
+now we have the new code
+
+599
+00:27:12,559 --> 00:27:18,080
+let's see uh can you see
+
+600
+00:27:15,679 --> 00:27:19,200
+can you do a comparison between these
+
+601
+00:27:18,080 --> 00:27:23,039
+two code
+
+602
+00:27:19,200 --> 00:27:26,960
+the okay
+
+603
+00:27:23,039 --> 00:27:29,919
+let's uh let's make it like that okay
+
+604
+00:27:26,960 --> 00:27:32,720
+so you can see the differences between
+
+605
+00:27:29,919 --> 00:27:34,640
+these two code okay
+
+606
+00:27:32,720 --> 00:27:36,559
+yeah that's what we want so comment out
+
+607
+00:27:34,640 --> 00:27:40,080
+the first one
+
+608
+00:27:36,559 --> 00:27:42,000
+now this file is actually a typescript
+
+609
+00:27:40,080 --> 00:27:45,120
+file you can see the file name
+
+610
+00:27:42,000 --> 00:27:45,840
+dot ts so if i go to the directory you
+
+611
+00:27:45,120 --> 00:27:49,120
+can see this
+
+612
+00:27:45,840 --> 00:27:52,159
+is the file name dot ts so we need to
+
+613
+00:27:49,120 --> 00:27:55,279
+compile it into javascript
+
+614
+00:27:52,159 --> 00:27:58,240
+okay so let's do because typescript by
+
+615
+00:27:55,279 --> 00:28:02,240
+the way if you don't know typescript is
+
+616
+00:27:58,240 --> 00:28:05,440
+is a superset of javascript
+
+617
+00:28:02,240 --> 00:28:09,360
+so any javascript is also typescript
+
+618
+00:28:05,440 --> 00:28:11,760
+but typescript has types you know added
+
+619
+00:28:09,360 --> 00:28:13,760
+types feature to javascript
+
+620
+00:28:11,760 --> 00:28:16,240
+so anyway this is a typescript we need
+
+621
+00:28:13,760 --> 00:28:19,520
+to compile so let's call
+
+622
+00:28:16,240 --> 00:28:22,799
+compile typescript file okay
+
+623
+00:28:19,520 --> 00:28:23,440
+typescript conf compile file so command
+
+624
+00:28:22,799 --> 00:28:26,480
+success
+
+625
+00:28:23,440 --> 00:28:31,200
+okay with no output okay now let's go
+
+626
+00:28:26,480 --> 00:28:34,559
+back to
+
+627
+00:28:31,200 --> 00:28:38,159
+let's go back to our diagram
+
+628
+00:28:34,559 --> 00:28:41,440
+calculator oh did it
+
+629
+00:28:38,159 --> 00:28:44,240
+okay i think i screwed up because it's
+
+630
+00:28:41,440 --> 00:28:47,679
+not working anymore
+
+631
+00:28:44,240 --> 00:28:50,960
+press f12 to turn on the
+
+632
+00:28:47,679 --> 00:28:55,679
+console log so uncut
+
+633
+00:28:50,960 --> 00:28:55,679
+type error yeah
+
+634
+00:28:56,840 --> 00:28:59,840
+okay
+
+635
+00:29:02,720 --> 00:29:08,320
+yeah so we we screwed up with this
+
+636
+00:29:10,840 --> 00:29:13,840
+why
+
+637
+00:29:19,200 --> 00:29:22,720
+this should be unicode properties now
+
+638
+00:29:21,440 --> 00:29:25,760
+let's look at the
+
+639
+00:29:22,720 --> 00:29:29,840
+the javascript code it generated
+
+640
+00:29:25,760 --> 00:29:33,039
+let's see if it screwed up
+
+641
+00:29:29,840 --> 00:29:33,039
+no it should be fine
+
+642
+00:29:33,760 --> 00:29:44,720
+okay so
+
+643
+00:29:41,600 --> 00:29:47,120
+okay this filters the map now where is
+
+644
+00:29:44,720 --> 00:29:51,919
+filter map called
+
+645
+00:29:47,120 --> 00:29:55,600
+search search okay filter map so diagram
+
+646
+00:29:51,919 --> 00:29:58,960
+so filter map is probably returning
+
+647
+00:29:55,600 --> 00:29:58,960
+a empty map
+
+648
+00:29:59,200 --> 00:30:09,760
+that's my guess due to our change our
+
+649
+00:30:03,840 --> 00:30:12,559
+change doesn't work
+
+650
+00:30:09,760 --> 00:30:14,799
+ah we need to push on so let's forget
+
+651
+00:30:12,559 --> 00:30:16,960
+about
+
+652
+00:30:14,799 --> 00:30:19,840
+should you know because we haven't even
+
+653
+00:30:16,960 --> 00:30:22,399
+start to code yet we need to
+
+654
+00:30:19,840 --> 00:30:23,919
+go over the code talking about svg we
+
+655
+00:30:22,399 --> 00:30:27,200
+need to create
+
+656
+00:30:23,919 --> 00:30:31,840
+you know change the bar and and
+
+657
+00:30:27,200 --> 00:30:35,440
+a little digression here it's
+
+658
+00:30:31,840 --> 00:30:36,320
+screwing things up should i continue
+
+659
+00:30:35,440 --> 00:30:39,919
+fixing should
+
+660
+00:30:36,320 --> 00:30:42,720
+should we fix this or should i continue
+
+661
+00:30:39,919 --> 00:30:42,720
+pushing the
+
+662
+00:30:44,080 --> 00:30:47,600
+uh let's see what what's what's the
+
+663
+00:30:46,320 --> 00:30:50,000
+arrow here
+
+664
+00:30:47,600 --> 00:30:52,000
+uncalled type error reduce of empty
+
+665
+00:30:50,000 --> 00:30:56,000
+array with no initial value
+
+666
+00:30:52,000 --> 00:31:00,320
+that's right yeah so basically
+
+667
+00:30:56,000 --> 00:31:03,760
+our code our code here
+
+668
+00:31:00,320 --> 00:31:08,159
+is not working it creates a empty array
+
+669
+00:31:03,760 --> 00:31:08,159
+basically it filtered everything out
+
+670
+00:31:09,440 --> 00:31:16,480
+why is that let's go back to the unicode
+
+671
+00:31:13,840 --> 00:31:16,480
+example
+
+672
+00:31:17,440 --> 00:31:20,480
+get letters
+
+673
+00:31:22,240 --> 00:31:29,039
+backslash p then
+
+674
+00:31:25,519 --> 00:31:32,480
+braces bracket l that should mean
+
+675
+00:31:29,039 --> 00:31:36,240
+a unicorn oh we forgot the gu
+
+676
+00:31:32,480 --> 00:31:38,799
+yeah you need the gu idiotic
+
+677
+00:31:36,240 --> 00:31:39,600
+regular expression flags okay let's
+
+678
+00:31:38,799 --> 00:31:43,120
+stupid
+
+679
+00:31:39,600 --> 00:31:43,120
+expression flags
+
+680
+00:31:43,679 --> 00:31:52,399
+g u okay let's do it again
+
+681
+00:31:47,600 --> 00:31:56,159
+okay compile typescript compile file
+
+682
+00:31:52,399 --> 00:31:59,600
+enter okay success back to
+
+683
+00:31:56,159 --> 00:32:02,559
+browser magnify refresh
+
+684
+00:31:59,600 --> 00:32:02,559
+fantastic
+
+685
+00:32:03,760 --> 00:32:10,320
+now we have the bar chart
+
+686
+00:32:07,039 --> 00:32:15,840
+again now let's try to type some chinese
+
+687
+00:32:10,320 --> 00:32:15,840
+okay switch to chinese pinging
+
+688
+00:32:18,399 --> 00:32:23,840
+you can you see we can type chinese now
+
+689
+00:32:20,799 --> 00:32:23,840
+dd the whole thing
+
+690
+00:32:25,200 --> 00:32:33,760
+tt okay uh wait
+
+691
+00:32:29,760 --> 00:32:37,919
+english tt okay yeah tth
+
+692
+00:32:33,760 --> 00:32:37,919
+yy now let's type chinese
+
+693
+00:32:40,840 --> 00:32:46,000
+uh okay let's just repeat
+
+694
+00:32:43,519 --> 00:32:47,760
+these two chinese characters these two
+
+695
+00:32:46,000 --> 00:32:49,919
+characters means chinese okay
+
+696
+00:32:47,760 --> 00:32:51,120
+in case you don't know let's just repeat
+
+697
+00:32:49,919 --> 00:32:54,960
+it you see
+
+698
+00:32:51,120 --> 00:32:58,080
+fantastic you see it's working
+
+699
+00:32:54,960 --> 00:33:00,799
+okay so now that's a digression into
+
+700
+00:32:58,080 --> 00:33:03,279
+regular expressions for catching any
+
+701
+00:33:00,799 --> 00:33:06,159
+characters that's
+
+702
+00:33:03,279 --> 00:33:07,279
+that's considered a letter in any
+
+703
+00:33:06,159 --> 00:33:10,320
+language not just
+
+704
+00:33:07,279 --> 00:33:13,440
+english or not just western alphabets
+
+705
+00:33:10,320 --> 00:33:16,480
+okay that fix that
+
+706
+00:33:13,440 --> 00:33:18,399
+now let's continue to review our code
+
+707
+00:33:16,480 --> 00:33:19,760
+okay i think that one is what you are
+
+708
+00:33:18,399 --> 00:33:23,039
+looking for okay
+
+709
+00:33:19,760 --> 00:33:25,039
+what year did you know was the moment
+
+710
+00:33:23,039 --> 00:33:26,490
+you know math is something you will know
+
+711
+00:33:25,039 --> 00:33:28,559
+forever dizziness
+
+712
+00:33:26,490 --> 00:33:31,440
+[Laughter]
+
+713
+00:33:28,559 --> 00:33:33,120
+i wanted to become a mathematician i
+
+714
+00:33:31,440 --> 00:33:35,519
+wanted to become the greatest
+
+715
+00:33:33,120 --> 00:33:39,600
+mathematician since i was
+
+716
+00:33:35,519 --> 00:33:42,799
+about 21. but i failed
+
+717
+00:33:39,600 --> 00:33:46,799
+i wasn't you know i'm i'm not really
+
+718
+00:33:42,799 --> 00:33:50,000
+uh you could say i'm an amateur
+
+719
+00:33:46,799 --> 00:33:52,399
+amateur mathematician okay
+
+720
+00:33:50,000 --> 00:33:54,240
+but i become a coder you know a
+
+721
+00:33:52,399 --> 00:33:58,240
+programmer which is by the way
+
+722
+00:33:54,240 --> 00:34:01,919
+much easier uh but anyway so
+
+723
+00:33:58,240 --> 00:34:02,320
+let's back to back to our code so we
+
+724
+00:34:01,919 --> 00:34:05,039
+have
+
+725
+00:34:02,320 --> 00:34:06,159
+filter map function this this filters
+
+726
+00:34:05,039 --> 00:34:09,679
+are diagram
+
+727
+00:34:06,159 --> 00:34:10,560
+data then we have the compute percentage
+
+728
+00:34:09,679 --> 00:34:13,760
+function
+
+729
+00:34:10,560 --> 00:34:16,320
+which takes a diagram map object and
+
+730
+00:34:13,760 --> 00:34:16,320
+returns
+
+731
+00:34:16,720 --> 00:34:20,320
+it returns instead of the count it
+
+732
+00:34:18,960 --> 00:34:24,000
+returns a percentage
+
+733
+00:34:20,320 --> 00:34:25,359
+for example this is uh example of input
+
+734
+00:34:24,000 --> 00:34:28,720
+you know this is a map
+
+735
+00:34:25,359 --> 00:34:29,200
+object you know th occurs three times ht
+
+736
+00:34:28,720 --> 00:34:32,560
+occurs
+
+737
+00:34:29,200 --> 00:34:34,079
+two times now instead of count we want
+
+738
+00:34:32,560 --> 00:34:37,119
+to change that so how much
+
+739
+00:34:34,079 --> 00:34:38,960
+is 3 with respect to all the numbers
+
+740
+00:34:37,119 --> 00:34:42,560
+like a percentage
+
+741
+00:34:38,960 --> 00:34:42,560
+so so that is what
+
+742
+00:34:42,879 --> 00:34:47,040
+this function does because why you need
+
+743
+00:34:45,760 --> 00:34:49,119
+a percentage
+
+744
+00:34:47,040 --> 00:34:51,119
+because when you are generating a bar
+
+745
+00:34:49,119 --> 00:34:54,639
+chart you need a percentage
+
+746
+00:34:51,119 --> 00:34:57,680
+instead of a count okay so because the
+
+747
+00:34:54,639 --> 00:34:59,839
+height of the the bar will be dependent
+
+748
+00:34:57,680 --> 00:35:03,119
+you know as a percentage of the
+
+749
+00:34:59,839 --> 00:35:05,280
+height of the whole graph so that's a
+
+750
+00:35:03,119 --> 00:35:08,400
+computer percentage then
+
+751
+00:35:05,280 --> 00:35:13,119
+then we start to have svg
+
+752
+00:35:08,400 --> 00:35:16,160
+functions that draws svg so you can see
+
+753
+00:35:13,119 --> 00:35:19,359
+this draw svg function
+
+754
+00:35:16,160 --> 00:35:20,640
+it starts to generate svg beginning by
+
+755
+00:35:19,359 --> 00:35:24,160
+taking a
+
+756
+00:35:20,640 --> 00:35:27,200
+diagram map object and
+
+757
+00:35:24,160 --> 00:35:29,680
+and you'll just generate svg okay
+
+758
+00:35:27,200 --> 00:35:31,680
+now i'm not going to go over the details
+
+759
+00:35:29,680 --> 00:35:34,480
+of how you do that because
+
+760
+00:35:31,680 --> 00:35:36,720
+that's the content of the last video
+
+761
+00:35:34,480 --> 00:35:36,720
+okay
+
+762
+00:35:38,640 --> 00:35:44,240
+okay so let's draw svg then finally you
+
+763
+00:35:41,760 --> 00:35:47,119
+have the update function so
+
+764
+00:35:44,240 --> 00:35:47,680
+update function and plus you have the
+
+765
+00:35:47,119 --> 00:35:51,440
+event
+
+766
+00:35:47,680 --> 00:35:55,119
+listener so for the text area
+
+767
+00:35:51,440 --> 00:35:58,240
+text area box you know which is this box
+
+768
+00:35:55,119 --> 00:35:59,359
+for text area area you add the event
+
+769
+00:35:58,240 --> 00:36:02,480
+listener
+
+770
+00:35:59,359 --> 00:36:03,760
+and the event will be input that means
+
+771
+00:36:02,480 --> 00:36:07,359
+whenever
+
+772
+00:36:03,760 --> 00:36:07,359
+this text changed
+
+773
+00:36:08,720 --> 00:36:12,000
+we are telling javascript to consider
+
+774
+00:36:10,960 --> 00:36:14,560
+that you know we want
+
+775
+00:36:12,000 --> 00:36:15,119
+to know about that whenever it changed
+
+776
+00:36:14,560 --> 00:36:18,160
+we tell
+
+777
+00:36:15,119 --> 00:36:20,480
+javascript to call the f update function
+
+778
+00:36:18,160 --> 00:36:21,359
+okay then what does the update function
+
+779
+00:36:20,480 --> 00:36:25,359
+do
+
+780
+00:36:21,359 --> 00:36:28,400
+it you know first of all it takes the
+
+781
+00:36:25,359 --> 00:36:32,079
+text area dot value the contents of this
+
+782
+00:36:28,400 --> 00:36:32,079
+you know text a string
+
+783
+00:36:32,560 --> 00:36:35,599
+then you compute you call string to
+
+784
+00:36:34,880 --> 00:36:38,640
+diagram
+
+785
+00:36:35,599 --> 00:36:42,640
+okay so you get a map object so we got
+
+786
+00:36:38,640 --> 00:36:44,640
+a diagram data then you call the draw
+
+787
+00:36:42,640 --> 00:36:48,720
+svg function
+
+788
+00:36:44,640 --> 00:36:51,040
+you know then you give it diagram data
+
+789
+00:36:48,720 --> 00:36:52,880
+then you sort it then you filter
+
+790
+00:36:51,040 --> 00:36:56,480
+punctuations or whatever
+
+791
+00:36:52,880 --> 00:36:59,760
+then you turn it into a percentage
+
+792
+00:36:56,480 --> 00:37:04,160
+okay then you know you draw it
+
+793
+00:36:59,760 --> 00:37:07,520
+so that's why we see the chart so then
+
+794
+00:37:04,160 --> 00:37:10,320
+then this part is uh again
+
+795
+00:37:07,520 --> 00:37:12,240
+same thing but now you turn it into a
+
+796
+00:37:10,320 --> 00:37:15,760
+json
+
+797
+00:37:12,240 --> 00:37:16,560
+string and that's the that's what this
+
+798
+00:37:15,760 --> 00:37:20,079
+part is
+
+799
+00:37:16,560 --> 00:37:22,480
+about so you you so
+
+800
+00:37:20,079 --> 00:37:23,200
+so for user using this application they
+
+801
+00:37:22,480 --> 00:37:25,280
+can
+
+802
+00:37:23,200 --> 00:37:27,359
+copy this text you know they can get the
+
+803
+00:37:25,280 --> 00:37:30,640
+data and maybe they want to
+
+804
+00:37:27,359 --> 00:37:34,160
+feed it to python program or whatever uh
+
+805
+00:37:30,640 --> 00:37:34,880
+for their own uses so this application
+
+806
+00:37:34,160 --> 00:37:38,160
+you'll be
+
+807
+00:37:34,880 --> 00:37:41,200
+uh you know generally useful
+
+808
+00:37:38,160 --> 00:37:42,560
+not just visually okay so that's our
+
+809
+00:37:41,200 --> 00:37:46,079
+code so far so
+
+810
+00:37:42,560 --> 00:37:48,960
+what we need to do today is to fix
+
+811
+00:37:46,079 --> 00:37:51,839
+this upside down by bar chart and add
+
+812
+00:37:48,960 --> 00:37:51,839
+the label
+
+813
+00:37:52,560 --> 00:37:56,079
+which one do we do first
+
+814
+00:37:58,720 --> 00:38:05,839
+let's fix the upside down chart okay
+
+815
+00:38:02,880 --> 00:38:05,839
+um
+
+816
+00:38:05,920 --> 00:38:12,240
+yeah let's fix the upside down chart
+
+817
+00:38:09,119 --> 00:38:15,920
+okay so in order to do that we
+
+818
+00:38:12,240 --> 00:38:20,400
+dive into the draw svg
+
+819
+00:38:15,920 --> 00:38:23,520
+function here okay so we can see
+
+820
+00:38:20,400 --> 00:38:25,040
+first of all so let's go over so first
+
+821
+00:38:23,520 --> 00:38:28,800
+of all it specified
+
+822
+00:38:25,040 --> 00:38:32,800
+the svg width and height
+
+823
+00:38:28,800 --> 00:38:36,240
+so 900 by 600 pixels
+
+824
+00:38:32,800 --> 00:38:39,520
+by the way the default svg unit
+
+825
+00:38:36,240 --> 00:38:42,640
+is pixels now this is in contrast
+
+826
+00:38:39,520 --> 00:38:46,400
+to css by default
+
+827
+00:38:42,640 --> 00:38:49,359
+css do not have a default unit so every
+
+828
+00:38:46,400 --> 00:38:50,240
+time you specify you know pixels or
+
+829
+00:38:49,359 --> 00:38:53,359
+width or
+
+830
+00:38:50,240 --> 00:38:58,400
+height you have to say px
+
+831
+00:38:53,359 --> 00:39:01,520
+for pixels or what or cm or other units
+
+832
+00:38:58,400 --> 00:39:03,119
+svg is slightly different so they in a
+
+833
+00:39:01,520 --> 00:39:06,160
+sense they are inconsistent
+
+834
+00:39:03,119 --> 00:39:09,920
+okay this is the history of technology
+
+835
+00:39:06,160 --> 00:39:11,280
+in svg you don't have to say a unit by
+
+836
+00:39:09,920 --> 00:39:15,359
+default the unit is
+
+837
+00:39:11,280 --> 00:39:15,680
+pixels okay so width width and height of
+
+838
+00:39:15,359 --> 00:39:20,320
+the
+
+839
+00:39:15,680 --> 00:39:23,960
+svg box then you create a svgbox element
+
+840
+00:39:20,320 --> 00:39:27,440
+you know svg element by calling
+
+841
+00:39:23,960 --> 00:39:29,839
+document.create element ns okay
+
+842
+00:39:27,440 --> 00:39:31,599
+then you add the attribute width and
+
+843
+00:39:29,839 --> 00:39:35,599
+height okay
+
+844
+00:39:31,599 --> 00:39:37,280
+then you then you say inner html equals
+
+845
+00:39:35,599 --> 00:39:40,160
+to empty
+
+846
+00:39:37,280 --> 00:39:40,880
+why because every time you type
+
+847
+00:39:40,160 --> 00:39:42,880
+something
+
+848
+00:39:40,880 --> 00:39:44,800
+you want to redraw the whole thing so
+
+849
+00:39:42,880 --> 00:39:45,839
+before you draw you want to remove
+
+850
+00:39:44,800 --> 00:39:49,280
+everything
+
+851
+00:39:45,839 --> 00:39:51,119
+that's there so that's the inner html
+
+852
+00:39:49,280 --> 00:39:57,839
+equals through empty string
+
+853
+00:39:51,119 --> 00:39:57,839
+then then you want to
+
+854
+00:39:58,400 --> 00:40:04,079
+append the svg element into the display
+
+855
+00:40:02,480 --> 00:40:06,960
+area
+
+856
+00:40:04,079 --> 00:40:08,160
+you know to to to the hdmi so to this
+
+857
+00:40:06,960 --> 00:40:11,760
+position
+
+858
+00:40:08,160 --> 00:40:15,440
+so we are attaching our drawing to to it
+
+859
+00:40:11,760 --> 00:40:19,280
+then then you start to draw
+
+860
+00:40:15,440 --> 00:40:23,520
+the bars okay so number of diagrams
+
+861
+00:40:19,280 --> 00:40:27,040
+equals to map.size and bar width
+
+862
+00:40:23,520 --> 00:40:29,839
+each bar chart bar width is svg width
+
+863
+00:40:27,040 --> 00:40:35,119
+divided by number of diagrams
+
+864
+00:40:29,839 --> 00:40:35,119
+times 0.9 okay because we want to
+
+865
+00:40:36,839 --> 00:40:39,839
+shrink
+
+866
+00:40:40,400 --> 00:40:45,040
+uh we want to shrink it a little bit
+
+867
+00:40:42,720 --> 00:40:45,280
+it's not working here you see each bar
+
+868
+00:40:45,040 --> 00:40:48,240
+is
+
+869
+00:40:45,280 --> 00:40:49,440
+adjacent here that is actually incorrect
+
+870
+00:40:48,240 --> 00:40:53,200
+so
+
+871
+00:40:49,440 --> 00:40:54,480
+so we want to time multiply by 0.8 okay
+
+872
+00:40:53,200 --> 00:40:58,319
+let's try that
+
+873
+00:40:54,480 --> 00:41:02,319
+compile file magnify
+
+874
+00:40:58,319 --> 00:41:05,520
+refresh it's not working
+
+875
+00:41:02,319 --> 00:41:08,880
+so why is the width does not work by
+
+876
+00:41:05,520 --> 00:41:12,079
+width okay let's
+
+877
+00:41:08,880 --> 00:41:14,640
+let's continue on okay let's see
+
+878
+00:41:12,079 --> 00:41:16,720
+i don't understand why is the bar with
+
+879
+00:41:14,640 --> 00:41:19,839
+is not working
+
+880
+00:41:16,720 --> 00:41:22,480
+so then we create the box that's this
+
+881
+00:41:19,839 --> 00:41:25,839
+part of the code
+
+882
+00:41:22,480 --> 00:41:29,359
+so for each element
+
+883
+00:41:25,839 --> 00:41:33,040
+in the diagram map
+
+884
+00:41:29,359 --> 00:41:36,000
+so for we do a for each key and value
+
+885
+00:41:33,040 --> 00:41:36,880
+key is a diagram which is a string value
+
+886
+00:41:36,000 --> 00:41:40,240
+is a number
+
+887
+00:41:36,880 --> 00:41:40,240
+of uh
+
+888
+00:41:41,680 --> 00:41:48,640
+kind of a percentage ratio okay
+
+889
+00:41:45,119 --> 00:41:52,400
+so for each and i is the index
+
+890
+00:41:48,640 --> 00:41:56,480
+bar height equals to svg hey times v
+
+891
+00:41:52,400 --> 00:42:00,160
+so remember the value is a percentage
+
+892
+00:41:56,480 --> 00:42:03,440
+related to all the frequencies of the
+
+893
+00:42:00,160 --> 00:42:07,599
+diagram occurrences so
+
+894
+00:42:03,440 --> 00:42:07,599
+so the bar height will be you know
+
+895
+00:42:08,160 --> 00:42:14,079
+the svg height times that percentage
+
+896
+00:42:12,000 --> 00:42:15,200
+so you saw this so it kind of shrinks
+
+897
+00:42:14,079 --> 00:42:18,400
+then we create
+
+898
+00:42:15,200 --> 00:42:20,480
+a bar element here well x equals
+
+899
+00:42:18,400 --> 00:42:22,480
+document dot create element okay i'm
+
+900
+00:42:20,480 --> 00:42:24,800
+going to slow right i'm kind of
+
+901
+00:42:22,480 --> 00:42:24,800
+stuck
+
+902
+00:42:26,160 --> 00:42:34,079
+how many people are watching three
+
+903
+00:42:31,200 --> 00:42:34,480
+okay so okay so let's let me just start
+
+904
+00:42:34,079 --> 00:42:37,839
+to
+
+905
+00:42:34,480 --> 00:42:40,319
+um code i need to code this
+
+906
+00:42:37,839 --> 00:42:41,200
+okay then we for each bar we set
+
+907
+00:42:40,319 --> 00:42:44,240
+attribute
+
+908
+00:42:41,200 --> 00:42:44,880
+x and y is a coordinate where bar will
+
+909
+00:42:44,240 --> 00:42:47,920
+appear
+
+910
+00:42:44,880 --> 00:42:49,440
+and so on okay and then we need to add
+
+911
+00:42:47,920 --> 00:42:52,800
+the bar
+
+912
+00:42:49,440 --> 00:42:55,760
+to the svg so that's that so now
+
+913
+00:42:52,800 --> 00:42:58,079
+our problem is to in you know it's
+
+914
+00:42:55,760 --> 00:43:00,319
+upside down so
+
+915
+00:42:58,079 --> 00:43:01,520
+how do you fix that so let me explain
+
+916
+00:43:00,319 --> 00:43:05,520
+let me explain okay
+
+917
+00:43:01,520 --> 00:43:09,200
+in svg the coordinate
+
+918
+00:43:05,520 --> 00:43:12,240
+0 0 is on the upper left corner
+
+919
+00:43:09,200 --> 00:43:16,000
+so x start from left to right
+
+920
+00:43:12,240 --> 00:43:18,880
+and y start from top to down okay
+
+921
+00:43:16,000 --> 00:43:21,920
+so that's why our bar chart is like
+
+922
+00:43:18,880 --> 00:43:25,599
+upside down so we need to
+
+923
+00:43:21,920 --> 00:43:28,800
+invert it so we need to
+
+924
+00:43:25,599 --> 00:43:33,359
+this is problematic so
+
+925
+00:43:28,800 --> 00:43:33,359
+each bar x is equals to
+
+926
+00:43:33,440 --> 00:43:41,520
+x is the position so x we don't change x
+
+927
+00:43:38,319 --> 00:43:46,720
+but y
+
+928
+00:43:41,520 --> 00:43:46,720
+y needs to begin at the bottom okay
+
+929
+00:43:46,960 --> 00:43:54,240
+so we need to go back to the svg element
+
+930
+00:43:50,240 --> 00:43:59,200
+okay so you go back to the tutorial
+
+931
+00:43:54,240 --> 00:43:59,200
+so let's go let's open a new tab
+
+932
+00:43:59,599 --> 00:44:06,079
+let's go to svg so
+
+933
+00:44:02,880 --> 00:44:09,839
+svg svg basics
+
+934
+00:44:06,079 --> 00:44:09,839
+then svg rectangle
+
+935
+00:44:10,960 --> 00:44:14,079
+so rectangle
+
+936
+00:44:17,839 --> 00:44:21,599
+yeah so the bar is strong you're given a
+
+937
+00:44:20,800 --> 00:44:24,480
+coordinate
+
+938
+00:44:21,599 --> 00:44:25,040
+that coordinate is going to be the upper
+
+939
+00:44:24,480 --> 00:44:28,880
+left
+
+940
+00:44:25,040 --> 00:44:28,880
+of the rectangle
+
+941
+00:44:30,160 --> 00:44:35,200
+yeah so you ah oh god so you if you want
+
+942
+00:44:33,599 --> 00:44:39,599
+to draw from bottom up
+
+943
+00:44:35,200 --> 00:44:43,119
+you need to think about geometry
+
+944
+00:44:39,599 --> 00:44:46,640
+tedious you know it's a fantastic
+
+945
+00:44:43,119 --> 00:44:48,240
+problem in all computer graphics
+
+946
+00:44:46,640 --> 00:44:50,480
+you know you might be wondering why is
+
+947
+00:44:48,240 --> 00:44:53,119
+computer graphics they always started
+
+948
+00:44:50,480 --> 00:44:53,520
+in the reverse order of the typical math
+
+949
+00:44:53,119 --> 00:44:57,280
+you know
+
+950
+00:44:53,520 --> 00:45:00,960
+in in math convention you have the x
+
+951
+00:44:57,280 --> 00:45:01,680
+axis you have y axis y goes from bottom
+
+952
+00:45:00,960 --> 00:45:04,800
+to up
+
+953
+00:45:01,680 --> 00:45:07,119
+you know but for all
+
+954
+00:45:04,800 --> 00:45:09,200
+computer graphics you start from the top
+
+955
+00:45:07,119 --> 00:45:12,000
+to bottom
+
+956
+00:45:09,200 --> 00:45:13,200
+so you have this tedious problem of of
+
+957
+00:45:12,000 --> 00:45:16,480
+reversing it yeah
+
+958
+00:45:13,200 --> 00:45:19,760
+okay so i need to do it so that you know
+
+959
+00:45:16,480 --> 00:45:23,760
+so you need to think
+
+960
+00:45:19,760 --> 00:45:23,760
+so it needs to begin
+
+961
+00:45:25,599 --> 00:45:36,800
+so the
+
+962
+00:45:33,359 --> 00:45:41,760
+svg height bar height
+
+963
+00:45:36,800 --> 00:45:41,760
+should be should be start y
+
+964
+00:45:41,839 --> 00:45:48,079
+for svg uh what do you mean
+
+965
+00:45:46,160 --> 00:45:51,200
+that's what we are doing that's what we
+
+966
+00:45:48,079 --> 00:45:51,200
+are trying to figure out
+
+967
+00:45:51,440 --> 00:45:55,119
+so you know what i mean right first of
+
+968
+00:45:54,079 --> 00:45:57,760
+all you have to know
+
+969
+00:45:55,119 --> 00:45:59,119
+understand the svg orientation of its
+
+970
+00:45:57,760 --> 00:46:00,400
+coordinate
+
+971
+00:45:59,119 --> 00:46:02,160
+then you have to understand the
+
+972
+00:46:00,400 --> 00:46:05,760
+rectangle element
+
+973
+00:46:02,160 --> 00:46:08,960
+you know so when you say x and y
+
+974
+00:46:05,760 --> 00:46:12,240
+in rectangle element they refer to the
+
+975
+00:46:08,960 --> 00:46:14,480
+top left corner of the rectangle so in
+
+976
+00:46:12,240 --> 00:46:16,720
+our case we need to let's say let me
+
+977
+00:46:14,480 --> 00:46:16,720
+think
+
+978
+00:46:17,040 --> 00:46:20,800
+oh are you giving the answer maybe you
+
+979
+00:46:19,280 --> 00:46:25,359
+are ahead of me
+
+980
+00:46:20,800 --> 00:46:28,400
+oh svg height minus spa height
+
+981
+00:46:25,359 --> 00:46:32,319
+yeah you are probably right
+
+982
+00:46:28,400 --> 00:46:36,079
+okay so so okay
+
+983
+00:46:32,319 --> 00:46:39,599
+svg height
+
+984
+00:46:36,079 --> 00:46:45,040
+minus the bar height yeah exactly
+
+985
+00:46:39,599 --> 00:46:45,040
+so um let's code it so svg
+
+986
+00:46:45,920 --> 00:46:53,119
+height okay minus the
+
+987
+00:46:49,040 --> 00:46:57,440
+bar height that's right
+
+988
+00:46:53,119 --> 00:46:59,599
+so here let's do it here okay let's make
+
+989
+00:46:57,440 --> 00:46:59,599
+a
+
+990
+00:47:03,599 --> 00:47:12,720
+f okay svg height
+
+991
+00:47:07,520 --> 00:47:12,720
+minus is the bar height
+
+992
+00:47:15,280 --> 00:47:19,440
+okay so that
+
+993
+00:47:20,240 --> 00:47:25,839
+let's try it compile
+
+994
+00:47:26,400 --> 00:47:30,160
+success back to browser
+
+995
+00:47:32,880 --> 00:47:36,559
+refresh oops
+
+996
+00:47:40,240 --> 00:47:44,480
+okay something's wrong f12
+
+997
+00:47:45,599 --> 00:47:47,839
+what
+
+998
+00:47:49,680 --> 00:47:55,680
+some cookies um misusing the recommended
+
+999
+00:47:54,319 --> 00:47:59,040
+send site attribute
+
+1000
+00:47:55,680 --> 00:48:03,040
+what uh yeah
+
+1001
+00:47:59,040 --> 00:48:08,559
+that's a google's analytics i think
+
+1002
+00:48:03,040 --> 00:48:08,559
+anyway so what's going on
+
+1003
+00:48:09,440 --> 00:48:17,599
+so x is stays the same the bar height y
+
+1004
+00:48:13,599 --> 00:48:17,599
+should be svg height
+
+1005
+00:48:18,640 --> 00:48:25,599
+minus bar height yeah
+
+1006
+00:48:22,559 --> 00:48:25,599
+but why is it wrong
+
+1007
+00:48:29,200 --> 00:48:33,359
+so what is the error
+
+1008
+00:48:33,680 --> 00:48:37,040
+let's compile again
+
+1009
+00:48:38,000 --> 00:48:47,440
+no error in compilation refresh
+
+1010
+00:48:42,720 --> 00:48:50,559
+and i don't know what is going on
+
+1011
+00:48:47,440 --> 00:48:53,280
+you know svg is not showing up okay
+
+1012
+00:48:50,559 --> 00:49:03,839
+uncaught type error reduce of empty
+
+1013
+00:48:53,280 --> 00:49:03,839
+array with no initial value
+
+1014
+00:49:05,359 --> 00:49:08,720
+what's what's this learn more okay i
+
+1015
+00:49:07,680 --> 00:49:12,480
+know i don't need
+
+1016
+00:49:08,720 --> 00:49:16,640
+i don't need your mozilla uh
+
+1017
+00:49:12,480 --> 00:49:20,960
+okay line 57
+
+1018
+00:49:16,640 --> 00:49:20,960
+what are you talking about line 57
+
+1019
+00:49:23,599 --> 00:49:29,599
+oh that's referring to the javascript
+
+1020
+00:49:26,319 --> 00:49:32,640
+line 57 so let's go to javascript
+
+1021
+00:49:29,599 --> 00:49:32,640
+line 57
+
+1022
+00:49:33,040 --> 00:49:39,040
+okay value is
+
+1023
+00:49:36,480 --> 00:49:39,040
+reduced
+
+1024
+00:49:39,920 --> 00:49:45,520
+why is that how come
+
+1025
+00:49:43,040 --> 00:49:48,640
+we didn't change that part how come all
+
+1026
+00:49:45,520 --> 00:49:53,280
+of a sudden you have a problem there
+
+1027
+00:49:48,640 --> 00:49:53,280
+so so now let's
+
+1028
+00:49:53,599 --> 00:49:59,839
+let's revert the bar
+
+1029
+00:49:57,359 --> 00:49:59,839
+thing
+
+1030
+00:50:03,040 --> 00:50:10,480
+so svg height okay and bar height is a
+
+1031
+00:50:07,520 --> 00:50:10,480
+integer right
+
+1032
+00:50:11,200 --> 00:50:14,880
+yeah it is an integer
+
+1033
+00:50:17,839 --> 00:50:21,839
+and two string so i don't see what's
+
+1034
+00:50:20,000 --> 00:50:26,160
+wrong with that
+
+1035
+00:50:21,839 --> 00:50:30,640
+okay anyway let's revert and compile
+
+1036
+00:50:26,160 --> 00:50:30,640
+let's see what what
+
+1037
+00:50:31,680 --> 00:50:38,960
+okay so the problem is
+
+1038
+00:50:34,720 --> 00:50:38,960
+indeed due to
+
+1039
+00:50:39,040 --> 00:50:45,599
+due to the way we change the height
+
+1040
+00:50:42,319 --> 00:50:50,160
+i mean the the origin of the
+
+1041
+00:50:45,599 --> 00:50:55,839
+rectangle what
+
+1042
+00:50:50,160 --> 00:50:55,839
+why is that
+
+1043
+00:50:56,480 --> 00:50:58,800
+any
+
+1044
+00:51:00,559 --> 00:51:08,559
+lucas so lucas you are a javascript
+
+1045
+00:51:05,359 --> 00:51:14,079
+coder so what what
+
+1046
+00:51:08,559 --> 00:51:14,079
+what is wrong here so why
+
+1047
+00:51:20,319 --> 00:51:23,680
+let's see let's see again let's make
+
+1048
+00:51:22,640 --> 00:51:27,280
+sure
+
+1049
+00:51:23,680 --> 00:51:30,640
+so svg height
+
+1050
+00:51:27,280 --> 00:51:34,160
+minus bar height that should be right
+
+1051
+00:51:30,640 --> 00:51:38,720
+can we can we print it can we cancel log
+
+1052
+00:51:34,160 --> 00:51:42,720
+this let's say let's say console.log
+
+1053
+00:51:38,720 --> 00:51:42,720
+bar height okay let's see what we get
+
+1054
+00:51:42,960 --> 00:51:50,000
+format it okay then
+
+1055
+00:51:46,160 --> 00:51:54,079
+compile it
+
+1056
+00:51:50,000 --> 00:51:54,079
+to browser refresh
+
+1057
+00:51:55,280 --> 00:51:59,359
+now it it's printing some numbers edit
+
+1058
+00:51:58,559 --> 00:52:02,839
+is
+
+1059
+00:51:59,359 --> 00:52:06,720
+printing okay so it's printing bar
+
+1060
+00:52:02,839 --> 00:52:06,720
+height seems to work
+
+1061
+00:52:06,880 --> 00:52:15,839
+so bar height bar height is working
+
+1062
+00:52:11,680 --> 00:52:19,200
+and see type something type something
+
+1063
+00:52:15,839 --> 00:52:23,599
+type something type something
+
+1064
+00:52:19,200 --> 00:52:23,599
+so every time you type it prints three
+
+1065
+00:52:24,319 --> 00:52:33,839
+values is it space after closing that
+
+1066
+00:52:35,280 --> 00:52:38,319
+uh here
+
+1067
+00:52:39,280 --> 00:52:47,839
+so every time you type something it
+
+1068
+00:52:44,079 --> 00:52:47,839
+prints by height
+
+1069
+00:52:48,240 --> 00:52:53,359
+three times or more than three times but
+
+1070
+00:52:51,839 --> 00:53:00,079
+anyway
+
+1071
+00:52:53,359 --> 00:53:02,640
+bar height so what is the error
+
+1072
+00:53:00,079 --> 00:53:03,520
+so there is no error but we are not
+
+1073
+00:53:02,640 --> 00:53:07,680
+showing
+
+1074
+00:53:03,520 --> 00:53:10,800
+you know it's not showing up any chart
+
+1075
+00:53:07,680 --> 00:53:12,800
+so that means i think i know what's
+
+1076
+00:53:10,800 --> 00:53:16,720
+going on so the bar is going
+
+1077
+00:53:12,800 --> 00:53:16,720
+off the canvas probably
+
+1078
+00:53:20,079 --> 00:53:23,200
+but yeah you know this this is a problem
+
+1079
+00:53:22,720 --> 00:53:24,880
+with
+
+1080
+00:53:23,200 --> 00:53:26,960
+with the computer graphics the
+
+1081
+00:53:24,880 --> 00:53:30,079
+programming industry
+
+1082
+00:53:26,960 --> 00:53:33,280
+despise these problems because
+
+1083
+00:53:30,079 --> 00:53:36,240
+and you know i have looked i have looked
+
+1084
+00:53:33,280 --> 00:53:37,359
+for a way a simple way to tell svg just
+
+1085
+00:53:36,240 --> 00:53:39,040
+simply flip it
+
+1086
+00:53:37,359 --> 00:53:40,400
+you know i don't want it to start from
+
+1087
+00:53:39,040 --> 00:53:41,280
+the top to bottom i want the
+
+1088
+00:53:40,400 --> 00:53:44,160
+conventional
+
+1089
+00:53:41,280 --> 00:53:45,680
+start from bottom to top without every
+
+1090
+00:53:44,160 --> 00:53:49,119
+time i code something i have to
+
+1091
+00:53:45,680 --> 00:53:51,440
+do the geometry and you know i looked
+
+1092
+00:53:49,119 --> 00:53:52,240
+over there's no such thing there's no
+
+1093
+00:53:51,440 --> 00:53:56,480
+such
+
+1094
+00:53:52,240 --> 00:54:00,079
+option uh up you know so this is
+
+1095
+00:53:56,480 --> 00:54:02,319
+uh to me a a problem among programmers
+
+1096
+00:54:00,079 --> 00:54:03,760
+why why do i blame the programmers
+
+1097
+00:54:02,319 --> 00:54:06,480
+because for 20 40
+
+1098
+00:54:03,760 --> 00:54:07,839
+50 years it's that way programmers
+
+1099
+00:54:06,480 --> 00:54:11,040
+typically they don't complain
+
+1100
+00:54:07,839 --> 00:54:13,440
+it you know most most of these cc plus
+
+1101
+00:54:11,040 --> 00:54:16,800
+plus low level type of programmers they
+
+1102
+00:54:13,440 --> 00:54:16,800
+they don't think this is a problem
+
+1103
+00:54:18,640 --> 00:54:25,680
+uh anyway so you know so so
+
+1104
+00:54:22,400 --> 00:54:28,160
+so it's wasting our time here anyway so
+
+1105
+00:54:25,680 --> 00:54:28,160
+back to
+
+1106
+00:54:30,160 --> 00:54:34,079
+why would uh okay so
+
+1107
+00:54:36,720 --> 00:54:39,839
+let's make sure
+
+1108
+00:54:45,680 --> 00:54:50,240
+i don't think it's wise let's make sure
+
+1109
+00:54:47,760 --> 00:54:54,960
+let's see the semantic of the
+
+1110
+00:54:50,240 --> 00:54:54,960
+the semantics of the rectangle thing
+
+1111
+00:54:57,920 --> 00:55:00,960
+yeah so this square is hundred by
+
+1112
+00:55:00,319 --> 00:55:04,000
+hundred
+
+1113
+00:55:00,960 --> 00:55:07,040
+okay so you are drawing a rectangle
+
+1114
+00:55:04,000 --> 00:55:10,400
+x is nine y is zero so x
+
+1115
+00:55:07,040 --> 00:55:13,359
+starts from nine pixels to the right and
+
+1116
+00:55:10,400 --> 00:55:14,000
+y start from zero which is top so it
+
+1117
+00:55:13,359 --> 00:55:17,680
+draws
+
+1118
+00:55:14,000 --> 00:55:18,400
+a rectangle from top to bottom yeah so
+
+1119
+00:55:17,680 --> 00:55:21,680
+the
+
+1120
+00:55:18,400 --> 00:55:26,640
+so the x y is the coordinate
+
+1121
+00:55:21,680 --> 00:55:29,760
+of the top left corner of the
+
+1122
+00:55:26,640 --> 00:55:29,760
+of the rectangle
+
+1123
+00:55:30,720 --> 00:55:35,839
+so we so when you have svg height
+
+1124
+00:55:36,000 --> 00:55:41,440
+oh okay wait svg height
+
+1125
+00:55:44,480 --> 00:55:49,040
+okay i think i know you you don't i i
+
+1126
+00:55:46,960 --> 00:55:49,440
+think i know you don't want to minus the
+
+1127
+00:55:49,040 --> 00:55:53,040
+bar
+
+1128
+00:55:49,440 --> 00:55:56,160
+height you want to minus the the height
+
+1129
+00:55:53,040 --> 00:55:59,040
+of the opposite i mean the
+
+1130
+00:55:56,160 --> 00:56:00,480
+the spare part of the height okay so so
+
+1131
+00:55:59,040 --> 00:56:03,200
+basically you want to
+
+1132
+00:56:00,480 --> 00:56:04,160
+here's what we want i think i know it's
+
+1133
+00:56:03,200 --> 00:56:07,280
+it's not showing up
+
+1134
+00:56:04,160 --> 00:56:10,319
+it's you know our current code the bar
+
+1135
+00:56:07,280 --> 00:56:11,760
+the rectangle is outside of the svg
+
+1136
+00:56:10,319 --> 00:56:15,040
+canvas
+
+1137
+00:56:11,760 --> 00:56:16,000
+so you want basically svg height minus
+
+1138
+00:56:15,040 --> 00:56:19,200
+the svg
+
+1139
+00:56:16,000 --> 00:56:19,760
+height minus bar height okay that's what
+
+1140
+00:56:19,200 --> 00:56:25,119
+you want
+
+1141
+00:56:19,760 --> 00:56:25,119
+so so if we can simplify this
+
+1142
+00:56:29,680 --> 00:56:34,880
+so it's gonna be svg height plus bar
+
+1143
+00:56:32,240 --> 00:56:37,040
+height okay
+
+1144
+00:56:34,880 --> 00:56:39,200
+so because if you simplify then it's
+
+1145
+00:56:37,040 --> 00:56:44,960
+gonna be plus here
+
+1146
+00:56:39,200 --> 00:56:48,480
+so svg height minus
+
+1147
+00:56:44,960 --> 00:56:51,119
+wait um so it's just
+
+1148
+00:56:48,480 --> 00:56:51,119
+bar height
+
+1149
+00:56:52,559 --> 00:56:56,400
+no i don't think that's right this
+
+1150
+00:56:55,599 --> 00:57:00,160
+should be right
+
+1151
+00:56:56,400 --> 00:57:00,160
+right i mean this the original
+
+1152
+00:57:00,400 --> 00:57:03,760
+you know i want to try to do it one shot
+
+1153
+00:57:02,880 --> 00:57:07,520
+like think
+
+1154
+00:57:03,760 --> 00:57:08,880
+clearly and logically to come up with
+
+1155
+00:57:07,520 --> 00:57:11,440
+the correct code
+
+1156
+00:57:08,880 --> 00:57:12,000
+then run it it should work instead of
+
+1157
+00:57:11,440 --> 00:57:14,000
+you know like
+
+1158
+00:57:12,000 --> 00:57:17,040
+right now i have the opportunity just
+
+1159
+00:57:14,000 --> 00:57:19,520
+try it trial and error coding
+
+1160
+00:57:17,040 --> 00:57:20,400
+you know we'll probably get it right but
+
+1161
+00:57:19,520 --> 00:57:26,799
+i want to
+
+1162
+00:57:20,400 --> 00:57:29,280
+be able to understand it you know it's
+
+1163
+00:57:26,799 --> 00:57:31,200
+it's a trivial problem but it's often
+
+1164
+00:57:29,280 --> 00:57:34,480
+very confusing
+
+1165
+00:57:31,200 --> 00:57:34,480
+the the height
+
+1166
+00:57:37,040 --> 00:57:40,799
+it should be right because i think this
+
+1167
+00:57:39,599 --> 00:57:44,319
+should be right
+
+1168
+00:57:40,799 --> 00:57:44,319
+but i don't understand
+
+1169
+00:57:47,920 --> 00:57:52,839
+yeah so it should be right right svg
+
+1170
+00:57:50,559 --> 00:57:55,839
+height minus spa
+
+1171
+00:57:52,839 --> 00:57:55,839
+height
+
+1172
+00:57:57,760 --> 00:58:02,000
+yeah what the hell
+
+1173
+00:58:06,319 --> 00:58:10,880
+but if you if we do let's just okay
+
+1174
+00:58:09,440 --> 00:58:15,520
+let's
+
+1175
+00:58:10,880 --> 00:58:15,520
+let's resign to trial and error
+
+1176
+00:58:16,160 --> 00:58:27,440
+compile it
+
+1177
+00:58:22,799 --> 00:58:30,799
+go back to the code refresh
+
+1178
+00:58:27,440 --> 00:58:34,839
+okay so
+
+1179
+00:58:30,799 --> 00:58:37,760
+the problem is indeed about the
+
+1180
+00:58:34,839 --> 00:58:42,000
+height but now we
+
+1181
+00:58:37,760 --> 00:58:42,000
+got a weird crap
+
+1182
+00:58:46,400 --> 00:58:53,359
+okay so now it's time to wait so what
+
+1183
+00:58:50,319 --> 00:58:53,359
+what is going on
+
+1184
+00:59:02,720 --> 00:59:08,720
+such a trivial problem you take you know
+
+1185
+00:59:05,680 --> 00:59:08,720
+10 minutes to do
+
+1186
+00:59:09,440 --> 00:59:13,920
+you know tedious tedium of javascript
+
+1187
+00:59:12,799 --> 00:59:16,720
+and svg
+
+1188
+00:59:13,920 --> 00:59:17,680
+and uh you know that started me into
+
+1189
+00:59:16,720 --> 00:59:20,319
+another rant
+
+1190
+00:59:17,680 --> 00:59:21,359
+about the entire computer graphics
+
+1191
+00:59:20,319 --> 00:59:24,640
+industry
+
+1192
+00:59:21,359 --> 00:59:28,640
+which is all hacks and
+
+1193
+00:59:24,640 --> 00:59:32,079
+you know the the open
+
+1194
+00:59:28,640 --> 00:59:34,480
+open gl crap low level
+
+1195
+00:59:32,079 --> 00:59:34,480
+crap
+
+1196
+00:59:36,000 --> 00:59:41,040
+and then people like canvas you know
+
+1197
+00:59:38,480 --> 00:59:43,359
+apple's canvas technology that's even
+
+1198
+00:59:41,040 --> 00:59:43,359
+worse
+
+1199
+00:59:44,079 --> 00:59:47,839
+svg is relatively high level so anyway
+
+1200
+00:59:47,520 --> 01:00:00,720
+so
+
+1201
+00:59:47,839 --> 01:00:04,000
+let's see svg height
+
+1202
+01:00:00,720 --> 01:00:04,000
+i don't understand
+
+1203
+01:00:04,319 --> 01:00:10,799
+this should be correct svg height
+
+1204
+01:00:07,520 --> 01:00:10,799
+minus bar height
+
+1205
+01:00:12,000 --> 01:00:16,960
+that's where y's begin that's where why
+
+1206
+01:00:15,200 --> 01:00:20,000
+begin
+
+1207
+01:00:16,960 --> 01:00:23,599
+you don't understand so
+
+1208
+01:00:20,000 --> 01:00:26,960
+on the other hand if we have these
+
+1209
+01:00:23,599 --> 01:00:32,000
+this is just uh this minus that
+
+1210
+01:00:26,960 --> 01:00:32,000
+so that so this becomes just spa height
+
+1211
+01:00:36,079 --> 01:00:43,839
+so that is essentially this is just
+
+1212
+01:00:39,280 --> 01:00:43,839
+bar height
+
+1213
+01:00:45,599 --> 01:00:49,200
+yeah so this is just bar height plus bar
+
+1214
+01:00:48,799 --> 01:00:51,359
+height
+
+1215
+01:00:49,200 --> 01:00:54,559
+bar height plus bar height bar height
+
+1216
+01:00:51,359 --> 01:00:57,839
+plus bar height that's not
+
+1217
+01:00:54,559 --> 01:00:57,839
+it's not what we want
+
+1218
+01:00:58,640 --> 01:01:06,480
+it should be just svg height minus the
+
+1219
+01:01:02,400 --> 01:01:10,400
+bar height so wait what's wrong with our
+
+1220
+01:01:06,480 --> 01:01:13,760
+code this should be right
+
+1221
+01:01:10,400 --> 01:01:17,920
+remove that remove that svg let's look
+
+1222
+01:01:13,760 --> 01:01:21,200
+let's look okay let's look the next line
+
+1223
+01:01:17,920 --> 01:01:24,720
+so width width
+
+1224
+01:01:21,200 --> 01:01:25,200
+doesn't change but width and also about
+
+1225
+01:01:24,720 --> 01:01:28,559
+with
+
+1226
+01:01:25,200 --> 01:01:29,680
+we have a problem because our scaling
+
+1227
+01:01:28,559 --> 01:01:33,920
+factor is not
+
+1228
+01:01:29,680 --> 01:01:33,920
+having any effect what is that
+
+1229
+01:01:37,200 --> 01:01:42,319
+let's say six okay
+
+1230
+01:01:42,720 --> 01:01:45,280
+compile
+
+1231
+01:01:50,839 --> 01:01:55,359
+refresh
+
+1232
+01:01:52,000 --> 01:01:57,359
+not working okay okay let's let's go
+
+1233
+01:01:55,359 --> 01:01:59,520
+back for now let's go to
+
+1234
+01:01:57,359 --> 01:01:59,520
+the
+
+1235
+01:02:04,839 --> 01:02:07,839
+compile
+
+1236
+01:02:08,240 --> 01:02:15,520
+refresh okay let's go back to this
+
+1237
+01:02:12,079 --> 01:02:15,920
+now the width is a problem what why is
+
+1238
+01:02:15,520 --> 01:02:21,839
+it
+
+1239
+01:02:15,920 --> 01:02:21,839
+why is the width not working
+
+1240
+01:02:25,039 --> 01:02:28,720
+okay maybe yeah uh wait
+
+1241
+01:02:29,680 --> 01:02:32,000
+what
+
+1242
+01:02:33,520 --> 01:02:36,960
+bar console.log okay
+
+1243
+01:02:37,920 --> 01:02:40,400
+print it
+
+1244
+01:02:41,440 --> 01:02:46,720
+and compile the code
+
+1245
+01:02:47,039 --> 01:02:49,839
+refresh
+
+1246
+01:02:50,160 --> 01:02:56,799
+start over it has you know
+
+1247
+01:02:53,359 --> 01:03:03,839
+the bar width okay we got a problem
+
+1248
+01:02:56,799 --> 01:03:03,839
+the bar width is not having any effect
+
+1249
+01:03:05,520 --> 01:03:17,839
+yeah but what's his value okay but with
+
+1250
+01:03:08,640 --> 01:03:17,839
+a bar with changes why is that
+
+1251
+01:03:20,240 --> 01:03:24,319
+okay we got something wrong here but
+
+1252
+01:03:22,480 --> 01:03:30,640
+with should never change
+
+1253
+01:03:24,319 --> 01:03:33,920
+why is bar with changing
+
+1254
+01:03:30,640 --> 01:03:34,400
+oh i see so bar width is indeed changing
+
+1255
+01:03:33,920 --> 01:03:39,039
+because
+
+1256
+01:03:34,400 --> 01:03:39,039
+number of diagrams changes all the time
+
+1257
+01:03:40,240 --> 01:03:43,440
+because every time you type a new
+
+1258
+01:03:42,000 --> 01:03:46,960
+character it
+
+1259
+01:03:43,440 --> 01:03:48,079
+adds a new diagram potentially so the
+
+1260
+01:03:46,960 --> 01:03:51,280
+number of diagrams
+
+1261
+01:03:48,079 --> 01:03:52,799
+increased therefore the bar width will
+
+1262
+01:03:51,280 --> 01:03:55,920
+decrease
+
+1263
+01:03:52,799 --> 01:03:57,200
+but still bar width should be the same
+
+1264
+01:03:55,920 --> 01:04:01,680
+for every bar
+
+1265
+01:03:57,200 --> 01:04:05,280
+so yeah so still given a input text
+
+1266
+01:04:01,680 --> 01:04:06,799
+the bar with you know we compute the bar
+
+1267
+01:04:05,280 --> 01:04:09,599
+width
+
+1268
+01:04:06,799 --> 01:04:11,200
+so svg with divided by number of
+
+1269
+01:04:09,599 --> 01:04:14,000
+diagrams so it should get
+
+1270
+01:04:11,200 --> 01:04:14,720
+smaller and smaller right yeah that's
+
+1271
+01:04:14,000 --> 01:04:17,839
+right
+
+1272
+01:04:14,720 --> 01:04:20,960
+you see 540 270
+
+1273
+01:04:17,839 --> 01:04:24,240
+180 135 108
+
+1274
+01:04:20,960 --> 01:04:27,839
+90 77 so
+
+1275
+01:04:24,240 --> 01:04:27,839
+our bar width is correct
+
+1276
+01:04:29,119 --> 01:04:38,839
+and our bar width is correct
+
+1277
+01:04:34,720 --> 01:04:41,839
+and uh but why is it not having any
+
+1278
+01:04:38,839 --> 01:04:41,839
+effects
+
+1279
+01:04:44,079 --> 01:04:49,839
+it seems like it does have effect
+
+1280
+01:04:47,440 --> 01:04:49,839
+you see
+
+1281
+01:04:51,920 --> 01:04:58,640
+it does have effect but
+
+1282
+01:04:55,599 --> 01:05:09,839
+it's not you know why
+
+1283
+01:04:58,640 --> 01:05:09,839
+why is that we don't see gaps
+
+1284
+01:05:10,160 --> 01:05:15,760
+because we multiply by 0.6
+
+1285
+01:05:13,520 --> 01:05:15,760
+so
+
+1286
+01:05:17,839 --> 01:05:20,799
+greeting spots
+
+1287
+01:05:21,359 --> 01:05:26,480
+oh youtube notification is good so how
+
+1288
+01:05:24,480 --> 01:05:28,960
+many people i have like three people
+
+1289
+01:05:26,480 --> 01:05:28,960
+watching
+
+1290
+01:05:29,760 --> 01:05:36,880
+yeah oh nice
+
+1291
+01:05:33,440 --> 01:05:39,440
+okay increased say hi guys so we are
+
+1292
+01:05:36,880 --> 01:05:43,200
+stuck with this
+
+1293
+01:05:39,440 --> 01:05:48,240
+problem the main problem is the
+
+1294
+01:05:43,200 --> 01:05:48,240
+we cannot we are you know we cannot
+
+1295
+01:05:49,680 --> 01:05:54,720
+you know we cannot reverse the boss
+
+1296
+01:05:52,240 --> 01:05:58,079
+direction
+
+1297
+01:05:54,720 --> 01:06:01,200
+but meanwhile possibly related
+
+1298
+01:05:58,079 --> 01:06:04,640
+is that the bar width
+
+1299
+01:06:01,200 --> 01:06:07,760
+we are not seeing gaps between bar
+
+1300
+01:06:04,640 --> 01:06:18,000
+and we are stuck there
+
+1301
+01:06:07,760 --> 01:06:20,160
+we don't know what is the problem
+
+1302
+01:06:18,000 --> 01:06:22,960
+yeah there is a transform reflect you
+
+1303
+01:06:20,160 --> 01:06:26,480
+know i've used it but it's
+
+1304
+01:06:22,960 --> 01:06:29,359
+it creates more problem than it's worth
+
+1305
+01:06:26,480 --> 01:06:30,079
+yeah it does because it's not just a
+
+1306
+01:06:29,359 --> 01:06:32,559
+flip
+
+1307
+01:06:30,079 --> 01:06:33,119
+you have to flip and you have to move
+
+1308
+01:06:32,559 --> 01:06:36,799
+you know
+
+1309
+01:06:33,119 --> 01:06:38,799
+it creates more problems so let's let's
+
+1310
+01:06:36,799 --> 01:06:40,640
+let's think about geometry because
+
+1311
+01:06:38,799 --> 01:06:43,680
+usually you know i've done
+
+1312
+01:06:40,640 --> 01:06:44,160
+lots of geometry programming usually you
+
+1313
+01:06:43,680 --> 01:06:47,680
+really
+
+1314
+01:06:44,160 --> 01:06:50,880
+need to think you know to get it right
+
+1315
+01:06:47,680 --> 01:06:53,599
+um after some trial and error
+
+1316
+01:06:50,880 --> 01:06:54,240
+it doesn't work you cannot you you
+
+1317
+01:06:53,599 --> 01:06:56,400
+shouldn't
+
+1318
+01:06:54,240 --> 01:06:58,400
+continue you know lots of trial and
+
+1319
+01:06:56,400 --> 01:07:01,440
+error because you are missing some
+
+1320
+01:06:58,400 --> 01:07:01,839
+understanding so why is so so let's
+
+1321
+01:07:01,440 --> 01:07:05,280
+think
+
+1322
+01:07:01,839 --> 01:07:07,839
+think okay svg height
+
+1323
+01:07:05,280 --> 01:07:08,960
+minus the bar height okay the first
+
+1324
+01:07:07,839 --> 01:07:12,480
+problem is this
+
+1325
+01:07:08,960 --> 01:07:12,480
+why is this not right
+
+1326
+01:07:13,200 --> 01:07:18,000
+svg height minus the bar height
+
+1327
+01:07:18,160 --> 01:07:22,559
+then a related problem is why is the
+
+1328
+01:07:20,799 --> 01:07:25,440
+width
+
+1329
+01:07:22,559 --> 01:07:26,880
+svg width is not working out i mean why
+
+1330
+01:07:25,440 --> 01:07:31,119
+is it there's no gaps
+
+1331
+01:07:26,880 --> 01:07:36,160
+between let's let's make this
+
+1332
+01:07:31,119 --> 01:07:38,720
+even very small let's say just times 0.2
+
+1333
+01:07:36,160 --> 01:07:38,720
+compile
+
+1334
+01:07:40,839 --> 01:07:47,520
+refresh oh
+
+1335
+01:07:44,640 --> 01:07:47,520
+i see
+
+1336
+01:07:47,680 --> 01:07:55,200
+you see that's because the x
+
+1337
+01:07:52,160 --> 01:07:58,799
+you know even so you decrease the width
+
+1338
+01:07:55,200 --> 01:08:00,720
+but you did not decrease
+
+1339
+01:07:58,799 --> 01:08:01,920
+but you should not decrease where the
+
+1340
+01:08:00,720 --> 01:08:05,680
+bar begin the
+
+1341
+01:08:01,920 --> 01:08:06,240
+on the x coordinate okay so here is the
+
+1342
+01:08:05,680 --> 01:08:09,599
+problem
+
+1343
+01:08:06,240 --> 01:08:10,000
+and it's okay so here is the problem
+
+1344
+01:08:09,599 --> 01:08:13,200
+yeah
+
+1345
+01:08:10,000 --> 01:08:13,200
+this is incorrect
+
+1346
+01:08:14,799 --> 01:08:18,880
+yeah because it shrinked with bar width
+
+1347
+01:08:17,279 --> 01:08:23,120
+that's why
+
+1348
+01:08:18,880 --> 01:08:26,799
+so okay so bar width should be
+
+1349
+01:08:23,120 --> 01:08:30,080
+0.8 let's say 0.9 some gap
+
+1350
+01:08:26,799 --> 01:08:30,080
+but the
+
+1351
+01:08:31,359 --> 01:08:35,359
+okay we need another variable okay
+
+1352
+01:08:36,839 --> 01:08:39,839
+so
+
+1353
+01:08:49,359 --> 01:08:54,640
+so total bar width we are equals to
+
+1354
+01:08:55,759 --> 01:09:02,560
+svg width divided by number of diagrams
+
+1355
+01:08:59,040 --> 01:09:05,679
+then bar width will be
+
+1356
+01:09:02,560 --> 01:09:09,040
+total width times 0.9 okay
+
+1357
+01:09:05,679 --> 01:09:12,799
+so that gives gives you some gap
+
+1358
+01:09:09,040 --> 01:09:16,480
+now the x coordinate for each bar
+
+1359
+01:09:12,799 --> 01:09:18,080
+will be i times bar total width
+
+1360
+01:09:16,480 --> 01:09:20,719
+okay i'm pretty sure that's right
+
+1361
+01:09:18,080 --> 01:09:23,440
+compile it
+
+1362
+01:09:20,719 --> 01:09:24,640
+so this should give us gaps between the
+
+1363
+01:09:23,440 --> 01:09:28,400
+bars
+
+1364
+01:09:24,640 --> 01:09:28,400
+refresh fantastic
+
+1365
+01:09:28,880 --> 01:09:32,239
+okay fantastic that's fixed one problem
+
+1366
+01:09:31,600 --> 01:09:36,480
+the next
+
+1367
+01:09:32,239 --> 01:09:40,239
+problem is to fix the
+
+1368
+01:09:36,480 --> 01:09:40,239
+you know the upside down problem
+
+1369
+01:09:42,400 --> 01:09:46,560
+so let's just try it okay so
+
+1370
+01:09:46,640 --> 01:09:50,960
+let's just try it oh yeah i think maybe
+
+1371
+01:09:49,520 --> 01:09:54,960
+a similar problem
+
+1372
+01:09:50,960 --> 01:09:59,040
+wait svg height it has nothing to do
+
+1373
+01:09:54,960 --> 01:09:59,040
+with width
+
+1374
+01:10:00,840 --> 01:10:03,840
+uh
+
+1375
+01:10:06,560 --> 01:10:13,600
+so you are doing a for each loop
+
+1376
+01:10:10,000 --> 01:10:16,880
+and so the svg height
+
+1377
+01:10:13,600 --> 01:10:19,840
+is constant right yeah
+
+1378
+01:10:16,880 --> 01:10:20,560
+the svg height is defined somewhere
+
+1379
+01:10:19,840 --> 01:10:24,719
+above
+
+1380
+01:10:20,560 --> 01:10:26,640
+here so it's it does not change it's a
+
+1381
+01:10:24,719 --> 01:10:28,239
+constant you see we defined as a
+
+1382
+01:10:26,640 --> 01:10:29,760
+constant so you cannot change
+
+1383
+01:10:28,239 --> 01:10:31,280
+if you change it it's gonna be
+
+1384
+01:10:29,760 --> 01:10:35,199
+javascript error
+
+1385
+01:10:31,280 --> 01:10:38,000
+okay so svg height is constant
+
+1386
+01:10:35,199 --> 01:10:38,000
+and then
+
+1387
+01:10:38,800 --> 01:10:46,000
+and multiplied by v
+
+1388
+01:10:42,000 --> 01:10:48,400
+v okay so v is a percentage i mean v
+
+1389
+01:10:46,000 --> 01:10:50,159
+is kind of percentage times 100 so it's
+
+1390
+01:10:48,400 --> 01:10:52,880
+a scaling factor
+
+1391
+01:10:50,159 --> 01:10:54,239
+then you get bar height okay is that
+
+1392
+01:10:52,880 --> 01:10:57,280
+correct
+
+1393
+01:10:54,239 --> 01:10:59,840
+yes that's uh that's the bar height
+
+1394
+01:10:57,280 --> 01:10:59,840
+then
+
+1395
+01:11:00,960 --> 01:11:08,239
+so bar height is different for each bar
+
+1396
+01:11:04,480 --> 01:11:13,840
+right yeah so then you say svg height
+
+1397
+01:11:08,239 --> 01:11:13,840
+minus bar height
+
+1398
+01:11:16,640 --> 01:11:24,159
+we should be right should be correct
+
+1399
+01:11:19,760 --> 01:11:24,159
+what's going on svg height minus bar
+
+1400
+01:11:24,840 --> 01:11:27,840
+height
+
+1401
+01:11:29,520 --> 01:11:32,159
+compile
+
+1402
+01:11:32,719 --> 01:11:41,840
+let's try it refresh
+
+1403
+01:11:35,920 --> 01:11:41,840
+same problem f12
+
+1404
+01:11:42,719 --> 01:11:47,760
+we stuck with a geometry problem
+
+1405
+01:11:50,800 --> 01:11:58,480
+so what do we do now we
+
+1406
+01:11:55,120 --> 01:11:58,480
+you know so that uh
+
+1407
+01:11:59,040 --> 01:12:02,080
+so this problem
+
+1408
+01:12:02,880 --> 01:12:09,280
+uh we need to fix it
+
+1409
+01:12:06,800 --> 01:12:11,440
+you know that's our job that's what we
+
+1410
+01:12:09,280 --> 01:12:14,000
+are doing we need to fix it we cannot
+
+1411
+01:12:11,440 --> 01:12:14,000
+skip it
+
+1412
+01:12:14,960 --> 01:12:21,840
+it this problem a geometric
+
+1413
+01:12:18,159 --> 01:12:22,480
+problem ruins this video because we have
+
+1414
+01:12:21,840 --> 01:12:25,199
+we stuck
+
+1415
+01:12:22,480 --> 01:12:25,920
+this this is not even a javascript
+
+1416
+01:12:25,199 --> 01:12:30,880
+problem but
+
+1417
+01:12:25,920 --> 01:12:30,880
+this should be correct what the hell
+
+1418
+01:12:33,199 --> 01:12:36,880
+so let's print this value okay cancel
+
+1419
+01:12:36,000 --> 01:12:39,520
+out
+
+1420
+01:12:36,880 --> 01:12:39,520
+by height
+
+1421
+01:12:40,239 --> 01:12:51,840
+okay first of all cancel out bar height
+
+1422
+01:12:43,520 --> 01:12:51,840
+so bar height equals to
+
+1423
+01:12:54,000 --> 01:12:59,440
+so where is xmap you know xmap is a
+
+1424
+01:12:57,280 --> 01:13:03,600
+percentage right
+
+1425
+01:12:59,440 --> 01:13:06,719
+xmap is the argument to draw svg
+
+1426
+01:13:03,600 --> 01:13:10,239
+and xmap and if we look at
+
+1427
+01:13:06,719 --> 01:13:11,440
+who calls draw svg so search for draw
+
+1428
+01:13:10,239 --> 01:13:16,840
+svg
+
+1429
+01:13:11,440 --> 01:13:18,080
+we can see it the argument is compute
+
+1430
+01:13:16,840 --> 01:13:21,679
+percentage
+
+1431
+01:13:18,080 --> 01:13:21,679
+so perhaps we should
+
+1432
+01:13:22,320 --> 01:13:25,280
+okay let's uh
+
+1433
+01:13:25,360 --> 01:13:33,840
+let's say xx map okay let's say constant
+
+1434
+01:13:29,440 --> 01:13:33,840
+xx map and it will be
+
+1435
+01:13:34,080 --> 01:13:38,159
+that value then
+
+1436
+01:13:38,239 --> 01:13:40,719
+let's say
+
+1437
+01:13:45,760 --> 01:13:49,280
+percentage map okay
+
+1438
+01:13:54,320 --> 01:14:00,719
+so we can print
+
+1439
+01:13:57,520 --> 01:14:02,560
+console.log print this map let's see
+
+1440
+01:14:00,719 --> 01:14:04,960
+what's going on
+
+1441
+01:14:02,560 --> 01:14:04,960
+and
+
+1442
+01:14:09,440 --> 01:14:14,159
+okay there's some problem with deno
+
+1443
+01:14:11,679 --> 01:14:15,679
+format because it's not formatting this
+
+1444
+01:14:14,159 --> 01:14:19,600
+console
+
+1445
+01:14:15,679 --> 01:14:22,800
+line correctly before oh it does
+
+1446
+01:14:19,600 --> 01:14:25,120
+okay so search for console and remove
+
+1447
+01:14:22,800 --> 01:14:25,120
+the
+
+1448
+01:14:26,000 --> 01:14:33,280
+remove the printing of the bar width
+
+1449
+01:14:29,600 --> 01:14:35,920
+okay and read and comment that out
+
+1450
+01:14:33,280 --> 01:14:35,920
+compile
+
+1451
+01:14:36,320 --> 01:14:44,560
+so every time we type a new character
+
+1452
+01:14:40,159 --> 01:14:44,560
+it should print the
+
+1453
+01:14:46,159 --> 01:14:51,280
+the diagram by uh with a percentage
+
+1454
+01:14:48,960 --> 01:14:54,840
+value okay
+
+1455
+01:14:51,280 --> 01:14:57,840
+uncle type error some thing
+
+1456
+01:14:54,840 --> 01:14:57,840
+okay
+
+1457
+01:14:58,159 --> 01:15:03,120
+reduce of empty array with no initial
+
+1458
+01:15:00,640 --> 01:15:11,840
+value okay so there's a problem with
+
+1459
+01:15:03,120 --> 01:15:11,840
+empty array still
+
+1460
+01:15:13,120 --> 01:15:15,840
+wait is it
+
+1461
+01:15:17,120 --> 01:15:21,679
+did we compile why is it printing bar
+
+1462
+01:15:19,440 --> 01:15:21,679
+with
+
+1463
+01:15:22,840 --> 01:15:25,840
+compiler
+
+1464
+01:15:26,800 --> 01:15:34,560
+what okay now
+
+1465
+01:15:31,199 --> 01:15:37,520
+now that's right
+
+1466
+01:15:34,560 --> 01:15:38,159
+some every time we type a character a
+
+1467
+01:15:37,520 --> 01:15:41,840
+new map
+
+1468
+01:15:38,159 --> 01:15:44,480
+is printed that's correct and
+
+1469
+01:15:41,840 --> 01:15:45,360
+the value of each diagram is a
+
+1470
+01:15:44,480 --> 01:15:48,640
+percentage
+
+1471
+01:15:45,360 --> 01:15:53,840
+i mean is is a value between zero and
+
+1472
+01:15:48,640 --> 01:15:53,840
+one that's also correct
+
+1473
+01:15:56,320 --> 01:16:03,120
+yeah so we feed that into the draw
+
+1474
+01:15:59,920 --> 01:16:03,120
+svg code
+
+1475
+01:16:05,040 --> 01:16:13,440
+so here so we feed that into
+
+1476
+01:16:09,360 --> 01:16:17,679
+you know into the draw svg code
+
+1477
+01:16:13,440 --> 01:16:17,679
+so draw svg code gets the
+
+1478
+01:16:19,679 --> 01:16:27,360
+you know gets gets the
+
+1479
+01:16:23,280 --> 01:16:31,760
+percentage valued map diagram object
+
+1480
+01:16:27,360 --> 01:16:34,800
+and then when we start to create
+
+1481
+01:16:31,760 --> 01:16:38,080
+the bars the rectangles
+
+1482
+01:16:34,800 --> 01:16:42,000
+we have the key key is a diagram
+
+1483
+01:16:38,080 --> 01:16:45,040
+is the key used somewhere no
+
+1484
+01:16:42,000 --> 01:16:48,080
+we need to use it for the label later on
+
+1485
+01:16:45,040 --> 01:16:51,520
+but the value is the percentage
+
+1486
+01:16:48,080 --> 01:16:54,800
+value is used for the bar
+
+1487
+01:16:51,520 --> 01:16:57,840
+height and so far we've seen it's
+
+1488
+01:16:54,800 --> 01:16:57,840
+working correctly
+
+1489
+01:16:57,920 --> 01:17:04,239
+and but the problem is with
+
+1490
+01:17:01,040 --> 01:17:07,360
+the position it is
+
+1491
+01:17:04,239 --> 01:17:07,360
+starting to draw it
+
+1492
+01:17:15,440 --> 01:17:23,199
+oh oh okay i got it this
+
+1493
+01:17:18,719 --> 01:17:23,199
+is yeah again the confusing geometry
+
+1494
+01:17:28,840 --> 01:17:31,840
+problem
+
+1495
+01:17:38,159 --> 01:17:45,840
+wait i almost got it but i lost it
+
+1496
+01:17:50,159 --> 01:17:59,840
+this should be correct i don't know what
+
+1497
+01:18:01,199 --> 01:18:13,840
+okay this ruined
+
+1498
+01:18:04,560 --> 01:18:13,840
+the video we are stuck here
+
+1499
+01:18:16,560 --> 01:18:19,760
+let's say 10 okay let's just let's let's
+
+1500
+01:18:19,360 --> 01:18:22,800
+say
+
+1501
+01:18:19,760 --> 01:18:23,920
+now we i don't know what's going on so
+
+1502
+01:18:22,800 --> 01:18:27,840
+let's just say
+
+1503
+01:18:23,920 --> 01:18:27,840
+start from 10.
+
+1504
+01:18:29,760 --> 01:18:35,920
+okay compile error an
+
+1505
+01:18:33,120 --> 01:18:37,440
+identifier or keyword cannot immediately
+
+1506
+01:18:35,920 --> 01:18:42,960
+follow a numeric
+
+1507
+01:18:37,440 --> 01:18:42,960
+okay stupid compile
+
+1508
+01:18:45,199 --> 01:18:50,400
+refresh so it's drawing from the top
+
+1509
+01:18:49,199 --> 01:18:54,000
+this time
+
+1510
+01:18:50,400 --> 01:18:57,040
+10 pixels below okay now let's go back
+
+1511
+01:18:54,000 --> 01:19:00,960
+let's go to the html page
+
+1512
+01:18:57,040 --> 01:19:05,120
+and let's add a kind of a border
+
+1513
+01:19:00,960 --> 01:19:05,120
+around the svg box so
+
+1514
+01:19:05,440 --> 01:19:14,239
+so go to the bigram calculator page
+
+1515
+01:19:08,640 --> 01:19:14,239
+magnify we want a border around this
+
+1516
+01:19:14,880 --> 01:19:21,120
+display svg area around this okay
+
+1517
+01:19:17,920 --> 01:19:24,320
+so go to the top so let's add
+
+1518
+01:19:21,120 --> 01:19:24,320
+css tag
+
+1519
+01:19:26,080 --> 01:19:32,239
+what styles add a style tag
+
+1520
+01:19:29,120 --> 01:19:35,360
+and id svg
+
+1521
+01:19:32,239 --> 01:19:39,199
+display area then
+
+1522
+01:19:35,360 --> 01:19:42,640
+let's switch to sc css mod
+
+1523
+01:19:39,199 --> 01:19:47,040
+then let's just say order
+
+1524
+01:19:42,640 --> 01:19:50,080
+okay fold the solid thing gray okay
+
+1525
+01:19:47,040 --> 01:19:52,400
+switch to html mod
+
+1526
+01:19:50,080 --> 01:19:52,400
+again
+
+1527
+01:19:53,280 --> 01:20:02,000
+show in browser magnify
+
+1528
+01:19:56,880 --> 01:20:02,000
+refresh where's my border okay wrong
+
+1529
+01:20:02,840 --> 01:20:07,280
+area
+
+1530
+01:20:04,080 --> 01:20:12,560
+oh wait we screwed up
+
+1531
+01:20:07,280 --> 01:20:13,760
+you see our display area has a border
+
+1532
+01:20:12,560 --> 01:20:16,880
+here but
+
+1533
+01:20:13,760 --> 01:20:19,360
+we inserted svg into some wrong place
+
+1534
+01:20:16,880 --> 01:20:22,480
+what's going on
+
+1535
+01:20:19,360 --> 01:20:22,480
+display area
+
+1536
+01:20:23,520 --> 01:20:28,320
+so we have display area in show box
+
+1537
+01:20:29,360 --> 01:20:32,639
+uh this shouldn't be a span okay change
+
+1538
+01:20:32,239 --> 01:20:36,239
+it
+
+1539
+01:20:32,639 --> 01:20:36,239
+that's that's a mistake yeah
+
+1540
+01:20:37,679 --> 01:20:40,080
+dive
+
+1541
+01:20:44,159 --> 01:20:52,239
+yeah okay and remove that paragraph
+
+1542
+01:20:48,239 --> 01:20:52,239
+and also change this to dive
+
+1543
+01:20:53,920 --> 01:20:58,560
+show in browser there we have it
+
+1544
+01:20:58,800 --> 01:21:02,639
+oh my god so this is actually a
+
+1545
+01:21:01,040 --> 01:21:06,000
+revelation
+
+1546
+01:21:02,639 --> 01:21:10,000
+you know because due to
+
+1547
+01:21:06,000 --> 01:21:13,440
+html and css that is causing
+
+1548
+01:21:10,000 --> 01:21:17,520
+uh causing us to waste to have wasted
+
+1549
+01:21:13,440 --> 01:21:17,520
+30 minutes on this crap
+
+1550
+01:21:19,440 --> 01:21:24,080
+so open a javascript file again then
+
+1551
+01:21:22,719 --> 01:21:27,120
+turn this back
+
+1552
+01:21:24,080 --> 01:21:30,000
+remove that i mean let's use you know
+
+1553
+01:21:27,120 --> 01:21:31,040
+svg height minus bar height that should
+
+1554
+01:21:30,000 --> 01:21:34,400
+be correct
+
+1555
+01:21:31,040 --> 01:21:39,360
+okay compile the code okay
+
+1556
+01:21:34,400 --> 01:21:39,360
+back to browser magnify refresh
+
+1557
+01:21:43,760 --> 01:21:46,000
+no
+
+1558
+01:21:54,840 --> 01:21:57,840
+what
+
+1559
+01:22:08,239 --> 01:22:12,960
+at this point i'm very frustrated
+
+1560
+01:22:13,840 --> 01:22:16,480
+yes
+
+1561
+01:22:21,120 --> 01:22:25,840
+what what is the bar height
+
+1562
+01:23:07,840 --> 01:23:14,560
+where is the way is the
+
+1563
+01:23:11,040 --> 01:23:17,600
+this is com this
+
+1564
+01:23:14,560 --> 01:23:17,600
+is wrong
+
+1565
+01:23:17,840 --> 01:23:26,800
+where is the ttt
+
+1566
+01:23:21,120 --> 01:23:26,800
+tdg occur 44 times where is that
+
+1567
+01:23:32,639 --> 01:23:36,800
+okay i think i uh
+
+1568
+01:23:36,960 --> 01:23:42,480
+i might stop this stream because
+
+1569
+01:23:44,000 --> 01:23:49,840
+we stuck this and stuck on this and it's
+
+1570
+01:23:47,360 --> 01:23:49,840
+no fun
+
+1571
+01:23:50,560 --> 01:23:58,000
+who else is watching comments
+
+1572
+01:23:54,000 --> 01:23:58,000
+we have night people watching comments
+
+1573
+01:23:58,159 --> 01:24:06,320
+a people watching um
+
+1574
+01:24:02,560 --> 01:24:06,719
+okay but but but but we need to solve
+
+1575
+01:24:06,320 --> 01:24:10,159
+this
+
+1576
+01:24:06,719 --> 01:24:10,560
+i mean this is so so the more it doesn't
+
+1577
+01:24:10,159 --> 01:24:13,280
+work
+
+1578
+01:24:10,560 --> 01:24:15,679
+the more interesting it becomes
+
+1579
+01:24:13,280 --> 01:24:18,480
+something wrong with our code
+
+1580
+01:24:15,679 --> 01:24:19,920
+and we don't know what it what it is and
+
+1581
+01:24:18,480 --> 01:24:22,080
+right now it's missing
+
+1582
+01:24:19,920 --> 01:24:22,080
+a
+
+1583
+01:24:24,159 --> 01:24:31,840
+right now it's missing a giant bar
+
+1584
+01:24:32,400 --> 01:24:45,840
+oh okay you see that blue thing it's
+
+1585
+01:24:50,719 --> 01:24:58,000
+so apparently one of the largest bar
+
+1586
+01:24:54,880 --> 01:25:01,760
+is not showing yeah okay so
+
+1587
+01:24:58,000 --> 01:25:02,080
+x uh so there is some comment thank you
+
+1588
+01:25:01,760 --> 01:25:05,600
+guys
+
+1589
+01:25:02,080 --> 01:25:07,840
+hold on a second let me let me let me uh
+
+1590
+01:25:05,600 --> 01:25:13,840
+i'm gonna read it in a bit okay so i
+
+1591
+01:25:07,840 --> 01:25:13,840
+think i know what is what's going on so
+
+1592
+01:25:16,639 --> 01:25:22,159
+so x starts with bar total width
+
+1593
+01:25:22,719 --> 01:25:27,840
+bar column width so let's rename
+
+1594
+01:25:28,080 --> 01:25:36,000
+bar total with 2 bar column width
+
+1595
+01:25:32,080 --> 01:25:36,000
+because that's more
+
+1596
+01:25:36,480 --> 01:25:41,920
+that makes more sense so x is the
+
+1597
+01:25:39,120 --> 01:25:46,320
+position of each rectangle so
+
+1598
+01:25:41,920 --> 01:25:49,280
+uh so it so i times bar column width
+
+1599
+01:25:46,320 --> 01:25:52,239
+i begins with zero that's right because
+
+1600
+01:25:49,280 --> 01:25:54,960
+i is the index of the
+
+1601
+01:25:52,239 --> 01:25:55,760
+of the array so begins of zero so it
+
+1602
+01:25:54,960 --> 01:26:00,480
+starts with
+
+1603
+01:25:55,760 --> 01:26:00,480
+uh over here and uh
+
+1604
+01:26:03,040 --> 01:26:06,840
+okay so i think another thing we did
+
+1605
+01:26:05,280 --> 01:26:09,440
+wrong is
+
+1606
+01:26:06,840 --> 01:26:13,360
+this bar total width
+
+1607
+01:26:09,440 --> 01:26:15,600
+so about total with bar column width
+
+1608
+01:26:13,360 --> 01:26:15,600
+is
+
+1609
+01:26:17,040 --> 01:26:25,520
+let's say your svg width is 100 pixels
+
+1610
+01:26:22,000 --> 01:26:30,239
+and let's say you have five
+
+1611
+01:26:25,520 --> 01:26:33,520
+bi-grams so you want five bars
+
+1612
+01:26:30,239 --> 01:26:36,639
+so when you divide
+
+1613
+01:26:33,520 --> 01:26:40,239
+svg with 100 divided by 5
+
+1614
+01:26:36,639 --> 01:26:40,239
+which is 20.
+
+1615
+01:26:43,679 --> 01:26:46,800
+you know i'm thinking of an arrow
+
+1616
+01:26:45,920 --> 01:26:50,480
+something like
+
+1617
+01:26:46,800 --> 01:26:52,480
+off by one off by one so
+
+1618
+01:26:50,480 --> 01:26:55,120
+maybe one of the bar went outside
+
+1619
+01:26:52,480 --> 01:26:57,360
+something like that
+
+1620
+01:26:55,120 --> 01:26:57,360
+uh
+
+1621
+01:27:03,360 --> 01:27:07,840
+yeah but it so far i don't see where is
+
+1622
+01:27:06,159 --> 01:27:10,960
+the arrow
+
+1623
+01:27:07,840 --> 01:27:14,639
+so x is that and
+
+1624
+01:27:10,960 --> 01:27:17,840
+bar height is um
+
+1625
+01:27:14,639 --> 01:27:19,199
+yeah i am stuck okay let's see the
+
+1626
+01:27:17,840 --> 01:27:22,880
+comments
+
+1627
+01:27:19,199 --> 01:27:26,560
+nice setup man thank you mcnc
+
+1628
+01:27:22,880 --> 01:27:30,000
+hi i love your work
+
+1629
+01:27:26,560 --> 01:27:34,400
+thank you i am new to javascript and svg
+
+1630
+01:27:30,000 --> 01:27:36,080
+thank you okay thank you guys good luck
+
+1631
+01:27:34,400 --> 01:27:40,320
+yeah i think that's it for today i've
+
+1632
+01:27:36,080 --> 01:27:43,440
+been talking we stuck this problem
+
+1633
+01:27:40,320 --> 01:27:49,360
+oh god
+
+1634
+01:27:43,440 --> 01:27:49,360
+but we've been coding for 90 minutes
+
+1635
+01:27:53,679 --> 01:27:57,760
+uh and and and this is just not right
+
+1636
+01:27:56,480 --> 01:28:01,520
+okay let's start from
+
+1637
+01:27:57,760 --> 01:28:04,560
+zero again so
+
+1638
+01:28:01,520 --> 01:28:04,560
+compile the code
+
+1639
+01:28:05,679 --> 01:28:08,320
+refresh
+
+1640
+01:28:08,800 --> 01:28:14,960
+so let's let's have some controlled
+
+1641
+01:28:11,920 --> 01:28:18,480
+uh chart a b
+
+1642
+01:28:14,960 --> 01:28:19,600
+c d okay so a b c d that's four
+
+1643
+01:28:18,480 --> 01:28:22,000
+characters
+
+1644
+01:28:19,600 --> 01:28:24,320
+so four characters creates three
+
+1645
+01:28:22,000 --> 01:28:26,800
+bi-grams
+
+1646
+01:28:24,320 --> 01:28:28,400
+so that means you should have three bars
+
+1647
+01:28:26,800 --> 01:28:33,440
+now you see the left one
+
+1648
+01:28:28,400 --> 01:28:33,440
+the left the rightmost one is
+
+1649
+01:28:35,760 --> 01:28:42,320
+so the data is correct a b b
+
+1650
+01:28:38,800 --> 01:28:45,760
+c c d each occurs one time
+
+1651
+01:28:42,320 --> 01:28:49,360
+a b b c c d but the bar chart
+
+1652
+01:28:45,760 --> 01:28:53,520
+the the right most one is
+
+1653
+01:28:49,360 --> 01:28:58,560
+now we need to dive connecting
+
+1654
+01:28:53,520 --> 01:28:58,560
+okay there's some disruption okay so
+
+1655
+01:29:01,199 --> 01:29:11,840
+so the rightmost bar is screwed
+
+1656
+01:29:05,120 --> 01:29:11,840
+so how do you
+
+1657
+01:29:30,480 --> 01:29:38,800
+so where in the code does the bar charts
+
+1658
+01:29:34,239 --> 01:29:43,040
+depend on the list you returned
+
+1659
+01:29:38,800 --> 01:29:45,600
+well we have this draw svg function
+
+1660
+01:29:43,040 --> 01:29:46,320
+so this function takes a argument the
+
+1661
+01:29:45,600 --> 01:29:48,800
+argument
+
+1662
+01:29:46,320 --> 01:29:49,920
+is you know the diagrams you see that's
+
+1663
+01:29:48,800 --> 01:29:53,280
+a data
+
+1664
+01:29:49,920 --> 01:29:56,639
+a nested array each element is two
+
+1665
+01:29:53,280 --> 01:29:59,920
+elements you know array
+
+1666
+01:29:56,639 --> 01:30:02,800
+um so uh
+
+1667
+01:29:59,920 --> 01:30:04,480
+you know in fact as a hack we can
+
+1668
+01:30:02,800 --> 01:30:06,719
+probably solve this
+
+1669
+01:30:04,480 --> 01:30:08,480
+some of the missing right bar chart by
+
+1670
+01:30:06,719 --> 01:30:11,360
+plus one here
+
+1671
+01:30:08,480 --> 01:30:13,120
+you know but that's a that's just a hack
+
+1672
+01:30:11,360 --> 01:30:16,560
+because i don't
+
+1673
+01:30:13,120 --> 01:30:20,560
+i'm not understanding the situation
+
+1674
+01:30:16,560 --> 01:30:22,880
+for example let's try abc
+
+1675
+01:30:20,560 --> 01:30:24,480
+oh still yeah it solves the problem you
+
+1676
+01:30:22,880 --> 01:30:27,760
+see abc
+
+1677
+01:30:24,480 --> 01:30:29,840
+three characters two bigrams and you
+
+1678
+01:30:27,760 --> 01:30:32,719
+have two bars
+
+1679
+01:30:29,840 --> 01:30:34,000
+that's correct okay okay we see the
+
+1680
+01:30:32,719 --> 01:30:37,520
+problem you see it's a
+
+1681
+01:30:34,000 --> 01:30:40,080
+it's it's cut off so it's not the
+
+1682
+01:30:37,520 --> 01:30:40,639
+it's not the case that the bar is not
+
+1683
+01:30:40,080 --> 01:30:43,920
+showing
+
+1684
+01:30:40,639 --> 01:30:44,239
+but rather for some reason it's uh cut
+
+1685
+01:30:43,920 --> 01:30:47,679
+off
+
+1686
+01:30:44,239 --> 01:30:49,920
+by the rendering engine yeah that is
+
+1687
+01:30:47,679 --> 01:30:51,040
+that's likely the problem you know
+
+1688
+01:30:49,920 --> 01:30:55,280
+that's the problem with
+
+1689
+01:30:51,040 --> 01:30:55,280
+web programming lots of these
+
+1690
+01:30:56,800 --> 01:31:03,840
+so that may have to do with css or
+
+1691
+01:31:00,719 --> 01:31:06,080
+with with the svg box we are creating
+
+1692
+01:31:03,840 --> 01:31:06,080
+um
+
+1693
+01:31:07,440 --> 01:31:15,440
+where is the svg so you see our width
+
+1694
+01:31:10,800 --> 01:31:18,560
+is 900. now maybe because of my website
+
+1695
+01:31:15,440 --> 01:31:22,320
+that i have some css magic
+
+1696
+01:31:18,560 --> 01:31:25,440
+you know i have some css magic because
+
+1697
+01:31:22,320 --> 01:31:25,440
+let me show you okay
+
+1698
+01:31:28,560 --> 01:31:36,239
+because let's see you see
+
+1699
+01:31:31,679 --> 01:31:39,360
+there is a left navigation panel
+
+1700
+01:31:36,239 --> 01:31:41,600
+but if you shrink it if it's smaller to
+
+1701
+01:31:39,360 --> 01:31:43,920
+some degree the panel go away
+
+1702
+01:31:41,600 --> 01:31:44,800
+so that's called responsive design
+
+1703
+01:31:43,920 --> 01:31:49,199
+so-called
+
+1704
+01:31:44,800 --> 01:31:49,199
+you know which is the idiotic crap
+
+1705
+01:31:49,840 --> 01:31:53,520
+so and and right now i don't know if
+
+1706
+01:31:52,320 --> 01:31:57,199
+this problem is
+
+1707
+01:31:53,520 --> 01:32:00,719
+related or not but we can test it by
+
+1708
+01:31:57,199 --> 01:32:04,320
+go to the html page close it
+
+1709
+01:32:00,719 --> 01:32:08,400
+reopen and remove the line
+
+1710
+01:32:04,320 --> 01:32:12,320
+that loads my custom css so we are
+
+1711
+01:32:08,400 --> 01:32:15,920
+so so this file does not depends on
+
+1712
+01:32:12,320 --> 01:32:20,000
+you know my css which is which is
+
+1713
+01:32:15,920 --> 01:32:23,360
+200 lines okay so now
+
+1714
+01:32:20,000 --> 01:32:26,880
+refresh okay it seems
+
+1715
+01:32:23,360 --> 01:32:28,159
+the problem remains okay you don't have
+
+1716
+01:32:26,880 --> 01:32:32,639
+the special
+
+1717
+01:32:28,159 --> 01:32:32,639
+css but the problem remains it's uh
+
+1718
+01:32:38,159 --> 01:32:43,679
+somehow cut off okay i i think i i know
+
+1719
+01:32:40,560 --> 01:32:46,719
+the problem the problem is
+
+1720
+01:32:43,679 --> 01:32:49,920
+the problem again is with css
+
+1721
+01:32:46,719 --> 01:32:50,719
+i mean with svg so in svg you have the
+
+1722
+01:32:49,920 --> 01:32:54,639
+view box
+
+1723
+01:32:50,719 --> 01:32:59,520
+which is what we have i mean the the
+
+1724
+01:32:54,639 --> 01:33:02,320
+the view view port okay um
+
+1725
+01:32:59,520 --> 01:33:04,480
+then you have the you see the viewport
+
+1726
+01:33:02,320 --> 01:33:08,159
+is svg width and height
+
+1727
+01:33:04,480 --> 01:33:11,840
+that's you specify and it creates
+
+1728
+01:33:08,159 --> 01:33:11,840
+a absolute coordinate
+
+1729
+01:33:13,199 --> 01:33:20,159
+but if your elements went outside of it
+
+1730
+01:33:17,360 --> 01:33:22,480
+you'll just disappear but it shouldn't
+
+1731
+01:33:20,159 --> 01:33:24,080
+in our case because we are dividing by
+
+1732
+01:33:22,480 --> 01:33:28,719
+the svg
+
+1733
+01:33:24,080 --> 01:33:32,480
+width but anyway besides the viewport
+
+1734
+01:33:28,719 --> 01:33:36,080
+then you also have a relative coordinate
+
+1735
+01:33:32,480 --> 01:33:38,000
+this is when you say
+
+1736
+01:33:36,080 --> 01:33:39,120
+is when you say you know width and
+
+1737
+01:33:38,000 --> 01:33:41,679
+height but also
+
+1738
+01:33:39,120 --> 01:33:42,719
+view box equals to something so you can
+
+1739
+01:33:41,679 --> 01:33:50,080
+have a relative
+
+1740
+01:33:42,719 --> 01:33:53,760
+coordinate um
+
+1741
+01:33:50,080 --> 01:33:54,960
+we can do that uh we can do that but
+
+1742
+01:33:53,760 --> 01:33:58,560
+it's uh it's
+
+1743
+01:33:54,960 --> 01:33:58,560
+yeah we let's let's try it
+
+1744
+01:34:03,440 --> 01:34:10,080
+okay let's let's try it then
+
+1745
+01:34:06,639 --> 01:34:14,000
+so so here is the line that creates
+
+1746
+01:34:10,080 --> 01:34:19,679
+svg let's modify it
+
+1747
+01:34:14,000 --> 01:34:22,560
+okay wait uh
+
+1748
+01:34:19,679 --> 01:34:25,120
+so you need to add attribute let me show
+
+1749
+01:34:22,560 --> 01:34:25,120
+you okay
+
+1750
+01:34:26,159 --> 01:34:30,639
+oh here is our mistake
+
+1751
+01:34:28,700 --> 01:34:33,440
+[Laughter]
+
+1752
+01:34:30,639 --> 01:34:34,560
+svg attribute width and width this
+
+1753
+01:34:33,440 --> 01:34:37,679
+should be height
+
+1754
+01:34:34,560 --> 01:34:37,679
+what the
+
+1755
+01:34:41,600 --> 01:34:47,840
+compile code
+
+1756
+01:34:49,679 --> 01:34:57,520
+where is our page refresh no it works
+
+1757
+01:34:54,320 --> 01:35:01,040
+god okay a typo
+
+1758
+01:34:57,520 --> 01:35:04,719
+created our problem uh
+
+1759
+01:35:01,040 --> 01:35:07,920
+typo created the entire
+
+1760
+01:35:04,719 --> 01:35:11,360
+problem for us and
+
+1761
+01:35:07,920 --> 01:35:14,719
+wasted us one hour
+
+1762
+01:35:11,360 --> 01:35:18,960
+one five
+
+1763
+01:35:14,719 --> 01:35:22,080
+king hour a typo
+
+1764
+01:35:18,960 --> 01:35:24,960
+the typo is we
+
+1765
+01:35:22,080 --> 01:35:25,520
+this line should be width and height and
+
+1766
+01:35:24,960 --> 01:35:29,840
+we
+
+1767
+01:35:25,520 --> 01:35:29,840
+but instead we have width and width
+
+1768
+01:35:31,760 --> 01:35:39,600
+okay okay now let's go back to quickly
+
+1769
+01:35:36,480 --> 01:35:42,800
+now everything should work okay
+
+1770
+01:35:39,600 --> 01:35:44,960
+compile now we have the we have
+
+1771
+01:35:42,800 --> 01:35:46,880
+we should have fixed the upside down
+
+1772
+01:35:44,960 --> 01:35:49,600
+graph indeed
+
+1773
+01:35:46,880 --> 01:35:49,600
+beautiful
+
+1774
+01:35:50,320 --> 01:35:57,040
+now we should have
+
+1775
+01:35:53,360 --> 01:36:00,719
+fixed the upside down graph okay it's
+
+1776
+01:35:57,040 --> 01:36:03,280
+just not good because it's not relative
+
+1777
+01:36:00,719 --> 01:36:04,560
+but anyway the upside down is fixed now
+
+1778
+01:36:03,280 --> 01:36:07,440
+we need to fix
+
+1779
+01:36:04,560 --> 01:36:08,880
+the make them relative so the first bar
+
+1780
+01:36:07,440 --> 01:36:13,760
+so it it
+
+1781
+01:36:08,880 --> 01:36:13,760
+so the the height should be
+
+1782
+01:36:14,560 --> 01:36:18,960
+i mean the the the bar height should be
+
+1783
+01:36:20,639 --> 01:36:24,159
+the bar height should be svg height
+
+1784
+01:36:22,960 --> 01:36:27,520
+times the
+
+1785
+01:36:24,159 --> 01:36:27,520
+percentage of occurrence
+
+1786
+01:36:28,000 --> 01:36:35,440
+then divided by the highest bar
+
+1787
+01:36:32,639 --> 01:36:37,360
+so the highest bar should have you know
+
+1788
+01:36:35,440 --> 01:36:40,719
+the full
+
+1789
+01:36:37,360 --> 01:36:44,800
+svg height okay that's that's why
+
+1790
+01:36:40,719 --> 01:36:48,000
+so that's why you are seeing you see
+
+1791
+01:36:44,800 --> 01:36:53,679
+so the highest part should be the
+
+1792
+01:36:48,000 --> 01:36:56,560
+the base okay the base of measurement so
+
+1793
+01:36:53,679 --> 01:36:58,960
+so the so so we need to modify the code
+
+1794
+01:36:56,560 --> 01:37:00,000
+here the bar height equals to svg height
+
+1795
+01:36:58,960 --> 01:37:02,560
+times v
+
+1796
+01:37:00,000 --> 01:37:03,840
+and then okay so we we need to know
+
+1797
+01:37:02,560 --> 01:37:06,960
+what's the first
+
+1798
+01:37:03,840 --> 01:37:08,800
+the biggest one so that one is easy the
+
+1799
+01:37:06,960 --> 01:37:11,840
+biggest one is the first element
+
+1800
+01:37:08,800 --> 01:37:12,320
+in x map because we you know we we
+
+1801
+01:37:11,840 --> 01:37:15,600
+already
+
+1802
+01:37:12,320 --> 01:37:18,719
+sorted it so x map
+
+1803
+01:37:15,600 --> 01:37:22,159
+the first element okay
+
+1804
+01:37:18,719 --> 01:37:25,840
+the first element of it then
+
+1805
+01:37:22,159 --> 01:37:29,920
+the first element of it that's the value
+
+1806
+01:37:25,840 --> 01:37:29,920
+so that is the basis so
+
+1807
+01:37:30,639 --> 01:37:36,080
+wait wait okay so okay so we we need to
+
+1808
+01:37:33,600 --> 01:37:36,080
+do this
+
+1809
+01:37:36,320 --> 01:37:38,800
+constant
+
+1810
+01:37:44,159 --> 01:37:49,600
+highest bar height okay we need to
+
+1811
+01:37:46,800 --> 01:37:54,960
+define this let's put it here okay
+
+1812
+01:37:49,600 --> 01:37:54,960
+highest bar height will be equal to
+
+1813
+01:37:57,920 --> 01:38:04,880
+will be equal to the frequency
+
+1814
+01:38:01,520 --> 01:38:08,480
+of the first uh
+
+1815
+01:38:04,880 --> 01:38:12,080
+the the highest element times
+
+1816
+01:38:08,480 --> 01:38:12,080
+the svg height
+
+1817
+01:38:14,080 --> 01:38:17,600
+okay the frequency
+
+1818
+01:38:15,940 --> 01:38:21,280
+[Music]
+
+1819
+01:38:17,600 --> 01:38:25,360
+yeah so let's let's put it here
+
+1820
+01:38:21,280 --> 01:38:27,600
+the svg heights scaled by the frequency
+
+1821
+01:38:25,360 --> 01:38:30,639
+of the
+
+1822
+01:38:27,600 --> 01:38:37,199
+of the svg height okay
+
+1823
+01:38:30,639 --> 01:38:37,199
+purify then then for each bar height
+
+1824
+01:38:39,040 --> 01:38:48,080
+so this part can actually go up because
+
+1825
+01:38:44,000 --> 01:38:52,560
+does it change it does okay so
+
+1826
+01:38:48,080 --> 01:38:52,560
+so so so for each bar height will be
+
+1827
+01:38:52,719 --> 01:38:59,840
+will be the highest bar height times
+
+1828
+01:38:57,040 --> 01:38:59,840
+v okay
+
+1829
+01:39:00,560 --> 01:39:07,679
+compile back to browser
+
+1830
+01:39:04,960 --> 01:39:07,679
+magnify
+
+1831
+01:39:08,080 --> 01:39:15,679
+refresh oh it went
+
+1832
+01:39:11,520 --> 01:39:18,159
+it went away okay it went away
+
+1833
+01:39:15,679 --> 01:39:21,440
+okay now yeah i okay so now there's
+
+1834
+01:39:18,159 --> 01:39:21,440
+something else to fix
+
+1835
+01:39:24,239 --> 01:39:27,520
+so instead of svg height minus spa
+
+1836
+01:39:27,040 --> 01:39:30,719
+height
+
+1837
+01:39:27,520 --> 01:39:30,719
+it should just be
+
+1838
+01:39:39,600 --> 01:39:45,760
+high spot height okay
+
+1839
+01:39:43,119 --> 01:39:45,760
+compile
+
+1840
+01:39:51,280 --> 01:39:56,960
+refresh no it didn't work
+
+1841
+01:39:57,840 --> 01:40:03,280
+let's just say start from zero you idiot
+
+1842
+01:40:03,760 --> 01:40:06,320
+compile
+
+1843
+01:40:06,880 --> 01:40:11,440
+refresh now starting from zero doesn't
+
+1844
+01:40:10,880 --> 01:40:14,639
+work
+
+1845
+01:40:11,440 --> 01:40:18,400
+now f12 help
+
+1846
+01:40:14,639 --> 01:40:20,639
+console.log help and chord type error x
+
+1847
+01:40:18,400 --> 01:40:25,440
+map zero
+
+1848
+01:40:20,639 --> 01:40:25,440
+is undefined okay so that's easy to fix
+
+1849
+01:40:27,440 --> 01:40:31,440
+uh first of all let's make this change
+
+1850
+01:40:30,159 --> 01:40:37,840
+this back so
+
+1851
+01:40:31,440 --> 01:40:37,840
+so this this thing
+
+1852
+01:40:40,400 --> 01:40:44,320
+x map dot entries
+
+1853
+01:40:48,840 --> 01:40:55,679
+uh
+
+1854
+01:40:50,239 --> 01:40:55,679
+okay let's let's let's shrink them
+
+1855
+01:41:02,840 --> 01:41:05,840
+xmap.entries
+
+1856
+01:41:08,800 --> 01:41:15,199
+why is it not working because x map is
+
+1857
+01:41:11,920 --> 01:41:18,480
+a what is x map x map
+
+1858
+01:41:15,199 --> 01:41:22,800
+is the argument to draw svg here
+
+1859
+01:41:18,480 --> 01:41:27,840
+and what what is draw svg
+
+1860
+01:41:22,800 --> 01:41:30,719
+uh svg true svg is compute percentage
+
+1861
+01:41:27,840 --> 01:41:33,280
+the return value of compute percentage
+
+1862
+01:41:30,719 --> 01:41:34,080
+so what is the return value of compute
+
+1863
+01:41:33,280 --> 01:41:36,960
+percentage
+
+1864
+01:41:34,080 --> 01:41:37,760
+okay so the return value of compute
+
+1865
+01:41:36,960 --> 01:41:40,400
+percentage
+
+1866
+01:41:37,760 --> 01:41:42,719
+is a map that's why no wonder it doesn't
+
+1867
+01:41:40,400 --> 01:41:42,719
+work
+
+1868
+01:41:44,840 --> 01:41:52,239
+yeah stupid javascript okay i know
+
+1869
+01:41:48,080 --> 01:41:52,239
+what's going on so in order to
+
+1870
+01:41:55,440 --> 01:42:00,719
+so we you know there is no way to get
+
+1871
+01:41:58,880 --> 01:42:04,560
+the first element of a map
+
+1872
+01:42:00,719 --> 01:42:06,480
+by index so our data structure you need
+
+1873
+01:42:04,560 --> 01:42:09,600
+to change the data structure because
+
+1874
+01:42:06,480 --> 01:42:11,760
+map is a key value pair you cannot you
+
+1875
+01:42:09,600 --> 01:42:14,880
+know get the first element even
+
+1876
+01:42:11,760 --> 01:42:17,119
+even even even
+
+1877
+01:42:14,880 --> 01:42:19,600
+even so the map object is actually
+
+1878
+01:42:17,119 --> 01:42:23,679
+ordered in javascript the map object
+
+1879
+01:42:19,600 --> 01:42:26,719
+is maintenance order but you cannot get
+
+1880
+01:42:23,679 --> 01:42:29,760
+the first element like that so so
+
+1881
+01:42:26,719 --> 01:42:33,520
+either change the argument
+
+1882
+01:42:29,760 --> 01:42:36,800
+change the input to svg draw svg so that
+
+1883
+01:42:33,520 --> 01:42:37,920
+it takes a entry instead of you know it
+
+1884
+01:42:36,800 --> 01:42:42,080
+takes a
+
+1885
+01:42:37,920 --> 01:42:46,320
+array instead of instead of a
+
+1886
+01:42:42,080 --> 01:42:49,679
+map object so it's actually much
+
+1887
+01:42:46,320 --> 01:42:54,159
+easier to work with uh wait it's
+
+1888
+01:42:49,679 --> 01:42:54,159
+actually much easier to work with um
+
+1889
+01:42:54,239 --> 01:42:58,719
+array of arrays instead of a map but if
+
+1890
+01:42:56,960 --> 01:42:59,520
+you change it to array then you have to
+
+1891
+01:42:58,719 --> 01:43:02,880
+change
+
+1892
+01:42:59,520 --> 01:43:05,360
+okay this size will be length
+
+1893
+01:43:02,880 --> 01:43:06,159
+okay that can be done okay make a backup
+
+1894
+01:43:05,360 --> 01:43:08,560
+first
+
+1895
+01:43:06,159 --> 01:43:11,840
+so because we are going to make a kind
+
+1896
+01:43:08,560 --> 01:43:11,840
+of a big change
+
+1897
+01:43:12,480 --> 01:43:21,840
+so we need to basically here
+
+1898
+01:43:16,960 --> 01:43:21,840
+joe svg so okay let's let's do let's do
+
+1899
+01:43:22,840 --> 01:43:25,840
+it
+
+1900
+01:43:33,760 --> 01:43:40,239
+and let's just do it quickly
+
+1901
+01:43:37,040 --> 01:43:41,199
+and yeah i'm getting tired too let's
+
+1902
+01:43:40,239 --> 01:43:43,760
+just forget about
+
+1903
+01:43:41,199 --> 01:43:44,960
+efficiency okay let's just do it quickly
+
+1904
+01:43:43,760 --> 01:43:48,719
+here
+
+1905
+01:43:44,960 --> 01:43:48,719
+so now you get entries
+
+1906
+01:43:49,199 --> 01:43:56,159
+now search for xmap so let's
+
+1907
+01:43:52,239 --> 01:43:56,159
+see so this is now length
+
+1908
+01:43:57,040 --> 01:44:01,360
+and you don't need the entries here
+
+1909
+01:43:59,280 --> 01:44:07,840
+because it's already
+
+1910
+01:44:01,360 --> 01:44:07,840
+entries so
+
+1911
+01:44:15,679 --> 01:44:22,159
+okay and okay so let's see
+
+1912
+01:44:19,600 --> 01:44:23,679
+okay let's just compile let's do trial
+
+1913
+01:44:22,159 --> 01:44:27,760
+and error let's
+
+1914
+01:44:23,679 --> 01:44:34,960
+let's be sloppy refresh
+
+1915
+01:44:27,760 --> 01:44:37,600
+yeah unexpected value none passing with
+
+1916
+01:44:34,960 --> 01:44:37,600
+attribute
+
+1917
+01:44:39,360 --> 01:44:42,400
+so we have to
+
+1918
+01:44:46,840 --> 01:44:49,840
+x-map
+
+1919
+01:44:51,040 --> 01:44:57,040
+oh yeah so if you change it to array
+
+1920
+01:44:54,080 --> 01:44:57,600
+then this syntax no longer works because
+
+1921
+01:44:57,040 --> 01:45:00,800
+because
+
+1922
+01:44:57,600 --> 01:45:01,440
+for each you know the for each method
+
+1923
+01:45:00,800 --> 01:45:03,199
+for map
+
+1924
+01:45:01,440 --> 01:45:05,280
+and for each method for array are
+
+1925
+01:45:03,199 --> 01:45:08,239
+different
+
+1926
+01:45:05,280 --> 01:45:08,800
+okay let's redo undo undo undo
+
+1927
+01:45:08,239 --> 01:45:16,639
+everything
+
+1928
+01:45:08,800 --> 01:45:19,679
+and do back to where we are
+
+1929
+01:45:16,639 --> 01:45:22,880
+okay and do everything save
+
+1930
+01:45:19,679 --> 01:45:26,000
+and now so instead of changing the
+
+1931
+01:45:22,880 --> 01:45:26,719
+argument for xmap let's just change it
+
+1932
+01:45:26,000 --> 01:45:31,840
+inside
+
+1933
+01:45:26,719 --> 01:45:31,840
+here uh
+
+1934
+01:45:54,080 --> 01:45:59,840
+biggest biogram okay
+
+1935
+01:46:04,480 --> 01:46:09,360
+biggest diagram let's extract here so
+
+1936
+01:46:10,159 --> 01:46:17,360
+we are doing this super inefficiently
+
+1937
+01:46:15,040 --> 01:46:17,360
+okay
+
+1938
+01:46:25,920 --> 01:46:30,560
+so we extract here then
+
+1939
+01:46:32,080 --> 01:46:38,719
+then we can inside here we just do
+
+1940
+01:46:36,000 --> 01:46:38,719
+that okay
+
+1941
+01:46:39,280 --> 01:46:44,719
+typescript compile success
+
+1942
+01:46:52,840 --> 01:46:55,840
+refresh
+
+1943
+01:46:56,520 --> 01:47:06,480
+unexpected value none at
+
+1944
+01:47:00,960 --> 01:47:06,480
+code my number 90 88
+
+1945
+01:47:06,560 --> 01:47:09,840
+okay refresh
+
+1946
+01:47:11,920 --> 01:47:19,040
+92 so line number
+
+1947
+01:47:15,360 --> 01:47:23,199
+92 go to the javascript open
+
+1948
+01:47:19,040 --> 01:47:25,679
+line number 92 what the heck is 92 so
+
+1949
+01:47:23,199 --> 01:47:25,679
+it's a
+
+1950
+01:47:26,239 --> 01:47:37,840
+highest bar height minus bar height
+
+1951
+01:47:42,320 --> 01:47:49,040
+passing y attribute so we are getting
+
+1952
+01:47:46,080 --> 01:47:50,239
+none here not a number where are we
+
+1953
+01:47:49,040 --> 01:47:53,679
+getting not the number
+
+1954
+01:47:50,239 --> 01:47:57,119
+because one of highest bar height
+
+1955
+01:47:53,679 --> 01:48:01,280
+or bar height is
+
+1956
+01:47:57,119 --> 01:48:04,639
+uh not a number okay so close
+
+1957
+01:48:01,280 --> 01:48:08,239
+close back to our typescript
+
+1958
+01:48:04,639 --> 01:48:11,040
+and let's see where is the problem so
+
+1959
+01:48:08,239 --> 01:48:11,040
+bar height
+
+1960
+01:48:17,440 --> 01:48:20,560
+higher spa height
+
+1961
+01:48:20,960 --> 01:48:23,840
+oh okay so
+
+1962
+01:48:30,159 --> 01:48:35,199
+so this should be svg height minus okay
+
+1963
+01:48:36,880 --> 01:48:40,080
+but i don't think
+
+1964
+01:48:41,280 --> 01:48:47,840
+i don't think that'll fix it
+
+1965
+01:48:49,840 --> 01:48:53,760
+yeah 92
+
+1966
+01:48:56,560 --> 01:49:01,840
+okay so
+
+1967
+01:49:02,400 --> 01:49:06,080
+i'm gonna continue anyway so i'm gonna
+
+1968
+01:49:05,600 --> 01:49:08,239
+finish
+
+1969
+01:49:06,080 --> 01:49:09,520
+and you know because i need to code this
+
+1970
+01:49:08,239 --> 01:49:13,520
+myself
+
+1971
+01:49:09,520 --> 01:49:16,800
+so why not just uh continue anyway
+
+1972
+01:49:13,520 --> 01:49:20,080
+so biggest diagram value
+
+1973
+01:49:16,800 --> 01:49:23,199
+equals to xmap xmap
+
+1974
+01:49:20,080 --> 01:49:26,560
+is a map object and we
+
+1975
+01:49:23,199 --> 01:49:30,000
+want to turn it into
+
+1976
+01:49:26,560 --> 01:49:34,239
+nested array by calling the entries
+
+1977
+01:49:30,000 --> 01:49:34,239
+method then
+
+1978
+01:49:34,480 --> 01:49:38,320
+then the entries method returns a
+
+1979
+01:49:37,360 --> 01:49:41,440
+iterator
+
+1980
+01:49:38,320 --> 01:49:42,239
+iterable then we need to use the spread
+
+1981
+01:49:41,440 --> 01:49:46,159
+operator
+
+1982
+01:49:42,239 --> 01:49:49,360
+to turn it into a actual array
+
+1983
+01:49:46,159 --> 01:49:52,080
+once we have array
+
+1984
+01:49:49,360 --> 01:49:54,239
+0 is the first element which is the key
+
+1985
+01:49:52,080 --> 01:49:57,920
+and value
+
+1986
+01:49:54,239 --> 01:50:01,119
+of array then again the first element
+
+1987
+01:49:57,920 --> 01:50:01,119
+should be the value
+
+1988
+01:50:02,239 --> 01:50:05,679
+wait what does entries return is it key
+
+1989
+01:50:04,560 --> 01:50:11,840
+value or value
+
+1990
+01:50:05,679 --> 01:50:11,840
+key javascript
+
+1991
+01:50:19,920 --> 01:50:28,480
+object reference map
+
+1992
+01:50:25,119 --> 01:50:31,520
+entries it returns
+
+1993
+01:50:28,480 --> 01:50:34,080
+key value okay each yield is array of
+
+1994
+01:50:31,520 --> 01:50:35,199
+the form key value okay so key value not
+
+1995
+01:50:34,080 --> 01:50:37,840
+value key
+
+1996
+01:50:35,199 --> 01:50:40,960
+because some other method does you know
+
+1997
+01:50:37,840 --> 01:50:44,480
+they return value key
+
+1998
+01:50:40,960 --> 01:50:52,400
+okay biggest diagram value let's
+
+1999
+01:50:44,480 --> 01:50:55,040
+print it compile the code
+
+2000
+01:50:52,400 --> 01:50:55,040
+refresh
+
+2001
+01:50:56,000 --> 01:51:00,639
+let's see so we got none
+
+2002
+01:51:02,719 --> 01:51:06,000
+you see every time you type you got none
+
+2003
+01:51:05,520 --> 01:51:10,719
+here it's
+
+2004
+01:51:06,000 --> 01:51:10,719
+printed none so why is it none
+
+2005
+01:51:18,840 --> 01:51:21,840
+so
+
+2006
+01:51:24,320 --> 01:51:27,040
+x map
+
+2007
+01:51:29,280 --> 01:51:35,840
+can we just print x map no
+
+2008
+01:51:43,199 --> 01:51:46,560
+so it's telling us
+
+2009
+01:51:46,840 --> 01:51:53,679
+ah this is not
+
+2010
+01:51:50,320 --> 01:51:55,199
+going well shouldn't take all this long
+
+2011
+01:51:53,679 --> 01:51:58,960
+you know
+
+2012
+01:51:55,199 --> 01:52:00,960
+yeah but actually this happens often in
+
+2013
+01:51:58,960 --> 01:52:04,000
+real life coding
+
+2014
+01:52:00,960 --> 01:52:07,360
+yeah if if i think about you know
+
+2015
+01:52:04,000 --> 01:52:10,159
+real life coding in images or in in pro
+
+2016
+01:52:07,360 --> 01:52:10,639
+this does happen all the time you are
+
+2017
+01:52:10,159 --> 01:52:15,360
+stuck
+
+2018
+01:52:10,639 --> 01:52:17,199
+with some stupid for hours
+
+2019
+01:52:15,360 --> 01:52:19,040
+then you go to then you see you know
+
+2020
+01:52:17,199 --> 01:52:20,880
+that's why you see stack overflow a
+
+2021
+01:52:19,040 --> 01:52:25,119
+bunch of questions
+
+2022
+01:52:20,880 --> 01:52:26,719
+you know some of them is valley question
+
+2023
+01:52:25,119 --> 01:52:28,960
+you know but some of them is just
+
+2024
+01:52:26,719 --> 01:52:30,960
+because you
+
+2025
+01:52:28,960 --> 01:52:33,280
+you you know you not you made a typo
+
+2026
+01:52:30,960 --> 01:52:36,560
+somewhere you don't know what is
+
+2027
+01:52:33,280 --> 01:52:37,520
+going on like right now i don't really
+
+2028
+01:52:36,560 --> 01:52:39,760
+have a question
+
+2029
+01:52:37,520 --> 01:52:40,800
+i don't have a question about svg no
+
+2030
+01:52:39,760 --> 01:52:44,239
+javascript
+
+2031
+01:52:40,800 --> 01:52:44,239
+but something is wrong here
+
+2032
+01:52:44,320 --> 01:52:47,920
+you know maybe a typo somewhere
+
+2033
+01:52:48,880 --> 01:53:03,199
+so xmap xmap is a
+
+2034
+01:52:58,639 --> 01:53:07,040
+search for draw svg okay joe svg returns
+
+2035
+01:53:03,199 --> 01:53:10,159
+a i mean it takes a argument
+
+2036
+01:53:07,040 --> 01:53:13,199
+and this argument is the return value of
+
+2037
+01:53:10,159 --> 01:53:15,679
+compute percentage right and if you look
+
+2038
+01:53:13,199 --> 01:53:19,119
+at compute percentage
+
+2039
+01:53:15,679 --> 01:53:23,440
+it returns a result map which is
+
+2040
+01:53:19,119 --> 01:53:26,800
+a map object so
+
+2041
+01:53:23,440 --> 01:53:31,119
+so go back to draw svg
+
+2042
+01:53:26,800 --> 01:53:34,159
+the way it is called it you know the
+
+2043
+01:53:31,119 --> 01:53:38,320
+argument it receives
+
+2044
+01:53:34,159 --> 01:53:41,840
+the x map is a map object
+
+2045
+01:53:38,320 --> 01:53:41,840
+so a map object
+
+2046
+01:53:42,719 --> 01:53:50,159
+and uh and why
+
+2047
+01:53:46,080 --> 01:53:50,159
+why is it's not working so let's let's
+
+2048
+01:53:51,280 --> 01:53:56,000
+okay let's remove other console log
+
+2049
+01:53:56,639 --> 01:54:08,880
+okay so this is the only console log
+
+2050
+01:54:01,520 --> 01:54:13,760
+we have
+
+2051
+01:54:08,880 --> 01:54:16,320
+compile back to browser
+
+2052
+01:54:13,760 --> 01:54:16,320
+refresh
+
+2053
+01:54:17,840 --> 01:54:22,000
+uh okay close that window let's start
+
+2054
+01:54:20,719 --> 01:54:24,800
+over okay
+
+2055
+01:54:22,000 --> 01:54:25,440
+let's show in browser hey show in
+
+2056
+01:54:24,800 --> 01:54:28,800
+browser
+
+2057
+01:54:25,440 --> 01:54:33,760
+what showing what
+
+2058
+01:54:28,800 --> 01:54:37,840
+show in browser what
+
+2059
+01:54:33,760 --> 01:54:37,840
+showing browser
+
+2060
+01:54:38,320 --> 01:54:42,800
+oh yeah of course javascript you cannot
+
+2061
+01:54:41,040 --> 01:54:44,000
+show in browser you have to show in
+
+2062
+01:54:42,800 --> 01:54:47,280
+browser is
+
+2063
+01:54:44,000 --> 01:54:50,719
+html file no magnify
+
+2064
+01:54:47,280 --> 01:54:54,080
+now f12 console.log
+
+2065
+01:54:50,719 --> 01:54:55,199
+okay so even before even you type
+
+2066
+01:54:54,080 --> 01:54:59,840
+anything
+
+2067
+01:54:55,199 --> 01:54:59,840
+you are getting this error unexpected
+
+2068
+01:55:02,840 --> 01:55:05,840
+value
+
+2069
+01:55:06,159 --> 01:55:19,840
+line 91 passing y attribute
+
+2070
+01:55:22,560 --> 01:55:33,440
+unexpected error so the part about
+
+2071
+01:55:26,560 --> 01:55:36,719
+passing y attribute
+
+2072
+01:55:33,440 --> 01:55:36,719
+here okay let's
+
+2073
+01:55:39,440 --> 01:55:47,440
+let's let's just say start from zero
+
+2074
+01:55:42,800 --> 01:55:50,080
+compile shrink javascript
+
+2075
+01:55:47,440 --> 01:55:50,080
+refresh
+
+2076
+01:55:51,520 --> 01:55:58,239
+cancel out okay no error
+
+2077
+01:55:54,800 --> 01:56:03,280
+but no diagram now where does the x
+
+2078
+01:55:58,239 --> 01:56:06,719
+e x come from it's printing it
+
+2079
+01:56:03,280 --> 01:56:09,920
+oh it's printing it right that's right
+
+2080
+01:56:06,719 --> 01:56:13,920
+so console.log so this is this is
+
+2081
+01:56:09,920 --> 01:56:16,159
+incorrect you know we expect this to be
+
+2082
+01:56:13,920 --> 01:56:19,520
+a number but it's actually ex
+
+2083
+01:56:16,159 --> 01:56:22,880
+so it's actually printing the key oh
+
+2084
+01:56:19,520 --> 01:56:26,840
+of course this should be one
+
+2085
+01:56:22,880 --> 01:56:29,599
+not zero thank god what the
+
+2086
+01:56:26,840 --> 01:56:34,639
+
+2087
+01:56:29,599 --> 01:56:34,639
+no i don't even need that compile
+
+2088
+01:56:34,960 --> 01:56:38,159
+god of course
+
+2089
+01:56:38,560 --> 01:56:46,400
+now of course yeah uh wait something is
+
+2090
+01:56:42,000 --> 01:56:48,880
+wrong yeah but we can fix that
+
+2091
+01:56:46,400 --> 01:56:51,599
+okay now let's go back to fix the bar
+
+2092
+01:56:48,880 --> 01:56:51,599
+height stuff
+
+2093
+01:56:52,320 --> 01:57:00,000
+so now we got the big biggest
+
+2094
+01:56:55,440 --> 01:57:01,180
+diagram value so the highest bar height
+
+2095
+01:57:00,000 --> 01:57:04,270
+is equals to
+
+2096
+01:57:01,180 --> 01:57:04,270
+[Music]
+
+2097
+01:57:04,560 --> 01:57:08,159
+the svg height times biggest bigram
+
+2098
+01:57:07,199 --> 01:57:10,719
+value
+
+2099
+01:57:08,159 --> 01:57:12,080
+and each bar height equals to highest
+
+2100
+01:57:10,719 --> 01:57:14,239
+bar height times
+
+2101
+01:57:12,080 --> 01:57:14,239
+v
+
+2102
+01:57:22,840 --> 01:57:27,599
+wait
+
+2103
+01:57:24,960 --> 01:57:27,599
+no no
+
+2104
+01:57:32,880 --> 01:57:39,679
+no no no i i think what's going on is
+
+2105
+01:57:35,760 --> 01:57:43,280
+our percentage is wrong
+
+2106
+01:57:39,679 --> 01:57:46,000
+uh we got more and more problems now
+
+2107
+01:57:43,280 --> 01:57:47,760
+i think the problem is the compute
+
+2108
+01:57:46,000 --> 01:57:50,880
+percentage
+
+2109
+01:57:47,760 --> 01:57:54,560
+it's not returning a correct
+
+2110
+01:57:50,880 --> 01:57:54,560
+kind of percentage thing
+
+2111
+01:57:57,440 --> 01:58:03,520
+why is that because
+
+2112
+01:58:00,480 --> 01:58:07,760
+let's see the update code the update
+
+2113
+01:58:03,520 --> 01:58:21,840
+code filter map
+
+2114
+01:58:07,760 --> 01:58:21,840
+let's print compute percentage okay
+
+2115
+01:58:25,599 --> 01:58:32,800
+okay so now we can actually see
+
+2116
+01:58:30,000 --> 01:58:37,280
+the percentage printed here and also by
+
+2117
+01:58:32,800 --> 01:58:39,760
+the way the height of the svg is too big
+
+2118
+01:58:37,280 --> 01:58:39,760
+too big
+
+2119
+01:58:40,800 --> 01:58:48,080
+so instead of 600 let's say 300
+
+2120
+01:58:44,000 --> 01:58:49,280
+compile the code back to browser magnify
+
+2121
+01:58:48,080 --> 01:58:52,800
+refresh
+
+2122
+01:58:49,280 --> 01:58:55,199
+good now let's see okay no nothing
+
+2123
+01:58:52,800 --> 01:58:56,000
+nothing is going on nothing is happening
+
+2124
+01:58:55,199 --> 01:58:58,719
+so
+
+2125
+01:58:56,000 --> 01:59:00,840
+i know because let's go to the update
+
+2126
+01:58:58,719 --> 01:59:04,000
+here
+
+2127
+01:59:00,840 --> 01:59:05,040
+we yeah so this is percentage map is
+
+2128
+01:59:04,000 --> 01:59:08,400
+incorrect
+
+2129
+01:59:05,040 --> 01:59:11,679
+so you it's a map now you want to turn
+
+2130
+01:59:08,400 --> 01:59:15,840
+it into a array okay
+
+2131
+01:59:11,679 --> 01:59:19,280
+use the spread operator now compile
+
+2132
+01:59:15,840 --> 01:59:20,000
+because java's json stream file does not
+
+2133
+01:59:19,280 --> 01:59:23,599
+understand
+
+2134
+01:59:20,000 --> 01:59:29,040
+map it needs array so
+
+2135
+01:59:23,599 --> 01:59:29,040
+refresh now now we got a bunch of
+
+2136
+01:59:29,199 --> 01:59:35,440
+percentage value okay the highest
+
+2137
+01:59:32,719 --> 01:59:37,199
+okay so now so now we are looking at the
+
+2138
+01:59:35,440 --> 01:59:41,040
+percentage data
+
+2139
+01:59:37,199 --> 01:59:44,320
+now now the percentage data
+
+2140
+01:59:41,040 --> 01:59:46,719
+so it's yeah oh okay now i
+
+2141
+01:59:44,320 --> 01:59:49,440
+understand it's obviously incorrect
+
+2142
+01:59:46,719 --> 01:59:52,080
+that's why everything is so small
+
+2143
+01:59:49,440 --> 01:59:54,560
+so flat you know every bar is not
+
+2144
+01:59:52,080 --> 01:59:54,560
+because
+
+2145
+01:59:57,760 --> 02:00:01,199
+so how do you so so essentially our
+
+2146
+02:00:00,480 --> 02:00:04,880
+error is
+
+2147
+02:00:01,199 --> 02:00:07,599
+math error in computing the height
+
+2148
+02:00:04,880 --> 02:00:08,719
+and that is because you are not thinking
+
+2149
+02:00:07,599 --> 02:00:12,320
+carefully
+
+2150
+02:00:08,719 --> 02:00:15,920
+you are just doing trial and error
+
+2151
+02:00:12,320 --> 02:00:18,639
+the typical programmers try and narrow
+
+2152
+02:00:15,920 --> 02:00:19,360
+so this line is wrong highest bar you
+
+2153
+02:00:18,639 --> 02:00:21,760
+know the
+
+2154
+02:00:19,360 --> 02:00:22,400
+in computing the bar height is incorrect
+
+2155
+02:00:21,760 --> 02:00:27,840
+so let's
+
+2156
+02:00:22,400 --> 02:00:27,840
+you really need to think so okay
+
+2157
+02:00:32,800 --> 02:00:35,840
+yeah we're still doing that we kind of
+
+2158
+02:00:34,719 --> 02:00:41,840
+stuck in you know
+
+2159
+02:00:35,840 --> 02:00:41,840
+and we have uh issues
+
+2160
+02:00:43,520 --> 02:00:48,239
+oh that works in a different way than
+
+2161
+02:00:45,360 --> 02:00:49,679
+expected so what you are you guys saying
+
+2162
+02:00:48,239 --> 02:00:51,679
+that's why i love strongly type
+
+2163
+02:00:49,679 --> 02:00:54,639
+languages yeah it's so good it's super
+
+2164
+02:00:51,679 --> 02:00:56,719
+valuable okay so
+
+2165
+02:00:54,639 --> 02:00:57,760
+so so yeah we're still working on the
+
+2166
+02:00:56,719 --> 02:01:02,960
+bar height
+
+2167
+02:00:57,760 --> 02:01:02,960
+we went into fix several problems but
+
+2168
+02:01:06,159 --> 02:01:13,360
+so the highest bar height is equals to
+
+2169
+02:01:10,960 --> 02:01:14,639
+the highest spot height height should be
+
+2170
+02:01:13,360 --> 02:01:23,840
+just the svg
+
+2171
+02:01:14,639 --> 02:01:23,840
+height okay
+
+2172
+02:01:32,320 --> 02:01:39,679
+and each bar height should be
+
+2173
+02:01:36,080 --> 02:01:39,679
+svg height times
+
+2174
+02:01:40,159 --> 02:01:43,360
+oh wait wait wait
+
+2175
+02:01:44,400 --> 02:01:51,360
+i see what's going on guys okay now
+
+2176
+02:01:47,599 --> 02:01:54,239
+yeah our problem now look at the
+
+2177
+02:01:51,360 --> 02:01:57,360
+data of the bi-gram percent you know
+
+2178
+02:01:54,239 --> 02:02:00,719
+so-called percentage values it returns
+
+2179
+02:01:57,360 --> 02:02:04,000
+so ex occurs
+
+2180
+02:02:00,719 --> 02:02:07,040
+0.4 okay like four percent of the
+
+2181
+02:02:04,000 --> 02:02:11,040
+time ht occurs four percent of time
+
+2182
+02:02:07,040 --> 02:02:13,119
+and so on so
+
+2183
+02:02:11,040 --> 02:02:15,520
+and we are drawing our bar chart based
+
+2184
+02:02:13,119 --> 02:02:19,520
+on that that is incorrect
+
+2185
+02:02:15,520 --> 02:02:22,639
+because we actually need to normalize
+
+2186
+02:02:19,520 --> 02:02:25,760
+this bunch of percentages
+
+2187
+02:02:22,639 --> 02:02:26,560
+that is you find the highest number of
+
+2188
+02:02:25,760 --> 02:02:29,679
+them
+
+2189
+02:02:26,560 --> 02:02:33,520
+which is ex in this case and
+
+2190
+02:02:29,679 --> 02:02:36,719
+make the make instead of a 0.04
+
+2191
+02:02:33,520 --> 02:02:39,040
+make it one you you know so you
+
+2192
+02:02:36,719 --> 02:02:40,159
+need to basically multiply a number to
+
+2193
+02:02:39,040 --> 02:02:43,280
+all these values
+
+2194
+02:02:40,159 --> 02:02:45,840
+so they are normalized so that the
+
+2195
+02:02:43,280 --> 02:02:46,639
+the highest frequency diagram has a
+
+2196
+02:02:45,840 --> 02:02:51,360
+value of
+
+2197
+02:02:46,639 --> 02:02:56,960
+one and the rest is you know smaller
+
+2198
+02:02:51,360 --> 02:02:56,960
+yeah you you want to normalize
+
+2199
+02:02:57,119 --> 02:03:02,400
+the this percentage you know so this is
+
+2200
+02:03:00,239 --> 02:03:03,760
+you know the so the problem is math it's
+
+2201
+02:03:02,400 --> 02:03:06,800
+not javascript
+
+2202
+02:03:03,760 --> 02:03:09,040
+our problem has been you know we had
+
+2203
+02:03:06,800 --> 02:03:10,560
+actually several problems so but right
+
+2204
+02:03:09,040 --> 02:03:13,599
+now it's a
+
+2205
+02:03:10,560 --> 02:03:16,800
+math you know it's kind of confusing
+
+2206
+02:03:13,599 --> 02:03:19,679
+concepts you have count
+
+2207
+02:03:16,800 --> 02:03:20,000
+then you have percentage relative to the
+
+2208
+02:03:19,679 --> 02:03:23,199
+sum
+
+2209
+02:03:20,000 --> 02:03:24,000
+total of accounts then you have the
+
+2210
+02:03:23,199 --> 02:03:29,840
+concept of
+
+2211
+02:03:24,000 --> 02:03:29,840
+you want to normalize the percentage
+
+2212
+02:03:36,560 --> 02:03:42,960
+yeah so lucas do you see what i'm saying
+
+2213
+02:03:39,760 --> 02:03:44,000
+we did that like you talked about but
+
+2214
+02:03:42,960 --> 02:03:47,119
+however
+
+2215
+02:03:44,000 --> 02:03:50,480
+our problem is that
+
+2216
+02:03:47,119 --> 02:03:53,199
+you know we we want to normalize the
+
+2217
+02:03:50,480 --> 02:03:54,079
+so how do you how do you do that i hope
+
+2218
+02:03:53,199 --> 02:03:56,480
+i hope in
+
+2219
+02:03:54,079 --> 02:03:58,400
+next five minutes we can get at least
+
+2220
+02:03:56,480 --> 02:04:01,280
+get the po
+
+2221
+02:03:58,400 --> 02:04:03,040
+correctly then actually we need to add
+
+2222
+02:04:01,280 --> 02:04:05,920
+text labels
+
+2223
+02:04:03,040 --> 02:04:06,400
+so this is this video stream is turning
+
+2224
+02:04:05,920 --> 02:04:11,360
+into
+
+2225
+02:04:06,400 --> 02:04:14,239
+like three hours marathon
+
+2226
+02:04:11,360 --> 02:04:15,119
+so we need to get the okay normalize so
+
+2227
+02:04:14,239 --> 02:04:16,800
+how do you do that
+
+2228
+02:04:15,119 --> 02:04:19,679
+then you know again there are several
+
+2229
+02:04:16,800 --> 02:04:22,159
+ways we can
+
+2230
+02:04:19,679 --> 02:04:24,400
+let's just do the easiest way forget
+
+2231
+02:04:22,159 --> 02:04:27,920
+about efficiency let's just do it maybe
+
+2232
+02:04:24,400 --> 02:04:30,239
+here so so
+
+2233
+02:04:27,920 --> 02:04:30,239
+so
+
+2234
+02:04:31,520 --> 02:04:38,159
+you need to rescale each percentage
+
+2235
+02:04:36,159 --> 02:04:39,360
+so okay now you need to think about how
+
+2236
+02:04:38,159 --> 02:04:42,480
+do you normalize it
+
+2237
+02:04:39,360 --> 02:04:42,480
+so uh given
+
+2238
+02:04:42,639 --> 02:04:46,960
+a bunch of numbers each number is a
+
+2239
+02:04:46,000 --> 02:04:49,760
+percentage
+
+2240
+02:04:46,960 --> 02:04:50,560
+of the total occurrences you want to
+
+2241
+02:04:49,760 --> 02:04:53,599
+multiply
+
+2242
+02:04:50,560 --> 02:04:56,079
+okay so multiply so find the highest
+
+2243
+02:04:53,599 --> 02:04:56,079
+value
+
+2244
+02:04:56,320 --> 02:05:00,960
+this value okay this value
+
+2245
+02:05:01,440 --> 02:05:10,159
+times x equals to 1 solve for x
+
+2246
+02:05:05,920 --> 02:05:10,159
+so x
+
+2247
+02:05:10,239 --> 02:05:17,119
+equals to 1
+
+2248
+02:05:13,520 --> 02:05:20,960
+over that okay
+
+2249
+02:05:17,119 --> 02:05:23,920
+so that is the scaling factor okay so
+
+2250
+02:05:20,960 --> 02:05:24,960
+so this one over biggest value is the
+
+2251
+02:05:23,920 --> 02:05:28,719
+scaling fat
+
+2252
+02:05:24,960 --> 02:05:35,840
+factor okay okay so so
+
+2253
+02:05:28,719 --> 02:05:35,840
+so now
+
+2254
+02:05:36,239 --> 02:05:43,280
+so the so the bar
+
+2255
+02:05:39,440 --> 02:05:46,480
+height will be that's right
+
+2256
+02:05:43,280 --> 02:05:51,520
+that's right okay i got it
+
+2257
+02:05:46,480 --> 02:05:51,520
+okay so let's create a new constant
+
+2258
+02:05:57,440 --> 02:06:05,760
+okay bar height scaling is that value
+
+2259
+02:06:01,440 --> 02:06:05,760
+then each bar height will be
+
+2260
+02:06:07,280 --> 02:06:11,040
+will be the svg height
+
+2261
+02:06:14,840 --> 02:06:17,840
+times
+
+2262
+02:06:20,079 --> 02:06:26,320
+where are we so each bar height will be
+
+2263
+02:06:23,679 --> 02:06:27,280
+the svg height times bar height scaling
+
+2264
+02:06:26,320 --> 02:06:30,239
+okay
+
+2265
+02:06:27,280 --> 02:06:31,520
+and do we should we be concerned about
+
+2266
+02:06:30,239 --> 02:06:35,040
+higher scaling
+
+2267
+02:06:31,520 --> 02:06:38,560
+height no forget about that
+
+2268
+02:06:35,040 --> 02:06:42,000
+uh yes predefine the code
+
+2269
+02:06:38,560 --> 02:06:46,239
+okay that is the
+
+2270
+02:06:42,000 --> 02:06:48,880
+should be the correct code now
+
+2271
+02:06:46,239 --> 02:06:50,400
+so here you all you have to say it's
+
+2272
+02:06:48,880 --> 02:06:53,840
+just bar height
+
+2273
+02:06:50,400 --> 02:06:58,800
+well svg minus bar height so you
+
+2274
+02:06:53,840 --> 02:07:02,000
+flip okay compile
+
+2275
+02:06:58,800 --> 02:07:05,840
+back to that
+
+2276
+02:07:02,000 --> 02:07:12,000
+refresh we got something
+
+2277
+02:07:05,840 --> 02:07:14,960
+another error ah god this is no good
+
+2278
+02:07:12,000 --> 02:07:14,960
+
+2279
+02:07:17,920 --> 02:07:22,719
+wait wait wait okay so oh yeah so
+
+2280
+02:07:20,560 --> 02:07:26,159
+actually i know the math
+
+2281
+02:07:22,719 --> 02:07:40,079
+so bar height scaling factor is equals
+
+2282
+02:07:26,159 --> 02:07:44,480
+to that
+
+2283
+02:07:40,079 --> 02:07:44,480
+oh times svg height i think
+
+2284
+02:07:48,719 --> 02:07:55,520
+that's right times svg height
+
+2285
+02:07:51,920 --> 02:07:56,239
+so in other words svg height divided by
+
+2286
+02:07:55,520 --> 02:07:59,920
+that
+
+2287
+02:07:56,239 --> 02:07:59,920
+svg height divided by
+
+2288
+02:08:03,040 --> 02:08:05,360
+what
+
+2289
+02:08:06,400 --> 02:08:12,000
+ah i'm all confused i need to stop
+
+2290
+02:08:09,599 --> 02:08:12,960
+i need to take a break that's it that's
+
+2291
+02:08:12,000 --> 02:08:16,800
+it that's
+
+2292
+02:08:12,960 --> 02:08:19,119
+it guys need to take that this is not
+
+2293
+02:08:16,800 --> 02:08:19,119
+working
+
+2294
+02:08:20,840 --> 02:08:23,840
+okay
+
+2295
+02:08:24,079 --> 02:08:28,639
+i need to i need to take a break i'm
+
+2296
+02:08:26,320 --> 02:08:28,639
+kind of
+
+2297
+02:08:34,840 --> 02:08:40,159
+
+2298
+02:08:36,639 --> 02:08:42,480
+i really do need to take a break
+
+2299
+02:08:40,159 --> 02:08:42,480
+and
+
+2300
+02:08:46,800 --> 02:08:53,920
+okay let's
+
+2301
+02:08:50,560 --> 02:08:56,079
+now we need to finish this okay we need
+
+2302
+02:08:53,920 --> 02:08:58,880
+to think
+
+2303
+02:08:56,079 --> 02:08:58,880
+so um
+
+2304
+02:08:59,280 --> 02:09:05,840
+so biggest diagram value
+
+2305
+02:09:11,679 --> 02:09:20,960
+times x equals one
+
+2306
+02:09:18,239 --> 02:09:22,320
+so that becomes one so big is background
+
+2307
+02:09:20,960 --> 02:09:27,199
+value
+
+2308
+02:09:22,320 --> 02:09:29,440
+okay and then
+
+2309
+02:09:27,199 --> 02:09:29,440
+then
+
+2310
+02:09:30,880 --> 02:09:38,880
+then each forget about this one for now
+
+2311
+02:09:34,719 --> 02:09:46,239
+okay then bar height
+
+2312
+02:09:38,880 --> 02:09:49,199
+uh where is this this is not used
+
+2313
+02:09:46,239 --> 02:09:50,079
+let's just say zero for now okay here
+
+2314
+02:09:49,199 --> 02:09:52,800
+let's just say
+
+2315
+02:09:50,079 --> 02:09:52,800
+zero yeah
+
+2316
+02:09:55,679 --> 02:10:02,960
+okay so
+
+2317
+02:09:58,960 --> 02:10:05,199
+so ba height scaling equals to one
+
+2318
+02:10:02,960 --> 02:10:05,199
+so
+
+2319
+02:10:06,560 --> 02:10:15,119
+so each one each bar height will be yeah
+
+2320
+02:10:09,840 --> 02:10:19,119
+obviously we're missing the value
+
+2321
+02:10:15,119 --> 02:10:21,679
+times v okay the value yeah compile
+
+2322
+02:10:19,119 --> 02:10:21,679
+compile
+
+2323
+02:10:22,239 --> 02:10:28,880
+back to the code back to browser refresh
+
+2324
+02:10:26,840 --> 02:10:31,040
+no refresh
+
+2325
+02:10:28,880 --> 02:10:31,040
+no
+
+2326
+02:10:34,159 --> 02:10:43,840
+so back to the code
+
+2327
+02:10:44,079 --> 02:10:57,840
+uh behind standing svg heights
+
+2328
+02:11:07,599 --> 02:11:25,840
+times over
+
+2329
+02:11:36,840 --> 02:11:39,840
+it's
+
+2330
+02:11:53,760 --> 02:12:00,639
+so so each bar height
+
+2331
+02:11:56,880 --> 02:12:07,840
+equals so each card equals to
+
+2332
+02:12:00,639 --> 02:12:07,840
+svg height
+
+2333
+02:12:10,880 --> 02:12:21,840
+times by height scaling
+
+2334
+02:12:26,880 --> 02:12:33,520
+compile computer
+
+2335
+02:12:30,079 --> 02:12:36,320
+compile refresh oh
+
+2336
+02:12:33,520 --> 02:12:36,320
+finally
+
+2337
+02:12:36,960 --> 02:12:44,079
+abc okay let's get rid of the
+
+2338
+02:12:40,960 --> 02:12:46,400
+type error reduce reduce of empty array
+
+2339
+02:12:44,079 --> 02:12:49,679
+shut the up
+
+2340
+02:12:46,400 --> 02:12:52,880
+a b c d e f g
+
+2341
+02:12:49,679 --> 02:12:55,920
+t h t h t h t h th
+
+2342
+02:12:52,880 --> 02:12:59,040
+now after one hour
+
+2343
+02:12:55,920 --> 02:13:02,400
+or two hours of struggle
+
+2344
+02:12:59,040 --> 02:13:06,880
+painfully finally we
+
+2345
+02:13:02,400 --> 02:13:10,239
+got the bar chart correctly
+
+2346
+02:13:06,880 --> 02:13:14,079
+actually not really because
+
+2347
+02:13:10,239 --> 02:13:18,400
+we haven't inverted yet now inverting it
+
+2348
+02:13:14,079 --> 02:13:22,639
+is easy now inverting it now is easy
+
+2349
+02:13:18,400 --> 02:13:26,000
+svg height minus bar height height
+
+2350
+02:13:22,639 --> 02:13:27,360
+compile please back to browser please
+
+2351
+02:13:26,000 --> 02:13:30,079
+refresh please
+
+2352
+02:13:27,360 --> 02:13:31,280
+perfect now we just need to add text
+
+2353
+02:13:30,079 --> 02:13:34,639
+label text
+
+2354
+02:13:31,280 --> 02:13:37,679
+take text labels svg
+
+2355
+02:13:34,639 --> 02:13:39,280
+labels okay it's one one more step and
+
+2356
+02:13:37,679 --> 02:13:43,119
+we done for the day
+
+2357
+02:13:39,280 --> 02:13:46,480
+thank you thank god for
+
+2358
+02:13:43,119 --> 02:13:50,239
+blessing us with
+
+2359
+02:13:46,480 --> 02:13:52,880
+the ability to code javascript and
+
+2360
+02:13:50,239 --> 02:13:52,880
+svg
+
+2361
+02:13:53,280 --> 02:13:59,760
+now you go to text element
+
+2362
+02:13:57,199 --> 02:14:01,280
+svg basics let's see if it's their
+
+2363
+02:13:59,760 --> 02:14:05,199
+ellipse polygon
+
+2364
+02:14:01,280 --> 02:14:06,239
+polyline uh path no it's not there so we
+
+2365
+02:14:05,199 --> 02:14:09,280
+need to go to
+
+2366
+02:14:06,239 --> 02:14:12,400
+text elements we need to add labels
+
+2367
+02:14:09,280 --> 02:14:13,199
+okay uh text element this is how you do
+
+2368
+02:14:12,400 --> 02:14:14,719
+it
+
+2369
+02:14:13,199 --> 02:14:17,280
+you know if you don't know it's pretty
+
+2370
+02:14:14,719 --> 02:14:20,880
+simple so
+
+2371
+02:14:17,280 --> 02:14:23,920
+so so so copy that okay copy
+
+2372
+02:14:20,880 --> 02:14:27,679
+back to javascript code
+
+2373
+02:14:23,920 --> 02:14:28,480
+so for each so we are doing for each
+
+2374
+02:14:27,679 --> 02:14:32,800
+here remember
+
+2375
+02:14:28,480 --> 02:14:34,820
+map entries so we all we have to do
+
+2376
+02:14:32,800 --> 02:14:36,400
+for each then this function
+
+2377
+02:14:34,820 --> 02:14:39,679
+[Music]
+
+2378
+02:14:36,400 --> 02:14:43,280
+uh then okay so that's uh
+
+2379
+02:14:39,679 --> 02:14:46,560
+so this function then we have to create
+
+2380
+02:14:43,280 --> 02:14:50,800
+text element here okay so this is
+
+2381
+02:14:46,560 --> 02:14:54,239
+so basically let's copy that so create
+
+2382
+02:14:50,800 --> 02:14:58,239
+create element this say let's say text
+
+2383
+02:14:54,239 --> 02:14:58,239
+okay then basically
+
+2384
+02:14:59,599 --> 02:15:06,000
+okay so so so this is
+
+2385
+02:15:02,639 --> 02:15:09,679
+a text text okay label okay
+
+2386
+02:15:06,000 --> 02:15:12,159
+l a b l okay create a text element yes
+
+2387
+02:15:09,679 --> 02:15:14,880
+and attribute and x y forget about the
+
+2388
+02:15:12,159 --> 02:15:18,000
+others and style yeah we want style
+
+2389
+02:15:14,880 --> 02:15:21,440
+uh stroke black stroke
+
+2390
+02:15:18,000 --> 02:15:24,480
+red feel red okay feel red
+
+2391
+02:15:21,440 --> 02:15:27,760
+and struck with uh let's say one okay
+
+2392
+02:15:24,480 --> 02:15:30,239
+one pixels so text element
+
+2393
+02:15:27,760 --> 02:15:31,119
+so where do you want to place it oh
+
+2394
+02:15:30,239 --> 02:15:32,800
+that's again
+
+2395
+02:15:31,119 --> 02:15:34,480
+the problem well the problem is
+
+2396
+02:15:32,800 --> 02:15:35,360
+something like you know we've just
+
+2397
+02:15:34,480 --> 02:15:40,560
+followed
+
+2398
+02:15:35,360 --> 02:15:40,560
+this follow the bar chart where it is
+
+2399
+02:15:41,040 --> 02:15:45,040
+oh this is a problem okay x is the same
+
+2400
+02:15:44,400 --> 02:15:48,560
+thing okay
+
+2401
+02:15:45,040 --> 02:15:51,599
+x and y okay
+
+2402
+02:15:48,560 --> 02:15:53,520
+so forget about that so why let's just
+
+2403
+02:15:51,599 --> 02:15:58,320
+say zero okay
+
+2404
+02:15:53,520 --> 02:16:04,320
+let's predefine the code fees
+
+2405
+02:15:58,320 --> 02:16:06,880
+what the
+
+2406
+02:16:04,320 --> 02:16:09,199
+formatting you cannot you know deno
+
+2407
+02:16:06,880 --> 02:16:11,520
+cannot format our code you know i'm
+
+2408
+02:16:09,199 --> 02:16:13,040
+starting to find more and more problems
+
+2409
+02:16:11,520 --> 02:16:16,560
+with deno okay
+
+2410
+02:16:13,040 --> 02:16:19,440
+a pen child that
+
+2411
+02:16:16,560 --> 02:16:20,400
+what what deno cannot format our code
+
+2412
+02:16:19,440 --> 02:16:22,719
+what the
+
+2413
+02:16:20,400 --> 02:16:22,719
+back
+
+2414
+02:16:29,520 --> 02:16:33,840
+yeah okay so
+
+2415
+02:16:35,519 --> 02:16:43,599
+stupid denial what
+
+2416
+02:16:40,559 --> 02:16:47,840
+line 128 what
+
+2417
+02:16:43,599 --> 02:16:47,840
+is that
+
+2418
+02:16:49,519 --> 02:16:54,399
+oh yeah so why do you have that okay
+
+2419
+02:16:52,800 --> 02:16:56,719
+what you don't have you don't
+
+2420
+02:16:54,399 --> 02:16:56,719
+have
+
+2421
+02:16:58,840 --> 02:17:01,840
+what
+
+2422
+02:17:08,160 --> 02:17:11,519
+so that's the
+
+2423
+02:17:09,090 --> 02:17:14,559
+[Music]
+
+2424
+02:17:11,519 --> 02:17:17,040
+you know i am starting to have
+
+2425
+02:17:14,559 --> 02:17:19,359
+i'm starting to not like dental that
+
+2426
+02:17:17,040 --> 02:17:19,359
+much
+
+2427
+02:17:26,840 --> 02:17:29,840
+what
+
+2428
+02:17:40,840 --> 02:17:45,679
+what
+
+2429
+02:17:42,639 --> 02:17:45,679
+uh shrink
+
+2430
+02:17:52,800 --> 02:17:58,950
+so we have this true svg
+
+2431
+02:17:55,840 --> 02:17:58,950
+[Music]
+
+2432
+02:18:11,519 --> 02:18:19,439
+so this we got syntax error
+
+2433
+02:18:15,920 --> 02:18:19,439
+so this is a function
+
+2434
+02:18:22,840 --> 02:18:27,120
+so
+
+2435
+02:18:24,000 --> 02:18:30,479
+so we have a arrow function and
+
+2436
+02:18:27,120 --> 02:18:34,240
+body so
+
+2437
+02:18:30,479 --> 02:18:38,080
+here is that and
+
+2438
+02:18:34,240 --> 02:18:40,719
+here is that and here is the completion
+
+2439
+02:18:38,080 --> 02:18:40,719
+of that
+
+2440
+02:18:41,200 --> 02:18:49,679
+okay cut right
+
+2441
+02:18:45,439 --> 02:18:49,679
+yeah and here is that
+
+2442
+02:18:51,599 --> 02:18:53,840
+then
+
+2443
+02:19:11,679 --> 02:19:14,319
+then that
+
+2444
+02:19:15,840 --> 02:19:24,800
+then that okay stupid
+
+2445
+02:19:21,040 --> 02:19:27,760
+okay so now no yeah no no no
+
+2446
+02:19:24,800 --> 02:19:27,760
+no compile
+
+2447
+02:19:30,399 --> 02:19:34,559
+refresh no not this page where is our
+
+2448
+02:19:33,920 --> 02:19:38,240
+diagram
+
+2449
+02:19:34,559 --> 02:19:41,959
+refresh fantastic
+
+2450
+02:19:38,240 --> 02:19:45,029
+no okay we got something mistake
+
+2451
+02:19:41,959 --> 02:19:45,029
+[Music]
+
+2452
+02:19:45,920 --> 02:19:49,600
+wait this is a text element oh yeah so
+
+2453
+02:19:48,399 --> 02:19:52,960
+we got
+
+2454
+02:19:49,600 --> 02:19:58,160
+um replace bar
+
+2455
+02:19:52,960 --> 02:20:02,240
+x by text x okay
+
+2456
+02:19:58,160 --> 02:20:05,760
+by okay replace by x uh wait
+
+2457
+02:20:02,240 --> 02:20:10,319
+replace bar x by label x
+
+2458
+02:20:05,760 --> 02:20:13,359
+okay yes yes yes okay
+
+2459
+02:20:10,319 --> 02:20:13,359
+compile please
+
+2460
+02:20:13,680 --> 02:20:21,280
+to browser refresh
+
+2461
+02:20:17,680 --> 02:20:24,399
+now where is the label okay
+
+2462
+02:20:21,280 --> 02:20:27,840
+label is not there
+
+2463
+02:20:24,399 --> 02:20:31,760
+now you you can do
+
+2464
+02:20:27,840 --> 02:20:36,319
+x and y y is let's say
+
+2465
+02:20:31,760 --> 02:20:39,600
+10 yeah drop down a little bit
+
+2466
+02:20:36,319 --> 02:20:39,600
+okay compile it
+
+2467
+02:20:40,800 --> 02:20:47,280
+browser refresh
+
+2468
+02:20:44,080 --> 02:20:50,399
+yeah because you didn't add the text
+
+2469
+02:20:47,280 --> 02:20:51,600
+when you want the text attribute you you
+
+2470
+02:20:50,399 --> 02:20:56,960
+need the text
+
+2471
+02:20:51,600 --> 02:21:00,960
+you know yeah so we let's add the text
+
+2472
+02:20:56,960 --> 02:21:05,439
+so label attribute then label dot
+
+2473
+02:21:00,960 --> 02:21:08,880
+inner inner html
+
+2474
+02:21:05,439 --> 02:21:13,840
+and that will be the actual key
+
+2475
+02:21:08,880 --> 02:21:13,840
+okay okay key
+
+2476
+02:21:14,399 --> 02:21:21,120
+key okay yeah you need to actually
+
+2477
+02:21:18,240 --> 02:21:21,120
+now compile
+
+2478
+02:21:23,280 --> 02:21:29,920
+where is it here refresh fantastic
+
+2479
+02:21:26,640 --> 02:21:33,040
+now finally let's try remove everything
+
+2480
+02:21:29,920 --> 02:21:36,800
+a b c
+
+2481
+02:21:33,040 --> 02:21:40,560
+d e f so we do have a
+
+2482
+02:21:36,800 --> 02:21:44,000
+text now it's not so very good h t h t h
+
+2483
+02:21:40,560 --> 02:21:44,000
+t h t h
+
+2484
+02:21:44,800 --> 02:21:51,280
+so so we do have the text now
+
+2485
+02:21:48,240 --> 02:21:55,760
+let's see now let's
+
+2486
+02:21:51,280 --> 02:21:58,000
+make it better okay so make it better so
+
+2487
+02:21:55,760 --> 02:21:58,000
+so
+
+2488
+02:22:06,560 --> 02:22:11,600
+minus 10 okay then stroke
+
+2489
+02:22:13,840 --> 02:22:19,439
+style let's remove the style compile
+
+2490
+02:22:21,040 --> 02:22:23,840
+refresh
+
+2491
+02:22:24,520 --> 02:22:27,520
+fantastic
+
+2492
+02:22:28,000 --> 02:22:36,720
+now finally after
+
+2493
+02:22:32,399 --> 02:22:40,640
+two hours today and
+
+2494
+02:22:36,720 --> 02:22:43,920
+two hours the previous days
+
+2495
+02:22:40,640 --> 02:22:43,920
+we have a
+
+2496
+02:22:44,200 --> 02:22:51,359
+interactive diagram
+
+2497
+02:22:48,840 --> 02:22:55,280
+plotter written
+
+2498
+02:22:51,359 --> 02:22:57,359
+in javascript and svg
+
+2499
+02:22:55,280 --> 02:22:59,920
+now there's more things to do now for
+
+2500
+02:22:57,359 --> 02:23:02,640
+example the label is not too clear
+
+2501
+02:22:59,920 --> 02:23:05,600
+and also you want to you want to put
+
+2502
+02:23:02,640 --> 02:23:08,399
+this part into the label so
+
+2503
+02:23:05,600 --> 02:23:09,359
+you know so you know user can see how
+
+2504
+02:23:08,399 --> 02:23:14,319
+many
+
+2505
+02:23:09,359 --> 02:23:16,800
+percentage or occurrence is the diagram
+
+2506
+02:23:14,319 --> 02:23:18,479
+okay but that's it for today okay thank
+
+2507
+02:23:16,800 --> 02:23:20,080
+you for watching but basically we are
+
+2508
+02:23:18,479 --> 02:23:23,680
+done and we need to
+
+2509
+02:23:20,080 --> 02:23:26,399
+uh more detailed coding of this
+
+2510
+02:23:23,680 --> 02:23:27,840
+file so let's again let's review open
+
+2511
+02:23:26,399 --> 02:23:31,439
+the file
+
+2512
+02:23:27,840 --> 02:23:34,640
+so it's only 130 lines so
+
+2513
+02:23:31,439 --> 02:23:36,080
+all the first today we did is adding
+
+2514
+02:23:34,640 --> 02:23:39,120
+basically 10 lines
+
+2515
+02:23:36,080 --> 02:23:40,240
+yeah so three hours for 10 lines and
+
+2516
+02:23:39,120 --> 02:23:43,359
+that's actually correct
+
+2517
+02:23:40,240 --> 02:23:44,080
+i mean because if you read you know
+
+2518
+02:23:43,359 --> 02:23:46,800
+report
+
+2519
+02:23:44,080 --> 02:23:47,600
+where they've done study of statistical
+
+2520
+02:23:46,800 --> 02:23:50,160
+measure
+
+2521
+02:23:47,600 --> 02:23:50,880
+measuring measuring how many you know in
+
+2522
+02:23:50,160 --> 02:23:53,600
+in big
+
+2523
+02:23:50,880 --> 02:23:55,600
+corporations google facebook microsoft
+
+2524
+02:23:53,600 --> 02:24:01,840
+how many lines per day
+
+2525
+02:23:55,600 --> 02:24:01,840
+a programmer adds 10 10 is a good day
+
+2526
+02:24:02,080 --> 02:24:06,080
+so we are doing good we are doing a
+
+2527
+02:24:04,720 --> 02:24:09,520
+realistic
+
+2528
+02:24:06,080 --> 02:24:12,720
+thing uh okay so
+
+2529
+02:24:09,520 --> 02:24:15,920
+you know so here's our code it's only
+
+2530
+02:24:12,720 --> 02:24:17,520
+only 130 lines okay to do this spygram
+
+2531
+02:24:15,920 --> 02:24:18,720
+chat but that's it for today thank you
+
+2532
+02:24:17,520 --> 02:24:21,840
+guys for watching
+
+2533
+02:24:18,720 --> 02:24:22,960
+now if you like my tutorial good good
+
+2534
+02:24:21,840 --> 02:24:26,560
+you did it
+
+2535
+02:24:22,960 --> 02:24:28,960
+finally uh
+
+2536
+02:24:26,560 --> 02:24:31,840
+120 when did you make that comments okay
+
+2537
+02:24:28,960 --> 02:24:31,840
+so anyway so
+
+2538
+02:24:33,680 --> 02:24:39,359
+uh yeah okay so we did it you know
+
+2539
+02:24:37,200 --> 02:24:41,280
+some in some form so thank you for
+
+2540
+02:24:39,359 --> 02:24:44,640
+watching uh if you like my
+
+2541
+02:24:41,280 --> 02:24:46,640
+uh for don't forget this if you like my
+
+2542
+02:24:44,640 --> 02:24:49,200
+javascript tutorial so i have a
+
+2543
+02:24:46,640 --> 02:24:49,920
+javascript in-depth if you like my style
+
+2544
+02:24:49,200 --> 02:24:52,640
+and stuff
+
+2545
+02:24:49,920 --> 02:24:54,160
+go buy it okay i go down here buy
+
+2546
+02:24:52,640 --> 02:24:56,880
+javascript in depth
+
+2547
+02:24:54,160 --> 02:24:59,840
+and you'll get onto the road of
+
+2548
+02:24:56,880 --> 02:25:02,720
+mastering javascript
+
+2549
+02:24:59,840 --> 02:25:05,040
+and it includes by the way it includes
+
+2550
+02:25:02,720 --> 02:25:08,000
+all the html you need to know
+
+2551
+02:25:05,040 --> 02:25:08,800
+the comprehensive the all the entire
+
+2552
+02:25:08,000 --> 02:25:12,880
+html
+
+2553
+02:25:08,800 --> 02:25:15,920
+tags case sensitivity allowed characters
+
+2554
+02:25:12,880 --> 02:25:19,120
+in id for example in attributes
+
+2555
+02:25:15,920 --> 02:25:20,000
+uh chart setting in and encoding whether
+
+2556
+02:25:19,120 --> 02:25:24,160
+you should use
+
+2557
+02:25:20,000 --> 02:25:26,800
+utf-8 or what is utf-8 for example
+
+2558
+02:25:24,160 --> 02:25:27,680
+character set encoding utf-8 what does
+
+2559
+02:25:26,800 --> 02:25:30,880
+that mean
+
+2560
+02:25:27,680 --> 02:25:33,840
+so explain here
+
+2561
+02:25:30,880 --> 02:25:34,800
+and so html you need to know and css you
+
+2562
+02:25:33,840 --> 02:25:38,319
+need to master
+
+2563
+02:25:34,800 --> 02:25:41,280
+okay we ran into uh
+
+2564
+02:25:38,319 --> 02:25:43,920
+did we run into a css issue not not
+
+2565
+02:25:41,280 --> 02:25:43,920
+really but
+
+2566
+02:25:44,000 --> 02:25:48,960
+anyways so css uh
+
+2567
+02:25:47,120 --> 02:25:51,200
+and you have javascript okay that's it
+
+2568
+02:25:48,960 --> 02:25:56,080
+for today thank you guys for watching
+
+2569
+02:25:51,200 --> 02:25:56,080
+bye guys i'm shutting down in one minute
+
+2570
+02:25:57,200 --> 02:26:03,920
+uh that's a grueling uh talk show
+
+2571
+02:26:00,800 --> 02:26:05,520
+two hours and and 20 minutes that's the
+
+2572
+02:26:03,920 --> 02:26:09,280
+longest i've done
+
+2573
+02:26:05,520 --> 02:26:13,280
+live okay no more
+
+2574
+02:26:09,280 --> 02:26:13,280
+no more drink i need to get drink
+
+2575
+02:26:15,040 --> 02:26:21,840
+who else is here who else is watching
+
+2576
+02:26:18,840 --> 02:26:21,840
+but
+
+2577
+02:26:35,359 --> 02:26:40,080
+okay so this looks right
+
+2578
+02:26:41,520 --> 02:26:45,920
+the biogram protein bigram okay so
+
+2579
+02:26:44,240 --> 02:26:46,560
+another thing we need to do for the
+
+2580
+02:26:45,920 --> 02:26:49,680
+diagram
+
+2581
+02:26:46,560 --> 02:26:51,040
+is that the vertical diagram is not so
+
+2582
+02:26:49,680 --> 02:26:53,040
+good because they are
+
+2583
+02:26:51,040 --> 02:26:54,399
+you know you want the bars to be
+
+2584
+02:26:53,040 --> 02:26:57,040
+horizontal instead of
+
+2585
+02:26:54,399 --> 02:26:58,399
+instead of vertical because you are
+
+2586
+02:26:57,040 --> 02:27:00,880
+going to have
+
+2587
+02:26:58,399 --> 02:27:02,800
+potentially hundred or so more bigrams
+
+2588
+02:27:00,880 --> 02:27:05,600
+so it's too
+
+2589
+02:27:02,800 --> 02:27:06,479
+too narrow too many columns to fit
+
+2590
+02:27:05,600 --> 02:27:10,720
+together
+
+2591
+02:27:06,479 --> 02:27:10,720
+so a better format is a
+
+2592
+02:27:11,040 --> 02:27:16,640
+a better format is a uh you know
+
+2593
+02:27:14,399 --> 02:27:19,680
+horizontal for diagram
+
+2594
+02:27:16,640 --> 02:27:22,479
+so that we can fix and you know and now
+
+2595
+02:27:19,680 --> 02:27:24,399
+it's easier to fix
+
+2596
+02:27:22,479 --> 02:27:26,560
+after we've struggled so much with the
+
+2597
+02:27:24,399 --> 02:27:31,840
+code
+
+2598
+02:27:26,560 --> 02:27:31,840
+bye bye guys
+

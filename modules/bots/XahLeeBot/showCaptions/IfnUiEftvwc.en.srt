@@ -1,0 +1,4624 @@
+1
+00:00:00,000 --> 00:00:03,679
+welcome to another episode of xa talk
+
+2
+00:00:02,720 --> 00:00:07,279
+show
+
+3
+00:00:03,679 --> 00:00:11,120
+today is 2020 september
+
+4
+00:00:07,279 --> 00:00:13,599
+7th monday five o'clock in the afternoon
+
+5
+00:00:11,120 --> 00:00:15,759
+and today's slaver's day a holiday in
+
+6
+00:00:13,599 --> 00:00:18,080
+united states
+
+7
+00:00:15,759 --> 00:00:18,800
+you are looking at the background image
+
+8
+00:00:18,080 --> 00:00:22,400
+is my
+
+9
+00:00:18,800 --> 00:00:25,920
+microsoft surface pro
+
+10
+00:00:22,400 --> 00:00:27,519
+so this is a tablet and that's a
+
+11
+00:00:25,920 --> 00:00:30,560
+background image for today
+
+12
+00:00:27,519 --> 00:00:33,920
+if you are wondering so i have a page
+
+13
+00:00:30,560 --> 00:00:38,239
+reviewing this product you can go
+
+14
+00:00:33,920 --> 00:00:40,559
+and read about just search for the title
+
+15
+00:00:38,239 --> 00:00:42,160
+uh search for xari with the title you'll
+
+16
+00:00:40,559 --> 00:00:45,360
+find it
+
+17
+00:00:42,160 --> 00:00:48,879
+and so today we are going to do
+
+18
+00:00:45,360 --> 00:00:51,600
+emacs lisp i'm going to show you
+
+19
+00:00:48,879 --> 00:00:53,280
+uh let's do together we you know
+
+20
+00:00:51,600 --> 00:00:56,559
+actually i'm going to do
+
+21
+00:00:53,280 --> 00:00:59,440
+i'm going to do emac this coding about
+
+22
+00:00:56,559 --> 00:01:01,520
+date and time how do you insert how do
+
+23
+00:00:59,440 --> 00:01:01,920
+you write a command to insert date and
+
+24
+00:01:01,520 --> 00:01:06,080
+time
+
+25
+00:01:01,920 --> 00:01:08,479
+of various formats is iso formats
+
+26
+00:01:06,080 --> 00:01:10,320
+you know uh each region each country
+
+27
+00:01:08,479 --> 00:01:12,000
+have their different formats for
+
+28
+00:01:10,320 --> 00:01:14,159
+date and time so i'm going to show you
+
+29
+00:01:12,000 --> 00:01:16,479
+how to do that and also
+
+30
+00:01:14,159 --> 00:01:17,360
+the more difficult topic about how do
+
+31
+00:01:16,479 --> 00:01:20,320
+you pass
+
+32
+00:01:17,360 --> 00:01:22,080
+data and time so i haven't i haven't
+
+33
+00:01:20,320 --> 00:01:24,320
+been done that for a while it's
+
+34
+00:01:22,080 --> 00:01:26,560
+uh the last time i've done that it's
+
+35
+00:01:24,320 --> 00:01:28,799
+like five or ten years ago
+
+36
+00:01:26,560 --> 00:01:30,240
+so we are going to do that okay shall we
+
+37
+00:01:28,799 --> 00:01:33,040
+begin so
+
+38
+00:01:30,240 --> 00:01:33,600
+by the way so the tablet i started to
+
+39
+00:01:33,040 --> 00:01:36,880
+use it
+
+40
+00:01:33,600 --> 00:01:39,119
+about four years ago and uh this is my
+
+41
+00:01:36,880 --> 00:01:40,000
+first time using pen computing you know
+
+42
+00:01:39,119 --> 00:01:42,479
+this digital
+
+43
+00:01:40,000 --> 00:01:44,320
+pen and that is fantastic you can
+
+44
+00:01:42,479 --> 00:01:45,360
+actually write notes you see right
+
+45
+00:01:44,320 --> 00:01:48,479
+chinese
+
+46
+00:01:45,360 --> 00:01:50,399
+chinese or uh especially you know
+
+47
+00:01:48,479 --> 00:01:52,479
+when you write notes like drawings you
+
+48
+00:01:50,399 --> 00:01:56,159
+know these drawings you cannot do
+
+49
+00:01:52,479 --> 00:01:57,680
+uh with a keyboard you know so
+
+50
+00:01:56,159 --> 00:01:59,520
+if you are doing math you know
+
+51
+00:01:57,680 --> 00:02:01,680
+explaining things or notes to your
+
+52
+00:01:59,520 --> 00:02:04,960
+friends and so on or teaching
+
+53
+00:02:01,680 --> 00:02:06,640
+this is fantastic so you can buy and by
+
+54
+00:02:04,960 --> 00:02:09,039
+the way
+
+55
+00:02:06,640 --> 00:02:09,840
+uh of course this is not the only item
+
+56
+00:02:09,039 --> 00:02:13,360
+you can buy
+
+57
+00:02:09,840 --> 00:02:17,360
+uh tablets is pretty popular today but
+
+58
+00:02:13,360 --> 00:02:18,319
+um so there are a few ones for example
+
+59
+00:02:17,360 --> 00:02:21,599
+you can get
+
+60
+00:02:18,319 --> 00:02:25,200
+let's see let's let's show emily's
+
+61
+00:02:21,599 --> 00:02:27,280
+stuff so who is here
+
+62
+00:02:25,200 --> 00:02:29,280
+raise your hands okay we don't have
+
+63
+00:02:27,280 --> 00:02:29,760
+anybody here we have five people am i
+
+64
+00:02:29,280 --> 00:02:33,360
+talking
+
+65
+00:02:29,760 --> 00:02:35,920
+am i doing fine am i alive check video
+
+66
+00:02:33,360 --> 00:02:37,040
+check audio good okay so we're gonna uh
+
+67
+00:02:35,920 --> 00:02:40,319
+do emac these
+
+68
+00:02:37,040 --> 00:02:43,120
+okay so meanwhile i'm gonna chat uh
+
+69
+00:02:40,319 --> 00:02:43,440
+two minutes about this uh pen computing
+
+70
+00:02:43,120 --> 00:02:46,480
+so
+
+71
+00:02:43,440 --> 00:02:51,360
+emily emily is a
+
+72
+00:02:46,480 --> 00:02:54,160
+eminent uh member of our discord
+
+73
+00:02:51,360 --> 00:02:55,280
+okay you know this code is kind of
+
+74
+00:02:54,160 --> 00:03:05,840
+annoying because
+
+75
+00:02:55,280 --> 00:03:05,840
+every time it hold on second
+
+76
+00:03:13,840 --> 00:03:17,519
+so i'm back so emily is a eminent member
+
+77
+00:03:17,200 --> 00:03:19,519
+of
+
+78
+00:03:17,519 --> 00:03:20,959
+our discord group she always have
+
+79
+00:03:19,519 --> 00:03:24,159
+interesting things
+
+80
+00:03:20,959 --> 00:03:27,760
+uh to say uh so anyway she she
+
+81
+00:03:24,159 --> 00:03:30,959
+she's got this uh ink
+
+82
+00:03:27,760 --> 00:03:35,360
+ink display uh technology phone from
+
+83
+00:03:30,959 --> 00:03:37,120
+china fantastic you know you uh
+
+84
+00:03:35,360 --> 00:03:38,560
+i'm not sure it's i don't think it's
+
+85
+00:03:37,120 --> 00:03:42,080
+available in usa
+
+86
+00:03:38,560 --> 00:03:45,360
+this is a high sense ai
+
+87
+00:03:42,080 --> 00:03:47,120
+proc cc phone okay so i don't think
+
+88
+00:03:45,360 --> 00:03:48,480
+as far as i know it's not available in
+
+89
+00:03:47,120 --> 00:03:51,680
+usa so anyway
+
+90
+00:03:48,480 --> 00:03:52,879
+ink display uh cell phone you know and
+
+91
+00:03:51,680 --> 00:03:56,640
+she also got the
+
+92
+00:03:52,879 --> 00:04:00,159
+this zoom tablet which you can buy
+
+93
+00:03:56,640 --> 00:04:01,120
+on amazon you go to you know search for
+
+94
+00:04:00,159 --> 00:04:04,640
+display
+
+95
+00:04:01,120 --> 00:04:07,040
+search for xally uh displaying phone
+
+96
+00:04:04,640 --> 00:04:09,840
+you'll find my page okay you can buy
+
+97
+00:04:07,040 --> 00:04:11,280
+so this is a zoom tablet and there is
+
+98
+00:04:09,840 --> 00:04:15,040
+some chinese on it
+
+99
+00:04:11,280 --> 00:04:16,560
+okay so let's see can you read chinese
+
+100
+00:04:15,040 --> 00:04:19,359
+well i can read chinese
+
+101
+00:04:16,560 --> 00:04:20,079
+so you see this chinese this is this is
+
+102
+00:04:19,359 --> 00:04:23,360
+uh
+
+103
+00:04:20,079 --> 00:04:26,639
+taoism the way that becomes a way
+
+104
+00:04:23,360 --> 00:04:27,680
+is not the immortal way the name that
+
+105
+00:04:26,639 --> 00:04:30,560
+becomes the name
+
+106
+00:04:27,680 --> 00:04:32,479
+is not the imoto name i don't think
+
+107
+00:04:30,560 --> 00:04:34,720
+that's a good translation okay there are
+
+108
+00:04:32,479 --> 00:04:36,560
+tons of translations of this doubter
+
+109
+00:04:34,720 --> 00:04:39,919
+gene
+
+110
+00:04:36,560 --> 00:04:39,919
+but anyway so let me read on
+
+111
+00:04:40,400 --> 00:04:44,479
+the way that becomes a way is not the
+
+112
+00:04:42,400 --> 00:04:44,800
+immortal way the name that becomes the
+
+113
+00:04:44,479 --> 00:04:47,840
+name
+
+114
+00:04:44,800 --> 00:04:50,880
+is not the immortal name the maiden of
+
+115
+00:04:47,840 --> 00:04:51,919
+heaven and earth has no name the mother
+
+116
+00:04:50,880 --> 00:04:55,520
+of all things
+
+117
+00:04:51,919 --> 00:04:58,240
+has a name thus in innocence
+
+118
+00:04:55,520 --> 00:04:59,360
+we see the beginning in passion we see
+
+119
+00:04:58,240 --> 00:05:02,400
+the end
+
+120
+00:04:59,360 --> 00:05:05,280
+two different names for one and the same
+
+121
+00:05:02,400 --> 00:05:06,000
+the one we call dark the dark beyond
+
+122
+00:05:05,280 --> 00:05:09,600
+dark
+
+123
+00:05:06,000 --> 00:05:12,960
+the door to all beginnings
+
+124
+00:05:09,600 --> 00:05:15,840
+this is the typical chinese taoism
+
+125
+00:05:12,960 --> 00:05:16,400
+uh kind of thing philosophy which is
+
+126
+00:05:15,840 --> 00:05:19,600
+kind of
+
+127
+00:05:16,400 --> 00:05:23,199
+nonsensical well in some okay
+
+128
+00:05:19,600 --> 00:05:26,080
+either nonsensical or multi multitudes
+
+129
+00:05:23,199 --> 00:05:27,919
+of interpretation you could you could
+
+130
+00:05:26,080 --> 00:05:30,400
+see it any means you want
+
+131
+00:05:27,919 --> 00:05:31,039
+that's uh characteristics of chinese
+
+132
+00:05:30,400 --> 00:05:34,479
+language
+
+133
+00:05:31,039 --> 00:05:37,199
+in fact but if you read
+
+134
+00:05:34,479 --> 00:05:38,320
+in this in this passage in chinese is
+
+135
+00:05:37,199 --> 00:05:40,080
+it's actually
+
+136
+00:05:38,320 --> 00:05:42,720
+it's kind of more interesting because
+
+137
+00:05:40,080 --> 00:05:44,479
+you the you have to use the original
+
+138
+00:05:42,720 --> 00:05:48,080
+language that has
+
+139
+00:05:44,479 --> 00:05:51,840
+there's more poetry but anyway
+
+140
+00:05:48,080 --> 00:05:54,160
+so you see it's hard to explain
+
+141
+00:05:51,840 --> 00:05:55,280
+there are tons of translations and
+
+142
+00:05:54,160 --> 00:05:57,919
+interpretations
+
+143
+00:05:55,280 --> 00:05:58,400
+written by different authors you can you
+
+144
+00:05:57,919 --> 00:06:00,880
+can go
+
+145
+00:05:58,400 --> 00:06:02,720
+buy so you go to amazon you click link
+
+146
+00:06:00,880 --> 00:06:05,840
+link and go buy
+
+147
+00:06:02,720 --> 00:06:08,160
+english versions of it.gene
+
+148
+00:06:05,840 --> 00:06:10,319
+fact we have several people western
+
+149
+00:06:08,160 --> 00:06:12,000
+people who are interested you know it's
+
+150
+00:06:10,319 --> 00:06:13,039
+one of the things that western people
+
+151
+00:06:12,000 --> 00:06:16,880
+are interested
+
+152
+00:06:13,039 --> 00:06:21,360
+especially today uh so anyways
+
+153
+00:06:16,880 --> 00:06:24,960
+so dao you know it's it's kind of uh
+
+154
+00:06:21,360 --> 00:06:25,360
+deep shall we say okay so let's do emac
+
+155
+00:06:24,960 --> 00:06:29,759
+list
+
+156
+00:06:25,360 --> 00:06:31,919
+okay let's uh let's hide the discord
+
+157
+00:06:29,759 --> 00:06:33,280
+email like this so who is here who is
+
+158
+00:06:31,919 --> 00:06:35,680
+with me weenie
+
+159
+00:06:33,280 --> 00:06:37,840
+07 good morning so eight people okay so
+
+160
+00:06:35,680 --> 00:06:42,000
+let's begin to do emac this
+
+161
+00:06:37,840 --> 00:06:44,080
+so we are going to do emacs list
+
+162
+00:06:42,000 --> 00:06:45,120
+past date and time so first of all let
+
+163
+00:06:44,080 --> 00:06:48,319
+me show you a
+
+164
+00:06:45,120 --> 00:06:51,759
+um let's begin from the easy stuff
+
+165
+00:06:48,319 --> 00:06:53,680
+to the difficult so the easy stuff is
+
+166
+00:06:51,759 --> 00:06:56,400
+first of all is to insert how do you
+
+167
+00:06:53,680 --> 00:06:59,840
+write a command to insert data in time
+
+168
+00:06:56,400 --> 00:07:02,880
+so you go to my emacs tutorial
+
+169
+00:06:59,840 --> 00:07:05,680
+just search for practical emacs lisp
+
+170
+00:07:02,880 --> 00:07:08,080
+you'll find it okay if you like my stuff
+
+171
+00:07:05,680 --> 00:07:11,840
+buy it okay that's what i'm doing video
+
+172
+00:07:08,080 --> 00:07:15,520
+live stream for to marketing product
+
+173
+00:07:11,840 --> 00:07:18,400
+uh part of because i enjoy it so anyway
+
+174
+00:07:15,520 --> 00:07:19,039
+print date and time and so you have a
+
+175
+00:07:18,400 --> 00:07:22,479
+command
+
+176
+00:07:19,039 --> 00:07:24,160
+here it's already written
+
+177
+00:07:22,479 --> 00:07:26,160
+i'm going to show you this command you
+
+178
+00:07:24,160 --> 00:07:27,680
+can grab the code on this page so let me
+
+179
+00:07:26,160 --> 00:07:30,800
+show you the code okay
+
+180
+00:07:27,680 --> 00:07:31,440
+so on the pink window you can see all my
+
+181
+00:07:30,800 --> 00:07:33,440
+commands
+
+182
+00:07:31,440 --> 00:07:36,800
+course okay so on the pink window you
+
+183
+00:07:33,440 --> 00:07:39,120
+can see all my commands and keys
+
+184
+00:07:36,800 --> 00:07:41,919
+i'm using stuff like keys and using a
+
+185
+00:07:39,120 --> 00:07:44,560
+vora keyboard so let's see
+
+186
+00:07:41,919 --> 00:07:47,120
+so first of all uh let me show you the
+
+187
+00:07:44,560 --> 00:07:49,280
+command about print date and time so
+
+188
+00:07:47,120 --> 00:07:50,639
+show in browser this is my talk show
+
+189
+00:07:49,280 --> 00:07:54,560
+page for today
+
+190
+00:07:50,639 --> 00:07:57,199
+okay so back to back to emacs
+
+191
+00:07:54,560 --> 00:07:59,840
+and let's so i want to insert a date
+
+192
+00:07:57,199 --> 00:08:03,919
+then and time so i just press a key
+
+193
+00:07:59,840 --> 00:08:07,199
+there it is and the command is called
+
+194
+00:08:03,919 --> 00:08:08,160
+uh the command is called it shows up
+
+195
+00:08:07,199 --> 00:08:12,720
+right here
+
+196
+00:08:08,160 --> 00:08:15,919
+uh wait here select date
+
+197
+00:08:12,720 --> 00:08:19,360
+and the key i have is space e u
+
+198
+00:08:15,919 --> 00:08:20,479
+you know that that you you know in this
+
+199
+00:08:19,360 --> 00:08:23,919
+command log mod
+
+200
+00:08:20,479 --> 00:08:25,280
+it because i have a brief i have a brief
+
+201
+00:08:23,919 --> 00:08:28,560
+let me show you okay
+
+202
+00:08:25,280 --> 00:08:31,680
+so i have a brief that turns
+
+203
+00:08:28,560 --> 00:08:35,360
+uh let me show you so you i type you
+
+204
+00:08:31,680 --> 00:08:38,640
+space and it becomes ylu so that is why
+
+205
+00:08:35,360 --> 00:08:41,839
+you see this there it should be
+
+206
+00:08:38,640 --> 00:08:43,200
+space eu so i need to do something i
+
+207
+00:08:41,839 --> 00:08:46,560
+need to turn off a brief
+
+208
+00:08:43,200 --> 00:08:49,839
+over there so you also you can see this
+
+209
+00:08:46,560 --> 00:08:52,959
+uh new empty buffer the key is
+
+210
+00:08:49,839 --> 00:08:56,720
+delete c n
+
+211
+00:08:52,959 --> 00:08:59,839
+that end is n okay so for example i type
+
+212
+00:08:56,720 --> 00:09:03,519
+i type n press space it becomes
+
+213
+00:08:59,839 --> 00:09:08,399
+end so you and me
+
+214
+00:09:03,519 --> 00:09:12,880
+you and me
+
+215
+00:09:08,399 --> 00:09:16,160
+you and me fantastic
+
+216
+00:09:12,880 --> 00:09:18,720
+the power of a brief search for
+
+217
+00:09:16,160 --> 00:09:19,519
+saudi emacs brief i have a full tutorial
+
+218
+00:09:18,720 --> 00:09:22,080
+on that
+
+219
+00:09:19,519 --> 00:09:23,360
+uh brief is the most fantastic thing in
+
+220
+00:09:22,080 --> 00:09:25,360
+emacs
+
+221
+00:09:23,360 --> 00:09:27,680
+so anyway insta date you see i press the
+
+222
+00:09:25,360 --> 00:09:28,560
+key like insta date i can insert several
+
+223
+00:09:27,680 --> 00:09:32,160
+formats
+
+224
+00:09:28,560 --> 00:09:36,080
+so i do universal command ctrl u
+
+225
+00:09:32,160 --> 00:09:38,480
+then press my key and and you can see in
+
+226
+00:09:36,080 --> 00:09:41,200
+in the mini buffer i have several
+
+227
+00:09:38,480 --> 00:09:44,720
+choices of formats
+
+228
+00:09:41,200 --> 00:09:47,760
+you know one or two you know these
+
+229
+00:09:44,720 --> 00:09:51,120
+uh sequence of digits three you know
+
+230
+00:09:47,760 --> 00:09:52,560
+different choices of let's say let's say
+
+231
+00:09:51,120 --> 00:09:56,399
+i pick one
+
+232
+00:09:52,560 --> 00:10:00,160
+okay enter so let's do another one
+
+233
+00:09:56,399 --> 00:10:02,800
+and magnify let's say two okay
+
+234
+00:10:00,160 --> 00:10:04,880
+then i got string of digits so that's
+
+235
+00:10:02,800 --> 00:10:08,240
+that's the command so
+
+236
+00:10:04,880 --> 00:10:11,760
+let's do describe key and press the key
+
+237
+00:10:08,240 --> 00:10:12,160
+then you can see the documentation the
+
+238
+00:10:11,760 --> 00:10:14,880
+in
+
+239
+00:10:12,160 --> 00:10:15,920
+inline dock for that command so this is
+
+240
+00:10:14,880 --> 00:10:19,040
+insert date
+
+241
+00:10:15,920 --> 00:10:19,519
+and you can jump to the code source code
+
+242
+00:10:19,040 --> 00:10:22,720
+is in
+
+243
+00:10:19,519 --> 00:10:25,600
+stuff like he's smart so enter so
+
+244
+00:10:22,720 --> 00:10:27,680
+here is our code okay let's copy and
+
+245
+00:10:25,600 --> 00:10:28,160
+let's not copy it let's just magnify
+
+246
+00:10:27,680 --> 00:10:32,720
+let's
+
+247
+00:10:28,160 --> 00:10:36,640
+let's do this okay so so from
+
+248
+00:10:32,720 --> 00:10:39,360
+here to um
+
+249
+00:10:36,640 --> 00:10:40,959
+here narrow to region so you can just
+
+250
+00:10:39,360 --> 00:10:45,440
+see the whole thing
+
+251
+00:10:40,959 --> 00:10:47,839
+not too many lines for 30 lines okay
+
+252
+00:10:45,440 --> 00:10:48,640
+so that is the command and okay let me
+
+253
+00:10:47,839 --> 00:10:51,040
+let me let's
+
+254
+00:10:48,640 --> 00:10:53,120
+explain let's explain how this is done
+
+255
+00:10:51,040 --> 00:10:55,360
+so
+
+256
+00:10:53,120 --> 00:10:57,760
+so insert date time is pretty easy so
+
+257
+00:10:55,360 --> 00:11:01,120
+first of all you have this part
+
+258
+00:10:57,760 --> 00:11:02,320
+uh this part about about style so this
+
+259
+00:11:01,120 --> 00:11:06,800
+is when emacs
+
+260
+00:11:02,320 --> 00:11:10,560
+emas emacs ask you for what kind of uh
+
+261
+00:11:06,800 --> 00:11:14,000
+format of date and time you want
+
+262
+00:11:10,560 --> 00:11:15,920
+i'm not going to explain this in detail
+
+263
+00:11:14,000 --> 00:11:17,040
+you know you're gonna study it read the
+
+264
+00:11:15,920 --> 00:11:19,360
+code okay so
+
+265
+00:11:17,040 --> 00:11:20,240
+but i'm going to explain the formatting
+
+266
+00:11:19,360 --> 00:11:23,760
+itself
+
+267
+00:11:20,240 --> 00:11:27,200
+so i so we have a first of all
+
+268
+00:11:23,760 --> 00:11:28,640
+so if this line says when there is a
+
+269
+00:11:27,200 --> 00:11:31,920
+region
+
+270
+00:11:28,640 --> 00:11:33,920
+then delete it okay
+
+271
+00:11:31,920 --> 00:11:35,279
+then delete the region because so it
+
+272
+00:11:33,920 --> 00:11:39,440
+overrides it
+
+273
+00:11:35,279 --> 00:11:42,399
+for example i create a new buffer
+
+274
+00:11:39,440 --> 00:11:44,160
+same thing okay i select it now i call
+
+275
+00:11:42,399 --> 00:11:47,120
+the command to insert the date
+
+276
+00:11:44,160 --> 00:11:48,000
+okay then it just delete you know the
+
+277
+00:11:47,120 --> 00:11:50,399
+overrides
+
+278
+00:11:48,000 --> 00:11:51,600
+the region selection okay that's what
+
+279
+00:11:50,399 --> 00:11:54,240
+this line does
+
+280
+00:11:51,600 --> 00:11:55,120
+then it basically just insert so the
+
+281
+00:11:54,240 --> 00:11:57,519
+whole
+
+282
+00:11:55,120 --> 00:11:59,120
+the whole code is about inserting you
+
+283
+00:11:57,519 --> 00:12:03,760
+know which one you want
+
+284
+00:11:59,120 --> 00:12:06,399
+so so insert let's go back to insert
+
+285
+00:12:03,760 --> 00:12:07,920
+magnify so you can see there's a
+
+286
+00:12:06,399 --> 00:12:12,240
+condition okay let's switch
+
+287
+00:12:07,920 --> 00:12:15,279
+to the you know the courier
+
+288
+00:12:12,240 --> 00:12:17,519
+i mean the mono space font you see
+
+289
+00:12:15,279 --> 00:12:18,720
+you can you can press the key to switch
+
+290
+00:12:17,519 --> 00:12:22,079
+font style
+
+291
+00:12:18,720 --> 00:12:25,839
+uh proportional or mono space
+
+292
+00:12:22,079 --> 00:12:25,839
+so this command is called
+
+293
+00:12:26,160 --> 00:12:30,720
+variable pitch mod okay so you can you
+
+294
+00:12:28,720 --> 00:12:34,800
+can you can do that yourself
+
+295
+00:12:30,720 --> 00:12:37,279
+so anyway so insert okay so condition
+
+296
+00:12:34,800 --> 00:12:38,079
+condition now we said a style before we
+
+297
+00:12:37,279 --> 00:12:40,560
+have style
+
+298
+00:12:38,079 --> 00:12:41,920
+zero one two three you know depend use a
+
+299
+00:12:40,560 --> 00:12:44,399
+picture style so
+
+300
+00:12:41,920 --> 00:12:46,399
+if it's style zero that means this
+
+301
+00:12:44,399 --> 00:12:49,680
+format this kind of universal
+
+302
+00:12:46,399 --> 00:12:51,760
+uh format then you just say
+
+303
+00:12:49,680 --> 00:12:52,880
+you call this function format time
+
+304
+00:12:51,760 --> 00:12:55,519
+stream
+
+305
+00:12:52,880 --> 00:12:57,200
+now so so this is how you format data in
+
+306
+00:12:55,519 --> 00:13:00,000
+time
+
+307
+00:12:57,200 --> 00:13:02,000
+okay then then you give this kind of a
+
+308
+00:13:00,000 --> 00:13:05,040
+key
+
+309
+00:13:02,000 --> 00:13:08,320
+special characters capital y means
+
+310
+00:13:05,040 --> 00:13:11,360
+year four digit year lowercase n means
+
+311
+00:13:08,320 --> 00:13:16,399
+uh two digit month and
+
+312
+00:13:11,360 --> 00:13:19,200
+lowercase d means two digit date
+
+313
+00:13:16,399 --> 00:13:22,240
+so i guess this this is uh kind of
+
+314
+00:13:19,200 --> 00:13:24,160
+common in many programming languages
+
+315
+00:13:22,240 --> 00:13:26,000
+so if you want to you can look at the
+
+316
+00:13:24,160 --> 00:13:27,680
+detail you know just called describe
+
+317
+00:13:26,000 --> 00:13:30,880
+function on format times
+
+318
+00:13:27,680 --> 00:13:32,720
+string so let's do it describe function
+
+319
+00:13:30,880 --> 00:13:34,399
+format time string so there is the
+
+320
+00:13:32,720 --> 00:13:38,000
+documentation for
+
+321
+00:13:34,399 --> 00:13:40,320
+format time stream and you can see
+
+322
+00:13:38,000 --> 00:13:41,440
+it gives you all the details here about
+
+323
+00:13:40,320 --> 00:13:44,480
+what
+
+324
+00:13:41,440 --> 00:13:47,440
+all these cryptic um
+
+325
+00:13:44,480 --> 00:13:48,079
+key codes to you know to insert date or
+
+326
+00:13:47,440 --> 00:13:51,920
+minute or
+
+327
+00:13:48,079 --> 00:13:54,399
+hour you know things like that okay so
+
+328
+00:13:51,920 --> 00:13:55,040
+so overall here is the insert code and
+
+329
+00:13:54,399 --> 00:13:57,440
+condition
+
+330
+00:13:55,040 --> 00:13:58,160
+style one then we do format you know
+
+331
+00:13:57,440 --> 00:14:01,600
+string
+
+332
+00:13:58,160 --> 00:14:02,160
+here and if style one you you add extra
+
+333
+00:14:01,600 --> 00:14:05,360
+a
+
+334
+00:14:02,160 --> 00:14:06,880
+capital a that is for spelled out full
+
+335
+00:14:05,360 --> 00:14:10,000
+name for the week
+
+336
+00:14:06,880 --> 00:14:12,560
+day name and so on
+
+337
+00:14:10,000 --> 00:14:13,040
+you know some of the formats require a
+
+338
+00:14:12,560 --> 00:14:15,600
+little bit
+
+339
+00:14:13,040 --> 00:14:17,040
+coding for example if you want just a
+
+340
+00:14:15,600 --> 00:14:20,079
+string of digits
+
+341
+00:14:17,040 --> 00:14:24,399
+this is one of the iso format
+
+342
+00:14:20,079 --> 00:14:29,199
+you know for example here is 2018.04
+
+343
+00:14:24,399 --> 00:14:32,240
+means april 12 22 o'clock
+
+344
+00:14:29,199 --> 00:14:32,959
+means yeah it you know 22 o'clock means
+
+345
+00:14:32,240 --> 00:14:36,320
+10 o'clock
+
+346
+00:14:32,959 --> 00:14:38,959
+in in the afternoon in the evening 40
+
+347
+00:14:36,320 --> 00:14:40,639
+minutes and 15 seconds 15 seconds so you
+
+348
+00:14:38,959 --> 00:14:44,079
+have to do a bit coding
+
+349
+00:14:40,639 --> 00:14:47,199
+uh you know you have two for in example
+
+350
+00:14:44,079 --> 00:14:49,680
+you have to delete the uh the colon
+
+351
+00:14:47,199 --> 00:14:50,800
+remove the colon so anyway so that's the
+
+352
+00:14:49,680 --> 00:14:53,600
+code format
+
+353
+00:14:50,800 --> 00:14:55,040
+uh time string this is the the key
+
+354
+00:14:53,600 --> 00:14:58,880
+function is format time
+
+355
+00:14:55,040 --> 00:15:02,959
+time string okay so that's about that
+
+356
+00:14:58,880 --> 00:15:07,040
+code okay so uh widen
+
+357
+00:15:02,959 --> 00:15:09,839
+undo okay that's close it
+
+358
+00:15:07,040 --> 00:15:12,720
+okay so we have several so so date and
+
+359
+00:15:09,839 --> 00:15:16,880
+time okay so let's just um
+
+360
+00:15:12,720 --> 00:15:20,240
+okay showing browser so that
+
+361
+00:15:16,880 --> 00:15:22,880
+is about inserting time okay now let's
+
+362
+00:15:20,240 --> 00:15:24,399
+uh let's put that new at the bottom okay
+
+363
+00:15:22,880 --> 00:15:27,839
+showing browser any questions
+
+364
+00:15:24,399 --> 00:15:27,839
+comments or questions
+
+365
+00:15:27,920 --> 00:15:31,040
+so the next thing we're going to do is
+
+366
+00:15:29,680 --> 00:15:34,480
+to talk about
+
+367
+00:15:31,040 --> 00:15:35,600
+how do you uh pass time date and time in
+
+368
+00:15:34,480 --> 00:15:39,199
+emac business
+
+369
+00:15:35,600 --> 00:15:42,480
+now that is a quite complex
+
+370
+00:15:39,199 --> 00:15:45,279
+thing to do in fact that is complex
+
+371
+00:15:42,480 --> 00:15:46,240
+in basically any language any
+
+372
+00:15:45,279 --> 00:15:49,920
+programming language
+
+373
+00:15:46,240 --> 00:15:53,040
+morning derek a so the question is how
+
+374
+00:15:49,920 --> 00:15:55,120
+do you pass data in time
+
+375
+00:15:53,040 --> 00:15:57,519
+okay so how long have i been talking
+
+376
+00:15:55,120 --> 00:15:58,800
+we've been talking for 16 minutes okay
+
+377
+00:15:57,519 --> 00:16:00,880
+let's talk about let's
+
+378
+00:15:58,800 --> 00:16:01,920
+talk about how to how do you pass data
+
+379
+00:16:00,880 --> 00:16:08,240
+in time
+
+380
+00:16:01,920 --> 00:16:11,519
+uh okay so let's look at um
+
+381
+00:16:08,240 --> 00:16:14,639
+so i have another article here
+
+382
+00:16:11,519 --> 00:16:15,600
+uh in my emacs website about print date
+
+383
+00:16:14,639 --> 00:16:18,399
+and time which
+
+384
+00:16:15,600 --> 00:16:20,160
+basically we just covered you know you
+
+385
+00:16:18,399 --> 00:16:21,360
+you want to print data and time in
+
+386
+00:16:20,160 --> 00:16:23,920
+several formats
+
+387
+00:16:21,360 --> 00:16:25,519
+this is what you do using the format
+
+388
+00:16:23,920 --> 00:16:28,720
+time stream
+
+389
+00:16:25,519 --> 00:16:28,720
+uh function
+
+390
+00:16:29,199 --> 00:16:33,199
+okay so that's that's about that article
+
+391
+00:16:31,839 --> 00:16:35,360
+so now let's go back
+
+392
+00:16:33,199 --> 00:16:37,199
+now now the next thing we're gonna talk
+
+393
+00:16:35,360 --> 00:16:40,320
+about is how do you
+
+394
+00:16:37,199 --> 00:16:43,040
+um pass data in time which is this
+
+395
+00:16:40,320 --> 00:16:43,040
+article okay
+
+396
+00:16:43,440 --> 00:16:47,600
+so here is uh you know past passing data
+
+397
+00:16:46,560 --> 00:16:50,720
+and time is a
+
+398
+00:16:47,600 --> 00:16:56,160
+is a very tedious and
+
+399
+00:16:50,720 --> 00:16:59,519
+complex task in any programming language
+
+400
+00:16:56,160 --> 00:17:00,399
+and this this problem is such a problem
+
+401
+00:16:59,519 --> 00:17:04,000
+that
+
+402
+00:17:00,399 --> 00:17:07,120
+there is no designated
+
+403
+00:17:04,000 --> 00:17:07,520
+algorithm for it you know it's it's kind
+
+404
+00:17:07,120 --> 00:17:09,760
+of
+
+405
+00:17:07,520 --> 00:17:11,039
+it's kind of like it's one of those real
+
+406
+00:17:09,760 --> 00:17:14,079
+world problems
+
+407
+00:17:11,039 --> 00:17:16,559
+there is no actually fixed algorithm
+
+408
+00:17:14,079 --> 00:17:18,319
+like mathematics you know for example
+
+409
+00:17:16,559 --> 00:17:21,520
+the greatest common
+
+410
+00:17:18,319 --> 00:17:24,079
+divisor the the you know the 11th
+
+411
+00:17:21,520 --> 00:17:24,640
+prime number how do you factor a number
+
+412
+00:17:24,079 --> 00:17:26,799
+you know
+
+413
+00:17:24,640 --> 00:17:28,720
+those are how do you multiply a matrix
+
+414
+00:17:26,799 --> 00:17:31,919
+you know those are very
+
+415
+00:17:28,720 --> 00:17:33,760
+concise concrete problems and you sh and
+
+416
+00:17:31,919 --> 00:17:35,760
+and or how do you sort
+
+417
+00:17:33,760 --> 00:17:38,960
+how do you sort a bunch of numbers or
+
+418
+00:17:35,760 --> 00:17:41,440
+strings so these kind of problems we
+
+419
+00:17:38,960 --> 00:17:42,559
+you know over the past 50 or 100 years
+
+420
+00:17:41,440 --> 00:17:44,320
+we have a
+
+421
+00:17:42,559 --> 00:17:45,679
+we have a lot of algorithms you know a
+
+422
+00:17:44,320 --> 00:17:48,559
+lot of people study it
+
+423
+00:17:45,679 --> 00:17:49,360
+but for date and time it's just it's
+
+424
+00:17:48,559 --> 00:17:51,919
+it's such a
+
+425
+00:17:49,360 --> 00:17:54,640
+complex problem partly because the
+
+426
+00:17:51,919 --> 00:17:56,720
+calendar you know the
+
+427
+00:17:54,640 --> 00:17:58,559
+how did we come up with you know such a
+
+428
+00:17:56,720 --> 00:18:01,280
+date and time like 12 months
+
+429
+00:17:58,559 --> 00:18:02,160
+and seven days for a week and how many
+
+430
+00:18:01,280 --> 00:18:06,160
+days in a year
+
+431
+00:18:02,160 --> 00:18:09,360
+you know 365 65 days in a year that that
+
+432
+00:18:06,160 --> 00:18:13,280
+is actually a very complex
+
+433
+00:18:09,360 --> 00:18:16,160
+extremely complex a strong astronomical
+
+434
+00:18:13,280 --> 00:18:16,640
+problem planetary problem so it's you
+
+435
+00:18:16,160 --> 00:18:20,320
+know so
+
+436
+00:18:16,640 --> 00:18:22,720
+calendar the fact that we have calendar
+
+437
+00:18:20,320 --> 00:18:24,240
+the calendar itself is non-trivial and
+
+438
+00:18:22,720 --> 00:18:26,880
+it takes
+
+439
+00:18:24,240 --> 00:18:29,200
+centuries you know for for us to come up
+
+440
+00:18:26,880 --> 00:18:31,520
+with calendars
+
+441
+00:18:29,200 --> 00:18:33,440
+so anyway so so anyway first of all we
+
+442
+00:18:31,520 --> 00:18:35,039
+have a calendar then then we have you
+
+443
+00:18:33,440 --> 00:18:37,679
+know in english we have these
+
+444
+00:18:35,039 --> 00:18:39,520
+strings to represent date different kind
+
+445
+00:18:37,679 --> 00:18:42,080
+of formats
+
+446
+00:18:39,520 --> 00:18:42,559
+um and now we want to pass them so it's
+
+447
+00:18:42,080 --> 00:18:46,320
+it's
+
+448
+00:18:42,559 --> 00:18:50,400
+it's not trivial in any language but
+
+449
+00:18:46,320 --> 00:18:52,559
+but usually you know today we uh
+
+450
+00:18:50,400 --> 00:18:54,000
+any almost any language they have
+
+451
+00:18:52,559 --> 00:18:56,720
+building library that
+
+452
+00:18:54,000 --> 00:18:58,080
+that does that but depending on what
+
+453
+00:18:56,720 --> 00:19:01,520
+language
+
+454
+00:18:58,080 --> 00:19:04,480
+they they are usually income
+
+455
+00:19:01,520 --> 00:19:06,559
+incompatible or complex you know they
+
+456
+00:19:04,480 --> 00:19:07,760
+have different levels of features you
+
+457
+00:19:06,559 --> 00:19:10,960
+know abilities
+
+458
+00:19:07,760 --> 00:19:12,960
+how they can pass a date so in emac this
+
+459
+00:19:10,960 --> 00:19:14,320
+it turns out you know i studied this
+
+460
+00:19:12,960 --> 00:19:17,280
+back in like uh
+
+461
+00:19:14,320 --> 00:19:18,799
+10 years ago 2011 that's the first time
+
+462
+00:19:17,280 --> 00:19:23,360
+i
+
+463
+00:19:18,799 --> 00:19:23,360
+i dive into how do you pass data in time
+
+464
+00:19:23,520 --> 00:19:27,919
+so let's let's do actual code okay let's
+
+465
+00:19:26,000 --> 00:19:29,600
+instead of talking let's actually start
+
+466
+00:19:27,919 --> 00:19:32,960
+to do code let's see how
+
+467
+00:19:29,600 --> 00:19:33,679
+uh what we're gonna do so so the problem
+
+468
+00:19:32,960 --> 00:19:36,720
+um
+
+469
+00:19:33,679 --> 00:19:39,039
+so what are we going to do so there is a
+
+470
+00:19:36,720 --> 00:19:40,799
+so we want to pass data in time so given
+
+471
+00:19:39,039 --> 00:19:43,600
+a string
+
+472
+00:19:40,799 --> 00:19:44,640
+you know we you know for humans we can
+
+473
+00:19:43,600 --> 00:19:47,440
+understand what this
+
+474
+00:19:44,640 --> 00:19:48,480
+means but you have to let computer
+
+475
+00:19:47,440 --> 00:19:51,120
+understand
+
+476
+00:19:48,480 --> 00:19:54,320
+you know what this string means that
+
+477
+00:19:51,120 --> 00:19:56,320
+that is what passing is about
+
+478
+00:19:54,320 --> 00:19:58,640
+so the problem is given any of these
+
+479
+00:19:56,320 --> 00:20:01,760
+state and time you want to convert it
+
+480
+00:19:58,640 --> 00:20:02,960
+to into this universal kind of universal
+
+481
+00:20:01,760 --> 00:20:06,000
+format okay that's a
+
+482
+00:20:02,960 --> 00:20:07,440
+that's a problem that's the idea that's
+
+483
+00:20:06,000 --> 00:20:10,080
+a problem we want to do
+
+484
+00:20:07,440 --> 00:20:10,480
+so the solution in emac this there is a
+
+485
+00:20:10,080 --> 00:20:13,039
+past
+
+486
+00:20:10,480 --> 00:20:16,000
+time library okay with this function
+
+487
+00:20:13,039 --> 00:20:16,000
+past time stream
+
+488
+00:20:16,320 --> 00:20:23,840
+but it's not it's not all that powerful
+
+489
+00:20:20,960 --> 00:20:26,799
+uh if i recall correctly because some of
+
+490
+00:20:23,840 --> 00:20:30,480
+these state time strings it cannot
+
+491
+00:20:26,799 --> 00:20:30,480
+understand it doesn't understand
+
+492
+00:20:31,520 --> 00:20:38,320
+it should because even the the
+
+493
+00:20:35,039 --> 00:20:39,919
+even though the you see the the problem
+
+494
+00:20:38,320 --> 00:20:42,640
+about passing date time
+
+495
+00:20:39,919 --> 00:20:44,880
+is not a difficult problem you know it's
+
+496
+00:20:42,640 --> 00:20:46,159
+not like solving one of the great math
+
+497
+00:20:44,880 --> 00:20:48,400
+problems where
+
+498
+00:20:46,159 --> 00:20:50,240
+no mathematicians can come up with a
+
+499
+00:20:48,400 --> 00:20:53,200
+solution it's not like that
+
+500
+00:20:50,240 --> 00:20:54,480
+but rather it's a it's a complex problem
+
+501
+00:20:53,200 --> 00:20:56,799
+in a tedious
+
+502
+00:20:54,480 --> 00:20:58,400
+sense you know it's quite tedious to you
+
+503
+00:20:56,799 --> 00:21:00,720
+know like
+
+504
+00:20:58,400 --> 00:21:02,080
+for example one solution is just try all
+
+505
+00:21:00,720 --> 00:21:05,280
+possible ways
+
+506
+00:21:02,080 --> 00:21:05,600
+there are not many uh varieties you can
+
+507
+00:21:05,280 --> 00:21:08,400
+try
+
+508
+00:21:05,600 --> 00:21:09,120
+all possible ways so the emac this
+
+509
+00:21:08,400 --> 00:21:12,400
+doesn't do
+
+510
+00:21:09,120 --> 00:21:15,440
+do well so so here
+
+511
+00:21:12,400 --> 00:21:16,400
+i try to use the e-max list building
+
+512
+00:21:15,440 --> 00:21:20,240
+function pass
+
+513
+00:21:16,400 --> 00:21:22,240
+time string to try to see which
+
+514
+00:21:20,240 --> 00:21:23,760
+format it understand and which one it
+
+515
+00:21:22,240 --> 00:21:26,080
+doesn't
+
+516
+00:21:23,760 --> 00:21:27,039
+so let's do it okay so let's let's go to
+
+517
+00:21:26,080 --> 00:21:30,960
+the code so
+
+518
+00:21:27,039 --> 00:21:34,000
+um okay make a backup copy
+
+519
+00:21:30,960 --> 00:21:34,400
+and let's show the code so here i have a
+
+520
+00:21:34,000 --> 00:21:37,919
+code
+
+521
+00:21:34,400 --> 00:21:40,080
+okay so it says
+
+522
+00:21:37,919 --> 00:21:43,039
+testing for supported format for past
+
+523
+00:21:40,080 --> 00:21:47,039
+dating datetime string okay
+
+524
+00:21:43,039 --> 00:21:51,039
+now as of 2016.
+
+525
+00:21:47,039 --> 00:21:53,600
+so i did this in 2016. uh that's emacs
+
+526
+00:21:51,039 --> 00:21:56,640
+version 25 but today
+
+527
+00:21:53,600 --> 00:22:00,960
+the e-max version i have is emacs 27
+
+528
+00:21:56,640 --> 00:22:04,400
+so you can see press ctrl u then meta x
+
+529
+00:22:00,960 --> 00:22:09,039
+then type version you see
+
+530
+00:22:04,400 --> 00:22:12,159
+now we got emacs version 27
+
+531
+00:22:09,039 --> 00:22:13,440
+so four years change let's see what has
+
+532
+00:22:12,159 --> 00:22:16,640
+changed okay let's
+
+533
+00:22:13,440 --> 00:22:17,039
+let's gonna do it evaluate this require
+
+534
+00:22:16,640 --> 00:22:21,360
+pass
+
+535
+00:22:17,039 --> 00:22:22,720
+time uh and unixy format okay so unix
+
+536
+00:22:21,360 --> 00:22:26,240
+format this is
+
+537
+00:22:22,720 --> 00:22:29,760
+you know this string is from unix unix
+
+538
+00:22:26,240 --> 00:22:29,760
+uh love this string
+
+539
+00:22:30,559 --> 00:22:34,159
+uh let's see if they are equal okay
+
+540
+00:22:32,960 --> 00:22:38,320
+janet
+
+541
+00:22:34,159 --> 00:22:41,840
+neal okay so
+
+542
+00:22:38,320 --> 00:22:44,159
+something changed
+
+543
+00:22:41,840 --> 00:22:46,480
+you know something changed in the past
+
+544
+00:22:44,159 --> 00:22:49,760
+four years
+
+545
+00:22:46,480 --> 00:22:50,320
+so past past time string it returns a
+
+546
+00:22:49,760 --> 00:22:54,559
+list
+
+547
+00:22:50,320 --> 00:22:56,400
+like this okay but um
+
+548
+00:22:54,559 --> 00:22:58,960
+okay let's see what what it actually
+
+549
+00:22:56,400 --> 00:22:58,960
+returns
+
+550
+00:22:59,280 --> 00:23:07,520
+so let's paste this here ctrl u
+
+551
+00:23:03,840 --> 00:23:09,840
+run it so it returns this
+
+552
+00:23:07,520 --> 00:23:09,840
+thing
+
+553
+00:23:10,799 --> 00:23:16,559
+so how how is this differ from
+
+554
+00:23:14,240 --> 00:23:16,559
+that
+
+555
+00:23:17,840 --> 00:23:22,000
+oh okay so instead of neo so here is a
+
+556
+00:23:20,880 --> 00:23:26,159
+neo
+
+557
+00:23:22,000 --> 00:23:28,000
+but here it has a value of negative one
+
+558
+00:23:26,159 --> 00:23:29,440
+uh so what does that mean i don't know
+
+559
+00:23:28,000 --> 00:23:32,400
+you have to look at the
+
+560
+00:23:29,440 --> 00:23:33,679
+dot stream for past state path time
+
+561
+00:23:32,400 --> 00:23:37,840
+string so
+
+562
+00:23:33,679 --> 00:23:37,840
+uh describe function
+
+563
+00:23:38,799 --> 00:23:41,440
+so let's see
+
+564
+00:23:45,520 --> 00:23:52,240
+so pass the time in string into okay
+
+565
+00:23:49,120 --> 00:23:55,600
+the format it returns second minute hour
+
+566
+00:23:52,240 --> 00:23:59,360
+day month year
+
+567
+00:23:55,600 --> 00:24:00,080
+and uh year and the dow i don't know
+
+568
+00:23:59,360 --> 00:24:03,200
+what that is
+
+569
+00:24:00,080 --> 00:24:07,039
+and dst is the time zone and tz
+
+570
+00:24:03,200 --> 00:24:10,559
+i don't know what that is so it says
+
+571
+00:24:07,039 --> 00:24:11,440
+um okay string should be something
+
+572
+00:24:10,559 --> 00:24:15,760
+resembling
+
+573
+00:24:11,440 --> 00:24:18,799
+an rfc822 you know this unix
+
+574
+00:24:15,760 --> 00:24:21,840
+fox they love these rfcs
+
+575
+00:24:18,799 --> 00:24:24,960
+you know they love to say site rfc
+
+576
+00:24:21,840 --> 00:24:28,559
+ifc is kind of the unix unix
+
+577
+00:24:24,960 --> 00:24:30,559
+affiliated uh standard
+
+578
+00:24:28,559 --> 00:24:33,039
+even you know for example on the other
+
+579
+00:24:30,559 --> 00:24:34,559
+hand there is iso standard and other
+
+580
+00:24:33,039 --> 00:24:38,400
+standard much more
+
+581
+00:24:34,559 --> 00:24:41,039
+um actually much more um
+
+582
+00:24:38,400 --> 00:24:42,000
+universal than you know much more
+
+583
+00:24:41,039 --> 00:24:44,840
+established
+
+584
+00:24:42,000 --> 00:24:46,400
+but the unix people they always love our
+
+585
+00:24:44,840 --> 00:24:48,559
+rfc
+
+586
+00:24:46,400 --> 00:24:50,200
+so anyways a string should be should be
+
+587
+00:24:48,559 --> 00:24:53,120
+something resembling on
+
+588
+00:24:50,200 --> 00:24:55,600
+rfc822 okay or later date time
+
+589
+00:24:53,120 --> 00:24:56,480
+okay in case let's let's you know in
+
+590
+00:24:55,600 --> 00:24:58,559
+case
+
+591
+00:24:56,480 --> 00:25:00,559
+in in case you haven't you guys haven't
+
+592
+00:24:58,559 --> 00:25:04,000
+seen rfc
+
+593
+00:25:00,559 --> 00:25:04,000
+you know here is rfc
+
+594
+00:25:04,640 --> 00:25:09,840
+uh you know these days you young people
+
+595
+00:25:07,039 --> 00:25:13,480
+you you guys haven't seen rfc
+
+596
+00:25:09,840 --> 00:25:18,080
+you so you see so ifc822 is august
+
+597
+00:25:13,480 --> 00:25:21,039
+1982 um
+
+598
+00:25:18,080 --> 00:25:24,000
+you know the standard the standard for
+
+599
+00:25:21,039 --> 00:25:27,120
+the format of
+
+600
+00:25:24,000 --> 00:25:30,400
+of up oppa
+
+601
+00:25:27,120 --> 00:25:34,960
+internet text messages
+
+602
+00:25:30,400 --> 00:25:34,960
+god 1982 this is ancient
+
+603
+00:25:36,960 --> 00:25:43,840
+okay so anyway so what is dow okay let's
+
+604
+00:25:40,840 --> 00:25:43,840
+see
+
+605
+00:25:46,000 --> 00:25:50,480
+so anyway let me read the read okay so
+
+606
+00:25:48,640 --> 00:25:53,840
+string should be something resembling
+
+607
+00:25:50,480 --> 00:25:55,279
+an rfc822 or later datetime for example
+
+608
+00:25:53,840 --> 00:25:57,440
+friday something something blah blah
+
+609
+00:25:55,279 --> 00:25:58,240
+blah but this function is somewhat
+
+610
+00:25:57,440 --> 00:26:01,039
+liberal
+
+611
+00:25:58,240 --> 00:26:01,600
+in what format it accepts and we attempt
+
+612
+00:26:01,039 --> 00:26:04,080
+to run
+
+613
+00:26:01,600 --> 00:26:05,360
+a likely value even for somewhat more
+
+614
+00:26:04,080 --> 00:26:08,000
+formed strings
+
+615
+00:26:05,360 --> 00:26:08,960
+the values returned the values returned
+
+616
+00:26:08,000 --> 00:26:12,480
+are identical
+
+617
+00:26:08,960 --> 00:26:14,960
+to those of decode time okay
+
+618
+00:26:12,480 --> 00:26:17,039
+okay there's a decode time but any
+
+619
+00:26:14,960 --> 00:26:20,240
+unknown value other than dst
+
+620
+00:26:17,039 --> 00:26:22,960
+are returned as neo and an unknown dst
+
+621
+00:26:20,240 --> 00:26:25,760
+value is returned as negative one oh
+
+622
+00:26:22,960 --> 00:26:27,120
+okay so that's what nick the that's what
+
+623
+00:26:25,760 --> 00:26:30,720
+the negative one means
+
+624
+00:26:27,120 --> 00:26:30,720
+let's go back to our code you see
+
+625
+00:26:31,919 --> 00:26:38,320
+you see uh let me show you okay so
+
+626
+00:26:35,120 --> 00:26:42,480
+here over here here's a result
+
+627
+00:26:38,320 --> 00:26:46,000
+from e max 25 and here is a result from
+
+628
+00:26:42,480 --> 00:26:46,960
+e max 27 the difference is this negative
+
+629
+00:26:46,000 --> 00:26:50,640
+one
+
+630
+00:26:46,960 --> 00:26:54,159
+this negative one is the the second last
+
+631
+00:26:50,640 --> 00:26:57,520
+element of this list and according to
+
+632
+00:26:54,159 --> 00:26:58,640
+the documentation it's the dst now this
+
+633
+00:26:57,520 --> 00:27:01,279
+documentation
+
+634
+00:26:58,640 --> 00:27:01,679
+it didn't explain what this d o
+
+635
+00:27:01,279 --> 00:27:05,120
+w
+
+636
+00:27:01,679 --> 00:27:05,679
+or d s t or t z means now that's the
+
+637
+00:27:05,120 --> 00:27:08,880
+flaw
+
+638
+00:27:05,679 --> 00:27:09,760
+of documentation you know so if you guys
+
+639
+00:27:08,880 --> 00:27:12,720
+are a fan
+
+640
+00:27:09,760 --> 00:27:15,200
+of gnu emacs or free software foundation
+
+641
+00:27:12,720 --> 00:27:17,760
+go tell them to change it
+
+642
+00:27:15,200 --> 00:27:20,559
+i'm not going to do it because i i've
+
+643
+00:27:17,760 --> 00:27:23,919
+done this a thousand times uh
+
+644
+00:27:20,559 --> 00:27:27,520
+and it
+
+645
+00:27:23,919 --> 00:27:31,760
+tastes like a greasy coin
+
+646
+00:27:27,520 --> 00:27:34,080
+in your mouth okay so
+
+647
+00:27:31,760 --> 00:27:36,240
+so you didn't eat it so you see it
+
+648
+00:27:34,080 --> 00:27:39,360
+didn't it doesn't say what dow
+
+649
+00:27:36,240 --> 00:27:41,600
+and dst means you know so you can look
+
+650
+00:27:39,360 --> 00:27:43,840
+at decode time so let's look at decode
+
+651
+00:27:41,600 --> 00:27:45,679
+time
+
+652
+00:27:43,840 --> 00:27:49,520
+so decode time so what's what's the
+
+653
+00:27:45,679 --> 00:27:51,760
+difference decode time wait
+
+654
+00:27:49,520 --> 00:27:51,760
+uh
+
+655
+00:27:54,559 --> 00:28:00,240
+so for so past time string is
+
+656
+00:27:57,679 --> 00:28:02,159
+from this pass time dot el so let's go
+
+657
+00:28:00,240 --> 00:28:05,200
+to the source code
+
+658
+00:28:02,159 --> 00:28:09,919
+so path time string is this code here
+
+659
+00:28:05,200 --> 00:28:09,919
+and it's written in emac list okay
+
+660
+00:28:12,480 --> 00:28:17,679
+so it's here so it's written in emac
+
+661
+00:28:16,399 --> 00:28:21,120
+list
+
+662
+00:28:17,679 --> 00:28:23,600
+so apparently the decode time string
+
+663
+00:28:21,120 --> 00:28:25,360
+so let's close that so let's go to the
+
+664
+00:28:23,600 --> 00:28:29,200
+decode time
+
+665
+00:28:25,360 --> 00:28:31,440
+now decode time it's written in c
+
+666
+00:28:29,200 --> 00:28:32,799
+now i i always pay attention to that
+
+667
+00:28:31,440 --> 00:28:35,520
+because when something
+
+668
+00:28:32,799 --> 00:28:37,520
+is in c usually means it's much more
+
+669
+00:28:35,520 --> 00:28:41,679
+faster and more fundamental
+
+670
+00:28:37,520 --> 00:28:43,360
+usually you know e-magly's e-max is
+
+671
+00:28:41,679 --> 00:28:46,480
+written in c
+
+672
+00:28:43,360 --> 00:28:49,919
+and the lisp you know you have uh
+
+673
+00:28:46,480 --> 00:28:52,960
+you have a core c code then
+
+674
+00:28:49,919 --> 00:28:56,840
+then a big chunk then then
+
+675
+00:28:52,960 --> 00:28:59,840
+a big part of it is this written in this
+
+676
+00:28:56,840 --> 00:29:01,840
+itself so anyway decode time string uh
+
+677
+00:28:59,840 --> 00:29:03,120
+probably introduced so before emacs
+
+678
+00:29:01,840 --> 00:29:06,799
+version 19
+
+679
+00:29:03,120 --> 00:29:10,000
+uh version 19 which is around 2000 2000
+
+680
+00:29:06,799 --> 00:29:13,919
+also year 2000 so this function does not
+
+681
+00:29:10,000 --> 00:29:16,240
+change global state yeah okay um
+
+682
+00:29:13,919 --> 00:29:18,240
+including the match data you know i'm
+
+683
+00:29:16,240 --> 00:29:21,360
+not sure why they mentioned that
+
+684
+00:29:18,240 --> 00:29:22,240
+of course it is it seems irrelevant
+
+685
+00:29:21,360 --> 00:29:24,799
+because
+
+686
+00:29:22,240 --> 00:29:25,760
+the match data is only usually changed
+
+687
+00:29:24,799 --> 00:29:28,960
+by
+
+688
+00:29:25,760 --> 00:29:30,480
+by functions that deal with um search
+
+689
+00:29:28,960 --> 00:29:34,240
+string when you do a search
+
+690
+00:29:30,480 --> 00:29:37,919
+string yeah any anyway so so decode time
+
+691
+00:29:34,240 --> 00:29:40,640
+uh decode decoder time value as
+
+692
+00:29:37,919 --> 00:29:41,120
+second minute hour day month year d o w
+
+693
+00:29:40,640 --> 00:29:44,880
+d s
+
+694
+00:29:41,120 --> 00:29:47,120
+t u t c off okay
+
+695
+00:29:44,880 --> 00:29:49,600
+the option time is the time value to
+
+696
+00:29:47,120 --> 00:29:54,399
+convert
+
+697
+00:29:49,600 --> 00:29:57,520
+okay the option time so
+
+698
+00:29:54,399 --> 00:29:57,520
+okay so uh
+
+699
+00:29:59,039 --> 00:30:04,880
+so anyway i want to know what is dow so
+
+700
+00:30:02,159 --> 00:30:08,000
+search for dow
+
+701
+00:30:04,880 --> 00:30:11,760
+okay here it says dow day of the week
+
+702
+00:30:08,000 --> 00:30:15,279
+oh obviously an integer between
+
+703
+00:30:11,760 --> 00:30:16,480
+zero to six okay where zero is sunday
+
+704
+00:30:15,279 --> 00:30:21,520
+okay dst
+
+705
+00:30:16,480 --> 00:30:21,520
+is uh daylight saving time oh okay
+
+706
+00:30:21,600 --> 00:30:28,919
+and tc utc off
+
+707
+00:30:25,679 --> 00:30:32,080
+is an integer indicating
+
+708
+00:30:28,919 --> 00:30:35,440
+indicating the utc
+
+709
+00:30:32,080 --> 00:30:39,919
+offset in seconds oh that's
+
+710
+00:30:35,440 --> 00:30:39,919
+advanced offset in seconds
+
+711
+00:30:44,080 --> 00:30:47,679
+well that's that's just the time zone
+
+712
+00:30:46,000 --> 00:30:50,480
+isn't it yeah
+
+713
+00:30:47,679 --> 00:30:52,720
+so it's a you know so em at least did it
+
+714
+00:30:50,480 --> 00:30:57,120
+in kind of a weird way
+
+715
+00:30:52,720 --> 00:30:59,279
+so in other languages i think usually
+
+716
+00:30:57,120 --> 00:31:00,799
+you know the utc it's like a zone
+
+717
+00:30:59,279 --> 00:31:01,279
+difference you know like for example
+
+718
+00:31:00,799 --> 00:31:05,279
+some
+
+719
+00:31:01,279 --> 00:31:09,440
+california san francisco is eight hours
+
+720
+00:31:05,279 --> 00:31:14,000
+uh slower than the green switch meantime
+
+721
+00:31:09,440 --> 00:31:17,679
+than the utc but anyway emacs has this
+
+722
+00:31:14,000 --> 00:31:22,159
+utc off and that's in terms of
+
+723
+00:31:17,679 --> 00:31:23,600
+seconds yeah the number of seconds is of
+
+724
+00:31:22,159 --> 00:31:26,240
+green switch
+
+725
+00:31:23,600 --> 00:31:26,240
+greenwich
+
+726
+00:31:29,440 --> 00:31:36,159
+okay so decode time
+
+727
+00:31:33,760 --> 00:31:36,159
+anyway
+
+728
+00:31:38,399 --> 00:31:43,919
+uh i think so how am i doing
+
+729
+00:31:41,519 --> 00:31:46,159
+am i doing hey good morning kang xiao
+
+730
+00:31:43,919 --> 00:31:48,159
+guang
+
+731
+00:31:46,159 --> 00:31:50,960
+so we had to talk about mathematical
+
+732
+00:31:48,159 --> 00:31:50,960
+language today
+
+733
+00:31:51,840 --> 00:31:54,880
+day of week yeah
+
+734
+00:31:55,120 --> 00:32:01,039
+so winnie says i enjoyed reading rfcs on
+
+735
+00:31:58,480 --> 00:32:04,559
+my e-reader for bedtime reading
+
+736
+00:32:01,039 --> 00:32:09,679
+yeah you are probably a unix fan
+
+737
+00:32:04,559 --> 00:32:12,799
+you know unix is dead today it died
+
+738
+00:32:09,679 --> 00:32:15,760
+it's killed by linux
+
+739
+00:32:12,799 --> 00:32:19,440
+uh you know linux is sometimes supposed
+
+740
+00:32:15,760 --> 00:32:22,480
+to be unix sometimes not depending on
+
+741
+00:32:19,440 --> 00:32:24,000
+on on the politics at the point at the
+
+742
+00:32:22,480 --> 00:32:27,519
+moment
+
+743
+00:32:24,000 --> 00:32:29,600
+so anyway so anyway unique
+
+744
+00:32:27,519 --> 00:32:31,600
+so what what are we doing are we going
+
+745
+00:32:29,600 --> 00:32:34,240
+to continue doing this
+
+746
+00:32:31,600 --> 00:32:35,440
+this is tedious okay so anyway so
+
+747
+00:32:34,240 --> 00:32:37,519
+there's a difference
+
+748
+00:32:35,440 --> 00:32:39,760
+here let's make a note of it let's just
+
+749
+00:32:37,519 --> 00:32:42,320
+leave it okay let's try the next one
+
+750
+00:32:39,760 --> 00:32:45,279
+so the unixc format i guess it's going
+
+751
+00:32:42,320 --> 00:32:45,279
+to be different too
+
+752
+00:32:45,440 --> 00:32:52,159
+and you know the problem is that
+
+753
+00:32:49,120 --> 00:32:54,720
+it's probably the same but
+
+754
+00:32:52,159 --> 00:32:58,399
+the basically the the last number will
+
+755
+00:32:54,720 --> 00:33:02,640
+be different okay so xo so let's do this
+
+756
+00:32:58,399 --> 00:33:07,440
+so let's copy this pc here
+
+757
+00:33:02,640 --> 00:33:07,440
+let's um wait so let's
+
+758
+00:33:07,799 --> 00:33:14,960
+evaluate that so yeah so it seems
+
+759
+00:33:11,039 --> 00:33:20,000
+all the same you see the difference
+
+760
+00:33:14,960 --> 00:33:20,000
+the difference is just the
+
+761
+00:33:20,320 --> 00:33:28,960
+how do you call that the
+
+762
+00:33:24,799 --> 00:33:31,840
+the dst okay so before
+
+763
+00:33:28,960 --> 00:33:32,480
+apparently in e-max version 25 it didn't
+
+764
+00:33:31,840 --> 00:33:36,000
+understand
+
+765
+00:33:32,480 --> 00:33:39,840
+daylight saving time wait let's see what
+
+766
+00:33:36,000 --> 00:33:39,840
+does negative one mean
+
+767
+00:33:44,240 --> 00:33:47,279
+so dst
+
+768
+00:33:48,720 --> 00:33:54,960
+oh unknown okay there it is so unknown
+
+769
+00:33:51,600 --> 00:33:57,760
+dst value is returned as negative one
+
+770
+00:33:54,960 --> 00:33:58,480
+while before it's just near so it makes
+
+771
+00:33:57,760 --> 00:34:00,559
+no difference
+
+772
+00:33:58,480 --> 00:34:02,480
+you know this is for some reason e max
+
+773
+00:34:00,559 --> 00:34:04,880
+27 decided
+
+774
+00:34:02,480 --> 00:34:06,559
+that unknown is negative one instead of
+
+775
+00:34:04,880 --> 00:34:09,679
+nil
+
+776
+00:34:06,559 --> 00:34:12,320
+i don't know why but
+
+777
+00:34:09,679 --> 00:34:13,760
+so let's try this okay so let's just try
+
+778
+00:34:12,320 --> 00:34:17,280
+it
+
+779
+00:34:13,760 --> 00:34:21,839
+yeah so it it it it always return neo
+
+780
+00:34:17,280 --> 00:34:21,839
+now so it's annoying so i have to
+
+781
+00:34:23,359 --> 00:34:26,960
+you know why don't we just change all
+
+782
+00:34:26,159 --> 00:34:29,440
+the values
+
+783
+00:34:26,960 --> 00:34:30,560
+in this buffer change the last nail to
+
+784
+00:34:29,440 --> 00:34:32,639
+negative one
+
+785
+00:34:30,560 --> 00:34:33,839
+so that for example we change this to
+
+786
+00:34:32,639 --> 00:34:36,720
+negative one
+
+787
+00:34:33,839 --> 00:34:38,639
+then we run this and it return true then
+
+788
+00:34:36,720 --> 00:34:41,119
+we know there is basically no change
+
+789
+00:34:38,639 --> 00:34:42,000
+yeah so let's do that so neo-neo
+
+790
+00:34:41,119 --> 00:34:44,879
+parenthesis
+
+791
+00:34:42,000 --> 00:34:46,879
+go to the top uh find and replace
+
+792
+00:34:44,879 --> 00:34:51,359
+neo-neo parenthesis
+
+793
+00:34:46,879 --> 00:34:54,480
+replaced by negative one nil okay do it
+
+794
+00:34:51,359 --> 00:34:57,680
+uh yes here yes
+
+795
+00:34:54,480 --> 00:35:01,200
+yes yes yes yes yes okay
+
+796
+00:34:57,680 --> 00:35:04,160
+so now go to the top and
+
+797
+00:35:01,200 --> 00:35:04,880
+and change this to negative one two so
+
+798
+00:35:04,160 --> 00:35:10,320
+we're gonna
+
+799
+00:35:04,880 --> 00:35:13,200
+evaluate to see to see if this
+
+800
+00:35:10,320 --> 00:35:14,240
+uh to see if uh past time string in e
+
+801
+00:35:13,200 --> 00:35:17,119
+max 27
+
+802
+00:35:14,240 --> 00:35:17,839
+understand this this format unixc format
+
+803
+00:35:17,119 --> 00:35:21,040
+okay
+
+804
+00:35:17,839 --> 00:35:22,800
+if it returns true because there's an
+
+805
+00:35:21,040 --> 00:35:26,480
+equal comparison that means yes
+
+806
+00:35:22,800 --> 00:35:30,720
+otherwise no red true okay next
+
+807
+00:35:26,480 --> 00:35:31,599
+uh remove that format reminder okay
+
+808
+00:35:30,720 --> 00:35:36,240
+remove the
+
+809
+00:35:31,599 --> 00:35:36,240
+let's ignore that so when it's true
+
+810
+00:35:36,640 --> 00:35:40,400
+uh this we don't care we just added that
+
+811
+00:35:39,440 --> 00:35:44,320
+today
+
+812
+00:35:40,400 --> 00:35:47,520
+and when this true
+
+813
+00:35:44,320 --> 00:35:52,079
+when it's true right
+
+814
+00:35:47,520 --> 00:35:56,400
+true red true
+
+815
+00:35:52,079 --> 00:35:59,599
+right true right true it's all true
+
+816
+00:35:56,400 --> 00:36:03,760
+delete the buffer close that undo
+
+817
+00:35:59,599 --> 00:36:03,760
+back to our html page
+
+818
+00:36:04,160 --> 00:36:09,920
+so all these sections these
+
+819
+00:36:07,280 --> 00:36:11,599
+formats okay these are supported formats
+
+820
+00:36:09,920 --> 00:36:14,320
+of past daytime string
+
+821
+00:36:11,599 --> 00:36:15,040
+it they are still supported now what's
+
+822
+00:36:14,320 --> 00:36:16,800
+interesting
+
+823
+00:36:15,040 --> 00:36:20,560
+is this section this section is
+
+824
+00:36:16,800 --> 00:36:20,560
+unsupported let's see um
+
+825
+00:36:23,599 --> 00:36:30,160
+okay i'm hot here
+
+826
+00:36:26,720 --> 00:36:32,720
+in california we have a crisis emergency
+
+827
+00:36:30,160 --> 00:36:34,400
+actually you know the on twitter it says
+
+828
+00:36:32,720 --> 00:36:36,000
+you know from the government it's an
+
+829
+00:36:34,400 --> 00:36:39,280
+emergency
+
+830
+00:36:36,000 --> 00:36:40,000
+because of heat and there's also fire
+
+831
+00:36:39,280 --> 00:36:41,839
+burning
+
+832
+00:36:40,000 --> 00:36:44,079
+burning in the mountains so it's super
+
+833
+00:36:41,839 --> 00:36:44,079
+hot
+
+834
+00:36:45,200 --> 00:36:50,480
+so let's let's test let's test uh see
+
+835
+00:36:48,320 --> 00:36:52,560
+this unsupported format to see if
+
+836
+00:36:50,480 --> 00:36:55,200
+there's any change
+
+837
+00:36:52,560 --> 00:36:57,359
+supported format and what is this
+
+838
+00:36:55,200 --> 00:37:00,640
+testing for supported format for
+
+839
+00:36:57,359 --> 00:37:05,680
+past time string oh we have a
+
+840
+00:37:00,640 --> 00:37:05,680
+uh jesus here is a 2016
+
+841
+00:37:06,320 --> 00:37:16,560
+what's the difference e max 25
+
+842
+00:37:12,560 --> 00:37:16,560
+wait why is it repeated twice
+
+843
+00:37:17,839 --> 00:37:22,320
+oh it's not repeated i just separated
+
+844
+00:37:20,160 --> 00:37:24,880
+because we are testing some different
+
+845
+00:37:22,320 --> 00:37:24,880
+formats
+
+846
+00:37:25,119 --> 00:37:31,680
+uh yeah usa convention like formats
+
+847
+00:37:30,000 --> 00:37:33,520
+okay we should combine these two
+
+848
+00:37:31,680 --> 00:37:36,960
+together
+
+849
+00:37:33,520 --> 00:37:41,599
+you know it's just uh so next one
+
+850
+00:37:36,960 --> 00:37:44,800
+so test iso iso formats
+
+851
+00:37:41,599 --> 00:37:48,320
+yes yes no no okay this okay
+
+852
+00:37:44,800 --> 00:37:51,599
+so you can see some of them return snow
+
+853
+00:37:48,320 --> 00:37:55,280
+you can see this uh okay so that's what
+
+854
+00:37:51,599 --> 00:37:58,480
+what shall we do here uh
+
+855
+00:37:55,280 --> 00:38:01,680
+make a backup of the of the buffer and
+
+856
+00:37:58,480 --> 00:38:05,839
+uh let's um
+
+857
+00:38:01,680 --> 00:38:05,839
+okay let me let me think what to do
+
+858
+00:38:06,400 --> 00:38:12,720
+we're gonna do this faster because right
+
+859
+00:38:09,119 --> 00:38:12,720
+now it's becoming a rambling
+
+860
+00:38:16,800 --> 00:38:20,880
+okay so okay so what i want to do now is
+
+861
+00:38:20,160 --> 00:38:22,960
+to merge
+
+862
+00:38:20,880 --> 00:38:24,400
+these different sections of code so we
+
+863
+00:38:22,960 --> 00:38:29,040
+have just one
+
+864
+00:38:24,400 --> 00:38:29,040
+that's a decision about um
+
+865
+00:38:29,839 --> 00:38:34,480
+okay here go to the bottom
+
+866
+00:38:35,040 --> 00:38:42,800
+and here
+
+867
+00:38:39,280 --> 00:38:46,160
+delete that paste the code
+
+868
+00:38:42,800 --> 00:38:50,960
+here then
+
+869
+00:38:46,160 --> 00:38:50,960
+here delete that
+
+870
+00:38:51,520 --> 00:38:54,800
+then paste the code near the bottom so
+
+871
+00:38:54,240 --> 00:38:58,000
+we have
+
+872
+00:38:54,800 --> 00:38:58,000
+all the code together
+
+873
+00:38:58,240 --> 00:39:02,480
+so and uh let's search for that that's
+
+874
+00:39:01,599 --> 00:39:05,040
+the same
+
+875
+00:39:02,480 --> 00:39:07,280
+for all three of them let's search for
+
+876
+00:39:05,040 --> 00:39:07,280
+that
+
+877
+00:39:09,280 --> 00:39:15,839
+one two three three occurrences so we
+
+878
+00:39:12,800 --> 00:39:15,839
+delete that
+
+879
+00:39:18,400 --> 00:39:23,839
+delete that and this this part is also
+
+880
+00:39:21,760 --> 00:39:26,960
+repeated several times
+
+881
+00:39:23,839 --> 00:39:30,800
+require pass time so we don't need that
+
+882
+00:39:26,960 --> 00:39:34,640
+we don't need that okay and meanwhile
+
+883
+00:39:30,800 --> 00:39:37,520
+let's add a
+
+884
+00:39:34,640 --> 00:39:37,520
+code section
+
+885
+00:39:40,720 --> 00:39:46,079
+let's add a code section here so that
+
+886
+00:39:46,720 --> 00:39:52,560
+you see so that we have a code section
+
+887
+00:39:53,359 --> 00:39:59,839
+yeah so okay so
+
+888
+00:39:56,560 --> 00:40:03,520
+and and now let's again uh
+
+889
+00:39:59,839 --> 00:40:03,520
+change that to negative one
+
+890
+00:40:04,640 --> 00:40:07,119
+um
+
+891
+00:40:08,400 --> 00:40:14,640
+okay so we did this before let's see
+
+892
+00:40:11,520 --> 00:40:18,240
+uh so this part
+
+893
+00:40:14,640 --> 00:40:22,839
+this part is no the date is new
+
+894
+00:40:18,240 --> 00:40:24,480
+okay so let's try try this okay try this
+
+895
+00:40:22,839 --> 00:40:27,200
+part
+
+896
+00:40:24,480 --> 00:40:27,760
+so we want to check if it understand
+
+897
+00:40:27,200 --> 00:40:31,599
+this
+
+898
+00:40:27,760 --> 00:40:36,160
+this format august first one
+
+899
+00:40:31,599 --> 00:40:36,160
+one st so
+
+900
+00:40:37,040 --> 00:40:44,560
+um so let's copy
+
+901
+00:40:40,720 --> 00:40:53,200
+paste it here let's put negative one
+
+902
+00:40:44,560 --> 00:40:56,960
+here run it true um
+
+903
+00:40:53,200 --> 00:41:00,400
+okay true means no no good because
+
+904
+00:40:56,960 --> 00:41:03,040
+august august is eight
+
+905
+00:41:00,400 --> 00:41:04,880
+however the date part should be one but
+
+906
+00:41:03,040 --> 00:41:08,640
+it says neil so it didn't
+
+907
+00:41:04,880 --> 00:41:11,280
+understand this one st
+
+908
+00:41:08,640 --> 00:41:11,280
+thing okay
+
+909
+00:41:15,119 --> 00:41:18,720
+so that it understand
+
+910
+00:41:19,440 --> 00:41:26,800
+let's run it okay
+
+911
+00:41:22,880 --> 00:41:29,680
+and this part right okay so anyway i
+
+912
+00:41:26,800 --> 00:41:29,680
+i think um
+
+913
+00:41:31,040 --> 00:41:37,520
+so now some us formats so you see
+
+914
+00:41:34,480 --> 00:41:40,640
+this format is very common in usa
+
+915
+00:41:37,520 --> 00:41:41,760
+number slash number slash year very
+
+916
+00:41:40,640 --> 00:41:45,119
+common you know
+
+917
+00:41:41,760 --> 00:41:47,359
+usa is month date slash
+
+918
+00:41:45,119 --> 00:41:49,599
+you know month slash date slash and the
+
+919
+00:41:47,359 --> 00:41:53,040
+year
+
+920
+00:41:49,599 --> 00:41:56,319
+so let's see if it understand it
+
+921
+00:41:53,040 --> 00:42:00,000
+so if we copy the code put it here
+
+922
+00:41:56,319 --> 00:42:02,240
+control you evaluate expression
+
+923
+00:42:00,000 --> 00:42:03,760
+it doesn't understand it because you see
+
+924
+00:42:02,240 --> 00:42:06,880
+2000
+
+925
+00:42:03,760 --> 00:42:10,800
+you see it returns 2001 jesus
+
+926
+00:42:06,880 --> 00:42:11,280
+completely wrong so that's why i say you
+
+927
+00:42:10,800 --> 00:42:14,880
+know the
+
+928
+00:42:11,280 --> 00:42:15,440
+emacs pass time stream facility is not
+
+929
+00:42:14,880 --> 00:42:19,040
+that
+
+930
+00:42:15,440 --> 00:42:21,200
+flexible um because this is
+
+931
+00:42:19,040 --> 00:42:23,839
+a you know this is a very common format
+
+932
+00:42:21,200 --> 00:42:23,839
+in usa
+
+933
+00:42:26,560 --> 00:42:30,800
+okay but i think you get idea what uh
+
+934
+00:42:29,280 --> 00:42:32,560
+what i'm doing you know you you get
+
+935
+00:42:30,800 --> 00:42:34,400
+ideas you know you
+
+936
+00:42:32,560 --> 00:42:36,319
+of this function you know this it
+
+937
+00:42:34,400 --> 00:42:37,359
+doesn't also doesn't understand this
+
+938
+00:42:36,319 --> 00:42:43,040
+format
+
+939
+00:42:37,359 --> 00:42:46,880
+now what about the iso 8601 format
+
+940
+00:42:43,040 --> 00:42:50,400
+so uh this one let's say
+
+941
+00:42:46,880 --> 00:42:51,119
+1 8 2007 so it understand and this
+
+942
+00:42:50,400 --> 00:42:55,599
+format
+
+943
+00:42:51,119 --> 00:42:59,599
+just 2000 just a year it understands
+
+944
+00:42:55,599 --> 00:43:03,119
+and this format a year two digit year
+
+945
+00:42:59,599 --> 00:43:04,000
+dash two digit month it doesn't
+
+946
+00:43:03,119 --> 00:43:09,280
+understand it
+
+947
+00:43:04,000 --> 00:43:09,280
+neither okay let's try it uh
+
+948
+00:43:10,000 --> 00:43:15,440
+ctrl u evaluate buffers so it doesn't
+
+949
+00:43:13,280 --> 00:43:17,680
+understand it it's all neo
+
+950
+00:43:15,440 --> 00:43:17,680
+hot
+
+951
+00:43:19,200 --> 00:43:25,440
+so you can see you know the iso is a
+
+952
+00:43:22,160 --> 00:43:29,920
+universal it's a it's kind of the
+
+953
+00:43:25,440 --> 00:43:32,880
+the iso 8601 format is kind of the
+
+954
+00:43:29,920 --> 00:43:33,200
+international standard format and that
+
+955
+00:43:32,880 --> 00:43:35,520
+is
+
+956
+00:43:33,200 --> 00:43:36,880
+that format is used in terms of
+
+957
+00:43:35,520 --> 00:43:40,000
+technologies
+
+958
+00:43:36,880 --> 00:43:42,079
+in atom you know in iss feed in
+
+959
+00:43:40,000 --> 00:43:43,440
+on the web most and the most on the web
+
+960
+00:43:42,079 --> 00:43:46,960
+too
+
+961
+00:43:43,440 --> 00:43:49,200
+um you know the americans americans
+
+962
+00:43:46,960 --> 00:43:51,599
+don't like this format because americans
+
+963
+00:43:49,200 --> 00:43:53,760
+they like the unix thing the unix
+
+964
+00:43:51,599 --> 00:43:55,440
+ like like this one this is a
+
+965
+00:43:53,760 --> 00:44:01,119
+typical the unix
+
+966
+00:43:55,440 --> 00:44:04,400
+um thing okay that that's it i think um
+
+967
+00:44:01,119 --> 00:44:07,200
+that's it about this thing
+
+968
+00:44:04,400 --> 00:44:09,599
+let's let's just close the whole thing
+
+969
+00:44:07,200 --> 00:44:12,160
+okay d the buffer undo undo and do
+
+970
+00:44:09,599 --> 00:44:15,599
+return to our
+
+971
+00:44:12,160 --> 00:44:18,240
+two way where it
+
+972
+00:44:15,599 --> 00:44:18,240
+where it was
+
+973
+00:44:20,000 --> 00:44:24,640
+so we we explained you know the so
+
+974
+00:44:22,880 --> 00:44:28,000
+that's the main thing past time string
+
+975
+00:44:24,640 --> 00:44:28,000
+that's a function to pass them
+
+976
+00:44:28,880 --> 00:44:32,480
+it's possible that emacs added more
+
+977
+00:44:31,599 --> 00:44:35,119
+functions
+
+978
+00:44:32,480 --> 00:44:35,520
+since since five years ago i don't know
+
+979
+00:44:35,119 --> 00:44:40,000
+i
+
+980
+00:44:35,520 --> 00:44:41,760
+i'm guessing not i'm guessing not
+
+981
+00:44:40,000 --> 00:44:43,599
+but you never know so you have to look
+
+982
+00:44:41,760 --> 00:44:47,040
+at you know see the
+
+983
+00:44:43,599 --> 00:44:50,880
+let's let's look at okay because i'm
+
+984
+00:44:47,040 --> 00:44:55,599
+using emacs 27 which just came out uh
+
+985
+00:44:50,880 --> 00:44:58,720
+two weeks ago so control h
+
+986
+00:44:55,599 --> 00:45:04,000
+n for the e max news
+
+987
+00:44:58,720 --> 00:45:08,160
+so you can see here is uh
+
+988
+00:45:04,000 --> 00:45:11,520
+uh this this this is the installer
+
+989
+00:45:08,160 --> 00:45:14,800
+you know emacs 27 news file
+
+990
+00:45:11,520 --> 00:45:18,160
+uh then now let's search date okay let's
+
+991
+00:45:14,800 --> 00:45:21,200
+just search for uh this
+
+992
+00:45:18,160 --> 00:45:25,520
+matching line state to see if it
+
+993
+00:45:21,200 --> 00:45:29,040
+oh there it is you see a new package
+
+994
+00:45:25,520 --> 00:45:33,839
+to pass iso 8601 time
+
+995
+00:45:29,040 --> 00:45:33,839
+date durations and
+
+996
+00:45:34,319 --> 00:45:40,960
+now now after after 20 years now
+
+997
+00:45:37,680 --> 00:45:44,800
+e-max has this feature
+
+998
+00:45:40,960 --> 00:45:48,000
+let's look let's go there and look
+
+999
+00:45:44,800 --> 00:45:51,760
+and the proportional found for reading
+
+1000
+00:45:48,000 --> 00:45:55,119
+so a new package to a new package
+
+1001
+00:45:51,760 --> 00:45:58,480
+to pass iso 8601 time date durations
+
+1002
+00:45:55,119 --> 00:45:59,520
+and intervals has been added the main
+
+1003
+00:45:58,480 --> 00:46:02,960
+function to use
+
+1004
+00:45:59,520 --> 00:46:06,680
+is iso 8601 pass
+
+1005
+00:46:02,960 --> 00:46:09,680
+but there is no but there's also iso
+
+1006
+00:46:06,680 --> 00:46:12,480
+8601 pass state and so on okay
+
+1007
+00:46:09,680 --> 00:46:13,040
+so the main function is this one now
+
+1008
+00:46:12,480 --> 00:46:15,440
+which
+
+1009
+00:46:13,040 --> 00:46:17,680
+package is this form i probably the same
+
+1010
+00:46:15,440 --> 00:46:20,640
+package fantastic okay anyway
+
+1011
+00:46:17,680 --> 00:46:21,040
+so i'm we let's try it right away let's
+
+1012
+00:46:20,640 --> 00:46:25,119
+go
+
+1013
+00:46:21,040 --> 00:46:28,400
+and try it uh you know reading
+
+1014
+00:46:25,119 --> 00:46:29,359
+reading the news file paid off so
+
+1015
+00:46:28,400 --> 00:46:32,240
+actually today
+
+1016
+00:46:29,359 --> 00:46:32,880
+is worthwhile we found the new uh
+
+1017
+00:46:32,240 --> 00:46:34,960
+functions
+
+1018
+00:46:32,880 --> 00:46:37,440
+this this is the function so let's make
+
+1019
+00:46:34,960 --> 00:46:37,440
+it a
+
+1020
+00:46:37,599 --> 00:46:41,440
+uh you know let's go let's try to pass
+
+1021
+00:46:40,240 --> 00:46:44,160
+it just like before
+
+1022
+00:46:41,440 --> 00:46:44,160
+so what's the
+
+1023
+00:46:47,839 --> 00:46:53,200
+so here's the code okay magnify
+
+1024
+00:46:54,240 --> 00:46:59,440
+so here's what we need to do let's um
+
+1025
+00:46:57,200 --> 00:47:03,119
+let's
+
+1026
+00:46:59,440 --> 00:47:05,359
+let's uh first of all describe function
+
+1027
+00:47:03,119 --> 00:47:07,760
+there it is oh it's in a different
+
+1028
+00:47:05,359 --> 00:47:10,400
+package it's in this package
+
+1029
+00:47:07,760 --> 00:47:12,880
+it's not in past daytime okay so open
+
+1030
+00:47:10,400 --> 00:47:15,760
+the source code
+
+1031
+00:47:12,880 --> 00:47:17,119
+magnify magnify so this is the function
+
+1032
+00:47:15,760 --> 00:47:21,200
+and go to the bottom
+
+1033
+00:47:17,119 --> 00:47:24,960
+it says provide and also you need that
+
+1034
+00:47:21,200 --> 00:47:27,839
+so instead of provide we say um
+
+1035
+00:47:24,960 --> 00:47:27,839
+require okay
+
+1036
+00:47:28,720 --> 00:47:31,599
+so uh
+
+1037
+00:47:32,079 --> 00:47:39,440
+r e okay uh uh q-u-i-r-e okay so that's
+
+1038
+00:47:37,119 --> 00:47:40,160
+how you tell emacs to load it so run the
+
+1039
+00:47:39,440 --> 00:47:43,280
+code
+
+1040
+00:47:40,160 --> 00:47:46,000
+so we loaded that then we describe
+
+1041
+00:47:43,280 --> 00:47:49,599
+function yeah that's a function so
+
+1042
+00:47:46,000 --> 00:47:52,640
+so the syntax is like that okay
+
+1043
+00:47:49,599 --> 00:47:53,359
+and the string okay so we we have to
+
+1044
+00:47:52,640 --> 00:47:56,559
+type some
+
+1045
+00:47:53,359 --> 00:47:59,119
+some kind of date there and but what
+
+1046
+00:47:56,559 --> 00:48:02,720
+does it return let's look at the
+
+1047
+00:47:59,119 --> 00:48:02,720
+uh describe function again
+
+1048
+00:48:02,800 --> 00:48:07,599
+so it says pass an iso date time string
+
+1049
+00:48:05,440 --> 00:48:08,800
+and returns a decode time so it returns
+
+1050
+00:48:07,599 --> 00:48:12,079
+the same thing
+
+1051
+00:48:08,800 --> 00:48:15,200
+as the past time string okay
+
+1052
+00:48:12,079 --> 00:48:17,440
+so so far so good and
+
+1053
+00:48:15,200 --> 00:48:19,680
+optional form so what does the option of
+
+1054
+00:48:17,440 --> 00:48:22,640
+phone mean so let's see
+
+1055
+00:48:19,680 --> 00:48:23,280
+what's the second argument form the uh
+
+1056
+00:48:22,640 --> 00:48:26,160
+so
+
+1057
+00:48:23,280 --> 00:48:28,559
+strings like that like that that that
+
+1058
+00:48:26,160 --> 00:48:31,440
+incomplete strings like that that are
+
+1059
+00:48:28,559 --> 00:48:35,359
+valid too okay fantastic so we have
+
+1060
+00:48:31,440 --> 00:48:36,240
+so emax has improved so we can look back
+
+1061
+00:48:35,359 --> 00:48:38,400
+at the page
+
+1062
+00:48:36,240 --> 00:48:41,200
+and look at some of the things it did
+
+1063
+00:48:38,400 --> 00:48:41,200
+not support
+
+1064
+00:48:41,839 --> 00:48:48,480
+you know no no no so you know you see so
+
+1065
+00:48:45,440 --> 00:48:50,800
+so um wait
+
+1066
+00:48:48,480 --> 00:48:52,960
+yeah that's why i separate them into
+
+1067
+00:48:50,800 --> 00:48:56,319
+different sections for example this one
+
+1068
+00:48:52,960 --> 00:48:56,800
+and this one it doesn't support but now
+
+1069
+00:48:56,319 --> 00:49:00,480
+it does
+
+1070
+00:48:56,800 --> 00:49:04,640
+so let's copy that let's try
+
+1071
+00:49:00,480 --> 00:49:04,640
+let's try it here so paste it
+
+1072
+00:49:06,240 --> 00:49:17,839
+so actually let's just let's just
+
+1073
+00:49:09,440 --> 00:49:17,839
+put that out okay
+
+1074
+00:49:19,119 --> 00:49:23,359
+so let's see if it supports now
+
+1075
+00:49:25,680 --> 00:49:34,319
+so that's the stream we want
+
+1076
+00:49:31,280 --> 00:49:34,319
+okay now run it
+
+1077
+00:49:36,160 --> 00:49:43,280
+it works because you see 2007
+
+1078
+00:49:40,160 --> 00:49:46,559
+august there it is 2007 oops
+
+1079
+00:49:43,280 --> 00:49:50,480
+so so yes
+
+1080
+00:49:46,559 --> 00:49:53,200
+okay yes and what about this one
+
+1081
+00:49:50,480 --> 00:49:55,440
+okay this one okay what about it let's
+
+1082
+00:49:53,200 --> 00:49:55,440
+see
+
+1083
+00:49:56,000 --> 00:49:59,839
+uh wait
+
+1084
+00:50:00,079 --> 00:50:08,800
+okay so copy that paste it here replace
+
+1085
+00:50:03,760 --> 00:50:08,800
+this by by the iso thing
+
+1086
+00:50:09,280 --> 00:50:13,839
+ah there okay wait
+
+1087
+00:50:16,079 --> 00:50:20,319
+okay so here here it is so we're gonna
+
+1088
+00:50:19,040 --> 00:50:22,559
+run this code
+
+1089
+00:50:20,319 --> 00:50:25,040
+shrink a little bit we're gonna run this
+
+1090
+00:50:22,559 --> 00:50:28,400
+code to see if it works
+
+1091
+00:50:25,040 --> 00:50:31,440
+control u eval last
+
+1092
+00:50:28,400 --> 00:50:34,480
+so this is 2001 check
+
+1093
+00:50:31,440 --> 00:50:38,079
+august check first check
+
+1094
+00:50:34,480 --> 00:50:38,839
+11 o'clock check 15 minutes check 37
+
+1095
+00:50:38,079 --> 00:50:42,400
+seconds
+
+1096
+00:50:38,839 --> 00:50:45,440
+check and this is uh
+
+1097
+00:50:42,400 --> 00:50:49,280
+negative o7 time zone so that's
+
+1098
+00:50:45,440 --> 00:50:52,319
+california time
+
+1099
+00:50:49,280 --> 00:50:52,319
+uh does that check
+
+1100
+00:50:52,640 --> 00:50:56,800
+it seems to check i'm pretty sure that's
+
+1101
+00:50:55,119 --> 00:50:59,359
+probably yeah
+
+1102
+00:50:56,800 --> 00:51:01,200
+you know stupid emacs it uses a number
+
+1103
+00:50:59,359 --> 00:51:04,640
+of seconds
+
+1104
+00:51:01,200 --> 00:51:08,160
+so 7 times 60 times
+
+1105
+00:51:04,640 --> 00:51:10,880
+60 is this number probably let's let's
+
+1106
+00:51:08,160 --> 00:51:10,880
+try it okay
+
+1107
+00:51:11,520 --> 00:51:18,480
+7 times 60 times 60
+
+1108
+00:51:15,200 --> 00:51:23,839
+okay there it is
+
+1109
+00:51:18,480 --> 00:51:23,839
+2 5 2 0 0 a check
+
+1110
+00:51:25,760 --> 00:51:30,720
+so okay so that's it i think that's it
+
+1111
+00:51:29,280 --> 00:51:34,000
+for today we talked for
+
+1112
+00:51:30,720 --> 00:51:37,520
+long um philippe
+
+1113
+00:51:34,000 --> 00:51:40,480
+philippe says negative one is no info
+
+1114
+00:51:37,520 --> 00:51:41,119
+available right did you do a stream
+
+1115
+00:51:40,480 --> 00:51:44,559
+about
+
+1116
+00:51:41,119 --> 00:51:49,520
+numerical integrators double
+
+1117
+00:51:44,559 --> 00:51:52,960
+integrators yet oh my god that's a
+
+1118
+00:51:49,520 --> 00:51:55,200
+that's a serious math topic no i haven't
+
+1119
+00:51:52,960 --> 00:51:56,800
+done that and i wouldn't know what to do
+
+1120
+00:51:55,200 --> 00:51:59,839
+about that
+
+1121
+00:51:56,800 --> 00:52:03,359
+are you talking about math the
+
+1122
+00:51:59,839 --> 00:52:05,839
+numerical integration
+
+1123
+00:52:03,359 --> 00:52:07,760
+well actually numerical integration it's
+
+1124
+00:52:05,839 --> 00:52:10,400
+not difficult
+
+1125
+00:52:07,760 --> 00:52:11,200
+it's popular it's calculus you know it's
+
+1126
+00:52:10,400 --> 00:52:13,680
+calculus
+
+1127
+00:52:11,200 --> 00:52:14,640
+i can i can do that so is that what
+
+1128
+00:52:13,680 --> 00:52:18,000
+you're talking about
+
+1129
+00:52:14,640 --> 00:52:21,920
+philip thomas but i think that's it for
+
+1130
+00:52:18,000 --> 00:52:24,240
+today uh so we talked about emac this
+
+1131
+00:52:21,920 --> 00:52:26,160
+inserting date time in different formats
+
+1132
+00:52:24,240 --> 00:52:28,960
+and passing day time
+
+1133
+00:52:26,160 --> 00:52:30,800
+so i'm going to you know so i'm going to
+
+1134
+00:52:28,960 --> 00:52:31,119
+update my page you know i'm going to
+
+1135
+00:52:30,800 --> 00:52:33,520
+work
+
+1136
+00:52:31,119 --> 00:52:35,200
+offline i'm going to update my tutorial
+
+1137
+00:52:33,520 --> 00:52:39,040
+on this page after
+
+1138
+00:52:35,200 --> 00:52:41,200
+you know after uh four years basically
+
+1139
+00:52:39,040 --> 00:52:42,720
+so there are some improvements in emac
+
+1140
+00:52:41,200 --> 00:52:45,680
+lisp
+
+1141
+00:52:42,720 --> 00:52:46,480
+so actually i i wrote a daytime password
+
+1142
+00:52:45,680 --> 00:52:49,520
+function
+
+1143
+00:52:46,480 --> 00:52:51,760
+that passes some of the iso uh
+
+1144
+00:52:49,520 --> 00:52:53,200
+time formats that emacs didn't
+
+1145
+00:52:51,760 --> 00:52:55,440
+understand
+
+1146
+00:52:53,200 --> 00:52:57,520
+so i you know so i wrote it before so
+
+1147
+00:52:55,440 --> 00:53:01,839
+now i can improve it
+
+1148
+00:52:57,520 --> 00:53:01,839
+because there are some building uh
+
+1149
+00:53:02,160 --> 00:53:08,880
+things okay so i think that's it
+
+1150
+00:53:05,839 --> 00:53:10,880
+for today uh if you like my stuff uh you
+
+1151
+00:53:08,880 --> 00:53:13,040
+know if you like my talk show buy my
+
+1152
+00:53:10,880 --> 00:53:17,200
+emacs tutorial okay
+
+1153
+00:53:13,040 --> 00:53:17,200
+we talked for 53 minutes
+
+1154
+00:53:17,359 --> 00:53:20,559
+thank you guys for coming
+
+1155
+00:53:26,839 --> 00:53:29,839
+bye
+
+1156
+00:53:54,800 --> 00:53:56,880
+you
+

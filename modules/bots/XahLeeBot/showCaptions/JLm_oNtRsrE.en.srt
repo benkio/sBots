@@ -1,0 +1,5860 @@
+1
+00:00:04,000 --> 00:00:07,759
+good morning everyone
+
+2
+00:00:05,200 --> 00:00:08,800
+welcome to another episode of star talk
+
+3
+00:00:07,759 --> 00:00:12,040
+show
+
+4
+00:00:08,800 --> 00:00:15,120
+today is march 21st
+
+5
+00:00:12,040 --> 00:00:18,160
+2021 today is
+
+6
+00:00:15,120 --> 00:00:20,320
+and it's 11 o'clock in the morning san
+
+7
+00:00:18,160 --> 00:00:22,800
+francisco time
+
+8
+00:00:20,320 --> 00:00:24,960
+and today we are going to demonstrate
+
+9
+00:00:22,800 --> 00:00:27,599
+mathematica code
+
+10
+00:00:24,960 --> 00:00:30,240
+uh i haven't been coding mathematica for
+
+11
+00:00:27,599 --> 00:00:33,760
+about 15 or 20 years
+
+12
+00:00:30,240 --> 00:00:38,160
+you know i coded mathematica seriously
+
+13
+00:00:33,760 --> 00:00:41,600
+for 10 years mostly 1990s
+
+14
+00:00:38,160 --> 00:00:44,879
+starting from 1993
+
+15
+00:00:41,600 --> 00:00:48,960
+to about about 2002
+
+16
+00:00:44,879 --> 00:00:51,920
+then you know then i have coded
+
+17
+00:00:48,960 --> 00:00:53,120
+now and then but not seriously but
+
+18
+00:00:51,920 --> 00:00:55,520
+before it was
+
+19
+00:00:53,120 --> 00:00:56,480
+you know several hours a day so i wrote
+
+20
+00:00:55,520 --> 00:00:59,520
+a lot code
+
+21
+00:00:56,480 --> 00:01:02,879
+now this code you are looking at is
+
+22
+00:00:59,520 --> 00:01:06,240
+from 1998 okay
+
+23
+00:01:02,879 --> 00:01:09,119
+and apparently it still works so i'm let
+
+24
+00:01:06,240 --> 00:01:11,439
+me show you some of the images i have
+
+25
+00:01:09,119 --> 00:01:13,280
+for example i saw i wrote this package
+
+26
+00:01:11,439 --> 00:01:16,960
+this is a
+
+27
+00:01:13,280 --> 00:01:19,119
+transform 2d plot okay this is the code
+
+28
+00:01:16,960 --> 00:01:21,280
+so this is the mathematica code you are
+
+29
+00:01:19,119 --> 00:01:23,840
+looking at
+
+30
+00:01:21,280 --> 00:01:26,320
+now let me put i have a bit cross size
+
+31
+00:01:23,840 --> 00:01:29,360
+so let me put this uh patch
+
+32
+00:01:26,320 --> 00:01:32,479
+it's actually easier for me to see
+
+33
+00:01:29,360 --> 00:01:34,079
+this way so i will so so today we are
+
+34
+00:01:32,479 --> 00:01:36,880
+going to demonstrate
+
+35
+00:01:34,079 --> 00:01:38,400
+mathematica okay and maybe some tutorial
+
+36
+00:01:36,880 --> 00:01:41,439
+maybe i'll do a beginner's
+
+37
+00:01:38,400 --> 00:01:43,920
+tutorial to show you uh you python
+
+38
+00:01:41,439 --> 00:01:46,399
+coders list coders
+
+39
+00:01:43,920 --> 00:01:48,079
+how it is and if you have questions ask
+
+40
+00:01:46,399 --> 00:01:50,079
+me okay i'd love to see your comments
+
+41
+00:01:48,079 --> 00:01:51,840
+and questions
+
+42
+00:01:50,079 --> 00:01:54,079
+we only we only have five people
+
+43
+00:01:51,840 --> 00:01:57,040
+watching now so i wrote this package
+
+44
+00:01:54,079 --> 00:01:59,040
+this is transform 2d plot okay
+
+45
+00:01:57,040 --> 00:02:01,759
+programmers documentation
+
+46
+00:01:59,040 --> 00:02:03,920
+hold on a second let me see where is it
+
+47
+00:02:01,759 --> 00:02:09,200
+okay here is actually here is
+
+48
+00:02:03,920 --> 00:02:12,239
+this is the one okay transform 2d plot
+
+49
+00:02:09,200 --> 00:02:13,040
+now let's magnify and today's background
+
+50
+00:02:12,239 --> 00:02:16,720
+image
+
+51
+00:02:13,040 --> 00:02:20,400
+is you know one of these uh images
+
+52
+00:02:16,720 --> 00:02:22,480
+i created in mathematica i let me uh i'm
+
+53
+00:02:20,400 --> 00:02:24,879
+going to explain what how they are what
+
+54
+00:02:22,480 --> 00:02:27,920
+they are
+
+55
+00:02:24,879 --> 00:02:31,360
+so uh for now you can look at
+
+56
+00:02:27,920 --> 00:02:32,160
+um some pictures okay let me show you
+
+57
+00:02:31,360 --> 00:02:36,239
+some pictures
+
+58
+00:02:32,160 --> 00:02:39,280
+pictures pictures pictures
+
+59
+00:02:36,239 --> 00:02:40,879
+pictures now these are transformation of
+
+60
+00:02:39,280 --> 00:02:44,319
+a 2d plane
+
+61
+00:02:40,879 --> 00:02:45,200
+you begin with a grid okay so let's see
+
+62
+00:02:44,319 --> 00:02:49,440
+if i have
+
+63
+00:02:45,200 --> 00:02:49,440
+uh let me show you what they are okay
+
+64
+00:02:49,519 --> 00:02:59,760
+uh so this this one is gallery
+
+65
+00:02:54,560 --> 00:02:59,760
+okay i need to open the documentation
+
+66
+00:03:01,280 --> 00:03:08,800
+yeah okay so here is the
+
+67
+00:03:05,840 --> 00:03:10,159
+kind of the the most simple
+
+68
+00:03:08,800 --> 00:03:13,200
+documentation
+
+69
+00:03:10,159 --> 00:03:15,280
+so i have to show you the grid but
+
+70
+00:03:13,200 --> 00:03:18,000
+basically you begin with the grid
+
+71
+00:03:15,280 --> 00:03:19,760
+rectangular grid or triangular grid i
+
+72
+00:03:18,000 --> 00:03:22,239
+don't have a triangular grid here
+
+73
+00:03:19,760 --> 00:03:24,239
+but i'm going to show you so first of
+
+74
+00:03:22,239 --> 00:03:27,519
+all here is the code
+
+75
+00:03:24,239 --> 00:03:31,280
+uh here's the code begin package
+
+76
+00:03:27,519 --> 00:03:32,319
+and the documentation document online
+
+77
+00:03:31,280 --> 00:03:35,760
+inline string
+
+78
+00:03:32,319 --> 00:03:38,799
+for documentation of each functions
+
+79
+00:03:35,760 --> 00:03:41,519
+that's that gets exported
+
+80
+00:03:38,799 --> 00:03:42,560
+so in math mathematica in many ways it's
+
+81
+00:03:41,519 --> 00:03:45,120
+just
+
+82
+00:03:42,560 --> 00:03:46,799
+like other languages you can import
+
+83
+00:03:45,120 --> 00:03:49,200
+export symbols
+
+84
+00:03:46,799 --> 00:03:50,720
+in fact so mathematica is my first
+
+85
+00:03:49,200 --> 00:03:54,080
+language i learned
+
+86
+00:03:50,720 --> 00:03:58,000
+for like like 10 years
+
+87
+00:03:54,080 --> 00:04:00,879
+for for like seven years so
+
+88
+00:03:58,000 --> 00:04:01,599
+yeah basically the ex if you are not
+
+89
+00:04:00,879 --> 00:04:04,959
+counting
+
+90
+00:04:01,599 --> 00:04:08,319
+uh graphing calculators uh that's
+
+91
+00:04:04,959 --> 00:04:10,239
+actually my first language hp 28 s
+
+92
+00:04:08,319 --> 00:04:11,840
+but anyway mathematica is basically my
+
+93
+00:04:10,239 --> 00:04:15,599
+first language and i
+
+94
+00:04:11,840 --> 00:04:18,160
+uh code mathematica for over for about
+
+95
+00:04:15,599 --> 00:04:18,880
+eight years then i started to learn
+
+96
+00:04:18,160 --> 00:04:22,479
+pearl
+
+97
+00:04:18,880 --> 00:04:26,880
+and unix stuff so that's around 1998
+
+98
+00:04:22,479 --> 00:04:30,960
+that's when i began to learn pearl uh
+
+99
+00:04:26,880 --> 00:04:33,440
+unix unix gel and e-max you know
+
+100
+00:04:30,960 --> 00:04:34,400
+all those things and it's a great it's a
+
+101
+00:04:33,440 --> 00:04:37,440
+giant different
+
+102
+00:04:34,400 --> 00:04:39,040
+experience because mathematica is so you
+
+103
+00:04:37,440 --> 00:04:41,440
+know it so happens for me
+
+104
+00:04:39,040 --> 00:04:43,440
+this is my first language yet it is it
+
+105
+00:04:41,440 --> 00:04:45,759
+is completely different from
+
+106
+00:04:43,440 --> 00:04:47,280
+you know the industrial languages so you
+
+107
+00:04:45,759 --> 00:04:50,320
+are looking at for example you are
+
+108
+00:04:47,280 --> 00:04:53,600
+looking at the mathematical code
+
+109
+00:04:50,320 --> 00:04:56,560
+you you can see you have all these um
+
+110
+00:04:53,600 --> 00:04:58,400
+two-dimensional mathematical displays so
+
+111
+00:04:56,560 --> 00:05:01,840
+this is the package i wrote
+
+112
+00:04:58,400 --> 00:05:02,560
+called uh transform 2d plot so basically
+
+113
+00:05:01,840 --> 00:05:05,199
+what it does
+
+114
+00:05:02,560 --> 00:05:06,400
+is that you begin with a grid
+
+115
+00:05:05,199 --> 00:05:09,600
+rectangular grid
+
+116
+00:05:06,400 --> 00:05:11,520
+or a triangular grid then you can apply
+
+117
+00:05:09,600 --> 00:05:14,880
+a function
+
+118
+00:05:11,520 --> 00:05:18,080
+uh a vector function that takes you know
+
+119
+00:05:14,880 --> 00:05:20,800
+a point two two numbers okay a one
+
+120
+00:05:18,080 --> 00:05:21,840
+basically a point in a plane then
+
+121
+00:05:20,800 --> 00:05:24,479
+returns
+
+122
+00:05:21,840 --> 00:05:25,440
+another vector another you know return
+
+123
+00:05:24,479 --> 00:05:27,680
+two numbers
+
+124
+00:05:25,440 --> 00:05:29,120
+so you take a point and uh you put in
+
+125
+00:05:27,680 --> 00:05:31,520
+the function the function
+
+126
+00:05:29,120 --> 00:05:33,360
+basically move the point somewhere else
+
+127
+00:05:31,520 --> 00:05:35,520
+so you are looking at you know
+
+128
+00:05:33,360 --> 00:05:36,479
+beginning with a grid you are looking at
+
+129
+00:05:35,520 --> 00:05:38,560
+how
+
+130
+00:05:36,479 --> 00:05:41,120
+the function transform the grid for
+
+131
+00:05:38,560 --> 00:05:44,960
+example you can look at this one
+
+132
+00:05:41,120 --> 00:05:46,639
+you know it's interesting uh
+
+133
+00:05:44,960 --> 00:05:48,880
+so if you are wondering what kind of
+
+134
+00:05:46,639 --> 00:05:53,759
+math is this subject
+
+135
+00:05:48,880 --> 00:05:58,000
+that would be vector calculus
+
+136
+00:05:53,759 --> 00:06:00,160
+and but mostly uh complex analysis
+
+137
+00:05:58,000 --> 00:06:01,360
+well functions in complex plane and
+
+138
+00:06:00,160 --> 00:06:04,080
+actually it
+
+139
+00:06:01,360 --> 00:06:05,919
+it doesn't even involve complexion last
+
+140
+00:06:04,080 --> 00:06:06,960
+analysis because when you do complex
+
+141
+00:06:05,919 --> 00:06:09,680
+analysis
+
+142
+00:06:06,960 --> 00:06:10,560
+it usually involves derivatives and
+
+143
+00:06:09,680 --> 00:06:12,319
+integrals
+
+144
+00:06:10,560 --> 00:06:14,800
+you know gets complex so this is
+
+145
+00:06:12,319 --> 00:06:17,199
+actually pure geometry
+
+146
+00:06:14,800 --> 00:06:19,440
+and you don't need you know you don't
+
+147
+00:06:17,199 --> 00:06:20,880
+need so much math to understand it
+
+148
+00:06:19,440 --> 00:06:22,800
+you know if you're a programmer you can
+
+149
+00:06:20,880 --> 00:06:25,600
+understand it basically a function takes
+
+150
+00:06:22,800 --> 00:06:26,560
+two numbers as input and output another
+
+151
+00:06:25,600 --> 00:06:28,800
+two numbers
+
+152
+00:06:26,560 --> 00:06:30,160
+and these two numbers are considered as
+
+153
+00:06:28,800 --> 00:06:31,759
+a point in the plan
+
+154
+00:06:30,160 --> 00:06:33,520
+so basically the function moves the
+
+155
+00:06:31,759 --> 00:06:37,840
+point to somewhere else
+
+156
+00:06:33,520 --> 00:06:40,240
+so and this function
+
+157
+00:06:37,840 --> 00:06:41,440
+you know this set of functions i wrote
+
+158
+00:06:40,240 --> 00:06:44,479
+uh you know
+
+159
+00:06:41,440 --> 00:06:47,840
+does the plot you know transform a grid
+
+160
+00:06:44,479 --> 00:06:49,120
+or rectangular grid to uh you know by
+
+161
+00:06:47,840 --> 00:06:51,360
+the function
+
+162
+00:06:49,120 --> 00:06:52,160
+so you can see there's also animations
+
+163
+00:06:51,360 --> 00:06:55,199
+okay
+
+164
+00:06:52,160 --> 00:06:55,759
+so i'm going to i think i'm going to
+
+165
+00:06:55,199 --> 00:06:57,840
+just
+
+166
+00:06:55,759 --> 00:06:59,199
+uh show you you know random chat about
+
+167
+00:06:57,840 --> 00:07:01,599
+mathematica
+
+168
+00:06:59,199 --> 00:07:02,960
+uh so you can ask me any questions you
+
+169
+00:07:01,599 --> 00:07:05,599
+want
+
+170
+00:07:02,960 --> 00:07:06,800
+okay you can ask me you know uh type in
+
+171
+00:07:05,599 --> 00:07:08,960
+the live chat
+
+172
+00:07:06,800 --> 00:07:11,759
+any questions you want for example many
+
+173
+00:07:08,960 --> 00:07:14,080
+of these functions you can see
+
+174
+00:07:11,759 --> 00:07:16,240
+you know you know about fish lens right
+
+175
+00:07:14,080 --> 00:07:19,199
+so this is kind of like a fish lens
+
+176
+00:07:16,240 --> 00:07:20,800
+this is actual the actual function okay
+
+177
+00:07:19,199 --> 00:07:23,759
+so actually let me
+
+178
+00:07:20,800 --> 00:07:24,080
+let me start to evaluate the code so i
+
+179
+00:07:23,759 --> 00:07:26,479
+can
+
+180
+00:07:24,080 --> 00:07:28,720
+so we can run the code in real time so
+
+181
+00:07:26,479 --> 00:07:32,800
+anyway so here's the source code
+
+182
+00:07:28,720 --> 00:07:35,599
+page down so for example this function
+
+183
+00:07:32,800 --> 00:07:37,680
+triangular grid that generates a
+
+184
+00:07:35,599 --> 00:07:39,360
+triangular grid i'll run it and i'll
+
+185
+00:07:37,680 --> 00:07:42,639
+show you okay
+
+186
+00:07:39,360 --> 00:07:44,560
+and this is the source code again any
+
+187
+00:07:42,639 --> 00:07:48,160
+questions or comment type it okay i'll
+
+188
+00:07:44,560 --> 00:07:48,160
+get it i'll get to it
+
+189
+00:07:50,080 --> 00:07:54,000
+so that's the code and that's about it
+
+190
+00:07:52,479 --> 00:07:59,199
+that's the code for this
+
+191
+00:07:54,000 --> 00:08:02,240
+package okay okay so select all uh oops
+
+192
+00:07:59,199 --> 00:08:06,560
+not that select all and we are going to
+
+193
+00:08:02,240 --> 00:08:08,879
+evaluate it it's asking me to do i want
+
+194
+00:08:06,560 --> 00:08:11,520
+to evaluate initials no because i'm
+
+195
+00:08:08,879 --> 00:08:15,280
+going to evaluate everything
+
+196
+00:08:11,520 --> 00:08:17,520
+okay it's done so you can see
+
+197
+00:08:15,280 --> 00:08:20,479
+in mathematica every time you evaluate
+
+198
+00:08:17,520 --> 00:08:23,520
+you know the mathematical
+
+199
+00:08:20,479 --> 00:08:26,560
+okay mathematica has actually two parts
+
+200
+00:08:23,520 --> 00:08:30,000
+you know for example in java
+
+201
+00:08:26,560 --> 00:08:33,839
+uh in java you have java that's the
+
+202
+00:08:30,000 --> 00:08:37,680
+that you know the command line java
+
+203
+00:08:33,839 --> 00:08:40,560
+program that actually runs the
+
+204
+00:08:37,680 --> 00:08:41,279
+java compiled by code and you have java
+
+205
+00:08:40,560 --> 00:08:43,680
+c
+
+206
+00:08:41,279 --> 00:08:45,279
+that takes the source code and compile
+
+207
+00:08:43,680 --> 00:08:47,040
+into bytecode so
+
+208
+00:08:45,279 --> 00:08:48,480
+for the java language you have several
+
+209
+00:08:47,040 --> 00:08:50,959
+components you have the
+
+210
+00:08:48,480 --> 00:08:52,160
+compiler java c you have the java
+
+211
+00:08:50,959 --> 00:08:54,320
+runtime
+
+212
+00:08:52,160 --> 00:08:56,800
+you know which java you know we and then
+
+213
+00:08:54,320 --> 00:09:00,320
+then you know jvm and so on
+
+214
+00:08:56,800 --> 00:09:03,680
+and for python but for python ruby
+
+215
+00:09:00,320 --> 00:09:07,360
+perl or
+
+216
+00:09:03,680 --> 00:09:10,480
+javascript basically you just have one
+
+217
+00:09:07,360 --> 00:09:12,480
+one binary blob you know that
+
+218
+00:09:10,480 --> 00:09:14,399
+that compiles or interpret you know and
+
+219
+00:09:12,480 --> 00:09:17,600
+run the program
+
+220
+00:09:14,399 --> 00:09:19,200
+for so so for mathematica mathematica
+
+221
+00:09:17,600 --> 00:09:19,839
+the language or you call it wufam
+
+222
+00:09:19,200 --> 00:09:23,839
+language
+
+223
+00:09:19,839 --> 00:09:26,399
+um you it has primarily two things
+
+224
+00:09:23,839 --> 00:09:28,480
+two components one is the front end
+
+225
+00:09:26,399 --> 00:09:31,680
+front end is what you see
+
+226
+00:09:28,480 --> 00:09:35,360
+uh right here so uh you know so these
+
+227
+00:09:31,680 --> 00:09:36,560
+are the front end and you have the
+
+228
+00:09:35,360 --> 00:09:39,839
+kernel
+
+229
+00:09:36,560 --> 00:09:41,440
+so so what is front end front front end
+
+230
+00:09:39,839 --> 00:09:41,839
+is what you see basically you can think
+
+231
+00:09:41,440 --> 00:09:45,600
+of
+
+232
+00:09:41,839 --> 00:09:49,360
+it as a editor or ide integrated
+
+233
+00:09:45,600 --> 00:09:52,399
+uh development uh
+
+234
+00:09:49,360 --> 00:09:56,000
+editor ide so
+
+235
+00:09:52,399 --> 00:09:59,120
+so the front end is um
+
+236
+00:09:56,000 --> 00:10:02,320
+is the editor ide then when you evaluate
+
+237
+00:09:59,120 --> 00:10:06,320
+something let me let me show you okay
+
+238
+00:10:02,320 --> 00:10:08,959
+so one uh let's magnify
+
+239
+00:10:06,320 --> 00:10:10,399
+so let's say three plus five so you type
+
+240
+00:10:08,959 --> 00:10:13,279
+this in front end
+
+241
+00:10:10,399 --> 00:10:15,839
+you press shift enter to evaluate and
+
+242
+00:10:13,279 --> 00:10:19,040
+you get eight
+
+243
+00:10:15,839 --> 00:10:21,279
+so uh so front end is kind of the
+
+244
+00:10:19,040 --> 00:10:22,959
+editor then when you evaluate something
+
+245
+00:10:21,279 --> 00:10:25,760
+it sends
+
+246
+00:10:22,959 --> 00:10:28,000
+sends the code into the kernel again
+
+247
+00:10:25,760 --> 00:10:28,320
+mathematica has two components the front
+
+248
+00:10:28,000 --> 00:10:31,040
+end
+
+249
+00:10:28,320 --> 00:10:32,399
+and the kernel so the front end is you
+
+250
+00:10:31,040 --> 00:10:34,640
+know like the editor
+
+251
+00:10:32,399 --> 00:10:35,920
+you type something you evaluate it it
+
+252
+00:10:34,640 --> 00:10:38,560
+sends the
+
+253
+00:10:35,920 --> 00:10:40,480
+message via protocol to the kernel the
+
+254
+00:10:38,560 --> 00:10:43,200
+kernel does the computation
+
+255
+00:10:40,480 --> 00:10:44,240
+then send back the result and the front
+
+256
+00:10:43,200 --> 00:10:47,360
+end display it
+
+257
+00:10:44,240 --> 00:10:50,000
+so that's how it works
+
+258
+00:10:47,360 --> 00:10:50,800
+front end and kernel and and in fact you
+
+259
+00:10:50,000 --> 00:10:53,680
+can connect
+
+260
+00:10:50,800 --> 00:10:55,040
+to multiple kernels for example you you
+
+261
+00:10:53,680 --> 00:10:57,760
+know in the notebook
+
+262
+00:10:55,040 --> 00:10:59,120
+you can see in this section in this menu
+
+263
+00:10:57,760 --> 00:11:02,160
+evaluation
+
+264
+00:10:59,120 --> 00:11:06,560
+you have kernel you know default kernel
+
+265
+00:11:02,160 --> 00:11:06,560
+none or automatic or local kernel
+
+266
+00:11:07,120 --> 00:11:11,680
+you know you can choose a kernel and if
+
+267
+00:11:09,120 --> 00:11:11,680
+you buy
+
+268
+00:11:12,560 --> 00:11:15,680
+if you buy wolfram's you know great
+
+269
+00:11:14,480 --> 00:11:18,160
+computing so
+
+270
+00:11:15,680 --> 00:11:20,160
+basically your front end can connect to
+
+271
+00:11:18,160 --> 00:11:23,839
+tens or hundreds of kernels so
+
+272
+00:11:20,160 --> 00:11:26,959
+it's a parallel computation so front end
+
+273
+00:11:23,839 --> 00:11:29,760
+and kernel and front end is also
+
+274
+00:11:26,959 --> 00:11:31,920
+um the format of front end is a notebook
+
+275
+00:11:29,760 --> 00:11:34,560
+for example you are looking at notebook
+
+276
+00:11:31,920 --> 00:11:35,120
+so okay let let me try to start to do
+
+277
+00:11:34,560 --> 00:11:37,760
+some
+
+278
+00:11:35,120 --> 00:11:38,320
+uh some fun things okay let me show you
+
+279
+00:11:37,760 --> 00:11:41,279
+the
+
+280
+00:11:38,320 --> 00:11:45,040
+the functions let's see and i'm going to
+
+281
+00:11:41,279 --> 00:11:49,440
+look at comments okay common guys
+
+282
+00:11:45,040 --> 00:11:49,440
+uh so let's try a function here
+
+283
+00:11:49,519 --> 00:11:57,839
+polar grid and rectangular grid and
+
+284
+00:11:51,680 --> 00:11:57,839
+triangular grid okay let's try that
+
+285
+00:11:58,160 --> 00:12:02,560
+okay so you type question mark polar
+
+286
+00:12:00,399 --> 00:12:04,079
+grid that gives you the documentation
+
+287
+00:12:02,560 --> 00:12:07,360
+for the polar grid so
+
+288
+00:12:04,079 --> 00:12:10,639
+let's try it polar grid
+
+289
+00:12:07,360 --> 00:12:13,760
+uh and it says r minimum
+
+290
+00:12:10,639 --> 00:12:14,800
+r max so minimum let's say one let's say
+
+291
+00:12:13,760 --> 00:12:18,240
+max is five
+
+292
+00:12:14,800 --> 00:12:22,839
+let's say step uh
+
+293
+00:12:18,240 --> 00:12:25,839
+step let's say 0.2 okay let's see what
+
+294
+00:12:22,839 --> 00:12:25,839
+happens
+
+295
+00:12:29,920 --> 00:12:34,720
+okay so wait you need them to be in a
+
+296
+00:12:36,839 --> 00:12:39,839
+list
+
+297
+00:12:41,600 --> 00:12:47,680
+okay so you do need the second argument
+
+298
+00:12:43,920 --> 00:12:51,200
+okay let's just copy the thing then
+
+299
+00:12:47,680 --> 00:12:55,040
+i haven't used this i haven't uh
+
+300
+00:12:51,200 --> 00:12:57,040
+i haven't you know this is coded in 1998
+
+301
+00:12:55,040 --> 00:13:00,160
+so basically i haven't touched it
+
+302
+00:12:57,040 --> 00:13:05,519
+since like for 15 years
+
+303
+00:13:00,160 --> 00:13:05,519
+so our max is 5 then our step let's say
+
+304
+00:13:05,760 --> 00:13:11,360
+0.1 and theta means theta max
+
+305
+00:13:08,880 --> 00:13:11,920
+okay i mean i don't know see that i mean
+
+306
+00:13:11,360 --> 00:13:16,079
+let's say
+
+307
+00:13:11,920 --> 00:13:18,880
+10 degree or is it degree or
+
+308
+00:13:16,079 --> 00:13:19,519
+ah i i just want to get it run fast okay
+
+309
+00:13:18,880 --> 00:13:23,040
+10
+
+310
+00:13:19,519 --> 00:13:26,639
+let's say 50. theta step
+
+311
+00:13:23,040 --> 00:13:26,639
+let's say one color function
+
+312
+00:13:27,760 --> 00:13:31,360
+generate a list of graphic primitives
+
+313
+00:13:29,680 --> 00:13:33,279
+that represent the polar grid the
+
+314
+00:13:31,360 --> 00:13:37,600
+optional color function are used okay
+
+315
+00:13:33,279 --> 00:13:37,600
+color functions are optional so let's
+
+316
+00:13:37,680 --> 00:13:40,320
+let's write
+
+317
+00:13:46,839 --> 00:13:52,639
+arrow what's going on
+
+318
+00:13:48,880 --> 00:13:55,519
+so does not have appropriate bounds uh
+
+319
+00:13:52,639 --> 00:13:55,519
+let's say pi
+
+320
+00:13:59,920 --> 00:14:03,839
+ah this is this is this is bad the first
+
+321
+00:14:02,480 --> 00:14:06,800
+demonstration
+
+322
+00:14:03,839 --> 00:14:06,800
+is screwed up
+
+323
+00:14:07,519 --> 00:14:12,480
+what's going on let's try rectangular
+
+324
+00:14:09,839 --> 00:14:12,480
+grid okay
+
+325
+00:14:13,040 --> 00:14:17,839
+rectangular grid is simpler
+
+326
+00:14:22,480 --> 00:14:25,760
+and same thing okay
+
+327
+00:14:27,519 --> 00:14:31,839
+you need the same thing
+
+328
+00:14:36,399 --> 00:14:42,160
+okay x means x max x steps so this is
+
+329
+00:14:39,600 --> 00:14:42,160
+simpler
+
+330
+00:14:42,720 --> 00:14:51,279
+so let's just copy that
+
+331
+00:14:45,920 --> 00:14:51,279
+copy paste
+
+332
+00:14:54,560 --> 00:14:59,839
+and remove the quote
+
+333
+00:15:06,720 --> 00:15:13,839
+what's going on that cannot be followed
+
+334
+00:15:10,839 --> 00:15:13,839
+by
+
+335
+00:15:30,079 --> 00:15:34,079
+let's you know front end you know
+
+336
+00:15:32,399 --> 00:15:37,120
+actually it's
+
+337
+00:15:34,079 --> 00:15:39,519
+it's uh wow wow look at that
+
+338
+00:15:37,120 --> 00:15:40,720
+okay it's trying to do something fancy
+
+339
+00:15:39,519 --> 00:15:44,079
+what's going on
+
+340
+00:15:40,720 --> 00:15:47,759
+so select that ctrl shift
+
+341
+00:15:44,079 --> 00:15:51,199
+i to get input form
+
+342
+00:15:47,759 --> 00:15:54,399
+copy that select all paste
+
+343
+00:15:51,199 --> 00:15:56,880
+why is it pasting this all this
+
+344
+00:15:54,399 --> 00:15:56,880
+this is
+
+345
+00:16:00,800 --> 00:16:03,199
+copy
+
+346
+00:16:03,920 --> 00:16:09,959
+paste magnify let's just type this in
+
+347
+00:16:07,519 --> 00:16:12,160
+emax
+
+348
+00:16:09,959 --> 00:16:15,279
+12025.1 okay
+
+349
+00:16:12,160 --> 00:16:18,480
+0.2 okay
+
+350
+00:16:15,279 --> 00:16:21,120
+and repeat that copy it back to
+
+351
+00:16:18,480 --> 00:16:24,639
+mathematica
+
+352
+00:16:21,120 --> 00:16:24,639
+paste benedict
+
+353
+00:16:27,920 --> 00:16:33,040
+oh it returns the list of graphics
+
+354
+00:16:30,079 --> 00:16:37,839
+primitives i know why so you have to
+
+355
+00:16:33,040 --> 00:16:37,839
+what you have to do is graphics
+
+356
+00:16:50,959 --> 00:16:57,040
+there it is finally
+
+357
+00:16:54,079 --> 00:16:57,759
+so rectangular grid it just returns a
+
+358
+00:16:57,040 --> 00:17:00,880
+bunch of
+
+359
+00:16:57,759 --> 00:17:01,279
+uh basically graphics primitives that
+
+360
+00:17:00,880 --> 00:17:04,319
+means
+
+361
+00:17:01,279 --> 00:17:06,880
+lines and lines basically then you have
+
+362
+00:17:04,319 --> 00:17:10,880
+to wrap it around a graphics
+
+363
+00:17:06,880 --> 00:17:14,079
+um function then you have to show
+
+364
+00:17:10,880 --> 00:17:16,400
+show is like like print except it's for
+
+365
+00:17:14,079 --> 00:17:20,480
+graphics
+
+366
+00:17:16,400 --> 00:17:22,319
+oh thank you so connect gave me uh isk
+
+367
+00:17:20,480 --> 00:17:24,319
+fifteen hundred dollars for hamburger
+
+368
+00:17:22,319 --> 00:17:27,120
+thank you coney
+
+369
+00:17:24,319 --> 00:17:29,520
+uh so with all the knowledge you have of
+
+370
+00:17:27,120 --> 00:17:32,000
+programming and math have you considered
+
+371
+00:17:29,520 --> 00:17:36,559
+building a crypto trading bot
+
+372
+00:17:32,000 --> 00:17:38,960
+no you know crypto um
+
+373
+00:17:36,559 --> 00:17:39,919
+cryptocurrency is one of the things i
+
+374
+00:17:38,960 --> 00:17:41,840
+want to study
+
+375
+00:17:39,919 --> 00:17:43,200
+i mean it's one of the things i consider
+
+376
+00:17:41,840 --> 00:17:45,520
+important uh
+
+377
+00:17:43,200 --> 00:17:46,559
+so but i haven't you know i began to
+
+378
+00:17:45,520 --> 00:17:49,840
+study it
+
+379
+00:17:46,559 --> 00:17:54,640
+seriously about two weeks ago but
+
+380
+00:17:49,840 --> 00:17:56,720
+um i don't fully understand it yet
+
+381
+00:17:54,640 --> 00:17:58,240
+so first name last name says what are we
+
+382
+00:17:56,720 --> 00:18:01,520
+doing today so we are going to
+
+383
+00:17:58,240 --> 00:18:03,840
+we are doing mathematica demo okay uh
+
+384
+00:18:01,520 --> 00:18:07,360
+looks quite complicated to debug okay so
+
+385
+00:18:03,840 --> 00:18:09,600
+anyway let's get back to mathematica so
+
+386
+00:18:07,360 --> 00:18:11,600
+so i wrote this package like 20 years
+
+387
+00:18:09,600 --> 00:18:15,760
+ago so let me show you okay so
+
+388
+00:18:11,600 --> 00:18:18,880
+actually copy that
+
+389
+00:18:15,760 --> 00:18:21,760
+ctrl shift i okay here's
+
+390
+00:18:18,880 --> 00:18:28,000
+this is better now this this this you
+
+391
+00:18:21,760 --> 00:18:32,000
+you see the
+
+392
+00:18:28,000 --> 00:18:35,440
+uh wait did i miss a
+
+393
+00:18:32,000 --> 00:18:38,400
+you see the two different syntax here
+
+394
+00:18:35,440 --> 00:18:40,960
+so one is using the add sign well the
+
+395
+00:18:38,400 --> 00:18:43,200
+other is fully nested brackets
+
+396
+00:18:40,960 --> 00:18:44,880
+in fact they are equivalent to let me
+
+397
+00:18:43,200 --> 00:18:47,120
+show you okay let me let me talk about
+
+398
+00:18:44,880 --> 00:18:47,120
+this
+
+399
+00:18:52,720 --> 00:18:57,760
+now what i'm typing is called full form
+
+400
+00:18:55,120 --> 00:19:00,880
+okay
+
+401
+00:18:57,760 --> 00:19:04,320
+uh in lisp it's known as
+
+402
+00:19:00,880 --> 00:19:08,080
+meta expression uh yes
+
+403
+00:19:04,320 --> 00:19:09,200
+wait symbolic expression and meta
+
+404
+00:19:08,080 --> 00:19:11,840
+expression right so
+
+405
+00:19:09,200 --> 00:19:11,840
+in this
+
+406
+00:19:14,799 --> 00:19:23,200
+this is called symbol this is like this
+
+407
+00:19:17,919 --> 00:19:27,840
+lisp sex uh while this or this
+
+408
+00:19:23,200 --> 00:19:27,840
+meta meta syntax meta form
+
+409
+00:19:28,000 --> 00:19:34,160
+meta expression in this anyway so
+
+410
+00:19:31,120 --> 00:19:37,440
+so if you look at so all these three uh
+
+411
+00:19:34,160 --> 00:19:38,720
+syntax are syntactically equivalent they
+
+412
+00:19:37,440 --> 00:19:41,280
+are completely
+
+413
+00:19:38,720 --> 00:19:42,240
+equivalent for example evaluate that you
+
+414
+00:19:41,280 --> 00:19:44,320
+can see
+
+415
+00:19:42,240 --> 00:19:45,840
+that's the output evaluate that that's
+
+416
+00:19:44,320 --> 00:19:48,000
+the same thing output
+
+417
+00:19:45,840 --> 00:19:51,440
+evaluate you know they they are the same
+
+418
+00:19:48,000 --> 00:19:51,440
+now let me get rid of the
+
+419
+00:19:51,520 --> 00:19:54,559
+so you can compare
+
+420
+00:19:56,480 --> 00:20:01,039
+you know so all these three are exact
+
+421
+00:19:58,960 --> 00:20:03,039
+syntactically equivalent
+
+422
+00:20:01,039 --> 00:20:04,640
+now the difference is that you know
+
+423
+00:20:03,039 --> 00:20:06,559
+basically you
+
+424
+00:20:04,640 --> 00:20:08,080
+you know some for typical programmers
+
+425
+00:20:06,559 --> 00:20:12,559
+you call them syntax
+
+426
+00:20:08,080 --> 00:20:15,600
+sugar you know shortcuts so the add sign
+
+427
+00:20:12,559 --> 00:20:16,480
+so basically so basically all
+
+428
+00:20:15,600 --> 00:20:19,600
+mathematica
+
+429
+00:20:16,480 --> 00:20:22,640
+expression has this form so fx
+
+430
+00:20:19,600 --> 00:20:25,760
+you know for all f uh you know
+
+431
+00:20:22,640 --> 00:20:28,799
+g uh
+
+432
+00:20:25,760 --> 00:20:31,200
+something h x
+
+433
+00:20:28,799 --> 00:20:32,240
+uh something like so so every
+
+434
+00:20:31,200 --> 00:20:34,880
+mathematical
+
+435
+00:20:32,240 --> 00:20:37,520
+expression this is the complete
+
+436
+00:20:34,880 --> 00:20:40,960
+mathematical syntax okay it's just that
+
+437
+00:20:37,520 --> 00:20:44,000
+brackets symbols alpha
+
+438
+00:20:40,960 --> 00:20:48,400
+numeric symbols brackets numbers
+
+439
+00:20:44,000 --> 00:20:51,440
+and comma that's it okay every or
+
+440
+00:20:48,400 --> 00:20:54,799
+you know whenever you see mathematical
+
+441
+00:20:51,440 --> 00:20:57,840
+source code they can all be transformed
+
+442
+00:20:54,799 --> 00:21:00,000
+uh to a syntactic syntactically
+
+443
+00:20:57,840 --> 00:21:03,039
+equivalent form called full form
+
+444
+00:21:00,000 --> 00:21:06,320
+which is basically purely
+
+445
+00:21:03,039 --> 00:21:09,600
+nested syntax like that so this
+
+446
+00:21:06,320 --> 00:21:10,960
+is one example so but mathematica has a
+
+447
+00:21:09,600 --> 00:21:13,200
+lot of shortcuts
+
+448
+00:21:10,960 --> 00:21:15,039
+for example when you have a list like
+
+449
+00:21:13,200 --> 00:21:18,559
+that
+
+450
+00:21:15,039 --> 00:21:21,280
+you can also write it like that okay
+
+451
+00:21:18,559 --> 00:21:22,880
+i'm digressing a lot uh but let me let
+
+452
+00:21:21,280 --> 00:21:24,880
+me show you something else okay so for
+
+453
+00:21:22,880 --> 00:21:27,280
+example one plus two
+
+454
+00:21:24,880 --> 00:21:28,159
+that's the expression right that's
+
+455
+00:21:27,280 --> 00:21:30,320
+that's not
+
+456
+00:21:28,159 --> 00:21:32,720
+a necessity bracket but if you want
+
+457
+00:21:30,320 --> 00:21:35,919
+necessary bracket you can write
+
+458
+00:21:32,720 --> 00:21:39,520
+plus one
+
+459
+00:21:35,919 --> 00:21:41,520
+two they are equivalent now how
+
+460
+00:21:39,520 --> 00:21:45,840
+how can how do you know it's equivalent
+
+461
+00:21:41,520 --> 00:21:45,840
+because you can type full form
+
+462
+00:21:48,240 --> 00:21:54,400
+hold okay one plus
+
+463
+00:21:51,520 --> 00:21:55,760
+two so here we have one plus two you
+
+464
+00:21:54,400 --> 00:21:58,480
+want to hold it first
+
+465
+00:21:55,760 --> 00:22:00,480
+hold it means do not evaluate it then
+
+466
+00:21:58,480 --> 00:22:02,080
+you want to use the full form function
+
+467
+00:22:00,480 --> 00:22:06,960
+that shows you the
+
+468
+00:22:02,080 --> 00:22:10,159
+um you see it shows you the
+
+469
+00:22:06,960 --> 00:22:10,880
+pure nested syntax anyway i'm digressing
+
+470
+00:22:10,159 --> 00:22:14,240
+so
+
+471
+00:22:10,880 --> 00:22:14,240
+so i have showed
+
+472
+00:22:16,000 --> 00:22:20,080
+uh and and one more thing okay one more
+
+473
+00:22:18,159 --> 00:22:20,799
+thing so when you see something like
+
+474
+00:22:20,080 --> 00:22:24,880
+that
+
+475
+00:22:20,799 --> 00:22:28,480
+fx that is equivalent to
+
+476
+00:22:24,880 --> 00:22:30,400
+uh that okay for any function
+
+477
+00:22:28,480 --> 00:22:33,120
+now one one characteristics of
+
+478
+00:22:30,400 --> 00:22:35,600
+mathematica is very general so
+
+479
+00:22:33,120 --> 00:22:38,000
+so for example the add syntax is a
+
+480
+00:22:35,600 --> 00:22:41,120
+prefix form
+
+481
+00:22:38,000 --> 00:22:43,840
+wherever whatever f may be it may be a
+
+482
+00:22:41,120 --> 00:22:46,080
+long complicated expression x can also
+
+483
+00:22:43,840 --> 00:22:48,000
+be a long complicated expression
+
+484
+00:22:46,080 --> 00:22:49,200
+whenever you have a add sign that's a
+
+485
+00:22:48,000 --> 00:22:53,200
+basic uh
+
+486
+00:22:49,200 --> 00:22:58,480
+prefix syntax for
+
+487
+00:22:53,200 --> 00:23:00,720
+for these uh pure uh bracket syntax
+
+488
+00:22:58,480 --> 00:23:01,520
+so anyway let me get back to showing you
+
+489
+00:23:00,720 --> 00:23:04,640
+the graphics
+
+490
+00:23:01,520 --> 00:23:06,640
+so you so this is a grid and let's go
+
+491
+00:23:04,640 --> 00:23:10,159
+back to show the polar grid
+
+492
+00:23:06,640 --> 00:23:10,159
+uh the polar grid
+
+493
+00:23:13,600 --> 00:23:16,159
+okay i
+
+494
+00:23:18,640 --> 00:23:25,520
+pull a grid yeah that's why
+
+495
+00:23:22,240 --> 00:23:27,600
+it's wrong because i know what is wrong
+
+496
+00:23:25,520 --> 00:23:31,440
+because i copied from this thing
+
+497
+00:23:27,600 --> 00:23:37,039
+and that has hidden um
+
+498
+00:23:31,440 --> 00:23:40,480
+let me let me let's type in
+
+499
+00:23:37,039 --> 00:23:43,679
+let's type in emacs and
+
+500
+00:23:40,480 --> 00:23:47,120
+it's better than just copy and paste
+
+501
+00:23:43,679 --> 00:23:50,960
+so polar grid let's try that
+
+502
+00:23:47,120 --> 00:23:54,240
+okay that works so now again
+
+503
+00:23:50,960 --> 00:23:58,000
+graphics and
+
+504
+00:23:54,240 --> 00:23:58,320
+show okay so there you have it you have
+
+505
+00:23:58,000 --> 00:24:02,400
+a
+
+506
+00:23:58,320 --> 00:24:05,679
+polar grid so you begin with this
+
+507
+00:24:02,400 --> 00:24:08,320
+uh you know this grid that represents
+
+508
+00:24:05,679 --> 00:24:09,360
+a plane then you apply a function to
+
+509
+00:24:08,320 --> 00:24:12,400
+transform
+
+510
+00:24:09,360 --> 00:24:13,520
+them so all these are examples so for
+
+511
+00:24:12,400 --> 00:24:17,679
+example here is
+
+512
+00:24:13,520 --> 00:24:19,520
+kind of a fish lens and this one
+
+513
+00:24:17,679 --> 00:24:21,360
+and this is more you know this is
+
+514
+00:24:19,520 --> 00:24:23,919
+distorted lens
+
+515
+00:24:21,360 --> 00:24:25,120
+basically you can think of it you know
+
+516
+00:24:23,919 --> 00:24:29,279
+it shows how it
+
+517
+00:24:25,120 --> 00:24:32,320
+um how the function transformed the grid
+
+518
+00:24:29,279 --> 00:24:37,039
+uh okay so what what else do i have
+
+519
+00:24:32,320 --> 00:24:39,200
+then then you have this one um
+
+520
+00:24:37,039 --> 00:24:40,400
+so you see this function applied to a
+
+521
+00:24:39,200 --> 00:24:42,880
+grid
+
+522
+00:24:40,400 --> 00:24:43,760
+or applied to a triangular grid it looks
+
+523
+00:24:42,880 --> 00:24:46,159
+like that
+
+524
+00:24:43,760 --> 00:24:48,320
+or applied to a polar grid it looks like
+
+525
+00:24:46,159 --> 00:24:50,880
+that
+
+526
+00:24:48,320 --> 00:24:52,799
+then you have this kind of you know this
+
+527
+00:24:50,880 --> 00:24:55,520
+function
+
+528
+00:24:52,799 --> 00:24:56,400
+this function if you apply to a grid it
+
+529
+00:24:55,520 --> 00:24:59,760
+looks like that
+
+530
+00:24:56,400 --> 00:25:00,000
+if you apply to a hexagonal grid it
+
+531
+00:24:59,760 --> 00:25:03,200
+looks
+
+532
+00:25:00,000 --> 00:25:05,200
+like that and if you apply to a polar
+
+533
+00:25:03,200 --> 00:25:08,720
+grid it looks like that so it kind of
+
+534
+00:25:05,200 --> 00:25:11,120
+like i don't know how you say it
+
+535
+00:25:08,720 --> 00:25:14,480
+it's kind of like shrink some parts and
+
+536
+00:25:11,120 --> 00:25:18,159
+expand some parts
+
+537
+00:25:14,480 --> 00:25:21,360
+okay so that's the idea about this uh
+
+538
+00:25:18,159 --> 00:25:23,919
+uh this uh transform 2d
+
+539
+00:25:21,360 --> 00:25:25,679
+or which you know any of this function
+
+540
+00:25:23,919 --> 00:25:28,400
+it's a vector value function you can
+
+541
+00:25:25,679 --> 00:25:31,120
+also think of it as a complex function
+
+542
+00:25:28,400 --> 00:25:31,600
+complex function a function that takes
+
+543
+00:25:31,120 --> 00:25:34,960
+one
+
+544
+00:25:31,600 --> 00:25:36,400
+complex number and returns one complex
+
+545
+00:25:34,960 --> 00:25:39,520
+number
+
+546
+00:25:36,400 --> 00:25:43,840
+and in this example
+
+547
+00:25:39,520 --> 00:25:47,120
+this function the function is here
+
+548
+00:25:43,840 --> 00:25:47,919
+wait so that's a function and let me
+
+549
+00:25:47,120 --> 00:25:50,159
+magnify
+
+550
+00:25:47,919 --> 00:25:50,159
+okay
+
+551
+00:25:52,080 --> 00:26:01,039
+let's magnify so here is a function
+
+552
+00:25:57,600 --> 00:26:02,960
+and this function is applied to a
+
+553
+00:26:01,039 --> 00:26:05,039
+triangular grid so you can see a
+
+554
+00:26:02,960 --> 00:26:06,320
+triangular grid so what and what does
+
+555
+00:26:05,039 --> 00:26:09,440
+this function do
+
+556
+00:26:06,320 --> 00:26:12,960
+basically the further away the point
+
+557
+00:26:09,440 --> 00:26:15,840
+is from the origin the more rotation it
+
+558
+00:26:12,960 --> 00:26:17,440
+does so in the center there's not much
+
+559
+00:26:15,840 --> 00:26:22,320
+rotation but when it gets
+
+560
+00:26:17,440 --> 00:26:24,720
+further away there's more rotation
+
+561
+00:26:22,320 --> 00:26:25,760
+so you can see some kind of these when
+
+562
+00:26:24,720 --> 00:26:28,559
+you see a
+
+563
+00:26:25,760 --> 00:26:29,039
+i think a japanese ghost film you know
+
+564
+00:26:28,559 --> 00:26:30,880
+there's
+
+565
+00:26:29,039 --> 00:26:32,559
+you know these days these days with your
+
+566
+00:26:30,880 --> 00:26:34,640
+phone you have what's called
+
+567
+00:26:32,559 --> 00:26:36,159
+filters you know you can apply filters
+
+568
+00:26:34,640 --> 00:26:39,679
+to your face
+
+569
+00:26:36,159 --> 00:26:41,760
+so this the so i guess this is um
+
+570
+00:26:39,679 --> 00:26:43,440
+they are similar function field filter
+
+571
+00:26:41,760 --> 00:26:46,159
+for this it twists
+
+572
+00:26:43,440 --> 00:26:48,240
+your face so your face becomes you know
+
+573
+00:26:46,159 --> 00:26:50,400
+twisted
+
+574
+00:26:48,240 --> 00:26:51,760
+so that's what that is and this is the
+
+575
+00:26:50,400 --> 00:26:55,840
+same thing the same function
+
+576
+00:26:51,760 --> 00:26:58,000
+applied to uh part of the grid
+
+577
+00:26:55,840 --> 00:26:59,039
+and there are others so you know it's
+
+578
+00:26:58,000 --> 00:27:02,320
+pretty so i
+
+579
+00:26:59,039 --> 00:27:04,559
+so it's pretty um
+
+580
+00:27:02,320 --> 00:27:05,520
+okay that's about that now i'm thinking
+
+581
+00:27:04,559 --> 00:27:08,640
+now um
+
+582
+00:27:05,520 --> 00:27:12,240
+i can do a um
+
+583
+00:27:08,640 --> 00:27:16,400
+i can do a basic mathematica tutorial
+
+584
+00:27:12,240 --> 00:27:16,400
+uh starting with um
+
+585
+00:27:16,480 --> 00:27:19,679
+you know like basics how do you do loop
+
+586
+00:27:18,559 --> 00:27:22,320
+how do you do if
+
+587
+00:27:19,679 --> 00:27:24,080
+how do you declare variables how do you
+
+588
+00:27:22,320 --> 00:27:27,120
+uh
+
+589
+00:27:24,080 --> 00:27:27,760
+things like that we can do that or we
+
+590
+00:27:27,120 --> 00:27:31,440
+can do
+
+591
+00:27:27,760 --> 00:27:34,799
+some random fancy demonstration like
+
+592
+00:27:31,440 --> 00:27:37,679
+you know which is more fun
+
+593
+00:27:34,799 --> 00:27:37,679
+but uh
+
+594
+00:27:37,840 --> 00:27:40,640
+but less
+
+595
+00:27:40,880 --> 00:27:43,600
+instructive
+
+596
+00:27:44,320 --> 00:27:49,760
+okay so let me read the comments so
+
+597
+00:27:46,159 --> 00:27:50,240
+apparently isk now what is isk isk is
+
+598
+00:27:49,760 --> 00:27:54,720
+some
+
+599
+00:27:50,240 --> 00:27:59,039
+some polish um is it netherland or
+
+600
+00:27:54,720 --> 00:28:03,840
+poland or something what
+
+601
+00:27:59,039 --> 00:28:03,840
+very browser clear history okay
+
+602
+00:28:04,000 --> 00:28:11,520
+isk icelandic
+
+603
+00:28:08,440 --> 00:28:14,559
+islamic corner
+
+604
+00:28:11,520 --> 00:28:17,840
+thank you very much uh so what shall we
+
+605
+00:28:14,559 --> 00:28:17,840
+do today
+
+606
+00:28:19,679 --> 00:28:23,200
+let me think about let me think for a
+
+607
+00:28:21,679 --> 00:28:27,039
+bit okay
+
+608
+00:28:23,200 --> 00:28:31,840
+so i'm still going and i've been talking
+
+609
+00:28:27,039 --> 00:28:31,840
+for 30 minutes already oh wow
+
+610
+00:28:33,600 --> 00:28:40,399
+so let's show my let's see my talk show
+
+611
+00:28:37,200 --> 00:28:45,200
+and what do i want to say
+
+612
+00:28:40,399 --> 00:28:47,440
+about mathematica
+
+613
+00:28:45,200 --> 00:28:47,440
+uh
+
+614
+00:28:48,559 --> 00:28:59,840
+let's show let's see
+
+615
+00:28:51,679 --> 00:28:59,840
+this is too big
+
+616
+00:29:06,159 --> 00:29:15,120
+i'm thinking that
+
+617
+00:29:12,640 --> 00:29:17,360
+so you are looking at my python tutorial
+
+618
+00:29:15,120 --> 00:29:17,360
+and
+
+619
+00:29:18,480 --> 00:29:26,720
+so here is my python tutorial
+
+620
+00:29:23,039 --> 00:29:30,480
+and you and i can go through
+
+621
+00:29:26,720 --> 00:29:34,720
+the python tutorial and show you how
+
+622
+00:29:30,480 --> 00:29:34,720
+it is done in mathematica
+
+623
+00:29:35,520 --> 00:29:43,840
+uh why don't we do that yeah i guess
+
+624
+00:29:39,919 --> 00:29:43,840
+unless you have some questions okay
+
+625
+00:29:45,039 --> 00:29:51,520
+so python you have then you have
+
+626
+00:29:48,080 --> 00:29:52,240
+a turpo you have a list then you have
+
+627
+00:29:51,520 --> 00:29:54,720
+turple
+
+628
+00:29:52,240 --> 00:29:55,600
+data structures then you have sequence
+
+629
+00:29:54,720 --> 00:29:58,080
+types
+
+630
+00:29:55,600 --> 00:30:00,080
+then you have dictionary then you have
+
+631
+00:29:58,080 --> 00:30:03,279
+how do you loop through dictionary or
+
+632
+00:30:00,080 --> 00:30:05,919
+list then you have uh how do you
+
+633
+00:30:03,279 --> 00:30:07,279
+write a package and how do you write a
+
+634
+00:30:05,919 --> 00:30:09,600
+function
+
+635
+00:30:07,279 --> 00:30:11,840
+and how do you write a class and object
+
+636
+00:30:09,600 --> 00:30:15,120
+and how do you write the module okay
+
+637
+00:30:11,840 --> 00:30:17,360
+you know it's we can go over that
+
+638
+00:30:15,120 --> 00:30:18,399
+it's pretty simple could you explain the
+
+639
+00:30:17,360 --> 00:30:23,039
+basics
+
+640
+00:30:18,399 --> 00:30:26,399
+while showing the fancy stuff
+
+641
+00:30:23,039 --> 00:30:26,399
+uh i could try
+
+642
+00:30:27,760 --> 00:30:34,559
+okay so let's let me let me
+
+643
+00:30:31,039 --> 00:30:36,880
+um so polar grid
+
+644
+00:30:34,559 --> 00:30:38,880
+rectangular grid we haven't tried we
+
+645
+00:30:36,880 --> 00:30:41,360
+haven't showed triangular grid okay let
+
+646
+00:30:38,880 --> 00:30:41,360
+me try
+
+647
+00:30:44,000 --> 00:30:46,559
+and u
+
+648
+00:30:48,640 --> 00:30:56,960
+okay try and get a grid uh but
+
+649
+00:30:51,760 --> 00:30:56,960
+what is the syntax okay
+
+650
+00:30:57,600 --> 00:31:07,120
+uh okay so
+
+651
+00:31:04,559 --> 00:31:08,960
+you know i hope to create a soft like
+
+652
+00:31:07,120 --> 00:31:11,519
+keys in mathematica uh
+
+653
+00:31:08,960 --> 00:31:11,519
+i don't know
+
+654
+00:31:14,559 --> 00:31:20,000
+okay that generates a triangular grid
+
+655
+00:31:17,279 --> 00:31:23,279
+yeah so here is the output
+
+656
+00:31:20,000 --> 00:31:25,679
+but you need to so the so these
+
+657
+00:31:23,279 --> 00:31:27,039
+are graphics primitives let me tell you
+
+658
+00:31:25,679 --> 00:31:29,120
+what they are okay
+
+659
+00:31:27,039 --> 00:31:30,320
+so first of all you have a color then
+
+660
+00:31:29,120 --> 00:31:33,360
+you have a
+
+661
+00:31:30,320 --> 00:31:36,720
+this expression so this line
+
+662
+00:31:33,360 --> 00:31:40,320
+is a function then it takes a list
+
+663
+00:31:36,720 --> 00:31:40,799
+each element is a point basically two
+
+664
+00:31:40,320 --> 00:31:43,760
+numbers
+
+665
+00:31:40,799 --> 00:31:44,559
+x and y coordinates so that represent
+
+666
+00:31:43,760 --> 00:31:47,840
+the line
+
+667
+00:31:44,559 --> 00:31:48,720
+from this point to this point so so this
+
+668
+00:31:47,840 --> 00:31:51,279
+kind of thing this
+
+669
+00:31:48,720 --> 00:31:52,080
+is called a graphics primitive you know
+
+670
+00:31:51,279 --> 00:31:55,600
+it's like
+
+671
+00:31:52,080 --> 00:31:58,240
+it's in like a javascript scvg svg
+
+672
+00:31:55,600 --> 00:31:59,519
+or in javascript canvas you know you
+
+673
+00:31:58,240 --> 00:32:03,360
+have similar things
+
+674
+00:31:59,519 --> 00:32:03,360
+circle line um
+
+675
+00:32:03,919 --> 00:32:11,200
+things uh svg for example
+
+676
+00:32:06,960 --> 00:32:14,159
+svg tutorial you have
+
+677
+00:32:11,200 --> 00:32:16,159
+svg basics you have how do you you know
+
+678
+00:32:14,159 --> 00:32:17,120
+how do you represent the line so this is
+
+679
+00:32:16,159 --> 00:32:20,480
+the syntax
+
+680
+00:32:17,120 --> 00:32:22,880
+in svg how you represent the line then
+
+681
+00:32:20,480 --> 00:32:24,720
+this is the syntax in svg of how you
+
+682
+00:32:22,880 --> 00:32:26,480
+represent the rectangle so you say
+
+683
+00:32:24,720 --> 00:32:29,919
+rectangle x and y
+
+684
+00:32:26,480 --> 00:32:33,440
+width and height so in the same way
+
+685
+00:32:29,919 --> 00:32:34,080
+in mathematica a line is represented
+
+686
+00:32:33,440 --> 00:32:36,000
+this way
+
+687
+00:32:34,080 --> 00:32:37,919
+now remember like i said before in
+
+688
+00:32:36,000 --> 00:32:40,880
+mathematica every
+
+689
+00:32:37,919 --> 00:32:42,080
+mathematical expression has the form you
+
+690
+00:32:40,880 --> 00:32:45,039
+know like that
+
+691
+00:32:42,080 --> 00:32:46,799
+and all these it's pure pure nothing
+
+692
+00:32:45,039 --> 00:32:50,080
+else
+
+693
+00:32:46,799 --> 00:32:52,559
+so you are so that's why you know you
+
+694
+00:32:50,080 --> 00:32:54,080
+uh you have that so here is a list of
+
+695
+00:32:52,559 --> 00:32:57,039
+graphics primitives
+
+696
+00:32:54,080 --> 00:32:58,399
+now if you want to actually print this
+
+697
+00:32:57,039 --> 00:33:02,159
+so you say
+
+698
+00:32:58,399 --> 00:33:05,440
+so you have to say graphics okay
+
+699
+00:33:02,159 --> 00:33:08,960
+graphics then you have to say
+
+700
+00:33:05,440 --> 00:33:09,840
+show show is like print except it's for
+
+701
+00:33:08,960 --> 00:33:12,799
+graphics
+
+702
+00:33:09,840 --> 00:33:13,760
+okay so if i do that you know you got a
+
+703
+00:33:12,799 --> 00:33:18,720
+triangular grid
+
+704
+00:33:13,760 --> 00:33:18,720
+now let's increase that let's say 10
+
+705
+00:33:18,799 --> 00:33:22,880
+okay 10 doesn't work so you want you
+
+706
+00:33:21,519 --> 00:33:26,240
+want more triangles
+
+707
+00:33:22,880 --> 00:33:29,039
+50. there you have it 50 let's
+
+708
+00:33:26,240 --> 00:33:29,039
+try 30.
+
+709
+00:33:30,720 --> 00:33:34,159
+let's let's try 20 okay that's a nice
+
+710
+00:33:33,120 --> 00:33:36,000
+one
+
+711
+00:33:34,159 --> 00:33:38,559
+so once you have a triangular grid let's
+
+712
+00:33:36,000 --> 00:33:41,519
+okay so let's show you a function then
+
+713
+00:33:38,559 --> 00:33:43,440
+so we have a rectangular grid let's do
+
+714
+00:33:41,519 --> 00:33:47,440
+some of these
+
+715
+00:33:43,440 --> 00:33:47,440
+uh transform 2d plot
+
+716
+00:33:49,600 --> 00:33:54,399
+uh yeah let's let's uh let's do a demo
+
+717
+00:33:52,559 --> 00:33:57,519
+okay so let's
+
+718
+00:33:54,399 --> 00:33:57,519
+show one of these
+
+719
+00:34:04,840 --> 00:34:09,440
+uh
+
+720
+00:34:06,000 --> 00:34:15,200
+yeah actually this the simplest is
+
+721
+00:34:09,440 --> 00:34:15,200
+actually okay let's type it here
+
+722
+00:34:17,399 --> 00:34:23,599
+transform to the
+
+723
+00:34:21,200 --> 00:34:23,599
+plot
+
+724
+00:34:25,200 --> 00:34:30,720
+okay in you know in mathematica since uh
+
+725
+00:34:28,480 --> 00:34:34,159
+wait
+
+726
+00:34:30,720 --> 00:34:37,040
+okay that's actually my function and
+
+727
+00:34:34,159 --> 00:34:37,040
+transform
+
+728
+00:34:44,000 --> 00:34:50,079
+okay transform 2d plot what how does it
+
+729
+00:34:47,359 --> 00:34:50,079
+what is the
+
+730
+00:34:50,560 --> 00:34:55,760
+syntax so first of all you need a
+
+731
+00:34:54,560 --> 00:34:58,240
+function
+
+732
+00:34:55,760 --> 00:34:59,359
+then you need x mean y mean okay so
+
+733
+00:34:58,240 --> 00:35:02,560
+that's simple so
+
+734
+00:34:59,359 --> 00:35:05,359
+x from x from zero to
+
+735
+00:35:02,560 --> 00:35:05,359
+five okay
+
+736
+00:35:06,160 --> 00:35:12,800
+copy then y
+
+737
+00:35:09,520 --> 00:35:13,839
+is also paste y is also from zero to
+
+738
+00:35:12,800 --> 00:35:15,760
+five
+
+739
+00:35:13,839 --> 00:35:18,960
+then what is a function so you want to
+
+740
+00:35:15,760 --> 00:35:18,960
+give a function so
+
+741
+00:35:22,400 --> 00:35:28,000
+okay so let's say x and y
+
+742
+00:35:25,920 --> 00:35:29,280
+so this is a function that takes a
+
+743
+00:35:28,000 --> 00:35:31,280
+vector x y
+
+744
+00:35:29,280 --> 00:35:32,320
+and return x y so it doesn't change
+
+745
+00:35:31,280 --> 00:35:35,440
+anything so let's
+
+746
+00:35:32,320 --> 00:35:38,400
+plot it okay so it you know
+
+747
+00:35:35,440 --> 00:35:39,280
+it begin with a grid so nothing changes
+
+748
+00:35:38,400 --> 00:35:42,400
+so let's say
+
+749
+00:35:39,280 --> 00:35:45,680
+2 times y okay so now let's change that
+
+750
+00:35:42,400 --> 00:35:49,760
+2 times y so you can see
+
+751
+00:35:45,680 --> 00:35:53,359
+it kind of squash it
+
+752
+00:35:49,760 --> 00:35:53,359
+now let's say y squared
+
+753
+00:35:55,200 --> 00:36:03,040
+okay it actually squashed more so
+
+754
+00:35:58,240 --> 00:36:03,040
+let's say here is x plus y
+
+755
+00:36:04,960 --> 00:36:11,119
+so that so this is kind of a shear
+
+756
+00:36:09,359 --> 00:36:12,960
+you know this transformation is called
+
+757
+00:36:11,119 --> 00:36:15,839
+shear
+
+758
+00:36:12,960 --> 00:36:18,400
+you know it's part of linear algebra
+
+759
+00:36:15,839 --> 00:36:18,400
+let's say
+
+760
+00:36:18,960 --> 00:36:27,440
+let's say sine y okay
+
+761
+00:36:22,240 --> 00:36:31,359
+sine y x and sine y
+
+762
+00:36:27,440 --> 00:36:31,359
+okay so you got kind of like that
+
+763
+00:36:31,440 --> 00:36:35,760
+and now let's increase the
+
+764
+00:36:38,400 --> 00:36:45,040
+the plot range okay
+
+765
+00:36:41,839 --> 00:36:47,839
+i think it you can kind of see a wave
+
+766
+00:36:45,040 --> 00:36:48,480
+you know more condensed expanded
+
+767
+00:36:47,839 --> 00:36:52,000
+condensed
+
+768
+00:36:48,480 --> 00:36:52,000
+expanded something like that
+
+769
+00:36:52,640 --> 00:36:58,720
+uh we can show it
+
+770
+00:36:55,680 --> 00:36:58,720
+better by
+
+771
+00:36:59,680 --> 00:37:05,520
+oh no okay so let's try to show it
+
+772
+00:37:06,839 --> 00:37:09,839
+better
+
+773
+00:37:11,520 --> 00:37:16,320
+yeah you kind of see it but this is not
+
+774
+00:37:13,920 --> 00:37:23,680
+so good
+
+775
+00:37:16,320 --> 00:37:36,560
+uh let's see options
+
+776
+00:37:23,680 --> 00:37:40,480
+plot points
+
+777
+00:37:36,560 --> 00:37:40,480
+yeah so you kind of see it
+
+778
+00:37:44,560 --> 00:37:47,680
+okay any questions
+
+779
+00:37:47,839 --> 00:37:51,359
+hello everyone could you explain the
+
+780
+00:37:49,599 --> 00:37:54,160
+basic okay so
+
+781
+00:37:51,359 --> 00:37:56,400
+so let's let's do the basics okay let's
+
+782
+00:37:54,160 --> 00:37:56,400
+show
+
+783
+00:37:57,440 --> 00:38:00,720
+let's talk about
+
+784
+00:38:02,079 --> 00:38:08,480
+how do you yeah the basics of
+
+785
+00:38:05,440 --> 00:38:08,480
+mathematica okay
+
+786
+00:38:10,079 --> 00:38:17,040
+the mathematical language
+
+787
+00:38:13,680 --> 00:38:20,400
+okay let's begin here
+
+788
+00:38:17,040 --> 00:38:21,680
+so first of all two uh so here is you do
+
+789
+00:38:20,400 --> 00:38:25,040
+addition
+
+790
+00:38:21,680 --> 00:38:29,440
+here is uh you do three plus three
+
+791
+00:38:25,040 --> 00:38:32,160
+times two for example uh
+
+792
+00:38:29,440 --> 00:38:34,240
+so arithmetic is similar now remember
+
+793
+00:38:32,160 --> 00:38:35,280
+mathematica always returns symbolic
+
+794
+00:38:34,240 --> 00:38:38,400
+result
+
+795
+00:38:35,280 --> 00:38:40,800
+if the input are symbolic now the input
+
+796
+00:38:38,400 --> 00:38:42,000
+if the input contains a approximate
+
+797
+00:38:40,800 --> 00:38:45,200
+number
+
+798
+00:38:42,000 --> 00:38:46,000
+then it returns approximate number so
+
+799
+00:38:45,200 --> 00:38:50,240
+you you could
+
+800
+00:38:46,000 --> 00:38:53,440
+have a big number divided by something
+
+801
+00:38:50,240 --> 00:38:55,200
+okay then it returns just that and you
+
+802
+00:38:53,440 --> 00:38:58,720
+can actually
+
+803
+00:38:55,200 --> 00:39:04,079
+you know plus another
+
+804
+00:38:58,720 --> 00:39:07,359
+random number divided by random number
+
+805
+00:39:04,079 --> 00:39:10,800
+then you got you know symbolic
+
+806
+00:39:07,359 --> 00:39:14,240
+form and if you want
+
+807
+00:39:10,800 --> 00:39:14,720
+if you want the result to be numerical
+
+808
+00:39:14,240 --> 00:39:18,800
+you
+
+809
+00:39:14,720 --> 00:39:22,320
+you can just use the n function okay
+
+810
+00:39:18,800 --> 00:39:25,839
+which is now the slash slash
+
+811
+00:39:22,320 --> 00:39:29,839
+is a notation for postfix notation
+
+812
+00:39:25,839 --> 00:39:33,440
+like the unix pipe that's a slash
+
+813
+00:39:29,839 --> 00:39:36,320
+slash in other words when you have x
+
+814
+00:39:33,440 --> 00:39:36,800
+f you know let's say when you have uh
+
+815
+00:39:36,320 --> 00:39:40,240
+that
+
+816
+00:39:36,800 --> 00:39:43,280
+okay when you have
+
+817
+00:39:40,240 --> 00:39:43,520
+g function applied on x and return value
+
+818
+00:39:43,280 --> 00:39:48,400
+is
+
+819
+00:39:43,520 --> 00:39:48,400
+feed to f that is equivalent to
+
+820
+00:39:52,640 --> 00:39:57,440
+you know these these two forms are
+
+821
+00:39:54,480 --> 00:39:58,560
+equivalent so the slash slash is like a
+
+822
+00:39:57,440 --> 00:40:01,680
+unix pipe
+
+823
+00:39:58,560 --> 00:40:03,119
+and it works for any function so it's
+
+824
+00:40:01,680 --> 00:40:07,280
+very general
+
+825
+00:40:03,119 --> 00:40:10,560
+so so in here so that's why we use
+
+826
+00:40:07,280 --> 00:40:13,599
+this slash slash n otherwise
+
+827
+00:40:10,560 --> 00:40:14,079
+normally you can say you can say you
+
+828
+00:40:13,599 --> 00:40:16,800
+know this
+
+829
+00:40:14,079 --> 00:40:16,800
+is how you do it
+
+830
+00:40:17,200 --> 00:40:21,680
+yeah if you want numerical results so
+
+831
+00:40:20,000 --> 00:40:25,599
+that's arithmetics
+
+832
+00:40:21,680 --> 00:40:28,800
+which is very common and and
+
+833
+00:40:25,599 --> 00:40:30,880
+not unusual from python or anything so
+
+834
+00:40:28,800 --> 00:40:33,040
+let's see what else
+
+835
+00:40:30,880 --> 00:40:34,480
+now strings in mathematica is just like
+
+836
+00:40:33,040 --> 00:40:37,599
+other language
+
+837
+00:40:34,480 --> 00:40:40,319
+this is a string okay
+
+838
+00:40:37,599 --> 00:40:40,720
+and you can also contain unicode so
+
+839
+00:40:40,319 --> 00:40:44,480
+let's
+
+840
+00:40:40,720 --> 00:40:44,480
+let's let me show you okay
+
+841
+00:40:45,599 --> 00:40:48,640
+so unicode
+
+842
+00:40:48,880 --> 00:40:55,680
+i love new york for example
+
+843
+00:40:53,200 --> 00:40:57,520
+okay so here's a string go back to
+
+844
+00:40:55,680 --> 00:41:01,680
+mathematica
+
+845
+00:40:57,520 --> 00:41:04,240
+paste it so you can have unicode
+
+846
+00:41:01,680 --> 00:41:05,200
+and also one more thing in mathematica
+
+847
+00:41:04,240 --> 00:41:08,880
+so you can see
+
+848
+00:41:05,200 --> 00:41:10,240
+this is a notebook right so let's save
+
+849
+00:41:08,880 --> 00:41:14,960
+it
+
+850
+00:41:10,240 --> 00:41:14,960
+let's save it let's save it uh
+
+851
+00:41:15,119 --> 00:41:22,880
+let's see let's save it to desktop okay
+
+852
+00:41:19,440 --> 00:41:27,040
+untitled save
+
+853
+00:41:22,880 --> 00:41:27,040
+now i go to desktop
+
+854
+00:41:27,440 --> 00:41:34,000
+so here is my desktop
+
+855
+00:41:30,800 --> 00:41:37,119
+so here is the untitled is that file so
+
+856
+00:41:34,000 --> 00:41:40,319
+if you open it in emacs it's
+
+857
+00:41:37,119 --> 00:41:45,520
+plain text this is what you see so
+
+858
+00:41:40,319 --> 00:41:45,520
+mathematica file is all plain text
+
+859
+00:41:46,640 --> 00:41:50,000
+now you know it's got this rule box i
+
+860
+00:41:48,800 --> 00:41:53,040
+don't like those things
+
+861
+00:41:50,000 --> 00:41:54,480
+uh the reason you have that is because
+
+862
+00:41:53,040 --> 00:41:56,400
+error messages
+
+863
+00:41:54,480 --> 00:41:58,240
+but anyway it should be easy to read
+
+864
+00:41:56,400 --> 00:42:02,319
+okay so let me uh
+
+865
+00:41:58,240 --> 00:42:05,599
+let me get yeah you see this
+
+866
+00:42:02,319 --> 00:42:09,920
+this pin box tag box squid
+
+867
+00:42:05,599 --> 00:42:12,960
+box style back box tag box two tip box
+
+868
+00:42:09,920 --> 00:42:15,839
+that's um what are those
+
+869
+00:42:12,960 --> 00:42:18,400
+those are kind of like formatting like
+
+870
+00:42:15,839 --> 00:42:20,880
+think of la tech
+
+871
+00:42:18,400 --> 00:42:21,440
+that's how you get you know this like
+
+872
+00:42:20,880 --> 00:42:24,400
+table
+
+873
+00:42:21,440 --> 00:42:25,760
+kind of like thing so actually let's get
+
+874
+00:42:24,400 --> 00:42:28,400
+rid of that
+
+875
+00:42:25,760 --> 00:42:30,400
+let's get rid of all these table like
+
+876
+00:42:28,400 --> 00:42:32,640
+kind of thing
+
+877
+00:42:30,400 --> 00:42:34,079
+okay i don't want that i don't want the
+
+878
+00:42:32,640 --> 00:42:36,560
+style box in those
+
+879
+00:42:34,079 --> 00:42:36,560
+boxes
+
+880
+00:42:37,359 --> 00:42:41,760
+okay i shouldn't delete that but anyway
+
+881
+00:42:42,839 --> 00:42:48,880
+oops so
+
+882
+00:42:45,680 --> 00:42:51,920
+wait okay save again
+
+883
+00:42:48,880 --> 00:42:54,960
+save now
+
+884
+00:42:51,920 --> 00:42:58,720
+open now
+
+885
+00:42:54,960 --> 00:43:00,720
+open this again in e-max so you can see
+
+886
+00:42:58,720 --> 00:43:02,079
+now this is better so you don't see
+
+887
+00:43:00,720 --> 00:43:05,200
+those boxes
+
+888
+00:43:02,079 --> 00:43:08,720
+now this is common in math
+
+889
+00:43:05,200 --> 00:43:08,720
+mathematica you use the
+
+890
+00:43:10,319 --> 00:43:14,720
+parenthesis than the asterisk sign
+
+891
+00:43:15,599 --> 00:43:19,839
+so the whole mathematica is again
+
+892
+00:43:17,760 --> 00:43:20,880
+mathematica is like lisp right it's a
+
+893
+00:43:19,839 --> 00:43:24,880
+pure nested
+
+894
+00:43:20,880 --> 00:43:28,079
+um uh purely nested syntax
+
+895
+00:43:24,880 --> 00:43:30,400
+so you can see here you see this is the
+
+896
+00:43:28,079 --> 00:43:33,359
+beginning of notebook
+
+897
+00:43:30,400 --> 00:43:34,000
+you know notebook so then begin with a
+
+898
+00:43:33,359 --> 00:43:37,359
+bracket
+
+899
+00:43:34,000 --> 00:43:39,359
+that bracket is basically the entire
+
+900
+00:43:37,359 --> 00:43:42,560
+you know the entire file it's all
+
+901
+00:43:39,359 --> 00:43:44,319
+everything is purely nested thing
+
+902
+00:43:42,560 --> 00:43:45,760
+so that's the beginning so this is the
+
+903
+00:43:44,319 --> 00:43:48,720
+beginning
+
+904
+00:43:45,760 --> 00:43:50,480
+the thing above that is some kind of
+
+905
+00:43:48,720 --> 00:43:53,520
+machine generated cache
+
+906
+00:43:50,480 --> 00:43:55,920
+information so you know it says this is
+
+907
+00:43:53,520 --> 00:43:57,760
+the notebook you know who find notebook
+
+908
+00:43:55,920 --> 00:44:01,119
+file that's a comment
+
+909
+00:43:57,760 --> 00:44:04,800
+and the url created by you know what
+
+910
+00:44:01,119 --> 00:44:06,839
+product and cache id then
+
+911
+00:44:04,800 --> 00:44:08,720
+then you have the internal cache
+
+912
+00:44:06,839 --> 00:44:11,680
+information
+
+913
+00:44:08,720 --> 00:44:14,560
+you know all those are common so the
+
+914
+00:44:11,680 --> 00:44:16,319
+actual notebook content is this line
+
+915
+00:44:14,560 --> 00:44:18,400
+you know beginning with the bracket and
+
+916
+00:44:16,319 --> 00:44:23,359
+if you match the bracket it's basically
+
+917
+00:44:18,400 --> 00:44:26,240
+the entire
+
+918
+00:44:23,359 --> 00:44:26,720
+you see in emacs you can you can jump to
+
+919
+00:44:26,240 --> 00:44:28,480
+the
+
+920
+00:44:26,720 --> 00:44:30,000
+end of bracket you know that's the
+
+921
+00:44:28,480 --> 00:44:33,839
+entire notebook
+
+922
+00:44:30,000 --> 00:44:33,839
+and until you reach the end
+
+923
+00:44:34,240 --> 00:44:39,760
+uh so that's here that's the end of
+
+924
+00:44:38,000 --> 00:44:42,079
+notebook
+
+925
+00:44:39,760 --> 00:44:43,200
+then the rest of that is again cash
+
+926
+00:44:42,079 --> 00:44:45,119
+information and
+
+927
+00:44:43,200 --> 00:44:46,560
+some kind of temporary information so
+
+928
+00:44:45,119 --> 00:44:48,839
+everything is text
+
+929
+00:44:46,560 --> 00:44:51,119
+plain text okay that's a mathematica
+
+930
+00:44:48,839 --> 00:44:53,520
+notebook
+
+931
+00:44:51,119 --> 00:44:54,640
+including graphics okay so what about
+
+932
+00:44:53,520 --> 00:44:57,760
+graphics how does
+
+933
+00:44:54,640 --> 00:45:01,440
+it how does mathematica represent
+
+934
+00:44:57,760 --> 00:45:04,720
+you know for example these graphics
+
+935
+00:45:01,440 --> 00:45:06,960
+so you if you open again emacs you can
+
+936
+00:45:04,720 --> 00:45:06,960
+see
+
+937
+00:45:07,359 --> 00:45:10,800
+let me magnify okay
+
+938
+00:45:12,240 --> 00:45:16,720
+let's see if it show graphics somewhere
+
+939
+00:45:16,880 --> 00:45:23,280
+yeah okay so it represents graphics by
+
+940
+00:45:19,200 --> 00:45:23,280
+graphics primitives here it is okay
+
+941
+00:45:30,839 --> 00:45:33,839
+uh
+
+942
+00:45:39,119 --> 00:45:43,599
+yeah so this is this is actual graphics
+
+943
+00:45:41,839 --> 00:45:47,200
+so you can see
+
+944
+00:45:43,599 --> 00:45:51,359
+what is this
+
+945
+00:45:47,200 --> 00:45:51,359
+you know graphics is very long
+
+946
+00:45:53,280 --> 00:45:57,599
+all right let's go back let's see
+
+947
+00:45:55,200 --> 00:45:58,720
+transform 2d plot let's see the first
+
+948
+00:45:57,599 --> 00:46:03,200
+graphics okay
+
+949
+00:45:58,720 --> 00:46:03,680
+polar grid so back in emacs we go to the
+
+950
+00:46:03,200 --> 00:46:07,040
+top
+
+951
+00:46:03,680 --> 00:46:09,280
+search for polar grid okay
+
+952
+00:46:07,040 --> 00:46:10,880
+search for that search again search
+
+953
+00:46:09,280 --> 00:46:16,720
+again
+
+954
+00:46:10,880 --> 00:46:18,960
+uh polar show graphics again
+
+955
+00:46:16,720 --> 00:46:22,560
+you know again you see this rule box
+
+956
+00:46:18,960 --> 00:46:24,640
+kind of thing i don't like that okay
+
+957
+00:46:22,560 --> 00:46:26,960
+that means okay now go back to
+
+958
+00:46:24,640 --> 00:46:27,599
+mathematica that means you are looking
+
+959
+00:46:26,960 --> 00:46:31,599
+at this
+
+960
+00:46:27,599 --> 00:46:34,240
+is actually not plain text i mean
+
+961
+00:46:31,599 --> 00:46:35,119
+it's plain text but it's formatted let
+
+962
+00:46:34,240 --> 00:46:39,280
+me show you
+
+963
+00:46:35,119 --> 00:46:39,839
+ctrl shift i yeah so this is better okay
+
+964
+00:46:39,280 --> 00:46:43,839
+so it
+
+965
+00:46:39,839 --> 00:46:43,839
+this is actually like that
+
+966
+00:46:45,359 --> 00:46:51,680
+return evaluated oh yeah
+
+967
+00:46:48,880 --> 00:46:53,520
+okay once you return it shows you know
+
+968
+00:46:51,680 --> 00:46:55,720
+so what what does that mean so basically
+
+969
+00:46:53,520 --> 00:46:59,440
+what it means is that mathematica
+
+970
+00:46:55,720 --> 00:46:59,440
+automatically shows them
+
+971
+00:46:59,520 --> 00:47:04,160
+let me hold on a second let me figure
+
+972
+00:47:01,680 --> 00:47:04,160
+this out
+
+973
+00:47:09,200 --> 00:47:16,640
+graphics cell convert to
+
+974
+00:47:12,800 --> 00:47:19,599
+input form cell convert to
+
+975
+00:47:16,640 --> 00:47:24,319
+raw input form okay that's what i like
+
+976
+00:47:19,599 --> 00:47:29,680
+raw input form
+
+977
+00:47:24,319 --> 00:47:29,680
+okay shift ctrl r for raw input form
+
+978
+00:47:29,920 --> 00:47:37,599
+so now if i save the if i save the
+
+979
+00:47:33,119 --> 00:47:40,640
+notebook save and open it in
+
+980
+00:47:37,599 --> 00:47:43,839
+in emacs again
+
+981
+00:47:40,640 --> 00:47:46,720
+and magnify go to the top search for
+
+982
+00:47:43,839 --> 00:47:46,720
+polar grid
+
+983
+00:47:47,359 --> 00:47:52,160
+so you can see it's much more simpler
+
+984
+00:47:49,920 --> 00:47:53,200
+now before you are seeing a bunch of raw
+
+985
+00:47:52,160 --> 00:47:55,440
+box rule box
+
+986
+00:47:53,200 --> 00:47:56,640
+you know those are type setting things
+
+987
+00:47:55,440 --> 00:47:59,599
+you know type setting
+
+988
+00:47:56,640 --> 00:47:59,920
+so right now so now you see the real you
+
+989
+00:47:59,599 --> 00:48:02,800
+know
+
+990
+00:47:59,920 --> 00:48:05,599
+the basic input you know text input like
+
+991
+00:48:02,800 --> 00:48:07,839
+like a programming source code
+
+992
+00:48:05,599 --> 00:48:08,960
+then you see this cell thing the cell
+
+993
+00:48:07,839 --> 00:48:11,680
+thing is actually
+
+994
+00:48:08,960 --> 00:48:12,640
+so back to mathematica the cell thing is
+
+995
+00:48:11,680 --> 00:48:15,680
+actually
+
+996
+00:48:12,640 --> 00:48:19,920
+that you know cell is kind of a unit of
+
+997
+00:48:15,680 --> 00:48:22,800
+source code so they you know each um
+
+998
+00:48:19,920 --> 00:48:24,319
+the source code is grouped by this unit
+
+999
+00:48:22,800 --> 00:48:26,240
+you know
+
+1000
+00:48:24,319 --> 00:48:29,200
+so that's what the cells are you can
+
+1001
+00:48:26,240 --> 00:48:31,920
+expand them or you can shrink them
+
+1002
+00:48:29,200 --> 00:48:34,559
+uh just like oak mod you know just like
+
+1003
+00:48:31,920 --> 00:48:38,079
+oakmont you can also have title titles
+
+1004
+00:48:34,559 --> 00:48:41,119
+let me show you okay something
+
+1005
+00:48:38,079 --> 00:48:48,240
+title okay and select that
+
+1006
+00:48:41,119 --> 00:48:51,200
+then you go to style format
+
+1007
+00:48:48,240 --> 00:48:54,720
+you have headers you know uh second
+
+1008
+00:48:51,200 --> 00:48:54,720
+level heading and stuff
+
+1009
+00:48:55,359 --> 00:49:01,920
+uh style yeah style title one
+
+1010
+00:48:58,800 --> 00:49:06,240
+okay then you have a
+
+1011
+00:49:01,920 --> 00:49:06,240
+second level title title
+
+1012
+00:49:07,680 --> 00:49:16,880
+okay so select select that
+
+1013
+00:49:12,240 --> 00:49:20,480
+cell not cell format style
+
+1014
+00:49:16,880 --> 00:49:20,480
+o2 for subtitle
+
+1015
+00:49:23,280 --> 00:49:27,920
+so once you have a title you can you can
+
+1016
+00:49:25,440 --> 00:49:30,800
+see the title groups the entire notebook
+
+1017
+00:49:27,920 --> 00:49:31,440
+so you can shrink you know or you can
+
+1018
+00:49:30,800 --> 00:49:34,400
+show
+
+1019
+00:49:31,440 --> 00:49:36,480
+just all the second level titles uh the
+
+1020
+00:49:34,400 --> 00:49:40,640
+second level title doesn't
+
+1021
+00:49:36,480 --> 00:49:41,520
+group but but you can set it to group so
+
+1022
+00:49:40,640 --> 00:49:45,359
+let's say this
+
+1023
+00:49:41,520 --> 00:49:48,559
+is all three
+
+1024
+00:49:45,359 --> 00:49:48,559
+the third level title
+
+1025
+00:49:51,680 --> 00:49:54,960
+so you can see it automatically group
+
+1026
+00:49:54,000 --> 00:49:59,839
+this
+
+1027
+00:49:54,960 --> 00:49:59,839
+thing then you can create another
+
+1028
+00:50:02,720 --> 00:50:07,520
+okay select that alt three
+
+1029
+00:50:08,880 --> 00:50:13,839
+something five plus five okay
+
+1030
+00:50:17,280 --> 00:50:23,839
+so what what title is that format
+
+1031
+00:50:20,319 --> 00:50:27,839
+style chapter okay title subtitle
+
+1032
+00:50:23,839 --> 00:50:27,839
+chapter yeah
+
+1033
+00:50:32,319 --> 00:50:40,240
+uh what style is that o3
+
+1034
+00:50:35,839 --> 00:50:43,359
+yeah okay i made a mistake there you go
+
+1035
+00:50:40,240 --> 00:50:46,319
+um so it's just like oak mod and
+
+1036
+00:50:43,359 --> 00:50:46,640
+also you can export the whole thing into
+
+1037
+00:50:46,319 --> 00:50:50,400
+la
+
+1038
+00:50:46,640 --> 00:50:54,720
+tech tech la tech or
+
+1039
+00:50:50,400 --> 00:50:55,680
+pdf okay i haven't showed you some type
+
+1040
+00:50:54,720 --> 00:50:57,520
+settings so
+
+1041
+00:50:55,680 --> 00:50:59,520
+i need to show some type setting you
+
+1042
+00:50:57,520 --> 00:51:03,359
+know in order to do so let's say
+
+1043
+00:50:59,520 --> 00:51:03,359
+let's try this i showed last time
+
+1044
+00:51:06,480 --> 00:51:15,359
+x from zero to infinity okay
+
+1045
+00:51:10,559 --> 00:51:15,359
+so one over x squared okay
+
+1046
+00:51:17,520 --> 00:51:24,720
+so in fact let's copy that again
+
+1047
+00:51:20,800 --> 00:51:24,720
+we can evaluate this
+
+1048
+00:51:25,359 --> 00:51:37,839
+infinite expression encountered wait
+
+1049
+00:51:28,000 --> 00:51:37,839
+does that um
+
+1050
+00:51:39,119 --> 00:51:55,200
+let's say one to infinity okay
+
+1051
+00:51:51,680 --> 00:51:58,400
+now you can select that and go to
+
+1052
+00:51:55,200 --> 00:52:01,359
+grab go to cell convert to
+
+1053
+00:51:58,400 --> 00:52:03,200
+standard form okay standard form then
+
+1054
+00:52:01,359 --> 00:52:06,720
+formats like that
+
+1055
+00:52:03,200 --> 00:52:09,599
+you just press a key okay so
+
+1056
+00:52:06,720 --> 00:52:10,079
+now let's save this let's save this okay
+
+1057
+00:52:09,599 --> 00:52:13,920
+wait
+
+1058
+00:52:10,079 --> 00:52:17,599
+hold on a second let's save the notebook
+
+1059
+00:52:13,920 --> 00:52:20,400
+go back to emacs close it reopen it
+
+1060
+00:52:17,599 --> 00:52:21,440
+magnify let's go to the bottom let's
+
+1061
+00:52:20,400 --> 00:52:26,079
+look at those
+
+1062
+00:52:21,440 --> 00:52:28,000
+um those cement summation okay
+
+1063
+00:52:26,079 --> 00:52:30,160
+hold on a second let me try let me do
+
+1064
+00:52:28,000 --> 00:52:34,960
+something else
+
+1065
+00:52:30,160 --> 00:52:38,880
+okay let's select this let's make it
+
+1066
+00:52:34,960 --> 00:52:39,359
+raw input form okay so raw input form is
+
+1067
+00:52:38,880 --> 00:52:42,400
+like
+
+1068
+00:52:39,359 --> 00:52:42,400
+just plain text
+
+1069
+00:52:43,760 --> 00:52:50,800
+evaluate that then okay now
+
+1070
+00:52:46,800 --> 00:52:53,839
+save this save it go back to emacs
+
+1071
+00:52:50,800 --> 00:52:57,680
+close reopen
+
+1072
+00:52:53,839 --> 00:53:01,839
+magnify go to the bottom let me show you
+
+1073
+00:52:57,680 --> 00:53:01,839
+the corresponding part
+
+1074
+00:53:06,880 --> 00:53:13,040
+so here so you see this part
+
+1075
+00:53:10,160 --> 00:53:15,520
+that's the raw input form so you can see
+
+1076
+00:53:13,040 --> 00:53:19,040
+it's very simple
+
+1077
+00:53:15,520 --> 00:53:20,240
+sum 1 over x squared x from 1 to
+
+1078
+00:53:19,040 --> 00:53:24,559
+infinity
+
+1079
+00:53:20,240 --> 00:53:27,040
+and this input means input form
+
+1080
+00:53:24,559 --> 00:53:28,400
+then this cell change time is the
+
+1081
+00:53:27,040 --> 00:53:31,839
+internal recording
+
+1082
+00:53:28,400 --> 00:53:34,240
+of when did you modify that cell
+
+1083
+00:53:31,839 --> 00:53:35,839
+then then you have a cell label that's
+
+1084
+00:53:34,240 --> 00:53:39,280
+that's where you see the
+
+1085
+00:53:35,839 --> 00:53:42,240
+print you know input 152
+
+1086
+00:53:39,280 --> 00:53:43,040
+expression uuid so that's all internal
+
+1087
+00:53:42,240 --> 00:53:46,559
+stuff
+
+1088
+00:53:43,040 --> 00:53:47,440
+the most important thing you see is that
+
+1089
+00:53:46,559 --> 00:53:49,440
+part
+
+1090
+00:53:47,440 --> 00:53:52,559
+and then you have a cell because the
+
+1091
+00:53:49,440 --> 00:53:54,640
+whole thing is a cell
+
+1092
+00:53:52,559 --> 00:53:58,079
+so back to mathematica so that's what
+
+1093
+00:53:54,640 --> 00:54:01,440
+you see here that correspond to these
+
+1094
+00:53:58,079 --> 00:54:04,240
+this part now you can see the output is
+
+1095
+00:54:01,440 --> 00:54:04,960
+formatted pi squared over six so now
+
+1096
+00:54:04,240 --> 00:54:08,400
+back to
+
+1097
+00:54:04,960 --> 00:54:11,839
+uh e max actually we can display this
+
+1098
+00:54:08,400 --> 00:54:11,839
+side by side
+
+1099
+00:54:16,720 --> 00:54:24,240
+so here is the output compared to
+
+1100
+00:54:20,559 --> 00:54:27,119
+compared to that so you can see
+
+1101
+00:54:24,240 --> 00:54:28,000
+then you start to see this box thing box
+
+1102
+00:54:27,119 --> 00:54:32,319
+data
+
+1103
+00:54:28,000 --> 00:54:34,480
+fraction box superscript box
+
+1104
+00:54:32,319 --> 00:54:35,599
+you know what are those those are type
+
+1105
+00:54:34,480 --> 00:54:38,400
+setting things
+
+1106
+00:54:35,599 --> 00:54:39,280
+so in la tech or tech you know you use
+
+1107
+00:54:38,400 --> 00:54:42,559
+backslash
+
+1108
+00:54:39,280 --> 00:54:44,319
+and curly braces things like that
+
+1109
+00:54:42,559 --> 00:54:46,240
+but in mathematica this is how you
+
+1110
+00:54:44,319 --> 00:54:47,599
+represent for example to represent a
+
+1111
+00:54:46,240 --> 00:54:51,200
+superscript
+
+1112
+00:54:47,599 --> 00:54:54,400
+you do that okay now what's this
+
+1113
+00:54:51,200 --> 00:54:57,280
+backslash bracket pi
+
+1114
+00:54:54,400 --> 00:54:58,640
+that represent pi in a greek font okay
+
+1115
+00:54:57,280 --> 00:55:01,920
+so
+
+1116
+00:54:58,640 --> 00:55:03,599
+so you see this string is pi and this
+
+1117
+00:55:01,920 --> 00:55:07,920
+string is two
+
+1118
+00:55:03,599 --> 00:55:11,040
+then you say a superscript box
+
+1119
+00:55:07,920 --> 00:55:13,440
+that gets you pi over 2.
+
+1120
+00:55:11,040 --> 00:55:20,400
+then you have then you have you see the
+
+1121
+00:55:13,440 --> 00:55:22,720
+fraction box
+
+1122
+00:55:20,400 --> 00:55:23,599
+you know that fraction box so you got
+
+1123
+00:55:22,720 --> 00:55:26,559
+the whole thing
+
+1124
+00:55:23,599 --> 00:55:28,240
+so this is how type setting is uh
+
+1125
+00:55:26,559 --> 00:55:30,960
+represented in mathematica
+
+1126
+00:55:28,240 --> 00:55:31,280
+in fact you can actually just copy this
+
+1127
+00:55:30,960 --> 00:55:33,280
+and
+
+1128
+00:55:31,280 --> 00:55:35,359
+and and your work okay you can you can
+
+1129
+00:55:33,280 --> 00:55:36,319
+actually type this directly so for
+
+1130
+00:55:35,359 --> 00:55:39,680
+example
+
+1131
+00:55:36,319 --> 00:55:43,359
+let's try paste
+
+1132
+00:55:39,680 --> 00:55:44,670
+enter oh um
+
+1133
+00:55:43,359 --> 00:55:46,640
+you have to
+
+1134
+00:55:44,670 --> 00:55:48,720
+[Music]
+
+1135
+00:55:46,640 --> 00:55:49,839
+i forgot what you have to do but you
+
+1136
+00:55:48,720 --> 00:55:54,480
+basically you
+
+1137
+00:55:49,839 --> 00:55:54,880
+um do i have oh you have to say box data
+
+1138
+00:55:54,480 --> 00:55:57,440
+maybe
+
+1139
+00:55:54,880 --> 00:55:57,440
+let's try
+
+1140
+00:56:00,000 --> 00:56:06,240
+enter no it's not formatted
+
+1141
+00:56:03,760 --> 00:56:08,400
+um i don't remember what you have to do
+
+1142
+00:56:06,240 --> 00:56:09,599
+but basically you can actually type that
+
+1143
+00:56:08,400 --> 00:56:12,400
+in
+
+1144
+00:56:09,599 --> 00:56:14,079
+but no nobody nobody does this because
+
+1145
+00:56:12,400 --> 00:56:16,880
+if you want there are much more
+
+1146
+00:56:14,079 --> 00:56:17,599
+simpler ways and but anyway i'm just
+
+1147
+00:56:16,880 --> 00:56:21,680
+showing you
+
+1148
+00:56:17,599 --> 00:56:24,319
+the the underneath the
+
+1149
+00:56:21,680 --> 00:56:25,920
+how it represents type setting in
+
+1150
+00:56:24,319 --> 00:56:28,640
+mathematica
+
+1151
+00:56:25,920 --> 00:56:28,960
+uh and it's plain text so again you can
+
+1152
+00:56:28,640 --> 00:56:31,680
+see
+
+1153
+00:56:28,960 --> 00:56:32,240
+everything is nested purely nested
+
+1154
+00:56:31,680 --> 00:56:36,559
+brackets
+
+1155
+00:56:32,240 --> 00:56:40,640
+syntax okay so that's
+
+1156
+00:56:36,559 --> 00:56:40,640
+maybe that's it for today but um
+
+1157
+00:56:41,040 --> 00:56:46,960
+actually we can continue to
+
+1158
+00:56:44,160 --> 00:56:48,240
+to basics programming so let's see
+
+1159
+00:56:46,960 --> 00:56:50,720
+comments
+
+1160
+00:56:48,240 --> 00:56:50,720
+comments
+
+1161
+00:56:54,319 --> 00:57:02,400
+hello beautiful people hi uh hi
+
+1162
+00:56:59,119 --> 00:57:04,640
+uh so uh how long have i been talking so
+
+1163
+00:57:02,400 --> 00:57:07,280
+i've been talking for 58 minutes any
+
+1164
+00:57:04,640 --> 00:57:09,920
+any questions about mathematica that's
+
+1165
+00:57:07,280 --> 00:57:12,079
+what we are focusing today
+
+1166
+00:57:09,920 --> 00:57:14,400
+so let me just talk for five more
+
+1167
+00:57:12,079 --> 00:57:14,400
+minutes
+
+1168
+00:57:14,480 --> 00:57:27,680
+uh then yeah let's uh
+
+1169
+00:57:17,599 --> 00:57:31,440
+talk for five more minutes then
+
+1170
+00:57:27,680 --> 00:57:34,799
+okay so that's how you do so we covered
+
+1171
+00:57:31,440 --> 00:57:34,799
+basic arithmetics
+
+1172
+00:57:35,839 --> 00:57:41,040
+uh where's my firefox
+
+1173
+00:57:38,960 --> 00:57:42,480
+so we covered how do you do string
+
+1174
+00:57:41,040 --> 00:57:45,520
+mathematica
+
+1175
+00:57:42,480 --> 00:57:48,559
+then join string
+
+1176
+00:57:45,520 --> 00:57:50,799
+join string so so something
+
+1177
+00:57:48,559 --> 00:57:52,960
+let's let's see if the first sign works
+
+1178
+00:57:50,799 --> 00:57:55,920
+i don't think so
+
+1179
+00:57:52,960 --> 00:57:58,240
+yeah it doesn't work so join string is a
+
+1180
+00:57:55,920 --> 00:58:09,839
+drawing string
+
+1181
+00:57:58,240 --> 00:58:09,839
+or join maybe just join
+
+1182
+00:58:11,839 --> 00:58:20,000
+no i think it's string joining okay
+
+1183
+00:58:15,839 --> 00:58:23,760
+yeah i haven't coded mathematica for
+
+1184
+00:58:20,000 --> 00:58:27,200
+for 20 years but i still remember
+
+1185
+00:58:23,760 --> 00:58:28,799
+the memory comes back so string join for
+
+1186
+00:58:27,200 --> 00:58:32,960
+example
+
+1187
+00:58:28,799 --> 00:58:36,480
+abc def
+
+1188
+00:58:32,960 --> 00:58:38,000
+that works uh i want to show you
+
+1189
+00:58:36,480 --> 00:58:41,440
+something else
+
+1190
+00:58:38,000 --> 00:58:44,559
+there is another general syntax shortcut
+
+1191
+00:58:41,440 --> 00:58:48,240
+that is if you want to uh
+
+1192
+00:58:44,559 --> 00:58:50,640
+have a infix
+
+1193
+00:58:48,240 --> 00:58:52,559
+there's a infix shortcut for any
+
+1194
+00:58:50,640 --> 00:58:55,760
+function okay so
+
+1195
+00:58:52,559 --> 00:58:55,760
+in that form for example
+
+1196
+00:58:56,079 --> 00:59:02,160
+f a b okay so here is a function right
+
+1197
+00:58:59,680 --> 00:59:02,720
+so f a b that's a you know f can be
+
+1198
+00:59:02,160 --> 00:59:04,400
+anything
+
+1199
+00:59:02,720 --> 00:59:06,160
+a and b can be anything that's a
+
+1200
+00:59:04,400 --> 00:59:08,960
+function now there is
+
+1201
+00:59:06,160 --> 00:59:10,160
+for any function there is also a infix
+
+1202
+00:59:08,960 --> 00:59:12,559
+notation for it
+
+1203
+00:59:10,160 --> 00:59:13,839
+for a function that takes two arguments
+
+1204
+00:59:12,559 --> 00:59:16,079
+you write it like this
+
+1205
+00:59:13,839 --> 00:59:16,079
+okay
+
+1206
+00:59:17,680 --> 00:59:21,520
+this is general this applies for any
+
+1207
+00:59:20,319 --> 00:59:24,079
+function f
+
+1208
+00:59:21,520 --> 00:59:27,760
+so in the case of string join we can do
+
+1209
+00:59:24,079 --> 00:59:27,760
+it let's uh let me show you
+
+1210
+00:59:28,000 --> 00:59:32,000
+now if i remember correctly i hope i did
+
+1211
+00:59:30,559 --> 00:59:34,960
+i i hope
+
+1212
+00:59:32,000 --> 00:59:34,960
+i was correct
+
+1213
+00:59:36,880 --> 00:59:43,040
+okay enter there it is
+
+1214
+00:59:40,799 --> 00:59:44,720
+so again we we have talked about so this
+
+1215
+00:59:43,040 --> 00:59:48,079
+is a generic
+
+1216
+00:59:44,720 --> 00:59:50,880
+uh shortcut syntax for in
+
+1217
+00:59:48,079 --> 00:59:52,400
+the infix syntax for any function we
+
+1218
+00:59:50,880 --> 00:59:55,599
+also talked about
+
+1219
+00:59:52,400 --> 00:59:58,839
+the prefix syntax which is the
+
+1220
+00:59:55,599 --> 01:00:00,319
+add sign and we also talked about the
+
+1221
+00:59:58,839 --> 01:00:03,040
+postfix
+
+1222
+01:00:00,319 --> 01:00:03,760
+generic postfix syntax which is the
+
+1223
+01:00:03,040 --> 01:00:09,359
+slash
+
+1224
+01:00:03,760 --> 01:00:09,359
+slash which is equivalent to unix pipe
+
+1225
+01:00:09,920 --> 01:00:17,520
+okay what else uh let's see
+
+1226
+01:00:13,680 --> 01:00:19,920
+so we have so arithmetics uh
+
+1227
+01:00:17,520 --> 01:00:22,640
+assignments assignment in mathematica is
+
+1228
+01:00:19,920 --> 01:00:28,240
+basically the same like other language
+
+1229
+01:00:22,640 --> 01:00:31,839
+uh well the basic ones at least
+
+1230
+01:00:28,240 --> 01:00:34,400
+then true and false in mathematica true
+
+1231
+01:00:31,839 --> 01:00:35,359
+is this okay true is a building symbol
+
+1232
+01:00:34,400 --> 01:00:38,480
+true
+
+1233
+01:00:35,359 --> 01:00:41,680
+force force is a built-in symbol force
+
+1234
+01:00:38,480 --> 01:00:45,280
+so and you have the n function
+
+1235
+01:00:41,680 --> 01:00:48,559
+that takes two that takes two
+
+1236
+01:00:45,280 --> 01:00:48,960
+any two expressions and you also have
+
+1237
+01:00:48,559 --> 01:00:52,160
+the
+
+1238
+01:00:48,960 --> 01:00:54,079
+or function that takes
+
+1239
+01:00:52,160 --> 01:00:57,839
+any two expressions let's say for
+
+1240
+01:00:54,079 --> 01:00:57,839
+example um
+
+1241
+01:01:03,680 --> 01:01:11,119
+okay let's try end okay 1 plus
+
+1242
+01:01:07,359 --> 01:01:14,319
+3 equals to five
+
+1243
+01:01:11,119 --> 01:01:18,000
+and true is that true
+
+1244
+01:01:14,319 --> 01:01:19,119
+fourth okay one plus three equals to
+
+1245
+01:01:18,000 --> 01:01:22,640
+four
+
+1246
+01:01:19,119 --> 01:01:25,680
+and true yes that's true
+
+1247
+01:01:22,640 --> 01:01:28,079
+so and or and again notice every
+
+1248
+01:01:25,680 --> 01:01:28,960
+everything mathematical takes this form
+
+1249
+01:01:28,079 --> 01:01:34,319
+you know function
+
+1250
+01:01:28,960 --> 01:01:34,319
+brackets then arguments uh or nested
+
+1251
+01:01:35,359 --> 01:01:38,880
+okay i think so that's it for today i
+
+1252
+01:01:37,760 --> 01:01:43,119
+think so
+
+1253
+01:01:38,880 --> 01:01:45,839
+uh yeah no comments today
+
+1254
+01:01:43,119 --> 01:01:46,559
+leo cardo you are late okay leo carter
+
+1255
+01:01:45,839 --> 01:01:48,319
+where are you from
+
+1256
+01:01:46,559 --> 01:01:49,760
+you've been here for a long time you
+
+1257
+01:01:48,319 --> 01:01:53,040
+know watching my uh
+
+1258
+01:01:49,760 --> 01:01:57,039
+youtube thank you but
+
+1259
+01:01:53,040 --> 01:02:00,720
+i i think you went on star discord once
+
+1260
+01:01:57,039 --> 01:02:03,039
+but i don't i never uh know
+
+1261
+01:02:00,720 --> 01:02:07,839
+or remember where you came from in china
+
+1262
+01:02:03,039 --> 01:02:07,839
+or in russia
+
+1263
+01:02:13,039 --> 01:02:18,240
+okay that's it for today thank you guys
+
+1264
+01:02:14,720 --> 01:02:18,240
+for watching bye
+
+1265
+01:02:19,680 --> 01:02:22,880
+so i'm going to do a lot mathematica
+
+1266
+01:02:22,240 --> 01:02:26,000
+coding
+
+1267
+01:02:22,880 --> 01:02:28,400
+you know um yeah i need to
+
+1268
+01:02:26,000 --> 01:02:29,839
+update all my packages you know i was
+
+1269
+01:02:28,400 --> 01:02:32,720
+actually surprised
+
+1270
+01:02:29,839 --> 01:02:35,839
+that my you know this package everything
+
+1271
+01:02:32,720 --> 01:02:35,839
+runs and i was
+
+1272
+01:02:36,000 --> 01:02:41,200
+admiring my own code that's written 20
+
+1273
+01:02:38,640 --> 01:02:41,200
+years ago
+
+1274
+01:02:41,599 --> 01:02:46,480
+but there's a lot of changes you know in
+
+1275
+01:02:44,000 --> 01:02:48,640
+20 years mathematica has improved a lot
+
+1276
+01:02:46,480 --> 01:02:52,960
+for example a lot of functions i
+
+1277
+01:02:48,640 --> 01:02:55,039
+wrote today is not needed anymore
+
+1278
+01:02:52,960 --> 01:02:56,480
+okay let me let me let me talk about
+
+1279
+01:02:55,039 --> 01:02:59,599
+this one okay
+
+1280
+01:02:56,480 --> 01:03:02,079
+random color function generator
+
+1281
+01:02:59,599 --> 01:03:03,760
+so this function you know this function
+
+1282
+01:03:02,079 --> 01:03:05,520
+here's the source code
+
+1283
+01:03:03,760 --> 01:03:08,079
+the first part is the inline
+
+1284
+01:03:05,520 --> 01:03:10,880
+documentation
+
+1285
+01:03:08,079 --> 01:03:12,799
+you know again like i you know i did two
+
+1286
+01:03:10,880 --> 01:03:16,799
+video
+
+1287
+01:03:12,799 --> 01:03:19,280
+within the past month
+
+1288
+01:03:16,799 --> 01:03:21,200
+so there are two videos recently about
+
+1289
+01:03:19,280 --> 01:03:23,039
+mathematica so you should if you're
+
+1290
+01:03:21,200 --> 01:03:24,960
+interested in mathematica you should go
+
+1291
+01:03:23,039 --> 01:03:28,000
+watch it okay
+
+1292
+01:03:24,960 --> 01:03:31,839
+uh so two of them in in
+
+1293
+01:03:28,000 --> 01:03:31,839
+you know uh and um
+
+1294
+01:03:32,079 --> 01:03:37,119
+so so i i said that mathematica that you
+
+1295
+01:03:34,960 --> 01:03:40,319
+know the nature of mathematica is like
+
+1296
+01:03:37,119 --> 01:03:43,359
+it's uh part of it is from lisp
+
+1297
+01:03:40,319 --> 01:03:44,559
+and part of it is from apl the language
+
+1298
+01:03:43,359 --> 01:03:47,119
+apl
+
+1299
+01:03:44,559 --> 01:03:49,200
+and another part is the pattern matching
+
+1300
+01:03:47,119 --> 01:03:52,720
+the symbolic pattern matching
+
+1301
+01:03:49,200 --> 01:03:55,520
+uh you know mostly stefan wolfman
+
+1302
+01:03:52,720 --> 01:03:55,520
+you know created
+
+1303
+01:03:55,760 --> 01:04:01,440
+then you know so here
+
+1304
+01:03:59,119 --> 01:04:02,319
+this function is interesting okay so i
+
+1305
+01:04:01,440 --> 01:04:05,119
+have a function
+
+1306
+01:04:02,319 --> 01:04:06,240
+random rgb color function generator so
+
+1307
+01:04:05,119 --> 01:04:09,839
+what does it do
+
+1308
+01:04:06,240 --> 01:04:12,079
+let me show you okay so it generates um
+
+1309
+01:04:09,839 --> 01:04:14,720
+let's go back to my notebook it
+
+1310
+01:04:12,079 --> 01:04:14,720
+generates
+
+1311
+01:04:17,200 --> 01:04:20,640
+hey uh where is my
+
+1312
+01:04:20,799 --> 01:04:25,520
+you know one thing i don't like about
+
+1313
+01:04:24,400 --> 01:04:28,400
+windows is that
+
+1314
+01:04:25,520 --> 01:04:29,760
+everything is a window it doesn't
+
+1315
+01:04:28,400 --> 01:04:32,160
+distinguish
+
+1316
+01:04:29,760 --> 01:04:33,119
+for example on the mac things are
+
+1317
+01:04:32,160 --> 01:04:35,839
+grouped into
+
+1318
+01:04:33,119 --> 01:04:37,440
+applications not windows so you have
+
+1319
+01:04:35,839 --> 01:04:39,920
+several applications
+
+1320
+01:04:37,440 --> 01:04:41,200
+then in each application you have
+
+1321
+01:04:39,920 --> 01:04:43,920
+several windows
+
+1322
+01:04:41,200 --> 01:04:46,160
+but on microsoft windows everything is
+
+1323
+01:04:43,920 --> 01:04:49,920
+windows there's you know it
+
+1324
+01:04:46,160 --> 01:04:51,520
+so i cannot press the key to switch to
+
+1325
+01:04:49,920 --> 01:04:54,000
+the next application
+
+1326
+01:04:51,520 --> 01:04:56,079
+instead of you know i press a key it
+
+1327
+01:04:54,000 --> 01:04:59,200
+changes me to whatever
+
+1328
+01:04:56,079 --> 01:05:01,520
+um wait not that key
+
+1329
+01:04:59,200 --> 01:05:02,480
+uh wait do i still have it i don't
+
+1330
+01:05:01,520 --> 01:05:06,319
+remember i have
+
+1331
+01:05:02,480 --> 01:05:09,760
+but anyway the shortcut is alt escape
+
+1332
+01:05:06,319 --> 01:05:13,440
+yeah old escape let's see yeah
+
+1333
+01:05:09,760 --> 01:05:14,960
+escape or alt shift escape that changes
+
+1334
+01:05:13,440 --> 01:05:18,000
+you to next window
+
+1335
+01:05:14,960 --> 01:05:20,319
+so as you can see as i change
+
+1336
+01:05:18,000 --> 01:05:22,400
+you know i'm in mathematica then i mean
+
+1337
+01:05:20,319 --> 01:05:26,480
+task manager
+
+1338
+01:05:22,400 --> 01:05:30,079
+then in obs then in broad in firefox
+
+1339
+01:05:26,480 --> 01:05:32,640
+then mathematica again mathematica
+
+1340
+01:05:30,079 --> 01:05:33,760
+then you know in chrome then mathematica
+
+1341
+01:05:32,640 --> 01:05:36,480
+again you know it
+
+1342
+01:05:33,760 --> 01:05:39,440
+it doesn't group them so that's one of
+
+1343
+01:05:36,480 --> 01:05:42,160
+the annoying so now i have to
+
+1344
+01:05:39,440 --> 01:05:44,799
+so let me show you this okay i want to
+
+1345
+01:05:42,160 --> 01:05:44,799
+show you
+
+1346
+01:05:45,039 --> 01:05:51,359
+now i cannot find what's the other
+
+1347
+01:05:46,880 --> 01:05:53,839
+window uh
+
+1348
+01:05:51,359 --> 01:05:56,000
+yeah i want to show you this function
+
+1349
+01:05:53,839 --> 01:05:59,039
+random color generator okay
+
+1350
+01:05:56,000 --> 01:06:04,720
+this is here is the definition uh
+
+1351
+01:05:59,039 --> 01:06:10,160
+and basically it returns a function
+
+1352
+01:06:04,720 --> 01:06:14,000
+okay did i run this code yes i did
+
+1353
+01:06:10,160 --> 01:06:14,000
+why is it not returning a thing
+
+1354
+01:06:16,839 --> 01:06:19,839
+what
+
+1355
+01:06:20,319 --> 01:06:24,400
+and i don't know let's run it again
+
+1356
+01:06:24,960 --> 01:06:33,839
+oh i didn't i didn't run the code so why
+
+1357
+01:06:27,440 --> 01:06:33,839
+don't we just copy the code
+
+1358
+01:06:34,000 --> 01:06:42,720
+yeah paste it here
+
+1359
+01:06:39,520 --> 01:06:42,720
+so now i run it
+
+1360
+01:06:45,359 --> 01:06:53,200
+now random rgb
+
+1361
+01:06:48,480 --> 01:06:56,480
+color generator okay run it so you see
+
+1362
+01:06:53,200 --> 01:06:59,119
+so what it returns is this is a function
+
+1363
+01:06:56,480 --> 01:07:00,000
+okay this is a shortcut syntax notation
+
+1364
+01:06:59,119 --> 01:07:02,559
+for a function
+
+1365
+01:07:00,000 --> 01:07:03,599
+let or you can call it lambda okay so
+
+1366
+01:07:02,559 --> 01:07:05,520
+this function
+
+1367
+01:07:03,599 --> 01:07:07,839
+takes no argument but it returns a
+
+1368
+01:07:05,520 --> 01:07:10,319
+function and
+
+1369
+01:07:07,839 --> 01:07:11,520
+the implementation of this function is a
+
+1370
+01:07:10,319 --> 01:07:14,799
+little bit advanced
+
+1371
+01:07:11,520 --> 01:07:17,920
+it you know for this people
+
+1372
+01:07:14,799 --> 01:07:18,319
+you can think of it is as a macro you
+
+1373
+01:07:17,920 --> 01:07:21,200
+need
+
+1374
+01:07:18,319 --> 01:07:21,200
+you need a macro
+
+1375
+01:07:21,359 --> 01:07:23,599
+uh
+
+1376
+01:07:24,480 --> 01:07:28,079
+so what what am i doing now so what uh
+
+1377
+01:07:27,359 --> 01:07:31,359
+i'm going to
+
+1378
+01:07:28,079 --> 01:07:32,640
+explain what is the point i'm going to
+
+1379
+01:07:31,359 --> 01:07:34,559
+say
+
+1380
+01:07:32,640 --> 01:07:36,079
+so anyway first of all you are seeing a
+
+1381
+01:07:34,559 --> 01:07:38,240
+function that returns a function
+
+1382
+01:07:36,079 --> 01:07:39,920
+functional programming so functional
+
+1383
+01:07:38,240 --> 01:07:42,000
+programming is the main thing of
+
+1384
+01:07:39,920 --> 01:07:45,119
+mathematica is the primary
+
+1385
+01:07:42,000 --> 01:07:46,319
+programming style of mathematica you
+
+1386
+01:07:45,119 --> 01:07:47,839
+know basically you can think of
+
+1387
+01:07:46,319 --> 01:07:51,200
+mathematical as a lisp
+
+1388
+01:07:47,839 --> 01:07:51,920
+okay it's not pure like haskell you know
+
+1389
+01:07:51,200 --> 01:07:55,280
+you can
+
+1390
+01:07:51,920 --> 01:07:58,880
+you can assign a variable easily
+
+1391
+01:07:55,280 --> 01:08:01,119
+x equals to 5 you can then x
+
+1392
+01:07:58,880 --> 01:08:03,039
+is 5 then you can change the value
+
+1393
+01:08:01,119 --> 01:08:06,079
+easily okay
+
+1394
+01:08:03,039 --> 01:08:07,039
+just like this so mostly you can think
+
+1395
+01:08:06,079 --> 01:08:10,160
+of mathematica
+
+1396
+01:08:07,039 --> 01:08:11,599
+as a list so here's this function
+
+1397
+01:08:10,160 --> 01:08:14,480
+returns a function
+
+1398
+01:08:11,599 --> 01:08:16,720
+okay how does this function work well it
+
+1399
+01:08:14,480 --> 01:08:16,720
+um
+
+1400
+01:08:18,319 --> 01:08:21,040
+so how do you
+
+1401
+01:08:22,400 --> 01:08:27,279
+why does it how does this function work
+
+1402
+01:08:25,040 --> 01:08:30,560
+okay
+
+1403
+01:08:27,279 --> 01:08:31,679
+so so it returns a function now this
+
+1404
+01:08:30,560 --> 01:08:34,640
+function is the
+
+1405
+01:08:31,679 --> 01:08:35,120
+actual function that generates a random
+
+1406
+01:08:34,640 --> 01:08:37,600
+color
+
+1407
+01:08:35,120 --> 01:08:38,159
+taking one argument okay so this
+
+1408
+01:08:37,600 --> 01:08:41,359
+function
+
+1409
+01:08:38,159 --> 01:08:41,359
+for example the output
+
+1410
+01:08:42,159 --> 01:08:46,400
+so we are getting into functional
+
+1411
+01:08:43,520 --> 01:08:48,719
+programming so anyway so this
+
+1412
+01:08:46,400 --> 01:08:49,679
+function returns a function therefore we
+
+1413
+01:08:48,719 --> 01:08:53,279
+can give it
+
+1414
+01:08:49,679 --> 01:08:57,600
+a argument so let's say the argument is
+
+1415
+01:08:53,279 --> 01:09:00,799
+0.5 then it will return an actual color
+
+1416
+01:08:57,600 --> 01:09:03,520
+okay so it's kind of brown brownish
+
+1417
+01:09:00,799 --> 01:09:04,480
+let's let's try it again okay a
+
+1418
+01:09:03,520 --> 01:09:07,839
+different
+
+1419
+01:09:04,480 --> 01:09:12,080
+shade now let's try let me show you uh
+
+1420
+01:09:07,839 --> 01:09:12,080
+something more fancy table
+
+1421
+01:09:12,239 --> 01:09:16,400
+table just uh give you a list of things
+
+1422
+01:09:14,880 --> 01:09:21,920
+okay
+
+1423
+01:09:16,400 --> 01:09:28,159
+so here n and from
+
+1424
+01:09:21,920 --> 01:09:32,239
+uh m from 1 to 100 okay let's see
+
+1425
+01:09:28,159 --> 01:09:32,239
+okay so you got a bunch of random
+
+1426
+01:09:32,839 --> 01:09:37,040
+functions
+
+1427
+01:09:34,640 --> 01:09:38,159
+okay i i wanted to show you something
+
+1428
+01:09:37,040 --> 01:09:41,520
+interesting about
+
+1429
+01:09:38,159 --> 01:09:44,719
+some uh actually
+
+1430
+01:09:41,520 --> 01:09:48,319
+uh i wanted to talk about this markers
+
+1431
+01:09:44,719 --> 01:09:52,080
+um in fact i want to tell you
+
+1432
+01:09:48,319 --> 01:09:55,120
+how mathematica is actually
+
+1433
+01:09:52,080 --> 01:09:56,880
+a magnitude
+
+1434
+01:09:55,120 --> 01:09:58,960
+you know the mathematical pattern
+
+1435
+01:09:56,880 --> 01:10:01,600
+matching symbolic pattern matching
+
+1436
+01:09:58,960 --> 01:10:03,360
+is almost it's basically just list
+
+1437
+01:10:01,600 --> 01:10:06,960
+markers but
+
+1438
+01:10:03,360 --> 01:10:10,159
+a magnitude more powerful that is
+
+1439
+01:10:06,960 --> 01:10:13,199
+what i'm thinking of trying to explain
+
+1440
+01:10:10,159 --> 01:10:14,800
+and that is in fact in this code in this
+
+1441
+01:10:13,199 --> 01:10:15,440
+in this code you are looking at right
+
+1442
+01:10:14,800 --> 01:10:19,440
+here
+
+1443
+01:10:15,440 --> 01:10:22,640
+okay um but in order to do that
+
+1444
+01:10:19,440 --> 01:10:22,640
+i have you know
+
+1445
+01:10:23,840 --> 01:10:30,320
+i have to focus i have to uh be really
+
+1446
+01:10:26,560 --> 01:10:32,080
+concentrated oh you know yeah or
+
+1447
+01:10:30,320 --> 01:10:35,920
+you know you'll take half an hour to
+
+1448
+01:10:32,080 --> 01:10:35,920
+explain every detail how it works
+
+1449
+01:10:36,480 --> 01:10:45,840
+now let's skip it okay okay that's it
+
+1450
+01:10:39,440 --> 01:10:45,840
+for today thank you guys for watching
+
+1451
+01:10:49,679 --> 01:10:54,159
+yeah it windows doesn't have that
+
+1452
+01:10:52,560 --> 01:10:56,840
+windows tilde no
+
+1453
+01:10:54,159 --> 01:10:58,800
+no windows doesn't have you know on a
+
+1454
+01:10:56,840 --> 01:11:01,040
+mac
+
+1455
+01:10:58,800 --> 01:11:02,719
+once you are in an application there's a
+
+1456
+01:11:01,040 --> 01:11:05,120
+shortcut to switch
+
+1457
+01:11:02,719 --> 01:11:06,080
+to the next window of the same
+
+1458
+01:11:05,120 --> 01:11:08,400
+application
+
+1459
+01:11:06,080 --> 01:11:10,000
+so you can cycle for example in
+
+1460
+01:11:08,400 --> 01:11:13,120
+mathematica i can cycle
+
+1461
+01:11:10,000 --> 01:11:15,040
+among all my mathematical windows but in
+
+1462
+01:11:13,120 --> 01:11:18,239
+windows you don't have that
+
+1463
+01:11:15,040 --> 01:11:27,840
+so that that's kind of annoying
+
+1464
+01:11:18,239 --> 01:11:27,840
+okay bye guys
+
+1465
+01:11:29,840 --> 01:11:31,920
+i
+

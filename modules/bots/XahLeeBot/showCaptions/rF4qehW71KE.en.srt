@@ -1,0 +1,1844 @@
+1
+00:00:06,720 --> 00:00:10,160
+good morning everyone
+
+2
+00:00:07,759 --> 00:00:11,040
+welcome to another episode of sound talk
+
+3
+00:00:10,160 --> 00:00:14,799
+show
+
+4
+00:00:11,040 --> 00:00:17,920
+today is 2020 9 o'clock
+
+5
+00:00:14,799 --> 00:00:21,119
+30 minutes after night uh
+
+6
+00:00:17,920 --> 00:00:22,080
+in the evening san francisco time today
+
+7
+00:00:21,119 --> 00:00:26,000
+is saturday here
+
+8
+00:00:22,080 --> 00:00:26,320
+august 15th and today we are going to do
+
+9
+00:00:26,000 --> 00:00:30,880
+a
+
+10
+00:00:26,320 --> 00:00:30,880
+emacs and evacuees coding and
+
+11
+00:00:45,120 --> 00:00:49,840
+so i think you know so we i might be
+
+12
+00:00:48,239 --> 00:00:52,800
+talking bilingual today
+
+13
+00:00:49,840 --> 00:00:54,879
+english and chinese and so first of all
+
+14
+00:00:52,800 --> 00:00:59,280
+let's show you the background image
+
+15
+00:00:54,879 --> 00:01:01,840
+so today's image is this mx donuts
+
+16
+00:00:59,280 --> 00:01:02,320
+and we have the mx donuts this happens
+
+17
+00:01:01,840 --> 00:01:05,439
+to be
+
+18
+00:01:02,320 --> 00:01:10,159
+a donut shop then you have
+
+19
+00:01:05,439 --> 00:01:12,479
+vim fitness someone took this photo
+
+20
+00:01:10,159 --> 00:01:13,280
+okay so that's a background image by the
+
+21
+00:01:12,479 --> 00:01:17,119
+way the
+
+22
+00:01:13,280 --> 00:01:18,080
+mx and vim veeam seems much more popular
+
+23
+00:01:17,119 --> 00:01:21,439
+you'll find
+
+24
+00:01:18,080 --> 00:01:23,759
+the name veeam in many places
+
+25
+00:01:21,439 --> 00:01:24,720
+okay that's the background image now
+
+26
+00:01:23,759 --> 00:01:27,200
+let's begin
+
+27
+00:01:24,720 --> 00:01:28,799
+uh to do what we want to do today emacs
+
+28
+00:01:27,200 --> 00:01:30,640
+lisp
+
+29
+00:01:28,799 --> 00:01:32,479
+so if you have questions comments
+
+30
+00:01:30,640 --> 00:01:33,200
+comment i love comments okay type in the
+
+31
+00:01:32,479 --> 00:01:37,040
+comment
+
+32
+00:01:33,200 --> 00:01:38,159
+in the chat box and let's go here then
+
+33
+00:01:37,040 --> 00:01:41,439
+let's start to do
+
+34
+00:01:38,159 --> 00:01:44,799
+uh emacs lisp coding
+
+35
+00:01:41,439 --> 00:01:48,159
+uh share emacs these
+
+36
+00:01:44,799 --> 00:01:48,880
+senses okay so let's see what we want to
+
+37
+00:01:48,159 --> 00:01:51,280
+do
+
+38
+00:01:48,880 --> 00:01:53,280
+magnify on the right window you can see
+
+39
+00:01:51,280 --> 00:01:55,600
+all my keys and commands
+
+40
+00:01:53,280 --> 00:01:56,640
+whenever i press some key it will show
+
+41
+00:01:55,600 --> 00:01:58,799
+on the right window
+
+42
+00:01:56,640 --> 00:02:00,159
+and also the command name so if you
+
+43
+00:01:58,799 --> 00:02:01,280
+don't know what i'm doing you can just
+
+44
+00:02:00,159 --> 00:02:03,920
+look
+
+45
+00:02:01,280 --> 00:02:06,079
+uh up the command there usually there's
+
+46
+00:02:03,920 --> 00:02:08,720
+also a source code
+
+47
+00:02:06,079 --> 00:02:10,560
+so let's do e-max e-max coding okay
+
+48
+00:02:08,720 --> 00:02:11,599
+before we do before we begin let me
+
+49
+00:02:10,560 --> 00:02:15,440
+mention
+
+50
+00:02:11,599 --> 00:02:18,720
+that um there is a online meetup
+
+51
+00:02:15,440 --> 00:02:22,239
+for emacs people uh
+
+52
+00:02:18,720 --> 00:02:25,280
+hosted by the great jeff t
+
+53
+00:02:22,239 --> 00:02:28,000
+he is hosting the emacs meetup
+
+54
+00:02:25,280 --> 00:02:30,160
+in san francisco but now because of the
+
+55
+00:02:28,000 --> 00:02:34,319
+kovite 19 there's no
+
+56
+00:02:30,160 --> 00:02:36,800
+real meetup so we have a online meetup
+
+57
+00:02:34,319 --> 00:02:37,360
+so you know you go to the website you
+
+58
+00:02:36,800 --> 00:02:40,800
+know
+
+59
+00:02:37,360 --> 00:02:44,000
+you meet up san francisco
+
+60
+00:02:40,800 --> 00:02:44,480
+then you you want to register you want
+
+61
+00:02:44,000 --> 00:02:48,000
+to
+
+62
+00:02:44,480 --> 00:02:51,280
+um you know reserve a place kind of
+
+63
+00:02:48,000 --> 00:02:53,519
+because because we are going
+
+64
+00:02:51,280 --> 00:02:55,680
+i mean he's doing a online meetup you
+
+65
+00:02:53,519 --> 00:02:58,480
+know we chat about emac stuff
+
+66
+00:02:55,680 --> 00:02:59,280
+and uh there is a limit of how many
+
+67
+00:02:58,480 --> 00:03:02,400
+people i think
+
+68
+00:02:59,280 --> 00:03:03,519
+20 you know he's gonna have the 20
+
+69
+00:03:02,400 --> 00:03:06,800
+people only
+
+70
+00:03:03,519 --> 00:03:07,440
+so go there and sign up and this is
+
+71
+00:03:06,800 --> 00:03:10,560
+going to
+
+72
+00:03:07,440 --> 00:03:13,599
+be on uh
+
+73
+00:03:10,560 --> 00:03:16,239
+what's the date uh august 20th
+
+74
+00:03:13,599 --> 00:03:17,519
+so next week next week thursday there's
+
+75
+00:03:16,239 --> 00:03:20,959
+a time there you can go
+
+76
+00:03:17,519 --> 00:03:21,680
+check it out uh i i think i will be
+
+77
+00:03:20,959 --> 00:03:24,560
+joined
+
+78
+00:03:21,680 --> 00:03:26,480
+but i'm you know um you know i don't
+
+79
+00:03:24,560 --> 00:03:29,840
+because i do emacs a lot
+
+80
+00:03:26,480 --> 00:03:31,280
+so i'm thinking maybe let other people
+
+81
+00:03:29,840 --> 00:03:33,680
+join because there's only
+
+82
+00:03:31,280 --> 00:03:34,799
+20 people i you know i think i like to
+
+83
+00:03:33,680 --> 00:03:38,159
+join
+
+84
+00:03:34,799 --> 00:03:39,760
+uh we'll see i like to join talk to some
+
+85
+00:03:38,159 --> 00:03:43,040
+of the people i've met
+
+86
+00:03:39,760 --> 00:03:46,959
+jeff ogg uh
+
+87
+00:03:43,040 --> 00:03:49,599
+and john wiggly he's the
+
+88
+00:03:46,959 --> 00:03:52,159
+maintainer of emacs yeah many of people
+
+89
+00:03:49,599 --> 00:03:54,879
+many people here i've met
+
+90
+00:03:52,159 --> 00:03:55,680
+face to face so yeah that's the emacs
+
+91
+00:03:54,879 --> 00:03:57,599
+meetup
+
+92
+00:03:55,680 --> 00:04:01,599
+so let's talk about let's start to talk
+
+93
+00:03:57,599 --> 00:04:04,000
+about um what we are going to code today
+
+94
+00:04:01,599 --> 00:04:05,920
+so first of all youtube link if i okay
+
+95
+00:04:04,000 --> 00:04:10,480
+so let's quote that
+
+96
+00:04:05,920 --> 00:04:12,720
+hey good morning guys dave johnson yes
+
+97
+00:04:10,480 --> 00:04:14,560
+so i'm going to talk bilingual today
+
+98
+00:04:12,720 --> 00:04:16,479
+good morning aaron hall how's it going
+
+99
+00:04:14,560 --> 00:04:18,400
+aaron hall is the great python
+
+100
+00:04:16,479 --> 00:04:21,840
+programmer the number one
+
+101
+00:04:18,400 --> 00:04:23,280
+uh person who answered python questions
+
+102
+00:04:21,840 --> 00:04:26,400
+on stack overflow
+
+103
+00:04:23,280 --> 00:04:27,600
+and that's not easy to do hey new
+
+104
+00:04:26,400 --> 00:04:30,800
+musical
+
+105
+00:04:27,600 --> 00:04:33,040
+namashiko good morning to hong kong okay
+
+106
+00:04:30,800 --> 00:04:33,040
+so
+
+107
+00:04:33,440 --> 00:04:40,639
+so i'm going to talk chinese
+
+108
+00:04:37,520 --> 00:04:42,800
+uh so if i go talk chinese you english
+
+109
+00:04:40,639 --> 00:04:45,040
+you know just watch what i do okay we
+
+110
+00:04:42,800 --> 00:04:49,040
+are going to call emacs list
+
+111
+00:04:45,040 --> 00:04:49,040
+so so uh
+
+112
+00:04:51,759 --> 00:04:57,040
+okay i'm going to hold
+
+113
+00:04:54,800 --> 00:04:57,040
+someone
+
+114
+00:04:59,280 --> 00:05:02,400
+what we're doing is
+
+115
+00:05:02,960 --> 00:05:08,320
+let me show you an example okay so
+
+116
+00:05:06,320 --> 00:05:10,000
+uh let me show you what are we doing
+
+117
+00:05:08,320 --> 00:05:13,600
+what is the task
+
+118
+00:05:10,000 --> 00:05:17,120
+what is it that i'm i'm i'm coding
+
+119
+00:05:13,600 --> 00:05:20,240
+so okay hold on second
+
+120
+00:05:17,120 --> 00:05:24,639
+let's magnify sega okay
+
+121
+00:05:20,240 --> 00:05:28,240
+and zig okay so
+
+122
+00:05:24,639 --> 00:05:28,240
+showing show in browser
+
+123
+00:05:29,360 --> 00:05:32,240
+youtube okay
+
+124
+00:05:35,840 --> 00:05:38,639
+copy okay
+
+125
+00:05:53,840 --> 00:05:57,039
+you want the time you want the time
+
+126
+00:05:56,080 --> 00:05:59,440
+stamp
+
+127
+00:05:57,039 --> 00:06:01,759
+you see there's a timestamp here because
+
+128
+00:05:59,440 --> 00:06:04,000
+i want the video to start at some point
+
+129
+00:06:01,759 --> 00:06:05,360
+but however my existing command doesn't
+
+130
+00:06:04,000 --> 00:06:09,280
+do it
+
+131
+00:06:05,360 --> 00:06:09,280
+for example let me show you copy okay
+
+132
+00:06:12,080 --> 00:06:15,199
+time stamp is gone
+
+133
+00:06:16,639 --> 00:06:20,720
+i i what so what i need is this
+
+134
+00:06:19,039 --> 00:06:23,840
+timestamp
+
+135
+00:06:20,720 --> 00:06:26,560
+over here in my command
+
+136
+00:06:23,840 --> 00:06:28,000
+i i need my command to recognize to
+
+137
+00:06:26,560 --> 00:06:31,680
+maintain the
+
+138
+00:06:28,000 --> 00:06:34,240
+timestamp so let's do that
+
+139
+00:06:31,680 --> 00:06:36,400
+okay so where is the command the command
+
+140
+00:06:34,240 --> 00:06:40,080
+name is youtube linkify
+
+141
+00:06:36,400 --> 00:06:49,840
+um okay let me
+
+142
+00:06:40,080 --> 00:06:49,840
+just take a youtube link of file
+
+143
+00:06:52,160 --> 00:06:56,080
+youtube linkify so here's the command
+
+144
+00:06:54,000 --> 00:06:59,759
+name
+
+145
+00:06:56,080 --> 00:06:59,759
+so let's write it down
+
+146
+00:07:01,759 --> 00:07:06,400
+ html youtube link if i to
+
+147
+00:07:06,880 --> 00:07:14,479
+recognize timestamp
+
+148
+00:07:10,080 --> 00:07:16,319
+okay just see about the sentence so
+
+149
+00:07:14,479 --> 00:07:17,759
+let's go to the source code so here's
+
+150
+00:07:16,319 --> 00:07:22,000
+the source code
+
+151
+00:07:17,759 --> 00:07:25,520
+and jager okay kai gashinda shindetons
+
+152
+00:07:22,000 --> 00:07:29,599
+open a new buffer and save it
+
+153
+00:07:25,520 --> 00:07:33,360
+we are going to modify this here today
+
+154
+00:07:29,599 --> 00:07:36,080
+okay secrets now
+
+155
+00:07:33,360 --> 00:07:36,880
+let's go back now we need to modify the
+
+156
+00:07:36,080 --> 00:07:40,319
+timestamp
+
+157
+00:07:36,880 --> 00:07:43,360
+so what's uh okay so this
+
+158
+00:07:40,319 --> 00:07:43,360
+is the timestamp
+
+159
+00:07:46,479 --> 00:07:52,319
+it needs to become your bench and start
+
+160
+00:07:49,840 --> 00:07:53,199
+equals to something yeah be a better
+
+161
+00:07:52,319 --> 00:07:56,479
+there
+
+162
+00:07:53,199 --> 00:07:58,639
+so let's just copy that without
+
+163
+00:07:56,479 --> 00:07:59,680
+okay let's paste it here so we have a
+
+164
+00:07:58,639 --> 00:08:02,000
+reference
+
+165
+00:07:59,680 --> 00:08:05,280
+okay so let's start to code let's just
+
+166
+00:08:02,000 --> 00:08:05,280
+go to the place
+
+167
+00:08:11,360 --> 00:08:15,280
+the so let's see let's see do we have
+
+168
+00:08:13,919 --> 00:08:18,479
+chinese or english
+
+169
+00:08:15,280 --> 00:08:22,720
+hello hello okay no comments uh
+
+170
+00:08:18,479 --> 00:08:27,440
+so d so first thing we need to do is to
+
+171
+00:08:22,720 --> 00:08:30,639
+extract to recognize if the url contains
+
+172
+00:08:27,440 --> 00:08:34,320
+the t parameter just y'all kind of
+
+173
+00:08:30,639 --> 00:08:37,440
+a url your mail is a good t parameter
+
+174
+00:08:34,320 --> 00:08:39,440
+if the t parameter is there we want to
+
+175
+00:08:37,440 --> 00:08:41,760
+extract it
+
+176
+00:08:39,440 --> 00:08:42,719
+once we extract the time parameter then
+
+177
+00:08:41,760 --> 00:08:45,279
+we can add
+
+178
+00:08:42,719 --> 00:08:45,279
+insert it
+
+179
+00:08:51,760 --> 00:08:57,040
+so how do we check if there's a time
+
+180
+00:08:53,440 --> 00:08:57,040
+parameter let's do
+
+181
+00:08:58,000 --> 00:09:01,760
+okay it's a tiger so there you go so
+
+182
+00:09:01,120 --> 00:09:04,320
+it's a good
+
+183
+00:09:01,760 --> 00:09:06,240
+so he take just input string so we got
+
+184
+00:09:04,320 --> 00:09:08,560
+the input string now we want to
+
+185
+00:09:06,240 --> 00:09:09,519
+check if the input string contains the
+
+186
+00:09:08,560 --> 00:09:12,640
+match
+
+187
+00:09:09,519 --> 00:09:12,640
+so input string
+
+188
+00:09:12,959 --> 00:09:17,440
+string match okay congratulate your mail
+
+189
+00:09:17,600 --> 00:09:26,480
+stream match input string then
+
+190
+00:09:22,880 --> 00:09:29,519
+you want to check a regular expression t
+
+191
+00:09:26,480 --> 00:09:33,279
+equals to that's what you want to check
+
+192
+00:09:29,519 --> 00:09:38,800
+t equals to zero to nine digits
+
+193
+00:09:33,279 --> 00:09:38,800
+one or more question mark
+
+194
+00:09:39,760 --> 00:09:44,880
+yeah let's not check question mark let's
+
+195
+00:09:41,440 --> 00:09:48,399
+just check let's just check that
+
+196
+00:09:44,880 --> 00:09:52,480
+stream match okay let's search that
+
+197
+00:09:48,399 --> 00:09:52,480
+uh before we do let's test it
+
+198
+00:09:58,000 --> 00:10:06,560
+just the answer yet okay wait
+
+199
+00:10:02,160 --> 00:10:06,560
+so we're gonna test this run it
+
+200
+00:10:06,640 --> 00:10:09,760
+it is true it returns a position where
+
+201
+00:10:08,959 --> 00:10:12,959
+it matched
+
+202
+00:10:09,760 --> 00:10:16,320
+you see at the bottom it says 29 so so
+
+203
+00:10:12,959 --> 00:10:18,959
+this is the correct code to run
+
+204
+00:10:16,320 --> 00:10:18,959
+so we
+
+205
+00:10:34,720 --> 00:10:49,600
+we want to um
+
+206
+00:10:46,560 --> 00:10:52,480
+let me let me write it up check if the
+
+207
+00:10:49,600 --> 00:10:55,920
+url contain
+
+208
+00:10:52,480 --> 00:11:01,839
+time stamp
+
+209
+00:10:55,920 --> 00:11:01,839
+okay that's this line
+
+210
+00:11:03,360 --> 00:11:09,040
+the wall so if it matches what what
+
+211
+00:11:06,480 --> 00:11:11,360
+we want to extract it so timestamp so
+
+212
+00:11:09,040 --> 00:11:15,839
+let's add a new variable
+
+213
+00:11:11,360 --> 00:11:15,839
+new variable
+
+214
+00:11:18,000 --> 00:11:20,320
+okay
+
+215
+00:11:23,440 --> 00:11:29,839
+so if that then
+
+216
+00:11:27,040 --> 00:11:29,839
+program
+
+217
+00:11:31,440 --> 00:11:39,440
+set queue timestamp
+
+218
+00:11:34,880 --> 00:11:42,320
+equals to matched string
+
+219
+00:11:39,440 --> 00:11:43,120
+okay so here is how you do it so you
+
+220
+00:11:42,320 --> 00:11:47,440
+need
+
+221
+00:11:43,120 --> 00:11:47,440
+a parenthesis that match the string
+
+222
+00:11:48,000 --> 00:11:56,560
+you need a two backslash
+
+223
+00:11:51,120 --> 00:12:00,160
+how do i know because experience
+
+224
+00:11:56,560 --> 00:12:02,639
+uh because emac this regular expression
+
+225
+00:12:00,160 --> 00:12:03,839
+is full of backslash and slashes full of
+
+226
+00:12:02,639 --> 00:12:06,800
+it
+
+227
+00:12:03,839 --> 00:12:10,480
+it's called toothpick syndrome in
+
+228
+00:12:06,800 --> 00:12:14,240
+programming community
+
+229
+00:12:10,480 --> 00:12:18,639
+uh so yeah match the timestamp yeah so
+
+230
+00:12:14,240 --> 00:12:18,639
+so you'll just read regular expressions
+
+231
+00:12:22,160 --> 00:12:29,120
+so if the match string
+
+232
+00:12:25,200 --> 00:12:29,120
+timestamp if match string
+
+233
+00:12:29,519 --> 00:12:36,079
+so here is how we get
+
+234
+00:12:33,040 --> 00:12:39,360
+the the the captured part
+
+235
+00:12:36,079 --> 00:12:42,720
+match string one the first one
+
+236
+00:12:39,360 --> 00:12:47,200
+option no option now if you are
+
+237
+00:12:42,720 --> 00:12:47,200
+now you need to uh give a string here
+
+238
+00:12:50,079 --> 00:12:54,079
+that's that's what you need that's what
+
+239
+00:12:51,920 --> 00:12:56,720
+we want to do
+
+240
+00:12:54,079 --> 00:12:56,720
+so if
+
+241
+00:12:57,519 --> 00:13:03,920
+if it matches then
+
+242
+00:13:00,959 --> 00:13:04,880
+get the timestamp okay now otherwise
+
+243
+00:13:03,920 --> 00:13:08,000
+let's just say
+
+244
+00:13:04,880 --> 00:13:09,120
+timestamp equals to empty string there
+
+245
+00:13:08,000 --> 00:13:13,360
+it is
+
+246
+00:13:09,120 --> 00:13:16,240
+there here is our code she wanna
+
+247
+00:13:13,360 --> 00:13:16,720
+now i want to make the code better in a
+
+248
+00:13:16,240 --> 00:13:19,279
+better
+
+249
+00:13:16,720 --> 00:13:20,560
+more readable format so let's trans
+
+250
+00:13:19,279 --> 00:13:24,000
+let's change it
+
+251
+00:13:20,560 --> 00:13:27,279
+so instead of instead of uh the whole if
+
+252
+00:13:24,000 --> 00:13:29,680
+expression then say that we want to set
+
+253
+00:13:27,279 --> 00:13:29,680
+you see
+
+254
+00:13:32,839 --> 00:13:35,839
+if
+
+255
+00:13:44,480 --> 00:13:49,839
+so um
+
+256
+00:14:00,839 --> 00:14:06,399
+okay
+
+257
+00:14:02,880 --> 00:14:09,120
+there it is so we have two versions
+
+258
+00:14:06,399 --> 00:14:09,120
+of the code
+
+259
+00:14:14,880 --> 00:14:17,839
+india
+
+260
+00:14:35,440 --> 00:14:41,920
+so this is a better um
+
+261
+00:14:38,480 --> 00:14:46,639
+a better form okay so so let's
+
+262
+00:14:41,920 --> 00:14:46,639
+let's let's let's comment it out
+
+263
+00:14:48,639 --> 00:14:51,680
+yeah okay so
+
+264
+00:14:53,120 --> 00:14:59,839
+okay so now we checked we have the
+
+265
+00:14:56,839 --> 00:14:59,839
+timestamp
+
+266
+00:15:01,920 --> 00:15:05,920
+now the rest is easy now the rest is
+
+267
+00:15:05,120 --> 00:15:10,240
+easy
+
+268
+00:15:05,920 --> 00:15:10,240
+so now you just go to the ho hunting
+
+269
+00:15:19,920 --> 00:15:27,839
+so here somewhere so you want to uh yeah
+
+270
+00:15:23,519 --> 00:15:27,839
+so you just add it there so
+
+271
+00:15:28,880 --> 00:15:34,480
+so you want um
+
+272
+00:15:32,320 --> 00:15:35,680
+see once yes i'm gonna let let's let's
+
+273
+00:15:34,480 --> 00:15:38,560
+go look okay
+
+274
+00:15:35,680 --> 00:15:39,600
+which one what is the code we need to
+
+275
+00:15:38,560 --> 00:15:44,720
+add
+
+276
+00:15:39,600 --> 00:15:48,480
+here you need this part just yeah jazzy
+
+277
+00:15:44,720 --> 00:15:55,199
+like okay so it
+
+278
+00:15:48,480 --> 00:15:58,880
+here and the string
+
+279
+00:15:55,199 --> 00:16:02,720
+yeah that's what we want and here
+
+280
+00:15:58,880 --> 00:16:09,839
+uh wait okay something is
+
+281
+00:16:02,720 --> 00:16:09,839
+not right look at the coloring
+
+282
+00:16:12,079 --> 00:16:15,120
+okay wait um
+
+283
+00:16:18,399 --> 00:16:22,880
+oh we we need to add it here okay
+
+284
+00:16:34,839 --> 00:16:42,800
+here and here we have another parameter
+
+285
+00:16:39,440 --> 00:16:45,600
+so here is time stamp okay
+
+286
+00:16:42,800 --> 00:16:45,600
+i think that's it
+
+287
+00:16:47,360 --> 00:16:50,800
+jesus so now i think that's that's
+
+288
+00:16:50,160 --> 00:16:54,160
+that's it
+
+289
+00:16:50,800 --> 00:16:57,440
+that's how our code works make a backup
+
+290
+00:16:54,160 --> 00:17:01,120
+i think your work change the date so
+
+291
+00:16:57,440 --> 00:17:05,120
+august 15 and let's try the code
+
+292
+00:17:01,120 --> 00:17:07,760
+let's try the code
+
+293
+00:17:05,120 --> 00:17:09,679
+but in the documentation string let's
+
+294
+00:17:07,760 --> 00:17:11,039
+add another variation because this
+
+295
+00:17:09,679 --> 00:17:14,480
+documentation string
+
+296
+00:17:11,039 --> 00:17:17,120
+tells you that the command can accept
+
+297
+00:17:14,480 --> 00:17:18,559
+several formats you see you can accept
+
+298
+00:17:17,120 --> 00:17:22,079
+this format
+
+299
+00:17:18,559 --> 00:17:23,280
+or this format or this format or this
+
+300
+00:17:22,079 --> 00:17:27,199
+format
+
+301
+00:17:23,280 --> 00:17:32,559
+or this format okay
+
+302
+00:17:27,199 --> 00:17:35,919
+let's try it
+
+303
+00:17:32,559 --> 00:17:35,919
+you know with the timestamp
+
+304
+00:17:37,120 --> 00:17:42,480
+okay let's let's let's let's do it okay
+
+305
+00:17:39,600 --> 00:17:42,480
+so that's the code
+
+306
+00:17:43,440 --> 00:17:50,799
+uh okay now evaluate the buffer
+
+307
+00:17:46,880 --> 00:17:54,559
+now go back to html let's we can try it
+
+308
+00:17:50,799 --> 00:17:57,280
+now we are done so okay so remember that
+
+309
+00:17:54,559 --> 00:17:57,280
+uh code
+
+310
+00:17:57,760 --> 00:18:03,600
+remember that url we get we just try it
+
+311
+00:18:00,480 --> 00:18:03,600
+let's see if it works
+
+312
+00:18:05,520 --> 00:18:13,280
+so youtube linkify do it
+
+313
+00:18:10,160 --> 00:18:16,640
+cannot find the youtube video id
+
+314
+00:18:13,280 --> 00:18:19,039
+in url oops
+
+315
+00:18:16,640 --> 00:18:19,039
+problem
+
+316
+00:18:25,360 --> 00:18:29,440
+let's go back to the list code cannot
+
+317
+00:18:27,440 --> 00:18:32,080
+find the video id
+
+318
+00:18:29,440 --> 00:18:32,080
+why is that
+
+319
+00:18:38,720 --> 00:18:42,640
+okay i think i know why so once you
+
+320
+00:18:48,080 --> 00:18:54,160
+any comments and questions paul edward
+
+321
+00:18:51,360 --> 00:18:55,440
+should not put should not input stream
+
+322
+00:18:54,160 --> 00:18:57,840
+be set to zero
+
+323
+00:18:55,440 --> 00:18:57,840
+not
+
+324
+00:18:58,720 --> 00:19:03,679
+um not input string i mean you mean the
+
+325
+00:19:00,960 --> 00:19:03,679
+timestamp
+
+326
+00:19:04,400 --> 00:19:14,559
+no if we found the timestamp then
+
+327
+00:19:10,880 --> 00:19:16,960
+then we uh we set it to the match string
+
+328
+00:19:14,559 --> 00:19:18,559
+if there is no timestamp it should be
+
+329
+00:19:16,960 --> 00:19:22,400
+empty stream
+
+330
+00:19:18,559 --> 00:19:24,480
+oh yeah so i i think i get it
+
+331
+00:19:22,400 --> 00:19:28,480
+wait i mean this should be time stamp
+
+332
+00:19:24,480 --> 00:19:28,480
+okay we got it wrong so hold on a second
+
+333
+00:19:29,600 --> 00:19:32,640
+it's alicia tall okay now let's try
+
+334
+00:19:32,160 --> 00:19:38,000
+again
+
+335
+00:19:32,640 --> 00:19:41,360
+eva buffer go back to html
+
+336
+00:19:38,000 --> 00:19:46,080
+and let's try the command again youtube
+
+337
+00:19:41,360 --> 00:19:49,280
+linkify do it yeah fantastic look
+
+338
+00:19:46,080 --> 00:19:50,559
+you see this that's the timestamp we got
+
+339
+00:19:49,280 --> 00:19:54,559
+it to work
+
+340
+00:19:50,559 --> 00:19:56,880
+now show in browser showing browser
+
+341
+00:19:54,559 --> 00:20:00,480
+if i play this video it will start
+
+342
+00:19:56,880 --> 00:20:00,480
+somewhere in the middle let's try it
+
+343
+00:20:00,960 --> 00:20:07,679
+there it is there it is
+
+344
+00:20:04,480 --> 00:20:08,880
+so ah so successful this is mission
+
+345
+00:20:07,679 --> 00:20:12,640
+complete
+
+346
+00:20:08,880 --> 00:20:16,000
+so anna one yet very good
+
+347
+00:20:12,640 --> 00:20:18,840
+okay so that's it for that i mean
+
+348
+00:20:16,000 --> 00:20:20,159
+we are so now actually we can shut down
+
+349
+00:20:18,840 --> 00:20:22,320
+um
+
+350
+00:20:20,159 --> 00:20:24,240
+unless you guys want to do something
+
+351
+00:20:22,320 --> 00:20:27,440
+else should we
+
+352
+00:20:24,240 --> 00:20:29,200
+yeah so any questions we can do another
+
+353
+00:20:27,440 --> 00:20:29,760
+how long have i been talking we can do
+
+354
+00:20:29,200 --> 00:20:32,720
+another
+
+355
+00:20:29,760 --> 00:20:34,320
+uh lisp short one or something or if you
+
+356
+00:20:32,720 --> 00:20:37,919
+have any
+
+357
+00:20:34,320 --> 00:20:41,039
+questions ask me okay anything you
+
+358
+00:20:37,919 --> 00:20:44,720
+um what's not clear or something or any
+
+359
+00:20:41,039 --> 00:20:47,760
+any emacs questions or stuff
+
+360
+00:20:44,720 --> 00:20:51,600
+so i've been talking for 27 minutes
+
+361
+00:20:47,760 --> 00:20:54,480
+so we can actually do another so
+
+362
+00:20:51,600 --> 00:20:54,480
+let's clean up
+
+363
+00:20:54,880 --> 00:21:00,840
+so go back to the code go back to the
+
+364
+00:20:57,039 --> 00:21:03,840
+code so here is today's code
+
+365
+00:21:00,840 --> 00:21:03,840
+uh
+
+366
+00:21:06,960 --> 00:21:11,039
+so here is today's code we want to put
+
+367
+00:21:09,679 --> 00:21:15,280
+it into the
+
+368
+00:21:11,039 --> 00:21:18,240
+html mod because this is from html mod
+
+369
+00:21:15,280 --> 00:21:18,240
+let's let's do it
+
+370
+00:21:22,960 --> 00:21:31,840
+actually let's see
+
+371
+00:21:33,039 --> 00:21:37,919
+so actually let's do one more thing okay
+
+372
+00:21:35,760 --> 00:21:40,640
+let me explain
+
+373
+00:21:37,919 --> 00:21:42,840
+so sometimes you are given this this
+
+374
+00:21:40,640 --> 00:21:46,400
+command will allow
+
+375
+00:21:42,840 --> 00:21:49,520
+um just a
+
+376
+00:21:46,400 --> 00:21:59,840
+youtube video id so that's a youtube
+
+377
+00:21:49,520 --> 00:21:59,840
+video id
+
+378
+00:21:59,919 --> 00:22:04,480
+oh yeah that works okay so never mind so
+
+379
+00:22:02,480 --> 00:22:06,159
+okay so what we're gonna do is we copy
+
+380
+00:22:04,480 --> 00:22:12,400
+the whole thing
+
+381
+00:22:06,159 --> 00:22:15,840
+cut go back to html mode uh
+
+382
+00:22:12,400 --> 00:22:19,760
+go back to html mod
+
+383
+00:22:15,840 --> 00:22:22,880
+describe key space space space h
+
+384
+00:22:19,760 --> 00:22:27,120
+here is the html mod
+
+385
+00:22:22,880 --> 00:22:29,919
+you go to it tab go to it
+
+386
+00:22:27,120 --> 00:22:32,799
+then search for magnify search for
+
+387
+00:22:29,919 --> 00:22:35,520
+youtube
+
+388
+00:22:32,799 --> 00:22:36,320
+search for youtube linkify so here is
+
+389
+00:22:35,520 --> 00:22:39,600
+our code
+
+390
+00:22:36,320 --> 00:22:39,600
+here is our old code
+
+391
+00:22:39,679 --> 00:22:42,320
+delete it
+
+392
+00:22:43,280 --> 00:22:52,640
+make a backup copy paste a new one
+
+393
+00:22:48,400 --> 00:22:56,159
+there it is here is a new one so you see
+
+394
+00:22:52,640 --> 00:22:57,039
+here is the date now save it now go to
+
+395
+00:22:56,159 --> 00:22:59,360
+the top
+
+396
+00:22:57,039 --> 00:23:00,720
+here's the version we want to update the
+
+397
+00:22:59,360 --> 00:23:05,600
+version number
+
+398
+00:23:00,720 --> 00:23:08,720
+so insert a date in this format
+
+399
+00:23:05,600 --> 00:23:11,840
+and increase the second digit because we
+
+400
+00:23:08,720 --> 00:23:13,440
+improve the code then delete the the
+
+401
+00:23:11,840 --> 00:23:17,840
+original line so that's it
+
+402
+00:23:13,440 --> 00:23:17,840
+save it now call magic status
+
+403
+00:23:20,159 --> 00:23:24,960
+magic status okay
+
+404
+00:23:25,120 --> 00:23:27,760
+okay so
+
+405
+00:23:30,559 --> 00:23:37,440
+magic git now you can see
+
+406
+00:23:34,159 --> 00:23:39,360
+here are the changes we made today we
+
+407
+00:23:37,440 --> 00:23:43,039
+changed this code
+
+408
+00:23:39,360 --> 00:23:48,640
+fantastic okay
+
+409
+00:23:43,039 --> 00:23:52,320
+now we want to press s to stage it
+
+410
+00:23:48,640 --> 00:23:55,679
+out github okay to commit
+
+411
+00:23:52,320 --> 00:23:58,159
+you press cc okay
+
+412
+00:23:55,679 --> 00:23:58,159
+cc
+
+413
+00:24:02,640 --> 00:24:10,880
+so what's a command we just uh called
+
+414
+00:24:06,400 --> 00:24:10,880
+uh i don't remember youtube linkify
+
+415
+00:24:11,039 --> 00:24:15,600
+because html youtube linkify i don't
+
+416
+00:24:13,840 --> 00:24:19,840
+remember the command name
+
+417
+00:24:15,600 --> 00:24:19,840
+we need to get the command name
+
+418
+00:24:21,520 --> 00:24:25,840
+okay let's go to the file there
+
+419
+00:24:27,760 --> 00:24:37,120
+now accept timestamp
+
+420
+00:24:32,720 --> 00:24:37,120
+in url okay
+
+421
+00:24:40,640 --> 00:24:50,799
+okay ctrl c ctrl c to commit
+
+422
+00:24:46,000 --> 00:24:50,799
+pp to push to github
+
+423
+00:24:52,400 --> 00:24:58,000
+now it's on github okay we are done
+
+424
+00:24:55,919 --> 00:25:00,559
+anything else
+
+425
+00:24:58,000 --> 00:25:00,559
+de niro
+
+426
+00:25:01,520 --> 00:25:09,279
+good morning anything else let's go to
+
+427
+00:25:06,279 --> 00:25:12,799
+html mod okay let's go to
+
+428
+00:25:09,279 --> 00:25:16,000
+git hub and just have a look
+
+429
+00:25:12,799 --> 00:25:19,360
+so html mod so that's my mod
+
+430
+00:25:16,000 --> 00:25:22,240
+oh not here well you go to github's okay
+
+431
+00:25:19,360 --> 00:25:22,240
+so github
+
+432
+00:25:23,520 --> 00:25:28,890
+so there is github and we just did a
+
+433
+00:25:25,919 --> 00:25:30,640
+commit let's look
+
+434
+00:25:28,890 --> 00:25:32,720
+[Music]
+
+435
+00:25:30,640 --> 00:25:34,960
+so that's our code today that's what we
+
+436
+00:25:32,720 --> 00:25:34,960
+did
+
+437
+00:25:36,640 --> 00:25:41,039
+that's that's what we did today so it's
+
+438
+00:25:39,279 --> 00:25:43,120
+good
+
+439
+00:25:41,039 --> 00:25:45,840
+okay i think maybe that's it for today
+
+440
+00:25:43,120 --> 00:25:48,880
+uh the short one let's keep it nice and
+
+441
+00:25:45,840 --> 00:25:48,880
+simple for today
+
+442
+00:25:50,159 --> 00:25:58,640
+um thank you everyone hope to see you
+
+443
+00:25:54,159 --> 00:26:02,000
+again if you like my tutorials
+
+444
+00:25:58,640 --> 00:26:04,100
+buy it okay go to my emacs emacs
+
+445
+00:26:02,000 --> 00:26:05,679
+tutorial you go to
+
+446
+00:26:04,100 --> 00:26:09,200
+[Music]
+
+447
+00:26:05,679 --> 00:26:12,880
+emacs lisp you have a complete
+
+448
+00:26:09,200 --> 00:26:16,640
+introduction to beginners you can learn
+
+449
+00:26:12,880 --> 00:26:19,600
+emac this from the very basics to
+
+450
+00:26:16,640 --> 00:26:21,600
+more advanced including how to write a
+
+451
+00:26:19,600 --> 00:26:24,720
+major mod
+
+452
+00:26:21,600 --> 00:26:26,159
+if you like it by it thank you thank you
+
+453
+00:26:24,720 --> 00:26:28,480
+guys
+
+454
+00:26:26,159 --> 00:26:28,480
+bye
+
+455
+00:26:35,600 --> 00:26:38,799
+let's see yeah i'm gonna close in one
+
+456
+00:26:37,440 --> 00:26:40,880
+minute let's see did i
+
+457
+00:26:38,799 --> 00:26:42,240
+is there anything i want to talk about
+
+458
+00:26:40,880 --> 00:26:45,760
+anything
+
+459
+00:26:42,240 --> 00:26:48,320
+so close that uh what is this
+
+460
+00:26:45,760 --> 00:26:48,320
+close that
+
+461
+00:26:49,279 --> 00:26:53,840
+yeah that's it bye
+

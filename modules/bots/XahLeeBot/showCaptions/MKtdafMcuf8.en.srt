@@ -1,0 +1,4792 @@
+1
+00:00:02,080 --> 00:00:08,000
+hello welcome to another episode of exan
+
+2
+00:00:05,040 --> 00:00:12,080
+talk show today we are going to code
+
+3
+00:00:08,000 --> 00:00:15,240
+emac LP emac lisp and maybe some random
+
+4
+00:00:12,080 --> 00:00:18,560
+chat okay if you are here say hi I'm a
+
+5
+00:00:15,240 --> 00:00:21,279
+nerd I'm this is talk show I talk about
+
+6
+00:00:18,560 --> 00:00:23,519
+random things of nerd interest usually
+
+7
+00:00:21,279 --> 00:00:26,599
+programming programming languages
+
+8
+00:00:23,519 --> 00:00:29,279
+mathematics artificial intelligence uh
+
+9
+00:00:26,599 --> 00:00:30,560
+information Wikipedia things like that
+
+10
+00:00:29,279 --> 00:00:35,120
+and sometimes
+
+11
+00:00:30,560 --> 00:00:37,360
+sometimes politics American okay uh okay
+
+12
+00:00:35,120 --> 00:00:40,600
+so if you are here say hi and if you are
+
+13
+00:00:37,360 --> 00:00:43,800
+watching this offline feel free to skip
+
+14
+00:00:40,600 --> 00:00:46,800
+and play at speed to or
+
+15
+00:00:43,800 --> 00:00:50,160
+something okay let's begin uh coding
+
+16
+00:00:46,800 --> 00:00:52,879
+lisp okay my keyboards glove 80 most
+
+17
+00:00:50,160 --> 00:00:56,160
+fantastic keyboards ultimate hacking
+
+18
+00:00:52,879 --> 00:01:01,719
+keyboard okay fantastic newly ATT
+
+19
+00:00:56,160 --> 00:01:06,080
+trackable okay and uh and again this
+
+20
+00:01:01,719 --> 00:01:09,920
+thing SM board data hand okay I'm going
+
+21
+00:01:06,080 --> 00:01:13,439
+to use it but sorry not yet Smartboard
+
+22
+00:01:09,920 --> 00:01:18,040
+data hand this is most advanced keyboard
+
+23
+00:01:13,439 --> 00:01:21,759
+This is SV a l b o a r d okay you can
+
+24
+00:01:18,040 --> 00:01:23,799
+search online search any of these
+
+25
+00:01:21,759 --> 00:01:26,280
+keyboards you'll find my
+
+26
+00:01:23,799 --> 00:01:29,360
+reviews and the
+
+27
+00:01:26,280 --> 00:01:32,920
+photos uh and video reviews okay now
+
+28
+00:01:29,360 --> 00:01:35,320
+let's begin begin emac this coding so uh
+
+29
+00:01:32,920 --> 00:01:37,079
+so what I need to do today let's stop
+
+30
+00:01:35,320 --> 00:01:42,320
+this stop
+
+31
+00:01:37,079 --> 00:01:46,880
+it what I need to do today is uh uh it's
+
+32
+00:01:42,320 --> 00:01:50,079
+uh emac this WR a command HTML add
+
+33
+00:01:46,880 --> 00:01:55,479
+attribute so let me explain first of all
+
+34
+00:01:50,079 --> 00:01:55,479
+this is uh for example I'm inar HTML
+
+35
+00:01:55,840 --> 00:02:03,799
+mod here's a documentation jump to the
+
+36
+00:02:00,240 --> 00:02:07,360
+source code see it expand the window all
+
+37
+00:02:03,799 --> 00:02:10,399
+the way to the bottom 2,600 lines of
+
+38
+00:02:07,360 --> 00:02:13,280
+code actually there's more than 6,000
+
+39
+00:02:10,399 --> 00:02:14,560
+lines of code because there are multiple
+
+40
+00:02:13,280 --> 00:02:18,000
+multiple
+
+41
+00:02:14,560 --> 00:02:21,040
+files let's see let me show you you see
+
+42
+00:02:18,000 --> 00:02:25,360
+there are 1 2 3 4 five six seven eight
+
+43
+00:02:21,040 --> 00:02:28,400
+eight files because I compartment tized
+
+44
+00:02:25,360 --> 00:02:30,360
+modulized you know so you have htmr
+
+45
+00:02:28,400 --> 00:02:34,800
+engine so they are
+
+46
+00:02:30,360 --> 00:02:37,720
+I think 600 lines of code okay so you
+
+47
+00:02:34,800 --> 00:02:40,400
+have to pay to buy it because for 15
+
+48
+00:02:37,720 --> 00:02:43,480
+years all my stuff is free people don't
+
+49
+00:02:40,400 --> 00:02:46,400
+pay and I become tech support and people
+
+50
+00:02:43,480 --> 00:02:50,200
+[ __ ] people you know this open source
+
+51
+00:02:46,400 --> 00:02:54,480
+uh they don't give a [ __ ] so anyway HTML
+
+52
+00:02:50,200 --> 00:02:59,680
+mod that's what I'm using so copy
+
+53
+00:02:54,480 --> 00:03:02,959
+the file path close it close it close it
+
+54
+00:02:59,680 --> 00:03:05,840
+go go right here paste it make a link
+
+55
+00:03:02,959 --> 00:03:10,239
+make a link and make a list showing
+
+56
+00:03:05,840 --> 00:03:13,000
+browser so that's allar HTML mod and
+
+57
+00:03:10,239 --> 00:03:15,440
+today we are just going to add a new
+
+58
+00:03:13,000 --> 00:03:17,519
+command now let me introduce you to the
+
+59
+00:03:15,440 --> 00:03:19,799
+pink window the pink window so you can
+
+60
+00:03:17,519 --> 00:03:22,480
+see they are all the command CES and
+
+61
+00:03:19,799 --> 00:03:24,360
+names I just called you see HTML
+
+62
+00:03:22,480 --> 00:03:26,480
+something something command name on the
+
+63
+00:03:24,360 --> 00:03:28,239
+right side and the key strokes on the
+
+64
+00:03:26,480 --> 00:03:31,400
+left side there's
+
+65
+00:03:28,239 --> 00:03:34,400
+no uh control key ever pressed there's
+
+66
+00:03:31,400 --> 00:03:36,560
+no meta key uh because I'm using Sly
+
+67
+00:03:34,400 --> 00:03:39,799
+Keys search it you'll find it it's the
+
+68
+00:03:36,560 --> 00:03:42,799
+most efficient emac key binding system
+
+69
+00:03:39,799 --> 00:03:43,760
+more efficient than Vim VI Neo Vim or
+
+70
+00:03:42,799 --> 00:03:46,720
+EVO
+
+71
+00:03:43,760 --> 00:03:48,640
+mod okay so you don't I don't have to
+
+72
+00:03:46,720 --> 00:03:51,280
+press control keys but why is there a
+
+73
+00:03:48,640 --> 00:03:54,599
+control key there CW that means control
+
+74
+00:03:51,280 --> 00:03:57,760
+W that is because I'm pressing this key
+
+75
+00:03:54,599 --> 00:04:01,519
+now if you look at my keyboard you see
+
+76
+00:03:57,760 --> 00:04:05,200
+right here this key or this key you know
+
+77
+00:04:01,519 --> 00:04:08,040
+that's my Marco key so so watch okay so
+
+78
+00:04:05,200 --> 00:04:10,200
+I'm going to press this key now okay
+
+79
+00:04:08,040 --> 00:04:15,400
+first of all move it move the coer to
+
+80
+00:04:10,200 --> 00:04:18,359
+the um to the emac window okay so okay
+
+81
+00:04:15,400 --> 00:04:20,720
+now I got press this key so you watch
+
+82
+00:04:18,359 --> 00:04:24,919
+watch the pink window to see the command
+
+83
+00:04:20,720 --> 00:04:26,919
+name and keystroke watch the this honey
+
+84
+00:04:24,919 --> 00:04:29,840
+dual window to
+
+85
+00:04:26,919 --> 00:04:33,320
+see this window get this you know
+
+86
+00:04:29,840 --> 00:04:36,560
+something okay I'm going to do it one
+
+87
+00:04:33,320 --> 00:04:40,039
+two three you see so the command is
+
+88
+00:04:36,560 --> 00:04:42,400
+called close Cent buffer it says control
+
+89
+00:04:40,039 --> 00:04:45,720
+W but I didn't press control that is
+
+90
+00:04:42,400 --> 00:04:48,320
+because this key or this key is doing
+
+91
+00:04:45,720 --> 00:04:51,320
+marel keyboard marle so let me show you
+
+92
+00:04:48,320 --> 00:04:55,160
+in emac you do and it just closed my
+
+93
+00:04:51,320 --> 00:04:57,840
+that emac buffer so I press a key again
+
+94
+00:04:55,160 --> 00:05:00,919
+you see that's open as Clos that's part
+
+95
+00:04:57,840 --> 00:05:02,600
+of the commanding soft keys it just open
+
+96
+00:05:00,919 --> 00:05:05,919
+this again so I
+
+97
+00:05:02,600 --> 00:05:09,160
+can uh for example showing browser this
+
+98
+00:05:05,919 --> 00:05:12,080
+key okay back so it's all single key
+
+99
+00:05:09,160 --> 00:05:13,800
+press there's no control so for example
+
+100
+00:05:12,080 --> 00:05:17,039
+how do
+
+101
+00:05:13,800 --> 00:05:19,360
+I make sure convince you that this is a
+
+102
+00:05:17,039 --> 00:05:22,280
+Marco Key Well I can I mean I can show
+
+103
+00:05:19,360 --> 00:05:25,919
+you so in emx you call you call this
+
+104
+00:05:22,280 --> 00:05:27,759
+command called describe key so it now
+
+105
+00:05:25,919 --> 00:05:30,080
+ask you to press the key at the bottom
+
+106
+00:05:27,759 --> 00:05:34,280
+you can see so now I press this key
+
+107
+00:05:30,080 --> 00:05:37,000
+press so you see CW runs the command
+
+108
+00:05:34,280 --> 00:05:42,479
+close con okay so that's how it all
+
+109
+00:05:37,000 --> 00:05:45,160
+check out checks out okay so so I have
+
+110
+00:05:42,479 --> 00:05:47,960
+HTML mod so what I'm doing so I need to
+
+111
+00:05:45,160 --> 00:05:51,479
+add a new command so I mean the new
+
+112
+00:05:47,960 --> 00:05:53,800
+command is called s HTML add attribute
+
+113
+00:05:51,479 --> 00:06:00,360
+okay that's what we got going to write
+
+114
+00:05:53,800 --> 00:06:03,199
+it so start a new um EAC disp EAC this
+
+115
+00:06:00,360 --> 00:06:04,960
+so this is part of HTML mod paste it
+
+116
+00:06:03,199 --> 00:06:08,120
+that's a command we going to write move
+
+117
+00:06:04,960 --> 00:06:10,039
+the cluer here press the button it pops
+
+118
+00:06:08,120 --> 00:06:13,840
+it into
+
+119
+00:06:10,039 --> 00:06:15,319
+AA lisp mod you know into a new buffer a
+
+120
+00:06:13,840 --> 00:06:19,560
+temp temp
+
+121
+00:06:15,319 --> 00:06:23,639
+buffer cut that default Define enter
+
+122
+00:06:19,560 --> 00:06:26,319
+defund oh Define fun fantastic now paste
+
+123
+00:06:23,639 --> 00:06:29,039
+it okay that is the command we're going
+
+124
+00:06:26,319 --> 00:06:32,520
+to write today this command will add
+
+125
+00:06:29,039 --> 00:06:37,520
+attribute okay let's just write add uh
+
+126
+00:06:32,520 --> 00:06:37,520
+add documentation add an
+
+127
+00:06:37,800 --> 00:06:42,240
+attribute
+
+128
+00:06:39,720 --> 00:06:43,280
+attribute let's see you know do you
+
+129
+00:06:42,240 --> 00:06:45,720
+touch
+
+130
+00:06:43,280 --> 00:06:47,720
+type A lot of people they don't touch
+
+131
+00:06:45,720 --> 00:06:52,360
+type they are programmers but they are
+
+132
+00:06:47,720 --> 00:06:56,280
+shy from Declaration of the fact that
+
+133
+00:06:52,360 --> 00:06:59,280
+they don't touch type because it is a
+
+134
+00:06:56,280 --> 00:06:59,280
+stigma
+
+135
+00:06:59,919 --> 00:07:03,919
+it's a sensitive issue because oh you
+
+136
+00:07:02,319 --> 00:07:06,639
+are a professional programmer but you
+
+137
+00:07:03,919 --> 00:07:10,199
+don't touch type what the [ __ ] you know
+
+138
+00:07:06,639 --> 00:07:12,919
+but it is a fact I think majority of
+
+139
+00:07:10,199 --> 00:07:16,160
+programmers more than 50% professional
+
+140
+00:07:12,919 --> 00:07:20,039
+programmers meaning that they make money
+
+141
+00:07:16,160 --> 00:07:24,520
+out of programming they don't touch type
+
+142
+00:07:20,039 --> 00:07:26,639
+okay and you should okay uh you know but
+
+143
+00:07:24,520 --> 00:07:29,639
+but they they they touch type in their
+
+144
+00:07:26,639 --> 00:07:32,720
+own way like like they don't follow the
+
+145
+00:07:29,639 --> 00:07:34,560
+stand but they claim they Proclaim well
+
+146
+00:07:32,720 --> 00:07:38,080
+actually I do touch type I don't I just
+
+147
+00:07:34,560 --> 00:07:40,280
+don't touch type in your standard way no
+
+148
+00:07:38,080 --> 00:07:41,639
+that's not touch typing how do you know
+
+149
+00:07:40,280 --> 00:07:45,120
+if you are
+
+150
+00:07:41,639 --> 00:07:47,879
+truly capable of touch typing close your
+
+151
+00:07:45,120 --> 00:07:50,360
+eyes okay for example let's write this
+
+152
+00:07:47,879 --> 00:07:54,840
+command add an attrib okay let's
+
+153
+00:07:50,360 --> 00:07:57,639
+document now close your eyes close my
+
+154
+00:07:54,840 --> 00:08:00,879
+eyes so how can I well I need to put on
+
+155
+00:07:57,639 --> 00:08:00,879
+a helmet
+
+156
+00:08:01,280 --> 00:08:09,120
+do I have something like
+
+157
+00:08:03,520 --> 00:08:09,120
+that no yes what is this let's
+
+158
+00:08:09,840 --> 00:08:17,280
+see no that's just a string
+
+159
+00:08:13,159 --> 00:08:21,400
+okay uh anyway touch type okay so let's
+
+160
+00:08:17,280 --> 00:08:22,720
+see um you know you can just say what is
+
+161
+00:08:21,400 --> 00:08:26,280
+this
+
+162
+00:08:22,720 --> 00:08:32,120
+um HTML add attribute
+
+163
+00:08:26,280 --> 00:08:35,120
+Okay add an attrib rute to an
+
+164
+00:08:32,120 --> 00:08:35,120
+HTML
+
+165
+00:08:35,839 --> 00:08:42,360
+tag okay something like that actually to
+
+166
+00:08:39,200 --> 00:08:46,480
+the to the H to the current okay
+
+167
+00:08:42,360 --> 00:08:49,720
+to the current something like that okay
+
+168
+00:08:46,480 --> 00:08:50,680
+we'll have to oh mix missed an a we'll
+
+169
+00:08:49,720 --> 00:08:53,760
+have to
+
+170
+00:08:50,680 --> 00:08:57,680
+fix uh we'll have to do
+
+171
+00:08:53,760 --> 00:08:59,279
+edit um proof read and editing what
+
+172
+00:08:57,680 --> 00:09:01,680
+what's the what's the name you know of
+
+173
+00:08:59,279 --> 00:09:03,519
+the the documentation later but anyway
+
+174
+00:09:01,680 --> 00:09:07,600
+let's keep going on so why do I need
+
+175
+00:09:03,519 --> 00:09:12,000
+this command so let's pop it back syntax
+
+176
+00:09:07,600 --> 00:09:14,640
+CCT showing browser okay let me explain
+
+177
+00:09:12,000 --> 00:09:17,720
+about that a little bit
+
+178
+00:09:14,640 --> 00:09:18,920
+because inide HTML you can insert any
+
+179
+00:09:17,720 --> 00:09:22,640
+tag for
+
+180
+00:09:18,920 --> 00:09:26,880
+example uh let's say dive so you just
+
+181
+00:09:22,640 --> 00:09:29,200
+call this command you know this key HTML
+
+182
+00:09:26,880 --> 00:09:32,600
+insert tag you can see the command name
+
+183
+00:09:29,200 --> 00:09:36,959
+in the pink window so then it pop up all
+
+184
+00:09:32,600 --> 00:09:41,000
+a list of available legal valid tags so
+
+185
+00:09:36,959 --> 00:09:46,160
+you can type you know nav then then that
+
+186
+00:09:41,000 --> 00:09:49,200
+inserts a navag nav tag
+
+187
+00:09:46,160 --> 00:09:52,120
+okay but what if you want a tag let's
+
+188
+00:09:49,200 --> 00:09:54,959
+say dive with an ID
+
+189
+00:09:52,120 --> 00:09:58,200
+attribute okay so let's put the C let's
+
+190
+00:09:54,959 --> 00:09:59,839
+start over here so you call Universal
+
+191
+00:09:58,200 --> 00:10:03,680
+command first
+
+192
+00:09:59,839 --> 00:10:07,800
+which in soft like ke is space V okay in
+
+193
+00:10:03,680 --> 00:10:12,320
+V layout space V you can see
+
+194
+00:10:07,800 --> 00:10:15,160
+um you know anyway space V okay so now I
+
+195
+00:10:12,320 --> 00:10:18,800
+call the command to insert tag so I say
+
+196
+00:10:15,160 --> 00:10:22,240
+dive like before enter then it asks me
+
+197
+00:10:18,800 --> 00:10:26,320
+for a class name okay and just say enter
+
+198
+00:10:22,240 --> 00:10:31,720
+ID Auto enter there we have it you got
+
+199
+00:10:26,320 --> 00:10:33,079
+the ID uh random you unique ID unique
+
+200
+00:10:31,720 --> 00:10:36,279
+you know
+
+201
+00:10:33,079 --> 00:10:39,959
+this statistically speaking V are
+
+202
+00:10:36,279 --> 00:10:41,800
+probability this generated string is
+
+203
+00:10:39,959 --> 00:10:45,839
+unique
+
+204
+00:10:41,800 --> 00:10:49,920
+okay the chances that this string is not
+
+205
+00:10:45,839 --> 00:10:54,320
+unique is less than the chances you get
+
+206
+00:10:49,920 --> 00:10:57,160
+Stroke by lightning okay something like
+
+207
+00:10:54,320 --> 00:10:59,720
+that actually maybe I need to add a few
+
+208
+00:10:57,160 --> 00:11:04,000
+more digits hello guys good morning
+
+209
+00:10:59,720 --> 00:11:06,680
+who's here Dam dam hello good morning
+
+210
+00:11:04,000 --> 00:11:10,839
+good afternoon good evening
+
+211
+00:11:06,680 --> 00:11:14,120
+damc I do I just moved to comac from quy
+
+212
+00:11:10,839 --> 00:11:15,800
+it was a pain to leave my 80 W per
+
+213
+00:11:14,120 --> 00:11:19,639
+minute speed
+
+214
+00:11:15,800 --> 00:11:23,880
+okay uh what's the context I forgot but
+
+215
+00:11:19,639 --> 00:11:23,880
+anyway you use coac that's
+
+216
+00:11:27,040 --> 00:11:33,720
+good us um me be or you can
+
+217
+00:11:38,839 --> 00:11:48,440
+be okay so we have a command that adds a
+
+218
+00:11:42,839 --> 00:11:51,639
+ID and class so why do I need to to to
+
+219
+00:11:48,440 --> 00:11:55,320
+um to to write this command add
+
+220
+00:11:51,639 --> 00:12:00,000
+attribute that is when you are on a
+
+221
+00:11:55,320 --> 00:12:03,399
+existing tag for example this this preag
+
+222
+00:12:00,000 --> 00:12:05,920
+let's say I want to add an ID to it you
+
+223
+00:12:03,399 --> 00:12:09,399
+know so I have I got to move the CER to
+
+224
+00:12:05,920 --> 00:12:14,360
+the proper position like here or here
+
+225
+00:12:09,399 --> 00:12:16,120
+then ID equals to oh okay actually that
+
+226
+00:12:14,360 --> 00:12:20,839
+expand to
+
+227
+00:12:16,120 --> 00:12:24,480
+oh that exp to I would okay so but
+
+228
+00:12:20,839 --> 00:12:27,320
+anyway you add ID like that so so I want
+
+229
+00:12:24,480 --> 00:12:29,720
+to kind of Auto automate it I mean it's
+
+230
+00:12:27,320 --> 00:12:32,839
+no big deal but the little things set up
+
+231
+00:12:29,720 --> 00:12:37,600
+so I just press a key it automatically
+
+232
+00:12:32,839 --> 00:12:39,760
+move moves my cser to the current TX uh
+
+233
+00:12:37,600 --> 00:12:42,839
+the current tags so for example if my
+
+234
+00:12:39,760 --> 00:12:46,360
+CER is here the current tag is that span
+
+235
+00:12:42,839 --> 00:12:48,720
+class fold so you'll just move my C to
+
+236
+00:12:46,360 --> 00:12:49,839
+the current TX you know beginning
+
+237
+00:12:48,720 --> 00:12:52,639
+opening
+
+238
+00:12:49,839 --> 00:12:56,680
+tag position and properly you know
+
+239
+00:12:52,639 --> 00:13:00,199
+position inside it then you'll add an ID
+
+240
+00:12:56,680 --> 00:13:03,959
+or class or whatever tag okay
+
+241
+00:13:00,199 --> 00:13:07,279
+and uh and we can also make it pop up
+
+242
+00:13:03,959 --> 00:13:10,680
+just like before you know pop up a
+
+243
+00:13:07,279 --> 00:13:13,600
+selection of choices a menu of the legal
+
+244
+00:13:10,680 --> 00:13:16,560
+TX so this will save you a lot of time
+
+245
+00:13:13,600 --> 00:13:19,839
+so you type D you know then you get all
+
+246
+00:13:16,560 --> 00:13:24,519
+the Val you know only the valid TX that
+
+247
+00:13:19,839 --> 00:13:27,800
+contains the letter D okay so DD for
+
+248
+00:13:24,519 --> 00:13:31,600
+example then you have you know
+
+249
+00:13:27,800 --> 00:13:36,680
+so if if you add that feature
+
+250
+00:13:31,600 --> 00:13:41,160
+then it will only add possible
+
+251
+00:13:36,680 --> 00:13:43,639
+attributes for this specific tag for
+
+252
+00:13:41,160 --> 00:13:47,480
+example if you have a
+
+253
+00:13:43,639 --> 00:13:50,279
+image let's let's say let's copy a image
+
+254
+00:13:47,480 --> 00:13:53,680
+okay let's
+
+255
+00:13:50,279 --> 00:13:58,720
+say let's make a screenshot okay there
+
+256
+00:13:53,680 --> 00:14:02,160
+it is now I there's a command you can I
+
+257
+00:13:58,720 --> 00:14:05,079
+can press a key that image is moved here
+
+258
+00:14:02,160 --> 00:14:08,720
+you can you see it just added that
+
+259
+00:14:05,079 --> 00:14:12,000
+block and you move the cluer there open
+
+260
+00:14:08,720 --> 00:14:14,320
+it there it is this is supremely
+
+261
+00:14:12,000 --> 00:14:17,360
+efficient if you are a blogger you know
+
+262
+00:14:14,320 --> 00:14:19,839
+you just do a screenshot anywhere then
+
+263
+00:14:17,360 --> 00:14:23,399
+press a few Keys it will it will put
+
+264
+00:14:19,839 --> 00:14:26,600
+that screen image with the proper tag
+
+265
+00:14:23,399 --> 00:14:31,040
+into your buffer and that command is of
+
+266
+00:14:26,600 --> 00:14:35,440
+course um that command is here somewhere
+
+267
+00:14:31,040 --> 00:14:37,720
+HTML move image file and and if you look
+
+268
+00:14:35,440 --> 00:14:40,959
+at the pink window most of my commands
+
+269
+00:14:37,720 --> 00:14:42,399
+you can just type of uh you can just
+
+270
+00:14:40,959 --> 00:14:44,880
+search it for
+
+271
+00:14:42,399 --> 00:14:50,560
+example search that command name there
+
+272
+00:14:44,880 --> 00:14:54,399
+it is HTML my tutorial uh there move
+
+273
+00:14:50,560 --> 00:14:57,160
+image file Oro emx oh stupid Brave you
+
+274
+00:14:54,399 --> 00:14:59,759
+know stupid Brave is still using my Ogo
+
+275
+00:14:57,160 --> 00:15:01,959
+emx domain it doesn't
+
+276
+00:14:59,759 --> 00:15:04,560
+uh you know but anyway the link has
+
+277
+00:15:01,959 --> 00:15:07,519
+changed you see so here is a source code
+
+278
+00:15:04,560 --> 00:15:10,560
+you can copy and you will have this
+
+279
+00:15:07,519 --> 00:15:13,560
+feature too wow this is pretty long
+
+280
+00:15:10,560 --> 00:15:13,560
+code
+
+281
+00:15:14,480 --> 00:15:21,759
+uh 100 lines includes several commands
+
+282
+00:15:18,360 --> 00:15:24,519
+because you uh anyway so if you like
+
+283
+00:15:21,759 --> 00:15:27,320
+that feature it's there okay so there's
+
+284
+00:15:24,519 --> 00:15:29,959
+some digression but the digression is
+
+285
+00:15:27,320 --> 00:15:33,600
+relevant because
+
+286
+00:15:29,959 --> 00:15:37,319
+you know because in part I'm marketing s
+
+287
+00:15:33,600 --> 00:15:40,440
+HTML mod you know you pay me and you get
+
+288
+00:15:37,319 --> 00:15:43,480
+it or you can of course get you know
+
+289
+00:15:40,440 --> 00:15:47,600
+just get the some of the commands so
+
+290
+00:15:43,480 --> 00:15:50,519
+there is a uh there it is a image tag so
+
+291
+00:15:47,600 --> 00:15:56,360
+suppose you know so what I'm saying is
+
+292
+00:15:50,519 --> 00:16:00,000
+that in HTML for each tag you have
+
+293
+00:15:56,360 --> 00:16:02,399
+different list of valid add attributes
+
+294
+00:16:00,000 --> 00:16:06,199
+so for image tag you have the source
+
+295
+00:16:02,399 --> 00:16:10,839
+attribute but not for figure tag not for
+
+296
+00:16:06,199 --> 00:16:15,880
+nav tag not for dive tag okay so you
+
+297
+00:16:10,839 --> 00:16:19,199
+know that's part of the HTML so if
+
+298
+00:16:15,880 --> 00:16:19,199
+you don't
+
+299
+00:16:24,079 --> 00:16:29,680
+know oh okay so
+
+300
+00:16:27,600 --> 00:16:33,480
+wait h
+
+301
+00:16:29,680 --> 00:16:37,639
+HTML index okay I have a
+
+302
+00:16:33,480 --> 00:16:42,160
+tutorial of HTML from the ground up
+
+303
+00:16:37,639 --> 00:16:42,160
+because I've been coding HTML
+
+304
+00:16:42,360 --> 00:16:49,399
+manually letter by letter tag by tag the
+
+305
+00:16:46,759 --> 00:16:53,600
+entire thing since
+
+306
+00:16:49,399 --> 00:16:57,079
+1996 basically when HTML
+
+307
+00:16:53,600 --> 00:17:00,440
+begin so okay so if you don't know you
+
+308
+00:16:57,079 --> 00:17:02,480
+can you know check the HTML tutorial so
+
+309
+00:17:00,440 --> 00:17:07,520
+my tutorial is very
+
+310
+00:17:02,480 --> 00:17:11,400
+cold uh cold and uh concise and precise
+
+311
+00:17:07,520 --> 00:17:13,199
+none of the Zoomers fluff like they talk
+
+312
+00:17:11,400 --> 00:17:16,559
+about things you don't need to know like
+
+313
+00:17:13,199 --> 00:17:19,199
+oh by the way HTML is very easy uh you
+
+314
+00:17:16,559 --> 00:17:22,039
+know something something and uh half of
+
+315
+00:17:19,199 --> 00:17:25,959
+the time incorrect
+
+316
+00:17:22,039 --> 00:17:28,280
+information such as the W3 schools you
+
+317
+00:17:25,959 --> 00:17:30,960
+know that that's the website has a story
+
+318
+00:17:28,280 --> 00:17:35,400
+by itself you know it's it's the most
+
+319
+00:17:30,960 --> 00:17:38,960
+hated website in since in the early in
+
+320
+00:17:35,400 --> 00:17:42,720
+in 2000s okay but today the zumas have
+
+321
+00:17:38,960 --> 00:17:46,039
+no idea it was the W3 schools
+
+322
+00:17:42,720 --> 00:17:48,559
+website today Zuma is like oh just go to
+
+323
+00:17:46,039 --> 00:17:50,720
+that website you know but that website
+
+324
+00:17:48,559 --> 00:17:53,559
+was hated by all the
+
+325
+00:17:50,720 --> 00:17:56,919
+programmers you know in the 2000s
+
+326
+00:17:53,559 --> 00:17:59,919
+because it's just filled with incorrect
+
+327
+00:17:56,919 --> 00:18:01,799
+information information but meanwhile
+
+328
+00:17:59,919 --> 00:18:04,440
+all the programming website they are
+
+329
+00:18:01,799 --> 00:18:08,000
+like they are written in a esoteric and
+
+330
+00:18:04,440 --> 00:18:10,679
+holier than th way using lots of jargons
+
+331
+00:18:08,000 --> 00:18:13,640
+you know they they like basically
+
+332
+00:18:10,679 --> 00:18:16,159
+intentionally do it that way so that
+
+333
+00:18:13,640 --> 00:18:18,440
+they can show to their PE you know they
+
+334
+00:18:16,159 --> 00:18:22,000
+are superior they are not really writing
+
+335
+00:18:18,440 --> 00:18:24,960
+it for you so that is why then then you
+
+336
+00:18:22,000 --> 00:18:28,200
+got the other extreme who thinks you are
+
+337
+00:18:24,960 --> 00:18:31,360
+a idiot like the W3 school then you know
+
+338
+00:18:28,200 --> 00:18:33,720
+just the no most basic like uh
+
+339
+00:18:31,360 --> 00:18:36,360
+information anyway that's kind of the
+
+340
+00:18:33,720 --> 00:18:40,080
+history of the online programming
+
+341
+00:18:36,360 --> 00:18:42,200
+tutorials some of it okay so digression
+
+342
+00:18:40,080 --> 00:18:45,400
+so anyway you like my you know if you
+
+343
+00:18:42,200 --> 00:18:48,240
+want to learn HTML here is a source so I
+
+344
+00:18:45,400 --> 00:18:48,240
+was talking
+
+345
+00:18:49,000 --> 00:18:57,840
+about HTML attributes okay basic syntax
+
+346
+00:18:53,880 --> 00:18:57,840
+so basic syntax
+
+347
+00:19:05,600 --> 00:19:12,320
+okay that's a basic HTML markup and then
+
+348
+00:19:08,919 --> 00:19:14,480
+here's a section on elements attribute
+
+349
+00:19:12,320 --> 00:19:19,320
+telling you what it is
+
+350
+00:19:14,480 --> 00:19:23,120
+about okay copy this close Okay so go
+
+351
+00:19:19,320 --> 00:19:26,760
+back here uh let's paste it here link
+
+352
+00:19:23,120 --> 00:19:29,400
+and what is this dive selected delete
+
+353
+00:19:26,760 --> 00:19:33,440
+move here delete move here delete we
+
+354
+00:19:29,400 --> 00:19:36,760
+don't need that showing browser go down
+
+355
+00:19:33,440 --> 00:19:40,360
+and in fact this image I don't need so
+
+356
+00:19:36,760 --> 00:19:43,000
+open it press a few Keys it's deleted
+
+357
+00:19:40,360 --> 00:19:47,400
+you can see in the mini buper then move
+
+358
+00:19:43,000 --> 00:19:50,840
+the cursor here press a key deletes that
+
+359
+00:19:47,400 --> 00:19:52,039
+showing browser okay now we back to code
+
+360
+00:19:50,840 --> 00:19:55,440
+our
+
+361
+00:19:52,039 --> 00:19:58,919
+function Okay add attribute okay so add
+
+362
+00:19:55,440 --> 00:20:01,120
+an attribute to the current HTML tag so
+
+363
+00:19:58,919 --> 00:20:04,240
+let's just code it we've been talking
+
+364
+00:20:01,120 --> 00:20:09,520
+enough search backward so you want to
+
+365
+00:20:04,240 --> 00:20:12,799
+search backward and A to Z something
+
+366
+00:20:09,520 --> 00:20:17,720
+okay so that's basically the beginning
+
+367
+00:20:12,799 --> 00:20:20,840
+of the tag okay bound uh we don't care
+
+368
+00:20:17,720 --> 00:20:23,120
+so search backward then then your
+
+369
+00:20:20,840 --> 00:20:27,480
+Cruiser is at at the beginning of the
+
+370
+00:20:23,120 --> 00:20:33,640
+tag then then just forward
+
+371
+00:20:27,480 --> 00:20:37,600
+okay and uh okay uh okay forward word
+
+372
+00:20:33,640 --> 00:20:37,600
+yeah let's just do that
+
+373
+00:20:37,640 --> 00:20:44,240
+then and then your cluer will be at that
+
+374
+00:20:41,559 --> 00:20:47,200
+position then but what you want to what
+
+375
+00:20:44,240 --> 00:20:50,120
+kind of attribute you want to
+
+376
+00:20:47,200 --> 00:20:54,480
+add I don't know
+
+377
+00:20:50,120 --> 00:20:58,000
+so but let's compact the code eval
+
+378
+00:20:54,480 --> 00:21:01,960
+evaluate the code we can try it now CA
+
+379
+00:20:58,000 --> 00:21:05,760
+add HT ml okay for example let's open
+
+380
+00:21:01,960 --> 00:21:08,880
+today's so let's say my brow uh let's
+
+381
+00:21:05,760 --> 00:21:12,919
+say my cluer is here so I call the
+
+382
+00:21:08,880 --> 00:21:15,440
+command HTML add attribute do
+
+383
+00:21:12,919 --> 00:21:19,320
+it search
+
+384
+00:21:15,440 --> 00:21:22,080
+fail oh obviously I know why because you
+
+385
+00:21:19,320 --> 00:21:25,480
+want search backward by regular
+
+386
+00:21:22,080 --> 00:21:28,840
+expression not by PL text okay let's fix
+
+387
+00:21:25,480 --> 00:21:31,919
+it research backward
+
+388
+00:21:28,840 --> 00:21:35,600
+that stands for regular expression okay
+
+389
+00:21:31,919 --> 00:21:38,480
+so copy that put that here and we don't
+
+390
+00:21:35,600 --> 00:21:42,679
+care about that delete delete predy the
+
+391
+00:21:38,480 --> 00:21:47,760
+code eval the buffer go back to the HTML
+
+392
+00:21:42,679 --> 00:21:51,720
+open it now meta X do it you see it
+
+393
+00:21:47,760 --> 00:21:54,080
+moves the coer to that right place um so
+
+394
+00:21:51,720 --> 00:21:57,400
+then you want to
+
+395
+00:21:54,080 --> 00:22:00,400
+insert should it always at the beginning
+
+396
+00:21:57,400 --> 00:22:02,080
+uh okay
+
+397
+00:22:00,400 --> 00:22:05,640
+no
+
+398
+00:22:02,080 --> 00:22:08,600
+so okay so move the cluer there and move
+
+399
+00:22:05,640 --> 00:22:11,120
+the CER and move cluer here and add a
+
+400
+00:22:08,600 --> 00:22:14,400
+space okay that's what we're going to
+
+401
+00:22:11,120 --> 00:22:17,480
+do so go back close this one go back to
+
+402
+00:22:14,400 --> 00:22:20,520
+here so move
+
+403
+00:22:17,480 --> 00:22:24,799
+forward uh so
+
+404
+00:22:20,520 --> 00:22:29,520
+wait then search forward search forward
+
+405
+00:22:24,799 --> 00:22:34,919
+by that okay that will be at at the end
+
+406
+00:22:29,520 --> 00:22:38,240
+of the opening tag okay then backward
+
+407
+00:22:34,919 --> 00:22:43,120
+CH backward move backward one CH
+
+408
+00:22:38,240 --> 00:22:47,120
+character insert insert a space okay
+
+409
+00:22:43,120 --> 00:22:51,080
+then we are ready pedify the code eval
+
+410
+00:22:47,120 --> 00:22:53,480
+the buffer go back to the code now watch
+
+411
+00:22:51,080 --> 00:22:58,559
+the cruiser is right here okay call the
+
+412
+00:22:53,480 --> 00:23:02,279
+command do it fantastic undo let's try
+
+413
+00:22:58,559 --> 00:23:06,440
+right here color command do
+
+414
+00:23:02,279 --> 00:23:09,840
+it the cruiser is moved to that position
+
+415
+00:23:06,440 --> 00:23:12,240
+fantastic let's try it on the UL okay
+
+416
+00:23:09,840 --> 00:23:16,720
+let's let's say I put a cruiser here you
+
+417
+00:23:12,240 --> 00:23:18,919
+see Ur is a list unordered list let's
+
+418
+00:23:16,720 --> 00:23:23,080
+put the CER here let's see what
+
+419
+00:23:18,919 --> 00:23:27,320
+happens do it fantastic and beautiful
+
+420
+00:23:23,080 --> 00:23:29,240
+okay that's one step done now before we
+
+421
+00:23:27,320 --> 00:23:31,200
+code anything further let's add a
+
+422
+00:23:29,240 --> 00:23:34,640
+keystroke to it so we don't have to
+
+423
+00:23:31,200 --> 00:23:38,720
+every time uh uh let's add a keystroke
+
+424
+00:23:34,640 --> 00:23:41,480
+later later okay let's add a key binding
+
+425
+00:23:38,720 --> 00:23:43,640
+later okay what's the next well the next
+
+426
+00:23:41,480 --> 00:23:47,159
+thing is that what what kind of thing
+
+427
+00:23:43,640 --> 00:23:51,840
+you want to add so let's just say for
+
+428
+00:23:47,159 --> 00:23:57,720
+now uh you know just for uh let's
+
+429
+00:23:51,840 --> 00:24:02,320
+say insert ID XYZ okay uh let's not XYZ
+
+430
+00:23:57,720 --> 00:24:04,720
+well let's XX okay now you need to in
+
+431
+00:24:02,320 --> 00:24:07,120
+inp when you have a
+
+432
+00:24:04,720 --> 00:24:10,559
+string when you have a double quote
+
+433
+00:24:07,120 --> 00:24:13,640
+inside the string you need to escape it
+
+434
+00:24:10,559 --> 00:24:16,480
+so press a key press a key press a key
+
+435
+00:24:13,640 --> 00:24:18,799
+no that's not that's the wrong key press
+
+436
+00:24:16,480 --> 00:24:22,120
+press press that's the wrong key I
+
+437
+00:24:18,799 --> 00:24:27,720
+forgot what's the key Escape
+
+438
+00:24:22,120 --> 00:24:29,720
+Cotes okay space TR cancel space TR
+
+439
+00:24:27,720 --> 00:24:32,679
+fantastic
+
+440
+00:24:29,720 --> 00:24:35,320
+magnify so you need that so that will
+
+441
+00:24:32,679 --> 00:24:40,080
+just insert ID okay prettyy the code
+
+442
+00:24:35,320 --> 00:24:44,760
+eval go back here uh let's try here okay
+
+443
+00:24:40,080 --> 00:24:44,760
+now this H this is
+
+444
+00:24:46,120 --> 00:24:54,480
+tricky okay so if your Cruiser is at at
+
+445
+00:24:51,240 --> 00:24:57,320
+inside un closing tag it will move to
+
+446
+00:24:54,480 --> 00:24:59,840
+the wrong place okay but let's try the
+
+447
+00:24:57,320 --> 00:25:04,320
+correct situation first okay let's try
+
+448
+00:24:59,840 --> 00:25:07,919
+it do it you see added ID fantastic but
+
+449
+00:25:04,320 --> 00:25:11,159
+now if your curer is let's say here okay
+
+450
+00:25:07,919 --> 00:25:15,240
+it's going to it's going to go
+
+451
+00:25:11,159 --> 00:25:19,720
+to here which is incorrect let's try it
+
+452
+00:25:15,240 --> 00:25:24,279
+do it do it you see that's incorrect so
+
+453
+00:25:19,720 --> 00:25:27,320
+let's fix that so this is will involve a
+
+454
+00:25:24,279 --> 00:25:30,799
+slight HTML
+
+455
+00:25:27,320 --> 00:25:34,559
+passing so instead of search backward
+
+456
+00:25:30,799 --> 00:25:37,679
+you want to okay so let me show you how
+
+457
+00:25:34,559 --> 00:25:41,240
+to fix this search backward just search
+
+458
+00:25:37,679 --> 00:25:44,240
+for that and
+
+459
+00:25:41,240 --> 00:25:48,360
+uh oh
+
+460
+00:25:44,240 --> 00:25:53,320
+God okay now this is a bit complex it's
+
+461
+00:25:48,360 --> 00:25:56,520
+not so easy to fix naively okay you
+
+462
+00:25:53,320 --> 00:25:58,360
+actually need to have a mechanism to
+
+463
+00:25:56,520 --> 00:26:01,159
+actually
+
+464
+00:25:58,360 --> 00:26:03,919
+stand the N thing you cannot just
+
+465
+00:26:01,159 --> 00:26:06,200
+plainly search for beginning of a tag
+
+466
+00:26:03,919 --> 00:26:10,720
+because if your
+
+467
+00:26:06,200 --> 00:26:15,240
+tag is at a position such
+
+468
+00:26:10,720 --> 00:26:17,440
+that it's right after a closing tag then
+
+469
+00:26:15,240 --> 00:26:21,679
+you need
+
+470
+00:26:17,440 --> 00:26:23,480
+to move to that that closing tag
+
+471
+00:26:21,679 --> 00:26:27,080
+beginning tag you
+
+472
+00:26:23,480 --> 00:26:29,000
+see you see so if your cluer is here you
+
+473
+00:26:27,080 --> 00:26:32,039
+need to move there
+
+474
+00:26:29,000 --> 00:26:36,480
+that is your opening tag okay not that
+
+475
+00:26:32,039 --> 00:26:39,120
+not that okay not that not that or for
+
+476
+00:26:36,480 --> 00:26:42,000
+example if you are at here
+
+477
+00:26:39,120 --> 00:26:44,320
+men for example let's call the command
+
+478
+00:26:42,000 --> 00:26:47,640
+when when when our cluer at is at the
+
+479
+00:26:44,320 --> 00:26:51,640
+closing of men it will let's see what
+
+480
+00:26:47,640 --> 00:26:54,360
+happens so ideally it should to go to
+
+481
+00:26:51,640 --> 00:26:57,039
+the beginning of men oh wait you see
+
+482
+00:26:54,360 --> 00:27:00,600
+beginning of men you see I can jump to
+
+483
+00:26:57,039 --> 00:27:02,200
+the opening tag go close closing
+
+484
+00:27:00,600 --> 00:27:06,000
+tag
+
+485
+00:27:02,200 --> 00:27:10,559
+ideally uh got wrong key
+
+486
+00:27:06,000 --> 00:27:15,279
+I okay press press okay press press
+
+487
+00:27:10,559 --> 00:27:19,399
+because the arrow key is here so it's a
+
+488
+00:27:15,279 --> 00:27:22,480
+slightly some reach so ideally you'll
+
+489
+00:27:19,399 --> 00:27:26,200
+move the cruiser here and insert an ID
+
+490
+00:27:22,480 --> 00:27:28,760
+there okay but let's try what happens
+
+491
+00:27:26,200 --> 00:27:32,919
+okay call it call it
+
+492
+00:27:28,760 --> 00:27:35,960
+you see incorrect you see it went from
+
+493
+00:27:32,919 --> 00:27:39,720
+here to there
+
+494
+00:27:35,960 --> 00:27:42,000
+so so how do you fix it okay let's go
+
+495
+00:27:39,720 --> 00:27:44,279
+back to the code so basically you need
+
+496
+00:27:42,000 --> 00:27:47,080
+to
+
+497
+00:27:44,279 --> 00:27:51,600
+determine uh it's a bit involved you
+
+498
+00:27:47,080 --> 00:27:55,200
+need to determine whether your curser is
+
+499
+00:27:51,600 --> 00:28:00,120
+currently inside a tag inside a closing
+
+500
+00:27:55,200 --> 00:28:02,200
+tag or end tag that's one case or if
+
+501
+00:28:00,120 --> 00:28:05,600
+your Cruiser is between
+
+502
+00:28:02,200 --> 00:28:08,480
+tags so for example if your Cruiser is
+
+503
+00:28:05,600 --> 00:28:10,120
+inside the tag may it be an ending tag
+
+504
+00:28:08,480 --> 00:28:13,960
+or may it be
+
+505
+00:28:10,120 --> 00:28:17,039
+a beginning tag then you have to
+
+506
+00:28:13,960 --> 00:28:19,240
+determine which if it's the ending tag
+
+507
+00:28:17,039 --> 00:28:22,039
+then you simply jump to the beginning
+
+508
+00:28:19,240 --> 00:28:24,320
+tag if it's in the beginning tag then
+
+509
+00:28:22,039 --> 00:28:29,039
+you are good then you just add the ID
+
+510
+00:28:24,320 --> 00:28:32,120
+somewhere here okay that is a case
+
+511
+00:28:29,039 --> 00:28:35,120
+if your Cruiser is inside a opening tag
+
+512
+00:28:32,120 --> 00:28:38,120
+and closing or clap closing tag now what
+
+513
+00:28:35,120 --> 00:28:41,000
+if your Cruiser is not inside any of
+
+514
+00:28:38,120 --> 00:28:43,840
+opening or closing tag but it is inside
+
+515
+00:28:41,000 --> 00:28:49,880
+some kind of inner text so right like
+
+516
+00:28:43,840 --> 00:28:52,760
+for example here or here or here or here
+
+517
+00:28:49,880 --> 00:28:56,799
+or here you know it's not inside a you
+
+518
+00:28:52,760 --> 00:28:58,880
+know tag so in that case you need to go
+
+519
+00:28:56,799 --> 00:29:01,880
+to the IM
+
+520
+00:28:58,880 --> 00:29:06,399
+immediate opening or closing
+
+521
+00:29:01,880 --> 00:29:08,480
+tag uh well in that case oh God in that
+
+522
+00:29:06,399 --> 00:29:11,200
+case you need to find out what is the
+
+523
+00:29:08,480 --> 00:29:13,880
+parent tag of the inner
+
+524
+00:29:11,200 --> 00:29:17,519
+text oh God
+
+525
+00:29:13,880 --> 00:29:22,320
+that's that's that is
+
+526
+00:29:17,519 --> 00:29:26,320
+involved in fact I uh yeah I do have the
+
+527
+00:29:22,320 --> 00:29:29,600
+code but the code is fairly complex like
+
+528
+00:29:26,320 --> 00:29:32,399
+50 lines or something
+
+529
+00:29:29,600 --> 00:29:32,399
+uh
+
+530
+00:29:34,039 --> 00:29:38,679
+okay so let's write it out
+
+531
+00:29:38,919 --> 00:29:49,039
+okay first determine if curer is inside
+
+532
+00:29:44,559 --> 00:29:55,120
+a opening tag or closing
+
+533
+00:29:49,039 --> 00:29:55,120
+tag if opening then use
+
+534
+00:29:56,240 --> 00:30:05,120
+that if close
+
+535
+00:29:59,799 --> 00:30:09,039
+then jump to the opening tag okay then
+
+536
+00:30:05,120 --> 00:30:09,039
+you insert the ID somewhere
+
+537
+00:30:09,240 --> 00:30:18,640
+there but
+
+538
+00:30:11,279 --> 00:30:20,640
+if but if CER is not in any opening or
+
+539
+00:30:18,640 --> 00:30:26,440
+closing
+
+540
+00:30:20,640 --> 00:30:28,960
+tag thus therefore it is in an
+
+541
+00:30:26,440 --> 00:30:31,799
+inner text
+
+542
+00:30:28,960 --> 00:30:34,440
+you know that's a HTML technical jargon
+
+543
+00:30:31,799 --> 00:30:38,799
+because there's a property in Dome
+
+544
+00:30:34,440 --> 00:30:41,480
+called inner text so so if it's not in
+
+545
+00:30:38,799 --> 00:30:48,960
+opening close closing tag then it's in a
+
+546
+00:30:41,480 --> 00:30:53,320
+in a text of su tag then you need to
+
+547
+00:30:48,960 --> 00:30:56,200
+find what is that tag okay now this case
+
+548
+00:30:53,320 --> 00:30:59,000
+will be a bit
+
+549
+00:30:56,200 --> 00:31:02,360
+complicated but we have to C it okay
+
+550
+00:30:59,000 --> 00:31:05,039
+let's I guess let's code it then damn it
+
+551
+00:31:02,360 --> 00:31:09,399
+damn sick hey
+
+552
+00:31:05,039 --> 00:31:12,200
+wz n good morning D says try F7 is
+
+553
+00:31:09,399 --> 00:31:18,960
+equivalent to space
+
+554
+00:31:12,200 --> 00:31:18,960
+yes yeah F7 is in Sly Keys is the same
+
+555
+00:31:19,039 --> 00:31:22,480
+space What
+
+556
+00:31:22,720 --> 00:31:29,679
+uh is it not possible to call the other
+
+557
+00:31:25,960 --> 00:31:32,679
+side HTML commands inside this one it is
+
+558
+00:31:29,679 --> 00:31:32,679
+possible
+
+559
+00:31:40,840 --> 00:31:48,559
+uh yeah it is possible so so I mean the
+
+560
+00:31:45,240 --> 00:31:49,730
+the situation is that the code is
+
+561
+00:31:48,559 --> 00:31:51,360
+not
+
+562
+00:31:49,730 --> 00:31:54,120
+[Music]
+
+563
+00:31:51,360 --> 00:31:56,720
+too I mean the situation is basically I
+
+564
+00:31:54,120 --> 00:32:00,120
+don't have a standalone command that
+
+565
+00:31:56,720 --> 00:32:02,360
+says go jump to the parent tag I've been
+
+566
+00:32:00,120 --> 00:32:05,360
+wanting to code that for a while so
+
+567
+00:32:02,360 --> 00:32:09,080
+maybe actually yeah that's one that will
+
+568
+00:32:05,360 --> 00:32:12,039
+be one live stream so you want to write
+
+569
+00:32:09,080 --> 00:32:15,960
+write a command that jumps to the parent
+
+570
+00:32:12,039 --> 00:32:18,960
+tag okay in if you are doing JavaScript
+
+571
+00:32:15,960 --> 00:32:22,080
+then it's supremely easy okay let me
+
+572
+00:32:18,960 --> 00:32:25,159
+demonstrate let me show you guys my
+
+573
+00:32:22,080 --> 00:32:29,200
+JavaScript in depth recently I've been
+
+574
+00:32:25,159 --> 00:32:34,480
+updating a lot you know last month
+
+575
+00:32:29,200 --> 00:32:38,240
+so you got JavaScript in depth pay me to
+
+576
+00:32:34,480 --> 00:32:41,679
+get it on your computer or raw HTML so
+
+577
+00:32:38,240 --> 00:32:45,159
+you have instantaneous access to about
+
+578
+00:32:41,679 --> 00:32:49,240
+600 Pages including all references on
+
+579
+00:32:45,159 --> 00:32:53,760
+JavaScript objects such as array methods
+
+580
+00:32:49,240 --> 00:32:57,760
+map for each field from you know concise
+
+581
+00:32:53,760 --> 00:33:00,000
+precise 100% correct and most easy to
+
+582
+00:32:57,760 --> 00:33:02,120
+understand understand and no [ __ ]
+
+583
+00:33:00,000 --> 00:33:05,279
+jargons no
+
+584
+00:33:02,120 --> 00:33:07,440
+open-source propaganda marketing oh by
+
+585
+00:33:05,279 --> 00:33:10,440
+the way you should open source this all
+
+586
+00:33:07,440 --> 00:33:12,480
+you know no and no deep State connection
+
+587
+00:33:10,440 --> 00:33:14,760
+like the Mozilla you know
+
+588
+00:33:12,480 --> 00:33:17,360
+Mozilla that's another story you know
+
+589
+00:33:14,760 --> 00:33:19,799
+you wonder why is mosil so popular in
+
+590
+00:33:17,360 --> 00:33:22,960
+fact about five years ago Microsoft
+
+591
+00:33:19,799 --> 00:33:25,240
+killed their JavaScript tutorial
+
+592
+00:33:22,960 --> 00:33:28,639
+Microsoft did and and I think Google did
+
+593
+00:33:25,240 --> 00:33:31,039
+that but so basically they are all just
+
+594
+00:33:28,639 --> 00:33:35,519
+promoting the Mozilla you know MD and
+
+595
+00:33:31,039 --> 00:33:37,679
+the Firefox JavaScript um
+
+596
+00:33:35,519 --> 00:33:39,840
+documentation well I anyway that's
+
+597
+00:33:37,679 --> 00:33:43,320
+another story
+
+598
+00:33:39,840 --> 00:33:45,559
+okay uh but still it's pretty lousy
+
+599
+00:33:43,320 --> 00:33:49,399
+anyway I talked about that in other in
+
+600
+00:33:45,559 --> 00:33:52,600
+other video so in so if you are coding
+
+601
+00:33:49,399 --> 00:33:55,639
+JavaScript there's also Dome there is a
+
+602
+00:33:52,600 --> 00:33:59,080
+easy trivial command to jump to a parent
+
+603
+00:33:55,639 --> 00:34:02,600
+tag so get parent not you know not that
+
+604
+00:33:59,080 --> 00:34:04,760
+parent element you know building in the
+
+605
+00:34:02,600 --> 00:34:07,960
+browser
+
+606
+00:34:04,760 --> 00:34:11,679
+engine you know so all these passing
+
+607
+00:34:07,960 --> 00:34:14,520
+complex HT HTML you know ideally it's
+
+608
+00:34:11,679 --> 00:34:15,879
+very simple but in fact it's the most
+
+609
+00:34:14,520 --> 00:34:18,440
+[ __ ]
+
+610
+00:34:15,879 --> 00:34:21,960
+possible uh but anyway so there's a
+
+611
+00:34:18,440 --> 00:34:26,200
+building but since we are you know since
+
+612
+00:34:21,960 --> 00:34:30,040
+emac this is not a JavaScript engine so
+
+613
+00:34:26,200 --> 00:34:32,159
+you have to pause it so basically the so
+
+614
+00:34:30,040 --> 00:34:33,159
+okay let go back so I do have a command
+
+615
+00:34:32,159 --> 00:34:36,280
+that kind
+
+616
+00:34:33,159 --> 00:34:38,639
+of for example this command is called
+
+617
+00:34:36,280 --> 00:34:42,839
+HTML select
+
+618
+00:34:38,639 --> 00:34:46,839
+element so for example if my cruiser is
+
+619
+00:34:42,839 --> 00:34:50,280
+here it will select the parent you know
+
+620
+00:34:46,839 --> 00:34:51,679
+so essentially if my cruiser is is in
+
+621
+00:34:50,280 --> 00:34:56,480
+any inner
+
+622
+00:34:51,679 --> 00:34:58,520
+text it will select it you know see so
+
+623
+00:34:56,480 --> 00:35:01,680
+yeah so actually I can use that command
+
+624
+00:34:58,520 --> 00:35:04,680
+thank you so for example if my cruiser
+
+625
+00:35:01,680 --> 00:35:08,200
+is inside a closing
+
+626
+00:35:04,680 --> 00:35:10,720
+tag press it you'll select that whole
+
+627
+00:35:08,200 --> 00:35:14,160
+closing I mean whole tag but if my
+
+628
+00:35:10,720 --> 00:35:16,760
+cruiser is at the opening tag press it
+
+629
+00:35:14,160 --> 00:35:19,599
+you also select it but what if my
+
+630
+00:35:16,760 --> 00:35:22,560
+cruiser is not inside a closing tag or
+
+631
+00:35:19,599 --> 00:35:24,960
+opening tag but in a inner text then
+
+632
+00:35:22,560 --> 00:35:27,040
+you'll just select the parent tag and
+
+633
+00:35:24,960 --> 00:35:29,079
+there are several cases for example
+
+634
+00:35:27,040 --> 00:35:32,560
+there's one case there there's a
+
+635
+00:35:29,079 --> 00:35:35,560
+different situation if your Cruiser is
+
+636
+00:35:32,560 --> 00:35:38,440
+here uh yeah
+
+637
+00:35:35,560 --> 00:35:41,160
+because when your Cruiser is here the
+
+638
+00:35:38,440 --> 00:35:43,920
+tag to the left is a closing tag but
+
+639
+00:35:41,160 --> 00:35:46,920
+when your Cruiser is here the tag to the
+
+640
+00:35:43,920 --> 00:35:49,599
+left is opening tag so it gets a little
+
+641
+00:35:46,920 --> 00:35:52,760
+bit complicated okay so I do have a
+
+642
+00:35:49,599 --> 00:35:57,640
+command so actually I can just use this
+
+643
+00:35:52,760 --> 00:36:01,040
+command so let's go back here so um so
+
+644
+00:35:57,640 --> 00:36:04,040
+so what do you have to do Jesus
+
+645
+00:36:01,040 --> 00:36:06,319
+God uh so actually so let me show you
+
+646
+00:36:04,040 --> 00:36:09,040
+the source code for that command
+
+647
+00:36:06,319 --> 00:36:13,000
+describe key press the
+
+648
+00:36:09,040 --> 00:36:17,640
+key uh yeah there it is HTML select that
+
+649
+00:36:13,000 --> 00:36:21,359
+one okay go to it there it is expand the
+
+650
+00:36:17,640 --> 00:36:26,119
+window so you can see this
+
+651
+00:36:21,359 --> 00:36:28,400
+is quite a few lines of Co I mean copy
+
+652
+00:36:26,119 --> 00:36:32,880
+it new buffer paste
+
+653
+00:36:28,400 --> 00:36:38,040
+60 lines of code uh make it emac this
+
+654
+00:36:32,880 --> 00:36:41,920
+mod okay so you got color so and then it
+
+655
+00:36:38,040 --> 00:36:46,800
+is coding several other commands to you
+
+656
+00:36:41,920 --> 00:36:48,839
+know if HTML tag is self closing tag you
+
+657
+00:36:46,800 --> 00:36:52,319
+have to check if it's self closing or
+
+658
+00:36:48,839 --> 00:36:56,160
+not then get tag name you know you need
+
+659
+00:36:52,319 --> 00:36:59,400
+to get tag name get tag position and
+
+660
+00:36:56,160 --> 00:37:02,960
+then you you know if it is opening tag
+
+661
+00:36:59,400 --> 00:37:06,160
+is true then you do this and then you
+
+662
+00:37:02,960 --> 00:37:07,599
+skip tag forward and you also skip tag
+
+663
+00:37:06,160 --> 00:37:10,040
+backward
+
+664
+00:37:07,599 --> 00:37:13,119
+there uh
+
+665
+00:37:10,040 --> 00:37:16,560
+then then you check if self closing not
+
+666
+00:37:13,119 --> 00:37:19,720
+so you you got several cases you know
+
+667
+00:37:16,560 --> 00:37:21,520
+so yeah but I can yeah okay yeah
+
+668
+00:37:19,720 --> 00:37:25,760
+actually we can use
+
+669
+00:37:21,520 --> 00:37:28,680
+this let's let's use that okay
+
+670
+00:37:25,760 --> 00:37:30,960
+fantastic okay let's go back here go
+
+671
+00:37:28,680 --> 00:37:35,520
+back here
+
+672
+00:37:30,960 --> 00:37:36,760
+so so what is it we want to do now ch ch
+
+673
+00:37:35,520 --> 00:37:39,760
+thank you
+
+674
+00:37:36,760 --> 00:37:39,760
+Chris
+
+675
+00:37:43,560 --> 00:37:49,480
+heavy do you have any questions Chris
+
+676
+00:37:46,920 --> 00:37:52,920
+okay so let's let's continue with the
+
+677
+00:37:49,480 --> 00:37:56,119
+Lis uh yeah let's finish the lisp it's
+
+678
+00:37:52,920 --> 00:37:58,640
+been 40 minutes okay let's
+
+679
+00:37:56,119 --> 00:38:02,760
+um so
+
+680
+00:37:58,640 --> 00:38:05,960
+so okay so let's see because is inside
+
+681
+00:38:02,760 --> 00:38:05,960
+inte tag cling
+
+682
+00:38:16,720 --> 00:38:21,760
+tag yeah we can just do this so this
+
+683
+00:38:19,720 --> 00:38:24,520
+will actually
+
+684
+00:38:21,760 --> 00:38:27,880
+guarantee yeah this yeah
+
+685
+00:38:24,520 --> 00:38:31,839
+okay X begin
+
+686
+00:38:27,880 --> 00:38:34,680
+X and okay
+
+687
+00:38:31,839 --> 00:38:38,960
+then call this
+
+688
+00:38:34,680 --> 00:38:41,640
+command okay uh and hold on a second
+
+689
+00:38:38,960 --> 00:38:47,480
+sequence let
+
+690
+00:38:41,640 --> 00:38:51,119
+wait sequence set okay set two
+
+691
+00:38:47,480 --> 00:38:51,119
+variables this two
+
+692
+00:38:51,520 --> 00:38:58,280
+variables okay here these two variables
+
+693
+00:38:55,640 --> 00:39:00,960
+to the result of that that returns a
+
+694
+00:38:58,280 --> 00:39:04,520
+vector
+
+695
+00:39:00,960 --> 00:39:05,800
+okay so now we got the position of the
+
+696
+00:39:04,520 --> 00:39:08,599
+par you know
+
+697
+00:39:05,800 --> 00:39:10,839
+whatever the parent tag or whatever is a
+
+698
+00:39:08,599 --> 00:39:14,280
+tag of the current tag B basically the
+
+699
+00:39:10,839 --> 00:39:17,000
+beginning position of the current
+
+700
+00:39:14,280 --> 00:39:20,359
+tag and so we don't need this search
+
+701
+00:39:17,000 --> 00:39:22,359
+this manual search things anymore uh
+
+702
+00:39:20,359 --> 00:39:27,440
+actually we we
+
+703
+00:39:22,359 --> 00:39:31,599
+we then I mean over here we go to charm
+
+704
+00:39:27,440 --> 00:39:35,880
+go to char X begin go to the beginning
+
+705
+00:39:31,599 --> 00:39:38,440
+position of the opening tag okay uh
+
+706
+00:39:35,880 --> 00:39:41,480
+there's one more thing we need to do we
+
+707
+00:39:38,440 --> 00:39:46,040
+need to this actually make the region
+
+708
+00:39:41,480 --> 00:39:49,440
+active so we want to deactivate the
+
+709
+00:39:46,040 --> 00:39:52,720
+region uh what does that mean uh okay so
+
+710
+00:39:49,440 --> 00:39:58,400
+you can go to emx blog emac this
+
+711
+00:39:52,720 --> 00:40:02,680
+tutorial and section Mark and region
+
+712
+00:39:58,400 --> 00:40:07,440
+uh so deactivate Mark that's what that's
+
+713
+00:40:02,680 --> 00:40:10,280
+a command you want okay close that
+
+714
+00:40:07,440 --> 00:40:13,560
+deactivate Mark
+
+715
+00:40:10,280 --> 00:40:16,960
+okay deactivate
+
+716
+00:40:13,560 --> 00:40:19,920
+Mark there it is okay is there an is
+
+717
+00:40:16,960 --> 00:40:22,880
+there argument no you don't need okay
+
+718
+00:40:19,920 --> 00:40:28,160
+then go to the beginning of the
+
+719
+00:40:22,880 --> 00:40:30,880
+position uh then then you just search
+
+720
+00:40:28,160 --> 00:40:33,880
+forward to go to the end of tag then
+
+721
+00:40:30,880 --> 00:40:38,480
+just everything like before okay so that
+
+722
+00:40:33,880 --> 00:40:40,599
+is it shrink a little bit that's it eval
+
+723
+00:40:38,480 --> 00:40:43,960
+the
+
+724
+00:40:40,599 --> 00:40:47,560
+buer okay eval the buer then what do we
+
+725
+00:40:43,960 --> 00:40:47,560
+do we can try it now
+
+726
+00:40:48,040 --> 00:40:53,520
+so you know let's see what happens if
+
+727
+00:40:50,520 --> 00:40:55,800
+you call it now you see so right now
+
+728
+00:40:53,520 --> 00:41:00,160
+your tag
+
+729
+00:40:55,800 --> 00:41:05,359
+is an in the in the tag I mean in the
+
+730
+00:41:00,160 --> 00:41:08,359
+text of the men so if your curer is here
+
+731
+00:41:05,359 --> 00:41:11,800
+or here it will actually add I mean the
+
+732
+00:41:08,359 --> 00:41:14,920
+proper you know the expected lo location
+
+733
+00:41:11,800 --> 00:41:17,400
+is actually here because the parent of
+
+734
+00:41:14,920 --> 00:41:21,319
+this position is the main okay let's try
+
+735
+00:41:17,400 --> 00:41:24,319
+it do it do
+
+736
+00:41:21,319 --> 00:41:24,319
+it
+
+737
+00:41:25,640 --> 00:41:29,240
+incorrect what
+
+738
+00:41:31,240 --> 00:41:36,839
+okay let's try it again do it do it
+
+739
+00:41:34,040 --> 00:41:37,839
+incorrect did we Evol the buffer Evol
+
+740
+00:41:36,839 --> 00:41:41,680
+the
+
+741
+00:41:37,839 --> 00:41:46,520
+buffer try it again cor it do
+
+742
+00:41:41,680 --> 00:41:49,560
+it okay in correct wait oh wait actually
+
+743
+00:41:46,520 --> 00:41:52,760
+if you select it yeah that's right
+
+744
+00:41:49,560 --> 00:41:56,040
+actually this is a better Behavior you
+
+745
+00:41:52,760 --> 00:41:58,359
+know you don't this is a better Behavior
+
+746
+00:41:56,040 --> 00:42:02,640
+you want to
+
+747
+00:41:58,359 --> 00:42:06,520
+you you want to the current tag is meant
+
+748
+00:42:02,640 --> 00:42:07,280
+to be the tag the the immediate tag on
+
+749
+00:42:06,520 --> 00:42:11,520
+the
+
+750
+00:42:07,280 --> 00:42:14,280
+left and the opening of it so okay so
+
+751
+00:42:11,520 --> 00:42:17,920
+that is correct okay cor it do it
+
+752
+00:42:14,280 --> 00:42:22,160
+fantastic undo let's say my cruiser is
+
+753
+00:42:17,920 --> 00:42:26,119
+here Co it do it fantastic which is
+
+754
+00:42:22,160 --> 00:42:30,040
+correct okay undo let's say my cruiser
+
+755
+00:42:26,119 --> 00:42:31,680
+is here code it do it fantastic
+
+756
+00:42:30,040 --> 00:42:33,680
+undo
+
+757
+00:42:31,680 --> 00:42:36,480
+magnify let's
+
+758
+00:42:33,680 --> 00:42:39,599
+say let's say where do I want to let's
+
+759
+00:42:36,480 --> 00:42:43,359
+say my Cru is here call it it should add
+
+760
+00:42:39,599 --> 00:42:46,160
+to the pre- tag okay do it
+
+761
+00:42:43,359 --> 00:42:50,040
+fantastic what about my tag is already
+
+762
+00:42:46,160 --> 00:42:53,200
+inside a opening tag cor it do it
+
+763
+00:42:50,040 --> 00:42:59,480
+fantastic correct what about here call
+
+764
+00:42:53,200 --> 00:43:02,880
+it do it fantastic Okay so that fix that
+
+765
+00:42:59,480 --> 00:43:06,800
+next right now I'm we are always adding
+
+766
+00:43:02,880 --> 00:43:08,800
+an ID element but should it always be ID
+
+767
+00:43:06,800 --> 00:43:12,960
+of course not sometimes you want to add
+
+768
+00:43:08,800 --> 00:43:16,040
+class or or so what do you want to do so
+
+769
+00:43:12,960 --> 00:43:19,079
+I mean so this is uh first the first
+
+770
+00:43:16,040 --> 00:43:21,559
+thing to think about is design Choice
+
+771
+00:43:19,079 --> 00:43:26,119
+what exactly you want you know suppose
+
+772
+00:43:21,559 --> 00:43:29,400
+now you are guard you can flip a finger
+
+773
+00:43:26,119 --> 00:43:30,960
+and have the design IR code but what
+
+774
+00:43:29,400 --> 00:43:34,599
+kind of thing you want to do that's the
+
+775
+00:43:30,960 --> 00:43:37,480
+first thing design issue okay do you
+
+776
+00:43:34,599 --> 00:43:40,480
+want to like prompt user what kind of
+
+777
+00:43:37,480 --> 00:43:44,720
+tag you want to add or do you want
+
+778
+00:43:40,480 --> 00:43:47,839
+automatically just add an ID or you know
+
+779
+00:43:44,720 --> 00:43:51,240
+whatever is the most commonly used just
+
+780
+00:43:47,839 --> 00:43:54,280
+inserted it because once you insert the
+
+781
+00:43:51,240 --> 00:43:58,119
+tag let's say for example let's put here
+
+782
+00:43:54,280 --> 00:44:02,400
+Cod command do it you see most of the
+
+783
+00:43:58,119 --> 00:44:05,440
+time you really just I I mean like 99%
+
+784
+00:44:02,400 --> 00:44:07,800
+of the time you just want to add a class
+
+785
+00:44:05,440 --> 00:44:07,800
+or
+
+786
+00:44:08,160 --> 00:44:18,000
+ID yeah 90% of the time 95% of the time
+
+787
+00:44:13,640 --> 00:44:21,800
+at least you just want to add ID or or
+
+788
+00:44:18,000 --> 00:44:23,920
+class or style okay that's yeah ID class
+
+789
+00:44:21,800 --> 00:44:29,040
+and
+
+790
+00:44:23,920 --> 00:44:29,040
+style so in that case
+
+791
+00:44:29,960 --> 00:44:37,760
+we can just add them all together in one
+
+792
+00:44:33,119 --> 00:44:37,760
+shot okay let's just
+
+793
+00:44:38,280 --> 00:44:44,000
+say then user just delete the things
+
+794
+00:44:41,400 --> 00:44:47,559
+they don't need ID class is almost
+
+795
+00:44:44,000 --> 00:44:49,480
+usually always already there uh yeah but
+
+796
+00:44:47,559 --> 00:44:51,599
+this is not
+
+797
+00:44:49,480 --> 00:44:54,520
+good
+
+798
+00:44:51,599 --> 00:44:56,040
+because sometimes often the tag already
+
+799
+00:44:54,520 --> 00:44:59,040
+has a
+
+800
+00:44:56,040 --> 00:45:01,680
+class so you don't want to add class and
+
+801
+00:44:59,040 --> 00:45:04,400
+besides if you add all these you know in
+
+802
+00:45:01,680 --> 00:45:07,359
+one shot then every time user calls the
+
+803
+00:45:04,400 --> 00:45:12,119
+command for example let's let's
+
+804
+00:45:07,359 --> 00:45:14,920
+just do it okay eval the code go here
+
+805
+00:45:12,119 --> 00:45:18,160
+put the cluer somewhere call the command
+
+806
+00:45:14,920 --> 00:45:20,119
+do it you see it just adds that but so
+
+807
+00:45:18,160 --> 00:45:22,760
+every time the user calls the command
+
+808
+00:45:20,119 --> 00:45:26,640
+they have to like go and delete one of
+
+809
+00:45:22,760 --> 00:45:28,800
+them or something and then also if the I
+
+810
+00:45:26,640 --> 00:45:32,559
+if the class already exists or ID
+
+811
+00:45:28,800 --> 00:45:36,119
+already exists so okay so now the next
+
+812
+00:45:32,559 --> 00:45:39,800
+step to make this better can you make it
+
+813
+00:45:36,119 --> 00:45:42,040
+better please yeah to make it better is
+
+814
+00:45:39,800 --> 00:45:49,359
+that we have
+
+815
+00:45:42,040 --> 00:45:49,359
+to need to get all current
+
+816
+00:45:55,920 --> 00:46:00,280
+attributes so you need a command you
+
+817
+00:45:58,359 --> 00:46:03,040
+need to write a command to get all the
+
+818
+00:46:00,280 --> 00:46:05,480
+current tag attribute for example if I'm
+
+819
+00:46:03,040 --> 00:46:08,359
+here if this is a current tag I need to
+
+820
+00:46:05,480 --> 00:46:11,559
+it need to return ID and
+
+821
+00:46:08,359 --> 00:46:15,480
+style okay so in other words we are
+
+822
+00:46:11,559 --> 00:46:15,480
+getting closer to a HTML
+
+823
+00:46:15,880 --> 00:46:20,800
+passer which is which is kind of
+
+824
+00:46:19,319 --> 00:46:23,359
+complicated
+
+825
+00:46:20,800 --> 00:46:25,040
+thing so I don't have this command you
+
+826
+00:46:23,359 --> 00:46:27,800
+know I don't have a command that gets a
+
+827
+00:46:25,040 --> 00:46:30,920
+current tax attribute
+
+828
+00:46:27,800 --> 00:46:33,559
+um you know be you need that because you
+
+829
+00:46:30,920 --> 00:46:36,400
+then you know if ID already exists you
+
+830
+00:46:33,559 --> 00:46:37,960
+shouldn't add ID okay and also we
+
+831
+00:46:36,400 --> 00:46:42,240
+haven't
+
+832
+00:46:37,960 --> 00:46:46,720
+decided also we haven't
+
+833
+00:46:42,240 --> 00:46:46,720
+decided what is the
+
+834
+00:46:47,880 --> 00:46:53,480
+interface uh havent decided what is it
+
+835
+00:46:51,640 --> 00:46:57,720
+for for
+
+836
+00:46:53,480 --> 00:47:03,520
+example do you want to prompt
+
+837
+00:46:57,720 --> 00:47:06,720
+user for what tag to add so you you know
+
+838
+00:47:03,520 --> 00:47:12,119
+one of the most simple and common way is
+
+839
+00:47:06,720 --> 00:47:15,359
+just to prompt user for example CH
+
+840
+00:47:12,119 --> 00:47:18,960
+Ching Chris thank you
+
+841
+00:47:15,359 --> 00:47:22,319
+again in previous stream you searched
+
+842
+00:47:18,960 --> 00:47:24,240
+for a pattern of text recursively in all
+
+843
+00:47:22,319 --> 00:47:28,880
+your HTML
+
+844
+00:47:24,240 --> 00:47:33,440
+files yes can you show that also how you
+
+845
+00:47:28,880 --> 00:47:35,280
+open link form HTML in emx okay very
+
+846
+00:47:33,440 --> 00:47:37,079
+easy two
+
+847
+00:47:35,280 --> 00:47:39,640
+questions okay we're going to we're
+
+848
+00:47:37,079 --> 00:47:41,200
+going to okay let me uh continue with
+
+849
+00:47:39,640 --> 00:47:44,440
+the prompt let me show you about the
+
+850
+00:47:41,200 --> 00:47:48,839
+prompt okay so let's common that out
+
+851
+00:47:44,440 --> 00:47:48,839
+let's just say uh
+
+852
+00:47:49,760 --> 00:47:57,200
+uh uh there there are many ways to
+
+853
+00:47:53,079 --> 00:48:02,200
+prompt user okay so one easy way is just
+
+854
+00:47:57,200 --> 00:48:06,079
+go here emac this
+
+855
+00:48:02,200 --> 00:48:10,240
+tutorial and get perpose string work
+
+856
+00:48:06,079 --> 00:48:13,319
+with lines text processing no get user
+
+857
+00:48:10,240 --> 00:48:17,440
+input that's a section we want get user
+
+858
+00:48:13,319 --> 00:48:20,319
+input click ask for file name ask for
+
+859
+00:48:17,440 --> 00:48:25,240
+directory ask for stream that's what we
+
+860
+00:48:20,319 --> 00:48:30,160
+want read string okay read string
+
+861
+00:48:25,240 --> 00:48:32,640
+fantastic what tag to add okay let's
+
+862
+00:48:30,160 --> 00:48:37,000
+just say uh and uh
+
+863
+00:48:32,640 --> 00:48:40,040
+let's let the use a tag type the
+
+864
+00:48:37,000 --> 00:48:44,480
+tag so xtag
+
+865
+00:48:40,040 --> 00:48:48,119
+name let's say xtag so let's say
+
+866
+00:48:44,480 --> 00:48:52,200
+set that
+
+867
+00:48:48,119 --> 00:48:56,799
+to this the result whatever the result
+
+868
+00:48:52,200 --> 00:48:58,680
+user typed okay and of course we need to
+
+869
+00:48:56,799 --> 00:49:00,839
+declare a variable now we have a new
+
+870
+00:48:58,680 --> 00:49:06,680
+variable here
+
+871
+00:49:00,839 --> 00:49:09,720
+tag okay okay prey the code and I mean
+
+872
+00:49:06,680 --> 00:49:16,000
+okay so once you get the tag then you
+
+873
+00:49:09,720 --> 00:49:21,880
+need to insert X tag okay fantastic EV
+
+874
+00:49:16,000 --> 00:49:26,240
+go back Ando let's put a CER here Cod
+
+875
+00:49:21,880 --> 00:49:31,040
+the command do it you see now there's a
+
+876
+00:49:26,240 --> 00:49:33,680
+prompt what tag to add let's say s tag
+
+877
+00:49:31,040 --> 00:49:35,400
+you see it just insert that so we need
+
+878
+00:49:33,680 --> 00:49:41,440
+to again
+
+879
+00:49:35,400 --> 00:49:46,440
+modify uh you need to insert that then
+
+880
+00:49:41,440 --> 00:49:49,799
+um this back quote [ __ ] something okay
+
+881
+00:49:46,440 --> 00:49:53,359
+eval the buer go back here and do try it
+
+882
+00:49:49,799 --> 00:49:56,880
+again code the command do it what tag to
+
+883
+00:49:53,359 --> 00:50:00,359
+add let's say what actually is should
+
+884
+00:49:56,880 --> 00:50:04,720
+say attribute let's say style type style
+
+885
+00:50:00,359 --> 00:50:05,799
+enter there okay now next step is we
+
+886
+00:50:04,720 --> 00:50:09,559
+need
+
+887
+00:50:05,799 --> 00:50:11,680
+to modify this so it enter something
+
+888
+00:50:09,559 --> 00:50:16,240
+more appropriate so anyway so it's a
+
+889
+00:50:11,680 --> 00:50:19,000
+problem here so back to the qu question
+
+890
+00:50:16,240 --> 00:50:24,440
+two questions one is how do you open
+
+891
+00:50:19,000 --> 00:50:27,400
+link from HTML in emx so inside HTML mod
+
+892
+00:50:24,440 --> 00:50:30,319
+you just move the curer there
+
+893
+00:50:27,400 --> 00:50:34,960
+enter there you are so the command is
+
+894
+00:50:30,319 --> 00:50:37,200
+called HTML open local links I believe
+
+895
+00:50:34,960 --> 00:50:40,400
+that's what you are asking if not let me
+
+896
+00:50:37,200 --> 00:50:44,559
+know okay Chris how do you open a link
+
+897
+00:50:40,400 --> 00:50:47,440
+for example this there is a CSS file
+
+898
+00:50:44,559 --> 00:50:51,799
+let's just move the crer there press
+
+899
+00:50:47,440 --> 00:50:55,559
+enter CSS file is open you can go to the
+
+900
+00:50:51,799 --> 00:50:58,000
+directory di jump there it is the CSS
+
+901
+00:50:55,559 --> 00:51:03,280
+file you can go to the top you can see
+
+902
+00:50:58,000 --> 00:51:07,799
+the file path close close Okay
+
+903
+00:51:03,280 --> 00:51:11,760
+so close open press enter to open close
+
+904
+00:51:07,799 --> 00:51:16,680
+it enter to open close it and the
+
+905
+00:51:11,760 --> 00:51:23,839
+command name is HTML open local link so
+
+906
+00:51:16,680 --> 00:51:27,480
+now back in here describe key enter so
+
+907
+00:51:23,839 --> 00:51:31,280
+it says return runs the command HTML
+
+908
+00:51:27,480 --> 00:51:35,760
+open local link okay then jump to the
+
+909
+00:51:31,280 --> 00:51:41,200
+source code HTML mod there is the source
+
+910
+00:51:35,760 --> 00:51:45,079
+code and do I have it on my website
+
+911
+00:51:41,200 --> 00:51:50,359
+no uh I thought I do but I guess
+
+912
+00:51:45,079 --> 00:51:53,559
+not so all you have to do is okay well
+
+913
+00:51:50,359 --> 00:51:57,359
+yeah but you see now here it deal with
+
+914
+00:51:53,559 --> 00:52:00,839
+URL fragments so that makes it a bit
+
+915
+00:51:57,359 --> 00:52:03,240
+complex so that is why yeah that's part
+
+916
+00:52:00,839 --> 00:52:05,240
+of the reason I don't have it source
+
+917
+00:52:03,240 --> 00:52:07,960
+code on my website because then you need
+
+918
+00:52:05,240 --> 00:52:11,280
+to include that then that might call
+
+919
+00:52:07,960 --> 00:52:13,799
+something else you know and also
+
+920
+00:52:11,280 --> 00:52:16,960
+anyway uh but the command is pretty easy
+
+921
+00:52:13,799 --> 00:52:20,319
+to write very easy to write okay very
+
+922
+00:52:16,960 --> 00:52:23,079
+easy to write and I covered it something
+
+923
+00:52:20,319 --> 00:52:27,920
+like this a thousand times in
+
+924
+00:52:23,079 --> 00:52:32,640
+s emac live stream you can go to emx
+
+925
+00:52:27,920 --> 00:52:37,559
+tutorial and there it is video tutorial
+
+926
+00:52:32,640 --> 00:52:40,480
+so all the best ones are here on emac
+
+927
+00:52:37,559 --> 00:52:43,839
+this from the ground up on emac on
+
+928
+00:52:40,480 --> 00:52:46,400
+efficiency workflow how to uh emac this
+
+929
+00:52:43,839 --> 00:52:50,000
+from the ground up and writing a major
+
+930
+00:52:46,400 --> 00:52:53,359
+mod you know I've done 100 more than
+
+931
+00:52:50,000 --> 00:52:59,599
+100 videos on emx okay so that's one
+
+932
+00:52:53,359 --> 00:52:59,599
+thing that's how you go to open a link L
+
+933
+00:53:01,280 --> 00:53:08,240
+from oh okay so indeed I mean with your
+
+934
+00:53:04,799 --> 00:53:13,720
+browser on your current HTML file to
+
+935
+00:53:08,240 --> 00:53:16,119
+browser oh you just well you for me I
+
+936
+00:53:13,720 --> 00:53:18,760
+mean there's a build building command so
+
+937
+00:53:16,119 --> 00:53:21,599
+you just call
+
+938
+00:53:18,760 --> 00:53:23,640
+uh
+
+939
+00:53:21,599 --> 00:53:26,799
+browse
+
+940
+00:53:23,640 --> 00:53:30,640
+buffer okay so that's a building EMA X
+
+941
+00:53:26,799 --> 00:53:33,920
+command browse URL of buffer okay Enter
+
+942
+00:53:30,640 --> 00:53:36,839
+there it is for me I'm using S something
+
+943
+00:53:33,920 --> 00:53:41,480
+similar okay I'm using this
+
+944
+00:53:36,839 --> 00:53:42,480
+key HTML open in browser okay go to the
+
+945
+00:53:41,480 --> 00:53:46,559
+source
+
+946
+00:53:42,480 --> 00:53:50,200
+code expand the window scroll down there
+
+947
+00:53:46,559 --> 00:53:53,119
+it is so it
+
+948
+00:53:50,200 --> 00:53:57,480
+automatically it just call
+
+949
+00:53:53,119 --> 00:53:58,640
+this this building command
+
+950
+00:53:57,480 --> 00:54:02,520
+uh
+
+951
+00:53:58,640 --> 00:54:05,319
+what let me do it again
+
+952
+00:54:02,520 --> 00:54:08,880
+so there browse
+
+953
+00:54:05,319 --> 00:54:12,559
+URL but I added some more feature for
+
+954
+00:54:08,880 --> 00:54:16,480
+example if you have a you know local
+
+955
+00:54:12,559 --> 00:54:17,960
+local URL then we'll open that too or if
+
+956
+00:54:16,480 --> 00:54:22,359
+you
+
+957
+00:54:17,960 --> 00:54:27,440
+are um if the current buffer is not a
+
+958
+00:54:22,359 --> 00:54:29,920
+file it'll tell you so and uh
+
+959
+00:54:27,440 --> 00:54:32,720
+um and you also have some hooks for
+
+960
+00:54:29,920 --> 00:54:32,720
+example every
+
+961
+00:54:32,760 --> 00:54:39,119
+time let me show you you see there's a
+
+962
+00:54:35,559 --> 00:54:42,200
+lot empty spaces there but now if I show
+
+963
+00:54:39,119 --> 00:54:45,319
+any on browser it will clean up that
+
+964
+00:54:42,200 --> 00:54:46,000
+empty space for example showing browser
+
+965
+00:54:45,319 --> 00:54:50,119
+you
+
+966
+00:54:46,000 --> 00:54:53,440
+see back to emac you see empty space is
+
+967
+00:54:50,119 --> 00:54:56,480
+gone so that's a hook I added so that's
+
+968
+00:54:53,440 --> 00:54:57,920
+uh that's about that
+
+969
+00:54:56,480 --> 00:55:00,960
+okay that's one question the other
+
+970
+00:54:57,920 --> 00:55:03,680
+question is how do you search my files
+
+971
+00:55:00,960 --> 00:55:06,760
+for example right now I'm me in this
+
+972
+00:55:03,680 --> 00:55:10,480
+directory S Talk Show there are 900
+
+973
+00:55:06,760 --> 00:55:13,359
+files go to the top okay so so let's say
+
+974
+00:55:10,480 --> 00:55:18,480
+I want to find the word hascal in all my
+
+975
+00:55:13,359 --> 00:55:22,680
+past S Talk Show so press a key hascal
+
+976
+00:55:18,480 --> 00:55:25,400
+press enter which directory this one yes
+
+977
+00:55:22,680 --> 00:55:29,920
+uh what file path regular expression.
+
+978
+00:55:25,400 --> 00:55:33,000
+HTML yes there it is expand the window
+
+979
+00:55:29,920 --> 00:55:37,119
+you can navigate by pressing the right
+
+980
+00:55:33,000 --> 00:55:39,400
+arrow or back left Arrow to go back or
+
+981
+00:55:37,119 --> 00:55:43,640
+you can navigate by file by pressing the
+
+982
+00:55:39,400 --> 00:55:45,920
+down arrow file file file file or up
+
+983
+00:55:43,640 --> 00:55:48,200
+Arrow to go back to previous file so
+
+984
+00:55:45,920 --> 00:55:51,119
+these are you know there are the all
+
+985
+00:55:48,200 --> 00:55:54,200
+these occurrences of the world
+
+986
+00:55:51,119 --> 00:55:57,160
+hascal okay and if you want to get the
+
+987
+00:55:54,200 --> 00:56:01,960
+list of all files press this
+
+988
+00:55:57,160 --> 00:56:05,160
+key that's the that's all this the file
+
+989
+00:56:01,960 --> 00:56:07,680
+path whose content contains the word
+
+990
+00:56:05,160 --> 00:56:12,559
+hascar okay so quite a
+
+991
+00:56:07,680 --> 00:56:15,640
+few uh you know 33 files okay let close
+
+992
+00:56:12,559 --> 00:56:20,559
+that so where do you get this command so
+
+993
+00:56:15,640 --> 00:56:20,559
+this is part of thear find
+
+994
+00:56:21,640 --> 00:56:26,760
+text okay uh well I mean this this is
+
+995
+00:56:26,079 --> 00:56:30,599
+this
+
+996
+00:56:26,760 --> 00:56:36,000
+this this is part of this is my own
+
+997
+00:56:30,599 --> 00:56:38,839
+package okay find text jump open it this
+
+998
+00:56:36,000 --> 00:56:42,280
+is a source code go to the bottom chick
+
+999
+00:56:38,839 --> 00:56:45,760
+Ching thank you go to the bottom 800
+
+1000
+00:56:42,280 --> 00:56:48,359
+lines of code and go to here homepage
+
+1001
+00:56:45,760 --> 00:56:52,319
+open it by the way that's another
+
+1002
+00:56:48,359 --> 00:56:55,920
+command to open any file path so you can
+
+1003
+00:56:52,319 --> 00:57:00,200
+see the name of that command is open
+
+1004
+00:56:55,920 --> 00:57:02,520
+file at CER and emac has build in too so
+
+1005
+00:57:00,200 --> 00:57:04,319
+the emac one is
+
+1006
+00:57:02,520 --> 00:57:06,240
+called uh
+
+1007
+00:57:04,319 --> 00:57:12,160
+find
+
+1008
+00:57:06,240 --> 00:57:12,160
+file at Point okay so you call
+
+1009
+00:57:13,640 --> 00:57:22,000
+that and then then emx will ask you know
+
+1010
+00:57:17,720 --> 00:57:25,160
+in the case of URL emac will ask if it
+
+1011
+00:57:22,000 --> 00:57:27,280
+if it's that one yes then it opens the
+
+1012
+00:57:25,160 --> 00:57:31,240
+URL so the behavior is a bit different
+
+1013
+00:57:27,280 --> 00:57:34,440
+because in the the building find file at
+
+1014
+00:57:31,240 --> 00:57:37,359
+point it will open a URL if your Cruiser
+
+1015
+00:57:34,440 --> 00:57:42,359
+is on URL but my
+
+1016
+00:57:37,359 --> 00:57:45,400
+command checks if the URL is is your own
+
+1017
+00:57:42,359 --> 00:57:47,640
+URL if it is it will go to the
+
+1018
+00:57:45,400 --> 00:57:50,480
+corresponding file path which is this
+
+1019
+00:57:47,640 --> 00:57:54,160
+one so open it you see the same file
+
+1020
+00:57:50,480 --> 00:57:57,280
+except this one is you know the you go
+
+1021
+00:57:54,160 --> 00:57:59,720
+through HTTP you know um on the server
+
+1022
+00:57:57,280 --> 00:58:04,559
+well this one is
+
+1023
+00:57:59,720 --> 00:58:07,000
+local so anyway so about your question
+
+1024
+00:58:04,559 --> 00:58:09,559
+emac you know I have been I was
+
+1025
+00:58:07,000 --> 00:58:12,920
+demonstrating my own command let's do it
+
+1026
+00:58:09,559 --> 00:58:15,359
+again okay so let's go to keyboard blog
+
+1027
+00:58:12,920 --> 00:58:18,200
+showing browser so I've been busy
+
+1028
+00:58:15,359 --> 00:58:21,520
+writing a lot keyboard every day you
+
+1029
+00:58:18,200 --> 00:58:24,760
+know but but today especially today I've
+
+1030
+00:58:21,520 --> 00:58:27,400
+been writing for example an article
+
+1031
+00:58:24,760 --> 00:58:29,559
+about alas layout
+
+1032
+00:58:27,400 --> 00:58:33,440
+what is the history of it what's or
+
+1033
+00:58:29,559 --> 00:58:36,119
+engine why is it good or why is it bad
+
+1034
+00:58:33,440 --> 00:58:39,680
+what are the keyboards that uses Alice
+
+1035
+00:58:36,119 --> 00:58:42,319
+layout why is it named Alice layout
+
+1036
+00:58:39,680 --> 00:58:44,960
+Alice in Wonderland you know so I wrote
+
+1037
+00:58:42,319 --> 00:58:48,559
+this article today and
+
+1038
+00:58:44,960 --> 00:58:50,119
+also some simple explanation about what
+
+1039
+00:58:48,559 --> 00:58:53,599
+staggered
+
+1040
+00:58:50,119 --> 00:58:56,240
+layout where it came from who the [ __ ]
+
+1041
+00:58:53,599 --> 00:58:59,319
+created a keyboard with this weird you
+
+1042
+00:58:56,240 --> 00:59:02,960
+know this weird slant they are not
+
+1043
+00:58:59,319 --> 00:59:06,400
+exactly hex hexagonal nor are they like
+
+1044
+00:59:02,960 --> 00:59:09,319
+every key is like 30° and then why 30°
+
+1045
+00:59:06,400 --> 00:59:12,559
+why not you know 45 degrees you know
+
+1046
+00:59:09,319 --> 00:59:16,559
+like the proper diagonal who the [ __ ]
+
+1047
+00:59:12,559 --> 00:59:16,559
+created the keyboard like we used
+
+1048
+00:59:17,440 --> 00:59:25,000
+today this is the reason this is okay so
+
+1049
+00:59:21,920 --> 00:59:26,960
+anyway I wrote this been working on my
+
+1050
+00:59:25,000 --> 00:59:30,039
+keyboard okay
+
+1051
+00:59:26,960 --> 00:59:31,440
+and then there's grid layout also known
+
+1052
+00:59:30,039 --> 00:59:34,240
+as orthol
+
+1053
+00:59:31,440 --> 00:59:36,799
+linear okay and then there's symmetric
+
+1054
+00:59:34,240 --> 00:59:39,480
+inward stagger keyboard so for example
+
+1055
+00:59:36,799 --> 00:59:43,799
+let me show you that's a Japanese
+
+1056
+00:59:39,480 --> 00:59:48,400
+keyboard uh okay so anyway I wrote a lot
+
+1057
+00:59:43,799 --> 00:59:51,359
+I work on keyboard all the time okay so
+
+1058
+00:59:48,400 --> 00:59:56,599
+yeah we are here because let's go to the
+
+1059
+00:59:51,359 --> 00:59:59,799
+diet so right now there's 1,100
+
+1060
+00:59:56,599 --> 01:00:02,920
+articles so let's see let's say I want
+
+1061
+00:59:59,799 --> 01:00:03,760
+to find all these articles that contains
+
+1062
+01:00:02,920 --> 01:00:06,720
+the
+
+1063
+01:00:03,760 --> 01:00:13,640
+name Crystal
+
+1064
+01:00:06,720 --> 01:00:17,240
+okay do it CH i i s o do it yes
+
+1065
+01:00:13,640 --> 01:00:20,000
+yes there it is expand the window so
+
+1066
+01:00:17,240 --> 01:00:23,119
+again one occurrence another
+
+1067
+01:00:20,000 --> 01:00:28,359
+occurrence thanks to crystals for photos
+
+1068
+01:00:23,119 --> 01:00:31,079
+let's open that one show in browser oh
+
+1069
+01:00:28,359 --> 01:00:34,200
+fantastic thank you Crystal so Crystal
+
+1070
+01:00:31,079 --> 01:00:37,160
+showed me you know he bought all this
+
+1071
+01:00:34,200 --> 01:00:39,839
+ergonomic devices and he took photos for
+
+1072
+01:00:37,160 --> 01:00:43,160
+me so I can put on my website you know
+
+1073
+01:00:39,839 --> 01:00:44,920
+this you know you know some many of
+
+1074
+01:00:43,160 --> 01:00:48,119
+these uh
+
+1075
+01:00:44,920 --> 01:00:50,880
+devices so you can see this's one
+
+1076
+01:00:48,119 --> 01:00:53,400
+occurrence another occurrence one one
+
+1077
+01:00:50,880 --> 01:00:54,920
+one one one one one one one one one
+
+1078
+01:00:53,400 --> 01:00:58,079
+quite a few
+
+1079
+01:00:54,920 --> 01:01:01,880
+okay about 10 10 or
+
+1080
+01:00:58,079 --> 01:01:04,480
+15 uh and uh many several of these very
+
+1081
+01:01:01,880 --> 01:01:07,880
+interesting for example this fantastic
+
+1082
+01:01:04,480 --> 01:01:11,760
+track boy spins this is another crystals
+
+1083
+01:01:07,880 --> 01:01:13,200
+video I think no this one uh one uh
+
+1084
+01:01:11,760 --> 01:01:17,400
+maybe one
+
+1085
+01:01:13,200 --> 01:01:17,400
+maybe not these two but
+
+1086
+01:01:17,599 --> 01:01:23,960
+others I think this is a video video
+
+1087
+01:01:20,720 --> 01:01:28,960
+right I forgot to put the name
+
+1088
+01:01:23,960 --> 01:01:31,720
+there so anyway yeah so oh okay so that
+
+1089
+01:01:28,960 --> 01:01:34,839
+command is you have to
+
+1090
+01:01:31,720 --> 01:01:35,640
+like buy it you have to actually buy it
+
+1091
+01:01:34,839 --> 01:01:38,520
+for
+
+1092
+01:01:35,640 --> 01:01:42,240
+me uh s and replay actually I'll just
+
+1093
+01:01:38,520 --> 01:01:45,799
+send it to you okay but if you are in
+
+1094
+01:01:42,240 --> 01:01:48,200
+emx if you are not using you know sine
+
+1095
+01:01:45,799 --> 01:01:52,599
+you know my package how do you do it's
+
+1096
+01:01:48,200 --> 01:01:56,440
+you can do similar okay uh similar so in
+
+1097
+01:01:52,599 --> 01:01:59,480
+that case you go to emac blog okay let's
+
+1098
+01:01:56,440 --> 01:02:03,079
+go to emac blog and that's it for today
+
+1099
+01:01:59,480 --> 01:02:06,200
+so emac block you go to emac
+
+1100
+01:02:03,079 --> 01:02:08,640
+tutorial then you go to so sections
+
+1101
+01:02:06,200 --> 01:02:10,319
+quick start download show version launch
+
+1102
+01:02:08,640 --> 01:02:14,480
+emx exit
+
+1103
+01:02:10,319 --> 01:02:17,920
+emx uh unlike VI you don't know how to
+
+1104
+01:02:14,480 --> 01:02:20,760
+exit but actually for emac it's also
+
+1105
+01:02:17,920 --> 01:02:24,160
+idiotic you know control X control C
+
+1106
+01:02:20,760 --> 01:02:27,119
+what the what kind of [ __ ] Keys is
+
+1107
+01:02:24,160 --> 01:02:31,559
+that so that's a problem with emac
+
+1108
+01:02:27,119 --> 01:02:34,440
+anyway F split Windows File buffer copy
+
+1109
+01:02:31,559 --> 01:02:37,119
+paste find text that's the section you
+
+1110
+01:02:34,440 --> 01:02:39,839
+want search text highlight text this
+
+1111
+01:02:37,119 --> 01:02:43,319
+matching line search text in a directory
+
+1112
+01:02:39,839 --> 01:02:47,079
+that's the one you want go there so you
+
+1113
+01:02:43,319 --> 01:02:49,720
+have the you can just call Meta X
+
+1114
+01:02:47,079 --> 01:02:53,799
+GP but however
+
+1115
+01:02:49,720 --> 01:02:57,039
+problem because of the emac the G people
+
+1116
+01:02:53,799 --> 01:03:00,119
+the Linux Fanatics idiots
+
+1117
+01:02:57,039 --> 01:03:03,880
+when you are on Windows it doesn't work
+
+1118
+01:03:00,119 --> 01:03:06,319
+you know let's try it oh grab default
+
+1119
+01:03:03,880 --> 01:03:09,359
+directory oh something grab is not
+
+1120
+01:03:06,319 --> 01:03:14,079
+recognized as an internal or external
+
+1121
+01:03:09,359 --> 01:03:15,520
+command operable program or batch file
+
+1122
+01:03:14,079 --> 01:03:18,720
+got a
+
+1123
+01:03:15,520 --> 01:03:21,359
+problem so you have to install grap but
+
+1124
+01:03:18,720 --> 01:03:23,480
+then you also have to install find you
+
+1125
+01:03:21,359 --> 01:03:26,599
+know but if you are on Linux you don't
+
+1126
+01:03:23,480 --> 01:03:30,440
+have this problem okay and if you are on
+
+1127
+01:03:26,599 --> 01:03:33,039
+a Mac or BSD you don't have this problem
+
+1128
+01:03:30,440 --> 01:03:35,520
+but if you are on Windows or if you are
+
+1129
+01:03:33,039 --> 01:03:37,240
+on a phone Android you probably have
+
+1130
+01:03:35,520 --> 01:03:40,920
+this kind of problem so you need to
+
+1131
+01:03:37,240 --> 01:03:42,599
+install grap you need to install find
+
+1132
+01:03:40,920 --> 01:03:44,400
+but how do you know which program you
+
+1133
+01:03:42,599 --> 01:03:46,960
+have to reinstall actually you don't
+
+1134
+01:03:44,400 --> 01:03:48,599
+know you can search the web it'll take
+
+1135
+01:03:46,960 --> 01:03:52,920
+you an
+
+1136
+01:03:48,599 --> 01:03:57,160
+hour but I have it documented I have it
+
+1137
+01:03:52,920 --> 01:03:59,680
+documented okay like
+
+1138
+01:03:57,160 --> 01:04:03,319
+simply okay but I have too many articles
+
+1139
+01:03:59,680 --> 01:04:03,319
+so I think that's it for
+
+1140
+01:04:03,440 --> 01:04:10,760
+today thank you guys for watching is
+
+1141
+01:04:07,279 --> 01:04:15,279
+there anything else let's
+
+1142
+01:04:10,760 --> 01:04:18,440
+now what is this close
+
+1143
+01:04:15,279 --> 01:04:21,400
+close track boo roller plus okay let's
+
+1144
+01:04:18,440 --> 01:04:25,880
+copy that copy the file path close close
+
+1145
+01:04:21,400 --> 01:04:29,000
+that let's go to back to my talk show
+
+1146
+01:04:25,880 --> 01:04:32,480
+and put the link back here so we have
+
+1147
+01:04:29,000 --> 01:04:36,839
+some idea what we talked about
+
+1148
+01:04:32,480 --> 01:04:39,599
+today uh something okay so put the link
+
+1149
+01:04:36,839 --> 01:04:42,000
+here Fu
+
+1150
+01:04:39,599 --> 01:04:44,319
+jisu roller
+
+1151
+01:04:42,000 --> 01:04:48,680
+place and
+
+1152
+01:04:44,319 --> 01:04:51,760
+Link close that make a URL showing
+
+1153
+01:04:48,680 --> 01:04:56,640
+browser there is track boo roller plus
+
+1154
+01:04:51,760 --> 01:04:59,599
+fuju space for close that what is it
+
+1155
+01:04:56,640 --> 01:05:04,400
+uh search text let's copy that put it
+
+1156
+01:04:59,599 --> 01:05:08,000
+here make a link URL close that go back
+
+1157
+01:05:04,400 --> 01:05:09,559
+go back go back close that go back we
+
+1158
+01:05:08,000 --> 01:05:13,160
+got that
+
+1159
+01:05:09,559 --> 01:05:17,520
+already uh yeah Alice layout copy it
+
+1160
+01:05:13,160 --> 01:05:20,960
+back emx paste make link uh oh make a
+
+1161
+01:05:17,520 --> 01:05:22,030
+link and the conjoin the Tex you see
+
+1162
+01:05:20,960 --> 01:05:23,119
+this is another
+
+1163
+01:05:22,030 --> 01:05:27,960
+[Music]
+
+1164
+01:05:23,119 --> 01:05:31,359
+convenient command Ina HTML mod you see
+
+1165
+01:05:27,960 --> 01:05:34,319
+uh HTML join TX so when you are at the
+
+1166
+01:05:31,359 --> 01:05:36,880
+end of a opening uh of a closing tag and
+
+1167
+01:05:34,319 --> 01:05:39,680
+opening tag and join them showing
+
+1168
+01:05:36,880 --> 01:05:42,319
+browser so all keyboard related things
+
+1169
+01:05:39,680 --> 01:05:46,119
+are together well this one is not so the
+
+1170
+01:05:42,319 --> 01:05:49,400
+this emx needs to go so you you see
+
+1171
+01:05:46,119 --> 01:05:54,319
+press one single key that removes that
+
+1172
+01:05:49,400 --> 01:05:59,319
+this tag so put it here remove the
+
+1173
+01:05:54,319 --> 01:06:01,839
+lii and make a link showing browser
+
+1174
+01:05:59,319 --> 01:06:04,760
+there it is in a separate
+
+1175
+01:06:01,839 --> 01:06:08,680
+line okay now let's put the code back
+
+1176
+01:06:04,760 --> 01:06:12,039
+and that that that should be it today so
+
+1177
+01:06:08,680 --> 01:06:16,960
+okay 1 hour exactly open the
+
+1178
+01:06:12,039 --> 01:06:20,200
+file so we we kind of okay it's kind of
+
+1179
+01:06:16,960 --> 01:06:22,960
+draft uh it's a bit okay so let's put it
+
+1180
+01:06:20,200 --> 01:06:26,359
+back syntax CCT showing
+
+1181
+01:06:22,960 --> 01:06:27,880
+browser there it is today's fruit
+
+1182
+01:06:26,359 --> 01:06:29,160
+okay thank you guys for watching
+
+1183
+01:06:27,880 --> 01:06:32,520
+anything
+
+1184
+01:06:29,160 --> 01:06:32,520
+else bye
+
+1185
+01:06:51,160 --> 01:06:57,480
+guys let's see anything else that's it
+
+1186
+01:06:58,119 --> 01:07:03,000
+pretty much got the
+
+1187
+01:07:00,039 --> 01:07:05,960
+command uh I'll find replace I need to
+
+1188
+01:07:03,000 --> 01:07:05,960
+put that link
+
+1189
+01:07:06,920 --> 01:07:10,559
+here by
+
+1190
+01:07:12,520 --> 01:07:19,279
+by get user input let's put the link
+
+1191
+01:07:16,279 --> 01:07:19,279
+there
+
+1192
+01:07:27,599 --> 01:07:35,119
+oh we also talked about the JavaScript
+
+1193
+01:07:31,599 --> 01:07:35,119
+get the parent tag
+
+1194
+01:07:36,200 --> 01:07:41,680
+fantastic Doom scripting tutorial
+
+1195
+01:07:43,520 --> 01:07:52,559
+fantastic uh array JavaScript reference
+
+1196
+01:07:46,720 --> 01:07:56,599
+JavaScript in depth it's span the
+
+1197
+01:07:52,559 --> 01:07:59,599
+links web dev blog close
+
+1198
+01:07:56,599 --> 01:07:59,599
+okay
+

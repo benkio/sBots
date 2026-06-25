@@ -1,0 +1,5330 @@
+1
+00:00:00,000 --> 00:00:06,560
+Morning everyone. Good morning everyone
+
+2
+00:00:03,280 --> 00:00:10,160
+and good evening. Welcome to another
+
+3
+00:00:06,560 --> 00:00:15,120
+episode of talk show. We are going to
+
+4
+00:00:10,160 --> 00:00:18,160
+code F today exploration
+
+5
+00:00:15,120 --> 00:00:22,080
+write a find and replace script part
+
+6
+00:00:18,160 --> 00:00:28,400
+three. So, in the past week, we've done
+
+7
+00:00:22,080 --> 00:00:33,120
+part one uh and uh so episode 735
+
+8
+00:00:28,400 --> 00:00:37,040
+and episode 737 part two about two days
+
+9
+00:00:33,120 --> 00:00:42,079
+ago and today. So, we are just I'm
+
+10
+00:00:37,040 --> 00:00:46,239
+learning F and I want to complete the
+
+11
+00:00:42,079 --> 00:00:49,520
+find and replace script which is in Unix
+
+12
+00:00:46,239 --> 00:00:53,039
+jargon it's said. It's like the set
+
+13
+00:00:49,520 --> 00:00:56,879
+program but much more superior,
+
+14
+00:00:53,039 --> 00:00:59,600
+more fullfeatured. Okay. So,
+
+15
+00:00:56,879 --> 00:01:03,199
+so last time we finished, we actually
+
+16
+00:00:59,600 --> 00:01:06,880
+created a script like that. It does the
+
+17
+00:01:03,199 --> 00:01:10,479
+job, but I want to add more features
+
+18
+00:01:06,880 --> 00:01:13,040
+such as making a backup like
+
+19
+00:01:10,479 --> 00:01:15,840
+uh you can optionally create a backup
+
+20
+00:01:13,040 --> 00:01:18,880
+before you do find and replace. And you
+
+21
+00:01:15,840 --> 00:01:22,000
+also want a regular expression option.
+
+22
+00:01:18,880 --> 00:01:24,960
+And you also want multiple pairs. So you
+
+23
+00:01:22,000 --> 00:01:28,320
+can do one shot replacing multiple pairs
+
+24
+00:01:24,960 --> 00:01:31,119
+of find and replace. Okay. If you are
+
+25
+00:01:28,320 --> 00:01:34,640
+watching this offline, play at speed
+
+26
+00:01:31,119 --> 00:01:37,119
+two. If you are watching here, say hi.
+
+27
+00:01:34,640 --> 00:01:41,280
+Love to see your comments. And hello my
+
+28
+00:01:37,119 --> 00:01:45,600
+Discord friends, Steve and all the other
+
+29
+00:01:41,280 --> 00:01:48,799
+people. and Reaper we do arguments about
+
+30
+00:01:45,600 --> 00:01:53,040
+programming languages and stuff.
+
+31
+00:01:48,799 --> 00:01:56,079
+So anyway, so let's uh start uh F. So
+
+32
+00:01:53,040 --> 00:01:57,680
+let's go to replace. Like I mentioned
+
+33
+00:01:56,079 --> 00:02:02,399
+before,
+
+34
+00:01:57,680 --> 00:02:04,479
+I have find replace script all over. I
+
+35
+00:02:02,399 --> 00:02:07,840
+have them. Let's remove the backup.
+
+36
+00:02:04,479 --> 00:02:10,080
+Okay, so wait, remove the backup. Press
+
+37
+00:02:07,840 --> 00:02:13,040
+press. I'm using Emacs, the most
+
+38
+00:02:10,080 --> 00:02:17,280
+powerful. So you can see the power. This
+
+39
+00:02:13,040 --> 00:02:19,599
+is Emacs. And uh let's go to talk show
+
+40
+00:02:17,280 --> 00:02:23,280
+and today's talk show. And actually
+
+41
+00:02:19,599 --> 00:02:25,599
+let's go to um previous talk show
+
+42
+00:02:23,280 --> 00:02:29,040
+because I want to show you some links.
+
+43
+00:02:25,599 --> 00:02:32,400
+There's a video summary and then there
+
+44
+00:02:29,040 --> 00:02:36,400
+is uh find replace script. So I have
+
+45
+00:02:32,400 --> 00:02:40,480
+written this in Goland, in Python, in
+
+46
+00:02:36,400 --> 00:02:44,000
+pearl, in Emacs and in Wufam language.
+
+47
+00:02:40,480 --> 00:02:47,519
+So this is very interesting uh because
+
+48
+00:02:44,000 --> 00:02:51,440
+you explore programming language design.
+
+49
+00:02:47,519 --> 00:02:53,360
+This is my my first task when I want to
+
+50
+00:02:51,440 --> 00:02:55,360
+learn a programming language. Okay. So
+
+51
+00:02:53,360 --> 00:02:58,319
+let's let's keep going. So so let's
+
+52
+00:02:55,360 --> 00:03:00,879
+start to write F. Stop talking. Okay. So
+
+53
+00:02:58,319 --> 00:03:05,200
+close that uh today's talk show. Yeah.
+
+54
+00:03:00,879 --> 00:03:08,200
+Let's stop I mean let's start
+
+55
+00:03:05,200 --> 00:03:08,200
+um
+
+56
+00:03:08,239 --> 00:03:18,560
+uh writing uh code. So free uh not pre
+
+57
+00:03:14,560 --> 00:03:23,120
+uh f. Okay, let's begin the code and
+
+58
+00:03:18,560 --> 00:03:27,040
+let's go to my find and um replace. So
+
+59
+00:03:23,120 --> 00:03:32,080
+last time we have fsx.
+
+60
+00:03:27,040 --> 00:03:32,080
+Let's find replace in F.
+
+61
+00:03:32,720 --> 00:03:39,360
+Okay, so that one. So that's the code so
+
+62
+00:03:36,159 --> 00:03:42,799
+far. So we want to add a feature. So let
+
+63
+00:03:39,360 --> 00:03:44,480
+me go over the script again. Play at
+
+64
+00:03:42,799 --> 00:03:47,760
+twice the speed. Okay, if you are
+
+65
+00:03:44,480 --> 00:03:49,920
+watching. So we So you got the input
+
+66
+00:03:47,760 --> 00:03:54,319
+path. This is where you want to do the
+
+67
+00:03:49,920 --> 00:03:57,760
+find and replace. And uh let's create a
+
+68
+00:03:54,319 --> 00:04:01,439
+um temporary directory so we can do the
+
+69
+00:03:57,760 --> 00:04:05,120
+test. So anyway, so the input directory
+
+70
+00:04:01,439 --> 00:04:11,280
+and this is a file pattern on whether
+
+71
+00:04:05,120 --> 00:04:14,080
+HTML files or txt or Java or py Python
+
+72
+00:04:11,280 --> 00:04:17,600
+whatever. So you can filter out this is
+
+73
+00:04:14,080 --> 00:04:20,479
+very actually critical and here's a find
+
+74
+00:04:17,600 --> 00:04:23,759
+string here's a replace string and here
+
+75
+00:04:20,479 --> 00:04:27,199
+is how you get all files recursively.
+
+76
+00:04:23,759 --> 00:04:30,240
+they return a list. Then here is a
+
+77
+00:04:27,199 --> 00:04:33,680
+function fantastic functional
+
+78
+00:04:30,240 --> 00:04:38,080
+programming. Here's a function that
+
+79
+00:04:33,680 --> 00:04:41,080
+that for each file path you open the
+
+80
+00:04:38,080 --> 00:04:41,080
+file.
+
+81
+00:04:41,120 --> 00:04:45,120
+Then you do the replacement. Then you
+
+82
+00:04:43,120 --> 00:04:48,160
+write back to the file. Then you print
+
+83
+00:04:45,120 --> 00:04:51,280
+finished. Okay. Then at the end, this is
+
+84
+00:04:48,160 --> 00:04:55,639
+the main part. So for the list of files
+
+85
+00:04:51,280 --> 00:04:55,639
+you pipe it to the function.
+
+86
+00:04:56,080 --> 00:05:03,360
+Okay. Then done. Okay. So uh so this is
+
+87
+00:05:00,880 --> 00:05:08,320
+our script. Make a backup. Now let's go
+
+88
+00:05:03,360 --> 00:05:12,000
+to a directory where I can uh make a
+
+89
+00:05:08,320 --> 00:05:14,720
+copy of lots of files. We can test on
+
+90
+00:05:12,000 --> 00:05:17,280
+this directory. Okay. So close that. So
+
+91
+00:05:14,720 --> 00:05:20,000
+we are I'm using Emacs the most powerful
+
+92
+00:05:17,280 --> 00:05:24,240
+text editor. Uh video check, audio
+
+93
+00:05:20,000 --> 00:05:30,759
+check. Okay, say hi. So, uh let's make a
+
+94
+00:05:24,240 --> 00:05:30,759
+copy of that. Uh copy. Um um
+
+95
+00:05:31,039 --> 00:05:36,400
+Okay.
+
+96
+00:05:32,560 --> 00:05:40,240
+Make a c copy recursively. Yes. So in
+
+97
+00:05:36,400 --> 00:05:43,680
+this directory there are 1,000 files.
+
+98
+00:05:40,240 --> 00:05:47,520
+Okay. And split the window and go to the
+
+99
+00:05:43,680 --> 00:05:51,440
+talk show and go to the directory. And
+
+100
+00:05:47,520 --> 00:05:53,360
+uh let's move this the directory the
+
+101
+00:05:51,440 --> 00:05:56,880
+test directory into the talkshell
+
+102
+00:05:53,360 --> 00:06:00,639
+directory. Okay. Press press.
+
+103
+00:05:56,880 --> 00:06:03,440
+Okay. Moved one file. Done. Refresh. So
+
+104
+00:06:00,639 --> 00:06:08,240
+there it is. Open it. Copy the file
+
+105
+00:06:03,440 --> 00:06:10,720
+path. Close. Close. Uh talk show index.
+
+106
+00:06:08,240 --> 00:06:12,560
+Close. Close.
+
+107
+00:06:10,720 --> 00:06:14,800
+Refresh. Close. We don't need that
+
+108
+00:06:12,560 --> 00:06:18,880
+anymore. Close.
+
+109
+00:06:14,800 --> 00:06:24,919
+Uh, this is my Emacs blog. Close. Back.
+
+110
+00:06:18,880 --> 00:06:24,919
+Close. Now we can put the path here.
+
+111
+00:06:27,680 --> 00:06:33,360
+Okay, that's a file path to do the test.
+
+112
+00:06:31,199 --> 00:06:36,240
+Uh, so what feature you want to add
+
+113
+00:06:33,360 --> 00:06:40,080
+first? You want to Okay, you also Okay,
+
+114
+00:06:36,240 --> 00:06:47,120
+so let's write it down.
+
+115
+00:06:40,080 --> 00:06:50,560
+how to um get current date
+
+116
+00:06:47,120 --> 00:06:52,720
+in F. That's one thing we want to know
+
+117
+00:06:50,560 --> 00:06:56,479
+because when you do a backup, I want the
+
+118
+00:06:52,720 --> 00:07:00,160
+date in the backup file. Okay. Then how
+
+119
+00:06:56,479 --> 00:07:05,759
+to uh another question, how to
+
+120
+00:07:00,160 --> 00:07:09,680
+copy a file in F. Okay. Let's uh Okay.
+
+121
+00:07:05,759 --> 00:07:12,319
+So let's how to get current date. Okay.
+
+122
+00:07:09,680 --> 00:07:15,199
+And there is the comment. There is this
+
+123
+00:07:12,319 --> 00:07:18,240
+is alternative syntax for comment. This
+
+124
+00:07:15,199 --> 00:07:21,680
+is multi-line comment. Okay, I prefer
+
+125
+00:07:18,240 --> 00:07:24,319
+that. So let's that's a question we want
+
+126
+00:07:21,680 --> 00:07:27,840
+to know. So let's
+
+127
+00:07:24,319 --> 00:07:31,720
+utilize AI help.
+
+128
+00:07:27,840 --> 00:07:31,720
+AI help.
+
+129
+00:07:31,759 --> 00:07:41,280
+Guac. Guac is the AI of my choice.
+
+130
+00:07:37,360 --> 00:07:43,680
+magnify the window so it's huge so you
+
+131
+00:07:41,280 --> 00:07:47,680
+guys can see.
+
+132
+00:07:43,680 --> 00:07:50,080
+Okay, so let let me just um
+
+133
+00:07:47,680 --> 00:07:54,080
+Okay, so go to the top. How to get
+
+134
+00:07:50,080 --> 00:07:59,039
+current date in F. Okay, system daytime.
+
+135
+00:07:54,080 --> 00:08:03,360
+So here is the code. Copy it
+
+136
+00:07:59,039 --> 00:08:06,080
+to uh close that. Go to talk show. So
+
+137
+00:08:03,360 --> 00:08:09,080
+here are the questions we want to know.
+
+138
+00:08:06,080 --> 00:08:09,080
+Wait.
+
+139
+00:08:12,240 --> 00:08:18,639
+Okay. So, did that how to get current
+
+140
+00:08:16,560 --> 00:08:21,759
+dating in F?
+
+141
+00:08:18,639 --> 00:08:26,639
+Uh, okay. And, uh, we already copy the
+
+142
+00:08:21,759 --> 00:08:30,639
+script. Copy. Let's test it here.
+
+143
+00:08:26,639 --> 00:08:35,640
+Wait, why is it not copied? Copy.
+
+144
+00:08:30,639 --> 00:08:35,640
+Paste. Okay. Pop it out.
+
+145
+00:08:38,240 --> 00:08:45,440
+Excuse me, I have some cough comments.
+
+146
+00:08:41,519 --> 00:08:48,760
+Okay, so back to Emacs now.
+
+147
+00:08:45,440 --> 00:08:48,760
+Run it.
+
+148
+00:08:48,880 --> 00:08:54,160
+Process finished. Okay, so uh this is
+
+149
+00:08:52,160 --> 00:08:59,040
+current date or current date equals
+
+150
+00:08:54,160 --> 00:09:03,120
+daytime UTC. No, I don't want UTC and uh
+
+151
+00:08:59,040 --> 00:09:04,959
+so let's just print and uh current day
+
+152
+00:09:03,120 --> 00:09:08,000
+time.
+
+153
+00:09:04,959 --> 00:09:11,600
+Okay, will that work?
+
+154
+00:09:08,000 --> 00:09:13,360
+No. Okay, you need to convert
+
+155
+00:09:11,600 --> 00:09:16,160
+a date
+
+156
+00:09:13,360 --> 00:09:21,120
+type to string in order to print. Is
+
+157
+00:09:16,160 --> 00:09:24,240
+that right? Uh let's see. Because F is a
+
+158
+00:09:21,120 --> 00:09:27,600
+strong type language. Yeah. So you need
+
+159
+00:09:24,240 --> 00:09:30,480
+to convert work.
+
+160
+00:09:27,600 --> 00:09:33,279
+How do you print it? And daytime
+
+161
+00:09:30,480 --> 00:09:35,600
+location uh daytime now returns daytime
+
+162
+00:09:33,279 --> 00:09:38,399
+value representing the current local
+
+163
+00:09:35,600 --> 00:09:40,560
+date and time. That's what we want. If
+
+164
+00:09:38,399 --> 00:09:43,519
+you only want the current date without
+
+165
+00:09:40,560 --> 00:09:46,080
+the comp time component. No, I want the
+
+166
+00:09:43,519 --> 00:09:49,760
+time component. Okay. So but there are
+
+167
+00:09:46,080 --> 00:09:52,959
+some other alternative options
+
+168
+00:09:49,760 --> 00:09:54,800
+which is good to learn down the road.
+
+169
+00:09:52,959 --> 00:10:00,800
+So,
+
+170
+00:09:54,800 --> 00:10:04,160
+so current date only and current uh UTC
+
+171
+00:10:00,800 --> 00:10:08,320
+UTC is a universal time that's basic
+
+172
+00:10:04,160 --> 00:10:11,120
+that's based on a local time around
+
+173
+00:10:08,320 --> 00:10:13,839
+England green switch something something
+
+174
+00:10:11,120 --> 00:10:18,800
+around there. Okay. But we want to know
+
+175
+00:10:13,839 --> 00:10:20,800
+how to convert uh daytime to um print.
+
+176
+00:10:18,800 --> 00:10:26,079
+Okay.
+
+177
+00:10:20,800 --> 00:10:30,720
+Oh, so a current date and time
+
+178
+00:10:26,079 --> 00:10:37,760
+percentage capital a. Okay. So this this
+
+179
+00:10:30,720 --> 00:10:41,519
+tricky part. So this is a minute.
+
+180
+00:10:37,760 --> 00:10:43,440
+Fantastic and beautiful. Okay. Fantastic
+
+181
+00:10:41,519 --> 00:10:46,560
+and beautiful.
+
+182
+00:10:43,440 --> 00:10:50,320
+But problem I don't like this American
+
+183
+00:10:46,560 --> 00:10:54,959
+style date is this date format is
+
+184
+00:10:50,320 --> 00:10:58,720
+American style month slash
+
+185
+00:10:54,959 --> 00:11:02,320
+uh date slash then year uh which is
+
+186
+00:10:58,720 --> 00:11:05,600
+quite ambiguous then uh time pm a.m.
+
+187
+00:11:02,320 --> 00:11:09,640
+Okay, I want the ISO. How do you get the
+
+188
+00:11:05,600 --> 00:11:09,640
+ISO time format?
+
+189
+00:11:12,480 --> 00:11:17,839
+Uh note for better handling of time
+
+190
+00:11:15,519 --> 00:11:20,000
+zones and offsets
+
+191
+00:11:17,839 --> 00:11:24,320
+especially in production code consider
+
+192
+00:11:20,000 --> 00:11:26,800
+using daytime offset do now. Okay offset
+
+193
+00:11:24,320 --> 00:11:30,480
+now. What does that do? I don't know. So
+
+194
+00:11:26,800 --> 00:11:38,399
+I want to get the daytime in ISO format.
+
+195
+00:11:30,480 --> 00:11:41,399
+Okay. How to uh get the date time in ISO
+
+196
+00:11:38,399 --> 00:11:41,399
+format.
+
+197
+00:11:42,000 --> 00:11:48,000
+Okay, continue in this question.
+
+198
+00:11:44,480 --> 00:11:50,000
+Continue. Press press press
+
+199
+00:11:48,000 --> 00:11:54,000
+the AI
+
+200
+00:11:50,000 --> 00:11:55,519
+challenge the AIS iso A601
+
+201
+00:11:54,000 --> 00:11:58,320
+standard.
+
+202
+00:11:55,519 --> 00:12:01,680
+That's an example correct
+
+203
+00:11:58,320 --> 00:12:05,279
+uh with all or with offset. Okay, here
+
+204
+00:12:01,680 --> 00:12:08,639
+are the most common reliable approach.
+
+205
+00:12:05,279 --> 00:12:12,120
+Okay, let's see. Let's just copy. Let's
+
+206
+00:12:08,639 --> 00:12:12,120
+see. Um,
+
+207
+00:12:12,560 --> 00:12:18,880
+copy.
+
+208
+00:12:14,240 --> 00:12:22,800
+Uh, let's see how does it do. Okay.
+
+209
+00:12:18,880 --> 00:12:27,360
+So, paste and go up. Let's see. Open
+
+210
+00:12:22,800 --> 00:12:29,839
+system ISO now. Okay. So, let's see how
+
+211
+00:12:27,360 --> 00:12:33,839
+what is the difference.
+
+212
+00:12:29,839 --> 00:12:38,959
+Uh, let's uh add today's date
+
+213
+00:12:33,839 --> 00:12:40,399
+sample code for getting date time. Okay,
+
+214
+00:12:38,959 --> 00:12:42,639
+very interesting in different
+
+215
+00:12:40,399 --> 00:12:45,279
+programming languages. You got Python,
+
+216
+00:12:42,639 --> 00:12:47,839
+you got Golan, you got JavaScript. Let
+
+217
+00:12:45,279 --> 00:12:51,440
+me show you my JavaScript one because
+
+218
+00:12:47,839 --> 00:12:56,240
+JavaScript is very complex.
+
+219
+00:12:51,440 --> 00:13:00,560
+So, Si webde blog go to the top and
+
+220
+00:12:56,240 --> 00:13:02,959
+JavaScript in depth and there you have
+
+221
+00:13:00,560 --> 00:13:06,320
+magnify. Can you actually you can see
+
+222
+00:13:02,959 --> 00:13:10,000
+the other part. So let me just
+
+223
+00:13:06,320 --> 00:13:11,920
+uh so now you can see the panel the
+
+224
+00:13:10,000 --> 00:13:15,519
+panel on the side otherwise it goes
+
+225
+00:13:11,920 --> 00:13:19,519
+through the bottom. This is because the
+
+226
+00:13:15,519 --> 00:13:21,920
+responsive design of the zoomers the
+
+227
+00:13:19,519 --> 00:13:24,720
+zoomers don't know they think well
+
+228
+00:13:21,920 --> 00:13:27,600
+actually this is responsive design but I
+
+229
+00:13:24,720 --> 00:13:30,800
+was going to talk about fixed layout
+
+230
+00:13:27,600 --> 00:13:33,839
+versus flow layout that is much more
+
+231
+00:13:30,800 --> 00:13:36,240
+fundamental issue. Okay.
+
+232
+00:13:33,839 --> 00:13:38,000
+In fact, if you search my articles,
+
+233
+00:13:36,240 --> 00:13:40,480
+you'll find it. Anyway, that's another
+
+234
+00:13:38,000 --> 00:13:42,800
+issue.
+
+235
+00:13:40,480 --> 00:13:46,160
+So, JavaScript in depth. Now, you just
+
+236
+00:13:42,800 --> 00:13:49,279
+go to date time. So, it's a big topic.
+
+237
+00:13:46,160 --> 00:13:52,000
+So, miscellaneous state. Okay. So, this
+
+238
+00:13:49,279 --> 00:13:54,560
+is a simple tutorial on how to get the
+
+239
+00:13:52,000 --> 00:13:58,320
+date. You can run it quickly. So, open
+
+240
+00:13:54,560 --> 00:14:01,440
+the uh web page. Search for pre right
+
+241
+00:13:58,320 --> 00:14:05,120
+here. Pop it out. This is the
+
+242
+00:14:01,440 --> 00:14:08,480
+JavaScript. So you run it. So you can
+
+243
+00:14:05,120 --> 00:14:11,839
+see these are the output.
+
+244
+00:14:08,480 --> 00:14:15,040
+Okay. F you know uh okay put it back
+
+245
+00:14:11,839 --> 00:14:17,519
+syntax color it show in browser. I just
+
+246
+00:14:15,040 --> 00:14:20,959
+wanted to show you this quickly. Now
+
+247
+00:14:17,519 --> 00:14:23,600
+this is just a example but when you dive
+
+248
+00:14:20,959 --> 00:14:28,240
+into detail daytime is actually one of
+
+249
+00:14:23,600 --> 00:14:30,720
+the most complicated thing
+
+250
+00:14:28,240 --> 00:14:34,639
+in programming languages and not and
+
+251
+00:14:30,720 --> 00:14:36,320
+actually because it's about calendars.
+
+252
+00:14:34,639 --> 00:14:40,639
+Calendars
+
+253
+00:14:36,320 --> 00:14:42,720
+the the gist of calendars is about
+
+254
+00:14:40,639 --> 00:14:47,040
+astronomy
+
+255
+00:14:42,720 --> 00:14:50,880
+solar system planetary astronomy.
+
+256
+00:14:47,040 --> 00:14:53,199
+That's the gist of date and time, month,
+
+257
+00:14:50,880 --> 00:14:55,120
+week. Uh you know then then you
+
+258
+00:14:53,199 --> 00:14:57,920
+basically you need to it's astronomy
+
+259
+00:14:55,120 --> 00:15:01,040
+about the position of the sun and earth
+
+260
+00:14:57,920 --> 00:15:05,600
+and the moon. Okay. So and so in fact
+
+261
+00:15:01,040 --> 00:15:07,680
+this is very very complex
+
+262
+00:15:05,600 --> 00:15:09,920
+not just mathematics but basically you
+
+263
+00:15:07,680 --> 00:15:12,560
+need to know astronomy you you need to
+
+264
+00:15:09,920 --> 00:15:14,399
+know how the planet moves and track them
+
+265
+00:15:12,560 --> 00:15:16,480
+in detail.
+
+266
+00:15:14,399 --> 00:15:19,680
+So after
+
+267
+00:15:16,480 --> 00:15:23,279
+h human animals recorded history by now
+
+268
+00:15:19,680 --> 00:15:26,560
+it's like 4,000 years we kind of know
+
+269
+00:15:23,279 --> 00:15:29,839
+exactly down to like microsconds
+
+270
+00:15:26,560 --> 00:15:32,720
+that's why we have atomic clocks.
+
+271
+00:15:29,839 --> 00:15:35,600
+So anyway, but it's this is this is the
+
+272
+00:15:32,720 --> 00:15:39,279
+beginning of mathematics trigonometry
+
+273
+00:15:35,600 --> 00:15:40,880
+since like three or 4,000 years ago
+
+274
+00:15:39,279 --> 00:15:42,959
+daytime.
+
+275
+00:15:40,880 --> 00:15:46,240
+Like you might wonder why don't we just
+
+276
+00:15:42,959 --> 00:15:49,759
+number them like one to 100 every year?
+
+277
+00:15:46,240 --> 00:15:51,360
+One year is 100 days. Why can't you why
+
+278
+00:15:49,759 --> 00:15:53,040
+can't you do that? You know, you just
+
+279
+00:15:51,360 --> 00:15:56,480
+increase the number. What's the matter?
+
+280
+00:15:53,040 --> 00:15:59,440
+Well, the problem is you got the seasons
+
+281
+00:15:56,480 --> 00:16:02,000
+wrong. you up the seasons because
+
+282
+00:15:59,440 --> 00:16:04,959
+in your new calendar,
+
+283
+00:16:02,000 --> 00:16:06,800
+summer is not summer anymore.
+
+284
+00:16:04,959 --> 00:16:08,639
+Then you might check, you might ask, you
+
+285
+00:16:06,800 --> 00:16:10,800
+know, why do you need to know what you
+
+286
+00:16:08,639 --> 00:16:14,800
+know what what has to do with summer?
+
+287
+00:16:10,800 --> 00:16:17,519
+Well, the reason for the daytime
+
+288
+00:16:14,800 --> 00:16:21,199
+is actually you need to know when does
+
+289
+00:16:17,519 --> 00:16:24,399
+it rain, when does it get cold, when is
+
+290
+00:16:21,199 --> 00:16:28,079
+it warm. Why do you need to know that?
+
+291
+00:16:24,399 --> 00:16:30,720
+Because your food depends on it. Without
+
+292
+00:16:28,079 --> 00:16:33,040
+knowing this, you die because you plan
+
+293
+00:16:30,720 --> 00:16:36,880
+things in the wrong day. You know, it
+
+294
+00:16:33,040 --> 00:16:40,160
+doesn't grow. So this is so that is why
+
+295
+00:16:36,880 --> 00:16:43,360
+the daytime the calendar became like the
+
+296
+00:16:40,160 --> 00:16:46,399
+the most critical
+
+297
+00:16:43,360 --> 00:16:51,320
+and the most important science from the
+
+298
+00:16:46,399 --> 00:16:51,320
+Asian times calendar. Okay.
+
+299
+00:16:54,639 --> 00:17:00,000
+And so daytime is very complex because
+
+300
+00:16:57,279 --> 00:17:04,000
+it has to do with astronomy, position of
+
+301
+00:17:00,000 --> 00:17:06,559
+the planetary bodies and sun and and in
+
+302
+00:17:04,000 --> 00:17:09,360
+programming languages it is also very
+
+303
+00:17:06,559 --> 00:17:12,079
+complex not just the calendar because
+
+304
+00:17:09,360 --> 00:17:14,160
+then you got the problem of how do you
+
+305
+00:17:12,079 --> 00:17:17,039
+like represent the daytime because
+
+306
+00:17:14,160 --> 00:17:21,439
+daytime is not decimal system. It's like
+
+307
+00:17:17,039 --> 00:17:23,760
+by 12 then week is 7, month is 30 or 31.
+
+308
+00:17:21,439 --> 00:17:27,679
+It depends and then you have leap year.
+
+309
+00:17:23,760 --> 00:17:29,520
+So daytime is very complex issue and the
+
+310
+00:17:27,679 --> 00:17:31,440
+Unix
+
+311
+00:17:29,520 --> 00:17:34,400
+people
+
+312
+00:17:31,440 --> 00:17:37,120
+they invented the Unix epic time that's
+
+313
+00:17:34,400 --> 00:17:39,760
+another story. Okay. So anyway daytime
+
+314
+00:17:37,120 --> 00:17:45,200
+uh so so I'm showing you the JavaScript
+
+315
+00:17:39,760 --> 00:17:47,679
+here and I it's very um uh date uh
+
+316
+00:17:45,200 --> 00:17:50,240
+constructor daytime constructor daytime
+
+317
+00:17:47,679 --> 00:17:55,919
+prototype. It's very elaborate very
+
+318
+00:17:50,240 --> 00:18:00,480
+complex. Okay. JavaScript. Uh you got
+
+319
+00:17:55,919 --> 00:18:02,400
+you got wait where where is the uh data
+
+320
+00:18:00,480 --> 00:18:04,000
+prototype?
+
+321
+00:18:02,400 --> 00:18:07,280
+Um
+
+322
+00:18:04,000 --> 00:18:10,400
+it's quite complex. Okay. Uh in fact I
+
+323
+00:18:07,280 --> 00:18:14,320
+know JavaScript the most because I spend
+
+324
+00:18:10,400 --> 00:18:16,880
+so so many months to write this
+
+325
+00:18:14,320 --> 00:18:22,160
+documentation in detail. Then you got to
+
+326
+00:18:16,880 --> 00:18:23,840
+know of course UTC, GMT, Zulu time you
+
+327
+00:18:22,160 --> 00:18:25,679
+you know what's the difference? Is it
+
+328
+00:18:23,840 --> 00:18:28,400
+just a name difference or is there
+
+329
+00:18:25,679 --> 00:18:30,400
+actual differences? because they are in
+
+330
+00:18:28,400 --> 00:18:36,799
+some of these functions you know you you
+
+331
+00:18:30,400 --> 00:18:38,799
+got uh UTC2 string ISO2 string GMT two
+
+332
+00:18:36,799 --> 00:18:43,919
+string what's the difference you know
+
+333
+00:18:38,799 --> 00:18:50,000
+and in F as we know you also got um
+
+334
+00:18:43,919 --> 00:18:54,320
+uh ISO UTC now right so digression about
+
+335
+00:18:50,000 --> 00:18:59,559
+calendars and astronomy and uh the
+
+336
+00:18:54,320 --> 00:18:59,559
+importance to humanity Okay.
+
+337
+00:18:59,600 --> 00:19:05,039
+So, let's copy that. Close that. So,
+
+338
+00:19:02,559 --> 00:19:07,760
+what is this? Uh, web block. Close.
+
+339
+00:19:05,039 --> 00:19:10,960
+Close. Close. Now, let's go back to talk
+
+340
+00:19:07,760 --> 00:19:15,760
+show. Let's just paste the link here so
+
+341
+00:19:10,960 --> 00:19:19,039
+that later people can reference it.
+
+342
+00:19:15,760 --> 00:19:23,280
+So, anyway, so back to F learning. So,
+
+343
+00:19:19,039 --> 00:19:26,080
+this is how you do um the ISO format.
+
+344
+00:19:23,280 --> 00:19:28,880
+Format is another thing very complex.
+
+345
+00:19:26,080 --> 00:19:33,120
+the format of daytime because every
+
+346
+00:19:28,880 --> 00:19:36,640
+country USA, Europe, Germany, Russia,
+
+347
+00:19:33,120 --> 00:19:39,679
+China they have like different format
+
+348
+00:19:36,640 --> 00:19:42,480
+and then you got the design issue. You
+
+349
+00:19:39,679 --> 00:19:45,520
+might ask the question which which
+
+350
+00:19:42,480 --> 00:19:48,720
+daytime format is the most is the best
+
+351
+00:19:45,520 --> 00:19:51,200
+let's say the most concise the most
+
+352
+00:19:48,720 --> 00:19:55,760
+universal or the most popular or the
+
+353
+00:19:51,200 --> 00:19:58,960
+most um precise or the most unambiguous
+
+354
+00:19:55,760 --> 00:20:01,600
+for example time you know if you are
+
+355
+00:19:58,960 --> 00:20:04,559
+American you might know you might be
+
+356
+00:20:01,600 --> 00:20:09,760
+familiar with the military time style
+
+357
+00:20:04,559 --> 00:20:12,960
+like um you know like like 2:00 26 6
+
+358
+00:20:09,760 --> 00:20:15,200
+minute PM. They don't say that. They say
+
+359
+00:20:12,960 --> 00:20:19,120
+uh 14
+
+360
+00:20:15,200 --> 00:20:21,520
+uh by 14, you know, like 14 something.
+
+361
+00:20:19,120 --> 00:20:25,760
+They have a special way to say it. They
+
+362
+00:20:21,520 --> 00:20:28,000
+use the 24-hour clock system. You see,
+
+363
+00:20:25,760 --> 00:20:30,880
+which is in which is also critical
+
+364
+00:20:28,000 --> 00:20:33,520
+because in military of course you cannot
+
+365
+00:20:30,880 --> 00:20:35,360
+make errors about time like we need to
+
+366
+00:20:33,520 --> 00:20:38,000
+on this time we need to do something you
+
+367
+00:20:35,360 --> 00:20:41,120
+can't make a mistake.
+
+368
+00:20:38,000 --> 00:20:43,840
+So daytime. Okay. So now this is
+
+369
+00:20:41,120 --> 00:20:48,080
+American style. Now let's say let's see
+
+370
+00:20:43,840 --> 00:20:50,559
+the ISO style. Can we like print it? Uh
+
+371
+00:20:48,080 --> 00:20:53,919
+yeah. So let's we I don't care about
+
+372
+00:20:50,559 --> 00:20:55,919
+that. Let's do that.
+
+373
+00:20:53,919 --> 00:20:57,840
+Fantastic.
+
+374
+00:20:55,919 --> 00:21:02,720
+Okay.
+
+375
+00:20:57,840 --> 00:21:07,520
+This is the ISO style. Okay.
+
+376
+00:21:02,720 --> 00:21:11,440
+We made a progress. Now furthermore
+
+377
+00:21:07,520 --> 00:21:13,919
+this is correct ISO style. You see they
+
+378
+00:21:11,440 --> 00:21:16,880
+they include microsconds. Can you see
+
+379
+00:21:13,919 --> 00:21:20,080
+that? That's microsconds and in decimal
+
+380
+00:21:16,880 --> 00:21:22,799
+system. I don't want that.
+
+381
+00:21:20,080 --> 00:21:26,480
+I want for example in EMAC I have this
+
+382
+00:21:22,799 --> 00:21:30,880
+command insert daytime. Which style do
+
+383
+00:21:26,480 --> 00:21:33,520
+you prefer? ISO date that. Okay. Now
+
+384
+00:21:30,880 --> 00:21:35,520
+insert day time again.
+
+385
+00:21:33,520 --> 00:21:37,039
+USA
+
+386
+00:21:35,520 --> 00:21:41,440
+USA
+
+387
+00:21:37,039 --> 00:21:45,840
+there. Okay. Daytime again.
+
+388
+00:21:41,440 --> 00:21:51,679
+ISO date uh USA a brief. Okay. Insert
+
+389
+00:21:45,840 --> 00:21:55,120
+daytime again. Uh USA ISO code format.
+
+390
+00:21:51,679 --> 00:21:58,000
+This is the best format for coders for
+
+391
+00:21:55,120 --> 00:22:02,640
+programmers because it's the most simple
+
+392
+00:21:58,000 --> 00:22:05,039
+to pass year month preceded by zero. if
+
+393
+00:22:02,640 --> 00:22:08,799
+there's only one digit and date preceded
+
+394
+00:22:05,039 --> 00:22:11,840
+by zero followed by underscore not t
+
+395
+00:22:08,799 --> 00:22:15,520
+okay because in ISO format they
+
+396
+00:22:11,840 --> 00:22:20,240
+typically the separator between date and
+
+397
+00:22:15,520 --> 00:22:22,960
+time is a capital T which is hard to
+
+398
+00:22:20,240 --> 00:22:27,200
+read okay so programmer format this is
+
+399
+00:22:22,960 --> 00:22:32,240
+very popular then followed by 14 that
+
+400
+00:22:27,200 --> 00:22:35,039
+means 2:00 p.m. 37 minutes then seconds.
+
+401
+00:22:32,240 --> 00:22:37,360
+Okay, so that's another format. Then you
+
+402
+00:22:35,039 --> 00:22:40,400
+can add
+
+403
+00:22:37,360 --> 00:22:43,120
+then all digits. This is another very
+
+404
+00:22:40,400 --> 00:22:46,159
+popular format for programmers,
+
+405
+00:22:43,120 --> 00:22:49,720
+you know, it's just all digits. Okay.
+
+406
+00:22:46,159 --> 00:22:49,720
+Then you also
+
+407
+00:22:49,919 --> 00:22:56,480
+then you got the Unix seconds. This is
+
+408
+00:22:52,640 --> 00:23:00,480
+the Unix people. They love this. Okay.
+
+409
+00:22:56,480 --> 00:23:04,080
+Unix second Unix epoch from I believe
+
+410
+00:23:00,480 --> 00:23:07,120
+1970 something counting starting from
+
+411
+00:23:04,080 --> 00:23:09,440
+there. Okay, Unix and then you got year
+
+412
+00:23:07,120 --> 00:23:11,919
+2k problems things like that. So daytime
+
+413
+00:23:09,440 --> 00:23:15,360
+is actually very critical in programming
+
+414
+00:23:11,919 --> 00:23:18,559
+languages. Okay. So what I want to say
+
+415
+00:23:15,360 --> 00:23:22,280
+here is samples example of different
+
+416
+00:23:18,559 --> 00:23:22,280
+daytime. Okay.
+
+417
+00:23:25,440 --> 00:23:30,320
+Okay. That's some of the kind of popular
+
+418
+00:23:27,919 --> 00:23:33,440
+format.
+
+419
+00:23:30,320 --> 00:23:35,679
+Comment sleeper.
+
+420
+00:23:33,440 --> 00:23:39,520
+Sleeper tiger.
+
+421
+00:23:35,679 --> 00:23:43,039
+Hi. We got six people watching. So say
+
+422
+00:23:39,520 --> 00:23:47,120
+hi. Okay. Say hi there. Feel free to do
+
+423
+00:23:43,039 --> 00:23:53,919
+it. Now go back to F. We coding F. So we
+
+424
+00:23:47,120 --> 00:23:57,039
+got that. But I want a um
+
+425
+00:23:53,919 --> 00:23:59,280
+so I want a format. Let's say for now
+
+426
+00:23:57,039 --> 00:24:02,400
+let's say I want this format. How do you
+
+427
+00:23:59,280 --> 00:24:05,600
+do this? So this relates to how do you
+
+428
+00:24:02,400 --> 00:24:07,760
+manipulate strings? So I don't know that
+
+429
+00:24:05,600 --> 00:24:10,799
+yet. You know how do you do find replace
+
+430
+00:24:07,760 --> 00:24:14,080
+in a string? And
+
+431
+00:24:10,799 --> 00:24:18,679
+you know for example given that how do I
+
+432
+00:24:14,080 --> 00:24:18,679
+change it to that in F
+
+433
+00:24:18,720 --> 00:24:23,760
+of course you do string replace but
+
+434
+00:24:21,200 --> 00:24:27,360
+maybe there's better way or something or
+
+435
+00:24:23,760 --> 00:24:30,159
+if you have a daytime object there's
+
+436
+00:24:27,360 --> 00:24:33,520
+maybe there's a like a method that just
+
+437
+00:24:30,159 --> 00:24:35,520
+convert one daytime to another format.
+
+438
+00:24:33,520 --> 00:24:40,320
+So let's see. So this is when you want
+
+439
+00:24:35,520 --> 00:24:43,200
+to see oh you got the two string.
+
+440
+00:24:40,320 --> 00:24:47,120
+Okay. So let's look at that's um that's
+
+441
+00:24:43,200 --> 00:24:49,120
+a new information about F. So they don't
+
+442
+00:24:47,120 --> 00:24:52,559
+have two string here but now we are
+
+443
+00:24:49,120 --> 00:24:55,760
+using two string. Interesting.
+
+444
+00:24:52,559 --> 00:25:00,440
+So okay. So question how do you print
+
+445
+00:24:55,760 --> 00:25:00,440
+daytime in this format?
+
+446
+00:25:01,440 --> 00:25:05,240
+Okay, let's ask
+
+447
+00:25:05,360 --> 00:25:12,640
+how to get date
+
+448
+00:25:09,279 --> 00:25:14,559
+time in this
+
+449
+00:25:12,640 --> 00:25:17,919
+format
+
+450
+00:25:14,559 --> 00:25:22,360
+in F sharp.
+
+451
+00:25:17,919 --> 00:25:22,360
+Okay, let's ask guac.
+
+452
+00:25:23,919 --> 00:25:26,919
+So,
+
+453
+00:25:28,159 --> 00:25:34,000
+let's see if guac understand it. I think
+
+454
+00:25:30,799 --> 00:25:37,520
+so. Okay. To format the current day time
+
+455
+00:25:34,000 --> 00:25:40,000
+in F as this kind of format. You see
+
+456
+00:25:37,520 --> 00:25:45,760
+this is interesting question because
+
+457
+00:25:40,000 --> 00:25:48,080
+this format is not a standardized format
+
+458
+00:25:45,760 --> 00:25:51,440
+but it's rather just you know it's very
+
+459
+00:25:48,080 --> 00:25:53,440
+common but it's not like ISO standard or
+
+460
+00:25:51,440 --> 00:25:57,120
+anything.
+
+461
+00:25:53,440 --> 00:26:00,360
+So it says so let let's see what uh it
+
+462
+00:25:57,120 --> 00:26:00,360
+tell us.
+
+463
+00:26:00,480 --> 00:26:08,559
+recommended approach. So, oh,
+
+464
+00:26:05,440 --> 00:26:10,640
+oh, you just give a template.
+
+465
+00:26:08,559 --> 00:26:13,520
+Very nice.
+
+466
+00:26:10,640 --> 00:26:17,039
+Did we do that before?
+
+467
+00:26:13,520 --> 00:26:20,000
+No. Okay. So, this is a new thing.
+
+468
+00:26:17,039 --> 00:26:23,840
+Uh, round trip format is Oh, okay. So,
+
+469
+00:26:20,000 --> 00:26:26,640
+this is a new thing we learned. Copy. Go
+
+470
+00:26:23,840 --> 00:26:30,279
+back.
+
+471
+00:26:26,640 --> 00:26:30,279
+So this
+
+472
+00:26:31,600 --> 00:26:37,360
+so now you you say two string and you
+
+473
+00:26:34,799 --> 00:26:40,159
+just say that that will give so let's
+
+474
+00:26:37,360 --> 00:26:44,320
+try it
+
+475
+00:26:40,159 --> 00:26:48,720
+okay let's run it run it
+
+476
+00:26:44,320 --> 00:26:55,000
+fantastic and beautiful there
+
+477
+00:26:48,720 --> 00:26:55,000
+wait where is it uh the here okay So
+
+478
+00:26:56,000 --> 00:27:00,720
+fantastic.
+
+479
+00:26:58,480 --> 00:27:03,120
+And what does this come? Where does this
+
+480
+00:27:00,720 --> 00:27:05,840
+one come from?
+
+481
+00:27:03,120 --> 00:27:09,760
+That's the T. Okay, that's a T. Okay,
+
+482
+00:27:05,840 --> 00:27:14,000
+remove that. Okay, so we have learned.
+
+483
+00:27:09,760 --> 00:27:17,120
+Now put it back syntax color
+
+484
+00:27:14,000 --> 00:27:20,320
+and uh copy this
+
+485
+00:27:17,120 --> 00:27:22,240
+book answer so we can actually learn
+
+486
+00:27:20,320 --> 00:27:25,880
+about it.
+
+487
+00:27:22,240 --> 00:27:25,880
+later. Okay.
+
+488
+00:27:33,600 --> 00:27:41,039
+So, let's format it nicely
+
+489
+00:27:37,760 --> 00:27:44,960
+and show in browser. So, we learned
+
+490
+00:27:41,039 --> 00:27:49,279
+about daytime in F.
+
+491
+00:27:44,960 --> 00:27:50,880
+Okay. So, and uh this here is our code
+
+492
+00:27:49,279 --> 00:27:55,039
+just daytime.
+
+493
+00:27:50,880 --> 00:27:58,720
+in ISO format or in this format I want.
+
+494
+00:27:55,039 --> 00:28:00,480
+Okay, that's what I want. So, copy this.
+
+495
+00:27:58,720 --> 00:28:06,240
+Copy.
+
+496
+00:28:00,480 --> 00:28:08,880
+And uh now let's go back to my code.
+
+497
+00:28:06,240 --> 00:28:12,000
+So, I need a date time. Okay. Now, let's
+
+498
+00:28:08,880 --> 00:28:16,799
+delete that. This is find replace
+
+499
+00:28:12,000 --> 00:28:19,919
+script. So, okay. All the above is user
+
+500
+00:28:16,799 --> 00:28:22,399
+input. So this is directory path to do
+
+501
+00:28:19,919 --> 00:28:25,360
+find replace. This is glob pattern for
+
+502
+00:28:22,399 --> 00:28:29,679
+file name. This is find string replace
+
+503
+00:28:25,360 --> 00:28:34,240
+string and after this line it's out of
+
+504
+00:28:29,679 --> 00:28:37,440
+the code. So this will be named x date
+
+505
+00:28:34,240 --> 00:28:41,120
+time. Okay that's that's what I want
+
+506
+00:28:37,440 --> 00:28:43,440
+because when we do backup we want to
+
+507
+00:28:41,120 --> 00:28:46,000
+append this datetime string into the
+
+508
+00:28:43,440 --> 00:28:49,520
+backup file. Okay.
+
+509
+00:28:46,000 --> 00:28:52,000
+Okay. Fantastic. Now go back
+
+510
+00:28:49,520 --> 00:28:55,919
+uh go back. What is this? Find replace
+
+511
+00:28:52,000 --> 00:28:58,240
+go language. You see in go language you
+
+512
+00:28:55,919 --> 00:29:01,679
+can also see
+
+513
+00:28:58,240 --> 00:29:04,559
+uh you see input directory regular
+
+514
+00:29:01,679 --> 00:29:06,399
+expression for file name. Write to file
+
+515
+00:29:04,559 --> 00:29:09,120
+true or false. We need to add that
+
+516
+00:29:06,399 --> 00:29:12,480
+feature. Do backup true or false. We
+
+517
+00:29:09,120 --> 00:29:14,880
+need to add that feature. Backup surface
+
+518
+00:29:12,480 --> 00:29:18,240
+surfix. We need to add that feature.
+
+519
+00:29:14,880 --> 00:29:24,159
+This is using Emacs convention but you
+
+520
+00:29:18,240 --> 00:29:27,520
+might also use BAK which is also common.
+
+521
+00:29:24,159 --> 00:29:30,640
+Then directory to skip we also need that
+
+522
+00:29:27,520 --> 00:29:32,960
+feature because we don't want it to you
+
+523
+00:29:30,640 --> 00:29:36,640
+know do find replace in the git direct
+
+524
+00:29:32,960 --> 00:29:40,640
+directory that will result in major
+
+525
+00:29:36,640 --> 00:29:44,399
+ if you you know change all files
+
+526
+00:29:40,640 --> 00:29:47,039
+in the git uh engine.
+
+527
+00:29:44,399 --> 00:29:51,679
+And also another feature for find
+
+528
+00:29:47,039 --> 00:29:54,399
+replace is that sometimes you want a
+
+529
+00:29:51,679 --> 00:29:57,200
+specific list of files that you want to
+
+530
+00:29:54,399 --> 00:30:00,080
+do find replace not all files in a
+
+531
+00:29:57,200 --> 00:30:03,120
+directory. So there is this feature. So
+
+532
+00:30:00,080 --> 00:30:06,880
+if this list is not empty then just do
+
+533
+00:30:03,120 --> 00:30:10,000
+these files. Okay. Then here in the go
+
+534
+00:30:06,880 --> 00:30:13,600
+script golan is a list of find replace
+
+535
+00:30:10,000 --> 00:30:17,679
+pairs. a list of so you can do multiple
+
+536
+00:30:13,600 --> 00:30:21,679
+find replace in one shot
+
+537
+00:30:17,679 --> 00:30:25,279
+and uh then after this line is the
+
+538
+00:30:21,679 --> 00:30:30,240
+actual code so this is goland script
+
+539
+00:30:25,279 --> 00:30:33,840
+findreplace go okay uh and the URL is on
+
+540
+00:30:30,240 --> 00:30:36,240
+my website I showed before so Goland
+
+541
+00:30:33,840 --> 00:30:38,159
+find replace you can grab it and have
+
+542
+00:30:36,240 --> 00:30:40,799
+fun with it
+
+543
+00:30:38,159 --> 00:30:44,240
+okay Close,
+
+544
+00:30:40,799 --> 00:30:48,480
+close, close. Now back to the find
+
+545
+00:30:44,240 --> 00:30:52,919
+replace F. Now the next job is to know
+
+546
+00:30:48,480 --> 00:30:52,919
+about how to copy a file.
+
+547
+00:30:54,399 --> 00:30:59,919
+There are many ways of course. One way
+
+548
+00:30:56,480 --> 00:31:02,399
+is you simply open a file, read it and
+
+549
+00:30:59,919 --> 00:31:05,120
+write to a file. So you create a new
+
+550
+00:31:02,399 --> 00:31:07,520
+file. Another way is actually just like
+
+551
+00:31:05,120 --> 00:31:12,080
+use a copy command of a file path.
+
+552
+00:31:07,520 --> 00:31:14,640
+you'll just copy. So let's ask guac
+
+553
+00:31:12,080 --> 00:31:17,679
+because we need to copy you know for
+
+554
+00:31:14,640 --> 00:31:21,200
+making a backup then we will need to use
+
+555
+00:31:17,679 --> 00:31:24,320
+the data to append to the file name for
+
+556
+00:31:21,200 --> 00:31:26,880
+the backup. So you would know you know
+
+557
+00:31:24,320 --> 00:31:29,360
+each backup file there's a date and
+
+558
+00:31:26,880 --> 00:31:34,399
+second you know so you know ex exactly
+
+559
+00:31:29,360 --> 00:31:38,240
+when it is uh being replaced.
+
+560
+00:31:34,399 --> 00:31:43,360
+So now the question how to do copy in F.
+
+561
+00:31:38,240 --> 00:31:49,559
+Okay. So new question please. Qu new
+
+562
+00:31:43,360 --> 00:31:49,559
+how to copy a file in F help.
+
+563
+00:31:52,880 --> 00:31:58,320
+Okay let's see the comments.
+
+564
+00:31:56,240 --> 00:32:01,679
+Are we using regular expression or
+
+565
+00:31:58,320 --> 00:32:04,080
+custom implementation?
+
+566
+00:32:01,679 --> 00:32:08,080
+Now right now we are doing find replace
+
+567
+00:32:04,080 --> 00:32:11,200
+just plain text. So there is no you know
+
+568
+00:32:08,080 --> 00:32:13,200
+it's just plain text it's not using
+
+569
+00:32:11,200 --> 00:32:16,880
+regular expression but that is something
+
+570
+00:32:13,200 --> 00:32:19,840
+we need to add. Okay I'm again I'm
+
+571
+00:32:16,880 --> 00:32:23,039
+learning F.
+
+572
+00:32:19,840 --> 00:32:26,640
+Uh I think it's fantastic because I love
+
+573
+00:32:23,039 --> 00:32:29,600
+functional programming. Wuam language uh
+
+574
+00:32:26,640 --> 00:32:35,679
+is I've been coding that for about 30
+
+575
+00:32:29,600 --> 00:32:38,000
+years and eac lisp for about 20 years.
+
+576
+00:32:35,679 --> 00:32:40,640
+So anyway to copy a file in F the
+
+577
+00:32:38,000 --> 00:32:43,200
+simplest and most common approach is to
+
+578
+00:32:40,640 --> 00:32:45,519
+use the static method
+
+579
+00:32:43,200 --> 00:32:49,200
+system io.file.copy.
+
+580
+00:32:45,519 --> 00:32:52,159
+Fantastic basic synchronous file. That's
+
+581
+00:32:49,200 --> 00:32:53,679
+what I want. Okay. So, you need to open
+
+582
+00:32:52,159 --> 00:32:57,679
+system.io.
+
+583
+00:32:53,679 --> 00:33:00,720
+Copy that. Do we already have it? Yes.
+
+584
+00:32:57,679 --> 00:33:04,919
+Then you need uh to copy the file. This
+
+585
+00:33:00,720 --> 00:33:04,919
+is what you do. Okay.
+
+586
+00:33:05,760 --> 00:33:14,159
+Okay. So, now go back to talk show
+
+587
+00:33:10,159 --> 00:33:18,720
+to copy your file. Let's write a uh F
+
+588
+00:33:14,159 --> 00:33:21,760
+script. paste and uh
+
+589
+00:33:18,720 --> 00:33:23,279
+wait show in browser. So what do we have
+
+590
+00:33:21,760 --> 00:33:26,279
+here?
+
+591
+00:33:23,279 --> 00:33:26,279
+Uh
+
+592
+00:33:27,519 --> 00:33:34,840
+so these all these are about daytime.
+
+593
+00:33:30,080 --> 00:33:34,840
+Okay, let's clean up a little bit.
+
+594
+00:33:39,200 --> 00:33:48,320
+Date time. So you can watch how I use
+
+595
+00:33:44,080 --> 00:33:51,760
+Emacs my workflow if you are Emacs user.
+
+596
+00:33:48,320 --> 00:33:56,000
+So copy that paste it here. I'm using
+
+597
+00:33:51,760 --> 00:33:59,679
+HTML mode. So you see one single key one
+
+598
+00:33:56,000 --> 00:34:05,360
+single key press it will deal with the
+
+599
+00:33:59,679 --> 00:34:05,360
+entire HTML element. For example, see C
+
+600
+00:34:05,360 --> 00:34:06,080
+see C see C see C see C see C see C see
+
+601
+00:34:05,360 --> 00:34:06,080
+C see C see C see C see C see C see C
+
+602
+00:34:06,080 --> 00:34:06,880
+see C see C see C see C see C see C see
+
+603
+00:34:06,080 --> 00:34:07,440
+C see C see C see C see C see C see C
+
+604
+00:34:06,880 --> 00:34:12,560
+see C see C see C see C see C see C see
+
+605
+00:34:07,440 --> 00:34:14,399
+C and it will accumulate what you uh
+
+606
+00:34:12,560 --> 00:34:17,119
+copied
+
+607
+00:34:14,399 --> 00:34:20,399
+okay well actually this needs to go
+
+608
+00:34:17,119 --> 00:34:22,960
+inside there okay so that's F then we
+
+609
+00:34:20,399 --> 00:34:27,679
+need to um
+
+610
+00:34:22,960 --> 00:34:30,879
+example of different data and cut cut
+
+611
+00:34:27,679 --> 00:34:33,359
+okay go back here here paste okay show
+
+612
+00:34:30,879 --> 00:34:33,359
+in browser
+
+613
+00:34:34,320 --> 00:34:39,679
+magnify. So you can see daytime. Okay,
+
+614
+00:34:36,960 --> 00:34:43,520
+we got some arrows there. This this
+
+615
+00:34:39,679 --> 00:34:46,720
+section is about daytime learning F.
+
+616
+00:34:43,520 --> 00:34:51,440
+Okay, so you got an arrow here. Oh yeah,
+
+617
+00:34:46,720 --> 00:34:55,679
+the U needs to be there. Okay,
+
+618
+00:34:51,440 --> 00:34:57,520
+fantastic. Okay, next task is about
+
+619
+00:34:55,679 --> 00:35:02,680
+copy.
+
+620
+00:34:57,520 --> 00:35:02,680
+Okay, so let's go. So copy
+
+621
+00:35:04,640 --> 00:35:08,880
+copy file
+
+622
+00:35:07,119 --> 00:35:14,320
+Fantastic
+
+623
+00:35:08,880 --> 00:35:17,920
+how to copy. So Gro says this way
+
+624
+00:35:14,320 --> 00:35:21,920
+does not override if destination exist.
+
+625
+00:35:17,920 --> 00:35:26,560
+Okay. So you also need the system.io.
+
+626
+00:35:21,920 --> 00:35:31,440
+So let's copy that. I mean system wait
+
+627
+00:35:26,560 --> 00:35:34,240
+is it wait is it system or system.io
+
+628
+00:35:31,440 --> 00:35:39,040
+system.io
+
+629
+00:35:34,240 --> 00:35:42,160
+oh interesting so system got daytime but
+
+630
+00:35:39,040 --> 00:35:44,400
+system.io IO for the
+
+631
+00:35:42,160 --> 00:35:47,839
+input output
+
+632
+00:35:44,400 --> 00:35:51,680
+copy file. Okay.
+
+633
+00:35:47,839 --> 00:35:55,119
+Copy file example.
+
+634
+00:35:51,680 --> 00:35:58,480
+Okay. So you just say that then let's
+
+635
+00:35:55,119 --> 00:36:00,960
+try. Okay. So
+
+636
+00:35:58,480 --> 00:36:04,079
+okay source destination does not
+
+637
+00:36:00,960 --> 00:36:07,760
+override. Okay. Or allow override. Oh
+
+638
+00:36:04,079 --> 00:36:12,720
+just an option. Okay. So now let's pick
+
+639
+00:36:07,760 --> 00:36:16,480
+a file to copy. Let's see this one.
+
+640
+00:36:12,720 --> 00:36:21,440
+Uh, make a backup just just to be sure.
+
+641
+00:36:16,480 --> 00:36:23,520
+Go back. Okay. The source equals to that
+
+642
+00:36:21,440 --> 00:36:30,520
+file path
+
+643
+00:36:23,520 --> 00:36:30,520
+and the destination equals to let's say
+
+644
+00:36:32,000 --> 00:36:39,119
+x you know tilda x tilda. Okay. Now if
+
+645
+00:36:36,720 --> 00:36:41,520
+we run it now first of all open the file
+
+646
+00:36:39,119 --> 00:36:46,079
+go to the directory. So you see there is
+
+647
+00:36:41,520 --> 00:36:48,960
+no tilda xtilda close back to the code.
+
+648
+00:36:46,079 --> 00:36:52,839
+Now if we run it it should be it'll
+
+649
+00:36:48,960 --> 00:36:52,839
+create it. Okay
+
+650
+00:36:53,599 --> 00:36:58,760
+done. Okay now open that file.
+
+651
+00:36:59,119 --> 00:37:08,320
+Uh it it is opened. Fantastic. It opened
+
+652
+00:37:03,839 --> 00:37:12,000
+in the default HTML mode which is not my
+
+653
+00:37:08,320 --> 00:37:16,160
+mode because I'm using SI HTML. You see
+
+654
+00:37:12,000 --> 00:37:18,720
+I'll go to the directory. So you see
+
+655
+00:37:16,160 --> 00:37:22,800
+fantastic
+
+656
+00:37:18,720 --> 00:37:27,680
+fantastic okay this is how do you do it
+
+657
+00:37:22,800 --> 00:37:30,560
+back syntax color it refresh.
+
+658
+00:37:27,680 --> 00:37:34,400
+So here is how to copy file. Now we know
+
+659
+00:37:30,560 --> 00:37:37,599
+how to do this. Now we need to
+
+660
+00:37:34,400 --> 00:37:42,000
+go back to our find and replace script
+
+661
+00:37:37,599 --> 00:37:45,920
+and let's see how we going to do this.
+
+662
+00:37:42,000 --> 00:37:48,880
+Okay, here is how you copy
+
+663
+00:37:45,920 --> 00:37:51,880
+override. Uh do you want to override?
+
+664
+00:37:48,880 --> 00:37:51,880
+Yes.
+
+665
+00:37:53,280 --> 00:37:58,720
+Okay. Yeah, because for backup I don't
+
+666
+00:37:56,160 --> 00:38:02,240
+care. I want to override.
+
+667
+00:37:58,720 --> 00:38:06,160
+It's not likely they uh
+
+668
+00:38:02,240 --> 00:38:08,240
+Oh, so but if you run this we already
+
+669
+00:38:06,160 --> 00:38:12,560
+run because you don't have you know you
+
+670
+00:38:08,240 --> 00:38:15,040
+need system not you also need system.
+
+671
+00:38:12,560 --> 00:38:19,599
+So let's try to run this see if it
+
+672
+00:38:15,040 --> 00:38:21,520
+works. Okay it will complain maybe will
+
+673
+00:38:19,599 --> 00:38:23,359
+complain
+
+674
+00:38:21,520 --> 00:38:26,880
+no daytime
+
+675
+00:38:23,359 --> 00:38:29,599
+now found because you are not using this
+
+676
+00:38:26,880 --> 00:38:32,760
+system. So, let's try it. Okay, hold on
+
+677
+00:38:29,599 --> 00:38:32,760
+a second.
+
+678
+00:38:38,480 --> 00:38:44,160
+It
+
+679
+00:38:40,320 --> 00:38:48,400
+okay indeed error name space type or
+
+680
+00:38:44,160 --> 00:38:51,440
+module date time is not defined. Okay,
+
+681
+00:38:48,400 --> 00:38:56,880
+so that means you need a system and this
+
+682
+00:38:51,440 --> 00:38:59,680
+is or date time. Now this this comment
+
+683
+00:38:56,880 --> 00:39:02,320
+is not precise because so far I don't
+
+684
+00:38:59,680 --> 00:39:05,119
+know exactly.
+
+685
+00:39:02,320 --> 00:39:08,160
+Okay. So it should say that that is the
+
+686
+00:39:05,119 --> 00:39:11,520
+module I suppose
+
+687
+00:39:08,160 --> 00:39:14,480
+and uh you know so right now I'm not
+
+688
+00:39:11,520 --> 00:39:17,040
+familiar with what module involves
+
+689
+00:39:14,480 --> 00:39:19,359
+because in other languages I would know
+
+690
+00:39:17,040 --> 00:39:21,839
+in Python, Emac this you know I would
+
+691
+00:39:19,359 --> 00:39:23,920
+know okay this module is because you
+
+692
+00:39:21,839 --> 00:39:27,760
+need this this these functions or
+
+693
+00:39:23,920 --> 00:39:31,119
+objects or methods but I'm not exact I
+
+694
+00:39:27,760 --> 00:39:33,359
+don't know what F module is about. So
+
+695
+00:39:31,119 --> 00:39:38,520
+but anyway something like this is for
+
+696
+00:39:33,359 --> 00:39:38,520
+daytime and that io is for
+
+697
+00:39:39,760 --> 00:39:44,400
+getting these
+
+698
+00:39:42,240 --> 00:39:47,760
+uh getting the content something like
+
+699
+00:39:44,400 --> 00:39:50,000
+that. Okay. So as we learn about the new
+
+700
+00:39:47,760 --> 00:39:52,880
+program language programming language
+
+701
+00:39:50,000 --> 00:39:55,280
+more we we will know like exactly what
+
+702
+00:39:52,880 --> 00:39:58,320
+we need to say there like is it the
+
+703
+00:39:55,280 --> 00:40:01,440
+function or is it the object that you
+
+704
+00:39:58,320 --> 00:40:05,599
+are like what what for example as far as
+
+705
+00:40:01,440 --> 00:40:08,720
+I know I learned few days ago this open
+
+706
+00:40:05,599 --> 00:40:12,720
+they actually don't load anything they
+
+707
+00:40:08,720 --> 00:40:14,880
+they just create a name space
+
+708
+00:40:12,720 --> 00:40:18,000
+so I don't know the detail yet okay so
+
+709
+00:40:14,880 --> 00:40:21,920
+anyway Okay. So now if we run this your
+
+710
+00:40:18,000 --> 00:40:24,800
+su success you see you see now you can
+
+711
+00:40:21,920 --> 00:40:29,520
+open one of these file and search for
+
+712
+00:40:24,800 --> 00:40:32,400
+save. Okay not here but um
+
+713
+00:40:29,520 --> 00:40:35,200
+um because it doesn't appear there. It's
+
+714
+00:40:32,400 --> 00:40:40,720
+what about this one? Save.
+
+715
+00:40:35,200 --> 00:40:46,200
+Uh not there. So which one does it um
+
+716
+00:40:40,720 --> 00:40:46,200
+uh search for? X save
+
+717
+00:40:46,400 --> 00:40:51,240
+in all these 1,00 files.
+
+718
+00:40:53,920 --> 00:40:59,160
+Okay, first time it's going to load the
+
+719
+00:40:56,160 --> 00:40:59,160
+disk.
+
+720
+00:41:00,240 --> 00:41:09,200
+Done. Wait. So, it did not
+
+721
+00:41:05,920 --> 00:41:14,240
+uh let's try again.
+
+722
+00:41:09,200 --> 00:41:19,400
+X save capital S.
+
+723
+00:41:14,240 --> 00:41:19,400
+Wait, it didn't find it. Why is that?
+
+724
+00:41:27,359 --> 00:41:34,680
+So, we are actually let's see
+
+725
+00:41:31,680 --> 00:41:34,680
+close.
+
+726
+00:41:36,400 --> 00:41:42,640
+Now let's make a change to the file. You
+
+727
+00:41:40,000 --> 00:41:45,359
+see we are trying we we are trying to
+
+728
+00:41:42,640 --> 00:41:50,640
+find the saving and replace it by
+
+729
+00:41:45,359 --> 00:41:53,119
+saving. Okay. And we are only
+
+730
+00:41:50,640 --> 00:41:56,720
+doing that for file starting with
+
+731
+00:41:53,119 --> 00:42:00,400
+capital A. So let's see if we did uh
+
+732
+00:41:56,720 --> 00:42:03,760
+let's see kasar find. Did we actually
+
+733
+00:42:00,400 --> 00:42:06,880
+change? Yes we did. So we did made some
+
+734
+00:42:03,760 --> 00:42:10,960
+changes. You see this is find package in
+
+735
+00:42:06,880 --> 00:42:14,720
+Emac this. So we did successfully. So
+
+736
+00:42:10,960 --> 00:42:18,400
+open it. So you can see there is there
+
+737
+00:42:14,720 --> 00:42:21,520
+is that word. So you see
+
+738
+00:42:18,400 --> 00:42:26,079
+you can see it but it's like cut off.
+
+739
+00:42:21,520 --> 00:42:28,160
+See there. Uh so yeah successful. So we
+
+740
+00:42:26,079 --> 00:42:30,480
+want to make a modification. Close.
+
+741
+00:42:28,160 --> 00:42:34,240
+Close. We want to make make a
+
+742
+00:42:30,480 --> 00:42:37,920
+modification. print only if
+
+743
+00:42:34,240 --> 00:42:41,440
+file changed. So you when you want to do
+
+744
+00:42:37,920 --> 00:42:45,119
+that you need to compile uh compare
+
+745
+00:42:41,440 --> 00:42:48,599
+the compare this old string and new
+
+746
+00:42:45,119 --> 00:42:48,599
+string or
+
+747
+00:42:48,640 --> 00:42:54,400
+how do you know if the replace happened?
+
+748
+00:42:51,280 --> 00:42:57,520
+You see one way is you compare comp
+
+749
+00:42:54,400 --> 00:42:59,599
+compare the old string content versus
+
+750
+00:42:57,520 --> 00:43:01,839
+the new. If they are different then
+
+751
+00:42:59,599 --> 00:43:04,000
+there's a replacement
+
+752
+00:43:01,839 --> 00:43:08,240
+but that's inefficient.
+
+753
+00:43:04,000 --> 00:43:10,400
+So it would be better if you
+
+754
+00:43:08,240 --> 00:43:13,359
+can find out you know whether the
+
+755
+00:43:10,400 --> 00:43:17,839
+replace method is successful.
+
+756
+00:43:13,359 --> 00:43:20,319
+Okay let's ask work. Okay
+
+757
+00:43:17,839 --> 00:43:25,280
+to
+
+758
+00:43:20,319 --> 00:43:27,760
+modify it so it only print changed file.
+
+759
+00:43:25,280 --> 00:43:32,000
+Okay. So we don't have the problem of
+
+760
+00:43:27,760 --> 00:43:34,000
+you know checking which file changed.
+
+761
+00:43:32,000 --> 00:43:37,839
+Okay. So we got quite a few things to
+
+762
+00:43:34,000 --> 00:43:41,920
+do. We need to do the backup yet. Uh to
+
+763
+00:43:37,839 --> 00:43:47,280
+do make back up
+
+764
+00:43:41,920 --> 00:43:51,040
+with timestamp in the file name. Okay,
+
+765
+00:43:47,280 --> 00:43:52,560
+that's one to-do and that's why we have
+
+766
+00:43:51,040 --> 00:43:54,160
+this
+
+767
+00:43:52,560 --> 00:43:57,040
+and
+
+768
+00:43:54,160 --> 00:44:00,599
+also to-do modified. So only print
+
+769
+00:43:57,040 --> 00:44:00,599
+changed file.
+
+770
+00:44:01,599 --> 00:44:07,720
+Okay. So, we need to ask gu um
+
+771
+00:44:12,079 --> 00:44:16,680
+in F when you
+
+772
+00:44:20,480 --> 00:44:24,200
+and you do
+
+773
+00:44:29,920 --> 00:44:37,280
+how to find if
+
+774
+00:44:34,880 --> 00:44:41,520
+replace
+
+775
+00:44:37,280 --> 00:44:44,640
+actually happened. Okay, that's the kind
+
+776
+00:44:41,520 --> 00:44:47,119
+of the question we want to know.
+
+777
+00:44:44,640 --> 00:44:50,720
+Uh so much to learn, a lot to learn when
+
+778
+00:44:47,119 --> 00:44:54,480
+you learn a new programming language.
+
+779
+00:44:50,720 --> 00:44:57,480
+So this is about copy file. So next new
+
+780
+00:44:54,480 --> 00:44:57,480
+question.
+
+781
+00:44:59,200 --> 00:45:09,520
+So copy the file path I mean copy the
+
+782
+00:45:03,680 --> 00:45:11,119
+guac answer and put it there.
+
+783
+00:45:09,520 --> 00:45:14,440
+Okay.
+
+784
+00:45:11,119 --> 00:45:14,440
+New question.
+
+785
+00:45:22,240 --> 00:45:26,800
+How to find if replace actually
+
+786
+00:45:24,319 --> 00:45:29,520
+happened? Okay. The method always return
+
+787
+00:45:26,800 --> 00:45:32,319
+a new string even if no replace was
+
+788
+00:45:29,520 --> 00:45:34,079
+made. It simply return a copy of
+
+789
+00:45:32,319 --> 00:45:37,440
+original. Okay. To check if a
+
+790
+00:45:34,079 --> 00:45:40,000
+replacement actually occurred,
+
+791
+00:45:37,440 --> 00:45:43,680
+the most common and efficient ways to
+
+792
+00:45:40,000 --> 00:45:48,319
+compare the result.
+
+793
+00:45:43,680 --> 00:45:50,319
+Okay. Yeah. But that's not efficient. So
+
+794
+00:45:48,319 --> 00:45:54,000
+you know, so what Okay. So you can do
+
+795
+00:45:50,319 --> 00:45:56,560
+with this less than and greater than
+
+796
+00:45:54,000 --> 00:45:58,079
+that means not equal. Interesting
+
+797
+00:45:56,560 --> 00:46:00,480
+syntax.
+
+798
+00:45:58,079 --> 00:46:03,760
+Haven't seen that syntax used for a long
+
+799
+00:46:00,480 --> 00:46:06,000
+time. I think that was very old syntax
+
+800
+00:46:03,760 --> 00:46:08,880
+40 years old.
+
+801
+00:46:06,000 --> 00:46:12,240
+Like more common today is just
+
+802
+00:46:08,880 --> 00:46:16,440
+exclamation equal.
+
+803
+00:46:12,240 --> 00:46:16,440
+Uh okay. So
+
+804
+00:46:16,880 --> 00:46:23,680
+why this works? Okay. So yeah,
+
+805
+00:46:20,319 --> 00:46:26,640
+alternative. Okay, count occurrences
+
+806
+00:46:23,680 --> 00:46:28,240
+first. Okay, that's that's what I want
+
+807
+00:46:26,640 --> 00:46:30,400
+because usually when you do find
+
+808
+00:46:28,240 --> 00:46:34,040
+replace, you want to know how many
+
+809
+00:46:30,400 --> 00:46:34,040
+changes happened.
+
+810
+00:46:34,400 --> 00:46:37,880
+Oh Jesus.
+
+811
+00:46:41,680 --> 00:46:45,200
+Wait, this is not functional
+
+812
+00:46:43,680 --> 00:46:48,880
+programming.
+
+813
+00:46:45,200 --> 00:46:52,520
+Okay, it's creating a function loop
+
+814
+00:46:48,880 --> 00:46:52,520
+recursive function
+
+815
+00:46:56,319 --> 00:47:05,920
+if position equals to -1. So -1 means
+
+816
+00:47:01,359 --> 00:47:09,280
+not found. Okay. Uh okay, which is also
+
+817
+00:47:05,920 --> 00:47:12,319
+CD. Okay. Find original.index
+
+818
+00:47:09,280 --> 00:47:16,400
+of then ACC.
+
+819
+00:47:12,319 --> 00:47:20,560
+If it's not found then ACC so ACC is a
+
+820
+00:47:16,400 --> 00:47:27,040
+count okay just terminate basically else
+
+821
+00:47:20,560 --> 00:47:30,880
+call itself then find length
+
+822
+00:47:27,040 --> 00:47:36,280
+uh what is the find what is find index
+
+823
+00:47:30,880 --> 00:47:36,280
+of okay find is the text.
+
+824
+00:47:42,079 --> 00:47:50,720
+Okay, original is the text.
+
+825
+00:47:46,000 --> 00:47:54,079
+Find is the string you want to find.
+
+826
+00:47:50,720 --> 00:47:57,359
+So that means this program that GU gave
+
+827
+00:47:54,079 --> 00:47:59,839
+out is not a complete program. You can't
+
+828
+00:47:57,359 --> 00:48:04,319
+run it because it doesn't know what is
+
+829
+00:47:59,839 --> 00:48:06,560
+original and what is find. So not good
+
+830
+00:48:04,319 --> 00:48:09,359
+because when I write tutorials, you
+
+831
+00:48:06,560 --> 00:48:11,200
+know, I've been writing tutorials for 30
+
+832
+00:48:09,359 --> 00:48:13,920
+years.
+
+833
+00:48:11,200 --> 00:48:16,720
+You always want your sample program to
+
+834
+00:48:13,920 --> 00:48:21,040
+be complete. So for example, in this
+
+835
+00:48:16,720 --> 00:48:23,359
+case, simply add two lines where you
+
+836
+00:48:21,040 --> 00:48:26,400
+give a you assign a string to original
+
+837
+00:48:23,359 --> 00:48:30,000
+and assign a string to find so that your
+
+838
+00:48:26,400 --> 00:48:32,640
+program is complete. it can run
+
+839
+00:48:30,000 --> 00:48:35,520
+and also when people read it they will
+
+840
+00:48:32,640 --> 00:48:38,400
+see oh this find is a variable this
+
+841
+00:48:35,520 --> 00:48:41,119
+original is a variable because otherwise
+
+842
+00:48:38,400 --> 00:48:45,359
+you know it doesn't say but anyway go
+
+843
+00:48:41,119 --> 00:48:48,640
+you know they explain a lot so anyway so
+
+844
+00:48:45,359 --> 00:48:54,319
+so to count occurrence you basically
+
+845
+00:48:48,640 --> 00:48:56,319
+have to write a recursive function
+
+846
+00:48:54,319 --> 00:48:59,599
+don't they just have like a building
+
+847
+00:48:56,319 --> 00:48:59,599
+function that's surprising
+
+848
+00:49:00,160 --> 00:49:07,119
+because I believe in Python and and
+
+849
+00:49:03,040 --> 00:49:10,400
+almost others they have like building
+
+850
+00:49:07,119 --> 00:49:11,920
+for Emacs for sure and uh I think Wuam
+
+851
+00:49:10,400 --> 00:49:14,920
+language
+
+852
+00:49:11,920 --> 00:49:14,920
+too.
+
+853
+00:49:17,359 --> 00:49:22,240
+Okay. So you have to write a function to
+
+854
+00:49:19,280 --> 00:49:25,599
+count it. Uh okay that need that's
+
+855
+00:49:22,240 --> 00:49:28,079
+interesting. Okay let's let's copy it.
+
+856
+00:49:25,599 --> 00:49:31,040
+Let's see if we can run it. Okay, again
+
+857
+00:49:28,079 --> 00:49:33,520
+we are just doing exploration. No hurry
+
+858
+00:49:31,040 --> 00:49:37,119
+to finish anything.
+
+859
+00:49:33,520 --> 00:49:41,280
+So but we need to you know uh write our
+
+860
+00:49:37,119 --> 00:49:46,000
+code here. So so but first of all this
+
+861
+00:49:41,280 --> 00:49:51,680
+is how to copy file. So another section
+
+862
+00:49:46,000 --> 00:49:55,200
+new question which is about um F code.
+
+863
+00:49:51,680 --> 00:49:58,760
+This is about F
+
+864
+00:49:55,200 --> 00:49:58,760
+count occurrence.
+
+865
+00:49:59,280 --> 00:50:04,880
+Okay, let's see if it will run. So again
+
+866
+00:50:02,319 --> 00:50:06,880
+we need to define
+
+867
+00:50:04,880 --> 00:50:12,400
+let.
+
+868
+00:50:06,880 --> 00:50:17,000
+Let let F is let stuff. You always just
+
+869
+00:50:12,400 --> 00:50:17,000
+let something let.
+
+870
+00:50:20,079 --> 00:50:25,520
+So original. Let's see. Alice in
+
+871
+00:50:22,880 --> 00:50:28,640
+Wonderland. That's my favorite
+
+872
+00:50:25,520 --> 00:50:30,160
+literature. Let's go to Alice in
+
+873
+00:50:28,640 --> 00:50:35,200
+Wonderland.
+
+874
+00:50:30,160 --> 00:50:38,960
+It's classic text down the rabbit hole.
+
+875
+00:50:35,200 --> 00:50:42,319
+Copy that. Copy.
+
+876
+00:50:38,960 --> 00:50:44,400
+Uh, close that. Okay. Original Alex in
+
+877
+00:50:42,319 --> 00:50:48,160
+Wonderland.
+
+878
+00:50:44,400 --> 00:50:51,599
+Okay. And, uh, find. You want to find
+
+879
+00:50:48,160 --> 00:50:56,640
+Alice of course
+
+880
+00:50:51,599 --> 00:50:59,200
+and then then count equals. So let's see
+
+881
+00:50:56,640 --> 00:51:02,720
+if this runs. Okay.
+
+882
+00:50:59,200 --> 00:51:06,720
+So how many occurrences
+
+883
+00:51:02,720 --> 00:51:12,040
+twice? Okay. So
+
+884
+00:51:06,720 --> 00:51:12,040
+what? So what does this mean? So count.
+
+885
+00:51:12,400 --> 00:51:17,280
+So this is a function. Okay. Very
+
+886
+00:51:14,640 --> 00:51:19,599
+tricky. You see when you learn a new
+
+887
+00:51:17,280 --> 00:51:21,760
+language you don't know which which word
+
+888
+00:51:19,599 --> 00:51:23,920
+is variable
+
+889
+00:51:21,760 --> 00:51:27,760
+function name or function name that you
+
+890
+00:51:23,920 --> 00:51:29,920
+define and which word is the actual you
+
+891
+00:51:27,760 --> 00:51:33,440
+know the programming languages keyword
+
+892
+00:51:29,920 --> 00:51:37,040
+that you cannot change. So the loop is a
+
+893
+00:51:33,440 --> 00:51:41,040
+function that we define. So we can
+
+894
+00:51:37,040 --> 00:51:43,839
+rename loop by f
+
+895
+00:51:41,040 --> 00:51:45,839
+loop
+
+896
+00:51:43,839 --> 00:51:48,480
+loop
+
+897
+00:51:45,839 --> 00:51:50,400
+and the index is also functions
+
+898
+00:51:48,480 --> 00:51:54,000
+parameter. So we can change it to
+
+899
+00:51:50,400 --> 00:51:56,800
+anything we want. Let's say z index
+
+900
+00:51:54,000 --> 00:52:01,920
+change that you cannot change indexer.
+
+901
+00:51:56,800 --> 00:52:04,640
+Okay. Change. So this is the advantage
+
+902
+00:52:01,920 --> 00:52:07,920
+of using variable names or parameter
+
+903
+00:52:04,640 --> 00:52:10,160
+names or function names that is
+
+904
+00:52:07,920 --> 00:52:13,599
+independent
+
+905
+00:52:10,160 --> 00:52:15,599
+from English words. So you won't have
+
+906
+00:52:13,599 --> 00:52:18,640
+wait so when you know so it's become
+
+907
+00:52:15,599 --> 00:52:23,040
+clear and also this ACC
+
+908
+00:52:18,640 --> 00:52:26,040
+change it to um x count okay change
+
+909
+00:52:23,040 --> 00:52:26,040
+change change
+
+910
+00:52:26,559 --> 00:52:32,000
+now find string this also we want to
+
+911
+00:52:29,839 --> 00:52:33,520
+change because
+
+912
+00:52:32,000 --> 00:52:38,319
+find
+
+913
+00:52:33,520 --> 00:52:40,880
+x find string okay change
+
+914
+00:52:38,319 --> 00:52:44,000
+uh yes you can change there change
+
+915
+00:52:40,880 --> 00:52:48,200
+fantastic Okay. So now it's starting to
+
+916
+00:52:44,000 --> 00:52:48,200
+become more clear. So
+
+917
+00:52:48,480 --> 00:52:55,119
+so you writing a function loop that
+
+918
+00:52:51,680 --> 00:52:58,720
+takes index and count two parameters.
+
+919
+00:52:55,119 --> 00:53:01,839
+You let the position equals to okay the
+
+920
+00:52:58,720 --> 00:53:06,800
+found position. Then you repeat and then
+
+921
+00:53:01,839 --> 00:53:09,800
+wait. So index of returns the first um
+
+922
+00:53:06,800 --> 00:53:09,800
+occurrence.
+
+923
+00:53:10,400 --> 00:53:17,920
+Are you guys bored? Hello.
+
+924
+00:53:13,920 --> 00:53:22,280
+So, and else. Okay. So, let's just run
+
+925
+00:53:17,920 --> 00:53:22,280
+it first. Let's see if that
+
+926
+00:53:27,040 --> 00:53:33,720
+So what does this if uh so we need to
+
+927
+00:53:30,720 --> 00:53:33,720
+print
+
+928
+00:53:33,760 --> 00:53:36,760
+wait
+
+929
+00:53:43,680 --> 00:53:51,440
+is and this is a Uh,
+
+930
+00:53:49,119 --> 00:53:53,920
+okay. How do you turn this? This I
+
+931
+00:53:51,440 --> 00:53:56,000
+suppose is true and false booleing. How
+
+932
+00:53:53,920 --> 00:53:58,960
+do you turn a booleing into a string? I
+
+933
+00:53:56,000 --> 00:54:03,240
+don't know. Let's comment. Let's just
+
+934
+00:53:58,960 --> 00:54:03,240
+run this. Let's see what happens.
+
+935
+00:54:08,319 --> 00:54:17,160
+Find string. Wait. Replace string.
+
+936
+00:54:12,559 --> 00:54:17,160
+Oh, okay. So, wait.
+
+937
+00:54:17,920 --> 00:54:26,079
+Uh this is not good because now you see
+
+938
+00:54:22,000 --> 00:54:28,559
+this loop function is dependent on a
+
+939
+00:54:26,079 --> 00:54:30,800
+variable original
+
+940
+00:54:28,559 --> 00:54:33,599
+that is not part of the parameter of the
+
+941
+00:54:30,800 --> 00:54:36,800
+loop. In other words, this loop function
+
+942
+00:54:33,599 --> 00:54:39,440
+is not functional is it has side
+
+943
+00:54:36,800 --> 00:54:44,079
+effects.
+
+944
+00:54:39,440 --> 00:54:47,040
+Okay, guac, I think your answer is not
+
+945
+00:54:44,079 --> 00:54:47,040
+very good.
+
+946
+00:54:49,680 --> 00:54:54,960
+So change the original to input text.
+
+947
+00:54:52,720 --> 00:54:57,760
+Okay.
+
+948
+00:54:54,960 --> 00:55:00,720
+G. Let's run it. Let's see what happens.
+
+949
+00:54:57,760 --> 00:55:03,440
+Okay. Arrow. A unique overload of method
+
+950
+00:55:00,720 --> 00:55:06,720
+index of could not be determined based
+
+951
+00:55:03,440 --> 00:55:08,240
+on type information. Well,
+
+952
+00:55:06,720 --> 00:55:11,359
+what?
+
+953
+00:55:08,240 --> 00:55:15,920
+Oh Guac,
+
+954
+00:55:11,359 --> 00:55:18,920
+your answer is not good. You stupid
+
+955
+00:55:15,920 --> 00:55:18,920
+thing.
+
+956
+00:55:19,040 --> 00:55:26,400
+You see this orange. You know you are
+
+957
+00:55:21,359 --> 00:55:31,640
+writing a leaky leaky function
+
+958
+00:55:26,400 --> 00:55:31,640
+with side effects in F.
+
+959
+00:55:33,280 --> 00:55:37,000
+What are you doing?
+
+960
+00:55:44,880 --> 00:55:49,559
+ We never going to finish.
+
+961
+00:55:57,040 --> 00:56:01,640
+So alternative solution
+
+962
+00:56:02,400 --> 00:56:09,200
+text regular expression.rejects.replace
+
+963
+00:56:04,799 --> 00:56:11,760
+replace checking result count.
+
+964
+00:56:09,200 --> 00:56:13,280
+This is much better. This is much
+
+965
+00:56:11,760 --> 00:56:15,599
+better.
+
+966
+00:56:13,280 --> 00:56:19,680
+Can you guys see? Do you guys
+
+967
+00:56:15,599 --> 00:56:22,400
+understand? Can you guys see the
+
+968
+00:56:19,680 --> 00:56:25,119
+my learning process?
+
+969
+00:56:22,400 --> 00:56:28,240
+You see, we look at this solution. This
+
+970
+00:56:25,119 --> 00:56:31,440
+solution is no good. It's writing a
+
+971
+00:56:28,240 --> 00:56:34,400
+loop. I mean, it's writing a recursive
+
+972
+00:56:31,440 --> 00:56:37,599
+function. And this recursive function
+
+973
+00:56:34,400 --> 00:56:40,400
+has side effect. It leaks the original,
+
+974
+00:56:37,599 --> 00:56:44,960
+you know, a variable that's global
+
+975
+00:56:40,400 --> 00:56:49,200
+variable. No good. But this one is much
+
+976
+00:56:44,960 --> 00:56:52,720
+better because it um
+
+977
+00:56:49,200 --> 00:56:56,160
+it uses the building function reject.
+
+978
+00:56:52,720 --> 00:56:59,520
+Okay, let's do it. Copy.
+
+979
+00:56:56,160 --> 00:57:02,160
+Okay, now this won't work. Now let's
+
+980
+00:56:59,520 --> 00:57:05,119
+comment. Okay. So, so that we don't get
+
+981
+00:57:02,160 --> 00:57:10,640
+confused. Um, this is important because
+
+982
+00:57:05,119 --> 00:57:13,599
+when you do a lot of notes, you want to
+
+983
+00:57:10,640 --> 00:57:16,240
+say what they are because after a while
+
+984
+00:57:13,599 --> 00:57:18,480
+you have 10 notes.
+
+985
+00:57:16,240 --> 00:57:20,240
+By tomorrow, you forgot what what is
+
+986
+00:57:18,480 --> 00:57:21,920
+this doing? Why are you doing this? You
+
+987
+00:57:20,240 --> 00:57:26,720
+know, you forgot you have 10 different
+
+988
+00:57:21,920 --> 00:57:29,720
+programs. So, this is a example of
+
+989
+00:57:26,720 --> 00:57:29,720
+finding
+
+990
+00:57:30,000 --> 00:57:36,040
+Count of occurrences.
+
+991
+00:57:33,040 --> 00:57:36,040
+Okay,
+
+992
+00:57:36,319 --> 00:57:43,520
+not good. Won't run. Okay, now put it
+
+993
+00:57:41,839 --> 00:57:48,880
+back.
+
+994
+00:57:43,520 --> 00:57:52,000
+Syntax code. Now let's go to next.
+
+995
+00:57:48,880 --> 00:57:53,920
+Start a new one. F and paste the code.
+
+996
+00:57:52,000 --> 00:57:57,200
+Okay, regular expression. Let's see if
+
+997
+00:57:53,920 --> 00:57:59,920
+we can run. Let's just run it.
+
+998
+00:57:57,200 --> 00:58:03,839
+Error. The value of the constructor find
+
+999
+00:57:59,920 --> 00:58:07,359
+is not to be okay. So you need to again
+
+1000
+00:58:03,839 --> 00:58:10,319
+it's not complete program.
+
+1001
+00:58:07,359 --> 00:58:13,319
+So you need to let's we need to copy
+
+1002
+00:58:10,319 --> 00:58:13,319
+some.
+
+1003
+00:58:14,480 --> 00:58:19,599
+Let's copy this. Okay.
+
+1004
+00:58:17,359 --> 00:58:25,520
+Copy the Alice.
+
+1005
+00:58:19,599 --> 00:58:30,400
+Okay. Now do it. Now paste it.
+
+1006
+00:58:25,520 --> 00:58:34,400
+Now cut put that at top. Okay. Uh do we
+
+1007
+00:58:30,400 --> 00:58:39,200
+need system? Let's not. Okay. So input
+
+1008
+00:58:34,400 --> 00:58:46,000
+text find string count close
+
+1009
+00:58:39,200 --> 00:58:47,680
+delete delete. So now rejects equals to
+
+1010
+00:58:46,000 --> 00:58:52,000
+find
+
+1011
+00:58:47,680 --> 00:58:56,640
+replace find by find string. You see
+
+1012
+00:58:52,000 --> 00:59:00,559
+when we do that it become much clearer.
+
+1013
+00:58:56,640 --> 00:59:04,160
+Escape if needed. Okay. Match result.
+
+1014
+00:59:00,559 --> 00:59:10,200
+Then let's highlight it.
+
+1015
+00:59:04,160 --> 00:59:10,200
+So you need original. Change original by
+
+1016
+00:59:10,319 --> 00:59:16,480
+X input text. The importance of variable
+
+1017
+00:59:14,160 --> 00:59:21,599
+names.
+
+1018
+00:59:16,480 --> 00:59:25,520
+Okay. Input X replace with um
+
+1019
+00:59:21,599 --> 00:59:28,520
+Oh, you need a replace string. Okay.
+
+1020
+00:59:25,520 --> 00:59:28,520
+So
+
+1021
+00:59:28,720 --> 00:59:31,720
+let
+
+1022
+00:59:36,079 --> 00:59:41,000
+replace the string. Okay.
+
+1023
+00:59:44,960 --> 00:59:50,240
+Okay. You need to change that.
+
+1024
+00:59:48,079 --> 00:59:54,160
+X replace
+
+1025
+00:59:50,240 --> 00:59:58,079
+change. Change. Okay.
+
+1026
+00:59:54,160 --> 01:00:01,680
+and replace string uh queen
+
+1027
+00:59:58,079 --> 01:00:07,200
+replace Alice by queen okay let's color
+
+1028
+01:00:01,680 --> 01:00:09,040
+it make it colorful then you got count
+
+1029
+01:00:07,200 --> 01:00:12,960
+h
+
+1030
+01:00:09,040 --> 01:00:15,960
+in 32 max value
+
+1031
+01:00:12,960 --> 01:00:15,960
+what
+
+1032
+01:00:17,440 --> 01:00:22,000
+oh number of times you want to count I
+
+1033
+01:00:20,000 --> 01:00:26,000
+suppose I mean the maximum number of
+
+1034
+01:00:22,000 --> 01:00:28,559
+replace you want to do. Okay, that's
+
+1035
+01:00:26,000 --> 01:00:31,520
+why. So this is another interesting
+
+1036
+01:00:28,559 --> 01:00:36,160
+thing in programming languages. You have
+
+1037
+01:00:31,520 --> 01:00:39,599
+the maximum integer limit is represented
+
+1038
+01:00:36,160 --> 01:00:43,680
+by that builtin variable
+
+1039
+01:00:39,599 --> 01:00:47,520
+in Java. In EMAC list you also have that
+
+1040
+01:00:43,680 --> 01:00:50,240
+max integer representable.
+
+1041
+01:00:47,520 --> 01:00:53,960
+Okay. So you so okay so you got match
+
+1042
+01:00:50,240 --> 01:00:53,960
+result then
+
+1043
+01:00:56,160 --> 01:01:02,160
+oh in inn net a play uh you can get the
+
+1044
+01:01:00,400 --> 01:01:04,559
+count directly
+
+1045
+01:01:02,160 --> 01:01:09,079
+what
+
+1046
+01:01:04,559 --> 01:01:09,079
+oh god this is confusing
+
+1047
+01:01:10,880 --> 01:01:15,799
+input text let's color it
+
+1048
+01:01:17,200 --> 01:01:20,839
+starting in position.
+
+1049
+01:01:21,760 --> 01:01:29,440
+Wait, this this part there's no count.
+
+1050
+01:01:26,799 --> 01:01:31,280
+It's not working. So, what about this
+
+1051
+01:01:29,440 --> 01:01:33,599
+one?
+
+1052
+01:01:31,280 --> 01:01:36,079
+This is how you get the count. So, let's
+
+1053
+01:01:33,599 --> 01:01:39,880
+see.
+
+1054
+01:01:36,079 --> 01:01:39,880
+Comment those out.
+
+1055
+01:01:41,040 --> 01:01:46,160
+Let's just run it. See if it runs. Oh
+
+1056
+01:01:43,920 --> 01:01:49,599
+
+1057
+01:01:46,160 --> 01:01:53,760
+Uh the value name space type of module
+
+1058
+01:01:49,599 --> 01:01:56,480
+rejects is not defined.
+
+1059
+01:01:53,760 --> 01:01:58,640
+What
+
+1060
+01:01:56,480 --> 01:02:02,799
+gu
+
+1061
+01:01:58,640 --> 01:02:07,040
+is not doing very good.
+
+1062
+01:02:02,799 --> 01:02:10,440
+Okay. You got the gu is got is not doing
+
+1063
+01:02:07,040 --> 01:02:10,440
+very good.
+
+1064
+01:02:12,319 --> 01:02:17,880
+Now if we change that will this work?
+
+1065
+01:02:22,319 --> 01:02:26,960
+Wait, how do you
+
+1066
+01:02:24,799 --> 01:02:31,480
+what
+
+1067
+01:02:26,960 --> 01:02:31,480
+uh what is the error? So
+
+1068
+01:02:36,559 --> 01:02:44,079
+oh maybe you want the following. So
+
+1069
+01:02:39,040 --> 01:02:47,240
+maybe you just um That's right.
+
+1070
+01:02:44,079 --> 01:02:47,240
+But then
+
+1071
+01:02:50,079 --> 01:02:53,720
+okay so
+
+1072
+01:02:54,720 --> 01:03:01,760
+Okay. So there is a result. So match
+
+1073
+01:02:58,720 --> 01:03:05,079
+result is it used? No. Okay. So maybe
+
+1074
+01:03:01,760 --> 01:03:05,079
+that try
+
+1075
+01:03:06,559 --> 01:03:15,000
+the name space rejects is not defined
+
+1076
+01:03:11,520 --> 01:03:15,000
+line five.
+
+1077
+01:03:19,200 --> 01:03:27,520
+Okay, that's incorrect. So
+
+1078
+01:03:23,520 --> 01:03:30,520
+line five rejects is not defined.
+
+1079
+01:03:27,520 --> 01:03:30,520
+God
+
+1080
+01:03:33,599 --> 01:03:38,440
+int 32 is not defined.
+
+1081
+01:03:40,400 --> 01:03:48,160
+The module int 32
+
+1082
+01:03:44,079 --> 01:03:51,720
+is not defined. Oh Guork is giving
+
+1083
+01:03:48,160 --> 01:03:51,720
+a lot bad
+
+1084
+01:03:52,880 --> 01:03:55,880
+results.
+
+1085
+01:03:58,960 --> 01:04:03,280
+Yeah,
+
+1086
+01:04:00,559 --> 01:04:06,319
+GU is not
+
+1087
+01:04:03,280 --> 01:04:09,039
+doing correct. Qu is giving a lot bad
+
+1088
+01:04:06,319 --> 01:04:14,440
+results. So this is like wrong in so
+
+1089
+01:04:09,039 --> 01:04:14,440
+many places. I don't know how to fix.
+
+1090
+01:04:15,440 --> 01:04:18,920
+Okay. So
+
+1091
+01:04:19,200 --> 01:04:25,440
+now it's one hour. Maybe we should stop.
+
+1092
+01:04:22,880 --> 01:04:28,960
+Uh
+
+1093
+01:04:25,440 --> 01:04:32,319
+yeah. So you are asking Gork and it's
+
+1094
+01:04:28,960 --> 01:04:35,319
+not giving you good results.
+
+1095
+01:04:32,319 --> 01:04:35,319
+What's
+
+1096
+01:04:38,880 --> 01:04:45,880
+Did we not read this carefully? So this
+
+1097
+01:04:42,880 --> 01:04:45,880
+one
+
+1098
+01:04:47,839 --> 01:04:55,559
+this one is not working right. Put it
+
+1099
+01:04:52,559 --> 01:04:55,559
+back.
+
+1100
+01:04:57,119 --> 01:05:00,440
+Run this.
+
+1101
+01:05:01,200 --> 01:05:10,240
+Unique overload for ma overload for
+
+1102
+01:05:05,359 --> 01:05:13,359
+method index of could not be determined.
+
+1103
+01:05:10,240 --> 01:05:13,359
+Oh god.
+
+1104
+01:05:15,280 --> 01:05:26,359
+string index of search for index of.
+
+1105
+01:05:21,520 --> 01:05:26,359
+So input text is there.
+
+1106
+01:05:28,960 --> 01:05:37,160
+Okay. So G is not giving good answers.
+
+1107
+01:05:34,160 --> 01:05:37,160
+Okay.
+
+1108
+01:05:37,760 --> 01:05:46,760
+Candidates string index of
+
+1109
+01:05:42,319 --> 01:05:46,760
+value comparison type.
+
+1110
+01:05:54,880 --> 01:05:59,440
+Yeah, but this one doesn't doesn't
+
+1111
+01:05:57,280 --> 01:06:04,119
+contain
+
+1112
+01:05:59,440 --> 01:06:04,119
+the string you want to find.
+
+1113
+01:06:04,960 --> 01:06:11,119
+You see? So,
+
+1114
+01:06:08,559 --> 01:06:14,559
+I don't know. So this is not working.
+
+1115
+01:06:11,119 --> 01:06:18,599
+Put it back. Syntax color everything
+
+1116
+01:06:14,559 --> 01:06:18,599
+back to browser.
+
+1117
+01:06:19,520 --> 01:06:25,599
+So date time we find we found out how to
+
+1118
+01:06:22,559 --> 01:06:31,520
+do how to copy a file. We found out how
+
+1119
+01:06:25,599 --> 01:06:34,240
+to do but the count occurrence
+
+1120
+01:06:31,520 --> 01:06:36,079
+became complicated. We don't know how to
+
+1121
+01:06:34,240 --> 01:06:39,440
+do.
+
+1122
+01:06:36,079 --> 01:06:44,319
+Um and this step is actually quite
+
+1123
+01:06:39,440 --> 01:06:46,799
+critical. So we need we need need to get
+
+1124
+01:06:44,319 --> 01:06:50,720
+through this
+
+1125
+01:06:46,799 --> 01:06:54,480
+before we move on because our job is to
+
+1126
+01:06:50,720 --> 01:06:56,559
+write a find replace script.
+
+1127
+01:06:54,480 --> 01:06:58,559
+And if you don't know how to do regular
+
+1128
+01:06:56,559 --> 01:07:01,760
+expression or if you don't know how to
+
+1129
+01:06:58,559 --> 01:07:05,200
+count the number of occurrences,
+
+1130
+01:07:01,760 --> 01:07:08,799
+you don't have much purpose. So before
+
+1131
+01:07:05,200 --> 01:07:11,680
+we continue with this script of doing a
+
+1132
+01:07:08,799 --> 01:07:16,480
+backup, you know
+
+1133
+01:07:11,680 --> 01:07:20,880
+the we really need to get to know
+
+1134
+01:07:16,480 --> 01:07:22,640
+to become familiar about all the stream
+
+1135
+01:07:20,880 --> 01:07:25,440
+processing
+
+1136
+01:07:22,640 --> 01:07:27,520
+count number of occurrences and how to
+
+1137
+01:07:25,440 --> 01:07:30,319
+use regular expression. Okay, we need to
+
+1138
+01:07:27,520 --> 01:07:33,520
+do that because right now it's printing
+
+1139
+01:07:30,319 --> 01:07:38,240
+every file it touched but we want it
+
+1140
+01:07:33,520 --> 01:07:41,599
+just to print only files that
+
+1141
+01:07:38,240 --> 01:07:44,880
+that change happened. Okay, so what one
+
+1142
+01:07:41,599 --> 01:07:48,319
+one way we can do is just to compare
+
+1143
+01:07:44,880 --> 01:07:51,760
+string gu mentioned that. Okay, so like
+
+1144
+01:07:48,319 --> 01:07:55,039
+this line copy. So let's maybe let's
+
+1145
+01:07:51,760 --> 01:07:57,920
+just do that for now. Okay, then that's
+
+1146
+01:07:55,039 --> 01:08:00,920
+it for this video. Okay.
+
+1147
+01:07:57,920 --> 01:08:00,920
+So
+
+1148
+01:08:03,039 --> 01:08:08,920
+uh so but how do you do if statement? So
+
+1149
+01:08:05,920 --> 01:08:08,920
+if
+
+1150
+01:08:09,760 --> 01:08:15,799
+I don't know how to do if statement
+
+1151
+01:08:12,799 --> 01:08:15,799
+questions
+
+1152
+01:08:22,560 --> 01:08:27,080
+how to write if in F.
+
+1153
+01:08:33,679 --> 01:08:39,920
+Okay. So that
+
+1154
+01:08:36,080 --> 01:08:42,000
+what about uh wait I asked for F sharp.
+
+1155
+01:08:39,920 --> 01:08:46,839
+
+1156
+01:08:42,000 --> 01:08:46,839
+Qu is not doing very good today.
+
+1157
+01:08:46,880 --> 01:08:56,359
+C. Oh, I didn't say uh I typed it wrong.
+
+1158
+01:08:51,279 --> 01:08:56,359
+Okay. So actually I want to say F.
+
+1159
+01:09:04,799 --> 01:09:10,159
+is a expression. That's right.
+
+1160
+01:09:07,759 --> 01:09:12,400
+Functional programming. Fantastic. If
+
+1161
+01:09:10,159 --> 01:09:15,400
+condition then expression else.
+
+1162
+01:09:12,400 --> 01:09:15,400
+Fantastic.
+
+1163
+01:09:24,960 --> 01:09:27,960
+Okay.
+
+1164
+01:09:29,839 --> 01:09:35,520
+Okay, let's just do that.
+
+1165
+01:09:34,000 --> 01:09:38,520
+So
+
+1166
+01:09:35,520 --> 01:09:38,520
+if
+
+1167
+01:09:41,040 --> 01:09:44,960
+if
+
+1168
+01:09:42,880 --> 01:09:50,000
+the
+
+1169
+01:09:44,960 --> 01:09:53,000
+X content is not equals to X new content
+
+1170
+01:09:50,000 --> 01:09:53,000
+then
+
+1171
+01:09:53,359 --> 01:10:02,360
+then something okay then we print.
+
+1172
+01:09:58,719 --> 01:10:02,360
+Okay. So wait.
+
+1173
+01:10:02,880 --> 01:10:07,199
+Okay. Then
+
+1174
+01:10:05,120 --> 01:10:09,760
+we
+
+1175
+01:10:07,199 --> 01:10:12,760
+print
+
+1176
+01:10:09,760 --> 01:10:12,760
+else
+
+1177
+01:10:13,440 --> 01:10:20,600
+change.
+
+1178
+01:10:16,239 --> 01:10:20,600
+Okay. Else we say
+
+1179
+01:10:20,960 --> 01:10:24,360
+no change.
+
+1180
+01:10:27,360 --> 01:10:36,000
+Okay. And uh you need to
+
+1181
+01:10:32,320 --> 01:10:38,800
+you need to like
+
+1182
+01:10:36,000 --> 01:10:41,800
+you need to add the indentation. Stupid
+
+1183
+01:10:38,800 --> 01:10:41,800
+indentation.
+
+1184
+01:10:49,520 --> 01:10:59,800
+Okay. So now run it.
+
+1185
+01:10:54,560 --> 01:10:59,800
+Make sure. Okay. Fantastic.
+
+1186
+01:11:01,600 --> 01:11:06,400
+Fantastic.
+
+1187
+01:11:03,679 --> 01:11:09,800
+So, some of them no change, but some of
+
+1188
+01:11:06,400 --> 01:11:09,800
+them changed.
+
+1189
+01:11:10,560 --> 01:11:17,640
+Highlight. No change. You see some of
+
+1190
+01:11:12,880 --> 01:11:17,640
+them no change. Some of them changed.
+
+1191
+01:11:18,000 --> 01:11:22,480
+So, open this one.
+
+1192
+01:11:20,400 --> 01:11:27,840
+So, open this one.
+
+1193
+01:11:22,480 --> 01:11:32,440
+Search X save. There it is. It changed.
+
+1194
+01:11:27,840 --> 01:11:32,440
+Fantastic saving. Oh, okay.
+
+1195
+01:11:33,280 --> 01:11:41,440
+Okay, that's it for today. Our
+
+1196
+01:11:36,960 --> 01:11:44,239
+exploration of F. Let's copy this. Um,
+
+1197
+01:11:41,440 --> 01:11:48,640
+yeah, let's copy this. Close it. I'm
+
+1198
+01:11:44,239 --> 01:11:52,360
+going to learn it um offline
+
+1199
+01:11:48,640 --> 01:11:52,360
+more. So,
+
+1200
+01:11:53,199 --> 01:12:02,640
+F paste the code. Go to the top and uh
+
+1201
+01:11:59,840 --> 01:12:07,800
+Fine
+
+1202
+01:12:02,640 --> 01:12:07,800
+and replace script
+
+1203
+01:12:13,440 --> 01:12:19,440
+syntax color. That's it. Thank you guys
+
+1204
+01:12:16,560 --> 01:12:24,640
+for watching. Bye guys. See you next
+
+1205
+01:12:19,440 --> 01:12:29,000
+time. Tomorrow we gonna go back to wra
+
+1206
+01:12:24,640 --> 01:12:29,000
+language at the end of code.
+
+1207
+01:12:29,440 --> 01:12:39,640
+Okay, fine. Repeat. Fantastic. Bye guys.
+
+1208
+01:12:33,280 --> 01:12:39,640
+F is Microsoft's Okamo. You are correct.
+
+1209
+01:12:41,840 --> 01:12:50,080
+So F or Microsoft began around year
+
+1210
+01:12:46,800 --> 01:12:52,480
+2000. Okay. Or 2001.
+
+1211
+01:12:50,080 --> 01:12:54,880
+It is derived. It's basically your
+
+1212
+01:12:52,480 --> 01:12:57,920
+version of Okamo.
+
+1213
+01:12:54,880 --> 01:13:02,480
+Okamo is derived from a version called
+
+1214
+01:12:57,920 --> 01:13:04,640
+camel. Camel is derived from a version
+
+1215
+01:13:02,480 --> 01:13:07,600
+called ML
+
+1216
+01:13:04,640 --> 01:13:11,199
+which stand for meta language
+
+1217
+01:13:07,600 --> 01:13:14,560
+which originated from kind of
+
+1218
+01:13:11,199 --> 01:13:19,040
+mathematical proof systems.
+
+1219
+01:13:14,560 --> 01:13:21,760
+Okay, that's it for today. Now uh you
+
+1220
+01:13:19,040 --> 01:13:24,560
+guys if you like my stuff you know you
+
+1221
+01:13:21,760 --> 01:13:28,560
+can watch lots of my saw talk show by
+
+1222
+01:13:24,560 --> 01:13:31,600
+now there's 700 videos starting about
+
+1223
+01:13:28,560 --> 01:13:34,560
+five years ago and go to my website I
+
+1224
+01:13:31,600 --> 01:13:36,320
+have lots of programming language
+
+1225
+01:13:34,560 --> 01:13:40,320
+tutorials
+
+1226
+01:13:36,320 --> 01:13:43,440
+um on emacs and also technicality on all
+
+1227
+01:13:40,320 --> 01:13:46,000
+sort of keyboards
+
+1228
+01:13:43,440 --> 01:13:47,840
+keyboards videos and uh programming
+
+1229
+01:13:46,000 --> 01:13:51,440
+languages mostly
+
+1230
+01:13:47,840 --> 01:13:54,320
+and also lots of mathematics and hacker
+
+1231
+01:13:51,440 --> 01:13:57,040
+code. Those are related to programming
+
+1232
+01:13:54,320 --> 01:14:00,239
+language issues such as documentation
+
+1233
+01:13:57,040 --> 01:14:03,440
+for example this one.
+
+1234
+01:14:00,239 --> 01:14:06,960
+Why Python documentation sucks. Keep
+
+1235
+01:14:03,440 --> 01:14:09,280
+this under your pillow like the idiotic
+
+1236
+01:14:06,960 --> 01:14:12,239
+guyo vanrosen
+
+1237
+01:14:09,280 --> 01:14:15,760
+creator of Python programming language.
+
+1238
+01:14:12,239 --> 01:14:18,480
+So here's documentation of the problems
+
+1239
+01:14:15,760 --> 01:14:21,760
+of documentation in Python. The Python
+
+1240
+01:14:18,480 --> 01:14:24,960
+documentation is one of the worst. Okay.
+
+1241
+01:14:21,760 --> 01:14:27,440
+And then why Python sucks. These are
+
+1242
+01:14:24,960 --> 01:14:30,000
+linguistic details. You know the G von
+
+1243
+01:14:27,440 --> 01:14:33,280
+Rosen they
+
+1244
+01:14:30,000 --> 01:14:36,880
+is a funny. So I have a video titled why
+
+1245
+01:14:33,280 --> 01:14:41,120
+Python sucks. That's like one hour more
+
+1246
+01:14:36,880 --> 01:14:43,760
+than one video of why Python sucks. and
+
+1247
+01:14:41,120 --> 01:14:47,679
+and all sort of issues about programming
+
+1248
+01:14:43,760 --> 01:14:50,560
+language syntax and semantics and
+
+1249
+01:14:47,679 --> 01:14:53,440
+practice programming language style,
+
+1250
+01:14:50,560 --> 01:14:57,120
+formatting style and conventions and
+
+1251
+01:14:53,440 --> 01:14:59,440
+this you know why HC why I love Golan
+
+1252
+01:14:57,120 --> 01:15:04,239
+why I love PowerShell PowerShell
+
+1253
+01:14:59,440 --> 01:15:08,400
+complexity run for your life
+
+1254
+01:15:04,239 --> 01:15:10,640
+then why bash sucks bash is the worst
+
+1255
+01:15:08,400 --> 01:15:14,800
+basically anything from Unix makes is
+
+1256
+01:15:10,640 --> 01:15:19,199
+the worst Okay, not just me, lots
+
+1257
+01:15:14,800 --> 01:15:22,480
+of other people give details about it.
+
+1258
+01:15:19,199 --> 01:15:24,880
+Uh so anyway, so so that's my website.
+
+1259
+01:15:22,480 --> 01:15:29,199
+So lots of stuff, web design, website
+
+1260
+01:15:24,880 --> 01:15:32,080
+design, CSS, uh web tech, history, and
+
+1261
+01:15:29,199 --> 01:15:36,080
+then lots of math. So if you like my
+
+1262
+01:15:32,080 --> 01:15:38,400
+stuff, pay me, okay? Pay me guys, okay?
+
+1263
+01:15:36,080 --> 01:15:42,000
+Sponsor me. Patreon, Amazon gift card,
+
+1264
+01:15:38,400 --> 01:15:46,000
+PayPal, that's at the bottom of si.info,
+
+1265
+01:15:42,000 --> 01:15:49,440
+no http, no s. Okay, if the browser
+
+1266
+01:15:46,000 --> 01:15:52,800
+says, oh, security error, that is
+
+1267
+01:15:49,440 --> 01:15:55,600
+because they are trying to censor about
+
+1268
+01:15:52,800 --> 01:15:58,400
+20 million sites, website, old websites,
+
+1269
+01:15:55,600 --> 01:16:00,800
+you know, they they want instantaneously
+
+1270
+01:15:58,400 --> 01:16:04,560
+censor all these old websites. So you
+
+1271
+01:16:00,800 --> 01:16:08,000
+don't read about the actual history of
+
+1272
+01:16:04,560 --> 01:16:09,760
+the web of the internet of older people
+
+1273
+01:16:08,000 --> 01:16:11,840
+what do they have to say about
+
+1274
+01:16:09,760 --> 01:16:16,080
+programming language about you know like
+
+1275
+01:16:11,840 --> 01:16:18,080
+the entire thing the internet pioneers
+
+1276
+01:16:16,080 --> 01:16:20,640
+you know today they are old or they died
+
+1277
+01:16:18,080 --> 01:16:24,960
+80 years but they have lot left a lot of
+
+1278
+01:16:20,640 --> 01:16:28,239
+information and they are not HTTPS
+
+1279
+01:16:24,960 --> 01:16:30,960
+but Google and Firefox pushed it so that
+
+1280
+01:16:28,239 --> 01:16:34,159
+all these old website when when you read
+
+1281
+01:16:30,960 --> 01:16:37,679
+it, they say, "Oh, security
+
+1282
+01:16:34,159 --> 01:16:40,560
+uh problem dangerous because they going
+
+1283
+01:16:37,679 --> 01:16:44,560
+to steal your credit card, you know,
+
+1284
+01:16:40,560 --> 01:16:46,640
+instantaneous sensor like millions, 20
+
+1285
+01:16:44,560 --> 01:16:50,159
+millions of websites, usually old
+
+1286
+01:16:46,640 --> 01:16:54,880
+websites. That's what they do. Google
+
+1287
+01:16:50,159 --> 01:16:58,239
+and Firefox, you know, even if you have
+
+1288
+01:16:54,880 --> 01:17:01,120
+even if you have this auto HTTP turned
+
+1289
+01:16:58,239 --> 01:17:03,600
+off. Let me talk about this one more
+
+1290
+01:17:01,120 --> 01:17:05,679
+time. Okay, but bye for now. That mean
+
+1291
+01:17:03,600 --> 01:17:09,360
+that's it for today. Okay, so for
+
+1292
+01:17:05,679 --> 01:17:11,600
+example, you you look at the auto HTTP
+
+1293
+01:17:09,360 --> 01:17:16,320
+search for HTTP.
+
+1294
+01:17:11,600 --> 01:17:19,120
+You see HTTP only mode
+
+1295
+01:17:16,320 --> 01:17:21,199
+don't enable. I says, you know, I say
+
+1296
+01:17:19,120 --> 01:17:23,679
+don't enable. I don't want that. Okay.
+
+1297
+01:17:21,199 --> 01:17:26,719
+Don't auto I don't want auto
+
+1298
+01:17:23,679 --> 01:17:30,520
+anything. I want everything manual.
+
+1299
+01:17:26,719 --> 01:17:30,520
+Okay. You specifically
+
+1300
+01:17:31,120 --> 01:17:35,199
+explicitly
+
+1301
+01:17:32,640 --> 01:17:37,360
+has a preference. I can turn it off. You
+
+1302
+01:17:35,199 --> 01:17:42,400
+see, you can enable it or you can
+
+1303
+01:17:37,360 --> 01:17:45,920
+disable it. I disable it. However,
+
+1304
+01:17:42,400 --> 01:17:48,239
+now if you go to Kasari YouTube, let me
+
+1305
+01:17:45,920 --> 01:17:51,760
+demo de demonstrate this. Okay, I did
+
+1306
+01:17:48,239 --> 01:17:55,199
+before, but okay. Kasali YouTube. You go
+
+1307
+01:17:51,760 --> 01:17:58,400
+there YouTube
+
+1308
+01:17:55,199 --> 01:18:02,080
+live. That's right. So, but let's go to
+
+1309
+01:17:58,400 --> 01:18:04,640
+uh let's see uh this one two days ago.
+
+1310
+01:18:02,080 --> 01:18:08,719
+Okay. Wuam language. We're going to do
+
+1311
+01:18:04,640 --> 01:18:12,640
+advent of code. So you go down, you open
+
+1312
+01:18:08,719 --> 01:18:17,120
+video summary generated by AI and here
+
+1313
+01:18:12,640 --> 01:18:21,040
+is my notes. So HTTP nos
+
+1314
+01:18:17,120 --> 01:18:23,280
+you click on that and Firefox says
+
+1315
+01:18:21,040 --> 01:18:25,360
+security connection failed. Oh,
+
+1316
+01:18:23,280 --> 01:18:27,679
+dangerous. You cannot visit that site
+
+1317
+01:18:25,360 --> 01:18:30,480
+because it's not HTTPS.
+
+1318
+01:18:27,679 --> 01:18:32,560
+Why? Because Firefox,
+
+1319
+01:18:30,480 --> 01:18:37,199
+they secretly
+
+1320
+01:18:32,560 --> 01:18:39,199
+add the S into your URL secretly.
+
+1321
+01:18:37,199 --> 01:18:42,960
+Even though I turned it off, I
+
+1322
+01:18:39,199 --> 01:18:45,840
+turn it off. They couldn't do it anyway.
+
+1323
+01:18:42,960 --> 01:18:49,679
+That's the, you know, the degree of the
+
+1324
+01:18:45,840 --> 01:18:51,600
+scum of the Firefox and Google browser.
+
+1325
+01:18:49,679 --> 01:18:56,560
+I think Google Chrome stopped doing
+
+1326
+01:18:51,600 --> 01:19:00,719
+that, but Firefox still do does that.
+
+1327
+01:18:56,560 --> 01:19:03,120
+Every time I talk about this to the to
+
+1328
+01:19:00,719 --> 01:19:04,960
+today's coders, young Zuma, they don't
+
+1329
+01:19:03,120 --> 01:19:06,960
+know.
+
+1330
+01:19:04,960 --> 01:19:09,440
+They they they they don't know and they
+
+1331
+01:19:06,960 --> 01:19:12,800
+don't care. They think, "Oh, you need
+
+1332
+01:19:09,440 --> 01:19:16,920
+HTTPS because it's secure."
+
+1333
+01:19:12,800 --> 01:19:16,920
+Okay. Bye, guys.
+

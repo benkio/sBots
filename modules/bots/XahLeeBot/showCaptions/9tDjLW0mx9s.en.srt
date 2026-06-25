@@ -1,0 +1,3588 @@
+1
+00:00:00,599 --> 00:00:07,880
+hello guys welcome to another episode
+
+2
+00:00:03,600 --> 00:00:13,920
+ofan talk show we are going to code emac
+
+3
+00:00:07,880 --> 00:00:19,320
+lisp I'm going to explore the emac lisp
+
+4
+00:00:13,920 --> 00:00:22,160
+P case which is pattern matching D
+
+5
+00:00:19,320 --> 00:00:24,800
+structure that topic okay I'm I don't
+
+6
+00:00:22,160 --> 00:00:27,560
+know that yet so I'm just going to
+
+7
+00:00:24,800 --> 00:00:32,399
+explore and study and maybe explain part
+
+8
+00:00:27,560 --> 00:00:35,239
+of it so this is not a coherent lecture
+
+9
+00:00:32,399 --> 00:00:39,399
+about emac lisp the programming language
+
+10
+00:00:35,239 --> 00:00:43,160
+but you can enjoy the ride if you are
+
+11
+00:00:39,399 --> 00:00:47,600
+watching this offline skip skip skip and
+
+12
+00:00:43,160 --> 00:00:50,160
+play at 1.5 speed because I ramble if
+
+13
+00:00:47,600 --> 00:00:55,559
+you are here say hi love to see your
+
+14
+00:00:50,160 --> 00:01:01,239
+messages okay now drink coffee and uh
+
+15
+00:00:55,559 --> 00:01:06,640
+coffee and uh tea you see my elaborates
+
+16
+00:01:01,239 --> 00:01:09,320
+setup okay remember skip skip skip okay
+
+17
+00:01:06,640 --> 00:01:11,520
+uh so glove 80 keyboard fantastic
+
+18
+00:01:09,320 --> 00:01:16,360
+ultimate hacking keyboard fantastic
+
+19
+00:01:11,520 --> 00:01:21,079
+nulia track boo fantastic and this fancy
+
+20
+00:01:16,360 --> 00:01:22,680
+device most advanced SW board s v a l b
+
+21
+00:01:21,079 --> 00:01:26,640
+o a r
+
+22
+00:01:22,680 --> 00:01:29,520
+d okay you should um get
+
+23
+00:01:26,640 --> 00:01:32,960
+it expensive though so I have a video
+
+24
+00:01:29,520 --> 00:01:35,520
+review for each one of them I will be
+
+25
+00:01:32,960 --> 00:01:38,040
+using uh Spar board you know window is
+
+26
+00:01:35,520 --> 00:01:41,240
+very annoying every time you jigle the
+
+27
+00:01:38,040 --> 00:01:44,159
+USB it disconnect and reconnect and you
+
+28
+00:01:41,240 --> 00:01:44,159
+know that's why you
+
+29
+00:01:45,439 --> 00:01:54,079
+hear okay emac this P case okay let me
+
+30
+00:01:50,799 --> 00:01:58,280
+relax and go slowly remember skip around
+
+31
+00:01:54,079 --> 00:01:58,280
+play at 1.5 speed
+
+32
+00:02:02,360 --> 00:02:07,079
+USA army be or you can
+
+33
+00:02:18,000 --> 00:02:27,560
+be nice coffee that's coffee with honey
+
+34
+00:02:22,920 --> 00:02:27,560
+Elite honey from Costco
+
+35
+00:02:30,519 --> 00:02:36,239
+the American middle class Elite
+
+36
+00:02:36,360 --> 00:02:44,360
+Costco okay P case Okay so P case is a
+
+37
+00:02:41,159 --> 00:02:45,159
+lisp Library introduced about maybe 10
+
+38
+00:02:44,360 --> 00:02:50,200
+years
+
+39
+00:02:45,159 --> 00:02:51,800
+ago so P case okay let's look up the
+
+40
+00:02:50,200 --> 00:02:55,200
+documentation
+
+41
+00:02:51,800 --> 00:02:59,000
+uh no not search Twitter I press the
+
+42
+00:02:55,200 --> 00:03:02,239
+wrong key so P case describe function P
+
+43
+00:02:59,000 --> 00:03:07,200
+case there it is is so it is in this
+
+44
+00:03:02,239 --> 00:03:11,920
+package okay so the list library is
+
+45
+00:03:07,200 --> 00:03:15,480
+pk. in the standard lisp bundled Library
+
+46
+00:03:11,920 --> 00:03:19,080
+okay so this is a source code about
+
+47
+00:03:15,480 --> 00:03:23,239
+1,000 lines of code okay and it is
+
+48
+00:03:19,080 --> 00:03:27,560
+written by this guy I respect Stefan
+
+49
+00:03:23,239 --> 00:03:30,040
+Monier he is a professor researching
+
+50
+00:03:27,560 --> 00:03:33,799
+functional programming languages and and
+
+51
+00:03:30,040 --> 00:03:37,319
+he has been a g emac leader for about
+
+52
+00:03:33,799 --> 00:03:42,400
+five or more years starting about
+
+53
+00:03:37,319 --> 00:03:44,480
+2008 okay Stefan monia a professor
+
+54
+00:03:42,400 --> 00:03:48,200
+researcher in functional programming
+
+55
+00:03:44,480 --> 00:03:50,360
+languages so that's today we we're going
+
+56
+00:03:48,200 --> 00:03:53,480
+to look into this package because this
+
+57
+00:03:50,360 --> 00:03:56,560
+is very useful and uh I'm just going to
+
+58
+00:03:53,480 --> 00:04:01,040
+learn how to use it okay and talk about
+
+59
+00:03:56,560 --> 00:04:04,879
+stuff that's what we doing okay so
+
+60
+00:04:01,040 --> 00:04:07,000
+um so recently I changed my key binding
+
+61
+00:04:04,879 --> 00:04:10,599
+what is the key binding
+
+62
+00:04:07,000 --> 00:04:15,760
+for um oh
+
+63
+00:04:10,599 --> 00:04:20,840
+H wait tap hm I just changed my key
+
+64
+00:04:15,760 --> 00:04:20,840
+binding today Forks HTML mod so I
+
+65
+00:04:21,000 --> 00:04:24,639
+forgot what is
+
+66
+00:04:25,600 --> 00:04:32,560
+the uh preag Edge okay so Edge new preag
+
+67
+00:04:31,039 --> 00:04:35,840
+what is
+
+68
+00:04:32,560 --> 00:04:39,440
+it insert preag oh
+
+69
+00:04:35,840 --> 00:04:42,680
+th okay em mag
+
+70
+00:04:39,440 --> 00:04:45,000
+lisp uh okay God the key binding is
+
+71
+00:04:42,680 --> 00:04:45,000
+wrong
+
+72
+00:04:47,639 --> 00:04:53,840
+again
+
+73
+00:04:49,479 --> 00:04:53,840
+T I want to pop it
+
+74
+00:04:57,400 --> 00:05:01,639
+out what is it God
+
+75
+00:05:02,039 --> 00:05:10,080
+uh V tarle HTML
+
+76
+00:05:07,400 --> 00:05:12,479
+insert oh I forgot what's the command to
+
+77
+00:05:10,080 --> 00:05:12,479
+pop it
+
+78
+00:05:12,520 --> 00:05:20,280
+out okay
+
+79
+00:05:14,360 --> 00:05:22,840
+so tap Edge then search for
+
+80
+00:05:20,280 --> 00:05:26,840
+pre
+
+81
+00:05:22,840 --> 00:05:26,840
+uh insert
+
+82
+00:05:35,520 --> 00:05:43,919
+God frustration okay let's look at the
+
+83
+00:05:39,560 --> 00:05:49,639
+um tab HED let's look at the HTML mod
+
+84
+00:05:43,919 --> 00:05:49,639
+source code this is my HTML mod source
+
+85
+00:05:49,680 --> 00:05:55,960
+code
+
+86
+00:05:51,680 --> 00:05:58,720
+uh oh pop out source code there oh oh
+
+87
+00:05:55,960 --> 00:06:00,280
+that's why it got repeated over readen
+
+88
+00:05:58,720 --> 00:06:04,440
+that's why
+
+89
+00:06:00,280 --> 00:06:09,880
+that's bad so this pop out I wanted
+
+90
+00:06:04,440 --> 00:06:14,400
+to okay so insert let's say insert this
+
+91
+00:06:09,880 --> 00:06:17,160
+side so evaluate this okay then
+
+92
+00:06:14,400 --> 00:06:21,240
+um
+
+93
+00:06:17,160 --> 00:06:24,759
+then go to S emac key binding customize
+
+94
+00:06:21,240 --> 00:06:29,960
+evaluated close close okay
+
+95
+00:06:24,759 --> 00:06:33,479
+now close reopen so that reloads the HTM
+
+96
+00:06:29,960 --> 00:06:42,039
+mod now tap
+
+97
+00:06:33,479 --> 00:06:44,680
+HED HED tap HH okay PKS um now PKS yeah
+
+98
+00:06:42,039 --> 00:06:50,800
+so let's look look
+
+99
+00:06:44,680 --> 00:06:54,479
+um hello Arrow hello simple hello
+
+100
+00:06:50,800 --> 00:06:57,440
+do hello simple you have switched from
+
+101
+00:06:54,479 --> 00:06:57,440
+Firefox to
+
+102
+00:06:58,199 --> 00:07:03,840
+Brave uh what Ed question is that
+
+103
+00:07:01,840 --> 00:07:05,360
+trolling because I answered that a
+
+104
+00:07:03,840 --> 00:07:11,240
+thousand
+
+105
+00:07:05,360 --> 00:07:13,400
+times Firefox Brave okay uh if you are
+
+106
+00:07:11,240 --> 00:07:15,800
+trolling I don't know if you are or not
+
+107
+00:07:13,400 --> 00:07:18,879
+or if you are new here probably new but
+
+108
+00:07:15,800 --> 00:07:21,000
+because I talked about that like well uh
+
+109
+00:07:18,879 --> 00:07:23,240
+why do you use multiple browsers which
+
+110
+00:07:21,000 --> 00:07:26,160
+browser do you use there's a
+
+111
+00:07:23,240 --> 00:07:28,919
+dedicated talk show like a few month ago
+
+112
+00:07:26,160 --> 00:07:30,680
+and before that and before that okay P
+
+113
+00:07:28,919 --> 00:07:33,919
+case so
+
+114
+00:07:30,680 --> 00:07:37,639
+study so I'm just going to do my job
+
+115
+00:07:33,919 --> 00:07:37,639
+okay which this is what I need to
+
+116
+00:07:41,240 --> 00:07:46,639
+do study of P case okay let's let's
+
+117
+00:07:45,479 --> 00:07:50,120
+focus on
+
+118
+00:07:46,639 --> 00:07:53,639
+that so this is p case
+
+119
+00:07:50,120 --> 00:07:56,680
+so ml style pattern matching that means
+
+120
+00:07:53,639 --> 00:08:00,039
+ml means meta language one of the
+
+121
+00:07:56,680 --> 00:08:03,560
+first uh functional programming language
+
+122
+00:08:00,039 --> 00:08:08,599
+ML stand for meta language back in
+
+123
+00:08:03,560 --> 00:08:11,120
+1970s I think so to do okay you got a
+
+124
+00:08:08,599 --> 00:08:12,680
+bunch of too I don't care I want to know
+
+125
+00:08:11,120 --> 00:08:14,560
+how to
+
+126
+00:08:12,680 --> 00:08:17,080
+use
+
+127
+00:08:14,560 --> 00:08:19,599
+uh well the first version was written
+
+128
+00:08:17,080 --> 00:08:21,800
+before I knew about rackets match
+
+129
+00:08:19,599 --> 00:08:24,879
+construct the second version was
+
+130
+00:08:21,800 --> 00:08:29,479
+significantly influenced by
+
+131
+00:08:24,879 --> 00:08:33,560
+it okay so a good presentation of the
+
+132
+00:08:29,479 --> 00:08:36,640
+underlying ideas can be found at
+
+133
+00:08:33,560 --> 00:08:39,719
+extensible pattern matching in an
+
+134
+00:08:36,640 --> 00:08:45,480
+extensible language oh this is actually
+
+135
+00:08:39,719 --> 00:08:49,680
+a academic paper 2010 by Sam
+
+136
+00:08:45,480 --> 00:08:52,720
+toin extensible pattern matching in an
+
+137
+00:08:49,680 --> 00:08:54,680
+extensible language okay pattern
+
+138
+00:08:52,720 --> 00:08:56,240
+matching is why to use technique in
+
+139
+00:08:54,680 --> 00:08:58,600
+functional programming languages
+
+140
+00:08:56,240 --> 00:09:01,240
+especially in those meta language and
+
+141
+00:08:58,600 --> 00:09:04,279
+hascal conditions where it is at core of
+
+142
+00:09:01,240 --> 00:09:07,000
+the semantics true and wolam language of
+
+143
+00:09:04,279 --> 00:09:09,040
+course wolam language is the granddaddy
+
+144
+00:09:07,000 --> 00:09:12,320
+well I wouldn't say granddaddy but it's
+
+145
+00:09:09,040 --> 00:09:16,120
+a it's the most powerful than them than
+
+146
+00:09:12,320 --> 00:09:19,760
+hascal Meta Meta language because wam
+
+147
+00:09:16,120 --> 00:09:23,000
+language is symbolic patter magine th
+
+148
+00:09:19,760 --> 00:09:27,200
+hascal and metha language ml P magine or
+
+149
+00:09:23,000 --> 00:09:31,440
+F or or Cam their pagin
+
+150
+00:09:27,200 --> 00:09:33,480
+is structural but not symbolic okay so
+
+151
+00:09:31,440 --> 00:09:38,519
+wolam language pattern matching is like
+
+152
+00:09:33,480 --> 00:09:41,279
+wolf is like list maros but 100 times
+
+153
+00:09:38,519 --> 00:09:44,120
+more powerful
+
+154
+00:09:41,279 --> 00:09:46,880
+elaborate uh so the language in Lis
+
+155
+00:09:44,120 --> 00:09:49,399
+tradition in contrast patter matching it
+
+156
+00:09:46,880 --> 00:09:53,720
+typically provides by libraries build
+
+157
+00:09:49,399 --> 00:09:57,200
+with maros okay we present match a
+
+158
+00:09:53,720 --> 00:09:59,920
+sophisticated pattern match for racket
+
+159
+00:09:57,200 --> 00:10:05,000
+implemented as language extension using
+
+160
+00:09:59,920 --> 00:10:07,839
+maral Okay Mar this Mar really sucks the
+
+161
+00:10:05,000 --> 00:10:12,680
+syntax the system supports novel and
+
+162
+00:10:07,839 --> 00:10:16,640
+widely used paring forms and is itself
+
+163
+00:10:12,680 --> 00:10:21,120
+extensible the extensibility of match is
+
+164
+00:10:16,640 --> 00:10:24,560
+implemented via a general technique for
+
+165
+00:10:21,120 --> 00:10:27,560
+creating extensible language
+
+166
+00:10:24,560 --> 00:10:32,040
+extensions okay I'm not quite sure what
+
+167
+00:10:27,560 --> 00:10:33,519
+it means technically about extension you
+
+168
+00:10:32,040 --> 00:10:35,120
+know what do you mean by language
+
+169
+00:10:33,519 --> 00:10:37,880
+extension because you just add a
+
+170
+00:10:35,120 --> 00:10:40,519
+function via Marco or whatever means so
+
+171
+00:10:37,880 --> 00:10:43,000
+but what exactly you mean extension how
+
+172
+00:10:40,519 --> 00:10:45,839
+is it different just
+
+173
+00:10:43,000 --> 00:10:49,480
+uh unless you you mean
+
+174
+00:10:45,839 --> 00:10:53,279
+syntactical you know adding syntaxes
+
+175
+00:10:49,480 --> 00:10:57,920
+which which most language cannot do even
+
+176
+00:10:53,279 --> 00:11:01,519
+this maros you know let me dispel one
+
+177
+00:10:57,920 --> 00:11:04,440
+myth about this maros the list Fanatics
+
+178
+00:11:01,519 --> 00:11:05,519
+they will say list maros allow you to
+
+179
+00:11:04,440 --> 00:11:09,440
+change
+
+180
+00:11:05,519 --> 00:11:12,560
+syntax actually no not at all list
+
+181
+00:11:09,440 --> 00:11:16,120
+Markus you know with whatever list
+
+182
+00:11:12,560 --> 00:11:17,480
+Markus your syntax is still Ned parent
+
+183
+00:11:16,120 --> 00:11:21,480
+always
+
+184
+00:11:17,480 --> 00:11:24,360
+okay then some lisp phonetics they will
+
+185
+00:11:21,480 --> 00:11:27,680
+say especially common lisp they will say
+
+186
+00:11:24,360 --> 00:11:29,920
+oh Lis reader Mar allows you to change
+
+187
+00:11:27,680 --> 00:11:32,320
+syntax not really
+
+188
+00:11:29,920 --> 00:11:35,760
+you you still basically stuck with the
+
+189
+00:11:32,320 --> 00:11:37,800
+nested par except maybe you can add this
+
+190
+00:11:35,760 --> 00:11:40,800
+you know back tick a little bit you know
+
+191
+00:11:37,800 --> 00:11:44,279
+like a little trick but you cannot
+
+192
+00:11:40,800 --> 00:11:48,480
+create like 1+ one * three syntax like
+
+193
+00:11:44,279 --> 00:11:49,880
+that infix syntax so this this maros or
+
+194
+00:11:48,480 --> 00:11:53,320
+this reader
+
+195
+00:11:49,880 --> 00:11:57,440
+maros they are kind of
+
+196
+00:11:53,320 --> 00:12:00,760
+a uh historical quo okay they don't
+
+197
+00:11:57,440 --> 00:12:04,839
+actually change anything syntax however
+
+198
+00:12:00,760 --> 00:12:06,639
+they do the nested parent transformation
+
+199
+00:12:04,839 --> 00:12:09,079
+that's what they do they
+
+200
+00:12:06,639 --> 00:12:12,920
+transform you know for example this you
+
+201
+00:12:09,079 --> 00:12:14,959
+know parent something something parent
+
+202
+00:12:12,920 --> 00:12:17,120
+you can transform it to call other
+
+203
+00:12:14,959 --> 00:12:20,560
+functions or you know that's what it
+
+204
+00:12:17,120 --> 00:12:23,480
+does Mar and stuff you know you can hold
+
+205
+00:12:20,560 --> 00:12:26,399
+evaluation you know then check what's
+
+206
+00:12:23,480 --> 00:12:28,320
+the argument then depends on what's the
+
+207
+00:12:26,399 --> 00:12:30,199
+argument then you do something such as
+
+208
+00:12:28,320 --> 00:12:33,040
+in a if
+
+209
+00:12:30,199 --> 00:12:35,199
+expression or while loop you know you
+
+210
+00:12:33,040 --> 00:12:39,160
+need to check you know you need to hold
+
+211
+00:12:35,199 --> 00:12:41,519
+evaluation first then in while loop you
+
+212
+00:12:39,160 --> 00:12:45,360
+change variable in each iteration things
+
+213
+00:12:41,519 --> 00:12:49,480
+like that but your syntax is still
+
+214
+00:12:45,360 --> 00:12:53,000
+nested parent okay you know this people
+
+215
+00:12:49,480 --> 00:12:56,079
+Fanatics these idiots they insist this
+
+216
+00:12:53,000 --> 00:12:59,320
+is a giant huge myth for 30 years you
+
+217
+00:12:56,079 --> 00:13:01,959
+know still today they insist this marro
+
+218
+00:12:59,320 --> 00:13:05,680
+can change syntax no not really it's
+
+219
+00:13:01,959 --> 00:13:05,680
+still n it par you stuck with
+
+220
+00:13:06,639 --> 00:13:13,320
+it
+
+221
+00:13:08,600 --> 00:13:15,320
+okay so so okay so we uh so we got this
+
+222
+00:13:13,320 --> 00:13:19,199
+paper let's save
+
+223
+00:13:15,320 --> 00:13:23,720
+it conell University okay let's make a
+
+224
+00:13:19,199 --> 00:13:26,720
+let's make a um I want to make a
+
+225
+00:13:23,720 --> 00:13:26,720
+screenshot
+
+226
+00:13:31,279 --> 00:13:38,959
+and uh then read it later okay I will be
+
+227
+00:13:35,040 --> 00:13:42,399
+reading it let's download okay view
+
+228
+00:13:38,959 --> 00:13:46,399
+PDF okay let's see how many pages is is
+
+229
+00:13:42,399 --> 00:13:48,920
+this academic paper which I read like
+
+230
+00:13:46,399 --> 00:13:48,920
+eating
+
+231
+00:13:49,320 --> 00:13:55,199
+bread you know and uh I find the
+
+232
+00:13:52,279 --> 00:13:58,040
+academics very annoying
+
+233
+00:13:55,199 --> 00:14:00,880
+usually okay this paper is pretty short
+
+234
+00:13:58,040 --> 00:14:05,199
+okay they are BAS basically you know
+
+235
+00:14:00,880 --> 00:14:08,560
+it's um focus on the scheme disp
+
+236
+00:14:05,199 --> 00:14:11,240
+language also known as racket well I
+
+237
+00:14:08,560 --> 00:14:15,320
+mean one version of it
+
+238
+00:14:11,240 --> 00:14:19,199
+so so it's writing a racket extension
+
+239
+00:14:15,320 --> 00:14:21,440
+now is this match part of Racket already
+
+240
+00:14:19,199 --> 00:14:24,600
+I suppose this is
+
+241
+00:14:21,440 --> 00:14:27,320
+2010 the uh extending pattern matching
+
+242
+00:14:24,600 --> 00:14:31,040
+the following racket program finds the
+
+243
+00:14:27,320 --> 00:14:33,880
+magnitude of a complex number okay
+
+244
+00:14:31,040 --> 00:14:37,519
+represented in either cartisian or Polar
+
+245
+00:14:33,880 --> 00:14:42,040
+form as a three element list using the
+
+246
+00:14:37,519 --> 00:14:46,160
+first elements as a type type tag
+
+247
+00:14:42,040 --> 00:14:47,440
+okay so let's save this so I'm going to
+
+248
+00:14:46,160 --> 00:14:49,800
+read it
+
+249
+00:14:47,440 --> 00:14:55,800
+later okay
+
+250
+00:14:49,800 --> 00:14:56,600
+close uh but uh wait reopen back copy
+
+251
+00:14:55,800 --> 00:14:59,600
+the
+
+252
+00:14:56,600 --> 00:15:03,360
+URL uh back to talk show
+
+253
+00:14:59,600 --> 00:15:09,120
+let's paste the URL
+
+254
+00:15:03,360 --> 00:15:09,120
+here ah I changed my key so now it's all
+
+255
+00:15:11,240 --> 00:15:16,480
+new
+
+256
+00:15:13,320 --> 00:15:19,880
+copy let me show you this
+
+257
+00:15:16,480 --> 00:15:24,000
+fantastic command Okay so submit it I
+
+258
+00:15:19,880 --> 00:15:26,920
+don't care let's put the date date here
+
+259
+00:15:24,000 --> 00:15:29,920
+buy this guy title URL
+
+260
+00:15:26,920 --> 00:15:34,839
+title author
+
+261
+00:15:29,920 --> 00:15:38,399
+press a key it becomes citation
+
+262
+00:15:34,839 --> 00:15:41,319
+biography academic citation make a list
+
+263
+00:15:38,399 --> 00:15:44,759
+the is this part showing Bowser
+
+264
+00:15:41,319 --> 00:15:47,480
+fantastic beautiful extensible pattern
+
+265
+00:15:44,759 --> 00:15:50,880
+iming okay let's focus let's get back to
+
+266
+00:15:47,480 --> 00:15:55,160
+so okay there's that paper then
+
+267
+00:15:50,880 --> 00:15:59,399
+what um then what else okay so it's
+
+268
+00:15:55,160 --> 00:16:02,839
+somewhat based on this paper Okay so now
+
+269
+00:15:59,399 --> 00:16:04,319
+notice there is no documentation what
+
+270
+00:16:02,839 --> 00:16:08,199
+the
+
+271
+00:16:04,319 --> 00:16:11,720
+ you know impl
+
+272
+00:16:08,199 --> 00:16:15,240
+implementation is your problem how to
+
+273
+00:16:11,720 --> 00:16:18,560
+use this library is my
+
+274
+00:16:15,240 --> 00:16:22,120
+problem documentation of how to use this
+
+275
+00:16:18,560 --> 00:16:22,880
+library is your problem but you didn't
+
+276
+00:16:22,120 --> 00:16:26,759
+do
+
+277
+00:16:22,880 --> 00:16:29,639
+it that's what annoys me so let's
+
+278
+00:16:26,759 --> 00:16:33,759
+check control h
+
+279
+00:16:29,639 --> 00:16:36,920
+I to go to the info documentation index
+
+280
+00:16:33,759 --> 00:16:38,399
+let's see search for p case list
+
+281
+00:16:36,920 --> 00:16:41,079
+matching lines
+
+282
+00:16:38,399 --> 00:16:44,839
+none okay
+
+283
+00:16:41,079 --> 00:16:49,360
+so okay so let's search
+
+284
+00:16:44,839 --> 00:16:49,360
+for let's call
+
+285
+00:16:53,519 --> 00:17:03,279
+um emac L index search okay let's call
+
+286
+00:16:57,839 --> 00:17:07,400
+that P case search there it is the P
+
+287
+00:17:03,279 --> 00:17:10,439
+case Mark okay so it is in emac list
+
+288
+00:17:07,400 --> 00:17:13,160
+manual so this is what you need to read
+
+289
+00:17:10,439 --> 00:17:15,720
+okay now press a key to show this page
+
+290
+00:17:13,160 --> 00:17:18,600
+in browser this is
+
+291
+00:17:15,720 --> 00:17:20,000
+fantasticar extension Kar view emac
+
+292
+00:17:18,600 --> 00:17:22,480
+manual in
+
+293
+00:17:20,000 --> 00:17:26,720
+browser okay so now you
+
+294
+00:17:22,480 --> 00:17:29,039
+see makes a giant difference a lot emac
+
+295
+00:17:26,720 --> 00:17:32,600
+Fanatics they just like to read this
+
+296
+00:17:29,039 --> 00:17:36,240
+text plain text version but but the
+
+297
+00:17:32,600 --> 00:17:38,679
+browser is much more beautiful and
+
+298
+00:17:36,240 --> 00:17:42,360
+easier to read because you got all this
+
+299
+00:17:38,679 --> 00:17:46,360
+formatting and bold and you know
+
+300
+00:17:42,360 --> 00:17:49,200
+coloring okay so so you got a marro PK
+
+301
+00:17:46,360 --> 00:17:54,760
+case expression this is what I need to
+
+302
+00:17:49,200 --> 00:17:54,760
+do okay so any comments none
+
+303
+00:18:04,720 --> 00:18:08,120
+so PK's
+
+304
+00:18:17,360 --> 00:18:26,799
+expression PK's expression rest classes
+
+305
+00:18:21,799 --> 00:18:30,960
+so PK each cross in crosses has the form
+
+306
+00:18:26,799 --> 00:18:34,919
+pattern body form okay so evaluate
+
+307
+00:18:30,960 --> 00:18:37,520
+expression to determine its
+
+308
+00:18:34,919 --> 00:18:42,559
+value
+
+309
+00:18:37,520 --> 00:18:44,080
+um eval expand eval find the first cross
+
+310
+00:18:42,559 --> 00:18:46,919
+in
+
+311
+00:18:44,080 --> 00:18:49,880
+crosses okay whose pattern matches
+
+312
+00:18:46,919 --> 00:18:53,159
+expand evolve and pass control to that
+
+313
+00:18:49,880 --> 00:18:56,799
+Clause okay so P case is like a
+
+314
+00:18:53,159 --> 00:18:59,640
+conditional Case Case
+
+315
+00:18:56,799 --> 00:19:02,520
+statement okay if there is the match the
+
+316
+00:18:59,640 --> 00:19:05,559
+value of P case is the value of the last
+
+317
+00:19:02,520 --> 00:19:05,559
+body of body
+
+318
+00:19:06,799 --> 00:19:13,520
+forms in the successful Clause that's
+
+319
+00:19:10,000 --> 00:19:16,760
+right otherwise P case evaluates to Neil
+
+320
+00:19:13,520 --> 00:19:20,559
+okay I understand do do you understand
+
+321
+00:19:16,760 --> 00:19:24,240
+that yes already so close that uh go
+
+322
+00:19:20,559 --> 00:19:29,559
+back to talk show close this and uh
+
+323
+00:19:24,240 --> 00:19:31,520
+showing browser and let's start to um
+
+324
+00:19:29,559 --> 00:19:35,720
+this this is a
+
+325
+00:19:31,520 --> 00:19:38,880
+marro okay I mean this is a manual there
+
+326
+00:19:35,720 --> 00:19:41,640
+it is link to the Manu and let's start
+
+327
+00:19:38,880 --> 00:19:45,080
+to I know how to use it already Okay so
+
+328
+00:19:41,640 --> 00:19:48,280
+I need you see right now I'm using SAR
+
+329
+00:19:45,080 --> 00:19:50,960
+emx mod so everything I do is like SAR
+
+330
+00:19:48,280 --> 00:19:50,960
+mod
+
+331
+00:19:53,640 --> 00:20:03,960
+okay okay HTML mod but here is
+
+332
+00:20:00,480 --> 00:20:07,200
+so emac this mod go to the source code
+
+333
+00:20:03,960 --> 00:20:10,799
+go to the directory delete the backup
+
+334
+00:20:07,200 --> 00:20:15,320
+delete yes so you see this all my
+
+335
+00:20:10,799 --> 00:20:18,880
+basically all the packages I use today
+
+336
+00:20:15,320 --> 00:20:23,080
+uh is all just my packages because I've
+
+337
+00:20:18,880 --> 00:20:23,960
+been coding emac lisp for 15 years 20
+
+338
+00:20:23,080 --> 00:20:25,840
+years
+
+339
+00:20:23,960 --> 00:20:30,480
+almost
+
+340
+00:20:25,840 --> 00:20:34,360
+so so this isar emac this mod so first
+
+341
+00:20:30,480 --> 00:20:37,360
+thing to do is I want I want a template
+
+342
+00:20:34,360 --> 00:20:40,360
+I want you know for example d space
+
+343
+00:20:37,360 --> 00:20:43,679
+become different space become the full
+
+344
+00:20:40,360 --> 00:20:47,600
+template I want a template for p case
+
+345
+00:20:43,679 --> 00:20:51,600
+right now this got nothing so let's do
+
+346
+00:20:47,600 --> 00:20:54,520
+it let's create it so let so template
+
+347
+00:20:51,600 --> 00:20:56,799
+you you go here so so search for first
+
+348
+00:20:54,520 --> 00:21:02,360
+of all search for p
+
+349
+00:20:56,799 --> 00:21:07,240
+case there it is okay PKS so PKS in PK
+
+350
+00:21:02,360 --> 00:21:10,960
+def Mar okay PK is there that's part of
+
+351
+00:21:07,240 --> 00:21:13,360
+the keyword but we don't have Mar so
+
+352
+00:21:10,960 --> 00:21:16,960
+let's add a mar
+
+353
+00:21:13,360 --> 00:21:23,640
+okay uh okay so go down go where is it
+
+354
+00:21:16,960 --> 00:21:26,320
+here okay so PS s o PQ so let's see
+
+355
+00:21:23,640 --> 00:21:32,799
+p
+
+356
+00:21:26,320 --> 00:21:36,559
+uh push and quote okay so let's do a p
+
+357
+00:21:32,799 --> 00:21:36,559
+case P case
+
+358
+00:21:37,400 --> 00:21:40,960
+abbreviation uh
+
+359
+00:21:41,559 --> 00:21:44,919
+wait wait
+
+360
+00:21:46,400 --> 00:21:58,039
+what now what is the documentation for
+
+361
+00:21:49,880 --> 00:21:58,039
+PK that okay so actually so we just um
+
+362
+00:21:59,360 --> 00:22:06,120
+P
+
+363
+00:22:00,840 --> 00:22:10,360
+case expression then rest cases
+
+364
+00:22:06,120 --> 00:22:14,279
+okay now rest is
+
+365
+00:22:10,360 --> 00:22:17,520
+um split the window search for comma
+
+366
+00:22:14,279 --> 00:22:20,679
+rest is done as a comma so okay let's
+
+367
+00:22:17,520 --> 00:22:20,679
+just add a comma
+
+368
+00:22:20,720 --> 00:22:30,000
+instead so PKS so now let's alphabetize
+
+369
+00:22:26,200 --> 00:22:30,000
+it so
+
+370
+00:22:32,200 --> 00:22:38,720
+okay there search for p case Okay o n p
+
+371
+00:22:37,520 --> 00:22:42,440
+right
+
+372
+00:22:38,720 --> 00:22:45,960
+there evaluate the buffer you can see
+
+373
+00:22:42,440 --> 00:22:49,120
+run current file or Evol buffer go to
+
+374
+00:22:45,960 --> 00:22:54,080
+directory buy compile it is there an
+
+375
+00:22:49,120 --> 00:23:01,039
+error no okay open it delete it close
+
+376
+00:22:54,080 --> 00:23:01,039
+now back here now close it and uh reopen
+
+377
+00:23:01,240 --> 00:23:07,880
+it okay now P case
+
+378
+00:23:05,120 --> 00:23:11,559
+enter
+
+379
+00:23:07,880 --> 00:23:14,840
+fantastic okay expression let's say
+
+380
+00:23:11,559 --> 00:23:17,960
+three now cases okay so we need to
+
+381
+00:23:14,840 --> 00:23:21,919
+modify because PKS you always
+
+382
+00:23:17,960 --> 00:23:25,039
+need it's always going to need cases so
+
+383
+00:23:21,919 --> 00:23:26,840
+let's you know even though it's optional
+
+384
+00:23:25,039 --> 00:23:29,840
+but you you're going to always need
+
+385
+00:23:26,840 --> 00:23:29,840
+cases
+
+386
+00:23:30,520 --> 00:23:35,840
+pattern and uh so classes so what how
+
+387
+00:23:34,320 --> 00:23:39,880
+does it
+
+388
+00:23:35,840 --> 00:23:43,480
+work uh classes
+
+389
+00:23:39,880 --> 00:23:47,080
+pattern each class is pattern in body
+
+390
+00:23:43,480 --> 00:23:47,080
+forms so in
+
+391
+00:23:48,470 --> 00:23:51,569
+[Music]
+
+392
+00:23:53,240 --> 00:24:00,840
+fact so for example let's say four then
+
+393
+00:23:57,440 --> 00:24:06,360
+four okay okay three then three let's
+
+394
+00:24:00,840 --> 00:24:10,880
+see if that works evaluated seems to
+
+395
+00:24:06,360 --> 00:24:14,760
+work you see it returns three because
+
+396
+00:24:10,880 --> 00:24:18,520
+three matches three here then run this
+
+397
+00:24:14,760 --> 00:24:20,200
+okay so we can do we can actually make
+
+398
+00:24:18,520 --> 00:24:27,000
+this
+
+399
+00:24:20,200 --> 00:24:27,000
+um uh not messages okay got
+
+400
+00:24:27,159 --> 00:24:32,640
+three and and
+
+401
+00:24:29,360 --> 00:24:32,640
+here got
+
+402
+00:24:34,159 --> 00:24:38,960
+four
+
+403
+00:24:35,960 --> 00:24:38,960
+okay
+
+404
+00:24:39,159 --> 00:24:44,760
+evaluated got three perfect so this is
+
+405
+00:24:42,440 --> 00:24:47,960
+how you use P case
+
+406
+00:24:44,760 --> 00:24:51,520
+now now let's make let's fix the
+
+407
+00:24:47,960 --> 00:24:54,760
+template okay let's so this case is
+
+408
+00:24:51,520 --> 00:24:57,720
+going to be it's always gonna be
+
+409
+00:24:54,760 --> 00:24:59,240
+um okay let's fix the template so I'm
+
+410
+00:24:57,720 --> 00:25:03,320
+doing
+
+411
+00:24:59,240 --> 00:25:03,320
+multitasking I'm doing
+
+412
+00:25:08,480 --> 00:25:18,360
+um you know learning about PKS meanwhile
+
+413
+00:25:12,799 --> 00:25:24,240
+creating a template for it in emac this
+
+414
+00:25:18,360 --> 00:25:27,960
+mod okay so that's that okay so this x
+
+415
+00:25:24,240 --> 00:25:27,960
+is um
+
+416
+00:25:33,559 --> 00:25:39,919
+not
+
+417
+00:25:35,080 --> 00:25:39,919
+date crer okay
+
+418
+00:25:40,080 --> 00:25:53,559
+so and uh new line any new line encoded
+
+419
+00:25:47,120 --> 00:25:56,240
+by slash n do it do it do it okay and uh
+
+420
+00:25:53,559 --> 00:25:57,039
+then we got this uh space space okay
+
+421
+00:25:56,240 --> 00:25:58,880
+leave
+
+422
+00:25:57,039 --> 00:26:02,039
+it okay
+
+423
+00:25:58,880 --> 00:26:08,760
+so this is our new P
+
+424
+00:26:02,039 --> 00:26:13,559
+case template evalate go back here close
+
+425
+00:26:08,760 --> 00:26:16,760
+it save it close reopen so that the emac
+
+426
+00:26:13,559 --> 00:26:22,480
+this mod is reloaded saw emx mod so now
+
+427
+00:26:16,760 --> 00:26:22,480
+let's try again PK space
+
+428
+00:26:22,720 --> 00:26:29,600
+beautiful okay so we got
+
+429
+00:26:25,919 --> 00:26:31,039
+that okay so now I know how to use PKS
+
+430
+00:26:29,600 --> 00:26:34,480
+case
+
+431
+00:26:31,039 --> 00:26:38,360
+you you know you got several Arguments
+
+432
+00:26:34,480 --> 00:26:41,720
+for different patterns
+
+433
+00:26:38,360 --> 00:26:43,919
+now now but we haven't got two patterns
+
+434
+00:26:41,720 --> 00:26:46,520
+because right now it's literal you know
+
+435
+00:26:43,919 --> 00:26:49,399
+it's like matching literal
+
+436
+00:26:46,520 --> 00:26:52,640
+expression um there's no pattern
+
+437
+00:26:49,399 --> 00:26:55,520
+involved so then it's just like
+
+438
+00:26:52,640 --> 00:26:58,240
+conditional you know nothing special so
+
+439
+00:26:55,520 --> 00:27:02,080
+but so we need to figure so we need to
+
+440
+00:26:58,240 --> 00:27:05,799
+to learn about what is this pattern for
+
+441
+00:27:02,080 --> 00:27:08,679
+example we got some X and we want you
+
+442
+00:27:05,799 --> 00:27:13,960
+know some of them is like a
+
+443
+00:27:08,679 --> 00:27:17,960
+string uh let's say uh T
+
+444
+00:27:13,960 --> 00:27:21,600
+then then you return string so for
+
+445
+00:27:17,960 --> 00:27:24,440
+example right so you want to um you know
+
+446
+00:27:21,600 --> 00:27:27,720
+if this x is a string you want to be
+
+447
+00:27:24,440 --> 00:27:31,200
+able to match a string so how do you do
+
+448
+00:27:27,720 --> 00:27:34,200
+that not just you know not just match T
+
+449
+00:27:31,200 --> 00:27:34,200
+exactly but you want
+
+450
+00:27:34,360 --> 00:27:41,600
+to uh match if that's a string so each
+
+451
+00:27:37,720 --> 00:27:43,519
+pattern has to be a p case pattern okay
+
+452
+00:27:41,600 --> 00:27:46,640
+which can
+
+453
+00:27:43,519 --> 00:27:50,159
+either which can use either one of the
+
+454
+00:27:46,640 --> 00:27:54,080
+core patterns defined below or one of
+
+455
+00:27:50,159 --> 00:27:57,159
+the patterns defined via PK Define Mark
+
+456
+00:27:54,080 --> 00:27:58,919
+okay so you can you can extend your
+
+457
+00:27:57,159 --> 00:28:04,200
+patterns
+
+458
+00:27:58,919 --> 00:28:06,760
+syntax that by using PK def Mark I see
+
+459
+00:28:04,200 --> 00:28:10,559
+so that's what it is so there's a
+
+460
+00:28:06,760 --> 00:28:14,640
+documentation extending P case okay go
+
+461
+00:28:10,559 --> 00:28:17,159
+back go back okay so let's check of the
+
+462
+00:28:14,640 --> 00:28:20,120
+patterns the rest of this section
+
+463
+00:28:17,159 --> 00:28:23,440
+describe different forms of core
+
+464
+00:28:20,120 --> 00:28:27,120
+patterns presents some examples and
+
+465
+00:28:23,440 --> 00:28:30,080
+concludes with important caveats
+
+466
+00:28:27,120 --> 00:28:32,919
+warnings I'm using the lead binding
+
+467
+00:28:30,080 --> 00:28:36,440
+facility provided by some pattern
+
+468
+00:28:32,919 --> 00:28:38,799
+forms okay so PKS can be used in lead
+
+469
+00:28:36,440 --> 00:28:42,080
+binding okay a Coe pattern can have the
+
+470
+00:28:38,799 --> 00:28:42,080
+following forms
+
+471
+00:28:43,080 --> 00:28:48,880
+okay am I doing
+
+472
+00:28:45,440 --> 00:28:52,720
+good it's like one person watching is
+
+473
+00:28:48,880 --> 00:28:56,039
+that right four four people
+
+474
+00:28:52,720 --> 00:29:00,039
+okay okay continue with the p case Okay
+
+475
+00:28:56,039 --> 00:29:00,039
+so let's remove that
+
+476
+00:29:01,880 --> 00:29:07,960
+yeah so P
+
+477
+00:29:04,320 --> 00:29:11,480
+case so pattern okay so now I need to
+
+478
+00:29:07,960 --> 00:29:11,480
+write a tutorial for
+
+479
+00:29:11,720 --> 00:29:20,559
+this okay this page is
+
+480
+00:29:15,519 --> 00:29:24,240
+um example advantage over over CL case
+
+481
+00:29:20,559 --> 00:29:27,279
+ common this here's an example that
+
+482
+00:29:24,240 --> 00:29:30,480
+highlights some advantages of P case has
+
+483
+00:29:27,279 --> 00:29:30,480
+overse our
+
+484
+00:29:30,720 --> 00:29:34,600
+case common
+
+485
+00:29:38,039 --> 00:29:46,480
+this okay so this documentation is you
+
+486
+00:29:41,880 --> 00:29:52,640
+know it's a few pages okay so let's make
+
+487
+00:29:46,480 --> 00:29:53,679
+it larger a bit so I am going to read
+
+488
+00:29:52,640 --> 00:29:58,200
+this
+
+489
+00:29:53,679 --> 00:30:00,679
+offline because I'm meticulous reader
+
+490
+00:29:58,200 --> 00:30:05,640
+technical documentation geeking that's
+
+491
+00:30:00,679 --> 00:30:05,640
+what I do been doing that for all my
+
+492
+00:30:05,720 --> 00:30:11,200
+life uh I've read more documentation
+
+493
+00:30:08,880 --> 00:30:15,679
+than all of you
+
+494
+00:30:11,200 --> 00:30:15,679
+combined including the thisis
+
+495
+00:30:16,440 --> 00:30:22,559
+phonetics okay so let's see
+
+496
+00:30:19,360 --> 00:30:25,640
+so uh so you got some patterns so let's
+
+497
+00:30:22,559 --> 00:30:29,399
+look at the pattern underscore matches
+
+498
+00:30:25,640 --> 00:30:32,039
+any expression okay
+
+499
+00:30:29,399 --> 00:30:35,080
+okay underscore is like don't care while
+
+500
+00:30:32,039 --> 00:30:37,519
+out card this is like the
+
+501
+00:30:35,080 --> 00:30:40,080
+last you know condition like nothing
+
+502
+00:30:37,519 --> 00:30:46,519
+matches then just use
+
+503
+00:30:40,080 --> 00:30:51,399
+this uh quote vow mat uh equals to
+
+504
+00:30:46,519 --> 00:30:54,399
+Val comparison is done by EV equality
+
+505
+00:30:51,399 --> 00:30:54,399
+okay
+
+506
+00:30:54,440 --> 00:31:00,720
+so quote W does that usually mean s both
+
+507
+00:30:58,880 --> 00:31:04,320
+usually
+
+508
+00:31:00,720 --> 00:31:07,080
+matches equals
+
+509
+00:31:04,320 --> 00:31:09,320
+v wait but if it's a number you don't
+
+510
+00:31:07,080 --> 00:31:11,679
+need to quote it so what what so you
+
+511
+00:31:09,320 --> 00:31:15,320
+know there's a question here because
+
+512
+00:31:11,679 --> 00:31:18,639
+usually when you quote you quote
+
+513
+00:31:15,320 --> 00:31:22,519
+symbols so does this mean this quote
+
+514
+00:31:18,639 --> 00:31:22,519
+this vow can also be a
+
+515
+00:31:23,600 --> 00:31:30,200
+list you know we can actually we can
+
+516
+00:31:26,279 --> 00:31:31,240
+test it so for example let's Okay so cut
+
+517
+00:31:30,200 --> 00:31:36,159
+let's
+
+518
+00:31:31,240 --> 00:31:36,159
+see uh let's say it's
+
+519
+00:31:38,039 --> 00:31:44,440
+a you know
+
+520
+00:31:41,080 --> 00:31:48,679
+let so this this expression can be a
+
+521
+00:31:44,440 --> 00:31:52,159
+Leist okay three four then let's say one
+
+522
+00:31:48,679 --> 00:31:54,080
+of the condition is
+
+523
+00:31:52,159 --> 00:31:57,960
+quote
+
+524
+00:31:54,080 --> 00:31:59,919
+34 then message
+
+525
+00:31:57,960 --> 00:32:03,279
+got list
+
+526
+00:31:59,919 --> 00:32:06,880
+okay uh say
+
+527
+00:32:03,279 --> 00:32:06,880
+message got
+
+528
+00:32:09,639 --> 00:32:19,240
+four okay so let's eval this let's see
+
+529
+00:32:14,399 --> 00:32:25,519
+there it is I was correct so you can
+
+530
+00:32:19,240 --> 00:32:25,519
+like you know you can you can you can uh
+
+531
+00:32:31,080 --> 00:32:37,799
+yeah so but I still don't fully
+
+532
+00:32:34,000 --> 00:32:39,360
+understand okay anyway let's move on so
+
+533
+00:32:37,799 --> 00:32:43,279
+there is
+
+534
+00:32:39,360 --> 00:32:46,320
+underscore so if if underscore means
+
+535
+00:32:43,279 --> 00:32:49,320
+nothing matches
+
+536
+00:32:46,320 --> 00:32:49,320
+okay
+
+537
+00:32:55,840 --> 00:32:59,840
+uh okay so
+
+538
+00:33:03,240 --> 00:33:11,919
+underscore H interesting so you see this
+
+539
+00:33:07,039 --> 00:33:15,639
+is the this underscore is beginning to
+
+540
+00:33:11,919 --> 00:33:16,919
+be a real pattern because that's not a
+
+541
+00:33:15,639 --> 00:33:18,440
+valid
+
+542
+00:33:16,919 --> 00:33:22,159
+lisp
+
+543
+00:33:18,440 --> 00:33:27,440
+syntax because underscore is
+
+544
+00:33:22,159 --> 00:33:27,440
+undefined so now um
+
+545
+00:33:33,919 --> 00:33:37,200
+okay let's see what
+
+546
+00:33:37,919 --> 00:33:46,559
+uh okay got this okay so but now if we
+
+547
+00:33:42,399 --> 00:33:46,559
+try let's say
+
+548
+00:33:48,320 --> 00:33:55,799
+nine there it
+
+549
+00:33:51,720 --> 00:33:59,000
+is because nothing matches now let's see
+
+550
+00:33:55,799 --> 00:34:03,519
+now let's see if the order matters okay
+
+551
+00:33:59,000 --> 00:34:07,480
+so copy and let's say
+
+552
+00:34:03,519 --> 00:34:09,599
+um let's say four but you put the
+
+553
+00:34:07,480 --> 00:34:13,359
+underscore at the
+
+554
+00:34:09,599 --> 00:34:17,359
+top okay will it just match this one
+
+555
+00:34:13,359 --> 00:34:20,560
+like do they go by order I suppose okay
+
+556
+00:34:17,359 --> 00:34:25,760
+so let's try
+
+557
+00:34:20,560 --> 00:34:28,760
+it there it is okay so yeah so this
+
+558
+00:34:25,760 --> 00:34:28,760
+shows
+
+559
+00:34:35,079 --> 00:34:38,399
+okay pattern match in
+
+560
+00:34:39,320 --> 00:34:47,119
+order okay so
+
+561
+00:34:41,560 --> 00:34:49,960
+next so we got keyword integer
+
+562
+00:34:47,119 --> 00:34:52,879
+string uh what does it mean keyword
+
+563
+00:34:49,960 --> 00:34:55,560
+integer string match if EV equals to the
+
+564
+00:34:52,879 --> 00:35:00,359
+literal object
+
+565
+00:34:55,560 --> 00:35:00,359
+okay special case of W
+
+566
+00:35:00,480 --> 00:35:05,960
+okay self quoting okay now what does
+
+567
+00:35:04,000 --> 00:35:09,280
+this what is this
+
+568
+00:35:05,960 --> 00:35:14,400
+keyword control
+
+569
+00:35:09,280 --> 00:35:18,400
+h uh well we need going to search
+
+570
+00:35:14,400 --> 00:35:18,400
+um what
+
+571
+00:35:27,839 --> 00:35:34,839
+P
+
+572
+00:35:30,200 --> 00:35:34,839
+case okay so what is
+
+573
+00:35:36,599 --> 00:35:42,160
+that okay so keyword integer
+
+574
+00:35:40,119 --> 00:35:45,760
+string they
+
+575
+00:35:42,160 --> 00:35:50,000
+basically this is a bad formatting from
+
+576
+00:35:45,760 --> 00:35:50,000
+G emac this
+
+577
+00:35:50,440 --> 00:35:58,160
+manual well okay because it's
+
+578
+00:35:55,319 --> 00:36:01,079
+semantically logically
+
+579
+00:35:58,160 --> 00:36:04,440
+kind of inconsistent
+
+580
+00:36:01,079 --> 00:36:07,960
+anyway um
+
+581
+00:36:04,440 --> 00:36:10,480
+so keyword integer string so all these
+
+582
+00:36:07,960 --> 00:36:13,520
+are literal
+
+583
+00:36:10,480 --> 00:36:14,960
+values okay so keyword does that mean
+
+584
+00:36:13,520 --> 00:36:17,599
+it's a
+
+585
+00:36:14,960 --> 00:36:21,640
+symbol I don't know okay so let's see
+
+586
+00:36:17,599 --> 00:36:23,720
+symbol match any value and additionally
+
+587
+00:36:21,640 --> 00:36:28,359
+let bind symbol
+
+588
+00:36:23,720 --> 00:36:28,359
+to expand evolve
+
+589
+00:36:31,400 --> 00:36:35,960
+such that this binding is available to
+
+590
+00:36:33,920 --> 00:36:40,079
+body forms
+
+591
+00:36:35,960 --> 00:36:45,160
+okay if symbol is part of sequence
+
+592
+00:36:40,079 --> 00:36:49,240
+sequence pattern God this okay so this
+
+593
+00:36:45,160 --> 00:36:52,920
+this all these patterns they can get
+
+594
+00:36:49,240 --> 00:36:57,040
+complex so you got a mini pattern ma
+
+595
+00:36:52,920 --> 00:37:00,560
+language here oh then you can you have
+
+596
+00:36:57,040 --> 00:37:02,760
+and patterns where a pattern must match
+
+597
+00:37:00,560 --> 00:37:04,960
+all these patterns a expression must
+
+598
+00:37:02,760 --> 00:37:07,920
+match all these patterns then you have
+
+599
+00:37:04,960 --> 00:37:11,160
+all patterns which means a expression
+
+600
+00:37:07,920 --> 00:37:13,680
+match any of these pattern and you are
+
+601
+00:37:11,160 --> 00:37:13,680
+you have
+
+602
+00:37:13,960 --> 00:37:22,800
+RX okay so matx string again is the
+
+603
+00:37:17,560 --> 00:37:28,200
+rejects RX expression using RX notation
+
+604
+00:37:22,800 --> 00:37:30,079
+okay so this is this pattern is
+
+605
+00:37:28,200 --> 00:37:32,440
+for
+
+606
+00:37:30,079 --> 00:37:34,760
+matching this pattern is basically
+
+607
+00:37:32,440 --> 00:37:38,280
+regular expression for matching
+
+608
+00:37:34,760 --> 00:37:42,960
+string however using the lisp regular
+
+609
+00:37:38,280 --> 00:37:46,880
+expression syntax in the RX package okay
+
+610
+00:37:42,960 --> 00:37:50,440
+called structured rejects notation okay
+
+611
+00:37:46,880 --> 00:37:55,680
+but anyhow it's still just matching
+
+612
+00:37:50,440 --> 00:37:58,680
+strings okay so you got end or you got
+
+613
+00:37:55,680 --> 00:37:58,680
+let
+
+614
+00:37:58,720 --> 00:38:03,280
+uh so this lead is a
+
+615
+00:38:05,440 --> 00:38:16,040
+pattern evaluate expression to get uh an
+
+616
+00:38:10,240 --> 00:38:21,720
+Matrix got evaluate expression to get
+
+617
+00:38:16,040 --> 00:38:26,520
+that and matx if expression
+
+618
+00:38:21,720 --> 00:38:26,520
+V matches pattern
+
+619
+00:38:30,680 --> 00:38:34,880
+okay what does this mean evaluate
+
+620
+00:38:41,640 --> 00:38:48,119
+expression it is called let because
+
+621
+00:38:44,440 --> 00:38:52,000
+pattern combine symbols okay I don't
+
+622
+00:38:48,119 --> 00:38:55,359
+understand now this card is basically a
+
+623
+00:38:52,000 --> 00:38:59,119
+condition God matches if buing
+
+624
+00:38:55,359 --> 00:39:01,520
+expression Eva evaluates to
+
+625
+00:38:59,119 --> 00:39:04,079
+true
+
+626
+00:39:01,520 --> 00:39:08,480
+so so this
+
+627
+00:39:04,079 --> 00:39:08,480
+pattern basically
+
+628
+00:39:09,200 --> 00:39:13,119
+here is a
+
+629
+00:39:15,040 --> 00:39:20,240
+function so basically this allows you to
+
+630
+00:39:17,920 --> 00:39:22,240
+use a function that returns true and
+
+631
+00:39:20,240 --> 00:39:25,280
+false to
+
+632
+00:39:22,240 --> 00:39:28,200
+determine whether the it match or not so
+
+633
+00:39:25,280 --> 00:39:31,680
+instead of using a pattern you use a
+
+634
+00:39:28,200 --> 00:39:34,440
+function that's what it is okay so this
+
+635
+00:39:31,680 --> 00:39:40,280
+app function pattern matches a function
+
+636
+00:39:34,440 --> 00:39:43,200
+code on the expression Returns the value
+
+637
+00:39:40,280 --> 00:39:48,359
+okay okay so yeah
+
+638
+00:39:43,200 --> 00:39:51,960
+so okay so this gets a bit complex to
+
+639
+00:39:48,359 --> 00:39:57,720
+um actually test out each one yeah it
+
+640
+00:39:51,960 --> 00:40:00,240
+can get complex so so what we do now
+
+641
+00:39:57,720 --> 00:40:05,640
+am I doing good night people watching
+
+642
+00:40:00,240 --> 00:40:05,640
+Rudolph and uh Rudolph and
+
+643
+00:40:06,359 --> 00:40:09,640
+nbj okay
+
+644
+00:40:09,880 --> 00:40:16,960
+so so what we do today I mean what do
+
+645
+00:40:14,079 --> 00:40:21,240
+what do I do to make it useful for you
+
+646
+00:40:16,960 --> 00:40:23,839
+guys because this P case you'll
+
+647
+00:40:21,240 --> 00:40:28,319
+need few
+
+648
+00:40:23,839 --> 00:40:31,359
+hours and I'm going to write a
+
+649
+00:40:28,319 --> 00:40:35,680
+um tutorial for it in fact I can start
+
+650
+00:40:31,359 --> 00:40:38,200
+to write a tutorial yeah so you see we
+
+651
+00:40:35,680 --> 00:40:43,200
+have we got some examples of P case
+
+652
+00:40:38,200 --> 00:40:46,440
+patter iming I will be writing a
+
+653
+00:40:43,200 --> 00:40:51,760
+tutorial of a complete
+
+654
+00:40:46,440 --> 00:40:53,319
+tutorial and uh with lots of examples
+
+655
+00:40:51,760 --> 00:40:56,599
+uh
+
+656
+00:40:53,319 --> 00:40:59,800
+but the question is what do I do now so
+
+657
+00:40:56,599 --> 00:41:03,560
+let's let's let's have a overall look at
+
+658
+00:40:59,800 --> 00:41:06,960
+this page okay so here it covers
+
+659
+00:41:03,560 --> 00:41:10,240
+different patterns now what is qad a
+
+660
+00:41:06,960 --> 00:41:13,800
+back quod style pattern
+
+661
+00:41:10,240 --> 00:41:18,160
+okay okay so you got back quod style
+
+662
+00:41:13,800 --> 00:41:18,160
+pattern you know so it's it is a bit
+
+663
+00:41:19,720 --> 00:41:24,880
+complicated okay so you got patterns
+
+664
+00:41:22,319 --> 00:41:29,160
+patterns so symbol backward style
+
+665
+00:41:24,880 --> 00:41:34,000
+pattern CL type okay Matrix if eval
+
+666
+00:41:29,160 --> 00:41:38,000
+expression is expression eval is of type
+
+667
+00:41:34,000 --> 00:41:42,880
+type okay which is a type descriptor is
+
+668
+00:41:38,000 --> 00:41:44,640
+accepted by CL type P type predic in
+
+669
+00:41:42,880 --> 00:41:48,319
+common disp
+
+670
+00:41:44,640 --> 00:41:52,040
+extensions uh common
+
+671
+00:41:48,319 --> 00:41:53,720
+disp uh okay so it's got you know type
+
+672
+00:41:52,040 --> 00:41:57,240
+CR
+
+673
+00:41:53,720 --> 00:41:59,240
+prut yeah I I really don't like the
+
+674
+00:41:57,240 --> 00:42:01,119
+common this
+
+675
+00:41:59,240 --> 00:42:03,960
+thing
+
+676
+00:42:01,119 --> 00:42:07,119
+uh and predicate function Matrix
+
+677
+00:42:03,960 --> 00:42:09,960
+predicate function return new okay so
+
+678
+00:42:07,119 --> 00:42:13,440
+you got these
+
+679
+00:42:09,960 --> 00:42:17,920
+patterns okay a function code with n
+
+680
+00:42:13,440 --> 00:42:21,040
+arguments okay so all these are patterns
+
+681
+00:42:17,920 --> 00:42:23,960
+patterns patterns patterns okay it will
+
+682
+00:42:21,040 --> 00:42:27,319
+take few days actually to write a full
+
+683
+00:42:23,960 --> 00:42:31,160
+tutorial now example
+
+684
+00:42:27,319 --> 00:42:37,559
+advantage over CR case
+
+685
+00:42:31,160 --> 00:42:41,000
+Okay uh example using end okay so
+
+686
+00:42:37,559 --> 00:42:44,040
+combining patterns example reformulation
+
+687
+00:42:41,000 --> 00:42:47,160
+with PK case what does that mean here is
+
+688
+00:42:44,040 --> 00:42:51,240
+an example that shows how to be
+
+689
+00:42:47,160 --> 00:42:54,440
+formulate a simple matching task from
+
+690
+00:42:51,240 --> 00:42:54,440
+its traditional
+
+691
+00:42:54,880 --> 00:43:01,960
+implementation to one using ke case okay
+
+692
+00:42:59,079 --> 00:43:01,960
+now what is a
+
+693
+00:43:04,000 --> 00:43:14,319
+gr uh the dark string oh so there is uh
+
+694
+00:43:09,000 --> 00:43:18,520
+oh okay so G is something it defines
+
+695
+00:43:14,319 --> 00:43:20,559
+here so if object is string okay
+
+696
+00:43:18,520 --> 00:43:24,160
+so yeah so
+
+697
+00:43:20,559 --> 00:43:27,400
+basically this example is saying
+
+698
+00:43:24,160 --> 00:43:30,839
+that you know if you are not using p
+
+699
+00:43:27,400 --> 00:43:33,880
+case and if you want to do string match
+
+700
+00:43:30,839 --> 00:43:36,240
+then this is what you write so he's
+
+701
+00:43:33,880 --> 00:43:40,319
+showing you
+
+702
+00:43:36,240 --> 00:43:41,160
+how if you are using p case then you can
+
+703
+00:43:40,319 --> 00:43:45,319
+make
+
+704
+00:43:41,160 --> 00:43:45,319
+it um
+
+705
+00:43:46,720 --> 00:43:53,200
+something you can make it simpler I
+
+706
+00:43:49,400 --> 00:43:53,200
+suppose you see fairly
+
+707
+00:43:53,800 --> 00:43:58,720
+complicated okay yeah so this is going
+
+708
+00:43:56,200 --> 00:44:01,480
+to be fairly
+
+709
+00:43:58,720 --> 00:44:04,160
+complicated side affecting code
+
+710
+00:44:01,480 --> 00:44:07,200
+referencing symbol is
+
+711
+00:44:04,160 --> 00:44:10,480
+undefined avoid for example here are two
+
+712
+00:44:07,200 --> 00:44:15,359
+similar functions both use end symbol
+
+713
+00:44:10,480 --> 00:44:21,640
+and God okay okay so what is this
+
+714
+00:44:15,359 --> 00:44:21,640
+section this section is cavat so warning
+
+715
+00:44:22,839 --> 00:44:31,720
+okay it's on and on okay so that's a
+
+716
+00:44:27,280 --> 00:44:34,800
+that's a overview of this page now let's
+
+717
+00:44:31,720 --> 00:44:39,280
+go so what is this
+
+718
+00:44:34,800 --> 00:44:43,960
+um the PK marro let's go
+
+719
+00:44:39,280 --> 00:44:48,160
+up chapter section 11.4 pattern matching
+
+720
+00:44:43,960 --> 00:44:50,599
+conditional okay so aside from our basic
+
+721
+00:44:48,160 --> 00:44:53,480
+conditional forms EAC L also has a
+
+722
+00:44:50,599 --> 00:44:58,240
+pattern matching conditional form PK
+
+723
+00:44:53,480 --> 00:45:02,000
+smro a hybrid of conditional and cl case
+
+724
+00:44:58,240 --> 00:45:04,160
+see conditionals in common this
+
+725
+00:45:02,000 --> 00:45:07,000
+extensions you
+
+726
+00:45:04,160 --> 00:45:08,680
+know okay so it goes to you know Common
+
+727
+00:45:07,000 --> 00:45:12,880
+this has its own
+
+728
+00:45:08,680 --> 00:45:17,160
+documentation outside of emac this
+
+729
+00:45:12,880 --> 00:45:22,160
+manual okay I don't want it okay go
+
+730
+00:45:17,160 --> 00:45:25,400
+back go back okay so you got PKS in CL
+
+731
+00:45:22,160 --> 00:45:28,880
+case that overcomes their
+
+732
+00:45:25,400 --> 00:45:30,880
+um that over comes their limitations and
+
+733
+00:45:28,880 --> 00:45:33,839
+introduces the pattern matching
+
+734
+00:45:30,880 --> 00:45:37,760
+programming style okay the limitations
+
+735
+00:45:33,839 --> 00:45:37,760
+that PKS overcomes
+
+736
+00:45:41,440 --> 00:45:48,960
+are okay something something something
+
+737
+00:45:45,720 --> 00:45:53,119
+something conceptually the PK marle
+
+738
+00:45:48,960 --> 00:45:56,599
+borrows the first Arc focus of Cl case
+
+739
+00:45:53,119 --> 00:45:57,559
+and the Clause processing flow of
+
+740
+00:45:56,599 --> 00:46:00,720
+condition
+
+741
+00:45:57,559 --> 00:46:04,119
+okay replacing condition with a
+
+742
+00:46:00,720 --> 00:46:06,760
+generalization of the equality test
+
+743
+00:46:04,119 --> 00:46:08,319
+that's right which is a variant of
+
+744
+00:46:06,760 --> 00:46:13,880
+pattern
+
+745
+00:46:08,319 --> 00:46:18,240
+matching okay yeah because equality test
+
+746
+00:46:13,880 --> 00:46:22,359
+is basically a pattern matching of
+
+747
+00:46:18,240 --> 00:46:25,040
+testing literal Expressions okay that is
+
+748
+00:46:22,359 --> 00:46:28,720
+pattern matching with no patterns at all
+
+749
+00:46:25,040 --> 00:46:30,839
+then that is equality test typical you
+
+750
+00:46:28,720 --> 00:46:34,000
+know equal or
+
+751
+00:46:30,839 --> 00:46:38,400
+something and adding facilities so that
+
+752
+00:46:34,000 --> 00:46:41,319
+you can concisely express a cross prut
+
+753
+00:46:38,400 --> 00:46:45,640
+okay and arrange to share Le bindings
+
+754
+00:46:41,319 --> 00:46:48,880
+between uh okay the con the concise
+
+755
+00:46:45,640 --> 00:46:52,000
+expression of a predicate is known as a
+
+756
+00:46:48,880 --> 00:46:55,440
+pattern when the predicate C on the
+
+757
+00:46:52,000 --> 00:46:57,400
+value of the first Arc returns n NE we
+
+758
+00:46:55,440 --> 00:47:00,480
+say that the pattern match
+
+759
+00:46:57,400 --> 00:47:04,119
+matches the value okay so when it you
+
+760
+00:47:00,480 --> 00:47:07,880
+know when it matches we say it
+
+761
+00:47:04,119 --> 00:47:11,160
+matches okay so the P case mod we looked
+
+762
+00:47:07,880 --> 00:47:13,720
+at extending P case which is extending
+
+763
+00:47:11,160 --> 00:47:17,760
+the pattern syntax we don't
+
+764
+00:47:13,720 --> 00:47:21,119
+care uh back back quot style patterns
+
+765
+00:47:17,760 --> 00:47:23,480
+that's more complicated you know this is
+
+766
+00:47:21,119 --> 00:47:28,440
+very fairly complicated part
+
+767
+00:47:23,480 --> 00:47:32,240
+of emac disp and common dis
+
+768
+00:47:28,440 --> 00:47:36,800
+uh then destructuring with PK patterns
+
+769
+00:47:32,240 --> 00:47:40,640
+okay okay so now I'm I have a overview
+
+770
+00:47:36,800 --> 00:47:42,839
+we have had an overview of
+
+771
+00:47:40,640 --> 00:47:47,200
+this
+
+772
+00:47:42,839 --> 00:47:50,319
+PKS documentation okay now the last part
+
+773
+00:47:47,200 --> 00:47:54,680
+is in in interesting destructuring with
+
+774
+00:47:50,319 --> 00:47:54,680
+PKS so it adds the
+
+775
+00:47:55,240 --> 00:48:07,400
+function you know it add PK
+
+776
+00:47:59,839 --> 00:48:13,480
+slet PK slet and PK SL star PK St list
+
+777
+00:48:07,400 --> 00:48:13,480
+PK set Q PK Lambda
+
+778
+00:48:15,160 --> 00:48:21,200
+okay okay so I have a good overview now
+
+779
+00:48:18,800 --> 00:48:24,040
+I know what this Library
+
+780
+00:48:21,200 --> 00:48:27,839
+do and
+
+781
+00:48:24,040 --> 00:48:30,920
+um you know my my my
+
+782
+00:48:27,839 --> 00:48:34,000
+my initial feeling is that right now is
+
+783
+00:48:30,920 --> 00:48:37,119
+don't use it I'm not going to use it
+
+784
+00:48:34,000 --> 00:48:39,000
+never going to use it
+
+785
+00:48:37,119 --> 00:48:42,200
+why
+
+786
+00:48:39,000 --> 00:48:46,119
+because this is pattern matching okay
+
+787
+00:48:42,200 --> 00:48:49,920
+pattern maging is very fairly
+
+788
+00:48:46,119 --> 00:48:51,119
+Advanced uh feature in functional
+
+789
+00:48:49,920 --> 00:48:52,920
+programming
+
+790
+00:48:51,119 --> 00:48:55,960
+languages
+
+791
+00:48:52,920 --> 00:48:57,799
+okay so for functional programming
+
+792
+00:48:55,960 --> 00:49:01,240
+languages
+
+793
+00:48:57,799 --> 00:49:03,040
+typically they are built in such as meta
+
+794
+00:49:01,240 --> 00:49:06,920
+language wolam
+
+795
+00:49:03,040 --> 00:49:11,000
+language hascal or camo
+
+796
+00:49:06,920 --> 00:49:13,960
+FP those are derivatives of ml meta
+
+797
+00:49:11,000 --> 00:49:16,559
+language they are
+
+798
+00:49:13,960 --> 00:49:19,359
+building that that is they are not a
+
+799
+00:49:16,559 --> 00:49:21,920
+extra Library they are designed as part
+
+800
+00:49:19,359 --> 00:49:24,160
+of the programming language okay part of
+
+801
+00:49:21,920 --> 00:49:26,400
+the programming language in fact they
+
+802
+00:49:24,160 --> 00:49:28,960
+are the core part of the programming
+
+803
+00:49:26,400 --> 00:49:33,319
+language so when you are talking about F
+
+804
+00:49:28,960 --> 00:49:35,559
+or Cam hascal ml the patter matching is
+
+805
+00:49:33,319 --> 00:49:37,920
+part of the core foundation of the
+
+806
+00:49:35,559 --> 00:49:40,200
+programming language okay they are not
+
+807
+00:49:37,920 --> 00:49:45,240
+something like let's write the library
+
+808
+00:49:40,200 --> 00:49:47,520
+and add it okay so for that's important
+
+809
+00:49:45,240 --> 00:49:48,839
+that's critical because this pattern
+
+810
+00:49:47,520 --> 00:49:50,839
+matching is
+
+811
+00:49:48,839 --> 00:49:54,079
+fairly you know if you're going to
+
+812
+00:49:50,839 --> 00:49:57,160
+implement it it's it's not trivial okay
+
+813
+00:49:54,079 --> 00:49:59,720
+and there's a lot cases you know
+
+814
+00:49:57,160 --> 00:50:02,839
+theoretical
+
+815
+00:49:59,720 --> 00:50:05,520
+issues just like regular expression okay
+
+816
+00:50:02,839 --> 00:50:09,200
+so like regular expression is for stream
+
+817
+00:50:05,520 --> 00:50:12,040
+matching for majority of languages is
+
+818
+00:50:09,200 --> 00:50:17,200
+build in like core
+
+819
+00:50:12,040 --> 00:50:20,000
+Library well I mean anyway so so so when
+
+820
+00:50:17,200 --> 00:50:24,079
+you want when you add a pattern matching
+
+821
+00:50:20,000 --> 00:50:27,760
+like in the emac this case as
+
+822
+00:50:24,079 --> 00:50:30,640
+a language extension you know as a
+
+823
+00:50:27,760 --> 00:50:33,240
+library like like right now we have you
+
+824
+00:50:30,640 --> 00:50:37,400
+know this P case
+
+825
+00:50:33,240 --> 00:50:40,119
+Library 1,000 lines of
+
+826
+00:50:37,400 --> 00:50:44,440
+code that makes
+
+827
+00:50:40,119 --> 00:50:47,880
+it you know I you know that makes it
+
+828
+00:50:44,440 --> 00:50:50,680
+slow and I mean relatively slow and
+
+829
+00:50:47,880 --> 00:50:54,319
+makes it kind of
+
+830
+00:50:50,680 --> 00:50:57,559
+FAL and a bit
+
+831
+00:50:54,319 --> 00:51:00,359
+complicated um
+
+832
+00:50:57,559 --> 00:51:02,440
+so my right now my feeling is that I'm
+
+833
+00:51:00,359 --> 00:51:05,280
+not going to use
+
+834
+00:51:02,440 --> 00:51:07,079
+it because you are you are essentially
+
+835
+00:51:05,280 --> 00:51:09,760
+learning you know if you want to use
+
+836
+00:51:07,079 --> 00:51:12,280
+this P case you are learning a like a
+
+837
+00:51:09,760 --> 00:51:17,880
+mini language for the
+
+838
+00:51:12,280 --> 00:51:20,440
+patterns that's not native to emac
+
+839
+00:51:17,880 --> 00:51:25,319
+disp no common
+
+840
+00:51:20,440 --> 00:51:30,000
+disp okay so and I'm presuming the
+
+841
+00:51:25,319 --> 00:51:32,480
+implementation is you know fairly
+
+842
+00:51:30,000 --> 00:51:35,319
+involved uh I mean even just learning
+
+843
+00:51:32,480 --> 00:51:37,880
+how to use it is fairly involved you
+
+844
+00:51:35,319 --> 00:51:37,880
+know you got
+
+845
+00:51:39,680 --> 00:51:45,319
+this so the implementation would be
+
+846
+00:51:42,920 --> 00:51:50,000
+fairly involved let's
+
+847
+00:51:45,319 --> 00:51:54,520
+see okay let's see what def they
+
+848
+00:51:50,000 --> 00:51:57,920
+have okay so you got this dash dash
+
+849
+00:51:54,520 --> 00:52:00,160
+means it's intern function if the
+
+850
+00:51:57,920 --> 00:52:04,839
+function name contain dash dash it's
+
+851
+00:52:00,160 --> 00:52:06,400
+like internal okay so you got this oh so
+
+852
+00:52:04,839 --> 00:52:09,599
+it's like almost all of them are
+
+853
+00:52:06,400 --> 00:52:12,920
+internal functions
+
+854
+00:52:09,599 --> 00:52:17,960
+def okay so you can see they are relying
+
+855
+00:52:12,920 --> 00:52:19,559
+on these internal functions to work now
+
+856
+00:52:17,960 --> 00:52:22,799
+let's
+
+857
+00:52:19,559 --> 00:52:26,760
+see Define maral
+
+858
+00:52:22,799 --> 00:52:31,880
+okay so these are the
+
+859
+00:52:26,760 --> 00:52:38,000
+exported functions these markers P case
+
+860
+00:52:31,880 --> 00:52:41,040
+PKS exhaustive PKS Lambda PK
+
+861
+00:52:38,000 --> 00:52:43,680
+lead yeah okay so you know I guess we
+
+862
+00:52:41,040 --> 00:52:47,760
+know I know you know we know what this
+
+863
+00:52:43,680 --> 00:52:47,760
+this package is for
+
+864
+00:52:48,720 --> 00:52:55,079
+um
+
+865
+00:52:51,200 --> 00:52:58,079
+yeah do we want to use it uh I don't
+
+866
+00:52:55,079 --> 00:52:58,079
+know
+
+867
+00:52:58,559 --> 00:53:03,839
+you know you know I don't know I'm not
+
+868
+00:53:00,839 --> 00:53:06,319
+sure and I'm not even sure I want to
+
+869
+00:53:03,839 --> 00:53:08,280
+write a tutorial for this because to
+
+870
+00:53:06,319 --> 00:53:14,319
+write a tutorial for this will take
+
+871
+00:53:08,280 --> 00:53:18,480
+several days three or a week full
+
+872
+00:53:14,319 --> 00:53:21,240
+time and for that time I rather be
+
+873
+00:53:18,480 --> 00:53:24,559
+writing a tutorial for f shop language
+
+874
+00:53:21,240 --> 00:53:27,559
+or link okay so I think that's it for
+
+875
+00:53:24,559 --> 00:53:27,559
+today
+
+876
+00:53:27,799 --> 00:53:33,319
+hello Big Fan Joy where is the Tequila
+
+877
+00:53:31,000 --> 00:53:37,440
+No tequila today today is
+
+878
+00:53:33,319 --> 00:53:37,440
+coffee okay I think I'm done
+
+879
+00:53:51,839 --> 00:53:58,319
+today we learned what does PKS do
+
+880
+00:53:58,960 --> 00:54:05,200
+and uh what is the use
+
+881
+00:54:01,960 --> 00:54:08,440
+well I mean there's some use for example
+
+882
+00:54:05,200 --> 00:54:10,680
+I can you know pattern match and find
+
+883
+00:54:08,440 --> 00:54:16,040
+out which is a
+
+884
+00:54:10,680 --> 00:54:19,920
+string but in general in emac
+
+885
+00:54:16,040 --> 00:54:22,920
+disp the use is not very
+
+886
+00:54:19,920 --> 00:54:22,920
+common
+
+887
+00:54:22,960 --> 00:54:30,319
+um
+
+888
+00:54:24,559 --> 00:54:33,319
+yeah so and uh the code is fairly
+
+889
+00:54:30,319 --> 00:54:33,319
+complicated
+
+890
+00:54:33,559 --> 00:54:37,240
+um okay bye
+
+891
+00:54:42,200 --> 00:54:51,760
+guys if you like my stuff pay me okay go
+
+892
+00:54:45,559 --> 00:54:58,319
+to go to go to go to go to. info all the
+
+893
+00:54:51,760 --> 00:54:58,319
+way down pay me 100 bucks Amazon PayPal
+
+894
+00:55:06,119 --> 00:55:10,640
+by okay let's let's put it
+
+895
+00:55:11,040 --> 00:55:18,040
+back
+
+896
+00:55:13,119 --> 00:55:21,960
+uh showing browser that's what we did
+
+897
+00:55:18,040 --> 00:55:21,960
+okay bye guys
+

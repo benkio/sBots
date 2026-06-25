@@ -1,0 +1,6904 @@
+1
+00:00:03,600 --> 00:00:10,500
+hello guys welcome to another episode of
+
+2
+00:00:06,720 --> 00:00:14,519
+sound talk show today's topic is unicode
+
+3
+00:00:10,500 --> 00:00:17,400
+what is Unicode what is ASCII what is
+
+4
+00:00:14,519 --> 00:00:21,600
+character set what is encoding what is
+
+5
+00:00:17,400 --> 00:00:25,320
+utf-8 and what is utf-16
+
+6
+00:00:21,600 --> 00:00:28,080
+and all these topics and what is Emoji I
+
+7
+00:00:25,320 --> 00:00:30,900
+mean so but this is for programmers so
+
+8
+00:00:28,080 --> 00:00:33,239
+if you program in Python in C in Java
+
+9
+00:00:30,900 --> 00:00:36,540
+you know whatever language JavaScript
+
+10
+00:00:33,239 --> 00:00:39,239
+Golan or Wolfram language you actually
+
+11
+00:00:36,540 --> 00:00:43,379
+need to know about encoding about
+
+12
+00:00:39,239 --> 00:00:46,260
+character set about these issues okay
+
+13
+00:00:43,379 --> 00:00:50,340
+and that's today's topic for programmers
+
+14
+00:00:46,260 --> 00:00:52,320
+uh so now now if you have comments and
+
+15
+00:00:50,340 --> 00:00:55,140
+questions post it there okay I'd love to
+
+16
+00:00:52,320 --> 00:00:57,300
+see it okay let's let's so I'm gonna uh
+
+17
+00:00:55,140 --> 00:01:00,059
+yeah so I'm gonna tell you and what's
+
+18
+00:00:57,300 --> 00:01:03,480
+the code Point what is um you know all
+
+19
+00:01:00,059 --> 00:01:05,939
+these things utf-8 utf-16 and what is a
+
+20
+00:01:03,480 --> 00:01:08,760
+surrogate surrogate pair
+
+21
+00:01:05,939 --> 00:01:11,580
+and what is bite odor and what is pom
+
+22
+00:01:08,760 --> 00:01:14,880
+byte order Mark you know this you know
+
+23
+00:01:11,580 --> 00:01:17,479
+for the for the first uh 15 years of
+
+24
+00:01:14,880 --> 00:01:21,119
+programming I started programming in
+
+25
+00:01:17,479 --> 00:01:24,479
+1992 okay starting with wolfam language
+
+26
+00:01:21,119 --> 00:01:27,479
+I coded wufam language every day several
+
+27
+00:01:24,479 --> 00:01:32,520
+hours uh for about eight years you know
+
+28
+00:01:27,479 --> 00:01:32,520
+1992 to 1998.
+
+29
+00:01:33,000 --> 00:01:38,520
+that that is every day and then I
+
+30
+00:01:35,759 --> 00:01:41,280
+started to code Pearl and Unix stuff you
+
+31
+00:01:38,520 --> 00:01:43,680
+know bash in Unix and Java
+
+32
+00:01:41,280 --> 00:01:46,799
+and then later on you know the next
+
+33
+00:01:43,680 --> 00:01:49,320
+decade Python and all other PHP and
+
+34
+00:01:46,799 --> 00:01:51,899
+other other languages and emac beasts
+
+35
+00:01:49,320 --> 00:01:54,060
+but you know for the first 15 or 20
+
+36
+00:01:51,899 --> 00:01:56,280
+years I don't really understand uh
+
+37
+00:01:54,060 --> 00:01:58,920
+encoding because I'm not a low level
+
+38
+00:01:56,280 --> 00:02:02,280
+programmer you know of those of you if
+
+39
+00:01:58,920 --> 00:02:04,140
+you are programming if Pro C language or
+
+40
+00:02:02,280 --> 00:02:06,659
+Java is your first language you know
+
+41
+00:02:04,140 --> 00:02:09,619
+those low-level languages or even go
+
+42
+00:02:06,659 --> 00:02:13,319
+land or C plus plus now if you are those
+
+43
+00:02:09,619 --> 00:02:15,239
+uh language programmers if if that's
+
+44
+00:02:13,319 --> 00:02:18,540
+your main thing if that's your first
+
+45
+00:02:15,239 --> 00:02:21,360
+language then you likely understand
+
+46
+00:02:18,540 --> 00:02:23,940
+more about encoding
+
+47
+00:02:21,360 --> 00:02:26,480
+okay uh sorry my alarm clock I need to
+
+48
+00:02:23,940 --> 00:02:26,480
+shut it off
+
+49
+00:02:29,760 --> 00:02:35,400
+so if you are a c you know low level
+
+50
+00:02:32,220 --> 00:02:37,800
+language you likely understand bytes and
+
+51
+00:02:35,400 --> 00:02:40,379
+encoding issues because especially in C
+
+52
+00:02:37,800 --> 00:02:42,180
+you deal with bytes but these
+
+53
+00:02:40,379 --> 00:02:43,860
+programmers especially especially see
+
+54
+00:02:42,180 --> 00:02:46,379
+programmers they don't know about
+
+55
+00:02:43,860 --> 00:02:48,480
+Unicode when it comes to Unicode Emoji
+
+56
+00:02:46,379 --> 00:02:50,340
+you know they they don't understand they
+
+57
+00:02:48,480 --> 00:02:52,500
+tends to stick with ASCII you know
+
+58
+00:02:50,340 --> 00:02:55,459
+whenever you have an emoji characters
+
+59
+00:02:52,500 --> 00:02:58,620
+they uh
+
+60
+00:02:55,459 --> 00:03:01,319
+they uh reframe from it
+
+61
+00:02:58,620 --> 00:03:04,440
+you know so encoding so you actually
+
+62
+00:03:01,319 --> 00:03:06,420
+need to know it's actually uh so us so
+
+63
+00:03:04,440 --> 00:03:10,500
+if you are a high level programmer you
+
+64
+00:03:06,420 --> 00:03:12,300
+know like me then uh you need to know it
+
+65
+00:03:10,500 --> 00:03:14,700
+less but eventually you need to know
+
+66
+00:03:12,300 --> 00:03:16,680
+because every character even if you
+
+67
+00:03:14,700 --> 00:03:20,400
+don't program every character every
+
+68
+00:03:16,680 --> 00:03:23,760
+every file when you open encoding is
+
+69
+00:03:20,400 --> 00:03:26,640
+involved because other letters ABC you
+
+70
+00:03:23,760 --> 00:03:29,220
+know the computer cannot store ABC like
+
+71
+00:03:26,640 --> 00:03:32,340
+characters they actually transform them
+
+72
+00:03:29,220 --> 00:03:34,739
+into binary numbers you know so you so
+
+73
+00:03:32,340 --> 00:03:36,900
+this process you know for example the
+
+74
+00:03:34,739 --> 00:03:39,120
+character a let's say
+
+75
+00:03:36,900 --> 00:03:42,540
+what is this character so you can in
+
+76
+00:03:39,120 --> 00:03:44,819
+e-max you can say describe cha and you
+
+77
+00:03:42,540 --> 00:03:47,760
+get this panel of information about this
+
+78
+00:03:44,819 --> 00:03:51,180
+character you can see you know a code
+
+79
+00:03:47,760 --> 00:03:55,500
+0.65 what does that mean and here's the
+
+80
+00:03:51,180 --> 00:03:57,060
+octal uh uh number for 65 and here's a
+
+81
+00:03:55,500 --> 00:04:00,659
+hexadecimal
+
+82
+00:03:57,060 --> 00:04:02,580
+41 for 65. you know what does it mean
+
+83
+00:04:00,659 --> 00:04:04,379
+what what's the code point you know so
+
+84
+00:04:02,580 --> 00:04:06,360
+that's encoding because you because you
+
+85
+00:04:04,379 --> 00:04:07,920
+need it even if you open a file in
+
+86
+00:04:06,360 --> 00:04:10,379
+browser
+
+87
+00:04:07,920 --> 00:04:12,420
+if you got the encoding wrong then you
+
+88
+00:04:10,379 --> 00:04:15,299
+got gibbish you know sometimes you'll
+
+89
+00:04:12,420 --> 00:04:17,040
+see and even in emacs for example line
+
+90
+00:04:15,299 --> 00:04:19,560
+ending returns sometimes you'll see
+
+91
+00:04:17,040 --> 00:04:21,479
+these characters over every line at the
+
+92
+00:04:19,560 --> 00:04:23,280
+end of every line so all these are
+
+93
+00:04:21,479 --> 00:04:25,860
+related to encoding so let me show you
+
+94
+00:04:23,280 --> 00:04:28,440
+some so I'm gonna explain you know I'm
+
+95
+00:04:25,860 --> 00:04:30,419
+actually starting to explain already in
+
+96
+00:04:28,440 --> 00:04:32,460
+coding why you need it so but let me
+
+97
+00:04:30,419 --> 00:04:33,300
+show you some of the
+
+98
+00:04:32,460 --> 00:04:35,759
+um
+
+99
+00:04:33,300 --> 00:04:37,800
+you know all the talk I do today is
+
+100
+00:04:35,759 --> 00:04:40,800
+already written so you just all you have
+
+101
+00:04:37,800 --> 00:04:45,300
+to do is just you go to uh search for
+
+102
+00:04:40,800 --> 00:04:47,520
+sari Unicode then near the bottom the
+
+103
+00:04:45,300 --> 00:04:51,419
+panel you can see Unicode for
+
+104
+00:04:47,520 --> 00:04:54,960
+programmers and here is a whole lot of
+
+105
+00:04:51,419 --> 00:04:56,639
+uh articles it's all written so you can
+
+106
+00:04:54,960 --> 00:04:57,840
+you don't have to take notes you can
+
+107
+00:04:56,639 --> 00:05:01,020
+just read them
+
+108
+00:04:57,840 --> 00:05:03,720
+exactly Unicode okay so explain about
+
+109
+00:05:01,020 --> 00:05:06,900
+encoding and character set and the code
+
+110
+00:05:03,720 --> 00:05:08,759
+point then you have different languages
+
+111
+00:05:06,900 --> 00:05:11,900
+how they deal with encoding lots of
+
+112
+00:05:08,759 --> 00:05:14,699
+issues you know uh
+
+113
+00:05:11,900 --> 00:05:17,820
+for example this this one is interesting
+
+114
+00:05:14,699 --> 00:05:20,520
+is a problem of simple congestion in
+
+115
+00:05:17,820 --> 00:05:22,860
+computer languages
+
+116
+00:05:20,520 --> 00:05:25,500
+versus Unicode you know
+
+117
+00:05:22,860 --> 00:05:28,259
+especially so if you are a c Java
+
+118
+00:05:25,500 --> 00:05:30,479
+programmer this hits you because you
+
+119
+00:05:28,259 --> 00:05:31,620
+don't you you got you know this is a
+
+120
+00:05:30,479 --> 00:05:34,500
+problem for you
+
+121
+00:05:31,620 --> 00:05:37,380
+because for example here is a regular
+
+122
+00:05:34,500 --> 00:05:40,080
+expression you can let's go there okay
+
+123
+00:05:37,380 --> 00:05:43,080
+let's magnify well
+
+124
+00:05:40,080 --> 00:05:46,380
+um open image you see here is the
+
+125
+00:05:43,080 --> 00:05:49,560
+regular expression in emac this and it's
+
+126
+00:05:46,380 --> 00:05:51,720
+not emac this is the worst but you have
+
+127
+00:05:49,560 --> 00:05:54,479
+the toothpick syndrome the backslash
+
+128
+00:05:51,720 --> 00:05:55,919
+Escape you know so for example if you're
+
+129
+00:05:54,479 --> 00:05:58,860
+a programmer you know about Escape
+
+130
+00:05:55,919 --> 00:06:00,960
+characters right backslash but in
+
+131
+00:05:58,860 --> 00:06:03,539
+Powershell it's a different character in
+
+132
+00:06:00,960 --> 00:06:05,460
+Powershell the Escape character is the
+
+133
+00:06:03,539 --> 00:06:07,919
+uh
+
+134
+00:06:05,460 --> 00:06:10,680
+uh is the uh
+
+135
+00:06:07,919 --> 00:06:13,699
+it's an accent you know let's magnify
+
+136
+00:06:10,680 --> 00:06:13,699
+actually that's the
+
+137
+00:06:14,039 --> 00:06:20,180
+this is uh wait
+
+138
+00:06:16,220 --> 00:06:22,680
+this so accent character this is escape
+
+139
+00:06:20,180 --> 00:06:25,259
+so anyway the point is you have to deal
+
+140
+00:06:22,680 --> 00:06:27,479
+with Escape okay maybe not that I have
+
+141
+00:06:25,259 --> 00:06:30,900
+it written somewhere so but you see
+
+142
+00:06:27,479 --> 00:06:33,840
+these um Regular expression so
+
+143
+00:06:30,900 --> 00:06:35,400
+in Python in Java in any language you
+
+144
+00:06:33,840 --> 00:06:38,400
+have this kind of thing
+
+145
+00:06:35,400 --> 00:06:41,520
+hard to understand but it would be much
+
+146
+00:06:38,400 --> 00:06:44,160
+better if you have if you allow Unicode
+
+147
+00:06:41,520 --> 00:06:45,419
+characters so I'm kind of digressing but
+
+148
+00:06:44,160 --> 00:06:49,500
+let me show you
+
+149
+00:06:45,419 --> 00:06:52,819
+so in coding okay so so let me show you
+
+150
+00:06:49,500 --> 00:06:55,500
+right now I'm talking about all the
+
+151
+00:06:52,819 --> 00:06:58,620
+consequences and related you know
+
+152
+00:06:55,500 --> 00:07:01,259
+consequences and related things to
+
+153
+00:06:58,620 --> 00:07:03,660
+encoding you know for example Unicode
+
+154
+00:07:01,259 --> 00:07:06,000
+why is it invented if you don't have if
+
+155
+00:07:03,660 --> 00:07:09,000
+you don't have Unicode what happens what
+
+156
+00:07:06,000 --> 00:07:11,280
+what is the effect you know wait you
+
+157
+00:07:09,000 --> 00:07:13,020
+know why don't we stop you know all this
+
+158
+00:07:11,280 --> 00:07:15,600
+Emoji then what happens to your
+
+159
+00:07:13,020 --> 00:07:17,280
+programming language lots of things so
+
+160
+00:07:15,600 --> 00:07:19,139
+that's what I'm talking about regular
+
+161
+00:07:17,280 --> 00:07:21,240
+expression is an example because you
+
+162
+00:07:19,139 --> 00:07:25,139
+only have limited number of characters
+
+163
+00:07:21,240 --> 00:07:27,000
+so you started to need escape and also
+
+164
+00:07:25,139 --> 00:07:32,099
+the other things
+
+165
+00:07:27,000 --> 00:07:34,380
+so uh so so so so you have ASCII jam and
+
+166
+00:07:32,099 --> 00:07:36,300
+you have like the same symbol used for
+
+167
+00:07:34,380 --> 00:07:39,000
+so many things especially you know one
+
+168
+00:07:36,300 --> 00:07:41,400
+of the major problem in many languages
+
+169
+00:07:39,000 --> 00:07:43,979
+and including
+
+170
+00:07:41,400 --> 00:07:46,259
+computer languages like not programming
+
+171
+00:07:43,979 --> 00:07:48,060
+languages like HTML you have the
+
+172
+00:07:46,259 --> 00:07:50,039
+so-called
+
+173
+00:07:48,060 --> 00:07:52,139
+um entities
+
+174
+00:07:50,039 --> 00:07:54,840
+you know very complex this these are
+
+175
+00:07:52,139 --> 00:07:57,900
+entities in other words it's a Escape
+
+176
+00:07:54,840 --> 00:08:00,900
+mechanism uh more typically known to
+
+177
+00:07:57,900 --> 00:08:03,660
+programmers you know this is actually a
+
+178
+00:08:00,900 --> 00:08:06,300
+Escape mechanism to allows you to enter
+
+179
+00:08:03,660 --> 00:08:08,880
+some character but without the character
+
+180
+00:08:06,300 --> 00:08:10,319
+itself so you can you can type and
+
+181
+00:08:08,880 --> 00:08:13,020
+percent that
+
+182
+00:08:10,319 --> 00:08:15,599
+then a semicolon then you get this
+
+183
+00:08:13,020 --> 00:08:17,280
+character so this is you know entity
+
+184
+00:08:15,599 --> 00:08:20,039
+list
+
+185
+00:08:17,280 --> 00:08:22,500
+now I would say this is a consequence
+
+186
+00:08:20,039 --> 00:08:24,720
+when you don't have Unicode you know so
+
+187
+00:08:22,500 --> 00:08:27,660
+your source code becomes extremely
+
+188
+00:08:24,720 --> 00:08:30,300
+complex impossible to read suppose you
+
+189
+00:08:27,660 --> 00:08:33,120
+are speaking French now in French you
+
+190
+00:08:30,300 --> 00:08:36,779
+need a acute e
+
+191
+00:08:33,120 --> 00:08:40,520
+so for example you need a q e so let's
+
+192
+00:08:36,779 --> 00:08:40,520
+see let's search for acute
+
+193
+00:08:40,919 --> 00:08:46,760
+so you have acute a so let's search for
+
+194
+00:08:43,940 --> 00:08:50,100
+E acute
+
+195
+00:08:46,760 --> 00:08:51,959
+uh there it is so in many you know
+
+196
+00:08:50,100 --> 00:08:55,080
+European languages you need these
+
+197
+00:08:51,959 --> 00:08:57,300
+characters frequently now imagine you
+
+198
+00:08:55,080 --> 00:08:59,519
+are writing an essay or whatever you are
+
+199
+00:08:57,300 --> 00:09:02,700
+writing an article and every occurrence
+
+200
+00:08:59,519 --> 00:09:05,279
+of this e you have to say Ampersand e
+
+201
+00:09:02,700 --> 00:09:07,860
+acute semicolon you know that's
+
+202
+00:09:05,279 --> 00:09:10,260
+up that is the consequence when you
+
+203
+00:09:07,860 --> 00:09:12,000
+don't do when you don't have Unicode now
+
+204
+00:09:10,260 --> 00:09:13,980
+most programmers you don't think of it
+
+205
+00:09:12,000 --> 00:09:16,560
+you know this doesn't occur to you but
+
+206
+00:09:13,980 --> 00:09:19,200
+it occurs when you have regular
+
+207
+00:09:16,560 --> 00:09:21,000
+expression you know now most of you know
+
+208
+00:09:19,200 --> 00:09:23,459
+which regular expression is how to read
+
+209
+00:09:21,000 --> 00:09:27,120
+and why well part of the reason is that
+
+210
+00:09:23,459 --> 00:09:29,880
+they ask you jam you know like when you
+
+211
+00:09:27,120 --> 00:09:32,640
+that that's one of the consequences
+
+212
+00:09:29,880 --> 00:09:35,220
+ASCII Jam but programmers you know you
+
+213
+00:09:32,640 --> 00:09:37,740
+don't think usually this doesn't occur
+
+214
+00:09:35,220 --> 00:09:39,899
+to you because you are so used to you
+
+215
+00:09:37,740 --> 00:09:42,120
+know the typical stack Overflow The
+
+216
+00:09:39,899 --> 00:09:44,100
+Hacker News you know typical
+
+217
+00:09:42,120 --> 00:09:45,060
+they they don't they don't think too
+
+218
+00:09:44,100 --> 00:09:48,839
+much
+
+219
+00:09:45,060 --> 00:09:51,899
+and are there languages that fully use
+
+220
+00:09:48,839 --> 00:09:54,200
+Embraces Unicode yes for example
+
+221
+00:09:51,899 --> 00:09:57,360
+Fortress okay let me show you an example
+
+222
+00:09:54,200 --> 00:10:01,140
+uh of Fortress lots of problems and also
+
+223
+00:09:57,360 --> 00:10:04,680
+this Ampersand encoding in url that is
+
+224
+00:10:01,140 --> 00:10:07,080
+extremely complex okay ampers Ampersand
+
+225
+00:10:04,680 --> 00:10:08,820
+in coding you know very confusing even
+
+226
+00:10:07,080 --> 00:10:11,940
+you know different browsers they don't
+
+227
+00:10:08,820 --> 00:10:14,160
+agree on on what exactly it should be
+
+228
+00:10:11,940 --> 00:10:17,160
+you know for example when you have an
+
+229
+00:10:14,160 --> 00:10:18,959
+ampersand in the URL for example when
+
+230
+00:10:17,160 --> 00:10:21,360
+you go to Amazon when there's a query
+
+231
+00:10:18,959 --> 00:10:24,660
+that happens a lot but whether you
+
+232
+00:10:21,360 --> 00:10:26,399
+should encode that then then you have
+
+233
+00:10:24,660 --> 00:10:29,279
+the issue of different encoding because
+
+234
+00:10:26,399 --> 00:10:32,580
+sometimes it's like you see percent 26
+
+235
+00:10:29,279 --> 00:10:34,740
+that's URL encoding then you have the
+
+236
+00:10:32,580 --> 00:10:37,380
+Ampersand coding so you have two
+
+237
+00:10:34,740 --> 00:10:40,080
+different encodings in the URL syntax
+
+238
+00:10:37,380 --> 00:10:41,880
+extremely
+
+239
+00:10:40,080 --> 00:10:43,920
+confusing okay
+
+240
+00:10:41,880 --> 00:10:46,200
+this problem
+
+241
+00:10:43,920 --> 00:10:48,360
+will not happen when you have the
+
+242
+00:10:46,200 --> 00:10:51,480
+Unicode in the beginning let's say if
+
+243
+00:10:48,360 --> 00:10:54,240
+you have if we have Unicode in 1960s all
+
+244
+00:10:51,480 --> 00:10:56,519
+these have problems don't doesn't occur
+
+245
+00:10:54,240 --> 00:11:00,660
+and let me let me tell you another
+
+246
+00:10:56,519 --> 00:11:04,100
+significant the most significant problem
+
+247
+00:11:00,660 --> 00:11:06,420
+about the ASCII Jam Unicode you know
+
+248
+00:11:04,100 --> 00:11:09,600
+consequences is that when you have
+
+249
+00:11:06,420 --> 00:11:12,899
+Escape you know for example in
+
+250
+00:11:09,600 --> 00:11:15,480
+let's say JavaScript or in C in Java in
+
+251
+00:11:12,899 --> 00:11:17,640
+Pearl in Python in Ruby all the same
+
+252
+00:11:15,480 --> 00:11:20,279
+okay so but right now I'm using
+
+253
+00:11:17,640 --> 00:11:22,680
+JavaScript for example so let's see I
+
+254
+00:11:20,279 --> 00:11:26,940
+want a constant
+
+255
+00:11:22,680 --> 00:11:28,640
+okay x equals to sum
+
+256
+00:11:26,940 --> 00:11:32,579
+sum
+
+257
+00:11:28,640 --> 00:11:36,320
+backslash n thing you know
+
+258
+00:11:32,579 --> 00:11:39,600
+so let's cancel log X print X okay
+
+259
+00:11:36,320 --> 00:11:42,540
+evaluated you can see the output is
+
+260
+00:11:39,600 --> 00:11:47,279
+something in two lines why because you
+
+261
+00:11:42,540 --> 00:11:50,279
+have this Escape mechanism slash n
+
+262
+00:11:47,279 --> 00:11:52,079
+you know you you probably don't think
+
+263
+00:11:50,279 --> 00:11:54,360
+this is complex but this is actually
+
+264
+00:11:52,079 --> 00:11:56,519
+very complex in different languages they
+
+265
+00:11:54,360 --> 00:11:58,740
+have elaborate different Escape
+
+266
+00:11:56,519 --> 00:12:01,200
+mechanisms so so what's the problem the
+
+267
+00:11:58,740 --> 00:12:03,959
+problem is that
+
+268
+00:12:01,200 --> 00:12:05,760
+so in emacs for example I want to call a
+
+269
+00:12:03,959 --> 00:12:09,060
+shell command so you want to pass some
+
+270
+00:12:05,760 --> 00:12:10,860
+arguments in but often when you do
+
+271
+00:12:09,060 --> 00:12:12,720
+let's say you want to pass a regular
+
+272
+00:12:10,860 --> 00:12:14,100
+expression you want to call grep in
+
+273
+00:12:12,720 --> 00:12:18,120
+emacs
+
+274
+00:12:14,100 --> 00:12:21,000
+you want emacs in your application to
+
+275
+00:12:18,120 --> 00:12:23,459
+call a web command of a different
+
+276
+00:12:21,000 --> 00:12:25,620
+application so you need to pass the
+
+277
+00:12:23,459 --> 00:12:28,140
+arguments let's say you need to pass a
+
+278
+00:12:25,620 --> 00:12:31,079
+regular expression so four of the
+
+279
+00:12:28,140 --> 00:12:34,560
+backslash ancestors but but then
+
+280
+00:12:31,079 --> 00:12:36,420
+you have the essentially Escape problem
+
+281
+00:12:34,560 --> 00:12:38,459
+encoding problem because it's almost
+
+282
+00:12:36,420 --> 00:12:40,920
+impossible to translate correctly
+
+283
+00:12:38,459 --> 00:12:42,959
+because you are going through different
+
+284
+00:12:40,920 --> 00:12:45,480
+layers so anyway that's a very common
+
+285
+00:12:42,959 --> 00:12:48,959
+problem very very common problem
+
+286
+00:12:45,480 --> 00:12:51,360
+almost unsolvable and this encoding this
+
+287
+00:12:48,959 --> 00:12:55,459
+Escape mechanism problem happens more
+
+288
+00:12:51,360 --> 00:12:55,459
+severely when you have
+
+289
+00:12:57,120 --> 00:13:03,480
+when you have nested parsing for example
+
+290
+00:13:00,779 --> 00:13:06,060
+if you are writing a regular expression
+
+291
+00:13:03,480 --> 00:13:08,700
+you know usually it's used to match some
+
+292
+00:13:06,060 --> 00:13:11,279
+text right now but suppose you are
+
+293
+00:13:08,700 --> 00:13:14,220
+writing a regular expression to go to to
+
+294
+00:13:11,279 --> 00:13:16,860
+try to search through or your python
+
+295
+00:13:14,220 --> 00:13:19,680
+code that contains regular expression
+
+296
+00:13:16,860 --> 00:13:22,680
+you want to use a regular expression to
+
+297
+00:13:19,680 --> 00:13:24,440
+see if a particular regular expression
+
+298
+00:13:22,680 --> 00:13:27,420
+happens in your code
+
+299
+00:13:24,440 --> 00:13:29,639
+that is when you have hell and it
+
+300
+00:13:27,420 --> 00:13:32,519
+basically practically speaking
+
+301
+00:13:29,639 --> 00:13:35,760
+impossible to do why does that occur
+
+302
+00:13:32,519 --> 00:13:38,940
+that occur because
+
+303
+00:13:35,760 --> 00:13:41,100
+because of because of the ASCII Jam
+
+304
+00:13:38,940 --> 00:13:43,260
+issue okay most programmers don't know
+
+305
+00:13:41,100 --> 00:13:46,380
+don't know about this so that's a
+
+306
+00:13:43,260 --> 00:13:48,240
+regular so that's an example of ASCII
+
+307
+00:13:46,380 --> 00:13:50,220
+gem when you use regular expression
+
+308
+00:13:48,240 --> 00:13:52,680
+trying to find regular expression when
+
+309
+00:13:50,220 --> 00:13:53,399
+you have some sort of nested thing going
+
+310
+00:13:52,680 --> 00:13:55,980
+on
+
+311
+00:13:53,399 --> 00:13:57,600
+another example of this is when you have
+
+312
+00:13:55,980 --> 00:14:01,019
+HTML
+
+313
+00:13:57,600 --> 00:14:04,260
+embedded in HTML for example let me show
+
+314
+00:14:01,019 --> 00:14:08,160
+you okay so let's go back so let's let's
+
+315
+00:14:04,260 --> 00:14:10,800
+say I want the HTML so
+
+316
+00:14:08,160 --> 00:14:13,740
+so you are looking at some talk show
+
+317
+00:14:10,800 --> 00:14:17,639
+this is a HTML file right and you know
+
+318
+00:14:13,740 --> 00:14:20,040
+so I want to tell people how do you
+
+319
+00:14:17,639 --> 00:14:24,120
+you know I want to teach people how do
+
+320
+00:14:20,040 --> 00:14:27,180
+you have a paragraph So in
+
+321
+00:14:24,120 --> 00:14:29,639
+for example I can write this is
+
+322
+00:14:27,180 --> 00:14:31,139
+how you do paragraph
+
+323
+00:14:29,639 --> 00:14:35,540
+use
+
+324
+00:14:31,139 --> 00:14:35,540
+use this P tag okay
+
+325
+00:14:36,540 --> 00:14:45,300
+so that's a paragraph you see but if you
+
+326
+00:14:40,139 --> 00:14:48,380
+show let's say use uh P tag like these
+
+327
+00:14:45,300 --> 00:14:48,380
+okay let's see
+
+328
+00:14:48,720 --> 00:14:53,639
+okay so this is the HTML source code now
+
+329
+00:14:52,019 --> 00:14:55,880
+let's show in browser let's see what
+
+330
+00:14:53,639 --> 00:14:55,880
+happens
+
+331
+00:14:56,160 --> 00:15:01,560
+you see this is this is how you do
+
+332
+00:14:58,199 --> 00:15:04,380
+paragraph use P tag like this empty
+
+333
+00:15:01,560 --> 00:15:07,260
+why because the P tag is you know
+
+334
+00:15:04,380 --> 00:15:11,639
+paragraph tag so what you need to do you
+
+335
+00:15:07,260 --> 00:15:15,660
+need to encode this these angle brackets
+
+336
+00:15:11,639 --> 00:15:17,880
+so you know I can do it so this is what
+
+337
+00:15:15,660 --> 00:15:21,360
+you actually want
+
+338
+00:15:17,880 --> 00:15:23,940
+uh actually yeah you don't actually need
+
+339
+00:15:21,360 --> 00:15:26,399
+that so so this is what you want okay so
+
+340
+00:15:23,940 --> 00:15:30,480
+now go to the browser
+
+341
+00:15:26,399 --> 00:15:33,480
+now watch watch this part show so you
+
+342
+00:15:30,480 --> 00:15:36,720
+see so this is an example when you have
+
+343
+00:15:33,480 --> 00:15:38,519
+again nested encoding that that creates
+
+344
+00:15:36,720 --> 00:15:40,860
+a lot problem this is a huge problem
+
+345
+00:15:38,519 --> 00:15:44,160
+just like regular expression
+
+346
+00:15:40,860 --> 00:15:46,440
+searching for regular expression because
+
+347
+00:15:44,160 --> 00:15:49,139
+suppose I'm done with this but tomorrow
+
+348
+00:15:46,440 --> 00:15:51,300
+or next year Next program or whatever do
+
+349
+00:15:49,139 --> 00:15:54,240
+deal with you need to process you need
+
+350
+00:15:51,300 --> 00:15:56,880
+to change something this often may
+
+351
+00:15:54,240 --> 00:16:00,060
+become encoded wrong because it may
+
+352
+00:15:56,880 --> 00:16:03,839
+become encoded twice so for example I
+
+353
+00:16:00,060 --> 00:16:05,220
+can encode this Ampersand by
+
+354
+00:16:03,839 --> 00:16:07,339
+let's see
+
+355
+00:16:05,220 --> 00:16:07,339
+um
+
+356
+00:16:07,620 --> 00:16:13,880
+let's see what is the key to encode that
+
+357
+00:16:11,100 --> 00:16:13,880
+ampersand
+
+358
+00:16:14,519 --> 00:16:18,440
+yeah okay so you have
+
+359
+00:16:27,600 --> 00:16:33,440
+uh but but anyway so I forgot what's the
+
+360
+00:16:31,380 --> 00:16:33,440
+um
+
+361
+00:16:37,740 --> 00:16:42,079
+oops what did I do
+
+362
+00:16:42,420 --> 00:16:45,440
+yeah so
+
+363
+00:16:45,779 --> 00:16:51,480
+let me let me do this okay so hold on a
+
+364
+00:16:49,019 --> 00:16:55,079
+second cancel that so here is all
+
+365
+00:16:51,480 --> 00:16:56,279
+commands search for in code there it is
+
+366
+00:16:55,079 --> 00:17:00,000
+tab one
+
+367
+00:16:56,279 --> 00:17:01,920
+side HTML encode Ampersand entity okay
+
+368
+00:17:00,000 --> 00:17:03,120
+so let me show you a different example
+
+369
+00:17:01,920 --> 00:17:06,120
+let's say
+
+370
+00:17:03,120 --> 00:17:09,299
+Sun okay paragraph now you want to
+
+371
+00:17:06,120 --> 00:17:13,079
+encode them so you select them tab one
+
+372
+00:17:09,299 --> 00:17:15,000
+so you see and if you want to so but
+
+373
+00:17:13,079 --> 00:17:17,699
+sometimes it happens if you encode it
+
+374
+00:17:15,000 --> 00:17:20,699
+this twice tab one so it becomes that
+
+375
+00:17:17,699 --> 00:17:23,880
+and that becomes let's let's show in
+
+376
+00:17:20,699 --> 00:17:27,179
+browser you can see what happens
+
+377
+00:17:23,880 --> 00:17:29,640
+you see you get that so this is the
+
+378
+00:17:27,179 --> 00:17:32,940
+encoding Escape you know encoding
+
+379
+00:17:29,640 --> 00:17:36,059
+problem uh this is actually not encoding
+
+380
+00:17:32,940 --> 00:17:39,840
+this is a Escape mechanism problem
+
+381
+00:17:36,059 --> 00:17:42,179
+okay so these are con this these are
+
+382
+00:17:39,840 --> 00:17:43,679
+consequences when when you have the
+
+383
+00:17:42,179 --> 00:17:46,200
+ASCII gem okay
+
+384
+00:17:43,679 --> 00:17:47,280
+so actually let's talk about let's talk
+
+385
+00:17:46,200 --> 00:17:48,419
+about
+
+386
+00:17:47,280 --> 00:17:51,539
+um
+
+387
+00:17:48,419 --> 00:17:53,700
+the actual today's topic okay let's
+
+388
+00:17:51,539 --> 00:17:58,020
+begin to talk about so we I already
+
+389
+00:17:53,700 --> 00:18:00,419
+spent 20 minutes on on introduction so
+
+390
+00:17:58,020 --> 00:18:03,240
+let's so you so encoding okay let's
+
+391
+00:18:00,419 --> 00:18:06,559
+begin to talk about encoding now we got
+
+392
+00:18:03,240 --> 00:18:06,559
+some spammers here
+
+393
+00:18:07,340 --> 00:18:11,000
+uh
+
+394
+00:18:15,299 --> 00:18:20,880
+okay let's talk about some encoding
+
+395
+00:18:18,480 --> 00:18:25,440
+problem okay I mean the actual uh
+
+396
+00:18:20,880 --> 00:18:25,440
+tutorial about Unicode Okay so
+
+397
+00:18:27,179 --> 00:18:33,419
+so okay so so you need encoding in code
+
+398
+00:18:30,299 --> 00:18:37,260
+what so what is encoding encoding is a a
+
+399
+00:18:33,419 --> 00:18:40,679
+way to transform each character to a
+
+400
+00:18:37,260 --> 00:18:41,880
+sequence of binary numbers once and zero
+
+401
+00:18:40,679 --> 00:18:44,160
+okay
+
+402
+00:18:41,880 --> 00:18:45,419
+so let me show you why do you need to do
+
+403
+00:18:44,160 --> 00:18:45,980
+it
+
+404
+00:18:45,419 --> 00:18:49,740
+um
+
+405
+00:18:45,980 --> 00:18:51,720
+encoding is a way to transform a
+
+406
+00:18:49,740 --> 00:18:52,919
+sequence of characters or text or
+
+407
+00:18:51,720 --> 00:18:54,240
+whatever
+
+408
+00:18:52,919 --> 00:18:56,580
+two
+
+409
+00:18:54,240 --> 00:18:58,860
+ones and zero why do you need to do that
+
+410
+00:18:56,580 --> 00:19:01,280
+because computers you know the chips the
+
+411
+00:18:58,860 --> 00:19:04,020
+electronics they have you know
+
+412
+00:19:01,280 --> 00:19:07,140
+electricity you know and the way they
+
+413
+00:19:04,020 --> 00:19:09,660
+work is that you have high voltage or
+
+414
+00:19:07,140 --> 00:19:12,660
+low voltage high voltage means one low
+
+415
+00:19:09,660 --> 00:19:15,840
+voltage means zero represented by one
+
+416
+00:19:12,660 --> 00:19:18,120
+and zero so basically it was at the core
+
+417
+00:19:15,840 --> 00:19:21,860
+everything is just one and zero so you
+
+418
+00:19:18,120 --> 00:19:21,860
+so that's binary number okay
+
+419
+00:19:22,799 --> 00:19:28,860
+so you can see a example of
+
+420
+00:19:25,940 --> 00:19:31,860
+binary number okay but so how does
+
+421
+00:19:28,860 --> 00:19:36,299
+binary number work let me explain
+
+422
+00:19:31,860 --> 00:19:38,160
+so usually when we we write numbers
+
+423
+00:19:36,299 --> 00:19:41,580
+by what's called
+
+424
+00:19:38,160 --> 00:19:44,100
+um decimal notation system now the way
+
+425
+00:19:41,580 --> 00:19:46,140
+this system this is a number notation
+
+426
+00:19:44,100 --> 00:19:48,240
+system okay there are many ways to write
+
+427
+00:19:46,140 --> 00:19:51,780
+a number for example you have a Roman
+
+428
+00:19:48,240 --> 00:19:54,840
+numeral you know v stands for five
+
+429
+00:19:51,780 --> 00:19:57,360
+I stand for one two I stand for two
+
+430
+00:19:54,840 --> 00:20:00,840
+that's another numerical you know number
+
+431
+00:19:57,360 --> 00:20:03,059
+notation system in China in India in
+
+432
+00:20:00,840 --> 00:20:05,880
+other countries in Maya you know or
+
+433
+00:20:03,059 --> 00:20:08,460
+Asian civilizations or in Egypt they all
+
+434
+00:20:05,880 --> 00:20:10,679
+have different ways to write numbers but
+
+435
+00:20:08,460 --> 00:20:13,980
+today the standard you know almost the
+
+436
+00:20:10,679 --> 00:20:17,160
+universal yeah the universal is a
+
+437
+00:20:13,980 --> 00:20:19,260
+Arabic number or system anyways but this
+
+438
+00:20:17,160 --> 00:20:21,240
+system is a notational system for
+
+439
+00:20:19,260 --> 00:20:24,120
+writing numbers and the way these
+
+440
+00:20:21,240 --> 00:20:25,440
+numbers system work this notation works
+
+441
+00:20:24,120 --> 00:20:28,559
+is that you have
+
+442
+00:20:25,440 --> 00:20:32,640
+10 distinct symbols one two three four
+
+443
+00:20:28,559 --> 00:20:34,860
+five six seven eight nine zero okay so
+
+444
+00:20:32,640 --> 00:20:38,220
+you have ten distinct
+
+445
+00:20:34,860 --> 00:20:39,960
+symbols now this may be trivial I mean
+
+446
+00:20:38,220 --> 00:20:43,580
+explaining this
+
+447
+00:20:39,960 --> 00:20:46,140
+because if you understand it then yours
+
+448
+00:20:43,580 --> 00:20:48,780
+you are clearly understand binary
+
+449
+00:20:46,140 --> 00:20:52,020
+numbers octal numbers hexadecimal
+
+450
+00:20:48,780 --> 00:20:53,940
+numbers and numbers of any base not just
+
+451
+00:20:52,020 --> 00:20:56,000
+you know typical programmers they just
+
+452
+00:20:53,940 --> 00:20:59,880
+understand oh yeah binary
+
+453
+00:20:56,000 --> 00:21:02,580
+hexadecimal if you say 17 based number
+
+454
+00:20:59,880 --> 00:21:04,020
+they go what what what they don't they
+
+455
+00:21:02,580 --> 00:21:05,880
+don't understand the mathematical
+
+456
+00:21:04,020 --> 00:21:09,679
+concept behind it okay
+
+457
+00:21:05,880 --> 00:21:13,140
+so so a notation decimal notation system
+
+458
+00:21:09,679 --> 00:21:15,960
+is 10 different symbols each one
+
+459
+00:21:13,140 --> 00:21:18,240
+represent a number so one two three four
+
+460
+00:21:15,960 --> 00:21:20,940
+five six seven eight nine then you have
+
+461
+00:21:18,240 --> 00:21:24,960
+the zero three percent you know nothing
+
+462
+00:21:20,940 --> 00:21:26,940
+but what if you want to say 10 you know
+
+463
+00:21:24,960 --> 00:21:29,880
+you don't have enough you you don't have
+
+464
+00:21:26,940 --> 00:21:31,020
+a symbol for 10. so what you do is that
+
+465
+00:21:29,880 --> 00:21:34,140
+you
+
+466
+00:21:31,020 --> 00:21:36,480
+when you reached 8 the next number is 9
+
+467
+00:21:34,140 --> 00:21:38,700
+When You Reach nine the next number is
+
+468
+00:21:36,480 --> 00:21:41,760
+ten but you don't have symbols for it
+
+469
+00:21:38,700 --> 00:21:43,799
+anymore so you put so you put a extra
+
+470
+00:21:41,760 --> 00:21:46,860
+symbol you
+
+471
+00:21:43,799 --> 00:21:48,840
+you put your beginning symbol one you
+
+472
+00:21:46,860 --> 00:21:51,179
+know because there's no
+
+473
+00:21:48,840 --> 00:21:55,080
+symbol after night so you put one you
+
+474
+00:21:51,179 --> 00:21:58,380
+start over one you put it down then you
+
+475
+00:21:55,080 --> 00:22:00,299
+put a zero after that this is how
+
+476
+00:21:58,380 --> 00:22:01,980
+the
+
+477
+00:22:00,299 --> 00:22:04,919
+um
+
+478
+00:22:01,980 --> 00:22:09,120
+the decimal number notation system works
+
+479
+00:22:04,919 --> 00:22:11,159
+now so remember you begin with 10
+
+480
+00:22:09,120 --> 00:22:12,960
+distinct symbols
+
+481
+00:22:11,159 --> 00:22:16,020
+zero to nine
+
+482
+00:22:12,960 --> 00:22:17,580
+okay and when you are out of the numbers
+
+483
+00:22:16,020 --> 00:22:21,179
+you just
+
+484
+00:22:17,580 --> 00:22:25,080
+put two um digits one after another
+
+485
+00:22:21,179 --> 00:22:28,320
+start over Okay so in the same way this
+
+486
+00:22:25,080 --> 00:22:32,220
+is how binary number works you have only
+
+487
+00:22:28,320 --> 00:22:36,659
+two distinct symbols zero and one
+
+488
+00:22:32,220 --> 00:22:38,820
+so 0 is just zero one is just one now if
+
+489
+00:22:36,659 --> 00:22:40,980
+you want to say if you want to represent
+
+490
+00:22:38,820 --> 00:22:43,140
+two what to do you don't have a number
+
+491
+00:22:40,980 --> 00:22:45,720
+you don't have a symbol for two well you
+
+492
+00:22:43,140 --> 00:22:49,140
+start over so you start with one again
+
+493
+00:22:45,720 --> 00:22:52,080
+put on the you know put it down then you
+
+494
+00:22:49,140 --> 00:22:55,440
+follow it by zero
+
+495
+00:22:52,080 --> 00:22:58,740
+so the next number you increase again
+
+496
+00:22:55,440 --> 00:23:01,020
+what comes after zero is one so you just
+
+497
+00:22:58,740 --> 00:23:03,900
+put eleven you know what one what that
+
+498
+00:23:01,020 --> 00:23:07,320
+stands for three and next number
+
+499
+00:23:03,900 --> 00:23:10,620
+well you don't have a you know symbol
+
+500
+00:23:07,320 --> 00:23:12,840
+after one so you start with zero again
+
+501
+00:23:10,620 --> 00:23:15,000
+you know so you repeat so you add more
+
+502
+00:23:12,840 --> 00:23:17,700
+one more digit so this is how binary
+
+503
+00:23:15,000 --> 00:23:20,039
+number works
+
+504
+00:23:17,700 --> 00:23:23,659
+okay same thing happens with a
+
+505
+00:23:20,039 --> 00:23:27,080
+hexadecimal now hexadecimal you have 16
+
+506
+00:23:23,659 --> 00:23:30,360
+symbols to begin with you know zero to
+
+507
+00:23:27,080 --> 00:23:34,980
+nine zero to nine then after that you
+
+508
+00:23:30,360 --> 00:23:36,840
+use a b c d e f okay that's how it works
+
+509
+00:23:34,980 --> 00:23:39,179
+okay these are important because when
+
+510
+00:23:36,840 --> 00:23:41,220
+you because when you talk about encoding
+
+511
+00:23:39,179 --> 00:23:43,500
+you have to deal with you know
+
+512
+00:23:41,220 --> 00:23:45,299
+it comes down to
+
+513
+00:23:43,500 --> 00:23:48,059
+that's computer that's what computer
+
+514
+00:23:45,299 --> 00:23:49,860
+stores binary number why why do you need
+
+515
+00:23:48,059 --> 00:23:51,720
+hexadecimal once you have you know
+
+516
+00:23:49,860 --> 00:23:53,520
+because computers are just Banning
+
+517
+00:23:51,720 --> 00:23:55,320
+numbers why do you have have this
+
+518
+00:23:53,520 --> 00:23:57,600
+hexadecimal
+
+519
+00:23:55,320 --> 00:24:01,080
+well the re the reason for that is that
+
+520
+00:23:57,600 --> 00:24:04,440
+hexadecimal number is a
+
+521
+00:24:01,080 --> 00:24:06,840
+a very compact way to represent binary
+
+522
+00:24:04,440 --> 00:24:10,500
+numbers because if you use binary
+
+523
+00:24:06,840 --> 00:24:11,760
+numbers then even a short number let's
+
+524
+00:24:10,500 --> 00:24:14,520
+say eight
+
+525
+00:24:11,760 --> 00:24:17,760
+you have to use three digits you have
+
+526
+00:24:14,520 --> 00:24:20,100
+three digits but if you have let's say
+
+527
+00:24:17,760 --> 00:24:23,159
+one thousand you want to represent one
+
+528
+00:24:20,100 --> 00:24:25,500
+thousand by binary number what do you
+
+529
+00:24:23,159 --> 00:24:29,100
+get is you know let's say one thousand
+
+530
+00:24:25,500 --> 00:24:32,580
+so here is a so you have one one one one
+
+531
+00:24:29,100 --> 00:24:35,100
+one one one zero one zero zero zero you
+
+532
+00:24:32,580 --> 00:24:38,039
+you know pretty soon you have like a
+
+533
+00:24:35,100 --> 00:24:40,860
+huge sequence of binary numbers
+
+534
+00:24:38,039 --> 00:24:43,620
+which is a manageable and hard to
+
+535
+00:24:40,860 --> 00:24:47,280
+process to the human brain that's why
+
+536
+00:24:43,620 --> 00:24:49,919
+that is why okay I'm telling you so this
+
+537
+00:24:47,280 --> 00:24:52,440
+is the reason you have hexadecimal
+
+538
+00:24:49,919 --> 00:24:56,220
+numbers otherwise you don't need it so
+
+539
+00:24:52,440 --> 00:24:59,940
+hexadecimal number is a a human notation
+
+540
+00:24:56,220 --> 00:25:03,960
+it's a way to represent
+
+541
+00:24:59,940 --> 00:25:06,380
+binary numbers in a compact way
+
+542
+00:25:03,960 --> 00:25:10,200
+okay so each hexadecimal numbers
+
+543
+00:25:06,380 --> 00:25:14,880
+represent four binary digits so if you
+
+544
+00:25:10,200 --> 00:25:18,960
+have a hexadecimal of you know one F you
+
+545
+00:25:14,880 --> 00:25:21,000
+can fairly easily uh translate to Binary
+
+546
+00:25:18,960 --> 00:25:24,480
+there is an algorithm but
+
+547
+00:25:21,000 --> 00:25:27,000
+I don't know it anyway so
+
+548
+00:25:24,480 --> 00:25:28,980
+that's that's about binary numbers and
+
+549
+00:25:27,000 --> 00:25:32,400
+that's about hexadecimal numbers okay
+
+550
+00:25:28,980 --> 00:25:34,320
+you eventually you need to be very
+
+551
+00:25:32,400 --> 00:25:39,080
+familiar with them
+
+552
+00:25:34,320 --> 00:25:39,080
+okay so so that's
+
+553
+00:25:39,360 --> 00:25:45,120
+so so let's go back to
+
+554
+00:25:41,940 --> 00:25:48,659
+um encoding so encoding is a way to
+
+555
+00:25:45,120 --> 00:25:50,940
+transform each character to a binary
+
+556
+00:25:48,659 --> 00:25:53,279
+digits
+
+557
+00:25:50,940 --> 00:25:55,799
+now let's talk about
+
+558
+00:25:53,279 --> 00:25:58,020
+how do you do that okay so first of all
+
+559
+00:25:55,799 --> 00:26:01,340
+you need to know you need to have a kind
+
+560
+00:25:58,020 --> 00:26:04,500
+of a standard agreed upon way to say
+
+561
+00:26:01,340 --> 00:26:07,140
+what T becomes
+
+562
+00:26:04,500 --> 00:26:09,779
+you know what for example you know you
+
+563
+00:26:07,140 --> 00:26:12,840
+have a list of characters and what is a
+
+564
+00:26:09,779 --> 00:26:15,360
+what is a what is a binary sequence for
+
+565
+00:26:12,840 --> 00:26:19,620
+a you have to agree on that because
+
+566
+00:26:15,360 --> 00:26:23,520
+otherwise my computer says a is 65 your
+
+567
+00:26:19,620 --> 00:26:27,179
+computer says a64 we we don't agree then
+
+568
+00:26:23,520 --> 00:26:30,059
+it's gibbish you know so that is why
+
+569
+00:26:27,179 --> 00:26:32,760
+so you have a you need a standard so it
+
+570
+00:26:30,059 --> 00:26:35,340
+becomes a standard okay so one of the
+
+571
+00:26:32,760 --> 00:26:38,279
+standard is called ASCII
+
+572
+00:26:35,340 --> 00:26:40,980
+okay so one of the standard is called
+
+573
+00:26:38,279 --> 00:26:43,140
+ASCII so let's see
+
+574
+00:26:40,980 --> 00:26:45,600
+um ASCII characters you know in the
+
+575
+00:26:43,140 --> 00:26:50,400
+beginning you know because computers are
+
+576
+00:26:45,600 --> 00:26:53,159
+mostly created in USA so and the
+
+577
+00:26:50,400 --> 00:26:56,400
+language is English so we have ASCII
+
+578
+00:26:53,159 --> 00:26:59,340
+characters ASCII characters are these
+
+579
+00:26:56,400 --> 00:27:03,419
+sequence of symbols okay there's no
+
+580
+00:26:59,340 --> 00:27:06,600
+Smiley there's no Emoji there's no Arrow
+
+581
+00:27:03,419 --> 00:27:09,480
+there's no acute e you know for European
+
+582
+00:27:06,600 --> 00:27:12,539
+language this is English so Standard
+
+583
+00:27:09,480 --> 00:27:15,419
+English lowercase uppercase and
+
+584
+00:27:12,539 --> 00:27:18,960
+punctuations parentheses
+
+585
+00:27:15,419 --> 00:27:20,940
+um equal sign and numbers and some
+
+586
+00:27:18,960 --> 00:27:24,240
+punctuations okay that's
+
+587
+00:27:20,940 --> 00:27:26,700
+that's the ASCII character set you know
+
+588
+00:27:24,240 --> 00:27:29,580
+remember so this is a standard so you
+
+589
+00:27:26,700 --> 00:27:32,520
+know this is created by
+
+590
+00:27:29,580 --> 00:27:35,700
+uh what does uh American Standard code
+
+591
+00:27:32,520 --> 00:27:38,880
+for information exchange created in
+
+592
+00:27:35,700 --> 00:27:42,299
+1960s so that that way everyone can
+
+593
+00:27:38,880 --> 00:27:45,000
+agree what each character is what number
+
+594
+00:27:42,299 --> 00:27:48,000
+okay so for example then here's a table
+
+595
+00:27:45,000 --> 00:27:49,620
+okay let me let me show you
+
+596
+00:27:48,000 --> 00:27:52,860
+um
+
+597
+00:27:49,620 --> 00:27:57,539
+so for example the a character
+
+598
+00:27:52,860 --> 00:28:00,659
+in dismal is 65 you know
+
+599
+00:27:57,539 --> 00:28:02,700
+in hexadecimal is 41 in binary you know
+
+600
+00:28:00,659 --> 00:28:04,500
+you can convert it to Binary it's you
+
+601
+00:28:02,700 --> 00:28:08,220
+know zero one something something
+
+602
+00:28:04,500 --> 00:28:12,120
+basically seven seven digits binary
+
+603
+00:28:08,220 --> 00:28:15,080
+digits seven bits okay so ASCII standard
+
+604
+00:28:12,120 --> 00:28:19,919
+is a standard that says each character
+
+605
+00:28:15,080 --> 00:28:22,440
+is given an character id
+
+606
+00:28:19,919 --> 00:28:25,140
+okay a decimal then you can convert the
+
+607
+00:28:22,440 --> 00:28:28,080
+decimal to hexel Binary okay but the
+
+608
+00:28:25,140 --> 00:28:31,740
+main the essential thing is that you
+
+609
+00:28:28,080 --> 00:28:33,779
+assign each character an ID basically a
+
+610
+00:28:31,740 --> 00:28:36,059
+number okay a integer
+
+611
+00:28:33,779 --> 00:28:38,760
+so you you have all these numbers okay
+
+612
+00:28:36,059 --> 00:28:42,559
+so let's ask that's the earliest the
+
+613
+00:28:38,760 --> 00:28:42,559
+1960s just for English
+
+614
+00:28:43,140 --> 00:28:48,900
+so let me so let me talk about
+
+615
+00:28:45,480 --> 00:28:51,659
+um so encoding so encoding is a way to
+
+616
+00:28:48,900 --> 00:28:55,320
+transform characters to sequence a
+
+617
+00:28:51,659 --> 00:28:58,020
+binary digits in order to do that you
+
+618
+00:28:55,320 --> 00:29:00,600
+need a standard you need an encoding
+
+619
+00:28:58,020 --> 00:29:02,760
+standard so ASCII is one of the first
+
+620
+00:29:00,600 --> 00:29:05,159
+one this is all critical because without
+
+621
+00:29:02,760 --> 00:29:07,799
+some kind of encoding
+
+622
+00:29:05,159 --> 00:29:10,620
+you can you can do computation you can
+
+623
+00:29:07,799 --> 00:29:13,620
+do you know electronic computers so you
+
+624
+00:29:10,620 --> 00:29:16,140
+need so this is standard okay ASCII this
+
+625
+00:29:13,620 --> 00:29:18,659
+is a very first encoding standard now
+
+626
+00:29:16,140 --> 00:29:21,179
+let me talk about character set
+
+627
+00:29:18,659 --> 00:29:24,000
+okay character set is just a set of
+
+628
+00:29:21,179 --> 00:29:27,179
+characters for example ABC is a
+
+629
+00:29:24,000 --> 00:29:31,080
+character set ABCD is a character set
+
+630
+00:29:27,179 --> 00:29:33,659
+let's say a and zero just two characters
+
+631
+00:29:31,080 --> 00:29:36,480
+that's also a character set so character
+
+632
+00:29:33,659 --> 00:29:39,600
+set is just a set of characters now why
+
+633
+00:29:36,480 --> 00:29:41,580
+is it why is it important because it's
+
+634
+00:29:39,600 --> 00:29:44,960
+important because when you define a
+
+635
+00:29:41,580 --> 00:29:48,240
+standard for encoding you
+
+636
+00:29:44,960 --> 00:29:50,399
+implicitly defined a character set for
+
+637
+00:29:48,240 --> 00:29:54,179
+example for the ASCII your character
+
+638
+00:29:50,399 --> 00:29:56,880
+said is these you know you don't have
+
+639
+00:29:54,179 --> 00:29:59,820
+Emoji you don't have right arrow you
+
+640
+00:29:56,880 --> 00:30:02,279
+don't have acute e and so on
+
+641
+00:29:59,820 --> 00:30:04,679
+so character set is just a set of
+
+642
+00:30:02,279 --> 00:30:07,260
+characters that's a more more the most
+
+643
+00:30:04,679 --> 00:30:09,899
+basic idea so once you have a capture
+
+644
+00:30:07,260 --> 00:30:12,179
+set you say you know you say in your
+
+645
+00:30:09,899 --> 00:30:15,299
+standard this is a cut this is a set of
+
+646
+00:30:12,179 --> 00:30:17,520
+characters that we try to Define okay so
+
+647
+00:30:15,299 --> 00:30:20,640
+you start with the character set then
+
+648
+00:30:17,520 --> 00:30:22,919
+you say what each character should be
+
+649
+00:30:20,640 --> 00:30:26,159
+what number okay standard everyone
+
+650
+00:30:22,919 --> 00:30:28,980
+agrees on your on if they are using your
+
+651
+00:30:26,159 --> 00:30:32,419
+standard okay so that is a character id
+
+652
+00:30:28,980 --> 00:30:34,799
+this is a this is the essence of
+
+653
+00:30:32,419 --> 00:30:36,779
+encoding standard this is the most
+
+654
+00:30:34,799 --> 00:30:40,260
+fundamental essence
+
+655
+00:30:36,779 --> 00:30:42,840
+give a number numerical ID to each
+
+656
+00:30:40,260 --> 00:30:45,059
+character for each for every character
+
+657
+00:30:42,840 --> 00:30:48,600
+in your character set okay that's an
+
+658
+00:30:45,059 --> 00:30:50,760
+Essence give an at you know integer ID
+
+659
+00:30:48,600 --> 00:30:54,659
+and this integer ID
+
+660
+00:30:50,760 --> 00:30:57,720
+today is known as code Point okay we'll
+
+661
+00:30:54,659 --> 00:31:00,419
+we'll start to talk about code point
+
+662
+00:30:57,720 --> 00:31:03,000
+code point is just an integer ID for
+
+663
+00:31:00,419 --> 00:31:05,039
+every character so a special important
+
+664
+00:31:03,000 --> 00:31:08,580
+in Unicode we'll talk about Unicode in a
+
+665
+00:31:05,039 --> 00:31:12,480
+bit but basically code point is just a
+
+666
+00:31:08,580 --> 00:31:15,000
+num a number assigned to every character
+
+667
+00:31:12,480 --> 00:31:18,720
+in your character set okay for example
+
+668
+00:31:15,000 --> 00:31:20,159
+in Unicode the lowercase a is 97 okay
+
+669
+00:31:18,720 --> 00:31:23,640
+then you can
+
+670
+00:31:20,159 --> 00:31:26,640
+uh translate it to hexadecimal
+
+671
+00:31:23,640 --> 00:31:29,960
+and others okay so the character Alpha
+
+672
+00:31:26,640 --> 00:31:34,980
+the Greek Alpha has a number code Point
+
+673
+00:31:29,960 --> 00:31:39,480
+nice 945 okay that's Alpha and this
+
+674
+00:31:34,980 --> 00:31:43,200
+Emoji faced with tears of joy is has
+
+675
+00:31:39,480 --> 00:31:46,020
+this ID one two eight five one four
+
+676
+00:31:43,200 --> 00:31:48,720
+quote Point Okay so
+
+677
+00:31:46,020 --> 00:31:51,600
+you know technically it's called code
+
+678
+00:31:48,720 --> 00:31:55,020
+point but you can just think of it as
+
+679
+00:31:51,600 --> 00:31:57,600
+character id that's much simpler okay so
+
+680
+00:31:55,020 --> 00:32:00,419
+remember again every character has a
+
+681
+00:31:57,600 --> 00:32:03,659
+character id an integer
+
+682
+00:32:00,419 --> 00:32:05,880
+that stands for the character and this
+
+683
+00:32:03,659 --> 00:32:09,059
+character to ID is the most important
+
+684
+00:32:05,880 --> 00:32:11,640
+thing is the essence of encoding
+
+685
+00:32:09,059 --> 00:32:15,539
+standard okay once you know this then
+
+686
+00:32:11,640 --> 00:32:18,120
+you can convert a any text to computer
+
+687
+00:32:15,539 --> 00:32:20,340
+sequencer binary numbers or vice versa
+
+688
+00:32:18,120 --> 00:32:22,380
+binary numbers two you can start to read
+
+689
+00:32:20,340 --> 00:32:24,539
+the file you know when you read a file
+
+690
+00:32:22,380 --> 00:32:27,720
+for example let's show let me show you
+
+691
+00:32:24,539 --> 00:32:30,799
+this interesting in emacs
+
+692
+00:32:27,720 --> 00:32:30,799
+pixel mod
+
+693
+00:32:30,860 --> 00:32:36,960
+uh wait and do discard and do info okay
+
+694
+00:32:34,260 --> 00:32:39,059
+so you see we are looking at the same
+
+695
+00:32:36,960 --> 00:32:40,860
+file you know hold on a second let me
+
+696
+00:32:39,059 --> 00:32:42,480
+show you okay
+
+697
+00:32:40,860 --> 00:32:44,580
+um
+
+698
+00:32:42,480 --> 00:32:47,539
+what
+
+699
+00:32:44,580 --> 00:32:47,539
+uh
+
+700
+00:32:59,580 --> 00:33:07,980
+okay so what did we okay so you see let
+
+701
+00:33:04,440 --> 00:33:10,200
+me show you okay save a copy so here is
+
+702
+00:33:07,980 --> 00:33:13,740
+today's talk show right today's talk
+
+703
+00:33:10,200 --> 00:33:16,980
+show HTML file so you can see it's a
+
+704
+00:33:13,740 --> 00:33:19,740
+HTML file here now I open it you know it
+
+705
+00:33:16,980 --> 00:33:20,840
+looks like this readable you know it's
+
+706
+00:33:19,740 --> 00:33:26,399
+just
+
+707
+00:33:20,840 --> 00:33:28,200
+HTML with English now but when when the
+
+708
+00:33:26,399 --> 00:33:30,360
+this file stored in your computer it's
+
+709
+00:33:28,200 --> 00:33:32,820
+actually just sequence of zeros and ones
+
+710
+00:33:30,360 --> 00:33:35,279
+so when you open it you actually need to
+
+711
+00:33:32,820 --> 00:33:37,860
+decode it you you need to turn the you
+
+712
+00:33:35,279 --> 00:33:40,799
+know sequence of zero and ones into
+
+713
+00:33:37,860 --> 00:33:43,679
+readable characters so
+
+714
+00:33:40,799 --> 00:33:47,519
+but so let me show you one way you can
+
+715
+00:33:43,679 --> 00:33:50,519
+see that so in emacs you can call
+
+716
+00:33:47,519 --> 00:33:53,100
+pixel mod okay
+
+717
+00:33:50,519 --> 00:33:55,140
+so this is that how that file looks like
+
+718
+00:33:53,100 --> 00:33:59,640
+in hexadecimal
+
+719
+00:33:55,140 --> 00:34:01,380
+so you you know it begin with um
+
+720
+00:33:59,640 --> 00:34:05,220
+it begin with
+
+721
+00:34:01,380 --> 00:34:07,080
+um you know three C two one six four six
+
+722
+00:34:05,220 --> 00:34:09,119
+F you know that's what the file looks
+
+723
+00:34:07,080 --> 00:34:11,339
+like in hexatissimo and you can turn
+
+724
+00:34:09,119 --> 00:34:13,080
+this hex some decimal two binary numbers
+
+725
+00:34:11,339 --> 00:34:15,540
+Okay so
+
+726
+00:34:13,080 --> 00:34:18,139
+so that shows okay
+
+727
+00:34:15,540 --> 00:34:22,679
+so so encoding so we talked about
+
+728
+00:34:18,139 --> 00:34:25,020
+character set we talked about
+
+729
+00:34:22,679 --> 00:34:28,020
+character encoding you know that's
+
+730
+00:34:25,020 --> 00:34:30,599
+that's turning characters to binary
+
+731
+00:34:28,020 --> 00:34:33,540
+numbers and vice versa then we talked
+
+732
+00:34:30,599 --> 00:34:36,720
+about character encoding standard okay
+
+733
+00:34:33,540 --> 00:34:39,480
+we talked about ASCII character encoding
+
+734
+00:34:36,720 --> 00:34:42,300
+standard one of the earliest for English
+
+735
+00:34:39,480 --> 00:34:46,679
+characters only then beginning around
+
+736
+00:34:42,300 --> 00:34:48,659
+year 1991 the Unicode begin why does it
+
+737
+00:34:46,679 --> 00:34:51,119
+begin because
+
+738
+00:34:48,659 --> 00:34:54,300
+you know in the early days 1960s there's
+
+739
+00:34:51,119 --> 00:34:57,780
+no internet you know so computers are
+
+740
+00:34:54,300 --> 00:35:00,420
+created in America USA so we just
+
+741
+00:34:57,780 --> 00:35:02,220
+um am I still going
+
+742
+00:35:00,420 --> 00:35:05,580
+comments okay
+
+743
+00:35:02,220 --> 00:35:08,700
+comments and I mean let me check uh
+
+744
+00:35:05,580 --> 00:35:10,140
+check video check yeah
+
+745
+00:35:08,700 --> 00:35:14,160
+so
+
+746
+00:35:10,140 --> 00:35:18,420
+so 19 so USA created computers we
+
+747
+00:35:14,160 --> 00:35:20,099
+created the ASCII encoding uh but we
+
+748
+00:35:18,420 --> 00:35:22,560
+don't have you know we don't have
+
+749
+00:35:20,099 --> 00:35:25,380
+Chinese because Chinese you know we
+
+750
+00:35:22,560 --> 00:35:28,619
+don't have Japanese you know we just you
+
+751
+00:35:25,380 --> 00:35:31,140
+know for English so but eventually you
+
+752
+00:35:28,619 --> 00:35:33,359
+know people in Europe French you know
+
+753
+00:35:31,140 --> 00:35:35,780
+they need acute e and they need a bunch
+
+754
+00:35:33,359 --> 00:35:40,440
+of other characters Iceland you know
+
+755
+00:35:35,780 --> 00:35:42,660
+Nordic uh German languages
+
+756
+00:35:40,440 --> 00:35:44,640
+you need some other characters so you
+
+757
+00:35:42,660 --> 00:35:46,230
+started to have encoding standard for
+
+758
+00:35:44,640 --> 00:35:46,680
+European languages like
+
+759
+00:35:46,230 --> 00:35:48,680
+[Music]
+
+760
+00:35:46,680 --> 00:35:48,680
+um
+
+761
+00:35:48,920 --> 00:35:56,060
+IEC a859 so that's another encoding
+
+762
+00:35:52,380 --> 00:35:58,619
+standard so starting around 1980s or so
+
+763
+00:35:56,060 --> 00:36:02,640
+1990s but
+
+764
+00:35:58,619 --> 00:36:06,780
+so around 1991 the Unicode Consortium
+
+765
+00:36:02,640 --> 00:36:10,200
+begin so because why because
+
+766
+00:36:06,780 --> 00:36:13,140
+you have ASCII you have ASCII encoding
+
+767
+00:36:10,200 --> 00:36:15,180
+which is great for USA But Europeans
+
+768
+00:36:13,140 --> 00:36:18,180
+they have you know each language they
+
+769
+00:36:15,180 --> 00:36:21,540
+need they created their own encoding you
+
+770
+00:36:18,180 --> 00:36:24,960
+know for Spanish you know Spanish needs
+
+771
+00:36:21,540 --> 00:36:27,900
+the end with Tilda you know that's not
+
+772
+00:36:24,960 --> 00:36:31,200
+in French French needs some of their own
+
+773
+00:36:27,900 --> 00:36:33,660
+in German you need umelot you know so
+
+774
+00:36:31,200 --> 00:36:36,480
+each country started to have their own
+
+775
+00:36:33,660 --> 00:36:37,980
+encoding for their language so it became
+
+776
+00:36:36,480 --> 00:36:41,339
+confusing
+
+777
+00:36:37,980 --> 00:36:43,680
+so someone's are thinking why don't have
+
+778
+00:36:41,339 --> 00:36:46,980
+one why don't we have one universal
+
+779
+00:36:43,680 --> 00:36:50,160
+encoding system you know we have a we
+
+780
+00:36:46,980 --> 00:36:51,720
+have uh we we Define a character set we
+
+781
+00:36:50,160 --> 00:36:54,660
+Define a character set a set of
+
+782
+00:36:51,720 --> 00:36:57,060
+characters like Encompass Encompass all
+
+783
+00:36:54,660 --> 00:37:00,180
+languages including Japanese and Chinese
+
+784
+00:36:57,060 --> 00:37:01,800
+so we have one single Universal encoding
+
+785
+00:37:00,180 --> 00:37:05,040
+Universal Character
+
+786
+00:37:01,800 --> 00:37:07,500
+said and we for each character we assign
+
+787
+00:37:05,040 --> 00:37:11,640
+a number so this is universal so we
+
+788
+00:37:07,500 --> 00:37:13,560
+don't so when our computer reads a file
+
+789
+00:37:11,640 --> 00:37:15,599
+you can you can just look up this
+
+790
+00:37:13,560 --> 00:37:18,180
+Universal encoding you don't have to see
+
+791
+00:37:15,599 --> 00:37:20,460
+you don't have to check or guess what
+
+792
+00:37:18,180 --> 00:37:22,859
+what encoding is it used because if you
+
+793
+00:37:20,460 --> 00:37:27,540
+got the wrong encoding decoding you got
+
+794
+00:37:22,859 --> 00:37:30,060
+gibberish so that is idea of unicode
+
+795
+00:37:27,540 --> 00:37:33,119
+begin in 1991.
+
+796
+00:37:30,060 --> 00:37:37,800
+okay so that's the idea of unicode
+
+797
+00:37:33,119 --> 00:37:40,619
+okay so now let's see 44 minutes uh so
+
+798
+00:37:37,800 --> 00:37:43,260
+let's we we uh let's quickly finish
+
+799
+00:37:40,619 --> 00:37:44,940
+almost then okay
+
+800
+00:37:43,260 --> 00:37:46,339
+so
+
+801
+00:37:44,940 --> 00:37:49,079
+so
+
+802
+00:37:46,339 --> 00:37:51,300
+Unicode begin okay
+
+803
+00:37:49,079 --> 00:37:53,339
+so now let me tell you about what's a
+
+804
+00:37:51,300 --> 00:37:55,920
+Unicode so Unicode is organization
+
+805
+00:37:53,339 --> 00:37:57,900
+organization unit called Consortium the
+
+806
+00:37:55,920 --> 00:38:01,619
+idea is that one single encoding for
+
+807
+00:37:57,900 --> 00:38:02,940
+every language Universal okay
+
+808
+00:38:01,619 --> 00:38:06,420
+so
+
+809
+00:38:02,940 --> 00:38:08,940
+the but it has some uh bumps
+
+810
+00:38:06,420 --> 00:38:12,960
+um some Evolution you know so in the
+
+811
+00:38:08,940 --> 00:38:16,619
+beginning they think that
+
+812
+00:38:12,960 --> 00:38:22,099
+they think that for every character
+
+813
+00:38:16,619 --> 00:38:22,099
+today we're gonna start with 16 bits
+
+814
+00:38:23,220 --> 00:38:24,900
+okay so
+
+815
+00:38:24,550 --> 00:38:26,820
+[Music]
+
+816
+00:38:24,900 --> 00:38:30,420
+um
+
+817
+00:38:26,820 --> 00:38:32,880
+so let me let me let me think about uh
+
+818
+00:38:30,420 --> 00:38:35,040
+what I want to talk about in the rest of
+
+819
+00:38:32,880 --> 00:38:37,920
+the video okay
+
+820
+00:38:35,040 --> 00:38:39,000
+so we cover cover character set we
+
+821
+00:38:37,920 --> 00:38:42,960
+covered
+
+822
+00:38:39,000 --> 00:38:46,140
+um encoding and uh as a consequence
+
+823
+00:38:42,960 --> 00:38:49,079
+you need an encoding standard and the
+
+824
+00:38:46,140 --> 00:38:52,260
+essence of encoding standard is to
+
+825
+00:38:49,079 --> 00:38:54,420
+define a character set and
+
+826
+00:38:52,260 --> 00:38:57,599
+eat for each character you have a number
+
+827
+00:38:54,420 --> 00:38:59,700
+corresponding to it character id or
+
+828
+00:38:57,599 --> 00:39:03,960
+chord code Point okay
+
+829
+00:38:59,700 --> 00:39:07,200
+and but in night so in but in 1991 the
+
+830
+00:39:03,960 --> 00:39:09,420
+idea came up that you know white don't
+
+831
+00:39:07,200 --> 00:39:11,280
+have one single why don't we have one
+
+832
+00:39:09,420 --> 00:39:12,660
+single Universal encoding just one
+
+833
+00:39:11,280 --> 00:39:15,300
+encoding for
+
+834
+00:39:12,660 --> 00:39:16,619
+that includes every character in every
+
+835
+00:39:15,300 --> 00:39:20,339
+language
+
+836
+00:39:16,619 --> 00:39:21,480
+okay so that became started to become
+
+837
+00:39:20,339 --> 00:39:26,700
+popular
+
+838
+00:39:21,480 --> 00:39:28,640
+and by by year 2000 Unicode started to
+
+839
+00:39:26,700 --> 00:39:31,619
+replace all the other European
+
+840
+00:39:28,640 --> 00:39:33,599
+specialized encoding used in Europe and
+
+841
+00:39:31,619 --> 00:39:37,440
+Japan okay
+
+842
+00:39:33,599 --> 00:39:40,280
+so UTF you Unicode begin
+
+843
+00:39:37,440 --> 00:39:43,859
+became popular okay so let me talk about
+
+844
+00:39:40,280 --> 00:39:48,540
+what what does unicode
+
+845
+00:39:43,859 --> 00:39:50,460
+uh defines exactly so unicode
+
+846
+00:39:48,540 --> 00:39:53,700
+so let me explain a little bit about
+
+847
+00:39:50,460 --> 00:39:54,420
+Unicode and history
+
+848
+00:39:53,700 --> 00:39:56,579
+um
+
+849
+00:39:54,420 --> 00:39:58,560
+so we also talked about encoding
+
+850
+00:39:56,579 --> 00:40:00,900
+standard and what they Define let's
+
+851
+00:39:58,560 --> 00:40:04,460
+remember it's a character id that's the
+
+852
+00:40:00,900 --> 00:40:04,460
+most that's the essence
+
+853
+00:40:05,880 --> 00:40:10,560
+so character set and encoding is
+
+854
+00:40:08,760 --> 00:40:13,380
+different character set is just a
+
+855
+00:40:10,560 --> 00:40:16,460
+character set okay encoding is a way to
+
+856
+00:40:13,380 --> 00:40:19,680
+turn a character into a number okay
+
+857
+00:40:16,460 --> 00:40:22,079
+and what is Unicode it's a you know its
+
+858
+00:40:19,680 --> 00:40:23,640
+idea of one single encoding for every
+
+859
+00:40:22,079 --> 00:40:26,880
+language
+
+860
+00:40:23,640 --> 00:40:28,800
+and unicode character said it so what is
+
+861
+00:40:26,880 --> 00:40:31,500
+the character saying in Unicode includes
+
+862
+00:40:28,800 --> 00:40:34,380
+every every character in every language
+
+863
+00:40:31,500 --> 00:40:36,720
+you know that's that that's uh that's a
+
+864
+00:40:34,380 --> 00:40:40,200
+idea okay
+
+865
+00:40:36,720 --> 00:40:42,660
+so we also explained code point which is
+
+866
+00:40:40,200 --> 00:40:45,240
+just a number given to assigned to a
+
+867
+00:40:42,660 --> 00:40:48,180
+character okay
+
+868
+00:40:45,240 --> 00:40:50,640
+now character name is also simple to
+
+869
+00:40:48,180 --> 00:40:52,380
+understand you know each character for
+
+870
+00:40:50,640 --> 00:40:55,560
+example the capital a
+
+871
+00:40:52,380 --> 00:40:57,839
+there's a name capital A in your or you
+
+872
+00:40:55,560 --> 00:41:01,680
+call it Latin capital capital A or
+
+873
+00:40:57,839 --> 00:41:05,960
+English Capital a so usually almost
+
+874
+00:41:01,680 --> 00:41:09,660
+always each character also has a name
+
+875
+00:41:05,960 --> 00:41:14,060
+so in Unicode they just standardize the
+
+876
+00:41:09,660 --> 00:41:14,060
+name so in Unicode every character has
+
+877
+00:41:14,160 --> 00:41:18,720
+has a name and this name is always
+
+878
+00:41:16,560 --> 00:41:22,380
+unique for example here's some examples
+
+879
+00:41:18,720 --> 00:41:24,540
+so capital A the name in unicode
+
+880
+00:41:22,380 --> 00:41:28,859
+assigned to this character is Latin
+
+881
+00:41:24,540 --> 00:41:31,920
+capital letter A okay and this is unique
+
+882
+00:41:28,859 --> 00:41:34,320
+and for the Greek Alpha it's quick small
+
+883
+00:41:31,920 --> 00:41:37,140
+letter Alpha and also by the way the
+
+884
+00:41:34,320 --> 00:41:39,839
+Unicode naming for characters they are
+
+885
+00:41:37,140 --> 00:41:42,480
+always all capitalized and they are
+
+886
+00:41:39,839 --> 00:41:44,220
+always asking okay so you want to see a
+
+887
+00:41:42,480 --> 00:41:46,560
+cute e or something
+
+888
+00:41:44,220 --> 00:41:48,839
+so every character has a name okay but
+
+889
+00:41:46,560 --> 00:41:51,540
+however because of the
+
+890
+00:41:48,839 --> 00:41:54,900
+you know this is a huge project you know
+
+891
+00:41:51,540 --> 00:41:58,560
+Unicode income passes all the all human
+
+892
+00:41:54,900 --> 00:42:01,619
+languages past and present so in this
+
+893
+00:41:58,560 --> 00:42:03,480
+process you know in act in order to
+
+894
+00:42:01,619 --> 00:42:05,400
+decide you know in order to assign your
+
+895
+00:42:03,480 --> 00:42:08,160
+number to every character you have lots
+
+896
+00:42:05,400 --> 00:42:10,680
+of problems this is no small task
+
+897
+00:42:08,160 --> 00:42:13,619
+because you have some you have dead
+
+898
+00:42:10,680 --> 00:42:15,960
+languages that requires research you
+
+899
+00:42:13,619 --> 00:42:17,220
+know Egyptian for example
+
+900
+00:42:15,960 --> 00:42:20,940
+um
+
+901
+00:42:17,220 --> 00:42:25,800
+some of the Dead languages you know
+
+902
+00:42:20,940 --> 00:42:27,980
+hero glyph Linear B Phoenician run
+
+903
+00:42:25,800 --> 00:42:30,240
+and you have also event
+
+904
+00:42:27,980 --> 00:42:32,040
+constructed languages you know that's
+
+905
+00:42:30,240 --> 00:42:33,960
+right let me show you some of them you
+
+906
+00:42:32,040 --> 00:42:40,339
+know kuniform
+
+907
+00:42:33,960 --> 00:42:40,339
+300 uh wait this is 5 000 years ago
+
+908
+00:42:40,980 --> 00:42:47,160
+5 000 years ago so if you are a Unicode
+
+909
+00:42:45,480 --> 00:42:50,040
+you know if you are one of the Unicode
+
+910
+00:42:47,160 --> 00:42:52,200
+designers first of all how do you know
+
+911
+00:42:50,040 --> 00:42:55,680
+how do you know what characters are
+
+912
+00:42:52,200 --> 00:42:57,960
+there you don't know you know this is 5
+
+913
+00:42:55,680 --> 00:42:59,940
+000 years ago five thousand years ago
+
+914
+00:42:57,960 --> 00:43:02,940
+cuneiform
+
+915
+00:42:59,940 --> 00:43:05,460
+so how do you know well you you consult
+
+916
+00:43:02,940 --> 00:43:08,040
+you know historical linguist
+
+917
+00:43:05,460 --> 00:43:10,380
+you know it takes year decade hundreds
+
+918
+00:43:08,040 --> 00:43:13,560
+hundreds of years to come up with what
+
+919
+00:43:10,380 --> 00:43:15,599
+characters are there and uh then you
+
+920
+00:43:13,560 --> 00:43:18,420
+might be missing some characters so the
+
+921
+00:43:15,599 --> 00:43:21,119
+Unicode task is not easy you know it's
+
+922
+00:43:18,420 --> 00:43:22,380
+still actually it's just a ongoing
+
+923
+00:43:21,119 --> 00:43:25,079
+process
+
+924
+00:43:22,380 --> 00:43:27,540
+so we are looking at some of the Dead
+
+925
+00:43:25,079 --> 00:43:30,540
+languages you know today you also have
+
+926
+00:43:27,540 --> 00:43:31,920
+Egyptian hieroglyphs you know this is
+
+927
+00:43:30,540 --> 00:43:34,560
+again
+
+928
+00:43:31,920 --> 00:43:36,900
+three thousand years ago or four you
+
+929
+00:43:34,560 --> 00:43:39,060
+know Egyptian Egyptian characters by the
+
+930
+00:43:36,900 --> 00:43:39,859
+way there's an interesting now here is
+
+931
+00:43:39,060 --> 00:43:41,819
+the
+
+932
+00:43:39,859 --> 00:43:47,160
+clickbait
+
+933
+00:43:41,819 --> 00:43:50,400
+okay you see this these penises
+
+934
+00:43:47,160 --> 00:43:53,040
+these penises are censored by Microsoft
+
+935
+00:43:50,400 --> 00:43:57,119
+in Microsoft found they display us
+
+936
+00:43:53,040 --> 00:44:00,319
+squares okay since it and here is the
+
+937
+00:43:57,119 --> 00:44:03,720
+artifact a photo
+
+938
+00:44:00,319 --> 00:44:07,140
+very famous for
+
+939
+00:44:03,720 --> 00:44:08,940
+it is because of this Stone someone dug
+
+940
+00:44:07,140 --> 00:44:13,020
+up the you know you can look up
+
+941
+00:44:08,940 --> 00:44:15,780
+Wikipedia look up someone took up in
+
+942
+00:44:13,020 --> 00:44:18,619
+uh so this Stone
+
+943
+00:44:15,780 --> 00:44:18,619
+is around
+
+944
+00:44:19,500 --> 00:44:26,040
+uh 196 BC so two thousand years ago and
+
+945
+00:44:24,420 --> 00:44:28,079
+because of this Stone this Stone
+
+946
+00:44:26,040 --> 00:44:32,220
+contains three languages then people
+
+947
+00:44:28,079 --> 00:44:34,800
+started to finally for the first time to
+
+948
+00:44:32,220 --> 00:44:38,099
+decipher the Egyptian you know herograph
+
+949
+00:44:34,800 --> 00:44:40,400
+to not to to begin to understand what it
+
+950
+00:44:38,099 --> 00:44:43,920
+mean you know what what all these birds
+
+951
+00:44:40,400 --> 00:44:45,780
+and and they also have you know
+
+952
+00:44:43,920 --> 00:44:47,819
+this is Asian this is not like today's
+
+953
+00:44:45,780 --> 00:44:51,300
+social justice thinking what whatever
+
+954
+00:44:47,819 --> 00:44:53,700
+you know you have Cox of course you have
+
+955
+00:44:51,300 --> 00:44:55,140
+penis then you have the birth child
+
+956
+00:44:53,700 --> 00:44:58,500
+birth
+
+957
+00:44:55,140 --> 00:45:00,180
+you see you know that's part of humanity
+
+958
+00:44:58,500 --> 00:45:02,220
+that's Asian
+
+959
+00:45:00,180 --> 00:45:05,160
+uh then
+
+960
+00:45:02,220 --> 00:45:07,380
+so you have all these uh you know quite
+
+961
+00:45:05,160 --> 00:45:08,760
+interesting to look into okay so so
+
+962
+00:45:07,380 --> 00:45:11,760
+there's a lot
+
+963
+00:45:08,760 --> 00:45:14,579
+um then there's a linear B uh Microsoft
+
+964
+00:45:11,760 --> 00:45:18,240
+Windows they don't show because but on
+
+965
+00:45:14,579 --> 00:45:19,440
+the Mac by default you can see these are
+
+966
+00:45:18,240 --> 00:45:23,579
+Linear B
+
+967
+00:45:19,440 --> 00:45:26,220
+um characters this is also
+
+968
+00:45:23,579 --> 00:45:29,880
+four thousand years ago four thousand
+
+969
+00:45:26,220 --> 00:45:32,819
+years ago Linear B characters okay
+
+970
+00:45:29,880 --> 00:45:35,460
+then you have the Phoenician this is the
+
+971
+00:45:32,819 --> 00:45:36,839
+for the Western for English this is the
+
+972
+00:45:35,460 --> 00:45:39,980
+granddaddy
+
+973
+00:45:36,839 --> 00:45:43,500
+of English alphabet you know English
+
+974
+00:45:39,980 --> 00:45:46,740
+alphabet came from Latin Latin came from
+
+975
+00:45:43,500 --> 00:45:49,319
+you know came from Roman and and then it
+
+976
+00:45:46,740 --> 00:45:52,260
+Roman came from Latin alphabet Latin
+
+977
+00:45:49,319 --> 00:45:54,720
+alphabet came from Greek are derived
+
+978
+00:45:52,260 --> 00:45:57,480
+from Greek alphabet and Greek alphabet
+
+979
+00:45:54,720 --> 00:46:01,800
+is derived from Phoenician
+
+980
+00:45:57,480 --> 00:46:04,380
+okay so these characters you see here in
+
+981
+00:46:01,800 --> 00:46:08,220
+Unicode those are Phoenicians those are
+
+982
+00:46:04,380 --> 00:46:12,000
+the granddaddy of the English ABCD
+
+983
+00:46:08,220 --> 00:46:15,140
+okay so the point here is that the
+
+984
+00:46:12,000 --> 00:46:19,020
+Unicode is just a tremendous project
+
+985
+00:46:15,140 --> 00:46:21,000
+encompassing lots of things Okay so
+
+986
+00:46:19,020 --> 00:46:22,859
+the reason we are talking about this
+
+987
+00:46:21,000 --> 00:46:26,400
+because
+
+988
+00:46:22,859 --> 00:46:30,599
+if you want to define a
+
+989
+00:46:26,400 --> 00:46:32,940
+um a standard encoding standard
+
+990
+00:46:30,599 --> 00:46:35,520
+if you want to define a encoding
+
+991
+00:46:32,940 --> 00:46:39,359
+standard first of all you need to have
+
+992
+00:46:35,520 --> 00:46:41,040
+you you you need to precisely specify a
+
+993
+00:46:39,359 --> 00:46:44,460
+character set
+
+994
+00:46:41,040 --> 00:46:46,079
+you know but one of the big problem is
+
+995
+00:46:44,460 --> 00:46:48,300
+that when it comes to Asian languages
+
+996
+00:46:46,079 --> 00:46:50,040
+what character said are there you don't
+
+997
+00:46:48,300 --> 00:46:52,500
+even know you don't know so it takes you
+
+998
+00:46:50,040 --> 00:46:55,319
+know it's a huge process uh project
+
+999
+00:46:52,500 --> 00:46:56,880
+that's just one of the problem there's
+
+1000
+00:46:55,319 --> 00:46:59,520
+other problems like when you have
+
+1001
+00:46:56,880 --> 00:47:01,980
+Chinese characters Chinese characters is
+
+1002
+00:46:59,520 --> 00:47:04,859
+also Asian
+
+1003
+00:47:01,980 --> 00:47:06,920
+uh let me let me show you okay so
+
+1004
+00:47:04,859 --> 00:47:06,920
+um
+
+1005
+00:47:10,500 --> 00:47:16,440
+you know Chinese characters okay so here
+
+1006
+00:47:14,339 --> 00:47:19,260
+so you have you know some of these
+
+1007
+00:47:16,440 --> 00:47:23,099
+characters four thousand years ago
+
+1008
+00:47:19,260 --> 00:47:25,740
+um you know this is called Oracle bone
+
+1009
+00:47:23,099 --> 00:47:28,680
+you know these are precursors of of
+
+1010
+00:47:25,740 --> 00:47:31,859
+Chinese characters then you can see this
+
+1011
+00:47:28,680 --> 00:47:34,339
+thing this heavy cauldron
+
+1012
+00:47:31,859 --> 00:47:39,839
+from
+
+1013
+00:47:34,339 --> 00:47:42,180
+782 BC so it's about 3 000 years ago and
+
+1014
+00:47:39,839 --> 00:47:45,240
+you can see huge number of Chinese
+
+1015
+00:47:42,180 --> 00:47:47,880
+characters in it and those are actually
+
+1016
+00:47:45,240 --> 00:47:50,700
+legible you know almost the same to
+
+1017
+00:47:47,880 --> 00:47:53,599
+today's you know so you have these
+
+1018
+00:47:50,700 --> 00:47:57,480
+things Chinese characters okay
+
+1019
+00:47:53,599 --> 00:48:00,300
+uh very close okay actually not the same
+
+1020
+00:47:57,480 --> 00:48:02,940
+as Chinese but by but by the by this
+
+1021
+00:48:00,300 --> 00:48:05,160
+time 2000
+
+1022
+00:48:02,940 --> 00:48:07,200
+well three thousand years ago you have
+
+1023
+00:48:05,160 --> 00:48:09,960
+these characters and these are almost
+
+1024
+00:48:07,200 --> 00:48:13,619
+the same as Chinese characters you use
+
+1025
+00:48:09,960 --> 00:48:16,079
+today so so anyway the so you know
+
+1026
+00:48:13,619 --> 00:48:18,420
+so the issue with Unicode is that how do
+
+1027
+00:48:16,079 --> 00:48:20,700
+you what are the characters said and you
+
+1028
+00:48:18,420 --> 00:48:22,500
+need to give a number for each one of
+
+1029
+00:48:20,700 --> 00:48:24,960
+these characters
+
+1030
+00:48:22,500 --> 00:48:28,079
+then it gets more complex because
+
+1031
+00:48:24,960 --> 00:48:30,420
+Chinese characters is then used in
+
+1032
+00:48:28,079 --> 00:48:33,359
+Japanese you know you know eventually
+
+1033
+00:48:30,420 --> 00:48:36,240
+became part of the Japanese writing
+
+1034
+00:48:33,359 --> 00:48:37,680
+system and used in Korea and also used
+
+1035
+00:48:36,240 --> 00:48:39,839
+in Vietnam
+
+1036
+00:48:37,680 --> 00:48:42,480
+but over the you know over the thousand
+
+1037
+00:48:39,839 --> 00:48:45,300
+years they diverged somewhat so Japanese
+
+1038
+00:48:42,480 --> 00:48:47,040
+has their own way to write the same
+
+1039
+00:48:45,300 --> 00:48:49,200
+character you know slightly different
+
+1040
+00:48:47,040 --> 00:48:52,099
+you know you might think of them as
+
+1041
+00:48:49,200 --> 00:48:52,099
+different font but
+
+1042
+00:48:52,380 --> 00:48:59,339
+cultural differences so do you do you
+
+1043
+00:48:57,000 --> 00:49:01,680
+give you know the same characters the
+
+1044
+00:48:59,339 --> 00:49:03,300
+Japanese version or different do you
+
+1045
+00:49:01,680 --> 00:49:06,119
+consider them as a different characters
+
+1046
+00:49:03,300 --> 00:49:08,579
+or do you consider them as just the same
+
+1047
+00:49:06,119 --> 00:49:10,140
+character but using a different font you
+
+1048
+00:49:08,579 --> 00:49:12,480
+know that's the issue and very
+
+1049
+00:49:10,140 --> 00:49:15,660
+controversial as well so that's another
+
+1050
+00:49:12,480 --> 00:49:20,040
+that's one of the big controversy in
+
+1051
+00:49:15,660 --> 00:49:23,520
+Unicode called han han Universe hand
+
+1052
+00:49:20,040 --> 00:49:25,500
+unification you know lots of issues
+
+1053
+00:49:23,520 --> 00:49:27,960
+so
+
+1054
+00:49:25,500 --> 00:49:31,800
+so back to so
+
+1055
+00:49:27,960 --> 00:49:34,920
+back to so what I'm talking about is the
+
+1056
+00:49:31,800 --> 00:49:38,400
+creation of the Unicode it's no simple
+
+1057
+00:49:34,920 --> 00:49:39,660
+task okay but let's go back to the
+
+1058
+00:49:38,400 --> 00:49:43,380
+to what
+
+1059
+00:49:39,660 --> 00:49:45,000
+um to encoding and stuff okay
+
+1060
+00:49:43,380 --> 00:49:47,460
+so encoding
+
+1061
+00:49:45,000 --> 00:49:50,099
+so character said uh character said
+
+1062
+00:49:47,460 --> 00:49:52,640
+ASCII so so what does Unicode Define
+
+1063
+00:49:50,099 --> 00:49:52,640
+actually
+
+1064
+00:49:52,800 --> 00:49:57,780
+so Unicode what Unicode actually defines
+
+1065
+00:49:56,280 --> 00:50:00,119
+so unicode
+
+1066
+00:49:57,780 --> 00:50:02,400
+you begin with the character said you
+
+1067
+00:50:00,119 --> 00:50:05,040
+know you know code by now every year
+
+1068
+00:50:02,400 --> 00:50:07,619
+there's a new version of Unicode so by
+
+1069
+00:50:05,040 --> 00:50:09,480
+today is Unicode 11 Unicode every year
+
+1070
+00:50:07,619 --> 00:50:11,880
+you have a new version
+
+1071
+00:50:09,480 --> 00:50:13,880
+so they
+
+1072
+00:50:11,880 --> 00:50:13,880
+they
+
+1073
+00:50:13,920 --> 00:50:20,280
+kept uh adding new characters
+
+1074
+00:50:18,420 --> 00:50:22,859
+meanwhile they tried to maintain
+
+1075
+00:50:20,280 --> 00:50:25,680
+Backward Compatible so that you know you
+
+1076
+00:50:22,859 --> 00:50:27,859
+can just change randomly but they each
+
+1077
+00:50:25,680 --> 00:50:32,160
+year they kind of add more characters
+
+1078
+00:50:27,859 --> 00:50:34,020
+but what does Unicode actually Define so
+
+1079
+00:50:32,160 --> 00:50:36,380
+this is becoming complex let me explain
+
+1080
+00:50:34,020 --> 00:50:36,380
+this
+
+1081
+00:50:36,660 --> 00:50:43,020
+so before we talked about encoding right
+
+1082
+00:50:39,180 --> 00:50:45,599
+encoding standard is is a way is a
+
+1083
+00:50:43,020 --> 00:50:48,720
+standard that defines the character set
+
+1084
+00:50:45,599 --> 00:50:50,940
+then for each character you give them a
+
+1085
+00:50:48,720 --> 00:50:53,160
+unique ID for the character okay that's
+
+1086
+00:50:50,940 --> 00:50:56,400
+a encoding standard
+
+1087
+00:50:53,160 --> 00:50:59,339
+now Unicode begin like that so when
+
+1088
+00:50:56,400 --> 00:51:00,780
+Unicode begin in 1990
+
+1089
+00:50:59,339 --> 00:51:03,720
+1.
+
+1090
+00:51:00,780 --> 00:51:06,900
+you know they think that okay the total
+
+1091
+00:51:03,720 --> 00:51:09,599
+number of characters we need is at most
+
+1092
+00:51:06,900 --> 00:51:13,740
+16 bits
+
+1093
+00:51:09,599 --> 00:51:16,740
+uh 16 bits that means 16 binary digits
+
+1094
+00:51:13,740 --> 00:51:20,960
+okay so let me let me show you so
+
+1095
+00:51:16,740 --> 00:51:20,960
+uh let's go to byte order
+
+1096
+00:51:36,960 --> 00:51:42,000
+well let's not go over that let's just
+
+1097
+00:51:39,900 --> 00:51:43,920
+uh let me just talk about
+
+1098
+00:51:42,000 --> 00:51:48,619
+um
+
+1099
+00:51:43,920 --> 00:51:48,619
+well uh so
+
+1100
+00:51:49,020 --> 00:51:54,200
+so I'm telling I'm talking about what
+
+1101
+00:51:52,020 --> 00:51:57,119
+does Unicode actually Define okay
+
+1102
+00:51:54,200 --> 00:51:59,400
+essentially it defines let me tell you
+
+1103
+00:51:57,119 --> 00:52:04,020
+okay it defines
+
+1104
+00:51:59,400 --> 00:52:08,220
+two primary things defined by unicode
+
+1105
+00:52:04,020 --> 00:52:10,440
+one is the character set and the in the
+
+1106
+00:52:08,220 --> 00:52:13,319
+character id for each character in the
+
+1107
+00:52:10,440 --> 00:52:16,020
+character set okay that's the
+
+1108
+00:52:13,319 --> 00:52:18,660
+that's the that's what Unicode defines
+
+1109
+00:52:16,020 --> 00:52:22,380
+so you give a each character you give
+
+1110
+00:52:18,660 --> 00:52:24,960
+them an ID called the code point for
+
+1111
+00:52:22,380 --> 00:52:29,579
+that character that's that's the most
+
+1112
+00:52:24,960 --> 00:52:31,260
+important thing Unicode defines and uh
+
+1113
+00:52:29,579 --> 00:52:33,720
+and uh
+
+1114
+00:52:31,260 --> 00:52:35,780
+so let me show you
+
+1115
+00:52:33,720 --> 00:52:35,780
+um
+
+1116
+00:52:35,880 --> 00:52:39,740
+yeah code Point Okay so
+
+1117
+00:52:43,440 --> 00:52:48,660
+like that we we showed there so you have
+
+1118
+00:52:46,079 --> 00:52:51,900
+a character then you have a code point
+
+1119
+00:52:48,660 --> 00:52:55,079
+and also you know
+
+1120
+00:52:51,900 --> 00:52:57,599
+you have a name to go with it
+
+1121
+00:52:55,079 --> 00:53:00,599
+that's uh that's the most important
+
+1122
+00:52:57,599 --> 00:53:04,200
+thing Unicode Define now the second also
+
+1123
+00:53:00,599 --> 00:53:06,900
+in the uh equip equally important is
+
+1124
+00:53:04,200 --> 00:53:09,980
+actually encodings okay so Unicode
+
+1125
+00:53:06,900 --> 00:53:09,980
+actually defined
+
+1126
+00:53:10,079 --> 00:53:16,500
+several encodings okay let me let me go
+
+1127
+00:53:13,020 --> 00:53:20,220
+uh let me explain so unicode
+
+1128
+00:53:16,500 --> 00:53:21,059
+in the beginning they defined
+
+1129
+00:53:20,220 --> 00:53:24,900
+um
+
+1130
+00:53:21,059 --> 00:53:28,200
+so we have to go to Unicode history so
+
+1131
+00:53:24,900 --> 00:53:30,960
+Unicode defined several encodings by now
+
+1132
+00:53:28,200 --> 00:53:34,440
+okay so you have utf-8
+
+1133
+00:53:30,960 --> 00:53:37,319
+and you have also utf-16 but you know in
+
+1134
+00:53:34,440 --> 00:53:39,059
+the beginning Unicode thought thinks you
+
+1135
+00:53:37,319 --> 00:53:42,780
+know the Unicode people they want to
+
+1136
+00:53:39,059 --> 00:53:45,960
+have a universal encoding system for all
+
+1137
+00:53:42,780 --> 00:53:50,700
+the world's languages so they think they
+
+1138
+00:53:45,960 --> 00:53:53,880
+thought that 16 bits is enough meaning
+
+1139
+00:53:50,700 --> 00:53:55,859
+16 binary numbers okay so here's the
+
+1140
+00:53:53,880 --> 00:53:58,800
+link I want
+
+1141
+00:53:55,859 --> 00:54:03,839
+so let's go to binary numbers so let's
+
+1142
+00:53:58,800 --> 00:54:11,220
+see what 16 binary digits so 1 2 3 4 5 6
+
+1143
+00:54:03,839 --> 00:54:13,819
+7 8 9 10 11 12 13 14 16. 16 binary
+
+1144
+00:54:11,220 --> 00:54:13,819
+digits
+
+1145
+00:54:13,980 --> 00:54:19,280
+okay so actually I need to type the
+
+1146
+00:54:16,200 --> 00:54:19,280
+binary digit here
+
+1147
+00:54:19,500 --> 00:54:26,220
+so in decimal that's 32
+
+1148
+00:54:22,819 --> 00:54:30,240
+767 you know the Unicode people think
+
+1149
+00:54:26,220 --> 00:54:32,640
+that 32 000 characters is enough for all
+
+1150
+00:54:30,240 --> 00:54:34,559
+the words characters okay it in the
+
+1151
+00:54:32,640 --> 00:54:38,460
+beginning they think this is enough for
+
+1152
+00:54:34,559 --> 00:54:40,740
+all the live languages you know they are
+
+1153
+00:54:38,460 --> 00:54:43,380
+not counting dead languages but
+
+1154
+00:54:40,740 --> 00:54:46,200
+eventually over the years people decided
+
+1155
+00:54:43,380 --> 00:54:49,079
+that actually we need all the Egyptians
+
+1156
+00:54:46,200 --> 00:54:50,880
+you know they we need to we need them to
+
+1157
+00:54:49,079 --> 00:54:54,780
+be part of the unit code
+
+1158
+00:54:50,880 --> 00:54:57,900
+so they So eventually in the 1990s they
+
+1159
+00:54:54,780 --> 00:55:01,079
+realized 32 000 characters is not enough
+
+1160
+00:54:57,900 --> 00:55:03,420
+okay that's a problem
+
+1161
+00:55:01,079 --> 00:55:06,540
+in the beginning they think 32 000
+
+1162
+00:55:03,420 --> 00:55:10,740
+characters is enough therefore
+
+1163
+00:55:06,540 --> 00:55:14,280
+you just need 16 binary digits okay or
+
+1164
+00:55:10,740 --> 00:55:16,619
+at most four hexadecimal characters
+
+1165
+00:55:14,280 --> 00:55:19,380
+to represent any character in any human
+
+1166
+00:55:16,619 --> 00:55:21,780
+language okay but over the years they
+
+1167
+00:55:19,380 --> 00:55:24,480
+changed their mind they begin to think
+
+1168
+00:55:21,780 --> 00:55:28,200
+oh actually that's not enough so they
+
+1169
+00:55:24,480 --> 00:55:31,380
+they started to extend it so
+
+1170
+00:55:28,200 --> 00:55:32,700
+so you started to need more than 16
+
+1171
+00:55:31,380 --> 00:55:36,000
+characters
+
+1172
+00:55:32,700 --> 00:55:38,599
+16 uh bits
+
+1173
+00:55:36,000 --> 00:55:38,599
+so
+
+1174
+00:55:38,940 --> 00:55:45,540
+so in the beginning Unicode is you know
+
+1175
+00:55:42,960 --> 00:55:49,140
+they Define their encoding called UCS
+
+1176
+00:55:45,540 --> 00:55:51,960
+okay 16 characters but eventually they
+
+1177
+00:55:49,140 --> 00:55:54,180
+realized that's not enough so they
+
+1178
+00:55:51,960 --> 00:55:56,819
+created a encoding standard called
+
+1179
+00:55:54,180 --> 00:56:04,640
+utf-16
+
+1180
+00:55:56,819 --> 00:56:04,640
+and uh so in this utf-16 coding it's a
+
+1181
+00:56:04,880 --> 00:56:11,099
+variable with encoding
+
+1182
+00:56:07,800 --> 00:56:13,079
+okay so I need to explain that uh this
+
+1183
+00:56:11,099 --> 00:56:15,000
+you know this video is actually kind of
+
+1184
+00:56:13,079 --> 00:56:18,780
+too long I think I'm
+
+1185
+00:56:15,000 --> 00:56:21,960
+just am I doing good
+
+1186
+00:56:18,780 --> 00:56:24,380
+I'm just starting to get very boring and
+
+1187
+00:56:21,960 --> 00:56:24,380
+too slow
+
+1188
+00:56:25,740 --> 00:56:31,380
+so so let me
+
+1189
+00:56:28,800 --> 00:56:34,079
+yeah so we are talking about
+
+1190
+00:56:31,380 --> 00:56:37,380
+what what are the different encodings of
+
+1191
+00:56:34,079 --> 00:56:39,359
+Unicode okay let's let's talk about that
+
+1192
+00:56:37,380 --> 00:56:43,200
+so you know in the beginning Unicode
+
+1193
+00:56:39,359 --> 00:56:45,660
+thinking things that 32 you know 16 bits
+
+1194
+00:56:43,200 --> 00:56:47,880
+is enough which is 32
+
+1195
+00:56:45,660 --> 00:56:50,520
+000 characters eventually they realize
+
+1196
+00:56:47,880 --> 00:56:53,700
+that's not enough but in the beginning
+
+1197
+00:56:50,520 --> 00:56:55,440
+Unicode defined uh encoding today is
+
+1198
+00:56:53,700 --> 00:56:56,819
+called you you know
+
+1199
+00:56:55,440 --> 00:57:00,300
+today
+
+1200
+00:56:56,819 --> 00:57:03,119
+you call it UCS you know Universal
+
+1201
+00:57:00,300 --> 00:57:05,960
+character Inc system or something like
+
+1202
+00:57:03,119 --> 00:57:09,180
+that UCS encoding so every character
+
+1203
+00:57:05,960 --> 00:57:13,020
+corresponds to a number that is
+
+1204
+00:57:09,180 --> 00:57:15,839
+represented by 16 binary digits okay
+
+1205
+00:57:13,020 --> 00:57:19,319
+that's the original the first Unicode
+
+1206
+00:57:15,839 --> 00:57:22,619
+Universal Universal encoding okay every
+
+1207
+00:57:19,319 --> 00:57:25,260
+character corresponds to a number that's
+
+1208
+00:57:22,619 --> 00:57:28,859
+16 bits okay
+
+1209
+00:57:25,260 --> 00:57:33,359
+but they realize that's not enough so
+
+1210
+00:57:28,859 --> 00:57:36,720
+they started to Define utf-16 coding
+
+1211
+00:57:33,359 --> 00:57:39,780
+now UDS F16 encoding is such that
+
+1212
+00:57:36,720 --> 00:57:44,099
+remember every character has a character
+
+1213
+00:57:39,780 --> 00:57:46,260
+id which is you know is an integer you
+
+1214
+00:57:44,099 --> 00:57:48,420
+can translate the integer represent the
+
+1215
+00:57:46,260 --> 00:57:51,059
+integer in a decimal
+
+1216
+00:57:48,420 --> 00:57:53,819
+in a binary notation
+
+1217
+00:57:51,059 --> 00:57:56,339
+but in utf-16 encoding
+
+1218
+00:57:53,819 --> 00:57:58,680
+you know because some of the number is
+
+1219
+00:57:56,339 --> 00:58:01,940
+bigger than 32
+
+1220
+00:57:58,680 --> 00:58:06,720
+000. therefore it needs more than 16
+
+1221
+00:58:01,940 --> 00:58:09,540
+binary digits so six so UDF 16 coding is
+
+1222
+00:58:06,720 --> 00:58:11,099
+such that for some characters you need
+
+1223
+00:58:09,540 --> 00:58:13,680
+16
+
+1224
+00:58:11,099 --> 00:58:16,920
+binary digits but for some other
+
+1225
+00:58:13,680 --> 00:58:19,200
+characters you need more than 16 in fact
+
+1226
+00:58:16,920 --> 00:58:22,500
+you need 32.
+
+1227
+00:58:19,200 --> 00:58:25,440
+binary bits you know
+
+1228
+00:58:22,500 --> 00:58:26,880
+binary digits so for some characters
+
+1229
+00:58:25,440 --> 00:58:30,059
+it's
+
+1230
+00:58:26,880 --> 00:58:34,260
+16 by binary digits other characters is
+
+1231
+00:58:30,059 --> 00:58:37,740
+32 binary digits so that is the utf-16
+
+1232
+00:58:34,260 --> 00:58:41,700
+encoding okay so this happened in the
+
+1233
+00:58:37,740 --> 00:58:42,480
+early 1990s you know in yeah so in the
+
+1234
+00:58:41,700 --> 00:58:47,280
+beginning
+
+1235
+00:58:42,480 --> 00:58:50,880
+Unicode is called ucs2 encoding every
+
+1236
+00:58:47,280 --> 00:58:54,540
+character is just 16 bits
+
+1237
+00:58:50,880 --> 00:58:57,540
+but in 1996 they decided that's not
+
+1238
+00:58:54,540 --> 00:59:01,160
+enough so they invented they created the
+
+1239
+00:58:57,540 --> 00:59:05,099
+utf-16 coding so in 16
+
+1240
+00:59:01,160 --> 00:59:07,740
+utf-16 every character maybe 16 bits or
+
+1241
+00:59:05,099 --> 00:59:09,420
+32 depending on the character
+
+1242
+00:59:07,740 --> 00:59:14,099
+so
+
+1243
+00:59:09,420 --> 00:59:19,140
+that's 1996 and it is embraced by
+
+1244
+00:59:14,099 --> 00:59:22,380
+JavaScript okay by JavaScript by by also
+
+1245
+00:59:19,140 --> 00:59:27,180
+the Java language the Java language and
+
+1246
+00:59:22,380 --> 00:59:32,180
+it's also embraced by Microsoft's NTFS
+
+1247
+00:59:27,180 --> 00:59:32,180
+file system that is in your
+
+1248
+00:59:36,359 --> 00:59:40,500
+you know in your files and directory the
+
+1249
+00:59:38,819 --> 00:59:42,420
+character names
+
+1250
+00:59:40,500 --> 00:59:45,780
+you know you have you know name for the
+
+1251
+00:59:42,420 --> 00:59:47,099
+folder or files those are encoded on
+
+1252
+00:59:45,780 --> 00:59:50,339
+Windows
+
+1253
+00:59:47,099 --> 00:59:54,480
+using the NTFS file system and those are
+
+1254
+00:59:50,339 --> 00:59:58,920
+encoded in utf-16 okay and it's also
+
+1255
+00:59:54,480 --> 01:00:02,700
+used by Apple's HFS plus file system
+
+1256
+00:59:58,920 --> 01:00:06,780
+now Apple's file system hdfs plus is
+
+1257
+01:00:02,700 --> 01:00:08,220
+used between 1998 to 2017.
+
+1258
+01:00:06,780 --> 01:00:12,359
+okay
+
+1259
+01:00:08,220 --> 01:00:15,440
+so utf-16 is used by this system so
+
+1260
+01:00:12,359 --> 01:00:15,440
+um fairly popular
+
+1261
+01:00:16,859 --> 01:00:22,859
+okay that's one of the encoding
+
+1262
+01:00:19,819 --> 01:00:24,780
+Unicode defines okay we are remember we
+
+1263
+01:00:22,859 --> 01:00:27,260
+are talking about what what does Unicode
+
+1264
+01:00:24,780 --> 01:00:30,119
+defines Unicode defines a character set
+
+1265
+01:00:27,260 --> 01:00:33,299
+defines the character id or code point
+
+1266
+01:00:30,119 --> 01:00:35,880
+for each character then it defines
+
+1267
+01:00:33,299 --> 01:00:38,760
+by now two encodings one is the
+
+1268
+01:00:35,880 --> 01:00:40,079
+beginning UCS
+
+1269
+01:00:38,760 --> 01:00:43,319
+uh
+
+1270
+01:00:40,079 --> 01:00:45,480
+two so-called today you know that's the
+
+1271
+01:00:43,319 --> 01:00:50,460
+original encoding each character is 16
+
+1272
+01:00:45,480 --> 01:00:53,400
+bits then in 1996 they invented utf-16
+
+1273
+01:00:50,460 --> 01:00:56,460
+because they think that you know 16 bits
+
+1274
+01:00:53,400 --> 01:01:01,680
+32 000 characters is not enough so they
+
+1275
+01:00:56,460 --> 01:01:05,460
+created Created uh utf-16 encoding so
+
+1276
+01:01:01,680 --> 01:01:07,740
+each character is now 16 bits or 32 bits
+
+1277
+01:01:05,460 --> 01:01:12,180
+depends on the character okay
+
+1278
+01:01:07,740 --> 01:01:15,000
+and this utf-16 coding is became fairly
+
+1279
+01:01:12,180 --> 01:01:16,920
+popular in the 1990s used by you know
+
+1280
+01:01:15,000 --> 01:01:18,059
+several programming languages and lots
+
+1281
+01:01:16,920 --> 01:01:21,500
+of
+
+1282
+01:01:18,059 --> 01:01:25,559
+and many other Technologies okay that's
+
+1283
+01:01:21,500 --> 01:01:28,440
+utf-16 coding now how it actually
+
+1284
+01:01:25,559 --> 01:01:31,319
+translates into a character we will talk
+
+1285
+01:01:28,440 --> 01:01:35,099
+about I'm not gonna cover because I
+
+1286
+01:01:31,319 --> 01:01:36,839
+already this video is too slow then I
+
+1287
+01:01:35,099 --> 01:01:38,280
+thought
+
+1288
+01:01:36,839 --> 01:01:41,040
+okay
+
+1289
+01:01:38,280 --> 01:01:43,079
+so that's a history of Unicode you know
+
+1290
+01:01:41,040 --> 01:01:46,559
+begin with
+
+1291
+01:01:43,079 --> 01:01:49,920
+um use and see the original version usc2
+
+1292
+01:01:46,559 --> 01:01:52,559
+then utf-16
+
+1293
+01:01:49,920 --> 01:01:56,040
+now let's talk about about utf-8 now
+
+1294
+01:01:52,559 --> 01:01:59,480
+utf-8 is now today's Universal it's uh
+
+1295
+01:01:56,040 --> 01:01:59,480
+it's actually the most common
+
+1296
+01:01:59,520 --> 01:02:08,400
+utf-8 okay so utf-8 you know utf-16
+
+1297
+01:02:04,980 --> 01:02:10,579
+is a problem it's a problem for the Unix
+
+1298
+01:02:08,400 --> 01:02:13,740
+people and because
+
+1299
+01:02:10,579 --> 01:02:18,000
+utf-16 is not compatible with ASCII
+
+1300
+01:02:13,740 --> 01:02:19,440
+because in utf-16 every character is 16
+
+1301
+01:02:18,000 --> 01:02:24,000
+bits
+
+1302
+01:02:19,440 --> 01:02:26,220
+or 32 bits okay so-called variable width
+
+1303
+01:02:24,000 --> 01:02:29,400
+encoding you know because each character
+
+1304
+01:02:26,220 --> 01:02:30,540
+is either 16 or 32 depends on the
+
+1305
+01:02:29,400 --> 01:02:32,819
+character
+
+1306
+01:02:30,540 --> 01:02:35,160
+but it's not compatible with ASCII
+
+1307
+01:02:32,819 --> 01:02:38,640
+because in ASCII encoding each character
+
+1308
+01:02:35,160 --> 01:02:41,579
+is just 8 Bits in fact seven bits
+
+1309
+01:02:38,640 --> 01:02:44,160
+you know but usually a computer unit the
+
+1310
+01:02:41,579 --> 01:02:46,440
+minimal unit is eight because that's a
+
+1311
+01:02:44,160 --> 01:02:48,440
+power of two you know 2 raised to the
+
+1312
+01:02:46,440 --> 01:02:49,980
+third power
+
+1313
+01:02:48,440 --> 01:02:54,180
+so
+
+1314
+01:02:49,980 --> 01:02:57,540
+8 Bits is a minimum unit minimal unit in
+
+1315
+01:02:54,180 --> 01:03:01,319
+ASCII asking coding every character is 8
+
+1316
+01:02:57,540 --> 01:03:03,839
+Bits but it's not compatible with utf-16
+
+1317
+01:03:01,319 --> 01:03:06,720
+so what does that mean that means every
+
+1318
+01:03:03,839 --> 01:03:10,740
+Unix you know the whole entire operating
+
+1319
+01:03:06,720 --> 01:03:13,799
+system all the tools grab Bash
+
+1320
+01:03:10,740 --> 01:03:17,520
+they need to basically all be Rewritten
+
+1321
+01:03:13,799 --> 01:03:20,160
+from from scratch to deal with
+
+1322
+01:03:17,520 --> 01:03:23,339
+um characters text processing you know
+
+1323
+01:03:20,160 --> 01:03:26,160
+this voice this happens in Python 2 to
+
+1324
+01:03:23,339 --> 01:03:29,640
+python 3. that's why this is a major
+
+1325
+01:03:26,160 --> 01:03:33,059
+region reason python you know the guide
+
+1326
+01:03:29,640 --> 01:03:35,160
+of on Rossum created Python 3 because in
+
+1327
+01:03:33,059 --> 01:03:37,140
+Python 2 you know this is a huge problem
+
+1328
+01:03:35,160 --> 01:03:39,900
+huge headache
+
+1329
+01:03:37,140 --> 01:03:43,920
+because all the software before you
+
+1330
+01:03:39,900 --> 01:03:46,319
+before utf-16 or you before Unicode is
+
+1331
+01:03:43,920 --> 01:03:49,140
+just not compatible you have to rewrite
+
+1332
+01:03:46,319 --> 01:03:52,680
+the whole thing every tool
+
+1333
+01:03:49,140 --> 01:03:57,059
+so the wrap pack the rub Peg you know
+
+1334
+01:03:52,680 --> 01:03:59,819
+there arise the Unicode the Unix
+
+1335
+01:03:57,059 --> 01:04:01,619
+phonetic rub Pike you know let me show
+
+1336
+01:03:59,819 --> 01:04:03,859
+you this interesting
+
+1337
+01:04:01,619 --> 01:04:08,760
+um history
+
+1338
+01:04:03,859 --> 01:04:13,500
+uh okay Rob Pike created invented the
+
+1339
+01:04:08,760 --> 01:04:15,420
+utf-8 encoding on napkin okay and here's
+
+1340
+01:04:13,500 --> 01:04:18,599
+the
+
+1341
+01:04:15,420 --> 01:04:22,799
+he was uh you know his article about the
+
+1342
+01:04:18,599 --> 01:04:25,680
+history of UGA eight uh essentially he
+
+1343
+01:04:22,799 --> 01:04:30,000
+and Thompson
+
+1344
+01:04:25,680 --> 01:04:33,619
+he and the Thompson another Unix guy
+
+1345
+01:04:30,000 --> 01:04:33,619
+uh what's his name
+
+1346
+01:04:38,460 --> 01:04:43,500
+Ken okay Kim Thompson yeah I believe
+
+1347
+01:04:41,579 --> 01:04:47,099
+that's Ken Thompson but anyway that's a
+
+1348
+01:04:43,500 --> 01:04:50,220
+history of utfa creation so
+
+1349
+01:04:47,099 --> 01:04:53,339
+you know you have utf-16 with which is
+
+1350
+01:04:50,220 --> 01:04:56,280
+incompatible with ASCII creates a huge
+
+1351
+01:04:53,339 --> 01:05:00,059
+amount of headache but the Unicode
+
+1352
+01:04:56,280 --> 01:05:03,000
+people they they know the problem so
+
+1353
+01:05:00,059 --> 01:05:06,059
+they created another encoding
+
+1354
+01:05:03,000 --> 01:05:08,280
+um they tried but when they send it to
+
+1355
+01:05:06,059 --> 01:05:10,619
+Robert Pike when Rob Pike and Ken
+
+1356
+01:05:08,280 --> 01:05:12,740
+Thompson see it they
+
+1357
+01:05:10,619 --> 01:05:15,780
+you know that's no good they they they
+
+1358
+01:05:12,740 --> 01:05:18,180
+are very uh bright they you know they
+
+1359
+01:05:15,780 --> 01:05:21,059
+that's they can see that they can tell
+
+1360
+01:05:18,180 --> 01:05:23,940
+right away is you know this new proposal
+
+1361
+01:05:21,059 --> 01:05:25,859
+got several problems but So eventually
+
+1362
+01:05:23,940 --> 01:05:28,799
+they so basically they
+
+1363
+01:05:25,859 --> 01:05:31,740
+created utf-8 they invented utfa on
+
+1364
+01:05:28,799 --> 01:05:34,140
+napkin in a restaurant overnight
+
+1365
+01:05:31,740 --> 01:05:37,740
+and implemented you know right the whole
+
+1366
+01:05:34,140 --> 01:05:42,540
+spec in one week about one week so this
+
+1367
+01:05:37,740 --> 01:05:44,839
+is um this happened in 1992 okay
+
+1368
+01:05:42,540 --> 01:05:48,599
+so so they created
+
+1369
+01:05:44,839 --> 01:05:50,940
+utf-8 which is became today is the most
+
+1370
+01:05:48,599 --> 01:05:54,059
+popular and the best okay you know
+
+1371
+01:05:50,940 --> 01:05:56,540
+because I spent a lot of time studying
+
+1372
+01:05:54,059 --> 01:05:59,339
+utf-8 you know in the past month or so
+
+1373
+01:05:56,540 --> 01:06:00,299
+it is actually the best encoding of them
+
+1374
+01:05:59,339 --> 01:06:02,160
+all
+
+1375
+01:06:00,299 --> 01:06:06,960
+and utf-8
+
+1376
+01:06:02,160 --> 01:06:10,079
+UDF UTF UTF uh 16 is not good okay you
+
+1377
+01:06:06,960 --> 01:06:12,480
+should use make everything utf-a okay so
+
+1378
+01:06:10,079 --> 01:06:16,500
+why why is it so great so first of all
+
+1379
+01:06:12,480 --> 01:06:19,260
+utf-8 is ASCII compatible that means if
+
+1380
+01:06:16,500 --> 01:06:22,980
+you have old file you know before 1990s
+
+1381
+01:06:19,260 --> 01:06:26,280
+before Unicode or ASCII file
+
+1382
+01:06:22,980 --> 01:06:28,859
+you it's totally compatible with utf-8
+
+1383
+01:06:26,280 --> 01:06:32,640
+meaning that if the you the same file
+
+1384
+01:06:28,859 --> 01:06:34,920
+encoded in utf-8 is identical to ASCII
+
+1385
+01:06:32,640 --> 01:06:38,460
+okay so you have you no need to change
+
+1386
+01:06:34,920 --> 01:06:41,700
+all the Unix kernel uh programming
+
+1387
+01:06:38,460 --> 01:06:45,000
+languages Splash grab all the tools no
+
+1388
+01:06:41,700 --> 01:06:47,039
+no need to change okay it works still so
+
+1389
+01:06:45,000 --> 01:06:49,680
+that's that's why that's one of the most
+
+1390
+01:06:47,039 --> 01:06:52,680
+powerful reason UTF is the most popular
+
+1391
+01:06:49,680 --> 01:06:55,700
+today is which is great you know thanks
+
+1392
+01:06:52,680 --> 01:06:59,460
+to Rob Pike and uh Ken Thompson
+
+1393
+01:06:55,700 --> 01:07:02,400
+utf-8 fantastic now utf-8 is a variable
+
+1394
+01:06:59,460 --> 01:07:03,900
+with encoding meaning that each
+
+1395
+01:07:02,400 --> 01:07:09,839
+character
+
+1396
+01:07:03,900 --> 01:07:13,200
+is represented is represented by 1 2 4
+
+1397
+01:07:09,839 --> 01:07:14,880
+bytes okay one byte is eight bits so
+
+1398
+01:07:13,200 --> 01:07:18,660
+it's either eight
+
+1399
+01:07:14,880 --> 01:07:21,599
+each character is either 8 Bits or 16.
+
+1400
+01:07:18,660 --> 01:07:25,140
+or maybe uh 24
+
+1401
+01:07:21,599 --> 01:07:27,059
+or 32 okay one two four bytes so
+
+1402
+01:07:25,140 --> 01:07:29,280
+depending on the character so that's the
+
+1403
+01:07:27,059 --> 01:07:31,619
+nature that's the nature of utf-8
+
+1404
+01:07:29,280 --> 01:07:34,140
+encoding
+
+1405
+01:07:31,619 --> 01:07:36,359
+so you might you might think
+
+1406
+01:07:34,140 --> 01:07:38,460
+um well that's then you know that's not
+
+1407
+01:07:36,359 --> 01:07:40,200
+good because then
+
+1408
+01:07:38,460 --> 01:07:42,780
+then you don't know how you know you
+
+1409
+01:07:40,200 --> 01:07:45,299
+have to look up how many how many bits
+
+1410
+01:07:42,780 --> 01:07:47,280
+is a byte is because the you know
+
+1411
+01:07:45,299 --> 01:07:48,299
+usually variable length encoding is a
+
+1412
+01:07:47,280 --> 01:07:51,660
+problem
+
+1413
+01:07:48,299 --> 01:07:54,480
+yeah that's true but the alternative is
+
+1414
+01:07:51,660 --> 01:07:57,660
+that you encode every character as 32
+
+1415
+01:07:54,480 --> 01:07:58,680
+bits but that that's a huge waste of
+
+1416
+01:07:57,660 --> 01:08:01,140
+space
+
+1417
+01:07:58,680 --> 01:08:03,480
+because if you do that then every file
+
+1418
+01:08:01,140 --> 01:08:06,180
+will become four times larger you know
+
+1419
+01:08:03,480 --> 01:08:09,180
+why makeup by file becomes four megabyte
+
+1420
+01:08:06,180 --> 01:08:11,220
+then you have the but you have the fixed
+
+1421
+01:08:09,180 --> 01:08:14,160
+width encoding meaning that every
+
+1422
+01:08:11,220 --> 01:08:15,839
+character is always 32 bits which makes
+
+1423
+01:08:14,160 --> 01:08:18,299
+programming easy
+
+1424
+01:08:15,839 --> 01:08:20,279
+but however you know it's blowed every
+
+1425
+01:08:18,299 --> 01:08:23,040
+time you know everything is
+
+1426
+01:08:20,279 --> 01:08:25,080
+increased by four times especially when
+
+1427
+01:08:23,040 --> 01:08:27,060
+you have to save you know load the file
+
+1428
+01:08:25,080 --> 01:08:29,040
+in memory so
+
+1429
+01:08:27,060 --> 01:08:31,920
+you know if you have eight gigabyte
+
+1430
+01:08:29,040 --> 01:08:35,100
+memory RAM now it becomes not enough so
+
+1431
+01:08:31,920 --> 01:08:37,739
+lots of problems so UTF is actually the
+
+1432
+01:08:35,100 --> 01:08:39,000
+the best okay it's the best and it's the
+
+1433
+01:08:37,739 --> 01:08:43,219
+most used
+
+1434
+01:08:39,000 --> 01:08:47,279
+um on a web you know by now it's used by
+
+1435
+01:08:43,219 --> 01:08:51,239
+97 of all website utf-8 is you know so
+
+1436
+01:08:47,279 --> 01:08:53,880
+YouTube is great so utf-8 so let me go
+
+1437
+01:08:51,239 --> 01:08:57,000
+back to summarize okay
+
+1438
+01:08:53,880 --> 01:08:59,339
+so by the way you can see here's a utfa
+
+1439
+01:08:57,000 --> 01:09:02,339
+encoding scheme and it's very simple
+
+1440
+01:08:59,339 --> 01:09:03,779
+there's lots of great properties okay if
+
+1441
+01:09:02,339 --> 01:09:06,900
+you get down to
+
+1442
+01:09:03,779 --> 01:09:10,259
+uh how you exactly a character becomes
+
+1443
+01:09:06,900 --> 01:09:14,040
+you know the binary sequence
+
+1444
+01:09:10,259 --> 01:09:16,580
+now let me let me kind of summarize what
+
+1445
+01:09:14,040 --> 01:09:19,679
+we talked about before now remember
+
+1446
+01:09:16,580 --> 01:09:23,880
+encoding so what is encoding encoding is
+
+1447
+01:09:19,679 --> 01:09:27,359
+a way to transform a character into a
+
+1448
+01:09:23,880 --> 01:09:30,120
+sequence of binary numbers okay now what
+
+1449
+01:09:27,359 --> 01:09:31,859
+do you need in order to do that one is
+
+1450
+01:09:30,120 --> 01:09:32,759
+that you need to Define your character
+
+1451
+01:09:31,859 --> 01:09:35,160
+set
+
+1452
+01:09:32,759 --> 01:09:37,199
+now in case in the case of Unicode the
+
+1453
+01:09:35,160 --> 01:09:42,660
+character set is all the words languages
+
+1454
+01:09:37,199 --> 01:09:45,839
+characters okay so you know more than 32
+
+1455
+01:09:42,660 --> 01:09:48,359
+um more than 32 thousands of them so you
+
+1456
+01:09:45,839 --> 01:09:51,420
+have a character set then you need a
+
+1457
+01:09:48,359 --> 01:09:54,840
+character id the code point
+
+1458
+01:09:51,420 --> 01:09:58,440
+meaning that for each character you you
+
+1459
+01:09:54,840 --> 01:09:59,580
+give it a integer ID okay that's the
+
+1460
+01:09:58,440 --> 01:10:03,060
+code point
+
+1461
+01:09:59,580 --> 01:10:06,600
+okay we have that then the next thing
+
+1462
+01:10:03,060 --> 01:10:08,820
+you need to do is the in the the actual
+
+1463
+01:10:06,600 --> 01:10:11,280
+scheme of encoding
+
+1464
+01:10:08,820 --> 01:10:13,500
+so given a character you know the
+
+1465
+01:10:11,280 --> 01:10:16,920
+character id which is a number
+
+1466
+01:10:13,500 --> 01:10:20,400
+now now the problem is that you need to
+
+1467
+01:10:16,920 --> 01:10:22,020
+turn this number into a binary digits
+
+1468
+01:10:20,400 --> 01:10:24,600
+okay
+
+1469
+01:10:22,020 --> 01:10:26,760
+now that's easy right because every
+
+1470
+01:10:24,600 --> 01:10:29,219
+number you have a binary digit notation
+
+1471
+01:10:26,760 --> 01:10:32,000
+representation but that's
+
+1472
+01:10:29,219 --> 01:10:35,760
+but it's not just that because because
+
+1473
+01:10:32,000 --> 01:10:39,000
+computers comes with a unit of bytes you
+
+1474
+01:10:35,760 --> 01:10:41,900
+you by one by these eight bits you
+
+1475
+01:10:39,000 --> 01:10:44,580
+cannot have 10 bits you know you you you
+
+1476
+01:10:41,900 --> 01:10:48,900
+well you can but then you need padding
+
+1477
+01:10:44,580 --> 01:10:52,620
+so so encoding is turning a number into
+
+1478
+01:10:48,900 --> 01:10:56,400
+binary sequences and so far we talked
+
+1479
+01:10:52,620 --> 01:10:58,920
+about four ways to do that one is ASCII
+
+1480
+01:10:56,400 --> 01:11:00,900
+okay every character is just eight bits
+
+1481
+01:10:58,920 --> 01:11:03,780
+ASCII
+
+1482
+01:11:00,900 --> 01:11:06,179
+in fact for the SC character set you
+
+1483
+01:11:03,780 --> 01:11:08,880
+only need seven bits so what you do is
+
+1484
+01:11:06,179 --> 01:11:11,699
+you you just add extra zero in in front
+
+1485
+01:11:08,880 --> 01:11:14,159
+so you have eight bits you know one byte
+
+1486
+01:11:11,699 --> 01:11:15,840
+ASCII every character is eight bits
+
+1487
+01:11:14,159 --> 01:11:18,719
+now you have
+
+1488
+01:11:15,840 --> 01:11:21,300
+or engine or Unicode encoding today we
+
+1489
+01:11:18,719 --> 01:11:23,400
+call you SC2
+
+1490
+01:11:21,300 --> 01:11:26,580
+in that encoding
+
+1491
+01:11:23,400 --> 01:11:31,440
+it's obsolete but in in in in that
+
+1492
+01:11:26,580 --> 01:11:32,940
+encoding each character is 16 bits okay
+
+1493
+01:11:31,440 --> 01:11:36,380
+fixed
+
+1494
+01:11:32,940 --> 01:11:40,100
+now that's obsolete now so now you have
+
+1495
+01:11:36,380 --> 01:11:40,100
+utf-16 encoding
+
+1496
+01:11:41,640 --> 01:11:48,239
+you know you you have utf-16 encoding
+
+1497
+01:11:45,060 --> 01:11:51,120
+where every character is either 16 bits
+
+1498
+01:11:48,239 --> 01:11:55,140
+or 32 bits
+
+1499
+01:11:51,120 --> 01:11:57,420
+then you have the utf-8 encoding
+
+1500
+01:11:55,140 --> 01:12:03,000
+where every character is
+
+1501
+01:11:57,420 --> 01:12:04,980
+8 Bits to uh 32 bits you know one or one
+
+1502
+01:12:03,000 --> 01:12:07,860
+two four bytes okay
+
+1503
+01:12:04,980 --> 01:12:09,900
+and this is compatible with ASCII so
+
+1504
+01:12:07,860 --> 01:12:12,960
+this is the best okay I think that's it
+
+1505
+01:12:09,900 --> 01:12:17,580
+for today uh I kind of
+
+1506
+01:12:12,960 --> 01:12:19,560
+this is uh now close to 90 minutes and
+
+1507
+01:12:17,580 --> 01:12:22,280
+it's
+
+1508
+01:12:19,560 --> 01:12:25,320
+probably boring you know
+
+1509
+01:12:22,280 --> 01:12:27,960
+I was thinking to
+
+1510
+01:12:25,320 --> 01:12:30,860
+to cover them in a condensed way 30
+
+1511
+01:12:27,960 --> 01:12:30,860
+minutes but
+
+1512
+01:12:31,380 --> 01:12:36,780
+okay so but let me go on so just to
+
+1513
+01:12:34,679 --> 01:12:40,140
+finish you know
+
+1514
+01:12:36,780 --> 01:12:43,320
+so we covered Unicode now let me recap
+
+1515
+01:12:40,140 --> 01:12:46,739
+Unicode is encoding you know it's a
+
+1516
+01:12:43,320 --> 01:12:49,320
+Unicode Consortium begin in 1991.
+
+1517
+01:12:46,739 --> 01:12:51,360
+the idea is to have one single Universal
+
+1518
+01:12:49,320 --> 01:12:52,800
+encoding for other words languages
+
+1519
+01:12:51,360 --> 01:12:56,400
+characters
+
+1520
+01:12:52,800 --> 01:12:59,760
+so it begin by thinking that 32 000
+
+1521
+01:12:56,400 --> 01:13:02,580
+characters is enough so they created you
+
+1522
+01:12:59,760 --> 01:13:05,159
+know they defined a character set
+
+1523
+01:13:02,580 --> 01:13:08,100
+they defined a unique ID for each
+
+1524
+01:13:05,159 --> 01:13:11,340
+character then they defined a encoding
+
+1525
+01:13:08,100 --> 01:13:12,980
+today it's called you
+
+1526
+01:13:11,340 --> 01:13:17,159
+uh
+
+1527
+01:13:12,980 --> 01:13:19,980
+CS2 which is obsolete okay uh where
+
+1528
+01:13:17,159 --> 01:13:23,219
+every character is 16 bits but
+
+1529
+01:13:19,980 --> 01:13:25,739
+but then Unicode realized you need more
+
+1530
+01:13:23,219 --> 01:13:29,699
+than 32 000 characters you need more
+
+1531
+01:13:25,739 --> 01:13:33,540
+than 32 bits so they created utf-16
+
+1532
+01:13:29,699 --> 01:13:36,239
+encoding which became very popular but
+
+1533
+01:13:33,540 --> 01:13:39,540
+then the Unix people the Unix phonetics
+
+1534
+01:13:36,239 --> 01:13:42,540
+Rob Pike and Ken Thompson they saw the
+
+1535
+01:13:39,540 --> 01:13:44,060
+problem they think you know you know
+
+1536
+01:13:42,540 --> 01:13:47,280
+utf-8
+
+1537
+01:13:44,060 --> 01:13:49,679
+utf-16 is no good we need a you we need
+
+1538
+01:13:47,280 --> 01:13:51,300
+a ASCII compatible one they created
+
+1539
+01:13:49,679 --> 01:13:53,520
+utf-8
+
+1540
+01:13:51,300 --> 01:13:55,739
+which is variable width and it's
+
+1541
+01:13:53,520 --> 01:13:58,920
+fantastic okay
+
+1542
+01:13:55,739 --> 01:14:01,739
+and now it's Universal it's used by you
+
+1543
+01:13:58,920 --> 01:14:03,659
+know 98 of website including all Chinese
+
+1544
+01:14:01,739 --> 01:14:06,600
+you know we haven't talked about Chinese
+
+1545
+01:14:03,659 --> 01:14:07,920
+encoding here but
+
+1546
+01:14:06,600 --> 01:14:11,159
+um
+
+1547
+01:14:07,920 --> 01:14:15,120
+but there were Chinese encoding you know
+
+1548
+01:14:11,159 --> 01:14:18,060
+because in the 1980s in Taiwan they
+
+1549
+01:14:15,120 --> 01:14:20,219
+started to have computers you know they
+
+1550
+01:14:18,060 --> 01:14:23,520
+need their own encoding so
+
+1551
+01:14:20,219 --> 01:14:26,340
+Chinese encoding an introduction you
+
+1552
+01:14:23,520 --> 01:14:29,040
+have in the beginning 1984 you have G
+
+1553
+01:14:26,340 --> 01:14:32,179
+you have big five encoding for Chinese
+
+1554
+01:14:29,040 --> 01:14:35,060
+characters used in Taiwan in Hong Kong
+
+1555
+01:14:32,179 --> 01:14:38,820
+then China
+
+1556
+01:14:35,060 --> 01:14:41,900
+in 1980s decided you know they they need
+
+1557
+01:14:38,820 --> 01:14:45,239
+one too so they created GB
+
+1558
+01:14:41,900 --> 01:14:46,739
+2312. now this is actually ASCII
+
+1559
+01:14:45,239 --> 01:14:50,460
+compatible
+
+1560
+01:14:46,739 --> 01:14:53,520
+uh I don't know if pick five is ASCII
+
+1561
+01:14:50,460 --> 01:14:57,840
+compatible but anyway the China's GB
+
+1562
+01:14:53,520 --> 01:15:00,960
+something evolved into extended into gbk
+
+1563
+01:14:57,840 --> 01:15:05,580
+encoding you know kind of Backward
+
+1564
+01:15:00,960 --> 01:15:09,239
+Compatible extension then gbk extended
+
+1565
+01:15:05,580 --> 01:15:09,239
+to become gb18030
+
+1566
+01:15:09,960 --> 01:15:16,020
+again Backward Compatible and compatible
+
+1567
+01:15:12,780 --> 01:15:19,020
+with ASCII so it's required by law in
+
+1568
+01:15:16,020 --> 01:15:21,540
+China everything you do is should be
+
+1569
+01:15:19,020 --> 01:15:23,460
+support this encoding and this China
+
+1570
+01:15:21,540 --> 01:15:26,159
+encoding is actually
+
+1571
+01:15:23,460 --> 01:15:27,840
+Unicode they are compatible with Unicode
+
+1572
+01:15:26,159 --> 01:15:30,480
+it's considered
+
+1573
+01:15:27,840 --> 01:15:31,560
+Unicode transformation
+
+1574
+01:15:30,480 --> 01:15:34,860
+um
+
+1575
+01:15:31,560 --> 01:15:37,820
+format okay that's what UTF stands for
+
+1576
+01:15:34,860 --> 01:15:41,460
+you know you have utf-8
+
+1577
+01:15:37,820 --> 01:15:45,900
+utf-16 what does UTF stand for that
+
+1578
+01:15:41,460 --> 01:15:48,960
+stands for Unicode transformation format
+
+1579
+01:15:45,900 --> 01:15:51,900
+and what does Unicode stand for Unicode
+
+1580
+01:15:48,960 --> 01:15:53,900
+stands for Universal characters
+
+1581
+01:15:51,900 --> 01:15:53,900
+um
+
+1582
+01:15:55,620 --> 01:15:58,040
+code
+
+1583
+01:15:58,080 --> 01:16:03,360
+you know so so these Chinese characters
+
+1584
+01:16:00,960 --> 01:16:07,500
+said is also
+
+1585
+01:16:03,360 --> 01:16:10,280
+uh you know uh Universal
+
+1586
+01:16:07,500 --> 01:16:10,280
+transformation
+
+1587
+01:16:10,860 --> 01:16:16,560
+um format okay it's compatible with uh
+
+1588
+01:16:14,400 --> 01:16:19,980
+Unico
+
+1589
+01:16:16,560 --> 01:16:21,780
+so even in China today if you look at
+
+1590
+01:16:19,980 --> 01:16:22,760
+all the Chinese
+
+1591
+01:16:21,780 --> 01:16:26,159
+um
+
+1592
+01:16:22,760 --> 01:16:28,920
+websites for example
+
+1593
+01:16:26,159 --> 01:16:32,040
+you know I did a survey
+
+1594
+01:16:28,920 --> 01:16:33,659
+last month you know a few weeks ago you
+
+1595
+01:16:32,040 --> 01:16:35,880
+know looking at all the most popular
+
+1596
+01:16:33,659 --> 01:16:38,760
+Chinese website what do they date what
+
+1597
+01:16:35,880 --> 01:16:43,140
+do they use utf-8 okay they actually
+
+1598
+01:16:38,760 --> 01:16:46,380
+also use utfe quite interesting
+
+1599
+01:16:43,140 --> 01:16:48,719
+uh okay so that's that's about it for
+
+1600
+01:16:46,380 --> 01:16:51,000
+today now let me talk about surrogate
+
+1601
+01:16:48,719 --> 01:16:53,760
+pair okay surrogate pair
+
+1602
+01:16:51,000 --> 01:16:55,739
+so a good pair is something that came
+
+1603
+01:16:53,760 --> 01:16:59,520
+out of utf-16
+
+1604
+01:16:55,739 --> 01:17:02,699
+which is a Abomination now remember you
+
+1605
+01:16:59,520 --> 01:17:05,699
+know originally Unicode thinks that 16
+
+1606
+01:17:02,699 --> 01:17:09,780
+bits is enough but it turns out not
+
+1607
+01:17:05,699 --> 01:17:12,360
+enough so they created utf-16 where a
+
+1608
+01:17:09,780 --> 01:17:16,560
+character may be 16 bits or 32 depending
+
+1609
+01:17:12,360 --> 01:17:19,560
+on the character so when you have a
+
+1610
+01:17:16,560 --> 01:17:22,460
+character 32 bits what what do you do
+
+1611
+01:17:19,560 --> 01:17:22,460
+basically they
+
+1612
+01:17:22,580 --> 01:17:26,600
+they pick some
+
+1613
+01:17:27,179 --> 01:17:31,620
+number
+
+1614
+01:17:28,679 --> 01:17:35,100
+you know in the 16-bit space
+
+1615
+01:17:31,620 --> 01:17:37,320
+that's unused character okay and you
+
+1616
+01:17:35,100 --> 01:17:40,140
+know unassigned number I'm not a sign
+
+1617
+01:17:37,320 --> 01:17:44,159
+called point so you you know they pick
+
+1618
+01:17:40,140 --> 01:17:48,480
+something in that range then
+
+1619
+01:17:44,159 --> 01:17:51,120
+then two of those units together
+
+1620
+01:17:48,480 --> 01:17:54,000
+you know each unit is 16 bits two of
+
+1621
+01:17:51,120 --> 01:17:56,820
+those in an unused range
+
+1622
+01:17:54,000 --> 01:17:59,159
+if you have two of those they say that
+
+1623
+01:17:56,820 --> 01:18:02,340
+that stands for a character that's more
+
+1624
+01:17:59,159 --> 01:18:04,620
+than 32 bits so that's what surrogate
+
+1625
+01:18:02,340 --> 01:18:06,300
+pair is
+
+1626
+01:18:04,620 --> 01:18:08,640
+surrogate pair
+
+1627
+01:18:06,300 --> 01:18:11,040
+this is nasty Okay so we've got paper
+
+1628
+01:18:08,640 --> 01:18:13,500
+creates lots of problems so that's one
+
+1629
+01:18:11,040 --> 01:18:16,199
+of the problem that's that's why utf-16
+
+1630
+01:18:13,500 --> 01:18:18,780
+is no good utf-16 is no good because
+
+1631
+01:18:16,199 --> 01:18:21,960
+it's not ascially compatible then you
+
+1632
+01:18:18,780 --> 01:18:23,900
+have the surrogate pair kind of a hack
+
+1633
+01:18:21,960 --> 01:18:27,120
+because remember
+
+1634
+01:18:23,900 --> 01:18:30,239
+utf-16 happened because
+
+1635
+01:18:27,120 --> 01:18:32,880
+originally you know they think 16 bits
+
+1636
+01:18:30,239 --> 01:18:35,820
+is enough but then it's not
+
+1637
+01:18:32,880 --> 01:18:38,580
+so they try to extend it but in a
+
+1638
+01:18:35,820 --> 01:18:41,040
+banquet compatible way so that's why you
+
+1639
+01:18:38,580 --> 01:18:43,380
+have C you have utf-16 and you have
+
+1640
+01:18:41,040 --> 01:18:47,040
+surrogate pair
+
+1641
+01:18:43,380 --> 01:18:47,940
+okay so that's some technical Point
+
+1642
+01:18:47,040 --> 01:18:51,500
+um
+
+1643
+01:18:47,940 --> 01:18:51,500
+okay I think that's it for today
+
+1644
+01:18:51,960 --> 01:18:57,540
+in email system everyone uses the same
+
+1645
+01:18:54,480 --> 01:18:59,400
+encoding yeah well today it's all utf-8
+
+1646
+01:18:57,540 --> 01:19:02,540
+you know especially if you use Google
+
+1647
+01:18:59,400 --> 01:19:02,540
+because in email
+
+1648
+01:19:02,900 --> 01:19:09,179
+uh it's today basically you just have a
+
+1649
+01:19:06,360 --> 01:19:11,820
+few handful powerful centralized
+
+1650
+01:19:09,179 --> 01:19:13,080
+corporations that runs email because
+
+1651
+01:19:11,820 --> 01:19:17,100
+they
+
+1652
+01:19:13,080 --> 01:19:18,900
+they try to prevent you know ideally
+
+1653
+01:19:17,100 --> 01:19:22,020
+with the email protocol on internet
+
+1654
+01:19:18,900 --> 01:19:25,020
+everyone can run create an email or
+
+1655
+01:19:22,020 --> 01:19:27,900
+server but not today because all the
+
+1656
+01:19:25,020 --> 01:19:30,719
+giant they prevent you to do so in all
+
+1657
+01:19:27,900 --> 01:19:34,679
+sorts of ways so you and also because
+
+1658
+01:19:30,719 --> 01:19:37,560
+people became lazy so
+
+1659
+01:19:34,679 --> 01:19:40,320
+it's not like the 90s in the 90s
+
+1660
+01:19:37,560 --> 01:19:42,780
+everyone if you don't if you are a nerd
+
+1661
+01:19:40,320 --> 01:19:44,760
+you can you know if you run Unix or
+
+1662
+01:19:42,780 --> 01:19:49,199
+Linux you can start your own email
+
+1663
+01:19:44,760 --> 01:19:52,500
+server and but not today it's very hard
+
+1664
+01:19:49,199 --> 01:19:55,140
+so you just have Microsoft Yahoo mail
+
+1665
+01:19:52,500 --> 01:19:57,840
+Microsoft Mail or Google and in those
+
+1666
+01:19:55,140 --> 01:20:00,780
+handful they control all the email why
+
+1667
+01:19:57,840 --> 01:20:02,760
+why because they can so they can look at
+
+1668
+01:20:00,780 --> 01:20:05,280
+your email content
+
+1669
+01:20:02,760 --> 01:20:07,620
+with the collaboration of USA government
+
+1670
+01:20:05,280 --> 01:20:10,920
+and other big
+
+1671
+01:20:07,620 --> 01:20:12,960
+um governments such as China you know
+
+1672
+01:20:10,920 --> 01:20:16,140
+they prevent you from creating your
+
+1673
+01:20:12,960 --> 01:20:18,739
+email but so yeah so in email mostly
+
+1674
+01:20:16,140 --> 01:20:18,739
+it's a
+
+1675
+01:20:18,840 --> 01:20:23,400
+I don't know the details but you can
+
+1676
+01:20:21,000 --> 01:20:25,980
+look up the you know the email protocols
+
+1677
+01:20:23,400 --> 01:20:27,120
+have changed over the past 20 years
+
+1678
+01:20:25,980 --> 01:20:29,699
+um
+
+1679
+01:20:27,120 --> 01:20:33,800
+but I'm pretty sure if you use Google
+
+1680
+01:20:29,699 --> 01:20:33,800
+mail for example it's all utf-8
+
+1681
+01:20:36,960 --> 01:20:42,000
+okay there's a question about uh the
+
+1682
+01:20:39,719 --> 01:20:44,460
+exposed compared to comparable to
+
+1683
+01:20:42,000 --> 01:20:47,159
+Kinesis I'm not going to explain that I
+
+1684
+01:20:44,460 --> 01:20:48,960
+you know watch my other videos
+
+1685
+01:20:47,159 --> 01:20:50,820
+um
+
+1686
+01:20:48,960 --> 01:20:53,520
+okay that's it
+
+1687
+01:20:50,820 --> 01:20:54,480
+bye guys if you like my stuff donate
+
+1688
+01:20:53,520 --> 01:20:58,159
+okay
+
+1689
+01:20:54,480 --> 01:20:58,159
+PayPal patreon me
+
+1690
+01:21:00,480 --> 01:21:08,219
+uh go to my website saudi.info and all
+
+1691
+01:21:04,679 --> 01:21:11,820
+the way down you can see patreon or buy
+
+1692
+01:21:08,219 --> 01:21:14,880
+me an Amazon gift card or PayPal me or
+
+1693
+01:21:11,820 --> 01:21:17,820
+you can also Bitcoin me
+
+1694
+01:21:14,880 --> 01:21:21,199
+and you can get my entire website
+
+1695
+01:21:17,820 --> 01:21:25,199
+content if you give a big gift of 300
+
+1696
+01:21:21,199 --> 01:21:27,780
+I'll send you this is like one gigabyte
+
+1697
+01:21:25,199 --> 01:21:31,860
+also the content and information okay
+
+1698
+01:21:27,780 --> 01:21:32,760
+you can also buy my emacs tutorial you
+
+1699
+01:21:31,860 --> 01:21:36,179
+know
+
+1700
+01:21:32,760 --> 01:21:39,120
+my you know emacs tutorial my JavaScript
+
+1701
+01:21:36,179 --> 01:21:42,060
+tutorial in the independent you know I
+
+1702
+01:21:39,120 --> 01:21:43,560
+have like 800 pages of JavaScript in
+
+1703
+01:21:42,060 --> 01:21:44,640
+depth
+
+1704
+01:21:43,560 --> 01:21:49,340
+okay
+
+1705
+01:21:44,640 --> 01:21:49,340
+if you like my stuff support me
+
+1706
+01:21:57,420 --> 01:22:03,360
+uh there's a question about
+
+1707
+01:22:00,179 --> 01:22:06,060
+deleting emails to deleted emails
+
+1708
+01:22:03,360 --> 01:22:09,120
+actually leave a server that is the best
+
+1709
+01:22:06,060 --> 01:22:11,760
+way to do this basically there's no way
+
+1710
+01:22:09,120 --> 01:22:12,780
+to delete emails okay that's a New
+
+1711
+01:22:11,760 --> 01:22:14,880
+Concept
+
+1712
+01:22:12,780 --> 01:22:17,100
+the deleting email is a New Concept
+
+1713
+01:22:14,880 --> 01:22:19,140
+maybe from Google Gmail someone you know
+
+1714
+01:22:17,100 --> 01:22:21,239
+they added the feature but
+
+1715
+01:22:19,140 --> 01:22:23,219
+as far as I know the email protocol
+
+1716
+01:22:21,239 --> 01:22:26,219
+there's no way to do it once the email
+
+1717
+01:22:23,219 --> 01:22:29,219
+is sent it's sent you cannot delete it
+
+1718
+01:22:26,219 --> 01:22:32,460
+okay so I don't know I don't actually
+
+1719
+01:22:29,219 --> 01:22:34,820
+know exactly what Google Gmail do when
+
+1720
+01:22:32,460 --> 01:22:37,620
+they offer you a deleted email but
+
+1721
+01:22:34,820 --> 01:22:40,080
+basically that's impossible so don't
+
+1722
+01:22:37,620 --> 01:22:42,800
+think about it and you know Google might
+
+1723
+01:22:40,080 --> 01:22:42,800
+have like
+
+1724
+01:22:42,840 --> 01:22:48,000
+yeah I don't think it's possible once
+
+1725
+01:22:44,760 --> 01:22:50,780
+email is gone it's it's out okay
+
+1726
+01:22:48,000 --> 01:22:50,780
+hi guys
+

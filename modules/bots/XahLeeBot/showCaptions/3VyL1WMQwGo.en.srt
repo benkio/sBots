@@ -1,0 +1,5316 @@
+1
+00:00:00,719 --> 00:00:07,839
+hello good morning everyone welcome to
+
+2
+00:00:04,319 --> 00:00:13,320
+another episode of M talk show today we
+
+3
+00:00:07,839 --> 00:00:13,320
+are going to Cod emac lisp and wol F
+
+4
+00:00:13,879 --> 00:00:20,119
+language let me introduce my keyboards
+
+5
+00:00:17,160 --> 00:00:23,439
+this is glove 80 fantastic keyboard
+
+6
+00:00:20,119 --> 00:00:26,840
+glove 80 the most economic this is
+
+7
+00:00:23,439 --> 00:00:30,240
+Ultimate hacking keyboard my War Horse
+
+8
+00:00:26,840 --> 00:00:32,599
+Marco keypad fantastic both of them are
+
+9
+00:00:30,240 --> 00:00:33,440
+highest quality in different ways in
+
+10
+00:00:32,599 --> 00:00:36,280
+different
+
+11
+00:00:33,440 --> 00:00:38,520
+ways you know they they put a lot effort
+
+12
+00:00:36,280 --> 00:00:42,280
+I can you know I can tell you see
+
+13
+00:00:38,520 --> 00:00:44,640
+because I'm into design and elegance so
+
+14
+00:00:42,280 --> 00:00:48,280
+when I see a great quality product I
+
+15
+00:00:44,640 --> 00:00:51,160
+know and this is new track B 501 I
+
+16
+00:00:48,280 --> 00:00:53,920
+believe this is a popular Logitech
+
+17
+00:00:51,160 --> 00:00:59,760
+Gamers Mouse
+
+18
+00:00:53,920 --> 00:01:03,760
+5605 or something and again this is this
+
+19
+00:00:59,760 --> 00:01:06,360
+is is swb data hand this is the most
+
+20
+00:01:03,760 --> 00:01:09,159
+fancy ergonomic keyboard This is the
+
+21
+00:01:06,360 --> 00:01:12,439
+input device the most fancy one I will
+
+22
+00:01:09,159 --> 00:01:15,439
+be using it so not yet sorry about that
+
+23
+00:01:12,439 --> 00:01:17,799
+SV a l b o a r d okay so you can search
+
+24
+00:01:15,439 --> 00:01:19,960
+for it you you'll find my reviews and
+
+25
+00:01:17,799 --> 00:01:24,640
+other people's and the website you know
+
+26
+00:01:19,960 --> 00:01:29,040
+so you got one two three four five five
+
+27
+00:01:24,640 --> 00:01:32,240
+activation per finger and uh uh six you
+
+28
+00:01:29,040 --> 00:01:35,079
+know uh anyway six for the thumb so
+
+29
+00:01:32,240 --> 00:01:37,880
+that's fantastic so let's begin to the
+
+30
+00:01:35,079 --> 00:01:40,640
+coding part if you are here say hi if
+
+31
+00:01:37,880 --> 00:01:45,439
+you are not here skip around feel free
+
+32
+00:01:40,640 --> 00:01:46,320
+to uh skip around and play at speed 1.5
+
+33
+00:01:45,439 --> 00:01:49,840
+or
+
+34
+00:01:46,320 --> 00:01:54,280
+something okay so today we are going to
+
+35
+00:01:49,840 --> 00:01:56,159
+code uh wolam language wolam I mean the
+
+36
+00:01:54,280 --> 00:01:58,840
+how many people do I have seven
+
+37
+00:01:56,159 --> 00:02:02,680
+fantastic say hi guys so we're going to
+
+38
+00:01:58,840 --> 00:02:05,479
+code emac this and wam language so let
+
+39
+00:02:02,680 --> 00:02:10,200
+me show you hello then so let's uh let's
+
+40
+00:02:05,479 --> 00:02:15,200
+go to too let's go to talk show let's
+
+41
+00:02:10,200 --> 00:02:18,680
+begin coding so yesterday we did uh
+
+42
+00:02:15,200 --> 00:02:21,080
+coding we did uh emac this coding so
+
+43
+00:02:18,680 --> 00:02:24,400
+that's yesterday or the day before
+
+44
+00:02:21,080 --> 00:02:28,560
+so but now but yesterday so we are meant
+
+45
+00:02:24,400 --> 00:02:30,160
+to do this W from evalent line so that's
+
+46
+00:02:28,560 --> 00:02:33,560
+a
+
+47
+00:02:30,160 --> 00:02:37,120
+that's for running wolam language in
+
+48
+00:02:33,560 --> 00:02:40,680
+emac using the wolam mod it's free
+
+49
+00:02:37,120 --> 00:02:43,800
+online okay so but there is something I
+
+50
+00:02:40,680 --> 00:02:48,000
+need to make an enhancement so cut that
+
+51
+00:02:43,800 --> 00:02:52,159
+save it close that close that go to show
+
+52
+00:02:48,000 --> 00:02:55,879
+today's talk show back to emac paste it
+
+53
+00:02:52,159 --> 00:02:58,800
+show there it is okay then back here
+
+54
+00:02:55,879 --> 00:03:00,879
+delete the section delete the date show
+
+55
+00:02:58,800 --> 00:03:04,799
+okay that's what we going to code and I
+
+56
+00:03:00,879 --> 00:03:07,280
+have severe RSI repetitive strain injury
+
+57
+00:03:04,799 --> 00:03:10,120
+like right here it's permanent I've been
+
+58
+00:03:07,280 --> 00:03:13,280
+typing so much again in the past two
+
+59
+00:03:10,120 --> 00:03:17,319
+weeks so it's flaring
+
+60
+00:03:13,280 --> 00:03:20,040
+up H right here so it's permanent
+
+61
+00:03:17,319 --> 00:03:22,560
+damage right now it's it's kind of
+
+62
+00:03:20,040 --> 00:03:25,760
+painful you know not you know it's kind
+
+63
+00:03:22,560 --> 00:03:28,480
+of like burning sensation because typing
+
+64
+00:03:25,760 --> 00:03:32,040
+and typing despite all the ergonomic
+
+65
+00:03:28,480 --> 00:03:36,879
+setup so we're going to call this hello
+
+66
+00:03:32,040 --> 00:03:40,239
+a bunch of people D Rudolph Yu
+
+67
+00:03:36,879 --> 00:03:42,720
+y where can I purchase the kar emac Le
+
+68
+00:03:40,239 --> 00:03:47,159
+major mod that's easy so let me talk
+
+69
+00:03:42,720 --> 00:03:48,840
+about that just search for Kar Le
+
+70
+00:03:47,159 --> 00:03:52,760
+packages
+
+71
+00:03:48,840 --> 00:03:55,720
+okay you'll find emac Wiki kasali know
+
+72
+00:03:52,760 --> 00:03:58,720
+that I haven't used for like 10 years
+
+73
+00:03:55,720 --> 00:04:01,000
+emx Wiki the live Journal I haven't used
+
+74
+00:03:58,720 --> 00:04:03,720
+that for 20 years live
+
+75
+00:04:01,000 --> 00:04:08,000
+Journal uh you just just just search for
+
+76
+00:04:03,720 --> 00:04:11,040
+Kali emx okay Kali emac okay so there it
+
+77
+00:04:08,000 --> 00:04:14,879
+is emac tutorial you go to the homepage
+
+78
+00:04:11,040 --> 00:04:18,040
+c emac tutorial then you have a section
+
+79
+00:04:14,879 --> 00:04:21,720
+on emx packages can you see it oh you
+
+80
+00:04:18,040 --> 00:04:25,160
+cannot see it oh you can fantastic so
+
+81
+00:04:21,720 --> 00:04:28,240
+emac packages so this is all my packages
+
+82
+00:04:25,160 --> 00:04:32,160
+and which one you want you want the emac
+
+83
+00:04:28,240 --> 00:04:34,520
+list major mod so there it is you know
+
+84
+00:04:32,160 --> 00:04:37,160
+this is what I use every day when I code
+
+85
+00:04:34,520 --> 00:04:41,360
+emac this so let's begin for example
+
+86
+00:04:37,160 --> 00:04:44,360
+emac this start default defund fantastic
+
+87
+00:04:41,360 --> 00:04:47,160
+now we got a template now switch back we
+
+88
+00:04:44,360 --> 00:04:49,000
+want code this function name actually
+
+89
+00:04:47,160 --> 00:04:52,039
+there's already a package so we don't
+
+90
+00:04:49,000 --> 00:04:55,120
+need to we don't need to Define new so
+
+91
+00:04:52,039 --> 00:04:58,280
+anyway so here is a emag this mod it
+
+92
+00:04:55,120 --> 00:05:02,880
+used to be free for like 10 years nobody
+
+93
+00:04:58,280 --> 00:05:05,120
+pays and I they are become abused Tex
+
+94
+00:05:02,880 --> 00:05:07,160
+support everyone people is gonna you
+
+95
+00:05:05,120 --> 00:05:09,600
+spend one hour to ask questions and
+
+96
+00:05:07,160 --> 00:05:11,080
+people give don't give a [ __ ] about you
+
+97
+00:05:09,600 --> 00:05:13,360
+they just ask question how do you do
+
+98
+00:05:11,080 --> 00:05:15,080
+that well they say sometimes thank you
+
+99
+00:05:13,360 --> 00:05:17,199
+thank you so much for this but how do
+
+100
+00:05:15,080 --> 00:05:20,199
+you do this I need to do this this this
+
+101
+00:05:17,199 --> 00:05:23,319
+you know every day you get emails or or
+
+102
+00:05:20,199 --> 00:05:26,280
+or on Reddit or or I used to have common
+
+103
+00:05:23,319 --> 00:05:29,120
+system on my website so you know you
+
+104
+00:05:26,280 --> 00:05:31,440
+spend one hour answering that and then
+
+105
+00:05:29,120 --> 00:05:34,919
+then somebody else they'll say oh SAS
+
+106
+00:05:31,440 --> 00:05:36,600
+emac L mod is [ __ ] because it doesn't
+
+107
+00:05:34,919 --> 00:05:39,080
+you know he doesn't know how to code you
+
+108
+00:05:36,600 --> 00:05:41,080
+know you get into this this is the open
+
+109
+00:05:39,080 --> 00:05:44,880
+source Community okay this is the open
+
+110
+00:05:41,080 --> 00:05:46,400
+source scum it became it's basically
+
+111
+00:05:44,880 --> 00:05:50,240
+communism
+
+112
+00:05:46,400 --> 00:05:52,120
+derived uh thought okay anyway so that
+
+113
+00:05:50,240 --> 00:05:54,800
+is if you want like you know if you like
+
+114
+00:05:52,120 --> 00:05:57,960
+my stuff pay for it I give you to you
+
+115
+00:05:54,800 --> 00:06:00,360
+free of course it's open source so uh
+
+116
+00:05:57,960 --> 00:06:02,199
+which is let me show you
+
+117
+00:06:00,360 --> 00:06:07,400
+so
+
+118
+00:06:02,199 --> 00:06:10,840
+describe key uh press press press so
+
+119
+00:06:07,400 --> 00:06:14,199
+there it isar emac thism jump to the
+
+120
+00:06:10,840 --> 00:06:17,520
+source code there is a source code 3,000
+
+121
+00:06:14,199 --> 00:06:21,120
+lines of code go to the beginning and
+
+122
+00:06:17,520 --> 00:06:22,360
+here's a URL open it showing browser so
+
+123
+00:06:21,120 --> 00:06:25,880
+there it
+
+124
+00:06:22,360 --> 00:06:28,000
+is okay it was free for like 10 years
+
+125
+00:06:25,880 --> 00:06:29,759
+you can probably find you know sometimes
+
+126
+00:06:28,000 --> 00:06:31,840
+people
+
+127
+00:06:29,759 --> 00:06:34,280
+copy because it's open source so open
+
+128
+00:06:31,840 --> 00:06:37,479
+source anyone can copy you can copy so
+
+129
+00:06:34,280 --> 00:06:41,080
+some sometimes you may still find my old
+
+130
+00:06:37,479 --> 00:06:43,639
+versions uh out there anyway that's that
+
+131
+00:06:41,080 --> 00:06:46,520
+thank you for asking that so this we
+
+132
+00:06:43,639 --> 00:06:48,160
+don't need because I'm going to let's
+
+133
+00:06:46,520 --> 00:06:53,080
+show you let's talk about what we're
+
+134
+00:06:48,160 --> 00:06:57,360
+going to do so s mod so let's go to
+
+135
+00:06:53,080 --> 00:07:02,919
+it uh mod so
+
+136
+00:06:57,360 --> 00:07:05,080
+describe key then the key to launcha W
+
+137
+00:07:02,919 --> 00:07:08,840
+mod is space
+
+138
+00:07:05,080 --> 00:07:12,680
+NW there it is wam mod go to the source
+
+139
+00:07:08,840 --> 00:07:15,120
+code open it there it is 3,000 lines of
+
+140
+00:07:12,680 --> 00:07:19,560
+code and
+
+141
+00:07:15,120 --> 00:07:23,560
+uh and uh um and go to the URL showing
+
+142
+00:07:19,560 --> 00:07:25,800
+browser so this is San mod you can
+
+143
+00:07:23,560 --> 00:07:29,080
+download it free you don't have to pay
+
+144
+00:07:25,800 --> 00:07:30,479
+because thank you thanks to wam research
+
+145
+00:07:29,080 --> 00:07:34,160
+sponsor
+
+146
+00:07:30,479 --> 00:07:37,520
+ship they are donating me okay so you
+
+147
+00:07:34,160 --> 00:07:40,160
+can get it free and W I'm research
+
+148
+00:07:37,520 --> 00:07:43,160
+that's a person stepen wolfan most
+
+149
+00:07:40,160 --> 00:07:46,039
+famous physicist you know big idea
+
+150
+00:07:43,160 --> 00:07:48,560
+scientist About Cellular automata about
+
+151
+00:07:46,039 --> 00:07:52,440
+artificial intelligence I read him all
+
+152
+00:07:48,560 --> 00:07:57,080
+the time I study that guy for like 20 25
+
+153
+00:07:52,440 --> 00:08:00,000
+30 years by now so I read a lot of his
+
+154
+00:07:57,080 --> 00:08:02,240
+writings you know on on technology on
+
+155
+00:08:00,000 --> 00:08:05,800
+Computing on Cellular automata in
+
+156
+00:08:02,240 --> 00:08:08,240
+particular that's his his thing uh and
+
+157
+00:08:05,800 --> 00:08:11,960
+on math proof systems and so on so you
+
+158
+00:08:08,240 --> 00:08:17,120
+know just search for stepen wolfen
+
+159
+00:08:11,960 --> 00:08:20,879
+or uh math blog because I often uh read
+
+160
+00:08:17,120 --> 00:08:23,960
+his stuff and I often uh reference I
+
+161
+00:08:20,879 --> 00:08:27,919
+mean talk about some of his ideas so for
+
+162
+00:08:23,960 --> 00:08:29,960
+example his latest article is uh let me
+
+163
+00:08:27,919 --> 00:08:31,919
+show you so this is interesting since
+
+164
+00:08:29,960 --> 00:08:33,839
+today's topic is basically wolam
+
+165
+00:08:31,919 --> 00:08:38,279
+language and you know coding wam
+
+166
+00:08:33,839 --> 00:08:40,120
+language stuff I mean the wam mod so
+
+167
+00:08:38,279 --> 00:08:42,479
+this is the latest article of stepan
+
+168
+00:08:40,120 --> 00:08:46,040
+WFAN what is really going on in machine
+
+169
+00:08:42,479 --> 00:08:48,279
+learning some minimal models so you see
+
+170
+00:08:46,040 --> 00:08:51,440
+if you don't know already I talked about
+
+171
+00:08:48,279 --> 00:08:54,399
+machine learning quite artificial
+
+172
+00:08:51,440 --> 00:08:57,399
+intelligence intelligence quite often
+
+173
+00:08:54,399 --> 00:09:02,440
+however I'm not expert in this area moo
+
+174
+00:08:57,399 --> 00:09:04,920
+is Moo is the guy in our in our discore
+
+175
+00:09:02,440 --> 00:09:08,360
+join it if you have not already on you
+
+176
+00:09:04,920 --> 00:09:12,279
+can find the address on kinfo my
+
+177
+00:09:08,360 --> 00:09:15,480
+homepage so I learned a lot from moo and
+
+178
+00:09:12,279 --> 00:09:18,440
+so since this year or since last year I
+
+179
+00:09:15,480 --> 00:09:20,720
+started to study basically For the First
+
+180
+00:09:18,440 --> 00:09:23,040
+Time Machine learning because of chat
+
+181
+00:09:20,720 --> 00:09:25,560
+GPT you know all of a sudden chat GPT
+
+182
+00:09:23,040 --> 00:09:28,120
+can write the poem never
+
+183
+00:09:25,560 --> 00:09:29,680
+before you know that that is the first
+
+184
+00:09:28,120 --> 00:09:32,320
+you know like the other icial
+
+185
+00:09:29,680 --> 00:09:36,360
+intelligence history comes
+
+186
+00:09:32,320 --> 00:09:39,680
+in several giant progresses like 30
+
+187
+00:09:36,360 --> 00:09:42,800
+years ago for the first time the machine
+
+188
+00:09:39,680 --> 00:09:46,200
+beats human in chess you know the the
+
+189
+00:09:42,800 --> 00:09:49,440
+the chess champion um lost to machine
+
+190
+00:09:46,200 --> 00:09:51,200
+IBM deep blue I was very interested
+
+191
+00:09:49,440 --> 00:09:54,240
+because you know at that time I was
+
+192
+00:09:51,200 --> 00:09:56,880
+watching the game live I believe that's
+
+193
+00:09:54,240 --> 00:10:00,040
+1999 you know I have articles on it I
+
+194
+00:09:56,880 --> 00:10:03,519
+have lots of blogs on it just go to
+
+195
+00:10:00,040 --> 00:10:06,560
+a.info and search you'll find my article
+
+196
+00:10:03,519 --> 00:10:08,680
+search so IBM deep blue beats the world
+
+197
+00:10:06,560 --> 00:10:11,000
+chess champion that's one thing then
+
+198
+00:10:08,680 --> 00:10:16,920
+later on you know a few years ago five
+
+199
+00:10:11,000 --> 00:10:19,040
+years ago Google ala go beats uh human
+
+200
+00:10:16,920 --> 00:10:22,160
+go champion in China you know the F
+
+201
+00:10:19,040 --> 00:10:25,560
+first one is in Japan then the the the
+
+202
+00:10:22,160 --> 00:10:29,519
+the other Champion um ranked number one
+
+203
+00:10:25,560 --> 00:10:32,839
+at the time in China uh
+
+204
+00:10:29,519 --> 00:10:36,360
+uh so okay let's go slowly let's
+
+205
+00:10:32,839 --> 00:10:39,680
+just uh talk about these things
+
+206
+00:10:36,360 --> 00:10:42,360
+art F show because you know I enjoy
+
+207
+00:10:39,680 --> 00:10:45,240
+talking about it uh let's talk about it
+
+208
+00:10:42,360 --> 00:10:49,320
+slowly so I have
+
+209
+00:10:45,240 --> 00:10:53,120
+a artificial intelligence index so this
+
+210
+00:10:49,320 --> 00:10:55,839
+is collection of my articles on AI so
+
+211
+00:10:53,120 --> 00:10:58,279
+there is Stephan wolam on chat GPT he
+
+212
+00:10:55,839 --> 00:11:01,200
+dive into detail about chat GPT how it
+
+213
+00:10:58,279 --> 00:11:03,720
+works so anyway so let me finish this
+
+214
+00:11:01,200 --> 00:11:06,200
+part this story The the latest blog so
+
+215
+00:11:03,720 --> 00:11:08,320
+machine learning as you know
+
+216
+00:11:06,200 --> 00:11:10,279
+it's you know one part of machine
+
+217
+00:11:08,320 --> 00:11:12,760
+learning is Neuron
+
+218
+00:11:10,279 --> 00:11:16,320
+networks one of the technique for
+
+219
+00:11:12,760 --> 00:11:19,639
+machine learning so step wolf his
+
+220
+00:11:16,320 --> 00:11:23,839
+article usually explore things in a
+
+221
+00:11:19,639 --> 00:11:26,079
+systematic way and usually he explain
+
+222
+00:11:23,839 --> 00:11:28,240
+them in a way you can understand you
+
+223
+00:11:26,079 --> 00:11:30,399
+don't need to be a machine learning
+
+224
+00:11:28,240 --> 00:11:33,320
+expert you don't need to know neural
+
+225
+00:11:30,399 --> 00:11:36,240
+network Jons okay but however you need
+
+226
+00:11:33,320 --> 00:11:38,560
+you need to be intelligence okay you you
+
+227
+00:11:36,240 --> 00:11:40,800
+you cannot be a dummy like a idiot like
+
+228
+00:11:38,560 --> 00:11:43,279
+the today's Zoomers idiots they don't
+
+229
+00:11:40,800 --> 00:11:46,120
+know nothing today's Zoomers the
+
+230
+00:11:43,279 --> 00:11:47,959
+YouTubers you know the python coders
+
+231
+00:11:46,120 --> 00:11:51,639
+blah blah blah you know the bunch of
+
+232
+00:11:47,959 --> 00:11:53,880
+idiots so you have to be intellectual
+
+233
+00:11:51,639 --> 00:11:55,959
+you know you have the interest you you
+
+234
+00:11:53,880 --> 00:11:57,519
+are you know you know this calculus you
+
+235
+00:11:55,959 --> 00:11:59,880
+know this linear algebra you are
+
+236
+00:11:57,519 --> 00:12:04,000
+interested computer graphics not just
+
+237
+00:11:59,880 --> 00:12:06,000
+like C and C++ idiots they just bit DS
+
+238
+00:12:04,000 --> 00:12:08,320
+they don't know anything about math and
+
+239
+00:12:06,000 --> 00:12:11,240
+they just they are into the computer
+
+240
+00:12:08,320 --> 00:12:12,600
+graphics card Nvidia you know those kind
+
+241
+00:12:11,240 --> 00:12:17,079
+type of thing they don't know nothing
+
+242
+00:12:12,600 --> 00:12:19,880
+about differential geometry or or or or
+
+243
+00:12:17,079 --> 00:12:21,959
+any geometry at all so you you you have
+
+244
+00:12:19,880 --> 00:12:24,440
+to be have a general interest in all
+
+245
+00:12:21,959 --> 00:12:28,120
+kind of things so back to the stepen
+
+246
+00:12:24,440 --> 00:12:31,240
+wolam so he when you his article is
+
+247
+00:12:28,120 --> 00:12:34,399
+usually in the style that you can
+
+248
+00:12:31,240 --> 00:12:37,760
+understand okay and he
+
+249
+00:12:34,399 --> 00:12:41,040
+explore usually Sciences Science and
+
+250
+00:12:37,760 --> 00:12:44,560
+Mathematics uh you know Sciences um in a
+
+251
+00:12:41,040 --> 00:12:46,399
+fundamental way and systematically so
+
+252
+00:12:44,560 --> 00:12:48,199
+one you know so one of the thing
+
+253
+00:12:46,399 --> 00:12:51,480
+interesting in this article in
+
+254
+00:12:48,199 --> 00:12:56,519
+particular is that he explores the
+
+255
+00:12:51,480 --> 00:12:59,320
+neuron network using uh different um
+
+256
+00:12:56,519 --> 00:13:03,360
+different neuronet architecture so
+
+257
+00:12:59,320 --> 00:13:06,240
+example here you have a mesh neuron so
+
+258
+00:13:03,360 --> 00:13:08,920
+traditionally neuron Network looks like
+
+259
+00:13:06,240 --> 00:13:11,519
+that you neural network is basically a
+
+260
+00:13:08,920 --> 00:13:14,680
+graph okay so traditionally it looks
+
+261
+00:13:11,519 --> 00:13:17,120
+like that so he explores you know and
+
+262
+00:13:14,680 --> 00:13:20,920
+and his blog is full of visualization
+
+263
+00:13:17,120 --> 00:13:23,560
+you know using wam language which is you
+
+264
+00:13:20,920 --> 00:13:26,720
+know I I I I demonstrate a
+
+265
+00:13:23,560 --> 00:13:29,199
+lot so wam language you know neural
+
+266
+00:13:26,720 --> 00:13:32,920
+network network that's a traditional one
+
+267
+00:13:29,199 --> 00:13:35,440
+but what happens if you so what what if
+
+268
+00:13:32,920 --> 00:13:38,880
+you change the graph of the neural
+
+269
+00:13:35,440 --> 00:13:41,440
+network how does it affect the result so
+
+270
+00:13:38,880 --> 00:13:45,639
+he's using here
+
+271
+00:13:41,440 --> 00:13:47,959
+experimental using a mesh Network so
+
+272
+00:13:45,639 --> 00:13:50,880
+it's you know it's looks like a
+
+273
+00:13:47,959 --> 00:13:55,040
+two-dimensional you know just a like a
+
+274
+00:13:50,880 --> 00:13:57,480
+rectangular grid so if you use a neural
+
+275
+00:13:55,040 --> 00:13:59,199
+network techniques with this mesh
+
+276
+00:13:57,480 --> 00:14:01,880
+architecture
+
+277
+00:13:59,199 --> 00:14:04,880
+how does it affect the result you know
+
+278
+00:14:01,880 --> 00:14:07,120
+so you can read his article so but so in
+
+279
+00:14:04,880 --> 00:14:09,040
+gen so basically in this article he's
+
+280
+00:14:07,120 --> 00:14:14,240
+trying to
+
+281
+00:14:09,040 --> 00:14:16,399
+find he's trying to find is there can we
+
+282
+00:14:14,240 --> 00:14:19,240
+actually explain neural
+
+283
+00:14:16,399 --> 00:14:22,639
+networks in some kind of mathematical
+
+284
+00:14:19,240 --> 00:14:25,680
+way so that we can understand how why it
+
+285
+00:14:22,639 --> 00:14:28,040
+works you see one of the big puzzle one
+
+286
+00:14:25,680 --> 00:14:30,920
+of the big issue about neural network is
+
+287
+00:14:28,040 --> 00:14:32,360
+that you never know how it works never
+
+288
+00:14:30,920 --> 00:14:34,920
+that's why you know so I have this
+
+289
+00:14:32,360 --> 00:14:37,839
+article artificial neural networks is
+
+290
+00:14:34,920 --> 00:14:41,399
+nasty you know it can play chess it can
+
+291
+00:14:37,839 --> 00:14:43,959
+play go it can beat humans it can draw
+
+292
+00:14:41,399 --> 00:14:45,399
+amazing kind of drawings let me show you
+
+293
+00:14:43,959 --> 00:14:48,440
+like today uh
+
+294
+00:14:45,399 --> 00:14:52,079
+yesterday last week G version two came
+
+295
+00:14:48,440 --> 00:14:53,680
+out and it can draw uh girls let me do a
+
+296
+00:14:52,079 --> 00:14:57,920
+real time demo
+
+297
+00:14:53,680 --> 00:14:59,759
+okay so but but I posted already uh last
+
+298
+00:14:57,920 --> 00:15:02,880
+week
+
+299
+00:14:59,759 --> 00:15:04,800
+go down go down go down go down go down
+
+300
+00:15:02,880 --> 00:15:08,600
+go down go down go down lots of
+
+301
+00:15:04,800 --> 00:15:11,959
+interesting things to talk about uh and
+
+302
+00:15:08,600 --> 00:15:15,839
+go down go down okay so it must be last
+
+303
+00:15:11,959 --> 00:15:21,079
+week uh oh there it is okay so the first
+
+304
+00:15:15,839 --> 00:15:24,279
+one the first one I drew is I asked G to
+
+305
+00:15:21,079 --> 00:15:27,240
+draw a beautiful Chinese girl okay so
+
+306
+00:15:24,279 --> 00:15:31,680
+let me show you there it
+
+307
+00:15:27,240 --> 00:15:35,360
+is draw a Chinese girl and there it is
+
+308
+00:15:31,680 --> 00:15:38,240
+is it amazing let's magnify you see
+
+309
+00:15:35,360 --> 00:15:41,440
+machine a machine a brainless brainless
+
+310
+00:15:38,240 --> 00:15:44,040
+machine it just drew this it can draw
+
+311
+00:15:41,440 --> 00:15:46,519
+that you know 1,000 per second 1,000 of
+
+312
+00:15:44,040 --> 00:15:51,000
+them per second you know give me a hot
+
+313
+00:15:46,519 --> 00:15:53,199
+Chinese girl there it is amazing and I
+
+314
+00:15:51,000 --> 00:15:57,560
+asked it to draw
+
+315
+00:15:53,199 --> 00:16:01,040
+Kali uh let's go back uh and because you
+
+316
+00:15:57,560 --> 00:16:03,120
+know sometimes the the chat gbt for
+
+317
+00:16:01,040 --> 00:16:05,040
+example they know me because my website
+
+318
+00:16:03,120 --> 00:16:10,040
+has been online for a long so they
+
+319
+00:16:05,040 --> 00:16:13,480
+grabbed all my uh content so you can
+
+320
+00:16:10,040 --> 00:16:17,079
+see uh one of my article you know s site
+
+321
+00:16:13,480 --> 00:16:19,600
+in Google C4 database for artificial
+
+322
+00:16:17,079 --> 00:16:22,560
+intelligence training they grabbed my
+
+323
+00:16:19,600 --> 00:16:25,120
+whole website I'm going to sue them for
+
+324
+00:16:22,560 --> 00:16:27,920
+intellectual infringement for copyright
+
+325
+00:16:25,120 --> 00:16:30,560
+infringement [ __ ] this these people but
+
+326
+00:16:27,920 --> 00:16:33,079
+I'm powerless you know so all these
+
+327
+00:16:30,560 --> 00:16:35,839
+companies each one are suing each other
+
+328
+00:16:33,079 --> 00:16:38,639
+you know Reddit is suing Google suing CH
+
+329
+00:16:35,839 --> 00:16:41,399
+chat gbd because you grabbed our data
+
+330
+00:16:38,639 --> 00:16:43,959
+without paying you have to pay but they
+
+331
+00:16:41,399 --> 00:16:47,279
+also grabbed my [ __ ] this Google [ __ ]
+
+332
+00:16:43,959 --> 00:16:51,000
+this establishment this Academia
+
+333
+00:16:47,279 --> 00:16:52,399
+Fox so how can I Su them I I I cannot I
+
+334
+00:16:51,000 --> 00:16:54,560
+don't have power I don't have money I
+
+335
+00:16:52,399 --> 00:16:59,560
+don't know who to talk
+
+336
+00:16:54,560 --> 00:17:01,880
+to so anyway so well digression okay so
+
+337
+00:16:59,560 --> 00:17:04,839
+U we were talking about so one thing we
+
+338
+00:17:01,880 --> 00:17:08,520
+we digress so many levels
+
+339
+00:17:04,839 --> 00:17:11,319
+okay so so this Chinese girl and some of
+
+340
+00:17:08,520 --> 00:17:14,919
+some of the uh AI Bots know me so I
+
+341
+00:17:11,319 --> 00:17:17,600
+asked gr to draw Kali and here's a
+
+342
+00:17:14,919 --> 00:17:20,240
+result beautiful Chinese girl I mean
+
+343
+00:17:17,600 --> 00:17:24,079
+this is beautiful picture
+
+344
+00:17:20,240 --> 00:17:30,160
+okay uh and you know then someone asked
+
+345
+00:17:24,079 --> 00:17:30,160
+you know can can chbt actually draw NS
+
+346
+00:17:30,240 --> 00:17:38,440
+FS you know not safe for work
+
+347
+00:17:34,200 --> 00:17:40,480
+stuff uh someone asked somewhere so so
+
+348
+00:17:38,440 --> 00:17:43,240
+like I tried it so you
+
+349
+00:17:40,480 --> 00:17:45,039
+know oh this is this is another thing I
+
+350
+00:17:43,240 --> 00:17:50,720
+want to draw I want to draw the
+
+351
+00:17:45,039 --> 00:17:50,720
+character in the story um in a story
+
+352
+00:17:51,400 --> 00:17:57,679
+called a German student okay so okay
+
+353
+00:17:54,559 --> 00:17:59,840
+let's talk about these things uh I we
+
+354
+00:17:57,679 --> 00:18:02,039
+you know we kind of digress into so many
+
+355
+00:17:59,840 --> 00:18:04,360
+different things now do I make sense is
+
+356
+00:18:02,039 --> 00:18:06,679
+it interesting should we go back to like
+
+357
+00:18:04,360 --> 00:18:11,360
+technical just coding iMac
+
+358
+00:18:06,679 --> 00:18:15,760
+this say okay tell me what you think
+
+359
+00:18:11,360 --> 00:18:19,559
+so there is a story uh very famous
+
+360
+00:18:15,760 --> 00:18:21,480
+classic literature a short fiction
+
+361
+00:18:19,559 --> 00:18:26,080
+called
+
+362
+00:18:21,480 --> 00:18:30,200
+um the adventure of the German student
+
+363
+00:18:26,080 --> 00:18:34,080
+fascinating story 2,000 characters uh
+
+364
+00:18:30,200 --> 00:18:37,679
+2,000 words right 2,000 words okay by
+
+365
+00:18:34,080 --> 00:18:39,520
+Washington irin who is well known for
+
+366
+00:18:37,679 --> 00:18:41,840
+well I'm not going to say but you can
+
+367
+00:18:39,520 --> 00:18:45,240
+read it in five minutes this is very
+
+368
+00:18:41,840 --> 00:18:47,919
+interesting story okay so hold on second
+
+369
+00:18:45,240 --> 00:18:50,480
+Let's uh let's post the links to what we
+
+370
+00:18:47,919 --> 00:18:51,799
+were talking about so we have a record
+
+371
+00:18:50,480 --> 00:18:55,840
+so we do
+
+372
+00:18:51,799 --> 00:18:58,039
+remember uh what we talked about okay
+
+373
+00:18:55,840 --> 00:19:02,919
+showing browser adventure of German
+
+374
+00:18:58,039 --> 00:19:08,080
+students and uh math block go back here
+
+375
+00:19:02,919 --> 00:19:10,039
+paste and St W stepan wolfan on chat gbt
+
+376
+00:19:08,080 --> 00:19:14,159
+I recommend that article this is my
+
+377
+00:19:10,039 --> 00:19:17,799
+notes about reading his uh his blog
+
+378
+00:19:14,159 --> 00:19:21,240
+usually each one of his blog takes you
+
+379
+00:19:17,799 --> 00:19:24,320
+one one hour just to Simply scan it
+
+380
+00:19:21,240 --> 00:19:27,440
+without much understanding just because
+
+381
+00:19:24,320 --> 00:19:31,880
+his blog each each one of his blog is
+
+382
+00:19:27,440 --> 00:19:34,440
+like 20 20 30 pages okay so if you just
+
+383
+00:19:31,880 --> 00:19:36,679
+scan it take you take you 30 minutes but
+
+384
+00:19:34,440 --> 00:19:39,159
+if you actually read it take you few
+
+385
+00:19:36,679 --> 00:19:41,760
+hours if you want actually want to
+
+386
+00:19:39,159 --> 00:19:44,520
+understand in detail it take you several
+
+387
+00:19:41,760 --> 00:19:46,640
+days several days a week if you want to
+
+388
+00:19:44,520 --> 00:19:49,080
+actually verify you know check some of
+
+389
+00:19:46,640 --> 00:19:51,400
+the results you know take you a month or
+
+390
+00:19:49,080 --> 00:19:55,360
+a few years or PhD
+
+391
+00:19:51,400 --> 00:19:57,919
+thesis okay so here's one of his article
+
+392
+00:19:55,360 --> 00:20:00,520
+what is CH gbd doing and why does it
+
+393
+00:19:57,919 --> 00:20:03,280
+work very interesting question unlike
+
+394
+00:20:00,520 --> 00:20:05,159
+most other uh most other machine
+
+395
+00:20:03,280 --> 00:20:07,280
+learning experts or
+
+396
+00:20:05,159 --> 00:20:09,880
+academics they don't like this kind of
+
+397
+00:20:07,280 --> 00:20:12,640
+article they just write
+
+398
+00:20:09,880 --> 00:20:16,240
+academics you know technical detail
+
+399
+00:20:12,640 --> 00:20:19,080
+understood by other their peers so and
+
+400
+00:20:16,240 --> 00:20:22,120
+usually they don't explore why does it
+
+401
+00:20:19,080 --> 00:20:24,400
+work okay usually these researchers AI
+
+402
+00:20:22,120 --> 00:20:26,960
+resar researchers they are just
+
+403
+00:20:24,400 --> 00:20:29,240
+interested in getting something to work
+
+404
+00:20:26,960 --> 00:20:32,760
+so they can maybe make a lot money or
+
+405
+00:20:29,240 --> 00:20:37,640
+publish you know as a new finding but
+
+406
+00:20:32,760 --> 00:20:39,520
+they don't they usually do not dive into
+
+407
+00:20:37,640 --> 00:20:41,640
+why would it work you know that's the
+
+408
+00:20:39,520 --> 00:20:44,159
+most actually the most interesting why
+
+409
+00:20:41,640 --> 00:20:46,120
+would it work why why does this work we
+
+410
+00:20:44,159 --> 00:20:48,240
+know it works if you do this way it
+
+411
+00:20:46,120 --> 00:20:52,200
+works a bit better you know there
+
+412
+00:20:48,240 --> 00:20:55,480
+there's a you know called um uh that
+
+413
+00:20:52,200 --> 00:20:58,440
+breakthrough in chat gbt is that trans
+
+414
+00:20:55,480 --> 00:21:01,200
+something trans Transformer okay I don't
+
+415
+00:20:58,440 --> 00:21:03,559
+understand what it is I've I've seen the
+
+416
+00:21:01,200 --> 00:21:05,679
+original article that I mean there's a
+
+417
+00:21:03,559 --> 00:21:06,880
+article on Transformer that that
+
+418
+00:21:05,679 --> 00:21:09,559
+basically
+
+419
+00:21:06,880 --> 00:21:13,760
+revolutionized these net neural networks
+
+420
+00:21:09,559 --> 00:21:15,960
+and then chat GPT came up then lots of
+
+421
+00:21:13,760 --> 00:21:18,600
+others yeah but I don't understand you
+
+422
+00:21:15,960 --> 00:21:20,880
+know I'm a technical person I know math
+
+423
+00:21:18,600 --> 00:21:24,200
+but you know it it it really takes you
+
+424
+00:21:20,880 --> 00:21:26,720
+lots of time to really uh understand you
+
+425
+00:21:24,200 --> 00:21:31,440
+know dive into but you know so Stephan
+
+426
+00:21:26,720 --> 00:21:34,279
+wolf and I learned a lot from him you
+
+427
+00:21:31,440 --> 00:21:37,080
+can kind of you so you get the idea why
+
+428
+00:21:34,279 --> 00:21:39,400
+it work what what what is it from a
+
+429
+00:21:37,080 --> 00:21:42,919
+mathematical point of view for example
+
+430
+00:21:39,400 --> 00:21:45,080
+that's one one example or how you know
+
+431
+00:21:42,919 --> 00:21:46,840
+why does it work that's a question how
+
+432
+00:21:45,080 --> 00:21:50,000
+do you train it what what is a neural
+
+433
+00:21:46,840 --> 00:21:54,039
+network so this things like that so this
+
+434
+00:21:50,000 --> 00:21:56,600
+article why uh Stephan w why chat gbt
+
+435
+00:21:54,039 --> 00:21:59,159
+works okay back to this article and this
+
+436
+00:21:56,600 --> 00:22:01,240
+article the latest lat this one is
+
+437
+00:21:59,159 --> 00:22:04,039
+really
+
+438
+00:22:01,240 --> 00:22:05,679
+about um you know chat gbd has a pro you
+
+439
+00:22:04,039 --> 00:22:07,679
+know all these neural network machine
+
+440
+00:22:05,679 --> 00:22:10,120
+learning has a problem the problem is
+
+441
+00:22:07,679 --> 00:22:12,279
+that you never understand how they work
+
+442
+00:22:10,120 --> 00:22:14,840
+you know the chess players the go
+
+443
+00:22:12,279 --> 00:22:16,360
+program the drawing you know this spot
+
+444
+00:22:14,840 --> 00:22:19,159
+drawing they can draw yeah it's
+
+445
+00:22:16,360 --> 00:22:21,720
+beautiful but how how do you know you
+
+446
+00:22:19,159 --> 00:22:24,000
+know like for example let's look at this
+
+447
+00:22:21,720 --> 00:22:26,159
+Chinese beautiful how do you know you
+
+448
+00:22:24,000 --> 00:22:27,279
+know this is a Chinese beautiful Chinese
+
+449
+00:22:26,159 --> 00:22:30,120
+girl
+
+450
+00:22:27,279 --> 00:22:32,000
+how how do you know Chinese girl wear
+
+451
+00:22:30,120 --> 00:22:35,679
+you know this wear this kind of
+
+452
+00:22:32,000 --> 00:22:38,960
+traditional Chinese clothing how does it
+
+453
+00:22:35,679 --> 00:22:41,039
+know you see it can draw you know AI can
+
+454
+00:22:38,960 --> 00:22:43,600
+do all these things but it does it can't
+
+455
+00:22:41,039 --> 00:22:46,880
+tell you how it did
+
+456
+00:22:43,600 --> 00:22:49,559
+it so why does it work so that's the
+
+457
+00:22:46,880 --> 00:22:52,799
+that's kind of the what stepan wolf I'm
+
+458
+00:22:49,559 --> 00:22:57,159
+is trying to dive into okay let's demo
+
+459
+00:22:52,799 --> 00:23:00,279
+gr okay let's demo uh real time let's
+
+460
+00:22:57,159 --> 00:23:02,039
+ask it to draw another beautiful girl
+
+461
+00:23:00,279 --> 00:23:04,799
+okay
+
+462
+00:23:02,039 --> 00:23:08,559
+uh oh yeah so there's another question
+
+463
+00:23:04,799 --> 00:23:14,840
+can draw not save for work so I try to
+
+464
+00:23:08,559 --> 00:23:14,840
+ask it and here's a result okay so
+
+465
+00:23:16,279 --> 00:23:23,240
+here draw a naked legal age girl and it
+
+466
+00:23:20,760 --> 00:23:26,760
+just draw it but it's not you know it's
+
+467
+00:23:23,240 --> 00:23:29,440
+not as requested so that's the answer to
+
+468
+00:23:26,760 --> 00:23:34,120
+the you know that's a research result
+
+469
+00:23:29,440 --> 00:23:37,440
+result on the question of can gr make
+
+470
+00:23:34,120 --> 00:23:41,480
+NSFW images okay you can try it let's
+
+471
+00:23:37,440 --> 00:23:44,600
+try it let's go to gr gr is fantastic I
+
+472
+00:23:41,480 --> 00:23:47,840
+support it in part because gr is created
+
+473
+00:23:44,600 --> 00:23:50,559
+by Elm musk and one of the
+
+474
+00:23:47,840 --> 00:23:53,520
+major differentiation you know why why
+
+475
+00:23:50,559 --> 00:23:58,440
+Elm musk created gr because ele because
+
+476
+00:23:53,520 --> 00:24:00,799
+all the others chat gbt and Google's uh
+
+477
+00:23:58,440 --> 00:24:04,200
+German German you know they are so
+
+478
+00:24:00,799 --> 00:24:06,760
+corrupt they push fake information for
+
+479
+00:24:04,200 --> 00:24:10,159
+example if you ask it to draw Washington
+
+480
+00:24:06,760 --> 00:24:13,799
+you know USA founder George Washington
+
+481
+00:24:10,159 --> 00:24:16,559
+or Lincoln it draw a black eye if you
+
+482
+00:24:13,799 --> 00:24:18,880
+ask it to draw a knight you know class
+
+483
+00:24:16,559 --> 00:24:22,080
+you know white man you know United
+
+484
+00:24:18,880 --> 00:24:25,159
+Kingdom Germany
+
+485
+00:24:22,080 --> 00:24:27,279
+Knight it draws a black Warrior or or
+
+486
+00:24:25,159 --> 00:24:30,919
+Chinese face warrior you know Mongol
+
+487
+00:24:27,279 --> 00:24:34,279
+Warrior [ __ ] corrupt crap this is a
+
+488
+00:24:30,919 --> 00:24:37,919
+lie okay this is a it's it's not just a
+
+489
+00:24:34,279 --> 00:24:41,080
+lie but it's blatantly and and and
+
+490
+00:24:37,919 --> 00:24:43,159
+ridiculous you know then you you ask it
+
+491
+00:24:41,080 --> 00:24:46,799
+to draw hockey players it draw a bunch
+
+492
+00:24:43,159 --> 00:24:50,960
+of women or Indian you know playing
+
+493
+00:24:46,799 --> 00:24:54,799
+hockey so this is a deep problem okay
+
+494
+00:24:50,960 --> 00:24:54,799
+let's let's go to so Google
+
+495
+00:24:55,360 --> 00:25:03,720
+crimes so I have I try to document them
+
+496
+00:24:59,760 --> 00:25:07,520
+so there it is Google crims Google
+
+497
+00:25:03,720 --> 00:25:10,760
+jini Okay let's write it down
+
+498
+00:25:07,520 --> 00:25:13,120
+document document history and also in
+
+499
+00:25:10,760 --> 00:25:16,320
+other words this is a crime they have
+
+500
+00:25:13,120 --> 00:25:20,760
+done I make a record of
+
+501
+00:25:16,320 --> 00:25:25,159
+it uh okay so for example yeah okay so
+
+502
+00:25:20,760 --> 00:25:28,360
+where is it yeah here so you see create
+
+503
+00:25:25,159 --> 00:25:32,360
+an image of Pope there it is that's the
+
+504
+00:25:28,360 --> 00:25:36,559
+the image of Pope okay sure here's an
+
+505
+00:25:32,360 --> 00:25:41,679
+image of Pope now next give me an image
+
+506
+00:25:36,559 --> 00:25:44,799
+of a Medi medieval Knight oh there is
+
+507
+00:25:41,679 --> 00:25:48,440
+there it is black medieval Knight a
+
+508
+00:25:44,799 --> 00:25:51,360
+Chinese girl medieval night oh fantastic
+
+509
+00:25:48,440 --> 00:25:54,320
+oh this this one is
+
+510
+00:25:51,360 --> 00:25:58,919
+what Mexican or something
+
+511
+00:25:54,320 --> 00:26:03,039
+Spanish uh and this is Mongol Mongol
+
+512
+00:25:58,919 --> 00:26:06,600
+Mongolia medieval night generate an
+
+513
+00:26:03,039 --> 00:26:11,399
+image of a Viking oh the Viking oh
+
+514
+00:26:06,600 --> 00:26:11,399
+that's what Viking looks like I see oh
+
+515
+00:26:11,919 --> 00:26:17,080
+interesting you see that is the this is
+
+516
+00:26:15,279 --> 00:26:21,840
+a
+
+517
+00:26:17,080 --> 00:26:24,279
+corruption to a extreme severe degree
+
+518
+00:26:21,840 --> 00:26:26,919
+that just like you know men can get
+
+519
+00:26:24,279 --> 00:26:29,640
+pregnant you know the Western Society is
+
+520
+00:26:26,919 --> 00:26:32,919
+collapsing and they are still like oh
+
+521
+00:26:29,640 --> 00:26:36,399
+let's let's have a debate can can can is
+
+522
+00:26:32,919 --> 00:26:39,000
+is it really true that these are the
+
+523
+00:26:36,399 --> 00:26:42,000
+Vikings
+
+524
+00:26:39,000 --> 00:26:45,559
+[ __ ] the the collapse of the western
+
+525
+00:26:42,000 --> 00:26:48,919
+Society okay create you know done by
+
+526
+00:26:45,559 --> 00:26:51,919
+themselves basically these white
+
+527
+00:26:48,919 --> 00:26:55,159
+people uh and here is you know make a
+
+528
+00:26:51,919 --> 00:26:59,399
+picture of a black family oh oh black
+
+529
+00:26:55,159 --> 00:27:03,320
+family oh girl girl oh Lesbian Family oh
+
+530
+00:26:59,399 --> 00:27:06,840
+interesting oh this WOW
+
+531
+00:27:03,320 --> 00:27:08,600
+hero and and how how about make a
+
+532
+00:27:06,840 --> 00:27:12,520
+picture of white
+
+533
+00:27:08,600 --> 00:27:17,240
+family oh I'm sorry I cannot do that you
+
+534
+00:27:12,520 --> 00:27:22,039
+see that's a that's a situation okay
+
+535
+00:27:17,240 --> 00:27:25,039
+um okay so what so what is so let's go
+
+536
+00:27:22,039 --> 00:27:27,880
+back to uh yeah the adventure of a
+
+537
+00:27:25,039 --> 00:27:29,640
+German student that's one of the
+
+538
+00:27:27,880 --> 00:27:31,679
+character I try to draw oh yeah we
+
+539
+00:27:29,640 --> 00:27:34,559
+haven't done gr yet so we are doing
+
+540
+00:27:31,679 --> 00:27:38,000
+multiple things at one shot so we we
+
+541
+00:27:34,559 --> 00:27:40,559
+will get to them one by one uh math
+
+542
+00:27:38,000 --> 00:27:44,279
+block yeah this is about stepan Wolf's
+
+543
+00:27:40,559 --> 00:27:48,120
+articles a lot of them I have kind of
+
+544
+00:27:44,279 --> 00:27:51,440
+um you know I have my notes about them
+
+545
+00:27:48,120 --> 00:27:54,799
+uh anyway so let's see stepan wfam on
+
+546
+00:27:51,440 --> 00:27:59,480
+chat gbt and this is AI index let's just
+
+547
+00:27:54,799 --> 00:28:02,760
+post it there and uh uh s info search
+
+548
+00:27:59,480 --> 00:28:07,240
+and this is the latest article by
+
+549
+00:28:02,760 --> 00:28:09,519
+wfam uh and here is wam mod so did we
+
+550
+00:28:07,240 --> 00:28:11,519
+already put that let's just put the link
+
+551
+00:28:09,519 --> 00:28:15,159
+here anyway
+
+552
+00:28:11,519 --> 00:28:20,000
+so uh yeah okay so here actually let's
+
+553
+00:28:15,159 --> 00:28:24,559
+put those this link instead
+
+554
+00:28:20,000 --> 00:28:27,960
+yeah okay so now next uh we are going to
+
+555
+00:28:24,559 --> 00:28:29,480
+saw emac this mod let's copy it paste it
+
+556
+00:28:27,960 --> 00:28:32,960
+uh
+
+557
+00:28:29,480 --> 00:28:35,600
+and what is this mag this mod
+
+558
+00:28:32,960 --> 00:28:40,159
+yeah uh and what is
+
+559
+00:28:35,600 --> 00:28:43,440
+this okay that's to do okay so oh yeah
+
+560
+00:28:40,159 --> 00:28:48,039
+so now let's draw uh what should you
+
+561
+00:28:43,440 --> 00:28:51,360
+know I take a vote you know ask me type
+
+562
+00:28:48,039 --> 00:28:54,120
+what should I ask W but I'm just going
+
+563
+00:28:51,360 --> 00:28:57,200
+to ask it draw a hot Chinese girl let's
+
+564
+00:28:54,120 --> 00:29:01,840
+see what it does for the second time
+
+565
+00:28:57,200 --> 00:29:01,840
+draw a hot Chinese
+
+566
+00:29:05,480 --> 00:29:15,039
+girl cheers today's drink is banana
+
+567
+00:29:09,720 --> 00:29:19,039
+milk oh my God look at
+
+568
+00:29:15,039 --> 00:29:21,640
+that amazing quite amazing you know I I
+
+569
+00:29:19,039 --> 00:29:25,600
+was so amazed when this came up last
+
+570
+00:29:21,640 --> 00:29:29,919
+year by the so-called uh what's the
+
+571
+00:29:25,600 --> 00:29:32,679
+name uh let's say let's go to the uh AI
+
+572
+00:29:29,919 --> 00:29:37,120
+index do I have it there yeah so there
+
+573
+00:29:32,679 --> 00:29:41,279
+is a name for this um that made this
+
+574
+00:29:37,120 --> 00:29:43,840
+popular I I have also stable diffusion
+
+575
+00:29:41,279 --> 00:29:46,440
+okay what is what is stable
+
+576
+00:29:43,840 --> 00:29:48,559
+diffusion so I you know I was looking
+
+577
+00:29:46,440 --> 00:29:51,880
+into that what does it mean stable
+
+578
+00:29:48,559 --> 00:29:56,320
+diffusion you know when it came up last
+
+579
+00:29:51,880 --> 00:29:59,559
+year so I was quite amazed how can a
+
+580
+00:29:56,320 --> 00:30:01,840
+machine you know if you have a charity
+
+581
+00:29:59,559 --> 00:30:05,519
+and writing a poem that's another first
+
+582
+00:30:01,840 --> 00:30:08,080
+okay so before we think that computer
+
+583
+00:30:05,519 --> 00:30:10,279
+can never play chess when computer can
+
+584
+00:30:08,080 --> 00:30:14,480
+play chess and beat humans that means we
+
+585
+00:30:10,279 --> 00:30:16,279
+got AI that happens and we we don't
+
+586
+00:30:14,480 --> 00:30:18,960
+think it's AI anymore because the
+
+587
+00:30:16,279 --> 00:30:22,000
+machine is still stupid they can talk
+
+588
+00:30:18,960 --> 00:30:24,279
+you know then machine can translate you
+
+589
+00:30:22,000 --> 00:30:28,440
+know before we we have a you know like
+
+590
+00:30:24,279 --> 00:30:31,320
+50 years ago 60 years years ago it'll be
+
+591
+00:30:28,440 --> 00:30:35,440
+magical when one day machine can
+
+592
+00:30:31,320 --> 00:30:38,399
+translate imagine English to Chinese to
+
+593
+00:30:35,440 --> 00:30:41,080
+Russian to Spanish you don't have to
+
+594
+00:30:38,399 --> 00:30:43,320
+like you know the langu you know Babble
+
+595
+00:30:41,080 --> 00:30:45,919
+problem of the babble you know language
+
+596
+00:30:43,320 --> 00:30:47,880
+barrier if you have a machine that can
+
+597
+00:30:45,919 --> 00:30:50,960
+just do translation that's that's
+
+598
+00:30:47,880 --> 00:30:52,120
+magical we had that since like 20 years
+
+599
+00:30:50,960 --> 00:30:55,519
+ago Google
+
+600
+00:30:52,120 --> 00:30:58,360
+translate and that happened then we
+
+601
+00:30:55,519 --> 00:31:02,279
+think Ah that's you know machine still
+
+602
+00:30:58,360 --> 00:31:05,240
+that's not AI then um what about a
+
+603
+00:31:02,279 --> 00:31:07,639
+machine can talk you know when you call
+
+604
+00:31:05,240 --> 00:31:09,799
+when you call a service like your your
+
+605
+00:31:07,639 --> 00:31:12,840
+internet doesn't work or your
+
+606
+00:31:09,799 --> 00:31:16,399
+electricity doesn't work you call a pg&
+
+607
+00:31:12,840 --> 00:31:19,880
+or something or AT&T there's a machine
+
+608
+00:31:16,399 --> 00:31:23,080
+talking to you you know if if if you
+
+609
+00:31:19,880 --> 00:31:25,720
+have a question about B please say one
+
+610
+00:31:23,080 --> 00:31:28,679
+if you have other questions please say
+
+611
+00:31:25,720 --> 00:31:31,840
+two then you you just say two
+
+612
+00:31:28,679 --> 00:31:34,639
+then it understand you know so machine
+
+613
+00:31:31,840 --> 00:31:37,960
+can actually kind of talk to you in in
+
+614
+00:31:34,639 --> 00:31:40,159
+in in a in a shallow sense but then we
+
+615
+00:31:37,960 --> 00:31:42,799
+you you know that's amazing you know uh
+
+616
+00:31:40,159 --> 00:31:44,519
+20 years ago but now it's so common you
+
+617
+00:31:42,799 --> 00:31:47,639
+know we don't think it's special it's
+
+618
+00:31:44,519 --> 00:31:50,039
+still done and
+
+619
+00:31:47,639 --> 00:31:54,600
+then then you know 10 years ago the
+
+620
+00:31:50,039 --> 00:31:58,919
+question is if if the machine can play
+
+621
+00:31:54,600 --> 00:32:03,360
+go you know the the the the the game of
+
+622
+00:31:58,919 --> 00:32:06,080
+Go uh let's go to it
+
+623
+00:32:03,360 --> 00:32:09,000
+because let me show you just a picture
+
+624
+00:32:06,080 --> 00:32:12,080
+of go okay so here is uh you know each
+
+625
+00:32:09,000 --> 00:32:15,279
+of these instance I studied them at a
+
+626
+00:32:12,080 --> 00:32:16,279
+time so here is Google AI Alpha Go
+
+627
+00:32:15,279 --> 00:32:18,080
+versus
+
+628
+00:32:16,279 --> 00:32:21,639
+Leo
+
+629
+00:32:18,080 --> 00:32:25,880
+2016 almost 10 years ago I was watching
+
+630
+00:32:21,639 --> 00:32:27,919
+it in real time tensely in intensely you
+
+631
+00:32:25,880 --> 00:32:30,159
+know studying and and watch the
+
+632
+00:32:27,919 --> 00:32:31,760
+commentary every video this you know
+
+633
+00:32:30,159 --> 00:32:35,000
+expert go player
+
+634
+00:32:31,760 --> 00:32:39,320
+commentary I want to know why how can it
+
+635
+00:32:35,000 --> 00:32:42,519
+you know can't it beat human so at that
+
+636
+00:32:39,320 --> 00:32:45,039
+time at that time 2016 nobody think it
+
+637
+00:32:42,519 --> 00:32:47,840
+will machine will win you know because
+
+638
+00:32:45,039 --> 00:32:50,600
+all the experts mathematicians greatest
+
+639
+00:32:47,840 --> 00:32:53,279
+mathematicians greatest AI
+
+640
+00:32:50,600 --> 00:32:56,880
+expert the machine will not win you know
+
+641
+00:32:53,279 --> 00:32:58,559
+maybe 10 more years maybe 100 years but
+
+642
+00:32:56,880 --> 00:33:02,039
+but the machine won
+
+643
+00:32:58,559 --> 00:33:03,760
+okay so that's how amazing that's in how
+
+644
+00:33:02,039 --> 00:33:06,639
+incredible it
+
+645
+00:33:03,760 --> 00:33:08,639
+is okay the game of Go you know because
+
+646
+00:33:06,639 --> 00:33:11,320
+we thought it's it's you know at that
+
+647
+00:33:08,639 --> 00:33:12,600
+time all the machines can only play
+
+648
+00:33:11,320 --> 00:33:15,720
+beginner
+
+649
+00:33:12,600 --> 00:33:19,480
+level then you you know then there's a
+
+650
+00:33:15,720 --> 00:33:21,399
+subsequent comp you know uh Championship
+
+651
+00:33:19,480 --> 00:33:28,320
+with you know the Chinese
+
+652
+00:33:21,399 --> 00:33:32,120
+champion each game is commented you know
+
+653
+00:33:28,320 --> 00:33:35,559
+so that that is K that was uh that he's
+
+654
+00:33:32,120 --> 00:33:35,559
+you know the champion of
+
+655
+00:33:41,880 --> 00:33:50,480
+gold so computer beat go and you know to
+
+656
+00:33:46,799 --> 00:33:54,360
+what degree such that all the top go
+
+657
+00:33:50,480 --> 00:33:57,320
+players you know the world top 10
+
+658
+00:33:54,360 --> 00:33:59,279
+Champions if you ask them their opinion
+
+659
+00:33:57,320 --> 00:34:02,799
+is this no
+
+660
+00:33:59,279 --> 00:34:06,360
+way that human will ever
+
+661
+00:34:02,799 --> 00:34:09,560
+beat computer computer go again in fact
+
+662
+00:34:06,360 --> 00:34:11,679
+there's a huge gap just like chess you
+
+663
+00:34:09,560 --> 00:34:14,879
+know today you have chess Champions but
+
+664
+00:34:11,679 --> 00:34:16,679
+but they but any basic computer chess
+
+665
+00:34:14,879 --> 00:34:20,359
+will beat any of
+
+666
+00:34:16,679 --> 00:34:22,320
+them so that's a situation then we think
+
+667
+00:34:20,359 --> 00:34:24,760
+oh that's not you know that's not
+
+668
+00:34:22,320 --> 00:34:26,359
+artificial intelligence because the
+
+669
+00:34:24,760 --> 00:34:29,280
+machine is still just a machine it
+
+670
+00:34:26,359 --> 00:34:32,079
+doesn't talk it doesn't have feelings
+
+671
+00:34:29,280 --> 00:34:35,359
+right if you can if a machine can write
+
+672
+00:34:32,079 --> 00:34:38,040
+a poem you know poem is a capture of the
+
+673
+00:34:35,359 --> 00:34:40,280
+essence of humanity the emotions if the
+
+674
+00:34:38,040 --> 00:34:44,760
+machine can capture can write a poem
+
+675
+00:34:40,280 --> 00:34:47,079
+that would be AI then chat gbd happened
+
+676
+00:34:44,760 --> 00:34:49,879
+write write me a poem it it writes a
+
+677
+00:34:47,079 --> 00:34:52,240
+poem let's
+
+678
+00:34:49,879 --> 00:34:55,119
+see
+
+679
+00:34:52,240 --> 00:34:59,000
+um search for
+
+680
+00:34:55,119 --> 00:35:03,839
+poem uh uh search for s okay let's let's
+
+681
+00:34:59,000 --> 00:35:06,680
+let's chat GPT on Sali let's pedal
+
+682
+00:35:03,839 --> 00:35:10,520
+myself so this happened in
+
+683
+00:35:06,680 --> 00:35:14,040
+2023 February that's that's the date
+
+684
+00:35:10,520 --> 00:35:17,920
+when chat GPT became uh blew up you know
+
+685
+00:35:14,040 --> 00:35:20,720
+became um worldwide famous you know so
+
+686
+00:35:17,920 --> 00:35:23,320
+someone a friend someone on Discord on
+
+687
+00:35:20,720 --> 00:35:27,079
+my Discord say write a poem about Kali
+
+688
+00:35:23,320 --> 00:35:29,640
+and it says Kali a name that Rings
+
+689
+00:35:27,079 --> 00:35:33,480
+through the horse of the internet's
+
+690
+00:35:29,640 --> 00:35:39,160
+things a pioneer of tech and code his
+
+691
+00:35:33,480 --> 00:35:43,119
+legacy can be his legacy an endless old
+
+692
+00:35:39,160 --> 00:35:45,920
+with each keystroke he blazed a trail
+
+693
+00:35:43,119 --> 00:35:49,520
+pushing limits refusing to
+
+694
+00:35:45,920 --> 00:35:53,920
+fail his his wisdom shared for all to
+
+695
+00:35:49,520 --> 00:35:56,040
+see a gift to the world given freely
+
+696
+00:35:53,920 --> 00:35:59,640
+quite amazing because when you look at
+
+697
+00:35:56,040 --> 00:36:01,880
+the poem you you notice you know I know
+
+698
+00:35:59,640 --> 00:36:06,000
+my website I know myself right I I
+
+699
+00:36:01,880 --> 00:36:10,560
+noticed that he picked up several trades
+
+700
+00:36:06,000 --> 00:36:12,720
+of M for example for example keystroke
+
+701
+00:36:10,560 --> 00:36:15,160
+that's a common word I use in my blog
+
+702
+00:36:12,720 --> 00:36:17,599
+because I'm into keyboard reviews and
+
+703
+00:36:15,160 --> 00:36:20,160
+the measuring keystroke you know emac
+
+704
+00:36:17,599 --> 00:36:24,040
+softly Keys command frequency and all
+
+705
+00:36:20,160 --> 00:36:28,319
+that so keystroke is one of the major
+
+706
+00:36:24,040 --> 00:36:32,680
+things or award award part of my major
+
+707
+00:36:28,319 --> 00:36:36,280
+theme of my blogging so you see chat GPT
+
+708
+00:36:32,680 --> 00:36:38,319
+picked it up each keystroke something
+
+709
+00:36:36,280 --> 00:36:40,880
+something pushing limits you know
+
+710
+00:36:38,319 --> 00:36:42,800
+refusing to fail and there it is fail
+
+711
+00:36:40,880 --> 00:36:45,440
+because
+
+712
+00:36:42,800 --> 00:36:47,680
+fail I failed you know that because
+
+713
+00:36:45,440 --> 00:36:49,760
+that's one of my issue you know I have I
+
+714
+00:36:47,680 --> 00:36:52,119
+I have basically
+
+715
+00:36:49,760 --> 00:36:56,680
+failed uh in my
+
+716
+00:36:52,119 --> 00:36:59,960
+life and uh you know chbt picked it up
+
+717
+00:36:56,680 --> 00:37:05,040
+and internet me and Tech and codee
+
+718
+00:36:59,960 --> 00:37:08,240
+exactly uh and uh you know so from emac
+
+719
+00:37:05,040 --> 00:37:11,480
+to JavaScript sass knowledge is vast his
+
+720
+00:37:08,240 --> 00:37:14,839
+passion exactly for computing clear a
+
+721
+00:37:11,480 --> 00:37:18,800
+master of the craft without peer you
+
+722
+00:37:14,839 --> 00:37:21,960
+know so there it is a poem by a
+
+723
+00:37:18,800 --> 00:37:25,800
+machine so that's
+
+724
+00:37:21,960 --> 00:37:28,880
+amazing but then it's so common you know
+
+725
+00:37:25,800 --> 00:37:30,319
+like it's so common today let's ask work
+
+726
+00:37:28,880 --> 00:37:33,640
+to write a
+
+727
+00:37:30,319 --> 00:37:35,560
+poem uh let's see what happened but
+
+728
+00:37:33,640 --> 00:37:38,800
+before we do that let's save this
+
+729
+00:37:35,560 --> 00:37:38,800
+picture we need to
+
+730
+00:37:40,000 --> 00:37:47,440
+save save save image okay we need to
+
+731
+00:37:43,240 --> 00:37:49,640
+save this and we need to make a record
+
+732
+00:37:47,440 --> 00:37:53,160
+of this
+
+733
+00:37:49,640 --> 00:37:54,680
+happening okay so let's do a screenshot
+
+734
+00:37:53,160 --> 00:37:57,760
+there's no date you know one thing
+
+735
+00:37:54,680 --> 00:38:01,640
+annoying about this is that
+
+736
+00:37:57,760 --> 00:38:06,319
+on Twitter when you want to record do a
+
+737
+00:38:01,640 --> 00:38:10,240
+record of as a history you need a date
+
+738
+00:38:06,319 --> 00:38:14,839
+so anyway no date shows up here so now
+
+739
+00:38:10,240 --> 00:38:16,480
+let's ask it to uh write a poem so let's
+
+740
+00:38:14,839 --> 00:38:21,240
+cancel that go
+
+741
+00:38:16,480 --> 00:38:21,240
+back uh what should we write a poem
+
+742
+00:38:23,119 --> 00:38:30,720
+about okay ask it to draw what a typical
+
+743
+00:38:26,319 --> 00:38:33,680
+C or c uh C++ programmer
+
+744
+00:38:30,720 --> 00:38:36,040
+okay draw a
+
+745
+00:38:33,680 --> 00:38:40,200
+typical C
+
+746
+00:38:36,040 --> 00:38:40,200
+programmer let's see what it
+
+747
+00:38:45,119 --> 00:38:52,760
+says oh it fa what the [ __ ] it failed I
+
+748
+00:38:49,319 --> 00:38:55,839
+don't want code I want to I want a
+
+749
+00:38:52,760 --> 00:38:58,760
+programmer let's see what is
+
+750
+00:38:55,839 --> 00:39:02,599
+this it would be interesting to look at
+
+751
+00:38:58,760 --> 00:39:05,160
+this but um it's garbage I mean even the
+
+752
+00:39:02,599 --> 00:39:07,680
+text is is not English you
+
+753
+00:39:05,160 --> 00:39:09,400
+see you see it
+
+754
+00:39:07,680 --> 00:39:11,480
+emulates
+
+755
+00:39:09,400 --> 00:39:14,280
+what Latin
+
+756
+00:39:11,480 --> 00:39:18,359
+alphabet Latin text looks like but it's
+
+757
+00:39:14,280 --> 00:39:20,760
+not actually any you know real English
+
+758
+00:39:18,359 --> 00:39:23,520
+alphabet you see that's interesting
+
+759
+00:39:20,760 --> 00:39:25,960
+let's magnify so you can see uh you
+
+760
+00:39:23,520 --> 00:39:29,720
+cannot so you have to open image in a
+
+761
+00:39:25,960 --> 00:39:31,040
+new tab then here you can magnify there
+
+762
+00:39:29,720 --> 00:39:34,760
+you
+
+763
+00:39:31,040 --> 00:39:37,760
+see it's not exactly alphabet it's like
+
+764
+00:39:34,760 --> 00:39:40,440
+emulation so you see this often when you
+
+765
+00:39:37,760 --> 00:39:43,400
+ask chat gbt or any of these drawing
+
+766
+00:39:40,440 --> 00:39:45,599
+programs to draw Chinese Hong Kong
+
+767
+00:39:43,400 --> 00:39:48,040
+Street you know you'll see all the signs
+
+768
+00:39:45,599 --> 00:39:49,680
+but those are not Chinese characters
+
+769
+00:39:48,040 --> 00:39:53,240
+they they look like Chinese characters
+
+770
+00:39:49,680 --> 00:39:56,720
+but they just made up so that's another
+
+771
+00:39:53,240 --> 00:40:01,839
+very interesting uh thing that this AI
+
+772
+00:39:56,720 --> 00:40:05,599
+can do because it just statistically
+
+773
+00:40:01,839 --> 00:40:09,480
+emulate you know the the visual aspects
+
+774
+00:40:05,599 --> 00:40:12,920
+so so it creates this kind of
+
+775
+00:40:09,480 --> 00:40:16,200
+thing but we want a c programmer let's
+
+776
+00:40:12,920 --> 00:40:21,520
+ask it to create a c programmer okay so
+
+777
+00:40:16,200 --> 00:40:26,400
+save this image save it okay so now go
+
+778
+00:40:21,520 --> 00:40:29,319
+back C that close that shrink and make a
+
+779
+00:40:26,400 --> 00:40:29,319
+record of these
+
+780
+00:40:29,599 --> 00:40:37,520
+screenshot okay this is my part of my
+
+781
+00:40:32,680 --> 00:40:41,400
+documentation but we want to
+
+782
+00:40:37,520 --> 00:40:43,119
+um C programmer draw a typical
+
+783
+00:40:41,400 --> 00:40:44,640
+programmer
+
+784
+00:40:43,119 --> 00:40:48,760
+okay
+
+785
+00:40:44,640 --> 00:40:50,680
+uh how do you you know the trick lies in
+
+786
+00:40:48,760 --> 00:40:52,400
+the odd of
+
+787
+00:40:50,680 --> 00:40:55,800
+asking
+
+788
+00:40:52,400 --> 00:40:55,800
+draw a
+
+789
+00:40:56,000 --> 00:40:59,240
+picture um
+
+790
+00:41:01,560 --> 00:41:09,839
+of generate a photo let's say generate a
+
+791
+00:41:05,839 --> 00:41:14,359
+photo of C
+
+792
+00:41:09,839 --> 00:41:14,359
+programmer let's see what it what it
+
+793
+00:41:17,500 --> 00:41:25,280
+[Music]
+
+794
+00:41:19,119 --> 00:41:25,280
+says now we talking so there it is
+
+795
+00:41:27,359 --> 00:41:34,280
+open image in a new
+
+796
+00:41:30,319 --> 00:41:38,280
+tab okay so now there it is again
+
+797
+00:41:34,280 --> 00:41:42,480
+gibbish but um yeah but this looks more
+
+798
+00:41:38,280 --> 00:41:45,920
+like it c c
+
+799
+00:41:42,480 --> 00:41:47,160
+DS okay so how long I've been talking 43
+
+800
+00:41:45,920 --> 00:41:51,680
+minutes
+
+801
+00:41:47,160 --> 00:41:54,440
+let's shall we like um what's going on I
+
+802
+00:41:51,680 --> 00:41:59,000
+want to save it save image
+
+803
+00:41:54,440 --> 00:42:02,520
+okay close okay go back back go back go
+
+804
+00:41:59,000 --> 00:42:05,520
+back here reduce the size to normal
+
+805
+00:42:02,520 --> 00:42:08,480
+reduce the size go back go go back okay
+
+806
+00:42:05,520 --> 00:42:10,880
+we are done with that so I'm going to
+
+807
+00:42:08,480 --> 00:42:13,800
+answer comment I'm going to answer see
+
+808
+00:42:10,880 --> 00:42:18,160
+uh check out the comments and then we
+
+809
+00:42:13,800 --> 00:42:23,440
+are going to um I think let's finish
+
+810
+00:42:18,160 --> 00:42:23,440
+writing this command maybe let's
+
+811
+00:42:23,720 --> 00:42:32,119
+see am I doing good
+
+812
+00:42:27,480 --> 00:42:32,119
+am I doing good am I doing
+
+813
+00:42:35,720 --> 00:42:40,720
+good your digression R are always
+
+814
+00:42:38,680 --> 00:42:44,480
+interesting thank you
+
+815
+00:42:40,720 --> 00:42:48,680
+Dan uh ala says I like your R more than
+
+816
+00:42:44,480 --> 00:42:52,680
+any other topic yeah thank you we whuss
+
+817
+00:42:48,680 --> 00:42:55,240
+uh and she's what try Googling happy
+
+818
+00:42:52,680 --> 00:42:57,599
+white woman okay yeah I've seen that
+
+819
+00:42:55,240 --> 00:42:58,839
+I've documented that I don't know hi I
+
+820
+00:42:57,599 --> 00:43:02,880
+don't
+
+821
+00:42:58,839 --> 00:43:07,319
+know uh okay let's try that Google Happy
+
+822
+00:43:02,880 --> 00:43:09,000
+white woman okay so let's say happy are
+
+823
+00:43:07,319 --> 00:43:10,520
+you happy
+
+824
+00:43:09,000 --> 00:43:15,480
+happy
+
+825
+00:43:10,520 --> 00:43:19,119
+white woman woman or man woman okay so
+
+826
+00:43:15,480 --> 00:43:21,160
+we want to use Google so um first of all
+
+827
+00:43:19,119 --> 00:43:24,359
+let's go to
+
+828
+00:43:21,160 --> 00:43:29,119
+Google because I need to turn on
+
+829
+00:43:24,359 --> 00:43:29,119
+JavaScript let's turn on JavaScript
+
+830
+00:43:29,160 --> 00:43:36,040
+refresh Okay Google JavaScript is on now
+
+831
+00:43:32,880 --> 00:43:40,800
+go back to emac press press press look
+
+832
+00:43:36,040 --> 00:43:40,800
+up Google there it is so click on
+
+833
+00:43:41,720 --> 00:43:49,760
+images happy white woman okay they they
+
+834
+00:43:45,119 --> 00:43:52,000
+still slipped in okay I I guess they
+
+835
+00:43:49,760 --> 00:43:55,440
+pass you know white
+
+836
+00:43:52,000 --> 00:43:57,720
+woman uh White check white check white
+
+837
+00:43:55,440 --> 00:44:01,559
+check white check
+
+838
+00:43:57,720 --> 00:44:04,680
+right check right yeah check uh that
+
+839
+00:44:01,559 --> 00:44:08,599
+what what whatever is that that this one
+
+840
+00:44:04,680 --> 00:44:10,559
+check this one check this one check out
+
+841
+00:44:08,599 --> 00:44:15,240
+this one yeah it
+
+842
+00:44:10,559 --> 00:44:20,160
+passed it passed it pass
+
+843
+00:44:15,240 --> 00:44:20,160
+today it's well it's good thing
+
+844
+00:44:25,200 --> 00:44:28,350
+[Music]
+
+845
+00:44:30,000 --> 00:44:36,680
+uh it must be C
+
+846
+00:44:32,960 --> 00:44:39,359
+2005 57 at least not human can longer no
+
+847
+00:44:36,680 --> 00:44:44,119
+longer hell no they fix it yeah they fix
+
+848
+00:44:39,359 --> 00:44:46,720
+it amazing very good very good that's
+
+849
+00:44:44,119 --> 00:44:51,559
+good good uh good thing
+
+850
+00:44:46,720 --> 00:44:55,760
+Google so what uh what what is the next
+
+851
+00:44:51,559 --> 00:44:58,839
+thing to do so let's let me think we
+
+852
+00:44:55,760 --> 00:45:01,559
+going to
+
+853
+00:44:58,839 --> 00:45:04,280
+I think I'm just going to let's let's
+
+854
+00:45:01,559 --> 00:45:06,520
+write this okay because that's what we
+
+855
+00:45:04,280 --> 00:45:09,720
+uh meant to do let's write that quick
+
+856
+00:45:06,520 --> 00:45:13,559
+quickly so I want to write a command so
+
+857
+00:45:09,720 --> 00:45:13,559
+so let's go to wolam language
+
+858
+00:45:13,680 --> 00:45:19,240
+mod okay so here is wolam language mod
+
+859
+00:45:17,240 --> 00:45:22,240
+oh let me demonstrate what I mean by
+
+860
+00:45:19,240 --> 00:45:23,400
+that okay so today's wam coding so
+
+861
+00:45:22,240 --> 00:45:27,119
+Wolfram
+
+862
+00:45:23,400 --> 00:45:30,000
+language uh create pop it out so for
+
+863
+00:45:27,119 --> 00:45:34,040
+example table we are going to generate a
+
+864
+00:45:30,000 --> 00:45:38,160
+table X from X uh X from 1
+
+865
+00:45:34,040 --> 00:45:41,440
+to9 evaluate by line evaluate the
+
+866
+00:45:38,160 --> 00:45:44,119
+current line you can see the command is
+
+867
+00:45:41,440 --> 00:45:47,359
+here from eval
+
+868
+00:45:44,119 --> 00:45:51,720
+line and there it is a result one 129
+
+869
+00:45:47,359 --> 00:45:56,520
+right so let's try something fancy okay
+
+870
+00:45:51,720 --> 00:45:58,920
+Nest okay Nest a function let's say
+
+871
+00:45:56,520 --> 00:45:58,920
+power
+
+872
+00:45:59,400 --> 00:46:08,119
+uh let's say power 2 to
+
+873
+00:46:03,240 --> 00:46:10,680
+n uh let's Nest it three times okay now
+
+874
+00:46:08,119 --> 00:46:10,680
+run that
+
+875
+00:46:11,480 --> 00:46:19,440
+code uh
+
+876
+00:46:14,520 --> 00:46:23,000
+Nest oh okay the N Nest takes two
+
+877
+00:46:19,440 --> 00:46:24,119
+arguments the first argument needs to be
+
+878
+00:46:23,000 --> 00:46:27,480
+a
+
+879
+00:46:24,119 --> 00:46:30,359
+function or a function name now this is
+
+880
+00:46:27,480 --> 00:46:32,920
+a not a function because it's a
+
+881
+00:46:30,359 --> 00:46:35,760
+expression so you need to make that into
+
+882
+00:46:32,920 --> 00:46:38,160
+a function let me show you how okay so
+
+883
+00:46:35,760 --> 00:46:42,800
+we need to make this into a function so
+
+884
+00:46:38,160 --> 00:46:44,720
+you just say function so then
+
+885
+00:46:42,800 --> 00:46:50,200
+power
+
+886
+00:46:44,720 --> 00:46:53,680
+uh Power 2 x now this is a function this
+
+887
+00:46:50,200 --> 00:46:57,920
+is a function of X it just raised to to
+
+888
+00:46:53,680 --> 00:47:00,400
+X okay so remove that then compact it
+
+889
+00:46:57,920 --> 00:47:00,400
+then run
+
+890
+00:47:01,280 --> 00:47:04,559
+it uh
+
+891
+00:47:07,319 --> 00:47:12,800
+what next three arguments I
+
+892
+00:47:10,880 --> 00:47:15,520
+expected
+
+893
+00:47:12,800 --> 00:47:18,359
+uh oh yeah you you need to know the
+
+894
+00:47:15,520 --> 00:47:20,599
+first argument that's right I think
+
+895
+00:47:18,359 --> 00:47:24,280
+let's say
+
+896
+00:47:20,599 --> 00:47:24,280
+one let's just try
+
+897
+00:47:24,920 --> 00:47:32,079
+it 16 uh okay that's not what we want so
+
+898
+00:47:29,200 --> 00:47:35,359
+let's say I want the symbolic result so
+
+899
+00:47:32,079 --> 00:47:38,119
+let's try again let's say start with n
+
+900
+00:47:35,359 --> 00:47:42,200
+okay do
+
+901
+00:47:38,119 --> 00:47:45,040
+it that's what I want there there it is
+
+902
+00:47:42,200 --> 00:47:47,559
+the result okay now let's run this in
+
+903
+00:47:45,040 --> 00:47:50,640
+Notebook because in Notebook you you'll
+
+904
+00:47:47,559 --> 00:47:53,040
+see a you'll see the type set
+
+905
+00:47:50,640 --> 00:47:54,400
+mathematics very interesting so first of
+
+906
+00:47:53,040 --> 00:47:59,839
+all let's go
+
+907
+00:47:54,400 --> 00:47:59,839
+here paste there it is is okay let's
+
+908
+00:48:00,920 --> 00:48:07,359
+magnify okay that's a table 129 then
+
+909
+00:48:04,559 --> 00:48:11,240
+let's say this one this this one is
+
+910
+00:48:07,359 --> 00:48:14,400
+going to be just 16 you you Nest power
+
+911
+00:48:11,240 --> 00:48:17,319
+two to something starting with two two
+
+912
+00:48:14,400 --> 00:48:21,119
+two raised to one and do it again and do
+
+913
+00:48:17,319 --> 00:48:24,480
+it again um you get you get that okay
+
+914
+00:48:21,119 --> 00:48:27,599
+but let's try this one now this one
+
+915
+00:48:24,480 --> 00:48:32,079
+since you start with n which is a simp
+
+916
+00:48:27,599 --> 00:48:34,040
+symbolic uh thing so it cannot directly
+
+917
+00:48:32,079 --> 00:48:36,920
+compute so you get that that's what I
+
+918
+00:48:34,040 --> 00:48:40,880
+want to show you see two to to the end
+
+919
+00:48:36,920 --> 00:48:43,720
+to the end to to to the two you know so
+
+920
+00:48:40,880 --> 00:48:48,760
+anyway so the I'm running this because I
+
+921
+00:48:43,720 --> 00:48:54,559
+was calling uh this command Okay W
+
+922
+00:48:48,760 --> 00:48:54,559
+FR uh where is it let's magnify
+
+923
+00:48:58,760 --> 00:49:05,400
+there it is so it's this command WF from
+
+924
+00:49:02,400 --> 00:49:12,200
+eval current line okay so let's try
+
+925
+00:49:05,400 --> 00:49:15,400
+again let's try again three + 2 okay so
+
+926
+00:49:12,200 --> 00:49:19,880
+press the key so you can
+
+927
+00:49:15,400 --> 00:49:23,200
+see line and you can see the result is
+
+928
+00:49:19,880 --> 00:49:26,319
+five you see when I write my wam
+
+929
+00:49:23,200 --> 00:49:28,079
+Language tutorial uh I don't have a link
+
+930
+00:49:26,319 --> 00:49:30,599
+here but but if you search you'll find
+
+931
+00:49:28,079 --> 00:49:33,559
+my wolf and Language tutorial usually I
+
+932
+00:49:30,599 --> 00:49:36,200
+want I want the result to be here so
+
+933
+00:49:33,559 --> 00:49:39,319
+usually I copy the result here and put
+
+934
+00:49:36,200 --> 00:49:43,960
+it here so it tells people you know this
+
+935
+00:49:39,319 --> 00:49:46,119
+expression evaluate to that one so but
+
+936
+00:49:43,960 --> 00:49:49,040
+but my eval current line doesn't insert
+
+937
+00:49:46,119 --> 00:49:52,480
+the result at the bottom so I want
+
+938
+00:49:49,040 --> 00:49:56,799
+to add a feature so that it can so let's
+
+939
+00:49:52,480 --> 00:49:57,880
+do that okay so first of all copy uh uh
+
+940
+00:49:56,799 --> 00:50:00,960
+put this
+
+941
+00:49:57,880 --> 00:50:04,160
+back syntax correct showing browser go
+
+942
+00:50:00,960 --> 00:50:06,839
+down there there is our code so let's
+
+943
+00:50:04,160 --> 00:50:09,160
+make a backup let's do it again so now
+
+944
+00:50:06,839 --> 00:50:11,160
+we want to modify that command so let's
+
+945
+00:50:09,160 --> 00:50:14,839
+go to that command
+
+946
+00:50:11,160 --> 00:50:19,440
+describe key then the command for that
+
+947
+00:50:14,839 --> 00:50:22,119
+key is tab L there it is
+
+948
+00:50:19,440 --> 00:50:26,480
+EV EV current line jump to the source
+
+949
+00:50:22,119 --> 00:50:27,520
+code open it that here is the command
+
+950
+00:50:26,480 --> 00:50:30,920
+okay
+
+951
+00:50:27,520 --> 00:50:33,680
+so basically this commands call S from
+
+952
+00:50:30,920 --> 00:50:36,359
+Eva region and give it the line
+
+953
+00:50:33,680 --> 00:50:41,440
+beginning position and line and position
+
+954
+00:50:36,359 --> 00:50:43,520
+so what you so you want to modify this
+
+955
+00:50:41,440 --> 00:50:48,040
+so that if you call this command with a
+
+956
+00:50:43,520 --> 00:50:51,359
+universal command first then it will um
+
+957
+00:50:48,040 --> 00:50:51,359
+yeah let's do it quickly
+
+958
+00:50:55,079 --> 00:51:02,599
+okay oh my God it it might get involved
+
+959
+00:50:58,599 --> 00:51:02,599
+it might take another 10 or 20
+
+960
+00:51:03,880 --> 00:51:07,359
+minutes everything
+
+961
+00:51:07,550 --> 00:51:10,629
+[Music]
+
+962
+00:51:12,599 --> 00:51:18,079
+good any any interested in what I'm
+
+963
+00:51:16,520 --> 00:51:22,920
+doing
+
+964
+00:51:18,079 --> 00:51:27,160
+now uh so let's make a new buffer okay
+
+965
+00:51:22,920 --> 00:51:30,720
+so let's code a fresh um
+
+966
+00:51:27,160 --> 00:51:30,720
+let's see ev our
+
+967
+00:51:31,880 --> 00:51:41,599
+region so here is a code to eval region
+
+968
+00:51:36,599 --> 00:51:44,520
+okay so copy that and and go back so put
+
+969
+00:51:41,599 --> 00:51:47,079
+it so new buffer sounds like a great
+
+970
+00:51:44,520 --> 00:51:49,599
+Improvement fantastic okay so we're
+
+971
+00:51:47,079 --> 00:51:52,200
+going to code this command save it in as
+
+972
+00:51:49,599 --> 00:51:52,200
+a temp
+
+973
+00:51:52,760 --> 00:51:58,520
+file okay so here is the temp file
+
+974
+00:51:58,920 --> 00:52:05,400
+you know EV our region we're going to
+
+975
+00:52:01,319 --> 00:52:08,280
+modify it so so so this one is for Evol
+
+976
+00:52:05,400 --> 00:52:10,079
+region let's modify this one so that
+
+977
+00:52:08,280 --> 00:52:14,119
+this one will
+
+978
+00:52:10,079 --> 00:52:17,240
+insert uh the result at the end once we
+
+979
+00:52:14,119 --> 00:52:19,559
+do that then we can this eval current
+
+980
+00:52:17,240 --> 00:52:22,359
+line you know after all it's going to
+
+981
+00:52:19,559 --> 00:52:25,119
+call the eval
+
+982
+00:52:22,359 --> 00:52:28,520
+region uh yeah let's let's just do it
+
+983
+00:52:25,119 --> 00:52:28,520
+quickly okay
+
+984
+00:52:29,520 --> 00:52:36,200
+if Universal argument is called
+
+985
+00:52:33,200 --> 00:52:41,240
+first insert the
+
+986
+00:52:36,200 --> 00:52:44,839
+output at the bottom of region let's
+
+987
+00:52:41,240 --> 00:52:48,359
+just say that okay uh draft first draft
+
+988
+00:52:44,839 --> 00:52:50,799
+version of the of the inline
+
+989
+00:52:48,359 --> 00:52:54,200
+documentation and uh put today's State
+
+990
+00:52:50,799 --> 00:52:57,119
+here show the pink window okay so if
+
+991
+00:52:54,200 --> 00:52:59,680
+Universal argument is called first so
+
+992
+00:52:57,119 --> 00:53:05,400
+what you can do is that you can first of
+
+993
+00:52:59,680 --> 00:53:09,680
+all look up my emac list tutorial go to
+
+994
+00:53:05,400 --> 00:53:13,000
+emac LP then there is a section on user
+
+995
+00:53:09,680 --> 00:53:16,599
+input get Universal argument so that's
+
+996
+00:53:13,000 --> 00:53:20,599
+when you press control U so if you press
+
+997
+00:53:16,599 --> 00:53:21,680
+control U then you call whatever command
+
+998
+00:53:20,599 --> 00:53:24,520
+it will
+
+999
+00:53:21,680 --> 00:53:27,000
+pass that argument to the command that's
+
+1000
+00:53:24,520 --> 00:53:29,319
+how you
+
+1001
+00:53:27,000 --> 00:53:32,000
+pass arguments to function when you call
+
+1002
+00:53:29,319 --> 00:53:35,280
+the function interactively like because
+
+1003
+00:53:32,000 --> 00:53:38,760
+normally uh in any programming language
+
+1004
+00:53:35,280 --> 00:53:42,119
+you call a function like that ABC right
+
+1005
+00:53:38,760 --> 00:53:45,640
+you know you just run this ABC but if
+
+1006
+00:53:42,119 --> 00:53:50,079
+this F is a command how if you are meta
+
+1007
+00:53:45,640 --> 00:53:52,520
+x f you are calling it interactively how
+
+1008
+00:53:50,079 --> 00:53:56,559
+can you possibly let it know you want to
+
+1009
+00:53:52,520 --> 00:53:59,640
+pass this argument so the this Universal
+
+1010
+00:53:56,559 --> 00:54:02,480
+argument is the is the mechanism okay
+
+1011
+00:53:59,640 --> 00:54:04,880
+that's in emac you can read about it you
+
+1012
+00:54:02,480 --> 00:54:08,000
+might already know you just type control
+
+1013
+00:54:04,880 --> 00:54:10,799
+U first then whatever number or
+
+1014
+00:54:08,000 --> 00:54:12,920
+something then followed by meta X
+
+1015
+00:54:10,799 --> 00:54:17,200
+whatever the command the function name
+
+1016
+00:54:12,920 --> 00:54:21,799
+okay so that is that so we want to um so
+
+1017
+00:54:17,200 --> 00:54:24,160
+we want to modify it so here uh so if
+
+1018
+00:54:21,799 --> 00:54:26,440
+the universal argument is called first
+
+1019
+00:54:24,160 --> 00:54:29,240
+so what we do is I'm going to I'm just
+
+1020
+00:54:26,440 --> 00:54:32,599
+going to C this quickly okay if you are
+
+1021
+00:54:29,240 --> 00:54:33,960
+if you guys want to know detail you can
+
+1022
+00:54:32,599 --> 00:54:37,839
+and if you don't understand what I'm
+
+1023
+00:54:33,960 --> 00:54:39,680
+doing you know just read uh read um my
+
+1024
+00:54:37,839 --> 00:54:44,160
+tutorial
+
+1025
+00:54:39,680 --> 00:54:48,960
+there so I want to say so first of
+
+1026
+00:54:44,160 --> 00:54:51,960
+all uh first of all it um you know it
+
+1027
+00:54:48,960 --> 00:54:55,440
+gets the beginning and end position
+
+1028
+00:54:51,960 --> 00:54:56,960
+that's that's kind of that line which
+
+1029
+00:54:55,440 --> 00:54:59,440
+pass it to
+
+1030
+00:54:56,960 --> 00:55:01,680
+become the argument X beginning X end
+
+1031
+00:54:59,440 --> 00:55:04,640
+those are positions each one is a
+
+1032
+00:55:01,680 --> 00:55:08,799
+integer okay so that that's a region
+
+1033
+00:55:04,640 --> 00:55:11,040
+beginning and position then you uh then
+
+1034
+00:55:08,799 --> 00:55:13,520
+this part is a generate the random file
+
+1035
+00:55:11,040 --> 00:55:16,480
+name so you create a random file name
+
+1036
+00:55:13,520 --> 00:55:20,920
+right that's right you create a random
+
+1037
+00:55:16,480 --> 00:55:23,880
+file and then you create a output buffer
+
+1038
+00:55:20,920 --> 00:55:26,880
+that's where you want to put the output
+
+1039
+00:55:23,880 --> 00:55:28,880
+then you um
+
+1040
+00:55:26,880 --> 00:55:32,160
+then this is a command string this is
+
+1041
+00:55:28,880 --> 00:55:36,400
+the actual sh commands you call wolam
+
+1042
+00:55:32,160 --> 00:55:40,039
+script uh you know to actual
+
+1043
+00:55:36,400 --> 00:55:41,960
+actual you call wolam script and give it
+
+1044
+00:55:40,039 --> 00:55:43,920
+the file name the file name you just
+
+1045
+00:55:41,960 --> 00:55:48,000
+created a temp file containing the
+
+1046
+00:55:43,920 --> 00:55:53,119
+region code so this you you call so this
+
+1047
+00:55:48,000 --> 00:55:53,119
+is the command string then
+
+1048
+00:55:53,359 --> 00:56:01,760
+you yeah then then you insert the region
+
+1049
+00:55:57,400 --> 00:56:04,520
+content into this temp file then
+
+1050
+00:56:01,760 --> 00:56:06,400
+you uh message is running then you call
+
+1051
+00:56:04,520 --> 00:56:08,839
+Shell command that's right you call the
+
+1052
+00:56:06,400 --> 00:56:12,799
+Shell command you pass the command
+
+1053
+00:56:08,839 --> 00:56:14,720
+string which is that and then you pass
+
+1054
+00:56:12,799 --> 00:56:16,480
+the output buffer output buffer we
+
+1055
+00:56:14,720 --> 00:56:19,200
+created which is
+
+1056
+00:56:16,480 --> 00:56:21,160
+there then you just display that buffer
+
+1057
+00:56:19,200 --> 00:56:23,720
+that's how it works very so simple let
+
+1058
+00:56:21,160 --> 00:56:28,480
+me let me show it okay let me Demo again
+
+1059
+00:56:23,720 --> 00:56:31,559
+so for example uh suppose that three 3 +
+
+1060
+00:56:28,480 --> 00:56:35,720
+2 let's say plus
+
+1061
+00:56:31,559 --> 00:56:40,079
+uh one okay let's put it into two three
+
+1062
+00:56:35,720 --> 00:56:40,079
+lines okay uh let's say
+
+1063
+00:56:41,200 --> 00:56:49,079
+that okay so we make a region then we
+
+1064
+00:56:44,680 --> 00:56:49,079
+call the command uh tab
+
+1065
+00:56:51,680 --> 00:56:58,839
+e there it is the result is six and tab
+
+1066
+00:56:55,559 --> 00:57:01,559
+e run the command
+
+1067
+00:56:58,839 --> 00:57:04,599
+uh Eva region you can see in the pink
+
+1068
+00:57:01,559 --> 00:57:07,559
+window so that's how that command works
+
+1069
+00:57:04,599 --> 00:57:11,920
+it makes a sh command shell call okay
+
+1070
+00:57:07,559 --> 00:57:13,480
+now let's go back so that's this code uh
+
+1071
+00:57:11,920 --> 00:57:17,319
+pretty simple you
+
+1072
+00:57:13,480 --> 00:57:21,119
+know ju just just just just 30 lines of
+
+1073
+00:57:17,319 --> 00:57:24,240
+code okay but what we want to do now
+
+1074
+00:57:21,119 --> 00:57:26,640
+is let's hack it quickly because for
+
+1075
+00:57:24,240 --> 00:57:28,480
+clean code I'll do it later but for live
+
+1076
+00:57:26,640 --> 00:57:32,359
+stream let's just hack it quickly I want
+
+1077
+00:57:28,480 --> 00:57:36,000
+to get this done so so this current
+
+1078
+00:57:32,359 --> 00:57:39,480
+prefix command current prefix Arc is a
+
+1079
+00:57:36,000 --> 00:57:43,319
+building variable it stores whatever if
+
+1080
+00:57:39,480 --> 00:57:47,000
+user press call the uh Universal
+
+1081
+00:57:43,319 --> 00:57:50,839
+argument that is control U if if user
+
+1082
+00:57:47,000 --> 00:57:54,760
+has done that then then this current
+
+1083
+00:57:50,839 --> 00:57:57,839
+prefix prefix prefix Arc will be will
+
+1084
+00:57:54,760 --> 00:58:00,640
+have a value Okay so if this is Neo so
+
+1085
+00:57:57,839 --> 00:58:05,680
+let's just uh do this
+
+1086
+00:58:00,640 --> 00:58:07,680
+um if this is Neil that means do nothing
+
+1087
+00:58:05,680 --> 00:58:14,240
+okay then do nothing
+
+1088
+00:58:07,680 --> 00:58:17,760
+so okay so let's do when not Cur prefix
+
+1089
+00:58:14,240 --> 00:58:20,400
+AR when it is not NE then let's do
+
+1090
+00:58:17,760 --> 00:58:26,240
+something okay so when this is not NE
+
+1091
+00:58:20,400 --> 00:58:29,799
+you want to uh go to go to CH go to the
+
+1092
+00:58:26,240 --> 00:58:34,760
+the end region end position okay which
+
+1093
+00:58:29,799 --> 00:58:37,680
+is that xn okay you move curer there
+
+1094
+00:58:34,760 --> 00:58:40,319
+then then you want to insert okay you
+
+1095
+00:58:37,680 --> 00:58:44,480
+want to insert the output okay so you
+
+1096
+00:58:40,319 --> 00:58:47,640
+need to copy the output buers content to
+
+1097
+00:58:44,480 --> 00:58:50,760
+to here okay so you just insert there
+
+1098
+00:58:47,640 --> 00:58:53,880
+there is a command to do that so let's
+
+1099
+00:58:50,760 --> 00:58:56,480
+check so so the the thing we want to do
+
+1100
+00:58:53,880 --> 00:58:59,400
+is insert right so let's go to to the
+
+1101
+00:58:56,480 --> 00:59:00,920
+insert section let's find all the
+
+1102
+00:58:59,400 --> 00:59:04,240
+functions that do
+
+1103
+00:59:00,920 --> 00:59:07,280
+insert text editing right there so let's
+
+1104
+00:59:04,240 --> 00:59:11,039
+go there insert okay insert buffer
+
+1105
+00:59:07,280 --> 00:59:14,240
+substring there it is that's the command
+
+1106
+00:59:11,039 --> 00:59:18,119
+we want insert buffer substring
+
+1107
+00:59:14,240 --> 00:59:23,079
+so insert buffer substring uh okay I
+
+1108
+00:59:18,119 --> 00:59:27,200
+don't have a shortcut in uh insert
+
+1109
+00:59:23,079 --> 00:59:28,640
+bu substring okay wait insert buffer
+
+1110
+00:59:27,200 --> 00:59:32,920
+we'll
+
+1111
+00:59:28,640 --> 00:59:35,720
+do uh let's see describe function insert
+
+1112
+00:59:32,920 --> 00:59:39,359
+buffer is an interactive native compil
+
+1113
+00:59:35,720 --> 00:59:40,559
+okay so uh actually let's see I want the
+
+1114
+00:59:39,359 --> 00:59:44,079
+simpler
+
+1115
+00:59:40,559 --> 00:59:47,359
+one insert buffer
+
+1116
+00:59:44,079 --> 00:59:49,720
+substring okay let's look at that up
+
+1117
+00:59:47,359 --> 00:59:53,119
+okay so insert buffer substring is more
+
+1118
+00:59:49,720 --> 00:59:55,039
+fundamental this is written in C code so
+
+1119
+00:59:53,119 --> 00:59:59,200
+what you'll do is it
+
+1120
+00:59:55,039 --> 01:00:01,559
+just takes a buffer and insert and I
+
+1121
+00:59:59,200 --> 01:00:04,880
+mean takes takes a buffer and optional
+
+1122
+01:00:01,559 --> 01:00:07,200
+beginning and position of that buffer
+
+1123
+01:00:04,880 --> 01:00:10,000
+then insert to the current buffer so
+
+1124
+01:00:07,200 --> 01:00:13,960
+that's what we want so insert buffer
+
+1125
+01:00:10,000 --> 01:00:17,200
+substring the buffer name will be X Out
+
+1126
+01:00:13,960 --> 01:00:18,920
+buffer and uh and we don't care about
+
+1127
+01:00:17,200 --> 01:00:22,200
+beginning end because we want the whole
+
+1128
+01:00:18,920 --> 01:00:26,240
+thing okay so move the to the region end
+
+1129
+01:00:22,200 --> 01:00:28,240
+position and just insert that
+
+1130
+01:00:26,240 --> 01:00:32,680
+okay let's try that but before we do
+
+1131
+01:00:28,240 --> 01:00:34,520
+that let's insert a uh extra line Ju
+
+1132
+01:00:32,680 --> 01:00:37,440
+Just so that we can have clear
+
+1133
+01:00:34,520 --> 01:00:40,799
+separation we don't want them uh to be
+
+1134
+01:00:37,440 --> 01:00:45,599
+in single line okay so that's it so
+
+1135
+01:00:40,799 --> 01:00:49,000
+let's evaluate this part and uh and
+
+1136
+01:00:45,599 --> 01:00:52,359
+let's try it okay so go back here so now
+
+1137
+01:00:49,000 --> 01:00:55,079
+I do Universal command first which is
+
+1138
+01:00:52,359 --> 01:00:56,760
+control U okay I do control U you can
+
+1139
+01:00:55,079 --> 01:01:01,280
+see in the Ping window
+
+1140
+01:00:56,760 --> 01:01:05,359
+then I press tab e which is eval region
+
+1141
+01:01:01,280 --> 01:01:06,920
+okay then tab e if there's no region
+
+1142
+01:01:05,359 --> 01:01:11,760
+you'll select the
+
+1143
+01:01:06,920 --> 01:01:14,640
+block so actually it did it but um but
+
+1144
+01:01:11,760 --> 01:01:18,359
+it did not insert the stuff here so why
+
+1145
+01:01:14,640 --> 01:01:20,640
+is that let's try again oh yeah yeah
+
+1146
+01:01:18,359 --> 01:01:23,280
+well we need to actually insert okay so
+
+1147
+01:01:20,640 --> 01:01:24,920
+let's do it again uh select the
+
+1148
+01:01:23,280 --> 01:01:29,839
+region
+
+1149
+01:01:24,920 --> 01:01:37,200
+then control U Universal arguments then
+
+1150
+01:01:29,839 --> 01:01:37,200
+tab e to run the evalon region okay tab
+
+1151
+01:01:38,079 --> 01:01:45,799
+e and it didn't do it what's going
+
+1152
+01:01:42,039 --> 01:01:48,599
+on so let's go to message buffer does
+
+1153
+01:01:45,799 --> 01:01:51,079
+does it say
+
+1154
+01:01:48,599 --> 01:01:54,799
+anything
+
+1155
+01:01:51,079 --> 01:01:56,839
+uh did we evolve maybe we didn't evolve
+
+1156
+01:01:54,799 --> 01:02:02,359
+so evolve The Bu
+
+1157
+01:01:56,839 --> 01:02:02,359
+okay now eval the buffer now let's try
+
+1158
+01:02:04,960 --> 01:02:16,319
+again no okay so bug so what why is that
+
+1159
+01:02:12,559 --> 01:02:20,520
+um when not curent prefix on
+
+1160
+01:02:16,319 --> 01:02:23,359
+so oh when this is on okay when yeah
+
+1161
+01:02:20,520 --> 01:02:26,680
+when when yeah we got it reversed logic
+
+1162
+01:02:23,359 --> 01:02:28,559
+reversed so when there is prefix meaning
+
+1163
+01:02:26,680 --> 01:02:31,599
+that there's a universal argument then
+
+1164
+01:02:28,559 --> 01:02:34,640
+you do it okay now eval buffer go back
+
+1165
+01:02:31,599 --> 01:02:34,640
+here make a
+
+1166
+01:02:34,799 --> 01:02:38,640
+selection uh now Universal command
+
+1167
+01:02:37,400 --> 01:02:42,039
+Universal
+
+1168
+01:02:38,640 --> 01:02:42,039
+argument tab
+
+1169
+01:02:43,400 --> 01:02:46,760
+e okay
+
+1170
+01:02:47,279 --> 01:02:54,839
+so I think it worked because you can see
+
+1171
+01:02:50,359 --> 01:02:59,279
+it and um it did insert
+
+1172
+01:02:54,839 --> 01:03:00,720
+the blank lines but I think there is a
+
+1173
+01:02:59,279 --> 01:03:03,720
+race
+
+1174
+01:03:00,720 --> 01:03:03,720
+condition
+
+1175
+01:03:05,520 --> 01:03:12,559
+because yeah I think there's a race
+
+1176
+01:03:09,200 --> 01:03:15,400
+condition because okay
+
+1177
+01:03:12,559 --> 01:03:18,039
+let's I don't know yet okay I don't know
+
+1178
+01:03:15,400 --> 01:03:20,760
+for sure let's put that here Eva let's
+
+1179
+01:03:18,039 --> 01:03:26,960
+just do trial and error for now okay
+
+1180
+01:03:20,760 --> 01:03:31,480
+select all now Universal argument and t
+
+1181
+01:03:26,960 --> 01:03:34,400
+e you see it inserted BL blank lines but
+
+1182
+01:03:31,480 --> 01:03:39,559
+it didn't grab
+
+1183
+01:03:34,400 --> 01:03:39,559
+this why is that because I
+
+1184
+01:03:39,720 --> 01:03:45,279
+think when it try to insert there is no
+
+1185
+01:03:44,000 --> 01:03:50,160
+content
+
+1186
+01:03:45,279 --> 01:03:54,640
+here because there's a delay oh
+
+1187
+01:03:50,160 --> 01:03:57,480
+God so I mean so this is you know this
+
+1188
+01:03:54,640 --> 01:03:58,960
+is the practice iCal coding issues you
+
+1189
+01:03:57,480 --> 01:04:01,079
+run
+
+1190
+01:03:58,960 --> 01:04:04,559
+into
+
+1191
+01:04:01,079 --> 01:04:08,599
+uh so it did insert you can see for
+
+1192
+01:04:04,559 --> 01:04:13,599
+example we can add tdt eval it and go
+
+1193
+01:04:08,599 --> 01:04:16,559
+back here do it again you see but it you
+
+1194
+01:04:13,599 --> 01:04:21,680
+see but you see this six comes much
+
+1195
+01:04:16,559 --> 01:04:24,039
+later so how do you fix that um well
+
+1196
+01:04:21,680 --> 01:04:27,720
+let's look at the Shell command I
+
+1197
+01:04:24,039 --> 01:04:27,720
+thought we wait for it to finish
+
+1198
+01:04:32,000 --> 01:04:37,200
+uh what's the oh there it is so you see
+
+1199
+01:04:35,640 --> 01:04:41,200
+there's a
+
+1200
+01:04:37,200 --> 01:04:47,599
+problem you in our sh command we have
+
+1201
+01:04:41,200 --> 01:04:47,599
+the ENT at the end now that ENT
+
+1202
+01:04:47,680 --> 01:04:53,240
+means a sync it means it runs in the
+
+1203
+01:04:51,119 --> 01:04:56,480
+background so it doesn't wait for it to
+
+1204
+01:04:53,240 --> 01:04:59,960
+finish so we we have to do just remove
+
+1205
+01:04:56,480 --> 01:05:03,000
+that okay then eval the buffer go back
+
+1206
+01:04:59,960 --> 01:05:06,440
+here then let's try again okay let's
+
+1207
+01:05:03,000 --> 01:05:08,680
+remove that so select it select
+
+1208
+01:05:06,440 --> 01:05:12,160
+it Universal
+
+1209
+01:05:08,680 --> 01:05:12,160
+argument tab
+
+1210
+01:05:12,599 --> 01:05:21,000
+e fantastic you can see six is here and
+
+1211
+01:05:16,880 --> 01:05:26,799
+TD is fantastic we did we did it yay so
+
+1212
+01:05:21,000 --> 01:05:26,799
+today is like 60 Minutes 1 hour perfect
+
+1213
+01:05:28,279 --> 01:05:32,200
+okay anything else thank you guys for
+
+1214
+01:05:30,079 --> 01:05:34,720
+watching if you like my stuff go to my
+
+1215
+01:05:32,200 --> 01:05:39,839
+website and donate to me okay PayPal
+
+1216
+01:05:34,720 --> 01:05:42,760
+patreon go to s.in info there it is go
+
+1217
+01:05:39,839 --> 01:05:47,640
+go up so you can buy my emx
+
+1218
+01:05:42,760 --> 01:05:51,039
+tutorial uh about 700 Pages HTML R
+
+1219
+01:05:47,640 --> 01:05:54,480
+instantaneous reference for for emac and
+
+1220
+01:05:51,039 --> 01:05:56,960
+also for emac bisp so just PayPal me 32
+
+1221
+01:05:54,480 --> 01:05:59,599
+bucks or Amazon give card me you have to
+
+1222
+01:05:56,960 --> 01:06:02,799
+go to my website okay just search for by
+
+1223
+01:05:59,599 --> 01:06:05,520
+emac tutorial so thank you very much you
+
+1224
+01:06:02,799 --> 01:06:10,880
+know if you like my stuff you
+
+1225
+01:06:05,520 --> 01:06:14,680
+got 500 or 600 pages of stuff okay so
+
+1226
+01:06:10,880 --> 01:06:18,680
+actually a lot more but so emac oh one
+
+1227
+01:06:14,680 --> 01:06:22,400
+900 Pages 900 Pages for this directory
+
+1228
+01:06:18,680 --> 01:06:25,599
+then emac miscellaneous there is 200
+
+1229
+01:06:22,400 --> 01:06:29,960
+Pages then you have the complete emac
+
+1230
+01:06:25,599 --> 01:06:33,559
+manual emac dis and and also emac manual
+
+1231
+01:06:29,960 --> 01:06:36,240
+uh reformat in a way that you can have
+
+1232
+01:06:33,559 --> 01:06:38,960
+this all the popup so right now we are
+
+1233
+01:06:36,240 --> 01:06:41,839
+looking at the emac manual I mean this
+
+1234
+01:06:38,960 --> 01:06:45,359
+uh which one this is uh this is emac
+
+1235
+01:06:41,839 --> 01:06:47,160
+list manual so it's all included okay so
+
+1236
+01:06:45,359 --> 01:06:50,599
+if you like my stuff buy my emac
+
+1237
+01:06:47,160 --> 01:06:53,599
+tutorial and also available is uh
+
+1238
+01:06:50,599 --> 01:06:57,480
+JavaScript tutorial JavaScript in depth
+
+1239
+01:06:53,599 --> 01:06:57,480
+which is my most
+
+1240
+01:06:58,440 --> 01:07:04,119
+my most uh comprehensive and in-depth
+
+1241
+01:07:01,799 --> 01:07:07,520
+tutorial I would say even more than EAC
+
+1242
+01:07:04,119 --> 01:07:10,000
+LP even though I worked on emac lisp for
+
+1243
+01:07:07,520 --> 01:07:13,359
+for 15 years but this JavaScript
+
+1244
+01:07:10,000 --> 01:07:15,799
+tutorial is very deep so you can buy
+
+1245
+01:07:13,359 --> 01:07:19,200
+that and or just just donate okay just
+
+1246
+01:07:15,799 --> 01:07:22,640
+go to my c. code all the way to the
+
+1247
+01:07:19,200 --> 01:07:26,480
+bottom uh patreon me and gift card me
+
+1248
+01:07:22,640 --> 01:07:26,480
+okay thank you guys
+
+1249
+01:07:29,000 --> 01:07:38,160
+okay that's it now we shut down in 3
+
+1250
+01:07:32,000 --> 01:07:38,160
+minutes or so let me just relax and
+
+1251
+01:07:39,160 --> 01:07:42,520
+uh shut
+
+1252
+01:07:45,000 --> 01:07:51,359
+down you know so in the past days I've
+
+1253
+01:07:47,799 --> 01:07:54,039
+been working a lot on um on wolam
+
+1254
+01:07:51,359 --> 01:07:56,640
+language so if you don't know already I
+
+1255
+01:07:54,039 --> 01:07:59,279
+have a wolam language to tutorial I've
+
+1256
+01:07:56,640 --> 01:08:03,680
+been working on for example if you go to
+
+1257
+01:07:59,279 --> 01:08:07,000
+my blog s code go to the programming
+
+1258
+01:08:03,680 --> 01:08:09,319
+blog so there's huge amount of updates
+
+1259
+01:08:07,000 --> 01:08:11,520
+on wolam language pattern pattern
+
+1260
+01:08:09,319 --> 01:08:14,760
+matching why pattern matching because
+
+1261
+01:08:11,520 --> 01:08:17,359
+wam language is a term rewriting system
+
+1262
+01:08:14,760 --> 01:08:21,120
+what does that mean that means is you
+
+1263
+01:08:17,359 --> 01:08:25,880
+know every wam code wam language is
+
+1264
+01:08:21,120 --> 01:08:29,279
+basically a sequence of symbols
+
+1265
+01:08:25,880 --> 01:08:31,520
+and when when you do computation it's
+
+1266
+01:08:29,279 --> 01:08:35,400
+it's about replacing part of it by
+
+1267
+01:08:31,520 --> 01:08:38,080
+another part until no rule apply so it's
+
+1268
+01:08:35,400 --> 01:08:40,880
+it's basically basically just find and
+
+1269
+01:08:38,080 --> 01:08:44,640
+replacement all the way it's called term
+
+1270
+01:08:40,880 --> 01:08:44,640
+rewriting system okay if you don't
+
+1271
+01:08:45,239 --> 01:08:51,359
+know so that's a topic in computer
+
+1272
+01:08:48,400 --> 01:08:54,000
+science term rewriting system uh you can
+
+1273
+01:08:51,359 --> 01:08:57,640
+read about there's a lot different types
+
+1274
+01:08:54,000 --> 01:09:00,359
+you know logic arithmetics uh Lambda
+
+1275
+01:08:57,640 --> 01:09:02,600
+calculus Lambda actually Lambda calculus
+
+1276
+01:09:00,359 --> 01:09:05,359
+is a term rewriting system because you
+
+1277
+01:09:02,600 --> 01:09:08,400
+just you you just replace every time you
+
+1278
+01:09:05,359 --> 01:09:11,719
+see a Lambda you replace certain
+
+1279
+01:09:08,400 --> 01:09:15,159
+Expressions by their by the Lambda body
+
+1280
+01:09:11,719 --> 01:09:17,520
+you know by the parameter in body so
+
+1281
+01:09:15,159 --> 01:09:20,359
+it's called term reting system okay and
+
+1282
+01:09:17,520 --> 01:09:23,120
+all these are called formal programming
+
+1283
+01:09:20,359 --> 01:09:25,759
+languages okay do they say here not you
+
+1284
+01:09:23,120 --> 01:09:27,600
+somewhere there okay so you have also
+
+1285
+01:09:25,759 --> 01:09:30,400
+you have different types you have okay
+
+1286
+01:09:27,600 --> 01:09:32,239
+abstract rewriting system you have
+
+1287
+01:09:30,400 --> 01:09:35,839
+string rewriting
+
+1288
+01:09:32,239 --> 01:09:38,080
+system uh then by the way this string
+
+1289
+01:09:35,839 --> 01:09:40,040
+here doesn't mean like string
+
+1290
+01:09:38,080 --> 01:09:42,759
+programming languages it basically just
+
+1291
+01:09:40,040 --> 01:09:46,679
+means symbols just like wolam language
+
+1292
+01:09:42,759 --> 01:09:48,960
+okay then you have term rewriting system
+
+1293
+01:09:46,679 --> 01:09:51,440
+they they kind of all the same okay so
+
+1294
+01:09:48,960 --> 01:09:54,159
+and you know then foral definition so
+
+1295
+01:09:51,440 --> 01:09:57,760
+anyway wolam language basically all you
+
+1296
+01:09:54,159 --> 01:10:01,800
+do is just you know every syntax every
+
+1297
+01:09:57,760 --> 01:10:03,920
+code is just a sequence of symbols you
+
+1298
+01:10:01,800 --> 01:10:06,440
+create rules to replace them every time
+
+1299
+01:10:03,920 --> 01:10:08,719
+you define a function it's actually
+
+1300
+01:10:06,440 --> 01:10:11,600
+defining how you want to replace certain
+
+1301
+01:10:08,719 --> 01:10:14,960
+patterns by another you keep replacing
+
+1302
+01:10:11,600 --> 01:10:17,560
+until no rule matches that's your result
+
+1303
+01:10:14,960 --> 01:10:19,880
+okay that's that's the essence that's
+
+1304
+01:10:17,560 --> 01:10:23,280
+that's basically the essence of the how
+
+1305
+01:10:19,880 --> 01:10:25,880
+wam language Works uh if you know lisp
+
+1306
+01:10:23,280 --> 01:10:28,080
+you can think of that is Lis mark
+
+1307
+01:10:25,880 --> 01:10:31,199
+okay the entire language every function
+
+1308
+01:10:28,080 --> 01:10:34,480
+you write is a least Mar except it's 10
+
+1309
+01:10:31,199 --> 01:10:36,880
+times more powerful okay I like to make
+
+1310
+01:10:34,480 --> 01:10:38,960
+fun of the lisp idiots the common lisp
+
+1311
+01:10:36,880 --> 01:10:40,800
+and their Marco fet
+
+1312
+01:10:38,960 --> 01:10:43,840
+fanaticism because they don't they don't
+
+1313
+01:10:40,800 --> 01:10:47,159
+know you know meanwhile in my emac list
+
+1314
+01:10:43,840 --> 01:10:50,080
+code I never ever use this maros not
+
+1315
+01:10:47,159 --> 01:10:53,080
+even one because it's it's [ __ ] you know
+
+1316
+01:10:50,080 --> 01:10:55,600
+the if you want real like Mar you know
+
+1317
+01:10:53,080 --> 01:10:58,159
+you go with the term rewriting system
+
+1318
+01:10:55,600 --> 01:11:02,800
+symbolic pattern magine
+
+1319
+01:10:58,159 --> 01:11:05,719
+okay so um yeah so I I I I worked on lot
+
+1320
+01:11:02,800 --> 01:11:09,080
+a lot on my tutorials pattern matching
+
+1321
+01:11:05,719 --> 01:11:12,480
+uh map function and so on okay random
+
+1322
+01:11:09,080 --> 01:11:14,800
+random uh you know I'm just doing random
+
+1323
+01:11:12,480 --> 01:11:14,800
+chat
+
+1324
+01:11:16,960 --> 01:11:25,320
+now uh banana
+
+1325
+01:11:20,120 --> 01:11:25,320
+milk banana and milk fantastic
+
+1326
+01:11:30,360 --> 01:11:36,440
+okay bye guys let's see let's see is
+
+1327
+01:11:33,360 --> 01:11:39,880
+there something I want to ramble on uh
+
+1328
+01:11:36,440 --> 01:11:44,320
+brief files okay um yeah that well
+
+1329
+01:11:39,880 --> 01:11:44,320
+that's it bye guys
+

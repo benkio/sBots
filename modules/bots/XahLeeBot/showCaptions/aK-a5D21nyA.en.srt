@@ -1,0 +1,5492 @@
+1
+00:00:04,480 --> 00:00:11,360
+hello guys welcome everyone to another
+
+2
+00:00:07,759 --> 00:00:13,880
+episode of s talk show today I'm going
+
+3
+00:00:11,360 --> 00:00:17,840
+to code emac disp I'm going to show you
+
+4
+00:00:13,880 --> 00:00:21,080
+guys emac disp the best editor with the
+
+5
+00:00:17,840 --> 00:00:23,800
+embedded programming lisp the artificial
+
+6
+00:00:21,080 --> 00:00:27,279
+language fantastic let's
+
+7
+00:00:23,800 --> 00:00:30,920
+go so it's going to be 20 minutes okay
+
+8
+00:00:27,279 --> 00:00:33,680
+I'm going to try to be shorter and more
+
+9
+00:00:30,920 --> 00:00:35,480
+frequent okay my keyboard you should you
+
+10
+00:00:33,680 --> 00:00:37,239
+guys should watch yesterday's live
+
+11
+00:00:35,480 --> 00:00:40,640
+stream
+
+12
+00:00:37,239 --> 00:00:43,039
+introducing the SW board data hand yes
+
+13
+00:00:40,640 --> 00:00:45,480
+yesterday okay I'm not going to talk
+
+14
+00:00:43,039 --> 00:00:48,000
+about my keyboards today because I
+
+15
+00:00:45,480 --> 00:00:52,239
+talked about them all the
+
+16
+00:00:48,000 --> 00:00:55,000
+time so yesterday's live stream okay uh
+
+17
+00:00:52,239 --> 00:00:58,519
+the stupid YouTube warning the current
+
+18
+00:00:55,000 --> 00:01:01,120
+bit rate that's incorrect okay so anyway
+
+19
+00:00:58,519 --> 00:01:05,320
+let's stop that and uh so you can see my
+
+20
+00:01:01,120 --> 00:01:06,840
+screen yes so let's do today's talk show
+
+21
+00:01:05,320 --> 00:01:11,520
+so what we going to code we're going to
+
+22
+00:01:06,840 --> 00:01:14,840
+code emac LP okay so let me explain
+
+23
+00:01:11,520 --> 00:01:18,439
+write a Emax Lis command to break HTML
+
+24
+00:01:14,840 --> 00:01:21,600
+headers into sections okay for example
+
+25
+00:01:18,439 --> 00:01:24,240
+this article famous programmers with
+
+26
+00:01:21,600 --> 00:01:27,799
+repetitive strain injury you know they
+
+27
+00:01:24,240 --> 00:01:30,200
+typed especially using emac control meta
+
+28
+00:01:27,799 --> 00:01:32,520
+[ __ ] up their hands they become a
+
+29
+00:01:30,200 --> 00:01:36,000
+[ __ ] quite a few of them actually
+
+30
+00:01:32,520 --> 00:01:40,360
+Richard stowman the founder of free
+
+31
+00:01:36,000 --> 00:01:43,159
+software Foundation GPL G you know uh
+
+32
+00:01:40,360 --> 00:01:47,799
+his hand got [ __ ] up at some point
+
+33
+00:01:43,159 --> 00:01:52,240
+Jimmy zinski very badly damaged his hand
+
+34
+00:01:47,799 --> 00:01:56,439
+uh uh Ben Wing who who is the uh lead
+
+35
+00:01:52,240 --> 00:02:00,439
+developer for XX for like five or more
+
+36
+00:01:56,439 --> 00:02:02,600
+years he's he's the most severe case
+
+37
+00:02:00,439 --> 00:02:05,320
+you know he crippled he became a he
+
+38
+00:02:02,600 --> 00:02:08,319
+can't type anymore he he went into art
+
+39
+00:02:05,320 --> 00:02:09,920
+or whatever and gradually recovered but
+
+40
+00:02:08,319 --> 00:02:13,599
+all these are long time ago all these
+
+41
+00:02:09,920 --> 00:02:15,160
+are like 20 years ago in the 1990s okay
+
+42
+00:02:13,599 --> 00:02:19,480
+and John
+
+43
+00:02:15,160 --> 00:02:23,599
+ort the creator of TCL TK programming
+
+44
+00:02:19,480 --> 00:02:26,440
+language he also damaged his hand he's a
+
+45
+00:02:23,599 --> 00:02:29,560
+VI user though so it's not just for emac
+
+46
+00:02:26,440 --> 00:02:31,519
+Vi user you know you type type type Okay
+
+47
+00:02:29,560 --> 00:02:34,239
+so anyway I'm not going to talk about
+
+48
+00:02:31,519 --> 00:02:36,599
+keyboard because I talked about you know
+
+49
+00:02:34,239 --> 00:02:38,599
+in the past video so much so today what
+
+50
+00:02:36,599 --> 00:02:43,319
+we're going to do is that for example
+
+51
+00:02:38,599 --> 00:02:45,959
+this is one of my website page I want to
+
+52
+00:02:43,319 --> 00:02:48,840
+okay I want to for example this is a
+
+53
+00:02:45,959 --> 00:02:52,159
+page okay go back to emac go to the top
+
+54
+00:02:48,840 --> 00:02:54,720
+so you can see famous programmers with
+
+55
+00:02:52,159 --> 00:02:56,440
+repetitive stranger so I want to add a
+
+56
+00:02:54,720 --> 00:03:01,319
+section so let me explain what that
+
+57
+00:02:56,440 --> 00:03:06,400
+means okay so you see I add added this
+
+58
+00:03:01,319 --> 00:03:09,480
+this um this block so showing browser
+
+59
+00:03:06,400 --> 00:03:13,000
+you see that's that section means this
+
+60
+00:03:09,480 --> 00:03:16,400
+is like a a a section okay so for
+
+61
+00:03:13,000 --> 00:03:20,400
+example I can say something
+
+62
+00:03:16,400 --> 00:03:22,519
+something showing browser you see it's
+
+63
+00:03:20,400 --> 00:03:24,560
+nice to have a section you know normally
+
+64
+00:03:22,519 --> 00:03:27,920
+you don't have a section normally just
+
+65
+00:03:24,560 --> 00:03:31,439
+Hader you know H2 Richard strowman F
+
+66
+00:03:27,920 --> 00:03:35,799
+software Foundation founder then go down
+
+67
+00:03:31,439 --> 00:03:39,400
+then you have another H2 jimy
+
+68
+00:03:35,799 --> 00:03:43,319
+zinski okay so but it's nice to group
+
+69
+00:03:39,400 --> 00:03:46,159
+them you know the the history of HTML
+
+70
+00:03:43,319 --> 00:03:49,640
+changed in the past 30 years so this uh
+
+71
+00:03:46,159 --> 00:03:52,720
+change but anyway section is a new tag
+
+72
+00:03:49,640 --> 00:03:56,840
+okay so this section is actually a new
+
+73
+00:03:52,720 --> 00:04:01,680
+tag since about 2010 the so-called HTML
+
+74
+00:03:56,840 --> 00:04:06,280
+5 so section means so that you
+
+75
+00:04:01,680 --> 00:04:09,439
+can via syntax you can group a section
+
+76
+00:04:06,280 --> 00:04:12,079
+of the page together so for example
+
+77
+00:04:09,439 --> 00:04:14,159
+let's remove the something something
+
+78
+00:04:12,079 --> 00:04:16,600
+okay now the pink window shows all my
+
+79
+00:04:14,159 --> 00:04:20,239
+command Calles for example I just
+
+80
+00:04:16,600 --> 00:04:25,479
+removed that uh paragraph that's EXA
+
+81
+00:04:20,239 --> 00:04:30,639
+smart delete that's part of UHA flag
+
+82
+00:04:25,479 --> 00:04:33,039
+keys and part of kar HTML mod
+
+83
+00:04:30,639 --> 00:04:35,160
+so these are the packages I wrote so
+
+84
+00:04:33,039 --> 00:04:37,560
+showing browser again so you can let me
+
+85
+00:04:35,160 --> 00:04:42,759
+just just quickly show you okay if you
+
+86
+00:04:37,560 --> 00:04:45,680
+are here say hi and leave a message and
+
+87
+00:04:42,759 --> 00:04:48,039
+give me money donate okay I'm going to
+
+88
+00:04:45,680 --> 00:04:53,520
+answer your questions so post your
+
+89
+00:04:48,039 --> 00:04:55,800
+questions uh so so uh go to kali. infox
+
+90
+00:04:53,520 --> 00:05:01,759
+tutorial so you can
+
+91
+00:04:55,800 --> 00:05:04,479
+see uh SX packages so I have quite a
+
+92
+00:05:01,759 --> 00:05:07,919
+few okay so what what are we doing yeah
+
+93
+00:05:04,479 --> 00:05:10,000
+so section okay so this is HTML mod so
+
+94
+00:05:07,919 --> 00:05:13,680
+that you can you know for example delete
+
+95
+00:05:10,000 --> 00:05:16,600
+one key remove the whole section and uh
+
+96
+00:05:13,680 --> 00:05:19,280
+the pink window shows uh all the command
+
+97
+00:05:16,600 --> 00:05:23,600
+names usually if you just search them
+
+98
+00:05:19,280 --> 00:05:25,840
+you'll find it with the code okay so for
+
+99
+00:05:23,600 --> 00:05:31,800
+example so we have this section now
+
+100
+00:05:25,840 --> 00:05:35,240
+let's move this down down wait uh
+
+101
+00:05:31,800 --> 00:05:37,960
+wait actually delete the whole thing
+
+102
+00:05:35,240 --> 00:05:40,240
+okay now let's go here Richard storman
+
+103
+00:05:37,960 --> 00:05:44,080
+and go down go down go down go down go
+
+104
+00:05:40,240 --> 00:05:47,720
+down go down you see there and press the
+
+105
+00:05:44,080 --> 00:05:51,440
+key it adds a section can you see you
+
+106
+00:05:47,720 --> 00:05:55,800
+see now that command is HTML select
+
+107
+00:05:51,440 --> 00:05:58,440
+element and HTML insert date section so
+
+108
+00:05:55,800 --> 00:06:00,319
+it insert a section with the date now
+
+109
+00:05:58,440 --> 00:06:03,080
+showing browser
+
+110
+00:06:00,319 --> 00:06:06,240
+now it's nice you see so you can
+
+111
+00:06:03,080 --> 00:06:08,599
+visually see you know this part is a
+
+112
+00:06:06,240 --> 00:06:12,039
+section and then we need to do the same
+
+113
+00:06:08,599 --> 00:06:14,199
+thing for the jimy zinski section then
+
+114
+00:06:12,039 --> 00:06:17,639
+we need to do another one so it's
+
+115
+00:06:14,199 --> 00:06:19,840
+tedious I'm going to write command today
+
+116
+00:06:17,639 --> 00:06:22,880
+so I press a key it does it for the
+
+117
+00:06:19,840 --> 00:06:25,000
+whole page okay let's begin to do that
+
+118
+00:06:22,880 --> 00:06:27,880
+now the date I don't need so you see
+
+119
+00:06:25,000 --> 00:06:31,880
+here the DAT line remove it showing
+
+120
+00:06:27,880 --> 00:06:33,800
+browser Okay so and in fact since we are
+
+121
+00:06:31,880 --> 00:06:36,479
+going to write a command to do it we
+
+122
+00:06:33,800 --> 00:06:39,000
+need to test it so for now let's also
+
+123
+00:06:36,479 --> 00:06:42,000
+remove this section so you can see jump
+
+124
+00:06:39,000 --> 00:06:44,039
+to the end of section is this key you
+
+125
+00:06:42,000 --> 00:06:45,479
+see it jumps to the end of section jump
+
+126
+00:06:44,039 --> 00:06:49,919
+to the previous
+
+127
+00:06:45,479 --> 00:06:54,080
+section uh you know jump to the matching
+
+128
+00:06:49,919 --> 00:06:57,360
+TXS so all these are HTML mod you have
+
+129
+00:06:54,080 --> 00:06:59,800
+to pay you pay me I give it to you it's
+
+130
+00:06:57,360 --> 00:07:02,560
+open source
+
+131
+00:06:59,800 --> 00:07:05,680
+uh you know it's been free for like 10
+
+132
+00:07:02,560 --> 00:07:06,879
+15 years no nobody pays and I was dying
+
+133
+00:07:05,680 --> 00:07:10,199
+of
+
+134
+00:07:06,879 --> 00:07:12,039
+hunger okay so questions morning emac
+
+135
+00:07:10,199 --> 00:07:15,120
+considered physically
+
+136
+00:07:12,039 --> 00:07:18,800
+harmful yes that's true in fact out of
+
+137
+00:07:15,120 --> 00:07:23,520
+all computer software in human
+
+138
+00:07:18,800 --> 00:07:26,440
+history emac is the one that causes the
+
+139
+00:07:23,520 --> 00:07:28,520
+most repetitive strain
+
+140
+00:07:26,440 --> 00:07:31,960
+injury that is
+
+141
+00:07:28,520 --> 00:07:34,639
+true now well some people say well is
+
+142
+00:07:31,960 --> 00:07:37,720
+that you know that's you know where is a
+
+143
+00:07:34,639 --> 00:07:40,280
+proof there's no such proof okay but you
+
+144
+00:07:37,720 --> 00:07:43,520
+know if you really look into
+
+145
+00:07:40,280 --> 00:07:47,720
+that's uh that's pretty much
+
+146
+00:07:43,520 --> 00:07:52,400
+true I uh so Sero says I've also noticed
+
+147
+00:07:47,720 --> 00:07:54,080
+pain in my hands hands specifically my
+
+148
+00:07:52,400 --> 00:07:58,080
+thumb
+
+149
+00:07:54,080 --> 00:08:00,360
+yes uh and it says like bending them yes
+
+150
+00:07:58,080 --> 00:08:02,240
+now repetitive strange are different
+
+151
+00:08:00,360 --> 00:08:06,599
+from different people so it's kind of
+
+152
+00:08:02,240 --> 00:08:09,120
+very complex issue in fact medically
+
+153
+00:08:06,599 --> 00:08:11,520
+scientifically there's no clear
+
+154
+00:08:09,120 --> 00:08:13,599
+understanding why it happens you know
+
+155
+00:08:11,520 --> 00:08:16,319
+because I've read a lot you know in
+
+156
+00:08:13,599 --> 00:08:20,479
+actually I you know I know about
+
+157
+00:08:16,319 --> 00:08:24,240
+keyboard since 1990 since 1992 so I read
+
+158
+00:08:20,479 --> 00:08:27,039
+all you know like all the things anyway
+
+159
+00:08:24,240 --> 00:08:29,560
+scientifically they we don't really know
+
+160
+00:08:27,039 --> 00:08:33,240
+exactly what is the course you can go
+
+161
+00:08:29,560 --> 00:08:36,279
+read um Wikipedia for example we know
+
+162
+00:08:33,240 --> 00:08:38,800
+for sure it's repetitive stress you know
+
+163
+00:08:36,279 --> 00:08:41,039
+either repetitive strength or repetitive
+
+164
+00:08:38,800 --> 00:08:44,440
+stress that means you do something
+
+165
+00:08:41,039 --> 00:08:47,240
+repeatedly like keyboarding or sometimes
+
+166
+00:08:44,440 --> 00:08:50,640
+it's called Uh
+
+167
+00:08:47,240 --> 00:08:53,360
+professional uh eess there's a term it's
+
+168
+00:08:50,640 --> 00:08:56,440
+not professional eess but anyway like if
+
+169
+00:08:53,360 --> 00:08:59,480
+you do like some Factory workers they
+
+170
+00:08:56,440 --> 00:09:02,480
+repeat the action every day or dishwash
+
+171
+00:08:59,480 --> 00:09:05,519
+washers I I I was a dishwasher for a
+
+172
+00:09:02,480 --> 00:09:07,399
+couple of years that's very bad so you
+
+173
+00:09:05,519 --> 00:09:10,320
+know you are you know
+
+174
+00:09:07,399 --> 00:09:14,040
+anyway let's write the command okay so
+
+175
+00:09:10,320 --> 00:09:18,160
+now you see this section now let's go to
+
+176
+00:09:14,040 --> 00:09:20,680
+the end okay go to the beginning line 24
+
+177
+00:09:18,160 --> 00:09:24,360
+go to the end line 60 go to the
+
+178
+00:09:20,680 --> 00:09:27,480
+beginning go to the beginning and go to
+
+179
+00:09:24,360 --> 00:09:30,240
+the beginning uh wrong key go to the
+
+180
+00:09:27,480 --> 00:09:32,680
+beginning line 24 okay now I want to
+
+181
+00:09:30,240 --> 00:09:36,880
+delete this tag so press that key press
+
+182
+00:09:32,680 --> 00:09:39,240
+that key so they it deletes the both
+
+183
+00:09:36,880 --> 00:09:45,160
+beginning and end of tag and the command
+
+184
+00:09:39,240 --> 00:09:47,800
+is called HTML remove tag pair
+
+185
+00:09:45,160 --> 00:09:51,160
+fantastic so why do you want to add a
+
+186
+00:09:47,800 --> 00:09:54,920
+section so visually it makes it easier
+
+187
+00:09:51,160 --> 00:09:58,399
+to see you know like sections and
+
+188
+00:09:54,920 --> 00:10:01,640
+chapters the and and the way they they
+
+189
+00:09:58,399 --> 00:10:05,200
+added it's a syntactical bracket just
+
+190
+00:10:01,640 --> 00:10:09,600
+like lisp the language HTML is a fully
+
+191
+00:10:05,200 --> 00:10:13,640
+nested syntax uh yeah so it's just like
+
+192
+00:10:09,600 --> 00:10:16,000
+lisp so you can you can syntactically
+
+193
+00:10:13,640 --> 00:10:19,160
+manipulate
+
+194
+00:10:16,000 --> 00:10:22,640
+sections um for example for example this
+
+195
+00:10:19,160 --> 00:10:25,680
+H2 uh let's try to see then okay we are
+
+196
+00:10:22,640 --> 00:10:29,040
+digressing to so many different things
+
+197
+00:10:25,680 --> 00:10:31,720
+so for example this paragraph you have
+
+198
+00:10:29,040 --> 00:10:35,560
+parag graph then you have citation which
+
+199
+00:10:31,720 --> 00:10:39,600
+keyboard so let's see uh so that that
+
+200
+00:10:35,560 --> 00:10:44,959
+correspond to this part a citation which
+
+201
+00:10:39,600 --> 00:10:51,440
+keyboard 2007 by Michael Tian he is the
+
+202
+00:10:44,959 --> 00:10:55,959
+founder and the main coder of of of um
+
+203
+00:10:51,440 --> 00:10:58,240
+of sigwing Sig is the most popular
+
+204
+00:10:55,959 --> 00:11:02,040
+package for
+
+205
+00:10:58,240 --> 00:11:04,800
+uh for running Unix on
+
+206
+00:11:02,040 --> 00:11:06,320
+Windows today it becomes less popular
+
+207
+00:11:04,800 --> 00:11:09,519
+because you have so many virtual
+
+208
+00:11:06,320 --> 00:11:13,959
+machines or drop box is it called
+
+209
+00:11:09,519 --> 00:11:16,399
+Dropbox no drop not Dropbox but the uh
+
+210
+00:11:13,959 --> 00:11:17,480
+Docker Docker and you know virtual
+
+211
+00:11:16,399 --> 00:11:20,200
+machine
+
+212
+00:11:17,480 --> 00:11:22,560
+so it became less useful and also
+
+213
+00:11:20,200 --> 00:11:26,680
+Microsoft introduced the Linux in
+
+214
+00:11:22,560 --> 00:11:31,000
+Microsoft so you know but Sig wi back
+
+215
+00:11:26,680 --> 00:11:34,839
+then was the number one most
+
+216
+00:11:31,000 --> 00:11:38,440
+popular uh you know so so that's guy
+
+217
+00:11:34,839 --> 00:11:40,639
+that's that's this guy Michel ten tmn
+
+218
+00:11:38,440 --> 00:11:42,560
+okay so it's correspond to this part so
+
+219
+00:11:40,639 --> 00:11:45,399
+you can see this whole paragraph I can
+
+220
+00:11:42,560 --> 00:11:48,839
+press the key remove the whole paragraph
+
+221
+00:11:45,399 --> 00:11:53,079
+or I go here this citation I press the
+
+222
+00:11:48,839 --> 00:11:58,440
+key is simply remove that citation you
+
+223
+00:11:53,079 --> 00:11:59,760
+see as opposed to Mark and uh move move
+
+224
+00:11:58,440 --> 00:12:04,839
+you know
+
+225
+00:11:59,760 --> 00:12:07,399
+so this is the power of nested
+
+226
+00:12:04,839 --> 00:12:12,800
+syntax you don't have that if you code
+
+227
+00:12:07,399 --> 00:12:17,000
+Java C C++ C Pearl
+
+228
+00:12:12,800 --> 00:12:21,040
+python the power of nestate syntax okay
+
+229
+00:12:17,000 --> 00:12:25,519
+but it has flaws too because you because
+
+230
+00:12:21,040 --> 00:12:29,199
+too much nesting uh any anyway so okay
+
+231
+00:12:25,519 --> 00:12:32,839
+so we digressed so much we we did a pre
+
+232
+00:12:29,199 --> 00:12:35,680
+lude or for play of the introduction to
+
+233
+00:12:32,839 --> 00:12:40,880
+the code so let's start to code oh I
+
+234
+00:12:35,680 --> 00:12:40,880
+already did 14 minutes no let's code
+
+235
+00:12:41,199 --> 00:12:47,399
+fast okay let's code fast okay uh let's
+
+236
+00:12:44,600 --> 00:12:51,000
+do okay so let's actually I want to move
+
+237
+00:12:47,399 --> 00:12:53,440
+this out uh bracket and uh this are some
+
+238
+00:12:51,000 --> 00:12:58,959
+examples let's put the code at bottom
+
+239
+00:12:53,440 --> 00:12:59,680
+shall we uh okay uh not that okay uh em
+
+240
+00:12:58,959 --> 00:13:02,920
+this
+
+241
+00:12:59,680 --> 00:13:06,399
+okay show the pink window copy it out
+
+242
+00:13:02,920 --> 00:13:09,279
+okay and let's define define a function
+
+243
+00:13:06,399 --> 00:13:10,880
+and this will the what's the command
+
+244
+00:13:09,279 --> 00:13:12,880
+what do you want to name the command
+
+245
+00:13:10,880 --> 00:13:16,160
+naming of things one of the difficult
+
+246
+00:13:12,880 --> 00:13:19,680
+thing because English language and logic
+
+247
+00:13:16,160 --> 00:13:23,160
+you have to you know naming is critical
+
+248
+00:13:19,680 --> 00:13:26,399
+because naming is serves naming of
+
+249
+00:13:23,160 --> 00:13:30,120
+functions and variables they implicitly
+
+250
+00:13:26,399 --> 00:13:32,399
+serve as 90% of the
+
+251
+00:13:30,120 --> 00:13:37,160
+documentation I have article on that but
+
+252
+00:13:32,399 --> 00:13:39,160
+it's very uh crafty art okay so this
+
+253
+00:13:37,160 --> 00:13:44,279
+name will be
+
+254
+00:13:39,160 --> 00:13:47,079
+HTML we want to add sections Okay add
+
+255
+00:13:44,279 --> 00:13:50,079
+sections add section
+
+256
+00:13:47,079 --> 00:13:52,880
+tag okay let's just say that for now
+
+257
+00:13:50,079 --> 00:13:55,440
+okay I'm going to rename it later uh
+
+258
+00:13:52,880 --> 00:13:59,360
+because we doing live stream so we need
+
+259
+00:13:55,440 --> 00:14:01,519
+to be concerned about time we don't want
+
+260
+00:13:59,360 --> 00:14:04,360
+to think about this for 10 minutes and
+
+261
+00:14:01,519 --> 00:14:07,680
+everyone is like you know what what you
+
+262
+00:14:04,360 --> 00:14:10,000
+doing right right right okay so we got
+
+263
+00:14:07,680 --> 00:14:13,000
+the framework we got the template uh
+
+264
+00:14:10,000 --> 00:14:17,440
+this function so what how do you do it
+
+265
+00:14:13,000 --> 00:14:21,560
+okay so now comes to the hard part uh
+
+266
+00:14:17,440 --> 00:14:25,040
+this is s close it let's go back here so
+
+267
+00:14:21,560 --> 00:14:28,079
+now it comes to the hard part how do you
+
+268
+00:14:25,040 --> 00:14:32,680
+actually where do you insert the section
+
+269
+00:14:28,079 --> 00:14:36,160
+tag okay uh basically you insert let me
+
+270
+00:14:32,680 --> 00:14:39,480
+show you okay so let me kind of explain
+
+271
+00:14:36,160 --> 00:14:41,920
+uh and let's you know we do as we go
+
+272
+00:14:39,480 --> 00:14:47,160
+let's go back to code so every time you
+
+273
+00:14:41,920 --> 00:14:51,920
+see a H2 you want to add a let me uh
+
+274
+00:14:47,160 --> 00:14:55,480
+show you okay okay let me just do
+
+275
+00:14:51,920 --> 00:14:57,800
+it okay so you got the section you got a
+
+276
+00:14:55,480 --> 00:15:01,519
+section like that you want to add that
+
+277
+00:14:57,800 --> 00:15:04,519
+so every time you see H2 you want to
+
+278
+00:15:01,519 --> 00:15:07,160
+replace it by let me show you what you
+
+279
+00:15:04,519 --> 00:15:09,880
+want to replace it by you want to
+
+280
+00:15:07,160 --> 00:15:12,959
+replace it
+
+281
+00:15:09,880 --> 00:15:16,720
+by that okay
+
+282
+00:15:12,959 --> 00:15:18,639
+that's that's kind of the first step
+
+283
+00:15:16,720 --> 00:15:21,560
+then after you do that for the whole
+
+284
+00:15:18,639 --> 00:15:25,759
+page then you go to the first H to then
+
+285
+00:15:21,560 --> 00:15:29,480
+you add that then you go to the last
+
+286
+00:15:25,759 --> 00:15:31,800
+h2/ H2 then you add that okay
+
+287
+00:15:29,480 --> 00:15:33,120
+that's kind of a step okay so let me
+
+288
+00:15:31,800 --> 00:15:37,440
+actually write it
+
+289
+00:15:33,120 --> 00:15:39,519
+out so that uh when you write it out
+
+290
+00:15:37,440 --> 00:15:42,120
+when you write things out depending on
+
+291
+00:15:39,519 --> 00:15:45,959
+the person each one has different ways
+
+292
+00:15:42,120 --> 00:15:48,160
+to learn and think but for me and a lot
+
+293
+00:15:45,959 --> 00:15:51,000
+people a lot a lot people when you write
+
+294
+00:15:48,160 --> 00:15:54,639
+things out it gives you a
+
+295
+00:15:51,000 --> 00:15:57,000
+Clarity okay it gives you a CL logical
+
+296
+00:15:54,639 --> 00:15:59,440
+Clarity what what is the situation what
+
+297
+00:15:57,000 --> 00:16:01,040
+you need to do and things like that
+
+298
+00:15:59,440 --> 00:16:06,560
+okay so
+
+299
+00:16:01,040 --> 00:16:12,560
+H2 so for H
+
+300
+00:16:06,560 --> 00:16:16,720
+H2 begin at the top above for each
+
+301
+00:16:12,560 --> 00:16:19,160
+H2 replace it by
+
+302
+00:16:16,720 --> 00:16:24,839
+that then
+
+303
+00:16:19,160 --> 00:16:24,839
+go to the first H2
+
+304
+00:16:25,759 --> 00:16:29,560
+add
+
+305
+00:16:27,560 --> 00:16:32,120
+before okay
+
+306
+00:16:29,560 --> 00:16:36,079
+uh okay uh
+
+307
+00:16:32,120 --> 00:16:39,079
+before then then go to
+
+308
+00:16:36,079 --> 00:16:39,079
+the
+
+309
+00:16:40,880 --> 00:16:51,600
+last slash H2 then
+
+310
+00:16:45,959 --> 00:16:55,199
+add section after okay now pretty format
+
+311
+00:16:51,600 --> 00:16:59,440
+fantastic okay now we can now we got the
+
+312
+00:16:55,199 --> 00:17:01,839
+algorithm this is the algorithm
+
+313
+00:16:59,440 --> 00:17:06,520
+algorthm
+
+314
+00:17:01,839 --> 00:17:12,039
+uh did I spell it correctly
+
+315
+00:17:06,520 --> 00:17:12,039
+check no I spelled it wrong Alor
+
+316
+00:17:12,199 --> 00:17:17,959
+them oh no wait actually I spelled it
+
+317
+00:17:15,240 --> 00:17:20,199
+correctly I just got the period there
+
+318
+00:17:17,959 --> 00:17:20,199
+okay
+
+319
+00:17:20,559 --> 00:17:28,079
+algorithm okay so we got it algorithm so
+
+320
+00:17:23,640 --> 00:17:30,400
+now code code is the next serious step
+
+321
+00:17:28,079 --> 00:17:33,160
+once you have the algorithm in your head
+
+322
+00:17:30,400 --> 00:17:35,799
+you start to code code is the actual
+
+323
+00:17:33,160 --> 00:17:39,960
+craft because you you need to know the
+
+324
+00:17:35,799 --> 00:17:44,200
+language which you know okay so so easy
+
+325
+00:17:39,960 --> 00:17:50,080
+very easy go to CH go to CH move the
+
+326
+00:17:44,200 --> 00:17:53,799
+csor to both um to point meme emac
+
+327
+00:17:50,080 --> 00:17:55,960
+shotgun Point means the me Point MIM
+
+328
+00:17:53,799 --> 00:17:58,520
+stand for Point
+
+329
+00:17:55,960 --> 00:18:01,240
+minimum that means move the cser to the
+
+330
+00:17:58,520 --> 00:18:04,600
+beginning meaning of the buffer the
+
+331
+00:18:01,240 --> 00:18:07,720
+minimum position integer okay so go to
+
+332
+00:18:04,600 --> 00:18:10,080
+CH point mean point is a IMX jargon for
+
+333
+00:18:07,720 --> 00:18:14,320
+position of the cruiser okay they begin
+
+334
+00:18:10,080 --> 00:18:16,640
+with one so for example what is the what
+
+335
+00:18:14,320 --> 00:18:21,000
+what is the position of my CER position
+
+336
+00:18:16,640 --> 00:18:24,760
+you can do describe Char then you'll say
+
+337
+00:18:21,000 --> 00:18:28,080
+position 381 you see that means at this
+
+338
+00:18:24,760 --> 00:18:30,720
+point the position is 381 so this is how
+
+339
+00:18:28,080 --> 00:18:33,600
+you code Max every you know you have
+
+340
+00:18:30,720 --> 00:18:38,200
+curer position so go to the top then
+
+341
+00:18:33,600 --> 00:18:43,240
+search for word search for word for um
+
+342
+00:18:38,200 --> 00:18:46,440
+H2 okay and uh optional bound Neil no
+
+343
+00:18:43,240 --> 00:18:49,919
+errow no errow true if you cannot find
+
+344
+00:18:46,440 --> 00:18:52,640
+it don't don't you know stop the word
+
+345
+00:18:49,919 --> 00:18:55,960
+because some page don't have H2 okay so
+
+346
+00:18:52,640 --> 00:18:59,400
+you find it you search for what then if
+
+347
+00:18:55,960 --> 00:19:03,200
+you find it then you go to ch
+
+348
+00:18:59,400 --> 00:19:05,159
+let's just code this quickly go to CH uh
+
+349
+00:19:03,200 --> 00:19:08,880
+match beginning
+
+350
+00:19:05,159 --> 00:19:12,760
+position zero that means the whole that
+
+351
+00:19:08,880 --> 00:19:15,760
+means move the point move the cruiser to
+
+352
+00:19:12,760 --> 00:19:17,640
+what location to the match beginning
+
+353
+00:19:15,760 --> 00:19:21,880
+which is whenever you do a regular
+
+354
+00:19:17,640 --> 00:19:24,799
+expression search emx will populate some
+
+355
+00:19:21,880 --> 00:19:28,880
+data match data so the match beginning
+
+356
+00:19:24,799 --> 00:19:30,919
+means the the last match so so so it
+
+357
+00:19:28,880 --> 00:19:33,919
+takes argument zero means the whole
+
+358
+00:19:30,919 --> 00:19:36,320
+match one is the first capture you know
+
+359
+00:19:33,919 --> 00:19:39,480
+this is regular expression so anyway
+
+360
+00:19:36,320 --> 00:19:43,240
+basically you go to the beginning of the
+
+361
+00:19:39,480 --> 00:19:47,480
+front of H2 okay so you move the cursor
+
+362
+00:19:43,240 --> 00:19:51,240
+there then you insert very easy you
+
+363
+00:19:47,480 --> 00:19:54,039
+insert a what do you insert uh let's
+
+364
+00:19:51,240 --> 00:19:54,039
+let's check our
+
+365
+00:19:54,919 --> 00:20:01,760
+algorithm oh you can just replace match
+
+366
+00:19:57,760 --> 00:20:01,760
+okay so let's do replace match
+
+367
+00:20:02,880 --> 00:20:08,280
+then let's do replace match okay let's
+
+368
+00:20:06,000 --> 00:20:12,840
+not let's to replace this so let me show
+
+369
+00:20:08,280 --> 00:20:15,799
+you okay so basically so replace match
+
+370
+00:20:12,840 --> 00:20:19,039
+replace match new text yes the new text
+
+371
+00:20:15,799 --> 00:20:23,320
+is going to be something like
+
+372
+00:20:19,039 --> 00:20:28,039
+that okay so replace
+
+373
+00:20:23,320 --> 00:20:32,600
+match in this thing and optional fix
+
+374
+00:20:28,039 --> 00:20:35,799
+case yes literal uh F case t for True
+
+375
+00:20:32,600 --> 00:20:38,240
+literal t for True string it's not a
+
+376
+00:20:35,799 --> 00:20:42,559
+string we don't care you know okay just
+
+377
+00:20:38,240 --> 00:20:44,400
+that okay so remove that remove that
+
+378
+00:20:42,559 --> 00:20:48,440
+okay so
+
+379
+00:20:44,400 --> 00:20:52,200
+prettyy okay so you replace
+
+380
+00:20:48,440 --> 00:20:56,080
+match you find that then you replace by
+
+381
+00:20:52,200 --> 00:20:59,120
+that okay uh and you want to do
+
+382
+00:20:56,080 --> 00:21:02,760
+this repeatedly
+
+383
+00:20:59,120 --> 00:21:06,679
+because you know you found the H2 you do
+
+384
+00:21:02,760 --> 00:21:09,960
+the replacement you f found another H2
+
+385
+00:21:06,679 --> 00:21:12,039
+you want to do it repeatedly so now we
+
+386
+00:21:09,960 --> 00:21:16,240
+need a loop
+
+387
+00:21:12,039 --> 00:21:19,080
+okay so but but now our code is already
+
+388
+00:21:16,240 --> 00:21:21,360
+working so let let's show the whole code
+
+389
+00:21:19,080 --> 00:21:25,440
+it's already working so we can try it
+
+390
+00:21:21,360 --> 00:21:28,159
+you know so save it evaluate the buffer
+
+391
+00:21:25,440 --> 00:21:32,000
+now go to one of the example page for
+
+392
+00:21:28,159 --> 00:21:34,760
+example open it okay so now make a
+
+393
+00:21:32,000 --> 00:21:39,679
+backup okay now we can try our Command
+
+394
+00:21:34,760 --> 00:21:43,559
+what's the command name okay meta X I
+
+395
+00:21:39,679 --> 00:21:46,960
+add section tags do
+
+396
+00:21:43,559 --> 00:21:49,880
+it fantastic you can
+
+397
+00:21:46,960 --> 00:21:53,679
+see it added
+
+398
+00:21:49,880 --> 00:21:55,440
+that let's undo let's say our cursor is
+
+399
+00:21:53,679 --> 00:21:59,200
+here instead let's you know let's say
+
+400
+00:21:55,440 --> 00:22:01,200
+our cursor is here meta X do it you see
+
+401
+00:21:59,200 --> 00:22:05,440
+it goes there and
+
+402
+00:22:01,200 --> 00:22:07,720
+add perfect so far so good but our code
+
+403
+00:22:05,440 --> 00:22:10,760
+is actually wrong we don't want to add
+
+404
+00:22:07,720 --> 00:22:13,640
+this here wait how where do we want to
+
+405
+00:22:10,760 --> 00:22:16,000
+add it oh okay so our algorithm is wrong
+
+406
+00:22:13,640 --> 00:22:19,240
+so let's go back
+
+407
+00:22:16,000 --> 00:22:21,120
+to go back to the drawing board actually
+
+408
+00:22:19,240 --> 00:22:25,279
+we should
+
+409
+00:22:21,120 --> 00:22:30,520
+um yeah you should add that okay it
+
+410
+00:22:25,279 --> 00:22:30,520
+should add add that instead okay
+
+411
+00:22:31,760 --> 00:22:37,919
+so so uh section yeah so
+
+412
+00:22:39,640 --> 00:22:44,080
+yeah so let's see
+
+413
+00:22:46,880 --> 00:22:55,679
+H2 okay okay run it go back to the test
+
+414
+00:22:52,600 --> 00:22:59,039
+page the test page is uh Richard
+
+415
+00:22:55,679 --> 00:23:03,919
+strowman okay so go here now put Cruiser
+
+416
+00:22:59,039 --> 00:23:08,400
+somewhere anywhere may I X do
+
+417
+00:23:03,919 --> 00:23:08,400
+it did it work
+
+418
+00:23:09,799 --> 00:23:17,240
+yes you see but except that section tag
+
+419
+00:23:14,360 --> 00:23:20,919
+is wrong okay actually we already 25
+
+420
+00:23:17,240 --> 00:23:23,640
+minutes so we kind of been slow in the
+
+421
+00:23:20,919 --> 00:23:25,720
+coding progress but that's okay because
+
+422
+00:23:23,640 --> 00:23:27,919
+I talked a lot
+
+423
+00:23:25,720 --> 00:23:30,400
+smoothly now let me see if there's a
+
+424
+00:23:27,919 --> 00:23:33,640
+question
+
+425
+00:23:30,400 --> 00:23:36,919
+you mentioned in a earlier stream Jack
+
+426
+00:23:33,640 --> 00:23:40,720
+Smith says you mentioned in in a earlier
+
+427
+00:23:36,919 --> 00:23:43,880
+stream that you dislike IDE things which
+
+428
+00:23:40,720 --> 00:23:46,720
+I didn't quite understand it would be
+
+429
+00:23:43,880 --> 00:23:51,120
+cool it would be cool if you could do a
+
+430
+00:23:46,720 --> 00:23:54,960
+stream really deep diving on programming
+
+431
+00:23:51,120 --> 00:23:58,480
+environment okay so I mentioned I
+
+432
+00:23:54,960 --> 00:24:00,760
+dislike IDE themes what do you mean so
+
+433
+00:23:58,480 --> 00:24:04,360
+you need to clarify your question so let
+
+434
+00:24:00,760 --> 00:24:07,720
+me see let me read on and be diving on
+
+435
+00:24:04,360 --> 00:24:11,039
+your take on fonts themes really all
+
+436
+00:24:07,720 --> 00:24:13,880
+things regarding similar topic okay so I
+
+437
+00:24:11,039 --> 00:24:16,799
+guess your topic topic is regarding
+
+438
+00:24:13,880 --> 00:24:19,480
+themes color themes for
+
+439
+00:24:16,799 --> 00:24:22,559
+example we digressed but that's okay
+
+440
+00:24:19,480 --> 00:24:26,080
+because that's talk show you know I
+
+441
+00:24:22,559 --> 00:24:29,080
+noticed if I when I do live stream if I
+
+442
+00:24:26,080 --> 00:24:32,000
+just focus you know like very
+
+443
+00:24:29,080 --> 00:24:35,960
+technical good boy technical ex
+
+444
+00:24:32,000 --> 00:24:39,720
+exhibition tutorial on emac this few
+
+445
+00:24:35,960 --> 00:24:42,039
+people care but if I talk about lots of
+
+446
+00:24:39,720 --> 00:24:46,320
+things random traumatic things a lot
+
+447
+00:24:42,039 --> 00:24:49,159
+people more people watch okay so that's
+
+448
+00:24:46,320 --> 00:24:52,520
+kind of uh that's the situation you know
+
+449
+00:24:49,159 --> 00:24:58,399
+that's a human nature you know low level
+
+450
+00:24:52,520 --> 00:25:00,600
+drama stuff more popular uh okay so so
+
+451
+00:24:58,399 --> 00:25:02,320
+so let's let me answer your question
+
+452
+00:25:00,600 --> 00:25:06,039
+okay color
+
+453
+00:25:02,320 --> 00:25:10,039
+themes so color themes for example we
+
+454
+00:25:06,039 --> 00:25:14,760
+let's let me show you okay So Meta X
+
+455
+00:25:10,039 --> 00:25:20,600
+custom themes okay go there and you have
+
+456
+00:25:14,760 --> 00:25:25,320
+many choices so let's pick uh modus
+
+457
+00:25:20,600 --> 00:25:27,159
+vendi this one is created by uh how how
+
+458
+00:25:25,320 --> 00:25:30,600
+does he call
+
+459
+00:25:27,159 --> 00:25:34,960
+himself hi hi hi my name is
+
+460
+00:25:30,600 --> 00:25:39,919
+patu something something uh let's let's
+
+461
+00:25:34,960 --> 00:25:43,919
+look at his name not here okay so search
+
+462
+00:25:39,919 --> 00:25:46,320
+lookup web uh oh God what is this
+
+463
+00:25:43,919 --> 00:25:50,000
+underwar swing
+
+464
+00:25:46,320 --> 00:25:52,960
+wear so modus vendi actually means
+
+465
+00:25:50,000 --> 00:25:56,720
+something is a Latin phrase that means
+
+466
+00:25:52,960 --> 00:25:59,360
+mod of living way of life oh okay this
+
+467
+00:25:56,720 --> 00:26:02,360
+guy is a philosopher that's why he named
+
+468
+00:25:59,360 --> 00:26:05,080
+his stuff that but you know let's put
+
+469
+00:26:02,360 --> 00:26:05,080
+emx
+
+470
+00:26:05,600 --> 00:26:09,480
+there yeah
+
+471
+00:26:09,600 --> 00:26:16,360
+prilo
+
+472
+00:26:11,520 --> 00:26:19,880
+St hard to pronounce name but he says hi
+
+473
+00:26:16,360 --> 00:26:22,520
+my name is p something I forgot what is
+
+474
+00:26:19,880 --> 00:26:26,480
+the shortcut to his name but anyway this
+
+475
+00:26:22,520 --> 00:26:30,000
+guy kind of a philosopher kind of
+
+476
+00:26:26,480 --> 00:26:31,279
+guy uh oh Je mendous Page look at his
+
+477
+00:26:30,000 --> 00:26:36,000
+page
+
+478
+00:26:31,279 --> 00:26:38,760
+1,000 Pages what is this mod themes
+
+479
+00:26:36,000 --> 00:26:42,640
+accessible themes for Guru yeah anyway
+
+480
+00:26:38,760 --> 00:26:43,440
+he created this uh theme okay so press
+
+481
+00:26:42,640 --> 00:26:47,279
+the
+
+482
+00:26:43,440 --> 00:26:49,760
+button dark thing dark pretty good I
+
+483
+00:26:47,279 --> 00:26:54,600
+like it okay so I've been trying this at
+
+484
+00:26:49,760 --> 00:26:58,679
+night usually when lights the sense down
+
+485
+00:26:54,600 --> 00:27:00,919
+it became dark the nature dark and you
+
+486
+00:26:58,679 --> 00:27:04,440
+know like you cannot see your thing
+
+487
+00:27:00,919 --> 00:27:05,720
+there's no light outside so that's when
+
+488
+00:27:04,440 --> 00:27:08,600
+your wife is
+
+489
+00:27:05,720 --> 00:27:12,080
+sleeping that's when and the lights are
+
+490
+00:27:08,600 --> 00:27:14,919
+off that's when I use dark theme okay
+
+491
+00:27:12,080 --> 00:27:15,679
+so theme okay so you are talking about
+
+492
+00:27:14,919 --> 00:27:19,399
+the
+
+493
+00:27:15,679 --> 00:27:22,039
+theme themes are no good okay you know
+
+494
+00:27:19,399 --> 00:27:24,480
+before you were saying ID no you are not
+
+495
+00:27:22,039 --> 00:27:25,760
+talking about ID you are talking about
+
+496
+00:27:24,480 --> 00:27:31,120
+color
+
+497
+00:27:25,760 --> 00:27:34,600
+themes color themes themes is a thing is
+
+498
+00:27:31,120 --> 00:27:37,159
+a thing GUI thing it's a fad beginning
+
+499
+00:27:34,600 --> 00:27:40,440
+about 10 years ago okay you don't need
+
+500
+00:27:37,159 --> 00:27:42,919
+it well sometimes you know at night when
+
+501
+00:27:40,440 --> 00:27:47,000
+when the lights are off for example in
+
+502
+00:27:42,919 --> 00:27:50,200
+my room wife is sleeping she needs the
+
+503
+00:27:47,000 --> 00:27:52,159
+lights to be off so when the lights off
+
+504
+00:27:50,200 --> 00:27:54,080
+the screen is too bright you know you
+
+505
+00:27:52,159 --> 00:27:58,399
+know she doesn't you know you don't want
+
+506
+00:27:54,080 --> 00:28:01,679
+to disturb her so that's when I use the
+
+507
+00:27:58,399 --> 00:28:04,960
+Dark theme so let me show this again go
+
+508
+00:28:01,679 --> 00:28:06,519
+to the powers shell you see I wrote the
+
+509
+00:28:04,960 --> 00:28:10,760
+command
+
+510
+00:28:06,519 --> 00:28:15,640
+Taro do them hey see everything becomes
+
+511
+00:28:10,760 --> 00:28:18,440
+dog do magnify again go it again right
+
+512
+00:28:15,640 --> 00:28:21,519
+you see emac doesn't auto adjust but I
+
+513
+00:28:18,440 --> 00:28:25,120
+think there's some pack pack it doesn't
+
+514
+00:28:21,519 --> 00:28:26,600
+auto adjust according to your operating
+
+515
+00:28:25,120 --> 00:28:28,919
+systems
+
+516
+00:28:26,600 --> 00:28:31,279
+setting so anyway
+
+517
+00:28:28,919 --> 00:28:35,279
+so you're talking about this so you you
+
+518
+00:28:31,279 --> 00:28:39,240
+see Twitter Twitter disc Discord and
+
+519
+00:28:35,279 --> 00:28:43,360
+browser so you can toggle do theme again
+
+520
+00:28:39,240 --> 00:28:46,279
+do it why is it shrink back to the font
+
+521
+00:28:43,360 --> 00:28:49,440
+[ __ ] so anyway you you toggle so you see
+
+522
+00:28:46,279 --> 00:28:52,799
+the browser becomes stock the Discord
+
+523
+00:28:49,440 --> 00:28:55,279
+becomes stock and Twitter becomes stock
+
+524
+00:28:52,799 --> 00:28:58,919
+and YouTube also becomes
+
+525
+00:28:55,279 --> 00:29:01,640
+stock because in this each applications
+
+526
+00:28:58,919 --> 00:29:03,880
+they set their color theme you can
+
+527
+00:29:01,640 --> 00:29:06,640
+there's a preference you can set it to
+
+528
+00:29:03,880 --> 00:29:11,240
+use whatever your Operating System is
+
+529
+00:29:06,640 --> 00:29:13,880
+using you see fantastic and if youo doc
+
+530
+00:29:11,240 --> 00:29:16,720
+theme that's a Powershell script I wrote
+
+531
+00:29:13,880 --> 00:29:20,720
+you can go search it you'll find it and
+
+532
+00:29:16,720 --> 00:29:25,120
+you can use it otherwise if you are
+
+533
+00:29:20,720 --> 00:29:26,519
+prefer manual you just press windows I
+
+534
+00:29:25,120 --> 00:29:29,320
+to go
+
+535
+00:29:26,519 --> 00:29:31,159
+to you know your Windows settings and
+
+536
+00:29:29,320 --> 00:29:33,120
+personal
+
+537
+00:29:31,159 --> 00:29:34,760
+personification how do they call it
+
+538
+00:29:33,120 --> 00:29:37,760
+personifica
+
+539
+00:29:34,760 --> 00:29:37,760
+personal
+
+540
+00:29:38,240 --> 00:29:42,840
+personalization okay you see different
+
+541
+00:29:41,080 --> 00:29:45,640
+you know this is like related to the
+
+542
+00:29:42,840 --> 00:29:49,519
+naming of things you can call for
+
+543
+00:29:45,640 --> 00:29:53,600
+example emx it's called customize
+
+544
+00:29:49,519 --> 00:29:56,399
+things in Microsoft Microsoft Windows
+
+545
+00:29:53,600 --> 00:29:58,640
+Microsoft people they think it's better
+
+546
+00:29:56,399 --> 00:30:02,360
+personalization
+
+547
+00:29:58,640 --> 00:30:05,320
+click on that then colors you know
+
+548
+00:30:02,360 --> 00:30:08,360
+Windows is idiotic extreme since about
+
+549
+00:30:05,320 --> 00:30:11,360
+10 years ago extreme bad by the way
+
+550
+00:30:08,360 --> 00:30:14,600
+Linux is worse Linux is like two three
+
+551
+00:30:11,360 --> 00:30:18,000
+times worse than Windows when it comes
+
+552
+00:30:14,600 --> 00:30:21,600
+to usability
+
+553
+00:30:18,000 --> 00:30:23,840
+okay so anyway so you know so do theme
+
+554
+00:30:21,600 --> 00:30:27,120
+dark theme is not good it's it's it's
+
+555
+00:30:23,840 --> 00:30:31,360
+typically a fat the only use case of
+
+556
+00:30:27,120 --> 00:30:33,760
+Dark theme is at night when in your room
+
+557
+00:30:31,360 --> 00:30:37,120
+you have the lights off for various
+
+558
+00:30:33,760 --> 00:30:41,000
+reasons that's when Dark theme is good
+
+559
+00:30:37,120 --> 00:30:43,360
+or on the form if you have AED screen
+
+560
+00:30:41,000 --> 00:30:45,679
+where when the background is black it
+
+561
+00:30:43,360 --> 00:30:48,200
+doesn't use as much
+
+562
+00:30:45,679 --> 00:30:50,880
+battery but if you don't have this
+
+563
+00:30:48,200 --> 00:30:53,159
+specific or lead screen technology it
+
+564
+00:30:50,880 --> 00:30:55,799
+doesn't matter whether you have the
+
+565
+00:30:53,159 --> 00:30:58,720
+black uh background or white background
+
+566
+00:30:55,799 --> 00:31:01,559
+they use the same amount of
+
+567
+00:30:58,720 --> 00:31:05,159
+battery suck your juice out of your
+
+568
+00:31:01,559 --> 00:31:09,519
+phone but if you have the latest iPhone
+
+569
+00:31:05,159 --> 00:31:14,039
+then Dark theme saves the battery you
+
+570
+00:31:09,519 --> 00:31:16,840
+know some uh yeah so it depends on the
+
+571
+00:31:14,039 --> 00:31:20,559
+technology of your screen so anyway we
+
+572
+00:31:16,840 --> 00:31:23,000
+digress so much so your question is why
+
+573
+00:31:20,559 --> 00:31:27,080
+why is that I don't care about it
+
+574
+00:31:23,000 --> 00:31:28,480
+because it's it's it's insignificant
+
+575
+00:31:27,080 --> 00:31:32,240
+okay it's
+
+576
+00:31:28,480 --> 00:31:34,760
+not essential not essential you know the
+
+577
+00:31:32,240 --> 00:31:38,919
+Dark theme and the coloring is one of
+
+578
+00:31:34,760 --> 00:31:42,559
+the bik shade
+
+579
+00:31:38,919 --> 00:31:44,600
+issue um meaning that it's very popular
+
+580
+00:31:42,559 --> 00:31:47,080
+everyone it's a topic everyone talks
+
+581
+00:31:44,600 --> 00:31:49,760
+about because everyone can appreciate
+
+582
+00:31:47,080 --> 00:31:53,360
+like your skin color you know everyone
+
+583
+00:31:49,760 --> 00:31:56,279
+will talk about it and sex sex and skin
+
+584
+00:31:53,360 --> 00:31:59,360
+color men
+
+585
+00:31:56,279 --> 00:32:01,919
+women they talk about every day
+
+586
+00:31:59,360 --> 00:32:04,600
+forever same thing with the color theme
+
+587
+00:32:01,919 --> 00:32:06,600
+everyone understand you know oh yeah
+
+588
+00:32:04,600 --> 00:32:08,760
+what's your preference oh I prefer this
+
+589
+00:32:06,600 --> 00:32:11,919
+one no that one is not good I prefer
+
+590
+00:32:08,760 --> 00:32:14,360
+this one Tango do no that's idiotic it
+
+591
+00:32:11,919 --> 00:32:17,399
+must have this one oh actually what I do
+
+592
+00:32:14,360 --> 00:32:20,320
+is I combine them you know they talk
+
+593
+00:32:17,399 --> 00:32:22,760
+about it and font font font is the same
+
+594
+00:32:20,320 --> 00:32:25,200
+thing every program of you talk about
+
+595
+00:32:22,760 --> 00:32:28,200
+font of this font that
+
+596
+00:32:25,200 --> 00:32:30,559
+font insignificant
+
+597
+00:32:28,200 --> 00:32:34,080
+okay not
+
+598
+00:32:30,559 --> 00:32:38,399
+essential so what I prefer you asking my
+
+599
+00:32:34,080 --> 00:32:41,000
+opinion so my my preference is uh simple
+
+600
+00:32:38,399 --> 00:32:44,279
+okay I don't need I don't need to adjust
+
+601
+00:32:41,000 --> 00:32:47,279
+you know this this fun phas or whatever
+
+602
+00:32:44,279 --> 00:32:49,840
+or lature I I talk about F like in lots
+
+603
+00:32:47,279 --> 00:32:52,880
+of my videos you know that I've been
+
+604
+00:32:49,840 --> 00:32:56,279
+doing there are like
+
+605
+00:32:52,880 --> 00:33:00,039
+seven they are like a thousand videos
+
+606
+00:32:56,279 --> 00:33:02,120
+okay in the past so I rented about font
+
+607
+00:33:00,039 --> 00:33:05,440
+quite a lot of my videos so you can
+
+608
+00:33:02,120 --> 00:33:08,440
+watch them and in fact I talked
+
+609
+00:33:05,440 --> 00:33:11,039
+about uh I talked about dark themes
+
+610
+00:33:08,440 --> 00:33:14,399
+dedicated you know several of my talk
+
+611
+00:33:11,039 --> 00:33:16,240
+shows talked about dark themes so anyway
+
+612
+00:33:14,399 --> 00:33:20,039
+if you ask my
+
+613
+00:33:16,240 --> 00:33:22,639
+opinion I think it's no good and also
+
+614
+00:33:20,039 --> 00:33:27,440
+Dark theme some people will say dark
+
+615
+00:33:22,639 --> 00:33:29,720
+theme make your eye sooth is your eye
+
+616
+00:33:27,440 --> 00:33:30,720
+you know it's healthier if you use dark
+
+617
+00:33:29,720 --> 00:33:36,440
+thing
+
+618
+00:33:30,720 --> 00:33:40,080
+force force okay if you go by scientific
+
+619
+00:33:36,440 --> 00:33:43,880
+evidence the evidence points
+
+620
+00:33:40,080 --> 00:33:47,080
+to light theme white background is
+
+621
+00:33:43,880 --> 00:33:50,799
+better for your eye less tiring why
+
+622
+00:33:47,080 --> 00:33:51,880
+because that's natural when you go out
+
+623
+00:33:50,799 --> 00:33:56,120
+it's
+
+624
+00:33:51,880 --> 00:33:58,519
+sunlight that's bright theme White theme
+
+625
+00:33:56,120 --> 00:34:02,039
+It's Not Dark theme
+
+626
+00:33:58,519 --> 00:34:05,840
+at night there's no sunlight everything
+
+627
+00:34:02,039 --> 00:34:09,240
+is peach black there's no light light is
+
+628
+00:34:05,840 --> 00:34:12,679
+artificial stuff okay there's no lamp
+
+629
+00:34:09,240 --> 00:34:14,159
+flashlight whatever your phone glowy you
+
+630
+00:34:12,679 --> 00:34:17,520
+know you don't you don't you don't you
+
+631
+00:34:14,159 --> 00:34:22,720
+know in natural Naturally
+
+632
+00:34:17,520 --> 00:34:22,720
+Speaking we animals we don't see glories
+
+633
+00:34:24,200 --> 00:34:30,119
+like that's what Dark theme is you know
+
+634
+00:34:27,440 --> 00:34:32,960
+everything is black but they you see
+
+635
+00:34:30,119 --> 00:34:36,079
+light you know this glowy things glowing
+
+636
+00:34:32,960 --> 00:34:40,240
+you know this that's that's
+
+637
+00:34:36,079 --> 00:34:44,079
+unnatural okay so of the thousands of
+
+638
+00:34:40,240 --> 00:34:46,839
+millions of years of evolution we we are
+
+639
+00:34:44,079 --> 00:34:49,800
+survivors that's why we are here you
+
+640
+00:34:46,839 --> 00:34:52,919
+know other other din dinosaurs they
+
+641
+00:34:49,800 --> 00:34:58,200
+died okay
+
+642
+00:34:52,919 --> 00:35:01,160
+so our eyes is best fit for sunlight
+
+643
+00:34:58,200 --> 00:35:03,920
+okay white them not dark them but
+
+644
+00:35:01,160 --> 00:35:05,920
+occasional use you know I mean you know
+
+645
+00:35:03,920 --> 00:35:08,440
+if you have to turn off your light dark
+
+646
+00:35:05,920 --> 00:35:11,240
+dark them don't want to disturb people
+
+647
+00:35:08,440 --> 00:35:14,400
+that's why it can be useful okay that's
+
+648
+00:35:11,240 --> 00:35:14,400
+my opinion about
+
+649
+00:35:15,160 --> 00:35:20,079
+that uh do I make
+
+650
+00:35:22,079 --> 00:35:30,400
+sense okay so there's a lot of questions
+
+651
+00:35:26,160 --> 00:35:33,880
+uh but uh I think so we are already 37
+
+652
+00:35:30,400 --> 00:35:36,240
+minutes uh I need to finish our code
+
+653
+00:35:33,880 --> 00:35:38,520
+because it's not good to just hand it
+
+654
+00:35:36,240 --> 00:35:42,000
+there
+
+655
+00:35:38,520 --> 00:35:44,880
+so so here's our code yeah so
+
+656
+00:35:42,000 --> 00:35:48,599
+actually let me quickly see
+
+657
+00:35:44,880 --> 00:35:48,599
+some questions
+
+658
+00:35:48,760 --> 00:35:55,119
+okay how do you auto start esell in its
+
+659
+00:35:51,760 --> 00:35:57,440
+on window when emac is
+
+660
+00:35:55,119 --> 00:35:59,400
+opened and that's so simple you just
+
+661
+00:35:57,440 --> 00:36:01,560
+start start iSell you just all you have
+
+662
+00:35:59,400 --> 00:36:06,960
+to do is
+
+663
+00:36:01,560 --> 00:36:09,960
+um okay so let let's see so describe key
+
+664
+00:36:06,960 --> 00:36:13,720
+I press the key for esell so to launch
+
+665
+00:36:09,960 --> 00:36:17,720
+the esell the command is just esell the
+
+666
+00:36:13,720 --> 00:36:22,480
+name Esa so if you want to start esell
+
+667
+00:36:17,720 --> 00:36:26,319
+when emac begin you go to your emac init
+
+668
+00:36:22,480 --> 00:36:30,200
+file so let's say for example here my
+
+669
+00:36:26,319 --> 00:36:34,880
+personal init and you can just
+
+670
+00:36:30,200 --> 00:36:37,119
+put that okay so that does that answer
+
+671
+00:36:34,880 --> 00:36:37,119
+your
+
+672
+00:36:37,280 --> 00:36:43,400
+question programming guide hey Mr Lee
+
+673
+00:36:40,640 --> 00:36:46,280
+how do you auto start eell in its own
+
+674
+00:36:43,400 --> 00:36:48,760
+window when emac is open okay that's I
+
+675
+00:36:46,280 --> 00:36:52,240
+think that's it just put this line in
+
+676
+00:36:48,760 --> 00:36:55,040
+your emac in it that's that's
+
+677
+00:36:52,240 --> 00:36:57,760
+it how is the far board okay did you
+
+678
+00:36:55,040 --> 00:37:00,480
+watch my video yesterday I mean how do I
+
+679
+00:36:57,760 --> 00:37:06,560
+I just did it yesterday I just got
+
+680
+00:37:00,480 --> 00:37:06,560
+it so I mean you know anyway
+
+681
+00:37:13,160 --> 00:37:19,680
+um cous okay uh and theme your favorite
+
+682
+00:37:21,400 --> 00:37:27,359
+theme uh
+
+683
+00:37:23,680 --> 00:37:29,000
+supr is solar solarus let me tell you
+
+684
+00:37:27,359 --> 00:37:33,000
+about about
+
+685
+00:37:29,000 --> 00:37:38,400
+solarized okay that is the that is the
+
+686
+00:37:33,000 --> 00:37:41,560
+first [ __ ] that started the them fat
+
+687
+00:37:38,400 --> 00:37:46,359
+okay uh okay let me digress okay so let
+
+688
+00:37:41,560 --> 00:37:46,359
+me digress solarized I blame it on
+
+689
+00:37:46,640 --> 00:37:50,599
+solariz okay you
+
+690
+00:37:51,160 --> 00:37:59,160
+go oh not solarus okay
+
+691
+00:37:55,160 --> 00:37:59,160
+so um
+
+692
+00:38:03,240 --> 00:38:09,000
+okay there is is the article web design
+
+693
+00:38:06,160 --> 00:38:11,119
+great text on white backgrounds okay
+
+694
+00:38:09,000 --> 00:38:13,480
+let's let's go back to the White theme
+
+695
+00:38:11,119 --> 00:38:16,079
+because actually do theme you know
+
+696
+00:38:13,480 --> 00:38:19,200
+actually when you watch YouTube videos
+
+697
+00:38:16,079 --> 00:38:21,800
+you'll notice if you if the video
+
+698
+00:38:19,200 --> 00:38:25,040
+YouTube is using using Dark theme I mean
+
+699
+00:38:21,800 --> 00:38:28,480
+the actual video you know like I was a
+
+700
+00:38:25,040 --> 00:38:31,599
+moment ago it actually it's hard to see
+
+701
+00:38:28,480 --> 00:38:35,240
+you know because I try to use dark theme
+
+702
+00:38:31,599 --> 00:38:39,000
+every day uh for for about three months
+
+703
+00:38:35,240 --> 00:38:41,400
+or four you know I I you know I want to
+
+704
+00:38:39,000 --> 00:38:45,119
+check if it's actually good for you or
+
+705
+00:38:41,400 --> 00:38:48,480
+what not and it's it uh tires your eye
+
+706
+00:38:45,119 --> 00:38:51,040
+more so okay so look at you look at this
+
+707
+00:38:48,480 --> 00:38:53,240
+page web design great text on white
+
+708
+00:38:51,040 --> 00:38:57,640
+background this is a
+
+709
+00:38:53,240 --> 00:39:00,400
+phenomenon that began around 2010
+
+710
+00:38:57,640 --> 00:39:04,520
+all of a sudden you'll notice all these
+
+711
+00:39:00,400 --> 00:39:07,400
+websites they use a gray text on white
+
+712
+00:39:04,520 --> 00:39:12,400
+background why because they think it
+
+713
+00:39:07,400 --> 00:39:17,520
+looks pretty this you know this GUI
+
+714
+00:39:12,400 --> 00:39:20,359
+design you know U UI ux idiots these
+
+715
+00:39:17,520 --> 00:39:23,960
+designers you know since about 2010 a
+
+716
+00:39:20,359 --> 00:39:26,400
+lot of them women and Corporation and
+
+717
+00:39:23,960 --> 00:39:28,560
+Microsoft you know is is garbage okay so
+
+718
+00:39:26,400 --> 00:39:31,560
+anyway let me get to the point so they
+
+719
+00:39:28,560 --> 00:39:34,280
+started to have gray text on white
+
+720
+00:39:31,560 --> 00:39:37,079
+background why because it it looks Prett
+
+721
+00:39:34,280 --> 00:39:41,440
+pretty because from a design point of
+
+722
+00:39:37,079 --> 00:39:43,520
+view it seems you know it's pretty but
+
+723
+00:39:41,440 --> 00:39:46,920
+it [ __ ] up the web you know you can
+
+724
+00:39:43,520 --> 00:39:50,599
+read you can't you know for you know so
+
+725
+00:39:46,920 --> 00:39:55,680
+you know you see start required like the
+
+726
+00:39:50,599 --> 00:39:59,839
+contrast is too low and even this
+
+727
+00:39:55,680 --> 00:40:02,880
+virus hit even the scheme the racket
+
+728
+00:39:59,839 --> 00:40:04,760
+scheme lisp people look at their website
+
+729
+00:40:02,880 --> 00:40:08,680
+I don't know how it looks now but this
+
+730
+00:40:04,760 --> 00:40:11,359
+is this is 2016 you see this white thing
+
+731
+00:40:08,680 --> 00:40:16,680
+gray you can't
+
+732
+00:40:11,359 --> 00:40:18,440
+read okay it's a injury to the whole web
+
+733
+00:40:16,680 --> 00:40:20,880
+you see they use templates you know
+
+734
+00:40:18,440 --> 00:40:23,440
+these JavaScript Frameworks you know
+
+735
+00:40:20,880 --> 00:40:26,160
+they just have it
+
+736
+00:40:23,440 --> 00:40:28,599
+there but why does this spread because
+
+737
+00:40:26,160 --> 00:40:31,359
+this Guru you know this Guru they say
+
+738
+00:40:28,599 --> 00:40:34,200
+you know I'm a designer this this way is
+
+739
+00:40:31,359 --> 00:40:36,599
+best this [ __ ] and they and Hacker
+
+740
+00:40:34,200 --> 00:40:39,599
+News and they all trumpet you know
+
+741
+00:40:36,599 --> 00:40:39,599
+spread that you know
+
+742
+00:40:39,920 --> 00:40:47,119
+this okay and then you see this AR
+
+743
+00:40:43,720 --> 00:40:49,520
+Technica arch.com is a
+
+744
+00:40:47,119 --> 00:40:52,160
+classic website for nerds for
+
+745
+00:40:49,520 --> 00:40:56,280
+programmers very usually very technical
+
+746
+00:40:52,160 --> 00:40:58,480
+detailed they also got the virus you see
+
+747
+00:40:56,280 --> 00:41:02,960
+orange Young way can you read this
+
+748
+00:40:58,480 --> 00:41:07,040
+orange thing orange who the [ __ ]
+
+749
+00:41:02,960 --> 00:41:09,880
+possibly came up with this you see it's
+
+750
+00:41:07,040 --> 00:41:12,560
+a fat you know you have sometimes
+
+751
+00:41:09,880 --> 00:41:15,119
+Society you have some bad concept it
+
+752
+00:41:12,560 --> 00:41:19,599
+just spread and spread nobody actually
+
+753
+00:41:15,119 --> 00:41:21,880
+look into who who do who who which
+
+754
+00:41:19,599 --> 00:41:23,200
+people think this is a good thing orange
+
+755
+00:41:21,880 --> 00:41:26,280
+and
+
+756
+00:41:23,200 --> 00:41:30,880
+gray and there are worse situation you
+
+757
+00:41:26,280 --> 00:41:33,280
+see Google scum Google became extremely
+
+758
+00:41:30,880 --> 00:41:38,720
+evil beginning around
+
+759
+00:41:33,280 --> 00:41:42,119
+2012 okay it was do no evil after 2012
+
+760
+00:41:38,720 --> 00:41:43,240
+it's let's do evil and the most extreme
+
+761
+00:41:42,119 --> 00:41:46,240
+evil
+
+762
+00:41:43,240 --> 00:41:49,680
+Corporation Empire what's what you know
+
+763
+00:41:46,240 --> 00:41:54,160
+so Google you know Chrome web dev Chrome
+
+764
+00:41:49,680 --> 00:41:56,839
+Dev tools overview you see gray on
+
+765
+00:41:54,160 --> 00:41:59,839
+white I can't read it I'm old I'm
+
+766
+00:41:56,839 --> 00:42:02,920
+getting old so is this just for young
+
+767
+00:41:59,839 --> 00:42:05,359
+people you know and there's some extreme
+
+768
+00:42:02,920 --> 00:42:07,960
+so I can show you
+
+769
+00:42:05,359 --> 00:42:10,359
+progressively extreme
+
+770
+00:42:07,960 --> 00:42:14,160
+examples you know these
+
+771
+00:42:10,359 --> 00:42:16,720
+idiots and this one and and this look at
+
+772
+00:42:14,160 --> 00:42:18,280
+this one okay can you guys check can you
+
+773
+00:42:16,720 --> 00:42:21,599
+guys
+
+774
+00:42:18,280 --> 00:42:24,319
+verify you know but there are tons of it
+
+775
+00:42:21,599 --> 00:42:27,960
+on the web starting around you know
+
+776
+00:42:24,319 --> 00:42:31,480
+starting around uh 2010
+
+777
+00:42:27,960 --> 00:42:36,359
+before 2010 there's no search okay but
+
+778
+00:42:31,480 --> 00:42:40,480
+after 2010 well in general after
+
+779
+00:42:36,359 --> 00:42:43,720
+2010 American society became very
+
+780
+00:42:40,480 --> 00:42:46,480
+severely corrupted for many reasons but
+
+781
+00:42:43,720 --> 00:42:49,160
+let's not talk about politics because it
+
+782
+00:42:46,480 --> 00:42:52,119
+you know goes uh then Google is going to
+
+783
+00:42:49,160 --> 00:42:55,960
+censor me you know strike YouTube strike
+
+784
+00:42:52,119 --> 00:42:58,400
+and stuff anyway so so you can see
+
+785
+00:42:55,960 --> 00:43:02,359
+progressively bad look at this
+
+786
+00:42:58,400 --> 00:43:06,200
+one and this one is written this blog
+
+787
+00:43:02,359 --> 00:43:09,000
+this one is written by Joe
+
+788
+00:43:06,200 --> 00:43:10,880
+Armstrong he's a very smart guy he's the
+
+789
+00:43:09,000 --> 00:43:16,720
+creator of
+
+790
+00:43:10,880 --> 00:43:20,200
+the um of the Erland programming
+
+791
+00:43:16,720 --> 00:43:24,160
+language but even his blog you know has
+
+792
+00:43:20,200 --> 00:43:26,920
+this the most invisible
+
+793
+00:43:24,160 --> 00:43:28,800
+unreadable gray on Gray
+
+794
+00:43:26,920 --> 00:43:32,200
+[Laughter]
+
+795
+00:43:28,800 --> 00:43:35,200
+great text on great background you see
+
+796
+00:43:32,200 --> 00:43:38,280
+what is he thinking you know he died he
+
+797
+00:43:35,200 --> 00:43:41,000
+died about five years
+
+798
+00:43:38,280 --> 00:43:44,640
+ago Joel
+
+799
+00:43:41,000 --> 00:43:47,319
+Armstrong three years ago five sometimes
+
+800
+00:43:44,640 --> 00:43:49,200
+around there but anyway so why why does
+
+801
+00:43:47,319 --> 00:43:51,839
+he do that because I
+
+802
+00:43:49,200 --> 00:43:53,880
+mean a lot of people they don't even
+
+803
+00:43:51,839 --> 00:43:55,640
+though they are great uh programming
+
+804
+00:43:53,880 --> 00:43:59,880
+language creators but they don't
+
+805
+00:43:55,640 --> 00:44:00,960
+necessarily know HTML or css for example
+
+806
+00:43:59,880 --> 00:44:03,599
+Linus
+
+807
+00:44:00,960 --> 00:44:06,640
+tover he does he he don't understand
+
+808
+00:44:03,599 --> 00:44:09,599
+nothing about JavaScript okay nothing
+
+809
+00:44:06,640 --> 00:44:13,000
+HTML C he don't know nothing but he
+
+810
+00:44:09,599 --> 00:44:16,240
+knows the C programming language and
+
+811
+00:44:13,000 --> 00:44:20,000
+operating systems L lenus toward you
+
+812
+00:44:16,240 --> 00:44:21,839
+know you ask him about you ask him about
+
+813
+00:44:20,000 --> 00:44:24,800
+JavaScript you don't you don't know a
+
+814
+00:44:21,839 --> 00:44:26,720
+thing so when they need write to need to
+
+815
+00:44:24,800 --> 00:44:29,000
+write a blog they use the framework or
+
+816
+00:44:26,720 --> 00:44:31,720
+whatever blogger you you know or
+
+817
+00:44:29,000 --> 00:44:35,880
+WordPress so and they use template you
+
+818
+00:44:31,720 --> 00:44:38,000
+know is cool so you have this happening
+
+819
+00:44:35,880 --> 00:44:41,240
+and by the way I noticed later it
+
+820
+00:44:38,000 --> 00:44:46,040
+changed the color change they fixed it
+
+821
+00:44:41,240 --> 00:44:49,000
+so where all this began it began
+
+822
+00:44:46,040 --> 00:44:52,839
+originally uh one big
+
+823
+00:44:49,000 --> 00:44:58,040
+significant cause is the solarized color
+
+824
+00:44:52,839 --> 00:45:01,240
+theme okay so around 2010 you have this
+
+825
+00:44:58,040 --> 00:45:03,960
+guy created this website called
+
+826
+00:45:01,240 --> 00:45:05,480
+solarise the most Mo most [ __ ]
+
+827
+00:45:03,960 --> 00:45:07,319
+unreadable
+
+828
+00:45:05,480 --> 00:45:12,040
+[ __ ] he
+
+829
+00:45:07,319 --> 00:45:14,720
+claim science he claim science science
+
+830
+00:45:12,040 --> 00:45:17,720
+science say this color contrast this
+
+831
+00:45:14,720 --> 00:45:23,079
+color solarize this is the S science
+
+832
+00:45:17,720 --> 00:45:26,200
+reading [ __ ] okay this scums cing on
+
+833
+00:45:23,079 --> 00:45:28,800
+earth a lot of them on programming
+
+834
+00:45:26,200 --> 00:45:31,480
+industry you you know
+
+835
+00:45:28,800 --> 00:45:34,760
+agile and and intens of
+
+836
+00:45:31,480 --> 00:45:37,920
+it anyway I I don't know who is this guy
+
+837
+00:45:34,760 --> 00:45:40,480
+and I don't really can't blame him who
+
+838
+00:45:37,920 --> 00:45:43,720
+who is this guy solar
+
+839
+00:45:40,480 --> 00:45:45,920
+solarized uh I haven't looked into okay
+
+840
+00:45:43,720 --> 00:45:48,640
+but he you know he may not be a good guy
+
+841
+00:45:45,920 --> 00:45:52,559
+he's not you know he may not be a bad
+
+842
+00:45:48,640 --> 00:45:56,319
+guy uh he just so happens you know
+
+843
+00:45:52,559 --> 00:45:58,440
+anyway so this you know solariz began
+
+844
+00:45:56,319 --> 00:46:01,440
+this
+
+845
+00:45:58,440 --> 00:46:05,200
+more or less around 2010
+
+846
+00:46:01,440 --> 00:46:09,000
+solarise you know they they say you know
+
+847
+00:46:05,200 --> 00:46:11,559
+because science or you know c i c i e l
+
+848
+00:46:09,000 --> 00:46:14,280
+a b one of the color you know model
+
+849
+00:46:11,559 --> 00:46:18,640
+whatever lightess relationship then blah
+
+850
+00:46:14,280 --> 00:46:20,240
+blah and and that became a wild fire in
+
+851
+00:46:18,640 --> 00:46:22,920
+programming
+
+852
+00:46:20,240 --> 00:46:26,040
+industry then is you know then you know
+
+853
+00:46:22,920 --> 00:46:28,000
+they have reasons you know that why you
+
+854
+00:46:26,040 --> 00:46:29,960
+know why is this color should be this
+
+855
+00:46:28,000 --> 00:46:34,200
+way that way you know solarize you know
+
+856
+00:46:29,960 --> 00:46:38,839
+features selective contrast oh selective
+
+857
+00:46:34,200 --> 00:46:41,200
+contrast one two both sides of the force
+
+858
+00:46:38,839 --> 00:46:44,440
+oh both sides of the
+
+859
+00:46:41,200 --> 00:46:48,119
+force [ __ ]
+
+860
+00:46:44,440 --> 00:46:49,559
+scun okay that is my view I don't know
+
+861
+00:46:48,119 --> 00:46:52,800
+if you agree with
+
+862
+00:46:49,559 --> 00:46:55,400
+me okay or if you don't agree with me
+
+863
+00:46:52,800 --> 00:46:57,880
+that is my view it's like you know the
+
+864
+00:46:55,400 --> 00:47:01,040
+way I see it is like
+
+865
+00:46:57,880 --> 00:47:04,720
+patently false bad
+
+866
+00:47:01,040 --> 00:47:05,800
+thing are trumpeted as a good thing and
+
+867
+00:47:04,720 --> 00:47:07,839
+they
+
+868
+00:47:05,800 --> 00:47:14,440
+spread and
+
+869
+00:47:07,839 --> 00:47:18,400
+then so in 201 2013 I run into another
+
+870
+00:47:14,440 --> 00:47:21,599
+guy website who share my opinion
+
+871
+00:47:18,400 --> 00:47:24,839
+contrast Rebellion he created a website
+
+872
+00:47:21,599 --> 00:47:30,200
+dedicated to this issue tells people
+
+873
+00:47:24,839 --> 00:47:33,319
+stop using the way on white background
+
+874
+00:47:30,200 --> 00:47:37,160
+okay so anyway content you know you see
+
+875
+00:47:33,319 --> 00:47:39,200
+content is not the same content is not
+
+876
+00:47:37,160 --> 00:47:42,400
+illustration you know or these web
+
+877
+00:47:39,200 --> 00:47:44,119
+designers they want pretty you know this
+
+878
+00:47:42,400 --> 00:47:47,119
+great whatever the're
+
+879
+00:47:44,119 --> 00:47:49,559
+pretty content is not illustration okay
+
+880
+00:47:47,119 --> 00:47:53,079
+so this guy created this website to
+
+881
+00:47:49,559 --> 00:47:54,680
+promote you know promote
+
+882
+00:47:53,079 --> 00:47:58,200
+idea
+
+883
+00:47:54,680 --> 00:48:00,760
+okay and by now you know all these are
+
+884
+00:47:58,200 --> 00:48:02,280
+history you know this this website is
+
+885
+00:48:00,760 --> 00:48:05,400
+you know
+
+886
+00:48:02,280 --> 00:48:08,520
+2013 10 years ago like you guys don't
+
+887
+00:48:05,400 --> 00:48:10,800
+know you know it's like a it's you know
+
+888
+00:48:08,520 --> 00:48:13,960
+the information in history is like the
+
+889
+00:48:10,800 --> 00:48:17,240
+history of humanity where the newer
+
+890
+00:48:13,960 --> 00:48:19,480
+generation don't know whatever about the
+
+891
+00:48:17,240 --> 00:48:23,319
+old generation you know it's a cycle it
+
+892
+00:48:19,480 --> 00:48:26,079
+happen forever fact so I'm
+
+893
+00:48:23,319 --> 00:48:28,000
+old and you know the newer generation
+
+894
+00:48:26,079 --> 00:48:30,440
+knows you know they don't know history
+
+895
+00:48:28,000 --> 00:48:32,280
+history is such that if you don't if you
+
+896
+00:48:30,440 --> 00:48:35,079
+didn't live through
+
+897
+00:48:32,280 --> 00:48:37,079
+it you it's it's very hard to know
+
+898
+00:48:35,079 --> 00:48:39,720
+what's going on you know you can read
+
+899
+00:48:37,079 --> 00:48:43,760
+history books like we can read World War
+
+900
+00:48:39,720 --> 00:48:47,119
+II Oh World War II Germany this you know
+
+901
+00:48:43,760 --> 00:48:49,880
+or a thousand years ago China something
+
+902
+00:48:47,119 --> 00:48:53,280
+2,000 years ago Egypt something you know
+
+903
+00:48:49,880 --> 00:48:56,480
+you can Roman Empire you can read about
+
+904
+00:48:53,280 --> 00:48:58,880
+it but it's like fuzzy okay then they
+
+905
+00:48:56,480 --> 00:49:00,640
+there's debate what really you know but
+
+906
+00:48:58,880 --> 00:49:04,880
+basically you you don't
+
+907
+00:49:00,640 --> 00:49:08,040
+know but if you lived through it let's
+
+908
+00:49:04,880 --> 00:49:10,520
+say year 2000 when the do Com when the
+
+909
+00:49:08,040 --> 00:49:16,680
+website began to spread when internet
+
+910
+00:49:10,520 --> 00:49:16,680
+came up I was there so I remember it was
+
+911
+00:49:17,119 --> 00:49:23,000
+yesterday but if you were not born you
+
+912
+00:49:20,520 --> 00:49:26,119
+know let's say if you were born in
+
+913
+00:49:23,000 --> 00:49:28,440
+2001 you didn't see it of course younger
+
+914
+00:49:26,119 --> 00:49:31,079
+people so you you don't you cannot
+
+915
+00:49:28,440 --> 00:49:34,200
+possibly know even if you want to you
+
+916
+00:49:31,079 --> 00:49:36,040
+can try to read history of the you know
+
+917
+00:49:34,200 --> 00:49:38,960
+programing language history or whatever
+
+918
+00:49:36,040 --> 00:49:42,680
+but you don't you don't really get uh
+
+919
+00:49:38,960 --> 00:49:45,599
+it's hard to get the exact sense just
+
+920
+00:49:42,680 --> 00:49:48,640
+like when I was younger I tried to
+
+921
+00:49:45,599 --> 00:49:50,400
+understand lisp history you know in the
+
+922
+00:49:48,640 --> 00:49:53,400
+1980s
+
+923
+00:49:50,400 --> 00:49:56,799
+1970s you know you have list machines
+
+924
+00:49:53,400 --> 00:50:00,520
+you have you know uh operating systems
+
+925
+00:49:56,799 --> 00:50:04,160
+you know you have the PD PD
+
+926
+00:50:00,520 --> 00:50:06,640
+pdp1 you know I try to understand but I
+
+927
+00:50:04,160 --> 00:50:08,680
+can't it's very hard unless you actually
+
+928
+00:50:06,640 --> 00:50:10,559
+try to run emulation or something you
+
+929
+00:50:08,680 --> 00:50:12,160
+know I just read about oh this machine
+
+930
+00:50:10,559 --> 00:50:13,119
+but you I don't really actually know
+
+931
+00:50:12,160 --> 00:50:16,599
+about
+
+932
+00:50:13,119 --> 00:50:20,440
+it so anyway we digress so much and it's
+
+933
+00:50:16,599 --> 00:50:22,079
+52 minutes so uh and there's huge amount
+
+934
+00:50:20,440 --> 00:50:26,960
+of comments
+
+935
+00:50:22,079 --> 00:50:31,760
+now uh like it uh yeah so
+
+936
+00:50:26,960 --> 00:50:34,720
+so okay so what uh let's let's go back
+
+937
+00:50:31,760 --> 00:50:37,599
+to code maybe we can finish it quickly
+
+938
+00:50:34,720 --> 00:50:40,319
+let's see if I can do it in five minutes
+
+939
+00:50:37,599 --> 00:50:44,160
+okay so let's let me just do it finish
+
+940
+00:50:40,319 --> 00:50:44,920
+it the code we started and that shall be
+
+941
+00:50:44,160 --> 00:50:47,280
+it
+
+942
+00:50:44,920 --> 00:50:52,040
+today okay I've been sitting for too
+
+943
+00:50:47,280 --> 00:50:54,880
+long 1 hour I need to get up and walk
+
+944
+00:50:52,040 --> 00:50:58,280
+walk okay so let's fix
+
+945
+00:50:54,880 --> 00:51:03,240
+this uh let's cck quickly and
+
+946
+00:50:58,280 --> 00:51:08,720
+see yeah so it added uh this is wrong
+
+947
+00:51:03,240 --> 00:51:11,200
+actually undo showing browser yeah so
+
+948
+00:51:08,720 --> 00:51:15,160
+okay let me think
+
+949
+00:51:11,200 --> 00:51:20,520
+about so every time you find H2 you want
+
+950
+00:51:15,160 --> 00:51:25,680
+to replace it by that
+
+951
+00:51:20,520 --> 00:51:27,720
+that that and uh okay so actually I
+
+952
+00:51:25,680 --> 00:51:29,559
+don't want to I don't want to use
+
+953
+00:51:27,720 --> 00:51:33,640
+replace match
+
+954
+00:51:29,559 --> 00:51:37,240
+okay let me show you another way so so
+
+955
+00:51:33,640 --> 00:51:40,559
+first of all make make a uh
+
+956
+00:51:37,240 --> 00:51:40,559
+xp1 make
+
+957
+00:51:41,559 --> 00:51:47,300
+some local variables xp1 position one
+
+958
+00:51:45,559 --> 00:51:48,640
+position two
+
+959
+00:51:47,300 --> 00:51:53,839
+[Music]
+
+960
+00:51:48,640 --> 00:51:57,400
+so set XP position one equals to the
+
+961
+00:51:53,839 --> 00:51:59,240
+location of the m
+
+962
+00:51:57,400 --> 00:52:03,440
+beginning okay
+
+963
+00:51:59,240 --> 00:52:07,359
+the set it to the beginning of H2
+
+964
+00:52:03,440 --> 00:52:11,079
+okay uh then you want
+
+965
+00:52:07,359 --> 00:52:13,440
+to so I don't want to use replace match
+
+966
+00:52:11,079 --> 00:52:14,359
+I want to use insert because insert is
+
+967
+00:52:13,440 --> 00:52:18,440
+more
+
+968
+00:52:14,359 --> 00:52:21,720
+flexible so in so I can for example I
+
+969
+00:52:18,440 --> 00:52:21,720
+can say
+
+970
+00:52:23,240 --> 00:52:29,119
+here so you move there and oh you need
+
+971
+00:52:26,839 --> 00:52:32,280
+to do a loop right because we haven't do
+
+972
+00:52:29,119 --> 00:52:37,280
+a loop yet we only do okay so you need
+
+973
+00:52:32,280 --> 00:52:39,359
+to do a loop okay so let's do a loop so
+
+974
+00:52:37,280 --> 00:52:42,559
+in order to do Loop let me show you how
+
+975
+00:52:39,359 --> 00:52:47,280
+to do it okay so you basically have
+
+976
+00:52:42,559 --> 00:52:49,960
+these lines let's say okay so we do a
+
+977
+00:52:47,280 --> 00:52:53,280
+while loop
+
+978
+00:52:49,960 --> 00:52:57,640
+while okay
+
+979
+00:52:53,280 --> 00:53:00,119
+while search when you search something
+
+980
+00:52:57,640 --> 00:53:03,640
+when it's found it returns true so when
+
+981
+00:53:00,119 --> 00:53:03,640
+you so search
+
+982
+00:53:08,359 --> 00:53:19,040
+H2 okay so search H2 then then go to CH
+
+983
+00:53:14,839 --> 00:53:23,160
+match beginning okay then insert don't
+
+984
+00:53:19,040 --> 00:53:27,160
+do replace Del replace so
+
+985
+00:53:23,160 --> 00:53:31,839
+insert there okay
+
+986
+00:53:27,160 --> 00:53:34,440
+so in fact let's delete that delete that
+
+987
+00:53:31,839 --> 00:53:37,520
+delete that okay
+
+988
+00:53:34,440 --> 00:53:41,440
+so pretty F so why I'll search forward
+
+989
+00:53:37,520 --> 00:53:45,359
+H2 when you find it go to the go to the
+
+990
+00:53:41,440 --> 00:53:47,799
+beginning of H2 then insert the section
+
+991
+00:53:45,359 --> 00:53:53,640
+uh now what
+
+992
+00:53:47,799 --> 00:53:53,640
+else so you go here insert section
+
+993
+00:54:01,400 --> 00:54:07,799
+let's kind of do it okay so evaluate the
+
+994
+00:54:03,960 --> 00:54:10,359
+buffer show the pink window oh the the
+
+995
+00:54:07,799 --> 00:54:12,799
+window is no longer pink because we we
+
+996
+00:54:10,359 --> 00:54:15,040
+changed the background color so let's
+
+997
+00:54:12,799 --> 00:54:17,559
+make it Pink again so all you have to do
+
+998
+00:54:15,040 --> 00:54:20,480
+is set background
+
+999
+00:54:17,559 --> 00:54:26,640
+color uh
+
+1000
+00:54:20,480 --> 00:54:29,359
+Pink okay different Hue of pink Okay so
+
+1001
+00:54:26,640 --> 00:54:34,680
+okay here is our
+
+1002
+00:54:29,359 --> 00:54:38,920
+code uh so okay run it now go to go to S
+
+1003
+00:54:34,680 --> 00:54:41,760
+Talk Show go to the emac page the
+
+1004
+00:54:38,920 --> 00:54:44,440
+repetitive stranger page now move the
+
+1005
+00:54:41,760 --> 00:54:45,520
+CER anywhere now let's just call the
+
+1006
+00:54:44,440 --> 00:54:50,480
+command
+
+1007
+00:54:45,520 --> 00:54:52,680
+again uh that HTML add section tax okay
+
+1008
+00:54:50,480 --> 00:54:52,680
+do
+
+1009
+00:54:53,599 --> 00:54:59,200
+it okay we go we went into to a infinite
+
+1010
+00:54:57,119 --> 00:55:03,040
+Loop oh
+
+1011
+00:54:59,200 --> 00:55:06,760
+yeah we went into a infinite Loop
+
+1012
+00:55:03,040 --> 00:55:10,559
+undo oh good we have undo okay we need
+
+1013
+00:55:06,760 --> 00:55:14,040
+to fix our code we got into a infinite
+
+1014
+00:55:10,559 --> 00:55:15,880
+Loop yeah so once you insert you need to
+
+1015
+00:55:14,040 --> 00:55:19,440
+actually
+
+1016
+00:55:15,880 --> 00:55:19,440
+um yeah you need
+
+1017
+00:55:20,440 --> 00:55:27,960
+to go to next you know go back to the
+
+1018
+00:55:25,359 --> 00:55:30,839
+here so actually you can instead of
+
+1019
+00:55:27,960 --> 00:55:33,079
+search again more efficiently is go to
+
+1020
+00:55:30,839 --> 00:55:37,240
+CH match
+
+1021
+00:55:33,079 --> 00:55:40,839
+beginning uh actually match end that
+
+1022
+00:55:37,240 --> 00:55:46,119
+okay predy with the code run it go back
+
+1023
+00:55:40,839 --> 00:55:50,400
+to this page Cod the command do
+
+1024
+00:55:46,119 --> 00:55:53,079
+it okay the infinite loop again you need
+
+1025
+00:55:50,400 --> 00:55:53,079
+to fix the
+
+1026
+00:55:54,920 --> 00:55:59,599
+code wa
+
+1027
+00:55:56,880 --> 00:55:59,599
+my
+
+1028
+00:56:01,599 --> 00:56:10,319
+uh while search for word go
+
+1029
+00:56:05,240 --> 00:56:14,240
+to CH insert and
+
+1030
+00:56:10,319 --> 00:56:18,039
+uh why is it not work I'm not sure but
+
+1031
+00:56:14,240 --> 00:56:20,720
+one easy way to make it work is search
+
+1032
+00:56:18,039 --> 00:56:22,720
+is that you just say search forward
+
+1033
+00:56:20,720 --> 00:56:25,319
+again
+
+1034
+00:56:22,720 --> 00:56:28,440
+okay I don't know why is this go to
+
+1035
+00:56:25,319 --> 00:56:33,200
+chart not work okay we need to just get
+
+1036
+00:56:28,440 --> 00:56:37,599
+on keep going so not worry too much so
+
+1037
+00:56:33,200 --> 00:56:41,119
+anyway so go back to this page now move
+
+1038
+00:56:37,599 --> 00:56:44,400
+put the CER anywhere Cod the command do
+
+1039
+00:56:41,119 --> 00:56:46,839
+it there it is so you have the section
+
+1040
+00:56:44,400 --> 00:56:49,839
+added then next oh that's
+
+1041
+00:56:46,839 --> 00:56:49,839
+it
+
+1042
+00:56:50,799 --> 00:56:54,280
+wait uh
+
+1043
+00:56:54,680 --> 00:57:00,760
+what section oh yeah so you see we added
+
+1044
+00:56:58,160 --> 00:57:04,599
+so a lot quite a few sections so this is
+
+1045
+00:57:00,760 --> 00:57:08,559
+the first one then you see every every
+
+1046
+00:57:04,599 --> 00:57:12,720
+hed2 we added that every H2 you
+
+1047
+00:57:08,559 --> 00:57:16,680
+see now now if you show in
+
+1048
+00:57:12,720 --> 00:57:20,200
+browser it kind of worked but but your
+
+1049
+00:57:16,680 --> 00:57:24,359
+HTML is not valid because you see it
+
+1050
+00:57:20,200 --> 00:57:28,319
+kind of worked so we added this you know
+
+1051
+00:57:24,359 --> 00:57:32,839
+visual uh distinction a box for each
+
+1052
+00:57:28,319 --> 00:57:35,480
+section but it's it's invalid HTML
+
+1053
+00:57:32,839 --> 00:57:37,839
+because if you go to the first
+
+1054
+00:57:35,480 --> 00:57:40,520
+section uh
+
+1055
+00:57:37,839 --> 00:57:42,240
+wait okay go to the top search for
+
+1056
+00:57:40,520 --> 00:57:44,599
+Section you see if you go to the first
+
+1057
+00:57:42,240 --> 00:57:48,599
+section there is no beginning
+
+1058
+00:57:44,599 --> 00:57:51,559
+section so uh so what you do you what
+
+1059
+00:57:48,599 --> 00:57:54,920
+you need to do is you need to for
+
+1060
+00:57:51,559 --> 00:57:58,119
+example to fix this you need
+
+1061
+00:57:54,920 --> 00:57:58,119
+to um
+
+1062
+00:57:58,200 --> 00:58:05,440
+you need to add that then you need to go
+
+1063
+00:58:01,920 --> 00:58:09,000
+to the bottom and you need to add a
+
+1064
+00:58:05,440 --> 00:58:11,160
+closing section okay okay we can do that
+
+1065
+00:58:09,000 --> 00:58:13,240
+but that's that's that's it for the
+
+1066
+00:58:11,160 --> 00:58:16,799
+video I mean we I'm going to do it
+
+1067
+00:58:13,240 --> 00:58:19,599
+offline the basic idea I mean you get
+
+1068
+00:58:16,799 --> 00:58:23,240
+the basic idea of how to how to code
+
+1069
+00:58:19,599 --> 00:58:25,839
+this it's all here that's all you need
+
+1070
+00:58:23,240 --> 00:58:30,240
+okay and uh let me show you a extra
+
+1071
+00:58:25,839 --> 00:58:32,760
+command so for example in s HTML mod I
+
+1072
+00:58:30,240 --> 00:58:34,799
+can call a command that will validate
+
+1073
+00:58:32,760 --> 00:58:38,520
+the whole page for example the command
+
+1074
+00:58:34,799 --> 00:58:40,920
+is this you see it will check the
+
+1075
+00:58:38,520 --> 00:58:45,440
+matching you know whether it will
+
+1076
+00:58:40,920 --> 00:58:48,799
+validate the HTML tags so if you have a
+
+1077
+00:58:45,440 --> 00:58:51,480
+missing closing tag or missing open tag
+
+1078
+00:58:48,799 --> 00:58:54,920
+or miss or miss you know misordered
+
+1079
+00:58:51,480 --> 00:58:57,280
+it'll tell you so we got error closeing
+
+1080
+00:58:54,920 --> 00:59:01,400
+tag you see let's go to the
+
+1081
+00:58:57,280 --> 00:59:08,000
+arrow uh Arrow closing tag section at
+
+1082
+00:59:01,400 --> 00:59:11,640
+position 796 to a06 does not match last
+
+1083
+00:59:08,000 --> 00:59:13,440
+open tag main you see so we can go to
+
+1084
+00:59:11,640 --> 00:59:18,319
+the position
+
+1085
+00:59:13,440 --> 00:59:23,839
+796 okay copy and uh go to
+
+1086
+00:59:18,319 --> 00:59:23,839
+CH go to ch
+
+1087
+00:59:26,640 --> 00:59:34,079
+796 you'll see it it goes there so it's
+
+1088
+00:59:30,200 --> 00:59:40,680
+saying that this tag is not matching the
+
+1089
+00:59:34,079 --> 00:59:45,359
+last open tag meain you know so this is
+
+1090
+00:59:40,680 --> 00:59:47,440
+um this is part of kar HTML mod actually
+
+1091
+00:59:45,359 --> 00:59:48,839
+one of the best feature let me tell you
+
+1092
+00:59:47,440 --> 00:59:53,160
+what is a
+
+1093
+00:59:48,839 --> 00:59:55,119
+command uh the command okay I called it
+
+1094
+00:59:53,160 --> 00:59:58,359
+by a key so it doesn't show but let me
+
+1095
+00:59:55,119 --> 01:00:02,280
+show you this describe key press press
+
+1096
+00:59:58,359 --> 01:00:04,760
+press so this is command is called HTML
+
+1097
+01:00:02,280 --> 01:00:09,280
+validate XML
+
+1098
+01:00:04,760 --> 01:00:11,359
+buer you know and you can you and the
+
+1099
+01:00:09,280 --> 01:00:12,799
+command is available you can validate
+
+1100
+01:00:11,359 --> 01:00:14,319
+the
+
+1101
+01:00:12,799 --> 01:00:18,400
+entire
+
+1102
+01:00:14,319 --> 01:00:22,920
+directory of 8,000
+
+1103
+01:00:18,400 --> 01:00:27,160
+files okay so that's part of thear HTML
+
+1104
+01:00:22,920 --> 01:00:30,280
+mod so if you like it buy it okay pay me
+
+1105
+01:00:27,160 --> 01:00:34,280
+uh donate so for example let me show you
+
+1106
+01:00:30,280 --> 01:00:38,520
+uh HTML mod there it is actually it's uh
+
+1107
+01:00:34,280 --> 01:00:41,200
+so let me delete the backup okay so it's
+
+1108
+01:00:38,520 --> 01:00:46,359
+S one file two file three
+
+1109
+01:00:41,200 --> 01:00:50,520
+file HTML browser HTML engine HTML mod
+
+1110
+01:00:46,359 --> 01:00:54,160
+three files and uh if you open HTML mod
+
+1111
+01:00:50,520 --> 01:00:57,640
+go to the bottom 5,000 lines actually so
+
+1112
+01:00:54,160 --> 01:01:01,839
+this is actually the most complex
+
+1113
+01:00:57,640 --> 01:01:04,319
+uh package one of my package and you go
+
+1114
+01:01:01,839 --> 01:01:09,920
+here you can show in
+
+1115
+01:01:04,319 --> 01:01:12,440
+browser HTML mod and uh some positive
+
+1116
+01:01:09,920 --> 01:01:16,480
+comment by other people so if you want
+
+1117
+01:01:12,440 --> 01:01:17,440
+it you know donate to me 32 bucks I send
+
+1118
+01:01:16,480 --> 01:01:20,240
+it to
+
+1119
+01:01:17,440 --> 01:01:24,200
+you and featur so one of the best
+
+1120
+01:01:20,240 --> 01:01:27,319
+feature is validate 1,000 or 10 5,000
+
+1121
+01:01:24,200 --> 01:01:32,640
+HTML files I call it every
+
+1122
+01:01:27,319 --> 01:01:35,480
+week since since because I write HTML
+
+1123
+01:01:32,640 --> 01:01:38,760
+manually am I is my stream still doing
+
+1124
+01:01:35,480 --> 01:01:41,000
+good yes okay that's about it for today
+
+1125
+01:01:38,760 --> 01:01:44,640
+so let me read the questions and that
+
+1126
+01:01:41,000 --> 01:01:44,640
+will be it
+
+1127
+01:01:58,319 --> 01:02:04,920
+so how about Rob Pik that programs
+
+1128
+01:02:01,839 --> 01:02:07,240
+without syntax highlighting yeah it's
+
+1129
+01:02:04,920 --> 01:02:09,799
+very interesting I think syntax
+
+1130
+01:02:07,240 --> 01:02:13,880
+highlighting you know syntax
+
+1131
+01:02:09,799 --> 01:02:16,680
+highlighting is a thing before the color
+
+1132
+01:02:13,880 --> 01:02:20,200
+themes so
+
+1133
+01:02:16,680 --> 01:02:22,039
+the you know the the
+
+1134
+01:02:20,200 --> 01:02:25,960
+the
+
+1135
+01:02:22,039 --> 01:02:27,440
+the the coloring of user interface
+
+1136
+01:02:25,960 --> 01:02:30,880
+design in
+
+1137
+01:02:27,440 --> 01:02:35,119
+particular gray on you know gray on
+
+1138
+01:02:30,880 --> 01:02:37,400
+white it began by this solarized kind of
+
+1139
+01:02:35,119 --> 01:02:39,559
+thing who is this guy I haven't looked
+
+1140
+01:02:37,400 --> 01:02:41,760
+into who is this solarized guy what's
+
+1141
+01:02:39,559 --> 01:02:41,760
+his
+
+1142
+01:02:42,520 --> 01:02:48,839
+name okay interesting I did mention I
+
+1143
+01:02:45,839 --> 01:02:51,520
+should look into I should look into
+
+1144
+01:02:48,839 --> 01:02:54,039
+what's his background I mean why is he
+
+1145
+01:02:51,520 --> 01:02:56,920
+creating this it's very damaging you
+
+1146
+01:02:54,039 --> 01:02:58,760
+know he did huge damage so I want to
+
+1147
+01:02:56,920 --> 01:03:00,839
+look into what's his background what
+
+1148
+01:02:58,760 --> 01:03:04,520
+what is his you know
+
+1149
+01:03:00,839 --> 01:03:06,799
+motivation is he a good person or did is
+
+1150
+01:03:04,520 --> 01:03:07,799
+he just like trying to sell something
+
+1151
+01:03:06,799 --> 01:03:11,079
+yeah I don't
+
+1152
+01:03:07,799 --> 01:03:14,039
+know uh interesting I didn't look into
+
+1153
+01:03:11,079 --> 01:03:20,119
+anyway so solarise began around
+
+1154
+01:03:14,039 --> 01:03:24,440
+2010 then uh around 2000 was it 2016 or
+
+1155
+01:03:20,119 --> 01:03:28,359
+2017 you started to have dark theme you
+
+1156
+01:03:24,440 --> 01:03:31,200
+know I think it was first it was first
+
+1157
+01:03:28,359 --> 01:03:35,160
+in Microsoft Windows I believe but Apple
+
+1158
+01:03:31,200 --> 01:03:38,680
+made it popular Dark theme okay by the
+
+1159
+01:03:35,160 --> 01:03:42,480
+way on Apple it's well designed on Apple
+
+1160
+01:03:38,680 --> 01:03:44,480
+everything is just good even Dark theme
+
+1161
+01:03:42,480 --> 01:03:46,520
+on Apple you can turn at night you can
+
+1162
+01:03:44,480 --> 01:03:49,279
+turn you know the another thing about
+
+1163
+01:03:46,520 --> 01:03:51,440
+related to Dark theme
+
+1164
+01:03:49,279 --> 01:03:54,359
+is is the
+
+1165
+01:03:51,440 --> 01:03:56,760
+night light you know on Windows they
+
+1166
+01:03:54,359 --> 01:04:00,760
+call it night light so for example I
+
+1167
+01:03:56,760 --> 01:04:02,400
+turn it on so you see your screen
+
+1168
+01:04:00,760 --> 01:04:09,279
+becomes
+
+1169
+01:04:02,400 --> 01:04:12,680
+this um mild and uh warm warm
+
+1170
+01:04:09,279 --> 01:04:15,200
+color techn technically what happens is
+
+1171
+01:04:12,680 --> 01:04:18,160
+that they turn off the blue color in
+
+1172
+01:04:15,200 --> 01:04:21,799
+your screen so at night it's very
+
+1173
+01:04:18,160 --> 01:04:24,720
+soothing so if you don't want the Dark
+
+1174
+01:04:21,799 --> 01:04:26,480
+theme alternative is that you use the
+
+1175
+01:04:24,720 --> 01:04:31,079
+night light
+
+1176
+01:04:26,480 --> 01:04:31,079
+uh feature okay I have it
+
+1177
+01:04:31,160 --> 01:04:37,559
+on so you you know I so I think this is
+
+1178
+01:04:34,960 --> 01:04:40,760
+better than a dark theme okay at night
+
+1179
+01:04:37,559 --> 01:04:43,640
+if you know you can but window sucks you
+
+1180
+01:04:40,760 --> 01:04:46,400
+know some like I have it on sometimes it
+
+1181
+01:04:43,640 --> 01:04:49,760
+fails fails to turn on when the when the
+
+1182
+01:04:46,400 --> 01:04:51,640
+time when it you know when I set the
+
+1183
+01:04:49,760 --> 01:04:54,839
+time it doesn't turn
+
+1184
+01:04:51,640 --> 01:04:57,119
+on then if you if you go to the uh
+
+1185
+01:04:54,839 --> 01:05:00,440
+window setting then it suddenly turns on
+
+1186
+01:04:57,119 --> 01:05:03,079
+it's like you have to remind windows
+
+1187
+01:05:00,440 --> 01:05:05,960
+turn the [ __ ] thing on on Apple it's
+
+1188
+01:05:03,079 --> 01:05:09,319
+all automatic you know you can set it so
+
+1189
+01:05:05,960 --> 01:05:12,559
+that Sunset you know you'll turn on so
+
+1190
+01:05:09,319 --> 01:05:15,240
+on Apple you can choose Dark theme
+
+1191
+01:05:12,559 --> 01:05:19,240
+versus White theme that's one thing or
+
+1192
+01:05:15,240 --> 01:05:22,920
+you can have the night light so you know
+
+1193
+01:05:19,240 --> 01:05:25,880
+e you and you or you can have them both
+
+1194
+01:05:22,920 --> 01:05:28,279
+so on Apple it's very well designed it's
+
+1195
+01:05:25,880 --> 01:05:32,279
+you know it's just good on window it
+
+1196
+01:05:28,279 --> 01:05:35,599
+sucks so between these two what I can
+
+1197
+01:05:32,279 --> 01:05:40,359
+recommend I I believe the NightLight is
+
+1198
+01:05:35,599 --> 01:05:44,839
+actually good dark them you know so
+
+1199
+01:05:40,359 --> 01:05:48,720
+anyway so before so solarus this gray on
+
+1200
+01:05:44,839 --> 01:05:50,200
+white they it began in 2010 okay now the
+
+1201
+01:05:48,720 --> 01:05:54,240
+syntax
+
+1202
+01:05:50,200 --> 01:05:57,520
+coloring began around
+
+1203
+01:05:54,240 --> 01:05:59,760
+um 19 1990
+
+1204
+01:05:57,520 --> 01:06:04,920
+[Music]
+
+1205
+01:05:59,760 --> 01:06:09,000
+1995 sometimes in the 1990s okay so back
+
+1206
+01:06:04,920 --> 01:06:10,640
+then back then when the syntax
+
+1207
+01:06:09,000 --> 01:06:14,680
+coloring
+
+1208
+01:06:10,640 --> 01:06:17,279
+began okay which is great okay so um let
+
+1209
+01:06:14,680 --> 01:06:21,200
+me let me let me turn turn off
+
+1210
+01:06:17,279 --> 01:06:25,000
+the doc turn off the NightLight so when
+
+1211
+01:06:21,200 --> 01:06:27,559
+the syntax coloring began around 1995 or
+
+1212
+01:06:25,000 --> 01:06:30,960
+I for I I don't know what I forgot I
+
+1213
+01:06:27,559 --> 01:06:33,240
+have to look up I have I have a you know
+
+1214
+01:06:30,960 --> 01:06:35,720
+I have an article on that you know in
+
+1215
+01:06:33,240 --> 01:06:37,160
+fact I have so many articles so you just
+
+1216
+01:06:35,720 --> 01:06:40,079
+look at
+
+1217
+01:06:37,160 --> 01:06:45,760
+um where is the search
+
+1218
+01:06:40,079 --> 01:06:47,319
+page search for XX okay that's
+
+1219
+01:06:45,760 --> 01:06:51,559
+history
+
+1220
+01:06:47,319 --> 01:06:53,319
+uh so XX so I tell you my experience of
+
+1221
+01:06:51,559 --> 01:06:57,279
+xax
+
+1222
+01:06:53,319 --> 01:07:01,200
+so yeah around 199 8
+
+1223
+01:06:57,279 --> 01:07:04,520
+um emac doesn't support syntax coloring
+
+1224
+01:07:01,200 --> 01:07:06,400
+you know 1998 emac doesn't have syntax
+
+1225
+01:07:04,520 --> 01:07:10,000
+coloring imagine
+
+1226
+01:07:06,400 --> 01:07:14,839
+that then sometimes after that emac
+
+1227
+01:07:10,000 --> 01:07:18,200
+around 200 3 2005 emac has syntax cing
+
+1228
+01:07:14,839 --> 01:07:20,920
+but by default it's off okay I'm telling
+
+1229
+01:07:18,200 --> 01:07:22,599
+you guys some history like because you
+
+1230
+01:07:20,920 --> 01:07:27,480
+you know you weren't born there you
+
+1231
+01:07:22,599 --> 01:07:32,960
+don't know so em ma is lagging behind
+
+1232
+01:07:27,480 --> 01:07:36,079
+very ma much compared to XX okay XX is a
+
+1233
+01:07:32,960 --> 01:07:39,839
+entire history by itself so but you get
+
+1234
+01:07:36,079 --> 01:07:42,520
+the sense that back then the emac they
+
+1235
+01:07:39,839 --> 01:07:45,720
+don't have syntax ear then once after
+
+1236
+01:07:42,520 --> 01:07:47,799
+five years delay when everyone else have
+
+1237
+01:07:45,720 --> 01:07:51,000
+it you know Microsoft editors or
+
+1238
+01:07:47,799 --> 01:07:54,279
+whatever emac added syntax cing but they
+
+1239
+01:07:51,000 --> 01:07:57,000
+by default it's off it's typical with
+
+1240
+01:07:54,279 --> 01:07:58,640
+the emx people because they believe you
+
+1241
+01:07:57,000 --> 01:08:01,160
+know they they are you know in other
+
+1242
+01:07:58,640 --> 01:08:02,720
+words they are kind of conservative so
+
+1243
+01:08:01,160 --> 01:08:07,720
+they don't you
+
+1244
+01:08:02,720 --> 01:08:10,760
+know uh anyway so but back in the 1990s
+
+1245
+01:08:07,720 --> 01:08:15,240
+syntax coloring is one of the debate
+
+1246
+01:08:10,760 --> 01:08:17,159
+it's like the bike bike shade problem
+
+1247
+01:08:15,240 --> 01:08:19,600
+everyone will talk about it some will
+
+1248
+01:08:17,159 --> 01:08:22,480
+say it's not good it's not good some
+
+1249
+01:08:19,600 --> 01:08:25,000
+will say uh it's good you know the the
+
+1250
+01:08:22,480 --> 01:08:27,120
+older people will generally think oh
+
+1251
+01:08:25,000 --> 01:08:29,679
+that's Young people's idiots you know
+
+1252
+01:08:27,120 --> 01:08:32,719
+you don't you know focus on code you
+
+1253
+01:08:29,679 --> 01:08:35,679
+don't need syntax coling you know
+
+1254
+01:08:32,719 --> 01:08:38,480
+because partly because
+
+1255
+01:08:35,679 --> 01:08:42,679
+habit but eventually syntax coloring
+
+1256
+01:08:38,480 --> 01:08:44,960
+won't of course like and I but so is it
+
+1257
+01:08:42,679 --> 01:08:48,159
+really good that mean so what about
+
+1258
+01:08:44,960 --> 01:08:50,400
+science what about you know you know
+
+1259
+01:08:48,159 --> 01:08:53,719
+science is kind of a dirty world today
+
+1260
+01:08:50,400 --> 01:08:57,000
+because a lot of abuse by the American
+
+1261
+01:08:53,719 --> 01:08:59,400
+deep State you know because Co this is
+
+1262
+01:08:57,000 --> 01:09:02,719
+science or global warming or
+
+1263
+01:08:59,400 --> 01:09:06,719
+whatever but anyway so what what is the
+
+1264
+01:09:02,719 --> 01:09:09,920
+real uh answer is syntax coling does it
+
+1265
+01:09:06,719 --> 01:09:12,920
+actually help programmers okay that's a
+
+1266
+01:09:09,920 --> 01:09:15,359
+question and the answer to that is yes
+
+1267
+01:09:12,920 --> 01:09:17,640
+absolutely you don't you don't need to
+
+1268
+01:09:15,359 --> 01:09:21,239
+like do research you know it's
+
+1269
+01:09:17,640 --> 01:09:24,279
+absolutely syntax because by a glance
+
+1270
+01:09:21,239 --> 01:09:26,319
+you can tell by color because our eyes
+
+1271
+01:09:24,279 --> 01:09:29,759
+can see color so so we we can quickly
+
+1272
+01:09:26,319 --> 01:09:33,719
+see where is where is what so syntax
+
+1273
+01:09:29,759 --> 01:09:36,199
+coloring absolutely help okay but what
+
+1274
+01:09:33,719 --> 01:09:37,560
+about the old people ra Pike or other
+
+1275
+01:09:36,199 --> 01:09:41,560
+they who
+
+1276
+01:09:37,560 --> 01:09:44,679
+insist let's turn off syntaxing okay
+
+1277
+01:09:41,560 --> 01:09:48,319
+let's just see okay they insist your
+
+1278
+01:09:44,679 --> 01:09:51,480
+code let's go to uh you know let's go to
+
+1279
+01:09:48,319 --> 01:09:54,279
+saf Keys okay you see so you got syntax
+
+1280
+01:09:51,480 --> 01:09:56,640
+cling you know comment and stuff let's
+
+1281
+01:09:54,279 --> 01:09:59,239
+go down okay code you
+
+1282
+01:09:56,640 --> 01:10:03,560
+know so let's turn
+
+1283
+01:09:59,239 --> 01:10:06,120
+off you know some people very rare today
+
+1284
+01:10:03,560 --> 01:10:08,600
+they think this is better no it's not
+
+1285
+01:10:06,120 --> 01:10:10,719
+better it's just their habit yeah they
+
+1286
+01:10:08,600 --> 01:10:16,280
+are great programmers but you
+
+1287
+01:10:10,719 --> 01:10:19,960
+know okay enough for today is it enough
+
+1288
+01:10:16,280 --> 01:10:22,159
+enough okay I'm not going to answer so
+
+1289
+01:10:19,960 --> 01:10:25,159
+many other questions but that's it for
+
+1290
+01:10:22,159 --> 01:10:25,159
+today
+
+1291
+01:10:25,800 --> 01:10:31,760
+oh programming gu says dude I've been
+
+1292
+01:10:28,159 --> 01:10:34,400
+online since before there was www
+
+1293
+01:10:31,760 --> 01:10:36,719
+fantastic you know on you know on live
+
+1294
+01:10:34,400 --> 01:10:39,480
+stream I have no idea who you guys are
+
+1295
+01:10:36,719 --> 01:10:43,679
+you know the background varies uh
+
+1296
+01:10:39,480 --> 01:10:45,440
+extremely Douglas Corf for uh so what
+
+1297
+01:10:43,679 --> 01:10:47,560
+you guys are saying but that's it for
+
+1298
+01:10:45,440 --> 01:10:50,640
+today thank you guys for
+
+1299
+01:10:47,560 --> 01:10:54,840
+watching don't forget to donate okay put
+
+1300
+01:10:50,640 --> 01:10:54,840
+money in my pocket
+
+1301
+01:10:56,480 --> 01:11:01,800
+okay programming guy is old guy I
+
+1302
+01:10:58,880 --> 01:11:06,239
+started on green screens and
+
+1303
+01:11:01,800 --> 01:11:08,199
+monochrom okay great
+
+1304
+01:11:06,239 --> 01:11:12,040
+uh ask
+
+1305
+01:11:08,199 --> 01:11:12,040
+techn okay
+
+1306
+01:11:13,960 --> 01:11:21,760
+uh so good
+
+1307
+01:11:18,120 --> 01:11:25,719
+CS him in douglas douglas cord he
+
+1308
+01:11:21,760 --> 01:11:30,199
+doesn't use color oh I didn't know but
+
+1309
+01:11:25,719 --> 01:11:34,560
+Doug both of them Rob Pike the creator
+
+1310
+01:11:30,199 --> 01:11:35,640
+of gold land and many others and he also
+
+1311
+01:11:34,560 --> 01:11:39,320
+created
+
+1312
+01:11:35,640 --> 01:11:43,040
+utf8 he also did a lot things on Unix
+
+1313
+01:11:39,320 --> 01:11:44,679
+you know and uh and what's the uh
+
+1314
+01:11:43,040 --> 01:11:48,600
+operating system you know he created
+
+1315
+01:11:44,679 --> 01:11:53,159
+he's a great he's one of the greatest
+
+1316
+01:11:48,600 --> 01:11:58,480
+programmer in human history okay
+
+1317
+01:11:53,159 --> 01:12:01,199
+raeg top top one 100 probably or top 200
+
+1318
+01:11:58,480 --> 01:12:05,800
+you know in human history that's that's
+
+1319
+01:12:01,199 --> 01:12:09,280
+my judgment Rik he's one of I respect he
+
+1320
+01:12:05,800 --> 01:12:11,920
+raike Douglas Crawford is also one of
+
+1321
+01:12:09,280 --> 01:12:14,239
+the greatest okay don't listen to the
+
+1322
+01:12:11,920 --> 01:12:16,920
+zumas like today whatever popular you
+
+1323
+01:12:14,239 --> 01:12:20,159
+know the JavaScript popular you know
+
+1324
+01:12:16,920 --> 01:12:23,719
+idiots [ __ ] extreme they very popular
+
+1325
+01:12:20,159 --> 01:12:25,960
+like you know they created you know lots
+
+1326
+01:12:23,719 --> 01:12:29,400
+of you know anyway these two people I
+
+1327
+01:12:25,960 --> 01:12:33,440
+highly respect Douglas cord he's a
+
+1328
+01:12:29,400 --> 01:12:35,800
+Douglas now Rik is they have different
+
+1329
+01:12:33,440 --> 01:12:39,840
+uh nature of course the different
+
+1330
+01:12:35,800 --> 01:12:42,600
+personality Douglas cord is more of a
+
+1331
+01:12:39,840 --> 01:12:45,719
+programming language design
+
+1332
+01:12:42,600 --> 01:12:47,440
+guy actually raw pack is kind of too but
+
+1333
+01:12:45,719 --> 01:12:52,280
+raw pag is more of
+
+1334
+01:12:47,440 --> 01:12:55,679
+a a unique C lowlevel kind of guy but he
+
+1335
+01:12:52,280 --> 01:12:59,440
+also he his scand is one of the greatest
+
+1336
+01:12:55,679 --> 01:13:01,600
+language in my opinion go l in fact it's
+
+1337
+01:12:59,440 --> 01:13:04,159
+because of go language that changed my
+
+1338
+01:13:01,600 --> 01:13:06,840
+opinion about the guy Goan is one of the
+
+1339
+01:13:04,159 --> 01:13:10,159
+best language okay now those of you
+
+1340
+01:13:06,840 --> 01:13:14,760
+going to say rust what about
+
+1341
+01:13:10,159 --> 01:13:18,280
+rust shut the [ __ ] up rust is
+
+1342
+01:13:14,760 --> 01:13:21,040
+[ __ ] now Douglas Crawford is one of also
+
+1343
+01:13:18,280 --> 01:13:24,320
+one of the great greatest programmer
+
+1344
+01:13:21,040 --> 01:13:26,040
+he's Focus he's a creator of Jason of
+
+1345
+01:13:24,320 --> 01:13:30,199
+course and he's
+
+1346
+01:13:26,040 --> 01:13:33,280
+also he he he basically
+
+1347
+01:13:30,199 --> 01:13:36,600
+single-handedly made JavaScript
+
+1348
+01:13:33,280 --> 01:13:39,960
+respectable in the year 2000s okay
+
+1349
+01:13:36,600 --> 01:13:43,199
+because of his book JavaScript the good
+
+1350
+01:13:39,960 --> 01:13:46,600
+parts okay he made JavaScript
+
+1351
+01:13:43,199 --> 01:13:49,199
+respectable and he popularized
+
+1352
+01:13:46,600 --> 01:13:52,080
+functional programming which is in
+
+1353
+01:13:49,199 --> 01:13:55,880
+JavaScript inherent
+
+1354
+01:13:52,080 --> 01:14:00,159
+inherently as opposed to python the
+
+1355
+01:13:55,880 --> 01:14:02,960
+Kido van Ros idiot okay so I respect
+
+1356
+01:14:00,159 --> 01:14:07,760
+raik very much I respect Douglas
+
+1357
+01:14:02,960 --> 01:14:10,679
+Crawford their intellectual press their
+
+1358
+01:14:07,760 --> 01:14:13,239
+ability to code and what they have
+
+1359
+01:14:10,679 --> 01:14:15,639
+actually done their accomplishment these
+
+1360
+01:14:13,239 --> 01:14:20,120
+two I highly
+
+1361
+01:14:15,639 --> 01:14:23,400
+respect G van Rosen no the python guy
+
+1362
+01:14:20,120 --> 01:14:27,040
+okay so uh
+
+1363
+01:14:23,400 --> 01:14:27,040
+next uh
+
+1364
+01:14:27,560 --> 01:14:36,280
+license B Bley mono coded font uh I
+
+1365
+01:14:32,440 --> 01:14:36,280
+don't know what is
+
+1366
+01:14:38,040 --> 01:14:42,199
+that by bye guys thank
+
+1367
+01:14:49,400 --> 01:14:54,719
+you font lock mod I haven't thought you
+
+1368
+01:14:53,040 --> 01:14:58,040
+know I haven't thought of the issue of
+
+1369
+01:14:54,719 --> 01:15:01,440
+no syntax coloring it's forgotten you
+
+1370
+01:14:58,040 --> 01:15:05,440
+know 20 years ago some you guys
+
+1371
+01:15:01,440 --> 01:15:08,080
+mentioned it without syntax coloring
+
+1372
+01:15:05,440 --> 01:15:08,080
+that would be
+
+1373
+01:15:10,960 --> 01:15:17,679
+interesting okay HTML mod close Okay bye
+

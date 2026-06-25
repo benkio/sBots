@@ -1,0 +1,3052 @@
+1
+00:00:08,599 --> 00:00:14,750
+good morning everyone welcome to another
+
+2
+00:00:11,219 --> 00:00:21,090
+episode of saw talk show today is 2020
+
+3
+00:00:14,750 --> 00:00:23,400
+July 15th Wednesday noon San Francisco
+
+4
+00:00:21,090 --> 00:00:26,250
+time and we are going to talk about
+
+5
+00:00:23,400 --> 00:00:28,439
+Emacs and Emacs Lisp I'm going to write
+
+6
+00:00:26,250 --> 00:00:32,820
+a command I'm going to show you how to
+
+7
+00:00:28,439 --> 00:00:36,059
+write it and and if we have more time we
+
+8
+00:00:32,820 --> 00:00:39,329
+are going to do some keyboard stuff lots
+
+9
+00:00:36,059 --> 00:00:41,820
+of fancy keyboards this is gogo
+
+10
+00:00:39,329 --> 00:00:44,430
+keyboards I'm gonna show you quite quite
+
+11
+00:00:41,820 --> 00:00:46,739
+a lot news about keyboard on my keyboard
+
+12
+00:00:44,430 --> 00:00:50,850
+knock so let's begin
+
+13
+00:00:46,739 --> 00:00:52,350
+well so so this the the background image
+
+14
+00:00:50,850 --> 00:00:55,500
+you see on youtube today
+
+15
+00:00:52,350 --> 00:00:57,840
+is this Lisp stickers someone send me
+
+16
+00:00:55,500 --> 00:00:58,710
+someone made this sticker about 10 years
+
+17
+00:00:57,840 --> 00:01:02,370
+ago
+
+18
+00:00:58,710 --> 00:01:05,760
+Duncan home and he sent a few to me and
+
+19
+00:01:02,370 --> 00:01:09,150
+I send a few to others so we have Jacon
+
+20
+00:01:05,760 --> 00:01:12,810
+Jacon x' this is Jagan's photo and we
+
+21
+00:01:09,150 --> 00:01:17,310
+have troy Fletcher's photo and by the by
+
+22
+00:01:12,810 --> 00:01:19,740
+the way jaqen is a lisp skin expert and
+
+23
+00:01:17,310 --> 00:01:22,250
+in functional programming expert and
+
+24
+00:01:19,740 --> 00:01:25,250
+Troy Fletcher is a do-it-yourself
+
+25
+00:01:22,250 --> 00:01:29,880
+keyboard expert let me show you ok
+
+26
+00:01:25,250 --> 00:01:33,270
+digressions so Troy Fletcher made this
+
+27
+00:01:29,880 --> 00:01:37,710
+keyboard am I am i alive am i doing okay
+
+28
+00:01:33,270 --> 00:01:40,079
+hey guys hey George and info Matic and
+
+29
+00:01:37,710 --> 00:01:42,420
+Danielle
+
+30
+00:01:40,079 --> 00:01:47,310
+so I'm going to show you this guy's
+
+31
+00:01:42,420 --> 00:01:53,670
+keyboard okay George Fletcher I mean the
+
+32
+00:01:47,310 --> 00:01:59,100
+top Troy fetcher just let me show you so
+
+33
+00:01:53,670 --> 00:02:04,770
+he actually made this keyboard he is the
+
+34
+00:01:59,100 --> 00:02:07,049
+author of this keyboard Signum 48 now
+
+35
+00:02:04,770 --> 00:02:10,590
+this is few years ago he probably have
+
+36
+00:02:07,049 --> 00:02:11,849
+new versions so anyway he's a guy he's
+
+37
+00:02:10,590 --> 00:02:16,470
+got a video
+
+38
+00:02:11,849 --> 00:02:19,579
+he's got a YouTube doing video talking
+
+39
+00:02:16,470 --> 00:02:22,739
+about keyboards okay so let's begin with
+
+40
+00:02:19,579 --> 00:02:26,160
+Emacs and Emacs Lisp so what we gonna do
+
+41
+00:02:22,739 --> 00:02:27,030
+today so let me show you today's
+
+42
+00:02:26,160 --> 00:02:30,810
+keyboard
+
+43
+00:02:27,030 --> 00:02:32,849
+today's keyboard today's talk show so
+
+44
+00:02:30,810 --> 00:02:35,549
+this is my Emacs window on the right
+
+45
+00:02:32,849 --> 00:02:38,310
+side you can see all the Emacs command I
+
+46
+00:02:35,549 --> 00:02:41,400
+call and the key press on the left side
+
+47
+00:02:38,310 --> 00:02:43,680
+of the pink window and I'm using a very
+
+48
+00:02:41,400 --> 00:02:46,319
+key board and and I'm using some fly
+
+49
+00:02:43,680 --> 00:02:51,799
+keys okay so what are we going to do so
+
+50
+00:02:46,319 --> 00:02:54,840
+he so let's magnify okay so you see in
+
+51
+00:02:51,799 --> 00:02:57,560
+let me show you the chant okay so I can
+
+52
+00:02:54,840 --> 00:03:02,250
+see hey good morning Emily
+
+53
+00:02:57,560 --> 00:03:05,819
+so so you see here is my HTML and we got
+
+54
+00:03:02,250 --> 00:03:08,160
+the list so that's at least you well you
+
+55
+00:03:05,819 --> 00:03:10,530
+see there's at least and I want a
+
+56
+00:03:08,160 --> 00:03:12,660
+command to remove the list so for
+
+57
+00:03:10,530 --> 00:03:15,000
+example I want to for example I press a
+
+58
+00:03:12,660 --> 00:03:17,730
+key and let me show you again so you see
+
+59
+00:03:15,000 --> 00:03:20,280
+now look and look at the commands on the
+
+60
+00:03:17,730 --> 00:03:23,430
+pink window okay so I press a key that
+
+61
+00:03:20,280 --> 00:03:28,019
+causes the command HTML remove HTML tags
+
+62
+00:03:23,430 --> 00:03:30,419
+so you can see that all these the list
+
+63
+00:03:28,019 --> 00:03:33,269
+tags are gone now if we show in browser
+
+64
+00:03:30,419 --> 00:03:36,269
+it becomes one line because there's no
+
+65
+00:03:33,269 --> 00:03:38,609
+markup so I'm going to write a command
+
+66
+00:03:36,269 --> 00:03:40,349
+to remove the list but hold on a second
+
+67
+00:03:38,609 --> 00:03:41,280
+didn't you just call command that
+
+68
+00:03:40,349 --> 00:03:43,500
+already does that
+
+69
+00:03:41,280 --> 00:03:46,530
+yes but there are subtleties you see
+
+70
+00:03:43,500 --> 00:03:50,250
+this command this command I call saw
+
+71
+00:03:46,530 --> 00:03:50,980
+HTML remove HTML tags will remove every
+
+72
+00:03:50,250 --> 00:03:54,730
+tag
+
+73
+00:03:50,980 --> 00:03:56,440
+so for example let's say let's let's
+
+74
+00:03:54,730 --> 00:03:58,540
+call the command okay let's say that
+
+75
+00:03:56,440 --> 00:04:00,989
+okay you see now I have a code tag
+
+76
+00:03:58,540 --> 00:04:04,030
+inside the least okay show in browser
+
+77
+00:04:00,989 --> 00:04:07,000
+you see now it becomes read modify
+
+78
+00:04:04,030 --> 00:04:09,480
+excite age that's a Emacs command cuz I
+
+79
+00:04:07,000 --> 00:04:15,489
+knew page to include a fix on date
+
+80
+00:04:09,480 --> 00:04:18,790
+actually not date title anyway so you
+
+81
+00:04:15,489 --> 00:04:21,489
+see there is a tag here there is the
+
+82
+00:04:18,790 --> 00:04:24,430
+code tag now if I call the command like
+
+83
+00:04:21,489 --> 00:04:28,210
+before cuz I HTML remove action around
+
+84
+00:04:24,430 --> 00:04:31,360
+tag now that tag is also good I don't
+
+85
+00:04:28,210 --> 00:04:34,450
+want that I want just to remove the HTML
+
+86
+00:04:31,360 --> 00:04:37,540
+why is that well because for example I
+
+87
+00:04:34,450 --> 00:04:40,240
+so here is a list right so show here's
+
+88
+00:04:37,540 --> 00:04:42,639
+the list I want to change the list -
+
+89
+00:04:40,240 --> 00:04:46,300
+let's say paragraph or something or some
+
+90
+00:04:42,639 --> 00:04:50,169
+other type so first of all I want to I
+
+91
+00:04:46,300 --> 00:04:54,669
+want to remove all these list tags oops
+
+92
+00:04:50,169 --> 00:04:55,840
+wait you see remove those this this
+
+93
+00:04:54,669 --> 00:04:59,350
+these tags
+
+94
+00:04:55,840 --> 00:05:05,110
+let's see you see that that cumbersome
+
+95
+00:04:59,350 --> 00:05:08,560
+you know sorry I got a phone call
+
+96
+00:05:05,110 --> 00:05:11,560
+[Music]
+
+97
+00:05:08,560 --> 00:05:11,560
+yeah
+
+98
+00:05:15,690 --> 00:05:23,760
+I got the phone quite I need to pick
+
+99
+00:05:18,270 --> 00:05:24,120
+pick that up so I want to remove the
+
+100
+00:05:23,760 --> 00:05:26,340
+list
+
+101
+00:05:24,120 --> 00:05:29,670
+let me do it and let me do this first
+
+102
+00:05:26,340 --> 00:05:32,850
+okay remove the list I want to come and
+
+103
+00:05:29,670 --> 00:05:35,790
+to just to remove the list ul and Li tax
+
+104
+00:05:32,850 --> 00:05:38,520
+so let's go ahead and do it okay so the
+
+105
+00:05:35,790 --> 00:05:40,170
+reason I want to remove it so so is for
+
+106
+00:05:38,520 --> 00:05:42,120
+example I want to change this to a
+
+107
+00:05:40,170 --> 00:05:45,330
+paragraph so each one is a paragraph
+
+108
+00:05:42,120 --> 00:05:48,780
+showing browser you see oh maybe I want
+
+109
+00:05:45,330 --> 00:05:50,460
+to change the middle one to type you
+
+110
+00:05:48,780 --> 00:05:54,030
+know showing browse or something like
+
+111
+00:05:50,460 --> 00:05:57,090
+that so all I want is just remove the DS
+
+112
+00:05:54,030 --> 00:05:59,610
+tags not not any you see I want to keep
+
+113
+00:05:57,090 --> 00:06:01,650
+this and sometimes there's links links
+
+114
+00:05:59,610 --> 00:06:03,420
+to Wikipedia or links to other so I want
+
+115
+00:06:01,650 --> 00:06:06,480
+to keep them I only want to remove the
+
+116
+00:06:03,420 --> 00:06:08,940
+DS tags so that is why I want to write a
+
+117
+00:06:06,480 --> 00:06:10,890
+command that just remove the distich
+
+118
+00:06:08,940 --> 00:06:15,000
+otherwise manually do it manually is
+
+119
+00:06:10,890 --> 00:06:17,490
+kind of tedious you know do it manually
+
+120
+00:06:15,000 --> 00:06:20,280
+is kind of tedious you know and you can
+
+121
+00:06:17,490 --> 00:06:23,790
+use Find and Replace but again still
+
+122
+00:06:20,280 --> 00:06:25,920
+it's tedious so okay so
+
+123
+00:06:23,790 --> 00:06:32,430
+so let's write a command it's let's do
+
+124
+00:06:25,920 --> 00:06:38,450
+that okay so let me just start Emacs
+
+125
+00:06:32,430 --> 00:06:45,919
+this then okay so magnify the fun okay
+
+126
+00:06:38,450 --> 00:06:50,330
+saw HTML remove least okay dark string
+
+127
+00:06:45,919 --> 00:06:58,849
+version today's date and dark string
+
+128
+00:06:50,330 --> 00:07:04,930
+remove you l-o-l li these tags okay
+
+129
+00:06:58,849 --> 00:07:11,650
+let's say remove HTML okay so
+
+130
+00:07:04,930 --> 00:07:14,169
+okay so what we do let's say a region
+
+131
+00:07:11,650 --> 00:07:16,090
+okay let's try this simple let's do the
+
+132
+00:07:14,169 --> 00:07:21,699
+simplest way possible just to get the
+
+133
+00:07:16,090 --> 00:07:22,720
+code going am i doing all right okay so
+
+134
+00:07:21,699 --> 00:07:26,560
+let's do it
+
+135
+00:07:22,720 --> 00:07:29,590
+so I want to first of all you have a
+
+136
+00:07:26,560 --> 00:07:33,550
+region let's assume you know the person
+
+137
+00:07:29,590 --> 00:07:39,370
+selected the region so let P 1 and P 2
+
+138
+00:07:33,550 --> 00:07:46,590
+position 1 position 2 P set Q P 1 region
+
+139
+00:07:39,370 --> 00:07:50,410
+beginning that's that's right and set
+
+140
+00:07:46,590 --> 00:07:56,680
+position to region end now we got a
+
+141
+00:07:50,410 --> 00:08:03,639
+beginning and end now so let's narrow to
+
+142
+00:07:56,680 --> 00:08:06,990
+region okay now a to region okay P 1 P 2
+
+143
+00:08:03,639 --> 00:08:09,699
+so we narrow the buffer to the two just
+
+144
+00:08:06,990 --> 00:08:11,380
+parts we are interested so we can delete
+
+145
+00:08:09,699 --> 00:08:14,380
+things and do things without worrying
+
+146
+00:08:11,380 --> 00:08:17,199
+about a changing order or the outside of
+
+147
+00:08:14,380 --> 00:08:24,520
+it so narrow to region and narrow risk
+
+148
+00:08:17,199 --> 00:08:27,010
+to restriction save restriction yeah
+
+149
+00:08:24,520 --> 00:08:31,900
+whenever you can our two region you have
+
+150
+00:08:27,010 --> 00:08:34,959
+to coerce a restriction because so that
+
+151
+00:08:31,900 --> 00:08:38,380
+when your command is finished the buffer
+
+152
+00:08:34,959 --> 00:08:40,479
+will be whatever or in general narrow to
+
+153
+00:08:38,380 --> 00:08:42,880
+region it was otherwise you don't want
+
+154
+00:08:40,479 --> 00:08:45,580
+you know when user caused your command
+
+155
+00:08:42,880 --> 00:08:47,709
+and your command cause narrow to region
+
+156
+00:08:45,580 --> 00:08:49,630
+and what when the command is done it's
+
+157
+00:08:47,709 --> 00:08:52,089
+still Naruto region you want to return
+
+158
+00:08:49,630 --> 00:08:54,910
+to the state so you you want to rabbit
+
+159
+00:08:52,089 --> 00:08:57,670
+with a saved restriction
+
+160
+00:08:54,910 --> 00:09:00,190
+and by the way oh these are in my Emacs
+
+161
+00:08:57,670 --> 00:09:03,070
+least tutorial okay so you go to ogle
+
+162
+00:09:00,190 --> 00:09:07,180
+Emacs website just search it you'll find
+
+163
+00:09:03,070 --> 00:09:09,880
+it eMac Lisp and and there is my
+
+164
+00:09:07,180 --> 00:09:12,730
+tutorial by my tutorial if my if you
+
+165
+00:09:09,880 --> 00:09:15,190
+like my stuff ok let me show you
+
+166
+00:09:12,730 --> 00:09:17,440
+you see save narrow to region so it's
+
+167
+00:09:15,190 --> 00:09:20,560
+right here so it I tell you why we need
+
+168
+00:09:17,440 --> 00:09:22,840
+to do that and so on okay let's go back
+
+169
+00:09:20,560 --> 00:09:26,110
+to the code so save restriction arrow to
+
+170
+00:09:22,840 --> 00:09:29,140
+read region and and now we want to find
+
+171
+00:09:26,110 --> 00:09:32,830
+to find and replace why because we want
+
+172
+00:09:29,140 --> 00:09:36,810
+to remove these let me just type type
+
+173
+00:09:32,830 --> 00:09:36,810
+these things okay
+
+174
+00:09:37,640 --> 00:09:43,730
+we want to remove ul which is an ordered
+
+175
+00:09:40,820 --> 00:09:46,220
+list and we want to remove Oh air which
+
+176
+00:09:43,730 --> 00:09:51,470
+is ordered list and also we want to
+
+177
+00:09:46,220 --> 00:09:54,860
+remove our I which is the list item okay
+
+178
+00:09:51,470 --> 00:09:58,399
+we want to remove all those things okay
+
+179
+00:09:54,860 --> 00:10:03,140
+and and how do you do finding replacing
+
+180
+00:09:58,399 --> 00:10:07,070
+in Magnus you do first of all go to go
+
+181
+00:10:03,140 --> 00:10:15,019
+through buffer mean mean gold go to go
+
+182
+00:10:07,070 --> 00:10:17,420
+to cha but for me what's the command but
+
+183
+00:10:15,019 --> 00:10:20,029
+for you you want to go to the minimal
+
+184
+00:10:17,420 --> 00:10:23,329
+position of the buffer namely the
+
+185
+00:10:20,029 --> 00:10:25,700
+beginning of a buffer now there is a
+
+186
+00:10:23,329 --> 00:10:28,640
+tricky issue here because the beginning
+
+187
+00:10:25,700 --> 00:10:30,560
+of normally in a buffer in a Emax buffer
+
+188
+00:10:28,640 --> 00:10:35,390
+the beginning the first character is
+
+189
+00:10:30,560 --> 00:10:37,190
+always position one always and but the
+
+190
+00:10:35,390 --> 00:10:39,680
+maximum the end of the buffer may be
+
+191
+00:10:37,190 --> 00:10:41,959
+depends on how you know what you have in
+
+192
+00:10:39,680 --> 00:10:45,589
+the perfect but when you have an arrow
+
+193
+00:10:41,959 --> 00:10:48,769
+to region when you have narrow to region
+
+194
+00:10:45,589 --> 00:10:50,540
+the beginning is still 1 but the end may
+
+195
+00:10:48,769 --> 00:10:53,000
+be something else it's different from
+
+196
+00:10:50,540 --> 00:10:58,430
+the hope of it but okay so let me go to
+
+197
+00:10:53,000 --> 00:11:00,410
+cha what's the command that tells you
+
+198
+00:10:58,430 --> 00:11:02,360
+the but you can actually I can just say
+
+199
+00:11:00,410 --> 00:11:04,930
+one okay let's just say well go to cha
+
+200
+00:11:02,360 --> 00:11:07,029
+that's the beginning of about what and
+
+201
+00:11:04,930 --> 00:11:13,880
+okay then
+
+202
+00:11:07,029 --> 00:11:16,490
+while a while loop such forward okay
+
+203
+00:11:13,880 --> 00:11:18,990
+such forward what you want to search you
+
+204
+00:11:16,490 --> 00:11:22,030
+want to search for word that
+
+205
+00:11:18,990 --> 00:11:25,480
+okay optional bound
+
+206
+00:11:22,030 --> 00:11:28,320
+no no arrow no area must be true income
+
+207
+00:11:25,480 --> 00:11:32,440
+we don't care so no ever true found Neal
+
+208
+00:11:28,320 --> 00:11:40,740
+okay those are the optional argument so
+
+209
+00:11:32,440 --> 00:11:40,740
+once you find a URL what you do you
+
+210
+00:11:43,869 --> 00:11:50,860
+what's the command would replace a
+
+211
+00:11:45,429 --> 00:11:55,389
+stream it's been a few months I haven't
+
+212
+00:11:50,860 --> 00:11:58,749
+cope encoding eMac B's so remove the we
+
+213
+00:11:55,389 --> 00:11:59,139
+want to remove replace match okay that's
+
+214
+00:11:58,749 --> 00:12:02,290
+it
+
+215
+00:11:59,139 --> 00:12:04,449
+replace match that that that is it
+
+216
+00:12:02,290 --> 00:12:08,319
+that's the command we want so whenever
+
+217
+00:12:04,449 --> 00:12:13,480
+you do such forward Emacs keeps certain
+
+218
+00:12:08,319 --> 00:12:16,329
+internal data you can such as the
+
+219
+00:12:13,480 --> 00:12:18,279
+matched stream and then you can cause
+
+220
+00:12:16,329 --> 00:12:20,319
+certain commands that will work on those
+
+221
+00:12:18,279 --> 00:12:23,199
+internal data such as replace match
+
+222
+00:12:20,319 --> 00:12:27,189
+replace match this command what we do is
+
+223
+00:12:23,199 --> 00:12:31,149
+that it will replace the you know
+
+224
+00:12:27,189 --> 00:12:33,089
+whatever you searched stream so new text
+
+225
+00:12:31,149 --> 00:12:35,379
+is going to be empty okay
+
+226
+00:12:33,089 --> 00:12:38,610
+optional fixed case we don't care a
+
+227
+00:12:35,379 --> 00:12:41,559
+literal yeah we don't care
+
+228
+00:12:38,610 --> 00:12:43,990
+stream stream okay those are you know
+
+229
+00:12:41,559 --> 00:12:47,470
+you can read you can code this scribe
+
+230
+00:12:43,990 --> 00:12:49,329
+function and read the inline doc if you
+
+231
+00:12:47,470 --> 00:12:49,779
+want to know the detail okay describe
+
+232
+00:12:49,329 --> 00:12:53,049
+function
+
+233
+00:12:49,779 --> 00:12:55,779
+so anyway replace match replaced by
+
+234
+00:12:53,049 --> 00:13:00,220
+empty and that's it okay that's
+
+235
+00:12:55,779 --> 00:13:02,980
+basically all it is that's all what we
+
+236
+00:13:00,220 --> 00:13:05,589
+want to do that's going to work okay now
+
+237
+00:13:02,980 --> 00:13:07,949
+we're just going to copy that and a few
+
+238
+00:13:05,589 --> 00:13:15,670
+more times and do on the several other
+
+239
+00:13:07,949 --> 00:13:20,439
+okay so you are and oh L and the o al
+
+240
+00:13:15,670 --> 00:13:24,249
+closing tag then Li is a list item then
+
+241
+00:13:20,439 --> 00:13:27,579
+closing tag for Li okay that is
+
+242
+00:13:24,249 --> 00:13:30,670
+essentially it let's format our code to
+
+243
+00:13:27,579 --> 00:13:34,149
+be nice and that's I think that's all we
+
+244
+00:13:30,670 --> 00:13:36,549
+need to do let's double check one last
+
+245
+00:13:34,149 --> 00:13:40,350
+time and we'll be done with this command
+
+246
+00:13:36,549 --> 00:13:44,400
+okay I think I think it's good save it
+
+247
+00:13:40,350 --> 00:13:50,910
+eval buffer now let's go to HTML page
+
+248
+00:13:44,400 --> 00:13:54,570
+close reopen magnify okay so here we
+
+249
+00:13:50,910 --> 00:13:56,220
+have a list now we want we are going to
+
+250
+00:13:54,570 --> 00:13:58,890
+call the command that should remove the
+
+251
+00:13:56,220 --> 00:14:03,860
+list and but keep the links or whatever
+
+252
+00:13:58,890 --> 00:14:03,860
+let's let's create a link let's go to
+
+253
+00:14:03,980 --> 00:14:14,910
+let's do this just say Google comm htdp
+
+254
+00:14:09,260 --> 00:14:18,680
+google.com okay so there we have a link
+
+255
+00:14:14,910 --> 00:14:21,840
+let's say let's put this link here
+
+256
+00:14:18,680 --> 00:14:22,770
+showing browser you see this link is a
+
+257
+00:14:21,840 --> 00:14:25,140
+google.com
+
+258
+00:14:22,770 --> 00:14:27,390
+now once we call the command that will
+
+259
+00:14:25,140 --> 00:14:33,540
+remove the list but but the link and
+
+260
+00:14:27,390 --> 00:14:36,920
+this is this code will stay so okay
+
+261
+00:14:33,540 --> 00:14:40,200
+what's our command name let's I forgot
+
+262
+00:14:36,920 --> 00:14:44,490
+ok excited hear me I'll remove list okay
+
+263
+00:14:40,200 --> 00:14:47,570
+did we evaluate it eval buffer okay go
+
+264
+00:14:44,490 --> 00:14:53,700
+back okay we're gonna try it select it
+
+265
+00:14:47,570 --> 00:14:54,810
+meta X saw HTML remove list go whoo-hoo
+
+266
+00:14:53,700 --> 00:14:58,410
+it's done
+
+267
+00:14:54,810 --> 00:15:00,480
+you see showing in browser it's correct
+
+268
+00:14:58,410 --> 00:15:04,050
+you see there is no more list tag but
+
+269
+00:15:00,480 --> 00:15:07,530
+however you know the the other tags H
+
+270
+00:15:04,050 --> 00:15:10,290
+name pack stays so that is actually what
+
+271
+00:15:07,530 --> 00:15:14,730
+I wanted to do that's all for this
+
+272
+00:15:10,290 --> 00:15:16,680
+command successful but we want to make
+
+273
+00:15:14,730 --> 00:15:18,720
+it nice because every you know every
+
+274
+00:15:16,680 --> 00:15:21,960
+time we have to call this command we
+
+275
+00:15:18,720 --> 00:15:23,340
+have to select you know the region first
+
+276
+00:15:21,960 --> 00:15:25,920
+that's annoying
+
+277
+00:15:23,340 --> 00:15:29,730
+you know you want why don't we create a
+
+278
+00:15:25,920 --> 00:15:33,510
+command that automatically find out you
+
+279
+00:15:29,730 --> 00:15:35,700
+know the the between empty lines so you
+
+280
+00:15:33,510 --> 00:15:37,490
+see typically that's what people want to
+
+281
+00:15:35,700 --> 00:15:40,860
+do it you see there's an empty line and
+
+282
+00:15:37,490 --> 00:15:44,100
+there's a empty line empty lines so you
+
+283
+00:15:40,860 --> 00:15:46,579
+want to make this command automatically
+
+284
+00:15:44,100 --> 00:15:49,069
+work on a text block
+
+285
+00:15:46,579 --> 00:15:52,369
+similar to the concept of the paragraph
+
+286
+00:15:49,069 --> 00:15:55,790
+so user doesn't have to go here start
+
+287
+00:15:52,369 --> 00:15:58,100
+mark and oh and and go go here and you
+
+288
+00:15:55,790 --> 00:15:59,379
+know before going in the command so
+
+289
+00:15:58,100 --> 00:16:03,139
+let's do that
+
+290
+00:15:59,379 --> 00:16:05,899
+so let's add so all we have to do is
+
+291
+00:16:03,139 --> 00:16:08,899
+change the position 1 and position 2
+
+292
+00:16:05,899 --> 00:16:11,829
+beginning region beginning you giant we
+
+293
+00:16:08,899 --> 00:16:13,850
+want to automatic automatic we find it
+
+294
+00:16:11,829 --> 00:16:16,730
+so how do we do that
+
+295
+00:16:13,850 --> 00:16:22,429
+well we can do it by let me show you how
+
+296
+00:16:16,730 --> 00:16:26,779
+okay so for example it's it's so for
+
+297
+00:16:22,429 --> 00:16:29,709
+example set p1 okay and what we're gonna
+
+298
+00:16:26,779 --> 00:16:34,360
+do to p1 okay what we're going to do is
+
+299
+00:16:29,709 --> 00:16:38,239
+save excursion let me show you this okay
+
+300
+00:16:34,360 --> 00:16:40,939
+such backward okay we want to search
+
+301
+00:16:38,239 --> 00:16:48,470
+backward by two empty lines
+
+302
+00:16:40,939 --> 00:16:52,429
+okay so empty line Emacs is that okay we
+
+303
+00:16:48,470 --> 00:16:56,470
+want to search backward and okay and
+
+304
+00:16:52,429 --> 00:17:01,720
+remove those we don't need okay then
+
+305
+00:16:56,470 --> 00:17:01,720
+then search for word such forward Oh
+
+306
+00:17:04,040 --> 00:17:09,480
+forward cha okay move to character to
+
+307
+00:17:07,230 --> 00:17:11,820
+the right to positions so why is that
+
+308
+00:17:09,480 --> 00:17:14,250
+because you see when you search empty
+
+309
+00:17:11,820 --> 00:17:16,339
+you when you search to empty lines for
+
+310
+00:17:14,250 --> 00:17:21,360
+example if we do that right now
+
+311
+00:17:16,339 --> 00:17:26,280
+couette oops wait so we can call this
+
+312
+00:17:21,360 --> 00:17:30,090
+command oh the actually its backslash
+
+313
+00:17:26,280 --> 00:17:33,030
+not forward slash backslash means a new
+
+314
+00:17:30,090 --> 00:17:37,940
+life backslash n by the way in Emacs
+
+315
+00:17:33,030 --> 00:17:42,210
+buffer every line empty line is
+
+316
+00:17:37,940 --> 00:17:48,150
+represented by the backslash n which is
+
+317
+00:17:42,210 --> 00:17:51,150
+ASCII line feed which is the ASCII line
+
+318
+00:17:48,150 --> 00:17:54,150
+feed character so actually I need to
+
+319
+00:17:51,150 --> 00:17:56,970
+answer my phone okay so sorry about that
+
+320
+00:17:54,150 --> 00:17:59,700
+guys I'll be back in two minutes
+
+321
+00:17:56,970 --> 00:18:02,270
+comments guys comment okay I'll be back
+
+322
+00:17:59,700 --> 00:18:02,270
+in two minutes
+
+323
+00:18:49,820 --> 00:18:54,549
+hello I'm back wait is it going
+
+324
+00:18:56,050 --> 00:19:05,559
+why is it not showing me yet I'm
+
+325
+00:19:01,600 --> 00:19:08,320
+wondering what is going okay yeah this
+
+326
+00:19:05,559 --> 00:19:13,929
+is a delay okay I'm back
+
+327
+00:19:08,320 --> 00:19:16,300
+so so such so we want to search backward
+
+328
+00:19:13,929 --> 00:19:19,990
+so we can actually evaluate this command
+
+329
+00:19:16,300 --> 00:19:22,840
+let me show you okay call the command
+
+330
+00:19:19,990 --> 00:19:26,110
+evals last sex you see the cursor got
+
+331
+00:19:22,840 --> 00:19:28,929
+moved to two over here you see why
+
+332
+00:19:26,110 --> 00:19:31,300
+because we are our cruiser was here and
+
+333
+00:19:28,929 --> 00:19:34,360
+he was trying to search backward two
+
+334
+00:19:31,300 --> 00:19:37,090
+empty lines so so we found it so you
+
+335
+00:19:34,360 --> 00:19:40,030
+know it ends up there so but what
+
+336
+00:19:37,090 --> 00:19:42,220
+actually what we actually want is the
+
+337
+00:19:40,030 --> 00:19:44,770
+kusa position to be here you see to be
+
+338
+00:19:42,220 --> 00:19:47,200
+here so that that's why we want to do
+
+339
+00:19:44,770 --> 00:19:52,270
+for were character too so the end
+
+340
+00:19:47,200 --> 00:19:54,760
+position will be will be here so now we
+
+341
+00:19:52,270 --> 00:19:57,650
+say point point returns the position of
+
+342
+00:19:54,760 --> 00:20:00,380
+the kusa so
+
+343
+00:19:57,650 --> 00:20:03,020
+so you can see that's formatted so the
+
+344
+00:20:00,380 --> 00:20:05,900
+city that's how you said q1 I mean p1
+
+345
+00:20:03,020 --> 00:20:12,370
+position one okay in a similar way to
+
+346
+00:20:05,900 --> 00:20:15,650
+set the end position you just say P to
+
+347
+00:20:12,370 --> 00:20:20,240
+such forward okay
+
+348
+00:20:15,650 --> 00:20:22,730
+such forward that's right and that and
+
+349
+00:20:20,240 --> 00:20:25,520
+we don't care about options such forward
+
+350
+00:20:22,730 --> 00:20:29,960
+and it's the same thing then you want to
+
+351
+00:20:25,520 --> 00:20:34,090
+backward chart to actually it instead of
+
+352
+00:20:29,960 --> 00:20:34,090
+back over chart to let's such backward
+
+353
+00:20:36,370 --> 00:20:41,630
+okay
+
+354
+00:20:37,580 --> 00:20:44,240
+that's right then we don't want that so
+
+355
+00:20:41,630 --> 00:20:46,520
+why is that you see let's let me show
+
+356
+00:20:44,240 --> 00:20:48,500
+you why why we do this such forward in
+
+357
+00:20:46,520 --> 00:20:50,990
+such backward you see when you if we
+
+358
+00:20:48,500 --> 00:20:54,559
+call such forward we do it you see the
+
+359
+00:20:50,990 --> 00:20:57,020
+kusa ends up here now we need to return
+
+360
+00:20:54,559 --> 00:21:01,490
+to here you see we need to return to
+
+361
+00:20:57,020 --> 00:21:05,929
+here so so that's why we do such
+
+362
+00:21:01,490 --> 00:21:08,480
+backward let me show you okay okay so
+
+363
+00:21:05,929 --> 00:21:10,340
+like here like right now like Russa is
+
+364
+00:21:08,480 --> 00:21:12,920
+here I'm going to call this such
+
+365
+00:21:10,340 --> 00:21:16,580
+backward command by calling eval as the
+
+366
+00:21:12,920 --> 00:21:21,500
+expression and you will see that the
+
+367
+00:21:16,580 --> 00:21:23,660
+cursor will be will be back here so for
+
+368
+00:21:21,500 --> 00:21:27,410
+example let me call it evil ass
+
+369
+00:21:23,660 --> 00:21:30,940
+expression you see that's it so why do
+
+370
+00:21:27,410 --> 00:21:35,110
+you do such backward why not why not say
+
+371
+00:21:30,940 --> 00:21:37,460
+backward cha why not say back hoe cha to
+
+372
+00:21:35,110 --> 00:21:41,809
+basically the same thing but not exactly
+
+373
+00:21:37,460 --> 00:21:44,390
+because sometimes actually sometimes you
+
+374
+00:21:41,809 --> 00:21:46,630
+want actually the proper way it gets a
+
+375
+00:21:44,390 --> 00:21:50,150
+little bit complex why is that because
+
+376
+00:21:46,630 --> 00:21:52,309
+when you want to find a text block block
+
+377
+00:21:50,150 --> 00:21:54,020
+let me turn on whitespace okay sure
+
+378
+00:21:52,309 --> 00:21:56,450
+white space smart now you can see my
+
+379
+00:21:54,020 --> 00:21:59,300
+white spaces you see sometimes there is
+
+380
+00:21:56,450 --> 00:22:01,700
+a tab let me show you you see sometimes
+
+381
+00:21:59,300 --> 00:22:04,010
+you know in programming code is common
+
+382
+00:22:01,700 --> 00:22:07,220
+to have tab or o or some other
+
+383
+00:22:04,010 --> 00:22:09,639
+indentations but however you want to
+
+384
+00:22:07,220 --> 00:22:11,889
+consider this whole thing here too
+
+385
+00:22:09,639 --> 00:22:16,329
+the empty lines because they are empty
+
+386
+00:22:11,889 --> 00:22:20,349
+so that is why if you have situation
+
+387
+00:22:16,329 --> 00:22:22,389
+like that then our our code for finding
+
+388
+00:22:20,349 --> 00:22:24,669
+the text block will be incorrect you
+
+389
+00:22:22,389 --> 00:22:27,579
+know because it's not just it's not just
+
+390
+00:22:24,669 --> 00:22:30,209
+two empty lines that's the you know
+
+391
+00:22:27,579 --> 00:22:33,009
+that's the simplest simplest scenario
+
+392
+00:22:30,209 --> 00:22:35,349
+but sometimes you have tabs in space you
+
+393
+00:22:33,009 --> 00:22:38,829
+know things like that but for our
+
+394
+00:22:35,349 --> 00:22:43,059
+purposes let's just go on with this for
+
+395
+00:22:38,829 --> 00:22:46,779
+now okay turn off whitespace mod eval
+
+396
+00:22:43,059 --> 00:22:48,159
+buffer okay let's see and we don't need
+
+397
+00:22:46,779 --> 00:22:52,690
+these lines anymore
+
+398
+00:22:48,159 --> 00:22:54,519
+okay and eval buffer again yeah that
+
+399
+00:22:52,690 --> 00:22:57,080
+should be that should walk let's go back
+
+400
+00:22:54,519 --> 00:23:00,220
+to our code
+
+401
+00:22:57,080 --> 00:23:03,110
+you see here's our code showing browser
+
+402
+00:23:00,220 --> 00:23:05,629
+back to Emacs showing browser showing
+
+403
+00:23:03,110 --> 00:23:07,340
+browser you see we got a list back to
+
+404
+00:23:05,629 --> 00:23:09,379
+Emacs now we're gonna call the command
+
+405
+00:23:07,340 --> 00:23:11,509
+we we thought without having to select
+
+406
+00:23:09,379 --> 00:23:12,739
+okay we just put the cursor somewhere
+
+407
+00:23:11,509 --> 00:23:17,679
+inside the block
+
+408
+00:23:12,739 --> 00:23:22,129
+couette exciting HTML remove list enter
+
+409
+00:23:17,679 --> 00:23:25,249
+whoops wrong your own type argument
+
+410
+00:23:22,129 --> 00:23:27,499
+symbol P forward char - okay some
+
+411
+00:23:25,249 --> 00:23:36,460
+something went wrong when we went on the
+
+412
+00:23:27,499 --> 00:23:39,679
+forward cha why is that such backward
+
+413
+00:23:36,460 --> 00:23:43,480
+empty space empty space for Chan - I
+
+414
+00:23:39,679 --> 00:23:43,480
+don't understand ivar buffer
+
+415
+00:23:45,110 --> 00:23:56,670
+let's just call these hearings seem
+
+416
+00:23:50,600 --> 00:23:59,100
+simple P forward cha - so it's expecting
+
+417
+00:23:56,670 --> 00:24:02,720
+a symbol but actually it got forward cha
+
+418
+00:23:59,100 --> 00:24:02,720
+- I know why okay so
+
+419
+00:24:09,000 --> 00:24:15,040
+okay wait I cannot figure out I don't
+
+420
+00:24:12,460 --> 00:24:18,910
+know why so so so we are going to do
+
+421
+00:24:15,040 --> 00:24:21,970
+some this eMac this debugging the first
+
+422
+00:24:18,910 --> 00:24:24,070
+thing you want to do is turn on these
+
+423
+00:24:21,970 --> 00:24:26,110
+arrows by calling this command okay I
+
+424
+00:24:24,070 --> 00:24:28,540
+don't I don't remember the command name
+
+425
+00:24:26,110 --> 00:24:32,170
+but I must say I have no soul memory for
+
+426
+00:24:28,540 --> 00:24:34,540
+the command key so I just press this key
+
+427
+00:24:32,170 --> 00:24:38,920
+and you can see on a right window is a
+
+428
+00:24:34,540 --> 00:24:41,650
+stuggle debug on arrow so once you call
+
+429
+00:24:38,920 --> 00:24:43,540
+that command it toggles it on and off so
+
+430
+00:24:41,650 --> 00:24:46,270
+when it's on when there's a list arrow
+
+431
+00:24:43,540 --> 00:24:48,520
+it will actually pop up the food detail
+
+432
+00:24:46,270 --> 00:24:50,770
+arrow so so let's try it
+
+433
+00:24:48,520 --> 00:24:57,760
+so you've a buffer go back to a HTML
+
+434
+00:24:50,770 --> 00:24:59,470
+file and and and let's go back to here
+
+435
+00:24:57,760 --> 00:25:02,950
+yes because we've been working on this
+
+436
+00:24:59,470 --> 00:25:08,530
+page so now call the command search tml
+
+437
+00:25:02,950 --> 00:25:10,500
+remove list do it okay here is the debug
+
+438
+00:25:08,530 --> 00:25:24,909
+on arrow
+
+439
+00:25:10,500 --> 00:25:27,789
+message okay wait so it says okay what
+
+440
+00:25:24,909 --> 00:25:30,820
+enter the beginning evaluation function
+
+441
+00:25:27,789 --> 00:25:32,970
+wait that's not it and it's let's try it
+
+442
+00:25:30,820 --> 00:25:32,970
+again
+
+443
+00:25:35,030 --> 00:25:43,850
+couette XHTML remove list drone type of
+
+444
+00:25:40,740 --> 00:25:43,850
+argument there it is
+
+445
+00:25:47,290 --> 00:25:59,170
+oh okay I know what's going on CD a CD
+
+446
+00:25:51,810 --> 00:26:05,020
+error okay I made a CD arrow so why is
+
+447
+00:25:59,170 --> 00:26:10,410
+that because you see when you call set
+
+448
+00:26:05,020 --> 00:26:13,300
+p1 then you have three three code here
+
+449
+00:26:10,410 --> 00:26:16,510
+what emag does is that the result of
+
+450
+00:26:13,300 --> 00:26:18,610
+this will become p1 what actually what
+
+451
+00:26:16,510 --> 00:26:22,020
+we want is this okay let me show you
+
+452
+00:26:18,610 --> 00:26:26,950
+what actually what we want we want to
+
+453
+00:26:22,020 --> 00:26:32,230
+wrap it with a program P okay let me
+
+454
+00:26:26,950 --> 00:26:35,740
+show you so so this is what we want you
+
+455
+00:26:32,230 --> 00:26:38,230
+see so once you have a program P that
+
+456
+00:26:35,740 --> 00:26:40,060
+means return that means to exactly the
+
+457
+00:26:38,230 --> 00:26:43,090
+same thing do you know do whatever the
+
+458
+00:26:40,060 --> 00:26:46,000
+disco then but return the last line of
+
+459
+00:26:43,090 --> 00:26:52,600
+the code so that's what we want so okay
+
+460
+00:26:46,000 --> 00:26:56,560
+so we just add that okay
+
+461
+00:26:52,600 --> 00:27:00,250
+eval buffer go back to our list code go
+
+462
+00:26:56,560 --> 00:27:01,360
+through it call the command HTML remove
+
+463
+00:27:00,250 --> 00:27:05,110
+list do it
+
+464
+00:27:01,360 --> 00:27:07,909
+yay success
+
+465
+00:27:05,110 --> 00:27:10,330
+okay how long have I been talking hello
+
+466
+00:27:07,909 --> 00:27:10,330
+Freddie
+
+467
+00:27:10,580 --> 00:27:22,879
+how long have I been talking let's play
+
+468
+00:27:18,100 --> 00:27:26,659
+half an hour so should we continue
+
+469
+00:27:22,879 --> 00:27:30,169
+talking about keyboards or some more
+
+470
+00:27:26,659 --> 00:27:32,360
+Emacs stuff let me show you okay so
+
+471
+00:27:30,169 --> 00:27:35,649
+anyway I got this code fantastic let me
+
+472
+00:27:32,360 --> 00:27:41,269
+show let me show you one more thing okay
+
+473
+00:27:35,649 --> 00:27:45,320
+okay we got this code cut it and put put
+
+474
+00:27:41,269 --> 00:27:48,049
+is put this in the Lima in in this in
+
+475
+00:27:45,320 --> 00:27:49,999
+this HTML page but before we do that let
+
+476
+00:27:48,049 --> 00:27:52,639
+me show you in browser so right now it
+
+477
+00:27:49,999 --> 00:27:55,999
+looks like that and now I paste in the
+
+478
+00:27:52,639 --> 00:27:58,340
+code show in browser so now you can see
+
+479
+00:27:55,999 --> 00:28:01,460
+the code here and you can copy it later
+
+480
+00:27:58,340 --> 00:28:05,749
+on you can see this is Microsoft
+
+481
+00:28:01,460 --> 00:28:08,289
+Hawkshaw page just search it on my iMac
+
+482
+00:28:05,749 --> 00:28:11,240
+solid re info later on your be there
+
+483
+00:28:08,289 --> 00:28:13,340
+once I upload it so anyway you see the
+
+484
+00:28:11,240 --> 00:28:16,700
+list code now I'm going to press one
+
+485
+00:28:13,340 --> 00:28:21,259
+button and you'll be seen hax colored
+
+486
+00:28:16,700 --> 00:28:24,139
+now now go back to browser reload is the
+
+487
+00:28:21,259 --> 00:28:27,559
+syntax coloring this is fantastic and
+
+488
+00:28:24,139 --> 00:28:31,730
+this is this is all inks are HTML mod
+
+489
+00:28:27,559 --> 00:28:36,499
+it's it's on github so we've done this
+
+490
+00:28:31,730 --> 00:28:41,010
+task and you know that's what we want oh
+
+491
+00:28:36,499 --> 00:28:44,530
+oh one more thing to to finish this
+
+492
+00:28:41,010 --> 00:28:47,860
+remember we talked about these two empty
+
+493
+00:28:44,530 --> 00:28:50,200
+lines that's the simplest space but
+
+494
+00:28:47,860 --> 00:28:53,110
+sometimes you have tabs in between we
+
+495
+00:28:50,200 --> 00:28:57,370
+want to deal with those situations as
+
+496
+00:28:53,110 --> 00:28:59,410
+well so we need so the code will
+
+497
+00:28:57,370 --> 00:29:01,330
+actually be a little bit more
+
+498
+00:28:59,410 --> 00:29:07,330
+complicated but let me show you the code
+
+499
+00:29:01,330 --> 00:29:13,750
+okay okay so hold on a second let me
+
+500
+00:29:07,330 --> 00:29:17,440
+show you again so you can see the actual
+
+501
+00:29:13,750 --> 00:29:24,160
+code there it is there is the actual
+
+502
+00:29:17,440 --> 00:29:29,680
+code okay let me copy it and they may
+
+503
+00:29:24,160 --> 00:29:32,770
+explain it okay yeah no don't walk let
+
+504
+00:29:29,680 --> 00:29:35,530
+me explain it okay so now showing
+
+505
+00:29:32,770 --> 00:29:39,010
+browser now I need to move this code to
+
+506
+00:29:35,530 --> 00:29:43,540
+a to an independent file so I have a
+
+507
+00:29:39,010 --> 00:29:47,850
+command do it so we are looking at the
+
+508
+00:29:43,540 --> 00:29:50,920
+dist code again so I can edit it here
+
+509
+00:29:47,850 --> 00:29:54,160
+and now we're gonna show the new code
+
+510
+00:29:50,920 --> 00:29:57,280
+okay the new code here I mean let me
+
+511
+00:29:54,160 --> 00:29:59,620
+explain what's what's going on
+
+512
+00:29:57,280 --> 00:30:01,600
+so you see if first of all you have the
+
+513
+00:29:59,620 --> 00:30:04,510
+regular expression search for word
+
+514
+00:30:01,600 --> 00:30:06,760
+instead of just two empty lines now it
+
+515
+00:30:04,510 --> 00:30:09,610
+becomes more complex you see empty line
+
+516
+00:30:06,760 --> 00:30:11,350
+I mean end of line character I mean
+
+517
+00:30:09,610 --> 00:30:15,760
+that's it technically that that is a
+
+518
+00:30:11,350 --> 00:30:17,920
+form feed ASCII character but it
+
+519
+00:30:15,760 --> 00:30:22,480
+commonly known as end of line characters
+
+520
+00:30:17,920 --> 00:30:24,940
+or line return you know ASCII is a bit
+
+521
+00:30:22,480 --> 00:30:26,350
+complicated because M is historical
+
+522
+00:30:24,940 --> 00:30:28,930
+because you actually you have line
+
+523
+00:30:26,350 --> 00:30:31,150
+return you have a return character you
+
+524
+00:30:28,930 --> 00:30:34,660
+have a form feed character then you have
+
+525
+00:30:31,150 --> 00:30:38,830
+a line feed character so it's you know I
+
+526
+00:30:34,660 --> 00:30:40,930
+I can show you aski actually that's
+
+527
+00:30:38,830 --> 00:30:43,240
+another topic let me just see let me
+
+528
+00:30:40,930 --> 00:30:46,750
+just go with the least code here so you
+
+529
+00:30:43,240 --> 00:30:49,890
+see so you need to search for a new line
+
+530
+00:30:46,750 --> 00:30:54,820
+character then then you need to search
+
+531
+00:30:49,890 --> 00:31:00,160
+one zero or more space or tab then
+
+532
+00:30:54,820 --> 00:31:02,650
+followed by another line you know empty
+
+533
+00:31:00,160 --> 00:31:04,790
+line character so that's how you search
+
+534
+00:31:02,650 --> 00:31:06,400
+then you want to
+
+535
+00:31:04,790 --> 00:31:10,370
+[Music]
+
+536
+00:31:06,400 --> 00:31:11,950
+then you are okay after you search let
+
+537
+00:31:10,370 --> 00:31:17,920
+me show you okay
+
+538
+00:31:11,950 --> 00:31:17,920
+if region if region active PE
+
+539
+00:31:19,660 --> 00:31:27,760
+okay that's so if region is active okay
+
+540
+00:31:23,560 --> 00:31:31,090
+let me do this okay let me show you
+
+541
+00:31:27,760 --> 00:31:34,810
+so if region is active what we want is
+
+542
+00:31:31,090 --> 00:31:37,480
+just you know if regions active then
+
+543
+00:31:34,810 --> 00:31:38,490
+let's just use region user has selected
+
+544
+00:31:37,480 --> 00:31:41,800
+the region
+
+545
+00:31:38,490 --> 00:31:47,710
+now if region otherwise if region is not
+
+546
+00:31:41,800 --> 00:31:48,550
+active then we do when then we do this
+
+547
+00:31:47,710 --> 00:31:52,240
+part okay
+
+548
+00:31:48,550 --> 00:31:57,130
+so skip char forward then skip jump
+
+549
+00:31:52,240 --> 00:32:07,260
+forward then search backward search
+
+550
+00:31:57,130 --> 00:32:10,260
+forward ok then set P one point okay
+
+551
+00:32:07,260 --> 00:32:10,260
+then
+
+552
+00:32:12,130 --> 00:32:18,760
+and this is actually not the code we
+
+553
+00:32:14,680 --> 00:32:25,410
+want but but let's let's move on
+
+554
+00:32:18,760 --> 00:32:25,410
+such forwards then be such backward okay
+
+555
+00:32:33,200 --> 00:32:44,960
+okay then set P to position to point
+
+556
+00:32:39,730 --> 00:32:48,320
+okay I think that's it so so comment out
+
+557
+00:32:44,960 --> 00:32:50,450
+our in general simpler simpler case so
+
+558
+00:32:48,320 --> 00:32:53,020
+first of all if there is a region and
+
+559
+00:32:50,450 --> 00:32:55,670
+also we want to say the excursion okay
+
+560
+00:32:53,020 --> 00:32:58,370
+save excursion what that means is that
+
+561
+00:32:55,670 --> 00:33:00,320
+you see here over here we are moving
+
+562
+00:32:58,370 --> 00:33:02,720
+closer about because we are doing
+
+563
+00:33:00,320 --> 00:33:05,630
+skipped a forward and such for that
+
+564
+00:33:02,720 --> 00:33:05,990
+moves cruiser in general in your you
+
+565
+00:33:05,630 --> 00:33:08,480
+know
+
+566
+00:33:05,990 --> 00:33:10,790
+so when user calls your command it moves
+
+567
+00:33:08,480 --> 00:33:14,480
+the cruiser usually you don't want that
+
+568
+00:33:10,790 --> 00:33:19,100
+because you don't want an expected
+
+569
+00:33:14,480 --> 00:33:21,590
+cruiser movement for the user so so what
+
+570
+00:33:19,100 --> 00:33:25,010
+you do is you call this safe excursion
+
+571
+00:33:21,590 --> 00:33:29,540
+so and put the code inside it let me
+
+572
+00:33:25,010 --> 00:33:33,200
+show you okay like that so that means
+
+573
+00:33:29,540 --> 00:33:35,690
+whatever you do here once it's done Emax
+
+574
+00:33:33,200 --> 00:33:38,990
+the savings cushion will return the
+
+575
+00:33:35,690 --> 00:33:41,210
+cruiser to wherever it was okay so so
+
+576
+00:33:38,990 --> 00:33:45,290
+that's a that's that's what you should
+
+577
+00:33:41,210 --> 00:33:48,440
+do so if there's a region if user
+
+578
+00:33:45,290 --> 00:33:52,220
+actually manually selected then we use
+
+579
+00:33:48,440 --> 00:33:54,610
+that otherwise otherwise we skip cha
+
+580
+00:33:52,220 --> 00:33:54,610
+forward
+
+581
+00:33:55,029 --> 00:34:02,299
+then we search in such forward then set
+
+582
+00:33:59,270 --> 00:34:04,480
+set point why let's just run it it's
+
+583
+00:34:02,299 --> 00:34:08,990
+just give our buffer let's just try it
+
+584
+00:34:04,480 --> 00:34:11,119
+because those nitty-gritty details takes
+
+585
+00:34:08,990 --> 00:34:14,270
+a lot of thinking to actually carefully
+
+586
+00:34:11,119 --> 00:34:17,540
+go through ok let's go back to HTML code
+
+587
+00:34:14,270 --> 00:34:20,929
+showing browser and let's go work on
+
+588
+00:34:17,540 --> 00:34:26,179
+this paragraph okay so call the command
+
+589
+00:34:20,929 --> 00:34:27,770
+remove this it works now let's show show
+
+590
+00:34:26,179 --> 00:34:30,409
+the whitespace let me show you the
+
+591
+00:34:27,770 --> 00:34:34,010
+intricacies ok so now we have several
+
+592
+00:34:30,409 --> 00:34:38,060
+things like that let's put it here you
+
+593
+00:34:34,010 --> 00:34:40,450
+see now we have several spaces there we
+
+594
+00:34:38,060 --> 00:34:43,040
+are we always still walk call a command
+
+595
+00:34:40,450 --> 00:34:47,659
+do it yes it does
+
+596
+00:34:43,040 --> 00:34:50,119
+yes fantastic but with our code the you
+
+597
+00:34:47,659 --> 00:34:53,960
+know the before to simple lines code
+
+598
+00:34:50,119 --> 00:34:56,270
+that won't work so now if we let's say
+
+599
+00:34:53,960 --> 00:35:00,109
+if user actually selected some part of
+
+600
+00:34:56,270 --> 00:35:02,119
+it we always still work let's do it yes
+
+601
+00:35:00,109 --> 00:35:04,400
+it does you see this is very useful
+
+602
+00:35:02,119 --> 00:35:07,310
+inconvenient so if user have a selection
+
+603
+00:35:04,400 --> 00:35:10,190
+that means you know user just you know
+
+604
+00:35:07,310 --> 00:35:12,530
+for example this part is not removed and
+
+605
+00:35:10,190 --> 00:35:17,930
+also you know that you know user just
+
+606
+00:35:12,530 --> 00:35:20,390
+want to remove the list tags of a
+
+607
+00:35:17,930 --> 00:35:22,010
+specific region so anyway our command is
+
+608
+00:35:20,390 --> 00:35:26,430
+done I think actually that's it for
+
+609
+00:35:22,010 --> 00:35:29,220
+today and we've been talking for
+
+610
+00:35:26,430 --> 00:35:32,010
+so if I mean yeah that's that's it for
+
+611
+00:35:29,220 --> 00:35:39,690
+today for Emacs so thank you guys for
+
+612
+00:35:32,010 --> 00:35:42,960
+watching great to have you guys here
+
+613
+00:35:39,690 --> 00:35:46,619
+Emily Freddie every ok many of you I
+
+614
+00:35:42,960 --> 00:35:50,250
+know join this code okay so joining this
+
+615
+00:35:46,619 --> 00:35:52,700
+code a lot interesting people's in
+
+616
+00:35:50,250 --> 00:35:55,680
+different opinions and we have Emacs
+
+617
+00:35:52,700 --> 00:35:59,369
+stuff we have a chat room about
+
+618
+00:35:55,680 --> 00:36:02,460
+keyboards we have math although not many
+
+619
+00:35:59,369 --> 00:36:04,559
+people talk about math and we are
+
+620
+00:36:02,460 --> 00:36:06,240
+programming there you have tons of
+
+621
+00:36:04,559 --> 00:36:10,260
+people talking about programming and
+
+622
+00:36:06,240 --> 00:36:14,609
+technology a I you know also technology
+
+623
+00:36:10,260 --> 00:36:17,220
+people people people to talk about so
+
+624
+00:36:14,609 --> 00:36:19,349
+join this code and buy my Emacs tutorial
+
+625
+00:36:17,220 --> 00:36:21,180
+ok if you like my stuff let me let me
+
+626
+00:36:19,349 --> 00:36:28,339
+let me put a code here okay
+
+627
+00:36:21,180 --> 00:36:33,210
+so the code remove that and copy it and
+
+628
+00:36:28,339 --> 00:36:37,380
+remove the empty spaces put it here make
+
+629
+00:36:33,210 --> 00:36:39,480
+it colorful show in browser that's it
+
+630
+00:36:37,380 --> 00:36:42,420
+for today and let me show you one more
+
+631
+00:36:39,480 --> 00:36:45,420
+thing before I go now I need to sync to
+
+632
+00:36:42,420 --> 00:36:48,599
+my server so what I usually do is I go
+
+633
+00:36:45,420 --> 00:36:49,950
+to Asia oh wait hold on a second let me
+
+634
+00:36:48,599 --> 00:36:53,849
+show the command ok
+
+635
+00:36:49,950 --> 00:36:58,109
+I go to ECL then I have to type our sink
+
+636
+00:36:53,849 --> 00:37:00,750
+us I think then then I think the server
+
+637
+00:36:58,109 --> 00:37:03,839
+name the password and 100 bunch of
+
+638
+00:37:00,750 --> 00:37:06,690
+options like that options I don't even
+
+639
+00:37:03,839 --> 00:37:09,329
+remember so what I usually do I have a
+
+640
+00:37:06,690 --> 00:37:10,740
+brief you know I talked about a brief
+
+641
+00:37:09,329 --> 00:37:14,609
+many times you can just search for
+
+642
+00:37:10,740 --> 00:37:18,359
+Exodia brief in acts so I just tap type
+
+643
+00:37:14,609 --> 00:37:23,150
+a sync and I press space the full 100
+
+644
+00:37:18,359 --> 00:37:25,470
+characters command-line we will show but
+
+645
+00:37:23,150 --> 00:37:27,210
+so I've been using that for several
+
+646
+00:37:25,470 --> 00:37:30,869
+years now that's not good enough
+
+647
+00:37:27,210 --> 00:37:33,720
+why because after a while I have a few
+
+648
+00:37:30,869 --> 00:37:35,789
+hundred or briefs now some of these are
+
+649
+00:37:33,720 --> 00:37:39,359
+briefs I used commands you know I use
+
+650
+00:37:35,789 --> 00:37:39,930
+often but some of them I may not have
+
+651
+00:37:39,359 --> 00:37:41,760
+used for
+
+652
+00:37:39,930 --> 00:37:43,950
+a month or two I forgot what's a brief
+
+653
+00:37:41,760 --> 00:37:46,950
+name once you if you forgot what's a
+
+654
+00:37:43,950 --> 00:37:50,610
+bereavement a brief name you have to go
+
+655
+00:37:46,950 --> 00:37:52,560
+to your a brief file you know and for
+
+656
+00:37:50,610 --> 00:37:57,560
+example here is my Aubry file let me
+
+657
+00:37:52,560 --> 00:38:01,320
+magnify so I have LST for live stream
+
+658
+00:37:57,560 --> 00:38:02,370
+wpm t forward four minutes I don't
+
+659
+00:38:01,320 --> 00:38:06,960
+remember that
+
+660
+00:38:02,370 --> 00:38:09,680
+and he lisp t4e magnus you knows so i
+
+661
+00:38:06,960 --> 00:38:12,600
+have i have few hundred of reefs
+
+662
+00:38:09,680 --> 00:38:15,120
+especially command you know unix command
+
+663
+00:38:12,600 --> 00:38:16,890
+you know you forgot after you have have
+
+664
+00:38:15,120 --> 00:38:20,880
+not used them for a while you forgot the
+
+665
+00:38:16,890 --> 00:38:24,630
+name so i want a brief system that will
+
+666
+00:38:20,880 --> 00:38:26,700
+actually pop up a menu let me select and
+
+667
+00:38:24,630 --> 00:38:29,940
+let me select which your brief i want
+
+668
+00:38:26,700 --> 00:38:32,160
+you know i can use you know you know
+
+669
+00:38:29,940 --> 00:38:34,680
+like it's like i do so i just type a few
+
+670
+00:38:32,160 --> 00:38:38,010
+characters it will show me all the brief
+
+671
+00:38:34,680 --> 00:38:40,170
+containing those characters so what i do
+
+672
+00:38:38,010 --> 00:38:47,450
+so this so I wrote that command that
+
+673
+00:38:40,170 --> 00:38:47,450
+command is called this one wait
+
+674
+00:38:50,360 --> 00:38:52,990
+wait
+
+675
+00:38:54,090 --> 00:39:01,260
+yeah so so here is a command the command
+
+676
+00:38:57,630 --> 00:39:03,300
+name is saw interactive a brief ok once
+
+677
+00:39:01,260 --> 00:39:06,630
+once you call the command it will pop up
+
+678
+00:39:03,300 --> 00:39:10,410
+a list of your whatever you want to put
+
+679
+00:39:06,630 --> 00:39:13,020
+there let me show you okay so I have a
+
+680
+00:39:10,410 --> 00:39:15,810
+key bounded to it so I call it you see
+
+681
+00:39:13,020 --> 00:39:18,990
+there's a pop up under so you have a
+
+682
+00:39:15,810 --> 00:39:24,360
+sink one you have SSH you have vmm inbox
+
+683
+00:39:18,990 --> 00:39:27,270
+vmm up image one Mac screenshot and so
+
+684
+00:39:24,360 --> 00:39:31,080
+on you know those are usually Unix
+
+685
+00:39:27,270 --> 00:39:34,230
+commands your long Unix commands so let
+
+686
+00:39:31,080 --> 00:39:36,240
+me try it again so magnify so do it I
+
+687
+00:39:34,230 --> 00:39:38,490
+think one that's the one I want the
+
+688
+00:39:36,240 --> 00:39:42,510
+first one then you see this long command
+
+689
+00:39:38,490 --> 00:39:51,470
+then I just hit enter then you ask me
+
+690
+00:39:42,510 --> 00:39:51,470
+for a password okay so what
+
+691
+00:39:52,010 --> 00:40:00,859
+I forgot so but I have a a brief okay I
+
+692
+00:39:57,500 --> 00:40:05,990
+forgot the password as I have a brief so
+
+693
+00:40:00,859 --> 00:40:08,470
+it sinks to the server it takes a 10
+
+694
+00:40:05,990 --> 00:40:08,470
+seconds
+
+695
+00:40:18,350 --> 00:40:21,790
+why is it taking so long
+
+696
+00:40:24,310 --> 00:40:31,130
+la cacica so many of you guys came here
+
+697
+00:40:28,280 --> 00:40:34,880
+before I forgot you know what it's been
+
+698
+00:40:31,130 --> 00:40:36,860
+a while so I forgot what way this is
+
+699
+00:40:34,880 --> 00:40:40,720
+taking unusually long
+
+700
+00:40:36,860 --> 00:40:45,140
+maybe it's because I'm doing livestream
+
+701
+00:40:40,720 --> 00:40:48,050
+okay thank finally it's done you see so
+
+702
+00:40:45,140 --> 00:40:51,800
+it uploaded so you if you if if now you
+
+703
+00:40:48,050 --> 00:40:56,480
+go to let me show you the URL okay you
+
+704
+00:40:51,800 --> 00:41:02,330
+go to let me show you okay magnify you
+
+705
+00:40:56,480 --> 00:41:04,550
+go to this URL you will see this code
+
+706
+00:41:02,330 --> 00:41:07,480
+let me let me show you okay so I can
+
+707
+00:41:04,550 --> 00:41:14,650
+call here I want to go to Chrome okay
+
+708
+00:41:07,480 --> 00:41:14,650
+open Chrome open link in chrome do it
+
+709
+00:41:18,829 --> 00:41:25,519
+this is taking longer than expected
+
+710
+00:41:21,219 --> 00:41:27,229
+maybe because I'm doing so there so
+
+711
+00:41:25,519 --> 00:41:31,749
+there is a code so let me let me
+
+712
+00:41:27,229 --> 00:41:31,749
+actually paste it so you guys can see
+
+713
+00:41:40,940 --> 00:41:47,190
+what was the other thing Oh oh yeah so
+
+714
+00:41:44,099 --> 00:41:50,609
+so here is a thing okay now you see I
+
+715
+00:41:47,190 --> 00:41:55,799
+showed you this interactive abri but now
+
+716
+00:41:50,609 --> 00:41:58,950
+I have a even more improved system show
+
+717
+00:41:55,799 --> 00:42:00,980
+you okay so before remember I have to
+
+718
+00:41:58,950 --> 00:42:04,980
+press a few keys let me do it again okay
+
+719
+00:42:00,980 --> 00:42:08,009
+press three keys it costs and active a
+
+720
+00:42:04,980 --> 00:42:10,339
+brief then then I can select you know
+
+721
+00:42:08,009 --> 00:42:13,049
+one of the brief let's say image scale
+
+722
+00:42:10,339 --> 00:42:15,690
+so that's you see that's a command to
+
+723
+00:42:13,049 --> 00:42:19,349
+convert images to scare scare that's
+
+724
+00:42:15,690 --> 00:42:22,829
+part of the image mad magic so let me
+
+725
+00:42:19,349 --> 00:42:24,869
+show it again press three key you have
+
+726
+00:42:22,829 --> 00:42:26,849
+client active abri then you select a
+
+727
+00:42:24,869 --> 00:42:29,190
+brief let's say the first one I think
+
+728
+00:42:26,849 --> 00:42:31,859
+you know then then you you press ENTER
+
+729
+00:42:29,190 --> 00:42:34,140
+then you type password okay and and I
+
+730
+00:42:31,859 --> 00:42:34,890
+have a brief or password three keys or
+
+731
+00:42:34,140 --> 00:42:37,920
+four keys
+
+732
+00:42:34,890 --> 00:42:40,799
+but now I have a even better command a
+
+733
+00:42:37,920 --> 00:42:45,619
+better system now I just press one
+
+734
+00:42:40,799 --> 00:42:48,630
+single key the entire thing is automated
+
+735
+00:42:45,619 --> 00:42:51,630
+let me show you okay so you see now here
+
+736
+00:42:48,630 --> 00:42:54,539
+is back back to my you see this page you
+
+737
+00:42:51,630 --> 00:42:57,359
+are familiar with now I'm just going to
+
+738
+00:42:54,539 --> 00:43:01,999
+press one single key actually I can show
+
+739
+00:42:57,359 --> 00:43:01,999
+you I can I show you
+
+740
+00:43:02,600 --> 00:43:10,230
+let me show you here okay
+
+741
+00:43:06,860 --> 00:43:12,510
+you see my keyboard so again
+
+742
+00:43:10,230 --> 00:43:14,940
+yeah I cannot do a video without showing
+
+743
+00:43:12,510 --> 00:43:20,760
+my keyboard I have keyboard reviews this
+
+744
+00:43:14,940 --> 00:43:23,700
+is Canisius advantage - okay Kinesis
+
+745
+00:43:20,760 --> 00:43:26,880
+advantage to a fantastic this is my main
+
+746
+00:43:23,700 --> 00:43:29,250
+drive then this is the ultimate hacking
+
+747
+00:43:26,880 --> 00:43:32,040
+keyboard and right now I'm using it it
+
+748
+00:43:29,250 --> 00:43:35,250
+is a programmable keypad this is the
+
+749
+00:43:32,040 --> 00:43:37,590
+most powerful programmable keypad okay
+
+750
+00:43:35,250 --> 00:43:44,730
+and now I'm going to show you this one
+
+751
+00:43:37,590 --> 00:43:46,680
+finger key up operation I need to be one
+
+752
+00:43:44,730 --> 00:43:50,520
+finger key operation okay so you can see
+
+753
+00:43:46,680 --> 00:43:53,280
+my screen so and you can see my key okay
+
+754
+00:43:50,520 --> 00:43:53,670
+so I just press this one single key do
+
+755
+00:43:53,280 --> 00:44:01,160
+it
+
+756
+00:43:53,670 --> 00:44:04,740
+I look at my email screen there it is
+
+757
+00:44:01,160 --> 00:44:07,440
+synced to my server once a single key so
+
+758
+00:44:04,740 --> 00:44:10,380
+I before he was like one two three four
+
+759
+00:44:07,440 --> 00:44:15,300
+five six seven eight nine keys nine
+
+760
+00:44:10,380 --> 00:44:17,700
+keystrokes wow yeah so now it's just
+
+761
+00:44:15,300 --> 00:44:21,150
+single key okay that's it for today
+
+762
+00:44:17,700 --> 00:44:26,870
+thank you guys for watching stay safe
+
+763
+00:44:21,150 --> 00:44:26,870
+and learn Emacs bye guys
+

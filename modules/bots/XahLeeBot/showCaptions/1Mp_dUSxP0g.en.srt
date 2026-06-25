@@ -1,0 +1,6320 @@
+1
+00:00:03,319 --> 00:00:09,090
+good morning everyone
+
+2
+00:00:06,560 --> 00:00:16,130
+welcome to another episode of Santa's
+
+3
+00:00:09,090 --> 00:00:23,310
+Show today is September 7th 6 o'clock
+
+4
+00:00:16,130 --> 00:00:26,490
+p.m. San Francisco time Saturday and we
+
+5
+00:00:23,310 --> 00:00:32,099
+are going to talk about programming
+
+6
+00:00:26,490 --> 00:00:35,370
+styles I got to get my camera right ok
+
+7
+00:00:32,099 --> 00:00:41,149
+so do something like that programming
+
+8
+00:00:35,370 --> 00:00:45,000
+styles idioms functional form in sales
+
+9
+00:00:41,149 --> 00:00:49,860
+ok something like that this logitech
+
+10
+00:00:45,000 --> 00:00:53,730
+webcam is so bad stupid my Logitech
+
+11
+00:00:49,860 --> 00:00:56,460
+webcam ok today actually so let's change
+
+12
+00:00:53,730 --> 00:01:06,830
+you know that's to some change as a side
+
+13
+00:00:56,460 --> 00:01:06,830
+views yeah this thing
+
+14
+00:01:09,420 --> 00:01:12,259
+okay
+
+15
+00:01:13,590 --> 00:01:23,030
+now my head is too small it's not worry
+
+16
+00:01:17,399 --> 00:01:26,520
+about it okay good morning bathroom you
+
+17
+00:01:23,030 --> 00:01:29,399
+good morning Daniel and Louise have not
+
+18
+00:01:26,520 --> 00:01:33,000
+seen you for a while how are you doing
+
+19
+00:01:29,399 --> 00:01:36,299
+then your language the new language is
+
+20
+00:01:33,000 --> 00:01:42,090
+in Los Angeles Southern California
+
+21
+00:01:36,299 --> 00:01:45,440
+somewhere live so what's up so today so
+
+22
+00:01:42,090 --> 00:01:48,090
+bad from you we are going to talk about
+
+23
+00:01:45,440 --> 00:01:50,250
+poem in styles functional programming
+
+24
+00:01:48,090 --> 00:01:54,330
+styles and my program is tiles and
+
+25
+00:01:50,250 --> 00:01:58,700
+idioms since the stuffs stuffs I have to
+
+26
+00:01:54,330 --> 00:02:02,340
+say ok shall we begin
+
+27
+00:01:58,700 --> 00:02:06,830
+good morning Abdo Abdo is from egypt
+
+28
+00:02:02,340 --> 00:02:11,039
+Carrie Oh fantastic amazing places it
+
+29
+00:02:06,830 --> 00:02:15,480
+karaoke gypped Egypt is where you have
+
+30
+00:02:11,039 --> 00:02:18,239
+pyramids mango is 10 your language says
+
+31
+00:02:15,480 --> 00:02:22,790
+I'm drinking beer ok typing on ball rack
+
+32
+00:02:18,239 --> 00:02:26,570
+that's good ok so let's talk about
+
+33
+00:02:22,790 --> 00:02:26,570
+programming styles yeah
+
+34
+00:02:29,030 --> 00:02:41,459
+begin beginning at the programming
+
+35
+00:02:31,709 --> 00:02:46,340
+styles ok forum styles so go to Saudi
+
+36
+00:02:41,459 --> 00:02:50,819
+website Saudi blog then go to this
+
+37
+00:02:46,340 --> 00:02:57,389
+syntax of semantic noodles good mornings
+
+38
+00:02:50,819 --> 00:03:01,260
+e-tron crazy [ __ ] on crazy are you
+
+39
+00:02:57,389 --> 00:03:03,389
+crazy today so we are going to talk
+
+40
+00:03:01,260 --> 00:03:06,510
+about programming language design and
+
+41
+00:03:03,389 --> 00:03:07,620
+programming and idioms and styles ok
+
+42
+00:03:06,510 --> 00:03:09,870
+let's talk about that
+
+43
+00:03:07,620 --> 00:03:12,329
+so there are few topics I mean I got
+
+44
+00:03:09,870 --> 00:03:16,410
+lots of tons of topics on these kind of
+
+45
+00:03:12,329 --> 00:03:18,510
+things and so there is some some of the
+
+46
+00:03:16,410 --> 00:03:20,489
+articles I'm programming elegance versus
+
+47
+00:03:18,510 --> 00:03:25,709
+simplicity ok that's a good one
+
+48
+00:03:20,489 --> 00:03:26,770
+why idioms are bad ok and the nature of
+
+49
+00:03:25,709 --> 00:03:30,160
+idioms info
+
+50
+00:03:26,770 --> 00:03:34,120
+in languages okay and hash table versus
+
+51
+00:03:30,160 --> 00:03:37,900
+hash table switch statement okay now
+
+52
+00:03:34,120 --> 00:03:39,730
+that is a new fashion in the past few
+
+53
+00:03:37,900 --> 00:03:43,170
+years you know they people want to use
+
+54
+00:03:39,730 --> 00:03:46,180
+hash table as a switch statement and
+
+55
+00:03:43,170 --> 00:03:49,360
+also another topic logic operators
+
+56
+00:03:46,180 --> 00:03:53,380
+control flow now I discussed this I
+
+57
+00:03:49,360 --> 00:03:56,260
+discussed this in past videos last week
+
+58
+00:03:53,380 --> 00:04:02,350
+or something like that logic operators
+
+59
+00:03:56,260 --> 00:04:04,660
+control flow don't do that okay so so
+
+60
+00:04:02,350 --> 00:04:09,990
+that's some of the topics we not talked
+
+61
+00:04:04,660 --> 00:04:13,570
+about and that's about programming yeah
+
+62
+00:04:09,990 --> 00:04:17,049
+idiom line styles and those I mean those
+
+63
+00:04:13,570 --> 00:04:19,420
+are just essays I've written but in
+
+64
+00:04:17,049 --> 00:04:24,720
+general I can tell you about programming
+
+65
+00:04:19,420 --> 00:04:28,500
+styles you know so first of all there is
+
+66
+00:04:24,720 --> 00:04:32,800
+Opie there is functional programming
+
+67
+00:04:28,500 --> 00:04:36,010
+these two are you know the big general
+
+68
+00:04:32,800 --> 00:04:38,310
+styles in programming of a particular
+
+69
+00:04:36,010 --> 00:04:42,570
+you know suppose you know they called
+
+70
+00:04:38,310 --> 00:04:50,110
+multi-paradigm languages such as Python
+
+71
+00:04:42,570 --> 00:04:51,750
+Ruby JavaScript I don't know about PHP I
+
+72
+00:04:50,110 --> 00:04:54,160
+don't think you can do that much
+
+73
+00:04:51,750 --> 00:04:57,640
+functional programming I don't know
+
+74
+00:04:54,160 --> 00:05:00,160
+about PHP anyway in Python for example
+
+75
+00:04:57,640 --> 00:05:03,850
+use SoCo so called multi-paradigm but
+
+76
+00:05:00,160 --> 00:05:06,310
+it's actually it's mostly in Python it's
+
+77
+00:05:03,850 --> 00:05:08,500
+mostly it does not support functional
+
+78
+00:05:06,310 --> 00:05:11,860
+programming well so if you are a
+
+79
+00:05:08,500 --> 00:05:13,480
+functional programmer person you you
+
+80
+00:05:11,860 --> 00:05:16,060
+wouldn't like Python okay I mean
+
+81
+00:05:13,480 --> 00:05:18,490
+technically you can you know they code
+
+82
+00:05:16,060 --> 00:05:22,060
+for multi paradin motor-powered in my
+
+83
+00:05:18,490 --> 00:05:25,300
+ass technically you can but there are
+
+84
+00:05:22,060 --> 00:05:27,370
+many aspects about how do you church
+
+85
+00:05:25,300 --> 00:05:30,370
+whether language supports different
+
+86
+00:05:27,370 --> 00:05:33,580
+programming styles for example Python
+
+87
+00:05:30,370 --> 00:05:35,650
+okay technically you can programming a
+
+88
+00:05:33,580 --> 00:05:37,900
+function a functional style like for
+
+89
+00:05:35,650 --> 00:05:40,420
+every everything you don't use over P at
+
+90
+00:05:37,900 --> 00:05:42,760
+all but that does does not fly okay
+
+91
+00:05:40,420 --> 00:05:45,760
+like in real world you're working a
+
+92
+00:05:42,760 --> 00:05:50,260
+company or you working a team if you do
+
+93
+00:05:45,760 --> 00:05:52,810
+for example if you if you use map lambda
+
+94
+00:05:50,260 --> 00:05:57,430
+you know the typical functional style
+
+95
+00:05:52,810 --> 00:05:59,320
+map lambda function something there you
+
+96
+00:05:57,430 --> 00:06:01,420
+know people is gonna question you know
+
+97
+00:05:59,320 --> 00:06:03,640
+people don't like you I mean he's got
+
+98
+00:06:01,420 --> 00:06:06,370
+it's not just don't like you you know
+
+99
+00:06:03,640 --> 00:06:08,380
+you you know when in code review that's
+
+100
+00:06:06,370 --> 00:06:12,930
+that's gonna be get changed okay they
+
+101
+00:06:08,380 --> 00:06:12,930
+don't you know they want you to use
+
+102
+00:06:16,080 --> 00:06:20,830
+least comprehension
+
+103
+00:06:18,070 --> 00:06:23,230
+you know the idiotic you see and not
+
+104
+00:06:20,830 --> 00:06:26,470
+just that okay so so what I'm talking
+
+105
+00:06:23,230 --> 00:06:27,220
+about is in Python you know and also in
+
+106
+00:06:26,470 --> 00:06:29,890
+Python
+
+107
+00:06:27,220 --> 00:06:32,440
+they are lambda the pet the lambda in
+
+108
+00:06:29,890 --> 00:06:35,890
+Python does not is not a true function
+
+109
+00:06:32,440 --> 00:06:38,940
+it's kind of creeped out function so you
+
+110
+00:06:35,890 --> 00:06:42,220
+you you know in functional programming
+
+111
+00:06:38,940 --> 00:06:44,290
+everything is lambda everything is just
+
+112
+00:06:42,220 --> 00:06:46,060
+a function lambda and now in Python you
+
+113
+00:06:44,290 --> 00:06:48,400
+cannot do that then you know what's a
+
+114
+00:06:46,060 --> 00:06:50,980
+you know you can't really say suppose
+
+115
+00:06:48,400 --> 00:06:53,010
+functional programming so back to my
+
+116
+00:06:50,980 --> 00:06:56,050
+point in Python
+
+117
+00:06:53,010 --> 00:07:00,130
+technically it's supposed to be a multi
+
+118
+00:06:56,050 --> 00:07:02,260
+paradigm language but in practice but
+
+119
+00:07:00,130 --> 00:07:06,190
+when you judge you know you have to
+
+120
+00:07:02,260 --> 00:07:11,140
+consider in practice for example in some
+
+121
+00:07:06,190 --> 00:07:12,490
+languages for reasons that you just you
+
+122
+00:07:11,140 --> 00:07:14,860
+know you just never do functional
+
+123
+00:07:12,490 --> 00:07:18,040
+programming in that language Python is
+
+124
+00:07:14,860 --> 00:07:21,430
+an example because if you actually do go
+
+125
+00:07:18,040 --> 00:07:23,110
+you know go go out your way to write
+
+126
+00:07:21,430 --> 00:07:24,880
+functional programming style without
+
+127
+00:07:23,110 --> 00:07:27,130
+using over P you're gonna run into
+
+128
+00:07:24,880 --> 00:07:29,800
+problems everywhere you know everywhere
+
+129
+00:07:27,130 --> 00:07:32,560
+so so what I'm saying is that you have
+
+130
+00:07:29,800 --> 00:07:35,530
+to consider in in practice and in theory
+
+131
+00:07:32,560 --> 00:07:37,810
+so yeah so it's like technically in
+
+132
+00:07:35,530 --> 00:07:40,390
+Python yeah you can do you know it's
+
+133
+00:07:37,810 --> 00:07:43,540
+multi-paradigm but in practice know you
+
+134
+00:07:40,390 --> 00:07:47,980
+run into problems social problems people
+
+135
+00:07:43,540 --> 00:07:50,530
+problems everywhere in the same way Perl
+
+136
+00:07:47,980 --> 00:07:54,420
+for example it also supposed to be multi
+
+137
+00:07:50,530 --> 00:07:54,420
+paradin but Perl
+
+138
+00:07:54,900 --> 00:08:00,310
+it's got problems both ways you know
+
+139
+00:07:58,000 --> 00:08:03,219
+yeah you know appeal functional
+
+140
+00:08:00,310 --> 00:08:06,879
+programming either way you know he's got
+
+141
+00:08:03,219 --> 00:08:10,259
+problems so so that's a point you know
+
+142
+00:08:06,879 --> 00:08:12,849
+you have to consider what's in practice
+
+143
+00:08:10,259 --> 00:08:15,669
+now let me point out so I have these
+
+144
+00:08:12,849 --> 00:08:17,530
+Python sucks why Python sucks Python
+
+145
+00:08:15,669 --> 00:08:23,020
+language problems actually I did a video
+
+146
+00:08:17,530 --> 00:08:27,909
+on that let's see sorry
+
+147
+00:08:23,020 --> 00:08:33,039
+why Python sucks I did a one-hour video
+
+148
+00:08:27,909 --> 00:08:35,680
+a few months ago and here is a
+
+149
+00:08:33,039 --> 00:08:40,200
+collection of articles on why Python
+
+150
+00:08:35,680 --> 00:08:42,789
+sucks you know Python lambda is spoken
+
+151
+00:08:40,200 --> 00:08:44,560
+gyda because sky dog doesn't doesn't
+
+152
+00:08:42,789 --> 00:08:48,370
+like functional programming that is why
+
+153
+00:08:44,560 --> 00:08:51,070
+that is why Python does not really work
+
+154
+00:08:48,370 --> 00:08:54,459
+well for functional programming because
+
+155
+00:08:51,070 --> 00:09:00,610
+keidel in every way every aspect he does
+
+156
+00:08:54,459 --> 00:09:02,620
+not like functional programming okay so
+
+157
+00:09:00,610 --> 00:09:06,339
+anyway here's the correction of Python
+
+158
+00:09:02,620 --> 00:09:09,570
+articles and now so so that's about you
+
+159
+00:09:06,339 --> 00:09:13,380
+know so-called multi-paradigm languages
+
+160
+00:09:09,570 --> 00:09:15,690
+now let's talk about yeah so we have
+
+161
+00:09:13,380 --> 00:09:19,120
+JavaScript our notation let's go to
+
+162
+00:09:15,690 --> 00:09:21,160
+semantic noodle programming idiom styles
+
+163
+00:09:19,120 --> 00:09:26,529
+and styles okay these are some of the
+
+164
+00:09:21,160 --> 00:09:32,890
+topics I'm going to cover but also I'm
+
+165
+00:09:26,529 --> 00:09:40,000
+gonna talk about in general what do I do
+
+166
+00:09:32,890 --> 00:09:42,459
+for functional programming okay let me
+
+167
+00:09:40,000 --> 00:09:45,880
+talk about that you know in I never code
+
+168
+00:09:42,459 --> 00:09:48,160
+any old piece style accepting a walk you
+
+169
+00:09:45,880 --> 00:09:51,670
+know if I work in a company when you
+
+170
+00:09:48,160 --> 00:09:53,440
+know the there's already 10,000 lines
+
+171
+00:09:51,670 --> 00:09:56,829
+you cannot change it you know you have
+
+172
+00:09:53,440 --> 00:09:59,050
+to follow the flow so but otherwise in
+
+173
+00:09:56,829 --> 00:10:02,920
+my own projects you know coding for 30
+
+174
+00:09:59,050 --> 00:10:05,740
+years I never I and I will never use all
+
+175
+00:10:02,920 --> 00:10:07,540
+of his style so everything is a function
+
+176
+00:10:05,740 --> 00:10:10,660
+so what what what do you mean by from
+
+177
+00:10:07,540 --> 00:10:14,380
+I mean you just okay here's the thing he
+
+178
+00:10:10,660 --> 00:10:21,850
+is my experience conclusion in one or
+
+179
+00:10:14,380 --> 00:10:25,329
+two sentences okay so first of all never
+
+180
+00:10:21,850 --> 00:10:29,709
+you know never never do Opie Opie okay
+
+181
+00:10:25,329 --> 00:10:32,019
+so well in one sentence always
+
+182
+00:10:29,709 --> 00:10:34,240
+everything you do right are functions in
+
+183
+00:10:32,019 --> 00:10:36,579
+such a way that there is no side effect
+
+184
+00:10:34,240 --> 00:10:39,190
+to a function so every function or every
+
+185
+00:10:36,579 --> 00:10:43,120
+one of your function you wrote there is
+
+186
+00:10:39,190 --> 00:10:45,180
+no side effect meaning if you can okay
+
+187
+00:10:43,120 --> 00:10:47,860
+in some cases it's hard because you know
+
+188
+00:10:45,180 --> 00:10:51,970
+complex situations in you know real
+
+189
+00:10:47,860 --> 00:10:54,130
+world but if you try every function such
+
+190
+00:10:51,970 --> 00:10:57,040
+write every function such that it does
+
+191
+00:10:54,130 --> 00:10:59,380
+not depend on global variables it does
+
+192
+00:10:57,040 --> 00:11:03,459
+not depends on anything no side effect
+
+193
+00:10:59,380 --> 00:11:06,730
+meaning the functions behavior the only
+
+194
+00:11:03,459 --> 00:11:09,910
+purpose of a function is its output so
+
+195
+00:11:06,730 --> 00:11:11,259
+you a function has input so every you
+
+196
+00:11:09,910 --> 00:11:13,959
+know input you know all the parameters
+
+197
+00:11:11,259 --> 00:11:16,930
+or arguments so input and output that is
+
+198
+00:11:13,959 --> 00:11:19,810
+that is it function that the only
+
+199
+00:11:16,930 --> 00:11:23,589
+purpose you have functions of functions
+
+200
+00:11:19,810 --> 00:11:26,730
+is for its output never you know code
+
+201
+00:11:23,589 --> 00:11:29,319
+functions for its side effect that
+
+202
+00:11:26,730 --> 00:11:32,860
+basically that is one sentence summary
+
+203
+00:11:29,319 --> 00:11:35,560
+and the most important once in a summary
+
+204
+00:11:32,860 --> 00:11:37,690
+of functional programming okay now in
+
+205
+00:11:35,560 --> 00:11:40,449
+Haskell if you you know you met you
+
+206
+00:11:37,690 --> 00:11:42,579
+might have heard Oman at all curving or
+
+207
+00:11:40,449 --> 00:11:49,360
+tail recursion that's that's oh crap
+
+208
+00:11:42,579 --> 00:11:51,579
+that's all that that's or well those are
+
+209
+00:11:49,360 --> 00:11:54,699
+functional programming concepts and
+
+210
+00:11:51,579 --> 00:11:59,260
+techniques but those are secondary okay
+
+211
+00:11:54,699 --> 00:12:01,329
+secondary or third third theory okay the
+
+212
+00:11:59,260 --> 00:12:03,040
+only thing when when you think about
+
+213
+00:12:01,329 --> 00:12:04,930
+functional programming so what is
+
+214
+00:12:03,040 --> 00:12:07,180
+function for I mean the only thing you
+
+215
+00:12:04,930 --> 00:12:10,660
+need to be concerned is that every
+
+216
+00:12:07,180 --> 00:12:13,509
+function has no side effect that meaning
+
+217
+00:12:10,660 --> 00:12:17,350
+that the function behavior depends on
+
+218
+00:12:13,509 --> 00:12:19,300
+the input only and the only purpose when
+
+219
+00:12:17,350 --> 00:12:22,080
+you call a function the only purpose is
+
+220
+00:12:19,300 --> 00:12:24,850
+to get its output nothing
+
+221
+00:12:22,080 --> 00:12:27,730
+for example for example when you do a
+
+222
+00:12:24,850 --> 00:12:30,550
+loop you know for loop in C in Perl in
+
+223
+00:12:27,730 --> 00:12:34,740
+JavaScript in Python for you know for
+
+224
+00:12:30,550 --> 00:12:36,820
+loop that's not functional okay so
+
+225
+00:12:34,740 --> 00:12:39,100
+that's not functional functional
+
+226
+00:12:36,820 --> 00:12:41,500
+programming okay so don't do for loop
+
+227
+00:12:39,100 --> 00:12:45,150
+you know for loop you know for I equals
+
+228
+00:12:41,500 --> 00:12:49,030
+to zero when I is less than 10
+
+229
+00:12:45,150 --> 00:12:52,830
+well we can we can begin with it okay so
+
+230
+00:12:49,030 --> 00:12:56,020
+JavaScript okay let's start javascript
+
+231
+00:12:52,830 --> 00:13:01,450
+for loop okay that's a for loop let's
+
+232
+00:12:56,020 --> 00:13:05,320
+say so for one print I okay that's a
+
+233
+00:13:01,450 --> 00:13:10,950
+javascript for loop vennett oh I need to
+
+234
+00:13:05,320 --> 00:13:12,100
+save it so X X star ja j s okay vennett
+
+235
+00:13:10,950 --> 00:13:16,380
+syntax
+
+236
+00:13:12,100 --> 00:13:20,470
+okay so yeah so hi less than 10 Lynette
+
+237
+00:13:16,380 --> 00:13:24,240
+you see 0 it prints you were to now now
+
+238
+00:13:20,470 --> 00:13:24,240
+that's not functional programming why
+
+239
+00:13:25,260 --> 00:13:31,090
+because why it's not a function first of
+
+240
+00:13:28,540 --> 00:13:33,670
+all it's not function and this print is
+
+241
+00:13:31,090 --> 00:13:37,810
+a side-effect okay this is a side effect
+
+242
+00:13:33,670 --> 00:13:39,460
+anyway that's not function so that
+
+243
+00:13:37,810 --> 00:13:41,590
+reminds me something okay so anyway
+
+244
+00:13:39,460 --> 00:13:45,160
+first of all so let's talk about its
+
+245
+00:13:41,590 --> 00:13:50,940
+write down what is function of
+
+246
+00:13:45,160 --> 00:13:58,900
+programming the one and most important
+
+247
+00:13:50,940 --> 00:14:04,060
+thing that characterizes functional
+
+248
+00:13:58,900 --> 00:14:12,240
+programming is this nothing else okay so
+
+249
+00:14:04,060 --> 00:14:20,400
+what is it it is the only purpose of
+
+250
+00:14:12,240 --> 00:14:26,280
+calling a function is to get its output
+
+251
+00:14:20,400 --> 00:14:26,280
+okay return value that is and
+
+252
+00:14:26,390 --> 00:14:40,760
+function has no side effects meaning the
+
+253
+00:14:35,310 --> 00:14:43,010
+output depends totally on the input
+
+254
+00:14:40,760 --> 00:14:49,460
+nothing else
+
+255
+00:14:43,010 --> 00:14:52,770
+no global bar okay not grove over okay
+
+256
+00:14:49,460 --> 00:14:58,680
+so that the the meaning of functional
+
+257
+00:14:52,770 --> 00:15:03,810
+languages now let me say let me say more
+
+258
+00:14:58,680 --> 00:15:10,790
+things okay in you may have heard of
+
+259
+00:15:03,810 --> 00:15:17,160
+Haskell and Haskell and Lisp and so on
+
+260
+00:15:10,790 --> 00:15:23,279
+scheme this for example and they talk
+
+261
+00:15:17,160 --> 00:15:32,839
+about monad curry curry okay see you are
+
+262
+00:15:23,279 --> 00:15:32,839
+Y ing tail recursion Co see see
+
+263
+00:15:33,260 --> 00:15:39,410
+which means call with no just let's just
+
+264
+00:15:37,740 --> 00:15:42,260
+say Co see see okay
+
+265
+00:15:39,410 --> 00:15:46,550
+someone add covering in tail recursion
+
+266
+00:15:42,260 --> 00:15:58,010
+composition it's it's it's really more
+
+267
+00:15:46,550 --> 00:15:58,010
+composition and all that and immutable
+
+268
+00:15:58,100 --> 00:16:05,730
+immu tapi arte okay so monad currying
+
+269
+00:16:03,089 --> 00:16:09,930
+composition tail recursion immutability
+
+270
+00:16:05,730 --> 00:16:11,520
+co cc or that it's not really important
+
+271
+00:16:09,930 --> 00:16:14,550
+that that's not a harder functional
+
+272
+00:16:11,520 --> 00:16:16,770
+programming okay you know it's like it's
+
+273
+00:16:14,550 --> 00:16:19,020
+drama you know it's like it's like drama
+
+274
+00:16:16,770 --> 00:16:21,570
+everyone talks about it there for
+
+275
+00:16:19,020 --> 00:16:25,170
+example Haskell Oh Mona Mona every day
+
+276
+00:16:21,570 --> 00:16:29,370
+monad more have for breakfast monad for
+
+277
+00:16:25,170 --> 00:16:30,540
+you know crap as garbage okay that's
+
+278
+00:16:29,370 --> 00:16:33,780
+[ __ ] that's misleading
+
+279
+00:16:30,540 --> 00:16:34,950
+misinformation and curry and composition
+
+280
+00:16:33,780 --> 00:16:37,050
+and tail recursion
+
+281
+00:16:34,950 --> 00:16:38,910
+now tell recursion is popular you know
+
+282
+00:16:37,050 --> 00:16:39,540
+he's like deep depending on your
+
+283
+00:16:38,910 --> 00:16:42,029
+community
+
+284
+00:16:39,540 --> 00:16:44,970
+Haskell or scheme or some other each one
+
+285
+00:16:42,029 --> 00:16:48,660
+is their thing you know so if you are in
+
+286
+00:16:44,970 --> 00:16:51,810
+scheme community every day every day you
+
+287
+00:16:48,660 --> 00:16:55,110
+will hear oh tell recursion Oh tell
+
+288
+00:16:51,810 --> 00:16:58,949
+recursion Oh call CC crap garbage and
+
+289
+00:16:55,110 --> 00:17:01,139
+and and also Marcus okay Marcus closure
+
+290
+00:16:58,949 --> 00:17:04,230
+those are crap closure
+
+291
+00:17:01,139 --> 00:17:06,569
+okay so in skin community everyday as
+
+292
+00:17:04,230 --> 00:17:08,699
+their thing is at their brain every day
+
+293
+00:17:06,569 --> 00:17:11,790
+is tell tell tell recursion and course
+
+294
+00:17:08,699 --> 00:17:17,040
+is either ship their brain and in list
+
+295
+00:17:11,790 --> 00:17:23,610
+its Marcos Marcos Marcos everyday crap
+
+296
+00:17:17,040 --> 00:17:25,730
+garbage well they are not garbage
+
+297
+00:17:23,610 --> 00:17:29,010
+actually they are dead they are just
+
+298
+00:17:25,730 --> 00:17:34,049
+these are kind of concepts and
+
+299
+00:17:29,010 --> 00:17:39,870
+techniques okay these are concepts and
+
+300
+00:17:34,049 --> 00:17:45,169
+techniques and programming language
+
+301
+00:17:39,870 --> 00:17:50,400
+features for functional programming okay
+
+302
+00:17:45,169 --> 00:17:52,799
+but they are not essential idea of
+
+303
+00:17:50,400 --> 00:17:55,110
+functional programming okay they are not
+
+304
+00:17:52,799 --> 00:17:59,730
+essential and at least viewer also have
+
+305
+00:17:55,110 --> 00:18:03,900
+cons and crap and for example closure
+
+306
+00:17:59,730 --> 00:18:07,440
+closure and cons those are not closure
+
+307
+00:18:03,900 --> 00:18:09,720
+and cons in fact they are they are anti
+
+308
+00:18:07,440 --> 00:18:12,960
+functional programming whenever you have
+
+309
+00:18:09,720 --> 00:18:15,120
+a closure you know these people and a
+
+310
+00:18:12,960 --> 00:18:17,190
+lot people are programmers hacker types
+
+311
+00:18:15,120 --> 00:18:19,620
+you know they love closure they say oh
+
+312
+00:18:17,190 --> 00:18:24,150
+we need to have closure oh oh we need to
+
+313
+00:18:19,620 --> 00:18:26,179
+have Marcos those are not functional
+
+314
+00:18:24,150 --> 00:18:28,460
+programming okay those are actually
+
+315
+00:18:26,179 --> 00:18:33,299
+destroying functional programming
+
+316
+00:18:28,460 --> 00:18:36,659
+closure marker and also cause CC okay
+
+317
+00:18:33,299 --> 00:18:39,210
+kind of it gets complex depending on
+
+318
+00:18:36,659 --> 00:18:44,700
+your perspective so anyway so these are
+
+319
+00:18:39,210 --> 00:18:48,440
+not functional programming stuff and and
+
+320
+00:18:44,700 --> 00:18:51,840
+these cons list cause is the worst crap
+
+321
+00:18:48,440 --> 00:18:53,010
+so anyway so so the most important is
+
+322
+00:18:51,840 --> 00:18:56,400
+just function no
+
+323
+00:18:53,010 --> 00:18:58,680
+scientific input output so you can try
+
+324
+00:18:56,400 --> 00:19:01,800
+to do that okay you can do this in every
+
+325
+00:18:58,680 --> 00:19:04,680
+language okay you can do this thing you
+
+326
+00:19:01,800 --> 00:19:07,080
+could what depends on the language you
+
+327
+00:19:04,680 --> 00:19:09,750
+to what degree you can do it depends on
+
+328
+00:19:07,080 --> 00:19:14,730
+a language but you could if you want to
+
+329
+00:19:09,750 --> 00:19:16,380
+learn from your own experience right
+
+330
+00:19:14,730 --> 00:19:19,200
+like you you want to learn functional
+
+331
+00:19:16,380 --> 00:19:21,240
+form in by yourself and suppose you want
+
+332
+00:19:19,200 --> 00:19:24,060
+to learn all these concepts scurrying
+
+333
+00:19:21,240 --> 00:19:27,210
+Monad composition immunity mutability
+
+334
+00:19:24,060 --> 00:19:30,600
+tail recursion core CC you don't want to
+
+335
+00:19:27,210 --> 00:19:33,030
+you know suppose so what you can do is
+
+336
+00:19:30,600 --> 00:19:36,000
+that when you program a project let's
+
+337
+00:19:33,030 --> 00:19:38,340
+see in Python okay you try to write
+
+338
+00:19:36,000 --> 00:19:40,500
+everything so that it's showing browser
+
+339
+00:19:38,340 --> 00:19:42,540
+you try to write everything so that
+
+340
+00:19:40,500 --> 00:19:45,570
+every function no side of it and
+
+341
+00:19:42,540 --> 00:19:47,900
+everything is a function no oo p no
+
+342
+00:19:45,570 --> 00:19:52,050
+nothing it just functions Co functions
+
+343
+00:19:47,900 --> 00:19:54,510
+define functions call them do these two
+
+344
+00:19:52,050 --> 00:19:57,000
+that that is all you know if you limit
+
+345
+00:19:54,510 --> 00:20:01,380
+your ho project to be these two define
+
+346
+00:19:57,000 --> 00:20:03,870
+functions encode them that Enders and
+
+347
+00:20:01,380 --> 00:20:06,200
+and your functions do not have side
+
+348
+00:20:03,870 --> 00:20:09,540
+effect that is functional programming
+
+349
+00:20:06,200 --> 00:20:11,370
+now what I'm going to say is that when
+
+350
+00:20:09,540 --> 00:20:13,080
+you do this when you you know do this
+
+351
+00:20:11,370 --> 00:20:14,760
+for a year for two years doesn't matter
+
+352
+00:20:13,080 --> 00:20:17,370
+what language what project you know you
+
+353
+00:20:14,760 --> 00:20:20,450
+you just tried to do it when you do this
+
+354
+00:20:17,370 --> 00:20:24,150
+for one years two years two years then
+
+355
+00:20:20,450 --> 00:20:27,600
+then the other concept will come to you
+
+356
+00:20:24,150 --> 00:20:30,900
+not all of them it will come to you okay
+
+357
+00:20:27,600 --> 00:20:33,510
+the the Monad concept the careering the
+
+358
+00:20:30,900 --> 00:20:35,940
+function function composition the
+
+359
+00:20:33,510 --> 00:20:39,570
+immutability tail recursion and so on
+
+360
+00:20:35,940 --> 00:20:42,780
+and math they will kind of like come to
+
+361
+00:20:39,570 --> 00:20:45,720
+you because that that is when you learn
+
+362
+00:20:42,780 --> 00:20:48,000
+something at heart by yourself in a
+
+363
+00:20:45,720 --> 00:20:52,280
+sense you invented them you would you
+
+364
+00:20:48,000 --> 00:20:55,860
+discover this concept because this many
+
+365
+00:20:52,280 --> 00:20:59,580
+most of this concept are they arise
+
+366
+00:20:55,860 --> 00:21:01,440
+because most of them because of the
+
+367
+00:20:59,580 --> 00:21:04,910
+function of programming you find that
+
+368
+00:21:01,440 --> 00:21:06,870
+for example when you have functions
+
+369
+00:21:04,910 --> 00:21:09,420
+everything is a function
+
+370
+00:21:06,870 --> 00:21:12,330
+and nothing else no object nothing just
+
+371
+00:21:09,420 --> 00:21:16,140
+functions function definition call then
+
+372
+00:21:12,330 --> 00:21:21,510
+you started to they are something that
+
+373
+00:21:16,140 --> 00:21:24,540
+just happens to you for example you know
+
+374
+00:21:21,510 --> 00:21:26,280
+immutability will come up you know you
+
+375
+00:21:24,540 --> 00:21:29,370
+start to get that concept because
+
+376
+00:21:26,280 --> 00:21:30,900
+naturally naturally you will realize
+
+377
+00:21:29,370 --> 00:21:32,790
+that you know you don't want to change
+
+378
+00:21:30,900 --> 00:21:35,940
+variables and in fact you don't want
+
+379
+00:21:32,790 --> 00:21:38,100
+variables at all you you know even your
+
+380
+00:21:35,940 --> 00:21:41,390
+function you don't want local variables
+
+381
+00:21:38,100 --> 00:21:44,220
+no variables that can't comes to you
+
+382
+00:21:41,390 --> 00:21:46,350
+function composition comes to you okay
+
+383
+00:21:44,220 --> 00:21:49,500
+because when you have two functions you
+
+384
+00:21:46,350 --> 00:21:51,540
+want to call one after the other for
+
+385
+00:21:49,500 --> 00:21:55,860
+example you know you call one after
+
+386
+00:21:51,540 --> 00:22:01,260
+other for example f co G then whatever
+
+387
+00:21:55,860 --> 00:22:04,080
+output you want to call F you know then
+
+388
+00:22:01,260 --> 00:22:06,330
+you see when you do this for five years
+
+389
+00:22:04,080 --> 00:22:09,030
+you realize you know wouldn't be great
+
+390
+00:22:06,330 --> 00:22:11,010
+if I can't you know have a syntax or
+
+391
+00:22:09,030 --> 00:22:12,960
+something that combines name when you
+
+392
+00:22:11,010 --> 00:22:15,300
+have lots of functions so sequence of
+
+393
+00:22:12,960 --> 00:22:17,550
+one conscience that is functional
+
+394
+00:22:15,300 --> 00:22:20,730
+composition ok so what I'm saying is
+
+395
+00:22:17,550 --> 00:22:24,750
+that all the most of these concepts came
+
+396
+00:22:20,730 --> 00:22:27,450
+from it you know they are developed as a
+
+397
+00:22:24,750 --> 00:22:30,480
+either as a technique or concepts or you
+
+398
+00:22:27,450 --> 00:22:33,290
+know language features from functional
+
+399
+00:22:30,480 --> 00:22:36,210
+programming not all of them though but
+
+400
+00:22:33,290 --> 00:22:38,180
+closure for example closure is a
+
+401
+00:22:36,210 --> 00:22:41,160
+language programming language feature
+
+402
+00:22:38,180 --> 00:22:47,190
+that came from functional programming
+
+403
+00:22:41,160 --> 00:22:52,260
+when you want to have lexical scope of
+
+404
+00:22:47,190 --> 00:22:54,870
+variables yeah when you have okay here's
+
+405
+00:22:52,260 --> 00:22:57,890
+what how closure the concept of closure
+
+406
+00:22:54,870 --> 00:23:01,170
+happens okay first of all closure is a
+
+407
+00:22:57,890 --> 00:23:03,120
+programming language feature now this is
+
+408
+00:23:01,170 --> 00:23:05,700
+important okay because many of these
+
+409
+00:23:03,120 --> 00:23:08,610
+concept some are functional programming
+
+410
+00:23:05,700 --> 00:23:11,490
+concept some are techniques programming
+
+411
+00:23:08,610 --> 00:23:14,160
+techniques some are programming language
+
+412
+00:23:11,490 --> 00:23:16,890
+design features part of language
+
+413
+00:23:14,160 --> 00:23:18,000
+these things are distinct you know they
+
+414
+00:23:16,890 --> 00:23:20,370
+are very different okay
+
+415
+00:23:18,000 --> 00:23:22,590
+so closure
+
+416
+00:23:20,370 --> 00:23:25,410
+closure is not well you can say it's a
+
+417
+00:23:22,590 --> 00:23:28,050
+premier technique but actually closure
+
+418
+00:23:25,410 --> 00:23:30,570
+is a programming language feature okay
+
+419
+00:23:28,050 --> 00:23:32,309
+how did this feature came from I mean
+
+420
+00:23:30,570 --> 00:23:34,650
+where does the idea came from it came
+
+421
+00:23:32,309 --> 00:23:37,980
+from when you want a function you know
+
+422
+00:23:34,650 --> 00:23:40,020
+when you do functional programming you
+
+423
+00:23:37,980 --> 00:23:42,559
+know every variable of a function is
+
+424
+00:23:40,020 --> 00:23:45,690
+local then you start to think about
+
+425
+00:23:42,559 --> 00:23:48,990
+lexical scope why lexico why not dynamic
+
+426
+00:23:45,690 --> 00:23:51,120
+scope because lexical scope captures the
+
+427
+00:23:48,990 --> 00:23:52,470
+function you know you remember you doing
+
+428
+00:23:51,120 --> 00:23:54,990
+functional programming you don't want
+
+429
+00:23:52,470 --> 00:23:58,140
+side-effects function is like a unit by
+
+430
+00:23:54,990 --> 00:24:00,690
+itself input-output you don't want you
+
+431
+00:23:58,140 --> 00:24:03,480
+you know when you run the function you
+
+432
+00:24:00,690 --> 00:24:06,350
+don't want to oh that variable value
+
+433
+00:24:03,480 --> 00:24:10,590
+depends on you know some you know
+
+434
+00:24:06,350 --> 00:24:11,910
+something else that's you know somewhere
+
+435
+00:24:10,590 --> 00:24:14,880
+else change the value you don't want
+
+436
+00:24:11,910 --> 00:24:17,429
+that so that's the idea of lexical scope
+
+437
+00:24:14,880 --> 00:24:19,020
+and you also want nested function
+
+438
+00:24:17,429 --> 00:24:21,480
+because everything is the function so
+
+439
+00:24:19,020 --> 00:24:23,429
+why don't you have a function and have
+
+440
+00:24:21,480 --> 00:24:25,290
+another function defined inside it
+
+441
+00:24:23,429 --> 00:24:28,730
+because you need it just for this
+
+442
+00:24:25,290 --> 00:24:34,890
+function so you have nested function now
+
+443
+00:24:28,730 --> 00:24:36,900
+when you have lexical scope okay hold on
+
+444
+00:24:34,890 --> 00:24:39,420
+second so you have nested function and
+
+445
+00:24:36,900 --> 00:24:42,360
+also function programming another
+
+446
+00:24:39,420 --> 00:24:45,179
+concept comes up is a function that
+
+447
+00:24:42,360 --> 00:24:47,460
+returns another function or a function
+
+448
+00:24:45,179 --> 00:24:50,190
+that takes a function as argument you
+
+449
+00:24:47,460 --> 00:24:54,300
+see so when you have all these three
+
+450
+00:24:50,190 --> 00:24:57,090
+mixed together this lexical scope nested
+
+451
+00:24:54,300 --> 00:24:58,770
+definition functions and functions that
+
+452
+00:24:57,090 --> 00:25:02,580
+returns the function when you have these
+
+453
+00:24:58,770 --> 00:25:04,890
+three aspects desired aspect you know
+
+454
+00:25:02,580 --> 00:25:06,809
+you desire these three because you are
+
+455
+00:25:04,890 --> 00:25:10,559
+doing functional programming so when you
+
+456
+00:25:06,809 --> 00:25:13,920
+have these three aspects knowing a
+
+457
+00:25:10,559 --> 00:25:19,050
+language then something strange happened
+
+458
+00:25:13,920 --> 00:25:20,880
+that is closure because why because
+
+459
+00:25:19,050 --> 00:25:24,870
+mathematically when you have these three
+
+460
+00:25:20,880 --> 00:25:27,090
+together then you have an issue you have
+
+461
+00:25:24,870 --> 00:25:31,110
+a issue that what happens when a
+
+462
+00:25:27,090 --> 00:25:33,779
+function that returns a function but but
+
+463
+00:25:31,110 --> 00:25:35,969
+this nested function actually use
+
+464
+00:25:33,779 --> 00:25:40,259
+uses a variable that's outside of this
+
+465
+00:25:35,969 --> 00:25:42,749
+function you know that is the summary of
+
+466
+00:25:40,259 --> 00:25:45,389
+closure when this happens then you have
+
+467
+00:25:42,749 --> 00:25:47,849
+a question what would that variable be
+
+468
+00:25:45,389 --> 00:25:52,259
+you know that so eventually what that's
+
+469
+00:25:47,849 --> 00:25:55,909
+what you got closure but once you have
+
+470
+00:25:52,259 --> 00:25:58,590
+closure now this is important closure is
+
+471
+00:25:55,909 --> 00:26:01,619
+anti functional programming when you
+
+472
+00:25:58,590 --> 00:26:06,450
+have a closure but closure by definition
+
+473
+00:26:01,619 --> 00:26:10,019
+is a function with side effect and it is
+
+474
+00:26:06,450 --> 00:26:12,389
+also the arrangin of olp so you don't so
+
+475
+00:26:10,019 --> 00:26:14,309
+you know you don't want it many you know
+
+476
+00:26:12,389 --> 00:26:16,169
+many and the hacker types functional
+
+477
+00:26:14,309 --> 00:26:19,109
+programmers you know they they oh they
+
+478
+00:26:16,169 --> 00:26:20,580
+want closure they you know they talk
+
+479
+00:26:19,109 --> 00:26:22,679
+about it all day they want closure
+
+480
+00:26:20,580 --> 00:26:25,979
+closure it's no good if you are really
+
+481
+00:26:22,679 --> 00:26:28,349
+into functional programming at least in
+
+482
+00:26:25,979 --> 00:26:31,049
+my opinion which is also true okay
+
+483
+00:26:28,349 --> 00:26:33,239
+closure is a function with side effect
+
+484
+00:26:31,049 --> 00:26:36,599
+you don't want it don't don't you know
+
+485
+00:26:33,239 --> 00:26:38,489
+don't do that that that is why I don't
+
+486
+00:26:36,599 --> 00:26:40,679
+like closure because func closure by
+
+487
+00:26:38,489 --> 00:26:43,109
+definition is a violation of functional
+
+488
+00:26:40,679 --> 00:26:48,869
+programming it is a function with with a
+
+489
+00:26:43,109 --> 00:26:51,509
+side-effect okay so you know so we can
+
+490
+00:26:48,869 --> 00:26:53,549
+actually explain what closure is I I
+
+491
+00:26:51,509 --> 00:26:57,559
+don't know if you guys already know what
+
+492
+00:26:53,549 --> 00:26:57,559
+closure is let me read the comments okay
+
+493
+00:27:01,129 --> 00:27:05,369
+but you know I have a lot articles about
+
+494
+00:27:04,649 --> 00:27:09,799
+closure
+
+495
+00:27:05,369 --> 00:27:09,799
+I mean explaining closure so let's go to
+
+496
+00:27:10,849 --> 00:27:14,759
+jargons
+
+497
+00:27:11,969 --> 00:27:18,119
+okay joggers now in this page you can
+
+498
+00:27:14,759 --> 00:27:21,869
+learn many of these jackets Opie Opie
+
+499
+00:27:18,119 --> 00:27:27,570
+jog jog ins spectacular you learn about
+
+500
+00:27:21,869 --> 00:27:30,889
+what classes method ok this article this
+
+501
+00:27:27,570 --> 00:27:34,909
+arco is about how do you explain Opie
+
+502
+00:27:30,889 --> 00:27:41,779
+concepts such as class methods objects
+
+503
+00:27:34,909 --> 00:27:41,779
+and static versus instance variables and
+
+504
+00:27:42,229 --> 00:27:51,230
+constructors expenses
+
+505
+00:27:44,690 --> 00:27:57,140
+and access specifiers and inheritance
+
+506
+00:27:51,230 --> 00:28:00,650
+okay so all these jargons of Opie how
+
+507
+00:27:57,140 --> 00:28:02,840
+can you explain all these in terms of
+
+508
+00:28:00,650 --> 00:28:06,670
+functional programming in terms of just
+
+509
+00:28:02,840 --> 00:28:11,900
+functions so this article explains that
+
+510
+00:28:06,670 --> 00:28:13,940
+then you have the rise of class
+
+511
+00:28:11,900 --> 00:28:17,210
+hierarchy you know that's typical of
+
+512
+00:28:13,940 --> 00:28:20,330
+Java you know a Java the the rise of
+
+513
+00:28:17,210 --> 00:28:23,030
+mutation of in interface the rise of
+
+514
+00:28:20,330 --> 00:28:25,610
+abstract class in abstract methods as
+
+515
+00:28:23,030 --> 00:28:28,250
+Java the rise of iterators in
+
+516
+00:28:25,610 --> 00:28:30,740
+enumerators idiocy that's you know
+
+517
+00:28:28,250 --> 00:28:32,770
+Python is like that Java Python they
+
+518
+00:28:30,740 --> 00:28:35,300
+love they love the iterators and
+
+519
+00:28:32,770 --> 00:28:37,720
+enumerators and generators those are
+
+520
+00:28:35,300 --> 00:28:40,640
+those are all idiocy
+
+521
+00:28:37,720 --> 00:28:44,900
+what that's that's actually my biased
+
+522
+00:28:40,640 --> 00:28:47,690
+opinion okay somewhat biased and and
+
+523
+00:28:44,900 --> 00:28:52,040
+also JavaScript now has iterators and
+
+524
+00:28:47,690 --> 00:28:54,680
+generators idiocy you don't want that
+
+525
+00:28:52,040 --> 00:28:56,810
+okay don't you know what that's my
+
+526
+00:28:54,680 --> 00:28:59,630
+biased opinion okay but anyway so this
+
+527
+00:28:56,810 --> 00:29:02,330
+article explains oh okay oh this Opie
+
+528
+00:28:59,630 --> 00:29:05,720
+concept with examples and showing you
+
+529
+00:29:02,330 --> 00:29:07,700
+how you can explain them in terms of
+
+530
+00:29:05,720 --> 00:29:10,340
+functions you know that in terms of
+
+531
+00:29:07,700 --> 00:29:13,580
+functional programming paradigm so let
+
+532
+00:29:10,340 --> 00:29:15,680
+me show that Opie jargons and
+
+533
+00:29:13,580 --> 00:29:18,800
+complexities and you have list
+
+534
+00:29:15,680 --> 00:29:21,230
+comprehension this comprehension is also
+
+535
+00:29:18,800 --> 00:29:21,860
+idiocy it's not functional programming
+
+536
+00:29:21,230 --> 00:29:24,100
+okay
+
+537
+00:29:21,860 --> 00:29:26,660
+you know like there's a lot
+
+538
+00:29:24,100 --> 00:29:29,180
+misconception and misinformation out
+
+539
+00:29:26,660 --> 00:29:31,100
+there all these have caca types and you
+
+540
+00:29:29,180 --> 00:29:33,410
+know into programming languages they all
+
+541
+00:29:31,100 --> 00:29:35,750
+say oh yeah yeah yeah with you know this
+
+542
+00:29:33,410 --> 00:29:38,780
+comprehension you know even Haskell has
+
+543
+00:29:35,750 --> 00:29:40,910
+list comprehension yeah yes Haskell does
+
+544
+00:29:38,780 --> 00:29:43,820
+have this comprehension because Haskell
+
+545
+00:29:40,910 --> 00:29:46,400
+in this aspect is idiotic it's big
+
+546
+00:29:43,820 --> 00:29:48,950
+that's that's a idiocy of Haskell okay
+
+547
+00:29:46,400 --> 00:29:51,740
+this comprehension cska you don't want
+
+548
+00:29:48,950 --> 00:29:55,160
+it because why why is this comprehension
+
+549
+00:29:51,740 --> 00:29:57,970
+bad because what when you have a list
+
+550
+00:29:55,160 --> 00:30:01,330
+comprehension comprehension that's a
+
+551
+00:29:57,970 --> 00:30:04,690
+meanie language is a kind of a mini mini
+
+552
+00:30:01,330 --> 00:30:07,870
+language in your language and in this
+
+553
+00:30:04,690 --> 00:30:11,620
+mini language you have non functional
+
+554
+00:30:07,870 --> 00:30:13,930
+programming that's what happens you have
+
+555
+00:30:11,620 --> 00:30:16,780
+a little mini than functional
+
+556
+00:30:13,930 --> 00:30:18,460
+programming syntax in your language
+
+557
+00:30:16,780 --> 00:30:22,120
+that's that that is what this
+
+558
+00:30:18,460 --> 00:30:25,980
+comprehension is because you can see the
+
+559
+00:30:22,120 --> 00:30:33,370
+Audis you know the things okay anyway
+
+560
+00:30:25,980 --> 00:30:35,920
+these comprehensions so lambda bleep
+
+561
+00:30:33,370 --> 00:30:37,240
+hold repo is a new jargon that that
+
+562
+00:30:35,920 --> 00:30:41,080
+means you know the command-line
+
+563
+00:30:37,240 --> 00:30:44,350
+interface it was popular in the past ten
+
+564
+00:30:41,080 --> 00:30:45,850
+years or so today I'd always hear it
+
+565
+00:30:44,350 --> 00:30:48,990
+much in the past three years I don't
+
+566
+00:30:45,850 --> 00:30:52,390
+hear much but back partly it was popular
+
+567
+00:30:48,990 --> 00:30:56,890
+very popular big why because it came
+
+568
+00:30:52,390 --> 00:30:59,080
+from well repo or in the term repo it
+
+569
+00:30:56,890 --> 00:31:01,810
+eventually came from scheme functional
+
+570
+00:30:59,080 --> 00:31:08,380
+foreign language scheme beast wide web
+
+571
+00:31:01,810 --> 00:31:13,050
+hold you know it means something like
+
+572
+00:31:08,380 --> 00:31:16,900
+repeat evaluation and print loop okay
+
+573
+00:31:13,050 --> 00:31:19,480
+anyway then then the known function of B
+
+574
+00:31:16,900 --> 00:31:25,300
+you know for a while like think about 10
+
+575
+00:31:19,480 --> 00:31:30,100
+years ago from from about 2008 to 2017
+
+576
+00:31:25,300 --> 00:31:32,470
+it was 2016 functional programming you
+
+577
+00:31:30,100 --> 00:31:34,750
+know became popular because oh CPU
+
+578
+00:31:32,470 --> 00:31:37,420
+cannot be faster anymore things like
+
+579
+00:31:34,750 --> 00:31:39,640
+that so many of the non functional
+
+580
+00:31:37,420 --> 00:31:42,460
+languages in programmers they picked up
+
+581
+00:31:39,640 --> 00:31:45,220
+on some of the jargon so it becomes a
+
+582
+00:31:42,460 --> 00:31:48,010
+fashionable becomes you know popular so
+
+583
+00:31:45,220 --> 00:31:49,720
+they picked up repo you know everything
+
+584
+00:31:48,010 --> 00:31:52,450
+Oh rip Oh bleep oh do it this seam
+
+585
+00:31:49,720 --> 00:31:59,020
+ripper idiocy that those are the jargons
+
+586
+00:31:52,450 --> 00:32:00,940
+okay so what is repo so how should you
+
+587
+00:31:59,020 --> 00:32:04,810
+one coop oh you should code command
+
+588
+00:32:00,940 --> 00:32:08,020
+command line user interface why because
+
+589
+00:32:04,810 --> 00:32:10,510
+because that's a proper term otherwise
+
+590
+00:32:08,020 --> 00:32:12,870
+you know like you know repo is like when
+
+591
+00:32:10,510 --> 00:32:12,870
+you cook
+
+592
+00:32:13,170 --> 00:32:21,400
+you know like when you cook ha you could
+
+593
+00:32:16,330 --> 00:32:24,220
+gas combust crank run okay that's how
+
+594
+00:32:21,400 --> 00:32:28,540
+you caught coal car gas combust crank
+
+595
+00:32:24,220 --> 00:32:30,400
+run that's how idiotic are these people
+
+596
+00:32:28,540 --> 00:32:32,970
+calling you know command-line interfaces
+
+597
+00:32:30,400 --> 00:32:35,380
+ripple you know because it's you know
+
+598
+00:32:32,970 --> 00:32:39,040
+fashionable in popular anyway that's
+
+599
+00:32:35,380 --> 00:32:40,930
+that's that's digression repo is not
+
+600
+00:32:39,040 --> 00:32:44,350
+about functional programming well it's
+
+601
+00:32:40,930 --> 00:32:47,200
+related because repo came from it came
+
+602
+00:32:44,350 --> 00:32:48,700
+from you know the scheme this is in
+
+603
+00:32:47,200 --> 00:32:51,450
+particular the book you know the
+
+604
+00:32:48,700 --> 00:32:59,110
+structure and interpretation of computer
+
+605
+00:32:51,450 --> 00:33:01,570
+programs this book and so anyway rapport
+
+606
+00:32:59,110 --> 00:33:03,490
+crochet okay so if you want to know what
+
+607
+00:33:01,570 --> 00:33:07,990
+closure is I have article here that
+
+608
+00:33:03,490 --> 00:33:11,470
+explains in detail you have you know
+
+609
+00:33:07,990 --> 00:33:19,200
+exclosure example in in JavaScript in
+
+610
+00:33:11,470 --> 00:33:19,200
+Python 3 in : you know several examples
+
+611
+00:33:20,700 --> 00:33:26,860
+but ok I'm going to give get let's get
+
+612
+00:33:24,160 --> 00:33:28,780
+back to the function of programming and
+
+613
+00:33:26,860 --> 00:33:30,670
+and idioms and all the things that we
+
+614
+00:33:28,780 --> 00:33:34,030
+cannot talk about and also curve
+
+615
+00:33:30,670 --> 00:33:34,480
+incurring what is currying in computer
+
+616
+00:33:34,030 --> 00:33:38,380
+science
+
+617
+00:33:34,480 --> 00:33:40,690
+oh this is another big topic because in
+
+618
+00:33:38,380 --> 00:33:43,930
+computer science because there is a
+
+619
+00:33:40,690 --> 00:33:46,630
+troll this well I don't like the term
+
+620
+00:33:43,930 --> 00:33:49,510
+troll okay but John harab he's you know
+
+621
+00:33:46,630 --> 00:33:51,910
+other people call him troll just just as
+
+622
+00:33:49,510 --> 00:33:56,230
+many of them call me a troll ok john
+
+623
+00:33:51,910 --> 00:33:58,270
+harab is a very well-known troll on
+
+624
+00:33:56,230 --> 00:34:01,060
+functional programming languages on this
+
+625
+00:33:58,270 --> 00:34:05,410
+you know in this community in haskell
+
+626
+00:34:01,060 --> 00:34:08,110
+community john harab I don't call I
+
+627
+00:34:05,410 --> 00:34:12,480
+wouldn't call that him otro I'd I would
+
+628
+00:34:08,110 --> 00:34:16,630
+just call him an aggressive [ __ ] and
+
+629
+00:34:12,480 --> 00:34:19,750
+and sometimes he's idiotic you know he
+
+630
+00:34:16,630 --> 00:34:22,480
+he likes to yes
+
+631
+00:34:19,750 --> 00:34:24,640
+someone like me ok if you you know for
+
+632
+00:34:22,480 --> 00:34:25,960
+my criticizes you may say it's someone
+
+633
+00:34:24,640 --> 00:34:32,440
+like me because
+
+634
+00:34:25,960 --> 00:34:34,390
+in my opinion he said often okay he you
+
+635
+00:34:32,440 --> 00:34:37,090
+know he's got opinions he tried to push
+
+636
+00:34:34,390 --> 00:34:38,830
+them but often you know it's just wrong
+
+637
+00:34:37,090 --> 00:34:41,140
+he's just incorrect and here's an
+
+638
+00:34:38,830 --> 00:34:45,670
+example and one day you know in his book
+
+639
+00:34:41,140 --> 00:34:48,820
+you know he has a book teaching you
+
+640
+00:34:45,670 --> 00:34:52,870
+f sharp no not F sharp okay mo okay okay
+
+641
+00:34:48,820 --> 00:34:57,940
+mo for scientists and here's a quote you
+
+642
+00:34:52,870 --> 00:35:00,160
+know let me magnify this you know here's
+
+643
+00:34:57,940 --> 00:35:03,880
+a quote you know he says what currying
+
+644
+00:35:00,160 --> 00:35:07,090
+is he says a curried function is a
+
+645
+00:35:03,880 --> 00:35:11,170
+function which returns a function as its
+
+646
+00:35:07,090 --> 00:35:13,450
+result wrong okay he also says curried
+
+647
+00:35:11,170 --> 00:35:15,730
+functions are best introduced as a more
+
+648
+00:35:13,450 --> 00:35:18,360
+powerful alternative to the conventional
+
+649
+00:35:15,730 --> 00:35:21,340
+non curried functions provided by
+
+650
+00:35:18,360 --> 00:35:23,260
+imperative programming languages anyway
+
+651
+00:35:21,340 --> 00:35:25,090
+his definition of curving a curry a
+
+652
+00:35:23,260 --> 00:35:29,230
+curried function is a function which
+
+653
+00:35:25,090 --> 00:35:32,050
+returns a function as its we thought now
+
+654
+00:35:29,230 --> 00:35:35,380
+that is patently incorrect it's
+
+655
+00:35:32,050 --> 00:35:37,690
+incorrect so it's it's it's not just you
+
+656
+00:35:35,380 --> 00:35:40,030
+know nitpicking this is so incorrect
+
+657
+00:35:37,690 --> 00:35:43,150
+it's it's totally completely incorrect
+
+658
+00:35:40,030 --> 00:35:44,770
+and misleading okay so he's saying if
+
+659
+00:35:43,150 --> 00:35:46,690
+you have a function that returns a
+
+660
+00:35:44,770 --> 00:35:50,770
+function that's a curried function what
+
+661
+00:35:46,690 --> 00:35:52,450
+I ETS see you know complete idiocy so he
+
+662
+00:35:50,770 --> 00:35:55,240
+likes to do that he do that you know
+
+663
+00:35:52,450 --> 00:35:56,830
+then he thought you know he flame you
+
+664
+00:35:55,240 --> 00:35:58,990
+know with these people with Haskell
+
+665
+00:35:56,830 --> 00:36:05,200
+people all the time like every day is
+
+666
+00:35:58,990 --> 00:36:08,260
+idiot in many ways you know obviously
+
+667
+00:36:05,200 --> 00:36:10,300
+he's a smart guy you know he does he has
+
+668
+00:36:08,260 --> 00:36:13,330
+projects and you know tutorial things
+
+669
+00:36:10,300 --> 00:36:15,760
+and so on anyways you know he's you know
+
+670
+00:36:13,330 --> 00:36:19,960
+currying definition is just completely
+
+671
+00:36:15,760 --> 00:36:23,140
+wrong curving Karimi is actually the
+
+672
+00:36:19,960 --> 00:36:25,680
+composition of functions the composition
+
+673
+00:36:23,140 --> 00:36:28,900
+of functions that has multiple
+
+674
+00:36:25,680 --> 00:36:32,590
+parameters more than one parameters into
+
+675
+00:36:28,900 --> 00:36:35,890
+a sequence of functions each with only
+
+676
+00:36:32,590 --> 00:36:39,370
+one parameter that is what Kareem is
+
+677
+00:36:35,890 --> 00:36:42,460
+about now a curried function
+
+678
+00:36:39,370 --> 00:36:44,590
+is a function you know is one of the
+
+679
+00:36:42,460 --> 00:36:47,410
+function in this curry the sequence you
+
+680
+00:36:44,590 --> 00:36:49,840
+know it's not about a function returning
+
+681
+00:36:47,410 --> 00:36:53,440
+a function that's you know that's
+
+682
+00:36:49,840 --> 00:36:57,280
+completely idiotic because in Lisp in
+
+683
+00:36:53,440 --> 00:37:01,690
+Mathematica you don't have the current
+
+684
+00:36:57,280 --> 00:37:04,390
+concept ok currying actually curry ok
+
+685
+00:37:01,690 --> 00:37:06,430
+Kareem is a decomposition of functions
+
+686
+00:37:04,390 --> 00:37:09,490
+of multiple variables two functions of
+
+687
+00:37:06,430 --> 00:37:13,060
+each with just one variable okay when
+
+688
+00:37:09,490 --> 00:37:16,570
+one argument when parameter that's a
+
+689
+00:37:13,060 --> 00:37:20,560
+definition of curry now curry being a
+
+690
+00:37:16,570 --> 00:37:22,690
+programming language as a feature is is
+
+691
+00:37:20,560 --> 00:37:24,910
+a feature such that it does this
+
+692
+00:37:22,690 --> 00:37:28,990
+automatically so when you define a
+
+693
+00:37:24,910 --> 00:37:31,030
+function of multiple variables the the
+
+694
+00:37:28,990 --> 00:37:33,370
+language has a feature that can
+
+695
+00:37:31,030 --> 00:37:35,860
+automatically you know decompose the
+
+696
+00:37:33,370 --> 00:37:38,500
+function into several functions with
+
+697
+00:37:35,860 --> 00:37:42,130
+just one argument now that that is
+
+698
+00:37:38,500 --> 00:37:45,100
+currying as a feature of the programming
+
+699
+00:37:42,130 --> 00:37:48,160
+language what language does that Haskell
+
+700
+00:37:45,100 --> 00:37:50,470
+does that meta language does that or
+
+701
+00:37:48,160 --> 00:37:53,500
+camo Oh F sharp those are the same
+
+702
+00:37:50,470 --> 00:37:55,530
+family okay so those languages does that
+
+703
+00:37:53,500 --> 00:37:59,080
+has that feature on the other hand
+
+704
+00:37:55,530 --> 00:38:02,530
+Mathematica Lisp scheme do not have that
+
+705
+00:37:59,080 --> 00:38:06,150
+feature okay but however Mathematica at
+
+706
+00:38:02,530 --> 00:38:09,220
+least scheme including JavaScript they
+
+707
+00:38:06,150 --> 00:38:11,350
+they had have the feature such that a
+
+708
+00:38:09,220 --> 00:38:13,750
+function can return a function and you
+
+709
+00:38:11,350 --> 00:38:15,790
+do that all the time well not so much in
+
+710
+00:38:13,750 --> 00:38:18,100
+this but you do that all the time in
+
+711
+00:38:15,790 --> 00:38:22,000
+Mathematica in JavaScript everyday okay
+
+712
+00:38:18,100 --> 00:38:25,330
+every big every every year every you
+
+713
+00:38:22,000 --> 00:38:27,550
+know 500 lines of code you have that
+
+714
+00:38:25,330 --> 00:38:30,220
+that a function returns a function that
+
+715
+00:38:27,550 --> 00:38:32,500
+is not Korean you know that's not
+
+716
+00:38:30,220 --> 00:38:36,760
+occurring at all that's the idiot of
+
+717
+00:38:32,500 --> 00:38:43,390
+John Herod okay so this article explains
+
+718
+00:38:36,760 --> 00:38:45,670
+what is currying okay so so you know so
+
+719
+00:38:43,390 --> 00:38:47,650
+like I said before all these you know
+
+720
+00:38:45,670 --> 00:38:49,390
+many of these jargons came from
+
+721
+00:38:47,650 --> 00:38:52,360
+functional programming this
+
+722
+00:38:49,390 --> 00:38:52,690
+comprehension came from function you
+
+723
+00:38:52,360 --> 00:38:56,170
+know
+
+724
+00:38:52,690 --> 00:38:58,060
+as inheritance it kind of came from the
+
+725
+00:38:56,170 --> 00:39:00,730
+context of functional programming but
+
+726
+00:38:58,060 --> 00:39:03,609
+this comprehension itself is actually
+
+727
+00:39:00,730 --> 00:39:05,619
+anti functional programming you know
+
+728
+00:39:03,609 --> 00:39:08,829
+don't do that lambda is functional
+
+729
+00:39:05,619 --> 00:39:10,750
+programming crochet also came from
+
+730
+00:39:08,829 --> 00:39:13,420
+functional forming but it's not it's
+
+731
+00:39:10,750 --> 00:39:14,680
+anti functional programming Korean came
+
+732
+00:39:13,420 --> 00:39:17,619
+from functional programming tail
+
+733
+00:39:14,680 --> 00:39:21,640
+recursion tail recursion is from scheme
+
+734
+00:39:17,619 --> 00:39:28,119
+this scheme bees phonetics they are you
+
+735
+00:39:21,640 --> 00:39:31,150
+know tail recursion every day ok those
+
+736
+00:39:28,119 --> 00:39:35,950
+are the about you know the jargons from
+
+737
+00:39:31,150 --> 00:39:38,050
+functional programming and you know
+
+738
+00:39:35,950 --> 00:39:40,900
+anyway so you know check out that page
+
+739
+00:39:38,050 --> 00:39:47,109
+if you like to learn about those things
+
+740
+00:39:40,900 --> 00:39:49,089
+and let's get back to let's get back to
+
+741
+00:39:47,109 --> 00:39:52,180
+a functional programming style ok I
+
+742
+00:39:49,089 --> 00:39:55,089
+haven't said we have not begin to talk
+
+743
+00:39:52,180 --> 00:40:00,240
+about that yet we are what we are
+
+744
+00:39:55,089 --> 00:40:04,450
+talking about related in that direction
+
+745
+00:40:00,240 --> 00:40:09,339
+so 30 minutes now so let me have a sip
+
+746
+00:40:04,450 --> 00:40:11,800
+of my drink and read the comments and
+
+747
+00:40:09,339 --> 00:40:13,589
+let's continue let's see where I go
+
+748
+00:40:11,800 --> 00:40:15,880
+where we go next
+
+749
+00:40:13,589 --> 00:40:19,030
+so let me say so let me read the
+
+750
+00:40:15,880 --> 00:40:23,589
+comments ok so copy the comments close
+
+751
+00:40:19,030 --> 00:40:28,540
+that go back to my Emacs magnify open ok
+
+752
+00:40:23,589 --> 00:40:31,900
+speed above open Anubhava pasted switch
+
+753
+00:40:28,540 --> 00:40:36,160
+buffer go to diet copy the file path
+
+754
+00:40:31,900 --> 00:40:40,270
+cross go back to this buffer say type it
+
+755
+00:40:36,160 --> 00:40:42,700
+and text ok bad is the common and copy
+
+756
+00:40:40,270 --> 00:40:47,200
+the file path go over here paste the
+
+757
+00:40:42,700 --> 00:40:51,880
+link link off' i okay showing browser so
+
+758
+00:40:47,200 --> 00:40:54,069
+we have a link to the other comments ok
+
+759
+00:40:51,880 --> 00:40:55,660
+so I'm gonna read the comments and so if
+
+760
+00:40:54,069 --> 00:41:01,690
+you have a comments put my name there
+
+761
+00:40:55,660 --> 00:41:04,140
+and and you know our answer it like
+
+762
+00:41:01,690 --> 00:41:04,140
+right now
+
+763
+00:41:17,720 --> 00:41:23,430
+pyramids in Egypt yes and one in Las
+
+764
+00:41:20,760 --> 00:41:28,560
+Vegas yes I have a photo did you I did a
+
+765
+00:41:23,430 --> 00:41:33,210
+talk on Las Vegas so I did a talk on Las
+
+766
+00:41:28,560 --> 00:41:34,710
+Vegas few months ago pepto thank you can
+
+767
+00:41:33,210 --> 00:41:38,490
+you give an example of functional
+
+768
+00:41:34,710 --> 00:41:41,400
+JavaScript oh yeah sure
+
+769
+00:41:38,490 --> 00:41:44,420
+that's a that's a big topic I like I can
+
+770
+00:41:41,400 --> 00:41:47,370
+just do an entire one hour on that
+
+771
+00:41:44,420 --> 00:41:49,110
+actually I could we could do that as you
+
+772
+00:41:47,370 --> 00:41:57,390
+know it's an actual example because the
+
+773
+00:41:49,110 --> 00:42:00,030
+example is always good yeah so so so
+
+774
+00:41:57,390 --> 00:42:01,760
+okay so you can example of JavaScript
+
+775
+00:42:00,030 --> 00:42:05,450
+function of a whammy okay
+
+776
+00:42:01,760 --> 00:42:08,730
+maybe we talked about that example of
+
+777
+00:42:05,450 --> 00:42:10,650
+function programming in JavaScript you
+
+778
+00:42:08,730 --> 00:42:13,320
+know that's actually a good thing to do
+
+779
+00:42:10,650 --> 00:42:17,640
+because that actually shows you country
+
+780
+00:42:13,320 --> 00:42:19,200
+concrete you know concepts and code you
+
+781
+00:42:17,640 --> 00:42:21,510
+can see what's the difference well
+
+782
+00:42:19,200 --> 00:42:23,550
+functional or non-functional what does
+
+783
+00:42:21,510 --> 00:42:24,330
+it mean side-effect you know how do you
+
+784
+00:42:23,550 --> 00:42:26,490
+do a loop
+
+785
+00:42:24,330 --> 00:42:30,870
+how do you do map you know you know all
+
+786
+00:42:26,490 --> 00:42:34,050
+these things or how do you avoid for
+
+787
+00:42:30,870 --> 00:42:40,320
+example you know many details if we
+
+788
+00:42:34,050 --> 00:42:44,460
+actually start to code a language so
+
+789
+00:42:40,320 --> 00:42:49,070
+many joining good morning Justin so
+
+790
+00:42:44,460 --> 00:42:52,920
+Justin am I wrong to say that has cow
+
+791
+00:42:49,070 --> 00:42:57,560
+list comprehension in Haskell is kind of
+
+792
+00:42:52,920 --> 00:43:00,950
+idiotic you know sometimes like you know
+
+793
+00:42:57,560 --> 00:43:03,510
+when I say opinions like that I have a
+
+794
+00:43:00,950 --> 00:43:06,600
+solid background okay so it's not
+
+795
+00:43:03,510 --> 00:43:09,720
+[ __ ] okay so but however depending
+
+796
+00:43:06,600 --> 00:43:12,150
+on your interpretation you could say
+
+797
+00:43:09,720 --> 00:43:14,790
+that's not really the right thing to say
+
+798
+00:43:12,150 --> 00:43:18,300
+you know it's not really so let me put
+
+799
+00:43:14,790 --> 00:43:22,440
+this way it's not really it's not really
+
+800
+00:43:18,300 --> 00:43:24,090
+completely correct to say that list
+
+801
+00:43:22,440 --> 00:43:27,230
+comprehension in Haskell
+
+802
+00:43:24,090 --> 00:43:30,660
+idiotic well first of all that that
+
+803
+00:43:27,230 --> 00:43:32,370
+sentence does not have exact meaning you
+
+804
+00:43:30,660 --> 00:43:35,970
+know what do you mean it does is you
+
+805
+00:43:32,370 --> 00:43:39,990
+know what he so anyway so it's opinion
+
+806
+00:43:35,970 --> 00:43:42,240
+so so Justine so you know if you have
+
+807
+00:43:39,990 --> 00:43:44,760
+opinions on this comprehension he has
+
+808
+00:43:42,240 --> 00:43:47,160
+called me no because I do not know has
+
+809
+00:43:44,760 --> 00:43:53,160
+God you know I have never coded coded
+
+810
+00:43:47,160 --> 00:43:55,080
+Haskell technically sabatham you say is
+
+811
+00:43:53,160 --> 00:43:56,880
+to be honest I don't have good idea on
+
+812
+00:43:55,080 --> 00:43:59,580
+functional programming in general okay
+
+813
+00:43:56,880 --> 00:44:02,490
+so I should I should do more let's yeah
+
+814
+00:43:59,580 --> 00:44:04,500
+you know you should I you know I'm gonna
+
+815
+00:44:02,490 --> 00:44:06,690
+do more JavaScript because well that's
+
+816
+00:44:04,500 --> 00:44:09,780
+what I have to do you know there's a lot
+
+817
+00:44:06,690 --> 00:44:12,690
+JavaScript topics and all my JavaScript
+
+818
+00:44:09,780 --> 00:44:15,630
+is almost pure functional programming no
+
+819
+00:44:12,690 --> 00:44:18,720
+object whatsoever so next time we do it
+
+820
+00:44:15,630 --> 00:44:21,090
+you can see it oh you know if you yeah
+
+821
+00:44:18,720 --> 00:44:22,920
+when I do it you know you'll see how it
+
+822
+00:44:21,090 --> 00:44:27,090
+is different from the non functional
+
+823
+00:44:22,920 --> 00:44:29,250
+methods I do not I do not do any you
+
+824
+00:44:27,090 --> 00:44:32,420
+know non functional every everything I
+
+825
+00:44:29,250 --> 00:44:36,810
+ever wrote in any languages or
+
+826
+00:44:32,420 --> 00:44:38,820
+functional and I I do it just like I
+
+827
+00:44:36,810 --> 00:44:40,470
+explained today you know functions
+
+828
+00:44:38,820 --> 00:44:42,510
+everything is function you could you
+
+829
+00:44:40,470 --> 00:44:45,480
+define function you call it no side
+
+830
+00:44:42,510 --> 00:44:48,750
+effect if if if at all possible and that
+
+831
+00:44:45,480 --> 00:44:51,900
+is all basically oh I focus on and I
+
+832
+00:44:48,750 --> 00:44:55,170
+don't I don't usually go for you know
+
+833
+00:44:51,900 --> 00:44:56,700
+for example tail recursion or monad I
+
+834
+00:44:55,170 --> 00:45:02,360
+don't actually I don't technically
+
+835
+00:44:56,700 --> 00:45:06,570
+understand monad okay this is a bad
+
+836
+00:45:02,360 --> 00:45:08,460
+marketing thing to say oh my god that
+
+837
+00:45:06,570 --> 00:45:12,120
+guy don't even know what is monad but
+
+838
+00:45:08,460 --> 00:45:15,900
+he's talking about stuff that okay
+
+839
+00:45:12,120 --> 00:45:17,640
+anyway so so yeah oh these you know the
+
+840
+00:45:15,900 --> 00:45:20,340
+jargons I mentioned I don't do them I
+
+841
+00:45:17,640 --> 00:45:23,370
+don't you know least comprehension and I
+
+842
+00:45:20,340 --> 00:45:25,560
+never use them except if you're working
+
+843
+00:45:23,370 --> 00:45:28,650
+a you know company you know you have to
+
+844
+00:45:25,560 --> 00:45:30,300
+make other people happy I never used
+
+845
+00:45:28,650 --> 00:45:32,670
+them yeah you don't and don't use them
+
+846
+00:45:30,300 --> 00:45:38,040
+you know those I don't use them okay so
+
+847
+00:45:32,670 --> 00:45:41,970
+the closure never use closure you know
+
+848
+00:45:38,040 --> 00:45:43,710
+and what else so anyway so like I said I
+
+849
+00:45:41,970 --> 00:45:46,350
+thought you know defined functions
+
+850
+00:45:43,710 --> 00:45:48,750
+functions no side effect that that is it
+
+851
+00:45:46,350 --> 00:45:50,910
+and you can see when I do JavaScript
+
+852
+00:45:48,750 --> 00:45:53,490
+project you can see how that works out
+
+853
+00:45:50,910 --> 00:45:59,580
+you know you can't you can you know as a
+
+854
+00:45:53,490 --> 00:46:04,740
+concrete example and let's see jargons
+
+855
+00:45:59,580 --> 00:46:08,010
+you know not not not any of these Korean
+
+856
+00:46:04,740 --> 00:46:09,720
+Korean again is you know Carini's again
+
+857
+00:46:08,010 --> 00:46:12,990
+you know many of these are kind of
+
+858
+00:46:09,720 --> 00:46:15,480
+advanced currying is kind of like it's
+
+859
+00:46:12,990 --> 00:46:19,290
+nice you know it's fantastic if your
+
+860
+00:46:15,480 --> 00:46:21,900
+language supported but otherwise no you
+
+861
+00:46:19,290 --> 00:46:24,780
+know it's not practical you know it's
+
+862
+00:46:21,900 --> 00:46:27,690
+basically is trying to so what why do
+
+863
+00:46:24,780 --> 00:46:30,240
+you have Kareem let me explain what why
+
+864
+00:46:27,690 --> 00:46:33,630
+do you want to you know a function that
+
+865
+00:46:30,240 --> 00:46:36,060
+has multiple variables for example you
+
+866
+00:46:33,630 --> 00:46:40,770
+want to add two numbers let's knit knits
+
+867
+00:46:36,060 --> 00:46:43,350
+to JavaScript concrete the example okay
+
+868
+00:46:40,770 --> 00:46:45,540
+so let's define a function constant
+
+869
+00:46:43,350 --> 00:46:48,570
+arrow functions so let's have you know
+
+870
+00:46:45,540 --> 00:46:52,470
+this is a function let's call it FF and
+
+871
+00:46:48,570 --> 00:46:56,400
+you want to add two numbers XY okay so
+
+872
+00:46:52,470 --> 00:46:58,920
+you want to return X plus y okay that's
+
+873
+00:46:56,400 --> 00:47:02,940
+a function and now you call it call it
+
+874
+00:46:58,920 --> 00:47:05,310
+FF three and four so it should return
+
+875
+00:47:02,940 --> 00:47:10,350
+seven okay comment this out so let's run
+
+876
+00:47:05,310 --> 00:47:13,320
+it seven now now you see this is a
+
+877
+00:47:10,350 --> 00:47:16,680
+function with two variables we we can
+
+878
+00:47:13,320 --> 00:47:21,060
+actually do a career right now so this
+
+879
+00:47:16,680 --> 00:47:24,240
+is a function of two variables okay so
+
+880
+00:47:21,060 --> 00:47:26,760
+so first of all why why does curving
+
+881
+00:47:24,240 --> 00:47:29,100
+happen I mean why why I mean where does
+
+882
+00:47:26,760 --> 00:47:32,700
+a concept come from why do you want it
+
+883
+00:47:29,100 --> 00:47:35,430
+it came from theoretical computer
+
+884
+00:47:32,700 --> 00:47:37,800
+science notice the word theoretical
+
+885
+00:47:35,430 --> 00:47:39,120
+meaning that it has nothing to do with
+
+886
+00:47:37,800 --> 00:47:42,780
+programming whatsoever
+
+887
+00:47:39,120 --> 00:47:44,910
+it's about theoretical computer science
+
+888
+00:47:42,780 --> 00:47:48,150
+is about decidability about lambda
+
+889
+00:47:44,910 --> 00:47:49,860
+calculus about Turing machines about you
+
+890
+00:47:48,150 --> 00:47:52,920
+know those kind of things
+
+891
+00:47:49,860 --> 00:47:56,370
+can you don't never you ever never use
+
+892
+00:47:52,920 --> 00:47:59,490
+anything from those okay so why does
+
+893
+00:47:56,370 --> 00:48:04,970
+curry in fact curry happens for math
+
+894
+00:47:59,490 --> 00:48:07,920
+okay curving the concept happens because
+
+895
+00:48:04,970 --> 00:48:10,170
+because in theoretical computer science
+
+896
+00:48:07,920 --> 00:48:14,750
+in formal languages such as lambda
+
+897
+00:48:10,170 --> 00:48:17,190
+calculus you want to simplify your
+
+898
+00:48:14,750 --> 00:48:23,730
+syntax you want to avoid many
+
+899
+00:48:17,190 --> 00:48:26,760
+complexities there so so basically so so
+
+900
+00:48:23,730 --> 00:48:29,820
+so the basic idea is when you have a
+
+901
+00:48:26,760 --> 00:48:31,650
+function with variables typically you
+
+902
+00:48:29,820 --> 00:48:33,870
+don't want variable you know you don't
+
+903
+00:48:31,650 --> 00:48:36,080
+want the parameters okay when lambda
+
+904
+00:48:33,870 --> 00:48:39,900
+calculus you know you have you have
+
+905
+00:48:36,080 --> 00:48:42,300
+lambda calculus okay so I think actually
+
+906
+00:48:39,900 --> 00:48:44,400
+came from lambda calculus anyway
+
+907
+00:48:42,300 --> 00:48:47,460
+lambda calculus you have a function with
+
+908
+00:48:44,400 --> 00:48:49,500
+one variable okay and you can apply a
+
+909
+00:48:47,460 --> 00:48:51,990
+function basically you just replace that
+
+910
+00:48:49,500 --> 00:48:55,920
+variable by input and come out another
+
+911
+00:48:51,990 --> 00:48:57,780
+string all these are formal languages
+
+912
+00:48:55,920 --> 00:48:59,880
+you know basically you are just doing
+
+913
+00:48:57,780 --> 00:49:02,490
+stream and emulation that's what lambda
+
+914
+00:48:59,880 --> 00:49:04,230
+calculus is okay so anyway lambda
+
+915
+00:49:02,490 --> 00:49:08,760
+calculus you have a function you have
+
+916
+00:49:04,230 --> 00:49:15,030
+you know one input and come out stream
+
+917
+00:49:08,760 --> 00:49:17,580
+you know and the the the variable is
+
+918
+00:49:15,030 --> 00:49:20,040
+typically annoying because it you know
+
+919
+00:49:17,580 --> 00:49:23,040
+it's you call that parameter dummy
+
+920
+00:49:20,040 --> 00:49:25,740
+variable it's annoying because because
+
+921
+00:49:23,040 --> 00:49:27,750
+then you have a problem of when you do
+
+922
+00:49:25,740 --> 00:49:30,120
+find it replace for example when you do
+
+923
+00:49:27,750 --> 00:49:33,450
+find replacing Emacs owing any word
+
+924
+00:49:30,120 --> 00:49:35,910
+processor you like for example when you
+
+925
+00:49:33,450 --> 00:49:38,250
+are doing refactoring refactoring your
+
+926
+00:49:35,910 --> 00:49:40,680
+code let's say let's see let's go to
+
+927
+00:49:38,250 --> 00:49:43,620
+let's go to my code okay
+
+928
+00:49:40,680 --> 00:49:46,710
+for example list code so I want to
+
+929
+00:49:43,620 --> 00:49:52,350
+replace for examples let's say this
+
+930
+00:49:46,710 --> 00:49:54,240
+function okay so let's say some some
+
+931
+00:49:52,350 --> 00:49:56,730
+variable name let's say X you want to
+
+932
+00:49:54,240 --> 00:49:58,110
+change the variable you you want to do a
+
+933
+00:49:56,730 --> 00:50:00,690
+refactor you want to change your
+
+934
+00:49:58,110 --> 00:50:03,630
+variable named X to Y let's say for
+
+935
+00:50:00,690 --> 00:50:05,720
+example but you cannot simply do a fine
+
+936
+00:50:03,630 --> 00:50:10,080
+replace because when you do find replace
+
+937
+00:50:05,720 --> 00:50:14,540
+find X replace Y then you run into a
+
+938
+00:50:10,080 --> 00:50:14,540
+bunch of you know all these bunch of
+
+939
+00:50:15,920 --> 00:50:22,490
+words that's that's not a whole variable
+
+940
+00:50:18,930 --> 00:50:26,280
+you know you got into this problematic
+
+941
+00:50:22,490 --> 00:50:28,980
+situation so it would be nice if all
+
+942
+00:50:26,280 --> 00:50:32,730
+your variable names are unique in the
+
+943
+00:50:28,980 --> 00:50:34,500
+entire project then when that happens
+
+944
+00:50:32,730 --> 00:50:37,350
+then you can do find replace okay you
+
+945
+00:50:34,500 --> 00:50:40,110
+can just do find replace for example
+
+946
+00:50:37,350 --> 00:50:45,990
+find replace for example you have a
+
+947
+00:50:40,110 --> 00:50:49,470
+variable named X you know 2 1 2 3 3 you
+
+948
+00:50:45,990 --> 00:50:52,080
+just you just call for example you just
+
+949
+00:50:49,470 --> 00:50:55,290
+go for example I copy that find replace
+
+950
+00:50:52,080 --> 00:50:58,710
+that with Y and you just replace the
+
+951
+00:50:55,290 --> 00:51:00,840
+whole project the entire directory so
+
+952
+00:50:58,710 --> 00:51:03,090
+that's about fine replace now fine
+
+953
+00:51:00,840 --> 00:51:05,640
+replace is the essence in kind of the
+
+954
+00:51:03,090 --> 00:51:07,740
+essence of lambda calculus or all formal
+
+955
+00:51:05,640 --> 00:51:10,170
+languages so when you have a line by
+
+956
+00:51:07,740 --> 00:51:12,870
+calculus when you have a function lambda
+
+957
+00:51:10,170 --> 00:51:15,360
+with a variable when you apply a
+
+958
+00:51:12,870 --> 00:51:17,550
+function what do you want to do is you
+
+959
+00:51:15,360 --> 00:51:20,070
+want to find all the variable name and
+
+960
+00:51:17,550 --> 00:51:22,260
+replace it by some other stream that
+
+961
+00:51:20,070 --> 00:51:24,540
+that's what happens and the calculus
+
+962
+00:51:22,260 --> 00:51:26,510
+that's that's what happens when you call
+
+963
+00:51:24,540 --> 00:51:29,490
+a function so it becomes a new stream
+
+964
+00:51:26,510 --> 00:51:31,590
+but now you have a problem you need to
+
+965
+00:51:29,490 --> 00:51:34,650
+find all those all those variables you
+
+966
+00:51:31,590 --> 00:51:41,250
+know for example a symbol Y of you know
+
+967
+00:51:34,650 --> 00:51:43,200
+Y or some other you know symbol so so
+
+968
+00:51:41,250 --> 00:51:45,810
+that is why variable is kind of a
+
+969
+00:51:43,200 --> 00:51:48,450
+problem you know and also what happens
+
+970
+00:51:45,810 --> 00:51:51,750
+if you have nested lambdas you know like
+
+971
+00:51:48,450 --> 00:51:54,120
+nested functions so then you have
+
+972
+00:51:51,750 --> 00:51:56,400
+contexts you know the scope concept
+
+973
+00:51:54,120 --> 00:51:58,710
+comes in you know scope then you don't
+
+974
+00:51:56,400 --> 00:52:00,420
+know X is like what you know is this
+
+975
+00:51:58,710 --> 00:52:02,460
+function or you know is when you have a
+
+976
+00:52:00,420 --> 00:52:05,610
+nested function you don't know you know
+
+977
+00:52:02,460 --> 00:52:10,050
+what X really is which X to replace
+
+978
+00:52:05,610 --> 00:52:14,070
+that's a problem so so you so you want
+
+979
+00:52:10,050 --> 00:52:15,930
+you know you want to reduce you want to
+
+980
+00:52:14,070 --> 00:52:17,970
+kind of you can
+
+981
+00:52:15,930 --> 00:52:19,620
+you you you don't you know so very boss
+
+982
+00:52:17,970 --> 00:52:24,240
+has this problem that's why people
+
+983
+00:52:19,620 --> 00:52:26,910
+invented Y Combinator and also in this
+
+984
+00:52:24,240 --> 00:52:29,760
+from across you have hygienic Marco
+
+985
+00:52:26,910 --> 00:52:35,100
+that's also related concept hygienic
+
+986
+00:52:29,760 --> 00:52:36,810
+Marco that happens because because when
+
+987
+00:52:35,100 --> 00:52:39,180
+you are doing Marco basically the
+
+988
+00:52:36,810 --> 00:52:40,950
+variable names conflict you know they
+
+989
+00:52:39,180 --> 00:52:42,210
+stamp on each other you know that that's
+
+990
+00:52:40,950 --> 00:52:46,860
+what happened that's why you want
+
+991
+00:52:42,210 --> 00:52:51,590
+hygienic Marco you know so the same
+
+992
+00:52:46,860 --> 00:52:55,620
+problem was the same concept have many
+
+993
+00:52:51,590 --> 00:52:57,330
+consequences or ideas so anyway let's
+
+994
+00:52:55,620 --> 00:53:02,280
+get back to the what I'm talking about
+
+995
+00:52:57,330 --> 00:53:04,800
+so so lambda calculus and find and
+
+996
+00:53:02,280 --> 00:53:07,110
+replace and those are formal languages
+
+997
+00:53:04,800 --> 00:53:09,570
+so you don't want variables oh so where
+
+998
+00:53:07,110 --> 00:53:13,200
+does the Kareem concept happen okay in
+
+999
+00:53:09,570 --> 00:53:15,150
+lambda calculus in lambda calculus every
+
+1000
+00:53:13,200 --> 00:53:18,540
+function only have one variable lambda
+
+1001
+00:53:15,150 --> 00:53:20,190
+you know lambda just one one a parameter
+
+1002
+00:53:18,540 --> 00:53:23,040
+okay every function has just one
+
+1003
+00:53:20,190 --> 00:53:25,500
+parameter then you might say okay well
+
+1004
+00:53:23,040 --> 00:53:27,810
+that that doesn't represent computing
+
+1005
+00:53:25,500 --> 00:53:30,540
+because some what what if you want to do
+
+1006
+00:53:27,810 --> 00:53:33,240
+you know you write a function that adds
+
+1007
+00:53:30,540 --> 00:53:36,600
+two numbers addition you know two plus
+
+1008
+00:53:33,240 --> 00:53:41,220
+three how can you represent that in
+
+1009
+00:53:36,600 --> 00:53:43,770
+lambda calculus well so that's where the
+
+1010
+00:53:41,220 --> 00:53:46,020
+careening concept came from theoretical
+
+1011
+00:53:43,770 --> 00:53:48,150
+this is all theoretical so you so
+
+1012
+00:53:46,020 --> 00:53:50,280
+mathematician know that you know realize
+
+1013
+00:53:48,150 --> 00:53:52,200
+okay if you have a function with
+
+1014
+00:53:50,280 --> 00:53:56,160
+multiple variables actually you can
+
+1015
+00:53:52,200 --> 00:53:58,260
+decompose it into a sequence of function
+
+1016
+00:53:56,160 --> 00:54:00,600
+cause each function only have one
+
+1017
+00:53:58,260 --> 00:54:03,300
+variable you see so they are totally
+
+1018
+00:54:00,600 --> 00:54:07,050
+equivalent therefore lambda calculus you
+
+1019
+00:54:03,300 --> 00:54:09,000
+don't need a lambda with more than one
+
+1020
+00:54:07,050 --> 00:54:10,920
+parameter you know every lambda is just
+
+1021
+00:54:09,000 --> 00:54:12,690
+one parameter so that's lambda calculus
+
+1022
+00:54:10,920 --> 00:54:14,760
+you know you don't need multiple
+
+1023
+00:54:12,690 --> 00:54:18,090
+variables so that that's the concept
+
+1024
+00:54:14,760 --> 00:54:20,190
+that's our ancient of the concept Kareem
+
+1025
+00:54:18,090 --> 00:54:23,310
+you know from theoretical computer
+
+1026
+00:54:20,190 --> 00:54:25,440
+science it's not about programming
+
+1027
+00:54:23,310 --> 00:54:28,470
+whatsoever and this happens like long
+
+1028
+00:54:25,440 --> 00:54:30,900
+ago 50 years ago sick P you know before
+
+1029
+00:54:28,470 --> 00:54:34,020
+there is you know
+
+1030
+00:54:30,900 --> 00:54:37,320
+memory chips you know CPU like today
+
+1031
+00:54:34,020 --> 00:54:41,490
+before that but but anyway all these
+
+1032
+00:54:37,320 --> 00:54:43,380
+concept eventually they becomes part of
+
+1033
+00:54:41,490 --> 00:54:47,040
+the language you know has cow you know
+
+1034
+00:54:43,380 --> 00:54:51,240
+so has cow okay mo ml meta language you
+
+1035
+00:54:47,040 --> 00:54:54,270
+know they have automatic function
+
+1036
+00:54:51,240 --> 00:54:56,340
+decomposition you know multiple multiple
+
+1037
+00:54:54,270 --> 00:55:01,230
+parameters you know they have currying
+
+1038
+00:54:56,340 --> 00:55:10,860
+the the feature of Corrine so that is
+
+1039
+00:55:01,230 --> 00:55:13,590
+that is about okay so why I forgot yeah
+
+1040
+00:55:10,860 --> 00:55:28,340
+so I was explaining the origin of
+
+1041
+00:55:13,590 --> 00:55:36,290
+Corrine and from theoretical computer
+
+1042
+00:55:28,340 --> 00:55:40,980
+science search as lambda calculus and
+
+1043
+00:55:36,290 --> 00:55:48,210
+also okay so let's just keep that just
+
+1044
+00:55:40,980 --> 00:55:52,050
+let's just leave it that okay and okay
+
+1045
+00:55:48,210 --> 00:55:54,360
+let's answer the more questions so
+
+1046
+00:55:52,050 --> 00:55:57,000
+Bethany say someone what is functional
+
+1047
+00:55:54,360 --> 00:55:59,160
+programming lambda okay so in Python map
+
+1048
+00:55:57,000 --> 00:56:01,260
+view to do work with lambda functions
+
+1049
+00:55:59,160 --> 00:56:07,430
+not so bad no not really
+
+1050
+00:56:01,260 --> 00:56:10,890
+okay Daniel says map theater no you know
+
+1051
+00:56:07,430 --> 00:56:12,990
+why not that's why I say lamb you know
+
+1052
+00:56:10,890 --> 00:56:15,600
+Python is not does not support
+
+1053
+00:56:12,990 --> 00:56:19,170
+functional programming big you know if
+
+1054
+00:56:15,600 --> 00:56:21,750
+you code Daniel if you code you know
+
+1055
+00:56:19,170 --> 00:56:25,530
+Python Europe you know at the company
+
+1056
+00:56:21,750 --> 00:56:28,170
+and you you you you use map and filter
+
+1057
+00:56:25,530 --> 00:56:31,940
+in lambda people will beat you you know
+
+1058
+00:56:28,170 --> 00:56:34,950
+he'll beat you up you get you get fired
+
+1059
+00:56:31,940 --> 00:56:37,470
+I can tell you probably don't code
+
+1060
+00:56:34,950 --> 00:56:39,780
+Python much or you don't coded in a
+
+1061
+00:56:37,470 --> 00:56:43,290
+company environment you know they'll
+
+1062
+00:56:39,780 --> 00:56:45,960
+beat you up you get fired just Oh
+
+1063
+00:56:43,290 --> 00:56:49,500
+alternatively just just try to go to the
+
+1064
+00:56:45,960 --> 00:56:52,010
+Python may be nice you know let's say I
+
+1065
+00:56:49,500 --> 00:56:55,050
+have you know let's go to stack overflow
+
+1066
+00:56:52,010 --> 00:56:59,870
+and try to write something we involving
+
+1067
+00:56:55,050 --> 00:56:59,870
+you know map field walk in lambda
+
+1068
+00:57:01,010 --> 00:57:04,890
+immediately someone will mention no you
+
+1069
+00:57:03,240 --> 00:57:08,940
+shouldn't do that you know to you know
+
+1070
+00:57:04,890 --> 00:57:12,770
+use the the iterators now iterators he
+
+1071
+00:57:08,940 --> 00:57:16,890
+well iterators or the list comprehension
+
+1072
+00:57:12,770 --> 00:57:18,330
+because Kaido hated those and so python
+
+1073
+00:57:16,890 --> 00:57:20,700
+has guide you know in programming
+
+1074
+00:57:18,330 --> 00:57:22,740
+guidance so uh you know so if you keep
+
+1075
+00:57:20,700 --> 00:57:24,900
+using map theater in lambda
+
+1076
+00:57:22,740 --> 00:57:27,270
+people say we all know oh that that
+
+1077
+00:57:24,900 --> 00:57:31,200
+garden you know he's a troll or he is a
+
+1078
+00:57:27,270 --> 00:57:36,060
+idiot he doesn't help you'll get that
+
+1079
+00:57:31,200 --> 00:57:39,570
+you'll come to you I I still refuse I
+
+1080
+00:57:36,060 --> 00:57:41,760
+refuse to use the you know the iterate
+
+1081
+00:57:39,570 --> 00:57:44,340
+you know the best comprehension in stuff
+
+1082
+00:57:41,760 --> 00:57:47,190
+I try to keep using map field
+
+1083
+00:57:44,340 --> 00:57:50,070
+well sometimes you you know I get
+
+1084
+00:57:47,190 --> 00:57:52,350
+changed because you know it's it's not
+
+1085
+00:57:50,070 --> 00:57:55,890
+not a matter of style anymore because
+
+1086
+00:57:52,350 --> 00:57:58,680
+the Python people they hate functional
+
+1087
+00:57:55,890 --> 00:58:00,810
+programming so much so that when you
+
+1088
+00:57:58,680 --> 00:58:03,570
+actually do you know you stamped a few
+
+1089
+00:58:00,810 --> 00:58:06,060
+to map it affects your program your
+
+1090
+00:58:03,570 --> 00:58:07,650
+program becomes slower you rather you
+
+1091
+00:58:06,060 --> 00:58:09,780
+know you rather use the list
+
+1092
+00:58:07,650 --> 00:58:13,680
+comprehension or iterators whatever you
+
+1093
+00:58:09,780 --> 00:58:15,120
+know the generators iterators [ __ ] you
+
+1094
+00:58:13,680 --> 00:58:17,790
+have to you have to do that because
+
+1095
+00:58:15,120 --> 00:58:22,740
+otherwise you have code actually runs
+
+1096
+00:58:17,790 --> 00:58:23,970
+much slower so you see this is beyond
+
+1097
+00:58:22,740 --> 00:58:27,570
+programming Styles
+
+1098
+00:58:23,970 --> 00:58:29,640
+you know so so that that is why also I I
+
+1099
+00:58:27,570 --> 00:58:31,290
+say that Python does not really support
+
+1100
+00:58:29,640 --> 00:58:34,170
+functional programming you just you just
+
+1101
+00:58:31,290 --> 00:58:36,480
+you run into problems all over the place
+
+1102
+00:58:34,170 --> 00:58:39,120
+social problems and you know the
+
+1103
+00:58:36,480 --> 00:58:41,490
+technical detail like you know the speed
+
+1104
+00:58:39,120 --> 00:58:45,540
+problems you run into problems these
+
+1105
+00:58:41,490 --> 00:58:47,730
+problems are not not functional
+
+1106
+00:58:45,540 --> 00:58:49,380
+programming problems it's Python people
+
+1107
+00:58:47,730 --> 00:58:52,740
+problem you know they they create the
+
+1108
+00:58:49,380 --> 00:58:54,330
+language they they they focus on them
+
+1109
+00:58:52,740 --> 00:58:56,290
+functional programming make it run
+
+1110
+00:58:54,330 --> 00:58:58,840
+faster so you know so you
+
+1111
+00:58:56,290 --> 00:59:01,330
+- you are forced in a way to do it that
+
+1112
+00:58:58,840 --> 00:59:04,420
+way - you know Python you know the
+
+1113
+00:59:01,330 --> 00:59:09,550
+Python community so-called pythonic you
+
+1114
+00:59:04,420 --> 00:59:14,020
+have to do it in a Python equate these
+
+1115
+00:59:09,550 --> 00:59:16,720
+jug and idiots hacker types so bathroom
+
+1116
+00:59:14,020 --> 00:59:20,580
+uses is your opinion against or pee your
+
+1117
+00:59:16,720 --> 00:59:20,580
+personal opinion or because of reasons
+
+1118
+00:59:20,700 --> 00:59:28,150
+well both it's my personal opinion for
+
+1119
+00:59:23,950 --> 00:59:30,280
+sure and also because well then you know
+
+1120
+00:59:28,150 --> 00:59:33,430
+you can say you know also because I
+
+1121
+00:59:30,280 --> 00:59:36,940
+think it really you know you die in my
+
+1122
+00:59:33,430 --> 00:59:39,520
+opinion I think almost that the whole
+
+1123
+00:59:36,940 --> 00:59:43,810
+world should not use Opie Opie is just a
+
+1124
+00:59:39,520 --> 00:59:47,260
+mistake it's a bad but but this opinion
+
+1125
+00:59:43,810 --> 00:59:48,160
+it then becomes controversial it depends
+
+1126
+00:59:47,260 --> 00:59:50,740
+on who you ask
+
+1127
+00:59:48,160 --> 00:59:53,710
+I mean essentially when it comes to
+
+1128
+00:59:50,740 --> 00:59:56,440
+programming Styles programming
+
+1129
+00:59:53,710 --> 00:59:59,230
+methodology there is no one answer okay
+
+1130
+00:59:56,440 --> 01:00:01,780
+there's no Universal answer you know
+
+1131
+00:59:59,230 --> 01:00:05,140
+it's not math you know it's it's not
+
+1132
+01:00:01,780 --> 01:00:07,810
+mathematics because why why is it not
+
+1133
+01:00:05,140 --> 01:00:11,350
+math because it's about programming
+
+1134
+01:00:07,810 --> 01:00:13,180
+style right now we don't have tours
+
+1135
+01:00:11,350 --> 01:00:15,670
+formalization to understand the whole
+
+1136
+01:00:13,180 --> 01:00:17,560
+thing because otherwise I can you know I
+
+1137
+01:00:15,670 --> 01:00:19,300
+can just prove here's the proof
+
+1138
+01:00:17,560 --> 01:00:21,340
+functional programming is better than
+
+1139
+01:00:19,300 --> 01:00:23,350
+hope he always you know I write the
+
+1140
+01:00:21,340 --> 01:00:25,620
+proof but we don't have the framework
+
+1141
+01:00:23,350 --> 01:00:28,420
+for this kind of thing yet we don't
+
+1142
+01:00:25,620 --> 01:00:30,580
+there are there are still questions and
+
+1143
+01:00:28,420 --> 01:00:36,100
+the end and as far as style goes you
+
+1144
+01:00:30,580 --> 01:00:38,740
+know they you know for example like
+
+1145
+01:00:36,100 --> 01:00:40,900
+writing Styles writing style writing
+
+1146
+01:00:38,740 --> 01:00:43,000
+English writing style novel writing
+
+1147
+01:00:40,900 --> 01:00:46,930
+style you know you have different styles
+
+1148
+01:00:43,000 --> 01:00:51,070
+and do we have a like do do we have a
+
+1149
+01:00:46,930 --> 01:00:52,990
+academic study that tries to formalize
+
+1150
+01:00:51,070 --> 01:00:55,810
+you know turn these style thing into a
+
+1151
+01:00:52,990 --> 01:00:57,850
+math so that we can say oh this style is
+
+1152
+01:00:55,810 --> 01:01:00,370
+better in some way or not we don't have
+
+1153
+01:00:57,850 --> 01:01:03,730
+that you know the human endeavors you
+
+1154
+01:01:00,370 --> 01:01:06,580
+know we are not at the point where
+
+1155
+01:01:03,730 --> 01:01:09,220
+though everything in every question in
+
+1156
+01:01:06,580 --> 01:01:09,970
+the world is mathematics we don't have
+
+1157
+01:01:09,220 --> 01:01:15,040
+that so
+
+1158
+01:01:09,970 --> 01:01:17,710
+so yeah Opie today for sure okay today
+
+1159
+01:01:15,040 --> 01:01:21,010
+you know on the whole industry all the
+
+1160
+01:01:17,710 --> 01:01:22,930
+programmers considered it is understood
+
+1161
+01:01:21,010 --> 01:01:25,089
+to allowed people at least you know a
+
+1162
+01:01:22,930 --> 01:01:28,089
+lot of people you know they will say
+
+1163
+01:01:25,089 --> 01:01:29,859
+yeah Opie is just no good well
+
+1164
+01:01:28,089 --> 01:01:31,869
+especially the functional programmers
+
+1165
+01:01:29,859 --> 01:01:34,270
+you go ask them or functional
+
+1166
+01:01:31,869 --> 01:01:36,670
+programming academics you know they they
+
+1167
+01:01:34,270 --> 01:01:39,609
+don't think Opie but you know then on
+
+1168
+01:01:36,670 --> 01:01:43,480
+the other hand a lot of people C++ Java
+
+1169
+01:01:39,609 --> 01:01:46,150
+they all say oh oh PC you know this is
+
+1170
+01:01:43,480 --> 01:01:49,569
+the only practical way you know so we
+
+1171
+01:01:46,150 --> 01:01:51,339
+don't have an answer for that Daniel
+
+1172
+01:01:49,569 --> 01:01:55,390
+says reduce the price rolling
+
+1173
+01:01:51,339 --> 01:01:57,250
+computation to sequential Parris this
+
+1174
+01:01:55,390 --> 01:02:07,720
+computation actually works in Python
+
+1175
+01:01:57,250 --> 01:02:09,940
+like these okay 1 2 3 5 7 9 yeah
+
+1176
+01:02:07,720 --> 01:02:12,040
+sabatham you says I heard a lot
+
+1177
+01:02:09,940 --> 01:02:14,349
+beginners say saying they don't
+
+1178
+01:02:12,040 --> 01:02:14,880
+understand monad and use it the wrong
+
+1179
+01:02:14,349 --> 01:02:17,319
+way
+
+1180
+01:02:14,880 --> 01:02:21,250
+Manik you don't don't you don't use it
+
+1181
+01:02:17,319 --> 01:02:22,660
+don't learn it I I know enough to know
+
+1182
+01:02:21,250 --> 01:02:26,050
+what I'm talking about
+
+1183
+01:02:22,660 --> 01:02:30,550
+so when do you use Manik you small Aetna
+
+1184
+01:02:26,050 --> 01:02:33,270
+monad only when you actually programming
+
+1185
+01:02:30,550 --> 01:02:37,359
+Haskell when you program your house cow
+
+1186
+01:02:33,270 --> 01:02:42,730
+well then it's absolutely it's necessary
+
+1187
+01:02:37,359 --> 01:02:45,339
+and it's great that you learn monad and
+
+1188
+01:02:42,730 --> 01:02:48,480
+learn it well and use it ok that is that
+
+1189
+01:02:45,339 --> 01:02:51,040
+is that in Haskell oh similar you know
+
+1190
+01:02:48,480 --> 01:02:54,369
+similar language is kind of you know
+
+1191
+01:02:51,040 --> 01:02:55,839
+Idris or whatever you know you know when
+
+1192
+01:02:54,369 --> 01:02:59,410
+waiting that you are in that situation
+
+1193
+01:02:55,839 --> 01:03:01,300
+yeah you can do it but otherwise don't
+
+1194
+01:02:59,410 --> 01:03:04,000
+you know this is it's one of those
+
+1195
+01:03:01,300 --> 01:03:07,180
+dramatic thing you know that goes viral
+
+1196
+01:03:04,000 --> 01:03:09,310
+monad tail recursion you know Cosi see
+
+1197
+01:03:07,180 --> 01:03:11,530
+like everyone is talking about it in
+
+1198
+01:03:09,310 --> 01:03:14,910
+practice it's you is kind of like
+
+1199
+01:03:11,530 --> 01:03:14,910
+useless okay it's useless
+
+1200
+01:03:17,410 --> 01:03:23,210
+okay so Justine says you need more nanny
+
+1201
+01:03:20,600 --> 01:03:25,820
+has cut it has got to do any kind of
+
+1202
+01:03:23,210 --> 01:03:30,350
+side effect code yes okay I can yeah I
+
+1203
+01:03:25,820 --> 01:03:34,420
+can see that and I I would agree
+
+1204
+01:03:30,350 --> 01:03:34,420
+what about recursion like in JavaScript
+
+1205
+01:03:35,830 --> 01:03:42,770
+in general don't use recursion okay in
+
+1206
+01:03:39,320 --> 01:03:44,090
+general don't use don't use recursion -
+
+1207
+01:03:42,770 --> 01:03:48,110
+neither okay
+
+1208
+01:03:44,090 --> 01:03:51,310
+recursion you know recursion is again
+
+1209
+01:03:48,110 --> 01:03:54,650
+recursion is one of the traumatic thing
+
+1210
+01:03:51,310 --> 01:03:56,600
+recursion recursion is one of the
+
+1211
+01:03:54,650 --> 01:03:59,180
+dramatic thing among the hacker types
+
+1212
+01:03:56,600 --> 01:04:01,340
+you know the who tells you what to do of
+
+1213
+01:03:59,180 --> 01:04:04,370
+you know the language style writing
+
+1214
+01:04:01,340 --> 01:04:06,640
+styles idioms especially yeah especially
+
+1215
+01:04:04,370 --> 01:04:09,770
+from the functional programming people
+
+1216
+01:04:06,640 --> 01:04:13,310
+recursion and also where does recursion
+
+1217
+01:04:09,770 --> 01:04:15,590
+came from it came from theoretical
+
+1218
+01:04:13,310 --> 01:04:17,600
+computer science okay or internally
+
+1219
+01:04:15,590 --> 01:04:20,510
+because you know actually you have a
+
+1220
+01:04:17,600 --> 01:04:22,670
+term code because recursion theory which
+
+1221
+01:04:20,510 --> 01:04:26,290
+is misleading okay recursion theories
+
+1222
+01:04:22,670 --> 01:04:29,800
+actually about computability you know
+
+1223
+01:04:26,290 --> 01:04:32,210
+decidability theory okay that's all
+
+1224
+01:04:29,800 --> 01:04:34,220
+theoretical computer science in other
+
+1225
+01:04:32,210 --> 01:04:36,830
+way like Tareen machines and lambda
+
+1226
+01:04:34,220 --> 01:04:39,830
+calculus they are so abstract and far
+
+1227
+01:04:36,830 --> 01:04:41,380
+away - between average programmers even
+
+1228
+01:04:39,830 --> 01:04:44,240
+ask our programmers they know nothing
+
+1229
+01:04:41,380 --> 01:04:46,370
+zero nothing about it they what they
+
+1230
+01:04:44,240 --> 01:04:48,800
+know it's like to me machine they they
+
+1231
+01:04:46,370 --> 01:04:50,900
+have it in their mouth every day or
+
+1232
+01:04:48,800 --> 01:04:53,390
+something oh this is Turing complete
+
+1233
+01:04:50,900 --> 01:04:57,970
+language oh oh that is curing complete
+
+1234
+01:04:53,390 --> 01:05:00,920
+language idiots okay turning complete
+
+1235
+01:04:57,970 --> 01:05:03,260
+you know your piece stream when you go
+
+1236
+01:05:00,920 --> 01:05:06,950
+to bathroom take a piece your pee stream
+
+1237
+01:05:03,260 --> 01:05:08,930
+is chewing complete like when you when
+
+1238
+01:05:06,950 --> 01:05:10,820
+you talk about some this concept of a
+
+1239
+01:05:08,930 --> 01:05:14,810
+math concept Oh everything you you need
+
+1240
+01:05:10,820 --> 01:05:16,910
+to have a context then you realize why
+
+1241
+01:05:14,810 --> 01:05:18,980
+daddy you know how important that term
+
+1242
+01:05:16,910 --> 01:05:20,450
+is when you don't have the contact on
+
+1243
+01:05:18,980 --> 01:05:23,060
+test you know you just say you don't
+
+1244
+01:05:20,450 --> 01:05:25,010
+know like like children says oh we have
+
+1245
+01:05:23,060 --> 01:05:27,800
+a flying car you know what does the
+
+1246
+01:05:25,010 --> 01:05:30,230
+children do you think flying car is
+
+1247
+01:05:27,800 --> 01:05:30,980
+important how important is a doubt you
+
+1248
+01:05:30,230 --> 01:05:33,680
+know
+
+1249
+01:05:30,980 --> 01:05:35,840
+we have trains we have foodies trains we
+
+1250
+01:05:33,680 --> 01:05:38,800
+have airplanes we have helicopters we
+
+1251
+01:05:35,840 --> 01:05:41,480
+have bus we have bicycles what kind of
+
+1252
+01:05:38,800 --> 01:05:44,150
+communication then we understand what we
+
+1253
+01:05:41,480 --> 01:05:46,970
+need to do transportation then then you
+
+1254
+01:05:44,150 --> 01:05:49,190
+you know you have the context then the
+
+1255
+01:05:46,970 --> 01:05:51,740
+word flying cars comes to your mind you
+
+1256
+01:05:49,190 --> 01:05:53,570
+know oh that's you know you you know
+
+1257
+01:05:51,740 --> 01:05:55,940
+where you know that thing is in the
+
+1258
+01:05:53,570 --> 01:05:57,640
+whole context you know okay that's a you
+
+1259
+01:05:55,940 --> 01:06:00,530
+know you'll be nice to have something
+
+1260
+01:05:57,640 --> 01:06:02,600
+but they say children in five years old
+
+1261
+01:06:00,530 --> 01:06:04,250
+they say they talk about oh I'll give oh
+
+1262
+01:06:02,600 --> 01:06:06,800
+my dad says flying car you know
+
+1263
+01:06:04,250 --> 01:06:08,750
+something what does he know you know
+
+1264
+01:06:06,800 --> 01:06:11,920
+that that's in the same way you know
+
+1265
+01:06:08,750 --> 01:06:15,080
+when when these people are talking about
+
+1266
+01:06:11,920 --> 01:06:17,210
+tail recursion recursion oh the you know
+
+1267
+01:06:15,080 --> 01:06:21,010
+the Monad stuff you know those are
+
+1268
+01:06:17,210 --> 01:06:24,050
+traumatic words so recursion came from
+
+1269
+01:06:21,010 --> 01:06:28,970
+well anyway so recursion you don't do it
+
+1270
+01:06:24,050 --> 01:06:34,369
+in general because recursion it's it's
+
+1271
+01:06:28,970 --> 01:06:37,359
+extremely elegant because it captures it
+
+1272
+01:06:34,369 --> 01:06:40,490
+captures recursion you know it captures
+
+1273
+01:06:37,359 --> 01:06:43,369
+what's going on in kind of in kind of
+
+1274
+01:06:40,490 --> 01:06:47,600
+precise detail that's what recursion
+
+1275
+01:06:43,369 --> 01:06:50,180
+does okay but by the way there's a there
+
+1276
+01:06:47,600 --> 01:06:52,640
+are many meanings to the word recursions
+
+1277
+01:06:50,180 --> 01:06:54,590
+also in theoretical computer science it
+
+1278
+01:06:52,640 --> 01:06:56,810
+means something else you know but for
+
+1279
+01:06:54,590 --> 01:06:59,810
+typical programmers it means you know
+
+1280
+01:06:56,810 --> 01:07:02,060
+coding a function a function that calls
+
+1281
+01:06:59,810 --> 01:07:03,650
+itself that's recursion you know for
+
+1282
+01:07:02,060 --> 01:07:06,500
+average programmers that's what
+
+1283
+01:07:03,650 --> 01:07:07,390
+recursion is and scheme people you know
+
+1284
+01:07:06,500 --> 01:07:11,359
+they love it
+
+1285
+01:07:07,390 --> 01:07:13,820
+please people as well specifically the
+
+1286
+01:07:11,359 --> 01:07:17,090
+scheme people love it but in general
+
+1287
+01:07:13,820 --> 01:07:19,100
+don't do it or the other than scheme
+
+1288
+01:07:17,090 --> 01:07:22,160
+well if you coding scheme yeah do it do
+
+1289
+01:07:19,100 --> 01:07:26,570
+it you know but other in in JavaScript
+
+1290
+01:07:22,160 --> 01:07:29,030
+for example don't do it why because it
+
+1291
+01:07:26,570 --> 01:07:32,119
+makes your code harder to understand
+
+1292
+01:07:29,030 --> 01:07:35,210
+actually yes it makes it actually harder
+
+1293
+01:07:32,119 --> 01:07:38,270
+to understand also typically it's it's
+
+1294
+01:07:35,210 --> 01:07:41,630
+slower okay because it's it's harder to
+
+1295
+01:07:38,270 --> 01:07:44,590
+implement it you know then you have tail
+
+1296
+01:07:41,630 --> 01:07:44,590
+recursion okay
+
+1297
+01:07:44,630 --> 01:07:50,810
+you know and recently you know in
+
+1298
+01:07:47,000 --> 01:07:53,930
+JavaScript es2015 tail recursion became
+
+1299
+01:07:50,810 --> 01:07:56,360
+part of JavaScript okay meaning that if
+
+1300
+01:07:53,930 --> 01:07:59,120
+you write a recursion code and if it's
+
+1301
+01:07:56,360 --> 01:08:02,780
+tail recursion then it's guaranteed to
+
+1302
+01:07:59,120 --> 01:08:05,000
+be fast linear time any way that that's
+
+1303
+01:08:02,780 --> 01:08:08,200
+more details but anyway in general don't
+
+1304
+01:08:05,000 --> 01:08:10,790
+we don't do recursion okay in general
+
+1305
+01:08:08,200 --> 01:08:14,000
+because when you write code that's
+
+1306
+01:08:10,790 --> 01:08:16,130
+iterative that's actually easier much
+
+1307
+01:08:14,000 --> 01:08:18,560
+easier to understand what's what's going
+
+1308
+01:08:16,130 --> 01:08:23,510
+on what the code is doing and also it's
+
+1309
+01:08:18,560 --> 01:08:25,280
+faster simpler things like that and also
+
+1310
+01:08:23,510 --> 01:08:28,190
+when you do recursion when you have a
+
+1311
+01:08:25,280 --> 01:08:30,500
+bug it's it's hard it's hard to get it
+
+1312
+01:08:28,190 --> 01:08:35,780
+right you know you it's hard to get it
+
+1313
+01:08:30,500 --> 01:08:45,410
+right so just in says okay so I'm gonna
+
+1314
+01:08:35,780 --> 01:08:47,060
+read more comments so just in says this
+
+1315
+01:08:45,410 --> 01:08:48,740
+is great advice program simple
+
+1316
+01:08:47,060 --> 01:08:50,870
+functional programming first and you
+
+1317
+01:08:48,740 --> 01:08:54,020
+will start to spot patterns
+
+1318
+01:08:50,870 --> 01:08:56,480
+yeah then learn to advance things so
+
+1319
+01:08:54,020 --> 01:08:59,930
+daniel says small ad Moana don't get
+
+1320
+01:08:56,480 --> 01:09:02,650
+bombarded by penetrate category theory
+
+1321
+01:08:59,930 --> 01:09:02,650
+yeah
+
+1322
+01:09:03,850 --> 01:09:11,359
+similar management sometimes gonna you
+
+1323
+01:09:08,750 --> 01:09:11,690
+know so monad is you know actually I
+
+1324
+01:09:11,359 --> 01:09:13,550
+don't
+
+1325
+01:09:11,690 --> 01:09:16,600
+let's not talk about monad because I
+
+1326
+01:09:13,550 --> 01:09:20,720
+don't really know Haskell
+
+1327
+01:09:16,600 --> 01:09:23,960
+but basically basically nomura is a way
+
+1328
+01:09:20,720 --> 01:09:27,560
+to capture side effect in a in some kind
+
+1329
+01:09:23,960 --> 01:09:32,240
+of a side-effect free way you you
+
+1330
+01:09:27,560 --> 01:09:34,760
+capture you know is kind of like that so
+
+1331
+01:09:32,240 --> 01:09:43,609
+bathroom you says why are iterators bad
+
+1332
+01:09:34,760 --> 01:09:45,200
+that's well first of all iterators okay
+
+1333
+01:09:43,609 --> 01:09:47,060
+first of all iterators when you do
+
+1334
+01:09:45,200 --> 01:09:49,520
+anything with it erasers that's not
+
+1335
+01:09:47,060 --> 01:09:52,370
+functional programming okay so in
+
+1336
+01:09:49,520 --> 01:09:54,500
+today's talk context that's why it's bad
+
+1337
+01:09:52,370 --> 01:09:56,800
+you don't want it because it's not
+
+1338
+01:09:54,500 --> 01:09:58,430
+functional programming in fact
+
+1339
+01:09:56,800 --> 01:10:03,530
+iterators with
+
+1340
+01:09:58,430 --> 01:10:06,130
+came from it came from Opie it kind of
+
+1341
+01:10:03,530 --> 01:10:12,260
+came from all P languages they try to
+
+1342
+01:10:06,130 --> 01:10:16,720
+they try to they try to make the loop
+
+1343
+01:10:12,260 --> 01:10:19,550
+they tried to make improve the for loop
+
+1344
+01:10:16,720 --> 01:10:22,160
+they try to improve the for loop and
+
+1345
+01:10:19,550 --> 01:10:25,550
+because it's all P so they tried to make
+
+1346
+01:10:22,160 --> 01:10:28,400
+improve the whole the for loop in a ob
+
+1347
+01:10:25,550 --> 01:10:31,310
+way then you got iterators okay they try
+
+1348
+01:10:28,400 --> 01:10:35,180
+to abstract it in a all P style so you
+
+1349
+01:10:31,310 --> 01:10:38,330
+got iterators iterators does not exist
+
+1350
+01:10:35,180 --> 01:10:41,410
+in functional programming languages well
+
+1351
+01:10:38,330 --> 01:10:44,630
+today you see some of these things gets
+
+1352
+01:10:41,410 --> 01:10:46,400
+complex because now today in many
+
+1353
+01:10:44,630 --> 01:10:49,580
+functional programming languages
+
+1354
+01:10:46,400 --> 01:10:53,270
+you also have iterators you know then
+
+1355
+01:10:49,580 --> 01:10:55,640
+you become you know so it becomes like
+
+1356
+01:10:53,270 --> 01:10:57,950
+what what does an object me object means
+
+1357
+01:10:55,640 --> 01:11:03,590
+so many things in different languages in
+
+1358
+01:10:57,950 --> 01:11:06,500
+the same way iterator is iterator is
+
+1359
+01:11:03,590 --> 01:11:09,110
+mostly a thing from object-oriented
+
+1360
+01:11:06,500 --> 01:11:12,340
+programming languages you have iterate
+
+1361
+01:11:09,110 --> 01:11:16,330
+iterate errs in Java in Python in
+
+1362
+01:11:12,340 --> 01:11:16,330
+JavaScript okay
+
+1363
+01:11:16,370 --> 01:11:21,950
+but in traditional functional languages
+
+1364
+01:11:19,100 --> 01:11:24,590
+you don't have that at all but I think
+
+1365
+01:11:21,950 --> 01:11:27,110
+today you you might have that in some
+
+1366
+01:11:24,590 --> 01:11:29,540
+functional languages is that true do
+
+1367
+01:11:27,110 --> 01:11:35,810
+they have iterators inch in Haskell
+
+1368
+01:11:29,540 --> 01:11:40,090
+adjusting so how long I've been talking
+
+1369
+01:11:35,810 --> 01:11:40,090
+so okay this is getting too long I guess
+
+1370
+01:11:41,080 --> 01:11:50,930
+okay so we should wrap up and so why is
+
+1371
+01:11:46,910 --> 01:11:53,690
+iterative bad actually I have article if
+
+1372
+01:11:50,930 --> 01:11:56,600
+you want to read it or we can we can
+
+1373
+01:11:53,690 --> 01:12:00,920
+explain it in some other day but let's
+
+1374
+01:11:56,600 --> 01:12:04,180
+go to semantic new dos let's search for
+
+1375
+01:12:00,920 --> 01:12:07,340
+ETA raters okay iterators so here
+
+1376
+01:12:04,180 --> 01:12:09,950
+programming language design iterator not
+
+1377
+01:12:07,340 --> 01:12:11,790
+enumerator abstract abstraction went
+
+1378
+01:12:09,950 --> 01:12:13,710
+wrong
+
+1379
+01:12:11,790 --> 01:12:16,380
+now I wrote this article because I
+
+1380
+01:12:13,710 --> 01:12:19,110
+always I always hated iterators and the
+
+1381
+01:12:16,380 --> 01:12:23,880
+enumerators or these kind of stuff so I
+
+1382
+01:12:19,110 --> 01:12:28,020
+posted on Google+ and one guy you know
+
+1383
+01:12:23,880 --> 01:12:30,600
+he he's a C program expert okay so in
+
+1384
+01:12:28,020 --> 01:12:32,940
+doing our exchange he mentioned you know
+
+1385
+01:12:30,600 --> 01:12:37,110
+in a sense iterator is bad is good
+
+1386
+01:12:32,940 --> 01:12:40,740
+because it actually abstract away the
+
+1387
+01:12:37,110 --> 01:12:42,630
+for loop you know you know P like we
+
+1388
+01:12:40,740 --> 01:12:45,570
+showed before in JavaScript you have for
+
+1389
+01:12:42,630 --> 01:12:47,460
+loop which is kind of ugly you know
+
+1390
+01:12:45,570 --> 01:12:51,950
+there's no structure you know it's just
+
+1391
+01:12:47,460 --> 01:12:55,950
+for I equals to 1 when I is less than 10
+
+1392
+01:12:51,950 --> 01:12:57,510
+you know up to I Inc increment I then
+
+1393
+01:12:55,950 --> 01:12:59,640
+you do something you know that's kind of
+
+1394
+01:12:57,510 --> 01:13:03,740
+no structure kind of you know for loop
+
+1395
+01:12:59,640 --> 01:13:08,010
+so OPP vote improved it so they kind of
+
+1396
+01:13:03,740 --> 01:13:09,900
+abstract it so instead of just syntax
+
+1397
+01:13:08,010 --> 01:13:14,520
+you know for I equals or something they
+
+1398
+01:13:09,900 --> 01:13:17,070
+created a object where the object is a
+
+1399
+01:13:14,520 --> 01:13:19,950
+list of items for example this you know
+
+1400
+01:13:17,070 --> 01:13:23,880
+OB object you have list items inside it
+
+1401
+01:13:19,950 --> 01:13:25,680
+then you have a method you know that
+
+1402
+01:13:23,880 --> 01:13:29,120
+like the iterator enumerator you have a
+
+1403
+01:13:25,680 --> 01:13:32,550
+method that will go through these items
+
+1404
+01:13:29,120 --> 01:13:35,940
+that that is basically what iterators is
+
+1405
+01:13:32,550 --> 01:13:38,550
+about you know they're just doing for
+
+1406
+01:13:35,940 --> 01:13:43,770
+loop being a more kind of OB way
+
+1407
+01:13:38,550 --> 01:13:47,730
+structured OB way so so the question
+
+1408
+01:13:43,770 --> 01:13:51,480
+then here's a question to me you know so
+
+1409
+01:13:47,730 --> 01:13:54,480
+I hate iterator so much well but then
+
+1410
+01:13:51,480 --> 01:13:58,260
+the OB people will say well iterator is
+
+1411
+01:13:54,480 --> 01:14:01,110
+actually just a abstraction you know so
+
+1412
+01:13:58,260 --> 01:14:05,040
+so abstraction is typically good so also
+
+1413
+01:14:01,110 --> 01:14:07,320
+so that seems to counter so what is my
+
+1414
+01:14:05,040 --> 01:14:10,740
+actual hatred for iterators you know how
+
+1415
+01:14:07,320 --> 01:14:13,980
+can can I possibly write them out you
+
+1416
+01:14:10,740 --> 01:14:16,370
+know as a logical reason why do I hate
+
+1417
+01:14:13,980 --> 01:14:19,470
+iterators so here's my answer
+
+1418
+01:14:16,370 --> 01:14:22,530
+basically my answer is it's abstraction
+
+1419
+01:14:19,470 --> 01:14:25,580
+went wrong okay because abstraction you
+
+1420
+01:14:22,530 --> 01:14:28,100
+see the thing about abstraction is
+
+1421
+01:14:25,580 --> 01:14:32,810
+that you can abstract anything in any
+
+1422
+01:14:28,100 --> 01:14:35,180
+way you know I can abstract you know you
+
+1423
+01:14:32,810 --> 01:14:36,980
+have to actually try to do it I mean you
+
+1424
+01:14:35,180 --> 01:14:39,320
+look at the programming language there
+
+1425
+01:14:36,980 --> 01:14:41,720
+are medium ways you can abstract medium
+
+1426
+01:14:39,320 --> 01:14:44,990
+ways you know of a programming language
+
+1427
+01:14:41,720 --> 01:14:48,170
+you can do it like almost arbitrary and
+
+1428
+01:14:44,990 --> 01:14:50,540
+so you can create a result that is just
+
+1429
+01:14:48,170 --> 01:14:54,230
+basically pure garbage incomprehensible
+
+1430
+01:14:50,540 --> 01:14:58,160
+garbage by by abstraction you know that
+
+1431
+01:14:54,230 --> 01:15:00,800
+you can do that so so my logical reason
+
+1432
+01:14:58,160 --> 01:15:03,440
+again is iterator the logical reason is
+
+1433
+01:15:00,800 --> 01:15:06,940
+they are simply just bad abstraction
+
+1434
+01:15:03,440 --> 01:15:10,760
+okay you shouldn't that that's why
+
+1435
+01:15:06,940 --> 01:15:13,850
+anyway so that's my reason about that
+
+1436
+01:15:10,760 --> 01:15:21,620
+let me just focus on the comments
+
+1437
+01:15:13,850 --> 01:15:23,710
+addressed to me then for hope he was a
+
+1438
+01:15:21,620 --> 01:15:26,360
+mistake but by the way that's not
+
+1439
+01:15:23,710 --> 01:15:28,340
+controversial at all because a lot of
+
+1440
+01:15:26,360 --> 01:15:30,140
+people I mean if you you know if you
+
+1441
+01:15:28,340 --> 01:15:33,020
+follow programming languages that's not
+
+1442
+01:15:30,140 --> 01:15:38,050
+controversial at all you will hear a lot
+
+1443
+01:15:33,020 --> 01:15:44,420
+actually a lot articles even from 1980s
+
+1444
+01:15:38,050 --> 01:15:46,520
+for example let me show you some you
+
+1445
+01:15:44,420 --> 01:15:48,890
+know articles from old school people
+
+1446
+01:15:46,520 --> 01:15:56,690
+these these programmers for example
+
+1447
+01:15:48,890 --> 01:15:58,970
+let's go to semantic noodle iterators
+
+1448
+01:15:56,690 --> 01:16:01,250
+okay so I explained my reasons but there
+
+1449
+01:15:58,970 --> 01:16:04,520
+is a much older guy
+
+1450
+01:16:01,250 --> 01:16:07,640
+see this Arco iterators science of
+
+1451
+01:16:04,520 --> 01:16:12,320
+weakness in object-oriented languages
+
+1452
+01:16:07,640 --> 01:16:15,560
+this is written in 1992 by Henry G Baker
+
+1453
+01:16:12,320 --> 01:16:17,810
+now Henry G Baker is a famous Lisp
+
+1454
+01:16:15,560 --> 01:16:20,180
+programmer he's a computer science ok I
+
+1455
+01:16:17,810 --> 01:16:22,480
+think he you can look him up
+
+1456
+01:16:20,180 --> 01:16:27,320
+I think he's got a article I mean
+
+1457
+01:16:22,480 --> 01:16:30,470
+Wikipedia is a entry of him so you can
+
+1458
+01:16:27,320 --> 01:16:32,690
+kind of you know look so he wrote Alko
+
+1459
+01:16:30,470 --> 01:16:35,540
+back in 1992
+
+1460
+01:16:32,690 --> 01:16:39,680
+that's criticizing iterators you know
+
+1461
+01:16:35,540 --> 01:16:43,810
+you can read that and let me go back to
+
+1462
+01:16:39,680 --> 01:16:47,810
+Oh P jargons explaining functional
+
+1463
+01:16:43,810 --> 01:16:55,040
+concepts okay so this article had a very
+
+1464
+01:16:47,810 --> 01:16:59,120
+button you have you have this guy let's
+
+1465
+01:16:55,040 --> 01:17:02,480
+let's open jaws scoff Ali he wrote an
+
+1466
+01:16:59,120 --> 01:17:05,810
+article in 2016 he wrote a blog
+
+1467
+01:17:02,480 --> 01:17:09,680
+goodbye object-oriented programming and
+
+1468
+01:17:05,810 --> 01:17:14,510
+in my opinion is pretty good so this is
+
+1469
+01:17:09,680 --> 01:17:19,340
+his criticism of Opie and apparently he
+
+1470
+01:17:14,510 --> 01:17:23,060
+is Opie guy you know he bought into Opie
+
+1471
+01:17:19,340 --> 01:17:28,280
+for ten years and and any in this blog
+
+1472
+01:17:23,060 --> 01:17:32,360
+he he take you know he decomposes all
+
+1473
+01:17:28,280 --> 01:17:34,040
+these Opie myth you know that's supposed
+
+1474
+01:17:32,360 --> 01:17:36,790
+to be good the interns are actually
+
+1475
+01:17:34,040 --> 01:17:46,880
+doesn't work out inheritance for example
+
+1476
+01:17:36,790 --> 01:17:50,420
+inheritance and the diamond problem the
+
+1477
+01:17:46,880 --> 01:17:54,110
+crass problem the base class problem you
+
+1478
+01:17:50,420 --> 01:17:59,360
+know anyway the base class problem the
+
+1479
+01:17:54,110 --> 01:18:02,000
+hierarchy problem encapsulation the myth
+
+1480
+01:17:59,360 --> 01:18:04,880
+of encapsulation in capitalization is
+
+1481
+01:18:02,000 --> 01:18:07,690
+crap you know get a degree you know
+
+1482
+01:18:04,880 --> 01:18:10,310
+anyway so that's his take you know I I
+
+1483
+01:18:07,690 --> 01:18:12,920
+explained my take here so you can read
+
+1484
+01:18:10,310 --> 01:18:16,130
+his you know it's so today among
+
+1485
+01:18:12,920 --> 01:18:18,380
+especially among a lot functional for me
+
+1486
+01:18:16,130 --> 01:18:21,140
+you know function of Hermes becoming
+
+1487
+01:18:18,380 --> 01:18:24,200
+very popular you have that in JavaScript
+
+1488
+01:18:21,140 --> 01:18:26,710
+you have that enclosure in Haskell you
+
+1489
+01:18:24,200 --> 01:18:29,830
+know Haskell is using Facebook you know
+
+1490
+01:18:26,710 --> 01:18:32,450
+okay mo is also using Facebook f-sharp
+
+1491
+01:18:29,830 --> 01:18:35,270
+Microsoft invented F sharp which is a
+
+1492
+01:18:32,450 --> 01:18:36,740
+okay more derivative you know so all
+
+1493
+01:18:35,270 --> 01:18:39,320
+those are functional programming so
+
+1494
+01:18:36,740 --> 01:18:42,230
+functional programming today it's not a
+
+1495
+01:18:39,320 --> 01:18:44,300
+niche anymore it's rather it's a kind of
+
+1496
+01:18:42,230 --> 01:18:50,060
+still minority I would say but it's
+
+1497
+01:18:44,300 --> 01:18:53,030
+pretty big so the criticism of all P is
+
+1498
+01:18:50,060 --> 01:18:55,610
+actually mainstream is not
+
+1499
+01:18:53,030 --> 01:18:58,730
+it's not a you know crazy idea anymore
+
+1500
+01:18:55,610 --> 01:19:02,599
+so so oh if he is a mistake that's
+
+1501
+01:18:58,730 --> 01:19:09,980
+actually you know minority view but but
+
+1502
+01:19:02,599 --> 01:19:11,929
+pretty pretty mainstream now so anything
+
+1503
+01:19:09,980 --> 01:19:14,630
+else I think I'm going to end it now
+
+1504
+01:19:11,929 --> 01:19:16,760
+like let's say one more minutes or two
+
+1505
+01:19:14,630 --> 01:19:18,670
+more minutes something like that so any
+
+1506
+01:19:16,760 --> 01:19:23,570
+new comments posted okay
+
+1507
+01:19:18,670 --> 01:19:27,949
+and actually I need to go to I need to
+
+1508
+01:19:23,570 --> 01:19:32,150
+go as well so so let me read the
+
+1509
+01:19:27,949 --> 01:19:36,400
+comments so another rise or not hang
+
+1510
+01:19:32,150 --> 01:19:36,400
+window windowing
+
+1511
+01:19:55,550 --> 01:20:03,469
+attach - good morning from good morning
+
+1512
+01:19:58,639 --> 01:20:07,249
+to chilly can you talk about two J's
+
+1513
+01:20:03,469 --> 01:20:10,999
+write a English - Brielle converter yes
+
+1514
+01:20:07,249 --> 01:20:15,469
+we can do that not today let's do that
+
+1515
+01:20:10,999 --> 01:20:17,389
+next time okay so next time let's maybe
+
+1516
+01:20:15,469 --> 01:20:19,880
+we do that tomorrow
+
+1517
+01:20:17,389 --> 01:20:21,860
+and we can explain that but you know you
+
+1518
+01:20:19,880 --> 01:20:24,139
+you know come to my you know yeah you
+
+1519
+01:20:21,860 --> 01:20:27,260
+you come you know it would be great if
+
+1520
+01:20:24,139 --> 01:20:28,789
+you come you know early then you say
+
+1521
+01:20:27,260 --> 01:20:33,760
+that we can do that because otherwise
+
+1522
+01:20:28,789 --> 01:20:36,739
+other people we cover other topics
+
+1523
+01:20:33,760 --> 01:20:39,469
+change yours I copied the bad one I mean
+
+1524
+01:20:36,739 --> 01:20:43,150
+talk about this for understand
+
+1525
+01:20:39,469 --> 01:20:47,090
+JavaScript object in depth okay so yeah
+
+1526
+01:20:43,150 --> 01:20:55,460
+JavaScript object in depth so we can
+
+1527
+01:20:47,090 --> 01:21:03,729
+talk about about that next next time yes
+
+1528
+01:20:55,460 --> 01:21:10,219
+react.js Abdo yes in Web Audio API and
+
+1529
+01:21:03,729 --> 01:21:12,679
+Dre so and Ray you talk you talking
+
+1530
+01:21:10,219 --> 01:21:17,989
+about that avi all the time are you are
+
+1531
+01:21:12,679 --> 01:21:21,289
+you did you write that API or something
+
+1532
+01:21:17,989 --> 01:21:24,949
+like looks like you are trying to sell
+
+1533
+01:21:21,289 --> 01:21:27,019
+that apip five dollar JJ s like you
+
+1534
+01:21:24,949 --> 01:21:30,010
+talked about that few times and I don't
+
+1535
+01:21:27,019 --> 01:21:30,010
+know nothing about it
+
+1536
+01:21:30,079 --> 01:21:37,239
+you know and I I talked about why it's a
+
+1537
+01:21:34,789 --> 01:21:37,239
+problem
+
+1538
+01:21:38,559 --> 01:21:44,989
+so are you like are you are you
+
+1539
+01:21:42,559 --> 01:21:47,179
+marketing are you marketing for that
+
+1540
+01:21:44,989 --> 01:21:50,269
+team or something what's your
+
+1541
+01:21:47,179 --> 01:21:51,829
+interesting that you know type it why
+
+1542
+01:21:50,269 --> 01:21:54,699
+are you doing that where are you
+
+1543
+01:21:51,829 --> 01:21:54,699
+interesting that
+
+1544
+01:22:00,830 --> 01:22:05,240
+so yeah such you know I don't want to
+
+1545
+01:22:03,380 --> 01:22:06,790
+such a I mean yeah we did it last time
+
+1546
+01:22:05,240 --> 01:22:10,330
+you were here
+
+1547
+01:22:06,790 --> 01:22:20,690
+p5.js logarithmic frequency stroke
+
+1548
+01:22:10,330 --> 01:22:22,520
+spectrum yeah so and Ray say it like
+
+1549
+01:22:20,690 --> 01:22:28,790
+answer you know why are you interested
+
+1550
+01:22:22,520 --> 01:22:30,500
+in that you know would a logarithm
+
+1551
+01:22:28,790 --> 01:22:34,040
+I don't like logarithms you know
+
+1552
+01:22:30,500 --> 01:22:38,470
+logarithm is the math function ID
+
+1553
+01:22:34,040 --> 01:22:38,470
+I don't like logarithms
+
+1554
+01:22:44,200 --> 01:22:57,190
+so anything else that's it for today so
+
+1555
+01:22:54,670 --> 01:22:59,980
+a spinal spinal champ says can use
+
+1556
+01:22:57,190 --> 01:23:04,330
+samples from your streams in music yes
+
+1557
+01:22:59,980 --> 01:23:08,110
+of course yes feel free you know make
+
+1558
+01:23:04,330 --> 01:23:11,500
+derivative work of Sally talk shocks are
+
+1559
+01:23:08,110 --> 01:23:20,170
+touchy okay make ensued and make a mean
+
+1560
+01:23:11,500 --> 01:23:23,110
+make a mean spam the other chance you
+
+1561
+01:23:20,170 --> 01:23:25,930
+should you should read window function
+
+1562
+01:23:23,110 --> 01:23:32,620
+on Wikipedia what are you talking about
+
+1563
+01:23:25,930 --> 01:23:36,760
+and Ray what window functions okay
+
+1564
+01:23:32,620 --> 01:23:40,180
+analysis good float what okay so that's
+
+1565
+01:23:36,760 --> 01:23:43,330
+it for today I think that's it for today
+
+1566
+01:23:40,180 --> 01:23:44,260
+so spinal champ spinal champ I forgot
+
+1567
+01:23:43,330 --> 01:23:46,690
+you from where you from
+
+1568
+01:23:44,260 --> 01:23:48,990
+so are you like what are you trying to
+
+1569
+01:23:46,690 --> 01:23:48,990
+make
+
+1570
+01:23:55,970 --> 01:24:01,350
+Spano champ what are you trying to make
+
+1571
+01:23:58,940 --> 01:24:04,320
+okay that's it for today thank you guys
+
+1572
+01:24:01,350 --> 01:24:08,720
+for watching thank you bathroom you and
+
+1573
+01:24:04,320 --> 01:24:12,230
+g-tron crazy great to see you here and
+
+1574
+01:24:08,720 --> 01:24:16,560
+adjusting and oh you guys are you people
+
+1575
+01:24:12,230 --> 01:24:20,460
+that's it for today and I go to take a
+
+1576
+01:24:16,560 --> 01:24:23,730
+piss and I go to eat or whatever and you
+
+1577
+01:24:20,460 --> 01:24:27,240
+guys go do whatever it is that you guys
+
+1578
+01:24:23,730 --> 01:24:30,410
+do in different countries so bathroom
+
+1579
+01:24:27,240 --> 01:24:39,470
+you you're gonna wake up you're gonna do
+
+1580
+01:24:30,410 --> 01:24:39,470
+work or whatever and Abdo by right by
+

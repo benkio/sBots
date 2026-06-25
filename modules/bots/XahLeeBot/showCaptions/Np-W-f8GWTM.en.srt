@@ -1,0 +1,4612 @@
+1
+00:00:08,559 --> 00:00:11,440
+good morning guys
+
+2
+00:00:11,519 --> 00:00:15,679
+welcome to another episode of star talk
+
+3
+00:00:13,920 --> 00:00:18,720
+show
+
+4
+00:00:15,679 --> 00:00:22,000
+today is 2020 august
+
+5
+00:00:18,720 --> 00:00:24,640
+20th thursday and
+
+6
+00:00:22,000 --> 00:00:25,519
+8 o'clock in the morning san francisco
+
+7
+00:00:24,640 --> 00:00:27,279
+time
+
+8
+00:00:25,519 --> 00:00:29,679
+and today we are going to talk about
+
+9
+00:00:27,279 --> 00:00:33,200
+emacs
+
+10
+00:00:29,679 --> 00:00:35,680
+and e-max leads coding so
+
+11
+00:00:33,200 --> 00:00:36,559
+let me show you what is the background
+
+12
+00:00:35,680 --> 00:00:39,360
+image today
+
+13
+00:00:36,559 --> 00:00:40,480
+so the background image today is this vi
+
+14
+00:00:39,360 --> 00:00:45,120
+versus vim
+
+15
+00:00:40,480 --> 00:00:47,840
+so apparently someone at facebook uh
+
+16
+00:00:45,120 --> 00:00:49,360
+fields but restart you know uh facebook
+
+17
+00:00:47,840 --> 00:00:52,399
+there's a coffee shop
+
+18
+00:00:49,360 --> 00:00:55,120
+fields coffee uh you know they
+
+19
+00:00:52,399 --> 00:00:56,079
+the waitress or whatever they put up the
+
+20
+00:00:55,120 --> 00:01:00,160
+cups
+
+21
+00:00:56,079 --> 00:01:04,640
+for tips vi versus vim
+
+22
+00:01:00,160 --> 00:01:04,640
+and this is back in 2014
+
+23
+00:01:04,799 --> 00:01:08,560
+so that's a background image and let's
+
+24
+00:01:07,600 --> 00:01:13,920
+shall we begin
+
+25
+00:01:08,560 --> 00:01:13,920
+emacs list coding am i alive and uh
+
+26
+00:01:15,119 --> 00:01:18,960
+yes i'm alive good
+
+27
+00:01:19,759 --> 00:01:24,640
+okay so we're gonna we're gonna uh hey
+
+28
+00:01:22,159 --> 00:01:27,280
+green deck haven't seen you for
+
+29
+00:01:24,640 --> 00:01:28,000
+a while yes i haven't started morning
+
+30
+00:01:27,280 --> 00:01:31,439
+morning
+
+31
+00:01:28,000 --> 00:01:34,479
+show for a while uh yes it's been
+
+32
+00:01:31,439 --> 00:01:37,040
+recorded it's a live
+
+33
+00:01:34,479 --> 00:01:38,400
+it's a live recording so it's gonna be
+
+34
+00:01:37,040 --> 00:01:40,960
+on youtube
+
+35
+00:01:38,400 --> 00:01:43,360
+after a while so today's talk show so
+
+36
+00:01:40,960 --> 00:01:44,240
+let's start emacs coding so what what we
+
+37
+00:01:43,360 --> 00:01:47,439
+are going to do
+
+38
+00:01:44,240 --> 00:01:54,399
+is so we i'm going to code emac this
+
+39
+00:01:47,439 --> 00:01:58,320
+live and explain it and uh
+
+40
+00:01:54,399 --> 00:01:58,640
+then yeah so that's what we are going to
+
+41
+00:01:58,320 --> 00:02:02,560
+do
+
+42
+00:01:58,640 --> 00:02:06,079
+and maybe after that we talk random
+
+43
+00:02:02,560 --> 00:02:09,280
+possibly so what we're going to do is
+
+44
+00:02:06,079 --> 00:02:11,520
+uh i want so i write blogs right so for
+
+45
+00:02:09,280 --> 00:02:12,879
+example i write blogs so i go to my
+
+46
+00:02:11,520 --> 00:02:16,080
+emacs blog
+
+47
+00:02:12,879 --> 00:02:18,000
+i want to sometimes i watch some videos
+
+48
+00:02:16,080 --> 00:02:20,000
+i want to include the video
+
+49
+00:02:18,000 --> 00:02:22,720
+so for example let me show you this
+
+50
+00:02:20,000 --> 00:02:26,640
+interesting video
+
+51
+00:02:22,720 --> 00:02:32,160
+so we go to youtube open a new window
+
+52
+00:02:26,640 --> 00:02:32,160
+paste it so this youtube
+
+53
+00:02:34,840 --> 00:02:37,840
+video
+
+54
+00:02:39,440 --> 00:02:44,400
+so this guy is actually he's going to
+
+55
+00:02:41,760 --> 00:02:47,440
+build a chinese typewriter
+
+56
+00:02:44,400 --> 00:02:51,680
+uh you can see uh he is a professor
+
+57
+00:02:47,440 --> 00:02:52,879
+at stanford i think and he also speaks
+
+58
+00:02:51,680 --> 00:02:57,120
+chinese
+
+59
+00:02:52,879 --> 00:02:59,200
+and he is a expert of chinese typewriter
+
+60
+00:02:57,120 --> 00:03:02,239
+history
+
+61
+00:02:59,200 --> 00:03:05,360
+tom mulaney
+
+62
+00:03:02,239 --> 00:03:06,959
+and he's on twitter so you know i find
+
+63
+00:03:05,360 --> 00:03:09,120
+this video interesting
+
+64
+00:03:06,959 --> 00:03:11,200
+i'm a blogger i want to blog it so what
+
+65
+00:03:09,120 --> 00:03:15,040
+i do i copy the url
+
+66
+00:03:11,200 --> 00:03:18,720
+i go to my emacs blog showing browser
+
+67
+00:03:15,040 --> 00:03:21,760
+so i can paste the url here
+
+68
+00:03:18,720 --> 00:03:22,319
+hold on a second let me magnify excuse
+
+69
+00:03:21,760 --> 00:03:24,480
+me
+
+70
+00:03:22,319 --> 00:03:26,400
+i'm gonna find the window and on the
+
+71
+00:03:24,480 --> 00:03:29,120
+pink window on the right you can see all
+
+72
+00:03:26,400 --> 00:03:31,920
+my keystrokes and command names
+
+73
+00:03:29,120 --> 00:03:33,519
+so i create a new section paste it here
+
+74
+00:03:31,920 --> 00:03:36,480
+so you can see
+
+75
+00:03:33,519 --> 00:03:37,360
+the youtube url is pasted here now i
+
+76
+00:03:36,480 --> 00:03:40,560
+want to
+
+77
+00:03:37,360 --> 00:03:41,360
+press a key to linkify it i we went
+
+78
+00:03:40,560 --> 00:03:44,640
+through
+
+79
+00:03:41,360 --> 00:03:47,360
+that code yesterday a few days ago
+
+80
+00:03:44,640 --> 00:03:48,239
+in previous two or three episodes so
+
+81
+00:03:47,360 --> 00:03:51,440
+anyway you
+
+82
+00:03:48,239 --> 00:03:55,200
+you can see now i have a youtube
+
+83
+00:03:51,440 --> 00:03:58,879
+so you can see get your hands dirty
+
+84
+00:03:55,200 --> 00:04:02,000
+hands-on history or chinese typewriter
+
+85
+00:03:58,879 --> 00:04:02,720
+so so now but there's no description in
+
+86
+00:04:02,000 --> 00:04:04,720
+my blog
+
+87
+00:04:02,720 --> 00:04:07,120
+i want some description so people can
+
+88
+00:04:04,720 --> 00:04:10,560
+see so i go to youtube
+
+89
+00:04:07,120 --> 00:04:12,239
+so i can copy the text here uh let's
+
+90
+00:04:10,560 --> 00:04:15,280
+copy the text here i
+
+91
+00:04:12,239 --> 00:04:20,079
+wait not that selected
+
+92
+00:04:15,280 --> 00:04:20,799
+yeah uh anyway so i copy the text here i
+
+93
+00:04:20,079 --> 00:04:23,840
+want to
+
+94
+00:04:20,799 --> 00:04:26,880
+copy the the title
+
+95
+00:04:23,840 --> 00:04:31,360
+the date and who uploaded it
+
+96
+00:04:26,880 --> 00:04:34,800
+so i copied it i go back to emacs
+
+97
+00:04:31,360 --> 00:04:36,160
+go back to emacs go in between the
+
+98
+00:04:34,800 --> 00:04:39,680
+figure caption
+
+99
+00:04:36,160 --> 00:04:40,560
+paste it so now you can see it also
+
+100
+00:04:39,680 --> 00:04:43,919
+included
+
+101
+00:04:40,560 --> 00:04:44,479
+several of these garbages you know 192
+
+102
+00:04:43,919 --> 00:04:47,360
+views
+
+103
+00:04:44,479 --> 00:04:47,840
+and and share and save we don't want
+
+104
+00:04:47,360 --> 00:04:49,840
+that
+
+105
+00:04:47,840 --> 00:04:51,360
+but anyway let's show in browser first
+
+106
+00:04:49,840 --> 00:04:54,639
+show in browser
+
+107
+00:04:51,360 --> 00:04:57,840
+so we can see here is the
+
+108
+00:04:54,639 --> 00:05:00,639
+what we pasted so i want to delete
+
+109
+00:04:57,840 --> 00:05:02,479
+i want to remove part of it for example
+
+110
+00:05:00,639 --> 00:05:05,039
+i want to remove that
+
+111
+00:05:02,479 --> 00:05:06,400
+i want to remove subscribers i want to
+
+112
+00:05:05,039 --> 00:05:10,080
+remove all these
+
+113
+00:05:06,400 --> 00:05:13,360
+irrelevant info so so this is
+
+114
+00:05:10,080 --> 00:05:16,960
+this is tedious every time i uh put a
+
+115
+00:05:13,360 --> 00:05:17,840
+video in my blog i have to do the copy
+
+116
+00:05:16,960 --> 00:05:19,919
+and paste let me do
+
+117
+00:05:17,840 --> 00:05:21,680
+let me make a copy of these okay so let
+
+118
+00:05:19,919 --> 00:05:24,160
+me show you okay
+
+119
+00:05:21,680 --> 00:05:26,240
+so let's make two copies it so for
+
+120
+00:05:24,160 --> 00:05:28,080
+example what i need to do is normally i
+
+121
+00:05:26,240 --> 00:05:31,360
+would have to
+
+122
+00:05:28,080 --> 00:05:34,320
+delete delete shrink
+
+123
+00:05:31,360 --> 00:05:35,840
+then i want the date delete hands-on
+
+124
+00:05:34,320 --> 00:05:38,720
+history that's right
+
+125
+00:05:35,840 --> 00:05:39,360
+and i want to put a break line break
+
+126
+00:05:38,720 --> 00:05:41,680
+line break
+
+127
+00:05:39,360 --> 00:05:43,360
+line break line break subscribers i
+
+128
+00:05:41,680 --> 00:05:45,520
+don't care dvd
+
+129
+00:05:43,360 --> 00:05:47,440
+and i don't care about that so that is
+
+130
+00:05:45,520 --> 00:05:51,280
+what i want okay
+
+131
+00:05:47,440 --> 00:05:53,840
+so show in browser and scroll down
+
+132
+00:05:51,280 --> 00:05:57,199
+so you can see now that is what i want
+
+133
+00:05:53,840 --> 00:05:59,520
+so we are going to write the command to
+
+134
+00:05:57,199 --> 00:06:01,520
+kind of automatic or kind of
+
+135
+00:05:59,520 --> 00:06:03,840
+automatically
+
+136
+00:06:01,520 --> 00:06:05,600
+delete the things we don't want okay so
+
+137
+00:06:03,840 --> 00:06:06,400
+we are just going to write the command
+
+138
+00:06:05,600 --> 00:06:10,800
+here
+
+139
+00:06:06,400 --> 00:06:14,800
+starting now okay what we do is we just
+
+140
+00:06:10,800 --> 00:06:19,280
+open a new buffer uh wait
+
+141
+00:06:14,800 --> 00:06:21,919
+open a new file magnify
+
+142
+00:06:19,280 --> 00:06:23,280
+save the file as wait let's name our
+
+143
+00:06:21,919 --> 00:06:27,199
+function let's defund
+
+144
+00:06:23,280 --> 00:06:31,360
+okay uh go to xr emacsd smart
+
+145
+00:06:27,199 --> 00:06:34,600
+magnify defend that's right
+
+146
+00:06:31,360 --> 00:06:38,479
+let's see what's our function name
+
+147
+00:06:34,600 --> 00:06:42,160
+html remove youtube
+
+148
+00:06:38,479 --> 00:06:46,080
+youtube chunk okay let's just
+
+149
+00:06:42,160 --> 00:06:49,840
+say that remove youtube chunk
+
+150
+00:06:46,080 --> 00:06:49,840
+delete miss
+
+151
+00:06:50,000 --> 00:06:56,160
+miss uh lanier's info
+
+152
+00:06:53,120 --> 00:06:56,160
+of youtube
+
+153
+00:06:57,199 --> 00:07:01,280
+uh youtube info okay delete
+
+154
+00:06:59,440 --> 00:07:04,080
+miscellaneous youtube info
+
+155
+00:07:01,280 --> 00:07:05,440
+type the version name and today's state
+
+156
+00:07:04,080 --> 00:07:07,759
+version number okay
+
+157
+00:07:05,440 --> 00:07:08,560
+then we are going to save this file save
+
+158
+00:07:07,759 --> 00:07:11,680
+it
+
+159
+00:07:08,560 --> 00:07:15,440
+right to file dot el
+
+160
+00:07:11,680 --> 00:07:19,440
+okay now copy the file path
+
+161
+00:07:15,440 --> 00:07:22,479
+close it paste it here linkify
+
+162
+00:07:19,440 --> 00:07:26,000
+make a paragraph showing browser
+
+163
+00:07:22,479 --> 00:07:29,280
+so there it is link to our code
+
+164
+00:07:26,000 --> 00:07:30,080
+so back to emacs so we are going to
+
+165
+00:07:29,280 --> 00:07:32,400
+start to write
+
+166
+00:07:30,080 --> 00:07:33,759
+it so what we gonna do so first of all
+
+167
+00:07:32,400 --> 00:07:37,440
+before we do anything
+
+168
+00:07:33,759 --> 00:07:40,960
+let's copy this thing
+
+169
+00:07:37,440 --> 00:07:44,080
+so we have a reference now we open
+
+170
+00:07:40,960 --> 00:07:46,160
+magnify now the thing we want
+
+171
+00:07:44,080 --> 00:07:48,479
+to delete so we have a reference here so
+
+172
+00:07:46,160 --> 00:07:49,599
+we we can kind of know what we want to
+
+173
+00:07:48,479 --> 00:07:52,400
+delete
+
+174
+00:07:49,599 --> 00:07:59,680
+uh so we want to delete the parts we
+
+175
+00:07:52,400 --> 00:08:03,039
+want to delete our
+
+176
+00:07:59,680 --> 00:08:05,759
+okay basically things like that uh
+
+177
+00:08:03,039 --> 00:08:08,319
+we want to delete share save okay so
+
+178
+00:08:05,759 --> 00:08:08,319
+let's begin
+
+179
+00:08:10,840 --> 00:08:15,280
+so
+
+180
+00:08:13,039 --> 00:08:17,919
+so first of all we want to let me show
+
+181
+00:08:15,280 --> 00:08:20,000
+you okay so we want to
+
+182
+00:08:17,919 --> 00:08:22,479
+okay let's say a region first of all
+
+183
+00:08:20,000 --> 00:08:24,000
+let's assume user selected the region so
+
+184
+00:08:22,479 --> 00:08:27,440
+let's go back to our
+
+185
+00:08:24,000 --> 00:08:30,319
+let's assume the user selected this part
+
+186
+00:08:27,440 --> 00:08:30,879
+then we call our command then all these
+
+187
+00:08:30,319 --> 00:08:33,839
+uh
+
+188
+00:08:30,879 --> 00:08:35,760
+all these will be deleted okay let's
+
+189
+00:08:33,839 --> 00:08:40,320
+assume that for now
+
+190
+00:08:35,760 --> 00:08:42,080
+so p1 p2 is position 1 position 2 that's
+
+191
+00:08:40,320 --> 00:08:46,080
+the beginning position of the
+
+192
+00:08:42,080 --> 00:08:46,080
+region okay so set
+
+193
+00:08:46,160 --> 00:08:53,200
+p1 equals to region beginning okay
+
+194
+00:08:49,519 --> 00:08:53,200
+that's what we want set
+
+195
+00:08:53,760 --> 00:09:01,760
+p2 equals to region end okay
+
+196
+00:08:57,920 --> 00:09:05,040
+then save restriction
+
+197
+00:09:01,760 --> 00:09:07,279
+okay then narrow to region we
+
+198
+00:09:05,040 --> 00:09:09,040
+now narrow to region position one
+
+199
+00:09:07,279 --> 00:09:13,200
+position two why would
+
+200
+00:09:09,040 --> 00:09:15,920
+we do that so that emacs will ignore
+
+201
+00:09:13,200 --> 00:09:16,640
+the regions we are not interested when
+
+202
+00:09:15,920 --> 00:09:19,360
+we do
+
+203
+00:09:16,640 --> 00:09:20,880
+uh find and replace so it won't screw up
+
+204
+00:09:19,360 --> 00:09:24,720
+elsewhere
+
+205
+00:09:20,880 --> 00:09:25,519
+then we say um then we say save
+
+206
+00:09:24,720 --> 00:09:27,680
+restriction
+
+207
+00:09:25,519 --> 00:09:28,560
+the reason for that is once the command
+
+208
+00:09:27,680 --> 00:09:32,640
+is done
+
+209
+00:09:28,560 --> 00:09:35,680
+emacs will return the user's region
+
+210
+00:09:32,640 --> 00:09:38,240
+so that's what save restriction is for
+
+211
+00:09:35,680 --> 00:09:38,720
+so okay so so now we got a region we
+
+212
+00:09:38,240 --> 00:09:42,160
+narrowed
+
+213
+00:09:38,720 --> 00:09:46,320
+region then we go to uh go to char
+
+214
+00:09:42,160 --> 00:09:50,720
+move the cursor to a position to the
+
+215
+00:09:46,320 --> 00:09:53,600
+point minimum okay point mean okay
+
+216
+00:09:50,720 --> 00:09:53,600
+point minimum
+
+217
+00:09:55,040 --> 00:09:58,560
+point mean is a function that returns
+
+218
+00:09:57,120 --> 00:10:00,959
+the minimum position
+
+219
+00:09:58,560 --> 00:10:02,880
+in a cursor which is usually always i
+
+220
+00:10:00,959 --> 00:10:06,320
+think it's always one okay
+
+221
+00:10:02,880 --> 00:10:10,800
+so go to the beginning of the region
+
+222
+00:10:06,320 --> 00:10:10,800
+then uh
+
+223
+00:10:12,320 --> 00:10:15,519
+what we have to do okay so so we got
+
+224
+00:10:15,040 --> 00:10:18,959
+text
+
+225
+00:10:15,519 --> 00:10:19,600
+like that we got text like that we want
+
+226
+00:10:18,959 --> 00:10:22,000
+to
+
+227
+00:10:19,600 --> 00:10:22,000
+um
+
+228
+00:10:22,959 --> 00:10:27,839
+so first of all we need to delete the
+
+229
+00:10:25,519 --> 00:10:30,720
+share and save capital letters
+
+230
+00:10:27,839 --> 00:10:31,680
+okay so we're gonna go to the beginning
+
+231
+00:10:30,720 --> 00:10:35,360
+of region
+
+232
+00:10:31,680 --> 00:10:40,320
+then search forward
+
+233
+00:10:35,360 --> 00:10:40,320
+okay search forward for the word share
+
+234
+00:10:41,600 --> 00:10:48,640
+then then
+
+235
+00:10:44,720 --> 00:10:51,279
+optional bound neil no error true
+
+236
+00:10:48,640 --> 00:10:51,680
+and count we don't care okay search for
+
+237
+00:10:51,279 --> 00:10:55,120
+it
+
+238
+00:10:51,680 --> 00:10:57,839
+then replace match uh
+
+239
+00:10:55,120 --> 00:10:59,040
+replace match this is how you do find
+
+240
+00:10:57,839 --> 00:11:02,399
+and replace
+
+241
+00:10:59,040 --> 00:11:05,839
+okay replace match new text which
+
+242
+00:11:02,399 --> 00:11:09,680
+gonna going to be an empty string then
+
+243
+00:11:05,839 --> 00:11:12,160
+fixed case we don't care okay so this is
+
+244
+00:11:09,680 --> 00:11:15,519
+how you do find and replace
+
+245
+00:11:12,160 --> 00:11:18,480
+now we need to do it again for the
+
+246
+00:11:15,519 --> 00:11:20,240
+save for the word save okay now prettify
+
+247
+00:11:18,480 --> 00:11:23,600
+the code
+
+248
+00:11:20,240 --> 00:11:25,040
+okay now that so far the code will
+
+249
+00:11:23,600 --> 00:11:28,560
+remove
+
+250
+00:11:25,040 --> 00:11:31,040
+this and this okay then
+
+251
+00:11:28,560 --> 00:11:31,680
+we will also want to remove these views
+
+252
+00:11:31,040 --> 00:11:34,000
+by the way
+
+253
+00:11:31,680 --> 00:11:34,959
+youtube you know youtube changes the
+
+254
+00:11:34,000 --> 00:11:38,160
+description
+
+255
+00:11:34,959 --> 00:11:39,440
+often well i'm not sure often but but
+
+256
+00:11:38,160 --> 00:11:41,680
+i've noticed
+
+257
+00:11:39,440 --> 00:11:45,440
+for different videos you'll have
+
+258
+00:11:41,680 --> 00:11:45,440
+different kind of things there
+
+259
+00:11:45,600 --> 00:11:51,440
+so anyway so delete save and
+
+260
+00:11:48,640 --> 00:11:52,399
+we also want to delete the views here
+
+261
+00:11:51,440 --> 00:11:57,600
+okay so
+
+262
+00:11:52,399 --> 00:12:01,200
+in this case we go to um
+
+263
+00:11:57,600 --> 00:12:04,639
+we go to uh beginning of region again
+
+264
+00:12:01,200 --> 00:12:07,200
+then we search reach rejects
+
+265
+00:12:04,639 --> 00:12:09,200
+search for word okay now this time we're
+
+266
+00:12:07,200 --> 00:12:11,600
+gonna use a regular expression and
+
+267
+00:12:09,200 --> 00:12:15,040
+search for that
+
+268
+00:12:11,600 --> 00:12:18,000
+now this 192 is a sequence of digits
+
+269
+00:12:15,040 --> 00:12:19,680
+so in that case what we need to do is we
+
+270
+00:12:18,000 --> 00:12:22,880
+need to
+
+271
+00:12:19,680 --> 00:12:26,160
+use the square brackets and say
+
+272
+00:12:22,880 --> 00:12:27,279
+0 to nine okay another second zero
+
+273
+00:12:26,160 --> 00:12:30,320
+tonight that means
+
+274
+00:12:27,279 --> 00:12:31,760
+any digit plus sign means one one or
+
+275
+00:12:30,320 --> 00:12:34,320
+more
+
+276
+00:12:31,760 --> 00:12:36,320
+okay so that's one or more digits
+
+277
+00:12:34,320 --> 00:12:39,040
+followed by space then views then
+
+278
+00:12:36,320 --> 00:12:40,639
+bully sign how do i know it's bullied
+
+279
+00:12:39,040 --> 00:12:44,160
+because you call describe
+
+280
+00:12:40,639 --> 00:12:46,320
+char and
+
+281
+00:12:44,160 --> 00:12:47,760
+then e-max will tell you what character
+
+282
+00:12:46,320 --> 00:12:50,839
+it is so you can see
+
+283
+00:12:47,760 --> 00:12:52,079
+in this window you can see the code
+
+284
+00:12:50,839 --> 00:12:54,639
+point
+
+285
+00:12:52,079 --> 00:12:56,639
+and you can see the name of the
+
+286
+00:12:54,639 --> 00:12:57,760
+character bullet that's a that's from
+
+287
+00:12:56,639 --> 00:13:00,880
+unicode
+
+288
+00:12:57,760 --> 00:13:03,279
+that's one of my favorite uh character
+
+289
+00:13:00,880 --> 00:13:04,880
+and the command is described char okay
+
+290
+00:13:03,279 --> 00:13:08,160
+so
+
+291
+00:13:04,880 --> 00:13:08,639
+so now you search forward uh sequence of
+
+292
+00:13:08,160 --> 00:13:11,519
+a
+
+293
+00:13:08,639 --> 00:13:12,639
+sequence of digits and view then
+
+294
+00:13:11,519 --> 00:13:15,920
+optional
+
+295
+00:13:12,639 --> 00:13:18,959
+bound uh we don't care for bound
+
+296
+00:13:15,920 --> 00:13:19,440
+no error we don't care for no error okay
+
+297
+00:13:18,959 --> 00:13:22,240
+so
+
+298
+00:13:19,440 --> 00:13:22,560
+remove all the options so once we found
+
+299
+00:13:22,240 --> 00:13:25,920
+it
+
+300
+00:13:22,560 --> 00:13:30,000
+then replace match just like before
+
+301
+00:13:25,920 --> 00:13:32,240
+empty string okay
+
+302
+00:13:30,000 --> 00:13:33,519
+prettify the code now let's go to the
+
+303
+00:13:32,240 --> 00:13:35,760
+top of the code
+
+304
+00:13:33,519 --> 00:13:36,639
+let's move this down okay let's move
+
+305
+00:13:35,760 --> 00:13:41,440
+these
+
+306
+00:13:36,639 --> 00:13:43,839
+to the bottom and comment them out
+
+307
+00:13:41,440 --> 00:13:49,839
+okay so so far this is how our code
+
+308
+00:13:43,839 --> 00:13:49,839
+looks like let's speedify a little bit
+
+309
+00:13:50,000 --> 00:13:57,760
+okay and
+
+310
+00:13:53,519 --> 00:14:00,079
+actually we could um
+
+311
+00:13:57,760 --> 00:14:01,040
+then what you're gonna do let's try it
+
+312
+00:14:00,079 --> 00:14:04,480
+okay let's just
+
+313
+00:14:01,040 --> 00:14:05,279
+run a code eval region back to the
+
+314
+00:14:04,480 --> 00:14:08,800
+browser
+
+315
+00:14:05,279 --> 00:14:08,800
+back to the html
+
+316
+00:14:09,040 --> 00:14:14,639
+file show in browser let's have a look
+
+317
+00:14:11,920 --> 00:14:18,399
+what we got here
+
+318
+00:14:14,639 --> 00:14:22,160
+so you see you see this
+
+319
+00:14:18,399 --> 00:14:22,880
+part shows up like that because in html
+
+320
+00:14:22,160 --> 00:14:24,560
+that you
+
+321
+00:14:22,880 --> 00:14:26,560
+when you don't have markup everything
+
+322
+00:14:24,560 --> 00:14:29,839
+becomes uh
+
+323
+00:14:26,560 --> 00:14:30,320
+collapsed together so let's select the
+
+324
+00:14:29,839 --> 00:14:32,000
+region
+
+325
+00:14:30,320 --> 00:14:33,519
+and let's call the command let's see
+
+326
+00:14:32,000 --> 00:14:35,680
+what happens okay let's
+
+327
+00:14:33,519 --> 00:14:37,120
+wait uh what's our command name beside
+
+328
+00:14:35,680 --> 00:14:40,160
+remove
+
+329
+00:14:37,120 --> 00:14:42,240
+html remove youtube chunk okay
+
+330
+00:14:40,160 --> 00:14:43,360
+call the command meta x hold on a second
+
+331
+00:14:42,240 --> 00:14:47,040
+let's show the pink
+
+332
+00:14:43,360 --> 00:14:50,079
+pink window call the command meta x
+
+333
+00:14:47,040 --> 00:14:54,000
+cuz remove youtube junk okay
+
+334
+00:14:50,079 --> 00:14:57,360
+enter great so it actually did work
+
+335
+00:14:54,000 --> 00:15:01,839
+um some of them okay so let's undo
+
+336
+00:14:57,360 --> 00:15:03,279
+you can see redo it removes the share
+
+337
+00:15:01,839 --> 00:15:07,760
+and remove the save
+
+338
+00:15:03,279 --> 00:15:07,760
+and also remove the views
+
+339
+00:15:08,160 --> 00:15:14,240
+okay so once you remove that
+
+340
+00:15:11,519 --> 00:15:17,199
+then we think about what what should our
+
+341
+00:15:14,240 --> 00:15:17,199
+code do next
+
+342
+00:15:17,279 --> 00:15:23,760
+um number so
+
+343
+00:15:20,959 --> 00:15:26,320
+this number how do we you know we need
+
+344
+00:15:23,760 --> 00:15:30,959
+to because
+
+345
+00:15:26,320 --> 00:15:33,120
+essentially we you know there's no
+
+346
+00:15:30,959 --> 00:15:34,320
+i mean we are just given a bunch of text
+
+347
+00:15:33,120 --> 00:15:37,120
+we have to figure out
+
+348
+00:15:34,320 --> 00:15:39,440
+what what is it that we need to do so
+
+349
+00:15:37,120 --> 00:15:42,399
+this number nine and zero
+
+350
+00:15:39,440 --> 00:15:43,360
+where does they come from okay so those
+
+351
+00:15:42,399 --> 00:15:46,560
+are the thumb
+
+352
+00:15:43,360 --> 00:15:50,320
+up and down signs
+
+353
+00:15:46,560 --> 00:15:52,959
+am i doing good good morning a lot
+
+354
+00:15:50,320 --> 00:15:53,839
+people i need one of those bloody
+
+355
+00:15:52,959 --> 00:15:56,959
+command log
+
+356
+00:15:53,839 --> 00:15:58,399
+things yeah so that's easy just uh a
+
+357
+00:15:56,959 --> 00:16:01,680
+male part command lock mod
+
+358
+00:15:58,399 --> 00:16:03,839
+i talked about that for a few times
+
+359
+00:16:01,680 --> 00:16:04,959
+uh every time i watch this i must mind
+
+360
+00:16:03,839 --> 00:16:08,160
+blown
+
+361
+00:16:04,959 --> 00:16:09,360
+um so okay okay so let's back to the
+
+362
+00:16:08,160 --> 00:16:11,120
+code
+
+363
+00:16:09,360 --> 00:16:13,759
+so we're gonna do this how we gonna do
+
+364
+00:16:11,120 --> 00:16:16,399
+this that's the question
+
+365
+00:16:13,759 --> 00:16:18,480
+of course we're gonna do it but how so
+
+366
+00:16:16,399 --> 00:16:21,600
+you got a number you got number
+
+367
+00:16:18,480 --> 00:16:24,320
+then you got space so maybe let's let's
+
+368
+00:16:21,600 --> 00:16:27,360
+try to use the regular expression
+
+369
+00:16:24,320 --> 00:16:30,000
+new line empty line number
+
+370
+00:16:27,360 --> 00:16:36,000
+empty line number empty line okay let's
+
+371
+00:16:30,000 --> 00:16:38,399
+try that
+
+372
+00:16:36,000 --> 00:16:39,279
+okay so let's go back to the emacs list
+
+373
+00:16:38,399 --> 00:16:42,880
+code
+
+374
+00:16:39,279 --> 00:16:46,320
+so back here so we're gonna need to do
+
+375
+00:16:42,880 --> 00:16:51,839
+uh another one here go to
+
+376
+00:16:46,320 --> 00:16:51,839
+char wait
+
+377
+00:16:52,480 --> 00:16:56,560
+so we start again let's go to the
+
+378
+00:16:54,959 --> 00:17:00,079
+beginning
+
+379
+00:16:56,560 --> 00:17:04,000
+go to cha point minimum
+
+380
+00:17:00,079 --> 00:17:04,400
+okay by the way you might think there
+
+381
+00:17:04,000 --> 00:17:06,480
+are
+
+382
+00:17:04,400 --> 00:17:07,760
+a lot of repetitions it's kind of
+
+383
+00:17:06,480 --> 00:17:10,880
+necessary uh
+
+384
+00:17:07,760 --> 00:17:13,600
+you know there's no way around it so go
+
+385
+00:17:10,880 --> 00:17:17,039
+to the point minimum
+
+386
+00:17:13,600 --> 00:17:20,720
+uh i'm pretty sure some smart guy will
+
+387
+00:17:17,039 --> 00:17:21,600
+say actually actually there is a shorter
+
+388
+00:17:20,720 --> 00:17:24,720
+way
+
+389
+00:17:21,600 --> 00:17:26,240
+anyway but anyway so let's go to the
+
+390
+00:17:24,720 --> 00:17:30,080
+beginning of the region
+
+391
+00:17:26,240 --> 00:17:33,760
+then let's uh
+
+392
+00:17:30,080 --> 00:17:35,679
+reject search forward and this time
+
+393
+00:17:33,760 --> 00:17:39,520
+we're gonna need a space
+
+394
+00:17:35,679 --> 00:17:45,120
+like we said before a space wait
+
+395
+00:17:39,520 --> 00:17:47,840
+um a space then a sequence of numbers
+
+396
+00:17:45,120 --> 00:17:47,840
+plus sign
+
+397
+00:17:50,480 --> 00:17:57,600
+a space a sequence of numbers then
+
+398
+00:17:53,840 --> 00:17:58,080
+a space again then i mean not space new
+
+399
+00:17:57,600 --> 00:18:00,799
+line
+
+400
+00:17:58,080 --> 00:18:03,280
+a sequence of numbers then a new line
+
+401
+00:18:00,799 --> 00:18:05,200
+let's try this pattern
+
+402
+00:18:03,280 --> 00:18:07,360
+again i'm not sure it's going to work
+
+403
+00:18:05,200 --> 00:18:10,400
+always because i've noticed
+
+404
+00:18:07,360 --> 00:18:11,440
+for different videos when you copy you
+
+405
+00:18:10,400 --> 00:18:15,919
+know they have
+
+406
+00:18:11,440 --> 00:18:17,840
+a different a few variations i think
+
+407
+00:18:15,919 --> 00:18:19,919
+so you know this is one of the thing you
+
+408
+00:18:17,840 --> 00:18:20,799
+know this is great thing about emacs and
+
+409
+00:18:19,919 --> 00:18:23,200
+emac this
+
+410
+00:18:20,799 --> 00:18:23,919
+you do as you go you know you you can
+
+411
+00:18:23,200 --> 00:18:25,280
+quickly
+
+412
+00:18:23,919 --> 00:18:26,960
+you know i can quickly write this
+
+413
+00:18:25,280 --> 00:18:30,000
+command once you know a little
+
+414
+00:18:26,960 --> 00:18:31,840
+a little emac this you know i so i
+
+415
+00:18:30,000 --> 00:18:35,039
+quickly have this command
+
+416
+00:18:31,840 --> 00:18:36,320
+then if tomorrow i find that command
+
+417
+00:18:35,039 --> 00:18:38,559
+doesn't work or miss
+
+418
+00:18:36,320 --> 00:18:40,160
+something i can edit it and you know
+
+419
+00:18:38,559 --> 00:18:43,840
+improve it
+
+420
+00:18:40,160 --> 00:18:46,080
+uh on a you know on a need basis as we
+
+421
+00:18:43,840 --> 00:18:46,080
+go
+
+422
+00:18:46,240 --> 00:18:50,080
+so okay so let's try this regular
+
+423
+00:18:48,480 --> 00:18:54,080
+expression pattern then
+
+424
+00:18:50,080 --> 00:18:58,320
+um bound no arrow um
+
+425
+00:18:54,080 --> 00:19:01,039
+bound neil no arrow true
+
+426
+00:18:58,320 --> 00:19:02,480
+we want to say no error true because if
+
+427
+00:19:01,039 --> 00:19:06,400
+you
+
+428
+00:19:02,480 --> 00:19:09,280
+don't say true that means when it cannot
+
+429
+00:19:06,400 --> 00:19:10,880
+find this pattern you'll actually stop
+
+430
+00:19:09,280 --> 00:19:13,679
+the program emacs will say
+
+431
+00:19:10,880 --> 00:19:14,480
+error okay you know no such stream found
+
+432
+00:19:13,679 --> 00:19:17,440
+you know
+
+433
+00:19:14,480 --> 00:19:18,240
+so usually you want to say no error true
+
+434
+00:19:17,440 --> 00:19:20,960
+in imax
+
+435
+00:19:18,240 --> 00:19:20,960
+true is
+
+436
+00:19:21,600 --> 00:19:28,160
+in e-max the only thing that's
+
+437
+00:19:24,799 --> 00:19:31,679
+false is neil the value neil
+
+438
+00:19:28,160 --> 00:19:34,880
+that's the only thing that is false
+
+439
+00:19:31,679 --> 00:19:37,440
+but also empty list is also neo
+
+440
+00:19:34,880 --> 00:19:38,000
+they are equivalent so you could say the
+
+441
+00:19:37,440 --> 00:19:41,200
+only thing
+
+442
+00:19:38,000 --> 00:19:44,720
+that's false is neil and uh
+
+443
+00:19:41,200 --> 00:19:45,360
+empty list everything else is considered
+
+444
+00:19:44,720 --> 00:19:48,320
+true
+
+445
+00:19:45,360 --> 00:19:49,919
+including a string so for example we are
+
+446
+00:19:48,320 --> 00:19:51,679
+using a string here you could use
+
+447
+00:19:49,919 --> 00:19:55,120
+anything like typically you say
+
+448
+00:19:51,679 --> 00:19:58,000
+you can say t or anything
+
+449
+00:19:55,120 --> 00:19:58,559
+so anyway so let's go on so reject
+
+450
+00:19:58,000 --> 00:20:02,080
+search
+
+451
+00:19:58,559 --> 00:20:06,000
+uh you found then replace match
+
+452
+00:20:02,080 --> 00:20:08,320
+okay oh actually we need to
+
+453
+00:20:06,000 --> 00:20:08,320
+um
+
+454
+00:20:09,039 --> 00:20:12,799
+actually we need it's better to put a if
+
+455
+00:20:11,360 --> 00:20:16,080
+statement but anyway we
+
+456
+00:20:12,799 --> 00:20:18,880
+replace match okay so let's put some uh
+
+457
+00:20:16,080 --> 00:20:18,880
+if statement
+
+458
+00:20:19,360 --> 00:20:23,120
+when we don't need so when
+
+459
+00:20:23,360 --> 00:20:29,840
+when search okay so it's like that when
+
+460
+00:20:27,520 --> 00:20:30,880
+if this search is found then replace
+
+461
+00:20:29,840 --> 00:20:34,000
+match okay so
+
+462
+00:20:30,880 --> 00:20:36,240
+we are going to put some win uh
+
+463
+00:20:34,000 --> 00:20:36,240
+when
+
+464
+00:20:39,600 --> 00:20:42,960
+okay and here
+
+465
+00:20:46,840 --> 00:20:53,200
+when
+
+466
+00:20:49,200 --> 00:20:53,200
+then here too
+
+467
+00:20:55,840 --> 00:20:59,600
+pretty fine okay so
+
+468
+00:21:00,320 --> 00:21:05,600
+i need to improve my emacs list
+
+469
+00:21:03,440 --> 00:21:08,080
+code so it automatically auto
+
+470
+00:21:05,600 --> 00:21:12,080
+automatically predicts so anyway so
+
+471
+00:21:08,080 --> 00:21:12,080
+so here is our code okay when
+
+472
+00:21:12,400 --> 00:21:17,760
+yeah so looks like that's it let's
+
+473
+00:21:14,240 --> 00:21:21,120
+shrink it a little bit
+
+474
+00:21:17,760 --> 00:21:24,799
+okay let's try it evaluate the buffer
+
+475
+00:21:21,120 --> 00:21:27,840
+go back to html code undo
+
+476
+00:21:24,799 --> 00:21:31,600
+undo so we got the share and save back
+
+477
+00:21:27,840 --> 00:21:34,799
+there so select the whole region
+
+478
+00:21:31,600 --> 00:21:35,760
+then call the command size html remove
+
+479
+00:21:34,799 --> 00:21:40,640
+youtube link
+
+480
+00:21:35,760 --> 00:21:40,640
+do it oops something went wrong
+
+481
+00:21:41,840 --> 00:21:47,039
+something went wrong you know you want
+
+482
+00:21:44,080 --> 00:21:49,600
+to be careful because
+
+483
+00:21:47,039 --> 00:21:51,679
+because it deletes your whole thing so
+
+484
+00:21:49,600 --> 00:21:54,559
+what's going on so anyway something is
+
+485
+00:21:51,679 --> 00:21:58,080
+wrong because the cruiser went out of
+
+486
+00:21:54,559 --> 00:22:01,200
+uh went kind of far away so what
+
+487
+00:21:58,080 --> 00:22:01,200
+what's our problem
+
+488
+00:22:04,640 --> 00:22:07,919
+wait the save restriction okay there it
+
+489
+00:22:07,600 --> 00:22:11,440
+is
+
+490
+00:22:07,919 --> 00:22:13,600
+there is our problem you see uh
+
+491
+00:22:11,440 --> 00:22:15,600
+you see the rest of the code should be
+
+492
+00:22:13,600 --> 00:22:17,600
+under the save restriction
+
+493
+00:22:15,600 --> 00:22:20,240
+you know remember that we are narrowing
+
+494
+00:22:17,600 --> 00:22:20,240
+to region
+
+495
+00:22:20,640 --> 00:22:28,400
+so this part should be inside the parent
+
+496
+00:22:25,440 --> 00:22:29,440
+the code now you can see the save
+
+497
+00:22:28,400 --> 00:22:34,240
+restriction
+
+498
+00:22:29,440 --> 00:22:37,360
+you see it's inside so evolve the buffer
+
+499
+00:22:34,240 --> 00:22:41,600
+back to the html code let's try it again
+
+500
+00:22:37,360 --> 00:22:44,960
+select the section meta exciting
+
+501
+00:22:41,600 --> 00:22:48,240
+youtube link if i okay
+
+502
+00:22:44,960 --> 00:22:48,240
+so wait it's
+
+503
+00:22:50,559 --> 00:22:54,320
+the knight and zero is not removed why
+
+504
+00:22:53,440 --> 00:22:57,600
+is that let's
+
+505
+00:22:54,320 --> 00:23:02,640
+check the let's turn on white space
+
+506
+00:22:57,600 --> 00:23:02,640
+okay wait turn on white space
+
+507
+00:23:05,440 --> 00:23:12,880
+so so you have a new line
+
+508
+00:23:09,520 --> 00:23:14,880
+then number new line new line oh
+
+509
+00:23:12,880 --> 00:23:16,480
+that's right two new lines you see
+
+510
+00:23:14,880 --> 00:23:20,840
+there's two
+
+511
+00:23:16,480 --> 00:23:23,440
+uh there's two new lines so back to the
+
+512
+00:23:20,840 --> 00:23:25,919
+code
+
+513
+00:23:23,440 --> 00:23:26,480
+there is should be one more new line
+
+514
+00:23:25,919 --> 00:23:30,159
+okay
+
+515
+00:23:26,480 --> 00:23:33,679
+eva buffer back to the code
+
+516
+00:23:30,159 --> 00:23:36,000
+select it call it do it yay
+
+517
+00:23:33,679 --> 00:23:38,799
+now a little improvement we got rid of
+
+518
+00:23:36,000 --> 00:23:38,799
+those numbers
+
+519
+00:23:40,799 --> 00:23:45,279
+um but actually this okay so so so far
+
+520
+00:23:43,600 --> 00:23:50,640
+so good
+
+521
+00:23:45,279 --> 00:23:53,039
+now about the things at the bottom
+
+522
+00:23:50,640 --> 00:23:57,279
+let's also remove that okay the number
+
+523
+00:23:53,039 --> 00:23:57,279
+of subscribers so back to the code
+
+524
+00:24:03,279 --> 00:24:09,600
+and we want to go to char
+
+525
+00:24:06,320 --> 00:24:09,600
+point mean okay
+
+526
+00:24:11,279 --> 00:24:15,039
+we go to the beginning of the region and
+
+527
+00:24:13,679 --> 00:24:18,159
+to do this again so
+
+528
+00:24:15,039 --> 00:24:32,640
+number of subscribers so let's it should
+
+529
+00:24:18,159 --> 00:24:38,080
+be somewhere here
+
+530
+00:24:32,640 --> 00:24:38,080
+3d5 eval buffer back to html
+
+531
+00:24:38,240 --> 00:24:45,760
+undo try it again call the command
+
+532
+00:24:41,760 --> 00:24:46,480
+do it okay the number of subscribers is
+
+533
+00:24:45,760 --> 00:24:50,720
+gone
+
+534
+00:24:46,480 --> 00:24:53,600
+you see before it was here it was here
+
+535
+00:24:50,720 --> 00:24:54,640
+select that code now it's good that's
+
+536
+00:24:53,600 --> 00:24:56,799
+good
+
+537
+00:24:54,640 --> 00:24:57,760
+now no more so this line we don't care
+
+538
+00:24:56,799 --> 00:25:00,880
+because normally
+
+539
+00:24:57,760 --> 00:25:04,320
+normally when i copy it
+
+540
+00:25:00,880 --> 00:25:08,799
+you don't you know you try not to copy
+
+541
+00:25:04,320 --> 00:25:08,799
+you know the the actual description part
+
+542
+00:25:09,760 --> 00:25:13,440
+you know it would be nice if we use some
+
+543
+00:25:12,240 --> 00:25:17,440
+kind of youtube
+
+544
+00:25:13,440 --> 00:25:17,840
+api uh i don't know i i guess you can do
+
+545
+00:25:17,440 --> 00:25:21,279
+that
+
+546
+00:25:17,840 --> 00:25:22,240
+i mean but but that would be much more
+
+547
+00:25:21,279 --> 00:25:25,039
+involved
+
+548
+00:25:22,240 --> 00:25:25,600
+i mean if that's the case if we use
+
+549
+00:25:25,039 --> 00:25:29,120
+youtube
+
+550
+00:25:25,600 --> 00:25:30,320
+api then emacs can call some kind of
+
+551
+00:25:29,120 --> 00:25:33,760
+python or program
+
+552
+00:25:30,320 --> 00:25:33,760
+to fetch it um
+
+553
+00:25:34,159 --> 00:25:37,840
+yeah and return the data and you know so
+
+554
+00:25:36,799 --> 00:25:40,240
+it
+
+555
+00:25:37,840 --> 00:25:41,279
+it returns exactly what we want you know
+
+556
+00:25:40,240 --> 00:25:44,559
+like the date
+
+557
+00:25:41,279 --> 00:25:48,000
+this video is uploaded who uploaded
+
+558
+00:25:44,559 --> 00:25:51,120
+and title of the youtube video
+
+559
+00:25:48,000 --> 00:25:52,480
+but it would be much more involved
+
+560
+00:25:51,120 --> 00:25:53,760
+because then you have to learn the
+
+561
+00:25:52,480 --> 00:25:55,279
+youtube api
+
+562
+00:25:53,760 --> 00:25:56,799
+and then you have to write another
+
+563
+00:25:55,279 --> 00:25:59,440
+probably a
+
+564
+00:25:56,799 --> 00:26:00,159
+program in python or some other language
+
+565
+00:25:59,440 --> 00:26:02,400
+then
+
+566
+00:26:00,159 --> 00:26:04,559
+emax has to call that command and get
+
+567
+00:26:02,400 --> 00:26:08,240
+info back and
+
+568
+00:26:04,559 --> 00:26:08,240
+it's a bit more involved
+
+569
+00:26:09,600 --> 00:26:13,120
+but anyways yeah so let's let's try to
+
+570
+00:26:11,919 --> 00:26:16,960
+keep going with this
+
+571
+00:26:13,120 --> 00:26:19,360
+okay so once we do that you see
+
+572
+00:26:16,960 --> 00:26:21,440
+you see these empty lines now we want to
+
+573
+00:26:19,360 --> 00:26:22,799
+remove these empty lines okay let's go
+
+574
+00:26:21,440 --> 00:26:26,400
+back to the code
+
+575
+00:26:22,799 --> 00:26:30,320
+let's continue to push on we want to not
+
+576
+00:26:26,400 --> 00:26:30,320
+we want to remove empty lines
+
+577
+00:26:30,799 --> 00:26:34,559
+okay now
+
+578
+00:26:34,640 --> 00:26:39,840
+reject search forward
+
+579
+00:26:40,080 --> 00:26:42,720
+new line
+
+580
+00:26:45,360 --> 00:26:50,000
+uh wait new line
+
+581
+00:26:50,640 --> 00:26:56,080
+basically a sequence of new lines at
+
+582
+00:26:53,120 --> 00:26:56,080
+least two of them
+
+583
+00:26:56,559 --> 00:27:01,039
+so we go to the beginning of the region
+
+584
+00:26:59,200 --> 00:27:05,039
+then we
+
+585
+00:27:01,039 --> 00:27:05,039
+find our sequence of new lines
+
+586
+00:27:05,200 --> 00:27:09,440
+uh at least two of them then we remove
+
+587
+00:27:08,880 --> 00:27:12,880
+it
+
+588
+00:27:09,440 --> 00:27:16,400
+yep i think that's it eva buffer
+
+589
+00:27:12,880 --> 00:27:19,120
+go back to html let's return to the
+
+590
+00:27:16,400 --> 00:27:22,640
+original yeah so original
+
+591
+00:27:19,120 --> 00:27:25,039
+select it call it do it
+
+592
+00:27:22,640 --> 00:27:27,840
+no much better okay now now there now
+
+593
+00:27:25,039 --> 00:27:30,080
+you see there is a problem here
+
+594
+00:27:27,840 --> 00:27:30,080
+they
+
+595
+00:27:33,200 --> 00:27:38,320
+okay so let's see what's the problem so
+
+596
+00:27:35,520 --> 00:27:40,080
+once you removed it
+
+597
+00:27:38,320 --> 00:27:41,760
+wait hold on a second before we do
+
+598
+00:27:40,080 --> 00:27:44,559
+anything let's
+
+599
+00:27:41,760 --> 00:27:48,480
+let's make a copy of these so that we
+
+600
+00:27:44,559 --> 00:27:51,279
+have something to work on again copy
+
+601
+00:27:48,480 --> 00:27:51,279
+copy okay
+
+602
+00:27:52,720 --> 00:27:59,200
+okay so we have we removed it
+
+603
+00:27:56,000 --> 00:28:05,120
+and now we have a bunch of
+
+604
+00:27:59,200 --> 00:28:05,120
+new line and our code will basically
+
+605
+00:28:07,120 --> 00:28:10,559
+okay a sequence okay so i know what to
+
+606
+00:28:09,600 --> 00:28:14,159
+do we want
+
+607
+00:28:10,559 --> 00:28:18,080
+we don't want to re we do not want to
+
+608
+00:28:14,159 --> 00:28:20,559
+remove all the m all the new lines
+
+609
+00:28:18,080 --> 00:28:21,520
+we don't want to do that we want to have
+
+610
+00:28:20,559 --> 00:28:24,320
+at least one
+
+611
+00:28:21,520 --> 00:28:26,480
+okay so that's what we're gonna do so
+
+612
+00:28:24,320 --> 00:28:29,919
+back to the code
+
+613
+00:28:26,480 --> 00:28:32,960
+so replace match replaced by one
+
+614
+00:28:29,919 --> 00:28:36,240
+empty line okay eva buffer
+
+615
+00:28:32,960 --> 00:28:36,240
+back to html
+
+616
+00:28:37,039 --> 00:28:41,679
+and we try it again wait uh
+
+617
+00:28:43,039 --> 00:28:50,320
+wait yeah so here is our code so you see
+
+618
+00:28:46,799 --> 00:28:51,730
+we try it again call the command do it
+
+619
+00:28:50,320 --> 00:28:54,640
+fantastic
+
+620
+00:28:51,730 --> 00:28:56,640
+[Laughter]
+
+621
+00:28:54,640 --> 00:28:58,080
+now we are getting closer there's one
+
+622
+00:28:56,640 --> 00:29:01,919
+more step we need
+
+623
+00:28:58,080 --> 00:29:01,919
+to add the break sign
+
+624
+00:29:02,880 --> 00:29:10,840
+uh why no arrow is a string is it not
+
+625
+00:29:07,039 --> 00:29:12,480
+a boolean yeah it's it's it should be a
+
+626
+00:29:10,840 --> 00:29:14,880
+boolean but
+
+627
+00:29:12,480 --> 00:29:17,200
+like i said before in emacs there is
+
+628
+00:29:14,880 --> 00:29:20,559
+actually no boolean type
+
+629
+00:29:17,200 --> 00:29:22,880
+uh so in if context
+
+630
+00:29:20,559 --> 00:29:23,679
+when emax needs to find something if
+
+631
+00:29:22,880 --> 00:29:26,799
+it's true or
+
+632
+00:29:23,679 --> 00:29:27,679
+false it basically neo is the only thing
+
+633
+00:29:26,799 --> 00:29:31,120
+that's false
+
+634
+00:29:27,679 --> 00:29:34,000
+neo and empty string i mean near
+
+635
+00:29:31,120 --> 00:29:36,399
+or empty least because these two are
+
+636
+00:29:34,000 --> 00:29:38,559
+equivalent
+
+637
+00:29:36,399 --> 00:29:40,399
+so when you have a string that says no
+
+638
+00:29:38,559 --> 00:29:43,840
+arrow that is true
+
+639
+00:29:40,399 --> 00:29:45,360
+that's considered true i don't have to
+
+640
+00:29:43,840 --> 00:29:47,600
+use no error the reason
+
+641
+00:29:45,360 --> 00:29:48,480
+i use no arrow you know like a string is
+
+642
+00:29:47,600 --> 00:29:51,120
+because it's
+
+643
+00:29:48,480 --> 00:29:52,159
+it's more obvious to the programmer
+
+644
+00:29:51,120 --> 00:29:54,640
+typically
+
+645
+00:29:52,159 --> 00:29:55,200
+most what people mostly do is they just
+
+646
+00:29:54,640 --> 00:29:58,080
+say
+
+647
+00:29:55,200 --> 00:30:00,640
+they just give a symbol t for true
+
+648
+00:29:58,080 --> 00:30:02,559
+that's a convention
+
+649
+00:30:00,640 --> 00:30:04,960
+okay so that's one thing by the way
+
+650
+00:30:02,559 --> 00:30:06,720
+there's a bit more complexity because
+
+651
+00:30:04,960 --> 00:30:07,679
+when you act when you do a search
+
+652
+00:30:06,720 --> 00:30:11,360
+forward
+
+653
+00:30:07,679 --> 00:30:13,440
+command it this
+
+654
+00:30:11,360 --> 00:30:15,200
+this particular command actually
+
+655
+00:30:13,440 --> 00:30:18,080
+distinguishes
+
+656
+00:30:15,200 --> 00:30:19,039
+whether it's a symbol t or something
+
+657
+00:30:18,080 --> 00:30:22,880
+else
+
+658
+00:30:19,039 --> 00:30:25,360
+because if it's if something
+
+659
+00:30:22,880 --> 00:30:26,320
+true but not the symbol t it will
+
+660
+00:30:25,360 --> 00:30:30,000
+actually move the
+
+661
+00:30:26,320 --> 00:30:32,320
+cursor uh you can see that by
+
+662
+00:30:30,000 --> 00:30:33,600
+called describe function okay describe
+
+663
+00:30:32,320 --> 00:30:35,200
+function
+
+664
+00:30:33,600 --> 00:30:37,919
+for example here we have the
+
+665
+00:30:35,200 --> 00:30:40,000
+documentation for the search forward
+
+666
+00:30:37,919 --> 00:30:42,720
+so you can see there's the option no
+
+667
+00:30:40,000 --> 00:30:45,360
+error now if you search that
+
+668
+00:30:42,720 --> 00:30:45,919
+so here is the documentation for no
+
+669
+00:30:45,360 --> 00:30:48,399
+error
+
+670
+00:30:45,919 --> 00:30:50,559
+so it says the option the optional third
+
+671
+00:30:48,399 --> 00:30:54,000
+argument no error indicates
+
+672
+00:30:50,559 --> 00:30:57,120
+how errors are handled when the search
+
+673
+00:30:54,000 --> 00:31:01,120
+fails okay if it is new
+
+674
+00:30:57,120 --> 00:31:04,399
+or omitted then or me
+
+675
+00:31:01,120 --> 00:31:08,000
+then emit an error okay but
+
+676
+00:31:04,399 --> 00:31:11,200
+if it's t then simply return neo
+
+677
+00:31:08,000 --> 00:31:14,399
+and do nothing okay but if it is
+
+678
+00:31:11,200 --> 00:31:16,960
+neither neil nor t then
+
+679
+00:31:14,399 --> 00:31:18,320
+we'll move to the limit of search and
+
+680
+00:31:16,960 --> 00:31:21,840
+return neo so that
+
+681
+00:31:18,320 --> 00:31:21,840
+so there's a little bit difference
+
+682
+00:31:23,279 --> 00:31:27,519
+but but that applies just to this
+
+683
+00:31:25,519 --> 00:31:29,760
+command the search command
+
+684
+00:31:27,519 --> 00:31:31,600
+because of this particular command is
+
+685
+00:31:29,760 --> 00:31:34,880
+done that way
+
+686
+00:31:31,600 --> 00:31:38,240
+so anyway so so far so what we doing so
+
+687
+00:31:34,880 --> 00:31:42,000
+uh so let's run again so
+
+688
+00:31:38,240 --> 00:31:46,880
+if our buffer go back to html
+
+689
+00:31:42,000 --> 00:31:50,240
+undo selected call it yeah so there's
+
+690
+00:31:46,880 --> 00:31:52,080
+okay so so so far our program is
+
+691
+00:31:50,240 --> 00:31:53,039
+successful there's one more thing we
+
+692
+00:31:52,080 --> 00:31:57,679
+want to do
+
+693
+00:31:53,039 --> 00:32:01,679
+we want to add this br we want to add
+
+694
+00:31:57,679 --> 00:32:04,799
+this br at the end of each line
+
+695
+00:32:01,679 --> 00:32:06,960
+you know just like uh the example i mean
+
+696
+00:32:04,799 --> 00:32:09,120
+the we have a good example here
+
+697
+00:32:06,960 --> 00:32:11,679
+that's manually done so let's do it so
+
+698
+00:32:09,120 --> 00:32:14,880
+and do undo undo
+
+699
+00:32:11,679 --> 00:32:17,519
+and do so we return to the condition
+
+700
+00:32:14,880 --> 00:32:18,480
+and back to the code so now we want to
+
+701
+00:32:17,519 --> 00:32:21,919
+add a br
+
+702
+00:32:18,480 --> 00:32:28,080
+so that's easy so you again go to
+
+703
+00:32:21,919 --> 00:32:32,480
+char point mean
+
+704
+00:32:28,080 --> 00:32:32,480
+point mean then again
+
+705
+00:32:32,960 --> 00:32:40,159
+um when
+
+706
+00:32:36,640 --> 00:32:43,840
+search forward and when you find
+
+707
+00:32:40,159 --> 00:32:43,840
+a new line
+
+708
+00:32:47,600 --> 00:32:54,840
+bound near no error true
+
+709
+00:32:50,960 --> 00:32:57,840
+okay when you when you find a new line
+
+710
+00:32:54,840 --> 00:32:57,840
+then
+
+711
+00:32:58,320 --> 00:33:05,120
+you replace match
+
+712
+00:33:01,440 --> 00:33:05,120
+you replace match by
+
+713
+00:33:05,360 --> 00:33:14,559
+a new line plus a br
+
+714
+00:33:11,600 --> 00:33:15,279
+i believe it's slash or backslash i
+
+715
+00:33:14,559 --> 00:33:20,240
+think it's
+
+716
+00:33:15,279 --> 00:33:22,799
+um br slash okay
+
+717
+00:33:20,240 --> 00:33:25,360
+yeah so you replace an empty line a new
+
+718
+00:33:22,799 --> 00:33:28,880
+line character by a new line plus the
+
+719
+00:33:25,360 --> 00:33:32,159
+um wait it should be
+
+720
+00:33:28,880 --> 00:33:36,159
+br plus plus a new line okay
+
+721
+00:33:32,159 --> 00:33:37,840
+optional we don't care optional okay
+
+722
+00:33:36,159 --> 00:33:39,200
+but however there's more than that
+
+723
+00:33:37,840 --> 00:33:41,679
+actually hold on a second
+
+724
+00:33:39,200 --> 00:33:44,000
+we need to you know this this thing i
+
+725
+00:33:41,679 --> 00:33:47,039
+don't like about this
+
+726
+00:33:44,000 --> 00:33:51,679
+this needs to be inside okay
+
+727
+00:33:47,039 --> 00:33:54,159
+so here is our uh here's the our code
+
+728
+00:33:51,679 --> 00:33:55,600
+but now there's one more thing one more
+
+729
+00:33:54,159 --> 00:33:59,360
+left one more thing okay
+
+730
+00:33:55,600 --> 00:34:02,480
+so this so we go to the beginning of the
+
+731
+00:33:59,360 --> 00:34:05,200
+region then we search for the empty line
+
+732
+00:34:02,480 --> 00:34:06,559
+then we if we found it we do a replace
+
+733
+00:34:05,200 --> 00:34:09,200
+okay but that only does
+
+734
+00:34:06,559 --> 00:34:10,000
+one line you need to do all for all
+
+735
+00:34:09,200 --> 00:34:13,520
+lines
+
+736
+00:34:10,000 --> 00:34:13,839
+so what we do is we need we we are going
+
+737
+00:34:13,520 --> 00:34:17,440
+to
+
+738
+00:34:13,839 --> 00:34:21,679
+add a while statement okay while
+
+739
+00:34:17,440 --> 00:34:25,839
+while loop so while
+
+740
+00:34:21,679 --> 00:34:29,040
+this is how we do it so while that
+
+741
+00:34:25,839 --> 00:34:32,240
+then that
+
+742
+00:34:29,040 --> 00:34:35,359
+okay so we don't need the
+
+743
+00:34:32,240 --> 00:34:36,240
+queen anymore pretty fine so this is how
+
+744
+00:34:35,359 --> 00:34:40,000
+we do it so
+
+745
+00:34:36,240 --> 00:34:40,399
+this this is uh find replace repeatedly
+
+746
+00:34:40,000 --> 00:34:44,800
+oh
+
+747
+00:34:40,399 --> 00:34:46,800
+you know okay prefer the code we
+
+748
+00:34:44,800 --> 00:34:49,679
+predefine the code um
+
+749
+00:34:46,800 --> 00:34:49,919
+eval buffer back to html i think that's
+
+750
+00:34:49,679 --> 00:34:53,679
+it
+
+751
+00:34:49,919 --> 00:34:56,000
+that should work select all
+
+752
+00:34:53,679 --> 00:34:58,400
+call the command wait hold on a second
+
+753
+00:34:56,000 --> 00:35:01,680
+where's my pink window okay
+
+754
+00:34:58,400 --> 00:35:03,200
+call the command wait magnifying a
+
+755
+00:35:01,680 --> 00:35:07,560
+little bit
+
+756
+00:35:03,200 --> 00:35:12,320
+select the region call the command do it
+
+757
+00:35:07,560 --> 00:35:14,640
+fantastic so you can see
+
+758
+00:35:12,320 --> 00:35:18,320
+okay there is this we don't want but it
+
+759
+00:35:14,640 --> 00:35:21,359
+is let's show in browser show in browser
+
+760
+00:35:18,320 --> 00:35:23,839
+the second one is what we yeah perfect
+
+761
+00:35:21,359 --> 00:35:24,480
+except the first one the first br is
+
+762
+00:35:23,839 --> 00:35:28,240
+incorrect
+
+763
+00:35:24,480 --> 00:35:30,079
+the first br is what we don't want
+
+764
+00:35:28,240 --> 00:35:31,839
+but we don't have to select it let's
+
+765
+00:35:30,079 --> 00:35:35,760
+undo let's try it again so
+
+766
+00:35:31,839 --> 00:35:39,520
+you see we can select it but not include
+
+767
+00:35:35,760 --> 00:35:41,280
+not include that beginning br
+
+768
+00:35:39,520 --> 00:35:42,720
+well actually we can fix the code
+
+769
+00:35:41,280 --> 00:35:45,920
+actually so let's try
+
+770
+00:35:42,720 --> 00:35:48,079
+to fix the code so
+
+771
+00:35:45,920 --> 00:35:49,440
+you see here we go to the beginning of
+
+772
+00:35:48,079 --> 00:35:54,079
+region
+
+773
+00:35:49,440 --> 00:35:54,079
+then we skip char forward
+
+774
+00:35:55,359 --> 00:36:02,560
+and we skip n
+
+775
+00:35:59,520 --> 00:36:05,280
+okay limit let's say 10
+
+776
+00:36:02,560 --> 00:36:06,400
+there's some garbage truck making uh big
+
+777
+00:36:05,280 --> 00:36:08,880
+noises outside
+
+778
+00:36:06,400 --> 00:36:10,000
+very annoying so here is what we do so
+
+779
+00:36:08,880 --> 00:36:14,640
+that's it that should
+
+780
+00:36:10,000 --> 00:36:18,640
+work eval the buffer back to our html
+
+781
+00:36:14,640 --> 00:36:22,640
+select it call it
+
+782
+00:36:18,640 --> 00:36:27,599
+do it wait there is
+
+783
+00:36:22,640 --> 00:36:31,440
+there is still um what
+
+784
+00:36:27,599 --> 00:36:41,839
+yeah the garbage truck okay
+
+785
+00:36:31,440 --> 00:36:41,839
+i need to close the window
+
+786
+00:36:48,240 --> 00:36:52,079
+okay how long have we been talking we
+
+787
+00:36:50,400 --> 00:36:56,480
+are actually we pretty much
+
+788
+00:36:52,079 --> 00:36:58,960
+done okay uh there's a question
+
+789
+00:36:56,480 --> 00:37:01,119
+let me answer that we've been talking
+
+790
+00:36:58,960 --> 00:37:04,720
+for 36 minutes okay not
+
+791
+00:37:01,119 --> 00:37:07,040
+not too bad can you briefly explain
+
+792
+00:37:04,720 --> 00:37:08,079
+comments in emac list what's the
+
+793
+00:37:07,040 --> 00:37:11,839
+difference
+
+794
+00:37:08,079 --> 00:37:14,960
+okay uh what's the difference between
+
+795
+00:37:11,839 --> 00:37:16,800
+one semicolon versus two versus three
+
+796
+00:37:14,960 --> 00:37:18,800
+so let me explain that that's yeah
+
+797
+00:37:16,800 --> 00:37:23,280
+that's a convention yes
+
+798
+00:37:18,800 --> 00:37:26,480
+um so in uh let me show you
+
+799
+00:37:23,280 --> 00:37:31,440
+so you have the comments okay
+
+800
+00:37:26,480 --> 00:37:33,839
+um okay so so basically
+
+801
+00:37:31,440 --> 00:37:36,079
+if you have a comment if you want to
+
+802
+00:37:33,839 --> 00:37:38,000
+stop start a section okay so
+
+803
+00:37:36,079 --> 00:37:40,079
+if you have a long code you know lots of
+
+804
+00:37:38,000 --> 00:37:43,359
+code here is another
+
+805
+00:37:40,079 --> 00:37:44,640
+another um function for example then you
+
+806
+00:37:43,359 --> 00:37:47,119
+want to
+
+807
+00:37:44,640 --> 00:37:48,000
+you start a new section then you want to
+
+808
+00:37:47,119 --> 00:37:52,160
+use three
+
+809
+00:37:48,000 --> 00:37:55,359
+semicolons okay three semicolons
+
+810
+00:37:52,160 --> 00:37:58,800
+is the convention for a new section
+
+811
+00:37:55,359 --> 00:38:02,000
+now two two semicolon is the
+
+812
+00:37:58,800 --> 00:38:03,440
+is a standard standard comment at the
+
+813
+00:38:02,000 --> 00:38:06,640
+beginning of a line
+
+814
+00:38:03,440 --> 00:38:06,640
+okay let me write it
+
+815
+00:38:10,320 --> 00:38:16,240
+three semicolon begins a section
+
+816
+00:38:16,839 --> 00:38:22,560
+okay
+
+817
+00:38:18,640 --> 00:38:22,560
+two two semicolon
+
+818
+00:38:22,880 --> 00:38:28,800
+is a normal common normal line common
+
+819
+00:38:29,520 --> 00:38:36,400
+one semicolon is
+
+820
+00:38:32,720 --> 00:38:38,640
+common at end of line okay that's a
+
+821
+00:38:36,400 --> 00:38:41,760
+convention for example end of line
+
+822
+00:38:38,640 --> 00:38:44,400
+let's say we here
+
+823
+00:38:41,760 --> 00:38:44,400
+go to
+
+824
+00:38:44,960 --> 00:38:49,680
+beginning of regions for example one
+
+825
+00:38:47,680 --> 00:38:52,640
+semicolon so that's that's just emacs
+
+826
+00:38:49,680 --> 00:38:55,440
+convention you can find
+
+827
+00:38:52,640 --> 00:38:56,640
+the discussion of this in the gnu emacs
+
+828
+00:38:55,440 --> 00:38:58,960
+list
+
+829
+00:38:56,640 --> 00:38:59,760
+documentation you just search for new
+
+830
+00:38:58,960 --> 00:39:03,359
+emacs this
+
+831
+00:38:59,760 --> 00:39:03,359
+convention you will find it
+
+832
+00:39:03,839 --> 00:39:08,560
+okay so let's go back to the code so
+
+833
+00:39:05,680 --> 00:39:11,440
+what what what is it um we are missing
+
+834
+00:39:08,560 --> 00:39:13,280
+uh we are missing yes skip chart forward
+
+835
+00:39:11,440 --> 00:39:15,839
+okay
+
+836
+00:39:13,280 --> 00:39:15,839
+uh
+
+837
+00:39:16,320 --> 00:39:22,960
+we are missing something
+
+838
+00:39:19,520 --> 00:39:25,200
+skip chart forward we want to skip it
+
+839
+00:39:22,960 --> 00:39:25,200
+then
+
+840
+00:39:27,200 --> 00:39:30,560
+i'm not sure why it's not working but
+
+841
+00:39:29,440 --> 00:39:32,960
+anyway
+
+842
+00:39:30,560 --> 00:39:34,079
+but our code is basically done we that's
+
+843
+00:39:32,960 --> 00:39:37,200
+what we want to do
+
+844
+00:39:34,079 --> 00:39:40,320
+i mean the bulk of it let's try it again
+
+845
+00:39:37,200 --> 00:39:43,839
+all right i want my pink window
+
+846
+00:39:40,320 --> 00:39:43,839
+run it run it
+
+847
+00:39:44,240 --> 00:39:47,680
+yeah you see this br that's not we
+
+848
+00:39:46,960 --> 00:39:50,640
+that's
+
+849
+00:39:47,680 --> 00:39:57,839
+uh i don't i don't want that but why is
+
+850
+00:39:50,640 --> 00:39:57,839
+it there
+
+851
+00:40:00,480 --> 00:40:04,000
+uh because i thought this line should
+
+852
+00:40:03,599 --> 00:40:06,079
+fix
+
+853
+00:40:04,000 --> 00:40:06,079
+it
+
+854
+00:40:07,359 --> 00:40:11,599
+skip chart i mean go to the beginning of
+
+855
+00:40:11,040 --> 00:40:16,319
+buffer
+
+856
+00:40:11,599 --> 00:40:18,640
+then skip chart forward and
+
+857
+00:40:16,319 --> 00:40:20,960
+okay anyway let's not worry about that
+
+858
+00:40:18,640 --> 00:40:24,640
+for now there's one more thing i
+
+859
+00:40:20,960 --> 00:40:27,680
+more important i want to do for example
+
+860
+00:40:24,640 --> 00:40:28,720
+in our command we have to uh make it
+
+861
+00:40:27,680 --> 00:40:30,800
+select the region
+
+862
+00:40:28,720 --> 00:40:32,319
+user has to select the region first
+
+863
+00:40:30,800 --> 00:40:34,079
+before you call a command
+
+864
+00:40:32,319 --> 00:40:35,599
+it would be nice if you don't have to
+
+865
+00:40:34,079 --> 00:40:38,880
+because
+
+866
+00:40:35,599 --> 00:40:41,200
+at least for me i mean the youtube will
+
+867
+00:40:38,880 --> 00:40:42,560
+the the youtube description will always
+
+868
+00:40:41,200 --> 00:40:46,000
+be between
+
+869
+00:40:42,560 --> 00:40:49,119
+figure caption uh text
+
+870
+00:40:46,000 --> 00:40:52,079
+so so the emac list
+
+871
+00:40:49,119 --> 00:40:54,000
+should automatically figure out where is
+
+872
+00:40:52,079 --> 00:40:56,240
+the beginning of the
+
+873
+00:40:54,000 --> 00:40:59,040
+um the region and end of the region so
+
+874
+00:40:56,240 --> 00:41:02,319
+let's let's call that
+
+875
+00:40:59,040 --> 00:41:05,280
+let's let's call that okay so let's
+
+876
+00:41:02,319 --> 00:41:07,920
+so so here we need to modify instead of
+
+877
+00:41:05,280 --> 00:41:10,800
+region beginning and region end
+
+878
+00:41:07,920 --> 00:41:10,800
+we just say
+
+879
+00:41:11,200 --> 00:41:16,079
+we just search for word search backward
+
+880
+00:41:17,839 --> 00:41:24,000
+search backward
+
+881
+00:41:20,960 --> 00:41:24,000
+figure caption
+
+882
+00:41:29,200 --> 00:41:35,839
+then search forward
+
+883
+00:41:36,640 --> 00:41:41,119
+okay then set point
+
+884
+00:41:41,599 --> 00:41:48,480
+p1 point
+
+885
+00:41:44,720 --> 00:41:51,599
+okay then same thing
+
+886
+00:41:48,480 --> 00:41:55,680
+then same thing uh for
+
+887
+00:41:51,599 --> 00:41:59,200
+so the p1 is beginning of the position
+
+888
+00:41:55,680 --> 00:42:02,560
+now p2 is the same p2 is pretty similar
+
+889
+00:41:59,200 --> 00:42:06,000
+instead of we reverse the search
+
+890
+00:42:02,560 --> 00:42:09,040
+forward and backward like that and
+
+891
+00:42:06,000 --> 00:42:12,079
+we do that so we search
+
+892
+00:42:09,040 --> 00:42:13,040
+forward for the end of the figure
+
+893
+00:42:12,079 --> 00:42:17,280
+caption
+
+894
+00:42:13,040 --> 00:42:19,440
+tag then we search backward
+
+895
+00:42:17,280 --> 00:42:21,920
+so after this search the cruiser will
+
+896
+00:42:19,440 --> 00:42:23,839
+end up at the end of the tag
+
+897
+00:42:21,920 --> 00:42:25,680
+then we need to move to the beginning so
+
+898
+00:42:23,839 --> 00:42:30,480
+we want to
+
+899
+00:42:25,680 --> 00:42:32,880
+be at the beginning of the end tag
+
+900
+00:42:30,480 --> 00:42:33,680
+so that's it uh so these two lines
+
+901
+00:42:32,880 --> 00:42:37,280
+coming up
+
+902
+00:42:33,680 --> 00:42:40,400
+so so far so good everything is good
+
+903
+00:42:37,280 --> 00:42:42,000
+what else uh let's try it call it okay
+
+904
+00:42:40,400 --> 00:42:45,040
+we don't have to no we don't have to
+
+905
+00:42:42,000 --> 00:42:48,640
+select it let's just call it directly
+
+906
+00:42:45,040 --> 00:42:51,839
+do it fantastic fantastic
+
+907
+00:42:48,640 --> 00:42:53,839
+except that we still got a br there uh
+
+908
+00:42:51,839 --> 00:42:55,599
+we need to we have to fix it i don't
+
+909
+00:42:53,839 --> 00:42:58,480
+like i don't
+
+910
+00:42:55,599 --> 00:42:59,599
+you know save you know this saves the
+
+911
+00:42:58,480 --> 00:43:02,240
+time and trouble
+
+912
+00:42:59,599 --> 00:43:04,880
+saves so much time and also let's put a
+
+913
+00:43:02,240 --> 00:43:08,880
+save excursion here
+
+914
+00:43:04,880 --> 00:43:12,640
+we need a save excursion there because
+
+915
+00:43:08,880 --> 00:43:15,839
+whenever your command moves the cruiser
+
+916
+00:43:12,640 --> 00:43:19,040
+you usually want a save excursion
+
+917
+00:43:15,839 --> 00:43:20,000
+so that you want you want to wrap wrap
+
+918
+00:43:19,040 --> 00:43:23,760
+it with a save
+
+919
+00:43:20,000 --> 00:43:27,359
+excursion so that so that
+
+920
+00:43:23,760 --> 00:43:30,960
+after running your commands emacs
+
+921
+00:43:27,359 --> 00:43:31,760
+will return the cruiser to wherever it
+
+922
+00:43:30,960 --> 00:43:34,480
+is
+
+923
+00:43:31,760 --> 00:43:36,319
+so if you are writing emac this and if
+
+924
+00:43:34,480 --> 00:43:38,480
+you are moving cursor around for your
+
+925
+00:43:36,319 --> 00:43:41,200
+own purposes you don't want the user to
+
+926
+00:43:38,480 --> 00:43:42,000
+you don't need a user to see it you you
+
+927
+00:43:41,200 --> 00:43:44,880
+want to
+
+928
+00:43:42,000 --> 00:43:48,160
+add a saved excursion that just returned
+
+929
+00:43:44,880 --> 00:43:50,960
+the cursor where it was
+
+930
+00:43:48,160 --> 00:43:51,599
+so that's that's it but we need to fix
+
+931
+00:43:50,960 --> 00:43:55,920
+that
+
+932
+00:43:51,599 --> 00:43:58,880
+uh that one more that's um
+
+933
+00:43:55,920 --> 00:44:00,480
+skip chart forward go to mean skip chart
+
+934
+00:43:58,880 --> 00:44:03,440
+forward when he said
+
+935
+00:44:00,480 --> 00:44:03,440
+i don't understand
+
+936
+00:44:04,400 --> 00:44:09,839
+skip chart forward why is it not
+
+937
+00:44:21,119 --> 00:44:28,720
+let's let's skip the limit
+
+938
+00:44:24,400 --> 00:44:28,720
+okay eval buffer let's just try it
+
+939
+00:44:30,480 --> 00:44:36,560
+okay let's do it call it
+
+940
+00:44:33,839 --> 00:44:36,960
+it works so somehow when i put the limit
+
+941
+00:44:36,560 --> 00:44:39,920
+it
+
+942
+00:44:36,960 --> 00:44:42,400
+it screwed it up it works you see there
+
+943
+00:44:39,920 --> 00:44:45,440
+is no more br in the beginning of line
+
+944
+00:44:42,400 --> 00:44:45,440
+now show in browser
+
+945
+00:44:48,839 --> 00:44:51,839
+fantastic
+
+946
+00:44:54,400 --> 00:44:57,599
+so that's it for today anything else
+
+947
+00:44:56,960 --> 00:45:01,280
+comments
+
+948
+00:44:57,599 --> 00:45:04,000
+and let me know okay comments
+
+949
+00:45:01,280 --> 00:45:06,720
+concurrent viewers 14 so how long have i
+
+950
+00:45:04,000 --> 00:45:06,720
+been talking
+
+951
+00:45:07,520 --> 00:45:12,240
+am i like alive yes i'm alive
+
+952
+00:45:14,079 --> 00:45:17,280
+so i've been talking for 49 minutes for
+
+953
+00:45:16,160 --> 00:45:20,079
+45 minutes
+
+954
+00:45:17,280 --> 00:45:21,440
+uh let's see yeah that's that's about
+
+955
+00:45:20,079 --> 00:45:25,040
+that's it for today
+
+956
+00:45:21,440 --> 00:45:30,319
+let me wrap up okay let's so what we did
+
+957
+00:45:25,040 --> 00:45:30,319
+today is for example we go to this
+
+958
+00:45:30,839 --> 00:45:34,560
+youtube
+
+959
+00:45:32,079 --> 00:45:37,200
+for example let's uh let's do them over
+
+960
+00:45:34,560 --> 00:45:40,560
+again so go to the talk show page
+
+961
+00:45:37,200 --> 00:45:46,640
+today's talk show page showing browser
+
+962
+00:45:40,560 --> 00:45:49,839
+so it looks like that
+
+963
+00:45:46,640 --> 00:45:52,400
+actually let's uh let's add this one
+
+964
+00:45:49,839 --> 00:45:53,520
+so for example let's see for example you
+
+965
+00:45:52,400 --> 00:45:56,480
+can see
+
+966
+00:45:53,520 --> 00:45:58,560
+the code is here that's a youtube but
+
+967
+00:45:56,480 --> 00:46:01,839
+there is no description
+
+968
+00:45:58,560 --> 00:46:01,839
+so we're gonna
+
+969
+00:46:02,240 --> 00:46:07,920
+ah is that stupid actually uh because
+
+970
+00:46:05,599 --> 00:46:10,640
+that's today's talk show
+
+971
+00:46:07,920 --> 00:46:12,400
+the description uh let's okay let's
+
+972
+00:46:10,640 --> 00:46:16,319
+let's try this one okay
+
+973
+00:46:12,400 --> 00:46:20,000
+so this one that's what we do
+
+974
+00:46:16,319 --> 00:46:24,000
+did today copy the url back to emacs
+
+975
+00:46:20,000 --> 00:46:26,880
+and uh and go to the top paste it
+
+976
+00:46:24,000 --> 00:46:28,160
+okay show the pink window link if i show
+
+977
+00:46:26,880 --> 00:46:31,119
+in browser
+
+978
+00:46:28,160 --> 00:46:32,160
+no description so back to the youtube
+
+979
+00:46:31,119 --> 00:46:34,640
+website
+
+980
+00:46:32,160 --> 00:46:35,359
+you want to copy the description that's
+
+981
+00:46:34,640 --> 00:46:38,240
+what i do
+
+982
+00:46:35,359 --> 00:46:39,599
+usually manually copy it back to the
+
+983
+00:46:38,240 --> 00:46:43,839
+emacs page
+
+984
+00:46:39,599 --> 00:46:43,839
+paste it so we got that
+
+985
+00:46:44,160 --> 00:46:49,359
+and uh type you know just call the
+
+986
+00:46:47,040 --> 00:46:52,640
+command hold on second let's show that
+
+987
+00:46:49,359 --> 00:46:56,720
+call the command do it fantastic
+
+988
+00:46:52,640 --> 00:46:58,960
+showing browser it works
+
+989
+00:46:56,720 --> 00:47:00,319
+um this minor issue we need still need
+
+990
+00:46:58,960 --> 00:47:03,599
+to fix we need to
+
+991
+00:47:00,319 --> 00:47:05,760
+remove the trailing uh
+
+992
+00:47:03,599 --> 00:47:07,839
+empty line you see that there's there's
+
+993
+00:47:05,760 --> 00:47:08,720
+trading mp line sometimes when you copy
+
+994
+00:47:07,839 --> 00:47:11,760
+it
+
+995
+00:47:08,720 --> 00:47:15,440
+okay let's fix that
+
+996
+00:47:11,760 --> 00:47:18,240
+okay where is our code uh
+
+997
+00:47:15,440 --> 00:47:18,240
+our code yeah
+
+998
+00:47:18,480 --> 00:47:25,839
+so remove the trading empty line um
+
+999
+00:47:26,160 --> 00:47:31,760
+so when we start a region we
+
+1000
+00:47:29,520 --> 00:47:33,520
+go to the beginning of region before we
+
+1001
+00:47:31,760 --> 00:47:36,400
+go to the beginning of region
+
+1002
+00:47:33,520 --> 00:47:36,400
+we go to
+
+1003
+00:47:37,200 --> 00:47:43,440
+yeah so we go to the beginning of region
+
+1004
+00:47:45,920 --> 00:47:50,000
+wait let's go to the end of region first
+
+1005
+00:47:48,559 --> 00:47:53,839
+okay go to char
+
+1006
+00:47:50,000 --> 00:47:54,880
+point max okay that's goes to the end of
+
+1007
+00:47:53,839 --> 00:47:57,520
+region
+
+1008
+00:47:54,880 --> 00:47:59,680
+then you want then so your point your
+
+1009
+00:47:57,520 --> 00:48:00,720
+cursor is end of the region for example
+
+1010
+00:47:59,680 --> 00:48:04,079
+here
+
+1011
+00:48:00,720 --> 00:48:04,960
+then if the character to the left is a
+
+1012
+00:48:04,079 --> 00:48:09,839
+new line
+
+1013
+00:48:04,960 --> 00:48:09,839
+you want to delete it okay so
+
+1014
+00:48:12,000 --> 00:48:19,040
+skip skip chart
+
+1015
+00:48:15,440 --> 00:48:22,880
+skip chart backward okay
+
+1016
+00:48:19,040 --> 00:48:26,400
+skip chart then that
+
+1017
+00:48:22,880 --> 00:48:30,160
+so you want to skip all the
+
+1018
+00:48:26,400 --> 00:48:32,400
+uh all the new line characters
+
+1019
+00:48:30,160 --> 00:48:34,480
+your your cruiser is at the end of the
+
+1020
+00:48:32,400 --> 00:48:36,319
+region and you want to move backwards
+
+1021
+00:48:34,480 --> 00:48:40,079
+skipping all new lines
+
+1022
+00:48:36,319 --> 00:48:40,079
+basically you want to delete them so
+
+1023
+00:48:43,599 --> 00:48:47,680
+there are so many ways to do it let's
+
+1024
+00:48:45,599 --> 00:48:49,040
+just do it one way okay so skip chart
+
+1025
+00:48:47,680 --> 00:48:51,200
+backward
+
+1026
+00:48:49,040 --> 00:48:52,400
+then let's see let's read the
+
+1027
+00:48:51,200 --> 00:48:55,760
+documentation what did
+
+1028
+00:48:52,400 --> 00:48:58,000
+it return returns the distance traveled
+
+1029
+00:48:55,760 --> 00:48:58,000
+okay
+
+1030
+00:48:59,599 --> 00:49:05,520
+so it returns the distance traveled so
+
+1031
+00:49:02,640 --> 00:49:05,839
+for example it might return three that
+
+1032
+00:49:05,520 --> 00:49:08,319
+means
+
+1033
+00:49:05,839 --> 00:49:09,440
+it moved backwards three times then we
+
+1034
+00:49:08,319 --> 00:49:13,040
+just say dv
+
+1035
+00:49:09,440 --> 00:49:18,319
+char okay delete char
+
+1036
+00:49:13,040 --> 00:49:18,319
+the number of character it uh it moved
+
+1037
+00:49:18,400 --> 00:49:25,680
+so these two lines will trim the
+
+1038
+00:49:22,000 --> 00:49:25,680
+end the new lines at the end
+
+1039
+00:49:25,760 --> 00:49:31,040
+uh lynette i mean if i refer back to the
+
+1040
+00:49:28,480 --> 00:49:35,040
+code let's just try it
+
+1041
+00:49:31,040 --> 00:49:38,559
+okay so let's talk show okay here is our
+
+1042
+00:49:35,040 --> 00:49:44,960
+page again call the command so let's add
+
+1043
+00:49:38,559 --> 00:49:47,680
+more lines for example
+
+1044
+00:49:44,960 --> 00:49:48,240
+well actually i know there's a problem
+
+1045
+00:49:47,680 --> 00:49:52,960
+you see
+
+1046
+00:49:48,240 --> 00:49:59,200
+um you see it works but you see that
+
+1047
+00:49:52,960 --> 00:50:03,680
+so it's not working
+
+1048
+00:49:59,200 --> 00:50:03,680
+let's go to back to the list of code
+
+1049
+00:50:10,839 --> 00:50:13,839
+releases
+
+1050
+00:50:18,160 --> 00:50:20,559
+um
+
+1051
+00:50:21,200 --> 00:50:27,839
+raise our code
+
+1052
+00:50:29,040 --> 00:50:34,640
+yeah okay so what what we gonna do okay
+
+1053
+00:50:32,079 --> 00:50:41,839
+so let's fix this let's get this fixed
+
+1054
+00:50:34,640 --> 00:50:41,839
+so delete char skip chart backwards
+
+1055
+00:50:44,480 --> 00:50:52,400
+let's see very
+
+1056
+00:50:47,880 --> 00:50:55,599
+informative scream watch scream
+
+1057
+00:50:52,400 --> 00:50:58,319
+so george says oh oatmeal truck
+
+1058
+00:50:55,599 --> 00:51:00,960
+delivering raw oatmeal
+
+1059
+00:50:58,319 --> 00:51:03,839
+no it's not oatmeal it's a it's a
+
+1060
+00:51:00,960 --> 00:51:03,839
+garbage truck
+
+1061
+00:51:04,079 --> 00:51:08,160
+a food truck delivering chinese noodle
+
+1062
+00:51:06,480 --> 00:51:10,400
+soups in sauce apartment
+
+1063
+00:51:08,160 --> 00:51:10,400
+no
+
+1064
+00:51:12,720 --> 00:51:16,400
+okay so yeah so let's get this let's fix
+
+1065
+00:51:15,200 --> 00:51:19,440
+this so
+
+1066
+00:51:16,400 --> 00:51:19,440
+we want to trim
+
+1067
+00:51:20,800 --> 00:51:28,240
+so go to the end of the region
+
+1068
+00:51:24,480 --> 00:51:28,240
+then skip chart backward
+
+1069
+00:51:29,680 --> 00:51:35,040
+okay so why is it not working so let's
+
+1070
+00:51:32,720 --> 00:51:37,839
+try it
+
+1071
+00:51:35,040 --> 00:51:37,839
+okay so
+
+1072
+00:51:46,000 --> 00:51:51,839
+it worked okay so it works and uh oh
+
+1073
+00:51:50,160 --> 00:51:54,319
+negative
+
+1074
+00:51:51,839 --> 00:51:55,920
+that's that's right we need you uh
+
+1075
+00:51:54,319 --> 00:51:58,960
+delete char
+
+1076
+00:51:55,920 --> 00:52:00,800
+right this returns a positive number so
+
+1077
+00:51:58,960 --> 00:52:02,319
+when you want to delete backward you
+
+1078
+00:52:00,800 --> 00:52:06,559
+need a negative number
+
+1079
+00:52:02,319 --> 00:52:06,559
+so okay so let's put the negative number
+
+1080
+00:52:06,640 --> 00:52:12,800
+that's how you do negative in e max okay
+
+1081
+00:52:10,400 --> 00:52:13,599
+run the code let's not think too much
+
+1082
+00:52:12,800 --> 00:52:15,950
+let's just
+
+1083
+00:52:13,599 --> 00:52:17,200
+trial an error okay so
+
+1084
+00:52:15,950 --> 00:52:20,400
+[Music]
+
+1085
+00:52:17,200 --> 00:52:25,839
+let's say let's say that much more okay
+
+1086
+00:52:20,400 --> 00:52:28,880
+do it fantastic it worked you see
+
+1087
+00:52:25,839 --> 00:52:31,200
+uh also we can let's
+
+1088
+00:52:28,880 --> 00:52:32,960
+that's it for today let's just wrap up
+
+1089
+00:52:31,200 --> 00:52:34,079
+let's that's it for today let's not
+
+1090
+00:52:32,960 --> 00:52:37,760
+worry too much that
+
+1091
+00:52:34,079 --> 00:52:41,839
+that's it so fantastic we did it
+
+1092
+00:52:37,760 --> 00:52:42,319
+and we did it yeah so so on my emacs
+
+1093
+00:52:41,839 --> 00:52:45,760
+vlog
+
+1094
+00:52:42,319 --> 00:52:47,440
+i don't need this anymore turn off the
+
+1095
+00:52:45,760 --> 00:52:52,079
+uh
+
+1096
+00:52:47,440 --> 00:52:55,200
+white space so show in my emacs blog
+
+1097
+00:52:52,079 --> 00:52:57,760
+html remove youtube junk yeah that's
+
+1098
+00:52:55,200 --> 00:53:00,880
+right that's a code so let's go to the
+
+1099
+00:52:57,760 --> 00:53:04,400
+code grab it
+
+1100
+00:53:00,880 --> 00:53:06,640
+okay grab it delete that or
+
+1101
+00:53:04,400 --> 00:53:07,440
+remove that remove that delete that
+
+1102
+00:53:06,640 --> 00:53:11,520
+close the
+
+1103
+00:53:07,440 --> 00:53:15,359
+emacs blog go back to the talk show blog
+
+1104
+00:53:11,520 --> 00:53:18,319
+and go and and showing browser first
+
+1105
+00:53:15,359 --> 00:53:20,240
+okay then go back to emacs and at the
+
+1106
+00:53:18,319 --> 00:53:23,680
+bottom
+
+1107
+00:53:20,240 --> 00:53:28,800
+here add the emacs list code
+
+1108
+00:53:23,680 --> 00:53:32,720
+paste it and remove these comments
+
+1109
+00:53:28,800 --> 00:53:36,640
+showing browser and go to the bottom
+
+1110
+00:53:32,720 --> 00:53:36,640
+you can see the code there
+
+1111
+00:53:36,880 --> 00:53:42,800
+okay so we press the key to
+
+1112
+00:53:40,079 --> 00:53:46,400
+clarify it back to browser show it now
+
+1113
+00:53:42,800 --> 00:53:48,960
+it's better now that's a code of today
+
+1114
+00:53:46,400 --> 00:53:51,440
+and meanwhile we go to the top we don't
+
+1115
+00:53:48,960 --> 00:53:51,440
+need this
+
+1116
+00:53:52,240 --> 00:53:57,680
+that's it for today guys thank you guys
+
+1117
+00:53:54,480 --> 00:54:01,359
+for watching uh if you like my stuff
+
+1118
+00:53:57,680 --> 00:54:04,400
+go buy my stuff okay e-max tutorial
+
+1119
+00:54:01,359 --> 00:54:06,880
+e-max tutorial and e-max this
+
+1120
+00:54:04,400 --> 00:54:08,160
+tutorial you'll learn e-mac bits from
+
+1121
+00:54:06,880 --> 00:54:12,319
+the ground up
+
+1122
+00:54:08,160 --> 00:54:16,240
+in the most efficient manner possible
+
+1123
+00:54:12,319 --> 00:54:16,240
+thank you bye guys
+
+1124
+00:54:20,160 --> 00:54:25,040
+okay i'm gonna close down in 30 seconds
+
+1125
+00:54:23,440 --> 00:54:30,000
+okay
+
+1126
+00:54:25,040 --> 00:54:30,000
+to allow some kind of 30 seconds
+
+1127
+00:54:31,119 --> 00:54:34,319
+30 seconds okay i'm just going to shut
+
+1128
+00:54:33,839 --> 00:54:36,960
+down
+
+1129
+00:54:34,319 --> 00:54:39,839
+in 30 seconds so we don't need that
+
+1130
+00:54:36,960 --> 00:54:39,839
+showing browser
+
+1131
+00:54:41,440 --> 00:54:49,520
+fantastic and i'm going to put this code
+
+1132
+00:54:44,880 --> 00:54:50,079
+in well nobody is going to use this code
+
+1133
+00:54:49,520 --> 00:54:53,280
+actually
+
+1134
+00:54:50,079 --> 00:54:55,440
+it's just me because oh by the way so
+
+1135
+00:54:53,280 --> 00:54:58,880
+today there's a emacs meetup
+
+1136
+00:54:55,440 --> 00:55:02,240
+guys okay so you go to
+
+1137
+00:54:58,880 --> 00:55:06,480
+today at four o'clock san francisco time
+
+1138
+00:55:02,240 --> 00:55:09,359
+okay emacs san francisco meet
+
+1139
+00:55:06,480 --> 00:55:10,640
+up just search for emacs san francisco
+
+1140
+00:55:09,359 --> 00:55:14,480
+meetup
+
+1141
+00:55:10,640 --> 00:55:18,000
+so there is the link i mean it's a
+
+1142
+00:55:14,480 --> 00:55:19,920
+online meetup online you know since
+
+1143
+00:55:18,000 --> 00:55:22,880
+there's a corvid 19. covid19
+
+1144
+00:55:19,920 --> 00:55:24,240
+so it's today at four o'clock san
+
+1145
+00:55:22,880 --> 00:55:26,480
+francisco time
+
+1146
+00:55:24,240 --> 00:55:29,440
+and i think i'll be there so right now
+
+1147
+00:55:26,480 --> 00:55:32,480
+it's already 20 or 10 days
+
+1148
+00:55:29,440 --> 00:55:32,480
+20 is the maximum
+
+1149
+00:55:32,720 --> 00:55:36,640
+i'm going to get some sleep then wake up
+
+1150
+00:55:35,680 --> 00:55:38,240
+around
+
+1151
+00:55:36,640 --> 00:55:39,839
+you know in the afternoon and i'll be
+
+1152
+00:55:38,240 --> 00:55:49,839
+there
+
+1153
+00:55:39,839 --> 00:55:49,839
+hopefully see you guys bye guys
+

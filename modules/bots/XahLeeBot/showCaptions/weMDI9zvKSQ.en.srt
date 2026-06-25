@@ -1,0 +1,5100 @@
+1
+00:00:03,890 --> 00:00:13,080
+good morning everyone welcome to another
+
+2
+00:00:06,750 --> 00:00:15,540
+episode of Zatoichi oh hi guys so
+
+3
+00:00:13,080 --> 00:00:21,420
+today's topic is going to be some
+
+4
+00:00:15,540 --> 00:00:25,769
+typescript JavaScript and let's read the
+
+5
+00:00:21,420 --> 00:00:32,279
+comments and meanwhile let me maybe let
+
+6
+00:00:25,769 --> 00:00:41,190
+me start the switch the input let's
+
+7
+00:00:32,279 --> 00:00:43,379
+start saw start command log so on the
+
+8
+00:00:41,190 --> 00:00:45,920
+Left window you can see all my Emacs
+
+9
+00:00:43,379 --> 00:00:51,350
+commands
+
+10
+00:00:45,920 --> 00:00:51,350
+ok so let's read the comments oops
+
+11
+00:01:02,109 --> 00:01:06,310
+so bathroom you say is number four
+
+12
+00:01:04,360 --> 00:01:08,649
+side-by-side comparison of plain
+
+13
+00:01:06,310 --> 00:01:10,540
+JavaScript versus typescript how does
+
+14
+00:01:08,649 --> 00:01:13,290
+the wrapper make it better so okay so
+
+15
+00:01:10,540 --> 00:01:17,439
+let's I'm going to explain some basic
+
+16
+00:01:13,290 --> 00:01:20,500
+tutorial on typescript introduction to
+
+17
+00:01:17,439 --> 00:01:22,450
+typescript it's not much really
+
+18
+00:01:20,500 --> 00:01:25,869
+typescript you know you really just
+
+19
+00:01:22,450 --> 00:01:28,600
+think of it as JavaScript it's basically
+
+20
+00:01:25,869 --> 00:01:34,450
+exactly the same except you add you know
+
+21
+00:01:28,600 --> 00:01:36,670
+little types here and there and bottom
+
+22
+00:01:34,450 --> 00:01:39,039
+you say is same code snippet in plain
+
+23
+00:01:36,670 --> 00:01:42,970
+JavaScript in typescript side or side by
+
+24
+00:01:39,039 --> 00:01:45,850
+side yeah let's do that and in fact we
+
+25
+00:01:42,970 --> 00:01:48,069
+can do a we're gonna code I have some
+
+26
+00:01:45,850 --> 00:01:50,380
+JavaScript applications we can convert
+
+27
+00:01:48,069 --> 00:01:52,360
+it to typescript then you'll see it's
+
+28
+00:01:50,380 --> 00:01:55,330
+not much at all
+
+29
+00:01:52,360 --> 00:01:58,110
+but of course just like every technology
+
+30
+00:01:55,330 --> 00:02:01,179
+there's lots of quacks you know like
+
+31
+00:01:58,110 --> 00:02:06,009
+sometimes you need to know you know four
+
+32
+00:02:01,179 --> 00:02:08,170
+simple types like number string I know
+
+33
+00:02:06,009 --> 00:02:11,379
+it's easy you just say : number you know
+
+34
+00:02:08,170 --> 00:02:13,569
+I'm going to show you okay so for simple
+
+35
+00:02:11,379 --> 00:02:16,000
+types it's easy but sometimes you want
+
+36
+00:02:13,569 --> 00:02:19,480
+to get for example you have a array of
+
+37
+00:02:16,000 --> 00:02:22,030
+two elements you want to specify that
+
+38
+00:02:19,480 --> 00:02:24,459
+this argument argument must be your
+
+39
+00:02:22,030 --> 00:02:27,580
+array and it must be only two elements
+
+40
+00:02:24,459 --> 00:02:29,560
+then it gets a bit a bit more complex
+
+41
+00:02:27,580 --> 00:02:31,840
+then you have to look up you know
+
+42
+00:02:29,560 --> 00:02:35,200
+typescript documentation to see if you
+
+43
+00:02:31,840 --> 00:02:38,230
+can actually do that so there are things
+
+44
+00:02:35,200 --> 00:02:41,920
+like that so we're gonna go over that so
+
+45
+00:02:38,230 --> 00:02:44,500
+let's go to Mike Sontag show
+
+46
+00:02:41,920 --> 00:02:48,670
+let's see comments keep the comments
+
+47
+00:02:44,500 --> 00:02:52,330
+coming okay and thought hawks show and
+
+48
+00:02:48,670 --> 00:02:55,629
+so today is this page this page empty
+
+49
+00:02:52,330 --> 00:02:56,140
+buffer so we cannot put today's stuff
+
+50
+00:02:55,629 --> 00:02:59,700
+here
+
+51
+00:02:56,140 --> 00:03:04,680
+so type typescript
+
+52
+00:02:59,700 --> 00:03:10,829
+versus javascript live coding comparison
+
+53
+00:03:04,680 --> 00:03:13,900
+basic intro to typescript okay
+
+54
+00:03:10,829 --> 00:03:18,459
+showing browser there it is
+
+55
+00:03:13,900 --> 00:03:25,480
+and okay so let's move this window over
+
+56
+00:03:18,459 --> 00:03:27,640
+here yeah so okay so Rica
+
+57
+00:03:25,480 --> 00:03:30,370
+Bethel mule says number eight
+
+58
+00:03:27,640 --> 00:03:37,629
+recommendations for how to write a good
+
+59
+00:03:30,370 --> 00:03:41,709
+key blog to see how much to see how much
+
+60
+00:03:37,629 --> 00:03:43,690
+you type most often yeah I have
+
+61
+00:03:41,709 --> 00:03:47,319
+depending are you talking about eMac
+
+62
+00:03:43,690 --> 00:03:49,540
+well you can do that in Emacs if you
+
+63
+00:03:47,319 --> 00:03:51,609
+type you know vast majority of the time
+
+64
+00:03:49,540 --> 00:03:56,189
+you type in Emacs you can do that in
+
+65
+00:03:51,609 --> 00:03:59,230
+Emacs that's the there is already a mod
+
+66
+00:03:56,189 --> 00:04:01,510
+which is show frequency have you seen it
+
+67
+00:03:59,230 --> 00:04:01,900
+bathroom you because I've shown it
+
+68
+00:04:01,510 --> 00:04:03,909
+before
+
+69
+00:04:01,900 --> 00:04:06,970
+good morning Quinn tech good morning
+
+70
+00:04:03,909 --> 00:04:12,209
+Matthews Matthews good morning
+
+71
+00:04:06,970 --> 00:04:22,270
+Bernie Sanders and the money is seen to
+
+72
+00:04:12,209 --> 00:04:25,840
+and the good morning Z Chong crazy okay
+
+73
+00:04:22,270 --> 00:04:28,840
+so yeah so the okay so there is a Emacs
+
+74
+00:04:25,840 --> 00:04:32,770
+mod let me show this some people may not
+
+75
+00:04:28,840 --> 00:04:36,699
+see have seen it called frequency key
+
+76
+00:04:32,770 --> 00:04:40,810
+freak mod standing for key frequency mod
+
+77
+00:04:36,699 --> 00:04:43,599
+so for example this is my lock of almost
+
+78
+00:04:40,810 --> 00:04:46,930
+half a year or a year's worth of key
+
+79
+00:04:43,599 --> 00:04:48,550
+typing something like that you know one
+
+80
+00:04:46,930 --> 00:04:51,430
+problem with this is that it doesn't
+
+81
+00:04:48,550 --> 00:04:54,310
+show that beginning date well you see
+
+82
+00:04:51,430 --> 00:04:57,550
+when you install key frequency mod you
+
+83
+00:04:54,310 --> 00:05:00,389
+know it it and you started you know it
+
+84
+00:04:57,550 --> 00:05:04,060
+logs every commands you call in Emacs
+
+85
+00:05:00,389 --> 00:05:06,639
+including you know inserting letters
+
+86
+00:05:04,060 --> 00:05:08,860
+like self insert command when you type
+
+87
+00:05:06,639 --> 00:05:14,409
+something that's inserting letters so
+
+88
+00:05:08,860 --> 00:05:16,349
+this is my log you know one one issue is
+
+89
+00:05:14,409 --> 00:05:19,300
+that it doesn't have a beginning date
+
+90
+00:05:16,349 --> 00:05:21,610
+well because every time you create Emacs
+
+91
+00:05:19,300 --> 00:05:23,920
+it saves the login to a file in your
+
+92
+00:05:21,610 --> 00:05:26,560
+dart Emacs in
+
+93
+00:05:23,920 --> 00:05:32,260
+directory then when you start Emacs
+
+94
+00:05:26,560 --> 00:05:34,780
+again it continues so so I guess in that
+
+95
+00:05:32,260 --> 00:05:36,820
+respect you don't have a date but you
+
+96
+00:05:34,780 --> 00:05:39,220
+could add a date you know it should be
+
+97
+00:05:36,820 --> 00:05:43,060
+an improvement to to have a beginning
+
+98
+00:05:39,220 --> 00:05:44,950
+date of the log file so you know because
+
+99
+00:05:43,060 --> 00:05:46,930
+knowing the date is important for
+
+100
+00:05:44,950 --> 00:05:49,390
+example I have typed these many
+
+101
+00:05:46,930 --> 00:05:56,890
+keystrokes for inserting letters you
+
+102
+00:05:49,390 --> 00:05:59,890
+know six 666 666 thousand you know six
+
+103
+00:05:56,890 --> 00:06:02,920
+six six thousand letter keystrokes
+
+104
+00:05:59,890 --> 00:06:05,680
+but I don't know how long was this log
+
+105
+00:06:02,920 --> 00:06:08,410
+it could be one month it could be one
+
+106
+00:06:05,680 --> 00:06:10,480
+year so knowing the date so you have a
+
+107
+00:06:08,410 --> 00:06:12,730
+period of time then you know exactly how
+
+108
+00:06:10,480 --> 00:06:18,810
+much you actually type so anyway this is
+
+109
+00:06:12,730 --> 00:06:22,210
+a Emacs key freak mod okay the name is
+
+110
+00:06:18,810 --> 00:06:26,140
+key freak mod I think that's the name so
+
+111
+00:06:22,210 --> 00:06:27,940
+you can look it up and so use that if
+
+112
+00:06:26,140 --> 00:06:32,350
+you are using Emacs because it's very
+
+113
+00:06:27,940 --> 00:06:35,170
+useful too because most of the time
+
+114
+00:06:32,350 --> 00:06:37,990
+programmers the keystrokes you use are
+
+115
+00:06:35,170 --> 00:06:40,570
+actually shortcuts you know backward
+
+116
+00:06:37,990 --> 00:06:43,420
+will delete paragraph things like that
+
+117
+00:06:40,570 --> 00:06:48,790
+move up you know switch buffer that
+
+118
+00:06:43,420 --> 00:06:53,410
+happens more often than more often than
+
+119
+00:06:48,790 --> 00:06:58,300
+just typing letters like this for
+
+120
+00:06:53,410 --> 00:07:00,550
+example you have to edit now if I'm
+
+121
+00:06:58,300 --> 00:07:02,260
+going to edit this sentence I need to
+
+122
+00:07:00,550 --> 00:07:04,450
+move the cursor backward word you know
+
+123
+00:07:02,260 --> 00:07:06,760
+move to somewhere that's you know those
+
+124
+00:07:04,450 --> 00:07:10,260
+are keystrokes that's not inserting
+
+125
+00:07:06,760 --> 00:07:14,140
+letters data entry not data entry so I
+
+126
+00:07:10,260 --> 00:07:17,560
+have statistics okay let me show you I
+
+127
+00:07:14,140 --> 00:07:20,080
+have statistics on Emacs you go to my
+
+128
+00:07:17,560 --> 00:07:25,890
+you know such as such folk sorry max
+
+129
+00:07:20,080 --> 00:07:28,990
+sorry max you go to Emacs keys all these
+
+130
+00:07:25,890 --> 00:07:31,420
+articles are related to Emacs key
+
+131
+00:07:28,990 --> 00:07:33,480
+binding or keystrokes or repetitive
+
+132
+00:07:31,420 --> 00:07:36,760
+strain injury hand health and stuff and
+
+133
+00:07:33,480 --> 00:07:39,630
+keyboards and in here you're fine
+
+134
+00:07:36,760 --> 00:07:39,630
+statistics
+
+135
+00:07:39,639 --> 00:07:46,030
+let's see keybinding how to Emax
+
+136
+00:07:42,520 --> 00:07:48,700
+keybinding tips and Emacs pinky okay
+
+137
+00:07:46,030 --> 00:07:54,340
+here this section is related to hand
+
+138
+00:07:48,700 --> 00:07:56,980
+health and best keyboards and statistics
+
+139
+00:07:54,340 --> 00:08:00,430
+Emacs command frequency statistics so I
+
+140
+00:07:56,980 --> 00:08:00,850
+did this like 2007 10 years ago 12 years
+
+141
+00:08:00,430 --> 00:08:06,340
+ago
+
+142
+00:08:00,850 --> 00:08:09,010
+it's statistics of several users anyway
+
+143
+00:08:06,340 --> 00:08:11,680
+so if you are interested that in you
+
+144
+00:08:09,010 --> 00:08:15,340
+know look it up one important thing I
+
+145
+00:08:11,680 --> 00:08:17,380
+discovered is that programmers actually
+
+146
+00:08:15,340 --> 00:08:19,240
+you have more than you know half of the
+
+147
+00:08:17,380 --> 00:08:21,060
+time depending on you you know depending
+
+148
+00:08:19,240 --> 00:08:23,770
+on you know each person is different
+
+149
+00:08:21,060 --> 00:08:26,080
+some people maybe chat more on Twitter
+
+150
+00:08:23,770 --> 00:08:29,020
+or whatever you know in that case you
+
+151
+00:08:26,080 --> 00:08:31,419
+you type a lot more there are entry key
+
+152
+00:08:29,020 --> 00:08:34,300
+strokes but one thing I discovered is
+
+153
+00:08:31,419 --> 00:08:37,300
+that a lot of people more like depending
+
+154
+00:08:34,300 --> 00:08:40,719
+on the person but on average more than
+
+155
+00:08:37,300 --> 00:08:43,180
+half the time as a for programmers the
+
+156
+00:08:40,719 --> 00:08:45,100
+keystrokes you type are not actually you
+
+157
+00:08:43,180 --> 00:08:48,700
+know data entry like just typing letters
+
+158
+00:08:45,100 --> 00:08:51,220
+but but are about shortcuts a switching
+
+159
+00:08:48,700 --> 00:08:55,150
+buffer you know move move pager page now
+
+160
+00:08:51,220 --> 00:08:59,740
+you know edit delete DD were things like
+
+161
+00:08:55,150 --> 00:09:01,960
+that so so that's that's a discovery
+
+162
+00:08:59,740 --> 00:09:04,030
+that's you know I was surprised you know
+
+163
+00:09:01,960 --> 00:09:05,620
+when you study keyboard you know I've
+
+164
+00:09:04,030 --> 00:09:08,050
+been studying this for like 20 years
+
+165
+00:09:05,620 --> 00:09:11,980
+like every every few years you have a
+
+166
+00:09:08,050 --> 00:09:15,460
+great surprise you know like so many
+
+167
+00:09:11,980 --> 00:09:20,589
+things because for example one thing I
+
+168
+00:09:15,460 --> 00:09:23,170
+learned about keyboard is that one thing
+
+169
+00:09:20,589 --> 00:09:25,360
+I learned about keyboard is that you
+
+170
+00:09:23,170 --> 00:09:27,490
+know you study so many there are many so
+
+171
+00:09:25,360 --> 00:09:30,520
+many aspects of keyboard there's a key
+
+172
+00:09:27,490 --> 00:09:32,770
+key cap how it is made what material it
+
+173
+00:09:30,520 --> 00:09:35,680
+is you know and sometimes it becomes
+
+174
+00:09:32,770 --> 00:09:37,930
+yellow you learned that you know like
+
+175
+00:09:35,680 --> 00:09:39,910
+old keyboard you know antique you look
+
+176
+00:09:37,930 --> 00:09:45,430
+at you know sometimes you see pictures
+
+177
+00:09:39,910 --> 00:09:47,560
+of let's see keyboard history you know
+
+178
+00:09:45,430 --> 00:09:50,620
+many of these keyboard becomes yellow
+
+179
+00:09:47,560 --> 00:09:51,670
+over over 20 years because that is
+
+180
+00:09:50,620 --> 00:09:55,060
+because the
+
+181
+00:09:51,670 --> 00:10:00,510
+stick that that is used to make the key
+
+182
+00:09:55,060 --> 00:10:03,460
+cap that's called ABS plastic that I
+
+183
+00:10:00,510 --> 00:10:08,230
+think you know anyway there are several
+
+184
+00:10:03,460 --> 00:10:10,660
+type of types of plastics that that are
+
+185
+00:10:08,230 --> 00:10:13,780
+used to make the key cap you know key
+
+186
+00:10:10,660 --> 00:10:16,420
+haptic and and they have advantages and
+
+187
+00:10:13,780 --> 00:10:19,210
+they have disadvantages for example this
+
+188
+00:10:16,420 --> 00:10:22,630
+one is most common this is called ABS
+
+189
+00:10:19,210 --> 00:10:25,420
+plastics this is like cheap keyboard
+
+190
+00:10:22,630 --> 00:10:28,510
+Microsoft keyboard Logitech they are all
+
+191
+00:10:25,420 --> 00:10:31,300
+ABS plastic over time like after year
+
+192
+00:10:28,510 --> 00:10:34,720
+you have this really ugly shiny you know
+
+193
+00:10:31,300 --> 00:10:38,590
+on you know that's really ugly so that
+
+194
+00:10:34,720 --> 00:10:40,870
+is ABS plastic and it has advantages to
+
+195
+00:10:38,590 --> 00:10:43,570
+you know besides being is this is the
+
+196
+00:10:40,870 --> 00:10:45,570
+cheapest to make that's that's why it's
+
+197
+00:10:43,570 --> 00:10:49,900
+most popular but also it has some
+
+198
+00:10:45,570 --> 00:10:52,330
+advantages but I don't remember the
+
+199
+00:10:49,900 --> 00:10:55,090
+details you can read the article for
+
+200
+00:10:52,330 --> 00:10:59,580
+example this is a bad case of ABS
+
+201
+00:10:55,090 --> 00:11:03,640
+plastics and this also happens on Mac
+
+202
+00:10:59,580 --> 00:11:05,320
+this is extremely ugly you know imagine
+
+203
+00:11:03,640 --> 00:11:08,200
+you can just you just type on it it
+
+204
+00:11:05,320 --> 00:11:11,590
+becomes like that after a year to a few
+
+205
+00:11:08,200 --> 00:11:13,870
+years so that's ABS plastic you know it
+
+206
+00:11:11,590 --> 00:11:17,200
+has it's got problems this shiny thing
+
+207
+00:11:13,870 --> 00:11:19,720
+is probably particularly ugly you know I
+
+208
+00:11:17,200 --> 00:11:23,650
+have I have keyboards over here that's
+
+209
+00:11:19,720 --> 00:11:28,750
+become this shiny very ugly to look at
+
+210
+00:11:23,650 --> 00:11:33,460
+then you have PBT PBT plastic which is
+
+211
+00:11:28,750 --> 00:11:39,690
+which which stands for poly poly butl
+
+212
+00:11:33,460 --> 00:11:45,160
+and polybutylene terephthalate terrified
+
+213
+00:11:39,690 --> 00:11:47,760
+tell tale of terror of late something
+
+214
+00:11:45,160 --> 00:11:50,590
+like that okay that's PBT plastic they
+
+215
+00:11:47,760 --> 00:11:53,380
+tends to be more expensive and harder
+
+216
+00:11:50,590 --> 00:11:57,010
+and they are using expensive keyboards
+
+217
+00:11:53,380 --> 00:12:00,310
+for example this one 200 something
+
+218
+00:11:57,010 --> 00:12:03,480
+dollars this one this is this is a good
+
+219
+00:12:00,310 --> 00:12:06,250
+one by the way this is a programmable
+
+220
+00:12:03,480 --> 00:12:09,130
+with on board member
+
+221
+00:12:06,250 --> 00:12:10,870
+with the feature of on-the-fly
+
+222
+00:12:09,130 --> 00:12:13,720
+programming meaning that you can prove
+
+223
+00:12:10,870 --> 00:12:16,300
+for example if you want to swap the caps
+
+224
+00:12:13,720 --> 00:12:19,420
+lock to control you can just press some
+
+225
+00:12:16,300 --> 00:12:26,160
+keys and that becomes you know control
+
+226
+00:12:19,420 --> 00:12:29,800
+without having to start a key driver or
+
+227
+00:12:26,160 --> 00:12:32,680
+you know programming software so anyway
+
+228
+00:12:29,800 --> 00:12:35,470
+the the key key caps then there is PVC
+
+229
+00:12:32,680 --> 00:12:39,430
+key caps so you learn about key cap
+
+230
+00:12:35,470 --> 00:12:42,760
+technology and you learn about key
+
+231
+00:12:39,430 --> 00:12:44,920
+labeling technology this this one is a
+
+232
+00:12:42,760 --> 00:12:46,750
+basically a sticker kind of like a
+
+233
+00:12:44,920 --> 00:12:48,610
+sticker on top of the key
+
+234
+00:12:46,750 --> 00:12:51,510
+this is also the cheapest and most
+
+235
+00:12:48,610 --> 00:12:54,370
+common you see it on logitech on
+
+236
+00:12:51,510 --> 00:12:57,750
+Microsoft keyboards and it wears out you
+
+237
+00:12:54,370 --> 00:13:00,640
+know in fact you can just scratch it off
+
+238
+00:12:57,750 --> 00:13:03,040
+otherwise you know after after half a
+
+239
+00:13:00,640 --> 00:13:05,410
+year you know they part of the label is
+
+240
+00:13:03,040 --> 00:13:08,650
+gone I also have that experience then
+
+241
+00:13:05,410 --> 00:13:11,170
+you have laser engraving laser marking
+
+242
+00:13:08,650 --> 00:13:12,970
+or laser engraving which also have
+
+243
+00:13:11,170 --> 00:13:18,310
+problems speaker it doesn't wear out
+
+244
+00:13:12,970 --> 00:13:21,970
+however it is it's it is difficult to
+
+245
+00:13:18,310 --> 00:13:25,330
+make the color contrast contrast very
+
+246
+00:13:21,970 --> 00:13:28,510
+shot you know you you rather prefer them
+
+247
+00:13:25,330 --> 00:13:31,330
+to be pitch black you know oh you know
+
+248
+00:13:28,510 --> 00:13:34,870
+and also it's impossible to make them
+
+249
+00:13:31,330 --> 00:13:38,110
+white so if you have a black keyboard
+
+250
+00:13:34,870 --> 00:13:42,100
+you cannot have white label if you use
+
+251
+00:13:38,110 --> 00:13:44,800
+laser engraving then you have this
+
+252
+00:13:42,100 --> 00:13:51,370
+technology where you do laser engraving
+
+253
+00:13:44,800 --> 00:13:54,220
+but you use laser to to to burn burn a
+
+254
+00:13:51,370 --> 00:13:56,680
+goof then you put paint some kind of
+
+255
+00:13:54,220 --> 00:13:59,680
+paint onto it so that's that's this one
+
+256
+00:13:56,680 --> 00:14:02,290
+so you got very sharp contrast but
+
+257
+00:13:59,680 --> 00:14:04,930
+however it's got a problem you see it
+
+258
+00:14:02,290 --> 00:14:06,940
+becomes dirty you see those pins become
+
+259
+00:14:04,930 --> 00:14:10,150
+dirty so that's that's the flaw with
+
+260
+00:14:06,940 --> 00:14:13,120
+this then there is you know there are
+
+261
+00:14:10,150 --> 00:14:15,490
+several there's dye scible dye sub
+
+262
+00:14:13,120 --> 00:14:18,160
+elimination this is getting expensive
+
+263
+00:14:15,490 --> 00:14:18,940
+this is this is expensive so this is
+
+264
+00:14:18,160 --> 00:14:22,810
+great
+
+265
+00:14:18,940 --> 00:14:24,820
+and then there is the this is this turbo
+
+266
+00:14:22,810 --> 00:14:27,940
+shot injection-molding this is
+
+267
+00:14:24,820 --> 00:14:30,100
+considered the best because you can see
+
+268
+00:14:27,940 --> 00:14:33,600
+it's like actually part of the plastic
+
+269
+00:14:30,100 --> 00:14:36,510
+you know and it never wears out never
+
+270
+00:14:33,600 --> 00:14:38,920
+because it's part of the plastic and and
+
+271
+00:14:36,510 --> 00:14:41,620
+you know it's so this is the most
+
+272
+00:14:38,920 --> 00:14:43,150
+expensive so anyway so that's about you
+
+273
+00:14:41,620 --> 00:14:46,300
+know you learn about this but one thing
+
+274
+00:14:43,150 --> 00:14:49,690
+I learned for example you have this Enki
+
+275
+00:14:46,300 --> 00:14:52,390
+rollover thing you know you can try this
+
+276
+00:14:49,690 --> 00:14:55,390
+okay we digress a lot to the keyboard
+
+277
+00:14:52,390 --> 00:14:57,910
+but let's get back to the typescript
+
+278
+00:14:55,390 --> 00:15:04,350
+let's see how long I've been talking 40
+
+279
+00:14:57,910 --> 00:15:06,910
+minutes okay so so so I learned you know
+
+280
+00:15:04,350 --> 00:15:09,520
+over the past 10 years I learned about
+
+281
+00:15:06,910 --> 00:15:12,580
+the Enki rollover you know you can try
+
+282
+00:15:09,520 --> 00:15:15,820
+this right now like and let me tell you
+
+283
+00:15:12,580 --> 00:15:18,790
+hot what to do hold down the left shift
+
+284
+00:15:15,820 --> 00:15:20,560
+key you know go to a text editor where
+
+285
+00:15:18,790 --> 00:15:23,290
+you can type something now hold down the
+
+286
+00:15:20,560 --> 00:15:27,130
+left shift key then hold down the right
+
+287
+00:15:23,290 --> 00:15:30,490
+shift key now press some other key like
+
+288
+00:15:27,130 --> 00:15:36,040
+a letter key to and and check if it
+
+289
+00:15:30,490 --> 00:15:38,140
+shows up vast majority of keyboards as
+
+290
+00:15:36,040 --> 00:15:41,560
+you know like every keyboard made by
+
+291
+00:15:38,140 --> 00:15:43,210
+Apple Microsoft Logitech they all have
+
+292
+00:15:41,560 --> 00:15:46,300
+problems like most you hold down left
+
+293
+00:15:43,210 --> 00:15:49,420
+and right shift key then some of the
+
+294
+00:15:46,300 --> 00:15:51,460
+letter keys we are not show up we are
+
+295
+00:15:49,420 --> 00:15:54,730
+simply not show up you know it's like
+
+296
+00:15:51,460 --> 00:15:56,800
+basically it's like a malfunction so why
+
+297
+00:15:54,730 --> 00:15:58,840
+is that you know then you know I looked
+
+298
+00:15:56,800 --> 00:16:01,330
+into ice you know I started you know
+
+299
+00:15:58,840 --> 00:16:04,660
+because I'm mechanical keyboards one of
+
+300
+00:16:01,330 --> 00:16:06,550
+the marquee marketing slogan is we got n
+
+301
+00:16:04,660 --> 00:16:08,710
+key rollovers you know so you started to
+
+302
+00:16:06,550 --> 00:16:12,580
+look at what are they you know what they
+
+303
+00:16:08,710 --> 00:16:16,240
+mean basically Enki rollover means how
+
+304
+00:16:12,580 --> 00:16:18,940
+many keys you can press simultaneously
+
+305
+00:16:16,240 --> 00:16:19,920
+and register correctly that's what it
+
+306
+00:16:18,940 --> 00:16:23,380
+means
+
+307
+00:16:19,920 --> 00:16:27,430
+so for typically for USB keyboard the
+
+308
+00:16:23,380 --> 00:16:30,640
+USB technology actually limits the Anki
+
+309
+00:16:27,430 --> 00:16:32,450
+were over so for USB keyboards even
+
+310
+00:16:30,640 --> 00:16:34,670
+mechanical ones
+
+311
+00:16:32,450 --> 00:16:37,700
+and the expensive ones over $200
+
+312
+00:16:34,670 --> 00:16:44,329
+typically they can do at most six keys
+
+313
+00:16:37,700 --> 00:16:46,910
+six but there are there are techniques
+
+314
+00:16:44,329 --> 00:16:50,060
+to overcome that so some keyboards they
+
+315
+00:16:46,910 --> 00:16:52,940
+have you know full and key go over over
+
+316
+00:16:50,060 --> 00:16:55,250
+USB so they actually have two USB
+
+317
+00:16:52,940 --> 00:16:58,820
+internal you know they actually have
+
+318
+00:16:55,250 --> 00:17:02,000
+like two internal USB or something like
+
+319
+00:16:58,820 --> 00:17:04,569
+that to overcome this problem anyway so
+
+320
+00:17:02,000 --> 00:17:07,790
+this thing is called Anki go over and
+
+321
+00:17:04,569 --> 00:17:10,660
+you know so when I learned this I was
+
+322
+00:17:07,790 --> 00:17:13,130
+shocked you know I was shocked because
+
+323
+00:17:10,660 --> 00:17:15,079
+because normally you would think you
+
+324
+00:17:13,130 --> 00:17:18,380
+know it's just electronic you know on
+
+325
+00:17:15,079 --> 00:17:20,839
+and off you know you you shouldn't have
+
+326
+00:17:18,380 --> 00:17:23,240
+this problem I mean what you know we
+
+327
+00:17:20,839 --> 00:17:28,750
+have nuclear web you know we have
+
+328
+00:17:23,240 --> 00:17:31,370
+nuclear energy you know nuclear
+
+329
+00:17:28,750 --> 00:17:34,100
+electricity generators you know we have
+
+330
+00:17:31,370 --> 00:17:36,049
+hottest technology how could how hard is
+
+331
+00:17:34,100 --> 00:17:38,960
+it to make a keyboard you know just
+
+332
+00:17:36,049 --> 00:17:43,520
+press simultaneous keys and you can't
+
+333
+00:17:38,960 --> 00:17:46,130
+for example on piano a digital piano you
+
+334
+00:17:43,520 --> 00:17:48,919
+will also have this issue but because
+
+335
+00:17:46,130 --> 00:17:51,919
+piano keyboard musical keyboard they
+
+336
+00:17:48,919 --> 00:17:54,350
+have a strong requirement to you have to
+
+337
+00:17:51,919 --> 00:17:57,380
+have at least 10 simultaneous keys
+
+338
+00:17:54,350 --> 00:17:59,660
+because that's a requirement because
+
+339
+00:17:57,380 --> 00:18:03,230
+often you play music you need to press
+
+340
+00:17:59,660 --> 00:18:05,600
+10 keys together or eight you know so
+
+341
+00:18:03,230 --> 00:18:09,320
+that's called polyphony but anyway so on
+
+342
+00:18:05,600 --> 00:18:12,500
+digital keyboards even cheap ones today
+
+343
+00:18:09,320 --> 00:18:15,559
+typically they have like more than 10
+
+344
+00:18:12,500 --> 00:18:18,530
+polyphony like 20 more than 10 is
+
+345
+00:18:15,559 --> 00:18:20,419
+important because because you press a
+
+346
+00:18:18,530 --> 00:18:22,940
+key sometimes you have the sustain pedal
+
+347
+00:18:20,419 --> 00:18:26,059
+so you press on that so that so that
+
+348
+00:18:22,940 --> 00:18:30,230
+note will sustain you'll keep playing
+
+349
+00:18:26,059 --> 00:18:32,530
+even if you are not pressing it so so
+
+350
+00:18:30,230 --> 00:18:36,380
+that that is why you need more than tend
+
+351
+00:18:32,530 --> 00:18:39,500
+polyphony so called polyphony so anyway
+
+352
+00:18:36,380 --> 00:18:44,090
+our digital piano typically they have
+
+353
+00:18:39,500 --> 00:18:45,630
+like 30 polyphony you know but I'm a
+
+354
+00:18:44,090 --> 00:18:49,170
+real piano mcann
+
+355
+00:18:45,630 --> 00:18:51,450
+piano of course it's like oak you know
+
+356
+00:18:49,170 --> 00:18:53,940
+it's it's like inky well over okay
+
+357
+00:18:51,450 --> 00:18:56,580
+because it's not electronic every key
+
+358
+00:18:53,940 --> 00:18:59,100
+you can press you'll keep you know you
+
+359
+00:18:56,580 --> 00:19:02,520
+get you can press all the keys together
+
+360
+00:18:59,100 --> 00:19:05,640
+and it all makes sound so you learned
+
+361
+00:19:02,520 --> 00:19:08,220
+about inky or OVA or an keepo / and you
+
+362
+00:19:05,640 --> 00:19:10,770
+realize the reason is because you know
+
+363
+00:19:08,220 --> 00:19:15,330
+the design of the circuit they need to
+
+364
+00:19:10,770 --> 00:19:17,550
+save you know they need to save the cost
+
+365
+00:19:15,330 --> 00:19:21,540
+to make you know it's things like that
+
+366
+00:19:17,550 --> 00:19:25,170
+that you like you need a diet for each
+
+367
+00:19:21,540 --> 00:19:28,560
+key and more tired is more expensive so
+
+368
+00:19:25,170 --> 00:19:32,370
+they created this this way of using a
+
+369
+00:19:28,560 --> 00:19:35,460
+matrix to save a number of diodes things
+
+370
+00:19:32,370 --> 00:19:37,590
+like something like that that's why you
+
+371
+00:19:35,460 --> 00:19:41,010
+know most keys most keyboards or have
+
+372
+00:19:37,590 --> 00:19:42,930
+this problem because in practice nobody
+
+373
+00:19:41,010 --> 00:19:45,450
+you know nobody actually need to press
+
+374
+00:19:42,930 --> 00:19:49,050
+more than you know more than four keys
+
+375
+00:19:45,450 --> 00:19:52,770
+together at the same time so engineering
+
+376
+00:19:49,050 --> 00:19:54,060
+is a very much a practical in diva you
+
+377
+00:19:52,770 --> 00:19:57,780
+know you you have to consider
+
+378
+00:19:54,060 --> 00:19:59,910
+practicality because you need to save
+
+379
+00:19:57,780 --> 00:20:02,070
+cost because otherwise nobody will buy
+
+380
+00:19:59,910 --> 00:20:02,760
+your stuff you don't make profit then
+
+381
+00:20:02,070 --> 00:20:07,890
+you die
+
+382
+00:20:02,760 --> 00:20:09,270
+you know your company you die out so
+
+383
+00:20:07,890 --> 00:20:12,210
+that's you know and you learned about
+
+384
+00:20:09,270 --> 00:20:13,860
+all these things when you learned you
+
+385
+00:20:12,210 --> 00:20:15,060
+know like every few years I learned a
+
+386
+00:20:13,860 --> 00:20:16,650
+new thing
+
+387
+00:20:15,060 --> 00:20:21,240
+you know the first thing you learn is
+
+388
+00:20:16,650 --> 00:20:23,130
+about equality the court he you know lay
+
+389
+00:20:21,240 --> 00:20:26,940
+out you know I learned that the first
+
+390
+00:20:23,130 --> 00:20:28,080
+time around 1981 it's like Oh Mike it's
+
+391
+00:20:26,940 --> 00:20:30,900
+like oh my god
+
+392
+00:20:28,080 --> 00:20:34,380
+you are in stems to be so bad you know
+
+393
+00:20:30,900 --> 00:20:37,460
+it's extremely of English so anyway
+
+394
+00:20:34,380 --> 00:20:42,440
+let's go back to the topic where I was
+
+395
+00:20:37,460 --> 00:20:48,300
+why was I talking about that a peon I
+
+396
+00:20:42,440 --> 00:20:50,690
+was talking about keyboard key frequency
+
+397
+00:20:48,300 --> 00:20:50,690
+and
+
+398
+00:20:52,790 --> 00:20:58,850
+you learn about things okay so let's
+
+399
+00:20:54,919 --> 00:21:01,970
+talk about so there so I forgot where
+
+400
+00:20:58,850 --> 00:21:04,460
+how did I begin to talk about this let's
+
+401
+00:21:01,970 --> 00:21:06,860
+see some of the comments just come
+
+402
+00:21:04,460 --> 00:21:08,929
+outside of Emacs so if you want to count
+
+403
+00:21:06,860 --> 00:21:11,780
+through early you need two counting or
+
+404
+00:21:08,929 --> 00:21:16,490
+key press okay yeah in that case you
+
+405
+00:21:11,780 --> 00:21:20,770
+need to use one of the key logs software
+
+406
+00:21:16,490 --> 00:21:20,770
+so let me show you the key lock software
+
+407
+00:21:21,309 --> 00:21:28,760
+so you go to my keyboard blog just
+
+408
+00:21:26,059 --> 00:21:33,799
+search for Kali keyboard then you go
+
+409
+00:21:28,760 --> 00:21:38,360
+through the software section then you
+
+410
+00:21:33,799 --> 00:21:44,900
+you go to the you go to the type in
+
+411
+00:21:38,360 --> 00:21:51,290
+section then you okay actually go to the
+
+412
+00:21:44,900 --> 00:21:54,620
+software section okay Keela
+
+413
+00:21:51,290 --> 00:21:56,900
+so this article it's a list of key lock
+
+414
+00:21:54,620 --> 00:21:59,600
+software so they are SEP there are
+
+415
+00:21:56,900 --> 00:22:02,360
+several of them and you can try them I
+
+416
+00:21:59,600 --> 00:22:05,780
+haven't used them because I typed mostly
+
+417
+00:22:02,360 --> 00:22:07,760
+just in Emacs like every time I need to
+
+418
+00:22:05,780 --> 00:22:10,100
+type something I typically if it's long
+
+419
+00:22:07,760 --> 00:22:14,540
+are typically type in something Emacs
+
+420
+00:22:10,100 --> 00:22:19,160
+and paste for example I have
+
+421
+00:22:14,540 --> 00:22:21,230
+abbreviation for example Fe o Fe X is
+
+422
+00:22:19,160 --> 00:22:26,620
+for example so I don't have to type that
+
+423
+00:22:21,230 --> 00:22:31,160
+much I can type in Emacs and paste
+
+424
+00:22:26,620 --> 00:22:34,970
+somewhere else okay then I press a key
+
+425
+00:22:31,160 --> 00:22:38,450
+copy it I switch to Google Chrome one
+
+426
+00:22:34,970 --> 00:22:40,940
+key press I press another key paste okay
+
+427
+00:22:38,450 --> 00:22:43,880
+I need to highlight this I need to focus
+
+428
+00:22:40,940 --> 00:22:49,760
+that so I paste it there you know that's
+
+429
+00:22:43,880 --> 00:22:52,070
+that's what I do so back to Emacs yeah
+
+430
+00:22:49,760 --> 00:22:56,650
+so use those key dogs so you know here's
+
+431
+00:22:52,070 --> 00:22:56,650
+the list of key dogs let's let's do that
+
+432
+00:23:03,010 --> 00:23:09,110
+so let's let's let's do let's start to
+
+433
+00:23:06,230 --> 00:23:19,540
+do typescript I guess okay so yeah then
+
+434
+00:23:09,110 --> 00:23:19,540
+we need to do that it seemed to Matthews
+
+435
+00:23:20,320 --> 00:23:31,340
+let me read the comments you are in
+
+436
+00:23:22,880 --> 00:23:32,990
+Emacs you are an eMac stable right does
+
+437
+00:23:31,340 --> 00:23:37,420
+that answer your question bathroom you
+
+438
+00:23:32,990 --> 00:23:41,150
+you you just use a key lock software so
+
+439
+00:23:37,420 --> 00:23:44,930
+Seema's slack says for keyboard can you
+
+440
+00:23:41,150 --> 00:23:47,680
+get Braille made into keys to you can so
+
+441
+00:23:44,930 --> 00:23:55,460
+you can find keys more easily to find
+
+442
+00:23:47,680 --> 00:23:57,950
+yeah I guess yeah you can bow ever
+
+443
+00:23:55,460 --> 00:24:04,550
+Graham says hexa is there a good way of
+
+444
+00:23:57,950 --> 00:24:07,130
+integrating a clock in HTML what do you
+
+445
+00:24:04,550 --> 00:24:11,690
+mean a clock for example oh crap a clock
+
+446
+00:24:07,130 --> 00:24:11,900
+application for example I have if you go
+
+447
+00:24:11,690 --> 00:24:19,180
+to
+
+448
+00:24:11,900 --> 00:24:24,020
+Casali SVG clock is that what you mean
+
+449
+00:24:19,180 --> 00:24:26,210
+so on HTML page you wanna clock so
+
+450
+00:24:24,020 --> 00:24:28,310
+answer okay if that's what you mean
+
+451
+00:24:26,210 --> 00:24:29,990
+because here this is a clock written in
+
+452
+00:24:28,310 --> 00:24:33,080
+JavaScript yeah we can we can actually
+
+453
+00:24:29,990 --> 00:24:40,580
+show this as an example of typescript
+
+454
+00:24:33,080 --> 00:24:42,530
+and in JavaScript yeah so okay so let's
+
+455
+00:24:40,580 --> 00:24:48,980
+talk about this thing let's let's start
+
+456
+00:24:42,530 --> 00:24:54,110
+talking about typescript so okay so
+
+457
+00:24:48,980 --> 00:24:57,290
+so let's this so here is my so I open
+
+458
+00:24:54,110 --> 00:24:59,270
+that page this is this is that page I
+
+459
+00:24:57,290 --> 00:25:01,610
+don't have the JavaScript on that's why
+
+460
+00:24:59,270 --> 00:25:05,170
+you don't see the clock but this is the
+
+461
+00:25:01,610 --> 00:25:10,240
+page so
+
+462
+00:25:05,170 --> 00:25:14,100
+okay let's talk about typescript let me
+
+463
+00:25:10,240 --> 00:25:14,100
+think about where how we gonna begin
+
+464
+00:25:16,800 --> 00:25:22,690
+let's let's just start to talk about it
+
+465
+00:25:19,870 --> 00:25:25,840
+okay so let's just speak in random so
+
+466
+00:25:22,690 --> 00:25:31,270
+anyway so here is the okay let me show
+
+467
+00:25:25,840 --> 00:25:34,120
+you - let me show you the this this fire
+
+468
+00:25:31,270 --> 00:25:39,160
+the fire you are seeing the code this is
+
+469
+00:25:34,120 --> 00:25:43,000
+actually typescript okay but as you can
+
+470
+00:25:39,160 --> 00:25:47,770
+see it is actually exactly JavaScript
+
+471
+00:25:43,000 --> 00:25:55,240
+there is nothing typescript here yeah I
+
+472
+00:25:47,770 --> 00:25:57,160
+think yeah I didn't add any you see so
+
+473
+00:25:55,240 --> 00:26:01,750
+this is this is actually just typescript
+
+474
+00:25:57,160 --> 00:26:04,690
+I mean this is just exactly JavaScript
+
+475
+00:26:01,750 --> 00:26:07,630
+however you can see the filename let me
+
+476
+00:26:04,690 --> 00:26:11,200
+show you the file name so you see SVG
+
+477
+00:26:07,630 --> 00:26:14,950
+crop thought TS TS is the extension name
+
+478
+00:26:11,200 --> 00:26:16,650
+for typescript so I you know I open it
+
+479
+00:26:14,950 --> 00:26:22,630
+it's in typescript mod
+
+480
+00:26:16,650 --> 00:26:25,120
+and and let's go back so there's there
+
+481
+00:26:22,630 --> 00:26:28,270
+is also the javascript file this is the
+
+482
+00:26:25,120 --> 00:26:30,970
+fire it actually runs in browser because
+
+483
+00:26:28,270 --> 00:26:34,110
+browser doesn't recognize typescript so
+
+484
+00:26:30,970 --> 00:26:36,820
+if i open let's open the javascript file
+
+485
+00:26:34,110 --> 00:26:37,570
+you can see that they are exactly the
+
+486
+00:26:36,820 --> 00:26:41,500
+same
+
+487
+00:26:37,570 --> 00:26:43,660
+let's see the file size yeah you see so
+
+488
+00:26:41,500 --> 00:26:47,530
+they are exactly the same file so for
+
+489
+00:26:43,660 --> 00:26:50,980
+example it let me let's do this so close
+
+490
+00:26:47,530 --> 00:26:58,840
+that go to the issue let's say compare
+
+491
+00:26:50,980 --> 00:27:01,150
+cmp SVG cropped ES and SVG cropped is no
+
+492
+00:26:58,840 --> 00:27:04,660
+output no output means they are exactly
+
+493
+00:27:01,150 --> 00:27:07,480
+the same another utility you can use
+
+494
+00:27:04,660 --> 00:27:09,370
+this diff you know no output no output
+
+495
+00:27:07,480 --> 00:27:13,030
+means they are exactly the same note no
+
+496
+00:27:09,370 --> 00:27:15,390
+difference it says you can see it says
+
+497
+00:27:13,030 --> 00:27:15,390
+here
+
+498
+00:27:16,089 --> 00:27:25,609
+yeah so so okay so no output so let's
+
+499
+00:27:22,159 --> 00:27:30,859
+yeah so actually this is a good example
+
+500
+00:27:25,609 --> 00:27:33,259
+we can start to make it actually type
+
+501
+00:27:30,859 --> 00:27:35,329
+script you know we can start to make it
+
+502
+00:27:33,259 --> 00:27:42,949
+so that it you know to use the
+
+503
+00:27:35,329 --> 00:27:49,729
+typescript type information to help us
+
+504
+00:27:42,949 --> 00:27:51,649
+you know make less bugs okay so yeah so
+
+505
+00:27:49,729 --> 00:27:54,409
+first thing to know is that typescript
+
+506
+00:27:51,649 --> 00:27:56,629
+is hundred-percent JavaScript compatible
+
+507
+00:27:54,409 --> 00:28:03,799
+so any JavaScript code is already a
+
+508
+00:27:56,629 --> 00:28:07,909
+typescript so what we gonna do so okay
+
+509
+00:28:03,799 --> 00:28:10,249
+so this file actually you know if this
+
+510
+00:28:07,909 --> 00:28:15,109
+file is so simple that you actually
+
+511
+00:28:10,249 --> 00:28:18,589
+don't need any type you know you don't
+
+512
+00:28:15,109 --> 00:28:22,940
+need any type and notation sees 8080
+
+513
+00:28:18,589 --> 00:28:26,659
+lines and because I'm thinking weird you
+
+514
+00:28:22,940 --> 00:28:30,440
+know what should I add here you know but
+
+515
+00:28:26,659 --> 00:28:34,459
+because they so this file is not even
+
+516
+00:28:30,440 --> 00:28:37,159
+this one function here and this function
+
+517
+00:28:34,459 --> 00:28:40,399
+doesn't even take any parameters so you
+
+518
+00:28:37,159 --> 00:28:41,989
+you don't need to add you know you
+
+519
+00:28:40,399 --> 00:28:45,739
+cannot you know you don't need to
+
+520
+00:28:41,989 --> 00:28:50,779
+specify types for the parameters this is
+
+521
+00:28:45,739 --> 00:28:54,549
+almost like nothing to do can you clap
+
+522
+00:28:50,779 --> 00:28:57,669
+in typescript what do you mean by grab
+
+523
+00:28:54,549 --> 00:29:02,379
+like glob like the UNIX file name
+
+524
+00:28:57,669 --> 00:29:07,369
+matching yeah I don't know what you mean
+
+525
+00:29:02,379 --> 00:29:09,829
+so so anyway so let me show you how to
+
+526
+00:29:07,369 --> 00:29:11,569
+compare typescript so I have this
+
+527
+00:29:09,829 --> 00:29:13,639
+JavaScript you know this is the
+
+528
+00:29:11,569 --> 00:29:16,039
+JavaScript let's delete it okay well
+
+529
+00:29:13,639 --> 00:29:18,109
+actually let's make a backup I make a
+
+530
+00:29:16,039 --> 00:29:19,819
+backup I have a command on the Left
+
+531
+00:29:18,109 --> 00:29:22,519
+window you can see it's already made a
+
+532
+00:29:19,819 --> 00:29:27,890
+backup so go to the finder go to go to
+
+533
+00:29:22,519 --> 00:29:31,790
+the tired refresh browser
+
+534
+00:29:27,890 --> 00:29:35,090
+you can see I have a backup here now I
+
+535
+00:29:31,790 --> 00:29:38,299
+delete this JavaScript code press a key
+
+536
+00:29:35,090 --> 00:29:46,690
+to delete yes okay we have just deleted
+
+537
+00:29:38,299 --> 00:29:57,679
+the wait what happened let's close that
+
+538
+00:29:46,690 --> 00:29:59,809
+we have just deleted that SVG so you see
+
+539
+00:29:57,679 --> 00:30:02,650
+the the JavaScript version is deleted
+
+540
+00:29:59,809 --> 00:30:05,720
+but the typescript version is still here
+
+541
+00:30:02,650 --> 00:30:08,330
+so now I'm let's go into let's make a
+
+542
+00:30:05,720 --> 00:30:09,080
+let's compile so I open the typescript
+
+543
+00:30:08,330 --> 00:30:13,429
+code
+
+544
+00:30:09,080 --> 00:30:17,000
+so normally you compile it compare it is
+
+545
+00:30:13,429 --> 00:30:18,740
+by your command line you know you type T
+
+546
+00:30:17,000 --> 00:30:21,049
+as something something but let me show
+
+547
+00:30:18,740 --> 00:30:24,049
+you how I do it because I have a Emacs
+
+548
+00:30:21,049 --> 00:30:26,630
+command so look look at the left window
+
+549
+00:30:24,049 --> 00:30:30,590
+okay I press the key I press a key
+
+550
+00:30:26,630 --> 00:30:35,600
+sequence and you can see the mini
+
+551
+00:30:30,590 --> 00:30:38,840
+buffers is running and he says share
+
+552
+00:30:35,600 --> 00:30:41,480
+command succeeded with no output and the
+
+553
+00:30:38,840 --> 00:30:44,299
+command I called is sabra and current
+
+554
+00:30:41,480 --> 00:30:46,940
+file so this command casado and current
+
+555
+00:30:44,299 --> 00:30:50,809
+file if the current file is typescript
+
+556
+00:30:46,940 --> 00:30:52,990
+it will just compile it so let me show
+
+557
+00:30:50,809 --> 00:30:52,990
+you
+
+558
+00:30:53,169 --> 00:31:04,970
+okay Kesari on current there is a URL so
+
+559
+00:31:02,000 --> 00:31:10,340
+this this Emacs command commands allows
+
+560
+00:31:04,970 --> 00:31:12,530
+you to run perl PHP code Python Ruby :
+
+561
+00:31:10,340 --> 00:31:14,570
+you know it just running it you know you
+
+562
+00:31:12,530 --> 00:31:20,150
+press a key or render current file and
+
+563
+00:31:14,570 --> 00:31:24,290
+if it's if it's if it is typescript or
+
+564
+00:31:20,150 --> 00:31:30,380
+Java it will just compile it so anyway
+
+565
+00:31:24,290 --> 00:31:33,429
+so but how but let me explain how do you
+
+566
+00:31:30,380 --> 00:31:37,540
+compare our typescript not know Molly ok
+
+567
+00:31:33,429 --> 00:31:40,520
+so let's look look at the code
+
+568
+00:31:37,540 --> 00:31:43,400
+run current file look at the code so
+
+569
+00:31:40,520 --> 00:31:45,410
+here is the code copy it cross new
+
+570
+00:31:43,400 --> 00:31:48,130
+buffer paste okay
+
+571
+00:31:45,410 --> 00:31:56,140
+switch to Emacs li smart search for
+
+572
+00:31:48,130 --> 00:31:59,750
+typescript typ e t YP so okay look here
+
+573
+00:31:56,140 --> 00:32:04,280
+so this section it checks what file
+
+574
+00:31:59,750 --> 00:32:07,309
+extension so if it is if it the value
+
+575
+00:32:04,280 --> 00:32:07,820
+extension is TS then you call the
+
+576
+00:32:07,309 --> 00:32:13,490
+command
+
+577
+00:32:07,820 --> 00:32:15,110
+TSC TSC is the typescript compiler you
+
+578
+00:32:13,490 --> 00:32:16,730
+know you could you just go to typescript
+
+579
+00:32:15,110 --> 00:32:19,250
+website and then you download the
+
+580
+00:32:16,730 --> 00:32:22,669
+typescript compiler very easy there's no
+
+581
+00:32:19,250 --> 00:32:28,640
+nothing complex complicated so if we go
+
+582
+00:32:22,669 --> 00:32:29,809
+to the terminal let's see oh I forgot to
+
+583
+00:32:28,640 --> 00:32:32,570
+yeah
+
+584
+00:32:29,809 --> 00:32:38,240
+so let's open a new terminal window okay
+
+585
+00:32:32,570 --> 00:32:41,419
+so let's say which TS see you see it's
+
+586
+00:32:38,240 --> 00:32:47,090
+installing you solo use a local TS c so
+
+587
+00:32:41,419 --> 00:32:53,059
+let's say mentee RC okay no man page so
+
+588
+00:32:47,090 --> 00:33:00,440
+t SC - - help you know so we got a bunch
+
+589
+00:32:53,059 --> 00:33:01,940
+of typescript commands you know so
+
+590
+00:33:00,440 --> 00:33:03,620
+normally when you want to come back let
+
+591
+00:33:01,940 --> 00:33:08,590
+me show you exactly what's the command I
+
+592
+00:33:03,620 --> 00:33:08,590
+used to compile the typescript so TRC
+
+593
+00:33:10,450 --> 00:33:13,450
+okay
+
+594
+00:33:19,660 --> 00:33:25,570
+so actually when if it if it is
+
+595
+00:33:22,840 --> 00:33:28,810
+typescript I actually call this command
+
+596
+00:33:25,570 --> 00:33:34,150
+Chris RTS compiled file so let's look at
+
+597
+00:33:28,810 --> 00:33:37,450
+that so jump to the source code so here
+
+598
+00:33:34,150 --> 00:33:42,270
+is the code I actually this is the here
+
+599
+00:33:37,450 --> 00:33:44,710
+is a Emacs Lisp Emacs command that
+
+600
+00:33:42,270 --> 00:33:47,860
+compiles the current buffer for
+
+601
+00:33:44,710 --> 00:33:53,080
+typescript file so I have some options
+
+602
+00:33:47,860 --> 00:33:55,390
+you can oh I wonder if I should show
+
+603
+00:33:53,080 --> 00:33:57,820
+this because this is about Emacs but
+
+604
+00:33:55,390 --> 00:34:01,890
+anyway here here are the options so you
+
+605
+00:33:57,820 --> 00:34:04,570
+have - - target es2015
+
+606
+00:34:01,890 --> 00:34:07,150
+that means if you use that option that
+
+607
+00:34:04,570 --> 00:34:10,960
+means compare the typescript - yes
+
+608
+00:34:07,150 --> 00:34:14,919
+JavaScript es 2015 version which is very
+
+609
+00:34:10,960 --> 00:34:17,440
+good okay so if if you are if your
+
+610
+00:34:14,919 --> 00:34:20,320
+audience you know if your web users is
+
+611
+00:34:17,440 --> 00:34:23,770
+you are targeting users who are using 10
+
+612
+00:34:20,320 --> 00:34:27,210
+years old browser then in that case you
+
+613
+00:34:23,770 --> 00:34:32,159
+want to target you know - - target es 5
+
+614
+00:34:27,210 --> 00:34:32,159
+that is the JavaScript version before
+
+615
+00:34:32,550 --> 00:34:40,690
+2015 and the option always strict means
+
+616
+00:34:38,070 --> 00:34:44,980
+you know in JavaScript you have this
+
+617
+00:34:40,690 --> 00:34:47,200
+strict keyword it's it's complicated to
+
+618
+00:34:44,980 --> 00:34:50,260
+explain but you can ignore it you can
+
+619
+00:34:47,200 --> 00:34:52,300
+just ignore the always strict so let me
+
+620
+00:34:50,260 --> 00:34:54,970
+show you an example then so Satya's
+
+621
+00:34:52,300 --> 00:34:57,610
+compiled file so let's let's show let me
+
+622
+00:34:54,970 --> 00:35:02,020
+show you an example so close these don't
+
+623
+00:34:57,610 --> 00:35:06,520
+save so ok we are back in the typescript
+
+624
+00:35:02,020 --> 00:35:12,100
+file this is 100% javascript file so far
+
+625
+00:35:06,520 --> 00:35:18,090
+so let's go to issue and let's see let's
+
+626
+00:35:12,100 --> 00:35:22,800
+type wait TRC okay I actually I need
+
+627
+00:35:18,090 --> 00:35:22,800
+more window I need to see
+
+628
+00:35:23,540 --> 00:35:41,450
+I need I need to look at the options
+
+629
+00:35:31,610 --> 00:35:48,770
+okay so we are going to type TS see the
+
+630
+00:35:41,450 --> 00:35:56,360
+file name and - - target and the target
+
+631
+00:35:48,770 --> 00:35:58,760
+we want is let's say yes 2015 okay that
+
+632
+00:35:56,360 --> 00:36:00,740
+should work now let's look hold on a
+
+633
+00:35:58,760 --> 00:36:02,930
+second let's look at the file now this
+
+634
+00:36:00,740 --> 00:36:06,580
+this file is right now is hundred
+
+635
+00:36:02,930 --> 00:36:09,530
+percent JavaScript and it is using ES
+
+636
+00:36:06,580 --> 00:36:12,860
+2015 features so because you can see
+
+637
+00:36:09,530 --> 00:36:17,240
+those constant those are yes from es
+
+638
+00:36:12,860 --> 00:36:19,700
+2015 so now if I press ENTER it will
+
+639
+00:36:17,240 --> 00:36:22,730
+generate a compare your general create a
+
+640
+00:36:19,700 --> 00:36:25,790
+new JavaScript file and in fact that
+
+641
+00:36:22,730 --> 00:36:29,000
+file will be identical to this file
+
+642
+00:36:25,790 --> 00:36:32,320
+because there is nothing to do but let's
+
+643
+00:36:29,000 --> 00:36:32,320
+try it again enter
+
+644
+00:36:35,970 --> 00:36:43,560
+okay it's done now let's go to the tire
+
+645
+00:36:38,520 --> 00:36:48,000
+directory refresh now you can see it
+
+646
+00:36:43,560 --> 00:36:52,470
+generated this file and let's look at
+
+647
+00:36:48,000 --> 00:36:57,150
+that fire open okay so it you know it it
+
+648
+00:36:52,470 --> 00:37:01,560
+it created indentation for you and it
+
+649
+00:36:57,150 --> 00:37:04,560
+made the code more compact but as far as
+
+650
+00:37:01,560 --> 00:37:06,150
+the code code goes they are identical
+
+651
+00:37:04,560 --> 00:37:09,030
+because there's actually nothing to do
+
+652
+00:37:06,150 --> 00:37:12,300
+because you know this is already you
+
+653
+00:37:09,030 --> 00:37:14,490
+know this is yes 2015 and exactly the
+
+654
+00:37:12,300 --> 00:37:18,150
+same there is no change you can for
+
+655
+00:37:14,490 --> 00:37:22,770
+example you can you know you can compare
+
+656
+00:37:18,150 --> 00:37:25,650
+for example these four block verses over
+
+657
+00:37:22,770 --> 00:37:29,520
+here for they are they are exactly the
+
+658
+00:37:25,650 --> 00:37:33,270
+same okay so that's typescript so let's
+
+659
+00:37:29,520 --> 00:37:35,790
+close this file now actually now let's
+
+660
+00:37:33,270 --> 00:37:44,570
+delete this javascript file let's delete
+
+661
+00:37:35,790 --> 00:37:47,940
+it delete it yes okay now it's good and
+
+662
+00:37:44,570 --> 00:37:50,880
+if you delete it okay now it's good now
+
+663
+00:37:47,940 --> 00:37:54,840
+let's compile again let's go to a shell
+
+664
+00:37:50,880 --> 00:37:58,200
+let's run the command this TS c command
+
+665
+00:37:54,840 --> 00:38:02,790
+typescript compile then let's change the
+
+666
+00:37:58,200 --> 00:38:07,620
+target to es 5 ok es 5 is the JavaScript
+
+667
+00:38:02,790 --> 00:38:10,520
+version before yes 2015 so that's the es
+
+668
+00:38:07,620 --> 00:38:13,200
+5 ok now let's do it
+
+669
+00:38:10,520 --> 00:38:16,500
+now the code will be drastically
+
+670
+00:38:13,200 --> 00:38:19,830
+different because it it compiles it
+
+671
+00:38:16,500 --> 00:38:24,360
+basically converts or yes 2015 code to
+
+672
+00:38:19,830 --> 00:38:30,180
+the es 5 yeah so this this aspect is one
+
+673
+00:38:24,360 --> 00:38:31,170
+of the very tremendously useful feature
+
+674
+00:38:30,180 --> 00:38:35,060
+of typescript
+
+675
+00:38:31,170 --> 00:38:38,010
+you see even we are not using any types
+
+676
+00:38:35,060 --> 00:38:41,070
+but we can we can use typescript to
+
+677
+00:38:38,010 --> 00:38:43,230
+convert one JavaScript version to a
+
+678
+00:38:41,070 --> 00:38:46,020
+older version so let's look at the
+
+679
+00:38:43,230 --> 00:38:48,590
+generated code so here is the file it's
+
+680
+00:38:46,020 --> 00:38:48,590
+open it
+
+681
+00:38:49,079 --> 00:38:58,329
+okay that's a different file it's this
+
+682
+00:38:55,329 --> 00:39:01,480
+this is foul SVG cottage is okay let's
+
+683
+00:38:58,329 --> 00:39:03,280
+open it you can see they are very
+
+684
+00:39:01,480 --> 00:39:08,380
+different you can see you can see those
+
+685
+00:39:03,280 --> 00:39:10,839
+vas bar here you see those vows those
+
+686
+00:39:08,380 --> 00:39:13,720
+are es v so let's go back to our
+
+687
+00:39:10,839 --> 00:39:17,400
+JavaScript so on the top so this is
+
+688
+00:39:13,720 --> 00:39:21,640
+typescript you know yes 2015 and here
+
+689
+00:39:17,400 --> 00:39:24,880
+those are es v so it's drastically
+
+690
+00:39:21,640 --> 00:39:26,770
+different so that's how you compile
+
+691
+00:39:24,880 --> 00:39:28,839
+typescript you know you it's very easy
+
+692
+00:39:26,770 --> 00:39:30,819
+you go to the typescript website just
+
+693
+00:39:28,839 --> 00:39:34,240
+download their binary I think they have
+
+694
+00:39:30,819 --> 00:39:37,390
+a binary version for Linux and Mac too
+
+695
+00:39:34,240 --> 00:39:39,339
+and Windows of course then you know it's
+
+696
+00:39:37,390 --> 00:39:42,819
+just going to be a command-line tool
+
+697
+00:39:39,339 --> 00:39:47,740
+called TRC then you just do what we did
+
+698
+00:39:42,819 --> 00:39:50,230
+and and that gets you started so so with
+
+699
+00:39:47,740 --> 00:39:52,150
+that you can already start to use
+
+700
+00:39:50,230 --> 00:39:54,160
+typescript even without doing anything
+
+701
+00:39:52,150 --> 00:39:56,200
+you know in any of your existing
+
+702
+00:39:54,160 --> 00:40:01,599
+JavaScript you can start to do it
+
+703
+00:39:56,200 --> 00:40:04,450
+so now next thing let's talk about let's
+
+704
+00:40:01,599 --> 00:40:07,329
+talk about you know typescript is
+
+705
+00:40:04,450 --> 00:40:10,990
+usually known for the types you know it
+
+706
+00:40:07,329 --> 00:40:16,240
+adds types to values so let's see some
+
+707
+00:40:10,990 --> 00:40:20,109
+of the use of that meanwhile meanwhile
+
+708
+00:40:16,240 --> 00:40:23,140
+let's I wanted this back to the I don't
+
+709
+00:40:20,109 --> 00:40:26,200
+want es5 you know I want yeah I want to
+
+710
+00:40:23,140 --> 00:40:28,930
+be bleeding edge around yes 2015 so
+
+711
+00:40:26,200 --> 00:40:31,839
+let's do it again just let's do it again
+
+712
+00:40:28,930 --> 00:40:34,049
+just call my Emacs commands so compare
+
+713
+00:40:31,839 --> 00:40:34,049
+it
+
+714
+00:40:36,810 --> 00:40:43,170
+okay it's done let's go to the diet
+
+715
+00:40:40,680 --> 00:40:46,050
+refresh buffer open the JavaScript
+
+716
+00:40:43,170 --> 00:40:48,470
+version again and you see it's it's
+
+717
+00:40:46,050 --> 00:40:53,550
+constant again so it's good
+
+718
+00:40:48,470 --> 00:40:58,500
+so now close this close this okay so
+
+719
+00:40:53,550 --> 00:41:03,210
+next thing is we're going to we're going
+
+720
+00:40:58,500 --> 00:41:05,430
+to look at some types typescript type
+
+721
+00:41:03,210 --> 00:41:09,960
+annotations how are we gonna do that
+
+722
+00:41:05,430 --> 00:41:14,360
+any questions type it guys type it type
+
+723
+00:41:09,960 --> 00:41:14,360
+it and make make the talk better
+
+724
+00:41:22,349 --> 00:41:29,670
+so I guess 20 minutes another 10 of 15
+
+725
+00:41:26,759 --> 00:41:32,609
+20 minutes we will be done I mean we
+
+726
+00:41:29,670 --> 00:41:36,989
+that's enough time to cover the basics
+
+727
+00:41:32,609 --> 00:41:41,069
+of typescript annotations so let me read
+
+728
+00:41:36,989 --> 00:41:52,229
+the comments yeah this is exactly what
+
+729
+00:41:41,069 --> 00:41:55,469
+one can you grab so so good no Bernie
+
+730
+00:41:52,229 --> 00:41:57,839
+says can you grab in typescript exactly
+
+731
+00:41:55,469 --> 00:42:01,049
+like UNIX carbine but what do you mean
+
+732
+00:41:57,839 --> 00:42:03,180
+what what do you mean exactly like UNIX
+
+733
+00:42:01,049 --> 00:42:06,959
+carbine gobby is like a pattern matching
+
+734
+00:42:03,180 --> 00:42:10,890
+of strings a very basic pattern matching
+
+735
+00:42:06,959 --> 00:42:13,440
+of strings and in JavaScript you have
+
+736
+00:42:10,890 --> 00:42:16,170
+regular expression is that what you mean
+
+737
+00:42:13,440 --> 00:42:18,749
+so in JavaScript you have the feature of
+
+738
+00:42:16,170 --> 00:42:23,099
+regular expression which is a far more
+
+739
+00:42:18,749 --> 00:42:25,410
+powerful string pattern matching it's
+
+740
+00:42:23,099 --> 00:42:27,809
+part of JavaScript therefore it's also
+
+741
+00:42:25,410 --> 00:42:32,959
+part of typescript you know it's in the
+
+742
+00:42:27,809 --> 00:42:35,969
+language so if that's what you mean
+
+743
+00:42:32,959 --> 00:42:37,890
+where are the types yeah let me show you
+
+744
+00:42:35,969 --> 00:42:40,170
+that that's what we are going to show
+
+745
+00:42:37,890 --> 00:42:42,479
+right now you don't see it but you don't
+
+746
+00:42:40,170 --> 00:42:45,359
+see it because this file is so simple I
+
+747
+00:42:42,479 --> 00:42:50,309
+don't you know there's nowhere it's
+
+748
+00:42:45,359 --> 00:42:53,329
+nowhere I can actually add type because
+
+749
+00:42:50,309 --> 00:42:56,910
+this file is you know just too simple
+
+750
+00:42:53,329 --> 00:43:00,900
+okay so let's be so so now we are going
+
+751
+00:42:56,910 --> 00:43:06,779
+to show the type annotations so let me
+
+752
+00:43:00,900 --> 00:43:10,430
+see what file - one example to use um
+
+753
+00:43:06,779 --> 00:43:10,430
+let's see draw
+
+754
+00:43:16,520 --> 00:43:25,590
+sherry and John Thomas good ok so this
+
+755
+00:43:20,100 --> 00:43:28,140
+is a so we are going to demonstrate how
+
+756
+00:43:25,590 --> 00:43:31,560
+to how to do the typescript type
+
+757
+00:43:28,140 --> 00:43:39,720
+annotations but right now I need to find
+
+758
+00:43:31,560 --> 00:43:41,700
+a good example to begin to do that you
+
+759
+00:43:39,720 --> 00:43:45,570
+know the the best way is actually to
+
+760
+00:43:41,700 --> 00:43:49,380
+start to write the application is very
+
+761
+00:43:45,570 --> 00:43:54,060
+simple you know application you know web
+
+762
+00:43:49,380 --> 00:43:57,920
+page application where you let's see
+
+763
+00:43:54,060 --> 00:43:57,920
+that means I mean let me try to find a
+
+764
+00:43:58,250 --> 00:44:09,990
+example okay so let's go to so let's go
+
+765
+00:44:04,770 --> 00:44:13,920
+through my CSS blog so just search for
+
+766
+00:44:09,990 --> 00:44:20,760
+sorry sorry CSS you'll find my page here
+
+767
+00:44:13,920 --> 00:44:24,140
+and I have some let's say back let's see
+
+768
+00:44:20,760 --> 00:44:29,370
+box shadow so here is some JavaScript
+
+769
+00:44:24,140 --> 00:44:33,210
+application you can see random color so
+
+770
+00:44:29,370 --> 00:44:37,260
+what these two what let's let's let's
+
+771
+00:44:33,210 --> 00:44:39,560
+not use this one let's use gradient
+
+772
+00:44:37,260 --> 00:44:39,560
+color
+
+773
+00:44:41,270 --> 00:44:48,180
+hey good morning Danielle so here is an
+
+774
+00:44:46,170 --> 00:44:50,420
+application that generate random color
+
+775
+00:44:48,180 --> 00:44:57,470
+so you can see I click random color
+
+776
+00:44:50,420 --> 00:45:02,690
+random color rainbow or random rainbow
+
+777
+00:44:57,470 --> 00:45:08,610
+to color only seven colors let's say
+
+778
+00:45:02,690 --> 00:45:11,310
+random random three colors and random
+
+779
+00:45:08,610 --> 00:45:14,610
+direction so let's pick that so let's
+
+780
+00:45:11,310 --> 00:45:19,130
+first of all pick rainbow then seven
+
+781
+00:45:14,610 --> 00:45:23,730
+colors then we can change the direction
+
+782
+00:45:19,130 --> 00:45:28,849
+so you can see here is the CSS code it
+
+783
+00:45:23,730 --> 00:45:33,030
+generates for you so as we change as we
+
+784
+00:45:28,849 --> 00:45:37,410
+change the input you see that you see
+
+785
+00:45:33,030 --> 00:45:39,119
+the output code changes and similarly we
+
+786
+00:45:37,410 --> 00:45:41,310
+change the random color you see that's
+
+787
+00:45:39,119 --> 00:45:47,520
+the purpose of this application it
+
+788
+00:45:41,310 --> 00:45:50,069
+generates a random gradient CSS code now
+
+789
+00:45:47,520 --> 00:45:53,790
+let's look at this file okay this is
+
+790
+00:45:50,069 --> 00:45:56,819
+written you know in typescript so let's
+
+791
+00:45:53,790 --> 00:46:00,990
+open the buffer here is a buffer showing
+
+792
+00:45:56,819 --> 00:46:03,329
+browser in Firefox I don't have I don't
+
+793
+00:46:00,990 --> 00:46:05,670
+have JavaScript on that's why you see
+
+794
+00:46:03,329 --> 00:46:09,210
+blank Oh another thing is that you can
+
+795
+00:46:05,670 --> 00:46:12,690
+change color so let's say to color okay
+
+796
+00:46:09,210 --> 00:46:18,740
+two colors only and change the first
+
+797
+00:46:12,690 --> 00:46:18,740
+color to let's see
+
+798
+00:46:18,890 --> 00:46:28,109
+Wow okay so you can see it becomes brown
+
+799
+00:46:22,829 --> 00:46:30,869
+magenta and you can also change it
+
+800
+00:46:28,109 --> 00:46:39,680
+dynamic dynamically by a color wheel
+
+801
+00:46:30,869 --> 00:46:39,680
+let's see you see I rotate it it changes
+
+802
+00:46:41,540 --> 00:46:47,400
+so anyway that's the application so
+
+803
+00:46:44,490 --> 00:46:50,160
+let's go back to the file and let's look
+
+804
+00:46:47,400 --> 00:46:54,960
+at the JavaScript code search for
+
+805
+00:46:50,160 --> 00:47:00,230
+JavaScript here this line is a
+
+806
+00:46:54,960 --> 00:47:04,530
+JavaScript code the the things above
+
+807
+00:47:00,230 --> 00:47:09,030
+okay so this this this these three these
+
+808
+00:47:04,530 --> 00:47:12,630
+four blocks of text that's for the all
+
+809
+00:47:09,030 --> 00:47:14,400
+these widgets HTML input so the
+
+810
+00:47:12,630 --> 00:47:17,130
+JavaScript code is this one
+
+811
+00:47:14,400 --> 00:47:19,050
+Oh JavaScript so this one is not written
+
+812
+00:47:17,130 --> 00:47:22,950
+in typescript oh it is writing in
+
+813
+00:47:19,050 --> 00:47:26,550
+typescript actually so okay so anyway so
+
+814
+00:47:22,950 --> 00:47:28,680
+here's a typescript it's this one
+
+815
+00:47:26,550 --> 00:47:30,240
+actually doesn't have much it's too
+
+816
+00:47:28,680 --> 00:47:33,780
+simple you know when you start to use
+
+817
+00:47:30,240 --> 00:47:36,599
+typescript you'd you actually need more
+
+818
+00:47:33,780 --> 00:47:38,940
+complicated code because that's when you
+
+819
+00:47:36,599 --> 00:47:41,890
+actually can use type annotations
+
+820
+00:47:38,940 --> 00:47:44,710
+because otherwise there's nothing to add
+
+821
+00:47:41,890 --> 00:47:46,540
+but however in this file you can see let
+
+822
+00:47:44,710 --> 00:47:50,560
+me show you some of it for example you
+
+823
+00:47:46,540 --> 00:47:53,560
+see this part that's not JavaScript okay
+
+824
+00:47:50,560 --> 00:47:56,350
+you see these several HTML input
+
+825
+00:47:53,560 --> 00:47:59,200
+elements you see it occurs in several
+
+826
+00:47:56,350 --> 00:48:01,420
+phases those are part of typescript
+
+827
+00:47:59,200 --> 00:48:07,590
+those are not JavaScript so the those
+
+828
+00:48:01,420 --> 00:48:10,300
+are actually those are coercion of types
+
+829
+00:48:07,590 --> 00:48:17,490
+why do I need that because let me
+
+830
+00:48:10,300 --> 00:48:20,200
+explain because okay let's go to the
+
+831
+00:48:17,490 --> 00:48:23,050
+directory okay so here is a JavaScript
+
+832
+00:48:20,200 --> 00:48:26,110
+code you open that so here's the
+
+833
+00:48:23,050 --> 00:48:28,840
+JavaScript code and at the bottom it's a
+
+834
+00:48:26,110 --> 00:48:32,580
+typescript code so if you go through
+
+835
+00:48:28,840 --> 00:48:41,320
+this line set rainbow set color rainbow
+
+836
+00:48:32,580 --> 00:48:44,650
+you go to this this about line 21 okay
+
+837
+00:48:41,320 --> 00:48:48,700
+which is here you can see that over on
+
+838
+00:48:44,650 --> 00:48:51,970
+the bottom we have this HTML input
+
+839
+00:48:48,700 --> 00:48:54,100
+element here but over here that generate
+
+840
+00:48:51,970 --> 00:48:56,980
+generated code doesn't have that because
+
+841
+00:48:54,100 --> 00:48:59,020
+that's not part of JavaScript so why do
+
+842
+00:48:56,980 --> 00:49:05,110
+you need this well you need I need it
+
+843
+00:48:59,020 --> 00:49:08,230
+because because the code the X here is a
+
+844
+00:49:05,110 --> 00:49:11,430
+HTML input element the type of this X
+
+845
+00:49:08,230 --> 00:49:15,940
+you know I want to get a value of that
+
+846
+00:49:11,430 --> 00:49:18,610
+in this case it's the color okay so one
+
+847
+00:49:15,940 --> 00:49:22,990
+of these color boxes once you choose a
+
+848
+00:49:18,610 --> 00:49:27,490
+color there is a value you want to get a
+
+849
+00:49:22,990 --> 00:49:29,860
+value in order to get a value in order
+
+850
+00:49:27,490 --> 00:49:33,010
+to get the value so here's this is a
+
+851
+00:49:29,860 --> 00:49:36,010
+function you call to get the value so
+
+852
+00:49:33,010 --> 00:49:40,260
+for each you know you want to get the
+
+853
+00:49:36,010 --> 00:49:43,630
+value of all of them so for each X and I
+
+854
+00:49:40,260 --> 00:49:45,190
+X start value equals to something okay
+
+855
+00:49:43,630 --> 00:49:51,760
+that's how you get the value that's a
+
+856
+00:49:45,190 --> 00:49:55,660
+Dom but the X the the type of the X is
+
+857
+00:49:51,760 --> 00:49:57,910
+actually a HTML input element that's
+
+858
+00:49:55,660 --> 00:50:01,030
+part of the dome dome has kind of these
+
+859
+00:49:57,910 --> 00:50:06,579
+interfaces so anyway this other type is
+
+860
+00:50:01,030 --> 00:50:08,289
+HTMI improvement input element so you
+
+861
+00:50:06,579 --> 00:50:10,690
+need that actually well you don't need
+
+862
+00:50:08,289 --> 00:50:13,720
+that let me show you okay let's just
+
+863
+00:50:10,690 --> 00:50:16,089
+delete that okay let's just say X here
+
+864
+00:50:13,720 --> 00:50:18,339
+okay so that's the normally in
+
+865
+00:50:16,089 --> 00:50:20,220
+JavaScript that's what you do so now I
+
+866
+00:50:18,339 --> 00:50:28,839
+compare it
+
+867
+00:50:20,220 --> 00:50:31,089
+okay I'm comparing it it's a stun
+
+868
+00:50:28,839 --> 00:50:33,789
+actually it didn't give me give me any
+
+869
+00:50:31,089 --> 00:50:38,260
+arrows did it no actually so it actually
+
+870
+00:50:33,789 --> 00:50:40,960
+walked because used because usually it
+
+871
+00:50:38,260 --> 00:50:43,599
+was giving a warning not arrow because
+
+872
+00:50:40,960 --> 00:50:48,309
+remember typescript is 100% compatible
+
+873
+00:50:43,599 --> 00:50:51,220
+with JavaScript therefore unless it's a
+
+874
+00:50:48,309 --> 00:50:53,470
+JavaScript syntax error otherwise it
+
+875
+00:50:51,220 --> 00:50:56,589
+gives you warnings like this is missing
+
+876
+00:50:53,470 --> 00:50:58,450
+type or something like that but still
+
+877
+00:50:56,589 --> 00:51:01,450
+works in JavaScript as long as it's
+
+878
+00:50:58,450 --> 00:51:03,250
+valid JavaScript so we just compiled a
+
+879
+00:51:01,450 --> 00:51:07,089
+code so let's look at the JavaScript
+
+880
+00:51:03,250 --> 00:51:09,549
+code it's exactly the same thing you
+
+881
+00:51:07,089 --> 00:51:12,910
+know we just actually it's exactly
+
+882
+00:51:09,549 --> 00:51:15,220
+something so close it close it back to
+
+883
+00:51:12,910 --> 00:51:19,420
+the typescript code so let's try it
+
+884
+00:51:15,220 --> 00:51:22,480
+again let's remove this one so this one
+
+885
+00:51:19,420 --> 00:51:25,569
+this is another you know value so let's
+
+886
+00:51:22,480 --> 00:51:28,690
+just remove it cut
+
+887
+00:51:25,569 --> 00:51:30,970
+put it here remove that okay now let's
+
+888
+00:51:28,690 --> 00:51:36,880
+try to compile I'm trying to get the
+
+889
+00:51:30,970 --> 00:51:42,160
+warning out okay there it is you see now
+
+890
+00:51:36,880 --> 00:51:47,589
+it says CSS gradient dot years file line
+
+891
+00:51:42,160 --> 00:51:51,880
+23 column 48 arrow TS two three three
+
+892
+00:51:47,589 --> 00:51:57,579
+nine property value does not exist on
+
+893
+00:51:51,880 --> 00:52:01,839
+type element okay so line 23 let's go to
+
+894
+00:51:57,579 --> 00:52:05,520
+line 23 it's this one is exactly yeah
+
+895
+00:52:01,839 --> 00:52:09,100
+not now the arrow comes up line 23
+
+896
+00:52:05,520 --> 00:52:12,340
+column 48 so column 48 is right
+
+897
+00:52:09,100 --> 00:52:16,170
+is I don't have where is it column 48
+
+898
+00:52:12,340 --> 00:52:19,120
+it's right here okay then it says
+
+899
+00:52:16,170 --> 00:52:22,690
+property value does not exist on type
+
+900
+00:52:19,120 --> 00:52:26,170
+element so it's saying that X type squib
+
+901
+00:52:22,690 --> 00:52:32,050
+is assuming X to be of the thumb type
+
+902
+00:52:26,170 --> 00:52:35,260
+element but however the actual type of X
+
+903
+00:52:32,050 --> 00:52:38,200
+is supposed to be HTML input Emin
+
+904
+00:52:35,260 --> 00:52:40,450
+element it's the you know actually don't
+
+905
+00:52:38,200 --> 00:52:43,900
+don't worry about this at all because I
+
+906
+00:52:40,450 --> 00:52:47,530
+don't even understand it exactly tom is
+
+907
+00:52:43,900 --> 00:52:53,290
+very complex anyway this is just one of
+
+908
+00:52:47,530 --> 00:52:55,540
+the quark of type script so if you do
+
+909
+00:52:53,290 --> 00:52:57,520
+not want to see this error what you do
+
+910
+00:52:55,540 --> 00:53:00,430
+you know you learn from experience you
+
+911
+00:52:57,520 --> 00:53:02,650
+go to slack stack overflow they tell you
+
+912
+00:53:00,430 --> 00:53:08,500
+you know they tell you okay so what you
+
+913
+00:53:02,650 --> 00:53:13,150
+have to do is to is to put this here
+
+914
+00:53:08,500 --> 00:53:18,490
+let's see it's HTML so actually I have a
+
+915
+00:53:13,150 --> 00:53:21,460
+shortcut so I just type HTML H I HTML
+
+916
+00:53:18,490 --> 00:53:24,220
+input element hie okay there it is
+
+917
+00:53:21,460 --> 00:53:26,410
+that's that's how you do to fix it just
+
+918
+00:53:24,220 --> 00:53:33,150
+just forget that just put that there
+
+919
+00:53:26,410 --> 00:53:33,150
+then let's try compare it again compile
+
+920
+00:53:35,010 --> 00:53:43,680
+okay there's another occurrence 926 so
+
+921
+00:53:40,900 --> 00:53:48,850
+926 that's this one so let's do that
+
+922
+00:53:43,680 --> 00:53:55,450
+let's just to HTML input element okay
+
+923
+00:53:48,850 --> 00:53:58,840
+now let's compare that again good no
+
+924
+00:53:55,450 --> 00:54:00,940
+error no warning when it gives warning
+
+925
+00:53:58,840 --> 00:54:03,430
+like that the JavaScript code still
+
+926
+00:54:00,940 --> 00:54:05,680
+works it's just that it's warning about
+
+927
+00:54:03,430 --> 00:54:07,420
+something typescript so you don't
+
+928
+00:54:05,680 --> 00:54:13,720
+actually have to worry about all those
+
+929
+00:54:07,420 --> 00:54:16,630
+warnings so anyway that's that's that's
+
+930
+00:54:13,720 --> 00:54:17,440
+a quark you know one of the quark of
+
+931
+00:54:16,630 --> 00:54:19,150
+typescript
+
+932
+00:54:17,440 --> 00:54:21,520
+you know this is actually not helpful
+
+933
+00:54:19,150 --> 00:54:22,900
+because we are showing a quirk of
+
+934
+00:54:21,520 --> 00:54:25,089
+typescript we
+
+935
+00:54:22,900 --> 00:54:28,119
+actually haven't showed the use the
+
+936
+00:54:25,089 --> 00:54:30,160
+usefulness of types in typescript yeah
+
+937
+00:54:28,119 --> 00:54:33,730
+so this is not a good example because
+
+938
+00:54:30,160 --> 00:54:37,200
+it's too short you know you so let's
+
+939
+00:54:33,730 --> 00:54:39,369
+close this okay let's let's close this
+
+940
+00:54:37,200 --> 00:54:49,869
+let me show you let me show you
+
+941
+00:54:39,369 --> 00:54:53,099
+something that's more substantial which
+
+942
+00:54:49,869 --> 00:54:53,099
+I showed yesterday
+
+943
+00:54:59,370 --> 00:55:12,060
+so here is my JavaScript application
+
+944
+00:55:03,680 --> 00:55:14,880
+let's see I'm trying to find a good
+
+945
+00:55:12,060 --> 00:55:25,250
+example to show the to demonstrate the
+
+946
+00:55:14,880 --> 00:55:25,250
+typescript types maybe this this one
+
+947
+00:55:27,230 --> 00:55:37,530
+something in the water does not compute
+
+948
+00:55:31,800 --> 00:55:45,060
+this application computes in real time
+
+949
+00:55:37,530 --> 00:55:50,150
+of the key key strokes you pressed so
+
+950
+00:55:45,060 --> 00:55:53,670
+that you can get a sense of key
+
+951
+00:55:50,150 --> 00:55:55,710
+frequency you can also copy and paste so
+
+952
+00:55:53,670 --> 00:55:59,730
+so that's what these two so let's look
+
+953
+00:55:55,710 --> 00:56:05,160
+at the code open the file
+
+954
+00:55:59,730 --> 00:56:10,380
+search for JavaScript okay here is the
+
+955
+00:56:05,160 --> 00:56:14,780
+code here is HTML stuff the input box
+
+956
+00:56:10,380 --> 00:56:17,970
+and all that then then here is the code
+
+957
+00:56:14,780 --> 00:56:21,300
+okay and this is types good okay so this
+
+958
+00:56:17,970 --> 00:56:25,410
+is this is actually we are starting to
+
+959
+00:56:21,300 --> 00:56:27,930
+see types okay finally very you can see
+
+960
+00:56:25,410 --> 00:56:30,000
+it's dramatically different from what
+
+961
+00:56:27,930 --> 00:56:32,460
+not dramatically you can see it's very
+
+962
+00:56:30,000 --> 00:56:35,760
+different from from JavaScript now
+
+963
+00:56:32,460 --> 00:56:39,690
+because you have all these : number
+
+964
+00:56:35,760 --> 00:56:44,160
+square bracket so for example this one
+
+965
+00:56:39,690 --> 00:56:47,160
+this is a function create SVG okay so
+
+966
+00:56:44,160 --> 00:56:50,250
+what does it do here here is a
+
+967
+00:56:47,160 --> 00:56:54,980
+documentation so it takes the first
+
+968
+00:56:50,250 --> 00:56:59,550
+parameters P W is a viewport width then
+
+969
+00:56:54,980 --> 00:57:04,170
+viewport hate so with so width and hate
+
+970
+00:56:59,550 --> 00:57:07,950
+the question mark means optional okay
+
+971
+00:57:04,170 --> 00:57:11,420
+and I think that's inside in typescript
+
+972
+00:57:07,950 --> 00:57:11,420
+or JavaScript I forgot
+
+973
+00:57:11,880 --> 00:57:16,020
+so let's check the comments
+
+974
+00:57:18,960 --> 00:57:23,849
+the sirens of your Porsche are loud in
+
+975
+00:57:21,869 --> 00:57:31,140
+the background what sirens of the
+
+976
+00:57:23,849 --> 00:57:33,030
+abortion yeah typescript is yeah
+
+977
+00:57:31,140 --> 00:57:35,430
+javascript hundred-percent compatible
+
+978
+00:57:33,030 --> 00:57:37,559
+that's a key that's why it's so
+
+979
+00:57:35,430 --> 00:57:40,770
+successful anyway let's look at this
+
+980
+00:57:37,559 --> 00:57:43,920
+okay so this is a type script file this
+
+981
+00:57:40,770 --> 00:57:48,089
+function creates a SVG element you know
+
+982
+00:57:43,920 --> 00:57:51,150
+this graph is a SVG element it stands
+
+983
+00:57:48,089 --> 00:57:55,470
+for scalable vector graphics it's not
+
+984
+00:57:51,150 --> 00:57:57,240
+bitmap so this function creates G SVG
+
+985
+00:57:55,470 --> 00:58:00,270
+element it takes several arguments the
+
+986
+00:57:57,240 --> 00:58:03,390
+first one is a hey with the second one
+
+987
+00:58:00,270 --> 00:58:05,970
+is the hate meaning that meaning like
+
+988
+00:58:03,390 --> 00:58:11,760
+how large you know how large you want
+
+989
+00:58:05,970 --> 00:58:15,510
+your Viji graphics the third element is
+
+990
+00:58:11,760 --> 00:58:19,109
+a viewport now a viewport is like you
+
+991
+00:58:15,510 --> 00:58:25,799
+specify user coordinates instead of
+
+992
+00:58:19,109 --> 00:58:29,099
+pixels so view view then the view box
+
+993
+00:58:25,799 --> 00:58:32,849
+the third option the third argument is
+
+994
+00:58:29,099 --> 00:58:35,250
+actually a array and each element of the
+
+995
+00:58:32,849 --> 00:58:38,359
+array must be your number that's how you
+
+996
+00:58:35,250 --> 00:58:42,960
+specify it in typescript you see :
+
+997
+00:58:38,359 --> 00:58:45,329
+number square bracket that means this
+
+998
+00:58:42,960 --> 00:58:48,140
+argument when when you call the function
+
+999
+00:58:45,329 --> 00:58:51,569
+create SVG and pass some argument
+
+1000
+00:58:48,140 --> 00:58:55,250
+typescript typescript will try to check
+
+1001
+00:58:51,569 --> 00:58:58,290
+if this argument is actually a array and
+
+1002
+00:58:55,250 --> 00:59:01,349
+all elements in the array are numbers
+
+1003
+00:58:58,290 --> 00:59:03,780
+your check for you if it's not your
+
+1004
+00:59:01,349 --> 00:59:06,049
+campaign you'll say compiler error you
+
+1005
+00:59:03,780 --> 00:59:10,369
+know it won't you it will stop comparing
+
+1006
+00:59:06,049 --> 00:59:10,369
+you know so you you fix that
+
+1007
+00:59:10,670 --> 00:59:16,980
+well actually still compiles sometimes
+
+1008
+00:59:13,950 --> 00:59:19,619
+it you know yeah he still works you can
+
+1009
+00:59:16,980 --> 00:59:22,619
+ignore the error but you know it wants
+
+1010
+00:59:19,619 --> 00:59:25,920
+you because because in JavaScript it
+
+1011
+00:59:22,619 --> 00:59:30,930
+does automatically automatic conversion
+
+1012
+00:59:25,920 --> 00:59:32,700
+most of the time so so you know but
+
+1013
+00:59:30,930 --> 00:59:34,980
+sometimes you act sometimes
+
+1014
+00:59:32,700 --> 00:59:38,780
+these type mismatch actually are real
+
+1015
+00:59:34,980 --> 00:59:41,670
+arrows because if it doesn't match your
+
+1016
+00:59:38,780 --> 00:59:45,619
+application is wrong you know it's a bug
+
+1017
+00:59:41,670 --> 00:59:48,690
+so so you know type script check for you
+
+1018
+00:59:45,619 --> 00:59:50,970
+so here's a example okay so here is a
+
+1019
+00:59:48,690 --> 00:59:57,089
+function by the way this is an arrow
+
+1020
+00:59:50,970 --> 01:00:00,900
+function you this for example this this
+
+1021
+00:59:57,089 --> 01:00:03,109
+sex this part is the arguments and this
+
+1022
+01:00:00,900 --> 01:00:08,010
+part part is the body of the function
+
+1023
+01:00:03,109 --> 01:00:11,369
+and look at this this thing now this is
+
+1024
+01:00:08,010 --> 01:00:14,819
+another type annotation it it tells
+
+1025
+01:00:11,369 --> 01:00:19,770
+typescript that the return value of this
+
+1026
+01:00:14,819 --> 01:00:21,270
+function is of this type SVG SVG element
+
+1027
+01:00:19,770 --> 01:00:24,210
+it's a dump
+
+1028
+01:00:21,270 --> 01:00:26,609
+it's a dumb thing it just it just tells
+
+1029
+01:00:24,210 --> 01:00:30,240
+typescript that this function returns a
+
+1030
+01:00:26,609 --> 01:00:32,609
+value of that type so that is typescript
+
+1031
+01:00:30,240 --> 01:00:35,970
+now let's look at the JavaScript code
+
+1032
+01:00:32,609 --> 01:00:38,309
+for this page so let's look at so the
+
+1033
+01:00:35,970 --> 01:00:41,099
+here this file is a compare compare of
+
+1034
+01:00:38,309 --> 01:00:45,690
+JavaScript code so we can see this
+
+1035
+01:00:41,099 --> 01:00:48,660
+function over here create SVG so now you
+
+1036
+01:00:45,690 --> 01:00:51,119
+can see it's much simpler you see is
+
+1037
+01:00:48,660 --> 01:00:54,690
+just one two three four four arguments
+
+1038
+01:00:51,119 --> 01:00:57,480
+you know just parameter names you see
+
+1039
+01:00:54,690 --> 01:01:00,359
+there's no types and over here it's
+
+1040
+01:00:57,480 --> 01:01:03,660
+typescript over here is JavaScript you
+
+1041
+01:01:00,359 --> 01:01:07,230
+can see that's the difference so that is
+
+1042
+01:01:03,660 --> 01:01:10,770
+actually that's basically all there it
+
+1043
+01:01:07,230 --> 01:01:12,660
+is that just illustrates everything
+
+1044
+01:01:10,770 --> 01:01:14,849
+about typescript it's all just about
+
+1045
+01:01:12,660 --> 01:01:17,880
+that that is all nothing else it's
+
+1046
+01:01:14,849 --> 01:01:20,970
+hundred percent JavaScript you just add
+
+1047
+01:01:17,880 --> 01:01:23,609
+you know these type things okay
+
+1048
+01:01:20,970 --> 01:01:26,520
+type annotations and you know you can do
+
+1049
+01:01:23,609 --> 01:01:30,359
+it slowly one by one because it's your
+
+1050
+01:01:26,520 --> 01:01:32,339
+JavaScript so this is useful when you
+
+1051
+01:01:30,359 --> 01:01:36,450
+have large project you know one thousand
+
+1052
+01:01:32,339 --> 01:01:39,839
+line so this file only got 300 70 40
+
+1053
+01:01:36,450 --> 01:01:43,230
+lines anyway let's let's look at the
+
+1054
+01:01:39,839 --> 01:01:47,150
+typescript again so let's show some
+
+1055
+01:01:43,230 --> 01:01:50,070
+other examples of so here is example
+
+1056
+01:01:47,150 --> 01:01:52,530
+here is another function basically the
+
+1057
+01:01:50,070 --> 01:02:00,290
+same same thing here is how you specify
+
+1058
+01:01:52,530 --> 01:02:05,340
+a string type and here is another
+
+1059
+01:02:00,290 --> 01:02:09,780
+example so this this function translate
+
+1060
+01:02:05,340 --> 01:02:12,480
+string takes two arguments and each
+
+1061
+01:02:09,780 --> 01:02:15,690
+argument is must be your number type and
+
+1062
+01:02:12,480 --> 01:02:19,440
+the return value must be your string
+
+1063
+01:02:15,690 --> 01:02:21,450
+type that's that's it
+
+1064
+01:02:19,440 --> 01:02:25,970
+this is using error function error
+
+1065
+01:02:21,450 --> 01:02:29,430
+function is part of es JavaScript es2015
+
+1066
+01:02:25,970 --> 01:02:33,330
+so that's that's really about it about
+
+1067
+01:02:29,430 --> 01:02:37,190
+typescript so it's extremely simple you
+
+1068
+01:02:33,330 --> 01:02:37,190
+see that's why it's very successful
+
+1069
+01:02:40,910 --> 01:02:50,100
+what posh was a car passing by always
+
+1070
+01:02:44,730 --> 01:02:54,390
+inverse the sirens of your Porsche are
+
+1071
+01:02:50,100 --> 01:02:56,960
+loud in the background I don't hear
+
+1072
+01:02:54,390 --> 01:02:56,960
+anything
+
+1073
+01:03:00,660 --> 01:03:08,460
+because maybe I'm busy talking so I
+
+1074
+01:03:03,510 --> 01:03:10,710
+think that's that's it let's see how
+
+1075
+01:03:08,460 --> 01:03:19,890
+much I've been talking so any any
+
+1076
+01:03:10,710 --> 01:03:20,760
+questions bathroom you so anything so
+
+1077
+01:03:19,890 --> 01:03:24,560
+typescript
+
+1078
+01:03:20,760 --> 01:03:27,960
+yeah very simple it's most popular in
+
+1079
+01:03:24,560 --> 01:03:33,630
+industry I recommend it
+
+1080
+01:03:27,960 --> 01:03:35,100
+and the the force you know the the one
+
+1081
+01:03:33,630 --> 01:03:38,820
+reason it's very popular
+
+1082
+01:03:35,100 --> 01:03:43,050
+and great advantage is that it's hundred
+
+1083
+01:03:38,820 --> 01:03:45,240
+percent JavaScript compatible so any
+
+1084
+01:03:43,050 --> 01:03:48,150
+JavaScript is already your type script
+
+1085
+01:03:45,240 --> 01:03:53,460
+so that means you can gradually start to
+
+1086
+01:03:48,150 --> 01:03:56,220
+add types okay and the most use used
+
+1087
+01:03:53,460 --> 01:03:59,010
+feature of typescript is the type
+
+1088
+01:03:56,220 --> 01:04:02,480
+annotation meaning that the company you
+
+1089
+01:03:59,010 --> 01:04:06,480
+know the compilers tries to find any
+
+1090
+01:04:02,480 --> 01:04:09,210
+type mismatch for you and this is very
+
+1091
+01:04:06,480 --> 01:04:13,590
+useful when your code is large like over
+
+1092
+01:04:09,210 --> 01:04:16,290
+1,000 lines but other than that that's
+
+1093
+01:04:13,590 --> 01:04:19,110
+that's I mean this that's all there it
+
+1094
+01:04:16,290 --> 01:04:24,990
+is that that's that's all there is to
+
+1095
+01:04:19,110 --> 01:04:27,870
+typescript so so you know it's pretty
+
+1096
+01:04:24,990 --> 01:04:31,740
+simple but however it does have lots of
+
+1097
+01:04:27,870 --> 01:04:33,900
+quirks when you start to use it just
+
+1098
+01:04:31,740 --> 01:04:36,270
+like every technology you start to run
+
+1099
+01:04:33,900 --> 01:04:43,370
+into little quirks for example one of
+
+1100
+01:04:36,270 --> 01:04:47,780
+the quad we we talked about is is
+
+1101
+01:04:43,370 --> 01:04:51,150
+this thing you see this this this this
+
+1102
+01:04:47,780 --> 01:04:54,720
+HTML input element thing you know this
+
+1103
+01:04:51,150 --> 01:04:58,440
+part is actually not helping you because
+
+1104
+01:04:54,720 --> 01:05:01,170
+you know because it's a dumb thing you
+
+1105
+01:04:58,440 --> 01:05:04,860
+know typescript is complaining this
+
+1106
+01:05:01,170 --> 01:05:09,630
+should be it is assuming it to be some
+
+1107
+01:05:04,860 --> 01:05:10,290
+HTML element but typescript is small
+
+1108
+01:05:09,630 --> 01:05:12,900
+street
+
+1109
+01:05:10,290 --> 01:05:16,380
+so it actually wants
+
+1110
+01:05:12,900 --> 01:05:20,490
+you know it's actually HTML input input
+
+1111
+01:05:16,380 --> 01:05:22,230
+element I mean as a JavaScript code you
+
+1112
+01:05:20,490 --> 01:05:24,210
+don't even I mean these things don't
+
+1113
+01:05:22,230 --> 01:05:28,920
+come come up you don't even know what's
+
+1114
+01:05:24,210 --> 01:05:31,109
+the difference I mean yeah typical
+
+1115
+01:05:28,920 --> 01:05:33,059
+average JavaScript coders you don't
+
+1116
+01:05:31,109 --> 01:05:36,720
+actually need to know these you know
+
+1117
+01:05:33,059 --> 01:05:39,839
+HTML input input element versus element
+
+1118
+01:05:36,720 --> 01:05:42,119
+versus HTML element there are a lot of
+
+1119
+01:05:39,839 --> 01:05:45,450
+them like in don't that's a technical
+
+1120
+01:05:42,119 --> 01:05:48,599
+details of Dom but as far as JavaScript
+
+1121
+01:05:45,450 --> 01:05:51,499
+concern is concerned it you know it
+
+1122
+01:05:48,599 --> 01:05:55,759
+doesn't matter dark JavaScript does not
+
+1123
+01:05:51,499 --> 01:05:59,249
+worry about these things but typescript
+
+1124
+01:05:55,759 --> 01:06:02,369
+because is trying to match it's trying
+
+1125
+01:05:59,249 --> 01:06:04,890
+to be strict about types so it gives you
+
+1126
+01:06:02,369 --> 01:06:07,380
+all these kind of warnings so if you
+
+1127
+01:06:04,890 --> 01:06:09,269
+don't want to see those warnings then
+
+1128
+01:06:07,380 --> 01:06:11,369
+you look up Stack Overflow you know
+
+1129
+01:06:09,269 --> 01:06:13,740
+every time types typescript gives you
+
+1130
+01:06:11,369 --> 01:06:16,559
+some error you know you look you look up
+
+1131
+01:06:13,740 --> 01:06:18,900
+Stack Overflow then people say oh just
+
+1132
+01:06:16,559 --> 01:06:21,630
+put this in front of it then that so
+
+1133
+01:06:18,900 --> 01:06:25,019
+that's after soft sub problem so this is
+
+1134
+01:06:21,630 --> 01:06:30,509
+one of the core of typescript other
+
+1135
+01:06:25,019 --> 01:06:33,749
+quirks are for example for example this
+
+1136
+01:06:30,509 --> 01:06:36,779
+these arguments this argument is
+
+1137
+01:06:33,749 --> 01:06:39,799
+supposed to be a array of numbers so you
+
+1138
+01:06:36,779 --> 01:06:45,239
+have to find out what's the syntax for
+
+1139
+01:06:39,799 --> 01:06:47,339
+to represent a way of numbers and there
+
+1140
+01:06:45,239 --> 01:06:50,539
+are other issues for example if I want
+
+1141
+01:06:47,339 --> 01:06:54,119
+array of numbers but the array must
+
+1142
+01:06:50,539 --> 01:06:58,380
+always have only two elements like
+
+1143
+01:06:54,119 --> 01:07:00,569
+length 2 how do you specify that I am
+
+1144
+01:06:58,380 --> 01:07:01,950
+not sure offhand I mean that's the
+
+1145
+01:07:00,569 --> 01:07:03,210
+things the kind of thing you have to
+
+1146
+01:07:01,950 --> 01:07:06,119
+look up typescript
+
+1147
+01:07:03,210 --> 01:07:08,910
+sometimes it gets complex because
+
+1148
+01:07:06,119 --> 01:07:13,319
+javascript is the syntax of JavaScript
+
+1149
+01:07:08,910 --> 01:07:15,749
+is already already pretty lousy we
+
+1150
+01:07:13,319 --> 01:07:17,880
+talked about for one hour yesterday
+
+1151
+01:07:15,749 --> 01:07:21,259
+well actually we we haven't talked about
+
+1152
+01:07:17,880 --> 01:07:23,730
+JavaScript syntax but it's the syntax
+
+1153
+01:07:21,259 --> 01:07:25,420
+especially when it comes to let me show
+
+1154
+01:07:23,730 --> 01:07:28,489
+you when it comes to
+
+1155
+01:07:25,420 --> 01:07:28,489
+[Music]
+
+1156
+01:07:31,310 --> 01:07:42,780
+function argument D structure this is a
+
+1157
+01:07:36,690 --> 01:07:47,610
+feature in JavaScript 2015 that allows
+
+1158
+01:07:42,780 --> 01:07:52,080
+you a easy syntax to assign values to
+
+1159
+01:07:47,610 --> 01:07:54,450
+variables in yeah and the can can be
+
+1160
+01:07:52,080 --> 01:07:57,660
+used as in as part of the function
+
+1161
+01:07:54,450 --> 01:07:59,850
+parameters how do you have for example
+
+1162
+01:07:57,660 --> 01:08:04,080
+what what do you mean so here's the
+
+1163
+01:07:59,850 --> 01:08:08,870
+example you define a function here the
+
+1164
+01:08:04,080 --> 01:08:11,550
+the the argument is a object then the
+
+1165
+01:08:08,870 --> 01:08:14,760
+object is supposed to contain two
+
+1166
+01:08:11,550 --> 01:08:15,270
+properties Center and radius two
+
+1167
+01:08:14,760 --> 01:08:17,790
+properties
+
+1168
+01:08:15,270 --> 01:08:22,470
+yeah so I'll check you know you have a
+
+1169
+01:08:17,790 --> 01:08:25,200
+property center and a radius so Center
+
+1170
+01:08:22,470 --> 01:08:27,840
+center is array of two elements and
+
+1171
+01:08:25,200 --> 01:08:30,180
+radius is just a number so in this
+
+1172
+01:08:27,840 --> 01:08:33,210
+function when you have the when you got
+
+1173
+01:08:30,180 --> 01:08:35,310
+the argument object you want to assign
+
+1174
+01:08:33,210 --> 01:08:37,650
+them to variables so Center you know you
+
+1175
+01:08:35,310 --> 01:08:40,320
+want to assign them to Center to be XY
+
+1176
+01:08:37,650 --> 01:08:42,480
+as numbers you know the coordinate for
+
+1177
+01:08:40,320 --> 01:08:45,830
+the center of the radius of the circle
+
+1178
+01:08:42,480 --> 01:08:50,130
+and R is the radius so you write this
+
+1179
+01:08:45,830 --> 01:08:56,730
+then you can you know start to draw the
+
+1180
+01:08:50,130 --> 01:09:00,840
+circle but so this is before es2015 now
+
+1181
+01:08:56,730 --> 01:09:01,560
+with es2015 you have this feature for
+
+1182
+01:09:00,840 --> 01:09:04,500
+called
+
+1183
+01:09:01,560 --> 01:09:06,780
+argument de structure so now you can do
+
+1184
+01:09:04,500 --> 01:09:09,390
+it like this
+
+1185
+01:09:06,780 --> 01:09:11,730
+simplify it much simplified you can say
+
+1186
+01:09:09,390 --> 01:09:14,850
+it's still you know it's still one
+
+1187
+01:09:11,730 --> 01:09:18,210
+argument you can see the function still
+
+1188
+01:09:14,850 --> 01:09:21,090
+takes one argument but you can write it
+
+1189
+01:09:18,210 --> 01:09:23,970
+so that it actually it automatically the
+
+1190
+01:09:21,090 --> 01:09:27,300
+XY becomes variables you know the Center
+
+1191
+01:09:23,970 --> 01:09:30,150
+for the circle and the radius R also
+
+1192
+01:09:27,300 --> 01:09:34,010
+becomes a variable name so you can start
+
+1193
+01:09:30,150 --> 01:09:37,590
+to use you know X Y R so this feature
+
+1194
+01:09:34,010 --> 01:09:40,500
+essentially what is what it is doing is
+
+1195
+01:09:37,590 --> 01:09:47,819
+pattern matching anyway this feature
+
+1196
+01:09:40,500 --> 01:09:48,420
+is called argument destructure oh it's
+
+1197
+01:09:47,819 --> 01:09:50,250
+called
+
+1198
+01:09:48,420 --> 01:09:54,440
+this in general it's called this
+
+1199
+01:09:50,250 --> 01:09:54,440
+structure let me show you where okay
+
+1200
+01:09:57,110 --> 01:10:03,480
+this this it's in general it's called
+
+1201
+01:10:00,570 --> 01:10:05,520
+this structuring assignment you can use
+
+1202
+01:10:03,480 --> 01:10:08,660
+it for variable as well for example you
+
+1203
+01:10:05,520 --> 01:10:11,610
+can do it like this you have array of
+
+1204
+01:10:08,660 --> 01:10:15,090
+three elements you want to assign each
+
+1205
+01:10:11,610 --> 01:10:17,310
+element to to a variable ABC you know
+
+1206
+01:10:15,090 --> 01:10:19,199
+you can do it like this instead of you
+
+1207
+01:10:17,310 --> 01:10:21,750
+know before JavaScript yes you know
+
+1208
+01:10:19,199 --> 01:10:25,260
+without this feature you have to you
+
+1209
+01:10:21,750 --> 01:10:27,930
+have to say array bracket 0 to be the
+
+1210
+01:10:25,260 --> 01:10:30,060
+first element assigned to a then same
+
+1211
+01:10:27,930 --> 01:10:33,300
+thing for P and C you know so anyway
+
+1212
+01:10:30,060 --> 01:10:35,420
+this structuring assignment in function
+
+1213
+01:10:33,300 --> 01:10:39,060
+argument is called this structuring
+
+1214
+01:10:35,420 --> 01:10:45,780
+argument argument is structure so it's
+
+1215
+01:10:39,060 --> 01:10:48,780
+here argument is structure okay so but
+
+1216
+01:10:45,780 --> 01:10:52,560
+however it's this is very convenient but
+
+1217
+01:10:48,780 --> 01:10:57,030
+however the syntax can become extremely
+
+1218
+01:10:52,560 --> 01:10:59,550
+very complicated because the argument is
+
+1219
+01:10:57,030 --> 01:11:04,020
+structure is very powerful the argument
+
+1220
+01:10:59,550 --> 01:11:06,719
+can be array or it can be a object or it
+
+1221
+01:11:04,020 --> 01:11:10,050
+can be a nested array and object mixed
+
+1222
+01:11:06,719 --> 01:11:13,520
+nesting away an object and you can use
+
+1223
+01:11:10,050 --> 01:11:17,820
+this argument is this structure to
+
+1224
+01:11:13,520 --> 01:11:22,260
+extract you know things in it in this
+
+1225
+01:11:17,820 --> 01:11:24,210
+complex structure to two variables so so
+
+1226
+01:11:22,260 --> 01:11:26,550
+when you use this feature you know it
+
+1227
+01:11:24,210 --> 01:11:29,100
+gets the syntax for example let me show
+
+1228
+01:11:26,550 --> 01:11:33,960
+you one of them for example this is
+
+1229
+01:11:29,100 --> 01:11:37,770
+object to variable and let me show you
+
+1230
+01:11:33,960 --> 01:11:43,199
+some more complex examples for example
+
+1231
+01:11:37,770 --> 01:11:45,449
+let's say this one okay so this one you
+
+1232
+01:11:43,199 --> 01:11:49,710
+know here is a function it takes one
+
+1233
+01:11:45,449 --> 01:11:53,619
+argument the argument is a object the
+
+1234
+01:11:49,710 --> 01:12:00,340
+object is supposed to have two keys
+
+1235
+01:11:53,619 --> 01:12:03,070
+a and B and it also have you know and
+
+1236
+01:12:00,340 --> 01:12:05,920
+what if the object is not given if the
+
+1237
+01:12:03,070 --> 01:12:09,070
+object if the argument is not given then
+
+1238
+01:12:05,920 --> 01:12:11,889
+use this as default but what if the
+
+1239
+01:12:09,070 --> 01:12:16,239
+object is missing one of the one of the
+
+1240
+01:12:11,889 --> 01:12:19,810
+property then you can you can do this to
+
+1241
+01:12:16,239 --> 01:12:21,820
+give it a default property so you see
+
+1242
+01:12:19,810 --> 01:12:26,159
+this is very powerful but on the other
+
+1243
+01:12:21,820 --> 01:12:29,110
+hand the syntax becomes a bit complex
+
+1244
+01:12:26,159 --> 01:12:32,219
+okay so why am i why am i talking about
+
+1245
+01:12:29,110 --> 01:12:35,520
+this argument destructuring because
+
+1246
+01:12:32,219 --> 01:12:39,940
+that's JavaScript okay that's JavaScript
+
+1247
+01:12:35,520 --> 01:12:43,210
+es2015 now when you use typescript now
+
+1248
+01:12:39,940 --> 01:12:45,730
+typescript have this type specification
+
+1249
+01:12:43,210 --> 01:12:49,989
+you know type annotation when you use
+
+1250
+01:12:45,730 --> 01:12:52,060
+argument destructuring and when you know
+
+1251
+01:12:49,989 --> 01:12:54,909
+for example one of the example we have
+
+1252
+01:12:52,060 --> 01:12:58,330
+there now you want to add types it
+
+1253
+01:12:54,909 --> 01:13:00,250
+becomes extremely complex you know it
+
+1254
+01:12:58,330 --> 01:13:02,920
+becomes unreadable because you know you
+
+1255
+01:13:00,250 --> 01:13:04,929
+have to scratch your head okay which one
+
+1256
+01:13:02,920 --> 01:13:07,270
+is the default argument you know which
+
+1257
+01:13:04,929 --> 01:13:07,929
+one it means you know what type it
+
+1258
+01:13:07,270 --> 01:13:12,130
+should be
+
+1259
+01:13:07,929 --> 01:13:14,170
+it becomes very complex so that's you
+
+1260
+01:13:12,130 --> 01:13:16,389
+know that's one of the I guess you can
+
+1261
+01:13:14,170 --> 01:13:18,460
+call it a quirk or complexity of types
+
+1262
+01:13:16,389 --> 01:13:22,030
+good so that's that's about it for
+
+1263
+01:13:18,460 --> 01:13:25,659
+typescript though anything else and
+
+1264
+01:13:22,030 --> 01:13:27,520
+that's it for today let's you know talk
+
+1265
+01:13:25,659 --> 01:13:31,679
+to have one more minutes and we're gonna
+
+1266
+01:13:27,520 --> 01:13:31,679
+close now I guess anything else
+
+1267
+01:13:48,900 --> 01:13:52,980
+okay nothing nothing else to say now see
+
+1268
+01:13:51,690 --> 01:13:54,710
+you next time I'll see you guys next
+
+1269
+01:13:52,980 --> 01:13:59,160
+time
+
+1270
+01:13:54,710 --> 01:14:01,320
+and you can buy my tutorials you can buy
+
+1271
+01:13:59,160 --> 01:14:04,250
+my tutorials okay so I have a you know
+
+1272
+01:14:01,320 --> 01:14:09,350
+JavaScript tutorial javascript in depth
+
+1273
+01:14:04,250 --> 01:14:09,350
+you know or put money in my patron
+
+1274
+01:14:09,920 --> 01:14:17,510
+JavaScript in depth yeah lots of goodies
+
+1275
+01:14:13,160 --> 01:14:17,510
+thank you guys bye
+

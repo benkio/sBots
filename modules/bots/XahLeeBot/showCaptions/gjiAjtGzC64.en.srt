@@ -1,0 +1,6312 @@
+1
+00:00:00,560 --> 00:00:06,000
+good morning everyone welcome to another
+
+2
+00:00:03,120 --> 00:00:09,599
+episode of xsa talk show
+
+3
+00:00:06,000 --> 00:00:14,160
+uh today is 2020. what day it is today
+
+4
+00:00:09,599 --> 00:00:16,720
+august 26th when wednesday august 26
+
+5
+00:00:14,160 --> 00:00:18,320
+and 4 o'clock p.m in the afternoon san
+
+6
+00:00:16,720 --> 00:00:20,080
+francisco time
+
+7
+00:00:18,320 --> 00:00:23,039
+and today we are going to talk about
+
+8
+00:00:20,080 --> 00:00:25,760
+emacs basically uh i'm going to
+
+9
+00:00:23,039 --> 00:00:27,039
+uh work on uh my website with using
+
+10
+00:00:25,760 --> 00:00:30,160
+emacs so you're gonna
+
+11
+00:00:27,039 --> 00:00:33,280
+see my workflow and stuff and let's talk
+
+12
+00:00:30,160 --> 00:00:36,559
+random about emacs or keyboards
+
+13
+00:00:33,280 --> 00:00:40,239
+so first of all let me show you the
+
+14
+00:00:36,559 --> 00:00:40,800
+cell keyboard one of the the very first
+
+15
+00:00:40,239 --> 00:00:44,000
+one
+
+16
+00:00:40,800 --> 00:00:47,120
+the very first lisp keyboard it is
+
+17
+00:00:44,000 --> 00:00:50,640
+this keyboard that started the list
+
+18
+00:00:47,120 --> 00:00:53,600
+evolution uh revolution
+
+19
+00:00:50,640 --> 00:00:54,719
+well it begins it all so this cell
+
+20
+00:00:53,600 --> 00:00:59,440
+keyboard
+
+21
+00:00:54,719 --> 00:01:02,640
+is from 1970 okay 1970.
+
+22
+00:00:59,440 --> 00:01:04,479
+now let me check my status so good
+
+23
+00:01:02,640 --> 00:01:07,600
+morning guys good morning
+
+24
+00:01:04,479 --> 00:01:12,799
+allen and alan and
+
+25
+00:01:07,600 --> 00:01:17,040
+clawfoot and good morning danielle uh
+
+26
+00:01:12,799 --> 00:01:20,240
+so shall we continue am i alive
+
+27
+00:01:17,040 --> 00:01:21,040
+okay so that's good my video is going my
+
+28
+00:01:20,240 --> 00:01:23,360
+audio is
+
+29
+00:01:21,040 --> 00:01:25,520
+going so cell keyboard let me tell you
+
+30
+00:01:23,360 --> 00:01:27,200
+about the cell keyboard the grand daddy
+
+31
+00:01:25,520 --> 00:01:29,840
+of these keyboards and these
+
+32
+00:01:27,200 --> 00:01:31,840
+keyboards are in some way are the
+
+33
+00:01:29,840 --> 00:01:33,360
+granddaddy of all the keyboards let me
+
+34
+00:01:31,840 --> 00:01:38,000
+tell you so this keyboard
+
+35
+00:01:33,360 --> 00:01:41,759
+cell keyboard from stanford ai lab
+
+36
+00:01:38,000 --> 00:01:44,799
+cell is cell s-a-i-l it stands for
+
+37
+00:01:41,759 --> 00:01:46,560
+stanford a.i lab artificial intelligence
+
+38
+00:01:44,799 --> 00:01:49,520
+from 1970
+
+39
+00:01:46,560 --> 00:01:50,479
+and the stanford ai lab is started by
+
+40
+00:01:49,520 --> 00:01:52,960
+this guy
+
+41
+00:01:50,479 --> 00:01:54,079
+okay it's started by the guy who
+
+42
+00:01:52,960 --> 00:01:56,560
+invented
+
+43
+00:01:54,079 --> 00:01:58,000
+lisp the programming language john
+
+44
+00:01:56,560 --> 00:02:00,960
+mccarthy
+
+45
+00:01:58,000 --> 00:02:02,640
+okay john mccarthy started started the
+
+46
+00:02:00,960 --> 00:02:07,520
+stanford ai lab
+
+47
+00:02:02,640 --> 00:02:09,200
+in 1963. now you see in 1963 those are
+
+48
+00:02:07,520 --> 00:02:11,680
+the very old days
+
+49
+00:02:09,200 --> 00:02:13,920
+they are still using punch cards but
+
+50
+00:02:11,680 --> 00:02:16,560
+then we have this keyboard
+
+51
+00:02:13,920 --> 00:02:18,800
+cell keyboard you can see it's got a
+
+52
+00:02:16,560 --> 00:02:20,879
+control key now ctrl key is already
+
+53
+00:02:18,800 --> 00:02:21,520
+there by that time i think i'm pretty
+
+54
+00:02:20,879 --> 00:02:24,400
+sure
+
+55
+00:02:21,520 --> 00:02:26,720
+but it's got meta okay so it's got meta
+
+56
+00:02:24,400 --> 00:02:29,360
+key
+
+57
+00:02:26,720 --> 00:02:32,720
+uh you know today you have an old key
+
+58
+00:02:29,360 --> 00:02:32,720
+you can see there's old key
+
+59
+00:02:33,680 --> 00:02:38,720
+so you know on on the mac you have the
+
+60
+00:02:36,480 --> 00:02:39,120
+command key you know the mac command key
+
+61
+00:02:38,720 --> 00:02:43,280
+began
+
+62
+00:02:39,120 --> 00:02:45,519
+in 1980s in 1987 also
+
+63
+00:02:43,280 --> 00:02:47,519
+where does the command key idea came
+
+64
+00:02:45,519 --> 00:02:50,560
+from it came from this keyboard okay
+
+65
+00:02:47,519 --> 00:02:53,760
+it came from the cell keyboard
+
+66
+00:02:50,560 --> 00:02:54,160
+so this cell keyboard now now notice so
+
+67
+00:02:53,760 --> 00:02:57,440
+you
+
+68
+00:02:54,160 --> 00:03:01,440
+also have you also have these
+
+69
+00:02:57,440 --> 00:03:04,640
+math symbols and greek on them
+
+70
+00:03:01,440 --> 00:03:07,360
+and so 1970 and this is this is even
+
+71
+00:03:04,640 --> 00:03:10,640
+before the space cadet keyboard
+
+72
+00:03:07,360 --> 00:03:14,080
+and also you see you see the arrow
+
+73
+00:03:10,640 --> 00:03:16,560
+uh labels on the keys that precedes
+
+74
+00:03:14,080 --> 00:03:18,159
+so this is probably i think i'm not too
+
+75
+00:03:16,560 --> 00:03:19,200
+sure but i think this is the first
+
+76
+00:03:18,159 --> 00:03:22,400
+keyboard
+
+77
+00:03:19,200 --> 00:03:25,599
+that started to have arrow keys now this
+
+78
+00:03:22,400 --> 00:03:28,239
+is not uh not stand on
+
+79
+00:03:25,599 --> 00:03:29,120
+a long arrow keys but it's the beginning
+
+80
+00:03:28,239 --> 00:03:32,799
+you know then
+
+81
+00:03:29,120 --> 00:03:35,519
+later on then adam the adm
+
+82
+00:03:32,799 --> 00:03:35,840
+3 keyboard that the vi started on you
+
+83
+00:03:35,519 --> 00:03:38,879
+know
+
+84
+00:03:35,840 --> 00:03:39,360
+have error symbols on them so that's a
+
+85
+00:03:38,879 --> 00:03:42,799
+sales
+
+86
+00:03:39,360 --> 00:03:46,080
+sales keyboard so sales keyboard give
+
+87
+00:03:42,799 --> 00:03:48,640
+gave way to the knight keyboard
+
+88
+00:03:46,080 --> 00:03:49,920
+you started to have list machines the
+
+89
+00:03:48,640 --> 00:03:53,120
+knight keyboard
+
+90
+00:03:49,920 --> 00:03:53,840
+the end then the knight keyboard is the
+
+91
+00:03:53,120 --> 00:03:58,400
+daddy
+
+92
+00:03:53,840 --> 00:04:01,280
+of the most famous space cadet keyboard
+
+93
+00:03:58,400 --> 00:04:02,239
+we talked about a little bit uh
+
+94
+00:04:01,280 --> 00:04:04,799
+yesterday
+
+95
+00:04:02,239 --> 00:04:05,439
+and uh you know i talked about this
+
+96
+00:04:04,799 --> 00:04:09,439
+keyboard
+
+97
+00:04:05,439 --> 00:04:11,280
+uh a bunch of times in in my past video
+
+98
+00:04:09,439 --> 00:04:13,599
+so let's see what's what's up good
+
+99
+00:04:11,280 --> 00:04:16,799
+afternoon cortes good morning
+
+100
+00:04:13,599 --> 00:04:19,759
+bot okay i think so so
+
+101
+00:04:16,799 --> 00:04:20,160
+that keyboard sales key cell keyboard is
+
+102
+00:04:19,759 --> 00:04:22,720
+the
+
+103
+00:04:20,160 --> 00:04:24,000
+um the background of today's image so
+
+104
+00:04:22,720 --> 00:04:26,479
+you see these are the
+
+105
+00:04:24,000 --> 00:04:27,360
+list machines the lambda machine one of
+
+106
+00:04:26,479 --> 00:04:30,639
+the very
+
+107
+00:04:27,360 --> 00:04:33,440
+uh first one list machines
+
+108
+00:04:30,639 --> 00:04:34,400
+it's you know it's very large it's it's
+
+109
+00:04:33,440 --> 00:04:38,240
+like the
+
+110
+00:04:34,400 --> 00:04:38,240
+size of a refrigerator
+
+111
+00:04:38,960 --> 00:04:46,960
+okay that's about sales keyboard um
+
+112
+00:04:43,120 --> 00:04:51,120
+and i want to tell you the history of
+
+113
+00:04:46,960 --> 00:04:52,960
+arrow keys the arrow keys arrangement
+
+114
+00:04:51,120 --> 00:04:54,400
+and then we're gonna get on to emacs
+
+115
+00:04:52,960 --> 00:04:57,919
+okay the so
+
+116
+00:04:54,400 --> 00:04:58,720
+so it's a sales cell keyboard that has
+
+117
+00:04:57,919 --> 00:05:00,960
+the
+
+118
+00:04:58,720 --> 00:05:01,759
+arrow symbols on the keys i think that's
+
+119
+00:05:00,960 --> 00:05:04,560
+the first one
+
+120
+00:05:01,759 --> 00:05:04,960
+i'm not too sure uh by the way so all
+
+121
+00:05:04,560 --> 00:05:07,440
+the
+
+122
+00:05:04,960 --> 00:05:10,960
+photos you've seen of the cell keyboard
+
+123
+00:05:07,440 --> 00:05:14,320
+they are from this guy uh this guy
+
+124
+00:05:10,960 --> 00:05:18,080
+uh martin
+
+125
+00:05:14,320 --> 00:05:21,280
+why curry okay he is also a somewhat
+
+126
+00:05:18,080 --> 00:05:24,479
+famous popular programmer now he
+
+127
+00:05:21,280 --> 00:05:27,280
+is this guy is at least this this guy is
+
+128
+00:05:24,479 --> 00:05:30,000
+a keyboard expert okay
+
+129
+00:05:27,280 --> 00:05:30,960
+so he is writing a book i don't know if
+
+130
+00:05:30,000 --> 00:05:33,919
+it's published
+
+131
+00:05:30,960 --> 00:05:35,039
+yet he is writing a book on keyboard
+
+132
+00:05:33,919 --> 00:05:37,840
+history
+
+133
+00:05:35,039 --> 00:05:38,639
+so of all the people i know of keyboards
+
+134
+00:05:37,840 --> 00:05:41,360
+of all the
+
+135
+00:05:38,639 --> 00:05:42,240
+you know people that are keyboard
+
+136
+00:05:41,360 --> 00:05:45,280
+experts
+
+137
+00:05:42,240 --> 00:05:48,240
+some of them collects antique keyboards
+
+138
+00:05:45,280 --> 00:05:50,479
+you know 1970s 1960s
+
+139
+00:05:48,240 --> 00:05:51,919
+uh you know they have hundreds of them i
+
+140
+00:05:50,479 --> 00:05:52,800
+know a couple of people they have
+
+141
+00:05:51,919 --> 00:05:55,840
+hundreds
+
+142
+00:05:52,800 --> 00:05:57,919
+collects hundreds of uh antique
+
+143
+00:05:55,840 --> 00:05:59,520
+keyboards computer keyboards
+
+144
+00:05:57,919 --> 00:06:02,319
+of course there are also people who
+
+145
+00:05:59,520 --> 00:06:04,720
+collect antique typewriters that's even
+
+146
+00:06:02,319 --> 00:06:07,919
+earlier 100 years ago
+
+147
+00:06:04,720 --> 00:06:08,639
+and there are also keyboard you know key
+
+148
+00:06:07,919 --> 00:06:12,319
+switch
+
+149
+00:06:08,639 --> 00:06:14,880
+experts you know uh some people focus on
+
+150
+00:06:12,319 --> 00:06:16,880
+the mechanisms of key switch and of
+
+151
+00:06:14,880 --> 00:06:18,400
+course we have a lot of do-it-yourself
+
+152
+00:06:16,880 --> 00:06:20,240
+keyboard experts
+
+153
+00:06:18,400 --> 00:06:22,080
+of all the people who knows about
+
+154
+00:06:20,240 --> 00:06:24,800
+keyboards i
+
+155
+00:06:22,080 --> 00:06:26,240
+as far as i know in my experience so
+
+156
+00:06:24,800 --> 00:06:29,039
+this guy
+
+157
+00:06:26,240 --> 00:06:30,479
+this guy must sing white curry i'm not
+
+158
+00:06:29,039 --> 00:06:32,560
+sure how do you pronounce his name i
+
+159
+00:06:30,479 --> 00:06:33,600
+think he's originally from northern
+
+160
+00:06:32,560 --> 00:06:36,560
+europe
+
+161
+00:06:33,600 --> 00:06:38,080
+he he is the i would say he's the uh
+
+162
+00:06:36,560 --> 00:06:41,520
+keyboard history
+
+163
+00:06:38,080 --> 00:06:47,440
+expert the top real
+
+164
+00:06:41,520 --> 00:06:47,440
+historian of keyboards so he would know
+
+165
+00:06:47,919 --> 00:06:52,240
+you know all everything about computer
+
+166
+00:06:49,599 --> 00:06:53,919
+keyboards the history of it and he's he
+
+167
+00:06:52,240 --> 00:06:55,440
+he is writing a book i don't know if
+
+168
+00:06:53,919 --> 00:06:57,680
+what's the status of the book
+
+169
+00:06:55,440 --> 00:06:58,560
+i don't know if it's published or not so
+
+170
+00:06:57,680 --> 00:07:00,800
+anyway
+
+171
+00:06:58,560 --> 00:07:02,240
+and he you know he traveled he go to all
+
+172
+00:07:00,800 --> 00:07:06,000
+the museums or visit
+
+173
+00:07:02,240 --> 00:07:08,880
+people to take photos to do research on
+
+174
+00:07:06,000 --> 00:07:09,840
+keyboard history so all the photos
+
+175
+00:07:08,880 --> 00:07:13,599
+you've seen
+
+176
+00:07:09,840 --> 00:07:17,199
+of the cell keyboard for example this
+
+177
+00:07:13,599 --> 00:07:20,400
+one is from him
+
+178
+00:07:17,199 --> 00:07:22,639
+you know the cell keyboard
+
+179
+00:07:20,400 --> 00:07:24,319
+uh of course you know it's interesting
+
+180
+00:07:22,639 --> 00:07:27,599
+like in online
+
+181
+00:07:24,319 --> 00:07:28,479
+the most famous this keyboard is a space
+
+182
+00:07:27,599 --> 00:07:30,400
+cadet
+
+183
+00:07:28,479 --> 00:07:32,960
+you know partly because of the name
+
+184
+00:07:30,400 --> 00:07:35,680
+probably because it's got all these
+
+185
+00:07:32,960 --> 00:07:37,120
+fantastic symbols you know weird keys
+
+186
+00:07:35,680 --> 00:07:40,560
+thumb keys
+
+187
+00:07:37,120 --> 00:07:42,840
+and the roman numeral keys okay hold on
+
+188
+00:07:40,560 --> 00:07:45,840
+a second let me close my window i have
+
+189
+00:07:42,840 --> 00:07:48,400
+guests
+
+190
+00:07:45,840 --> 00:07:48,400
+okay so
+
+191
+00:07:50,639 --> 00:07:54,319
+so yeah i was saying you know the space
+
+192
+00:07:52,639 --> 00:07:56,639
+cadet keyboard if you are
+
+193
+00:07:54,319 --> 00:07:58,479
+if you are into these keyboards i'm sure
+
+194
+00:07:56,639 --> 00:08:01,599
+this is the first one you hear
+
+195
+00:07:58,479 --> 00:08:02,720
+you know the meta control meta super
+
+196
+00:08:01,599 --> 00:08:07,280
+hyper keys and
+
+197
+00:08:02,720 --> 00:08:09,919
+and greek keys and also apr keys
+
+198
+00:08:07,280 --> 00:08:10,879
+however you know so this is a most
+
+199
+00:08:09,919 --> 00:08:14,000
+popular but
+
+200
+00:08:10,879 --> 00:08:15,840
+actually if we if we want to trace the
+
+201
+00:08:14,000 --> 00:08:18,479
+most important historical
+
+202
+00:08:15,840 --> 00:08:19,599
+this keyboard it should be the cell
+
+203
+00:08:18,479 --> 00:08:22,560
+keyboard because
+
+204
+00:08:19,599 --> 00:08:24,400
+the cell keyboard is the father of these
+
+205
+00:08:22,560 --> 00:08:27,280
+keyboards
+
+206
+00:08:24,400 --> 00:08:27,680
+okay cell keyboard then of course then
+
+207
+00:08:27,280 --> 00:08:30,000
+then
+
+208
+00:08:27,680 --> 00:08:31,399
+this one is famous i talked about a few
+
+209
+00:08:30,000 --> 00:08:34,240
+times the
+
+210
+00:08:31,399 --> 00:08:37,360
+adm3a terminal this
+
+211
+00:08:34,240 --> 00:08:39,760
+is the computer the terminal you know
+
+212
+00:08:37,360 --> 00:08:40,479
+back then it's just a terminal that
+
+213
+00:08:39,760 --> 00:08:44,000
+began
+
+214
+00:08:40,479 --> 00:08:46,399
+the vi the vis began on this
+
+215
+00:08:44,000 --> 00:08:47,200
+on this computer was born from this
+
+216
+00:08:46,399 --> 00:08:50,399
+computer
+
+217
+00:08:47,200 --> 00:08:56,160
+and you can see the famous vi
+
+218
+00:08:50,399 --> 00:08:59,519
+arrow keys hjkl by the way of you
+
+219
+00:08:56,160 --> 00:09:02,959
+let me put on a thing of you
+
+220
+00:08:59,519 --> 00:09:05,600
+vi users this arrangement you know this
+
+221
+00:09:02,959 --> 00:09:07,279
+interesting question about the arrow key
+
+222
+00:09:05,600 --> 00:09:10,240
+arrangement
+
+223
+00:09:07,279 --> 00:09:12,240
+which how do you arrange errors so that
+
+224
+00:09:10,240 --> 00:09:16,000
+it's most efficient
+
+225
+00:09:12,240 --> 00:09:18,399
+this vi way hjkl is pretty efficient but
+
+226
+00:09:16,000 --> 00:09:19,440
+actually it's not optimal okay i because
+
+227
+00:09:18,399 --> 00:09:23,040
+i've done
+
+228
+00:09:19,440 --> 00:09:26,959
+in fact i've talked i've made a video a
+
+229
+00:09:23,040 --> 00:09:26,959
+live stream about this issue
+
+230
+00:09:27,440 --> 00:09:30,880
+uh i have a page on it i'll show you in
+
+231
+00:09:29,920 --> 00:09:32,720
+a moment
+
+232
+00:09:30,880 --> 00:09:33,920
+maybe but anyway on this page i'm
+
+233
+00:09:32,720 --> 00:09:36,160
+talking about
+
+234
+00:09:33,920 --> 00:09:38,399
+this is still work on pr work in
+
+235
+00:09:36,160 --> 00:09:41,200
+progress arrow keys the history
+
+236
+00:09:38,399 --> 00:09:41,920
+the his uh kind of history of arrow keys
+
+237
+00:09:41,200 --> 00:09:44,320
+and
+
+238
+00:09:41,920 --> 00:09:45,120
+and the the possible arrangement of
+
+239
+00:09:44,320 --> 00:09:47,839
+arrows
+
+240
+00:09:45,120 --> 00:09:48,720
+so first of all you have inverted t now
+
+241
+00:09:47,839 --> 00:09:51,040
+this one
+
+242
+00:09:48,720 --> 00:09:52,320
+most of us this is the most popular of
+
+243
+00:09:51,040 --> 00:09:55,680
+course
+
+244
+00:09:52,320 --> 00:09:59,279
+the first keyboard that began the
+
+245
+00:09:55,680 --> 00:10:02,320
+inverted inverted t is this one
+
+246
+00:09:59,279 --> 00:10:05,519
+deck vt 220 terminal
+
+247
+00:10:02,320 --> 00:10:08,160
+now this one is uh this one began in
+
+248
+00:10:05,519 --> 00:10:08,160
+what year
+
+249
+00:10:08,640 --> 00:10:12,320
+uh i have the year here
+
+250
+00:10:12,399 --> 00:10:16,240
+i didn't write it here but if you go to
+
+251
+00:10:14,959 --> 00:10:20,079
+history
+
+252
+00:10:16,240 --> 00:10:23,120
+deck 220 terminal okay
+
+253
+00:10:20,079 --> 00:10:28,560
+uh here 1983
+
+254
+00:10:23,120 --> 00:10:32,320
+so so 1983 dec vt 220 terminal
+
+255
+00:10:28,560 --> 00:10:34,399
+and it comes with the keyboard with this
+
+256
+00:10:32,320 --> 00:10:35,440
+inverted t arrow arrangement that's the
+
+257
+00:10:34,399 --> 00:10:39,519
+first one
+
+258
+00:10:35,440 --> 00:10:43,399
+and this keyboard uh it this keyboard is
+
+259
+00:10:39,519 --> 00:10:46,560
+is uh the model name is deck lk
+
+260
+00:10:43,399 --> 00:10:49,680
+201 so this is the first
+
+261
+00:10:46,560 --> 00:10:52,640
+keyword with the inverted t layout
+
+262
+00:10:49,680 --> 00:10:54,079
+and there is actually a story about why
+
+263
+00:10:52,640 --> 00:10:57,279
+why they created a
+
+264
+00:10:54,079 --> 00:10:59,120
+you know why they that why did they do
+
+265
+00:10:57,279 --> 00:11:01,839
+it that way
+
+266
+00:10:59,120 --> 00:11:03,519
+because it turns out this guy who
+
+267
+00:11:01,839 --> 00:11:04,480
+created who designed the keyboard it
+
+268
+00:11:03,519 --> 00:11:06,880
+turns out this
+
+269
+00:11:04,480 --> 00:11:08,480
+arrangement of arrow keys is actually
+
+270
+00:11:06,880 --> 00:11:11,519
+the most efficient okay
+
+271
+00:11:08,480 --> 00:11:14,000
+now he's got a website i link to
+
+272
+00:11:11,519 --> 00:11:15,279
+uh i'm still working on my page but you
+
+273
+00:11:14,000 --> 00:11:19,279
+can at the bottom you can
+
+274
+00:11:15,279 --> 00:11:22,720
+go to see his website this guy is jim
+
+275
+00:11:19,279 --> 00:11:25,440
+jim burrows so in 1998
+
+276
+00:11:22,720 --> 00:11:26,399
+he wrote an article history of the
+
+277
+00:11:25,440 --> 00:11:28,560
+inverted t
+
+278
+00:11:26,399 --> 00:11:30,640
+arrow key arrangement on keyboard he
+
+279
+00:11:28,560 --> 00:11:34,399
+wrote article 1998
+
+280
+00:11:30,640 --> 00:11:37,200
+jim burrows here is his article okay
+
+281
+00:11:34,399 --> 00:11:38,000
+now his article is uh you know this is
+
+282
+00:11:37,200 --> 00:11:42,800
+the
+
+283
+00:11:38,000 --> 00:11:46,079
+you are looking at 1998's web 1998
+
+284
+00:11:42,800 --> 00:11:48,959
+web design uh it looks like this okay
+
+285
+00:11:46,079 --> 00:11:49,680
+so you see all the figures are very
+
+286
+00:11:48,959 --> 00:11:51,839
+pretty small
+
+287
+00:11:49,680 --> 00:11:52,720
+you know and the phone is pretty small i
+
+288
+00:11:51,839 --> 00:11:55,920
+have to enlarge
+
+289
+00:11:52,720 --> 00:11:57,680
+several times so right now it's enlarged
+
+290
+00:11:55,920 --> 00:12:00,720
+200 percent
+
+291
+00:11:57,680 --> 00:12:04,160
+so so you see there are several
+
+292
+00:12:00,720 --> 00:12:06,800
+ways to arrange the arrow keys and then
+
+293
+00:12:04,160 --> 00:12:07,920
+he also covered the vt100 arrow key
+
+294
+00:12:06,800 --> 00:12:11,519
+arrangement
+
+295
+00:12:07,920 --> 00:12:13,680
+wait this is up down left right
+
+296
+00:12:11,519 --> 00:12:14,959
+you know that you know many uh different
+
+297
+00:12:13,680 --> 00:12:16,720
+arrangement it
+
+298
+00:12:14,959 --> 00:12:18,880
+it you know you read his article it
+
+299
+00:12:16,720 --> 00:12:21,440
+turns out the inverted t
+
+300
+00:12:18,880 --> 00:12:21,920
+is actually the most sufficient meaning
+
+301
+00:12:21,440 --> 00:12:24,000
+that
+
+302
+00:12:21,920 --> 00:12:25,519
+if you are going to let's say if you are
+
+303
+00:12:24,000 --> 00:12:28,720
+going to play pac-man
+
+304
+00:12:25,519 --> 00:12:31,279
+you know the pac-man the inverted t
+
+305
+00:12:28,720 --> 00:12:31,839
+will require the least amount of finger
+
+306
+00:12:31,279 --> 00:12:36,720
+movement
+
+307
+00:12:31,839 --> 00:12:36,720
+okay so this is gonna be
+
+308
+00:12:36,839 --> 00:12:41,040
+uh
+
+309
+00:12:38,000 --> 00:12:45,200
+disruption for you veeam uh
+
+310
+00:12:41,040 --> 00:12:47,120
+phonetics the yeah so okay so that's his
+
+311
+00:12:45,200 --> 00:12:50,160
+article
+
+312
+00:12:47,120 --> 00:12:54,000
+and of course here is my article
+
+313
+00:12:50,160 --> 00:12:56,959
+with computational study calculation
+
+314
+00:12:54,000 --> 00:12:57,760
+about which which arrangement is uh more
+
+315
+00:12:56,959 --> 00:13:01,440
+efficient
+
+316
+00:12:57,760 --> 00:13:05,040
+is it the vims hjkl or is it
+
+317
+00:13:01,440 --> 00:13:08,240
+inverted t i j k l
+
+318
+00:13:05,040 --> 00:13:10,320
+so there is actually a javascript code
+
+319
+00:13:08,240 --> 00:13:11,920
+you can type numbers you know type the
+
+320
+00:13:10,320 --> 00:13:15,839
+frequency and so on and
+
+321
+00:13:11,920 --> 00:13:16,959
+come out a number okay so by the way
+
+322
+00:13:15,839 --> 00:13:19,120
+there is a game
+
+323
+00:13:16,959 --> 00:13:20,000
+called google pacman i don't know if you
+
+324
+00:13:19,120 --> 00:13:22,079
+guys seen it
+
+325
+00:13:20,000 --> 00:13:23,360
+it was very famous about 10 years ago
+
+326
+00:13:22,079 --> 00:13:26,480
+google pacman
+
+327
+00:13:23,360 --> 00:13:27,360
+it's one of the google studio so you can
+
+328
+00:13:26,480 --> 00:13:31,040
+play
+
+329
+00:13:27,360 --> 00:13:32,399
+let's see if i can play magnify magnify
+
+330
+00:13:31,040 --> 00:13:36,800
+magnify
+
+331
+00:13:32,399 --> 00:13:36,800
+magnify insert coin
+
+332
+00:13:38,399 --> 00:13:46,240
+okay it's uh it probably require cookies
+
+333
+00:13:42,639 --> 00:13:47,040
+okay yeah so i i cannot play okay copy
+
+334
+00:13:46,240 --> 00:13:49,760
+the link
+
+335
+00:13:47,040 --> 00:13:51,519
+go back to the youtube good morning
+
+336
+00:13:49,760 --> 00:13:53,680
+reaper
+
+337
+00:13:51,519 --> 00:13:55,519
+any comments comments and questions post
+
+338
+00:13:53,680 --> 00:13:57,839
+it okay
+
+339
+00:13:55,519 --> 00:13:58,720
+so there is google pac-man let's see if
+
+340
+00:13:57,839 --> 00:14:03,839
+we can play
+
+341
+00:13:58,720 --> 00:14:03,839
+insert coin there it is
+
+342
+00:14:04,320 --> 00:14:08,800
+now i'm on this kinesis keyboard where
+
+343
+00:14:06,880 --> 00:14:11,040
+the arrows are separated
+
+344
+00:14:08,800 --> 00:14:12,560
+to left and right so i don't i don't
+
+345
+00:14:11,040 --> 00:14:15,760
+know if
+
+346
+00:14:12,560 --> 00:14:17,040
+i don't play well so by the way this
+
+347
+00:14:15,760 --> 00:14:21,680
+google pacman
+
+348
+00:14:17,040 --> 00:14:23,920
+is written by closet
+
+349
+00:14:21,680 --> 00:14:26,160
+google pac-man is written by this guy
+
+350
+00:14:23,920 --> 00:14:29,839
+okay close it let me show you
+
+351
+00:14:26,160 --> 00:14:31,839
+google pac-man close it
+
+352
+00:14:29,839 --> 00:14:33,199
+written by this guy this keyboard
+
+353
+00:14:31,839 --> 00:14:36,639
+history expert
+
+354
+00:14:33,199 --> 00:14:39,040
+martin why curry he he was
+
+355
+00:14:36,639 --> 00:14:41,440
+working at google i'm not sure he maybe
+
+356
+00:14:39,040 --> 00:14:44,160
+he's still working at google so
+
+357
+00:14:41,440 --> 00:14:45,680
+it is actually he who wrote that google
+
+358
+00:14:44,160 --> 00:14:47,760
+pacman
+
+359
+00:14:45,680 --> 00:14:49,839
+you know so this guy is very interesting
+
+360
+00:14:47,760 --> 00:14:52,959
+he studied things
+
+361
+00:14:49,839 --> 00:14:55,360
+uh many things he studied
+
+362
+00:14:52,959 --> 00:14:57,279
+in depth you know he he's a guy who
+
+363
+00:14:55,360 --> 00:15:00,000
+tends to study something in depth
+
+364
+00:14:57,279 --> 00:15:01,360
+that like he will go very deep research
+
+365
+00:15:00,000 --> 00:15:04,480
+the history spending
+
+366
+00:15:01,360 --> 00:15:07,040
+months to research the history and he
+
+367
+00:15:04,480 --> 00:15:08,880
+he happens to also be a javascript
+
+368
+00:15:07,040 --> 00:15:11,600
+expert
+
+369
+00:15:08,880 --> 00:15:12,880
+so javascript expert keyboard expert
+
+370
+00:15:11,600 --> 00:15:15,600
+both of which i'm
+
+371
+00:15:12,880 --> 00:15:17,440
+also also very interested but the other
+
+372
+00:15:15,600 --> 00:15:21,920
+thing another thing he study is
+
+373
+00:15:17,440 --> 00:15:25,040
+um for example he study fonts okay
+
+374
+00:15:21,920 --> 00:15:27,279
+in-depth fonts in depth i i
+
+375
+00:15:25,040 --> 00:15:29,759
+am by the way i'm also uh very
+
+376
+00:15:27,279 --> 00:15:31,759
+interested in fonts and symbology
+
+377
+00:15:29,759 --> 00:15:33,759
+you know you guys have seen my unicode
+
+378
+00:15:31,759 --> 00:15:36,240
+page right
+
+379
+00:15:33,759 --> 00:15:38,480
+i talk about that often let's say
+
+380
+00:15:36,240 --> 00:15:40,959
+unicode arrows
+
+381
+00:15:38,480 --> 00:15:42,720
+okay let me show you my unicode page
+
+382
+00:15:40,959 --> 00:15:45,920
+this is my marketing
+
+383
+00:15:42,720 --> 00:15:48,560
+department talking
+
+384
+00:15:45,920 --> 00:15:49,199
+uh unicode [ __ ] i'm on the third place
+
+385
+00:15:48,560 --> 00:15:51,279
+now
+
+386
+00:15:49,199 --> 00:15:54,240
+i should be the third the first place
+
+387
+00:15:51,279 --> 00:15:58,800
+where people steal
+
+388
+00:15:54,240 --> 00:16:02,880
+my ideas like you know somewhat
+
+389
+00:15:58,800 --> 00:16:06,399
+[ __ ] what [ __ ] my page is not even
+
+390
+00:16:02,880 --> 00:16:09,440
+it becomes fifth page [ __ ]
+
+391
+00:16:06,399 --> 00:16:12,560
+anyway so the unicode arrows so here's
+
+392
+00:16:09,440 --> 00:16:15,279
+my unicode pages you know you
+
+393
+00:16:12,560 --> 00:16:17,839
+study of symbology you know but anyway
+
+394
+00:16:15,279 --> 00:16:21,279
+back to the guy okay
+
+395
+00:16:17,839 --> 00:16:26,240
+this guy uh martin why curry he also
+
+396
+00:16:21,279 --> 00:16:26,240
+studied he has a great interest in font
+
+397
+00:16:26,639 --> 00:16:31,279
+and he studied font fonts in depth
+
+398
+00:16:31,360 --> 00:16:35,279
+and in fact he has done some google you
+
+399
+00:16:33,920 --> 00:16:36,720
+know presentation at google google
+
+400
+00:16:35,279 --> 00:16:39,360
+google
+
+401
+00:16:36,720 --> 00:16:40,399
+google i o you know one of those google
+
+402
+00:16:39,360 --> 00:16:44,000
+um
+
+403
+00:16:40,399 --> 00:16:47,120
+conferences he has talked about uh
+
+404
+00:16:44,000 --> 00:16:50,560
+funds ligatures and things like that
+
+405
+00:16:47,120 --> 00:16:54,000
+that that i think is crap so anyway
+
+406
+00:16:50,560 --> 00:16:57,199
+so that that's this guy okay uh martin
+
+407
+00:16:54,000 --> 00:16:57,920
+why curry and he also has he has written
+
+408
+00:16:57,199 --> 00:17:00,720
+another
+
+409
+00:16:57,920 --> 00:17:01,120
+you know quite a few javascript apps
+
+410
+00:17:00,720 --> 00:17:03,440
+that's
+
+411
+00:17:01,120 --> 00:17:05,760
+uh very interesting you know i i'm very
+
+412
+00:17:03,440 --> 00:17:07,919
+interested
+
+413
+00:17:05,760 --> 00:17:08,880
+okay so that's about that guys so let's
+
+414
+00:17:07,919 --> 00:17:11,039
+go back to
+
+415
+00:17:08,880 --> 00:17:13,280
+the list keyboard let's yeah let's go
+
+416
+00:17:11,039 --> 00:17:15,839
+back to the arrow key arrangement so let
+
+417
+00:17:13,280 --> 00:17:18,000
+me let me show you the arrow key which
+
+418
+00:17:15,839 --> 00:17:19,439
+arrangement so inverted t that's more
+
+419
+00:17:18,000 --> 00:17:23,280
+sufficient okay
+
+420
+00:17:19,439 --> 00:17:26,480
+then you have uh left down up right
+
+421
+00:17:23,280 --> 00:17:30,480
+which is which is the vi uh keys okay
+
+422
+00:17:26,480 --> 00:17:32,840
+left down upright the first one
+
+423
+00:17:30,480 --> 00:17:34,480
+to use this arrangement i believe is
+
+424
+00:17:32,840 --> 00:17:38,559
+1976
+
+425
+00:17:34,480 --> 00:17:41,600
+the vise you know adm3a terminal
+
+426
+00:17:38,559 --> 00:17:43,760
+then you have up down left right
+
+427
+00:17:41,600 --> 00:17:46,960
+you know another interesting very
+
+428
+00:17:43,760 --> 00:17:50,080
+variation and this one is used on
+
+429
+00:17:46,960 --> 00:17:53,360
+deck vt100 terminal
+
+430
+00:17:50,080 --> 00:17:55,760
+okay up down left right and
+
+431
+00:17:53,360 --> 00:17:57,440
+actually it's positioned on upper right
+
+432
+00:17:55,760 --> 00:18:01,440
+you see it's
+
+433
+00:17:57,440 --> 00:18:05,360
+interesting position on upper right
+
+434
+00:18:01,440 --> 00:18:08,080
+you know row uh of the keyboard
+
+435
+00:18:05,360 --> 00:18:08,559
+then you have apples you know apples
+
+436
+00:18:08,080 --> 00:18:12,080
+left
+
+437
+00:18:08,559 --> 00:18:12,559
+right down up let's let's look at one of
+
+438
+00:18:12,080 --> 00:18:15,760
+them
+
+439
+00:18:12,559 --> 00:18:19,360
+okay apple uh so this
+
+440
+00:18:15,760 --> 00:18:22,720
+this is what 1983
+
+441
+00:18:19,360 --> 00:18:27,360
+so let's show here it is you see
+
+442
+00:18:22,720 --> 00:18:29,520
+left right down up
+
+443
+00:18:27,360 --> 00:18:32,320
+apple and apple has you know all
+
+444
+00:18:29,520 --> 00:18:36,880
+basically all apple keyboards
+
+445
+00:18:32,320 --> 00:18:40,840
+they have that left right down up
+
+446
+00:18:36,880 --> 00:18:44,799
+including this apple standard keyboard
+
+447
+00:18:40,840 --> 00:18:45,440
+1987. so apple key arrangement you know
+
+448
+00:18:44,799 --> 00:18:49,679
+apple's
+
+449
+00:18:45,440 --> 00:18:52,799
+uh left right up down left right down up
+
+450
+00:18:49,679 --> 00:18:56,000
+then you have the cross arrangement
+
+451
+00:18:52,799 --> 00:18:59,559
+like a cross you can see
+
+452
+00:18:56,000 --> 00:19:03,840
+in this lisp keyboard xerox
+
+453
+00:18:59,559 --> 00:19:06,000
+1109 this keyboard across
+
+454
+00:19:03,840 --> 00:19:07,280
+uh the cross is no good okay it's the
+
+455
+00:19:06,000 --> 00:19:10,559
+most inefficient
+
+456
+00:19:07,280 --> 00:19:11,360
+however it should win a word for the
+
+457
+00:19:10,559 --> 00:19:14,400
+most
+
+458
+00:19:11,360 --> 00:19:16,240
+uh intuitive because you know up down
+
+459
+00:19:14,400 --> 00:19:20,799
+left right that's the most intuitive
+
+460
+00:19:16,240 --> 00:19:22,720
+actually but it's the least efficient
+
+461
+00:19:20,799 --> 00:19:24,120
+uh there are quite a few so you have
+
+462
+00:19:22,720 --> 00:19:28,080
+these keyboards
+
+463
+00:19:24,120 --> 00:19:30,640
+ergonomics my key keyboard okay i
+
+464
+00:19:28,080 --> 00:19:31,280
+uh they have a here you can see on the
+
+465
+00:19:30,640 --> 00:19:33,600
+left
+
+466
+00:19:31,280 --> 00:19:35,520
+you have this circle for the function
+
+467
+00:19:33,600 --> 00:19:37,120
+keys then you have this
+
+468
+00:19:35,520 --> 00:19:39,520
+you know in the middle of the circle you
+
+469
+00:19:37,120 --> 00:19:42,000
+have the arrow keys
+
+470
+00:19:39,520 --> 00:19:44,160
+and then there is also these home
+
+471
+00:19:42,000 --> 00:19:46,400
+computer
+
+472
+00:19:44,160 --> 00:19:48,480
+panasonic from japan you can see the
+
+473
+00:19:46,400 --> 00:19:50,720
+arrows
+
+474
+00:19:48,480 --> 00:19:52,080
+it's a in a cross arrangement but
+
+475
+00:19:50,720 --> 00:19:55,600
+however it's it's
+
+476
+00:19:52,080 --> 00:19:58,000
+kind of the got the diagonal uh
+
+477
+00:19:55,600 --> 00:19:58,000
+cuts
+
+478
+00:20:00,400 --> 00:20:04,559
+and in fact if you have a cross like
+
+479
+00:20:02,559 --> 00:20:06,000
+that with the diagonal cuts this is
+
+480
+00:20:04,559 --> 00:20:09,360
+actually more efficient
+
+481
+00:20:06,000 --> 00:20:12,640
+than than this you know this actual
+
+482
+00:20:09,360 --> 00:20:15,840
+cross greek cross by the way that cross
+
+483
+00:20:12,640 --> 00:20:18,240
+is called greek cross
+
+484
+00:20:15,840 --> 00:20:20,960
+then you have something like this okay
+
+485
+00:20:18,240 --> 00:20:24,559
+so so you see this one
+
+486
+00:20:20,960 --> 00:20:27,679
+another japanese keyboard from nec
+
+487
+00:20:24,559 --> 00:20:30,480
+in 1992
+
+488
+00:20:27,679 --> 00:20:30,480
+so you have this
+
+489
+00:20:30,799 --> 00:20:36,960
+uh this diamond shape
+
+490
+00:20:34,559 --> 00:20:39,280
+arrow arrangement and you can see also
+
+491
+00:20:36,960 --> 00:20:43,120
+see this on this japanese keyboard
+
+492
+00:20:39,280 --> 00:20:46,159
+and then microsoft also
+
+493
+00:20:43,120 --> 00:20:51,440
+their their microsoft natural elite
+
+494
+00:20:46,159 --> 00:20:51,440
+1998 also use that configuration
+
+495
+00:20:52,000 --> 00:20:56,480
+then you have the truly ergonomic okay
+
+496
+00:20:54,640 --> 00:21:00,000
+truly ergonomic you can see
+
+497
+00:20:56,480 --> 00:21:02,320
+on the right they have also a diamond
+
+498
+00:21:00,000 --> 00:21:03,360
+shaped arrangement for the arrow keys
+
+499
+00:21:02,320 --> 00:21:06,080
+but however
+
+500
+00:21:03,360 --> 00:21:06,400
+they have like a horizontal diamond so
+
+501
+00:21:06,080 --> 00:21:09,440
+so
+
+502
+00:21:06,400 --> 00:21:10,480
+instead of left and right adjacent to
+
+503
+00:21:09,440 --> 00:21:13,039
+each other
+
+504
+00:21:10,480 --> 00:21:13,600
+now they have up down adjacent to each
+
+505
+00:21:13,039 --> 00:21:17,440
+other
+
+506
+00:21:13,600 --> 00:21:20,640
+and the the left and right is separated
+
+507
+00:21:17,440 --> 00:21:24,000
+uh i talked to this guy and you know
+
+508
+00:21:20,640 --> 00:21:25,919
+i i tell i told him the best arrangement
+
+509
+00:21:24,000 --> 00:21:28,799
+for arrow the most sufficient way
+
+510
+00:21:25,919 --> 00:21:29,360
+is actually inverted t and he doesn't
+
+511
+00:21:28,799 --> 00:21:32,640
+agree
+
+512
+00:21:29,360 --> 00:21:36,080
+he says oh no this is the best okay
+
+513
+00:21:32,640 --> 00:21:39,360
+so he's uh he doesn't agree he think
+
+514
+00:21:36,080 --> 00:21:41,440
+he think he's kind of proud of the fact
+
+515
+00:21:39,360 --> 00:21:44,799
+that he designed this
+
+516
+00:21:41,440 --> 00:21:47,600
+diamond t-shaped arrow keys
+
+517
+00:21:44,799 --> 00:21:48,880
+for truly ergonomic so in their new
+
+518
+00:21:47,600 --> 00:21:51,600
+version
+
+519
+00:21:48,880 --> 00:21:52,240
+you can see their new version is already
+
+520
+00:21:51,600 --> 00:21:55,120
+out
+
+521
+00:21:52,240 --> 00:21:57,200
+the cleve the truly ergonomic cleave
+
+522
+00:21:55,120 --> 00:22:00,240
+keyboard 2018
+
+523
+00:21:57,200 --> 00:22:01,280
+you can also see the arrow keys is like
+
+524
+00:22:00,240 --> 00:22:04,000
+that
+
+525
+00:22:01,280 --> 00:22:04,480
+uh in my opinion it's no good okay
+
+526
+00:22:04,000 --> 00:22:08,080
+because
+
+527
+00:22:04,480 --> 00:22:08,880
+i have this keyboard thanks to him he
+
+528
+00:22:08,080 --> 00:22:11,919
+sent me for
+
+529
+00:22:08,880 --> 00:22:12,240
+review and i used i used it daily for
+
+530
+00:22:11,919 --> 00:22:15,760
+like
+
+531
+00:22:12,240 --> 00:22:17,679
+uh four years the arrow key arrangement
+
+532
+00:22:15,760 --> 00:22:20,400
+there is very annoying it's no good
+
+533
+00:22:17,679 --> 00:22:20,960
+and and it's annoying to such a degree
+
+534
+00:22:20,400 --> 00:22:24,559
+that
+
+535
+00:22:20,960 --> 00:22:26,720
+doesn't matter how you remap the keys
+
+536
+00:22:24,559 --> 00:22:27,679
+you just you just can't make it work i
+
+537
+00:22:26,720 --> 00:22:30,240
+mean it doesn't matter
+
+538
+00:22:27,679 --> 00:22:31,840
+you know you so i was using the truly
+
+539
+00:22:30,240 --> 00:22:35,039
+ergonomic you know the early
+
+540
+00:22:31,840 --> 00:22:36,640
+early version so i thought
+
+541
+00:22:35,039 --> 00:22:38,159
+you know the arrow key is very annoying
+
+542
+00:22:36,640 --> 00:22:40,240
+so i thought maybe make this
+
+543
+00:22:38,159 --> 00:22:41,919
+one of the key control or one of the key
+
+544
+00:22:40,240 --> 00:22:44,240
+oats and put the arrow somewhere
+
+545
+00:22:41,919 --> 00:22:45,919
+somewhere else but doesn't it just
+
+546
+00:22:44,240 --> 00:22:47,840
+doesn't work out
+
+547
+00:22:45,919 --> 00:22:49,919
+so the arrow key is very annoying that
+
+548
+00:22:47,840 --> 00:22:52,799
+way
+
+549
+00:22:49,919 --> 00:22:54,080
+and then let me show you so so all these
+
+550
+00:22:52,799 --> 00:22:56,720
+arrow keys arrangement
+
+551
+00:22:54,080 --> 00:22:58,000
+then there is this kinesis this is
+
+552
+00:22:56,720 --> 00:23:01,440
+actually a
+
+553
+00:22:58,000 --> 00:23:02,480
+you have the separated hand for arrow
+
+554
+00:23:01,440 --> 00:23:05,280
+keys
+
+555
+00:23:02,480 --> 00:23:05,760
+so so i like on this keyboard uh let me
+
+556
+00:23:05,280 --> 00:23:09,840
+show
+
+557
+00:23:05,760 --> 00:23:09,840
+is there a clear picture let me show you
+
+558
+00:23:10,240 --> 00:23:14,960
+so the left hand you can see the here
+
+559
+00:23:12,880 --> 00:23:18,559
+here's a picture the left hand you have
+
+560
+00:23:14,960 --> 00:23:21,520
+left right for the left right arrows
+
+561
+00:23:18,559 --> 00:23:22,000
+the up down arrows are on the right hand
+
+562
+00:23:21,520 --> 00:23:25,120
+up down
+
+563
+00:23:22,000 --> 00:23:27,120
+arrows uh
+
+564
+00:23:25,120 --> 00:23:29,200
+i don't i don't really like it okay i've
+
+565
+00:23:27,120 --> 00:23:31,840
+been using this keyboard for by now
+
+566
+00:23:29,200 --> 00:23:34,000
+four or five years it's still my current
+
+567
+00:23:31,840 --> 00:23:38,960
+keyboard let me show you
+
+568
+00:23:34,000 --> 00:23:42,799
+comments questions posted okay rank wars
+
+569
+00:23:38,960 --> 00:23:45,279
+so let me show you as a routine hold on
+
+570
+00:23:42,799 --> 00:23:45,279
+a second
+
+571
+00:23:47,679 --> 00:23:52,559
+okay that my configuration doesn't work
+
+572
+00:23:50,480 --> 00:23:55,360
+so let me just show you
+
+573
+00:23:52,559 --> 00:23:56,480
+so you can see again i'm showing you my
+
+574
+00:23:55,360 --> 00:23:59,760
+keyboard
+
+575
+00:23:56,480 --> 00:24:03,200
+this is the kinesis advantage too
+
+576
+00:23:59,760 --> 00:24:05,120
+you go to my website watch read my
+
+577
+00:24:03,200 --> 00:24:09,200
+reviews and watch the video
+
+578
+00:24:05,120 --> 00:24:12,240
+review and buy it then there is this
+
+579
+00:24:09,200 --> 00:24:15,039
+this uh ultimate hacking keyboard which
+
+580
+00:24:12,240 --> 00:24:19,200
+i'm using as a keypad
+
+581
+00:24:15,039 --> 00:24:21,919
+fantastic so you can see
+
+582
+00:24:19,200 --> 00:24:24,559
+it can you know i owe single key press
+
+583
+00:24:21,919 --> 00:24:24,559
+operations
+
+584
+00:24:24,720 --> 00:24:32,080
+so anyway so the truly i mean the the
+
+585
+00:24:28,159 --> 00:24:35,360
+the um kinesis advantage you see
+
+586
+00:24:32,080 --> 00:24:37,200
+this is the arrows up and down
+
+587
+00:24:35,360 --> 00:24:39,039
+and on the left side you have left and
+
+588
+00:24:37,200 --> 00:24:41,039
+right
+
+589
+00:24:39,039 --> 00:24:42,480
+so let me let me talk about let me tell
+
+590
+00:24:41,039 --> 00:24:45,679
+you about that
+
+591
+00:24:42,480 --> 00:24:47,679
+how do i think about that arrangement
+
+592
+00:24:45,679 --> 00:24:49,840
+so in in this range so you know you
+
+593
+00:24:47,679 --> 00:24:52,720
+separate two left and right let's see
+
+594
+00:24:49,840 --> 00:24:54,240
+if i can find the better picture okay
+
+595
+00:24:52,720 --> 00:24:58,720
+let's go here
+
+596
+00:24:54,240 --> 00:25:04,159
+let's go up let's go uh do it yourself
+
+597
+00:24:58,720 --> 00:25:06,480
+let's go ergo docs ergodox is the most
+
+598
+00:25:04,159 --> 00:25:06,480
+um
+
+599
+00:25:10,080 --> 00:25:15,120
+okay anyway so google docs there is a
+
+600
+00:25:13,120 --> 00:25:16,320
+standard arrangement anyway this guy
+
+601
+00:25:15,120 --> 00:25:19,760
+puts
+
+602
+00:25:16,320 --> 00:25:23,200
+left up down right
+
+603
+00:25:19,760 --> 00:25:25,279
+that's the same as vi i think
+
+604
+00:25:23,200 --> 00:25:26,640
+so i'm trying to find okay so you look
+
+605
+00:25:25,279 --> 00:25:30,080
+at this one
+
+606
+00:25:26,640 --> 00:25:33,919
+this one is using a custom keycaps
+
+607
+00:25:30,080 --> 00:25:36,880
+using elfish alphabet elfish language
+
+608
+00:25:33,919 --> 00:25:38,080
+tengwa artificial language construct
+
+609
+00:25:36,880 --> 00:25:40,840
+constructed
+
+610
+00:25:38,080 --> 00:25:42,159
+constructed language from lord of the
+
+611
+00:25:40,840 --> 00:25:45,279
+rings
+
+612
+00:25:42,159 --> 00:25:47,760
+uh very beautiful all these you know
+
+613
+00:25:45,279 --> 00:25:50,000
+symbology so anyway look at the arrow
+
+614
+00:25:47,760 --> 00:25:50,720
+key arrangement of this guy has chosen
+
+615
+00:25:50,000 --> 00:25:53,039
+so
+
+616
+00:25:50,720 --> 00:25:54,960
+up down for the right hand and left
+
+617
+00:25:53,039 --> 00:25:58,559
+right for the left hand
+
+618
+00:25:54,960 --> 00:26:01,840
+so this arrangement in theory
+
+619
+00:25:58,559 --> 00:26:03,919
+in theory it's pretty it's very good
+
+620
+00:26:01,840 --> 00:26:04,799
+because you use both hands instead of
+
+621
+00:26:03,919 --> 00:26:07,200
+using one hand
+
+622
+00:26:04,799 --> 00:26:08,159
+you if you use one hand then you have to
+
+623
+00:26:07,200 --> 00:26:11,360
+move a lot
+
+624
+00:26:08,159 --> 00:26:13,120
+now if you use both hands because if
+
+625
+00:26:11,360 --> 00:26:15,520
+if you use one hand you have three
+
+626
+00:26:13,120 --> 00:26:18,080
+fingers but you have four keys
+
+627
+00:26:15,520 --> 00:26:19,679
+that means you have to switch fingers to
+
+628
+00:26:18,080 --> 00:26:22,960
+different keys
+
+629
+00:26:19,679 --> 00:26:25,679
+when you play pacman but with this
+
+630
+00:26:22,960 --> 00:26:27,679
+uh both hands all your fingers are on
+
+631
+00:26:25,679 --> 00:26:30,240
+keys so
+
+632
+00:26:27,679 --> 00:26:31,039
+in theory this should be the most
+
+633
+00:26:30,240 --> 00:26:33,600
+efficient
+
+634
+00:26:31,039 --> 00:26:36,840
+when you want to use the arrow keys
+
+635
+00:26:33,600 --> 00:26:40,000
+heavily such as when you play pacman
+
+636
+00:26:36,840 --> 00:26:42,159
+but but it's kind of annoying um
+
+637
+00:26:40,000 --> 00:26:43,760
+i didn't really like it by now i'm used
+
+638
+00:26:42,159 --> 00:26:46,559
+to it but i
+
+639
+00:26:43,760 --> 00:26:48,640
+but i still play pac-man much better if
+
+640
+00:26:46,559 --> 00:26:51,679
+if i use one single finger on it
+
+641
+00:26:48,640 --> 00:26:54,720
+i mean single hand on a inverted t
+
+642
+00:26:51,679 --> 00:26:58,240
+layout so i don't i don't really like
+
+643
+00:26:54,720 --> 00:27:01,440
+these separate uh hands
+
+644
+00:26:58,240 --> 00:27:05,520
+arrow key arrangement so uh
+
+645
+00:27:01,440 --> 00:27:07,440
+anton zappaco says hexa just got the
+
+646
+00:27:05,520 --> 00:27:10,640
+ultimate hacking keyboard
+
+647
+00:27:07,440 --> 00:27:12,159
+do you think i should swap to a tactile
+
+648
+00:27:10,640 --> 00:27:14,960
+instead
+
+649
+00:27:12,159 --> 00:27:17,760
+oh yeah if you want to uh doctor is
+
+650
+00:27:14,960 --> 00:27:20,080
+certainly better
+
+651
+00:27:17,760 --> 00:27:22,960
+obviously i mean ultimate ultimate
+
+652
+00:27:20,080 --> 00:27:26,480
+hacking keyboard is fantastic okay
+
+653
+00:27:22,960 --> 00:27:28,799
+no mistake about that but
+
+654
+00:27:26,480 --> 00:27:29,919
+um you know if you don't know let me
+
+655
+00:27:28,799 --> 00:27:32,320
+show you okay so
+
+656
+00:27:29,919 --> 00:27:33,440
+here is ultimate hacking keyboard for
+
+657
+00:27:32,320 --> 00:27:38,080
+those of you
+
+658
+00:27:33,440 --> 00:27:39,360
+haven't seen wait so you go to ergonomic
+
+659
+00:27:38,080 --> 00:27:44,320
+keyboards
+
+660
+00:27:39,360 --> 00:27:48,480
+then you go to uh ultimate hacking
+
+661
+00:27:44,320 --> 00:27:51,200
+so that's the ultimate hacking keyboard
+
+662
+00:27:48,480 --> 00:27:52,480
+you know it's fantastic 230 dollars
+
+663
+00:27:51,200 --> 00:27:54,480
+something like that
+
+664
+00:27:52,480 --> 00:27:58,480
+plus if you want to buy the wrist pad
+
+665
+00:27:54,480 --> 00:28:02,320
+it's more like 250 260.
+
+666
+00:27:58,480 --> 00:28:05,360
+so this is very good um
+
+667
+00:28:02,320 --> 00:28:08,240
+but if you want if you are more
+
+668
+00:28:05,360 --> 00:28:11,039
+concerned about ergonomics
+
+669
+00:28:08,240 --> 00:28:12,640
+so you have you know tactile tactile is
+
+670
+00:28:11,039 --> 00:28:14,960
+a do-it-yourself keyboard
+
+671
+00:28:12,640 --> 00:28:16,000
+so why is it better because it's more
+
+672
+00:28:14,960 --> 00:28:19,200
+ergonomic you got
+
+673
+00:28:16,000 --> 00:28:19,200
+curved surface you know
+
+674
+00:28:21,039 --> 00:28:24,799
+yeah it's up to you because if you go
+
+675
+00:28:23,520 --> 00:28:27,760
+with the tactile then
+
+676
+00:28:24,799 --> 00:28:30,320
+it's not portable anymore it's this is
+
+677
+00:28:27,760 --> 00:28:32,799
+problematic if you want to bring to
+
+678
+00:28:30,320 --> 00:28:34,480
+uh if you travel or go to work with a
+
+679
+00:28:32,799 --> 00:28:37,520
+keyboard you know doesn't
+
+680
+00:28:34,480 --> 00:28:40,720
+you cannot carry it
+
+681
+00:28:37,520 --> 00:28:42,840
+so if you are on the go often the
+
+682
+00:28:40,720 --> 00:28:45,200
+the ultimate hacking is much more
+
+683
+00:28:42,840 --> 00:28:47,600
+suitable
+
+684
+00:28:45,200 --> 00:28:48,480
+so i think that's about it about the
+
+685
+00:28:47,600 --> 00:28:50,880
+keyboards
+
+686
+00:28:48,480 --> 00:28:51,520
+for today let's maybe let's do some
+
+687
+00:28:50,880 --> 00:28:54,480
+emacs
+
+688
+00:28:51,520 --> 00:28:54,480
+what do you guys say
+
+689
+00:28:54,799 --> 00:29:01,600
+uh so about arrow keys about
+
+690
+00:28:58,080 --> 00:29:01,600
+cell cells keyboard
+
+691
+00:29:02,799 --> 00:29:06,640
+okay comments okay comments and then and
+
+692
+00:29:05,760 --> 00:29:09,120
+uh let me
+
+693
+00:29:06,640 --> 00:29:11,600
+uh any things you comment i'll talk
+
+694
+00:29:09,120 --> 00:29:13,120
+about that
+
+695
+00:29:11,600 --> 00:29:16,159
+so how long have i been talking i've
+
+696
+00:29:13,120 --> 00:29:19,039
+been talking for 30 minutes
+
+697
+00:29:16,159 --> 00:29:21,039
+okay so we have like 30 minutes more so
+
+698
+00:29:19,039 --> 00:29:23,279
+pick a topic
+
+699
+00:29:21,039 --> 00:29:25,440
+pick something something you would be
+
+700
+00:29:23,279 --> 00:29:27,440
+interested to hear like you if you have
+
+701
+00:29:25,440 --> 00:29:30,880
+a question you want to ask me
+
+702
+00:29:27,440 --> 00:29:33,200
+don't you know i'm i'm not asking for
+
+703
+00:29:30,880 --> 00:29:34,559
+suggestion of a topic you know don't
+
+704
+00:29:33,200 --> 00:29:36,320
+don't think about oh
+
+705
+00:29:34,559 --> 00:29:37,919
+you know let's suggest something no
+
+706
+00:29:36,320 --> 00:29:40,559
+something if you want
+
+707
+00:29:37,919 --> 00:29:43,200
+me to talk about then you post it i'll
+
+708
+00:29:40,559 --> 00:29:43,200
+talk about it
+
+709
+00:29:44,080 --> 00:29:47,600
+so i have some corrections uh yesterday
+
+710
+00:29:46,720 --> 00:29:51,440
+we talked about
+
+711
+00:29:47,600 --> 00:29:53,840
+emax uh
+
+712
+00:29:51,440 --> 00:29:56,000
+let's see it's not the same as vi okay
+
+713
+00:29:53,840 --> 00:29:59,679
+it's not the same okay
+
+714
+00:29:56,000 --> 00:30:02,480
+so yesterday we talked about i was
+
+715
+00:29:59,679 --> 00:30:04,399
+giving a reaction on the speed bar and
+
+716
+00:30:02,480 --> 00:30:06,000
+tree max basically i don't have good
+
+717
+00:30:04,399 --> 00:30:09,760
+words
+
+718
+00:30:06,000 --> 00:30:12,320
+for them not much the speed bar i could
+
+719
+00:30:09,760 --> 00:30:12,880
+adapt i could use but not remax actually
+
+720
+00:30:12,320 --> 00:30:15,120
+so
+
+721
+00:30:12,880 --> 00:30:16,799
+so someone told me so let's let's try it
+
+722
+00:30:15,120 --> 00:30:19,679
+okay
+
+723
+00:30:16,799 --> 00:30:20,799
+so again back to my emacs magnify
+
+724
+00:30:19,679 --> 00:30:24,399
+magnify
+
+725
+00:30:20,799 --> 00:30:25,840
+now go go to the directory uh go to up
+
+726
+00:30:24,399 --> 00:30:29,679
+go up the directory
+
+727
+00:30:25,840 --> 00:30:32,880
+then start speed speed bar start speed
+
+728
+00:30:29,679 --> 00:30:36,000
+bar magnify
+
+729
+00:30:32,880 --> 00:30:39,760
+and let's make it bigger so
+
+730
+00:30:36,000 --> 00:30:41,919
+you can see all my directories okay
+
+731
+00:30:39,760 --> 00:30:44,240
+you can see all my directories so i was
+
+732
+00:30:41,919 --> 00:30:46,799
+trying to find a command to expand all
+
+733
+00:30:44,240 --> 00:30:50,000
+the directories so the key
+
+734
+00:30:46,799 --> 00:30:53,760
+is left square bracket okay
+
+735
+00:30:50,000 --> 00:30:53,760
+so let's type it
+
+736
+00:30:55,039 --> 00:31:00,480
+oh wait oh it takes a while okay i guess
+
+737
+00:31:00,720 --> 00:31:07,360
+yeah this is uh they are like
+
+738
+00:31:04,159 --> 00:31:10,240
+there are about 20 000
+
+739
+00:31:07,360 --> 00:31:13,039
+files in this directory so it's actually
+
+740
+00:31:10,240 --> 00:31:19,039
+taking a while
+
+741
+00:31:13,039 --> 00:31:22,480
+20 000 files i'm you know
+
+742
+00:31:19,039 --> 00:31:25,200
+okay it's still showing
+
+743
+00:31:22,480 --> 00:31:33,840
+wow 20 000 files it's gonna take a while
+
+744
+00:31:25,200 --> 00:31:33,840
+i guess
+
+745
+00:31:38,720 --> 00:31:41,760
+it could be actually there there might
+
+746
+00:31:41,039 --> 00:31:45,200
+be 30
+
+747
+00:31:41,760 --> 00:31:48,880
+000 files because most you know
+
+748
+00:31:45,200 --> 00:32:01,840
+more than half of them are image files
+
+749
+00:31:48,880 --> 00:32:01,840
+okay so i guess e-max is stuck
+
+750
+00:32:04,799 --> 00:32:13,360
+all my cpus are maxed out almost
+
+751
+00:32:08,559 --> 00:32:15,200
+well the you know when it's slow
+
+752
+00:32:13,360 --> 00:32:17,279
+most of the time when your computer is
+
+753
+00:32:15,200 --> 00:32:20,320
+slow most of the time is disk
+
+754
+00:32:17,279 --> 00:32:23,760
+us access like right now
+
+755
+00:32:20,320 --> 00:32:25,919
+it's trying to access tens of
+
+756
+00:32:23,760 --> 00:32:27,120
+direct tens of directories and listing
+
+757
+00:32:25,919 --> 00:32:30,320
+you know
+
+758
+00:32:27,120 --> 00:32:34,000
+20 000 files i i guess that's why
+
+759
+00:32:30,320 --> 00:32:37,600
+so emacs i guess it's stuck
+
+760
+00:32:34,000 --> 00:32:43,840
+speed bar 30 000 files
+
+761
+00:32:37,600 --> 00:32:43,840
+it's not responding
+
+762
+00:32:47,039 --> 00:32:56,240
+so anton got a new chalkboard
+
+763
+00:32:50,640 --> 00:32:59,519
+so which one did you get
+
+764
+00:32:56,240 --> 00:33:03,600
+okay maybe maybe i should stop
+
+765
+00:32:59,519 --> 00:33:11,840
+this speed bar
+
+766
+00:33:03,600 --> 00:33:11,840
+just too much for it to handle
+
+767
+00:33:18,799 --> 00:33:25,600
+you can see at the bottom of the e-max
+
+768
+00:33:22,240 --> 00:33:27,600
+mini buffer
+
+769
+00:33:25,600 --> 00:33:29,600
+you can see it's trying to update it's
+
+770
+00:33:27,600 --> 00:33:32,960
+trying to go to
+
+771
+00:33:29,600 --> 00:33:38,080
+it looks like it's trying to go to
+
+772
+00:33:32,960 --> 00:33:40,559
+why is it um
+
+773
+00:33:38,080 --> 00:33:43,919
+it's trying to go through each directory
+
+774
+00:33:40,559 --> 00:33:43,919
+yeah it's still doing that
+
+775
+00:33:50,000 --> 00:33:55,200
+x keys trackable lights blue okay so you
+
+776
+00:33:52,799 --> 00:33:57,440
+got x keys trackball so let's talk about
+
+777
+00:33:55,200 --> 00:33:57,440
+that
+
+778
+00:34:02,080 --> 00:34:08,799
+uh speedbar is still going so let's go
+
+779
+00:34:05,279 --> 00:34:08,799
+to okay so let's show
+
+780
+00:34:09,200 --> 00:34:12,320
+go to trackball
+
+781
+00:34:13,839 --> 00:34:18,879
+the x keys trackball is one of the best
+
+782
+00:34:16,960 --> 00:34:22,079
+trackball it was known as l
+
+783
+00:34:18,879 --> 00:34:25,040
+track but they they sold
+
+784
+00:34:22,079 --> 00:34:26,000
+the company after 30 years they sold the
+
+785
+00:34:25,040 --> 00:34:29,040
+company
+
+786
+00:34:26,000 --> 00:34:32,000
+uh last year in 2019
+
+787
+00:34:29,040 --> 00:34:33,040
+and they sold it to the x-key there's a
+
+788
+00:34:32,000 --> 00:34:36,159
+company called
+
+789
+00:34:33,040 --> 00:34:38,720
+key so so this is this one
+
+790
+00:34:36,159 --> 00:34:39,679
+by the way so this trackball is known
+
+791
+00:34:38,720 --> 00:34:43,520
+for as the
+
+792
+00:34:39,679 --> 00:34:45,919
+best quality uh as far as quality goes
+
+793
+00:34:43,520 --> 00:34:49,919
+this is the best quality trackball
+
+794
+00:34:45,919 --> 00:34:53,200
+but not necessarily the best trackball
+
+795
+00:34:49,919 --> 00:34:55,359
+because it's the best build okay best
+
+796
+00:34:53,200 --> 00:34:56,000
+build but not necessarily the best
+
+797
+00:34:55,359 --> 00:34:59,040
+because for
+
+798
+00:34:56,000 --> 00:35:02,320
+trackball there are lots of different
+
+799
+00:34:59,040 --> 00:35:03,359
+issues and concerns mostly for example
+
+800
+00:35:02,320 --> 00:35:05,280
+the design
+
+801
+00:35:03,359 --> 00:35:09,119
+the shape of the trackball so different
+
+802
+00:35:05,280 --> 00:35:12,000
+people actually prefer a different shape
+
+803
+00:35:09,119 --> 00:35:12,640
+but ltrack is one of the best uh the
+
+804
+00:35:12,000 --> 00:35:17,520
+best
+
+805
+00:35:12,640 --> 00:35:20,800
+build and um you know
+
+806
+00:35:17,520 --> 00:35:21,920
+and okay so you know if you guys anyone
+
+807
+00:35:20,800 --> 00:35:25,119
+like it but go
+
+808
+00:35:21,920 --> 00:35:25,680
+go to my website buy it and i think you
+
+809
+00:35:25,119 --> 00:35:28,839
+bought it
+
+810
+00:35:25,680 --> 00:35:31,839
+for my website right anton thank you for
+
+811
+00:35:28,839 --> 00:35:31,839
+that
+
+812
+00:35:32,960 --> 00:35:36,079
+so let's see next comments or question
+
+813
+00:35:35,760 --> 00:35:39,520
+uh
+
+814
+00:35:36,079 --> 00:35:42,400
+is this key bind to expand directories
+
+815
+00:35:39,520 --> 00:35:43,440
+uh default or is it a custom it's
+
+816
+00:35:42,400 --> 00:35:47,200
+default
+
+817
+00:35:43,440 --> 00:35:48,720
+so you start on e-max in e-max you start
+
+818
+00:35:47,200 --> 00:35:51,520
+up speed bar
+
+819
+00:35:48,720 --> 00:35:53,119
+then you press then you put the cursor
+
+820
+00:35:51,520 --> 00:35:56,880
+on the speed bar window
+
+821
+00:35:53,119 --> 00:35:58,720
+then you press left square bracket
+
+822
+00:35:56,880 --> 00:36:00,400
+now it's too slow we're gonna stop it
+
+823
+00:35:58,720 --> 00:36:03,280
+ctrl q uh ctrl
+
+824
+00:36:00,400 --> 00:36:05,040
+g okay let's see if it will respond to
+
+825
+00:36:03,280 --> 00:36:09,119
+my control g
+
+826
+00:36:05,040 --> 00:36:09,119
+this directory is too big for it to
+
+827
+00:36:10,839 --> 00:36:16,400
+handle
+
+828
+00:36:12,960 --> 00:36:20,640
+control g stop it
+
+829
+00:36:16,400 --> 00:36:20,640
+stop it okay
+
+830
+00:36:22,800 --> 00:36:27,040
+e max you know this is one number the
+
+831
+00:36:24,960 --> 00:36:30,320
+problem of emacs
+
+832
+00:36:27,040 --> 00:36:33,520
+now this rainbow the rainbow of death
+
+833
+00:36:30,320 --> 00:36:36,720
+on the mac the rainbow of death
+
+834
+00:36:33,520 --> 00:36:39,760
+so emax one of the the
+
+835
+00:36:36,720 --> 00:36:42,160
+the almost the number one problem of
+
+836
+00:36:39,760 --> 00:36:45,520
+emacs is that
+
+837
+00:36:42,160 --> 00:36:45,920
+it's said to be single threaded what it
+
+838
+00:36:45,520 --> 00:36:49,200
+means
+
+839
+00:36:45,920 --> 00:36:51,680
+is that when emacs is doing something
+
+840
+00:36:49,200 --> 00:36:54,000
+it cannot do any other thing it has to
+
+841
+00:36:51,680 --> 00:36:56,079
+wait until that thing is done
+
+842
+00:36:54,000 --> 00:36:57,359
+so right now it's trying to open okay
+
+843
+00:36:56,079 --> 00:37:01,200
+cancel successful
+
+844
+00:36:57,359 --> 00:37:02,400
+okay it worked so here's the speed bar
+
+845
+00:37:01,200 --> 00:37:05,599
+you can see
+
+846
+00:37:02,400 --> 00:37:08,000
+my whole entire directory is a tree now
+
+847
+00:37:05,599 --> 00:37:11,200
+this is actually
+
+848
+00:37:08,000 --> 00:37:13,760
+yeah i'm telling you so this is 30
+
+849
+00:37:11,200 --> 00:37:15,839
+000 pages that's why it takes so long
+
+850
+00:37:13,760 --> 00:37:17,280
+and it's not done yet let's see if i can
+
+851
+00:37:15,839 --> 00:37:20,400
+page down
+
+852
+00:37:17,280 --> 00:37:23,440
+30 000 pages yeah so page down
+
+853
+00:37:20,400 --> 00:37:24,480
+speed bar so speed bar is great i might
+
+854
+00:37:23,440 --> 00:37:28,000
+use it sometimes
+
+855
+00:37:24,480 --> 00:37:28,000
+speed bar is building okay
+
+856
+00:37:28,320 --> 00:37:32,400
+so what does that uh so these are what
+
+857
+00:37:31,520 --> 00:37:35,520
+does that
+
+858
+00:37:32,400 --> 00:37:38,480
+connect it mean okay so you see it
+
+859
+00:37:35,520 --> 00:37:42,320
+haven't it hasn't opened all these yet
+
+860
+00:37:38,480 --> 00:37:42,320
+because of 3000 pages
+
+861
+00:37:44,640 --> 00:37:48,880
+yeah anyway so that's speed bar
+
+862
+00:37:49,040 --> 00:37:53,040
+yeah so someone corrected me thank you
+
+863
+00:37:51,280 --> 00:37:56,320
+for that yesterday
+
+864
+00:37:53,040 --> 00:37:59,280
+and uh there is another correction
+
+865
+00:37:56,320 --> 00:38:00,880
+so yesterday i was also reviewing the
+
+866
+00:37:59,280 --> 00:38:04,079
+tree max
+
+867
+00:38:00,880 --> 00:38:06,800
+package which
+
+868
+00:38:04,079 --> 00:38:07,599
+which allows you allows you to view a
+
+869
+00:38:06,800 --> 00:38:10,720
+directory
+
+870
+00:38:07,599 --> 00:38:13,680
+as a tree as a tree structure
+
+871
+00:38:10,720 --> 00:38:15,200
+and navigate among the files and i do
+
+872
+00:38:13,680 --> 00:38:18,800
+not recommend tree
+
+873
+00:38:15,200 --> 00:38:21,920
+max at all one of the reason is because
+
+874
+00:38:18,800 --> 00:38:25,680
+it uses the dash package
+
+875
+00:38:21,920 --> 00:38:26,480
+okay so let's go to my emacs let's close
+
+876
+00:38:25,680 --> 00:38:30,160
+that
+
+877
+00:38:26,480 --> 00:38:33,280
+go to my emacs uh blog
+
+878
+00:38:30,160 --> 00:38:36,960
+okay go to my emacs blog and
+
+879
+00:38:33,280 --> 00:38:36,960
+close okay wait
+
+880
+00:38:38,880 --> 00:38:45,119
+uh what are we doing
+
+881
+00:38:41,920 --> 00:38:45,520
+oh god now i'm trying to switch to speed
+
+882
+00:38:45,119 --> 00:38:49,520
+bar
+
+883
+00:38:45,520 --> 00:38:52,880
+and it's stuck again okay
+
+884
+00:38:49,520 --> 00:38:56,640
+ctrl g cancel cancel cancel okay
+
+885
+00:38:52,880 --> 00:39:00,000
+now i'm gonna quit speed bar okay
+
+886
+00:38:56,640 --> 00:39:04,720
+close it can we
+
+887
+00:39:00,000 --> 00:39:07,440
+close it uh do you want to save
+
+888
+00:39:04,720 --> 00:39:08,320
+speed bar modified do you want to save
+
+889
+00:39:07,440 --> 00:39:12,839
+no
+
+890
+00:39:08,320 --> 00:39:16,800
+okay close split so go to my
+
+891
+00:39:12,839 --> 00:39:16,800
+emacs blog
+
+892
+00:39:17,119 --> 00:39:23,200
+and then go to emacs
+
+893
+00:39:20,160 --> 00:39:25,200
+why not use dash okay open the file
+
+894
+00:39:23,200 --> 00:39:26,320
+so you can see yesterday i talked about
+
+895
+00:39:25,200 --> 00:39:29,440
+why not use dash
+
+896
+00:39:26,320 --> 00:39:32,160
+near the end of the video so i created a
+
+897
+00:39:29,440 --> 00:39:32,160
+page for it
+
+898
+00:39:32,560 --> 00:39:35,680
+uh let me repeat the reasons okay why
+
+899
+00:39:34,640 --> 00:39:38,400
+why why
+
+900
+00:39:35,680 --> 00:39:40,240
+why i actually i despise dash okay i
+
+901
+00:39:38,400 --> 00:39:42,880
+despise the dash library
+
+902
+00:39:40,240 --> 00:39:44,320
+dash library is one of the the most
+
+903
+00:39:42,880 --> 00:39:48,000
+actually it is the most
+
+904
+00:39:44,320 --> 00:39:51,040
+the top five most popular
+
+905
+00:39:48,000 --> 00:39:52,560
+package on melpa you know it's got tens
+
+906
+00:39:51,040 --> 00:39:53,760
+of thousands or hundred thousand
+
+907
+00:39:52,560 --> 00:39:57,280
+downloads
+
+908
+00:39:53,760 --> 00:40:00,800
+why because it's a library that is
+
+909
+00:39:57,280 --> 00:40:03,920
+meant to be a modern lisp
+
+910
+00:40:00,800 --> 00:40:04,480
+modern list processing api so it
+
+911
+00:40:03,920 --> 00:40:06,720
+basically
+
+912
+00:40:04,480 --> 00:40:07,680
+contains a bunch of functions that
+
+913
+00:40:06,720 --> 00:40:10,800
+processes
+
+914
+00:40:07,680 --> 00:40:14,480
+list you know lisp lisp
+
+915
+00:40:10,800 --> 00:40:18,400
+emacs lisp the the word lisp stand for
+
+916
+00:40:14,480 --> 00:40:21,680
+list processor so when you use you know
+
+917
+00:40:18,400 --> 00:40:22,240
+lisp languages because everything in
+
+918
+00:40:21,680 --> 00:40:25,440
+lisp
+
+919
+00:40:22,240 --> 00:40:27,680
+is a list that's what you know because
+
+920
+00:40:25,440 --> 00:40:29,599
+it's you know it's said in a name it's a
+
+921
+00:40:27,680 --> 00:40:31,839
+list processor
+
+922
+00:40:29,599 --> 00:40:33,520
+so it's kind of ridiculous i mean it's
+
+923
+00:40:31,839 --> 00:40:37,200
+kind of preposterous it's an
+
+924
+00:40:33,520 --> 00:40:40,000
+insult to the lisp language
+
+925
+00:40:37,200 --> 00:40:42,160
+when when you have a list language a
+
+926
+00:40:40,000 --> 00:40:44,960
+list processor at least language
+
+927
+00:40:42,160 --> 00:40:46,000
+list you know then you have another
+
+928
+00:40:44,960 --> 00:40:49,119
+language
+
+929
+00:40:46,000 --> 00:40:50,079
+another you need another package to help
+
+930
+00:40:49,119 --> 00:40:52,800
+you process
+
+931
+00:40:50,079 --> 00:40:53,599
+lists you know you need to call another
+
+932
+00:40:52,800 --> 00:40:56,560
+package
+
+933
+00:40:53,599 --> 00:40:58,480
+to help you to help your list functions
+
+934
+00:40:56,560 --> 00:40:59,839
+what the [ __ ] that's an insult to the
+
+935
+00:40:58,480 --> 00:41:02,880
+language
+
+936
+00:40:59,839 --> 00:41:05,599
+and that is what dash does okay dash
+
+937
+00:41:02,880 --> 00:41:07,839
+it becomes the most popular why why so
+
+938
+00:41:05,599 --> 00:41:08,319
+why why why is it most popular because
+
+939
+00:41:07,839 --> 00:41:11,920
+the
+
+940
+00:41:08,319 --> 00:41:14,160
+incompetence of the gnu emacs people
+
+941
+00:41:11,920 --> 00:41:15,839
+you know they sit here they sit there
+
+942
+00:41:14,160 --> 00:41:16,160
+they don't change nothing because you
+
+943
+00:41:15,839 --> 00:41:17,760
+know
+
+944
+00:41:16,160 --> 00:41:19,200
+they are gods you know they don't listen
+
+945
+00:41:17,760 --> 00:41:21,440
+to anything
+
+946
+00:41:19,200 --> 00:41:22,720
+but the society moves on the pearl you
+
+947
+00:41:21,440 --> 00:41:24,880
+know the python
+
+948
+00:41:22,720 --> 00:41:26,720
+it has several compilers you know new
+
+949
+00:41:24,880 --> 00:41:29,040
+completely new compilers they
+
+950
+00:41:26,720 --> 00:41:30,880
+listen to what people need programmers
+
+951
+00:41:29,040 --> 00:41:34,079
+you you know take suggestions
+
+952
+00:41:30,880 --> 00:41:34,960
+improve uh after three five years a
+
+953
+00:41:34,079 --> 00:41:37,520
+complete new
+
+954
+00:41:34,960 --> 00:41:38,720
+pro compiler after five years another
+
+955
+00:41:37,520 --> 00:41:41,040
+complete totally
+
+956
+00:41:38,720 --> 00:41:41,839
+re compile the written from the ground
+
+957
+00:41:41,040 --> 00:41:44,079
+up
+
+958
+00:41:41,839 --> 00:41:45,359
+same thing with javascript one two three
+
+959
+00:41:44,079 --> 00:41:48,560
+four five seven
+
+960
+00:41:45,359 --> 00:41:50,319
+compilers same thing with php new
+
+961
+00:41:48,560 --> 00:41:52,800
+compilers every five ten years
+
+962
+00:41:50,319 --> 00:41:54,160
+okay or even a complete new language
+
+963
+00:41:52,800 --> 00:41:57,599
+from facebook
+
+964
+00:41:54,160 --> 00:42:00,960
+hack lan okay php a new version of
+
+965
+00:41:57,599 --> 00:42:01,599
+php hackline python python 2 python
+
+966
+00:42:00,960 --> 00:42:04,880
+three
+
+967
+00:42:01,599 --> 00:42:08,000
+complete you know new fixes and all that
+
+968
+00:42:04,880 --> 00:42:09,520
+when it comes to emax list no change no
+
+969
+00:42:08,000 --> 00:42:11,839
+change
+
+970
+00:42:09,520 --> 00:42:13,760
+so emac list functions they don't even
+
+971
+00:42:11,839 --> 00:42:15,760
+have basic stream
+
+972
+00:42:13,760 --> 00:42:17,760
+manipulation functions you know such as
+
+973
+00:42:15,760 --> 00:42:20,800
+stream stream stream
+
+974
+00:42:17,760 --> 00:42:23,599
+dream stream in emac list
+
+975
+00:42:20,800 --> 00:42:24,720
+the language that's the most that's
+
+976
+00:42:23,599 --> 00:42:27,839
+designed for least
+
+977
+00:42:24,720 --> 00:42:30,400
+for for you know text processing
+
+978
+00:42:27,839 --> 00:42:31,680
+you don't have a function that trims
+
+979
+00:42:30,400 --> 00:42:35,520
+stream
+
+980
+00:42:31,680 --> 00:42:37,839
+uh string that like remove the the
+
+981
+00:42:35,520 --> 00:42:39,839
+the white space in front of the string
+
+982
+00:42:37,839 --> 00:42:40,319
+or and end of string you don't have that
+
+983
+00:42:39,839 --> 00:42:43,040
+function
+
+984
+00:42:40,319 --> 00:42:44,720
+doesn't exist until five years ago
+
+985
+00:42:43,040 --> 00:42:47,040
+imagine that
+
+986
+00:42:44,720 --> 00:42:47,760
+why does it exist now because someone
+
+987
+00:42:47,040 --> 00:42:49,839
+else
+
+988
+00:42:47,760 --> 00:42:51,599
+you know they saw they saw the
+
+989
+00:42:49,839 --> 00:42:53,760
+popularity of dash
+
+990
+00:42:51,599 --> 00:42:54,640
+they inspired them to write another
+
+991
+00:42:53,760 --> 00:42:57,359
+package called
+
+992
+00:42:54,640 --> 00:42:59,440
+s you know this these people they this
+
+993
+00:42:57,359 --> 00:43:00,160
+new millennium generation people called
+
+994
+00:42:59,440 --> 00:43:03,520
+us they
+
+995
+00:43:00,160 --> 00:43:06,640
+they created the package named s
+
+996
+00:43:03,520 --> 00:43:09,599
+which is supposed to be the modern api
+
+997
+00:43:06,640 --> 00:43:10,640
+for uh string functions you know they
+
+998
+00:43:09,599 --> 00:43:13,680
+are trying to
+
+999
+00:43:10,640 --> 00:43:14,800
+replace you know you know they write a
+
+1000
+00:43:13,680 --> 00:43:18,079
+wrapper kind of thing
+
+1001
+00:43:14,800 --> 00:43:20,240
+on top of emac this
+
+1002
+00:43:18,079 --> 00:43:21,359
+you know so so i don't i don't so i
+
+1003
+00:43:20,240 --> 00:43:24,240
+despise these
+
+1004
+00:43:21,359 --> 00:43:26,400
+libraries but there are good reasons for
+
+1005
+00:43:24,240 --> 00:43:28,240
+why these libraries becomes popular
+
+1006
+00:43:26,400 --> 00:43:30,319
+because the new emacs people
+
+1007
+00:43:28,240 --> 00:43:31,839
+the new emacs dev they have lots of
+
+1008
+00:43:30,319 --> 00:43:34,640
+problems
+
+1009
+00:43:31,839 --> 00:43:36,160
+political problems organization problems
+
+1010
+00:43:34,640 --> 00:43:36,480
+they don't change they don't listen and
+
+1011
+00:43:36,160 --> 00:43:38,319
+you
+
+1012
+00:43:36,480 --> 00:43:41,040
+have to sign everything you try to
+
+1013
+00:43:38,319 --> 00:43:43,280
+contribute you have to sign a paper
+
+1014
+00:43:41,040 --> 00:43:45,359
+lots of problems and people there many
+
+1015
+00:43:43,280 --> 00:43:47,200
+are obese they argue they don't they
+
+1016
+00:43:45,359 --> 00:43:48,880
+refuse to change
+
+1017
+00:43:47,200 --> 00:43:50,400
+lots of problems i talked about this
+
+1018
+00:43:48,880 --> 00:43:54,000
+many times
+
+1019
+00:43:50,400 --> 00:43:56,800
+for example you go to my emacs blog
+
+1020
+00:43:54,000 --> 00:43:58,720
+you go to my emacs blog you go to the
+
+1021
+00:43:56,800 --> 00:44:02,000
+home page
+
+1022
+00:43:58,720 --> 00:44:04,480
+you click the yellow navigation
+
+1023
+00:44:02,000 --> 00:44:06,720
+button you go to the home page you go to
+
+1024
+00:44:04,480 --> 00:44:06,720
+the
+
+1025
+00:44:06,960 --> 00:44:12,160
+emax modernization then you have a
+
+1026
+00:44:10,000 --> 00:44:14,000
+collection of emax problems but that's
+
+1027
+00:44:12,160 --> 00:44:18,000
+not it okay you go to the
+
+1028
+00:44:14,000 --> 00:44:19,760
+emacs miscellaneous index
+
+1029
+00:44:18,000 --> 00:44:21,280
+you know i did a video talking about
+
+1030
+00:44:19,760 --> 00:44:25,200
+some of these problems
+
+1031
+00:44:21,280 --> 00:44:29,839
+then you then you have this collection
+
+1032
+00:44:25,200 --> 00:44:33,359
+of articles titled emacs controversy
+
+1033
+00:44:29,839 --> 00:44:34,480
+now these are instant incidents i have
+
+1034
+00:44:33,359 --> 00:44:37,200
+collected
+
+1035
+00:44:34,480 --> 00:44:37,599
+about emacs problems controversies like
+
+1036
+00:44:37,200 --> 00:44:39,920
+every
+
+1037
+00:44:37,599 --> 00:44:40,960
+every three or four years there's a huge
+
+1038
+00:44:39,920 --> 00:44:43,119
+controversy
+
+1039
+00:44:40,960 --> 00:44:44,960
+the rich richard stowman did something
+
+1040
+00:44:43,119 --> 00:44:47,920
+you know
+
+1041
+00:44:44,960 --> 00:44:48,800
+so you can see the problems you know so
+
+1042
+00:44:47,920 --> 00:44:50,640
+emac these
+
+1043
+00:44:48,800 --> 00:44:52,079
+for 20 you know they don't make
+
+1044
+00:44:50,640 --> 00:44:53,920
+improvements you know they
+
+1045
+00:44:52,079 --> 00:44:56,480
+there's some improvements but not
+
+1046
+00:44:53,920 --> 00:44:58,960
+nowhere comparable to
+
+1047
+00:44:56,480 --> 00:44:59,760
+the real world you know the like php
+
+1048
+00:44:58,960 --> 00:45:01,920
+python
+
+1049
+00:44:59,760 --> 00:45:04,240
+ruby or javascript what's going on they
+
+1050
+00:45:01,920 --> 00:45:07,119
+like the emacs people they live
+
+1051
+00:45:04,240 --> 00:45:08,000
+in a hall they live in a cave they have
+
+1052
+00:45:07,119 --> 00:45:11,200
+their own word
+
+1053
+00:45:08,000 --> 00:45:14,079
+free software free software foundation
+
+1054
+00:45:11,200 --> 00:45:16,319
+their word you know they are like a
+
+1055
+00:45:14,079 --> 00:45:18,319
+commune
+
+1056
+00:45:16,319 --> 00:45:20,240
+and the emacs people of the emacs
+
+1057
+00:45:18,319 --> 00:45:22,640
+phonetics every day they are saying oh
+
+1058
+00:45:20,240 --> 00:45:23,520
+emacs this is the best best language oh
+
+1059
+00:45:22,640 --> 00:45:26,880
+emacs can do
+
+1060
+00:45:23,520 --> 00:45:30,079
+everything crap you know it's all crap
+
+1061
+00:45:26,880 --> 00:45:33,440
+i i am a emacs lisp fan
+
+1062
+00:45:30,079 --> 00:45:35,760
+i like emacs this and e-max to improve i
+
+1063
+00:45:33,440 --> 00:45:36,720
+i live in e-max for 20 years by now i
+
+1064
+00:45:35,760 --> 00:45:38,720
+like it i
+
+1065
+00:45:36,720 --> 00:45:40,960
+want to improve but i don't want crap i
+
+1066
+00:45:38,720 --> 00:45:42,880
+don't want i don't i don't want code
+
+1067
+00:45:40,960 --> 00:45:44,160
+all right i don't want something that's
+
+1068
+00:45:42,880 --> 00:45:47,839
+untrue that's
+
+1069
+00:45:44,160 --> 00:45:49,520
+you know kept spreading around untrue
+
+1070
+00:45:47,839 --> 00:45:51,520
+things like that so i talked about you
+
+1071
+00:45:49,520 --> 00:45:53,280
+know that's why people they buy me they
+
+1072
+00:45:51,520 --> 00:45:56,800
+don't like me you know i
+
+1073
+00:45:53,280 --> 00:45:58,079
+you know they just you know so anyway
+
+1074
+00:45:56,800 --> 00:46:01,440
+the dash package
+
+1075
+00:45:58,079 --> 00:46:04,400
+the dash becomes hugely popular because
+
+1076
+00:46:01,440 --> 00:46:06,400
+on one hand the emacs the gnu emac list
+
+1077
+00:46:04,400 --> 00:46:10,240
+they refuse to improve
+
+1078
+00:46:06,400 --> 00:46:12,880
+so there comes dash a
+
+1079
+00:46:10,240 --> 00:46:14,319
+modern api this male engine they say
+
+1080
+00:46:12,880 --> 00:46:17,040
+this modern api
+
+1081
+00:46:14,319 --> 00:46:20,160
+so it becomes hugely popular almost
+
+1082
+00:46:17,040 --> 00:46:22,960
+every package on mailbox uses it
+
+1083
+00:46:20,160 --> 00:46:24,720
+and then then five years ago about five
+
+1084
+00:46:22,960 --> 00:46:27,920
+years finally the emac
+
+1085
+00:46:24,720 --> 00:46:30,319
+the gnu emax people finally
+
+1086
+00:46:27,920 --> 00:46:31,200
+improved emac these they wrote a new
+
+1087
+00:46:30,319 --> 00:46:34,319
+package
+
+1088
+00:46:31,200 --> 00:46:36,160
+now it's part of emacs it's part of
+
+1089
+00:46:34,319 --> 00:46:37,680
+now it's part of uh bundled you know
+
+1090
+00:46:36,160 --> 00:46:40,400
+it's part of the e-magles
+
+1091
+00:46:37,680 --> 00:46:42,880
+core that has those functions let me
+
+1092
+00:46:40,400 --> 00:46:46,400
+show you okay
+
+1093
+00:46:42,880 --> 00:46:48,800
+uh so so emacs so let's go to
+
+1094
+00:46:46,400 --> 00:46:51,280
+uh where do we go to we you you know you
+
+1095
+00:46:48,800 --> 00:46:54,839
+go to my emacs blog home page
+
+1096
+00:46:51,280 --> 00:46:57,440
+you go to emac this
+
+1097
+00:46:54,839 --> 00:47:00,560
+tutorial and you go down
+
+1098
+00:46:57,440 --> 00:47:00,960
+and you see this is my tutorial on emac
+
+1099
+00:47:00,560 --> 00:47:04,960
+this
+
+1100
+00:47:00,960 --> 00:47:08,000
+you can learn emaclis from the ground up
+
+1101
+00:47:04,960 --> 00:47:11,200
+then i explain this
+
+1102
+00:47:08,000 --> 00:47:15,440
+vector sequence type sequence functions
+
+1103
+00:47:11,200 --> 00:47:18,079
+okay so here this page
+
+1104
+00:47:15,440 --> 00:47:19,520
+teaches you about all functions that
+
+1105
+00:47:18,079 --> 00:47:21,920
+manipulate
+
+1106
+00:47:19,520 --> 00:47:23,280
+list or vector or array you know these
+
+1107
+00:47:21,920 --> 00:47:26,160
+in e-magnets
+
+1108
+00:47:23,280 --> 00:47:28,720
+all these are called sequences sequence
+
+1109
+00:47:26,160 --> 00:47:28,720
+data type
+
+1110
+00:47:28,800 --> 00:47:32,640
+so so then you can see here sequence
+
+1111
+00:47:32,079 --> 00:47:34,559
+functions
+
+1112
+00:47:32,640 --> 00:47:35,680
+there are there there are like 20 of
+
+1113
+00:47:34,559 --> 00:47:39,520
+them all these are new
+
+1114
+00:47:35,680 --> 00:47:42,720
+20 30 of them all these all these
+
+1115
+00:47:39,520 --> 00:47:46,160
+uh for example for example sequence p
+
+1116
+00:47:42,720 --> 00:47:49,359
+uh copy sequence uh
+
+1117
+00:47:46,160 --> 00:47:52,240
+reverse and reverse sort
+
+1118
+00:47:49,359 --> 00:47:55,599
+some of them are old okay but uh 20 of
+
+1119
+00:47:52,240 --> 00:47:59,839
+them are new sequence drop sequence take
+
+1120
+00:47:55,599 --> 00:48:03,280
+so these are new this began in 2016
+
+1121
+00:47:59,839 --> 00:48:06,880
+starting in uh emax 25 2016.
+
+1122
+00:48:03,280 --> 00:48:10,480
+so it's four years ago gnu e max
+
+1123
+00:48:06,880 --> 00:48:13,520
+people finally added this why because
+
+1124
+00:48:10,480 --> 00:48:16,000
+of dash they see that dash is
+
+1125
+00:48:13,520 --> 00:48:16,880
+all hugely popular then they finally
+
+1126
+00:48:16,000 --> 00:48:19,040
+realized
+
+1127
+00:48:16,880 --> 00:48:21,119
+oh my god we actually need these
+
+1128
+00:48:19,040 --> 00:48:25,359
+functions in d magnets
+
+1129
+00:48:21,119 --> 00:48:25,359
+so that's why you know they added this
+
+1130
+00:48:25,920 --> 00:48:30,480
+so that's about dash you know i don't
+
+1131
+00:48:27,839 --> 00:48:33,599
+like it because it's not
+
+1132
+00:48:30,480 --> 00:48:34,079
+it you know personally i don't like it
+
+1133
+00:48:33,599 --> 00:48:35,920
+because
+
+1134
+00:48:34,079 --> 00:48:37,119
+it's kind of a rapper it's trying to
+
+1135
+00:48:35,920 --> 00:48:39,839
+modernize
+
+1136
+00:48:37,119 --> 00:48:41,920
+things on the other hand they have a
+
+1137
+00:48:39,839 --> 00:48:44,240
+point because emac these
+
+1138
+00:48:41,920 --> 00:48:46,559
+people they refuse to change you know if
+
+1139
+00:48:44,240 --> 00:48:48,240
+you try to be nice you know you go to
+
+1140
+00:48:46,559 --> 00:48:50,400
+emacs dev and try you know
+
+1141
+00:48:48,240 --> 00:48:52,079
+hey guys you know i wrote this could you
+
+1142
+00:48:50,400 --> 00:48:54,319
+possibly uh
+
+1143
+00:48:52,079 --> 00:48:56,079
+maybe we could uh put it in emacs they
+
+1144
+00:48:54,319 --> 00:48:58,319
+will not listen you know you are
+
+1145
+00:48:56,079 --> 00:49:00,240
+you are nobody nobody give a [ __ ] about
+
+1146
+00:48:58,319 --> 00:49:00,640
+you that's what happens in the emacs
+
+1147
+00:49:00,240 --> 00:49:02,800
+this
+
+1148
+00:49:00,640 --> 00:49:04,480
+step you know every you know it doesn't
+
+1149
+00:49:02,800 --> 00:49:05,280
+matter who you are even if you are a
+
+1150
+00:49:04,480 --> 00:49:07,839
+well-known
+
+1151
+00:49:05,280 --> 00:49:08,319
+celebrity you if you even if you are a
+
+1152
+00:49:07,839 --> 00:49:10,079
+head
+
+1153
+00:49:08,319 --> 00:49:11,760
+you know tech leader of google they
+
+1154
+00:49:10,079 --> 00:49:14,800
+don't give a [ __ ] about you
+
+1155
+00:49:11,760 --> 00:49:16,319
+the god the only god there is a god in
+
+1156
+00:49:14,800 --> 00:49:19,119
+imax list
+
+1157
+00:49:16,319 --> 00:49:22,000
+dev that's richard stowman who have not
+
+1158
+00:49:19,119 --> 00:49:23,520
+coded a single line of code for 20 years
+
+1159
+00:49:22,000 --> 00:49:25,200
+something like that for at least 10
+
+1160
+00:49:23,520 --> 00:49:26,319
+years he doesn't you know he doesn't
+
+1161
+00:49:25,200 --> 00:49:29,680
+know what he's
+
+1162
+00:49:26,319 --> 00:49:30,720
+coding anymore he was a great he was one
+
+1163
+00:49:29,680 --> 00:49:33,920
+of the greatest
+
+1164
+00:49:30,720 --> 00:49:34,640
+coder 30 years ago for you know 14 years
+
+1165
+00:49:33,920 --> 00:49:36,720
+also
+
+1166
+00:49:34,640 --> 00:49:38,640
+but he haven't quoted at least 10 years
+
+1167
+00:49:36,720 --> 00:49:41,200
+10 or 20.
+
+1168
+00:49:38,640 --> 00:49:42,400
+but anyways you know he's the only god
+
+1169
+00:49:41,200 --> 00:49:44,720
+nobody you don't
+
+1170
+00:49:42,400 --> 00:49:45,760
+most people don't even know who who made
+
+1171
+00:49:44,720 --> 00:49:47,760
+all these emacs
+
+1172
+00:49:45,760 --> 00:49:50,319
+improvements you know there's a code
+
+1173
+00:49:47,760 --> 00:49:53,599
+problem there's a serious problem
+
+1174
+00:49:50,319 --> 00:49:54,400
+every time every time when i do a video
+
+1175
+00:49:53,599 --> 00:49:57,359
+i
+
+1176
+00:49:54,400 --> 00:49:58,800
+i i talk about these things i started to
+
+1177
+00:49:57,359 --> 00:50:01,119
+flame these people
+
+1178
+00:49:58,800 --> 00:50:02,880
+then you start to see thumb down okay
+
+1179
+00:50:01,119 --> 00:50:05,920
+you will start to see
+
+1180
+00:50:02,880 --> 00:50:09,200
+thumb down on my youtube that's the
+
+1181
+00:50:05,920 --> 00:50:13,440
+condition of the society okay nothing
+
+1182
+00:50:09,200 --> 00:50:16,400
+you know that's just what happens
+
+1183
+00:50:13,440 --> 00:50:17,599
+okay so we have been talking for how
+
+1184
+00:50:16,400 --> 00:50:19,839
+long for like
+
+1185
+00:50:17,599 --> 00:50:22,079
+uh 15 minutes maybe that's it for today
+
+1186
+00:50:19,839 --> 00:50:25,280
+50 minutes
+
+1187
+00:50:22,079 --> 00:50:27,119
+so let's read some comments um
+
+1188
+00:50:25,280 --> 00:50:28,400
+actually there's something i want to
+
+1189
+00:50:27,119 --> 00:50:30,240
+tell you uh
+
+1190
+00:50:28,400 --> 00:50:32,880
+dash and what else there's some
+
+1191
+00:50:30,240 --> 00:50:32,880
+corrections
+
+1192
+00:50:33,040 --> 00:50:37,359
+oh yeah so another correction i want to
+
+1193
+00:50:34,960 --> 00:50:38,319
+make uh so yesterday we talked about
+
+1194
+00:50:37,359 --> 00:50:40,800
+tree max
+
+1195
+00:50:38,319 --> 00:50:42,440
+one of the thing i i said is that tree
+
+1196
+00:50:40,800 --> 00:50:45,680
+max uses a
+
+1197
+00:50:42,440 --> 00:50:49,599
+idiosyncratic buffer but
+
+1198
+00:50:45,680 --> 00:50:53,440
+this guy rick ricknam says
+
+1199
+00:50:49,599 --> 00:50:56,720
+3max buffers aren't magic
+
+1200
+00:50:53,440 --> 00:50:58,000
+they use an emax feature called slide
+
+1201
+00:50:56,720 --> 00:51:01,200
+windows
+
+1202
+00:50:58,000 --> 00:51:03,119
+you can toggle them with window toggle
+
+1203
+00:51:01,200 --> 00:51:06,559
+side windows
+
+1204
+00:51:03,119 --> 00:51:09,119
+which is pretty handy or clear it with
+
+1205
+00:51:06,559 --> 00:51:11,599
+key of this buffer okay
+
+1206
+00:51:09,119 --> 00:51:13,200
+okay so i stand corrected i will look
+
+1207
+00:51:11,599 --> 00:51:16,960
+into maybe he's right
+
+1208
+00:51:13,200 --> 00:51:19,520
+uh you know he's i haven't looked into
+
+1209
+00:51:16,960 --> 00:51:21,359
+so i would say 99 percent probability
+
+1210
+00:51:19,520 --> 00:51:22,960
+he's correct
+
+1211
+00:51:21,359 --> 00:51:24,720
+but sometimes they are wrong you know
+
+1212
+00:51:22,960 --> 00:51:25,920
+sometimes when i look into exactly
+
+1213
+00:51:24,720 --> 00:51:28,640
+another case
+
+1214
+00:51:25,920 --> 00:51:30,559
+anyway so so this uh apparently there's
+
+1215
+00:51:28,640 --> 00:51:32,640
+a new feature
+
+1216
+00:51:30,559 --> 00:51:33,839
+or maybe it's an old feature it's called
+
+1217
+00:51:32,640 --> 00:51:36,079
+the emacs
+
+1218
+00:51:33,839 --> 00:51:38,880
+list called site windows i'm not aware
+
+1219
+00:51:36,079 --> 00:51:41,520
+of you know i i'm not
+
+1220
+00:51:38,880 --> 00:51:42,079
+i'm not a that great uh lisp coder
+
+1221
+00:51:41,520 --> 00:51:45,839
+there's
+
+1222
+00:51:42,079 --> 00:51:48,800
+a lot of people who know uh emac is
+
+1223
+00:51:45,839 --> 00:51:48,800
+much better than me
+
+1224
+00:51:49,520 --> 00:51:54,319
+okay so let's see what are the comments
+
+1225
+00:51:52,079 --> 00:51:54,319
+uh
+
+1226
+00:51:55,040 --> 00:52:00,480
+and post your comments uh and we shut
+
+1227
+00:51:58,079 --> 00:52:04,720
+down maybe we'll probably shut down
+
+1228
+00:52:00,480 --> 00:52:06,960
+soon down of okay so yeah emacs
+
+1229
+00:52:04,720 --> 00:52:08,160
+also i got my first trackball okay so
+
+1230
+00:52:06,960 --> 00:52:11,680
+not much comments
+
+1231
+00:52:08,160 --> 00:52:13,359
+uh is this keybind to expand directory
+
+1232
+00:52:11,680 --> 00:52:15,839
+default yeah it's default what
+
+1233
+00:52:13,359 --> 00:52:16,400
+sign sign in your paper yeah you don't
+
+1234
+00:52:15,839 --> 00:52:19,200
+know
+
+1235
+00:52:16,400 --> 00:52:21,119
+you know you young people new generation
+
+1236
+00:52:19,200 --> 00:52:24,319
+don't know this anymore so
+
+1237
+00:52:21,119 --> 00:52:27,920
+guru emacs free software foundation
+
+1238
+00:52:24,319 --> 00:52:29,760
+if you want to contribute code to emacs
+
+1239
+00:52:27,920 --> 00:52:32,000
+well the easiest way is you know you
+
+1240
+00:52:29,760 --> 00:52:34,800
+just write code and put it on mailpad
+
+1241
+00:52:32,000 --> 00:52:36,000
+everyone can use it okay and also you
+
+1242
+00:52:34,800 --> 00:52:39,040
+have to use
+
+1243
+00:52:36,000 --> 00:52:41,760
+gnu gpl3 it must be
+
+1244
+00:52:39,040 --> 00:52:42,640
+version three version two is no longer
+
+1245
+00:52:41,760 --> 00:52:44,400
+allowed
+
+1246
+00:52:42,640 --> 00:52:46,000
+because three years ago i have an
+
+1247
+00:52:44,400 --> 00:52:47,920
+article on that
+
+1248
+00:52:46,000 --> 00:52:49,920
+i you know i mentioned before you go to
+
+1249
+00:52:47,920 --> 00:52:52,079
+this page you'll find the article
+
+1250
+00:52:49,920 --> 00:52:54,880
+three about three years ago i can show
+
+1251
+00:52:52,079 --> 00:52:54,880
+you here okay
+
+1252
+00:52:55,559 --> 00:52:59,760
+2017 three years ago richard snowman
+
+1253
+00:52:59,200 --> 00:53:02,960
+told
+
+1254
+00:52:59,760 --> 00:53:06,079
+tells other people to kick out
+
+1255
+00:53:02,960 --> 00:53:09,680
+any packages on melpa
+
+1256
+00:53:06,079 --> 00:53:12,640
+that is not using gpl3
+
+1257
+00:53:09,680 --> 00:53:14,960
+so gpr2 is not enough you know you know
+
+1258
+00:53:12,640 --> 00:53:16,079
+free software foundation gpr2 that's not
+
+1259
+00:53:14,960 --> 00:53:19,440
+not good enough
+
+1260
+00:53:16,079 --> 00:53:23,359
+he tells people to tell other people
+
+1261
+00:53:19,440 --> 00:53:24,880
+to to to use gpr3 so and the male power
+
+1262
+00:53:23,359 --> 00:53:27,119
+people
+
+1263
+00:53:24,880 --> 00:53:28,319
+i know the melpa people so they collab
+
+1264
+00:53:27,119 --> 00:53:30,960
+they conceded
+
+1265
+00:53:28,319 --> 00:53:31,599
+they you know they they started to kick
+
+1266
+00:53:30,960 --> 00:53:33,760
+about
+
+1267
+00:53:31,599 --> 00:53:35,839
+five or ten you they started to contact
+
+1268
+00:53:33,760 --> 00:53:39,520
+those people tell them to upgrade to
+
+1269
+00:53:35,839 --> 00:53:43,040
+gpr3 and eventually kick out
+
+1270
+00:53:39,520 --> 00:53:44,160
+packages that's using gpr2 or some
+
+1271
+00:53:43,040 --> 00:53:48,319
+others you know
+
+1272
+00:53:44,160 --> 00:53:49,200
+so my so back then my all my packages i
+
+1273
+00:53:48,319 --> 00:53:51,680
+have like five
+
+1274
+00:53:49,200 --> 00:53:54,400
+about five packages on mailpad i'm all
+
+1275
+00:53:51,680 --> 00:53:55,680
+using gpl too not gpr3 it's a big
+
+1276
+00:53:54,400 --> 00:53:58,400
+controversy okay
+
+1277
+00:53:55,680 --> 00:53:59,200
+gpr2 versus three for example linus
+
+1278
+00:53:58,400 --> 00:54:02,720
+traverts
+
+1279
+00:53:59,200 --> 00:54:07,359
+the guy who create who wrote linus
+
+1280
+00:54:02,720 --> 00:54:10,640
+linux he he flame you know gpr3
+
+1281
+00:54:07,359 --> 00:54:13,920
+according to him is not ethical you know
+
+1282
+00:54:10,640 --> 00:54:16,240
+because gpr3 tries to enforce
+
+1283
+00:54:13,920 --> 00:54:18,160
+anyway that's a big controversy i'm not
+
+1284
+00:54:16,240 --> 00:54:21,359
+going to get into okay
+
+1285
+00:54:18,160 --> 00:54:23,599
+gpr2 is good okay so
+
+1286
+00:54:21,359 --> 00:54:25,200
+anyway so richard snowman they tell
+
+1287
+00:54:23,599 --> 00:54:28,559
+other people to kick out
+
+1288
+00:54:25,200 --> 00:54:31,040
+gpr2 and and it happened
+
+1289
+00:54:28,559 --> 00:54:32,400
+you know so then the male part people
+
+1290
+00:54:31,040 --> 00:54:33,359
+are quietly you know
+
+1291
+00:54:32,400 --> 00:54:36,079
+they don't they don't make an
+
+1292
+00:54:33,359 --> 00:54:37,920
+announcement in in my opinion
+
+1293
+00:54:36,079 --> 00:54:39,839
+that's evil okay that's the one of the
+
+1294
+00:54:37,920 --> 00:54:42,160
+evil deed but
+
+1295
+00:54:39,839 --> 00:54:44,720
+i don't blame the them you know like
+
+1296
+00:54:42,160 --> 00:54:46,319
+these people today you know
+
+1297
+00:54:44,720 --> 00:54:47,920
+they just follow the flow because oh
+
+1298
+00:54:46,319 --> 00:54:50,319
+let's quietly you know
+
+1299
+00:54:47,920 --> 00:54:50,319
+do it
+
+1300
+00:54:51,520 --> 00:54:56,079
+anyway so that happened so i had you you
+
+1301
+00:54:54,160 --> 00:54:56,799
+know at that point three years ago i was
+
+1302
+00:54:56,079 --> 00:54:59,839
+thinking i'm
+
+1303
+00:54:56,799 --> 00:55:00,559
+i have to make a decision i'm kind of
+
+1304
+00:54:59,839 --> 00:55:02,720
+tired of
+
+1305
+00:55:00,559 --> 00:55:03,760
+open source phonetics phoneticism and
+
+1306
+00:55:02,720 --> 00:55:07,920
+the the open source
+
+1307
+00:55:03,760 --> 00:55:11,920
+it becomes you know huge evil
+
+1308
+00:55:07,920 --> 00:55:14,559
+empire in society and they essentially
+
+1309
+00:55:11,920 --> 00:55:15,440
+made google facebook twitter you know
+
+1310
+00:55:14,559 --> 00:55:17,839
+these
+
+1311
+00:55:15,440 --> 00:55:18,799
+global empires that controls every
+
+1312
+00:55:17,839 --> 00:55:21,280
+aspect
+
+1313
+00:55:18,799 --> 00:55:23,280
+and even controlling programmers because
+
+1314
+00:55:21,280 --> 00:55:23,839
+you have code of conduct all that google
+
+1315
+00:55:23,280 --> 00:55:26,079
+control
+
+1316
+00:55:23,839 --> 00:55:27,440
+and as a programmer you can no longer be
+
+1317
+00:55:26,079 --> 00:55:29,359
+independent
+
+1318
+00:55:27,440 --> 00:55:30,880
+because open source you know they they
+
+1319
+00:55:29,359 --> 00:55:33,760
+work at google
+
+1320
+00:55:30,880 --> 00:55:34,559
+these [ __ ] people working at google
+
+1321
+00:55:33,760 --> 00:55:37,280
+facebook
+
+1322
+00:55:34,559 --> 00:55:37,599
+make tons of money they you know if you
+
+1323
+00:55:37,280 --> 00:55:39,839
+work
+
+1324
+00:55:37,599 --> 00:55:40,720
+for google or any company in the bay
+
+1325
+00:55:39,839 --> 00:55:42,480
+area here
+
+1326
+00:55:40,720 --> 00:55:43,839
+you make ten you know ten thousand
+
+1327
+00:55:42,480 --> 00:55:47,040
+dollars a month that's
+
+1328
+00:55:43,839 --> 00:55:50,720
+like almost minimum ten thousand dollars
+
+1329
+00:55:47,040 --> 00:55:54,160
+per month i'm making 1 000 not
+
+1330
+00:55:50,720 --> 00:55:57,119
+not not even 1 000 a month if you mop
+
+1331
+00:55:54,160 --> 00:55:57,760
+toilets at mcdonald's you make about 3
+
+1332
+00:55:57,119 --> 00:56:01,040
+000
+
+1333
+00:55:57,760 --> 00:56:02,480
+a month okay so these
+
+1334
+00:56:01,040 --> 00:56:04,480
+people are working at google they are
+
+1335
+00:56:02,480 --> 00:56:06,319
+open source fanatics oh good you know
+
+1336
+00:56:04,480 --> 00:56:07,839
+that's right you know open source we
+
+1337
+00:56:06,319 --> 00:56:08,319
+need open source they make a lot of
+
+1338
+00:56:07,839 --> 00:56:11,440
+money
+
+1339
+00:56:08,319 --> 00:56:12,960
+a day they work for google and uh you
+
+1340
+00:56:11,440 --> 00:56:15,680
+know they propaganda
+
+1341
+00:56:12,960 --> 00:56:16,240
+for open source phonetics phoneticism at
+
+1342
+00:56:15,680 --> 00:56:18,000
+night
+
+1343
+00:56:16,240 --> 00:56:19,280
+they write open source software open
+
+1344
+00:56:18,000 --> 00:56:21,599
+source so
+
+1345
+00:56:19,280 --> 00:56:22,480
+if you are independent like me you know
+
+1346
+00:56:21,599 --> 00:56:25,680
+you you are
+
+1347
+00:56:22,480 --> 00:56:27,839
+you know a poor sub
+
+1348
+00:56:25,680 --> 00:56:28,880
+you write code there's no competition
+
+1349
+00:56:27,839 --> 00:56:31,119
+for you because
+
+1350
+00:56:28,880 --> 00:56:31,920
+whatever you write there are 10 [ __ ]
+
+1351
+00:56:31,119 --> 00:56:34,640
+thousand
+
+1352
+00:56:31,920 --> 00:56:36,400
+rich elite [ __ ] they are working
+
+1353
+00:56:34,640 --> 00:56:36,960
+for google they write the same thing as
+
+1354
+00:56:36,400 --> 00:56:39,200
+you do
+
+1355
+00:56:36,960 --> 00:56:41,200
+they have support they are competing
+
+1356
+00:56:39,200 --> 00:56:42,799
+with you or whatever you are doing
+
+1357
+00:56:41,200 --> 00:56:44,559
+that's what that's that's the open
+
+1358
+00:56:42,799 --> 00:56:46,319
+source so if you are a
+
+1359
+00:56:44,559 --> 00:56:48,559
+supporter of open source or free
+
+1360
+00:56:46,319 --> 00:56:49,119
+software foundation go [ __ ] yourself
+
+1361
+00:56:48,559 --> 00:56:51,920
+right now
+
+1362
+00:56:49,119 --> 00:56:53,760
+i'm telling you i'm i haven't been that
+
+1363
+00:56:51,920 --> 00:56:55,839
+extreme before but right now i'm saying
+
+1364
+00:56:53,760 --> 00:56:59,040
+this okay
+
+1365
+00:56:55,839 --> 00:57:01,760
+go [ __ ] yourself it's time
+
+1366
+00:56:59,040 --> 00:57:03,280
+to stop support anything open source of
+
+1367
+00:57:01,760 --> 00:57:05,599
+free software foundation
+
+1368
+00:57:03,280 --> 00:57:06,480
+well i still support it you know i i
+
+1369
+00:57:05,599 --> 00:57:09,440
+still
+
+1370
+00:57:06,480 --> 00:57:10,160
+you know i still use emacs as all my own
+
+1371
+00:57:09,440 --> 00:57:12,480
+oh
+
+1372
+00:57:10,160 --> 00:57:13,599
+basically all my packages software is
+
+1373
+00:57:12,480 --> 00:57:16,240
+all open source
+
+1374
+00:57:13,599 --> 00:57:17,280
+it's been like that for 20 years even
+
+1375
+00:57:16,240 --> 00:57:19,760
+before
+
+1376
+00:57:17,280 --> 00:57:21,760
+before the foundation before open source
+
+1377
+00:57:19,760 --> 00:57:26,480
+becomes a thing
+
+1378
+00:57:21,760 --> 00:57:30,000
+my packages in mathematica 1995 1993
+
+1379
+00:57:26,480 --> 00:57:32,079
+it's all uh use it free
+
+1380
+00:57:30,000 --> 00:57:33,760
+okay you know if you like to you know
+
+1381
+00:57:32,079 --> 00:57:36,799
+there's a quote you know
+
+1382
+00:57:33,760 --> 00:57:37,920
+if you like it you please go ahead and
+
+1383
+00:57:36,799 --> 00:57:41,200
+use it okay this
+
+1384
+00:57:37,920 --> 00:57:42,319
+is a good this is good spirit no open
+
+1385
+00:57:41,200 --> 00:57:44,799
+source [ __ ]
+
+1386
+00:57:42,319 --> 00:57:47,359
+string attached not not like like you
+
+1387
+00:57:44,799 --> 00:57:49,680
+have to use this this this this
+
+1388
+00:57:47,359 --> 00:57:51,280
+licenses otherwise you are evil go [ __ ]
+
+1389
+00:57:49,680 --> 00:57:53,680
+yourself
+
+1390
+00:57:51,280 --> 00:57:55,839
+you i write a code okay so you know feel
+
+1391
+00:57:53,680 --> 00:57:57,200
+feel free to use it don't abuse it okay
+
+1392
+00:57:55,839 --> 00:57:59,040
+don't abuse it
+
+1393
+00:57:57,200 --> 00:58:00,319
+go ahead and use it and i'm not
+
+1394
+00:57:59,040 --> 00:58:03,680
+responsible for
+
+1395
+00:58:00,319 --> 00:58:07,839
+uh for disasters out of you know
+
+1396
+00:58:03,680 --> 00:58:11,599
+certain minimal legal requirements
+
+1397
+00:58:07,839 --> 00:58:11,599
+open source [ __ ] phoneticism
+
+1398
+00:58:18,480 --> 00:58:22,000
+okay i got angry then it becomes a flame
+
+1399
+00:58:21,520 --> 00:58:26,240
+of open
+
+1400
+00:58:22,000 --> 00:58:26,240
+source again i guess that's it for today
+
+1401
+00:58:26,960 --> 00:58:32,400
+uh so yeah so back to the question i i
+
+1402
+00:58:29,920 --> 00:58:35,280
+digress you know so
+
+1403
+00:58:32,400 --> 00:58:36,079
+so if you want to contribute code to
+
+1404
+00:58:35,280 --> 00:58:38,559
+emax
+
+1405
+00:58:36,079 --> 00:58:39,839
+the easiest way is just to write and put
+
+1406
+00:58:38,559 --> 00:58:42,400
+it on mailpad okay
+
+1407
+00:58:39,839 --> 00:58:43,280
+put it in gpr3 and put it on the mailbox
+
+1408
+00:58:42,400 --> 00:58:45,200
+that's a go
+
+1409
+00:58:43,280 --> 00:58:46,640
+but if you actually want to contribute
+
+1410
+00:58:45,200 --> 00:58:49,680
+to the glue emacs
+
+1411
+00:58:46,640 --> 00:58:53,280
+you know on their lpar repository
+
+1412
+00:58:49,680 --> 00:58:55,200
+or on gnu emacs call you have to sign a
+
+1413
+00:58:53,280 --> 00:58:55,599
+paper okay that that's been a case for
+
+1414
+00:58:55,200 --> 00:58:59,200
+like
+
+1415
+00:58:55,599 --> 00:59:00,000
+30 years ago and it's a big controversy
+
+1416
+00:58:59,200 --> 00:59:02,880
+you know but
+
+1417
+00:59:00,000 --> 00:59:04,000
+it's still you know is still required of
+
+1418
+00:59:02,880 --> 00:59:06,720
+course i have to sign
+
+1419
+00:59:04,000 --> 00:59:08,400
+paper for urgo emacs package and the
+
+1420
+00:59:06,720 --> 00:59:11,119
+experience is not so good
+
+1421
+00:59:08,400 --> 00:59:12,880
+it's not nice you know back and forth
+
+1422
+00:59:11,119 --> 00:59:15,520
+delays they don't they don't give a [ __ ]
+
+1423
+00:59:12,880 --> 00:59:18,000
+they you know that's
+
+1424
+00:59:15,520 --> 00:59:19,440
+i can talk for another hour about that
+
+1425
+00:59:18,000 --> 00:59:21,760
+issue you know and then i show you
+
+1426
+00:59:19,440 --> 00:59:24,400
+articles i show you other people's
+
+1427
+00:59:21,760 --> 00:59:26,559
+experiences and i tell you who is you
+
+1428
+00:59:24,400 --> 00:59:30,559
+know who is doing what
+
+1429
+00:59:26,559 --> 00:59:30,559
+that's another one hour
+
+1430
+00:59:31,440 --> 00:59:35,920
+so who is watching eight concurrent
+
+1431
+00:59:33,920 --> 00:59:37,119
+viewers not many okay that's it for
+
+1432
+00:59:35,920 --> 00:59:39,040
+today
+
+1433
+00:59:37,119 --> 00:59:40,720
+did you hear about the best ergonomic
+
+1434
+00:59:39,040 --> 00:59:46,400
+keyboard on earth no
+
+1435
+00:59:40,720 --> 00:59:49,440
+velocity no that's not likely
+
+1436
+00:59:46,400 --> 00:59:52,240
+let's search for it velocifier what the
+
+1437
+00:59:49,440 --> 00:59:52,240
+heck is that
+
+1438
+00:59:58,839 --> 01:00:01,839
+search
+
+1439
+01:00:03,040 --> 01:00:11,359
+demand dk6 ergo v2 make
+
+1440
+01:00:06,559 --> 01:00:11,359
+typing better okay so
+
+1441
+01:00:11,680 --> 01:00:16,400
+first of all let's look at images i'm
+
+1442
+01:00:14,720 --> 01:00:20,079
+not sure i want to go to their
+
+1443
+01:00:16,400 --> 01:00:24,000
+website oh looks like it's not bad
+
+1444
+01:00:20,079 --> 01:00:28,640
+oh that no this one is crap
+
+1445
+01:00:24,000 --> 01:00:31,280
+but i'm telling you this is crap
+
+1446
+01:00:28,640 --> 01:00:32,319
+no good okay so this is one of those
+
+1447
+01:00:31,280 --> 01:00:34,720
+keyboard
+
+1448
+01:00:32,319 --> 01:00:37,280
+they designed so that you can adjust
+
+1449
+01:00:34,720 --> 01:00:40,480
+your keys to different positions
+
+1450
+01:00:37,280 --> 01:00:43,200
+whatever positions you want it's crap
+
+1451
+01:00:40,480 --> 01:00:43,760
+why because it's too elaborate you don't
+
+1452
+01:00:43,200 --> 01:00:45,680
+need to
+
+1453
+01:00:43,760 --> 01:00:47,520
+you know you you rather you want
+
+1454
+01:00:45,680 --> 01:00:50,720
+something
+
+1455
+01:00:47,520 --> 01:00:52,720
+you know designed fixed position then
+
+1456
+01:00:50,720 --> 01:00:55,520
+then that's it you don't want something
+
+1457
+01:00:52,720 --> 01:00:57,920
+that's movable and you know
+
+1458
+01:00:55,520 --> 01:01:01,040
+so what is this keyboard good for it's
+
+1459
+01:00:57,920 --> 01:01:03,520
+good for if you are a designer
+
+1460
+01:01:01,040 --> 01:01:05,200
+if you are a designing stage of keyboard
+
+1461
+01:01:03,520 --> 01:01:06,160
+you are still trying to find out which
+
+1462
+01:01:05,200 --> 01:01:08,960
+one is the best
+
+1463
+01:01:06,160 --> 01:01:10,480
+ergonomic shape then this is maybe good
+
+1464
+01:01:08,960 --> 01:01:13,760
+for keyboard designers
+
+1465
+01:01:10,480 --> 01:01:14,799
+once you find out one specific
+
+1466
+01:01:13,760 --> 01:01:17,040
+configuration
+
+1467
+01:01:14,799 --> 01:01:18,799
+that's good then you want go manufacture
+
+1468
+01:01:17,040 --> 01:01:20,799
+it you don't want a keyboard
+
+1469
+01:01:18,799 --> 01:01:22,640
+where you use every day that has this
+
+1470
+01:01:20,799 --> 01:01:26,160
+complexity okay this is
+
+1471
+01:01:22,640 --> 01:01:27,920
+crap and also even if you are a designer
+
+1472
+01:01:26,160 --> 01:01:30,640
+this i don't i don't think it's that
+
+1473
+01:01:27,920 --> 01:01:33,520
+good because by now
+
+1474
+01:01:30,640 --> 01:01:35,839
+by now after about seven years of
+
+1475
+01:01:33,520 --> 01:01:38,319
+ergonomic keyboard evolution you know we
+
+1476
+01:01:35,839 --> 01:01:40,240
+have lots of studies people have studied
+
+1477
+01:01:38,319 --> 01:01:42,720
+ergonomic arrangement key arrangement
+
+1478
+01:01:40,240 --> 01:01:45,599
+for like seven years already
+
+1479
+01:01:42,720 --> 01:01:47,119
+we already know you know we already know
+
+1480
+01:01:45,599 --> 01:01:48,720
+what is the best position you know
+
+1481
+01:01:47,119 --> 01:01:51,280
+what's the thumb you don't need
+
+1482
+01:01:48,720 --> 01:01:52,400
+you don't need to experiment anymore
+
+1483
+01:01:51,280 --> 01:01:55,680
+okay uh
+
+1484
+01:01:52,400 --> 01:01:57,680
+you know if you haven't seen
+
+1485
+01:01:55,680 --> 01:01:58,960
+they are already like hundreds of
+
+1486
+01:01:57,680 --> 01:02:01,599
+different varieties
+
+1487
+01:01:58,960 --> 01:02:03,440
+of some key positions you know you you
+
+1488
+01:02:01,599 --> 01:02:05,200
+can see all of them here
+
+1489
+01:02:03,440 --> 01:02:06,480
+you don't need to you don't need that
+
+1490
+01:02:05,200 --> 01:02:10,640
+anymore so
+
+1491
+01:02:06,480 --> 01:02:10,640
+i don't recommend that keyboard
+
+1492
+01:02:11,760 --> 01:02:16,559
+the attachment is super strong and it
+
+1493
+01:02:14,000 --> 01:02:19,920
+does not move it's still no good
+
+1494
+01:02:16,559 --> 01:02:21,839
+it's still no good but why
+
+1495
+01:02:19,920 --> 01:02:23,440
+i don't want to see i don't i don't want
+
+1496
+01:02:21,839 --> 01:02:27,599
+to have a keyboard where i
+
+1497
+01:02:23,440 --> 01:02:32,000
+see this inlet in elegant complexity
+
+1498
+01:02:27,599 --> 01:02:32,000
+crap i don't want to see those lines you
+
+1499
+01:02:32,839 --> 01:02:35,839
+know
+
+1500
+01:02:36,079 --> 01:02:40,319
+and of course it also adds to the cost
+
+1501
+01:02:38,480 --> 01:02:43,359
+you know nothing comes free
+
+1502
+01:02:40,319 --> 01:02:46,160
+you know this will add to the cost where
+
+1503
+01:02:43,359 --> 01:02:48,240
+you have movable movable keys and things
+
+1504
+01:02:46,160 --> 01:02:52,319
+like that okay
+
+1505
+01:02:48,240 --> 01:02:55,520
+that's it for today uh
+
+1506
+01:02:52,319 --> 01:02:57,520
+thank you guys for watching well
+
+1507
+01:02:55,520 --> 01:03:00,079
+bob says every hand is unique that's
+
+1508
+01:02:57,520 --> 01:03:02,160
+right that's why when you buy a keyboard
+
+1509
+01:03:00,079 --> 01:03:04,880
+you pick one of these you know there are
+
+1510
+01:03:02,160 --> 01:03:07,920
+so many choices you pick one
+
+1511
+01:03:04,880 --> 01:03:12,799
+you use that okay
+
+1512
+01:03:07,920 --> 01:03:12,799
+uh you don't need you know that's my
+
+1513
+01:03:14,839 --> 01:03:18,480
+opinion okay so i might check out the
+
+1514
+01:03:17,359 --> 01:03:20,799
+website okay so
+
+1515
+01:03:18,480 --> 01:03:22,240
+yeah okay that's it for today thank you
+
+1516
+01:03:20,799 --> 01:03:25,119
+guys for watching
+
+1517
+01:03:22,240 --> 01:03:25,520
+uh if you like my stuff subscribe and
+
+1518
+01:03:25,119 --> 01:03:28,480
+thumb
+
+1519
+01:03:25,520 --> 01:03:29,200
+up or things like that you know support
+
+1520
+01:03:28,480 --> 01:03:31,839
+support
+
+1521
+01:03:29,200 --> 01:03:31,839
+the
+
+1522
+01:03:32,720 --> 01:03:41,119
+support the consumerism uh society
+
+1523
+01:03:36,960 --> 01:03:41,119
+and let's make everyone a dumb
+
+1524
+01:03:41,280 --> 01:03:45,760
+i have no choice or actually the
+
+1525
+01:03:44,319 --> 01:03:47,359
+you know the best thing to do is
+
+1526
+01:03:45,760 --> 01:03:48,559
+actually you know let's talk about the
+
+1527
+01:03:47,359 --> 01:03:51,039
+video the the
+
+1528
+01:03:48,559 --> 01:03:52,720
+let's talk about the youtube phenomena
+
+1529
+01:03:51,039 --> 01:03:54,480
+the society you know
+
+1530
+01:03:52,720 --> 01:03:56,079
+you these days every time you watch
+
+1531
+01:03:54,480 --> 01:03:57,839
+video people you know the
+
+1532
+01:03:56,079 --> 01:03:59,599
+everyone is trying to make money right
+
+1533
+01:03:57,839 --> 01:04:02,160
+except maybe except me
+
+1534
+01:03:59,599 --> 01:04:03,039
+i'm not you know you watch your video
+
+1535
+01:04:02,160 --> 01:04:05,280
+everyone is like
+
+1536
+01:04:03,039 --> 01:04:06,480
+please support if please please thumb up
+
+1537
+01:04:05,280 --> 01:04:08,720
+please subscribe
+
+1538
+01:04:06,480 --> 01:04:09,920
+you know the girls you know girls has
+
+1539
+01:04:08,720 --> 01:04:12,960
+their style they
+
+1540
+01:04:09,920 --> 01:04:15,359
+smile please subscribe thumbs up
+
+1541
+01:04:12,960 --> 01:04:16,559
+for the great peaceful words go [ __ ]
+
+1542
+01:04:15,359 --> 01:04:18,319
+themselves
+
+1543
+01:04:16,559 --> 01:04:19,839
+then there are the different types for
+
+1544
+01:04:18,319 --> 01:04:23,440
+example the linux
+
+1545
+01:04:19,839 --> 01:04:26,720
+the leaners tech review this leaner sky
+
+1546
+01:04:23,440 --> 01:04:29,440
+he's become a multi-millionaire
+
+1547
+01:04:26,720 --> 01:04:31,200
+his youtube videos become so rich you
+
+1548
+01:04:29,440 --> 01:04:34,240
+know so popular he's doing
+
+1549
+01:04:31,200 --> 01:04:37,839
+several videos per day with a full
+
+1550
+01:04:34,240 --> 01:04:41,200
+full staff behind him this linux
+
+1551
+01:04:37,839 --> 01:04:43,680
+linux tech review guy this number
+
+1552
+01:04:41,200 --> 01:04:44,960
+he he style is speaking very very fast
+
+1553
+01:04:43,680 --> 01:04:46,240
+if you like it thumbs up
+
+1554
+01:04:44,960 --> 01:04:48,160
+if you don't like it thumbs down you
+
+1555
+01:04:46,240 --> 01:04:51,200
+know what to do and
+
+1556
+01:04:48,160 --> 01:04:54,480
+he you know he lena's text review he's
+
+1557
+01:04:51,200 --> 01:04:56,880
+trying to you know he's that his style
+
+1558
+01:04:54,480 --> 01:04:57,760
+he's kind of like trying to be cool this
+
+1559
+01:04:56,880 --> 01:05:00,319
+cool guy he's
+
+1560
+01:04:57,760 --> 01:05:01,280
+he's seeing it all the [ __ ] idiot the
+
+1561
+01:05:00,319 --> 01:05:05,039
+linus
+
+1562
+01:05:01,280 --> 01:05:07,440
+linus tech review guy yeah but
+
+1563
+01:05:05,039 --> 01:05:08,079
+you know they in my opinion they are idi
+
+1564
+01:05:07,440 --> 01:05:11,200
+you're kind of
+
+1565
+01:05:08,079 --> 01:05:13,760
+like you know they are not that great
+
+1566
+01:05:11,200 --> 01:05:14,400
+uh content but however that's how you
+
+1567
+01:05:13,760 --> 01:05:17,440
+you become
+
+1568
+01:05:14,400 --> 01:05:19,839
+rich you wanna you want become rich
+
+1569
+01:05:17,440 --> 01:05:22,079
+you want to become success successful
+
+1570
+01:05:19,839 --> 01:05:24,559
+that's that's the things you do but
+
+1571
+01:05:22,079 --> 01:05:26,960
+you know that's uh that's what you have
+
+1572
+01:05:24,559 --> 01:05:29,839
+to do you know somebody please thumb up
+
+1573
+01:05:26,960 --> 01:05:31,839
+and don't talk about controversial
+
+1574
+01:05:29,839 --> 01:05:33,359
+things you know don't say [ __ ] you [ __ ]
+
+1575
+01:05:31,839 --> 01:05:36,559
+them
+
+1576
+01:05:33,359 --> 01:05:40,400
+don't don't be like me okay be a dummy
+
+1577
+01:05:36,559 --> 01:05:40,400
+in society be a [ __ ] wheel
+
+1578
+01:05:48,839 --> 01:05:51,839
+bye
+

@@ -128,7 +128,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
   }
 
   def checkFile(mf: MediaFile): IO[Unit] =
-    test(s"${mf.filename} should return some data", SlowTest) { case FixtureParam(fixture) =>
+    test(s"✅ ${mf.filename}", SlowTest) { case FixtureParam(fixture) =>
       (for {
         repository   <- fixture.repositoryResource
         mediaSources <- repository.getResourceFile(mf)

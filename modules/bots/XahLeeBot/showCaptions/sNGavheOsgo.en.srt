@@ -1,0 +1,1836 @@
+1
+00:00:02,560 --> 00:00:07,520
+Hello hello hello good morning everyone
+
+2
+00:00:04,960 --> 00:00:12,240
+welcome to another episode of son talk
+
+3
+00:00:07,520 --> 00:00:13,160
+show so we start coding emacisp today so
+
+4
+00:00:12,240 --> 00:00:16,720
+let's
+
+5
+00:00:13,160 --> 00:00:18,199
+begin emac list audio check video check
+
+6
+00:00:16,720 --> 00:00:20,720
+okay
+
+7
+00:00:18,199 --> 00:00:24,560
+so so we're going to code the command
+
+8
+00:00:20,720 --> 00:00:28,000
+let's see close close go to talk show
+
+9
+00:00:24,560 --> 00:00:31,279
+talk show today's talk show and go down
+
+10
+00:00:28,000 --> 00:00:34,239
+there's emac coding Okay. And what are
+
+11
+00:00:31,279 --> 00:00:36,079
+we going to do today? Uh, audio check,
+
+12
+00:00:34,239 --> 00:00:39,040
+video check again. So, if you are
+
+13
+00:00:36,079 --> 00:00:41,760
+watching this live, say hi. Hi, Blue. I
+
+14
+00:00:39,040 --> 00:00:44,879
+know you. Blue three. And if you are
+
+15
+00:00:41,760 --> 00:00:47,680
+watching this offline, play at 1.5 speed
+
+16
+00:00:44,879 --> 00:00:50,559
+and skip around because I ramble. If you
+
+17
+00:00:47,680 --> 00:00:53,120
+don't play at 1.5 speed and don't skip
+
+18
+00:00:50,559 --> 00:00:55,760
+around, then it's going to be long and
+
+19
+00:00:53,120 --> 00:00:57,840
+boring unless you like my to hear my
+
+20
+00:00:55,760 --> 00:01:00,800
+voice. Okay. So today's talk show we're
+
+21
+00:00:57,840 --> 00:01:04,320
+gonna start to do live coding. Uh there
+
+22
+00:01:00,800 --> 00:01:06,760
+are two topics. Okay. Emac list write a
+
+23
+00:01:04,320 --> 00:01:10,560
+go-to character of current
+
+24
+00:01:06,760 --> 00:01:12,479
+number under cruiser in the next buffer.
+
+25
+00:01:10,560 --> 00:01:15,520
+So for example sometimes when you
+
+26
+00:01:12,479 --> 00:01:19,080
+compile or some sometimes you call some
+
+27
+00:01:15,520 --> 00:01:21,759
+command it says uh error line
+
+28
+00:01:19,080 --> 00:01:24,320
+number 195
+
+29
+00:01:21,759 --> 00:01:28,479
+uh something something. So you need to
+
+30
+00:01:24,320 --> 00:01:30,920
+jump to line number 195. So usually the
+
+31
+00:01:28,479 --> 00:01:35,400
+arrow is split. You know you got arrow
+
+32
+00:01:30,920 --> 00:01:38,479
+here. Can you see? So let's let's stop
+
+33
+00:01:35,400 --> 00:01:40,320
+that check. Yeah. So you got arrow here
+
+34
+00:01:38,479 --> 00:01:42,320
+says line number something and your
+
+35
+00:01:40,320 --> 00:01:44,880
+buffer is here. So you want to go to the
+
+36
+00:01:42,320 --> 00:01:47,280
+line number in this buffer, you know. So
+
+37
+00:01:44,880 --> 00:01:49,439
+you can write a command, press a key,
+
+38
+00:01:47,280 --> 00:01:51,840
+it'll jump to the right position. Okay.
+
+39
+00:01:49,439 --> 00:01:54,439
+So sometime sometimes it's line number
+
+40
+00:01:51,840 --> 00:01:57,840
+sometimes sometimes it's character
+
+41
+00:01:54,439 --> 00:02:01,680
+position. Now that's unique in EMAC
+
+42
+00:01:57,840 --> 00:02:03,840
+because in EMAC every cruiser is at a
+
+43
+00:02:01,680 --> 00:02:07,119
+particular position the beginning of the
+
+44
+00:02:03,840 --> 00:02:10,399
+buffer that's position one. Okay. Now by
+
+45
+00:02:07,119 --> 00:02:13,480
+the way the cruiser is meant to be
+
+46
+00:02:10,399 --> 00:02:16,480
+between characters. So
+
+47
+00:02:13,480 --> 00:02:19,280
+the beginning of buffer that position
+
+48
+00:02:16,480 --> 00:02:21,920
+before any character that's zero. Then I
+
+49
+00:02:19,280 --> 00:02:25,520
+mean that's one okay remember what start
+
+50
+00:02:21,920 --> 00:02:28,400
+with one then this character is uh two
+
+51
+00:02:25,520 --> 00:02:31,440
+and so on. Okay remember it's cruer
+
+52
+00:02:28,400 --> 00:02:35,040
+means between characters and the first
+
+53
+00:02:31,440 --> 00:02:37,680
+one is zero position. Okay so in EMAC
+
+54
+00:02:35,040 --> 00:02:39,840
+sometimes it'll tell you you know uh
+
+55
+00:02:37,680 --> 00:02:41,360
+character position it's rare you know
+
+56
+00:02:39,840 --> 00:02:43,200
+position something something a number
+
+57
+00:02:41,360 --> 00:02:46,080
+you want to jump to it move cursor to
+
+58
+00:02:43,200 --> 00:02:47,599
+it. Okay let's write that command then
+
+59
+00:02:46,080 --> 00:02:49,440
+there's another one let's worry about
+
+60
+00:02:47,599 --> 00:02:53,840
+that later. Okay, let's do the first
+
+61
+00:02:49,440 --> 00:02:57,440
+one. The cruel position jump. Uh, so
+
+62
+00:02:53,840 --> 00:02:59,160
+start a emac this code. Okay, and pop it
+
+63
+00:02:57,440 --> 00:03:01,640
+out and
+
+64
+00:02:59,160 --> 00:03:05,440
+defund. Am I doing
+
+65
+00:03:01,640 --> 00:03:08,280
+good? It's all good. Hot and say hi and
+
+66
+00:03:05,440 --> 00:03:10,280
+stuff. Okay. So, uh let's
+
+67
+00:03:08,280 --> 00:03:13,200
+say
+
+68
+00:03:10,280 --> 00:03:17,840
+kazar jump
+
+69
+00:03:13,200 --> 00:03:17,840
+uh go to ch uh char
+
+70
+00:03:18,920 --> 00:03:24,560
+position next buffer. Okay. Something
+
+71
+00:03:21,599 --> 00:03:27,200
+like that. That's my that's my command
+
+72
+00:03:24,560 --> 00:03:31,120
+name. Go to child position next buffer.
+
+73
+00:03:27,200 --> 00:03:35,480
+Let's let that be that. Okay. And uh
+
+74
+00:03:31,120 --> 00:03:39,480
+then we going to uh
+
+75
+00:03:35,480 --> 00:03:39,480
+documentation move
+
+76
+00:03:43,000 --> 00:03:51,959
+um to next buffer. Um so the the current
+
+77
+00:03:48,400 --> 00:03:56,680
+cursor pos the the number you want to go
+
+78
+00:03:51,959 --> 00:03:59,959
+to move cursor to the next buffer at
+
+79
+00:03:56,680 --> 00:04:02,799
+position that is
+
+80
+00:03:59,959 --> 00:04:06,319
+under cursor. Okay something like that.
+
+81
+00:04:02,799 --> 00:04:08,560
+This this is not the wording is not so
+
+82
+00:04:06,319 --> 00:04:11,840
+good because it's hard to understand
+
+83
+00:04:08,560 --> 00:04:14,840
+ambiguity. So we need to uh refine that
+
+84
+00:04:11,840 --> 00:04:14,840
+later.
+
+85
+00:04:15,439 --> 00:04:20,079
+Uh well, another way to say it uh is
+
+86
+00:04:21,000 --> 00:04:25,680
+um the
+
+87
+00:04:23,479 --> 00:04:28,680
+number under
+
+88
+00:04:25,680 --> 00:04:30,280
+[Music]
+
+89
+00:04:28,680 --> 00:04:32,600
+current
+
+90
+00:04:30,280 --> 00:04:36,320
+position jump
+
+91
+00:04:32,600 --> 00:04:38,520
+to it in next buffer. Something like
+
+92
+00:04:36,320 --> 00:04:41,199
+that. Okay. Something something like
+
+93
+00:04:38,520 --> 00:04:43,120
+that. The number the number in the
+
+94
+00:04:41,199 --> 00:04:46,240
+current cursor position jump to it in
+
+95
+00:04:43,120 --> 00:04:48,479
+next buffer. Okay. uh create date
+
+96
+00:04:46,240 --> 00:04:51,440
+version let's document date okay let's
+
+97
+00:04:48,479 --> 00:04:53,240
+begin so the first job the first job is
+
+98
+00:04:51,440 --> 00:04:58,560
+to grab the number
+
+99
+00:04:53,240 --> 00:05:01,240
+okay first job grab the number okay so
+
+100
+00:04:58,560 --> 00:05:03,880
+if we got a number
+
+101
+00:05:01,240 --> 00:05:08,479
+um
+
+102
+00:05:03,880 --> 00:05:10,759
+uh uh what okay a number you want to
+
+103
+00:05:08,479 --> 00:05:15,120
+grab it so
+
+104
+00:05:10,759 --> 00:05:18,360
+um so let so let's do Let's do this. Let
+
+105
+00:05:15,120 --> 00:05:20,960
+again let begin end.
+
+106
+00:05:18,360 --> 00:05:23,120
+Um the number. Yeah, you want grab
+
+107
+00:05:20,960 --> 00:05:25,800
+number. How do you do that? Uh uh
+
+108
+00:05:23,120 --> 00:05:28,240
+current word I believe.
+
+109
+00:05:25,800 --> 00:05:30,800
+Um yeah, let's just let's do it
+
+110
+00:05:28,240 --> 00:05:30,800
+manually.
+
+111
+00:05:31,320 --> 00:05:34,320
+Okay.
+
+112
+00:05:34,360 --> 00:05:41,919
+Uh skip skip
+
+113
+00:05:38,600 --> 00:05:45,360
+char not shell command skip char
+
+114
+00:05:41,919 --> 00:05:49,919
+backward. Okay. Skip chart backward.
+
+115
+00:05:45,360 --> 00:05:53,199
+Skip the character backward. Skip it
+
+116
+00:05:49,919 --> 00:05:55,759
+around 029. Let's see if that works.
+
+117
+00:05:53,199 --> 00:05:58,919
+Limit. We don't care. Let's run it.
+
+118
+00:05:55,759 --> 00:06:02,360
+Okay. Let's say
+
+119
+00:05:58,919 --> 00:06:05,039
+um Okay, let's say a number. Okay, a
+
+120
+00:06:02,360 --> 00:06:07,680
+number. We want to move to the beginning
+
+121
+00:06:05,039 --> 00:06:09,520
+of the number. So, let's try that. So,
+
+122
+00:06:07,680 --> 00:06:12,800
+the pink window shows all my command
+
+123
+00:06:09,520 --> 00:06:15,440
+calls. So, let's try that. So run eval
+
+124
+00:06:12,800 --> 00:06:16,840
+expression eval this expression skip
+
+125
+00:06:15,440 --> 00:06:20,240
+char backward
+
+126
+00:06:16,840 --> 00:06:22,440
+09 fantastic it works. So for example
+
+127
+00:06:20,240 --> 00:06:26,160
+something let's try it again.
+
+128
+00:06:22,440 --> 00:06:28,319
+Okay. Eval expression meta x code that
+
+129
+00:06:26,160 --> 00:06:31,199
+command and what expression? This one.
+
+130
+00:06:28,319 --> 00:06:33,479
+Skip chart backward 09. Does it work?
+
+131
+00:06:31,199 --> 00:06:38,759
+Yes. Okay.
+
+132
+00:06:33,479 --> 00:06:42,800
+So, so that and then set x
+
+133
+00:06:38,759 --> 00:06:45,600
+begin position at point. Point means the
+
+134
+00:06:42,800 --> 00:06:48,400
+the integer. It returns the integer of
+
+135
+00:06:45,600 --> 00:06:52,919
+the curs of position. Okay. So, that's
+
+136
+00:06:48,400 --> 00:06:55,759
+good. Now next we want to do skip char
+
+137
+00:06:52,919 --> 00:06:59,759
+forward. Go back. Okay. Skip char
+
+138
+00:06:55,759 --> 00:07:03,479
+forward. Uh 092 and limit. We don't
+
+139
+00:06:59,759 --> 00:07:08,160
+care. Okay.
+
+140
+00:07:03,479 --> 00:07:10,240
+Um then uh uh we can test it. Okay. So
+
+141
+00:07:08,160 --> 00:07:13,039
+let's put the cursor here again. Let's
+
+142
+00:07:10,240 --> 00:07:15,680
+test it. If our expression this
+
+143
+00:07:13,039 --> 00:07:19,240
+expression do it. Fantastic. Beautiful.
+
+144
+00:07:15,680 --> 00:07:22,639
+So set X
+
+145
+00:07:19,240 --> 00:07:24,639
+end position. Okay. So now we got the
+
+146
+00:07:22,639 --> 00:07:27,280
+beginning position and end position. Now
+
+147
+00:07:24,639 --> 00:07:31,039
+you just want to grab it. Okay. So what
+
+148
+00:07:27,280 --> 00:07:33,919
+you do is uh buff a substring no
+
+149
+00:07:31,039 --> 00:07:36,919
+properties. Okay. Beginning end. Okay.
+
+150
+00:07:33,919 --> 00:07:40,520
+And uh uh
+
+151
+00:07:36,919 --> 00:07:44,000
+number. So that is a number.
+
+152
+00:07:40,520 --> 00:07:45,080
+Set that to
+
+153
+00:07:44,000 --> 00:07:48,880
+uh
+
+154
+00:07:45,080 --> 00:07:52,080
+what to that. Prettify the code.
+
+155
+00:07:48,880 --> 00:07:54,160
+Fantastic. Beautiful. Okay. Now we got
+
+156
+00:07:52,080 --> 00:07:56,879
+the beginning position. We got end
+
+157
+00:07:54,160 --> 00:08:00,000
+position and we got the number we want
+
+158
+00:07:56,879 --> 00:08:02,560
+to jump to. Then all you have to do is
+
+159
+00:08:00,000 --> 00:08:06,879
+what is the command? This command next
+
+160
+00:08:02,560 --> 00:08:09,960
+window or frame. Uh let's go to it.
+
+161
+00:08:06,879 --> 00:08:12,520
+Uh let's just say other
+
+162
+00:08:09,960 --> 00:08:16,840
+frame.
+
+163
+00:08:12,520 --> 00:08:16,840
+Uh jump to
+
+164
+00:08:16,879 --> 00:08:23,919
+uh Emacs terminology very confusing
+
+165
+00:08:19,919 --> 00:08:26,639
+window means buffer this this one. Okay
+
+166
+00:08:23,919 --> 00:08:29,520
+this one let me just try that. Okay so
+
+167
+00:08:26,639 --> 00:08:32,240
+that means if you have a split buffer
+
+168
+00:08:29,520 --> 00:08:34,399
+like you can split in many ways that
+
+169
+00:08:32,240 --> 00:08:37,120
+move to the next pen. Okay, that's what
+
+170
+00:08:34,399 --> 00:08:40,080
+this other window mean. Move to the next
+
+171
+00:08:37,120 --> 00:08:43,320
+pen. Next pen, next, next, next, next.
+
+172
+00:08:40,080 --> 00:08:47,760
+You see? Okay.
+
+173
+00:08:43,320 --> 00:08:51,640
+So, so you go to the other pen, then you
+
+174
+00:08:47,760 --> 00:08:55,519
+just go to char and
+
+175
+00:08:51,640 --> 00:08:58,640
+xnum. Okay. Now, does go does go to char
+
+176
+00:08:55,519 --> 00:09:00,640
+offer you uh let's look at look up the
+
+177
+00:08:58,640 --> 00:09:03,200
+documentation. Does it take another
+
+178
+00:09:00,640 --> 00:09:06,160
+buffer? No, it just g uh takes a
+
+179
+00:09:03,200 --> 00:09:09,440
+position. Okay, good. Now purify the
+
+180
+00:09:06,160 --> 00:09:09,440
+code. I think we are
+
+181
+00:09:10,279 --> 00:09:17,360
+done. Move cursor to the next P buffer
+
+182
+00:09:14,080 --> 00:09:17,360
+at position that
+
+183
+00:09:18,200 --> 00:09:23,760
+is that
+
+184
+00:09:20,200 --> 00:09:26,480
+is at the position that that is under
+
+185
+00:09:23,760 --> 00:09:29,839
+cursor. Okay, let let's use that that is
+
+186
+00:09:26,480 --> 00:09:33,640
+more clear. So which one is more clear?
+
+187
+00:09:29,839 --> 00:09:37,040
+A the phrasing for this documentation or
+
+188
+00:09:33,640 --> 00:09:39,360
+B is uh the number under current cursor
+
+189
+00:09:37,040 --> 00:09:42,279
+position jump to it in next buffer.
+
+190
+00:09:39,360 --> 00:09:44,680
+Okay. So which one is more has more
+
+191
+00:09:42,279 --> 00:09:49,880
+clarity? Tell
+
+192
+00:09:44,680 --> 00:09:52,880
+me choker man. Hi. So you know so this
+
+193
+00:09:49,880 --> 00:09:55,600
+is okay. So let's not worry about that.
+
+194
+00:09:52,880 --> 00:09:58,320
+Okay. So eval the buffer. Fantastic. Now
+
+195
+00:09:55,600 --> 00:10:00,720
+we can try it. So let's see. So what is
+
+196
+00:09:58,320 --> 00:10:04,560
+the current buffer position cer position
+
+197
+00:10:00,720 --> 00:10:07,680
+of this right now? So let's um so we can
+
+198
+00:10:04,560 --> 00:10:11,279
+let's say here okay so we call describe
+
+199
+00:10:07,680 --> 00:10:13,720
+chart it will tell you position two 20
+
+200
+00:10:11,279 --> 00:10:15,800
+21 28 okay copy
+
+201
+00:10:13,720 --> 00:10:19,519
+it okay
+
+202
+00:10:15,800 --> 00:10:23,200
+so new buffer well actually let's leave
+
+203
+00:10:19,519 --> 00:10:24,959
+it now actually well anyway so 218 and
+
+204
+00:10:23,200 --> 00:10:28,000
+now let's move the cruiser somewhere
+
+205
+00:10:24,959 --> 00:10:31,079
+else to the bottom okay so now we want
+
+206
+00:10:28,000 --> 00:10:34,720
+to call this command okay
+
+207
+00:10:31,079 --> 00:10:38,200
+So call
+
+208
+00:10:34,720 --> 00:10:40,360
+uh what what is the name? Go
+
+209
+00:10:38,200 --> 00:10:44,279
+to chart
+
+210
+00:10:40,360 --> 00:10:46,040
+position. Go to position next. Okay. Do
+
+211
+00:10:44,279 --> 00:10:52,160
+it.
+
+212
+00:10:46,040 --> 00:10:54,800
+Failed integer or marker 218. So, oh you
+
+213
+00:10:52,160 --> 00:10:56,880
+you forgot to change string to number
+
+214
+00:10:54,800 --> 00:11:00,959
+because the go to chart requires a
+
+215
+00:10:56,880 --> 00:11:04,519
+number but your Xnum is a string you see
+
+216
+00:11:00,959 --> 00:11:10,079
+buff a substring so string to
+
+217
+00:11:04,519 --> 00:11:13,440
+num okay that eval the buffer split and
+
+218
+00:11:10,079 --> 00:11:16,640
+go to that okay now if you call it it
+
+219
+00:11:13,440 --> 00:11:17,480
+will move it to somewhere to here okay
+
+220
+00:11:16,640 --> 00:11:19,600
+let's
+
+221
+00:11:17,480 --> 00:11:23,440
+see meta
+
+222
+00:11:19,600 --> 00:11:27,040
+Go to it. Fantastic and beautiful. Can
+
+223
+00:11:23,440 --> 00:11:30,680
+you guys see? Fantastic. We've done it.
+
+224
+00:11:27,040 --> 00:11:35,440
+So, let's move to um position. That's
+
+225
+00:11:30,680 --> 00:11:38,240
+done, you know. So, it's syntax correct.
+
+226
+00:11:35,440 --> 00:11:42,959
+So, that is today's fruit. Now, we need
+
+227
+00:11:38,240 --> 00:11:46,720
+to write another one. Uh go to um line.
+
+228
+00:11:42,959 --> 00:11:52,720
+Okay. So, but let's rename this go to go
+
+229
+00:11:46,720 --> 00:11:52,720
+to position. Um wait it needs to be
+
+230
+00:11:52,839 --> 00:11:58,880
+um let's say go to char next buffer.
+
+231
+00:11:56,000 --> 00:12:01,920
+Okay that that is more in sync with how
+
+232
+00:11:58,880 --> 00:12:04,640
+emacs name it because in EMAC you have
+
+233
+00:12:01,920 --> 00:12:07,600
+the go to char command. It doesn't say
+
+234
+00:12:04,640 --> 00:12:11,040
+go to position but it says go to char.
+
+235
+00:12:07,600 --> 00:12:12,760
+So so this will be go to char next
+
+236
+00:12:11,040 --> 00:12:16,360
+buffer.
+
+237
+00:12:12,760 --> 00:12:18,360
+Okay fantastic and beautiful.
+
+238
+00:12:16,360 --> 00:12:22,959
+Now put it
+
+239
+00:12:18,360 --> 00:12:26,160
+back. Cut. Paste. Paste. Syntax. Curve
+
+240
+00:12:22,959 --> 00:12:30,079
+the hole. And now pop out. Pop out this
+
+241
+00:12:26,160 --> 00:12:33,040
+one. Now this one is go to line number.
+
+242
+00:12:30,079 --> 00:12:37,480
+Next buffer. Okay. Move cursor to next
+
+243
+00:12:33,040 --> 00:12:41,839
+buffer that at at position
+
+244
+00:12:37,480 --> 00:12:45,639
+at at line number that is under cursor.
+
+245
+00:12:41,839 --> 00:12:47,720
+Okay. Let's just just use
+
+246
+00:12:45,639 --> 00:12:50,880
+that.
+
+247
+00:12:47,720 --> 00:12:54,959
+Okay. Okay. Fantastic. We just modify
+
+248
+00:12:50,880 --> 00:12:57,920
+this. Um so what to do? So you need to
+
+249
+00:12:54,959 --> 00:13:00,079
+grab the number like before we have it.
+
+250
+00:12:57,920 --> 00:13:02,880
+Then you grab the number. Yes. Then you
+
+251
+00:13:00,079 --> 00:13:04,680
+go to line. So instead of go to chart,
+
+252
+00:13:02,880 --> 00:13:09,760
+go to
+
+253
+00:13:04,680 --> 00:13:13,040
+line. Describe function. Go to line. Do
+
+254
+00:13:09,760 --> 00:13:17,399
+we have it? Yes. It's defined in this
+
+255
+00:13:13,040 --> 00:13:20,240
+simple uh emac this
+
+256
+00:13:17,399 --> 00:13:23,440
+simple. Go to line go to line counting
+
+257
+00:13:20,240 --> 00:13:26,079
+from line one at beginning of a buffer.
+
+258
+00:13:23,440 --> 00:13:29,120
+Okay. Uh if called interactively
+
+259
+00:13:26,079 --> 00:13:31,519
+whatever okay so what uh so line number
+
+260
+00:13:29,120 --> 00:13:36,480
+buffer or it takes a buffer in this case
+
+261
+00:13:31,519 --> 00:13:38,720
+in relative. Okay. So okay so we copy
+
+262
+00:13:36,480 --> 00:13:42,519
+it. Go to line that's what we want.
+
+263
+00:13:38,720 --> 00:13:44,360
+Close it. go to line
+
+264
+00:13:42,519 --> 00:13:49,240
+that that's
+
+265
+00:13:44,360 --> 00:13:52,000
+it that is it okay now eval the
+
+266
+00:13:49,240 --> 00:13:54,399
+buffer so now Emacs also know this
+
+267
+00:13:52,000 --> 00:13:56,320
+command now let's find the line okay so
+
+268
+00:13:54,399 --> 00:14:00,440
+let's find the line what what is this
+
+269
+00:13:56,320 --> 00:14:00,440
+line number does it say
+
+270
+00:14:00,519 --> 00:14:07,120
+um so search for
+
+271
+00:14:03,800 --> 00:14:10,800
+line okay you see Emacs usually doesn't
+
+272
+00:14:07,120 --> 00:14:13,519
+tell you line numbers uh Emacs is like
+
+273
+00:14:10,800 --> 00:14:16,720
+character oriented. It doesn't go by
+
+274
+00:14:13,519 --> 00:14:19,920
+line. In most other editors, they go by
+
+275
+00:14:16,720 --> 00:14:24,320
+line, a line number then column number.
+
+276
+00:14:19,920 --> 00:14:25,560
+But Emacs is like uh that is not the
+
+277
+00:14:24,320 --> 00:14:28,240
+native
+
+278
+00:14:25,560 --> 00:14:32,639
+behavior. The native behavior is by
+
+279
+00:14:28,240 --> 00:14:35,560
+characters position. Okay. So uh so what
+
+280
+00:14:32,639 --> 00:14:39,920
+so this uh go to line
+
+281
+00:14:35,560 --> 00:14:43,279
+so that will work. Yes. So what what um
+
+282
+00:14:39,920 --> 00:14:45,199
+what what else we need to think about
+
+283
+00:14:43,279 --> 00:14:47,920
+other window then go to line I think
+
+284
+00:14:45,199 --> 00:14:50,800
+that's it oh you need to determine what
+
+285
+00:14:47,920 --> 00:14:52,920
+line is this okay this is line five okay
+
+286
+00:14:50,800 --> 00:14:57,279
+so let's
+
+287
+00:14:52,920 --> 00:15:00,920
+say the buffer let's switch to empty
+
+288
+00:14:57,279 --> 00:15:02,600
+let's say line five okay
+
+289
+00:15:00,920 --> 00:15:07,040
+now
+
+290
+00:15:02,600 --> 00:15:10,040
+call go to line number next buffer do it
+
+291
+00:15:07,040 --> 00:15:13,360
+fantastic Fantastic. Let's try it
+
+292
+00:15:10,040 --> 00:15:15,160
+again. Do it. Fantastic. Now, let's move
+
+293
+00:15:13,360 --> 00:15:18,320
+it to the
+
+294
+00:15:15,160 --> 00:15:20,519
+top. Fantastic. It always move here. You
+
+295
+00:15:18,320 --> 00:15:24,040
+see? Fantastic. And
+
+296
+00:15:20,519 --> 00:15:30,800
+beautiful. Now, put it back. Color the
+
+297
+00:15:24,040 --> 00:15:30,800
+buffer. Show in browser. Fantastic. Task
+
+298
+00:15:31,880 --> 00:15:39,399
+complete. Okay. So, am I doing good?
+
+299
+00:15:35,279 --> 00:15:42,959
+Thank you guys. Pay me. Okay, go to
+
+300
+00:15:39,399 --> 00:15:42,959
+sulli.info and
+
+301
+00:15:43,079 --> 00:15:48,800
+pay. Technically, we are done now. We
+
+302
+00:15:46,160 --> 00:15:50,279
+can continue to do the next one or we
+
+303
+00:15:48,800 --> 00:15:54,160
+can leave that
+
+304
+00:15:50,279 --> 00:15:56,480
+tomorrow. Uh, so it's only 15 minutes, I
+
+305
+00:15:54,160 --> 00:16:00,320
+think. Let's leave it tomorrow. Okay,
+
+306
+00:15:56,480 --> 00:16:00,320
+shall we? Fantastic. Thank
+
+307
+00:16:01,720 --> 00:16:09,279
+you. This is jaw
+
+308
+00:16:04,600 --> 00:16:11,079
+hat setting skater 3 server majong way
+
+309
+00:16:09,279 --> 00:16:15,800
+peanut. What the
+
+310
+00:16:11,079 --> 00:16:20,240
+ That's um that's a name uh
+
+311
+00:16:15,800 --> 00:16:25,560
+scam. Uh let me show you about that one.
+
+312
+00:16:20,240 --> 00:16:30,199
+Okay. Name scam. So you go to Kasali
+
+313
+00:16:25,560 --> 00:16:34,160
+info. Kasali info. And uh go to the
+
+314
+00:16:30,199 --> 00:16:34,160
+homepage. Go down.
+
+315
+00:16:34,880 --> 00:16:39,360
+and go all the way down. Here is how you
+
+316
+00:16:36,959 --> 00:16:42,560
+pay me. Patreon, Amazon, gift card,
+
+317
+00:16:39,360 --> 00:16:46,399
+PayPal. Okay, copy my email address and
+
+318
+00:16:42,560 --> 00:16:50,399
+paste it. Then you can send me money.
+
+319
+00:16:46,399 --> 00:16:55,880
+Okay, but now we need to go to scams and
+
+320
+00:16:50,399 --> 00:17:00,000
+uh spam and CEO, SEO, those
+
+321
+00:16:55,880 --> 00:17:02,639
+scams and uh we got a name scam. So they
+
+322
+00:17:00,000 --> 00:17:06,880
+are dated. So this is my documentation
+
+323
+00:17:02,639 --> 00:17:10,000
+of the web spam, scam and SEO. SEO is
+
+324
+00:17:06,880 --> 00:17:11,559
+actually part of the scam and spam
+
+325
+00:17:10,000 --> 00:17:15,039
+created by
+
+326
+00:17:11,559 --> 00:17:17,839
+Google. Okay. So you know so over the
+
+327
+00:17:15,039 --> 00:17:20,240
+years every year or two there is a
+
+328
+00:17:17,839 --> 00:17:24,559
+different fashion and trend different
+
+329
+00:17:20,240 --> 00:17:27,439
+techniques of spam spam or scam. Okay.
+
+330
+00:17:24,559 --> 00:17:31,520
+So in year 2000 year 11 actually it goes
+
+331
+00:17:27,439 --> 00:17:35,080
+back to year 1990s but I only started to
+
+332
+00:17:31,520 --> 00:17:37,320
+write about it. So the first one 2011
+
+333
+00:17:35,080 --> 00:17:40,320
+translation SEO
+
+334
+00:17:37,320 --> 00:17:43,120
+scam. Okay. What they will do is that
+
+335
+00:17:40,320 --> 00:17:45,760
+they will send you email you know
+
+336
+00:17:43,120 --> 00:17:48,160
+politely request to translate one of
+
+337
+00:17:45,760 --> 00:17:51,120
+your pages in different language you
+
+338
+00:17:48,160 --> 00:17:54,000
+know in to for example English right? I
+
+339
+00:17:51,120 --> 00:17:57,200
+write English. So they will say oh uh we
+
+340
+00:17:54,000 --> 00:17:59,440
+are in Russia or we are in uh India or
+
+341
+00:17:57,200 --> 00:18:02,240
+not India but Russia or you know some
+
+342
+00:17:59,440 --> 00:18:05,039
+other country you know uh we need can
+
+343
+00:18:02,240 --> 00:18:07,960
+can we please translate your uh article
+
+344
+00:18:05,039 --> 00:18:10,360
+into our language uh I'm asking for
+
+345
+00:18:07,960 --> 00:18:12,020
+permission you know
+
+346
+00:18:10,360 --> 00:18:13,720
+but but
+
+347
+00:18:12,020 --> 00:18:16,480
+[Music]
+
+348
+00:18:13,720 --> 00:18:19,360
+actually so their website is actually
+
+349
+00:18:16,480 --> 00:18:22,400
+just a spam spam website like lots of
+
+350
+00:18:19,360 --> 00:18:24,799
+random ads. Okay. So they want your
+
+351
+00:18:22,400 --> 00:18:28,000
+article which is suppose you know they
+
+352
+00:18:24,799 --> 00:18:31,600
+pick a article you wrote very popular
+
+353
+00:18:28,000 --> 00:18:34,080
+they want a copy of it in their website
+
+354
+00:18:31,600 --> 00:18:36,240
+translated in other langu language but
+
+355
+00:18:34,080 --> 00:18:39,760
+their website you look at it it's like
+
+356
+00:18:36,240 --> 00:18:42,160
+full of like ads and gambling ads casino
+
+357
+00:18:39,760 --> 00:18:44,840
+ads or whatever whatever you know or
+
+358
+00:18:42,160 --> 00:18:49,120
+male brides you know so that's a
+
+359
+00:18:44,840 --> 00:18:51,760
+translation SEO scam you know they nice
+
+360
+00:18:49,120 --> 00:18:54,559
+they have people nice and gently write
+
+361
+00:18:51,760 --> 00:18:56,960
+you email asking for your permission for
+
+362
+00:18:54,559 --> 00:18:59,440
+this translation. They they never
+
+363
+00:18:56,960 --> 00:19:03,120
+mention, oh by the way, we got 1,000 ads
+
+364
+00:18:59,440 --> 00:19:06,880
+on our website. You know that's so lots
+
+365
+00:19:03,120 --> 00:19:10,160
+of techniques. So this is 2011. Now let
+
+366
+00:19:06,880 --> 00:19:14,039
+me mention this particular one setting
+
+367
+00:19:10,160 --> 00:19:16,440
+skater three something uh something.
+
+368
+00:19:14,039 --> 00:19:22,559
+Okay. So that would
+
+369
+00:19:16,440 --> 00:19:25,360
+be 2012 2014 five five spam 2014 that
+
+370
+00:19:22,559 --> 00:19:28,760
+still happens today you know today we
+
+371
+00:19:25,360 --> 00:19:31,679
+got thbot likes spam like on
+
+372
+00:19:28,760 --> 00:19:35,840
+Twitter the minute the the second you
+
+373
+00:19:31,679 --> 00:19:38,840
+post within a second you got people
+
+374
+00:19:35,840 --> 00:19:42,559
+thoughts you know girls like you know
+
+375
+00:19:38,840 --> 00:19:46,640
+girls thought bots they like your post
+
+376
+00:19:42,559 --> 00:19:49,760
+the like within a second happens often.
+
+377
+00:19:46,640 --> 00:19:52,000
+So five f favorite span. Okay. So
+
+378
+00:19:49,760 --> 00:19:54,039
+anyway, so there's a lot a lot of it.
+
+379
+00:19:52,000 --> 00:19:57,840
+Okay. Different
+
+380
+00:19:54,039 --> 00:20:01,120
+techniques. But then uh yeah, so here we
+
+381
+00:19:57,840 --> 00:20:04,600
+were talking about the inst insta bbots
+
+382
+00:20:01,120 --> 00:20:07,200
+scam. So you can see some of them insta
+
+383
+00:20:04,600 --> 00:20:09,440
+thoughtbot like the the moment like
+
+384
+00:20:07,200 --> 00:20:14,919
+within a second you post you got all
+
+385
+00:20:09,440 --> 00:20:14,919
+these girls who likes your post.
+
+386
+00:20:15,919 --> 00:20:21,720
+you know. So here's some examples. Okay.
+
+387
+00:20:18,799 --> 00:20:26,240
+My documentation of
+
+388
+00:20:21,720 --> 00:20:30,000
+society. Uh now, so now this is uh we
+
+389
+00:20:26,240 --> 00:20:34,000
+are looking for uh there YouTube spam
+
+390
+00:20:30,000 --> 00:20:36,919
+comments of random person names. Okay.
+
+391
+00:20:34,000 --> 00:20:40,720
+So this happened in
+
+392
+00:20:36,919 --> 00:20:44,280
+2024 beginning September. Precisely
+
+393
+00:20:40,720 --> 00:20:47,200
+beginning September. Okay. So when you
+
+394
+00:20:44,280 --> 00:20:49,120
+um you know on YouTube they you you got
+
+395
+00:20:47,200 --> 00:20:51,520
+lots of these comments like every day
+
+396
+00:20:49,120 --> 00:20:54,240
+you got tens 10 10 or something you know
+
+397
+00:20:51,520 --> 00:20:56,559
+like I have documentation of it and what
+
+398
+00:20:54,240 --> 00:21:01,200
+they post is just random people names
+
+399
+00:20:56,559 --> 00:21:04,720
+like this one Lori Cape then Wolf Me and
+
+400
+00:21:01,200 --> 00:21:08,559
+this one Dorothy Rich this one Emily
+
+401
+00:21:04,720 --> 00:21:12,000
+Drive this one Thompson Richard Garcia
+
+402
+00:21:08,559 --> 00:21:14,159
+Paul Martin Donald you know this one uh
+
+403
+00:21:12,000 --> 00:21:16,720
+This one, same guy. So he posted
+
+404
+00:21:14,159 --> 00:21:19,559
+several, you know, like this continue.
+
+405
+00:21:16,720 --> 00:21:23,039
+This lasted for like
+
+406
+00:21:19,559 --> 00:21:26,120
+um for a month. Okay, you just got this
+
+407
+00:21:23,039 --> 00:21:30,400
+random accounts posting just
+
+408
+00:21:26,120 --> 00:21:34,280
+names, you know, this go on and on to
+
+409
+00:21:30,400 --> 00:21:38,240
+your YouTube video. Okay, so these
+
+410
+00:21:34,280 --> 00:21:41,440
+are I just want to mention my uh
+
+411
+00:21:38,240 --> 00:21:45,200
+documentation of the spams and scams.
+
+412
+00:21:41,440 --> 00:21:49,760
+No, but we got this guy setting scatter
+
+413
+00:21:45,200 --> 00:21:51,760
+three server majong ways pean simul
+
+414
+00:21:49,760 --> 00:21:55,280
+don't know what that is. Okay, that's it
+
+415
+00:21:51,760 --> 00:21:55,280
+for today. Bye,
+
+416
+00:21:59,240 --> 00:22:04,880
+guys. So, we wrote this. Fantastic. The
+
+417
+00:22:02,720 --> 00:22:08,000
+other one we'll do next day. Okay, we
+
+418
+00:22:04,880 --> 00:22:10,559
+wrote this uh which is pretty good.
+
+419
+00:22:08,000 --> 00:22:13,760
+uh I actually I should show a example
+
+420
+00:22:10,559 --> 00:22:16,799
+where okay let's show example actually
+
+421
+00:22:13,760 --> 00:22:20,280
+where the actual error happens okay so
+
+422
+00:22:16,799 --> 00:22:26,360
+let's go to unic code uh let's go to my
+
+423
+00:22:20,280 --> 00:22:30,520
+webdev web my webdev page so let's go to
+
+424
+00:22:26,360 --> 00:22:34,080
+hsl color so you got JavaScript that
+
+425
+00:22:30,520 --> 00:22:37,200
+generates the syntax for the hue
+
+426
+00:22:34,080 --> 00:22:40,720
+saturation lightness color syntax for
+
+427
+00:22:37,200 --> 00:22:43,520
+CSS. You see, you can generate random
+
+428
+00:22:40,720 --> 00:22:46,720
+colors and then you can just copy it.
+
+429
+00:22:43,520 --> 00:22:50,720
+Okay. So, this page has a JavaScript.
+
+430
+00:22:46,720 --> 00:22:54,000
+Search for JS. There it is. Open it. Uh,
+
+431
+00:22:50,720 --> 00:22:56,640
+warning, there's a TypeScript exist. I'm
+
+432
+00:22:54,000 --> 00:22:59,280
+opening TypeScript instead. Indeed, this
+
+433
+00:22:56,640 --> 00:23:02,120
+is TypeScript. Okay. So, you look at you
+
+434
+00:22:59,280 --> 00:23:04,320
+see this this TypeScript. This is
+
+435
+00:23:02,120 --> 00:23:06,640
+JavaScript. The JavaScript is
+
+436
+00:23:04,320 --> 00:23:08,720
+automatically generated. Let's delete
+
+437
+00:23:06,640 --> 00:23:11,840
+it. So now it's good. Now it's just
+
+438
+00:23:08,720 --> 00:23:14,679
+TypeScript. Open it. So now let's press
+
+439
+00:23:11,840 --> 00:23:18,720
+a key to compile
+
+440
+00:23:14,679 --> 00:23:20,919
+it. Command successful. Okay. So now go
+
+441
+00:23:18,720 --> 00:23:24,600
+back to the directory.
+
+442
+00:23:20,919 --> 00:23:27,600
+Refresh. Uh refresh. You can see the
+
+443
+00:23:24,600 --> 00:23:29,840
+JavaScript version is generated. Okay.
+
+444
+00:23:27,600 --> 00:23:32,440
+Now go to TypeScript again. Now let's
+
+445
+00:23:29,840 --> 00:23:34,600
+now this time let's make an error
+
+446
+00:23:32,440 --> 00:23:39,520
+somewhere. Okay.
+
+447
+00:23:34,600 --> 00:23:39,520
+ttt let's see now
+
+448
+00:23:39,559 --> 00:23:49,480
+compile cannot find name ttt error
+
+449
+00:23:44,360 --> 00:23:52,640
+okay so there it is okay so uh let's see
+
+450
+00:23:49,480 --> 00:23:55,039
+um that arrow is too simple but it work
+
+451
+00:23:52,640 --> 00:23:57,039
+but so let's move here so you know
+
+452
+00:23:55,039 --> 00:24:00,080
+suppose your cursor is somewhere you
+
+453
+00:23:57,039 --> 00:24:04,400
+know so you you got this error so you
+
+454
+00:24:00,080 --> 00:24:06,640
+jump to the error line then you call
+
+455
+00:24:04,400 --> 00:24:10,080
+line number next buffer go to line
+
+456
+00:24:06,640 --> 00:24:10,080
+number okay do it
+
+457
+00:24:10,279 --> 00:24:17,480
+fantastic works okay so now remove that
+
+458
+00:24:14,720 --> 00:24:23,520
+compile it now it's
+
+459
+00:24:17,480 --> 00:24:23,520
+good shell command successful okay bye
+

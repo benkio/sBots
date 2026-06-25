@@ -1,0 +1,6992 @@
+1
+00:00:02,159 --> 00:00:08,000
+Hello guys, good morning everyone.
+
+2
+00:00:04,400 --> 00:00:11,679
+Welcome to another episode of talk show.
+
+3
+00:00:08,000 --> 00:00:14,440
+We are going to code emac bisp today. Uh
+
+4
+00:00:11,679 --> 00:00:18,720
+emac bisp. Let's see. So programming
+
+5
+00:00:14,440 --> 00:00:22,039
+language blog uh talk show. Emac bisp
+
+6
+00:00:18,720 --> 00:00:25,600
+today episode
+
+7
+00:00:22,039 --> 00:00:28,240
+663 eacisp coding. Uh I'm going to write
+
+8
+00:00:25,600 --> 00:00:30,560
+a command that shows all duplicate
+
+9
+00:00:28,240 --> 00:00:33,440
+links. So, let me show you what it is.
+
+10
+00:00:30,560 --> 00:00:37,760
+So, if you are watching offline, play at
+
+11
+00:00:33,440 --> 00:00:40,079
+1.5 speed because I ramble over and skip
+
+12
+00:00:37,760 --> 00:00:42,040
+about. If you are here, say hi. Okay,
+
+13
+00:00:40,079 --> 00:00:45,360
+love to see your comments. If you are
+
+14
+00:00:42,040 --> 00:00:45,360
+here, say
+
+15
+00:00:45,559 --> 00:00:51,360
+hi. Okay, so let's uh so what what is it
+
+16
+00:00:49,600 --> 00:00:54,239
+we're going to do? So, let me going to
+
+17
+00:00:51,360 --> 00:00:58,640
+uh let me show you. So, this is my
+
+18
+00:00:54,239 --> 00:01:01,320
+programming blog. So, um let's go to the
+
+19
+00:00:58,640 --> 00:01:05,280
+article garbage collection and scroll
+
+20
+00:01:01,320 --> 00:01:07,880
+down. Uh not that one. So, let's see.
+
+21
+00:01:05,280 --> 00:01:11,680
+Let me show you what uh am I
+
+22
+00:01:07,880 --> 00:01:14,159
+doing. Why Unix man page sucks. So, this
+
+23
+00:01:11,680 --> 00:01:17,840
+article. Okay. So, scroll down. You can
+
+24
+00:01:14,159 --> 00:01:20,960
+see um there is a lot uh links. Okay.
+
+25
+00:01:17,840 --> 00:01:25,360
+Why Unix sucks
+
+26
+00:01:20,960 --> 00:01:28,960
+uh series of articles about this topic.
+
+27
+00:01:25,360 --> 00:01:33,799
+So why Unix shell syntax sucks? Okay. Uh
+
+28
+00:01:28,960 --> 00:01:37,520
+let me try to find the place. Okay.
+
+29
+00:01:33,799 --> 00:01:41,320
+Uh yeah. Okay. So let's try another one.
+
+30
+00:01:37,520 --> 00:01:44,320
+The nature of Unix philosophy which is a
+
+31
+00:01:41,320 --> 00:01:48,240
+sham. Okay. Let's try this this article.
+
+32
+00:01:44,320 --> 00:01:51,840
+Okay. So let's go to um talk show. Go to
+
+33
+00:01:48,240 --> 00:01:55,040
+today's talk show and uh paste the link
+
+34
+00:01:51,840 --> 00:01:58,240
+here. Showing browser. Okay. remove the
+
+35
+00:01:55,040 --> 00:02:00,799
+link live stream. Okay, so this is about
+
+36
+00:01:58,240 --> 00:02:02,719
+this is going to be Emac Lisp coding. If
+
+37
+00:02:00,799 --> 00:02:05,360
+you don't know already, Emacs is the
+
+38
+00:02:02,719 --> 00:02:08,000
+powerful editor. I'm using the most
+
+39
+00:02:05,360 --> 00:02:10,879
+powerful more powerful than VS code or
+
+40
+00:02:08,000 --> 00:02:16,200
+whatever the most powerful you know uh
+
+41
+00:02:10,879 --> 00:02:19,520
+editor and I'm using HTML mod. I'm using
+
+42
+00:02:16,200 --> 00:02:22,560
+um I'm using Safly Keys which is the
+
+43
+00:02:19,520 --> 00:02:26,080
+most efficient key binding for Emacs
+
+44
+00:02:22,560 --> 00:02:29,280
+more efficient than VI or VIM. Uh and
+
+45
+00:02:26,080 --> 00:02:32,720
+you can watch a video about it. Uh and
+
+46
+00:02:29,280 --> 00:02:35,920
+here is the key binding. So basically
+
+47
+00:02:32,720 --> 00:02:38,160
+softly keys if you use it in EMAC you
+
+48
+00:02:35,920 --> 00:02:40,879
+don't have to press control keys or meta
+
+49
+00:02:38,160 --> 00:02:44,160
+keys basically. So it's like VI but the
+
+50
+00:02:40,879 --> 00:02:47,440
+key binding is more efficient.
+
+51
+00:02:44,160 --> 00:02:50,160
+uh than Vim for doing the same thing.
+
+52
+00:02:47,440 --> 00:02:54,360
+So, Safly Keys and I'm also using Kasa
+
+53
+00:02:50,160 --> 00:02:58,319
+HTML mod. So, there uh you can you know
+
+54
+00:02:54,360 --> 00:03:01,120
+if keys is free and HTML mod you have to
+
+55
+00:02:58,319 --> 00:03:05,040
+pay me. Uh my stuff has been free for
+
+56
+00:03:01,120 --> 00:03:07,760
+like 15 years but nobody cares. So, so
+
+57
+00:03:05,040 --> 00:03:10,000
+now you pay to get it. It's open source.
+
+58
+00:03:07,760 --> 00:03:12,159
+Okay. So softly keys the pink window
+
+59
+00:03:10,000 --> 00:03:15,840
+shows my command codes like I can delete
+
+60
+00:03:12,159 --> 00:03:19,040
+the entire list and that's smart delete
+
+61
+00:03:15,840 --> 00:03:22,239
+undo or I can delete you know I can
+
+62
+00:03:19,040 --> 00:03:25,920
+delete the whole panel
+
+63
+00:03:22,239 --> 00:03:27,760
+um and uh and so on. So you can see the
+
+64
+00:03:25,920 --> 00:03:31,200
+command codes on the right and the
+
+65
+00:03:27,760 --> 00:03:34,879
+keystrokes on the left and I'm using a
+
+66
+00:03:31,200 --> 00:03:37,280
+vorac keyboard layout. So, Vora keyboard
+
+67
+00:03:34,879 --> 00:03:41,280
+layout. Uh, so you can go to saw
+
+68
+00:03:37,280 --> 00:03:44,159
+keyboard blog and you can read
+
+69
+00:03:41,280 --> 00:03:46,959
+everything about keyboards you ever
+
+70
+00:03:44,159 --> 00:03:48,680
+wanted to know. Okay. So, Vora keyboard
+
+71
+00:03:46,959 --> 00:03:50,879
+layout
+
+72
+00:03:48,680 --> 00:03:54,080
+that's, you know, efficient keyboard
+
+73
+00:03:50,879 --> 00:03:56,239
+layout. Okay. So, copy that. So, showing
+
+74
+00:03:54,080 --> 00:03:59,200
+browser. So, uh, close that. Showing
+
+75
+00:03:56,239 --> 00:04:02,879
+browser. Okay. Let's put the links here
+
+76
+00:03:59,200 --> 00:04:05,760
+so people can see what we talked about.
+
+77
+00:04:02,879 --> 00:04:08,480
+Okay, that's a introduction. Now let's
+
+78
+00:04:05,760 --> 00:04:11,680
+code the today's problem. So you go to
+
+79
+00:04:08,480 --> 00:04:15,120
+this page, you can see there are several
+
+80
+00:04:11,680 --> 00:04:19,359
+links there. There's a see also see also
+
+81
+00:04:15,120 --> 00:04:23,000
+see also like related uh essays related
+
+82
+00:04:19,359 --> 00:04:26,800
+to this page the nature of Unix
+
+83
+00:04:23,000 --> 00:04:30,639
+philosophy and then you also have um a
+
+84
+00:04:26,800 --> 00:04:33,759
+topic box. So all the articles in this
+
+85
+00:04:30,639 --> 00:04:37,720
+uh links in this uh box are all related
+
+86
+00:04:33,759 --> 00:04:42,240
+to why Unix
+
+87
+00:04:37,720 --> 00:04:45,199
+sucks. So I have like 6,000 like 10,000
+
+88
+00:04:42,240 --> 00:04:47,600
+HTML pages written in the past 10 years
+
+89
+00:04:45,199 --> 00:04:50,320
+uh manually like like what I'm doing
+
+90
+00:04:47,600 --> 00:04:53,440
+right now. So sometimes the articles
+
+91
+00:04:50,320 --> 00:04:56,880
+move about. So for example today I just
+
+92
+00:04:53,440 --> 00:05:00,639
+created um you know this this topic box
+
+93
+00:04:56,880 --> 00:05:03,360
+is new. So but you see but some of the
+
+94
+00:05:00,639 --> 00:05:06,479
+links are repeated. So for example this
+
+95
+00:05:03,360 --> 00:05:09,680
+article do Unix tools do one thing well?
+
+96
+00:05:06,479 --> 00:05:12,880
+You know that was the premise of the
+
+97
+00:05:09,680 --> 00:05:15,520
+Unix philosophy. They say the Unix each
+
+98
+00:05:12,880 --> 00:05:18,240
+you know shell tools do one thing well.
+
+99
+00:05:15,520 --> 00:05:21,520
+That's a good quality. That's why Unix
+
+100
+00:05:18,240 --> 00:05:24,160
+is so great. But that is actually total
+
+101
+00:05:21,520 --> 00:05:26,440
+ because Unix tools they do
+
+102
+00:05:24,160 --> 00:05:29,680
+don't they don't do one thing well.
+
+103
+00:05:26,440 --> 00:05:32,080
+Okay. Uh so the article gives details.
+
+104
+00:05:29,680 --> 00:05:34,199
+Do Unix tool do one thing well. You know
+
+105
+00:05:32,080 --> 00:05:36,880
+you can read about the
+
+106
+00:05:34,199 --> 00:05:39,280
+examples. So you can see there's article
+
+107
+00:05:36,880 --> 00:05:41,759
+related you know uh but here but that
+
+108
+00:05:39,280 --> 00:05:45,280
+article do Unix tools do one thing well
+
+109
+00:05:41,759 --> 00:05:48,320
+is repeated also here. You know I just
+
+110
+00:05:45,280 --> 00:05:51,440
+added this this topic box. So there's
+
+111
+00:05:48,320 --> 00:05:53,360
+reps some repet uh repetitions. So let's
+
+112
+00:05:51,440 --> 00:05:56,120
+open this page. Open it. Show in
+
+113
+00:05:53,360 --> 00:05:59,199
+browser. Okay. So let's go
+
+114
+00:05:56,120 --> 00:06:03,280
+down. Let's go down. Then you can see
+
+115
+00:05:59,199 --> 00:06:05,680
+here is the bunch of related uh essays
+
+116
+00:06:03,280 --> 00:06:07,600
+link
+
+117
+00:06:05,680 --> 00:06:10,240
+uh you know. So you got that one, you
+
+118
+00:06:07,600 --> 00:06:14,400
+got that one, then you got this is the
+
+119
+00:06:10,240 --> 00:06:18,479
+topic box. But if you go to the do Unix
+
+120
+00:06:14,400 --> 00:06:19,720
+uh does Unix uh do one thing well let's
+
+121
+00:06:18,479 --> 00:06:24,039
+highlight it
+
+122
+00:06:19,720 --> 00:06:26,800
+yellow. So you can see yellow they are
+
+123
+00:06:24,039 --> 00:06:29,039
+repeated. So when I move the you know
+
+124
+00:06:26,800 --> 00:06:31,680
+when I create a new topic box and move
+
+125
+00:06:29,039 --> 00:06:36,080
+these links about they you have
+
+126
+00:06:31,680 --> 00:06:39,360
+repetition. So now I want to remove this
+
+127
+00:06:36,080 --> 00:06:42,560
+you know uh do Unix tools do one thing
+
+128
+00:06:39,360 --> 00:06:44,720
+well since it's already here. So but
+
+129
+00:06:42,560 --> 00:06:47,440
+there are other links. So the problem is
+
+130
+00:06:44,720 --> 00:06:49,880
+you want to write a command you want to
+
+131
+00:06:47,440 --> 00:06:53,120
+be able to know like which links are
+
+132
+00:06:49,880 --> 00:06:56,400
+duplicated. Okay. So let's close that.
+
+133
+00:06:53,120 --> 00:06:59,720
+Reopen it. So we get rid of the color.
+
+134
+00:06:56,400 --> 00:07:02,560
+And now so now let's
+
+135
+00:06:59,720 --> 00:07:05,360
+um I already have that command. So let
+
+136
+00:07:02,560 --> 00:07:07,440
+me let me call it. Okay. So I press the
+
+137
+00:07:05,360 --> 00:07:11,680
+key. You can see in a ping window site
+
+138
+00:07:07,440 --> 00:07:14,199
+HTML show duplicate links. So it reports
+
+139
+00:07:11,680 --> 00:07:17,599
+it makes a report or these links are
+
+140
+00:07:14,199 --> 00:07:20,160
+duplicated. Uh and but close that it
+
+141
+00:07:17,599 --> 00:07:23,120
+actually highlight the duplicate links.
+
+142
+00:07:20,160 --> 00:07:24,039
+So you see they become red. So that
+
+143
+00:07:23,120 --> 00:07:29,000
+means
+
+144
+00:07:24,039 --> 00:07:32,639
+this this uh file is
+
+145
+00:07:29,000 --> 00:07:35,880
+duplicated oh twice then another time
+
+146
+00:07:32,639 --> 00:07:38,800
+there. So it's actually appears three
+
+147
+00:07:35,880 --> 00:07:40,479
+times. So but but there's a problem. So
+
+148
+00:07:38,800 --> 00:07:43,039
+So let me show you the source code.
+
+149
+00:07:40,479 --> 00:07:46,479
+Okay. Press uh Okay, hold on a second.
+
+150
+00:07:43,039 --> 00:07:50,319
+Um shrink the window. Press press uh
+
+151
+00:07:46,479 --> 00:07:53,599
+wait. Describe key. Press press. And
+
+152
+00:07:50,319 --> 00:07:56,960
+here is a command HTML show duplicate
+
+153
+00:07:53,599 --> 00:07:59,680
+links. Let's go to the source code. So
+
+154
+00:07:56,960 --> 00:08:02,879
+there is a source code. You can see copy
+
+155
+00:07:59,680 --> 00:08:06,319
+it. New buffer. Paste it. Go to the top.
+
+156
+00:08:02,879 --> 00:08:10,360
+Uh make it emac this mod. So you got
+
+157
+00:08:06,319 --> 00:08:14,560
+syntax coloring. Okay. You need to
+
+158
+00:08:10,360 --> 00:08:17,080
+um anyway. So so you can see. So here's
+
+159
+00:08:14,560 --> 00:08:22,240
+a command 50 lines of
+
+160
+00:08:17,080 --> 00:08:27,160
+code. So you I so I need to modify this
+
+161
+00:08:22,240 --> 00:08:33,840
+command. So it will uh let's see close
+
+162
+00:08:27,160 --> 00:08:33,840
+close go to talk show. So it will
+
+163
+00:08:34,039 --> 00:08:41,360
+highlight all links that are repeated.
+
+164
+00:08:38,560 --> 00:08:44,880
+Right now it doesn't do the job because
+
+165
+00:08:41,360 --> 00:08:46,519
+for example because because this one
+
+166
+00:08:44,880 --> 00:08:49,360
+search for
+
+167
+00:08:46,519 --> 00:08:52,240
+it, you know, it does not highlight the
+
+168
+00:08:49,360 --> 00:08:56,279
+first occurrence. It only highlight the
+
+169
+00:08:52,240 --> 00:08:59,120
+repetition. So copy that.
+
+170
+00:08:56,279 --> 00:09:01,040
+Um let's highlight it yellow. Okay. So
+
+171
+00:08:59,120 --> 00:09:04,839
+you can see that's the first occurrence.
+
+172
+00:09:01,040 --> 00:09:08,720
+Then the second occurrence is here.
+
+173
+00:09:04,839 --> 00:09:09,640
+uh you see so I want to make the command
+
+174
+00:09:08,720 --> 00:09:12,320
+to
+
+175
+00:09:09,640 --> 00:09:14,959
+highlight all links that has repetition
+
+176
+00:09:12,320 --> 00:09:16,160
+so let's write that okay that's what
+
+177
+00:09:14,959 --> 00:09:18,720
+we're going to do let's write that
+
+178
+00:09:16,160 --> 00:09:22,399
+command if you ask here say hi of the uh
+
+179
+00:09:18,720 --> 00:09:22,399
+you emac uh
+
+180
+00:09:25,560 --> 00:09:31,360
+lovers shall we do it from scratch or
+
+181
+00:09:28,240 --> 00:09:35,600
+shall we um just modify I think let's do
+
+182
+00:09:31,360 --> 00:09:39,040
+it in from scratch Okay. So, but let me
+
+183
+00:09:35,600 --> 00:09:42,000
+explain why this is tricky. I mean this
+
+184
+00:09:39,040 --> 00:09:44,880
+is not simple as simple as as it seems.
+
+185
+00:09:42,000 --> 00:09:47,519
+Okay. Because when you have a link uh
+
+186
+00:09:44,880 --> 00:09:50,160
+let's see where is the the nature of
+
+187
+00:09:47,519 --> 00:09:51,720
+Unix philosophy. when you have a link
+
+188
+00:09:50,160 --> 00:09:54,959
+you see some of the
+
+189
+00:09:51,720 --> 00:09:59,720
+link I mean it's not simply just
+
+190
+00:09:54,959 --> 00:10:03,519
+checking the duplication of the value of
+
+191
+00:09:59,720 --> 00:10:05,839
+href because it depends on where the
+
+192
+00:10:03,519 --> 00:10:08,200
+file located the file if the file is
+
+193
+00:10:05,839 --> 00:10:11,760
+located in a different
+
+194
+00:10:08,200 --> 00:10:14,160
+directory then the path will contain you
+
+195
+00:10:11,760 --> 00:10:17,519
+know dot dot slash things like that so
+
+196
+00:10:14,160 --> 00:10:22,279
+you cannot simply just check a
+
+197
+00:10:17,519 --> 00:10:24,120
+repetition of the of the value of
+
+198
+00:10:22,279 --> 00:10:27,200
+href. So
+
+199
+00:10:24,120 --> 00:10:29,839
+instead what you have to do is that you
+
+200
+00:10:27,200 --> 00:10:33,720
+go you know search from the beginning of
+
+201
+00:10:29,839 --> 00:10:35,640
+the file for each
+
+202
+00:10:33,720 --> 00:10:40,079
+href
+
+203
+00:10:35,640 --> 00:10:43,680
+occurrence you want to take the value
+
+204
+00:10:40,079 --> 00:10:44,839
+then generate the full file path for
+
+205
+00:10:43,680 --> 00:10:48,240
+this
+
+206
+00:10:44,839 --> 00:10:50,800
+file. Okay. So for example, open that,
+
+207
+00:10:48,240 --> 00:10:53,680
+copy the file path, close it, and let's
+
+208
+00:10:50,800 --> 00:10:58,079
+uh paste it here. So here that that's
+
+209
+00:10:53,680 --> 00:11:02,279
+the full uh file path, absolute path for
+
+210
+00:10:58,079 --> 00:11:06,320
+these. So for so you do this for all
+
+211
+00:11:02,279 --> 00:11:09,040
+h values then you can see which one um
+
+212
+00:11:06,320 --> 00:11:11,040
+they actually repeat. You cannot just go
+
+213
+00:11:09,040 --> 00:11:13,279
+by the file name because then different
+
+214
+00:11:11,040 --> 00:11:15,200
+directory may have the same file name
+
+215
+00:11:13,279 --> 00:11:16,519
+but they actually are different
+
+216
+00:11:15,200 --> 00:11:19,839
+articles.
+
+217
+00:11:16,519 --> 00:11:23,040
+Okay. So, let's write that command. Uh,
+
+218
+00:11:19,839 --> 00:11:26,160
+shall we do from scratch, you know? So,
+
+219
+00:11:23,040 --> 00:11:29,680
+this is the current command. Let's look
+
+220
+00:11:26,160 --> 00:11:32,480
+over it. Comments. Okay. Juang. Is it
+
+221
+00:11:29,680 --> 00:11:34,760
+bad for a woman for a woman to marry
+
+222
+00:11:32,480 --> 00:11:38,399
+someone younger?
+
+223
+00:11:34,760 --> 00:11:41,560
+No. Uh, my parents keep saying that my
+
+224
+00:11:38,399 --> 00:11:44,560
+girlfriend is too old.
+
+225
+00:11:41,560 --> 00:11:47,279
+That's well I you know that's your
+
+226
+00:11:44,560 --> 00:11:49,800
+personal problem. There's no absolute
+
+227
+00:11:47,279 --> 00:11:52,800
+answer.
+
+228
+00:11:49,800 --> 00:11:55,800
+Okay. And so there are there are se
+
+229
+00:11:52,800 --> 00:11:59,640
+there are two issues. One is the age
+
+230
+00:11:55,800 --> 00:12:04,320
+difference of a man and woman for
+
+231
+00:11:59,640 --> 00:12:06,880
+marriage. Um you know and that's one
+
+232
+00:12:04,320 --> 00:12:10,160
+issue. The other issue is your parents
+
+233
+00:12:06,880 --> 00:12:14,000
+opinion versus your opinion on marriage.
+
+234
+00:12:10,160 --> 00:12:16,240
+Okay, so these are two kind of complex
+
+235
+00:12:14,000 --> 00:12:18,639
+social issues and there's no right
+
+236
+00:12:16,240 --> 00:12:21,120
+answer to that. Okay, so first of all
+
+237
+00:12:18,639 --> 00:12:23,760
+the age difference between male and
+
+238
+00:12:21,120 --> 00:12:26,800
+female in marriage.
+
+239
+00:12:23,760 --> 00:12:29,800
+uh and you know so again it's a complex
+
+240
+00:12:26,800 --> 00:12:32,639
+issue that also depends on your cultural
+
+241
+00:12:29,800 --> 00:12:35,040
+background and also depends on your
+
+242
+00:12:32,639 --> 00:12:37,600
+personal situation. For example,
+
+243
+00:12:35,040 --> 00:12:39,160
+typically if if the man is wealthy,
+
+244
+00:12:37,600 --> 00:12:42,480
+powerful and
+
+245
+00:12:39,160 --> 00:12:46,800
+wealthy then you know young girls will
+
+246
+00:12:42,480 --> 00:12:49,440
+just marry you. Okay. Um you know that
+
+247
+00:12:46,800 --> 00:12:52,000
+like so this is about the willingness of
+
+248
+00:12:49,440 --> 00:12:55,279
+the partners partnership you know if you
+
+249
+00:12:52,000 --> 00:12:56,680
+are a powerful rich man even if you are
+
+250
+00:12:55,279 --> 00:13:00,560
+60 years
+
+251
+00:12:56,680 --> 00:13:03,279
+old young girls they just you know they
+
+252
+00:13:00,560 --> 00:13:05,200
+are attracted to you okay you know you
+
+253
+00:13:03,279 --> 00:13:07,040
+can say they are attracted to your money
+
+254
+00:13:05,200 --> 00:13:11,320
+but you know but in general you know
+
+255
+00:13:07,040 --> 00:13:15,920
+they always are attracted to powerful
+
+256
+00:13:11,320 --> 00:13:18,880
+men. Uh so then there's cultural norms.
+
+257
+00:13:15,920 --> 00:13:21,480
+So depending on the era, depending on
+
+258
+00:13:18,880 --> 00:13:24,560
+the location, which country, if you are
+
+259
+00:13:21,480 --> 00:13:26,720
+in western European tradition and
+
+260
+00:13:24,560 --> 00:13:29,760
+there's also differences or if you are
+
+261
+00:13:26,720 --> 00:13:33,360
+in Russia, if you are in China, Japan uh
+
+262
+00:13:29,760 --> 00:13:36,920
+or South Asia or if you are in Islamic
+
+263
+00:13:33,360 --> 00:13:40,639
+countries, the cultural
+
+264
+00:13:36,920 --> 00:13:42,720
+um preferences is different. Okay. So
+
+265
+00:13:40,639 --> 00:13:46,320
+for example in America right now and
+
+266
+00:13:42,720 --> 00:13:50,560
+also it depends on time right now at
+
+267
+00:13:46,320 --> 00:13:53,680
+this decade in USA America for example
+
+268
+00:13:50,560 --> 00:13:55,920
+the cultural situation is that if you
+
+269
+00:13:53,680 --> 00:13:58,800
+are too old you know you know if the age
+
+270
+00:13:55,920 --> 00:14:00,920
+gap is too large then they don't you
+
+271
+00:13:58,800 --> 00:14:04,160
+know they don't you know the US
+
+272
+00:14:00,920 --> 00:14:06,560
+Americans culture they think it's a
+
+273
+00:14:04,160 --> 00:14:11,360
+problem it's like oh no you cannot do
+
+274
+00:14:06,560 --> 00:14:14,360
+that okay that's the current US American
+
+275
+00:14:11,360 --> 00:14:16,920
+uh euro European
+
+276
+00:14:14,360 --> 00:14:20,480
+American cultural
+
+277
+00:14:16,920 --> 00:14:23,480
+norm but not Asia not Asia and I don't
+
+278
+00:14:20,480 --> 00:14:26,480
+suppose not in other other uh uh
+
+279
+00:14:23,480 --> 00:14:28,639
+countries anyway so there's personal
+
+280
+00:14:26,480 --> 00:14:33,360
+situation personal preference there's
+
+281
+00:14:28,639 --> 00:14:35,839
+cultural issues and uh then there is um
+
+282
+00:14:33,360 --> 00:14:39,800
+am I digressing too much we supposed to
+
+283
+00:14:35,839 --> 00:14:42,360
+do EMAC list okay we'll get get back so
+
+284
+00:14:39,800 --> 00:14:45,920
+Yeah. So, we were talking
+
+285
+00:14:42,360 --> 00:14:49,199
+about marriage between older man and
+
+286
+00:14:45,920 --> 00:14:53,519
+younger woman. Okay. Now, what about if
+
+287
+00:14:49,199 --> 00:14:55,839
+the woman is older, the guy is young,
+
+288
+00:14:53,519 --> 00:14:59,680
+let's say the guy is your age, let's say
+
+289
+00:14:55,839 --> 00:15:01,079
+20 something, and the women let's say 30
+
+290
+00:14:59,680 --> 00:15:04,160
+or even
+
+291
+00:15:01,079 --> 00:15:07,600
+40. Now typically that doesn't usually
+
+292
+00:15:04,160 --> 00:15:10,079
+happen because for women for thousands
+
+293
+00:15:07,600 --> 00:15:12,560
+millions of years they need to be young
+
+294
+00:15:10,079 --> 00:15:14,720
+in order to have children. When they are
+
+295
+00:15:12,560 --> 00:15:17,120
+past 30
+
+296
+00:15:14,720 --> 00:15:20,160
+uh the chances of having healthy
+
+297
+00:15:17,120 --> 00:15:23,680
+children is become very slim. When they
+
+298
+00:15:20,160 --> 00:15:27,000
+are 40 they cannot have children. So so
+
+299
+00:15:23,680 --> 00:15:29,240
+by the this is so this involves
+
+300
+00:15:27,000 --> 00:15:32,639
+biology. So
+
+301
+00:15:29,240 --> 00:15:36,639
+typically for humanity for human animals
+
+302
+00:15:32,639 --> 00:15:39,120
+in past million years it doesn't happen
+
+303
+00:15:36,639 --> 00:15:43,120
+you know it typically doesn't happen
+
+304
+00:15:39,120 --> 00:15:46,720
+when women is like older than 30
+
+305
+00:15:43,120 --> 00:15:50,079
+marrying a young man. Okay. But it it
+
+306
+00:15:46,720 --> 00:15:54,040
+you know so that's like biology and
+
+307
+00:15:50,079 --> 00:15:54,040
+that's in every culture.
+
+308
+00:15:54,440 --> 00:16:00,959
+Uh so but what about slightly age
+
+309
+00:15:58,480 --> 00:16:04,560
+different you know like if the women is
+
+310
+00:16:00,959 --> 00:16:06,519
+let's say 30 but not normal and you are
+
+311
+00:16:04,560 --> 00:16:09,920
+20
+
+312
+00:16:06,519 --> 00:16:13,839
+um what what do the specific American
+
+313
+00:16:09,920 --> 00:16:16,560
+culture think about that well they I
+
+314
+00:16:13,839 --> 00:16:18,320
+don't think they mind you know so again
+
+315
+00:16:16,560 --> 00:16:19,800
+so we are talking about culture so
+
+316
+00:16:18,320 --> 00:16:21,959
+American
+
+317
+00:16:19,800 --> 00:16:26,839
+like I don't think
+
+318
+00:16:21,959 --> 00:16:30,720
+they mind too much the European uh
+
+319
+00:16:26,839 --> 00:16:32,560
+culture. Uh for Asia, they don't I don't
+
+320
+00:16:30,720 --> 00:16:36,399
+think they care too much. Chinese,
+
+321
+00:16:32,560 --> 00:16:39,360
+Japanese, Korean, for example. Um for
+
+322
+00:16:36,399 --> 00:16:42,560
+Islamic countries, I don't uh I'm I'm
+
+323
+00:16:39,360 --> 00:16:44,320
+not so sure. Okay. I don't think they I
+
+324
+00:16:42,560 --> 00:16:46,560
+I mean this situation don't usually
+
+325
+00:16:44,320 --> 00:16:48,519
+happen. Usually the younger girls marry
+
+326
+00:16:46,560 --> 00:16:51,600
+older men. Okay. That's
+
+327
+00:16:48,519 --> 00:16:56,079
+more that's more common. and so and
+
+328
+00:16:51,600 --> 00:16:59,680
+normal because of biology. Okay. Because
+
+329
+00:16:56,079 --> 00:17:02,120
+the man needs to be you know to be able
+
+330
+00:16:59,680 --> 00:17:05,439
+to provide for the women
+
+331
+00:17:02,120 --> 00:17:08,199
+typically. Okay. So, so involving many
+
+332
+00:17:05,439 --> 00:17:11,120
+issues then there's a issue about your
+
+333
+00:17:08,199 --> 00:17:14,240
+parents opinion versus your opinion
+
+334
+00:17:11,120 --> 00:17:15,799
+regarding your marriage. That again
+
+335
+00:17:14,240 --> 00:17:19,720
+depends on lots of
+
+336
+00:17:15,799 --> 00:17:23,760
+things depending your specific family
+
+337
+00:17:19,720 --> 00:17:25,919
+situation. Uh for example, you know, how
+
+338
+00:17:23,760 --> 00:17:28,319
+how well you get along with your
+
+339
+00:17:25,919 --> 00:17:30,120
+parents, how they you know, do you
+
+340
+00:17:28,319 --> 00:17:33,280
+usually listen to your
+
+341
+00:17:30,120 --> 00:17:35,559
+parents? You know, that's one thing. The
+
+342
+00:17:33,280 --> 00:17:39,280
+other thing is uh for
+
+343
+00:17:35,559 --> 00:17:41,760
+example uh and you know if you are not
+
+344
+00:17:39,280 --> 00:17:43,919
+very close your with your parents then
+
+345
+00:17:41,760 --> 00:17:46,400
+obviously your parents opinion on this
+
+346
+00:17:43,919 --> 00:17:50,440
+usually doesn't matter much. So
+
+347
+00:17:46,400 --> 00:17:54,559
+depending on your bound with your
+
+348
+00:17:50,440 --> 00:17:56,799
+parents and that is different from for
+
+349
+00:17:54,559 --> 00:17:58,799
+each family. You know, if you usually
+
+350
+00:17:56,799 --> 00:18:00,440
+have a good family, then you know, you
+
+351
+00:17:58,799 --> 00:18:03,520
+care for each
+
+352
+00:18:00,440 --> 00:18:05,360
+other. Then typically when your parents
+
+353
+00:18:03,520 --> 00:18:06,799
+give you some advice, they really care
+
+354
+00:18:05,360 --> 00:18:10,400
+about that, you know, you shouldn't
+
+355
+00:18:06,799 --> 00:18:12,600
+marry this girl because she's like uh
+
+356
+00:18:10,400 --> 00:18:15,440
+you know, a bit too
+
+357
+00:18:12,600 --> 00:18:18,960
+old, you know. Then then you don't then
+
+358
+00:18:15,440 --> 00:18:20,720
+you might listen because um you always
+
+359
+00:18:18,960 --> 00:18:22,400
+listen to your parents because you look,
+
+360
+00:18:20,720 --> 00:18:26,160
+you know, you you have you know, you
+
+361
+00:18:22,400 --> 00:18:28,080
+kept on good communication and so on.
+
+362
+00:18:26,160 --> 00:18:31,039
+You know again that depends on so many
+
+363
+00:18:28,080 --> 00:18:34,320
+things. Then and another thing is
+
+364
+00:18:31,039 --> 00:18:36,960
+another issue is like how much do you
+
+365
+00:18:34,320 --> 00:18:38,640
+really care about this girl? How long do
+
+366
+00:18:36,960 --> 00:18:41,120
+you know her and you know things like
+
+367
+00:18:38,640 --> 00:18:43,440
+that. So it's uh there's no absolute
+
+368
+00:18:41,120 --> 00:18:45,720
+answer. So let's get back to uh emac
+
+369
+00:18:43,440 --> 00:18:48,600
+coding.
+
+370
+00:18:45,720 --> 00:18:51,840
+Okay. Thank you for the
+
+371
+00:18:48,600 --> 00:18:54,640
+digression. Okay. So we uh so yeah so
+
+372
+00:18:51,840 --> 00:18:57,160
+let's get back to eac list coding. So
+
+373
+00:18:54,640 --> 00:19:01,600
+yeah. So we so we already have this
+
+374
+00:18:57,160 --> 00:19:03,679
+command that show duplicate links and uh
+
+375
+00:19:01,600 --> 00:19:05,840
+the question is do you want do we want
+
+376
+00:19:03,679 --> 00:19:08,320
+to write it from scratch or do we just
+
+377
+00:19:05,840 --> 00:19:08,320
+modify
+
+378
+00:19:15,480 --> 00:19:23,440
+this? Am I doing good? Am I doing
+
+379
+00:19:19,000 --> 00:19:25,640
+good? Keep keep saying things. Okay. So
+
+380
+00:19:23,440 --> 00:19:30,240
+we
+
+381
+00:19:25,640 --> 00:19:33,039
+um so algorithm so I uh detail algorithm
+
+382
+00:19:30,240 --> 00:19:36,960
+find find each link then for each
+
+383
+00:19:33,039 --> 00:19:39,760
+extract the link. If it is local then
+
+384
+00:19:36,960 --> 00:19:43,280
+expand to file absolute path. Okay.
+
+385
+00:19:39,760 --> 00:19:46,559
+Check if the path is in hash table. If
+
+386
+00:19:43,280 --> 00:19:50,960
+so highlight the link else add to hasht.
+
+387
+00:19:46,559 --> 00:19:53,440
+Okay. Repeat to Yeah. So this this code
+
+388
+00:19:50,960 --> 00:19:55,799
+already works except it does not
+
+389
+00:19:53,440 --> 00:19:57,960
+highlight the first
+
+390
+00:19:55,799 --> 00:20:01,039
+link that has
+
+391
+00:19:57,960 --> 00:20:03,360
+repetition. So we can Yeah. Okay. So
+
+392
+00:20:01,039 --> 00:20:06,400
+it's quite a few code. So actually so
+
+393
+00:20:03,360 --> 00:20:11,039
+let's write a new one. Okay. So let's uh
+
+394
+00:20:06,400 --> 00:20:14,440
+I mean let's modify this code. Okay. So
+
+395
+00:20:11,039 --> 00:20:18,000
+let's just name this
+
+396
+00:20:14,440 --> 00:20:21,200
+um create a new file. So we're going to
+
+397
+00:20:18,000 --> 00:20:21,200
+modify this code.
+
+398
+00:20:21,720 --> 00:20:27,600
+Okay. Highlight and print any duplicate
+
+399
+00:20:24,640 --> 00:20:30,880
+links in current HTML file. Also push
+
+400
+00:20:27,600 --> 00:20:33,760
+mark at each uh each of the duplicate
+
+401
+00:20:30,880 --> 00:20:36,400
+link. Okay. Also
+
+402
+00:20:33,760 --> 00:20:38,799
+uh push mark at each of the duplicate
+
+403
+00:20:36,400 --> 00:20:42,000
+link position position. So you can
+
+404
+00:20:38,799 --> 00:20:44,080
+universal argument set command set mod
+
+405
+00:20:42,000 --> 00:20:46,960
+command to jump to it. Okay, that's a
+
+406
+00:20:44,080 --> 00:20:50,200
+feature I forgot about. So it also do
+
+407
+00:20:46,960 --> 00:20:53,200
+that. Basically that means it lets
+
+408
+00:20:50,200 --> 00:20:55,039
+you easily jump to the duplicate
+
+409
+00:20:53,200 --> 00:20:58,559
+location. So let's try again. Okay,
+
+410
+00:20:55,039 --> 00:21:01,200
+close it. Reopen it. That's this file.
+
+411
+00:20:58,559 --> 00:21:04,159
+So you got several duplicate links
+
+412
+00:21:01,200 --> 00:21:06,559
+there. So you call the command. Okay,
+
+413
+00:21:04,159 --> 00:21:10,320
+that shows the report of the duplicate.
+
+414
+00:21:06,559 --> 00:21:13,280
+You ignore that. Then then you'll see
+
+415
+00:21:10,320 --> 00:21:15,159
+the red lines. That means this link is
+
+416
+00:21:13,280 --> 00:21:18,880
+duplicated.
+
+417
+00:21:15,159 --> 00:21:21,039
+Okay. Then you can uh it set several
+
+418
+00:21:18,880 --> 00:21:24,880
+marks so you can jump to it. So let's do
+
+419
+00:21:21,039 --> 00:21:28,440
+so press. So then okay duplicate you
+
+420
+00:21:24,880 --> 00:21:31,679
+know you just press press
+
+421
+00:21:28,440 --> 00:21:34,320
+press. Okay. Yeah it just all the
+
+422
+00:21:31,679 --> 00:21:35,480
+duplicate appears in this in this
+
+423
+00:21:34,320 --> 00:21:37,159
+section. Okay.
+
+424
+00:21:35,480 --> 00:21:41,360
+[Music]
+
+425
+00:21:37,159 --> 00:21:42,600
+So okay. So go back to the code.
+
+426
+00:21:41,360 --> 00:21:46,640
+So today's
+
+427
+00:21:42,600 --> 00:21:50,720
+state version okay so let's say so
+
+428
+00:21:46,640 --> 00:21:56,480
+initial um local variables begin end
+
+429
+00:21:50,720 --> 00:21:56,480
+xlink duplicate list uh link
+
+430
+00:21:56,679 --> 00:22:03,840
+table okay that's a hash table make a
+
+431
+00:21:59,520 --> 00:22:07,720
+hash table okay then set beginning end.
+
+432
+00:22:03,840 --> 00:22:11,120
+So if region active just do the region
+
+433
+00:22:07,720 --> 00:22:13,200
+otherwise do from beginning buffer
+
+434
+00:22:11,120 --> 00:22:16,480
+beginning to buffer end the whole buffer
+
+435
+00:22:13,200 --> 00:22:19,760
+okay that's a beginning end so then you
+
+436
+00:22:16,480 --> 00:22:23,520
+narrow to the region like you limit the
+
+437
+00:22:19,760 --> 00:22:24,440
+buffer to just that beginning end okay
+
+438
+00:22:23,520 --> 00:22:28,400
+then
+
+439
+00:22:24,440 --> 00:22:31,679
+algorithm so find each link then for
+
+440
+00:22:28,400 --> 00:22:31,679
+each extract the
+
+441
+00:22:31,880 --> 00:22:39,360
+link if it slow code then expand to file
+
+442
+00:22:35,679 --> 00:22:42,440
+absolute path. Check if the file path is
+
+443
+00:22:39,360 --> 00:22:44,280
+in hasht.
+
+444
+00:22:42,440 --> 00:22:49,960
+Okay.
+
+445
+00:22:44,280 --> 00:22:53,600
+Um if so highlight link else add to hash
+
+446
+00:22:49,960 --> 00:22:57,320
+table. Okay. So the problem here is that
+
+447
+00:22:53,600 --> 00:23:00,720
+it does not highlight the first one.
+
+448
+00:22:57,320 --> 00:23:03,720
+So how do you uh how do you want to fix
+
+449
+00:23:00,720 --> 00:23:03,720
+this?
+
+450
+00:23:05,919 --> 00:23:12,400
+Check if the file path is in the is in
+
+451
+00:23:09,039 --> 00:23:12,400
+hasht. Okay.
+
+452
+00:23:23,799 --> 00:23:31,440
+So okay. So well let's look at the code
+
+453
+00:23:27,360 --> 00:23:33,480
+first. Okay. So then you go to char. So
+
+454
+00:23:31,440 --> 00:23:36,720
+the code is not too
+
+455
+00:23:33,480 --> 00:23:40,159
+long. Then you just go to the beginning
+
+456
+00:23:36,720 --> 00:23:42,039
+of the position. Then start to search
+
+457
+00:23:40,159 --> 00:23:46,240
+forward for
+
+458
+00:23:42,039 --> 00:23:49,360
+href. Then declare some variables. X
+
+459
+00:23:46,240 --> 00:23:51,600
+beginning 88. Uh that's you know
+
+460
+00:23:49,360 --> 00:23:54,799
+that's my convention. So let's rename
+
+461
+00:23:51,600 --> 00:23:59,400
+888 is just a random number. Okay. So
+
+462
+00:23:54,799 --> 00:23:59,400
+let's just show it to eight.
+
+463
+00:24:01,640 --> 00:24:09,840
+Okay. So boundary beginning end. So what
+
+464
+00:24:05,520 --> 00:24:13,039
+is this beginning end? Uh so begin from
+
+465
+00:24:09,840 --> 00:24:17,679
+the beginning start to search for it.
+
+466
+00:24:13,039 --> 00:24:20,159
+Boundary is the uh oh okay bound of the
+
+467
+00:24:17,679 --> 00:24:23,279
+thing. Okay that's annoying. That's the
+
+468
+00:24:20,159 --> 00:24:27,039
+that's so you search for href.
+
+469
+00:24:23,279 --> 00:24:30,000
+Then this boundary is a con pair of the
+
+470
+00:24:27,039 --> 00:24:34,480
+beginning and end of the file name.
+
+471
+00:24:30,000 --> 00:24:38,000
+Okay, the hf value. Okay, then you set
+
+472
+00:24:34,480 --> 00:24:43,000
+the beginning and you set the end. So
+
+473
+00:24:38,000 --> 00:24:47,120
+let's improve this little code by using
+
+474
+00:24:43,000 --> 00:24:47,120
+um sequence set.
+
+475
+00:24:54,520 --> 00:24:58,960
+Okay. List
+
+476
+00:25:03,799 --> 00:25:10,000
+car. Okay. These two lines is
+
+477
+00:25:07,679 --> 00:25:14,400
+equivalent.
+
+478
+00:25:10,000 --> 00:25:17,279
+This is better because you are setting
+
+479
+00:25:14,400 --> 00:25:20,240
+beginning end in one shot. It's a little
+
+480
+00:25:17,279 --> 00:25:25,000
+bit slower slower few microsconds but
+
+481
+00:25:20,240 --> 00:25:28,400
+anyway let's don't let's just clean
+
+482
+00:25:25,000 --> 00:25:30,200
+up. So you got the beginning end of the
+
+483
+00:25:28,400 --> 00:25:35,120
+file
+
+484
+00:25:30,200 --> 00:25:35,120
+path. So let's let's rename. Okay.
+
+485
+00:25:40,120 --> 00:25:44,559
+Uh okay. So
+
+486
+00:25:44,600 --> 00:25:52,720
+that's X file
+
+487
+00:25:47,640 --> 00:25:56,080
+path begin. Okay. Let's rename it. And X
+
+488
+00:25:52,720 --> 00:25:56,080
+end 8
+
+489
+00:25:59,400 --> 00:26:07,919
+is okay. So now color it, save it, close
+
+490
+00:26:04,400 --> 00:26:11,760
+it, reopen it, make a backup, color
+
+491
+00:26:07,919 --> 00:26:16,400
+that, color that. Okay. So now you got
+
+492
+00:26:11,760 --> 00:26:21,360
+beginning end of the file path. Then h
+
+493
+00:26:16,400 --> 00:26:24,039
+value is you extract it. Okay.
+
+494
+00:26:21,360 --> 00:26:29,679
+uh then the link
+
+495
+00:26:24,039 --> 00:26:29,679
+is so if it begin with
+
+496
+00:26:30,440 --> 00:26:37,840
+HTTP then just remain that otherwise you
+
+497
+00:26:33,840 --> 00:26:41,679
+make it otherwise it's a local file path
+
+498
+00:26:37,840 --> 00:26:44,279
+you expand it to the full path okay that
+
+499
+00:26:41,679 --> 00:26:48,000
+is the link
+
+500
+00:26:44,279 --> 00:26:50,640
+okay then if then you check if it's in a
+
+501
+00:26:48,000 --> 00:26:53,440
+hash okay so now this is beginning to
+
+502
+00:26:50,640 --> 00:26:57,320
+Check the hash table. Check the hash
+
+503
+00:26:53,440 --> 00:27:00,200
+table if it's in. If
+
+504
+00:26:57,320 --> 00:27:03,760
+so, you push
+
+505
+00:27:00,200 --> 00:27:04,760
+it to the hash table. So the hash table
+
+506
+00:27:03,760 --> 00:27:07,840
+will
+
+507
+00:27:04,760 --> 00:27:11,360
+contain all the duplicate links but
+
+508
+00:27:07,840 --> 00:27:13,919
+except the first one. So if a link has
+
+509
+00:27:11,360 --> 00:27:17,360
+you know repeated you know like if a
+
+510
+00:27:13,919 --> 00:27:19,840
+link appears three times the hash table
+
+511
+00:27:17,360 --> 00:27:24,000
+will contain the you know the second and
+
+512
+00:27:19,840 --> 00:27:26,840
+third occurrence but not the first. Okay
+
+513
+00:27:24,000 --> 00:27:29,840
+that we need to
+
+514
+00:27:26,840 --> 00:27:29,840
+fix.
+
+515
+00:27:35,880 --> 00:27:42,279
+So, okay. So, so then overlaid what this
+
+516
+00:27:39,919 --> 00:27:46,799
+does is it this
+
+517
+00:27:42,279 --> 00:27:50,039
+overlay means highlighted. Okay. Uh for
+
+518
+00:27:46,799 --> 00:27:52,480
+example, uh let's
+
+519
+00:27:50,039 --> 00:27:54,799
+see. You know, it's basically
+
+520
+00:27:52,480 --> 00:27:58,000
+highlighted red. Okay. That's what this
+
+521
+00:27:54,799 --> 00:28:00,480
+overlay does. Face
+
+522
+00:27:58,000 --> 00:28:03,159
+Font lock warning face. That's the
+
+523
+00:28:00,480 --> 00:28:10,440
+That's what kind of color you
+
+524
+00:28:03,159 --> 00:28:13,440
+want. Then um XL begin. Now what is XL
+
+525
+00:28:10,440 --> 00:28:13,440
+begin?
+
+526
+00:28:14,440 --> 00:28:20,399
+What? Oh, that's a new local
+
+527
+00:28:17,480 --> 00:28:22,039
+variable. Excel begin. So that's the
+
+528
+00:28:20,399 --> 00:28:25,279
+beginning of
+
+529
+00:28:22,039 --> 00:28:29,640
+line. Push vector buffer substring no
+
+530
+00:28:25,279 --> 00:28:33,039
+properties. Exhale begin. Exhale
+
+531
+00:28:29,640 --> 00:28:36,799
+end. Oh, line begin. Line end. So line
+
+532
+00:28:33,039 --> 00:28:36,799
+begin, line end. You push
+
+533
+00:28:43,720 --> 00:28:49,159
+it line beginning position, line end
+
+534
+00:28:46,559 --> 00:28:52,799
+position,
+
+535
+00:28:49,159 --> 00:28:55,200
+you you push it to the duplicate list.
+
+536
+00:28:52,799 --> 00:28:58,799
+Okay. Okay. So this is for printing out
+
+537
+00:28:55,200 --> 00:28:58,799
+the final result the
+
+538
+00:29:02,760 --> 00:29:08,880
+line. Okay then
+
+539
+00:29:05,399 --> 00:29:11,760
+you okay so if but if it's not in the
+
+540
+00:29:08,880 --> 00:29:13,000
+hash table you push it to the hash
+
+541
+00:29:11,760 --> 00:29:16,000
+table.
+
+542
+00:29:13,000 --> 00:29:19,600
+Okay then you just print the output make
+
+543
+00:29:16,000 --> 00:29:22,279
+a report. Okay so now we understand the
+
+544
+00:29:19,600 --> 00:29:25,279
+algorithm.
+
+545
+00:29:22,279 --> 00:29:28,799
+Let's Yeah. So now we understand the
+
+546
+00:29:25,279 --> 00:29:33,600
+algorithm. The important part is the
+
+547
+00:29:28,799 --> 00:29:33,600
+adding to the hash table. Okay.
+
+548
+00:29:38,440 --> 00:29:45,200
+So am I doing good? Okay.
+
+549
+00:29:41,799 --> 00:29:46,760
+So the important part is a hash table.
+
+550
+00:29:45,200 --> 00:29:52,120
+Okay. So
+
+551
+00:29:46,760 --> 00:29:52,120
+let's Okay. So let's get to code.
+
+552
+00:29:52,640 --> 00:29:59,120
+hasht. So whenever you find a link, why
+
+553
+00:29:55,440 --> 00:29:59,120
+don't we add to the hash table
+
+554
+00:29:59,320 --> 00:30:06,039
+directly? Yeah, let's let's just add add
+
+555
+00:30:02,640 --> 00:30:08,039
+to the hash table directly.
+
+556
+00:30:06,039 --> 00:30:11,799
+Okay, make a
+
+557
+00:30:08,039 --> 00:30:16,799
+backup. So for each
+
+558
+00:30:11,799 --> 00:30:16,799
+link, just add to the hash table.
+
+559
+00:30:17,640 --> 00:30:28,559
+Okay. So, so go to the file for each hf
+
+560
+00:30:24,520 --> 00:30:31,760
+value add to the hash table. So, so the
+
+561
+00:30:28,559 --> 00:30:31,760
+the key would
+
+562
+00:30:33,480 --> 00:30:39,919
+be the
+
+563
+00:30:36,039 --> 00:30:43,679
+key would should the key be the href
+
+564
+00:30:39,919 --> 00:30:46,200
+value raw or should it be like expanded
+
+565
+00:30:43,679 --> 00:30:50,520
+absolute file
+
+566
+00:30:46,200 --> 00:30:53,039
+path? Okay. Uh, I'm a bit
+
+567
+00:30:50,520 --> 00:30:55,880
+unfocused. Yeah, let let me just code
+
+568
+00:30:53,039 --> 00:31:00,880
+this myself. I don't think you
+
+569
+00:30:55,880 --> 00:31:00,880
+guys I don't think you guys are actually
+
+570
+00:31:02,360 --> 00:31:10,640
+care. Uh, okay. So, let me just code
+
+571
+00:31:06,360 --> 00:31:13,120
+it. So, the hash table. So, what the
+
+572
+00:31:10,640 --> 00:31:16,720
+question now is what should the key of
+
+573
+00:31:13,120 --> 00:31:22,559
+the hash table be? There can be one
+
+574
+00:31:16,720 --> 00:31:25,720
+first choice is the row value of the
+
+575
+00:31:22,559 --> 00:31:29,480
+um the row value of the
+
+576
+00:31:25,720 --> 00:31:32,120
+href. Okay, that's
+
+577
+00:31:29,480 --> 00:31:34,279
+one
+
+578
+00:31:32,120 --> 00:31:38,640
+way.
+
+579
+00:31:34,279 --> 00:31:41,200
+Um no that's that would not be good. The
+
+580
+00:31:38,640 --> 00:31:45,120
+other the other solution is I mean the
+
+581
+00:31:41,200 --> 00:31:48,640
+other choice is that the hash table key
+
+582
+00:31:45,120 --> 00:31:49,480
+should be the expanded version of the
+
+583
+00:31:48,640 --> 00:31:52,440
+file
+
+584
+00:31:49,480 --> 00:31:55,480
+path. That would be better
+
+585
+00:31:52,440 --> 00:31:58,559
+because that is how you find
+
+586
+00:31:55,480 --> 00:32:01,159
+duplicate. You need to rely on hasht to
+
+587
+00:31:58,559 --> 00:32:04,919
+be able to remove
+
+588
+00:32:01,159 --> 00:32:09,120
+duplicate because hasht can determine if
+
+589
+00:32:04,919 --> 00:32:11,600
+a key already exist. Okay. So, okay, you
+
+590
+00:32:09,120 --> 00:32:14,279
+build a hash table. The key should be
+
+591
+00:32:11,600 --> 00:32:17,679
+the expanded version of
+
+592
+00:32:14,279 --> 00:32:20,399
+that. Uh, and what about the value? The
+
+593
+00:32:17,679 --> 00:32:20,399
+value would
+
+594
+00:32:20,840 --> 00:32:26,039
+be what what should be the value be? The
+
+595
+00:32:24,159 --> 00:32:29,200
+value would be the beginning
+
+596
+00:32:26,039 --> 00:32:31,640
+position of the file path and the end
+
+597
+00:32:29,200 --> 00:32:35,840
+position of the file
+
+598
+00:32:31,640 --> 00:32:38,880
+path. That's one thing. A list. Okay. So
+
+599
+00:32:35,840 --> 00:32:38,880
+the value will be a
+
+600
+00:32:44,360 --> 00:32:50,360
+list. Okay. And each element is a
+
+601
+00:32:47,440 --> 00:32:55,480
+beginning position and end position a
+
+602
+00:32:50,360 --> 00:32:55,480
+pair let's say vector. Okay.
+
+603
+00:32:56,559 --> 00:33:02,480
+Then when you want to find the
+
+604
+00:32:59,080 --> 00:33:02,480
+duplicate, you
+
+605
+00:33:03,320 --> 00:33:08,840
+just go through the hash
+
+606
+00:33:06,679 --> 00:33:14,039
+table, find
+
+607
+00:33:08,840 --> 00:33:16,919
+any keys value that has length more than
+
+608
+00:33:14,039 --> 00:33:21,799
+one.
+
+609
+00:33:16,919 --> 00:33:21,799
+Okay. Yeah, let's do that.
+
+610
+00:33:27,279 --> 00:33:31,799
+Okay. So, um
+
+611
+00:33:58,640 --> 00:34:10,919
+So uh add to hash table if it if already
+
+612
+00:34:04,600 --> 00:34:16,320
+exist add to the value of that key.
+
+613
+00:34:10,919 --> 00:34:19,760
+Okay, this is the key for hash table.
+
+614
+00:34:16,320 --> 00:34:21,839
+Okay, add that to hash table. If if key
+
+615
+00:34:19,760 --> 00:34:25,040
+already exist,
+
+616
+00:34:21,839 --> 00:34:27,960
+uh add to the value of the key.
+
+617
+00:34:25,040 --> 00:34:33,159
+The value of hash
+
+618
+00:34:27,960 --> 00:34:36,639
+table is a list
+
+619
+00:34:33,159 --> 00:34:36,639
+of of
+
+620
+00:34:37,079 --> 00:34:42,240
+vectors begin position
+
+621
+00:34:42,359 --> 00:34:47,520
+uh and
+
+622
+00:34:44,919 --> 00:34:52,879
+end. Okay.
+
+623
+00:34:47,520 --> 00:34:52,879
+Position begin, position
+
+624
+00:34:56,920 --> 00:35:05,640
+end where the position is
+
+625
+00:35:02,119 --> 00:35:08,760
+the hf
+
+626
+00:35:05,640 --> 00:35:12,520
+value string.
+
+627
+00:35:08,760 --> 00:35:16,320
+Okay. Um Okay.
+
+628
+00:35:12,520 --> 00:35:20,400
+Then so you create this in you know big
+
+629
+00:35:16,320 --> 00:35:20,400
+giant hash table
+
+630
+00:35:25,960 --> 00:35:33,000
+then okay you build this hash table
+
+631
+00:35:30,000 --> 00:35:33,000
+first.
+
+632
+00:35:36,200 --> 00:35:42,200
+Okay.
+
+633
+00:35:38,920 --> 00:35:45,839
+Now find the
+
+634
+00:35:42,200 --> 00:35:47,800
+duplicate algorithm. Okay. The duplicate
+
+635
+00:35:45,839 --> 00:35:51,640
+algorithm would
+
+636
+00:35:47,800 --> 00:35:58,240
+be go through hash
+
+637
+00:35:51,640 --> 00:36:01,440
+table. If a value has a list of length
+
+638
+00:35:58,240 --> 00:36:01,440
+more than
+
+639
+00:36:01,480 --> 00:36:10,119
+one, it means that key has
+
+640
+00:36:07,480 --> 00:36:16,800
+duplicate. That
+
+641
+00:36:10,119 --> 00:36:16,800
+key it means that link is repeated.
+
+642
+00:36:19,800 --> 00:36:27,640
+Okay. Okay.
+
+643
+00:36:22,359 --> 00:36:31,240
+Then for each of those highlight
+
+644
+00:36:27,640 --> 00:36:35,400
+them by the
+
+645
+00:36:31,240 --> 00:36:37,880
+beginning and positions in the value.
+
+646
+00:36:35,400 --> 00:36:44,240
+Okay. Then that's
+
+647
+00:36:37,880 --> 00:36:44,240
+it. Okay. So uh then
+
+648
+00:36:44,359 --> 00:36:50,800
+yeah. Okay. So this way this way we
+
+649
+00:36:48,320 --> 00:36:53,280
+build the entire hash table first then
+
+650
+00:36:50,800 --> 00:36:55,400
+we go through the hash table to find
+
+651
+00:36:53,280 --> 00:36:58,320
+which one is repeated then we do
+
+652
+00:36:55,400 --> 00:37:01,000
+highlight. So this algorithm is slightly
+
+653
+00:36:58,320 --> 00:37:04,400
+different from our original which
+
+654
+00:37:01,000 --> 00:37:07,920
+is which is as as soon as you find a
+
+655
+00:37:04,400 --> 00:37:11,440
+duplicate then you highlight you know.
+
+656
+00:37:07,920 --> 00:37:16,800
+Okay. So let's do it remove that. Let's
+
+657
+00:37:11,440 --> 00:37:16,800
+uh rewoke this code.
+
+658
+00:37:21,520 --> 00:37:27,359
+This is annoying. This thing this
+
+659
+00:37:24,000 --> 00:37:30,880
+boundary that's let's you know this this
+
+660
+00:37:27,359 --> 00:37:34,480
+thing at point is very annoying because
+
+661
+00:37:30,880 --> 00:37:36,960
+it doesn't this this thing at point
+
+662
+00:37:34,480 --> 00:37:40,359
+library is kind of annoying because it
+
+663
+00:37:36,960 --> 00:37:44,640
+doesn't allow you to do functional
+
+664
+00:37:40,359 --> 00:37:46,480
+programming. Um but let's make it as
+
+665
+00:37:44,640 --> 00:37:48,480
+much as functional programming as
+
+666
+00:37:46,480 --> 00:37:50,760
+possible because right now you need this
+
+667
+00:37:48,480 --> 00:37:53,000
+boundary because this boundary thing at
+
+668
+00:37:50,760 --> 00:37:55,760
+point of the file
+
+669
+00:37:53,000 --> 00:37:58,160
+name it returns the beginning position
+
+670
+00:37:55,760 --> 00:38:00,640
+you know if your cuser is here it
+
+671
+00:37:58,160 --> 00:38:03,920
+returns the beginning and end position
+
+672
+00:38:00,640 --> 00:38:05,480
+of you know of of of the current file
+
+673
+00:38:03,920 --> 00:38:11,079
+path.
+
+674
+00:38:05,480 --> 00:38:13,839
+Okay. Um so it returned that in a in a
+
+675
+00:38:11,079 --> 00:38:17,280
+conspair. So then you need to so you
+
+676
+00:38:13,839 --> 00:38:19,760
+need this temporary variable boundary.
+
+677
+00:38:17,280 --> 00:38:23,520
+Then you extract the boundary like this
+
+678
+00:38:19,760 --> 00:38:26,040
+you know beginning and end um equals to
+
+679
+00:38:23,520 --> 00:38:29,040
+car and
+
+680
+00:38:26,040 --> 00:38:31,920
+cutter. So this boundary is just a
+
+681
+00:38:29,040 --> 00:38:34,800
+temporary variable. Uh I don't want
+
+682
+00:38:31,920 --> 00:38:34,800
+that. Okay.
+
+683
+00:38:35,720 --> 00:38:42,520
+So okay let's let's uh let's you know
+
+684
+00:38:39,440 --> 00:38:45,520
+let's remove it. Okay so where is it
+
+685
+00:38:42,520 --> 00:38:48,720
+used one two three four just these four
+
+686
+00:38:45,520 --> 00:38:52,960
+places. Okay, let's remove them. Let's
+
+687
+00:38:48,720 --> 00:38:56,960
+refactor our code. Remove that. And uh
+
+688
+00:38:52,960 --> 00:38:59,280
+let a local variable here and here will
+
+689
+00:38:56,960 --> 00:38:59,280
+be
+
+690
+00:38:59,960 --> 00:39:07,599
+xboundary. Okay. Then we move this thing
+
+691
+00:39:04,040 --> 00:39:11,560
+inside X boundary. Set we don't. Okay.
+
+692
+00:39:07,599 --> 00:39:15,040
+So set that set that boundary
+
+693
+00:39:11,560 --> 00:39:18,680
+and this move that inside there.
+
+694
+00:39:15,040 --> 00:39:23,240
+Prettify the code. Fantastic. Now it's
+
+695
+00:39:18,680 --> 00:39:26,320
+localized. This boundary thing is
+
+696
+00:39:23,240 --> 00:39:28,480
+localized. So get the boundary because
+
+697
+00:39:26,320 --> 00:39:32,200
+we we don't care the boundary. We don't
+
+698
+00:39:28,480 --> 00:39:34,280
+we really care about the beginning end.
+
+699
+00:39:32,200 --> 00:39:39,680
+Okay.
+
+700
+00:39:34,280 --> 00:39:43,640
+Uh okay. So we got that. Then next set h
+
+701
+00:39:39,680 --> 00:39:43,640
+value. Okay.
+
+702
+00:39:43,680 --> 00:39:49,200
+Then set the link. Okay, we need
+
+703
+00:39:52,760 --> 00:39:57,720
+that. Set the
+
+704
+00:39:55,400 --> 00:40:01,960
+link.
+
+705
+00:39:57,720 --> 00:40:05,599
+Um, so what are you guys saying?
+
+706
+00:40:01,960 --> 00:40:07,880
+Hello, Mr. Ka. You should do travel
+
+707
+00:40:05,599 --> 00:40:10,720
+vlogs.
+
+708
+00:40:07,880 --> 00:40:13,720
+No, because I don't travel. I don't have
+
+709
+00:40:10,720 --> 00:40:15,320
+money.
+
+710
+00:40:13,720 --> 00:40:18,800
+Uh
+
+711
+00:40:15,320 --> 00:40:21,160
+Hamza Clown says, "You use EVO mod or
+
+712
+00:40:18,800 --> 00:40:24,800
+how do you navigate that
+
+713
+00:40:21,160 --> 00:40:27,119
+fast?" Uh I guess you are new. I talked
+
+714
+00:40:24,800 --> 00:40:29,760
+about this all the time. I I'm using
+
+715
+00:40:27,119 --> 00:40:33,040
+Softly Keys. So if you if you check out
+
+716
+00:40:29,760 --> 00:40:35,040
+my today's talk from the beginning, you
+
+717
+00:40:33,040 --> 00:40:38,440
+can see introduction. There's a video
+
+718
+00:40:35,040 --> 00:40:41,119
+about it. It's more efficient than Vim.
+
+719
+00:40:38,440 --> 00:40:42,960
+Okay. Softly keys. you know, I've been
+
+720
+00:40:41,119 --> 00:40:46,800
+demonstrating it in the past three
+
+721
+00:40:42,960 --> 00:40:49,200
+years, so you probably new here. So
+
+722
+00:40:46,800 --> 00:40:51,599
+anyway, and and you know, besides Softly
+
+723
+00:40:49,200 --> 00:40:54,079
+Keys, so for example, Softly Keys,
+
+724
+00:40:51,599 --> 00:40:56,640
+here's a source code for,000 lines, and
+
+725
+00:40:54,079 --> 00:40:58,560
+it's on GitHub. You can grab it, you
+
+726
+00:40:56,640 --> 00:41:01,040
+know, just search for Softly Keys
+
+727
+00:40:58,560 --> 00:41:04,079
+GitHub, you'll find it. Okay, the GitHub
+
+728
+00:41:01,040 --> 00:41:06,800
+link is here and there's a video
+
+729
+00:41:04,079 --> 00:41:12,800
+tutorial and there's a full you know
+
+730
+00:41:06,800 --> 00:41:16,400
+explanation uh install um you know I'm
+
+731
+00:41:12,800 --> 00:41:20,800
+also using Kasawa Emac this mod so uh
+
+732
+00:41:16,400 --> 00:41:22,960
+describe key press so Emac this mod
+
+733
+00:41:20,800 --> 00:41:25,720
+because I've been coding in Emacs for
+
+734
+00:41:22,960 --> 00:41:28,880
+like 20 years so I
+
+735
+00:41:25,720 --> 00:41:31,599
+use you know basically everything I do
+
+736
+00:41:28,880 --> 00:41:34,480
+is my own code
+
+737
+00:41:31,599 --> 00:41:37,000
+uh like I rarely I like basically don't
+
+738
+00:41:34,480 --> 00:41:40,079
+use any other people's package.
+
+739
+00:41:37,000 --> 00:41:43,040
+Okay. So anyway, let's get back to this.
+
+740
+00:41:40,079 --> 00:41:46,560
+Okay. So we we so we are uh going
+
+741
+00:41:43,040 --> 00:41:52,079
+through the hasht algorithm. So you get
+
+742
+00:41:46,560 --> 00:41:56,720
+a link. Okay. So you get a link. Um then
+
+743
+00:41:52,079 --> 00:42:01,119
+okay the link is the absolute file name
+
+744
+00:41:56,720 --> 00:42:02,680
+of the local file path then check if
+
+745
+00:42:01,119 --> 00:42:05,520
+it's in the hash
+
+746
+00:42:02,680 --> 00:42:09,520
+table. In fact we don't have to check
+
+747
+00:42:05,520 --> 00:42:09,520
+always add to the hash table.
+
+748
+00:42:09,800 --> 00:42:14,160
+Okay. Um in
+
+749
+00:42:14,920 --> 00:42:21,200
+fact you see if you always add to the
+
+750
+00:42:18,160 --> 00:42:21,200
+hash table you
+
+751
+00:42:23,800 --> 00:42:30,480
+see check for it's existing hash table
+
+752
+00:42:27,599 --> 00:42:33,760
+if you add it to the hash table then but
+
+753
+00:42:30,480 --> 00:42:33,760
+later on you got a
+
+754
+00:42:36,680 --> 00:42:44,400
+problem. Uh, wait. So, check if it's in
+
+755
+00:42:39,680 --> 00:42:44,400
+a hash table. If it is in a hash
+
+756
+00:42:47,880 --> 00:42:55,599
+table, push mark. Okay. So, push
+
+757
+00:42:51,960 --> 00:42:58,640
+mark. Uh, you don't care about the mark.
+
+758
+00:42:55,599 --> 00:42:58,640
+Okay. Don't push
+
+759
+00:42:59,079 --> 00:43:05,760
+mark for now. We don't care about that.
+
+760
+00:43:02,480 --> 00:43:08,040
+And overlay, that's making it highlight.
+
+761
+00:43:05,760 --> 00:43:12,119
+You know overlay is a mechanism to
+
+762
+00:43:08,040 --> 00:43:15,119
+highlight some part of the text
+
+763
+00:43:12,119 --> 00:43:15,119
+temporarily.
+
+764
+00:43:16,359 --> 00:43:22,960
+So we don't care for now. Okay. Remove
+
+765
+00:43:19,359 --> 00:43:25,599
+it. Simplify the code. Then this is line
+
+766
+00:43:22,960 --> 00:43:28,839
+beginning, line end. Line beginning and
+
+767
+00:43:25,599 --> 00:43:31,920
+line end. For now we don't care.
+
+768
+00:43:28,839 --> 00:43:37,040
+Okay. Line beginning position and line
+
+769
+00:43:31,920 --> 00:43:37,040
+end position. For now we don't care.
+
+770
+00:43:41,920 --> 00:43:46,599
+Okay, let's remove it. Okay, so this is
+
+771
+00:43:44,640 --> 00:43:51,599
+a local variable. Let's
+
+772
+00:43:46,599 --> 00:43:51,599
+see. Let's highlight it. Okay.
+
+773
+00:43:59,400 --> 00:44:04,480
+So, so if the hash key
+
+774
+00:44:06,280 --> 00:44:13,079
+exist so if it exist Yeah. So you need
+
+775
+00:44:09,680 --> 00:44:13,079
+to do something.
+
+776
+00:44:18,480 --> 00:44:23,200
+Okay. So if the hash key already
+
+777
+00:44:27,960 --> 00:44:34,920
+exist, you push
+
+778
+00:44:31,480 --> 00:44:38,359
+it to the hash table.
+
+779
+00:44:34,920 --> 00:44:41,119
+Okay. Put the link in the hash table.
+
+780
+00:44:38,359 --> 00:44:43,359
+Okay. Then the value would be the
+
+781
+00:44:41,119 --> 00:44:46,400
+beginning and end position. Yeah, that's
+
+782
+00:44:43,359 --> 00:44:50,359
+the difference. So the value would be
+
+783
+00:44:46,400 --> 00:44:54,240
+file path begin and file path end.
+
+784
+00:44:50,359 --> 00:44:58,560
+Okay. So it will be a vector because
+
+785
+00:44:54,240 --> 00:45:03,480
+vector is a fixed size. A vector in eac
+
+786
+00:44:58,560 --> 00:45:08,240
+bisp is a a fixed size array much like
+
+787
+00:45:03,480 --> 00:45:11,680
+python's turbo. Okay. So vector begin
+
+788
+00:45:08,240 --> 00:45:14,240
+and position actually uh so if it
+
+789
+00:45:11,680 --> 00:45:14,240
+already
+
+790
+00:45:16,040 --> 00:45:24,800
+exist you want
+
+791
+00:45:19,160 --> 00:45:26,940
+to yeah okay so wait okay so let's make
+
+792
+00:45:24,800 --> 00:45:29,880
+a local variable
+
+793
+00:45:26,940 --> 00:45:33,760
+[Music]
+
+794
+00:45:29,880 --> 00:45:33,760
+uh x
+
+795
+00:45:34,119 --> 00:45:41,359
+exist
+
+796
+00:45:36,440 --> 00:45:41,359
+Um, right. So, hold on a second.
+
+797
+00:45:41,960 --> 00:45:52,960
+So, okay. So, x exist. Let's make
+
+798
+00:45:47,160 --> 00:45:52,960
+it that's the value of the get hash.
+
+799
+00:45:54,920 --> 00:46:03,240
+Okay, let's just result. Okay, get hash
+
+800
+00:45:58,400 --> 00:46:03,240
+result. So, set that result.
+
+801
+00:46:04,160 --> 00:46:10,839
+If the result is true that means this
+
+802
+00:46:07,520 --> 00:46:13,000
+already exist in the hash
+
+803
+00:46:10,839 --> 00:46:15,920
+table
+
+804
+00:46:13,000 --> 00:46:18,800
+then okay then something if it doesn't
+
+805
+00:46:15,920 --> 00:46:21,000
+exist you push it
+
+806
+00:46:18,800 --> 00:46:24,160
+uh and this should be a
+
+807
+00:46:21,000 --> 00:46:24,160
+list of
+
+808
+00:46:24,760 --> 00:46:31,480
+pairs. Yeah the list a list of beginning
+
+809
+00:46:28,240 --> 00:46:35,319
+end positions and here's the first one.
+
+810
+00:46:31,480 --> 00:46:37,880
+Okay. Now, but if this is if it doesn't
+
+811
+00:46:35,319 --> 00:46:39,400
+exist, if it already
+
+812
+00:46:37,880 --> 00:46:41,960
+exist,
+
+813
+00:46:39,400 --> 00:46:45,359
+you want to push
+
+814
+00:46:41,960 --> 00:46:48,319
+it. Okay, you want to push that link to
+
+815
+00:46:45,359 --> 00:46:48,319
+a existing
+
+816
+00:46:51,880 --> 00:46:59,079
+item. So, this part would be this part
+
+817
+00:46:56,079 --> 00:47:02,839
+would be X result.
+
+818
+00:46:59,079 --> 00:47:07,319
+Um this part would be
+
+819
+00:47:02,839 --> 00:47:11,839
+actually cons that's how you
+
+820
+00:47:07,319 --> 00:47:17,520
+construct here's the result you add that
+
+821
+00:47:11,839 --> 00:47:17,520
+to that okay so that's how you do
+
+822
+00:47:17,800 --> 00:47:24,839
+it. So if the hash table if the key
+
+823
+00:47:21,520 --> 00:47:28,319
+already exists in hasht that's the
+
+824
+00:47:24,839 --> 00:47:28,319
+result then
+
+825
+00:47:28,920 --> 00:47:32,920
+you add
+
+826
+00:47:34,680 --> 00:47:40,079
+um yeah you add the same key the link
+
+827
+00:47:38,000 --> 00:47:41,720
+already exist you add it but the value
+
+828
+00:47:40,079 --> 00:47:47,000
+would
+
+829
+00:47:41,720 --> 00:47:50,160
+be the previous value plus the new
+
+830
+00:47:47,000 --> 00:47:53,319
+um vector the the beginning end
+
+831
+00:47:50,160 --> 00:47:56,560
+position. Okay, that's
+
+832
+00:47:53,319 --> 00:48:01,079
+correct. I think that's correct. So, so
+
+833
+00:47:56,560 --> 00:48:04,520
+far so good. Yes. Then the output.
+
+834
+00:48:01,079 --> 00:48:09,040
+Um, so now here is
+
+835
+00:48:04,520 --> 00:48:10,119
+the make a report part. Uh, make a
+
+836
+00:48:09,040 --> 00:48:13,359
+report
+
+837
+00:48:10,119 --> 00:48:17,880
+part. And do we have duplicate list? Did
+
+838
+00:48:13,359 --> 00:48:21,200
+we remove it? Yes, we did. Okay.
+
+839
+00:48:17,880 --> 00:48:25,160
+So make a report. Uh for now we don't
+
+840
+00:48:21,200 --> 00:48:28,800
+care. Okay. So delete
+
+841
+00:48:25,160 --> 00:48:30,680
+duplicate. Okay. So make report. Let's
+
+842
+00:48:28,800 --> 00:48:33,400
+say we don't
+
+843
+00:48:30,680 --> 00:48:36,599
+care.
+
+844
+00:48:33,400 --> 00:48:39,480
+Okay. But anyway, now we got a hash
+
+845
+00:48:36,599 --> 00:48:43,760
+table. Now
+
+846
+00:48:39,480 --> 00:48:47,599
+um now we can print the hash table.
+
+847
+00:48:43,760 --> 00:48:50,599
+Let's just say print hash table and the
+
+848
+00:48:47,599 --> 00:48:50,599
+hasht
+
+849
+00:48:51,480 --> 00:49:00,040
+uh what xlinks table. Okay, x links
+
+850
+00:48:56,760 --> 00:49:04,359
+table and
+
+851
+00:49:00,040 --> 00:49:08,119
+just result is something like that.
+
+852
+00:49:04,359 --> 00:49:11,400
+Okay, purify the code. Evaluate the
+
+853
+00:49:08,119 --> 00:49:14,079
+buffer. Make a backup. Go to the
+
+854
+00:49:11,400 --> 00:49:16,880
+directory. Delete all the backup.
+
+855
+00:49:14,079 --> 00:49:19,359
+Delete. And by compile. Wait, wait.
+
+856
+00:49:16,880 --> 00:49:24,839
+Rename the file. So there's no space in
+
+857
+00:49:19,359 --> 00:49:27,920
+it. Do it. Now backup. Now by compile.
+
+858
+00:49:24,839 --> 00:49:30,960
+Yes, there is a problem. Warning. File
+
+859
+00:49:27,920 --> 00:49:36,160
+has no lexical binding. Annoying. Okay,
+
+860
+00:49:30,960 --> 00:49:39,119
+so open it. add a lexical binding X UTF.
+
+861
+00:49:36,160 --> 00:49:41,920
+That's my abbreviation. Abbreviation is
+
+862
+00:49:39,119 --> 00:49:44,880
+the most useful thing in EMAC. If you
+
+863
+00:49:41,920 --> 00:49:48,319
+don't already, search my Exac tutorial.
+
+864
+00:49:44,880 --> 00:49:50,880
+You'll see. Okay. So, you know, this is
+
+865
+00:49:48,319 --> 00:49:54,480
+the static declaration. It makes it
+
+866
+00:49:50,880 --> 00:49:56,960
+lexical binding. Uh, so it's better
+
+867
+00:49:54,480 --> 00:50:00,160
+code. They added that about 10 years
+
+868
+00:49:56,960 --> 00:50:04,240
+ago. It's a hack. It's, you know. So
+
+869
+00:50:00,160 --> 00:50:06,400
+anyway, now back up by compile again.
+
+870
+00:50:04,240 --> 00:50:08,640
+This time no error. Open the bite
+
+871
+00:50:06,400 --> 00:50:09,559
+compiled file. Delete it. We don't need
+
+872
+00:50:08,640 --> 00:50:13,480
+it.
+
+873
+00:50:09,559 --> 00:50:18,160
+Okay. So now this code works. It just
+
+874
+00:50:13,480 --> 00:50:21,160
+prints hasht result. Okay. Now go back.
+
+875
+00:50:18,160 --> 00:50:24,480
+So let's look. Let's go back to this
+
+876
+00:50:21,160 --> 00:50:29,599
+file. Close it. Reopen it. So there's no
+
+877
+00:50:24,480 --> 00:50:29,599
+highlight. Now uh now call the
+
+878
+00:50:29,960 --> 00:50:37,520
+command. Fantastic. So let's go to the
+
+879
+00:50:34,000 --> 00:50:41,920
+messages buffer. So you can see here is
+
+880
+00:50:37,520 --> 00:50:45,599
+our result. Open a new buffer. Let's
+
+881
+00:50:41,920 --> 00:50:50,240
+clarify. Okay. So let's see how do we
+
+882
+00:50:45,599 --> 00:50:54,119
+clarify this. So for each saw web let's
+
+883
+00:50:50,240 --> 00:50:54,119
+make a new line.
+
+884
+00:50:55,119 --> 00:51:02,079
+Okay. So you can see this is a hash
+
+885
+00:50:58,319 --> 00:51:05,400
+table each entry. So this this file path
+
+886
+00:51:02,079 --> 00:51:08,599
+only got one
+
+887
+00:51:05,400 --> 00:51:14,160
+occurrence. Uh and this
+
+888
+00:51:08,599 --> 00:51:15,559
+HTTP wait so HTTP also we need to make a
+
+889
+00:51:14,160 --> 00:51:20,240
+new
+
+890
+00:51:15,559 --> 00:51:22,920
+line. Okay. So this this link only occur
+
+891
+00:51:20,240 --> 00:51:25,559
+once. It's a position it
+
+892
+00:51:22,920 --> 00:51:30,040
+occurs. But this
+
+893
+00:51:25,559 --> 00:51:32,960
+link do Unix to do one thing. Well,
+
+894
+00:51:30,040 --> 00:51:35,119
+occurs a few times. That's a beginning
+
+895
+00:51:32,960 --> 00:51:37,440
+position. That's a be and that's the
+
+896
+00:51:35,119 --> 00:51:41,119
+other one. Okay. So, we got the hash
+
+897
+00:51:37,440 --> 00:51:44,079
+table. It's all good. So far so good.
+
+898
+00:51:41,119 --> 00:51:47,839
+Now, we just need to go through the hash
+
+899
+00:51:44,079 --> 00:51:50,520
+table. for each one. If the values
+
+900
+00:51:47,839 --> 00:51:52,960
+length is more than one, that means it's
+
+901
+00:51:50,520 --> 00:51:55,520
+duplicate. Then just highlight each one
+
+902
+00:51:52,960 --> 00:51:55,520
+of them.
+
+903
+00:51:58,359 --> 00:52:07,920
+Okay, good. Okay, close it. Close
+
+904
+00:52:03,400 --> 00:52:10,680
+it. Go back here. Let's uh write out
+
+905
+00:52:07,920 --> 00:52:15,680
+what we going to do
+
+906
+00:52:10,680 --> 00:52:19,240
+now. Go through hash table.
+
+907
+00:52:15,680 --> 00:52:25,040
+If a keys
+
+908
+00:52:19,240 --> 00:52:25,040
+value as length two or
+
+909
+00:52:26,119 --> 00:52:33,960
+more highlight it in buffer okay
+
+910
+00:52:31,359 --> 00:52:36,559
+fantastic and
+
+911
+00:52:33,960 --> 00:52:38,720
+beautiful okay let's go through the hash
+
+912
+00:52:36,559 --> 00:52:41,880
+table so how do you go through the hash
+
+913
+00:52:38,720 --> 00:52:44,040
+table well you
+
+914
+00:52:41,880 --> 00:52:49,400
+got hashmap
+
+915
+00:52:44,040 --> 00:52:54,359
+map I believe no uh map
+
+916
+00:52:49,400 --> 00:52:58,079
+hash there it is fantastic beautiful
+
+917
+00:52:54,359 --> 00:53:00,960
+so if you don't know you know again I
+
+918
+00:52:58,079 --> 00:53:04,200
+have a emacisp tutorial from the ground
+
+919
+00:53:00,960 --> 00:53:09,119
+up you can see just search for kasar e
+
+920
+00:53:04,200 --> 00:53:11,280
+emacisp tutorial on kasari.info info and
+
+921
+00:53:09,119 --> 00:53:14,000
+uh you got strings, number, buffer,
+
+922
+00:53:11,280 --> 00:53:17,280
+boolean, variable, uh condition, loop,
+
+923
+00:53:14,000 --> 00:53:19,920
+list, data structure. Then you got
+
+924
+00:53:17,280 --> 00:53:23,280
+sequence, special list, list list
+
+925
+00:53:19,920 --> 00:53:26,800
+structure, vector, sequence, then you
+
+926
+00:53:23,280 --> 00:53:29,760
+got hash table. So here is a groundup
+
+927
+00:53:26,800 --> 00:53:31,359
+tutorial on hash table. Okay, so now we
+
+928
+00:53:29,760 --> 00:53:35,160
+want to go through the hash table. You
+
+929
+00:53:31,359 --> 00:53:39,119
+do map hash and the table would
+
+930
+00:53:35,160 --> 00:53:42,160
+be xlink table. Okay. Then lambda key
+
+931
+00:53:39,119 --> 00:53:44,960
+and value. Okay. So what is the body?
+
+932
+00:53:42,160 --> 00:53:47,200
+Well, the body let's predify the body
+
+933
+00:53:44,960 --> 00:53:47,200
+would
+
+934
+00:53:47,559 --> 00:53:53,079
+be if uh wait
+
+935
+00:53:51,319 --> 00:53:55,960
+what
+
+936
+00:53:53,079 --> 00:53:58,559
+okay
+
+937
+00:53:55,960 --> 00:54:03,040
+if length
+
+938
+00:53:58,559 --> 00:54:05,720
+uh uh if length of the value is greater
+
+939
+00:54:03,040 --> 00:54:07,640
+than one.
+
+940
+00:54:05,720 --> 00:54:12,800
+Okay.
+
+941
+00:54:07,640 --> 00:54:12,800
+If let's just say equal
+
+942
+00:54:13,880 --> 00:54:22,079
+XV length of the value is just one then
+
+943
+00:54:19,359 --> 00:54:25,760
+do nothing
+
+944
+00:54:22,079 --> 00:54:29,359
+uh then just do nothing. Okay otherwise
+
+945
+00:54:25,760 --> 00:54:29,359
+that means it's duplicate
+
+946
+00:54:30,359 --> 00:54:38,040
+otherwise otherwise let's create a local
+
+947
+00:54:33,760 --> 00:54:44,800
+variable. Okay. So local variable
+
+948
+00:54:38,040 --> 00:54:44,800
+uh x sorted. Okay. X sorted will
+
+949
+00:54:45,160 --> 00:54:51,520
+be sort
+
+950
+00:54:48,319 --> 00:54:56,400
+uh sort XV actually
+
+951
+00:54:51,520 --> 00:54:59,599
+uh sort in eacisp is kind of complicated
+
+952
+00:54:56,400 --> 00:55:02,720
+but there's a new version that fixed it.
+
+953
+00:54:59,599 --> 00:55:05,160
+Okay. So let's go back to eac list
+
+954
+00:55:02,720 --> 00:55:08,160
+basics. Let's go to
+
+955
+00:55:05,160 --> 00:55:12,079
+list list data structure. Let's click on
+
+956
+00:55:08,160 --> 00:55:14,800
+list. Okay. Uh then you need to sort it.
+
+957
+00:55:12,079 --> 00:55:19,319
+Let's see where is it? List vector uh
+
+958
+00:55:14,800 --> 00:55:23,520
+vector sequence hasht list iteration. Uh
+
+959
+00:55:19,319 --> 00:55:26,640
+convert where do I find sort create get
+
+960
+00:55:23,520 --> 00:55:28,040
+elements modify list list iteration
+
+961
+00:55:26,640 --> 00:55:31,760
+check element
+
+962
+00:55:28,040 --> 00:55:36,119
+exist sequence join convert a where
+
+963
+00:55:31,760 --> 00:55:41,280
+is it sort let's go to sequence
+
+964
+00:55:36,119 --> 00:55:45,680
+type okay sequence type then for each
+
+965
+00:55:41,280 --> 00:55:50,319
+sum every filter sort reverse there okay
+
+966
+00:55:45,680 --> 00:55:53,599
+so this sort because list and vector and
+
+967
+00:55:50,319 --> 00:55:57,119
+it's stable. They by the way they in the
+
+968
+00:55:53,599 --> 00:56:00,480
+past uh three years also they fixed it
+
+969
+00:55:57,119 --> 00:56:03,119
+before it was not stable. Okay. So
+
+970
+00:56:00,480 --> 00:56:05,839
+return sorted sequence original not
+
+971
+00:56:03,119 --> 00:56:08,119
+changed. Yeah they fixed it you know few
+
+972
+00:56:05,839 --> 00:56:10,960
+years ago three years ago it was
+
+973
+00:56:08,119 --> 00:56:14,960
+destructive. So when you sort a list the
+
+974
+00:56:10,960 --> 00:56:17,359
+original list variable is like destroyed
+
+975
+00:56:14,960 --> 00:56:22,160
+and also it's not stable. So they fixed
+
+976
+00:56:17,359 --> 00:56:23,960
+that since Emacs 30. Oh, they they just
+
+977
+00:56:22,160 --> 00:56:28,200
+fixed it uh this
+
+978
+00:56:23,960 --> 00:56:32,000
+year. Yeah. To you know to uh so yeah
+
+979
+00:56:28,200 --> 00:56:35,680
+2025. Yeah. Fantastic. So yeah. So can
+
+980
+00:56:32,000 --> 00:56:41,079
+we use sort? Yes. Sort then uh by
+
+981
+00:56:35,680 --> 00:56:42,839
+default. Okay. So, and they added these
+
+982
+00:56:41,079 --> 00:56:45,839
+uh
+
+983
+00:56:42,839 --> 00:56:45,839
+key
+
+984
+00:56:46,040 --> 00:56:51,440
+arguments function to function. Okay.
+
+985
+00:56:59,640 --> 00:57:05,400
+Um, okay. So, I know what to do.
+
+986
+00:57:04,079 --> 00:57:08,799
+So
+
+987
+00:57:05,400 --> 00:57:11,559
+sort you want to sort the you want to
+
+988
+00:57:08,799 --> 00:57:14,799
+sort the value which is a list
+
+989
+00:57:11,559 --> 00:57:17,119
+of pairs. Each pair is beginning
+
+990
+00:57:14,799 --> 00:57:18,880
+position and end position. You want to
+
+991
+00:57:17,119 --> 00:57:22,520
+sort them by the beginning position
+
+992
+00:57:18,880 --> 00:57:25,040
+because you want to highlight the first
+
+993
+00:57:22,520 --> 00:57:29,200
+occurrence will have a different color
+
+994
+00:57:25,040 --> 00:57:31,440
+than the rest repetitions. Okay?
+
+995
+00:57:29,200 --> 00:57:33,040
+So that's why you want to sort you want
+
+996
+00:57:31,440 --> 00:57:36,160
+you want to know which one is come
+
+997
+00:57:33,040 --> 00:57:39,000
+first. So you sort it and by what
+
+998
+00:57:36,160 --> 00:57:43,200
+function by the function will
+
+999
+00:57:39,000 --> 00:57:48,079
+be lambda. Of course the lambda will
+
+1000
+00:57:43,200 --> 00:57:51,640
+take two uh wait the the key extraction
+
+1001
+00:57:48,079 --> 00:57:55,400
+function. Okay. So actually it should
+
+1002
+00:57:51,640 --> 00:57:59,200
+be oh so I need to uh update my
+
+1003
+00:57:55,400 --> 00:58:02,400
+template. Okay. Let's do that.
+
+1004
+00:57:59,200 --> 00:58:06,240
+Go to emac this smart kas emac this
+
+1005
+00:58:02,400 --> 00:58:10,319
+smart search for sort okay so there is
+
+1006
+00:58:06,240 --> 00:58:15,520
+the abbreviation template for sort now
+
+1007
+00:58:10,319 --> 00:58:15,520
+it's updated so this part should be
+
+1008
+00:58:17,559 --> 00:58:31,200
+key and uh key something lambda okay
+
+1009
+00:58:23,880 --> 00:58:33,680
+uh let's let's name that EP. Okay. Key
+
+1010
+00:58:31,200 --> 00:58:38,200
+uh key wait the key just extract the
+
+1011
+00:58:33,680 --> 00:58:41,599
+key. Okay. So that is our new
+
+1012
+00:58:38,200 --> 00:58:45,280
+um template for sort. So evaluate the
+
+1013
+00:58:41,599 --> 00:58:48,839
+buffer. Make a backup. Go back. Now
+
+1014
+00:58:45,280 --> 00:58:53,280
+let's try sort again.
+
+1015
+00:58:48,839 --> 00:58:56,920
+Sort. Okay. Didn't work. Save it. Close
+
+1016
+00:58:53,280 --> 00:58:58,760
+it. Reopen it. Sort.
+
+1017
+00:58:56,920 --> 00:59:01,599
+Fantastic and
+
+1018
+00:58:58,760 --> 00:59:04,880
+beautiful. Okay, we got the sort. So,
+
+1019
+00:59:01,599 --> 00:59:08,240
+let's you know, so here's a new sort and
+
+1020
+00:59:04,880 --> 00:59:11,010
+the sort the sequence is XV and remove
+
+1021
+00:59:08,240 --> 00:59:12,599
+that. So, the key this extract the
+
+1022
+00:59:11,010 --> 00:59:15,520
+[Music]
+
+1023
+00:59:12,599 --> 00:59:18,520
+key. So, how do you extract it? Because
+
+1024
+00:59:15,520 --> 00:59:21,760
+it's a pair, it's a vector pair. So, a
+
+1025
+00:59:18,520 --> 00:59:26,640
+ref that's how you extract the elements
+
+1026
+00:59:21,760 --> 00:59:29,839
+in a array. So the array is xv uh wait
+
+1027
+00:59:26,640 --> 00:59:32,599
+the array is xx index zero. So that's
+
+1028
+00:59:29,839 --> 00:59:35,319
+the beginning position.
+
+1029
+00:59:32,599 --> 00:59:37,640
+Okay. Purify the
+
+1030
+00:59:35,319 --> 00:59:41,480
+code. Okay.
+
+1031
+00:59:37,640 --> 00:59:46,040
+So if the length is one ignored
+
+1032
+00:59:41,480 --> 00:59:50,480
+otherwise sorted then what you do then
+
+1033
+00:59:46,040 --> 00:59:50,480
+highlight. Now remember now we need to
+
+1034
+00:59:50,680 --> 00:59:57,720
+highlight. Okay. Now let's see where is
+
+1035
+00:59:53,680 --> 01:00:00,960
+our highlight code.
+
+1036
+00:59:57,720 --> 01:00:02,200
+Um, show duplicate links. Yes, this is
+
+1037
+01:00:00,960 --> 01:00:04,839
+our old
+
+1038
+01:00:02,200 --> 01:00:09,359
+code. Highlight would
+
+1039
+01:00:04,839 --> 01:00:12,680
+be this. This. And let's push mark two.
+
+1040
+01:00:09,359 --> 01:00:16,640
+So, copy that. Close it.
+
+1041
+01:00:12,680 --> 01:00:18,960
+Actually, go back to our code. Here is
+
+1042
+01:00:16,640 --> 01:00:21,839
+what we want to do.
+
+1043
+01:00:18,960 --> 01:00:21,839
+So first of
+
+1044
+01:00:26,520 --> 01:00:32,880
+all, so okay. So, so this is highlight.
+
+1045
+01:00:33,400 --> 01:00:37,280
+Um, okay. So
+
+1046
+01:00:40,359 --> 01:00:49,319
+wait. Okay, let's put them in a program.
+
+1047
+01:00:45,520 --> 01:00:53,160
+Organize them. So we have the sorted
+
+1048
+01:00:49,319 --> 01:00:57,920
+key. So this is a
+
+1049
+01:00:53,160 --> 01:00:59,799
+list and each element is a vector of two
+
+1050
+01:00:57,920 --> 01:01:03,440
+things beginning and end
+
+1051
+01:00:59,799 --> 01:01:05,920
+position. Okay. So you want to go
+
+1052
+01:01:03,440 --> 01:01:10,680
+through this list. Okay. So that would
+
+1053
+01:01:05,920 --> 01:01:14,599
+be map C. Go through this list. So for
+
+1054
+01:01:10,680 --> 01:01:18,640
+each so go through the
+
+1055
+01:01:14,599 --> 01:01:21,440
+list. Okay. and the sequence is exorted.
+
+1056
+01:01:18,640 --> 01:01:25,160
+Okay, what to do with it? Well, for each
+
+1057
+01:01:21,440 --> 01:01:25,160
+element you
+
+1058
+01:01:28,280 --> 01:01:32,559
+um for each
+
+1059
+01:01:32,599 --> 01:01:38,920
+element well depending on the first or
+
+1060
+01:01:35,119 --> 01:01:41,839
+last. So for so you
+
+1061
+01:01:38,920 --> 01:01:44,280
+um yeah the first one you it will be
+
+1062
+01:01:41,839 --> 01:01:48,799
+different. So you need to pop
+
+1063
+01:01:44,280 --> 01:01:55,880
+it. Pop the first one. Okay. So pop get
+
+1064
+01:01:48,799 --> 01:02:01,319
+the first element. Pop X sorted. Okay.
+
+1065
+01:01:55,880 --> 01:02:03,559
+So okay. So let another
+
+1066
+01:02:01,319 --> 01:02:07,520
+um let's say
+
+1067
+01:02:03,559 --> 01:02:07,520
+first. Okay. First
+
+1068
+01:02:09,079 --> 01:02:17,960
+pair. Okay. So the first would be pop it
+
+1069
+01:02:14,839 --> 01:02:20,920
+out. That's the first
+
+1070
+01:02:17,960 --> 01:02:26,160
+occurrence. Okay. Then you say
+
+1071
+01:02:20,920 --> 01:02:26,160
+highlight. So you got to put this
+
+1072
+01:02:26,520 --> 01:02:29,920
+code. Okay.
+
+1073
+01:02:31,480 --> 01:02:35,240
+So,
+
+1074
+01:02:33,240 --> 01:02:39,440
+so push
+
+1075
+01:02:35,240 --> 01:02:40,440
+mark push mark
+
+1076
+01:02:39,440 --> 01:02:43,680
+uh
+
+1077
+01:02:40,440 --> 01:02:46,400
+reference of the you know get the first
+
+1078
+01:02:43,680 --> 01:02:46,400
+element of
+
+1079
+01:02:47,559 --> 01:02:53,280
+the
+
+1080
+01:02:49,720 --> 01:02:57,359
+what index the first element of array
+
+1081
+01:02:53,280 --> 01:03:01,400
+and the array is the first. Okay. So you
+
+1082
+01:02:57,359 --> 01:03:05,559
+mark the beginning
+
+1083
+01:03:01,400 --> 01:03:09,280
+position of the link. Okay, that's one
+
+1084
+01:03:05,559 --> 01:03:10,920
+thing. Then you highlight it. You
+
+1085
+01:03:09,280 --> 01:03:14,640
+highlight it
+
+1086
+01:03:10,920 --> 01:03:17,480
+by Okay, so you highlight by the
+
+1087
+01:03:14,640 --> 01:03:22,240
+beginning and position that would
+
+1088
+01:03:17,480 --> 01:03:22,240
+be zero and one.
+
+1089
+01:03:22,440 --> 01:03:29,559
+Okay, you know we can Okay. Anyway,
+
+1090
+01:03:26,520 --> 01:03:32,480
+so make
+
+1091
+01:03:29,559 --> 01:03:37,720
+overlay. Okay. Beginning and position
+
+1092
+01:03:32,480 --> 01:03:41,920
+and uh you highlight red a warning face.
+
+1093
+01:03:37,720 --> 01:03:44,599
+Okay. So that you don't care clarify. So
+
+1094
+01:03:41,920 --> 01:03:48,960
+let's make it another
+
+1095
+01:03:44,599 --> 01:03:51,760
+um that's fine. Okay. So get the first
+
+1096
+01:03:48,960 --> 01:03:54,400
+occurrence, the first pair.
+
+1097
+01:03:51,760 --> 01:03:57,280
+you highlight the beginning and end
+
+1098
+01:03:54,400 --> 01:03:57,280
+position.
+
+1099
+01:03:57,640 --> 01:04:04,880
+Okay. Okay. Then you then then for the
+
+1100
+01:04:01,440 --> 01:04:08,400
+rest of the
+
+1101
+01:04:04,880 --> 01:04:11,400
+uh occurrence of the links you highlight
+
+1102
+01:04:08,400 --> 01:04:15,319
+them with a different
+
+1103
+01:04:11,400 --> 01:04:20,079
+color. Okay. So for the rest of
+
+1104
+01:04:15,319 --> 01:04:20,079
+them you Okay.
+
+1105
+01:04:24,119 --> 01:04:30,799
+So you also need to push mark. Okay. So
+
+1106
+01:04:27,680 --> 01:04:35,039
+let's copy this. So for the rest of them
+
+1107
+01:04:30,799 --> 01:04:37,319
+you do that. Okay. So the for the rest
+
+1108
+01:04:35,039 --> 01:04:40,200
+of them
+
+1109
+01:04:37,319 --> 01:04:45,200
+you do you need to
+
+1110
+01:04:40,200 --> 01:04:45,200
+sort. Uh for the rest of
+
+1111
+01:04:49,079 --> 01:04:52,400
+them push
+
+1112
+01:04:52,839 --> 01:04:58,240
+mark for the rest of them you map to the
+
+1113
+01:04:56,720 --> 01:05:02,880
+sorted
+
+1114
+01:04:58,240 --> 01:05:04,200
+uh push mark the first and overlay.
+
+1115
+01:05:02,880 --> 01:05:08,799
+That's
+
+1116
+01:05:04,200 --> 01:05:12,079
+right. So the first um the first color
+
+1117
+01:05:08,799 --> 01:05:16,599
+let's use the highlight color. So let's
+
+1118
+01:05:12,079 --> 01:05:18,680
+uh display phone lock um let's
+
+1119
+01:05:16,599 --> 01:05:23,079
+say font
+
+1120
+01:05:18,680 --> 01:05:23,079
+lock font face
+
+1121
+01:05:26,680 --> 01:05:34,559
+uh okay display face
+
+1122
+01:05:31,440 --> 01:05:34,559
+uh where is
+
+1123
+01:05:40,559 --> 01:05:48,400
+list faces. Okay, list faces display. So
+
+1124
+01:05:44,319 --> 01:05:49,720
+this command list faces display lets you
+
+1125
+01:05:48,400 --> 01:05:52,640
+see all the
+
+1126
+01:05:49,720 --> 01:05:54,520
+predefined like faces meaning the font
+
+1127
+01:05:52,640 --> 01:05:59,039
+and
+
+1128
+01:05:54,520 --> 01:06:00,359
+color. So we want yellow. we we kind of
+
+1129
+01:05:59,039 --> 01:06:04,960
+want
+
+1130
+01:06:00,359 --> 01:06:04,960
+um you know so let's use
+
+1131
+01:06:05,799 --> 01:06:10,760
+something okay diff we don't I don't
+
+1132
+01:06:08,400 --> 01:06:14,480
+want to use the package in diff okay
+
+1133
+01:06:10,760 --> 01:06:16,880
+okay so we want uh you know high yellow
+
+1134
+01:06:14,480 --> 01:06:19,319
+okay let's just use that high yellow so
+
+1135
+01:06:16,880 --> 01:06:22,240
+high yellow means the first
+
+1136
+01:06:19,319 --> 01:06:27,400
+occurrence then the rest occurrence
+
+1137
+01:06:22,240 --> 01:06:31,440
+would be let's see high
+
+1138
+01:06:27,400 --> 01:06:33,079
+yellow and high salmon. Okay. Wait, high
+
+1139
+01:06:31,440 --> 01:06:36,599
+yellow and high
+
+1140
+01:06:33,079 --> 01:06:39,920
+pink. Wait. High yellow and high
+
+1141
+01:06:36,599 --> 01:06:42,440
+green. So many choices. Okay. That's
+
+1142
+01:06:39,920 --> 01:06:45,720
+high yellow and high green.
+
+1143
+01:06:42,440 --> 01:06:48,280
+Okay. High yellow and
+
+1144
+01:06:45,720 --> 01:06:53,559
+high
+
+1145
+01:06:48,280 --> 01:06:56,880
+green. Okay. Close that. So this would
+
+1146
+01:06:53,559 --> 01:06:59,680
+be the first one is high yellow. Then
+
+1147
+01:06:56,880 --> 01:07:02,839
+the second one is high green. Now is
+
+1148
+01:06:59,680 --> 01:07:07,280
+this a variable or just a symbol? Let's
+
+1149
+01:07:02,839 --> 01:07:09,440
+check. Uh describe variable and type it.
+
+1150
+01:07:07,280 --> 01:07:13,599
+No. Okay. So it's not a variable, it's a
+
+1151
+01:07:09,440 --> 01:07:13,599
+symbol. So you need to have a quote
+
+1152
+01:07:14,119 --> 01:07:21,880
+there. Okay. So I think actually we are
+
+1153
+01:07:17,359 --> 01:07:21,880
+done. Okay. So double check.
+
+1154
+01:07:22,000 --> 01:07:26,559
+So now go through hash table. If a keys
+
+1155
+01:07:24,480 --> 01:07:29,960
+value has linked two or more highlight
+
+1156
+01:07:26,559 --> 01:07:31,559
+it in buffer and also mark
+
+1157
+01:07:29,960 --> 01:07:35,359
+it.
+
+1158
+01:07:31,559 --> 01:07:39,839
+So map hash you know we go through the
+
+1159
+01:07:35,359 --> 01:07:43,880
+link hash table hash table of links.
+
+1160
+01:07:39,839 --> 01:07:47,079
+Okay. And what you do is
+
+1161
+01:07:43,880 --> 01:07:50,920
+you so this is lambda function. And
+
+1162
+01:07:47,079 --> 01:07:53,359
+it's, you know, this annoying
+
+1163
+01:07:50,920 --> 01:07:57,200
+indentation, you know, I wanted to make
+
+1164
+01:07:53,359 --> 01:08:00,839
+the indentation just one space, but in
+
+1165
+01:07:57,200 --> 01:08:04,480
+EMAC it's not, you know, it's it it's
+
+1166
+01:08:00,839 --> 01:08:07,920
+it's not so trivial and also it went
+
+1167
+01:08:04,480 --> 01:08:12,000
+against the EMAC this code format
+
+1168
+01:08:07,920 --> 01:08:16,040
+convention. So anyway, so map hash the
+
+1169
+01:08:12,000 --> 01:08:18,279
+lambda function do this. So
+
+1170
+01:08:16,040 --> 01:08:22,480
+if
+
+1171
+01:08:18,279 --> 01:08:26,719
+the value is just one ignore it you know
+
+1172
+01:08:22,480 --> 01:08:26,719
+so this is new
+
+1173
+01:08:30,520 --> 01:08:35,319
+otherwise otherwise you sort the hash
+
+1174
+01:08:34,400 --> 01:08:38,960
+table
+
+1175
+01:08:35,319 --> 01:08:43,080
+first I mean sort the list of beginning
+
+1176
+01:08:38,960 --> 01:08:46,319
+and position first you pop the first
+
+1177
+01:08:43,080 --> 01:08:47,960
+out. Then you push mark the beginning
+
+1178
+01:08:46,319 --> 01:08:52,279
+position in
+
+1179
+01:08:47,960 --> 01:08:52,279
+buffer. Then you
+
+1180
+01:08:52,560 --> 01:08:57,560
+um let's ignore push mark. Okay. It's
+
+1181
+01:08:55,839 --> 01:09:00,199
+let's it's not just
+
+1182
+01:08:57,560 --> 01:09:05,679
+um
+
+1183
+01:09:00,199 --> 01:09:07,480
+okay and also this this overlay. Let's
+
+1184
+01:09:05,679 --> 01:09:12,640
+make it simpler.
+
+1185
+01:09:07,480 --> 01:09:15,359
+Okay. Make it simpler. And uh you don't
+
+1186
+01:09:12,640 --> 01:09:15,359
+need these
+
+1187
+01:09:21,560 --> 01:09:26,839
+lips. Color the first one yellow. Color
+
+1188
+01:09:24,880 --> 01:09:31,000
+the rest occurrence
+
+1189
+01:09:26,839 --> 01:09:34,199
+green. Okay. Uh remove
+
+1190
+01:09:31,000 --> 01:09:39,159
+that. Okay. So here's our
+
+1191
+01:09:34,199 --> 01:09:39,159
+code. I think that works.
+
+1192
+01:09:41,520 --> 01:09:47,640
+And we don't need this message. Okay. So
+
+1193
+01:09:44,480 --> 01:09:50,279
+this message will be just
+
+1194
+01:09:47,640 --> 01:09:53,800
+say
+
+1195
+01:09:50,279 --> 01:09:57,679
+done. Okay.
+
+1196
+01:09:53,800 --> 01:10:00,760
+Now make a backup. Go to the directory
+
+1197
+01:09:57,679 --> 01:10:05,360
+by compile it
+
+1198
+01:10:00,760 --> 01:10:07,719
+problem and use lexical argument xx. So
+
+1199
+01:10:05,360 --> 01:10:11,120
+we are not using the
+
+1200
+01:10:07,719 --> 01:10:13,760
+key map to the key value pair. Are we
+
+1201
+01:10:11,120 --> 01:10:13,760
+using the
+
+1202
+01:10:16,600 --> 01:10:23,040
+key? Well the key well right now we are
+
+1203
+01:10:19,760 --> 01:10:25,040
+not. So let's use underscore because
+
+1204
+01:10:23,040 --> 01:10:27,679
+that's a convention. If you don't use
+
+1205
+01:10:25,040 --> 01:10:29,000
+the variable you you know name the
+
+1206
+01:10:27,679 --> 01:10:32,080
+variable
+
+1207
+01:10:29,000 --> 01:10:34,480
+underscore. That's just a convention. So
+
+1208
+01:10:32,080 --> 01:10:37,520
+okay and use lexical variable. We fix
+
+1209
+01:10:34,480 --> 01:10:38,679
+that and use lex equal variable x. Where
+
+1210
+01:10:37,520 --> 01:10:42,960
+does that
+
+1211
+01:10:38,679 --> 01:10:42,960
+x? Oh, x.
+
+1212
+01:10:45,960 --> 01:10:53,600
+Oh, so this is curling coloring the
+
+1213
+01:10:49,440 --> 01:10:56,600
+rest. Okay. Oh, yeah. So, yeah. So, this
+
+1214
+01:10:53,600 --> 01:10:56,600
+needs
+
+1215
+01:11:25,080 --> 01:11:31,120
+Okay. Okay. Back up color first
+
+1216
+01:11:48,280 --> 01:11:54,320
+occurrence.
+
+1217
+01:11:50,840 --> 01:11:57,440
+Yep. By compile it. No. No arrow.
+
+1218
+01:11:54,320 --> 01:12:01,199
+Fantastic. Delete the bite compile file.
+
+1219
+01:11:57,440 --> 01:12:04,880
+Fantastic. Evaluate it. Now go back. Now
+
+1220
+01:12:01,199 --> 01:12:08,480
+let's test it. Show in browser. You can
+
+1221
+01:12:04,880 --> 01:12:13,199
+see many duplicate links there. Okay.
+
+1222
+01:12:08,480 --> 01:12:13,199
+Now let's call the command. Press press
+
+1223
+01:12:13,719 --> 01:12:20,960
+press. Beautiful.
+
+1224
+01:12:17,320 --> 01:12:22,719
+Fantastic. This is the power of oneshot
+
+1225
+01:12:20,960 --> 01:12:25,000
+coding.
+
+1226
+01:12:22,719 --> 01:12:28,239
+So the yellow lines
+
+1227
+01:12:25,000 --> 01:12:30,679
+means they are repeated but each one
+
+1228
+01:12:28,239 --> 01:12:33,920
+each yellow is first
+
+1229
+01:12:30,679 --> 01:12:36,080
+occurrence. The green ones also means
+
+1230
+01:12:33,920 --> 01:12:38,159
+they are repeated but they are like the
+
+1231
+01:12:36,080 --> 01:12:40,520
+second or third or fourth you know the
+
+1232
+01:12:38,159 --> 01:12:44,600
+rest of
+
+1233
+01:12:40,520 --> 01:12:48,159
+occurrence. So showing
+
+1234
+01:12:44,600 --> 01:12:50,800
+browser. So you see now I can properly
+
+1235
+01:12:48,159 --> 01:12:52,760
+you know now I know which link to remove
+
+1236
+01:12:50,800 --> 01:12:55,840
+because this topic
+
+1237
+01:12:52,760 --> 01:12:57,840
+box you see this repetition in the topic
+
+1238
+01:12:55,840 --> 01:13:01,760
+box that's more important you know this
+
+1239
+01:12:57,840 --> 01:13:07,719
+is the all related topics about this
+
+1240
+01:13:01,760 --> 01:13:10,960
+Unix sucks topics while the the C
+
+1241
+01:13:07,719 --> 01:13:14,000
+also you know this see also is like re
+
+1242
+01:13:10,960 --> 01:13:15,360
+related links they are secondary
+
+1243
+01:13:14,000 --> 01:13:19,040
+importance
+
+1244
+01:13:15,360 --> 01:13:22,000
+So if a link is repeated in the C also
+
+1245
+01:13:19,040 --> 01:13:26,000
+and in the Unix you know and in the
+
+1246
+01:13:22,000 --> 01:13:28,239
+topic box the topic box once remain okay
+
+1247
+01:13:26,000 --> 01:13:30,880
+so that means for example Unix for
+
+1248
+01:13:28,239 --> 01:13:34,080
+example this link let's see where it
+
+1249
+01:13:30,880 --> 01:13:37,199
+occurs so it occurs here you know you
+
+1250
+01:13:34,080 --> 01:13:37,199
+know it occurs
+
+1251
+01:13:37,320 --> 01:13:45,199
+twice so the rel you know Unix
+
+1252
+01:13:41,840 --> 01:13:48,560
+uh Unix file system case sensitivity
+
+1253
+01:13:45,199 --> 01:13:52,400
+extreme idiocy you know the Unix crimes
+
+1254
+01:13:48,560 --> 01:13:54,800
+anyway so this means this one must go so
+
+1255
+01:13:52,400 --> 01:13:57,840
+anyway now what I can do is that I can
+
+1256
+01:13:54,800 --> 01:14:00,320
+show you okay so if it's yellow delete
+
+1257
+01:13:57,840 --> 01:14:01,920
+it so it's all yellow here delete delete
+
+1258
+01:14:00,320 --> 01:14:05,360
+delete delete you know I don't need the
+
+1259
+01:14:01,920 --> 01:14:08,239
+whole like like I can just do that okay
+
+1260
+01:14:05,360 --> 01:14:10,719
+then go up here it's all yellow that
+
+1261
+01:14:08,239 --> 01:14:14,880
+means it's all repeated here so that in
+
+1262
+01:14:10,719 --> 01:14:18,880
+fact I can just re uh delete the entire
+
+1263
+01:14:14,880 --> 01:14:21,560
+related box. Okay. Showing browser now
+
+1264
+01:14:18,880 --> 01:14:25,120
+go down.
+
+1265
+01:14:21,560 --> 01:14:29,040
+Fantastic. So now actually so so this
+
+1266
+01:14:25,120 --> 01:14:31,840
+beautiful we did what we wanted. So now
+
+1267
+01:14:29,040 --> 01:14:35,600
+I mean you know my job is done for for
+
+1268
+01:14:31,840 --> 01:14:38,080
+today for this talk show. But you know
+
+1269
+01:14:35,600 --> 01:14:40,400
+for me I need to go through each one one
+
+1270
+01:14:38,080 --> 01:14:42,640
+of these and do the same thing. Of
+
+1271
+01:14:40,400 --> 01:14:45,520
+course, then I can write the new Emacs
+
+1272
+01:14:42,640 --> 01:14:49,239
+command to automate. So you see on this
+
+1273
+01:14:45,520 --> 01:14:53,480
+page Unix pipe as functional programming
+
+1274
+01:14:49,239 --> 01:14:58,440
+language, it details the
+
+1275
+01:14:53,480 --> 01:15:01,600
+extreme idiocy, the incompetence of the
+
+1276
+01:14:58,440 --> 01:15:03,920
+Unix, their design of the pipe syntax.
+
+1277
+01:15:01,600 --> 01:15:05,600
+The pipe syntax is actually fantastic
+
+1278
+01:15:03,920 --> 01:15:08,000
+because it came from functional
+
+1279
+01:15:05,600 --> 01:15:12,600
+programming languages.
+
+1280
+01:15:08,000 --> 01:15:16,560
+uh the creator of the guy Alfred
+
+1281
+01:15:12,600 --> 01:15:20,400
+Aaho who is creator of Oc you know one
+
+1282
+01:15:16,560 --> 01:15:21,159
+of the Unix tool major you know 30 40
+
+1283
+01:15:20,400 --> 01:15:25,520
+years
+
+1284
+01:15:21,159 --> 01:15:29,280
+ago critical and also he's the you know
+
+1285
+01:15:25,520 --> 01:15:32,640
+co co-author of the dragon book the most
+
+1286
+01:15:29,280 --> 01:15:35,679
+famous compiler book okay the classic
+
+1287
+01:15:32,640 --> 01:15:37,679
+comp compiler book so this guy Alfred oh
+
+1288
+01:15:35,679 --> 01:15:40,960
+a ho
+
+1289
+01:15:37,679 --> 01:15:42,800
+He says you know doing a interview you
+
+1290
+01:15:40,960 --> 01:15:45,840
+know these days you know many many of
+
+1291
+01:15:42,800 --> 01:15:49,480
+these blogs are guns so so it's in in
+
+1292
+01:15:45,840 --> 01:15:52,480
+this book okay so anyway it's in this
+
+1293
+01:15:49,480 --> 01:15:54,880
+book masterminds of programming
+
+1294
+01:15:52,480 --> 01:15:57,280
+conversation with the creators of major
+
+1295
+01:15:54,880 --> 01:16:00,760
+programming languages okay so this guy
+
+1296
+01:15:57,280 --> 01:16:03,440
+is the creator of the orc programming
+
+1297
+01:16:00,760 --> 01:16:06,080
+language and he says you know someone
+
+1298
+01:16:03,440 --> 01:16:09,440
+asked him is the you know the where does
+
+1299
+01:16:06,080 --> 01:16:11,360
+the idea of the Unix pipe came from and
+
+1300
+01:16:09,440 --> 01:16:14,880
+he says it came from functional
+
+1301
+01:16:11,360 --> 01:16:14,880
+programming mathematics
+
+1302
+01:16:15,000 --> 01:16:21,600
+okay but when you know so that's my you
+
+1303
+01:16:18,719 --> 01:16:24,480
+know that's what you know so in the
+
+1304
+01:16:21,600 --> 01:16:27,679
+1990s when I started to learn Unix I see
+
+1305
+01:16:24,480 --> 01:16:29,679
+it right away but but when I talk to the
+
+1306
+01:16:27,679 --> 01:16:31,760
+Unix people they they don't know they
+
+1307
+01:16:29,679 --> 01:16:34,000
+don't understand what I you are talking
+
+1308
+01:16:31,760 --> 01:16:36,719
+about you know functional programming
+
+1309
+01:16:34,000 --> 01:16:41,199
+like what the They don't know. So,
+
+1310
+01:16:36,719 --> 01:16:42,600
+but eventually until 2009, I found this
+
+1311
+01:16:41,199 --> 01:16:46,080
+article, this
+
+1312
+01:16:42,600 --> 01:16:47,199
+book, the guy himself said as so, you
+
+1313
+01:16:46,080 --> 01:16:49,880
+know, it came from functional
+
+1314
+01:16:47,199 --> 01:16:51,560
+programming because it allows function
+
+1315
+01:16:49,880 --> 01:16:55,199
+composition.
+
+1316
+01:16:51,560 --> 01:16:58,880
+Okay. So, so, so this article, you know,
+
+1317
+01:16:55,199 --> 01:17:02,239
+I wanted to show the extreme
+
+1318
+01:16:58,880 --> 01:17:05,280
+incompetence and ignorance of the Unix
+
+1319
+01:17:02,239 --> 01:17:08,800
+code. Today it's known as Linu Linux.
+
+1320
+01:17:05,280 --> 01:17:11,679
+Okay, this this this whole code filled
+
+1321
+01:17:08,800 --> 01:17:13,760
+with lies and they don't know you know
+
+1322
+01:17:11,679 --> 01:17:16,080
+they just say oh we don't know but you
+
+1323
+01:17:13,760 --> 01:17:18,280
+know but they don't know not a thing
+
+1324
+01:17:16,080 --> 01:17:22,000
+anyway that's a history that's the
+
+1325
+01:17:18,280 --> 01:17:24,679
+origin that's how the Unix pipe idea
+
+1326
+01:17:22,000 --> 01:17:28,800
+came from okay from functional
+
+1327
+01:17:24,679 --> 01:17:30,520
+programming function composition okay
+
+1328
+01:17:28,800 --> 01:17:33,480
+from the
+
+1329
+01:17:30,520 --> 01:17:37,520
+creator Alfred AO who said
+
+1330
+01:17:33,480 --> 01:17:40,880
+it and Now, but then I discuss how the
+
+1331
+01:17:37,520 --> 01:17:43,360
+Unix it up entirely. Okay, here's
+
+1332
+01:17:40,880 --> 01:17:46,560
+some detail like the Unix pipe, you
+
+1333
+01:17:43,360 --> 01:17:47,719
+know, it up entirely. Unix is the
+
+1334
+01:17:46,560 --> 01:17:49,640
+most
+
+1335
+01:17:47,719 --> 01:17:54,159
+incompetent no
+
+1336
+01:17:49,640 --> 01:17:56,000
+design and filled with lies. Okay, they
+
+1337
+01:17:54,159 --> 01:17:59,360
+call it Unix philosophy and all that.
+
+1338
+01:17:56,000 --> 01:18:02,360
+Any anyway so that's my this so this is
+
+1339
+01:17:59,360 --> 01:18:04,120
+my se you know series of articles on the
+
+1340
+01:18:02,360 --> 01:18:07,840
+Unix
+
+1341
+01:18:04,120 --> 01:18:11,840
+crime as a as a joke you know crime but
+
+1342
+01:18:07,840 --> 01:18:15,120
+the but but more realistically it's my
+
+1343
+01:18:11,840 --> 01:18:18,560
+documentation of the damage that the
+
+1344
+01:18:15,120 --> 01:18:21,719
+Unix operating system Unix and C has
+
+1345
+01:18:18,560 --> 01:18:24,640
+done to computing industry
+
+1346
+01:18:21,719 --> 01:18:26,520
+okay so in this page for example let's
+
+1347
+01:18:24,640 --> 01:18:29,840
+copy copy Copy
+
+1348
+01:18:26,520 --> 01:18:33,520
+it. Copy the file path. Open it here.
+
+1349
+01:18:29,840 --> 01:18:36,560
+Unix pipe as functional language. Now go
+
+1350
+01:18:33,520 --> 01:18:39,679
+to the bottom. Go to the bottom. You can
+
+1351
+01:18:36,560 --> 01:18:44,480
+see there's a bunch of links. So here is
+
+1352
+01:18:39,679 --> 01:18:47,360
+a topics link and here is related links.
+
+1353
+01:18:44,480 --> 01:18:49,120
+Topics link. Topics link. Okay. Now
+
+1354
+01:18:47,360 --> 01:18:50,360
+let's call the command. Let's see which
+
+1355
+01:18:49,120 --> 01:18:51,960
+one is
+
+1356
+01:18:50,360 --> 01:18:56,280
+repeated.
+
+1357
+01:18:51,960 --> 01:18:59,920
+Uh press press.
+
+1358
+01:18:56,280 --> 01:19:03,040
+Fantastic. So you can see this related
+
+1359
+01:18:59,920 --> 01:19:06,239
+box. This the nature of Unix philosophy.
+
+1360
+01:19:03,040 --> 01:19:08,960
+This one can go. Okay. Did okay. But
+
+1361
+01:19:06,239 --> 01:19:11,360
+this one is not repeated. This is lisp
+
+1362
+01:19:08,960 --> 01:19:13,120
+syntax problem of piping functions.
+
+1363
+01:19:11,360 --> 01:19:15,440
+Okay. That's a different issue. That's
+
+1364
+01:19:13,120 --> 01:19:19,440
+about lisp and that's that's a problem
+
+1365
+01:19:15,440 --> 01:19:21,600
+of lisp because in lisp common lisp and
+
+1366
+01:19:19,440 --> 01:19:23,440
+eac lisp you don't have the pipe
+
+1367
+01:19:21,600 --> 01:19:26,159
+operator. You don't have the pipe. You
+
+1368
+01:19:23,440 --> 01:19:29,360
+need it. you really want it need it but
+
+1369
+01:19:26,159 --> 01:19:32,400
+lisp doesn't have it okay but in closure
+
+1370
+01:19:29,360 --> 01:19:35,840
+lisp they do so they closure in many
+
+1371
+01:19:32,400 --> 01:19:39,040
+ways fixed many of list fundamental
+
+1372
+01:19:35,840 --> 01:19:40,960
+problems okay the pipe function you know
+
+1373
+01:19:39,040 --> 01:19:45,199
+function of programming pipe it's the
+
+1374
+01:19:40,960 --> 01:19:47,280
+most greatest idea okay
+
+1375
+01:19:45,199 --> 01:19:49,440
+um and you can see there's a repetition
+
+1376
+01:19:47,280 --> 01:19:52,000
+here this is the first occurrence I
+
+1377
+01:19:49,440 --> 01:19:54,800
+don't care because the topic box so show
+
+1378
+01:19:52,000 --> 01:19:57,760
+in browser go to the bottom the topic
+
+1379
+01:19:54,800 --> 01:20:00,800
+box each one is like independent. So
+
+1380
+01:19:57,760 --> 01:20:02,640
+even though this is repeated several
+
+1381
+01:20:00,800 --> 01:20:05,360
+three times
+
+1382
+01:20:02,640 --> 01:20:09,440
+uh but however they um they are in
+
+1383
+01:20:05,360 --> 01:20:12,719
+different topics for for example this
+
+1384
+01:20:09,440 --> 01:20:15,159
+sequence of articles is about Unix pipe
+
+1385
+01:20:12,719 --> 01:20:17,920
+okay and dot notation and postfix
+
+1386
+01:20:15,159 --> 01:20:21,360
+notation. So the dot notation for
+
+1387
+01:20:17,920 --> 01:20:24,560
+example you can commonly commonly seen
+
+1388
+01:20:21,360 --> 01:20:26,600
+in Ruby and in JavaScript you know very
+
+1389
+01:20:24,560 --> 01:20:30,080
+convenient you know something dot
+
+1390
+01:20:26,600 --> 01:20:33,480
+something that's related to the postfix
+
+1391
+01:20:30,080 --> 01:20:37,360
+notation and Unix pipe. So these are all
+
+1392
+01:20:33,480 --> 01:20:39,760
+related topics. Then you know this box
+
+1393
+01:20:37,360 --> 01:20:43,480
+is all related about Unix shell for
+
+1394
+01:20:39,760 --> 01:20:46,640
+example. Why bash sucks.
+
+1395
+01:20:43,480 --> 01:20:49,600
+Okay. Why is it related to pipe? Because
+
+1396
+01:20:46,640 --> 01:20:52,040
+you know pipe is part of the like
+
+1397
+01:20:49,600 --> 01:20:56,000
+fundamental syntax in
+
+1398
+01:20:52,040 --> 01:20:58,880
+bash. And this sequence is about why
+
+1399
+01:20:56,000 --> 01:20:59,800
+Unix sucks. Okay. So, so for example,
+
+1400
+01:20:58,880 --> 01:21:03,000
+you have
+
+1401
+01:20:59,800 --> 01:21:06,560
+X11, you know, X11 Windows
+
+1402
+01:21:03,000 --> 01:21:11,360
+disaster. This is one of the most uh
+
+1403
+01:21:06,560 --> 01:21:13,400
+well-known article in 1990s and in 2000s
+
+1404
+01:21:11,360 --> 01:21:17,679
+and today they are
+
+1405
+01:21:13,400 --> 01:21:20,080
+desperately trying to fix it by by the
+
+1406
+01:21:17,679 --> 01:21:21,440
+by the new Windows manager, you know,
+
+1407
+01:21:20,080 --> 01:21:23,600
+what's the name? you know, they've been
+
+1408
+01:21:21,440 --> 01:21:27,679
+trying it to fix it for 30 years, but
+
+1409
+01:21:23,600 --> 01:21:30,320
+the Linux but the Unix refuse,
+
+1410
+01:21:27,679 --> 01:21:34,360
+you know, for 30 years for for like 30
+
+1411
+01:21:30,320 --> 01:21:38,320
+years, they refuse to
+
+1412
+01:21:34,360 --> 01:21:43,280
+acknowledge that the the Unix X11 system
+
+1413
+01:21:38,320 --> 01:21:46,640
+is the worst possible. They lie.
+
+1414
+01:21:43,280 --> 01:21:50,320
+Okay, they blatant blatantly lie the
+
+1415
+01:21:46,640 --> 01:21:53,440
+Unix for 30 years in n you
+
+1416
+01:21:50,320 --> 01:21:56,480
+know since I know about it in 1990s. So
+
+1417
+01:21:53,440 --> 01:22:00,320
+this article is written in 1994 by Don
+
+1418
+01:21:56,480 --> 01:22:04,239
+Hopkins is like a well-known figure in
+
+1419
+01:22:00,320 --> 01:22:07,120
+in Unix and in lispu community and also
+
+1420
+01:22:04,239 --> 01:22:10,000
+he's the I think original creator of the
+
+1421
+01:22:07,120 --> 01:22:12,960
+pie chart menu which is about user
+
+1422
+01:22:10,000 --> 01:22:14,600
+interface you know like like today
+
+1423
+01:22:12,960 --> 01:22:17,880
+mostly we have
+
+1424
+01:22:14,600 --> 01:22:21,120
+this you know uh linear menu but there's
+
+1425
+01:22:17,880 --> 01:22:24,560
+also pie chart menu used in second life
+
+1426
+01:22:21,120 --> 01:22:27,760
+for example and other basis. So he's a
+
+1427
+01:22:24,560 --> 01:22:30,639
+like origin creator or something.
+
+1428
+01:22:27,760 --> 01:22:34,560
+Anyway, Don Hopkins, he's well known in
+
+1429
+01:22:30,639 --> 01:22:38,560
+this community and Unix
+
+1430
+01:22:34,560 --> 01:22:39,480
+um because this article is one chapter
+
+1431
+01:22:38,560 --> 01:22:43,560
+of the
+
+1432
+01:22:39,480 --> 01:22:47,400
+Unix haters handbook. Okay, the this
+
+1433
+01:22:43,560 --> 01:22:50,199
+well-known Unix haters handbook in
+
+1434
+01:22:47,400 --> 01:22:52,639
+1994. Okay, uni. So this
+
+1435
+01:22:50,199 --> 01:22:55,000
+this so this is the beginning
+
+1436
+01:22:52,639 --> 01:22:58,639
+documentation of the
+
+1437
+01:22:55,000 --> 01:23:00,280
+extreme lies and incompetence of Unix.
+
+1438
+01:22:58,639 --> 01:23:04,560
+Okay. Like
+
+1439
+01:23:00,280 --> 01:23:07,040
+extreme then X11 is part of it. Uh and
+
+1440
+01:23:04,560 --> 01:23:10,480
+Don Hoping is well known in lisp
+
+1441
+01:23:07,040 --> 01:23:15,400
+community. He's also a programmer in
+
+1442
+01:23:10,480 --> 01:23:19,719
+wuam language. Okay. he ported the sim
+
+1443
+01:23:15,400 --> 01:23:23,800
+city's game to uh
+
+1444
+01:23:19,719 --> 01:23:27,199
+Unix. Okay. So anyway, so don't you know
+
+1445
+01:23:23,800 --> 01:23:29,199
+so so anyway that's it for today. Okay.
+
+1446
+01:23:27,199 --> 01:23:31,520
+So if you like So by the way this
+
+1447
+01:23:29,199 --> 01:23:32,840
+picture, this photo is from Hang. Thank
+
+1448
+01:23:31,520 --> 01:23:37,360
+you,
+
+1449
+01:23:32,840 --> 01:23:41,400
+Hang. Uh where is Hang is where is uh
+
+1450
+01:23:37,360 --> 01:23:41,400
+ Where is my window?
+
+1451
+01:23:42,159 --> 01:23:46,480
+Uh, okay. So, you need to move that
+
+1452
+01:23:47,639 --> 01:23:53,400
+there. So, yeah, that picture, this
+
+1453
+01:23:50,560 --> 01:23:58,159
+photo is from Huang. Thank you,
+
+1454
+01:23:53,400 --> 01:24:02,719
+Huang. Okay, so that's it. If you liked
+
+1455
+01:23:58,159 --> 01:24:02,719
+my stuff, go to my website,
+
+1456
+01:24:02,760 --> 01:24:08,719
+okay?info, and go all the way to the
+
+1457
+01:24:05,199 --> 01:24:11,840
+bottom. You can see uh PayPal me, okay?
+
+1458
+01:24:08,719 --> 01:24:18,120
+PayPal, Amazon gift card me, PayPal me
+
+1459
+01:24:11,840 --> 01:24:21,679
+100 bucks. Thank you. And uh you know if
+
+1460
+01:24:18,120 --> 01:24:24,480
+you well just pay me, okay? So but also
+
+1461
+01:24:21,679 --> 01:24:28,239
+you can like uh post my link to your
+
+1462
+01:24:24,480 --> 01:24:30,280
+blog to your Twitter uh spread it. Okay,
+
+1463
+01:24:28,239 --> 01:24:32,800
+that would
+
+1464
+01:24:30,280 --> 01:24:35,760
+help. Wayland. Yeah, that's the word,
+
+1465
+01:24:32,800 --> 01:24:39,520
+you know. So Wayland began about like 10
+
+1466
+01:24:35,760 --> 01:24:43,760
+years ago but even you know like 30
+
+1467
+01:24:39,520 --> 01:24:47,199
+years ago 30 years ago people already
+
+1468
+01:24:43,760 --> 01:24:50,800
+know this this article X11 disaster is
+
+1469
+01:24:47,199 --> 01:24:54,120
+well known like every Unix users read it
+
+1470
+01:24:50,800 --> 01:24:57,040
+okay or seen it heard of it in
+
+1471
+01:24:54,120 --> 01:24:59,120
+1990s but the Unix people they lie you
+
+1472
+01:24:57,040 --> 01:25:00,760
+know they they lie all the time they you
+
+1473
+01:24:59,120 --> 01:25:03,600
+know they they
+
+1474
+01:25:00,760 --> 01:25:07,159
+they you know it's like It's not a
+
+1475
+01:25:03,600 --> 01:25:10,560
+malicious lie but it's a lie from the
+
+1476
+01:25:07,159 --> 01:25:12,480
+code created nature of Unix because Unix
+
+1477
+01:25:10,560 --> 01:25:15,440
+people they love it. Oh, Unix
+
+1478
+01:25:12,480 --> 01:25:16,880
+philosophy. Oh, we most powerful. We are
+
+1479
+01:25:15,440 --> 01:25:20,679
+the most powerful operating system.
+
+1480
+01:25:16,880 --> 01:25:23,840
+Look, you know, blah blah blah. So they
+
+1481
+01:25:20,679 --> 01:25:25,760
+lie because not not malicious
+
+1482
+01:25:23,840 --> 01:25:28,960
+intentional lie but they lie because
+
+1483
+01:25:25,760 --> 01:25:30,960
+they have a code. Everyone just see the
+
+1484
+01:25:28,960 --> 01:25:33,280
+you know good point about Unix. So they
+
+1485
+01:25:30,960 --> 01:25:35,520
+tell each other Unix you know small is
+
+1486
+01:25:33,280 --> 01:25:38,719
+powerful. Look at the Unix you know
+
+1487
+01:25:35,520 --> 01:25:40,320
+shell command line pipe. Oh we are great
+
+1488
+01:25:38,719 --> 01:25:42,800
+you know. So they create you know. So
+
+1489
+01:25:40,320 --> 01:25:44,960
+they they lied for 30 years. This is
+
+1490
+01:25:42,800 --> 01:25:48,000
+well known and people have been trying
+
+1491
+01:25:44,960 --> 01:25:50,960
+their projects. Okay. They try to redo
+
+1492
+01:25:48,000 --> 01:25:54,080
+the X11. In fact, there's already a
+
+1493
+01:25:50,960 --> 01:25:58,560
+better one called uh by some micros
+
+1494
+01:25:54,080 --> 01:26:00,480
+systems Solaris X. It's called uh new
+
+1495
+01:25:58,560 --> 01:26:02,880
+Windows or something. I think it's
+
+1496
+01:26:00,480 --> 01:26:05,639
+mentioned here or if you look at
+
+1497
+01:26:02,880 --> 01:26:08,480
+Wikipedia, you'll find it. Okay.
+
+1498
+01:26:05,639 --> 01:26:10,960
+Anyways, the Unix people lie, you know,
+
+1499
+01:26:08,480 --> 01:26:13,120
+because then then after 20 years, you
+
+1500
+01:26:10,960 --> 01:26:17,840
+know, the the project didn't go anywhere
+
+1501
+01:26:13,120 --> 01:26:20,480
+because it's not easy to fix this
+
+1502
+01:26:17,840 --> 01:26:22,239
+because if you create a new one, nobody
+
+1503
+01:26:20,480 --> 01:26:25,040
+not going to use it because there's a
+
+1504
+01:26:22,239 --> 01:26:29,120
+huge amount of backward compatibility
+
+1505
+01:26:25,040 --> 01:26:32,400
+issue because every Unix operation
+
+1506
+01:26:29,120 --> 01:26:35,120
+uh application in GUI, they rely on
+
+1507
+01:26:32,400 --> 01:26:39,199
+this. So if you write a new one, you
+
+1508
+01:26:35,120 --> 01:26:42,000
+have to make it kind of
+
+1509
+01:26:39,199 --> 01:26:45,520
+uh em to you know backward compatible to
+
+1510
+01:26:42,000 --> 01:26:48,639
+emulate the X11 somehow so that all the
+
+1511
+01:26:45,520 --> 01:26:50,800
+existing thousands of graphical
+
+1512
+01:26:48,639 --> 01:26:53,120
+applications can work in your new
+
+1513
+01:26:50,800 --> 01:26:54,520
+Windows system. Right? So you have to do
+
+1514
+01:26:53,120 --> 01:26:57,040
+that and that's not
+
+1515
+01:26:54,520 --> 01:27:00,080
+trivial. So there's a lot of problems.
+
+1516
+01:26:57,040 --> 01:27:03,600
+There's a lot issues you have to
+
+1517
+01:27:00,080 --> 01:27:08,159
+overcome non-trivial issues in order to
+
+1518
+01:27:03,600 --> 01:27:10,000
+fix this Unix problem. There's technical
+
+1519
+01:27:08,159 --> 01:27:12,560
+issue you have to fix. Then there's a
+
+1520
+01:27:10,000 --> 01:27:15,840
+backward compatib compatibility or
+
+1521
+01:27:12,560 --> 01:27:19,120
+emulation issue you have to overcome.
+
+1522
+01:27:15,840 --> 01:27:20,960
+Not easy. Then there's a social issue
+
+1523
+01:27:19,120 --> 01:27:24,159
+because if you create a new one like
+
+1524
+01:27:20,960 --> 01:27:26,880
+today's, you know, the Xway line, who's
+
+1525
+01:27:24,159 --> 01:27:29,840
+going to use it? like you know people
+
+1526
+01:27:26,880 --> 01:27:32,880
+like people there needs to be a strong
+
+1527
+01:27:29,840 --> 01:27:35,360
+reason for people like going to switch
+
+1528
+01:27:32,880 --> 01:27:37,360
+and kiss your ass. Okay. Either you have
+
+1529
+01:27:35,360 --> 01:27:39,440
+like lots of money. If you are Google,
+
+1530
+01:27:37,360 --> 01:27:42,159
+you can do it. You know, Google can
+
+1531
+01:27:39,440 --> 01:27:44,639
+write a new wind, you know, if Google
+
+1532
+01:27:42,159 --> 01:27:46,880
+can fix this problem overnight because
+
+1533
+01:27:44,639 --> 01:27:48,280
+they are so, you know, so like too
+
+1534
+01:27:46,880 --> 01:27:51,360
+powerful, you
+
+1535
+01:27:48,280 --> 01:27:54,960
+know, but so you have lots of social
+
+1536
+01:27:51,360 --> 01:27:57,280
+issues to overcome. But um then there's
+
+1537
+01:27:54,960 --> 01:27:59,679
+a power struggle issue because the
+
+1538
+01:27:57,280 --> 01:28:02,159
+unique standard just because you created
+
+1539
+01:27:59,679 --> 01:28:06,320
+something new they going to they are not
+
+1540
+01:28:02,159 --> 01:28:08,400
+going to adopt whatever you create you
+
+1541
+01:28:06,320 --> 01:28:10,560
+know you see there's a social struggle
+
+1542
+01:28:08,400 --> 01:28:12,960
+issue you need to have certain power you
+
+1543
+01:28:10,560 --> 01:28:16,080
+need to get other you know people to
+
+1544
+01:28:12,960 --> 01:28:18,159
+support you like you need to get HP
+
+1545
+01:28:16,080 --> 01:28:20,800
+Solaris some micros systemystems or
+
+1546
+01:28:18,159 --> 01:28:24,400
+Oracle or whatever or today's Red Hat or
+
+1547
+01:28:20,800 --> 01:28:26,960
+whatever to sports support you then you
+
+1548
+01:28:24,400 --> 01:28:28,800
+possibly can make this change. So it's
+
+1549
+01:28:26,960 --> 01:28:32,760
+you know this is not easy change and
+
+1550
+01:28:28,800 --> 01:28:36,159
+today we see that in wayand by the zuma
+
+1551
+01:28:32,760 --> 01:28:38,800
+generation and and wayand today is going
+
+1552
+01:28:36,159 --> 01:28:41,040
+through lots of troubles you know like
+
+1553
+01:28:38,800 --> 01:28:44,960
+today's new things you know this got
+
+1554
+01:28:41,040 --> 01:28:49,920
+trans they got they make dramas and then
+
+1555
+01:28:44,960 --> 01:28:49,920
+you know lots of so anyway that's it for
+
+1556
+01:28:58,360 --> 01:29:01,760
+Hey. Hello.
+
+1557
+01:29:02,040 --> 01:29:09,320
+Mo from from Middle
+
+1558
+01:29:06,520 --> 01:29:12,320
+East, expert in machine
+
+1559
+01:29:09,320 --> 01:29:13,960
+learning. Uh, okay. Dragon Book is not
+
+1560
+01:29:12,320 --> 01:29:17,840
+good.
+
+1561
+01:29:13,960 --> 01:29:20,159
+Well, that's you know. So, Juan says
+
+1562
+01:29:17,840 --> 01:29:23,120
+Dragon Book is not book is not good.
+
+1563
+01:29:20,159 --> 01:29:25,440
+It's too much about pausing which is has
+
+1564
+01:29:23,120 --> 01:29:26,520
+been researched to death already. No,
+
+1565
+01:29:25,440 --> 01:29:29,120
+you are
+
+1566
+01:29:26,520 --> 01:29:32,280
+incorrect because you are a zoomer. You
+
+1567
+01:29:29,120 --> 01:29:36,560
+don't know. Okay. Dragon Book is the
+
+1568
+01:29:32,280 --> 01:29:39,840
+classic V reference for compilers for
+
+1569
+01:29:36,560 --> 01:29:42,719
+about 30 years. Okay. 30 years. There's
+
+1570
+01:29:39,840 --> 01:29:45,520
+no other. So, I would say it's up to
+
+1571
+01:29:42,719 --> 01:29:47,679
+date until I mean they they have a newer
+
+1572
+01:29:45,520 --> 01:29:50,400
+version. Okay. Actually, do I have you
+
+1573
+01:29:47,679 --> 01:29:53,199
+know I you know I I I read the dragon
+
+1574
+01:29:50,400 --> 01:29:55,120
+book like 10 years ago. Uh is it
+
+1575
+01:29:53,199 --> 01:29:56,679
+somewhere here? So, dragon book. Let's
+
+1576
+01:29:55,120 --> 01:30:02,120
+talk about the dragon
+
+1577
+01:29:56,679 --> 01:30:02,120
+book. Uh where is my uh
+
+1578
+01:30:03,920 --> 01:30:08,719
+uh dragon book? Okay. So, where's the
+
+1579
+01:30:06,320 --> 01:30:11,000
+dragon book? Yeah, that's in the that's
+
+1580
+01:30:08,719 --> 01:30:15,600
+mentioned in the
+
+1581
+01:30:11,000 --> 01:30:18,800
+um Okay. Unix philosophy. Show it. Uh
+
+1582
+01:30:15,600 --> 01:30:24,040
+close it. Show this Unix pipe there.
+
+1583
+01:30:18,800 --> 01:30:27,280
+Okay. So, Dragon Book. There it is. Open
+
+1584
+01:30:24,040 --> 01:30:28,920
+it. Okay. So, this is classic for 30
+
+1585
+01:30:27,280 --> 01:30:31,800
+years. There's no
+
+1586
+01:30:28,920 --> 01:30:34,719
+better Alfred
+
+1587
+01:30:31,800 --> 01:30:38,080
+AO. And there's a new version. Okay. The
+
+1588
+01:30:34,719 --> 01:30:40,880
+new version's cover design is not good.
+
+1589
+01:30:38,080 --> 01:30:45,199
+So here is the first version. Here's
+
+1590
+01:30:40,880 --> 01:30:47,840
+second version. Here is the latest 2006.
+
+1591
+01:30:45,199 --> 01:30:50,400
+I believe that's the latest. Okay. And
+
+1592
+01:30:47,840 --> 01:30:54,320
+some of the author changed because you
+
+1593
+01:30:50,400 --> 01:30:56,000
+know it's so old you know like that's
+
+1594
+01:30:54,320 --> 01:30:58,679
+another topic. But you know when you
+
+1595
+01:30:56,000 --> 01:31:02,000
+have a book when it became
+
+1596
+01:30:58,679 --> 01:31:04,880
+classic and after 20 years usually the
+
+1597
+01:31:02,000 --> 01:31:07,040
+original author is like very old you
+
+1598
+01:31:04,880 --> 01:31:10,400
+know they cannot write anymore 70 years
+
+1599
+01:31:07,040 --> 01:31:13,360
+old or they died they passed away but
+
+1600
+01:31:10,400 --> 01:31:16,080
+for commercial reasons typically they
+
+1601
+01:31:13,360 --> 01:31:20,400
+remain you know they they they came up
+
+1602
+01:31:16,080 --> 01:31:22,560
+with a new edition with new authors but
+
+1603
+01:31:20,400 --> 01:31:24,239
+often they don't mention sometimes they
+
+1604
+01:31:22,560 --> 01:31:25,280
+don't mention the new author they just
+
+1605
+01:31:24,239 --> 01:31:27,600
+say you
+
+1606
+01:31:25,280 --> 01:31:30,280
+because they want be- because people are
+
+1607
+01:31:27,600 --> 01:31:33,040
+familiar you know with the original
+
+1608
+01:31:30,280 --> 01:31:35,280
+authors. They don't want to say oh but
+
+1609
+01:31:33,040 --> 01:31:37,679
+the original author are too old or
+
+1610
+01:31:35,280 --> 01:31:39,760
+passed away so there's a new edition by
+
+1611
+01:31:37,679 --> 01:31:42,400
+new author. They don't want that. People
+
+1612
+01:31:39,760 --> 01:31:44,960
+like don't want that. So when you know
+
+1613
+01:31:42,400 --> 01:31:47,440
+so for marketing purposes usually they
+
+1614
+01:31:44,960 --> 01:31:48,760
+keep the original author name but
+
+1615
+01:31:47,440 --> 01:31:51,520
+actually the
+
+1616
+01:31:48,760 --> 01:31:53,120
+book like like the new edition if they
+
+1617
+01:31:51,520 --> 01:31:56,239
+change a lot of things the original
+
+1618
+01:31:53,120 --> 01:31:59,840
+author has nothing to do with it and
+
+1619
+01:31:56,239 --> 01:32:03,199
+sometimes the quality went down too in
+
+1620
+01:31:59,840 --> 01:32:06,560
+in in in a lot of cases the quality you
+
+1621
+01:32:03,199 --> 01:32:09,679
+know is just different. So anyway do
+
+1622
+01:32:06,560 --> 01:32:12,800
+they have a new version? Um, no I don't
+
+1623
+01:32:09,679 --> 01:32:16,440
+think so. But anyway, so for 30 years
+
+1624
+01:32:12,800 --> 01:32:20,199
+this is classic. So last edition is
+
+1625
+01:32:16,440 --> 01:32:25,360
+2006. Um, so
+
+1626
+01:32:20,199 --> 01:32:27,679
+today today this is not the best
+
+1627
+01:32:25,360 --> 01:32:30,159
+reference because today this tremendous
+
+1628
+01:32:27,679 --> 01:32:32,400
+technology you know this is tremendous.
+
+1629
+01:32:30,159 --> 01:32:34,000
+This beginning with Wikipedia for 20
+
+1630
+01:32:32,400 --> 01:32:36,000
+years like before you don't have
+
+1631
+01:32:34,000 --> 01:32:38,719
+Wikipedia. Today you can actually look
+
+1632
+01:32:36,000 --> 01:32:41,040
+up like all the compiling parsing
+
+1633
+01:32:38,719 --> 01:32:44,080
+subject in Wikipedia and it gives
+
+1634
+01:32:41,040 --> 01:32:47,199
+tremendous detail. Okay, even far more
+
+1635
+01:32:44,080 --> 01:32:49,239
+correct and correct than the books in
+
+1636
+01:32:47,199 --> 01:32:52,400
+the
+
+1637
+01:32:49,239 --> 01:32:55,040
+1990s. Okay, so so then today you have
+
+1638
+01:32:52,400 --> 01:32:57,920
+like not just Wikipedia, you have AI AI
+
+1639
+01:32:55,040 --> 01:33:00,639
+just can write a write a tutorial on
+
+1640
+01:32:57,920 --> 01:33:05,520
+compilers on the fly and we it would be
+
+1641
+01:33:00,639 --> 01:33:07,600
+99% correct. Okay. So to so so today
+
+1642
+01:33:05,520 --> 01:33:10,320
+this book is not the best there's
+
+1643
+01:33:07,600 --> 01:33:13,840
+another one u I believe Juan suggested
+
+1644
+01:33:10,320 --> 01:33:17,080
+before I I was going to read it like
+
+1645
+01:33:13,840 --> 01:33:19,760
+there's a like on GitHub writing a
+
+1646
+01:33:17,080 --> 01:33:21,760
+compiler you know from ground up you
+
+1647
+01:33:19,760 --> 01:33:25,920
+know creating a new language from the
+
+1648
+01:33:21,760 --> 01:33:28,400
+ground up based on I think Goland or C I
+
+1649
+01:33:25,920 --> 01:33:30,159
+mean Golan or Rust I forgot which but
+
+1650
+01:33:28,400 --> 01:33:33,760
+you can easily find it you know like
+
+1651
+01:33:30,159 --> 01:33:36,880
+just search for compiler book Okay.
+
+1652
+01:33:33,760 --> 01:33:36,880
+how to write
+
+1653
+01:33:36,920 --> 01:33:43,760
+um okay so today you know that dragon
+
+1654
+01:33:40,719 --> 01:33:45,080
+book is not the best but um I believe
+
+1655
+01:33:43,760 --> 01:33:48,480
+this
+
+1656
+01:33:45,080 --> 01:33:51,760
+one writing a compiler part one so is
+
+1657
+01:33:48,480 --> 01:33:53,520
+this the one I'm thinking anyway so
+
+1658
+01:33:51,760 --> 01:33:57,280
+today you you know you got tons of
+
+1659
+01:33:53,520 --> 01:33:59,920
+resources okay and you are saying you
+
+1660
+01:33:57,280 --> 01:34:02,159
+know Jan is also saying it's not so good
+
+1661
+01:33:59,920 --> 01:34:05,120
+it's too much about passing that's
+
+1662
+01:34:02,159 --> 01:34:07,000
+totally incorrect Corct. Okay. Like you
+
+1663
+01:34:05,120 --> 01:34:10,120
+don't know
+
+1664
+01:34:07,000 --> 01:34:12,960
+incorrect. So passing about
+
+1665
+01:34:10,120 --> 01:34:16,080
+passing. So let's go to the dragon book.
+
+1666
+01:34:12,960 --> 01:34:19,040
+Passing there is the compiler book
+
+1667
+01:34:16,080 --> 01:34:22,320
+doesn't cover much about passing at all
+
+1668
+01:34:19,040 --> 01:34:25,480
+because when I read this book the one
+
+1669
+01:34:22,320 --> 01:34:28,639
+thing I'm most interested is is passing
+
+1670
+01:34:25,480 --> 01:34:31,600
+technology. Okay. And this compiler book
+
+1671
+01:34:28,639 --> 01:34:35,360
+doesn't do a good job. Okay. It only got
+
+1672
+01:34:31,600 --> 01:34:38,159
+like one chapter. Okay, like when uh
+
+1673
+01:34:35,360 --> 01:34:40,560
+lexical analysis, syntax analysis,
+
+1674
+01:34:38,159 --> 01:34:43,159
+syntax directive translate, it doesn't
+
+1675
+01:34:40,560 --> 01:34:46,280
+even cover passing
+
+1676
+01:34:43,159 --> 01:34:49,360
+much. If you want
+
+1677
+01:34:46,280 --> 01:34:51,760
+passing, I can tell you which one is a
+
+1678
+01:34:49,360 --> 01:34:54,080
+good book. Okay, passer. Okay, let's
+
+1679
+01:34:51,760 --> 01:34:57,400
+see. Uh, Dragon Book Passer. Okay,
+
+1680
+01:34:54,080 --> 01:35:01,440
+because I worked on passing for about a
+
+1681
+01:34:57,400 --> 01:35:05,400
+year, but I'm not expert. Okay. But I
+
+1682
+01:35:01,440 --> 01:35:06,920
+can tell you what is the the most
+
+1683
+01:35:05,400 --> 01:35:10,600
+authorative
+
+1684
+01:35:06,920 --> 01:35:14,239
+passing from the perspective of computer
+
+1685
+01:35:10,600 --> 01:35:17,120
+science. Not just practical programming.
+
+1686
+01:35:14,239 --> 01:35:19,920
+Okay. From the perspective of computer
+
+1687
+01:35:17,120 --> 01:35:19,920
+science. This
+
+1688
+01:35:20,120 --> 01:35:26,719
+book passing techniques a practical
+
+1689
+01:35:23,679 --> 01:35:30,800
+guide by Dick Gron. He's also very old
+
+1690
+01:35:26,719 --> 01:35:34,080
+like very very old. I I wrote him an
+
+1691
+01:35:30,800 --> 01:35:37,440
+email about 10 years ago asking him
+
+1692
+01:35:34,080 --> 01:35:40,880
+permission to publish his book on my
+
+1693
+01:35:37,440 --> 01:35:46,480
+website in HTML form but I never did it.
+
+1694
+01:35:40,880 --> 01:35:50,239
+Okay. But so this book is um the first I
+
+1695
+01:35:46,480 --> 01:35:52,800
+think the first edition is free but the
+
+1696
+01:35:50,239 --> 01:35:55,280
+second second edition is not but it's
+
+1697
+01:35:52,800 --> 01:35:59,679
+like this book is like long and kind of
+
+1698
+01:35:55,280 --> 01:36:02,080
+b it's kind of like very verbose.
+
+1699
+01:35:59,679 --> 01:36:05,040
+But this is a book for passing. Okay. I
+
+1700
+01:36:02,080 --> 01:36:08,000
+believe still so today. This is a
+
+1701
+01:36:05,040 --> 01:36:09,360
+comprehensive reference on passes.
+
+1702
+01:36:08,000 --> 01:36:12,400
+Everything you want to know about
+
+1703
+01:36:09,360 --> 01:36:15,600
+passes, all the possible techniques.
+
+1704
+01:36:12,400 --> 01:36:18,920
+Okay. And in terms of computer science,
+
+1705
+01:36:15,600 --> 01:36:20,960
+not just in terms of like programmer's
+
+1706
+01:36:18,920 --> 01:36:23,719
+perspective. Oh, how do you write a
+
+1707
+01:36:20,960 --> 01:36:26,920
+puzzle in in Java or or
+
+1708
+01:36:23,719 --> 01:36:30,040
+Rust? Okay. So, so
+
+1709
+01:36:26,920 --> 01:36:34,560
+that bye
+
+1710
+01:36:30,040 --> 01:36:37,199
+guys. We closed down. Uh, okay. We close
+
+1711
+01:36:34,560 --> 01:36:37,199
+down in one
+
+1712
+01:36:37,480 --> 01:36:45,280
+minute. So, let's start a new
+
+1713
+01:36:41,400 --> 01:36:47,840
+EMAX and go to um I'm just shutting
+
+1714
+01:36:45,280 --> 01:36:50,880
+down. Okay. So, go to this. So, what is
+
+1715
+01:36:47,840 --> 01:36:54,840
+this pipe? Unix pipe functional
+
+1716
+01:36:50,880 --> 01:36:54,840
+language. Copy that.
+
+1717
+01:36:55,040 --> 01:36:59,560
+Bye bye
+
+1718
+01:36:57,400 --> 01:37:03,400
+guys.
+
+1719
+01:36:59,560 --> 01:37:05,000
+Uh change font size to 18 because
+
+1720
+01:37:03,400 --> 01:37:07,760
+usually
+
+1721
+01:37:05,000 --> 01:37:10,400
+the when I do live stream I have to
+
+1722
+01:37:07,760 --> 01:37:12,400
+change it to to on my screen it's huge
+
+1723
+01:37:10,400 --> 01:37:14,719
+but when you watch it on YouTube it's
+
+1724
+01:37:12,400 --> 01:37:17,080
+small. So when you do live stream you
+
+1725
+01:37:14,719 --> 01:37:18,920
+have to make it like
+
+1726
+01:37:17,080 --> 01:37:23,280
+23.
+
+1727
+01:37:18,920 --> 01:37:26,800
+Uh so close that. Wait open it. Copy the
+
+1728
+01:37:23,280 --> 01:37:30,320
+file path. Go to talk show. So today's
+
+1729
+01:37:26,800 --> 01:37:30,320
+talk show. Add the link
+
+1730
+01:37:30,760 --> 01:37:38,719
+here. Add the links we talked about and
+
+1731
+01:37:34,320 --> 01:37:41,800
+close that pink window. So Unix pipe.
+
+1732
+01:37:38,719 --> 01:37:46,679
+Close that. Close that.
+
+1733
+01:37:41,800 --> 01:37:50,159
+Show. Okay. Uh sort close that.
+
+1734
+01:37:46,679 --> 01:37:52,880
+Reopen. Delete that. Save. Close. What
+
+1735
+01:37:50,159 --> 01:37:54,800
+is this? Talk show. Okay. That's today.
+
+1736
+01:37:52,880 --> 01:37:56,600
+What is this? Oh, this is our new
+
+1737
+01:37:54,800 --> 01:38:00,480
+function. Oh, yeah. We need to put it
+
+1738
+01:37:56,600 --> 01:38:02,480
+back. Wait. Uh, okay. Copy it. So, I'm
+
+1739
+01:38:00,480 --> 01:38:04,520
+going to put to the talk show. So, you
+
+1740
+01:38:02,480 --> 01:38:06,679
+guys can see the
+
+1741
+01:38:04,520 --> 01:38:10,159
+code. Paste
+
+1742
+01:38:06,679 --> 01:38:13,280
+it. Colorify it. So, here is what the
+
+1743
+01:38:10,159 --> 01:38:14,199
+code today. Fantastic and beautiful. You
+
+1744
+01:38:13,280 --> 01:38:16,800
+guys
+
+1745
+01:38:14,199 --> 01:38:21,400
+probably don't need it because this is
+
+1746
+01:38:16,800 --> 01:38:25,199
+very specific to my website.
+
+1747
+01:38:21,400 --> 01:38:29,960
+So the code is good. Okay. Close it.
+
+1748
+01:38:25,199 --> 01:38:29,960
+Close it. Close it. Bye guys.
+

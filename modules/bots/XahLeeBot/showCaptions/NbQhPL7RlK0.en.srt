@@ -1,0 +1,5484 @@
+1
+00:00:06,299 --> 00:00:12,960
+good morning everyone welcome to another
+
+2
+00:00:09,360 --> 00:00:15,120
+episode of guitar talk show and we are
+
+3
+00:00:12,960 --> 00:00:18,300
+going to do lots of
+
+4
+00:00:15,120 --> 00:00:20,880
+fantastic stuff formatting automatic
+
+5
+00:00:18,300 --> 00:00:24,600
+formatting all you needs to know about
+
+6
+00:00:20,880 --> 00:00:27,000
+formatting okay all you need to know we
+
+7
+00:00:24,600 --> 00:00:28,859
+are going to code I'm going to so the
+
+8
+00:00:27,000 --> 00:00:31,320
+the this talk show is going to be two
+
+9
+00:00:28,859 --> 00:00:32,940
+parts the first part is that I'm going
+
+10
+00:00:31,320 --> 00:00:35,640
+to demonstrate
+
+11
+00:00:32,940 --> 00:00:38,300
+several languages JavaScript Python
+
+12
+00:00:35,640 --> 00:00:41,700
+wolfam language lisp
+
+13
+00:00:38,300 --> 00:00:44,579
+Golan where you can automatically format
+
+14
+00:00:41,700 --> 00:00:46,860
+your code okay automatically not line by
+
+15
+00:00:44,579 --> 00:00:48,780
+line or manually automatically format
+
+16
+00:00:46,860 --> 00:00:51,300
+the whole code in your entire directory
+
+17
+00:00:48,780 --> 00:00:54,420
+okay and I'm going to show you
+
+18
+00:00:51,300 --> 00:00:56,520
+demonstrate emacs integration and I'm
+
+19
+00:00:54,420 --> 00:00:58,620
+going to show you show you the emac this
+
+20
+00:00:56,520 --> 00:01:01,379
+code so you can get it and if you are a
+
+21
+00:00:58,620 --> 00:01:05,580
+emacs user you can use it right away so
+
+22
+00:01:01,379 --> 00:01:08,340
+audio check video check am I um
+
+23
+00:01:05,580 --> 00:01:10,979
+so yeah so that's the first 20 minutes
+
+24
+00:01:08,340 --> 00:01:13,380
+or 30 minutes of this talk okay I'm
+
+25
+00:01:10,979 --> 00:01:15,299
+gonna demonstrate the Practical all
+
+26
+00:01:13,380 --> 00:01:18,240
+these practical stuff JavaScript
+
+27
+00:01:15,299 --> 00:01:22,320
+Powershell and Powershell and Golan in
+
+28
+00:01:18,240 --> 00:01:25,020
+Python and the uh and the emac beasts
+
+29
+00:01:22,320 --> 00:01:28,220
+okay automatic formatting okay then I'm
+
+30
+00:01:25,020 --> 00:01:31,140
+going to demonstrate um
+
+31
+00:01:28,220 --> 00:01:33,540
+you know the formatting code is very
+
+32
+00:01:31,140 --> 00:01:36,119
+interesting because it involves a
+
+33
+00:01:33,540 --> 00:01:39,420
+designing of the syntax language design
+
+34
+00:01:36,119 --> 00:01:41,939
+language syntax design okay so I'm going
+
+35
+00:01:39,420 --> 00:01:44,100
+to demonstrate wufam language where you
+
+36
+00:01:41,939 --> 00:01:45,720
+can have automatic not just automatic
+
+37
+00:01:44,100 --> 00:01:46,979
+formatting but you can have formatting
+
+38
+00:01:45,720 --> 00:01:49,979
+in real time
+
+39
+00:01:46,979 --> 00:01:53,040
+okay and and that requires
+
+40
+00:01:49,979 --> 00:01:54,899
+to have that that requires some some
+
+41
+00:01:53,040 --> 00:01:57,719
+particular design of the programming
+
+42
+00:01:54,899 --> 00:02:00,420
+language syntax and I'm going to tell
+
+43
+00:01:57,719 --> 00:02:01,560
+you the languages has that property is
+
+44
+00:02:00,420 --> 00:02:05,159
+is
+
+45
+00:02:01,560 --> 00:02:07,740
+um so you can see automatic you see
+
+46
+00:02:05,159 --> 00:02:10,440
+automatic real-time Auto formatting I'm
+
+47
+00:02:07,740 --> 00:02:13,739
+gonna explain that and the the language
+
+48
+00:02:10,440 --> 00:02:16,500
+that has that property include this in
+
+49
+00:02:13,739 --> 00:02:21,720
+general who found language which is a
+
+50
+00:02:16,500 --> 00:02:24,959
+lisp and HTML XML fantastic and APL okay
+
+51
+00:02:21,720 --> 00:02:27,120
+so in order to have this feature
+
+52
+00:02:24,959 --> 00:02:28,860
+automatic formatting but in real time
+
+53
+00:02:27,120 --> 00:02:30,420
+you your programming language
+
+54
+00:02:28,860 --> 00:02:33,599
+essentially
+
+55
+00:02:30,420 --> 00:02:35,459
+has one simple requirement and that
+
+56
+00:02:33,599 --> 00:02:38,580
+requirement is that
+
+57
+00:02:35,459 --> 00:02:42,840
+you're the the
+
+58
+00:02:38,580 --> 00:02:45,780
+End of Line character must have no
+
+59
+00:02:42,840 --> 00:02:47,580
+significance okay so which is not true
+
+60
+00:02:45,780 --> 00:02:49,860
+in a lot of languages especially
+
+61
+00:02:47,580 --> 00:02:52,860
+involving semicolon for example or
+
+62
+00:02:49,860 --> 00:02:56,879
+basically or C derived languages you
+
+63
+00:02:52,860 --> 00:02:59,280
+know it's it's crap okay so let's start
+
+64
+00:02:56,879 --> 00:03:02,700
+the Practical demonstration okay so if
+
+65
+00:02:59,280 --> 00:03:04,580
+you are a keyboard you know ergonomic
+
+66
+00:03:02,700 --> 00:03:08,459
+keyboard fan
+
+67
+00:03:04,580 --> 00:03:11,400
+uh I'm using hello guys so I'm using you
+
+68
+00:03:08,459 --> 00:03:13,560
+know just search for sorry keyboard you
+
+69
+00:03:11,400 --> 00:03:15,420
+can see so this is kinesis Advantage
+
+70
+00:03:13,560 --> 00:03:17,700
+keyboard which is this one and by the
+
+71
+00:03:15,420 --> 00:03:19,500
+way the the new one comes up I'm gonna
+
+72
+00:03:17,700 --> 00:03:22,260
+show you in a minute okay so this is
+
+73
+00:03:19,500 --> 00:03:24,599
+kinesis advantage and on top here is
+
+74
+00:03:22,260 --> 00:03:26,159
+Ultimate hacking so you can look at my
+
+75
+00:03:24,599 --> 00:03:28,799
+reviews and
+
+76
+00:03:26,159 --> 00:03:31,620
+stuff I recommend you buy Kinesis
+
+77
+00:03:28,799 --> 00:03:33,599
+Advantage okay and Kinesis Advantage
+
+78
+00:03:31,620 --> 00:03:37,680
+they they uh they have a new version
+
+79
+00:03:33,599 --> 00:03:40,440
+Kinesis Advantage 360 okay
+
+80
+00:03:37,680 --> 00:03:42,659
+um I posted somewhere let's see tweets
+
+81
+00:03:40,440 --> 00:03:46,019
+and reply I
+
+82
+00:03:42,659 --> 00:03:48,000
+let me show you okay Kinesis advantage
+
+83
+00:03:46,019 --> 00:03:51,360
+360.
+
+84
+00:03:48,000 --> 00:03:54,420
+I retreated their post
+
+85
+00:03:51,360 --> 00:03:56,659
+up there okay so there it is so this is
+
+86
+00:03:54,420 --> 00:03:56,659
+new
+
+87
+00:03:58,019 --> 00:04:04,500
+it came out but very expensive 400 about
+
+88
+00:04:00,780 --> 00:04:07,439
+you know 400 450 dollars
+
+89
+00:04:04,500 --> 00:04:09,180
+so you know I would like I recommend
+
+90
+00:04:07,439 --> 00:04:11,420
+this one you know that that one is
+
+91
+00:04:09,180 --> 00:04:15,000
+pretty good as well
+
+92
+00:04:11,420 --> 00:04:17,280
+so okay so about keyboard and I'm using
+
+93
+00:04:15,000 --> 00:04:19,380
+some fly keys and you can see all my
+
+94
+00:04:17,280 --> 00:04:22,079
+command cores and keystrokes in the pink
+
+95
+00:04:19,380 --> 00:04:23,639
+window over here and let's turn on the
+
+96
+00:04:22,079 --> 00:04:26,280
+Highlight current line so you can see
+
+97
+00:04:23,639 --> 00:04:28,919
+okay let's begin to demo demo about this
+
+98
+00:04:26,280 --> 00:04:31,919
+uh automatic formatting okay so here is
+
+99
+00:04:28,919 --> 00:04:34,880
+today's talk show page uh so first stop
+
+100
+00:04:31,919 --> 00:04:37,620
+I'm going to demo JavaScript okay
+
+101
+00:04:34,880 --> 00:04:41,460
+JavaScript let's you know
+
+102
+00:04:37,620 --> 00:04:44,460
+JavaScript language sucks sorry dot info
+
+103
+00:04:41,460 --> 00:04:45,840
+go to exactly done info and click on
+
+104
+00:04:44,460 --> 00:04:47,759
+topic search
+
+105
+00:04:45,840 --> 00:04:49,440
+you can see I have my JavaScript
+
+106
+00:04:47,759 --> 00:04:53,220
+tutorial here
+
+107
+00:04:49,440 --> 00:04:55,259
+JavaScript in depth click on search and
+
+108
+00:04:53,220 --> 00:04:56,940
+let's search for array or turn
+
+109
+00:04:55,259 --> 00:05:00,240
+JavaScript
+
+110
+00:04:56,940 --> 00:05:02,460
+turn on JavaScript so you can search now
+
+111
+00:05:00,240 --> 00:05:04,560
+array
+
+112
+00:05:02,460 --> 00:05:07,080
+generate uh
+
+113
+00:05:04,560 --> 00:05:09,120
+range function you know JavaScript to
+
+114
+00:05:07,080 --> 00:05:11,220
+this state do not have one single range
+
+115
+00:05:09,120 --> 00:05:13,740
+function that generates an array you
+
+116
+00:05:11,220 --> 00:05:15,960
+have you resort to lots of tricks you
+
+117
+00:05:13,740 --> 00:05:18,479
+know very annoying so anyway here's the
+
+118
+00:05:15,960 --> 00:05:21,360
+JavaScript code copy it
+
+119
+00:05:18,479 --> 00:05:23,759
+so let's demo okay JavaScript so I'm
+
+120
+00:05:21,360 --> 00:05:26,880
+going to create JavaScript
+
+121
+00:05:23,759 --> 00:05:29,880
+um paste it here and I'm using some flag
+
+122
+00:05:26,880 --> 00:05:32,460
+Keys you see it's a model just like Vim
+
+123
+00:05:29,880 --> 00:05:34,620
+but more efficient there's no control
+
+124
+00:05:32,460 --> 00:05:37,919
+you know I don't have to press Ctrl key
+
+125
+00:05:34,620 --> 00:05:40,800
+to manipulate my cursor and stuff for
+
+126
+00:05:37,919 --> 00:05:43,259
+example delete undo and so on so anyway
+
+127
+00:05:40,800 --> 00:05:46,740
+here's the JavaScript code and start
+
+128
+00:05:43,259 --> 00:05:50,100
+range so let's uh let's run console log
+
+129
+00:05:46,740 --> 00:05:55,080
+okay Cloud range and the minimum let's
+
+130
+00:05:50,100 --> 00:05:57,000
+say 5 to 20 in step one run it so there
+
+131
+00:05:55,080 --> 00:05:59,220
+is the result okay
+
+132
+00:05:57,000 --> 00:06:03,780
+I'm using dental you see I'm using
+
+133
+00:05:59,220 --> 00:06:05,639
+JavaScript mod it's all so you can see
+
+134
+00:06:03,780 --> 00:06:07,919
+um
+
+135
+00:06:05,639 --> 00:06:10,500
+anyway so I'm using it so you can see
+
+136
+00:06:07,919 --> 00:06:12,419
+this code runs now I want to reformat it
+
+137
+00:06:10,500 --> 00:06:14,520
+so when I write the code it's not
+
+138
+00:06:12,419 --> 00:06:17,819
+formatted like that so suppose I press
+
+139
+00:06:14,520 --> 00:06:21,600
+one single key to compact file it you
+
+140
+00:06:17,819 --> 00:06:24,120
+see one single line run it works still
+
+141
+00:06:21,600 --> 00:06:26,039
+works beautifully because I use the same
+
+142
+00:06:24,120 --> 00:06:28,500
+icon you know anyway so
+
+143
+00:06:26,039 --> 00:06:30,840
+so now you see when I write the code you
+
+144
+00:06:28,500 --> 00:06:34,139
+know it's not well formatted you know
+
+145
+00:06:30,840 --> 00:06:36,060
+let's say I add a intent you know show
+
+146
+00:06:34,139 --> 00:06:38,340
+white space you see there's a tab you
+
+147
+00:06:36,060 --> 00:06:40,740
+know whatever so I want to reformat the
+
+148
+00:06:38,340 --> 00:06:43,800
+whole file you know it works for if even
+
+149
+00:06:40,740 --> 00:06:46,620
+if you have like 2000 lines of file
+
+150
+00:06:43,800 --> 00:06:49,740
+that's 2009 so I press the key
+
+151
+00:06:46,620 --> 00:06:51,060
+in my case so JavaScript mod press the
+
+152
+00:06:49,740 --> 00:06:52,800
+key band
+
+153
+00:06:51,060 --> 00:06:54,900
+it's all formatted for you one single
+
+154
+00:06:52,800 --> 00:06:57,240
+key the whole page the entire page
+
+155
+00:06:54,900 --> 00:06:59,759
+instead of the typical you know uh
+
+156
+00:06:57,240 --> 00:07:02,280
+programming style guide oh you need to
+
+157
+00:06:59,759 --> 00:07:05,759
+tap you know type versus that's idiot
+
+158
+00:07:02,280 --> 00:07:09,660
+idiot the idiot Unix Linux edsc for 20
+
+159
+00:07:05,759 --> 00:07:12,840
+years but now it's beginning about 10
+
+160
+00:07:09,660 --> 00:07:15,300
+years ago Golan Golan is the first one
+
+161
+00:07:12,840 --> 00:07:17,039
+that started this trend of automatic
+
+162
+00:07:15,300 --> 00:07:17,940
+formatting I'm gonna show you I wrote an
+
+163
+00:07:17,039 --> 00:07:21,419
+article
+
+164
+00:07:17,940 --> 00:07:23,099
+like uh like 14 years ago about this
+
+165
+00:07:21,419 --> 00:07:25,800
+automatic formatting okay I'm gonna
+
+166
+00:07:23,099 --> 00:07:28,259
+explain so so first so so you see undo
+
+167
+00:07:25,800 --> 00:07:29,759
+let's see undo
+
+168
+00:07:28,259 --> 00:07:32,400
+you see
+
+169
+00:07:29,759 --> 00:07:34,080
+press one single key
+
+170
+00:07:32,400 --> 00:07:36,720
+format the whole file okay that's
+
+171
+00:07:34,080 --> 00:07:38,940
+automatic formatting now the command I'm
+
+172
+00:07:36,720 --> 00:07:42,840
+calling is this one search JavaScript
+
+173
+00:07:38,940 --> 00:07:45,539
+format code Okay so
+
+174
+00:07:42,840 --> 00:07:48,539
+let's look at the source code
+
+175
+00:07:45,539 --> 00:07:51,780
+so this is so jump let's you know so
+
+176
+00:07:48,539 --> 00:07:54,479
+this is such JavaScript format code and
+
+177
+00:07:51,780 --> 00:07:57,479
+let's jump to the source code so here is
+
+178
+00:07:54,479 --> 00:07:59,819
+the Emax integration so it is actually
+
+179
+00:07:57,479 --> 00:08:03,080
+calling the demo format okay here's the
+
+180
+00:07:59,819 --> 00:08:03,080
+command demo format
+
+181
+00:08:03,680 --> 00:08:08,940
+fmt then the final name okay that's the
+
+182
+00:08:06,539 --> 00:08:12,300
+actual command that does it
+
+183
+00:08:08,940 --> 00:08:14,840
+so okay close that uh so
+
+184
+00:08:12,300 --> 00:08:14,840
+wait
+
+185
+00:08:14,940 --> 00:08:19,800
+so let's uh let's put it in my talk show
+
+186
+00:08:17,639 --> 00:08:23,039
+so you can see it
+
+187
+00:08:19,800 --> 00:08:24,120
+so go back to talk show today's talk
+
+188
+00:08:23,039 --> 00:08:25,020
+show
+
+189
+00:08:24,120 --> 00:08:29,400
+um
+
+190
+00:08:25,020 --> 00:08:32,519
+this page and I'm going to so here is
+
+191
+00:08:29,400 --> 00:08:35,640
+the command Dental format Dino is the
+
+192
+00:08:32,519 --> 00:08:38,700
+best JavaScript compiler okay and it
+
+193
+00:08:35,640 --> 00:08:41,640
+also compiles typescript so use it okay
+
+194
+00:08:38,700 --> 00:08:43,560
+as opposed to not JS you know it's
+
+195
+00:08:41,640 --> 00:08:45,660
+created by the same guy that's a
+
+196
+00:08:43,560 --> 00:08:48,360
+fantastic guy and ethical you know I
+
+197
+00:08:45,660 --> 00:08:50,959
+highly recommend it it's fantastic tool
+
+198
+00:08:48,360 --> 00:08:54,660
+and the guy is great as
+
+199
+00:08:50,959 --> 00:08:57,060
+opposed to not JS the guy you know
+
+200
+00:08:54,660 --> 00:09:00,899
+what's his name he created not JS like
+
+201
+00:08:57,060 --> 00:09:03,839
+10 years ago but not just became uh you
+
+202
+00:09:00,899 --> 00:09:06,480
+know led by someone else in corrupt crap
+
+203
+00:09:03,839 --> 00:09:08,399
+npm you know garbage trash so they know
+
+204
+00:09:06,480 --> 00:09:11,940
+I highly recommend it download dental
+
+205
+00:09:08,399 --> 00:09:14,820
+and dental format and can do it okay
+
+206
+00:09:11,940 --> 00:09:17,880
+so this is so I'm doing this in emacs so
+
+207
+00:09:14,820 --> 00:09:21,600
+let's put the code here so I have I have
+
+208
+00:09:17,880 --> 00:09:25,320
+a lot to uh talk about so I'm going to
+
+209
+00:09:21,600 --> 00:09:28,140
+um go fast okay so emac this code so
+
+210
+00:09:25,320 --> 00:09:31,260
+here you have the emacs this this code
+
+211
+00:09:28,140 --> 00:09:33,420
+okay and that's part of JavaScript mod
+
+212
+00:09:31,260 --> 00:09:35,700
+okay if you like my stuff
+
+213
+00:09:33,420 --> 00:09:38,880
+pay me okay
+
+214
+00:09:35,700 --> 00:09:41,339
+so let's paste the JavaScript mod there
+
+215
+00:09:38,880 --> 00:09:44,279
+so you have a link so you can go to it
+
+216
+00:09:41,339 --> 00:09:46,620
+open it show in browser JavaScript mod
+
+217
+00:09:44,279 --> 00:09:49,019
+so if if you don't want to spend time to
+
+218
+00:09:46,620 --> 00:09:50,399
+you know grab the code put in your emacs
+
+219
+00:09:49,019 --> 00:09:53,700
+in it you can just
+
+220
+00:09:50,399 --> 00:09:56,279
+pay me you know that you are paying for
+
+221
+00:09:53,700 --> 00:09:58,920
+as a donation because I cannot make
+
+222
+00:09:56,279 --> 00:10:00,839
+money with uh you know open source you
+
+223
+00:09:58,920 --> 00:10:03,839
+know because some you know it's open
+
+224
+00:10:00,839 --> 00:10:05,940
+source so once you get it you you can
+
+225
+00:10:03,839 --> 00:10:07,680
+sell it you know that's that's nothing I
+
+226
+00:10:05,940 --> 00:10:10,079
+can do but it's anyway it's open source
+
+227
+00:10:07,680 --> 00:10:13,860
+email address okay so
+
+228
+00:10:10,079 --> 00:10:18,440
+JavaScript mod so close that and here is
+
+229
+00:10:13,860 --> 00:10:18,440
+the um let's do it again okay
+
+230
+00:10:18,899 --> 00:10:25,740
+press the key format the whole code
+
+231
+00:10:21,300 --> 00:10:29,640
+beautiful okay and now put it back to uh
+
+232
+00:10:25,740 --> 00:10:31,740
+to here HTML and show in browser so you
+
+233
+00:10:29,640 --> 00:10:35,339
+can see we have the JavaScript code here
+
+234
+00:10:31,740 --> 00:10:38,339
+and here is the emac this code that
+
+235
+00:10:35,339 --> 00:10:41,160
+calls Daniel format okay and let's
+
+236
+00:10:38,339 --> 00:10:43,740
+make them syntax color back to the
+
+237
+00:10:41,160 --> 00:10:45,540
+browser show again so you can see it's
+
+238
+00:10:43,740 --> 00:10:48,240
+syntax colored
+
+239
+00:10:45,540 --> 00:10:50,399
+so anyway so the JavaScript code so
+
+240
+00:10:48,240 --> 00:10:53,180
+that's a demonstration okay we
+
+241
+00:10:50,399 --> 00:10:56,459
+demonstrated JavaScript Auto formatting
+
+242
+00:10:53,180 --> 00:10:59,700
+using this code range function for array
+
+243
+00:10:56,459 --> 00:11:02,399
+and we demonstrate the emacs integration
+
+244
+00:10:59,700 --> 00:11:05,640
+demonstrate demonstration okay and we
+
+245
+00:11:02,399 --> 00:11:08,820
+showed the emac this code you can grab
+
+246
+00:11:05,640 --> 00:11:11,279
+it put in your emacs init file then you
+
+247
+00:11:08,820 --> 00:11:13,800
+can have the same feature instead of
+
+248
+00:11:11,279 --> 00:11:17,399
+instead of instead of going to Shell and
+
+249
+00:11:13,800 --> 00:11:19,079
+type then no format in the current file
+
+250
+00:11:17,399 --> 00:11:20,940
+name you know
+
+251
+00:11:19,079 --> 00:11:23,519
+so
+
+252
+00:11:20,940 --> 00:11:26,940
+so that's a demonstration of the auto
+
+253
+00:11:23,519 --> 00:11:29,160
+formatting of the for JavaScript okay
+
+254
+00:11:26,940 --> 00:11:33,480
+next we are going to demonstrate
+
+255
+00:11:29,160 --> 00:11:37,079
+Powershell Golan python for each one of
+
+256
+00:11:33,480 --> 00:11:39,480
+them I have a emacs wrapper so you can
+
+257
+00:11:37,079 --> 00:11:41,760
+call them in emacs Easy A C code you
+
+258
+00:11:39,480 --> 00:11:44,279
+don't have to never ever you know when
+
+259
+00:11:41,760 --> 00:11:48,180
+you code never ever like oh you know
+
+260
+00:11:44,279 --> 00:11:50,820
+type a tab you know a line you know yeah
+
+261
+00:11:48,180 --> 00:11:53,040
+you know when you coat never you know
+
+262
+00:11:50,820 --> 00:11:56,040
+never ever type A type a lion you know
+
+263
+00:11:53,040 --> 00:11:59,339
+crap that's idiocy idiocy by the Unix
+
+264
+00:11:56,040 --> 00:12:01,440
+Linux C type of people for for the past
+
+265
+00:11:59,339 --> 00:12:04,500
+uh 20 years they don't listen they
+
+266
+00:12:01,440 --> 00:12:07,620
+didn't they don't have a brain
+
+267
+00:12:04,500 --> 00:12:10,500
+okay so so so okay let's let's you see I
+
+268
+00:12:07,620 --> 00:12:13,200
+screwed up so press the key reformat the
+
+269
+00:12:10,500 --> 00:12:16,139
+whole thing and now pop it back to a
+
+270
+00:12:13,200 --> 00:12:19,019
+HTML page okay so actually we don't need
+
+271
+00:12:16,139 --> 00:12:19,980
+this because the code is already
+
+272
+00:12:19,019 --> 00:12:22,920
+um
+
+273
+00:12:19,980 --> 00:12:25,500
+in this link okay range function to
+
+274
+00:12:22,920 --> 00:12:28,079
+generate array for JavaScript
+
+275
+00:12:25,500 --> 00:12:32,160
+okay so that's JavaScript let's go
+
+276
+00:12:28,079 --> 00:12:34,980
+through the next uh the next one
+
+277
+00:12:32,160 --> 00:12:38,339
+okay Powershell now Powershell doesn't
+
+278
+00:12:34,980 --> 00:12:40,260
+have a build in formatting tool so what
+
+279
+00:12:38,339 --> 00:12:43,260
+you have to do is that let me
+
+280
+00:12:40,260 --> 00:12:46,320
+demonstrate it first okay so you go to
+
+281
+00:12:43,260 --> 00:12:51,660
+uh let's go to Powershell
+
+282
+00:12:46,320 --> 00:12:55,200
+so go to Casa code in topic search
+
+283
+00:12:51,660 --> 00:12:57,980
+power shell okay why I love Powershell
+
+284
+00:12:55,200 --> 00:13:02,480
+so let's go to Powershell uh tutorial
+
+285
+00:12:57,980 --> 00:13:05,519
+and go down you'll see
+
+286
+00:13:02,480 --> 00:13:07,260
+Dark theme okay so here's a code let's
+
+287
+00:13:05,519 --> 00:13:10,139
+copy it
+
+288
+00:13:07,260 --> 00:13:12,060
+so this so let's let's come let's do it
+
+289
+00:13:10,139 --> 00:13:13,560
+okay so Powershell where is Powershell
+
+290
+00:13:12,060 --> 00:13:17,160
+here so
+
+291
+00:13:13,560 --> 00:13:20,519
+start a Powershell code block okay
+
+292
+00:13:17,160 --> 00:13:24,600
+here's a code pop it to its own window
+
+293
+00:13:20,519 --> 00:13:26,760
+okay and here's the code so let's first
+
+294
+00:13:24,600 --> 00:13:28,680
+of all let's screw up the code it right
+
+295
+00:13:26,760 --> 00:13:32,639
+now it's well formatted okay so let's
+
+296
+00:13:28,680 --> 00:13:35,940
+screw it up so let's see if I can
+
+297
+00:13:32,639 --> 00:13:39,420
+you know make them one lie make them
+
+298
+00:13:35,940 --> 00:13:44,720
+this one line two okay so now I press a
+
+299
+00:13:39,420 --> 00:13:47,459
+key a single key pen fantastic it's
+
+300
+00:13:44,720 --> 00:13:50,699
+indestructible you know it's like a book
+
+301
+00:13:47,459 --> 00:13:53,399
+technology it fixes it itself you know
+
+302
+00:13:50,699 --> 00:13:56,160
+it fixes yours itself
+
+303
+00:13:53,399 --> 00:13:59,399
+so but but let me demonstrate the code
+
+304
+00:13:56,160 --> 00:14:03,060
+what the code does okay so because this
+
+305
+00:13:59,399 --> 00:14:04,860
+is fun uh this is a fun thing to use so
+
+306
+00:14:03,060 --> 00:14:07,199
+let's remove the comment okay let's
+
+307
+00:14:04,860 --> 00:14:09,600
+remove the comment in fact
+
+308
+00:14:07,199 --> 00:14:13,380
+put the whole code into one line let's
+
+309
+00:14:09,600 --> 00:14:15,959
+see if that works okay copy it now go to
+
+310
+00:14:13,380 --> 00:14:18,899
+Powershell there it is you are looking
+
+311
+00:14:15,959 --> 00:14:23,160
+at the Powershell technology which is
+
+312
+00:14:18,899 --> 00:14:27,000
+far superior than bash the 30 years 40
+
+313
+00:14:23,160 --> 00:14:30,300
+years crap baggage Unix baggage okay so
+
+314
+00:14:27,000 --> 00:14:34,560
+paste this function name
+
+315
+00:14:30,300 --> 00:14:37,560
+does it work let's try it okay what
+
+316
+00:14:34,560 --> 00:14:39,779
+oh okay I need I missed the semicolon
+
+317
+00:14:37,560 --> 00:14:43,380
+that's why you don't want the
+
+318
+00:14:39,779 --> 00:14:45,420
+yeah so you always always have semicolon
+
+319
+00:14:43,380 --> 00:14:47,220
+you know same like why because you know
+
+320
+00:14:45,420 --> 00:14:49,019
+this is an important issue I'll talk
+
+321
+00:14:47,220 --> 00:14:51,660
+about when you when you're programming
+
+322
+00:14:49,019 --> 00:14:54,060
+language syntax
+
+323
+00:14:51,660 --> 00:14:57,420
+when your programming language syntax is
+
+324
+00:14:54,060 --> 00:14:59,160
+such a way that a physical hard wrapped
+
+325
+00:14:57,420 --> 00:15:02,519
+formatting
+
+326
+00:14:59,160 --> 00:15:04,680
+has meaning to the language then it will
+
+327
+00:15:02,519 --> 00:15:06,060
+screw up automatic formatting that means
+
+328
+00:15:04,680 --> 00:15:08,519
+you cannot
+
+329
+00:15:06,060 --> 00:15:10,940
+doesn't matter how complex the tool it
+
+330
+00:15:08,519 --> 00:15:14,639
+is impossible basically almost
+
+331
+00:15:10,940 --> 00:15:16,500
+impossible to Auto format it okay so
+
+332
+00:15:14,639 --> 00:15:18,540
+when you are designing a programming
+
+333
+00:15:16,500 --> 00:15:22,139
+language you know for the past 20 years
+
+334
+00:15:18,540 --> 00:15:24,600
+this c c syntax based idiocy you know
+
+335
+00:15:22,139 --> 00:15:27,959
+none of them do that so you want to make
+
+336
+00:15:24,600 --> 00:15:31,079
+sure that the physical you know you want
+
+337
+00:15:27,959 --> 00:15:33,839
+me to make sure that your source code is
+
+338
+00:15:31,079 --> 00:15:36,600
+not dependent dependent on hard
+
+339
+00:15:33,839 --> 00:15:39,779
+formatting okay such as a physical line
+
+340
+00:15:36,600 --> 00:15:41,160
+return okay so for example now I I put a
+
+341
+00:15:39,779 --> 00:15:43,560
+semicolon
+
+342
+00:15:41,160 --> 00:15:45,000
+and now I make the whole whole thing one
+
+343
+00:15:43,560 --> 00:15:47,699
+line by the way
+
+344
+00:15:45,000 --> 00:15:49,620
+the common syntax is also usually
+
+345
+00:15:47,699 --> 00:15:53,639
+dependent you know the line based
+
+346
+00:15:49,620 --> 00:15:56,040
+comment is dependent on the uh hard
+
+347
+00:15:53,639 --> 00:15:59,699
+physical line return you don't want that
+
+348
+00:15:56,040 --> 00:16:01,620
+okay so rather you you you want a common
+
+349
+00:15:59,699 --> 00:16:04,500
+syntax such that
+
+350
+00:16:01,620 --> 00:16:06,959
+such that it is independent of the hard
+
+351
+00:16:04,500 --> 00:16:09,600
+wrap that way you can you can
+
+352
+00:16:06,959 --> 00:16:12,300
+automatically format it and display it
+
+353
+00:16:09,600 --> 00:16:14,699
+in arbitrary ways you want you know like
+
+354
+00:16:12,300 --> 00:16:17,100
+narrow or wide you know mechanic
+
+355
+00:16:14,699 --> 00:16:19,019
+mechanically without manual you know so
+
+356
+00:16:17,100 --> 00:16:23,639
+you don't want you don't want syntax
+
+357
+00:16:19,019 --> 00:16:26,100
+that dependent that that depends on a
+
+358
+00:16:23,639 --> 00:16:28,440
+physical line return okay that's one of
+
+359
+00:16:26,100 --> 00:16:30,540
+the things you want to uh if you want
+
+360
+00:16:28,440 --> 00:16:33,000
+automatic formatting okay so now we
+
+361
+00:16:30,540 --> 00:16:35,160
+remove those comments and make let's
+
+362
+00:16:33,000 --> 00:16:37,920
+make the whole thing
+
+363
+00:16:35,160 --> 00:16:39,779
+one single line okay now back to
+
+364
+00:16:37,920 --> 00:16:42,779
+Powershell
+
+365
+00:16:39,779 --> 00:16:45,060
+paste it okay function in one single
+
+366
+00:16:42,779 --> 00:16:48,000
+line fantastic okay
+
+367
+00:16:45,060 --> 00:16:50,160
+now let me demonstrate so now I type SAR
+
+368
+00:16:48,000 --> 00:16:51,959
+toggle
+
+369
+00:16:50,160 --> 00:16:56,959
+toggle dog theme
+
+370
+00:16:51,959 --> 00:16:58,579
+you see now my website is dark
+
+371
+00:16:56,959 --> 00:17:02,759
+Dark
+
+372
+00:16:58,579 --> 00:17:05,819
+theme okay fantastic functionality
+
+373
+00:17:02,759 --> 00:17:09,240
+so Tonka Dark theme again back to White
+
+374
+00:17:05,819 --> 00:17:11,100
+by the way dark dark theme is a fad okay
+
+375
+00:17:09,240 --> 00:17:13,819
+it actually it's
+
+376
+00:17:11,100 --> 00:17:16,439
+it's harder to read it's more hard
+
+377
+00:17:13,819 --> 00:17:19,740
+scientifically speaking it it's harder
+
+378
+00:17:16,439 --> 00:17:22,319
+to read you want a white because I I
+
+379
+00:17:19,740 --> 00:17:24,240
+actually tried it for three months using
+
+380
+00:17:22,319 --> 00:17:27,780
+that thing
+
+381
+00:17:24,240 --> 00:17:28,919
+so and uh okay anyway so let's move on
+
+382
+00:17:27,780 --> 00:17:31,980
+so
+
+383
+00:17:28,919 --> 00:17:34,440
+so I we have demonstrated so let's let's
+
+384
+00:17:31,980 --> 00:17:37,520
+do it again okay so now Powershell we
+
+385
+00:17:34,440 --> 00:17:41,580
+want to reformat it okay so
+
+386
+00:17:37,520 --> 00:17:44,760
+uh the keys this one do it I doesn't do
+
+387
+00:17:41,580 --> 00:17:47,700
+it okay so you see
+
+388
+00:17:44,760 --> 00:17:49,799
+now this Auto format you know why does
+
+389
+00:17:47,700 --> 00:17:54,900
+it not work because in the Powershell
+
+390
+00:17:49,799 --> 00:17:58,880
+case the auto formatter does not work
+
+391
+00:17:54,900 --> 00:18:01,799
+it does not go all the way it does not
+
+392
+00:17:58,880 --> 00:18:05,419
+reformat your code entirely you know
+
+393
+00:18:01,799 --> 00:18:05,419
+this is critical you know
+
+394
+00:18:06,539 --> 00:18:13,320
+starting with Golan about 2010 you know
+
+395
+00:18:10,919 --> 00:18:16,799
+they they started to have the concept
+
+396
+00:18:13,320 --> 00:18:19,200
+where of Auto automatic formatting where
+
+397
+00:18:16,799 --> 00:18:20,880
+it does not matter it doesn't matter how
+
+398
+00:18:19,200 --> 00:18:23,520
+your source code looks
+
+399
+00:18:20,880 --> 00:18:27,980
+after you call the tool it will just
+
+400
+00:18:23,520 --> 00:18:27,980
+reformat your entire code okay
+
+401
+00:18:28,260 --> 00:18:34,320
+now before that before 2010 most tools
+
+402
+00:18:31,740 --> 00:18:37,140
+you know it's called linked or what you
+
+403
+00:18:34,320 --> 00:18:39,539
+know you know the you know edius edsc
+
+404
+00:18:37,140 --> 00:18:42,000
+that's extreme immediacy what they do is
+
+405
+00:18:39,539 --> 00:18:44,520
+that they help you format you know they
+
+406
+00:18:42,000 --> 00:18:46,320
+make some suggestions suggestions so
+
+407
+00:18:44,520 --> 00:18:48,960
+they change something but they actually
+
+408
+00:18:46,320 --> 00:18:50,520
+don't they don't actually reformat your
+
+409
+00:18:48,960 --> 00:18:52,919
+code that's what you want you want to
+
+410
+00:18:50,520 --> 00:18:55,679
+you you want the tool that reformat your
+
+411
+00:18:52,919 --> 00:18:58,380
+code without human interaction just do
+
+412
+00:18:55,679 --> 00:19:00,840
+it you know whole shot now in the case
+
+413
+00:18:58,380 --> 00:19:02,520
+of Powershell the tool doesn't uh do
+
+414
+00:19:00,840 --> 00:19:05,460
+that when you know
+
+415
+00:19:02,520 --> 00:19:08,280
+so that's a floor Powershell
+
+416
+00:19:05,460 --> 00:19:09,480
+okay so like if your whole function is
+
+417
+00:19:08,280 --> 00:19:11,160
+one line
+
+418
+00:19:09,480 --> 00:19:14,460
+it will not
+
+419
+00:19:11,160 --> 00:19:17,220
+um reformat it okay that's you know
+
+420
+00:19:14,460 --> 00:19:20,700
+you know it doesn't for example it will
+
+421
+00:19:17,220 --> 00:19:23,340
+form reformatted but not not in one
+
+422
+00:19:20,700 --> 00:19:27,059
+canonical way for example we added a lot
+
+423
+00:19:23,340 --> 00:19:29,480
+of spaces here for example space then
+
+424
+00:19:27,059 --> 00:19:31,980
+you can
+
+425
+00:19:29,480 --> 00:19:34,140
+it'll remove those spaces but you know
+
+426
+00:19:31,980 --> 00:19:36,660
+this one single line is no good so
+
+427
+00:19:34,140 --> 00:19:41,220
+anyway that's a problem with Powershell
+
+428
+00:19:36,660 --> 00:19:43,440
+okay so uh so this is um so let's go
+
+429
+00:19:41,220 --> 00:19:47,360
+back so let's
+
+430
+00:19:43,440 --> 00:19:47,360
+pop it back to um
+
+431
+00:19:47,400 --> 00:19:54,240
+to the HTML showing browser so you can
+
+432
+00:19:51,419 --> 00:19:57,240
+see here's a Powershell code let's
+
+433
+00:19:54,240 --> 00:19:59,520
+syntax color it
+
+434
+00:19:57,240 --> 00:20:01,640
+refresh so you can see here's a
+
+435
+00:19:59,520 --> 00:20:04,380
+Powershell code okay Powershell code
+
+436
+00:20:01,640 --> 00:20:05,580
+toggle Dark theme okay
+
+437
+00:20:04,380 --> 00:20:08,159
+now
+
+438
+00:20:05,580 --> 00:20:10,980
+now in order to let me show you the emac
+
+439
+00:20:08,159 --> 00:20:14,640
+source code Okay so
+
+440
+00:20:10,980 --> 00:20:17,240
+so emacs source code so the source code
+
+441
+00:20:14,640 --> 00:20:17,240
+is
+
+442
+00:20:18,600 --> 00:20:24,600
+okay here it is Powershell mod and
+
+443
+00:20:22,620 --> 00:20:26,700
+here's a source code because some
+
+444
+00:20:24,600 --> 00:20:31,200
+Powershell format code okay so let's
+
+445
+00:20:26,700 --> 00:20:32,880
+copy it uh let's copy it and let's
+
+446
+00:20:31,200 --> 00:20:36,500
+um
+
+447
+00:20:32,880 --> 00:20:36,500
+let's go to talk show
+
+448
+00:20:37,140 --> 00:20:43,020
+okay so uh yeah today's talk show there
+
+449
+00:20:40,080 --> 00:20:48,360
+and let's put it here Powershell
+
+450
+00:20:43,020 --> 00:20:50,460
+so create a new emac list block of code
+
+451
+00:20:48,360 --> 00:20:54,240
+paste it there
+
+452
+00:20:50,460 --> 00:20:56,280
+so that's the emac this code to allows
+
+453
+00:20:54,240 --> 00:20:59,340
+you to reformat Powershell in your
+
+454
+00:20:56,280 --> 00:21:00,960
+buffer and you need this tool okay so
+
+455
+00:20:59,340 --> 00:21:04,260
+you need
+
+456
+00:21:00,960 --> 00:21:06,059
+you need actually okay let me show you
+
+457
+00:21:04,260 --> 00:21:07,980
+where to get it okay so you go to
+
+458
+00:21:06,059 --> 00:21:10,799
+Powershell
+
+459
+00:21:07,980 --> 00:21:13,799
+uh you know Max search for xrd
+
+460
+00:21:10,799 --> 00:21:15,840
+Powershell tutorial and at the bottom or
+
+461
+00:21:13,799 --> 00:21:17,280
+just use a search function at the bottom
+
+462
+00:21:15,840 --> 00:21:20,280
+you will see
+
+463
+00:21:17,280 --> 00:21:22,500
+pretty for men okay so in order to have
+
+464
+00:21:20,280 --> 00:21:24,080
+the pretty format tool you need to
+
+465
+00:21:22,500 --> 00:21:27,780
+download this
+
+466
+00:21:24,080 --> 00:21:30,780
+Powershell script analyzer okay once you
+
+467
+00:21:27,780 --> 00:21:32,760
+download that then you know you can down
+
+468
+00:21:30,780 --> 00:21:35,880
+you can install it by this line okay
+
+469
+00:21:32,760 --> 00:21:38,280
+once you do that then you need this
+
+470
+00:21:35,880 --> 00:21:41,520
+function okay so this function sub
+
+471
+00:21:38,280 --> 00:21:45,720
+format Powershell script okay so grab it
+
+472
+00:21:41,520 --> 00:21:46,760
+okay so once you have that then you can
+
+473
+00:21:45,720 --> 00:21:51,299
+call
+
+474
+00:21:46,760 --> 00:21:53,760
+format Powershell script and Powershell
+
+475
+00:21:51,299 --> 00:21:56,640
+script name okay
+
+476
+00:21:53,760 --> 00:21:58,919
+and then if you want to have emacs
+
+477
+00:21:56,640 --> 00:22:01,919
+integration you
+
+478
+00:21:58,919 --> 00:22:05,760
+where's my emacs source code
+
+479
+00:22:01,919 --> 00:22:09,659
+and do I have it here
+
+480
+00:22:05,760 --> 00:22:13,380
+okay so let's uh yeah so if you want
+
+481
+00:22:09,659 --> 00:22:15,360
+emacs integration yeah so refresh then
+
+482
+00:22:13,380 --> 00:22:19,260
+here's the code okay let's
+
+483
+00:22:15,360 --> 00:22:21,059
+uh sync color syntax syntax color it so
+
+484
+00:22:19,260 --> 00:22:25,740
+you need this code
+
+485
+00:22:21,059 --> 00:22:30,179
+okay that's demonstration of Powershell
+
+486
+00:22:25,740 --> 00:22:32,220
+okay and then again pay me okay so here
+
+487
+00:22:30,179 --> 00:22:34,020
+is Powershell mod
+
+488
+00:22:32,220 --> 00:22:36,539
+um
+
+489
+00:22:34,020 --> 00:22:38,640
+so here is the Powershell some power
+
+490
+00:22:36,539 --> 00:22:41,640
+Xiao mod okay
+
+491
+00:22:38,640 --> 00:22:43,559
+so you can open it show in browser so
+
+492
+00:22:41,640 --> 00:22:47,340
+everything integrated so you don't have
+
+493
+00:22:43,559 --> 00:22:49,260
+to nothing do nothing okay so power
+
+494
+00:22:47,340 --> 00:22:52,860
+Sharma for emacs
+
+495
+00:22:49,260 --> 00:22:56,760
+open it close that open it okay so we
+
+496
+00:22:52,860 --> 00:23:00,600
+demonstrated JavaScript we demonstrated
+
+497
+00:22:56,760 --> 00:23:04,380
+um Powershell Auto formatting now
+
+498
+00:23:00,600 --> 00:23:06,600
+let's demonstrate now this code we don't
+
+499
+00:23:04,380 --> 00:23:08,600
+need because that's already
+
+500
+00:23:06,600 --> 00:23:08,600
+um
+
+501
+00:23:09,419 --> 00:23:15,419
+so let's clean up a little bit okay so
+
+502
+00:23:12,480 --> 00:23:17,700
+we don't need that refresh okay so
+
+503
+00:23:15,419 --> 00:23:21,240
+here's the Emax code now let's move on
+
+504
+00:23:17,700 --> 00:23:23,520
+to Golan okay Golan is fantastic so how
+
+505
+00:23:21,240 --> 00:23:24,360
+are you doing so how are you guys
+
+506
+00:23:23,520 --> 00:23:26,820
+um
+
+507
+00:23:24,360 --> 00:23:30,299
+yeah today is the change of time you
+
+508
+00:23:26,820 --> 00:23:32,760
+know I haven't done a live stream
+
+509
+00:23:30,299 --> 00:23:36,539
+uh at this time for a long time for over
+
+510
+00:23:32,760 --> 00:23:38,700
+a year now uh so we went over 25 minutes
+
+511
+00:23:36,539 --> 00:23:40,860
+God I have a lot to do so we need to do
+
+512
+00:23:38,700 --> 00:23:43,260
+Golan then I'm going to demonstrate
+
+513
+00:23:40,860 --> 00:23:46,020
+python then I'm going to demonstrate
+
+514
+00:23:43,260 --> 00:23:49,500
+emac this emac this is problematic you
+
+515
+00:23:46,020 --> 00:23:52,020
+know very sad situation because lisp the
+
+516
+00:23:49,500 --> 00:23:54,299
+language the syntax at least has the
+
+517
+00:23:52,020 --> 00:23:57,299
+best property for automatic formatting
+
+518
+00:23:54,299 --> 00:23:59,520
+but the the at least idiots the emac
+
+519
+00:23:57,299 --> 00:24:02,460
+these idiots you know they they they
+
+520
+00:23:59,520 --> 00:24:04,380
+talk about oh you your lie must not be
+
+521
+00:24:02,460 --> 00:24:07,140
+longer than 80 characters you know they
+
+522
+00:24:04,380 --> 00:24:09,900
+focus on oh your parenthesis you must
+
+523
+00:24:07,140 --> 00:24:11,820
+tuck them in those idiots and they they
+
+524
+00:24:09,900 --> 00:24:14,100
+write guide they write you know
+
+525
+00:24:11,820 --> 00:24:16,980
+programming style guide you know for
+
+526
+00:24:14,100 --> 00:24:20,340
+emac this for example there's a bats bad
+
+527
+00:24:16,980 --> 00:24:22,440
+slow guy you know a big guy in emacs
+
+528
+00:24:20,340 --> 00:24:25,440
+community he write a lot you know
+
+529
+00:24:22,440 --> 00:24:27,720
+programming language style guide this is
+
+530
+00:24:25,440 --> 00:24:29,820
+community based you know I did tell you
+
+531
+00:24:27,720 --> 00:24:33,059
+to manually you know how you should
+
+532
+00:24:29,820 --> 00:24:35,640
+format your idiocy because the
+
+533
+00:24:33,059 --> 00:24:38,100
+more you spread the more you spread on
+
+534
+00:24:35,640 --> 00:24:40,919
+the on the on the manual formatting of
+
+535
+00:24:38,100 --> 00:24:43,679
+code the less the less likely the
+
+536
+00:24:40,919 --> 00:24:44,580
+automatic formatting concept will spread
+
+537
+00:24:43,679 --> 00:24:46,980
+okay
+
+538
+00:24:44,580 --> 00:24:50,640
+but today it's spread pretty pretty uh
+
+539
+00:24:46,980 --> 00:24:53,760
+fine finally finally thanks to Golan
+
+540
+00:24:50,640 --> 00:24:56,820
+around 2010 you know go format okay go
+
+541
+00:24:53,760 --> 00:25:01,080
+line is the first one that created that
+
+542
+00:24:56,820 --> 00:25:03,419
+that spread the concept of automatic
+
+543
+00:25:01,080 --> 00:25:05,340
+code formatting so you don't you don't
+
+544
+00:25:03,419 --> 00:25:07,980
+even need formatting style guide anymore
+
+545
+00:25:05,340 --> 00:25:11,340
+read it once for no arguments you know
+
+546
+00:25:07,980 --> 00:25:13,740
+so every every language source code you
+
+547
+00:25:11,340 --> 00:25:15,779
+see will look the same okay that's
+
+548
+00:25:13,740 --> 00:25:17,640
+actually a good idea you know if you
+
+549
+00:25:15,779 --> 00:25:19,740
+don't like the language don't use it you
+
+550
+00:25:17,640 --> 00:25:22,620
+know it's don't debate about how you
+
+551
+00:25:19,740 --> 00:25:25,320
+should format you know you know that's a
+
+552
+00:25:22,620 --> 00:25:29,100
+idiocy spread by the C and Unix
+
+553
+00:25:25,320 --> 00:25:30,840
+ for for more than 20 years you
+
+554
+00:25:29,100 --> 00:25:32,520
+know like every time you talk to them
+
+555
+00:25:30,840 --> 00:25:34,440
+they don't they don't understand they
+
+556
+00:25:32,520 --> 00:25:38,400
+don't they don't get it you know because
+
+557
+00:25:34,440 --> 00:25:40,260
+Unix my last video about 10 days ago I
+
+558
+00:25:38,400 --> 00:25:43,700
+talk about the Unix line truncation
+
+559
+00:25:40,260 --> 00:25:45,960
+because of that the Unix code they
+
+560
+00:25:43,700 --> 00:25:48,120
+brainwashed people so that all these
+
+561
+00:25:45,960 --> 00:25:50,820
+languages the programmers you know they
+
+562
+00:25:48,120 --> 00:25:52,980
+you know this uh Elite programmers
+
+563
+00:25:50,820 --> 00:25:55,020
+hacker types you know they go to
+
+564
+00:25:52,980 --> 00:25:57,419
+um they go to The Hacker News every day
+
+565
+00:25:55,020 --> 00:25:59,760
+or slash start you know 20 years ago
+
+566
+00:25:57,419 --> 00:26:01,559
+they they think they are the you know
+
+567
+00:25:59,760 --> 00:26:04,860
+God or priest they tell you what to do
+
+568
+00:26:01,559 --> 00:26:07,140
+but but some basic ideas they they don't
+
+569
+00:26:04,860 --> 00:26:08,880
+know okay Auto automatic formatting
+
+570
+00:26:07,140 --> 00:26:12,120
+begin
+
+571
+00:26:08,880 --> 00:26:14,340
+Golan go format is the first one that
+
+572
+00:26:12,120 --> 00:26:17,820
+actually started to spread the idea the
+
+573
+00:26:14,340 --> 00:26:20,700
+idea exists in ufam language like
+
+574
+00:26:17,820 --> 00:26:23,640
+20 years ago okay 20 years ago I'm gonna
+
+575
+00:26:20,700 --> 00:26:25,200
+demo demo okay this it's far it's far
+
+576
+00:26:23,640 --> 00:26:28,980
+more advanced than all of these Auto
+
+577
+00:26:25,200 --> 00:26:31,500
+format okay so so so next one okay so we
+
+578
+00:26:28,980 --> 00:26:34,559
+done JavaScript we done Powershell so
+
+579
+00:26:31,500 --> 00:26:36,659
+next let's demonstrate
+
+580
+00:26:34,559 --> 00:26:39,240
+um go land okay Gola is the language
+
+581
+00:26:36,659 --> 00:26:42,600
+that began this
+
+582
+00:26:39,240 --> 00:26:44,039
+okay so um go then okay so let's go land
+
+583
+00:26:42,600 --> 00:26:45,419
+so so
+
+584
+00:26:44,039 --> 00:26:47,640
+um
+
+585
+00:26:45,419 --> 00:26:50,220
+okay so first of all let's find the
+
+586
+00:26:47,640 --> 00:26:51,900
+Golan script to demonstrate it okay so
+
+587
+00:26:50,220 --> 00:26:53,820
+you go to
+
+588
+00:26:51,900 --> 00:26:55,500
+Sally info
+
+589
+00:26:53,820 --> 00:26:59,940
+search
+
+590
+00:26:55,500 --> 00:27:02,640
+Colin okay uh so we have a goal line
+
+591
+00:26:59,940 --> 00:27:04,919
+fine string which is equivalent to grab
+
+592
+00:27:02,640 --> 00:27:07,740
+and we also have a
+
+593
+00:27:04,919 --> 00:27:10,799
+goal line script to to find and replace
+
+594
+00:27:07,740 --> 00:27:13,500
+multiple pairs in one shot of regular
+
+595
+00:27:10,799 --> 00:27:15,840
+expression in a whole directory so here
+
+596
+00:27:13,500 --> 00:27:18,840
+is a code okay
+
+597
+00:27:15,840 --> 00:27:20,940
+so here is the code so let's let's put
+
+598
+00:27:18,840 --> 00:27:23,880
+it um
+
+599
+00:27:20,940 --> 00:27:27,539
+uh Golan so Golan so we're gonna do
+
+600
+00:27:23,880 --> 00:27:32,360
+Golan there so code link uh link Phi
+
+601
+00:27:27,539 --> 00:27:32,360
+make a list okay so Golan
+
+602
+00:27:32,940 --> 00:27:36,779
+okay that's script we're gonna
+
+603
+00:27:34,740 --> 00:27:38,399
+demonstrate oh I already I already have
+
+604
+00:27:36,779 --> 00:27:41,820
+a link
+
+605
+00:27:38,399 --> 00:27:44,899
+okay so now let's copy the code okay so
+
+606
+00:27:41,820 --> 00:27:44,899
+here's the Golan
+
+607
+00:27:45,600 --> 00:27:52,980
+okay so this code will do find and
+
+608
+00:27:49,320 --> 00:27:57,899
+replace in a directory
+
+609
+00:27:52,980 --> 00:28:01,320
+uh okay let's do it here so okay go land
+
+610
+00:27:57,899 --> 00:28:03,720
+let's start a new code block Golan there
+
+611
+00:28:01,320 --> 00:28:05,520
+show the pink window
+
+612
+00:28:03,720 --> 00:28:08,039
+paste the code
+
+613
+00:28:05,520 --> 00:28:11,100
+pop it to its own window there it is
+
+614
+00:28:08,039 --> 00:28:13,500
+here's the Golan script and now let's
+
+615
+00:28:11,100 --> 00:28:14,820
+demonstrate let's run this script Okay
+
+616
+00:28:13,500 --> 00:28:16,860
+so
+
+617
+00:28:14,820 --> 00:28:19,380
+now I'm not gonna demonstrate the script
+
+618
+00:28:16,860 --> 00:28:21,600
+let's just demonstrate the auto format
+
+619
+00:28:19,380 --> 00:28:24,600
+okay so let's you see this let's make
+
+620
+00:28:21,600 --> 00:28:27,299
+them one line okay one single line okay
+
+621
+00:28:24,600 --> 00:28:28,440
+and you see this you know you don't you
+
+622
+00:28:27,299 --> 00:28:31,200
+can have
+
+623
+00:28:28,440 --> 00:28:33,779
+you see again here is a comment line
+
+624
+00:28:31,200 --> 00:28:36,419
+based comment that relies on the
+
+625
+00:28:33,779 --> 00:28:39,179
+physical Hardline wrap that's no good
+
+626
+00:28:36,419 --> 00:28:42,240
+because if you have that situation and
+
+627
+00:28:39,179 --> 00:28:43,799
+if you make it one single line then the
+
+628
+00:28:42,240 --> 00:28:46,320
+whole thing becomes a comment so that's
+
+629
+00:28:43,799 --> 00:28:48,120
+no good so you don't so as a if you are
+
+630
+00:28:46,320 --> 00:28:51,120
+designing a language you don't want the
+
+631
+00:28:48,120 --> 00:28:53,480
+syntax that depends on physical line
+
+632
+00:28:51,120 --> 00:28:57,059
+return okay so but if we remove that
+
+633
+00:28:53,480 --> 00:28:58,500
+comment okay now you know now you can
+
+634
+00:28:57,059 --> 00:29:03,240
+okay
+
+635
+00:28:58,500 --> 00:29:06,779
+wait uh oh God again you need semicolon
+
+636
+00:29:03,240 --> 00:29:09,120
+okay so let me show you okay so again
+
+637
+00:29:06,779 --> 00:29:10,320
+you need semicolon otherwise the code
+
+638
+00:29:09,120 --> 00:29:13,080
+won't
+
+639
+00:29:10,320 --> 00:29:15,240
+uh not semicolon you need
+
+640
+00:29:13,080 --> 00:29:18,600
+and
+
+641
+00:29:15,240 --> 00:29:23,220
+you need a constant okay
+
+642
+00:29:18,600 --> 00:29:24,779
+what I I hate I hate this this uh syntax
+
+643
+00:29:23,220 --> 00:29:28,500
+of constant
+
+644
+00:29:24,779 --> 00:29:30,360
+I think you need uh there
+
+645
+00:29:28,500 --> 00:29:34,020
+anyway let's call the command to
+
+646
+00:29:30,360 --> 00:29:36,960
+reformat it okay so you can see uh this
+
+647
+00:29:34,020 --> 00:29:40,679
+this is wrong too actually
+
+648
+00:29:36,960 --> 00:29:44,460
+ah go land so what is so let's look at
+
+649
+00:29:40,679 --> 00:29:46,520
+the tutorial Golan Imports so import or
+
+650
+00:29:44,460 --> 00:29:49,500
+semicolon okay so you need actually
+
+651
+00:29:46,520 --> 00:29:51,059
+semicolon otherwise single line is
+
+652
+00:29:49,500 --> 00:29:53,399
+invalid
+
+653
+00:29:51,059 --> 00:29:55,500
+so you don't want that okay remember you
+
+654
+00:29:53,399 --> 00:29:58,860
+don't want if you if your programming
+
+655
+00:29:55,500 --> 00:30:03,299
+language syntax relies on the
+
+656
+00:29:58,860 --> 00:30:06,059
+on on a hot you know uh
+
+657
+00:30:03,299 --> 00:30:07,980
+line return then it's no good okay but
+
+658
+00:30:06,059 --> 00:30:09,720
+now this works okay let's reformat let's
+
+659
+00:30:07,980 --> 00:30:13,100
+just do it
+
+660
+00:30:09,720 --> 00:30:13,100
+okay press the key
+
+661
+00:30:13,620 --> 00:30:19,140
+okay oh God
+
+662
+00:30:15,960 --> 00:30:23,279
+so I think this instead of a comma you
+
+663
+00:30:19,140 --> 00:30:23,279
+need a semicolon
+
+664
+00:30:23,580 --> 00:30:29,640
+okay so let's try that again
+
+665
+00:30:27,720 --> 00:30:33,360
+reformat you see
+
+666
+00:30:29,640 --> 00:30:35,940
+you see fantastic okay undo you see
+
+667
+00:30:33,360 --> 00:30:38,880
+before let me make them you see before
+
+668
+00:30:35,940 --> 00:30:41,940
+this is one line and let's make this one
+
+669
+00:30:38,880 --> 00:30:44,039
+single line two okay now let's reformat
+
+670
+00:30:41,940 --> 00:30:47,220
+the whole file okay
+
+671
+00:30:44,039 --> 00:30:49,260
+do it you see fantastic
+
+672
+00:30:47,220 --> 00:30:51,960
+okay same thing same thing you know if
+
+673
+00:30:49,260 --> 00:30:54,539
+you are you know it will just reformat
+
+674
+00:30:51,960 --> 00:30:57,419
+the whole thing okay for example
+
+675
+00:30:54,539 --> 00:30:58,980
+okay we we made some changes and do it
+
+676
+00:30:57,419 --> 00:31:02,159
+let's do it you know
+
+677
+00:30:58,980 --> 00:31:04,980
+fantastic okay so you can see that
+
+678
+00:31:02,159 --> 00:31:07,919
+command we called is the
+
+679
+00:31:04,980 --> 00:31:11,279
+Circle format buffer so let's show the
+
+680
+00:31:07,919 --> 00:31:13,640
+let's show the um the emac this code
+
+681
+00:31:11,279 --> 00:31:13,640
+okay
+
+682
+00:31:15,419 --> 00:31:22,740
+Okay so
+
+683
+00:31:18,620 --> 00:31:25,200
+uh so the Emax list code that's tab F so
+
+684
+00:31:22,740 --> 00:31:28,380
+that's this command Circle format buffer
+
+685
+00:31:25,200 --> 00:31:32,460
+let's jump to the source code
+
+686
+00:31:28,380 --> 00:31:37,100
+here is a code okay close it
+
+687
+00:31:32,460 --> 00:31:37,100
+um let's put it in in our talk show
+
+688
+00:31:38,399 --> 00:31:44,159
+create a new block of emac this code
+
+689
+00:31:41,039 --> 00:31:46,260
+paste it here there is there it is so
+
+690
+00:31:44,159 --> 00:31:48,779
+you can put this in your init file then
+
+691
+00:31:46,260 --> 00:31:50,460
+you have the same feature and but so by
+
+692
+00:31:48,779 --> 00:31:52,860
+the way it's calling the command go
+
+693
+00:31:50,460 --> 00:31:54,659
+format okay go format okay that's part
+
+694
+00:31:52,860 --> 00:31:57,179
+of the golang when you download goal
+
+695
+00:31:54,659 --> 00:31:59,519
+lines part of it okay
+
+696
+00:31:57,179 --> 00:32:02,940
+so now
+
+697
+00:31:59,519 --> 00:32:05,399
+yeah so now we have demonstrated this uh
+
+698
+00:32:02,940 --> 00:32:08,279
+let's pop this back
+
+699
+00:32:05,399 --> 00:32:11,039
+to the HTML page and we don't need it
+
+700
+00:32:08,279 --> 00:32:13,679
+because the file is already here the
+
+701
+00:32:11,039 --> 00:32:16,500
+goal line go land
+
+702
+00:32:13,679 --> 00:32:18,779
+script to find replace multiple pairs
+
+703
+00:32:16,500 --> 00:32:21,960
+not just one by regular expression in a
+
+704
+00:32:18,779 --> 00:32:24,679
+whole directory so you you know you grab
+
+705
+00:32:21,960 --> 00:32:29,100
+it okay this is better than
+
+706
+00:32:24,679 --> 00:32:33,240
+better than the what the what grip
+
+707
+00:32:29,100 --> 00:32:35,580
+silver Arc beep grab you know rip grab
+
+708
+00:32:33,240 --> 00:32:39,179
+you know last week about a week or two
+
+709
+00:32:35,580 --> 00:32:41,760
+ago we you know I had a discussion with
+
+710
+00:32:39,179 --> 00:32:43,260
+you guys Scott who is posting
+
+711
+00:32:41,760 --> 00:32:45,600
+memes
+
+712
+00:32:43,260 --> 00:32:48,600
+so we have a discussion about rip grip
+
+713
+00:32:45,600 --> 00:32:51,960
+it turns out rip grip the guy he's a
+
+714
+00:32:48,600 --> 00:32:55,580
+rust you know the Ross phonetic
+
+715
+00:32:51,960 --> 00:32:59,340
+but he has some kind of a idiosyncratic
+
+716
+00:32:55,580 --> 00:33:02,220
+resistance to make the rib grab to
+
+717
+00:32:59,340 --> 00:33:04,799
+replace you know he refused
+
+718
+00:33:02,220 --> 00:33:06,899
+to add that feature you know so it's
+
+719
+00:33:04,799 --> 00:33:10,140
+purely for finding files you cannot
+
+720
+00:33:06,899 --> 00:33:11,159
+replace then you know and that's not too
+
+721
+00:33:10,140 --> 00:33:13,860
+useful
+
+722
+00:33:11,159 --> 00:33:15,779
+you want to be able to replace so you
+
+723
+00:33:13,860 --> 00:33:18,419
+can use this goal line script that will
+
+724
+00:33:15,779 --> 00:33:20,880
+do replacement not just one and also
+
+725
+00:33:18,419 --> 00:33:23,159
+there's a feature it's not line based
+
+726
+00:33:20,880 --> 00:33:26,880
+you know all these scraps set all the
+
+727
+00:33:23,159 --> 00:33:29,880
+Unix tools website org they are line
+
+728
+00:33:26,880 --> 00:33:32,220
+based so if you want to find you know
+
+729
+00:33:29,880 --> 00:33:34,679
+all your files involving these multiple
+
+730
+00:33:32,220 --> 00:33:36,960
+lines and replace them by something else
+
+731
+00:33:34,679 --> 00:33:39,539
+they cannot do it because they only do
+
+732
+00:33:36,960 --> 00:33:42,960
+one line at a time they cannot they are
+
+733
+00:33:39,539 --> 00:33:47,899
+unable to detect multiple lines you know
+
+734
+00:33:42,960 --> 00:33:47,899
+that's no good so my script does it okay
+
+735
+00:33:47,940 --> 00:33:54,840
+so that's score line go go line go
+
+736
+00:33:51,360 --> 00:33:56,940
+language uh script okay so uh so next so
+
+737
+00:33:54,840 --> 00:34:02,100
+let's go on so we demonstrated emacs
+
+738
+00:33:56,940 --> 00:34:04,559
+integration we uh showed emac this code
+
+739
+00:34:02,100 --> 00:34:08,280
+so where is the emac this code it is
+
+740
+00:34:04,559 --> 00:34:12,240
+there let's syntax color it
+
+741
+00:34:08,280 --> 00:34:15,060
+refresh there it is emac this code and
+
+742
+00:34:12,240 --> 00:34:18,060
+uh and we show the go format command
+
+743
+00:34:15,060 --> 00:34:22,079
+okay go land Rob Pike is a guy who did
+
+744
+00:34:18,060 --> 00:34:25,560
+it great fantastic finally
+
+745
+00:34:22,079 --> 00:34:28,200
+he's he Cola is the first one to let me
+
+746
+00:34:25,560 --> 00:34:30,119
+emphasize because I this I had this
+
+747
+00:34:28,200 --> 00:34:31,579
+issue you know since like 20 years ago
+
+748
+00:34:30,119 --> 00:34:34,260
+since about
+
+749
+00:34:31,579 --> 00:34:36,839
+1998. you know in because I called
+
+750
+00:34:34,260 --> 00:34:40,099
+wolfam language for 10 years you know so
+
+751
+00:34:36,839 --> 00:34:43,919
+I'm familiar with you know
+
+752
+00:34:40,099 --> 00:34:46,320
+let me let me jump ahead and do wolf and
+
+753
+00:34:43,919 --> 00:34:49,740
+demo okay so let me jump ahead and show
+
+754
+00:34:46,320 --> 00:34:52,320
+you what what is this uh automatic
+
+755
+00:34:49,740 --> 00:34:55,079
+formatting because I'm so used it I'm so
+
+756
+00:34:52,320 --> 00:34:57,560
+used to it then I started to code in
+
+757
+00:34:55,079 --> 00:35:01,140
+Unix you know Pearl
+
+758
+00:34:57,560 --> 00:35:03,420
+Pearl then python then PHP you know all
+
+759
+00:35:01,140 --> 00:35:04,740
+these industrial languages and plus C
+
+760
+00:35:03,420 --> 00:35:08,040
+and Java
+
+761
+00:35:04,740 --> 00:35:10,560
+but then I you know then I'm exposed
+
+762
+00:35:08,040 --> 00:35:12,839
+into a world where this concept is
+
+763
+00:35:10,560 --> 00:35:15,240
+foreign to them this automatic
+
+764
+00:35:12,839 --> 00:35:17,460
+formatting in real time not you know so
+
+765
+00:35:15,240 --> 00:35:21,480
+far we demonstrated automatic formatting
+
+766
+00:35:17,460 --> 00:35:24,000
+of the whole file but not in real time
+
+767
+00:35:21,480 --> 00:35:26,280
+you know what I mean by real times let
+
+768
+00:35:24,000 --> 00:35:28,800
+me show you okay so first of all open a
+
+769
+00:35:26,280 --> 00:35:31,980
+woofam language so let me show you you
+
+770
+00:35:28,800 --> 00:35:33,060
+see so you are so you see this line is
+
+771
+00:35:31,980 --> 00:35:36,540
+long right
+
+772
+00:35:33,060 --> 00:35:38,640
+now if you shrink the window
+
+773
+00:35:36,540 --> 00:35:41,040
+can you see that it automatically
+
+774
+00:35:38,640 --> 00:35:43,320
+formatted I mean now it becomes three
+
+775
+00:35:41,040 --> 00:35:46,140
+lines you see
+
+776
+00:35:43,320 --> 00:35:48,960
+so that is the version that's the most
+
+777
+00:35:46,140 --> 00:35:52,200
+simple version of all of the concept of
+
+778
+00:35:48,960 --> 00:35:55,740
+automatic formatting in real time okay
+
+779
+00:35:52,200 --> 00:35:57,839
+get it you Unix Linux idiots you know
+
+780
+00:35:55,740 --> 00:36:00,240
+for 20 years they they cannot fathom
+
+781
+00:35:57,839 --> 00:36:02,880
+they don't understand this is the most
+
+782
+00:36:00,240 --> 00:36:05,339
+simple concept of automatic formatting
+
+783
+00:36:02,880 --> 00:36:08,460
+in real time all the other very basic
+
+784
+00:36:05,339 --> 00:36:10,020
+one all it does is it is formatting the
+
+785
+00:36:08,460 --> 00:36:12,240
+you know
+
+786
+00:36:10,020 --> 00:36:14,880
+depending on your window size it auto
+
+787
+00:36:12,240 --> 00:36:17,339
+format this line okay this is the most
+
+788
+00:36:14,880 --> 00:36:19,800
+basic version
+
+789
+00:36:17,339 --> 00:36:21,960
+and this is real time okay
+
+790
+00:36:19,800 --> 00:36:24,480
+and this is not adding you know
+
+791
+00:36:21,960 --> 00:36:26,820
+physically adding a line return that's
+
+792
+00:36:24,480 --> 00:36:29,160
+not you know that's not that's not it
+
+793
+00:36:26,820 --> 00:36:31,440
+okay so if you don't know what you know
+
+794
+00:36:29,160 --> 00:36:34,020
+I talked about the line truncation
+
+795
+00:36:31,440 --> 00:36:36,119
+problem in my last video like uh 10 days
+
+796
+00:36:34,020 --> 00:36:38,700
+ago
+
+797
+00:36:36,119 --> 00:36:41,040
+so okay so so so let me demonstrate
+
+798
+00:36:38,700 --> 00:36:42,960
+wufam language in uh the automatic
+
+799
+00:36:41,040 --> 00:36:45,359
+formatting
+
+800
+00:36:42,960 --> 00:36:48,480
+not just in real time but complicated
+
+801
+00:36:45,359 --> 00:36:51,200
+typeset math formulas okay let me show
+
+802
+00:36:48,480 --> 00:36:51,200
+you show you
+
+803
+00:36:54,060 --> 00:37:00,119
+so expand so x squared okay x squared
+
+804
+00:36:58,500 --> 00:37:08,400
+plus
+
+805
+00:37:00,119 --> 00:37:14,339
+2 y x third power divided by square root
+
+806
+00:37:08,400 --> 00:37:17,160
+X plus one okay then the whole thing to
+
+807
+00:37:14,339 --> 00:37:17,940
+the third power evaluated okay you see
+
+808
+00:37:17,160 --> 00:37:21,420
+that
+
+809
+00:37:17,940 --> 00:37:23,160
+let's make it to the ninth power so we
+
+810
+00:37:21,420 --> 00:37:26,160
+got a long thing okay
+
+811
+00:37:23,160 --> 00:37:28,859
+now let's magnify okay so this this is
+
+812
+00:37:26,160 --> 00:37:30,780
+typeset okay now you can see the
+
+813
+00:37:28,859 --> 00:37:33,960
+automatic let me show you okay
+
+814
+00:37:30,780 --> 00:37:37,020
+in in real time you know I um
+
+815
+00:37:33,960 --> 00:37:40,140
+you see come you know this
+
+816
+00:37:37,020 --> 00:37:42,180
+so you can see this wow this is a two
+
+817
+00:37:40,140 --> 00:37:45,660
+simple example because every term is
+
+818
+00:37:42,180 --> 00:37:47,780
+like just nice but
+
+819
+00:37:45,660 --> 00:37:51,420
+but the point is that it can format
+
+820
+00:37:47,780 --> 00:37:52,980
+arbitrarily uh nested you know and and
+
+821
+00:37:51,420 --> 00:37:55,500
+not just
+
+822
+00:37:52,980 --> 00:37:58,560
+uh okay let me let me let me pick a a
+
+823
+00:37:55,500 --> 00:38:01,440
+different uh example to demonstrate the
+
+824
+00:37:58,560 --> 00:38:03,180
+real-time automatic formatting okay and
+
+825
+00:38:01,440 --> 00:38:04,859
+by the way it's in real time like a zoo
+
+826
+00:38:03,180 --> 00:38:07,800
+type um
+
+827
+00:38:04,859 --> 00:38:09,900
+Azure type you know
+
+828
+00:38:07,800 --> 00:38:11,220
+so we haven't I haven't demonstrate you
+
+829
+00:38:09,900 --> 00:38:13,619
+see
+
+830
+00:38:11,220 --> 00:38:15,660
+this is also real real time you see when
+
+831
+00:38:13,619 --> 00:38:18,000
+you when your window is narrow you can
+
+832
+00:38:15,660 --> 00:38:19,380
+see you see those intents that's
+
+833
+00:38:18,000 --> 00:38:22,440
+automatic
+
+834
+00:38:19,380 --> 00:38:25,500
+you see visual indentation automatically
+
+835
+00:38:22,440 --> 00:38:28,320
+done does does not this doesn't matter
+
+836
+00:38:25,500 --> 00:38:29,760
+how complicated your code is here is
+
+837
+00:38:28,320 --> 00:38:32,940
+your source code you see that that's
+
+838
+00:38:29,760 --> 00:38:35,579
+your source code okay
+
+839
+00:38:32,940 --> 00:38:39,720
+now when you narrow you look look you
+
+840
+00:38:35,579 --> 00:38:41,060
+know it indents them and it understands
+
+841
+00:38:39,720 --> 00:38:43,500
+the
+
+842
+00:38:41,060 --> 00:38:46,020
+syntactical unit you know it doesn't
+
+843
+00:38:43,500 --> 00:38:47,880
+just indent them randomly you see you
+
+844
+00:38:46,020 --> 00:38:51,180
+see that square root you see this square
+
+845
+00:38:47,880 --> 00:38:54,300
+root it indent them you know it keeps
+
+846
+00:38:51,180 --> 00:38:56,460
+this square root in one place
+
+847
+00:38:54,300 --> 00:39:00,240
+it doesn't for example add a line return
+
+848
+00:38:56,460 --> 00:39:02,820
+between the power or or here you know
+
+849
+00:39:00,240 --> 00:39:05,760
+so that's my point okay
+
+850
+00:39:02,820 --> 00:39:09,000
+and okay so and also let me demonstrate
+
+851
+00:39:05,760 --> 00:39:12,119
+this okay so if you want to
+
+852
+00:39:09,000 --> 00:39:14,900
+display this in a um
+
+853
+00:39:12,119 --> 00:39:19,320
+you know you can just press a key so
+
+854
+00:39:14,900 --> 00:39:21,780
+Ctrl shift n force uh Ctrl shift n there
+
+855
+00:39:19,320 --> 00:39:24,839
+it is there it is
+
+856
+00:39:21,780 --> 00:39:27,839
+okay just press one single key and press
+
+857
+00:39:24,839 --> 00:39:32,040
+another key Ctrl shift I to return it to
+
+858
+00:39:27,839 --> 00:39:35,160
+input format okay so that's the power
+
+859
+00:39:32,040 --> 00:39:38,400
+That's The Power of
+
+860
+00:39:35,160 --> 00:39:40,619
+of wolfam language but but that's a
+
+861
+00:39:38,400 --> 00:39:43,079
+power of the simple concept you have to
+
+862
+00:39:40,619 --> 00:39:45,359
+understand the simple concept of
+
+863
+00:39:43,079 --> 00:39:49,500
+programming language syntax and the
+
+864
+00:39:45,359 --> 00:39:52,859
+automatic formatting okay so so so
+
+865
+00:39:49,500 --> 00:39:55,619
+I hope I make sense to you guys okay so
+
+866
+00:39:52,859 --> 00:39:57,900
+let me let me so I have I have you know
+
+867
+00:39:55,619 --> 00:40:01,020
+big
+
+868
+00:39:57,900 --> 00:40:03,119
+I'm angry with these Unix people the you
+
+869
+00:40:01,020 --> 00:40:05,460
+know the industrial programmers you know
+
+870
+00:40:03,119 --> 00:40:07,619
+the hacker types many of them are Ed
+
+871
+00:40:05,460 --> 00:40:09,540
+hackers you know they are they have
+
+872
+00:40:07,619 --> 00:40:11,220
+wrote great great programs but they
+
+873
+00:40:09,540 --> 00:40:14,099
+don't understand it because I've been
+
+874
+00:40:11,220 --> 00:40:15,540
+arguing with them for for for for 10 20
+
+875
+00:40:14,099 --> 00:40:17,880
+years
+
+876
+00:40:15,540 --> 00:40:20,640
+so here's the article the fundamental
+
+877
+00:40:17,880 --> 00:40:23,400
+problem of lisp okay so you can read
+
+878
+00:40:20,640 --> 00:40:24,660
+this article and if you you know first
+
+879
+00:40:23,400 --> 00:40:27,480
+of all you have the syntax
+
+880
+00:40:24,660 --> 00:40:31,140
+irregularities then you scroll down you
+
+881
+00:40:27,480 --> 00:40:34,319
+can see you know I explain in detail
+
+882
+00:40:31,140 --> 00:40:36,599
+then you have the syntax in semantics
+
+883
+00:40:34,319 --> 00:40:40,560
+correspondence okay that's a case of
+
+884
+00:40:36,599 --> 00:40:42,599
+lisp okay fantastic but they but the
+
+885
+00:40:40,560 --> 00:40:44,579
+typical these coders they don't
+
+886
+00:40:42,599 --> 00:40:47,099
+understand so they screwed up lots of
+
+887
+00:40:44,579 --> 00:40:50,400
+things they don't they you know to this
+
+888
+00:40:47,099 --> 00:40:53,160
+day to this day today you know after 40
+
+889
+00:40:50,400 --> 00:40:56,099
+years of this you don't have this
+
+890
+00:40:53,160 --> 00:40:58,020
+automatic formatting in this okay
+
+891
+00:40:56,099 --> 00:40:59,880
+I mean not even for example we
+
+892
+00:40:58,020 --> 00:41:02,940
+demonstrate JavaScript we demonstrated
+
+893
+00:40:59,880 --> 00:41:04,500
+Golan we demonstrated Powershell you
+
+894
+00:41:02,940 --> 00:41:07,200
+know you have automatic formatting press
+
+895
+00:41:04,500 --> 00:41:10,500
+one button for my whole file you don't
+
+896
+00:41:07,200 --> 00:41:13,200
+have that in emac this imagine that you
+
+897
+00:41:10,500 --> 00:41:16,020
+know the Emax is flat phonetics they
+
+898
+00:41:13,200 --> 00:41:19,079
+think oh emac this is the greatest but
+
+899
+00:41:16,020 --> 00:41:21,660
+great is my ass because this
+
+900
+00:41:19,079 --> 00:41:24,300
+equate in many ways especially the this
+
+901
+00:41:21,660 --> 00:41:26,640
+syntax is the most easy to do
+
+902
+00:41:24,300 --> 00:41:29,400
+but you don't it doesn't exist because
+
+903
+00:41:26,640 --> 00:41:32,339
+this the emac these people the community
+
+904
+00:41:29,400 --> 00:41:34,800
+the emacs community and the this
+
+905
+00:41:32,339 --> 00:41:36,720
+community in general including the
+
+906
+00:41:34,800 --> 00:41:39,480
+commonly especially the command is
+
+907
+00:41:36,720 --> 00:41:41,220
+ they they don't they don't
+
+908
+00:41:39,480 --> 00:41:44,040
+understand it when you try to tell them
+
+909
+00:41:41,220 --> 00:41:46,200
+they refuse they they say you are an
+
+910
+00:41:44,040 --> 00:41:49,140
+idiot okay to this day you don't have
+
+911
+00:41:46,200 --> 00:41:53,520
+the tool to automatic automatically
+
+912
+00:41:49,140 --> 00:41:56,240
+format this code okay even even given
+
+913
+00:41:53,520 --> 00:41:56,240
+the fact that
+
+914
+00:41:56,400 --> 00:42:02,640
+this code is the most easy to do okay
+
+915
+00:41:59,660 --> 00:42:05,040
+the most easy to do for because of the
+
+916
+00:42:02,640 --> 00:42:06,839
+nesting because of the order parentheses
+
+917
+00:42:05,040 --> 00:42:08,880
+you can see
+
+918
+00:42:06,839 --> 00:42:12,540
+the most easy tool but to this day you
+
+919
+00:42:08,880 --> 00:42:14,880
+don't have that for example if I but
+
+920
+00:42:12,540 --> 00:42:17,280
+for example for example for example I
+
+921
+00:42:14,880 --> 00:42:19,560
+make these uh actually I don't want to
+
+922
+00:42:17,280 --> 00:42:22,260
+screw up my code what is this
+
+923
+00:42:19,560 --> 00:42:26,040
+okay so open fire at Cruiser let's open
+
+924
+00:42:22,260 --> 00:42:29,579
+open a new one so let's go to Kasai emac
+
+925
+00:42:26,040 --> 00:42:31,560
+this mod so you can see so you can see
+
+926
+00:42:29,579 --> 00:42:34,440
+this whole thing
+
+927
+00:42:31,560 --> 00:42:37,140
+you see this whole block of code I can
+
+928
+00:42:34,440 --> 00:42:40,140
+make it one single line okay that's
+
+929
+00:42:37,140 --> 00:42:43,079
+still valid code legal that still you
+
+930
+00:42:40,140 --> 00:42:45,780
+know Works 100 as before
+
+931
+00:42:43,079 --> 00:42:48,480
+but now there's no way to reformat it
+
+932
+00:42:45,780 --> 00:42:51,480
+back to the way it was because because
+
+933
+00:42:48,480 --> 00:42:53,940
+at least idiots okay the com especially
+
+934
+00:42:51,480 --> 00:42:55,800
+the common these idiots they don't know
+
+935
+00:42:53,940 --> 00:42:58,440
+you try to tell them they don't listen
+
+936
+00:42:55,800 --> 00:43:00,660
+they whatever you said with your
+
+937
+00:42:58,440 --> 00:43:03,420
+specific arguments fly by their head
+
+938
+00:43:00,660 --> 00:43:05,099
+they don't get it okay see because why
+
+939
+00:43:03,420 --> 00:43:08,400
+does that happen because of the code
+
+940
+00:43:05,099 --> 00:43:11,819
+situation similar to the Unix people
+
+941
+00:43:08,400 --> 00:43:15,420
+okay so undo so however I do have you
+
+942
+00:43:11,819 --> 00:43:17,099
+know I wrote uh excite this smart so I
+
+943
+00:43:15,420 --> 00:43:19,440
+do have some
+
+944
+00:43:17,099 --> 00:43:21,960
+partial Auto format for example I
+
+945
+00:43:19,440 --> 00:43:25,260
+screwed up my format I can press one
+
+946
+00:43:21,960 --> 00:43:28,800
+single key uh wait yeah press one single
+
+947
+00:43:25,260 --> 00:43:34,079
+key and you see now it's nice however
+
+948
+00:43:28,800 --> 00:43:36,900
+my emac this mod does not does not
+
+949
+00:43:34,079 --> 00:43:39,240
+reformat the lines you know you it needs
+
+950
+00:43:36,900 --> 00:43:41,520
+to do that that that's the key that's
+
+951
+00:43:39,240 --> 00:43:44,520
+that's the most important thing you want
+
+952
+00:43:41,520 --> 00:43:47,579
+to be able to your your auto format tool
+
+953
+00:43:44,520 --> 00:43:49,920
+must be able the key
+
+954
+00:43:47,579 --> 00:43:52,319
+to make it great you know in what I'm
+
+955
+00:43:49,920 --> 00:43:54,980
+talking about today is that it must be
+
+956
+00:43:52,319 --> 00:43:54,980
+able to
+
+957
+00:43:55,520 --> 00:44:01,260
+not just go line by line like the Unix
+
+958
+00:43:58,680 --> 00:44:03,540
+line based it you know just like
+
+959
+00:44:01,260 --> 00:44:04,920
+re-indent this line you know if this
+
+960
+00:44:03,540 --> 00:44:06,839
+line is wrong that line is wrong
+
+961
+00:44:04,920 --> 00:44:09,240
+re-indent them that's that's that's
+
+962
+00:44:06,839 --> 00:44:12,000
+trivial that's that's not good you want
+
+963
+00:44:09,240 --> 00:44:14,099
+to be able to actually be able to if you
+
+964
+00:44:12,000 --> 00:44:17,720
+have the whole code
+
+965
+00:44:14,099 --> 00:44:17,720
+uh you know oh wait okay
+
+966
+00:44:17,760 --> 00:44:22,380
+so for example like that you know you
+
+967
+00:44:20,339 --> 00:44:25,380
+you want to be able you too must be able
+
+968
+00:44:22,380 --> 00:44:27,420
+to reformat that into nice ways okay and
+
+969
+00:44:25,380 --> 00:44:29,579
+this is not difficult to do
+
+970
+00:44:27,420 --> 00:44:31,800
+well too bad I haven't done it you know
+
+971
+00:44:29,579 --> 00:44:34,020
+I should I should have since I've been
+
+972
+00:44:31,800 --> 00:44:36,480
+complaining you know but but I wrote you
+
+973
+00:44:34,020 --> 00:44:38,220
+know I worked on lots of other things
+
+974
+00:44:36,480 --> 00:44:40,859
+so anyway so
+
+975
+00:44:38,220 --> 00:44:42,720
+I hope for you guys you know maybe some
+
+976
+00:44:40,859 --> 00:44:44,819
+one of you guys will spread the idea
+
+977
+00:44:42,720 --> 00:44:47,460
+okay tell other people so we have these
+
+978
+00:44:44,819 --> 00:44:48,839
+two by the way there is a tool so
+
+979
+00:44:47,460 --> 00:44:51,359
+someone told me
+
+980
+00:44:48,839 --> 00:44:54,780
+actually 10 years ago about 15 years ago
+
+981
+00:44:51,359 --> 00:44:56,460
+I paid someone actually when I don't
+
+982
+00:44:54,780 --> 00:44:58,740
+have money but I tried to pay someone
+
+983
+00:44:56,460 --> 00:45:01,500
+you know for fifty dollars to do it but
+
+984
+00:44:58,740 --> 00:45:03,660
+then I don't think the result came out
+
+985
+00:45:01,500 --> 00:45:06,720
+well but then about three years ago
+
+986
+00:45:03,660 --> 00:45:07,920
+someone else told me he wrote a tool to
+
+987
+00:45:06,720 --> 00:45:10,800
+do that
+
+988
+00:45:07,920 --> 00:45:14,819
+that does what I wanted like for example
+
+989
+00:45:10,800 --> 00:45:16,260
+it can reformat the whole line but
+
+990
+00:45:14,819 --> 00:45:18,780
+uh
+
+991
+00:45:16,260 --> 00:45:20,940
+did I mention okay so I think I
+
+992
+00:45:18,780 --> 00:45:23,460
+mentioned it on my blog okay so let's
+
+993
+00:45:20,940 --> 00:45:27,500
+find it let's try to find it
+
+994
+00:45:23,460 --> 00:45:27,500
+Saudi uh info
+
+995
+00:45:27,540 --> 00:45:33,619
+uh let's search for emacs format okay
+
+996
+00:45:33,800 --> 00:45:42,740
+uh convert okay camera case and source
+
+997
+00:45:37,560 --> 00:45:45,960
+code formatting in emac this okay uh
+
+998
+00:45:42,740 --> 00:45:48,900
+reformat reformat lines of source code
+
+999
+00:45:45,960 --> 00:45:50,760
+okay there it is I wrote so many
+
+1000
+00:45:48,900 --> 00:45:53,579
+articles about this automatic code
+
+1001
+00:45:50,760 --> 00:45:56,520
+formatting let's see which one is it
+
+1002
+00:45:53,579 --> 00:45:58,200
+camera case in source code formatting in
+
+1003
+00:45:56,520 --> 00:46:02,099
+emac this
+
+1004
+00:45:58,200 --> 00:46:04,859
+what is this about I don't remember
+
+1005
+00:46:02,099 --> 00:46:08,040
+okay uh
+
+1006
+00:46:04,859 --> 00:46:12,619
+okay this is not it you know what this
+
+1007
+00:46:08,040 --> 00:46:12,619
+does anyway this is not it okay
+
+1008
+00:46:13,079 --> 00:46:19,319
+there it is okay so I wrote this in 2007
+
+1009
+00:46:15,960 --> 00:46:21,839
+for list languages it would be nice if a
+
+1010
+00:46:19,319 --> 00:46:24,540
+programmer can press a button in emacs
+
+1011
+00:46:21,839 --> 00:46:29,400
+then the current code block would be
+
+1012
+00:46:24,540 --> 00:46:32,520
+formatted by a simple lexico scan okay
+
+1013
+00:46:29,400 --> 00:46:35,160
+so I I showed some examples and some
+
+1014
+00:46:32,520 --> 00:46:35,700
+ideas how to implement it
+
+1015
+00:46:35,160 --> 00:46:39,359
+um
+
+1016
+00:46:35,700 --> 00:46:42,780
+okay and here is the you know I read I
+
+1017
+00:46:39,359 --> 00:46:43,740
+ranted about this long ago like like uh
+
+1018
+00:46:42,780 --> 00:46:47,579
+got
+
+1019
+00:46:43,740 --> 00:46:50,940
+where do they hide it 2009 okay this is
+
+1020
+00:46:47,579 --> 00:46:55,440
+yeah here's my message 2009.
+
+1021
+00:46:50,940 --> 00:46:59,520
+in complement dot list News Group okay
+
+1022
+00:46:55,440 --> 00:47:01,980
+so anyway so here is a tool uh this is
+
+1023
+00:46:59,520 --> 00:47:05,280
+not a good this is not a good one I was
+
+1024
+00:47:01,980 --> 00:47:09,480
+talking about but there is
+
+1025
+00:47:05,280 --> 00:47:12,960
+did I mention it somewhere the new one
+
+1026
+00:47:09,480 --> 00:47:18,260
+okay here this one okay so I didn't I
+
+1027
+00:47:12,960 --> 00:47:18,260
+removed all GitHub links so let's um
+
+1028
+00:47:18,480 --> 00:47:25,319
+let's link it okay go to it
+
+1029
+00:47:22,079 --> 00:47:28,140
+so this tool okay format whole buffer so
+
+1030
+00:47:25,319 --> 00:47:30,720
+this one is written by
+
+1031
+00:47:28,140 --> 00:47:34,619
+okay
+
+1032
+00:47:30,720 --> 00:47:37,920
+okay so but I actually never tried it so
+
+1033
+00:47:34,619 --> 00:47:40,880
+this is the desired one so you guys
+
+1034
+00:47:37,920 --> 00:47:40,880
+should try it okay
+
+1035
+00:47:41,040 --> 00:47:46,440
+uh Coffee House Coffee House philosopher
+
+1036
+00:47:44,760 --> 00:47:50,940
+which one are you I don't know what
+
+1037
+00:47:46,440 --> 00:47:54,839
+which one is your uh disco name
+
+1038
+00:47:50,940 --> 00:47:58,500
+so anyway I talked a lot uh okay so
+
+1039
+00:47:54,839 --> 00:48:01,680
+let's wrap up okay so we let's go back
+
+1040
+00:47:58,500 --> 00:48:03,859
+to top talk show and we need to um talk
+
+1041
+00:48:01,680 --> 00:48:03,859
+about
+
+1042
+00:48:04,260 --> 00:48:07,160
+Okay so
+
+1043
+00:48:08,040 --> 00:48:14,099
+because that
+
+1044
+00:48:10,619 --> 00:48:16,099
+so close that so go back to talk show
+
+1045
+00:48:14,099 --> 00:48:19,680
+close that reopen
+
+1046
+00:48:16,099 --> 00:48:22,920
+so we need to we demonstrated Powershell
+
+1047
+00:48:19,680 --> 00:48:26,339
+we talked about the real-time formatting
+
+1048
+00:48:22,920 --> 00:48:30,059
+we demonstrated Golan and here's a goal
+
+1049
+00:48:26,339 --> 00:48:33,480
+line code for emac bisp to be format
+
+1050
+00:48:30,059 --> 00:48:37,079
+your code in emacs then okay let me
+
+1051
+00:48:33,480 --> 00:48:37,079
+demonstrate python
+
+1052
+00:48:37,680 --> 00:48:45,240
+yeah and we talked about the emac this
+
+1053
+00:48:40,579 --> 00:48:47,480
+situation so yeah so let's do Python and
+
+1054
+00:48:45,240 --> 00:48:50,160
+that'll be it today 10 more minutes okay
+
+1055
+00:48:47,480 --> 00:48:54,059
+exactly one hour so let's do python so
+
+1056
+00:48:50,160 --> 00:48:56,940
+for python case so you go here
+
+1057
+00:48:54,059 --> 00:48:59,700
+uh which you know on my website Python
+
+1058
+00:48:56,940 --> 00:49:02,339
+tutorial so you need this tools so now
+
+1059
+00:48:59,700 --> 00:49:05,880
+by now there are several uh two of them
+
+1060
+00:49:02,339 --> 00:49:08,040
+two two uh mostly two of them one is
+
+1061
+00:49:05,880 --> 00:49:10,800
+called yapf
+
+1062
+00:49:08,040 --> 00:49:14,160
+uh yet another Python formatter and the
+
+1063
+00:49:10,800 --> 00:49:15,660
+other one is black okay so on this page
+
+1064
+00:49:14,160 --> 00:49:19,619
+I
+
+1065
+00:49:15,660 --> 00:49:22,319
+I give you details about them
+
+1066
+00:49:19,619 --> 00:49:24,780
+so just like go format just like they
+
+1067
+00:49:22,319 --> 00:49:27,240
+know for JavaScript just like Powershell
+
+1068
+00:49:24,780 --> 00:49:30,420
+so you can call command to reformat your
+
+1069
+00:49:27,240 --> 00:49:33,660
+code all files in your directory or or
+
+1070
+00:49:30,420 --> 00:49:36,119
+source code or python Okay so
+
+1071
+00:49:33,660 --> 00:49:37,859
+so in fact Let me let me Demo okay so
+
+1072
+00:49:36,119 --> 00:49:41,520
+python
+
+1073
+00:49:37,859 --> 00:49:44,339
+so okay so let's let's go to uh uh fine
+
+1074
+00:49:41,520 --> 00:49:47,700
+okay let's just demo okay so python go
+
+1075
+00:49:44,339 --> 00:49:51,720
+to go to a python code so here find
+
+1076
+00:49:47,700 --> 00:49:52,980
+replace python3 so here's a script for
+
+1077
+00:49:51,720 --> 00:49:56,640
+example
+
+1078
+00:49:52,980 --> 00:50:00,300
+uh so for example let's screw up the
+
+1079
+00:49:56,640 --> 00:50:02,760
+line here into one single line okay
+
+1080
+00:50:00,300 --> 00:50:05,180
+that should still work okay now I press
+
+1081
+00:50:02,760 --> 00:50:05,180
+the key
+
+1082
+00:50:06,960 --> 00:50:09,680
+foreign
+
+1083
+00:50:11,540 --> 00:50:15,500
+cannot pass what
+
+1084
+00:50:21,059 --> 00:50:26,880
+oh because uh again because the comment
+
+1085
+00:50:24,359 --> 00:50:28,619
+remember because of the line based
+
+1086
+00:50:26,880 --> 00:50:30,300
+comment when you have a line based
+
+1087
+00:50:28,619 --> 00:50:33,599
+comment which
+
+1088
+00:50:30,300 --> 00:50:36,540
+which depends on a physical new line
+
+1089
+00:50:33,599 --> 00:50:38,760
+that UPS up everything so
+
+1090
+00:50:36,540 --> 00:50:42,059
+let's remove that for example let's make
+
+1091
+00:50:38,760 --> 00:50:45,180
+a backup then now make this whole single
+
+1092
+00:50:42,059 --> 00:50:48,900
+line okay now let's try to Auto format
+
+1093
+00:50:45,180 --> 00:50:51,420
+okay do it you see fantastic now notice
+
+1094
+00:50:48,900 --> 00:50:53,280
+it also changed the code before it was
+
+1095
+00:50:51,420 --> 00:50:55,680
+single quote now it becomes double quote
+
+1096
+00:50:53,280 --> 00:50:58,559
+so let's Undo You See
+
+1097
+00:50:55,680 --> 00:51:00,960
+it was single quote now let's press a
+
+1098
+00:50:58,559 --> 00:51:04,859
+button show the pink window so you can
+
+1099
+00:51:00,960 --> 00:51:06,300
+see the command I call so
+
+1100
+00:51:04,859 --> 00:51:09,660
+do it
+
+1101
+00:51:06,300 --> 00:51:12,300
+you see the command I called is star
+
+1102
+00:51:09,660 --> 00:51:14,579
+python format buffer okay so you can see
+
+1103
+00:51:12,300 --> 00:51:16,319
+the single code becomes
+
+1104
+00:51:14,579 --> 00:51:19,200
+double
+
+1105
+00:51:16,319 --> 00:51:22,380
+so that's the you know that's the style
+
+1106
+00:51:19,200 --> 00:51:24,780
+of the formatter so basically the
+
+1107
+00:51:22,380 --> 00:51:26,579
+formatter makes sure that all every
+
+1108
+00:51:24,780 --> 00:51:29,940
+python source code will look look
+
+1109
+00:51:26,579 --> 00:51:32,579
+exactly the same uh format so you don't
+
+1110
+00:51:29,940 --> 00:51:34,319
+have to you know so so it's more
+
+1111
+00:51:32,579 --> 00:51:36,480
+consistent
+
+1112
+00:51:34,319 --> 00:51:39,000
+and it does the whole fact okay so
+
+1113
+00:51:36,480 --> 00:51:42,000
+that's the python example
+
+1114
+00:51:39,000 --> 00:51:44,880
+um so you look now let's put back my
+
+1115
+00:51:42,000 --> 00:51:48,059
+code I want the comment there okay so
+
+1116
+00:51:44,880 --> 00:51:51,000
+close it close it so we demonstrated the
+
+1117
+00:51:48,059 --> 00:51:52,380
+python Auto format and now let me show
+
+1118
+00:51:51,000 --> 00:51:53,160
+you the
+
+1119
+00:51:52,380 --> 00:51:55,619
+um
+
+1120
+00:51:53,160 --> 00:51:59,900
+let me show you the emac this code okay
+
+1121
+00:51:55,619 --> 00:51:59,900
+so I just wrote this uh yesterday
+
+1122
+00:52:01,859 --> 00:52:09,780
+okay so the code is python mod map okay
+
+1123
+00:52:05,520 --> 00:52:13,319
+so now it's in my uh in my emacs in it
+
+1124
+00:52:09,780 --> 00:52:15,780
+so here's a source code so you need to
+
+1125
+00:52:13,319 --> 00:52:19,319
+specify where the file is
+
+1126
+00:52:15,780 --> 00:52:22,220
+okay so okay so here's a source code let
+
+1127
+00:52:19,319 --> 00:52:22,220
+me just copy it
+
+1128
+00:52:24,359 --> 00:52:30,480
+okay copy it close it
+
+1129
+00:52:27,559 --> 00:52:32,880
+uh okay close it
+
+1130
+00:52:30,480 --> 00:52:37,800
+uh because I find go
+
+1131
+00:52:32,880 --> 00:52:41,359
+close it okay now okay now python we
+
+1132
+00:52:37,800 --> 00:52:45,720
+demonstrated python Auto format now
+
+1133
+00:52:41,359 --> 00:52:46,619
+create a new emac this block paste the
+
+1134
+00:52:45,720 --> 00:52:50,160
+code
+
+1135
+00:52:46,619 --> 00:52:52,380
+syntax color it showing browser okay
+
+1136
+00:52:50,160 --> 00:52:56,579
+that's it for today so we demonstrated
+
+1137
+00:52:52,380 --> 00:52:59,220
+automatic formatting for JavaScript
+
+1138
+00:52:56,579 --> 00:53:02,579
+for Powershell
+
+1139
+00:52:59,220 --> 00:53:05,700
+for Golan and we talked about a bit
+
+1140
+00:53:02,579 --> 00:53:09,059
+history of the automatic formatting and
+
+1141
+00:53:05,700 --> 00:53:12,660
+we demonstrated Powershell python you
+
+1142
+00:53:09,059 --> 00:53:17,160
+know the and for each one of them
+
+1143
+00:53:12,660 --> 00:53:20,280
+you know we showed the tool you need and
+
+1144
+00:53:17,160 --> 00:53:23,099
+the emac this code so you can do it
+
+1145
+00:53:20,280 --> 00:53:26,180
+within emacs then we talked about the
+
+1146
+00:53:23,099 --> 00:53:26,180
+emac this case
+
+1147
+00:53:26,579 --> 00:53:33,920
+and what is the tool this one okay so
+
+1148
+00:53:30,119 --> 00:53:33,920
+yeah actually I didn't do it before
+
+1149
+00:53:35,099 --> 00:53:44,099
+yeah copy that I need to put it here
+
+1150
+00:53:39,359 --> 00:53:47,160
+there it is so there's a link to it okay
+
+1151
+00:53:44,099 --> 00:53:50,640
+then uh we demonstrate the emac this
+
+1152
+00:53:47,160 --> 00:53:52,260
+case then we demonstrated the Wolfram
+
+1153
+00:53:50,640 --> 00:53:55,140
+language case
+
+1154
+00:53:52,260 --> 00:53:57,839
+real time you know not just so okay
+
+1155
+00:53:55,140 --> 00:54:02,839
+that's it for today so if you guys like
+
+1156
+00:53:57,839 --> 00:54:02,839
+my tutorial pay me okay patreon
+
+1157
+00:54:04,380 --> 00:54:09,079
+okay so go to my Excel code
+
+1158
+00:54:09,240 --> 00:54:15,200
+then at the bottom you know lots of
+
+1159
+00:54:11,700 --> 00:54:18,839
+programming language tutorials so pay me
+
+1160
+00:54:15,200 --> 00:54:21,140
+patreon or Amazon gift card or PayPal
+
+1161
+00:54:18,839 --> 00:54:21,140
+okay
+
+1162
+00:54:21,660 --> 00:54:27,000
+yes my keyboard yeah because you know
+
+1163
+00:54:24,059 --> 00:54:29,819
+this is a fantastic feature uh hey good
+
+1164
+00:54:27,000 --> 00:54:31,020
+morning uh to Canada
+
+1165
+00:54:29,819 --> 00:54:33,480
+Justin
+
+1166
+00:54:31,020 --> 00:54:36,660
+so um
+
+1167
+00:54:33,480 --> 00:54:40,079
+so so recently I started to use sticky
+
+1168
+00:54:36,660 --> 00:54:41,880
+keys again it's fantastic okay that's
+
+1169
+00:54:40,079 --> 00:54:44,040
+why it's making the peep but actually
+
+1170
+00:54:41,880 --> 00:54:47,700
+it's kind of annoying so so what do you
+
+1171
+00:54:44,040 --> 00:54:50,160
+do so you have that feature in Windows
+
+1172
+00:54:47,700 --> 00:54:51,480
+okay here's how to set it up on Windows
+
+1173
+00:54:50,160 --> 00:54:52,640
+and also
+
+1174
+00:54:51,480 --> 00:54:56,760
+um
+
+1175
+00:54:52,640 --> 00:54:58,980
+Mac and on Linux okay so let's
+
+1176
+00:54:56,760 --> 00:55:04,460
+show it so
+
+1177
+00:54:58,980 --> 00:55:08,819
+let's go to sticky keys so where is it
+
+1178
+00:55:04,460 --> 00:55:12,839
+ease of access then keyboard then there
+
+1179
+00:55:08,819 --> 00:55:15,900
+it is sticky keys and
+
+1180
+00:55:12,839 --> 00:55:17,940
+play a sound when modifier Keys press
+
+1181
+00:55:15,900 --> 00:55:19,980
+and released no okay
+
+1182
+00:55:17,940 --> 00:55:23,460
+it's becoming annoying
+
+1183
+00:55:19,980 --> 00:55:26,000
+okay so Steve he's uh I yeah that's
+
+1184
+00:55:23,460 --> 00:55:26,000
+fantastic
+
+1185
+00:55:26,040 --> 00:55:30,299
+okay so that's it for today okay
+
+1186
+00:55:28,980 --> 00:55:33,540
+um
+
+1187
+00:55:30,299 --> 00:55:35,400
+that's it for today and what I wanted to
+
+1188
+00:55:33,540 --> 00:55:37,319
+do okay that's it
+
+1189
+00:55:35,400 --> 00:55:40,500
+okay that's it
+
+1190
+00:55:37,319 --> 00:55:42,599
+let me show you maybe uh you know the
+
+1191
+00:55:40,500 --> 00:55:45,359
+automatic formatting in Wolfram language
+
+1192
+00:55:42,599 --> 00:55:49,040
+some more some more complicated code
+
+1193
+00:55:45,359 --> 00:55:52,380
+okay so I did a video on this one before
+
+1194
+00:55:49,040 --> 00:55:55,260
+about several months ago okay just
+
+1195
+00:55:52,380 --> 00:55:58,140
+search for Saudi wolf and geometric
+
+1196
+00:55:55,260 --> 00:56:01,619
+inversion okay this is fantastic so here
+
+1197
+00:55:58,140 --> 00:56:04,260
+is wufam language code let's copy it go
+
+1198
+00:56:01,619 --> 00:56:08,220
+back to farm language
+
+1199
+00:56:04,260 --> 00:56:11,339
+paste it there so you can see that's a
+
+1200
+00:56:08,220 --> 00:56:13,859
+code okay so let's
+
+1201
+00:56:11,339 --> 00:56:16,559
+uh evaluate the code so which will
+
+1202
+00:56:13,859 --> 00:56:19,380
+evaluate the code so you can see you got
+
+1203
+00:56:16,559 --> 00:56:23,040
+the graphics okay
+
+1204
+00:56:19,380 --> 00:56:25,680
+but you see now here is a Wolfram
+
+1205
+00:56:23,040 --> 00:56:27,540
+language source code okay by the way you
+
+1206
+00:56:25,680 --> 00:56:30,420
+can download it free just go to my
+
+1207
+00:56:27,540 --> 00:56:31,799
+website you'll find uh you know my links
+
+1208
+00:56:30,420 --> 00:56:34,559
+um
+
+1209
+00:56:31,799 --> 00:56:37,020
+here download free okay
+
+1210
+00:56:34,559 --> 00:56:39,420
+so here's a source code a Wolfram
+
+1211
+00:56:37,020 --> 00:56:42,000
+language so you can see let me let me
+
+1212
+00:56:39,420 --> 00:56:44,579
+let me just uh highlight but by the way
+
+1213
+00:56:42,000 --> 00:56:47,180
+when you double click it understands the
+
+1214
+00:56:44,579 --> 00:56:50,579
+syntax so they highlight them
+
+1215
+00:56:47,180 --> 00:56:54,059
+progressively larger in a syntactical
+
+1216
+00:56:50,579 --> 00:56:57,000
+unit unit each time increased by a
+
+1217
+00:56:54,059 --> 00:56:59,040
+syntactical unit you know in order to
+
+1218
+00:56:57,000 --> 00:57:00,480
+have this feature basically your
+
+1219
+00:56:59,040 --> 00:57:03,000
+language should
+
+1220
+00:57:00,480 --> 00:57:05,819
+have certain properties the language
+
+1221
+00:57:03,000 --> 00:57:08,280
+syntax but anyway so if you double click
+
+1222
+00:57:05,819 --> 00:57:10,020
+on that you see it highlight this part
+
+1223
+00:57:08,280 --> 00:57:12,599
+because that's the one that's one
+
+1224
+00:57:10,020 --> 00:57:14,280
+syntactical unit for example if you
+
+1225
+00:57:12,599 --> 00:57:16,380
+highlight this one
+
+1226
+00:57:14,280 --> 00:57:18,420
+you know because these two for example
+
+1227
+00:57:16,380 --> 00:57:20,640
+if you click on the plus
+
+1228
+00:57:18,420 --> 00:57:23,819
+you know it highlight that okay it
+
+1229
+00:57:20,640 --> 00:57:26,280
+understands the syntactical unit
+
+1230
+00:57:23,819 --> 00:57:29,520
+okay so so
+
+1231
+00:57:26,280 --> 00:57:32,280
+so now so you for example this this
+
+1232
+00:57:29,520 --> 00:57:35,940
+width is one thing okay now if you
+
+1233
+00:57:32,280 --> 00:57:38,640
+adjust the um the window size you can
+
+1234
+00:57:35,940 --> 00:57:41,700
+see automatic formatting you see
+
+1235
+00:57:38,640 --> 00:57:45,240
+you now pay attention it doesn't it
+
+1236
+00:57:41,700 --> 00:57:48,240
+doesn't wrap at arbitrary places it
+
+1237
+00:57:45,240 --> 00:57:52,500
+wraps the line always at syntactical
+
+1238
+00:57:48,240 --> 00:57:55,380
+units okay you see that you see that
+
+1239
+00:57:52,500 --> 00:58:00,960
+that that's that's a feature available
+
+1240
+00:57:55,380 --> 00:58:03,240
+since 1998 okay by now 24 years ago
+
+1241
+00:58:00,960 --> 00:58:06,000
+but today we still deal with you know
+
+1242
+00:58:03,240 --> 00:58:06,980
+the Unix idiots the python you know the
+
+1243
+00:58:06,000 --> 00:58:10,380
+pi
+
+1244
+00:58:06,980 --> 00:58:12,240
+python JavaScript you know but these
+
+1245
+00:58:10,380 --> 00:58:14,460
+days we have the automatic formatting
+
+1246
+00:58:12,240 --> 00:58:16,380
+that's slightly better but we're still
+
+1247
+00:58:14,460 --> 00:58:18,500
+dealing with a lot of the industrial
+
+1248
+00:58:16,380 --> 00:58:21,119
+programmers here
+
+1249
+00:58:18,500 --> 00:58:23,940
+formatting guide you know that's a
+
+1250
+00:58:21,119 --> 00:58:26,700
+ idiocy and the emacs settings
+
+1251
+00:58:23,940 --> 00:58:29,460
+you know the tabs versus Space you know
+
+1252
+00:58:26,700 --> 00:58:34,079
+the tab with settings you know emacs you
+
+1253
+00:58:29,460 --> 00:58:37,079
+spend days to trick that settings and
+
+1254
+00:58:34,079 --> 00:58:39,319
+then we have some idiots who provide
+
+1255
+00:58:37,079 --> 00:58:42,900
+some Auto you know configuration
+
+1256
+00:58:39,319 --> 00:58:44,819
+automatic configuration for veeam for
+
+1257
+00:58:42,900 --> 00:58:47,940
+for for something something the
+
+1258
+00:58:44,819 --> 00:58:50,760
+community community based you know tens
+
+1259
+00:58:47,940 --> 00:58:53,160
+of thousands number and stars telling
+
+1260
+00:58:50,760 --> 00:58:55,680
+you how to set up you know one
+
+1261
+00:58:53,160 --> 00:58:58,559
+configuration so you can
+
+1262
+00:58:55,680 --> 00:59:01,099
+using every editor idiocy
+
+1263
+00:58:58,559 --> 00:59:01,099
+extreme
+
+1264
+00:59:01,260 --> 00:59:06,720
+where does that came from came from the
+
+1265
+00:59:03,540 --> 00:59:09,420
+Unix code okay that's that is my opinion
+
+1266
+00:59:06,720 --> 00:59:11,520
+you know I have a lot of tutorials on
+
+1267
+00:59:09,420 --> 00:59:14,339
+programming languages and talk show show
+
+1268
+00:59:11,520 --> 00:59:17,579
+you how how programming language Works
+
+1269
+00:59:14,339 --> 00:59:19,920
+those are not actually important my the
+
+1270
+00:59:17,579 --> 00:59:23,160
+most important idea what I'm saying in
+
+1271
+00:59:19,920 --> 00:59:25,619
+this one example is the idea about the
+
+1272
+00:59:23,160 --> 00:59:28,920
+automatic formatting okay that's
+
+1273
+00:59:25,619 --> 00:59:33,180
+important I hope I hope I'm
+
+1274
+00:59:28,920 --> 00:59:35,339
+I have clearly demonstrated it okay and
+
+1275
+00:59:33,180 --> 00:59:37,500
+I blame it you know why did it why
+
+1276
+00:59:35,339 --> 00:59:39,780
+didn't this happen to other programming
+
+1277
+00:59:37,500 --> 00:59:42,720
+languages but in wufan proprietary
+
+1278
+00:59:39,780 --> 00:59:45,420
+language why because the industry of
+
+1279
+00:59:42,720 --> 00:59:48,780
+idiots in open source you know lots of
+
+1280
+00:59:45,420 --> 00:59:51,720
+issue code emacs in emacs you have the
+
+1281
+00:59:48,780 --> 00:59:54,480
+Emax code in Python you have the python
+
+1282
+00:59:51,720 --> 00:59:55,940
+code in Unix Linux you have the Linux
+
+1283
+00:59:54,480 --> 00:59:59,640
+code they
+
+1284
+00:59:55,940 --> 01:00:03,720
+they they check they stop your brain
+
+1285
+00:59:59,640 --> 01:00:06,780
+from from wondering about
+
+1286
+01:00:03,720 --> 01:00:08,700
+okay so so this is automatic I haven't
+
+1287
+01:00:06,780 --> 01:00:10,500
+you know I'm not done yet this is
+
+1288
+01:00:08,700 --> 01:00:12,480
+automatic formatting you know you can
+
+1289
+01:00:10,500 --> 01:00:13,559
+select the whole thing
+
+1290
+01:00:12,480 --> 01:00:16,200
+you know
+
+1291
+01:00:13,559 --> 01:00:18,660
+but now you can press the button like
+
+1292
+01:00:16,200 --> 01:00:21,780
+before you you know let me let me let me
+
+1293
+01:00:18,660 --> 01:00:22,500
+make a copy of this so you can see in a
+
+1294
+01:00:21,780 --> 01:00:24,559
+different
+
+1295
+01:00:22,500 --> 01:00:24,559
+um
+
+1296
+01:00:24,839 --> 01:00:31,260
+so I copy the code
+
+1297
+01:00:27,119 --> 01:00:33,420
+press the key Ctrl shift n you see now
+
+1298
+01:00:31,260 --> 01:00:35,520
+it's automatically formatted in your
+
+1299
+01:00:33,420 --> 01:00:39,059
+type this is a programming language
+
+1300
+01:00:35,520 --> 01:00:41,040
+Source Code by the way this is not you
+
+1301
+01:00:39,059 --> 01:00:45,119
+know some some you know you can run it
+
+1302
+01:00:41,040 --> 01:00:47,940
+this code is exactly the same as this as
+
+1303
+01:00:45,119 --> 01:00:50,640
+this one okay now but now it's formatted
+
+1304
+01:00:47,940 --> 01:00:54,780
+in a mathematical typeset instead of the
+
+1305
+01:00:50,640 --> 01:00:58,260
+tech and La Tech code you know you have
+
+1306
+01:00:54,780 --> 01:01:01,140
+backslash slash could equal
+
+1307
+01:00:58,260 --> 01:01:04,440
+you know and slash fracked to you know
+
+1308
+01:01:01,140 --> 01:01:06,660
+in order to do this fraction you have to
+
+1309
+01:01:04,440 --> 01:01:10,260
+type all this crap
+
+1310
+01:01:06,660 --> 01:01:12,540
+okay that's it thank you pay me okay
+
+1311
+01:01:10,260 --> 01:01:16,020
+bye guys I'm gonna read comments for a
+
+1312
+01:01:12,540 --> 01:01:19,280
+minute let's see who is watching today
+
+1313
+01:01:16,020 --> 01:01:22,980
+uh okay dark things Coffee House
+
+1314
+01:01:19,280 --> 01:01:25,380
+philosopher okay uh bash Crazy Frog
+
+1315
+01:01:22,980 --> 01:01:28,099
+hello immortality
+
+1316
+01:01:25,380 --> 01:01:28,099
+Justin
+
+1317
+01:01:28,260 --> 01:01:36,900
+damn Java yeah Java is pretty bad uh
+
+1318
+01:01:32,880 --> 01:01:39,079
+okay yeah Java Java is better than c for
+
+1319
+01:01:36,900 --> 01:01:39,079
+sure
+
+1320
+01:01:39,980 --> 01:01:45,900
+analytic minded okay
+
+1321
+01:01:42,780 --> 01:01:47,579
+who are you who are you guys hello hello
+
+1322
+01:01:45,900 --> 01:01:49,680
+son
+
+1323
+01:01:47,579 --> 01:01:52,319
+uh comment this
+
+1324
+01:01:49,680 --> 01:01:54,780
+uh what about communities okay nice to
+
+1325
+01:01:52,319 --> 01:01:58,339
+not to just forever not we have to argue
+
+1326
+01:01:54,780 --> 01:01:58,339
+about the config exactly
+
+1327
+01:01:58,440 --> 01:02:03,299
+Kenneth Mata I just discovered your
+
+1328
+01:02:01,440 --> 01:02:06,359
+content and have been watching many of
+
+1329
+01:02:03,299 --> 01:02:08,460
+your previous streams thank you I need
+
+1330
+01:02:06,359 --> 01:02:10,140
+money okay money is the most important
+
+1331
+01:02:08,460 --> 01:02:12,119
+thing you know thank you appreciation
+
+1332
+01:02:10,140 --> 01:02:15,000
+that's great but
+
+1333
+01:02:12,119 --> 01:02:17,039
+pay because you know you know then then
+
+1334
+01:02:15,000 --> 01:02:18,900
+we have the open source and you know
+
+1335
+01:02:17,039 --> 01:02:21,359
+then we have Google Empire and Twitter
+
+1336
+01:02:18,900 --> 01:02:23,220
+you know it's free it's all free but
+
+1337
+01:02:21,359 --> 01:02:25,440
+they eat your soul
+
+1338
+01:02:23,220 --> 01:02:28,500
+they eat your soup by the way okay so
+
+1339
+01:02:25,440 --> 01:02:31,140
+now I have Odyssey let me
+
+1340
+01:02:28,500 --> 01:02:33,720
+uh tell you so you go to Saudi
+
+1341
+01:02:31,140 --> 01:02:35,760
+programming blog so I start you know
+
+1342
+01:02:33,720 --> 01:02:39,059
+I've been coding a lot working on my
+
+1343
+01:02:35,760 --> 01:02:42,720
+tutorials Python and you know rework
+
+1344
+01:02:39,059 --> 01:02:46,740
+them and CSS you know in past several
+
+1345
+01:02:42,720 --> 01:02:49,740
+half a year actually in as 10 years so I
+
+1346
+01:02:46,740 --> 01:02:52,079
+reworked all this JavaScript and evil
+
+1347
+01:02:49,740 --> 01:02:54,539
+apple uh in Powershell okay so what I
+
+1348
+01:02:52,079 --> 01:02:55,980
+want to show you now is that I have
+
+1349
+01:02:54,539 --> 01:02:58,859
+Odyssey
+
+1350
+01:02:55,980 --> 01:03:02,280
+which is a YouTube alternative okay so
+
+1351
+01:02:58,859 --> 01:03:05,760
+where is it there it is okay
+
+1352
+01:03:02,280 --> 01:03:08,760
+my soul is now in the net part of the
+
+1353
+01:03:05,760 --> 01:03:12,539
+indelible indelible inevitable
+
+1354
+01:03:08,760 --> 01:03:15,480
+blockchain okay Odyssey so you can go to
+
+1355
+01:03:12,539 --> 01:03:18,980
+Odyssey And subscribe my Odyssey account
+
+1356
+01:03:15,480 --> 01:03:18,980
+okay you need JavaScript
+
+1357
+01:03:20,520 --> 01:03:23,160
+okay that's it thank you guys for
+
+1358
+01:03:22,140 --> 01:03:25,740
+watching
+
+1359
+01:03:23,160 --> 01:03:28,680
+Odyssey fantastic and by the way I also
+
+1360
+01:03:25,740 --> 01:03:29,579
+have locals now so locals if you don't
+
+1361
+01:03:28,680 --> 01:03:32,640
+know
+
+1362
+01:03:29,579 --> 01:03:35,400
+um it's another social media created by
+
+1363
+01:03:32,640 --> 01:03:38,339
+Jordan Peterson and Dave Rubin you know
+
+1364
+01:03:35,400 --> 01:03:41,460
+back in 2019
+
+1365
+01:03:38,339 --> 01:03:43,619
+so I'm starting to have these uh
+
+1366
+01:03:41,460 --> 01:03:46,020
+you know I I looked around you know all
+
+1367
+01:03:43,619 --> 01:03:49,559
+the Alternatives so finally I decided
+
+1368
+01:03:46,020 --> 01:03:52,079
+Odyssey or Libra or Libby like Libby you
+
+1369
+01:03:49,559 --> 01:03:53,700
+know that's great and so I'm trying them
+
+1370
+01:03:52,079 --> 01:03:58,099
+okay
+
+1371
+01:03:53,700 --> 01:03:58,099
+great fantastic uh okay bye guys
+

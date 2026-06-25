@@ -1,0 +1,5608 @@
+1
+00:00:04,240 --> 00:00:08,680
+Good morning, everyone. Welcome to
+
+2
+00:00:05,880 --> 00:00:10,480
+another episode of Xah Talk Show.
+
+3
+00:00:08,680 --> 00:00:12,960
+It's been a long time. Long time no see,
+
+4
+00:00:10,480 --> 00:00:16,280
+guys. How are you guys?
+
+5
+00:00:12,960 --> 00:00:19,760
+So, today we are going to do Emacs
+
+6
+00:00:16,280 --> 00:00:22,320
+Xah HTML mode tutorial. Okay, I'm going
+
+7
+00:00:19,760 --> 00:00:23,720
+to demonstrate this Xah HTML mode
+
+8
+00:00:22,320 --> 00:00:25,440
+tutorial.
+
+9
+00:00:23,720 --> 00:00:28,400
+Now, let's check
+
+10
+00:00:25,440 --> 00:00:31,680
+check video check. Am I alive? Yes, I'm
+
+11
+00:00:28,400 --> 00:00:33,720
+alive and audio check. Fantastic.
+
+12
+00:00:31,680 --> 00:00:36,160
+Now, let the show begin. So, today is
+
+13
+00:00:33,720 --> 00:00:39,400
+2000 um
+
+14
+00:00:36,160 --> 00:00:41,280
+Let's see, switch the keyboard uh 2021
+
+15
+00:00:39,400 --> 00:00:44,280
+September
+
+16
+00:00:41,280 --> 00:00:46,400
+14th. Okay, time flies.
+
+17
+00:00:44,280 --> 00:00:49,040
+Especially when you get old. But, you
+
+18
+00:00:46,400 --> 00:00:50,240
+know, in a blink of an eye, you'll be 50
+
+19
+00:00:49,040 --> 00:00:52,960
+years old.
+
+20
+00:00:50,240 --> 00:00:56,000
+So, Xah HTML mode tutorial. So, in the
+
+21
+00:00:52,960 --> 00:00:59,720
+past month, okay, more than a month, I
+
+22
+00:00:56,000 --> 00:01:00,840
+spent like 10 hours a day coding Emacs,
+
+23
+00:00:59,720 --> 00:01:03,200
+you know,
+
+24
+00:01:00,840 --> 00:01:05,760
+among other things, you know.
+
+25
+00:01:03,200 --> 00:01:08,080
+So, coding So, I rewrote Let me show
+
+26
+00:01:05,760 --> 00:01:08,080
+you.
+
+27
+00:01:08,320 --> 00:01:13,880
+Okay, so here is a source code of Xah
+
+28
+00:01:10,680 --> 00:01:18,120
+HTML mode. So, you can see
+
+29
+00:01:13,880 --> 00:01:19,680
+this is uh this code began in 2012. So,
+
+30
+00:01:18,120 --> 00:01:21,360
+now it's been
+
+31
+00:01:19,680 --> 00:01:24,480
+uh 9 years old.
+
+32
+00:01:21,360 --> 00:01:27,560
+So, but in the past month, I rewrote the
+
+33
+00:01:24,480 --> 00:01:31,600
+entire thing. So, this code is let's say
+
+34
+00:01:27,560 --> 00:01:34,040
+let's you know, let's have a look. It's
+
+35
+00:01:31,600 --> 00:01:35,640
+Right now, it's 4,100
+
+36
+00:01:34,040 --> 00:01:38,480
+lines of code.
+
+37
+00:01:35,640 --> 00:01:41,560
+A month ago, it was close to 5,000 lines
+
+38
+00:01:38,480 --> 00:01:43,600
+of code. So, I basically rewrote the
+
+39
+00:01:41,560 --> 00:01:46,400
+entire uh
+
+40
+00:01:43,600 --> 00:01:48,640
+you know, 90% of it. Rewrite and, you
+
+41
+00:01:46,400 --> 00:01:50,120
+know, every day. So, I spent like 100
+
+42
+00:01:48,640 --> 00:01:52,320
+hours on it.
+
+43
+00:01:50,120 --> 00:01:54,840
+So, now I would say it's
+
+44
+00:01:52,320 --> 00:01:59,600
+fantastic. Okay, I would claim this is
+
+45
+00:01:54,840 --> 00:02:02,120
+the best HTML mode on earth.
+
+46
+00:01:59,600 --> 00:02:05,520
+The best HTML mod on earth.
+
+47
+00:02:02,120 --> 00:02:08,119
+Trust me. You can try it, okay?
+
+48
+00:02:05,520 --> 00:02:09,479
+Especially coupled with staff like keys
+
+49
+00:02:08,119 --> 00:02:11,680
+and oh my god, it's going to be
+
+50
+00:02:09,479 --> 00:02:14,640
+fantastic. It's the most the minimal
+
+51
+00:02:11,680 --> 00:02:17,240
+keystroke required. I mean even more
+
+52
+00:02:14,640 --> 00:02:20,080
+efficient than org mod, okay? So today's
+
+53
+00:02:17,240 --> 00:02:23,400
+talk show, so you are seeing you see
+
+54
+00:02:20,080 --> 00:02:25,360
+I work with HTML since um
+
+55
+00:02:23,400 --> 00:02:29,520
+1996.
+
+56
+00:02:25,360 --> 00:02:32,600
+1996 is the year I learned writing HTML.
+
+57
+00:02:29,520 --> 00:02:36,640
+And in beginning it's manually by hand
+
+58
+00:02:32,600 --> 00:02:40,000
+and I code them in Microsoft Word.
+
+59
+00:02:36,640 --> 00:02:42,840
+Your favorite editor, Microsoft Word.
+
+60
+00:02:40,000 --> 00:02:44,560
+So so you see today so you know this is
+
+61
+00:02:42,840 --> 00:02:47,240
+today's talk show and I'm using of
+
+62
+00:02:44,560 --> 00:02:49,680
+course I'm right now using C HTML mod.
+
+63
+00:02:47,240 --> 00:02:52,800
+In fact in the past year or two or you
+
+64
+00:02:49,680 --> 00:02:57,200
+know since I started to do YouTube I've
+
+65
+00:02:52,800 --> 00:03:02,400
+been using my C HTML mod. Hello Huang
+
+66
+00:02:57,200 --> 00:03:04,200
+Wen and hello Christian Samp. Hello C.
+
+67
+00:03:02,400 --> 00:03:06,040
+Learning list yeah list is great and
+
+68
+00:03:04,200 --> 00:03:07,400
+hello um
+
+69
+00:03:06,040 --> 00:03:08,920
+Clat
+
+70
+00:03:07,400 --> 00:03:12,239
+uh
+
+71
+00:03:08,920 --> 00:03:14,560
+talent comma, okay?
+
+72
+00:03:12,239 --> 00:03:17,160
+So I've been you know coding HTML mod
+
+73
+00:03:14,560 --> 00:03:19,080
+from the you know manually tag by tag
+
+74
+00:03:17,160 --> 00:03:21,160
+since 1996.
+
+75
+00:03:19,080 --> 00:03:25,760
+That's the year I learned uh
+
+76
+00:03:21,160 --> 00:03:29,280
+HTML at Wuhan research actually 1995.
+
+77
+00:03:25,760 --> 00:03:32,080
+Uh and uh you know and this mod C HTML
+
+78
+00:03:29,280 --> 00:03:33,480
+mod began in 2000 um
+
+79
+00:03:32,080 --> 00:03:36,440
+let's see where's the code where's the
+
+80
+00:03:33,480 --> 00:03:38,400
+code in 2012.
+
+81
+00:03:36,440 --> 00:03:40,120
+So
+
+82
+00:03:38,400 --> 00:03:42,160
+so it's been nine years. So let me
+
+83
+00:03:40,120 --> 00:03:44,040
+demonstrate. So today I'm going to
+
+84
+00:03:42,160 --> 00:03:45,680
+demonstrate um
+
+85
+00:03:44,040 --> 00:03:48,680
+you know some of the features like what
+
+86
+00:03:45,680 --> 00:03:51,880
+what does the mod do? So
+
+87
+00:03:48,680 --> 00:03:53,840
+Okay, so let's go to talk show. Let's
+
+88
+00:03:51,880 --> 00:03:56,920
+open it. Let me just show you so you
+
+89
+00:03:53,840 --> 00:03:59,000
+know so for example, here's a video. You
+
+90
+00:03:56,920 --> 00:04:00,800
+comment out and show in browser so it's
+
+91
+00:03:59,000 --> 00:04:02,640
+going to switch back to
+
+92
+00:04:00,800 --> 00:04:05,720
+Emacs and do
+
+93
+00:04:02,640 --> 00:04:08,280
+showing browser. Okay, now it says error
+
+94
+00:04:05,720 --> 00:04:11,280
+because I have JavaScript off. So you
+
+95
+00:04:08,280 --> 00:04:14,600
+need to turn on JavaScript for Google's
+
+96
+00:04:11,280 --> 00:04:17,519
+to get your information.
+
+97
+00:04:14,600 --> 00:04:20,160
+So you see this this block of code is
+
+98
+00:04:17,519 --> 00:04:23,160
+the YouTube embedded YouTube and and you
+
+99
+00:04:20,160 --> 00:04:25,919
+got a figure. So you can see you can
+
+100
+00:04:23,160 --> 00:04:27,360
+jump to the tag. You see I'm jumping to
+
+101
+00:04:25,919 --> 00:04:29,520
+the tag. Oh,
+
+102
+00:04:27,360 --> 00:04:32,560
+I forgot. Let me turn on the highlight
+
+103
+00:04:29,520 --> 00:04:32,560
+lines, okay.
+
+104
+00:04:32,880 --> 00:04:36,760
+Now highlight lines so you can see where
+
+105
+00:04:35,200 --> 00:04:39,240
+my cursor is.
+
+106
+00:04:36,760 --> 00:04:41,680
+Now what's the Emacs highlight lines
+
+107
+00:04:39,240 --> 00:04:41,680
+mod?
+
+108
+00:04:45,760 --> 00:04:50,000
+Highlight
+
+109
+00:04:47,520 --> 00:04:52,640
+current um
+
+110
+00:04:50,000 --> 00:04:54,400
+highlight that.
+
+111
+00:04:52,640 --> 00:04:58,919
+You know, there's so many commands in
+
+112
+00:04:54,400 --> 00:04:58,919
+Emacs you don't remember what key is it.
+
+113
+00:05:01,760 --> 00:05:05,120
+Okay, hi.
+
+114
+00:05:09,160 --> 00:05:15,320
+You know that mod, okay, let's go to
+
+115
+00:05:11,360 --> 00:05:17,640
+let's go to you know, let's go to Emacs.
+
+116
+00:05:15,320 --> 00:05:22,720
+Let's go to Xah Lee Practical Emacs
+
+117
+00:05:17,640 --> 00:05:27,000
+tutorial. Then let's go to Emacs in it.
+
+118
+00:05:22,720 --> 00:05:30,960
+Then you can see then just search for
+
+119
+00:05:27,000 --> 00:05:32,600
+h i g h highlight current line, okay. So
+
+120
+00:05:30,960 --> 00:05:34,360
+you see with this mod on you can
+
+121
+00:05:32,600 --> 00:05:36,880
+highlight the current line. So you see
+
+122
+00:05:34,360 --> 00:05:40,440
+Emacs naming is not consistent. Now it's
+
+123
+00:05:36,880 --> 00:05:43,520
+like hi line h i not h i
+
+124
+00:05:40,440 --> 00:05:46,000
+g h that's why I remember. So
+
+125
+00:05:43,520 --> 00:05:48,760
+hi line
+
+126
+00:05:46,000 --> 00:05:48,760
+mod.
+
+127
+00:05:49,560 --> 00:05:56,840
+God, why is it highlight mod?
+
+128
+00:05:54,240 --> 00:05:59,240
+Wait, why is it global highlight mod?
+
+129
+00:05:56,840 --> 00:05:59,240
+Okay.
+
+130
+00:06:01,720 --> 00:06:07,320
+Wait, this this is strange. Okay, okay.
+
+131
+00:06:04,200 --> 00:06:09,000
+We are digressing, so but um So, what's
+
+132
+00:06:07,320 --> 00:06:10,760
+going on with this command? Let's
+
+133
+00:06:09,000 --> 00:06:14,640
+magnify.
+
+134
+00:06:10,760 --> 00:06:20,000
+So, HL this is L, right?
+
+135
+00:06:14,640 --> 00:06:21,400
+Small letter L, so HL line mod, okay.
+
+136
+00:06:20,000 --> 00:06:24,040
+Ah, this is
+
+137
+00:06:21,400 --> 00:06:27,120
+This is This is a major pain in the ass,
+
+138
+00:06:24,040 --> 00:06:29,840
+the most idiotic thing in in Emacs. You
+
+139
+00:06:27,120 --> 00:06:31,560
+see, this mod, highlight mod Let me turn
+
+140
+00:06:29,840 --> 00:06:33,440
+it on first, okay.
+
+141
+00:06:31,560 --> 00:06:35,919
+So, you can actually
+
+142
+00:06:33,440 --> 00:06:37,600
+see. You see? So, basically when I move
+
+143
+00:06:35,919 --> 00:06:39,120
+the cursor, you'll you'll highlight the
+
+144
+00:06:37,600 --> 00:06:42,200
+current line, okay? And by the way, on
+
+145
+00:06:39,120 --> 00:06:44,120
+the pink window is all the key press or
+
+146
+00:06:42,200 --> 00:06:46,960
+all the command call, you'll see on the
+
+147
+00:06:44,120 --> 00:06:49,760
+pink window and also the key.
+
+148
+00:06:46,960 --> 00:06:51,200
+You know, the key press on the side.
+
+149
+00:06:49,760 --> 00:06:52,880
+You'll show you what key I'm pressing.
+
+150
+00:06:51,200 --> 00:06:54,440
+So, anyway, the highlight
+
+151
+00:06:52,880 --> 00:06:56,440
+mod, okay.
+
+152
+00:06:54,440 --> 00:06:58,160
+A little bit digression. This is idiocy
+
+153
+00:06:56,440 --> 00:07:01,160
+of the naming, you see?
+
+154
+00:06:58,160 --> 00:07:03,360
+Normally, you think of highlight is HI,
+
+155
+00:07:01,160 --> 00:07:07,480
+you know, or HIGH, you know,
+
+156
+00:07:03,360 --> 00:07:08,480
+highlight. But this mod is called HL.
+
+157
+00:07:07,480 --> 00:07:11,280
+It's
+
+158
+00:07:08,480 --> 00:07:13,840
+It's a brief for highlight. So, it you
+
+159
+00:07:11,280 --> 00:07:16,000
+cannot find it. Anyway, so
+
+160
+00:07:13,840 --> 00:07:17,960
+we found it, okay? So, close that. So,
+
+161
+00:07:16,000 --> 00:07:20,120
+what we are going to do? So, show, where
+
+162
+00:07:17,960 --> 00:07:21,760
+are we? So, Emacs tutorial, yeah. Close
+
+163
+00:07:20,120 --> 00:07:24,040
+that, close that, close that, close
+
+164
+00:07:21,760 --> 00:07:26,480
+that, close. Okay, start talk show,
+
+165
+00:07:24,040 --> 00:07:28,560
+we're back to here. So, you can see this
+
+166
+00:07:26,480 --> 00:07:30,480
+is a figure. Now, I can jump to the
+
+167
+00:07:28,560 --> 00:07:32,080
+closing tag
+
+168
+00:07:30,480 --> 00:07:34,000
+by pressing a key
+
+169
+00:07:32,080 --> 00:07:37,520
+and uh
+
+170
+00:07:34,000 --> 00:07:39,200
+and I can move to any tag, okay? So, for
+
+171
+00:07:37,520 --> 00:07:41,720
+for example, I want to delete the figure
+
+172
+00:07:39,200 --> 00:07:43,840
+line. Press a key. You see, it removes
+
+173
+00:07:41,720 --> 00:07:46,040
+the figure tag, okay? so hold on a
+
+174
+00:07:43,840 --> 00:07:48,520
+second. Let me put some annotation.
+
+175
+00:07:46,040 --> 00:07:52,400
+Figure caption, you can see.
+
+176
+00:07:48,520 --> 00:07:54,480
+So, this is start talk show. Okay, now
+
+177
+00:07:52,400 --> 00:07:56,280
+show in browser, you can see we added
+
+178
+00:07:54,480 --> 00:07:58,120
+that that.
+
+179
+00:07:56,280 --> 00:07:59,600
+Am I good? So many people, okay, I'm
+
+180
+00:07:58,120 --> 00:08:01,920
+going to get get to your questions,
+
+181
+00:07:59,600 --> 00:08:01,920
+okay?
+
+182
+00:08:02,000 --> 00:08:06,400
+So anyway, let let's let's So yeah, let
+
+183
+00:08:04,360 --> 00:08:08,600
+me show you the feature. So if I want to
+
+184
+00:08:06,400 --> 00:08:11,240
+remove the figure tag, I press the key,
+
+185
+00:08:08,600 --> 00:08:13,160
+you see? And if I want to remove again
+
+186
+00:08:11,240 --> 00:08:14,440
+the previous tag, I press under key just
+
+187
+00:08:13,160 --> 00:08:16,760
+space, okay?
+
+188
+00:08:14,440 --> 00:08:19,240
+Show the pink window, okay? Undo, let's
+
+189
+00:08:16,760 --> 00:08:21,600
+do it again. Do it, you see?
+
+190
+00:08:19,240 --> 00:08:23,440
+Do it. Oh my god, this is fantastic. Now
+
+191
+00:08:21,600 --> 00:08:25,560
+press the key again.
+
+192
+00:08:23,440 --> 00:08:27,200
+The YouTube frame is gone.
+
+193
+00:08:25,560 --> 00:08:30,880
+Now this is this feature is great. Let
+
+194
+00:08:27,200 --> 00:08:33,240
+me I show you, you see? This tag it's a
+
+195
+00:08:30,880 --> 00:08:36,360
+frame, you know, the whole the whole tag
+
+196
+00:08:33,240 --> 00:08:39,320
+is a frame tag and with a URL embedded
+
+197
+00:08:36,360 --> 00:08:41,240
+in it. Now normally if you delete a tag,
+
+198
+00:08:39,320 --> 00:08:43,479
+you know, you delete the closing tag and
+
+199
+00:08:41,240 --> 00:08:46,280
+you delete the opening tag, the whole
+
+200
+00:08:43,479 --> 00:08:48,400
+line will be gone. But however,
+
+201
+00:08:46,280 --> 00:08:51,440
+that's usually not what what you want.
+
+202
+00:08:48,400 --> 00:08:53,640
+You want the embedded information
+
+203
+00:08:51,440 --> 00:08:56,160
+to be remain intact. So when you do
+
+204
+00:08:53,640 --> 00:08:58,320
+that, you see, it leaves the
+
+205
+00:08:56,160 --> 00:09:00,880
+important info important information.
+
+206
+00:08:58,320 --> 00:09:03,320
+And for example, let's go to this one.
+
+207
+00:09:00,880 --> 00:09:06,640
+So if for example, here one here we have
+
+208
+00:09:03,320 --> 00:09:08,160
+a let's let's make it a paragraph, okay?
+
+209
+00:09:06,640 --> 00:09:10,040
+Press the key, you got a paragraph. Show
+
+210
+00:09:08,160 --> 00:09:12,880
+in browser, so you see it looks like
+
+211
+00:09:10,040 --> 00:09:15,120
+that. Now here you have a list, okay?
+
+212
+00:09:12,880 --> 00:09:16,880
+You have a list of one item and this
+
+213
+00:09:15,120 --> 00:09:18,360
+item is a link.
+
+214
+00:09:16,880 --> 00:09:21,640
+Now let's say I don't want the links
+
+215
+00:09:18,360 --> 00:09:23,920
+list, okay? So I press a key,
+
+216
+00:09:21,640 --> 00:09:25,960
+remove all the lists, okay? Show in
+
+217
+00:09:23,920 --> 00:09:27,760
+browser, okay? I
+
+218
+00:09:25,960 --> 00:09:30,400
+I can do it one shot or I can do it this
+
+219
+00:09:27,760 --> 00:09:33,200
+way, okay? So anyway, so now I got a
+
+220
+00:09:30,400 --> 00:09:34,839
+link, you see? Now I got a link.
+
+221
+00:09:33,200 --> 00:09:36,760
+This line. Now
+
+222
+00:09:34,839 --> 00:09:40,880
+the whole thing is just one tag. Now I
+
+223
+00:09:36,760 --> 00:09:43,880
+can call the delete tag pair again.
+
+224
+00:09:40,880 --> 00:09:46,360
+Do it. You can see now what you get is
+
+225
+00:09:43,880 --> 00:09:50,440
+not Now, let's add a paragraph, okay?
+
+226
+00:09:46,360 --> 00:09:53,880
+Now, what you get is this markdown
+
+227
+00:09:50,440 --> 00:09:56,280
+uh formatting of the link text
+
+228
+00:09:53,880 --> 00:09:58,040
+and the the URL. So, you don't actually
+
+229
+00:09:56,280 --> 00:10:00,040
+remove the whole,
+
+230
+00:09:58,040 --> 00:10:01,520
+you know, tag. So, this is fantastic
+
+231
+00:10:00,040 --> 00:10:02,880
+because, for example, let's make a
+
+232
+00:10:01,520 --> 00:10:04,400
+backup
+
+233
+00:10:02,880 --> 00:10:07,000
+and let's undo.
+
+234
+00:10:04,400 --> 00:10:08,080
+Let's revert to the previous, okay?
+
+235
+00:10:07,000 --> 00:10:10,200
+Actually,
+
+236
+00:10:08,080 --> 00:10:12,840
+undo back. Let's Let me show you Let's
+
+237
+00:10:10,200 --> 00:10:16,720
+do it from the scratch. Now, let's say I
+
+238
+00:10:12,840 --> 00:10:19,360
+want the extract the URL of a link,
+
+239
+00:10:16,720 --> 00:10:21,520
+okay? So, I press a key, it's done. Now,
+
+240
+00:10:19,360 --> 00:10:23,480
+I go somewhere else, paste it. You can
+
+241
+00:10:21,520 --> 00:10:26,360
+You can see it's a link. Now, I want to
+
+242
+00:10:23,480 --> 00:10:27,560
+linkify it, I just press another key,
+
+243
+00:10:26,360 --> 00:10:29,520
+you see?
+
+244
+00:10:27,560 --> 00:10:32,760
+So, remove that. So, let's
+
+245
+00:10:29,520 --> 00:10:34,560
+return to their state, okay? So,
+
+246
+00:10:32,760 --> 00:10:37,480
+cop- copy the link, paste it here,
+
+247
+00:10:34,560 --> 00:10:39,920
+delete that. Delete the paragraph tag
+
+248
+00:10:37,480 --> 00:10:44,240
+and this is a YouTube
+
+249
+00:10:39,920 --> 00:10:46,520
+URL. Let's embed it, okay? Now, the talk
+
+250
+00:10:44,240 --> 00:10:49,720
+show, this the annotation figure
+
+251
+00:10:46,520 --> 00:10:52,839
+caption, put it here. And here is a URL.
+
+252
+00:10:49,720 --> 00:10:54,960
+Let's make it a link plus
+
+253
+00:10:52,839 --> 00:10:57,120
+make a list, okay? Show in browser. Now,
+
+254
+00:10:54,960 --> 00:10:59,240
+it's fantastic.
+
+255
+00:10:57,120 --> 00:11:02,560
+So, that's You see, that's some of the
+
+256
+00:10:59,240 --> 00:11:05,160
+actual use of the site HTML mode, okay?
+
+257
+00:11:02,560 --> 00:11:07,880
+Now, let's go to the URL, okay? So, you
+
+258
+00:11:05,160 --> 00:11:11,000
+see this is a URL.
+
+259
+00:11:07,880 --> 00:11:13,920
+Now, this if it's a some other website,
+
+260
+00:11:11,000 --> 00:11:16,680
+let's say um
+
+261
+00:11:13,920 --> 00:11:19,680
+let's say digital pen, okay? Let's Let's
+
+262
+00:11:16,680 --> 00:11:21,880
+go to some Wikipedia, okay? Let's go to
+
+263
+00:11:19,680 --> 00:11:24,839
+Let's go to uh
+
+264
+00:11:21,880 --> 00:11:26,960
+microsoft.com, okay? So, Microsoft, they
+
+265
+00:11:24,839 --> 00:11:29,080
+are selling you digital pens. By the
+
+266
+00:11:26,960 --> 00:11:31,400
+way, I have opinions on it. You just go
+
+267
+00:11:29,080 --> 00:11:33,240
+to site keyboard.
+
+268
+00:11:31,400 --> 00:11:35,760
+I can tell you oh, oh, you you see
+
+269
+00:11:33,240 --> 00:11:38,080
+Microsoft.
+
+270
+00:11:35,760 --> 00:11:40,000
+digital pen. So, anyway,
+
+271
+00:11:38,080 --> 00:11:42,360
+uh first of all, okay, digression. Let
+
+272
+00:11:40,000 --> 00:11:45,440
+me show you Xah keyboard, okay? So, you
+
+273
+00:11:42,360 --> 00:11:48,280
+go to Xah keyboard blog
+
+274
+00:11:45,440 --> 00:11:49,880
+and use uh you comment, okay? Keep the
+
+275
+00:11:48,280 --> 00:11:51,840
+comment going.
+
+276
+00:11:49,880 --> 00:11:53,680
+You go to Xah keyboard blog and you go
+
+277
+00:11:51,840 --> 00:11:55,920
+to um
+
+278
+00:11:53,680 --> 00:11:58,160
+miscellaneous pen input, okay? Click
+
+279
+00:11:55,920 --> 00:12:00,400
+here. Then here is all you wanted to
+
+280
+00:11:58,160 --> 00:12:03,040
+know about pen input.
+
+281
+00:12:00,400 --> 00:12:05,560
+So, I give you opinions on which one to
+
+282
+00:12:03,040 --> 00:12:05,560
+buy.
+
+283
+00:12:05,640 --> 00:12:12,160
+I have this one, for example.
+
+284
+00:12:08,800 --> 00:12:14,280
+Then there is the Microsoft Surface Pro
+
+285
+00:12:12,160 --> 00:12:16,680
+and there is the
+
+286
+00:12:14,280 --> 00:12:19,560
+you know, the drawing tablet.
+
+287
+00:12:16,680 --> 00:12:21,800
+Then there is the, you know, the Apple
+
+288
+00:12:19,560 --> 00:12:23,600
+Magic Pad
+
+289
+00:12:21,800 --> 00:12:26,200
+which you can draw with your hand. Or
+
+290
+00:12:23,600 --> 00:12:28,200
+there's a, you know, display, um
+
+291
+00:12:26,200 --> 00:12:30,240
+you know, digital pen with a display.
+
+292
+00:12:28,200 --> 00:12:32,400
+So, actually, in the past year, I
+
+293
+00:12:30,240 --> 00:12:34,320
+started to have some of these and I
+
+294
+00:12:32,400 --> 00:12:36,240
+started to dig, you know, to realize
+
+295
+00:12:34,320 --> 00:12:38,320
+what what are the differences and which
+
+296
+00:12:36,240 --> 00:12:40,400
+are good or bad, okay?
+
+297
+00:12:38,320 --> 00:12:42,120
+So, you read my reviews and and let me
+
+298
+00:12:40,400 --> 00:12:44,400
+show you, okay? Let me tell you, this
+
+299
+00:12:42,120 --> 00:12:46,440
+one, if you have a Surface tablet,
+
+300
+00:12:44,400 --> 00:12:49,480
+Microsoft Surface, this is the best,
+
+301
+00:12:46,440 --> 00:12:51,240
+okay? Cheap and best.
+
+302
+00:12:49,480 --> 00:12:53,240
+Otherwise, you know,
+
+303
+00:12:51,240 --> 00:12:55,280
+anyway, the digital pen, they come in
+
+304
+00:12:53,240 --> 00:12:57,160
+two different classes. One is active,
+
+305
+00:12:55,280 --> 00:12:59,320
+one is not active, which is basically
+
+306
+00:12:57,160 --> 00:13:01,480
+active means there's a battery in it.
+
+307
+00:12:59,320 --> 00:13:03,839
+So, basically, they support pressure and
+
+308
+00:13:01,480 --> 00:13:06,760
+all that. Inactive is just like your
+
+309
+00:13:03,839 --> 00:13:08,640
+finger, okay? So,
+
+310
+00:13:06,760 --> 00:13:11,320
+anyway, so anyway, so that's a
+
+311
+00:13:08,640 --> 00:13:14,760
+digression about the pen input. Very
+
+312
+00:13:11,320 --> 00:13:14,760
+interesting technology.
+
+313
+00:13:15,120 --> 00:13:19,720
+Okay, so what I want to show you, go
+
+314
+00:13:17,320 --> 00:13:22,280
+back to to to um
+
+315
+00:13:19,720 --> 00:13:25,160
+keyboard blog, okay? So, go to keyboard
+
+316
+00:13:22,280 --> 00:13:27,600
+blog, go back to here and we uh I want
+
+317
+00:13:25,160 --> 00:13:30,160
+to show you
+
+318
+00:13:27,600 --> 00:13:32,720
+Remember, today's topic is CIDER HTML
+
+319
+00:13:30,160 --> 00:13:35,440
+mode, okay? So, let's not digress too
+
+320
+00:13:32,720 --> 00:13:38,160
+much. Yeah, I want to So, I want to copy
+
+321
+00:13:35,440 --> 00:13:40,800
+a link. So, I have a keyboard macro set
+
+322
+00:13:38,160 --> 00:13:42,320
+up. Let me show you.
+
+323
+00:13:40,800 --> 00:13:44,280
+Am I still alive?
+
+324
+00:13:42,320 --> 00:13:48,440
+Comment, guys, okay? So, I have a
+
+325
+00:13:44,280 --> 00:13:50,520
+keyboard macro set up. Let's see.
+
+326
+00:13:48,440 --> 00:13:52,800
+Again, I Let me I want I need to show
+
+327
+00:13:50,520 --> 00:13:55,200
+you my keyboard, okay? Fantastic
+
+328
+00:13:52,800 --> 00:13:57,760
+keyboard system. So, this is Kinesis
+
+329
+00:13:55,200 --> 00:13:59,840
+Advantage 2. You go to my website,
+
+330
+00:13:57,760 --> 00:14:02,120
+Kinesis Keyboard Blog, buy it. Kinesis
+
+331
+00:13:59,840 --> 00:14:04,040
+Advantage 2. And this is ultimate
+
+332
+00:14:02,120 --> 00:14:06,080
+hacking
+
+333
+00:14:04,040 --> 00:14:07,840
+ultimate hacking keyboard, okay? This is
+
+334
+00:14:06,080 --> 00:14:10,680
+a left side, right side. I use it as a
+
+335
+00:14:07,840 --> 00:14:13,760
+macro pad. So, for example, switch to
+
+336
+00:14:10,680 --> 00:14:16,120
+the last application, just that key.
+
+337
+00:14:13,760 --> 00:14:16,120
+Okay?
+
+338
+00:14:20,520 --> 00:14:25,160
+Okay, good. Now, let's get back. So, I
+
+339
+00:14:23,360 --> 00:14:27,440
+want to show you
+
+340
+00:14:25,160 --> 00:14:29,800
+So, I want to copy a URL. You know, I
+
+341
+00:14:27,440 --> 00:14:32,480
+have a macro set up. So, I copy the URL
+
+342
+00:14:29,800 --> 00:14:35,560
+back to Emacs, and let's show the pink
+
+343
+00:14:32,480 --> 00:14:38,880
+window and put it here. So, you see, we
+
+344
+00:14:35,560 --> 00:14:40,160
+got a URL here. Now, you can
+
+345
+00:14:38,880 --> 00:14:42,120
+you can
+
+346
+00:14:40,160 --> 00:14:44,280
+link it. Okay, now it becomes a link.
+
+347
+00:14:42,120 --> 00:14:46,240
+You can You see, and let's put a
+
+348
+00:14:44,280 --> 00:14:48,400
+paragraph, okay? Show in browser. So,
+
+349
+00:14:46,240 --> 00:14:51,000
+you can see we got a link there. And
+
+350
+00:14:48,400 --> 00:14:52,600
+now, if you put the cursor somewhere
+
+351
+00:14:51,000 --> 00:14:55,600
+inside the link, you see, I put the
+
+352
+00:14:52,600 --> 00:14:59,839
+cursor here and press enter,
+
+353
+00:14:55,600 --> 00:14:59,839
+we just go to that website, okay?
+
+354
+00:15:00,040 --> 00:15:03,560
+So, this is, you know, one of the
+
+355
+00:15:01,560 --> 00:15:05,440
+feature of CIDER HTML mode. So, for
+
+356
+00:15:03,560 --> 00:15:07,640
+example, if I press enter now, you can
+
+357
+00:15:05,440 --> 00:15:09,800
+see in the pink window, it's actually
+
+358
+00:15:07,640 --> 00:15:13,480
+it's actually um
+
+359
+00:15:09,800 --> 00:15:13,480
+How do I move that?
+
+360
+00:15:14,040 --> 00:15:18,240
+Okay, I cannot
+
+361
+00:15:15,960 --> 00:15:20,640
+I used to be able to move around this
+
+362
+00:15:18,240 --> 00:15:22,840
+pink window, but anyway, so
+
+363
+00:15:20,640 --> 00:15:27,360
+you can see the command I'm calling is
+
+364
+00:15:22,840 --> 00:15:29,440
+actually here, you know, cuz I HTML open
+
+365
+00:15:27,360 --> 00:15:30,680
+local link. So, for example, let me try
+
+366
+00:15:29,440 --> 00:15:32,720
+again, okay?
+
+367
+00:15:30,680 --> 00:15:34,880
+Press enter and you look at the pink
+
+368
+00:15:32,720 --> 00:15:37,800
+window.
+
+369
+00:15:34,880 --> 00:15:40,120
+You see? It's calling C HTML open local
+
+370
+00:15:37,800 --> 00:15:42,480
+link.
+
+371
+00:15:40,120 --> 00:15:44,720
+So, that's a feature, you know. But, if
+
+372
+00:15:42,480 --> 00:15:47,240
+you your if your cursor is somewhere
+
+373
+00:15:44,720 --> 00:15:50,560
+else, you press enter, it just
+
+374
+00:15:47,240 --> 00:15:50,560
+enters enter, okay?
+
+375
+00:15:50,640 --> 00:15:56,760
+So, that's some of the features, okay?
+
+376
+00:15:52,480 --> 00:16:00,520
+So, let's now what to do, okay? So,
+
+377
+00:15:56,760 --> 00:16:02,760
+So, okay, let's go to this page.
+
+378
+00:16:00,520 --> 00:16:04,600
+So, I give you I gave you some of the
+
+379
+00:16:02,760 --> 00:16:09,440
+demonstrations of the
+
+380
+00:16:04,600 --> 00:16:10,840
+C HTML mod. So, I wrote a tutorial here.
+
+381
+00:16:09,440 --> 00:16:12,920
+You can see
+
+382
+00:16:10,840 --> 00:16:14,800
+how to use it, okay? So, I mean, I give
+
+383
+00:16:12,920 --> 00:16:17,160
+you some introduction.
+
+384
+00:16:14,800 --> 00:16:19,760
+I was planning to go through this item
+
+385
+00:16:17,160 --> 00:16:21,600
+by item item, but I already pretty much
+
+386
+00:16:19,760 --> 00:16:23,120
+demonstrate us
+
+387
+00:16:21,600 --> 00:16:25,240
+a few of the fe-
+
+388
+00:16:23,120 --> 00:16:26,760
+uh features, okay? There's a lot a lot
+
+389
+00:16:25,240 --> 00:16:28,640
+more. Let me let me demonstrate, okay?
+
+390
+00:16:26,760 --> 00:16:30,240
+Let me show you. But, let me first of
+
+391
+00:16:28,640 --> 00:16:32,000
+all first of all, if you want to get the
+
+392
+00:16:30,240 --> 00:16:34,480
+map mod,
+
+393
+00:16:32,000 --> 00:16:36,640
+you go to Okay, this is the old uh C
+
+394
+00:16:34,480 --> 00:16:37,839
+talk show.
+
+395
+00:16:36,640 --> 00:16:40,360
+Uh
+
+396
+00:16:37,839 --> 00:16:43,400
+half a year ago, my god, half a year ago
+
+397
+00:16:40,360 --> 00:16:47,080
+I was doing uh HTML stuff. So, anyway,
+
+398
+00:16:43,400 --> 00:16:50,160
+this is the C HTML mod and uh you can
+
+399
+00:16:47,080 --> 00:16:53,280
+download it, you know, on GitHub.
+
+400
+00:16:50,160 --> 00:16:54,240
+It's not on MELPA. I haven't, you know,
+
+401
+00:16:53,280 --> 00:16:55,960
+I'm
+
+402
+00:16:54,240 --> 00:16:58,520
+not sure I'm you know, just download
+
+403
+00:16:55,960 --> 00:17:01,080
+from GitHub, okay? And you
+
+404
+00:16:58,520 --> 00:17:03,200
+it also requires several packages, okay?
+
+405
+00:17:01,080 --> 00:17:05,920
+It's all on my website, or it's it's all
+
+406
+00:17:03,200 --> 00:17:05,920
+on GitHub.
+
+407
+00:17:06,160 --> 00:17:09,319
+So, that's how you download it, and I
+
+408
+00:17:07,800 --> 00:17:11,319
+tell you some of the features. But,
+
+409
+00:17:09,319 --> 00:17:13,319
+today I'm going to show you, you know,
+
+410
+00:17:11,319 --> 00:17:15,079
+demo. So, let me let's do some more
+
+411
+00:17:13,319 --> 00:17:17,600
+demo, okay?
+
+412
+00:17:15,079 --> 00:17:21,240
+So, image, okay? So, let's say So, you
+
+413
+00:17:17,600 --> 00:17:24,120
+have an image here. So, let's see.
+
+414
+00:17:21,240 --> 00:17:27,160
+So, you can see the image is this one.
+
+415
+00:17:24,120 --> 00:17:29,800
+Okay? So, let's say I want to remove the
+
+416
+00:17:27,160 --> 00:17:32,960
+image. Again, I call the command, you
+
+417
+00:17:29,800 --> 00:17:35,040
+know, delete tag pairs, so that image is
+
+418
+00:17:32,960 --> 00:17:36,400
+gone. So, show in browser, you see it's
+
+419
+00:17:35,040 --> 00:17:38,840
+gone.
+
+420
+00:17:36,400 --> 00:17:41,320
+Uh instead, you got these lines that and
+
+421
+00:17:38,840 --> 00:17:43,720
+now, let's say I want to
+
+422
+00:17:41,320 --> 00:17:45,880
+Let's say you have a file path. So,
+
+423
+00:17:43,720 --> 00:17:47,960
+let's say you want to add an image. So,
+
+424
+00:17:45,880 --> 00:17:50,960
+you all you have to do is you paste the
+
+425
+00:17:47,960 --> 00:17:53,800
+file path. It can be relative path, or
+
+426
+00:17:50,960 --> 00:17:53,800
+it can be
+
+427
+00:17:53,880 --> 00:17:58,280
+absolute path, okay? So, either way. So,
+
+428
+00:17:56,640 --> 00:18:01,520
+once you have a path, you just call a
+
+429
+00:17:58,280 --> 00:18:03,480
+command. Boom! There it is. You see?
+
+430
+00:18:01,520 --> 00:18:04,840
+Now, show in browser, you can see now
+
+431
+00:18:03,480 --> 00:18:09,560
+there it is.
+
+432
+00:18:04,840 --> 00:18:12,400
+It adds the image tag. It also adds the
+
+433
+00:18:09,560 --> 00:18:14,240
+the figure tag, which allows you to uh
+
+434
+00:18:12,400 --> 00:18:16,800
+name and the figure caption, which which
+
+435
+00:18:14,240 --> 00:18:19,200
+is actually uh good, okay?
+
+436
+00:18:16,800 --> 00:18:22,480
+That's about HTML. So, it's you know,
+
+437
+00:18:19,200 --> 00:18:24,760
+more it's some details about HTML. So,
+
+438
+00:18:22,480 --> 00:18:27,600
+for example, let's say
+
+439
+00:18:24,760 --> 00:18:30,320
+So, if you don't know HTML, yeah, let me
+
+440
+00:18:27,600 --> 00:18:33,080
+tell you about this. You go to site HTML
+
+441
+00:18:30,320 --> 00:18:35,400
+tutorial. So, this is the most simplest
+
+442
+00:18:33,080 --> 00:18:37,600
+tutorial from the ground up. If you
+
+443
+00:18:35,400 --> 00:18:40,160
+don't know nothing about HTML, you can
+
+444
+00:18:37,600 --> 00:18:43,080
+learn from my website.
+
+445
+00:18:40,160 --> 00:18:46,160
+Okay, site HTML, then HTML tags, you
+
+446
+00:18:43,080 --> 00:18:47,440
+know, HTML is not too difficult.
+
+447
+00:18:46,160 --> 00:18:48,720
+So,
+
+448
+00:18:47,440 --> 00:18:52,320
+Okay, so,
+
+449
+00:18:48,720 --> 00:18:54,400
+so, let me uh close that. So, uh
+
+450
+00:18:52,320 --> 00:18:56,080
+So, for example, we talked about figure.
+
+451
+00:18:54,400 --> 00:18:58,720
+So, figure tag, so, here's the
+
+452
+00:18:56,080 --> 00:19:00,840
+illustration of how what how that tag
+
+453
+00:18:58,720 --> 00:19:03,080
+works, okay?
+
+454
+00:19:00,840 --> 00:19:05,400
+Figure tag is actually new about 10
+
+455
+00:19:03,080 --> 00:19:08,720
+years ago. Okay, let's get back here.
+
+456
+00:19:05,400 --> 00:19:10,480
+So, um insert tag, so, what what did we
+
+457
+00:19:08,720 --> 00:19:13,000
+do? Okay, so,
+
+458
+00:19:10,480 --> 00:19:16,200
+so, we you see, we added that. So okay,
+
+459
+00:19:13,000 --> 00:19:18,960
+so we don't need that anymore. So
+
+460
+00:19:16,200 --> 00:19:21,440
+delete this block.
+
+461
+00:19:18,960 --> 00:19:25,240
+Copy that. Copy that.
+
+462
+00:19:21,440 --> 00:19:29,000
+Paste it here. So before we turned a h
+
+463
+00:19:25,240 --> 00:19:31,240
+image path into the complete image and
+
+464
+00:19:29,000 --> 00:19:33,120
+figure tag. Now
+
+465
+00:19:31,240 --> 00:19:34,680
+let's say I already you see I already
+
+466
+00:19:33,120 --> 00:19:37,000
+have the figure and figure caption. I
+
+467
+00:19:34,680 --> 00:19:39,040
+just want to turn it into a image tag.
+
+468
+00:19:37,000 --> 00:19:41,120
+So what do you do?
+
+469
+00:19:39,040 --> 00:19:42,840
+Just press three keys. There you have
+
+470
+00:19:41,120 --> 00:19:45,000
+it.
+
+471
+00:19:42,840 --> 00:19:47,280
+So showing browser you see that's how
+
+472
+00:19:45,000 --> 00:19:49,120
+you do it.
+
+473
+00:19:47,280 --> 00:19:51,080
+So okay, so
+
+474
+00:19:49,120 --> 00:19:53,160
+what do we do now? So there are a lot
+
+475
+00:19:51,080 --> 00:19:56,040
+features. Um
+
+476
+00:19:53,160 --> 00:19:59,200
+do we go through each and every one of
+
+477
+00:19:56,040 --> 00:20:03,120
+them or do I just make maybe demonstrate
+
+478
+00:19:59,200 --> 00:20:05,080
+as a few other interesting
+
+479
+00:20:03,120 --> 00:20:06,880
+ones then
+
+480
+00:20:05,080 --> 00:20:10,800
+that'll be it for today. Then I'm going
+
+481
+00:20:06,880 --> 00:20:10,800
+to read your comments, okay?
+
+482
+00:20:14,240 --> 00:20:18,760
+So one of the questions what other
+
+483
+00:20:16,000 --> 00:20:20,560
+packages do I use? Actually this
+
+484
+00:20:18,760 --> 00:20:21,840
+not many just
+
+485
+00:20:20,560 --> 00:20:23,880
+packages.
+
+486
+00:20:21,840 --> 00:20:25,120
+So for example I can show you. So let's
+
+487
+00:20:23,880 --> 00:20:28,880
+go to
+
+488
+00:20:25,120 --> 00:20:32,320
+for example my Emacs directory alpha,
+
+489
+00:20:28,880 --> 00:20:32,320
+okay? So
+
+490
+00:20:32,360 --> 00:20:37,240
+So this you know so so I don't use
+
+491
+00:20:34,800 --> 00:20:41,840
+company mod deleted. I don't use stash
+
+492
+00:20:37,240 --> 00:20:44,440
+despite stash early map mod I don't use
+
+493
+00:20:41,840 --> 00:20:46,400
+then helm I don't use I don't I don't
+
+494
+00:20:44,440 --> 00:20:49,200
+use. I installed them to
+
+495
+00:20:46,400 --> 00:20:52,040
+do some experiments, okay?
+
+496
+00:20:49,200 --> 00:20:54,040
+Okay, so first of all delete them all,
+
+497
+00:20:52,040 --> 00:20:57,240
+okay? Delete those
+
+498
+00:20:54,040 --> 00:20:59,880
+I don't use. Then I do use go
+
+499
+00:20:57,240 --> 00:21:01,960
+basically two, okay? Well
+
+500
+00:20:59,880 --> 00:21:05,320
+what you know let me explain, okay? So I
+
+501
+00:21:01,960 --> 00:21:08,560
+use go mod that's for go land and I also
+
+502
+00:21:05,320 --> 00:21:11,120
+use magic, okay? Magic is I don't you
+
+503
+00:21:08,560 --> 00:21:13,760
+know I started to really very annoying.
+
+504
+00:21:11,120 --> 00:21:17,920
+Magic installed installs a bunch of all
+
+505
+00:21:13,760 --> 00:21:21,160
+the others. Magic installs a sync git
+
+506
+00:21:17,920 --> 00:21:23,480
+pop-up transient which and I don't use
+
+507
+00:21:21,160 --> 00:21:24,680
+which key, okay, deleted.
+
+508
+00:21:23,480 --> 00:21:28,360
+So
+
+509
+00:21:24,680 --> 00:21:31,040
+I use go mod and magic. The rest is
+
+510
+00:21:28,360 --> 00:21:34,200
+installed by magic that I you know
+
+511
+00:21:31,040 --> 00:21:34,200
+I really don't like it.
+
+512
+00:21:34,440 --> 00:21:38,160
+You know I have a urge just to delete
+
+513
+00:21:36,280 --> 00:21:39,520
+the magic right now, okay. So
+
+514
+00:21:38,160 --> 00:21:42,880
+let's
+
+515
+00:21:39,520 --> 00:21:42,880
+delete the magic.
+
+516
+00:21:43,640 --> 00:21:48,440
+I'm rage quitting.
+
+517
+00:21:46,800 --> 00:21:51,960
+ install a bunch It's you know
+
+518
+00:21:48,440 --> 00:21:53,920
+it's like JavaScript. JavaScript npm
+
+519
+00:21:51,960 --> 00:21:56,600
+where a library is just five lines of
+
+520
+00:21:53,920 --> 00:21:58,640
+code. When you install npm you know when
+
+521
+00:21:56,600 --> 00:22:00,840
+you install one package
+
+522
+00:21:58,640 --> 00:22:02,760
+it installs 10 other and each one
+
+523
+00:22:00,840 --> 00:22:04,600
+installs 10 other. So once you install
+
+524
+00:22:02,760 --> 00:22:09,880
+one package whoo,
+
+525
+00:22:04,600 --> 00:22:09,880
+100 1,000 libraries comes comes in.
+
+526
+00:22:10,440 --> 00:22:17,960
+Deleted. Okay, so go mod is what I use.
+
+527
+00:22:14,440 --> 00:22:20,440
+There are two more, okay, so
+
+528
+00:22:17,960 --> 00:22:25,760
+let me show you, okay. So what is the
+
+529
+00:22:20,440 --> 00:22:25,760
+okay, so let's go to site html homepage.
+
+530
+00:22:26,600 --> 00:22:33,520
+Okay, you press a key you type you
+
+531
+00:22:30,200 --> 00:22:35,520
+meta x which key then you press a key
+
+532
+00:22:33,520 --> 00:22:37,840
+then you'll show you the
+
+533
+00:22:35,520 --> 00:22:40,560
+documentation for the
+
+534
+00:22:37,840 --> 00:22:42,280
+site html mod. So you can you are seeing
+
+535
+00:22:40,560 --> 00:22:46,600
+you are looking at the documentation of
+
+536
+00:22:42,280 --> 00:22:49,880
+site html mod. And you see so you have
+
+537
+00:22:46,600 --> 00:22:53,280
+about 100 commands now.
+
+538
+00:22:49,880 --> 00:22:55,040
+Now so let's jump to it. So here here's
+
+539
+00:22:53,280 --> 00:22:58,360
+a source code.
+
+540
+00:22:55,040 --> 00:23:00,200
+Okay, so here's a source code.
+
+541
+00:22:58,360 --> 00:23:02,320
+Okay, yeah, so I want to show you what
+
+542
+00:23:00,200 --> 00:23:05,160
+mod am I using? So
+
+543
+00:23:02,320 --> 00:23:07,600
+So here is all the mods. I think You
+
+544
+00:23:05,160 --> 00:23:10,240
+know, most of them are some mods, okay?
+
+545
+00:23:07,600 --> 00:23:11,640
+Or or basically all my stuff.
+
+546
+00:23:10,240 --> 00:23:14,360
+And uh
+
+547
+00:23:11,640 --> 00:23:16,040
+but two of two of them, so I use
+
+548
+00:23:14,360 --> 00:23:18,360
+htmlize,
+
+549
+00:23:16,040 --> 00:23:21,560
+okay? This is actually required by
+
+550
+00:23:18,360 --> 00:23:25,440
+xs-html mod. What this mod does is that
+
+551
+00:23:21,560 --> 00:23:25,440
+it turns syntax coloring
+
+552
+00:23:25,520 --> 00:23:31,960
+from Emacs to HTML, okay? Let me demo
+
+553
+00:23:28,880 --> 00:23:33,560
+demonstrate that, okay? So, HTML mod
+
+554
+00:23:31,960 --> 00:23:36,600
+htmlize
+
+555
+00:23:33,560 --> 00:23:39,680
+mod I use. And this this is written by
+
+556
+00:23:36,600 --> 00:23:41,720
+this guy, okay? This guy is from uh
+
+557
+00:23:39,680 --> 00:23:43,680
+northern Europe, you know?
+
+558
+00:23:41,720 --> 00:23:46,400
+Sweden or something like Norway, some
+
+559
+00:23:43,680 --> 00:23:46,400
+somewhere there.
+
+560
+00:23:46,720 --> 00:23:50,960
+He's a old
+
+561
+00:23:48,480 --> 00:23:52,040
+it is coder, okay?
+
+562
+00:23:50,960 --> 00:23:56,720
+Uh
+
+563
+00:23:52,040 --> 00:24:00,040
+So, so so htmlize mod I use.
+
+564
+00:23:56,720 --> 00:24:01,560
+And smex, smex is fantas- fantastic,
+
+565
+00:24:00,040 --> 00:24:03,440
+okay? It's a
+
+566
+00:24:01,560 --> 00:24:06,400
+enhancement of
+
+567
+00:24:03,440 --> 00:24:09,680
+meta-x, okay? So, when you call meta-x,
+
+568
+00:24:06,400 --> 00:24:11,400
+it allows you fuzzy matching on that.
+
+569
+00:24:09,680 --> 00:24:14,120
+You know, I don't like, you know, today
+
+570
+00:24:11,400 --> 00:24:16,320
+many mods they they became elaborate,
+
+571
+00:24:14,120 --> 00:24:18,080
+you know, like helm.
+
+572
+00:24:16,320 --> 00:24:19,520
+I don't like helm, okay? Helm and a
+
+573
+00:24:18,080 --> 00:24:21,240
+bunch of those.
+
+574
+00:24:19,520 --> 00:24:23,480
+They you know, elaborate, they are slow.
+
+575
+00:24:21,240 --> 00:24:26,120
+They you know, they make you they make
+
+576
+00:24:23,480 --> 00:24:27,720
+your Emacs slow and they have a bunch of
+
+577
+00:24:26,120 --> 00:24:30,720
+colors.
+
+578
+00:24:27,720 --> 00:24:32,680
+I want simple, the most simple, ugly,
+
+579
+00:24:30,720 --> 00:24:35,160
+efficient, okay?
+
+580
+00:24:32,680 --> 00:24:38,480
+Now, if you want a enhancement for
+
+581
+00:24:35,160 --> 00:24:41,000
+meta-x, I recommend smex, okay? Now,
+
+582
+00:24:38,480 --> 00:24:43,640
+it's written by this guy. I believe
+
+583
+00:24:41,000 --> 00:24:45,680
+he's also a he's a I think he's a
+
+584
+00:24:43,640 --> 00:24:48,800
+professor, okay? Um
+
+585
+00:24:45,680 --> 00:24:51,240
+I forgot. Anyway, so
+
+586
+00:24:48,800 --> 00:24:51,240
+um
+
+587
+00:24:51,760 --> 00:24:56,040
+Anyway, smex is great, okay? This By by
+
+588
+00:24:54,280 --> 00:24:58,720
+the way, there's also upgrade like this
+
+589
+00:24:56,040 --> 00:25:01,600
+happens a lot, you know, some people
+
+590
+00:24:58,720 --> 00:25:03,400
+upgraded Smex into something better, but
+
+591
+00:25:01,600 --> 00:25:04,320
+I tried it. It's actually not better,
+
+592
+00:25:03,400 --> 00:25:05,640
+okay?
+
+593
+00:25:04,320 --> 00:25:10,560
+So
+
+594
+00:25:05,640 --> 00:25:13,600
+So I use HTML as I use Smex and
+
+595
+00:25:10,560 --> 00:25:17,360
+And that's it, okay? That is it. Then
+
+596
+00:25:13,600 --> 00:25:17,360
+the the rest are my things.
+
+597
+00:25:17,600 --> 00:25:23,760
+Okay, let me just demonstrate another
+
+598
+00:25:19,320 --> 00:25:26,120
+feature of HTML, it's a HTML mod, okay?
+
+599
+00:25:23,760 --> 00:25:27,840
+Close that. Close that.
+
+600
+00:25:26,120 --> 00:25:30,160
+Yeah, close that.
+
+601
+00:25:27,840 --> 00:25:32,200
+So let's do source code, you know, we
+
+602
+00:25:30,160 --> 00:25:34,440
+are all into source code, okay? So let's
+
+603
+00:25:32,200 --> 00:25:36,560
+go to start talk show.
+
+604
+00:25:34,440 --> 00:25:39,280
+Open that. Show today's talk show. Let's
+
+605
+00:25:36,560 --> 00:25:42,120
+say I'm writing a Python tutorial, you
+
+606
+00:25:39,280 --> 00:25:44,240
+are writing a Python blog or JavaScript
+
+607
+00:25:42,120 --> 00:25:47,200
+blog, okay? So let me just demonstrate.
+
+608
+00:25:44,240 --> 00:25:51,280
+So this is if you are using a org mod
+
+609
+00:25:47,200 --> 00:25:53,360
+fan, org mod babel, you'll be you know,
+
+610
+00:25:51,280 --> 00:25:56,600
+interested in this. So I want to add a
+
+611
+00:25:53,360 --> 00:25:59,200
+Python code. Let's see this
+
+612
+00:25:56,600 --> 00:26:02,040
+Here's what I do, okay? Press the key,
+
+613
+00:25:59,200 --> 00:26:04,920
+code Python. So Python 2 or 3, let's say
+
+614
+00:26:02,040 --> 00:26:06,040
+just let's say Python 3, okay? Enter.
+
+615
+00:26:04,920 --> 00:26:07,680
+Then
+
+616
+00:26:06,040 --> 00:26:09,440
+Now watch the pink window if you want to
+
+617
+00:26:07,680 --> 00:26:10,680
+know what command I'm actually coding,
+
+618
+00:26:09,440 --> 00:26:12,320
+okay? Then
+
+619
+00:26:10,680 --> 00:26:13,720
+you
+
+620
+00:26:12,320 --> 00:26:15,920
+press the key
+
+621
+00:26:13,720 --> 00:26:18,760
+then you got a new buffer that lets you
+
+622
+00:26:15,920 --> 00:26:20,200
+type whatever, okay? So let's say so we
+
+623
+00:26:18,760 --> 00:26:21,320
+are in Python.
+
+624
+00:26:20,200 --> 00:26:25,080
+Print
+
+625
+00:26:21,320 --> 00:26:27,880
+three, okay? Now run the code.
+
+626
+00:26:25,080 --> 00:26:30,600
+Oh, Python 3 you need parentheses, okay?
+
+627
+00:26:27,880 --> 00:26:33,520
+Run the code. There you have it, three,
+
+628
+00:26:30,600 --> 00:26:36,480
+okay? Then say let's say 3 + 1, okay?
+
+629
+00:26:33,520 --> 00:26:39,440
+Run it. So you got four, fantastic,
+
+630
+00:26:36,480 --> 00:26:42,800
+okay? So here's your Python code code,
+
+631
+00:26:39,440 --> 00:26:44,680
+okay? So you are done. You press the key
+
+632
+00:26:42,800 --> 00:26:48,280
+So you see, it
+
+633
+00:26:44,680 --> 00:26:52,000
+pops the buffer back to your HTML
+
+634
+00:26:48,280 --> 00:26:53,960
+editor. Showing browser, you can see
+
+635
+00:26:52,000 --> 00:26:55,760
+you can see
+
+636
+00:26:53,960 --> 00:26:58,920
+is you can see that you know you have
+
+637
+00:26:55,760 --> 00:27:00,920
+your code there and let's make it syntax
+
+638
+00:26:58,920 --> 00:27:04,800
+colored okay you see right now it's not
+
+639
+00:27:00,920 --> 00:27:06,000
+syntax colored but let's make it so.
+
+640
+00:27:04,800 --> 00:27:09,240
+Um
+
+641
+00:27:06,000 --> 00:27:10,920
+do it okay back to the browser refresh
+
+642
+00:27:09,240 --> 00:27:12,960
+you can see
+
+643
+00:27:10,920 --> 00:27:16,120
+Python code and similarly let's do it
+
+644
+00:27:12,960 --> 00:27:18,440
+again let's do JavaScript now. Okay
+
+645
+00:27:16,120 --> 00:27:21,000
+uh press the key what you want
+
+646
+00:27:18,440 --> 00:27:23,400
+JavaScript yes and
+
+647
+00:27:21,000 --> 00:27:25,800
+let's do it let's say let's write a
+
+648
+00:27:23,400 --> 00:27:27,440
+function.
+
+649
+00:27:25,800 --> 00:27:30,560
+Constant arrow so this is start
+
+650
+00:27:27,440 --> 00:27:31,600
+JavaScript mod constant arrow function
+
+651
+00:27:30,560 --> 00:27:35,400
+okay.
+
+652
+00:27:31,600 --> 00:27:38,640
+Now if okay so what is going to do this
+
+653
+00:27:35,400 --> 00:27:41,200
+this is going to add two numbers x plus
+
+654
+00:27:38,640 --> 00:27:44,240
+y okay so you have a function and we
+
+655
+00:27:41,200 --> 00:27:47,720
+let's console log call f
+
+656
+00:27:44,240 --> 00:27:51,080
+call f three and four. So run the code
+
+657
+00:27:47,720 --> 00:27:53,640
+run it so it result is seven.
+
+658
+00:27:51,080 --> 00:27:56,840
+It requires standard by the way okay. So
+
+659
+00:27:53,640 --> 00:28:01,680
+so let's add a comment okay here is a
+
+660
+00:27:56,840 --> 00:28:01,680
+demo of arrow function okay.
+
+661
+00:28:03,720 --> 00:28:08,120
+Okay here's a demo of arrow function
+
+662
+00:28:05,400 --> 00:28:11,440
+okay. So you are done with it press the
+
+663
+00:28:08,120 --> 00:28:13,160
+key you see your code is back here. Now
+
+664
+00:28:11,440 --> 00:28:15,440
+show in browser
+
+665
+00:28:13,160 --> 00:28:16,640
+there you have it now you need syntax
+
+666
+00:28:15,440 --> 00:28:17,960
+coloring
+
+667
+00:28:16,640 --> 00:28:19,920
+do it
+
+668
+00:28:17,960 --> 00:28:21,000
+go to the browse browser there you have
+
+669
+00:28:19,920 --> 00:28:24,760
+it okay.
+
+670
+00:28:21,000 --> 00:28:28,120
+And of course you can do Emacs.
+
+671
+00:28:24,760 --> 00:28:29,320
+Let's let's do some Emacs Lisp.
+
+672
+00:28:28,120 --> 00:28:31,720
+Okay
+
+673
+00:28:29,320 --> 00:28:36,080
+defun let me what we going to do okay
+
+674
+00:28:31,720 --> 00:28:40,480
+let's just say okay three okay x
+
+675
+00:28:36,080 --> 00:28:40,480
+x y magnify
+
+676
+00:28:40,920 --> 00:28:43,600
+add
+
+677
+00:28:44,440 --> 00:28:50,400
+plus three
+
+678
+00:28:46,360 --> 00:28:50,400
+uh x y okay.
+
+679
+00:28:51,880 --> 00:28:57,400
+Okay, prettify the code. We don't need
+
+680
+00:28:54,440 --> 00:29:00,400
+the let, okay? So, remove the let.
+
+681
+00:28:57,400 --> 00:29:06,280
+Prettify the code, okay? That's it. Eval
+
+682
+00:29:00,400 --> 00:29:06,280
+the buffer. Now, call meta X.
+
+683
+00:29:07,040 --> 00:29:12,040
+Oh, okay. So, let's let's do this Yeah,
+
+684
+00:29:09,560 --> 00:29:14,720
+let's prompt, okay? So,
+
+685
+00:29:12,040 --> 00:29:14,720
+uh okay.
+
+686
+00:29:16,920 --> 00:29:21,280
+Let's uh make it interactive, so
+
+687
+00:29:25,800 --> 00:29:30,000
+What is X? Okay, you have to type X.
+
+688
+00:29:28,400 --> 00:29:32,360
+That's get complex.
+
+689
+00:29:30,000 --> 00:29:33,680
+Let's forget it. So, anyway, so here is
+
+690
+00:29:32,360 --> 00:29:36,200
+the
+
+691
+00:29:33,680 --> 00:29:36,200
+um
+
+692
+00:29:40,040 --> 00:29:43,520
+And then then
+
+693
+00:29:41,320 --> 00:29:44,160
+you know, here is the here is a function
+
+694
+00:29:43,520 --> 00:29:46,360
+in
+
+695
+00:29:44,160 --> 00:29:48,520
+in Emacs, okay? So, now suppose you are
+
+696
+00:29:46,360 --> 00:29:52,600
+done, press a key, so you can see your
+
+697
+00:29:48,520 --> 00:29:54,560
+code is here. Now, sync syntax color it,
+
+698
+00:29:52,600 --> 00:29:56,840
+show in browser.
+
+699
+00:29:54,560 --> 00:30:00,600
+Okay, there you That's the That's a
+
+700
+00:29:56,840 --> 00:30:03,320
+demonstration of these features, okay?
+
+701
+00:30:00,600 --> 00:30:05,200
+Now, let me read um
+
+702
+00:30:03,320 --> 00:30:08,440
+the comments and
+
+703
+00:30:05,200 --> 00:30:10,520
+and perhaps that's it for today. So, how
+
+704
+00:30:08,440 --> 00:30:14,160
+long have I been talking?
+
+705
+00:30:10,520 --> 00:30:16,040
+For half half an hour?
+
+706
+00:30:14,160 --> 00:30:18,480
+Hello Kasausa, "Starting to learn E
+
+707
+00:30:16,040 --> 00:30:19,720
+Lisp, that's a great, you know, with E
+
+708
+00:30:18,480 --> 00:30:24,400
+Lisp
+
+709
+00:30:19,720 --> 00:30:24,400
+it makes your coding trivial."
+
+710
+00:30:27,760 --> 00:30:33,280
+Enough with the gum.
+
+711
+00:30:30,320 --> 00:30:33,280
+Now, coffee.
+
+712
+00:30:38,840 --> 00:30:44,280
+Per programmara,
+
+713
+00:30:41,360 --> 00:30:49,560
+hello, good morning. Nuts video, hello.
+
+714
+00:30:44,280 --> 00:30:49,560
+Nuts video LLC limited corporation.
+
+715
+00:30:49,800 --> 00:30:55,920
+Now, okay. Now, it's time to say now if
+
+716
+00:30:52,520 --> 00:30:58,480
+you like my stuff cuz HTML mod, you have
+
+717
+00:30:55,920 --> 00:31:02,160
+to pay, okay?
+
+718
+00:30:58,480 --> 00:31:04,640
+Pay me, you know, send me $20.
+
+719
+00:31:02,160 --> 00:31:06,720
+Yeah, send me, you know, ching ching
+
+720
+00:31:04,640 --> 00:31:08,520
+ching ching send me $20, okay? And
+
+721
+00:31:06,720 --> 00:31:10,600
+you'll you'll benefit from these
+
+722
+00:31:08,520 --> 00:31:12,240
+fantastic features.
+
+723
+00:31:10,600 --> 00:31:14,960
+So, how long did I work on, you know,
+
+724
+00:31:12,240 --> 00:31:17,560
+I've been writing it for 8 years, but in
+
+725
+00:31:14,960 --> 00:31:19,680
+the past month, I
+
+726
+00:31:17,560 --> 00:31:22,600
+basically full-time, I worked on it,
+
+727
+00:31:19,680 --> 00:31:24,760
+rewrote everything. So, you'll notice,
+
+728
+00:31:22,600 --> 00:31:26,560
+you know, there are you know
+
+729
+00:31:24,760 --> 00:31:28,200
+there's quite a lot improvements. For
+
+730
+00:31:26,560 --> 00:31:30,080
+example,
+
+731
+00:31:28,200 --> 00:31:32,960
+for example, you can see for example,
+
+732
+00:31:30,080 --> 00:31:34,440
+this this tag, okay? This is a list,
+
+733
+00:31:32,960 --> 00:31:36,680
+okay?
+
+734
+00:31:34,440 --> 00:31:38,880
+So, you can see the beginning tag and
+
+735
+00:31:36,680 --> 00:31:40,560
+the end tag are colored differently,
+
+736
+00:31:38,880 --> 00:31:42,520
+okay? You can see
+
+737
+00:31:40,560 --> 00:31:44,520
+can you see that?
+
+738
+00:31:42,520 --> 00:31:46,960
+It wasn't like that before. It, you
+
+739
+00:31:44,520 --> 00:31:48,840
+know, before this month, before
+
+740
+00:31:46,960 --> 00:31:51,440
+you know, 2 months ago, the beginning
+
+741
+00:31:48,840 --> 00:31:53,840
+tag and the ending tag have the same
+
+742
+00:31:51,440 --> 00:31:56,080
+color.
+
+743
+00:31:53,840 --> 00:31:57,960
+But, you know, but but then I started to
+
+744
+00:31:56,080 --> 00:32:00,320
+think that actually
+
+745
+00:31:57,960 --> 00:32:02,160
+if you make the ending tag
+
+746
+00:32:00,320 --> 00:32:04,080
+you know, not so apparent, you know,
+
+747
+00:32:02,160 --> 00:32:06,320
+like gray,
+
+748
+00:32:04,080 --> 00:32:07,600
+it actually is much better. Uh it's much
+
+749
+00:32:06,320 --> 00:32:09,560
+better. So,
+
+750
+00:32:07,600 --> 00:32:11,800
+you know, this is a refinement of
+
+751
+00:32:09,560 --> 00:32:14,440
+experience, you know, you don't see this
+
+752
+00:32:11,800 --> 00:32:17,240
+kind of thing in uh most other, you
+
+753
+00:32:14,440 --> 00:32:20,080
+know, syntax highlighting in HTML. For
+
+754
+00:32:17,240 --> 00:32:21,640
+example, in I have compared them. I you
+
+755
+00:32:20,080 --> 00:32:25,080
+know, I I
+
+756
+00:32:21,640 --> 00:32:27,840
+I dig into these things. I spend days on
+
+757
+00:32:25,080 --> 00:32:29,880
+how editors do syntax highlighting. I
+
+758
+00:32:27,840 --> 00:32:32,480
+mean, that's another giant topic, okay?
+
+759
+00:32:29,880 --> 00:32:34,640
+I can talk about for a few hours.
+
+760
+00:32:32,480 --> 00:32:37,520
+You know, the science and art of syntax
+
+761
+00:32:34,640 --> 00:32:39,400
+coloring in a of a programming language,
+
+762
+00:32:37,520 --> 00:32:41,520
+which should you color? There are so
+
+763
+00:32:39,400 --> 00:32:43,360
+many ways, okay? In fact, I have an
+
+764
+00:32:41,520 --> 00:32:45,240
+article on that. Just search for style
+
+765
+00:32:43,360 --> 00:32:47,960
+syntax color, you'll find it. I have
+
+766
+00:32:45,240 --> 00:32:49,760
+more than one articles.
+
+767
+00:32:47,960 --> 00:32:51,320
+So, I looked at, you know, VS Code. But
+
+768
+00:32:49,760 --> 00:32:53,040
+anyway, the point is that you don't see
+
+769
+00:32:51,320 --> 00:32:54,840
+this
+
+770
+00:32:53,040 --> 00:32:56,680
+uh you know,
+
+771
+00:32:54,840 --> 00:32:59,200
+you know, you can try it in Vim, you can
+
+772
+00:32:56,680 --> 00:33:02,320
+try it in VS Code, you can try it in
+
+773
+00:32:59,200 --> 00:33:05,280
+Xcode, the Mac, you know, Mac OS Apple's
+
+774
+00:33:02,320 --> 00:33:06,920
+Xcode, or you try uh any editor or
+
+775
+00:33:05,280 --> 00:33:09,800
+whatever in
+
+776
+00:33:06,920 --> 00:33:12,680
+uh you know, in in any other editors,
+
+777
+00:33:09,800 --> 00:33:14,840
+you'll see that they don't do this.
+
+778
+00:33:12,680 --> 00:33:16,760
+They don't color the closing tag to be a
+
+779
+00:33:14,840 --> 00:33:18,240
+different from the beginning tag. But
+
+780
+00:33:16,760 --> 00:33:21,040
+actually,
+
+781
+00:33:18,240 --> 00:33:23,120
+so this is kind of my
+
+782
+00:33:21,040 --> 00:33:25,040
+you know, if you know, you might call it
+
+783
+00:33:23,120 --> 00:33:26,680
+innovation. I believe so, it's a good
+
+784
+00:33:25,040 --> 00:33:28,360
+thing, okay?
+
+785
+00:33:26,680 --> 00:33:29,880
+Why don't they do that? Because, you
+
+786
+00:33:28,360 --> 00:33:31,240
+know, most of these syntax coloring,
+
+787
+00:33:29,880 --> 00:33:33,320
+they don't
+
+788
+00:33:31,240 --> 00:33:35,120
+they don't, you know, they want to
+
+789
+00:33:33,320 --> 00:33:37,240
+especially commercial ones, they want to
+
+790
+00:33:35,120 --> 00:33:40,040
+make money, right? If you want to make
+
+791
+00:33:37,240 --> 00:33:40,680
+money, usually you want to stay
+
+792
+00:33:40,040 --> 00:33:44,520
+uh
+
+793
+00:33:40,680 --> 00:33:46,760
+pretty common to the know gnome.
+
+794
+00:33:44,520 --> 00:33:48,200
+You know, you know, yeah, that's why,
+
+795
+00:33:46,760 --> 00:33:50,760
+you know, like if you are a big
+
+796
+00:33:48,200 --> 00:33:52,720
+corporation, you you stay to the gnome.
+
+797
+00:33:50,760 --> 00:33:54,680
+Unless you are a startup, you are new,
+
+798
+00:33:52,720 --> 00:33:56,280
+you are then you try maybe you try to
+
+799
+00:33:54,680 --> 00:33:58,840
+innovate.
+
+800
+00:33:56,280 --> 00:34:00,360
+So anyway, so so the it's interesting.
+
+801
+00:33:58,840 --> 00:34:01,560
+So the ending tag is colored
+
+802
+00:34:00,360 --> 00:34:02,560
+differently.
+
+803
+00:34:01,560 --> 00:34:05,640
+Um
+
+804
+00:34:02,560 --> 00:34:07,280
+and uh so what else?
+
+805
+00:34:05,640 --> 00:34:09,480
+Okay, I'm just going to read comments,
+
+806
+00:34:07,280 --> 00:34:11,560
+and I think that's it for today. Uh what
+
+807
+00:34:09,480 --> 00:34:14,360
+about other features? Uh you know,
+
+808
+00:34:11,560 --> 00:34:16,639
+there's quite a lot. There's quite a
+
+809
+00:34:14,360 --> 00:34:19,560
+lot, okay? So, let me demonstrate uh how
+
+810
+00:34:16,639 --> 00:34:25,520
+to how do you make a list, okay? So, A,
+
+811
+00:34:19,560 --> 00:34:27,360
+B, something, and uh C, something else.
+
+812
+00:34:25,520 --> 00:34:29,200
+So, you know, you write, you know, then
+
+813
+00:34:27,360 --> 00:34:32,120
+you want to make a list. So, you what do
+
+814
+00:34:29,200 --> 00:34:34,399
+you do? You press a key, it becomes a
+
+815
+00:34:32,120 --> 00:34:36,440
+list showing browser.
+
+816
+00:34:34,399 --> 00:34:38,639
+There you see.
+
+817
+00:34:36,440 --> 00:34:41,080
+What if you want it to be ordered list,
+
+818
+00:34:38,639 --> 00:34:42,760
+okay? You press a key
+
+819
+00:34:41,080 --> 00:34:44,879
+showing browser refresh, you got a
+
+820
+00:34:42,760 --> 00:34:47,560
+ordered list. Okay, that's how you make
+
+821
+00:34:44,879 --> 00:34:49,960
+a list. Okay, delete. Okay.
+
+822
+00:34:47,560 --> 00:34:53,320
+So, let's say
+
+823
+00:34:49,960 --> 00:34:55,840
+this is how you make a list. What What
+
+824
+00:34:53,320 --> 00:34:59,120
+if you want definition list, okay?
+
+825
+00:34:55,840 --> 00:35:01,320
+So, let's say uh Emacs
+
+826
+00:34:59,120 --> 00:35:05,000
+is a great
+
+827
+00:35:01,320 --> 00:35:08,120
+editor, okay? Let's say
+
+828
+00:35:05,000 --> 00:35:08,120
+Emacs Lisp
+
+829
+00:35:08,560 --> 00:35:14,480
+is a great programming language, okay?
+
+830
+00:35:12,520 --> 00:35:16,640
+For example, if you are writing Python
+
+831
+00:35:14,480 --> 00:35:18,680
+tutorial or if if you are blogging about
+
+832
+00:35:16,640 --> 00:35:20,520
+Python, there are some functions you
+
+833
+00:35:18,680 --> 00:35:23,680
+want to explain what they do. So, you
+
+834
+00:35:20,520 --> 00:35:24,720
+can explain so range, for example, range
+
+835
+00:35:23,680 --> 00:35:28,080
+uh
+
+836
+00:35:24,720 --> 00:35:28,080
+uh let's say range
+
+837
+00:35:29,240 --> 00:35:37,560
+generates a list from zero to n, okay?
+
+838
+00:35:35,400 --> 00:35:39,840
+Now, so you want to make this into a not
+
+839
+00:35:37,560 --> 00:35:40,880
+just a list, okay? So, let's try let's
+
+840
+00:35:39,840 --> 00:35:42,920
+show a
+
+841
+00:35:40,880 --> 00:35:45,680
+By the way, this is Sacha Discord Sacha
+
+842
+00:35:42,920 --> 00:35:46,720
+Discord. Join if you haven't already.
+
+843
+00:35:45,680 --> 00:35:48,840
+Uh
+
+844
+00:35:46,720 --> 00:35:51,760
+Okay, so you see right now you have a
+
+845
+00:35:48,840 --> 00:35:53,800
+list, but we want a definition list. Let
+
+846
+00:35:51,760 --> 00:35:55,960
+me show you, okay? So, you can see I
+
+847
+00:35:53,800 --> 00:35:59,960
+press a key.
+
+848
+00:35:55,960 --> 00:36:02,320
+Done. Now, go to the browser, refresh.
+
+849
+00:35:59,960 --> 00:36:04,240
+Now, that looks fantastic, you know? You
+
+850
+00:36:02,320 --> 00:36:06,360
+have a definition You have a word, then
+
+851
+00:36:04,240 --> 00:36:08,280
+you have a meaning. So, Emacs Lisp is a
+
+852
+00:36:06,360 --> 00:36:10,360
+great programming language. Range n
+
+853
+00:36:08,280 --> 00:36:11,800
+generates a list from zero to n. So,
+
+854
+00:36:10,360 --> 00:36:13,800
+that's
+
+855
+00:36:11,800 --> 00:36:15,840
+how you uh create a definition list.
+
+856
+00:36:13,800 --> 00:36:16,760
+What What if you want a table? So, let's
+
+857
+00:36:15,840 --> 00:36:19,440
+say
+
+858
+00:36:16,760 --> 00:36:21,680
+uh table, okay?
+
+859
+00:36:19,440 --> 00:36:23,400
+Let's say multiplication table, okay?
+
+860
+00:36:21,680 --> 00:36:26,000
+So, we have
+
+861
+00:36:23,400 --> 00:36:29,080
+one, two, three, okay? Uh let's say one,
+
+862
+00:36:26,000 --> 00:36:29,080
+two, three.
+
+863
+00:36:29,280 --> 00:36:36,720
+Then 1 2
+
+864
+00:36:31,840 --> 00:36:40,640
+3. Then, 1 2 1 * 1 is 1, okay?
+
+865
+00:36:36,720 --> 00:36:43,600
+1 1 * 2 is uh 2, okay? So, this is 1 2
+
+866
+00:36:40,640 --> 00:36:46,240
+3. 1 * 2 is 2.
+
+867
+00:36:43,600 --> 00:36:48,480
+1 * 2 * 2 is 4.
+
+868
+00:36:46,240 --> 00:36:50,760
+2 * 3 is 6. So, here we have a
+
+869
+00:36:48,480 --> 00:36:51,960
+multiplication table. We going to make
+
+870
+00:36:50,760 --> 00:36:53,360
+it.
+
+871
+00:36:51,960 --> 00:36:55,120
+So, 3
+
+872
+00:36:53,360 --> 00:37:00,040
+uh
+
+873
+00:36:55,120 --> 00:37:01,520
+Okay, so 3 2 is 6. 3 3 is 9.
+
+874
+00:37:00,040 --> 00:37:03,960
+Okay, so
+
+875
+00:37:01,520 --> 00:37:05,880
+if you show in browser,
+
+876
+00:37:03,960 --> 00:37:07,560
+you know, it becomes that. No good. You
+
+877
+00:37:05,880 --> 00:37:09,480
+want the table. So,
+
+878
+00:37:07,560 --> 00:37:11,480
+let's see. We want to make a table,
+
+879
+00:37:09,480 --> 00:37:12,640
+right? Yeah, so how do you So, when
+
+880
+00:37:11,480 --> 00:37:18,240
+let's see.
+
+881
+00:37:12,640 --> 00:37:18,240
+I got a 1 2 3. So, space is a separator.
+
+882
+00:37:18,480 --> 00:37:25,320
+Okay, so we need empty. So, let's ready.
+
+883
+00:37:21,560 --> 00:37:25,320
+Let's do it. Okay, so
+
+884
+00:37:27,240 --> 00:37:31,480
+Okay, you got it. Now, go to the
+
+885
+00:37:28,800 --> 00:37:35,320
+browser. Show in So, you see, you got a
+
+886
+00:37:31,480 --> 00:37:35,320
+table. Fantastic.
+
+887
+00:37:35,400 --> 00:37:39,440
+And by the way, you can also So, you can
+
+888
+00:37:37,240 --> 00:37:43,520
+also remove the table. So, So, what you
+
+889
+00:37:39,440 --> 00:37:46,080
+do is uh You see? You press a key, it it
+
+890
+00:37:43,520 --> 00:37:48,120
+becomes back to that, okay? So, now you
+
+891
+00:37:46,080 --> 00:37:50,920
+can make that a table again. Let's copy
+
+892
+00:37:48,120 --> 00:37:53,200
+at Let's uh make a table again. You see,
+
+893
+00:37:50,920 --> 00:37:55,440
+now it's a table again.
+
+894
+00:37:53,200 --> 00:37:56,840
+So, that's a table and uh
+
+895
+00:37:55,440 --> 00:37:58,840
+So, that's how you make a table. So,
+
+896
+00:37:56,840 --> 00:38:00,640
+what what else? What other features?
+
+897
+00:37:58,840 --> 00:38:03,160
+Create a list, create a table, create a
+
+898
+00:38:00,640 --> 00:38:05,360
+link. I already showed create a link.
+
+899
+00:38:03,160 --> 00:38:07,160
+Create any link. So, there are different
+
+900
+00:38:05,360 --> 00:38:09,440
+type of links. For example, let me show
+
+901
+00:38:07,160 --> 00:38:12,360
+you another one. So,
+
+902
+00:38:09,440 --> 00:38:15,080
+for example, if you got a URL, okay? So,
+
+903
+00:38:12,360 --> 00:38:17,440
+let's see.
+
+904
+00:38:15,080 --> 00:38:18,280
+Uh Amazon, so
+
+905
+00:38:17,440 --> 00:38:20,240
+uh
+
+906
+00:38:18,280 --> 00:38:21,840
+So, let's say you got a URL, okay?
+
+907
+00:38:20,240 --> 00:38:25,400
+Digital pen.
+
+908
+00:38:21,840 --> 00:38:28,280
+So, you paste the URL and you can make a
+
+909
+00:38:25,400 --> 00:38:30,240
+URL. So, let's put it here, okay? So, do
+
+910
+00:38:28,280 --> 00:38:32,760
+it, it becomes URL. But, sometimes you
+
+911
+00:38:30,240 --> 00:38:34,880
+don't want you don't want the that
+
+912
+00:38:32,760 --> 00:38:36,240
+format. You want, for example, let me
+
+913
+00:38:34,880 --> 00:38:39,480
+show you, okay?
+
+914
+00:38:36,240 --> 00:38:42,440
+So, here is a CSS file. I did a I did a
+
+915
+00:38:39,480 --> 00:38:44,320
+video about a month ago on CSS. If you
+
+916
+00:38:42,440 --> 00:38:46,680
+haven't already, watch it, okay? So,
+
+917
+00:38:44,320 --> 00:38:50,400
+this is and I I also have a tutorial on
+
+918
+00:38:46,680 --> 00:38:51,840
+CSS. Just search for it. Ksadi CSS
+
+919
+00:38:50,400 --> 00:38:54,040
+tutorial.
+
+920
+00:38:51,840 --> 00:38:57,760
+Or search for Ksadi visual CSS. Okay,
+
+921
+00:38:54,040 --> 00:39:00,640
+anyways, here's a CSS file. You copy the
+
+922
+00:38:57,760 --> 00:39:02,440
+file path, close it, shrink the window.
+
+923
+00:39:00,640 --> 00:39:04,480
+Now, you go down.
+
+924
+00:39:02,440 --> 00:39:06,920
+Okay, you go to the top. You You You go
+
+925
+00:39:04,480 --> 00:39:09,360
+here, paste the link. So, you see,
+
+926
+00:39:06,920 --> 00:39:11,760
+here's a CSS file. You want to link it
+
+927
+00:39:09,360 --> 00:39:13,440
+to become that. You see, in general, you
+
+928
+00:39:11,760 --> 00:39:14,560
+don't want the, you know, you don't want
+
+929
+00:39:13,440 --> 00:39:17,520
+the
+
+930
+00:39:14,560 --> 00:39:20,400
+you don't want the A, you know, link.
+
+931
+00:39:17,520 --> 00:39:23,560
+So, anyway, you press the key, it
+
+932
+00:39:20,400 --> 00:39:25,120
+automatically becomes that. And And
+
+933
+00:39:23,560 --> 00:39:26,960
+similarly,
+
+934
+00:39:25,120 --> 00:39:29,040
+uh What What if you have a JavaScript
+
+935
+00:39:26,960 --> 00:39:31,480
+file? For example, JavaScript. So, you
+
+936
+00:39:29,040 --> 00:39:34,880
+press a key, automatically become a
+
+937
+00:39:31,480 --> 00:39:38,160
+script link, okay? So, this is, uh
+
+938
+00:39:34,880 --> 00:39:38,160
+you know, the features.
+
+939
+00:39:38,320 --> 00:39:42,920
+Okay, so delete that. So, uh do we have
+
+940
+00:39:40,920 --> 00:39:45,240
+Okay, delete that, delete that. So, back
+
+941
+00:39:42,920 --> 00:39:47,680
+to So, create a link uh
+
+942
+00:39:45,240 --> 00:39:48,960
+So, create a link, create a table. So,
+
+943
+00:39:47,680 --> 00:39:52,560
+what else?
+
+944
+00:39:48,960 --> 00:39:52,560
+Close that, close that.
+
+945
+00:39:53,480 --> 00:39:57,400
+Embed image, we showed that. Tag
+
+946
+00:39:55,720 --> 00:40:00,520
+navigation, okay, this is another
+
+947
+00:39:57,400 --> 00:40:03,400
+fantastic thing. Fantastic, I say.
+
+948
+00:40:00,520 --> 00:40:05,280
+Tag navigation, you know, HTML tags,
+
+949
+00:40:03,400 --> 00:40:09,120
+they are a tree. So, you want to
+
+950
+00:40:05,280 --> 00:40:11,040
+navigate them, you press the key.
+
+951
+00:40:09,120 --> 00:40:13,880
+You see? Now, I want to go to the
+
+952
+00:40:11,040 --> 00:40:16,200
+previous beginning tag. Or I want to go
+
+953
+00:40:13,880 --> 00:40:17,640
+to the previous end tag.
+
+954
+00:40:16,200 --> 00:40:19,000
+You see?
+
+955
+00:40:17,640 --> 00:40:21,600
+I mean the
+
+956
+00:40:19,000 --> 00:40:24,120
+next beginning tag, previous beginning
+
+957
+00:40:21,600 --> 00:40:27,440
+tag, or next next tag and previous tag,
+
+958
+00:40:24,120 --> 00:40:29,600
+okay? Next tag, previous tag, you see?
+
+959
+00:40:27,440 --> 00:40:32,200
+Previous tag, you can press the key. Oh,
+
+960
+00:40:29,600 --> 00:40:33,600
+you So, if Now, let's say you want to go
+
+961
+00:40:32,200 --> 00:40:36,040
+to the
+
+962
+00:40:33,600 --> 00:40:38,760
+matching end tag, okay? Now, you press
+
+963
+00:40:36,040 --> 00:40:40,320
+this key. You see?
+
+964
+00:40:38,760 --> 00:40:42,160
+You press again, go to the matching
+
+965
+00:40:40,320 --> 00:40:44,520
+beginning tag. So, let's let's try
+
+966
+00:40:42,160 --> 00:40:47,360
+again. So, next, let's go to the next
+
+967
+00:40:44,520 --> 00:40:50,240
+tag here. Now, you want to go to the end
+
+968
+00:40:47,360 --> 00:40:53,640
+matching tag of that TD. So, you press
+
+969
+00:40:50,240 --> 00:40:55,880
+down arrow. So, there you go.
+
+970
+00:40:53,640 --> 00:40:58,400
+So, that's a tag navigation. So, this
+
+971
+00:40:55,880 --> 00:41:00,080
+allows you to move to anywhere you want.
+
+972
+00:40:58,400 --> 00:41:03,040
+What about tag selection? Let's say you
+
+973
+00:41:00,080 --> 00:41:06,280
+want to select the whole table tag. So,
+
+974
+00:41:03,040 --> 00:41:09,040
+you just press put your cursor here,
+
+975
+00:41:06,280 --> 00:41:10,920
+press a key, you see? You got that whole
+
+976
+00:41:09,040 --> 00:41:12,960
+thing selected.
+
+977
+00:41:10,920 --> 00:41:15,160
+What if your cursor is here? You see?
+
+978
+00:41:12,960 --> 00:41:18,120
+Press a key, you see you got the whole
+
+979
+00:41:15,160 --> 00:41:20,520
+TD tag selected. What What if What if
+
+980
+00:41:18,120 --> 00:41:24,120
+your cursor is here? Press a key, you
+
+981
+00:41:20,520 --> 00:41:25,760
+got the whole DD definition uh
+
+982
+00:41:24,120 --> 00:41:28,920
+uh
+
+983
+00:41:25,760 --> 00:41:31,080
+You know, that's a definition um
+
+984
+00:41:28,920 --> 00:41:32,920
+tag, you know?
+
+985
+00:41:31,080 --> 00:41:34,880
+And you can repeat it.
+
+986
+00:41:32,920 --> 00:41:38,080
+Uh okay, so anyway anyway.
+
+987
+00:41:34,880 --> 00:41:38,720
+So, that's some of the That's you know
+
+988
+00:41:38,080 --> 00:41:41,840
+uh
+
+989
+00:41:38,720 --> 00:41:41,840
+tag navigation.
+
+990
+00:41:41,880 --> 00:41:46,240
+And remove tag, there are also several
+
+991
+00:41:43,760 --> 00:41:48,760
+commands to remove tags. And preview in
+
+992
+00:41:46,240 --> 00:41:51,360
+browser, you can preview in um
+
+993
+00:41:48,760 --> 00:41:53,600
+in many browsers. For example, let's say
+
+994
+00:41:51,360 --> 00:41:56,080
+let's view this in Brave browser, okay?
+
+995
+00:41:53,600 --> 00:41:58,280
+This link. So, all you have to do is put
+
+996
+00:41:56,080 --> 00:42:00,200
+your cursor on a URL
+
+997
+00:41:58,280 --> 00:42:02,680
+and call I don't I don't remember what's
+
+998
+00:42:00,200 --> 00:42:05,800
+the key, so
+
+999
+00:42:02,680 --> 00:42:06,960
+HTML open Let's say Firefox.
+
+1000
+00:42:05,800 --> 00:42:10,880
+Okay?
+
+1001
+00:42:06,960 --> 00:42:12,880
+Uh HTML HTML open in Firefox. Press
+
+1002
+00:42:10,880 --> 00:42:16,440
+enter.
+
+1003
+00:42:12,880 --> 00:42:18,000
+Uh Firefox asked me to update. Okay.
+
+1004
+00:42:16,440 --> 00:42:21,680
+Okay.
+
+1005
+00:42:18,000 --> 00:42:21,680
+I stopped using Firefox.
+
+1006
+00:42:26,040 --> 00:42:30,520
+So, you can use, you know, you can open
+
+1007
+00:42:28,680 --> 00:42:33,400
+several different browsers. And by the
+
+1008
+00:42:30,520 --> 00:42:34,840
+way, there's a great feature
+
+1009
+00:42:33,400 --> 00:42:37,400
+that is
+
+1010
+00:42:34,840 --> 00:42:39,000
+if your URL
+
+1011
+00:42:37,400 --> 00:42:41,400
+is
+
+1012
+00:42:39,000 --> 00:42:45,120
+on a link, for example, on a URL, for
+
+1013
+00:42:41,400 --> 00:42:47,680
+example, on on a URL. Then, you call
+
+1014
+00:42:45,120 --> 00:42:50,080
+HTML open in Let's say open in Chrome,
+
+1015
+00:42:47,680 --> 00:42:50,080
+okay?
+
+1016
+00:42:50,720 --> 00:42:55,760
+HTML open in Chrome.
+
+1017
+00:42:53,120 --> 00:42:59,560
+Okay, so it opens that URL in Chrome
+
+1018
+00:42:55,760 --> 00:43:02,320
+browser. Now, go back. Now, if your
+
+1019
+00:42:59,560 --> 00:43:04,560
+uh if your cursor is not on a link,
+
+1020
+00:43:02,320 --> 00:43:06,240
+let's say somewhere here, then you call
+
+1021
+00:43:04,560 --> 00:43:08,640
+that command again,
+
+1022
+00:43:06,240 --> 00:43:10,440
+and it will just open your current
+
+1023
+00:43:08,640 --> 00:43:12,200
+buffer. So, it's, you know, it's a great
+
+1024
+00:43:10,440 --> 00:43:14,640
+feature.
+
+1025
+00:43:12,200 --> 00:43:16,880
+Okay, that's it. That's That's about it
+
+1026
+00:43:14,640 --> 00:43:19,120
+for today. Let's see what else. What
+
+1027
+00:43:16,880 --> 00:43:21,760
+other questions?
+
+1028
+00:43:19,120 --> 00:43:21,760
+Uh
+
+1029
+00:43:25,400 --> 00:43:30,320
+Thought about LaTeX. I talked about that
+
+1030
+00:43:27,920 --> 00:43:31,400
+many times. Just search for my YouTube
+
+1031
+00:43:30,320 --> 00:43:35,160
+video.
+
+1032
+00:43:31,400 --> 00:43:35,160
+Search for Xahlee LaTeX.
+
+1033
+00:43:41,840 --> 00:43:46,920
+Xah Q Q question. I touch type. What's
+
+1034
+00:43:44,320 --> 00:43:51,120
+your new one keyboard recommendation?
+
+1035
+00:43:46,920 --> 00:43:53,960
+Kinesis Advantage. Okay. Uh yeah.
+
+1036
+00:43:51,120 --> 00:43:56,320
+So, Kinesis Advantage
+
+1037
+00:43:53,960 --> 00:43:58,840
+and uh
+
+1038
+00:43:56,320 --> 00:44:00,760
+And let let's let's show you this, okay?
+
+1039
+00:43:58,840 --> 00:44:03,680
+So, you want to
+
+1040
+00:44:00,760 --> 00:44:06,440
+So, the keyboard I recommend is Kinesis
+
+1041
+00:44:03,680 --> 00:44:10,280
+Advantage, yes.
+
+1042
+00:44:06,440 --> 00:44:12,760
+And uh Expose X
+
+1043
+00:44:10,280 --> 00:44:15,640
+bows. Okay, this is also fantastic. I
+
+1044
+00:44:12,760 --> 00:44:18,480
+got the keyboard right there. Okay.
+
+1045
+00:44:15,640 --> 00:44:20,280
+Uh this is fantastic. Okay.
+
+1046
+00:44:18,480 --> 00:44:22,400
+So, which one which one should you
+
+1047
+00:44:20,280 --> 00:44:24,280
+choose? I mean, I cannot give you, you
+
+1048
+00:44:22,400 --> 00:44:25,240
+know, one choice. You know, I can just
+
+1049
+00:44:24,280 --> 00:44:26,840
+say
+
+1050
+00:44:25,240 --> 00:44:29,720
+some of these are
+
+1051
+00:44:26,840 --> 00:44:32,320
+the best. Okay, so I have article. Okay.
+
+1052
+00:44:29,720 --> 00:44:34,520
+Best ergonomic keyboards. So, I give you
+
+1053
+00:44:32,320 --> 00:44:36,360
+some choices. They are great because
+
+1054
+00:44:34,520 --> 00:44:37,760
+depends on your Each person is
+
+1055
+00:44:36,360 --> 00:44:40,480
+different. Okay, I talked about this
+
+1056
+00:44:37,760 --> 00:44:40,480
+many times.
+
+1057
+00:44:43,800 --> 00:44:50,800
+Okay, that's it for today. I I think.
+
+1058
+00:44:47,840 --> 00:44:52,560
+Thomas picking. Okay. Just pick random
+
+1059
+00:44:50,800 --> 00:44:55,080
+things you find interesting. Okay, how
+
+1060
+00:44:52,560 --> 00:44:58,200
+does your package handle other web
+
+1061
+00:44:55,080 --> 00:45:00,760
+stuff? Inline JavaScript and CSS. It
+
+1062
+00:44:58,200 --> 00:45:04,040
+handles them fine. Haha.
+
+1063
+00:45:00,760 --> 00:45:06,520
+Let's Let's find Okay, let's go to a
+
+1064
+00:45:04,040 --> 00:45:09,600
+website. Okay, let's try this one. Let's
+
+1065
+00:45:06,520 --> 00:45:11,920
+try Wikipedia. Okay.
+
+1066
+00:45:09,600 --> 00:45:13,880
+Uh let's say philosophy.
+
+1067
+00:45:11,920 --> 00:45:15,720
+Uh let's say Emacs. Okay, Emacs
+
+1068
+00:45:13,880 --> 00:45:19,120
+Wikipedia. Okay.
+
+1069
+00:45:15,720 --> 00:45:22,560
+So, we are going to Emacs Wikipedia
+
+1070
+00:45:19,120 --> 00:45:24,840
+page. Why is it so small? Never never
+
+1071
+00:45:22,560 --> 00:45:25,640
+ever donate to Wikipedia. Okay, because
+
+1072
+00:45:24,840 --> 00:45:28,680
+they
+
+1073
+00:45:25,640 --> 00:45:31,280
+they your money goes to the Jimmy
+
+1074
+00:45:28,680 --> 00:45:33,920
+uh pocket.
+
+1075
+00:45:31,280 --> 00:45:34,920
+Wikipedia has become like semi scam.
+
+1076
+00:45:33,920 --> 00:45:37,920
+Okay.
+
+1077
+00:45:34,920 --> 00:45:40,440
+Anyway, so here's a Emacs Wikipedia. On
+
+1078
+00:45:37,920 --> 00:45:43,680
+Emacs, you press
+
+1079
+00:45:40,440 --> 00:45:47,040
+control U to show the URL to show the
+
+1080
+00:45:43,680 --> 00:45:49,480
+HTML. Select all, copy it, back to
+
+1081
+00:45:47,040 --> 00:45:51,840
+Emacs, magnify,
+
+1082
+00:45:49,480 --> 00:45:56,480
+new buffer, paste the whole thing in.
+
+1083
+00:45:51,840 --> 00:45:56,480
+So, we are looking at the source code
+
+1084
+00:45:57,320 --> 00:46:01,800
+of um
+
+1085
+00:45:59,080 --> 00:46:04,040
+of the Wikipedia HTML. Now, it's take
+
+1086
+00:46:01,800 --> 00:46:06,840
+it's slow. It's kind of Okay, it's not
+
+1087
+00:46:04,040 --> 00:46:08,240
+too slow. Okay, so you see Emacs got a
+
+1088
+00:46:06,840 --> 00:46:09,960
+problem
+
+1089
+00:46:08,240 --> 00:46:12,520
+when you have a line that's, you know,
+
+1090
+00:46:09,960 --> 00:46:14,440
+thousands of characters. Emacs becomes
+
+1091
+00:46:12,520 --> 00:46:15,720
+slow with that.
+
+1092
+00:46:14,440 --> 00:46:18,480
+So, anyway.
+
+1093
+00:46:15,720 --> 00:46:19,680
+So, this is the Wikipedia
+
+1094
+00:46:18,480 --> 00:46:22,120
+um
+
+1095
+00:46:19,680 --> 00:46:26,040
+HTML source code
+
+1096
+00:46:22,120 --> 00:46:29,080
+displayed using xs HTML mode. It works
+
+1097
+00:46:26,040 --> 00:46:29,080
+just fine.
+
+1098
+00:46:29,280 --> 00:46:34,840
+Okay, so that's you know, okay, that's
+
+1099
+00:46:32,240 --> 00:46:38,200
+answer. I hope that answers question.
+
+1100
+00:46:34,840 --> 00:46:38,200
+Uh next question.
+
+1101
+00:47:00,520 --> 00:47:06,960
+My theme is horrible to look at, really?
+
+1102
+00:47:03,760 --> 00:47:09,600
+I think it's actually great.
+
+1103
+00:47:06,960 --> 00:47:11,840
+Okay, that's Leo. It looks great, yeah.
+
+1104
+00:47:09,600 --> 00:47:14,400
+It's not bad how now watch volume. Okay,
+
+1105
+00:47:11,840 --> 00:47:15,600
+so let's see what else.
+
+1106
+00:47:14,400 --> 00:47:18,240
+Uh
+
+1107
+00:47:15,600 --> 00:47:20,760
+really strange uh really changes your
+
+1108
+00:47:18,240 --> 00:47:22,800
+life. Syntax coloring is really uh
+
+1109
+00:47:20,760 --> 00:47:24,000
+interesting. How much did that take to
+
+1110
+00:47:22,800 --> 00:47:25,640
+write?
+
+1111
+00:47:24,000 --> 00:47:27,400
+Okay.
+
+1112
+00:47:25,640 --> 00:47:29,560
+10 years, okay.
+
+1113
+00:47:27,400 --> 00:47:33,320
+xs HTML I talked, you know, as you know,
+
+1114
+00:47:29,560 --> 00:47:34,720
+in earlier I said xs HTML is now 10
+
+1115
+00:47:33,320 --> 00:47:36,560
+years old.
+
+1116
+00:47:34,720 --> 00:47:39,960
+But, I rewrote it
+
+1117
+00:47:36,560 --> 00:47:39,960
+in the past 2 months.
+
+1118
+00:47:43,920 --> 00:47:50,760
+Uh Leocardio, good morning Leocardio.
+
+1119
+00:47:48,360 --> 00:47:52,240
+It's not really you know, many of the
+
+1120
+00:47:50,760 --> 00:47:53,880
+features are new, but you know,
+
+1121
+00:47:52,240 --> 00:47:57,240
+basically I rewrote the thing. So,
+
+1122
+00:47:53,880 --> 00:48:00,040
+there's a lot improvements.
+
+1123
+00:47:57,240 --> 00:48:01,920
+Would HTML with Mathematica or Lisp
+
+1124
+00:48:00,040 --> 00:48:04,560
+syntax looks looks better in your
+
+1125
+00:48:01,920 --> 00:48:07,640
+opinion? Okay, that's another topic
+
+1126
+00:48:04,560 --> 00:48:09,800
+that I can go on for hours.
+
+1127
+00:48:07,640 --> 00:48:12,400
+But that's it for today. No, I don't
+
+1128
+00:48:09,800 --> 00:48:14,480
+have two monitors. I only have one.
+
+1129
+00:48:12,400 --> 00:48:14,480
+Uh
+
+1130
+00:48:16,440 --> 00:48:22,520
+Okay, that's it for it. That's it
+
+1131
+00:48:19,920 --> 00:48:24,040
+for today. Thank you guys for watching.
+
+1132
+00:48:22,520 --> 00:48:28,440
+Um
+
+1133
+00:48:24,040 --> 00:48:31,080
+So, I think tomorrow I think tomorrow
+
+1134
+00:48:28,440 --> 00:48:33,520
+10:00 San Francisco time, 10:00 in the
+
+1135
+00:48:31,080 --> 00:48:36,480
+morning San Francisco time.
+
+1136
+00:48:33,520 --> 00:48:38,200
+Uh I think I'm going to do a a live
+
+1137
+00:48:36,480 --> 00:48:40,760
+stream again. It's been a while. It's
+
+1138
+00:48:38,200 --> 00:48:42,960
+been a month I haven't do a done a live
+
+1139
+00:48:40,760 --> 00:48:48,200
+stream. So, again, if you like my stuff,
+
+1140
+00:48:42,960 --> 00:48:51,600
+okay, try go download HTML Xi HTML mod
+
+1141
+00:48:48,200 --> 00:48:53,480
+and uh pay me, okay? PayPal and Patreon,
+
+1142
+00:48:51,600 --> 00:48:57,320
+you know where to find it. I got links
+
+1143
+00:48:53,480 --> 00:48:57,320
+over on my website.
+
+1144
+00:48:58,080 --> 00:49:02,760
+Anything else, okay? We we shut down in
+
+1145
+00:49:00,320 --> 00:49:04,960
+2 minutes. Anything else?
+
+1146
+00:49:02,760 --> 00:49:06,680
+Paul Edward
+
+1147
+00:49:04,960 --> 00:49:08,040
+Uh where are you from, Paul Edward? I
+
+1148
+00:49:06,680 --> 00:49:10,960
+forgot.
+
+1149
+00:49:08,040 --> 00:49:14,160
+And uh Leo Cardo, I always forgot where
+
+1150
+00:49:10,960 --> 00:49:17,680
+you from, Leo Cardo.
+
+1151
+00:49:14,160 --> 00:49:17,680
+Okay, that's it for today, okay?
+
+1152
+00:49:17,760 --> 00:49:23,720
+So, let's see what we talked about. So,
+
+1153
+00:49:20,320 --> 00:49:25,800
+we demonstrated Xi HTML mod. Now, look
+
+1154
+00:49:23,720 --> 00:49:28,440
+at this huge
+
+1155
+00:49:25,800 --> 00:49:28,440
+uh
+
+1156
+00:49:29,000 --> 00:49:33,840
+Okay, shutting down.
+
+1157
+00:49:30,840 --> 00:49:36,000
+So, Xi HTML mod and what is So, this So,
+
+1158
+00:49:33,840 --> 00:49:38,120
+this is a source code of Wikipedia. You
+
+1159
+00:49:36,000 --> 00:49:42,280
+know, sometime you know
+
+1160
+00:49:38,120 --> 00:49:45,040
+because I've been coding HTML since 1996
+
+1161
+00:49:42,280 --> 00:49:46,080
+and uh I do frequently look at how, you
+
+1162
+00:49:45,040 --> 00:49:48,480
+know,
+
+1163
+00:49:46,080 --> 00:49:51,720
+others website do things.
+
+1164
+00:49:48,480 --> 00:49:53,680
+Uh you know, because over the past 25
+
+1165
+00:49:51,720 --> 00:49:54,880
+years HTML, of course, they have
+
+1166
+00:49:53,680 --> 00:49:57,200
+changed.
+
+1167
+00:49:54,880 --> 00:49:59,800
+Oh, there are big big and small changes,
+
+1168
+00:49:57,200 --> 00:50:02,560
+you know, the fashion and fads.
+
+1169
+00:49:59,800 --> 00:50:03,840
+You know, some tags become obsolete. You
+
+1170
+00:50:02,560 --> 00:50:06,880
+know, beginning in the beginning you
+
+1171
+00:50:03,840 --> 00:50:09,760
+have HTML 2, 1995.
+
+1172
+00:50:06,880 --> 00:50:14,960
+Then you have HTML 3. Then you have HTML
+
+1173
+00:50:09,760 --> 00:50:16,600
+4. You know, 1995 HTML 2. Then HTML 3,
+
+1174
+00:50:14,960 --> 00:50:19,400
+okay.
+
+1175
+00:50:16,600 --> 00:50:21,960
+Around there, 1998 or something. Then
+
+1176
+00:50:19,400 --> 00:50:27,520
+CSS got invented. You know, there is no
+
+1177
+00:50:21,960 --> 00:50:29,160
+CSS before. CSS, 1999 or so. And
+
+1178
+00:50:27,520 --> 00:50:30,760
+it didn't be
+
+1179
+00:50:29,160 --> 00:50:33,800
+People don't like it. People don't use
+
+1180
+00:50:30,760 --> 00:50:36,160
+it until much later, like 2002 or so. It
+
+1181
+00:50:33,800 --> 00:50:38,920
+becomes more and more popular. CSS,
+
+1182
+00:50:36,160 --> 00:50:43,560
+cascading style sheet. Then XML, you
+
+1183
+00:50:38,920 --> 00:50:46,560
+know, HTML, then you have XML and HT-
+
+1184
+00:50:43,560 --> 00:50:48,760
+XHTML, you know.
+
+1185
+00:50:46,560 --> 00:50:50,760
+That become That becomes the a trend,
+
+1186
+00:50:48,760 --> 00:50:52,560
+you know, that
+
+1187
+00:50:50,760 --> 00:50:56,720
+you know, everybody is saying you you
+
+1188
+00:50:52,560 --> 00:51:00,200
+need to switch to XML XML or XHTML. Then
+
+1189
+00:50:56,720 --> 00:51:03,480
+the HTML 5, the What the
+
+1190
+00:51:00,200 --> 00:51:05,720
+group came up. That's made of Opera,
+
+1191
+00:51:03,480 --> 00:51:07,320
+made of Opera, Apple, and eventually
+
+1192
+00:51:05,720 --> 00:51:10,880
+Google. You know, they were going to
+
+1193
+00:51:07,320 --> 00:51:14,120
+overthrow the HTML W3C standard. They
+
+1194
+00:51:10,880 --> 00:51:16,240
+created HTML 5. Why? Because they You
+
+1195
+00:51:14,120 --> 00:51:18,680
+know, they say they say screw XML. We
+
+1196
+00:51:16,240 --> 00:51:20,960
+don't like XML. We want We want a new We
+
+1197
+00:51:18,680 --> 00:51:23,000
+are going to We are We are going to be
+
+1198
+00:51:20,960 --> 00:51:25,120
+the standard, you know.
+
+1199
+00:51:23,000 --> 00:51:27,160
+ you, W3C.
+
+1200
+00:51:25,120 --> 00:51:29,640
+You know, the power struggle among the
+
+1201
+00:51:27,160 --> 00:51:35,240
+open source heads.
+
+1202
+00:51:29,640 --> 00:51:35,240
+So, HTML HTML 5 is a abomination.
+
+1203
+00:51:35,400 --> 00:51:39,040
+Long story, you know, I I think I talked
+
+1204
+00:51:37,160 --> 00:51:42,480
+about this in my past videos, too, you
+
+1205
+00:51:39,040 --> 00:51:43,800
+know, the history of HTML. So, um
+
+1206
+00:51:42,480 --> 00:51:45,720
+um
+
+1207
+00:51:43,800 --> 00:51:47,880
+you know, HTML 5, why is it invented?
+
+1208
+00:51:45,720 --> 00:51:50,760
+Because Apple wanted you know, they they
+
+1209
+00:51:47,880 --> 00:51:52,960
+they they they created iPhone. They want
+
+1210
+00:51:50,760 --> 00:51:54,600
+canvas, you know, so they can, you know,
+
+1211
+00:51:52,960 --> 00:51:56,520
+they don't want to use they don't want
+
+1212
+00:51:54,600 --> 00:51:59,120
+to use Adobe, they don't want to use
+
+1213
+00:51:56,520 --> 00:52:01,840
+SVG. They they invented they want to use
+
+1214
+00:51:59,120 --> 00:52:04,520
+canvas, you know, so they
+
+1215
+00:52:01,840 --> 00:52:07,200
+So, for reasons like that, basically
+
+1216
+00:52:04,520 --> 00:52:08,760
+canvas canvas is one of the big reason
+
+1217
+00:52:07,200 --> 00:52:10,960
+HTML5,
+
+1218
+00:52:08,760 --> 00:52:13,880
+you know, the what the group HTML5
+
+1219
+00:52:10,960 --> 00:52:16,800
+got created. And for for about 5 years,
+
+1220
+00:52:13,880 --> 00:52:19,560
+there are two HTML standards.
+
+1221
+00:52:16,800 --> 00:52:20,720
+One is from the what the group, you
+
+1222
+00:52:19,560 --> 00:52:23,920
+know,
+
+1223
+00:52:20,720 --> 00:52:26,480
+from Apple, Opera, and Google, you know.
+
+1224
+00:52:23,920 --> 00:52:29,640
+And the other one is W3C.
+
+1225
+00:52:26,480 --> 00:52:31,600
+So, there's two HTML standards.
+
+1226
+00:52:29,640 --> 00:52:34,080
+Then eventually they merged, you know,
+
+1227
+00:52:31,600 --> 00:52:36,600
+they finally agreed to
+
+1228
+00:52:34,080 --> 00:52:39,680
+merge their standard, you know,
+
+1229
+00:52:36,600 --> 00:52:41,880
+uh about 2 years ago.
+
+1230
+00:52:39,680 --> 00:52:43,560
+Uh lots of uh struggles, you know, power
+
+1231
+00:52:41,880 --> 00:52:44,240
+struggles.
+
+1232
+00:52:43,560 --> 00:52:46,440
+Uh
+
+1233
+00:52:44,240 --> 00:52:49,400
+why does that happen? Well, mostly it's
+
+1234
+00:52:46,440 --> 00:52:51,880
+all because money, okay?
+
+1235
+00:52:49,400 --> 00:52:53,720
+Because money. Because, you know,
+
+1236
+00:52:51,880 --> 00:52:55,320
+So, anyway, so here's Wikipedia, you
+
+1237
+00:52:53,720 --> 00:52:57,640
+know, one thing they, you know, one
+
+1238
+00:52:55,320 --> 00:53:01,480
+thing is that every tag, you know, they
+
+1239
+00:52:57,640 --> 00:53:03,480
+have this long giant line.
+
+1240
+00:53:01,480 --> 00:53:05,160
+Uh let's So, let's do a find
+
+1241
+00:53:03,480 --> 00:53:07,280
+replacement.
+
+1242
+00:53:05,160 --> 00:53:09,800
+Let's add a line to
+
+1243
+00:53:07,280 --> 00:53:12,000
+uh between all the tags.
+
+1244
+00:53:09,800 --> 00:53:15,640
+So, now we added the line. Let's use uh
+
+1245
+00:53:12,000 --> 00:53:18,880
+Tsar HTML feature of navigation.
+
+1246
+00:53:15,640 --> 00:53:19,880
+Uh navigating the
+
+1247
+00:53:18,880 --> 00:53:21,440
+So,
+
+1248
+00:53:19,880 --> 00:53:23,280
+let's
+
+1249
+00:53:21,440 --> 00:53:26,000
+Okay, so wait, let me show the pink
+
+1250
+00:53:23,280 --> 00:53:28,400
+window. So, let's start navigate the to
+
+1251
+00:53:26,000 --> 00:53:30,480
+the beginning and next tag, okay? So,
+
+1252
+00:53:28,400 --> 00:53:32,200
+beginning tag, beginning tag, so you can
+
+1253
+00:53:30,480 --> 00:53:34,480
+see
+
+1254
+00:53:32,200 --> 00:53:37,280
+go to the beginning tag.
+
+1255
+00:53:34,480 --> 00:53:40,200
+Go to the end of that. Okay, so there's
+
+1256
+00:53:37,280 --> 00:53:43,240
+no end. Let's see. Let's go to the
+
+1257
+00:53:40,200 --> 00:53:47,400
+previous tag, previous tag. Go to the
+
+1258
+00:53:43,240 --> 00:53:49,840
+end. It works. Okay, go to the previous
+
+1259
+00:53:47,400 --> 00:53:53,160
+tag, go to the end, jump back, go to the
+
+1260
+00:53:49,840 --> 00:53:55,800
+previous tag. Next tag, next previous
+
+1261
+00:53:53,160 --> 00:53:58,560
+previous pre previous.
+
+1262
+00:53:55,800 --> 00:54:01,720
+Matching tag previous, okay. So, we are
+
+1263
+00:53:58,560 --> 00:54:05,480
+navigating the Wikipedia's
+
+1264
+00:54:01,720 --> 00:54:08,800
+HTML source code.
+
+1265
+00:54:05,480 --> 00:54:11,320
+Uh what what else? Okay, so it's a long
+
+1266
+00:54:08,800 --> 00:54:12,320
+document, okay. So, anyway, a lot of
+
+1267
+00:54:11,320 --> 00:54:14,840
+lists.
+
+1268
+00:54:12,320 --> 00:54:18,000
+Okay, so let's go to the top. So, you
+
+1269
+00:54:14,840 --> 00:54:22,280
+can see they come Okay, so so here is
+
+1270
+00:54:18,000 --> 00:54:24,320
+the JavaScript. Here is the part where
+
+1271
+00:54:22,280 --> 00:54:26,800
+they want to know which part of the
+
+1272
+00:54:24,320 --> 00:54:28,480
+document have you been looking.
+
+1273
+00:54:26,800 --> 00:54:30,760
+And they're going to send it to Google.
+
+1274
+00:54:28,480 --> 00:54:33,160
+You know, this is amazing. Let me let me
+
+1275
+00:54:30,760 --> 00:54:36,080
+ramble about this thing about Wikipedia,
+
+1276
+00:54:33,160 --> 00:54:38,680
+okay. Remember, never donate to
+
+1277
+00:54:36,080 --> 00:54:40,960
+Wikipedia because they become, you know,
+
+1278
+00:54:38,680 --> 00:54:43,040
+your money goes mostly half of your
+
+1279
+00:54:40,960 --> 00:54:44,040
+money. Like a million dollars,
+
+1280
+00:54:43,040 --> 00:54:46,320
+something.
+
+1281
+00:54:44,040 --> 00:54:48,120
+You know, goes through the Jimbo Wales'
+
+1282
+00:54:46,320 --> 00:54:50,200
+pocket.
+
+1283
+00:54:48,120 --> 00:54:52,960
+Every time he give a talk, you know,
+
+1284
+00:54:50,200 --> 00:54:54,640
+he's got he gets like
+
+1285
+00:54:52,960 --> 00:54:58,080
+$100,000
+
+1286
+00:54:54,640 --> 00:54:59,800
+or you know, something like that.
+
+1287
+00:54:58,080 --> 00:55:02,720
+You know, but they
+
+1288
+00:54:59,800 --> 00:55:06,080
+anyway, so don't donate Wikipedia. I
+
+1289
+00:55:02,720 --> 00:55:08,400
+have an article on that. In fact, if you
+
+1290
+00:55:06,080 --> 00:55:11,160
+go check my videos about two or three
+
+1291
+00:55:08,400 --> 00:55:14,160
+ago, I have a
+
+1292
+00:55:11,160 --> 00:55:15,840
+a video a talk show talking about
+
+1293
+00:55:14,160 --> 00:55:18,320
+encyclopedias,
+
+1294
+00:55:15,840 --> 00:55:21,040
+basically for 40 minutes about all about
+
+1295
+00:55:18,320 --> 00:55:23,120
+encyclopedias.
+
+1296
+00:55:21,040 --> 00:55:25,680
+So, now we are looking at JavaScript
+
+1297
+00:55:23,120 --> 00:55:28,200
+code, okay. So, you can see this
+
+1298
+00:55:25,680 --> 00:55:32,080
+JavaScript code. Let's see how big is
+
+1299
+00:55:28,200 --> 00:55:34,200
+it. Let's jump to the end. So, if we
+
+1300
+00:55:32,080 --> 00:55:37,120
+copy that
+
+1301
+00:55:34,200 --> 00:55:37,120
+Okay, so
+
+1302
+00:55:37,160 --> 00:55:44,920
+copy that, new buffer, paste it. So, how
+
+1303
+00:55:40,200 --> 00:55:44,920
+many lines of code is that?
+
+1304
+00:55:46,000 --> 00:55:51,360
+Okay, uh
+
+1305
+00:55:48,640 --> 00:55:54,760
+4K characters. Okay, here's the
+
+1306
+00:55:51,360 --> 00:55:56,280
+JavaScript, 4K characters.
+
+1307
+00:55:54,760 --> 00:55:58,040
+So, what uh
+
+1308
+00:55:56,280 --> 00:56:00,560
+what uh was I going to say? You know,
+
+1309
+00:55:58,040 --> 00:56:04,040
+you need to So, you need to actually
+
+1310
+00:56:00,560 --> 00:56:04,040
+make them into a
+
+1311
+00:56:06,680 --> 00:56:11,880
+Now, they actually don't
+
+1312
+00:56:09,080 --> 00:56:15,600
+Okay, so actually so you see, you cannot
+
+1313
+00:56:11,880 --> 00:56:15,600
+even line break them because
+
+1314
+00:56:18,760 --> 00:56:23,480
+Why can't I line break this part? Well,
+
+1315
+00:56:21,280 --> 00:56:25,640
+because they are so
+
+1316
+00:56:23,480 --> 00:56:29,640
+tightly uh
+
+1317
+00:56:25,640 --> 00:56:29,640
+closed together, something like that.
+
+1318
+00:56:33,560 --> 00:56:38,320
+Oh, you cannot You see,
+
+1319
+00:56:36,280 --> 00:56:41,960
+you see, you call fill region. Okay, so
+
+1320
+00:56:38,320 --> 00:56:44,560
+let's see. You call fill paragraph.
+
+1321
+00:56:41,960 --> 00:56:46,640
+It doesn't It doesn't even cut it.
+
+1322
+00:56:44,560 --> 00:56:48,200
+You see, fill paragraph is a command
+
+1323
+00:56:46,640 --> 00:56:50,800
+that makes you,
+
+1324
+00:56:48,200 --> 00:56:53,280
+you know, inserts empty lines into it.
+
+1325
+00:56:50,800 --> 00:56:56,000
+But, if you call it, it doesn't even do
+
+1326
+00:56:53,280 --> 00:56:56,000
+it because
+
+1327
+00:56:56,320 --> 00:57:00,120
+because these characters
+
+1328
+00:57:00,680 --> 00:57:06,960
+So, that shouldn't
+
+1329
+00:57:03,280 --> 00:57:08,560
+happen, you know, because the
+
+1330
+00:57:06,960 --> 00:57:10,360
+Because basically because there's no
+
+1331
+00:57:08,560 --> 00:57:12,800
+white space.
+
+1332
+00:57:10,360 --> 00:57:14,800
+You know, so this is kind of the
+
+1333
+00:57:12,800 --> 00:57:17,560
+This is a generated code. That's why
+
+1334
+00:57:14,800 --> 00:57:20,040
+they look like that, ugly crap. So, what
+
+1335
+00:57:17,560 --> 00:57:21,800
+is it, JavaScript do anyway?
+
+1336
+00:57:20,040 --> 00:57:25,560
+Document class name client job
+
+1337
+00:57:21,800 --> 00:57:27,520
+JavaScript. Okay, then then Okay,
+
+1338
+00:57:25,560 --> 00:57:31,400
+whatever.
+
+1339
+00:57:27,520 --> 00:57:33,120
+Oh, yeah, let me I want to mention uh so
+
+1340
+00:57:31,400 --> 00:57:36,400
+So, go to uh
+
+1341
+00:57:33,120 --> 00:57:38,760
+go to Xavi JavaScript Web Dev, okay? Let
+
+1342
+00:57:36,400 --> 00:57:42,200
+me tell you a story about JavaScript
+
+1343
+00:57:38,760 --> 00:57:44,080
+about Wikipedia. I discovered recently,
+
+1344
+00:57:42,200 --> 00:57:46,640
+you see?
+
+1345
+00:57:44,080 --> 00:57:49,160
+So, here is a taskbar.
+
+1346
+00:57:46,640 --> 00:57:52,480
+I mean the browser task manager. You can
+
+1347
+00:57:49,160 --> 00:57:54,800
+see so here is the Wikipedia
+
+1348
+00:57:52,480 --> 00:57:57,960
+uh tab road skating. So, you know,
+
+1349
+00:57:54,800 --> 00:57:59,720
+Wikipedia article. And it's load it has
+
+1350
+00:57:57,960 --> 00:58:00,600
+a subframe.
+
+1351
+00:57:59,720 --> 00:58:03,480
+And it's loading
+
+1352
+00:58:00,600 --> 00:58:06,440
+googleaccounts.google.com.
+
+1353
+00:58:03,480 --> 00:58:09,040
+What the Wikipedia
+
+1354
+00:58:06,440 --> 00:58:13,240
+Yeah, Wikipedia. Why is it so when you
+
+1355
+00:58:09,040 --> 00:58:15,280
+visit Wikipedia Wikipedia
+
+1356
+00:58:13,240 --> 00:58:18,520
+it's loading
+
+1357
+00:58:15,280 --> 00:58:20,400
+uh JavaScript in a hidden frame, okay?
+
+1358
+00:58:18,520 --> 00:58:23,480
+Let's Let me show you. Let's try again,
+
+1359
+00:58:20,400 --> 00:58:25,920
+okay? So, you can see So, we are doing
+
+1360
+00:58:23,480 --> 00:58:30,000
+some you know,
+
+1361
+00:58:25,920 --> 00:58:32,600
+uh magic of uh HTML, you know, Web Dev.
+
+1362
+00:58:30,000 --> 00:58:34,440
+So, we are using the you know, browser.
+
+1363
+00:58:32,600 --> 00:58:36,680
+Let's see what I want to do. Oh, yeah.
+
+1364
+00:58:34,440 --> 00:58:38,720
+So, first of all, turn off that. So,
+
+1365
+00:58:36,680 --> 00:58:42,720
+Wikipedia
+
+1366
+00:58:38,720 --> 00:58:42,720
+Let's see the network.
+
+1367
+00:58:43,880 --> 00:58:47,880
+Okay? So, refresh.
+
+1368
+00:58:51,680 --> 00:58:56,760
+So, Wikipedia uh
+
+1369
+00:58:54,000 --> 00:58:56,760
+loading
+
+1370
+00:58:58,480 --> 00:59:03,840
+Oh, so and also I have the you know, I
+
+1371
+00:59:01,440 --> 00:59:06,640
+have the um
+
+1372
+00:59:03,840 --> 00:59:08,160
+the uBlock Origin on.
+
+1373
+00:59:06,640 --> 00:59:10,720
+So,
+
+1374
+00:59:08,160 --> 00:59:12,280
+that maybe blocks it out. But if you I
+
+1375
+00:59:10,720 --> 00:59:13,840
+you know,
+
+1376
+00:59:12,280 --> 00:59:15,680
+Let's see where
+
+1377
+00:59:13,840 --> 00:59:18,480
+Let's see.
+
+1378
+00:59:15,680 --> 00:59:21,280
+Let's say if I Let's turn it off, okay?
+
+1379
+00:59:18,480 --> 00:59:21,280
+Refresh.
+
+1380
+00:59:27,760 --> 00:59:32,840
+So, let's uh Google. Let's show the
+
+1381
+00:59:31,680 --> 00:59:35,600
+um
+
+1382
+00:59:32,840 --> 00:59:39,120
+more tools.
+
+1383
+00:59:35,600 --> 00:59:39,120
+Task manager, okay?
+
+1384
+00:59:48,600 --> 00:59:54,760
+Subframe YouTube. So,
+
+1385
+00:59:51,040 --> 00:59:54,760
+So, right now it's not showing it.
+
+1386
+00:59:59,280 --> 01:00:03,840
+So, I don't any anyway, so you know,
+
+1387
+01:00:01,600 --> 01:00:05,720
+that's uh something interesting I found
+
+1388
+01:00:03,840 --> 01:00:07,880
+about Wikipedia.
+
+1389
+01:00:05,720 --> 01:00:10,600
+It's um
+
+1390
+01:00:07,880 --> 01:00:15,600
+you know, if you go to the road skating
+
+1391
+01:00:10,600 --> 01:00:15,600
+page, it has a subframe to Google.
+
+1392
+01:00:16,880 --> 01:00:22,880
+Wait, am I mistaken?
+
+1393
+01:00:20,200 --> 01:00:26,120
+Maybe I'm mistaken. The subframe must be
+
+1394
+01:00:22,880 --> 01:00:29,240
+maybe it's YouTube. Okay. Yeah. Okay.
+
+1395
+01:00:26,120 --> 01:00:29,240
+I'm mistaken there.
+
+1396
+01:00:30,200 --> 01:00:35,600
+Okay. Bye, guys.
+
+1397
+01:00:32,400 --> 01:00:35,600
+Bye, guys.
+
+1398
+01:00:39,040 --> 01:00:43,600
+Fuzzing, no, I haven't played with
+
+1399
+01:00:40,920 --> 01:00:43,600
+Arduino.
+
+1400
+01:00:44,320 --> 01:00:51,560
+I'm happy XML died. XML is good, okay?
+
+1401
+01:00:47,920 --> 01:00:51,560
+HTML5 is not good.
+
+1402
+01:00:55,240 --> 01:00:59,040
+Close the video.
+

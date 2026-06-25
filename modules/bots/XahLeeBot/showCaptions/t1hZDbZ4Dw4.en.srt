@@ -1,0 +1,4248 @@
+1
+00:00:08,720 --> 00:00:12,960
+good morning my friends
+
+2
+00:00:10,800 --> 00:00:15,440
+welcome to another episode of some talk
+
+3
+00:00:12,960 --> 00:00:19,039
+show today is 2020
+
+4
+00:00:15,440 --> 00:00:21,119
+august 18th tuesday
+
+5
+00:00:19,039 --> 00:00:22,560
+two o'clock in the afternoon san
+
+6
+00:00:21,119 --> 00:00:25,119
+francisco time
+
+7
+00:00:22,560 --> 00:00:25,920
+and today we're gonna talk about emacs
+
+8
+00:00:25,119 --> 00:00:29,039
+uh
+
+9
+00:00:25,920 --> 00:00:32,079
+a little bit emacs workflow with
+
+10
+00:00:29,039 --> 00:00:32,719
+stuff like keys and we are going to look
+
+11
+00:00:32,079 --> 00:00:35,760
+at
+
+12
+00:00:32,719 --> 00:00:37,600
+the package projectile you know this
+
+13
+00:00:35,760 --> 00:00:41,440
+there is this fantastic
+
+14
+00:00:37,600 --> 00:00:44,160
+package projectile by the bats
+
+15
+00:00:41,440 --> 00:00:45,360
+bats more love something like that he's
+
+16
+00:00:44,160 --> 00:00:49,120
+in the
+
+17
+00:00:45,360 --> 00:00:52,320
+eastern europe you know he's a great
+
+18
+00:00:49,120 --> 00:00:55,840
+one of the big emacs this coder he
+
+19
+00:00:52,320 --> 00:00:56,640
+has written quite a few very popular
+
+20
+00:00:55,840 --> 00:00:59,680
+packages
+
+21
+00:00:56,640 --> 00:01:00,840
+so one of them is projectile which i
+
+22
+00:00:59,680 --> 00:01:03,760
+actually tried
+
+23
+00:01:00,840 --> 00:01:05,519
+a few years ago about five years ago i
+
+24
+00:01:03,760 --> 00:01:08,799
+tried it for a week
+
+25
+00:01:05,519 --> 00:01:10,960
+but it was too slow uh we'll have
+
+26
+00:01:08,799 --> 00:01:14,000
+another look today and now
+
+27
+00:01:10,960 --> 00:01:18,240
+you are going to watch my reactions
+
+28
+00:01:14,000 --> 00:01:21,360
+uh on on the projectile so
+
+29
+00:01:18,240 --> 00:01:24,720
+live chat okay so so my window is not
+
+30
+00:01:21,360 --> 00:01:24,720
+loading correctly i guess
+
+31
+00:01:24,840 --> 00:01:30,640
+um
+
+32
+00:01:27,040 --> 00:01:34,560
+we i'm not seeing the live chat thing
+
+33
+00:01:30,640 --> 00:01:36,320
+okay but yeah so let's let's start to do
+
+34
+00:01:34,560 --> 00:01:38,960
+let's start to do let me reload the
+
+35
+00:01:36,320 --> 00:01:39,840
+window so first of all the background
+
+36
+00:01:38,960 --> 00:01:42,479
+image
+
+37
+00:01:39,840 --> 00:01:43,200
+so today's background image is that that
+
+38
+00:01:42,479 --> 00:01:48,399
+college
+
+39
+00:01:43,200 --> 00:01:48,399
+flag you can see let me show you
+
+40
+00:01:48,640 --> 00:01:52,479
+so apparently someone probably a college
+
+41
+00:01:52,000 --> 00:01:56,320
+student
+
+42
+00:01:52,479 --> 00:01:59,680
+in usa created this emacs flag
+
+43
+00:01:56,320 --> 00:02:00,320
+this is typical college flag i guess for
+
+44
+00:01:59,680 --> 00:02:04,079
+football
+
+45
+00:02:00,320 --> 00:02:07,680
+for american football for the you know
+
+46
+00:02:04,079 --> 00:02:08,080
+the rambo so that is the background
+
+47
+00:02:07,680 --> 00:02:12,080
+image
+
+48
+00:02:08,080 --> 00:02:13,120
+for today okay so let's go back let's
+
+49
+00:02:12,080 --> 00:02:16,879
+start to
+
+50
+00:02:13,120 --> 00:02:19,520
+um do today's thing emacs college flag
+
+51
+00:02:16,879 --> 00:02:19,520
+and um
+
+52
+00:02:20,000 --> 00:02:24,800
+i want i need to fix the chat up so let
+
+53
+00:02:22,879 --> 00:02:29,280
+me reload okay
+
+54
+00:02:24,800 --> 00:02:29,280
+uh go back
+
+55
+00:02:30,959 --> 00:02:37,840
+go to it
+
+56
+00:02:38,239 --> 00:02:51,840
+excuse me for a second
+
+57
+00:02:41,519 --> 00:02:51,840
+go back here
+
+58
+00:02:57,020 --> 00:03:00,169
+[Applause]
+
+59
+00:03:00,480 --> 00:03:08,720
+okay is the chat back where's the chat
+
+60
+00:03:04,560 --> 00:03:09,840
+[ __ ] refresh six viewers good morning
+
+61
+00:03:08,720 --> 00:03:12,080
+guys
+
+62
+00:03:09,840 --> 00:03:18,080
+so comments okay i'm i can't i cannot
+
+63
+00:03:12,080 --> 00:03:20,000
+see comments the chat is not loading so
+
+64
+00:03:18,080 --> 00:03:22,319
+we're gonna start
+
+65
+00:03:20,000 --> 00:03:22,319
+um
+
+66
+00:03:25,519 --> 00:03:29,280
+oh there you are ratsu that's you from
+
+67
+00:03:28,400 --> 00:03:32,400
+scotland
+
+68
+00:03:29,280 --> 00:03:35,680
+hello good morning eric carson
+
+69
+00:03:32,400 --> 00:03:38,879
+hi where are you from eric
+
+70
+00:03:35,680 --> 00:03:42,879
+so okay so let's um let's do it
+
+71
+00:03:38,879 --> 00:03:45,120
+um i'm going to look at projectile let's
+
+72
+00:03:42,879 --> 00:03:48,640
+start with that okay
+
+73
+00:03:45,120 --> 00:03:52,879
+let's look at projectile so projectile
+
+74
+00:03:48,640 --> 00:03:56,159
+open a new window uh e-max
+
+75
+00:03:52,879 --> 00:04:01,840
+project tile
+
+76
+00:03:56,159 --> 00:04:01,840
+jh c t-i-l-e
+
+77
+00:04:02,159 --> 00:04:05,920
+okay um
+
+78
+00:04:06,560 --> 00:04:13,599
+github batsov projectile
+
+79
+00:04:11,200 --> 00:04:15,680
+so that is his uh so this is his
+
+80
+00:04:13,599 --> 00:04:18,160
+projectile package
+
+81
+00:04:15,680 --> 00:04:19,359
+and basically it's a package that allows
+
+82
+00:04:18,160 --> 00:04:22,400
+you to
+
+83
+00:04:19,359 --> 00:04:24,080
+easily navigate project directory
+
+84
+00:04:22,400 --> 00:04:26,639
+you know today these days you have
+
+85
+00:04:24,080 --> 00:04:29,280
+projects uh since about 10 years ago
+
+86
+00:04:26,639 --> 00:04:29,919
+projects becomes very popular you know
+
+87
+00:04:29,280 --> 00:04:33,040
+there's a
+
+88
+00:04:29,919 --> 00:04:34,960
+term project what it would you know
+
+89
+00:04:33,040 --> 00:04:36,639
+let me tell you a bit history about
+
+90
+00:04:34,960 --> 00:04:39,680
+software development
+
+91
+00:04:36,639 --> 00:04:41,520
+so so project means you know there's a
+
+92
+00:04:39,680 --> 00:04:43,360
+standard english meaning project you
+
+93
+00:04:41,520 --> 00:04:46,400
+know you have a project for something
+
+94
+00:04:43,360 --> 00:04:49,360
+for business or something
+
+95
+00:04:46,400 --> 00:04:49,360
+but in software
+
+96
+00:04:49,520 --> 00:04:54,560
+you started to have this project
+
+97
+00:04:52,479 --> 00:04:57,120
+terminology which
+
+98
+00:04:54,560 --> 00:04:57,680
+means basically it means well it means a
+
+99
+00:04:57,120 --> 00:05:00,240
+project
+
+100
+00:04:57,680 --> 00:05:03,120
+just like an english word but also it
+
+101
+00:05:00,240 --> 00:05:05,840
+refers to a specific directory
+
+102
+00:05:03,120 --> 00:05:06,160
+and all that all that projects directory
+
+103
+00:05:05,840 --> 00:05:09,280
+is
+
+104
+00:05:06,160 --> 00:05:13,440
+in in this directory and it's also
+
+105
+00:05:09,280 --> 00:05:16,080
+so it so it's a project
+
+106
+00:05:13,440 --> 00:05:16,880
+it's also a directory but also it
+
+107
+00:05:16,080 --> 00:05:21,199
+usually
+
+108
+00:05:16,880 --> 00:05:21,199
+um means it has a uh
+
+109
+00:05:22,560 --> 00:05:26,320
+the version control system typically git
+
+110
+00:05:25,120 --> 00:05:28,560
+you know git
+
+111
+00:05:26,320 --> 00:05:30,639
+or mercurial docs you know some several
+
+112
+00:05:28,560 --> 00:05:32,800
+others but today most popular is good
+
+113
+00:05:30,639 --> 00:05:34,639
+so a project means a directory a project
+
+114
+00:05:32,800 --> 00:05:37,919
+a directory and also
+
+115
+00:05:34,639 --> 00:05:39,360
+it means it's a version control there's
+
+116
+00:05:37,919 --> 00:05:41,919
+a version control system
+
+117
+00:05:39,360 --> 00:05:43,840
+running on that part on that directory
+
+118
+00:05:41,919 --> 00:05:46,880
+um
+
+119
+00:05:43,840 --> 00:05:50,320
+you know so so so that's what you know
+
+120
+00:05:46,880 --> 00:05:51,280
+so today about 10 years ago you started
+
+121
+00:05:50,320 --> 00:05:54,560
+to have this
+
+122
+00:05:51,280 --> 00:05:56,720
+concept of this software project
+
+123
+00:05:54,560 --> 00:05:58,160
+which means you know a directory and a
+
+124
+00:05:56,720 --> 00:06:00,639
+repository you know
+
+125
+00:05:58,160 --> 00:06:01,600
+all that all that together you call it a
+
+126
+00:06:00,639 --> 00:06:04,639
+project
+
+127
+00:06:01,600 --> 00:06:06,639
+and it also means when you start to code
+
+128
+00:06:04,639 --> 00:06:08,880
+some programs some software
+
+129
+00:06:06,639 --> 00:06:10,080
+you no longer just create a directory
+
+130
+00:06:08,880 --> 00:06:13,520
+and start to code it you
+
+131
+00:06:10,080 --> 00:06:16,160
+you almost always do you create this
+
+132
+00:06:13,520 --> 00:06:17,440
+project directory structure which has
+
+133
+00:06:16,160 --> 00:06:20,479
+you know several
+
+134
+00:06:17,440 --> 00:06:23,120
+subfolders subdirectories that's uh
+
+135
+00:06:20,479 --> 00:06:24,080
+that's a project it's this is kind of
+
+136
+00:06:23,120 --> 00:06:26,319
+annoying okay
+
+137
+00:06:24,080 --> 00:06:27,680
+because before it's a free form but now
+
+138
+00:06:26,319 --> 00:06:30,960
+it's a
+
+139
+00:06:27,680 --> 00:06:34,000
+anyway so so projectile
+
+140
+00:06:30,960 --> 00:06:35,840
+is for navigating files in your project
+
+141
+00:06:34,000 --> 00:06:37,280
+so you go to a project typically it
+
+142
+00:06:35,840 --> 00:06:40,479
+means there's a git uh
+
+143
+00:06:37,280 --> 00:06:43,280
+you know git git managed you know
+
+144
+00:06:40,479 --> 00:06:45,520
+repository then there are several files
+
+145
+00:06:43,280 --> 00:06:48,639
+and usually they have a structure
+
+146
+00:06:45,520 --> 00:06:50,479
+there's a certain structure depending on
+
+147
+00:06:48,639 --> 00:06:53,199
+different languages
+
+148
+00:06:50,479 --> 00:06:53,680
+javascript for example is the the one
+
+149
+00:06:53,199 --> 00:06:56,720
+most
+
+150
+00:06:53,680 --> 00:06:57,840
+associated with project directory
+
+151
+00:06:56,720 --> 00:07:00,400
+javascript
+
+152
+00:06:57,840 --> 00:07:01,039
+but also go land these days but also
+
+153
+00:07:00,400 --> 00:07:04,160
+ruby
+
+154
+00:07:01,039 --> 00:07:06,319
+back then uh so project
+
+155
+00:07:04,160 --> 00:07:08,639
+so often these days if you want to learn
+
+156
+00:07:06,319 --> 00:07:11,520
+a new language such as javascript or
+
+157
+00:07:08,639 --> 00:07:13,280
+or something you they always tell you
+
+158
+00:07:11,520 --> 00:07:16,240
+you know the basic tutorials they tell
+
+159
+00:07:13,280 --> 00:07:19,919
+you to create a project directory
+
+160
+00:07:16,240 --> 00:07:22,720
+which is kind of um okay anyway
+
+161
+00:07:19,919 --> 00:07:24,560
+so projectile this is the emacs package
+
+162
+00:07:22,720 --> 00:07:27,919
+that allows you to uh
+
+163
+00:07:24,560 --> 00:07:28,800
+navigate in search directories and i
+
+164
+00:07:27,919 --> 00:07:31,440
+look at
+
+165
+00:07:28,800 --> 00:07:32,720
+i looked at all the features you know i
+
+166
+00:07:31,440 --> 00:07:35,919
+don't use projectile
+
+167
+00:07:32,720 --> 00:07:39,120
+uh many of them you can do
+
+168
+00:07:35,919 --> 00:07:39,120
+very fast with uh
+
+169
+00:07:39,280 --> 00:07:45,120
+soft like keys system my system okay
+
+170
+00:07:43,120 --> 00:07:46,240
+so anyway let's let's start to install
+
+171
+00:07:45,120 --> 00:07:49,680
+it so let's
+
+172
+00:07:46,240 --> 00:07:51,840
+uh okay so on the right window is the
+
+173
+00:07:49,680 --> 00:07:53,919
+the pink window you can see all my emacs
+
+174
+00:07:51,840 --> 00:07:57,840
+command cores
+
+175
+00:07:53,919 --> 00:08:01,360
+uh using stuff like keys
+
+176
+00:07:57,840 --> 00:08:02,160
+let's do these packages i'm going to
+
+177
+00:08:01,360 --> 00:08:04,960
+install proj
+
+178
+00:08:02,160 --> 00:08:04,960
+projectile
+
+179
+00:08:06,000 --> 00:08:12,879
+okay list packages and let's
+
+180
+00:08:09,199 --> 00:08:16,080
+search for project tile
+
+181
+00:08:12,879 --> 00:08:19,680
+okay console projectile those are
+
+182
+00:08:16,080 --> 00:08:24,080
+projectile add-ons go projectile
+
+183
+00:08:19,680 --> 00:08:26,240
+grails projectile what a bunch of crap
+
+184
+00:08:24,080 --> 00:08:29,039
+oak projectile let's just search for
+
+185
+00:08:26,240 --> 00:08:29,039
+projectile
+
+186
+00:08:30,759 --> 00:08:35,360
+p-r-o-j-e-c-t-i-l-e
+
+187
+00:08:32,000 --> 00:08:38,479
+okay so you have 41 packages
+
+188
+00:08:35,360 --> 00:08:42,640
+that's all part of
+
+189
+00:08:38,479 --> 00:08:47,040
+i mean related add-on for the projectile
+
+190
+00:08:42,640 --> 00:08:47,040
+so here it is projectile
+
+191
+00:08:48,160 --> 00:08:53,600
+manage and navigate projects in emacs
+
+192
+00:08:51,200 --> 00:08:55,920
+easily you know it's funny why why
+
+193
+00:08:53,600 --> 00:08:58,640
+should you emacs already has a
+
+194
+00:08:55,920 --> 00:08:58,959
+fantastic system for for file management
+
+195
+00:08:58,640 --> 00:09:01,600
+for
+
+196
+00:08:58,959 --> 00:09:05,040
+you know navigating so in theory tech
+
+197
+00:09:01,600 --> 00:09:08,240
+you know in theory you don't need it
+
+198
+00:09:05,040 --> 00:09:11,600
+so let's uh let's install it
+
+199
+00:09:08,240 --> 00:09:11,600
+okay install it yes
+
+200
+00:09:13,680 --> 00:09:18,880
+mailpad uh not named for servers not
+
+201
+00:09:16,800 --> 00:09:23,839
+provided or not known what dev
+
+202
+00:09:18,880 --> 00:09:23,839
+what the [ __ ]
+
+203
+00:09:29,279 --> 00:09:34,839
+80 not name no servers provided or not
+
+204
+00:09:32,720 --> 00:09:38,399
+no what
+
+205
+00:09:34,839 --> 00:09:43,760
+what ah
+
+206
+00:09:38,399 --> 00:09:43,760
+yes install what no not no what
+
+207
+00:09:44,320 --> 00:09:48,240
+okay problem we run into a problem
+
+208
+00:09:46,800 --> 00:09:51,200
+already
+
+209
+00:09:48,240 --> 00:09:54,399
+so go to the messages buffer what's the
+
+210
+00:09:51,200 --> 00:09:58,959
+what is the error message
+
+211
+00:09:54,399 --> 00:10:03,120
+mailpad mailbox.net 80
+
+212
+00:09:58,959 --> 00:10:06,720
+not name no serve server name
+
+213
+00:10:03,120 --> 00:10:06,720
+provided or not no
+
+214
+00:10:07,120 --> 00:10:13,760
+this might relate to package initialize
+
+215
+00:10:10,320 --> 00:10:14,800
+let's see um let's go to my emacs
+
+216
+00:10:13,760 --> 00:10:18,240
+directory so
+
+217
+00:10:14,800 --> 00:10:19,600
+my go let's go to my emacs a brief go to
+
+218
+00:10:18,240 --> 00:10:24,320
+the directory
+
+219
+00:10:19,600 --> 00:10:24,320
+then go to the init okay
+
+220
+00:10:24,640 --> 00:10:33,839
+my emacs need init enlarge
+
+221
+00:10:28,000 --> 00:10:33,839
+um let's search for mailpad
+
+222
+00:10:33,920 --> 00:10:40,880
+okay i don't see any mailpad lines here
+
+223
+00:10:37,360 --> 00:10:44,320
+wait that's not right okay search
+
+224
+00:10:40,880 --> 00:10:47,120
+all directories for mailpad i mean
+
+225
+00:10:44,320 --> 00:10:47,920
+search all files in this directory for
+
+226
+00:10:47,120 --> 00:10:51,839
+mailpath so
+
+227
+00:10:47,920 --> 00:10:51,839
+in this directory dot el
+
+228
+00:10:52,240 --> 00:10:56,160
+okay so we found several uh mailpad so
+
+229
+00:10:55,680 --> 00:11:00,079
+it's in
+
+230
+00:10:56,160 --> 00:11:04,320
+emacs settings okay so in emacs settings
+
+231
+00:11:00,079 --> 00:11:07,920
+so magnify so this is the blog
+
+232
+00:11:04,320 --> 00:11:10,240
+require package add to list
+
+233
+00:11:07,920 --> 00:11:12,000
+mail power mailbox packages why is it
+
+234
+00:11:10,240 --> 00:11:15,839
+not
+
+235
+00:11:12,000 --> 00:11:15,839
+so let's open the directory
+
+236
+00:11:16,320 --> 00:11:20,959
+um we are having trouble finding that
+
+237
+00:11:18,320 --> 00:11:25,279
+site what doc
+
+238
+00:11:20,959 --> 00:11:28,320
+okay https let's try https
+
+239
+00:11:25,279 --> 00:11:30,480
+open it open the file wait is mailpop
+
+240
+00:11:28,320 --> 00:11:33,519
+down or what or did they change
+
+241
+00:11:30,480 --> 00:11:33,519
+uh url
+
+242
+00:11:34,320 --> 00:11:38,880
+software frustrations incredible
+
+243
+00:11:40,839 --> 00:11:43,839
+milkbox.net
+
+244
+00:11:45,920 --> 00:11:50,240
+website expired the account has expired
+
+245
+00:11:48,959 --> 00:11:56,399
+what
+
+246
+00:11:50,240 --> 00:11:59,760
+let's go to let's search for mailpad
+
+247
+00:11:56,399 --> 00:12:00,880
+good morning alan eric carson from
+
+248
+00:11:59,760 --> 00:12:04,560
+sweden wow
+
+249
+00:12:00,880 --> 00:12:07,839
+cool informatic good morning
+
+250
+00:12:04,560 --> 00:12:11,839
+so melpa melpa.org
+
+251
+00:12:07,839 --> 00:12:11,839
+what's going on
+
+252
+00:12:12,040 --> 00:12:18,880
+melpa.org but did they
+
+253
+00:12:15,120 --> 00:12:23,519
+so did they change the url
+
+254
+00:12:18,880 --> 00:12:26,880
+uh so let's see their init file so
+
+255
+00:12:23,519 --> 00:12:26,880
+getting started okay
+
+256
+00:12:27,200 --> 00:12:33,279
+let's copy okay so they did change the
+
+257
+00:12:31,040 --> 00:12:34,399
+url so i haven't installed the package
+
+258
+00:12:33,279 --> 00:12:37,680
+for
+
+259
+00:12:34,399 --> 00:12:41,600
+for a few months i guess the
+
+260
+00:12:37,680 --> 00:12:41,600
+so let's copy it paste it here
+
+261
+00:12:43,920 --> 00:12:48,399
+uh so this is the new url is here
+
+262
+00:12:47,279 --> 00:12:51,040
+melpa.org
+
+263
+00:12:48,399 --> 00:12:53,040
+no longer milk box you know milk box
+
+264
+00:12:51,040 --> 00:12:56,079
+there's a
+
+265
+00:12:53,040 --> 00:12:58,880
+the milk box
+
+266
+00:12:56,079 --> 00:12:58,880
+is um
+
+267
+00:12:59,680 --> 00:13:07,600
+let's go to my emacs uh tutorial okay
+
+268
+00:13:03,360 --> 00:13:11,120
+open open it my emacs tutorial magnify
+
+269
+00:13:07,600 --> 00:13:15,120
+you go to emacs init and you go
+
+270
+00:13:11,120 --> 00:13:18,560
+to install packages
+
+271
+00:13:15,120 --> 00:13:20,399
+so i need to update this url
+
+272
+00:13:18,560 --> 00:13:22,079
+so let me explain what's going on with
+
+273
+00:13:20,399 --> 00:13:25,120
+the milkbox.net
+
+274
+00:13:22,079 --> 00:13:26,240
+so so mailpad the e-max package system
+
+275
+00:13:25,120 --> 00:13:29,680
+began
+
+276
+00:13:26,240 --> 00:13:29,680
+uh in 2012.
+
+277
+00:13:31,360 --> 00:13:34,959
+there's a bit history you know in x
+
+278
+00:13:33,519 --> 00:13:37,680
+emacs in x
+
+279
+00:13:34,959 --> 00:13:39,360
+emacs they have a package system back in
+
+280
+00:13:37,680 --> 00:13:41,600
+1991
+
+281
+00:13:39,360 --> 00:13:42,560
+but the gnu e max richard stollman
+
+282
+00:13:41,600 --> 00:13:45,760
+refused it
+
+283
+00:13:42,560 --> 00:13:48,079
+refused to have that feature because he
+
+284
+00:13:45,760 --> 00:13:51,279
+want tight control of the gnu
+
+285
+00:13:48,079 --> 00:13:53,680
+the whole emacs uh system he wants
+
+286
+00:13:51,279 --> 00:13:55,920
+tights control he is afraid that
+
+287
+00:13:53,680 --> 00:13:58,000
+once you have a package system you know
+
+288
+00:13:55,920 --> 00:14:01,199
+then there's going to be
+
+289
+00:13:58,000 --> 00:14:04,320
+a huge number of packages you know
+
+290
+00:14:01,199 --> 00:14:07,279
+and then you know it's then he will be
+
+291
+00:14:04,320 --> 00:14:09,040
+uh out outside of his control which is
+
+292
+00:14:07,279 --> 00:14:10,399
+happening today on male part you know
+
+293
+00:14:09,040 --> 00:14:12,560
+you have like twenty thousand
+
+294
+00:14:10,399 --> 00:14:13,680
+ten thousand or something packages and
+
+295
+00:14:12,560 --> 00:14:16,399
+there are not
+
+296
+00:14:13,680 --> 00:14:17,040
+many of many people they are there are
+
+297
+00:14:16,399 --> 00:14:21,040
+not
+
+298
+00:14:17,040 --> 00:14:22,880
+you know uh gnu emacs they are not
+
+299
+00:14:21,040 --> 00:14:25,519
+free software phonetics they are not
+
+300
+00:14:22,880 --> 00:14:28,560
+dedicated fans of richard stowman
+
+301
+00:14:25,519 --> 00:14:31,040
+so anyway in 1991 xemax
+
+302
+00:14:28,560 --> 00:14:33,120
+already has a package system but richard
+
+303
+00:14:31,040 --> 00:14:36,480
+stollman refused to do that
+
+304
+00:14:33,120 --> 00:14:39,839
+and uh up until 2012
+
+305
+00:14:36,480 --> 00:14:40,160
+2012 when packages you know you have so
+
+306
+00:14:39,839 --> 00:14:43,920
+many
+
+307
+00:14:40,160 --> 00:14:46,000
+by by 2000 by 2012 you have so many
+
+308
+00:14:43,920 --> 00:14:47,920
+languages they have uh
+
+309
+00:14:46,000 --> 00:14:49,279
+repo you know online report you know you
+
+310
+00:14:47,920 --> 00:14:51,839
+have npm
+
+311
+00:14:49,279 --> 00:14:53,920
+which is for the javascript python has
+
+312
+00:14:51,839 --> 00:14:54,720
+one java has one almost every language
+
+313
+00:14:53,920 --> 00:14:57,199
+has their
+
+314
+00:14:54,720 --> 00:14:58,720
+repo where is a you know centralized
+
+315
+00:14:57,199 --> 00:15:01,920
+collection of libraries
+
+316
+00:14:58,720 --> 00:15:03,279
+so eventually in 2012 emacs started to
+
+317
+00:15:01,920 --> 00:15:06,240
+have it
+
+318
+00:15:03,279 --> 00:15:06,880
+2012. you know to me it's like yesterday
+
+319
+00:15:06,240 --> 00:15:10,079
+to me it's
+
+320
+00:15:06,880 --> 00:15:13,360
+still like yesterday uh say so
+
+321
+00:15:10,079 --> 00:15:14,639
+melpah um let's see who wrote male part
+
+322
+00:15:13,360 --> 00:15:17,920
+i don't remember now so
+
+323
+00:15:14,639 --> 00:15:17,920
+but i wrote it here
+
+324
+00:15:22,800 --> 00:15:27,120
+okay yeah so i there's a so male part is
+
+325
+00:15:25,760 --> 00:15:30,880
+written by this guy
+
+326
+00:15:27,120 --> 00:15:33,120
+tom chumley tom tron me he's a
+
+327
+00:15:30,880 --> 00:15:35,519
+uh expert you know one of the top
+
+328
+00:15:33,120 --> 00:15:37,680
+experts of emac beast
+
+329
+00:15:35,519 --> 00:15:38,560
+and mama laid mama lady is another
+
+330
+00:15:37,680 --> 00:15:41,199
+ripper for
+
+331
+00:15:38,560 --> 00:15:43,040
+uh emacs and he's written by this guy
+
+332
+00:15:41,199 --> 00:15:44,959
+and melpa is by
+
+333
+00:15:43,040 --> 00:15:47,360
+mailpad the repository you know the
+
+334
+00:15:44,959 --> 00:15:50,959
+website is started by this guy
+
+335
+00:15:47,360 --> 00:15:54,079
+donald download frame
+
+336
+00:15:50,959 --> 00:15:57,120
+curtis but his online nickname is
+
+337
+00:15:54,079 --> 00:15:59,440
+melkman melkman so that's why you have
+
+338
+00:15:57,120 --> 00:16:02,399
+the mailbox.net
+
+339
+00:15:59,440 --> 00:16:02,720
+you know this is his uh you know website
+
+340
+00:16:02,399 --> 00:16:06,839
+is
+
+341
+00:16:02,720 --> 00:16:08,000
+expired so i need to uh update my
+
+342
+00:16:06,839 --> 00:16:11,199
+website
+
+343
+00:16:08,000 --> 00:16:12,399
+that is why male 1 repo had used to have
+
+344
+00:16:11,199 --> 00:16:14,399
+this url
+
+345
+00:16:12,399 --> 00:16:15,759
+i'm pretty sure it was working last year
+
+346
+00:16:14,399 --> 00:16:18,800
+but it changed
+
+347
+00:16:15,759 --> 00:16:19,519
+it when expired okay copy that to my to
+
+348
+00:16:18,800 --> 00:16:24,240
+my website
+
+349
+00:16:19,519 --> 00:16:24,240
+close that go to my talk show page
+
+350
+00:16:25,279 --> 00:16:31,920
+today's talk show and post it there
+
+351
+00:16:28,720 --> 00:16:35,120
+okay how to install packages
+
+352
+00:16:31,920 --> 00:16:39,360
+close it close it
+
+353
+00:16:35,120 --> 00:16:43,759
+then back to my back to my emacs
+
+354
+00:16:39,360 --> 00:16:46,079
+init let's change the url to the correct
+
+355
+00:16:43,759 --> 00:16:49,920
+url
+
+356
+00:16:46,079 --> 00:16:50,880
+okay then delete that then evaluate this
+
+357
+00:16:49,920 --> 00:16:54,160
+code
+
+358
+00:16:50,880 --> 00:16:58,160
+save it it's good close it
+
+359
+00:16:54,160 --> 00:16:58,160
+now list packages
+
+360
+00:17:02,480 --> 00:17:10,480
+hey good morning jeff troll uh
+
+361
+00:17:06,319 --> 00:17:13,919
+gdb maintainer i think troll me oh i see
+
+362
+00:17:10,480 --> 00:17:17,360
+i see i you know i know he he is a
+
+363
+00:17:13,919 --> 00:17:20,640
+he is a great uh lisp coder and beca
+
+364
+00:17:17,360 --> 00:17:23,439
+he has written some
+
+365
+00:17:20,640 --> 00:17:25,120
+project to speed up emacs i think he
+
+366
+00:17:23,439 --> 00:17:28,319
+also had a commonly
+
+367
+00:17:25,120 --> 00:17:30,480
+based emacs project uh he was working on
+
+368
+00:17:28,319 --> 00:17:35,360
+that for a while i think
+
+369
+00:17:30,480 --> 00:17:35,360
+yeah but he's an old timer yeah uh
+
+370
+00:17:36,559 --> 00:17:39,919
+i don't even free software foundation
+
+371
+00:17:38,640 --> 00:17:41,919
+are dedicated fine
+
+372
+00:17:39,919 --> 00:17:45,520
+fans of stoneman yeah he's so man
+
+373
+00:17:41,919 --> 00:17:45,520
+richard someone kind of um
+
+374
+00:17:46,400 --> 00:17:50,240
+he's he's getting old i mean he's old
+
+375
+00:17:48,799 --> 00:17:53,200
+now so anyway let's
+
+376
+00:17:50,240 --> 00:17:53,919
+uh try to install a projectile so at
+
+377
+00:17:53,200 --> 00:17:57,280
+least
+
+378
+00:17:53,919 --> 00:18:01,280
+this matching lines projectile okay
+
+379
+00:17:57,280 --> 00:18:04,880
+and which which one this one okay
+
+380
+00:18:01,280 --> 00:18:08,240
+projectile okay uh
+
+381
+00:18:04,880 --> 00:18:11,840
+this one yeah okay
+
+382
+00:18:08,240 --> 00:18:15,039
+enter install
+
+383
+00:18:11,840 --> 00:18:18,080
+install package yes
+
+384
+00:18:15,039 --> 00:18:18,960
+uh it it still says mailpad mailbox
+
+385
+00:18:18,080 --> 00:18:22,640
+postman
+
+386
+00:18:18,960 --> 00:18:23,760
+what the the url is not has not been
+
+387
+00:18:22,640 --> 00:18:27,679
+updated but
+
+388
+00:18:23,760 --> 00:18:32,320
+uh close that let's go back to my emacs
+
+389
+00:18:27,679 --> 00:18:32,320
+lisp in need file settings
+
+390
+00:18:34,559 --> 00:18:39,679
+add to list oh i need to so
+
+391
+00:18:37,679 --> 00:18:42,799
+the reason it's not updated because i
+
+392
+00:18:39,679 --> 00:18:45,039
+was using add to list i i need to use i
+
+393
+00:18:42,799 --> 00:18:48,320
+need to remove the old list
+
+394
+00:18:45,039 --> 00:18:50,400
+packages archive
+
+395
+00:18:48,320 --> 00:18:52,160
+and let's restart emacs that's the
+
+396
+00:18:50,400 --> 00:18:56,720
+easiest way
+
+397
+00:18:52,160 --> 00:18:58,960
+i can just set that list to nil and
+
+398
+00:18:56,720 --> 00:19:01,039
+then run that code your work without
+
+399
+00:18:58,960 --> 00:19:04,400
+needing to restart but
+
+400
+00:19:01,039 --> 00:19:07,760
+it's it's faster kind of it's easier
+
+401
+00:19:04,400 --> 00:19:11,679
+just to restart emacs
+
+402
+00:19:07,760 --> 00:19:14,320
+so okay so start command log mod
+
+403
+00:19:11,679 --> 00:19:16,240
+start command log mod so you can see all
+
+404
+00:19:14,320 --> 00:19:19,760
+my commands on the pink window
+
+405
+00:19:16,240 --> 00:19:22,840
+so list matching lines i mean uh
+
+406
+00:19:19,760 --> 00:19:25,840
+list packages let's install projectile
+
+407
+00:19:22,840 --> 00:19:25,840
+again
+
+408
+00:19:27,760 --> 00:19:41,280
+at least matching lines projectile okay
+
+409
+00:19:38,000 --> 00:19:41,280
+is it projectile
+
+410
+00:19:42,960 --> 00:19:51,120
+what oh here
+
+411
+00:19:46,480 --> 00:19:54,559
+okay enter
+
+412
+00:19:51,120 --> 00:19:58,880
+install it yes yay
+
+413
+00:19:54,559 --> 00:20:00,880
+finally package projectile is
+
+414
+00:19:58,880 --> 00:20:02,799
+you know there is this strange message
+
+415
+00:20:00,880 --> 00:20:06,720
+for mailpad uh
+
+416
+00:20:02,799 --> 00:20:09,600
+when i install some package it will say
+
+417
+00:20:06,720 --> 00:20:12,320
+package projectile is available obsolete
+
+418
+00:20:09,600 --> 00:20:14,400
+does anyone know what does that mean
+
+419
+00:20:12,320 --> 00:20:15,919
+you know available status available
+
+420
+00:20:14,400 --> 00:20:21,840
+opposite for mailpad
+
+421
+00:20:15,919 --> 00:20:21,840
+what does that mean
+
+422
+00:20:22,720 --> 00:20:26,400
+uh okay so let's so projectile is
+
+423
+00:20:25,280 --> 00:20:28,720
+installed
+
+424
+00:20:26,400 --> 00:20:29,600
+now how do i use it now i need to go to
+
+425
+00:20:28,720 --> 00:20:31,919
+a project
+
+426
+00:20:29,600 --> 00:20:33,440
+uh we i need a big project to look at
+
+427
+00:20:31,919 --> 00:20:37,120
+projectile because
+
+428
+00:20:33,440 --> 00:20:39,679
+menu i suppose projectile is useful
+
+429
+00:20:37,120 --> 00:20:40,880
+only if when you have a project that has
+
+430
+00:20:39,679 --> 00:20:44,320
+lots of files
+
+431
+00:20:40,880 --> 00:20:48,480
+and lots of nested directories
+
+432
+00:20:44,320 --> 00:20:50,960
+so let's see if i have a project
+
+433
+00:20:48,480 --> 00:20:52,080
+i don't think i have a project with huge
+
+434
+00:20:50,960 --> 00:20:54,960
+number of directories so
+
+435
+00:20:52,080 --> 00:20:54,960
+emacs well
+
+436
+00:20:55,360 --> 00:21:01,600
+uh projectile okay so we also need to
+
+437
+00:20:59,919 --> 00:21:05,039
+read
+
+438
+00:21:01,600 --> 00:21:08,080
+we also need to read the documentation
+
+439
+00:21:05,039 --> 00:21:08,080
+for projectile
+
+440
+00:21:11,440 --> 00:21:18,480
+okay i'm kind of lost here
+
+441
+00:21:15,280 --> 00:21:18,480
+so what do we gonna do
+
+442
+00:21:18,960 --> 00:21:23,440
+let's just go to soft like keys for now
+
+443
+00:21:21,200 --> 00:21:23,440
+okay
+
+444
+00:21:24,320 --> 00:21:29,679
+so this is my package it's only
+
+445
+00:21:27,440 --> 00:21:31,760
+one file actually only one single file
+
+446
+00:21:29,679 --> 00:21:36,240
+but let's just try some projectile
+
+447
+00:21:31,760 --> 00:21:36,240
+so i suppose you need to meta x
+
+448
+00:21:36,320 --> 00:21:40,159
+meta x projectile
+
+449
+00:21:41,760 --> 00:21:49,280
+mod do i like do i have to turn it on or
+
+450
+00:21:46,640 --> 00:21:51,840
+let's try projectile mod projectile mod
+
+451
+00:21:49,280 --> 00:21:51,840
+enabled
+
+452
+00:21:55,120 --> 00:21:58,159
+okay i think i need to read the
+
+453
+00:21:56,720 --> 00:22:01,200
+documentation i think
+
+454
+00:21:58,159 --> 00:22:03,039
+it's a minor mod yes this projectile is
+
+455
+00:22:01,200 --> 00:22:06,960
+a minor mod
+
+456
+00:22:03,039 --> 00:22:10,880
+and so what do you project
+
+457
+00:22:06,960 --> 00:22:14,640
+tile so let's do this okay
+
+458
+00:22:10,880 --> 00:22:17,760
+control h a for check
+
+459
+00:22:14,640 --> 00:22:20,960
+tile so that will list all commands with
+
+460
+00:22:17,760 --> 00:22:23,280
+the name projectile
+
+461
+00:22:20,960 --> 00:22:26,559
+projectile fine file projectile add
+
+462
+00:22:23,280 --> 00:22:29,840
+known project projectile ag
+
+463
+00:22:26,559 --> 00:22:30,480
+ag is mercury i think projectile browse
+
+464
+00:22:29,840 --> 00:22:33,200
+30
+
+465
+00:22:30,480 --> 00:22:33,760
+up uh dirty project projectile cache
+
+466
+00:22:33,200 --> 00:22:38,840
+buff of
+
+467
+00:22:33,760 --> 00:22:41,840
+current file clean up projectile diode
+
+468
+00:22:38,840 --> 00:22:41,840
+uh
+
+469
+00:22:42,960 --> 00:22:50,640
+yeah i think you know i this requires
+
+470
+00:22:48,080 --> 00:22:52,720
+one to read the documentation a little
+
+471
+00:22:50,640 --> 00:22:54,880
+bit so you know what
+
+472
+00:22:52,720 --> 00:22:56,720
+actually what to do with it what
+
+473
+00:22:54,880 --> 00:23:01,039
+commands to call
+
+474
+00:22:56,720 --> 00:23:04,720
+so why don't you use a linux distro
+
+475
+00:23:01,039 --> 00:23:06,559
+uh that's that question i can answer
+
+476
+00:23:04,720 --> 00:23:09,840
+that but i answered that
+
+477
+00:23:06,559 --> 00:23:09,840
+a few times
+
+478
+00:23:10,480 --> 00:23:16,799
+um so what are we doing now projectile
+
+479
+00:23:14,559 --> 00:23:16,799
+so
+
+480
+00:23:21,440 --> 00:23:26,240
+so does anyone use projectile uh
+
+481
+00:23:27,600 --> 00:23:31,039
+find files in so in this short demo you
+
+482
+00:23:30,400 --> 00:23:33,039
+can see
+
+483
+00:23:31,039 --> 00:23:34,240
+find files in a project switching
+
+484
+00:23:33,039 --> 00:23:38,000
+between implement
+
+485
+00:23:34,240 --> 00:23:40,080
+implement implementation and test
+
+486
+00:23:38,000 --> 00:23:41,120
+switching between projects you can
+
+487
+00:23:40,080 --> 00:23:44,400
+support my work
+
+488
+00:23:41,120 --> 00:23:47,440
+okay quick start the instructions that
+
+489
+00:23:44,400 --> 00:23:48,880
+follow are meant to get you from zero to
+
+490
+00:23:47,440 --> 00:23:53,600
+running projectile
+
+491
+00:23:48,880 --> 00:23:53,600
+in a minute okay installation
+
+492
+00:23:55,600 --> 00:24:00,159
+okay i guess many of you are not using
+
+493
+00:23:58,000 --> 00:24:04,000
+it um
+
+494
+00:24:00,159 --> 00:24:07,120
+those those with uh those with a job
+
+495
+00:24:04,000 --> 00:24:08,720
+are probably not reading not watching my
+
+496
+00:24:07,120 --> 00:24:10,380
+youtube
+
+497
+00:24:08,720 --> 00:24:12,799
+except jeff's
+
+498
+00:24:10,380 --> 00:24:15,200
+[Laughter]
+
+499
+00:24:12,799 --> 00:24:15,919
+projectile you know i think it's fairly
+
+500
+00:24:15,200 --> 00:24:18,880
+popular
+
+501
+00:24:15,919 --> 00:24:19,679
+for people in you know you work in a
+
+502
+00:24:18,880 --> 00:24:23,440
+company you have
+
+503
+00:24:19,679 --> 00:24:27,919
+a huge number of source code
+
+504
+00:24:23,440 --> 00:24:27,919
+wait wait where is my window okay here
+
+505
+00:24:30,840 --> 00:24:34,240
+um
+
+506
+00:24:32,080 --> 00:24:36,240
+i have to i have to read the
+
+507
+00:24:34,240 --> 00:24:38,640
+documentation then that's going to get
+
+508
+00:24:36,240 --> 00:24:38,640
+boring
+
+509
+00:24:39,039 --> 00:24:45,440
+building package manager is a
+
+510
+00:24:42,559 --> 00:24:47,440
+package okay installation basic usage
+
+511
+00:24:45,440 --> 00:24:50,000
+enable projectile mod okay
+
+512
+00:24:47,440 --> 00:24:52,159
+open a file in one of your projects and
+
+513
+00:24:50,000 --> 00:24:56,240
+type the command such as
+
+514
+00:24:52,159 --> 00:24:59,600
+cc control cpf okay
+
+515
+00:24:56,240 --> 00:25:02,640
+so i'm in a project directory yes wait
+
+516
+00:24:59,600 --> 00:25:05,679
+let's go to my emacs directory but so
+
+517
+00:25:02,640 --> 00:25:09,039
+because then there are tons of files
+
+518
+00:25:05,679 --> 00:25:10,000
+okay so in emacs directory this is also
+
+519
+00:25:09,039 --> 00:25:12,400
+a project
+
+520
+00:25:10,000 --> 00:25:13,200
+because you go up you can see uh it's
+
+521
+00:25:12,400 --> 00:25:16,640
+good
+
+522
+00:25:13,200 --> 00:25:18,240
+project it's a project directory so now
+
+523
+00:25:16,640 --> 00:25:22,640
+it says
+
+524
+00:25:18,240 --> 00:25:24,880
+control c p f so let's let's see what
+
+525
+00:25:22,640 --> 00:25:26,080
+let's see what command that that key
+
+526
+00:25:24,880 --> 00:25:30,000
+runs okay
+
+527
+00:25:26,080 --> 00:25:33,279
+describe key control c
+
+528
+00:25:30,000 --> 00:25:36,159
+p control c p
+
+529
+00:25:33,279 --> 00:25:38,240
+is not undefined okay let's try
+
+530
+00:25:36,159 --> 00:25:42,159
+projectile mod again
+
+531
+00:25:38,240 --> 00:25:45,600
+meta x projectile mod disabled okay
+
+532
+00:25:42,159 --> 00:25:49,679
+do it again enabled now
+
+533
+00:25:45,600 --> 00:25:52,080
+describe key control c p
+
+534
+00:25:49,679 --> 00:25:53,360
+ah control c p is not undef is not
+
+535
+00:25:52,080 --> 00:25:58,320
+defined
+
+536
+00:25:53,360 --> 00:25:58,320
+but it says control c p f what the [ __ ]
+
+537
+00:25:58,880 --> 00:26:03,600
+see the user manual for more details
+
+538
+00:26:01,279 --> 00:26:03,600
+yeah
+
+539
+00:26:04,320 --> 00:26:07,760
+okay let's do this again
+
+540
+00:26:08,880 --> 00:26:14,490
+let's see all the commands of projectile
+
+541
+00:26:12,240 --> 00:26:17,549
+now which one has the control cp
+
+542
+00:26:14,490 --> 00:26:17,549
+[Music]
+
+543
+00:26:22,840 --> 00:26:28,400
+f
+
+544
+00:26:25,840 --> 00:26:30,000
+yeah i i'm i'm running out of patience
+
+545
+00:26:28,400 --> 00:26:33,120
+with this
+
+546
+00:26:30,000 --> 00:26:35,919
+uh actually the problem is that i i
+
+547
+00:26:33,120 --> 00:26:40,799
+really need to read
+
+548
+00:26:35,919 --> 00:26:40,799
+the you know the basic usage
+
+549
+00:26:43,200 --> 00:26:50,799
+and type of command such as control cpf
+
+550
+00:26:47,760 --> 00:26:50,799
+yeah but but
+
+551
+00:26:51,600 --> 00:26:54,400
+uh but
+
+552
+00:26:56,080 --> 00:27:03,600
+yeah that's ctrl c pdf right
+
+553
+00:26:59,440 --> 00:27:08,159
+so close that back to
+
+554
+00:27:03,600 --> 00:27:10,960
+back to my project okay let's try again
+
+555
+00:27:08,159 --> 00:27:11,760
+projectile is on you can see in the mini
+
+556
+00:27:10,960 --> 00:27:16,240
+buffer
+
+557
+00:27:11,760 --> 00:27:16,240
+in the mod line so now
+
+558
+00:27:16,400 --> 00:27:21,760
+describe key control c
+
+559
+00:27:19,520 --> 00:27:23,120
+p it doesn't show okay let's just call
+
+560
+00:27:21,760 --> 00:27:26,399
+it
+
+561
+00:27:23,120 --> 00:27:28,640
+ctrl c ctrl h
+
+562
+00:27:26,399 --> 00:27:29,440
+so we can see all the commands starting
+
+563
+00:27:28,640 --> 00:27:32,559
+with ctrl
+
+564
+00:27:29,440 --> 00:27:36,159
+c and now let's
+
+565
+00:27:32,559 --> 00:27:36,159
+search for projectile
+
+566
+00:27:36,399 --> 00:27:39,200
+it's not there
+
+567
+00:27:44,559 --> 00:27:48,559
+okay so i'm back in my emacs blog i mean
+
+568
+00:27:47,919 --> 00:27:53,120
+my
+
+569
+00:27:48,559 --> 00:27:56,559
+talk show page it's just called
+
+570
+00:27:53,120 --> 00:28:00,840
+ctrl c p
+
+571
+00:27:56,559 --> 00:28:03,840
+control cp is not defined god
+
+572
+00:28:00,840 --> 00:28:03,840
+frustration
+
+573
+00:28:04,000 --> 00:28:10,240
+oh you have to you have to add the key
+
+574
+00:28:07,200 --> 00:28:10,240
+binding yourself
+
+575
+00:28:11,180 --> 00:28:16,559
+[Laughter]
+
+576
+00:28:14,399 --> 00:28:19,760
+you have to add the key binding yourself
+
+577
+00:28:16,559 --> 00:28:19,760
+so let's copy that
+
+578
+00:28:19,840 --> 00:28:24,720
+so okay so we need actually you need to
+
+579
+00:28:22,480 --> 00:28:25,600
+alternatively use the debian ni or blah
+
+580
+00:28:24,720 --> 00:28:27,919
+blah blah
+
+581
+00:28:25,600 --> 00:28:29,120
+finally add this to your emacs you need
+
+582
+00:28:27,919 --> 00:28:31,679
+file so okay
+
+583
+00:28:29,120 --> 00:28:33,600
+so apparently projectile is a collection
+
+584
+00:28:31,679 --> 00:28:36,080
+of uh commands
+
+585
+00:28:33,600 --> 00:28:37,600
+then but you need to add the keys
+
+586
+00:28:36,080 --> 00:28:40,720
+yourself so let's go to
+
+587
+00:28:37,600 --> 00:28:44,799
+star talk show i mean let's go to
+
+588
+00:28:40,720 --> 00:28:48,720
+star talk show um
+
+589
+00:28:44,799 --> 00:28:52,640
+showing browser okay you need to add
+
+590
+00:28:48,720 --> 00:28:52,640
+commands yourself so let's
+
+591
+00:28:53,840 --> 00:29:02,000
+um so what are you saying
+
+592
+00:28:58,080 --> 00:29:06,240
+define key meta
+
+593
+00:29:02,000 --> 00:29:06,240
+p wait not this is super
+
+594
+00:29:06,559 --> 00:29:11,520
+okay projectile command map that's the
+
+595
+00:29:09,520 --> 00:29:12,000
+key you want okay let's let's go define
+
+596
+00:29:11,520 --> 00:29:15,279
+a key
+
+597
+00:29:12,000 --> 00:29:18,880
+and let's you know let's do what they
+
+598
+00:29:15,279 --> 00:29:21,600
+tell us to do okay so
+
+599
+00:29:18,880 --> 00:29:22,320
+meanwhile i show you my workflow so i go
+
+600
+00:29:21,600 --> 00:29:24,799
+to my
+
+601
+00:29:22,320 --> 00:29:26,559
+uh using a bookmark go to my brief file
+
+602
+00:29:24,799 --> 00:29:29,840
+go to the directory
+
+603
+00:29:26,559 --> 00:29:33,279
+then go to let's say go to
+
+604
+00:29:29,840 --> 00:29:36,399
+miscellaneous okay
+
+605
+00:29:33,279 --> 00:29:37,840
+this is my miscellaneous emac list code
+
+606
+00:29:36,399 --> 00:29:41,600
+and at bottom
+
+607
+00:29:37,840 --> 00:29:44,000
+paste this key actually
+
+608
+00:29:41,600 --> 00:29:46,159
+save it close it open the keybinding
+
+609
+00:29:44,000 --> 00:29:49,600
+file
+
+610
+00:29:46,159 --> 00:29:53,679
+so here's my key binding setup
+
+611
+00:29:49,600 --> 00:29:55,840
+let's at the top let's just say that
+
+612
+00:29:53,679 --> 00:29:55,840
+and
+
+613
+00:29:59,279 --> 00:30:06,080
+ctrl c p okay so run it
+
+614
+00:30:02,559 --> 00:30:09,679
+okay save it back to
+
+615
+00:30:06,080 --> 00:30:12,880
+my close that closet
+
+616
+00:30:09,679 --> 00:30:15,840
+okay uh back to my
+
+617
+00:30:12,880 --> 00:30:15,840
+talk show page
+
+618
+00:30:27,679 --> 00:30:33,279
+and like
+
+619
+00:30:30,720 --> 00:30:33,919
+not sure what i'm doing so let's try try
+
+620
+00:30:33,279 --> 00:30:37,120
+the command
+
+621
+00:30:33,919 --> 00:30:40,880
+ctrl c p
+
+622
+00:30:37,120 --> 00:30:40,880
+ctrl c p
+
+623
+00:30:41,679 --> 00:30:44,720
+wait what what
+
+624
+00:30:48,720 --> 00:30:52,559
+i thought i just did it
+
+625
+00:30:59,919 --> 00:31:08,240
+hang on a second ctrl c
+
+626
+00:31:03,760 --> 00:31:08,240
+p ctrl h
+
+627
+00:31:08,720 --> 00:31:15,120
+there it is i should have my keys so
+
+628
+00:31:11,760 --> 00:31:18,000
+so we got all these projectile commands
+
+629
+00:31:15,120 --> 00:31:21,919
+and keys let's try it again
+
+630
+00:31:18,000 --> 00:31:21,919
+ctrl c p
+
+631
+00:31:22,640 --> 00:31:30,880
+oh okay so ctrl c p is the prefix
+
+632
+00:31:27,519 --> 00:31:34,000
+of all a bunch of keys
+
+633
+00:31:30,880 --> 00:31:36,080
+is that right yeah so projectile command
+
+634
+00:31:34,000 --> 00:31:36,480
+map that's actually a key map you know
+
+635
+00:31:36,080 --> 00:31:40,320
+there's
+
+636
+00:31:36,480 --> 00:31:42,799
+one edlc in emacs in emacs
+
+637
+00:31:40,320 --> 00:31:43,440
+when you create a key map a key map is
+
+638
+00:31:42,799 --> 00:31:46,720
+basically
+
+639
+00:31:43,440 --> 00:31:48,320
+basically a table of con configuration
+
+640
+00:31:46,720 --> 00:31:50,880
+of shortcut keys okay
+
+641
+00:31:48,320 --> 00:31:52,159
+so you can create a key map but when you
+
+642
+00:31:50,880 --> 00:31:55,440
+create a key map
+
+643
+00:31:52,159 --> 00:31:58,799
+by convention the variable name for
+
+644
+00:31:55,440 --> 00:32:01,840
+key map is is dash
+
+645
+00:31:58,799 --> 00:32:03,840
+map not dash key map
+
+646
+00:32:01,840 --> 00:32:06,240
+so it's stash map you know that's just a
+
+647
+00:32:03,840 --> 00:32:08,799
+convention so
+
+648
+00:32:06,240 --> 00:32:11,200
+it should be a dash key map that's
+
+649
+00:32:08,799 --> 00:32:11,200
+better
+
+650
+00:32:11,360 --> 00:32:14,880
+because map could mean you know so many
+
+651
+00:32:13,679 --> 00:32:17,440
+things it's a table
+
+652
+00:32:14,880 --> 00:32:18,720
+for uh you know it's just a map you know
+
+653
+00:32:17,440 --> 00:32:21,919
+key value pairs for
+
+654
+00:32:18,720 --> 00:32:25,279
+so for so many things for example if
+
+655
+00:32:21,919 --> 00:32:28,799
+if if it actually says key map
+
+656
+00:32:25,279 --> 00:32:31,679
+then i would realize that this this is a
+
+657
+00:32:28,799 --> 00:32:34,159
+prefix key because it's a key map
+
+658
+00:32:31,679 --> 00:32:38,159
+so anyway so project tile has all these
+
+659
+00:32:34,159 --> 00:32:42,240
+commands let's try projectile diode okay
+
+660
+00:32:38,159 --> 00:32:45,279
+let's go back to my uh xory info page
+
+661
+00:32:42,240 --> 00:32:48,880
+so that is also a project then
+
+662
+00:32:45,279 --> 00:32:52,240
+ctrl c p capital d
+
+663
+00:32:48,880 --> 00:32:52,240
+projectile diode
+
+664
+00:32:52,559 --> 00:32:56,640
+it just goes to the diode i mean what's
+
+665
+00:32:55,360 --> 00:33:00,399
+the difference between
+
+666
+00:32:56,640 --> 00:33:00,399
+a normal diet command
+
+667
+00:33:00,799 --> 00:33:07,440
+you know i i don't think
+
+668
+00:33:04,080 --> 00:33:08,320
+i i think i'm doing this showing
+
+669
+00:33:07,440 --> 00:33:11,679
+projectile
+
+670
+00:33:08,320 --> 00:33:14,399
+many to flame it so
+
+671
+00:33:11,679 --> 00:33:15,360
+we look at the projectile source code
+
+672
+00:33:14,399 --> 00:33:19,600
+let's see what is
+
+673
+00:33:15,360 --> 00:33:22,399
+it doing function define projectile
+
+674
+00:33:19,600 --> 00:33:23,679
+diode okay open diode at the root of the
+
+675
+00:33:22,399 --> 00:33:25,519
+project oh it's
+
+676
+00:33:23,679 --> 00:33:28,640
+okay so it actually goes through the
+
+677
+00:33:25,519 --> 00:33:32,240
+router project let's try again
+
+678
+00:33:28,640 --> 00:33:36,159
+the talk show page ctrl c
+
+679
+00:33:32,240 --> 00:33:38,399
+p capital d oh yeah okay so it goes to
+
+680
+00:33:36,159 --> 00:33:41,440
+the root of the
+
+681
+00:33:38,399 --> 00:33:43,039
+of the project that's that's useful yeah
+
+682
+00:33:41,440 --> 00:33:44,960
+that's useful because
+
+683
+00:33:43,039 --> 00:33:48,320
+if you have a project sometimes you have
+
+684
+00:33:44,960 --> 00:33:50,320
+like five levels of nested directories
+
+685
+00:33:48,320 --> 00:33:52,240
+uh and you are in one of the nested
+
+686
+00:33:50,320 --> 00:33:56,080
+directories you want to go to the
+
+687
+00:33:52,240 --> 00:33:59,279
+root of the project directory so
+
+688
+00:33:56,080 --> 00:34:00,240
+so okay so this command is useful we
+
+689
+00:33:59,279 --> 00:34:03,679
+know that
+
+690
+00:34:00,240 --> 00:34:06,320
+now ctrl c p
+
+691
+00:34:03,679 --> 00:34:08,320
+control h now let's look at projectile
+
+692
+00:34:06,320 --> 00:34:11,119
+commands again
+
+693
+00:34:08,320 --> 00:34:14,960
+so projectile diet goes to the root of
+
+694
+00:34:11,119 --> 00:34:17,359
+directory um let's see what else to
+
+695
+00:34:14,960 --> 00:34:18,480
+you see i'm trying to find some you know
+
+696
+00:34:17,359 --> 00:34:21,520
+i'm trying to
+
+697
+00:34:18,480 --> 00:34:24,960
+evaluate this package
+
+698
+00:34:21,520 --> 00:34:27,919
+i'm trying to see what benefit
+
+699
+00:34:24,960 --> 00:34:27,919
+it may have
+
+700
+00:34:28,079 --> 00:34:31,200
+you know because first of all emacs is
+
+701
+00:34:30,320 --> 00:34:34,720
+already you know
+
+702
+00:34:31,200 --> 00:34:37,040
+it has styled has bookmarks has all that
+
+703
+00:34:34,720 --> 00:34:37,919
+it's supposed in theory you know it
+
+704
+00:34:37,040 --> 00:34:40,800
+already
+
+705
+00:34:37,919 --> 00:34:42,560
+does a great job of managing files
+
+706
+00:34:40,800 --> 00:34:43,440
+doesn't matter it's a project directory
+
+707
+00:34:42,560 --> 00:34:48,399
+or not
+
+708
+00:34:43,440 --> 00:34:52,240
+so what does projectile add to it
+
+709
+00:34:48,399 --> 00:34:52,240
+that that is the question um
+
+710
+00:34:54,000 --> 00:35:00,000
+and also i want to say you know i well
+
+711
+00:34:56,960 --> 00:35:00,000
+anyway so let's see
+
+712
+00:35:00,839 --> 00:35:03,839
+comments
+
+713
+00:35:13,359 --> 00:35:18,160
+okay so how long have been talking
+
+714
+00:35:21,200 --> 00:35:26,880
+35 minutes this is george good morning
+
+715
+00:35:24,560 --> 00:35:26,880
+george
+
+716
+00:35:27,880 --> 00:35:36,359
+ccpp and ccpf okay that's what
+
+717
+00:35:31,680 --> 00:35:39,359
+george says what he used ccpp
+
+718
+00:35:36,359 --> 00:35:43,440
+ccpp is
+
+719
+00:35:39,359 --> 00:35:46,960
+projectile switch project okay and ccpf
+
+720
+00:35:43,440 --> 00:35:46,960
+is uh hold on a second
+
+721
+00:35:47,680 --> 00:35:51,599
+go to talk show and let's paste it here
+
+722
+00:35:50,400 --> 00:35:57,839
+okay
+
+723
+00:35:51,599 --> 00:36:01,920
+and ccpf projectile find file
+
+724
+00:35:57,839 --> 00:36:05,200
+let's try them so projectile find file
+
+725
+00:36:01,920 --> 00:36:05,200
+let's just call by name
+
+726
+00:36:07,040 --> 00:36:14,960
+enter it okay so it takes
+
+727
+00:36:10,160 --> 00:36:14,960
+a few seconds to to respond
+
+728
+00:36:16,320 --> 00:36:23,119
+why because probably because i have
+
+729
+00:36:20,880 --> 00:36:24,400
+i have thousands i have literally
+
+730
+00:36:23,119 --> 00:36:30,079
+thousands of files
+
+731
+00:36:24,400 --> 00:36:30,079
+in this directory
+
+732
+00:36:31,200 --> 00:36:41,200
+so let's look at that documentation
+
+733
+00:36:33,440 --> 00:36:44,560
+projectile find file
+
+734
+00:36:41,200 --> 00:36:48,720
+okay projectile find file jump to a
+
+735
+00:36:44,560 --> 00:36:48,720
+projects file using completion
+
+736
+00:36:51,440 --> 00:36:59,920
+okay so so m e mike sardi
+
+737
+00:36:56,000 --> 00:37:04,000
+uh lee.info directory you can see
+
+738
+00:36:59,920 --> 00:37:06,480
+so here is my uh project root sally.info
+
+739
+00:37:04,000 --> 00:37:07,839
+and you can see a git you know this is a
+
+740
+00:37:06,480 --> 00:37:11,119
+project
+
+741
+00:37:07,839 --> 00:37:11,760
+but this is basically my website and it
+
+742
+00:37:11,119 --> 00:37:15,599
+has
+
+743
+00:37:11,760 --> 00:37:19,920
+like 20 000 files so it's kind of a
+
+744
+00:37:15,599 --> 00:37:19,920
+huge project 20 000
+
+745
+00:37:20,000 --> 00:37:26,960
+20 000 files and
+
+746
+00:37:23,520 --> 00:37:30,400
+uh but it does not have
+
+747
+00:37:26,960 --> 00:37:33,520
+that many nested directory uh
+
+748
+00:37:30,400 --> 00:37:37,040
+the dps is three or four levels nesting
+
+749
+00:37:33,520 --> 00:37:40,160
+directories so
+
+750
+00:37:37,040 --> 00:37:41,119
+so when you say projective find file
+
+751
+00:37:40,160 --> 00:37:44,400
+let's try it again
+
+752
+00:37:41,119 --> 00:37:47,200
+so put project find file let's say i
+
+753
+00:37:44,400 --> 00:37:49,520
+want to try to go to my golan
+
+754
+00:37:47,200 --> 00:37:51,119
+tutorial so goal line tutorial is in a
+
+755
+00:37:49,520 --> 00:37:53,920
+go land directory so
+
+756
+00:37:51,119 --> 00:37:56,079
+project project projectile find file
+
+757
+00:37:53,920 --> 00:38:00,640
+let's type golan
+
+758
+00:37:56,079 --> 00:38:00,640
+go lan oh okay so this is great
+
+759
+00:38:00,880 --> 00:38:04,480
+so you see it shows all my go land
+
+760
+00:38:02,880 --> 00:38:08,160
+directories and documents
+
+761
+00:38:04,480 --> 00:38:09,440
+if when i just type go so you can see
+
+762
+00:38:08,160 --> 00:38:13,119
+let me not magnify
+
+763
+00:38:09,440 --> 00:38:14,240
+okay so you can see all the gold line
+
+764
+00:38:13,119 --> 00:38:18,079
+yeah
+
+765
+00:38:14,240 --> 00:38:21,520
+okay so this is actually useful
+
+766
+00:38:18,079 --> 00:38:21,520
+yeah so thank you george
+
+767
+00:38:22,640 --> 00:38:29,119
+uh you know normally the way i do it
+
+768
+00:38:25,920 --> 00:38:30,839
+is for example so for so so if i want to
+
+769
+00:38:29,119 --> 00:38:33,200
+go my goal and
+
+770
+00:38:30,839 --> 00:38:35,839
+uh directory
+
+771
+00:38:33,200 --> 00:38:37,200
+i press three keys and i have my
+
+772
+00:38:35,839 --> 00:38:40,320
+bookmarks or book
+
+773
+00:38:37,200 --> 00:38:44,320
+bookmarks so i type geo
+
+774
+00:38:40,320 --> 00:38:47,599
+that is go land uh i press enter
+
+775
+00:38:44,320 --> 00:38:50,160
+and this is my golan tutorial
+
+776
+00:38:47,599 --> 00:38:51,280
+uh file you show in browser you see it's
+
+777
+00:38:50,160 --> 00:38:53,280
+golden
+
+778
+00:38:51,280 --> 00:38:54,880
+and if you want to go to the directory
+
+779
+00:38:53,280 --> 00:38:58,720
+you just press two keys
+
+780
+00:38:54,880 --> 00:39:00,160
+called dire jump so that's how you go to
+
+781
+00:38:58,720 --> 00:39:02,320
+the directory and
+
+782
+00:39:00,160 --> 00:39:03,520
+you know once you open the file then you
+
+783
+00:39:02,320 --> 00:39:06,640
+can you can
+
+784
+00:39:03,520 --> 00:39:09,680
+you can press three keys that's
+
+785
+00:39:06,640 --> 00:39:10,000
+uh i do find file so you can now you can
+
+786
+00:39:09,680 --> 00:39:13,119
+open
+
+787
+00:39:10,000 --> 00:39:16,240
+any file in this directory so that's
+
+788
+00:39:13,119 --> 00:39:20,640
+how i normally do it without um
+
+789
+00:39:16,240 --> 00:39:20,640
+so the the the thing
+
+790
+00:39:20,960 --> 00:39:24,800
+i mean the the disadvantage of this is
+
+791
+00:39:23,680 --> 00:39:26,880
+that
+
+792
+00:39:24,800 --> 00:39:29,200
+when whenever you work with a new
+
+793
+00:39:26,880 --> 00:39:29,920
+project or whenever you want to open a
+
+794
+00:39:29,200 --> 00:39:33,200
+file that
+
+795
+00:39:29,920 --> 00:39:36,400
+that that's frequently used you need
+
+796
+00:39:33,200 --> 00:39:39,920
+to add it to a bookmark
+
+797
+00:39:36,400 --> 00:39:44,640
+you know so there's one time work
+
+798
+00:39:39,920 --> 00:39:44,640
+for example let's go to let's go to my
+
+799
+00:39:45,680 --> 00:39:50,320
+let's go to our camel i don't remember i
+
+800
+00:39:48,240 --> 00:39:53,920
+have a camera i do have a camel
+
+801
+00:39:50,320 --> 00:39:56,880
+bookmark already so anyway let's
+
+802
+00:39:53,920 --> 00:39:57,280
+let's show my bookmark okay let's go to
+
+803
+00:39:56,880 --> 00:40:00,400
+let's
+
+804
+00:39:57,280 --> 00:40:04,000
+find the python so magnify
+
+805
+00:40:00,400 --> 00:40:07,040
+so i have three python bookmarks
+
+806
+00:40:04,000 --> 00:40:08,880
+that lets me easily go to there so for
+
+807
+00:40:07,040 --> 00:40:13,040
+example i press a key
+
+808
+00:40:08,880 --> 00:40:16,480
+type python and i have several choices
+
+809
+00:40:13,040 --> 00:40:20,400
+you can see python python 2 open it
+
+810
+00:40:16,480 --> 00:40:23,520
+showing browser python 2 website
+
+811
+00:40:20,400 --> 00:40:24,720
+close it so but now let's remove those
+
+812
+00:40:23,520 --> 00:40:28,640
+bookmarks
+
+813
+00:40:24,720 --> 00:40:32,079
+d for delete x for delete them
+
+814
+00:40:28,640 --> 00:40:35,359
+save it close bookmark
+
+815
+00:40:32,079 --> 00:40:37,119
+close close close now i want to open
+
+816
+00:40:35,359 --> 00:40:40,560
+python again
+
+817
+00:40:37,119 --> 00:40:42,640
+i type python it's not there okay so
+
+818
+00:40:40,560 --> 00:40:45,760
+it's not there
+
+819
+00:40:42,640 --> 00:40:48,160
+so but if i want to do it
+
+820
+00:40:45,760 --> 00:40:50,960
+so i have to add to a bookmark so let's
+
+821
+00:40:48,160 --> 00:40:54,319
+go to the directory python directory
+
+822
+00:40:50,960 --> 00:40:58,000
+about okay show in browser
+
+823
+00:40:54,319 --> 00:41:01,520
+back to emacs go to the diode
+
+824
+00:40:58,000 --> 00:41:03,760
+so here's the python directory so i need
+
+825
+00:41:01,520 --> 00:41:03,760
+to
+
+826
+00:41:03,920 --> 00:41:08,560
+let's say search for index okay so this
+
+827
+00:41:06,800 --> 00:41:12,720
+is the index file
+
+828
+00:41:08,560 --> 00:41:15,599
+open it showing browser back to emacs
+
+829
+00:41:12,720 --> 00:41:17,680
+i need to add this file to the bookmark
+
+830
+00:41:15,599 --> 00:41:20,720
+so
+
+831
+00:41:17,680 --> 00:41:24,480
+i have a shortcut key so he asked me
+
+832
+00:41:20,720 --> 00:41:28,720
+for a name let's say python okay
+
+833
+00:41:24,480 --> 00:41:31,280
+enter now it's done now close it
+
+834
+00:41:28,720 --> 00:41:32,000
+close it if i want to open it again now
+
+835
+00:41:31,280 --> 00:41:35,839
+i do a
+
+836
+00:41:32,000 --> 00:41:38,640
+bookmark okay now at python okay
+
+837
+00:41:35,839 --> 00:41:40,000
+python is already on top enter so it
+
+838
+00:41:38,640 --> 00:41:42,560
+opens that
+
+839
+00:41:40,000 --> 00:41:45,040
+file so but there is the step you need
+
+840
+00:41:42,560 --> 00:41:48,560
+to add to a bookmark
+
+841
+00:41:45,040 --> 00:41:49,200
+but with projectile let's go to bookmark
+
+842
+00:41:48,560 --> 00:41:53,680
+again
+
+843
+00:41:49,200 --> 00:41:57,040
+search for python magnify so here it is
+
+844
+00:41:53,680 --> 00:42:00,160
+deleted delete save close
+
+845
+00:41:57,040 --> 00:42:02,079
+now with projectile i don't have to do
+
+846
+00:42:00,160 --> 00:42:04,240
+that so i guess that's the
+
+847
+00:42:02,079 --> 00:42:05,920
+that's a that that's a big advantage
+
+848
+00:42:04,240 --> 00:42:08,160
+because once you
+
+849
+00:42:05,920 --> 00:42:11,680
+you know if you work in a company you
+
+850
+00:42:08,160 --> 00:42:13,119
+might have several projects going on
+
+851
+00:42:11,680 --> 00:42:15,839
+you know you don't want you know you
+
+852
+00:42:13,119 --> 00:42:18,480
+don't want to add a bookmark for every
+
+853
+00:42:15,839 --> 00:42:21,440
+project because some project you just
+
+854
+00:42:18,480 --> 00:42:23,520
+use it once uh you don't so let's try
+
+855
+00:42:21,440 --> 00:42:26,720
+projectile find file
+
+856
+00:42:23,520 --> 00:42:28,560
+okay then let's type python there it is
+
+857
+00:42:26,720 --> 00:42:31,599
+so i have all my python
+
+858
+00:42:28,560 --> 00:42:33,599
+let's say python list let's say python
+
+859
+00:42:31,599 --> 00:42:35,839
+dictionary i have a file
+
+860
+00:42:33,599 --> 00:42:37,079
+that's about python dictionary so i type
+
+861
+00:42:35,839 --> 00:42:40,319
+python
+
+862
+00:42:37,079 --> 00:42:45,839
+d-i-c-t yeah
+
+863
+00:42:40,319 --> 00:42:45,839
+okay then went to some other um
+
+864
+00:42:45,920 --> 00:42:49,760
+let's magnify it okay let's try it again
+
+865
+00:42:48,640 --> 00:42:54,400
+okay
+
+866
+00:42:49,760 --> 00:42:58,760
+so meta x
+
+867
+00:42:54,400 --> 00:43:02,720
+project tile find file let's magnify
+
+868
+00:42:58,760 --> 00:43:02,720
+pyt python
+
+869
+00:43:02,800 --> 00:43:10,319
+python dictionary okay so d-i-c-t
+
+870
+00:43:06,560 --> 00:43:10,319
+so i don't see that let's try
+
+871
+00:43:11,359 --> 00:43:17,520
+a r a that array
+
+872
+00:43:15,119 --> 00:43:20,319
+it's not there so maybe i need to put a
+
+873
+00:43:17,520 --> 00:43:20,319
+underscore
+
+874
+00:43:20,880 --> 00:43:28,160
+yeah so type the full name python
+
+875
+00:43:24,560 --> 00:43:32,079
+p y t h o n okay then
+
+876
+00:43:28,160 --> 00:43:35,200
+d i c t okay so now
+
+877
+00:43:32,079 --> 00:43:38,160
+it shows up uh still
+
+878
+00:43:35,200 --> 00:43:39,359
+it's very good python versus emac b log
+
+879
+00:43:38,160 --> 00:43:42,800
+string convention
+
+880
+00:43:39,359 --> 00:43:43,920
+okay that's interesting python 2 to
+
+881
+00:43:42,800 --> 00:43:45,920
+python 3 difference
+
+882
+00:43:43,920 --> 00:43:48,079
+python dictionary methods that's the one
+
+883
+00:43:45,920 --> 00:43:51,920
+i want
+
+884
+00:43:48,079 --> 00:43:54,319
+enter showing browser
+
+885
+00:43:51,920 --> 00:43:55,359
+okay that's that's uh very useful let's
+
+886
+00:43:54,319 --> 00:43:58,319
+try another
+
+887
+00:43:55,359 --> 00:44:00,880
+so projectile switch project why do you
+
+888
+00:43:58,319 --> 00:44:00,880
+need that
+
+889
+00:44:04,079 --> 00:44:08,079
+um projectile switch project isn't uh so
+
+890
+00:44:07,280 --> 00:44:10,880
+it's bound to
+
+891
+00:44:08,079 --> 00:44:14,240
+so projectile switch to a project we
+
+892
+00:44:10,880 --> 00:44:14,240
+have visited before
+
+893
+00:44:15,520 --> 00:44:18,560
+what what does that do i mean if you
+
+894
+00:44:18,000 --> 00:44:21,680
+want to
+
+895
+00:44:18,560 --> 00:44:24,880
+switch to a pr to a file that that
+
+896
+00:44:21,680 --> 00:44:28,240
+you already visited you can just
+
+897
+00:44:24,880 --> 00:44:28,880
+um call recent recent file so for
+
+898
+00:44:28,240 --> 00:44:32,240
+example
+
+899
+00:44:28,880 --> 00:44:35,680
+i just call it space ch
+
+900
+00:44:32,240 --> 00:44:36,960
+with soft like keys foreign ch so all
+
+901
+00:44:35,680 --> 00:44:39,760
+these files are
+
+902
+00:44:36,960 --> 00:44:40,480
+the files i just opened recently so you
+
+903
+00:44:39,760 --> 00:44:44,240
+have golan
+
+904
+00:44:40,480 --> 00:44:47,119
+you have um you know then you can press
+
+905
+00:44:44,240 --> 00:44:50,160
+the number to go to it let's say five
+
+906
+00:44:47,119 --> 00:44:53,359
+show in browser you know close it
+
+907
+00:44:50,160 --> 00:44:57,760
+back to emacs close it so
+
+908
+00:44:53,359 --> 00:45:00,480
+uh recent recent recent file that's very
+
+909
+00:44:57,760 --> 00:45:00,480
+uh useful
+
+910
+00:45:00,800 --> 00:45:04,400
+let's go to my emacs tutorial then you
+
+911
+00:45:03,440 --> 00:45:07,839
+can
+
+912
+00:45:04,400 --> 00:45:10,079
+if you you can see
+
+913
+00:45:07,839 --> 00:45:12,160
+so let me let me let let's try to use
+
+914
+00:45:10,079 --> 00:45:15,680
+the projectile feature
+
+915
+00:45:12,160 --> 00:45:20,160
+to locate my emacs website's
+
+916
+00:45:15,680 --> 00:45:22,160
+tutorial page on opening recent files
+
+917
+00:45:20,160 --> 00:45:23,280
+so it should be this one let me open it
+
+918
+00:45:22,160 --> 00:45:26,319
+okay so
+
+919
+00:45:23,280 --> 00:45:29,760
+emacs tutorial search for
+
+920
+00:45:26,319 --> 00:45:32,960
+so you go down file
+
+921
+00:45:29,760 --> 00:45:35,760
+open recently opened so
+
+922
+00:45:32,960 --> 00:45:37,599
+he this this is the tutorial this page
+
+923
+00:45:35,760 --> 00:45:41,119
+that shows you
+
+924
+00:45:37,599 --> 00:45:44,000
+talks about this feature so
+
+925
+00:45:41,119 --> 00:45:44,880
+my let's go to my emacs directory so
+
+926
+00:45:44,000 --> 00:45:47,520
+there it is
+
+927
+00:45:44,880 --> 00:45:48,880
+this is my emacs blog back to emacs so
+
+928
+00:45:47,520 --> 00:45:52,000
+this is a project
+
+929
+00:45:48,880 --> 00:45:55,200
+now let's call the projectile
+
+930
+00:45:52,000 --> 00:45:58,319
+find file okay now let's
+
+931
+00:45:55,200 --> 00:45:58,319
+type re
+
+932
+00:45:58,960 --> 00:46:07,520
+e magnify e n there it is fantastic
+
+933
+00:46:02,640 --> 00:46:10,880
+okay so actually i could use projectile
+
+934
+00:46:07,520 --> 00:46:14,480
+i could you know it's great so
+
+935
+00:46:10,880 --> 00:46:16,880
+so you guys go install projectile but
+
+936
+00:46:14,480 --> 00:46:19,920
+you know see you see now i find this
+
+937
+00:46:16,880 --> 00:46:22,319
+feature i'm going to steal it
+
+938
+00:46:19,920 --> 00:46:24,720
+so it's going to be part of satellite
+
+939
+00:46:22,319 --> 00:46:24,720
+keys
+
+940
+00:46:25,040 --> 00:46:31,280
+you know right so
+
+941
+00:46:28,160 --> 00:46:34,560
+so this feature where you call a command
+
+942
+00:46:31,280 --> 00:46:34,560
+that we are located
+
+943
+00:46:35,280 --> 00:46:39,359
+that will try to find all parents
+
+944
+00:46:37,760 --> 00:46:42,160
+directories
+
+945
+00:46:39,359 --> 00:46:44,240
+of all the parents parent directory chen
+
+946
+00:46:42,160 --> 00:46:45,839
+until it finds a parent directory that
+
+947
+00:46:44,240 --> 00:46:49,119
+has a
+
+948
+00:46:45,839 --> 00:46:51,599
+git dot git file
+
+949
+00:46:49,119 --> 00:46:53,599
+then in that directory it's considered
+
+950
+00:46:51,599 --> 00:46:56,160
+the root of the project
+
+951
+00:46:53,599 --> 00:46:58,160
+so so when you call the command it will
+
+952
+00:46:56,160 --> 00:47:00,160
+search all the way up the parent
+
+953
+00:46:58,160 --> 00:47:01,280
+parent directory until you find found a
+
+954
+00:47:00,160 --> 00:47:04,079
+root then in
+
+955
+00:47:01,280 --> 00:47:04,880
+all these directories it will try to
+
+956
+00:47:04,079 --> 00:47:08,079
+compile
+
+957
+00:47:04,880 --> 00:47:11,119
+a list of all files in this directory
+
+958
+00:47:08,079 --> 00:47:12,720
+then just show you you know then present
+
+959
+00:47:11,119 --> 00:47:15,520
+it to i do
+
+960
+00:47:12,720 --> 00:47:17,200
+i do is the interface that pops up the
+
+961
+00:47:15,520 --> 00:47:19,839
+you know list of choices
+
+962
+00:47:17,200 --> 00:47:22,559
+so this is actually easy to write it's
+
+963
+00:47:19,839 --> 00:47:24,480
+not difficult to write so
+
+964
+00:47:22,559 --> 00:47:26,319
+so you just go to you know you just go
+
+965
+00:47:24,480 --> 00:47:27,440
+to the parent directory until you find a
+
+966
+00:47:26,319 --> 00:47:30,319
+directory with a
+
+967
+00:47:27,440 --> 00:47:31,359
+dot git then list all files in those
+
+968
+00:47:30,319 --> 00:47:34,400
+directories
+
+969
+00:47:31,359 --> 00:47:37,119
+then show it on i do so it's not
+
+970
+00:47:34,400 --> 00:47:39,920
+difficult to implement
+
+971
+00:47:37,119 --> 00:47:42,160
+so actually i will consider i mean
+
+972
+00:47:39,920 --> 00:47:43,359
+seriously i will consider adding these
+
+973
+00:47:42,160 --> 00:47:46,960
+two
+
+974
+00:47:43,359 --> 00:47:50,240
+uh sapphire keys the command
+
+975
+00:47:46,960 --> 00:47:50,240
+what command shall it be
+
+976
+00:47:51,040 --> 00:47:54,880
+it could be part of the find file
+
+977
+00:47:53,520 --> 00:47:59,760
+command i do find
+
+978
+00:47:54,880 --> 00:48:02,240
+file or it could be
+
+979
+00:47:59,760 --> 00:48:04,640
+yeah this is a great feature okay so
+
+980
+00:48:02,240 --> 00:48:07,680
+anyway
+
+981
+00:48:04,640 --> 00:48:08,319
+so maybe i'll do it coding live coding
+
+982
+00:48:07,680 --> 00:48:11,839
+next time
+
+983
+00:48:08,319 --> 00:48:11,839
+and maybe that's it for today
+
+984
+00:48:17,359 --> 00:48:22,559
+okay anything else maybe that's it for
+
+985
+00:48:20,400 --> 00:48:25,920
+today let's see
+
+986
+00:48:22,559 --> 00:48:29,359
+projectile so so great so we
+
+987
+00:48:25,920 --> 00:48:32,160
+um let's see open last opened
+
+988
+00:48:29,359 --> 00:48:32,960
+yeah okay close that wait uh copy the
+
+989
+00:48:32,160 --> 00:48:36,160
+file path
+
+990
+00:48:32,960 --> 00:48:39,040
+close it show in browser
+
+991
+00:48:36,160 --> 00:48:40,240
+close it back to emacs close it close it
+
+992
+00:48:39,040 --> 00:48:44,000
+close it
+
+993
+00:48:40,240 --> 00:48:47,280
+and paste the link here show
+
+994
+00:48:44,000 --> 00:48:48,160
+linkify showing browser okay so that's
+
+995
+00:48:47,280 --> 00:48:52,000
+what today
+
+996
+00:48:48,160 --> 00:48:52,000
+we are what we've been done
+
+997
+00:48:54,480 --> 00:49:01,200
+and the command so let's pretty fine
+
+998
+00:48:56,960 --> 00:49:01,200
+let's make some predefications okay
+
+999
+00:49:01,280 --> 00:49:08,319
+uh wait show the pink window
+
+1000
+00:49:04,960 --> 00:49:11,359
+add that add that then
+
+1001
+00:49:08,319 --> 00:49:16,079
+add that then
+
+1002
+00:49:11,359 --> 00:49:20,960
+add that showing browser so we
+
+1003
+00:49:16,079 --> 00:49:24,079
+pretty fire them like that then also
+
+1004
+00:49:20,960 --> 00:49:24,559
+do that like that so you hoover mouse
+
+1005
+00:49:24,079 --> 00:49:27,920
+over
+
+1006
+00:49:24,559 --> 00:49:31,520
+it should show it pops up a
+
+1007
+00:49:27,920 --> 00:49:33,760
+tooltip that that is the documentation
+
+1008
+00:49:31,520 --> 00:49:37,280
+the inline documentation for that
+
+1009
+00:49:33,760 --> 00:49:40,480
+i don't have it here because you know
+
+1010
+00:49:37,280 --> 00:49:45,839
+projectile is kind of new
+
+1011
+00:49:40,480 --> 00:49:45,839
+i mean you need to
+
+1012
+00:49:47,440 --> 00:49:59,839
+actually that's not the way i do it
+
+1013
+00:49:50,559 --> 00:49:59,839
+but usually it's like that
+
+1014
+00:50:06,720 --> 00:50:13,839
+okay let's write documentation for it
+
+1015
+00:50:13,920 --> 00:50:20,559
+open a file in a project with
+
+1016
+00:50:17,359 --> 00:50:23,280
+flex match okay
+
+1017
+00:50:20,559 --> 00:50:24,640
+showing browser so that's projectile
+
+1018
+00:50:23,280 --> 00:50:26,880
+find file
+
+1019
+00:50:24,640 --> 00:50:27,760
+open the file in a project with flex
+
+1020
+00:50:26,880 --> 00:50:31,359
+match
+
+1021
+00:50:27,760 --> 00:50:36,480
+open a file in the
+
+1022
+00:50:31,359 --> 00:50:36,480
+in a project of current
+
+1023
+00:50:38,319 --> 00:50:43,920
+uh with flex match interface
+
+1024
+00:50:45,680 --> 00:50:52,720
+then projectile switch project that one
+
+1025
+00:50:48,640 --> 00:50:52,720
+i'm not sure what's the utility okay
+
+1026
+00:50:53,280 --> 00:50:57,839
+so that's it so uh thank you guys for
+
+1027
+00:50:55,760 --> 00:51:02,319
+watching
+
+1028
+00:50:57,839 --> 00:51:05,920
+html modding action yeah uh
+
+1029
+00:51:02,319 --> 00:51:05,920
+what else uh what else
+
+1030
+00:51:06,800 --> 00:51:09,920
+i think that's it i have so many things
+
+1031
+00:51:08,880 --> 00:51:13,920
+to talk about but
+
+1032
+00:51:09,920 --> 00:51:18,400
+i need to like i need to stop somewhere
+
+1033
+00:51:13,920 --> 00:51:20,480
+because otherwise it's infinite
+
+1034
+00:51:18,400 --> 00:51:24,079
+uh anything else i wanna any any
+
+1035
+00:51:20,480 --> 00:51:24,079
+questions you guys might have
+
+1036
+00:51:28,800 --> 00:51:32,960
+so let me mention again okay so actually
+
+1037
+00:51:31,359 --> 00:51:35,680
+let's go to my emacs blog
+
+1038
+00:51:32,960 --> 00:51:36,160
+one last mission so there is so jeff is
+
+1039
+00:51:35,680 --> 00:51:37,920
+here
+
+1040
+00:51:36,160 --> 00:51:39,200
+i don't know if jeffy is still here but
+
+1041
+00:51:37,920 --> 00:51:41,440
+jeff jeff
+
+1042
+00:51:39,200 --> 00:51:43,119
+jeff runs the emacs meet up san
+
+1043
+00:51:41,440 --> 00:51:46,559
+francisco okay so
+
+1044
+00:51:43,119 --> 00:51:49,200
+you so there is one upcoming that is
+
+1045
+00:51:46,559 --> 00:51:50,960
+online based so we all you know go go
+
+1046
+00:51:49,200 --> 00:51:54,640
+online and
+
+1047
+00:51:50,960 --> 00:51:57,680
+so you go to the website uh here
+
+1048
+00:51:54,640 --> 00:51:58,240
+so let's copy it okay you go there and
+
+1049
+00:51:57,680 --> 00:52:00,960
+make
+
+1050
+00:51:58,240 --> 00:52:01,440
+uh register and make a reservation
+
+1051
+00:52:00,960 --> 00:52:05,599
+because
+
+1052
+00:52:01,440 --> 00:52:08,800
+there is a limit of 20 people
+
+1053
+00:52:05,599 --> 00:52:09,280
+so you should go register it so let me
+
+1054
+00:52:08,800 --> 00:52:12,480
+post
+
+1055
+00:52:09,280 --> 00:52:12,480
+the link here
+
+1056
+00:52:12,960 --> 00:52:18,160
+and maybe i'll see you guys there so
+
+1057
+00:52:15,359 --> 00:52:19,680
+right now it's 16 people already so four
+
+1058
+00:52:18,160 --> 00:52:22,319
+more spots
+
+1059
+00:52:19,680 --> 00:52:24,319
+maybe we'll see you there there online
+
+1060
+00:52:22,319 --> 00:52:25,040
+this is next week sometimes go to the
+
+1061
+00:52:24,319 --> 00:52:33,839
+website
+
+1062
+00:52:25,040 --> 00:52:33,839
+bye guys
+

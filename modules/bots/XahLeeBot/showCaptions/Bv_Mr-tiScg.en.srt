@@ -1,0 +1,4316 @@
+1
+00:00:00,240 --> 00:00:06,560
+Hello guys. Hello guys. Welcome to
+
+2
+00:00:02,800 --> 00:00:09,519
+another episode of Kawar Talk Show.
+
+3
+00:00:06,560 --> 00:00:11,120
+Episode What episode is this? Episode
+
+4
+00:00:09,519 --> 00:00:12,880
+698.
+
+5
+00:00:11,120 --> 00:00:16,320
+Now, if you are watching this offline,
+
+6
+00:00:12,880 --> 00:00:20,720
+play at 1.5 speed minimum. If you are
+
+7
+00:00:16,320 --> 00:00:22,320
+watching live, say hi. Love to see your
+
+8
+00:00:20,720 --> 00:00:26,800
+comments.
+
+9
+00:00:22,320 --> 00:00:30,400
+Okay. So, here is your chat box. So, we
+
+10
+00:00:26,800 --> 00:00:34,719
+are going to talk about Emac Bisp.
+
+11
+00:00:30,400 --> 00:00:36,480
+define var key map and define key map.
+
+12
+00:00:34,719 --> 00:00:38,879
+So,
+
+13
+00:00:36,480 --> 00:00:42,160
+uh this is going to be very technical
+
+14
+00:00:38,879 --> 00:00:45,280
+for those of you Emacs users. For the
+
+15
+00:00:42,160 --> 00:00:47,280
+rest of you, it's going to be boring,
+
+16
+00:00:45,280 --> 00:00:50,480
+but I'm going to do a live stream
+
+17
+00:00:47,280 --> 00:00:54,480
+anyway. It's probably not going to be
+
+18
+00:00:50,480 --> 00:00:56,480
+many watchers because this is, you know,
+
+19
+00:00:54,480 --> 00:01:00,640
+when you talk about computer science or
+
+20
+00:00:56,480 --> 00:01:05,519
+esoteric stuff like not too popular, uh,
+
+21
+00:01:00,640 --> 00:01:09,360
+the audience shrinks by a magnitude.
+
+22
+00:01:05,519 --> 00:01:12,320
+Okay, now let's check one last time. Uh,
+
+23
+00:01:09,360 --> 00:01:15,200
+video check, audio check. I'm using red
+
+24
+00:01:12,320 --> 00:01:20,000
+light. If you have noticed, red light is
+
+25
+00:01:15,200 --> 00:01:22,560
+good for your eyes. So, I recommended
+
+26
+00:01:20,000 --> 00:01:25,920
+uh you know after 9:00 turn on red
+
+27
+00:01:22,560 --> 00:01:29,200
+light, get some red bulbs. It's good for
+
+28
+00:01:25,920 --> 00:01:33,600
+your eyes. It's soothing.
+
+29
+00:01:29,200 --> 00:01:35,360
+Okay. And uh Hello, Tamid. Okay. So,
+
+30
+00:01:33,600 --> 00:01:38,320
+we're going to talk about let's let's
+
+31
+00:01:35,360 --> 00:01:42,000
+begin to talk about this. Today's uh
+
+32
+00:01:38,320 --> 00:01:44,479
+thumbnail is brought to you by the 4chan
+
+33
+00:01:42,000 --> 00:01:46,799
+people pepe.
+
+34
+00:01:44,479 --> 00:01:49,840
+This is beautiful. I love it. I love
+
+35
+00:01:46,799 --> 00:01:52,560
+this artwork. Okay. Okay. So, we going
+
+36
+00:01:49,840 --> 00:01:55,759
+to start to talk about uh define key.
+
+37
+00:01:52,560 --> 00:01:58,719
+So, let me introduce you uh what we are
+
+38
+00:01:55,759 --> 00:02:01,520
+doing what what that is. So, in EMAC
+
+39
+00:01:58,719 --> 00:02:04,159
+which is a fantastic text editor which
+
+40
+00:02:01,520 --> 00:02:07,759
+is what I'm using. Okay. It's uh for
+
+41
+00:02:04,159 --> 00:02:10,479
+programmers and for writers. Amazing.
+
+42
+00:02:07,759 --> 00:02:14,480
+Cut undo. So, you can you know show in
+
+43
+00:02:10,479 --> 00:02:17,680
+browser. So, anyway. So in in Emacs,
+
+44
+00:02:14,480 --> 00:02:19,360
+search for Kasar Emacs tutorial on
+
+45
+00:02:17,680 --> 00:02:22,160
+kasari.info
+
+46
+00:02:19,360 --> 00:02:26,319
+you will find it. Okay. So you go to the
+
+47
+00:02:22,160 --> 00:02:30,000
+key section. So Emacs has thousands of
+
+48
+00:02:26,319 --> 00:02:32,239
+keyboard shortcuts by default and uh you
+
+49
+00:02:30,000 --> 00:02:36,239
+can find it. Actually I have an article
+
+50
+00:02:32,239 --> 00:02:38,400
+1,000 default key binding
+
+51
+00:02:36,239 --> 00:02:41,599
+you know uh and you got the meta key
+
+52
+00:02:38,400 --> 00:02:46,080
+from the lisp keyboard uh and so on.
+
+53
+00:02:41,599 --> 00:02:48,800
+Okay. So, uh, okay. So, let's copy that
+
+54
+00:02:46,080 --> 00:02:51,040
+showing browser and let's just paste the
+
+55
+00:02:48,800 --> 00:02:54,800
+link here. So, because we talked about
+
+56
+00:02:51,040 --> 00:02:56,959
+it, linkify. So, there it is. 1,000
+
+57
+00:02:54,800 --> 00:03:00,800
+default key bindings. But, let's go
+
+58
+00:02:56,959 --> 00:03:02,400
+back. So, Emacs keys. This section will
+
+59
+00:03:00,800 --> 00:03:05,280
+tell you everything you need to know
+
+60
+00:03:02,400 --> 00:03:08,159
+about defining keys. Okay. So, how do
+
+61
+00:03:05,280 --> 00:03:10,480
+you do it? So, they define key
+
+62
+00:03:08,159 --> 00:03:14,159
+introduction page and you can read about
+
+63
+00:03:10,480 --> 00:03:19,280
+it. Okay. Uh but what I want to do is so
+
+64
+00:03:14,159 --> 00:03:23,360
+in EMAC 29 they introduced a whole set
+
+65
+00:03:19,280 --> 00:03:25,599
+of functions to define key which are
+
+66
+00:03:23,360 --> 00:03:28,239
+superior.
+
+67
+00:03:25,599 --> 00:03:30,239
+Okay. So define key. So you can read
+
+68
+00:03:28,239 --> 00:03:33,760
+about it you know it's all detailed here
+
+69
+00:03:30,239 --> 00:03:37,120
+but let me just jump to the parts that
+
+70
+00:03:33,760 --> 00:03:40,480
+talks about that. Uh okay. So you click
+
+71
+00:03:37,120 --> 00:03:43,920
+on define key then you scroll down you
+
+72
+00:03:40,480 --> 00:03:48,480
+will have the EMAC change keys topic
+
+73
+00:03:43,920 --> 00:03:52,879
+box. So this link EMAC keys key binding
+
+74
+00:03:48,480 --> 00:03:56,720
+functions EMAC 29 change. So in EMAC 29
+
+75
+00:03:52,879 --> 00:04:01,040
+which is rel released in 2023 two years
+
+76
+00:03:56,720 --> 00:04:04,400
+ago they added a complete new set of
+
+77
+00:04:01,040 --> 00:04:07,360
+commands for defining keys.
+
+78
+00:04:04,400 --> 00:04:09,599
+So on the left hand side is the new
+
+79
+00:04:07,360 --> 00:04:11,920
+commands. On the right hand side is the
+
+80
+00:04:09,599 --> 00:04:15,840
+old corresponding commands. So for
+
+81
+00:04:11,920 --> 00:04:20,239
+example the old command is define key
+
+82
+00:04:15,840 --> 00:04:23,520
+but now the new one is key map set.
+
+83
+00:04:20,239 --> 00:04:26,160
+Okay. Now another old command global set
+
+84
+00:04:23,520 --> 00:04:32,720
+key that is let's say if you want to
+
+85
+00:04:26,160 --> 00:04:35,360
+have F4 to be copy to do control um C
+
+86
+00:04:32,720 --> 00:04:39,840
+while in actually in EMAC is some other
+
+87
+00:04:35,360 --> 00:04:43,199
+key it's a meta meta metaww
+
+88
+00:04:39,840 --> 00:04:46,479
+anyway so in the old command global set
+
+89
+00:04:43,199 --> 00:04:49,759
+key that lets you set up a keyboard
+
+90
+00:04:46,479 --> 00:04:53,680
+shortcut in the Windows target. But the
+
+91
+00:04:49,759 --> 00:04:58,400
+new command is keymap global set. Okay,
+
+92
+00:04:53,680 --> 00:05:00,560
+so Emacs 29 introduced a set of them. So
+
+93
+00:04:58,400 --> 00:05:03,120
+they all start with keymap dash
+
+94
+00:05:00,560 --> 00:05:05,280
+something and they are better because
+
+95
+00:05:03,120 --> 00:05:07,120
+they
+
+96
+00:05:05,280 --> 00:05:11,199
+they are better. Okay. So for example,
+
+97
+00:05:07,120 --> 00:05:15,199
+here is Emacs uh 29. This is a new one
+
+98
+00:05:11,199 --> 00:05:19,919
+key map global set. then a string that
+
+99
+00:05:15,199 --> 00:05:22,639
+represents a key in this case control T.
+
+100
+00:05:19,919 --> 00:05:25,520
+Then the command you want it to be
+
+101
+00:05:22,639 --> 00:05:28,320
+whitespace mode. Okay. So you when you
+
+102
+00:05:25,520 --> 00:05:31,759
+press so if you run this control T will
+
+103
+00:05:28,320 --> 00:05:35,800
+do will turn on white space mode which
+
+104
+00:05:31,759 --> 00:05:35,800
+means let me show you.
+
+105
+00:05:36,400 --> 00:05:42,240
+You see they show you see when you have
+
+106
+00:05:39,680 --> 00:05:45,600
+a lot of white spaces now they show up
+
+107
+00:05:42,240 --> 00:05:48,400
+as starts. Can you see that?
+
+108
+00:05:45,600 --> 00:05:50,080
+So now if I turn off whites space mode
+
+109
+00:05:48,400 --> 00:05:52,000
+press
+
+110
+00:05:50,080 --> 00:05:52,000
+uh press press press press press press
+
+111
+00:05:52,000 --> 00:05:52,000
+press press press press press press
+
+112
+00:05:52,000 --> 00:05:53,520
+press press press press press press
+
+113
+00:05:52,000 --> 00:05:55,840
+press press press press you see normally
+
+114
+00:05:53,520 --> 00:05:58,080
+you don't see them but in in some cases
+
+115
+00:05:55,840 --> 00:06:00,000
+like when you code in a programming
+
+116
+00:05:58,080 --> 00:06:04,400
+language that you know you need to know
+
+117
+00:06:00,000 --> 00:06:07,280
+the difference between a tab
+
+118
+00:06:04,400 --> 00:06:08,960
+and the space you know you cannot tell
+
+119
+00:06:07,280 --> 00:06:11,919
+right now you cannot tell what they are
+
+120
+00:06:08,960 --> 00:06:14,319
+but if I turn on white space mode uh
+
+121
+00:06:11,919 --> 00:06:19,360
+which I have the key
+
+122
+00:06:14,319 --> 00:06:22,080
+uh that that that that so you can see
+
+123
+00:06:19,360 --> 00:06:23,840
+the tab you you got a triangle for a tab
+
+124
+00:06:22,080 --> 00:06:25,919
+there.
+
+125
+00:06:23,840 --> 00:06:27,759
+So that's so anyway back to the key
+
+126
+00:06:25,919 --> 00:06:31,520
+binding. So when you run this command
+
+127
+00:06:27,759 --> 00:06:34,479
+then control T will call that. So this
+
+128
+00:06:31,520 --> 00:06:37,600
+is a new syntax. The old syntax is using
+
+129
+00:06:34,479 --> 00:06:39,919
+global set key. Then the keyboard
+
+130
+00:06:37,600 --> 00:06:42,960
+shortcut you need to call the function
+
+131
+00:06:39,919 --> 00:06:45,360
+key KBD then you know. So it's pretty
+
+132
+00:06:42,960 --> 00:06:49,039
+similar. It's actually
+
+133
+00:06:45,360 --> 00:06:52,800
+alike but the new one is much better.
+
+134
+00:06:49,039 --> 00:06:56,319
+Okay. So that's the EMAC changes. Now
+
+135
+00:06:52,800 --> 00:06:58,080
+this is EMAC 29 two years ago.
+
+136
+00:06:56,319 --> 00:07:00,160
+So
+
+137
+00:06:58,080 --> 00:07:02,400
+you know as time you know the one thing
+
+138
+00:07:00,160 --> 00:07:04,639
+about software updates you know every
+
+139
+00:07:02,400 --> 00:07:07,599
+year they update software always update.
+
+140
+00:07:04,639 --> 00:07:11,120
+So when it's 5 years old they eventually
+
+141
+00:07:07,599 --> 00:07:13,759
+become obsolete. So this is new just two
+
+142
+00:07:11,120 --> 00:07:16,000
+years ago you may not want to change
+
+143
+00:07:13,759 --> 00:07:20,479
+your code yet because if you change it
+
+144
+00:07:16,000 --> 00:07:22,639
+then many people are not yet on Emacs 29
+
+145
+00:07:20,479 --> 00:07:25,759
+then they will say oh how come this
+
+146
+00:07:22,639 --> 00:07:29,280
+doesn't work you know. So, so software
+
+147
+00:07:25,759 --> 00:07:31,120
+update is gradual, you know, like uh
+
+148
+00:07:29,280 --> 00:07:34,479
+your Windows, you know, are you using
+
+149
+00:07:31,120 --> 00:07:38,319
+Windows 7, are you using Windows Vista
+
+150
+00:07:34,479 --> 00:07:39,919
+or are you using Windows 2000?
+
+151
+00:07:38,319 --> 00:07:42,639
+Same thing on the Mac, same thing on the
+
+152
+00:07:39,919 --> 00:07:46,080
+Linux, you know, they update every year.
+
+153
+00:07:42,639 --> 00:07:49,199
+And uh so they always so the update are
+
+154
+00:07:46,080 --> 00:07:51,680
+gradual to allow people who have like
+
+155
+00:07:49,199 --> 00:07:53,360
+five years old computers to be still
+
+156
+00:07:51,680 --> 00:07:58,240
+functional.
+
+157
+00:07:53,360 --> 00:08:02,800
+But however it is an inevitability
+
+158
+00:07:58,240 --> 00:08:05,680
+for the change. Okay. So today you know
+
+159
+00:08:02,800 --> 00:08:08,400
+you you know so you know in five years
+
+160
+00:08:05,680 --> 00:08:10,720
+in 10 years this old you know there will
+
+161
+00:08:08,400 --> 00:08:15,039
+be like not many people using these old
+
+162
+00:08:10,720 --> 00:08:18,800
+old ones relying usually uh because of
+
+163
+00:08:15,039 --> 00:08:22,560
+the younger generation. So for me a old
+
+164
+00:08:18,800 --> 00:08:25,360
+man you know I'm used to the old ones.
+
+165
+00:08:22,560 --> 00:08:28,639
+So the the old commands for are there
+
+166
+00:08:25,360 --> 00:08:32,240
+for 30 years, 40 years,
+
+167
+00:08:28,639 --> 00:08:36,399
+but inevitably inevitably the new ones
+
+168
+00:08:32,240 --> 00:08:39,360
+will come and replace old. Okay. So I'm
+
+169
+00:08:36,399 --> 00:08:41,680
+so I'm starting to since I'm a prof
+
+170
+00:08:39,360 --> 00:08:45,279
+professional, you know, developing Emacs
+
+171
+00:08:41,680 --> 00:08:49,680
+and uh doing Emacs tutorials for for you
+
+172
+00:08:45,279 --> 00:08:52,080
+guys. So I need to uh adapt the new one
+
+173
+00:08:49,680 --> 00:08:56,399
+sooner or later. Okay. So let's turn off
+
+174
+00:08:52,080 --> 00:08:58,080
+the white space mode off. Press press
+
+175
+00:08:56,399 --> 00:09:00,000
+press press.
+
+176
+00:08:58,080 --> 00:09:04,160
+Okay. On the pink window you can see all
+
+177
+00:09:00,000 --> 00:09:06,080
+my command call names and uh and uh they
+
+178
+00:09:04,160 --> 00:09:08,080
+are keystroke. For example, you can see
+
+179
+00:09:06,080 --> 00:09:10,560
+white space mode and keystroke on the
+
+180
+00:09:08,080 --> 00:09:14,399
+left which is backspace which is this
+
+181
+00:09:10,560 --> 00:09:19,040
+key on my left hand thumb backspace and
+
+182
+00:09:14,399 --> 00:09:22,720
+space space. That's Vora keyboard layout
+
+183
+00:09:19,040 --> 00:09:24,880
+and I'm using keys.
+
+184
+00:09:22,720 --> 00:09:28,000
+Okay, the most efficient key binding,
+
+185
+00:09:24,880 --> 00:09:30,800
+more efficient than vim or neo vim. The
+
+186
+00:09:28,000 --> 00:09:32,800
+most efficient in the universe to do the
+
+187
+00:09:30,800 --> 00:09:35,279
+same thing. You require less number of
+
+188
+00:09:32,800 --> 00:09:38,399
+keystrokes and you don't need to hold
+
+189
+00:09:35,279 --> 00:09:41,680
+control and old stuff. Okay. So you can
+
+190
+00:09:38,399 --> 00:09:45,519
+watch you know this is my homepage uh
+
+191
+00:09:41,680 --> 00:09:50,720
+softly keys key binding system and there
+
+192
+00:09:45,519 --> 00:09:53,200
+are like 20 or 30 videos about it. Okay.
+
+193
+00:09:50,720 --> 00:09:55,440
+So let's go back to key binding. So
+
+194
+00:09:53,200 --> 00:09:58,720
+introduction. So close that. Close that.
+
+195
+00:09:55,440 --> 00:10:01,040
+Copy that. Close that. Close that. Uh s
+
+196
+00:09:58,720 --> 00:10:04,080
+talk show. Go there. Show in browser.
+
+197
+00:10:01,040 --> 00:10:07,680
+Emac keys. Close that. So let's just
+
+198
+00:10:04,080 --> 00:10:09,600
+paste. I want to paste the links of the
+
+199
+00:10:07,680 --> 00:10:11,440
+things we talked about. So showing
+
+200
+00:10:09,600 --> 00:10:13,279
+browser
+
+201
+00:10:11,440 --> 00:10:15,360
+there.
+
+202
+00:10:13,279 --> 00:10:19,600
+Okay. So,
+
+203
+00:10:15,360 --> 00:10:21,920
+so the changes. So you see and uh and
+
+204
+00:10:19,600 --> 00:10:24,480
+there are more changes. Okay. So one one
+
+205
+00:10:21,920 --> 00:10:30,800
+of the two new commands is define key
+
+206
+00:10:24,480 --> 00:10:33,839
+map and define var key map. Okay. And uh
+
+207
+00:10:30,800 --> 00:10:36,640
+so I'm I need to change my command to
+
+208
+00:10:33,839 --> 00:10:41,279
+use the new command. Okay. So let's go
+
+209
+00:10:36,640 --> 00:10:43,200
+to my uh packages. So so again this is
+
+210
+00:10:41,279 --> 00:10:46,480
+something I need to do because I'm a
+
+211
+00:10:43,200 --> 00:10:50,320
+Emacs dev writing EMAC list code every
+
+212
+00:10:46,480 --> 00:10:56,320
+day for the past 20 years. So let's go
+
+213
+00:10:50,320 --> 00:10:58,640
+to uh CSS. Let's see CSS mode. So CSS
+
+214
+00:10:56,320 --> 00:11:02,079
+mode if you don't know. Okay. So let's
+
+215
+00:10:58,640 --> 00:11:04,560
+go let's go back here. Showing browser.
+
+216
+00:11:02,079 --> 00:11:08,800
+Okay. Go to the top. You can see there
+
+217
+00:11:04,560 --> 00:11:11,600
+is CSS. Open it. This is CSS for.info
+
+218
+00:11:08,800 --> 00:11:15,839
+my website. So go to the top. You can
+
+219
+00:11:11,600 --> 00:11:19,920
+see and go to the bottom. There are 800
+
+220
+00:11:15,839 --> 00:11:23,120
+lines of code. Okay. So press tab and
+
+221
+00:11:19,920 --> 00:11:27,200
+the help and show all key bindings. So I
+
+222
+00:11:23,120 --> 00:11:30,320
+got config symbol format buffer. Uh so
+
+223
+00:11:27,200 --> 00:11:34,560
+you got these commands and these keys to
+
+224
+00:11:30,320 --> 00:11:37,040
+do them. So let's say I want to do uh
+
+225
+00:11:34,560 --> 00:11:39,839
+format buffer. Okay. So let me show you
+
+226
+00:11:37,040 --> 00:11:42,399
+fantastic command. So you see this let's
+
+227
+00:11:39,839 --> 00:11:44,160
+say this body part. This body part
+
+228
+00:11:42,399 --> 00:11:45,839
+everyone should understand if you know
+
+229
+00:11:44,160 --> 00:11:48,800
+CSS.
+
+230
+00:11:45,839 --> 00:11:53,440
+If you don't know CSS
+
+231
+00:11:48,800 --> 00:11:58,560
+search for visual CSS or CSS tutorial on
+
+232
+00:11:53,440 --> 00:12:01,600
+sardi.info info my website so my website
+
+233
+00:11:58,560 --> 00:12:06,480
+kasari.info info then you scroll down
+
+234
+00:12:01,600 --> 00:12:10,320
+you'll see visual CSS CSS stand for
+
+235
+00:12:06,480 --> 00:12:13,040
+cascading style sheet so that controls
+
+236
+00:12:10,320 --> 00:12:16,959
+color controls the shape controls layout
+
+237
+00:12:13,040 --> 00:12:21,279
+that's CSS so you are looking at so copy
+
+238
+00:12:16,959 --> 00:12:25,839
+that go back here talk show
+
+239
+00:12:21,279 --> 00:12:29,279
+uh and go back here paste the link CSS
+
+240
+00:12:25,839 --> 00:12:32,320
+there okay go back here and
+
+241
+00:12:29,279 --> 00:12:34,959
+and go to the top and open the CSS file.
+
+242
+00:12:32,320 --> 00:12:37,920
+So we are back to the CSS file. Okay. So
+
+243
+00:12:34,959 --> 00:12:43,200
+you can see the directory here. Okay. So
+
+244
+00:12:37,920 --> 00:12:47,200
+here is a block of code body, right? So
+
+245
+00:12:43,200 --> 00:12:49,920
+if I okay I'm not going to demo CSS but
+
+246
+00:12:47,200 --> 00:12:53,600
+let's say I press a key they become one
+
+247
+00:12:49,920 --> 00:12:56,000
+line. Okay, still functional valid. Now
+
+248
+00:12:53,600 --> 00:13:00,000
+if I want to format let's say let's
+
+249
+00:12:56,000 --> 00:13:03,680
+let's make them all one line. Okay. Now
+
+250
+00:13:00,000 --> 00:13:06,959
+if I okay save it. Now I want to format
+
+251
+00:13:03,680 --> 00:13:11,040
+the whole buffer. So I press tab
+
+252
+00:13:06,959 --> 00:13:14,800
+press F. Fantastic. You see the entire
+
+253
+00:13:11,040 --> 00:13:16,959
+buffer entire file got pretty printed.
+
+254
+00:13:14,800 --> 00:13:20,560
+You see the body becames like that. Do
+
+255
+00:13:16,959 --> 00:13:24,720
+it again. Format it. Fantastic. You see?
+
+256
+00:13:20,560 --> 00:13:28,320
+So let's tap F. So let's say describe
+
+257
+00:13:24,720 --> 00:13:31,600
+key tap f that tells me what does this
+
+258
+00:13:28,320 --> 00:13:35,040
+key do. So tap f will call the command
+
+259
+00:13:31,600 --> 00:13:38,639
+css format buffer and that command is
+
+260
+00:13:35,040 --> 00:13:42,639
+defined in this file and has a key tap
+
+261
+00:13:38,639 --> 00:13:46,240
+f. So you go to the file enter. So
+
+262
+00:13:42,639 --> 00:13:49,519
+here's a source code and this code
+
+263
+00:13:46,240 --> 00:13:52,560
+actually you know it's like 30 lines but
+
+264
+00:13:49,519 --> 00:13:55,040
+it actually requires Deno it call the
+
+265
+00:13:52,560 --> 00:13:58,240
+deeno JavaScript
+
+266
+00:13:55,040 --> 00:14:04,399
+okay CSS got spend all the time talking
+
+267
+00:13:58,240 --> 00:14:07,360
+about that uh okay save it close so
+
+268
+00:14:04,399 --> 00:14:10,880
+what did I want to do okay so open it
+
+269
+00:14:07,360 --> 00:14:13,600
+describe key tab F then jump to the
+
+270
+00:14:10,880 --> 00:14:17,760
+source code of CSS s file. Now go to the
+
+271
+00:14:13,600 --> 00:14:20,800
+directory. You can see the CSS mode. So
+
+272
+00:14:17,760 --> 00:14:24,000
+now in this file, this is emac this
+
+273
+00:14:20,800 --> 00:14:28,480
+package. There is of course key binding
+
+274
+00:14:24,000 --> 00:14:31,199
+defined. So let me show you
+
+275
+00:14:28,480 --> 00:14:32,959
+uh key binding. Okay. So you can see
+
+276
+00:14:31,199 --> 00:14:37,120
+here.
+
+277
+00:14:32,959 --> 00:14:41,680
+So define var CSS mode map. That's a key
+
+278
+00:14:37,120 --> 00:14:45,600
+map. That's a set of keys. You know, you
+
+279
+00:14:41,680 --> 00:14:48,959
+declare a variable. Then then you create
+
+280
+00:14:45,600 --> 00:14:53,040
+in this block of code you create a new
+
+281
+00:14:48,959 --> 00:14:55,360
+key map make sparse key map. Then you
+
+282
+00:14:53,040 --> 00:14:59,440
+define a new
+
+283
+00:14:55,360 --> 00:15:03,839
+prefix command kasa CSS leader map. Then
+
+284
+00:14:59,440 --> 00:15:07,600
+for each then you call define key
+
+285
+00:15:03,839 --> 00:15:11,360
+means you want to define key in this CSS
+
+286
+00:15:07,600 --> 00:15:14,399
+mode map. Uh god okay. So let me explain
+
+287
+00:15:11,360 --> 00:15:19,199
+this line. Okay. So you define key for
+
+288
+00:15:14,399 --> 00:15:22,399
+this key map and with this key space and
+
+289
+00:15:19,199 --> 00:15:25,519
+what it do is call this command CSS
+
+290
+00:15:22,399 --> 00:15:28,880
+complete symbol. Okay. So anyway the
+
+291
+00:15:25,519 --> 00:15:31,839
+point is that this two
+
+292
+00:15:28,880 --> 00:15:35,440
+um
+
+293
+00:15:31,839 --> 00:15:38,079
+god okay this block of code is for
+
+294
+00:15:35,440 --> 00:15:41,440
+defining keyboard shortcuts like we
+
+295
+00:15:38,079 --> 00:15:43,519
+demonstrated tab F. You see that's the F
+
+296
+00:15:41,440 --> 00:15:45,600
+and where's the tab? The tab is right
+
+297
+00:15:43,519 --> 00:15:48,320
+here. You see
+
+298
+00:15:45,600 --> 00:15:51,839
+you can define a leader key. So you see
+
+299
+00:15:48,320 --> 00:15:54,160
+if if the leader key exist then use that
+
+300
+00:15:51,839 --> 00:15:56,720
+otherwise just use tab. So that's my
+
+301
+00:15:54,160 --> 00:15:58,480
+Kasar EMAC system. You can buy it by the
+
+302
+00:15:56,720 --> 00:16:02,720
+way
+
+303
+00:15:58,480 --> 00:16:07,360
+uh for $100 because for 15 years they
+
+304
+00:16:02,720 --> 00:16:10,160
+are all free but I die of hunger.
+
+305
+00:16:07,360 --> 00:16:13,279
+Okay. So, so let's Yeah. Okay. So, let
+
+306
+00:16:10,160 --> 00:16:15,839
+me show you. Okay. Here is the homepage
+
+307
+00:16:13,279 --> 00:16:19,440
+of Kas CSS mode. You can search it,
+
+308
+00:16:15,839 --> 00:16:21,680
+you'll find it. Then go one one level
+
+309
+00:16:19,440 --> 00:16:24,560
+above. Click on that. So, you can see
+
+310
+00:16:21,680 --> 00:16:27,600
+all my emac be packages.
+
+311
+00:16:24,560 --> 00:16:31,600
+Okay. So, my point is that so let's go
+
+312
+00:16:27,600 --> 00:16:34,160
+to the key map. Okay. So, yeah. So what
+
+313
+00:16:31,600 --> 00:16:37,680
+I'm saying is that
+
+314
+00:16:34,160 --> 00:16:41,759
+for each one of these EMAC these
+
+315
+00:16:37,680 --> 00:16:48,000
+packages I have written they have this
+
+316
+00:16:41,759 --> 00:16:51,120
+uh key map block okay so and this they
+
+317
+00:16:48,000 --> 00:16:54,399
+are using the old command for example
+
+318
+00:16:51,120 --> 00:16:56,959
+this define key so let's go back here
+
+319
+00:16:54,399 --> 00:17:00,079
+let's go back to the you know to the
+
+320
+00:16:56,959 --> 00:17:04,000
+difference you see the old one is define
+
+321
+00:17:00,079 --> 00:17:07,600
+key the New one is key map set
+
+322
+00:17:04,000 --> 00:17:10,240
+and uh and so I want to start to use a
+
+323
+00:17:07,600 --> 00:17:13,280
+new one. So let's so let's start to
+
+324
+00:17:10,240 --> 00:17:16,799
+change it. Okay.
+
+325
+00:17:13,280 --> 00:17:18,720
+So first of all okay so make a backup.
+
+326
+00:17:16,799 --> 00:17:21,679
+Um
+
+327
+00:17:18,720 --> 00:17:25,679
+so is this boring enough for you guys?
+
+328
+00:17:21,679 --> 00:17:29,600
+Sriiety. Okay. So yeah, I want I want to
+
+329
+00:17:25,679 --> 00:17:33,600
+make a So So first of all,
+
+330
+00:17:29,600 --> 00:17:37,600
+you got um
+
+331
+00:17:33,600 --> 00:17:41,039
+so this is just uh this is me start to
+
+332
+00:17:37,600 --> 00:17:44,240
+do code s talk show. Okay, s talk show
+
+333
+00:17:41,039 --> 00:17:47,200
+today. Uh you have define key map and
+
+334
+00:17:44,240 --> 00:17:51,440
+define v. Copy them.
+
+335
+00:17:47,200 --> 00:17:57,640
+Make a backup. pasted them here so that
+
+336
+00:17:51,440 --> 00:17:57,640
+I can see and uh okay so
+
+337
+00:17:59,120 --> 00:18:02,799
+um
+
+338
+00:18:00,880 --> 00:18:06,400
+so you want to start to define them
+
+339
+00:18:02,799 --> 00:18:10,960
+first of all define key map define v key
+
+340
+00:18:06,400 --> 00:18:13,919
+map so instead of this two blocks
+
+341
+00:18:10,960 --> 00:18:20,080
+you know I can now let's let's purify
+
+342
+00:18:13,919 --> 00:18:20,080
+them okay instead of this this two block
+
+343
+00:18:21,120 --> 00:18:26,240
+uh
+
+344
+00:18:24,000 --> 00:18:29,919
+you know I can do the whole thing with
+
+345
+00:18:26,240 --> 00:18:32,400
+this new command. Okay, so let's do it.
+
+346
+00:18:29,919 --> 00:18:34,640
+Oh, I don't have the key. I don't have
+
+347
+00:18:32,400 --> 00:18:37,440
+the template. Okay, so because this is
+
+348
+00:18:34,640 --> 00:18:41,679
+so pretty new. So describe function to
+
+349
+00:18:37,440 --> 00:18:45,679
+look at the documentation first. Okay.
+
+350
+00:18:41,679 --> 00:18:48,559
+Oh god. So you know, so it's got some
+
+351
+00:18:45,679 --> 00:18:52,840
+new syntax. So, I need to read them.
+
+352
+00:18:48,559 --> 00:18:52,840
+God, this is getting boring.
+
+353
+00:18:53,200 --> 00:18:58,320
+So, do you guys know what I'm doing? You
+
+354
+00:18:55,679 --> 00:19:00,240
+see,
+
+355
+00:18:58,320 --> 00:19:04,480
+um,
+
+356
+00:19:00,240 --> 00:19:07,919
+close that. Close that. Okay. So, this
+
+357
+00:19:04,480 --> 00:19:09,440
+whole block is going to be replaced by
+
+358
+00:19:07,919 --> 00:19:12,720
+this
+
+359
+00:19:09,440 --> 00:19:16,480
+command. And it should be simpler. Okay.
+
+360
+00:19:12,720 --> 00:19:20,480
+But but how but what how do you do it
+
+361
+00:19:16,480 --> 00:19:22,960
+though? Uh you see here's the part that
+
+362
+00:19:20,480 --> 00:19:25,039
+when you need to use your brain to read
+
+363
+00:19:22,960 --> 00:19:29,039
+the documentation
+
+364
+00:19:25,039 --> 00:19:31,520
+define v key map variable name
+
+365
+00:19:29,039 --> 00:19:33,440
+uh then key
+
+366
+00:19:31,520 --> 00:19:37,280
+what is that key for? I don't
+
+367
+00:19:33,440 --> 00:19:40,000
+understand. doc full parent suppress
+
+368
+00:19:37,280 --> 00:19:43,919
+name prefix
+
+369
+00:19:40,000 --> 00:19:48,520
+key map repeat and the rest okay I don't
+
+370
+00:19:43,919 --> 00:19:48,520
+I don't know how is this used
+
+371
+00:19:57,600 --> 00:20:05,760
+okay so so look at define key map first
+
+372
+00:20:02,080 --> 00:20:08,160
+define key map key full parent suppress
+
+373
+00:20:05,760 --> 00:20:12,280
+name prefix something something rest
+
+374
+00:20:08,160 --> 00:20:12,280
+okay so
+
+375
+00:20:13,919 --> 00:20:18,480
+who's keeping giving me the hearts thank
+
+376
+00:20:16,640 --> 00:20:23,960
+you
+
+377
+00:20:18,480 --> 00:20:23,960
+yt space text primary inverse
+
+378
+00:20:27,280 --> 00:20:33,360
+what does that mean
+
+379
+00:20:30,080 --> 00:20:36,640
+hello sakuma
+
+380
+00:20:33,360 --> 00:20:39,120
+okay So you see I'm doing this live
+
+381
+00:20:36,640 --> 00:20:42,240
+stream because you know this is
+
+382
+00:20:39,120 --> 00:20:44,400
+something actually I need to do you know
+
+383
+00:20:42,240 --> 00:20:47,520
+I can either do it offline which I've
+
+384
+00:20:44,400 --> 00:20:49,280
+been doing you know all the time
+
+385
+00:20:47,520 --> 00:20:51,440
+uh
+
+386
+00:20:49,280 --> 00:20:54,240
+but sometimes I do it on you know live
+
+387
+00:20:51,440 --> 00:20:57,360
+stream so that while I'm doing it for
+
+388
+00:20:54,240 --> 00:21:00,720
+something I need to do meanwhile I talk
+
+389
+00:20:57,360 --> 00:21:06,080
+to you guys that's what this is about.
+
+390
+00:21:00,720 --> 00:21:08,720
+Okay. So this close close.
+
+391
+00:21:06,080 --> 00:21:11,520
+Okay. So let's just do this. Okay. So
+
+392
+00:21:08,720 --> 00:21:14,320
+what we do we want to look for example
+
+393
+00:21:11,520 --> 00:21:16,720
+in you know instead of reading this this
+
+394
+00:21:14,320 --> 00:21:18,880
+you know this abstract technical
+
+395
+00:21:16,720 --> 00:21:20,960
+documentation you have to think about
+
+396
+00:21:18,880 --> 00:21:24,880
+like what what what do you mean what is
+
+397
+00:21:20,960 --> 00:21:30,159
+this you know let's look at the example.
+
+398
+00:21:24,880 --> 00:21:32,240
+Okay. So close that. So, so copy define
+
+399
+00:21:30,159 --> 00:21:34,720
+v key map. Actually, what's the other
+
+400
+00:21:32,240 --> 00:21:38,000
+one? So, this one is actually simpler.
+
+401
+00:21:34,720 --> 00:21:41,120
+Okay. So, put that there. Let's let's
+
+402
+00:21:38,000 --> 00:21:44,159
+put that there. Okay. Define key map.
+
+403
+00:21:41,120 --> 00:21:46,799
+Copy it. Now, let's look at look up the
+
+404
+00:21:44,159 --> 00:21:50,880
+documentation for
+
+405
+00:21:46,799 --> 00:21:53,120
+the ED something in Emacs. Okay. Jump to
+
+406
+00:21:50,880 --> 00:21:55,600
+the source code.
+
+407
+00:21:53,120 --> 00:21:59,280
+Here's a directory. Okay. Now in this
+
+408
+00:21:55,600 --> 00:22:01,840
+directory let's search for define key
+
+409
+00:21:59,280 --> 00:22:06,120
+map. Okay.
+
+410
+00:22:01,840 --> 00:22:06,120
+So that um
+
+411
+00:22:08,159 --> 00:22:14,559
+so let's search it. Search the entire
+
+412
+00:22:12,480 --> 00:22:19,200
+Emac list this
+
+413
+00:22:14,559 --> 00:22:23,440
+source code. So it'll show us if any of
+
+414
+00:22:19,200 --> 00:22:26,240
+this file is using it. If it is then we
+
+415
+00:22:23,440 --> 00:22:29,039
+can check out how how they are doing it
+
+416
+00:22:26,240 --> 00:22:32,480
+and copy and paste.
+
+417
+00:22:29,039 --> 00:22:35,039
+Okay, it's running.
+
+418
+00:22:32,480 --> 00:22:38,080
+It's running. Wait. Okay, so there there
+
+419
+00:22:35,039 --> 00:22:40,559
+is a result. So lots of programs are
+
+420
+00:22:38,080 --> 00:22:44,600
+using it. Okay.
+
+421
+00:22:40,559 --> 00:22:44,600
+So let's see.
+
+422
+00:22:45,600 --> 00:22:49,320
+Let's open it.
+
+423
+00:22:49,520 --> 00:22:55,679
+Okay. So actually lots of
+
+424
+00:22:53,360 --> 00:23:00,480
+lots of it. So let's see what how many
+
+425
+00:22:55,679 --> 00:23:04,240
+what files. So all these files not many
+
+426
+00:23:00,480 --> 00:23:08,120
+are using the new key map commands.
+
+427
+00:23:04,240 --> 00:23:08,120
+Okay. All these files
+
+428
+00:23:08,480 --> 00:23:14,000
+uh which is not many because
+
+429
+00:23:12,400 --> 00:23:16,960
+you know because you know you don't have
+
+430
+00:23:14,000 --> 00:23:19,360
+to change them. It's not necessary but
+
+431
+00:23:16,960 --> 00:23:22,640
+it's for forward
+
+432
+00:23:19,360 --> 00:23:25,200
+you know for the future.
+
+433
+00:23:22,640 --> 00:23:28,159
+So anyway so let's close that. Let's
+
+434
+00:23:25,200 --> 00:23:31,440
+look at you know is there you know and
+
+435
+00:23:28,159 --> 00:23:33,919
+here here is another example but now
+
+436
+00:23:31,440 --> 00:23:36,880
+it's using macros.
+
+437
+00:23:33,919 --> 00:23:40,480
+So this is not a good example for us.
+
+438
+00:23:36,880 --> 00:23:45,440
+Okay let's go to the next one.
+
+439
+00:23:40,480 --> 00:23:48,559
+This this is about processing images.
+
+440
+00:23:45,440 --> 00:23:51,520
+Okay. Oh, okay. So, you can see how
+
+441
+00:23:48,559 --> 00:23:54,640
+simple that is. Okay. So, this seems
+
+442
+00:23:51,520 --> 00:23:57,520
+very simple. Copy it.
+
+443
+00:23:54,640 --> 00:23:59,840
+Uh, copy it and go back. Let's go back
+
+444
+00:23:57,520 --> 00:24:03,840
+to our code.
+
+445
+00:23:59,840 --> 00:24:06,559
+Autoload. Close. Uh, close.
+
+446
+00:24:03,840 --> 00:24:10,159
+Yeah. So, let's you know, so here is
+
+447
+00:24:06,559 --> 00:24:13,279
+kind of a example how they defined it.
+
+448
+00:24:10,159 --> 00:24:16,279
+Now from this actually I can figure it
+
+449
+00:24:13,279 --> 00:24:16,279
+out.
+
+450
+00:24:16,799 --> 00:24:27,240
+Uh let's see map into dark parin image
+
+451
+00:24:21,039 --> 00:24:27,240
+slice map. Okay so it's using a par
+
+452
+00:24:27,360 --> 00:24:32,360
+uh and uh what is this? I
+
+453
+00:24:32,720 --> 00:24:39,000
+define key map.
+
+454
+00:24:36,000 --> 00:24:39,000
+So,
+
+455
+00:24:54,000 --> 00:25:00,240
+how many people are used watching eight?
+
+456
+00:24:56,960 --> 00:25:03,679
+Say something guys. So, okay. So, define
+
+457
+00:25:00,240 --> 00:25:05,760
+raw key map.
+
+458
+00:25:03,679 --> 00:25:10,000
+Okay. So let's let's look at the
+
+459
+00:25:05,760 --> 00:25:13,200
+documentation again. So what is this? Um
+
+460
+00:25:10,000 --> 00:25:15,200
+so the documentation says you need that
+
+461
+00:25:13,200 --> 00:25:19,279
+variable name. So let's start to do it.
+
+462
+00:25:15,200 --> 00:25:22,559
+Okay, let's just start to do it. Okay,
+
+463
+00:25:19,279 --> 00:25:26,240
+instead of instead of just um so we want
+
+464
+00:25:22,559 --> 00:25:30,400
+to define a key map that okay variable
+
+465
+00:25:26,240 --> 00:25:33,919
+name will be that and uh this key I
+
+466
+00:25:30,400 --> 00:25:37,360
+don't understand what is this key for
+
+467
+00:25:33,919 --> 00:25:40,799
+oh those are keyword arguments
+
+468
+00:25:37,360 --> 00:25:46,960
+okay so I think that that key means
+
+469
+00:25:40,799 --> 00:25:50,760
+keyword arguments like that okay
+
+470
+00:25:46,960 --> 00:25:50,760
+Uh, is that correct?
+
+471
+00:25:54,080 --> 00:26:00,279
+Oh god.
+
+472
+00:25:57,279 --> 00:26:00,279
+See,
+
+473
+00:26:01,520 --> 00:26:07,520
+define variable name
+
+474
+00:26:04,159 --> 00:26:10,400
+as a variable with a key map definition.
+
+475
+00:26:07,520 --> 00:26:12,799
+With a key map definition. Okay. See,
+
+476
+00:26:10,400 --> 00:26:18,480
+define key map. Oh, let's go there
+
+477
+00:26:12,799 --> 00:26:21,360
+first. Wait, what's going on? define v.
+
+478
+00:26:18,480 --> 00:26:24,799
+Oh, actually wait.
+
+479
+00:26:21,360 --> 00:26:28,840
+So, this part is simpler. Let's let's do
+
+480
+00:26:24,799 --> 00:26:28,840
+that first. Okay.
+
+481
+00:26:30,480 --> 00:26:39,039
+Okay. So, define key map. Oh, wait.
+
+482
+00:26:36,320 --> 00:26:43,120
+Okay. So, key map is just for key map.
+
+483
+00:26:39,039 --> 00:26:44,720
+You need the var. Okay. So,
+
+484
+00:26:43,120 --> 00:26:48,640
+Okay.
+
+485
+00:26:44,720 --> 00:26:53,039
+So you still need the V. So
+
+486
+00:26:48,640 --> 00:26:56,039
+is it boring? So here's the name.
+
+487
+00:26:53,039 --> 00:26:56,039
+Then
+
+488
+00:26:58,000 --> 00:27:06,360
+map put into text properties on images.
+
+489
+00:27:01,840 --> 00:27:06,360
+What? That doesn't make sense. What?
+
+490
+00:27:07,039 --> 00:27:12,720
+Okay. But we starting somewhere. Okay.
+
+491
+00:27:09,919 --> 00:27:14,640
+So it's just so define key map is just
+
+492
+00:27:12,720 --> 00:27:18,240
+the pairs. Okay.
+
+493
+00:27:14,640 --> 00:27:21,799
+You see it just pay us. So what we can
+
+494
+00:27:18,240 --> 00:27:21,799
+do is
+
+495
+00:27:31,679 --> 00:27:38,799
+okay. So what what we can do is so wait.
+
+496
+00:27:35,039 --> 00:27:43,840
+So define key map. Let's see the
+
+497
+00:27:38,799 --> 00:27:47,360
+documentation. Define key map key full
+
+498
+00:27:43,840 --> 00:27:51,080
+parent suppress name prefix guard. Why
+
+499
+00:27:47,360 --> 00:27:51,080
+is this so complex?
+
+500
+00:27:53,440 --> 00:28:00,480
+Oh okay. So this you see this this this
+
+501
+00:27:56,640 --> 00:28:03,600
+this full parent suppress name prefix
+
+502
+00:28:00,480 --> 00:28:09,320
+key map those are keyword arguments
+
+503
+00:28:03,600 --> 00:28:09,320
+documented here. You see full
+
+504
+00:28:09,440 --> 00:28:15,600
+uh suppress parent key map name those
+
+505
+00:28:13,039 --> 00:28:18,399
+are keyword arguments. So that's what
+
+506
+00:28:15,600 --> 00:28:20,480
+this mean this this is a new convention
+
+507
+00:28:18,399 --> 00:28:23,120
+actually
+
+508
+00:28:20,480 --> 00:28:24,640
+then
+
+509
+00:28:23,120 --> 00:28:26,559
+then then
+
+510
+00:28:24,640 --> 00:28:32,000
+rest.
+
+511
+00:28:26,559 --> 00:28:34,799
+Okay this is complicated you know.
+
+512
+00:28:32,000 --> 00:28:37,919
+So another way to look at how to do this
+
+513
+00:28:34,799 --> 00:28:39,679
+is let's look at the EMAC manual. Okay.
+
+514
+00:28:37,919 --> 00:28:42,960
+So right now we are looking at the
+
+515
+00:28:39,679 --> 00:28:45,600
+inline documentation. So
+
+516
+00:28:42,960 --> 00:28:48,720
+search for the manual for the define key
+
+517
+00:28:45,600 --> 00:28:53,039
+map. There it is showing browser. So
+
+518
+00:28:48,720 --> 00:28:56,000
+here is the emac list manual for for all
+
+519
+00:28:53,039 --> 00:28:59,360
+this. So there it is define key map. So
+
+520
+00:28:56,000 --> 00:29:04,240
+it looks like pretty simple. Okay.
+
+521
+00:28:59,360 --> 00:29:08,399
+just like the example we have
+
+522
+00:29:04,240 --> 00:29:11,279
+but you know but the documentation
+
+523
+00:29:08,399 --> 00:29:15,080
+I don't understand why is it using conf
+
+524
+00:29:11,279 --> 00:29:15,080
+confusing things
+
+525
+00:29:18,960 --> 00:29:28,080
+yeah it it you know it's it's the EMAC
+
+526
+00:29:23,760 --> 00:29:31,120
+key binding system is quite involved
+
+527
+00:29:28,080 --> 00:29:34,120
+okay So,
+
+528
+00:29:31,120 --> 00:29:34,120
+so
+
+529
+00:29:35,200 --> 00:29:41,039
+uh you need to read them. Okay. Define.
+
+530
+00:29:38,159 --> 00:29:45,039
+Okay. So,
+
+531
+00:29:41,039 --> 00:29:48,799
+uh define key map options rest pairs.
+
+532
+00:29:45,039 --> 00:29:52,159
+So, this key seems like
+
+533
+00:29:48,799 --> 00:29:53,760
+keyword parameters.
+
+534
+00:29:52,159 --> 00:29:56,960
+You can create a key map with the
+
+535
+00:29:53,760 --> 00:30:00,080
+functions described above and then use
+
+536
+00:29:56,960 --> 00:30:04,080
+key map set for each one to specify key
+
+537
+00:30:00,080 --> 00:30:06,559
+bindings in that map.
+
+538
+00:30:04,080 --> 00:30:08,960
+When writing modes, however, you
+
+539
+00:30:06,559 --> 00:30:12,960
+frequently have to bind a large number
+
+540
+00:30:08,960 --> 00:30:16,320
+of keys at once. That's true. And uh
+
+541
+00:30:12,960 --> 00:30:20,080
+using key map set on them or can be
+
+542
+00:30:16,320 --> 00:30:22,320
+tedious and errorprone. Instead you can
+
+543
+00:30:20,080 --> 00:30:25,360
+use define key map which is this
+
+544
+00:30:22,320 --> 00:30:29,679
+function which creates a key map and
+
+545
+00:30:25,360 --> 00:30:35,360
+binds a number of keys in one shot. Here
+
+546
+00:30:29,679 --> 00:30:38,080
+is a very basic example that. Okay.
+
+547
+00:30:35,360 --> 00:30:41,039
+Okay. So let's just go with the like
+
+548
+00:30:38,080 --> 00:30:43,440
+very basic example here. So you know
+
+549
+00:30:41,039 --> 00:30:46,399
+exactly just like that. So we need to
+
+550
+00:30:43,440 --> 00:30:49,360
+convert
+
+551
+00:30:46,399 --> 00:30:55,360
+you see but there's a complication
+
+552
+00:30:49,360 --> 00:30:57,120
+because I have two key maps here. One is
+
+553
+00:30:55,360 --> 00:31:01,840
+that
+
+554
+00:30:57,120 --> 00:31:05,919
+CSS mode map then the other one is CSS
+
+555
+00:31:01,840 --> 00:31:07,679
+leader map. The mode map defines a tab
+
+556
+00:31:05,919 --> 00:31:11,440
+key.
+
+557
+00:31:07,679 --> 00:31:15,600
+Then then the leader map is whatever
+
+558
+00:31:11,440 --> 00:31:19,679
+followed by the tap key. So in s CSS
+
+559
+00:31:15,600 --> 00:31:23,200
+mode you press tap key to begin any key.
+
+560
+00:31:19,679 --> 00:31:27,440
+Then you know tab space is one thing is
+
+561
+00:31:23,200 --> 00:31:29,600
+this tab F is format tap R is something
+
+562
+00:31:27,440 --> 00:31:32,000
+else. Okay.
+
+563
+00:31:29,600 --> 00:31:35,520
+So,
+
+564
+00:31:32,000 --> 00:31:39,840
+so let's for now let's just see the wait
+
+565
+00:31:35,520 --> 00:31:45,720
+this define key map actually doesn't
+
+566
+00:31:39,840 --> 00:31:45,720
+Oh god. Oh god. This is so confusing.
+
+567
+00:31:48,640 --> 00:31:56,600
+So where is the name for the key map?
+
+568
+00:31:51,200 --> 00:31:56,600
+The name for the key map is at the top.
+
+569
+00:31:57,039 --> 00:32:00,039
+Okay.
+
+570
+00:32:06,080 --> 00:32:11,919
+Yeah, I'm using the define prefix
+
+571
+00:32:08,559 --> 00:32:15,120
+command. No
+
+572
+00:32:11,919 --> 00:32:17,440
+Uh what you Okay, let's let's do this
+
+573
+00:32:15,120 --> 00:32:20,320
+thing. Let's do brainless. Let's just
+
+574
+00:32:17,440 --> 00:32:23,760
+No, let's do something brandless. Okay,
+
+575
+00:32:20,320 --> 00:32:27,679
+let me just show you. Okay, so
+
+576
+00:32:23,760 --> 00:32:31,720
+so remove all that.
+
+577
+00:32:27,679 --> 00:32:31,720
+Okay. Then
+
+578
+00:32:31,840 --> 00:32:40,799
+delete delete delete. Uh delete delete
+
+579
+00:32:36,640 --> 00:32:44,320
+delete delete. Show the pink window. And
+
+580
+00:32:40,799 --> 00:32:48,760
+uh yeah. So okay. So actually wait. So
+
+581
+00:32:44,320 --> 00:32:48,760
+you actually don't want that.
+
+582
+00:32:50,960 --> 00:32:59,360
+Okay. So you see this block
+
+583
+00:32:55,919 --> 00:33:01,760
+correspond to this block. This is our
+
+584
+00:32:59,360 --> 00:33:05,600
+brainless way to do it. Okay, let's just
+
+585
+00:33:01,760 --> 00:33:12,120
+now remove that. Now,
+
+586
+00:33:05,600 --> 00:33:12,120
+now this this will be just tab I believe
+
+587
+00:33:16,640 --> 00:33:27,880
+I think. I'm not too sure. So
+
+588
+00:33:20,799 --> 00:33:27,880
+and this is this will be the leader map
+
+589
+00:33:30,480 --> 00:33:38,240
+define V. Okay. Something like that.
+
+590
+00:33:34,320 --> 00:33:42,880
+And this this this
+
+591
+00:33:38,240 --> 00:33:45,880
+leader key map. Okay. Parent parent will
+
+592
+00:33:42,880 --> 00:33:45,880
+be
+
+593
+00:33:46,159 --> 00:33:52,360
+that. Okay.
+
+594
+00:33:48,399 --> 00:33:52,360
+So that's one thing.
+
+595
+00:33:54,240 --> 00:33:58,200
+I'm not sure actually.
+
+596
+00:34:00,559 --> 00:34:06,399
+Uh oh god. So this means I need to read
+
+597
+00:34:04,320 --> 00:34:11,240
+more documentation
+
+598
+00:34:06,399 --> 00:34:11,240
+which is which means
+
+599
+00:34:11,760 --> 00:34:16,919
+very boring. Okay. most people left.
+
+600
+00:34:18,560 --> 00:34:23,599
+Okay. So,
+
+601
+00:34:21,200 --> 00:34:27,760
+yeah, let's keep going.
+
+602
+00:34:23,599 --> 00:34:29,839
+Define keys. So, a bunch of key um a
+
+603
+00:34:27,760 --> 00:34:33,040
+bunch of
+
+604
+00:34:29,839 --> 00:34:37,040
+keyword arguments. Okay. The rest then
+
+605
+00:34:33,040 --> 00:34:40,000
+definition. Okay. Infer type.
+
+606
+00:34:37,040 --> 00:34:44,240
+Let's look at the let's see more
+
+607
+00:34:40,000 --> 00:34:48,919
+examples here. Okay.
+
+608
+00:34:44,240 --> 00:34:48,919
+Oh okay. So let's see.
+
+609
+00:34:50,639 --> 00:35:00,680
+So key map image slice map and uh then
+
+610
+00:34:57,040 --> 00:35:00,680
+in this example.
+
+611
+00:35:02,240 --> 00:35:06,040
+Okay. So
+
+612
+00:35:07,599 --> 00:35:14,119
+size images image
+
+613
+00:35:11,119 --> 00:35:14,119
+um
+
+614
+00:35:15,599 --> 00:35:24,240
+define a key map doc map put into text
+
+615
+00:35:20,560 --> 00:35:27,240
+properties on images.
+
+616
+00:35:24,240 --> 00:35:27,240
+Um
+
+617
+00:35:27,520 --> 00:35:31,720
+so what is this? Hi.
+
+618
+00:35:42,079 --> 00:35:49,040
+I don't know.
+
+619
+00:35:44,720 --> 00:35:54,160
+So define v key map and then define key
+
+620
+00:35:49,040 --> 00:35:57,560
+map. So it defines a key map.
+
+621
+00:35:54,160 --> 00:35:57,560
+key map.
+
+622
+00:35:59,040 --> 00:36:04,520
+I don't understand what is that eye for
+
+623
+00:36:08,480 --> 00:36:13,960
+dark parent. God is really
+
+624
+00:36:21,680 --> 00:36:24,680
+Should
+
+625
+00:36:28,960 --> 00:36:33,800
+be a key map to use as a parent.
+
+626
+00:36:53,280 --> 00:37:00,320
+Okay. So, maybe I should stop live
+
+627
+00:36:56,560 --> 00:37:03,320
+stream. What do you guys think?
+
+628
+00:37:00,320 --> 00:37:03,320
+Um,
+
+629
+00:37:05,839 --> 00:37:14,400
+so it's been 40 minutes, you know. So,
+
+630
+00:37:09,200 --> 00:37:17,720
+this this is real life coding.
+
+631
+00:37:14,400 --> 00:37:17,720
+Very boring.
+
+632
+00:37:20,920 --> 00:37:24,159
+[Music]
+
+633
+00:37:28,640 --> 00:37:33,760
+So what what are some other examples?
+
+634
+00:37:31,440 --> 00:37:37,160
+Let's see
+
+635
+00:37:33,760 --> 00:37:37,160
+help functions.
+
+636
+00:37:43,119 --> 00:37:47,520
+Okay. So you are looking at some of the
+
+637
+00:37:45,440 --> 00:37:51,119
+examples.
+
+638
+00:37:47,520 --> 00:37:54,880
+What about this one? This one is from
+
+639
+00:37:51,119 --> 00:37:58,640
+the add define key map.
+
+640
+00:37:54,880 --> 00:38:04,920
+So define key map is basically
+
+641
+00:37:58,640 --> 00:38:04,920
+a key map. Okay. With some keys
+
+642
+00:38:05,119 --> 00:38:10,200
+data hand is so cool. Are you using it?
+
+643
+00:38:10,640 --> 00:38:13,640
+Uh
+
+644
+00:38:15,839 --> 00:38:20,680
+okay, close that. Let's go to
+
+645
+00:38:24,240 --> 00:38:30,240
+So define key map. That's the usage.
+
+646
+00:38:28,079 --> 00:38:33,560
+Okay. Next
+
+647
+00:38:30,240 --> 00:38:33,560
+and see.
+
+648
+00:38:38,640 --> 00:38:42,800
+Okay.
+
+649
+00:38:40,720 --> 00:38:46,320
+I just watched the video you were
+
+650
+00:38:42,800 --> 00:38:48,480
+reviewing. Thank you. Yeah. So, I I need
+
+651
+00:38:46,320 --> 00:38:52,599
+to get on to it. I haven't been using
+
+652
+00:38:48,480 --> 00:38:52,599
+it. Um
+
+653
+00:38:57,599 --> 00:39:00,599
+so
+
+654
+00:39:07,040 --> 00:39:13,400
+so define key map
+
+655
+00:39:10,400 --> 00:39:13,400
+see
+
+656
+00:39:14,480 --> 00:39:22,040
+back image speed there another define
+
+657
+00:39:18,640 --> 00:39:22,040
+key map.
+
+658
+00:39:23,599 --> 00:39:26,599
+Okay.
+
+659
+00:39:40,720 --> 00:39:49,800
+Define key map key map. So this this
+
+660
+00:39:44,480 --> 00:39:49,800
+keyword arguments really confusing.
+
+661
+00:39:50,560 --> 00:39:56,839
+So let's look at another one. So what uh
+
+662
+00:39:53,839 --> 00:39:56,839
+Okay.
+
+663
+00:40:02,400 --> 00:40:07,079
+Okay. I don't know. So
+
+664
+00:40:08,160 --> 00:40:15,839
+So we have Okay. We have by now looked
+
+665
+00:40:11,599 --> 00:40:18,560
+at enough examples.
+
+666
+00:40:15,839 --> 00:40:20,480
+Okay. So here is another example pretty
+
+667
+00:40:18,560 --> 00:40:23,119
+simple.
+
+668
+00:40:20,480 --> 00:40:28,280
+Okay.
+
+669
+00:40:23,119 --> 00:40:28,280
+So here it's defining key sequences.
+
+670
+00:40:30,800 --> 00:40:37,760
+Yeah.
+
+671
+00:40:33,520 --> 00:40:41,320
+Okay. So now go back. Let's see what
+
+672
+00:40:37,760 --> 00:40:41,320
+Okay. then
+
+673
+00:40:41,680 --> 00:40:45,800
+close. Okay.
+
+674
+00:40:47,599 --> 00:40:53,280
+Okay.
+
+675
+00:40:49,680 --> 00:40:57,280
+Okay. So, I think we have looked at
+
+676
+00:40:53,280 --> 00:41:00,880
+enough examples. Okay. Close.
+
+677
+00:40:57,280 --> 00:41:04,880
+Now, this is example.
+
+678
+00:41:00,880 --> 00:41:06,960
+Notice the keyword argument key map.
+
+679
+00:41:04,880 --> 00:41:09,599
+Okay. Close.
+
+680
+00:41:06,960 --> 00:41:09,599
+Close.
+
+681
+00:41:09,760 --> 00:41:14,280
+Now, here is a speed bar.
+
+682
+00:41:18,800 --> 00:41:24,400
+So, you see they they could have used
+
+683
+00:41:21,760 --> 00:41:26,480
+define var key map but they didn't.
+
+684
+00:41:24,400 --> 00:41:29,040
+Instead, you know, they still use the
+
+685
+00:41:26,480 --> 00:41:31,040
+old define var.
+
+686
+00:41:29,040 --> 00:41:32,720
+They could have combined these two
+
+687
+00:41:31,040 --> 00:41:36,359
+together.
+
+688
+00:41:32,720 --> 00:41:36,359
+Okay. So,
+
+689
+00:41:36,400 --> 00:41:44,240
+Okay. So this one is got a keyword key
+
+690
+00:41:39,200 --> 00:41:49,839
+map. Okay, close that. Now uh now this
+
+691
+00:41:44,240 --> 00:41:53,560
+one is from diff mode diff mode
+
+692
+00:41:49,839 --> 00:41:53,560
+and uh
+
+693
+00:41:54,240 --> 00:42:00,440
+okay so it's using let's see
+
+694
+00:42:01,760 --> 00:42:06,640
+okay so this one is using define v key
+
+695
+00:42:05,040 --> 00:42:13,119
+map
+
+696
+00:42:06,640 --> 00:42:17,560
+okay doc and uh escape Then
+
+697
+00:42:13,119 --> 00:42:17,560
+then this. Okay.
+
+698
+00:42:18,160 --> 00:42:27,359
+Then here is shared map
+
+699
+00:42:22,400 --> 00:42:32,319
+define v shared map. Okay. So this one.
+
+700
+00:42:27,359 --> 00:42:35,319
+Oh, it just have this pairs directly.
+
+701
+00:42:32,319 --> 00:42:35,319
+Interesting.
+
+702
+00:42:36,560 --> 00:42:43,839
+You see this is fairly confusing.
+
+703
+00:42:39,760 --> 00:42:47,200
+You got one of them is define var key
+
+704
+00:42:43,839 --> 00:42:51,040
+map. Okay. The other one is
+
+705
+00:42:47,200 --> 00:42:54,160
+define key map. Okay. There.
+
+706
+00:42:51,040 --> 00:42:58,560
+So you got these two new functions.
+
+707
+00:42:54,160 --> 00:43:02,960
+Now the way I understand is that define
+
+708
+00:42:58,560 --> 00:43:05,760
+var is defining a variable. Then
+
+709
+00:43:02,960 --> 00:43:08,560
+then inside it you can use define key
+
+710
+00:43:05,760 --> 00:43:11,520
+map. But however
+
+711
+00:43:08,560 --> 00:43:16,160
+that is not necessarily necessarily
+
+712
+00:43:11,520 --> 00:43:20,560
+true. You can directly define v key map
+
+713
+00:43:16,160 --> 00:43:24,000
+and define your keys like here
+
+714
+00:43:20,560 --> 00:43:29,359
+or you can move this into the define key
+
+715
+00:43:24,000 --> 00:43:31,119
+map. Okay. So that it's like flexible.
+
+716
+00:43:29,359 --> 00:43:35,520
+Uh
+
+717
+00:43:31,119 --> 00:43:38,520
+yeah, but it's but meanwhile it's fairly
+
+718
+00:43:35,520 --> 00:43:38,520
+confusing.
+
+719
+00:43:41,119 --> 00:43:47,920
+You see it's confusing for
+
+720
+00:43:44,960 --> 00:43:50,480
+more than one reason. One of the reason
+
+721
+00:43:47,920 --> 00:43:53,440
+it's confusing is that it's using this
+
+722
+00:43:50,480 --> 00:43:56,800
+keyword arguments
+
+723
+00:43:53,440 --> 00:44:00,000
+which is not
+
+724
+00:43:56,800 --> 00:44:03,599
+conventional in EMAC. In fact, Emac Lisp
+
+725
+00:44:00,000 --> 00:44:06,079
+do not have formal documentation for for
+
+726
+00:44:03,599 --> 00:44:08,319
+the keyword
+
+727
+00:44:06,079 --> 00:44:12,640
+uh using keyword arguments to define
+
+728
+00:44:08,319 --> 00:44:15,640
+function parameters keyword parameters.
+
+729
+00:44:12,640 --> 00:44:15,640
+So,
+
+730
+00:44:15,839 --> 00:44:22,480
+but this define v key map is using this
+
+731
+00:44:18,640 --> 00:44:25,119
+or these bunch of keyword arguments.
+
+732
+00:44:22,480 --> 00:44:29,280
+Okay, that's one aspect it's confusing.
+
+733
+00:44:25,119 --> 00:44:32,280
+The other aspect it's confusing is
+
+734
+00:44:29,280 --> 00:44:32,280
+because
+
+735
+00:44:33,839 --> 00:44:41,440
+you know because of the documentation
+
+736
+00:44:37,200 --> 00:44:43,920
+you know so so you know this key I have
+
+737
+00:44:41,440 --> 00:44:45,680
+not seen that document documented
+
+738
+00:44:43,920 --> 00:44:48,319
+anywhere
+
+739
+00:44:45,680 --> 00:44:52,000
+if you don't believe me let's go to the
+
+740
+00:44:48,319 --> 00:44:55,599
+GNU Emacs manual. So here we are looking
+
+741
+00:44:52,000 --> 00:45:00,160
+at GNU Emacs manual. Okay. So let's go
+
+742
+00:44:55,599 --> 00:45:05,760
+up. Okay, go up. So here's Emac this
+
+743
+00:45:00,160 --> 00:45:10,000
+manual. Now if you search for parameter
+
+744
+00:45:05,760 --> 00:45:13,920
+P P A R A M window parameter search
+
+745
+00:45:10,000 --> 00:45:15,760
+frame parameters. Okay. Search search.
+
+746
+00:45:13,920 --> 00:45:18,079
+Okay.
+
+747
+00:45:15,760 --> 00:45:20,400
+Search search.
+
+748
+00:45:18,079 --> 00:45:23,359
+Let's search for function. We want
+
+749
+00:45:20,400 --> 00:45:26,880
+function parameters.
+
+750
+00:45:23,359 --> 00:45:31,839
+Uh, oh god, there's too many. Let's
+
+751
+00:45:26,880 --> 00:45:35,440
+search for let's see let's search for
+
+752
+00:45:31,839 --> 00:45:37,839
+defining a function. Okay, define images
+
+753
+00:45:35,440 --> 00:45:41,040
+define define symbol define global
+
+754
+00:45:37,839 --> 00:45:43,119
+variable define define defining function
+
+755
+00:45:41,040 --> 00:45:46,000
+there.
+
+756
+00:45:43,119 --> 00:45:49,520
+Okay, so you go there defining a
+
+757
+00:45:46,000 --> 00:45:52,480
+function. Let's we so we want to know
+
+758
+00:45:49,520 --> 00:45:55,200
+about the how do you define the
+
+759
+00:45:52,480 --> 00:45:59,119
+arguments you know rest parameters how
+
+760
+00:45:55,200 --> 00:46:01,760
+many arguments uh and named
+
+761
+00:45:59,119 --> 00:46:04,319
+key named parameters also known as
+
+762
+00:46:01,760 --> 00:46:08,240
+keyword parameters.
+
+763
+00:46:04,319 --> 00:46:12,160
+So in this section defining functions
+
+764
+00:46:08,240 --> 00:46:15,880
+section one 13.4
+
+765
+00:46:12,160 --> 00:46:15,880
+so you got defund
+
+766
+00:46:17,200 --> 00:46:22,560
+Okay, you know, Emacs documentation
+
+767
+00:46:20,079 --> 00:46:26,680
+needs a lot improvement. You know, it's
+
+768
+00:46:22,560 --> 00:46:26,680
+very confusing here.
+
+769
+00:46:26,880 --> 00:46:31,400
+So, it didn't mention about
+
+770
+00:46:32,319 --> 00:46:39,280
+the complexity of parameters. So,
+
+771
+00:46:36,880 --> 00:46:43,240
+okay. So, it's in this section features
+
+772
+00:46:39,280 --> 00:46:43,240
+of argument lists.
+
+773
+00:46:43,680 --> 00:46:46,880
+Yes.
+
+774
+00:46:44,880 --> 00:46:49,520
+Okay.
+
+775
+00:46:46,880 --> 00:46:53,040
+Then blah blah blah very wordy. Okay. So
+
+776
+00:46:49,520 --> 00:46:56,880
+it it talks about optional and rest.
+
+777
+00:46:53,040 --> 00:47:00,160
+Uh meanwhile if you read my tutorial
+
+778
+00:46:56,880 --> 00:47:02,160
+you'll see simple explanations. Okay
+
+779
+00:47:00,160 --> 00:47:04,720
+like simply tell you how do you define a
+
+780
+00:47:02,160 --> 00:47:08,160
+rest parameters and so on or optional
+
+781
+00:47:04,720 --> 00:47:11,520
+parameters. Okay. But anyway the the the
+
+782
+00:47:08,160 --> 00:47:16,640
+manual says talks about optional and
+
+783
+00:47:11,520 --> 00:47:21,359
+rest. So with the emp% optional keyword
+
+784
+00:47:16,640 --> 00:47:24,000
+I mean in amp% rest but where
+
+785
+00:47:21,359 --> 00:47:28,240
+we are looking for the key the keyword
+
+786
+00:47:24,000 --> 00:47:31,200
+parameter represented by emp% key it's
+
+787
+00:47:28,240 --> 00:47:36,640
+not there you see you see if you go back
+
+788
+00:47:31,200 --> 00:47:39,040
+here you can see this emp% key
+
+789
+00:47:36,640 --> 00:47:44,480
+full par suppress and so on that
+
+790
+00:47:39,040 --> 00:47:49,599
+represent keywords full suppress par you
+
+791
+00:47:44,480 --> 00:47:52,880
+know so on but the Emacs lisp manual
+
+792
+00:47:49,599 --> 00:47:56,240
+does not mention anything about emp% key
+
+793
+00:47:52,880 --> 00:47:59,119
+you see this features of argument list
+
+794
+00:47:56,240 --> 00:48:01,200
+you know this is you know emac this
+
+795
+00:47:59,119 --> 00:48:03,440
+manual is not very good because you know
+
+796
+00:48:01,200 --> 00:48:06,560
+you see they're talking about features
+
+797
+00:48:03,440 --> 00:48:08,480
+of argument list that's a wording for
+
+798
+00:48:06,560 --> 00:48:11,760
+this chapter
+
+799
+00:48:08,480 --> 00:48:15,119
+which is very idiotic Because for most
+
+800
+00:48:11,760 --> 00:48:17,280
+programming languages, you simply say
+
+801
+00:48:15,119 --> 00:48:18,880
+how do you define arguments to a
+
+802
+00:48:17,280 --> 00:48:21,520
+function? How do you define the
+
+803
+00:48:18,880 --> 00:48:25,280
+functions parameters? You know, you
+
+804
+00:48:21,520 --> 00:48:27,520
+typically have ordered parameters. Then
+
+805
+00:48:25,280 --> 00:48:30,319
+you might have optional parameters. Then
+
+806
+00:48:27,520 --> 00:48:32,400
+you have parameters with default value
+
+807
+00:48:30,319 --> 00:48:34,720
+which is optional parameters. Then you
+
+808
+00:48:32,400 --> 00:48:38,920
+might have rest parameters which is
+
+809
+00:48:34,720 --> 00:48:38,920
+arbitrary number of parameters.
+
+810
+00:48:39,040 --> 00:48:44,319
+And then you also have some in you know
+
+811
+00:48:42,400 --> 00:48:46,800
+depending on the language you have
+
+812
+00:48:44,319 --> 00:48:51,440
+keyword parameters which is you know you
+
+813
+00:48:46,800 --> 00:48:54,400
+have a name then value but you see this
+
+814
+00:48:51,440 --> 00:48:57,359
+section does not mention about it. Let's
+
+815
+00:48:54,400 --> 00:48:59,680
+search for key
+
+816
+00:48:57,359 --> 00:49:02,240
+you know include a keyword optional. No
+
+817
+00:48:59,680 --> 00:49:05,599
+that's not
+
+818
+00:49:02,240 --> 00:49:08,640
+you know there none. Okay. So they they
+
+819
+00:49:05,599 --> 00:49:10,480
+didn't mention about the ampand key in
+
+820
+00:49:08,640 --> 00:49:14,079
+the official
+
+821
+00:49:10,480 --> 00:49:17,119
+GNU Emacs manual for EMAC 30 which is
+
+822
+00:49:14,079 --> 00:49:19,520
+what I'm using. But however in this
+
+823
+00:49:17,119 --> 00:49:23,280
+inline documentation for the define key
+
+824
+00:49:19,520 --> 00:49:25,440
+map it it's you know it's showing that
+
+825
+00:49:23,280 --> 00:49:29,920
+key.
+
+826
+00:49:25,440 --> 00:49:32,559
+So let me clarify. So, so this define
+
+827
+00:49:29,920 --> 00:49:35,680
+key map function
+
+828
+00:49:32,559 --> 00:49:38,800
+is using keyword arguments
+
+829
+00:49:35,680 --> 00:49:42,400
+as you can see documented by the inline
+
+830
+00:49:38,800 --> 00:49:45,920
+documentation here. But however, this
+
+831
+00:49:42,400 --> 00:49:50,240
+keyword arguments is not defined is not
+
+832
+00:49:45,920 --> 00:49:53,359
+talked about in the EMAC lisp manual
+
+833
+00:49:50,240 --> 00:49:56,319
+about defining functions.
+
+834
+00:49:53,359 --> 00:50:01,920
+So that's what I'm saying. What I'm
+
+835
+00:49:56,319 --> 00:50:05,040
+saying is that these keyword arguments,
+
+836
+00:50:01,920 --> 00:50:09,599
+you know, typically start with a uh a
+
+837
+00:50:05,040 --> 00:50:13,760
+colon. They are kind of semi-standard in
+
+838
+00:50:09,599 --> 00:50:16,240
+EMAC, you know, they are not exactly
+
+839
+00:50:13,760 --> 00:50:19,359
+described by the EMAC manual, but they
+
+840
+00:50:16,240 --> 00:50:21,920
+are like they are like in a limbo
+
+841
+00:50:19,359 --> 00:50:24,480
+halfass, you know. some some packages
+
+842
+00:50:21,920 --> 00:50:27,280
+use it some you know but most vast
+
+843
+00:50:24,480 --> 00:50:30,319
+majority don't
+
+844
+00:50:27,280 --> 00:50:32,480
+uh and you know there's no documentation
+
+845
+00:50:30,319 --> 00:50:35,680
+for it
+
+846
+00:50:32,480 --> 00:50:39,200
+so they are in kind of like you know in
+
+847
+00:50:35,680 --> 00:50:42,240
+in a in a um
+
+848
+00:50:39,200 --> 00:50:45,760
+halfexistent situation
+
+849
+00:50:42,240 --> 00:50:49,680
+so that's why I'm saying this define key
+
+850
+00:50:45,760 --> 00:50:52,720
+map function is fairly confusing
+
+851
+00:50:49,680 --> 00:50:56,880
+so you need to so what I need to do is
+
+852
+00:50:52,720 --> 00:51:01,520
+actually really go through the manual
+
+853
+00:50:56,880 --> 00:51:05,000
+reading this carefully you know uh for
+
+854
+00:51:01,520 --> 00:51:05,000
+half an hour
+
+855
+00:51:05,760 --> 00:51:13,920
+like right now I'm trying to do some
+
+856
+00:51:08,880 --> 00:51:16,480
+trial and error like right now here so
+
+857
+00:51:13,920 --> 00:51:19,520
+you can see it it looks kind of right
+
+858
+00:51:16,480 --> 00:51:22,240
+but that cannot go
+
+859
+00:51:19,520 --> 00:51:24,800
+I I don't want to run it. So, okay. So,
+
+860
+00:51:22,240 --> 00:51:27,200
+I think that's it for today. You know,
+
+861
+00:51:24,800 --> 00:51:29,680
+we start to explore. So, basically the
+
+862
+00:51:27,200 --> 00:51:32,240
+final form will be something like this.
+
+863
+00:51:29,680 --> 00:51:35,760
+Okay. So,
+
+864
+00:51:32,240 --> 00:51:38,880
+in summary before it looks like that but
+
+865
+00:51:35,760 --> 00:51:42,079
+the new is something like that. In fact,
+
+866
+00:51:38,880 --> 00:51:46,480
+this is not complete because this is not
+
+867
+00:51:42,079 --> 00:51:48,240
+complete because um
+
+868
+00:51:46,480 --> 00:51:50,240
+yeah, I'm pretty sure this is not
+
+869
+00:51:48,240 --> 00:51:53,200
+complete. So that's why I don't want to
+
+870
+00:51:50,240 --> 00:51:56,960
+run it. So anyway, that's it for today.
+
+871
+00:51:53,200 --> 00:52:00,359
+We explored this thing. Okay.
+
+872
+00:51:56,960 --> 00:52:00,359
+Any questions?
+
+873
+00:52:01,040 --> 00:52:08,079
+Kasan is back. Nighttime. Yes. I haven't
+
+874
+00:52:04,400 --> 00:52:10,319
+done a video at night for a long time.
+
+875
+00:52:08,079 --> 00:52:12,400
+So that's why I'm thinking of doing
+
+876
+00:52:10,319 --> 00:52:13,920
+here.
+
+877
+00:52:12,400 --> 00:52:16,319
+Uh
+
+878
+00:52:13,920 --> 00:52:19,760
+and uh so I'm going to chat for five
+
+879
+00:52:16,319 --> 00:52:22,480
+minutes and that's it for today. Uh you
+
+880
+00:52:19,760 --> 00:52:25,119
+know the thing about the timing of a
+
+881
+00:52:22,480 --> 00:52:27,599
+live stream is that when you do like
+
+882
+00:52:25,119 --> 00:52:31,200
+normally I do at 12:00 noon San
+
+883
+00:52:27,599 --> 00:52:35,280
+Francisco time but that means people in
+
+884
+00:52:31,200 --> 00:52:37,920
+China and in India they will not be able
+
+885
+00:52:35,280 --> 00:52:43,599
+to see it you know that's uh basically
+
+886
+00:52:37,920 --> 00:52:46,880
+so 12 12:00 uh midnight I mean 12:00
+
+887
+00:52:43,599 --> 00:52:48,559
+noon San Francisco time
+
+888
+00:52:46,880 --> 00:52:50,880
+means
+
+889
+00:52:48,559 --> 00:52:56,119
+You know sometimes 3:00 in the morning
+
+890
+00:52:50,880 --> 00:52:56,119
+in China. Let's see. Is that right?
+
+891
+00:52:57,760 --> 00:53:03,440
+Yeah. It basically means something like
+
+892
+00:53:00,480 --> 00:53:06,400
+4 a.m. in the morning. So whenever I do
+
+893
+00:53:03,440 --> 00:53:08,800
+some you know 12:00 noon
+
+894
+00:53:06,400 --> 00:53:12,240
+Chinese people and Japanese people in
+
+895
+00:53:08,800 --> 00:53:15,359
+Taiwan, Hong Kong, Indonesia,
+
+896
+00:53:12,240 --> 00:53:18,079
+uh Singapore, you know the Far East,
+
+897
+00:53:15,359 --> 00:53:19,920
+they won't be able to watch my watch me
+
+898
+00:53:18,079 --> 00:53:23,280
+live.
+
+899
+00:53:19,920 --> 00:53:26,880
+Uh I have sensible people over there
+
+900
+00:53:23,280 --> 00:53:29,359
+watching me because I'm Chinese blood.
+
+901
+00:53:26,880 --> 00:53:31,680
+So that's why now I'm doing one I
+
+902
+00:53:29,359 --> 00:53:36,079
+haven't done one at night for like a
+
+903
+00:53:31,680 --> 00:53:38,880
+year or half a year. So now the East
+
+904
+00:53:36,079 --> 00:53:41,280
+Asian, Chinese, Japanese and you know
+
+905
+00:53:38,880 --> 00:53:45,359
+people they can and Indians they can
+
+906
+00:53:41,280 --> 00:53:47,760
+watch me live.
+
+907
+00:53:45,359 --> 00:53:51,280
+uh but
+
+908
+00:53:47,760 --> 00:53:54,720
+for Americans at this time
+
+909
+00:53:51,280 --> 00:53:57,920
+not many because most people one of the
+
+910
+00:53:54,720 --> 00:54:01,200
+interesting fact about population in USA
+
+911
+00:53:57,920 --> 00:54:04,640
+is that vast majority of people lives on
+
+912
+00:54:01,200 --> 00:54:06,480
+the east coast why because if you look
+
+913
+00:54:04,640 --> 00:54:08,079
+at the map it's very interesting
+
+914
+00:54:06,480 --> 00:54:13,440
+geography
+
+915
+00:54:08,079 --> 00:54:18,079
+issue okay uh you see
+
+916
+00:54:13,440 --> 00:54:23,440
+uh let's let's use Google Map. Okay.
+
+917
+00:54:18,079 --> 00:54:26,000
+So, you go to Google Maps. You go to
+
+918
+00:54:23,440 --> 00:54:28,240
+Microsoft.
+
+919
+00:54:26,000 --> 00:54:31,119
+Okay. That's Mountain View. That's where
+
+920
+00:54:28,240 --> 00:54:33,760
+I live. San Francisco. That's San
+
+921
+00:54:31,119 --> 00:54:36,559
+Francisco. That's San Jose. This is
+
+922
+00:54:33,760 --> 00:54:39,599
+California. So, you shrink. You can see
+
+923
+00:54:36,559 --> 00:54:42,640
+this is California over here. This
+
+924
+00:54:39,599 --> 00:54:44,559
+block. And you shrink. Then you see the
+
+925
+00:54:42,640 --> 00:54:47,680
+entire USA.
+
+926
+00:54:44,559 --> 00:54:50,559
+So you can see by the color on the on
+
+927
+00:54:47,680 --> 00:54:53,200
+the right side it's green on the left
+
+928
+00:54:50,559 --> 00:54:55,359
+side it's yellow
+
+929
+00:54:53,200 --> 00:54:58,480
+means mountain.
+
+930
+00:54:55,359 --> 00:55:01,680
+So that is why vast majority of people
+
+931
+00:54:58,480 --> 00:55:05,119
+in USA lives actually lives on the east
+
+932
+00:55:01,680 --> 00:55:12,359
+coast. Okay. Now let's let's go to
+
+933
+00:55:05,119 --> 00:55:12,359
+satellite uh satellite and show globe.
+
+934
+00:55:12,480 --> 00:55:17,680
+Okay. So,
+
+935
+00:55:15,200 --> 00:55:21,119
+so you can see on the west it's all
+
+936
+00:55:17,680 --> 00:55:23,520
+mountains, mountains and deserts.
+
+937
+00:55:21,119 --> 00:55:26,559
+So that's why most people lives on the
+
+938
+00:55:23,520 --> 00:55:29,359
+east coast. It's all green. New York,
+
+939
+00:55:26,559 --> 00:55:31,280
+Maryland, West Virginia and Virginia,
+
+940
+00:55:29,359 --> 00:55:35,280
+East Virginia,
+
+941
+00:55:31,280 --> 00:55:39,200
+uh Tennessee, you know. So that means at
+
+942
+00:55:35,280 --> 00:55:42,160
+this time right now it's 11 11 p.m.
+
+943
+00:55:39,200 --> 00:55:43,440
+California time. That means over there
+
+944
+00:55:42,160 --> 00:55:45,599
+it's
+
+945
+00:55:43,440 --> 00:55:48,799
+Uh, it's
+
+946
+00:55:45,599 --> 00:55:51,839
+2:00 a.m. New York. 2 am. So, most
+
+947
+00:55:48,799 --> 00:55:54,640
+people are sleeping. So, that's why if I
+
+948
+00:55:51,839 --> 00:55:57,119
+do live stream
+
+949
+00:55:54,640 --> 00:56:00,480
+right now,
+
+950
+00:55:57,119 --> 00:56:02,799
+uh, you know, they are sleeping. So, the
+
+951
+00:56:00,480 --> 00:56:07,119
+Americans, you know, they are very few
+
+952
+00:56:02,799 --> 00:56:09,680
+much fewer people are able to watch.
+
+953
+00:56:07,119 --> 00:56:13,760
+But meanwhile
+
+954
+00:56:09,680 --> 00:56:15,680
+this is when the China this this entire
+
+955
+00:56:13,760 --> 00:56:19,119
+you know the most people most people on
+
+956
+00:56:15,680 --> 00:56:22,720
+earth are in China and India. So there
+
+957
+00:56:19,119 --> 00:56:27,520
+are like 8 billion people on earth
+
+958
+00:56:22,720 --> 00:56:30,640
+and 2.5 billion of them are in China and
+
+959
+00:56:27,520 --> 00:56:36,640
+India each one is 1 billion something
+
+960
+00:56:30,640 --> 00:56:38,960
+okay so at this time so China is like um
+
+961
+00:56:36,640 --> 00:56:43,880
+wait do they have sunlight can you get
+
+962
+00:56:38,960 --> 00:56:43,880
+it to show the sunlight
+
+963
+00:56:44,720 --> 00:56:50,240
+uh I haven't used uh you know the fancy
+
+964
+00:56:48,000 --> 00:56:54,359
+feature Can you get it to show tonight?
+
+965
+00:56:50,240 --> 00:56:54,359
+I don't think so. I forgot.
+
+966
+00:56:57,040 --> 00:57:00,920
+Okay. But so anyway,
+
+967
+00:57:04,160 --> 00:57:08,720
+you look so cool. Your website is
+
+968
+00:57:06,480 --> 00:57:12,240
+amazing. Thank you. Could you tell us
+
+969
+00:57:08,720 --> 00:57:15,760
+about your self history? Well, I told
+
+970
+00:57:12,240 --> 00:57:18,160
+that before. So you look for two or
+
+971
+00:57:15,760 --> 00:57:21,280
+three years ago or just search for my
+
+972
+00:57:18,160 --> 00:57:25,599
+website like search for you know just
+
+973
+00:57:21,280 --> 00:57:27,839
+search for bio uh you will find some
+
+974
+00:57:25,599 --> 00:57:30,960
+information about that. I talked about
+
+975
+00:57:27,839 --> 00:57:37,480
+that live stream
+
+976
+00:57:30,960 --> 00:57:37,480
+uh three years ago, four um
+
+977
+00:57:38,880 --> 00:57:45,520
+ACP says, "Do keyword arcs just allow
+
+978
+00:57:42,079 --> 00:57:48,960
+for unordered function arcs?" Yes,
+
+979
+00:57:45,520 --> 00:57:53,720
+unordered and also
+
+980
+00:57:48,960 --> 00:57:53,720
+uh also with default values.
+
+981
+00:57:57,040 --> 00:58:04,480
+So
+
+982
+00:57:59,520 --> 00:58:07,520
+bio let's see what we find bio
+
+983
+00:58:04,480 --> 00:58:10,000
+YouTube thigh years wants wit thy wits
+
+984
+00:58:07,520 --> 00:58:12,960
+wants edge and manners that's my
+
+985
+00:58:10,000 --> 00:58:15,839
+favorite quote
+
+986
+00:58:12,960 --> 00:58:20,480
+that's from Shakespeare
+
+987
+00:58:15,839 --> 00:58:25,280
+um okay I I I you know I talk random so
+
+988
+00:58:20,480 --> 00:58:29,040
+literature classics this is anxi info.
+
+989
+00:58:25,280 --> 00:58:32,480
+There's like 4,000 pages there. So,
+
+990
+00:58:29,040 --> 00:58:36,480
+literature classics and uh then you go
+
+991
+00:58:32,480 --> 00:58:40,160
+to Shakespeare. You go down
+
+992
+00:58:36,480 --> 00:58:42,000
+uh where is it? Wait. Arabian Knights
+
+993
+00:58:40,160 --> 00:58:45,680
+Flatland
+
+994
+00:58:42,000 --> 00:58:50,160
+Time Machine. The tragedy of Titus
+
+995
+00:58:45,680 --> 00:58:55,680
+Andronicus. This one. Thus wants wit.
+
+996
+00:58:50,160 --> 00:58:58,559
+thigh wit once manners and edge.
+
+997
+00:58:55,680 --> 00:59:00,640
+So that's from this my favorite
+
+998
+00:58:58,559 --> 00:59:03,839
+Shakespeare
+
+999
+00:59:00,640 --> 00:59:07,119
+uh and LinkedIn I haven't logged in for
+
+1000
+00:59:03,839 --> 00:59:09,200
+like 10 years. So they got my old you
+
+1001
+00:59:07,119 --> 00:59:13,920
+know 10 10 years 15 years old
+
+1002
+00:59:09,200 --> 00:59:18,480
+information there. Um I'm about as good
+
+1003
+00:59:13,920 --> 00:59:22,240
+as dead 2014. So you'll find that and
+
+1004
+00:59:18,480 --> 00:59:24,640
+that's when I'm about as good as dead. I
+
+1005
+00:59:22,240 --> 00:59:29,920
+was dying of hunger. Okay. So there's
+
+1006
+00:59:24,640 --> 00:59:33,920
+ugly some ugly things you'll see
+
+1007
+00:59:29,920 --> 00:59:36,480
+uh you know not ugly but you know not
+
+1008
+00:59:33,920 --> 00:59:38,720
+not not
+
+1009
+00:59:36,480 --> 00:59:40,240
+very pretty stuff.
+
+1010
+00:59:38,720 --> 00:59:42,000
+Um
+
+1011
+00:59:40,240 --> 00:59:46,319
+then
+
+1012
+00:59:42,000 --> 00:59:50,559
+okay profile contact. So you go there
+
+1013
+00:59:46,319 --> 00:59:53,920
+and here is periodic dosage of that's
+
+1014
+00:59:50,559 --> 00:59:58,720
+leaf journal that's like 20 years ago.
+
+1015
+00:59:53,920 --> 01:00:00,960
+So okay and here's Patreon where you can
+
+1016
+00:59:58,720 --> 01:00:06,319
+sponsor me pay me okay if you like my
+
+1017
+01:00:00,960 --> 01:00:12,480
+stuff where is it Patreon. Um,
+
+1018
+01:00:06,319 --> 01:00:15,520
+okay. So, and here is some spam and scam
+
+1019
+01:00:12,480 --> 01:00:18,079
+some some spam and scam site like find
+
+1020
+01:00:15,520 --> 01:00:19,920
+out this guy's phone number, you know,
+
+1021
+01:00:18,079 --> 01:00:21,920
+like there's lots of that site. Find
+
+1022
+01:00:19,920 --> 01:00:24,640
+find out your ex-girlfriend or whatever
+
+1023
+01:00:21,920 --> 01:00:28,240
+wife or where where does someone live,
+
+1024
+01:00:24,640 --> 01:00:31,920
+you know, like something like that.
+
+1025
+01:00:28,240 --> 01:00:34,640
+And here, Python list bank. That's my
+
+1026
+01:00:31,920 --> 01:00:37,440
+That's one of my uh I'm not sure what
+
+1027
+01:00:34,640 --> 01:00:40,960
+that is. That's one of my old email or
+
+1028
+01:00:37,440 --> 01:00:43,200
+something old rent. Okay. So, you can
+
+1029
+01:00:40,960 --> 01:00:44,720
+find you know if if you want to know
+
+1030
+01:00:43,200 --> 01:00:47,680
+about me, you can find a lot of
+
+1031
+01:00:44,720 --> 01:00:51,440
+information and here's my page
+
+1032
+01:00:47,680 --> 01:00:55,359
+profile contact. I'm also on uh Twitter.
+
+1033
+01:00:51,440 --> 01:00:59,200
+And then you can see
+
+1034
+01:00:55,359 --> 01:01:02,480
+um you know many of these social media I
+
+1035
+01:00:59,200 --> 01:01:07,760
+don't use anymore. MSN is dead. Yahoo is
+
+1036
+01:01:02,480 --> 01:01:09,839
+dead. Uh, AOL Instant Message is dead.
+
+1037
+01:01:07,760 --> 01:01:12,240
+QQ
+
+1038
+01:01:09,839 --> 01:01:15,200
+is a China
+
+1039
+01:01:12,240 --> 01:01:18,799
+uh, Twitter, but
+
+1040
+01:01:15,200 --> 01:01:22,160
+uh, I think my account got banned
+
+1041
+01:01:18,799 --> 01:01:24,799
+because I was talking about politics.
+
+1042
+01:01:22,160 --> 01:01:28,640
+Facebook, I haven't logged in for like
+
+1043
+01:01:24,799 --> 01:01:30,640
+over 10 years. Skype is dead officially
+
+1044
+01:01:28,640 --> 01:01:32,559
+like few years ago. or two years ago or
+
+1045
+01:01:30,640 --> 01:01:35,760
+one
+
+1046
+01:01:32,559 --> 01:01:38,319
+uh you know so
+
+1047
+01:01:35,760 --> 01:01:40,960
+yeah and I haven't updated this page you
+
+1048
+01:01:38,319 --> 01:01:46,400
+know for for a long time
+
+1049
+01:01:40,960 --> 01:01:49,280
+uh then you can check out photos of me
+
+1050
+01:01:46,400 --> 01:01:51,599
+then
+
+1051
+01:01:49,280 --> 01:01:56,760
+you know anyway all these are written
+
+1052
+01:01:51,599 --> 01:01:56,760
+like many years ago five 10 years ago
+
+1053
+01:01:57,040 --> 01:02:01,520
+you professional programmer on which
+
+1054
+01:01:59,040 --> 01:02:05,359
+language which you code.
+
+1055
+01:02:01,520 --> 01:02:08,240
+Well, I'm kind of on and off. Okay. So,
+
+1056
+01:02:05,359 --> 01:02:13,200
+I code a lot of languages.
+
+1057
+01:02:08,240 --> 01:02:15,839
+Um, lots of Okay. Uh, you probably new
+
+1058
+01:02:13,200 --> 01:02:18,079
+to me because
+
+1059
+01:02:15,839 --> 01:02:21,839
+programming languages is what I do. You
+
+1060
+01:02:18,079 --> 01:02:24,880
+know, I have a lot of tutorials. So, I
+
+1061
+01:02:21,839 --> 01:02:28,319
+can show you. But that's it for today.
+
+1062
+01:02:24,880 --> 01:02:30,480
+Okay. So you go here god code and you go
+
+1063
+01:02:28,319 --> 01:02:36,240
+to you know lots of programming language
+
+1064
+01:02:30,480 --> 01:02:39,720
+tutorials. Uh there's a index of them
+
+1065
+01:02:36,240 --> 01:02:39,720
+there. Okay.
+
+1066
+01:02:39,839 --> 01:02:46,160
+Uh how can we join discord? Go to kali.
+
+1067
+01:02:43,040 --> 01:02:50,680
+You'll find the discord invite on my
+
+1068
+01:02:46,160 --> 01:02:50,680
+homepage on my kasali.info.
+
+1069
+01:02:51,280 --> 01:02:56,160
+Okay. I think that's it. Bye guys.
+
+1070
+01:02:58,559 --> 01:03:03,720
+Bye guys. We shut down in one minute.
+
+1071
+01:03:07,520 --> 01:03:16,599
+Okay. So this we don't want. So we don't
+
+1072
+01:03:11,520 --> 01:03:16,599
+want this contaminate my
+
+1073
+01:03:17,760 --> 01:03:26,160
+Okay. Cut that. Go to the talk show.
+
+1074
+01:03:21,839 --> 01:03:30,440
+Yeah. Today's talk show. And uh
+
+1075
+01:03:26,160 --> 01:03:30,440
+let's put a code here.
+
+1076
+01:03:37,760 --> 01:03:45,520
+Paste. Pop it out. That's the code. Now
+
+1077
+01:03:42,319 --> 01:03:47,520
+put it back. Syntax for it. Showing
+
+1078
+01:03:45,520 --> 01:03:51,480
+browser.
+
+1079
+01:03:47,520 --> 01:03:51,480
+Okay. Bye guys.
+

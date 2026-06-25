@@ -1,0 +1,6056 @@
+1
+00:00:02,449 --> 00:00:07,950
+good morning guys
+
+2
+00:00:05,150 --> 00:00:12,780
+welcome to another episode of Santa's
+
+3
+00:00:07,950 --> 00:00:16,020
+show today's 2019 November December 2nd
+
+4
+00:00:12,780 --> 00:00:19,560
+oh it's December now Monday 4 o'clock
+
+5
+00:00:16,020 --> 00:00:24,650
+4:30 San Francisco time in the afternoon
+
+6
+00:00:19,560 --> 00:00:28,140
+and today's topic is matrix and matrix
+
+7
+00:00:24,650 --> 00:00:31,590
+multiplication with vectors explanation
+
+8
+00:00:28,140 --> 00:00:35,700
+of vectors I'm going to explain that to
+
+9
+00:00:31,590 --> 00:00:38,850
+you guys programmers and we are also
+
+10
+00:00:35,700 --> 00:00:40,920
+going to code them in JavaScript matrix
+
+11
+00:00:38,850 --> 00:00:43,800
+and vector functions so I'm going to
+
+12
+00:00:40,920 --> 00:00:47,070
+explain to you what matrix are how they
+
+13
+00:00:43,800 --> 00:00:49,100
+work things like that and good morning
+
+14
+00:00:47,070 --> 00:00:54,750
+zoom way out
+
+15
+00:00:49,100 --> 00:00:57,629
+good morning to Florida thanks for
+
+16
+00:00:54,750 --> 00:01:02,850
+coming by and good morning young bond
+
+17
+00:00:57,629 --> 00:01:06,180
+and bought and Nybo so shall we begin
+
+18
+00:01:02,850 --> 00:01:11,460
+I'm thinking maybe one hour today or
+
+19
+00:01:06,180 --> 00:01:15,390
+less you know I'm trying to shrink the
+
+20
+00:01:11,460 --> 00:01:19,259
+talk shows time so this is today so
+
+21
+00:01:15,390 --> 00:01:21,750
+let's begin then let's begin and if you
+
+22
+00:01:19,259 --> 00:01:24,210
+have any comments questions posted ok
+
+23
+00:01:21,750 --> 00:01:28,740
+posting a chat chat that would be great
+
+24
+00:01:24,210 --> 00:01:32,070
+be fantastic okay this is Orton
+
+25
+00:01:28,740 --> 00:01:34,530
+impromptu without preparation you know I
+
+26
+00:01:32,070 --> 00:01:39,119
+like that way I like it that way because
+
+27
+00:01:34,530 --> 00:01:43,170
+that way is more natural and also I get
+
+28
+00:01:39,119 --> 00:01:46,409
+to practice my oration skills so matrix
+
+29
+00:01:43,170 --> 00:01:48,090
+multiplication we got we got a beginning
+
+30
+00:01:46,409 --> 00:01:53,130
+we got a begin somewhere we got good
+
+31
+00:01:48,090 --> 00:01:55,259
+start to get into on track so are there
+
+32
+00:01:53,130 --> 00:02:00,509
+more preparations to do yes
+
+33
+00:01:55,259 --> 00:02:06,740
+let's pop out this thing and let's move
+
+34
+00:02:00,509 --> 00:02:09,780
+this window here and let's see you
+
+35
+00:02:06,740 --> 00:02:13,090
+Korean I don't understand
+
+36
+00:02:09,780 --> 00:02:16,450
+good morning Alan
+
+37
+00:02:13,090 --> 00:02:18,280
+safe and Rob this is the you know this
+
+38
+00:02:16,450 --> 00:02:22,870
+is safe and Rob you know this is
+
+39
+00:02:18,280 --> 00:02:27,730
+something like this is 20 years old you
+
+40
+00:02:22,870 --> 00:02:33,250
+are looking at 20 years old more than
+
+41
+00:02:27,730 --> 00:02:34,870
+that clothing why shrink you know
+
+42
+00:02:33,250 --> 00:02:38,530
+because I'm talking too long usually
+
+43
+00:02:34,870 --> 00:02:42,670
+rambling on and on for 90 minutes so
+
+44
+00:02:38,530 --> 00:02:45,190
+okay we need to begin matrix tutorials I
+
+45
+00:02:42,670 --> 00:02:50,860
+mean talking about matrix so let's begin
+
+46
+00:02:45,190 --> 00:02:54,220
+by lid okay so this of course sir
+
+47
+00:02:50,860 --> 00:02:56,920
+command start command log so on the left
+
+48
+00:02:54,220 --> 00:03:00,310
+window you can see all my Emacs commands
+
+49
+00:02:56,920 --> 00:03:01,959
+for you to grab it's on my website if
+
+50
+00:03:00,310 --> 00:03:06,430
+you find the command name you can search
+
+51
+00:03:01,959 --> 00:03:10,570
+it and these on my website so and we are
+
+52
+00:03:06,430 --> 00:03:12,730
+going to go to JavaScript
+
+53
+00:03:10,570 --> 00:03:16,060
+okay so let's we are going to code this
+
+54
+00:03:12,730 --> 00:03:19,510
+in JavaScript okay start a new window
+
+55
+00:03:16,060 --> 00:03:23,920
+let's see TS okay on a second
+
+56
+00:03:19,510 --> 00:03:28,120
+will be the truck Sartre yes
+
+57
+00:03:23,920 --> 00:03:33,100
+search for index yes open in browser and
+
+58
+00:03:28,120 --> 00:03:43,170
+go here these are my temporary kind of
+
+59
+00:03:33,100 --> 00:03:52,209
+temporary nodes in place okay so
+
+60
+00:03:43,170 --> 00:03:55,930
+JavaScript okay so I need to open my my
+
+61
+00:03:52,209 --> 00:03:59,280
+types typescript stuff the technology of
+
+62
+00:03:55,930 --> 00:04:03,280
+typescript fantastic technology of
+
+63
+00:03:59,280 --> 00:04:07,900
+typescript let's see where is it that
+
+64
+00:04:03,280 --> 00:04:14,160
+and go here and the typescript library
+
+65
+00:04:07,900 --> 00:04:14,160
+there it is okay
+
+66
+00:04:15,860 --> 00:04:20,880
+now I need to do this very useful lesson
+
+67
+00:04:19,530 --> 00:04:23,100
+from sorry thank you
+
+68
+00:04:20,880 --> 00:04:25,920
+good morning Dan Morris I forgot where
+
+69
+00:04:23,100 --> 00:04:30,000
+you from Eggman and Justin Jones and
+
+70
+00:04:25,920 --> 00:04:36,840
+justin hays Jones has given a lecture on
+
+71
+00:04:30,000 --> 00:04:37,920
+Haskell I saw it on Twitter so Justin is
+
+72
+00:04:36,840 --> 00:04:42,090
+a has Kokoda
+
+73
+00:04:37,920 --> 00:04:46,080
+just seen Justin post the link if you
+
+74
+00:04:42,090 --> 00:04:51,060
+can you know so people interesting has
+
+75
+00:04:46,080 --> 00:04:54,000
+cow can go there and and watch and okay
+
+76
+00:04:51,060 --> 00:04:57,960
+so let's get into the track of matrix
+
+77
+00:04:54,000 --> 00:05:01,500
+matrix multiplication and vectors
+
+78
+00:04:57,960 --> 00:05:05,520
+vectors and matrix the fantastic subject
+
+79
+00:05:01,500 --> 00:05:11,550
+of okay on our second there is something
+
+80
+00:05:05,520 --> 00:05:15,200
+I need to do matrix linear algebra this
+
+81
+00:05:11,550 --> 00:05:17,730
+is the rearm of linear algebra guys and
+
+82
+00:05:15,200 --> 00:05:20,310
+linear algebra and we are this is a
+
+83
+00:05:17,730 --> 00:05:23,550
+practical part of linear algebra you
+
+84
+00:05:20,310 --> 00:05:25,920
+know that the subject might the subject
+
+85
+00:05:23,550 --> 00:05:28,200
+matter is called linear algebra but
+
+86
+00:05:25,920 --> 00:05:30,510
+actually if you are a mathematician you
+
+87
+00:05:28,200 --> 00:05:32,970
+studied linear algebra it has it's
+
+88
+00:05:30,510 --> 00:05:34,650
+nothing to do with matrices okay the
+
+89
+00:05:32,970 --> 00:05:38,570
+math I mean if you are a mathematician
+
+90
+00:05:34,650 --> 00:05:41,490
+you study linear algebra is a branch of
+
+91
+00:05:38,570 --> 00:05:43,890
+algebra okay when you if you are a
+
+92
+00:05:41,490 --> 00:05:46,260
+mathematician you study linear algebra
+
+93
+00:05:43,890 --> 00:05:48,570
+it's nothing about programmers notion of
+
+94
+00:05:46,260 --> 00:05:49,290
+vectors oh oh graphics 3d graphics
+
+95
+00:05:48,570 --> 00:05:51,330
+idiots
+
+96
+00:05:49,290 --> 00:05:54,690
+the programmers okay vast majority of
+
+97
+00:05:51,330 --> 00:05:56,790
+the talking there are hacker news on you
+
+98
+00:05:54,690 --> 00:06:00,320
+know on how can your song already do
+
+99
+00:05:56,790 --> 00:06:04,190
+this Odie's for grammars idiots
+
+100
+00:06:00,320 --> 00:06:06,570
+that's so we if you are a mathematician
+
+101
+00:06:04,190 --> 00:06:09,510
+mathematician you studied linear algebra
+
+102
+00:06:06,570 --> 00:06:13,290
+it's nothing about vectors it's I mean
+
+103
+00:06:09,510 --> 00:06:15,690
+it's nothing about vector multiplication
+
+104
+00:06:13,290 --> 00:06:18,240
+of matrices or determines well that's
+
+105
+00:06:15,690 --> 00:06:21,750
+part of it you know but but it's they
+
+106
+00:06:18,240 --> 00:06:24,780
+are actually studying the abstract
+
+107
+00:06:21,750 --> 00:06:26,550
+structure of linear space okay that's
+
+108
+00:06:24,780 --> 00:06:29,660
+what linear algebra is
+
+109
+00:06:26,550 --> 00:06:35,099
+a certain abstract structure of linear
+
+110
+00:06:29,660 --> 00:06:37,460
+space okay but but computer graphics
+
+111
+00:06:35,099 --> 00:06:41,039
+matrices vectors they are kind of
+
+112
+00:06:37,460 --> 00:06:44,009
+practical aspect of linear algebra in
+
+113
+00:06:41,039 --> 00:06:45,960
+fact the most used aspect of linear
+
+114
+00:06:44,009 --> 00:06:48,270
+algebra you need that to do computer
+
+115
+00:06:45,960 --> 00:06:51,240
+graphics so example for example we did
+
+116
+00:06:48,270 --> 00:06:54,120
+talk show about rotating polyhedra you
+
+117
+00:06:51,240 --> 00:06:57,000
+know we rotate a platonic solids I I
+
+118
+00:06:54,120 --> 00:07:00,300
+could say he'd run and so on rotating a
+
+119
+00:06:57,000 --> 00:07:02,460
+cube and you you need to find the
+
+120
+00:07:00,300 --> 00:07:04,919
+coordinates when you rotate something in
+
+121
+00:07:02,460 --> 00:07:06,810
+space there are new coordinates for them
+
+122
+00:07:04,919 --> 00:07:11,610
+so you need to find it you find it by
+
+123
+00:07:06,810 --> 00:07:13,800
+using a matrix rotation matrix so code
+
+124
+00:07:11,610 --> 00:07:16,590
+basically it's just a function okay you
+
+125
+00:07:13,800 --> 00:07:19,080
+use that to compute new coordinates and
+
+126
+00:07:16,590 --> 00:07:21,930
+where does that matrix came from well
+
+127
+00:07:19,080 --> 00:07:24,449
+it's from linear algebra okay now first
+
+128
+00:07:21,930 --> 00:07:27,509
+of all so let me start to explain the
+
+129
+00:07:24,449 --> 00:07:33,680
+matrix okay what is the matrix a matrix
+
+130
+00:07:27,509 --> 00:07:37,620
+is a so a matrix is just a function okay
+
+131
+00:07:33,680 --> 00:07:40,669
+let's write it down and so we have a
+
+132
+00:07:37,620 --> 00:07:44,699
+proper index table of contents but
+
+133
+00:07:40,669 --> 00:07:48,300
+before we do that we need to so there's
+
+134
+00:07:44,699 --> 00:07:51,300
+so much to do so we need to go to saw
+
+135
+00:07:48,300 --> 00:07:55,199
+Emacs settings and we need to magnify
+
+136
+00:07:51,300 --> 00:08:00,500
+the font so all the people can see so
+
+137
+00:07:55,199 --> 00:08:04,949
+here is a code such for menlo on a mag
+
+138
+00:08:00,500 --> 00:08:11,310
+make it 15 okay and evaluate the code
+
+139
+00:08:04,949 --> 00:08:15,569
+now I got everything bigger so for those
+
+140
+00:08:11,310 --> 00:08:19,229
+of you say now who cannot see such as
+
+141
+00:08:15,569 --> 00:08:21,990
+myself now you can see okay now the
+
+142
+00:08:19,229 --> 00:08:25,620
+phone is better so so what what is the
+
+143
+00:08:21,990 --> 00:08:29,280
+matrix okay let's write it down matrix
+
+144
+00:08:25,620 --> 00:08:31,399
+is just a function okay again I'm doing
+
+145
+00:08:29,280 --> 00:08:34,140
+this for programmers okay basic
+
+146
+00:08:31,399 --> 00:08:36,360
+introduction if you forgot your high
+
+147
+00:08:34,140 --> 00:08:39,630
+school algebra or whatever college you
+
+148
+00:08:36,360 --> 00:08:40,350
+can now understand so properly among
+
+149
+00:08:39,630 --> 00:08:41,880
+programmers
+
+150
+00:08:40,350 --> 00:08:43,620
+when they say oh you need a matrix
+
+151
+00:08:41,880 --> 00:08:45,960
+something-something now you understand
+
+152
+00:08:43,620 --> 00:08:48,690
+you can tell them no that's not true
+
+153
+00:08:45,960 --> 00:08:51,750
+because this or that okay so matrix is
+
+154
+00:08:48,690 --> 00:08:53,400
+just a function you you know you know
+
+155
+00:08:51,750 --> 00:08:55,950
+what a function is you have input and
+
+156
+00:08:53,400 --> 00:09:00,090
+you have output so matrix is a function
+
+157
+00:08:55,950 --> 00:09:03,900
+it's a particular function and matrix is
+
+158
+00:09:00,090 --> 00:09:07,940
+a linear function is a linear function
+
+159
+00:09:03,900 --> 00:09:12,090
+okay now what does linear mean so it's
+
+160
+00:09:07,940 --> 00:09:14,250
+linear basically it's a way of function
+
+161
+00:09:12,090 --> 00:09:16,260
+satisfies certain properties we call it
+
+162
+00:09:14,250 --> 00:09:20,130
+linear so what is a linear function
+
+163
+00:09:16,260 --> 00:09:22,920
+okay let's explain that explain what is
+
+164
+00:09:20,130 --> 00:09:26,040
+the linear function okay let's do X
+
+165
+00:09:22,920 --> 00:09:29,130
+plane what is a linear function okay now
+
+166
+00:09:26,040 --> 00:09:33,840
+we don't need okay so what what is the
+
+167
+00:09:29,130 --> 00:09:36,140
+linear function oops what's going on
+
+168
+00:09:33,840 --> 00:09:41,210
+okay what is the linear function a
+
+169
+00:09:36,140 --> 00:09:51,030
+linear function is a function that
+
+170
+00:09:41,210 --> 00:09:56,010
+satisfies this property property t y
+
+171
+00:09:51,030 --> 00:09:59,310
+okay are all all properties okay okay
+
+172
+00:09:56,010 --> 00:10:02,160
+what is a linear function let's show in
+
+173
+00:09:59,310 --> 00:10:04,590
+browser this is today's talk show what
+
+174
+00:10:02,160 --> 00:10:09,720
+is a linear function so what so let's
+
+175
+00:10:04,590 --> 00:10:14,220
+actually let's move this here and put a
+
+176
+00:10:09,720 --> 00:10:16,860
+break and now showing browser now
+
+177
+00:10:14,220 --> 00:10:18,960
+actually that pig parts
+
+178
+00:10:16,860 --> 00:10:20,460
+video this is today's video we don't
+
+179
+00:10:18,960 --> 00:10:24,150
+want to that we don't want that okay
+
+180
+00:10:20,460 --> 00:10:27,240
+there it is so let's magnify one finger
+
+181
+00:10:24,150 --> 00:10:30,210
+operation you see efficiency matrix is
+
+182
+00:10:27,240 --> 00:10:32,670
+just a function remember that okay next
+
+183
+00:10:30,210 --> 00:10:35,460
+time you as a programmer now I'm
+
+184
+00:10:32,670 --> 00:10:37,860
+assuming you guys don't know this yet
+
+185
+00:10:35,460 --> 00:10:40,650
+right so you know I'm talking to these
+
+186
+00:10:37,860 --> 00:10:44,310
+kind of audience I mean if you are a
+
+187
+00:10:40,650 --> 00:10:46,770
+mathematician then this is the wrong guy
+
+188
+00:10:44,310 --> 00:10:49,860
+you are watching okay there are a lot
+
+189
+00:10:46,770 --> 00:10:51,960
+you know more focused you go there you
+
+190
+00:10:49,860 --> 00:10:54,150
+know you you study you know you go there
+
+191
+00:10:51,960 --> 00:10:57,600
+but here is just
+
+192
+00:10:54,150 --> 00:11:01,080
+talk show which will be useful
+
+193
+00:10:57,600 --> 00:11:02,640
+you know so so a matrix is just a
+
+194
+00:11:01,080 --> 00:11:04,440
+function remember it's just just a
+
+195
+00:11:02,640 --> 00:11:05,310
+function your function that takes some
+
+196
+00:11:04,440 --> 00:11:07,350
+input
+
+197
+00:11:05,310 --> 00:11:11,220
+you know argument Danny about outputs so
+
+198
+00:11:07,350 --> 00:11:13,740
+that's it now a matrix now but why is it
+
+199
+00:11:11,220 --> 00:11:16,050
+called matrix I will we'll get into it
+
+200
+00:11:13,740 --> 00:11:17,940
+that later okay so if it's just a
+
+201
+00:11:16,050 --> 00:11:23,850
+function y what do you call it matrix
+
+202
+00:11:17,940 --> 00:11:28,170
+okay so if matrix is just a function why
+
+203
+00:11:23,850 --> 00:11:31,590
+is it called matrix okay we'll get into
+
+204
+00:11:28,170 --> 00:11:34,320
+that now a matrix is just a function now
+
+205
+00:11:31,590 --> 00:11:36,420
+a matrix is a linear function now a
+
+206
+00:11:34,320 --> 00:11:39,120
+linear function is a function that
+
+207
+00:11:36,420 --> 00:11:42,780
+satisfies certain properties okay we are
+
+208
+00:11:39,120 --> 00:11:45,720
+going to explain now the next question
+
+209
+00:11:42,780 --> 00:11:47,400
+if a matrix is just a function why is it
+
+210
+00:11:45,720 --> 00:11:49,470
+called matrix because you know when you
+
+211
+00:11:47,400 --> 00:11:54,260
+see a matrix you guys have you guys seen
+
+212
+00:11:49,470 --> 00:11:59,580
+your matrix so the matrix let's go to
+
+213
+00:11:54,260 --> 00:12:02,010
+Wikipedia for answer Wikipedia is got
+
+214
+00:11:59,580 --> 00:12:05,870
+lots of anthers answers you know I go
+
+215
+00:12:02,010 --> 00:12:10,110
+there and I'm just going to read off
+
+216
+00:12:05,870 --> 00:12:13,650
+whoops don't want this this is the
+
+217
+00:12:10,110 --> 00:12:17,340
+matrix the matrix the programmers are
+
+218
+00:12:13,650 --> 00:12:20,160
+familiar with you know the the the
+
+219
+00:12:17,340 --> 00:12:22,650
+jargon matrix has become so many other
+
+220
+00:12:20,160 --> 00:12:27,690
+things you know so that's the matrix
+
+221
+00:12:22,650 --> 00:12:30,420
+movie repeal repeal guys rip you so here
+
+222
+00:12:27,690 --> 00:12:36,360
+you are seeing matrix you are seeing
+
+223
+00:12:30,420 --> 00:12:39,450
+matrices so basically it's a array of
+
+224
+00:12:36,360 --> 00:12:41,340
+numbers you know a grid of numbers row
+
+225
+00:12:39,450 --> 00:12:44,250
+and column of numbers that's what you
+
+226
+00:12:41,340 --> 00:12:46,440
+call a matrix so there are many ways you
+
+227
+00:12:44,250 --> 00:12:48,710
+know so anyway it's just a function okay
+
+228
+00:12:46,440 --> 00:12:52,560
+but the notation when you write it out
+
+229
+00:12:48,710 --> 00:12:56,910
+it looks like you know a grid you know
+
+230
+00:12:52,560 --> 00:12:59,760
+that that that is why that is the
+
+231
+00:12:56,910 --> 00:13:01,680
+etymology that is you know you as you
+
+232
+00:12:59,760 --> 00:13:06,230
+are looking at matrices here for example
+
+233
+00:13:01,680 --> 00:13:06,230
+here is a three by two matrix
+
+234
+00:13:06,540 --> 00:13:10,920
+that's a dimension you call that the
+
+235
+00:13:08,940 --> 00:13:13,950
+dimension of the matrix okay three by
+
+236
+00:13:10,920 --> 00:13:16,560
+two matrix now this is a matrix for
+
+237
+00:13:13,950 --> 00:13:19,290
+example this is one by three matrix or
+
+238
+00:13:16,560 --> 00:13:22,380
+you can call it a vector this one is
+
+239
+00:13:19,290 --> 00:13:25,590
+also a matrix this is 3 by 1 matrix or
+
+240
+00:13:22,380 --> 00:13:29,160
+you call it a vector okay you know I'm
+
+241
+00:13:25,590 --> 00:13:33,090
+not going to explain why anyway so here
+
+242
+00:13:29,160 --> 00:13:35,220
+is a square matrix 3 by 3 matrix so that
+
+243
+00:13:33,090 --> 00:13:37,020
+those are matrixes so why do you call
+
+244
+00:13:35,220 --> 00:13:40,650
+them matrices if they are just a
+
+245
+00:13:37,020 --> 00:13:43,080
+function well well because different
+
+246
+00:13:40,650 --> 00:13:44,460
+aspects of looking at things you know do
+
+247
+00:13:43,080 --> 00:13:46,470
+you call them matrix because they
+
+248
+00:13:44,460 --> 00:13:48,590
+because they looks like a matrix of
+
+249
+00:13:46,470 --> 00:13:53,010
+numbers so that you know that's easy to
+
+250
+00:13:48,590 --> 00:13:55,650
+recognize well anyway the the meaning of
+
+251
+00:13:53,010 --> 00:13:58,950
+a matrix is a linear function okay it's
+
+252
+00:13:55,650 --> 00:14:01,260
+a linear function now what is a linear
+
+253
+00:13:58,950 --> 00:14:04,430
+function a linear function is a function
+
+254
+00:14:01,260 --> 00:14:07,140
+that satisfies the following property ok
+
+255
+00:14:04,430 --> 00:14:13,140
+ok let's begin to talk about that so
+
+256
+00:14:07,140 --> 00:14:16,200
+what what property it and and also ok so
+
+257
+00:14:13,140 --> 00:14:21,660
+so a linear function is a function that
+
+258
+00:14:16,200 --> 00:14:24,030
+satisfies these properties and also when
+
+259
+00:14:21,660 --> 00:14:26,040
+a function is a linear function you know
+
+260
+00:14:24,030 --> 00:14:28,050
+when when any function that satisfy
+
+261
+00:14:26,040 --> 00:14:31,200
+these properties you couette the linear
+
+262
+00:14:28,050 --> 00:14:33,630
+function so it's also a theory that any
+
+263
+00:14:31,200 --> 00:14:37,680
+linear function can also be represented
+
+264
+00:14:33,630 --> 00:14:39,990
+by a matrix ok so that is why matrix is
+
+265
+00:14:37,680 --> 00:14:42,660
+kind of synonymous with linear function
+
+266
+00:14:39,990 --> 00:14:45,150
+ok now so what is a linear function now
+
+267
+00:14:42,660 --> 00:14:47,730
+linear function is a function such that
+
+268
+00:14:45,150 --> 00:14:59,160
+that's ready down so if we have a
+
+269
+00:14:47,730 --> 00:15:04,590
+function f ok then we say F X plus okay
+
+270
+00:14:59,160 --> 00:15:10,470
+FY y ok so this is very familiar to you
+
+271
+00:15:04,590 --> 00:15:16,200
+guys right FX plus FY now if the result
+
+272
+00:15:10,470 --> 00:15:19,640
+of that equals true if the result of
+
+273
+00:15:16,200 --> 00:15:24,240
+that equals to
+
+274
+00:15:19,640 --> 00:15:27,240
+that that's why I'm with the condition
+
+275
+00:15:24,240 --> 00:15:29,220
+you must satisfy okay that's one of the
+
+276
+00:15:27,240 --> 00:15:31,200
+condition if you want to call it linear
+
+277
+00:15:29,220 --> 00:15:32,220
+if you know whether it's a linear
+
+278
+00:15:31,200 --> 00:15:36,990
+function or not
+
+279
+00:15:32,220 --> 00:15:39,510
+so f FX plus FY equals to F then the
+
+280
+00:15:36,990 --> 00:15:42,120
+argument put together you know addition
+
+281
+00:15:39,510 --> 00:15:48,060
+so that's one of the condition the other
+
+282
+00:15:42,120 --> 00:15:55,980
+condition is let's see if I can write it
+
+283
+00:15:48,060 --> 00:16:01,560
+out so x times f x equals 2 equals true
+
+284
+00:15:55,980 --> 00:16:06,420
+okay so f times FX equals to s times X
+
+285
+00:16:01,560 --> 00:16:09,450
+okay you see that so that means if you
+
+286
+00:16:06,420 --> 00:16:12,360
+have a function FX applied to X you come
+
+287
+00:16:09,450 --> 00:16:15,060
+out a number then you multiply that by a
+
+288
+00:16:12,360 --> 00:16:20,520
+certain number s okay so my odd number
+
+289
+00:16:15,060 --> 00:16:24,900
+now this result is equal to always equal
+
+290
+00:16:20,520 --> 00:16:27,180
+to you just you just multiply the s and
+
+291
+00:16:24,900 --> 00:16:31,100
+the argument together first then you
+
+292
+00:16:27,180 --> 00:16:34,680
+apply the function okay so these two if
+
+293
+00:16:31,100 --> 00:16:37,040
+any function that's showing browser if
+
+294
+00:16:34,680 --> 00:16:40,950
+any function that satisfies these two
+
+295
+00:16:37,040 --> 00:16:42,380
+equations then that function is a linear
+
+296
+00:16:40,950 --> 00:16:45,780
+function
+
+297
+00:16:42,380 --> 00:16:49,680
+okay now let's check out check out check
+
+298
+00:16:45,780 --> 00:16:53,250
+up look up Wikipedia just in case in
+
+299
+00:16:49,680 --> 00:16:55,260
+case I'm wrong I don't remember so but
+
+300
+00:16:53,250 --> 00:17:01,070
+anyways but before we do that there's
+
+301
+00:16:55,260 --> 00:17:06,780
+one more thing why is it called linear
+
+302
+00:17:01,070 --> 00:17:10,560
+okay okay so so okay hold on a second so
+
+303
+00:17:06,780 --> 00:17:13,230
+a function if a function satisfies these
+
+304
+00:17:10,560 --> 00:17:14,670
+two equations then you say it's a it's
+
+305
+00:17:13,230 --> 00:17:17,010
+called linear function
+
+306
+00:17:14,670 --> 00:17:20,930
+now that's one thing okay that's math
+
+307
+00:17:17,010 --> 00:17:24,890
+now but being quiz Stickley now we have
+
+308
+00:17:20,930 --> 00:17:27,660
+venturing into the realm of languages
+
+309
+00:17:24,890 --> 00:17:31,380
+linguistics so but why what do you call
+
+310
+00:17:27,660 --> 00:17:32,140
+linear I mean what what what makes it
+
+311
+00:17:31,380 --> 00:17:34,150
+like
+
+312
+00:17:32,140 --> 00:17:37,300
+linear linear means are lying okay
+
+313
+00:17:34,150 --> 00:17:39,940
+linear English means a lie so why do you
+
+314
+00:17:37,300 --> 00:17:42,370
+call this such function when they
+
+315
+00:17:39,940 --> 00:17:44,980
+satisfy these two equations what do you
+
+316
+00:17:42,370 --> 00:17:50,620
+call it linear like a lie
+
+317
+00:17:44,980 --> 00:17:54,670
+well it's it is because when your
+
+318
+00:17:50,620 --> 00:17:56,890
+function is linear and if you look at
+
+319
+00:17:54,670 --> 00:17:59,880
+the function from a geometric point of
+
+320
+00:17:56,890 --> 00:18:03,520
+view what it does is that it basically
+
+321
+00:17:59,880 --> 00:18:07,810
+transform the point in a in a manner of
+
+322
+00:18:03,520 --> 00:18:10,000
+a line okay that that's kind of a I have
+
+323
+00:18:07,810 --> 00:18:14,700
+two shows maybe I have to show some
+
+324
+00:18:10,000 --> 00:18:21,100
+pictures so why is it collinear because
+
+325
+00:18:14,700 --> 00:18:29,310
+when a function is linear then from a
+
+326
+00:18:21,100 --> 00:18:33,990
+geometric point of view the function
+
+327
+00:18:29,310 --> 00:18:38,970
+transforms the space in a manner of a
+
+328
+00:18:33,990 --> 00:18:42,370
+line okay so so for example rotation
+
+329
+00:18:38,970 --> 00:18:44,980
+scale scale up or scale down such as
+
+330
+00:18:42,370 --> 00:18:50,110
+room okay so for example in browser we
+
+331
+00:18:44,980 --> 00:18:51,940
+zoom in we zoom in now we zoom out now
+
+332
+00:18:50,110 --> 00:18:53,260
+that's a linear function guys that's a
+
+333
+00:18:51,940 --> 00:18:56,620
+linear function you are looking at
+
+334
+00:18:53,260 --> 00:18:58,600
+zooming zoom out why is a linear
+
+335
+00:18:56,620 --> 00:19:01,600
+function because you look at the screen
+
+336
+00:18:58,600 --> 00:19:04,470
+as a plane like you know geometry XY
+
+337
+00:19:01,600 --> 00:19:08,650
+like a plane then you can see the other
+
+338
+00:19:04,470 --> 00:19:11,140
+you know text on on on the pages you
+
+339
+00:19:08,650 --> 00:19:13,660
+know points in the paint then when you
+
+340
+00:19:11,140 --> 00:19:16,140
+zoom in basically everything just scales
+
+341
+00:19:13,660 --> 00:19:20,350
+you know right right you scale up and
+
+342
+00:19:16,140 --> 00:19:22,440
+the function to have such a results such
+
+343
+00:19:20,350 --> 00:19:26,940
+as scaling up or scaling down that's
+
+344
+00:19:22,440 --> 00:19:30,250
+that is a linear function guys you know
+
+345
+00:19:26,940 --> 00:19:33,190
+it is it will satisfy these two
+
+346
+00:19:30,250 --> 00:19:36,970
+properties that's that is why so why is
+
+347
+00:19:33,190 --> 00:19:39,430
+it linear because because when you look
+
+348
+00:19:36,970 --> 00:19:41,500
+at such function from a geometric point
+
+349
+00:19:39,430 --> 00:19:45,340
+of view you know think of plane or 3d
+
+350
+00:19:41,500 --> 00:19:46,120
+space or or four dimensional space five
+
+351
+00:19:45,340 --> 00:19:48,970
+dimensional
+
+352
+00:19:46,120 --> 00:19:53,830
+in Salaam these functions their behavior
+
+353
+00:19:48,970 --> 00:19:55,870
+is kind of just like like a lie well how
+
+354
+00:19:53,830 --> 00:19:58,240
+do you explain like like well there's a
+
+355
+00:19:55,870 --> 00:20:00,820
+lot I can explain like scaling scaling
+
+356
+00:19:58,240 --> 00:20:03,789
+is an example zoom in zoom out also for
+
+357
+00:20:00,820 --> 00:20:04,620
+rotation use an example let's write it
+
+358
+00:20:03,789 --> 00:20:07,419
+down okay
+
+359
+00:20:04,620 --> 00:20:14,350
+so they transformed the space in a
+
+360
+00:20:07,419 --> 00:20:17,860
+manner of life such as scaling also
+
+361
+00:20:14,350 --> 00:20:23,970
+NOAA's zooming out okay
+
+362
+00:20:17,860 --> 00:20:30,100
+and the rotation and shear okay
+
+363
+00:20:23,970 --> 00:20:35,740
+that's three examples rotation shear and
+
+364
+00:20:30,100 --> 00:20:38,860
+flip okay now if you do photoshop or if
+
+365
+00:20:35,740 --> 00:20:43,360
+you do image manipulation you you are
+
+366
+00:20:38,860 --> 00:20:47,399
+probably familiar with it shall shall we
+
+367
+00:20:43,360 --> 00:20:51,850
+show example why not okay so let's go to
+
+368
+00:20:47,399 --> 00:20:55,710
+keyboard the fascinating keyboard page
+
+369
+00:20:51,850 --> 00:21:00,390
+and let's go to let's look at this
+
+370
+00:20:55,710 --> 00:21:04,120
+monstrosity okay this this monstrosity
+
+371
+00:21:00,390 --> 00:21:08,470
+so let's open that and here is the image
+
+372
+00:21:04,120 --> 00:21:10,809
+a big one now obey it copy it
+
+373
+00:21:08,470 --> 00:21:16,690
+hold on let me show the Emacs command
+
+374
+00:21:10,809 --> 00:21:19,299
+okay open it away and close that so we
+
+375
+00:21:16,690 --> 00:21:22,210
+have this image we make a backup go to
+
+376
+00:21:19,299 --> 00:21:26,070
+tired and we can see this is a backup
+
+377
+00:21:22,210 --> 00:21:30,279
+copy and we're gonna rename it for
+
+378
+00:21:26,070 --> 00:21:30,880
+simplicity let's just rename it X X okay
+
+379
+00:21:30,279 --> 00:21:34,990
+done
+
+380
+00:21:30,880 --> 00:21:39,789
+now go to the xx page okay it's too big
+
+381
+00:21:34,990 --> 00:21:42,309
+let's scare it down 50% okay yes sharpen
+
+382
+00:21:39,789 --> 00:21:47,320
+okay now we have the image okay now
+
+383
+00:21:42,309 --> 00:21:49,779
+we're gonna open this in we go to
+
+384
+00:21:47,320 --> 00:21:52,929
+ Photoshop then we're gonna rotate
+
+385
+00:21:49,779 --> 00:21:55,330
+it and scare it all those are linear
+
+386
+00:21:52,929 --> 00:21:57,460
+functions okay so we are basically
+
+387
+00:21:55,330 --> 00:21:59,420
+operating in the two dimensional space
+
+388
+00:21:57,460 --> 00:22:04,280
+you know two dimensional plane
+
+389
+00:21:59,420 --> 00:22:06,380
+space so I mean why are we doing this
+
+390
+00:22:04,280 --> 00:22:09,170
+because we are trying to explain why is
+
+391
+00:22:06,380 --> 00:22:10,970
+it linear what do you mean linear okay
+
+392
+00:22:09,170 --> 00:22:14,390
+so for example you can see your line
+
+393
+00:22:10,970 --> 00:22:18,550
+here you see your line guys there lie
+
+394
+00:22:14,390 --> 00:22:22,070
+lie lie you know so a linear function
+
+395
+00:22:18,550 --> 00:22:25,400
+when you have a lie then you apply a
+
+396
+00:22:22,070 --> 00:22:27,200
+linear function to it for every point on
+
+397
+00:22:25,400 --> 00:22:28,970
+the line for example if you have a line
+
+398
+00:22:27,200 --> 00:22:31,700
+you know to begin with then you apply a
+
+399
+00:22:28,970 --> 00:22:33,890
+linear function the output line will
+
+400
+00:22:31,700 --> 00:22:36,740
+always become lines they don't change
+
+401
+00:22:33,890 --> 00:22:38,720
+you know it's not like after the
+
+402
+00:22:36,740 --> 00:22:41,030
+function the line becomes a circle or
+
+403
+00:22:38,720 --> 00:22:43,630
+something else that's another function
+
+404
+00:22:41,030 --> 00:22:46,100
+okay that's not linear function anymore
+
+405
+00:22:43,630 --> 00:22:50,540
+meaning that they don't they they will
+
+406
+00:22:46,100 --> 00:22:52,790
+not satisfy these two properties but
+
+407
+00:22:50,540 --> 00:22:55,430
+before we go on actually let's go check
+
+408
+00:22:52,790 --> 00:22:59,660
+check the definition just in case I got
+
+409
+00:22:55,430 --> 00:23:03,680
+it you know I mislead all the young
+
+410
+00:22:59,660 --> 00:23:05,570
+people we have a lot of comments thank
+
+411
+00:23:03,680 --> 00:23:09,050
+you guys for comment so I'm gonna get to
+
+412
+00:23:05,570 --> 00:23:12,970
+them okay so we let's look at linear
+
+413
+00:23:09,050 --> 00:23:18,920
+function okay linear function wikipedia
+
+414
+00:23:12,970 --> 00:23:21,350
+the savior of infom information so
+
+415
+00:23:18,920 --> 00:23:23,870
+linear function there it is linear
+
+416
+00:23:21,350 --> 00:23:26,240
+function so let's say what it says in
+
+417
+00:23:23,870 --> 00:23:28,400
+mathematics the term linear function
+
+418
+00:23:26,240 --> 00:23:30,470
+refers to two distinct but related
+
+419
+00:23:28,400 --> 00:23:33,710
+notions oh really
+
+420
+00:23:30,470 --> 00:23:35,480
+let's see in calculus in related areas a
+
+421
+00:23:33,710 --> 00:23:37,280
+linear function is a function whose
+
+422
+00:23:35,480 --> 00:23:43,690
+graph is a straight line
+
+423
+00:23:37,280 --> 00:23:46,550
+this is idiocy this well you know it
+
+424
+00:23:43,690 --> 00:23:50,000
+well you could say that is true but
+
+425
+00:23:46,550 --> 00:23:53,030
+that's not that's that's kind of okay it
+
+426
+00:23:50,000 --> 00:23:54,920
+says in calculus and related areas a
+
+427
+00:23:53,030 --> 00:23:58,610
+linear function is a function whose
+
+428
+00:23:54,920 --> 00:24:02,540
+graph is a straight line such as such as
+
+429
+00:23:58,610 --> 00:24:06,860
+x equals to two Y ok well y equals to 2
+
+430
+00:24:02,540 --> 00:24:08,750
+X y equals to you know some X yeah
+
+431
+00:24:06,860 --> 00:24:11,630
+that's a linear function you go at that
+
+432
+00:24:08,750 --> 00:24:13,210
+but that's not what mathematicians
+
+433
+00:24:11,630 --> 00:24:16,700
+really
+
+434
+00:24:13,210 --> 00:24:17,659
+work with I mean that's this kind of
+
+435
+00:24:16,700 --> 00:24:20,179
+introduction
+
+436
+00:24:17,659 --> 00:24:24,440
+you know the introduction to math to
+
+437
+00:24:20,179 --> 00:24:26,630
+students it's not that's not okay if you
+
+438
+00:24:24,440 --> 00:24:30,529
+are a math that's that's to base that's
+
+439
+00:24:26,630 --> 00:24:32,390
+that's just for children okay the linear
+
+440
+00:24:30,529 --> 00:24:35,809
+function we are talking about is this
+
+441
+00:24:32,390 --> 00:24:38,659
+one mathematician use okay so it says in
+
+442
+00:24:35,809 --> 00:24:41,450
+linear algebra mathematical analysis and
+
+443
+00:24:38,659 --> 00:24:45,500
+functional analysis analysis a linear
+
+444
+00:24:41,450 --> 00:24:47,990
+function is a linear map okay stupid
+
+445
+00:24:45,500 --> 00:24:49,730
+Wikipedia map just mean a function okay
+
+446
+00:24:47,990 --> 00:24:52,429
+so a linear function is a linear
+
+447
+00:24:49,730 --> 00:24:54,770
+function yeah so in this case and in
+
+448
+00:24:52,429 --> 00:24:58,039
+case of a possible ambiguity the named
+
+449
+00:24:54,770 --> 00:25:02,600
+affine function is often used to the
+
+450
+00:24:58,039 --> 00:25:04,039
+concept above okay so anyway a linear
+
+451
+00:25:02,600 --> 00:25:07,580
+function they didn't explain the
+
+452
+00:25:04,039 --> 00:25:09,860
+property yet and they say the notion of
+
+453
+00:25:07,580 --> 00:25:11,779
+linear function for calculus that's
+
+454
+00:25:09,860 --> 00:25:14,659
+called a funny function anyway that's
+
+455
+00:25:11,779 --> 00:25:17,390
+getting complicated anyway our linear
+
+456
+00:25:14,659 --> 00:25:21,799
+function is linear map okay let's go
+
+457
+00:25:17,390 --> 00:25:23,690
+there now in math the word map usually
+
+458
+00:25:21,799 --> 00:25:26,630
+just mean a function okay they are kind
+
+459
+00:25:23,690 --> 00:25:29,080
+of synonymous like if you take a
+
+460
+00:25:26,630 --> 00:25:31,669
+geometric point of view you call it map
+
+461
+00:25:29,080 --> 00:25:34,610
+instead of function but it's a same
+
+462
+00:25:31,669 --> 00:25:37,690
+thing okay so there here we are looking
+
+463
+00:25:34,610 --> 00:25:40,580
+at linear map here they will tell you
+
+464
+00:25:37,690 --> 00:25:43,970
+the definition which is the property we
+
+465
+00:25:40,580 --> 00:25:45,980
+talked about so it says in math a linear
+
+466
+00:25:43,970 --> 00:25:48,409
+map also called linear mapping linear
+
+467
+00:25:45,980 --> 00:25:52,399
+transformation or in some context linear
+
+468
+00:25:48,409 --> 00:25:56,419
+function is a mapping v2w between two
+
+469
+00:25:52,399 --> 00:25:59,390
+modules two complicated words between
+
+470
+00:25:56,419 --> 00:26:01,880
+two modules okay that preserves in the
+
+471
+00:25:59,390 --> 00:26:04,220
+sense defined below the operations of
+
+472
+00:26:01,880 --> 00:26:06,799
+addition and scalar multiplication okay
+
+473
+00:26:04,220 --> 00:26:13,279
+that's one way to say it now module you
+
+474
+00:26:06,799 --> 00:26:15,529
+know module is a is a specific algebraic
+
+475
+00:26:13,279 --> 00:26:18,350
+structure but anyway they are they are
+
+476
+00:26:15,529 --> 00:26:21,549
+kind of getting too complicated for us
+
+477
+00:26:18,350 --> 00:26:26,490
+so let's let me just go to jump to the
+
+478
+00:26:21,549 --> 00:26:30,570
+definitions okay there it is definition
+
+479
+00:26:26,490 --> 00:26:33,380
+first consequences okay so you know we
+
+480
+00:26:30,570 --> 00:26:35,750
+are reading Wikipedia and they are using
+
+481
+00:26:33,380 --> 00:26:38,130
+mathematicians language you know the
+
+482
+00:26:35,750 --> 00:26:40,950
+mathematicians talking a particular way
+
+483
+00:26:38,130 --> 00:26:44,880
+and I will be the guide for you to
+
+484
+00:26:40,950 --> 00:26:46,679
+decipher their jargons okay but
+
+485
+00:26:44,880 --> 00:26:49,890
+basically they are just saying what we
+
+486
+00:26:46,679 --> 00:26:51,450
+just covered before linear linear map or
+
+487
+00:26:49,890 --> 00:26:54,600
+linear function is a function that
+
+488
+00:26:51,450 --> 00:26:59,520
+satisfies these two equations okay now
+
+489
+00:26:54,600 --> 00:27:02,360
+let's read what they say let V and W be
+
+490
+00:26:59,520 --> 00:27:07,320
+vector spaces over the field K a
+
+491
+00:27:02,360 --> 00:27:12,050
+function f v 2w is said to be a linear
+
+492
+00:27:07,320 --> 00:27:15,390
+map if for any two vectors u V in V and
+
+493
+00:27:12,050 --> 00:27:19,470
+any scalar C in K the following two
+
+494
+00:27:15,390 --> 00:27:25,290
+conditions are satisfied ok f u plus V
+
+495
+00:27:19,470 --> 00:27:30,270
+equals to F u + FV okay and F C u equals
+
+496
+00:27:25,290 --> 00:27:33,570
+to C times f u ok that that's just what
+
+497
+00:27:30,270 --> 00:27:36,090
+we said here now if you don't know math
+
+498
+00:27:33,570 --> 00:27:38,730
+you know if you are a programmer if you
+
+499
+00:27:36,090 --> 00:27:40,830
+haven't studied abstract algebra or
+
+500
+00:27:38,730 --> 00:27:43,320
+analysis before you might be wondering
+
+501
+00:27:40,830 --> 00:27:46,230
+so so why is Wikipedia
+
+502
+00:27:43,320 --> 00:27:49,110
+you know why does such a simple thing
+
+503
+00:27:46,230 --> 00:27:53,850
+but why does mathematicians mission
+
+504
+00:27:49,110 --> 00:28:00,840
+field and then scalars and vectors and
+
+505
+00:27:53,850 --> 00:28:03,150
+spaces vector spaces well it's kind of
+
+506
+00:28:00,840 --> 00:28:12,600
+get complicated but anyway for us just
+
+507
+00:28:03,150 --> 00:28:16,309
+remember ok the let's see let's see fine
+
+508
+00:28:12,600 --> 00:28:16,309
+we if I we need to
+
+509
+00:28:19,460 --> 00:28:28,470
+yeah it did you know it's in they
+
+510
+00:28:23,720 --> 00:28:32,160
+they're chuggins to are required kind of
+
+511
+00:28:28,470 --> 00:28:36,360
+because over here the definition I give
+
+512
+00:28:32,160 --> 00:28:39,420
+here is a bit ambiguous because what are
+
+513
+00:28:36,360 --> 00:28:39,900
+x and y and what is s they are kind of
+
+514
+00:28:39,420 --> 00:28:51,270
+different
+
+515
+00:28:39,900 --> 00:28:57,210
+okay they well so so so so to explain
+
+516
+00:28:51,270 --> 00:29:01,140
+that well to explain that gets a bit
+
+517
+00:28:57,210 --> 00:29:04,710
+complex but anyway you so you and we
+
+518
+00:29:01,140 --> 00:29:07,410
+because you see our definitions here it
+
+519
+00:29:04,710 --> 00:29:10,770
+looks pretty good you know if you know
+
+520
+00:29:07,410 --> 00:29:14,190
+but the question is what is x and y and
+
+521
+00:29:10,770 --> 00:29:16,850
+what is s you see the S here is actually
+
+522
+00:29:14,190 --> 00:29:20,910
+not the same thing as x and y there
+
+523
+00:29:16,850 --> 00:29:24,300
+because in other words s is from a
+
+524
+00:29:20,910 --> 00:29:26,720
+different space you know it's starting
+
+525
+00:29:24,300 --> 00:29:32,130
+to get complicated but basically but
+
+526
+00:29:26,720 --> 00:29:35,370
+basically the x and y here are vectors
+
+527
+00:29:32,130 --> 00:29:41,010
+which basically means a bunch of numbers
+
+528
+00:29:35,370 --> 00:29:43,590
+ok as considered as one thing a vector a
+
+529
+00:29:41,010 --> 00:29:46,410
+vector is just a sequence of finite
+
+530
+00:29:43,590 --> 00:29:51,540
+finite sequence of numbers in our case
+
+531
+00:29:46,410 --> 00:29:56,130
+ok and the SS here is a number ok s here
+
+532
+00:29:51,540 --> 00:29:58,890
+is not a vector so that is important
+
+533
+00:29:56,130 --> 00:30:03,750
+actually so we need to add that so ok so
+
+534
+00:29:58,890 --> 00:30:10,380
+let's go back to before we do the before
+
+535
+00:30:03,750 --> 00:30:13,230
+we do this thing let's actually need we
+
+536
+00:30:10,380 --> 00:30:15,960
+need to modify our explanation I mean
+
+537
+00:30:13,230 --> 00:30:20,220
+our definition a little bit and let's
+
+538
+00:30:15,960 --> 00:30:27,380
+not get parked out so we need to say
+
+539
+00:30:20,220 --> 00:30:30,240
+where x and y are vectors and s is a
+
+540
+00:30:27,380 --> 00:30:31,980
+number ok let's just say number usually
+
+541
+00:30:30,240 --> 00:30:34,710
+you say scatter
+
+542
+00:30:31,980 --> 00:30:40,970
+it's but let's just say numbers now it's
+
+543
+00:30:34,710 --> 00:30:48,240
+also note vector is just a finite
+
+544
+00:30:40,970 --> 00:30:53,790
+sequence of numbers for example 3d
+
+545
+00:30:48,240 --> 00:30:59,540
+vector okay usually we write numbers
+
+546
+00:30:53,790 --> 00:31:01,049
+okay the number then another number then
+
+547
+00:30:59,540 --> 00:31:03,720
+another number
+
+548
+00:31:01,049 --> 00:31:07,500
+okay this number too big let's shrink
+
+549
+00:31:03,720 --> 00:31:11,970
+them a little bit let's say five okay so
+
+550
+00:31:07,500 --> 00:31:13,679
+let's say okay so show so we need to add
+
+551
+00:31:11,970 --> 00:31:16,410
+a little quad a little a little
+
+552
+00:31:13,679 --> 00:31:19,860
+clarification because what do you mean
+
+553
+00:31:16,410 --> 00:31:22,740
+by X Y and s because s remember again
+
+554
+00:31:19,860 --> 00:31:25,860
+remember s is not XY it's not it's not
+
+555
+00:31:22,740 --> 00:31:29,280
+the same thing so x and y they are
+
+556
+00:31:25,860 --> 00:31:32,700
+vectors a sequence of numbers and the S
+
+557
+00:31:29,280 --> 00:31:37,710
+here is not a vector okay so so we need
+
+558
+00:31:32,700 --> 00:31:40,740
+this qualification and that's not enough
+
+559
+00:31:37,710 --> 00:31:42,960
+neither because what does it mean X plus
+
+560
+00:31:40,740 --> 00:31:47,429
+y how do you add two vectors together
+
+561
+00:31:42,960 --> 00:31:50,130
+and what does it mean ex you know x I
+
+562
+00:31:47,429 --> 00:31:53,790
+mean s multiplied by X you know a number
+
+563
+00:31:50,130 --> 00:31:56,040
+x vector what does it mean you know for
+
+564
+00:31:53,790 --> 00:31:58,590
+numbers like one two three four we can
+
+565
+00:31:56,040 --> 00:32:00,840
+we understand what plus and
+
+566
+00:31:58,590 --> 00:32:05,190
+multiplication means you know five times
+
+567
+00:32:00,840 --> 00:32:06,660
+three is fifteen that's multiplication 5
+
+568
+00:32:05,190 --> 00:32:09,299
+plus 3 is 8
+
+569
+00:32:06,660 --> 00:32:12,270
+that's addition we understand but now we
+
+570
+00:32:09,299 --> 00:32:15,299
+are dealing with first four vectors we
+
+571
+00:32:12,270 --> 00:32:17,630
+have to kind of define it and we here we
+
+572
+00:32:15,299 --> 00:32:20,010
+are dealing with multiple create
+
+573
+00:32:17,630 --> 00:32:23,940
+multiplication of a number and a vector
+
+574
+00:32:20,010 --> 00:32:27,330
+so we actually also need to define it
+
+575
+00:32:23,940 --> 00:32:30,480
+that's why that is the reason when you
+
+576
+00:32:27,330 --> 00:32:33,330
+read this mathematicians definition they
+
+577
+00:32:30,480 --> 00:32:36,570
+started to mention you know vector
+
+578
+00:32:33,330 --> 00:32:39,000
+spaces and fields and scatter and
+
+579
+00:32:36,570 --> 00:32:41,909
+scatter see in K you know things like
+
+580
+00:32:39,000 --> 00:32:43,770
+that but now you kind of you understand
+
+581
+00:32:41,909 --> 00:32:45,360
+what it means okay basically just
+
+582
+00:32:43,770 --> 00:32:48,240
+specifies
+
+583
+00:32:45,360 --> 00:32:53,580
+you know vectors is a sequence of things
+
+584
+00:32:48,240 --> 00:32:55,680
+and how multiplication you know addition
+
+585
+00:32:53,580 --> 00:32:59,220
+between vectors are defined anyway we
+
+586
+00:32:55,680 --> 00:33:04,200
+get in too long here so that is a linear
+
+587
+00:32:59,220 --> 00:33:07,980
+function okay that is a linear function
+
+588
+00:33:04,200 --> 00:33:10,860
+and so in outer context you know let's
+
+589
+00:33:07,980 --> 00:33:14,040
+not get bogged down with you know the
+
+590
+00:33:10,860 --> 00:33:16,560
+complexities in our context any of the X
+
+591
+00:33:14,040 --> 00:33:19,920
+Y here they are just vectors you know
+
+592
+00:33:16,560 --> 00:33:23,730
+like a point is you know let's say a
+
+593
+00:33:19,920 --> 00:33:26,940
+plane XY plane okay so you got a point
+
+594
+00:33:23,730 --> 00:33:29,850
+in XY plane so that point is specified
+
+595
+00:33:26,940 --> 00:33:34,410
+by two numbers x and y right the x
+
+596
+00:33:29,850 --> 00:33:37,530
+coordinate and the y coordinate so those
+
+597
+00:33:34,410 --> 00:33:39,000
+are vectors okay very easy to understand
+
+598
+00:33:37,530 --> 00:33:40,950
+now if you are talking about
+
+599
+00:33:39,000 --> 00:33:44,400
+three-dimensional space then you have
+
+600
+00:33:40,950 --> 00:33:47,550
+another vector that's Z okay so a number
+
+601
+00:33:44,400 --> 00:33:52,430
+a point in space is specified by three
+
+602
+00:33:47,550 --> 00:33:56,250
+numbers X Y Z those are vectors okay and
+
+603
+00:33:52,430 --> 00:33:58,980
+scalar so so vector addition you just
+
+604
+00:33:56,250 --> 00:34:03,690
+add the components I hope you guys
+
+605
+00:33:58,980 --> 00:34:06,510
+already know that and scatter x vector
+
+606
+00:34:03,690 --> 00:34:10,470
+just means you you multiply the number
+
+607
+00:34:06,510 --> 00:34:13,500
+to each of the components okay I hope
+
+608
+00:34:10,470 --> 00:34:14,670
+you guys yeah you guys know that right
+
+609
+00:34:13,500 --> 00:34:18,930
+right
+
+610
+00:34:14,670 --> 00:34:24,320
+so him I'm starting to do monologue so I
+
+611
+00:34:18,930 --> 00:34:25,770
+need to check up am I still alive and
+
+612
+00:34:24,320 --> 00:34:27,780
+doing well
+
+613
+00:34:25,770 --> 00:34:30,150
+ten people watching and I'm still alive
+
+614
+00:34:27,780 --> 00:34:34,200
+oh my god it's all 34 minutes we don't
+
+615
+00:34:30,150 --> 00:34:36,930
+have time so anyway so let's meet maybe
+
+616
+00:34:34,200 --> 00:34:39,750
+I should read the comments so I want to
+
+617
+00:34:36,930 --> 00:34:41,250
+learn Mathematica where should I start I
+
+618
+00:34:39,750 --> 00:34:43,290
+am reading Wolfram language first
+
+619
+00:34:41,250 --> 00:34:43,920
+introduction to programmers that's a
+
+620
+00:34:43,290 --> 00:34:46,650
+great book
+
+621
+00:34:43,920 --> 00:34:51,120
+yaagh read that I have that book he sent
+
+622
+00:34:46,650 --> 00:34:53,460
+sent it to me face keeps example of
+
+623
+00:34:51,120 --> 00:34:56,610
+something that is not linear okay yeah
+
+624
+00:34:53,460 --> 00:34:57,830
+that's great question and why you know
+
+625
+00:34:56,610 --> 00:34:59,630
+it isn't yeah you
+
+626
+00:34:57,830 --> 00:35:05,000
+okay so hold on second let me
+
+627
+00:34:59,630 --> 00:35:08,410
+demonstrate I need to close my window
+
+628
+00:35:05,000 --> 00:35:08,410
+it's getting dark Johanna
+
+629
+00:35:30,680 --> 00:35:37,860
+so this book is a basic introduction to
+
+630
+00:35:35,100 --> 00:35:41,430
+the Wolfram language written by Stephen
+
+631
+00:35:37,860 --> 00:35:43,560
+Wolfram the guy the man okay you can see
+
+632
+00:35:41,430 --> 00:35:47,450
+he's got a photo of himself in the back
+
+633
+00:35:43,560 --> 00:35:49,980
+he sent me a copy this is new this is
+
+634
+00:35:47,450 --> 00:35:52,860
+this came out like three or four years
+
+635
+00:35:49,980 --> 00:35:55,320
+ago okay so if you want to learn
+
+636
+00:35:52,860 --> 00:35:58,650
+Mathematica yeah that book is a good
+
+637
+00:35:55,320 --> 00:36:01,580
+book I would recommend that book yes
+
+638
+00:35:58,650 --> 00:36:05,430
+read that one first you know go to
+
+639
+00:36:01,580 --> 00:36:10,440
+Amazon buy it I don't have a link
+
+640
+00:36:05,430 --> 00:36:13,970
+ready so okay what do I need to support
+
+641
+00:36:10,440 --> 00:36:17,460
+saw talk show okay so support you guys
+
+642
+00:36:13,970 --> 00:36:27,240
+PayPal me and stuff okay so Wolfram
+
+643
+00:36:17,460 --> 00:36:30,300
+language there it is so let's go to an
+
+644
+00:36:27,240 --> 00:36:34,800
+elementary introduction to two from
+
+645
+00:36:30,300 --> 00:36:38,070
+language this guy this guy is his
+
+646
+00:36:34,800 --> 00:36:41,010
+pompous he's known as a pompous guy so
+
+647
+00:36:38,070 --> 00:36:42,990
+he anyway so the tyro is a elementary
+
+648
+00:36:41,010 --> 00:36:45,180
+introduction it is actually true you
+
+649
+00:36:42,990 --> 00:36:48,300
+know this is this book you know because
+
+650
+00:36:45,180 --> 00:36:54,450
+Mathematica is huge this book is an
+
+651
+00:36:48,300 --> 00:37:04,310
+elementary introduction so let's grab
+
+652
+00:36:54,450 --> 00:37:04,310
+the link and what's going on
+
+653
+00:37:05,200 --> 00:37:08,910
+I need to get the link
+
+654
+00:37:13,130 --> 00:37:21,110
+why is the link not showing now we're
+
+655
+00:37:17,420 --> 00:37:24,410
+going to cover we're gonna get back to
+
+656
+00:37:21,110 --> 00:37:29,920
+matrix okay now that pretty soon now
+
+657
+00:37:24,410 --> 00:37:34,990
+let's see what are the other things here
+
+658
+00:37:29,920 --> 00:37:34,990
+Mathematica new book hands-on start
+
+659
+00:37:35,980 --> 00:37:42,590
+anyway so anyway so let's copy that
+
+660
+00:37:39,680 --> 00:37:47,600
+second edition oh it's already a second
+
+661
+00:37:42,590 --> 00:38:02,210
+edition no interesting so let's let's
+
+662
+00:37:47,600 --> 00:38:05,030
+get get Amazon dink there you go so okay
+
+663
+00:38:02,210 --> 00:38:08,690
+the photos of you in Amazon USA you go
+
+664
+00:38:05,030 --> 00:38:19,280
+buy it okay now now that sensor okay so
+
+665
+00:38:08,690 --> 00:38:22,130
+let's explain why is it collinear so we
+
+666
+00:38:19,280 --> 00:38:24,320
+explained the definition of linear we
+
+667
+00:38:22,130 --> 00:38:27,470
+explained what is a matrix you know it's
+
+668
+00:38:24,320 --> 00:38:29,180
+a linear function we explained why is it
+
+669
+00:38:27,470 --> 00:38:33,620
+called matrix because it looks like
+
+670
+00:38:29,180 --> 00:38:36,530
+matrix you know that's - the etymology
+
+671
+00:38:33,620 --> 00:38:37,790
+of english i suppose originally matrix
+
+672
+00:38:36,530 --> 00:38:40,220
+just means a grid
+
+673
+00:38:37,790 --> 00:38:42,620
+I don't I don't you know we have to
+
+674
+00:38:40,220 --> 00:38:46,060
+actually look up etymology of matrix
+
+675
+00:38:42,620 --> 00:38:46,060
+okay so actually let's do
+
+676
+00:38:50,619 --> 00:38:58,420
+okay etymology of matrix let's see what
+
+677
+00:38:54,650 --> 00:39:03,440
+they say so late 14th century matrix
+
+678
+00:38:58,420 --> 00:39:07,700
+matrices uterus swamp okay that is the
+
+679
+00:39:03,440 --> 00:39:11,420
+arrangement uterus swamp women things
+
+680
+00:39:07,700 --> 00:39:14,930
+and directly from latin matrix and
+
+681
+00:39:11,420 --> 00:39:18,260
+pregnant animal oh wow that's why the
+
+682
+00:39:14,930 --> 00:39:21,529
+movie matrix that is why the movies
+
+683
+00:39:18,260 --> 00:39:25,369
+named matrix oh wow i didn't know this
+
+684
+00:39:21,529 --> 00:39:29,200
+or engine of the word matrix okay so
+
+685
+00:39:25,369 --> 00:39:31,849
+that is that means uterus swamp matrix
+
+686
+00:39:29,200 --> 00:39:34,549
+okay the many configurative and
+
+687
+00:39:31,849 --> 00:39:38,720
+technical census are from the notion of
+
+688
+00:39:34,549 --> 00:39:45,710
+that which encloses or give or ancient
+
+689
+00:39:38,720 --> 00:39:48,170
+to something okay so birth basically so
+
+690
+00:39:45,710 --> 00:39:51,049
+the general sense of face or medium
+
+691
+00:39:48,170 --> 00:39:56,180
+where something is developed is recorded
+
+692
+00:39:51,049 --> 00:39:57,980
+by 1550s meaning mode in which something
+
+693
+00:39:56,180 --> 00:40:03,260
+is cast or shaped
+
+694
+00:39:57,980 --> 00:40:05,359
+oh okay then he says the mathematical
+
+695
+00:40:03,260 --> 00:40:08,960
+sense of a rectangular array of
+
+696
+00:40:05,359 --> 00:40:13,690
+quantities is because it is considered
+
+697
+00:40:08,960 --> 00:40:21,190
+as a set of components into which
+
+698
+00:40:13,690 --> 00:40:23,900
+quantities can be set mmm okay that's
+
+699
+00:40:21,190 --> 00:40:27,680
+that's very interesting though so this
+
+700
+00:40:23,900 --> 00:40:30,380
+is a great fruit of today's talk show we
+
+701
+00:40:27,680 --> 00:40:33,140
+learned the etymology of matrix so it
+
+702
+00:40:30,380 --> 00:40:35,180
+actually means the whomp so the math
+
+703
+00:40:33,140 --> 00:40:39,230
+sense of a matrix actually came from
+
+704
+00:40:35,180 --> 00:40:44,150
+that some kind of you know it creates
+
+705
+00:40:39,230 --> 00:40:47,359
+numbers or something Oh mattress okay
+
+706
+00:40:44,150 --> 00:40:50,029
+Spanish okay so okay that's that's
+
+707
+00:40:47,359 --> 00:40:51,829
+fantastic good great great thing to
+
+708
+00:40:50,029 --> 00:40:55,400
+learn I have learned today so okay so
+
+709
+00:40:51,829 --> 00:40:57,529
+matrix so now let's show some and and
+
+710
+00:40:55,400 --> 00:41:00,710
+the matrix is a linear function okay so
+
+711
+00:40:57,529 --> 00:41:02,190
+let's show some examples why is it been
+
+712
+00:41:00,710 --> 00:41:09,900
+you
+
+713
+00:41:02,190 --> 00:41:12,839
+okay so for that let's go to camp so
+
+714
+00:41:09,900 --> 00:41:14,700
+ we have shown the zoom in zoom out
+
+715
+00:41:12,839 --> 00:41:19,410
+you know that's we already show that
+
+716
+00:41:14,700 --> 00:41:21,750
+that's show rotation okay now okay let
+
+717
+00:41:19,410 --> 00:41:26,069
+me show okay now remember I said before
+
+718
+00:41:21,750 --> 00:41:29,520
+you see this image to this face you see
+
+719
+00:41:26,069 --> 00:41:31,680
+lines here line line line those are
+
+720
+00:41:29,520 --> 00:41:36,000
+lines remember a linear function why is
+
+721
+00:41:31,680 --> 00:41:38,400
+it collinear because lines becomes minus
+
+722
+00:41:36,000 --> 00:41:41,339
+itself line ever become something else
+
+723
+00:41:38,400 --> 00:41:44,280
+nine remain lies that's linear by the
+
+724
+00:41:41,339 --> 00:41:46,559
+way affine transformation now we are
+
+725
+00:41:44,280 --> 00:41:50,579
+talking about matrices which is linear
+
+726
+00:41:46,559 --> 00:41:53,579
+transformation there is another function
+
+727
+00:41:50,579 --> 00:41:57,900
+called affine transformation or affine
+
+728
+00:41:53,579 --> 00:42:01,230
+geometry okay affine function is a kind
+
+729
+00:41:57,900 --> 00:42:03,480
+of a superset of linear function so in
+
+730
+00:42:01,230 --> 00:42:06,690
+affine transformation lie also becomes
+
+731
+00:42:03,480 --> 00:42:08,400
+lies but it's got something else by
+
+732
+00:42:06,690 --> 00:42:11,369
+anyway we've let's focus on linear
+
+733
+00:42:08,400 --> 00:42:15,000
+function here so you can see we can
+
+734
+00:42:11,369 --> 00:42:18,569
+rotate this thing now obviously when you
+
+735
+00:42:15,000 --> 00:42:21,299
+do a rotation you see lying remain lies
+
+736
+00:42:18,569 --> 00:42:23,579
+so that's why you know so these are kind
+
+737
+00:42:21,299 --> 00:42:29,339
+of a linear function that's why we
+
+738
+00:42:23,579 --> 00:42:31,410
+called linear but also besides this okay
+
+739
+00:42:29,339 --> 00:42:34,980
+hold on a second besides rotation
+
+740
+00:42:31,410 --> 00:42:37,829
+besides scaling zoom in zoom out there
+
+741
+00:42:34,980 --> 00:42:39,950
+is also another transformation called
+
+742
+00:42:37,829 --> 00:42:44,760
+shear
+
+743
+00:42:39,950 --> 00:42:47,069
+okay this one so I'm going to do it and
+
+744
+00:42:44,760 --> 00:42:50,779
+you can watch watch the picture okay
+
+745
+00:42:47,069 --> 00:42:50,779
+watch the picture what what happens
+
+746
+00:43:03,950 --> 00:43:10,550
+it's too slow too and I'm trying to
+
+747
+00:43:07,010 --> 00:43:15,830
+increase them in real time but it's kind
+
+748
+00:43:10,550 --> 00:43:17,860
+of - so Scioscia let's say 30 okay let's
+
+749
+00:43:15,830 --> 00:43:23,180
+try to do 30
+
+750
+00:43:17,860 --> 00:43:26,750
+are they computing let's say 300 okay
+
+751
+00:43:23,180 --> 00:43:29,270
+let's just do it well there you go
+
+752
+00:43:26,750 --> 00:43:31,520
+so can you see that it kind of just
+
+753
+00:43:29,270 --> 00:43:34,940
+shaped the thing you know but however
+
+754
+00:43:31,520 --> 00:43:37,850
+now remember lying remain lies you begin
+
+755
+00:43:34,940 --> 00:43:41,720
+with nicely it's osteo lines so these
+
+756
+00:43:37,850 --> 00:43:46,280
+are examples of linear transformation or
+
+757
+00:43:41,720 --> 00:43:48,560
+you call it a linear function okay now
+
+758
+00:43:46,280 --> 00:43:51,350
+let's show you something that is not
+
+759
+00:43:48,560 --> 00:43:53,480
+linear okay that's very easy okay so
+
+760
+00:43:51,350 --> 00:43:56,930
+what what is something that's not linear
+
+761
+00:43:53,480 --> 00:43:59,510
+so we're gonna show you you know when
+
+762
+00:43:56,930 --> 00:44:01,550
+you deal with from a geometric point of
+
+763
+00:43:59,510 --> 00:44:04,340
+view it's easy to see what is what is
+
+764
+00:44:01,550 --> 00:44:08,570
+linear and what is not it's very easy to
+
+765
+00:44:04,340 --> 00:44:13,070
+this to see okay for example I'm gonna
+
+766
+00:44:08,570 --> 00:44:16,540
+show you some pictures these pictures
+
+767
+00:44:13,070 --> 00:44:19,670
+you see now all of this they are
+
+768
+00:44:16,540 --> 00:44:22,130
+transformations meaning they begin with
+
+769
+00:44:19,670 --> 00:44:26,270
+a grid okay so for example this this
+
+770
+00:44:22,130 --> 00:44:31,700
+this this the top row and also this one
+
+771
+00:44:26,270 --> 00:44:36,590
+you can see this this and this but not
+
+772
+00:44:31,700 --> 00:44:39,080
+and also this one okay and also this one
+
+773
+00:44:36,590 --> 00:44:42,140
+okay anyway let's focus on the top two
+
+774
+00:44:39,080 --> 00:44:44,960
+rows you see this they begin with a
+
+775
+00:44:42,140 --> 00:44:47,780
+great rectangular grid then you apply a
+
+776
+00:44:44,960 --> 00:44:50,690
+function so you have a point you know
+
+777
+00:44:47,780 --> 00:44:53,360
+you apply function a point is x and y
+
+778
+00:44:50,690 --> 00:44:55,820
+you apply a function then you get two
+
+779
+00:44:53,360 --> 00:44:58,280
+new pair of numbers the point moves
+
+780
+00:44:55,820 --> 00:45:00,380
+somewhere so after you apply function
+
+781
+00:44:58,280 --> 00:45:01,370
+they transform the grid each so you can
+
+782
+00:45:00,380 --> 00:45:05,080
+now visually
+
+783
+00:45:01,370 --> 00:45:10,730
+visually see the result of the function
+
+784
+00:45:05,080 --> 00:45:14,240
+now you can see so in this for example
+
+785
+00:45:10,730 --> 00:45:17,810
+in this one you already speaking with a
+
+786
+00:45:14,240 --> 00:45:20,720
+line but now the line is not
+
+787
+00:45:17,810 --> 00:45:22,940
+no longer lying you see this one no
+
+788
+00:45:20,720 --> 00:45:27,110
+longer lying there you you know the line
+
+789
+00:45:22,940 --> 00:45:30,800
+becomes some wavy thing so any of these
+
+790
+00:45:27,110 --> 00:45:36,230
+are not linear functions okay so that's
+
+791
+00:45:30,800 --> 00:45:38,330
+easy to understand so in plain words you
+
+792
+00:45:36,230 --> 00:45:40,970
+could think of them as kind of some kind
+
+793
+00:45:38,330 --> 00:45:44,960
+of distortion but distortion is not a
+
+794
+00:45:40,970 --> 00:45:47,870
+good word because because she is also a
+
+795
+00:45:44,960 --> 00:45:49,730
+distortion but that's still linear you
+
+796
+00:45:47,870 --> 00:45:52,640
+know so anyway so that's some examples
+
+797
+00:45:49,730 --> 00:45:58,010
+of transformations
+
+798
+00:45:52,640 --> 00:46:01,130
+that's not linear and also here but if
+
+799
+00:45:58,010 --> 00:46:04,970
+you look at this one this is actually
+
+800
+00:46:01,130 --> 00:46:10,130
+linear you in this picture we begin with
+
+801
+00:46:04,970 --> 00:46:13,190
+a it's magnify okay we begin with a
+
+802
+00:46:10,130 --> 00:46:17,740
+circle I mean bunch of circles polar
+
+803
+00:46:13,190 --> 00:46:23,300
+grid then you see this thing this
+
+804
+00:46:17,740 --> 00:46:26,600
+slanted thing is the that slanted thing
+
+805
+00:46:23,300 --> 00:46:30,020
+is the result of applying a function to
+
+806
+00:46:26,600 --> 00:46:32,810
+the circle so it becomes you know a
+
+807
+00:46:30,020 --> 00:46:35,780
+belong thing and this is actually a
+
+808
+00:46:32,810 --> 00:46:37,910
+linear transformation because it's
+
+809
+00:46:35,780 --> 00:46:40,310
+actually just sheer you know it's just
+
+810
+00:46:37,910 --> 00:46:44,180
+sheer it's a linear transformation Y is
+
+811
+00:46:40,310 --> 00:46:46,820
+a linear remember line become lines so
+
+812
+00:46:44,180 --> 00:46:52,150
+originally you have this line blue line
+
+813
+00:46:46,820 --> 00:46:55,700
+and now it becomes this line you see
+
+814
+00:46:52,150 --> 00:46:58,840
+that way that is why it's linear in fact
+
+815
+00:46:55,700 --> 00:47:01,820
+all these lines in a circle you see we
+
+816
+00:46:58,840 --> 00:47:04,490
+in the in our internal picture we have
+
+817
+00:47:01,820 --> 00:47:07,760
+all the lines radiating you know the
+
+818
+00:47:04,490 --> 00:47:10,760
+radius of the circle they are still
+
+819
+00:47:07,760 --> 00:47:12,650
+lines they they still always remain
+
+820
+00:47:10,760 --> 00:47:14,630
+lines that's the point that's why that's
+
+821
+00:47:12,650 --> 00:47:17,660
+one of the property of linear function
+
+822
+00:47:14,630 --> 00:47:20,690
+okay now by the way there is another
+
+823
+00:47:17,660 --> 00:47:22,760
+very interesting thing about linear
+
+824
+00:47:20,690 --> 00:47:25,880
+function you see this line become these
+
+825
+00:47:22,760 --> 00:47:27,670
+lines actually those this vector is
+
+826
+00:47:25,880 --> 00:47:31,040
+called
+
+827
+00:47:27,670 --> 00:47:40,370
+this vector is called the
+
+828
+00:47:31,040 --> 00:47:43,640
+oh god I cannot remember names now does
+
+829
+00:47:40,370 --> 00:47:52,340
+anyone know like remind me does anyone
+
+830
+00:47:43,640 --> 00:47:53,600
+know tell us you know math okay don't
+
+831
+00:47:52,340 --> 00:47:55,580
+know why I thought the English world
+
+832
+00:47:53,600 --> 00:47:59,330
+would be different no meaning okay so
+
+833
+00:47:55,580 --> 00:48:02,150
+Wikipedia so actually we got I'm
+
+834
+00:47:59,330 --> 00:48:04,880
+starting to ramble a lot and not going
+
+835
+00:48:02,150 --> 00:48:07,610
+anywhere I think we haven't got to
+
+836
+00:48:04,880 --> 00:48:13,520
+talking about implementation JavaScript
+
+837
+00:48:07,610 --> 00:48:15,770
+yet and I'm losing people let's see how
+
+838
+00:48:13,520 --> 00:48:20,360
+long have I been talking 48 minutes yeah
+
+839
+00:48:15,770 --> 00:48:22,490
+we're talking we are starting to ramble
+
+840
+00:48:20,360 --> 00:48:28,580
+too much let's get back okay
+
+841
+00:48:22,490 --> 00:48:33,710
+so what what is that name I mean to
+
+842
+00:48:28,580 --> 00:48:35,960
+think just for a second linear function
+
+843
+00:48:33,710 --> 00:48:40,540
+so we you have a linear function you
+
+844
+00:48:35,960 --> 00:48:45,440
+have characteristics characteristic
+
+845
+00:48:40,540 --> 00:48:48,020
+polynomial you have I had I forgot the
+
+846
+00:48:45,440 --> 00:48:54,350
+name oh oh actually it's right in the
+
+847
+00:48:48,020 --> 00:48:57,830
+page I mentioned I ain't gone better
+
+848
+00:48:54,350 --> 00:49:00,230
+okay so that's the word eigenvector you
+
+849
+00:48:57,830 --> 00:49:03,140
+see those lines the blue lines they are
+
+850
+00:49:00,230 --> 00:49:07,420
+actually eigenvectors now angle vectors
+
+851
+00:49:03,140 --> 00:49:11,780
+has a it has a special property
+
+852
+00:49:07,420 --> 00:49:13,520
+particular to any specific linear
+
+853
+00:49:11,780 --> 00:49:17,270
+function but let's not talk about that
+
+854
+00:49:13,520 --> 00:49:19,670
+anyway it has a geometric meaning when
+
+855
+00:49:17,270 --> 00:49:27,890
+you have a eigenvector any point on that
+
+856
+00:49:19,670 --> 00:49:29,750
+vector line remains remains on that line
+
+857
+00:49:27,890 --> 00:49:32,210
+anyway something like that so I'm not
+
+858
+00:49:29,750 --> 00:49:35,090
+you know I'm not going to look into that
+
+859
+00:49:32,210 --> 00:49:40,700
+now so we are back to linear functions
+
+860
+00:49:35,090 --> 00:49:44,150
+okay so actually that concludes the
+
+861
+00:49:40,700 --> 00:49:44,960
+explanation of matrices a mini well that
+
+862
+00:49:44,150 --> 00:49:47,000
+didn't
+
+863
+00:49:44,960 --> 00:49:50,119
+that concludes the concepts of linear
+
+864
+00:49:47,000 --> 00:49:54,650
+function and matrices now the next thing
+
+865
+00:49:50,119 --> 00:49:58,250
+we need to talk about is given a matrix
+
+866
+00:49:54,650 --> 00:50:00,560
+how do you actually compute it like how
+
+867
+00:49:58,250 --> 00:50:02,210
+do you so I mean now we understand what
+
+868
+00:50:00,560 --> 00:50:05,599
+is a linear function but how do you
+
+869
+00:50:02,210 --> 00:50:07,700
+actually do something with it like how
+
+870
+00:50:05,599 --> 00:50:11,630
+do you write it down how do you how do
+
+871
+00:50:07,700 --> 00:50:14,450
+you compute it let's close that close I
+
+872
+00:50:11,630 --> 00:50:17,180
+curse you know how do you for example we
+
+873
+00:50:14,450 --> 00:50:19,220
+have a function now we suppose this
+
+874
+00:50:17,180 --> 00:50:20,630
+function f is a linear function but how
+
+875
+00:50:19,220 --> 00:50:25,970
+do you define it how do you write it
+
+876
+00:50:20,630 --> 00:50:28,670
+down okay you can do that with matrix
+
+877
+00:50:25,970 --> 00:50:32,780
+but okay so that that is the next thing
+
+878
+00:50:28,670 --> 00:50:38,510
+we need to do we are getting wrong here
+
+879
+00:50:32,780 --> 00:50:44,390
+so we need to where is it so here how do
+
+880
+00:50:38,510 --> 00:50:46,970
+you actually define a matrix okay in
+
+881
+00:50:44,390 --> 00:50:53,140
+code for example in code how do you
+
+882
+00:50:46,970 --> 00:51:00,170
+actually define a matrix and then then
+
+883
+00:50:53,140 --> 00:51:01,940
+how do you actually compute matrix you
+
+884
+00:51:00,170 --> 00:51:03,800
+know how does like we need to see your
+
+885
+00:51:01,940 --> 00:51:06,530
+example others others and how do you
+
+886
+00:51:03,800 --> 00:51:15,880
+actually do it okay so close down on
+
+887
+00:51:06,530 --> 00:51:15,880
+these close down is me okay I'm kind of
+
+888
+00:51:18,880 --> 00:51:28,490
+weak okay so we we need to do that oh my
+
+889
+00:51:24,530 --> 00:51:30,589
+God look okay so next thing is how do
+
+890
+00:51:28,490 --> 00:51:32,810
+you actually compute it and how do you
+
+891
+00:51:30,589 --> 00:51:33,380
+implement in JavaScript and so let's do
+
+892
+00:51:32,810 --> 00:51:35,720
+that okay
+
+893
+00:51:33,380 --> 00:51:38,630
+let's do that but let's let me have a
+
+894
+00:51:35,720 --> 00:51:45,910
+drink first okay I need to I need to get
+
+895
+00:51:38,630 --> 00:51:45,910
+my my mind ready for it okay apple juice
+
+896
+00:51:48,160 --> 00:51:53,500
+so so far so good guys so far so good
+
+897
+00:51:55,840 --> 00:51:59,900
+so why drink
+
+898
+00:51:57,650 --> 00:52:01,310
+what shrink okay so what what other
+
+899
+00:51:59,900 --> 00:52:04,550
+questions do we have
+
+900
+00:52:01,310 --> 00:52:07,400
+we caught some code yes maybe this
+
+901
+00:52:04,550 --> 00:52:11,950
+knowledge I can define code games for
+
+902
+00:52:07,400 --> 00:52:23,200
+the Vic tricks what is that
+
+903
+00:52:11,950 --> 00:52:23,200
+pan-pan pan-pan energy drink sugar free
+
+904
+00:52:33,150 --> 00:52:38,620
+okay so just in search for Justine
+
+905
+00:52:35,980 --> 00:52:43,300
+gentle more Nats okay just in gentle
+
+906
+00:52:38,620 --> 00:52:47,020
+Mona's search for that if you want to
+
+907
+00:52:43,300 --> 00:52:52,570
+look at Haskell and Ascot Mona's yes a
+
+908
+00:52:47,020 --> 00:52:56,200
+gentle introduction okay so what so III
+
+909
+00:52:52,570 --> 00:52:59,410
+need to get back to matrices okay matrix
+
+910
+00:52:56,200 --> 00:53:05,740
+movie base and we repealed yes yes
+
+911
+00:52:59,410 --> 00:53:18,190
+indeed matrix that looks horrendous okay
+
+912
+00:53:05,740 --> 00:53:20,680
+what I need to somewhere H and G oh yeah
+
+913
+00:53:18,190 --> 00:53:23,680
+that keyboard okay so okay so let's
+
+914
+00:53:20,680 --> 00:53:32,350
+that's it's let's begin talking about
+
+915
+00:53:23,680 --> 00:53:34,600
+matrix okay so so how do you linear
+
+916
+00:53:32,350 --> 00:53:36,640
+function okay so we need to define a
+
+917
+00:53:34,600 --> 00:53:40,840
+function so how do you actually do it
+
+918
+00:53:36,640 --> 00:53:43,840
+so let me see an example okay so
+
+919
+00:53:40,840 --> 00:53:47,110
+rotation is an example we can we can try
+
+920
+00:53:43,840 --> 00:53:48,430
+to do that an actual example now are now
+
+921
+00:53:47,110 --> 00:53:50,850
+about rotation
+
+922
+00:53:48,430 --> 00:53:54,370
+you know let's supposing a plane now
+
+923
+00:53:50,850 --> 00:53:57,460
+when you deal with linear functions the
+
+924
+00:53:54,370 --> 00:54:00,550
+context basically basically is linear
+
+925
+00:53:57,460 --> 00:54:02,080
+space meaning that you have vectors okay
+
+926
+00:54:00,550 --> 00:54:05,170
+that's the thing you work with vectors
+
+927
+00:54:02,080 --> 00:54:08,230
+you know basically a sequence of numbers
+
+928
+00:54:05,170 --> 00:54:10,990
+that's a thing consider as a thing just
+
+929
+00:54:08,230 --> 00:54:14,740
+think actually just think of it as a
+
+930
+00:54:10,990 --> 00:54:17,080
+point so in two-dimensional space we
+
+931
+00:54:14,740 --> 00:54:20,950
+have points you know XY the coordinate
+
+932
+00:54:17,080 --> 00:54:23,740
+in 3d space we have XYZ one more extra
+
+933
+00:54:20,950 --> 00:54:26,830
+coordinate so each point in space
+
+934
+00:54:23,740 --> 00:54:29,950
+those are vectors okay now you you could
+
+935
+00:54:26,830 --> 00:54:33,610
+go on into 4d space 5d space you just
+
+936
+00:54:29,950 --> 00:54:35,740
+have one more components so this is
+
+937
+00:54:33,610 --> 00:54:38,110
+actually what higher dimension means
+
+938
+00:54:35,740 --> 00:54:40,090
+fourth dimensional space even though we
+
+939
+00:54:38,110 --> 00:54:42,460
+can see it but that's mathematically
+
+940
+00:54:40,090 --> 00:54:45,130
+what they mean four dimensional space
+
+941
+00:54:42,460 --> 00:54:46,360
+now you so now you understand for what
+
+942
+00:54:45,130 --> 00:54:49,510
+is four dimensional space
+
+943
+00:54:46,360 --> 00:54:52,330
+five dimensional six dimensional it just
+
+944
+00:54:49,510 --> 00:54:55,360
+go by this analogy from 2d to 3d
+
+945
+00:54:52,330 --> 00:54:59,230
+then 240 you just add one more component
+
+946
+00:54:55,360 --> 00:55:02,320
+to the vector that's what it means now
+
+947
+00:54:59,230 --> 00:55:04,780
+so so when we talk about linear function
+
+948
+00:55:02,320 --> 00:55:07,870
+remember the context just like Wikipedia
+
+949
+00:55:04,780 --> 00:55:10,410
+tried to defy it the context is vector
+
+950
+00:55:07,870 --> 00:55:14,830
+space meaning you you work with these
+
+951
+00:55:10,410 --> 00:55:18,390
+points in a particular space of
+
+952
+00:55:14,830 --> 00:55:23,650
+particular dimension 2 d 3 d 4 d ok and
+
+953
+00:55:18,390 --> 00:55:27,100
+when you sell vectors so let's say 2 D
+
+954
+00:55:23,650 --> 00:55:31,420
+okay let's say 2 D for now so for
+
+955
+00:55:27,100 --> 00:55:33,640
+example you want to do rotation now you
+
+956
+00:55:31,420 --> 00:55:36,340
+when you want to do rotation the problem
+
+957
+00:55:33,640 --> 00:55:38,620
+is given a point and let's say you want
+
+958
+00:55:36,340 --> 00:55:41,380
+to rotate by 10 degrees around our
+
+959
+00:55:38,620 --> 00:55:43,600
+engine so you have explain I mean you
+
+960
+00:55:41,380 --> 00:55:45,820
+have the plane you have the x axis you
+
+961
+00:55:43,600 --> 00:55:50,320
+have the y axis you want to rotate
+
+962
+00:55:45,820 --> 00:55:52,720
+things by around the or engine so by
+
+963
+00:55:50,320 --> 00:55:54,490
+let's say 10 degrees and you want to
+
+964
+00:55:52,720 --> 00:55:57,940
+know so given a point you want to know
+
+965
+00:55:54,490 --> 00:56:00,580
+what is a result and how do you find
+
+966
+00:55:57,940 --> 00:56:05,620
+that how do you know well you can do
+
+967
+00:56:00,580 --> 00:56:08,080
+that via trigonometry now if you have
+
+968
+00:56:05,620 --> 00:56:10,090
+studied trigonometry you can derive you
+
+969
+00:56:08,080 --> 00:56:14,950
+can find out the formula basically you
+
+970
+00:56:10,090 --> 00:56:18,850
+you get a formula to do that and in that
+
+971
+00:56:14,950 --> 00:56:22,750
+form formula is can be written in a
+
+972
+00:56:18,850 --> 00:56:24,970
+matrix form so what does I mean so
+
+973
+00:56:22,750 --> 00:56:27,790
+anyway before we get into matrix so
+
+974
+00:56:24,970 --> 00:56:30,730
+anyway so now remember we want a from we
+
+975
+00:56:27,790 --> 00:56:33,550
+we want a formula that two rotation ok
+
+976
+00:56:30,730 --> 00:56:37,900
+so we can do rotation by you know for
+
+977
+00:56:33,550 --> 00:56:42,910
+example formula for example so we have X
+
+978
+00:56:37,900 --> 00:56:47,170
+you have a function let's see x xn f x
+
+979
+00:56:42,910 --> 00:56:49,330
+and y ok equals to some function ok
+
+980
+00:56:47,170 --> 00:56:52,270
+let's let's go to JavaScript ok let's
+
+981
+00:56:49,330 --> 00:56:55,840
+begin our journey to the land of
+
+982
+00:56:52,270 --> 00:56:56,410
+JavaScript okay we we need you need to
+
+983
+00:56:55,840 --> 00:56:59,390
+defy it
+
+984
+00:56:56,410 --> 00:57:02,299
+ok so constant arrow function wrote
+
+985
+00:56:59,390 --> 00:57:04,940
+eight okay let's say we want to rotate
+
+986
+00:57:02,299 --> 00:57:08,450
+function so the rotate function takes
+
+987
+00:57:04,940 --> 00:57:11,210
+two arguments X Y and the Alpha takes
+
+988
+00:57:08,450 --> 00:57:14,779
+three argument so it will rotate the
+
+989
+00:57:11,210 --> 00:57:16,880
+point XY defined by the XY coordinate by
+
+990
+00:57:14,779 --> 00:57:19,010
+alpha degrees around the origin
+
+991
+00:57:16,880 --> 00:57:27,319
+so what is the how do you write a
+
+992
+00:57:19,010 --> 00:57:34,250
+formula well okay that for this I know
+
+993
+00:57:27,319 --> 00:57:35,299
+the answer okay so the answer is what is
+
+994
+00:57:34,250 --> 00:57:37,549
+sine cosine
+
+995
+00:57:35,299 --> 00:57:41,569
+okay cosine sine right right actually I
+
+996
+00:57:37,549 --> 00:57:44,299
+know the answer okay so actually did
+
+997
+00:57:41,569 --> 00:57:47,589
+wait hold on a second so let's write it
+
+998
+00:57:44,299 --> 00:57:52,190
+this way so x and Y is a vector that's a
+
+999
+00:57:47,589 --> 00:57:54,680
+we are using valid JavaScript syntax so
+
+1000
+00:57:52,190 --> 00:57:56,960
+this is actually a way in JavaScript so
+
+1001
+00:57:54,680 --> 00:58:00,980
+that's a vector and we want to rotate it
+
+1002
+00:57:56,960 --> 00:58:09,500
+alpha degrees so the result is what you
+
+1003
+00:58:00,980 --> 00:58:12,440
+do is okay this is what you do math dot
+
+1004
+00:58:09,500 --> 00:58:15,559
+cosine ok math dot cosine we are in the
+
+1005
+00:58:12,440 --> 00:58:24,799
+realm of JavaScript mastered cosine
+
+1006
+00:58:15,559 --> 00:58:26,960
+alpha and math star sine alpha okay ha
+
+1007
+00:58:24,799 --> 00:58:31,490
+now second let's get this into the
+
+1008
+00:58:26,960 --> 00:58:35,109
+proper format so we return a vector that
+
+1009
+00:58:31,490 --> 00:58:35,109
+is that looks like that
+
+1010
+00:58:39,400 --> 00:58:45,200
+okay so we are actually returning this
+
+1011
+00:58:42,200 --> 00:58:48,400
+vector now that's not it of course
+
+1012
+00:58:45,200 --> 00:58:48,400
+that's not it
+
+1013
+00:58:49,760 --> 00:58:59,920
+we need to we need to put the X Y
+
+1014
+00:58:53,900 --> 00:58:59,920
+somewhere it's getting more complicated
+
+1015
+00:59:00,520 --> 00:59:11,330
+are you guys good here so Syria am I am
+
+1016
+00:59:07,520 --> 00:59:15,830
+I done for today maybe it's best to call
+
+1017
+00:59:11,330 --> 00:59:18,170
+it a day that's it for today so when
+
+1018
+00:59:15,830 --> 00:59:24,170
+there's a problem let's say we are done
+
+1019
+00:59:18,170 --> 00:59:25,580
+okay so I know what to do but it's gonna
+
+1020
+00:59:24,170 --> 00:59:28,070
+be more complicated
+
+1021
+00:59:25,580 --> 00:59:34,670
+well actually the easiest way is just to
+
+1022
+00:59:28,070 --> 00:59:39,080
+look at Wikipedia okay so no no actually
+
+1023
+00:59:34,670 --> 00:59:41,630
+we can do it so rotation well you need
+
+1024
+00:59:39,080 --> 00:59:44,240
+to find the length of X Y okay so length
+
+1025
+00:59:41,630 --> 00:59:47,330
+so we need to define a function first
+
+1026
+00:59:44,240 --> 00:59:50,630
+that computes the length of the vector
+
+1027
+00:59:47,330 --> 00:59:56,750
+so the way you do that is constant arrow
+
+1028
+00:59:50,630 --> 01:00:00,580
+function so length length of vector so
+
+1029
+00:59:56,750 --> 01:00:00,580
+we starting starting to write
+
+1030
+01:00:05,869 --> 01:00:12,829
+maybe so x-coordinates in array in
+
+1031
+01:00:09,940 --> 01:00:15,170
+y-coordinates in an array yes that's
+
+1032
+01:00:12,829 --> 01:00:18,079
+what we are doing here that's that's
+
+1033
+01:00:15,170 --> 01:00:20,930
+this thing then write a function that
+
+1034
+01:00:18,079 --> 01:00:27,229
+map's the property function over both
+
+1035
+01:00:20,930 --> 01:00:30,229
+these arrays yes we gonna do that
+
+1036
+01:00:27,229 --> 01:00:33,440
+but first of all we need a length of
+
+1037
+01:00:30,229 --> 01:00:35,420
+vector actually you know you know
+
+1038
+01:00:33,440 --> 01:00:40,509
+actually there's gonna be a lot of code
+
+1039
+01:00:35,420 --> 01:00:45,289
+we so let's just cheat and look at my
+
+1040
+01:00:40,509 --> 01:00:47,539
+things I've already written okay so yeah
+
+1041
+01:00:45,289 --> 01:00:51,259
+we're gonna cover this anyway so here it
+
+1042
+01:00:47,539 --> 01:00:54,019
+is okay vector length well but if I show
+
+1043
+01:00:51,259 --> 01:00:57,019
+this code you don't underst
+
+1044
+01:00:54,019 --> 01:00:59,599
+you know like I need to explain it so
+
+1045
+01:00:57,019 --> 01:01:02,119
+here is here is a function that returns
+
+1046
+01:00:59,599 --> 01:01:05,319
+the length of a vector for any
+
+1047
+01:01:02,119 --> 01:01:16,789
+dimensional vector and this is actually
+
+1048
+01:01:05,319 --> 01:01:20,529
+valid JavaScript code okay this one yeah
+
+1049
+01:01:16,789 --> 01:01:28,729
+but but then you see this function
+
+1050
+01:01:20,529 --> 01:01:33,589
+hypotenuse it's actually a it's a
+
+1051
+01:01:28,729 --> 01:01:36,109
+function new in JavaScript 2015 and what
+
+1052
+01:01:33,589 --> 01:01:38,869
+is actually doing is this okay let me
+
+1053
+01:01:36,109 --> 01:01:41,599
+explain okay so so again we have a
+
+1054
+01:01:38,869 --> 01:01:44,029
+vector X Y Z let's say free dimensional
+
+1055
+01:01:41,599 --> 01:01:47,569
+vector let's say two dimensional for now
+
+1056
+01:01:44,029 --> 01:01:53,269
+okay and we want to find the length you
+
+1057
+01:01:47,569 --> 01:01:55,549
+know so the way you do it is PI X so you
+
+1058
+01:01:53,269 --> 01:01:59,779
+return a vector okay you return a vector
+
+1059
+01:01:55,549 --> 01:02:06,819
+of two things okay and the first part
+
+1060
+01:01:59,779 --> 01:02:10,579
+will be X divided by square root of x
+
+1061
+01:02:06,819 --> 01:02:16,759
+squared plus y squared now why because
+
+1062
+01:02:10,579 --> 01:02:19,309
+this is a Pythagorean theorem okay so
+
+1063
+01:02:16,759 --> 01:02:22,489
+you have math start squared
+
+1064
+01:02:19,309 --> 01:02:24,890
+square root so you want to take square
+
+1065
+01:02:22,489 --> 01:02:27,829
+root of the sum of x squared plus y
+
+1066
+01:02:24,890 --> 01:02:32,329
+squared and the second component will be
+
+1067
+01:02:27,829 --> 01:02:34,309
+the same okay so that is a formula so
+
+1068
+01:02:32,329 --> 01:02:37,089
+that is how you find the length of a
+
+1069
+01:02:34,309 --> 01:02:39,949
+vector for a two dimensional vector and
+
+1070
+01:02:37,089 --> 01:02:43,880
+for three dimensional vector it's the
+
+1071
+01:02:39,949 --> 01:02:48,319
+same okay let's write it okay so three t
+
+1072
+01:02:43,880 --> 01:02:51,890
+and say okay you know this is we are
+
+1073
+01:02:48,319 --> 01:02:53,839
+starting to do some practical stuff so
+
+1074
+01:02:51,890 --> 01:02:59,329
+for three dimensional vector you have
+
+1075
+01:02:53,839 --> 01:03:02,900
+one more thing Z okay wait right we you
+
+1076
+01:02:59,329 --> 01:03:04,759
+have one more thing Z there and forth
+
+1077
+01:03:02,900 --> 01:03:07,819
+three dimensional vector you do actually
+
+1078
+01:03:04,759 --> 01:03:15,650
+you do the same thing here and let me
+
+1079
+01:03:07,819 --> 01:03:19,789
+show you that's what you do okay so that
+
+1080
+01:03:15,650 --> 01:03:22,069
+is actually what you do so let's clean
+
+1081
+01:03:19,789 --> 01:03:27,409
+up the code here a little bit so it's
+
+1082
+01:03:22,069 --> 01:03:30,169
+easier to read so for this is so in
+
+1083
+01:03:27,409 --> 01:03:38,539
+three dimensional in three dimension
+
+1084
+01:03:30,169 --> 01:03:41,689
+this is what you do there you see what
+
+1085
+01:03:38,539 --> 01:03:45,079
+if it's 40 40 is the same okay 40 is the
+
+1086
+01:03:41,689 --> 01:03:53,469
+same you just add more things X Y Z W
+
+1087
+01:03:45,079 --> 01:03:53,469
+then you just first first of you here
+
+1088
+01:03:55,209 --> 01:04:04,009
+okay and you add one more component and
+
+1089
+01:04:01,789 --> 01:04:06,529
+this is 40 okay so this is
+
+1090
+01:04:04,009 --> 01:04:09,169
+four-dimensional we are venturing into
+
+1091
+01:04:06,529 --> 01:04:12,439
+the fourth dimension so anyway that's
+
+1092
+01:04:09,169 --> 01:04:14,900
+that computes the length of vector how
+
+1093
+01:04:12,439 --> 01:04:18,709
+do you know that well it's a Pythagorean
+
+1094
+01:04:14,900 --> 01:04:21,019
+theorem it's pretty simple okay so now
+
+1095
+01:04:18,709 --> 01:04:24,079
+we got the length formula now remember
+
+1096
+01:04:21,019 --> 01:04:26,869
+all these are lengths for specific
+
+1097
+01:04:24,079 --> 01:04:30,099
+dimension vectors but in JavaScript they
+
+1098
+01:04:26,869 --> 01:04:33,200
+introduced this function math I parted
+
+1099
+01:04:30,099 --> 01:04:36,740
+hypotenuse okay basically
+
+1100
+01:04:33,200 --> 01:04:38,869
+it allows us to define a generalized
+
+1101
+01:04:36,740 --> 01:04:41,960
+vector length for any interventional
+
+1102
+01:04:38,869 --> 01:04:46,250
+vector so the code is that okay you can
+
+1103
+01:04:41,960 --> 01:04:48,260
+run it in browser shall we do it why not
+
+1104
+01:04:46,250 --> 01:04:52,609
+since we are doing a show
+
+1105
+01:04:48,260 --> 01:04:57,400
+we should might as well learn it to
+
+1106
+01:04:52,609 --> 01:05:01,309
+prove to prove that our code is actually
+
+1107
+01:04:57,400 --> 01:05:04,160
+not okay now we define that
+
+1108
+01:05:01,309 --> 01:05:07,010
+function hold on a second let's let's
+
+1109
+01:05:04,160 --> 01:05:09,230
+shrink the name so that I don't have to
+
+1110
+01:05:07,010 --> 01:05:11,150
+type so much okay so let's shrink the
+
+1111
+01:05:09,230 --> 01:05:15,529
+name to F L okay
+
+1112
+01:05:11,150 --> 01:05:21,680
+define it now let's say F L let's say
+
+1113
+01:05:15,529 --> 01:05:23,900
+two two and cut type area what about oh
+
+1114
+01:05:21,680 --> 01:05:27,670
+yeah because well you have to it's a
+
+1115
+01:05:23,900 --> 01:05:32,720
+vector right you have to give a is way
+
+1116
+01:05:27,670 --> 01:05:35,450
+there it is so actually it already give
+
+1117
+01:05:32,720 --> 01:05:39,769
+you a number before you actually press
+
+1118
+01:05:35,450 --> 01:05:42,200
+Enter what kind of feature is this let's
+
+1119
+01:05:39,769 --> 01:05:45,529
+see let's try it okay let's say one
+
+1120
+01:05:42,200 --> 01:05:48,650
+let's say one oh my god it gives you an
+
+1121
+01:05:45,529 --> 01:05:53,720
+answer before you even type at you know
+
+1122
+01:05:48,650 --> 01:05:59,079
+before you press ENTER this modern
+
+1123
+01:05:53,720 --> 01:06:02,390
+JavaScript dev thing amazing now we are
+
+1124
+01:05:59,079 --> 01:06:04,309
+let's look at this one from this one I
+
+1125
+01:06:02,390 --> 01:06:08,299
+can tell it's correct because you know
+
+1126
+01:06:04,309 --> 01:06:12,500
+if vector length 1 1 now 1 Y is a vector
+
+1127
+01:06:08,299 --> 01:06:16,430
+very easy to imagine so you have X you
+
+1128
+01:06:12,500 --> 01:06:18,710
+have Y the X unit is 1 the Y is unit is
+
+1129
+01:06:16,430 --> 01:06:22,759
+1 so it's basically a point here ok it's
+
+1130
+01:06:18,710 --> 01:06:26,450
+like a square so so according to the
+
+1131
+01:06:22,759 --> 01:06:29,059
+vector formula then what we have is you
+
+1132
+01:06:26,450 --> 01:06:32,690
+know here is 1 square plus 1 squared is
+
+1133
+01:06:29,059 --> 01:06:36,259
+2 squared of square root of 2 is 1 point
+
+1134
+01:06:32,690 --> 01:06:41,509
+for something so we have 1 over square
+
+1135
+01:06:36,259 --> 01:06:46,630
+root root of 2 and 1 over square root of
+
+1136
+01:06:41,509 --> 01:06:46,630
+2 and that gives us
+
+1137
+01:06:46,840 --> 01:07:02,630
+what is math square root of two right
+
+1138
+01:06:54,290 --> 01:07:06,680
+and oh I'm sorry for the hoedown second
+
+1139
+01:07:02,630 --> 01:07:11,840
+I got my I got my formulas wrong why is
+
+1140
+01:07:06,680 --> 01:07:14,240
+nobody mentioned in it this you see we
+
+1141
+01:07:11,840 --> 01:07:16,400
+are computing the length of a vector a
+
+1142
+01:07:14,240 --> 01:07:20,120
+length of a vector is a number it's not
+
+1143
+01:07:16,400 --> 01:07:22,660
+it's not a whole bunch of numbers so you
+
+1144
+01:07:20,120 --> 01:07:27,770
+got all this wrong okay
+
+1145
+01:07:22,660 --> 01:07:30,260
+so length of vector is that okay so
+
+1146
+01:07:27,770 --> 01:07:32,750
+similarly for three dimensional vector
+
+1147
+01:07:30,260 --> 01:07:37,540
+is just that okay and for four
+
+1148
+01:07:32,750 --> 01:07:42,710
+dimensional vector is just that okay
+
+1149
+01:07:37,540 --> 01:07:46,550
+right so now you know so so in
+
+1150
+01:07:42,710 --> 01:07:49,670
+JavaScript 2015 we got just one function
+
+1151
+01:07:46,550 --> 01:07:52,010
+that does you know generalized length of
+
+1152
+01:07:49,670 --> 01:07:55,790
+a vector so anyway and we have shown
+
+1153
+01:07:52,010 --> 01:07:58,730
+here so vector given a vector 1 1 the
+
+1154
+01:07:55,790 --> 01:08:02,270
+length is 1 point 4 1 which is basically
+
+1155
+01:07:58,730 --> 01:08:05,060
+square root of 2 and we can also compute
+
+1156
+01:08:02,270 --> 01:08:07,400
+you know another weight
+
+1157
+01:08:05,060 --> 01:08:19,240
+what's going on so we can compute that
+
+1158
+01:08:07,400 --> 01:08:19,240
+see if L let's compute what
+
+1159
+01:08:21,710 --> 01:08:29,690
+that okay so that's a three-dimensional
+
+1160
+01:08:25,320 --> 01:08:33,810
+vector 1 1 1 and the length is 1.73
+
+1161
+01:08:29,690 --> 01:08:36,750
+which is basically this formula okay
+
+1162
+01:08:33,810 --> 01:08:40,020
+basically the square root of 1 plus 1
+
+1163
+01:08:36,750 --> 01:08:43,110
+plus 1 the square root of 3 okay that's
+
+1164
+01:08:40,020 --> 01:08:45,960
+the length of vector now we are going to
+
+1165
+01:08:43,110 --> 01:08:49,230
+try to do rotation okay so the rotation
+
+1166
+01:08:45,960 --> 01:08:51,990
+let's go back member given a vector we
+
+1167
+01:08:49,230 --> 01:08:54,630
+want the rotate we want so how do you
+
+1168
+01:08:51,990 --> 01:09:03,960
+compute that I can tell you ok so the
+
+1169
+01:08:54,630 --> 01:09:05,970
+result is first of all ok before we do
+
+1170
+01:09:03,960 --> 01:09:09,300
+rotate we let's we need to write another
+
+1171
+01:09:05,970 --> 01:09:14,970
+function ok we write 2 we need to write
+
+1172
+01:09:09,300 --> 01:09:16,830
+another function called no more lies ok
+
+1173
+01:09:14,970 --> 01:09:18,870
+we need to write a function called
+
+1174
+01:09:16,830 --> 01:09:22,800
+normalize basically that means so if you
+
+1175
+01:09:18,870 --> 01:09:25,980
+have a vector now vector is the length
+
+1176
+01:09:22,800 --> 01:09:28,770
+okay now typically when you walk with
+
+1177
+01:09:25,980 --> 01:09:31,200
+vectors you often it's very convenient
+
+1178
+01:09:28,770 --> 01:09:33,180
+if you have a vector in the same
+
+1179
+01:09:31,200 --> 01:09:36,800
+direction but you want the length to be
+
+1180
+01:09:33,180 --> 01:09:39,450
+1 so you want to normalize the vector so
+
+1181
+01:09:36,800 --> 01:09:41,970
+create another vector that's the same in
+
+1182
+01:09:39,450 --> 01:09:44,400
+the same direction but however the
+
+1183
+01:09:41,970 --> 01:09:46,830
+length is only 1 why because when you
+
+1184
+01:09:44,400 --> 01:09:49,320
+have a unit vector that's called a unit
+
+1185
+01:09:46,830 --> 01:09:52,380
+vector okay when you have that it's much
+
+1186
+01:09:49,320 --> 01:09:55,530
+easier to work with it so the function
+
+1187
+01:09:52,380 --> 01:09:57,660
+to shrink a given vector to length 1
+
+1188
+01:09:55,530 --> 01:10:00,200
+vector but still pointing in the same
+
+1189
+01:09:57,660 --> 01:10:03,030
+direction that's called normalized a
+
+1190
+01:10:00,200 --> 01:10:07,110
+math jargon is called normalized okay
+
+1191
+01:10:03,030 --> 01:10:10,620
+and I have code here ok so I call it
+
+1192
+01:10:07,110 --> 01:10:18,380
+unit vector here so but mathematicians
+
+1193
+01:10:10,620 --> 01:10:18,380
+usually co-ed normalize so you can see
+
+1194
+01:10:20,030 --> 01:10:27,030
+so it returns a unit vector in the same
+
+1195
+01:10:23,340 --> 01:10:29,190
+direction so here is a code ok now by
+
+1196
+01:10:27,030 --> 01:10:33,720
+the way on the left window you see here
+
+1197
+01:10:29,190 --> 01:10:34,920
+they are typescript but you know I'm I'm
+
+1198
+01:10:33,720 --> 01:10:37,860
+trying to make it
+
+1199
+01:10:34,920 --> 01:10:47,160
+into plain JavaScript there it is okay
+
+1200
+01:10:37,860 --> 01:10:49,760
+here is a function unit vector okay so
+
+1201
+01:10:47,160 --> 01:10:49,760
+what is this
+
+1202
+01:10:53,209 --> 01:10:58,150
+okay here is a unit vector function
+
+1203
+01:11:00,550 --> 01:11:17,170
+returns the unit vector of V also known
+
+1204
+01:11:10,429 --> 01:11:21,760
+as normalize okay in fact let's look
+
+1205
+01:11:17,170 --> 01:11:26,090
+Wikipedia what normalized normalization
+
+1206
+01:11:21,760 --> 01:11:29,179
+means okay you can see science
+
+1207
+01:11:26,090 --> 01:11:32,590
+mathematics no moralization of an
+
+1208
+01:11:29,179 --> 01:11:38,170
+algebraic variety normalization of
+
+1209
+01:11:32,590 --> 01:11:43,099
+abstract rewriting normalization
+
+1210
+01:11:38,170 --> 01:11:44,989
+normalizing a vector there it is you
+
+1211
+01:11:43,099 --> 01:11:50,780
+know that's the definition okay so
+
+1212
+01:11:44,989 --> 01:11:52,999
+anyway it's very easy okay so actually
+
+1213
+01:11:50,780 --> 01:11:56,780
+the bunch of formulas I did before
+
+1214
+01:11:52,999 --> 01:11:59,539
+that's normalization so let's undo let's
+
+1215
+01:11:56,780 --> 01:12:03,499
+undo them all let's get back to the
+
+1216
+01:11:59,539 --> 01:12:06,939
+formula I had there we have it that's
+
+1217
+01:12:03,499 --> 01:12:17,360
+the that's my formula my friend that's
+
+1218
+01:12:06,939 --> 01:12:20,630
+now we need it back there it is so okay
+
+1219
+01:12:17,360 --> 01:12:25,459
+so let's hold on a second let's copy
+
+1220
+01:12:20,630 --> 01:12:34,059
+copy copy so we got the length then we
+
+1221
+01:12:25,459 --> 01:12:34,059
+got unit vector then we got then we got
+
+1222
+01:12:34,599 --> 01:12:39,459
+well okay so we'd here is
+
+1223
+01:12:44,190 --> 01:12:49,440
+oops hold on a second okay so here are
+
+1224
+01:12:54,840 --> 01:13:02,860
+so here is how you define a you get how
+
+1225
+01:12:59,710 --> 01:13:05,620
+here is how you get a unit vector so you
+
+1226
+01:13:02,860 --> 01:13:08,920
+normalize vector given a vector in two
+
+1227
+01:13:05,620 --> 01:13:11,950
+dimensions you divide each component by
+
+1228
+01:13:08,920 --> 01:13:27,300
+their length okay so now you can say
+
+1229
+01:13:11,950 --> 01:13:27,300
+actually by the length okay so we wait
+
+1230
+01:13:27,540 --> 01:13:35,560
+am i still makes sense okay I'm kind of
+
+1231
+01:13:31,720 --> 01:13:45,160
+get this is getting long and I'm not I'm
+
+1232
+01:13:35,560 --> 01:13:49,660
+not doing much so anyway so so you see
+
+1233
+01:13:45,160 --> 01:13:51,730
+this part let's see how long second so
+
+1234
+01:13:49,660 --> 01:13:54,550
+you see this part this is how we do it
+
+1235
+01:13:51,730 --> 01:13:56,890
+normally but because now we already have
+
+1236
+01:13:54,550 --> 01:14:03,340
+the length from length function so
+
+1237
+01:13:56,890 --> 01:14:06,730
+therefore we can write it this way you
+
+1238
+01:14:03,340 --> 01:14:10,300
+know but anyway so anyway so here is a
+
+1239
+01:14:06,730 --> 01:14:14,230
+normalization of a vector in 2d you just
+
+1240
+01:14:10,300 --> 01:14:16,510
+divide each component by their length so
+
+1241
+01:14:14,230 --> 01:14:20,140
+what you get is a vector in the same
+
+1242
+01:14:16,510 --> 01:14:23,260
+direction but the length is not one okay
+
+1243
+01:14:20,140 --> 01:14:27,730
+now for 3d vector it's the same okay and
+
+1244
+01:14:23,260 --> 01:14:30,700
+here is a 4d vector and in general you
+
+1245
+01:14:27,730 --> 01:14:35,200
+can write a function such that it can
+
+1246
+01:14:30,700 --> 01:14:37,060
+get you the unit length for any
+
+1247
+01:14:35,200 --> 01:14:41,440
+intervention or vector that's this line
+
+1248
+01:14:37,060 --> 01:14:45,670
+okay that is this line of code so first
+
+1249
+01:14:41,440 --> 01:14:47,680
+of all you say now this line of code is
+
+1250
+01:14:45,670 --> 01:14:53,200
+hard to read because I'm using nested
+
+1251
+01:14:47,680 --> 01:14:56,239
+function so so let me try to get so let
+
+1252
+01:14:53,200 --> 01:14:59,390
+me try to rewrite it okay so
+
+1253
+01:14:56,239 --> 01:15:09,320
+so unit vector let's let's say normalize
+
+1254
+01:14:59,390 --> 01:15:18,260
+vector okay now we are going to rewrite
+
+1255
+01:15:09,320 --> 01:15:27,260
+this function first of all give a
+
+1256
+01:15:18,260 --> 01:15:36,430
+bracket and give a constant length
+
+1257
+01:15:27,260 --> 01:15:36,430
+equals through that okay then
+
+1258
+01:15:49,890 --> 01:16:01,390
+this is how you would do it in a
+
+1259
+01:15:53,050 --> 01:16:04,380
+readable way okay now okay let's compare
+
+1260
+01:16:01,390 --> 01:16:07,360
+now these two functions this one and
+
+1261
+01:16:04,380 --> 01:16:12,390
+this one are the same okay hold on a
+
+1262
+01:16:07,360 --> 01:16:12,390
+second let me mean cream up my brackets
+
+1263
+01:16:12,510 --> 01:16:19,450
+these two functions are the same now the
+
+1264
+01:16:16,150 --> 01:16:22,420
+the one here is more readable so first
+
+1265
+01:16:19,450 --> 01:16:27,250
+of all you compute the length of the
+
+1266
+01:16:22,420 --> 01:16:30,990
+vector then for each component in a
+
+1267
+01:16:27,250 --> 01:16:34,090
+vector V you just map each component by
+
+1268
+01:16:30,990 --> 01:16:37,000
+divide you know each component by the
+
+1269
+01:16:34,090 --> 01:16:41,650
+length okay so basically this function
+
+1270
+01:16:37,000 --> 01:16:45,490
+is doing what all the others here are
+
+1271
+01:16:41,650 --> 01:16:47,200
+doing okay do I make sense now this is
+
+1272
+01:16:45,490 --> 01:16:54,870
+this video is getting long we haven't
+
+1273
+01:16:47,200 --> 01:17:02,230
+get to the then render function yeah so
+
+1274
+01:16:54,870 --> 01:17:06,940
+let's look at actually let's try it
+
+1275
+01:17:02,230 --> 01:17:11,710
+actually so let's look at my talk all
+
+1276
+01:17:06,940 --> 01:17:13,810
+the people is gone gone to dinner let's
+
+1277
+01:17:11,710 --> 01:17:19,270
+try it okay let's try this function so
+
+1278
+01:17:13,810 --> 01:17:22,720
+let's copy the line we can demonstrate
+
+1279
+01:17:19,270 --> 01:17:25,870
+that this works okay we define the
+
+1280
+01:17:22,720 --> 01:17:29,080
+function then we say normalized vector
+
+1281
+01:17:25,870 --> 01:17:35,860
+and now we give it a vector let's say
+
+1282
+01:17:29,080 --> 01:17:39,370
+three three three okay that returns
+
+1283
+01:17:35,860 --> 01:17:44,830
+something hard to understand well so
+
+1284
+01:17:39,370 --> 01:17:49,060
+let's try it again let's say three zero
+
+1285
+01:17:44,830 --> 01:17:51,160
+zero so that's let's say three zero then
+
+1286
+01:17:49,060 --> 01:17:53,620
+it returns one zero that makes sense
+
+1287
+01:17:51,160 --> 01:17:57,070
+because we have a vector that's length
+
+1288
+01:17:53,620 --> 01:18:00,970
+three now it's a vector of length one so
+
+1289
+01:17:57,070 --> 01:18:02,230
+I think this is taking too long so let's
+
+1290
+01:18:00,970 --> 01:18:06,130
+see how long
+
+1291
+01:18:02,230 --> 01:18:08,770
+I'm been talking so maybe that's it
+
+1292
+01:18:06,130 --> 01:18:11,620
+1 hour and 17 minutes yeah so it turns
+
+1293
+01:18:08,770 --> 01:18:14,739
+out you know it actually takes a lot to
+
+1294
+01:18:11,620 --> 01:18:16,540
+do this a lot of time to do this what
+
+1295
+01:18:14,739 --> 01:18:23,530
+what other things
+
+1296
+01:18:16,540 --> 01:18:25,630
+any any other comments questions oh yeah
+
+1297
+01:18:23,530 --> 01:18:28,960
+we haven't done rotation yet so I'm
+
+1298
+01:18:25,630 --> 01:18:32,260
+trying to we I'm trying to do rotation
+
+1299
+01:18:28,960 --> 01:18:35,050
+so the rotation will be let's let's
+
+1300
+01:18:32,260 --> 01:18:39,010
+finish this rotation ok so rotation of
+
+1301
+01:18:35,050 --> 01:18:41,520
+vector in 2d space will be first of all
+
+1302
+01:18:39,010 --> 01:18:41,520
+you get
+
+1303
+01:18:51,320 --> 01:19:03,080
+normalize the vector okay so first of
+
+1304
+01:18:54,150 --> 01:19:07,790
+all you normalize the vector constant
+
+1305
+01:19:03,080 --> 01:19:09,110
+unit vector equals to normalize it then
+
+1306
+01:19:07,790 --> 01:19:12,220
+you
+
+1307
+01:19:09,110 --> 01:19:12,220
+[Music]
+
+1308
+01:19:25,730 --> 01:19:29,360
+that's it should I do
+
+1309
+01:19:32,000 --> 01:19:38,490
+well I don't know I don't know this
+
+1310
+01:19:34,410 --> 01:19:41,850
+okay so Alan show you great normalize
+
+1311
+01:19:38,490 --> 01:19:46,530
+get so values between zero one no well
+
+1312
+01:19:41,850 --> 01:19:50,900
+yes that's true yes all the components
+
+1313
+01:19:46,530 --> 01:19:55,320
+will be less or equal to one for sure
+
+1314
+01:19:50,900 --> 01:19:59,430
+yeah basically you can think of it's a
+
+1315
+01:19:55,320 --> 01:20:03,000
+it's a vector on a circle or in free
+
+1316
+01:19:59,430 --> 01:20:08,780
+space it's a vector on the sphere so you
+
+1317
+01:20:03,000 --> 01:20:14,250
+know yeah so so now okay that that's
+
+1318
+01:20:08,780 --> 01:20:18,930
+encouragement Alan's here and so we need
+
+1319
+01:20:14,250 --> 01:20:24,080
+to do rotate should I actually rotate a
+
+1320
+01:20:18,930 --> 01:20:29,990
+vector actually we kind of getting now
+
+1321
+01:20:24,080 --> 01:20:35,220
+we this is getting kind of long and and
+
+1322
+01:20:29,990 --> 01:20:39,900
+I wonder how do we should I just either
+
+1323
+01:20:35,220 --> 01:20:42,000
+I finish the rotation on my own or we go
+
+1324
+01:20:39,900 --> 01:20:44,850
+to Wikipedia and look at the rotation
+
+1325
+01:20:42,000 --> 01:20:46,440
+formula so that that will save a lot of
+
+1326
+01:20:44,850 --> 01:20:50,580
+time to save us five minutes
+
+1327
+01:20:46,440 --> 01:20:53,400
+oh then then we look at what else we
+
+1328
+01:20:50,580 --> 01:20:57,180
+haven't covered you know that's probably
+
+1329
+01:20:53,400 --> 01:20:59,850
+gonna be it for today so I was going to
+
+1330
+01:20:57,180 --> 01:21:01,860
+explain that product and the explained
+
+1331
+01:20:59,850 --> 01:21:04,970
+cost for that that's not gonna happen
+
+1332
+01:21:01,860 --> 01:21:09,840
+and I was going to explain matrix
+
+1333
+01:21:04,970 --> 01:21:13,170
+multiplication we are just beginning to
+
+1334
+01:21:09,840 --> 01:21:16,680
+do that because first of all we explain
+
+1335
+01:21:13,170 --> 01:21:19,380
+matrix you know we you know we are doing
+
+1336
+01:21:16,680 --> 01:21:20,220
+live coding so we had we begin here
+
+1337
+01:21:19,380 --> 01:21:23,010
+already
+
+1338
+01:21:20,220 --> 01:21:25,980
+then we need to finish the rotation for
+
+1339
+01:21:23,010 --> 01:21:29,310
+mirror then I'm going to show you why it
+
+1340
+01:21:25,980 --> 01:21:32,400
+is a matrix then we you know you then
+
+1341
+01:21:29,310 --> 01:21:34,760
+you started to see why the matrix is a
+
+1342
+01:21:32,400 --> 01:21:36,929
+bunch of numbers row and columns you
+
+1343
+01:21:34,760 --> 01:21:38,999
+know it makes sense
+
+1344
+01:21:36,929 --> 01:21:42,840
+because once we finish the rotate
+
+1345
+01:21:38,999 --> 01:21:47,309
+formula then then we start to talk about
+
+1346
+01:21:42,840 --> 01:21:50,420
+matrix multiplication with vectors yeah
+
+1347
+01:21:47,309 --> 01:21:55,289
+but we haven't begin yet so it's already
+
+1348
+01:21:50,420 --> 01:21:58,229
+80 minutes no you don't need to
+
+1349
+01:21:55,289 --> 01:22:00,719
+normalize but you see yeah okay so let
+
+1350
+01:21:58,229 --> 01:22:05,550
+me let's this finished is normalized
+
+1351
+01:22:00,719 --> 01:22:08,039
+because why so why why am i normal yes
+
+1352
+01:22:05,550 --> 01:22:09,809
+why am i normalized because as I
+
+1353
+01:22:08,039 --> 01:22:11,340
+mentioned why do you normalize things
+
+1354
+01:22:09,809 --> 01:22:15,150
+why do you have this normalization
+
+1355
+01:22:11,340 --> 01:22:16,829
+because when you work with matrix I mean
+
+1356
+01:22:15,150 --> 01:22:20,820
+when when you work with you know
+
+1357
+01:22:16,829 --> 01:22:24,389
+complicated things in math usually you
+
+1358
+01:22:20,820 --> 01:22:26,219
+take them apart you componentize you
+
+1359
+01:22:24,389 --> 01:22:30,719
+know like programming modules you make
+
+1360
+01:22:26,219 --> 01:22:33,030
+them into you know components so you so
+
+1361
+01:22:30,719 --> 01:22:36,719
+when you think about rotation okay for
+
+1362
+01:22:33,030 --> 01:22:38,519
+example rotation now you have a you know
+
+1363
+01:22:36,719 --> 01:22:40,260
+let's say in two-dimensional space so
+
+1364
+01:22:38,519 --> 01:22:42,389
+you have a circle you big you know you
+
+1365
+01:22:40,260 --> 01:22:45,179
+start to think about a circle so you
+
+1366
+01:22:42,389 --> 01:22:49,860
+have let's say the simple simplest case
+
+1367
+01:22:45,179 --> 01:22:52,920
+of rotation is rotating a vector X 0 you
+
+1368
+01:22:49,860 --> 01:22:56,519
+know that's just x axis one unit you
+
+1369
+01:22:52,920 --> 01:22:58,860
+know so the the radius is one y one
+
+1370
+01:22:56,519 --> 01:23:01,320
+because what one one will multiply
+
+1371
+01:22:58,860 --> 01:23:04,739
+anything is anything you know it doesn't
+
+1372
+01:23:01,320 --> 01:23:08,340
+change so it's most easy to work with 1
+
+1373
+01:23:04,739 --> 01:23:10,709
+0 the vector so you rotate it by 10
+
+1374
+01:23:08,340 --> 01:23:14,280
+degrees actually we we can start to draw
+
+1375
+01:23:10,709 --> 01:23:17,039
+I need to get our game to draw you know
+
+1376
+01:23:14,280 --> 01:23:19,499
+so you do trigonometry and you'll see
+
+1377
+01:23:17,039 --> 01:23:22,439
+you'll begin to understand actually I
+
+1378
+01:23:19,499 --> 01:23:25,019
+should do it because that's the part of
+
+1379
+01:23:22,439 --> 01:23:27,959
+the ship yeah but we are getting too
+
+1380
+01:23:25,019 --> 01:23:31,559
+long though so anyway so two-dimensional
+
+1381
+01:23:27,959 --> 01:23:34,469
+rotation the easiest case is to think of
+
+1382
+01:23:31,559 --> 01:23:36,749
+the vector 1 0 you start to try to
+
+1383
+01:23:34,469 --> 01:23:39,179
+rotate at 10 degrees and then you draw
+
+1384
+01:23:36,749 --> 01:23:41,519
+you know take out your rulers and for
+
+1385
+01:23:39,179 --> 01:23:44,429
+trackers you draw it on a paper and you
+
+1386
+01:23:41,519 --> 01:23:46,920
+will see then then with the Pythagoras
+
+1387
+01:23:44,429 --> 01:23:49,679
+theorem you will find out the formula
+
+1388
+01:23:46,920 --> 01:23:51,650
+for rotating to do mean for rotating the
+
+1389
+01:23:49,679 --> 01:23:55,530
+vector 1 0
+
+1390
+01:23:51,650 --> 01:23:57,210
+then then you can start to generalize
+
+1391
+01:23:55,530 --> 01:23:59,850
+you know then you can start to
+
+1392
+01:23:57,210 --> 01:24:02,760
+generalize you can you can start to have
+
+1393
+01:23:59,850 --> 01:24:05,760
+a vector on the x axis that's not one
+
+1394
+01:24:02,760 --> 01:24:08,580
+okay let's say three zero you know start
+
+1395
+01:24:05,760 --> 01:24:13,740
+with a vector on the x axis and you can
+
+1396
+01:24:08,580 --> 01:24:15,450
+see for any vector that's scaling so so
+
+1397
+01:24:13,740 --> 01:24:17,970
+when you work with a vector on the x
+
+1398
+01:24:15,450 --> 01:24:22,530
+axis instead of you know you can begin
+
+1399
+01:24:17,970 --> 01:24:25,020
+with the sofa so you so that's why we
+
+1400
+01:24:22,530 --> 01:24:27,540
+need to find the length okay so you need
+
+1401
+01:24:25,020 --> 01:24:29,940
+to find the length of vector so because
+
+1402
+01:24:27,540 --> 01:24:33,840
+a vector it's just like you can think of
+
+1403
+01:24:29,940 --> 01:24:36,000
+it as a kind of elastic if you multiply
+
+1404
+01:24:33,840 --> 01:24:39,150
+a vector by a number let's say by three
+
+1405
+01:24:36,000 --> 01:24:42,240
+it just expanded by three like like zoom
+
+1406
+01:24:39,150 --> 01:24:44,910
+out or zoom in okay so if you time a
+
+1407
+01:24:42,240 --> 01:24:47,760
+number by four it just increased the
+
+1408
+01:24:44,910 --> 01:24:52,220
+length by four so when you have a vector
+
+1409
+01:24:47,760 --> 01:24:54,690
+of three that's simply the vector 1 0
+
+1410
+01:24:52,220 --> 01:24:58,830
+multiplied by 3 you see that's how you
+
+1411
+01:24:54,690 --> 01:25:01,290
+think about that so now so now with this
+
+1412
+01:24:58,830 --> 01:25:04,590
+idea now you know any vector in the pen
+
+1413
+01:25:01,290 --> 01:25:07,130
+you can just reduce them to the vectors
+
+1414
+01:25:04,590 --> 01:25:09,330
+on the circle unit vectors that's why
+
+1415
+01:25:07,130 --> 01:25:11,940
+that's why we are doing all this
+
+1416
+01:25:09,330 --> 01:25:13,320
+normalization that this is fundamental
+
+1417
+01:25:11,940 --> 01:25:18,270
+you know when you do linear algebra
+
+1418
+01:25:13,320 --> 01:25:23,760
+especially in programming you you always
+
+1419
+01:25:18,270 --> 01:25:25,770
+almost always work with unit vectors so
+
+1420
+01:25:23,760 --> 01:25:28,740
+you see the idea the idea is let me just
+
+1421
+01:25:25,770 --> 01:25:31,260
+repeat it one more time any vector into
+
+1422
+01:25:28,740 --> 01:25:35,040
+B to D okay let's begin with 2d any
+
+1423
+01:25:31,260 --> 01:25:36,870
+vector you can see the idea of scanning
+
+1424
+01:25:35,040 --> 01:25:39,000
+a vector a scanning a vector is just
+
+1425
+01:25:36,870 --> 01:25:42,110
+multiply its length in the same
+
+1426
+01:25:39,000 --> 01:25:44,730
+direction so once you know this then
+
+1427
+01:25:42,110 --> 01:25:50,940
+then you know that any vector can be
+
+1428
+01:25:44,730 --> 01:25:53,700
+reduced to the unit vector because any
+
+1429
+01:25:50,940 --> 01:25:55,920
+vector in space is simply its unit
+
+1430
+01:25:53,700 --> 01:25:59,550
+vector vector times the length of the
+
+1431
+01:25:55,920 --> 01:26:02,880
+vector so so now you can reduce
+
+1432
+01:25:59,550 --> 01:26:04,080
+everything to the unit vector then you
+
+1433
+01:26:02,880 --> 01:26:05,910
+just do any
+
+1434
+01:26:04,080 --> 01:26:08,280
+rotation or whatever with the unit
+
+1435
+01:26:05,910 --> 01:26:10,320
+vector then you just multiply by that
+
+1436
+01:26:08,280 --> 01:26:13,950
+number to get back to your original
+
+1437
+01:26:10,320 --> 01:26:17,010
+vector so that is why why I am trying to
+
+1438
+01:26:13,950 --> 01:26:20,700
+do the why I am trying to derive or
+
+1439
+01:26:17,010 --> 01:26:23,130
+create a rotation formula I want to
+
+1440
+01:26:20,700 --> 01:26:25,290
+first first of all get the unit vector
+
+1441
+01:26:23,130 --> 01:26:29,160
+to think about the rotation on the
+
+1442
+01:26:25,290 --> 01:26:32,310
+circle then Winston I simply multiply
+
+1443
+01:26:29,160 --> 01:26:36,390
+the whole thing by unit vector yeah so
+
+1444
+01:26:32,310 --> 01:26:41,100
+actually I know what to do so actually I
+
+1445
+01:26:36,390 --> 01:26:44,160
+want the length okay so here so let's
+
+1446
+01:26:41,100 --> 01:26:48,350
+yeah so now actually I'm able to do it
+
+1447
+01:26:44,160 --> 01:26:56,940
+constant function length equals to
+
+1448
+01:26:48,350 --> 01:27:01,590
+length of XY okay so hold on a second
+
+1449
+01:26:56,940 --> 01:27:08,130
+let's see if is correct actually we
+
+1450
+01:27:01,590 --> 01:27:10,560
+don't need that so in order to do this
+
+1451
+01:27:08,130 --> 01:27:13,380
+we need to write another okay so length
+
+1452
+01:27:10,560 --> 01:27:20,250
+so this is how it works okay actually
+
+1453
+01:27:13,380 --> 01:27:25,080
+here's the answer here here is our
+
+1454
+01:27:20,250 --> 01:27:28,020
+rotation formula for the for inner for
+
+1455
+01:27:25,080 --> 01:27:30,930
+planar vector so you are given a vector
+
+1456
+01:27:28,020 --> 01:27:34,020
+XY and you want to rotate it by alpha
+
+1457
+01:27:30,930 --> 01:27:36,720
+degrees so first of all like we talked
+
+1458
+01:27:34,020 --> 01:27:40,050
+about before about the idea of scaling
+
+1459
+01:27:36,720 --> 01:27:44,490
+so you don't worry about your vector I
+
+1460
+01:27:40,050 --> 01:27:47,190
+mean just think of just think of a
+
+1461
+01:27:44,490 --> 01:27:52,190
+vector in unit circle so that's just
+
+1462
+01:27:47,190 --> 01:27:52,190
+cosine sine okay so it's needs two DS
+
+1463
+01:27:55,590 --> 01:28:02,770
+so when you have a point on a circle
+
+1464
+01:27:59,489 --> 01:28:05,140
+that's rotated you know the unit vector
+
+1465
+01:28:02,770 --> 01:28:07,870
+1 0 rotated by alpha degrees that's a
+
+1466
+01:28:05,140 --> 01:28:09,880
+formula sine cosine it's simple simple
+
+1467
+01:28:07,870 --> 01:28:13,060
+the most basic trigonometry
+
+1468
+01:28:09,880 --> 01:28:15,640
+sine cosine that gives you so this thing
+
+1469
+01:28:13,060 --> 01:28:19,260
+you are seeing cosine sine that's the
+
+1470
+01:28:15,640 --> 01:28:22,180
+that's a point on the circle of radius 1
+
+1471
+01:28:19,260 --> 01:28:24,940
+rotated by alpha degrees okay that that
+
+1472
+01:28:22,180 --> 01:28:28,090
+gives you the vector then you multiply
+
+1473
+01:28:24,940 --> 01:28:32,350
+that post component by the length of
+
+1474
+01:28:28,090 --> 01:28:34,810
+your internal vector then you get the
+
+1475
+01:28:32,350 --> 01:28:38,860
+result of your wrote your vector rotated
+
+1476
+01:28:34,810 --> 01:28:40,810
+to you know that's how you do it so
+
+1477
+01:28:38,860 --> 01:28:44,230
+actually we don't need to normalize here
+
+1478
+01:28:40,810 --> 01:28:52,239
+so that that is formula so now so now
+
+1479
+01:28:44,230 --> 01:28:54,280
+you know the rotation formula now okay
+
+1480
+01:28:52,239 --> 01:29:04,030
+so we yeah we don't need the word we
+
+1481
+01:28:54,280 --> 01:29:06,640
+don't need to normalize it yeah so
+
+1482
+01:29:04,030 --> 01:29:09,160
+anyway so so here's a rotation formula
+
+1483
+01:29:06,640 --> 01:29:10,840
+so what do we go next let's see how long
+
+1484
+01:29:09,160 --> 01:29:15,160
+have we been talking that's it I think
+
+1485
+01:29:10,840 --> 01:29:16,989
+that's it that's too long it's long one
+
+1486
+01:29:15,160 --> 01:29:20,650
+hour and 30 minutes
+
+1487
+01:29:16,989 --> 01:29:28,540
+ok so let's summarize two or three more
+
+1488
+01:29:20,650 --> 01:29:31,060
+minutes maybe yeah yeah trick-trick nama
+
+1489
+01:29:28,540 --> 01:29:35,020
+tree yeah once you reduce things to
+
+1490
+01:29:31,060 --> 01:29:37,150
+things on a circle then it's just very
+
+1491
+01:29:35,020 --> 01:29:39,850
+basic trigonometry you know because the
+
+1492
+01:29:37,150 --> 01:29:43,000
+circle you have a circle of radius one
+
+1493
+01:29:39,850 --> 01:29:45,640
+everything is simple then because of the
+
+1494
+01:29:43,000 --> 01:29:47,290
+scaling idea so everything is just
+
+1495
+01:29:45,640 --> 01:29:50,260
+reduced to a circle then we just
+
+1496
+01:29:47,290 --> 01:29:55,170
+multiply by the length of the vector to
+
+1497
+01:29:50,260 --> 01:29:58,030
+get back to where we so okay so we
+
+1498
+01:29:55,170 --> 01:30:03,420
+that's it for today thank you guys for
+
+1499
+01:29:58,030 --> 01:30:06,850
+coming and we haven't get into matrix
+
+1500
+01:30:03,420 --> 01:30:08,620
+multiplication this is always more than
+
+1501
+01:30:06,850 --> 01:30:15,100
+I expected it takes
+
+1502
+01:30:08,620 --> 01:30:18,850
+a lot time to get onto but yeah we I
+
+1503
+01:30:15,100 --> 01:30:20,980
+wanted to write functions about you know
+
+1504
+01:30:18,850 --> 01:30:22,690
+I I have a bunch I want to write three
+
+1505
+01:30:20,980 --> 01:30:25,230
+dimensional functions of vector
+
+1506
+01:30:22,690 --> 01:30:28,540
+functions cross-product dot products
+
+1507
+01:30:25,230 --> 01:30:31,480
+matrix multiplication but we haven't get
+
+1508
+01:30:28,540 --> 01:30:33,940
+into thank you guys so so anyway anyway
+
+1509
+01:30:31,480 --> 01:30:36,480
+so that's it for maybe next time then I
+
+1510
+01:30:33,940 --> 01:30:39,070
+hope you guys got some ideas about
+
+1511
+01:30:36,480 --> 01:30:49,330
+matrixes you know if you have no idea
+
+1512
+01:30:39,070 --> 01:30:52,180
+about what they are at all my guys more
+
+1513
+01:30:49,330 --> 01:30:55,410
+topic for future shows yep Henderson
+
+1514
+01:30:52,180 --> 01:30:55,410
+yeah the spice must flow
+

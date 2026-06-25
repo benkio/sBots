@@ -1,0 +1,6424 @@
+1
+00:00:02,840 --> 00:00:15,540
+good morning everyone today is 2019
+
+2
+00:00:07,160 --> 00:00:19,289
+October 30th Wednesday feel crack 30
+
+3
+00:00:15,540 --> 00:00:25,050
+minutes after 3:00 in the afternoon San
+
+4
+00:00:19,289 --> 00:00:27,240
+Francisco time this is Startalk show and
+
+5
+00:00:25,050 --> 00:00:35,399
+today we are gonna we are going to do
+
+6
+00:00:27,240 --> 00:00:37,649
+JavaScript and JavaScript loop function
+
+7
+00:00:35,399 --> 00:00:47,460
+of programming style how do you do a
+
+8
+00:00:37,649 --> 00:00:56,430
+loop with break now my neighbor my
+
+9
+00:00:47,460 --> 00:00:58,489
+roommate is playing music services we
+
+10
+00:00:56,430 --> 00:01:04,530
+didn't hear the first 10 seconds of your
+
+11
+00:00:58,489 --> 00:01:11,189
+scream we I only started like four okay
+
+12
+00:01:04,530 --> 00:01:14,100
+the first 10 second okay okay so yeah
+
+13
+00:01:11,189 --> 00:01:16,680
+maybe next time I wait for 10 seconds no
+
+14
+00:01:14,100 --> 00:01:20,990
+but usually if you watch the video after
+
+15
+00:01:16,680 --> 00:01:23,610
+the livestream you see the full thing
+
+16
+00:01:20,990 --> 00:01:28,860
+good morning Emily good morning Bart
+
+17
+00:01:23,610 --> 00:01:31,890
+c'mon easy Tron crazy and mad so all you
+
+18
+00:01:28,860 --> 00:01:37,369
+guys are from Germany Germany except
+
+19
+00:01:31,890 --> 00:01:37,369
+Emily's from UK and good morning Freddie
+
+20
+00:01:39,760 --> 00:01:46,120
+so bar says about the gitlab retracting
+
+21
+00:01:43,900 --> 00:01:51,160
+tracking feature I don't know anything
+
+22
+00:01:46,120 --> 00:01:56,080
+about that so okay so let's just get on
+
+23
+00:01:51,160 --> 00:01:58,330
+with today's topic ten watching great so
+
+24
+00:01:56,080 --> 00:02:01,930
+today we're gonna let's just nits begin
+
+25
+00:01:58,330 --> 00:02:05,440
+then let's begin today's topic we are
+
+26
+00:02:01,930 --> 00:02:07,420
+going to talk about in functional
+
+27
+00:02:05,440 --> 00:02:09,460
+programming style how do you when you
+
+28
+00:02:07,420 --> 00:02:11,980
+when you need to do a loop but with a
+
+29
+00:02:09,460 --> 00:02:14,080
+break how do you do that in functional
+
+30
+00:02:11,980 --> 00:02:16,690
+for me and also we're going to talk
+
+31
+00:02:14,080 --> 00:02:20,830
+about functional programming map the map
+
+32
+00:02:16,690 --> 00:02:24,490
+function and some syntactic and semantic
+
+33
+00:02:20,830 --> 00:02:27,700
+issues of math these both of these
+
+34
+00:02:24,490 --> 00:02:30,670
+topics are related and we are going to
+
+35
+00:02:27,700 --> 00:02:35,710
+do it mostly in JavaScript with respect
+
+36
+00:02:30,670 --> 00:02:39,490
+to JavaScript so let's begin okay so
+
+37
+00:02:35,710 --> 00:02:43,300
+let's do a let's do age JavaScript end
+
+38
+00:02:39,490 --> 00:02:45,870
+okay so for example JavaScript good
+
+39
+00:02:43,300 --> 00:02:45,870
+morning Albert
+
+40
+00:02:47,610 --> 00:02:53,740
+good morning Kathy you in the middle of
+
+41
+00:02:51,220 --> 00:02:58,510
+saying time date when it started to show
+
+42
+00:02:53,740 --> 00:03:00,550
+okay I don't know why is that I think
+
+43
+00:02:58,510 --> 00:03:03,070
+that only happens in live stream because
+
+44
+00:03:00,550 --> 00:03:07,120
+if you watch the YouTube video after the
+
+45
+00:03:03,070 --> 00:03:11,020
+live stream is it seems full so if I do
+
+46
+00:03:07,120 --> 00:03:14,020
+wait for 5 or 10 seconds then possibly
+
+47
+00:03:11,020 --> 00:03:16,150
+the YouTube video will be you know the
+
+48
+00:03:14,020 --> 00:03:18,910
+first 5 seconds will have no sound and
+
+49
+00:03:16,150 --> 00:03:21,370
+that that is usually annoying and I
+
+50
+00:03:18,910 --> 00:03:22,780
+think most people will be watching you
+
+51
+00:03:21,370 --> 00:03:27,910
+know from the YouTube so I don't know
+
+52
+00:03:22,780 --> 00:03:33,000
+what to do yet we are see so we are
+
+53
+00:03:27,910 --> 00:03:33,000
+going to do JavaScript so first of all
+
+54
+00:03:34,080 --> 00:03:39,850
+JavaScript first of all we want to
+
+55
+00:03:37,150 --> 00:03:42,430
+create an array let's say from 0 to 10
+
+56
+00:03:39,850 --> 00:03:46,930
+now JavaScript is very annoying there's
+
+57
+00:03:42,430 --> 00:03:51,900
+no way to do it for but we can let me
+
+58
+00:03:46,930 --> 00:03:51,900
+show you ok so let's start
+
+59
+00:03:52,300 --> 00:03:58,610
+start command log mod so for you
+
+60
+00:03:56,090 --> 00:04:00,620
+those of you Emacs users and stuff like
+
+61
+00:03:58,610 --> 00:04:03,560
+key users you can see all my Emacs
+
+62
+00:04:00,620 --> 00:04:10,160
+commands on the Left window so we are
+
+63
+00:04:03,560 --> 00:04:15,830
+going to create a constant array and we
+
+64
+00:04:10,160 --> 00:04:19,310
+are going to create such as 0 1 2 1 2 3
+
+65
+00:04:15,830 --> 00:04:22,190
+we want to create array there is no way
+
+66
+00:04:19,310 --> 00:04:25,790
+to do that in JavaScript ok so let me
+
+67
+00:04:22,190 --> 00:04:29,240
+show you so let's say I ain't a a so
+
+68
+00:04:25,790 --> 00:04:31,730
+that works but if you want to do 1 to
+
+69
+00:04:29,240 --> 00:04:35,270
+100 you know it's tedious to write it
+
+70
+00:04:31,730 --> 00:04:40,070
+manually so one way to do it is you can
+
+71
+00:04:35,270 --> 00:04:43,790
+you can do this constant a2 and what you
+
+72
+00:04:40,070 --> 00:04:47,390
+do is this is a bit complicated and it's
+
+73
+00:04:43,790 --> 00:04:50,870
+using javascript ACMA script 2015
+
+74
+00:04:47,390 --> 00:05:01,900
+feature I'm going to explain so what you
+
+75
+00:04:50,870 --> 00:05:04,670
+say is I think let's say my keys okay
+
+76
+00:05:01,900 --> 00:05:06,250
+alright that's how you do it I think
+
+77
+00:05:04,670 --> 00:05:12,170
+let's try it
+
+78
+00:05:06,250 --> 00:05:17,560
+change a to doing it it works
+
+79
+00:05:12,170 --> 00:05:17,560
+wow I see something new here you see
+
+80
+00:05:18,460 --> 00:05:24,470
+this is new they they they started to
+
+81
+00:05:21,920 --> 00:05:27,650
+print it in two lines you see I haven't
+
+82
+00:05:24,470 --> 00:05:34,100
+noticed this before maybe because I
+
+83
+00:05:27,650 --> 00:05:38,510
+updated not yeah I guess last week or so
+
+84
+00:05:34,100 --> 00:05:41,840
+I update it not and anyway so this is
+
+85
+00:05:38,510 --> 00:05:44,210
+how you do a JavaScript array let's just
+
+86
+00:05:41,840 --> 00:05:51,280
+make it one line so this is how you
+
+87
+00:05:44,210 --> 00:05:51,280
+generate a way from it's going on
+
+88
+00:05:53,890 --> 00:06:05,050
+what something is going on here wait I
+
+89
+00:06:01,040 --> 00:06:05,050
+don't what
+
+90
+00:06:15,860 --> 00:06:30,420
+something is going on with my Emacs okay
+
+91
+00:06:25,620 --> 00:06:35,160
+this this this new not is having a
+
+92
+00:06:30,420 --> 00:06:41,660
+problems what is going on some hope you
+
+93
+00:06:35,160 --> 00:06:41,660
+learn your region so I try to watch
+
+94
+00:06:49,110 --> 00:06:56,069
+what is this character space so I'm
+
+95
+00:06:53,009 --> 00:07:04,169
+trying to copy this line but it does not
+
+96
+00:06:56,069 --> 00:07:06,030
+copy the whole line okay this WS what
+
+97
+00:07:04,169 --> 00:07:09,240
+the is this turbulence turnoff
+
+98
+00:07:06,030 --> 00:07:14,039
+minor mod delete n space
+
+99
+00:07:09,240 --> 00:07:17,909
+oh the wait that's why space mods so
+
+100
+00:07:14,039 --> 00:07:25,919
+turn that off and what is this term of
+
+101
+00:07:17,909 --> 00:07:28,349
+minor mod first four it's okay this is
+
+102
+00:07:25,919 --> 00:07:32,280
+frustrating today because we don't know
+
+103
+00:07:28,349 --> 00:07:38,520
+what's going on today this JavaScript
+
+104
+00:07:32,280 --> 00:07:43,229
+not returns in two lines okay let's make
+
+105
+00:07:38,520 --> 00:07:49,259
+it one line copy let's see something is
+
+106
+00:07:43,229 --> 00:07:58,050
+wrong I mean okay this is bad bad start
+
+107
+00:07:49,259 --> 00:08:03,810
+today hello beautiful people so we so we
+
+108
+00:07:58,050 --> 00:08:06,300
+are bad start today so we are trying to
+
+109
+00:08:03,810 --> 00:08:11,159
+generate array in JavaScript so this is
+
+110
+00:08:06,300 --> 00:08:12,810
+one way to do it okay so actually this
+
+111
+00:08:11,159 --> 00:08:16,710
+is one way to do it let's just continue
+
+112
+00:08:12,810 --> 00:08:21,990
+okay and but what if you want to array
+
+113
+00:08:16,710 --> 00:08:23,099
+let's say form from 10 to 20 now this
+
+114
+00:08:21,990 --> 00:08:25,229
+method cannot work
+
+115
+00:08:23,099 --> 00:08:30,139
+now how does this work let me tell you
+
+116
+00:08:25,229 --> 00:08:30,139
+how this works so arraign I is a
+
+117
+00:08:34,990 --> 00:08:41,590
+arrey night generates an array of nine
+
+118
+00:08:38,830 --> 00:08:44,020
+elements each element is zero ok
+
+119
+00:08:41,590 --> 00:08:45,640
+javascript is very complicated so let me
+
+120
+00:08:44,020 --> 00:08:50,560
+show you let's go to my JavaScript
+
+121
+00:08:45,640 --> 00:08:53,650
+tutorial not web dev JavaScript so you
+
+122
+00:08:50,560 --> 00:08:57,100
+go to my JavaScript tutorial and you go
+
+123
+00:08:53,650 --> 00:09:02,140
+to JavaScript reference then you go to
+
+124
+00:08:57,100 --> 00:09:06,670
+array array prototype not a repo type
+
+125
+00:09:02,140 --> 00:09:10,390
+array array so array here and you go to
+
+126
+00:09:06,670 --> 00:09:12,720
+array constructor so what is the array
+
+127
+00:09:10,390 --> 00:09:16,570
+constructor array constructor is just
+
+128
+00:09:12,720 --> 00:09:19,420
+this function array so I mean this
+
+129
+00:09:16,570 --> 00:09:22,050
+function array okay now this array
+
+130
+00:09:19,420 --> 00:09:25,510
+constructor is very complicated
+
+131
+00:09:22,050 --> 00:09:27,670
+extremely complicated because it depends
+
+132
+00:09:25,510 --> 00:09:31,300
+on what argument or how many argument
+
+133
+00:09:27,670 --> 00:09:33,730
+you feed to it the result will be
+
+134
+00:09:31,300 --> 00:09:36,310
+different for example if you say new
+
+135
+00:09:33,730 --> 00:09:40,330
+array something that's equivalent to
+
+136
+00:09:36,310 --> 00:09:42,970
+array itself without using the new this
+
+137
+00:09:40,330 --> 00:09:46,930
+is not always the case with with
+
+138
+00:09:42,970 --> 00:09:49,300
+constructors in Java Script so but but
+
+139
+00:09:46,930 --> 00:09:52,530
+if you for the array function that's the
+
+140
+00:09:49,300 --> 00:09:56,200
+case new or no new is equivalent
+
+141
+00:09:52,530 --> 00:09:58,930
+equivalent now if you call array without
+
+142
+00:09:56,200 --> 00:10:02,200
+any argument it returns on an empty
+
+143
+00:09:58,930 --> 00:10:13,510
+array now if you put away in where n is
+
+144
+00:10:02,200 --> 00:10:18,280
+an integer it will generate it will
+
+145
+00:10:13,510 --> 00:10:20,860
+generate an array with n slots however
+
+146
+00:10:18,280 --> 00:10:23,890
+each member is undefined
+
+147
+00:10:20,860 --> 00:10:30,100
+it basically just you know it just
+
+148
+00:10:23,890 --> 00:10:32,800
+generator away with what you call it
+
+149
+00:10:30,100 --> 00:10:35,050
+generates you know if you say array for
+
+150
+00:10:32,800 --> 00:10:38,290
+example if we say array nigh it
+
+151
+00:10:35,050 --> 00:10:40,480
+generator array of length 9 but each
+
+152
+00:10:38,290 --> 00:10:43,870
+element is actually there's no element
+
+153
+00:10:40,480 --> 00:10:47,110
+not even undefined so it's it's so this
+
+154
+00:10:43,870 --> 00:10:48,580
+for example okay so we are getting into
+
+155
+00:10:47,110 --> 00:10:51,430
+the extreme comfort
+
+156
+00:10:48,580 --> 00:10:54,339
+of JavaScript so what I've been trying
+
+157
+00:10:51,430 --> 00:10:56,980
+to say is that when you call this the
+
+158
+00:10:54,339 --> 00:11:13,329
+results when you call this for example
+
+159
+00:10:56,980 --> 00:11:18,430
+the result is different from lots of
+
+160
+00:11:13,329 --> 00:11:20,980
+problems to today so the result of that
+
+161
+00:11:18,430 --> 00:11:25,649
+is different from that rather the result
+
+162
+00:11:20,980 --> 00:11:29,500
+of this is that okay
+
+163
+00:11:25,649 --> 00:11:33,610
+you have very complex and it and and
+
+164
+00:11:29,500 --> 00:11:36,850
+these two are different so that is a way
+
+165
+00:11:33,610 --> 00:11:39,399
+ain't that that's what it returns but if
+
+166
+00:11:36,850 --> 00:11:42,490
+you call array with multiple elements
+
+167
+00:11:39,399 --> 00:11:46,089
+then it's it's basically exactly the
+
+168
+00:11:42,490 --> 00:11:48,430
+same as a literal expression of array so
+
+169
+00:11:46,089 --> 00:11:51,190
+you see that's the array constructor and
+
+170
+00:11:48,430 --> 00:11:56,680
+and there's no way to generate array
+
+171
+00:11:51,190 --> 00:11:58,870
+with element 0 1 2 3 4 so on so but
+
+172
+00:11:56,680 --> 00:11:59,440
+anyway let's get back to how does this
+
+173
+00:11:58,870 --> 00:12:01,839
+work
+
+174
+00:11:59,440 --> 00:12:02,620
+so this generates array with nine
+
+175
+00:12:01,839 --> 00:12:07,110
+elements
+
+176
+00:12:02,620 --> 00:12:10,450
+well nice lots each one is not it's not
+
+177
+00:12:07,110 --> 00:12:13,540
+it's not even field not even undefined
+
+178
+00:12:10,450 --> 00:12:17,529
+so that is that it generates array of
+
+179
+00:12:13,540 --> 00:12:21,640
+nice lots then the method key will
+
+180
+00:12:17,529 --> 00:12:26,980
+return the index of the array so in this
+
+181
+00:12:21,640 --> 00:12:31,839
+case will be 0 to 0 to 8 so that's this
+
+182
+00:12:26,980 --> 00:12:35,020
+part then the these three dots is called
+
+183
+00:12:31,839 --> 00:12:39,490
+spread operator in JavaScript what it
+
+184
+00:12:35,020 --> 00:12:43,089
+does is that it takes an operand to the
+
+185
+00:12:39,490 --> 00:12:45,130
+right of it and that operand must be a
+
+186
+00:12:43,089 --> 00:12:50,680
+iterable in JavaScript
+
+187
+00:12:45,130 --> 00:12:53,170
+okay now array is a eatable object so so
+
+188
+00:12:50,680 --> 00:12:57,120
+when you put spread operator to an
+
+189
+00:12:53,170 --> 00:13:00,250
+iterable object the result is a
+
+190
+00:12:57,120 --> 00:13:02,970
+basically it turns that eatable object
+
+191
+00:13:00,250 --> 00:13:06,250
+into a actual array
+
+192
+00:13:02,970 --> 00:13:08,950
+now in this case arrays already are
+
+193
+00:13:06,250 --> 00:13:11,470
+iterable so when what happens when you
+
+194
+00:13:08,950 --> 00:13:14,620
+turn it into an actuary it's your array
+
+195
+00:13:11,470 --> 00:13:17,260
+so it doesn't make it much sense so
+
+196
+00:13:14,620 --> 00:13:25,120
+basically the end result of this this
+
+197
+00:13:17,260 --> 00:13:27,430
+expression is just that okay so how do I
+
+198
+00:13:25,120 --> 00:13:30,519
+evaluate JavaScript well I have this
+
+199
+00:13:27,430 --> 00:13:34,120
+function okay so you can you can get it
+
+200
+00:13:30,519 --> 00:13:36,250
+for my website let's call it let's see
+
+201
+00:13:34,120 --> 00:13:38,860
+what's the name of the function so the
+
+202
+00:13:36,250 --> 00:13:42,610
+the function name is this Saru and
+
+203
+00:13:38,860 --> 00:13:46,029
+current file and it's defined in sawfly
+
+204
+00:13:42,610 --> 00:13:49,630
+keys and you can also get it on my
+
+205
+00:13:46,029 --> 00:13:51,790
+website here showing browser so you if
+
+206
+00:13:49,630 --> 00:13:54,300
+you search for Lanka and file you can
+
+207
+00:13:51,790 --> 00:13:56,829
+get that command that's how I run
+
+208
+00:13:54,300 --> 00:14:00,579
+JavaScript in Emacs
+
+209
+00:13:56,829 --> 00:14:04,450
+you just put this in your init file and
+
+210
+00:14:00,579 --> 00:14:10,690
+make sure you have not jazz installed
+
+211
+00:14:04,450 --> 00:14:16,450
+and it will work okay so that is array
+
+212
+00:14:10,690 --> 00:14:26,070
+so we're getting we are not getting I'm
+
+213
+00:14:16,450 --> 00:14:29,079
+I'm I'm not doing so first thing
+
+214
+00:14:26,070 --> 00:14:30,850
+generating array in JavaScript okay
+
+215
+00:14:29,079 --> 00:14:33,870
+we're gonna get to the thing we want to
+
+216
+00:14:30,850 --> 00:14:33,870
+talk about in a moment
+
+217
+00:14:34,350 --> 00:14:52,910
+so array constructor the complex piece
+
+218
+00:14:44,440 --> 00:15:00,680
+of JavaScript array constructor okay
+
+219
+00:14:52,910 --> 00:15:03,050
+there is no built-in range function okay
+
+220
+00:15:00,680 --> 00:15:07,160
+so here are some of the things we
+
+221
+00:15:03,050 --> 00:15:15,490
+covered so far there is no building
+
+222
+00:15:07,160 --> 00:15:20,180
+range function in JavaScript okay then
+
+223
+00:15:15,490 --> 00:15:23,089
+then let's go back to the code here so
+
+224
+00:15:20,180 --> 00:15:26,029
+there is no building function so what
+
+225
+00:15:23,089 --> 00:15:29,660
+what do you how do you write a range
+
+226
+00:15:26,029 --> 00:15:33,310
+function the most efficient way let me
+
+227
+00:15:29,660 --> 00:15:33,310
+show you the most efficient way to
+
+228
+00:15:39,910 --> 00:15:56,630
+create a array with range function is by
+
+229
+00:15:53,269 --> 00:15:59,839
+using a loop surprise so let me show you
+
+230
+00:15:56,630 --> 00:16:08,110
+how to do that so we're gonna do suppose
+
+231
+00:15:59,839 --> 00:16:18,699
+we want to we want suppose we want range
+
+232
+00:16:08,110 --> 00:16:22,880
+3 9 2 let's say 3 22 let's say Mean Max
+
+233
+00:16:18,699 --> 00:16:26,000
+step we want this function so I'm going
+
+234
+00:16:22,880 --> 00:16:28,810
+to define this function range so let's
+
+235
+00:16:26,000 --> 00:16:34,819
+see how we do it
+
+236
+00:16:28,810 --> 00:16:39,920
+constant arrow function range and the
+
+237
+00:16:34,819 --> 00:16:45,060
+input should be two values main max step
+
+238
+00:16:39,920 --> 00:16:47,889
+and the function will be first of all u
+
+239
+00:16:45,060 --> 00:16:55,300
+[Music]
+
+240
+00:16:47,889 --> 00:16:58,300
+max minus min divided by step and
+
+241
+00:16:55,300 --> 00:16:58,300
+math.floor
+
+242
+00:17:01,490 --> 00:17:18,720
+that is increment that is steps that is
+
+243
+00:17:09,810 --> 00:17:21,480
+in okay so that is a number of steps you
+
+244
+00:17:18,720 --> 00:17:25,199
+need to do so actually this is interval
+
+245
+00:17:21,480 --> 00:17:29,100
+so step is interval and n is the total
+
+246
+00:17:25,199 --> 00:17:38,580
+of steps you need to do so we create a
+
+247
+00:17:29,100 --> 00:17:45,210
+loop for of loop so first of all we
+
+248
+00:17:38,580 --> 00:17:52,160
+define our way constant result empty
+
+249
+00:17:45,210 --> 00:18:00,350
+array okay then for each number for
+
+250
+00:17:52,160 --> 00:18:05,990
+actually for loop not four of four
+
+251
+00:18:00,350 --> 00:18:05,990
+that's right for loop so for loop
+
+252
+00:18:07,970 --> 00:18:14,580
+no indian-style that's right actually I
+
+253
+00:18:11,250 --> 00:18:17,280
+don't have my I'm using such of escape
+
+254
+00:18:14,580 --> 00:18:19,620
+mod and I don't have
+
+255
+00:18:17,280 --> 00:18:24,750
+I haven't implemented the indentation
+
+256
+00:18:19,620 --> 00:18:27,120
+yet so that's a pain actually because
+
+257
+00:18:24,750 --> 00:18:29,570
+the way I wanted is that I want to press
+
+258
+00:18:27,120 --> 00:18:32,820
+the key and the whole buffer will be
+
+259
+00:18:29,570 --> 00:18:35,070
+reformatted I don't want manually you
+
+260
+00:18:32,820 --> 00:18:37,860
+know I can I can intend you know I can I
+
+261
+00:18:35,070 --> 00:18:39,540
+can like manually in turn each time but
+
+262
+00:18:37,860 --> 00:18:42,840
+I don't want to do that I want to press
+
+263
+00:18:39,540 --> 00:18:44,310
+a key the whole block of code such as in
+
+264
+00:18:42,840 --> 00:18:47,670
+this case the whole thing will be
+
+265
+00:18:44,310 --> 00:18:50,550
+indented I haven't implemented that yet
+
+266
+00:18:47,670 --> 00:18:51,930
+so so anyway so constant range we're
+
+267
+00:18:50,550 --> 00:18:56,580
+going to create a range function to
+
+268
+00:18:51,930 --> 00:19:01,080
+generate array and constant so this is
+
+269
+00:18:56,580 --> 00:19:07,640
+number steps so this is result so for I
+
+270
+00:19:01,080 --> 00:19:10,490
+equal I from zero to less than n I
+
+271
+00:19:07,640 --> 00:19:17,080
+increment then
+
+272
+00:19:10,490 --> 00:19:17,080
+for each of that resort that push
+
+273
+00:19:24,210 --> 00:19:38,710
+push me plus I times step okay that that
+
+274
+00:19:34,780 --> 00:19:43,170
+is I believe that is what we want to do
+
+275
+00:19:38,710 --> 00:19:51,000
+we push to the result so when it's done
+
+276
+00:19:43,170 --> 00:19:52,150
+return result stupid JavaScript with be
+
+277
+00:19:51,000 --> 00:19:57,960
+okay
+
+278
+00:19:52,150 --> 00:20:02,140
+so that is function let's try it range
+
+279
+00:19:57,960 --> 00:20:08,800
+wrench ten to twenty instead in step up
+
+280
+00:20:02,140 --> 00:20:15,870
+to console.log printed run it arrow
+
+281
+00:20:08,800 --> 00:20:21,820
+math.floor incorrect F L oh oh oh are
+
+282
+00:20:15,870 --> 00:20:25,780
+one too many oh one perfect
+
+283
+00:20:21,820 --> 00:20:30,190
+you see perfect ten twelve fourteen
+
+284
+00:20:25,780 --> 00:20:32,650
+sixteen eighteen that's what we want you
+
+285
+00:20:30,190 --> 00:20:35,530
+see this is one shot codeine no trial
+
+286
+00:20:32,650 --> 00:20:39,310
+and error because you understand the
+
+287
+00:20:35,530 --> 00:20:42,220
+language well coded one shot you studied
+
+288
+00:20:39,310 --> 00:20:44,350
+for ten years then you coded one time
+
+289
+00:20:42,220 --> 00:20:47,860
+and it's correct let's try another
+
+290
+00:20:44,350 --> 00:20:54,690
+example one to two in step in step of
+
+291
+00:20:47,860 --> 00:20:54,690
+zero point to run it perfect
+
+292
+00:20:56,040 --> 00:21:05,710
+well so anyway that's how you generate
+
+293
+00:21:03,250 --> 00:21:07,650
+our way okay so I actually I have this
+
+294
+00:21:05,710 --> 00:21:13,120
+written already
+
+295
+00:21:07,650 --> 00:21:20,370
+you go to JavaScript tutorial web dev
+
+296
+00:21:13,120 --> 00:21:24,580
+tutorial JavaScript you go to array
+
+297
+00:21:20,370 --> 00:21:28,870
+understanding JavaScript array array how
+
+298
+00:21:24,580 --> 00:21:31,300
+to range function to generate array so
+
+299
+00:21:28,870 --> 00:21:33,460
+there it is now remember we mentioned
+
+300
+00:21:31,300 --> 00:21:35,990
+this method the first method the problem
+
+301
+00:21:33,460 --> 00:21:41,300
+with the first method he
+
+302
+00:21:35,990 --> 00:21:43,670
+is that it can its it it only does you
+
+303
+00:21:41,300 --> 00:21:48,500
+know it the it begin with you cannot
+
+304
+00:21:43,670 --> 00:21:50,840
+specify starting number and you know
+
+305
+00:21:48,500 --> 00:21:55,130
+ending you cannot specify a wrench you
+
+306
+00:21:50,840 --> 00:21:57,740
+know can you specify a in turbo you can
+
+307
+00:21:55,130 --> 00:22:01,520
+only say you know you will start from 0
+
+308
+00:21:57,740 --> 00:22:03,170
+and integer only so therefore that's why
+
+309
+00:22:01,520 --> 00:22:06,290
+you need to write a function in
+
+310
+00:22:03,170 --> 00:22:09,920
+JavaScript JavaScript sucks in so many
+
+311
+00:22:06,290 --> 00:22:11,780
+ways and this is this is one way it
+
+312
+00:22:09,920 --> 00:22:14,510
+sucks it does not have a building
+
+313
+00:22:11,780 --> 00:22:17,090
+function to be other array so typically
+
+314
+00:22:14,510 --> 00:22:19,580
+in web programming community you have
+
+315
+00:22:17,090 --> 00:22:22,160
+you know low - no - has a function do
+
+316
+00:22:19,580 --> 00:22:25,130
+that you load other libraries like 5
+
+317
+00:22:22,160 --> 00:22:27,860
+lines for example for example I I have
+
+318
+00:22:25,130 --> 00:22:32,270
+this code now I'm going to push this to
+
+319
+00:22:27,860 --> 00:22:36,410
+NPM and other people's can download my
+
+320
+00:22:32,270 --> 00:22:40,040
+library to generate a rape so anyway
+
+321
+00:22:36,410 --> 00:22:42,530
+that's that's a rate range okay that's
+
+322
+00:22:40,040 --> 00:22:44,600
+how you do it so the complexity so hold
+
+323
+00:22:42,530 --> 00:22:48,860
+on a second so the complexity of
+
+324
+00:22:44,600 --> 00:22:53,210
+JavaScript let me copy let me cut that
+
+325
+00:22:48,860 --> 00:22:57,640
+okay so let me put the JavaScript code
+
+326
+00:22:53,210 --> 00:23:00,500
+paste it here color it showing browser
+
+327
+00:22:57,640 --> 00:23:04,190
+so we cover this generating array in
+
+328
+00:23:00,500 --> 00:23:06,860
+JavaScript they are you know there's no
+
+329
+00:23:04,190 --> 00:23:08,810
+building function and we covered the
+
+330
+00:23:06,860 --> 00:23:13,850
+JavaScript the complexities of
+
+331
+00:23:08,810 --> 00:23:17,780
+JavaScript array constructor you know
+
+332
+00:23:13,850 --> 00:23:21,050
+it's it's it's very bad then we covered
+
+333
+00:23:17,780 --> 00:23:24,230
+know billion function - yeah so we cover
+
+334
+00:23:21,050 --> 00:23:24,820
+that okay let's get on to the next
+
+335
+00:23:24,230 --> 00:23:30,430
+problem
+
+336
+00:23:24,820 --> 00:23:30,430
+the next problem we want to do is
+
+337
+00:23:33,600 --> 00:23:41,370
+the next problem we want to do is we are
+
+338
+00:23:37,210 --> 00:23:44,170
+talking about loop so the question is
+
+339
+00:23:41,370 --> 00:23:46,540
+typically when you want you want to do a
+
+340
+00:23:44,170 --> 00:23:50,740
+loop for example we have a loop here we
+
+341
+00:23:46,540 --> 00:23:52,660
+have a for each loop but if you are
+
+342
+00:23:50,740 --> 00:23:55,300
+writing a functional programming style
+
+343
+00:23:52,660 --> 00:23:59,020
+that's not what you want you rather want
+
+344
+00:23:55,300 --> 00:24:02,260
+you you don't want to you know do the
+
+345
+00:23:59,020 --> 00:24:04,780
+increment you know this this Inc you
+
+346
+00:24:02,260 --> 00:24:07,270
+know these minor steps you want to Co a
+
+347
+00:24:04,780 --> 00:24:12,640
+function that do them in one shot such
+
+348
+00:24:07,270 --> 00:24:15,670
+as map however there is a problem let's
+
+349
+00:24:12,640 --> 00:24:20,860
+show the problem okay so that's D D D D
+
+350
+00:24:15,670 --> 00:24:27,100
+D D that three that DV that so that us
+
+351
+00:24:20,860 --> 00:24:34,870
+we want to do a loop and okay first of
+
+352
+00:24:27,100 --> 00:24:39,390
+all range let's say zero to ten
+
+353
+00:24:34,870 --> 00:24:39,390
+okay console.log
+
+354
+00:24:45,470 --> 00:24:52,350
+so that's what we want wait this is
+
+355
+00:24:49,800 --> 00:24:56,090
+spooking me I don't understand there is
+
+356
+00:24:52,350 --> 00:24:56,090
+something wrong here that
+
+357
+00:25:05,470 --> 00:25:18,129
+command log mod a brief softride keys
+
+358
+00:25:09,970 --> 00:25:22,950
+what is his summation process okay
+
+359
+00:25:18,129 --> 00:25:28,179
+anyway so so we are creating a range
+
+360
+00:25:22,950 --> 00:25:36,399
+from zero to ten actually this should be
+
+361
+00:25:28,179 --> 00:25:39,210
+first one math.floor actually that may
+
+362
+00:25:36,399 --> 00:25:39,210
+not be right
+
+363
+00:25:45,770 --> 00:25:54,500
+yeah there is there is something wrong
+
+364
+00:25:47,870 --> 00:25:59,480
+with the for some reason I cannot copy
+
+365
+00:25:54,500 --> 00:26:14,120
+them I mean this is something with my
+
+366
+00:25:59,480 --> 00:26:17,750
+Emacs here let's quit Emacs it start
+
+367
+00:26:14,120 --> 00:26:22,160
+Emacs oh because is it because I'm in
+
+368
+00:26:17,750 --> 00:26:28,720
+Emacs 26.3 I just upgraded like
+
+369
+00:26:22,160 --> 00:26:28,720
+yesterday okay so let's check some
+
+370
+00:26:34,420 --> 00:26:43,990
+so what is that that's Haskell I was
+
+371
+00:26:38,620 --> 00:26:56,310
+safe or let in I plus first oh yeah I
+
+372
+00:26:43,990 --> 00:27:00,670
+got it wrong wait I forgot know what I
+
+373
+00:26:56,310 --> 00:27:02,890
+don't know I just you know this this
+
+374
+00:27:00,670 --> 00:27:06,880
+code is solid okay whatever I code it
+
+375
+00:27:02,890 --> 00:27:08,950
+there this code minus or equal to total
+
+376
+00:27:06,880 --> 00:27:17,380
+steps yeah it should be minus or equal
+
+377
+00:27:08,950 --> 00:27:19,000
+to total steps okay I need to relax I'm
+
+378
+00:27:17,380 --> 00:27:21,240
+not doing something is I'm not doing
+
+379
+00:27:19,000 --> 00:27:26,230
+something right something is wrong here
+
+380
+00:27:21,240 --> 00:27:29,320
+but let's just look at do I still have
+
+381
+00:27:26,230 --> 00:27:35,370
+the problem of copy paste yes I still
+
+382
+00:27:29,320 --> 00:27:42,490
+have the problem of that so let's quit
+
+383
+00:27:35,370 --> 00:27:45,220
+let's switch switch to Emacs old version
+
+384
+00:27:42,490 --> 00:27:48,460
+twenty six point two and one twenty six
+
+385
+00:27:45,220 --> 00:27:53,200
+point three let's see if that happens
+
+386
+00:27:48,460 --> 00:27:54,160
+again you see the problem is that I have
+
+387
+00:27:53,200 --> 00:27:58,870
+a key let's try it
+
+388
+00:27:54,160 --> 00:28:02,230
+okay so magnify run it okay it looks
+
+389
+00:27:58,870 --> 00:28:05,170
+like same problem looks like this is a
+
+390
+00:28:02,230 --> 00:28:07,600
+Java this is not jeaious of great
+
+391
+00:28:05,170 --> 00:28:15,240
+problem you see what happens is that
+
+392
+00:28:07,600 --> 00:28:15,240
+normally let's let's try this five okay
+
+393
+00:28:18,080 --> 00:28:27,260
+oh you see normally the whole thing will
+
+394
+00:28:23,269 --> 00:28:29,510
+be in one line but for some reason
+
+395
+00:28:27,260 --> 00:28:33,010
+because maybe because my not jeaious
+
+396
+00:28:29,510 --> 00:28:36,500
+upgrade or maybe because my Emacs update
+
+397
+00:28:33,010 --> 00:28:38,480
+now it becomes two lines okay that's
+
+398
+00:28:36,500 --> 00:28:40,730
+fine but we can make it one into one
+
+399
+00:28:38,480 --> 00:28:46,370
+line and now I want to copy your line
+
+400
+00:28:40,730 --> 00:28:49,730
+copy this line saw start command log mod
+
+401
+00:28:46,370 --> 00:28:53,450
+okay so to copy this line I normally
+
+402
+00:28:49,730 --> 00:28:55,610
+press a key I press a key Sarkozy Lionel
+
+403
+00:28:53,450 --> 00:28:56,990
+region the whole line should be copied
+
+404
+00:28:55,610 --> 00:28:59,769
+but that's not the case
+
+405
+00:28:56,990 --> 00:29:03,230
+you see if I paste here I got just that
+
+406
+00:28:59,769 --> 00:29:05,600
+that's incorrect so apparently it
+
+407
+00:29:03,230 --> 00:29:09,620
+depends where is my cursor now I copy
+
+408
+00:29:05,600 --> 00:29:11,240
+the it now I paste it it's easy it's
+
+409
+00:29:09,620 --> 00:29:15,350
+wrong so let's try it again
+
+410
+00:29:11,240 --> 00:29:21,320
+copy paste you see it's supposed to copy
+
+411
+00:29:15,350 --> 00:29:26,139
+the whole line but I have no idea what
+
+412
+00:29:21,320 --> 00:29:28,279
+what is going on so that is frustrating
+
+413
+00:29:26,139 --> 00:29:34,100
+something I have to figure out something
+
+414
+00:29:28,279 --> 00:29:38,120
+in Emacs let's see did I modify my code
+
+415
+00:29:34,100 --> 00:29:44,750
+by mistake stock up here on your region
+
+416
+00:29:38,120 --> 00:29:51,289
+I don't think so and you know that is
+
+417
+00:29:44,750 --> 00:29:56,269
+why I'm trying to find out turn on turn
+
+418
+00:29:51,289 --> 00:30:00,200
+on the show space white space mod let's
+
+419
+00:29:56,269 --> 00:30:06,909
+compact the line copy again it does is
+
+420
+00:30:00,200 --> 00:30:10,789
+not working okay let's let's look at
+
+421
+00:30:06,909 --> 00:30:17,809
+message buffer to see if are we getting
+
+422
+00:30:10,789 --> 00:30:22,039
+any errors let's copy again copy the
+
+423
+00:30:17,809 --> 00:30:24,380
+line you see if you see if I move the
+
+424
+00:30:22,039 --> 00:30:27,529
+cursor anywhere I can press a key to
+
+425
+00:30:24,380 --> 00:30:29,809
+copy your line and I can paste you got
+
+426
+00:30:27,529 --> 00:30:31,850
+the full line I can leave from if my
+
+427
+00:30:29,809 --> 00:30:34,820
+cursor is here I press a
+
+428
+00:30:31,850 --> 00:30:38,750
+to copy the line and I paste it's a full
+
+429
+00:30:34,820 --> 00:30:41,990
+line but when Wayne's over here I copy
+
+430
+00:30:38,750 --> 00:30:43,880
+the line something is wrong there you
+
+431
+00:30:41,990 --> 00:30:50,929
+see I go back here I paste I don't get
+
+432
+00:30:43,880 --> 00:30:54,020
+the full thing copy the line okay so
+
+433
+00:30:50,929 --> 00:30:59,150
+this talk is good should should I
+
+434
+00:30:54,020 --> 00:31:02,240
+continue fixing this problem the time to
+
+435
+00:30:59,150 --> 00:31:05,620
+switch two years code I don't know what
+
+436
+00:31:02,240 --> 00:31:09,530
+the is going on with this so if I
+
+437
+00:31:05,620 --> 00:31:12,020
+copy the whole buffer you see that works
+
+438
+00:31:09,530 --> 00:31:16,030
+now maybe it's because I'm in different
+
+439
+00:31:12,020 --> 00:31:19,490
+ma let's switch to text mod okay
+
+440
+00:31:16,030 --> 00:31:27,370
+magnify copy that I you see still
+
+441
+00:31:19,490 --> 00:31:27,370
+doesn't work what is this character coma
+
+442
+00:31:30,690 --> 00:31:38,570
+what is this character called 1:46
+
+443
+00:31:38,929 --> 00:31:46,909
+period what is this character space
+
+444
+00:31:52,700 --> 00:32:03,999
+what is this character copy is a copy
+
+445
+00:32:00,350 --> 00:32:03,999
+this is wrong copy
+
+446
+00:32:17,729 --> 00:32:23,529
+very annoying
+
+447
+00:32:19,509 --> 00:32:34,209
+I think definitely something wrong with
+
+448
+00:32:23,529 --> 00:32:35,919
+it okay let's let's go on then let me
+
+449
+00:32:34,209 --> 00:32:38,709
+get a drink and let's go on this and
+
+450
+00:32:35,919 --> 00:32:41,159
+let's keep going on it's let's read the
+
+451
+00:32:38,709 --> 00:32:41,159
+comments
+
+452
+00:32:53,880 --> 00:32:58,919
+you are in the middle of saying time
+
+453
+00:32:55,620 --> 00:33:00,480
+date when he started to show okay Kathy
+
+454
+00:32:58,919 --> 00:33:02,880
+would you be nice everyone hello
+
+455
+00:33:00,480 --> 00:33:06,510
+beautiful are we doing the JavaScript
+
+456
+00:33:02,880 --> 00:33:09,860
+today yes kind of how are you evaluating
+
+457
+00:33:06,510 --> 00:33:13,830
+a JavaScript okay sounds like it's not
+
+458
+00:33:09,860 --> 00:33:16,500
+that evaluated yes so all the window
+
+459
+00:33:13,830 --> 00:33:18,570
+blah probably won't work the same but
+
+460
+00:33:16,500 --> 00:33:22,890
+good for server-side and just JavaScript
+
+461
+00:33:18,570 --> 00:33:26,220
+language stuff signature no intense
+
+462
+00:33:22,890 --> 00:33:29,490
+style equivalent to go format maybe you
+
+463
+00:33:26,220 --> 00:33:31,679
+can review competing options yes he I
+
+464
+00:33:29,490 --> 00:33:33,389
+want something similar to go format I
+
+465
+00:33:31,679 --> 00:33:37,440
+just press a button it formats the whole
+
+466
+00:33:33,389 --> 00:33:42,269
+thing I need to write that I haven't
+
+467
+00:33:37,440 --> 00:33:44,519
+done that yet so is this defining range
+
+468
+00:33:42,269 --> 00:33:46,409
+function a place where for loop is
+
+469
+00:33:44,519 --> 00:33:48,659
+needed and functional programming map
+
+470
+00:33:46,409 --> 00:33:53,299
+stuff isn't prepared preferred for
+
+471
+00:33:48,659 --> 00:33:53,299
+JavaScript least yes actually
+
+472
+00:33:55,070 --> 00:34:00,230
+okay let's let me get down you know I
+
+473
+00:33:57,840 --> 00:34:03,029
+need to focus for some reason I'm not
+
+474
+00:34:00,230 --> 00:34:05,970
+doing well today am not relaxed or
+
+475
+00:34:03,029 --> 00:34:09,780
+something so today's topic we are we are
+
+476
+00:34:05,970 --> 00:34:13,879
+talking about that you know we are
+
+477
+00:34:09,780 --> 00:34:16,879
+talking about range function for array
+
+478
+00:34:13,879 --> 00:34:16,879
+copy
+
+479
+00:34:19,840 --> 00:34:27,940
+did I have that I don't have it okay so
+
+480
+00:34:22,390 --> 00:34:31,900
+let's go back hold on second yeah no way
+
+481
+00:34:27,940 --> 00:34:34,840
+is it tok-san talkshow okay let's get
+
+482
+00:34:31,900 --> 00:34:37,810
+the gate down get on to the talk show so
+
+483
+00:34:34,840 --> 00:34:41,980
+so magnet this will make it one buffer
+
+484
+00:34:37,810 --> 00:34:47,620
+magnify constructor and range function
+
+485
+00:34:41,980 --> 00:34:50,320
+for array okay so so we are talking
+
+486
+00:34:47,620 --> 00:34:53,679
+about functional issues with functional
+
+487
+00:34:50,320 --> 00:34:56,290
+programming related to loop okay things
+
+488
+00:34:53,679 --> 00:34:59,110
+like for each and map function basically
+
+489
+00:34:56,290 --> 00:35:01,780
+the question is if you want to do loop
+
+490
+00:34:59,110 --> 00:35:04,540
+for example a for loop you have array
+
+491
+00:35:01,780 --> 00:35:07,480
+you have a list of numbers you want to
+
+492
+00:35:04,540 --> 00:35:09,280
+find the first let's say even number you
+
+493
+00:35:07,480 --> 00:35:11,530
+know you have a list of random integers
+
+494
+00:35:09,280 --> 00:35:14,490
+you want to find the first even number
+
+495
+00:35:11,530 --> 00:35:17,170
+once you find it stop
+
+496
+00:35:14,490 --> 00:35:18,880
+so how do you do that you know typically
+
+497
+00:35:17,170 --> 00:35:21,520
+when you use a loop you can just you
+
+498
+00:35:18,880 --> 00:35:23,530
+know for each you know and once you find
+
+499
+00:35:21,520 --> 00:35:27,820
+that you you break you know there's a
+
+500
+00:35:23,530 --> 00:35:29,530
+break keyword for loop but that's not
+
+501
+00:35:27,820 --> 00:35:31,360
+functional programming because in
+
+502
+00:35:29,530 --> 00:35:33,190
+functional programming you prefer you
+
+503
+00:35:31,360 --> 00:35:35,800
+want to do everything with a function
+
+504
+00:35:33,190 --> 00:35:37,990
+not for the for loop is not a function
+
+505
+00:35:35,800 --> 00:35:42,130
+it's like doing it's like a special
+
+506
+00:35:37,990 --> 00:35:45,310
+syntax for particular control you know
+
+507
+00:35:42,130 --> 00:35:47,290
+the branch control like do this if this
+
+508
+00:35:45,310 --> 00:35:49,780
+then that you know you jump around you
+
+509
+00:35:47,290 --> 00:35:51,190
+know then you repeat you in functional
+
+510
+00:35:49,780 --> 00:35:53,170
+programming you don't want to do that
+
+511
+00:35:51,190 --> 00:35:55,120
+functional programming everything is a
+
+512
+00:35:53,170 --> 00:35:59,860
+function without side-effect just Co
+
+513
+00:35:55,120 --> 00:36:02,050
+function so that's what you want but
+
+514
+00:35:59,860 --> 00:36:03,670
+however when you want to do a loop you
+
+515
+00:36:02,050 --> 00:36:08,050
+want to find the first element then you
+
+516
+00:36:03,670 --> 00:36:10,390
+want to break how do you do that you
+
+517
+00:36:08,050 --> 00:36:12,760
+don't want to use a map because if you
+
+518
+00:36:10,390 --> 00:36:17,500
+use a map it's going to continue to map
+
+519
+00:36:12,760 --> 00:36:19,870
+the whole array so so that is a topic we
+
+520
+00:36:17,500 --> 00:36:22,060
+that that is the first topic we are
+
+521
+00:36:19,870 --> 00:36:25,600
+going to talk about and we are going to
+
+522
+00:36:22,060 --> 00:36:27,730
+use JavaScript as an example but this is
+
+523
+00:36:25,600 --> 00:36:31,330
+actually a issue in other languages
+
+524
+00:36:27,730 --> 00:36:33,400
+because basically except Haskell
+
+525
+00:36:31,330 --> 00:36:33,580
+I don't know how haskell do it how do
+
+526
+00:36:33,400 --> 00:36:37,420
+you
+
+527
+00:36:33,580 --> 00:36:39,160
+do it hostage justine how do you do in
+
+528
+00:36:37,420 --> 00:36:41,230
+Haskell when you want to do when you
+
+529
+00:36:39,160 --> 00:36:44,710
+have a you know like array or something
+
+530
+00:36:41,230 --> 00:36:46,420
+at least you you you want to apply a
+
+531
+00:36:44,710 --> 00:36:49,180
+function you know you once you find
+
+532
+00:36:46,420 --> 00:36:50,890
+something is true you want to break you
+
+533
+00:36:49,180 --> 00:36:53,470
+don't want to continue to save you know
+
+534
+00:36:50,890 --> 00:36:55,240
+to make it you don't want to waste a
+
+535
+00:36:53,470 --> 00:36:56,680
+cycle you know to keep because you
+
+536
+00:36:55,240 --> 00:37:00,250
+already found it you want to break it
+
+537
+00:36:56,680 --> 00:37:03,670
+how do you do that in Eska I don't know
+
+538
+00:37:00,250 --> 00:37:05,950
+so just think maybe do you know so but
+
+539
+00:37:03,670 --> 00:37:08,290
+in general in in almost all the
+
+540
+00:37:05,950 --> 00:37:09,850
+languages I know that suppose functional
+
+541
+00:37:08,290 --> 00:37:13,330
+programming there is no way there is
+
+542
+00:37:09,850 --> 00:37:15,550
+basically no way but there's one way you
+
+543
+00:37:13,330 --> 00:37:18,280
+know there is a way in JavaScript it's
+
+544
+00:37:15,550 --> 00:37:21,280
+but it's very convoluted rather you do
+
+545
+00:37:18,280 --> 00:37:23,350
+not want to use it so so basically the
+
+546
+00:37:21,280 --> 00:37:25,690
+what I'm saying is that when you are
+
+547
+00:37:23,350 --> 00:37:28,870
+doing functional programming you know
+
+548
+00:37:25,690 --> 00:37:33,250
+this JavaScript like semi functional
+
+549
+00:37:28,870 --> 00:37:36,640
+languages even even this yes even even
+
+550
+00:37:33,250 --> 00:37:39,700
+in this you have to you still have to
+
+551
+00:37:36,640 --> 00:37:43,180
+like to loop some kind of so let me show
+
+552
+00:37:39,700 --> 00:37:46,090
+you how did how to do that so but why
+
+553
+00:37:43,180 --> 00:37:49,030
+are we talking about generating array in
+
+554
+00:37:46,090 --> 00:37:52,210
+JavaScript because first of all we need
+
+555
+00:37:49,030 --> 00:37:55,000
+a way that's you know by I'm just
+
+556
+00:37:52,210 --> 00:37:57,340
+mentioning that on the side javascript
+
+557
+00:37:55,000 --> 00:37:59,230
+is a suck is a language that sucks
+
+558
+00:37:57,340 --> 00:38:01,540
+it does not have a building range
+
+559
+00:37:59,230 --> 00:38:05,260
+function there therefore you have to
+
+560
+00:38:01,540 --> 00:38:08,500
+write it so that is what I'm showing in
+
+561
+00:38:05,260 --> 00:38:11,170
+a first phase before we show we talked
+
+562
+00:38:08,500 --> 00:38:14,530
+about the loop with break in functional
+
+563
+00:38:11,170 --> 00:38:16,510
+style so so we are talking about you
+
+564
+00:38:14,530 --> 00:38:20,440
+know how do you write a range function
+
+565
+00:38:16,510 --> 00:38:22,570
+now the writing or range function in
+
+566
+00:38:20,440 --> 00:38:26,080
+JavaScript is very interesting and
+
+567
+00:38:22,570 --> 00:38:28,780
+related to our topic as well because we
+
+568
+00:38:26,080 --> 00:38:31,090
+have shown that in JavaScript there is
+
+569
+00:38:28,780 --> 00:38:35,470
+no way there's no range function P odine
+
+570
+00:38:31,090 --> 00:38:38,590
+the only kind of close way to do it is
+
+571
+00:38:35,470 --> 00:38:42,960
+is this we explained how that works and
+
+572
+00:38:38,590 --> 00:38:46,630
+that relies on JavaScript eggman script
+
+573
+00:38:42,960 --> 00:38:50,019
+2015 and this in fact this is very
+
+574
+00:38:46,630 --> 00:38:51,819
+a convoluted concept because you are
+
+575
+00:38:50,019 --> 00:38:55,660
+using you are coding or array
+
+576
+00:38:51,819 --> 00:38:58,240
+constructor giving it an argument it
+
+577
+00:38:55,660 --> 00:39:00,460
+does not generate actually generate
+
+578
+00:38:58,240 --> 00:39:02,950
+array with nine elements where each
+
+579
+00:39:00,460 --> 00:39:05,410
+element let's say is undefined or zero
+
+580
+00:39:02,950 --> 00:39:08,410
+it's actually not that it just generates
+
+581
+00:39:05,410 --> 00:39:12,970
+an array with nice slots and each
+
+582
+00:39:08,410 --> 00:39:15,039
+element is not it's not it's not field
+
+583
+00:39:12,970 --> 00:39:17,349
+let's say it's not field because it's
+
+584
+00:39:15,039 --> 00:39:20,019
+different from the from the literal
+
+585
+00:39:17,349 --> 00:39:22,690
+value undefined so like I would like we
+
+586
+00:39:20,019 --> 00:39:25,779
+mentioned before you if you have you
+
+587
+00:39:22,690 --> 00:39:29,140
+know if you say array night it just you
+
+588
+00:39:25,779 --> 00:39:31,359
+just got an array of nine slots where
+
+589
+00:39:29,140 --> 00:39:32,829
+each element there is no element like
+
+590
+00:39:31,359 --> 00:39:35,289
+you don't say there's an element there's
+
+591
+00:39:32,829 --> 00:39:39,670
+just array with nice slots this is
+
+592
+00:39:35,289 --> 00:39:42,700
+different from an array with my element
+
+593
+00:39:39,670 --> 00:39:46,200
+where each one is the value undefined so
+
+594
+00:39:42,700 --> 00:39:51,869
+so this is an extreme one of the extreme
+
+595
+00:39:46,200 --> 00:39:54,700
+complexity of JavaScript okay so that is
+
+596
+00:39:51,869 --> 00:39:56,950
+that is a constructor array night it
+
+597
+00:39:54,700 --> 00:40:01,119
+returns array with nice thoughts then
+
+598
+00:39:56,950 --> 00:40:04,599
+you say you call the you you call this
+
+599
+00:40:01,119 --> 00:40:07,299
+method keys it returns basically returns
+
+600
+00:40:04,599 --> 00:40:13,500
+the index of the array so in this case
+
+601
+00:40:07,299 --> 00:40:16,869
+it returns 0 0 1 2 3 4 9 you know 0 to 9
+
+602
+00:40:13,500 --> 00:40:22,869
+it does not actually return an array it
+
+603
+00:40:16,869 --> 00:40:25,349
+returns a it returns a iterable object
+
+604
+00:40:22,869 --> 00:40:28,809
+so in japanese so what is the trouble in
+
+605
+00:40:25,349 --> 00:40:35,559
+JavaScript it's very very complicated ok
+
+606
+00:40:28,809 --> 00:40:38,559
+if you like to know you can read my
+
+607
+00:40:35,559 --> 00:40:42,759
+tutorial about it report it iterables
+
+608
+00:40:38,559 --> 00:40:44,980
+in and iterable object and iterators so
+
+609
+00:40:42,759 --> 00:40:48,819
+you go to javascript in depth all the
+
+610
+00:40:44,980 --> 00:40:50,230
+way to the bottom you have first of all
+
+611
+00:40:48,819 --> 00:40:52,839
+you need to understand what's the
+
+612
+00:40:50,230 --> 00:40:56,019
+interface in javascript which is
+
+613
+00:40:52,839 --> 00:40:58,180
+completely different from java python ok
+
+614
+00:40:56,019 --> 00:41:00,940
+it's not it's not like java python
+
+615
+00:40:58,180 --> 00:41:03,430
+interface you know in javascript
+
+616
+00:41:00,940 --> 00:41:05,680
+so anyway you have each robo and you
+
+617
+00:41:03,430 --> 00:41:08,470
+have iterator you have those kind of
+
+618
+00:41:05,680 --> 00:41:11,950
+things so anyway so the key the key
+
+619
+00:41:08,470 --> 00:41:17,260
+method of array the keys method it
+
+620
+00:41:11,950 --> 00:41:18,250
+returns a each horrible object it's not
+
+621
+00:41:17,260 --> 00:41:20,800
+that way okay
+
+622
+00:41:18,250 --> 00:41:24,700
+it's an iterable object such that each
+
+623
+00:41:20,800 --> 00:41:28,330
+element is the index of the array so
+
+624
+00:41:24,700 --> 00:41:30,250
+basically it's like zero to nine so once
+
+625
+00:41:28,330 --> 00:41:33,340
+you gotta eat rubber but what you really
+
+626
+00:41:30,250 --> 00:41:36,700
+want is an actual rate so then you use
+
+627
+00:41:33,340 --> 00:41:40,960
+this spread operator okay so you can see
+
+628
+00:41:36,700 --> 00:41:43,630
+spread operator this article spread out
+
+629
+00:41:40,960 --> 00:41:47,800
+spread operator will take the iterable
+
+630
+00:41:43,630 --> 00:41:52,180
+and turn that into a actual array kind
+
+631
+00:41:47,800 --> 00:41:54,640
+of so so this so this single line this
+
+632
+00:41:52,180 --> 00:41:56,980
+single expression by itself takes I
+
+633
+00:41:54,640 --> 00:41:59,110
+would say if you really want to
+
+634
+00:41:56,980 --> 00:42:01,390
+understand it completely will take you a
+
+635
+00:41:59,110 --> 00:42:11,800
+few few hours just to understand that
+
+636
+00:42:01,390 --> 00:42:13,600
+and that and that returns I turned on
+
+637
+00:42:11,800 --> 00:42:17,320
+safari by mistake
+
+638
+00:42:13,600 --> 00:42:20,380
+so this expression you know with all its
+
+639
+00:42:17,320 --> 00:42:22,270
+complexities it just returned an array
+
+640
+00:42:20,380 --> 00:42:28,300
+you know zero zero to eight of nine
+
+641
+00:42:22,270 --> 00:42:30,730
+elements but javascript do not have you
+
+642
+00:42:28,300 --> 00:42:32,740
+know if you want a range to be different
+
+643
+00:42:30,730 --> 00:42:35,200
+you cannot do that therefore you need to
+
+644
+00:42:32,740 --> 00:42:38,830
+write a range function now when you
+
+645
+00:42:35,200 --> 00:42:40,480
+write a range function so how do you do
+
+646
+00:42:38,830 --> 00:42:42,490
+you know how do you do how do you write
+
+647
+00:42:40,480 --> 00:42:45,730
+a range functions if javascript does not
+
+648
+00:42:42,490 --> 00:42:48,580
+have a built-in range function okay we
+
+649
+00:42:45,730 --> 00:42:50,740
+can write one by loop so this is this is
+
+650
+00:42:48,580 --> 00:42:55,870
+related to what we are the our main
+
+651
+00:42:50,740 --> 00:42:57,850
+topic about using math to do a loop so
+
+652
+00:42:55,870 --> 00:43:02,110
+when we write a range function in
+
+653
+00:42:57,850 --> 00:43:04,930
+JavaScript notice that we are using a
+
+654
+00:43:02,110 --> 00:43:06,550
+for loop you know it works right here
+
+655
+00:43:04,930 --> 00:43:09,280
+you know we are using a for loop T and
+
+656
+00:43:06,550 --> 00:43:12,400
+it works but however if you are a
+
+657
+00:43:09,280 --> 00:43:14,830
+functional programmer you know you don't
+
+658
+00:43:12,400 --> 00:43:18,580
+want for oops right you want to avoid
+
+659
+00:43:14,830 --> 00:43:22,150
+Loup so how do you do that there is no
+
+660
+00:43:18,580 --> 00:43:24,220
+way okay there's basically no way it's
+
+661
+00:43:22,150 --> 00:43:28,300
+like impossible well it's it's possible
+
+662
+00:43:24,220 --> 00:43:31,180
+because it's possible but but any
+
+663
+00:43:28,300 --> 00:43:35,920
+solution that's not using a for loop
+
+664
+00:43:31,180 --> 00:43:38,740
+will be very inefficient for example
+
+665
+00:43:35,920 --> 00:43:42,030
+this expression by itself is pretty
+
+666
+00:43:38,740 --> 00:43:46,690
+inefficient because you are generating a
+
+667
+00:43:42,030 --> 00:43:51,280
+array of empty slots then you are
+
+668
+00:43:46,690 --> 00:43:54,220
+applying these keys to to get the
+
+669
+00:43:51,280 --> 00:43:56,890
+indexes you know then you are turning
+
+670
+00:43:54,220 --> 00:43:59,620
+the whole thing into a actual array with
+
+671
+00:43:56,890 --> 00:44:03,280
+using the spread operator so this
+
+672
+00:43:59,620 --> 00:44:05,050
+expression by itself is rather fairly
+
+673
+00:44:03,280 --> 00:44:07,960
+inefficient you know and it's
+
+674
+00:44:05,050 --> 00:44:10,870
+incomprehensible and the semantics is
+
+675
+00:44:07,960 --> 00:44:14,680
+also convoluted so this is one reason
+
+676
+00:44:10,870 --> 00:44:17,350
+this is one one of the like hundreds you
+
+677
+00:44:14,680 --> 00:44:19,860
+know ten big reasons one of the reason
+
+678
+00:44:17,350 --> 00:44:24,580
+that javascript is very very very
+
+679
+00:44:19,860 --> 00:44:27,700
+convoluted bad language but anyway let's
+
+680
+00:44:24,580 --> 00:44:29,530
+get back to how do you write a range
+
+681
+00:44:27,700 --> 00:44:31,630
+function so you write a range a function
+
+682
+00:44:29,530 --> 00:44:34,450
+like that but however it's using a for
+
+683
+00:44:31,630 --> 00:44:36,750
+loop so as a functional programmer you
+
+684
+00:44:34,450 --> 00:44:42,040
+don't want that so how do you do that
+
+685
+00:44:36,750 --> 00:44:44,140
+basically there is no way any functional
+
+686
+00:44:42,040 --> 00:44:47,230
+programming method to generate to write
+
+687
+00:44:44,140 --> 00:44:50,380
+to create a range function will be much
+
+688
+00:44:47,230 --> 00:44:53,020
+more inefficient let me show you an
+
+689
+00:44:50,380 --> 00:44:55,060
+example okay so let's let's try to write
+
+690
+00:44:53,020 --> 00:44:58,360
+another function that does functional
+
+691
+00:44:55,060 --> 00:45:00,250
+programming using the functional
+
+692
+00:44:58,360 --> 00:45:07,080
+programming to generate a range for
+
+693
+00:45:00,250 --> 00:45:14,830
+example we can say so we define constant
+
+694
+00:45:07,080 --> 00:45:19,390
+function range to okay we okay so mean
+
+695
+00:45:14,830 --> 00:45:23,080
+max step like before and what we want
+
+696
+00:45:19,390 --> 00:45:26,860
+here is we want functional programming
+
+697
+00:45:23,080 --> 00:45:27,680
+so we don't want for loop so how do you
+
+698
+00:45:26,860 --> 00:45:34,690
+do that
+
+699
+00:45:27,680 --> 00:45:34,690
+okay so just like before we call array
+
+700
+00:45:35,619 --> 00:45:45,920
+we need okay let's try this we need this
+
+701
+00:45:42,079 --> 00:45:54,010
+number like how many items are there so
+
+702
+00:45:45,920 --> 00:45:54,010
+we do array n items then that returns
+
+703
+00:45:57,250 --> 00:46:04,970
+that returns it's impossible actually
+
+704
+00:46:01,809 --> 00:46:07,040
+you see that returns it doesn't you know
+
+705
+00:46:04,970 --> 00:46:11,000
+it that returns array without any
+
+706
+00:46:07,040 --> 00:46:13,460
+element it just have that number of
+
+707
+00:46:11,000 --> 00:46:16,640
+slots because I was thinking of doing a
+
+708
+00:46:13,460 --> 00:46:20,270
+map so once you have a ray you can map a
+
+709
+00:46:16,640 --> 00:46:25,900
+function to it for example map so map
+
+710
+00:46:20,270 --> 00:46:28,900
+arrow function then we can say X plus X
+
+711
+00:46:25,900 --> 00:46:28,900
+me
+
+712
+00:46:36,099 --> 00:46:47,650
+it wait wait this should be actually
+
+713
+00:46:40,229 --> 00:46:50,259
+something like that and we need to find
+
+714
+00:46:47,650 --> 00:46:53,440
+out I we can do that but anyway the this
+
+715
+00:46:50,259 --> 00:46:56,799
+map will not work because because this
+
+716
+00:46:53,440 --> 00:46:59,680
+thing is actually not it's array within
+
+717
+00:46:56,799 --> 00:47:03,789
+slots but there's no element you cannot
+
+718
+00:46:59,680 --> 00:47:07,150
+map to it why because we can try so
+
+719
+00:47:03,789 --> 00:47:12,430
+create a new JavaScript save it X X X
+
+720
+00:47:07,150 --> 00:47:14,499
+dot JavaScript okay today's date you
+
+721
+00:47:12,430 --> 00:47:17,920
+know we can we can try this you you are
+
+722
+00:47:14,499 --> 00:47:25,660
+see why this does not work let's say 5
+
+723
+00:47:17,920 --> 00:47:34,599
+let's say map X first one okay now let's
+
+724
+00:47:25,660 --> 00:47:37,959
+say console.log let's print it you see
+
+725
+00:47:34,599 --> 00:47:38,349
+arrow what's the error because syntax
+
+726
+00:47:37,959 --> 00:47:44,499
+arrow
+
+727
+00:47:38,349 --> 00:47:47,769
+okay missing X wait missing X oh you
+
+728
+00:47:44,499 --> 00:47:51,640
+you're the semicolon semicolon is
+
+729
+00:47:47,769 --> 00:47:52,479
+another major problem in JavaScript so
+
+730
+00:47:51,640 --> 00:47:56,920
+let's do it again
+
+731
+00:47:52,479 --> 00:48:01,839
+you are net you see the result is five
+
+732
+00:47:56,920 --> 00:48:05,739
+empty items why is that because because
+
+733
+00:48:01,839 --> 00:48:11,229
+this array 5 returns array with five
+
+734
+00:48:05,739 --> 00:48:15,369
+slots however each slot each member is
+
+735
+00:48:11,229 --> 00:48:17,680
+is is not a thing is not even a element
+
+736
+00:48:15,369 --> 00:48:21,009
+at all you just have five potential
+
+737
+00:48:17,680 --> 00:48:25,829
+slots so it's it's it's not undefined
+
+738
+00:48:21,009 --> 00:48:25,829
+either so so actually
+
+739
+00:48:33,920 --> 00:48:41,940
+you see so you cannot you cannot use a
+
+740
+00:48:39,360 --> 00:48:45,900
+map to these things so that's that is a
+
+741
+00:48:41,940 --> 00:48:49,470
+problem so back to the question so how
+
+742
+00:48:45,900 --> 00:48:52,530
+do you write a function arrange function
+
+743
+00:48:49,470 --> 00:48:55,560
+with in a functional programming style
+
+744
+00:48:52,530 --> 00:48:59,580
+without using loop basically you cannot
+
+745
+00:48:55,560 --> 00:49:05,820
+like impossible in JavaScript so that
+
+746
+00:48:59,580 --> 00:49:08,250
+concludes hot you know one that topic so
+
+747
+00:49:05,820 --> 00:49:10,920
+let me see the comments do you have a
+
+748
+00:49:08,250 --> 00:49:15,720
+good way to do that about what Freddie
+
+749
+00:49:10,920 --> 00:49:18,450
+says okay so time to switch to vs code
+
+750
+00:49:15,720 --> 00:49:20,760
+hello beautiful people disagree you are
+
+751
+00:49:18,450 --> 00:49:21,840
+doing well today broken environment is
+
+752
+00:49:20,760 --> 00:49:24,960
+not your fault
+
+753
+00:49:21,840 --> 00:49:27,710
+thank you very says I have a basic
+
+754
+00:49:24,960 --> 00:49:31,320
+question I want to call a function which
+
+755
+00:49:27,710 --> 00:49:35,160
+creates a dictionary with many nested
+
+756
+00:49:31,320 --> 00:49:40,380
+values dictionary with many nested
+
+757
+00:49:35,160 --> 00:49:43,770
+values with strings arrays act in it but
+
+758
+00:49:40,380 --> 00:49:46,590
+I also want to specify in a function of
+
+759
+00:49:43,770 --> 00:49:50,640
+few values for some of the values of the
+
+760
+00:49:46,590 --> 00:49:55,200
+dick like what do you mean I guess this
+
+761
+00:49:50,640 --> 00:50:00,540
+is hard to know what you mean I mean
+
+762
+00:49:55,200 --> 00:50:04,520
+it's hard to explain but all the rest
+
+763
+00:50:00,540 --> 00:50:04,520
+get a default value okay so
+
+764
+00:50:18,550 --> 00:50:25,270
+so you want to create Indic you want to
+
+765
+00:50:22,510 --> 00:50:29,110
+create basically maybe let me try if
+
+766
+00:50:25,270 --> 00:50:30,910
+this is what you want you in JavaScript
+
+767
+00:50:29,110 --> 00:50:33,010
+you want to create a dictionary
+
+768
+00:50:30,910 --> 00:50:35,310
+javascript does not have a dictionary
+
+769
+00:50:33,010 --> 00:50:38,050
+okay so what do you mean is either
+
+770
+00:50:35,310 --> 00:50:40,600
+object you know the JavaScript object
+
+771
+00:50:38,050 --> 00:50:43,930
+which is a pair of things disappear
+
+772
+00:50:40,600 --> 00:50:48,010
+collection pairs or you want to use
+
+773
+00:50:43,930 --> 00:50:51,700
+JavaScript map object so here is another
+
+774
+00:50:48,010 --> 00:50:53,280
+extreme complexity of JavaScript so
+
+775
+00:50:51,700 --> 00:50:56,220
+normally when you when you want a
+
+776
+00:50:53,280 --> 00:51:01,110
+collection of pairs like key value pairs
+
+777
+00:50:56,220 --> 00:51:04,450
+typically you use a JavaScript object
+
+778
+00:51:01,110 --> 00:51:08,800
+you know like this cat dog you know this
+
+779
+00:51:04,450 --> 00:51:12,300
+is a JavaScript object key value pairs
+
+780
+00:51:08,800 --> 00:51:15,700
+but however object is very very
+
+781
+00:51:12,300 --> 00:51:17,920
+problematic it's not in a beginning it's
+
+782
+00:51:15,700 --> 00:51:20,050
+not designed to be a dictionary it's not
+
+783
+00:51:17,920 --> 00:51:23,410
+designed to be your hash table you know
+
+784
+00:51:20,050 --> 00:51:27,100
+Dictionary Python code dictionary ruby
+
+785
+00:51:23,410 --> 00:51:30,670
+code hash table per host hash table java
+
+786
+00:51:27,100 --> 00:51:36,100
+code map but it's the same idea it's
+
+787
+00:51:30,670 --> 00:51:44,560
+basically an ordered list of key value
+
+788
+00:51:36,100 --> 00:51:49,450
+pairs okay so in JavaScript you can the
+
+789
+00:51:44,560 --> 00:51:52,860
+JavaScript object represent that but but
+
+790
+00:51:49,450 --> 00:51:58,410
+it's it's not designed to be that
+
+791
+00:51:52,860 --> 00:52:04,390
+however in ACMA script 2015 you have a
+
+792
+00:51:58,410 --> 00:52:07,570
+real hash table they call it map so I
+
+793
+00:52:04,390 --> 00:52:10,480
+have a tutorial here so this is the map
+
+794
+00:52:07,570 --> 00:52:13,960
+object so JavaScript code a map object
+
+795
+00:52:10,480 --> 00:52:19,680
+so this object is a special object that
+
+796
+00:52:13,960 --> 00:52:22,420
+is designed to to to to represent a
+
+797
+00:52:19,680 --> 00:52:25,890
+collection of key value pairs like
+
+798
+00:52:22,420 --> 00:52:30,550
+pythons dictionary rubies hash table
+
+799
+00:52:25,890 --> 00:52:32,020
+Chavez map or you know things like that
+
+800
+00:52:30,550 --> 00:52:35,740
+so so
+
+801
+00:52:32,020 --> 00:52:38,410
+javascript also could cause it a map so
+
+802
+00:52:35,740 --> 00:52:41,680
+you can create a map and so on and what
+
+803
+00:52:38,410 --> 00:52:43,600
+and your question is so you want
+
+804
+00:52:41,680 --> 00:52:46,300
+basically you as I think you are saying
+
+805
+00:52:43,600 --> 00:52:52,990
+you want to create a map in JavaScript
+
+806
+00:52:46,300 --> 00:52:57,400
+such that such that you want to specify
+
+807
+00:52:52,990 --> 00:53:00,760
+some of the keys while others
+
+808
+00:52:57,400 --> 00:53:03,190
+the keys are undefined like it takes a
+
+809
+00:53:00,760 --> 00:53:08,440
+default key well I'm not sure exactly
+
+810
+00:53:03,190 --> 00:53:11,770
+what you mean and you know in English or
+
+811
+00:53:08,440 --> 00:53:16,450
+in a map or hash table or dictionary the
+
+812
+00:53:11,770 --> 00:53:18,400
+keys must be or unique so I'm not sure
+
+813
+00:53:16,450 --> 00:53:20,110
+what what do you mean but anyway I think
+
+814
+00:53:18,400 --> 00:53:27,130
+I should continue with what we are doing
+
+815
+00:53:20,110 --> 00:53:29,320
+today so I would want ideally the
+
+816
+00:53:27,130 --> 00:53:31,990
+initialization of the dictionary with
+
+817
+00:53:29,320 --> 00:53:33,970
+default values and then on intuition of
+
+818
+00:53:31,990 --> 00:53:37,900
+the key value pairs of the dictionary
+
+819
+00:53:33,970 --> 00:53:40,480
+which might be quite nested and includes
+
+820
+00:53:37,900 --> 00:53:43,630
+even a race like I don't see what you
+
+821
+00:53:40,480 --> 00:53:46,240
+mean like what do you mean an iteration
+
+822
+00:53:43,630 --> 00:53:49,420
+of the key value pairs do you have a
+
+823
+00:53:46,240 --> 00:53:50,530
+good way yeah I you know in this kind of
+
+824
+00:53:49,420 --> 00:53:52,930
+thing is it
+
+825
+00:53:50,530 --> 00:54:01,720
+I don't think I can understand because
+
+826
+00:53:52,930 --> 00:54:04,720
+you know that's too short so the new
+
+827
+00:54:01,720 --> 00:54:06,970
+language says arrays are iterable but
+
+828
+00:54:04,720 --> 00:54:10,390
+there are many other building objects
+
+829
+00:54:06,970 --> 00:54:17,740
+that are iterable as well not many not
+
+830
+00:54:10,390 --> 00:54:24,610
+many but the iterable
+
+831
+00:54:17,740 --> 00:54:29,190
+objects in JavaScript are array array
+
+832
+00:54:24,610 --> 00:54:29,190
+map set
+
+833
+00:54:30,280 --> 00:54:40,540
+that's about it so if we go to eat robo
+
+834
+00:54:37,320 --> 00:54:44,200
+purpose of each Robo what is eatable
+
+835
+00:54:40,540 --> 00:54:45,970
+object and the standard eatable object
+
+836
+00:54:44,200 --> 00:54:50,340
+stream oh yeah I missed the string
+
+837
+00:54:45,970 --> 00:54:54,390
+string array set map that is that is it
+
+838
+00:54:50,340 --> 00:54:57,640
+you can rain I feel and then iterate oh
+
+839
+00:54:54,390 --> 00:55:01,540
+jeez that is a good answer
+
+840
+00:54:57,640 --> 00:55:04,300
+thank you hello beautiful people that
+
+841
+00:55:01,540 --> 00:55:08,410
+they that that is the best answer today
+
+842
+00:55:04,300 --> 00:55:12,520
+best comment you are right yeah
+
+843
+00:55:08,410 --> 00:55:18,160
+Sophie Oh Theo is a fear is Eggman
+
+844
+00:55:12,520 --> 00:55:19,180
+script 2015 stuff or was it 2016 so
+
+845
+00:55:18,160 --> 00:55:21,010
+that's a great idea
+
+846
+00:55:19,180 --> 00:55:23,940
+so let's let's try it let's try that
+
+847
+00:55:21,010 --> 00:55:33,250
+great idea thank you beautiful people
+
+848
+00:55:23,940 --> 00:55:36,070
+feel right let's try feel zero yeah so
+
+849
+00:55:33,250 --> 00:55:38,770
+once you feel it let's see if I I do
+
+850
+00:55:36,070 --> 00:55:43,600
+have a let's see JavaScript JavaScript
+
+851
+00:55:38,770 --> 00:55:46,090
+reference array you know we are so
+
+852
+00:55:43,600 --> 00:55:48,610
+behind from our main topic today which
+
+853
+00:55:46,090 --> 00:55:51,670
+is about map and every you know it
+
+854
+00:55:48,610 --> 00:55:55,720
+that's a easy subject for me to talk
+
+855
+00:55:51,670 --> 00:55:58,210
+about but but I want to go with the
+
+856
+00:55:55,720 --> 00:56:00,520
+extra step I thought you know why not
+
+857
+00:55:58,210 --> 00:56:04,810
+let's just cover about how to how to
+
+858
+00:56:00,520 --> 00:56:08,290
+write a range function in JavaScript and
+
+859
+00:56:04,810 --> 00:56:12,940
+that we can have an hour and not done
+
+860
+00:56:08,290 --> 00:56:16,120
+yet okay but but it's interesting stuff
+
+861
+00:56:12,940 --> 00:56:18,640
+I hope so let's see array array field
+
+862
+00:56:16,120 --> 00:56:23,590
+yeah we want to know about the field
+
+863
+00:56:18,640 --> 00:56:26,860
+function there it is indeed fat
+
+864
+00:56:23,590 --> 00:56:30,040
+fantastic so you that's a great answer
+
+865
+00:56:26,860 --> 00:56:32,530
+thank you so much in fact this is a
+
+866
+00:56:30,040 --> 00:56:35,380
+great answer that actually are we oh I
+
+867
+00:56:32,530 --> 00:56:40,480
+think I think I will modify my tutorial
+
+868
+00:56:35,380 --> 00:56:43,660
+for the generating very possibly so
+
+869
+00:56:40,480 --> 00:56:48,039
+anyway so and so you
+
+870
+00:56:43,660 --> 00:56:52,420
+and do this so I let's try so hello
+
+871
+00:56:48,039 --> 00:56:59,020
+beautiful people says feel feel a value
+
+872
+00:56:52,420 --> 00:57:01,720
+of okay so let's say feel zero start
+
+873
+00:56:59,020 --> 00:57:04,210
+index in index we don't care we want to
+
+874
+00:57:01,720 --> 00:57:09,190
+feel the whole thing so once once you
+
+875
+00:57:04,210 --> 00:57:11,460
+feel it then you can map then you can
+
+876
+00:57:09,190 --> 00:57:11,460
+map
+
+877
+00:57:11,890 --> 00:57:20,920
+I think map takes a third argument which
+
+878
+00:57:14,890 --> 00:57:22,900
+is rarely used we and we need that
+
+879
+00:57:20,920 --> 00:57:27,160
+because we need the index of the array
+
+880
+00:57:22,900 --> 00:57:31,329
+so so let's see
+
+881
+00:57:27,160 --> 00:57:37,079
+okay so feel and then map so let's go to
+
+882
+00:57:31,329 --> 00:57:45,910
+map javascript reference array prototype
+
+883
+00:57:37,079 --> 00:57:48,520
+map map okay so map the function the
+
+884
+00:57:45,910 --> 00:57:52,150
+function takes three arguments and
+
+885
+00:57:48,520 --> 00:57:55,630
+ailment current index in my array okay
+
+886
+00:57:52,150 --> 00:58:00,579
+so here is what we do so we we need a
+
+887
+00:57:55,630 --> 00:58:02,770
+function here arrow function so the
+
+888
+00:58:00,579 --> 00:58:07,599
+current element and the current index
+
+889
+00:58:02,770 --> 00:58:11,920
+okay so what how we want to feel it we
+
+890
+00:58:07,599 --> 00:58:24,490
+want to so for each element will be I
+
+891
+00:58:11,920 --> 00:58:28,930
+press weight will be X plus I times step
+
+892
+00:58:24,490 --> 00:58:34,029
+I think that work let's hope that it it
+
+893
+00:58:28,930 --> 00:58:37,119
+does so this we need a return value so a
+
+894
+00:58:34,029 --> 00:58:41,369
+parentheses not square bracket not not a
+
+895
+00:58:37,119 --> 00:58:46,049
+curly bracket so that I hope we'll walk
+
+896
+00:58:41,369 --> 00:58:46,049
+this will be just return
+
+897
+00:58:50,740 --> 00:58:55,470
+okay let's let's hope so let's nits
+
+898
+00:58:53,640 --> 00:59:00,720
+let's try it
+
+899
+00:58:55,470 --> 00:59:07,290
+range okay so copy copy paste the whole
+
+900
+00:59:00,720 --> 00:59:07,290
+range to range to Burnett
+
+901
+00:59:16,480 --> 00:59:24,400
+wait range 2 1 2 3 4 we are printing
+
+902
+00:59:20,260 --> 00:59:25,540
+four things 1 2 3 4 5 wait news 5 things
+
+903
+00:59:24,400 --> 00:59:30,150
+here what's going on
+
+904
+00:59:25,540 --> 00:59:38,830
+so console.log ok let's not print that
+
+905
+00:59:30,150 --> 00:59:40,540
+run it again ok there is yeah so it
+
+906
+00:59:38,830 --> 00:59:43,090
+works I think it works
+
+907
+00:59:40,540 --> 00:59:54,690
+we just need to modify this a bit oh
+
+908
+00:59:43,090 --> 00:59:58,420
+yeah we forgot to add ad me run it again
+
+909
+00:59:54,690 --> 01:00:01,450
+perfect so actually let's rearrange this
+
+910
+00:59:58,420 --> 01:00:06,640
+a bit doing it again
+
+911
+01:00:01,450 --> 01:00:09,940
+perfect so that is fantastic that that
+
+912
+01:00:06,640 --> 01:00:15,910
+is that is fantastic today I so I need
+
+913
+01:00:09,940 --> 01:00:19,570
+to so this is so this is a functional
+
+914
+01:00:15,910 --> 01:00:26,230
+way to write a range function in
+
+915
+01:00:19,570 --> 01:00:29,080
+JavaScript but it is it it is I know I
+
+916
+01:00:26,230 --> 01:00:35,349
+know for sure it is slower than this one
+
+917
+01:00:29,080 --> 01:00:37,780
+I know for sure so okay so that that
+
+918
+01:00:35,349 --> 01:00:41,140
+finishes one topic let's get on to the
+
+919
+01:00:37,780 --> 01:00:43,320
+loop in the map so let's see so you can
+
+920
+01:00:41,140 --> 01:00:45,609
+use a array for each or whatever
+
+921
+01:00:43,320 --> 01:00:47,920
+Danielle says a function that's based
+
+922
+01:00:45,609 --> 01:00:49,990
+that basically takes on a starting index
+
+923
+01:00:47,920 --> 01:00:55,300
+in any index then return a list of all
+
+924
+01:00:49,990 --> 01:00:58,589
+integers from start to end so language
+
+925
+01:00:55,300 --> 01:00:58,589
+done in array from
+
+926
+01:01:03,310 --> 01:01:08,980
+so Daniel solution array that foam
+
+927
+01:01:20,820 --> 01:01:34,570
+which so is it radon from I don't know
+
+928
+01:01:30,310 --> 01:01:37,560
+map scene sets now so a recursive range
+
+929
+01:01:34,570 --> 01:01:39,070
+function where you only needs to build
+
+930
+01:01:37,560 --> 01:01:44,860
+yes thank you
+
+931
+01:01:39,070 --> 01:01:53,200
+I mean object basically give me default
+
+932
+01:01:44,860 --> 01:01:56,980
+object level one so the question answer
+
+933
+01:01:53,200 --> 01:01:59,620
+to Fred's question we can do that but
+
+934
+01:01:56,980 --> 01:02:00,160
+it's probably getting complicated let me
+
+935
+01:01:59,620 --> 01:02:04,690
+finish
+
+936
+01:02:00,160 --> 01:02:07,470
+today's topic so the news is so happy to
+
+937
+01:02:04,690 --> 01:02:12,370
+help so gotta go okay
+
+938
+01:02:07,470 --> 01:02:18,940
+Helen so okay so how long we've been
+
+939
+01:02:12,370 --> 01:02:22,960
+talking God today is so bad it I feel so
+
+940
+01:02:18,940 --> 01:02:26,950
+bad so anyway so we got week now we got
+
+941
+01:02:22,960 --> 01:02:34,840
+a rave range function and let's let's
+
+942
+01:02:26,950 --> 01:02:41,500
+let's do loop then let's do a loop so
+
+943
+01:02:34,840 --> 01:02:46,600
+let's do a loop so we got our range
+
+944
+01:02:41,500 --> 01:02:54,630
+function let's let's just use this one
+
+945
+01:02:46,600 --> 01:02:54,630
+for now actually is just use that
+
+946
+01:03:06,790 --> 01:03:11,880
+so we want what we want is we want to
+
+947
+01:03:13,230 --> 01:03:19,660
+that that multiple lines annoying annoys
+
+948
+01:03:16,990 --> 01:03:32,050
+me because I failed something is wrong
+
+949
+01:03:19,660 --> 01:03:34,840
+with it you see there is definitely
+
+950
+01:03:32,050 --> 01:03:43,960
+something semantic going on with this
+
+951
+01:03:34,840 --> 01:03:48,220
+expression because because let's try
+
+952
+01:03:43,960 --> 01:03:53,320
+this oh no wait it's the same okay so
+
+953
+01:03:48,220 --> 01:03:58,660
+anyway so we got a array we want to
+
+954
+01:03:53,320 --> 01:04:01,510
+define a function we want to we want to
+
+955
+01:03:58,660 --> 01:04:03,790
+get the first even number when when it's
+
+956
+01:04:01,510 --> 01:04:10,000
+true then stop it okay so let's define a
+
+957
+01:04:03,790 --> 01:04:23,560
+function constant arrow function even is
+
+958
+01:04:10,000 --> 01:04:26,230
+even okay so if if X mod 2 equals to 0
+
+959
+01:04:23,560 --> 01:04:28,330
+now I don't know how do you say how do
+
+960
+01:04:26,230 --> 01:04:35,980
+you say mod in JavaScript
+
+961
+01:04:28,330 --> 01:04:40,800
+let's look javascript basics and the
+
+962
+01:04:35,980 --> 01:04:44,290
+JavaScript arithmetics stream methods
+
+963
+01:04:40,800 --> 01:04:47,010
+stream stream methods with medic
+
+964
+01:04:44,290 --> 01:04:47,010
+operators
+
+965
+01:04:48,920 --> 01:05:02,030
+power negation their remainder operator
+
+966
+01:04:56,510 --> 01:05:14,300
+so so what you want is that so if that
+
+967
+01:05:02,030 --> 01:05:16,600
+returns 0 then return actually return we
+
+968
+01:05:14,300 --> 01:05:29,950
+want to return the index ok
+
+969
+01:05:16,600 --> 01:05:29,950
+so return the element and the index and
+
+970
+01:05:49,770 --> 01:06:10,550
+wait it should return true whole thing
+
+971
+01:05:57,480 --> 01:06:10,550
+is good so actually if expression so
+
+972
+01:06:18,870 --> 01:06:25,540
+so that's our function so if X divided
+
+973
+01:06:23,170 --> 01:06:29,290
+by two is zero returns true otherwise
+
+974
+01:06:25,540 --> 01:06:35,800
+return false so this is is even function
+
+975
+01:06:29,290 --> 01:06:40,870
+so let's try is even for true that's
+
+976
+01:06:35,800 --> 01:06:49,750
+good so that works now we want to write
+
+977
+01:06:40,870 --> 01:07:03,840
+a loop for for loop okay x equals two
+
+978
+01:06:49,750 --> 01:07:09,030
+less than that if is even a - array I is
+
+979
+01:07:03,840 --> 01:07:09,030
+true then console.log
+
+980
+01:07:16,710 --> 01:07:28,869
+okay that should print or even numbers
+
+981
+01:07:23,590 --> 01:07:31,950
+in array let's write on it so 0 2 4 6 8
+
+982
+01:07:28,869 --> 01:07:31,950
+that's correct
+
+983
+01:07:37,510 --> 01:07:44,290
+so but this is using a loop we don't
+
+984
+01:07:40,900 --> 01:07:49,359
+want that okay so wait so if if it's
+
+985
+01:07:44,290 --> 01:07:51,040
+even then print it then break okay we
+
+986
+01:07:49,359 --> 01:07:53,560
+don't want we just want to find the
+
+987
+01:07:51,040 --> 01:07:57,250
+first one and the way when we found it
+
+988
+01:07:53,560 --> 01:08:00,730
+we want to stop so ran it zero so zero
+
+989
+01:07:57,250 --> 01:08:03,340
+is the first one we found it we break so
+
+990
+01:08:00,730 --> 01:08:05,560
+this is how you do it and this is using
+
+991
+01:08:03,340 --> 01:08:07,990
+a loop not functional programming style
+
+992
+01:08:05,560 --> 01:08:10,660
+but however we want to do a functional
+
+993
+01:08:07,990 --> 01:08:25,390
+form in style so so the way we do that
+
+994
+01:08:10,660 --> 01:08:28,839
+is you can use a two every so every we
+
+995
+01:08:25,390 --> 01:08:33,310
+are apply a function to each element in
+
+996
+01:08:28,839 --> 01:08:37,720
+our array in turn so if this function
+
+997
+01:08:33,310 --> 01:08:41,080
+returns true for all of them then the
+
+998
+01:08:37,720 --> 01:08:44,980
+result of the every is true if there is
+
+999
+01:08:41,080 --> 01:08:48,310
+some value that's false then the return
+
+1000
+01:08:44,980 --> 01:08:50,920
+value is false so basically every make
+
+1001
+01:08:48,310 --> 01:08:54,279
+sure that every value if you apply the
+
+1002
+01:08:50,920 --> 01:08:57,400
+function to every value in array it must
+
+1003
+01:08:54,279 --> 01:09:00,279
+be all true the first time is this
+
+1004
+01:08:57,400 --> 01:09:02,620
+element that's that's not true
+
+1005
+01:09:00,279 --> 01:09:06,190
+basically we will stop computing here
+
+1006
+01:09:02,620 --> 01:09:10,290
+you know the rest of it so you can so so
+
+1007
+01:09:06,190 --> 01:09:14,350
+you can as a side-effect of the
+
+1008
+01:09:10,290 --> 01:09:19,509
+evaluating order of every function you
+
+1009
+01:09:14,350 --> 01:09:25,089
+can abuse it as to emulate the behavior
+
+1010
+01:09:19,509 --> 01:09:27,310
+of for which break you see you see every
+
+1011
+01:09:25,089 --> 01:09:29,500
+by itself is a logical function
+
+1012
+01:09:27,310 --> 01:09:31,720
+it just makes sure you know if every if
+
+1013
+01:09:29,500 --> 01:09:34,720
+if this function applied to all elements
+
+1014
+01:09:31,720 --> 01:09:38,410
+of the array is true then it returns
+
+1015
+01:09:34,720 --> 01:09:41,739
+true however there's a side-effect it
+
+1016
+01:09:38,410 --> 01:09:44,380
+does this evaluation in order so the
+
+1017
+01:09:41,739 --> 01:09:48,250
+first time you know when it sees a
+
+1018
+01:09:44,380 --> 01:09:51,069
+element that's F returns false it will
+
+1019
+01:09:48,250 --> 01:09:51,409
+stop computing you stop computing the
+
+1020
+01:09:51,069 --> 01:09:55,059
+rest
+
+1021
+01:09:51,409 --> 01:09:58,130
+of the elements so that is a side effect
+
+1022
+01:09:55,059 --> 01:09:59,959
+so therefore we can abuse it to do what
+
+1023
+01:09:58,130 --> 01:10:04,519
+we want you know instead of using a loop
+
+1024
+01:09:59,959 --> 01:10:06,679
+so let's do it so so every so we want to
+
+1025
+01:10:04,519 --> 01:10:15,889
+write a function here arrow function
+
+1026
+01:10:06,679 --> 01:10:22,909
+arrow function so X here so the and the
+
+1027
+01:10:15,889 --> 01:10:26,260
+function is actually the function it
+
+1028
+01:10:22,909 --> 01:10:33,789
+just is even okay
+
+1029
+01:10:26,260 --> 01:10:33,789
+that's it so we can console.log print
+
+1030
+01:10:37,329 --> 01:10:46,070
+that work it returns force because some
+
+1031
+01:10:43,219 --> 01:10:53,510
+element are force the actually we need
+
+1032
+01:10:46,070 --> 01:10:56,959
+to this is this is getting complicated
+
+1033
+01:10:53,510 --> 01:10:58,729
+you see what we want to do we I want to
+
+1034
+01:10:56,959 --> 01:11:01,249
+show you I want to demonstrate what
+
+1035
+01:10:58,729 --> 01:11:05,110
+every is doing in order to do that
+
+1036
+01:11:01,249 --> 01:11:08,869
+actually so let's let's do that okay so
+
+1037
+01:11:05,110 --> 01:11:12,439
+let's me we need a arrow function here
+
+1038
+01:11:08,869 --> 01:11:19,189
+okay so every you need a function so the
+
+1039
+01:11:12,439 --> 01:11:23,559
+function will be like that so let's
+
+1040
+01:11:19,189 --> 01:11:27,820
+let's do that so the function X if X
+
+1041
+01:11:23,559 --> 01:11:36,130
+divided by 2 where the remainder is 0
+
+1042
+01:11:27,820 --> 01:11:36,130
+then you say true then you return true
+
+1043
+01:11:37,880 --> 01:11:49,490
+and also you want to you cannot use if
+
+1044
+01:11:44,280 --> 01:11:52,290
+expression JavaScript is so complicated
+
+1045
+01:11:49,490 --> 01:11:54,870
+you cannot use the expression you have
+
+1046
+01:11:52,290 --> 01:12:11,990
+to use the if statement so let's do that
+
+1047
+01:11:54,870 --> 01:12:24,890
+so if X is even then you you print X
+
+1048
+01:12:11,990 --> 01:12:34,040
+then you return X otherwise you return
+
+1049
+01:12:24,890 --> 01:12:39,560
+false okay return false this is kind of
+
+1050
+01:12:34,040 --> 01:12:43,970
+very complicated expression JavaScript
+
+1051
+01:12:39,560 --> 01:12:43,970
+functional programming in JavaScript
+
+1052
+01:12:44,000 --> 01:12:53,840
+okay so here is our function now let's
+
+1053
+01:12:47,310 --> 01:12:53,840
+try to make it more readable
+
+1054
+01:13:10,730 --> 01:13:18,500
+so there there it is so here is our
+
+1055
+01:13:13,880 --> 01:13:22,430
+function this function it takes one
+
+1056
+01:13:18,500 --> 01:13:26,030
+argument so if it's even we print it
+
+1057
+01:13:22,430 --> 01:13:27,890
+first then we return it we return
+
+1058
+01:13:26,030 --> 01:13:32,540
+actually we return true we need to
+
+1059
+01:13:27,890 --> 01:13:36,260
+return true otherwise we return false so
+
+1060
+01:13:32,540 --> 01:13:41,090
+we are calling these yeah let's do it
+
+1061
+01:13:36,260 --> 01:13:43,490
+let's see so there you go you see it did
+
+1062
+01:13:41,090 --> 01:13:46,250
+not go through every element in our
+
+1063
+01:13:43,490 --> 01:13:49,880
+array because otherwise it would have
+
+1064
+01:13:46,250 --> 01:13:52,850
+printed 0 1 2 3 4 and so on it didn't
+
+1065
+01:13:49,880 --> 01:13:58,130
+print so it simply prints 0 and returned
+
+1066
+01:13:52,850 --> 01:14:04,730
+force so that is how you use how you
+
+1067
+01:13:58,130 --> 01:14:10,100
+abuse the evaluation order specification
+
+1068
+01:14:04,730 --> 01:14:14,000
+of the function every to simulate to
+
+1069
+01:14:10,100 --> 01:14:18,230
+emulate a functional programming style
+
+1070
+01:14:14,000 --> 01:14:24,290
+of doing a loop and break without
+
+1071
+01:14:18,230 --> 01:14:27,980
+actually having a loop in break and this
+
+1072
+01:14:24,290 --> 01:14:31,280
+is very problematic because as we as you
+
+1073
+01:14:27,980 --> 01:14:34,600
+can see here the for loop is actually
+
+1074
+01:14:31,280 --> 01:14:37,220
+much simpler to understand because
+
+1075
+01:14:34,600 --> 01:14:38,810
+JavaScript got lots of problems even
+
+1076
+01:14:37,220 --> 01:14:42,170
+though it's supposed functional
+
+1077
+01:14:38,810 --> 01:14:45,440
+programming but you can see the syntax
+
+1078
+01:14:42,170 --> 01:14:47,990
+is you know on a whole considered as a
+
+1079
+01:14:45,440 --> 01:14:50,270
+whole is very complicated you know with
+
+1080
+01:14:47,990 --> 01:14:53,030
+the semicolon you know it's unlike a
+
+1081
+01:14:50,270 --> 01:14:55,520
+programming language that is designed
+
+1082
+01:14:53,030 --> 01:15:00,040
+for functional programming such as Lisp
+
+1083
+01:14:55,520 --> 01:15:02,750
+Mathematica API has cow those you know
+
+1084
+01:15:00,040 --> 01:15:05,000
+you use functional programming you can
+
+1085
+01:15:02,750 --> 01:15:07,430
+understand it due to the syntax but in
+
+1086
+01:15:05,000 --> 01:15:09,560
+JavaScript you got things like this you
+
+1087
+01:15:07,430 --> 01:15:13,220
+know if the whole thing is one in one
+
+1088
+01:15:09,560 --> 01:15:17,210
+line it's it's impossible to read but
+
+1089
+01:15:13,220 --> 01:15:19,880
+anyway so here is a way to avoid using
+
+1090
+01:15:17,210 --> 01:15:22,280
+loop with break in kind of a functional
+
+1091
+01:15:19,880 --> 01:15:24,500
+programming style but not really because
+
+1092
+01:15:22,280 --> 01:15:26,420
+same tactically
+
+1093
+01:15:24,500 --> 01:15:29,870
+it is like functional programming
+
+1094
+01:15:26,420 --> 01:15:32,270
+because you have you know you have array
+
+1095
+01:15:29,870 --> 01:15:35,750
+you have a method which is a function
+
+1096
+01:15:32,270 --> 01:15:37,370
+then you have another function here you
+
+1097
+01:15:35,750 --> 01:15:39,650
+know it looks syntactically
+
+1098
+01:15:37,370 --> 01:15:40,969
+syntactically it looks like a functional
+
+1099
+01:15:39,650 --> 01:15:45,050
+programming but actually it's not
+
+1100
+01:15:40,969 --> 01:15:49,910
+because you are you are actually abusing
+
+1101
+01:15:45,050 --> 01:15:53,600
+the spec for the evaluation order of the
+
+1102
+01:15:49,910 --> 01:15:57,230
+every function so that that is kind of
+
+1103
+01:15:53,600 --> 01:15:59,780
+the thing I want to say about this so so
+
+1104
+01:15:57,230 --> 01:16:04,100
+we show two things we I showed you know
+
+1105
+01:15:59,780 --> 01:16:08,410
+how you can emulate loop with break in a
+
+1106
+01:16:04,100 --> 01:16:08,410
+functional form in style in JavaScript
+
+1107
+01:16:08,710 --> 01:16:15,050
+so that's how you do it but however I
+
+1108
+01:16:12,110 --> 01:16:18,590
+also showed several I want to you know
+
+1109
+01:16:15,050 --> 01:16:21,800
+III in my opinion also showed that
+
+1110
+01:16:18,590 --> 01:16:23,960
+javascript is very convoluted in many
+
+1111
+01:16:21,800 --> 01:16:25,790
+ways one of the ways the syntax you know
+
+1112
+01:16:23,960 --> 01:16:28,489
+once you're writing a functional style
+
+1113
+01:16:25,790 --> 01:16:30,710
+it's hard to read you know is it's hard
+
+1114
+01:16:28,489 --> 01:16:35,330
+to read what what what what this thing
+
+1115
+01:16:30,710 --> 01:16:37,580
+is and also we I'm talking about we are
+
+1116
+01:16:35,330 --> 01:16:41,420
+we are able to do this because we are
+
+1117
+01:16:37,580 --> 01:16:46,699
+abusing the evaluation order of the
+
+1118
+01:16:41,420 --> 01:16:48,949
+every function that's how we can achieve
+
+1119
+01:16:46,699 --> 01:16:52,630
+this you know it's because the the
+
+1120
+01:16:48,949 --> 01:16:54,710
+moment it finds something force it stops
+
+1121
+01:16:52,630 --> 01:16:57,350
+evaluating the rest of it because you
+
+1122
+01:16:54,710 --> 01:17:00,830
+already know the final result should be
+
+1123
+01:16:57,350 --> 01:17:04,550
+force so we are abusing the evaluation
+
+1124
+01:17:00,830 --> 01:17:06,860
+oder so when you have things like that
+
+1125
+01:17:04,550 --> 01:17:08,960
+such as the every function that means
+
+1126
+01:17:06,860 --> 01:17:12,290
+that every function has side effect it's
+
+1127
+01:17:08,960 --> 01:17:14,719
+not truly a functional thing so we are
+
+1128
+01:17:12,290 --> 01:17:18,110
+just so there's a lot of complexities
+
+1129
+01:17:14,719 --> 01:17:20,600
+going on so in the end I would not
+
+1130
+01:17:18,110 --> 01:17:23,600
+recommend you you know when you want a
+
+1131
+01:17:20,600 --> 01:17:29,320
+loop with break you just do doop with
+
+1132
+01:17:23,600 --> 01:17:29,320
+break you don't do this for in every
+
+1133
+01:17:30,089 --> 01:17:34,859
+yes it's it's called short circuit
+
+1134
+01:17:32,699 --> 01:17:37,319
+circuiting exactly it's it's called
+
+1135
+01:17:34,859 --> 01:17:43,499
+short circuiting that's what people call
+
+1136
+01:17:37,319 --> 01:17:47,069
+it so anyway so that I've you know that
+
+1137
+01:17:43,499 --> 01:17:49,530
+completes the the kind of main topic I
+
+1138
+01:17:47,069 --> 01:17:54,749
+want to talk about and this is also
+
+1139
+01:17:49,530 --> 01:17:59,089
+related to the let's copy it okay so
+
+1140
+01:17:54,749 --> 01:18:03,530
+let's copy yet let's copy it put it here
+
+1141
+01:17:59,089 --> 01:18:09,780
+color syntax it so that covered you know
+
+1142
+01:18:03,530 --> 01:18:13,260
+the thing I want to talk about the the
+
+1143
+01:18:09,780 --> 01:18:15,749
+every you know every you can do that you
+
+1144
+01:18:13,260 --> 01:18:18,719
+know use every other loop with break and
+
+1145
+01:18:15,749 --> 01:18:21,599
+by the way there's also you know
+
+1146
+01:18:18,719 --> 01:18:24,539
+normally if you want to do functional
+
+1147
+01:18:21,599 --> 01:18:28,769
+programming of a loop you can use for
+
+1148
+01:18:24,539 --> 01:18:30,719
+each you know that's like you know let's
+
+1149
+01:18:28,769 --> 01:18:32,519
+like a loop but in a functional
+
+1150
+01:18:30,719 --> 01:18:36,569
+programming style you can use for each
+
+1151
+01:18:32,519 --> 01:18:39,839
+but however for each does not allows you
+
+1152
+01:18:36,569 --> 01:18:42,929
+to break the loop he does not have a
+
+1153
+01:18:39,839 --> 01:18:45,689
+optional you know parameter where you
+
+1154
+01:18:42,929 --> 01:18:48,829
+can putting a function whenever that
+
+1155
+01:18:45,689 --> 01:18:52,949
+function returns force stop the for each
+
+1156
+01:18:48,829 --> 01:18:57,599
+that would be a part more proper way to
+
+1157
+01:18:52,949 --> 01:19:00,780
+have the loop with break functionality
+
+1158
+01:18:57,599 --> 01:19:03,119
+in a functional style so the proper way
+
+1159
+01:19:00,780 --> 01:19:07,589
+for JavaScript to go is actually for the
+
+1160
+01:19:03,119 --> 01:19:10,139
+for each function to have a optional
+
+1161
+01:19:07,589 --> 01:19:11,489
+argument it should be a function that
+
+1162
+01:19:10,139 --> 01:19:15,179
+returns true or false
+
+1163
+01:19:11,489 --> 01:19:17,550
+you know whenever it returns true or you
+
+1164
+01:19:15,179 --> 01:19:20,639
+know whenever it returns false that the
+
+1165
+01:19:17,550 --> 01:19:23,999
+for each should stop that is a proper
+
+1166
+01:19:20,639 --> 01:19:26,699
+way but since it does not so we are
+
+1167
+01:19:23,999 --> 01:19:30,659
+using you know we are using for every to
+
+1168
+01:19:26,699 --> 01:19:36,030
+emulate loop with a break or we can also
+
+1169
+01:19:30,659 --> 01:19:38,639
+use some where is it some some is just
+
+1170
+01:19:36,030 --> 01:19:41,789
+like every you know when you when you
+
+1171
+01:19:38,639 --> 01:19:43,619
+have every the function must return true
+
+1172
+01:19:41,789 --> 01:19:46,920
+for every element
+
+1173
+01:19:43,619 --> 01:19:49,170
+for some is that every element must
+
+1174
+01:19:46,920 --> 01:19:52,110
+return force you know as long as you
+
+1175
+01:19:49,170 --> 01:19:56,070
+know some is true he stops he's kind of
+
+1176
+01:19:52,110 --> 01:19:58,380
+the opposite so we can also use use we
+
+1177
+01:19:56,070 --> 01:20:04,739
+can also use some to emulate loop with
+
+1178
+01:19:58,380 --> 01:20:08,159
+break so that finished one topic and you
+
+1179
+01:20:04,739 --> 01:20:10,349
+know so these things you know what I
+
+1180
+01:20:08,159 --> 01:20:19,619
+want to show today you see these things
+
+1181
+01:20:10,349 --> 01:20:24,300
+are these many issues are complex and
+
+1182
+01:20:19,619 --> 01:20:27,150
+related because you see we are trying to
+
+1183
+01:20:24,300 --> 01:20:31,020
+do functional style and we are trying to
+
+1184
+01:20:27,150 --> 01:20:33,989
+avoid loop but then there's the issue of
+
+1185
+01:20:31,020 --> 01:20:36,659
+how do you do something that is a loop
+
+1186
+01:20:33,989 --> 01:20:42,690
+but you want to break so that is a
+
+1187
+01:20:36,659 --> 01:20:46,560
+problem and when talking about this
+
+1188
+01:20:42,690 --> 01:20:49,290
+problem it comes to you know some issues
+
+1189
+01:20:46,560 --> 01:20:51,960
+comes to our mind that is you know
+
+1190
+01:20:49,290 --> 01:20:54,690
+issues like you are you know there's
+
+1191
+01:20:51,960 --> 01:20:57,119
+issues like evaluation order of a
+
+1192
+01:20:54,690 --> 01:21:02,429
+function you see such as this every
+
+1193
+01:20:57,119 --> 01:21:05,250
+function you see the evaluation order
+
+1194
+01:21:02,429 --> 01:21:07,170
+does not really change the spit you know
+
+1195
+01:21:05,250 --> 01:21:11,310
+you know the semantics the meaning of
+
+1196
+01:21:07,170 --> 01:21:15,000
+what every function do because the every
+
+1197
+01:21:11,310 --> 01:21:16,770
+method is simply returned true if a
+
+1198
+01:21:15,000 --> 01:21:19,619
+function is returns true for every
+
+1199
+01:21:16,770 --> 01:21:23,820
+element so it does not necessarily need
+
+1200
+01:21:19,619 --> 01:21:26,070
+to stop when you reach a element that's
+
+1201
+01:21:23,820 --> 01:21:27,630
+false the reason it stops is like
+
+1202
+01:21:26,070 --> 01:21:30,179
+short-circuit you know it just saved
+
+1203
+01:21:27,630 --> 01:21:32,730
+time you know since it already know the
+
+1204
+01:21:30,179 --> 01:21:37,199
+result final resort is force it needs
+
+1205
+01:21:32,730 --> 01:21:40,139
+not to continue but however the very
+
+1206
+01:21:37,199 --> 01:21:41,639
+fact you have this specification order
+
+1207
+01:21:40,139 --> 01:21:43,889
+you know the the space you know
+
+1208
+01:21:41,639 --> 01:21:48,989
+specifying order that's cool sub
+
+1209
+01:21:43,889 --> 01:21:52,460
+something else that's because the moment
+
+1210
+01:21:48,989 --> 01:21:55,920
+you have this you know order thing
+
+1211
+01:21:52,460 --> 01:21:57,360
+evaluation order thing which does not
+
+1212
+01:21:55,920 --> 01:21:58,830
+change the meaning of the
+
+1213
+01:21:57,360 --> 01:22:01,380
+function the mathematical meaning of a
+
+1214
+01:21:58,830 --> 01:22:04,950
+function it rather it's about kind of
+
+1215
+01:22:01,380 --> 01:22:08,070
+computing efficiency issue so the moment
+
+1216
+01:22:04,950 --> 01:22:12,660
+a programming language suspect specified
+
+1217
+01:22:08,070 --> 01:22:16,890
+this kind of evaluation order and
+
+1218
+01:22:12,660 --> 01:22:19,890
+shortcut then something funny comes up
+
+1219
+01:22:16,890 --> 01:22:22,740
+that is we can we can a beauty we can
+
+1220
+01:22:19,890 --> 01:22:25,710
+kind of abuse this every function to
+
+1221
+01:22:22,740 --> 01:22:29,430
+emulate kind of a functional programming
+
+1222
+01:22:25,710 --> 01:22:31,350
+style of a loop with rake you see so
+
+1223
+01:22:29,430 --> 01:22:34,080
+what I'm trying to do you see my
+
+1224
+01:22:31,350 --> 01:22:37,170
+intention about this topic today's topic
+
+1225
+01:22:34,080 --> 01:22:40,080
+is about is about these complexities
+
+1226
+01:22:37,170 --> 01:22:45,660
+that comes up this this rather
+
+1227
+01:22:40,080 --> 01:22:47,670
+non-trivial subtle complexities so
+
+1228
+01:22:45,660 --> 01:22:50,370
+that's you know that's that's the first
+
+1229
+01:22:47,670 --> 01:22:52,800
+part about you know using you know every
+
+1230
+01:22:50,370 --> 01:22:55,770
+to emulate loop with break and this
+
+1231
+01:22:52,800 --> 01:22:58,350
+applies to many other languages as well
+
+1232
+01:22:55,770 --> 01:23:00,300
+and you know I think you can it applies
+
+1233
+01:22:58,350 --> 01:23:03,930
+to Python like you can think about how
+
+1234
+01:23:00,300 --> 01:23:06,330
+Python does it how other list I mean
+
+1235
+01:23:03,930 --> 01:23:10,620
+even this typically they don't support
+
+1236
+01:23:06,330 --> 01:23:14,790
+they don't support you know loop with
+
+1237
+01:23:10,620 --> 01:23:17,280
+break in a functional style so for
+
+1238
+01:23:14,790 --> 01:23:18,870
+example in eMac this to do that you
+
+1239
+01:23:17,280 --> 01:23:21,930
+simply do a while loop
+
+1240
+01:23:18,870 --> 01:23:26,220
+okay it becomes becomes very idiotic you
+
+1241
+01:23:21,930 --> 01:23:28,230
+just do a while loop you know and in so
+
+1242
+01:23:26,220 --> 01:23:31,020
+the question I don't know how haskell
+
+1243
+01:23:28,230 --> 01:23:33,570
+does it so just a nice gun but otherwise
+
+1244
+01:23:31,020 --> 01:23:36,480
+justing maybe did he answer
+
+1245
+01:23:33,570 --> 01:23:40,470
+he can give he can tell us how how ask
+
+1246
+01:23:36,480 --> 01:23:42,300
+i'll do it well I ain't ask I don't
+
+1247
+01:23:40,470 --> 01:23:45,270
+think the problem even comes up because
+
+1248
+01:23:42,300 --> 01:23:49,200
+you if you want to find something you
+
+1249
+01:23:45,270 --> 01:23:52,350
+know you know array the you you want to
+
+1250
+01:23:49,200 --> 01:23:55,770
+find the first item and stop I think has
+
+1251
+01:23:52,350 --> 01:23:58,440
+cow has like ways to you don't even you
+
+1252
+01:23:55,770 --> 01:24:06,180
+know you don't write loops pay anyway so
+
+1253
+01:23:58,440 --> 01:24:08,040
+so this problem as far as I know it's a
+
+1254
+01:24:06,180 --> 01:24:10,710
+problem in other languages such as
+
+1255
+01:24:08,040 --> 01:24:13,260
+Python PHP
+
+1256
+01:24:10,710 --> 01:24:16,199
+email is for sure this language I know
+
+1257
+01:24:13,260 --> 01:24:19,770
+for sure you got this problem and also
+
+1258
+01:24:16,199 --> 01:24:22,469
+in scheme disp you got these problems
+
+1259
+01:24:19,770 --> 01:24:26,219
+you know whenever you want to break a
+
+1260
+01:24:22,469 --> 01:24:29,070
+loop you see in our example we are using
+
+1261
+01:24:26,219 --> 01:24:31,650
+this very simple example of even you
+
+1262
+01:24:29,070 --> 01:24:35,460
+know if we if a number is even we want
+
+1263
+01:24:31,650 --> 01:24:37,440
+to break but in real life it's it may
+
+1264
+01:24:35,460 --> 01:24:40,199
+not be that simple the function may have
+
+1265
+01:24:37,440 --> 01:24:43,469
+to check the database or maybe you know
+
+1266
+01:24:40,199 --> 01:24:46,350
+or each element in the array is actually
+
+1267
+01:24:43,469 --> 01:24:49,260
+a window object or geometry you know a
+
+1268
+01:24:46,350 --> 01:24:51,449
+polygon somewhere you want to find you
+
+1269
+01:24:49,260 --> 01:24:53,580
+know then your function is not simply
+
+1270
+01:24:51,449 --> 01:24:56,610
+you know check if that number is true
+
+1271
+01:24:53,580 --> 01:24:58,860
+even or odd but your function is
+
+1272
+01:24:56,610 --> 01:25:02,100
+checking some qualities about polygons
+
+1273
+01:24:58,860 --> 01:25:04,260
+above that you know math complicated
+
+1274
+01:25:02,100 --> 01:25:09,060
+math object or window object or whatever
+
+1275
+01:25:04,260 --> 01:25:12,120
+so in real life this problem comes up
+
+1276
+01:25:09,060 --> 01:25:15,590
+you know you want a break with Lu you
+
+1277
+01:25:12,120 --> 01:25:20,520
+want a loop with a break so that
+
+1278
+01:25:15,590 --> 01:25:22,409
+concludes that thing now the things
+
+1279
+01:25:20,520 --> 01:25:25,860
+related to that thing I want to talk
+
+1280
+01:25:22,409 --> 01:25:28,560
+about is this the syntactic and semantic
+
+1281
+01:25:25,860 --> 01:25:31,310
+difference of map function I'm about
+
+1282
+01:25:28,560 --> 01:25:34,260
+done in five minutes I can finish
+
+1283
+01:25:31,310 --> 01:25:36,840
+so this syntactic and semantic
+
+1284
+01:25:34,260 --> 01:25:38,340
+difference of map function so what I'm
+
+1285
+01:25:36,840 --> 01:25:43,199
+talking about you can read this article
+
+1286
+01:25:38,340 --> 01:25:46,560
+but I can but we already kind of covered
+
+1287
+01:25:43,199 --> 01:25:50,400
+that already because you can see when we
+
+1288
+01:25:46,560 --> 01:25:55,230
+try to use functional programming style
+
+1289
+01:25:50,400 --> 01:25:59,090
+to emulate loop with break we end up
+
+1290
+01:25:55,230 --> 01:26:02,100
+with this solution you know using every
+
+1291
+01:25:59,090 --> 01:26:04,440
+so on a surface the code looks like
+
+1292
+01:26:02,100 --> 01:26:07,320
+functional programming but actually it's
+
+1293
+01:26:04,440 --> 01:26:09,929
+not because first of all every has a
+
+1294
+01:26:07,320 --> 01:26:12,540
+side-effect you know it stops it stops
+
+1295
+01:26:09,929 --> 01:26:15,840
+something waiting wait you know found
+
+1296
+01:26:12,540 --> 01:26:18,360
+the element that's false that's not
+
+1297
+01:26:15,840 --> 01:26:24,060
+functional that's not pure functional
+
+1298
+01:26:18,360 --> 01:26:24,570
+okay then we are using with so I mean so
+
+1299
+01:26:24,060 --> 01:26:27,030
+the
+
+1300
+01:26:24,570 --> 01:26:29,670
+so the thing is on a surface
+
+1301
+01:26:27,030 --> 01:26:31,410
+syntactically it looks like functional
+
+1302
+01:26:29,670 --> 01:26:34,890
+programming but not semantics
+
+1303
+01:26:31,410 --> 01:26:37,440
+semantically and also the reason these
+
+1304
+01:26:34,890 --> 01:26:41,730
+code works is that because every has
+
+1305
+01:26:37,440 --> 01:26:44,820
+this you know specification about when
+
+1306
+01:26:41,730 --> 01:26:47,550
+to stop computing which is not part of
+
+1307
+01:26:44,820 --> 01:26:49,800
+the functional specification because as
+
+1308
+01:26:47,550 --> 01:26:52,530
+far as the functional specification is
+
+1309
+01:26:49,800 --> 01:26:54,720
+that input and output remember that's
+
+1310
+01:26:52,530 --> 01:26:57,810
+functional programming so every is a
+
+1311
+01:26:54,720 --> 01:27:01,200
+function so the input is array and a
+
+1312
+01:26:57,810 --> 01:27:02,370
+function right and the output is that is
+
+1313
+01:27:01,200 --> 01:27:03,810
+either true or false
+
+1314
+01:27:02,370 --> 01:27:06,300
+if the functional applied to every
+
+1315
+01:27:03,810 --> 01:27:08,850
+element is all true they returns true
+
+1316
+01:27:06,300 --> 01:27:11,310
+otherwise it returns false you see
+
+1317
+01:27:08,850 --> 01:27:14,510
+that's the function of spec for every
+
+1318
+01:27:11,310 --> 01:27:17,250
+but however it also has this
+
+1319
+01:27:14,510 --> 01:27:19,770
+computational you know evaluation order
+
+1320
+01:27:17,250 --> 01:27:21,300
+thing which has nothing to do with the
+
+1321
+01:27:19,770 --> 01:27:24,390
+functional spec you know the
+
+1322
+01:27:21,300 --> 01:27:29,040
+input-output spec but rather is about
+
+1323
+01:27:24,390 --> 01:27:31,980
+kind of efficiency of a computing so you
+
+1324
+01:27:29,040 --> 01:27:34,370
+see on one hand this the whole thing
+
+1325
+01:27:31,980 --> 01:27:37,880
+looks like syntactically functional but
+
+1326
+01:27:34,370 --> 01:27:43,190
+semantically is not and it involves this
+
+1327
+01:27:37,880 --> 01:27:46,530
+complicated thing so that that is when
+
+1328
+01:27:43,190 --> 01:27:48,870
+so when you understand that then you
+
+1329
+01:27:46,530 --> 01:27:51,440
+look at the map function the map
+
+1330
+01:27:48,870 --> 01:27:55,410
+function has exactly the same problem
+
+1331
+01:27:51,440 --> 01:27:58,410
+exactly the same problem because map
+
+1332
+01:27:55,410 --> 01:28:00,300
+function so functionally speaking you
+
+1333
+01:27:58,410 --> 01:28:03,530
+know in a functional programming point
+
+1334
+01:28:00,300 --> 01:28:06,870
+of view the function of the map
+
+1335
+01:28:03,530 --> 01:28:10,200
+specification is that the input is a
+
+1336
+01:28:06,870 --> 01:28:12,480
+function in the list okay in JavaScript
+
+1337
+01:28:10,200 --> 01:28:16,200
+it's array okay so function in the list
+
+1338
+01:28:12,480 --> 01:28:19,740
+array that's the input the output is a
+
+1339
+01:28:16,200 --> 01:28:22,380
+is another list where each element is
+
+1340
+01:28:19,740 --> 01:28:25,470
+the function applied to every each
+
+1341
+01:28:22,380 --> 01:28:27,600
+element of the array of the list okay so
+
+1342
+01:28:25,470 --> 01:28:30,270
+that's the input and output that's the
+
+1343
+01:28:27,600 --> 01:28:33,480
+functional perspective you know input
+
+1344
+01:28:30,270 --> 01:28:36,750
+output of the map function but however
+
+1345
+01:28:33,480 --> 01:28:38,840
+just like the every function the map
+
+1346
+01:28:36,750 --> 01:28:41,929
+function has a
+
+1347
+01:28:38,840 --> 01:28:44,159
+evaluation strategy evaluation odor
+
+1348
+01:28:41,929 --> 01:28:46,139
+specification in the language for
+
+1349
+01:28:44,159 --> 01:28:49,889
+example we are seeing the JavaScript
+
+1350
+01:28:46,139 --> 01:28:53,190
+suspect the egg mod 2015 spec for the
+
+1351
+01:28:49,889 --> 01:28:56,219
+map function essentially you know it's
+
+1352
+01:28:53,190 --> 01:28:59,130
+very complicated to read but essentially
+
+1353
+01:28:56,219 --> 01:29:03,449
+it's it tells you that in order to
+
+1354
+01:28:59,130 --> 01:29:04,980
+implement JavaScript map correctly if
+
+1355
+01:29:03,449 --> 01:29:08,369
+you want to pass you know JavaScript
+
+1356
+01:29:04,980 --> 01:29:11,130
+standard you actually are doing a loop
+
+1357
+01:29:08,369 --> 01:29:14,820
+you see you can see the last line is
+
+1358
+01:29:11,130 --> 01:29:17,610
+says increased K by Y by one so it's
+
+1359
+01:29:14,820 --> 01:29:22,139
+telling you that when you implement map
+
+1360
+01:29:17,610 --> 01:29:24,719
+in JavaScript you have to go by order
+
+1361
+01:29:22,139 --> 01:29:27,360
+like like apply F to the first element
+
+1362
+01:29:24,719 --> 01:29:31,409
+apply F to the sacrament you have to do
+
+1363
+01:29:27,360 --> 01:29:33,719
+that by order so what is a consequence
+
+1364
+01:29:31,409 --> 01:29:36,510
+of saying that because remember first
+
+1365
+01:29:33,719 --> 01:29:39,210
+let me repeat the functional
+
+1366
+01:29:36,510 --> 01:29:42,150
+specification of the map function is
+
+1367
+01:29:39,210 --> 01:29:45,360
+that you take a list you'd have to a
+
+1368
+01:29:42,150 --> 01:29:48,570
+function that's the input the output is
+
+1369
+01:29:45,360 --> 01:29:51,119
+the is the list where each element is a
+
+1370
+01:29:48,570 --> 01:29:54,239
+function applied to every element okay
+
+1371
+01:29:51,119 --> 01:29:57,989
+that's the input and output but however
+
+1372
+01:29:54,239 --> 01:30:01,400
+because of practical computation the
+
+1373
+01:29:57,989 --> 01:30:05,550
+spec says you need to do this by order
+
+1374
+01:30:01,400 --> 01:30:08,040
+now they know there is a very important
+
+1375
+01:30:05,550 --> 01:30:10,380
+subtleties just like the every case you
+
+1376
+01:30:08,040 --> 01:30:12,360
+know the you know the case we talked
+
+1377
+01:30:10,380 --> 01:30:18,210
+about before there's an important
+
+1378
+01:30:12,360 --> 01:30:20,489
+consequence that consequence is that the
+
+1379
+01:30:18,210 --> 01:30:24,090
+consequence is that if your function
+
+1380
+01:30:20,489 --> 01:30:27,659
+that that is an input to map if that
+
+1381
+01:30:24,090 --> 01:30:32,070
+function does not have side effect then
+
+1382
+01:30:27,659 --> 01:30:34,889
+the order does not matter okay but
+
+1383
+01:30:32,070 --> 01:30:38,670
+however if your function has side effect
+
+1384
+01:30:34,889 --> 01:30:40,800
+then this spec says that it has to
+
+1385
+01:30:38,670 --> 01:30:44,880
+follow order then it has significant
+
+1386
+01:30:40,800 --> 01:30:46,800
+consequences because because then if you
+
+1387
+01:30:44,880 --> 01:30:50,369
+don't follow order that we saw will be
+
+1388
+01:30:46,800 --> 01:30:53,340
+different so you see what I mean
+
+1389
+01:30:50,369 --> 01:30:57,409
+so I don't know I don't know what if I'm
+
+1390
+01:30:53,340 --> 01:31:00,060
+making too much sense today so maybe
+
+1391
+01:30:57,409 --> 01:31:02,179
+maybe that's it for today let me read
+
+1392
+01:31:00,060 --> 01:31:07,020
+the comments
+
+1393
+01:31:02,179 --> 01:31:13,800
+so sohbats do you think I'm do it like
+
+1394
+01:31:07,020 --> 01:31:18,780
+am I making sense or maybe if I'm going
+
+1395
+01:31:13,800 --> 01:31:20,940
+too slow like being repetitive yeah so
+
+1396
+01:31:18,780 --> 01:31:21,449
+some and every young empty array are
+
+1397
+01:31:20,940 --> 01:31:24,840
+weird
+
+1398
+01:31:21,449 --> 01:31:27,119
+so javascript has tons of these problems
+
+1399
+01:31:24,840 --> 01:31:30,900
+really turned some of this one but
+
+1400
+01:31:27,119 --> 01:31:33,420
+javascript is truly bad fredy says yes
+
+1401
+01:31:30,900 --> 01:31:37,139
+if this stuff is in one line it really
+
+1402
+01:31:33,420 --> 01:31:40,679
+makes it hard to read yes and yes this
+
+1403
+01:31:37,139 --> 01:31:43,409
+is kind of code by tenfold code by a
+
+1404
+01:31:40,679 --> 01:31:49,679
+tenfold that I am dealing right now left
+
+1405
+01:31:43,409 --> 01:31:51,690
+behind by my superiors okay given
+
+1406
+01:31:49,679 --> 01:31:56,429
+finding the first element passing tests
+
+1407
+01:31:51,690 --> 01:31:58,920
+you can use some array don't find some
+
+1408
+01:31:56,429 --> 01:32:00,150
+array don't find yes that yes that's
+
+1409
+01:31:58,920 --> 01:32:03,360
+true
+
+1410
+01:32:00,150 --> 01:32:05,369
+yeah hello beautiful people yeah that
+
+1411
+01:32:03,360 --> 01:32:08,960
+that is true but I'm trying to you know
+
+1412
+01:32:05,369 --> 01:32:12,179
+I'm trying to show an example about this
+
+1413
+01:32:08,960 --> 01:32:14,159
+syntactic and semantic issue so you see
+
+1414
+01:32:12,179 --> 01:32:15,510
+I find this interesting because nobody
+
+1415
+01:32:14,159 --> 01:32:17,760
+when we talk about functional
+
+1416
+01:32:15,510 --> 01:32:21,510
+programming you know we think of you
+
+1417
+01:32:17,760 --> 01:32:24,780
+know you know it's like what do you mean
+
+1418
+01:32:21,510 --> 01:32:28,110
+by functional programming but I hope you
+
+1419
+01:32:24,780 --> 01:32:31,710
+know what I find very interesting is
+
+1420
+01:32:28,110 --> 01:32:34,739
+that you see we have this fairly very
+
+1421
+01:32:31,710 --> 01:32:37,440
+complex subtleties you know going on
+
+1422
+01:32:34,739 --> 01:32:39,840
+because this this on one hand you truly
+
+1423
+01:32:37,440 --> 01:32:42,570
+it just looks like functional you almost
+
+1424
+01:32:39,840 --> 01:32:44,820
+like even if you read you know
+
+1425
+01:32:42,570 --> 01:32:47,130
+functional JavaScript book you know they
+
+1426
+01:32:44,820 --> 01:32:48,929
+tell you oh how to do functional form in
+
+1427
+01:32:47,130 --> 01:32:50,520
+JavaScript you know purely functional
+
+1428
+01:32:48,929 --> 01:32:52,590
+programming you know Facebook has
+
+1429
+01:32:50,520 --> 01:32:54,840
+functional forming libraries and so on
+
+1430
+01:32:52,590 --> 01:32:58,500
+you see this kind of thing but this
+
+1431
+01:32:54,840 --> 01:33:00,719
+there's you should I don't yeah usually
+
+1432
+01:32:58,500 --> 01:33:02,889
+they don't talk about I don't think so
+
+1433
+01:33:00,719 --> 01:33:05,920
+they
+
+1434
+01:33:02,889 --> 01:33:09,639
+there is a complex issues beneath about
+
+1435
+01:33:05,920 --> 01:33:12,040
+this evaluation order so if we continue
+
+1436
+01:33:09,639 --> 01:33:15,969
+with our article about the map with a
+
+1437
+01:33:12,040 --> 01:33:19,090
+consequence so the next issue so so for
+
+1438
+01:33:15,969 --> 01:33:22,869
+example we showed JavaScript the spec
+
+1439
+01:33:19,090 --> 01:33:25,480
+says that the map must execute by
+
+1440
+01:33:22,869 --> 01:33:28,090
+following order you know this is kind of
+
+1441
+01:33:25,480 --> 01:33:30,909
+you know the spec says that if you want
+
+1442
+01:33:28,090 --> 01:33:33,100
+to create a JavaScript standard
+
+1443
+01:33:30,909 --> 01:33:36,280
+compliant implementation you have to do
+
+1444
+01:33:33,100 --> 01:33:38,739
+that now at least let's look at least
+
+1445
+01:33:36,280 --> 01:33:41,469
+example now this is well known as a
+
+1446
+01:33:38,739 --> 01:33:45,159
+functional programming language now in
+
+1447
+01:33:41,469 --> 01:33:49,750
+emag list look at what it says
+
+1448
+01:33:45,159 --> 01:33:52,960
+you see it says map car so map car is
+
+1449
+01:33:49,750 --> 01:33:55,510
+map you know in this new code map car it
+
+1450
+01:33:52,960 --> 01:33:58,960
+says apply function to each element of
+
+1451
+01:33:55,510 --> 01:34:01,300
+sequence in turn and return a list of
+
+1452
+01:33:58,960 --> 01:34:05,260
+the results you see it says in turn
+
+1453
+01:34:01,300 --> 01:34:08,770
+so in eMac this even in emag B's it also
+
+1454
+01:34:05,260 --> 01:34:10,389
+specifies that the map function must you
+
+1455
+01:34:08,770 --> 01:34:12,429
+know follow the order must apply the
+
+1456
+01:34:10,389 --> 01:34:15,520
+first one first apply the second first
+
+1457
+01:34:12,429 --> 01:34:17,619
+even though you know from a functional
+
+1458
+01:34:15,520 --> 01:34:19,989
+programming point of view the map
+
+1459
+01:34:17,619 --> 01:34:22,630
+function doesn't really care about odor
+
+1460
+01:34:19,989 --> 01:34:24,330
+because as long as your function is does
+
+1461
+01:34:22,630 --> 01:34:27,550
+not have side effect
+
+1462
+01:34:24,330 --> 01:34:29,679
+side effects such as changing a global
+
+1463
+01:34:27,550 --> 01:34:31,869
+variable or changing the list you are
+
+1464
+01:34:29,679 --> 01:34:34,389
+mapping to like on the fly
+
+1465
+01:34:31,869 --> 01:34:37,030
+that's very bad or not C and the C type
+
+1466
+01:34:34,389 --> 01:34:39,010
+c plus first type of programmers they
+
+1467
+01:34:37,030 --> 01:34:41,350
+like to do that because that's why i
+
+1468
+01:34:39,010 --> 01:34:43,090
+don't I never like those you know low
+
+1469
+01:34:41,350 --> 01:34:44,739
+level stuff they do that because they
+
+1470
+01:34:43,090 --> 01:34:47,440
+they are trying to get you know
+
+1471
+01:34:44,739 --> 01:34:49,780
+efficiency to apply tricks you know to
+
+1472
+01:34:47,440 --> 01:34:51,520
+get you know CPU memory they know how
+
+1473
+01:34:49,780 --> 01:34:54,400
+they are organized they trying to make
+
+1474
+01:34:51,520 --> 01:34:57,369
+it faster anyway so you see even list
+
+1475
+01:34:54,400 --> 01:34:59,889
+language they specify that you the map
+
+1476
+01:34:57,369 --> 01:35:03,520
+function applying order so what is a
+
+1477
+01:34:59,889 --> 01:35:06,000
+consequence the consequence of the spec
+
+1478
+01:35:03,520 --> 01:35:06,000
+is that
+
+1479
+01:35:06,349 --> 01:35:12,110
+so the first question we can ask is that
+
+1480
+01:35:09,230 --> 01:35:14,060
+whether a language spec let's say you
+
+1481
+01:35:12,110 --> 01:35:16,340
+are creating a language you are all you
+
+1482
+01:35:14,060 --> 01:35:19,579
+know your favorite language when you
+
+1483
+01:35:16,340 --> 01:35:24,170
+have a map function should you specify
+
+1484
+01:35:19,579 --> 01:35:25,550
+what order it applies should you that is
+
+1485
+01:35:24,170 --> 01:35:27,679
+the open question you know when you
+
+1486
+01:35:25,550 --> 01:35:29,780
+design a question this question will
+
+1487
+01:35:27,679 --> 01:35:31,670
+come up this is going to be one over the
+
+1488
+01:35:29,780 --> 01:35:36,949
+question should your map function
+
+1489
+01:35:31,670 --> 01:35:40,190
+specified the application oder now we
+
+1490
+01:35:36,949 --> 01:35:42,800
+can think about so so so the answer is
+
+1491
+01:35:40,190 --> 01:35:45,260
+whether yes or no but what are the
+
+1492
+01:35:42,800 --> 01:35:48,800
+consequences you know the thing is that
+
+1493
+01:35:45,260 --> 01:35:51,079
+if the function to the map has no side
+
+1494
+01:35:48,800 --> 01:35:54,530
+effect then the order does not matter
+
+1495
+01:35:51,079 --> 01:35:56,960
+okay you don't have to specify older
+
+1496
+01:35:54,530 --> 01:36:00,500
+because doesn't matter which order the
+
+1497
+01:35:56,960 --> 01:36:03,079
+result will always be be the same if the
+
+1498
+01:36:00,500 --> 01:36:04,880
+function to map is you know without side
+
+1499
+01:36:03,079 --> 01:36:09,500
+effect it's a pure function like a
+
+1500
+01:36:04,880 --> 01:36:12,230
+NASCAR however if the if your function
+
+1501
+01:36:09,500 --> 01:36:14,090
+possibly may or may not you know it
+
+1502
+01:36:12,230 --> 01:36:16,909
+cannot guarantee it doesn't have side
+
+1503
+01:36:14,090 --> 01:36:19,849
+effect then the older really matters you
+
+1504
+01:36:16,909 --> 01:36:21,710
+need to specify your order and the
+
+1505
+01:36:19,849 --> 01:36:24,260
+simplest order is you know just apply
+
+1506
+01:36:21,710 --> 01:36:26,659
+the first one first so this so you got
+
+1507
+01:36:24,260 --> 01:36:29,800
+this issue here you got this issue you
+
+1508
+01:36:26,659 --> 01:36:36,440
+know design issue language issue
+
+1509
+01:36:29,800 --> 01:36:41,300
+language design issue and and it's a
+
+1510
+01:36:36,440 --> 01:36:45,139
+problem because because so so why do you
+
+1511
+01:36:41,300 --> 01:36:47,510
+you know so okay if your function may
+
+1512
+01:36:45,139 --> 01:36:49,610
+have side effect then you want older but
+
+1513
+01:36:47,510 --> 01:36:55,610
+when you have older then you got a
+
+1514
+01:36:49,610 --> 01:36:58,639
+problem because okay first of all let me
+
+1515
+01:36:55,610 --> 01:37:01,520
+talk about what what is the advantage of
+
+1516
+01:36:58,639 --> 01:37:03,860
+not specifying order like what is a
+
+1517
+01:37:01,520 --> 01:37:07,730
+advantage if your function is always
+
+1518
+01:37:03,860 --> 01:37:10,579
+pure function to the map that has great
+
+1519
+01:37:07,730 --> 01:37:13,699
+advantages because if your function to
+
+1520
+01:37:10,579 --> 01:37:16,250
+map is not has not side effect that
+
+1521
+01:37:13,699 --> 01:37:19,040
+means you can apply parallel computing
+
+1522
+01:37:16,250 --> 01:37:19,940
+the compiler can take your code it
+
+1523
+01:37:19,040 --> 01:37:22,910
+cannot
+
+1524
+01:37:19,940 --> 01:37:26,660
+if you know if you have array of 1,000
+
+1525
+01:37:22,910 --> 01:37:29,000
+items let's say 1 billion items and you
+
+1526
+01:37:26,660 --> 01:37:32,930
+need to apply map a function to each one
+
+1527
+01:37:29,000 --> 01:37:35,060
+of them so if the function is pure you
+
+1528
+01:37:32,930 --> 01:37:37,370
+know no side effect then you can do
+
+1529
+01:37:35,060 --> 01:37:39,800
+parallel computing you know for example
+
+1530
+01:37:37,370 --> 01:37:43,219
+at Google you can have you can apply if
+
+1531
+01:37:39,800 --> 01:37:45,350
+to you know using 1000 processors you
+
+1532
+01:37:43,219 --> 01:37:47,780
+know 1 billion processors it's at the
+
+1533
+01:37:45,350 --> 01:37:51,320
+same time you know you'll just walk
+
+1534
+01:37:47,780 --> 01:37:55,820
+because they have no side effect so that
+
+1535
+01:37:51,320 --> 01:38:02,180
+is a advantage so if your language do
+
+1536
+01:37:55,820 --> 01:38:05,090
+not specify order it kind of yeah
+
+1537
+01:38:02,180 --> 01:38:07,340
+there's another complication is that if
+
+1538
+01:38:05,090 --> 01:38:09,980
+your language do not actually specify an
+
+1539
+01:38:07,340 --> 01:38:12,680
+order it kind of forced the programmer
+
+1540
+01:38:09,980 --> 01:38:15,050
+to always have a function that does not
+
+1541
+01:38:12,680 --> 01:38:18,080
+have side effect because once you have a
+
+1542
+01:38:15,050 --> 01:38:22,040
+side effect and the language spec does
+
+1543
+01:38:18,080 --> 01:38:24,710
+not guarantee an order then your result
+
+1544
+01:38:22,040 --> 01:38:28,580
+will be arbitrarily different each time
+
+1545
+01:38:24,710 --> 01:38:32,780
+you run because so that that is when you
+
+1546
+01:38:28,580 --> 01:38:35,449
+kind of forced programmer to not a user
+
+1547
+01:38:32,780 --> 01:38:38,440
+function that has side effect this is in
+
+1548
+01:38:35,449 --> 01:38:40,760
+fact true for scheme this specification
+
+1549
+01:38:38,440 --> 01:38:43,510
+for a long time I'd I don't know what's
+
+1550
+01:38:40,760 --> 01:38:46,370
+the situation now you know scheme safe
+
+1551
+01:38:43,510 --> 01:38:50,270
+specification their functions do not
+
+1552
+01:38:46,370 --> 01:38:53,870
+specify a evaluation order as far as if
+
+1553
+01:38:50,270 --> 01:38:55,760
+I remember because this evaluation order
+
+1554
+01:38:53,870 --> 01:38:58,780
+is very interesting we mentioned today
+
+1555
+01:38:55,760 --> 01:39:02,150
+this is the main topic today because
+
+1556
+01:38:58,780 --> 01:39:04,880
+it's like if you don't specify on order
+
+1557
+01:39:02,150 --> 01:39:09,790
+you are if you specify order you
+
+1558
+01:39:04,880 --> 01:39:09,790
+are also that's that's the case
+
+1559
+01:39:10,239 --> 01:39:18,560
+because the if you don't specify order
+
+1560
+01:39:13,940 --> 01:39:20,449
+then then then then that means you know
+
+1561
+01:39:18,560 --> 01:39:23,060
+you want your function to be pure
+
+1562
+01:39:20,449 --> 01:39:26,000
+functions no side effect then the other
+
+1563
+01:39:23,060 --> 01:39:27,680
+question is and how do you enforce in
+
+1564
+01:39:26,000 --> 01:39:30,260
+your language how do you enforce that
+
+1565
+01:39:27,680 --> 01:39:33,469
+function do not have side effect you
+
+1566
+01:39:30,260 --> 01:39:37,130
+know if you have a language like has cow
+
+1567
+01:39:33,469 --> 01:39:39,050
+okay mo you know F sharp strongly typed
+
+1568
+01:39:37,130 --> 01:39:41,180
+functional farming language then you can
+
+1569
+01:39:39,050 --> 01:39:43,880
+do that okay it's already part of the
+
+1570
+01:39:41,180 --> 01:39:47,630
+language but in the case of JavaScript
+
+1571
+01:39:43,880 --> 01:39:51,739
+Python Ruby PHP you got a problem or
+
+1572
+01:39:47,630 --> 01:39:54,170
+Java or possibly Java and C++ you know
+
+1573
+01:39:51,739 --> 01:39:56,330
+you got a problem because how do you
+
+1574
+01:39:54,170 --> 01:39:58,610
+know you got a problem of how do you
+
+1575
+01:39:56,330 --> 01:40:00,800
+enforce how do you how does a compiler
+
+1576
+01:39:58,610 --> 01:40:03,860
+know that the function does not have
+
+1577
+01:40:00,800 --> 01:40:08,810
+side effect so things like that so it's
+
+1578
+01:40:03,860 --> 01:40:10,940
+very interesting so anyway that that's
+
+1579
+01:40:08,810 --> 01:40:14,810
+that's what I want to talk about today
+
+1580
+01:40:10,940 --> 01:40:19,310
+so let's see any chance to in a bit
+
+1581
+01:40:14,810 --> 01:40:21,590
+earlier for my talk show I don't know
+
+1582
+01:40:19,310 --> 01:40:28,730
+that's that's always a problem I'll try
+
+1583
+01:40:21,590 --> 01:40:32,900
+it okay so yeah so that's it for today
+
+1584
+01:40:28,730 --> 01:40:42,080
+thank you guys for watching any more
+
+1585
+01:40:32,900 --> 01:40:45,590
+comments we shut down in one minute yeah
+
+1586
+01:40:42,080 --> 01:40:47,390
+we shutting down in one minute guys so
+
+1587
+01:40:45,590 --> 01:40:50,330
+any questions about that
+
+1588
+01:40:47,390 --> 01:40:53,440
+let me read the comments I so many
+
+1589
+01:40:50,330 --> 01:40:53,440
+comments today and
+
+1590
+01:40:59,580 --> 01:41:03,440
+I haven't been reading them
+
+1591
+01:41:40,260 --> 01:41:45,790
+okay so that's it for today I think
+
+1592
+01:41:42,850 --> 01:41:48,150
+tomorrow maybe we do eMac this we
+
+1593
+01:41:45,790 --> 01:41:51,520
+haven't done that for a while and
+
+1594
+01:41:48,150 --> 01:41:55,120
+Freddie your question you need to
+
+1595
+01:41:51,520 --> 01:41:59,469
+specify it out like actually Freddie
+
+1596
+01:41:55,120 --> 01:42:04,540
+like yeah Freddie I think your question
+
+1597
+01:41:59,469 --> 01:42:16,060
+is too complicated because give me
+
+1598
+01:42:04,540 --> 01:42:20,020
+default object level 1 t4 yeah I don't
+
+1599
+01:42:16,060 --> 01:42:23,620
+you know it's I think it's you need to
+
+1600
+01:42:20,020 --> 01:42:28,690
+specify it out because it's you know
+
+1601
+01:42:23,620 --> 01:42:31,800
+it's form program itself is often quite
+
+1602
+01:42:28,690 --> 01:42:38,380
+complicated you have to write a lot text
+
+1603
+01:42:31,800 --> 01:42:40,950
+to understand you know what is mint yeah
+
+1604
+01:42:38,380 --> 01:42:43,950
+I don't really know what you mean by the
+
+1605
+01:42:40,950 --> 01:42:43,950
+defaults
+
+1606
+01:42:51,110 --> 01:42:57,080
+yeah okay okay thank you guys bye guys
+

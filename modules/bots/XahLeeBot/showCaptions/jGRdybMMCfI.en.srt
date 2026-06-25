@@ -1,0 +1,5728 @@
+1
+00:00:00,080 --> 00:00:06,640
+to another episode of EX talk show today
+
+2
+00:00:03,240 --> 00:00:10,559
+we are going to do emac lisp kind of a
+
+3
+00:00:06,640 --> 00:00:15,160
+teaching session for those of you emac
+
+4
+00:00:10,559 --> 00:00:17,000
+fans especially lisp fans am I live live
+
+5
+00:00:15,160 --> 00:00:19,199
+been kicking fantastic so let me
+
+6
+00:00:17,000 --> 00:00:21,800
+introduce my keyboards and let's move on
+
+7
+00:00:19,199 --> 00:00:25,320
+to emac dis if you have questions and
+
+8
+00:00:21,800 --> 00:00:29,000
+comments ask okay mostly about emac
+
+9
+00:00:25,320 --> 00:00:31,679
+today so my keyboards this is glove 80
+
+10
+00:00:29,000 --> 00:00:35,160
+fantastic this this is Ultimate hacking
+
+11
+00:00:31,679 --> 00:00:37,280
+keyboard to Fantastic functional
+
+12
+00:00:35,160 --> 00:00:40,480
+lighting different color for different
+
+13
+00:00:37,280 --> 00:00:45,200
+functionality of the keyboard and lots
+
+14
+00:00:40,480 --> 00:00:50,640
+of you ex uh wanted to see is the is
+
+15
+00:00:45,200 --> 00:00:54,079
+this s board s v a l b o a r d so I'm
+
+16
+00:00:50,640 --> 00:00:58,000
+getting onto it you know I will be using
+
+17
+00:00:54,079 --> 00:01:00,039
+it you know so but not ready yet uh and
+
+18
+00:00:58,000 --> 00:01:02,120
+actually I got all the cables if you
+
+19
+00:01:00,039 --> 00:01:05,239
+watched the last live stream I got all
+
+20
+00:01:02,120 --> 00:01:09,119
+the cables thanks to Clen I got all the
+
+21
+00:01:05,239 --> 00:01:11,759
+cables I need it's very nice so I'm
+
+22
+00:01:09,119 --> 00:01:15,280
+going to show you okay you just have to
+
+23
+00:01:11,759 --> 00:01:18,680
+be a bit more patient so let's move on
+
+24
+00:01:15,280 --> 00:01:21,200
+to emac this okay if you are here say hi
+
+25
+00:01:18,680 --> 00:01:26,360
+fantastic let's begin I think I got five
+
+26
+00:01:21,200 --> 00:01:29,960
+people watching three okay so uh emac
+
+27
+00:01:26,360 --> 00:01:33,119
+disp okay so emac disp I you know I fail
+
+28
+00:01:29,960 --> 00:01:36,040
+out that it is the best lisp today
+
+29
+00:01:33,119 --> 00:01:39,640
+because you know the major lisps lisps
+
+30
+00:01:36,040 --> 00:01:43,320
+common lisp scheme lisp emac lisp and
+
+31
+00:01:39,640 --> 00:01:46,439
+closure lisp that's essentially the four
+
+32
+00:01:43,320 --> 00:01:49,439
+major lisps today now common lisp is
+
+33
+00:01:46,439 --> 00:01:51,360
+kind of dead okay I mean you you you do
+
+34
+00:01:49,439 --> 00:01:54,000
+have Fanatics you know you have like
+
+35
+00:01:51,360 --> 00:01:56,119
+little bunch of fanatics but common LP
+
+36
+00:01:54,000 --> 00:01:58,719
+hasn't had you know the It's Kind it's
+
+37
+00:01:56,119 --> 00:02:01,439
+dead okay it's dead the standard hasn't
+
+38
+00:01:58,719 --> 00:02:05,200
+been updated and it's not likely going
+
+39
+00:02:01,439 --> 00:02:09,640
+to have any new update it's the standard
+
+40
+00:02:05,200 --> 00:02:13,080
+hasn't been updated for 25 years also so
+
+41
+00:02:09,640 --> 00:02:15,760
+common disp is kind of dead like Pearl
+
+42
+00:02:13,080 --> 00:02:20,000
+uh and scheme disp you know scheme disp
+
+43
+00:02:15,760 --> 00:02:21,000
+is a s story scheme L lisp is or scheme
+
+44
+00:02:20,000 --> 00:02:24,879
+racket
+
+45
+00:02:21,000 --> 00:02:27,599
+lisp uh because racket is uh let's see
+
+46
+00:02:24,879 --> 00:02:30,519
+let me show you racket lisp so scheme is
+
+47
+00:02:27,599 --> 00:02:32,959
+a lisp and racket is a you know in the
+
+48
+00:02:30,519 --> 00:02:35,840
+beginning it's a scheme disp but then
+
+49
+00:02:32,959 --> 00:02:39,599
+they changed their name to racket about
+
+50
+00:02:35,840 --> 00:02:44,000
+10 years ago and but is still mostly
+
+51
+00:02:39,599 --> 00:02:46,400
+just scheme disp uh so scheme disp is
+
+52
+00:02:44,000 --> 00:02:49,840
+much better than common disp common lisp
+
+53
+00:02:46,400 --> 00:02:54,319
+is a cancer okay com common lisp is a
+
+54
+00:02:49,840 --> 00:02:57,120
+cancer Amon lisp that just made the list
+
+55
+00:02:54,319 --> 00:03:00,120
+everything is bad okay now of course
+
+56
+00:02:57,120 --> 00:03:03,239
+there's a lot L common L phonetics they
+
+57
+00:03:00,120 --> 00:03:06,239
+will say otherwise anyway schim lisp is
+
+58
+00:03:03,239 --> 00:03:08,840
+a better lisp by techn technically by
+
+59
+00:03:06,239 --> 00:03:13,159
+the design but however scheme this has a
+
+60
+00:03:08,840 --> 00:03:16,080
+problem because it forever is connoted
+
+61
+00:03:13,159 --> 00:03:19,760
+with the notion of minimalist and
+
+62
+00:03:16,080 --> 00:03:22,319
+beautiful that basically kills it okay
+
+63
+00:03:19,760 --> 00:03:24,360
+for 20 years for 30 years you know we I
+
+64
+00:03:22,319 --> 00:03:27,120
+you know we wish scheme this is going to
+
+65
+00:03:24,360 --> 00:03:29,120
+grow and you know become popular uh
+
+66
+00:03:27,120 --> 00:03:30,599
+there up and downs but you know it's
+
+67
+00:03:29,120 --> 00:03:32,840
+basically de
+
+68
+00:03:30,599 --> 00:03:35,760
+well I mean it's not completely that
+
+69
+00:03:32,840 --> 00:03:38,840
+it's just like used among Academia among
+
+70
+00:03:35,760 --> 00:03:40,959
+the bunch of this you know this Fanatics
+
+71
+00:03:38,840 --> 00:03:44,319
+like forever you know it's never going
+
+72
+00:03:40,959 --> 00:03:46,280
+to use be in in industry in general I
+
+73
+00:03:44,319 --> 00:03:48,879
+mean of of course occasionally you'll
+
+74
+00:03:46,280 --> 00:03:51,680
+see skem this fans saying oh look at
+
+75
+00:03:48,879 --> 00:03:54,000
+this game or oh look at this popular guy
+
+76
+00:03:51,680 --> 00:03:56,280
+is saying we you know there's some
+
+77
+00:03:54,000 --> 00:03:59,000
+little companies that use schim this but
+
+78
+00:03:56,280 --> 00:04:00,439
+it's you know it's basically dead so in
+
+79
+00:03:59,000 --> 00:04:03,920
+comparison
+
+80
+00:04:00,439 --> 00:04:08,280
+for context for example for any scheme
+
+81
+00:04:03,920 --> 00:04:11,400
+lisp and Racket lisp combined there are
+
+82
+00:04:08,280 --> 00:04:15,400
+10,000 more jobs in goland okay in
+
+83
+00:04:11,400 --> 00:04:18,079
+goland 10,000 like 10,000 times more not
+
+84
+00:04:15,400 --> 00:04:23,120
+just 10,000 more 10 thou 10,000 times
+
+85
+00:04:18,079 --> 00:04:25,840
+more jobs in in in goland or in in fact
+
+86
+00:04:23,120 --> 00:04:29,400
+C+ plus Java or
+
+87
+00:04:25,840 --> 00:04:32,520
+python so in general if you want to com
+
+88
+00:04:29,400 --> 00:04:35,960
+anyway so schim this you know it's
+
+89
+00:04:32,520 --> 00:04:39,039
+forever in a niche killed by the concept
+
+90
+00:04:35,960 --> 00:04:42,000
+of beautiful and minimalism and killed
+
+91
+00:04:39,039 --> 00:04:44,560
+by the concept of tail recursion tail
+
+92
+00:04:42,000 --> 00:04:48,039
+recursion and everything is recursion
+
+93
+00:04:44,560 --> 00:04:52,039
+you know recursion Obsession and uh
+
+94
+00:04:48,039 --> 00:04:55,160
+killed by tail recursion and Co CC Co cc
+
+95
+00:04:52,039 --> 00:04:56,639
+is one of the most idiotic thing in
+
+96
+00:04:55,160 --> 00:04:59,680
+programming languages you know it's
+
+97
+00:04:56,639 --> 00:05:01,960
+among a niche like like if you view
+
+98
+00:04:59,680 --> 00:05:04,039
+programming language in a particular way
+
+99
+00:05:01,960 --> 00:05:07,840
+then course C is like the best thing
+
+100
+00:05:04,039 --> 00:05:11,080
+because it allows you to programat
+
+101
+00:05:07,840 --> 00:05:15,479
+programmatically control the
+
+102
+00:05:11,080 --> 00:05:18,759
+language control the the semantics of
+
+103
+00:05:15,479 --> 00:05:22,680
+the language essentially Co CC
+
+104
+00:05:18,759 --> 00:05:26,120
+essentially Co cc is the engine that
+
+105
+00:05:22,680 --> 00:05:30,360
+that is the heart of control flow if
+
+106
+00:05:26,120 --> 00:05:32,039
+while loop you know if you know those
+
+107
+00:05:30,360 --> 00:05:34,240
+conditionals are the essence of
+
+108
+00:05:32,039 --> 00:05:36,720
+programming languages without
+
+109
+00:05:34,240 --> 00:05:38,919
+conditionals any language seizes to be a
+
+110
+00:05:36,720 --> 00:05:42,840
+language because you cannot control it
+
+111
+00:05:38,919 --> 00:05:45,720
+you know you it just simply you know so
+
+112
+00:05:42,840 --> 00:05:48,479
+so conditional like if statements while
+
+113
+00:05:45,720 --> 00:05:51,800
+statements switch or condition you know
+
+114
+00:05:48,479 --> 00:05:54,800
+that Branch control that is the essence
+
+115
+00:05:51,800 --> 00:05:57,080
+that makes programming languag is uh
+
+116
+00:05:54,800 --> 00:06:02,759
+true incomplete in other
+
+117
+00:05:57,080 --> 00:06:06,319
+words uh so so so what is what what is
+
+118
+00:06:02,759 --> 00:06:09,000
+the cor CC thing cor cc is a like kind
+
+119
+00:06:06,319 --> 00:06:12,800
+of the heart of the mechanism for for
+
+120
+00:06:09,000 --> 00:06:14,880
+this Branch control okay so in most
+
+121
+00:06:12,800 --> 00:06:17,240
+languages you don't have that you just
+
+122
+00:06:14,880 --> 00:06:20,440
+have you know the the if statements
+
+123
+00:06:17,240 --> 00:06:23,400
+while statements for Loop and so on but
+
+124
+00:06:20,440 --> 00:06:26,400
+scheme racket scheme invented you know
+
+125
+00:06:23,400 --> 00:06:28,680
+they are the language Geeks they created
+
+126
+00:06:26,400 --> 00:06:30,280
+this called CC concept which can
+
+127
+00:06:28,680 --> 00:06:34,840
+Implement all that
+
+128
+00:06:30,280 --> 00:06:37,919
+so and Implement others so scheme so in
+
+129
+00:06:34,840 --> 00:06:40,800
+this particular view scheme language is
+
+130
+00:06:37,919 --> 00:06:42,560
+kind of oh it's the the most advanced
+
+131
+00:06:40,800 --> 00:06:45,039
+because you can actually
+
+132
+00:06:42,560 --> 00:06:48,880
+programmatically control all this all
+
+133
+00:06:45,039 --> 00:06:51,639
+this create all these conditional uh
+
+134
+00:06:48,880 --> 00:06:55,120
+structures uh I mean in the
+
+135
+00:06:51,639 --> 00:06:58,800
+language in real time
+
+136
+00:06:55,120 --> 00:07:02,240
+so in at run time so I mean so in that
+
+137
+00:06:58,800 --> 00:07:04,639
+view scheme is great but no no language
+
+138
+00:07:02,240 --> 00:07:06,319
+you know almost vast majority of
+
+139
+00:07:04,639 --> 00:07:09,120
+programming language don't have that you
+
+140
+00:07:06,319 --> 00:07:12,680
+don't need that you know that's for Tech
+
+141
+00:07:09,120 --> 00:07:15,319
+you know language uh Obsession you know
+
+142
+00:07:12,680 --> 00:07:18,000
+Enthusiast you know might want to do
+
+143
+00:07:15,319 --> 00:07:20,280
+that or if you need to create different
+
+144
+00:07:18,000 --> 00:07:22,960
+varieties of languages which is What
+
+145
+00:07:20,280 --> 00:07:26,039
+racket is good at but so in general
+
+146
+00:07:22,960 --> 00:07:27,879
+scheme is you know it's just used by a
+
+147
+00:07:26,039 --> 00:07:30,840
+few handful
+
+148
+00:07:27,879 --> 00:07:33,319
+phonetics Okay so in Kar Forum if you
+
+149
+00:07:30,840 --> 00:07:36,479
+guys haven't join joined yet hello guys
+
+150
+00:07:33,319 --> 00:07:39,879
+so Ina Discord you can see some of the
+
+151
+00:07:36,479 --> 00:07:42,319
+scheme Fanatics and common list Fanatics
+
+152
+00:07:39,879 --> 00:07:45,599
+for example this
+
+153
+00:07:42,319 --> 00:07:49,400
+zel what's his name you know he's a
+
+154
+00:07:45,599 --> 00:07:51,479
+scheme fanatic and and Oliva I think
+
+155
+00:07:49,400 --> 00:07:55,159
+he's also you know we have quite a few
+
+156
+00:07:51,479 --> 00:07:59,800
+you know like uh following schim LP or
+
+157
+00:07:55,159 --> 00:08:02,879
+common disp why because
+
+158
+00:07:59,800 --> 00:08:03,960
+lisp and common lisp was the kind of the
+
+159
+00:08:02,879 --> 00:08:07,759
+the
+
+160
+00:08:03,960 --> 00:08:12,400
+lisp meanwhile emac lisp usually have a
+
+161
+00:08:07,759 --> 00:08:15,120
+low uh reputation because you know when
+
+162
+00:08:12,400 --> 00:08:17,560
+scheme lispers look at emac lisp or the
+
+163
+00:08:15,120 --> 00:08:21,080
+common lispers look at emac lisp they
+
+164
+00:08:17,560 --> 00:08:26,199
+sneer you know this these phonetics they
+
+165
+00:08:21,080 --> 00:08:29,759
+sneer at emac LP why because imagist
+
+166
+00:08:26,199 --> 00:08:33,680
+is essentially is just a embedded
+
+167
+00:08:29,759 --> 00:08:38,760
+language for controlling or extending
+
+168
+00:08:33,680 --> 00:08:41,479
+emac so it is not a general purpose so
+
+169
+00:08:38,760 --> 00:08:45,160
+in fact it is not truly a general
+
+170
+00:08:41,479 --> 00:08:47,600
+purpose it's just working within emx so
+
+171
+00:08:45,160 --> 00:08:50,560
+for extending Emax so you cannot use it
+
+172
+00:08:47,600 --> 00:08:53,920
+to for example write a database write a
+
+173
+00:08:50,560 --> 00:08:56,880
+web server right write a email server
+
+174
+00:08:53,920 --> 00:08:58,440
+embedded into a robotics you know uh
+
+175
+00:08:56,880 --> 00:09:01,240
+embedded into whatever you know
+
+176
+00:08:58,440 --> 00:09:03,720
+microphone microphone microwave chips
+
+177
+00:09:01,240 --> 00:09:06,480
+you know embedded programming or writing
+
+178
+00:09:03,720 --> 00:09:09,640
+or operating system so anyway so emac
+
+179
+00:09:06,480 --> 00:09:12,800
+this is kind of just a scripting
+
+180
+00:09:09,640 --> 00:09:15,120
+so-called scripting language I mean um I
+
+181
+00:09:12,800 --> 00:09:17,320
+mean a embedded language for extending
+
+182
+00:09:15,120 --> 00:09:20,040
+emac so when the scheme lispers and
+
+183
+00:09:17,320 --> 00:09:23,240
+common lispers they look at emac lisp
+
+184
+00:09:20,040 --> 00:09:26,120
+usually they snear you know as far as
+
+185
+00:09:23,240 --> 00:09:29,640
+online you know chatting goes usually
+
+186
+00:09:26,120 --> 00:09:32,640
+you they just sne emx
+
+187
+00:09:29,640 --> 00:09:35,440
+so when so often but still they are all
+
+188
+00:09:32,640 --> 00:09:38,440
+lisp so lisp lisp people lisp
+
+189
+00:09:35,440 --> 00:09:41,839
+programmers tends to they just like lisp
+
+190
+00:09:38,440 --> 00:09:45,640
+languages so skim language will you know
+
+191
+00:09:41,839 --> 00:09:49,079
+do some emac lisp emac lisp coder will
+
+192
+00:09:45,640 --> 00:09:51,160
+you know go into scheme Lis or common LP
+
+193
+00:09:49,079 --> 00:09:52,000
+and so on so you know it's kind of like
+
+194
+00:09:51,160 --> 00:09:56,440
+a
+
+195
+00:09:52,000 --> 00:10:00,040
+family so that's common l dead scheme LP
+
+196
+00:09:56,440 --> 00:10:04,839
+kind of dead I mean niche in a Academia
+
+197
+00:10:00,040 --> 00:10:07,959
+and uh emac disp so we are usually
+
+198
+00:10:04,839 --> 00:10:10,600
+inferior in a sense but emac LP is
+
+199
+00:10:07,959 --> 00:10:13,279
+actually the most widely used emac uh
+
+200
+00:10:10,600 --> 00:10:15,640
+lisp because of emac because emac is
+
+201
+00:10:13,279 --> 00:10:18,680
+still alive you know used by many
+
+202
+00:10:15,640 --> 00:10:21,279
+programmers even they don't program this
+
+203
+00:10:18,680 --> 00:10:23,800
+or even they don't uh yeah they don't
+
+204
+00:10:21,279 --> 00:10:25,480
+program this but but they do you know
+
+205
+00:10:23,800 --> 00:10:28,800
+write in
+
+206
+00:10:25,480 --> 00:10:31,399
+files so all these init files you see in
+
+207
+00:10:28,800 --> 00:10:32,519
+emx it's all lisp it's just it's not
+
+208
+00:10:31,399 --> 00:10:35,959
+special
+
+209
+00:10:32,519 --> 00:10:40,240
+config code it's actually just lisp code
+
+210
+00:10:35,959 --> 00:10:42,600
+emac lisp code so that's uh kind of the
+
+211
+00:10:40,240 --> 00:10:45,720
+background and settings of common disp
+
+212
+00:10:42,600 --> 00:10:49,200
+schim disp emac disp and what I want to
+
+213
+00:10:45,720 --> 00:10:52,040
+tell you is that you know so schim disp
+
+214
+00:10:49,200 --> 00:10:56,160
+is dead common disp is dead and emac
+
+215
+00:10:52,040 --> 00:11:01,120
+disp in recent years I became more in
+
+216
+00:10:56,160 --> 00:11:04,079
+love with it so you know I you know so
+
+217
+00:11:01,120 --> 00:11:07,360
+that's what that's you know that's why
+
+218
+00:11:04,079 --> 00:11:10,880
+I'm saying emac Lis is the best lisp but
+
+219
+00:11:07,360 --> 00:11:13,360
+it's true emac this do have a critical
+
+220
+00:11:10,880 --> 00:11:17,800
+restriction you know see you know it is
+
+221
+00:11:13,360 --> 00:11:20,760
+just a language used within emac
+
+222
+00:11:17,800 --> 00:11:24,240
+okay am I doing good say hi guys okay
+
+223
+00:11:20,760 --> 00:11:27,760
+let me check who is here R uh head
+
+224
+00:11:24,240 --> 00:11:29,839
+count physics hello
+
+225
+00:11:27,760 --> 00:11:35,440
+physics leder
+
+226
+00:11:29,839 --> 00:11:38,680
+hello Lon I I IDK I don't know
+
+227
+00:11:35,440 --> 00:11:39,440
+hello uh zuu hello I remember the name
+
+228
+00:11:38,680 --> 00:11:42,560
+is
+
+229
+00:11:39,440 --> 00:11:45,959
+Ru can you show us a snippet of code
+
+230
+00:11:42,560 --> 00:11:48,839
+with this thing what thing what thing
+
+231
+00:11:45,959 --> 00:11:51,519
+emac list is the best list indeed okay
+
+232
+00:11:48,839 --> 00:11:54,800
+so let me continue let me continue so
+
+233
+00:11:51,519 --> 00:11:57,839
+today I mostly I want to show some emac
+
+234
+00:11:54,800 --> 00:12:01,519
+this code about doing sequences so on
+
+235
+00:11:57,839 --> 00:12:05,399
+the data structure list Vector
+
+236
+00:12:01,519 --> 00:12:05,399
+sequences hello uh
+
+237
+00:12:08,959 --> 00:12:14,839
+tjack so we talked about common LP
+
+238
+00:12:11,600 --> 00:12:16,959
+scheme disp Racket and emac disp now
+
+239
+00:12:14,839 --> 00:12:21,519
+there's another one actually let me
+
+240
+00:12:16,959 --> 00:12:24,040
+mention two other big lisps still alive
+
+241
+00:12:21,519 --> 00:12:27,639
+so one is closure lisp
+
+242
+00:12:24,040 --> 00:12:29,959
+okay so one of them in you know uh
+
+243
+00:12:27,639 --> 00:12:35,680
+actually I do have a tutorial closure
+
+244
+00:12:29,959 --> 00:12:35,680
+lips lisp if you go to um
+
+245
+00:12:35,720 --> 00:12:44,079
+w.info so you got go down you go down
+
+246
+00:12:40,959 --> 00:12:48,079
+programming language tutorials there is
+
+247
+00:12:44,079 --> 00:12:53,240
+a closure list I don't I didn't put it
+
+248
+00:12:48,079 --> 00:12:56,800
+here but you uh go here then you can see
+
+249
+00:12:53,240 --> 00:12:58,880
+there is I I started to you know this is
+
+250
+00:12:56,800 --> 00:13:02,120
+about 10 years ago I worked on closure
+
+251
+00:12:58,880 --> 00:13:04,480
+for about a year so I have some tutorial
+
+252
+00:13:02,120 --> 00:13:08,399
+not really good but so anyway closure
+
+253
+00:13:04,480 --> 00:13:09,760
+disp is one of the main thisp that is
+
+254
+00:13:08,399 --> 00:13:12,800
+alive in
+
+255
+00:13:09,760 --> 00:13:15,600
+industry but the bad thing is that it's
+
+256
+00:13:12,800 --> 00:13:17,560
+it's written on top of java Java virtual
+
+257
+00:13:15,600 --> 00:13:21,160
+machine so you need to install the whole
+
+258
+00:13:17,560 --> 00:13:22,519
+Java and uh it's intertwined with Java
+
+259
+00:13:21,160 --> 00:13:25,360
+so to
+
+260
+00:13:22,519 --> 00:13:28,199
+fully understand closure lisp you have
+
+261
+00:13:25,360 --> 00:13:31,440
+to you have to basically fully
+
+262
+00:13:28,199 --> 00:13:34,800
+understand Java that that makes closure
+
+263
+00:13:31,440 --> 00:13:36,519
+list not my choice you know like if you
+
+264
+00:13:34,800 --> 00:13:39,240
+don't have a powerful machine every time
+
+265
+00:13:36,519 --> 00:13:42,959
+you start some Java application all the
+
+266
+00:13:39,240 --> 00:13:45,399
+fans start to who and you know it's slow
+
+267
+00:13:42,959 --> 00:13:47,519
+and so on anyway closer lisp is the
+
+268
+00:13:45,399 --> 00:13:48,800
+industrial lisp this is a lisp you can
+
+269
+00:13:47,519 --> 00:13:52,000
+still get a
+
+270
+00:13:48,800 --> 00:13:55,040
+job uh not too many but you can still
+
+271
+00:13:52,000 --> 00:13:58,720
+get a job okay closure lisp and it
+
+272
+00:13:55,040 --> 00:14:01,759
+deviate from the traa traditional lisp
+
+273
+00:13:58,720 --> 00:14:04,600
+in a significant way because in closure
+
+274
+00:14:01,759 --> 00:14:07,079
+lisp you don't have the cons anymore
+
+275
+00:14:04,600 --> 00:14:10,199
+which uh which I you know we may talk
+
+276
+00:14:07,079 --> 00:14:13,480
+about closure Lis so if you go to my
+
+277
+00:14:10,199 --> 00:14:15,680
+emac tutorial you know this Basics or
+
+278
+00:14:13,480 --> 00:14:19,320
+these are fundamentals of
+
+279
+00:14:15,680 --> 00:14:21,880
+Lis uh so for example you see there's a
+
+280
+00:14:19,320 --> 00:14:24,000
+data structure list Vector sequence type
+
+281
+00:14:21,880 --> 00:14:27,720
+and hash table hash table is a
+
+282
+00:14:24,000 --> 00:14:30,959
+dictionary called a dictionary in Python
+
+283
+00:14:27,720 --> 00:14:34,880
+uh which is basically is a pairs key
+
+284
+00:14:30,959 --> 00:14:37,079
+value pairs okay so you go to list and
+
+285
+00:14:34,880 --> 00:14:39,320
+uh so you can learn everything you need
+
+286
+00:14:37,079 --> 00:14:41,720
+to know about list data structure list
+
+287
+00:14:39,320 --> 00:14:43,759
+data type all the functions how to
+
+288
+00:14:41,720 --> 00:14:47,240
+create a list how to get elements how to
+
+289
+00:14:43,759 --> 00:14:49,360
+modify it how to Loop overhead iteration
+
+290
+00:14:47,240 --> 00:14:52,360
+how to check a element exist you know
+
+291
+00:14:49,360 --> 00:14:57,199
+all these are list
+
+292
+00:14:52,360 --> 00:15:00,120
+functions so but one thing but if you
+
+293
+00:14:57,199 --> 00:15:04,199
+after you learn the basic you start to
+
+294
+00:15:00,120 --> 00:15:08,519
+learn about how list is actually made of
+
+295
+00:15:04,199 --> 00:15:13,560
+con sales okay this is this conseles
+
+296
+00:15:08,519 --> 00:15:16,360
+crippled lisp since let's say year 2000
+
+297
+00:15:13,560 --> 00:15:19,920
+now before year 2000 you know in a AI
+
+298
+00:15:16,360 --> 00:15:24,360
+era conel is is like you know from
+
+299
+00:15:19,920 --> 00:15:28,759
+1960s the birth date birth decade of
+
+300
+00:15:24,360 --> 00:15:31,319
+lisp to let's say year 2000 cons cons
+
+301
+00:15:28,759 --> 00:15:36,199
+work fine
+
+302
+00:15:31,319 --> 00:15:40,759
+but but but not today okay k k became
+
+303
+00:15:36,199 --> 00:15:41,759
+the quio you know this cons killed thisp
+
+304
+00:15:40,759 --> 00:15:44,839
+in my
+
+305
+00:15:41,759 --> 00:15:47,079
+opinion now this opinion is very
+
+306
+00:15:44,839 --> 00:15:49,759
+controversial because all the lisp
+
+307
+00:15:47,079 --> 00:15:52,480
+Fanatics you know from the scheme lisp
+
+308
+00:15:49,759 --> 00:15:54,839
+common lisp including Richard stowman he
+
+309
+00:15:52,480 --> 00:15:58,040
+has article about why
+
+310
+00:15:54,839 --> 00:16:01,120
+he like he don't know he claims that he
+
+311
+00:15:58,040 --> 00:16:03,639
+doesn't know closure and then he made a
+
+312
+00:16:01,120 --> 00:16:06,440
+comment you know closure is no good
+
+313
+00:16:03,639 --> 00:16:10,839
+because closure doesn't have
+
+314
+00:16:06,440 --> 00:16:13,680
+cons the most idiotic opinion okay so
+
+315
+00:16:10,839 --> 00:16:17,560
+this opinion is controver controversial
+
+316
+00:16:13,680 --> 00:16:21,920
+now in order to explain why I think it
+
+317
+00:16:17,560 --> 00:16:26,040
+that way um it will be uh somewhat
+
+318
+00:16:21,920 --> 00:16:29,759
+involved uh I'm not sure I'm going to do
+
+319
+00:16:26,040 --> 00:16:33,240
+it yeah because most YouTube watch us
+
+320
+00:16:29,759 --> 00:16:36,480
+you know uh so anyway so cons you know
+
+321
+00:16:33,240 --> 00:16:38,639
+list is made of con cells let me try to
+
+322
+00:16:36,480 --> 00:16:41,639
+Simply
+
+323
+00:16:38,639 --> 00:16:45,360
+explain so this is getting into our main
+
+324
+00:16:41,639 --> 00:16:48,759
+topic today list vector and sequence
+
+325
+00:16:45,360 --> 00:16:51,440
+functions okay so yeah let me wrap up
+
+326
+00:16:48,759 --> 00:16:53,519
+wrap up about closure so closure doesn't
+
+327
+00:16:51,440 --> 00:16:55,959
+have cons
+
+328
+00:16:53,519 --> 00:16:58,079
+closure when you have a list of vector
+
+329
+00:16:55,959 --> 00:17:01,880
+or whatever they actually don't call it
+
+330
+00:16:58,079 --> 00:17:06,880
+Vector they use closure uses the data
+
+331
+00:17:01,880 --> 00:17:10,679
+structure of java so in Java you
+
+332
+00:17:06,880 --> 00:17:13,480
+have interfaces interfaces is what you
+
+333
+00:17:10,679 --> 00:17:18,839
+deal with for different data structures
+
+334
+00:17:13,480 --> 00:17:22,120
+for example array list or growable list
+
+335
+00:17:18,839 --> 00:17:26,720
+or collection then hash table you know
+
+336
+00:17:22,120 --> 00:17:30,000
+they they have then stack uh linked list
+
+337
+00:17:26,720 --> 00:17:32,600
+stack or first in
+
+338
+00:17:30,000 --> 00:17:37,480
+last out you know
+
+339
+00:17:32,600 --> 00:17:39,480
+key you know so in programming you have
+
+340
+00:17:37,480 --> 00:17:42,400
+data structures or these are data
+
+341
+00:17:39,480 --> 00:17:44,240
+structures now in most programming
+
+342
+00:17:42,400 --> 00:17:46,640
+languages you
+
+343
+00:17:44,240 --> 00:17:48,799
+have you know that you have many of
+
+344
+00:17:46,640 --> 00:17:51,480
+these build in you have a function to
+
+345
+00:17:48,799 --> 00:17:53,799
+create a specific data structure and
+
+346
+00:17:51,480 --> 00:17:55,880
+then you have functions to deal with
+
+347
+00:17:53,799 --> 00:17:59,000
+that data structure for example in a
+
+348
+00:17:55,880 --> 00:18:02,520
+list you want to add a item or check get
+
+349
+00:17:59,000 --> 00:18:04,039
+a element at n index things like that
+
+350
+00:18:02,520 --> 00:18:07,520
+but in
+
+351
+00:18:04,039 --> 00:18:10,120
+Java you you have the interface concept
+
+352
+00:18:07,520 --> 00:18:13,440
+so you have the interface for list you
+
+353
+00:18:10,120 --> 00:18:15,480
+have a interface for key value payers
+
+354
+00:18:13,440 --> 00:18:18,120
+you know dictionary or hash table you
+
+355
+00:18:15,480 --> 00:18:19,880
+have a interface for stack data
+
+356
+00:18:18,120 --> 00:18:24,039
+structure you
+
+357
+00:18:19,880 --> 00:18:28,000
+see so so you deal with interfaces which
+
+358
+00:18:24,039 --> 00:18:31,440
+is kind of like the structureal concept
+
+359
+00:18:28,000 --> 00:18:33,559
+of what this data type data structure
+
+360
+00:18:31,440 --> 00:18:36,400
+you need to do with the data structure
+
+361
+00:18:33,559 --> 00:18:38,799
+then okay so interfaces then for
+
+362
+00:18:36,400 --> 00:18:41,760
+particular interface then you have
+
+363
+00:18:38,799 --> 00:18:45,159
+implementation code to implement those
+
+364
+00:18:41,760 --> 00:18:48,120
+interface so they separated into you
+
+365
+00:18:45,159 --> 00:18:51,280
+know kind of like the API application
+
+366
+00:18:48,120 --> 00:18:53,600
+programmers interface so you deal with
+
+367
+00:18:51,280 --> 00:18:56,200
+just the interface then you have inter
+
+368
+00:18:53,600 --> 00:18:59,360
+implementation beneath them they they
+
+369
+00:18:56,200 --> 00:19:02,880
+made it separate okay that's
+
+370
+00:18:59,360 --> 00:19:04,159
+so you have um so for example uh okay
+
+371
+00:19:02,880 --> 00:19:08,080
+let's look at
+
+372
+00:19:04,159 --> 00:19:10,039
+Java okay we I'm digressing a lot into
+
+373
+00:19:08,080 --> 00:19:11,039
+kind of a general discussion about
+
+374
+00:19:10,039 --> 00:19:13,960
+programming
+
+375
+00:19:11,039 --> 00:19:16,679
+languages uh but I've been talking for
+
+376
+00:19:13,960 --> 00:19:18,720
+20 minutes uh we'll move on okay so in
+
+377
+00:19:16,679 --> 00:19:20,840
+Java you have interfaces you know you
+
+378
+00:19:18,720 --> 00:19:25,120
+can if you uh you can look at my
+
+379
+00:19:20,840 --> 00:19:27,480
+tutorial then you can have a basic
+
+380
+00:19:25,120 --> 00:19:31,159
+understanding so interface is just
+
+381
+00:19:27,480 --> 00:19:34,280
+basically an API basically a function it
+
+382
+00:19:31,159 --> 00:19:36,799
+tell you what methods are you know what
+
+383
+00:19:34,280 --> 00:19:39,600
+arguments are the function and what
+
+384
+00:19:36,799 --> 00:19:44,039
+methods are available for the
+
+385
+00:19:39,600 --> 00:19:46,559
+function so interface you know so and so
+
+386
+00:19:44,039 --> 00:19:48,960
+closure so why am I talking about Java
+
+387
+00:19:46,559 --> 00:19:51,880
+interface and implementation because
+
+388
+00:19:48,960 --> 00:19:55,720
+closure is implemented on top of java so
+
+389
+00:19:51,880 --> 00:19:58,240
+closure ad adapted Java's way so you
+
+390
+00:19:55,720 --> 00:20:01,919
+don't have a direct list or direct array
+
+391
+00:19:58,240 --> 00:20:04,919
+or direct hash table or dictionary
+
+392
+00:20:01,919 --> 00:20:07,400
+instead you have closure you know
+
+393
+00:20:04,919 --> 00:20:10,080
+follows the use uses the interface of
+
+394
+00:20:07,400 --> 00:20:12,200
+java so in closure you don't have the
+
+395
+00:20:10,080 --> 00:20:14,720
+you know
+
+396
+00:20:12,200 --> 00:20:17,520
+list uh do we have you know you don't
+
+397
+00:20:14,720 --> 00:20:19,520
+have cones that which is a concrete
+
+398
+00:20:17,520 --> 00:20:22,679
+thing to implement list you don't have
+
+399
+00:20:19,520 --> 00:20:25,400
+that so you just have you know list
+
+400
+00:20:22,679 --> 00:20:27,480
+interface and so on so anyway closure is
+
+401
+00:20:25,400 --> 00:20:31,400
+the you know you can still find a job in
+
+402
+00:20:27,480 --> 00:20:34,720
+Industry closure is the main uh lisp
+
+403
+00:20:31,400 --> 00:20:34,720
+industrial risp
+
+404
+00:20:38,440 --> 00:20:47,280
+today so which is the best
+
+405
+00:20:42,360 --> 00:20:49,760
+list you know so common lisp is De I do
+
+406
+00:20:47,280 --> 00:20:53,960
+not like and I do not recommend common
+
+407
+00:20:49,760 --> 00:20:57,600
+lisp is the cancer of lisp the worst
+
+408
+00:20:53,960 --> 00:21:00,320
+[ __ ] possible or the most worst
+
+409
+00:20:57,600 --> 00:21:02,720
+[ __ ] uh in my last video I gave some
+
+410
+00:21:00,320 --> 00:21:05,280
+details this a lot you know if I go into
+
+411
+00:21:02,720 --> 00:21:07,320
+details it's going to be endless in this
+
+412
+00:21:05,280 --> 00:21:10,039
+video so you can search for the
+
+413
+00:21:07,320 --> 00:21:12,200
+fundamental problems of lisp that's one
+
+414
+00:21:10,039 --> 00:21:14,080
+thing but common lisp is lot of you know
+
+415
+00:21:12,200 --> 00:21:17,000
+it's just [ __ ] all over you know it's
+
+416
+00:21:14,080 --> 00:21:20,559
+filled with
+
+417
+00:21:17,000 --> 00:21:26,880
+um okay let me let me show a few article
+
+418
+00:21:20,559 --> 00:21:26,880
+quickly okay so let's um
+
+419
+00:21:29,440 --> 00:21:35,600
+famous programmers on how common this
+
+420
+00:21:32,240 --> 00:21:38,200
+sucks okay and controversy of common
+
+421
+00:21:35,600 --> 00:21:42,360
+this package in emac disp you know there
+
+422
+00:21:38,200 --> 00:21:46,159
+a big war for the past 20 30 years you
+
+423
+00:21:42,360 --> 00:21:48,880
+know there's a war in in in emac LP
+
+424
+00:21:46,159 --> 00:21:52,240
+because a lot people you know they they
+
+425
+00:21:48,880 --> 00:21:54,640
+want to change emac LP into common lisp
+
+426
+00:21:52,240 --> 00:21:57,840
+be because they are commonly
+
+427
+00:21:54,640 --> 00:22:00,520
+Fanatics meanwhile a lot the skin fans
+
+428
+00:21:57,840 --> 00:22:03,600
+when they use emac they want emac lisp
+
+429
+00:22:00,520 --> 00:22:05,840
+to become more like scheme lisp so that
+
+430
+00:22:03,600 --> 00:22:08,960
+it's more beautiful and it's more well
+
+431
+00:22:05,840 --> 00:22:11,600
+designed so the you know for the past 30
+
+432
+00:22:08,960 --> 00:22:13,919
+years you know the every every few years
+
+433
+00:22:11,600 --> 00:22:18,279
+there's a big flame wall you know even
+
+434
+00:22:13,919 --> 00:22:21,799
+to up to this day so anyway so
+
+435
+00:22:18,279 --> 00:22:23,640
+uh so you know for example this article
+
+436
+00:22:21,799 --> 00:22:27,760
+uh and this one is
+
+437
+00:22:23,640 --> 00:22:30,600
+new so famous programmers on how common
+
+438
+00:22:27,760 --> 00:22:33,799
+L SU you know you have gu steo which is
+
+439
+00:22:30,600 --> 00:22:36,279
+one of the creator of schim LP uh I
+
+440
+00:22:33,799 --> 00:22:40,039
+believe so yeah and he's also the
+
+441
+00:22:36,279 --> 00:22:43,080
+founder of emac okay before Rich
+
+442
+00:22:40,039 --> 00:22:45,919
+stowman K steel okay uh then you have
+
+443
+00:22:43,080 --> 00:22:50,039
+stowman also Richard San also don't like
+
+444
+00:22:45,919 --> 00:22:52,760
+common list and you have uh uh Richard P
+
+445
+00:22:50,039 --> 00:22:56,919
+Gabriel which is the founder
+
+446
+00:22:52,760 --> 00:23:00,640
+of uh AI company Lucid Inc which gave us
+
+447
+00:22:56,919 --> 00:23:04,080
+today the Legacy is XX which is kind of
+
+448
+00:23:00,640 --> 00:23:06,080
+dead but uh Rodney Brook is a computer
+
+449
+00:23:04,080 --> 00:23:11,600
+scientist you know you have Wikipedia
+
+450
+00:23:06,080 --> 00:23:15,360
+links to their Arles uh so and Paul bham
+
+451
+00:23:11,600 --> 00:23:20,039
+and Danielle wre who wrote the first
+
+452
+00:23:15,360 --> 00:23:20,039
+lisp emx lisp based
+
+453
+00:23:20,360 --> 00:23:27,440
+emx all by himself you know you know
+
+454
+00:23:23,799 --> 00:23:29,799
+Richard stowman emx came later so all
+
+455
+00:23:27,440 --> 00:23:33,080
+these people heavily
+
+456
+00:23:29,799 --> 00:23:36,919
+criticized common lisp you know some
+
+457
+00:23:33,080 --> 00:23:39,919
+would say common lisp killed lisp and I
+
+458
+00:23:36,919 --> 00:23:42,480
+myself after you know the past 30 years
+
+459
+00:23:39,919 --> 00:23:45,520
+you know be because I started in
+
+460
+00:23:42,480 --> 00:23:47,279
+1993 on wolam language that's another
+
+461
+00:23:45,520 --> 00:23:50,679
+thing I want to talk about wolf language
+
+462
+00:23:47,279 --> 00:23:52,600
+is actually just a lisp okay few people
+
+463
+00:23:50,679 --> 00:23:55,120
+know and every time I talk to this
+
+464
+00:23:52,600 --> 00:23:57,240
+common this people they they desp they
+
+465
+00:23:55,120 --> 00:23:59,760
+don't know nothing about it but then but
+
+466
+00:23:57,240 --> 00:24:01,200
+then they we just despise it you know
+
+467
+00:23:59,760 --> 00:24:04,200
+because they are
+
+468
+00:24:01,200 --> 00:24:07,200
+Fanatics usually this happens when in
+
+469
+00:24:04,200 --> 00:24:10,520
+online conversations even before you
+
+470
+00:24:07,200 --> 00:24:13,720
+know today before the social social
+
+471
+00:24:10,520 --> 00:24:15,919
+network social uh yeah social networking
+
+472
+00:24:13,720 --> 00:24:19,279
+websites you know back then in news
+
+473
+00:24:15,919 --> 00:24:21,600
+groups and and mailing list so anyway so
+
+474
+00:24:19,279 --> 00:24:24,840
+all these people despise you know you
+
+475
+00:24:21,600 --> 00:24:25,960
+know they think common this is uh WS you
+
+476
+00:24:24,840 --> 00:24:28,720
+know
+
+477
+00:24:25,960 --> 00:24:31,080
+cancer okay so and another AR
+
+478
+00:24:28,720 --> 00:24:34,039
+controversy of common list packages in
+
+479
+00:24:31,080 --> 00:24:36,799
+in emac LP so this is you know this is a
+
+480
+00:24:34,039 --> 00:24:40,279
+controversy for the past 30 years at
+
+481
+00:24:36,799 --> 00:24:43,760
+Leist uh you know between usually
+
+482
+00:24:40,279 --> 00:24:46,440
+between the common list factions and the
+
+483
+00:24:43,760 --> 00:24:49,120
+scheme L
+
+484
+00:24:46,440 --> 00:24:51,720
+factions you know roughly speaking so
+
+485
+00:24:49,120 --> 00:24:54,520
+they you know like every time emac you
+
+486
+00:24:51,720 --> 00:24:58,480
+know needs a new feature or you know add
+
+487
+00:24:54,520 --> 00:25:00,919
+a new function there's a war uh and uh
+
+488
+00:24:58,480 --> 00:25:03,159
+for example many people criticize emac
+
+489
+00:25:00,919 --> 00:25:05,559
+don't have threats every time you do
+
+490
+00:25:03,159 --> 00:25:08,000
+some something it freezes you have to
+
+491
+00:25:05,559 --> 00:25:11,240
+wait for that to finish that's one of
+
+492
+00:25:08,000 --> 00:25:14,120
+the major flaw of emac why does that
+
+493
+00:25:11,240 --> 00:25:17,080
+happen because emac this is not
+
+494
+00:25:14,120 --> 00:25:21,120
+threaded so it's you know it's this is
+
+495
+00:25:17,080 --> 00:25:25,520
+idiotic idiotic jargon loved by the C
+
+496
+00:25:21,120 --> 00:25:29,039
+C++ idiots thread okay thread should be
+
+497
+00:25:25,520 --> 00:25:31,520
+banned in programming but anyway
+
+498
+00:25:29,039 --> 00:25:34,360
+so they say so emac this is single
+
+499
+00:25:31,520 --> 00:25:37,919
+threaded basically just means it just do
+
+500
+00:25:34,360 --> 00:25:40,320
+one thing at a time then it stops you
+
+501
+00:25:37,919 --> 00:25:42,640
+know overall it there's a loop so you
+
+502
+00:25:40,320 --> 00:25:45,679
+know then it stops wait for your input
+
+503
+00:25:42,640 --> 00:25:48,200
+then you know so it's single thread just
+
+504
+00:25:45,679 --> 00:25:51,679
+means that it does one thing at a time
+
+505
+00:25:48,200 --> 00:25:54,880
+it cannot do parallel or concurrent
+
+506
+00:25:51,679 --> 00:25:57,000
+concurrent so that's one major problem
+
+507
+00:25:54,880 --> 00:25:59,440
+so a lot of people want to improve it
+
+508
+00:25:57,000 --> 00:26:02,480
+you know some people um so anyway
+
+509
+00:25:59,440 --> 00:26:05,279
+there's a big controversy between the
+
+510
+00:26:02,480 --> 00:26:10,240
+common list phonetics and schem list
+
+511
+00:26:05,279 --> 00:26:12,080
+fanatics on the future of emac lisp big
+
+512
+00:26:10,240 --> 00:26:13,799
+you know for 30 years you have to
+
+513
+00:26:12,080 --> 00:26:16,559
+remember you know now because I'm now
+
+514
+00:26:13,799 --> 00:26:18,320
+I'm getting old you are younger maybe
+
+515
+00:26:16,559 --> 00:26:20,799
+you haven't heard of it or maybe you
+
+516
+00:26:18,320 --> 00:26:23,039
+just heard the last one maybe five years
+
+517
+00:26:20,799 --> 00:26:25,039
+ago like every every five years there's
+
+518
+00:26:23,039 --> 00:26:27,919
+a you know
+
+519
+00:26:25,039 --> 00:26:30,559
+big uh either movement or argument you
+
+520
+00:26:27,919 --> 00:26:33,640
+know or someone implemented emac this in
+
+521
+00:26:30,559 --> 00:26:35,840
+scheme then they discussing you know go
+
+522
+00:26:33,640 --> 00:26:37,919
+emac people discussing how they're going
+
+523
+00:26:35,840 --> 00:26:40,279
+to change you know maybe replace emac
+
+524
+00:26:37,919 --> 00:26:42,760
+this so every time it's a huge
+
+525
+00:26:40,279 --> 00:26:45,880
+controversy for 30
+
+526
+00:26:42,760 --> 00:26:49,120
+years so how how do I know you know for
+
+527
+00:26:45,880 --> 00:26:52,279
+example for example uh this article in
+
+528
+00:26:49,120 --> 00:26:55,559
+written in 2008 thoughts on common this
+
+529
+00:26:52,279 --> 00:26:59,360
+scheme this based on emx I wrote this
+
+530
+00:26:55,559 --> 00:27:02,080
+2008 because back then there's already
+
+531
+00:26:59,360 --> 00:27:06,080
+you know big controversies for you know
+
+532
+00:27:02,080 --> 00:27:09,679
+as far as I know so I wrote a kind of my
+
+533
+00:27:06,080 --> 00:27:11,200
+thoughts uh okay so I digress too much
+
+534
+00:27:09,679 --> 00:27:15,520
+uh and here
+
+535
+00:27:11,200 --> 00:27:18,080
+is here is my new kind of article why
+
+536
+00:27:15,520 --> 00:27:21,600
+common list sucks
+
+537
+00:27:18,080 --> 00:27:26,520
+okay worst you know the worst
+
+538
+00:27:21,600 --> 00:27:30,520
+[ __ ] language uh you know Common list
+
+539
+00:27:26,520 --> 00:27:34,240
+you have the CLA thing
+
+540
+00:27:30,520 --> 00:27:38,399
+C which stand for common list object
+
+541
+00:27:34,240 --> 00:27:41,159
+system it's a worst [ __ ] possible okay
+
+542
+00:27:38,399 --> 00:27:44,200
+common this object system what does that
+
+543
+00:27:41,159 --> 00:27:47,559
+mean object you know that means
+
+544
+00:27:44,200 --> 00:27:52,279
+objectoriented programming like C++ in
+
+545
+00:27:47,559 --> 00:27:56,080
+Java object by ask the most
+
+546
+00:27:52,279 --> 00:27:59,159
+important uh aspect that this is a
+
+547
+00:27:56,080 --> 00:28:02,440
+greatest thing one of the Great language
+
+548
+00:27:59,159 --> 00:28:05,519
+is functional programming okay lisp is
+
+549
+00:28:02,440 --> 00:28:09,640
+the first functional programming created
+
+550
+00:28:05,519 --> 00:28:13,480
+by John McCarthy in
+
+551
+00:28:09,640 --> 00:28:16,799
+1960s first functional programming
+
+552
+00:28:13,480 --> 00:28:18,159
+language but this common list idiots
+
+553
+00:28:16,799 --> 00:28:20,360
+they don't they don't know it they
+
+554
+00:28:18,159 --> 00:28:21,919
+forgot they don't know they don't know
+
+555
+00:28:20,360 --> 00:28:24,399
+you know they don't know nothing about
+
+556
+00:28:21,919 --> 00:28:27,720
+the original ideas about mathematics
+
+557
+00:28:24,399 --> 00:28:28,760
+they don't know this common this object
+
+558
+00:28:27,720 --> 00:28:30,919
+system
+
+559
+00:28:28,760 --> 00:28:34,039
+you'll see it excited Often by the
+
+560
+00:28:30,919 --> 00:28:35,679
+common list idiots like they are excited
+
+561
+00:28:34,039 --> 00:28:38,480
+they they you know typically what they
+
+562
+00:28:35,679 --> 00:28:41,799
+are say that you know oh Java is stupid
+
+563
+00:28:38,480 --> 00:28:44,200
+C++ is stupid because in common this we
+
+564
+00:28:41,799 --> 00:28:47,320
+actually have this common this object
+
+565
+00:28:44,200 --> 00:28:50,760
+system which is a generalized system so
+
+566
+00:28:47,320 --> 00:28:54,039
+you can dispatch dispatch these idiots
+
+567
+00:28:50,760 --> 00:28:57,240
+these are extreme idiots
+
+568
+00:28:54,039 --> 00:29:01,120
+okay that's not mathematics that's not
+
+569
+00:28:57,240 --> 00:29:04,600
+functional program me that [ __ ] up the
+
+570
+00:29:01,120 --> 00:29:07,600
+essence essential good qualities of lisp
+
+571
+00:29:04,600 --> 00:29:10,159
+okay [ __ ] up by this common LP
+
+572
+00:29:07,600 --> 00:29:13,399
+[ __ ] you know common lisp object
+
+573
+00:29:10,159 --> 00:29:14,600
+system and then you have EI EO which is
+
+574
+00:29:13,399 --> 00:29:18,720
+basically
+
+575
+00:29:14,600 --> 00:29:22,720
+C that is implemented in emac disp
+
+576
+00:29:18,720 --> 00:29:25,559
+okay and then common disp has this set
+
+577
+00:29:22,720 --> 00:29:28,840
+F okay to explain that we'll take three
+
+578
+00:29:25,559 --> 00:29:34,880
+minutes I'll just skip it I explained it
+
+579
+00:29:28,840 --> 00:29:38,519
+in the past but set F set F you know set
+
+580
+00:29:34,880 --> 00:29:40,600
+set f is one of the thing that common
+
+581
+00:29:38,519 --> 00:29:44,640
+again it's one of the thing that common
+
+582
+00:29:40,600 --> 00:29:48,440
+will often mention why why this makes
+
+583
+00:29:44,640 --> 00:29:52,360
+common this this superb language in fact
+
+584
+00:29:48,440 --> 00:29:56,640
+it is most insulting idiotic [ __ ]
+
+585
+00:29:52,360 --> 00:29:59,440
+introduced into this okay the set
+
+586
+00:29:56,640 --> 00:30:02,360
+F what does it it do let me see let me
+
+587
+00:29:59,440 --> 00:30:04,960
+just show you simply quickly okay let's
+
+588
+00:30:02,360 --> 00:30:06,559
+say python okay everyone understand
+
+589
+00:30:04,960 --> 00:30:11,360
+python
+
+590
+00:30:06,559 --> 00:30:14,480
+so you see x equals to 3 print X okay
+
+591
+00:30:11,360 --> 00:30:16,679
+let's do that let's run that uh save it
+
+592
+00:30:14,480 --> 00:30:20,039
+okay let's save
+
+593
+00:30:16,679 --> 00:30:24,279
+it okay python you know X you know let's
+
+594
+00:30:20,039 --> 00:30:25,120
+run it three you see uh let's say x you
+
+595
+00:30:24,279 --> 00:30:28,279
+know
+
+596
+00:30:25,120 --> 00:30:33,000
+so what are we doing what is this this
+
+597
+00:30:28,279 --> 00:30:35,440
+is setf okay why how it's just
+
+598
+00:30:33,000 --> 00:30:38,240
+assignment why is that set up let me
+
+599
+00:30:35,440 --> 00:30:41,000
+explain so usually when you have a value
+
+600
+00:30:38,240 --> 00:30:43,559
+for example print x x is a variable it
+
+601
+00:30:41,000 --> 00:30:46,360
+has a value so the pring language
+
+602
+00:30:43,559 --> 00:30:49,720
+evaluate that variable to a value so
+
+603
+00:30:46,360 --> 00:30:53,000
+this three this x becomes three that's
+
+604
+00:30:49,720 --> 00:30:56,240
+why it prints three okay but now when
+
+605
+00:30:53,000 --> 00:30:58,440
+you have this assignment that X has
+
+606
+00:30:56,240 --> 00:31:00,639
+special properties
+
+607
+00:30:58,440 --> 00:31:04,080
+it doesn't you know the priming language
+
+608
+00:31:00,639 --> 00:31:07,639
+treated in a special way because if you
+
+609
+00:31:04,080 --> 00:31:10,039
+evaluate this x do doesn't make sense
+
+610
+00:31:07,639 --> 00:31:13,639
+because when if you evaluate that X that
+
+611
+00:31:10,039 --> 00:31:16,080
+becomes it's not n defined n defined
+
+612
+00:31:13,639 --> 00:31:20,440
+equals to three what does that mean you
+
+613
+00:31:16,080 --> 00:31:23,399
+see so in vast majority of
+
+614
+00:31:20,440 --> 00:31:26,880
+languages you have this
+
+615
+00:31:23,399 --> 00:31:29,840
+assignment uh operator which treats the
+
+616
+00:31:26,880 --> 00:31:32,360
+left hand in a a special way so the left
+
+617
+00:31:29,840 --> 00:31:35,039
+hand can be a reference so here it
+
+618
+00:31:32,360 --> 00:31:37,360
+actually become a reference which is a
+
+619
+00:31:35,039 --> 00:31:40,279
+stupid concept okay it's not a
+
+620
+00:31:37,360 --> 00:31:42,679
+mathematical concept so you know
+
+621
+00:31:40,279 --> 00:31:45,240
+magically you have this New Concept
+
+622
+00:31:42,679 --> 00:31:48,279
+called reference that doesn't exist in
+
+623
+00:31:45,240 --> 00:31:51,360
+mathematics okay so this x is you know
+
+624
+00:31:48,279 --> 00:31:54,080
+it's not like math math is you know X we
+
+625
+00:31:51,360 --> 00:31:55,880
+Define the value of x to be3 but in
+
+626
+00:31:54,080 --> 00:31:58,440
+programming languages that's not you
+
+627
+00:31:55,880 --> 00:32:00,880
+know it's it doesn't work you have to
+
+628
+00:31:58,440 --> 00:32:03,320
+you have to introduce the New Concept of
+
+629
+00:32:00,880 --> 00:32:06,720
+a reference and what what does that mean
+
+630
+00:32:03,320 --> 00:32:10,240
+oh it's a Memory it's address to memory
+
+631
+00:32:06,720 --> 00:32:13,039
+what is then it's a CPU you know it's a
+
+632
+00:32:10,240 --> 00:32:17,600
+CPU architecture you know bits you know
+
+633
+00:32:13,039 --> 00:32:19,880
+this C and C++ idiots love they love
+
+634
+00:32:17,600 --> 00:32:23,200
+this thing then you got pointers and
+
+635
+00:32:19,880 --> 00:32:25,000
+references and pointers they love this
+
+636
+00:32:23,200 --> 00:32:28,480
+so anyway this
+
+637
+00:32:25,000 --> 00:32:31,240
+assignment it has a
+
+638
+00:32:28,480 --> 00:32:32,960
+its semantic is unusual so programming
+
+639
+00:32:31,240 --> 00:32:35,760
+languages when they have assignment
+
+640
+00:32:32,960 --> 00:32:38,440
+usually they have unusual uh
+
+641
+00:32:35,760 --> 00:32:42,200
+semantics uh so the left hand side is
+
+642
+00:32:38,440 --> 00:32:45,600
+treated as a reference now this
+
+643
+00:32:42,200 --> 00:32:49,960
+particular this phenomenon this this
+
+644
+00:32:45,600 --> 00:32:53,679
+this uh situation this um particular
+
+645
+00:32:49,960 --> 00:32:58,320
+particularly stand out when you have a
+
+646
+00:32:53,679 --> 00:32:59,240
+uh list or array okay let me show you
+
+647
+00:32:58,320 --> 00:33:04,399
+let's
+
+648
+00:32:59,240 --> 00:33:07,639
+say uh X list okay so in in Python you
+
+649
+00:33:04,399 --> 00:33:13,039
+know so let's say
+
+650
+00:33:07,639 --> 00:33:18,039
+345 okay uh okay let's let's comment out
+
+651
+00:33:13,039 --> 00:33:20,480
+okay so let's say print X list okay does
+
+652
+00:33:18,039 --> 00:33:23,320
+that work yes the syntax is correct so
+
+653
+00:33:20,480 --> 00:33:27,120
+you got a list of 345 and you want to
+
+654
+00:33:23,320 --> 00:33:28,480
+print it so but now let's say I want to
+
+655
+00:33:27,120 --> 00:33:32,720
+change
+
+656
+00:33:28,480 --> 00:33:36,760
+the the second element to nine okay so
+
+657
+00:33:32,720 --> 00:33:41,000
+what you do is you can do this
+
+658
+00:33:36,760 --> 00:33:44,720
+okay that that okay the let's change the
+
+659
+00:33:41,000 --> 00:33:49,519
+first element okay zero index okay
+
+660
+00:33:44,720 --> 00:33:52,080
+equals to 9 okay 99 okay then you print
+
+661
+00:33:49,519 --> 00:33:58,320
+you print this okay do
+
+662
+00:33:52,080 --> 00:33:58,320
+it uh wait uh what
+
+663
+00:33:58,480 --> 00:34:04,600
+do it uh
+
+664
+00:34:00,919 --> 00:34:07,639
+what oh no uh I got the double wrong
+
+665
+00:34:04,600 --> 00:34:09,760
+okay just single I got confused with
+
+666
+00:34:07,639 --> 00:34:13,200
+wolam language been coding wolam
+
+667
+00:34:09,760 --> 00:34:17,359
+language too much okay so you say x list
+
+668
+00:34:13,200 --> 00:34:21,000
+at the zeroth index set it to 99 okay so
+
+669
+00:34:17,359 --> 00:34:24,200
+you run it so you got a new list 9945
+
+670
+00:34:21,000 --> 00:34:26,960
+okay so but look at this carefully
+
+671
+00:34:24,200 --> 00:34:29,720
+normally when you do the bracket at the
+
+672
+00:34:26,960 --> 00:34:35,359
+end that that means get get the element
+
+673
+00:34:29,720 --> 00:34:39,480
+of that list so the zeroth element index
+
+674
+00:34:35,359 --> 00:34:42,599
+is three okay then you assign 3 to 99
+
+675
+00:34:39,480 --> 00:34:44,800
+that doesn't make sense so again this is
+
+676
+00:34:42,599 --> 00:34:46,520
+assignment operator so the left hand
+
+677
+00:34:44,800 --> 00:34:51,200
+side becomes a
+
+678
+00:34:46,520 --> 00:34:52,639
+reference okay now that is what this
+
+679
+00:34:51,200 --> 00:34:55,720
+setup
+
+680
+00:34:52,639 --> 00:34:57,200
+is in normal languages you know they
+
+681
+00:34:55,720 --> 00:35:00,119
+they don't they don't have a special
+
+682
+00:34:57,200 --> 00:35:04,800
+name but the in but when it comes to the
+
+683
+00:35:00,119 --> 00:35:06,400
+common L idiots they call it
+
+684
+00:35:04,800 --> 00:35:08,720
+generalized
+
+685
+00:35:06,400 --> 00:35:11,320
+something gen what what they call
+
+686
+00:35:08,720 --> 00:35:13,560
+General generalized variable something
+
+687
+00:35:11,320 --> 00:35:15,960
+let me let's look at the documentation
+
+688
+00:35:13,560 --> 00:35:19,359
+there then we'll see
+
+689
+00:35:15,960 --> 00:35:23,000
+okay uh set off it came to emac okay
+
+690
+00:35:19,359 --> 00:35:27,280
+which is a it's a cancer that got into
+
+691
+00:35:23,000 --> 00:35:31,320
+emac disp okay you can see set off set F
+
+692
+00:35:27,280 --> 00:35:35,960
+okay you see then you got this this
+
+693
+00:35:31,320 --> 00:35:39,800
+incomprehensible documentation set F
+
+694
+00:35:35,960 --> 00:35:42,160
+Place V play what the [ __ ] is Place
+
+695
+00:35:39,800 --> 00:35:44,079
+normally it's a variable right set Q you
+
+696
+00:35:42,160 --> 00:35:47,280
+know but now it's place you know so it
+
+697
+00:35:44,079 --> 00:35:51,200
+says set each place to the value of its
+
+698
+00:35:47,280 --> 00:35:53,720
+V this is a generalized version of set Q
+
+699
+00:35:51,200 --> 00:35:58,000
+you see least
+
+700
+00:35:53,720 --> 00:36:00,720
+people you know in in Python in Python
+
+701
+00:35:58,000 --> 00:36:02,880
+oh it's this is basic this is for
+
+702
+00:36:00,720 --> 00:36:05,760
+children you know this is just a syntax
+
+703
+00:36:02,880 --> 00:36:08,640
+okay you assign an element to a you know
+
+704
+00:36:05,760 --> 00:36:11,240
+a list you know new you you change you
+
+705
+00:36:08,640 --> 00:36:15,079
+modify a element in a list right basic
+
+706
+00:36:11,240 --> 00:36:18,880
+for children but when it comes to
+
+707
+00:36:15,079 --> 00:36:22,599
+um uh Let's do let's uh when it comes to
+
+708
+00:36:18,880 --> 00:36:25,440
+the leis idiots they could you know this
+
+709
+00:36:22,599 --> 00:36:29,560
+is a generalized version Oh my God
+
+710
+00:36:25,440 --> 00:36:32,839
+generalized so superb fantastic
+
+711
+00:36:29,560 --> 00:36:37,319
+Supreme the the places may be symbolic
+
+712
+00:36:32,839 --> 00:36:40,280
+references such as car and AR R and then
+
+713
+00:36:37,319 --> 00:36:43,960
+you know then it gets esoteric you
+
+714
+00:36:40,280 --> 00:36:46,599
+know the most idiotic concept now you
+
+715
+00:36:43,960 --> 00:36:48,960
+wonder what why we can't have this in
+
+716
+00:36:46,599 --> 00:36:51,599
+Python but when when we have the same
+
+717
+00:36:48,960 --> 00:36:55,640
+thing in lisp it becomes
+
+718
+00:36:51,599 --> 00:36:57,960
+idiotic here's why because syntax the
+
+719
+00:36:55,640 --> 00:37:01,960
+most important element in a programming
+
+720
+00:36:57,960 --> 00:37:04,800
+language syntax because in
+
+721
+00:37:01,960 --> 00:37:09,119
+thisp uh because in
+
+722
+00:37:04,800 --> 00:37:12,640
+thisp let's show some disp code okay uh
+
+723
+00:37:09,119 --> 00:37:12,640
+so let's show some disp
+
+724
+00:37:13,359 --> 00:37:19,760
+code so why is it idiotic when you bring
+
+725
+00:37:17,200 --> 00:37:23,000
+exactly the same semantic to thisp
+
+726
+00:37:19,760 --> 00:37:23,000
+because the lisp
+
+727
+00:37:23,240 --> 00:37:28,640
+syntax make it
+
+728
+00:37:26,240 --> 00:37:33,280
+explicit you know make it make the
+
+729
+00:37:28,640 --> 00:37:35,960
+semantics of the code much more explicit
+
+730
+00:37:33,280 --> 00:37:39,000
+so when you when you bring this
+
+731
+00:37:35,960 --> 00:37:41,400
+exceptional irregular semantics into
+
+732
+00:37:39,000 --> 00:37:44,760
+this it stand
+
+733
+00:37:41,400 --> 00:37:44,760
+out uh for
+
+734
+00:37:45,560 --> 00:37:51,640
+example okay I'm digressing you know I
+
+735
+00:37:48,400 --> 00:37:54,599
+started to digress into the set of set F
+
+736
+00:37:51,640 --> 00:37:57,520
+and I haven't get into
+
+737
+00:37:54,599 --> 00:38:00,440
+generics I haven't got to today's topic
+
+738
+00:37:57,520 --> 00:38:03,640
+which is sequence functions but that's
+
+739
+00:38:00,440 --> 00:38:06,280
+okay that's the S talk show my style
+
+740
+00:38:03,640 --> 00:38:09,839
+okay so when you have set Q 3 you know
+
+741
+00:38:06,280 --> 00:38:15,200
+that's how you set a variable in lisp
+
+742
+00:38:09,839 --> 00:38:18,760
+okay but now let's let's duplicate this
+
+743
+00:38:15,200 --> 00:38:19,760
+uh this python into this code okay let's
+
+744
+00:38:18,760 --> 00:38:23,560
+do
+
+745
+00:38:19,760 --> 00:38:26,079
+that so let's let's duplicate the python
+
+746
+00:38:23,560 --> 00:38:32,359
+code here okay so let's say so this
+
+747
+00:38:26,079 --> 00:38:35,760
+would be set Qs list okay and uh uh okay
+
+748
+00:38:32,359 --> 00:38:39,560
+uh this would be list 3 four five okay
+
+749
+00:38:35,760 --> 00:38:42,880
+let's forget about Vector okay then uh
+
+750
+00:38:39,560 --> 00:38:44,920
+you want to print okay
+
+751
+00:38:42,880 --> 00:38:50,359
+print
+
+752
+00:38:44,920 --> 00:38:53,319
+uh okay fantastic okay uh let's show the
+
+753
+00:38:50,359 --> 00:38:58,520
+python side by side so you can
+
+754
+00:38:53,319 --> 00:38:58,520
+see how is python okay
+
+755
+00:39:03,920 --> 00:39:10,160
+okay that correspond to that then these
+
+756
+00:39:07,040 --> 00:39:14,200
+two lines correspond to these two lines
+
+757
+00:39:10,160 --> 00:39:19,800
+then then we have this set okay so here
+
+758
+00:39:14,200 --> 00:39:25,760
+is where set F comes in okay so set
+
+759
+00:39:19,800 --> 00:39:28,280
+F uh okay so set F then you have oh
+
+760
+00:39:25,760 --> 00:39:31,079
+then then you get you need to get the
+
+761
+00:39:28,280 --> 00:39:34,119
+first element of the list okay so how do
+
+762
+00:39:31,079 --> 00:39:39,839
+you do that you do
+
+763
+00:39:34,119 --> 00:39:42,960
+elt uh X list then zero okay then you
+
+764
+00:39:39,839 --> 00:39:46,440
+here put 99 okay that's
+
+765
+00:39:42,960 --> 00:39:48,079
+that then you just print yeah okay then
+
+766
+00:39:46,440 --> 00:39:51,599
+you just
+
+767
+00:39:48,079 --> 00:39:56,400
+print you see okay
+
+768
+00:39:51,599 --> 00:39:59,240
+so on top is python on at the bottom is
+
+769
+00:39:56,400 --> 00:40:01,920
+thisp they are you know like
+
+770
+00:39:59,240 --> 00:40:07,760
+translations so you can see where the
+
+771
+00:40:01,920 --> 00:40:11,400
+set F comes in set F so when you have
+
+772
+00:40:07,760 --> 00:40:14,599
+the lisp syntax the unusual semantics
+
+773
+00:40:11,400 --> 00:40:17,640
+becomes apparent because normally in
+
+774
+00:40:14,599 --> 00:40:20,960
+list I mean in list every element just
+
+775
+00:40:17,640 --> 00:40:23,880
+evaluate but here it doesn't it doesn't
+
+776
+00:40:20,960 --> 00:40:26,480
+because this middle part you are getting
+
+777
+00:40:23,880 --> 00:40:28,760
+the element of a list right you are
+
+778
+00:40:26,480 --> 00:40:32,319
+getting the zero gr
+
+779
+00:40:28,760 --> 00:40:36,000
+index so it returns a value but actually
+
+780
+00:40:32,319 --> 00:40:39,560
+no because when the E when the elt
+
+781
+00:40:36,000 --> 00:40:44,040
+function is placed in this inside this
+
+782
+00:40:39,560 --> 00:40:48,359
+set F the semantic Changed [ __ ] the
+
+783
+00:40:44,040 --> 00:40:51,400
+common lpus [ __ ] heads it you can see
+
+784
+00:40:48,359 --> 00:40:54,319
+the semantic changed so what does this
+
+785
+00:40:51,400 --> 00:40:58,280
+mean is that given a this expression
+
+786
+00:40:54,319 --> 00:41:01,480
+where you place it changes the meaning
+
+787
+00:40:58,280 --> 00:41:03,960
+okay change it changes the meaning CH
+
+788
+00:41:01,480 --> 00:41:06,040
+you know so in scheme this fans they
+
+789
+00:41:03,960 --> 00:41:10,880
+will say
+
+790
+00:41:06,040 --> 00:41:15,400
+the uh what they call transparency
+
+791
+00:41:10,880 --> 00:41:15,400
+um I forgot what's a Jon but
+
+792
+00:41:15,599 --> 00:41:21,839
+anyway so you um do okay
+
+793
+00:41:31,000 --> 00:41:37,480
+with this set
+
+794
+00:41:34,200 --> 00:41:41,599
+F the Lis expression changed meaning
+
+795
+00:41:37,480 --> 00:41:45,200
+depending on its context let's
+
+796
+00:41:41,599 --> 00:41:46,640
+say so it's semantically context
+
+797
+00:41:45,200 --> 00:41:50,040
+dependent
+
+798
+00:41:46,640 --> 00:41:54,200
+okay okay I digressed too much I think
+
+799
+00:41:50,040 --> 00:41:55,800
+maybe uh so it's 40 minutes shall I
+
+800
+00:41:54,200 --> 00:41:59,280
+continue to
+
+801
+00:41:55,800 --> 00:42:01,960
+discuss uh kind of a tutorial on the
+
+802
+00:41:59,280 --> 00:42:05,160
+sequence and Vector data structure in
+
+803
+00:42:01,960 --> 00:42:07,920
+emac disp because that's that was my
+
+804
+00:42:05,160 --> 00:42:11,280
+original purpose for this
+
+805
+00:42:07,920 --> 00:42:13,839
+video okay so let a common list problems
+
+806
+00:42:11,280 --> 00:42:17,599
+okay so this video will be probably
+
+807
+00:42:13,839 --> 00:42:21,319
+should be renamed to why common list
+
+808
+00:42:17,599 --> 00:42:23,839
+sucks refer referential transparency
+
+809
+00:42:21,319 --> 00:42:25,599
+thank you Todd Fisher yeah that you know
+
+810
+00:42:23,839 --> 00:42:29,200
+that's what you know you
+
+811
+00:42:25,599 --> 00:42:31,559
+see each programming language
+
+812
+00:42:29,200 --> 00:42:34,440
+Community they code okay each
+
+813
+00:42:31,559 --> 00:42:37,480
+programming language code typically they
+
+814
+00:42:34,440 --> 00:42:43,040
+have a few things they are found to
+
+815
+00:42:37,480 --> 00:42:48,680
+recite for example in emac that would be
+
+816
+00:42:43,040 --> 00:42:53,319
+um marro okay marro and scratch buffer
+
+817
+00:42:48,680 --> 00:42:56,520
+okay marro scratch buffer and uh and
+
+818
+00:42:53,319 --> 00:42:59,160
+buffer okay the emac people will just
+
+819
+00:42:56,520 --> 00:43:03,200
+cite it buffer is is buffer buffer
+
+820
+00:42:59,160 --> 00:43:07,760
+buffer scratch bu or and Meta Meta
+
+821
+00:43:03,200 --> 00:43:11,520
+scratch buffer and Mar okay it's a emac
+
+822
+00:43:07,760 --> 00:43:13,839
+now in scheme disp there's a few refer
+
+823
+00:43:11,520 --> 00:43:15,559
+referential transparency is one of the
+
+824
+00:43:13,839 --> 00:43:18,640
+things scheme lisp every time you talk
+
+825
+00:43:15,559 --> 00:43:21,520
+to SP scheme this one out of you know 10
+
+826
+00:43:18,640 --> 00:43:24,280
+times out of you know something they
+
+827
+00:43:21,520 --> 00:43:27,280
+they they mention referential
+
+828
+00:43:24,280 --> 00:43:29,240
+transparency tail recursion
+
+829
+00:43:27,280 --> 00:43:31,640
+do you have tail recursion why don't you
+
+830
+00:43:29,240 --> 00:43:35,359
+write this in tail recursion tail
+
+831
+00:43:31,640 --> 00:43:40,040
+recursive tail tail call and the other
+
+832
+00:43:35,359 --> 00:43:43,559
+one is call CC okay call CC scheme
+
+833
+00:43:40,040 --> 00:43:45,319
+idiot and common disp common disp it's
+
+834
+00:43:43,559 --> 00:43:51,599
+you know
+
+835
+00:43:45,319 --> 00:43:54,599
+CLA uh uh Closs and uh generics okay
+
+836
+00:43:51,599 --> 00:43:54,599
+typically
+
+837
+00:43:58,400 --> 00:44:03,480
+and python python has its own pythonic
+
+838
+00:44:01,760 --> 00:44:05,079
+and pro has its own you know more than
+
+839
+00:44:03,480 --> 00:44:09,640
+one way to do it and so
+
+840
+00:44:05,079 --> 00:44:12,640
+on usually C languages has it uh for
+
+841
+00:44:09,640 --> 00:44:16,240
+example some of the C languages
+
+842
+00:44:12,640 --> 00:44:18,280
+python Pearl Pearl python lisp
+
+843
+00:44:16,240 --> 00:44:20,880
+especially thisp Pearl python thisp
+
+844
+00:44:18,280 --> 00:44:23,559
+hascal when it comes to hascal the most
+
+845
+00:44:20,880 --> 00:44:26,680
+famous you know
+
+846
+00:44:23,559 --> 00:44:29,119
+monad do you have monad you should do it
+
+847
+00:44:26,680 --> 00:44:31,880
+monad way that's not a proper monad you
+
+848
+00:44:29,119 --> 00:44:36,720
+should this monad is is like a
+
+849
+00:44:31,880 --> 00:44:36,720
+burrito [ __ ] these cat
+
+850
+00:44:36,920 --> 00:44:45,480
+idiots uh and uh Java o you know
+
+851
+00:44:41,520 --> 00:44:47,280
+everything must be o op
+
+852
+00:44:45,480 --> 00:44:50,760
+methods okay
+
+853
+00:44:47,280 --> 00:44:53,839
+so so I kind of digressed all over let's
+
+854
+00:44:50,760 --> 00:44:57,760
+see what the comments and maybe we
+
+855
+00:44:53,839 --> 00:45:00,680
+uh okay let's regroup a bit let's put
+
+856
+00:44:57,760 --> 00:45:00,680
+this back
+
+857
+00:45:00,960 --> 00:45:09,559
+to let's put the code back to our talk
+
+858
+00:45:06,119 --> 00:45:10,880
+show uh today's talk show so we went
+
+859
+00:45:09,559 --> 00:45:14,010
+over
+
+860
+00:45:10,880 --> 00:45:14,010
+[Music]
+
+861
+00:45:15,200 --> 00:45:19,599
+basically why common this
+
+862
+00:45:20,599 --> 00:45:26,760
+sucks okay what is this article uh emx
+
+863
+00:45:24,319 --> 00:45:28,040
+blog okay so I was going to talk about
+
+864
+00:45:26,760 --> 00:45:33,359
+that
+
+865
+00:45:28,040 --> 00:45:33,359
+uh yeah so cut that and
+
+866
+00:45:34,839 --> 00:45:38,960
+uh okay syntax
+
+867
+00:45:39,599 --> 00:45:46,839
+color the fruit of today's code okay so
+
+868
+00:45:43,559 --> 00:45:51,319
+let's see what else so close that close
+
+869
+00:45:46,839 --> 00:45:54,480
+that okay so we kind of went over this
+
+870
+00:45:51,319 --> 00:45:57,160
+the whole disp yeah um and there's
+
+871
+00:45:54,480 --> 00:46:01,400
+another disp I want to mention w
+
+872
+00:45:57,160 --> 00:46:01,400
+language okay let me just mention it
+
+873
+00:46:02,800 --> 00:46:10,520
+quickly so you can you know wam
+
+874
+00:46:07,400 --> 00:46:13,240
+language um is kind of lisp you can you
+
+875
+00:46:10,520 --> 00:46:17,400
+can you can say it's actually totally
+
+876
+00:46:13,240 --> 00:46:19,960
+disp it's just a disp okay uh and uh for
+
+877
+00:46:17,400 --> 00:46:22,960
+example in this article disp versus wam
+
+878
+00:46:19,960 --> 00:46:26,480
+language you can see everything in this
+
+879
+00:46:22,960 --> 00:46:27,520
+there's a exactly basically exactly the
+
+880
+00:46:26,480 --> 00:46:30,760
+same comp
+
+881
+00:46:27,520 --> 00:46:33,800
+uh can same concept in wolam language
+
+882
+00:46:30,760 --> 00:46:37,000
+for example identifiers are symbols
+
+883
+00:46:33,800 --> 00:46:40,319
+everything is a expression everything an
+
+884
+00:46:37,000 --> 00:46:43,520
+expression is an is either an atomic
+
+885
+00:46:40,319 --> 00:46:45,800
+expression such as a string or a number
+
+886
+00:46:43,520 --> 00:46:48,319
+or a list okay so everything is a
+
+887
+00:46:45,800 --> 00:46:51,240
+expression expression is either Atomic
+
+888
+00:46:48,319 --> 00:46:54,240
+like a string or number or it's a list
+
+889
+00:46:51,240 --> 00:46:56,599
+okay so you know your whole program is a
+
+890
+00:46:54,240 --> 00:46:57,839
+list basically same thing in wolfen
+
+891
+00:46:56,599 --> 00:47:01,400
+language
+
+892
+00:46:57,839 --> 00:47:04,079
+purely nested syntax and predominantly
+
+893
+00:47:01,400 --> 00:47:07,119
+functional programming okay not not like
+
+894
+00:47:04,079 --> 00:47:09,200
+hascal like pure but you know mostly
+
+895
+00:47:07,119 --> 00:47:12,400
+functional for me and you have reader
+
+896
+00:47:09,200 --> 00:47:16,240
+maros and you have uh syntactical
+
+897
+00:47:12,400 --> 00:47:21,920
+shortcuts in Wolf language they they
+
+898
+00:47:16,240 --> 00:47:25,920
+extend the concept concept of rer Mar in
+
+899
+00:47:21,920 --> 00:47:29,599
+a systematic way in a gramat in the in a
+
+900
+00:47:25,920 --> 00:47:33,240
+language grammar systematic way
+
+901
+00:47:29,599 --> 00:47:36,240
+so it's not just you know you know the
+
+902
+00:47:33,240 --> 00:47:39,839
+the back TI and that
+
+903
+00:47:36,240 --> 00:47:43,839
+idiocy so read the maros then you have L
+
+904
+00:47:39,839 --> 00:47:47,280
+lisp maros in wam language again that's
+
+905
+00:47:43,839 --> 00:47:49,800
+extended into a systematic way so it
+
+906
+00:47:47,280 --> 00:47:52,680
+became a complete pattern matching
+
+907
+00:47:49,800 --> 00:47:55,280
+language in fact wolam language became a
+
+908
+00:47:52,680 --> 00:47:57,599
+term rewriting system
+
+909
+00:47:55,280 --> 00:48:01,839
+okay so example what what's the
+
+910
+00:47:57,599 --> 00:48:05,079
+difference for example in in in lisp
+
+911
+00:48:01,839 --> 00:48:06,400
+okay scheme disp common lisp emac lisp
+
+912
+00:48:05,079 --> 00:48:09,520
+if you have a
+
+913
+00:48:06,400 --> 00:48:11,839
+symbol let's say new okay if it's not
+
+914
+00:48:09,520 --> 00:48:15,599
+defined if you evaluate it let's
+
+915
+00:48:11,839 --> 00:48:16,480
+evaluate it you got error void variable
+
+916
+00:48:15,599 --> 00:48:20,160
+X
+
+917
+00:48:16,480 --> 00:48:22,760
+new okay but in wolam language it
+
+918
+00:48:20,160 --> 00:48:24,559
+doesn't treat it that way every symbol
+
+919
+00:48:22,760 --> 00:48:27,319
+if it's new it's just create a symbol
+
+920
+00:48:24,559 --> 00:48:30,640
+it's new so you actually
+
+921
+00:48:27,319 --> 00:48:34,119
+achieved the goal of symbolic
+
+922
+00:48:30,640 --> 00:48:39,599
+computation okay let me show
+
+923
+00:48:34,119 --> 00:48:39,599
+you so uh let's say start with
+
+924
+00:48:40,880 --> 00:48:47,559
+three uh plus 3
+
+925
+00:48:44,520 --> 00:48:50,680
+two eval
+
+926
+00:48:47,559 --> 00:48:56,160
+okay now let's say
+
+927
+00:48:50,680 --> 00:48:57,319
+x x new okay Enter you see it doesn't oh
+
+928
+00:48:56,160 --> 00:48:59,520
+error ER
+
+929
+00:48:57,319 --> 00:49:02,280
+you know X new is not defined it just
+
+930
+00:48:59,520 --> 00:49:04,440
+return the symbol itself so that allows
+
+931
+00:49:02,280 --> 00:49:09,720
+you to do lots of things for example
+
+932
+00:49:04,440 --> 00:49:12,359
+this is f a function evaluated at x x do
+
+933
+00:49:09,720 --> 00:49:15,079
+not have a value F do not have a value
+
+934
+00:49:12,359 --> 00:49:16,839
+it's all symbolic it doesn't generate
+
+935
+00:49:15,079 --> 00:49:19,720
+error it's you know that's what you want
+
+936
+00:49:16,839 --> 00:49:21,079
+you know symbolic computation so but if
+
+937
+00:49:19,720 --> 00:49:27,799
+you now
+
+938
+00:49:21,079 --> 00:49:27,799
+Define uh for example if you now Define
+
+939
+00:49:28,960 --> 00:49:36,799
+you know you can now Define f to be
+
+940
+00:49:32,200 --> 00:49:41,040
+let's say s + one okay let's just say
+
+941
+00:49:36,799 --> 00:49:45,359
+that now you define it now if I now if
+
+942
+00:49:41,040 --> 00:49:50,359
+you do FX again it becomes 1 plus X you
+
+943
+00:49:45,359 --> 00:49:53,680
+see so this both thisp and wam language
+
+944
+00:49:50,359 --> 00:49:57,079
+are symbolic because every symbol is is
+
+945
+00:49:53,680 --> 00:49:59,720
+a every identifier is a symbol but
+
+946
+00:49:57,079 --> 00:50:02,799
+wolfan language again take it to a new
+
+947
+00:49:59,720 --> 00:50:05,400
+higher level when a symbol doesn't have
+
+948
+00:50:02,799 --> 00:50:08,559
+a value it return
+
+949
+00:50:05,400 --> 00:50:11,680
+itself which in turn allows you to have
+
+950
+00:50:08,559 --> 00:50:14,960
+this kind of thing so for example let's
+
+951
+00:50:11,680 --> 00:50:14,960
+let me do another
+
+952
+00:50:15,240 --> 00:50:22,520
+um Nest let's say G three times okay
+
+953
+00:50:23,079 --> 00:50:31,520
+uh oh yeah uh okay so nest
+
+954
+00:50:28,480 --> 00:50:36,160
+of a function g at the initial value of
+
+955
+00:50:31,520 --> 00:50:39,079
+y three times okay so you got this you
+
+956
+00:50:36,160 --> 00:50:41,799
+know you got this symbolic
+
+957
+00:50:39,079 --> 00:50:44,559
+result G doesn't have a meaning right
+
+958
+00:50:41,799 --> 00:50:46,880
+now why doesn't have a meaning right now
+
+959
+00:50:44,559 --> 00:50:49,400
+but you got this in symbolic result and
+
+960
+00:50:46,880 --> 00:50:53,520
+that can became something else once you
+
+961
+00:50:49,400 --> 00:50:57,640
+define a value so this is this is the
+
+962
+00:50:53,520 --> 00:50:59,960
+root of what stepan wolam calls symbolic
+
+963
+00:50:57,640 --> 00:51:02,240
+programming language symbolic
+
+964
+00:50:59,960 --> 00:51:05,799
+computation you know symbolic
+
+965
+00:51:02,240 --> 00:51:07,720
+computation is known start from lisp
+
+966
+00:51:05,799 --> 00:51:12,319
+because everything is symbols that's how
+
+967
+00:51:07,720 --> 00:51:15,599
+it different from java python goand C++
+
+968
+00:51:12,319 --> 00:51:17,839
+you know however wolam language takes it
+
+969
+00:51:15,599 --> 00:51:21,079
+one step further
+
+970
+00:51:17,839 --> 00:51:24,000
+okay so that's about so wolam language
+
+971
+00:51:21,079 --> 00:51:27,559
+is you know so all the characteristics
+
+972
+00:51:24,000 --> 00:51:30,599
+of lisp is in wolam language and then
+
+973
+00:51:27,559 --> 00:51:34,880
+you know on this page you can see side
+
+974
+00:51:30,599 --> 00:51:39,640
+by side comparison of the syntax of the
+
+975
+00:51:34,880 --> 00:51:42,240
+grouping you know p o GN in W language
+
+976
+00:51:39,640 --> 00:51:43,760
+is called compound expression
+
+977
+00:51:42,240 --> 00:51:47,200
+arithmetics
+
+978
+00:51:43,760 --> 00:51:50,400
+functions uh buing how do you you know T
+
+979
+00:51:47,200 --> 00:51:53,119
+and Ne and or not greater than you know
+
+980
+00:51:50,400 --> 00:51:55,520
+so there's a corresponding one in wol
+
+981
+00:51:53,119 --> 00:51:59,640
+language just you know on
+
+982
+00:51:55,520 --> 00:52:01,640
+everything set Q in this you have set
+
+983
+00:51:59,640 --> 00:52:04,359
+and set delayed you know and let you
+
+984
+00:52:01,640 --> 00:52:07,359
+have modu block with with you know a bit
+
+985
+00:52:04,359 --> 00:52:11,839
+different naming uh a bit different
+
+986
+00:52:07,359 --> 00:52:14,480
+naming philosophy okay so flow control
+
+987
+00:52:11,839 --> 00:52:17,160
+if condition throw catch error it's
+
+988
+00:52:14,480 --> 00:52:20,720
+about the same thing in W language then
+
+989
+00:52:17,160 --> 00:52:23,520
+iteration while map car map C two times
+
+990
+00:52:20,720 --> 00:52:26,079
+you know about the same more advanced in
+
+991
+00:52:23,520 --> 00:52:28,599
+W language and in in fact in W language
+
+992
+00:52:26,079 --> 00:52:30,839
+usually you have like a lot more then
+
+993
+00:52:28,599 --> 00:52:32,720
+you have data structure list and Vector
+
+994
+00:52:30,839 --> 00:52:34,680
+now this part is interesting this is
+
+995
+00:52:32,720 --> 00:52:38,119
+today's main you know we were going to
+
+996
+00:52:34,680 --> 00:52:40,880
+talk about this so in lisp languages
+
+997
+00:52:38,119 --> 00:52:43,960
+typically skin scheme lisp common lisp
+
+998
+00:52:40,880 --> 00:52:47,079
+emac lisp you have list and Vector that
+
+999
+00:52:43,960 --> 00:52:50,160
+is the two primary sequential data
+
+1000
+00:52:47,079 --> 00:52:52,799
+structure sequence of things and then
+
+1001
+00:52:50,160 --> 00:52:55,599
+you have hash table
+
+1002
+00:52:52,799 --> 00:52:58,079
+okay so same thing exactly same thing in
+
+1003
+00:52:55,599 --> 00:53:00,200
+Wolf language you know in in fact
+
+1004
+00:52:58,079 --> 00:53:03,960
+instead of list and Vector you just have
+
+1005
+00:53:00,200 --> 00:53:06,359
+one single thing list okay so in Wolf
+
+1006
+00:53:03,960 --> 00:53:08,880
+language it's like the whole language is
+
+1007
+00:53:06,359 --> 00:53:11,799
+exactly it's just a list it's just like
+
+1008
+00:53:08,880 --> 00:53:15,160
+a list okay the whole language is simply
+
+1009
+00:53:11,799 --> 00:53:17,640
+a list a giant huge list you don't even
+
+1010
+00:53:15,160 --> 00:53:20,720
+have a vector everything is a list
+
+1011
+00:53:17,640 --> 00:53:24,079
+except except the implementation is not
+
+1012
+00:53:20,720 --> 00:53:26,599
+like lists list with cons it doesn't
+
+1013
+00:53:24,079 --> 00:53:29,079
+have cons okay
+
+1014
+00:53:26,599 --> 00:53:34,680
+so in fact the wolfen language list is
+
+1015
+00:53:29,079 --> 00:53:37,160
+actually lists lists Vector okay but now
+
+1016
+00:53:34,680 --> 00:53:38,760
+you see here's another interesting thing
+
+1017
+00:53:37,160 --> 00:53:42,200
+now in hash
+
+1018
+00:53:38,760 --> 00:53:46,359
+table lisps has hash table like 30 years
+
+1019
+00:53:42,200 --> 00:53:51,319
+ago but wam language does not so so wam
+
+1020
+00:53:46,359 --> 00:53:53,760
+language is even more pure lisp than
+
+1021
+00:53:51,319 --> 00:53:57,000
+then all the lisps than than common lisp
+
+1022
+00:53:53,760 --> 00:53:59,480
+or scheme lisp it does not have hash
+
+1023
+00:53:57,000 --> 00:54:03,040
+table data
+
+1024
+00:53:59,480 --> 00:54:05,839
+structure but about seven years ago they
+
+1025
+00:54:03,040 --> 00:54:09,200
+added it okay so that's what that's why
+
+1026
+00:54:05,839 --> 00:54:11,520
+now you do and and wfam language calls
+
+1027
+00:54:09,200 --> 00:54:14,000
+it Association which
+
+1028
+00:54:11,520 --> 00:54:16,799
+is you know in lisp you have another
+
+1029
+00:54:14,000 --> 00:54:18,960
+data structure called associate
+
+1030
+00:54:16,799 --> 00:54:22,000
+Association list which is actually just
+
+1031
+00:54:18,960 --> 00:54:24,119
+a list but wam language has you know
+
+1032
+00:54:22,000 --> 00:54:26,920
+used the same name Association but that
+
+1033
+00:54:24,119 --> 00:54:28,760
+is actually a hash table
+
+1034
+00:54:26,920 --> 00:54:30,359
+but the thing interesting is that this
+
+1035
+00:54:28,760 --> 00:54:33,599
+Association is
+
+1036
+00:54:30,359 --> 00:54:37,240
+added uh only only like seven years ago
+
+1037
+00:54:33,599 --> 00:54:40,240
+okay so we let's look at um the date it
+
+1038
+00:54:37,240 --> 00:54:43,920
+is added so what is this emac
+
+1039
+00:54:40,240 --> 00:54:45,480
+lisp uh yeah so let's go to wolam
+
+1040
+00:54:43,920 --> 00:54:48,000
+language
+
+1041
+00:54:45,480 --> 00:54:50,680
+Association uh let's go to the
+
+1042
+00:54:48,000 --> 00:54:54,520
+documentation wolam language
+
+1043
+00:54:50,680 --> 00:54:57,520
+Association turn on JavaScript and
+
+1044
+00:54:54,520 --> 00:54:57,520
+magnify
+
+1045
+00:54:58,640 --> 00:55:07,359
+okay so this is actually a hash table so
+
+1046
+00:55:01,640 --> 00:55:09,960
+you can go down uh it's it's new in 2014
+
+1047
+00:55:07,359 --> 00:55:12,599
+so it's only 10 years old for the first
+
+1048
+00:55:09,960 --> 00:55:14,799
+20 years of wolfen language you do not
+
+1049
+00:55:12,599 --> 00:55:17,079
+have a hashtable data type in Wolf
+
+1050
+00:55:14,799 --> 00:55:19,359
+language there's a reason for that you
+
+1051
+00:55:17,079 --> 00:55:23,559
+know I can you know I can go into detail
+
+1052
+00:55:19,359 --> 00:55:26,920
+about why wam language avoided hash
+
+1053
+00:55:23,559 --> 00:55:29,119
+table for a long long time well the the
+
+1054
+00:55:26,920 --> 00:55:32,039
+essential reason is that because hash
+
+1055
+00:55:29,119 --> 00:55:34,599
+table because wfam language wants to
+
+1056
+00:55:32,039 --> 00:55:38,359
+wants everything to be representable as
+
+1057
+00:55:34,599 --> 00:55:41,559
+a sequence of text okay but when H when
+
+1058
+00:55:38,359 --> 00:55:44,839
+you have a hash table that cannot be
+
+1059
+00:55:41,559 --> 00:55:47,880
+represented as a text or I mean I mean
+
+1060
+00:55:44,839 --> 00:55:50,119
+in a consistent way in a typical list
+
+1061
+00:55:47,880 --> 00:55:52,799
+lisp way
+
+1062
+00:55:50,119 --> 00:55:56,440
+so and so
+
+1063
+00:55:52,799 --> 00:55:58,920
+further what is the what is hashtable
+
+1064
+00:55:56,440 --> 00:56:01,480
+table is essentially just list list of
+
+1065
+00:55:58,920 --> 00:56:05,160
+pairs list of pairs of
+
+1066
+00:56:01,480 --> 00:56:07,440
+list but it just have special behavior
+
+1067
+00:56:05,160 --> 00:56:09,440
+okay but on a Surface from the look of
+
+1068
+00:56:07,440 --> 00:56:11,960
+it it's just simply a list of list so
+
+1069
+00:56:09,440 --> 00:56:14,280
+you you don't really truly need hash
+
+1070
+00:56:11,960 --> 00:56:18,359
+table in a
+
+1071
+00:56:14,280 --> 00:56:20,960
+sense so anyway that's some uh that's
+
+1072
+00:56:18,359 --> 00:56:24,280
+about wam language okay
+
+1073
+00:56:20,960 --> 00:56:26,839
+so then functions exactly you know
+
+1074
+00:56:24,280 --> 00:56:29,599
+functions in both languages input and
+
+1075
+00:56:26,839 --> 00:56:33,400
+output and packages this also gets
+
+1076
+00:56:29,599 --> 00:56:36,200
+interesting because in lisp world you
+
+1077
+00:56:33,400 --> 00:56:38,480
+have load require features autoload you
+
+1078
+00:56:36,200 --> 00:56:42,119
+know these are from emac disp but common
+
+1079
+00:56:38,480 --> 00:56:44,359
+disp is kind of the same okay so in wam
+
+1080
+00:56:42,119 --> 00:56:47,880
+language you have exactly the
+
+1081
+00:56:44,359 --> 00:56:50,799
+counterpart just almost exactly so it's
+
+1082
+00:56:47,880 --> 00:56:55,039
+you know quite interesting then then
+
+1083
+00:56:50,799 --> 00:56:57,960
+marus okay read the marus and uh oh yeah
+
+1084
+00:56:55,039 --> 00:57:03,119
+these are reader marus this is not
+
+1085
+00:56:57,960 --> 00:57:06,119
+um uh you know the syntax maros anyway
+
+1086
+00:57:03,119 --> 00:57:08,319
+read the maros so wam language
+
+1087
+00:57:06,119 --> 00:57:13,520
+expanded so anyway
+
+1088
+00:57:08,319 --> 00:57:17,160
+so so you um so that's introduction to
+
+1089
+00:57:13,520 --> 00:57:19,559
+kind of wolam language in the family of
+
+1090
+00:57:17,160 --> 00:57:24,440
+lisps we talked about common lisps skin
+
+1091
+00:57:19,559 --> 00:57:26,799
+lisp imag this closure and uh now wolf
+
+1092
+00:57:24,440 --> 00:57:29,319
+language okay I think maybe that's it
+
+1093
+00:57:26,799 --> 00:57:35,359
+for today um I'm going to answer
+
+1094
+00:57:29,319 --> 00:57:35,359
+questions maybe that's it so it's been 1
+
+1095
+00:57:36,280 --> 00:57:43,720
+hour how many people are watching am I
+
+1096
+00:57:39,640 --> 00:57:43,720
+doing good 14 not too
+
+1097
+00:57:45,079 --> 00:57:52,599
+bad okay so let's see questions CH Ching
+
+1098
+00:57:48,799 --> 00:57:54,960
+pay me okay now if you uh Super Chat
+
+1099
+00:57:52,599 --> 00:57:58,000
+Super Chat is going to take half thank
+
+1100
+00:57:54,960 --> 00:58:00,490
+you blood seing Google but you can
+
+1101
+00:57:58,000 --> 00:58:03,200
+always pay me by going
+
+1102
+00:58:00,490 --> 00:58:07,440
+[Music]
+
+1103
+00:58:03,200 --> 00:58:11,319
+to code homepage all the way bottom you
+
+1104
+00:58:07,440 --> 00:58:13,680
+have patreon you have Amazon gift card
+
+1105
+00:58:11,319 --> 00:58:13,680
+you have
+
+1106
+00:58:13,799 --> 00:58:21,839
+PayPal
+
+1107
+00:58:16,720 --> 00:58:24,359
+okay uh today's video is sponsored by
+
+1108
+00:58:21,839 --> 00:58:27,520
+you let me tell you what great person
+
+1109
+00:58:24,359 --> 00:58:30,520
+you are you must use you because you are
+
+1110
+00:58:27,520 --> 00:58:34,400
+the best thing so please support
+
+1111
+00:58:30,520 --> 00:58:34,400
+you thank you for
+
+1112
+00:58:36,400 --> 00:58:40,760
+sponsorship can you show us a snippet of
+
+1113
+00:58:38,760 --> 00:58:43,720
+code with this thing what thing youa
+
+1114
+00:58:40,760 --> 00:58:46,240
+this okay conditional uh the racket
+
+1115
+00:58:43,720 --> 00:58:46,240
+conditional
+
+1116
+00:58:47,240 --> 00:58:53,599
+thingi uh you are talking
+
+1117
+00:58:50,480 --> 00:58:57,079
+about the racket conditional
+
+1118
+00:58:53,599 --> 00:59:01,039
+thing uh what will I
+
+1119
+00:58:57,079 --> 00:59:04,039
+say I forgot what is the context
+
+1120
+00:59:01,039 --> 00:59:04,039
+sorry
+
+1121
+00:59:04,640 --> 00:59:12,280
+uh racket conditional I forgot what that
+
+1122
+00:59:08,680 --> 00:59:14,640
+did so why is emac this being embedded a
+
+1123
+00:59:12,280 --> 00:59:18,240
+good thing why wouldn't general purpose
+
+1124
+00:59:14,640 --> 00:59:20,640
+disp be preferred okay it's not a good
+
+1125
+00:59:18,240 --> 00:59:23,960
+thing I mean emac disp just happens to
+
+1126
+00:59:20,640 --> 00:59:27,440
+be embedded language in emex so that
+
+1127
+00:59:23,960 --> 00:59:29,559
+means there's a so that means it's a
+
+1128
+00:59:27,440 --> 00:59:31,960
+significantly limited programming
+
+1129
+00:59:29,559 --> 00:59:33,880
+language you cannot write use it to
+
+1130
+00:59:31,960 --> 00:59:36,599
+write a web server or embedded
+
+1131
+00:59:33,880 --> 00:59:39,680
+programming or whatever you know you
+
+1132
+00:59:36,599 --> 00:59:41,920
+just use it for within emac of course
+
+1133
+00:59:39,680 --> 00:59:43,960
+people have tried to make it a database
+
+1134
+00:59:41,920 --> 00:59:46,200
+with emac but that's not
+
+1135
+00:59:43,960 --> 00:59:49,200
+really you
+
+1136
+00:59:46,200 --> 00:59:52,480
+know real
+
+1137
+00:59:49,200 --> 00:59:55,680
+so it would be good it would be
+
+1138
+00:59:52,480 --> 00:59:59,400
+fantastic if emac LS actually became a
+
+1139
+00:59:55,680 --> 01:00:02,079
+general purpose like you
+
+1140
+00:59:59,400 --> 01:00:05,240
+can yeah but that's not you know that's
+
+1141
+01:00:02,079 --> 01:00:07,440
+not going to happen anytime soon you
+
+1142
+01:00:05,240 --> 01:00:10,000
+know you can you of course you can run
+
+1143
+01:00:07,440 --> 01:00:12,640
+emac this as a script just like python
+
+1144
+01:00:10,000 --> 01:00:14,559
+you know I can show it but you know I
+
+1145
+01:00:12,640 --> 01:00:16,880
+have a lot of tutorials on my website
+
+1146
+01:00:14,559 --> 01:00:19,599
+you you search you'll just find it how
+
+1147
+01:00:16,880 --> 01:00:23,000
+to how to run emac this just like a
+
+1148
+01:00:19,599 --> 01:00:26,880
+python script you know you type P P
+
+1149
+01:00:23,000 --> 01:00:29,680
+Python and The Script name and you
+
+1150
+01:00:26,880 --> 01:00:32,520
+so you can do exactly the same with emac
+
+1151
+01:00:29,680 --> 01:00:35,200
+this I showed it many times in the past
+
+1152
+01:00:32,520 --> 01:00:38,440
+okay but it's not you know it's just
+
+1153
+01:00:35,200 --> 01:00:38,440
+it's not a general purpose
+
+1154
+01:00:40,359 --> 01:00:47,359
+language so no I don't you know so but
+
+1155
+01:00:45,160 --> 01:00:50,720
+however as far as general purpose
+
+1156
+01:00:47,359 --> 01:00:53,359
+programming goes there's one thing that
+
+1157
+01:00:50,720 --> 01:00:55,559
+emac is even though it's not a general
+
+1158
+01:00:53,359 --> 01:00:58,319
+purpose language but it is far better
+
+1159
+01:00:55,559 --> 01:01:01,160
+than any language including wolam
+
+1160
+01:00:58,319 --> 01:01:03,119
+language so in this if you are need if
+
+1161
+01:01:01,160 --> 01:01:04,960
+you need to do this thing I'm going to
+
+1162
+01:01:03,119 --> 01:01:07,480
+tell you what that is if you're going to
+
+1163
+01:01:04,960 --> 01:01:11,200
+do if you need to do this thing which is
+
+1164
+01:01:07,480 --> 01:01:13,760
+a kind of major is field of programming
+
+1165
+01:01:11,200 --> 01:01:15,799
+if you need to do this emac disp is
+
+1166
+01:01:13,760 --> 01:01:18,559
+better than common disp better than
+
+1167
+01:01:15,799 --> 01:01:22,240
+schim disp better than wolam language
+
+1168
+01:01:18,559 --> 01:01:27,160
+better than python better than Ruby Java
+
+1169
+01:01:22,240 --> 01:01:30,480
+C++ better than than any
+
+1170
+01:01:27,160 --> 01:01:34,319
+language in the world okay and that
+
+1171
+01:01:30,480 --> 01:01:37,799
+thing is text processing okay that is
+
+1172
+01:01:34,319 --> 01:01:39,359
+you need to you know like there's a lot
+
+1173
+01:01:37,799 --> 01:01:41,720
+things you need to do with text
+
+1174
+01:01:39,359 --> 01:01:44,200
+processing create a report go through
+
+1175
+01:01:41,720 --> 01:01:47,359
+10,000 or 20,000
+
+1176
+01:01:44,200 --> 01:01:49,720
+files but but but there's a issue about
+
+1177
+01:01:47,359 --> 01:01:52,760
+scale if you're going to go in you know
+
+1178
+01:01:49,720 --> 01:01:58,240
+go deal with one
+
+1179
+01:01:52,760 --> 01:02:01,839
+Mega Tetra billion BTE of of text files
+
+1180
+01:01:58,240 --> 01:02:04,520
+then emac this might be slow you know
+
+1181
+01:02:01,839 --> 01:02:08,079
+but anyway emac this is the best
+
+1182
+01:02:04,520 --> 01:02:11,760
+Language by a magnitude if your te if
+
+1183
+01:02:08,079 --> 01:02:13,799
+your task is text processing even even
+
+1184
+01:02:11,760 --> 01:02:16,839
+then even though it's not the general
+
+1185
+01:02:13,799 --> 01:02:19,000
+purpose but if the text processing is
+
+1186
+01:02:16,839 --> 01:02:21,319
+what you need to do go through maybe
+
+1187
+01:02:19,000 --> 01:02:23,880
+maybe Financial reports or whatever
+
+1188
+01:02:21,319 --> 01:02:26,319
+generate report or go through or
+
+1189
+01:02:23,880 --> 01:02:28,160
+Wikipedia you need to kind of do
+
+1190
+01:02:26,319 --> 01:02:31,480
+analysis you know
+
+1191
+01:02:28,160 --> 01:02:34,440
+text you know extract some text extract
+
+1192
+01:02:31,480 --> 01:02:37,520
+all emails in the entire Wikipedia emac
+
+1193
+01:02:34,440 --> 01:02:43,000
+LP is the best thing okay most easy to
+
+1194
+01:02:37,520 --> 01:02:43,000
+do most stable okay text processing emac
+
+1195
+01:02:43,559 --> 01:02:48,599
+LP
+
+1196
+01:02:46,079 --> 01:02:50,640
+uh oh there is interesting question I've
+
+1197
+01:02:48,599 --> 01:02:52,599
+been working with Java for 15 years do
+
+1198
+01:02:50,640 --> 01:02:55,680
+you think it would be easy to transition
+
+1199
+01:02:52,599 --> 01:02:58,240
+into closer lisp if you know emac lisp
+
+1200
+01:02:55,680 --> 01:03:00,720
+yeah yeah sure the main thing is about
+
+1201
+01:02:58,240 --> 01:03:03,799
+it's not about transition into thisis
+
+1202
+01:03:00,720 --> 01:03:06,359
+it's most about thinking in a functional
+
+1203
+01:03:03,799 --> 01:03:10,319
+programming style
+
+1204
+01:03:06,359 --> 01:03:13,079
+so so your main uh issue is
+
+1205
+01:03:10,319 --> 01:03:16,319
+about you know thinking of of
+
+1206
+01:03:13,079 --> 01:03:19,599
+programming from object oriented into
+
+1207
+01:03:16,319 --> 01:03:21,640
+functional way so if you have experience
+
+1208
+01:03:19,599 --> 01:03:24,160
+with that you have no problem you can
+
+1209
+01:03:21,640 --> 01:03:27,640
+just switch to closure that's the main
+
+1210
+01:03:24,160 --> 01:03:30,240
+thing op in to functional programming
+
+1211
+01:03:27,640 --> 01:03:30,240
+way
+
+1212
+01:03:31,520 --> 01:03:36,520
+okay uh yeah arinum aragam is
+
+1213
+01:03:34,559 --> 01:03:39,520
+interesting character because he's a
+
+1214
+01:03:36,520 --> 01:03:43,119
+giant huge commonly
+
+1215
+01:03:39,520 --> 01:03:48,440
+fanatic so he he's not so he's opposite
+
+1216
+01:03:43,119 --> 01:03:50,920
+of me he is a h the biggest common list
+
+1217
+01:03:48,440 --> 01:03:53,319
+fanatic and back in the days you know
+
+1218
+01:03:50,920 --> 01:03:55,799
+during the common list versus scheme he
+
+1219
+01:03:53,319 --> 01:03:59,839
+always just attack the scheme people for
+
+1220
+01:03:55,799 --> 01:04:02,079
+for lots of reasons and uh and you know
+
+1221
+01:03:59,839 --> 01:04:07,680
+and in fact one of my
+
+1222
+01:04:02,079 --> 01:04:11,480
+first post in the lisp Community com.
+
+1223
+01:04:07,680 --> 01:04:14,960
+land. lisp is about the lisp fundamental
+
+1224
+01:04:11,480 --> 01:04:17,279
+problem the Lis cons which I despise you
+
+1225
+01:04:14,960 --> 01:04:17,279
+know
+
+1226
+01:04:19,559 --> 01:04:22,960
+the search
+
+1227
+01:04:24,000 --> 01:04:31,240
+for fundamental problem of
+
+1228
+01:04:26,960 --> 01:04:33,839
+thisp then you'll find my website okay
+
+1229
+01:04:31,240 --> 01:04:37,079
+that that is my
+
+1230
+01:04:33,839 --> 01:04:40,400
+enumeration of the most fundamental Ides
+
+1231
+01:04:37,079 --> 01:04:42,839
+of this okay one of them first of all is
+
+1232
+01:04:40,400 --> 01:04:45,760
+syn syntax
+
+1233
+01:04:42,839 --> 01:04:48,319
+irregularities you have the you know dot
+
+1234
+01:04:45,760 --> 01:04:51,799
+notation you have the back quote back
+
+1235
+01:04:48,319 --> 01:04:54,440
+quote most tic [ __ ] then you have the
+
+1236
+01:04:51,799 --> 01:04:56,799
+you know back tick then you have the
+
+1237
+01:04:54,440 --> 01:04:59,000
+comma you know the
+
+1238
+01:04:56,799 --> 01:05:01,760
+and you know this is one of the thing
+
+1239
+01:04:59,000 --> 01:05:04,119
+the common dis especially common dispers
+
+1240
+01:05:01,760 --> 01:05:07,880
+they love it you know they oh read the
+
+1241
+01:05:04,119 --> 01:05:11,039
+mar [ __ ] idiots that's one of the
+
+1242
+01:05:07,880 --> 01:05:13,400
+most fundamental problem of leis they
+
+1243
+01:05:11,039 --> 01:05:18,039
+you know if you want to improve this
+
+1244
+01:05:13,400 --> 01:05:22,119
+read of it read of like remove all the
+
+1245
+01:05:18,039 --> 01:05:25,119
+[ __ ] only allow the functional uh form
+
+1246
+01:05:22,119 --> 01:05:28,599
+like you know F like parenthesis F
+
+1247
+01:05:25,119 --> 01:05:31,400
+argument argument only allow that re
+
+1248
+01:05:28,599 --> 01:05:34,400
+syntactical regularity that's a power of
+
+1249
+01:05:31,400 --> 01:05:37,359
+lisp and if you read of this this
+
+1250
+01:05:34,400 --> 01:05:40,640
+[ __ ] read the socalled read the mark
+
+1251
+01:05:37,359 --> 01:05:42,039
+my ass read of them your this becomes
+
+1252
+01:05:40,640 --> 01:05:44,559
+more
+
+1253
+01:05:42,039 --> 01:05:46,839
+powerful okay that's one thing but but
+
+1254
+01:05:44,559 --> 01:05:50,520
+but you see the the interesting thing is
+
+1255
+01:05:46,839 --> 01:05:52,920
+that the the leis phonetics they they
+
+1256
+01:05:50,520 --> 01:05:55,039
+they love this and they particularly
+
+1257
+01:05:52,920 --> 01:05:56,839
+will go out and say why these are the
+
+1258
+01:05:55,039 --> 01:05:58,119
+best thing
+
+1259
+01:05:56,839 --> 01:06:04,400
+about
+
+1260
+01:05:58,119 --> 01:06:04,400
+this read the read the maros [ __ ]
+
+1261
+01:06:05,119 --> 01:06:11,920
+idiots okay so I give some reasons why
+
+1262
+01:06:08,160 --> 01:06:14,039
+these are bad okay and you you know if
+
+1263
+01:06:11,920 --> 01:06:17,520
+you really want read the maros you
+
+1264
+01:06:14,039 --> 01:06:22,119
+should go with the wolam language way
+
+1265
+01:06:17,520 --> 01:06:25,599
+extend the syntax in a systematic way so
+
+1266
+01:06:22,119 --> 01:06:26,720
+that so that you know you can write um
+
+1267
+01:06:25,599 --> 01:06:32,000
+so
+
+1268
+01:06:26,720 --> 01:06:34,720
+that so that um let's see some uh uh
+
+1269
+01:06:32,000 --> 01:06:37,079
+let's say arithmetics okay so you can
+
+1270
+01:06:34,720 --> 01:06:41,359
+write 3 minus two like that you don't
+
+1271
+01:06:37,079 --> 01:06:44,920
+have to like parenthesis minus you
+
+1272
+01:06:41,359 --> 01:06:48,680
+know you know you you you have you have
+
+1273
+01:06:44,920 --> 01:06:51,799
+systematic rhm aqual okay wam language
+
+1274
+01:06:48,680 --> 01:06:55,119
+doesn't call rhm marus it's just a short
+
+1275
+01:06:51,799 --> 01:06:58,119
+notation okay so you have a systematic
+
+1276
+01:06:55,119 --> 01:07:00,480
+rhm so your entire
+
+1277
+01:06:58,119 --> 01:07:03,599
+parenthesized expression can be convert
+
+1278
+01:07:00,480 --> 01:07:07,440
+to this read convert to this short F
+
+1279
+01:07:03,599 --> 01:07:11,039
+code um shortcut form I explained you
+
+1280
+01:07:07,440 --> 01:07:14,240
+know this is a big topic so I explain
+
+1281
+01:07:11,039 --> 01:07:15,200
+this in detail you can see your article
+
+1282
+01:07:14,240 --> 01:07:19,200
+uh with
+
+1283
+01:07:15,200 --> 01:07:22,000
+comparison here okay W language Advanced
+
+1284
+01:07:19,200 --> 01:07:27,200
+symbols principles full form and full
+
+1285
+01:07:22,000 --> 01:07:32,240
+form and syntax syntax operators okay
+
+1286
+01:07:27,200 --> 01:07:36,319
+so if you are thinking of uh where is it
+
+1287
+01:07:32,240 --> 01:07:38,160
+uh yeah so this this page explains what
+
+1288
+01:07:36,319 --> 01:07:41,760
+they
+
+1289
+01:07:38,160 --> 01:07:43,799
+mean so this this is a systematic way to
+
+1290
+01:07:41,760 --> 01:07:45,319
+extend the idea
+
+1291
+01:07:43,799 --> 01:07:50,640
+of
+
+1292
+01:07:45,319 --> 01:07:53,599
+uh the lisps socalled reader maros which
+
+1293
+01:07:50,640 --> 01:07:56,400
+is very limited you know with all the
+
+1294
+01:07:53,599 --> 01:07:59,839
+read maros you cannot make it to make it
+
+1295
+01:07:56,400 --> 01:08:01,520
+to infix expression which is necessary
+
+1296
+01:07:59,839 --> 01:08:04,520
+if you need to do
+
+1297
+01:08:01,520 --> 01:08:06,680
+mathematics and this this concept of
+
+1298
+01:08:04,520 --> 01:08:10,839
+short syntax form is actually called
+
+1299
+01:08:06,680 --> 01:08:15,040
+meta expression meta expression which is
+
+1300
+01:08:10,839 --> 01:08:19,120
+a concept created by the creator of lisp
+
+1301
+01:08:15,040 --> 01:08:23,120
+McCarthy John McCarthy okay but he
+
+1302
+01:08:19,120 --> 01:08:27,000
+actually never implemented it so that's
+
+1303
+01:08:23,120 --> 01:08:29,159
+why this just is just became paresis but
+
+1304
+01:08:27,000 --> 01:08:32,719
+in his vision when he began you know is
+
+1305
+01:08:29,159 --> 01:08:35,560
+you supposed to have this this meta
+
+1306
+01:08:32,719 --> 01:08:39,159
+Expressions so any expression can
+
+1307
+01:08:35,560 --> 01:08:43,480
+become like like what we see like Java
+
+1308
+01:08:39,159 --> 01:08:45,279
+or Python's code you know but but the
+
+1309
+01:08:43,480 --> 01:08:47,520
+common list idiots they don't know they
+
+1310
+01:08:45,279 --> 01:08:47,520
+don't
+
+1311
+01:08:49,080 --> 01:08:56,440
+know uh okay so yeah this uh you know so
+
+1312
+01:08:53,279 --> 01:08:58,839
+I can show you a example
+
+1313
+01:08:56,440 --> 01:09:01,880
+so for example here you can see the
+
+1314
+01:08:58,839 --> 01:09:06,319
+difference you see in here it's purely
+
+1315
+01:09:01,880 --> 01:09:09,359
+Nest expression but because you have the
+
+1316
+01:09:06,319 --> 01:09:12,640
+so-called meta expression or short short
+
+1317
+01:09:09,359 --> 01:09:15,159
+uh cut syntax you can write them like
+
+1318
+01:09:12,640 --> 01:09:18,040
+this much more like traditional
+
+1319
+01:09:15,159 --> 01:09:24,799
+programming language you see compare
+
+1320
+01:09:18,040 --> 01:09:24,799
+this versus this fully nested way
+
+1321
+01:09:26,440 --> 01:09:31,040
+you know you you you should follow this
+
+1322
+01:09:28,759 --> 01:09:33,960
+code carefully because every line of
+
+1323
+01:09:31,040 --> 01:09:36,880
+code is just F bracket
+
+1324
+01:09:33,960 --> 01:09:39,120
+something that's it everything so it's
+
+1325
+01:09:36,880 --> 01:09:43,440
+fully purely nested this is W from
+
+1326
+01:09:39,120 --> 01:09:46,440
+language you can convert this to this by
+
+1327
+01:09:43,440 --> 01:09:49,920
+by a press of a key there's one you know
+
+1328
+01:09:46,440 --> 01:09:53,239
+one consistent map between them this is
+
+1329
+01:09:49,920 --> 01:09:56,960
+the power of systematic grammar you
+
+1330
+01:09:53,239 --> 01:09:59,960
+extend the reader marle
+
+1331
+01:09:56,960 --> 01:10:04,080
+systematically to arrive to have this
+
+1332
+01:09:59,960 --> 01:10:07,679
+kind of a shortcut or so-called meta
+
+1333
+01:10:04,080 --> 01:10:10,960
+expression as compared to you know as
+
+1334
+01:10:07,679 --> 01:10:10,960
+compared to
+
+1335
+01:10:12,800 --> 01:10:22,840
+the as compared to the LEP idiosyncratic
+
+1336
+01:10:18,320 --> 01:10:25,440
+read Arro foxs [ __ ] the dispers you know
+
+1337
+01:10:22,840 --> 01:10:27,960
+like oh let's just let's just invent a
+
+1338
+01:10:25,440 --> 01:10:30,159
+back quote let's invent this one so when
+
+1339
+01:10:27,960 --> 01:10:32,760
+you see this it means that let's invent
+
+1340
+01:10:30,159 --> 01:10:35,560
+a palm sign so so functions you know it
+
+1341
+01:10:32,760 --> 01:10:38,719
+becomes function so [ __ ] the [ __ ] the
+
+1342
+01:10:35,560 --> 01:10:41,719
+common dispers especially common dispers
+
+1343
+01:10:38,719 --> 01:10:46,880
+they they they they they will say this
+
+1344
+01:10:41,719 --> 01:10:46,880
+less so lesso with the scheme dispers
+
+1345
+01:11:07,480 --> 01:11:11,920
+of course you can do that so there's a
+
+1346
+01:11:09,440 --> 01:11:15,320
+question we were talking about you know
+
+1347
+01:11:11,920 --> 01:11:18,600
+can you do that yes of
+
+1348
+01:11:15,320 --> 01:11:23,480
+course it just return itself okay uh
+
+1349
+01:11:18,600 --> 01:11:26,120
+except uh did we Define a value for x no
+
+1350
+01:11:23,480 --> 01:11:29,000
+it just return itself it reorder it
+
+1351
+01:11:26,120 --> 01:11:32,239
+because the plus has a meaning you know
+
+1352
+01:11:29,000 --> 01:11:35,199
+the plus the plus operator is orderless
+
+1353
+01:11:32,239 --> 01:11:37,800
+on the arguments so it automatically
+
+1354
+01:11:35,199 --> 01:11:42,000
+reorder
+
+1355
+01:11:37,800 --> 01:11:46,239
+it okay I think that's it
+
+1356
+01:11:42,000 --> 01:11:50,719
+uh yes if you want dynamic dynamic scope
+
+1357
+01:11:46,239 --> 01:11:53,960
+you just use um uh block okay so for
+
+1358
+01:11:50,719 --> 01:11:56,520
+example block uh for example let's say x
+
+1359
+01:11:53,960 --> 01:11:59,880
+equals to 3
+
+1360
+01:11:56,520 --> 01:12:03,840
+okay now X is three now if you want the
+
+1361
+01:11:59,880 --> 01:12:04,960
+local value Dynamic scope okay so you
+
+1362
+01:12:03,840 --> 01:12:06,840
+just say
+
+1363
+01:12:04,960 --> 01:12:08,679
+block uh
+
+1364
+01:12:06,840 --> 01:12:13,920
+and
+
+1365
+01:12:08,679 --> 01:12:18,280
+you uh so you let's say x and here you
+
+1366
+01:12:13,920 --> 01:12:20,880
+can say xal to 4 and here is the body
+
+1367
+01:12:18,280 --> 01:12:23,000
+let's say uh let's say you want let's
+
+1368
+01:12:20,880 --> 01:12:26,199
+just say
+
+1369
+01:12:23,000 --> 01:12:30,960
+print uh
+
+1370
+01:12:26,199 --> 01:12:33,880
+okay so now if you run it you see it
+
+1371
+01:12:30,960 --> 01:12:37,760
+says four because locally that's a dyn
+
+1372
+01:12:33,880 --> 01:12:42,000
+this this block construct is a dynamic
+
+1373
+01:12:37,760 --> 01:12:45,719
+scope okay so here 4X becomes four now
+
+1374
+01:12:42,000 --> 01:12:48,679
+if you evaluate X it's three you know so
+
+1375
+01:12:45,719 --> 01:12:48,679
+that's dyn that
+
+1376
+01:12:51,320 --> 01:12:55,719
+Dynamic who who is my moderator I don't
+
+1377
+01:12:54,080 --> 01:12:58,800
+have a moderator
+
+1378
+01:12:55,719 --> 01:13:01,920
+okay I think that's it for
+
+1379
+01:12:58,800 --> 01:13:06,600
+today uh because it's 1 hour I was going
+
+1380
+01:13:01,920 --> 01:13:09,199
+to do um I was I was originally planning
+
+1381
+01:13:06,600 --> 01:13:13,679
+to expand the sequence
+
+1382
+01:13:09,199 --> 01:13:14,920
+functions but but but uh but I think we
+
+1383
+01:13:13,679 --> 01:13:18,040
+did a
+
+1384
+01:13:14,920 --> 01:13:21,000
+good discussion about the
+
+1385
+01:13:18,040 --> 01:13:23,320
+lisps uh so if you want to know about
+
+1386
+01:13:21,000 --> 01:13:27,320
+sequence functions of course you go to
+
+1387
+01:13:23,320 --> 01:13:31,520
+emac I mean emac this tutorial Basics
+
+1388
+01:13:27,320 --> 01:13:35,239
+you go to data structure section you
+
+1389
+01:13:31,520 --> 01:13:37,199
+have list okay so then you have
+
+1390
+01:13:35,239 --> 01:13:38,840
+everything you need to do you need to
+
+1391
+01:13:37,199 --> 01:13:41,679
+know about
+
+1392
+01:13:38,840 --> 01:13:44,360
+list uh including all the functions
+
+1393
+01:13:41,679 --> 01:13:45,719
+dealing with list then you have the
+
+1394
+01:13:44,360 --> 01:13:48,920
+vector data
+
+1395
+01:13:45,719 --> 01:13:53,400
+structure uh how to make Vector what is
+
+1396
+01:13:48,920 --> 01:13:55,520
+it what is algorithmic properties and
+
+1397
+01:13:53,400 --> 01:13:58,840
+then how do you create it how do you
+
+1398
+01:13:55,520 --> 01:14:02,679
+filter Vector okay
+
+1399
+01:13:58,840 --> 01:14:06,440
+then then you can study the sequence
+
+1400
+01:14:02,679 --> 01:14:08,120
+type so sequence sequence in iMac L is
+
+1401
+01:14:06,440 --> 01:14:10,760
+just a
+
+1402
+01:14:08,120 --> 01:14:14,719
+general well it just means either list
+
+1403
+01:14:10,760 --> 01:14:16,320
+of vector or or string okay it's not a
+
+1404
+01:14:14,719 --> 01:14:20,679
+data type by
+
+1405
+01:14:16,320 --> 01:14:23,520
+itself a sequence data type in emac disp
+
+1406
+01:14:20,679 --> 01:14:27,600
+is not technically a thing it doesn't it
+
+1407
+01:14:23,520 --> 01:14:31,880
+doesn't exist it's simply refers to a
+
+1408
+01:14:27,600 --> 01:14:35,520
+list or a array and array can either
+
+1409
+01:14:31,880 --> 01:14:38,120
+mean a vector or string so a sequence is
+
+1410
+01:14:35,520 --> 01:14:39,639
+you know either list or a vector or a
+
+1411
+01:14:38,120 --> 01:14:42,600
+string you know that's that's what
+
+1412
+01:14:39,639 --> 01:14:45,320
+sequence means so then you have the all
+
+1413
+01:14:42,600 --> 01:14:48,320
+this bunch of sequence functions these
+
+1414
+01:14:45,320 --> 01:14:49,880
+are new about seven years ago fantastic
+
+1415
+01:14:48,320 --> 01:14:53,199
+sequence
+
+1416
+01:14:49,880 --> 01:14:56,040
+functions that can work on any of list
+
+1417
+01:14:53,199 --> 01:15:00,080
+or vector or string okay so this is very
+
+1418
+01:14:56,040 --> 01:15:02,239
+powerful so now finally emac this has
+
+1419
+01:15:00,080 --> 01:15:04,000
+you know you know before you don't have
+
+1420
+01:15:02,239 --> 01:15:07,280
+like you don't even have a filter
+
+1421
+01:15:04,000 --> 01:15:09,960
+function but now you do you can you know
+
+1422
+01:15:07,280 --> 01:15:12,920
+so the argument can be a vector or can
+
+1423
+01:15:09,960 --> 01:15:17,000
+be a list or can be a string so you have
+
+1424
+01:15:12,920 --> 01:15:20,920
+filter you have also kind of you know so
+
+1425
+01:15:17,000 --> 01:15:22,360
+you have sequence iterations um anyway
+
+1426
+01:15:20,920 --> 01:15:25,320
+so that's what I'm talking about
+
+1427
+01:15:22,360 --> 01:15:27,920
+sequence functions okay so that's why I
+
+1428
+01:15:25,320 --> 01:15:32,120
+say it's fantastic you
+
+1429
+01:15:27,920 --> 01:15:32,120
+know uh okay that's it for
+
+1430
+01:15:37,159 --> 01:15:42,880
+today I don't think I have a moderator
+
+1431
+01:15:40,040 --> 01:15:47,600
+no I don't have a moderate moderator
+
+1432
+01:15:42,880 --> 01:15:47,600
+here okay bye guys
+

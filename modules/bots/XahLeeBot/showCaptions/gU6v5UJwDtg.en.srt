@@ -1,0 +1,4712 @@
+1
+00:05:44,720 --> 00:05:48,320
+test audio
+
+2
+00:05:45,600 --> 00:05:48,880
+finally lots of problems sorry about
+
+3
+00:05:48,320 --> 00:05:51,919
+that
+
+4
+00:05:48,880 --> 00:05:55,440
+so chrome chrome kept crashing now it's
+
+5
+00:05:51,919 --> 00:05:55,440
+too loud outside hold on a second
+
+6
+00:06:02,560 --> 00:06:07,199
+so we wasted like five minutes or 10
+
+7
+00:06:05,280 --> 00:06:08,560
+minutes chrome kept crashing so we are
+
+8
+00:06:07,199 --> 00:06:10,240
+using safari
+
+9
+00:06:08,560 --> 00:06:11,919
+and then there's no sound and now
+
+10
+00:06:10,240 --> 00:06:13,600
+finally it's working
+
+11
+00:06:11,919 --> 00:06:15,360
+uh so good morning guys good morning
+
+12
+00:06:13,600 --> 00:06:19,360
+george coney
+
+13
+00:06:15,360 --> 00:06:19,360
+skyro uh
+
+14
+00:06:19,680 --> 00:06:23,520
+so so we can begin so today we are going
+
+15
+00:06:21,919 --> 00:06:26,880
+to talk about
+
+16
+00:06:23,520 --> 00:06:28,080
+uh emacs live emac live coding it's
+
+17
+00:06:26,880 --> 00:06:30,800
+gonna be condensed
+
+18
+00:06:28,080 --> 00:06:32,479
+tutorial uh live coding of emacs this
+
+19
+00:06:30,800 --> 00:06:34,479
+and the background image i said it
+
+20
+00:06:32,479 --> 00:06:36,000
+before it's a typing of the dead okay
+
+21
+00:06:34,479 --> 00:06:38,479
+it's a video game
+
+22
+00:06:36,000 --> 00:06:39,919
+uh you can find this page if you just
+
+23
+00:06:38,479 --> 00:06:42,400
+search for xally
+
+24
+00:06:39,919 --> 00:06:43,840
+keyboard sorry typing of the dead you'll
+
+25
+00:06:42,400 --> 00:06:46,000
+find this page
+
+26
+00:06:43,840 --> 00:06:48,319
+okay so today's topic we are going to
+
+27
+00:06:46,000 --> 00:06:51,680
+start to code emac these okay so
+
+28
+00:06:48,319 --> 00:06:52,400
+uh what do i want to do so write a
+
+29
+00:06:51,680 --> 00:06:56,000
+command
+
+30
+00:06:52,400 --> 00:06:56,720
+so that two lines of file path one html
+
+31
+00:06:56,000 --> 00:06:59,680
+file path
+
+32
+00:06:56,720 --> 00:07:00,720
+and one image file path will become
+
+33
+00:06:59,680 --> 00:07:02,560
+linked with a
+
+34
+00:07:00,720 --> 00:07:04,720
+with an icon so let me show you what i
+
+35
+00:07:02,560 --> 00:07:08,000
+want to do okay
+
+36
+00:07:04,720 --> 00:07:08,479
+so you can see uh okay so wait let me
+
+37
+00:07:08,000 --> 00:07:11,840
+start
+
+38
+00:07:08,479 --> 00:07:14,720
+command log mod uh start
+
+39
+00:07:11,840 --> 00:07:15,360
+command log mod so you can see all my
+
+40
+00:07:14,720 --> 00:07:18,000
+emacs
+
+41
+00:07:15,360 --> 00:07:19,280
+commands and keys on the pink window
+
+42
+00:07:18,000 --> 00:07:22,400
+okay
+
+43
+00:07:19,280 --> 00:07:24,800
+so uh so we have two lines of code here
+
+44
+00:07:22,400 --> 00:07:25,759
+what i want is let me show you what i
+
+45
+00:07:24,800 --> 00:07:28,800
+want to do okay
+
+46
+00:07:25,759 --> 00:07:32,080
+so these two lines of code i want
+
+47
+00:07:28,800 --> 00:07:32,479
+linkify so it becomes a link here and
+
+48
+00:07:32,080 --> 00:07:36,639
+this
+
+49
+00:07:32,479 --> 00:07:39,759
+image also linkify this is the image tag
+
+50
+00:07:36,639 --> 00:07:43,520
+and uh move that here
+
+51
+00:07:39,759 --> 00:07:46,319
+and add a break and add the dive okay
+
+52
+00:07:43,520 --> 00:07:48,080
+so i want to write a command that
+
+53
+00:07:46,319 --> 00:07:52,240
+transform these two lines
+
+54
+00:07:48,080 --> 00:07:54,000
+uh file path into these so what is
+
+55
+00:07:52,240 --> 00:07:56,319
+what does it looks like in browser let
+
+56
+00:07:54,000 --> 00:07:59,840
+me show you okay show in browser
+
+57
+00:07:56,319 --> 00:08:00,560
+so you can see so before it was just two
+
+58
+00:07:59,840 --> 00:08:04,160
+lines
+
+59
+00:08:00,560 --> 00:08:06,720
+uh a file path but now it becomes
+
+60
+00:08:04,160 --> 00:08:07,840
+you know a iconized link so you can
+
+61
+00:08:06,720 --> 00:08:11,280
+click on that
+
+62
+00:08:07,840 --> 00:08:13,360
+then you go to the page uh of this link
+
+63
+00:08:11,280 --> 00:08:16,080
+you see i'm i'm i'm writing a lot of
+
+64
+00:08:13,360 --> 00:08:19,680
+blogs so that's why i want this kind of
+
+65
+00:08:16,080 --> 00:08:21,280
+um for example you you you go here you
+
+66
+00:08:19,680 --> 00:08:25,599
+see all these icons
+
+67
+00:08:21,280 --> 00:08:28,960
+they are done that way so back to here
+
+68
+00:08:25,599 --> 00:08:32,159
+so i want to turn two lines of file path
+
+69
+00:08:28,960 --> 00:08:34,479
+into a uh we don't hold on a second
+
+70
+00:08:32,159 --> 00:08:34,479
+um
+
+71
+00:08:35,440 --> 00:08:39,440
+copy that two lines of file path like
+
+72
+00:08:38,159 --> 00:08:43,039
+that
+
+73
+00:08:39,440 --> 00:08:45,279
+into into this okay so what
+
+74
+00:08:43,039 --> 00:08:47,440
+what what this looks like is is
+
+75
+00:08:45,279 --> 00:08:51,600
+basically so you have a link
+
+76
+00:08:47,440 --> 00:08:53,839
+html link starting here and ends here
+
+77
+00:08:51,600 --> 00:08:56,720
+and in between you have a image file
+
+78
+00:08:53,839 --> 00:08:59,440
+link so that's what we're gonna do
+
+79
+00:08:56,720 --> 00:09:00,320
+so let's define uh let's do this quickly
+
+80
+00:08:59,440 --> 00:09:03,680
+emaclis
+
+81
+00:09:00,320 --> 00:09:06,959
+okay let's open a new empty buffer and
+
+82
+00:09:03,680 --> 00:09:10,160
+define a function that's right
+
+83
+00:09:06,959 --> 00:09:14,800
+define a function so
+
+84
+00:09:10,160 --> 00:09:16,240
+uh let's let's call the command icon
+
+85
+00:09:14,800 --> 00:09:20,560
+linkify
+
+86
+00:09:16,240 --> 00:09:23,760
+okay given two
+
+87
+00:09:20,560 --> 00:09:26,959
+lines of file path under
+
+88
+00:09:23,760 --> 00:09:30,560
+cursor make them into a
+
+89
+00:09:26,959 --> 00:09:30,560
+link with image
+
+90
+00:09:31,040 --> 00:09:38,240
+okay so for example
+
+91
+00:09:34,959 --> 00:09:40,800
+let's see so version
+
+92
+00:09:38,240 --> 00:09:45,279
+today's date let's put today's date as a
+
+93
+00:09:40,800 --> 00:09:45,279
+version name so for example to file path
+
+94
+00:09:48,959 --> 00:09:53,279
+for example
+
+95
+00:09:56,560 --> 00:09:58,880
+this
+
+96
+00:10:02,839 --> 00:10:08,399
+becomes becomes like that
+
+97
+00:10:05,360 --> 00:10:12,000
+okay now in this is the emac these uh
+
+98
+00:10:08,399 --> 00:10:14,640
+docs docs string so you can see so these
+
+99
+00:10:12,000 --> 00:10:16,000
+double quotes you need to escape them so
+
+100
+00:10:14,640 --> 00:10:19,680
+i have a command
+
+101
+00:10:16,000 --> 00:10:22,240
+called xsa escape quotes
+
+102
+00:10:19,680 --> 00:10:23,040
+okay you call that it will add a
+
+103
+00:10:22,240 --> 00:10:26,560
+backslash
+
+104
+00:10:23,040 --> 00:10:26,560
+in front of these uh
+
+105
+00:10:27,279 --> 00:10:32,000
+quotes okay so that's a command
+
+106
+00:10:30,079 --> 00:10:35,440
+documentation so let's begin to write
+
+107
+00:10:32,000 --> 00:10:38,079
+it uh so first of all let's go back
+
+108
+00:10:35,440 --> 00:10:39,279
+to let's open a new buffer go to the
+
+109
+00:10:38,079 --> 00:10:42,399
+talk show
+
+110
+00:10:39,279 --> 00:10:43,440
+uh open today's talk show so so what
+
+111
+00:10:42,399 --> 00:10:48,240
+we're gonna do
+
+112
+00:10:43,440 --> 00:10:51,440
+is we are given a lines like that
+
+113
+00:10:48,240 --> 00:10:53,760
+we want to okay so
+
+114
+00:10:51,440 --> 00:10:56,160
+i have to think so first of all we want
+
+115
+00:10:53,760 --> 00:10:59,519
+to make this a link
+
+116
+00:10:56,160 --> 00:11:00,399
+so the first line should be the file
+
+117
+00:10:59,519 --> 00:11:03,360
+path
+
+118
+00:11:00,399 --> 00:11:03,680
+of a html file the second line should be
+
+119
+00:11:03,360 --> 00:11:07,279
+a
+
+120
+00:11:03,680 --> 00:11:10,720
+image file path okay
+
+121
+00:11:07,279 --> 00:11:10,720
+so let's uh
+
+122
+00:11:11,360 --> 00:11:15,519
+okay let's do this quickly because
+
+123
+00:11:13,920 --> 00:11:17,839
+there's a lot to code
+
+124
+00:11:15,519 --> 00:11:19,519
+now questions and comments per se okay
+
+125
+00:11:17,839 --> 00:11:22,880
+you're good now mike
+
+126
+00:11:19,519 --> 00:11:24,640
+microphone working okay good so
+
+127
+00:11:22,880 --> 00:11:27,120
+so let's go back to the code so let's
+
+128
+00:11:24,640 --> 00:11:30,720
+begin code okay so first of all i want
+
+129
+00:11:27,120 --> 00:11:34,399
+let's let's copy the code here
+
+130
+00:11:30,720 --> 00:11:36,240
+the file path so uh assume the cursor is
+
+131
+00:11:34,399 --> 00:11:39,600
+on the first line file path
+
+132
+00:11:36,240 --> 00:11:43,839
+so first of all uh
+
+133
+00:11:39,600 --> 00:11:43,839
+file let's say html
+
+134
+00:11:44,079 --> 00:11:48,160
+path okay image path that's two
+
+135
+00:11:47,360 --> 00:11:51,200
+variables
+
+136
+00:11:48,160 --> 00:11:56,480
+we declare local variables so
+
+137
+00:11:51,200 --> 00:11:59,519
+the let's set html path
+
+138
+00:11:56,480 --> 00:12:04,800
+is going to be
+
+139
+00:11:59,519 --> 00:12:04,800
+thing at point okay thing at point
+
+140
+00:12:07,279 --> 00:12:13,680
+uh i think a point um
+
+141
+00:12:11,200 --> 00:12:14,480
+wait let's see bounce up thing at point
+
+142
+00:12:13,680 --> 00:12:18,079
+bounds of
+
+143
+00:12:14,480 --> 00:12:22,240
+thing at point so
+
+144
+00:12:18,079 --> 00:12:24,240
+that's gonna be oh wait
+
+145
+00:12:22,240 --> 00:12:27,600
+let's think a point again so this is
+
+146
+00:12:24,240 --> 00:12:27,600
+gonna be file name okay
+
+147
+00:12:33,839 --> 00:12:39,519
+so this line this line will return a
+
+148
+00:12:37,839 --> 00:12:41,760
+of two elements that's a beginning
+
+149
+00:12:39,519 --> 00:12:45,360
+position and end position okay
+
+150
+00:12:41,760 --> 00:12:48,560
+so let's say p1 p2 p3
+
+151
+00:12:45,360 --> 00:12:50,880
+p4 those are variables for positions
+
+152
+00:12:48,560 --> 00:12:52,480
+they they store an integer of the
+
+153
+00:12:50,880 --> 00:12:56,959
+cruiser position
+
+154
+00:12:52,480 --> 00:12:59,600
+so so and say let's say
+
+155
+00:12:56,959 --> 00:12:59,600
+boundary
+
+156
+00:13:00,959 --> 00:13:07,839
+let's say bounce one
+
+157
+00:13:04,320 --> 00:13:11,200
+boundary one boundary two okay
+
+158
+00:13:07,839 --> 00:13:13,519
+so set
+
+159
+00:13:11,200 --> 00:13:13,519
+um
+
+160
+00:13:15,839 --> 00:13:22,880
+set boundary one equals to that
+
+161
+00:13:19,200 --> 00:13:25,200
+file name so that will return the
+
+162
+00:13:22,880 --> 00:13:25,839
+beginning position and end position of
+
+163
+00:13:25,200 --> 00:13:28,959
+the
+
+164
+00:13:25,839 --> 00:13:32,079
+file name then
+
+165
+00:13:28,959 --> 00:13:36,480
+set position 1
+
+166
+00:13:32,079 --> 00:13:40,079
+to be the car of boundary one
+
+167
+00:13:36,480 --> 00:13:44,399
+so that's the beginning of the uh
+
+168
+00:13:40,079 --> 00:13:47,440
+the final path position p2 will be
+
+169
+00:13:44,399 --> 00:13:49,680
+uh qatar boundary one okay
+
+170
+00:13:47,440 --> 00:13:51,920
+so that parts gets you the beginning and
+
+171
+00:13:49,680 --> 00:13:55,120
+end positions
+
+172
+00:13:51,920 --> 00:13:56,959
+of the file path html file path we set
+
+173
+00:13:55,120 --> 00:14:00,079
+it to p1 and p2
+
+174
+00:13:56,959 --> 00:14:03,600
+now now now
+
+175
+00:14:00,079 --> 00:14:03,920
+now we have to now the now we can set
+
+176
+00:14:03,600 --> 00:14:08,560
+the
+
+177
+00:14:03,920 --> 00:14:08,560
+html path that will be just uh
+
+178
+00:14:09,360 --> 00:14:13,760
+substring no properties okay substring
+
+179
+00:14:12,800 --> 00:14:17,519
+no properties
+
+180
+00:14:13,760 --> 00:14:20,079
+and gives two positions p1 p2
+
+181
+00:14:17,519 --> 00:14:21,839
+so this part will grab the string
+
+182
+00:14:20,079 --> 00:14:26,399
+between those two positions
+
+183
+00:14:21,839 --> 00:14:26,399
+and set it to html path
+
+184
+00:14:26,880 --> 00:14:32,079
+so that we have done now um
+
+185
+00:14:32,720 --> 00:14:36,160
+now we can delete region
+
+186
+00:14:36,800 --> 00:14:41,519
+delete region position one position two
+
+187
+00:14:39,680 --> 00:14:45,199
+you know delete that file path
+
+188
+00:14:41,519 --> 00:14:48,399
+because now we already set it here
+
+189
+00:14:45,199 --> 00:14:48,720
+now the second thing to do is um the
+
+190
+00:14:48,399 --> 00:14:51,279
+sake
+
+191
+00:14:48,720 --> 00:14:52,480
+okay now we want to deal with the image
+
+192
+00:14:51,279 --> 00:14:54,720
+path
+
+193
+00:14:52,480 --> 00:14:54,720
+so
+
+194
+00:14:55,600 --> 00:15:00,959
+so we we got the first path uh first
+
+195
+00:14:58,720 --> 00:15:02,160
+the file path then we move cursor to the
+
+196
+00:15:00,959 --> 00:15:05,760
+right one character
+
+197
+00:15:02,160 --> 00:15:09,360
+so uh forward char forward chart one
+
+198
+00:15:05,760 --> 00:15:09,360
+basically move to the next line
+
+199
+00:15:10,639 --> 00:15:17,760
+uh let's say forward word okay forward
+
+200
+00:15:14,079 --> 00:15:20,320
+word one okay
+
+201
+00:15:17,760 --> 00:15:22,720
+then we do the same thing we basically
+
+202
+00:15:20,320 --> 00:15:26,000
+do the same thing for the image
+
+203
+00:15:22,720 --> 00:15:29,120
+file path so boundary
+
+204
+00:15:26,000 --> 00:15:29,920
+two bounds of thing at point file name
+
+205
+00:15:29,120 --> 00:15:33,680
+that's right
+
+206
+00:15:29,920 --> 00:15:37,120
+then position three uh
+
+207
+00:15:33,680 --> 00:15:39,279
+boundary two then position four
+
+208
+00:15:37,120 --> 00:15:40,720
+set it to boundary two cutter boundary
+
+209
+00:15:39,279 --> 00:15:44,320
+two then
+
+210
+00:15:40,720 --> 00:15:47,839
+the here will be the image
+
+211
+00:15:44,320 --> 00:15:52,079
+path okay then here will be
+
+212
+00:15:47,839 --> 00:15:55,120
+p3 p4 okay then delete the region
+
+213
+00:15:52,079 --> 00:15:58,560
+p3 p4 delete that image file path
+
+214
+00:15:55,120 --> 00:16:00,880
+okay so far so good shrink
+
+215
+00:15:58,560 --> 00:16:01,759
+predefined the code we don't need this
+
+216
+00:16:00,880 --> 00:16:05,199
+part
+
+217
+00:16:01,759 --> 00:16:07,120
+evaluate the code so we have icon
+
+218
+00:16:05,199 --> 00:16:10,000
+linkify we have that
+
+219
+00:16:07,120 --> 00:16:11,199
+you know let's run it so copy that paste
+
+220
+00:16:10,000 --> 00:16:14,240
+it here
+
+221
+00:16:11,199 --> 00:16:17,600
+uh then we put the cursor on the
+
+222
+00:16:14,240 --> 00:16:20,000
+first line so we we put the cursor
+
+223
+00:16:17,600 --> 00:16:21,040
+uh wait so we put cursor on the first
+
+224
+00:16:20,000 --> 00:16:24,880
+line here
+
+225
+00:16:21,040 --> 00:16:28,160
+anywhere in the line so call the command
+
+226
+00:16:24,880 --> 00:16:31,680
+icon icon linkify okay
+
+227
+00:16:28,160 --> 00:16:35,199
+call it it just deletes them
+
+228
+00:16:31,680 --> 00:16:35,759
+that is expected undo okay so so far so
+
+229
+00:16:35,199 --> 00:16:38,480
+good
+
+230
+00:16:35,759 --> 00:16:40,399
+we you know this is interactive coding
+
+231
+00:16:38,480 --> 00:16:41,279
+we have checked so far our code is
+
+232
+00:16:40,399 --> 00:16:44,720
+correct
+
+233
+00:16:41,279 --> 00:16:47,279
+so we don't have to you know so later on
+
+234
+00:16:44,720 --> 00:16:48,880
+when we have uh do more complex things
+
+235
+00:16:47,279 --> 00:16:52,880
+we know at least
+
+236
+00:16:48,880 --> 00:16:52,880
+so far this part is good
+
+237
+00:16:54,639 --> 00:16:58,320
+so far so good anyone uh everything is
+
+238
+00:16:57,759 --> 00:17:00,680
+good
+
+239
+00:16:58,320 --> 00:17:02,240
+let's let's double check my voice
+
+240
+00:17:00,680 --> 00:17:05,839
+[Laughter]
+
+241
+00:17:02,240 --> 00:17:06,480
+the idiocy of me my voice check my video
+
+242
+00:17:05,839 --> 00:17:10,240
+check
+
+243
+00:17:06,480 --> 00:17:12,480
+okay so
+
+244
+00:17:10,240 --> 00:17:14,559
+so we got the image path we got the file
+
+245
+00:17:12,480 --> 00:17:19,439
+path what do you want to do you want to
+
+246
+00:17:14,559 --> 00:17:22,720
+uh you want to linkify them
+
+247
+00:17:19,439 --> 00:17:26,000
+so we want to make the first line into a
+
+248
+00:17:22,720 --> 00:17:28,160
+link okay so
+
+249
+00:17:26,000 --> 00:17:29,520
+so basically we want to recreate this
+
+250
+00:17:28,160 --> 00:17:32,559
+part okay
+
+251
+00:17:29,520 --> 00:17:35,760
+we want to recreate this
+
+252
+00:17:32,559 --> 00:17:38,720
+part okay so back to the code
+
+253
+00:17:35,760 --> 00:17:39,760
+split the buffer open a new buffer paste
+
+254
+00:17:38,720 --> 00:17:42,799
+it here
+
+255
+00:17:39,760 --> 00:17:45,520
+so we have kind of a reference now
+
+256
+00:17:42,799 --> 00:17:46,720
+this this file path is too long so let's
+
+257
+00:17:45,520 --> 00:17:50,640
+shrink it
+
+258
+00:17:46,720 --> 00:17:56,559
+because just for sample code
+
+259
+00:17:50,640 --> 00:17:56,559
+we don't need all these complex looking
+
+260
+00:17:56,780 --> 00:18:01,840
+[Music]
+
+261
+00:17:58,840 --> 00:18:06,559
+things
+
+262
+00:18:01,840 --> 00:18:09,280
+okay so now it's much more clear uh
+
+263
+00:18:06,559 --> 00:18:11,280
+you see the structure is much more clear
+
+264
+00:18:09,280 --> 00:18:14,880
+this is what we want to insert
+
+265
+00:18:11,280 --> 00:18:16,880
+into the buffer okay so now we just
+
+266
+00:18:14,880 --> 00:18:18,240
+now it's pretty easy so we just insert
+
+267
+00:18:16,880 --> 00:18:21,760
+it okay so
+
+268
+00:18:18,240 --> 00:18:22,799
+insert why don't we copy the whole thing
+
+269
+00:18:21,760 --> 00:18:25,919
+here
+
+270
+00:18:22,799 --> 00:18:30,400
+so uh we just uh we
+
+271
+00:18:25,919 --> 00:18:32,170
+insert first of all insert the dive
+
+272
+00:18:30,400 --> 00:18:39,200
+then insert
+
+273
+00:18:32,170 --> 00:18:43,280
+[Music]
+
+274
+00:18:39,200 --> 00:18:46,640
+okay so
+
+275
+00:18:43,280 --> 00:18:50,000
+so to code this properly uh
+
+276
+00:18:46,640 --> 00:18:52,320
+actually is a bit more complex but
+
+277
+00:18:50,000 --> 00:18:54,000
+let's do the same simplified version
+
+278
+00:18:52,320 --> 00:18:56,000
+first okay so let's just do the
+
+279
+00:18:54,000 --> 00:18:59,600
+simplified version then we'll
+
+280
+00:18:56,000 --> 00:19:04,240
+improve it so so insert
+
+281
+00:18:59,600 --> 00:19:04,240
+then we now insert the uh
+
+282
+00:19:04,320 --> 00:19:11,840
+h r e f um
+
+283
+00:19:07,679 --> 00:19:11,840
+oops and
+
+284
+00:19:12,480 --> 00:19:19,679
+so so far so good so then the file path
+
+285
+00:19:15,600 --> 00:19:22,840
+then insert html
+
+286
+00:19:19,679 --> 00:19:25,840
+html path then
+
+287
+00:19:22,840 --> 00:19:25,840
+insert
+
+288
+00:19:27,280 --> 00:19:34,080
+the closing tag then is
+
+289
+00:19:30,640 --> 00:19:35,919
+okay so there's quite a lot to do
+
+290
+00:19:34,080 --> 00:19:37,200
+you see we are first of all we are
+
+291
+00:19:35,919 --> 00:19:39,280
+trying to insert
+
+292
+00:19:37,200 --> 00:19:41,120
+the link let me show you okay first of
+
+293
+00:19:39,280 --> 00:19:44,000
+all we are trying to
+
+294
+00:19:41,120 --> 00:19:45,760
+insert a link like that it looks simple
+
+295
+00:19:44,000 --> 00:19:46,480
+but actually there's quite a lot because
+
+296
+00:19:45,760 --> 00:19:49,919
+for example
+
+297
+00:19:46,480 --> 00:19:53,039
+where do you get that that
+
+298
+00:19:49,919 --> 00:19:54,799
+you know that that text description
+
+299
+00:19:53,039 --> 00:19:57,919
+where do you get that
+
+300
+00:19:54,799 --> 00:20:00,400
+well the way i get it is that this text
+
+301
+00:19:57,919 --> 00:20:01,520
+description actually came from the title
+
+302
+00:20:00,400 --> 00:20:04,080
+tag of
+
+303
+00:20:01,520 --> 00:20:05,200
+of the linked file so what you actually
+
+304
+00:20:04,080 --> 00:20:08,799
+have to do is you
+
+305
+00:20:05,200 --> 00:20:12,080
+open the file find the title tag
+
+306
+00:20:08,799 --> 00:20:14,480
+grab the title text you know then then
+
+307
+00:20:12,080 --> 00:20:16,559
+put that here so it's a bit complex
+
+308
+00:20:14,480 --> 00:20:18,840
+but for now let's just say dummy okay
+
+309
+00:20:16,559 --> 00:20:22,080
+let's say
+
+310
+00:20:18,840 --> 00:20:22,799
+title text actually let's just say the
+
+311
+00:20:22,080 --> 00:20:26,480
+file path
+
+312
+00:20:22,799 --> 00:20:29,840
+okay so so insert the file path as a
+
+313
+00:20:26,480 --> 00:20:33,760
+as the text description for the link
+
+314
+00:20:29,840 --> 00:20:37,520
+okay then then we insert
+
+315
+00:20:33,760 --> 00:20:42,400
+we insert the closing tag of course
+
+316
+00:20:37,520 --> 00:20:47,280
+now and and and and now we insert the
+
+317
+00:20:42,400 --> 00:20:49,440
+end dive tag now in between
+
+318
+00:20:47,280 --> 00:20:50,720
+in between here you need to insert the
+
+319
+00:20:49,440 --> 00:20:54,159
+image file path
+
+320
+00:20:50,720 --> 00:21:03,840
+so okay let's do that again okay
+
+321
+00:20:54,159 --> 00:21:03,840
+so insert
+
+322
+00:21:04,720 --> 00:21:10,159
+okay so insert that and also insert
+
+323
+00:21:12,000 --> 00:21:16,159
+you don't need to worry about that we
+
+324
+00:21:13,840 --> 00:21:16,559
+don't need to worry about that we do
+
+325
+00:21:16,159 --> 00:21:18,880
+that
+
+326
+00:21:16,559 --> 00:21:20,640
+with you see another issue is how do you
+
+327
+00:21:18,880 --> 00:21:23,360
+get the width and height
+
+328
+00:21:20,640 --> 00:21:24,799
+now that's also a bit involved but let's
+
+329
+00:21:23,360 --> 00:21:28,880
+do the simplified version
+
+330
+00:21:24,799 --> 00:21:34,080
+first okay uh let's insert
+
+331
+00:21:28,880 --> 00:21:34,080
+here the that
+
+332
+00:21:34,880 --> 00:21:38,080
+and actually
+
+333
+00:21:38,480 --> 00:21:42,559
+that okay
+
+334
+00:21:42,840 --> 00:21:51,760
+then one thing at a time okay so
+
+335
+00:21:48,480 --> 00:21:52,960
+then in between so here this part is the
+
+336
+00:21:51,760 --> 00:21:56,240
+image
+
+337
+00:21:52,960 --> 00:22:00,080
+link in between you need the image
+
+338
+00:21:56,240 --> 00:22:03,280
+file path so insert
+
+339
+00:22:00,080 --> 00:22:05,919
+uh image path
+
+340
+00:22:03,280 --> 00:22:06,960
+okay so that's essentially what uh the
+
+341
+00:22:05,919 --> 00:22:10,240
+code looks like
+
+342
+00:22:06,960 --> 00:22:10,240
+let's pretty fire it
+
+343
+00:22:10,840 --> 00:22:17,280
+um
+
+344
+00:22:13,840 --> 00:22:20,480
+okay and remember these image images
+
+345
+00:22:17,280 --> 00:22:25,039
+needs to be in between
+
+346
+00:22:20,480 --> 00:22:26,710
+let's cut it it needs to be in between
+
+347
+00:22:25,039 --> 00:22:29,039
+these um
+
+348
+00:22:26,710 --> 00:22:31,600
+[Music]
+
+349
+00:22:29,039 --> 00:22:32,799
+you know it needs to be inside the file
+
+350
+00:22:31,600 --> 00:22:34,640
+link
+
+351
+00:22:32,799 --> 00:22:36,880
+so actually somewhere here
+
+352
+00:22:34,640 --> 00:22:41,200
+[Music]
+
+353
+00:22:36,880 --> 00:22:44,400
+so you need to add a bracket
+
+354
+00:22:41,200 --> 00:22:46,720
+i mean not bracket add a new line
+
+355
+00:22:44,400 --> 00:22:46,720
+there
+
+356
+00:22:49,200 --> 00:22:57,120
+eval buffer okay let's try our code
+
+357
+00:22:52,400 --> 00:23:00,159
+let's uh let's do as we go
+
+358
+00:22:57,120 --> 00:23:02,400
+okay so back to the html page so put up
+
+359
+00:23:00,159 --> 00:23:04,159
+so these are the two lines file path and
+
+360
+00:23:02,400 --> 00:23:04,799
+image pass put the cursor on the first
+
+361
+00:23:04,159 --> 00:23:08,240
+line
+
+362
+00:23:04,799 --> 00:23:12,159
+call the command i icon linkify
+
+363
+00:23:08,240 --> 00:23:13,679
+do it fantastic it seems to work but
+
+364
+00:23:12,159 --> 00:23:15,600
+however
+
+365
+00:23:13,679 --> 00:23:16,960
+uh we are missing something we are
+
+366
+00:23:15,600 --> 00:23:20,000
+missing a quote here
+
+367
+00:23:16,960 --> 00:23:25,120
+because the color is not right so
+
+368
+00:23:20,000 --> 00:23:28,240
+undo back to our code we missing a
+
+369
+00:23:25,120 --> 00:23:28,240
+double quote here
+
+370
+00:23:29,120 --> 00:23:36,720
+indeed so backslash
+
+371
+00:23:32,400 --> 00:23:40,480
+quote that's right eval buffer
+
+372
+00:23:36,720 --> 00:23:45,120
+back to html call it again do it
+
+373
+00:23:40,480 --> 00:23:45,120
+fantastic you see fantastic
+
+374
+00:23:45,440 --> 00:23:52,720
+okay uh let's do it show in browser
+
+375
+00:23:49,679 --> 00:23:53,120
+you see here is our code okay let me let
+
+376
+00:23:52,720 --> 00:23:56,000
+me
+
+377
+00:23:53,120 --> 00:23:56,640
+let me redo this again so we let's re
+
+378
+00:23:56,000 --> 00:24:00,400
+remove
+
+379
+00:23:56,640 --> 00:24:04,480
+all the existing ones
+
+380
+00:24:00,400 --> 00:24:06,480
+okay show in browser
+
+381
+00:24:04,480 --> 00:24:09,520
+okay that's how it looks like now you
+
+382
+00:24:06,480 --> 00:24:13,200
+see the two lines are here
+
+383
+00:24:09,520 --> 00:24:16,480
+now we are going to call our command
+
+384
+00:24:13,200 --> 00:24:20,799
+icon link if i do it back to browser
+
+385
+00:24:16,480 --> 00:24:24,159
+refresh fantastic now it's
+
+386
+00:24:20,799 --> 00:24:27,440
+it's working now so there are
+
+387
+00:24:24,159 --> 00:24:29,120
+uh quite a few things to fix for example
+
+388
+00:24:27,440 --> 00:24:32,480
+the link text
+
+389
+00:24:29,120 --> 00:24:35,279
+that's too long we want we really just
+
+390
+00:24:32,480 --> 00:24:36,960
+want need the you know we need um we
+
+391
+00:24:35,279 --> 00:24:38,559
+need to open the file we need the title
+
+392
+00:24:36,960 --> 00:24:40,720
+we need the shorts
+
+393
+00:24:38,559 --> 00:24:43,039
+uh you know we don't want the full path
+
+394
+00:24:40,720 --> 00:24:43,039
+there
+
+395
+00:24:44,840 --> 00:24:49,440
+um so far so good
+
+396
+00:24:53,919 --> 00:24:56,159
+so
+
+397
+00:24:57,039 --> 00:25:01,919
+okay so i i we we need to do this
+
+398
+00:24:59,840 --> 00:25:06,159
+actually so there's another task
+
+399
+00:25:01,919 --> 00:25:09,279
+that will be more interesting um
+
+400
+00:25:06,159 --> 00:25:11,520
+okay so let me finish this so what do i
+
+401
+00:25:09,279 --> 00:25:12,480
+what do we want to do now first of all
+
+402
+00:25:11,520 --> 00:25:15,840
+this uh
+
+403
+00:25:12,480 --> 00:25:16,559
+break i want a line return there so
+
+404
+00:25:15,840 --> 00:25:20,799
+let's add a
+
+405
+00:25:16,559 --> 00:25:24,240
+line return okay line return eval buffer
+
+406
+00:25:20,799 --> 00:25:26,799
+okay and now the link text
+
+407
+00:25:24,240 --> 00:25:28,880
+this link text we need to fix we need
+
+408
+00:25:26,799 --> 00:25:32,159
+the title of the page
+
+409
+00:25:28,880 --> 00:25:34,159
+so let's go back to the code
+
+410
+00:25:32,159 --> 00:25:36,240
+how do you get the title of the page so
+
+411
+00:25:34,159 --> 00:25:36,720
+we need to get the grab the title of the
+
+412
+00:25:36,240 --> 00:25:42,400
+page
+
+413
+00:25:36,720 --> 00:25:45,520
+so let's say link text
+
+414
+00:25:42,400 --> 00:25:48,159
+declare a new variable link text okay
+
+415
+00:25:45,520 --> 00:25:50,480
+and we are going to set the link text
+
+416
+00:25:48,159 --> 00:25:50,480
+here
+
+417
+00:25:50,960 --> 00:25:57,919
+set link text okay
+
+418
+00:25:54,799 --> 00:25:59,679
+uh so what how do we do what what's what
+
+419
+00:25:57,919 --> 00:26:03,120
+should be the value of link text
+
+420
+00:25:59,679 --> 00:26:11,840
+so first of all we find file
+
+421
+00:26:03,120 --> 00:26:11,840
+find file will open the file actually um
+
+422
+00:26:13,440 --> 00:26:18,799
+firefighter will do it okay let's just
+
+423
+00:26:15,760 --> 00:26:22,840
+press on let's do this
+
+424
+00:26:18,799 --> 00:26:25,840
+so find file html
+
+425
+00:26:22,840 --> 00:26:29,679
+path html path
+
+426
+00:26:25,840 --> 00:26:33,520
+so that will open the file then
+
+427
+00:26:29,679 --> 00:26:38,159
+go to buffer minimum go to char
+
+428
+00:26:33,520 --> 00:26:39,919
+buffer point minimum
+
+429
+00:26:38,159 --> 00:26:41,520
+so that will go to the beginning of the
+
+430
+00:26:39,919 --> 00:26:44,480
+buffer then
+
+431
+00:26:41,520 --> 00:26:45,840
+search for word okay search for what
+
+432
+00:26:44,480 --> 00:26:49,600
+what do you want to search you
+
+433
+00:26:45,840 --> 00:26:53,279
+you want to search the title tag okay
+
+434
+00:26:49,600 --> 00:26:55,679
+uh okay bound no bound
+
+435
+00:26:53,279 --> 00:26:56,720
+no arrow uh let's remove that we don't
+
+436
+00:26:55,679 --> 00:26:59,120
+need search for
+
+437
+00:26:56,720 --> 00:26:59,120
+title
+
+438
+00:27:00,640 --> 00:27:05,520
+okay then then we need to set position
+
+439
+00:27:04,640 --> 00:27:08,159
+we want
+
+440
+00:27:05,520 --> 00:27:08,960
+we want that position to be marked so
+
+441
+00:27:08,159 --> 00:27:13,600
+let's add
+
+442
+00:27:08,960 --> 00:27:17,520
+more variables title plus one
+
+443
+00:27:13,600 --> 00:27:22,080
+title plus two okay
+
+444
+00:27:17,520 --> 00:27:25,200
+so here set title position 1
+
+445
+00:27:22,080 --> 00:27:26,320
+to be point the current location of the
+
+446
+00:27:25,200 --> 00:27:31,840
+cursor
+
+447
+00:27:26,320 --> 00:27:31,840
+okay then we need to search forward
+
+448
+00:27:32,320 --> 00:27:39,760
+this time we need the end brackets
+
+449
+00:27:36,799 --> 00:27:40,159
+you know we go to the end of the title
+
+450
+00:27:39,760 --> 00:27:43,600
+uh
+
+451
+00:27:40,159 --> 00:27:46,840
+tag okay and ignore
+
+452
+00:27:43,600 --> 00:27:48,799
+all the arguments then we search
+
+453
+00:27:46,840 --> 00:27:51,840
+backwards to
+
+454
+00:27:48,799 --> 00:27:55,360
+the less than
+
+455
+00:27:51,840 --> 00:27:57,840
+sign why because we want it
+
+456
+00:27:55,360 --> 00:27:59,679
+in between the title tags we want the
+
+457
+00:27:57,840 --> 00:28:02,080
+position to be in between the
+
+458
+00:27:59,679 --> 00:28:03,600
+title tags so we can grab them grab the
+
+459
+00:28:02,080 --> 00:28:07,039
+text in between
+
+460
+00:28:03,600 --> 00:28:10,159
+so said so okay so set
+
+461
+00:28:07,039 --> 00:28:11,440
+title position two okay now we are ready
+
+462
+00:28:10,159 --> 00:28:16,159
+to grab the text
+
+463
+00:28:11,440 --> 00:28:19,360
+what you do is you set set cue
+
+464
+00:28:16,159 --> 00:28:23,679
+link text
+
+465
+00:28:19,360 --> 00:28:26,799
+to be both a substring no properties
+
+466
+00:28:23,679 --> 00:28:30,240
+and given two positions so the position
+
+467
+00:28:26,799 --> 00:28:34,159
+positions will be title position
+
+468
+00:28:30,240 --> 00:28:37,440
+one and the two
+
+469
+00:28:34,159 --> 00:28:41,039
+okay prettify the code
+
+470
+00:28:37,440 --> 00:28:44,799
+uh and actually um
+
+471
+00:28:41,039 --> 00:28:47,039
+actually wait so we need a
+
+472
+00:28:44,799 --> 00:28:48,320
+you see we we are already trying to set
+
+473
+00:28:47,039 --> 00:28:50,640
+it so
+
+474
+00:28:48,320 --> 00:28:52,240
+so the rest of code here should be
+
+475
+00:28:50,640 --> 00:28:55,279
+return a value
+
+476
+00:28:52,240 --> 00:28:56,480
+so we actually we don't want we don't
+
+477
+00:28:55,279 --> 00:29:00,080
+want that part
+
+478
+00:28:56,480 --> 00:29:01,200
+we want this we want buffer substring no
+
+479
+00:29:00,080 --> 00:29:05,360
+properties
+
+480
+00:29:01,200 --> 00:29:08,880
+and this whole this whole block of code
+
+481
+00:29:05,360 --> 00:29:12,080
+needs to be inside
+
+482
+00:29:08,880 --> 00:29:16,240
+a program uh
+
+483
+00:29:12,080 --> 00:29:20,240
+grouping like that okay so
+
+484
+00:29:16,240 --> 00:29:27,840
+so set set link text
+
+485
+00:29:20,240 --> 00:29:27,840
+to whatever this code returns
+
+486
+00:29:28,000 --> 00:29:32,559
+okay buffer substrings no properties um
+
+487
+00:29:34,720 --> 00:29:40,320
+then you gonna close file okay cure
+
+488
+00:29:38,840 --> 00:29:42,559
+buffer
+
+489
+00:29:40,320 --> 00:29:42,559
+uh
+
+490
+00:29:44,480 --> 00:29:52,080
+okay like that you see because we
+
+491
+00:29:48,960 --> 00:29:53,600
+we open file here with that find file
+
+492
+00:29:52,080 --> 00:29:55,279
+then we did something something
+
+493
+00:29:53,600 --> 00:29:57,120
+something then we are done with that
+
+494
+00:29:55,279 --> 00:30:00,960
+file we just close it
+
+495
+00:29:57,120 --> 00:30:04,880
+and now now for the
+
+496
+00:30:00,960 --> 00:30:04,880
+link text
+
+497
+00:30:05,360 --> 00:30:09,840
+we will just say
+
+498
+00:30:12,320 --> 00:30:18,640
+title text uh
+
+499
+00:30:15,360 --> 00:30:23,840
+wait we will just say link text
+
+500
+00:30:18,640 --> 00:30:23,840
+right okay eval buffer
+
+501
+00:30:25,440 --> 00:30:32,480
+go back to our html
+
+502
+00:30:28,880 --> 00:30:35,840
+and undo so let's start a fetch
+
+503
+00:30:32,480 --> 00:30:37,200
+okay so these are two lines of file path
+
+504
+00:30:35,840 --> 00:30:39,520
+showing browser
+
+505
+00:30:37,200 --> 00:30:41,120
+so they don't look you know they don't
+
+506
+00:30:39,520 --> 00:30:44,080
+look nothing special
+
+507
+00:30:41,120 --> 00:30:45,120
+back to emacs put the cursor on the
+
+508
+00:30:44,080 --> 00:30:49,120
+first line
+
+509
+00:30:45,120 --> 00:30:52,720
+call our command go do it arrow
+
+510
+00:30:49,120 --> 00:30:55,840
+wrong number of arguments set q1 okay
+
+511
+00:30:52,720 --> 00:30:59,039
+uh real number argument set q1 okay so
+
+512
+00:30:55,840 --> 00:31:02,960
+let's look at the problem
+
+513
+00:30:59,039 --> 00:31:06,480
+uh back to uh so somewhere here we have
+
+514
+00:31:02,960 --> 00:31:06,480
+real number of arguments
+
+515
+00:31:08,880 --> 00:31:16,399
+uh what is the
+
+516
+00:31:11,919 --> 00:31:16,399
+wrong number of arguments sec q1
+
+517
+00:31:16,640 --> 00:31:24,640
+so somewhere set queue is incorrect here
+
+518
+00:31:21,519 --> 00:31:27,760
+you see secure set queue
+
+519
+00:31:24,640 --> 00:31:30,880
+title position two you need a
+
+520
+00:31:27,760 --> 00:31:34,080
+value you know that so that's a problem
+
+521
+00:31:30,880 --> 00:31:37,519
+eval buffer back to our code
+
+522
+00:31:34,080 --> 00:31:40,880
+uh so showing browser
+
+523
+00:31:37,519 --> 00:31:43,519
+nothing special back to emacs put the
+
+524
+00:31:40,880 --> 00:31:44,159
+cursor on the first file path code
+
+525
+00:31:43,519 --> 00:31:48,159
+command
+
+526
+00:31:44,159 --> 00:31:50,480
+do it fantastic showing browser
+
+527
+00:31:48,159 --> 00:31:52,399
+fantastic now you can see we got the
+
+528
+00:31:50,480 --> 00:31:54,399
+title there
+
+529
+00:31:52,399 --> 00:31:55,600
+okay but that's not all there are a few
+
+530
+00:31:54,399 --> 00:31:59,200
+more things to fix
+
+531
+00:31:55,600 --> 00:32:01,679
+because you see um let me show you
+
+532
+00:31:59,200 --> 00:32:02,960
+uh there are uh a couple of things we
+
+533
+00:32:01,679 --> 00:32:05,600
+need to fix
+
+534
+00:32:02,960 --> 00:32:07,840
+you see the file path here that's a full
+
+535
+00:32:05,600 --> 00:32:07,840
+path
+
+536
+00:32:08,159 --> 00:32:12,159
+uh that's that's a full path that's no
+
+537
+00:32:10,559 --> 00:32:14,799
+good because once you upload your
+
+538
+00:32:12,159 --> 00:32:15,919
+website to the you know to the web
+
+539
+00:32:14,799 --> 00:32:17,679
+server
+
+540
+00:32:15,919 --> 00:32:20,080
+you know the you don't have the full
+
+541
+00:32:17,679 --> 00:32:22,640
+path you know all you have is the root
+
+542
+00:32:20,080 --> 00:32:25,440
+of your directory you cannot access
+
+543
+00:32:22,640 --> 00:32:27,200
+you know outside of the root directory
+
+544
+00:32:25,440 --> 00:32:30,480
+so you want a
+
+545
+00:32:27,200 --> 00:32:33,519
+relative path instead
+
+546
+00:32:30,480 --> 00:32:34,399
+okay so actually we uh we end up doing a
+
+547
+00:32:33,519 --> 00:32:37,440
+lot of things
+
+548
+00:32:34,399 --> 00:32:41,360
+so let's declare more variables
+
+549
+00:32:37,440 --> 00:32:45,600
+relative html path okay
+
+550
+00:32:41,360 --> 00:32:49,840
+uh let's let's kind of prettify
+
+551
+00:32:45,600 --> 00:32:50,320
+all these so we need a relative html
+
+552
+00:32:49,840 --> 00:32:54,720
+path
+
+553
+00:32:50,320 --> 00:32:54,720
+and we need a relative
+
+554
+00:32:55,039 --> 00:33:00,320
+image path okay now by the way if you
+
+555
+00:32:58,159 --> 00:33:01,440
+are wondering why do i declare so many
+
+556
+00:33:00,320 --> 00:33:03,840
+variables
+
+557
+00:33:01,440 --> 00:33:05,440
+because i don't want to reuse them
+
+558
+00:33:03,840 --> 00:33:06,880
+because that's part of functional
+
+559
+00:33:05,440 --> 00:33:08,559
+programming
+
+560
+00:33:06,880 --> 00:33:10,080
+uh you know if you do functional
+
+561
+00:33:08,559 --> 00:33:13,120
+programming there are certain
+
+562
+00:33:10,080 --> 00:33:16,240
+advantages and one of the things you
+
+563
+00:33:13,120 --> 00:33:17,200
+want to avoid is to have a mutable
+
+564
+00:33:16,240 --> 00:33:19,919
+variable
+
+565
+00:33:17,200 --> 00:33:22,240
+so so to do functional programming one
+
+566
+00:33:19,919 --> 00:33:25,440
+of the things you do is that you
+
+567
+00:33:22,240 --> 00:33:27,760
+never change the value of a variable
+
+568
+00:33:25,440 --> 00:33:28,960
+you know once you have a variable it has
+
+569
+00:33:27,760 --> 00:33:31,440
+a value
+
+570
+00:33:28,960 --> 00:33:32,320
+it just always that value so when you
+
+571
+00:33:31,440 --> 00:33:34,159
+need a new
+
+572
+00:33:32,320 --> 00:33:36,320
+you know you just use new variables
+
+573
+00:33:34,159 --> 00:33:40,159
+instead of changing
+
+574
+00:33:36,320 --> 00:33:43,039
+values of the same variable okay so we
+
+575
+00:33:40,159 --> 00:33:44,399
+we need a relative html path and
+
+576
+00:33:43,039 --> 00:33:47,440
+relative image path
+
+577
+00:33:44,399 --> 00:33:47,840
+okay so how do we get that let's copy
+
+578
+00:33:47,440 --> 00:33:52,000
+that
+
+579
+00:33:47,840 --> 00:33:55,360
+let's set them okay so
+
+580
+00:33:52,000 --> 00:33:58,640
+first of all let's do relative html path
+
+581
+00:33:55,360 --> 00:34:00,799
+set relative html path there will be so
+
+582
+00:33:58,640 --> 00:34:04,159
+there's a function in emaclis
+
+583
+00:34:00,799 --> 00:34:07,519
+that takes a full path and returns a
+
+584
+00:34:04,159 --> 00:34:09,919
+relative path
+
+585
+00:34:07,519 --> 00:34:11,119
+okay so what is that function i don't
+
+586
+00:34:09,919 --> 00:34:13,919
+remember so
+
+587
+00:34:11,119 --> 00:34:14,800
+uh the easiest way is just to look at my
+
+588
+00:34:13,919 --> 00:34:19,119
+tutorial
+
+589
+00:34:14,800 --> 00:34:22,639
+so you search for xr emax tutorial
+
+590
+00:34:19,119 --> 00:34:26,240
+so you go to a practical emacs lisp
+
+591
+00:34:22,639 --> 00:34:30,639
+then you go to uh there's a section file
+
+592
+00:34:26,240 --> 00:34:33,919
+file and directory functions so
+
+593
+00:34:30,639 --> 00:34:37,119
+make directory make directory directory
+
+594
+00:34:33,919 --> 00:34:39,599
+files delete directory copy directory
+
+595
+00:34:37,119 --> 00:34:41,359
+file name sends extension file name
+
+596
+00:34:39,599 --> 00:34:43,679
+extension
+
+597
+00:34:41,359 --> 00:34:45,440
+file relative name there it is that's a
+
+598
+00:34:43,679 --> 00:34:49,839
+function you want
+
+599
+00:34:45,440 --> 00:34:49,839
+back to emacs back to our code
+
+600
+00:34:50,480 --> 00:34:56,800
+so file relative name there it is
+
+601
+00:34:53,760 --> 00:34:58,880
+that's our function so here you give the
+
+602
+00:34:56,800 --> 00:35:02,320
+full path
+
+603
+00:34:58,880 --> 00:35:04,560
+okay that's how you do it but actually
+
+604
+00:35:02,320 --> 00:35:05,520
+the file relative path takes two
+
+605
+00:35:04,560 --> 00:35:09,040
+arguments
+
+606
+00:35:05,520 --> 00:35:11,760
+one full path and one directory
+
+607
+00:35:09,040 --> 00:35:15,359
+so the relative path will be generated
+
+608
+00:35:11,760 --> 00:35:15,359
+with respect to the directory
+
+609
+00:35:15,599 --> 00:35:18,880
+for example we call describe function
+
+610
+00:35:18,400 --> 00:35:22,240
+and
+
+611
+00:35:18,880 --> 00:35:22,240
+magnify you can see
+
+612
+00:35:23,680 --> 00:35:27,680
+uh you know it says so it says so the
+
+613
+00:35:26,000 --> 00:35:29,359
+the okay so the second argument
+
+614
+00:35:27,680 --> 00:35:31,920
+directory is optional
+
+615
+00:35:29,359 --> 00:35:34,400
+so if you don't give the second second
+
+616
+00:35:31,920 --> 00:35:36,800
+argument it will be just relative to the
+
+617
+00:35:34,400 --> 00:35:36,800
+current
+
+618
+00:35:37,119 --> 00:35:41,920
+uh current directory i think yeah which
+
+619
+00:35:40,000 --> 00:35:45,680
+is the current file
+
+620
+00:35:41,920 --> 00:35:46,160
+so so in this case the current directory
+
+621
+00:35:45,680 --> 00:35:48,960
+so the
+
+622
+00:35:46,160 --> 00:35:51,359
+you know that will be let me show you
+
+623
+00:35:48,960 --> 00:35:53,680
+okay so we are backing our
+
+624
+00:35:51,359 --> 00:35:53,680
+um
+
+625
+00:35:55,520 --> 00:35:59,839
+uh wait where are we
+
+626
+00:36:00,320 --> 00:36:05,599
+okay so undo so show in browser so
+
+627
+00:36:03,359 --> 00:36:06,560
+you know this is you know the the talk
+
+628
+00:36:05,599 --> 00:36:09,920
+show page
+
+629
+00:36:06,560 --> 00:36:11,040
+so you see that's that's the two file
+
+630
+00:36:09,920 --> 00:36:14,400
+path
+
+631
+00:36:11,040 --> 00:36:17,040
+so when you call this command
+
+632
+00:36:14,400 --> 00:36:17,680
+the the current directory the value of
+
+633
+00:36:17,040 --> 00:36:20,960
+the current
+
+634
+00:36:17,680 --> 00:36:23,839
+directory is going to be uh this file
+
+635
+00:36:20,960 --> 00:36:24,160
+that is whatever directory this file is
+
+636
+00:36:23,839 --> 00:36:27,520
+in
+
+637
+00:36:24,160 --> 00:36:28,720
+when user calls the command so that
+
+638
+00:36:27,520 --> 00:36:31,920
+means you know
+
+639
+00:36:28,720 --> 00:36:34,880
+in our email this code here the
+
+640
+00:36:31,920 --> 00:36:36,640
+you know the directory path is already
+
+641
+00:36:34,880 --> 00:36:38,480
+correct we don't need to give it because
+
+642
+00:36:36,640 --> 00:36:39,440
+it you know it's related to that web
+
+643
+00:36:38,480 --> 00:36:42,480
+page
+
+644
+00:36:39,440 --> 00:36:44,640
+okay so here is the setting of the file
+
+645
+00:36:42,480 --> 00:36:46,240
+relative path and we need to do the same
+
+646
+00:36:44,640 --> 00:36:54,079
+thing for
+
+647
+00:36:46,240 --> 00:36:58,079
+image path okay
+
+648
+00:36:54,079 --> 00:36:58,079
+do exactly the same thing
+
+649
+00:37:01,599 --> 00:37:07,359
+okay now purify the code so so so that's
+
+650
+00:37:05,040 --> 00:37:09,839
+the relative path
+
+651
+00:37:07,359 --> 00:37:09,839
+so now
+
+652
+00:37:11,119 --> 00:37:14,880
+is instead of inserting the full path we
+
+653
+00:37:14,240 --> 00:37:17,359
+want to
+
+654
+00:37:14,880 --> 00:37:19,040
+insert the relative path that's right
+
+655
+00:37:17,359 --> 00:37:21,920
+and same thing for the image
+
+656
+00:37:19,040 --> 00:37:22,400
+part so instead of inserting the image
+
+657
+00:37:21,920 --> 00:37:25,760
+path
+
+658
+00:37:22,400 --> 00:37:26,560
+insert the relative image path okay eval
+
+659
+00:37:25,760 --> 00:37:29,440
+buffer
+
+660
+00:37:26,560 --> 00:37:31,040
+back to our html code put the cursor on
+
+661
+00:37:29,440 --> 00:37:35,119
+the first line
+
+662
+00:37:31,040 --> 00:37:38,240
+call the command do it fantastic
+
+663
+00:37:35,119 --> 00:37:40,079
+look that's a relative path and look at
+
+664
+00:37:38,240 --> 00:37:43,920
+this one that's also related path
+
+665
+00:37:40,079 --> 00:37:46,960
+and they are correct showing browser
+
+666
+00:37:43,920 --> 00:37:49,520
+you can see it works
+
+667
+00:37:46,960 --> 00:37:50,000
+okay so so we are almost done this but
+
+668
+00:37:49,520 --> 00:37:51,920
+there's
+
+669
+00:37:50,000 --> 00:37:53,200
+one more thing there are actually two
+
+670
+00:37:51,920 --> 00:37:56,320
+more things
+
+671
+00:37:53,200 --> 00:37:58,960
+now you can see in this image
+
+672
+00:37:56,320 --> 00:38:00,000
+um let's mag let's magnify okay let me
+
+673
+00:37:58,960 --> 00:38:02,880
+show you the
+
+674
+00:38:00,000 --> 00:38:04,000
+glory of the full buffer so you can see
+
+675
+00:38:02,880 --> 00:38:07,119
+here is the image
+
+676
+00:38:04,000 --> 00:38:10,400
+link now do you notice something odd now
+
+677
+00:38:07,119 --> 00:38:13,839
+if you're coding html then you know
+
+678
+00:38:10,400 --> 00:38:16,839
+uh the record
+
+679
+00:38:13,839 --> 00:38:19,280
+it's recommended that you have the old
+
+680
+00:38:16,839 --> 00:38:22,960
+tag
+
+681
+00:38:19,280 --> 00:38:25,440
+so okay hold on a second it's uh it's
+
+682
+00:38:22,960 --> 00:38:26,480
+so it's recommend you know here's the
+
+683
+00:38:25,440 --> 00:38:31,359
+file path
+
+684
+00:38:26,480 --> 00:38:33,760
+it's recommended you have these um
+
+685
+00:38:31,359 --> 00:38:33,760
+old
+
+686
+00:38:35,119 --> 00:38:37,680
+uh wait
+
+687
+00:38:38,320 --> 00:38:44,480
+here you know uh that gives a textual
+
+688
+00:38:41,760 --> 00:38:48,000
+description of what image that is
+
+689
+00:38:44,480 --> 00:38:52,240
+supposedly for the blind so we'll say
+
+690
+00:38:48,000 --> 00:38:55,520
+a surface book keyboard
+
+691
+00:38:52,240 --> 00:38:58,320
+you see you need to add that the old tag
+
+692
+00:38:55,520 --> 00:39:00,160
+and also typically you also want a width
+
+693
+00:38:58,320 --> 00:39:03,040
+and hate
+
+694
+00:39:00,160 --> 00:39:05,359
+why do you need that because when
+
+695
+00:39:03,040 --> 00:39:08,720
+browser reads the image tag
+
+696
+00:39:05,359 --> 00:39:12,160
+when it sees width and hate
+
+697
+00:39:08,720 --> 00:39:14,400
+it kind of speed up the rendering
+
+698
+00:39:12,160 --> 00:39:17,520
+because it has some idea of what what's
+
+699
+00:39:14,400 --> 00:39:19,359
+the size of your image
+
+700
+00:39:17,520 --> 00:39:21,520
+by the way you can you can show the
+
+701
+00:39:19,359 --> 00:39:22,640
+image in emacs you know just click on
+
+702
+00:39:21,520 --> 00:39:26,160
+that
+
+703
+00:39:22,640 --> 00:39:27,520
+i mean just press return uh well because
+
+704
+00:39:26,160 --> 00:39:30,640
+i'm using
+
+705
+00:39:27,520 --> 00:39:34,960
+html mod so anyway what we
+
+706
+00:39:30,640 --> 00:39:38,480
+need to do is add the oats and the width
+
+707
+00:39:34,960 --> 00:39:40,720
+and height height okay
+
+708
+00:39:38,480 --> 00:39:42,000
+height i don't know it's correct me
+
+709
+00:39:40,720 --> 00:39:45,760
+should be pronounced height
+
+710
+00:39:42,000 --> 00:39:49,359
+not hate oh thank you guys
+
+711
+00:39:45,760 --> 00:39:52,800
+alan is here scott and alan
+
+712
+00:39:49,359 --> 00:39:55,520
+and george oh fantastic
+
+713
+00:39:52,800 --> 00:39:57,839
+thank you guys for the money that makes
+
+714
+00:39:55,520 --> 00:39:57,839
+me happy
+
+715
+00:39:58,240 --> 00:40:04,000
+so now our problem you know we are we
+
+716
+00:40:02,160 --> 00:40:06,240
+basically done with the code but
+
+717
+00:40:04,000 --> 00:40:07,359
+now you know we want to do some touch up
+
+718
+00:40:06,240 --> 00:40:10,480
+we want the old
+
+719
+00:40:07,359 --> 00:40:13,520
+tag it's kind of annoying the old tag
+
+720
+00:40:10,480 --> 00:40:17,760
+and also we want the width and height
+
+721
+00:40:13,520 --> 00:40:21,599
+now the old tag
+
+722
+00:40:17,760 --> 00:40:24,000
+is a bit problematic because it involves
+
+723
+00:40:21,599 --> 00:40:25,520
+the decision of what what exactly you
+
+724
+00:40:24,000 --> 00:40:26,560
+want to put the old tag because
+
+725
+00:40:25,520 --> 00:40:29,359
+typically
+
+726
+00:40:26,560 --> 00:40:30,880
+for image you know it it requires
+
+727
+00:40:29,359 --> 00:40:32,800
+certain imagination
+
+728
+00:40:30,880 --> 00:40:34,079
+for this one you know a microsoft
+
+729
+00:40:32,800 --> 00:40:36,720
+keyboard it's easy
+
+730
+00:40:34,079 --> 00:40:39,280
+you can just say a keyboard but often
+
+731
+00:40:36,720 --> 00:40:41,200
+when you have a photo of your food
+
+732
+00:40:39,280 --> 00:40:42,880
+of your you know let's say a photo of
+
+733
+00:40:41,200 --> 00:40:44,319
+your cat
+
+734
+00:40:42,880 --> 00:40:46,240
+you could say that you know the
+
+735
+00:40:44,319 --> 00:40:48,960
+description could say my cat
+
+736
+00:40:46,240 --> 00:40:50,240
+or you could say cat or is it could say
+
+737
+00:40:48,960 --> 00:40:52,319
+george's cat
+
+738
+00:40:50,240 --> 00:40:54,160
+or you could say my home because maybe
+
+739
+00:40:52,319 --> 00:40:56,240
+the the the cat is
+
+740
+00:40:54,160 --> 00:40:57,200
+you know uh you know in your home you
+
+741
+00:40:56,240 --> 00:41:00,400
+know
+
+742
+00:40:57,200 --> 00:41:01,119
+showing your home so the description is
+
+743
+00:41:00,400 --> 00:41:03,520
+kind of
+
+744
+00:41:01,119 --> 00:41:04,839
+arbitrary and and you know it involves
+
+745
+00:41:03,520 --> 00:41:10,240
+some
+
+746
+00:41:04,839 --> 00:41:13,920
+uh thinking to to describe it and this
+
+747
+00:41:10,240 --> 00:41:16,640
+uh it's there may not necessarily be
+
+748
+00:41:13,920 --> 00:41:18,000
+necessarily have a there is no
+
+749
+00:41:16,640 --> 00:41:21,760
+mechanical way to do it
+
+750
+00:41:18,000 --> 00:41:25,119
+unless unless your image file name
+
+751
+00:41:21,760 --> 00:41:25,119
+is very descriptive
+
+752
+00:41:26,880 --> 00:41:30,319
+so that's that's about how to how do you
+
+753
+00:41:28,960 --> 00:41:33,440
+do the old tag
+
+754
+00:41:30,319 --> 00:41:34,400
+um you know we have to let's go back to
+
+755
+00:41:33,440 --> 00:41:37,680
+our code so
+
+756
+00:41:34,400 --> 00:41:38,319
+so we in order if we want to add a o tag
+
+757
+00:41:37,680 --> 00:41:41,680
+we have to
+
+758
+00:41:38,319 --> 00:41:42,800
+say somewhere here i mean the the main
+
+759
+00:41:41,680 --> 00:41:46,000
+problem will be
+
+760
+00:41:42,800 --> 00:41:48,079
+what you're gonna decide uh
+
+761
+00:41:46,000 --> 00:41:49,359
+you know what do you want to say so
+
+762
+00:41:48,079 --> 00:41:52,240
+typically what i do
+
+763
+00:41:49,359 --> 00:41:55,119
+let me show you what i do okay typically
+
+764
+00:41:52,240 --> 00:41:58,480
+then i'm going to read the questions
+
+765
+00:41:55,119 --> 00:42:02,960
+alan says hi and buddy toyo and moyo yes
+
+766
+00:41:58,480 --> 00:42:05,760
+toyo and moyo in e-max list
+
+767
+00:42:02,960 --> 00:42:06,800
+for the past 15 years and scott says
+
+768
+00:42:05,760 --> 00:42:09,680
+have a good
+
+769
+00:42:06,800 --> 00:42:12,960
+labor day weekend oh that oh labor day
+
+770
+00:42:09,680 --> 00:42:12,960
+is coming up i didn't know
+
+771
+00:42:13,599 --> 00:42:17,200
+and george says please enjoy some rich
+
+772
+00:42:16,160 --> 00:42:20,560
+man's food
+
+773
+00:42:17,200 --> 00:42:22,960
+thank you guys anything
+
+774
+00:42:20,560 --> 00:42:25,359
+are there any questions any other
+
+775
+00:42:22,960 --> 00:42:28,839
+questions
+
+776
+00:42:25,359 --> 00:42:31,359
+uh here there will be a
+
+777
+00:42:28,839 --> 00:42:34,160
+stream uh hi guys good morning good
+
+778
+00:42:31,359 --> 00:42:34,160
+morning scott
+
+779
+00:42:36,160 --> 00:42:39,839
+okay so let's back to the code so we
+
+780
+00:42:39,040 --> 00:42:42,400
+need to so
+
+781
+00:42:39,839 --> 00:42:42,960
+normally what i do is that you see once
+
+782
+00:42:42,400 --> 00:42:46,640
+you have an
+
+783
+00:42:42,960 --> 00:42:47,520
+image image file so let's copy the image
+
+784
+00:42:46,640 --> 00:42:50,800
+file you know
+
+785
+00:42:47,520 --> 00:42:53,359
+so here's the image file um
+
+786
+00:42:50,800 --> 00:42:54,000
+it's not mac that's not full screen okay
+
+787
+00:42:53,359 --> 00:42:56,079
+so
+
+788
+00:42:54,000 --> 00:42:58,880
+here's the image file so typically what
+
+789
+00:42:56,079 --> 00:43:01,359
+i do is you
+
+790
+00:42:58,880 --> 00:43:03,119
+you remove the directory name okay
+
+791
+00:43:01,359 --> 00:43:04,880
+remove the directory name so you just
+
+792
+00:43:03,119 --> 00:43:07,359
+have the image file name
+
+793
+00:43:04,880 --> 00:43:10,480
+then you remove you know all the
+
+794
+00:43:07,359 --> 00:43:13,200
+underscore and dash
+
+795
+00:43:10,480 --> 00:43:14,720
+okay so there's no underscore and dash
+
+796
+00:43:13,200 --> 00:43:17,599
+then you remove the
+
+797
+00:43:14,720 --> 00:43:18,960
+the extension the jpeg so what you get
+
+798
+00:43:17,599 --> 00:43:23,760
+is basically
+
+799
+00:43:18,960 --> 00:43:23,760
+you know kind of a transformed file name
+
+800
+00:43:24,319 --> 00:43:27,359
+can we do that shall we do that that
+
+801
+00:43:26,960 --> 00:43:29,200
+that's
+
+802
+00:43:27,359 --> 00:43:30,800
+that's a lot more coding ten minutes
+
+803
+00:43:29,200 --> 00:43:34,079
+five minutes to do that
+
+804
+00:43:30,800 --> 00:43:36,640
+okay so that part is the old part then
+
+805
+00:43:34,079 --> 00:43:37,839
+then there is also then there's the more
+
+806
+00:43:36,640 --> 00:43:40,000
+complex part of
+
+807
+00:43:37,839 --> 00:43:42,240
+image width and height how do you do
+
+808
+00:43:40,000 --> 00:43:42,240
+that
+
+809
+00:43:43,200 --> 00:43:45,440
+uh
+
+810
+00:43:46,400 --> 00:43:50,880
+blue color web dev levels unite did
+
+811
+00:43:49,599 --> 00:43:52,800
+chrome crash yes
+
+812
+00:43:50,880 --> 00:43:55,359
+chrome crashed again so that's we are
+
+813
+00:43:52,800 --> 00:43:59,680
+using safari
+
+814
+00:43:55,359 --> 00:44:02,319
+apple safari uh
+
+815
+00:43:59,680 --> 00:44:02,800
+why do you still use uh closing html
+
+816
+00:44:02,319 --> 00:44:05,520
+tags
+
+817
+00:44:02,800 --> 00:44:08,319
+so have you have you had any thoughts on
+
+818
+00:44:05,520 --> 00:44:12,960
+the experiments where emac lisp
+
+819
+00:44:08,319 --> 00:44:12,960
+gets compiled into native binary
+
+820
+00:44:13,119 --> 00:44:19,520
+uh instead of the elc byte compile code
+
+821
+00:44:17,760 --> 00:44:22,800
+yeah so
+
+822
+00:44:19,520 --> 00:44:25,839
+you know that's a new feature in in
+
+823
+00:44:22,800 --> 00:44:26,560
+in the coming version of emacs emacs 28
+
+824
+00:44:25,839 --> 00:44:29,680
+where
+
+825
+00:44:26,560 --> 00:44:30,560
+you can where the emac list code is
+
+826
+00:44:29,680 --> 00:44:33,839
+compiled
+
+827
+00:44:30,560 --> 00:44:35,280
+natively so that means it should be much
+
+828
+00:44:33,839 --> 00:44:37,440
+faster there's a branch
+
+829
+00:44:35,280 --> 00:44:38,640
+you know those of you the adventurers
+
+830
+00:44:37,440 --> 00:44:42,319
+can try that you know
+
+831
+00:44:38,640 --> 00:44:45,119
+especially on linux you can do that
+
+832
+00:44:42,319 --> 00:44:45,760
+uh you know but i so you you can do that
+
+833
+00:44:45,119 --> 00:44:48,000
+today
+
+834
+00:44:45,760 --> 00:44:50,240
+and i but i asked people i you know i
+
+835
+00:44:48,000 --> 00:44:53,680
+was in so there was a emacs
+
+836
+00:44:50,240 --> 00:44:57,359
+meetup online uh run by
+
+837
+00:44:53,680 --> 00:44:57,359
+uh you know if you search for
+
+838
+00:44:57,440 --> 00:45:03,839
+emacs meetup sf you know that
+
+839
+00:45:00,480 --> 00:45:05,920
+you know that's a that's hosted by emacs
+
+840
+00:45:03,839 --> 00:45:06,640
+meet of san francisco but it's an online
+
+841
+00:45:05,920 --> 00:45:10,319
+meetup
+
+842
+00:45:06,640 --> 00:45:11,520
+it's hosted by jeff it's because i was
+
+843
+00:45:10,319 --> 00:45:15,680
+so i was in that
+
+844
+00:45:11,520 --> 00:45:17,920
+conference for the past uh two times
+
+845
+00:45:15,680 --> 00:45:19,200
+so i asked people there you know there
+
+846
+00:45:17,920 --> 00:45:22,800
+are some emacs
+
+847
+00:45:19,200 --> 00:45:25,680
+uh heavy emacs users whether the native
+
+848
+00:45:22,800 --> 00:45:27,119
+emax version is much faster or not well
+
+849
+00:45:25,680 --> 00:45:30,480
+their response is
+
+850
+00:45:27,119 --> 00:45:31,359
+well yeah it's faster but it's fairly
+
+851
+00:45:30,480 --> 00:45:34,800
+noticeable
+
+852
+00:45:31,359 --> 00:45:38,079
+so you know that's that's the case
+
+853
+00:45:34,800 --> 00:45:40,640
+you know if you are going to sort 10 000
+
+854
+00:45:38,079 --> 00:45:41,200
+things in e-max yeah then you will
+
+855
+00:45:40,640 --> 00:45:44,640
+notice
+
+856
+00:45:41,200 --> 00:45:47,680
+a speed increase but for average
+
+857
+00:45:44,640 --> 00:45:50,160
+e-max you know using
+
+858
+00:45:47,680 --> 00:45:53,920
+the impression i get from him is that
+
+859
+00:45:50,160 --> 00:45:53,920
+you know it's pretty much the same so
+
+860
+00:45:54,960 --> 00:46:01,839
+so anyway so so back to the code um so
+
+861
+00:45:57,920 --> 00:46:01,839
+we're gonna do
+
+862
+00:46:02,079 --> 00:46:05,280
+back to the code i guess
+
+863
+00:46:05,760 --> 00:46:09,520
+how long have i been talking so let's
+
+864
+00:46:07,680 --> 00:46:10,960
+see let's check how long have i been
+
+865
+00:46:09,520 --> 00:46:15,520
+talking
+
+866
+00:46:10,960 --> 00:46:18,079
+uh 46 minutes oh god so
+
+867
+00:46:15,520 --> 00:46:20,640
+so i guess we finish this uh then you
+
+868
+00:46:18,079 --> 00:46:23,040
+know 15 minutes then that'll be it for
+
+869
+00:46:20,640 --> 00:46:25,760
+today but actually there's another
+
+870
+00:46:23,040 --> 00:46:30,160
+interesting thing i wanted to do
+
+871
+00:46:25,760 --> 00:46:33,200
+that is uh the interesting thing is that
+
+872
+00:46:30,160 --> 00:46:35,520
+i want to display uh hu
+
+873
+00:46:33,200 --> 00:46:37,280
+as a line i know how to do it now
+
+874
+00:46:35,520 --> 00:46:40,319
+because uh yesterday i
+
+875
+00:46:37,280 --> 00:46:44,000
+i learned a tip from jeff from the
+
+876
+00:46:40,319 --> 00:46:46,800
+emacs sf meetup online
+
+877
+00:46:44,000 --> 00:46:47,200
+so we can code that next step next time
+
+878
+00:46:46,800 --> 00:46:49,200
+okay
+
+879
+00:46:47,200 --> 00:46:50,480
+so right now let's go back to code the
+
+880
+00:46:49,200 --> 00:46:53,760
+alt alt tag
+
+881
+00:46:50,480 --> 00:46:57,119
+so let's add the old tag okay
+
+882
+00:46:53,760 --> 00:46:57,599
+so image tag then relative image file
+
+883
+00:46:57,119 --> 00:47:01,119
+path
+
+884
+00:46:57,599 --> 00:47:04,880
+then we want to add alt here okay
+
+885
+00:47:01,119 --> 00:47:04,880
+so alt equals to
+
+886
+00:47:05,599 --> 00:47:13,680
+let's insert a new thing
+
+887
+00:47:11,200 --> 00:47:13,680
+insert
+
+888
+00:47:15,119 --> 00:47:20,240
+alt equals to equal
+
+889
+00:47:20,800 --> 00:47:28,480
+double quote okay
+
+890
+00:47:24,640 --> 00:47:28,480
+then we're gonna insert again
+
+891
+00:47:29,200 --> 00:47:31,440
+uh
+
+892
+00:47:32,960 --> 00:47:38,800
+closing quote and space so
+
+893
+00:47:36,000 --> 00:47:39,599
+and in between is gonna be the old text
+
+894
+00:47:38,800 --> 00:47:42,480
+okay
+
+895
+00:47:39,599 --> 00:47:42,480
+alt text
+
+896
+00:47:43,280 --> 00:47:46,720
+image alt text
+
+897
+00:47:48,880 --> 00:47:54,000
+okay but where is our image or text we
+
+898
+00:47:52,480 --> 00:47:56,160
+don't have it yet let's
+
+899
+00:47:54,000 --> 00:47:57,680
+let's generate it okay so back to the
+
+900
+00:47:56,160 --> 00:48:00,960
+variables let's add a
+
+901
+00:47:57,680 --> 00:48:00,960
+image or text here
+
+902
+00:48:01,680 --> 00:48:06,800
+okay then we're gonna set it uh
+
+903
+00:48:04,319 --> 00:48:10,000
+somewhere here so link text
+
+904
+00:48:06,800 --> 00:48:12,480
+relative path so let's set it here
+
+905
+00:48:10,000 --> 00:48:13,520
+image or text so how you gonna do so
+
+906
+00:48:12,480 --> 00:48:16,800
+let's
+
+907
+00:48:13,520 --> 00:48:16,800
+let's do it set
+
+908
+00:48:17,280 --> 00:48:23,040
+image or text program
+
+909
+00:48:20,880 --> 00:48:24,319
+so what you're gonna do you're gonna get
+
+910
+00:48:23,040 --> 00:48:27,440
+the file name from
+
+911
+00:48:24,319 --> 00:48:27,920
+the image file name from the file full
+
+912
+00:48:27,440 --> 00:48:30,880
+path
+
+913
+00:48:27,920 --> 00:48:30,880
+okay so
+
+914
+00:48:32,240 --> 00:48:35,280
+so there's a function now back to our
+
+915
+00:48:34,400 --> 00:48:39,040
+emac this
+
+916
+00:48:35,280 --> 00:48:41,359
+tutorial there is a file let's say easy
+
+917
+00:48:39,040 --> 00:48:44,720
+so there are these file name directory
+
+918
+00:48:41,359 --> 00:48:44,720
+file name none directory
+
+919
+00:48:44,880 --> 00:48:48,319
+yeah that's the one we want file name
+
+920
+00:48:47,359 --> 00:48:52,079
+none directory
+
+921
+00:48:48,319 --> 00:48:55,760
+remove the directory name so um
+
+922
+00:48:52,079 --> 00:48:55,760
+file name none directory okay
+
+923
+00:48:56,000 --> 00:48:59,359
+file name none directory
+
+924
+00:49:00,720 --> 00:49:07,440
+uh file name in none directory so this
+
+925
+00:49:04,000 --> 00:49:10,480
+will be image path
+
+926
+00:49:07,440 --> 00:49:11,040
+okay so get get rid of the directory
+
+927
+00:49:10,480 --> 00:49:14,640
+part
+
+928
+00:49:11,040 --> 00:49:19,280
+and also get rid of the extension so
+
+929
+00:49:14,640 --> 00:49:19,280
+so we need a file name
+
+930
+00:49:19,680 --> 00:49:23,920
+file name sense extension okay
+
+931
+00:49:26,880 --> 00:49:33,280
+then so so what that returns is the
+
+932
+00:49:30,000 --> 00:49:34,079
+file name of the image file without the
+
+933
+00:49:33,280 --> 00:49:35,839
+extension
+
+934
+00:49:34,079 --> 00:49:37,119
+one more thing we need to do we need to
+
+935
+00:49:35,839 --> 00:49:40,319
+remove we need to
+
+936
+00:49:37,119 --> 00:49:40,960
+tran we need to change the underscore
+
+937
+00:49:40,319 --> 00:49:43,440
+and dash
+
+938
+00:49:40,960 --> 00:49:45,839
+to space but let's not worry about that
+
+939
+00:49:43,440 --> 00:49:45,839
+for now
+
+940
+00:49:51,280 --> 00:49:54,559
+okay prettify the code uh predefine the
+
+941
+00:49:54,160 --> 00:49:57,760
+code
+
+942
+00:49:54,559 --> 00:50:01,200
+uh prefix okay so that's
+
+943
+00:49:57,760 --> 00:50:01,200
+image all text so
+
+944
+00:50:01,920 --> 00:50:06,480
+okay so if our code eval the buffer back
+
+945
+00:50:04,720 --> 00:50:10,079
+to our file here
+
+946
+00:50:06,480 --> 00:50:13,760
+now you can see here are the two lines
+
+947
+00:50:10,079 --> 00:50:18,000
+shown in browser okay back to emacs
+
+948
+00:50:13,760 --> 00:50:21,839
+now delete delete that back to browser
+
+949
+00:50:18,000 --> 00:50:25,200
+refresh so we have the two lines here
+
+950
+00:50:21,839 --> 00:50:26,960
+now back to emacs the two lines here
+
+951
+00:50:25,200 --> 00:50:29,359
+so now we're gonna call the command put
+
+952
+00:50:26,960 --> 00:50:34,160
+the cursor there call the command
+
+953
+00:50:29,359 --> 00:50:34,160
+icon linkify please let it work
+
+954
+00:50:34,640 --> 00:50:38,880
+okay it works there's some problems okay
+
+955
+00:50:37,119 --> 00:50:42,319
+you i misplaced
+
+956
+00:50:38,880 --> 00:50:45,599
+i misplaced the insertion
+
+957
+00:50:42,319 --> 00:50:48,400
+you see because yeah so undo
+
+958
+00:50:45,599 --> 00:50:48,400
+let's fix it
+
+959
+00:50:48,960 --> 00:50:56,640
+so it's adding the old um
+
+960
+00:50:53,119 --> 00:50:58,880
+yeah so the oath doesn't belong here
+
+961
+00:50:56,640 --> 00:50:58,880
+wait
+
+962
+00:51:05,760 --> 00:51:10,400
+okay so actually i know what to do so
+
+963
+00:51:08,160 --> 00:51:12,960
+actually
+
+964
+00:51:10,400 --> 00:51:12,960
+actually
+
+965
+00:51:13,440 --> 00:51:19,520
+so this part will be so
+
+966
+00:51:16,480 --> 00:51:22,720
+so after we insert the image relative
+
+967
+00:51:19,520 --> 00:51:25,200
+file path we need to
+
+968
+00:51:22,720 --> 00:51:25,200
+close
+
+969
+00:51:28,880 --> 00:51:32,960
+we need to close the quote for the file
+
+970
+00:51:31,839 --> 00:51:36,480
+path
+
+971
+00:51:32,960 --> 00:51:41,040
+then we need to add
+
+972
+00:51:36,480 --> 00:51:45,359
+the alt tag here then
+
+973
+00:51:41,040 --> 00:51:49,599
+then we add the end tag for the image
+
+974
+00:51:45,359 --> 00:51:53,119
+tag right yeah eval buffer let's just
+
+975
+00:51:49,599 --> 00:51:56,079
+do it call the command do it
+
+976
+00:51:53,119 --> 00:51:57,280
+looks like fantastic now we need a space
+
+977
+00:51:56,079 --> 00:52:00,480
+here okay
+
+978
+00:51:57,280 --> 00:52:02,319
+we need a space in before the old so
+
+979
+00:52:00,480 --> 00:52:05,599
+back to the code
+
+980
+00:52:02,319 --> 00:52:06,079
+we need a space before the oath if i
+
+981
+00:52:05,599 --> 00:52:09,200
+refer
+
+982
+00:52:06,079 --> 00:52:12,880
+back to here and do call it do it
+
+983
+00:52:09,200 --> 00:52:16,839
+fantastic now this looks like
+
+984
+00:52:12,880 --> 00:52:20,240
+what we want so here is the image
+
+985
+00:52:16,839 --> 00:52:25,440
+part and here is the alt
+
+986
+00:52:20,240 --> 00:52:28,880
+tag fantastic now back to browser
+
+987
+00:52:25,440 --> 00:52:32,160
+show it okay good
+
+988
+00:52:28,880 --> 00:52:32,800
+now one last thing now the width and
+
+989
+00:52:32,160 --> 00:52:36,720
+height
+
+990
+00:52:32,800 --> 00:52:39,920
+of the thing of the image tag
+
+991
+00:52:36,720 --> 00:52:39,920
+so far so good questions
+
+992
+00:52:42,640 --> 00:52:48,240
+so let's look at the questions um
+
+993
+00:52:46,079 --> 00:52:50,480
+you know it actually took an hour today
+
+994
+00:52:48,240 --> 00:52:50,480
+so
+
+995
+00:52:50,880 --> 00:52:57,119
+safari is more efficient uh no safari is
+
+996
+00:52:54,079 --> 00:53:00,400
+not more efficient
+
+997
+00:52:57,119 --> 00:53:02,480
+are you sure i'm not sure about that uh
+
+998
+00:53:00,400 --> 00:53:06,240
+well it may be more efficient but but
+
+999
+00:53:02,480 --> 00:53:06,240
+safari kind of sucks
+
+1000
+00:53:08,960 --> 00:53:13,359
+less electricity excellent have a
+
+1001
+00:53:10,960 --> 00:53:16,559
+thousand can help as well have us
+
+1002
+00:53:13,359 --> 00:53:19,839
+have a house plant can help i'm now a
+
+1003
+00:53:16,559 --> 00:53:19,839
+urban pe farmer okay
+
+1004
+00:53:22,400 --> 00:53:25,040
+okay so
+
+1005
+00:53:25,920 --> 00:53:29,839
+so back to our code so
+
+1006
+00:53:31,040 --> 00:53:37,440
+so the last part is to add the width
+
+1007
+00:53:34,319 --> 00:53:39,599
+and height the the core
+
+1008
+00:53:37,440 --> 00:53:42,160
+uh issue is how do you find the width
+
+1009
+00:53:39,599 --> 00:53:44,160
+and height of a image file
+
+1010
+00:53:42,160 --> 00:53:45,920
+okay that is the main question but
+
+1011
+00:53:44,160 --> 00:53:51,200
+before we do that
+
+1012
+00:53:45,920 --> 00:53:53,440
+let i'm thinking
+
+1013
+00:53:51,200 --> 00:53:55,839
+maybe we should push on with that or
+
+1014
+00:53:53,440 --> 00:53:59,119
+simplify our code first because now our
+
+1015
+00:53:55,839 --> 00:54:00,720
+code is kind of ugly
+
+1016
+00:53:59,119 --> 00:54:03,520
+you know because you see all these
+
+1017
+00:54:00,720 --> 00:54:06,559
+inserts they can be
+
+1018
+00:54:03,520 --> 00:54:09,200
+you know you you can use a format that
+
+1019
+00:54:06,559 --> 00:54:12,960
+makes them more elegant and easier to
+
+1020
+00:54:09,200 --> 00:54:12,960
+read and easier to understand
+
+1021
+00:54:15,119 --> 00:54:19,359
+okay so either we clean up the code or
+
+1022
+00:54:17,839 --> 00:54:22,839
+we start to explain
+
+1023
+00:54:19,359 --> 00:54:24,800
+explain how do you insert the width and
+
+1024
+00:54:22,839 --> 00:54:28,000
+height
+
+1025
+00:54:24,800 --> 00:54:29,119
+let's explain okay so so the problem now
+
+1026
+00:54:28,000 --> 00:54:32,079
+is given a
+
+1027
+00:54:29,119 --> 00:54:32,559
+image file path for example let's say
+
+1028
+00:54:32,079 --> 00:54:35,839
+undo
+
+1029
+00:54:32,559 --> 00:54:39,040
+so here is the image file path given
+
+1030
+00:54:35,839 --> 00:54:42,079
+a image file path how do you
+
+1031
+00:54:39,040 --> 00:54:47,200
+in e-max list find out the
+
+1032
+00:54:42,079 --> 00:54:47,200
+width and height of the image dimension
+
+1033
+00:54:47,359 --> 00:54:51,040
+okay i don't know of hand but i have
+
+1034
+00:54:49,200 --> 00:54:53,680
+written a code to do that
+
+1035
+00:54:51,040 --> 00:54:54,799
+you know like almost 10 years ago so
+
+1036
+00:54:53,680 --> 00:54:58,319
+let's look at
+
+1037
+00:54:54,799 --> 00:54:58,880
+let's look at our code okay so you just
+
+1038
+00:54:58,319 --> 00:55:02,000
+go to
+
+1039
+00:54:58,880 --> 00:55:05,440
+describe key space space
+
+1040
+00:55:02,000 --> 00:55:09,520
+space edge then that is my shortcut
+
+1041
+00:55:05,440 --> 00:55:12,319
+key to html mod you can see here
+
+1042
+00:55:09,520 --> 00:55:14,400
+so we move cursor here enter then you go
+
+1043
+00:55:12,319 --> 00:55:18,400
+to the source code
+
+1044
+00:55:14,400 --> 00:55:22,000
+so here is the source code of html mod
+
+1045
+00:55:18,400 --> 00:55:22,720
+and there is a code to to link a file
+
+1046
+00:55:22,000 --> 00:55:24,559
+you know
+
+1047
+00:55:22,720 --> 00:55:26,960
+most of the things we did today is
+
+1048
+00:55:24,559 --> 00:55:30,240
+already written i've written them like
+
+1049
+00:55:26,960 --> 00:55:33,119
+you know tens of times
+
+1050
+00:55:30,240 --> 00:55:33,680
+um and so most of the code is already
+
+1051
+00:55:33,119 --> 00:55:37,040
+here
+
+1052
+00:55:33,680 --> 00:55:38,960
+i'm doing it again in live because
+
+1053
+00:55:37,040 --> 00:55:40,559
+so that you know i can demonstrate you
+
+1054
+00:55:38,960 --> 00:55:43,280
+know how it's done
+
+1055
+00:55:40,559 --> 00:55:45,839
+uh so there's a code here that's image
+
+1056
+00:55:43,280 --> 00:55:50,559
+linkify so if we search for
+
+1057
+00:55:45,839 --> 00:55:53,680
+for example um these matching lines okay
+
+1058
+00:55:50,559 --> 00:55:54,799
+let's say this matching line is less
+
+1059
+00:55:53,680 --> 00:55:59,760
+than sign
+
+1060
+00:55:54,799 --> 00:56:04,160
+img space then you can see
+
+1061
+00:55:59,760 --> 00:56:06,640
+here is a here is all the code
+
+1062
+00:56:04,160 --> 00:56:07,599
+i mean the lines containing that you
+
+1063
+00:56:06,640 --> 00:56:09,920
+know so we have
+
+1064
+00:56:07,599 --> 00:56:11,359
+we have quite a few lines that deal with
+
+1065
+00:56:09,920 --> 00:56:15,839
+image image files
+
+1066
+00:56:11,359 --> 00:56:17,040
+okay uh but let's say defund okay let's
+
+1067
+00:56:15,839 --> 00:56:20,960
+list matching lines
+
+1068
+00:56:17,040 --> 00:56:22,319
+let's list all different functions in
+
+1069
+00:56:20,960 --> 00:56:26,640
+our file
+
+1070
+00:56:22,319 --> 00:56:30,160
+so then search for image img
+
+1071
+00:56:26,640 --> 00:56:33,599
+wait let's search for img
+
+1072
+00:56:30,160 --> 00:56:37,839
+oh let's search for ima
+
+1073
+00:56:33,599 --> 00:56:38,960
+g okay there it is html get image
+
+1074
+00:56:37,839 --> 00:56:41,359
+dimensions
+
+1075
+00:56:38,960 --> 00:56:43,920
+that returns the width and height okay
+
+1076
+00:56:41,359 --> 00:56:47,440
+so go to there
+
+1077
+00:56:43,920 --> 00:56:50,240
+go to there so here is our code is
+
+1078
+00:56:47,440 --> 00:56:50,240
+is our code
+
+1079
+00:56:53,440 --> 00:56:58,160
+so i guess i'm not going to actually
+
+1080
+00:56:55,359 --> 00:57:01,200
+code um
+
+1081
+00:56:58,160 --> 00:57:03,680
+you know uh this here because i
+
+1082
+00:57:01,200 --> 00:57:06,880
+it's already written but instead i'm
+
+1083
+00:57:03,680 --> 00:57:13,839
+just going to explain how do you do this
+
+1084
+00:57:06,880 --> 00:57:13,839
+get how do you get the width and height
+
+1085
+00:57:14,480 --> 00:57:18,640
+so what you do is um let's see
+
+1086
+00:57:21,359 --> 00:57:26,480
+okay here here is a part okay so so the
+
+1087
+00:57:24,319 --> 00:57:29,760
+you know there's a condition here
+
+1088
+00:57:26,480 --> 00:57:32,799
+now in the condition the first one is
+
+1089
+00:57:29,760 --> 00:57:35,599
+to check if it's a svg file
+
+1090
+00:57:32,799 --> 00:57:36,319
+you know svg file is different from jpeg
+
+1091
+00:57:35,599 --> 00:57:41,280
+or
+
+1092
+00:57:36,319 --> 00:57:42,880
+or uh or png files svg is a text file
+
+1093
+00:57:41,280 --> 00:57:46,319
+it's an x
+
+1094
+00:57:42,880 --> 00:57:49,440
+xml file so if it's svg
+
+1095
+00:57:46,319 --> 00:57:49,839
+image you can find out the width and
+
+1096
+00:57:49,440 --> 00:57:53,440
+height
+
+1097
+00:57:49,839 --> 00:57:54,559
+by actually opening the file and just
+
+1098
+00:57:53,440 --> 00:57:58,079
+search for the word
+
+1099
+00:57:54,559 --> 00:58:00,799
+width typically that will have results
+
+1100
+00:57:58,079 --> 00:58:02,640
+i mean if it you know you like yeah you
+
+1101
+00:58:00,799 --> 00:58:06,240
+just do that
+
+1102
+00:58:02,640 --> 00:58:09,440
+but if if it's a binary file
+
+1103
+00:58:06,240 --> 00:58:11,680
+if it's a you know a png file or
+
+1104
+00:58:09,440 --> 00:58:13,040
+a jpeg file what you do here's what you
+
+1105
+00:58:11,680 --> 00:58:22,400
+do
+
+1106
+00:58:13,040 --> 00:58:24,799
+okay so you do so you set uh
+
+1107
+00:58:22,400 --> 00:58:26,000
+yeah so here's the code i don't remember
+
+1108
+00:58:24,799 --> 00:58:28,720
+exactly but
+
+1109
+00:58:26,000 --> 00:58:29,839
+but basically there are some emacs
+
+1110
+00:58:28,720 --> 00:58:32,960
+functions
+
+1111
+00:58:29,839 --> 00:58:34,000
+uh functions in emaclis that lets you do
+
+1112
+00:58:32,960 --> 00:58:37,280
+that
+
+1113
+00:58:34,000 --> 00:58:40,400
+so let's see set q so x and y
+
+1114
+00:58:37,280 --> 00:58:43,760
+is a width and height height
+
+1115
+00:58:40,400 --> 00:58:46,720
+width and height pair so we
+
+1116
+00:58:43,760 --> 00:58:48,240
+we we declare x y to be a local variable
+
+1117
+00:58:46,720 --> 00:58:51,599
+then we're going to set them
+
+1118
+00:58:48,240 --> 00:58:52,480
+here so so what what does the code do so
+
+1119
+00:58:51,599 --> 00:58:53,620
+you first of all
+
+1120
+00:58:52,480 --> 00:58:55,599
+you uh
+
+1121
+00:58:53,620 --> 00:58:58,559
+[Music]
+
+1122
+00:58:55,599 --> 00:59:02,160
+you call the image size okay so image
+
+1123
+00:58:58,559 --> 00:59:05,520
+size is a function that returns
+
+1124
+00:59:02,160 --> 00:59:06,000
+uh the cons pair that contains the width
+
+1125
+00:59:05,520 --> 00:59:10,079
+and
+
+1126
+00:59:06,000 --> 00:59:10,559
+height okay then the argument to image
+
+1127
+00:59:10,079 --> 00:59:12,620
+size
+
+1128
+00:59:10,559 --> 00:59:16,909
+is a create image
+
+1129
+00:59:12,620 --> 00:59:16,909
+[Music]
+
+1130
+00:59:17,280 --> 00:59:21,440
+yeah so you can use create image and
+
+1131
+00:59:19,760 --> 00:59:24,640
+give it a file name
+
+1132
+00:59:21,440 --> 00:59:25,359
+basically your file path and emax will
+
+1133
+00:59:24,640 --> 00:59:28,000
+create
+
+1134
+00:59:25,359 --> 00:59:28,720
+kind of recreate the image internally
+
+1135
+00:59:28,000 --> 00:59:31,359
+then
+
+1136
+00:59:28,720 --> 00:59:32,960
+once you have an image you feed that to
+
+1137
+00:59:31,359 --> 00:59:34,960
+image size
+
+1138
+00:59:32,960 --> 00:59:36,480
+then it will return a cons cell
+
+1139
+00:59:34,960 --> 00:59:40,319
+containing the
+
+1140
+00:59:36,480 --> 00:59:42,559
+width and height
+
+1141
+00:59:40,319 --> 00:59:44,319
+okay so that's that's how you get the
+
+1142
+00:59:42,559 --> 00:59:47,040
+width and height so actually we can
+
+1143
+00:59:44,319 --> 00:59:50,000
+actually try it so let's you know let's
+
+1144
+00:59:47,040 --> 00:59:50,000
+just gonna try it
+
+1145
+00:59:51,520 --> 00:59:54,559
+so for example
+
+1146
+00:59:55,599 --> 01:00:02,160
+okay so that's how simple it is so let's
+
+1147
+00:59:59,280 --> 01:00:03,200
+go to let's go back to the talk show
+
+1148
+01:00:02,160 --> 01:00:06,799
+okay
+
+1149
+01:00:03,200 --> 01:00:09,920
+let's get a image file path for example
+
+1150
+01:00:06,799 --> 01:00:13,920
+this one okay copy the file path
+
+1151
+01:00:09,920 --> 01:00:16,079
+back to here paste the file path here so
+
+1152
+01:00:13,920 --> 01:00:20,000
+you can see
+
+1153
+01:00:16,079 --> 01:00:20,000
+uh let's maybe prettify
+
+1154
+01:00:20,160 --> 01:00:24,640
+uh yeah it's kind of you know because my
+
+1155
+01:00:22,400 --> 01:00:28,240
+file path is super long
+
+1156
+01:00:24,640 --> 01:00:32,640
+okay so that that you know so
+
+1157
+01:00:28,240 --> 01:00:32,640
+now we what we do is we call
+
+1158
+01:00:34,720 --> 01:00:41,799
+control u eval last
+
+1159
+01:00:38,160 --> 01:00:45,760
+sixth so you see that's a return value
+
+1160
+01:00:41,799 --> 01:00:47,680
+28289 217 pixels that's how you get it
+
+1161
+01:00:45,760 --> 01:00:51,200
+okay that's it for today thank you guys
+
+1162
+01:00:47,680 --> 01:00:53,760
+for watching i think that's it for today
+
+1163
+01:00:51,200 --> 01:00:53,760
+um
+
+1164
+01:00:55,440 --> 01:01:01,839
+how long how long have i been talking
+
+1165
+01:00:59,359 --> 01:01:04,960
+one hour and one minute just just the
+
+1166
+01:01:01,839 --> 01:01:04,960
+right time to close
+
+1167
+01:01:06,559 --> 01:01:10,319
+okay thanks thank you guys thank you
+
+1168
+01:01:09,520 --> 01:01:13,470
+alan
+
+1169
+01:01:10,319 --> 01:01:15,680
+uh uh george scott
+
+1170
+01:01:13,470 --> 01:01:19,119
+[Music]
+
+1171
+01:01:15,680 --> 01:01:22,839
+and if you like my emacs lisp tutorial
+
+1172
+01:01:19,119 --> 01:01:26,079
+uh you know go go buy it okay emacs this
+
+1173
+01:01:22,839 --> 01:01:26,480
+tutorial fantastic you know where is it
+
+1174
+01:01:26,079 --> 01:01:30,240
+here
+
+1175
+01:01:26,480 --> 01:01:34,319
+okay just search for emacs this tutorial
+
+1176
+01:01:30,240 --> 01:01:36,880
+and uh keyboard fantastic stuff
+
+1177
+01:01:34,319 --> 01:01:36,880
+and uh
+
+1178
+01:01:37,599 --> 01:01:51,839
+bye guys
+

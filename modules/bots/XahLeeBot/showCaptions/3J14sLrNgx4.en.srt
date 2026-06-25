@@ -1,0 +1,5116 @@
+1
+00:00:06,060 --> 00:00:09,840
+hello
+
+2
+00:00:07,560 --> 00:00:13,019
+good morning everyone welcome to another
+
+3
+00:00:09,840 --> 00:00:15,859
+episode of sun talk show today I'm going
+
+4
+00:00:13,019 --> 00:00:18,779
+to talk about geometric inversion
+
+5
+00:00:15,859 --> 00:00:20,400
+geometric inversion that is what it is
+
+6
+00:00:18,779 --> 00:00:22,080
+let me show you some pretty Graphics
+
+7
+00:00:20,400 --> 00:00:23,880
+okay
+
+8
+00:00:22,080 --> 00:00:25,980
+uh open that
+
+9
+00:00:23,880 --> 00:00:28,439
+and
+
+10
+00:00:25,980 --> 00:00:32,300
+let's see open that
+
+11
+00:00:28,439 --> 00:00:35,660
+geometric inversion open that
+
+12
+00:00:32,300 --> 00:00:35,660
+and uh
+
+13
+00:00:35,880 --> 00:00:40,440
+open that
+
+14
+00:00:37,739 --> 00:00:43,140
+open that okay so geometry let me show
+
+15
+00:00:40,440 --> 00:00:44,940
+you okay so geometric inversion we're
+
+16
+00:00:43,140 --> 00:00:47,280
+gonna talk about that and the
+
+17
+00:00:44,940 --> 00:00:50,940
+stereographic projection which is a
+
+18
+00:00:47,280 --> 00:00:54,300
+video we did last uh a week ago so this
+
+19
+00:00:50,940 --> 00:00:57,000
+is the stereographic projection and we
+
+20
+00:00:54,300 --> 00:00:59,039
+are going to derive their formulas so
+
+21
+00:00:57,000 --> 00:01:01,199
+what is the formula for stereographic
+
+22
+00:00:59,039 --> 00:01:04,199
+projection and what is the formula for
+
+23
+00:01:01,199 --> 00:01:06,299
+so this is stereographic projection and
+
+24
+00:01:04,199 --> 00:01:08,100
+what is the formula for geometric
+
+25
+00:01:06,299 --> 00:01:11,700
+inversion so this is what you are
+
+26
+00:01:08,100 --> 00:01:14,820
+looking at you see the grid becomes that
+
+27
+00:01:11,700 --> 00:01:17,100
+you know this a bunch of rectangles uh
+
+28
+00:01:14,820 --> 00:01:19,740
+squares becomes that
+
+29
+00:01:17,100 --> 00:01:22,680
+and becomes that you know depending on
+
+30
+00:01:19,740 --> 00:01:24,360
+whether the center of the rig square is
+
+31
+00:01:22,680 --> 00:01:28,259
+in the middle or not
+
+32
+00:01:24,360 --> 00:01:31,020
+so this is also this is also a geometric
+
+33
+00:01:28,259 --> 00:01:33,240
+inversion two-dimensional case and this
+
+34
+00:01:31,020 --> 00:01:36,240
+is also two-dimensional case but we made
+
+35
+00:01:33,240 --> 00:01:38,579
+it into a three-dimensional tiles we
+
+36
+00:01:36,240 --> 00:01:41,700
+added a thickness so it becomes
+
+37
+00:01:38,579 --> 00:01:44,460
+beautiful like that you can be done can
+
+38
+00:01:41,700 --> 00:01:46,500
+be used for garden decoration so you if
+
+39
+00:01:44,460 --> 00:01:49,799
+you have a house you have a garden you
+
+40
+00:01:46,500 --> 00:01:51,840
+want tiles you can do this but then you
+
+41
+00:01:49,799 --> 00:01:54,119
+know we did a video talk of this one
+
+42
+00:01:51,840 --> 00:01:56,040
+live coding so
+
+43
+00:01:54,119 --> 00:01:58,680
+you see the squares in the middle
+
+44
+00:01:56,040 --> 00:02:00,299
+becomes smaller infinitely smaller so
+
+45
+00:01:58,680 --> 00:02:03,899
+you don't want that when you want Tire
+
+46
+00:02:00,299 --> 00:02:06,360
+tiles in your garden so you do some
+
+47
+00:02:03,899 --> 00:02:09,300
+geometric transformation you apply your
+
+48
+00:02:06,360 --> 00:02:12,300
+function to the 2D plane so they so you
+
+49
+00:02:09,300 --> 00:02:15,620
+get rid of the tiny infinitely small
+
+50
+00:02:12,300 --> 00:02:18,360
+squares so you get that and you can do
+
+51
+00:02:15,620 --> 00:02:20,580
+again you can make it a tie or three
+
+52
+00:02:18,360 --> 00:02:24,239
+tests so this is beautiful okay we did a
+
+53
+00:02:20,580 --> 00:02:28,080
+video of these and then then you have 3D
+
+54
+00:02:24,239 --> 00:02:30,000
+this is a three-dimensional uh uh
+
+55
+00:02:28,080 --> 00:02:32,040
+geometric inversion
+
+56
+00:02:30,000 --> 00:02:35,220
+you know you have a bunch of Cubes
+
+57
+00:02:32,040 --> 00:02:37,860
+evenly spaced in a space you know then
+
+58
+00:02:35,220 --> 00:02:40,260
+you do a inversion then you become that
+
+59
+00:02:37,860 --> 00:02:44,280
+okay you can rotate it so here's the
+
+60
+00:02:40,260 --> 00:02:46,980
+code yeah let's let's run some code okay
+
+61
+00:02:44,280 --> 00:02:49,500
+so let's see if we can do that let's run
+
+62
+00:02:46,980 --> 00:02:51,300
+some let's start with language so we're
+
+63
+00:02:49,500 --> 00:02:53,640
+gonna explain geometric inversion
+
+64
+00:02:51,300 --> 00:02:55,920
+stereographic projection yeah then we're
+
+65
+00:02:53,640 --> 00:02:58,140
+gonna I'm gonna show you what is the
+
+66
+00:02:55,920 --> 00:03:00,780
+relationship between
+
+67
+00:02:58,140 --> 00:03:03,180
+uh actually there's more fantastic
+
+68
+00:03:00,780 --> 00:03:06,060
+beautiful geometric inversion so this is
+
+69
+00:03:03,180 --> 00:03:10,220
+a nested inversion of bunch of circles
+
+70
+00:03:06,060 --> 00:03:14,040
+so you begin with these seven circles
+
+71
+00:03:10,220 --> 00:03:17,220
+arranging in a hexagonal way then you
+
+72
+00:03:14,040 --> 00:03:19,440
+invert each circle with respect to each
+
+73
+00:03:17,220 --> 00:03:21,300
+one of them then you do it again then
+
+74
+00:03:19,440 --> 00:03:23,819
+you do it again I believe three times
+
+75
+00:03:21,300 --> 00:03:26,640
+four times then you get this spectacular
+
+76
+00:03:23,819 --> 00:03:28,140
+Graphics so all these are geometric
+
+77
+00:03:26,640 --> 00:03:31,319
+inversion okay
+
+78
+00:03:28,140 --> 00:03:32,580
+so in this one and this one and this can
+
+79
+00:03:31,319 --> 00:03:36,239
+be used
+
+80
+00:03:32,580 --> 00:03:38,280
+for a gate you know Iron Gate you have
+
+81
+00:03:36,239 --> 00:03:40,080
+if you have a house you have gates in
+
+82
+00:03:38,280 --> 00:03:42,420
+front right you know usually reach
+
+83
+00:03:40,080 --> 00:03:45,000
+people's house have a gate in front and
+
+84
+00:03:42,420 --> 00:03:48,599
+they have like Curly cures decoration so
+
+85
+00:03:45,000 --> 00:03:51,659
+you can use that as a pattern uh you
+
+86
+00:03:48,599 --> 00:03:55,080
+know Iron route curly cues you know for
+
+87
+00:03:51,659 --> 00:03:56,879
+the gate decoration or or floors you
+
+88
+00:03:55,080 --> 00:04:00,000
+know and so all these are geometric
+
+89
+00:03:56,879 --> 00:04:02,879
+inversion you start with a pattern on
+
+90
+00:04:00,000 --> 00:04:05,720
+the left a grid it becomes that and you
+
+91
+00:04:02,879 --> 00:04:09,599
+if you start with the a bunch of
+
+92
+00:04:05,720 --> 00:04:12,659
+parallel lines in arranging a pentagon
+
+93
+00:04:09,599 --> 00:04:15,720
+away symmetry rotational pentagonal
+
+94
+00:04:12,659 --> 00:04:17,160
+symmetry five-fold rotation then you get
+
+95
+00:04:15,720 --> 00:04:19,560
+this figure
+
+96
+00:04:17,160 --> 00:04:22,440
+on the right so but if you have a
+
+97
+00:04:19,560 --> 00:04:24,780
+hexagonal kind of a star grid then you
+
+98
+00:04:22,440 --> 00:04:27,780
+get this picture and you if you have a
+
+99
+00:04:24,780 --> 00:04:29,759
+colored squares like that
+
+100
+00:04:27,780 --> 00:04:33,180
+then you get this picture on the right
+
+101
+00:04:29,759 --> 00:04:36,240
+so all these are geometric inversion
+
+102
+00:04:33,180 --> 00:04:40,259
+very fantastically fantastic okay so
+
+103
+00:04:36,240 --> 00:04:42,419
+this is 3D 2D case and like we explained
+
+104
+00:04:40,259 --> 00:04:44,400
+we can do it 3D case
+
+105
+00:04:42,419 --> 00:04:46,380
+okay so all these are geometric
+
+106
+00:04:44,400 --> 00:04:48,960
+inversion and here's a definition I'm
+
+107
+00:04:46,380 --> 00:04:51,000
+going to go over and also this spider
+
+108
+00:04:48,960 --> 00:04:53,520
+web kind of thing beautiful fantastic
+
+109
+00:04:51,000 --> 00:04:57,720
+that's also geometric conversion
+
+110
+00:04:53,520 --> 00:05:01,139
+uh and then we're gonna explain how it
+
+111
+00:04:57,720 --> 00:05:04,500
+relates to a stereographic projection
+
+112
+00:05:01,139 --> 00:05:07,139
+they are related mathematics and also we
+
+113
+00:05:04,500 --> 00:05:09,960
+are going to derive each of their
+
+114
+00:05:07,139 --> 00:05:12,180
+formulas okay then we are going to code
+
+115
+00:05:09,960 --> 00:05:15,060
+Wolfram language we we're gonna code a
+
+116
+00:05:12,180 --> 00:05:17,240
+spectacular Graphics I hope so I hope
+
+117
+00:05:15,060 --> 00:05:21,300
+this video is going to be one hour
+
+118
+00:05:17,240 --> 00:05:23,039
+and I hope I have a good enough time to
+
+119
+00:05:21,300 --> 00:05:25,320
+do that if you have comments questions
+
+120
+00:05:23,039 --> 00:05:27,660
+post it okay
+
+121
+00:05:25,320 --> 00:05:30,539
+uh
+
+122
+00:05:27,660 --> 00:05:33,000
+uh the streams am I doing okay the
+
+123
+00:05:30,539 --> 00:05:36,800
+stream speed current bit rate is lower
+
+124
+00:05:33,000 --> 00:05:36,800
+than the recommended bit rate
+
+125
+00:05:37,860 --> 00:05:43,320
+okay so it looks like it's okay now so
+
+126
+00:05:40,380 --> 00:05:46,440
+geometric immersion so let's do it
+
+127
+00:05:43,320 --> 00:05:48,660
+so first of all I want to yeah let's see
+
+128
+00:05:46,440 --> 00:05:51,900
+what we want to do so today's talk show
+
+129
+00:05:48,660 --> 00:05:56,100
+is here I'm using emacs and stuff like
+
+130
+00:05:51,900 --> 00:05:58,259
+keys so here's a source code HTML page
+
+131
+00:05:56,100 --> 00:06:01,380
+and here's what we're going to talk
+
+132
+00:05:58,259 --> 00:06:03,720
+about so we showed a bunch of graphics
+
+133
+00:06:01,380 --> 00:06:06,539
+uh and I'm gonna show you the definition
+
+134
+00:06:03,720 --> 00:06:08,940
+okay let's start with definition okay
+
+135
+00:06:06,539 --> 00:06:10,620
+geometric inversion
+
+136
+00:06:08,940 --> 00:06:13,979
+so
+
+137
+00:06:10,620 --> 00:06:17,100
+um very easy okay so you can just go to
+
+138
+00:06:13,979 --> 00:06:19,740
+my website uh it let me show you where
+
+139
+00:06:17,100 --> 00:06:23,520
+which page that is
+
+140
+00:06:19,740 --> 00:06:25,860
+yeah so so this page so this page you
+
+141
+00:06:23,520 --> 00:06:27,600
+just search for Saudi
+
+142
+00:06:25,860 --> 00:06:30,180
+uh
+
+143
+00:06:27,600 --> 00:06:33,780
+a visual dictionary of spatial plan
+
+144
+00:06:30,180 --> 00:06:37,740
+curves I did this like 20 years ago and
+
+145
+00:06:33,780 --> 00:06:40,440
+then you just go to inversion
+
+146
+00:06:37,740 --> 00:06:43,979
+geometric inversion then you'll see so
+
+147
+00:06:40,440 --> 00:06:47,819
+here's the definition okay you start by
+
+148
+00:06:43,979 --> 00:06:50,819
+uh let me see if uh what I
+
+149
+00:06:47,819 --> 00:06:54,479
+let me show you this okay yeah so let's
+
+150
+00:06:50,819 --> 00:06:56,580
+use G algebra Okay g algebra is a kind
+
+151
+00:06:54,479 --> 00:06:59,460
+of free application on the web you can
+
+152
+00:06:56,580 --> 00:07:01,860
+use to build this to draw this Dynamic
+
+153
+00:06:59,460 --> 00:07:04,919
+Graphics so
+
+154
+00:07:01,860 --> 00:07:06,900
+so inversion okay geometric inversion is
+
+155
+00:07:04,919 --> 00:07:10,080
+a transformation
+
+156
+00:07:06,900 --> 00:07:13,620
+of the plane let's stick with the 2D
+
+157
+00:07:10,080 --> 00:07:18,419
+case so you have a plane you are given a
+
+158
+00:07:13,620 --> 00:07:21,539
+circle okay of radius R okay and it's a
+
+159
+00:07:18,419 --> 00:07:23,220
+transformation meaning at any point give
+
+160
+00:07:21,539 --> 00:07:25,259
+a point on the plane
+
+161
+00:07:23,220 --> 00:07:27,599
+You're Gonna Change the position of the
+
+162
+00:07:25,259 --> 00:07:29,699
+point to somewhere else okay for every
+
+163
+00:07:27,599 --> 00:07:32,340
+point so there's a function so for each
+
+164
+00:07:29,699 --> 00:07:35,639
+point the function takes one point you
+
+165
+00:07:32,340 --> 00:07:38,580
+know two numbers coordinate X and Y and
+
+166
+00:07:35,639 --> 00:07:41,039
+it returns another two numbers another
+
+167
+00:07:38,580 --> 00:07:43,560
+point you know X and Y so given any
+
+168
+00:07:41,039 --> 00:07:46,500
+point it returns another point this is
+
+169
+00:07:43,560 --> 00:07:48,360
+called a transformation or
+
+170
+00:07:46,500 --> 00:07:50,580
+you know in Geometry you call this
+
+171
+00:07:48,360 --> 00:07:52,560
+transformation or you can just call it a
+
+172
+00:07:50,580 --> 00:07:55,199
+function okay so given a point it
+
+173
+00:07:52,560 --> 00:07:58,080
+returns it it moves the point somewhere
+
+174
+00:07:55,199 --> 00:08:00,720
+else so how does that work you know in
+
+175
+00:07:58,080 --> 00:08:03,539
+order so you give them a circle usually
+
+176
+00:08:00,720 --> 00:08:06,419
+a circle of radius one so here is a
+
+177
+00:08:03,539 --> 00:08:10,380
+point p and uh
+
+178
+00:08:06,419 --> 00:08:12,960
+and it Returns the point Q okay Q is the
+
+179
+00:08:10,380 --> 00:08:15,360
+return value okay so how does it work is
+
+180
+00:08:12,960 --> 00:08:17,280
+that you draw a line from the center of
+
+181
+00:08:15,360 --> 00:08:19,919
+the circle to the point to the given
+
+182
+00:08:17,280 --> 00:08:23,039
+point so this line and this line will
+
+183
+00:08:19,919 --> 00:08:23,960
+pass you know it will intersect the
+
+184
+00:08:23,039 --> 00:08:27,360
+circle
+
+185
+00:08:23,960 --> 00:08:29,340
+then you take the distance from the
+
+186
+00:08:27,360 --> 00:08:32,580
+center of the circle let's call that o
+
+187
+00:08:29,340 --> 00:08:36,000
+for engine okay center of the circle to
+
+188
+00:08:32,580 --> 00:08:38,279
+the point P that the distance
+
+189
+00:08:36,000 --> 00:08:41,279
+and the new point is the point on the
+
+190
+00:08:38,279 --> 00:08:43,919
+line on this op line such that
+
+191
+00:08:41,279 --> 00:08:47,760
+the distance op
+
+192
+00:08:43,919 --> 00:08:51,839
+times the distance to the oq is equals
+
+193
+00:08:47,760 --> 00:08:54,600
+to the radius squared okay so do you see
+
+194
+00:08:51,839 --> 00:08:57,420
+what I mean so let's let let me let me
+
+195
+00:08:54,600 --> 00:09:00,839
+um let me draw that okay so hold on a
+
+196
+00:08:57,420 --> 00:09:03,320
+second let me sure that so let's start
+
+197
+00:09:00,839 --> 00:09:03,320
+to make
+
+198
+00:09:10,200 --> 00:09:16,320
+okay so let's draw this
+
+199
+00:09:13,320 --> 00:09:19,440
+see if we can do that
+
+200
+00:09:16,320 --> 00:09:20,880
+so given uh let's see
+
+201
+00:09:19,440 --> 00:09:24,140
+yeah
+
+202
+00:09:20,880 --> 00:09:24,140
+okay I cannot
+
+203
+00:09:27,540 --> 00:09:34,519
+it's you need to go here yeah so okay so
+
+204
+00:09:31,740 --> 00:09:34,519
+now oh wait
+
+205
+00:09:34,580 --> 00:09:38,300
+that that
+
+206
+00:09:38,899 --> 00:09:48,200
+uh Snape and sketch Okay so
+
+207
+00:09:43,440 --> 00:09:48,200
+so given the distance oh and
+
+208
+00:09:50,940 --> 00:09:58,080
+okay op the distance op times the
+
+209
+00:09:55,920 --> 00:10:01,260
+distance oq
+
+210
+00:09:58,080 --> 00:10:04,140
+is equals to r squared I is the radius
+
+211
+00:10:01,260 --> 00:10:07,380
+of the circle so if you want to know the
+
+212
+00:10:04,140 --> 00:10:11,180
+if you want to know that this so you can
+
+213
+00:10:07,380 --> 00:10:15,959
+manipulate this formula so all Q
+
+214
+00:10:11,180 --> 00:10:20,160
+equals to r squared divided by op okay
+
+215
+00:10:15,959 --> 00:10:24,300
+that's a line so the distance Okay so
+
+216
+00:10:20,160 --> 00:10:27,360
+so the distance o2q is equals to the
+
+217
+00:10:24,300 --> 00:10:29,820
+radius divided by o2p so let me go back
+
+218
+00:10:27,360 --> 00:10:33,660
+to the G algebra to show you
+
+219
+00:10:29,820 --> 00:10:36,240
+how how these transformation works
+
+220
+00:10:33,660 --> 00:10:38,700
+so you can see as the P moves further
+
+221
+00:10:36,240 --> 00:10:41,459
+away Q becomes
+
+222
+00:10:38,700 --> 00:10:42,300
+the the point Q gets closer to the
+
+223
+00:10:41,459 --> 00:10:45,540
+circle
+
+224
+00:10:42,300 --> 00:10:48,480
+if the p is near
+
+225
+00:10:45,540 --> 00:10:51,480
+the circum you know is on the circle
+
+226
+00:10:48,480 --> 00:10:53,519
+then Q is also on the circle if p goes
+
+227
+00:10:51,480 --> 00:10:57,000
+inside the circle then Q goes outside
+
+228
+00:10:53,519 --> 00:10:59,760
+you see so this transformation basically
+
+229
+00:10:57,000 --> 00:11:03,360
+swaps All Points outside of the circle
+
+230
+00:10:59,760 --> 00:11:05,700
+into inside and every any point inside
+
+231
+00:11:03,360 --> 00:11:09,120
+the circle becomes when go to go to
+
+232
+00:11:05,700 --> 00:11:11,880
+outside so you can see there is some
+
+233
+00:11:09,120 --> 00:11:15,720
+kind of symmetry of the p and Q point
+
+234
+00:11:11,880 --> 00:11:19,079
+you see the further away is p the the
+
+235
+00:11:15,720 --> 00:11:24,019
+closer is Q to the center the closer is
+
+236
+00:11:19,079 --> 00:11:24,019
+you know op then the further is all Q
+
+237
+00:11:24,300 --> 00:11:29,760
+so that's uh so this is kind of like a
+
+238
+00:11:27,000 --> 00:11:30,660
+mirror so you know like if you have a
+
+239
+00:11:29,760 --> 00:11:32,519
+mirror
+
+240
+00:11:30,660 --> 00:11:34,260
+you know the right side becomes the left
+
+241
+00:11:32,519 --> 00:11:36,839
+side the left side goes to the right
+
+242
+00:11:34,260 --> 00:11:40,320
+side you know if you have a l it becomes
+
+243
+00:11:36,839 --> 00:11:43,140
+L like that on the other side so in in a
+
+244
+00:11:40,320 --> 00:11:45,300
+similar way but the the line of the
+
+245
+00:11:43,140 --> 00:11:47,579
+mirroring is not a straight line it's a
+
+246
+00:11:45,300 --> 00:11:49,500
+circle so anything outside gets
+
+247
+00:11:47,579 --> 00:11:52,440
+reflected you you know you can kind of
+
+248
+00:11:49,500 --> 00:11:54,899
+say it gets reflected to the inside and
+
+249
+00:11:52,440 --> 00:11:58,079
+inside swapped to the outside so it's
+
+250
+00:11:54,899 --> 00:12:01,200
+fascinating so this is a geometric this
+
+251
+00:11:58,079 --> 00:12:02,760
+is a definition of a geometric immersion
+
+252
+00:12:01,200 --> 00:12:07,079
+okay
+
+253
+00:12:02,760 --> 00:12:10,800
+and uh okay so let's
+
+254
+00:12:07,079 --> 00:12:12,800
+so that's the definition so let's let's
+
+255
+00:12:10,800 --> 00:12:12,800
+um
+
+256
+00:12:13,860 --> 00:12:20,220
+and with this definition there are
+
+257
+00:12:16,560 --> 00:12:22,740
+certain very interesting properties so
+
+258
+00:12:20,220 --> 00:12:24,779
+remember we begin with a point and we
+
+259
+00:12:22,740 --> 00:12:28,740
+get a new point
+
+260
+00:12:24,779 --> 00:12:30,600
+and and and then we can we can prove
+
+261
+00:12:28,740 --> 00:12:33,240
+that
+
+262
+00:12:30,600 --> 00:12:35,700
+align if you are given a line in the
+
+263
+00:12:33,240 --> 00:12:38,040
+plane and you do the geometric inversion
+
+264
+00:12:35,700 --> 00:12:40,860
+for every point of the line
+
+265
+00:12:38,040 --> 00:12:42,480
+with respect to a given Circle then you
+
+266
+00:12:40,860 --> 00:12:46,500
+know of course if the line lies outside
+
+267
+00:12:42,480 --> 00:12:48,899
+of the circle then the new points will
+
+268
+00:12:46,500 --> 00:12:52,079
+all be inside of the circle and they
+
+269
+00:12:48,899 --> 00:12:55,560
+will become a circle so a line becomes a
+
+270
+00:12:52,079 --> 00:12:58,380
+circle this is one of the property
+
+271
+00:12:55,560 --> 00:13:00,660
+you know you can prove it and a circle
+
+272
+00:12:58,380 --> 00:13:03,480
+will also become a circle so let me show
+
+273
+00:13:00,660 --> 00:13:07,380
+you okay so let me see
+
+274
+00:13:03,480 --> 00:13:09,120
+so here is the inversion of a lines you
+
+275
+00:13:07,380 --> 00:13:12,120
+see these vertical lines they become
+
+276
+00:13:09,120 --> 00:13:14,820
+these red circles and if you have
+
+277
+00:13:12,120 --> 00:13:17,519
+circles like that the blue circles you
+
+278
+00:13:14,820 --> 00:13:20,639
+know horizontal with respect to these
+
+279
+00:13:17,519 --> 00:13:22,500
+yellow circle this inversion Circle then
+
+280
+00:13:20,639 --> 00:13:25,260
+they become the red circles like that
+
+281
+00:13:22,500 --> 00:13:28,860
+Circle will become circles
+
+282
+00:13:25,260 --> 00:13:31,500
+and lines will become circles too
+
+283
+00:13:28,860 --> 00:13:34,560
+so in fact you can consider
+
+284
+00:13:31,500 --> 00:13:36,600
+a line is just a special case of a
+
+285
+00:13:34,560 --> 00:13:39,420
+circle you know when the circle gets
+
+286
+00:13:36,600 --> 00:13:42,000
+infinitely large it becomes a line you
+
+287
+00:13:39,420 --> 00:13:43,440
+can think of it that way just as you
+
+288
+00:13:42,000 --> 00:13:46,680
+think of the reflection you know
+
+289
+00:13:43,440 --> 00:13:49,440
+reflection is a line where the left side
+
+290
+00:13:46,680 --> 00:13:52,500
+gets becomes the right side you know
+
+291
+00:13:49,440 --> 00:13:55,500
+like the symmetry of a human
+
+292
+00:13:52,500 --> 00:13:57,959
+um but with inversion it's like
+
+293
+00:13:55,500 --> 00:14:00,000
+reflection but everything gets inverted
+
+294
+00:13:57,959 --> 00:14:02,100
+inside and outside so you can think of
+
+295
+00:14:00,000 --> 00:14:04,800
+this circle when the circle becomes
+
+296
+00:14:02,100 --> 00:14:07,200
+larger and larger and larger they you
+
+297
+00:14:04,800 --> 00:14:10,139
+know the circumference becomes flatter
+
+298
+00:14:07,200 --> 00:14:12,480
+and flatter and if you take the limit to
+
+299
+00:14:10,139 --> 00:14:14,700
+Infinity it becomes a line it becomes
+
+300
+00:14:12,480 --> 00:14:16,860
+the normal reflection so you can think
+
+301
+00:14:14,700 --> 00:14:20,519
+of it that way
+
+302
+00:14:16,860 --> 00:14:23,339
+okay so so let's let me show you some of
+
+303
+00:14:20,519 --> 00:14:27,120
+the so here's the animation so you can
+
+304
+00:14:23,339 --> 00:14:30,120
+uh see how it works the inversion of a
+
+305
+00:14:27,120 --> 00:14:35,420
+circle becomes another Circle so let's
+
+306
+00:14:30,120 --> 00:14:35,420
+let's do it uh let's do it a line first
+
+307
+00:14:37,920 --> 00:14:44,459
+so here is the line the blue line and
+
+308
+00:14:40,860 --> 00:14:47,459
+the red is the image of the of the line
+
+309
+00:14:44,459 --> 00:14:49,860
+so you see
+
+310
+00:14:47,459 --> 00:14:52,860
+given any line you can move the line
+
+311
+00:14:49,860 --> 00:14:56,779
+anywhere so with respect to inversion to
+
+312
+00:14:52,860 --> 00:14:56,779
+this circle let's move these
+
+313
+00:14:57,180 --> 00:15:02,940
+to the center okay so with with respect
+
+314
+00:15:00,300 --> 00:15:04,740
+to this yellow circle I don't know if
+
+315
+00:15:02,940 --> 00:15:07,380
+you can see that the yellow circle is
+
+316
+00:15:04,740 --> 00:15:10,019
+the inversion Circle so this blue line
+
+317
+00:15:07,380 --> 00:15:12,899
+becomes this red circle so if we move
+
+318
+00:15:10,019 --> 00:15:15,959
+the line watch watch where it touches
+
+319
+00:15:12,899 --> 00:15:19,320
+the circumference
+
+320
+00:15:15,959 --> 00:15:22,079
+so you see a line becomes a circle and
+
+321
+00:15:19,320 --> 00:15:24,839
+when the line crosses our engine it
+
+322
+00:15:22,079 --> 00:15:28,260
+becomes a line again so you see so here
+
+323
+00:15:24,839 --> 00:15:30,540
+you can kind of see the how lines become
+
+324
+00:15:28,260 --> 00:15:32,040
+circles you know you can you can
+
+325
+00:15:30,540 --> 00:15:35,459
+consider that
+
+326
+00:15:32,040 --> 00:15:38,880
+a line is just a degenerate Circle a
+
+327
+00:15:35,459 --> 00:15:41,459
+line is a special case of a circle when
+
+328
+00:15:38,880 --> 00:15:42,720
+the radius becomes infinitely large you
+
+329
+00:15:41,459 --> 00:15:45,600
+see
+
+330
+00:15:42,720 --> 00:15:48,920
+now you have a small circle now it gets
+
+331
+00:15:45,600 --> 00:15:52,860
+larger larger larger larger larger
+
+332
+00:15:48,920 --> 00:15:55,560
+larger larger larger in infinitely large
+
+333
+00:15:52,860 --> 00:15:58,079
+it becomes a line so it's very
+
+334
+00:15:55,560 --> 00:16:00,600
+interesting so anyway the point here is
+
+335
+00:15:58,079 --> 00:16:01,800
+the line gets becomes a circle or lines
+
+336
+00:16:00,600 --> 00:16:04,800
+okay
+
+337
+00:16:01,800 --> 00:16:07,260
+now let's try uh let's see another case
+
+338
+00:16:04,800 --> 00:16:09,360
+with the circle
+
+339
+00:16:07,260 --> 00:16:12,180
+and you can prove all that you know
+
+340
+00:16:09,360 --> 00:16:13,000
+there's proof here you can read them uh
+
+341
+00:16:12,180 --> 00:16:13,680
+later
+
+342
+00:16:13,000 --> 00:16:15,680
+[Music]
+
+343
+00:16:13,680 --> 00:16:15,680
+um
+
+344
+00:16:16,440 --> 00:16:19,339
+so
+
+345
+00:16:20,399 --> 00:16:24,800
+so let's show a circle case
+
+346
+00:16:27,480 --> 00:16:30,680
+uh where is it
+
+347
+00:16:32,279 --> 00:16:38,360
+here
+
+348
+00:16:34,800 --> 00:16:38,360
+and no not here
+
+349
+00:16:43,680 --> 00:16:46,579
+yeah here
+
+350
+00:16:46,800 --> 00:16:52,320
+so here is a case of a circle so we have
+
+351
+00:16:49,800 --> 00:16:54,959
+a circle here if the circle is further
+
+352
+00:16:52,320 --> 00:16:57,779
+away you can see the red circle is its
+
+353
+00:16:54,959 --> 00:17:01,220
+image so
+
+354
+00:16:57,779 --> 00:17:01,220
+circles become Circle
+
+355
+00:17:02,339 --> 00:17:07,679
+okay so that's the geometric inversion
+
+356
+00:17:04,679 --> 00:17:09,720
+and here you can also see how it becomes
+
+357
+00:17:07,679 --> 00:17:12,720
+a line you know a circle becomes a
+
+358
+00:17:09,720 --> 00:17:15,540
+straight line and it got swapped to the
+
+359
+00:17:12,720 --> 00:17:18,059
+other side so anyway again
+
+360
+00:17:15,540 --> 00:17:21,059
+any point outside of the immersion
+
+361
+00:17:18,059 --> 00:17:24,120
+circle gets mapped to the inside you can
+
+362
+00:17:21,059 --> 00:17:25,620
+see p and Q There
+
+363
+00:17:24,120 --> 00:17:29,000
+here is p
+
+364
+00:17:25,620 --> 00:17:32,160
+so this point gets inverted over there
+
+365
+00:17:29,000 --> 00:17:35,160
+and this blue circle gets inverted into
+
+366
+00:17:32,160 --> 00:17:37,799
+the red circle and we can move the
+
+367
+00:17:35,160 --> 00:17:40,559
+circle about so you can let's see
+
+368
+00:17:37,799 --> 00:17:42,840
+enlarge the circle so again the blue
+
+369
+00:17:40,559 --> 00:17:44,520
+circle is outside it becomes
+
+370
+00:17:42,840 --> 00:17:48,900
+inside
+
+371
+00:17:44,520 --> 00:17:50,520
+and let's shrink it a bit okay so if we
+
+372
+00:17:48,900 --> 00:17:54,000
+move the circle
+
+373
+00:17:50,520 --> 00:17:56,900
+cross it and if we will move it inside
+
+374
+00:17:54,000 --> 00:17:56,900
+you can see
+
+375
+00:17:57,120 --> 00:18:02,780
+how it becomes goes to the outside and
+
+376
+00:18:00,480 --> 00:18:04,799
+you can see here is when a circle
+
+377
+00:18:02,780 --> 00:18:09,980
+becomes a line
+
+378
+00:18:04,799 --> 00:18:09,980
+and swap to the other side you can see
+
+379
+00:18:10,380 --> 00:18:14,460
+very interesting okay so geometric
+
+380
+00:18:12,539 --> 00:18:19,100
+inversion
+
+381
+00:18:14,460 --> 00:18:19,100
+so that's how all these Graphics are
+
+382
+00:18:19,160 --> 00:18:25,500
+so you know in this case you begin with
+
+383
+00:18:22,020 --> 00:18:28,500
+a colored grid like that and you do the
+
+384
+00:18:25,500 --> 00:18:31,860
+inversion it it becomes like that and
+
+385
+00:18:28,500 --> 00:18:35,160
+here is a mechanism let me show you this
+
+386
+00:18:31,860 --> 00:18:39,059
+way this one so this one is you know in
+
+387
+00:18:35,160 --> 00:18:41,820
+1800 also this is called porcelainia
+
+388
+00:18:39,059 --> 00:18:42,900
+personally a limit linkage something
+
+389
+00:18:41,820 --> 00:18:46,559
+like that
+
+390
+00:18:42,900 --> 00:18:48,480
+basically it's a mechanism to turn it's
+
+391
+00:18:46,559 --> 00:18:50,280
+a linkage it's a mechanism called
+
+392
+00:18:48,480 --> 00:18:53,160
+linkage that
+
+393
+00:18:50,280 --> 00:18:55,740
+that essentially demonstrates based on
+
+394
+00:18:53,160 --> 00:18:58,039
+the geometric inversion principle so you
+
+395
+00:18:55,740 --> 00:18:58,039
+can see
+
+396
+00:18:58,140 --> 00:19:04,919
+you can see this is a mechanism you know
+
+397
+00:19:01,500 --> 00:19:07,980
+you just got a bunch of bars fixed on a
+
+398
+00:19:04,919 --> 00:19:09,240
+point on a pivot or however you call
+
+399
+00:19:07,980 --> 00:19:12,660
+that
+
+400
+00:19:09,240 --> 00:19:13,980
+so this so if you move this point on
+
+401
+00:19:12,660 --> 00:19:17,760
+this line
+
+402
+00:19:13,980 --> 00:19:20,039
+you know this linkage forces forces the
+
+403
+00:19:17,760 --> 00:19:22,620
+two points such that one is the
+
+404
+00:19:20,039 --> 00:19:23,940
+inversion of the other
+
+405
+00:19:22,620 --> 00:19:27,240
+so
+
+406
+00:19:23,940 --> 00:19:28,620
+so this is useful when you have robotics
+
+407
+00:19:27,240 --> 00:19:31,740
+for example
+
+408
+00:19:28,620 --> 00:19:34,080
+the legs of a dog you know you want to
+
+409
+00:19:31,740 --> 00:19:35,220
+control you know you have a motor that
+
+410
+00:19:34,080 --> 00:19:38,940
+can only
+
+411
+00:19:35,220 --> 00:19:41,700
+go you know round about but you want the
+
+412
+00:19:38,940 --> 00:19:44,880
+legs to move you know back and forth so
+
+413
+00:19:41,700 --> 00:19:47,280
+this is one of the you know there's all
+
+414
+00:19:44,880 --> 00:19:50,940
+sort of linkages that does that so this
+
+415
+00:19:47,280 --> 00:19:54,900
+is one of the earliest to turn a
+
+416
+00:19:50,940 --> 00:19:56,220
+circular motion into a rectilinear
+
+417
+00:19:54,900 --> 00:19:58,320
+motion
+
+418
+00:19:56,220 --> 00:20:01,440
+uh and uh
+
+419
+00:19:58,320 --> 00:20:05,039
+you know and the the math principle
+
+420
+00:20:01,440 --> 00:20:07,559
+behind it is uh inversion okay
+
+421
+00:20:05,039 --> 00:20:09,960
+so that's and there's more there's
+
+422
+00:20:07,559 --> 00:20:13,320
+another famous linkage called Hearts
+
+423
+00:20:09,960 --> 00:20:18,059
+linkage uh I don't have age or I don't
+
+424
+00:20:13,320 --> 00:20:19,980
+have a you know interactive demo of that
+
+425
+00:20:18,059 --> 00:20:23,580
+uh and let's show you something
+
+426
+00:20:19,980 --> 00:20:28,080
+interesting okay so here is a geometric
+
+427
+00:20:23,580 --> 00:20:30,780
+inversion of a sine curve so so this
+
+428
+00:20:28,080 --> 00:20:34,980
+blue thing is a sine curve so you can
+
+429
+00:20:30,780 --> 00:20:37,919
+see the P Point moves and the red curve
+
+430
+00:20:34,980 --> 00:20:40,799
+is its inversion
+
+431
+00:20:37,919 --> 00:20:42,000
+so you can see and the green and the
+
+432
+00:20:40,799 --> 00:20:43,260
+green is the
+
+433
+00:20:42,000 --> 00:20:47,220
+uh
+
+434
+00:20:43,260 --> 00:20:50,360
+the the given Circle to invert so
+
+435
+00:20:47,220 --> 00:20:53,120
+again any point outside of the circle
+
+436
+00:20:50,360 --> 00:20:56,100
+goes through inside you see Q is here
+
+437
+00:20:53,120 --> 00:21:00,660
+and the
+
+438
+00:20:56,100 --> 00:21:03,360
+when when the point P reaches the circle
+
+439
+00:21:00,660 --> 00:21:05,700
+its image is the same you know p and Q
+
+440
+00:21:03,360 --> 00:21:09,120
+are same then when the point is inside
+
+441
+00:21:05,700 --> 00:21:11,700
+it goes outside so you can also move the
+
+442
+00:21:09,120 --> 00:21:14,299
+let's see if we can move the
+
+443
+00:21:11,700 --> 00:21:18,539
+yeah so we can move the
+
+444
+00:21:14,299 --> 00:21:20,460
+you see now the blue line is the you
+
+445
+00:21:18,539 --> 00:21:22,500
+know assign curve so now it's outside of
+
+446
+00:21:20,460 --> 00:21:26,000
+the circle so the image becomes very
+
+447
+00:21:22,500 --> 00:21:26,000
+small inside the circle
+
+448
+00:21:27,179 --> 00:21:32,940
+see
+
+449
+00:21:29,400 --> 00:21:35,880
+very interesting Okay so
+
+450
+00:21:32,940 --> 00:21:38,580
+now we want to
+
+451
+00:21:35,880 --> 00:21:39,840
+yeah now we want to derive the formula
+
+452
+00:21:38,580 --> 00:21:42,240
+Okay so
+
+453
+00:21:39,840 --> 00:21:46,340
+hello immortality
+
+454
+00:21:42,240 --> 00:21:49,919
+uh everything good say something guys
+
+455
+00:21:46,340 --> 00:21:51,360
+uh this bit rate problem uh okay so
+
+456
+00:21:49,919 --> 00:21:55,159
+let's see
+
+457
+00:21:51,360 --> 00:21:59,240
+so we demonstrated geometric conversion
+
+458
+00:21:55,159 --> 00:21:59,240
+uh what do we do next
+
+459
+00:21:59,400 --> 00:22:03,919
+let's see so I want to
+
+460
+00:22:09,500 --> 00:22:14,520
+spiral so here is another interesting
+
+461
+00:22:11,940 --> 00:22:17,340
+one let me show you that one okay so you
+
+462
+00:22:14,520 --> 00:22:21,179
+are looking at this spiral this spiral
+
+463
+00:22:17,340 --> 00:22:23,520
+is called archivitamin spiral it's a
+
+464
+00:22:21,179 --> 00:22:26,700
+family of spirals so there's not just
+
+465
+00:22:23,520 --> 00:22:28,200
+only one of them there's like multiple
+
+466
+00:22:26,700 --> 00:22:30,320
+of them
+
+467
+00:22:28,200 --> 00:22:33,659
+one parameter
+
+468
+00:22:30,320 --> 00:22:37,620
+so you can see this animation shows you
+
+469
+00:22:33,659 --> 00:22:40,200
+uh different Archimedes spirals
+
+470
+00:22:37,620 --> 00:22:42,320
+and this animation is this more so all
+
+471
+00:22:40,200 --> 00:22:45,480
+these are Archimedes virus
+
+472
+00:22:42,320 --> 00:22:46,760
+Archimedes spiral is is defined
+
+473
+00:22:45,480 --> 00:22:47,100
+by this
+
+474
+00:22:46,760 --> 00:22:47,940
+[Music]
+
+475
+00:22:47,100 --> 00:22:50,520
+um
+
+476
+00:22:47,940 --> 00:22:54,360
+polar equation
+
+477
+00:22:50,520 --> 00:22:58,380
+radius equals to angle raised to the
+
+478
+00:22:54,360 --> 00:23:01,140
+power of n so given a number n
+
+479
+00:22:58,380 --> 00:23:04,260
+let's say n equals to 1
+
+480
+00:23:01,140 --> 00:23:07,919
+then you have radius equals to Theta
+
+481
+00:23:04,260 --> 00:23:10,679
+so that means as you know Theta you know
+
+482
+00:23:07,919 --> 00:23:13,200
+so this is Polar Polar equation Theta
+
+483
+00:23:10,679 --> 00:23:15,179
+just turn around okay Theta just go
+
+484
+00:23:13,200 --> 00:23:18,299
+around so Theta
+
+485
+00:23:15,179 --> 00:23:21,900
+basically this means when R equals to
+
+486
+00:23:18,299 --> 00:23:24,600
+Theta that means when Theta turns the
+
+487
+00:23:21,900 --> 00:23:28,260
+radius is proportional to Theta okay so
+
+488
+00:23:24,600 --> 00:23:29,280
+it kinds up it's a kind of proportional
+
+489
+00:23:28,260 --> 00:23:31,760
+um
+
+490
+00:23:29,280 --> 00:23:35,220
+you get a proportional
+
+491
+00:23:31,760 --> 00:23:37,200
+spiral so as as when you have more Theta
+
+492
+00:23:35,220 --> 00:23:39,960
+you have more distance from the center
+
+493
+00:23:37,200 --> 00:23:42,960
+the radius okay so you can see that's a
+
+494
+00:23:39,960 --> 00:23:45,960
+result R equals to Theta
+
+495
+00:23:42,960 --> 00:23:48,900
+now but if you add power to Theta you
+
+496
+00:23:45,960 --> 00:23:51,360
+know theta equals raised to 2 second
+
+497
+00:23:48,900 --> 00:23:53,700
+power or third power then you get other
+
+498
+00:23:51,360 --> 00:23:57,659
+things you know you get other
+
+499
+00:23:53,700 --> 00:23:57,659
+kind of spirals
+
+500
+00:23:57,840 --> 00:24:04,140
+okay so that's Archimedes very well so
+
+501
+00:24:00,600 --> 00:24:06,720
+let's show you so there's a g algebra
+
+502
+00:24:04,140 --> 00:24:09,360
+you know so at this rate I don't think
+
+503
+00:24:06,720 --> 00:24:11,100
+we can start to code uh
+
+504
+00:24:09,360 --> 00:24:13,260
+okay
+
+505
+00:24:11,100 --> 00:24:16,020
+so anyway so this is our comedian's
+
+506
+00:24:13,260 --> 00:24:18,059
+spiral you can you can drag this to
+
+507
+00:24:16,020 --> 00:24:21,360
+change the
+
+508
+00:24:18,059 --> 00:24:24,600
+end to see different
+
+509
+00:24:21,360 --> 00:24:27,299
+uh spirals so so all these are comedy
+
+510
+00:24:24,600 --> 00:24:33,260
+comedian spiral
+
+511
+00:24:27,299 --> 00:24:33,260
+so when is n equals to 1
+
+512
+00:24:34,799 --> 00:24:42,299
+okay this is when n equals to 1 okay so
+
+513
+00:24:38,520 --> 00:24:45,240
+let me show you so you see this is these
+
+514
+00:24:42,299 --> 00:24:48,179
+are comedian spiral okay midi spiral so
+
+515
+00:24:45,240 --> 00:24:51,720
+when when when the power is one you have
+
+516
+00:24:48,179 --> 00:24:54,419
+the formula R equals true Theta and this
+
+517
+00:24:51,720 --> 00:24:56,400
+specific spiral is called Archimedes
+
+518
+00:24:54,419 --> 00:25:00,000
+spiral
+
+519
+00:24:56,400 --> 00:25:01,020
+now when the power is not one then you
+
+520
+00:25:00,000 --> 00:25:03,960
+have
+
+521
+00:25:01,020 --> 00:25:06,059
+other spirals that's called our comedian
+
+522
+00:25:03,960 --> 00:25:10,220
+spiral Okay so
+
+523
+00:25:06,059 --> 00:25:10,220
+you it's hard to see
+
+524
+00:25:13,880 --> 00:25:17,419
+uh let's see
+
+525
+00:25:19,380 --> 00:25:24,679
+you see this so it's a family of spirals
+
+526
+00:25:27,419 --> 00:25:32,820
+so when when the power is negative then
+
+527
+00:25:30,539 --> 00:25:34,620
+you got things like this and then it
+
+528
+00:25:32,820 --> 00:25:35,960
+becomes like that
+
+529
+00:25:34,620 --> 00:25:40,320
+okay
+
+530
+00:25:35,960 --> 00:25:43,620
+and you often see these as
+
+531
+00:25:40,320 --> 00:25:44,670
+you often see that
+
+532
+00:25:43,620 --> 00:25:45,000
+as
+
+533
+00:25:44,670 --> 00:25:47,000
+[Music]
+
+534
+00:25:45,000 --> 00:25:47,000
+um
+
+535
+00:25:48,179 --> 00:25:53,820
+anyway never mind okay so
+
+536
+00:25:51,419 --> 00:25:56,460
+so there are many different spirals they
+
+537
+00:25:53,820 --> 00:25:58,820
+are using architecture in decoration and
+
+538
+00:25:56,460 --> 00:25:58,820
+so on
+
+539
+00:25:59,760 --> 00:26:05,880
+okay so so that's a comedy spiral but
+
+540
+00:26:03,539 --> 00:26:08,580
+what about the inversion so let's show
+
+541
+00:26:05,880 --> 00:26:12,120
+let's show the inversion of a swipe of
+
+542
+00:26:08,580 --> 00:26:14,720
+this spiral so somewhere here
+
+543
+00:26:12,120 --> 00:26:14,720
+here
+
+544
+00:26:15,539 --> 00:26:22,500
+okay so the blue line is the archimede
+
+545
+00:26:19,039 --> 00:26:26,640
+Archimedes spiral okay so let's check
+
+546
+00:26:22,500 --> 00:26:27,659
+make it one and the red line is its
+
+547
+00:26:26,640 --> 00:26:31,380
+inversion
+
+548
+00:26:27,659 --> 00:26:33,900
+this this screen is the inversion Circle
+
+549
+00:26:31,380 --> 00:26:37,020
+okay so you can see
+
+550
+00:26:33,900 --> 00:26:40,679
+you have different Archimedes Archimedes
+
+551
+00:26:37,020 --> 00:26:43,159
+virus and the red the red is its
+
+552
+00:26:40,679 --> 00:26:43,159
+inversion
+
+553
+00:26:43,440 --> 00:26:48,299
+and basically our comedian spiral
+
+554
+00:26:45,840 --> 00:26:50,580
+inverts to it itself
+
+555
+00:26:48,299 --> 00:26:53,279
+uh
+
+556
+00:26:50,580 --> 00:26:56,400
+an Archimedes viral
+
+557
+00:26:53,279 --> 00:26:59,039
+its inversion is an again Archimedean
+
+558
+00:26:56,400 --> 00:27:02,460
+spiral so you can kind of see the blue
+
+559
+00:26:59,039 --> 00:27:04,020
+curve in the red uh a comedians virus
+
+560
+00:27:02,460 --> 00:27:06,659
+okay
+
+561
+00:27:04,020 --> 00:27:09,659
+so okay so that's that's that's about
+
+562
+00:27:06,659 --> 00:27:11,700
+some some of the fancy you know we are
+
+563
+00:27:09,659 --> 00:27:12,960
+showing some of the fancy Graphics of
+
+564
+00:27:11,700 --> 00:27:15,659
+the inversion
+
+565
+00:27:12,960 --> 00:27:17,779
+so just to get a sense of what it looks
+
+566
+00:27:15,659 --> 00:27:17,779
+like
+
+567
+00:27:18,720 --> 00:27:26,340
+I love my emacs tutorial okay thank you
+
+568
+00:27:21,779 --> 00:27:29,000
+today is not emacs so okay so now what
+
+569
+00:27:26,340 --> 00:27:29,000
+we do next
+
+570
+00:27:29,880 --> 00:27:35,159
+oh yeah so let's run some of the code so
+
+571
+00:27:32,640 --> 00:27:38,360
+let me just show you so we did this
+
+572
+00:27:35,159 --> 00:27:38,360
+in past video
+
+573
+00:27:38,760 --> 00:27:42,799
+uh let's start with fan language
+
+574
+00:27:45,299 --> 00:27:51,240
+so next I want to I want to derive the
+
+575
+00:27:48,659 --> 00:27:53,159
+formula but
+
+576
+00:27:51,240 --> 00:27:55,559
+you know so here is Wolfram language
+
+577
+00:27:53,159 --> 00:27:57,600
+code I want to derive the formula but
+
+578
+00:27:55,559 --> 00:28:00,419
+that's gonna be
+
+579
+00:27:57,600 --> 00:28:04,760
+another half an hour
+
+580
+00:28:00,419 --> 00:28:04,760
+and I was planning to do
+
+581
+00:28:04,919 --> 00:28:09,539
+coding it you know coding a fancy
+
+582
+00:28:08,279 --> 00:28:12,000
+graphics
+
+583
+00:28:09,539 --> 00:28:15,539
+you know these are old we did last time
+
+584
+00:28:12,000 --> 00:28:16,980
+so I'm just running it so I can show you
+
+585
+00:28:15,539 --> 00:28:19,919
+so
+
+586
+00:28:16,980 --> 00:28:22,820
+so here is a geometric inversion a bunch
+
+587
+00:28:19,919 --> 00:28:27,240
+of squares
+
+588
+00:28:22,820 --> 00:28:30,419
+and uh and this one 3D tile very
+
+589
+00:28:27,240 --> 00:28:33,440
+interesting let's copy it here's a code
+
+590
+00:28:30,419 --> 00:28:33,440
+copy it
+
+591
+00:28:35,100 --> 00:28:44,580
+paste it here run it
+
+592
+00:28:39,140 --> 00:28:48,960
+and okay so let's make this pretty
+
+593
+00:28:44,580 --> 00:28:51,600
+so you can see uh when the math formulas
+
+594
+00:28:48,960 --> 00:28:54,659
+and that's a source code so you get this
+
+595
+00:28:51,600 --> 00:28:57,360
+thing it's running again
+
+596
+00:28:54,659 --> 00:29:00,260
+so you get this thing you you begin with
+
+597
+00:28:57,360 --> 00:29:04,020
+this image then you do a geometric
+
+598
+00:29:00,260 --> 00:29:08,100
+inversion then you get this okay then
+
+599
+00:29:04,020 --> 00:29:11,580
+you you add z-axis you know you make it
+
+600
+00:29:08,100 --> 00:29:14,100
+three-dimensional so you get this
+
+601
+00:29:11,580 --> 00:29:16,799
+and then you just add thickness to it
+
+602
+00:29:14,100 --> 00:29:19,860
+then you get that
+
+603
+00:29:16,799 --> 00:29:22,380
+okay so that's you know that's that's
+
+604
+00:29:19,860 --> 00:29:24,659
+the graphics we did last time
+
+605
+00:29:22,380 --> 00:29:27,419
+uh
+
+606
+00:29:24,659 --> 00:29:30,260
+and I just want to
+
+607
+00:29:27,419 --> 00:29:30,260
+show them again
+
+608
+00:29:33,390 --> 00:29:39,960
+[Music]
+
+609
+00:29:35,760 --> 00:29:41,880
+no I don't want traditional foam
+
+610
+00:29:39,960 --> 00:29:47,340
+brunette
+
+611
+00:29:41,880 --> 00:29:47,340
+okay so this is a bunch of Cubes
+
+612
+00:29:47,640 --> 00:29:55,919
+uh and inverted geometric inversion in
+
+613
+00:29:52,020 --> 00:29:59,480
+3D so can we show the cubes
+
+614
+00:29:55,919 --> 00:29:59,480
+now let's not do it okay
+
+615
+00:30:00,840 --> 00:30:05,640
+okay I wonder if there are something
+
+616
+00:30:02,520 --> 00:30:08,580
+basic about visualization questions like
+
+617
+00:30:05,640 --> 00:30:11,059
+the distance between a point and a
+
+618
+00:30:08,580 --> 00:30:11,059
+straight line
+
+619
+00:30:14,940 --> 00:30:19,760
+distance between a point and a straight
+
+620
+00:30:17,520 --> 00:30:19,760
+line
+
+621
+00:30:20,460 --> 00:30:24,299
+yeah you uh
+
+622
+00:30:22,799 --> 00:30:26,460
+um
+
+623
+00:30:24,299 --> 00:30:28,380
+yeah you can do that but let's let's
+
+624
+00:30:26,460 --> 00:30:30,360
+move on with uh what we're gonna do
+
+625
+00:30:28,380 --> 00:30:32,720
+today okay
+
+626
+00:30:30,360 --> 00:30:36,000
+so
+
+627
+00:30:32,720 --> 00:30:38,360
+so let's see what what we want to do
+
+628
+00:30:36,000 --> 00:30:38,360
+next
+
+629
+00:30:40,020 --> 00:30:47,240
+we want to derive the geometric
+
+630
+00:30:43,679 --> 00:30:47,240
+inversion formula
+
+631
+00:30:47,760 --> 00:30:50,899
+Okay so
+
+632
+00:30:51,659 --> 00:30:55,159
+so how do we do that
+
+633
+00:30:56,940 --> 00:30:59,899
+uh
+
+634
+00:31:00,600 --> 00:31:05,580
+and we want to show the relations
+
+635
+00:31:03,360 --> 00:31:09,059
+between geometric inversion and
+
+636
+00:31:05,580 --> 00:31:11,159
+stereographic projection okay so if you
+
+637
+00:31:09,059 --> 00:31:14,460
+don't know stereographic projection is
+
+638
+00:31:11,159 --> 00:31:19,159
+just like that so let's let's let me
+
+639
+00:31:14,460 --> 00:31:19,159
+show you the relationship okay
+
+640
+00:31:20,880 --> 00:31:23,720
+so
+
+641
+00:31:29,580 --> 00:31:34,679
+and start paint okay so let's see if we
+
+642
+00:31:32,820 --> 00:31:37,559
+can do this
+
+643
+00:31:34,679 --> 00:31:40,260
+so given a line
+
+644
+00:31:37,559 --> 00:31:43,919
+given a circle
+
+645
+00:31:40,260 --> 00:31:47,399
+so in a geometric in stereographic
+
+646
+00:31:43,919 --> 00:31:50,220
+projection this is a 3D case but you can
+
+647
+00:31:47,399 --> 00:31:56,659
+also do it on 2D so this here is a 2d
+
+648
+00:31:50,220 --> 00:31:59,700
+case so this is X and this is
+
+649
+00:31:56,659 --> 00:32:01,860
+why so what you do is that you project
+
+650
+00:31:59,700 --> 00:32:05,940
+the line
+
+651
+00:32:01,860 --> 00:32:09,960
+you know given given a point x
+
+652
+00:32:05,940 --> 00:32:11,640
+given point on X this point is p so you
+
+653
+00:32:09,960 --> 00:32:16,520
+draw a line from the center of the
+
+654
+00:32:11,640 --> 00:32:16,520
+circle to P then this line
+
+655
+00:32:17,100 --> 00:32:22,380
+this should be a line straight okay so
+
+656
+00:32:19,860 --> 00:32:24,799
+how do you erase um
+
+657
+00:32:22,380 --> 00:32:24,799
+things
+
+658
+00:32:26,100 --> 00:32:29,720
+yeah this is not good
+
+659
+00:32:29,880 --> 00:32:33,840
+so anyway so you draw a line passing the
+
+660
+00:32:32,760 --> 00:32:36,679
+point p
+
+661
+00:32:33,840 --> 00:32:41,039
+and passing the center of the circle
+
+662
+00:32:36,679 --> 00:32:43,740
+then you will have
+
+663
+00:32:41,039 --> 00:32:46,399
+this new point and this point is Q
+
+664
+00:32:43,740 --> 00:32:46,399
+called Q
+
+665
+00:32:50,640 --> 00:32:58,200
+this point is called Q so this point Q
+
+666
+00:32:55,020 --> 00:33:01,919
+is a stereographic projection of the
+
+667
+00:32:58,200 --> 00:33:07,020
+point p in a two-dimensional case so any
+
+668
+00:33:01,919 --> 00:33:10,500
+point p on the x axis you can it
+
+669
+00:33:07,020 --> 00:33:13,019
+corresponds to a point on a circle Q
+
+670
+00:33:10,500 --> 00:33:15,480
+okay so this is
+
+671
+00:33:13,019 --> 00:33:18,240
+this is kind of a two-dimensional case
+
+672
+00:33:15,480 --> 00:33:20,399
+so you can do it in three dimension in
+
+673
+00:33:18,240 --> 00:33:23,399
+the same principle applies
+
+674
+00:33:20,399 --> 00:33:25,559
+so that's how we get that okay we we did
+
+675
+00:33:23,399 --> 00:33:28,260
+a video last time on this
+
+676
+00:33:25,559 --> 00:33:31,620
+uh and you can see
+
+677
+00:33:28,260 --> 00:33:34,140
+given given a image like that
+
+678
+00:33:31,620 --> 00:33:36,860
+you know you have the result like that
+
+679
+00:33:34,140 --> 00:33:36,860
+on the right side
+
+680
+00:33:37,740 --> 00:33:42,440
+and you can also demonstrate this by
+
+681
+00:33:40,679 --> 00:33:45,299
+shining a light
+
+682
+00:33:42,440 --> 00:33:48,419
+onto a ball you know the light must be
+
+683
+00:33:45,299 --> 00:33:50,279
+at the North Point of the circle
+
+684
+00:33:48,419 --> 00:33:52,919
+then you know then the shadow
+
+685
+00:33:50,279 --> 00:33:54,899
+automatically becomes their you know
+
+686
+00:33:52,919 --> 00:33:58,200
+projected point
+
+687
+00:33:54,899 --> 00:34:01,919
+okay so this mathematician uh friend
+
+688
+00:33:58,200 --> 00:34:05,760
+segment Henry Central he did a video
+
+689
+00:34:01,919 --> 00:34:07,740
+fantastic okay so you go
+
+690
+00:34:05,760 --> 00:34:09,599
+watch that video
+
+691
+00:34:07,740 --> 00:34:11,639
+so anyway and and there are other
+
+692
+00:34:09,599 --> 00:34:15,119
+interesting so this is you know very
+
+693
+00:34:11,639 --> 00:34:17,280
+useful in math it's using uh complex
+
+694
+00:34:15,119 --> 00:34:18,899
+analysis
+
+695
+00:34:17,280 --> 00:34:21,919
+so anyway so
+
+696
+00:34:18,899 --> 00:34:25,200
+so we have the stereographic projection
+
+697
+00:34:21,919 --> 00:34:27,780
+so how does this relate to inversion
+
+698
+00:34:25,200 --> 00:34:29,940
+okay so let me explain
+
+699
+00:34:27,780 --> 00:34:33,179
+so here is the stereo you know
+
+700
+00:34:29,940 --> 00:34:35,960
+stereographic projection
+
+701
+00:34:33,179 --> 00:34:35,960
+and
+
+702
+00:34:38,580 --> 00:34:43,879
+this is not good so let's let's do
+
+703
+00:35:08,339 --> 00:35:12,900
+so if you have
+
+704
+00:35:10,740 --> 00:35:16,460
+um yeah so what's what is the relation
+
+705
+00:35:12,900 --> 00:35:19,260
+between stereographic projection and
+
+706
+00:35:16,460 --> 00:35:22,560
+geometric inversion okay so let's do it
+
+707
+00:35:19,260 --> 00:35:24,599
+again let's do the graph again so here
+
+708
+00:35:22,560 --> 00:35:27,300
+is the x-axis
+
+709
+00:35:24,599 --> 00:35:30,420
+here is the y-axis
+
+710
+00:35:27,300 --> 00:35:34,740
+and suppose you have a sphere here
+
+711
+00:35:30,420 --> 00:35:38,900
+okay so you put so given a point p on
+
+712
+00:35:34,740 --> 00:35:38,900
+the x-axis you draw a line
+
+713
+00:35:39,240 --> 00:35:47,280
+through it and here this point is Q okay
+
+714
+00:35:44,040 --> 00:35:50,099
+so this is stereographic projection by
+
+715
+00:35:47,280 --> 00:35:52,440
+definition any point you know on a
+
+716
+00:35:50,099 --> 00:35:56,400
+circle you project the line
+
+717
+00:35:52,440 --> 00:35:58,740
+uh wait actually we did it wrong
+
+718
+00:35:56,400 --> 00:36:02,839
+it should be from the North Pole not
+
+719
+00:35:58,740 --> 00:36:02,839
+from the center of the circle okay but
+
+720
+00:36:05,220 --> 00:36:10,099
+so so there should be a line like that
+
+721
+00:36:10,859 --> 00:36:17,280
+so and this point is called Q so here's
+
+722
+00:36:14,460 --> 00:36:20,099
+a that's a stereographic projection
+
+723
+00:36:17,280 --> 00:36:23,820
+now how does it relate to inversion so
+
+724
+00:36:20,099 --> 00:36:25,079
+now imagine there's a circle twice as
+
+725
+00:36:23,820 --> 00:36:27,960
+large
+
+726
+00:36:25,079 --> 00:36:30,180
+so the circle goes like that so here is
+
+727
+00:36:27,960 --> 00:36:34,380
+the center
+
+728
+00:36:30,180 --> 00:36:36,780
+okay so this large circle now now you
+
+729
+00:36:34,380 --> 00:36:39,780
+are going to do
+
+730
+00:36:36,780 --> 00:36:42,960
+so before given a point P we want to
+
+731
+00:36:39,780 --> 00:36:45,359
+find the stereographic projection of the
+
+732
+00:36:42,960 --> 00:36:47,460
+P of the point p
+
+733
+00:36:45,359 --> 00:36:50,940
+so you just draw a line from the North
+
+734
+00:36:47,460 --> 00:36:54,359
+Pole to p and the intersection
+
+735
+00:36:50,940 --> 00:36:58,140
+with the circle is your image the result
+
+736
+00:36:54,359 --> 00:37:00,660
+of P okay so any point P will have a
+
+737
+00:36:58,140 --> 00:37:03,240
+point Q on the circle on the
+
+738
+00:37:00,660 --> 00:37:04,500
+stereographic projection Circle the
+
+739
+00:37:03,240 --> 00:37:07,980
+small circle
+
+740
+00:37:04,500 --> 00:37:10,740
+now you can do you can do this without
+
+741
+00:37:07,980 --> 00:37:13,859
+using stereographic projection
+
+742
+00:37:10,740 --> 00:37:16,920
+to get the point Q okay how do you do
+
+743
+00:37:13,859 --> 00:37:20,280
+that use you can do that with geometric
+
+744
+00:37:16,920 --> 00:37:23,160
+inversion so you just imagine a bigger
+
+745
+00:37:20,280 --> 00:37:26,820
+Circle twice as large so what you do now
+
+746
+00:37:23,160 --> 00:37:31,260
+is you invert the point p with respect
+
+747
+00:37:26,820 --> 00:37:34,740
+to the inversion Circle then you can see
+
+748
+00:37:31,260 --> 00:37:36,660
+you get a point q and this coin Point Q
+
+749
+00:37:34,740 --> 00:37:40,020
+will be just
+
+750
+00:37:36,660 --> 00:37:42,300
+it will be exactly the same as the
+
+751
+00:37:40,020 --> 00:37:47,040
+stereographic projection
+
+752
+00:37:42,300 --> 00:37:49,920
+so you can see any point on this line X
+
+753
+00:37:47,040 --> 00:37:52,440
+and when you do inversion remember a
+
+754
+00:37:49,920 --> 00:37:54,839
+line inverts to a circle to this small
+
+755
+00:37:52,440 --> 00:37:56,820
+circle so when you do inversion with
+
+756
+00:37:54,839 --> 00:38:00,359
+respect to the large Circle
+
+757
+00:37:56,820 --> 00:38:02,640
+and since it becomes a circle because a
+
+758
+00:38:00,359 --> 00:38:05,280
+line becomes a circle and this since
+
+759
+00:38:02,640 --> 00:38:07,560
+this line is outside of the circle so
+
+760
+00:38:05,280 --> 00:38:10,260
+any point on the line goes inside the
+
+761
+00:38:07,560 --> 00:38:11,339
+circle and any point touching the circle
+
+762
+00:38:10,260 --> 00:38:12,960
+will
+
+763
+00:38:11,339 --> 00:38:16,859
+not change
+
+764
+00:38:12,960 --> 00:38:17,940
+so you can see this line x-axis becomes
+
+765
+00:38:16,859 --> 00:38:20,339
+the
+
+766
+00:38:17,940 --> 00:38:22,320
+becomes exactly the stereographic
+
+767
+00:38:20,339 --> 00:38:24,240
+projection Circle
+
+768
+00:38:22,320 --> 00:38:25,380
+okay so that's
+
+769
+00:38:24,240 --> 00:38:28,140
+um
+
+770
+00:38:25,380 --> 00:38:31,440
+that's their relation so that means when
+
+771
+00:38:28,140 --> 00:38:34,320
+you try to code this image you know we
+
+772
+00:38:31,440 --> 00:38:36,359
+you normally we use the
+
+773
+00:38:34,320 --> 00:38:38,820
+you know we try to find the intersection
+
+774
+00:38:36,359 --> 00:38:41,579
+of the line and the circle to determine
+
+775
+00:38:38,820 --> 00:38:44,220
+the point but now
+
+776
+00:38:41,579 --> 00:38:45,780
+you have a different method instead of
+
+777
+00:38:44,220 --> 00:38:49,859
+you know trying to find the intersection
+
+778
+00:38:45,780 --> 00:38:53,700
+you can just compute the distance of
+
+779
+00:38:49,859 --> 00:38:57,000
+of the North Pole 2p you know
+
+780
+00:38:53,700 --> 00:38:58,740
+times the North Pole to Q will equals
+
+781
+00:38:57,000 --> 00:39:01,260
+two times the radius of your
+
+782
+00:38:58,740 --> 00:39:04,320
+stereographic projection so you can find
+
+783
+00:39:01,260 --> 00:39:06,540
+that point so you don't have to do the
+
+784
+00:39:04,320 --> 00:39:08,400
+intersection anymore so that's a
+
+785
+00:39:06,540 --> 00:39:11,099
+different technique
+
+786
+00:39:08,400 --> 00:39:14,099
+so let me show you Wikipedia Wikipedia
+
+787
+00:39:11,099 --> 00:39:15,720
+has a good explanation Okay so
+
+788
+00:39:14,099 --> 00:39:19,339
+let's see
+
+789
+00:39:15,720 --> 00:39:19,339
+uh inversion okay
+
+790
+00:39:28,380 --> 00:39:34,920
+so here is the inversion so they explain
+
+791
+00:39:31,680 --> 00:39:37,460
+they expand inversive geometry
+
+792
+00:39:34,920 --> 00:39:40,680
+um and you can see this beautiful
+
+793
+00:39:37,460 --> 00:39:42,500
+animation that's fantastic that's
+
+794
+00:39:40,680 --> 00:39:45,240
+inverting a
+
+795
+00:39:42,500 --> 00:39:47,820
+mandelbrot set
+
+796
+00:39:45,240 --> 00:39:51,500
+some sort of mandible set inversion of
+
+797
+00:39:47,820 --> 00:39:51,500
+Lambda mandible set okay
+
+798
+00:39:55,380 --> 00:40:01,320
+okay and now let's go and they explain
+
+799
+00:39:58,740 --> 00:40:03,079
+the same way I did and there's many
+
+800
+00:40:01,320 --> 00:40:08,280
+interesting properties
+
+801
+00:40:03,079 --> 00:40:10,140
+uh and uh Circle become lines and here
+
+802
+00:40:08,280 --> 00:40:12,599
+is how they explain
+
+803
+00:40:10,140 --> 00:40:14,579
+the relationship between stereographic
+
+804
+00:40:12,599 --> 00:40:17,099
+projection
+
+805
+00:40:14,579 --> 00:40:18,660
+you know with respect to the green
+
+806
+00:40:17,099 --> 00:40:21,900
+circle
+
+807
+00:40:18,660 --> 00:40:25,140
+can be equivalent can be you know is
+
+808
+00:40:21,900 --> 00:40:26,880
+actually equal to the inversion of a
+
+809
+00:40:25,140 --> 00:40:28,980
+circle twice as large
+
+810
+00:40:26,880 --> 00:40:31,859
+you know so this point becomes that
+
+811
+00:40:28,980 --> 00:40:34,740
+point that point becomes that point
+
+812
+00:40:31,859 --> 00:40:37,820
+so two ways to do it
+
+813
+00:40:34,740 --> 00:40:37,820
+Okay so
+
+814
+00:40:40,200 --> 00:40:49,220
+so now so that's the mathematics of it
+
+815
+00:40:44,160 --> 00:40:49,220
+uh so next we're going to do
+
+816
+00:40:51,060 --> 00:40:55,859
+next we uh so there are there are a few
+
+817
+00:40:54,060 --> 00:40:58,859
+things we can do now
+
+818
+00:40:55,859 --> 00:41:01,320
+uh one is to derive
+
+819
+00:40:58,859 --> 00:41:03,740
+the formula for stereographic projection
+
+820
+00:41:01,320 --> 00:41:03,740
+okay
+
+821
+00:41:04,020 --> 00:41:08,839
+we're gonna try to derive the formula
+
+822
+00:41:06,300 --> 00:41:08,839
+for that
+
+823
+00:41:11,060 --> 00:41:17,280
+uh
+
+824
+00:41:12,780 --> 00:41:20,880
+for this projection and also we can
+
+825
+00:41:17,280 --> 00:41:24,240
+try to derive the formula for geometric
+
+826
+00:41:20,880 --> 00:41:26,220
+inversion that is given a point in the
+
+827
+00:41:24,240 --> 00:41:28,440
+plane x y
+
+828
+00:41:26,220 --> 00:41:30,839
+you want to find the formula that gives
+
+829
+00:41:28,440 --> 00:41:33,800
+you the result point
+
+830
+00:41:30,839 --> 00:41:33,800
+the coordinate
+
+831
+00:41:35,540 --> 00:41:43,800
+so we can derive those formulas then
+
+832
+00:41:40,260 --> 00:41:47,420
+the other thing to do is to actually
+
+833
+00:41:43,800 --> 00:41:47,420
+code it in Wolfram language
+
+834
+00:41:49,020 --> 00:41:58,099
+okay so let's so what do we do first
+
+835
+00:41:53,820 --> 00:41:58,099
+um let's see so the here is inversion
+
+836
+00:41:58,619 --> 00:42:05,000
+so here is the stereographic projection
+
+837
+00:42:01,260 --> 00:42:05,000
+and inversion so
+
+838
+00:42:19,560 --> 00:42:25,740
+so how do you derive the formula you
+
+839
+00:42:22,859 --> 00:42:27,780
+know that that's I haven't been doing
+
+840
+00:42:25,740 --> 00:42:30,480
+this for a long time so
+
+841
+00:42:27,780 --> 00:42:34,079
+let's see basically basically all you
+
+842
+00:42:30,480 --> 00:42:36,359
+need is trigonometry okay
+
+843
+00:42:34,079 --> 00:42:39,119
+uh you don't need you don't actually
+
+844
+00:42:36,359 --> 00:42:40,619
+need to solve any equations I don't
+
+845
+00:42:39,119 --> 00:42:45,619
+think
+
+846
+00:42:40,619 --> 00:42:45,619
+but how do you do it oh my God I forgot
+
+847
+00:42:48,060 --> 00:42:53,040
+so basically given a circle this small
+
+848
+00:42:51,599 --> 00:42:55,440
+circle
+
+849
+00:42:53,040 --> 00:42:58,560
+and and uh
+
+850
+00:42:55,440 --> 00:43:01,700
+given a point P you want to find the
+
+851
+00:42:58,560 --> 00:43:01,700
+coordinate of Q
+
+852
+00:43:05,520 --> 00:43:10,800
+and how do you do that without using
+
+853
+00:43:08,400 --> 00:43:13,920
+equations you know you can you can solve
+
+854
+00:43:10,800 --> 00:43:15,839
+it by using a equation of a circle and
+
+855
+00:43:13,920 --> 00:43:18,619
+the equation of a line
+
+856
+00:43:15,839 --> 00:43:18,619
+so you have
+
+857
+00:43:19,319 --> 00:43:22,680
+so you have
+
+858
+00:43:20,880 --> 00:43:25,079
+um
+
+859
+00:43:22,680 --> 00:43:28,260
+yeah equation of a line
+
+860
+00:43:25,079 --> 00:43:31,200
+is two variables equation of a circle is
+
+861
+00:43:28,260 --> 00:43:34,260
+also two variables so once you have that
+
+862
+00:43:31,200 --> 00:43:36,900
+you can you have two equations with two
+
+863
+00:43:34,260 --> 00:43:38,280
+variables so you can solve you can find
+
+864
+00:43:36,900 --> 00:43:41,280
+the Q
+
+865
+00:43:38,280 --> 00:43:44,160
+um the intersection point
+
+866
+00:43:41,280 --> 00:43:47,160
+you have two in this case
+
+867
+00:43:44,160 --> 00:43:47,160
+but
+
+868
+00:43:47,700 --> 00:43:53,040
+so that's one way to derive
+
+869
+00:43:51,420 --> 00:43:57,079
+the formula
+
+870
+00:43:53,040 --> 00:43:57,079
+of stereographic projection
+
+871
+00:43:59,760 --> 00:44:04,500
+but is there another way without using
+
+872
+00:44:03,000 --> 00:44:07,500
+equations
+
+873
+00:44:04,500 --> 00:44:10,260
+for example let me let me show you okay
+
+874
+00:44:07,500 --> 00:44:12,780
+so for example let's let's use let's
+
+875
+00:44:10,260 --> 00:44:14,640
+cheat okay let's use Wolfram language to
+
+876
+00:44:12,780 --> 00:44:17,880
+solve the equation
+
+877
+00:44:14,640 --> 00:44:22,940
+but anyway you'll explain so
+
+878
+00:44:17,880 --> 00:44:22,940
+equation a circle is x squared
+
+879
+00:44:24,140 --> 00:44:29,359
+what
+
+880
+00:44:26,180 --> 00:44:34,339
+plus y squared
+
+881
+00:44:29,359 --> 00:44:34,339
+equals to r squared okay
+
+882
+00:44:34,740 --> 00:44:39,800
+so this is how you do equation in
+
+883
+00:44:37,079 --> 00:44:39,800
+Wolfram language
+
+884
+00:44:42,060 --> 00:44:49,760
+okay so and you can
+
+885
+00:44:45,119 --> 00:44:49,760
+you can you can make it look nice
+
+886
+00:44:49,859 --> 00:44:57,300
+so that's a formula for a circle
+
+887
+00:44:53,780 --> 00:44:59,900
+centered on the origin okay so we can
+
+888
+00:44:57,300 --> 00:44:59,900
+plot it
+
+889
+00:45:03,839 --> 00:45:07,040
+come to plot okay
+
+890
+00:45:08,760 --> 00:45:11,720
+foreign
+
+891
+00:45:14,300 --> 00:45:19,079
+works
+
+892
+00:45:15,839 --> 00:45:21,740
+okay you need uh three arguments I
+
+893
+00:45:19,079 --> 00:45:21,740
+expected
+
+894
+00:45:23,760 --> 00:45:30,960
+oh so you need X Y X Y minimum Okay so
+
+895
+00:45:28,200 --> 00:45:34,440
+Wolfram language needs to know which one
+
+896
+00:45:30,960 --> 00:45:37,079
+are the variables so X is a variable and
+
+897
+00:45:34,440 --> 00:45:38,760
+you want to plot it from negative two to
+
+898
+00:45:37,079 --> 00:45:42,119
+two okay
+
+899
+00:45:38,760 --> 00:45:47,280
+and Y is also the variable and from
+
+900
+00:45:42,119 --> 00:45:51,060
+negative 2 to 2 okay let's do it
+
+901
+00:45:47,280 --> 00:45:54,000
+okay so then you wanna say
+
+902
+00:45:51,060 --> 00:45:56,579
+oh it doesn't know what is R so you have
+
+903
+00:45:54,000 --> 00:45:59,160
+to say the value for R in this case
+
+904
+00:45:56,579 --> 00:46:02,520
+let's say I equals 1.
+
+905
+00:45:59,160 --> 00:46:05,760
+okay so you got a circle
+
+906
+00:46:02,520 --> 00:46:09,920
+of radius one
+
+907
+00:46:05,760 --> 00:46:09,920
+uh now we want the line
+
+908
+00:46:10,800 --> 00:46:15,720
+now you um
+
+909
+00:46:13,079 --> 00:46:19,500
+now this circle is centered on the
+
+910
+00:46:15,720 --> 00:46:23,700
+orange you know zero zero we don't want
+
+911
+00:46:19,500 --> 00:46:27,180
+that you know we want a circle centered
+
+912
+00:46:23,700 --> 00:46:30,119
+uh above orange above the engine we want
+
+913
+00:46:27,180 --> 00:46:32,339
+the small circle okay so again we are
+
+914
+00:46:30,119 --> 00:46:33,780
+trying to stop we are trying to find the
+
+915
+00:46:32,339 --> 00:46:37,020
+formula for
+
+916
+00:46:33,780 --> 00:46:40,079
+the stereographic projection so we want
+
+917
+00:46:37,020 --> 00:46:42,900
+the circle centered above so
+
+918
+00:46:40,079 --> 00:46:45,260
+so in order to find that formula we can
+
+919
+00:46:42,900 --> 00:46:45,260
+just
+
+920
+00:46:45,480 --> 00:46:52,920
+yeah so this is a basic analytic
+
+921
+00:46:48,780 --> 00:46:55,200
+geometry if you remember you can just
+
+922
+00:46:52,920 --> 00:46:57,180
+say x minus
+
+923
+00:46:55,200 --> 00:47:01,260
+one okay
+
+924
+00:46:57,180 --> 00:47:04,500
+and we place y by y minus 1.
+
+925
+00:47:01,260 --> 00:47:08,280
+I think so let's try it
+
+926
+00:47:04,500 --> 00:47:12,319
+okay yeah so we kind of it worked we
+
+927
+00:47:08,280 --> 00:47:14,700
+should not move X so X should be X Y
+
+928
+00:47:12,319 --> 00:47:16,079
+minus one okay
+
+929
+00:47:14,700 --> 00:47:20,339
+so there
+
+930
+00:47:16,079 --> 00:47:22,460
+so we got a circle now centered on zero
+
+931
+00:47:20,339 --> 00:47:22,460
+one
+
+932
+00:47:23,339 --> 00:47:31,020
+okay and that's not you know
+
+933
+00:47:27,960 --> 00:47:33,420
+so now we need to work this out so
+
+934
+00:47:31,020 --> 00:47:35,940
+we want to know
+
+935
+00:47:33,420 --> 00:47:39,119
+we need to decide on what what is the
+
+936
+00:47:35,940 --> 00:47:41,839
+radius we're gonna use so let's use one
+
+937
+00:47:39,119 --> 00:47:41,839
+so
+
+938
+00:47:43,200 --> 00:47:48,599
+so this is radius one yeah okay that's
+
+939
+00:47:46,079 --> 00:47:50,339
+already radius one right so that's the
+
+940
+00:47:48,599 --> 00:47:52,619
+formula for a circle
+
+941
+00:47:50,339 --> 00:47:53,400
+now let's what about the formula for a
+
+942
+00:47:52,619 --> 00:47:56,339
+line
+
+943
+00:47:53,400 --> 00:48:00,720
+okay I don't remember my
+
+944
+00:47:56,339 --> 00:48:04,740
+um my analytic geometry since 30 years
+
+945
+00:48:00,720 --> 00:48:09,060
+ago so but but we can easily do it
+
+946
+00:48:04,740 --> 00:48:12,859
+just by trial and error so a equation of
+
+947
+00:48:09,060 --> 00:48:12,859
+the line is going to be
+
+948
+00:48:12,960 --> 00:48:17,119
+let's just start over okay
+
+949
+00:48:17,940 --> 00:48:26,099
+so equation of the line is going to be y
+
+950
+00:48:21,420 --> 00:48:28,800
+equals to something X
+
+951
+00:48:26,099 --> 00:48:31,920
+Okay so
+
+952
+00:48:28,800 --> 00:48:34,579
+yeah you need to know the slope okay the
+
+953
+00:48:31,920 --> 00:48:34,579
+slope is
+
+954
+00:48:34,740 --> 00:48:40,980
+so we want to find this one okay yeah
+
+955
+00:48:37,140 --> 00:48:44,900
+okay in order to know the line you need
+
+956
+00:48:40,980 --> 00:48:44,900
+to know the P Point P first
+
+957
+00:48:45,060 --> 00:48:54,359
+ah God so p is going to be a variable so
+
+958
+00:48:49,200 --> 00:48:57,660
+once and so you know so let's suppose
+
+959
+00:48:54,359 --> 00:49:03,380
+Peace point p is a point such that P
+
+960
+00:48:57,660 --> 00:49:03,380
+equals to A B okay A B is some constant
+
+961
+00:49:04,140 --> 00:49:11,099
+so basically we now we want to find a
+
+962
+00:49:08,099 --> 00:49:11,880
+line we want to find a equation of the
+
+963
+00:49:11,099 --> 00:49:14,280
+line
+
+964
+00:49:11,880 --> 00:49:16,619
+that passes
+
+965
+00:49:14,280 --> 00:49:19,680
+the North Pole
+
+966
+00:49:16,619 --> 00:49:22,380
+that passed past this point which is 0
+
+967
+00:49:19,680 --> 00:49:24,599
+2.
+
+968
+00:49:22,380 --> 00:49:27,599
+okay that's one of the point it passed
+
+969
+00:49:24,599 --> 00:49:29,160
+and it will pass another point which is
+
+970
+00:49:27,599 --> 00:49:32,280
+a b okay
+
+971
+00:49:29,160 --> 00:49:35,160
+now we don't know what is a b but
+
+972
+00:49:32,280 --> 00:49:37,500
+I mean we assume it's some constant so
+
+973
+00:49:35,160 --> 00:49:41,099
+we want a formula
+
+974
+00:49:37,500 --> 00:49:43,140
+that represents a line that passes
+
+975
+00:49:41,099 --> 00:49:45,119
+through these two points
+
+976
+00:49:43,140 --> 00:49:48,180
+okay
+
+977
+00:49:45,119 --> 00:49:50,160
+now I don't remember my my calculus but
+
+978
+00:49:48,180 --> 00:49:51,839
+this is an easy case we can actually
+
+979
+00:49:50,160 --> 00:49:54,420
+just derive it
+
+980
+00:49:51,839 --> 00:49:56,480
+okay with uh with
+
+981
+00:49:54,420 --> 00:49:56,480
+um
+
+982
+00:49:56,520 --> 00:49:59,880
+you know with basic understanding of
+
+983
+00:49:58,859 --> 00:50:04,859
+vectors
+
+984
+00:49:59,880 --> 00:50:08,700
+so the point p is two coordinates A and
+
+985
+00:50:04,859 --> 00:50:11,640
+B in fact B is zero because remember we
+
+986
+00:50:08,700 --> 00:50:13,200
+want the point p is always on the X x
+
+987
+00:50:11,640 --> 00:50:15,119
+axis
+
+988
+00:50:13,200 --> 00:50:19,020
+so p
+
+989
+00:50:15,119 --> 00:50:20,640
+equals to a0 okay so we now we just have
+
+990
+00:50:19,020 --> 00:50:23,220
+one variable okay
+
+991
+00:50:20,640 --> 00:50:26,280
+so we want now we want the
+
+992
+00:50:23,220 --> 00:50:30,060
+equation of the line that passes these
+
+993
+00:50:26,280 --> 00:50:33,859
+two points very easy okay
+
+994
+00:50:30,060 --> 00:50:33,859
+uh very easy so
+
+995
+00:50:34,079 --> 00:50:38,700
+now in general the equation of the line
+
+996
+00:50:36,780 --> 00:50:41,220
+is
+
+997
+00:50:38,700 --> 00:50:46,260
+y equals to
+
+998
+00:50:41,220 --> 00:50:49,559
+m x okay m is some slope
+
+999
+00:50:46,260 --> 00:50:52,680
+right so that's the equation of the line
+
+1000
+00:50:49,559 --> 00:50:56,339
+it's a linear equation because there is
+
+1001
+00:50:52,680 --> 00:50:59,720
+no powers involved so let me let me do
+
+1002
+00:50:56,339 --> 00:50:59,720
+yeah so that's correct
+
+1003
+00:51:01,140 --> 00:51:06,859
+okay so that's a linear equation this is
+
+1004
+00:51:03,660 --> 00:51:11,099
+a general form of equation of the line
+
+1005
+00:51:06,859 --> 00:51:15,619
+and now now you you now you just want to
+
+1006
+00:51:11,099 --> 00:51:15,619
+find in terms of a
+
+1007
+00:51:17,760 --> 00:51:23,700
+so you basically have well God this is
+
+1008
+00:51:21,900 --> 00:51:26,819
+back to
+
+1009
+00:51:23,700 --> 00:51:31,280
+linear algebra so
+
+1010
+00:51:26,819 --> 00:51:31,280
+uh so what we have is
+
+1011
+00:51:32,220 --> 00:51:39,260
+P equals through a0 a is a a is X so
+
+1012
+00:51:41,760 --> 00:51:44,839
+so we have
+
+1013
+00:51:55,619 --> 00:52:03,059
+y equals to
+
+1014
+00:51:59,599 --> 00:52:06,960
+M A okay that's
+
+1015
+00:52:03,059 --> 00:52:10,140
+that's the first case for the point P
+
+1016
+00:52:06,960 --> 00:52:12,839
+then the other case is for the point
+
+1017
+00:52:10,140 --> 00:52:15,599
+zero two okay so let's do that
+
+1018
+00:52:12,839 --> 00:52:21,000
+so Y is two
+
+1019
+00:52:15,599 --> 00:52:22,200
+so we have 2 equals to MX
+
+1020
+00:52:21,000 --> 00:52:27,380
+m
+
+1021
+00:52:22,200 --> 00:52:27,380
+and what is X x is zero so
+
+1022
+00:52:28,980 --> 00:52:40,460
+m0 so that's just two equals to M okay
+
+1023
+00:52:34,440 --> 00:52:40,460
+so now we got 2 equals to M then we know
+
+1024
+00:52:41,160 --> 00:52:51,240
+y equals to 2A so that is our
+
+1025
+00:52:46,079 --> 00:52:53,819
+this is our formula for a line
+
+1026
+00:52:51,240 --> 00:52:55,859
+that
+
+1027
+00:52:53,819 --> 00:52:58,800
+that passes
+
+1028
+00:52:55,859 --> 00:53:01,920
+0 2 and
+
+1029
+00:52:58,800 --> 00:53:05,460
+and passes any you know any of the a
+
+1030
+00:53:01,920 --> 00:53:10,700
+yeah so that is our Formula 2 equals 2
+
+1031
+00:53:05,460 --> 00:53:10,700
+2A and let's write it let's let's uh
+
+1032
+00:53:16,380 --> 00:53:23,480
+and say it again y equals to 2A so y
+
+1033
+00:53:20,640 --> 00:53:23,480
+equals to
+
+1034
+00:53:24,960 --> 00:53:27,960
+to
+
+1035
+00:53:28,500 --> 00:53:32,480
+a so this is
+
+1036
+00:53:35,760 --> 00:53:43,700
+so yeah so now a is a variable let's
+
+1037
+00:53:39,059 --> 00:53:43,700
+just say a so let's plot that
+
+1038
+00:53:43,740 --> 00:53:52,619
+there it is we got the line
+
+1039
+00:53:47,579 --> 00:53:55,579
+but it looks like this line is incorrect
+
+1040
+00:53:52,619 --> 00:53:55,579
+uh
+
+1041
+00:53:55,859 --> 00:53:59,599
+did we get it correct
+
+1042
+00:54:02,220 --> 00:54:05,400
+okay
+
+1043
+00:54:03,480 --> 00:54:08,760
+so I'm not sure
+
+1044
+00:54:05,400 --> 00:54:11,640
+where are we going so this is incorrect
+
+1045
+00:54:08,760 --> 00:54:14,300
+I have to think about this
+
+1046
+00:54:11,640 --> 00:54:14,300
+a lot
+
+1047
+00:54:16,680 --> 00:54:22,680
+so right now this is incorrect so
+
+1048
+00:54:19,260 --> 00:54:26,520
+because this line passes the point zero
+
+1049
+00:54:22,680 --> 00:54:30,319
+zero and
+
+1050
+00:54:26,520 --> 00:54:30,319
+wait what are we doing
+
+1051
+00:54:33,660 --> 00:54:37,280
+so we we want the line
+
+1052
+00:54:37,680 --> 00:54:42,500
+that pass this oh yeah so we got mixed
+
+1053
+00:54:40,380 --> 00:54:42,500
+up
+
+1054
+00:54:43,740 --> 00:54:51,980
+so if you want the line
+
+1055
+00:54:46,680 --> 00:54:51,980
+passes okay so we need to actually
+
+1056
+00:54:52,020 --> 00:54:57,380
+write a lot more
+
+1057
+00:54:54,540 --> 00:54:57,380
+formulas
+
+1058
+00:54:57,480 --> 00:55:01,980
+uh
+
+1059
+00:54:58,980 --> 00:55:04,500
+I don't think I can do it I mean
+
+1060
+00:55:01,980 --> 00:55:06,059
+I cannot do it in
+
+1061
+00:55:04,500 --> 00:55:08,579
+five minutes
+
+1062
+00:55:06,059 --> 00:55:11,240
+it'll take some time
+
+1063
+00:55:08,579 --> 00:55:11,240
+so
+
+1064
+00:55:11,339 --> 00:55:17,160
+we are trying to find the formula well
+
+1065
+00:55:13,920 --> 00:55:19,559
+the general formula is okay we can just
+
+1066
+00:55:17,160 --> 00:55:23,880
+try out in arrows okay
+
+1067
+00:55:19,559 --> 00:55:28,760
+the general formula is just that okay so
+
+1068
+00:55:23,880 --> 00:55:28,760
+just that so this allows you to see
+
+1069
+00:55:30,900 --> 00:55:34,760
+so let's say one over two
+
+1070
+00:55:35,579 --> 00:55:41,520
+okay and
+
+1071
+00:55:37,559 --> 00:55:43,920
+yeah so this is yeah oh I forgot we need
+
+1072
+00:55:41,520 --> 00:55:47,339
+to add
+
+1073
+00:55:43,920 --> 00:55:50,700
+you need to move the line up so there's
+
+1074
+00:55:47,339 --> 00:55:53,220
+a constant we forgot the constant it's
+
+1075
+00:55:50,700 --> 00:55:57,599
+at 2 okay
+
+1076
+00:55:53,220 --> 00:56:00,960
+so zero yeah so here we have a line that
+
+1077
+00:55:57,599 --> 00:56:03,839
+passes the point zero two so here is
+
+1078
+00:56:00,960 --> 00:56:06,240
+zero and here's two that's what we want
+
+1079
+00:56:03,839 --> 00:56:09,420
+we want the line that passes the North
+
+1080
+00:56:06,240 --> 00:56:11,339
+Pole of the circle
+
+1081
+00:56:09,420 --> 00:56:16,200
+um
+
+1082
+00:56:11,339 --> 00:56:19,380
+yeah and now this number is just the
+
+1083
+00:56:16,200 --> 00:56:21,619
+slope okay so this this number we can
+
+1084
+00:56:19,380 --> 00:56:25,760
+Define m
+
+1085
+00:56:21,619 --> 00:56:25,760
+equals to let's say 2
+
+1086
+00:56:27,119 --> 00:56:32,480
+okay so let's copy that let's put it
+
+1087
+00:56:30,180 --> 00:56:32,480
+here
+
+1088
+00:56:34,800 --> 00:56:41,480
+okay so this number can be
+
+1089
+00:56:38,339 --> 00:56:41,480
+one and half
+
+1090
+00:56:42,300 --> 00:56:46,339
+okay so and if it's one
+
+1091
+00:56:49,050 --> 00:57:00,260
+[Music]
+
+1092
+00:56:56,180 --> 00:57:00,260
+uh let's say 10.
+
+1093
+00:57:00,859 --> 00:57:07,700
+negative 10. yeah okay that's good
+
+1094
+00:57:04,680 --> 00:57:07,700
+that's likely
+
+1095
+00:57:10,619 --> 00:57:14,599
+so now let's do this
+
+1096
+00:57:22,670 --> 00:57:26,469
+[Music]
+
+1097
+00:57:31,460 --> 00:57:35,839
+manipulate that expression
+
+1098
+00:57:36,859 --> 00:57:47,760
+with M goes to 0 3 2 3 in step of
+
+1099
+00:57:45,920 --> 00:57:50,660
+zero point
+
+1100
+00:57:47,760 --> 00:57:50,660
+one okay
+
+1101
+00:57:54,420 --> 00:58:01,760
+okay so now we got a animation
+
+1102
+00:57:57,140 --> 00:58:01,760
+interactive animation so you can see
+
+1103
+00:58:04,260 --> 00:58:09,119
+so all these
+
+1104
+00:58:06,059 --> 00:58:11,579
+uh lines of an equation that passes
+
+1105
+00:58:09,119 --> 00:58:15,020
+through the North Pole
+
+1106
+00:58:11,579 --> 00:58:15,020
+so let's play it
+
+1107
+00:58:34,680 --> 00:58:40,220
+yeah so this is exactly that is our
+
+1108
+00:58:37,740 --> 00:58:40,220
+equation
+
+1109
+00:58:41,040 --> 00:58:49,079
+that is our equation of the line so now
+
+1110
+00:58:45,720 --> 00:58:52,619
+now we have two equations okay
+
+1111
+00:58:49,079 --> 00:58:54,599
+one equation is this one
+
+1112
+00:58:52,619 --> 00:58:57,359
+equation of the line
+
+1113
+00:58:54,599 --> 00:59:01,200
+with a given M okay
+
+1114
+00:58:57,359 --> 00:59:03,059
+m m is you know whatever whatever point
+
+1115
+00:59:01,200 --> 00:59:04,319
+we want you know that's why it's
+
+1116
+00:59:03,059 --> 00:59:07,200
+variable
+
+1117
+00:59:04,319 --> 00:59:10,460
+and the other equation is the equation
+
+1118
+00:59:07,200 --> 00:59:14,299
+of a circle here this one
+
+1119
+00:59:10,460 --> 00:59:14,299
+uh yeah that one
+
+1120
+00:59:15,839 --> 00:59:24,059
+so we have two equations these two
+
+1121
+00:59:20,520 --> 00:59:27,960
+okay and we want to solve it
+
+1122
+00:59:24,059 --> 00:59:31,079
+okay we can solve it we can try to solve
+
+1123
+00:59:27,960 --> 00:59:34,680
+it by substitution you know y equals to
+
+1124
+00:59:31,079 --> 00:59:35,579
+that then you just put replace this y by
+
+1125
+00:59:34,680 --> 00:59:38,420
+that
+
+1126
+00:59:35,579 --> 00:59:38,420
+you know replace
+
+1127
+00:59:39,359 --> 00:59:47,640
+this y by this and the
+
+1128
+00:59:43,380 --> 00:59:50,760
+then you got a equation of one variable
+
+1129
+00:59:47,640 --> 00:59:51,660
+X then we sub you know we can do this by
+
+1130
+00:59:50,760 --> 00:59:54,660
+hand
+
+1131
+00:59:51,660 --> 00:59:54,660
+but
+
+1132
+00:59:55,319 --> 01:00:00,619
+it's quite tedious to write here I have
+
+1133
+00:59:57,780 --> 01:00:00,619
+to create another
+
+1134
+01:00:02,339 --> 01:00:08,180
+you know so we so we got the equation x
+
+1135
+01:00:05,579 --> 01:00:08,180
+squared
+
+1136
+01:00:09,059 --> 01:00:13,079
+uh
+
+1137
+01:00:11,220 --> 01:00:15,799
+x squared
+
+1138
+01:00:13,079 --> 01:00:15,799
+Plus
+
+1139
+01:00:16,380 --> 01:00:21,119
+MX
+
+1140
+01:00:19,319 --> 01:00:23,760
+plus 2
+
+1141
+01:00:21,119 --> 01:00:25,920
+minus 1
+
+1142
+01:00:23,760 --> 01:00:29,339
+squared
+
+1143
+01:00:25,920 --> 01:00:33,960
+equals to 1 okay so now we
+
+1144
+01:00:29,339 --> 01:00:37,980
+simplify this this MX 2 minus 1 is
+
+1145
+01:00:33,960 --> 01:00:42,660
+M X Plus 1 squared
+
+1146
+01:00:37,980 --> 01:00:44,520
+and you have to multiply them out
+
+1147
+01:00:42,660 --> 01:00:47,160
+then you got
+
+1148
+01:00:44,520 --> 01:00:49,740
+you basically got the quadratic equation
+
+1149
+01:00:47,160 --> 01:00:52,920
+okay like X raised to the power of two
+
+1150
+01:00:49,740 --> 01:00:56,099
+then you try to solve for x
+
+1151
+01:00:52,920 --> 01:01:00,059
+but let's try just just use the Wolfram
+
+1152
+01:00:56,099 --> 01:01:03,920
+language to solve it okay let's see
+
+1153
+01:01:00,059 --> 01:01:03,920
+if this works sub
+
+1154
+01:01:04,140 --> 01:01:09,900
+attempts to solve the system
+
+1155
+01:01:06,920 --> 01:01:12,660
+expression of equations or inequalities
+
+1156
+01:01:09,900 --> 01:01:15,680
+okay yeah we can use that
+
+1157
+01:01:12,660 --> 01:01:15,680
+so solve
+
+1158
+01:01:15,960 --> 01:01:22,920
+that and we want to solve for x
+
+1159
+01:01:21,480 --> 01:01:26,420
+try it
+
+1160
+01:01:22,920 --> 01:01:26,420
+huh empty
+
+1161
+01:01:29,400 --> 01:01:34,040
+okay and domain
+
+1162
+01:01:36,359 --> 01:01:43,020
+oh okay so you have to the syntax is
+
+1163
+01:01:39,780 --> 01:01:45,500
+incorrect instead of the list you have
+
+1164
+01:01:43,020 --> 01:01:45,500
+to say
+
+1165
+01:01:46,079 --> 01:01:51,839
+end
+
+1166
+01:01:48,540 --> 01:01:56,900
+so that's one equation
+
+1167
+01:01:51,839 --> 01:01:56,900
+and the other equation solve for x
+
+1168
+01:02:00,180 --> 01:02:02,839
+what
+
+1169
+01:02:18,720 --> 01:02:21,799
+clear m
+
+1170
+01:02:21,900 --> 01:02:27,720
+I'm trying to do some
+
+1171
+01:02:23,880 --> 01:02:27,720
+yeah examples
+
+1172
+01:02:35,480 --> 01:02:40,339
+let's try x y
+
+1173
+01:02:45,000 --> 01:02:52,740
+okay now it's better
+
+1174
+01:02:47,400 --> 01:02:54,119
+yeah so you can see here x0 Y2 is one
+
+1175
+01:02:52,740 --> 01:02:56,760
+solution
+
+1176
+01:02:54,119 --> 01:02:59,780
+and here is the other solution this is
+
+1177
+01:02:56,760 --> 01:02:59,780
+the part we want
+
+1178
+01:03:00,359 --> 01:03:03,359
+exactly
+
+1179
+01:03:03,960 --> 01:03:09,900
+now now yeah exactly now what is m m is
+
+1180
+01:03:07,799 --> 01:03:11,700
+just R A here
+
+1181
+01:03:09,900 --> 01:03:15,599
+uh yeah
+
+1182
+01:03:11,700 --> 01:03:17,460
+so actually yes so now we have a formula
+
+1183
+01:03:15,599 --> 01:03:19,260
+we derived
+
+1184
+01:03:17,460 --> 01:03:22,079
+ourself
+
+1185
+01:03:19,260 --> 01:03:23,460
+that given an
+
+1186
+01:03:22,079 --> 01:03:30,420
+point
+
+1187
+01:03:23,460 --> 01:03:33,720
+p on x-axis we can find the point Q
+
+1188
+01:03:30,420 --> 01:03:38,059
+and the P the point p is two numbers so
+
+1189
+01:03:33,720 --> 01:03:38,059
+how do you uh work this out so
+
+1190
+01:03:38,160 --> 01:03:45,000
+in P is basically just m okay so Point P
+
+1191
+01:03:41,640 --> 01:03:48,240
+has two coordinates X and Y
+
+1192
+01:03:45,000 --> 01:03:50,940
+and the y coordinate is always zero
+
+1193
+01:03:48,240 --> 01:03:54,619
+so you can think of the point p is just
+
+1194
+01:03:50,940 --> 01:03:58,799
+m or some transformation but you know
+
+1195
+01:03:54,619 --> 01:04:03,119
+basically Point P would be m
+
+1196
+01:03:58,799 --> 01:04:05,760
+so given M you have a new point x
+
+1197
+01:04:03,119 --> 01:04:08,579
+exactly yeah so that looks correct
+
+1198
+01:04:05,760 --> 01:04:11,400
+because I've worked up with this
+
+1199
+01:04:08,579 --> 01:04:15,299
+you know many times before in the past
+
+1200
+01:04:11,400 --> 01:04:16,260
+20 years this formula is correct so for
+
+1201
+01:04:15,299 --> 01:04:18,240
+example
+
+1202
+01:04:16,260 --> 01:04:21,619
+let's um
+
+1203
+01:04:18,240 --> 01:04:21,619
+let's extract
+
+1204
+01:04:26,400 --> 01:04:34,339
+okay so now we have this um
+
+1205
+01:04:29,640 --> 01:04:34,339
+let's define it a solution okay
+
+1206
+01:04:40,140 --> 01:04:43,819
+solution equals to
+
+1207
+01:04:44,400 --> 01:04:49,160
+that okay so now
+
+1208
+01:04:49,260 --> 01:04:57,960
+so when
+
+1209
+01:04:52,859 --> 01:04:59,579
+now let's you know when when the p is at
+
+1210
+01:04:57,960 --> 01:05:04,200
+our engine
+
+1211
+01:04:59,579 --> 01:05:07,380
+which means m is zero X is zero
+
+1212
+01:05:04,200 --> 01:05:10,440
+the result point should be
+
+1213
+01:05:07,380 --> 01:05:13,940
+should be 0 0 as well so
+
+1214
+01:05:10,440 --> 01:05:13,940
+when m is zero
+
+1215
+01:05:14,280 --> 01:05:20,160
+let's replace m
+
+1216
+01:05:16,799 --> 01:05:25,520
+by zero
+
+1217
+01:05:20,160 --> 01:05:25,520
+okay so when n is zero
+
+1218
+01:05:27,720 --> 01:05:32,400
+it gets
+
+1219
+01:05:29,400 --> 01:05:32,400
+these
+
+1220
+01:05:34,920 --> 01:05:41,940
+it gets that it gets the other point so
+
+1221
+01:05:38,160 --> 01:05:44,700
+there's something that needs to be fixed
+
+1222
+01:05:41,940 --> 01:05:47,000
+let's say when m is one let's see what
+
+1223
+01:05:44,700 --> 01:05:47,000
+happens
+
+1224
+01:05:47,160 --> 01:05:56,420
+x equals to negative one y equals to one
+
+1225
+01:05:52,140 --> 01:05:56,420
+x equals to negative one
+
+1226
+01:05:56,460 --> 01:06:00,980
+okay the formula is not correct
+
+1227
+01:06:01,920 --> 01:06:09,720
+okay I think that's it for today we
+
+1228
+01:06:06,240 --> 01:06:12,660
+you know this we we failed I didn't do
+
+1229
+01:06:09,720 --> 01:06:16,619
+any preparation so you know we tried to
+
+1230
+01:06:12,660 --> 01:06:19,799
+derive the formula of the projection
+
+1231
+01:06:16,619 --> 01:06:22,799
+formula in 2D this is this is really
+
+1232
+01:06:19,799 --> 01:06:24,240
+simple you know uh I haven't done it for
+
+1233
+01:06:22,799 --> 01:06:27,480
+a long time
+
+1234
+01:06:24,240 --> 01:06:30,140
+uh so
+
+1235
+01:06:27,480 --> 01:06:30,140
+you know
+
+1236
+01:06:30,599 --> 01:06:34,799
+so we we are trying to derive it you
+
+1237
+01:06:32,819 --> 01:06:37,740
+know that's the that's the that's a key
+
+1238
+01:06:34,799 --> 01:06:42,299
+here you know uh
+
+1239
+01:06:37,740 --> 01:06:42,299
+but there are many ways you know we
+
+1240
+01:06:43,559 --> 01:06:47,700
+you can also look you you know there are
+
+1241
+01:06:45,720 --> 01:06:50,220
+so many ways to drive it you know right
+
+1242
+01:06:47,700 --> 01:06:52,440
+now we are trying to use uh you know
+
+1243
+01:06:50,220 --> 01:06:54,660
+linear equations multiple linear
+
+1244
+01:06:52,440 --> 01:06:58,559
+equations of a circle and the equation
+
+1245
+01:06:54,660 --> 01:06:59,940
+of the line we can also do it with a
+
+1246
+01:06:58,559 --> 01:07:05,180
+um
+
+1247
+01:06:59,940 --> 01:07:05,180
+with a vector you know you just um
+
+1248
+01:07:06,839 --> 01:07:12,359
+wait can you actually derive the formula
+
+1249
+01:07:09,539 --> 01:07:14,819
+by using vectors
+
+1250
+01:07:12,359 --> 01:07:18,140
+you probably need some geometric
+
+1251
+01:07:14,819 --> 01:07:18,140
+theorems about
+
+1252
+01:07:18,660 --> 01:07:23,119
+you know classic Asian geometry
+
+1253
+01:07:23,280 --> 01:07:25,460
+um
+
+1254
+01:07:25,859 --> 01:07:31,140
+yeah I don't know so
+
+1255
+01:07:28,619 --> 01:07:33,720
+let's let's look up Wikipedia and I'm
+
+1256
+01:07:31,140 --> 01:07:36,500
+gonna shut down in a minute yeah I'm
+
+1257
+01:07:33,720 --> 01:07:36,500
+gonna shut down
+
+1258
+01:07:38,640 --> 01:07:42,859
+uh Wikipedia so we want
+
+1259
+01:07:44,539 --> 01:07:47,960
+stereographic projection
+
+1260
+01:07:48,000 --> 01:07:52,380
+I have to go I'm kind of
+
+1261
+01:07:50,400 --> 01:07:54,539
+tired
+
+1262
+01:07:52,380 --> 01:07:56,700
+sitting for too long so here's the
+
+1263
+01:07:54,539 --> 01:08:00,119
+stereographic projection you can see
+
+1264
+01:07:56,700 --> 01:08:02,339
+they give you the formulas they show you
+
+1265
+01:08:00,119 --> 01:08:04,380
+how to you do they show you how do you
+
+1266
+01:08:02,339 --> 01:08:08,220
+derive it
+
+1267
+01:08:04,380 --> 01:08:12,660
+you know it's it's so simple that uh you
+
+1268
+01:08:08,220 --> 01:08:16,020
+don't even there's not much derivation
+
+1269
+01:08:12,660 --> 01:08:21,440
+but you do have to be familiar with
+
+1270
+01:08:16,020 --> 01:08:21,440
+you know the basic analytic geometry
+
+1271
+01:08:21,960 --> 01:08:24,140
+um
+
+1272
+01:08:30,779 --> 01:08:35,179
+yeah it's uh so
+
+1273
+01:08:35,940 --> 01:08:40,500
+no
+
+1274
+01:08:37,380 --> 01:08:41,759
+I'm trying to say well actually I gotta
+
+1275
+01:08:40,500 --> 01:08:45,900
+go guys
+
+1276
+01:08:41,759 --> 01:08:48,600
+so terrible this is a terrible video
+
+1277
+01:08:45,900 --> 01:08:49,739
+I gotta go I got you know my wife is
+
+1278
+01:08:48,600 --> 01:08:52,339
+calling me
+
+1279
+01:08:49,739 --> 01:08:52,339
+bye guys
+

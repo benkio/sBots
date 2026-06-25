@@ -1,0 +1,8690 @@
+1
+00:00:05,220 --> 00:00:09,960
+good morning everyone welcome to another
+
+2
+00:00:07,799 --> 00:00:12,360
+episode of sound talk show
+
+3
+00:00:09,960 --> 00:00:15,120
+today we are going to do
+
+4
+00:00:12,360 --> 00:00:18,240
+uh continue from yesterday we are going
+
+5
+00:00:15,120 --> 00:00:21,060
+to code python emac beast and wufem
+
+6
+00:00:18,240 --> 00:00:23,880
+language we are going to write a script
+
+7
+00:00:21,060 --> 00:00:24,960
+in each of this language to do find and
+
+8
+00:00:23,880 --> 00:00:29,880
+replace
+
+9
+00:00:24,960 --> 00:00:32,880
+of all text files in a directory and
+
+10
+00:00:29,880 --> 00:00:35,460
+we are going to compare their speed so
+
+11
+00:00:32,880 --> 00:00:37,140
+yesterday we did emac bisp in wufem
+
+12
+00:00:35,460 --> 00:00:39,899
+language and today we're gonna add
+
+13
+00:00:37,140 --> 00:00:41,940
+python first of all we're gonna modify
+
+14
+00:00:39,899 --> 00:00:44,820
+yesterday's emac this man Wolfram
+
+15
+00:00:41,940 --> 00:00:46,800
+language because to make it to make them
+
+16
+00:00:44,820 --> 00:00:51,000
+more efficient okay
+
+17
+00:00:46,800 --> 00:00:53,399
+so I so let's let's begin uh let's begin
+
+18
+00:00:51,000 --> 00:00:55,440
+this so if you have comments and
+
+19
+00:00:53,399 --> 00:01:01,340
+questions post it okay
+
+20
+00:00:55,440 --> 00:01:01,340
+pop out chat uh okay so here we go
+
+21
+00:01:02,460 --> 00:01:08,340
+okay so let's begin so I'm going to yeah
+
+22
+00:01:06,180 --> 00:01:10,680
+so let's go to talk show
+
+23
+00:01:08,340 --> 00:01:12,600
+this is my talk show index page and
+
+24
+00:01:10,680 --> 00:01:14,280
+let's go to yesterday because we need
+
+25
+00:01:12,600 --> 00:01:18,119
+some of the code
+
+26
+00:01:14,280 --> 00:01:18,740
+okay so here is yesterday
+
+27
+00:01:18,119 --> 00:01:23,100
+um
+
+28
+00:01:18,740 --> 00:01:25,920
+we did e-maglis and uh and Wolfram
+
+29
+00:01:23,100 --> 00:01:28,280
+language okay so let's copy all their
+
+30
+00:01:25,920 --> 00:01:28,280
+code
+
+31
+00:01:28,320 --> 00:01:31,560
+okay so
+
+32
+00:01:30,240 --> 00:01:34,640
+um
+
+33
+00:01:31,560 --> 00:01:34,640
+starting here
+
+34
+00:01:36,420 --> 00:01:42,299
+copy your code from yesterday
+
+35
+00:01:39,420 --> 00:01:44,400
+copy close and we're gonna modify it
+
+36
+00:01:42,299 --> 00:01:48,479
+okay
+
+37
+00:01:44,400 --> 00:01:51,180
+so okay show it in browser so for the
+
+38
+00:01:48,479 --> 00:01:53,640
+first thing we are going to do is we're
+
+39
+00:01:51,180 --> 00:01:57,780
+gonna write this Powershell script so
+
+40
+00:01:53,640 --> 00:02:01,020
+that it can copy all the files into the
+
+41
+00:01:57,780 --> 00:02:05,040
+test directory and we are using the emac
+
+42
+00:02:01,020 --> 00:02:09,380
+beasts manual as an example so
+
+43
+00:02:05,040 --> 00:02:13,200
+so let's remove the syntax coloring HTML
+
+44
+00:02:09,380 --> 00:02:15,120
+and let's do the Powershell okay so the
+
+45
+00:02:13,200 --> 00:02:18,420
+Powershell pop it out
+
+46
+00:02:15,120 --> 00:02:23,459
+so we are going to
+
+47
+00:02:18,420 --> 00:02:26,340
+copy let me show you the emac this uh
+
+48
+00:02:23,459 --> 00:02:28,020
+emac this manual you can download from
+
+49
+00:02:26,340 --> 00:02:31,500
+you know search the web you'll find it
+
+50
+00:02:28,020 --> 00:02:34,620
+emacs manual there are 1000 pages okay
+
+51
+00:02:31,500 --> 00:02:38,940
+and we're gonna copy to this directory
+
+52
+00:02:34,620 --> 00:02:41,580
+this my home directory okay so start
+
+53
+00:02:38,940 --> 00:02:44,599
+Powershell
+
+54
+00:02:41,580 --> 00:02:48,560
+uh okay so let's
+
+55
+00:02:44,599 --> 00:02:48,560
+magnify Okay so
+
+56
+00:02:50,340 --> 00:02:56,000
+copy it
+
+57
+00:02:52,560 --> 00:02:56,000
+do it do it
+
+58
+00:02:58,860 --> 00:03:05,160
+done fantastic now we open this
+
+59
+00:03:02,220 --> 00:03:10,080
+directory you can see emac these files
+
+60
+00:03:05,160 --> 00:03:12,420
+they are fantastic okay and now next
+
+61
+00:03:10,080 --> 00:03:15,659
+next we is
+
+62
+00:03:12,420 --> 00:03:18,239
+um yeah so we uh
+
+63
+00:03:15,659 --> 00:03:21,780
+we're gonna write this script okay let's
+
+64
+00:03:18,239 --> 00:03:26,940
+pop this back Powershell now let's
+
+65
+00:03:21,780 --> 00:03:30,659
+go to the emac this script okay so here
+
+66
+00:03:26,940 --> 00:03:33,720
+is the emac this script we did now
+
+67
+00:03:30,659 --> 00:03:37,140
+remember the the words we want we have
+
+68
+00:03:33,720 --> 00:03:39,360
+four pairs of find replace strings so we
+
+69
+00:03:37,140 --> 00:03:42,120
+replace previous to previous something
+
+70
+00:03:39,360 --> 00:03:45,000
+something replace that to that something
+
+71
+00:03:42,120 --> 00:03:46,940
+something so four pairs of them so in
+
+72
+00:03:45,000 --> 00:03:50,400
+this emac this code
+
+73
+00:03:46,940 --> 00:03:55,080
+uh you know that's all there it is okay
+
+74
+00:03:50,400 --> 00:03:57,480
+just 40 lines so we can see this for
+
+75
+00:03:55,080 --> 00:03:58,920
+each find replace pair we have this
+
+76
+00:03:57,480 --> 00:04:02,580
+block of code
+
+77
+00:03:58,920 --> 00:04:05,760
+so in this block of code is repeated the
+
+78
+00:04:02,580 --> 00:04:08,340
+only change is the actual string
+
+79
+00:04:05,760 --> 00:04:09,239
+you know so this is
+
+80
+00:04:08,340 --> 00:04:12,480
+um
+
+81
+00:04:09,239 --> 00:04:16,260
+you know this is easy to understand but
+
+82
+00:04:12,480 --> 00:04:17,340
+too much bloat maybe so we can make it
+
+83
+00:04:16,260 --> 00:04:19,199
+better
+
+84
+00:04:17,340 --> 00:04:23,520
+we can
+
+85
+00:04:19,199 --> 00:04:26,759
+put this find replace pairs into a list
+
+86
+00:04:23,520 --> 00:04:30,240
+of list or a vector of leg vectors then
+
+87
+00:04:26,759 --> 00:04:32,220
+just Loop over so we just have one block
+
+88
+00:04:30,240 --> 00:04:34,380
+of code so let's modify let's do that
+
+89
+00:04:32,220 --> 00:04:36,780
+okay
+
+90
+00:04:34,380 --> 00:04:38,759
+uh you know if you I'm not going to
+
+91
+00:04:36,780 --> 00:04:41,820
+explain how the code works if you want
+
+92
+00:04:38,759 --> 00:04:45,540
+to you can watch yesterday okay so we're
+
+93
+00:04:41,820 --> 00:04:47,580
+just gonna clean this up so so this
+
+94
+00:04:45,540 --> 00:04:51,060
+thing
+
+95
+00:04:47,580 --> 00:04:54,660
+okay this thing is gonna be we I wanna I
+
+96
+00:04:51,060 --> 00:04:57,540
+wanna use a vector okay so a vector in
+
+97
+00:04:54,660 --> 00:05:03,199
+emac is square bracket a vector vectors
+
+98
+00:04:57,540 --> 00:05:09,180
+so in fact this can be just done by
+
+99
+00:05:03,199 --> 00:05:11,840
+uh let me show my uh key Magic
+
+100
+00:05:09,180 --> 00:05:11,840
+uh
+
+101
+00:05:12,000 --> 00:05:14,840
+Okay so
+
+102
+00:05:15,060 --> 00:05:24,259
+square bracket and no comma okay so we
+
+103
+00:05:19,860 --> 00:05:24,259
+did that that that that
+
+104
+00:05:27,000 --> 00:05:33,419
+that that
+
+105
+00:05:29,240 --> 00:05:37,100
+and the whole thing is a vector that and
+
+106
+00:05:33,419 --> 00:05:37,100
+oh no comma I forgot
+
+107
+00:05:37,380 --> 00:05:44,759
+because emac this you don't need you use
+
+108
+00:05:41,699 --> 00:05:46,860
+space as separator no comma so here is
+
+109
+00:05:44,759 --> 00:05:50,160
+these pairs okay
+
+110
+00:05:46,860 --> 00:05:52,139
+find uh
+
+111
+00:05:50,160 --> 00:05:55,139
+replace
+
+112
+00:05:52,139 --> 00:05:55,139
+okay
+
+113
+00:05:56,100 --> 00:06:02,520
+so you are in emac list so set a
+
+114
+00:06:00,539 --> 00:06:05,300
+variable that variable
+
+115
+00:06:02,520 --> 00:06:08,160
+and the value of that variable is that
+
+116
+00:06:05,300 --> 00:06:11,400
+predefy the code okay
+
+117
+00:06:08,160 --> 00:06:15,000
+now too many uh too much intent I don't
+
+118
+00:06:11,400 --> 00:06:17,820
+like that this okay so here
+
+119
+00:06:15,000 --> 00:06:20,460
+so let's find replace pairs Let's uh put
+
+120
+00:06:17,820 --> 00:06:24,780
+at the top as the input
+
+121
+00:06:20,460 --> 00:06:27,840
+so the input are this is also wrong uh
+
+122
+00:06:24,780 --> 00:06:30,660
+the input directory so because today we
+
+123
+00:06:27,840 --> 00:06:34,340
+are using a new better input directory
+
+124
+00:06:30,660 --> 00:06:34,340
+so input directory should be that
+
+125
+00:06:37,220 --> 00:06:43,199
+just that okay
+
+126
+00:06:39,840 --> 00:06:44,580
+yeah let's open it you see good close it
+
+127
+00:06:43,199 --> 00:06:49,280
+okay
+
+128
+00:06:44,580 --> 00:06:49,280
+so that's the input directory and
+
+129
+00:06:49,380 --> 00:06:55,440
+and these are the pairs we want to
+
+130
+00:06:52,139 --> 00:06:58,919
+replace and and over here what we have
+
+131
+00:06:55,440 --> 00:07:01,520
+to do is you know these repetitions we
+
+132
+00:06:58,919 --> 00:07:05,220
+don't need anymore
+
+133
+00:07:01,520 --> 00:07:09,240
+and the last one
+
+134
+00:07:05,220 --> 00:07:14,900
+yeah so we just this this part we want
+
+135
+00:07:09,240 --> 00:07:14,900
+to what we want to do is we want to map
+
+136
+00:07:21,599 --> 00:07:28,560
+map means for each okay and map a
+
+137
+00:07:25,440 --> 00:07:32,160
+function over at least so the the list
+
+138
+00:07:28,560 --> 00:07:35,340
+is going to be uh find replace pairs
+
+139
+00:07:32,160 --> 00:07:37,199
+okay and what is a function okay the
+
+140
+00:07:35,340 --> 00:07:39,419
+function will be
+
+141
+00:07:37,199 --> 00:07:41,639
+the function body will be something like
+
+142
+00:07:39,419 --> 00:07:45,240
+that over there so copy it
+
+143
+00:07:41,639 --> 00:07:47,400
+put it here make it pretty okay so
+
+144
+00:07:45,240 --> 00:07:51,919
+here's the function
+
+145
+00:07:47,400 --> 00:07:51,919
+okay uh wait what
+
+146
+00:07:52,560 --> 00:07:57,199
+yeah so uh what did I do
+
+147
+00:07:58,800 --> 00:08:02,180
+what is that
+
+148
+00:08:02,940 --> 00:08:07,380
+anyway so
+
+149
+00:08:04,740 --> 00:08:10,560
+yeah here's a function body so go to the
+
+150
+00:08:07,380 --> 00:08:13,199
+beginning then search for word and here
+
+151
+00:08:10,560 --> 00:08:15,419
+we will be
+
+152
+00:08:13,199 --> 00:08:18,840
+yeah so before we actually do anything
+
+153
+00:08:15,419 --> 00:08:25,220
+let's put the let
+
+154
+00:08:18,840 --> 00:08:25,220
+okay and then let's put all this into it
+
+155
+00:08:27,300 --> 00:08:34,440
+there okay make it pretty now let's it's
+
+156
+00:08:31,080 --> 00:08:37,560
+gonna be some variables the it's gonna
+
+157
+00:08:34,440 --> 00:08:41,779
+be fine and replace pairs so
+
+158
+00:08:37,560 --> 00:08:41,779
+the fine pair is gonna be
+
+159
+00:08:41,880 --> 00:08:46,920
+fine okay let's say dollar sign find
+
+160
+00:08:45,020 --> 00:08:49,980
+equals to
+
+161
+00:08:46,920 --> 00:08:52,920
+a ref
+
+162
+00:08:49,980 --> 00:08:54,959
+array
+
+163
+00:08:52,920 --> 00:08:58,440
+X is array
+
+164
+00:08:54,959 --> 00:09:02,580
+then the index is zero okay that's the
+
+165
+00:08:58,440 --> 00:09:04,760
+let's set the value for find and for the
+
+166
+00:09:02,580 --> 00:09:04,760
+replace
+
+167
+00:09:06,120 --> 00:09:13,080
+is
+
+168
+00:09:08,940 --> 00:09:18,120
+unref the second pair so you see
+
+169
+00:09:13,080 --> 00:09:20,760
+Visa pairs okay so find this is the fine
+
+170
+00:09:18,120 --> 00:09:23,700
+string and this is a replace string okay
+
+171
+00:09:20,760 --> 00:09:26,399
+now here what we have to do is just say
+
+172
+00:09:23,700 --> 00:09:29,399
+find
+
+173
+00:09:26,399 --> 00:09:33,480
+okay same thing here
+
+174
+00:09:29,399 --> 00:09:37,040
+find and here
+
+175
+00:09:33,480 --> 00:09:37,040
+replace string
+
+176
+00:09:37,800 --> 00:09:47,300
+replace string okay so we map we map a
+
+177
+00:09:42,300 --> 00:09:51,120
+function this function to this
+
+178
+00:09:47,300 --> 00:09:53,339
+uh array of arrays or vector vectors
+
+179
+00:09:51,120 --> 00:09:56,399
+each Vector is a
+
+180
+00:09:53,339 --> 00:10:00,660
+find and replace pair so this will work
+
+181
+00:09:56,399 --> 00:10:04,260
+now however let's I want to do something
+
+182
+00:10:00,660 --> 00:10:06,000
+to make this code more efficient okay
+
+183
+00:10:04,260 --> 00:10:08,820
+so
+
+184
+00:10:06,000 --> 00:10:11,519
+so let me explain you know yesterday we
+
+185
+00:10:08,820 --> 00:10:13,140
+you see these two lines of code I mean
+
+186
+00:10:11,519 --> 00:10:15,600
+these two blocks of code are very
+
+187
+00:10:13,140 --> 00:10:17,040
+similar we are first of all trying to
+
+188
+00:10:15,600 --> 00:10:20,399
+search for word
+
+189
+00:10:17,040 --> 00:10:25,080
+you know a string if we found it
+
+190
+00:10:20,399 --> 00:10:26,160
+we replace it okay then we set change to
+
+191
+00:10:25,080 --> 00:10:28,860
+true
+
+192
+00:10:26,160 --> 00:10:30,959
+we want to know that because if the file
+
+193
+00:10:28,860 --> 00:10:32,940
+if there's actually something we changed
+
+194
+00:10:30,959 --> 00:10:36,420
+then
+
+195
+00:10:32,940 --> 00:10:38,040
+you know then we write to file if
+
+196
+00:10:36,420 --> 00:10:40,860
+there's no change don't write to file
+
+197
+00:10:38,040 --> 00:10:43,380
+because otherwise it will be very
+
+198
+00:10:40,860 --> 00:10:46,980
+inefficient it's redundant
+
+199
+00:10:43,380 --> 00:10:51,180
+so the way we solve that is we first of
+
+200
+00:10:46,980 --> 00:10:54,180
+all find find you know the string then
+
+201
+00:10:51,180 --> 00:10:56,760
+modify the variable then we continue to
+
+202
+00:10:54,180 --> 00:10:58,079
+do the search and replace for that same
+
+203
+00:10:56,760 --> 00:11:00,480
+string
+
+204
+00:10:58,079 --> 00:11:04,339
+okay but however notice there's a
+
+205
+00:11:00,480 --> 00:11:04,339
+redundancy happening well this
+
+206
+00:11:04,920 --> 00:11:10,260
+is not really redundancy I mean I mean
+
+207
+00:11:07,740 --> 00:11:13,579
+the code is somewhat duplicated you see
+
+208
+00:11:10,260 --> 00:11:16,680
+this this block and this part but
+
+209
+00:11:13,579 --> 00:11:19,440
+algorithmically there is no redundancy
+
+210
+00:11:16,680 --> 00:11:22,079
+because every time you do find emacs
+
+211
+00:11:19,440 --> 00:11:26,339
+will move the point to the end of the
+
+212
+00:11:22,079 --> 00:11:28,440
+place it found so when you do while loop
+
+213
+00:11:26,339 --> 00:11:31,680
+to find it again it doesn't start from
+
+214
+00:11:28,440 --> 00:11:35,160
+the beginning so there's no inefficiency
+
+215
+00:11:31,680 --> 00:11:37,260
+here but however however the code is
+
+216
+00:11:35,160 --> 00:11:40,440
+repeated
+
+217
+00:11:37,260 --> 00:11:42,660
+we can make it better by yesterday I
+
+218
+00:11:40,440 --> 00:11:45,180
+discovered you know after the live
+
+219
+00:11:42,660 --> 00:11:48,959
+stream I thought about it we can make it
+
+220
+00:11:45,180 --> 00:11:54,000
+better to detect the change we can I
+
+221
+00:11:48,959 --> 00:11:54,720
+mean one simple way is to check the
+
+222
+00:11:54,000 --> 00:11:57,240
+um
+
+223
+00:11:54,720 --> 00:12:00,320
+the total size
+
+224
+00:11:57,240 --> 00:12:00,320
+of the Stream
+
+225
+00:12:00,720 --> 00:12:05,220
+you know that will not work if the find
+
+226
+00:12:02,760 --> 00:12:06,720
+replace pairs have the same size you
+
+227
+00:12:05,220 --> 00:12:09,000
+know same length
+
+228
+00:12:06,720 --> 00:12:12,600
+but in our case it will
+
+229
+00:12:09,000 --> 00:12:14,459
+uh so there are quite a few ways to do
+
+230
+00:12:12,600 --> 00:12:17,839
+this
+
+231
+00:12:14,459 --> 00:12:17,839
+but in fact
+
+232
+00:12:19,980 --> 00:12:24,120
+you see
+
+233
+00:12:21,600 --> 00:12:26,459
+this current way
+
+234
+00:12:24,120 --> 00:12:31,680
+you know although it's efficient but
+
+235
+00:12:26,459 --> 00:12:33,959
+however this set changed is repeated
+
+236
+00:12:31,680 --> 00:12:36,300
+what I mean is that suppose you have a
+
+237
+00:12:33,959 --> 00:12:40,260
+medium pairs you know let's say you have
+
+238
+00:12:36,300 --> 00:12:41,880
+a medium pairs now as soon as you found
+
+239
+00:12:40,260 --> 00:12:43,860
+a string
+
+240
+00:12:41,880 --> 00:12:46,320
+that's in the text
+
+241
+00:12:43,860 --> 00:12:49,079
+so you do the replacement and you set
+
+242
+00:12:46,320 --> 00:12:51,660
+change to True let's say that happens in
+
+243
+00:12:49,079 --> 00:12:54,660
+the first pair you know you found it you
+
+244
+00:12:51,660 --> 00:12:56,760
+made a change therefore change is true
+
+245
+00:12:54,660 --> 00:12:59,399
+however
+
+246
+00:12:56,760 --> 00:13:01,380
+but you have a million other pairs so
+
+247
+00:12:59,399 --> 00:13:03,180
+each time you are you know you are
+
+248
+00:13:01,380 --> 00:13:06,660
+setting this variable a million times
+
+249
+00:13:03,180 --> 00:13:09,839
+which you don't need so you'll be better
+
+250
+00:13:06,660 --> 00:13:12,300
+if you say if change is nil
+
+251
+00:13:09,839 --> 00:13:15,240
+then set it to true
+
+252
+00:13:12,300 --> 00:13:18,240
+but the problem is if you add as if
+
+253
+00:13:15,240 --> 00:13:20,600
+statement the if statement is
+
+254
+00:13:18,240 --> 00:13:23,940
+plus setting is probably taking
+
+255
+00:13:20,600 --> 00:13:25,560
+equivalent time then just set the
+
+256
+00:13:23,940 --> 00:13:27,839
+variable
+
+257
+00:13:25,560 --> 00:13:30,360
+so we are getting into uh the
+
+258
+00:13:27,839 --> 00:13:34,019
+nitty-gritty details about efficiency
+
+259
+00:13:30,360 --> 00:13:36,420
+this is when you know when you go to a
+
+260
+00:13:34,019 --> 00:13:38,399
+lower level language it you have so many
+
+261
+00:13:36,420 --> 00:13:40,620
+more ways to do it
+
+262
+00:13:38,399 --> 00:13:44,040
+the higher level of the language
+
+263
+00:13:40,620 --> 00:13:47,639
+where one line can do lots of things but
+
+264
+00:13:44,040 --> 00:13:49,500
+it's often not optimal so
+
+265
+00:13:47,639 --> 00:13:51,600
+so when you go down lower level
+
+266
+00:13:49,500 --> 00:13:53,339
+languages such as C
+
+267
+00:13:51,600 --> 00:13:56,220
+or assembly
+
+268
+00:13:53,339 --> 00:13:58,620
+the more low level the more multiple
+
+269
+00:13:56,220 --> 00:14:00,899
+ways you have
+
+270
+00:13:58,620 --> 00:14:03,540
+kind of to do the same thing
+
+271
+00:14:00,899 --> 00:14:05,579
+I learned that when I was doing the
+
+272
+00:14:03,540 --> 00:14:08,040
+homework of someone's brain
+
+273
+00:14:05,579 --> 00:14:11,360
+language there's a you know language
+
+274
+00:14:08,040 --> 00:14:11,360
+brain hello guys
+
+275
+00:14:12,180 --> 00:14:19,880
+let's you know not brand brain
+
+276
+00:14:16,160 --> 00:14:22,560
+b-r-a-i-n okay so for example you know
+
+277
+00:14:19,880 --> 00:14:25,200
+about five years ago I was doing
+
+278
+00:14:22,560 --> 00:14:27,839
+homework for someone College computer
+
+279
+00:14:25,200 --> 00:14:30,480
+science homework brain so brain
+
+280
+00:14:27,839 --> 00:14:32,180
+fact is you know artificial
+
+281
+00:14:30,480 --> 00:14:35,760
+uh
+
+282
+00:14:32,180 --> 00:14:37,260
+obfuscated language you only have a few
+
+283
+00:14:35,760 --> 00:14:39,899
+operations
+
+284
+00:14:37,260 --> 00:14:42,720
+and I never had experience in low-level
+
+285
+00:14:39,899 --> 00:14:44,699
+languages such as assembly or C you know
+
+286
+00:14:42,720 --> 00:14:45,899
+I never really ever experience but brain
+
+287
+00:14:44,699 --> 00:14:49,560
+
+288
+00:14:45,899 --> 00:14:52,320
+kind of opened my eyes so I I started to
+
+289
+00:14:49,560 --> 00:14:54,000
+see there just yeah you know usually for
+
+290
+00:14:52,320 --> 00:14:57,240
+example in Python
+
+291
+00:14:54,000 --> 00:14:59,519
+or in many languages the design of the
+
+292
+00:14:57,240 --> 00:15:02,760
+language usually you want to have only
+
+293
+00:14:59,519 --> 00:15:05,940
+one way to do it to do something
+
+294
+00:15:02,760 --> 00:15:07,740
+but actually from a algorithmic point of
+
+295
+00:15:05,940 --> 00:15:09,839
+view point of view that is basically
+
+296
+00:15:07,740 --> 00:15:11,699
+impossible you can never have just one
+
+297
+00:15:09,839 --> 00:15:13,800
+way to do it
+
+298
+00:15:11,699 --> 00:15:17,100
+you might have one way to do it that's
+
+299
+00:15:13,800 --> 00:15:18,660
+most you know intuitive you know with
+
+300
+00:15:17,100 --> 00:15:21,300
+respect to the language but actually
+
+301
+00:15:18,660 --> 00:15:23,459
+this you always have so many ways to do
+
+302
+00:15:21,300 --> 00:15:26,399
+it and some ways will be more efficient
+
+303
+00:15:23,459 --> 00:15:28,680
+so anyway
+
+304
+00:15:26,399 --> 00:15:31,920
+uh the equation so you know we are
+
+305
+00:15:28,680 --> 00:15:34,860
+talking about how do you um
+
+306
+00:15:31,920 --> 00:15:38,880
+so let me so let's uh hello guys Greg
+
+307
+00:15:34,860 --> 00:15:41,880
+and Doc and hello uh German if you see
+
+308
+00:15:38,880 --> 00:15:44,040
+insert file content path with the T you
+
+309
+00:15:41,880 --> 00:15:47,100
+can use buffer modified
+
+310
+00:15:44,040 --> 00:15:49,199
+uh both for modified P yeah that's true
+
+311
+00:15:47,100 --> 00:15:50,940
+but actually doesn't apply here because
+
+312
+00:15:49,199 --> 00:15:54,839
+we are you know we talked about this
+
+313
+00:15:50,940 --> 00:15:57,240
+yesterday we are using with 10 buffer so
+
+314
+00:15:54,839 --> 00:16:00,360
+you know that both a modified P only
+
+315
+00:15:57,240 --> 00:16:02,820
+work if the file is associated if the
+
+316
+00:16:00,360 --> 00:16:05,760
+buffer is associated with the file
+
+317
+00:16:02,820 --> 00:16:08,760
+in our case we don't we are not
+
+318
+00:16:05,760 --> 00:16:11,940
+uh copperstein says I think that said
+
+319
+00:16:08,760 --> 00:16:15,060
+changed P May many times it's okay for
+
+320
+00:16:11,940 --> 00:16:17,220
+performance yeah you are right yeah
+
+321
+00:16:15,060 --> 00:16:19,199
+yeah you are right so the Nitty Gritty
+
+322
+00:16:17,220 --> 00:16:20,519
+details
+
+323
+00:16:19,199 --> 00:16:23,579
+um
+
+324
+00:16:20,519 --> 00:16:25,440
+yeah you should you know in practice it
+
+325
+00:16:23,579 --> 00:16:27,720
+it doesn't matter it doesn't really
+
+326
+00:16:25,440 --> 00:16:28,740
+matter okay so let's just go with this
+
+327
+00:16:27,720 --> 00:16:30,839
+thing
+
+328
+00:16:28,740 --> 00:16:33,600
+let's just go with this
+
+329
+00:16:30,839 --> 00:16:37,860
+um okay so you know let's stop wasting
+
+330
+00:16:33,600 --> 00:16:39,360
+time on this you know so okay so here is
+
+331
+00:16:37,860 --> 00:16:40,380
+essentially
+
+332
+00:16:39,360 --> 00:16:43,339
+um
+
+333
+00:16:40,380 --> 00:16:43,339
+our code
+
+334
+00:16:43,860 --> 00:16:48,720
+we don't need the comments okay so so
+
+335
+00:16:46,920 --> 00:16:51,240
+yeah so that's
+
+336
+00:16:48,720 --> 00:16:52,380
+let's make it
+
+337
+00:16:51,240 --> 00:16:54,540
+um
+
+338
+00:16:52,380 --> 00:16:58,259
+you know
+
+339
+00:16:54,540 --> 00:17:01,620
+compact okay so here is the you should
+
+340
+00:16:58,259 --> 00:17:03,240
+work so let's uh check one more like one
+
+341
+00:17:01,620 --> 00:17:05,640
+more time
+
+342
+00:17:03,240 --> 00:17:07,620
+so you
+
+343
+00:17:05,640 --> 00:17:10,980
+go to this directory
+
+344
+00:17:07,620 --> 00:17:15,240
+uh this is find replace speakers you
+
+345
+00:17:10,980 --> 00:17:17,880
+list the directory or HTML files and you
+
+346
+00:17:15,240 --> 00:17:20,100
+do this yeah should then you know you
+
+347
+00:17:17,880 --> 00:17:22,980
+define this function that process each
+
+348
+00:17:20,100 --> 00:17:25,620
+file path then you map this function to
+
+349
+00:17:22,980 --> 00:17:26,760
+the digital files okay that should work
+
+350
+00:17:25,620 --> 00:17:32,100
+now
+
+351
+00:17:26,760 --> 00:17:34,200
+copy pop it back to HTML now we want to
+
+352
+00:17:32,100 --> 00:17:38,000
+create
+
+353
+00:17:34,200 --> 00:17:38,000
+that file here so
+
+354
+00:17:38,460 --> 00:17:45,360
+yeah okay so let's open that path not
+
+355
+00:17:41,880 --> 00:17:49,559
+exist do I are you sure create yes paste
+
+356
+00:17:45,360 --> 00:17:53,220
+it here save close open again it's there
+
+357
+00:17:49,559 --> 00:17:55,740
+okay so we can run it in Shell now
+
+358
+00:17:53,220 --> 00:17:59,820
+and the same thing we want to do with
+
+359
+00:17:55,740 --> 00:18:02,100
+wufam land but let's let's run the emac
+
+360
+00:17:59,820 --> 00:18:05,100
+this first okay so let's this is
+
+361
+00:18:02,100 --> 00:18:08,940
+Powershell let's try to run it
+
+362
+00:18:05,100 --> 00:18:11,280
+uh double check yeah
+
+363
+00:18:08,940 --> 00:18:12,419
+okay measure command measure the time it
+
+364
+00:18:11,280 --> 00:18:15,559
+takes
+
+365
+00:18:12,419 --> 00:18:15,559
+it's Powershell run it
+
+366
+00:18:17,039 --> 00:18:22,200
+okay there is the error yeah we know
+
+367
+00:18:19,980 --> 00:18:25,400
+this from yesterday there's a run type
+
+368
+00:18:22,200 --> 00:18:25,400
+of argument stream p
+
+369
+00:18:25,440 --> 00:18:30,600
+uh debugger entered this very wrong type
+
+370
+00:18:29,100 --> 00:18:35,160
+of argument
+
+371
+00:18:30,600 --> 00:18:38,700
+a stream P so he wants a string
+
+372
+00:18:35,160 --> 00:18:40,860
+okay so okay
+
+373
+00:18:38,700 --> 00:18:44,160
+so there's the arrow so let's look at
+
+374
+00:18:40,860 --> 00:18:47,700
+what is the error so
+
+375
+00:18:44,160 --> 00:18:50,720
+something with our map C something went
+
+376
+00:18:47,700 --> 00:18:50,720
+wrong there so
+
+377
+00:18:51,140 --> 00:18:57,600
+each time you get this pair oh there it
+
+378
+00:18:54,299 --> 00:19:02,419
+is that that right arrow is incorrect so
+
+379
+00:18:57,600 --> 00:19:02,419
+yeah so you you don't want that
+
+380
+00:19:04,380 --> 00:19:12,260
+there okay now go back to Shell
+
+381
+00:19:08,460 --> 00:19:12,260
+run the last command to it
+
+382
+00:19:13,799 --> 00:19:18,360
+should be five seconds yeah okay four
+
+383
+00:19:16,500 --> 00:19:20,640
+seconds first time
+
+384
+00:19:18,360 --> 00:19:24,360
+do it again
+
+385
+00:19:20,640 --> 00:19:27,500
+two seconds 1.7 yeah 1.7 seconds Okay
+
+386
+00:19:24,360 --> 00:19:30,120
+the reason the second time is faster
+
+387
+00:19:27,500 --> 00:19:31,679
+there's a little complexity let me
+
+388
+00:19:30,120 --> 00:19:34,320
+explain again
+
+389
+00:19:31,679 --> 00:19:37,020
+when you do a fine replace on thousands
+
+390
+00:19:34,320 --> 00:19:40,919
+of files like we are doing now you know
+
+391
+00:19:37,020 --> 00:19:44,880
+there's 1000 files
+
+392
+00:19:40,919 --> 00:19:47,280
+the bottleneck is the disc accessing the
+
+393
+00:19:44,880 --> 00:19:49,440
+loading the file from the disk or even
+
+394
+00:19:47,280 --> 00:19:50,760
+from flash drive right now I have flash
+
+395
+00:19:49,440 --> 00:19:53,580
+drive
+
+396
+00:19:50,760 --> 00:19:56,760
+you know if if you have a spinning disc
+
+397
+00:19:53,580 --> 00:19:59,160
+that's even 10 times slower so the
+
+398
+00:19:56,760 --> 00:20:00,900
+bottleneck is loading the fire from the
+
+399
+00:19:59,160 --> 00:20:03,299
+drive okay
+
+400
+00:20:00,900 --> 00:20:06,419
+so let's say if you are doing grip not
+
+401
+00:20:03,299 --> 00:20:08,880
+find replace simply find string
+
+402
+00:20:06,419 --> 00:20:11,520
+the first time you do it on a thousand
+
+403
+00:20:08,880 --> 00:20:14,220
+files let me show you okay let me show
+
+404
+00:20:11,520 --> 00:20:17,280
+you let's go to uh
+
+405
+00:20:14,220 --> 00:20:20,520
+so here is my Golan script
+
+406
+00:20:17,280 --> 00:20:22,260
+uh you can you can find the
+
+407
+00:20:20,520 --> 00:20:24,299
+you know you can find the code here
+
+408
+00:20:22,260 --> 00:20:27,240
+Golan
+
+409
+00:20:24,299 --> 00:20:30,960
+is simply find by regular acceleration
+
+410
+00:20:27,240 --> 00:20:35,059
+some file so this is equivalent to Unix
+
+411
+00:20:30,960 --> 00:20:39,660
+scrap or rip grab or whatever you know I
+
+412
+00:20:35,059 --> 00:20:42,419
+I like um I I did one video where I
+
+413
+00:20:39,660 --> 00:20:45,539
+looked in depth into rip grab rib grab
+
+414
+00:20:42,419 --> 00:20:47,820
+is faster than this script uh yeah so
+
+415
+00:20:45,539 --> 00:20:50,520
+okay so the point so here's a script so
+
+416
+00:20:47,820 --> 00:20:52,440
+when you want to find some string in
+
+417
+00:20:50,520 --> 00:20:56,160
+thousands of files the first time is
+
+418
+00:20:52,440 --> 00:20:58,559
+super slow for example this this this uh
+
+419
+00:20:56,160 --> 00:21:02,520
+this script will find
+
+420
+00:20:58,559 --> 00:21:05,460
+about 7000 HTML files you try to search
+
+421
+00:21:02,520 --> 00:21:06,960
+seven seven thousand HTML files in my
+
+422
+00:21:05,460 --> 00:21:11,100
+directory
+
+423
+00:21:06,960 --> 00:21:13,860
+and thus you know Skip get and Skip some
+
+424
+00:21:11,100 --> 00:21:17,580
+documentation directory so let's see the
+
+425
+00:21:13,860 --> 00:21:20,520
+find string uh let's say we want to find
+
+426
+00:21:17,580 --> 00:21:22,860
+the string Rhino okay there's a book
+
+427
+00:21:20,520 --> 00:21:25,200
+JavaScript right now okay so I run it
+
+428
+00:21:22,860 --> 00:21:27,440
+the first time you'll take two or three
+
+429
+00:21:25,200 --> 00:21:27,440
+seconds
+
+430
+00:21:29,100 --> 00:21:34,919
+okay it's still running still running
+
+431
+00:21:31,559 --> 00:21:38,159
+this is written in go fast fastest uh
+
+432
+00:21:34,919 --> 00:21:40,140
+faster than humanities
+
+433
+00:21:38,159 --> 00:21:43,380
+okay it's still running
+
+434
+00:21:40,140 --> 00:21:48,860
+I found one instance
+
+435
+00:21:43,380 --> 00:21:48,860
+he found a few instances wait okay wait
+
+436
+00:21:51,720 --> 00:21:55,799
+the first time is slow because it's
+
+437
+00:21:53,880 --> 00:21:59,120
+going through
+
+438
+00:21:55,799 --> 00:22:02,400
+it's going through like 20 000 files
+
+439
+00:21:59,120 --> 00:22:05,340
+among which seven thousand are HTML
+
+440
+00:22:02,400 --> 00:22:06,780
+files so you have to first of all you
+
+441
+00:22:05,340 --> 00:22:09,419
+know dive into the directory and
+
+442
+00:22:06,780 --> 00:22:13,200
+subdirectories filter out the files you
+
+443
+00:22:09,419 --> 00:22:15,600
+want HTML files then open each HTML okay
+
+444
+00:22:13,200 --> 00:22:20,120
+it's done okay it's that's probably
+
+445
+00:22:15,600 --> 00:22:20,120
+seven seconds okay now you
+
+446
+00:22:21,440 --> 00:22:27,780
+mods so you can you can have this nice
+
+447
+00:22:24,780 --> 00:22:28,860
+interface you can jump to any one of the
+
+448
+00:22:27,780 --> 00:22:31,740
+file
+
+449
+00:22:28,860 --> 00:22:34,020
+showing browser you know so this is one
+
+450
+00:22:31,740 --> 00:22:36,539
+of the article Rhino you know JavaScript
+
+451
+00:22:34,020 --> 00:22:40,559
+the Gradebook okay this is one of the
+
+452
+00:22:36,539 --> 00:22:43,380
+best book JavaScript the Rhino book The
+
+453
+00:22:40,559 --> 00:22:45,600
+Definitive guide so okay
+
+454
+00:22:43,380 --> 00:22:48,659
+so you can see now close it okay wait
+
+455
+00:22:45,600 --> 00:22:51,539
+back here close it okay so you can see
+
+456
+00:22:48,659 --> 00:22:53,940
+is it found about 10 instant you know
+
+457
+00:22:51,539 --> 00:22:57,179
+one two three four five six seven eight
+
+458
+00:22:53,940 --> 00:22:59,700
+seven instances okay took about seven
+
+459
+00:22:57,179 --> 00:23:02,760
+seconds uh close it now if I run this
+
+460
+00:22:59,700 --> 00:23:06,360
+again it's instantaneous okay let me
+
+461
+00:23:02,760 --> 00:23:08,640
+show you because now all the 7000 HTML
+
+462
+00:23:06,360 --> 00:23:10,820
+files they are in memory okay let me run
+
+463
+00:23:08,640 --> 00:23:10,820
+it
+
+464
+00:23:11,039 --> 00:23:14,299
+then you see
+
+465
+00:23:14,460 --> 00:23:20,039
+then and now put in the casa find March
+
+466
+00:23:19,020 --> 00:23:22,140
+C
+
+467
+00:23:20,039 --> 00:23:24,059
+you see so that's the point when you do
+
+468
+00:23:22,140 --> 00:23:26,220
+find when you try to you know the
+
+469
+00:23:24,059 --> 00:23:29,760
+bottleneck is loading the file into
+
+470
+00:23:26,220 --> 00:23:31,919
+memory that is a big bottleneck we this
+
+471
+00:23:29,760 --> 00:23:33,840
+is important because we are trying to
+
+472
+00:23:31,919 --> 00:23:38,940
+test the speed
+
+473
+00:23:33,840 --> 00:23:41,280
+of of these scripts so we have two so if
+
+474
+00:23:38,940 --> 00:23:43,860
+all you are doing is fine you know is
+
+475
+00:23:41,280 --> 00:23:46,980
+grab then
+
+476
+00:23:43,860 --> 00:23:49,500
+you want to run a script the first time
+
+477
+00:23:46,980 --> 00:23:53,520
+then join it one more time the second
+
+478
+00:23:49,500 --> 00:23:56,460
+time is the actual speed of of the of
+
+479
+00:23:53,520 --> 00:23:59,100
+the of the grab in that particular
+
+480
+00:23:56,460 --> 00:24:01,559
+language okay the first time is is just
+
+481
+00:23:59,100 --> 00:24:04,320
+loading the files okay so that's one
+
+482
+00:24:01,559 --> 00:24:06,840
+thing to know very critical
+
+483
+00:24:04,320 --> 00:24:08,539
+loading files from the disk is the
+
+484
+00:24:06,840 --> 00:24:12,179
+bottleneck okay
+
+485
+00:24:08,539 --> 00:24:15,539
+but now we are not doing grip we are
+
+486
+00:24:12,179 --> 00:24:18,659
+doing find and replace okay so let me so
+
+487
+00:24:15,539 --> 00:24:19,679
+there's a intricate intricacy we need to
+
+488
+00:24:18,659 --> 00:24:22,640
+know
+
+489
+00:24:19,679 --> 00:24:27,240
+uh to make sense of our speed comparison
+
+490
+00:24:22,640 --> 00:24:30,659
+and that is let me explain okay
+
+491
+00:24:27,240 --> 00:24:32,460
+so that is you know first of all same
+
+492
+00:24:30,659 --> 00:24:36,780
+thing happens when you do this for the
+
+493
+00:24:32,460 --> 00:24:39,720
+first time it has to uh it has to load
+
+494
+00:24:36,780 --> 00:24:43,140
+you know these 1000 files from disk so
+
+495
+00:24:39,720 --> 00:24:47,280
+very slow so the first time when we run
+
+496
+00:24:43,140 --> 00:24:50,299
+it this 4.3 seconds includes those times
+
+497
+00:24:47,280 --> 00:24:50,299
+to load this
+
+498
+00:24:50,640 --> 00:24:56,840
+but however here's the thing
+
+499
+00:24:53,700 --> 00:25:01,380
+the second time we do it
+
+500
+00:24:56,840 --> 00:25:02,600
+still have to load all these files why I
+
+501
+00:25:01,380 --> 00:25:07,080
+mean
+
+502
+00:25:02,600 --> 00:25:08,880
+because the file has changed you see the
+
+503
+00:25:07,080 --> 00:25:12,419
+file has changed because we are doing
+
+504
+00:25:08,880 --> 00:25:14,880
+fine replace so some of the files have
+
+505
+00:25:12,419 --> 00:25:18,840
+changed some of them not
+
+506
+00:25:14,880 --> 00:25:21,740
+so we run into a situation where the
+
+507
+00:25:18,840 --> 00:25:21,740
+second speed
+
+508
+00:25:21,840 --> 00:25:27,000
+you know we don't know exactly which
+
+509
+00:25:24,179 --> 00:25:29,580
+file are already loaded in memory memory
+
+510
+00:25:27,000 --> 00:25:33,120
+which one one or not
+
+511
+00:25:29,580 --> 00:25:35,880
+so you know we don't know exactly
+
+512
+00:25:33,120 --> 00:25:39,179
+we can find out of course because we we
+
+513
+00:25:35,880 --> 00:25:42,600
+know exactly which string we we changed
+
+514
+00:25:39,179 --> 00:25:45,120
+but the generally speaking you know some
+
+515
+00:25:42,600 --> 00:25:49,380
+files are still in memory some not
+
+516
+00:25:45,120 --> 00:25:51,000
+and and why is it 1.7 times faster I
+
+517
+00:25:49,380 --> 00:25:53,340
+mean what why is this the second time
+
+518
+00:25:51,000 --> 00:25:56,580
+faster well part of the reason is that
+
+519
+00:25:53,340 --> 00:25:58,020
+possibly that some of the files are
+
+520
+00:25:56,580 --> 00:26:00,600
+still in memory
+
+521
+00:25:58,020 --> 00:26:03,720
+but the other reason is that
+
+522
+00:26:00,600 --> 00:26:06,299
+you know when you do the second time you
+
+523
+00:26:03,720 --> 00:26:08,820
+no longer have this word in those 1000
+
+524
+00:26:06,299 --> 00:26:09,720
+vowels because they all become that you
+
+525
+00:26:08,820 --> 00:26:12,779
+know
+
+526
+00:26:09,720 --> 00:26:14,580
+how so same thing with Lambda you know
+
+527
+00:26:12,779 --> 00:26:16,380
+you don't no longer have the word Lambda
+
+528
+00:26:14,580 --> 00:26:18,539
+you no longer have the word number but
+
+529
+00:26:16,380 --> 00:26:21,600
+however this
+
+530
+00:26:18,539 --> 00:26:23,880
+this exists this let that you know that
+
+531
+00:26:21,600 --> 00:26:28,320
+becomes that something so that is still
+
+532
+00:26:23,880 --> 00:26:32,640
+there so the second time is faster
+
+533
+00:26:28,320 --> 00:26:35,580
+for two reasons one is that your the the
+
+534
+00:26:32,640 --> 00:26:38,460
+string you need to find is is much less
+
+535
+00:26:35,580 --> 00:26:40,919
+the occurrence therefore the time you
+
+536
+00:26:38,460 --> 00:26:43,140
+have to write to this is much less far
+
+537
+00:26:40,919 --> 00:26:45,900
+fewer files you have to write to this
+
+538
+00:26:43,140 --> 00:26:49,320
+right to this is another major
+
+539
+00:26:45,900 --> 00:26:50,940
+uh cost in you know bottleneck right to
+
+540
+00:26:49,320 --> 00:26:53,100
+disk
+
+541
+00:26:50,940 --> 00:26:55,500
+so one reason is that there's less
+
+542
+00:26:53,100 --> 00:26:58,080
+number of pairs you are actually writing
+
+543
+00:26:55,500 --> 00:26:59,039
+to disk changing the second reason is
+
+544
+00:26:58,080 --> 00:27:02,520
+that
+
+545
+00:26:59,039 --> 00:27:05,279
+some of these files are still in memory
+
+546
+00:27:02,520 --> 00:27:08,159
+Okay so
+
+547
+00:27:05,279 --> 00:27:11,700
+so that's that's a conclusion okay if we
+
+548
+00:27:08,159 --> 00:27:13,500
+do it again it's basically it's 1.72 you
+
+549
+00:27:11,700 --> 00:27:18,240
+see 1.8
+
+550
+00:27:13,500 --> 00:27:20,400
+we do it again 1.8 something 1.7 okay so
+
+551
+00:27:18,240 --> 00:27:23,039
+basically each time it's going to do
+
+552
+00:27:20,400 --> 00:27:27,240
+that let's go there and let's show you
+
+553
+00:27:23,039 --> 00:27:31,020
+let's show it so for example if you open
+
+554
+00:27:27,240 --> 00:27:33,059
+that search for that you see
+
+555
+00:27:31,020 --> 00:27:34,679
+you know because we did one two three
+
+556
+00:27:33,059 --> 00:27:37,980
+four four times
+
+557
+00:27:34,679 --> 00:27:40,320
+and you can search that again
+
+558
+00:27:37,980 --> 00:27:42,539
+you know that you know that is one of
+
+559
+00:27:40,320 --> 00:27:45,559
+the most frequently words so let's
+
+560
+00:27:42,539 --> 00:27:45,559
+highlight this
+
+561
+00:27:45,960 --> 00:27:51,000
+okay so you can see all that occurrences
+
+562
+00:27:48,960 --> 00:27:54,320
+you see
+
+563
+00:27:51,000 --> 00:27:54,320
+that that you see
+
+564
+00:27:54,360 --> 00:27:58,320
+okay
+
+565
+00:27:55,500 --> 00:28:01,500
+so that's emac lease okay let's close
+
+566
+00:27:58,320 --> 00:28:04,440
+that close that that's emac bisp okay we
+
+567
+00:28:01,500 --> 00:28:06,960
+are ready to move on to wufam language
+
+568
+00:28:04,440 --> 00:28:09,720
+then we're gonna do python okay
+
+569
+00:28:06,960 --> 00:28:12,600
+now a little one more one last check is
+
+570
+00:28:09,720 --> 00:28:15,360
+there anything new efficient here
+
+571
+00:28:12,600 --> 00:28:17,539
+uh I don't think so
+
+572
+00:28:15,360 --> 00:28:17,539
+um
+
+573
+00:28:17,880 --> 00:28:22,679
+yeah this change to we can we can change
+
+574
+00:28:21,299 --> 00:28:25,799
+it by
+
+575
+00:28:22,679 --> 00:28:29,159
+just compare just check the length of
+
+576
+00:28:25,799 --> 00:28:31,380
+the buffer you know the point Max
+
+577
+00:28:29,159 --> 00:28:33,240
+if the point Max is different from the
+
+578
+00:28:31,380 --> 00:28:34,860
+original you know that's another way to
+
+579
+00:28:33,240 --> 00:28:38,039
+do it but anyway so
+
+580
+00:28:34,860 --> 00:28:41,580
+this should be fine so emac this code is
+
+581
+00:28:38,039 --> 00:28:43,919
+complete okay backup close okay we got
+
+582
+00:28:41,580 --> 00:28:46,820
+that now let's work on Wolf Hamlet any
+
+583
+00:28:43,919 --> 00:28:46,820
+questions comments
+
+584
+00:28:46,919 --> 00:28:53,400
+the worst bottleneck is human yes and
+
+585
+00:28:50,159 --> 00:28:55,020
+that's when Wolfram language shines you
+
+586
+00:28:53,400 --> 00:28:57,299
+know
+
+587
+00:28:55,020 --> 00:29:00,600
+so in Wu family let's let me show you
+
+588
+00:28:57,299 --> 00:29:03,419
+okay so let's go to Fan language okay
+
+589
+00:29:00,600 --> 00:29:04,500
+so this so
+
+590
+00:29:03,419 --> 00:29:07,980
+um
+
+591
+00:29:04,500 --> 00:29:10,580
+this emac this code we deleted we don't
+
+592
+00:29:07,980 --> 00:29:10,580
+care anymore
+
+593
+00:29:11,279 --> 00:29:17,279
+okay now let's start the Wolfram
+
+594
+00:29:14,100 --> 00:29:20,820
+language okay now cut
+
+595
+00:29:17,279 --> 00:29:24,620
+probably a bag we don't want now let's
+
+596
+00:29:20,820 --> 00:29:24,620
+go to open this here
+
+597
+00:29:26,820 --> 00:29:33,539
+yes create paste it save okay here's the
+
+598
+00:29:30,840 --> 00:29:36,080
+Wolfram language let's remove that that
+
+599
+00:29:33,539 --> 00:29:36,080
+comment
+
+600
+00:29:37,919 --> 00:29:45,059
+find replace multiple pairs inverter
+
+601
+00:29:41,940 --> 00:29:48,539
+okay now the
+
+602
+00:29:45,059 --> 00:29:51,440
+input okay the input also changed so the
+
+603
+00:29:48,539 --> 00:29:51,440
+input is now
+
+604
+00:29:51,600 --> 00:29:56,700
+here that's right
+
+605
+00:29:53,640 --> 00:30:00,240
+okay input and here's a bunch of replace
+
+606
+00:29:56,700 --> 00:30:03,960
+Pairs and there's the arrow here that
+
+607
+00:30:00,240 --> 00:30:06,539
+should be let's look
+
+608
+00:30:03,960 --> 00:30:08,899
+that should be that
+
+609
+00:30:06,539 --> 00:30:08,899
+okay
+
+610
+00:30:10,980 --> 00:30:16,740
+okay and very simple you see we just
+
+611
+00:30:13,980 --> 00:30:19,620
+apply this function process file is
+
+612
+00:30:16,740 --> 00:30:21,240
+defined as a function we
+
+613
+00:30:19,620 --> 00:30:24,059
+um
+
+614
+00:30:21,240 --> 00:30:27,120
+you know different language we the
+
+615
+00:30:24,059 --> 00:30:31,980
+function file path is the variable the
+
+616
+00:30:27,120 --> 00:30:35,039
+argument so you read string get the
+
+617
+00:30:31,980 --> 00:30:38,520
+files content as a string then you just
+
+618
+00:30:35,039 --> 00:30:41,340
+call replace string replace and stream
+
+619
+00:30:38,520 --> 00:30:42,480
+replace can take a multiple pair you can
+
+620
+00:30:41,340 --> 00:30:44,039
+see
+
+621
+00:30:42,480 --> 00:30:45,779
+you see
+
+622
+00:30:44,039 --> 00:30:47,760
+so you don't even have to either you
+
+623
+00:30:45,779 --> 00:30:49,559
+know that's the power of Wolfram
+
+624
+00:30:47,760 --> 00:30:52,140
+language you want to replace multiple
+
+625
+00:30:49,559 --> 00:30:55,020
+pairs one function call
+
+626
+00:30:52,140 --> 00:30:57,539
+you know you and and each one part of
+
+627
+00:30:55,020 --> 00:31:00,600
+this can be a regular expression
+
+628
+00:30:57,539 --> 00:31:03,260
+so you don't have to uh you know worry
+
+629
+00:31:00,600 --> 00:31:03,260
+about anything
+
+630
+00:31:03,899 --> 00:31:10,860
+okay then you do scan scan is like for
+
+631
+00:31:07,380 --> 00:31:14,779
+each okay so you map the process file
+
+632
+00:31:10,860 --> 00:31:18,120
+function to you know this part is just
+
+633
+00:31:14,779 --> 00:31:21,659
+gets to all the file names it returns a
+
+634
+00:31:18,120 --> 00:31:25,620
+list of files name very similar to uh
+
+635
+00:31:21,659 --> 00:31:28,799
+this you know if we compare
+
+636
+00:31:25,620 --> 00:31:30,000
+emac this code you see this part file
+
+637
+00:31:28,799 --> 00:31:32,520
+list
+
+638
+00:31:30,000 --> 00:31:33,419
+is equivalent to
+
+639
+00:31:32,520 --> 00:31:37,380
+um
+
+640
+00:31:33,419 --> 00:31:41,100
+that you see the directory files
+
+641
+00:31:37,380 --> 00:31:44,940
+in Wolfram language is just file names
+
+642
+00:31:41,100 --> 00:31:49,320
+then you map you know the scan the scan
+
+643
+00:31:44,940 --> 00:31:52,320
+is like Wolfram language is map C
+
+644
+00:31:49,320 --> 00:31:55,559
+so actually so you don't so these files
+
+645
+00:31:52,320 --> 00:31:57,659
+you actually just put it here so you
+
+646
+00:31:55,559 --> 00:32:01,500
+don't need the
+
+647
+00:31:57,659 --> 00:32:03,299
+the variables
+
+648
+00:32:01,500 --> 00:32:04,980
+you see
+
+649
+00:32:03,299 --> 00:32:06,419
+so
+
+650
+00:32:04,980 --> 00:32:08,580
+okay
+
+651
+00:32:06,419 --> 00:32:10,679
+now
+
+652
+00:32:08,580 --> 00:32:13,140
+now let's work on the Wolfram language
+
+653
+00:32:10,679 --> 00:32:15,440
+okay let's make sure the emac this is
+
+654
+00:32:13,140 --> 00:32:15,440
+not
+
+655
+00:32:16,919 --> 00:32:22,220
+yeah so so that's good emac this file is
+
+656
+00:32:19,919 --> 00:32:22,220
+good
+
+657
+00:32:23,460 --> 00:32:29,700
+okay now let's work on Wolfram language
+
+658
+00:32:25,760 --> 00:32:32,340
+uh and this part this process file you
+
+659
+00:32:29,700 --> 00:32:36,179
+can actually just grab the whole thing
+
+660
+00:32:32,340 --> 00:32:39,600
+and put it here so it's one single line
+
+661
+00:32:36,179 --> 00:32:41,640
+let's even remove the done
+
+662
+00:32:39,600 --> 00:32:43,200
+you don't need the process fast so let
+
+663
+00:32:41,640 --> 00:32:45,419
+me show you okay let me show you some
+
+664
+00:32:43,200 --> 00:32:48,360
+tricks in Wolfram language
+
+665
+00:32:45,419 --> 00:32:51,120
+uh
+
+666
+00:32:48,360 --> 00:32:53,940
+so we're gonna rewrite this this two
+
+667
+00:32:51,120 --> 00:32:56,460
+into one single line okay
+
+668
+00:32:53,940 --> 00:32:58,020
+so first of all this process file can be
+
+669
+00:32:56,460 --> 00:33:00,360
+written by
+
+670
+00:32:58,020 --> 00:33:03,059
+this function
+
+671
+00:33:00,360 --> 00:33:04,620
+can be written by you don't need the
+
+672
+00:33:03,059 --> 00:33:07,100
+final pass
+
+673
+00:33:04,620 --> 00:33:07,100
+stream
+
+674
+00:33:11,940 --> 00:33:15,919
+and actually I'm thinking
+
+675
+00:33:36,659 --> 00:33:44,399
+okay so so this block is equivalent to
+
+676
+00:33:41,220 --> 00:33:47,419
+this one okay in fact you can shorten it
+
+677
+00:33:44,399 --> 00:33:47,419
+much more
+
+678
+00:33:52,500 --> 00:33:59,279
+yeah so they are the same okay so
+
+679
+00:33:55,500 --> 00:34:02,700
+this block is equivalent to this one and
+
+680
+00:33:59,279 --> 00:34:05,100
+since now we just have one line we don't
+
+681
+00:34:02,700 --> 00:34:07,700
+even need that anymore so just put this
+
+682
+00:34:05,100 --> 00:34:07,700
+line here
+
+683
+00:34:09,480 --> 00:34:12,320
+so compare
+
+684
+00:34:12,359 --> 00:34:18,300
+these two lines now it's just this
+
+685
+00:34:15,119 --> 00:34:19,440
+single line okay
+
+686
+00:34:18,300 --> 00:34:19,980
+now
+
+687
+00:34:19,440 --> 00:34:21,980
+[Music]
+
+688
+00:34:19,980 --> 00:34:21,980
+um
+
+689
+00:34:23,060 --> 00:34:28,339
+now
+
+690
+00:34:25,020 --> 00:34:28,339
+it's um
+
+691
+00:34:28,379 --> 00:34:34,879
+let's not worry about that let's work
+
+692
+00:34:30,720 --> 00:34:34,879
+with the more readable version
+
+693
+00:34:35,040 --> 00:34:39,899
+currently this will find script is not
+
+694
+00:34:38,520 --> 00:34:42,500
+efficient
+
+695
+00:34:39,899 --> 00:34:42,500
+because
+
+696
+00:34:43,399 --> 00:34:48,619
+you read the whole file then you do the
+
+697
+00:34:47,159 --> 00:34:51,599
+stream replace
+
+698
+00:34:48,619 --> 00:34:53,460
+if there is no change you don't want to
+
+699
+00:34:51,599 --> 00:34:56,820
+write stream you don't want to write to
+
+700
+00:34:53,460 --> 00:34:59,460
+file okay so we need to be able to tell
+
+701
+00:34:56,820 --> 00:35:01,619
+whether there's a change or not
+
+702
+00:34:59,460 --> 00:35:05,660
+so
+
+703
+00:35:01,619 --> 00:35:05,660
+um how do you do that
+
+704
+00:35:06,060 --> 00:35:10,740
+so the German says okay so during the
+
+705
+00:35:08,700 --> 00:35:13,200
+second run the files are already in
+
+706
+00:35:10,740 --> 00:35:15,900
+memory not all of them because remember
+
+707
+00:35:13,200 --> 00:35:16,859
+we did already we are replacing some
+
+708
+00:35:15,900 --> 00:35:19,200
+strings
+
+709
+00:35:16,859 --> 00:35:23,400
+so during the second run
+
+710
+00:35:19,200 --> 00:35:26,820
+those files are not not changed
+
+711
+00:35:23,400 --> 00:35:29,579
+eye memory but those files where we did
+
+712
+00:35:26,820 --> 00:35:33,660
+the string replacement or not in memory
+
+713
+00:35:29,579 --> 00:35:36,060
+because the operating system will
+
+714
+00:35:33,660 --> 00:35:37,859
+we'll detect you know the files is
+
+715
+00:35:36,060 --> 00:35:40,700
+different
+
+716
+00:35:37,859 --> 00:35:44,040
+okay so does e magnet support
+
+717
+00:35:40,700 --> 00:35:47,220
+multi-threading no or a single weight no
+
+718
+00:35:44,040 --> 00:35:50,880
+okay that's one of the major complaint
+
+719
+00:35:47,220 --> 00:35:53,099
+of emac this it doesn't support that
+
+720
+00:35:50,880 --> 00:35:55,140
+there are tricks there are ways to do
+
+721
+00:35:53,099 --> 00:35:57,960
+but not really
+
+722
+00:35:55,140 --> 00:36:00,780
+okay so now
+
+723
+00:35:57,960 --> 00:36:03,240
+yeah let's fix let's make this wolf I'm
+
+724
+00:36:00,780 --> 00:36:07,079
+script efficient because
+
+725
+00:36:03,240 --> 00:36:09,060
+you know that's our goal to compare the
+
+726
+00:36:07,079 --> 00:36:11,820
+speed of each language
+
+727
+00:36:09,060 --> 00:36:15,660
+but we cannot be but if our code is
+
+728
+00:36:11,820 --> 00:36:18,420
+inefficient then it's not fair Okay so
+
+729
+00:36:15,660 --> 00:36:21,300
+we want to be able to find out if
+
+730
+00:36:18,420 --> 00:36:22,320
+something changed okay so one trick is
+
+731
+00:36:21,300 --> 00:36:25,800
+by
+
+732
+00:36:22,320 --> 00:36:27,720
+checking the okay so let's let me write
+
+733
+00:36:25,800 --> 00:36:31,460
+this
+
+734
+00:36:27,720 --> 00:36:31,460
+one trick is by
+
+735
+00:36:33,000 --> 00:36:39,000
+uh
+
+736
+00:36:35,000 --> 00:36:39,000
+oops Yeah
+
+737
+00:36:40,020 --> 00:36:42,560
+what
+
+738
+00:36:43,140 --> 00:36:50,839
+my command log buffer broke
+
+739
+00:36:47,579 --> 00:36:50,839
+don't know what I did
+
+740
+00:36:51,900 --> 00:36:56,400
+yeah
+
+741
+00:36:53,400 --> 00:37:00,420
+so let's start
+
+742
+00:36:56,400 --> 00:37:02,720
+a new one let's see now I move
+
+743
+00:37:00,420 --> 00:37:02,720
+yeah
+
+744
+00:37:03,119 --> 00:37:09,200
+stupid
+
+745
+00:37:04,740 --> 00:37:09,200
+let's let's start a new one
+
+746
+00:37:09,359 --> 00:37:16,980
+and command log mod work okay close it
+
+747
+00:37:13,859 --> 00:37:20,060
+okay so we
+
+748
+00:37:16,980 --> 00:37:20,060
+let's do with
+
+749
+00:37:24,000 --> 00:37:33,180
+okay so width is basically declare a
+
+750
+00:37:27,540 --> 00:37:33,180
+local constants so this is like emacslet
+
+751
+00:37:33,359 --> 00:37:38,940
+but however all the variables are
+
+752
+00:37:35,460 --> 00:37:39,839
+constant okay so here we will just put
+
+753
+00:37:38,940 --> 00:37:41,839
+the
+
+754
+00:37:39,839 --> 00:37:41,839
+um
+
+755
+00:37:44,160 --> 00:37:49,280
+we'll do the file content okay
+
+756
+00:37:51,599 --> 00:37:57,599
+let's file content and the expression
+
+757
+00:37:54,540 --> 00:37:59,720
+whatever okay so
+
+758
+00:37:57,599 --> 00:37:59,720
+um
+
+759
+00:38:02,520 --> 00:38:07,200
+yeah so this so this with
+
+760
+00:38:05,640 --> 00:38:10,760
+um
+
+761
+00:38:07,200 --> 00:38:10,760
+okay put here
+
+762
+00:38:12,060 --> 00:38:16,820
+then put this inside okay
+
+763
+00:38:18,780 --> 00:38:22,220
+uh so
+
+764
+00:38:23,160 --> 00:38:28,079
+so here is the final content so you
+
+765
+00:38:25,980 --> 00:38:30,540
+don't need this part anymore so file
+
+766
+00:38:28,079 --> 00:38:34,200
+content
+
+767
+00:38:30,540 --> 00:38:37,140
+so read stream and uh
+
+768
+00:38:34,200 --> 00:38:40,160
+then you want
+
+769
+00:38:37,140 --> 00:38:40,160
+the length
+
+770
+00:38:41,880 --> 00:38:44,359
+okay
+
+771
+00:38:49,380 --> 00:38:55,339
+okay in content length equals to
+
+772
+00:39:01,800 --> 00:39:04,400
+right
+
+773
+00:39:06,960 --> 00:39:10,400
+I don't have a shortcut
+
+774
+00:39:13,560 --> 00:39:18,440
+okay uh
+
+775
+00:39:15,900 --> 00:39:18,440
+yeah
+
+776
+00:39:18,660 --> 00:39:23,660
+okay so content length will be the
+
+777
+00:39:27,000 --> 00:39:30,420
+be the length of the original content
+
+778
+00:39:29,520 --> 00:39:33,140
+okay
+
+779
+00:39:30,420 --> 00:39:33,140
+now
+
+780
+00:39:34,800 --> 00:39:38,300
+now you do
+
+781
+00:39:42,540 --> 00:39:45,380
+screen replace
+
+782
+00:39:46,099 --> 00:39:53,060
+so let's have a new variable new content
+
+783
+00:39:50,460 --> 00:39:53,060
+okay
+
+784
+00:39:54,660 --> 00:40:01,920
+new content equals to
+
+785
+00:39:58,619 --> 00:40:04,740
+string replace okay
+
+786
+00:40:01,920 --> 00:40:06,720
+content in finally paste pairs that's
+
+787
+00:40:04,740 --> 00:40:09,380
+right
+
+788
+00:40:06,720 --> 00:40:09,380
+then
+
+789
+00:40:09,540 --> 00:40:12,320
+if
+
+790
+00:40:16,320 --> 00:40:22,820
+we can do a equality comparison you know
+
+791
+00:40:20,160 --> 00:40:22,820
+we can do
+
+792
+00:40:28,320 --> 00:40:33,180
+you know we can do that but that's
+
+793
+00:40:30,359 --> 00:40:37,820
+probably slow or we can just compare the
+
+794
+00:40:33,180 --> 00:40:37,820
+length Okay so basically if
+
+795
+00:40:43,200 --> 00:40:47,880
+if
+
+796
+00:40:45,780 --> 00:40:50,160
+they are equal
+
+797
+00:40:47,880 --> 00:40:53,060
+then do nothing
+
+798
+00:40:50,160 --> 00:40:53,060
+otherwise
+
+799
+00:40:53,099 --> 00:40:56,420
+try to file okay
+
+800
+00:41:02,520 --> 00:41:10,940
+so this is one way to do it and another
+
+801
+00:41:04,800 --> 00:41:10,940
+way is that more efficient is if
+
+802
+00:41:12,359 --> 00:41:19,940
+ah
+
+803
+00:41:14,220 --> 00:41:19,940
+if content length is equals to
+
+804
+00:41:27,000 --> 00:41:31,200
+new content length okay
+
+805
+00:41:29,880 --> 00:41:33,720
+then
+
+806
+00:41:31,200 --> 00:41:37,260
+don't do nothing otherwise right to
+
+807
+00:41:33,720 --> 00:41:38,160
+string okay so no should be
+
+808
+00:41:37,260 --> 00:41:41,400
+um
+
+809
+00:41:38,160 --> 00:41:44,180
+in wufan language no is do nothing yeah
+
+810
+00:41:41,400 --> 00:41:44,180
+it should be capital
+
+811
+00:41:44,280 --> 00:41:46,880
+okay
+
+812
+00:41:47,160 --> 00:41:52,380
+so that's our function so this should be
+
+813
+00:41:49,800 --> 00:41:56,099
+more efficient so let's double check
+
+814
+00:41:52,380 --> 00:42:00,000
+read content content length
+
+815
+00:41:56,099 --> 00:42:03,060
+and new content
+
+816
+00:42:00,000 --> 00:42:06,480
+okay so content length is a con is
+
+817
+00:42:03,060 --> 00:42:09,599
+equals to X content okay the new content
+
+818
+00:42:06,480 --> 00:42:13,440
+is the replace string okay
+
+819
+00:42:09,599 --> 00:42:18,780
+yeah replace string friend replace pairs
+
+820
+00:42:13,440 --> 00:42:20,520
+and if content is equals to new content
+
+821
+00:42:18,780 --> 00:42:23,820
+okay this
+
+822
+00:42:20,520 --> 00:42:26,520
+this is uh more accurate I mean this is
+
+823
+00:42:23,820 --> 00:42:29,700
+the correct version you compare the full
+
+824
+00:42:26,520 --> 00:42:33,180
+string content if they are the same
+
+825
+00:42:29,700 --> 00:42:36,119
+don't do anything okay otherwise
+
+826
+00:42:33,180 --> 00:42:38,180
+right to file that's right so let's
+
+827
+00:42:36,119 --> 00:42:38,180
+um
+
+828
+00:42:38,400 --> 00:42:42,320
+okay that's coming this up
+
+829
+00:42:43,320 --> 00:42:49,380
+this function will return no okay so
+
+830
+00:42:46,140 --> 00:42:53,520
+let's put a semicolon okay that's the
+
+831
+00:42:49,380 --> 00:42:55,320
+with statement and here is the function
+
+832
+00:42:53,520 --> 00:42:59,040
+okay
+
+833
+00:42:55,320 --> 00:43:01,800
+so now this should work this should this
+
+834
+00:42:59,040 --> 00:43:04,260
+is the correct way your work okay let's
+
+835
+00:43:01,800 --> 00:43:07,200
+try it
+
+836
+00:43:04,260 --> 00:43:09,119
+so make backup let's run the Wolfram
+
+837
+00:43:07,200 --> 00:43:11,040
+script
+
+838
+00:43:09,119 --> 00:43:13,200
+close it
+
+839
+00:43:11,040 --> 00:43:16,940
+go back to talk show
+
+840
+00:43:13,200 --> 00:43:19,500
+open it correct close it copy the line
+
+841
+00:43:16,940 --> 00:43:22,140
+back to terminal
+
+842
+00:43:19,500 --> 00:43:24,780
+paste it
+
+843
+00:43:22,140 --> 00:43:27,900
+okay remember right now the files are
+
+844
+00:43:24,780 --> 00:43:28,800
+already changed by emacs okay so Wolfram
+
+845
+00:43:27,900 --> 00:43:32,700
+is
+
+846
+00:43:28,800 --> 00:43:36,420
+you know so we need to refresh the files
+
+847
+00:43:32,700 --> 00:43:39,180
+so we need to remove
+
+848
+00:43:36,420 --> 00:43:42,839
+you know let's do a refresh let's see
+
+849
+00:43:39,180 --> 00:43:46,079
+how much open language takes now emacs
+
+850
+00:43:42,839 --> 00:43:49,500
+time is remember
+
+851
+00:43:46,079 --> 00:43:50,640
+is four seconds okay yeah Emax is four
+
+852
+00:43:49,500 --> 00:43:54,060
+seconds
+
+853
+00:43:50,640 --> 00:43:55,380
+then 1.7
+
+854
+00:43:54,060 --> 00:43:58,740
+you know
+
+855
+00:43:55,380 --> 00:44:02,240
+okay now let's see wolfam language
+
+856
+00:43:58,740 --> 00:44:02,240
+first of all you need to
+
+857
+00:44:07,920 --> 00:44:12,020
+remove it
+
+858
+00:44:09,480 --> 00:44:12,020
+okay
+
+859
+00:44:12,119 --> 00:44:15,839
+copy it
+
+860
+00:44:13,500 --> 00:44:20,060
+okay
+
+861
+00:44:15,839 --> 00:44:20,060
+wolfam language run it
+
+862
+00:44:21,920 --> 00:44:28,319
+1.3 did we make a mistake this is
+
+863
+00:44:25,920 --> 00:44:31,619
+significantly faster than
+
+864
+00:44:28,319 --> 00:44:34,640
+then then emac this
+
+865
+00:44:31,619 --> 00:44:34,640
+and let's try it again
+
+866
+00:44:34,700 --> 00:44:42,240
+1.3 so okay now let's look at the
+
+867
+00:44:39,119 --> 00:44:45,300
+look at the let's verify it actually
+
+868
+00:44:42,240 --> 00:44:48,000
+made appropriate changes
+
+869
+00:44:45,300 --> 00:44:49,200
+it's incorrect you see that previous is
+
+870
+00:44:48,000 --> 00:44:51,960
+still there
+
+871
+00:44:49,200 --> 00:44:54,420
+so we made the arrow somewhere
+
+872
+00:44:51,960 --> 00:44:56,400
+the wufam language is not working
+
+873
+00:44:54,420 --> 00:44:59,000
+correctly
+
+874
+00:44:56,400 --> 00:44:59,000
+open it
+
+875
+00:45:02,339 --> 00:45:08,880
+so this should be the third right
+
+876
+00:45:06,480 --> 00:45:10,140
+all right
+
+877
+00:45:08,880 --> 00:45:12,680
+oh
+
+878
+00:45:10,140 --> 00:45:12,680
+right
+
+879
+00:45:15,859 --> 00:45:23,900
+oh wait
+
+880
+00:45:19,200 --> 00:45:23,900
+copied it wrong okay we got some problem
+
+881
+00:45:25,140 --> 00:45:31,560
+x x so we don't need the least part
+
+882
+00:45:29,220 --> 00:45:34,920
+that's right
+
+883
+00:45:31,560 --> 00:45:39,079
+yeah so this is
+
+884
+00:45:34,920 --> 00:45:39,079
+wait what's our copy command
+
+885
+00:45:41,220 --> 00:45:47,400
+parallel second
+
+886
+00:45:43,200 --> 00:45:50,579
+let's see copy oh yeah just copy to XX
+
+887
+00:45:47,400 --> 00:45:52,619
+there's no Edis so let's double check
+
+888
+00:45:50,579 --> 00:45:56,780
+yeah
+
+889
+00:45:52,619 --> 00:45:56,780
+okay now let's do it again
+
+890
+00:45:58,859 --> 00:46:02,839
+remove the files
+
+891
+00:46:03,599 --> 00:46:06,560
+copy them
+
+892
+00:46:08,640 --> 00:46:11,640
+code
+
+893
+00:46:12,500 --> 00:46:17,119
+1.4 seconds
+
+894
+00:46:14,480 --> 00:46:19,200
+significantly faster than
+
+895
+00:46:17,119 --> 00:46:23,540
+e-mac lisp
+
+896
+00:46:19,200 --> 00:46:23,540
+let's double check did it work
+
+897
+00:46:24,660 --> 00:46:30,260
+No it didn't
+
+898
+00:46:27,119 --> 00:46:30,260
+search for that
+
+899
+00:46:30,480 --> 00:46:35,280
+no it didn't work
+
+900
+00:46:33,000 --> 00:46:38,839
+something wrong with our code okay
+
+901
+00:46:35,280 --> 00:46:38,839
+double check the code
+
+902
+00:46:40,319 --> 00:46:45,960
+so here is a list of pairs
+
+903
+00:46:43,500 --> 00:46:49,740
+that's right
+
+904
+00:46:45,960 --> 00:46:54,300
+now what is the let's copy these two of
+
+905
+00:46:49,740 --> 00:46:57,079
+them notebook because ruframe notebook
+
+906
+00:46:54,300 --> 00:46:57,079
+will
+
+907
+00:46:58,319 --> 00:47:03,180
+uh you know sometimes show you syntax
+
+908
+00:47:01,200 --> 00:47:04,619
+errors or something
+
+909
+00:47:03,180 --> 00:47:08,060
+paste it
+
+910
+00:47:04,619 --> 00:47:08,060
+and smack the file
+
+911
+00:47:08,460 --> 00:47:13,859
+okay so Wolfram notebook displays it
+
+912
+00:47:11,339 --> 00:47:16,740
+very well
+
+913
+00:47:13,859 --> 00:47:20,040
+and let's copy it let's see if we can
+
+914
+00:47:16,740 --> 00:47:22,880
+make it into nice no it's the same okay
+
+915
+00:47:20,040 --> 00:47:22,880
+so anyway
+
+916
+00:47:27,020 --> 00:47:35,579
+so did we make any error
+
+917
+00:47:31,619 --> 00:47:39,359
+if content is equals to that don't do
+
+918
+00:47:35,579 --> 00:47:40,500
+anything no otherwise otherwise right
+
+919
+00:47:39,359 --> 00:47:43,460
+string
+
+920
+00:47:40,500 --> 00:47:43,460
+file path
+
+921
+00:47:43,560 --> 00:47:50,359
+new contents
+
+922
+00:47:45,660 --> 00:47:50,359
+so why is it wrong
+
+923
+00:47:55,859 --> 00:47:58,940
+I don't know
+
+924
+00:48:05,760 --> 00:48:09,859
+yeah I don't know why is it
+
+925
+00:48:11,880 --> 00:48:15,260
+so we can
+
+926
+00:48:18,420 --> 00:48:23,660
+not play
+
+927
+00:48:21,060 --> 00:48:23,660
+print
+
+928
+00:48:26,520 --> 00:48:35,660
+if we print final path and see what
+
+929
+00:48:29,700 --> 00:48:35,660
+happens when you if we print file path
+
+930
+00:48:36,900 --> 00:48:39,440
+okay
+
+931
+00:48:42,119 --> 00:48:50,060
+it's not printing file path
+
+932
+00:48:45,839 --> 00:48:50,060
+I told it to a print file path
+
+933
+00:48:57,000 --> 00:49:00,859
+God what's going on
+
+934
+00:49:28,680 --> 00:49:33,500
+hmm
+
+935
+00:49:30,359 --> 00:49:33,500
+oh
+
+936
+00:50:05,579 --> 00:50:09,200
+let's move that
+
+937
+00:50:09,960 --> 00:50:12,560
+foreign
+
+938
+00:50:17,300 --> 00:50:21,200
+comments any comments
+
+939
+00:50:41,400 --> 00:50:49,079
+now if you run this in Wolfram language
+
+940
+00:50:45,839 --> 00:50:53,300
+you see it's printing those files
+
+941
+00:50:49,079 --> 00:50:53,300
+yeah but the idiotic
+
+942
+00:50:54,540 --> 00:50:58,619
+okay
+
+943
+00:50:56,339 --> 00:51:01,579
+the final path
+
+944
+00:50:58,619 --> 00:51:01,579
+looks funny
+
+945
+00:51:03,720 --> 00:51:08,640
+the final path looks funny because very
+
+946
+00:51:07,559 --> 00:51:11,520
+annoying
+
+947
+00:51:08,640 --> 00:51:15,240
+this is a very annoying issue of the
+
+948
+00:51:11,520 --> 00:51:15,240
+final path separators
+
+949
+00:51:15,839 --> 00:51:24,020
+but Wolfram language did did open the
+
+950
+00:51:19,859 --> 00:51:24,020
+file did it I think so
+
+951
+00:51:25,859 --> 00:51:31,200
+so let's double check
+
+952
+00:51:28,200 --> 00:51:35,420
+hex contents
+
+953
+00:51:31,200 --> 00:51:35,420
+read stream file path
+
+954
+00:51:40,980 --> 00:51:48,720
+and new content equals true
+
+955
+00:51:45,240 --> 00:51:51,980
+and let's go to the directory did did it
+
+956
+00:51:48,720 --> 00:51:51,980
+make any change no
+
+957
+00:51:53,339 --> 00:52:01,400
+did not make any change what's the uh
+
+958
+00:51:58,099 --> 00:52:01,400
+input the
+
+959
+00:52:08,099 --> 00:52:13,740
+so first of all it did
+
+960
+00:52:10,800 --> 00:52:16,440
+go through all these files because the
+
+961
+00:52:13,740 --> 00:52:19,339
+print is there
+
+962
+00:52:16,440 --> 00:52:19,339
+then
+
+963
+00:52:22,140 --> 00:52:28,040
+then we can say okay let's try something
+
+964
+00:52:25,680 --> 00:52:28,040
+else
+
+965
+00:52:32,220 --> 00:52:39,800
+let's say print the first
+
+966
+00:52:36,180 --> 00:52:39,800
+five characters also
+
+967
+00:52:54,300 --> 00:52:58,520
+okay string substring
+
+968
+00:53:02,040 --> 00:53:08,180
+string pots okay
+
+969
+00:53:04,200 --> 00:53:08,180
+so you want the functions
+
+970
+00:53:09,119 --> 00:53:15,960
+okay let's see that's how you get
+
+971
+00:53:10,980 --> 00:53:19,260
+substring okay give the nth character so
+
+972
+00:53:15,960 --> 00:53:21,720
+give a list of in uh so
+
+973
+00:53:19,260 --> 00:53:26,540
+how do you get substring
+
+974
+00:53:21,720 --> 00:53:26,540
+string take that's how you get substring
+
+975
+00:53:26,579 --> 00:53:33,420
+keeps a string containing the first n
+
+976
+00:53:28,800 --> 00:53:34,800
+characters Okay so so not stream part
+
+977
+00:53:33,420 --> 00:53:37,400
+strain
+
+978
+00:53:34,800 --> 00:53:37,400
+take
+
+979
+00:53:37,859 --> 00:53:42,420
+okay
+
+980
+00:53:39,480 --> 00:53:48,059
+that let's say
+
+981
+00:53:42,420 --> 00:53:50,180
+20 okay print the first 20.
+
+982
+00:53:48,059 --> 00:53:50,180
+um
+
+983
+00:53:51,000 --> 00:53:53,700
+print the first 20
+
+984
+00:53:53,040 --> 00:53:56,300
+um
+
+985
+00:53:53,700 --> 00:53:56,300
+characters
+
+986
+00:53:56,400 --> 00:54:01,260
+okay
+
+987
+00:53:58,280 --> 00:54:03,420
+copy the whole
+
+988
+00:54:01,260 --> 00:54:06,780
+copy the whole let's just run this in
+
+989
+00:54:03,420 --> 00:54:11,160
+Wolfram notebook
+
+990
+00:54:06,780 --> 00:54:12,839
+yeah select no paste
+
+991
+00:54:11,160 --> 00:54:15,920
+learn it
+
+992
+00:54:12,839 --> 00:54:19,579
+variable X new content is local variable
+
+993
+00:54:15,920 --> 00:54:19,579
+specification okay
+
+994
+00:54:23,880 --> 00:54:31,500
+oh obviously how idiotic because with
+
+995
+00:54:28,980 --> 00:54:33,839
+means local constant
+
+996
+00:54:31,500 --> 00:54:36,359
+I mean yeah local
+
+997
+00:54:33,839 --> 00:54:39,119
+constant so when you have a local
+
+998
+00:54:36,359 --> 00:54:43,859
+constant with using with you you must
+
+999
+00:54:39,119 --> 00:54:47,579
+have a value so you cannot do like this
+
+1000
+00:54:43,859 --> 00:54:50,240
+okay so therefore we change the width to
+
+1001
+00:54:47,579 --> 00:54:50,240
+module
+
+1002
+00:54:51,660 --> 00:54:57,240
+you know I was trying to use width to
+
+1003
+00:54:54,240 --> 00:55:00,900
+maybe save some fractions of second so
+
+1004
+00:54:57,240 --> 00:55:05,160
+module is like lisp slit so that way you
+
+1005
+00:55:00,900 --> 00:55:07,619
+can you know have this variable and uh
+
+1006
+00:55:05,160 --> 00:55:09,599
+you know in the assign a value by the
+
+1007
+00:55:07,619 --> 00:55:10,440
+way why don't we assign the value over
+
+1008
+00:55:09,599 --> 00:55:12,059
+there
+
+1009
+00:55:10,440 --> 00:55:14,280
+well because
+
+1010
+00:55:12,059 --> 00:55:18,660
+the
+
+1011
+00:55:14,280 --> 00:55:22,020
+wolfen language module is like lisp slat
+
+1012
+00:55:18,660 --> 00:55:24,359
+the latter ones do not know the value of
+
+1013
+00:55:22,020 --> 00:55:27,180
+the previous variable so you cannot say
+
+1014
+00:55:24,359 --> 00:55:28,740
+new content equals to something X
+
+1015
+00:55:27,180 --> 00:55:31,380
+content
+
+1016
+00:55:28,740 --> 00:55:35,040
+you have to do it in the body
+
+1017
+00:55:31,380 --> 00:55:37,140
+and in this you can say let as the risk
+
+1018
+00:55:35,040 --> 00:55:39,000
+that will do that but not in woven
+
+1019
+00:55:37,140 --> 00:55:42,480
+language
+
+1020
+00:55:39,000 --> 00:55:46,020
+so this okay so now let's try to run
+
+1021
+00:55:42,480 --> 00:55:47,760
+this in Shell let's remove all the print
+
+1022
+00:55:46,020 --> 00:55:50,099
+statement
+
+1023
+00:55:47,760 --> 00:55:52,819
+Okay so
+
+1024
+00:55:50,099 --> 00:55:52,819
+do it
+
+1025
+00:55:56,280 --> 00:56:02,040
+it's taking so long six seconds okay
+
+1026
+00:55:58,980 --> 00:56:04,980
+this seems proper now it's probably
+
+1027
+00:56:02,040 --> 00:56:08,040
+working let's double check let's go
+
+1028
+00:56:04,980 --> 00:56:12,059
+check the file check
+
+1029
+00:56:08,040 --> 00:56:13,619
+you see changed now this matching lines
+
+1030
+00:56:12,059 --> 00:56:18,420
+that
+
+1031
+00:56:13,619 --> 00:56:20,700
+you see each one has got changed
+
+1032
+00:56:18,420 --> 00:56:22,680
+okay
+
+1033
+00:56:20,700 --> 00:56:25,079
+yeah so that's good
+
+1034
+00:56:22,680 --> 00:56:27,960
+now let's so
+
+1035
+00:56:25,079 --> 00:56:31,260
+six seconds that's one second slower
+
+1036
+00:56:27,960 --> 00:56:33,440
+then move then e-mac please let's do it
+
+1037
+00:56:31,260 --> 00:56:33,440
+again
+
+1038
+00:56:35,780 --> 00:56:42,559
+2.7 again one second slower than e-mac
+
+1039
+00:56:39,780 --> 00:56:42,559
+this do it again
+
+1040
+00:56:44,359 --> 00:56:51,359
+2.7 so remember the the metric is
+
+1041
+00:56:49,140 --> 00:56:55,800
+six
+
+1042
+00:56:51,359 --> 00:56:59,099
+then 2.7 okay six first time 2.7 second
+
+1043
+00:56:55,800 --> 00:57:03,260
+time it's wolfam language now let's see
+
+1044
+00:56:59,099 --> 00:57:03,260
+if we can improve the speed
+
+1045
+00:57:03,599 --> 00:57:09,619
+by
+
+1046
+00:57:05,760 --> 00:57:14,540
+so we don't need the print anymore so
+
+1047
+00:57:09,619 --> 00:57:14,540
+you can improve the speed by
+
+1048
+00:57:16,260 --> 00:57:18,319
+e
+
+1049
+00:57:19,140 --> 00:57:25,940
+by replacing
+
+1050
+00:57:21,720 --> 00:57:25,940
+that test with um
+
+1051
+00:57:28,680 --> 00:57:33,200
+with with testing the length
+
+1052
+00:57:34,559 --> 00:57:39,740
+but this would be cheating though
+
+1053
+00:57:36,359 --> 00:57:39,740
+because this is not
+
+1054
+00:57:40,079 --> 00:57:47,180
+really that correct this is kind of a
+
+1055
+00:57:42,839 --> 00:57:47,180
+hack it works in our context
+
+1056
+00:57:49,200 --> 00:57:57,079
+do we have a Content length now
+
+1057
+00:57:52,859 --> 00:57:57,079
+so this will be
+
+1058
+00:58:00,240 --> 00:58:05,240
+okay now we just compare the length
+
+1059
+00:58:06,619 --> 00:58:14,280
+now I'm curious does this actually work
+
+1060
+00:58:10,520 --> 00:58:16,319
+can you I mean I mean let's let's check
+
+1061
+00:58:14,280 --> 00:58:20,720
+okay
+
+1062
+00:58:16,319 --> 00:58:20,720
+some let's say ABC okay
+
+1063
+00:58:22,140 --> 00:58:25,400
+I think you should
+
+1064
+00:58:27,900 --> 00:58:33,740
+yeah so string you know the triple equal
+
+1065
+00:58:30,599 --> 00:58:33,740
+works on a string
+
+1066
+00:58:36,180 --> 00:58:42,900
+so that should be fast enough though
+
+1067
+00:58:39,900 --> 00:58:47,839
+so if we do this way
+
+1068
+00:58:42,900 --> 00:58:47,839
+I don't think it will improve the speed
+
+1069
+00:58:48,359 --> 00:58:51,140
+let's do it again
+
+1070
+00:58:52,760 --> 00:59:00,319
+it did actually you see
+
+1071
+00:58:56,520 --> 00:59:00,319
+saved almost one second
+
+1072
+00:59:01,380 --> 00:59:04,460
+yeah it did
+
+1073
+00:59:09,480 --> 00:59:15,240
+yeah but this is a hack we can do this
+
+1074
+00:59:12,660 --> 00:59:18,660
+we can compare the length to know if the
+
+1075
+00:59:15,240 --> 00:59:20,880
+fire modified is because we know that
+
+1076
+00:59:18,660 --> 00:59:22,619
+the fine replace pairs will change the
+
+1077
+00:59:20,880 --> 00:59:25,920
+file length
+
+1078
+00:59:22,619 --> 00:59:28,980
+but in general if you have arbitrary you
+
+1079
+00:59:25,920 --> 00:59:31,799
+know business pairs you cannot read
+
+1080
+00:59:28,980 --> 00:59:35,099
+rely on these
+
+1081
+00:59:31,799 --> 00:59:40,079
+yeah but that's that's okay now let's
+
+1082
+00:59:35,099 --> 00:59:43,140
+redo from fresh remove the directory
+
+1083
+00:59:40,079 --> 00:59:47,299
+get a fresh copy of the directory
+
+1084
+00:59:43,140 --> 00:59:47,299
+now Run Run Wolf and language
+
+1085
+00:59:51,180 --> 00:59:56,240
+five seconds
+
+1086
+00:59:52,980 --> 00:59:56,240
+you're in the second time
+
+1087
+00:59:57,059 --> 01:00:04,099
+two seconds now what is the e-mac this
+
+1088
+01:00:01,440 --> 01:00:04,099
+speed
+
+1089
+01:00:04,920 --> 01:00:07,940
+let's see
+
+1090
+01:00:09,619 --> 01:00:18,720
+e-mac this speed is 4.3 and 1.7
+
+1091
+01:00:15,480 --> 01:00:23,660
+okay let's let's write it down
+
+1092
+01:00:18,720 --> 01:00:23,660
+let's write it down in our talk show
+
+1093
+01:00:50,760 --> 01:00:57,720
+okay that's e-magli speed
+
+1094
+01:00:54,000 --> 01:01:01,579
+now Wolfram land speed
+
+1095
+01:00:57,720 --> 01:01:01,579
+who found land speed is
+
+1096
+01:01:02,760 --> 01:01:05,760
+5.3
+
+1097
+01:01:09,660 --> 01:01:13,559
+and 1.9
+
+1098
+01:01:15,119 --> 01:01:18,380
+okay do it again
+
+1099
+01:01:19,400 --> 01:01:26,099
+1.9 do it again 1.9
+
+1100
+01:01:24,000 --> 01:01:29,819
+yes
+
+1101
+01:01:26,099 --> 01:01:32,660
+okay so you can see emac this is
+
+1102
+01:01:29,819 --> 01:01:37,680
+slightly faster fascinating
+
+1103
+01:01:32,660 --> 01:01:41,760
+fascinating now shall we do python now
+
+1104
+01:01:37,680 --> 01:01:44,400
+okay but one last check is is there
+
+1105
+01:01:41,760 --> 01:01:46,500
+something we can speed up the woo family
+
+1106
+01:01:44,400 --> 01:01:48,420
+because I really
+
+1107
+01:01:46,500 --> 01:01:52,020
+you know
+
+1108
+01:01:48,420 --> 01:01:54,200
+when Wu family is slower it really bugs
+
+1109
+01:01:52,020 --> 01:01:54,200
+me
+
+1110
+01:01:56,520 --> 01:01:59,180
+what
+
+1111
+01:02:03,059 --> 01:02:07,619
+all right why is this common uncommon
+
+1112
+01:02:06,480 --> 01:02:11,220
+not work
+
+1113
+01:02:07,619 --> 01:02:12,599
+ my code is up my wolf I'm
+
+1114
+01:02:11,220 --> 01:02:15,559
+language mod
+
+1115
+01:02:12,599 --> 01:02:15,559
+there okay
+
+1116
+01:02:16,200 --> 01:02:22,040
+so let me let me try to think of way to
+
+1117
+01:02:18,660 --> 01:02:22,040
+speed this up okay
+
+1118
+01:02:23,280 --> 01:02:26,540
+because I want
+
+1119
+01:02:32,339 --> 01:02:38,520
+so this assignment is really making it
+
+1120
+01:02:35,400 --> 01:02:40,380
+slow this you see you assign a huge
+
+1121
+01:02:38,520 --> 01:02:43,520
+string into that
+
+1122
+01:02:40,380 --> 01:02:43,520
+so rather
+
+1123
+01:02:48,540 --> 01:02:53,240
+yeah so rather we want to do let me let
+
+1124
+01:02:51,480 --> 01:02:56,220
+me just start to do
+
+1125
+01:02:53,240 --> 01:02:59,180
+Advanced Warframe language coding okay
+
+1126
+01:02:56,220 --> 01:02:59,180
+okay so
+
+1127
+01:02:59,520 --> 01:03:01,619
+hello
+
+1128
+01:03:00,720 --> 01:03:04,020
+Omega
+
+1129
+01:03:01,619 --> 01:03:05,880
+so Advanced roof and language coding so
+
+1130
+01:03:04,020 --> 01:03:08,640
+we are going to have a function next
+
+1131
+01:03:05,880 --> 01:03:11,160
+step function uh you know partial
+
+1132
+01:03:08,640 --> 01:03:14,520
+application and so on
+
+1133
+01:03:11,160 --> 01:03:16,859
+so we have we want a function here
+
+1134
+01:03:14,520 --> 01:03:20,160
+that
+
+1135
+01:03:16,859 --> 01:03:23,960
+okay so the function will basically do
+
+1136
+01:03:20,160 --> 01:03:23,960
+this let's let's write it
+
+1137
+01:03:27,000 --> 01:03:31,799
+Okay so
+
+1138
+01:03:28,859 --> 01:03:34,200
+this new so the function will be applied
+
+1139
+01:03:31,799 --> 01:03:38,400
+an argument
+
+1140
+01:03:34,200 --> 01:03:41,940
+and the argument will be
+
+1141
+01:03:38,400 --> 01:03:47,359
+that okay and uh
+
+1142
+01:03:41,940 --> 01:03:47,359
+so this will be the new content okay
+
+1143
+01:03:50,099 --> 01:03:56,520
+okay so this is our function
+
+1144
+01:03:52,619 --> 01:03:59,700
+so this so we yeah we do this
+
+1145
+01:03:56,520 --> 01:04:02,819
+this way we save the step of assigning a
+
+1146
+01:03:59,700 --> 01:04:06,079
+huge string to a variable
+
+1147
+01:04:02,819 --> 01:04:09,680
+by this code very Advanced
+
+1148
+01:04:06,079 --> 01:04:12,660
+you know so it's not hard to understand
+
+1149
+01:04:09,680 --> 01:04:16,200
+so this part is a function
+
+1150
+01:04:12,660 --> 01:04:18,660
+and this function is given this argument
+
+1151
+01:04:16,200 --> 01:04:22,200
+string replace so it gets the new
+
+1152
+01:04:18,660 --> 01:04:24,599
+content this is computed only once then
+
+1153
+01:04:22,200 --> 01:04:28,559
+the argument is feed to the function at
+
+1154
+01:04:24,599 --> 01:04:31,440
+the Palm side locations so if old
+
+1155
+01:04:28,559 --> 01:04:34,859
+content is equals to the new
+
+1156
+01:04:31,440 --> 01:04:37,859
+then do nothing otherwise find our path
+
+1157
+01:04:34,859 --> 01:04:40,319
+and return that so this is
+
+1158
+01:04:37,859 --> 01:04:43,740
+this would be
+
+1159
+01:04:40,319 --> 01:04:46,619
+efficient okay so with this
+
+1160
+01:04:43,740 --> 01:04:48,900
+with this we don't need
+
+1161
+01:04:46,619 --> 01:04:51,000
+we don't need the new content and we
+
+1162
+01:04:48,900 --> 01:04:54,420
+don't need this
+
+1163
+01:04:51,000 --> 01:04:56,640
+we don't need a new content variable
+
+1164
+01:04:54,420 --> 01:04:59,220
+we don't need that we don't need that
+
+1165
+01:04:56,640 --> 01:05:02,640
+only okay in fact this can be further
+
+1166
+01:04:59,220 --> 01:05:05,280
+simplified uh I will do that but first
+
+1167
+01:05:02,640 --> 01:05:07,079
+of all before we do that let's just run
+
+1168
+01:05:05,280 --> 01:05:10,079
+this
+
+1169
+01:05:07,079 --> 01:05:13,640
+I want to make sure that
+
+1170
+01:05:10,079 --> 01:05:13,640
+language is fast okay
+
+1171
+01:05:16,339 --> 01:05:24,859
+2.8 what the
+
+1172
+01:05:19,220 --> 01:05:24,859
+two seconds becomes 2.8 what
+
+1173
+01:05:28,500 --> 01:05:32,299
+wait are you are you sure
+
+1174
+01:05:51,920 --> 01:05:59,460
+1.9 it was 1.9 now it becomes two it
+
+1175
+01:05:55,859 --> 01:06:02,119
+becomes much more slower what
+
+1176
+01:05:59,460 --> 01:06:02,119
+okay
+
+1177
+01:06:11,819 --> 01:06:17,540
+yeah God what am I doing Jesus
+
+1178
+01:06:32,119 --> 01:06:41,420
+Jesus this is no good
+
+1179
+01:06:35,700 --> 01:06:41,420
+okay let's let's get back to this
+
+1180
+01:07:21,359 --> 01:07:29,059
+okay is there a way to know if
+
+1181
+01:07:26,400 --> 01:07:29,059
+if
+
+1182
+01:07:30,539 --> 01:07:35,099
+is there a way to know if string replays
+
+1183
+01:07:33,839 --> 01:07:39,859
+actually
+
+1184
+01:07:35,099 --> 01:07:39,859
+made some changes or not let's see
+
+1185
+01:07:57,180 --> 01:08:02,940
+so string replace does only the first in
+
+1186
+01:08:00,240 --> 01:08:04,500
+replacement give the list of results for
+
+1187
+01:08:02,940 --> 01:08:07,140
+each of the
+
+1188
+01:08:04,500 --> 01:08:09,900
+has one
+
+1189
+01:08:07,140 --> 01:08:13,220
+okay it's really place okay
+
+1190
+01:08:09,900 --> 01:08:13,220
+I'm saying expression
+
+1191
+01:08:23,000 --> 01:08:28,440
+you know when we do this we we do we
+
+1192
+01:08:26,640 --> 01:08:30,480
+want to know if there's any change
+
+1193
+01:08:28,440 --> 01:08:32,759
+happened
+
+1194
+01:08:30,480 --> 01:08:36,020
+because if there's a change we don't
+
+1195
+01:08:32,759 --> 01:08:36,020
+want to write to file
+
+1196
+01:08:36,719 --> 01:08:41,400
+I mean if there's no change we don't
+
+1197
+01:08:38,759 --> 01:08:43,819
+want to write fire
+
+1198
+01:08:41,400 --> 01:08:43,819
+okay
+
+1199
+01:08:45,239 --> 01:08:50,359
+I don't think you can do that here
+
+1200
+01:09:10,199 --> 01:09:19,620
+so how do I how do you make this faster
+
+1201
+01:09:15,120 --> 01:09:22,100
+find our names process fire scan process
+
+1202
+01:09:19,620 --> 01:09:22,100
+file
+
+1203
+01:09:23,640 --> 01:09:32,940
+as Inspire function file path
+
+1204
+01:09:27,980 --> 01:09:36,140
+function therapists file path is used
+
+1205
+01:09:32,940 --> 01:09:36,140
+in two places
+
+1206
+01:09:39,239 --> 01:09:42,080
+this part
+
+1207
+01:09:42,920 --> 01:09:46,759
+of your pass
+
+1208
+01:10:01,140 --> 01:10:06,920
+uh
+
+1209
+01:10:02,940 --> 01:10:06,920
+I don't know why that's
+
+1210
+01:10:09,960 --> 01:10:13,800
+Okay so
+
+1211
+01:10:20,040 --> 01:10:30,540
+we we I want to make this faster so
+
+1212
+01:10:25,020 --> 01:10:33,300
+new content equals to string replace
+
+1213
+01:10:30,540 --> 01:10:36,060
+find replace pairs
+
+1214
+01:10:33,300 --> 01:10:37,980
+that's right
+
+1215
+01:10:36,060 --> 01:10:42,620
+and
+
+1216
+01:10:37,980 --> 01:10:42,620
+if the content did not change
+
+1217
+01:10:43,260 --> 01:10:49,860
+do nothing otherwise we want to write
+
+1218
+01:10:46,380 --> 01:10:52,340
+file so right string let's look at the
+
+1219
+01:10:49,860 --> 01:10:52,340
+live stream
+
+1220
+01:10:59,840 --> 01:11:07,400
+to file
+
+1221
+01:11:01,920 --> 01:11:07,400
+Channel expression when expression 2.
+
+1222
+01:11:32,960 --> 01:11:40,340
+text string give a human readable string
+
+1223
+01:11:36,060 --> 01:11:40,340
+representation of expression
+
+1224
+01:11:45,020 --> 01:11:52,199
+keeps a human readable string
+
+1225
+01:11:47,880 --> 01:11:57,480
+representation of expression okay
+
+1226
+01:11:52,199 --> 01:11:59,580
+so that turns any movement language
+
+1227
+01:11:57,480 --> 01:12:03,719
+expression to
+
+1228
+01:11:59,580 --> 01:12:06,300
+human readable string text
+
+1229
+01:12:03,719 --> 01:12:10,280
+yeah kind of
+
+1230
+01:12:06,300 --> 01:12:10,280
+so examples here
+
+1231
+01:12:10,640 --> 01:12:17,339
+becomes that you know
+
+1232
+01:12:14,260 --> 01:12:17,339
+[Music]
+
+1233
+01:12:17,400 --> 01:12:23,400
+okay that's that's too fancy
+
+1234
+01:12:20,400 --> 01:12:23,400
+so
+
+1235
+01:12:31,080 --> 01:12:36,659
+I'm trying to find a way to make Wolfram
+
+1236
+01:12:34,260 --> 01:12:40,920
+language faster
+
+1237
+01:12:36,659 --> 01:12:43,260
+and right now we failed
+
+1238
+01:12:40,920 --> 01:12:48,140
+huh
+
+1239
+01:12:43,260 --> 01:12:48,140
+now how do you make this even faster
+
+1240
+01:12:51,000 --> 01:12:57,440
+you could replace the function file path
+
+1241
+01:12:54,840 --> 01:12:57,440
+by a
+
+1242
+01:13:05,100 --> 01:13:11,580
+H stop using
+
+1243
+01:13:08,280 --> 01:13:14,780
+stop using a module
+
+1244
+01:13:11,580 --> 01:13:14,780
+next content
+
+1245
+01:13:14,880 --> 01:13:20,300
+thanks content and new content okay
+
+1246
+01:13:41,100 --> 01:13:45,920
+let's look up documentation for read
+
+1247
+01:13:43,560 --> 01:13:45,920
+stream
+
+1248
+01:13:49,159 --> 01:13:52,940
+Okay so
+
+1249
+01:13:55,500 --> 01:14:02,120
+you know I think this part is taking the
+
+1250
+01:13:58,320 --> 01:14:02,120
+most time this comparison
+
+1251
+01:14:02,520 --> 01:14:08,580
+let's remove that let's see if we just
+
+1252
+01:14:05,880 --> 01:14:11,400
+always right to file
+
+1253
+01:14:08,580 --> 01:14:14,580
+will that work now you want
+
+1254
+01:14:11,400 --> 01:14:17,940
+I mean it might be faster but it's a
+
+1255
+01:14:14,580 --> 01:14:19,520
+huge hack because if your file is one
+
+1256
+01:14:17,940 --> 01:14:21,260
+gigabyte
+
+1257
+01:14:19,520 --> 01:14:24,719
+then
+
+1258
+01:14:21,260 --> 01:14:29,280
+then you know this you know right to
+
+1259
+01:14:24,719 --> 01:14:31,980
+every file is not going to save time
+
+1260
+01:14:29,280 --> 01:14:34,980
+but let's just see
+
+1261
+01:14:31,980 --> 01:14:37,640
+let's see if we do this
+
+1262
+01:14:34,980 --> 01:14:37,640
+do it
+
+1263
+01:14:39,900 --> 01:14:43,640
+three seconds do it
+
+1264
+01:14:45,560 --> 01:14:52,199
+2.8 you know three seconds but if you
+
+1265
+01:14:48,900 --> 01:14:55,560
+compare it you know before we write to
+
+1266
+01:14:52,199 --> 01:14:55,560
+file then
+
+1267
+01:14:59,360 --> 01:15:04,880
+2.8 he's almost the same why is that
+
+1268
+01:15:09,060 --> 01:15:12,060
+2.7
+
+1269
+01:15:13,199 --> 01:15:18,560
+okay I think that's it for Wolfram
+
+1270
+01:15:15,360 --> 01:15:18,560
+language we cannot
+
+1271
+01:15:30,420 --> 01:15:36,000
+yeah I don't know how to make this
+
+1272
+01:15:33,600 --> 01:15:37,500
+that's it okay that's the code for
+
+1273
+01:15:36,000 --> 01:15:39,420
+Wolfram language
+
+1274
+01:15:37,500 --> 01:15:41,420
+now let's
+
+1275
+01:15:39,420 --> 01:15:41,420
+um
+
+1276
+01:15:50,460 --> 01:15:53,540
+what is this
+
+1277
+01:16:08,040 --> 01:16:11,360
+okay that's all
+
+1278
+01:16:19,380 --> 01:16:25,679
+okay let's start over
+
+1279
+01:16:22,800 --> 01:16:28,640
+remove all the files
+
+1280
+01:16:25,679 --> 01:16:28,640
+copy over
+
+1281
+01:16:29,760 --> 01:16:35,300
+then
+
+1282
+01:16:31,980 --> 01:16:35,300
+when the Wolfram language
+
+1283
+01:16:38,880 --> 01:16:42,440
+the first time is six seconds
+
+1284
+01:16:46,320 --> 01:16:54,300
+the second time is 2.7 so they are about
+
+1285
+01:16:51,239 --> 01:16:59,480
+one second slower each time okay
+
+1286
+01:16:54,300 --> 01:16:59,480
+stop that now let's go to talk show
+
+1287
+01:17:01,020 --> 01:17:05,360
+okay
+
+1288
+01:17:02,110 --> 01:17:05,360
+[Music]
+
+1289
+01:17:11,520 --> 01:17:14,520
+2.7
+
+1290
+01:17:14,640 --> 01:17:19,159
+yeah this should be 2.7
+
+1291
+01:17:19,260 --> 01:17:24,239
+it should be six
+
+1292
+01:17:21,239 --> 01:17:26,760
+so that's wolfam language speed okay
+
+1293
+01:17:24,239 --> 01:17:28,679
+let's move on to python
+
+1294
+01:17:26,760 --> 01:17:30,960
+what about the difference between the
+
+1295
+01:17:28,679 --> 01:17:33,659
+first and second run does the language
+
+1296
+01:17:30,960 --> 01:17:36,420
+take longer to load the files
+
+1297
+01:17:33,659 --> 01:17:37,739
+well I just we I just explained that he
+
+1298
+01:17:36,420 --> 01:17:40,199
+explained that
+
+1299
+01:17:37,739 --> 01:17:43,040
+like 10 10 minutes ago
+
+1300
+01:17:40,199 --> 01:17:43,040
+uh
+
+1301
+01:17:45,000 --> 01:17:48,920
+right when you hear 10 minutes ago
+
+1302
+01:17:50,880 --> 01:17:55,580
+so the second the second one is faster
+
+1303
+01:17:53,400 --> 01:17:59,460
+because because
+
+1304
+01:17:55,580 --> 01:18:01,739
+the computer already have main some of
+
+1305
+01:17:59,460 --> 01:18:04,020
+the files those unchanged files in
+
+1306
+01:18:01,739 --> 01:18:07,199
+memory so when you read it doesn't have
+
+1307
+01:18:04,020 --> 01:18:10,020
+to access the disk the second reason the
+
+1308
+01:18:07,199 --> 01:18:11,460
+second time is faster in any language is
+
+1309
+01:18:10,020 --> 01:18:13,140
+because
+
+1310
+01:18:11,460 --> 01:18:15,600
+the second time
+
+1311
+01:18:13,140 --> 01:18:19,320
+we don't we no longer have the string
+
+1312
+01:18:15,600 --> 01:18:22,199
+like that and that that you know the
+
+1313
+01:18:19,320 --> 01:18:24,239
+only string that's still in the files is
+
+1314
+01:18:22,199 --> 01:18:27,900
+this that
+
+1315
+01:18:24,239 --> 01:18:32,340
+so you have much less files to change
+
+1316
+01:18:27,900 --> 01:18:34,739
+and this files to to write to file to
+
+1317
+01:18:32,340 --> 01:18:38,100
+so that's why the second time is always
+
+1318
+01:18:34,739 --> 01:18:39,239
+faster doesn't matter what language just
+
+1319
+01:18:38,100 --> 01:18:41,760
+because
+
+1320
+01:18:39,239 --> 01:18:43,380
+the way we have set up the replacement
+
+1321
+01:18:41,760 --> 01:18:46,320
+pairs
+
+1322
+01:18:43,380 --> 01:18:50,040
+okay so let's do python okay let's move
+
+1323
+01:18:46,320 --> 01:18:53,880
+on maybe you know this so
+
+1324
+01:18:50,040 --> 01:18:58,340
+so we already did almost 90 minutes wow
+
+1325
+01:18:53,880 --> 01:18:58,340
+okay let's let's move to python quickly
+
+1326
+01:18:59,280 --> 01:19:05,580
+okay let's go to python it's actually so
+
+1327
+01:19:02,760 --> 01:19:07,800
+I already have the code you know since
+
+1328
+01:19:05,580 --> 01:19:08,760
+I've been doing fine replace for 20
+
+1329
+01:19:07,800 --> 01:19:10,920
+years
+
+1330
+01:19:08,760 --> 01:19:12,900
+so Python 3
+
+1331
+01:19:10,920 --> 01:19:15,840
+so we don't want the regular expression
+
+1332
+01:19:12,900 --> 01:19:18,540
+version we want this version okay this
+
+1333
+01:19:15,840 --> 01:19:22,739
+version does a bunch of things
+
+1334
+01:19:18,540 --> 01:19:25,920
+fancy so and it's on my website you can
+
+1335
+01:19:22,739 --> 01:19:31,760
+go there and get the code okay
+
+1336
+01:19:25,920 --> 01:19:31,760
+so but now copy it close close
+
+1337
+01:19:31,920 --> 01:19:39,300
+close Okay we want to have a python
+
+1338
+01:19:36,300 --> 01:19:43,199
+version so new buffer
+
+1339
+01:19:39,300 --> 01:19:46,739
+the here copy this line This will be X
+
+1340
+01:19:43,199 --> 01:19:48,300
+python 3 of course
+
+1341
+01:19:46,739 --> 01:19:52,380
+uh
+
+1342
+01:19:48,300 --> 01:19:54,980
+X python p y okay
+
+1343
+01:19:52,380 --> 01:19:54,980
+uh
+
+1344
+01:19:56,280 --> 01:20:06,060
+X Python 3 okay so open it yes cut paste
+
+1345
+01:20:03,900 --> 01:20:10,140
+and uh
+
+1346
+01:20:06,060 --> 01:20:11,460
+save okay so here is the python code now
+
+1347
+01:20:10,140 --> 01:20:15,420
+let's
+
+1348
+01:20:11,460 --> 01:20:17,820
+let's clean this up so that so that we
+
+1349
+01:20:15,420 --> 01:20:20,820
+don't have this
+
+1350
+01:20:17,820 --> 01:20:21,980
+lots of features and just say find
+
+1351
+01:20:20,820 --> 01:20:24,239
+replace
+
+1352
+01:20:21,980 --> 01:20:27,140
+multiple pairs
+
+1353
+01:20:24,239 --> 01:20:27,140
+in order
+
+1354
+01:20:28,320 --> 01:20:33,600
+okay
+
+1355
+01:20:30,000 --> 01:20:37,020
+and we don't want uh file list we don't
+
+1356
+01:20:33,600 --> 01:20:39,659
+need input that's what we need and input
+
+1357
+01:20:37,020 --> 01:20:42,140
+is just
+
+1358
+01:20:39,659 --> 01:20:44,940
+that okay
+
+1359
+01:20:42,140 --> 01:20:49,080
+level we don't care about level max
+
+1360
+01:20:44,940 --> 01:20:52,679
+level uh file name rejects we need print
+
+1361
+01:20:49,080 --> 01:20:55,640
+file name change Backup backup don't
+
+1362
+01:20:52,679 --> 01:20:59,520
+care replace these two you don't care
+
+1363
+01:20:55,640 --> 01:21:03,960
+reject string directory to skip we don't
+
+1364
+01:20:59,520 --> 01:21:07,860
+care code begin yes encoding
+
+1365
+01:21:03,960 --> 01:21:09,620
+okay this is a python educ we don't care
+
+1366
+01:21:07,860 --> 01:21:13,920
+because we are not printing anything
+
+1367
+01:21:09,620 --> 01:21:15,800
+okay dates daytime string input
+
+1368
+01:21:13,920 --> 01:21:19,320
+duh
+
+1369
+01:21:15,800 --> 01:21:23,100
+normalized path we don't care
+
+1370
+01:21:19,320 --> 01:21:26,219
+okay so for X in find replace list okay
+
+1371
+01:21:23,100 --> 01:21:28,800
+we don't care because there is
+
+1372
+01:21:26,219 --> 01:21:31,140
+not in search list
+
+1373
+01:21:28,800 --> 01:21:34,739
+yeah so
+
+1374
+01:21:31,140 --> 01:21:39,000
+so and what
+
+1375
+01:21:34,739 --> 01:21:44,000
+wait where is the pairs oh
+
+1376
+01:21:39,000 --> 01:21:44,000
+what yeah let's go to our original again
+
+1377
+01:21:49,980 --> 01:21:57,000
+finally slow replace pair at least this
+
+1378
+01:21:54,120 --> 01:22:01,380
+somehow we skipped
+
+1379
+01:21:57,000 --> 01:22:01,380
+close close close okay
+
+1380
+01:22:05,400 --> 01:22:12,860
+yeah this replacement this we need
+
+1381
+01:22:09,000 --> 01:22:12,860
+and they will be
+
+1382
+01:22:15,120 --> 01:22:19,980
+okay so let's get that to the python
+
+1383
+01:22:19,199 --> 01:22:22,560
+um
+
+1384
+01:22:19,980 --> 01:22:27,440
+syntax
+
+1385
+01:22:22,560 --> 01:22:27,440
+the python syntax is like that okay
+
+1386
+01:22:29,520 --> 01:22:33,800
+so it's going to be
+
+1387
+01:22:35,520 --> 01:22:42,560
+parent and comma okay
+
+1388
+01:22:38,400 --> 01:22:42,560
+and let's just do that
+
+1389
+01:22:52,260 --> 01:22:58,640
+and this Arrow will be just a comma okay
+
+1390
+01:23:01,199 --> 01:23:03,980
+okay
+
+1391
+01:23:04,320 --> 01:23:06,920
+okay yeah
+
+1392
+01:23:07,500 --> 01:23:14,179
+now format the code and see can we
+
+1393
+01:23:11,280 --> 01:23:14,179
+format the code
+
+1394
+01:23:19,320 --> 01:23:23,340
+what
+
+1395
+01:23:20,480 --> 01:23:24,480
+Excel format python
+
+1396
+01:23:23,340 --> 01:23:27,920
+uh
+
+1397
+01:23:24,480 --> 01:23:27,920
+it's a python format
+
+1398
+01:23:29,400 --> 01:23:36,179
+some python format buffer
+
+1399
+01:23:33,239 --> 01:23:38,580
+haven't do it
+
+1400
+01:23:36,179 --> 01:23:41,400
+okay
+
+1401
+01:23:38,580 --> 01:23:44,460
+okay so that's fine replace pay at least
+
+1402
+01:23:41,400 --> 01:23:48,679
+find replace list okay now replace
+
+1403
+01:23:44,460 --> 01:23:48,679
+string this is the process file
+
+1404
+01:23:48,960 --> 01:23:55,100
+oh God python Jesus I hate
+
+1405
+01:23:52,380 --> 01:23:55,100
+python
+
+1406
+01:23:56,780 --> 01:24:00,199
+do backup
+
+1407
+01:24:00,780 --> 01:24:08,360
+and do backup we don't care
+
+1408
+01:24:03,420 --> 01:24:08,360
+and trained a bunch we don't care
+
+1409
+01:24:09,420 --> 01:24:14,040
+and print the find replace this we don't
+
+1410
+01:24:13,080 --> 01:24:16,920
+care
+
+1411
+01:24:14,040 --> 01:24:19,400
+print that we don't care wait why is so
+
+1412
+01:24:16,920 --> 01:24:19,400
+many
+
+1413
+01:24:19,800 --> 01:24:26,699
+so this so find replace open the file
+
+1414
+01:24:23,040 --> 01:24:31,440
+input path open read encoding
+
+1415
+01:24:26,699 --> 01:24:34,980
+uh God file content input file read
+
+1416
+01:24:31,440 --> 01:24:37,820
+okay yeah file content then Unicode
+
+1417
+01:24:34,980 --> 01:24:40,620
+decoding error
+
+1418
+01:24:37,820 --> 01:24:44,640
+idiotic and close the file
+
+1419
+01:24:40,620 --> 01:24:47,460
+and global data and string we don't care
+
+1420
+01:24:44,640 --> 01:24:51,320
+number replace we don't care
+
+1421
+01:24:47,460 --> 01:24:53,040
+for pair in find replace list
+
+1422
+01:24:51,320 --> 01:24:55,440
+uh
+
+1423
+01:24:53,040 --> 01:24:58,260
+content uh
+
+1424
+01:24:55,440 --> 01:25:01,739
+number replaced
+
+1425
+01:24:58,260 --> 01:25:01,739
+file content.com
+
+1426
+01:25:06,840 --> 01:25:11,239
+yeah this is very inefficient
+
+1427
+01:25:12,300 --> 01:25:19,380
+okay we don't care about number we place
+
+1428
+01:25:15,900 --> 01:25:21,840
+that's about making a report
+
+1429
+01:25:19,380 --> 01:25:24,179
+and it's actually inefficient because
+
+1430
+01:25:21,840 --> 01:25:27,420
+this count and this replace they are
+
+1431
+01:25:24,179 --> 01:25:30,600
+doing kind of the same thing redundant
+
+1432
+01:25:27,420 --> 01:25:34,380
+so let's just say file content equals to
+
+1433
+01:25:30,600 --> 01:25:36,060
+file content E equals to dot replace
+
+1434
+01:25:34,380 --> 01:25:39,420
+pair
+
+1435
+01:25:36,060 --> 01:25:44,520
+find string replace by replace string
+
+1436
+01:25:39,420 --> 01:25:48,179
+so for each pair we do that okay then
+
+1437
+01:25:44,520 --> 01:25:51,000
+then this part we don't care again
+
+1438
+01:25:48,179 --> 01:25:54,620
+so output file
+
+1439
+01:25:51,000 --> 01:25:54,620
+oh then we um
+
+1440
+01:25:56,880 --> 01:25:59,840
+what sweet
+
+1441
+01:26:00,780 --> 01:26:07,940
+oh then yeah so we have the same problem
+
+1442
+01:26:03,600 --> 01:26:07,940
+how do you tell if the file changed
+
+1443
+01:26:08,159 --> 01:26:16,100
+yeah same problem so actually we do
+
+1444
+01:26:11,580 --> 01:26:16,100
+we don't want this number replaced
+
+1445
+01:26:16,500 --> 01:26:21,120
+you see
+
+1446
+01:26:17,880 --> 01:26:22,980
+change it only if it you know we have to
+
+1447
+01:26:21,120 --> 01:26:25,139
+write to file only when there is some
+
+1448
+01:26:22,980 --> 01:26:28,199
+change otherwise we don't want to write
+
+1449
+01:26:25,139 --> 01:26:30,800
+file because otherwise it's very uh
+
+1450
+01:26:28,199 --> 01:26:30,800
+costy
+
+1451
+01:26:31,080 --> 01:26:35,340
+so
+
+1452
+01:26:32,460 --> 01:26:37,860
+so the problem now just like in Wolfram
+
+1453
+01:26:35,340 --> 01:26:42,620
+language how do you
+
+1454
+01:26:37,860 --> 01:26:42,620
+determine the file changed well
+
+1455
+01:26:47,719 --> 01:26:54,360
+I I really truly despise the Python
+
+1456
+01:26:51,960 --> 01:26:57,480
+language and this syntax this this
+
+1457
+01:26:54,360 --> 01:27:00,900
+variable name convention
+
+1458
+01:26:57,480 --> 01:27:03,540
+if I can think so
+
+1459
+01:27:00,900 --> 01:27:06,120
+so for each pair so this is original
+
+1460
+01:27:03,540 --> 01:27:09,739
+content then you are basically
+
+1461
+01:27:06,120 --> 01:27:09,739
+overwriting it here
+
+1462
+01:27:10,620 --> 01:27:13,520
+and
+
+1463
+01:27:16,139 --> 01:27:23,460
+so you can do that
+
+1464
+01:27:20,040 --> 01:27:25,739
+number replaced equals to wait where's
+
+1465
+01:27:23,460 --> 01:27:29,480
+number replaced
+
+1466
+01:27:25,739 --> 01:27:33,320
+they must be initialized to zero okay
+
+1467
+01:27:29,480 --> 01:27:33,320
+now open the original
+
+1468
+01:27:36,000 --> 01:27:42,260
+okay yeah so there they initialize to
+
+1469
+01:27:39,120 --> 01:27:42,260
+zero you forgot
+
+1470
+01:27:44,520 --> 01:27:50,340
+so initialize to zero then then but look
+
+1471
+01:27:47,760 --> 01:27:55,020
+look at the syntax coloring of the
+
+1472
+01:27:50,340 --> 01:27:57,900
+Python mod idiotic
+
+1473
+01:27:55,020 --> 01:28:01,860
+okay number replace equals to zero then
+
+1474
+01:27:57,900 --> 01:28:04,620
+you for each pair you increment that
+
+1475
+01:28:01,860 --> 01:28:08,040
+doesn't take much time
+
+1476
+01:28:04,620 --> 01:28:10,679
+wait uh it does take much time because
+
+1477
+01:28:08,040 --> 01:28:13,520
+you are doing a count here
+
+1478
+01:28:10,679 --> 01:28:13,520
+so
+
+1479
+01:28:17,340 --> 01:28:23,520
+okay so you well
+
+1480
+01:28:21,060 --> 01:28:26,639
+yes
+
+1481
+01:28:23,520 --> 01:28:28,920
+so as soon as we find yeah you are you
+
+1482
+01:28:26,639 --> 01:28:31,260
+this is you know this is inefficient
+
+1483
+01:28:28,920 --> 01:28:33,780
+because this line is taking a lot of
+
+1484
+01:28:31,260 --> 01:28:36,800
+time it's actually trying to count how
+
+1485
+01:28:33,780 --> 01:28:36,800
+many occurrences
+
+1486
+01:28:37,320 --> 01:28:43,699
+then you do The Replacements okay does
+
+1487
+01:28:40,560 --> 01:28:43,699
+the replacement return
+
+1488
+01:28:44,940 --> 01:28:50,820
+final content replaced does it tell you
+
+1489
+01:28:47,699 --> 01:28:54,300
+there's any change or not
+
+1490
+01:28:50,820 --> 01:28:57,440
+ah python you know python when you want
+
+1491
+01:28:54,300 --> 01:28:57,440
+to look at documentation
+
+1492
+01:28:57,659 --> 01:29:04,320
+it's hard so this is The Final Countdown
+
+1493
+01:29:00,960 --> 01:29:08,340
+is a string so he faces a method
+
+1494
+01:29:04,320 --> 01:29:11,219
+so let's open let's see my let's open my
+
+1495
+01:29:08,340 --> 01:29:13,260
+old Python tutorial
+
+1496
+01:29:11,219 --> 01:29:15,980
+stream methods
+
+1497
+01:29:13,260 --> 01:29:19,260
+so substring length join repeat
+
+1498
+01:29:15,980 --> 01:29:21,719
+substitute search social string
+
+1499
+01:29:19,260 --> 01:29:23,580
+find replace okay replace the currencies
+
+1500
+01:29:21,719 --> 01:29:26,280
+of substring
+
+1501
+01:29:23,580 --> 01:29:30,300
+only first count number of these okay so
+
+1502
+01:29:26,280 --> 01:29:30,300
+it will replace occurrences
+
+1503
+01:29:35,880 --> 01:29:40,040
+okay this is a bad documentation
+
+1504
+01:29:46,080 --> 01:29:51,840
+okay it's not too bad so anyway so we
+
+1505
+01:29:49,260 --> 01:29:55,159
+yeah replace old by new
+
+1506
+01:29:51,840 --> 01:29:55,159
+and uh
+
+1507
+01:29:57,139 --> 01:30:02,300
+and uh is it in line
+
+1508
+01:30:04,920 --> 01:30:10,380
+when you replace do you have to reset it
+
+1509
+01:30:07,860 --> 01:30:15,000
+back to content it didn't say so this
+
+1510
+01:30:10,380 --> 01:30:18,000
+documentation my is not very good
+
+1511
+01:30:15,000 --> 01:30:21,000
+so we need to look up so we want to know
+
+1512
+01:30:18,000 --> 01:30:25,400
+does it replace the string
+
+1513
+01:30:21,000 --> 01:30:25,400
+to the new result or not
+
+1514
+01:30:26,760 --> 01:30:29,719
+uh
+
+1515
+01:30:29,880 --> 01:30:36,360
+and I think so you know by the way the
+
+1516
+01:30:33,239 --> 01:30:38,340
+python usually you know the oop python
+
+1517
+01:30:36,360 --> 01:30:40,679
+so does anyone know
+
+1518
+01:30:38,340 --> 01:30:43,800
+certainly two people are watching
+
+1519
+01:30:40,679 --> 01:30:47,880
+nobody's watching so
+
+1520
+01:30:43,800 --> 01:30:51,719
+python string method replace okay
+
+1521
+01:30:47,880 --> 01:30:54,800
+python stream replace metal we want to
+
+1522
+01:30:51,719 --> 01:30:54,800
+see the documentation
+
+1523
+01:30:57,120 --> 01:31:03,420
+I don't want these
+
+1524
+01:30:59,000 --> 01:31:06,980
+idiots you know tutorial let's go to
+
+1525
+01:31:03,420 --> 01:31:06,980
+uh python
+
+1526
+01:31:08,060 --> 01:31:16,920
+documentation it's Building open that
+
+1527
+01:31:12,659 --> 01:31:20,580
+okay python on Windows comes with this
+
+1528
+01:31:16,920 --> 01:31:23,239
+building documentation okay
+
+1529
+01:31:20,580 --> 01:31:23,239
+so
+
+1530
+01:31:24,420 --> 01:31:30,380
+so now you all you have to do is to find
+
+1531
+01:31:27,179 --> 01:31:36,020
+the string Methods okay
+
+1532
+01:31:30,380 --> 01:31:36,020
+Python tutorial setup and usage
+
+1533
+01:31:38,219 --> 01:31:43,199
+God pythons truly
+
+1534
+01:31:41,600 --> 01:31:47,040
+idiotic
+
+1535
+01:31:43,199 --> 01:31:49,340
+the Python language now is it here or is
+
+1536
+01:31:47,040 --> 01:31:49,340
+it
+
+1537
+01:31:49,679 --> 01:31:55,739
+expressions
+
+1538
+01:31:52,199 --> 01:31:58,199
+simple statements no it's not here the
+
+1539
+01:31:55,739 --> 01:32:01,320
+python standard Library
+
+1540
+01:31:58,199 --> 01:32:04,699
+okay building types
+
+1541
+01:32:01,320 --> 01:32:04,699
+building types
+
+1542
+01:32:05,219 --> 01:32:10,199
+sequence types idiot you know
+
+1543
+01:32:08,760 --> 01:32:12,800
+they don't they don't have a just say
+
+1544
+01:32:10,199 --> 01:32:12,800
+string
+
+1545
+01:32:14,040 --> 01:32:19,400
+but string is part of sequence type I
+
+1546
+01:32:16,980 --> 01:32:19,400
+suppose
+
+1547
+01:32:20,280 --> 01:32:24,380
+okay pretentious
+
+1548
+01:32:25,940 --> 01:32:33,960
+immutable immutable sequence types every
+
+1549
+01:32:29,580 --> 01:32:37,199
+time I I code python it's
+
+1550
+01:32:33,960 --> 01:32:38,340
+uh very uh annoying extremely in every
+
+1551
+01:32:37,199 --> 01:32:41,699
+way
+
+1552
+01:32:38,340 --> 01:32:45,080
+you know now now this is a huge page
+
+1553
+01:32:41,699 --> 01:32:45,080
+building types
+
+1554
+01:32:45,840 --> 01:32:52,679
+right now I just want to know if the
+
+1555
+01:32:49,500 --> 01:32:55,320
+string method replace does the
+
+1556
+01:32:52,679 --> 01:32:58,320
+replacement in line
+
+1557
+01:32:55,320 --> 01:33:01,020
+okay so you go to the official Doc it's
+
+1558
+01:32:58,320 --> 01:33:02,940
+a library section and see there's no you
+
+1559
+01:33:01,020 --> 01:33:07,639
+know building types you cannot there's
+
+1560
+01:33:02,940 --> 01:33:07,639
+no one section that says string
+
+1561
+01:33:08,580 --> 01:33:14,280
+you are assumed to know that in Python
+
+1562
+01:33:11,280 --> 01:33:17,880
+the computer science are us
+
+1563
+01:33:14,280 --> 01:33:19,860
+that string is uh you know is a sequence
+
+1564
+01:33:17,880 --> 01:33:22,800
+type I suppose
+
+1565
+01:33:19,860 --> 01:33:26,699
+there are three basic sequence types
+
+1566
+01:33:22,800 --> 01:33:30,060
+these tuples and range objects
+
+1567
+01:33:26,699 --> 01:33:32,880
+okay so it's not a sequence type it's a
+
+1568
+01:33:30,060 --> 01:33:36,620
+what the
+
+1569
+01:33:32,880 --> 01:33:38,780
+text sequence type there it is
+
+1570
+01:33:36,620 --> 01:33:43,020
+ python
+
+1571
+01:33:38,780 --> 01:33:46,020
+pretentious text sequence
+
+1572
+01:33:43,020 --> 01:33:49,020
+they don't call it string they call it
+
+1573
+01:33:46,020 --> 01:33:52,380
+text sequence type textual data in
+
+1574
+01:33:49,020 --> 01:33:56,520
+Python is handled with string objects or
+
+1575
+01:33:52,380 --> 01:33:58,260
+strings the pretentious
+
+1576
+01:33:56,520 --> 01:34:01,860
+you know they have to make a distinction
+
+1577
+01:33:58,260 --> 01:34:03,719
+between string object or just strings oh
+
+1578
+01:34:01,860 --> 01:34:05,880
+by the way string is just a short name
+
+1579
+01:34:03,719 --> 01:34:08,219
+you know you know it's not an official
+
+1580
+01:34:05,880 --> 01:34:10,080
+formal name but it's a you know
+
+1581
+01:34:08,219 --> 01:34:13,380
+convenient short name for a string
+
+1582
+01:34:10,080 --> 01:34:16,440
+object python
+
+1583
+01:34:13,380 --> 01:34:20,280
+strings are immutable sequences of
+
+1584
+01:34:16,440 --> 01:34:22,739
+Unicode code points
+
+1585
+01:34:20,280 --> 01:34:25,980
+string details are written in a variety
+
+1586
+01:34:22,739 --> 01:34:28,139
+of ways like a bunch of incomprehensive
+
+1587
+01:34:25,980 --> 01:34:30,840
+tensible jargons like
+
+1588
+01:34:28,139 --> 01:34:34,500
+pretentious
+
+1589
+01:34:30,840 --> 01:34:36,420
+you know immutable sequences you know do
+
+1590
+01:34:34,500 --> 01:34:38,580
+you mean sequence according to your
+
+1591
+01:34:36,420 --> 01:34:40,679
+language or do you mean in general they
+
+1592
+01:34:38,580 --> 01:34:41,880
+are core sequences like what what the
+
+1593
+01:34:40,679 --> 01:34:44,400
+ you mean
+
+1594
+01:34:41,880 --> 01:34:49,040
+Unicode code points what the is
+
+1595
+01:34:44,400 --> 01:34:49,040
+Unicode co-points go yourself
+
+1596
+01:34:49,800 --> 01:34:54,480
+biggest programming language design
+
+1597
+01:34:52,860 --> 01:34:57,900
+idiots
+
+1598
+01:34:54,480 --> 01:35:01,139
+pretentious string literals are
+
+1599
+01:34:57,900 --> 01:35:05,340
+written in a variety of ways variety of
+
+1600
+01:35:01,139 --> 01:35:07,560
+ways you I just just
+
+1601
+01:35:05,340 --> 01:35:08,639
+say you know string Detroit is this this
+
+1602
+01:35:07,560 --> 01:35:11,520
+this
+
+1603
+01:35:08,639 --> 01:35:14,820
+but you have to say string details are
+
+1604
+01:35:11,520 --> 01:35:18,480
+written in a variety of us of ways as
+
+1605
+01:35:14,820 --> 01:35:20,159
+opposed to it can be something else in
+
+1606
+01:35:18,480 --> 01:35:24,860
+variety of ways
+
+1607
+01:35:20,159 --> 01:35:24,860
+you know the the beach
+
+1608
+01:35:27,360 --> 01:35:32,820
+okay so anyways so this screen you know
+
+1609
+01:35:30,360 --> 01:35:35,219
+so it's they they want to call it text
+
+1610
+01:35:32,820 --> 01:35:39,000
+sequence type what is the significance
+
+1611
+01:35:35,219 --> 01:35:40,199
+of the text sequence type what do I
+
+1612
+01:35:39,000 --> 01:35:42,900
+you know
+
+1613
+01:35:40,199 --> 01:35:44,880
+why do I have to know that where does it
+
+1614
+01:35:42,900 --> 01:35:49,940
+matter that whether it's called string
+
+1615
+01:35:44,880 --> 01:35:49,940
+or text sequence type the python
+
+1616
+01:35:51,000 --> 01:35:56,219
+okay stream methods we are getting uh we
+
+1617
+01:35:53,760 --> 01:35:59,100
+are getting there hey rat
+
+1618
+01:35:56,219 --> 01:36:04,679
+we are getting the string Methods okay
+
+1619
+01:35:59,100 --> 01:36:07,860
+so text sequence type Guido vandrosums s
+
+1620
+01:36:04,679 --> 01:36:09,659
+in this variety of written in variety of
+
+1621
+01:36:07,860 --> 01:36:12,020
+ways string literals
+
+1622
+01:36:09,659 --> 01:36:15,000
+python Guido van Rossum
+
+1623
+01:36:12,020 --> 01:36:19,040
+immutable it
+
+1624
+01:36:15,000 --> 01:36:19,040
+sequence of Unicode
+
+1625
+01:36:19,320 --> 01:36:27,080
+string Methods we're getting there so
+
+1626
+01:36:21,239 --> 01:36:27,080
+there it is uh stream dot replace okay
+
+1627
+01:36:29,699 --> 01:36:35,699
+you know it takes my anger
+
+1628
+01:36:33,060 --> 01:36:39,380
+on the pythons okay Street you know
+
+1629
+01:36:35,699 --> 01:36:39,380
+there it is you know
+
+1630
+01:36:41,159 --> 01:36:46,860
+string dot replace oh new and you know
+
+1631
+01:36:43,739 --> 01:36:49,020
+this incomprehensible returns a
+
+1632
+01:36:46,860 --> 01:36:51,179
+copy of the string
+
+1633
+01:36:49,020 --> 01:36:53,040
+okay it returns a copy it doesn't
+
+1634
+01:36:51,179 --> 01:36:55,139
+replace in line
+
+1635
+01:36:53,040 --> 01:36:57,360
+returns a copy of the string with all
+
+1636
+01:36:55,139 --> 01:36:59,520
+occurrences of substring all replaced by
+
+1637
+01:36:57,360 --> 01:37:03,179
+Nu okay if the options are given Okay
+
+1638
+01:36:59,520 --> 01:37:06,420
+blah blah blah so it returns a copy
+
+1639
+01:37:03,179 --> 01:37:09,199
+okay so my code here is correct you have
+
+1640
+01:37:06,420 --> 01:37:09,199
+to assign it
+
+1641
+01:37:11,340 --> 01:37:17,239
+yeah this my documentation needs to be
+
+1642
+01:37:14,760 --> 01:37:17,239
+improved
+
+1643
+01:37:18,000 --> 01:37:26,060
+okay
+
+1644
+01:37:20,580 --> 01:37:26,060
+so it returns a copy uh so
+
+1645
+01:37:28,620 --> 01:37:36,960
+yeah it so I so to be efficient we
+
+1646
+01:37:33,480 --> 01:37:38,120
+these two lines should be you know we
+
+1647
+01:37:36,960 --> 01:37:41,580
+should
+
+1648
+01:37:38,120 --> 01:37:43,560
+assigned the old file content
+
+1649
+01:37:41,580 --> 01:37:46,440
+you know then compare the new file
+
+1650
+01:37:43,560 --> 01:37:49,920
+content for example here should be
+
+1651
+01:37:46,440 --> 01:37:52,679
+new content Okay so
+
+1652
+01:37:49,920 --> 01:37:55,620
+yeah so we can do that
+
+1653
+01:37:52,679 --> 01:37:58,560
+this new variable then we just we remove
+
+1654
+01:37:55,620 --> 01:38:00,600
+this number replaced counts because this
+
+1655
+01:37:58,560 --> 01:38:04,260
+is very inefficient you are counting
+
+1656
+01:38:00,600 --> 01:38:07,380
+every pair a refined string
+
+1657
+01:38:04,260 --> 01:38:10,139
+so we remove this line and just compare
+
+1658
+01:38:07,380 --> 01:38:11,580
+the file content with the new content if
+
+1659
+01:38:10,139 --> 01:38:13,440
+they are different then we write to
+
+1660
+01:38:11,580 --> 01:38:15,780
+files something like that
+
+1661
+01:38:13,440 --> 01:38:19,500
+okay but for now let's don't do anything
+
+1662
+01:38:15,780 --> 01:38:20,699
+let's try the old way see the speed
+
+1663
+01:38:19,500 --> 01:38:23,280
+okay
+
+1664
+01:38:20,699 --> 01:38:25,920
+so if if number replace greater than
+
+1665
+01:38:23,280 --> 01:38:28,020
+zero then blah blah blah blah blah then
+
+1666
+01:38:25,920 --> 01:38:30,120
+right to file basically
+
+1667
+01:38:28,020 --> 01:38:32,580
+so
+
+1668
+01:38:30,120 --> 01:38:34,620
+so we have to write two file here what
+
+1669
+01:38:32,580 --> 01:38:36,000
+is this it's trying to print the other
+
+1670
+01:38:34,620 --> 01:38:38,219
+report
+
+1671
+01:38:36,000 --> 01:38:42,120
+uh
+
+1672
+01:38:38,219 --> 01:38:46,880
+so don't print so output file equals to
+
+1673
+01:38:42,120 --> 01:38:46,880
+open for right encoding utf-8
+
+1674
+01:38:47,040 --> 01:38:50,480
+yeah our profile
+
+1675
+01:38:51,179 --> 01:38:56,340
+right and because otherwise the
+
+1676
+01:38:54,179 --> 01:39:00,620
+ python
+
+1677
+01:38:56,340 --> 01:39:00,620
+a friend found them with no change
+
+1678
+01:39:03,440 --> 01:39:08,580
+okay so when when that's otherwise
+
+1679
+01:39:06,540 --> 01:39:10,500
+there's no change
+
+1680
+01:39:08,580 --> 01:39:13,800
+uh
+
+1681
+01:39:10,500 --> 01:39:19,080
+you don't you don't care about that
+
+1682
+01:39:13,800 --> 01:39:22,199
+okay so here is the you know look at
+
+1683
+01:39:19,080 --> 01:39:25,560
+look at python you know
+
+1684
+01:39:22,199 --> 01:39:29,520
+ more lines than even him like
+
+1685
+01:39:25,560 --> 01:39:33,380
+this and the indentation
+
+1686
+01:39:29,520 --> 01:39:33,380
+okay so so now
+
+1687
+01:39:35,699 --> 01:39:41,219
+what is this the final list uh okay we
+
+1688
+01:39:39,000 --> 01:39:42,420
+don't care
+
+1689
+01:39:41,219 --> 01:39:46,040
+so
+
+1690
+01:39:42,420 --> 01:39:46,040
+this part we don't care
+
+1691
+01:39:47,400 --> 01:39:54,540
+we want to Traverse that okay now the
+
+1692
+01:39:50,760 --> 01:39:56,219
+whole thing needs to be indented back
+
+1693
+01:39:54,540 --> 01:39:58,880
+um
+
+1694
+01:39:56,219 --> 01:39:58,880
+yeah
+
+1695
+01:40:10,739 --> 01:40:15,500
+the python indent shift rates
+
+1696
+01:40:23,820 --> 01:40:28,580
+okay let's I believe that's what we want
+
+1697
+01:40:31,560 --> 01:40:37,320
+yeah okay
+
+1698
+01:40:33,600 --> 01:40:40,260
+so now to Traverse the directory
+
+1699
+01:40:37,320 --> 01:40:43,920
+current level we don't care can the
+
+1700
+01:40:40,260 --> 01:40:45,300
+level we remove that feature
+
+1701
+01:40:43,920 --> 01:40:50,540
+okay
+
+1702
+01:40:45,300 --> 01:40:54,620
+and uh the so if the current level is
+
+1703
+01:40:50,540 --> 01:40:56,760
+less than minimum level and less than
+
+1704
+01:40:54,620 --> 01:40:59,820
+max level
+
+1705
+01:40:56,760 --> 01:41:01,920
+something something and Skip with
+
+1706
+01:40:59,820 --> 01:41:05,760
+something something you don't care
+
+1707
+01:41:01,920 --> 01:41:06,960
+so this step this if statement is always
+
+1708
+01:41:05,760 --> 01:41:10,520
+true
+
+1709
+01:41:06,960 --> 01:41:10,520
+ python okay
+
+1710
+01:41:11,699 --> 01:41:21,199
+so and here the let's indent left
+
+1711
+01:41:16,380 --> 01:41:21,199
+again we don't need if
+
+1712
+01:41:21,900 --> 01:41:28,199
+okay so for file name in file list
+
+1713
+01:41:25,219 --> 01:41:30,120
+uh regular expression
+
+1714
+01:41:28,199 --> 01:41:33,739
+what
+
+1715
+01:41:30,120 --> 01:41:33,739
+the about
+
+1716
+01:41:33,900 --> 01:41:37,280
+okay let's just
+
+1717
+01:41:39,659 --> 01:41:44,580
+it's just just put it hard coat it there
+
+1718
+01:41:42,719 --> 01:41:48,060
+okay
+
+1719
+01:41:44,580 --> 01:41:51,900
+I'll call it there okay
+
+1720
+01:41:48,060 --> 01:41:54,840
+so now we search for HTML files
+
+1721
+01:41:51,900 --> 01:41:56,659
+file name and the regular expression
+
+1722
+01:41:54,840 --> 01:41:59,100
+unicode
+
+1723
+01:41:56,659 --> 01:42:00,600
+and uh
+
+1724
+01:41:59,100 --> 01:42:04,080
+and what
+
+1725
+01:42:00,600 --> 01:42:06,500
+and if the file name does not begin with
+
+1726
+01:42:04,080 --> 01:42:06,500
+a
+
+1727
+01:42:08,820 --> 01:42:15,780
+does not contain the Palm side
+
+1728
+01:42:11,940 --> 01:42:18,960
+that's for prevention of emacs
+
+1729
+01:42:15,780 --> 01:42:21,900
+to Peter T the Emax generates those file
+
+1730
+01:42:18,960 --> 01:42:23,040
+names with pound sign okay so remove
+
+1731
+01:42:21,900 --> 01:42:25,020
+that
+
+1732
+01:42:23,040 --> 01:42:26,699
+remove that so
+
+1733
+01:42:25,020 --> 01:42:31,080
+simplify
+
+1734
+01:42:26,699 --> 01:42:35,520
+so if the file is HTML file
+
+1735
+01:42:31,080 --> 01:42:38,280
+and then you replace string file
+
+1736
+01:42:35,520 --> 01:42:42,179
+which is that okay
+
+1737
+01:42:38,280 --> 01:42:46,280
+the path always separated blah blah blah
+
+1738
+01:42:42,179 --> 01:42:46,280
+and the print we don't care
+
+1739
+01:42:46,739 --> 01:42:55,580
+okay printed okay
+
+1740
+01:42:49,980 --> 01:42:55,580
+so Python scripts and
+
+1741
+01:42:57,300 --> 01:43:02,639
+down script it seems even
+
+1742
+01:42:59,940 --> 01:43:04,679
+longer than necessary
+
+1743
+01:43:02,639 --> 01:43:08,159
+this
+
+1744
+01:43:04,679 --> 01:43:13,280
+this should work okay so
+
+1745
+01:43:08,159 --> 01:43:13,280
+don't try we don't want the try
+
+1746
+01:43:21,900 --> 01:43:26,360
+okay we just simplify the whole
+
+1747
+01:43:28,800 --> 01:43:36,060
+okay so let's test check if this works
+
+1748
+01:43:32,100 --> 01:43:38,580
+and if it does let's try to change this
+
+1749
+01:43:36,060 --> 01:43:42,300
+algorithm to to the compare file
+
+1750
+01:43:38,580 --> 01:43:44,940
+contents to see if it's faster okay so
+
+1751
+01:43:42,300 --> 01:43:47,100
+let's check one more so this is python
+
+1752
+01:43:44,940 --> 01:43:51,780
+36 months
+
+1753
+01:43:47,100 --> 01:43:53,100
+and we probably don't need the the OS
+
+1754
+01:43:51,780 --> 01:43:58,760
+
+1755
+01:43:53,100 --> 01:43:58,760
+the cisfaq the short fact
+
+1756
+01:43:59,340 --> 01:44:02,340
+python
+
+1757
+01:44:05,940 --> 01:44:11,040
+you know I I haven't been it's been
+
+1758
+01:44:08,159 --> 01:44:14,580
+acquired I don't remember which is what
+
+1759
+01:44:11,040 --> 01:44:17,699
+you need daytime you don't need
+
+1760
+01:44:14,580 --> 01:44:20,179
+anymore for sure
+
+1761
+01:44:17,699 --> 01:44:24,139
+OS you don't need
+
+1762
+01:44:20,179 --> 01:44:24,139
+uh what about open
+
+1763
+01:44:29,340 --> 01:44:35,940
+yeah I don't remember which one is it
+
+1764
+01:44:32,580 --> 01:44:37,199
+it's uh it's critical because you we do
+
+1765
+01:44:35,940 --> 01:44:39,000
+want to
+
+1766
+01:44:37,199 --> 01:44:40,679
+you know we don't want to load libraries
+
+1767
+01:44:39,000 --> 01:44:43,280
+that we don't use
+
+1768
+01:44:40,679 --> 01:44:43,280
+so
+
+1769
+01:44:43,980 --> 01:44:49,320
+so let's yeah you know we remove them
+
+1770
+01:44:46,560 --> 01:44:50,340
+one by one or something then we'll find
+
+1771
+01:44:49,320 --> 01:44:53,880
+out
+
+1772
+01:44:50,340 --> 01:44:57,540
+or let's look at my Python tutorial
+
+1773
+01:44:53,880 --> 01:44:59,780
+let's see open file which Library do you
+
+1774
+01:44:57,540 --> 01:44:59,780
+need
+
+1775
+01:45:02,880 --> 01:45:10,679
+so miscellaneous web text processing
+
+1776
+01:45:07,500 --> 01:45:14,219
+daytime module uh
+
+1777
+01:45:10,679 --> 01:45:16,500
+crochet type of functioning class module
+
+1778
+01:45:14,219 --> 01:45:20,460
+miscellaneous
+
+1779
+01:45:16,500 --> 01:45:23,699
+where is the read file okay so read file
+
+1780
+01:45:20,460 --> 01:45:26,119
+okay so read file you need sis
+
+1781
+01:45:23,699 --> 01:45:29,040
+impulses
+
+1782
+01:45:26,119 --> 01:45:30,719
+so you don't need OS you don't need that
+
+1783
+01:45:29,040 --> 01:45:32,520
+I'm pretty sure
+
+1784
+01:45:30,719 --> 01:45:36,540
+that will work
+
+1785
+01:45:32,520 --> 01:45:39,540
+okay so make a backup
+
+1786
+01:45:36,540 --> 01:45:43,500
+go to the diet directory so this is a
+
+1787
+01:45:39,540 --> 01:45:45,840
+file path close because
+
+1788
+01:45:43,500 --> 01:45:49,080
+close close
+
+1789
+01:45:45,840 --> 01:45:51,420
+yeah so here is the python open yeah
+
+1790
+01:45:49,080 --> 01:45:55,219
+close copy
+
+1791
+01:45:51,420 --> 01:46:00,860
+finally back to our
+
+1792
+01:45:55,219 --> 01:46:00,860
+back to our terminal is our terminal
+
+1793
+01:46:02,580 --> 01:46:05,060
+yeah
+
+1794
+01:46:05,400 --> 01:46:09,719
+paste the python
+
+1795
+01:46:07,440 --> 01:46:13,739
+run the python
+
+1796
+01:46:09,719 --> 01:46:17,219
+oh wait the Wolfram script oh fam script
+
+1797
+01:46:13,739 --> 01:46:21,060
+is learning python
+
+1798
+01:46:17,219 --> 01:46:23,520
+yeah so this will be python now now what
+
+1799
+01:46:21,060 --> 01:46:26,520
+the is the
+
+1800
+01:46:23,520 --> 01:46:30,199
+pay that I executable then you know the
+
+1801
+01:46:26,520 --> 01:46:34,199
+Guido wonders and refused to have
+
+1802
+01:46:30,199 --> 01:46:36,780
+py.py3 as the extension and also on
+
+1803
+01:46:34,199 --> 01:46:39,900
+different operating systems
+
+1804
+01:46:36,780 --> 01:46:42,719
+some of the Python is python 3. you know
+
+1805
+01:46:39,900 --> 01:46:44,460
+some some Linux some distro or on
+
+1806
+01:46:42,719 --> 01:46:47,460
+Windows or a Mac
+
+1807
+01:46:44,460 --> 01:46:50,340
+python May mean python 2 May mean Python
+
+1808
+01:46:47,460 --> 01:46:52,560
+3 you know and on some distro or up when
+
+1809
+01:46:50,340 --> 01:46:54,900
+you see some some if you want Python 3
+
+1810
+01:46:52,560 --> 01:46:57,900
+you have to say explicitly Python 3
+
+1811
+01:46:54,900 --> 01:47:00,360
+because the pyth because the gido van
+
+1812
+01:46:57,900 --> 01:47:03,179
+Rossum you know he think he's
+
+1813
+01:47:00,360 --> 01:47:05,159
+the best designer he don't want he don't
+
+1814
+01:47:03,179 --> 01:47:07,139
+want the situation where you have python
+
+1815
+01:47:05,159 --> 01:47:09,719
+2 or python 3.
+
+1816
+01:47:07,139 --> 01:47:12,119
+you know he wanted he want the future to
+
+1817
+01:47:09,719 --> 01:47:15,239
+be like just one python let's all forget
+
+1818
+01:47:12,119 --> 01:47:17,639
+about python 2 existed you know so he
+
+1819
+01:47:15,239 --> 01:47:20,940
+doesn't want you know like if you have
+
+1820
+01:47:17,639 --> 01:47:23,520
+like py.3 he doesn't want that and that
+
+1821
+01:47:20,940 --> 01:47:25,800
+creates a lot problem because this you
+
+1822
+01:47:23,520 --> 01:47:28,199
+know you have to there's no way to you
+
+1823
+01:47:25,800 --> 01:47:31,260
+know it's a problem to
+
+1824
+01:47:28,199 --> 01:47:33,900
+expect Python 3 or python 2 but you are
+
+1825
+01:47:31,260 --> 01:47:39,020
+actually running the other
+
+1826
+01:47:33,900 --> 01:47:39,020
+you know so that kid online wasn't
+
+1827
+01:47:40,080 --> 01:47:47,159
+okay so suppose this will be it
+
+1828
+01:47:43,920 --> 01:47:50,100
+okay when the pylon code do it uh
+
+1829
+01:47:47,159 --> 01:47:53,400
+something is wrong okay I think
+
+1830
+01:47:50,100 --> 01:47:55,679
+oh yeah so here yeah python right yeah
+
+1831
+01:47:53,400 --> 01:47:58,199
+python um
+
+1832
+01:47:55,679 --> 01:48:03,560
+yeah you don't you don't say file you
+
+1833
+01:47:58,199 --> 01:48:03,560
+you know python is just file directly
+
+1834
+01:48:05,760 --> 01:48:14,239
+do it no something is wrong most recent
+
+1835
+01:48:09,540 --> 01:48:14,239
+call Fire online 32
+
+1836
+01:48:16,920 --> 01:48:24,119
+always walk OS is not defined that's
+
+1837
+01:48:20,460 --> 01:48:29,119
+right so you need the OS yes that's
+
+1838
+01:48:24,119 --> 01:48:29,119
+right yeah OS library for the walk
+
+1839
+01:48:31,739 --> 01:48:36,480
+okay so does that actually work seems
+
+1840
+01:48:35,100 --> 01:48:40,400
+very fast
+
+1841
+01:48:36,480 --> 01:48:40,400
+but did it actually work
+
+1842
+01:48:45,719 --> 01:48:53,000
+okay so let's try again
+
+1843
+01:48:49,440 --> 01:48:53,000
+remove all the data
+
+1844
+01:48:53,760 --> 01:48:59,400
+copy it
+
+1845
+01:48:55,500 --> 01:49:02,719
+okay now run the python code
+
+1846
+01:48:59,400 --> 01:49:02,719
+then python code
+
+1847
+01:49:03,000 --> 01:49:09,260
+seems It's Working 3.7
+
+1848
+01:49:06,480 --> 01:49:09,260
+wow
+
+1849
+01:49:10,920 --> 01:49:18,020
+wow python code this means it's faster
+
+1850
+01:49:14,219 --> 01:49:18,020
+than emac this
+
+1851
+01:49:19,560 --> 01:49:25,280
+okay so this is faster than emac this
+
+1852
+01:49:23,100 --> 01:49:30,840
+now let's check if it's actually working
+
+1853
+01:49:25,280 --> 01:49:33,239
+Check Yes these matching lines that
+
+1854
+01:49:30,840 --> 01:49:35,420
+that yes it's working now let's do it
+
+1855
+01:49:33,239 --> 01:49:35,420
+again
+
+1856
+01:49:41,960 --> 01:49:47,520
+3.7 why why is python the second time it
+
+1857
+01:49:46,260 --> 01:49:50,179
+doesn't save
+
+1858
+01:49:47,520 --> 01:49:50,179
+time
+
+1859
+01:49:50,400 --> 01:49:56,880
+you know nowadays if we refresh we all
+
+1860
+01:49:54,960 --> 01:49:59,280
+see that this
+
+1861
+01:49:56,880 --> 01:50:00,960
+you know it should have two occurrence
+
+1862
+01:49:59,280 --> 01:50:04,020
+of that okay
+
+1863
+01:50:00,960 --> 01:50:07,080
+close we open
+
+1864
+01:50:04,020 --> 01:50:08,520
+this matching lines yeah so it is
+
+1865
+01:50:07,080 --> 01:50:11,760
+working
+
+1866
+01:50:08,520 --> 01:50:16,100
+okay so but for some reason each time
+
+1867
+01:50:11,760 --> 01:50:16,100
+python runs the second time is still
+
+1868
+01:50:16,639 --> 01:50:22,560
+you see
+
+1869
+01:50:19,199 --> 01:50:26,699
+it doesn't save time every time you run
+
+1870
+01:50:22,560 --> 01:50:29,100
+so the the speed here is getting a bit
+
+1871
+01:50:26,699 --> 01:50:32,159
+complicated
+
+1872
+01:50:29,100 --> 01:50:35,119
+that's document okay let's document the
+
+1873
+01:50:32,159 --> 01:50:35,119
+python speed
+
+1874
+01:50:44,600 --> 01:50:50,119
+basically it's 3.7 for each
+
+1875
+01:50:56,719 --> 01:51:03,060
+okay something like that
+
+1876
+01:50:59,760 --> 01:51:05,100
+something like that I'm surprised I'm a
+
+1877
+01:51:03,060 --> 01:51:09,260
+little surprised
+
+1878
+01:51:05,100 --> 01:51:11,159
+now the Wolfram line is pretty bad
+
+1879
+01:51:09,260 --> 01:51:13,760
+the
+
+1880
+01:51:11,159 --> 01:51:13,760
+hmm
+
+1881
+01:51:14,699 --> 01:51:22,199
+anyway that I think that's um
+
+1882
+01:51:18,360 --> 01:51:26,460
+we we kind of did what we wanted today
+
+1883
+01:51:22,199 --> 01:51:28,560
+we commission accomplished we did python
+
+1884
+01:51:26,460 --> 01:51:31,440
+emac this blue fam language and we
+
+1885
+01:51:28,560 --> 01:51:33,060
+compare the speed so far here's the
+
+1886
+01:51:31,440 --> 01:51:35,340
+result python
+
+1887
+01:51:33,060 --> 01:51:37,619
+python one
+
+1888
+01:51:35,340 --> 01:51:39,300
+even though the python code can be
+
+1889
+01:51:37,619 --> 01:51:41,900
+improved
+
+1890
+01:51:39,300 --> 01:51:41,900
+a lot
+
+1891
+01:51:42,179 --> 01:51:47,340
+but there is a puzzle why why is each
+
+1892
+01:51:44,460 --> 01:51:51,060
+time python doesn't
+
+1893
+01:51:47,340 --> 01:51:51,060
+speed up significantly
+
+1894
+01:51:52,560 --> 01:51:59,580
+so if the number replace is greater than
+
+1895
+01:51:56,460 --> 01:52:00,840
+zero you write to file otherwise you
+
+1896
+01:51:59,580 --> 01:52:04,139
+don't right
+
+1897
+01:52:00,840 --> 01:52:06,840
+so why is the patterns always taking
+
+1898
+01:52:04,139 --> 01:52:09,960
+this much time
+
+1899
+01:52:06,840 --> 01:52:12,480
+so the second run python is losing out
+
+1900
+01:52:09,960 --> 01:52:14,400
+actually
+
+1901
+01:52:12,480 --> 01:52:16,619
+you know the first run python is great
+
+1902
+01:52:14,400 --> 01:52:20,460
+but the second run in Python is losing
+
+1903
+01:52:16,619 --> 01:52:25,639
+to emac this and the Wolfram language so
+
+1904
+01:52:20,460 --> 01:52:25,639
+that means there is something wrong here
+
+1905
+01:52:36,659 --> 01:52:43,100
+can we compact the code somehow we don't
+
+1906
+01:52:40,440 --> 01:52:43,100
+want so many
+
+1907
+01:52:54,480 --> 01:53:01,739
+so you guys python experts
+
+1908
+01:52:58,619 --> 01:53:04,080
+say something maybe we can we uh you
+
+1909
+01:53:01,739 --> 01:53:07,860
+know improve the code
+
+1910
+01:53:04,080 --> 01:53:10,159
+the first question is that why python on
+
+1911
+01:53:07,860 --> 01:53:16,159
+second run doesn't
+
+1912
+01:53:10,159 --> 01:53:16,159
+uh doesn't reduce time like the others
+
+1913
+01:53:16,199 --> 01:53:23,280
+so that is likely because python is
+
+1914
+01:53:20,760 --> 01:53:27,920
+still writing to fire all the time so
+
+1915
+01:53:23,280 --> 01:53:27,920
+let's print let's put a print statement
+
+1916
+01:53:34,080 --> 01:53:38,840
+let's print what do we print from our
+
+1917
+01:53:36,540 --> 01:53:38,840
+path
+
+1918
+01:53:40,679 --> 01:53:46,219
+okay
+
+1919
+01:53:42,000 --> 01:53:46,219
+maybe that will show
+
+1920
+01:53:48,560 --> 01:53:53,060
+and wait it doesn't print
+
+1921
+01:53:57,840 --> 01:54:02,900
+did we why is it not printing
+
+1922
+01:54:03,480 --> 01:54:09,260
+if number replaced
+
+1923
+01:54:06,600 --> 01:54:09,260
+what
+
+1924
+01:54:20,040 --> 01:54:23,719
+it's not printing anything
+
+1925
+01:54:24,600 --> 01:54:30,139
+is it because the major command
+
+1926
+01:54:27,239 --> 01:54:30,139
+suppressed it
+
+1927
+01:54:35,280 --> 01:54:41,580
+yeah is it because the major commands
+
+1928
+01:54:38,280 --> 01:54:44,880
+suppress any printing yeah so
+
+1929
+01:54:41,580 --> 01:54:48,900
+indeed the major command is suppressing
+
+1930
+01:54:44,880 --> 01:54:55,380
+all the print printing okay but here is
+
+1931
+01:54:48,900 --> 01:54:55,380
+the python output okay that's expected
+
+1932
+01:54:55,500 --> 01:55:00,360
+all right wait
+
+1933
+01:54:57,540 --> 01:55:02,880
+okay so the python output
+
+1934
+01:55:00,360 --> 01:55:07,040
+printing the path
+
+1935
+01:55:02,880 --> 01:55:07,040
+okay so let's do it again
+
+1936
+01:55:10,440 --> 01:55:15,900
+no no it's not printing we do want it to
+
+1937
+01:55:13,560 --> 01:55:23,119
+print the path
+
+1938
+01:55:15,900 --> 01:55:23,119
+and uh we also want to print the pair
+
+1939
+01:55:25,619 --> 01:55:29,719
+okay so let's see
+
+1940
+01:55:37,139 --> 01:55:45,719
+okay this is wrong because this means
+
+1941
+01:55:41,159 --> 01:55:50,480
+you see it is indeed
+
+1942
+01:55:45,719 --> 01:55:50,480
+trying to write to the file
+
+1943
+01:55:51,060 --> 01:55:53,179
+um
+
+1944
+01:55:53,280 --> 01:55:56,900
+for any for every file
+
+1945
+01:55:57,060 --> 01:56:04,320
+because this is a file name and this is
+
+1946
+01:56:00,179 --> 01:56:06,179
+a current pair so number let's see go up
+
+1947
+01:56:04,320 --> 01:56:08,960
+number
+
+1948
+01:56:06,179 --> 01:56:08,960
+number
+
+1949
+01:56:14,040 --> 01:56:17,179
+wait down
+
+1950
+01:56:19,020 --> 01:56:26,360
+they are all printing number
+
+1951
+01:56:22,380 --> 01:56:26,360
+nothing else why is that
+
+1952
+01:56:37,260 --> 01:56:41,940
+oh yeah the pair is always the last one
+
+1953
+01:56:40,080 --> 01:56:46,520
+that's right that's right so the
+
+1954
+01:56:41,940 --> 01:56:46,520
+printing the pair doesn't make sense
+
+1955
+01:56:47,159 --> 01:56:49,760
+ah
+
+1956
+01:57:09,000 --> 01:57:13,040
+okay so we can do this
+
+1957
+01:57:15,420 --> 01:57:18,199
+else
+
+1958
+01:57:25,260 --> 01:57:28,040
+okay
+
+1959
+01:57:42,599 --> 01:57:46,219
+okay so now
+
+1960
+01:58:23,040 --> 01:58:28,380
+so let's check those two files the mark
+
+1961
+01:58:26,340 --> 01:58:29,760
+and outside context
+
+1962
+01:58:28,380 --> 01:58:32,159
+okay
+
+1963
+01:58:29,760 --> 01:58:35,119
+so go to the files
+
+1964
+01:58:32,159 --> 01:58:35,119
+open it
+
+1965
+01:58:35,880 --> 01:58:42,480
+the mark
+
+1966
+01:58:38,460 --> 01:58:45,500
+okay so the mark
+
+1967
+01:58:42,480 --> 01:58:49,679
+okay so the mark
+
+1968
+01:58:45,500 --> 01:58:53,760
+then let's search for
+
+1969
+01:58:49,679 --> 01:58:56,940
+search for that indeed there are so many
+
+1970
+01:58:53,760 --> 01:58:59,099
+occurrences of that okay so that is a
+
+1971
+01:58:56,940 --> 01:59:00,540
+file that changed
+
+1972
+01:58:59,099 --> 01:59:03,599
+correct
+
+1973
+01:59:00,540 --> 01:59:05,940
+and the second file there's no change
+
+1974
+01:59:03,599 --> 01:59:07,619
+search for that
+
+1975
+01:59:05,940 --> 01:59:11,420
+no occurrence
+
+1976
+01:59:07,619 --> 01:59:14,760
+so this is correct
+
+1977
+01:59:11,420 --> 01:59:17,820
+so in fact
+
+1978
+01:59:14,760 --> 01:59:19,260
+almost all files contains the the word
+
+1979
+01:59:17,820 --> 01:59:22,199
+that
+
+1980
+01:59:19,260 --> 01:59:24,719
+so we actually may need to modify our
+
+1981
+01:59:22,199 --> 01:59:28,679
+list of words to change
+
+1982
+01:59:24,719 --> 01:59:30,540
+because let's see let's put make this
+
+1983
+01:59:28,679 --> 01:59:33,060
+more prominent
+
+1984
+01:59:30,540 --> 01:59:36,900
+so we can actually see
+
+1985
+01:59:33,060 --> 01:59:40,219
+what kind of percentage of files that
+
+1986
+01:59:36,900 --> 01:59:40,219
+does not change
+
+1987
+01:59:45,599 --> 01:59:54,000
+okay so for about every
+
+1988
+01:59:49,500 --> 01:59:56,040
+every 10 files every seven files there's
+
+1989
+01:59:54,000 --> 01:59:59,300
+a file no change
+
+1990
+01:59:56,040 --> 01:59:59,300
+okay every five
+
+1991
+02:00:00,659 --> 02:00:06,540
+so they are significant number of files
+
+1992
+02:00:03,420 --> 02:00:10,260
+that's no change
+
+1993
+02:00:06,540 --> 02:00:12,900
+okay this significant number of files
+
+1994
+02:00:10,260 --> 02:00:14,639
+yeah so that still makes
+
+1995
+02:00:12,900 --> 02:00:17,040
+a difference
+
+1996
+02:00:14,639 --> 02:00:19,619
+so for this files that doesn't change
+
+1997
+02:00:17,040 --> 02:00:21,599
+don't do anything but for files changed
+
+1998
+02:00:19,619 --> 02:00:24,300
+we
+
+1999
+02:00:21,599 --> 02:00:27,060
+do something
+
+2000
+02:00:24,300 --> 02:00:31,400
+but the
+
+2001
+02:00:27,060 --> 02:00:31,400
+you know so let's do again remove
+
+2002
+02:00:34,440 --> 02:00:40,400
+copy the directory
+
+2003
+02:00:36,900 --> 02:00:43,020
+then run the measure of the Python code
+
+2004
+02:00:40,400 --> 02:00:46,020
+now this time don't
+
+2005
+02:00:43,020 --> 02:00:46,020
+don't
+
+2006
+02:00:46,760 --> 02:00:50,239
+print nothing
+
+2007
+02:00:53,159 --> 02:00:57,679
+okay
+
+2008
+02:00:54,719 --> 02:00:57,679
+don't say nothing
+
+2009
+02:00:58,500 --> 02:01:02,780
+let's check the speed one more time
+
+2010
+02:01:11,940 --> 02:01:15,139
+okay do it
+
+2011
+02:01:18,000 --> 02:01:22,639
+four seconds
+
+2012
+02:01:19,800 --> 02:01:22,639
+do it again
+
+2013
+02:01:25,580 --> 02:01:29,840
+3.7 seconds do it again
+
+2014
+02:01:32,659 --> 02:01:36,980
+3.4 seconds do it again
+
+2015
+02:01:39,679 --> 02:01:44,840
+3.4 so it stays with 3.4
+
+2016
+02:01:46,920 --> 02:01:52,099
+yeah then 3.5 so the first time is
+
+2017
+02:01:52,739 --> 02:01:59,400
+three the first time is four point four
+
+2018
+02:01:56,400 --> 02:02:02,520
+seconds Okay so
+
+2019
+02:01:59,400 --> 02:02:03,659
+so let's modify okay so but let's do it
+
+2020
+02:02:02,520 --> 02:02:06,800
+again
+
+2021
+02:02:03,659 --> 02:02:06,800
+remove everything
+
+2022
+02:02:08,159 --> 02:02:14,000
+copy
+
+2023
+02:02:10,320 --> 02:02:14,000
+run the python code
+
+2024
+02:02:14,159 --> 02:02:17,119
+first time
+
+2025
+02:02:19,020 --> 02:02:22,020
+3.8
+
+2026
+02:02:23,340 --> 02:02:26,239
+do it again
+
+2027
+02:02:27,840 --> 02:02:33,199
+3.7
+
+2028
+02:02:30,360 --> 02:02:33,199
+do it again
+
+2029
+02:02:35,239 --> 02:02:39,380
+3.4 do it again
+
+2030
+02:02:41,480 --> 02:02:48,960
+3.4
+
+2031
+02:02:43,199 --> 02:02:52,080
+so we can kind of assume 3.7 and 3.4
+
+2032
+02:02:48,960 --> 02:02:54,619
+that's the python speed
+
+2033
+02:02:52,080 --> 02:02:54,619
+okay
+
+2034
+02:02:59,580 --> 02:03:06,659
+so we we kind of had the result uh okay
+
+2035
+02:03:02,940 --> 02:03:08,820
+so that's it for today we did uh
+
+2036
+02:03:06,659 --> 02:03:12,659
+two hours now
+
+2037
+02:03:08,820 --> 02:03:16,219
+uh so here is our results
+
+2038
+02:03:12,659 --> 02:03:16,219
+and uh
+
+2039
+02:03:16,260 --> 02:03:21,599
+very interesting so python is the
+
+2040
+02:03:19,260 --> 02:03:24,659
+fastest
+
+2041
+02:03:21,599 --> 02:03:27,599
+and python
+
+2042
+02:03:24,659 --> 02:03:30,659
+we haven't even you know we have some
+
+2043
+02:03:27,599 --> 02:03:33,420
+actually we have some inefficiencies we
+
+2044
+02:03:30,659 --> 02:03:36,239
+actually haven't really tried to make it
+
+2045
+02:03:33,420 --> 02:03:38,900
+faster there is some inefficiencies
+
+2046
+02:03:36,239 --> 02:03:38,900
+because
+
+2047
+02:03:41,760 --> 02:03:45,679
+we are doing a
+
+2048
+02:03:46,860 --> 02:03:51,179
+you know yeah I'm pretty sure I can
+
+2049
+02:03:48,960 --> 02:03:53,159
+improve the speed we do have some
+
+2050
+02:03:51,179 --> 02:03:54,960
+inefficiencies but anyway here's a
+
+2051
+02:03:53,159 --> 02:03:57,179
+python code
+
+2052
+02:03:54,960 --> 02:03:59,520
+and it's fastest
+
+2053
+02:03:57,179 --> 02:04:03,960
+okay and
+
+2054
+02:03:59,520 --> 02:04:08,280
+for Wolfram language it's you know
+
+2055
+02:04:03,960 --> 02:04:10,440
+I don't think there's much I can do
+
+2056
+02:04:08,280 --> 02:04:13,340
+although it's the shortest
+
+2057
+02:04:10,440 --> 02:04:13,340
+but
+
+2058
+02:04:13,619 --> 02:04:18,300
+not sure how much I can do to to make it
+
+2059
+02:04:16,080 --> 02:04:21,179
+faster
+
+2060
+02:04:18,300 --> 02:04:23,520
+it is possible but you will be like much
+
+2061
+02:04:21,179 --> 02:04:25,619
+more involved I mean you have to
+
+2062
+02:04:23,520 --> 02:04:28,380
+consider you know the
+
+2063
+02:04:25,619 --> 02:04:31,860
+the normal you know suppose you have
+
+2064
+02:04:28,380 --> 02:04:34,580
+been coding each language for two years
+
+2065
+02:04:31,860 --> 02:04:34,580
+so
+
+2066
+02:04:35,340 --> 02:04:41,340
+you know so the Wolfram language this is
+
+2067
+02:04:37,619 --> 02:04:43,320
+pretty much that how you do it okay if
+
+2068
+02:04:41,340 --> 02:04:46,260
+you want to make it
+
+2069
+02:04:43,320 --> 02:04:49,800
+faster you are kind of going beyond the
+
+2070
+02:04:46,260 --> 02:04:53,360
+normal wolf and language way okay
+
+2071
+02:04:49,800 --> 02:04:53,360
+and for emac this
+
+2072
+02:04:53,820 --> 02:05:00,260
+can we make this faster anyhow I don't
+
+2073
+02:04:57,659 --> 02:05:00,260
+think so
+
+2074
+02:05:05,300 --> 02:05:11,780
+so compile it yeah we can buy it
+
+2075
+02:05:09,119 --> 02:05:11,780
+compiling
+
+2076
+02:05:11,820 --> 02:05:17,340
+and let's see let's see maybe maybe
+
+2077
+02:05:14,159 --> 02:05:18,900
+maybe that makes a difference okay
+
+2078
+02:05:17,340 --> 02:05:22,860
+it's
+
+2079
+02:05:18,900 --> 02:05:26,219
+removed them copy the files over
+
+2080
+02:05:22,860 --> 02:05:29,219
+and let's try
+
+2081
+02:05:26,219 --> 02:05:33,239
+let's try the byte compiled version okay
+
+2082
+02:05:29,219 --> 02:05:34,679
+drop down to the directory capital B but
+
+2083
+02:05:33,239 --> 02:05:37,679
+compare it
+
+2084
+02:05:34,679 --> 02:05:41,360
+there's some error warning assignment
+
+2085
+02:05:37,679 --> 02:05:41,360
+two three variables we don't care
+
+2086
+02:05:41,940 --> 02:05:48,380
+yeah reference to free variable yeah we
+
+2087
+02:05:44,520 --> 02:05:48,380
+don't care because this is a script
+
+2088
+02:05:48,540 --> 02:05:51,500
+so now
+
+2089
+02:05:53,099 --> 02:05:55,739
+so let's
+
+2090
+02:05:54,780 --> 02:05:59,099
+um
+
+2091
+02:05:55,739 --> 02:06:03,420
+let's ERC okay
+
+2092
+02:05:59,099 --> 02:06:04,980
+so e l c there are two
+
+2093
+02:06:03,420 --> 02:06:09,440
+uh
+
+2094
+02:06:04,980 --> 02:06:09,440
+okay first of all let's try e l
+
+2095
+02:06:19,560 --> 02:06:24,719
+let's watch
+
+2096
+02:06:22,080 --> 02:06:27,320
+now there's the arrow
+
+2097
+02:06:24,719 --> 02:06:27,320
+what
+
+2098
+02:06:33,840 --> 02:06:37,280
+oh this
+
+2099
+02:06:39,420 --> 02:06:43,580
+yeah okay so my God
+
+2100
+02:06:47,280 --> 02:06:50,000
+okay
+
+2101
+02:06:50,400 --> 02:06:53,239
+do it again
+
+2102
+02:06:53,520 --> 02:06:58,860
+removal
+
+2103
+02:06:55,920 --> 02:07:03,739
+copy over
+
+2104
+02:06:58,860 --> 02:07:03,739
+render Emax this script
+
+2105
+02:07:08,580 --> 02:07:12,260
+five seconds okay
+
+2106
+02:07:13,020 --> 02:07:17,840
+okay
+
+2107
+02:07:14,340 --> 02:07:17,840
+then the second time
+
+2108
+02:07:21,360 --> 02:07:25,320
+one second 1.7
+
+2109
+02:07:27,000 --> 02:07:33,560
+yeah so e-max this has an advantage such
+
+2110
+02:07:31,260 --> 02:07:33,560
+that
+
+2111
+02:07:34,020 --> 02:07:40,860
+very interesting you know
+
+2112
+02:07:37,320 --> 02:07:43,500
+for the second time emac is somehow
+
+2113
+02:07:40,860 --> 02:07:46,020
+beats them all
+
+2114
+02:07:43,500 --> 02:07:48,719
+I mean for the Wolfram language it even
+
+2115
+02:07:46,020 --> 02:07:51,239
+beats python 2 for the second time for
+
+2116
+02:07:48,719 --> 02:07:54,199
+for reasons I don't
+
+2117
+02:07:51,239 --> 02:07:54,199
+right now
+
+2118
+02:07:55,560 --> 02:08:00,920
+for the emac this for the second time it
+
+2119
+02:07:58,199 --> 02:08:00,920
+beats them all
+
+2120
+02:08:03,000 --> 02:08:09,179
+okay but now let's try to do it again
+
+2121
+02:08:05,880 --> 02:08:10,619
+now let's write let's try the compiled
+
+2122
+02:08:09,179 --> 02:08:15,179
+version okay
+
+2123
+02:08:10,619 --> 02:08:19,820
+compiled version of easy so that
+
+2124
+02:08:15,179 --> 02:08:19,820
+let's see if there's significant change
+
+2125
+02:08:20,699 --> 02:08:25,380
+by the way this is byte compiled this is
+
+2126
+02:08:23,820 --> 02:08:26,239
+not
+
+2127
+02:08:25,380 --> 02:08:28,500
+um
+
+2128
+02:08:26,239 --> 02:08:32,400
+natively compiled
+
+2129
+02:08:28,500 --> 02:08:34,320
+in Emax 28 you started to have natively
+
+2130
+02:08:32,400 --> 02:08:38,040
+compiled emac this
+
+2131
+02:08:34,320 --> 02:08:40,679
+so we okay the speed is about the same I
+
+2132
+02:08:38,040 --> 02:08:45,139
+expected 5.9
+
+2133
+02:08:40,679 --> 02:08:45,139
+yeah back compile doesn't do you much
+
+2134
+02:08:46,920 --> 02:08:51,420
+yeah
+
+2135
+02:08:48,000 --> 02:08:53,639
+okay so that's the conclusion so here is
+
+2136
+02:08:51,420 --> 02:08:58,980
+our conclusion for today
+
+2137
+02:08:53,639 --> 02:09:04,619
+and there's some things to dig into that
+
+2138
+02:08:58,980 --> 02:09:04,619
+is why is this result this way and
+
+2139
+02:09:04,920 --> 02:09:12,420
+right now I don't know
+
+2140
+02:09:08,420 --> 02:09:15,000
+uh the python figures appears
+
+2141
+02:09:12,420 --> 02:09:17,580
+questionable I mean
+
+2142
+02:09:15,000 --> 02:09:20,219
+it means there's something probably we
+
+2143
+02:09:17,580 --> 02:09:22,800
+need to optimize in Python anyway that's
+
+2144
+02:09:20,219 --> 02:09:26,280
+it for today
+
+2145
+02:09:22,800 --> 02:09:29,159
+okay bye guys two people watching bye
+
+2146
+02:09:26,280 --> 02:09:33,420
+if you like my stuff pay me okay go
+
+2147
+02:09:29,159 --> 02:09:37,380
+through my website sorry.info and uh
+
+2148
+02:09:33,420 --> 02:09:41,360
+is PayPal and patreon there
+
+2149
+02:09:37,380 --> 02:09:41,360
+okay thank you guys bye
+
+2150
+02:09:46,139 --> 02:09:53,179
+very interesting result okay and
+
+2151
+02:09:49,500 --> 02:09:53,179
+clean up and put a code
+
+2152
+02:09:55,280 --> 02:09:59,179
+Rats You by
+
+2153
+02:10:03,119 --> 02:10:12,659
+so we're gonna have python wufam land
+
+2154
+02:10:08,360 --> 02:10:15,780
+Evis you know so fantastic
+
+2155
+02:10:12,659 --> 02:10:18,119
+okay so first of all let's get the Edis
+
+2156
+02:10:15,780 --> 02:10:21,080
+code copy
+
+2157
+02:10:18,119 --> 02:10:21,080
+okay because
+
+2158
+02:10:21,480 --> 02:10:24,260
+uh
+
+2159
+02:10:26,520 --> 02:10:30,119
+paste it there
+
+2160
+02:10:28,260 --> 02:10:32,760
+then
+
+2161
+02:10:30,119 --> 02:10:38,780
+move from then
+
+2162
+02:10:32,760 --> 02:10:45,139
+open copy close back here paste then
+
+2163
+02:10:38,780 --> 02:10:49,139
+painting python open copy paste
+
+2164
+02:10:45,139 --> 02:10:52,380
+codify them all show in browser
+
+2165
+02:10:49,139 --> 02:10:56,099
+today's talk show fantastic
+
+2166
+02:10:52,380 --> 02:10:59,159
+you got Powershell you got
+
+2167
+02:10:56,099 --> 02:11:00,719
+find replace pairs you got tiny results
+
+2168
+02:10:59,159 --> 02:11:03,659
+you got
+
+2169
+02:11:00,719 --> 02:11:07,080
+email address source code you got
+
+2170
+02:11:03,659 --> 02:11:10,020
+wufam lens source code the shortest you
+
+2171
+02:11:07,080 --> 02:11:11,580
+got python source code the longest
+
+2172
+02:11:10,020 --> 02:11:15,020
+[Laughter]
+
+2173
+02:11:11,580 --> 02:11:15,020
+okay bye
+

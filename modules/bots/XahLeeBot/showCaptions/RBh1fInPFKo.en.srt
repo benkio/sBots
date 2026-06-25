@@ -1,0 +1,6122 @@
+1
+00:00:03,360 --> 00:00:08,720
+Good morning everyone. Welcome to
+
+2
+00:00:05,440 --> 00:00:13,120
+another episode of S talk show. We are
+
+3
+00:00:08,720 --> 00:00:16,400
+coding emac bisp today. So this is uh
+
+4
+00:00:13,120 --> 00:00:17,160
+for advanced eac bisp coders. So if you
+
+5
+00:00:16,400 --> 00:00:20,480
+are
+
+6
+00:00:17,160 --> 00:00:23,279
+emacs l this coder this is good for you.
+
+7
+00:00:20,480 --> 00:00:25,560
+If you are watching offline play at 1.5
+
+8
+00:00:23,279 --> 00:00:29,279
+speed and if you are here say
+
+9
+00:00:25,560 --> 00:00:32,480
+hi. Okay. So we what we gonna do is
+
+10
+00:00:29,279 --> 00:00:34,640
+let's see. So video check, audio check.
+
+11
+00:00:32,480 --> 00:00:38,399
+Uh yeah. So here's what we gonna do. So
+
+12
+00:00:34,640 --> 00:00:40,320
+we got so in EMAC there is a bunch of
+
+13
+00:00:38,399 --> 00:00:43,520
+new functions
+
+14
+00:00:40,320 --> 00:00:46,440
+uh introduced about I think maybe 10
+
+15
+00:00:43,520 --> 00:00:49,360
+years ago by now but it's not well
+
+16
+00:00:46,440 --> 00:00:53,280
+known. So you have like about 20
+
+17
+00:00:49,360 --> 00:00:56,320
+functions. map apply, map contains key,
+
+18
+00:00:53,280 --> 00:01:01,680
+map copy, map delete, map do, map
+
+19
+00:00:56,320 --> 00:01:04,000
+element and so on. Um, so they so I am
+
+20
+00:01:01,680 --> 00:01:06,320
+going to write the tutorial for it. So
+
+21
+00:01:04,000 --> 00:01:08,400
+if you check, you know, I have a eac
+
+22
+00:01:06,320 --> 00:01:13,680
+list tutorial. If you search it, you'll
+
+23
+00:01:08,400 --> 00:01:17,439
+find it eacis basics. So So I'm going to
+
+24
+00:01:13,680 --> 00:01:20,280
+add this to uh my eac this tutorial and
+
+25
+00:01:17,439 --> 00:01:23,759
+meanwhile maybe explain some of it. So
+
+26
+00:01:20,280 --> 00:01:27,040
+you for you Emacs users you may you
+
+27
+00:01:23,759 --> 00:01:29,520
+might check out my workflow. So I'm
+
+28
+00:01:27,040 --> 00:01:32,400
+using keys
+
+29
+00:01:29,520 --> 00:01:35,040
+uh most efficient key binding for Emacs.
+
+30
+00:01:32,400 --> 00:01:38,320
+So here is the source code 4,000 lines
+
+31
+00:01:35,040 --> 00:01:40,880
+of code. It's on GitHub and uh you can
+
+32
+00:01:38,320 --> 00:01:45,119
+check out the documentation and video on
+
+33
+00:01:40,880 --> 00:01:48,320
+this page fly keys. Okay. It's most
+
+34
+00:01:45,119 --> 00:01:50,000
+efficient key binding for Emacs. So
+
+35
+00:01:48,320 --> 00:01:52,840
+that's what this about. So you don't
+
+36
+00:01:50,000 --> 00:01:56,079
+have to press control or meta or old
+
+37
+00:01:52,840 --> 00:01:58,880
+much like vim but more efficient than
+
+38
+00:01:56,079 --> 00:02:01,600
+vim or neo vim. And the pink window
+
+39
+00:01:58,880 --> 00:02:03,680
+shows all my command calls uh the
+
+40
+00:02:01,600 --> 00:02:06,640
+command name as I type them. For
+
+41
+00:02:03,680 --> 00:02:09,759
+example, delete the entire body section.
+
+42
+00:02:06,640 --> 00:02:13,280
+Just press a key you see. So that is kas
+
+43
+00:02:09,759 --> 00:02:17,360
+smart delete in kasa html mod. You can
+
+44
+00:02:13,280 --> 00:02:19,360
+see so that is um so the command name on
+
+45
+00:02:17,360 --> 00:02:22,319
+the right the keystroke on the left I'm
+
+46
+00:02:19,360 --> 00:02:25,680
+using a vorac keyboard layout okay so
+
+47
+00:02:22,319 --> 00:02:29,280
+that's the introdu introduction so so
+
+48
+00:02:25,680 --> 00:02:31,879
+yeah so kafly keys close uh close uh
+
+49
+00:02:29,280 --> 00:02:35,200
+what is this emac blog
+
+50
+00:02:31,879 --> 00:02:38,640
+so so I need to yeah show today's talk
+
+51
+00:02:35,200 --> 00:02:41,680
+show page so we need uh so first of all
+
+52
+00:02:38,640 --> 00:02:45,560
+we want to know when is this added you
+
+53
+00:02:41,680 --> 00:02:49,840
+know it might 10 years ago. Let's see
+
+54
+00:02:45,560 --> 00:02:52,680
+uh map filter. Okay, let's check
+
+55
+00:02:49,840 --> 00:02:56,959
+uh let's
+
+56
+00:02:52,680 --> 00:02:59,239
+check describe function. Um go to so
+
+57
+00:02:56,959 --> 00:03:02,959
+they are in this file
+
+58
+00:02:59,239 --> 00:03:05,319
+map. And uh let's see the header. So
+
+59
+00:03:02,959 --> 00:03:09,519
+this is
+
+60
+00:03:05,319 --> 00:03:12,720
+done in 2015. So I think this could be
+
+61
+00:03:09,519 --> 00:03:15,040
+10 years ago, you know. Uh but but let's
+
+62
+00:03:12,720 --> 00:03:19,280
+know so what they do is that you know in
+
+63
+00:03:15,040 --> 00:03:23,040
+eac this view have okay so let's let me
+
+64
+00:03:19,280 --> 00:03:26,800
+show you go to eac this copy the page
+
+65
+00:03:23,040 --> 00:03:29,760
+close that close that close that so
+
+66
+00:03:26,800 --> 00:03:33,280
+delete that so let's paste a link here
+
+67
+00:03:29,760 --> 00:03:35,560
+emac this basics so go there then you go
+
+68
+00:03:33,280 --> 00:03:39,319
+to data structure
+
+69
+00:03:35,560 --> 00:03:42,159
+section data structure and in eaglist
+
+70
+00:03:39,319 --> 00:03:44,319
+basically List is the most important
+
+71
+00:03:42,159 --> 00:03:47,400
+data structure. Then you have
+
+72
+00:03:44,319 --> 00:03:50,560
+specialized list. They are also list but
+
+73
+00:03:47,400 --> 00:03:54,000
+specialized. They are association list,
+
+74
+00:03:50,560 --> 00:03:56,400
+property list and then symbols property
+
+75
+00:03:54,000 --> 00:03:59,280
+list. Okay. So association list is
+
+76
+00:03:56,400 --> 00:04:03,519
+basically a list of pairs. So it's a
+
+77
+00:03:59,280 --> 00:04:06,080
+list but each element is again a list of
+
+78
+00:04:03,519 --> 00:04:10,080
+two things. Okay.
+
+79
+00:04:06,080 --> 00:04:12,959
+Uh and property list is is a list but
+
+80
+00:04:10,080 --> 00:04:16,479
+every even element is considered the
+
+81
+00:04:12,959 --> 00:04:18,959
+key. Uh every art. So you got key value
+
+82
+00:04:16,479 --> 00:04:20,759
+key value key value. So it's a list but
+
+83
+00:04:18,959 --> 00:04:24,960
+it's in
+
+84
+00:04:20,759 --> 00:04:28,080
+interpreted interpreted as a uh list of
+
+85
+00:04:24,960 --> 00:04:30,639
+pairs. So this is called property list.
+
+86
+00:04:28,080 --> 00:04:33,680
+Okay. So both association list and
+
+87
+00:04:30,639 --> 00:04:37,280
+property list they are uh you know they
+
+88
+00:04:33,680 --> 00:04:40,720
+are they are just lists but with special
+
+89
+00:04:37,280 --> 00:04:43,680
+uh structures special use. Then you got
+
+90
+00:04:40,720 --> 00:04:46,000
+you got symbol property list which is
+
+91
+00:04:43,680 --> 00:04:48,160
+which is essentially a property list you
+
+92
+00:04:46,000 --> 00:04:51,080
+know uh key value key value key value
+
+93
+00:04:48,160 --> 00:04:54,520
+but however they are attached to to
+
+94
+00:04:51,080 --> 00:04:57,840
+symbols. So all these are lists you know
+
+95
+00:04:54,520 --> 00:05:02,880
+list is the fundamental data structure
+
+96
+00:04:57,840 --> 00:05:05,199
+for lisp languages. Okay. Then then you
+
+97
+00:05:02,880 --> 00:05:07,600
+got few other data structures. You got
+
+98
+00:05:05,199 --> 00:05:10,400
+vectors which are just like arrays. They
+
+99
+00:05:07,600 --> 00:05:14,320
+they are fixed. They cannot grow. And
+
+100
+00:05:10,400 --> 00:05:16,800
+then you got um then you got hash table.
+
+101
+00:05:14,320 --> 00:05:19,759
+Okay. Hash table is again hash table is
+
+102
+00:05:16,800 --> 00:05:22,199
+again a key value pair specialized in
+
+103
+00:05:19,759 --> 00:05:25,440
+the emac. So in Python they call a
+
+104
+00:05:22,199 --> 00:05:28,320
+dictionary. In the immac case the hash
+
+105
+00:05:25,440 --> 00:05:31,320
+table is not a list. So it's a dedicated
+
+106
+00:05:28,320 --> 00:05:35,039
+structure data structure for key value
+
+107
+00:05:31,320 --> 00:05:37,520
+pairs. However their user their
+
+108
+00:05:35,039 --> 00:05:40,320
+interface you know so-called API Java
+
+109
+00:05:37,520 --> 00:05:44,320
+would call it interface. Their interface
+
+110
+00:05:40,320 --> 00:05:47,919
+of hasht or association list or property
+
+111
+00:05:44,320 --> 00:05:49,680
+list or symbol property list. They are
+
+112
+00:05:47,919 --> 00:05:53,120
+the same. I mean they are just a
+
+113
+00:05:49,680 --> 00:05:55,960
+sequence of key value pairs. Okay. So
+
+114
+00:05:53,120 --> 00:05:59,199
+they they essentially have the same
+
+115
+00:05:55,960 --> 00:06:02,280
+interface. So then they introduced I
+
+116
+00:05:59,199 --> 00:06:05,840
+think so 10 years ago they introduced
+
+117
+00:06:02,280 --> 00:06:08,960
+um you know they they introduced this
+
+118
+00:06:05,840 --> 00:06:12,560
+generic so-called generic functions to
+
+119
+00:06:08,960 --> 00:06:15,520
+deal with all these key value pairs. So
+
+120
+00:06:12,560 --> 00:06:18,960
+their arguments can be a association
+
+121
+00:06:15,520 --> 00:06:22,000
+list or a property list or a hash table.
+
+122
+00:06:18,960 --> 00:06:24,319
+Okay. So that's what they are. So I
+
+123
+00:06:22,000 --> 00:06:26,400
+think not many people know it know them.
+
+124
+00:06:24,319 --> 00:06:28,800
+Uh I think so I've been wanting to write
+
+125
+00:06:26,400 --> 00:06:29,479
+about them for a long time. So I need to
+
+126
+00:06:28,800 --> 00:06:32,720
+you
+
+127
+00:06:29,479 --> 00:06:36,080
+know go through them look for you know
+
+128
+00:06:32,720 --> 00:06:39,520
+learn them for myself but also uh write
+
+129
+00:06:36,080 --> 00:06:41,759
+a full documentation with usage examples
+
+130
+00:06:39,520 --> 00:06:44,960
+you know for each one of them. So this
+
+131
+00:06:41,759 --> 00:06:45,720
+this will take me um you know if I work
+
+132
+00:06:44,960 --> 00:06:48,960
+it
+
+133
+00:06:45,720 --> 00:06:53,360
+fulltime eight hours you know a day but
+
+134
+00:06:48,960 --> 00:06:57,120
+so usually take me a few days to write a
+
+135
+00:06:53,360 --> 00:07:00,400
+complete tutorial okay like my um like
+
+136
+00:06:57,120 --> 00:07:04,440
+what I have here. So you see so in EMAC
+
+137
+00:07:00,400 --> 00:07:08,479
+list we have a list data structure but
+
+138
+00:07:04,440 --> 00:07:11,599
+then 10 years ago they introduced uh I
+
+139
+00:07:08,479 --> 00:07:11,599
+mean so I mean
+
+140
+00:07:11,960 --> 00:07:20,199
+they they introduced like 20 functions
+
+141
+00:07:16,960 --> 00:07:23,360
+generic functions to deal with se uh
+
+142
+00:07:20,199 --> 00:07:26,400
+lists. So these are you know so I
+
+143
+00:07:23,360 --> 00:07:29,360
+documented here. So you can see sequence
+
+144
+00:07:26,400 --> 00:07:33,840
+functions you got. So so these functions
+
+145
+00:07:29,360 --> 00:07:37,720
+will work on on list and will also work
+
+146
+00:07:33,840 --> 00:07:41,560
+on vector and it will also work on
+
+147
+00:07:37,720 --> 00:07:44,800
+string. So they are generic
+
+148
+00:07:41,560 --> 00:07:47,680
+functions. So in a similar way that's
+
+149
+00:07:44,800 --> 00:07:49,160
+why they also introduce this map dash
+
+150
+00:07:47,680 --> 00:07:51,919
+something that's
+
+151
+00:07:49,160 --> 00:07:54,560
+for you know generic function for any
+
+152
+00:07:51,919 --> 00:07:55,960
+kind of key value pair.
+
+153
+00:07:54,560 --> 00:08:00,160
+Okay.
+
+154
+00:07:55,960 --> 00:08:02,400
+So, so we know Okay. So, let's see. So,
+
+155
+00:08:00,160 --> 00:08:06,879
+first of all, we want to know when is it
+
+156
+00:08:02,400 --> 00:08:10,879
+added. So, for examp so, this file um is
+
+157
+00:08:06,879 --> 00:08:15,520
+added I think so around 2015. So, the
+
+158
+00:08:10,879 --> 00:08:21,000
+other thing to check is check out the
+
+159
+00:08:15,520 --> 00:08:24,000
+official documentation news. So, Ctrl
+
+160
+00:08:21,000 --> 00:08:26,879
+HN. Okay. So this is the official
+
+161
+00:08:24,000 --> 00:08:29,599
+documentation for Emacs. Every new
+
+162
+00:08:26,879 --> 00:08:31,680
+version they are documented. So you go
+
+163
+00:08:29,599 --> 00:08:35,640
+to the directory you can see they call
+
+164
+00:08:31,680 --> 00:08:40,200
+it news. Uh but basically it's these are
+
+165
+00:08:35,640 --> 00:08:46,399
+features. So this one is a current for
+
+166
+00:08:40,200 --> 00:08:50,080
+uh for um for Emacs version 30. Okay. So
+
+167
+00:08:46,399 --> 00:08:53,200
+let's let's let's search for uh check to
+
+168
+00:08:50,080 --> 00:08:56,360
+see when is it um are these added. Okay.
+
+169
+00:08:53,200 --> 00:09:00,160
+So let's let me try this
+
+170
+00:08:56,360 --> 00:09:04,240
+map. Okay. Search for that. Uh okay. Not
+
+171
+00:09:00,160 --> 00:09:08,360
+there. Let's let's let's go to 29. This
+
+172
+00:09:04,240 --> 00:09:13,360
+matching lines. Okay. Not this. Close
+
+173
+00:09:08,360 --> 00:09:16,240
+28. This matching lines. Uh okay. So
+
+174
+00:09:13,360 --> 00:09:16,240
+they got a
+
+175
+00:09:17,720 --> 00:09:24,600
+new so they modified it. You can see
+
+176
+00:09:20,800 --> 00:09:27,680
+some of these. Uh so let's have a
+
+177
+00:09:24,600 --> 00:09:32,320
+look. Okay. The function changed. Now
+
+178
+00:09:27,680 --> 00:09:36,800
+use copy a list on a list. Okay. So PK's
+
+179
+00:09:32,320 --> 00:09:40,320
+map uh map eel. So this is the this is a
+
+180
+00:09:36,800 --> 00:09:42,959
+library that contains so that 80s keys
+
+181
+00:09:40,320 --> 00:09:46,480
+are now consistency compared with equal
+
+182
+00:09:42,959 --> 00:09:50,240
+okay PKs function. So they they updated
+
+183
+00:09:46,480 --> 00:09:55,240
+some of them. Okay. So that's Emacs 28.
+
+184
+00:09:50,240 --> 00:09:59,160
+Go to Emac 27. Search for it. Okay.
+
+185
+00:09:55,240 --> 00:10:02,080
+So yes. So it's also
+
+186
+00:09:59,160 --> 00:10:04,640
+here new gener generic function map
+
+187
+00:10:02,080 --> 00:10:08,720
+insert. So they are still adding to it.
+
+188
+00:10:04,640 --> 00:10:11,839
+So this is Emac 27. 27 is like seven
+
+189
+00:10:08,720 --> 00:10:16,720
+years ago or something.
+
+190
+00:10:11,839 --> 00:10:19,240
+uh Emacs 27, you know. Um yeah, 27 is
+
+191
+00:10:16,720 --> 00:10:23,200
+probably
+
+192
+00:10:19,240 --> 00:10:24,600
+2017. Okay, so let's go to 26. Search
+
+193
+00:10:23,200 --> 00:10:28,560
+for
+
+194
+00:10:24,600 --> 00:10:33,200
+map new optional argument test function
+
+195
+00:10:28,560 --> 00:10:36,839
+in a list get map el and map put. Okay,
+
+196
+00:10:33,200 --> 00:10:41,480
+so they are pretty old this map package.
+
+197
+00:10:36,839 --> 00:10:43,560
+Um okay, 25. Let's
+
+198
+00:10:41,480 --> 00:10:46,880
+search.
+
+199
+00:10:43,560 --> 00:10:50,880
+Um, there it is. So, they started, it
+
+200
+00:10:46,880 --> 00:10:53,519
+began in Emacs 25. The map library
+
+201
+00:10:50,880 --> 00:10:59,160
+provides map manipulation functions that
+
+202
+00:10:53,519 --> 00:11:03,320
+works on association list hash table and
+
+203
+00:10:59,160 --> 00:11:06,640
+uh and array. What what is
+
+204
+00:11:03,320 --> 00:11:10,480
+array? Okay. Uh, all functions are
+
+205
+00:11:06,640 --> 00:11:10,480
+prefixed with map. Okay.
+
+206
+00:11:10,920 --> 00:11:20,399
+Okay. So we know so must be Emac 25. Now
+
+207
+00:11:16,000 --> 00:11:21,800
+when is Emac 25? 2014. Yeah. So 10 years
+
+208
+00:11:20,399 --> 00:11:23,880
+old.
+
+209
+00:11:21,800 --> 00:11:26,680
+God.
+
+210
+00:11:23,880 --> 00:11:30,640
+Okay. Hello D.
+
+211
+00:11:26,680 --> 00:11:37,399
+Hey I'm doing well. Thank you. Have some
+
+212
+00:11:30,640 --> 00:11:37,399
+tea. This is uh this is lingin tea.
+
+213
+00:11:44,720 --> 00:11:50,839
+pretty hot today here in California. So,
+
+214
+00:11:47,839 --> 00:11:53,760
+Emacs 25. So, let's go to
+
+215
+00:11:50,839 --> 00:11:58,920
+version. Let's go to my page on Emacs
+
+216
+00:11:53,760 --> 00:12:03,399
+version history. Emacs 25 released in
+
+217
+00:11:58,920 --> 00:12:06,639
+2016. So, it is 9 years old.
+
+218
+00:12:03,399 --> 00:12:07,720
+Jesus. Yeah. So for 9 years old I didn't
+
+219
+00:12:06,639 --> 00:12:10,880
+document
+
+220
+00:12:07,720 --> 00:12:13,760
+this. Uh yeah so I want to go into the
+
+221
+00:12:10,880 --> 00:12:18,279
+you know it's um very interesting. So
+
+222
+00:12:13,760 --> 00:12:22,399
+let me start to prepare go to talk
+
+223
+00:12:18,279 --> 00:12:26,000
+show today's talk show. So they are
+
+224
+00:12:22,399 --> 00:12:34,000
+created in EMAC 20
+
+225
+00:12:26,000 --> 00:12:34,000
+uh EMAC version 25. Okay. So let's
+
+226
+00:12:34,200 --> 00:12:39,920
+see. Yeah. Okay. So they are created in
+
+227
+00:12:37,279 --> 00:12:39,920
+EMAC
+
+228
+00:12:42,120 --> 00:12:49,040
+25. Okay. So let's show. So these so
+
+229
+00:12:46,560 --> 00:12:51,320
+here you have the functions. So the
+
+230
+00:12:49,040 --> 00:12:56,240
+first thing okay
+
+231
+00:12:51,320 --> 00:12:58,480
+so first when is it created that we
+
+232
+00:12:56,240 --> 00:12:58,480
+found
+
+233
+00:13:00,120 --> 00:13:05,399
+out the next
+
+234
+00:13:02,680 --> 00:13:07,160
+thing add them
+
+235
+00:13:05,399 --> 00:13:09,880
+to
+
+236
+00:13:07,160 --> 00:13:13,839
+s e emac this
+
+237
+00:13:09,880 --> 00:13:19,600
+mod okay so that I have syntax coloring
+
+238
+00:13:13,839 --> 00:13:22,959
+for example if I um pop this code out.
+
+239
+00:13:19,600 --> 00:13:25,760
+Oh, they are already syntax colored.
+
+240
+00:13:22,959 --> 00:13:27,560
+That means I have added them in my emac
+
+241
+00:13:25,760 --> 00:13:33,360
+this mod. So, let's go
+
+242
+00:13:27,560 --> 00:13:35,160
+there. Describe key. Press press uh wait
+
+243
+00:13:33,360 --> 00:13:39,680
+describe key. Press
+
+244
+00:13:35,160 --> 00:13:44,320
+press. Then you go to e list mod. go to
+
+245
+00:13:39,680 --> 00:13:46,560
+the source code and uh search for map
+
+246
+00:13:44,320 --> 00:13:49,760
+dash
+
+247
+00:13:46,560 --> 00:13:53,200
+uh list matching lines. So there there
+
+248
+00:13:49,760 --> 00:13:54,839
+we have it. So it's over here. So you
+
+249
+00:13:53,200 --> 00:13:59,040
+can
+
+250
+00:13:54,839 --> 00:14:02,800
+see so let's make it uh one word per
+
+251
+00:13:59,040 --> 00:14:06,800
+line. Okay. So all these sections are
+
+252
+00:14:02,800 --> 00:14:09,920
+like M. Okay. So press press press press
+
+253
+00:14:06,800 --> 00:14:14,399
+one word per line. Okay. So now search
+
+254
+00:14:09,920 --> 00:14:17,959
+for map dash. Okay. So starting here. So
+
+255
+00:14:14,399 --> 00:14:25,000
+I got them. Okay. Fantastic.
+
+256
+00:14:17,959 --> 00:14:25,000
+So I already added them to my eagisp
+
+257
+00:14:25,240 --> 00:14:30,959
+uh
+
+258
+00:14:27,320 --> 00:14:33,639
+mode. And now what what to do next?
+
+259
+00:14:30,959 --> 00:14:36,959
+Okay. Make a backup.
+
+260
+00:14:33,639 --> 00:14:39,440
+So the other thing I need to do in EMAC
+
+261
+00:14:36,959 --> 00:14:43,920
+this mod is let's write it down. Okay.
+
+262
+00:14:39,440 --> 00:14:46,320
+So todo close scratch close uh put it
+
+263
+00:14:43,920 --> 00:14:50,920
+back
+
+264
+00:14:46,320 --> 00:14:52,440
+uh close that. So another thing to do is
+
+265
+00:14:50,920 --> 00:14:56,560
+to
+
+266
+00:14:52,440 --> 00:14:59,920
+add function templates. Okay let me show
+
+267
+00:14:56,560 --> 00:15:01,959
+you how that works. So let me let's do
+
+268
+00:14:59,920 --> 00:15:04,279
+that. Okay. add function
+
+269
+00:15:01,959 --> 00:15:07,959
+templates.
+
+270
+00:15:04,279 --> 00:15:12,040
+So, so let's say uh
+
+271
+00:15:07,959 --> 00:15:16,560
+wait yeah over here.
+
+272
+00:15:12,040 --> 00:15:20,959
+So, yeah, these are not okay. So, so
+
+273
+00:15:16,560 --> 00:15:22,040
+let's say map let search for it. There's
+
+274
+00:15:20,959 --> 00:15:25,040
+no other
+
+275
+00:15:22,040 --> 00:15:28,880
+occurrence. Map into no other
+
+276
+00:15:25,040 --> 00:15:28,880
+occurrence. So there's
+
+277
+00:15:28,920 --> 00:15:34,360
+no So what does what does what about map
+
+278
+00:15:32,160 --> 00:15:38,880
+apply? What does it do? Let's
+
+279
+00:15:34,360 --> 00:15:42,320
+see. Map apply is a function in map.el.
+
+280
+00:15:38,880 --> 00:15:45,360
+Map apply function map. Apply function
+
+281
+00:15:42,320 --> 00:15:47,959
+to each element of map and return the
+
+282
+00:15:45,360 --> 00:15:51,680
+result as a
+
+283
+00:15:47,959 --> 00:15:53,519
+list. Okay. So it doesn't return a hash
+
+284
+00:15:51,680 --> 00:15:57,360
+table. So function is called with two
+
+285
+00:15:53,519 --> 00:16:00,240
+arguments the key and the value. Okay.
+
+286
+00:15:57,360 --> 00:16:03,320
+The default implementation dedicate to
+
+287
+00:16:00,240 --> 00:16:06,800
+map do. Okay. So it returns a
+
+288
+00:16:03,320 --> 00:16:06,800
+list. Okay.
+
+289
+00:16:08,440 --> 00:16:14,360
+So and what is this undocumented? So we
+
+290
+00:16:12,480 --> 00:16:17,160
+can do to
+
+291
+00:16:14,360 --> 00:16:23,120
+array. Now
+
+292
+00:16:17,160 --> 00:16:27,759
+array array in eac lisp is not an actual
+
+293
+00:16:23,120 --> 00:16:31,279
+data structure. It is a name for a set
+
+294
+00:16:27,759 --> 00:16:35,399
+of data structures. So let's see. So you
+
+295
+00:16:31,279 --> 00:16:38,160
+got list, you got con cell, you got
+
+296
+00:16:35,399 --> 00:16:41,279
+vector, you got sequence type. Let's
+
+297
+00:16:38,160 --> 00:16:45,199
+click on that. So here is a overview of
+
+298
+00:16:41,279 --> 00:16:45,199
+data structure in lisp.
+
+299
+00:16:45,240 --> 00:16:52,800
+So all of them is called I mean so this
+
+300
+00:16:49,360 --> 00:16:56,160
+so these are sequences sequence is not
+
+301
+00:16:52,800 --> 00:16:59,600
+an actual data type. So but inside you
+
+302
+00:16:56,160 --> 00:17:02,519
+have list you have association list you
+
+303
+00:16:59,600 --> 00:17:05,919
+have property list those are
+
+304
+00:17:02,519 --> 00:17:08,160
+lists and then also includes array. Yeah
+
+305
+00:17:05,919 --> 00:17:10,880
+so yeah array just means vector and
+
+306
+00:17:08,160 --> 00:17:14,720
+string. Okay, array is not an actual
+
+307
+00:17:10,880 --> 00:17:17,839
+data type in lisp in eacisp but it means
+
+308
+00:17:14,720 --> 00:17:21,520
+either vector or string. Okay, that's
+
+309
+00:17:17,839 --> 00:17:25,280
+what array means. So it says here map
+
+310
+00:17:21,520 --> 00:17:27,240
+can map to vector or string. Okay, and
+
+311
+00:17:25,280 --> 00:17:29,919
+uh why are these
+
+312
+00:17:27,240 --> 00:17:32,240
+undocumented? I don't know why why does
+
+313
+00:17:29,919 --> 00:17:32,240
+it
+
+314
+00:17:32,919 --> 00:17:39,120
+say you know I hate these generic gener
+
+315
+00:17:36,160 --> 00:17:41,799
+generic functions crap
+
+316
+00:17:39,120 --> 00:17:44,559
+uh let's you know for let's take a
+
+317
+00:17:41,799 --> 00:17:47,400
+excursion why does this you know where
+
+318
+00:17:44,559 --> 00:17:50,080
+does this come from undocumented
+
+319
+00:17:47,400 --> 00:17:53,600
+thing I believe because they are
+
+320
+00:17:50,080 --> 00:17:57,280
+implemented using common list exactly
+
+321
+00:17:53,600 --> 00:17:58,679
+you see common list define generic map
+
+322
+00:17:57,280 --> 00:18:01,679
+apply something
+
+323
+00:17:58,679 --> 00:18:01,679
+something.
+
+324
+00:18:02,039 --> 00:18:09,799
+So, so those documentation that
+
+325
+00:18:06,360 --> 00:18:12,120
+says that says
+
+326
+00:18:09,799 --> 00:18:13,720
+undocumented these sections are
+
+327
+00:18:12,120 --> 00:18:15,640
+automatically
+
+328
+00:18:13,720 --> 00:18:20,000
+generated meaning
+
+329
+00:18:15,640 --> 00:18:20,000
+that the meaning
+
+330
+00:18:21,000 --> 00:18:27,200
+that okay so you actually write a imp
+
+331
+00:18:24,400 --> 00:18:29,039
+implementation for each of these but you
+
+332
+00:18:27,200 --> 00:18:32,600
+don't have documentation okay something
+
+333
+00:18:29,039 --> 00:18:36,640
+like that. So, close the news. Go back
+
+334
+00:18:32,600 --> 00:18:40,080
+here. Map applies. Let's search for it.
+
+335
+00:18:36,640 --> 00:18:40,080
+Uh, let's search for
+
+336
+00:18:41,559 --> 00:18:49,679
+it. Define CL method. Okay, that's how
+
+337
+00:18:45,120 --> 00:18:49,679
+you do it. You you you implement each
+
+338
+00:18:50,679 --> 00:18:56,520
+um I think let's highlight it.
+
+339
+00:18:56,720 --> 00:19:02,880
+So you see if the argument is a list or
+
+340
+00:19:00,080 --> 00:19:06,080
+if the argument is a hash table or if
+
+341
+00:19:02,880 --> 00:19:09,039
+the argument is array and they didn't
+
+342
+00:19:06,080 --> 00:19:13,200
+document each one but you don't need to
+
+343
+00:19:09,039 --> 00:19:17,360
+actually that's right. Okay. So okay
+
+344
+00:19:13,200 --> 00:19:17,360
+that clarifies the
+
+345
+00:19:17,559 --> 00:19:29,000
+uh you know this undocumented thing.
+
+346
+00:19:21,400 --> 00:19:31,320
+Okay. So okay news 28 close. Um okay. So
+
+347
+00:19:29,000 --> 00:19:34,400
+next now we
+
+348
+00:19:31,320 --> 00:19:36,720
+know now the other thing I want to know
+
+349
+00:19:34,400 --> 00:19:41,320
+let's look at this a little bit more. So
+
+350
+00:19:36,720 --> 00:19:44,880
+this package this maple go to the
+
+351
+00:19:41,320 --> 00:19:47,600
+top let's read a little bit so we have
+
+352
+00:19:44,880 --> 00:19:52,240
+some kind of more general understanding.
+
+353
+00:19:47,600 --> 00:19:55,360
+Okay. So it says map eel provides
+
+354
+00:19:52,240 --> 00:19:57,160
+generic map manipulation functions.
+
+355
+00:19:55,360 --> 00:20:00,559
+Okay. Working on a
+
+356
+00:19:57,160 --> 00:20:04,320
+list association list property list
+
+357
+00:20:00,559 --> 00:20:06,960
+hashts and arrays. So what does it mean
+
+358
+00:20:04,320 --> 00:20:08,760
+when it says it works on array? That's
+
+359
+00:20:06,960 --> 00:20:11,440
+probably
+
+360
+00:20:08,760 --> 00:20:14,520
+means it's going to take a pair at a
+
+361
+00:20:11,440 --> 00:20:17,600
+time of a vector or string. Okay.
+
+362
+00:20:14,520 --> 00:20:21,120
+Probably all functions are prefixed with
+
+363
+00:20:17,600 --> 00:20:25,720
+map dash. Functions taking a predicate
+
+364
+00:20:21,120 --> 00:20:28,159
+or iterating over a map using a
+
+365
+00:20:25,720 --> 00:20:30,559
+function take the function as their
+
+366
+00:20:28,159 --> 00:20:30,559
+first
+
+367
+00:20:31,240 --> 00:20:38,280
+argument. Okay. All the functions that
+
+368
+00:20:34,720 --> 00:20:43,200
+take the map as their first argument.
+
+369
+00:20:38,280 --> 00:20:46,400
+What functions taking a predicate or
+
+370
+00:20:43,200 --> 00:20:50,919
+iterating over a map using a function
+
+371
+00:20:46,400 --> 00:20:54,240
+take the function as their first
+
+372
+00:20:50,919 --> 00:20:58,320
+argument. All the functions take the map
+
+373
+00:20:54,240 --> 00:20:58,320
+as their first argument. Oh, I
+
+374
+00:20:59,000 --> 00:21:04,480
+see. Okay.
+
+375
+00:21:01,400 --> 00:21:05,400
+So some functions the first argument is
+
+376
+00:21:04,480 --> 00:21:11,159
+a
+
+377
+00:21:05,400 --> 00:21:15,799
+function such as map something but the
+
+378
+00:21:11,159 --> 00:21:19,280
+others the first right okay
+
+379
+00:21:15,799 --> 00:21:22,240
+so all the functions take the map yeah
+
+380
+00:21:19,280 --> 00:21:25,360
+this is you see this is an issue of
+
+381
+00:21:22,240 --> 00:21:26,360
+technical writing this sentence is not
+
+382
+00:21:25,360 --> 00:21:29,840
+well
+
+383
+00:21:26,360 --> 00:21:31,799
+written it could be written better so
+
+384
+00:21:29,840 --> 00:21:34,960
+it's Just saying
+
+385
+00:21:31,799 --> 00:21:37,600
+that for those map functions that takes
+
+386
+00:21:34,960 --> 00:21:40,400
+a function the function usually come
+
+387
+00:21:37,600 --> 00:21:42,960
+first but otherwise if it doesn't take a
+
+388
+00:21:40,400 --> 00:21:45,840
+function the you know the first argument
+
+389
+00:21:42,960 --> 00:21:49,520
+is a map obvious
+
+390
+00:21:45,840 --> 00:21:54,440
+uh so in fact you should remove this I
+
+391
+00:21:49,520 --> 00:21:57,919
+believe it would be better remove this
+
+392
+00:21:54,440 --> 00:22:01,120
+paragraph okay to do as support for
+
+393
+00:21:57,919 --> 00:22:05,440
+chart tables okay chart table is rarely
+
+394
+00:22:01,120 --> 00:22:05,900
+used. Maybe add support for uh GV now.
+
+395
+00:22:05,440 --> 00:22:08,039
+What is
+
+396
+00:22:05,900 --> 00:22:11,039
+[Music]
+
+397
+00:22:08,039 --> 00:22:11,039
+GV?
+
+398
+00:22:11,159 --> 00:22:22,159
+GV. Okay, I don't know what is GV. GV
+
+399
+00:22:15,640 --> 00:22:22,159
+get GV get is an autoloaded uh function.
+
+400
+00:22:22,919 --> 00:22:27,480
+So what is GV?
+
+401
+00:22:27,679 --> 00:22:33,280
+Go to the
+
+402
+00:22:28,919 --> 00:22:34,620
+top. Stefan Moner, someone I can trust.
+
+403
+00:22:33,280 --> 00:22:37,720
+Okay. So,
+
+404
+00:22:34,620 --> 00:22:37,720
+[Music]
+
+405
+00:22:38,200 --> 00:22:46,640
+GB.El. This is the re the implementation
+
+406
+00:22:42,720 --> 00:22:47,880
+of the set F machinery using a different
+
+407
+00:22:46,640 --> 00:22:52,000
+underlying
+
+408
+00:22:47,880 --> 00:22:55,320
+approach from the one used earlier uh in
+
+409
+00:22:52,000 --> 00:22:55,320
+common dispander.
+
+410
+00:22:57,200 --> 00:23:03,640
+Okay. So that's what GVS is. It's kind
+
+411
+00:23:00,640 --> 00:23:06,520
+of underneath wood voodoo
+
+412
+00:23:03,640 --> 00:23:09,200
+voodoo which I don't care
+
+413
+00:23:06,520 --> 00:23:13,120
+much. You know this you know this kind
+
+414
+00:23:09,200 --> 00:23:15,600
+of thing is like uh the C and C++ people
+
+415
+00:23:13,120 --> 00:23:20,440
+gets excited
+
+416
+00:23:15,600 --> 00:23:24,640
+uh GV which uh I don't care. Okay. So
+
+417
+00:23:20,440 --> 00:23:27,039
+but but it's a reimplementation of the
+
+418
+00:23:24,640 --> 00:23:30,280
+set F. Okay.
+
+419
+00:23:27,039 --> 00:23:32,280
+set F in my opinion should be
+
+420
+00:23:30,280 --> 00:23:35,520
+banned. That's
+
+421
+00:23:32,280 --> 00:23:39,679
+crap. Okay, let's go back to what uh
+
+422
+00:23:35,520 --> 00:23:43,720
+what we need to do. So GV Okay. Uh see
+
+423
+00:23:39,679 --> 00:23:47,200
+if we can integrate text properties.
+
+424
+00:23:43,720 --> 00:23:50,240
+Okay. Yeah. Marco similar to let a list
+
+425
+00:23:47,200 --> 00:23:53,840
+but working on any type of map could be
+
+426
+00:23:50,240 --> 00:23:56,919
+really useful. Okay. So anyway, so we
+
+427
+00:23:53,840 --> 00:24:01,000
+have some idea of this package.
+
+428
+00:23:56,919 --> 00:24:05,200
+Now let's show a example of creating a
+
+429
+00:24:01,000 --> 00:24:08,000
+template. Okay. So for example, let's go
+
+430
+00:24:05,200 --> 00:24:10,880
+back close that
+
+431
+00:24:08,000 --> 00:24:13,240
+uh close this news. Close this occur
+
+432
+00:24:10,880 --> 00:24:18,320
+close messages and
+
+433
+00:24:13,240 --> 00:24:18,320
+uh okay then showing
+
+434
+00:24:19,400 --> 00:24:27,279
+browser is the font large enough? Okay,
+
+435
+00:24:23,320 --> 00:24:28,440
+that's so what we want to do is now
+
+436
+00:24:27,279 --> 00:24:32,520
+Yeah.
+
+437
+00:24:28,440 --> 00:24:35,840
+Okay. Go to EMAC list
+
+438
+00:24:32,520 --> 00:24:38,799
+block. Okay. Let's say I want to map
+
+439
+00:24:35,840 --> 00:24:41,279
+apply something. So first of all let's
+
+440
+00:24:38,799 --> 00:24:43,679
+create a association list because that
+
+441
+00:24:41,279 --> 00:24:46,919
+one is easier to understand. Oh property
+
+442
+00:24:43,679 --> 00:24:49,880
+list. Let's do association list.
+
+443
+00:24:46,919 --> 00:24:54,880
+Okay. So
+
+444
+00:24:49,880 --> 00:24:59,200
+um let's say define v xx let's say dot
+
+445
+00:24:54,880 --> 00:25:02,799
+uh uh a list okay let's just say that
+
+446
+00:24:59,200 --> 00:25:02,799
+initial value
+
+447
+00:25:05,480 --> 00:25:14,640
+neo as a list okay now what is the value
+
+448
+00:25:09,760 --> 00:25:17,320
+the value would be set that um then list
+
+449
+00:25:14,640 --> 00:25:21,960
+let's do the simple way
+
+450
+00:25:17,320 --> 00:25:26,720
+Okay. Cons uh Okay.
+
+451
+00:25:21,960 --> 00:25:33,240
+So cons is a pair in this in this. Yeah.
+
+452
+00:25:26,720 --> 00:25:36,240
+So uh first element let's say uh
+
+453
+00:25:33,240 --> 00:25:36,240
+one
+
+454
+00:25:37,640 --> 00:25:43,120
+2
+
+455
+00:25:40,120 --> 00:25:43,120
+3
+
+456
+00:25:43,480 --> 00:25:46,480
+4
+
+457
+00:25:46,600 --> 00:25:53,919
+5 six
+
+458
+00:25:49,400 --> 00:25:57,840
+Okay. Pify it. Pify it. That's good.
+
+459
+00:25:53,919 --> 00:26:00,240
+That's association list. Okay, now we
+
+460
+00:25:57,840 --> 00:26:02,760
+want to do the map apply. Now I don't
+
+461
+00:26:00,240 --> 00:26:06,799
+know how to use it. So let's manually
+
+462
+00:26:02,760 --> 00:26:09,320
+try to uh do it. So two argument
+
+463
+00:26:06,799 --> 00:26:12,760
+probably the first one is a
+
+464
+00:26:09,320 --> 00:26:15,679
+function. Check the
+
+465
+00:26:12,760 --> 00:26:21,039
+documentation. So there it is. Okay. Map
+
+466
+00:26:15,679 --> 00:26:23,520
+function uh map function map. Okay. So
+
+467
+00:26:21,039 --> 00:26:26,360
+what the function will be? Let's say
+
+468
+00:26:23,520 --> 00:26:29,240
+something lambda. Okay.
+
+469
+00:26:26,360 --> 00:26:34,240
+Uh something lambda it takes two
+
+470
+00:26:29,240 --> 00:26:37,360
+arguments a uh okay a a and bb and what
+
+471
+00:26:34,240 --> 00:26:41,840
+you want to do to them. Let's say add
+
+472
+00:26:37,360 --> 00:26:41,840
+one. Okay. So it
+
+473
+00:26:42,440 --> 00:26:47,120
+returns what what okay what is the
+
+474
+00:26:45,440 --> 00:26:48,279
+requirement? What does the function
+
+475
+00:26:47,120 --> 00:26:52,960
+needs to
+
+476
+00:26:48,279 --> 00:26:57,679
+return? Uh does it like does it must it
+
+477
+00:26:52,960 --> 00:26:57,679
+return a pair or must it return a single
+
+478
+00:27:05,400 --> 00:27:12,919
+value I think it doesn't say so um I
+
+479
+00:27:10,400 --> 00:27:16,400
+suppose a single value
+
+480
+00:27:12,919 --> 00:27:19,880
+okay so let's say a single value let's
+
+481
+00:27:16,400 --> 00:27:23,919
+add them together let's
+
+482
+00:27:19,880 --> 00:27:25,960
+Say let's say string okay
+
+483
+00:27:23,919 --> 00:27:29,679
+uh format
+
+484
+00:27:25,960 --> 00:27:33,720
+okay format
+
+485
+00:27:29,679 --> 00:27:33,720
+uh two things
+
+486
+00:27:34,799 --> 00:27:45,360
+uh let's let's say uh comma that okay a
+
+487
+00:27:40,520 --> 00:27:49,279
+bb okay now put this there and put the
+
+488
+00:27:45,360 --> 00:27:50,520
+and uh beautify the code Okay, let's run
+
+489
+00:27:49,279 --> 00:27:54,760
+it.
+
+490
+00:27:50,520 --> 00:27:57,559
+Okay, eval that eval
+
+491
+00:27:54,760 --> 00:28:02,520
+that eval and
+
+492
+00:27:57,559 --> 00:28:05,679
+insert. There it is.
+
+493
+00:28:02,520 --> 00:28:07,919
+Okay. So, we are trying to find out what
+
+494
+00:28:05,679 --> 00:28:10,520
+what this function do. So, here is a
+
+495
+00:28:07,919 --> 00:28:13,840
+example. Fantastic.
+
+496
+00:28:10,520 --> 00:28:17,679
+Okay. So, now we know kind of we know
+
+497
+00:28:13,840 --> 00:28:20,159
+the form of the function. Let's now uh
+
+498
+00:28:17,679 --> 00:28:23,679
+let's now add a template for the
+
+499
+00:28:20,159 --> 00:28:27,760
+function in this mod. Okay. So actually
+
+500
+00:28:23,679 --> 00:28:31,039
+it's just that. Okay. So go to this mod.
+
+501
+00:28:27,760 --> 00:28:35,640
+Search for map and found. Now let's go
+
+502
+00:28:31,039 --> 00:28:38,880
+just go to abbreviation section. Uh
+
+503
+00:28:35,640 --> 00:28:41,200
+so yeah. So there is our abbreviation
+
+504
+00:28:38,880 --> 00:28:46,880
+section. Define our abbreviation and
+
+505
+00:28:41,200 --> 00:28:46,880
+templates. We want to add a map
+
+506
+00:28:47,159 --> 00:28:50,159
+apply.
+
+507
+00:28:51,240 --> 00:28:55,720
+Uh so first of all let's let's go to the
+
+508
+00:28:54,480 --> 00:28:59,880
+full
+
+509
+00:28:55,720 --> 00:29:02,200
+um so we getting technical
+
+510
+00:28:59,880 --> 00:29:06,960
+here key
+
+511
+00:29:02,200 --> 00:29:09,520
+map. Yeah. So somewhere here. Okay. We
+
+512
+00:29:06,960 --> 00:29:13,880
+want to add something like that. So by
+
+513
+00:29:09,520 --> 00:29:19,760
+first of all copy that and duplicate and
+
+514
+00:29:13,880 --> 00:29:23,880
+just say that and and then you just
+
+515
+00:29:19,760 --> 00:29:27,520
+paste that there and remove this whole
+
+516
+00:29:23,880 --> 00:29:28,440
+thing. Okay, that's your template. Now
+
+517
+00:29:27,520 --> 00:29:31,760
+once
+
+518
+00:29:28,440 --> 00:29:35,600
+you do completion, you want your cursor
+
+519
+00:29:31,760 --> 00:29:37,159
+to be here. So let's add the cursor unic
+
+520
+00:29:35,600 --> 00:29:41,559
+code character.
+
+521
+00:29:37,159 --> 00:29:44,880
+Okay, describe char. That character
+
+522
+00:29:41,559 --> 00:29:48,919
+is this unic code character called black
+
+523
+00:29:44,880 --> 00:29:51,799
+vertical rectangle which is suitable
+
+524
+00:29:48,919 --> 00:29:57,960
+to represent a
+
+525
+00:29:51,799 --> 00:29:57,960
+cursor. Okay, so we got that added now.
+
+526
+00:29:58,200 --> 00:30:06,080
+Now eval the buffer. Make a backup. Go
+
+527
+00:30:02,480 --> 00:30:08,320
+to the directory. Bite compile it just
+
+528
+00:30:06,080 --> 00:30:10,799
+to be sure we don't have any error.
+
+529
+00:30:08,320 --> 00:30:15,120
+Correct. No error. Open the back compile
+
+530
+00:30:10,799 --> 00:30:19,080
+file. Delete it. Close it. Okay. Now we
+
+531
+00:30:15,120 --> 00:30:23,399
+go back to our list code. Okay. Put it
+
+532
+00:30:19,080 --> 00:30:26,799
+back. Reopen it. Now we can
+
+533
+00:30:23,399 --> 00:30:32,200
+say map. Okay. First of all, completion
+
+534
+00:30:26,799 --> 00:30:35,480
+map apply there. Now press enter.
+
+535
+00:30:32,200 --> 00:30:38,640
+Fantastic. Automatically added
+
+536
+00:30:35,480 --> 00:30:41,120
+that. And now let's improve it. I want
+
+537
+00:30:38,640 --> 00:30:42,880
+to add the lambda. Okay, because this
+
+538
+00:30:41,120 --> 00:30:44,960
+function usually you're going to you
+
+539
+00:30:42,880 --> 00:30:49,600
+know usually you're going to say lambda
+
+540
+00:30:44,960 --> 00:30:49,600
+something. So let's just add the lambda
+
+541
+00:30:49,720 --> 00:30:56,240
+there. Yeah. So the function is actually
+
+542
+00:30:53,600 --> 00:30:59,600
+just lambda. Let's add it there. Okay.
+
+543
+00:30:56,240 --> 00:30:59,600
+So, let's like
+
+544
+00:31:00,520 --> 00:31:08,440
+um and in fact this is
+
+545
+00:31:04,200 --> 00:31:11,440
+a you know you got two things two two
+
+546
+00:31:08,440 --> 00:31:11,440
+arguments.
+
+547
+00:31:11,799 --> 00:31:18,640
+Um okay. Something like that. Okay.
+
+548
+00:31:15,200 --> 00:31:21,279
+Evaluate. That's good. Make a backup. Go
+
+549
+00:31:18,640 --> 00:31:25,279
+back to the code. Anyway, so we
+
+550
+00:31:21,279 --> 00:31:30,520
+finished. We finished. We completed
+
+551
+00:31:25,279 --> 00:31:34,360
+another job which is add a function
+
+552
+00:31:30,520 --> 00:31:37,519
+template to emac this
+
+553
+00:31:34,360 --> 00:31:41,120
+mode complete. Okay. So that's how you
+
+554
+00:31:37,519 --> 00:31:45,440
+do it. Now if you are you know if you
+
+555
+00:31:41,120 --> 00:31:50,919
+are not familiar you can go to you know
+
+556
+00:31:45,440 --> 00:31:54,960
+go to.info info Emacs tutorial and go
+
+557
+00:31:50,919 --> 00:31:57,279
+to create major mod tutorial. So here's
+
+558
+00:31:54,960 --> 00:32:00,399
+a complete tutorial on how to create a
+
+559
+00:31:57,279 --> 00:32:02,960
+major mode for your language for your
+
+560
+00:32:00,399 --> 00:32:04,600
+favorite language JavaScript or Rust or
+
+561
+00:32:02,960 --> 00:32:07,279
+Python or
+
+562
+00:32:04,600 --> 00:32:10,880
+whatever. And uh how to create a
+
+563
+00:32:07,279 --> 00:32:15,039
+template there is a dedicated function
+
+564
+00:32:10,880 --> 00:32:16,600
+uh about that.
+
+565
+00:32:15,039 --> 00:32:20,240
+Uh let's see
+
+566
+00:32:16,600 --> 00:32:21,880
+uh create key map create functions
+
+567
+00:32:20,240 --> 00:32:25,200
+keyword
+
+568
+00:32:21,880 --> 00:32:27,360
+completions we you know we have that uh
+
+569
+00:32:25,200 --> 00:32:30,120
+then create template create function
+
+570
+00:32:27,360 --> 00:32:33,320
+template we do this by using
+
+571
+00:32:30,120 --> 00:32:36,880
+abbreviation okay by using the
+
+572
+00:32:33,320 --> 00:32:39,120
+abbreviation table feature of Emacs.
+
+573
+00:32:36,880 --> 00:32:41,919
+Okay so let me demo it again. So show in
+
+574
+00:32:39,120 --> 00:32:45,039
+browser. Okay close that. Close that.
+
+575
+00:32:41,919 --> 00:32:47,399
+Switch back. Close that. Go here. Show
+
+576
+00:32:45,039 --> 00:32:52,200
+in browser
+
+577
+00:32:47,399 --> 00:32:56,120
+now. Now all these functions
+
+578
+00:32:52,200 --> 00:33:01,279
+um Okay. So let me let me
+
+579
+00:32:56,120 --> 00:33:02,679
+try search for that. Okay. Not oh why is
+
+580
+00:33:01,279 --> 00:33:05,240
+it not
+
+581
+00:33:02,679 --> 00:33:09,360
+there?
+
+582
+00:33:05,240 --> 00:33:09,360
+Um okay. So
+
+583
+00:33:09,480 --> 00:33:17,200
+there's so anyway so let's pop this out.
+
+584
+00:33:13,840 --> 00:33:19,679
+Uh we are missing that map can wait map
+
+585
+00:33:17,200 --> 00:33:21,320
+can is not part of it. Map can is
+
+586
+00:33:19,679 --> 00:33:26,240
+something
+
+587
+00:33:21,320 --> 00:33:26,240
+else. Apply function to each element of
+
+588
+00:33:26,360 --> 00:33:33,640
+sequence. Uh but okay digression. Now a
+
+589
+00:33:30,399 --> 00:33:36,440
+little digression. Let's go to my Emacs
+
+590
+00:33:33,640 --> 00:33:41,519
+tutorial on
+
+591
+00:33:36,440 --> 00:33:44,159
+list. And uh we want to know where where
+
+592
+00:33:41,519 --> 00:33:47,679
+is map can like I don't remember. I
+
+593
+00:33:44,159 --> 00:33:47,679
+should have it in my
+
+594
+00:33:48,600 --> 00:33:58,880
+tutorial. Okay, I forgot. So cut it. Go
+
+595
+00:33:53,480 --> 00:34:02,399
+to Emacs page. Search for map can. Let's
+
+596
+00:33:58,880 --> 00:34:02,399
+see if we can find it
+
+597
+00:34:07,320 --> 00:34:13,919
+somewhere. AZ, hello AZ. Hello, Diego.
+
+598
+00:34:11,760 --> 00:34:17,599
+Hi there. Why is the link in your
+
+599
+00:34:13,919 --> 00:34:20,440
+description still insecure? Oh my god.
+
+600
+00:34:17,599 --> 00:34:25,200
+You know, go to
+
+601
+00:34:20,440 --> 00:34:28,480
+um go to Kasar Discord, okay? You can
+
+602
+00:34:25,200 --> 00:34:28,480
+find it on my
+
+603
+00:34:28,520 --> 00:34:35,639
+um you know you can find it on sadi.info
+
+604
+00:34:32,639 --> 00:34:35,639
+info
+
+605
+00:34:35,760 --> 00:34:45,440
+uh that you know there is my my YouTube
+
+606
+00:34:40,079 --> 00:34:47,520
+my discord so go there and uh talk to me
+
+607
+00:34:45,440 --> 00:34:51,200
+so you can tell me all about it how to
+
+608
+00:34:47,520 --> 00:34:52,960
+do it and if you are really want to help
+
+609
+00:34:51,200 --> 00:34:56,320
+if you are really patient and want to
+
+610
+00:34:52,960 --> 00:34:59,599
+help we can go through step by step you
+
+611
+00:34:56,320 --> 00:35:03,599
+know arrange for an hour or two
+
+612
+00:34:59,599 --> 00:35:03,599
+uh you know uh tomorrow or next
+
+613
+00:35:03,760 --> 00:35:06,720
+If you are really
+
+614
+00:35:06,920 --> 00:35:11,839
+concerned about that issue, it's very
+
+615
+00:35:09,599 --> 00:35:14,160
+easy to make your site secure and it's
+
+616
+00:35:11,839 --> 00:35:16,560
+dangerous for anyone visiting your site.
+
+617
+00:35:14,160 --> 00:35:20,359
+That's a total Did you Did you
+
+618
+00:35:16,560 --> 00:35:23,599
+listen to my um Did you listen to my
+
+619
+00:35:20,359 --> 00:35:26,720
+rant yesterday? Oh, yeah. I turned off
+
+620
+00:35:23,599 --> 00:35:28,880
+the I made the video private because I
+
+621
+00:35:26,720 --> 00:35:31,000
+was talking about JavaScript and I
+
+622
+00:35:28,880 --> 00:35:34,720
+wasn't doing a good job.
+
+623
+00:35:31,000 --> 00:35:37,280
+So, so anyway, yeah. So, you you know,
+
+624
+00:35:34,720 --> 00:35:39,320
+go to Discord. You know, I I probably
+
+625
+00:35:37,280 --> 00:35:42,240
+should do it, but you know, it's really
+
+626
+00:35:39,320 --> 00:35:44,440
+nasty. Okay, let's go back to this.
+
+627
+00:35:42,240 --> 00:35:47,440
+Okay, so map
+
+628
+00:35:44,440 --> 00:35:50,119
+can for some reason I don't have this
+
+629
+00:35:47,440 --> 00:35:53,680
+document document
+
+630
+00:35:50,119 --> 00:35:56,800
+documented. That's that's not good. So,
+
+631
+00:35:53,680 --> 00:36:00,000
+that means I'm missing something on my
+
+632
+00:35:56,800 --> 00:36:04,480
+tutorial. So let's put this
+
+633
+00:36:00,000 --> 00:36:04,480
+uh let's put this in to do.
+
+634
+00:36:04,680 --> 00:36:09,240
+Okay. I don't know where this kind of
+
+635
+00:36:07,280 --> 00:36:13,240
+let's look at the emac this
+
+636
+00:36:09,240 --> 00:36:13,240
+documentation. So
+
+637
+00:36:18,920 --> 00:36:26,960
+um let's see. So map
+
+638
+00:36:22,119 --> 00:36:28,200
+can show in browser mapping functions
+
+639
+00:36:26,960 --> 00:36:34,480
+map
+
+640
+00:36:28,200 --> 00:36:37,280
+car map P. So why don't I have map can?
+
+641
+00:36:34,480 --> 00:36:39,200
+I believe map can map the function
+
+642
+00:36:37,280 --> 00:36:41,760
+applies function to each element of
+
+643
+00:36:39,200 --> 00:36:43,240
+sequence like map car but instead of
+
+644
+00:36:41,760 --> 00:36:48,240
+collecting the
+
+645
+00:36:43,240 --> 00:36:53,680
+result the font is too small right
+
+646
+00:36:48,240 --> 00:36:53,680
+um let's see okay so
+
+647
+00:36:59,640 --> 00:37:03,359
+let's okay that's
+
+648
+00:37:06,560 --> 00:37:12,040
+But instead of collecting the result
+
+649
+00:37:08,480 --> 00:37:16,960
+into a list, it returns a single
+
+650
+00:37:12,040 --> 00:37:16,960
+list with all the elements of the
+
+651
+00:37:21,079 --> 00:37:28,200
+result which must be lists. what by
+
+652
+00:37:25,760 --> 00:37:31,160
+altering the
+
+653
+00:37:28,200 --> 00:37:35,800
+result like with map
+
+654
+00:37:31,160 --> 00:37:38,160
+car. Uh I'm not sure what is
+
+655
+00:37:35,800 --> 00:37:40,480
+doing. Okay. Anyway, that's a
+
+656
+00:37:38,160 --> 00:37:44,480
+digression. I'm missing this function in
+
+657
+00:37:40,480 --> 00:37:49,119
+my tutorial. So, okay. So, let's ignore
+
+658
+00:37:44,480 --> 00:37:49,119
+it for now. Okay. So now we
+
+659
+00:37:50,040 --> 00:37:57,520
+have we have added a template. We have
+
+660
+00:37:55,119 --> 00:38:00,320
+add the syntax coloring of this function
+
+661
+00:37:57,520 --> 00:38:02,000
+map apply. We have also added a
+
+662
+00:38:00,320 --> 00:38:05,760
+template. Let me show you other
+
+663
+00:38:02,000 --> 00:38:09,680
+templates. So D for define space become
+
+664
+00:38:05,760 --> 00:38:12,119
+def space become template. You know DV
+
+665
+00:38:09,680 --> 00:38:16,440
+for define v
+
+666
+00:38:12,119 --> 00:38:20,880
+space. You see so you can
+
+667
+00:38:16,440 --> 00:38:24,240
+lm lamb for lambda space become the full
+
+668
+00:38:20,880 --> 00:38:27,520
+template. So all those are implemented
+
+669
+00:38:24,240 --> 00:38:31,240
+in s e emac this mod
+
+670
+00:38:27,520 --> 00:38:34,160
+uh using the abbreviation feature.
+
+671
+00:38:31,240 --> 00:38:36,160
+Okay. So you know you there are like a
+
+672
+00:38:34,160 --> 00:38:40,240
+thousand of them you know the like the
+
+673
+00:38:36,160 --> 00:38:42,720
+top 100 or 200 most used functions they
+
+674
+00:38:40,240 --> 00:38:45,119
+have abbreviation and they have template
+
+675
+00:38:42,720 --> 00:38:47,440
+for example you can see a full list of
+
+676
+00:38:45,119 --> 00:38:49,760
+them for example here is the most
+
+677
+00:38:47,440 --> 00:38:52,720
+frequently used functions you have
+
+678
+00:38:49,760 --> 00:38:57,000
+single character abbreviation
+
+679
+00:38:52,720 --> 00:39:01,119
+uh so for example L for let is a
+
+680
+00:38:57,000 --> 00:39:05,440
+fantastic Q for quote actually Q is not
+
+681
+00:39:01,119 --> 00:39:07,720
+very frequent And uh but P for point, V
+
+682
+00:39:05,440 --> 00:39:11,200
+for vector. So you
+
+683
+00:39:07,720 --> 00:39:13,359
+know you know so uh then once you expand
+
+684
+00:39:11,200 --> 00:39:16,119
+V for vector then you expand again you
+
+685
+00:39:13,359 --> 00:39:20,680
+get a template. So those are all
+
+686
+00:39:16,119 --> 00:39:23,480
+abbreviation. Okay try to uh learn it.
+
+687
+00:39:20,680 --> 00:39:27,920
+Abbreviation is not just useful for
+
+688
+00:39:23,480 --> 00:39:31,680
+implement implementing a EMAC major mode
+
+689
+00:39:27,920 --> 00:39:33,839
+but it's most useful for writing English
+
+690
+00:39:31,680 --> 00:39:33,839
+for
+
+691
+00:39:34,760 --> 00:39:48,640
+example I have one cat you know uh how
+
+692
+00:39:40,880 --> 00:39:52,160
+are you so a become a you become you
+
+693
+00:39:48,640 --> 00:39:57,119
+things like that and by the way expand
+
+694
+00:39:52,160 --> 00:40:01,240
+to by the way BTW and so on. So
+
+695
+00:39:57,119 --> 00:40:06,400
+uh you can see I have
+
+696
+00:40:01,240 --> 00:40:09,320
+like 1,500 abbreviations. Okay. And if
+
+697
+00:40:06,400 --> 00:40:11,960
+you want to learn about that it's
+
+698
+00:40:09,320 --> 00:40:15,560
+all
+
+699
+00:40:11,960 --> 00:40:19,280
+documented just search for Emac this
+
+700
+00:40:15,560 --> 00:40:22,280
+abbreviation tutorial set up hundreds of
+
+701
+00:40:19,280 --> 00:40:26,280
+a brief. So you can learn this in 10
+
+702
+00:40:22,280 --> 00:40:30,000
+minutes and you'll have a much better
+
+703
+00:40:26,280 --> 00:40:32,640
+life. So it's not just used for uh you
+
+704
+00:40:30,000 --> 00:40:32,640
+know for for
+
+705
+00:40:33,560 --> 00:40:42,000
+example I can quickly get all the emoji
+
+706
+00:40:37,359 --> 00:40:44,119
+I want. Uh and RA for right arrow.
+
+707
+00:40:42,000 --> 00:40:46,040
+Fantastic when you are writing
+
+708
+00:40:44,119 --> 00:40:51,760
+mathematics.
+
+709
+00:40:46,040 --> 00:40:55,040
+A map to B for example. So abbreviation
+
+710
+00:40:51,760 --> 00:40:57,640
+I think it's the top five most best
+
+711
+00:40:55,040 --> 00:41:01,079
+feature of Emacs.
+
+712
+00:40:57,640 --> 00:41:05,760
+Okay. Okay. That's about abbreviation.
+
+713
+00:41:01,079 --> 00:41:09,720
+So cut this close. Uh let's add it back
+
+714
+00:41:05,760 --> 00:41:12,760
+to talk show. Okay. Let's mention it
+
+715
+00:41:09,720 --> 00:41:17,040
+here. Uh create a
+
+716
+00:41:12,760 --> 00:41:18,200
+new text block. paste it there just so
+
+717
+00:41:17,040 --> 00:41:24,000
+that we
+
+718
+00:41:18,200 --> 00:41:26,680
+showed about abbreviation. Okay. So,
+
+719
+00:41:24,000 --> 00:41:31,440
+uh yeah. So, copy
+
+720
+00:41:26,680 --> 00:41:34,880
+that. That's digression link it. And now
+
+721
+00:41:31,440 --> 00:41:36,119
+let's go back to Yeah. So, now you see
+
+722
+00:41:34,880 --> 00:41:38,800
+you see
+
+723
+00:41:36,119 --> 00:41:42,240
+this. Oh, yeah. So, next thing we're
+
+724
+00:41:38,800 --> 00:41:45,240
+going to do. Okay. Next thing. Uh let's
+
+725
+00:41:42,240 --> 00:41:45,240
+see.
+
+726
+00:41:47,760 --> 00:41:54,800
+Okay. All good. Close
+
+727
+00:41:51,000 --> 00:41:58,319
+that. So we got we got uh so close that
+
+728
+00:41:54,800 --> 00:42:04,000
+close that close that close close. And
+
+729
+00:41:58,319 --> 00:42:08,720
+now we want to okay remove that. So we
+
+730
+00:42:04,000 --> 00:42:13,319
+have demonstrated that. Okay. So yeah.
+
+731
+00:42:08,720 --> 00:42:16,599
+So we have syntax coloring. We
+
+732
+00:42:13,319 --> 00:42:21,200
+have abbreviation. We have template.
+
+733
+00:42:16,599 --> 00:42:24,000
+Done. So we I I just need to do for each
+
+734
+00:42:21,200 --> 00:42:26,720
+one of them. Add them the template to my
+
+735
+00:42:24,000 --> 00:42:29,960
+Emac this mod. Okay. So I'll do that
+
+736
+00:42:26,720 --> 00:42:34,200
+offline, but I showed you how to do
+
+737
+00:42:29,960 --> 00:42:37,599
+it. Next thing, the next big job is to
+
+738
+00:42:34,200 --> 00:42:40,079
+write a tutorial page for for all of
+
+739
+00:42:37,599 --> 00:42:43,920
+these. Okay, so that's the next big job.
+
+740
+00:42:40,079 --> 00:42:47,680
+So let me just So here's today's talk
+
+741
+00:42:43,920 --> 00:42:50,640
+show. That's all good. So next job is to
+
+742
+00:42:47,680 --> 00:42:53,119
+write the tutorial. Okay. So let's do
+
+743
+00:42:50,640 --> 00:42:58,920
+that for 10 minutes and that'll be it
+
+744
+00:42:53,119 --> 00:43:02,319
+for today. So we go back to
+
+745
+00:42:58,920 --> 00:43:05,280
+um so if you like my stuff, pay me,
+
+746
+00:43:02,319 --> 00:43:08,960
+okay? Go to sardi.info.
+
+747
+00:43:05,280 --> 00:43:10,359
+If you you know if my teaching is
+
+748
+00:43:08,960 --> 00:43:14,000
+helpful, is
+
+749
+00:43:10,359 --> 00:43:18,440
+fun, Amazon PayPal, Amazon gift card me,
+
+750
+00:43:14,000 --> 00:43:22,280
+okay, Amazon G, you know, and or PayPal
+
+751
+00:43:18,440 --> 00:43:26,640
+me $100. That'll be
+
+752
+00:43:22,280 --> 00:43:29,760
+good. Okay, so now we want to write a
+
+753
+00:43:26,640 --> 00:43:32,520
+tutorial. Okay, so let's go to this
+
+754
+00:43:29,760 --> 00:43:35,480
+basics. Let's go to
+
+755
+00:43:32,520 --> 00:43:38,480
+um so how do
+
+756
+00:43:35,480 --> 00:43:42,800
+you you see writing a tutorial that's a
+
+757
+00:43:38,480 --> 00:43:46,040
+new uh whole thing. So uh in fact there
+
+758
+00:43:42,800 --> 00:43:50,800
+are like 20 functions to go
+
+759
+00:43:46,040 --> 00:43:52,760
+about copy new buffer. So like yeah 20
+
+760
+00:43:50,800 --> 00:43:57,119
+26 25
+
+761
+00:43:52,760 --> 00:44:02,040
+functions. So what where do you want to
+
+762
+00:43:57,119 --> 00:44:02,040
+add it? you want to add.
+
+763
+00:44:03,520 --> 00:44:08,119
+You see it's kind of odd with these map
+
+764
+00:44:06,720 --> 00:44:11,280
+functions
+
+765
+00:44:08,119 --> 00:44:13,160
+because they are generic functions but
+
+766
+00:44:11,280 --> 00:44:17,640
+they don't
+
+767
+00:44:13,160 --> 00:44:19,880
+have like in EMAC this there is
+
+768
+00:44:17,640 --> 00:44:24,280
+no generic
+
+769
+00:44:19,880 --> 00:44:29,319
+name to mean any of property
+
+770
+00:44:24,280 --> 00:44:33,520
+list association list and hash table.
+
+771
+00:44:29,319 --> 00:44:35,200
+Okay, you see for lists you do have some
+
+772
+00:44:33,520 --> 00:44:36,520
+kind of you know you call all of them
+
+773
+00:44:35,200 --> 00:44:39,440
+you call them
+
+774
+00:44:36,520 --> 00:44:42,640
+sequences then you got a bunch of
+
+775
+00:44:39,440 --> 00:44:45,560
+sequence functions starting with seq
+
+776
+00:44:42,640 --> 00:44:48,760
+that works on any sequence data
+
+777
+00:44:45,560 --> 00:44:52,319
+type okay but
+
+778
+00:44:48,760 --> 00:44:55,920
+now for for these map functions they
+
+779
+00:44:52,319 --> 00:45:00,480
+work on anything that's kind of having a
+
+780
+00:44:55,920 --> 00:45:04,200
+pair of things so So that would be hasht
+
+781
+00:45:00,480 --> 00:45:07,119
+and association list and property list.
+
+782
+00:45:04,200 --> 00:45:12,040
+Okay. But you don't have a generic name
+
+783
+00:45:07,119 --> 00:45:16,079
+for for this uh data type together. So
+
+784
+00:45:12,040 --> 00:45:19,520
+that's that's that's a idiosyncrasy with
+
+785
+00:45:16,079 --> 00:45:22,400
+emac disp because in Java you would
+
+786
+00:45:19,520 --> 00:45:24,800
+because they you know in Java you you
+
+787
+00:45:22,400 --> 00:45:27,599
+group them according to the interface
+
+788
+00:45:24,800 --> 00:45:31,800
+like they are mathematical
+
+789
+00:45:27,599 --> 00:45:34,960
+uh shape which is called
+
+790
+00:45:31,800 --> 00:45:36,280
+interface. So the question for me is
+
+791
+00:45:34,960 --> 00:45:39,280
+where do
+
+792
+00:45:36,280 --> 00:45:41,839
+you you know you you I'm probably going
+
+793
+00:45:39,280 --> 00:45:44,640
+to have one or more than one page for
+
+794
+00:45:41,839 --> 00:45:47,839
+these functions. Where do you want to
+
+795
+00:45:44,640 --> 00:45:50,800
+add them? Like obviously you create a
+
+796
+00:45:47,839 --> 00:45:55,280
+new page uh but you create a new
+
+797
+00:45:50,800 --> 00:45:55,280
+subsection for sure.
+
+798
+00:45:55,640 --> 00:46:02,440
+Um okay so it would be after hasht.
+
+799
+00:46:03,640 --> 00:46:12,000
+Okay, you see all these functions is not
+
+800
+00:46:07,920 --> 00:46:16,079
+necessary because hasht already has
+
+801
+00:46:12,000 --> 00:46:19,200
+their hasht functions. Uh add entry, put
+
+802
+00:46:16,079 --> 00:46:23,599
+hash, rim, ren, you know, remove entry,
+
+803
+00:46:19,200 --> 00:46:26,960
+rim hash, get hash. And for for the
+
+804
+00:46:23,599 --> 00:46:30,079
+property list you also already have a
+
+805
+00:46:26,960 --> 00:46:36,040
+lot functions probably you know p get
+
+806
+00:46:30,079 --> 00:46:40,400
+lax p get p put and for association
+
+807
+00:46:36,040 --> 00:46:40,400
+list you also have
+
+808
+00:46:40,680 --> 00:46:50,880
+um many uh dedicated functions for them.
+
+809
+00:46:46,319 --> 00:46:54,960
+uh for example a list get alist put a so
+
+810
+00:46:50,880 --> 00:46:58,240
+string and so on. So so what but what
+
+811
+00:46:54,960 --> 00:47:00,960
+this do you know what this new generic
+
+812
+00:46:58,240 --> 00:47:03,680
+thing do is that they kind of make it
+
+813
+00:47:00,960 --> 00:47:06,520
+more unified. So you just have one
+
+814
+00:47:03,680 --> 00:47:09,920
+interface to work with any of
+
+815
+00:47:06,520 --> 00:47:13,280
+these which which is kind of better but
+
+816
+00:47:09,920 --> 00:47:16,000
+it's not really necessary. It's It's not
+
+817
+00:47:13,280 --> 00:47:16,000
+exactly
+
+818
+00:47:17,640 --> 00:47:24,240
+um you know perfect for
+
+819
+00:47:20,839 --> 00:47:26,359
+this. Okay. But anyway, so so where do
+
+820
+00:47:24,240 --> 00:47:31,119
+you add them? Okay.
+
+821
+00:47:26,359 --> 00:47:33,480
+So for now I'm going to base it on hasht
+
+822
+00:47:31,119 --> 00:47:38,160
+page.
+
+823
+00:47:33,480 --> 00:47:40,720
+Okay. So hasht page. Yeah. There. Okay.
+
+824
+00:47:38,160 --> 00:47:43,319
+Going to be after this page. So let's
+
+825
+00:47:40,720 --> 00:47:45,480
+put that there.
+
+826
+00:47:43,319 --> 00:47:50,240
+hasht and
+
+827
+00:47:45,480 --> 00:47:50,240
+uh and then we
+
+828
+00:47:52,040 --> 00:47:59,000
+have okay so hash table okay let's let's
+
+829
+00:47:55,280 --> 00:48:04,480
+begin to do it okay so this hash
+
+830
+00:47:59,000 --> 00:48:06,640
+table copy it paste it and uh this uh
+
+831
+00:48:04,480 --> 00:48:08,599
+how do you call them okay so there's
+
+832
+00:48:06,640 --> 00:48:12,160
+another
+
+833
+00:48:08,599 --> 00:48:13,560
+issue what is the name
+
+834
+00:48:12,160 --> 00:48:16,640
+For these
+
+835
+00:48:13,560 --> 00:48:19,040
+functions, how do you call them? Do you
+
+836
+00:48:16,640 --> 00:48:21,760
+say map functions? You know, you need a
+
+837
+00:48:19,040 --> 00:48:21,760
+title for the
+
+838
+00:48:22,119 --> 00:48:28,800
+section. So, you know, so these are
+
+839
+00:48:24,720 --> 00:48:31,000
+issues about writing a tutorial or
+
+840
+00:48:28,800 --> 00:48:33,280
+programming language
+
+841
+00:48:31,000 --> 00:48:36,000
+documentation. Hello, we got a bunch of
+
+842
+00:48:33,280 --> 00:48:36,000
+guys.
+
+843
+00:48:36,040 --> 00:48:42,400
+Uh, so what you guys are saying? Let's
+
+844
+00:48:40,000 --> 00:48:42,400
+see.
+
+845
+00:48:47,119 --> 00:48:50,240
+Wait, what is
+
+846
+00:48:51,640 --> 00:49:00,280
+my
+
+847
+00:48:54,119 --> 00:49:00,280
+control shift + control + one?
+
+848
+00:49:08,559 --> 00:49:13,720
+So usually
+
+849
+00:49:11,880 --> 00:49:18,599
+control scroll
+
+850
+00:49:13,720 --> 00:49:22,760
+up will magnify it but now it is not
+
+851
+00:49:18,599 --> 00:49:26,480
+working. So alternatively control plus
+
+852
+00:49:22,760 --> 00:49:29,880
+sign will magnify it but I don't know
+
+853
+00:49:26,480 --> 00:49:34,720
+where is my plus
+
+854
+00:49:29,880 --> 00:49:34,720
+uh sign. So let's
+
+855
+00:49:41,960 --> 00:49:51,000
+see. So I'm using also I'm using sticky
+
+856
+00:49:45,760 --> 00:49:54,720
+key. So that's why it's a bit all
+
+857
+00:49:51,000 --> 00:50:00,440
+confusing. Okay, there is plus. Okay, so
+
+858
+00:49:54,720 --> 00:50:00,440
+control shift plus. There it is. Back.
+
+859
+00:50:03,599 --> 00:50:09,520
+That's why you hear the beep because I
+
+860
+00:50:06,160 --> 00:50:09,520
+got sticky keys going
+
+861
+00:50:10,359 --> 00:50:16,559
+on. So
+
+862
+00:50:13,000 --> 00:50:20,079
+a so go on to uh Discord like you don't
+
+863
+00:50:16,559 --> 00:50:23,359
+know things. Okay. So you are saying no
+
+864
+00:50:20,079 --> 00:50:25,839
+HTTP is causing are you still here or am
+
+865
+00:50:23,359 --> 00:50:28,960
+I wasting my time because you are saying
+
+866
+00:50:25,839 --> 00:50:31,200
+no HTTP will cause you to have middleain
+
+867
+00:50:28,960 --> 00:50:37,319
+attack. Yes, in fact that happened to
+
+868
+00:50:31,200 --> 00:50:39,320
+me. Okay, because let me you know so
+
+869
+00:50:37,319 --> 00:50:41,079
+search HTTP
+
+870
+00:50:39,320 --> 00:50:42,450
+[Music]
+
+871
+00:50:41,079 --> 00:50:44,280
+um let's
+
+872
+00:50:42,450 --> 00:50:47,119
+[Music]
+
+873
+00:50:44,280 --> 00:50:52,880
+see you know I can talk a whole hour
+
+874
+00:50:47,119 --> 00:50:54,200
+about this HTTP stuff. Uh so there is um
+
+875
+00:50:52,880 --> 00:50:58,160
+so
+
+876
+00:50:54,200 --> 00:50:58,160
+um let's search for
+
+877
+00:51:05,800 --> 00:51:13,240
+scam scam on Apple i store Google
+
+878
+00:51:10,000 --> 00:51:16,800
+sitemap.org or domain typo squatting
+
+879
+00:51:13,240 --> 00:51:21,079
+scam. Okay. Sound talk show talk show.
+
+880
+00:51:16,800 --> 00:51:25,119
+Uh ink cartridge scam by follower
+
+881
+00:51:21,079 --> 00:51:29,119
+scam. Carbon browser crypto web 3 scam.
+
+882
+00:51:25,119 --> 00:51:31,920
+Wikipedia donation scam. Google AM scam.
+
+883
+00:51:29,119 --> 00:51:35,400
+Okay, we'll get to it. Google Chrome
+
+884
+00:51:31,920 --> 00:51:40,079
+browser login scam. Translation SEO
+
+885
+00:51:35,400 --> 00:51:43,680
+scam. Web spam spam scam SEO. There.
+
+886
+00:51:40,079 --> 00:51:47,359
+That's the index page. Okay. Now you go.
+
+887
+00:51:43,680 --> 00:51:51,920
+So on this page there it is. China ISP
+
+888
+00:51:47,359 --> 00:51:55,880
+ad injection 2015. Click on that. So
+
+889
+00:51:51,920 --> 00:52:01,000
+this is my web page. A scene in
+
+890
+00:51:55,880 --> 00:52:04,400
+China in 2015. You can see Can you see
+
+891
+00:52:01,000 --> 00:52:07,359
+that?info. Now there is this ad of this
+
+892
+00:52:04,400 --> 00:52:10,880
+dude wearing uh sunglasses. You know
+
+893
+00:52:07,359 --> 00:52:14,040
+that is not my ad. somebody added there.
+
+894
+00:52:10,880 --> 00:52:16,960
+Okay, that is not me. So
+
+895
+00:52:14,040 --> 00:52:19,359
+apparently in China when you view my
+
+896
+00:52:16,960 --> 00:52:20,119
+website in China because my website is
+
+897
+00:52:19,359 --> 00:52:21,880
+not
+
+898
+00:52:20,119 --> 00:52:23,880
+HTTP
+
+899
+00:52:21,880 --> 00:52:28,000
+they
+
+900
+00:52:23,880 --> 00:52:31,480
+inject ads into my website and they
+
+901
+00:52:28,000 --> 00:52:35,200
+remove Google's oh wait okay so I had
+
+902
+00:52:31,480 --> 00:52:36,839
+Google's ad before but anyway they added
+
+903
+00:52:35,200 --> 00:52:40,720
+their
+
+904
+00:52:36,839 --> 00:52:45,119
+own ad. Okay so again it happened again
+
+905
+00:52:40,720 --> 00:52:47,520
+here. Okay. So, it happened again here
+
+906
+00:52:45,119 --> 00:52:51,280
+and you know I have friends in China
+
+907
+00:52:47,520 --> 00:52:53,559
+back then cuz I was uh in Chinese forum
+
+908
+00:52:51,280 --> 00:52:57,400
+talking to China's
+
+909
+00:52:53,559 --> 00:53:02,240
+programmers. Uh then they showed
+
+910
+00:52:57,400 --> 00:53:05,280
+me you know so you know so these are ISP
+
+911
+00:53:02,240 --> 00:53:07,599
+injection China did it. I don't know if
+
+912
+00:53:05,280 --> 00:53:11,599
+it's legal. I don't know if it's like
+
+913
+00:53:07,599 --> 00:53:14,079
+like government are doing it or like
+
+914
+00:53:11,599 --> 00:53:17,440
+some third party. I'm not sure but they
+
+915
+00:53:14,079 --> 00:53:20,559
+are doing it back back then. Okay. I
+
+916
+00:53:17,440 --> 00:53:23,720
+don't know about now. So this why can
+
+917
+00:53:20,559 --> 00:53:26,640
+this happen? Because I don't have
+
+918
+00:53:23,720 --> 00:53:29,280
+https. Okay. That's is like that's what
+
+919
+00:53:26,640 --> 00:53:33,800
+you are saying so excited. Oh s but you
+
+920
+00:53:29,280 --> 00:53:33,800
+did you know this? Did you know that?
+
+921
+00:53:33,839 --> 00:53:40,480
+But you didn't know what's happening is
+
+922
+00:53:36,880 --> 00:53:44,119
+that there is a magnitude bigger scam
+
+923
+00:53:40,480 --> 00:53:48,760
+that is Google that is
+
+924
+00:53:44,119 --> 00:53:51,920
+Google and uh they brainwashed you guys
+
+925
+00:53:48,760 --> 00:53:54,359
+a so you guys don't know so you you guys
+
+926
+00:53:51,920 --> 00:53:57,680
+like promoting the scam for
+
+927
+00:53:54,359 --> 00:54:02,079
+Google you know so effectively now they
+
+928
+00:53:57,680 --> 00:54:04,079
+are banning a few million websites okay
+
+929
+00:54:02,079 --> 00:54:07,200
+like websites like mine
+
+930
+00:54:04,079 --> 00:54:10,640
+like I have a totally fully functional
+
+931
+00:54:07,200 --> 00:54:13,520
+link in my YouTube. You click it, it
+
+932
+00:54:10,640 --> 00:54:16,400
+says, you know, doesn't work. Then it
+
+933
+00:54:13,520 --> 00:54:20,000
+tell you a scary things like, oh, this
+
+934
+00:54:16,400 --> 00:54:21,400
+site is not secure. Maybe you think re,
+
+935
+00:54:20,000 --> 00:54:25,359
+you know,
+
+936
+00:54:21,400 --> 00:54:27,680
+reconsider. them, Google. And UAZ
+
+937
+00:54:25,359 --> 00:54:29,240
+is like helping them promote it like but
+
+938
+00:54:27,680 --> 00:54:32,240
+you don't know, you know, you don't know
+
+939
+00:54:29,240 --> 00:54:34,280
+stuff. You need security because it's so
+
+940
+00:54:32,240 --> 00:54:36,839
+important. Oh, look look look ISP
+
+941
+00:54:34,280 --> 00:54:40,319
+injection. You don't know a
+
+942
+00:54:36,839 --> 00:54:42,720
+thing now. Now, of course, it's a choice
+
+943
+00:54:40,319 --> 00:54:45,839
+to do it. But, but what Google should
+
+944
+00:54:42,720 --> 00:54:49,880
+not do in the browser is that you know
+
+945
+00:54:45,839 --> 00:54:53,440
+they they prevent link perfectly working
+
+946
+00:54:49,880 --> 00:54:56,359
+website. They and no fishing, no more
+
+947
+00:54:53,440 --> 00:55:00,319
+wear, not asking your credit
+
+948
+00:54:56,359 --> 00:55:02,359
+card. You know, my website very popular
+
+949
+00:55:00,319 --> 00:55:06,000
+by the way.
+
+950
+00:55:02,359 --> 00:55:08,400
+uh you know Google know Google is fully
+
+951
+00:55:06,000 --> 00:55:11,119
+capable of knowing if a website is like
+
+952
+00:55:08,400 --> 00:55:12,920
+doing scams okay they are too powerful
+
+953
+00:55:11,119 --> 00:55:16,400
+to not know they they know
+
+954
+00:55:12,920 --> 00:55:17,599
+everything but they but but they they
+
+955
+00:55:16,400 --> 00:55:19,839
+going to you know they're going to
+
+956
+00:55:17,599 --> 00:55:21,280
+prevent people visiting your site anyway
+
+957
+00:55:19,839 --> 00:55:23,359
+they know your website don't have
+
+958
+00:55:21,280 --> 00:55:25,920
+viruses they know what your website is
+
+959
+00:55:23,359 --> 00:55:28,240
+not for shopping does not ask for credit
+
+960
+00:55:25,920 --> 00:55:31,359
+card or personal information they know
+
+961
+00:55:28,240 --> 00:55:36,119
+it but they're going to say oh this site
+
+962
+00:55:31,359 --> 00:55:40,319
+It is uh Jesus something HTTPS cryptic
+
+963
+00:55:36,119 --> 00:55:43,280
+insecure ISP something something message
+
+964
+00:55:40,319 --> 00:55:45,640
+something protocol protocol them
+
+965
+00:55:43,280 --> 00:55:50,119
+okay that's what hap that's what is
+
+966
+00:55:45,640 --> 00:55:53,440
+happening and even like I demonstrated
+
+967
+00:55:50,119 --> 00:55:58,839
+yesterday you know in in fire let me
+
+968
+00:55:53,440 --> 00:56:01,520
+show you okay so go to YouTube search
+
+969
+00:55:58,839 --> 00:56:04,799
+for gets me angry
+
+970
+00:56:01,520 --> 00:56:07,280
+AZ, are you here still? So, let me let
+
+971
+00:56:04,799 --> 00:56:08,720
+me prompt you. AZ, so right now I'm
+
+972
+00:56:07,280 --> 00:56:11,760
+talking to you. I don't know who you
+
+973
+00:56:08,720 --> 00:56:15,119
+are. I think you are a good person. I
+
+974
+00:56:11,760 --> 00:56:17,880
+appreciate you talking, but but let's,
+
+975
+00:56:15,119 --> 00:56:21,839
+you know, talk about this
+
+976
+00:56:17,880 --> 00:56:25,839
+thing. A says SSL is a global
+
+977
+00:56:21,839 --> 00:56:27,920
+requirement, an an easy implementation.
+
+978
+00:56:25,839 --> 00:56:31,079
+It has nothing to do with anything you
+
+979
+00:56:27,920 --> 00:56:31,079
+are saying.
+
+980
+00:56:31,839 --> 00:56:38,319
+Are you def Did you just listen to what
+
+981
+00:56:34,160 --> 00:56:42,880
+I'm I said before you know like click on
+
+982
+00:56:38,319 --> 00:56:47,119
+YouTube s okay live fantastic I'm doing
+
+983
+00:56:42,880 --> 00:56:50,319
+this live today episode 657 emac this
+
+984
+00:56:47,119 --> 00:56:54,119
+generic map functions okay uh actually
+
+985
+00:56:50,319 --> 00:56:57,280
+we need to go on writing the tutorial
+
+986
+00:56:54,119 --> 00:56:59,559
+but let's do the digression okay so I
+
+987
+00:56:57,280 --> 00:57:01,960
+did this fantastic
+
+988
+00:56:59,559 --> 00:57:04,880
+um animation
+
+989
+00:57:01,960 --> 00:57:06,720
+yesterday. Uh yeah. Okay. So, let me
+
+990
+00:57:04,880 --> 00:57:09,720
+let's digression. Okay. Let's forget
+
+991
+00:57:06,720 --> 00:57:12,240
+about the emac this
+
+992
+00:57:09,720 --> 00:57:14,559
+technicality. We did this beautiful
+
+993
+00:57:12,240 --> 00:57:15,559
+thing yesterday mathematics. Okay. Let
+
+994
+00:57:14,559 --> 00:57:18,040
+me show you
+
+995
+00:57:15,559 --> 00:57:21,839
+something.
+
+996
+00:57:18,040 --> 00:57:26,160
+Uh okay. This is animation created by
+
+997
+00:57:21,839 --> 00:57:28,640
+Wufam language. Okay. So, you just copy
+
+998
+00:57:26,160 --> 00:57:31,359
+the code.
+
+999
+00:57:28,640 --> 00:57:31,359
+Start wam
+
+1000
+00:57:34,119 --> 00:57:40,040
+language. Cheers.
+
+1001
+00:57:36,680 --> 00:57:42,880
+Tea. You know tea got this
+
+1002
+00:57:40,040 --> 00:57:44,200
+ingredients, some chemicals that calms
+
+1003
+00:57:42,880 --> 00:57:47,200
+your
+
+1004
+00:57:44,200 --> 00:57:49,440
+nerves. That's why you see Chinese, you
+
+1005
+00:57:47,200 --> 00:57:50,520
+know, the in kung fu movies, they always
+
+1006
+00:57:49,440 --> 00:57:54,079
+sip
+
+1007
+00:57:50,520 --> 00:57:57,319
+tea. So, we need to have some tea before
+
+1008
+00:57:54,079 --> 00:57:57,319
+a fight.
+
+1009
+00:58:04,640 --> 00:58:11,359
+So, lots of comments. Okay. So, if you
+
+1010
+00:58:07,839 --> 00:58:14,960
+need me to address your question, tag my
+
+1011
+00:58:11,359 --> 00:58:18,160
+name. Okay. Because I, you know,
+
+1012
+00:58:14,960 --> 00:58:22,319
+u got too many things going on. Okay.
+
+1013
+00:58:18,160 --> 00:58:24,280
+New wam language page three. Shift enter
+
+1014
+00:58:22,319 --> 00:58:28,520
+to evaluate.
+
+1015
+00:58:24,280 --> 00:58:32,400
+Now control scroll up to
+
+1016
+00:58:28,520 --> 00:58:35,079
+magnify. Now paste the code. Copy it
+
+1017
+00:58:32,400 --> 00:58:38,319
+from Kadi website.
+
+1018
+00:58:35,079 --> 00:58:41,599
+Beautiful. Okay. So paste the code
+
+1019
+00:58:38,319 --> 00:58:43,720
+there. Oh, now it's too big. Okay.
+
+1020
+00:58:41,599 --> 00:58:46,720
+That's uh
+
+1021
+00:58:43,720 --> 00:58:46,720
+150.
+
+1022
+00:58:47,480 --> 00:58:51,359
+Uh okay. So,
+
+1023
+00:58:52,920 --> 00:59:01,839
+actually that's still too big. Let's
+
+1024
+00:58:56,319 --> 00:59:05,960
+make it uh let's make it 125. Okay. Now,
+
+1025
+00:59:01,839 --> 00:59:09,200
+split control shift D to split into two
+
+1026
+00:59:05,960 --> 00:59:12,160
+sections. Now, move the cursor here.
+
+1027
+00:59:09,200 --> 00:59:14,760
+Control shift N to make it type set.
+
+1028
+00:59:12,160 --> 00:59:19,040
+Now, you got beautiful type set things.
+
+1029
+00:59:14,760 --> 00:59:22,599
+Okay. Control shift D to split again.
+
+1030
+00:59:19,040 --> 00:59:26,000
+Now load my packages. Shift enter.
+
+1031
+00:59:22,599 --> 00:59:29,200
+Fantastic. They are loaded. Now shift
+
+1032
+00:59:26,000 --> 00:59:33,680
+enter to evaluate this thing. Then you
+
+1033
+00:59:29,200 --> 00:59:36,079
+got this beautiful thing. Okay. Now
+
+1034
+00:59:33,680 --> 00:59:38,760
+you've seen this. You probably tired of
+
+1035
+00:59:36,079 --> 00:59:41,760
+it. Let's try something uh different.
+
+1036
+00:59:38,760 --> 00:59:45,040
+Okay. So yeah, let's try this one.
+
+1037
+00:59:41,760 --> 00:59:49,480
+Flashing diamond. It's going to be
+
+1038
+00:59:45,040 --> 00:59:54,040
+shiny. Okay. So, select all
+
+1039
+00:59:49,480 --> 00:59:58,880
+paste. Now, control shift D to split it.
+
+1040
+00:59:54,040 --> 00:59:58,880
+Okay. Now, evaluate that
+
+1041
+01:00:08,760 --> 01:00:16,640
+part. There it is. Okay. There it is.
+
+1042
+01:00:12,720 --> 01:00:16,640
+Fantastic and beautiful
+
+1043
+01:00:20,440 --> 01:00:27,599
+animation. Okay, let's export it to a
+
+1044
+01:00:24,440 --> 01:00:30,839
+movie. So, let's say flashing diamond.
+
+1045
+01:00:27,599 --> 01:00:33,480
+Let's save it. Let's just say xx.
+
+1046
+01:00:30,839 --> 01:00:38,760
+Okay, xx
+
+1047
+01:00:33,480 --> 01:00:43,760
+diamond. Okay. And let's say MP4.
+
+1048
+01:00:38,760 --> 01:00:43,760
+Okay. Shift enter to run it.
+
+1049
+01:00:59,760 --> 01:01:05,280
+Okay. AZ says, "I'll be here every
+
+1050
+01:01:02,400 --> 01:01:08,000
+stream until people are not at risk."
+
+1051
+01:01:05,280 --> 01:01:10,240
+That's not good. If you do that, then
+
+1052
+01:01:08,000 --> 01:01:12,200
+then I know what you are here for. You
+
+1053
+01:01:10,240 --> 01:01:15,839
+are like a
+
+1054
+01:01:12,200 --> 01:01:18,240
+spam. Then you get banned. Okay? So,
+
+1055
+01:01:15,839 --> 01:01:18,240
+don't do
+
+1056
+01:01:19,160 --> 01:01:27,440
+that. Okay? In fact, I'm kind of Anyway,
+
+1057
+01:01:23,599 --> 01:01:28,359
+so MP4. Now, let's go to desktop. Let's
+
+1058
+01:01:27,440 --> 01:01:31,880
+go to
+
+1059
+01:01:28,359 --> 01:01:36,640
+documents. So, you got XX
+
+1060
+01:01:31,880 --> 01:01:36,640
+Diamond. So, there it is. Now, open
+
+1061
+01:01:37,960 --> 01:01:41,440
+it. There it
+
+1062
+01:01:42,599 --> 01:01:50,240
+is. Okay. And now I want to do I want to
+
+1063
+01:01:46,720 --> 01:01:54,960
+ex export it as a GIF. So all you have
+
+1064
+01:01:50,240 --> 01:01:54,960
+to do is change the file name. Shift
+
+1065
+01:02:12,599 --> 01:02:19,520
+enter. Okay.
+
+1066
+01:02:15,400 --> 01:02:21,799
+So refresh. So wait, where is my gift?
+
+1067
+01:02:19,520 --> 01:02:25,240
+There it is. So open
+
+1068
+01:02:21,799 --> 01:02:32,480
+it. Fantastic. There it
+
+1069
+01:02:25,240 --> 01:02:32,480
+is. So control H for the original image
+
+1070
+01:02:32,599 --> 01:02:41,280
+size. Beautiful. Okay, we did this
+
+1071
+01:02:37,559 --> 01:02:44,079
+yesterday. Uh but well actually I did it
+
+1072
+01:02:41,280 --> 01:02:47,359
+offline, but I showed how to do it.
+
+1073
+01:02:44,079 --> 01:02:52,079
+Okay, but now I want to Yeah. So let's
+
+1074
+01:02:47,359 --> 01:02:56,359
+go back to YouTube. So I say you know
+
+1075
+01:02:52,079 --> 01:02:59,760
+notes at this link. So you click
+
+1076
+01:02:56,359 --> 01:03:03,240
+it in Firefox. Then you say secure
+
+1077
+01:02:59,760 --> 01:03:08,079
+connection failed because they
+
+1078
+01:03:03,240 --> 01:03:11,680
+automatically put a S in my URL. They
+
+1079
+01:03:08,079 --> 01:03:15,160
+changed my URL. Does not you see there
+
+1080
+01:03:11,680 --> 01:03:18,319
+is no S there.
+
+1081
+01:03:15,160 --> 01:03:21,119
+http. So what can you do? So what you
+
+1082
+01:03:18,319 --> 01:03:21,119
+can do is you
+
+1083
+01:03:21,720 --> 01:03:30,880
+copy you you copy this you know. So Ctrl
+
+1084
+01:03:25,119 --> 01:03:33,200
+C copy it new tab paste it and then you
+
+1085
+01:03:30,880 --> 01:03:36,319
+got dot dot dot because these Google
+
+1086
+01:03:33,200 --> 01:03:39,359
+scams you see the way they go into to
+
+1087
+01:03:36,319 --> 01:03:42,240
+prevent you from you know they they they
+
+1088
+01:03:39,359 --> 01:03:46,240
+do like today you know. So anyway, so
+
+1089
+01:03:42,240 --> 01:03:48,880
+what so you right click and copy link.
+
+1090
+01:03:46,240 --> 01:03:51,359
+Okay, so if you do that, they know you
+
+1091
+01:03:48,880 --> 01:03:54,240
+copied the link. Okay, so they tracked,
+
+1092
+01:03:51,359 --> 01:03:58,559
+they get information about it. So now,
+
+1093
+01:03:54,240 --> 01:04:01,359
+new tab, paste it. You see, you know,
+
+1094
+01:03:58,559 --> 01:04:04,079
+it's a scunt. Okay, so if let's
+
+1095
+01:04:01,359 --> 01:04:07,760
+go to Emacs. Okay, new buffer, paste.
+
+1096
+01:04:04,079 --> 01:04:10,799
+You see this is what you you copied. You
+
+1097
+01:04:07,760 --> 01:04:13,599
+copied YouTube redirect. So they not
+
+1098
+01:04:10,799 --> 01:04:16,240
+only know you copied a link on their
+
+1099
+01:04:13,599 --> 01:04:19,680
+website, they also know when you
+
+1100
+01:04:16,240 --> 01:04:22,720
+actually visited it. So this is this is
+
+1101
+01:04:19,680 --> 01:04:25,200
+the scum that Google and this you know
+
+1102
+01:04:22,720 --> 01:04:27,359
+these big giant corporations are trying
+
+1103
+01:04:25,200 --> 01:04:27,359
+to
+
+1104
+01:04:27,559 --> 01:04:34,319
+do. Okay. And uh
+
+1105
+01:04:31,160 --> 01:04:37,400
+then Okay. So then you got this part.
+
+1106
+01:04:34,319 --> 01:04:40,960
+This this this, you know, this is
+
+1107
+01:04:37,400 --> 01:04:43,440
+actually what a what a scam, you
+
+1108
+01:04:40,960 --> 01:04:44,599
+know, extremely scam, you know, this
+
+1109
+01:04:43,440 --> 01:04:47,839
+this
+
+1110
+01:04:44,599 --> 01:04:50,000
+thing. But let me show you. So, so what
+
+1111
+01:04:47,839 --> 01:04:52,720
+you want to do is close that. Okay. What
+
+1112
+01:04:50,000 --> 01:04:57,440
+you want to do is you want to use a good
+
+1113
+01:04:52,720 --> 01:05:02,000
+browser. So brave okay brave does not
+
+1114
+01:04:57,440 --> 01:05:04,039
+follow the what you know brave does not
+
+1115
+01:05:02,000 --> 01:05:08,240
+follow the deep state things that
+
+1116
+01:05:04,039 --> 01:05:12,119
+YouTube google is doing. Okay. So if you
+
+1117
+01:05:08,240 --> 01:05:16,440
+go to brave then same thing. Okay, new
+
+1118
+01:05:12,119 --> 01:05:18,839
+tab, YouTube. Search for
+
+1119
+01:05:16,440 --> 01:05:21,799
+XR. Okay,
+
+1120
+01:05:18,839 --> 01:05:23,720
+so go
+
+1121
+01:05:21,799 --> 01:05:26,599
+there. Turn on
+
+1122
+01:05:23,720 --> 01:05:31,559
+JavaScript so Google knows what you're
+
+1123
+01:05:26,599 --> 01:05:35,599
+doing. Okay, now you click on the same
+
+1124
+01:05:31,559 --> 01:05:40,559
+video. Okay, stop it. Then expand that
+
+1125
+01:05:35,599 --> 01:05:43,079
+and magnify the same link. Okay, now you
+
+1126
+01:05:40,559 --> 01:05:46,359
+click on that link.
+
+1127
+01:05:43,079 --> 01:05:48,920
+Click. Oh, it works
+
+1128
+01:05:46,359 --> 01:05:52,960
+perfectly. There's no
+
+1129
+01:05:48,920 --> 01:05:56,520
+shenanigans. There's no mysterious. Oh,
+
+1130
+01:05:52,960 --> 01:06:01,200
+hacking scam crypto.
+
+1131
+01:05:56,520 --> 01:06:05,000
+ That's browser. Okay, let's try uh
+
+1132
+01:06:01,200 --> 01:06:07,520
+another browser I haven't tried long
+
+1133
+01:06:05,000 --> 01:06:10,200
+time. Vivi.
+
+1134
+01:06:07,520 --> 01:06:13,280
+Okay, which is like open source kind of
+
+1135
+01:06:10,200 --> 01:06:15,839
+thing. You see the nasty thing about
+
+1136
+01:06:13,280 --> 01:06:19,599
+this is let's try it in Firefox. Okay,
+
+1137
+01:06:15,839 --> 01:06:22,160
+the Firefox you click it, you get this
+
+1138
+01:06:19,599 --> 01:06:26,079
+secure connection failed. Okay. But if
+
+1139
+01:06:22,160 --> 01:06:26,440
+you go to the the browser settings, you
+
+1140
+01:06:26,079 --> 01:06:29,400
+can
+
+1141
+01:06:26,440 --> 01:06:34,319
+[Music]
+
+1142
+01:06:29,400 --> 01:06:37,319
+see I have it turned off. Privacy and
+
+1143
+01:06:34,319 --> 01:06:37,319
+security,
+
+1144
+01:06:38,400 --> 01:06:44,039
+uh, history, password, auto field. I
+
+1145
+01:06:41,280 --> 01:06:48,000
+turn them all off. I don't want auto,
+
+1146
+01:06:44,039 --> 01:06:50,359
+nothing. Okay. So permissions Firefox uh
+
+1147
+01:06:48,000 --> 01:06:52,760
+security dis uh
+
+1148
+01:06:50,359 --> 01:06:54,599
+certificates there
+
+1149
+01:06:52,760 --> 01:06:59,839
+httpsson
+
+1150
+01:06:54,599 --> 01:07:01,079
+mode don't enable httpsson mode I have
+
+1151
+01:06:59,839 --> 01:07:04,640
+it
+
+1152
+01:07:01,079 --> 01:07:08,200
+clicked but it ignores it beginning
+
+1153
+01:07:04,640 --> 01:07:12,160
+about a month ago. Okay it just ignore
+
+1154
+01:07:08,200 --> 01:07:15,359
+it. So this is uh extreme nasty you know
+
+1155
+01:07:12,160 --> 01:07:18,359
+by default that is on. By default this
+
+1156
+01:07:15,359 --> 01:07:21,520
+uh I believe it's on.
+
+1157
+01:07:18,359 --> 01:07:25,200
+Okay but you know you you turn it off
+
+1158
+01:07:21,520 --> 01:07:28,440
+but it just ignore it. That's that's the
+
+1159
+01:07:25,200 --> 01:07:33,520
+that's why this is nasty.
+
+1160
+01:07:28,440 --> 01:07:35,839
+Okay. So now um you know so so this
+
+1161
+01:07:33,520 --> 01:07:38,880
+demonstrate you know this Google this
+
+1162
+01:07:35,839 --> 01:07:41,599
+this mainstream deep deep state um
+
+1163
+01:07:38,880 --> 01:07:44,240
+corporations mega ja corporations they
+
+1164
+01:07:41,599 --> 01:07:46,400
+are really doing you know so it I mean
+
+1165
+01:07:44,240 --> 01:07:49,680
+this demonstrate what they are doing is
+
+1166
+01:07:46,400 --> 01:07:52,079
+not just for the good heart of it okay
+
+1167
+01:07:49,680 --> 01:07:55,599
+they say they are actually trying to
+
+1168
+01:07:52,079 --> 01:07:58,400
+promote security but but actually that's
+
+1169
+01:07:55,599 --> 01:08:01,359
+not really that's not really the reason
+
+1170
+01:07:58,400 --> 01:08:04,359
+okay they are are pro promoting security
+
+1171
+01:08:01,359 --> 01:08:04,359
+
+1172
+01:08:06,000 --> 01:08:11,440
+uh and they fool a lot of programmers
+
+1173
+01:08:08,799 --> 01:08:11,440
+you know tech
+
+1174
+01:08:12,839 --> 01:08:18,640
+nerds. Okay so let me check let me see
+
+1175
+01:08:16,239 --> 01:08:20,679
+what we going to do because I already
+
+1176
+01:08:18,640 --> 01:08:22,010
+talked for over an
+
+1177
+01:08:20,679 --> 01:08:25,100
+hour.
+
+1178
+01:08:22,010 --> 01:08:25,100
+[Music]
+
+1179
+01:08:25,480 --> 01:08:31,759
+Um, you know, a is like just dribbling
+
+1180
+01:08:33,239 --> 01:08:38,880
+about. I don't know who you are. I don't
+
+1181
+01:08:35,920 --> 01:08:41,600
+know what your intention. Okay. Don't uh
+
+1182
+01:08:38,880 --> 01:08:41,600
+spam and
+
+1183
+01:08:45,239 --> 01:08:50,080
+stuff. Interesting sub subject. What
+
+1184
+01:08:47,920 --> 01:08:53,480
+kind of forum can I pay attention to?
+
+1185
+01:08:50,080 --> 01:08:58,799
+Diego says asking about Chinese. Yeah.
+
+1186
+01:08:53,480 --> 01:09:00,440
+So around year 2012, I started to know
+
+1187
+01:08:58,799 --> 01:09:02,960
+about Chinese
+
+1188
+01:09:00,440 --> 01:09:06,480
+programmers. Uh because I was in
+
+1189
+01:09:02,960 --> 01:09:08,679
+poverty. I asked for help. I was in
+
+1190
+01:09:06,480 --> 01:09:12,279
+extreme poverty. And
+
+1191
+01:09:08,679 --> 01:09:15,199
+uh then all of a
+
+1192
+01:09:12,279 --> 01:09:17,239
+sudden, you know, I I asked for help.
+
+1193
+01:09:15,199 --> 01:09:20,799
+So, I got about
+
+1194
+01:09:17,239 --> 01:09:24,400
+$8,000 donation from people. And it
+
+1195
+01:09:20,799 --> 01:09:27,199
+turns out majority of them are from
+
+1196
+01:09:24,400 --> 01:09:29,759
+Chinese in China. You know, that's a
+
+1197
+01:09:27,199 --> 01:09:32,400
+extreme. That's totally surprising to me
+
+1198
+01:09:29,759 --> 01:09:35,279
+because I never wrote I didn't, you
+
+1199
+01:09:32,400 --> 01:09:38,000
+know, all my blogs are in English. I do
+
+1200
+01:09:35,279 --> 01:09:40,000
+not know anyone in China. Okay? I never
+
+1201
+01:09:38,000 --> 01:09:42,080
+talked to like Chinese programmers. I
+
+1202
+01:09:40,000 --> 01:09:46,679
+don't know nothing about what they doing
+
+1203
+01:09:42,080 --> 01:09:49,759
+in China. This is this is around
+
+1204
+01:09:46,679 --> 01:09:52,239
+2012. I know that some people in China
+
+1205
+01:09:49,759 --> 01:09:54,480
+and Taiwan where I grew up, I know that
+
+1206
+01:09:52,239 --> 01:09:57,120
+some of them they they know me, you
+
+1207
+01:09:54,480 --> 01:09:59,120
+know, because I have a blog. I say, you
+
+1208
+01:09:57,120 --> 01:10:01,360
+know, I was born in Taiwan. So, some
+
+1209
+01:09:59,120 --> 01:10:02,840
+Chinese I know, you know, some of them
+
+1210
+01:10:01,360 --> 01:10:06,400
+know me, but I never
+
+1211
+01:10:02,840 --> 01:10:10,320
+know any of them. But then when I ask
+
+1212
+01:10:06,400 --> 01:10:10,320
+for donation because I'm about to
+
+1213
+01:10:10,520 --> 01:10:15,840
+die, all of a sudden I see these Chinese
+
+1214
+01:10:13,920 --> 01:10:17,679
+people in China. I never know. I never
+
+1215
+01:10:15,840 --> 01:10:21,199
+talked about, you know, I don't know.
+
+1216
+01:10:17,679 --> 01:10:23,400
+They they donated the most money to me.
+
+1217
+01:10:21,199 --> 01:10:28,280
+Okay, so that is
+
+1218
+01:10:23,400 --> 01:10:29,880
+very very much something. Okay, that is
+
+1219
+01:10:28,280 --> 01:10:31,920
+incredible
+
+1220
+01:10:29,880 --> 01:10:34,320
+because you know I don't want to get
+
+1221
+01:10:31,920 --> 01:10:37,600
+into the rant because I've been writing
+
+1222
+01:10:34,320 --> 01:10:41,760
+Emacs tutorials for 10 years before that
+
+1223
+01:10:37,600 --> 01:10:44,480
+since 2006. I'm very well known among
+
+1224
+01:10:41,760 --> 01:10:48,000
+Emacs community known by just about
+
+1225
+01:10:44,480 --> 01:10:52,000
+everyone and any Emacs user who ever
+
+1226
+01:10:48,000 --> 01:10:54,199
+read Emacs stuff online or write blogs
+
+1227
+01:10:52,000 --> 01:10:57,560
+about Emacs, they know
+
+1228
+01:10:54,199 --> 01:11:00,880
+me. But when I'm dying of
+
+1229
+01:10:57,560 --> 01:11:03,080
+hunger, you know, the the the the most
+
+1230
+01:11:00,880 --> 01:11:07,159
+the money came from
+
+1231
+01:11:03,080 --> 01:11:11,080
+China, not from this American white
+
+1232
+01:11:07,159 --> 01:11:14,320
+fox. That is the point.
+
+1233
+01:11:11,080 --> 01:11:17,199
+Okay. So that you know I you know so
+
+1234
+01:11:14,320 --> 01:11:19,679
+that that so I started to you know so
+
+1235
+01:11:17,199 --> 01:11:22,320
+they donated to me. So I started to uh
+
+1236
+01:11:19,679 --> 01:11:26,520
+talk to them. I went, you know, I joined
+
+1237
+01:11:22,320 --> 01:11:29,199
+the Chinese um programming community in
+
+1238
+01:11:26,520 --> 01:11:31,120
+China, you know, trying to learn about,
+
+1239
+01:11:29,199 --> 01:11:33,920
+you know, something and started to
+
+1240
+01:11:31,120 --> 01:11:36,719
+practice typing Chinese because I I
+
+1241
+01:11:33,920 --> 01:11:38,640
+haven't typed Chinese for like for I I
+
+1242
+01:11:36,719 --> 01:11:40,960
+don't, you know, for for for for a
+
+1243
+01:11:38,640 --> 01:11:43,199
+decade.
+
+1244
+01:11:40,960 --> 01:11:46,120
+So anyway, that's that's why I'm that's
+
+1245
+01:11:43,199 --> 01:11:49,199
+how that is
+
+1246
+01:11:46,120 --> 01:11:51,600
+how then after a year then you know you
+
+1247
+01:11:49,199 --> 01:11:56,080
+know you know they they showed me that
+
+1248
+01:11:51,600 --> 01:11:59,600
+my my my website got ISP injection in
+
+1249
+01:11:56,080 --> 01:12:02,239
+China. Okay. You know, so lots and and
+
+1250
+01:11:59,600 --> 01:12:05,600
+also in Chinese programmer, I I still
+
+1251
+01:12:02,239 --> 01:12:09,199
+don't know them that much, but it's uh
+
+1252
+01:12:05,600 --> 01:12:12,000
+you know, they have their community
+
+1253
+01:12:09,199 --> 01:12:15,199
+uh they have their like own kind of
+
+1254
+01:12:12,000 --> 01:12:17,120
+habits and culture. Okay. Uh they they
+
+1255
+01:12:15,199 --> 01:12:19,360
+become so great today. You know, the
+
+1256
+01:12:17,120 --> 01:12:22,239
+China the rise of China in the past 10
+
+1257
+01:12:19,360 --> 01:12:24,320
+years is just incredible. And I'm really
+
+1258
+01:12:22,239 --> 01:12:28,159
+happy to see it too because I'm Chinese
+
+1259
+01:12:24,320 --> 01:12:31,600
+blood. So, um, you know, and then the
+
+1260
+01:12:28,159 --> 01:12:34,760
+USA government is just, you know, lying
+
+1261
+01:12:31,600 --> 01:12:37,840
+like lying through their teeth every day
+
+1262
+01:12:34,760 --> 01:12:39,440
+about about China and about Taiwan.
+
+1263
+01:12:37,840 --> 01:12:42,719
+Okay, let's forget about China, about
+
+1264
+01:12:39,440 --> 01:12:45,199
+Taiwan. I was born in Taiwan. The USA
+
+1265
+01:12:42,719 --> 01:12:48,560
+government lying through their teeth
+
+1266
+01:12:45,199 --> 01:12:48,560
+about Taiwan since
+
+1267
+01:12:52,040 --> 01:12:56,800
+1990s. Okay. So that's that's kind of
+
+1268
+01:12:54,719 --> 01:13:00,159
+that's you know that's about so China
+
+1269
+01:12:56,800 --> 01:13:02,560
+they they rose incredibly you know they
+
+1270
+01:13:00,159 --> 01:13:06,400
+like today they are like they they they
+
+1271
+01:13:02,560 --> 01:13:09,080
+overtook USA they became the the the
+
+1272
+01:13:06,400 --> 01:13:11,679
+number one in just in everything in
+
+1273
+01:13:09,080 --> 01:13:14,640
+anything you know I I believe there's
+
+1274
+01:13:11,679 --> 01:13:17,880
+only one thing that we Americans are
+
+1275
+01:13:14,640 --> 01:13:22,320
+still doing better than China that is
+
+1276
+01:13:17,880 --> 01:13:24,760
+Elamusk's space X rocket okay that is
+
+1277
+01:13:22,320 --> 01:13:29,360
+phenomenon
+
+1278
+01:13:24,760 --> 01:13:32,000
+that only that not NAZA, not whatever
+
+1279
+01:13:29,360 --> 01:13:35,120
+our technology, not Google, not our
+
+1280
+01:13:32,000 --> 01:13:39,080
+programming languages, not not the HTTP
+
+1281
+01:13:35,120 --> 01:13:43,040
+crap, not nothing, not programming, not
+
+1282
+01:13:39,080 --> 01:13:45,600
+AI, not not you know, we are doing we
+
+1283
+01:13:43,040 --> 01:13:47,679
+are losing to China. Okay, but there's
+
+1284
+01:13:45,600 --> 01:13:50,480
+one thing not space station, not not
+
+1285
+01:13:47,679 --> 01:13:52,480
+space technology, not medicine, not not
+
+1286
+01:13:50,480 --> 01:13:54,800
+chemistry, not what whatever. But
+
+1287
+01:13:52,480 --> 01:13:57,280
+there's one thing as far as you ask me,
+
+1288
+01:13:54,800 --> 01:14:00,719
+you know, my judgment, there's one thing
+
+1289
+01:13:57,280 --> 01:14:05,920
+we do better than China and in fact a
+
+1290
+01:14:00,719 --> 01:14:09,199
+magnitude better is Ela Musk's Space X
+
+1291
+01:14:05,920 --> 01:14:13,239
+rocket that can launch that can launch
+
+1292
+01:14:09,199 --> 01:14:16,640
+and and come back and land.
+
+1293
+01:14:13,239 --> 01:14:19,920
+Okay. And has a payload far far more
+
+1294
+01:14:16,640 --> 01:14:20,920
+than China's rocket right now. Okay. So
+
+1295
+01:14:19,920 --> 01:14:23,760
+that
+
+1296
+01:14:20,920 --> 01:14:26,480
+is Elamusk that you know that is one
+
+1297
+01:14:23,760 --> 01:14:29,719
+thing that we still do better but but
+
+1298
+01:14:26,480 --> 01:14:33,040
+everything else we
+
+1299
+01:14:29,719 --> 01:14:35,199
+became you know we became you know
+
+1300
+01:14:33,040 --> 01:14:38,159
+because because of the deep state
+
+1301
+01:14:35,199 --> 01:14:41,840
+corrupt politicians like the a anything
+
+1302
+01:14:38,159 --> 01:14:44,920
+idiot like saying about HTTPS the Google
+
+1303
+01:14:41,840 --> 01:14:47,679
+you know they are doing all these nasty
+
+1304
+01:14:44,920 --> 01:14:50,480
+things. Do they like they you know what
+
+1305
+01:14:47,679 --> 01:14:54,560
+why are they pushing HTTPS? Of course.
+
+1306
+01:14:50,480 --> 01:14:57,020
+Oh, for security for your own good. But
+
+1307
+01:14:54,560 --> 01:15:00,760
+is it actually what they doing?
+
+1308
+01:14:57,020 --> 01:15:00,760
+[Laughter]
+
+1309
+01:15:03,800 --> 01:15:11,920
+No. So that is uh so so you know look at
+
+1310
+01:15:08,320 --> 01:15:15,360
+Brave browser it just works. And also
+
+1311
+01:15:11,920 --> 01:15:17,560
+Apple Safari it just works. And oh yeah,
+
+1312
+01:15:15,360 --> 01:15:22,640
+let's try. We haven't tried
+
+1313
+01:15:17,560 --> 01:15:26,400
+um Vadi browser. So let's open Vavi. I
+
+1314
+01:15:22,640 --> 01:15:31,600
+haven't used Vadi for like two years or
+
+1315
+01:15:26,400 --> 01:15:35,960
+so. God, this Uh so paste it
+
+1316
+01:15:31,600 --> 01:15:39,360
+there. Paste the my
+
+1317
+01:15:35,960 --> 01:15:40,520
+YouTube and uh turn on JavaScript. Okay,
+
+1318
+01:15:39,360 --> 01:15:42,520
+turn on
+
+1319
+01:15:40,520 --> 01:15:45,920
+JavaScript.
+
+1320
+01:15:42,520 --> 01:15:47,480
+Refresh. You see, I usually even turn
+
+1321
+01:15:45,920 --> 01:15:50,760
+JavaScript
+
+1322
+01:15:47,480 --> 01:15:54,080
+off. You know, I only turn on when
+
+1323
+01:15:50,760 --> 01:15:56,719
+necessary. So, let's click on that. So,
+
+1324
+01:15:54,080 --> 01:16:02,199
+let's first of all magnify. So, you see
+
+1325
+01:15:56,719 --> 01:16:04,440
+there's no S in HTTP. Okay. So,
+
+1326
+01:16:02,199 --> 01:16:07,560
+now click on
+
+1327
+01:16:04,440 --> 01:16:10,800
+that. Ah,
+
+1328
+01:16:07,560 --> 01:16:13,920
+ So, Vad is doing the same thing.
+
+1329
+01:16:10,800 --> 01:16:16,239
+Now is it is there a browser settings?
+
+1330
+01:16:13,920 --> 01:16:16,239
+Oh
+
+1331
+01:16:17,000 --> 01:16:23,440
+Jesus. Now if in the settings if I turn
+
+1332
+01:16:20,320 --> 01:16:27,760
+off then if it still does that then it's
+
+1333
+01:16:23,440 --> 01:16:32,400
+really nasty. Okay. So
+
+1334
+01:16:27,760 --> 01:16:32,400
+um so where is the uh view
+
+1335
+01:16:33,000 --> 01:16:41,280
+options tools windows tools develops
+
+1336
+01:16:36,800 --> 01:16:44,320
+tools uh settings. Okay. Now vadi
+
+1337
+01:16:41,280 --> 01:16:48,080
+options there's like a thousands of them
+
+1338
+01:16:44,320 --> 01:16:48,080
+so it's really
+
+1339
+01:16:50,199 --> 01:16:56,679
+um you know I haven't uh used vari for
+
+1340
+01:16:54,239 --> 01:17:00,320
+over two
+
+1341
+01:16:56,679 --> 01:17:04,640
+years so wait startup close and exit
+
+1342
+01:17:00,320 --> 01:17:07,239
+updates language um so what I want is
+
+1343
+01:17:04,640 --> 01:17:11,120
+the privacy and
+
+1344
+01:17:07,239 --> 01:17:12,360
+security okay god elaborate
+
+1345
+01:17:11,120 --> 01:17:16,280
+Enable
+
+1346
+01:17:12,360 --> 01:17:19,280
+ProtonVPN. No, Proton is like
+
+1347
+01:17:16,280 --> 01:17:23,080
+questionable. Protocol handling sites
+
+1348
+01:17:19,280 --> 01:17:28,320
+can ask to handle protocols. Uh, private
+
+1349
+01:17:23,080 --> 01:17:31,239
+Windows Google extensions meet. No. Uh,
+
+1350
+01:17:28,320 --> 01:17:34,920
+I don't want any of that. Google
+
+1351
+01:17:31,239 --> 01:17:40,440
+services protection. No.
+
+1352
+01:17:34,920 --> 01:17:40,440
+DNS. No. Auto field. No.
+
+1353
+01:17:41,440 --> 01:17:45,120
+Uh god, where is the
+
+1354
+01:17:46,679 --> 01:17:51,679
+https payment methods?
+
+1355
+01:17:54,920 --> 01:17:59,359
+
+1356
+01:17:55,930 --> 01:17:59,359
+[Music]
+
+1357
+01:18:00,120 --> 01:18:08,760
+Uh yeah. So this tedious, you know, all
+
+1358
+01:18:03,199 --> 01:18:08,760
+these technology tools that makes it
+
+1359
+01:18:13,600 --> 01:18:21,199
+Allow sites to check for saved payment.
+
+1360
+01:18:16,920 --> 01:18:24,480
+No. Save and field payment methods. No.
+
+1361
+01:18:21,199 --> 01:18:27,440
+Save webpage password. No. Enable
+
+1362
+01:18:24,480 --> 01:18:29,000
+additional certificate. No. I don't want
+
+1363
+01:18:27,440 --> 01:18:32,640
+to know
+
+1364
+01:18:29,000 --> 01:18:35,360
+nothing. I don't want auto HTTPS. Where
+
+1365
+01:18:32,640 --> 01:18:38,320
+is it?
+
+1366
+01:18:35,360 --> 01:18:40,480
+Uh, and I need to magnify this page. Can
+
+1367
+01:18:38,320 --> 01:18:40,480
+I
+
+1368
+01:18:40,840 --> 01:18:49,520
+magnify? No. stupid.
+
+1369
+01:18:45,400 --> 01:18:51,159
+Uh, anyway. Okay. So, so I don't know
+
+1370
+01:18:49,520 --> 01:18:55,840
+what what
+
+1371
+01:18:51,159 --> 01:18:55,840
+um, you know. So, that's a problem. You
+
+1372
+01:18:56,199 --> 01:19:03,719
+see? Okay. So, anyway, so about the you
+
+1373
+01:18:59,640 --> 01:19:06,320
+see, but why don't I just do it? Okay.
+
+1374
+01:19:03,719 --> 01:19:09,280
+Actually, have you tried Zim browser?
+
+1375
+01:19:06,320 --> 01:19:12,080
+No. So, you know, I could
+
+1376
+01:19:09,280 --> 01:19:16,679
+uh I just need to look into, you know, I
+
+1377
+01:19:12,080 --> 01:19:20,760
+need to spend, you know, a day or two
+
+1378
+01:19:16,679 --> 01:19:24,400
+because I really look into all the
+
+1379
+01:19:20,760 --> 01:19:26,480
+details because now you see it's pretty
+
+1380
+01:19:24,400 --> 01:19:28,920
+nasty. Now they are doing these kind of
+
+1381
+01:19:26,480 --> 01:19:31,760
+things. So, you know, they prevent
+
+1382
+01:19:28,920 --> 01:19:34,760
+people going to my website. Now, let's
+
+1383
+01:19:31,760 --> 01:19:37,600
+see. Let's try Google.
+
+1384
+01:19:34,760 --> 01:19:40,480
+Okay. I don't think they do actually do
+
+1385
+01:19:37,600 --> 01:19:42,440
+it. Okay. Turn on JavaScript, you know.
+
+1386
+01:19:40,480 --> 01:19:46,360
+Let's say
+
+1387
+01:19:42,440 --> 01:19:50,080
+uh Casar Unicode. Okay. Let's search for
+
+1388
+01:19:46,360 --> 01:19:53,840
+Unicode arrows. Okay. Let's see if my
+
+1389
+01:19:50,080 --> 01:19:56,320
+you see my page is still the top top
+
+1390
+01:19:53,840 --> 01:19:59,600
+result when you search for Unicode
+
+1391
+01:19:56,320 --> 01:20:03,640
+arrows. Now let's click it and let's see
+
+1392
+01:19:59,600 --> 01:20:07,760
+if we get this HTTPS arrow. Click
+
+1393
+01:20:03,640 --> 01:20:10,880
+it. No. Okay. So it's just that YouTube
+
+1394
+01:20:07,760 --> 01:20:12,600
+is doing these nasty things. Okay. Okay.
+
+1395
+01:20:10,880 --> 01:20:15,600
+So I think
+
+1396
+01:20:12,600 --> 01:20:18,080
+what's you know what may be happening is
+
+1397
+01:20:15,600 --> 01:20:18,080
+that
+
+1398
+01:20:19,080 --> 01:20:25,199
+YouTube. Okay. Now I got better idea. So
+
+1399
+01:20:22,520 --> 01:20:28,159
+YouTube this link. So let's look at the
+
+1400
+01:20:25,199 --> 01:20:31,000
+source code. Okay. Actually, maybe it
+
+1401
+01:20:28,159 --> 01:20:34,440
+actually changed the source code
+
+1402
+01:20:31,000 --> 01:20:38,840
+even. So, control shift
+
+1403
+01:20:34,440 --> 01:20:41,640
+I to look at the source code.
+
+1404
+01:20:38,840 --> 01:20:47,280
+Inspector. So, I
+
+1405
+01:20:41,640 --> 01:20:47,280
+want to see right click
+
+1406
+01:20:47,719 --> 01:20:55,280
+inspect. You see this is what YouTube is
+
+1407
+01:20:51,199 --> 01:20:55,280
+doing. Let's see.
+
+1408
+01:20:56,280 --> 01:21:00,880
+So, okay. So,
+
+1409
+01:21:18,520 --> 01:21:25,239
+what? Yeah. So, okay. So now let's right
+
+1410
+01:21:23,239 --> 01:21:28,090
+click
+
+1411
+01:21:25,239 --> 01:21:29,960
+copy right click and
+
+1412
+01:21:28,090 --> 01:21:33,400
+[Music]
+
+1413
+01:21:29,960 --> 01:21:37,280
+copy copy out
+
+1414
+01:21:33,400 --> 01:21:40,640
+HTML and show it here. So this is what
+
+1415
+01:21:37,280 --> 01:21:40,640
+actually YouTube is
+
+1416
+01:21:43,159 --> 01:21:51,719
+doing. Okay. So highlight it. Highlight
+
+1417
+01:21:49,640 --> 01:21:56,199
+http
+
+1418
+01:21:51,719 --> 01:22:00,199
+yellow. Okay. And uh there it
+
+1419
+01:21:56,199 --> 01:22:03,360
+is. Okay. So this
+
+1420
+01:22:00,199 --> 01:22:05,320
+link. So can you see? So this link is
+
+1421
+01:22:03,360 --> 01:22:07,239
+actually just not my
+
+1422
+01:22:05,320 --> 01:22:09,400
+link.
+
+1423
+01:22:07,239 --> 01:22:14,520
+YouTube
+
+1424
+01:22:09,400 --> 01:22:14,520
+added this tracking crap.
+
+1425
+01:22:15,440 --> 01:22:17,920
+Okay.
+
+1426
+01:22:20,600 --> 01:22:27,679
+So, so you see I'm wondering if it works
+
+1427
+01:22:24,480 --> 01:22:30,000
+in Brave is because maybe Brave actually
+
+1428
+01:22:27,679 --> 01:22:31,639
+remove this tracking crap. You know,
+
+1429
+01:22:30,000 --> 01:22:35,199
+Brave has that
+
+1430
+01:22:31,639 --> 01:22:39,120
+feature and Safari didn't do anything
+
+1431
+01:22:35,199 --> 01:22:42,159
+extra. That's why Safari is not working.
+
+1432
+01:22:39,120 --> 01:22:45,440
+So this this YouTube very nasty because
+
+1433
+01:22:42,159 --> 01:22:48,800
+you cannot you know you cannot add a
+
+1434
+01:22:45,440 --> 01:22:51,400
+link without it not becoming a link. If
+
+1435
+01:22:48,800 --> 01:22:54,080
+you want to do that you have to
+
+1436
+01:22:51,400 --> 01:22:58,480
+say you know you have to say manually
+
+1437
+01:22:54,080 --> 01:23:01,520
+like http space to break it the link you
+
+1438
+01:22:58,480 --> 01:23:04,800
+know like that then tell people to like
+
+1439
+01:23:01,520 --> 01:23:08,080
+remove the space. Actually I'll do that.
+
+1440
+01:23:04,800 --> 01:23:10,880
+So this YouTube is very nasty
+
+1441
+01:23:08,080 --> 01:23:13,120
+scum. You know they, you know, if you
+
+1442
+01:23:10,880 --> 01:23:15,600
+just add a link, they they become this
+
+1443
+01:23:13,120 --> 01:23:15,600
+YouTube
+
+1444
+01:23:16,199 --> 01:23:24,679
+ Okay, that's that's about that.
+
+1445
+01:23:19,679 --> 01:23:24,679
+Um, I think that's it for today.
+
+1446
+01:23:37,440 --> 01:23:42,239
+Okay. What else uh you guys are
+
+1447
+01:23:50,040 --> 01:23:56,159
+saying? Mr. Mogi, have you tried Zim
+
+1448
+01:23:53,280 --> 01:23:58,400
+browser? No, I never even heard of it.
+
+1449
+01:23:56,159 --> 01:24:00,320
+That's another new thing. you know like
+
+1450
+01:23:58,400 --> 01:24:02,960
+every two years they have like a new
+
+1451
+01:24:00,320 --> 01:24:04,199
+browser like championed by the open
+
+1452
+01:24:02,960 --> 01:24:08,000
+source
+
+1453
+01:24:04,199 --> 01:24:11,120
+fanatics it was valdi but I suppose now
+
+1454
+01:24:08,000 --> 01:24:15,199
+there's a new thing vin zen vavadi is
+
+1455
+01:24:11,120 --> 01:24:15,199
+actually not open source like they you
+
+1456
+01:24:15,239 --> 01:24:26,040
+know so who else is anything uh Diego uh
+
+1457
+01:24:20,159 --> 01:24:30,280
+okay so that's it for today thoughts
+
+1458
+01:24:26,040 --> 01:24:33,199
+on Uh KK80. Oh, that's their new
+
+1459
+01:24:30,280 --> 01:24:35,440
+keyboard. Um ultimate hacking keyboard
+
+1460
+01:24:33,199 --> 01:24:37,400
+80. You know that I think that's the one
+
+1461
+01:24:35,440 --> 01:24:39,400
+got function
+
+1462
+01:24:37,400 --> 01:24:42,360
+keys.
+
+1463
+01:24:39,400 --> 01:24:45,360
+Yeah, I I don't think that's a good
+
+1464
+01:24:42,360 --> 01:24:49,080
+idea. You see, let me briefly talk about
+
+1465
+01:24:45,360 --> 01:24:51,679
+this. Okay, if you are still here, you
+
+1466
+01:24:49,080 --> 01:24:55,199
+see if you're going to have the function
+
+1467
+01:24:51,679 --> 01:24:58,000
+keys, you need to have a gap between the
+
+1468
+01:24:55,199 --> 01:25:00,719
+function keys and the number digits
+
+1469
+01:24:58,000 --> 01:25:02,480
+because otherwise you cannot it's very
+
+1470
+01:25:00,719 --> 01:25:04,800
+confusing. You don't know which row you
+
+1471
+01:25:02,480 --> 01:25:07,760
+are on because they are so far up there.
+
+1472
+01:25:04,800 --> 01:25:10,080
+Okay, so you need a gap. The other thing
+
+1473
+01:25:07,760 --> 01:25:12,239
+is that you have function keys. If you
+
+1474
+01:25:10,080 --> 01:25:15,360
+going to have all the function keys, you
+
+1475
+01:25:12,239 --> 01:25:18,320
+need a gap of every four or three keys.
+
+1476
+01:25:15,360 --> 01:25:20,560
+So f_sub_1, f_sub_2, f_sub_3, f_sub_4,
+
+1477
+01:25:18,320 --> 01:25:22,480
+then a gap, then five, six, seven,
+
+1478
+01:25:20,560 --> 01:25:25,440
+eight, a gap. You need a gap. Okay?
+
+1479
+01:25:22,480 --> 01:25:26,120
+Because otherwise you can touch, you
+
+1480
+01:25:25,440 --> 01:25:28,880
+know,
+
+1481
+01:25:26,120 --> 01:25:30,320
+usually it's very good to touch type and
+
+1482
+01:25:28,880 --> 01:25:32,400
+feel, you know, you just know the
+
+1483
+01:25:30,320 --> 01:25:35,600
+position, you can feel the gap and you
+
+1484
+01:25:32,400 --> 01:25:40,199
+know which one is F6 or F7.
+
+1485
+01:25:35,600 --> 01:25:44,719
+But without gaps then keys like F10
+
+1486
+01:25:40,199 --> 01:25:46,719
+becomes like basically become not usable
+
+1487
+01:25:44,719 --> 01:25:51,600
+because you have to look like where is
+
+1488
+01:25:46,719 --> 01:25:54,800
+10. You cannot just feel it. So so it's
+
+1489
+01:25:51,600 --> 01:25:58,520
+great to add function keys but not not
+
+1490
+01:25:54,800 --> 01:26:00,360
+like this. So I I'm not sure this is a
+
+1491
+01:25:58,520 --> 01:26:03,440
+good
+
+1492
+01:26:00,360 --> 01:26:05,360
+design. But here they added the thumb
+
+1493
+01:26:03,440 --> 01:26:06,199
+keys. That's very good. Okay. That's
+
+1494
+01:26:05,360 --> 01:26:07,960
+very
+
+1495
+01:26:06,199 --> 01:26:11,199
+good.
+
+1496
+01:26:07,960 --> 01:26:13,600
+Um, yeah. So, how much they, you know,
+
+1497
+01:26:11,199 --> 01:26:16,199
+how much they charge these for? How is
+
+1498
+01:26:13,600 --> 01:26:18,639
+it different? I mean,
+
+1499
+01:26:16,199 --> 01:26:21,040
+pricewise, how much extra you have to
+
+1500
+01:26:18,639 --> 01:26:21,040
+pay for
+
+1501
+01:26:24,280 --> 01:26:31,880
+this. Yeah. Anyway. Yeah. Okay. So, I
+
+1502
+01:26:28,480 --> 01:26:31,880
+think that's it.
+
+1503
+01:26:41,280 --> 01:26:48,080
+390. Wow. So that's fairly expensive.
+
+1504
+01:26:45,040 --> 01:26:50,480
+Yeah. So I mean but I know from my
+
+1505
+01:26:48,080 --> 01:26:53,920
+experience with automat hacking they are
+
+1506
+01:26:50,480 --> 01:26:56,960
+truly quality. Okay. I mean glove 80 is
+
+1507
+01:26:53,920 --> 01:26:58,760
+truly quality too and also Kinesis 360.
+
+1508
+01:26:56,960 --> 01:27:01,600
+I mean they you
+
+1509
+01:26:58,760 --> 01:27:03,679
+know they are all good quality. Okay. in
+
+1510
+01:27:01,600 --> 01:27:06,159
+different ways, you know, but overall
+
+1511
+01:27:03,679 --> 01:27:10,159
+they are all great. But the edge uh
+
+1512
+01:27:06,159 --> 01:27:12,320
+ultimate hacking the guy like they they
+
+1513
+01:27:10,159 --> 01:27:16,960
+are really concerning every about every
+
+1514
+01:27:12,320 --> 01:27:20,400
+detail. Okay. So if this is your kind of
+
+1515
+01:27:16,960 --> 01:27:22,800
+thing, I can recommend it, you know.
+
+1516
+01:27:20,400 --> 01:27:25,320
+Okay, that's it for today. Uh kind of
+
+1517
+01:27:22,800 --> 01:27:29,679
+rambled in the past
+
+1518
+01:27:25,320 --> 01:27:31,560
+hour. So I have like like what 20 uh 13
+
+1519
+01:27:29,679 --> 01:27:35,600
+viewers. Okay, bye
+
+1520
+01:27:31,560 --> 01:27:38,600
+guys. Pay me. Okay, go to kasadi
+
+1521
+01:27:35,600 --> 01:27:38,600
+kasadi.info
+
+1522
+01:27:38,960 --> 01:27:45,800
+uh and pay me kasali.info and go to the
+
+1523
+01:27:41,760 --> 01:27:45,800
+bottom pay me Amazon.
+
+1524
+01:27:46,960 --> 01:27:54,360
+Okay,
+
+1525
+01:27:48,679 --> 01:27:58,880
+so code go there all the way to the
+
+1526
+01:27:54,360 --> 01:28:01,920
+bottom go to Patreon me a month or
+
+1527
+01:27:58,880 --> 01:28:05,679
+Amazon gift card me or PayPal or you can
+
+1528
+01:28:01,920 --> 01:28:07,800
+get my entire website about 6,000 pages
+
+1529
+01:28:05,679 --> 01:28:12,760
+on programming and
+
+1530
+01:28:07,800 --> 01:28:12,760
+mathematics for just $300.
+
+1531
+01:28:14,320 --> 01:28:16,960
+Bye.
+

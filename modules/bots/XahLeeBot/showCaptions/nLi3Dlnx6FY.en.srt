@@ -1,0 +1,8808 @@
+1
+00:00:08,720 --> 00:00:12,160
+welcome to another episode of sound talk
+
+2
+00:00:10,880 --> 00:00:15,679
+show
+
+3
+00:00:12,160 --> 00:00:18,080
+i'm alive voice check video check
+
+4
+00:00:15,679 --> 00:00:18,720
+good so today we got we are going to
+
+5
+00:00:18,080 --> 00:00:22,000
+talk about
+
+6
+00:00:18,720 --> 00:00:23,039
+emacs and uh emacs and keyboards in
+
+7
+00:00:22,000 --> 00:00:25,439
+powershell
+
+8
+00:00:23,039 --> 00:00:27,599
+uh kind of randomish i don't have a plan
+
+9
+00:00:25,439 --> 00:00:28,240
+so if you have a questions post in a in
+
+10
+00:00:27,599 --> 00:00:31,039
+a
+
+11
+00:00:28,240 --> 00:00:32,880
+video chat box okay and good morning bot
+
+12
+00:00:31,039 --> 00:00:34,079
+so bob has a question can you show
+
+13
+00:00:32,880 --> 00:00:38,000
+examples how
+
+14
+00:00:34,079 --> 00:00:39,840
+for example python syntax is blocking
+
+15
+00:00:38,000 --> 00:00:41,600
+true functional programming from
+
+16
+00:00:39,840 --> 00:00:43,920
+happening okay so
+
+17
+00:00:41,600 --> 00:00:44,960
+yeah so i yeah so the question you know
+
+18
+00:00:43,920 --> 00:00:47,520
+about python
+
+19
+00:00:44,960 --> 00:00:49,440
+syntax so in a few you know i talked
+
+20
+00:00:47,520 --> 00:00:52,480
+about this before
+
+21
+00:00:49,440 --> 00:00:55,280
+where python
+
+22
+00:00:52,480 --> 00:00:57,199
+you know python is not suitable for
+
+23
+00:00:55,280 --> 00:01:00,559
+functional programming
+
+24
+00:00:57,199 --> 00:01:04,799
+and and in particular
+
+25
+00:01:00,559 --> 00:01:08,320
+specifically because python
+
+26
+00:01:04,799 --> 00:01:11,280
+uh guido von rossen he's an idiot
+
+27
+00:01:08,320 --> 00:01:13,360
+yes he is anti-functional programming
+
+28
+00:01:11,280 --> 00:01:15,600
+you know guido van rossum is very
+
+29
+00:01:13,360 --> 00:01:17,280
+uh he don't get it he don't get it okay
+
+30
+00:01:15,600 --> 00:01:19,520
+so i'm gonna show you so
+
+31
+00:01:17,280 --> 00:01:20,320
+so i talked about this before where
+
+32
+00:01:19,520 --> 00:01:21,920
+python
+
+33
+00:01:20,320 --> 00:01:24,320
+is not suitable for functional
+
+34
+00:01:21,920 --> 00:01:26,080
+programming and in particular because
+
+35
+00:01:24,320 --> 00:01:29,119
+python has a
+
+36
+00:01:26,080 --> 00:01:29,119
+python has a
+
+37
+00:01:31,040 --> 00:01:36,960
+python has a crippled lambda okay so you
+
+38
+00:01:34,560 --> 00:01:38,799
+go to my website cassari.info
+
+39
+00:01:36,960 --> 00:01:40,880
+and here is a bunch of articles
+
+40
+00:01:38,799 --> 00:01:41,759
+programming tutorials python goal line
+
+41
+00:01:40,880 --> 00:01:44,640
+and so on
+
+42
+00:01:41,759 --> 00:01:46,880
+and there's a bunch of essays so i have
+
+43
+00:01:44,640 --> 00:01:50,399
+a collection of essays about
+
+44
+00:01:46,880 --> 00:01:50,720
+why python sucks why python sucks donkey
+
+45
+00:01:50,399 --> 00:01:53,439
+s
+
+46
+00:01:50,720 --> 00:01:54,960
+okay so so one of the things about
+
+47
+00:01:53,439 --> 00:01:56,320
+python is that it doesn't support
+
+48
+00:01:54,960 --> 00:01:58,240
+functional programming well
+
+49
+00:01:56,320 --> 00:02:00,320
+you know if you ask the python people of
+
+50
+00:01:58,240 --> 00:02:02,240
+course they are phonetics they'll say oh
+
+51
+00:02:00,320 --> 00:02:03,840
+we support functional programming
+
+52
+00:02:02,240 --> 00:02:06,960
+and so on and because there's this
+
+53
+00:02:03,840 --> 00:02:09,119
+library but not really okay in practice
+
+54
+00:02:06,960 --> 00:02:10,160
+and also because the python culture they
+
+55
+00:02:09,119 --> 00:02:12,319
+are pretty much
+
+56
+00:02:10,160 --> 00:02:15,520
+anti-functional programming because of
+
+57
+00:02:12,319 --> 00:02:18,000
+guido guido von rossum you know the boss
+
+58
+00:02:15,520 --> 00:02:18,560
+so if you impact in real life in
+
+59
+00:02:18,000 --> 00:02:20,720
+practice
+
+60
+00:02:18,560 --> 00:02:21,599
+so there's another aspect about what
+
+61
+00:02:20,720 --> 00:02:23,520
+does it mean
+
+62
+00:02:21,599 --> 00:02:24,640
+when programming support functional
+
+63
+00:02:23,520 --> 00:02:26,560
+programming so
+
+64
+00:02:24,640 --> 00:02:28,239
+let me go on okay i rambled a little bit
+
+65
+00:02:26,560 --> 00:02:30,640
+but let me cover the whole thing
+
+66
+00:02:28,239 --> 00:02:32,560
+so when you have a programming language
+
+67
+00:02:30,640 --> 00:02:34,319
+there are two aspects about how
+
+68
+00:02:32,560 --> 00:02:36,720
+it supports functional programming one
+
+69
+00:02:34,319 --> 00:02:37,840
+is technical how well can you do
+
+70
+00:02:36,720 --> 00:02:38,800
+functional programming in the
+
+71
+00:02:37,840 --> 00:02:41,840
+programming language
+
+72
+00:02:38,800 --> 00:02:44,319
+okay and the other aspect is social
+
+73
+00:02:41,840 --> 00:02:45,360
+you know the culture of the language of
+
+74
+00:02:44,319 --> 00:02:48,959
+the community
+
+75
+00:02:45,360 --> 00:02:52,400
+for example in python python
+
+76
+00:02:48,959 --> 00:02:55,599
+you know i would fail in both both parts
+
+77
+00:02:52,400 --> 00:02:57,280
+uh so so let me so for example python
+
+78
+00:02:55,599 --> 00:02:58,239
+doesn't really support functional
+
+79
+00:02:57,280 --> 00:03:00,480
+programming okay
+
+80
+00:02:58,239 --> 00:03:03,040
+but however if you ask the python
+
+81
+00:03:00,480 --> 00:03:06,879
+phonetics they'll say we they support it
+
+82
+00:03:03,040 --> 00:03:09,920
+now even even if python the language
+
+83
+00:03:06,879 --> 00:03:12,560
+supports functional programming well but
+
+84
+00:03:09,920 --> 00:03:14,640
+it's not accepted in in real life in
+
+85
+00:03:12,560 --> 00:03:16,640
+practice because you go out you work for
+
+86
+00:03:14,640 --> 00:03:18,720
+google google is a company that
+
+87
+00:03:16,640 --> 00:03:20,480
+where python is their main scripting
+
+88
+00:03:18,720 --> 00:03:22,560
+language for example and lots of other
+
+89
+00:03:20,480 --> 00:03:24,959
+places uses python python is
+
+90
+00:03:22,560 --> 00:03:27,280
+very super popular you know due because
+
+91
+00:03:24,959 --> 00:03:30,159
+of google i talked about this before
+
+92
+00:03:27,280 --> 00:03:30,879
+so the other aspect about is about the
+
+93
+00:03:30,159 --> 00:03:33,280
+community
+
+94
+00:03:30,879 --> 00:03:34,720
+so for example if you work for google if
+
+95
+00:03:33,280 --> 00:03:36,239
+you work for some company
+
+96
+00:03:34,720 --> 00:03:38,239
+where they use python as the main
+
+97
+00:03:36,239 --> 00:03:40,239
+programming language and you started to
+
+98
+00:03:38,239 --> 00:03:42,400
+do functional programming
+
+99
+00:03:40,239 --> 00:03:43,760
+you you'll be kicked out okay you will
+
+100
+00:03:42,400 --> 00:03:47,120
+be kicked out
+
+101
+00:03:43,760 --> 00:03:48,080
+because i mean because every post every
+
+102
+00:03:47,120 --> 00:03:50,400
+you know
+
+103
+00:03:48,080 --> 00:03:51,920
+in code review or whatever your code
+
+104
+00:03:50,400 --> 00:03:53,920
+other people will not
+
+105
+00:03:51,920 --> 00:03:55,680
+accept it they will you know they will
+
+106
+00:03:53,920 --> 00:03:56,000
+find problems why are you doing it this
+
+107
+00:03:55,680 --> 00:03:58,159
+way
+
+108
+00:03:56,000 --> 00:04:00,159
+you should you know they will find your
+
+109
+00:03:58,159 --> 00:04:03,280
+code weird
+
+110
+00:04:00,159 --> 00:04:04,879
+so so back to the python phonetics you
+
+111
+00:04:03,280 --> 00:04:06,560
+know they say they support functional
+
+112
+00:04:04,879 --> 00:04:10,879
+programming but if actually
+
+113
+00:04:06,560 --> 00:04:13,599
+but if you actually do use python to do
+
+114
+00:04:10,879 --> 00:04:14,159
+functional programming style uh you know
+
+115
+00:04:13,599 --> 00:04:16,560
+in in
+
+116
+00:04:14,159 --> 00:04:17,199
+a functional programming style you will
+
+117
+00:04:16,560 --> 00:04:20,479
+likely
+
+118
+00:04:17,199 --> 00:04:21,199
+run into all sorts of uh problems social
+
+119
+00:04:20,479 --> 00:04:23,040
+problems
+
+120
+00:04:21,199 --> 00:04:24,960
+for example let's say you write some
+
+121
+00:04:23,040 --> 00:04:26,720
+program so open source you know you put
+
+122
+00:04:24,960 --> 00:04:29,360
+on github microsoft's own
+
+123
+00:04:26,720 --> 00:04:30,639
+owned by microsoft you know you put on
+
+124
+00:04:29,360 --> 00:04:32,720
+github
+
+125
+00:04:30,639 --> 00:04:34,320
+and you started to get issues why are
+
+126
+00:04:32,720 --> 00:04:36,560
+you doing this way and you get
+
+127
+00:04:34,320 --> 00:04:37,199
+resistance okay this kind of resistance
+
+128
+00:04:36,560 --> 00:04:39,520
+is not
+
+129
+00:04:37,199 --> 00:04:40,479
+it's kind of implicit people will just
+
+130
+00:04:39,520 --> 00:04:43,680
+not like you
+
+131
+00:04:40,479 --> 00:04:46,880
+anymore because you are not conforming
+
+132
+00:04:43,680 --> 00:04:48,320
+to the python communities uh ethos and
+
+133
+00:04:46,880 --> 00:04:50,000
+guidelines you know they have
+
+134
+00:04:48,320 --> 00:04:51,919
+uh they have programming style
+
+135
+00:04:50,000 --> 00:04:52,400
+documentation you know programming style
+
+136
+00:04:51,919 --> 00:04:55,520
+guide
+
+137
+00:04:52,400 --> 00:04:57,840
+python idioms you know they say pythonic
+
+138
+00:04:55,520 --> 00:04:58,639
+is your code pythonic you know this
+
+139
+00:04:57,840 --> 00:05:01,520
+idiot this
+
+140
+00:04:58,639 --> 00:05:03,120
+[ __ ] programmer idiots hacker types
+
+141
+00:05:01,520 --> 00:05:06,800
+you know python is
+
+142
+00:05:03,120 --> 00:05:10,160
+uh pythonic that's their term pythonic
+
+143
+00:05:06,800 --> 00:05:13,199
+so any other language has
+
+144
+00:05:10,160 --> 00:05:16,320
+has also has such terms you know
+
+145
+00:05:13,199 --> 00:05:17,919
+so anyway so if you so two parts first
+
+146
+00:05:16,320 --> 00:05:19,680
+of all python does not support
+
+147
+00:05:17,919 --> 00:05:22,960
+functional programming well
+
+148
+00:05:19,680 --> 00:05:25,840
+uh primarily primarily because
+
+149
+00:05:22,960 --> 00:05:27,919
+it has a broken lambda okay so why
+
+150
+00:05:25,840 --> 00:05:28,800
+python lambda is broken and cannot be
+
+151
+00:05:27,919 --> 00:05:30,560
+fixed okay
+
+152
+00:05:28,800 --> 00:05:33,520
+so i talked about the in this article
+
+153
+00:05:30,560 --> 00:05:36,880
+i'm gonna go into it in detail today
+
+154
+00:05:33,520 --> 00:05:39,520
+uh because bob asked the question
+
+155
+00:05:36,880 --> 00:05:41,199
+so python the language does not really
+
+156
+00:05:39,520 --> 00:05:43,360
+support functional programming well
+
+157
+00:05:41,199 --> 00:05:45,120
+it can of course it can somewhat you
+
+158
+00:05:43,360 --> 00:05:47,600
+know but
+
+159
+00:05:45,120 --> 00:05:49,120
+it doesn't then the other aspect is the
+
+160
+00:05:47,600 --> 00:05:51,199
+community the python
+
+161
+00:05:49,120 --> 00:05:52,960
+community they don't really you know
+
+162
+00:05:51,199 --> 00:05:54,000
+they are not into functional programming
+
+163
+00:05:52,960 --> 00:05:56,880
+they are not
+
+164
+00:05:54,000 --> 00:05:58,400
+uh they are mostly object oriented you
+
+165
+00:05:56,880 --> 00:06:00,720
+know they prefer that way
+
+166
+00:05:58,400 --> 00:06:02,240
+so why why is the python language has
+
+167
+00:06:00,720 --> 00:06:04,160
+this you know
+
+168
+00:06:02,240 --> 00:06:06,479
+doesn't do function performing well
+
+169
+00:06:04,160 --> 00:06:07,919
+technically and also the community
+
+170
+00:06:06,479 --> 00:06:10,800
+doesn't accept it well
+
+171
+00:06:07,919 --> 00:06:12,319
+because guido van rossum the boss you
+
+172
+00:06:10,800 --> 00:06:16,080
+know in each foreign language
+
+173
+00:06:12,319 --> 00:06:20,319
+pearl larry roy is the boss python
+
+174
+00:06:16,080 --> 00:06:23,680
+guido von rossum is the boss uh
+
+175
+00:06:20,319 --> 00:06:26,479
+closure for example closure closure the
+
+176
+00:06:23,680 --> 00:06:27,440
+based on uh java virtual machine closure
+
+177
+00:06:26,479 --> 00:06:31,360
+the beast
+
+178
+00:06:27,440 --> 00:06:34,880
+language closure they uh they also have
+
+179
+00:06:31,360 --> 00:06:39,520
+um you know there's also a boss
+
+180
+00:06:34,880 --> 00:06:42,720
+uh rich hiki you know so um
+
+181
+00:06:39,520 --> 00:06:45,280
+so let me let me show you uh okay so
+
+182
+00:06:42,720 --> 00:06:49,120
+hacker code so programming languages
+
+183
+00:06:45,280 --> 00:06:51,520
+okay so let's go to hacker code uh
+
+184
+00:06:49,120 --> 00:06:52,160
+foreign language tutorial so here here's
+
+185
+00:06:51,520 --> 00:06:53,759
+a bunch of
+
+186
+00:06:52,160 --> 00:06:55,680
+programming languages closure you know
+
+187
+00:06:53,759 --> 00:06:59,520
+the boss is rich hiki
+
+188
+00:06:55,680 --> 00:07:00,080
+uh so anyway so each programming
+
+189
+00:06:59,520 --> 00:07:03,520
+language
+
+190
+00:07:00,080 --> 00:07:05,680
+they have as a creator okay php's got a
+
+191
+00:07:03,520 --> 00:07:08,720
+creator i forgot his name he's not
+
+192
+00:07:05,680 --> 00:07:10,800
+you know the hacker type and javascript
+
+193
+00:07:08,720 --> 00:07:13,599
+for example the creator is javascript
+
+194
+00:07:10,800 --> 00:07:13,599
+the creator is
+
+195
+00:07:15,120 --> 00:07:21,360
+what's his name you know he i [ __ ] i
+
+196
+00:07:19,680 --> 00:07:24,639
+what's what's the javascript creator's
+
+197
+00:07:21,360 --> 00:07:26,880
+name i forgot that moment anyone
+
+198
+00:07:24,639 --> 00:07:28,080
+so anyway so so let me get back to the
+
+199
+00:07:26,880 --> 00:07:31,680
+to focus okay so
+
+200
+00:07:28,080 --> 00:07:34,240
+each language has a creator for example
+
+201
+00:07:31,680 --> 00:07:37,360
+uh language ufam language the creator is
+
+202
+00:07:34,240 --> 00:07:41,199
+uh stefan wufang which i highly
+
+203
+00:07:37,360 --> 00:07:42,000
+like and respect in compared to the
+
+204
+00:07:41,199 --> 00:07:44,160
+others
+
+205
+00:07:42,000 --> 00:07:45,680
+okay that's another topic but anyway so
+
+206
+00:07:44,160 --> 00:07:48,479
+let's go back to so for example
+
+207
+00:07:45,680 --> 00:07:49,280
+by the way uh rich hiki said every
+
+208
+00:07:48,479 --> 00:07:52,160
+developer
+
+209
+00:07:49,280 --> 00:07:54,560
+would should buy a copy of mathematica
+
+210
+00:07:52,160 --> 00:07:57,520
+because it will expand your mind
+
+211
+00:07:54,560 --> 00:07:58,240
+okay which hiki the creator of closure
+
+212
+00:07:57,520 --> 00:08:00,879
+said that
+
+213
+00:07:58,240 --> 00:08:01,840
+exactly okay so i did five videos about
+
+214
+00:08:00,879 --> 00:08:04,080
+mathematica
+
+215
+00:08:01,840 --> 00:08:05,440
+about wufab language you should uh watch
+
+216
+00:08:04,080 --> 00:08:08,479
+them in detail
+
+217
+00:08:05,440 --> 00:08:10,720
+starting about two months ago so
+
+218
+00:08:08,479 --> 00:08:12,879
+i digressed so let's go back to python
+
+219
+00:08:10,720 --> 00:08:17,280
+okay so python
+
+220
+00:08:12,879 --> 00:08:21,919
+so let's not talk about why python
+
+221
+00:08:17,280 --> 00:08:26,639
+uh let's see why python sucks okay well
+
+222
+00:08:21,919 --> 00:08:28,080
+why python lambda does not um why python
+
+223
+00:08:26,639 --> 00:08:30,879
+lambda is broken
+
+224
+00:08:28,080 --> 00:08:33,120
+and cannot be fixed and why is it
+
+225
+00:08:30,879 --> 00:08:36,240
+because of the syntax okay
+
+226
+00:08:33,120 --> 00:08:38,320
+so let me address this question now now
+
+227
+00:08:36,240 --> 00:08:38,880
+first of all why python lambda is broken
+
+228
+00:08:38,320 --> 00:08:40,560
+that's a
+
+229
+00:08:38,880 --> 00:08:42,719
+you know you can consider that as a
+
+230
+00:08:40,560 --> 00:08:45,600
+claim you know i claim i claim that
+
+231
+00:08:42,719 --> 00:08:47,760
+uh not just me lots of people have cl
+
+232
+00:08:45,600 --> 00:08:51,120
+said that for example here is a
+
+233
+00:08:47,760 --> 00:08:53,760
+well-known computer scientist uh how
+
+234
+00:08:51,120 --> 00:08:55,120
+abelson you know how absent is one of
+
+235
+00:08:53,760 --> 00:08:58,000
+the guys who wrote this
+
+236
+00:08:55,120 --> 00:09:00,880
+very popular book structure and
+
+237
+00:08:58,000 --> 00:09:03,040
+interpretation of computer programs
+
+238
+00:09:00,880 --> 00:09:05,120
+now this book is you know highly popular
+
+239
+00:09:03,040 --> 00:09:08,560
+it's also i mean you'll see lots of
+
+240
+00:09:05,120 --> 00:09:11,839
+um okay let's show
+
+241
+00:09:08,560 --> 00:09:15,600
+some memes saudi s-i-c-p you know
+
+242
+00:09:11,839 --> 00:09:18,240
+this is one of the one of the uh
+
+243
+00:09:15,600 --> 00:09:19,040
+meme uh book in you know you know in
+
+244
+00:09:18,240 --> 00:09:22,080
+programming
+
+245
+00:09:19,040 --> 00:09:24,480
+so um
+
+246
+00:09:22,080 --> 00:09:26,080
+okay so wait uh so let me show it okay
+
+247
+00:09:24,480 --> 00:09:29,200
+so let me digress
+
+248
+00:09:26,080 --> 00:09:31,360
+okay wizard book you know sometimes
+
+249
+00:09:29,200 --> 00:09:33,200
+it's known as wizard built book
+
+250
+00:09:31,360 --> 00:09:34,279
+structure and interpretation of computer
+
+251
+00:09:33,200 --> 00:09:37,760
+programs
+
+252
+00:09:34,279 --> 00:09:40,800
+sicp sig okay
+
+253
+00:09:37,760 --> 00:09:42,800
+so so uh but so let me show you so
+
+254
+00:09:40,800 --> 00:09:44,640
+here's the japanese version and also
+
+255
+00:09:42,800 --> 00:09:46,399
+here comes the memes there are quite a
+
+256
+00:09:44,640 --> 00:09:48,480
+few of them
+
+257
+00:09:46,399 --> 00:09:50,000
+you know this starting about 10 years
+
+258
+00:09:48,480 --> 00:09:54,240
+ago let's see
+
+259
+00:09:50,000 --> 00:09:56,800
+2015 yeah start this kind of memes
+
+260
+00:09:54,240 --> 00:09:58,320
+began you know there's quite a few uh
+
+261
+00:09:56,800 --> 00:10:00,240
+began about
+
+262
+00:09:58,320 --> 00:10:01,680
+six or seven years ago you know they put
+
+263
+00:10:00,240 --> 00:10:04,880
+japanese anime girls
+
+264
+00:10:01,680 --> 00:10:06,959
+with uh with some esoteric computer
+
+265
+00:10:04,880 --> 00:10:09,200
+science books or things like that
+
+266
+00:10:06,959 --> 00:10:10,800
+so anyway so this book by the way this
+
+267
+00:10:09,200 --> 00:10:14,480
+book i highly recommend it
+
+268
+00:10:10,800 --> 00:10:16,959
+uh this book i read in 1998
+
+269
+00:10:14,480 --> 00:10:18,000
+there are four chapters of this book and
+
+270
+00:10:16,959 --> 00:10:21,120
+i read the three
+
+271
+00:10:18,000 --> 00:10:22,320
+the first three chapters okay in 1998 uh
+
+272
+00:10:21,120 --> 00:10:26,800
+in 1998
+
+273
+00:10:22,320 --> 00:10:29,680
+i was a top master of mathematica okay
+
+274
+00:10:26,800 --> 00:10:31,360
+i uh where's my articles [ __ ] okay so
+
+275
+00:10:29,680 --> 00:10:33,440
+let me show you i want to show you my
+
+276
+00:10:31,360 --> 00:10:37,120
+articles
+
+277
+00:10:33,440 --> 00:10:38,640
+so in 1998 i was a top expert of
+
+278
+00:10:37,120 --> 00:10:41,839
+mathematica
+
+279
+00:10:38,640 --> 00:10:43,600
+and uh you know and i talked
+
+280
+00:10:41,839 --> 00:10:46,320
+you know watch my videos okay so
+
+281
+00:10:43,600 --> 00:10:49,440
+mathematica is one of the least
+
+282
+00:10:46,320 --> 00:10:50,560
+and so it's in in fact it's the most
+
+283
+00:10:49,440 --> 00:10:53,200
+powerful
+
+284
+00:10:50,560 --> 00:10:54,320
+lisp in this family i could you know you
+
+285
+00:10:53,200 --> 00:10:57,760
+could say that
+
+286
+00:10:54,320 --> 00:10:59,279
+so in 1998 because i'm i began my career
+
+287
+00:10:57,760 --> 00:11:01,600
+as a mathematic
+
+288
+00:10:59,279 --> 00:11:02,399
+mathematica program for about seven
+
+289
+00:11:01,600 --> 00:11:05,120
+years
+
+290
+00:11:02,399 --> 00:11:07,600
+uh then i started to get into lisp so in
+
+291
+00:11:05,120 --> 00:11:08,959
+1998 i read this book you know this book
+
+292
+00:11:07,600 --> 00:11:11,040
+is using scheme
+
+293
+00:11:08,959 --> 00:11:12,560
+lisp you know one of the dialect of this
+
+294
+00:11:11,040 --> 00:11:15,440
+was they was the
+
+295
+00:11:12,560 --> 00:11:16,079
+uh primarily as the language to teach
+
+296
+00:11:15,440 --> 00:11:19,600
+you
+
+297
+00:11:16,079 --> 00:11:20,240
+about concept about the you know it's
+
+298
+00:11:19,600 --> 00:11:22,959
+it's not
+
+299
+00:11:20,240 --> 00:11:23,680
+like technical details like like linux
+
+300
+00:11:22,959 --> 00:11:25,600
+how do you use
+
+301
+00:11:23,680 --> 00:11:27,519
+bash how do you program python yeah you
+
+302
+00:11:25,600 --> 00:11:28,000
+know which function to go it's not about
+
+303
+00:11:27,519 --> 00:11:30,720
+that this
+
+304
+00:11:28,000 --> 00:11:32,160
+book is about more general concept the
+
+305
+00:11:30,720 --> 00:11:35,519
+general the meaning of
+
+306
+00:11:32,160 --> 00:11:38,000
+programming the meaning of uh computing
+
+307
+00:11:35,519 --> 00:11:38,880
+you know base is kind of a bit more
+
+308
+00:11:38,000 --> 00:11:42,320
+general
+
+309
+00:11:38,880 --> 00:11:46,240
+uh on the other hand let me digress
+
+310
+00:11:42,320 --> 00:11:49,200
+if you read lots of stephen wolframs um
+
+311
+00:11:46,240 --> 00:11:50,240
+uh if you read a lot of stephen wolfram
+
+312
+00:11:49,200 --> 00:11:52,800
+stuff
+
+313
+00:11:50,240 --> 00:11:53,839
+his stuff is more general he starts his
+
+314
+00:11:52,800 --> 00:11:57,120
+stuff is at the
+
+315
+00:11:53,839 --> 00:11:58,320
+highest level of computation the meaning
+
+316
+00:11:57,120 --> 00:12:00,959
+of computation
+
+317
+00:11:58,320 --> 00:12:02,720
+so in at the top level the meaning of
+
+318
+00:12:00,959 --> 00:12:04,800
+computation you'll get into
+
+319
+00:12:02,720 --> 00:12:06,240
+lots of theoretical computer science for
+
+320
+00:12:04,800 --> 00:12:09,519
+example you you go watch
+
+321
+00:12:06,240 --> 00:12:11,760
+you go watch many of stefan wufam's
+
+322
+00:12:09,519 --> 00:12:13,120
+video okay he's on youtube and and
+
+323
+00:12:11,760 --> 00:12:16,160
+twitch
+
+324
+00:12:13,120 --> 00:12:19,200
+uh and and in particular go
+
+325
+00:12:16,160 --> 00:12:22,880
+read his blogs he has tons of blogs okay
+
+326
+00:12:19,200 --> 00:12:26,320
+each each of his blog is about like 20
+
+327
+00:12:22,880 --> 00:12:28,880
+50 pages takes takes a few hours to read
+
+328
+00:12:26,320 --> 00:12:30,880
+so if you read stefan wolfram's blog
+
+329
+00:12:28,880 --> 00:12:32,240
+it's a very
+
+330
+00:12:30,880 --> 00:12:34,399
+he you know he's talking about
+
+331
+00:12:32,240 --> 00:12:36,399
+computation the meaning of computation
+
+332
+00:12:34,399 --> 00:12:39,360
+at the highest level sense okay
+
+333
+00:12:36,399 --> 00:12:40,240
+and so lots of things here talk about is
+
+334
+00:12:39,360 --> 00:12:43,519
+for example
+
+335
+00:12:40,240 --> 00:12:44,480
+uh combinators combinators lambda
+
+336
+00:12:43,519 --> 00:12:47,839
+calculus
+
+337
+00:12:44,480 --> 00:12:48,560
+uh theoretical computer uh computer
+
+338
+00:12:47,839 --> 00:12:52,079
+science
+
+339
+00:12:48,560 --> 00:12:55,200
+the meaning of computation and that
+
+340
+00:12:52,079 --> 00:12:56,480
+that in turn ties into uh formal
+
+341
+00:12:55,200 --> 00:12:59,279
+languages the
+
+342
+00:12:56,480 --> 00:13:00,000
+foundation of mathematics and currently
+
+343
+00:12:59,279 --> 00:13:02,800
+starting up
+
+344
+00:13:00,000 --> 00:13:04,959
+last year he is now doing meta
+
+345
+00:13:02,800 --> 00:13:07,040
+mathematics or metaphysics
+
+346
+00:13:04,959 --> 00:13:09,600
+based you know the what he calls uh
+
+347
+00:13:07,040 --> 00:13:11,360
+physics wolfram physics project
+
+348
+00:13:09,600 --> 00:13:14,079
+which i started to look into very
+
+349
+00:13:11,360 --> 00:13:16,160
+interesting by the way i digressed a lot
+
+350
+00:13:14,079 --> 00:13:18,320
+i'll get back to python okay very
+
+351
+00:13:16,160 --> 00:13:20,880
+interesting highly interesting because
+
+352
+00:13:18,320 --> 00:13:21,519
+the meta you know his project wufan
+
+353
+00:13:20,880 --> 00:13:24,000
+physics
+
+354
+00:13:21,519 --> 00:13:24,000
+project
+
+355
+00:13:27,120 --> 00:13:30,240
+okay you can you can see there's a
+
+356
+00:13:28,720 --> 00:13:32,720
+wikipedia article
+
+357
+00:13:30,240 --> 00:13:34,880
+and there is also let me magnify so
+
+358
+00:13:32,720 --> 00:13:38,399
+there's a wikipedia article and there's
+
+359
+00:13:34,880 --> 00:13:42,160
+the uh official homepage wolfram physics
+
+360
+00:13:38,399 --> 00:13:43,440
+project you know i'm not too interested
+
+361
+00:13:42,160 --> 00:13:45,279
+in physics
+
+362
+00:13:43,440 --> 00:13:46,959
+you know i i don't know much about
+
+363
+00:13:45,279 --> 00:13:49,519
+physics but however
+
+364
+00:13:46,959 --> 00:13:51,120
+it turns out when i started to look into
+
+365
+00:13:49,519 --> 00:13:53,839
+watch his videos and read
+
+366
+00:13:51,120 --> 00:13:54,880
+his blogs this project is not just about
+
+367
+00:13:53,839 --> 00:13:58,720
+it's not really
+
+368
+00:13:54,880 --> 00:14:01,040
+uh about physics it has a lot to do with
+
+369
+00:13:58,720 --> 00:14:02,959
+the foundation of mathematics or the
+
+370
+00:14:01,040 --> 00:14:07,519
+ultimate you know the theoretical
+
+371
+00:14:02,959 --> 00:14:10,320
+computer science what is computable uh
+
+372
+00:14:07,519 --> 00:14:10,720
+what are the best foundation for you
+
+373
+00:14:10,320 --> 00:14:13,279
+know
+
+374
+00:14:10,720 --> 00:14:14,880
+computer science uh recursion theory
+
+375
+00:14:13,279 --> 00:14:17,120
+things like that okay
+
+376
+00:14:14,880 --> 00:14:18,079
+so it turns out you know the wolfram
+
+377
+00:14:17,120 --> 00:14:21,279
+physics project
+
+378
+00:14:18,079 --> 00:14:22,160
+it's it's not well it's a lot about
+
+379
+00:14:21,279 --> 00:14:25,600
+physics but
+
+380
+00:14:22,160 --> 00:14:28,399
+they talk a lot a lot i mean like half
+
+381
+00:14:25,600 --> 00:14:30,160
+the like the core of it is about the
+
+382
+00:14:28,399 --> 00:14:33,440
+foundation of mathematics
+
+383
+00:14:30,160 --> 00:14:36,079
+so so i highly recommend it you
+
+384
+00:14:33,440 --> 00:14:37,040
+you go uh you go what uh you read his
+
+385
+00:14:36,079 --> 00:14:39,680
+blogs okay
+
+386
+00:14:37,040 --> 00:14:41,120
+so you go read his blogs so getting back
+
+387
+00:14:39,680 --> 00:14:43,440
+to my previous point
+
+388
+00:14:41,120 --> 00:14:44,880
+you go read his blogs he's talking about
+
+389
+00:14:43,440 --> 00:14:45,839
+the highest level the meaning of
+
+390
+00:14:44,880 --> 00:14:48,800
+computation
+
+391
+00:14:45,839 --> 00:14:49,920
+and he's into cellular automata as one
+
+392
+00:14:48,800 --> 00:14:53,519
+of the model
+
+393
+00:14:49,920 --> 00:14:55,600
+for computation and you know he
+
+394
+00:14:53,519 --> 00:14:58,399
+okay so that's about stephen wufen now
+
+395
+00:14:55,600 --> 00:15:00,399
+let's get back to this book
+
+396
+00:14:58,399 --> 00:15:01,600
+structure and interpretation of computer
+
+397
+00:15:00,399 --> 00:15:04,160
+programs so this
+
+398
+00:15:01,600 --> 00:15:05,680
+is also high level but not not the kind
+
+399
+00:15:04,160 --> 00:15:09,920
+of theoretical this is
+
+400
+00:15:05,680 --> 00:15:10,639
+a higher level it's not a practical how
+
+401
+00:15:09,920 --> 00:15:12,880
+to book
+
+402
+00:15:10,639 --> 00:15:13,839
+on python or scheme list it's not like
+
+403
+00:15:12,880 --> 00:15:16,560
+that at all
+
+404
+00:15:13,839 --> 00:15:18,000
+so when you if you read this pro uh book
+
+405
+00:15:16,560 --> 00:15:20,399
+you will not
+
+406
+00:15:18,000 --> 00:15:21,839
+learn a new language well you you kind
+
+407
+00:15:20,399 --> 00:15:24,320
+of but but anyway
+
+408
+00:15:21,839 --> 00:15:27,360
+so this book has four chapters i read
+
+409
+00:15:24,320 --> 00:15:30,560
+the first three chapters back in 1998
+
+410
+00:15:27,360 --> 00:15:33,680
+or in 1999 uh and
+
+411
+00:15:30,560 --> 00:15:34,800
+it's uh you know honestly it's one of
+
+412
+00:15:33,680 --> 00:15:36,800
+the great
+
+413
+00:15:34,800 --> 00:15:38,079
+uh it's one of the greatest book let's
+
+414
+00:15:36,800 --> 00:15:41,120
+say top five
+
+415
+00:15:38,079 --> 00:15:44,959
+in uh in related to
+
+416
+00:15:41,120 --> 00:15:48,320
+uh programming or computer science
+
+417
+00:15:44,959 --> 00:15:50,399
+okay so i highly recommend this book
+
+418
+00:15:48,320 --> 00:15:52,160
+is it you know there's often this
+
+419
+00:15:50,399 --> 00:15:54,560
+question is it still relevant you know
+
+420
+00:15:52,160 --> 00:15:58,000
+today you have tons of information
+
+421
+00:15:54,560 --> 00:15:59,839
+um you can read this book and it's i
+
+422
+00:15:58,000 --> 00:16:00,880
+wouldn't say it's necessary okay you
+
+423
+00:15:59,839 --> 00:16:03,759
+don't have to
+
+424
+00:16:00,880 --> 00:16:04,800
+uh and also in particular this book is
+
+425
+00:16:03,759 --> 00:16:06,320
+not concrete
+
+426
+00:16:04,800 --> 00:16:08,160
+you know it doesn't really actually
+
+427
+00:16:06,320 --> 00:16:10,240
+teach you you know
+
+428
+00:16:08,160 --> 00:16:12,160
+if you read this book you will you know
+
+429
+00:16:10,240 --> 00:16:13,279
+even if you carefully study the whole
+
+430
+00:16:12,160 --> 00:16:16,000
+thing about
+
+431
+00:16:13,279 --> 00:16:16,560
+the whole book you will not become a
+
+432
+00:16:16,000 --> 00:16:19,440
+scheme
+
+433
+00:16:16,560 --> 00:16:21,360
+this expert not at all because it
+
+434
+00:16:19,440 --> 00:16:22,160
+actually it does not actually teach you
+
+435
+00:16:21,360 --> 00:16:24,560
+a particular
+
+436
+00:16:22,160 --> 00:16:25,279
+language or techniques of programming
+
+437
+00:16:24,560 --> 00:16:28,160
+but the
+
+438
+00:16:25,279 --> 00:16:28,800
+overall the more general concept so is
+
+439
+00:16:28,160 --> 00:16:32,639
+it
+
+440
+00:16:28,800 --> 00:16:34,480
+worth reading uh yes or no today okay uh
+
+441
+00:16:32,639 --> 00:16:36,240
+i still recommend it okay if you
+
+442
+00:16:34,480 --> 00:16:38,240
+especially if you are younger you have
+
+443
+00:16:36,240 --> 00:16:40,240
+time uh if you are older
+
+444
+00:16:38,240 --> 00:16:41,600
+then you're you have less time then
+
+445
+00:16:40,240 --> 00:16:42,720
+there's a lot of other things for
+
+446
+00:16:41,600 --> 00:16:44,800
+example math
+
+447
+00:16:42,720 --> 00:16:46,000
+uh so it's not you know so this book is
+
+448
+00:16:44,800 --> 00:16:49,199
+not you know the
+
+449
+00:16:46,000 --> 00:16:50,320
+god you know the book of god like many
+
+450
+00:16:49,199 --> 00:16:53,759
+of these
+
+451
+00:16:50,320 --> 00:16:55,360
+memes uh you know like to you know they
+
+452
+00:16:53,759 --> 00:16:56,880
+you know it's interesting it became a
+
+453
+00:16:55,360 --> 00:16:59,519
+meme you know they did
+
+454
+00:16:56,880 --> 00:17:01,600
+and you know let me tell you what what
+
+455
+00:16:59,519 --> 00:17:03,920
+are the
+
+456
+00:17:01,600 --> 00:17:04,959
+you know there are several memes about
+
+457
+00:17:03,920 --> 00:17:07,439
+programming
+
+458
+00:17:04,959 --> 00:17:09,439
+you know that's over all over the place
+
+459
+00:17:07,439 --> 00:17:11,520
+so this is one of the memes in
+
+460
+00:17:09,439 --> 00:17:14,799
+in programming you know six book and the
+
+461
+00:17:11,520 --> 00:17:16,880
+other thing is emacs of course cmax
+
+462
+00:17:14,799 --> 00:17:18,959
+and you know when you you know you you
+
+463
+00:17:16,880 --> 00:17:19,439
+must have heard of you know emacs versus
+
+464
+00:17:18,959 --> 00:17:22,559
+vi
+
+465
+00:17:19,439 --> 00:17:25,520
+right emacs versus vi
+
+466
+00:17:22,559 --> 00:17:27,360
+but when it comes to you know like memes
+
+467
+00:17:25,520 --> 00:17:29,120
+are interesting okay memes is a
+
+468
+00:17:27,360 --> 00:17:33,360
+millennial generation phenom
+
+469
+00:17:29,120 --> 00:17:35,440
+phenomenon starting around year 2005
+
+470
+00:17:33,360 --> 00:17:36,480
+okay millennial generation phenomenon
+
+471
+00:17:35,440 --> 00:17:40,000
+mean
+
+472
+00:17:36,480 --> 00:17:42,240
+around 2005 that's the word meme
+
+473
+00:17:40,000 --> 00:17:44,160
+begin to got invented begin to become
+
+474
+00:17:42,240 --> 00:17:44,799
+popular but of course if you trace
+
+475
+00:17:44,160 --> 00:17:47,760
+history
+
+476
+00:17:44,799 --> 00:17:48,960
+like often if you trace history of a
+
+477
+00:17:47,760 --> 00:17:51,360
+word etymology
+
+478
+00:17:48,960 --> 00:17:53,440
+you will eat then you will see oh it was
+
+479
+00:17:51,360 --> 00:17:55,039
+mentioned 10 years ago or 20 years ago
+
+480
+00:17:53,440 --> 00:17:57,039
+you'll find the you know the first
+
+481
+00:17:55,039 --> 00:17:58,480
+mention but that's not
+
+482
+00:17:57,039 --> 00:18:00,240
+that almost doesn't count you know
+
+483
+00:17:58,480 --> 00:18:03,440
+because anyway so
+
+484
+00:18:00,240 --> 00:18:05,039
+we digress okay so anyway in around 2005
+
+485
+00:18:03,440 --> 00:18:08,400
+starting to have memes you know
+
+486
+00:18:05,039 --> 00:18:12,160
+millennial generation kind of creation
+
+487
+00:18:08,400 --> 00:18:14,000
+then in in in programming there are
+
+488
+00:18:12,160 --> 00:18:15,840
+certain things of people that
+
+489
+00:18:14,000 --> 00:18:17,280
+becomes very popular as i mean for
+
+490
+00:18:15,840 --> 00:18:19,600
+example
+
+491
+00:18:17,280 --> 00:18:20,720
+on twitter or internet you'll see lots
+
+492
+00:18:19,600 --> 00:18:22,720
+of cats right
+
+493
+00:18:20,720 --> 00:18:24,320
+cats cat you know it's all over the
+
+494
+00:18:22,720 --> 00:18:26,880
+place cat but
+
+495
+00:18:24,320 --> 00:18:28,080
+you will rarely i mean comparatively
+
+496
+00:18:26,880 --> 00:18:31,679
+comparatively it's
+
+497
+00:18:28,080 --> 00:18:34,160
+rare to see a meme of dog
+
+498
+00:18:31,679 --> 00:18:35,600
+so this is interesting so that means cat
+
+499
+00:18:34,160 --> 00:18:38,240
+is a better meme
+
+500
+00:18:35,600 --> 00:18:38,880
+cat is more fitting for a meme than a
+
+501
+00:18:38,240 --> 00:18:42,000
+dog
+
+502
+00:18:38,880 --> 00:18:44,080
+okay for for reasons okay
+
+503
+00:18:42,000 --> 00:18:45,600
+why is that that's another interesting
+
+504
+00:18:44,080 --> 00:18:47,919
+question we can dive into
+
+505
+00:18:45,600 --> 00:18:49,120
+you know you can think about it so why
+
+506
+00:18:47,919 --> 00:18:51,360
+is it why is it
+
+507
+00:18:49,120 --> 00:18:52,400
+so many memes of you know for every
+
+508
+00:18:51,360 --> 00:18:55,160
+meaning of dog
+
+509
+00:18:52,400 --> 00:18:56,720
+or other any other animal they are like
+
+510
+00:18:55,160 --> 00:18:58,880
+100 more
+
+511
+00:18:56,720 --> 00:19:00,320
+memes about cat why is that you know you
+
+512
+00:18:58,880 --> 00:19:03,200
+can think about that
+
+513
+00:19:00,320 --> 00:19:04,160
+but let's let me jump back so in
+
+514
+00:19:03,200 --> 00:19:06,240
+programming
+
+515
+00:19:04,160 --> 00:19:07,840
+related memes it's similar certain
+
+516
+00:19:06,240 --> 00:19:10,080
+topics are
+
+517
+00:19:07,840 --> 00:19:12,240
+very more suitable for memes emacs for
+
+518
+00:19:10,080 --> 00:19:14,160
+example emacs versus vi
+
+519
+00:19:12,240 --> 00:19:15,600
+now this in programming these two
+
+520
+00:19:14,160 --> 00:19:18,400
+editors are you know
+
+521
+00:19:15,600 --> 00:19:19,840
+meme material but if you actually look
+
+522
+00:19:18,400 --> 00:19:23,280
+into memes there are much
+
+523
+00:19:19,840 --> 00:19:26,400
+more memes about emacs than vi okay
+
+524
+00:19:23,280 --> 00:19:27,120
+very interesting so you know you can
+
+525
+00:19:26,400 --> 00:19:29,520
+compare
+
+526
+00:19:27,120 --> 00:19:30,720
+the cat versus stock memes and the vi
+
+527
+00:19:29,520 --> 00:19:33,039
+versus emacs
+
+528
+00:19:30,720 --> 00:19:34,080
+why is it why you know emacs tends to
+
+529
+00:19:33,039 --> 00:19:37,360
+have more memes
+
+530
+00:19:34,080 --> 00:19:39,760
+it's more suitable for memes and
+
+531
+00:19:37,360 --> 00:19:40,640
+then back to for example programming
+
+532
+00:19:39,760 --> 00:19:45,200
+languages
+
+533
+00:19:40,640 --> 00:19:47,840
+also certain languages are memorable so
+
+534
+00:19:45,200 --> 00:19:49,760
+for example let me tell you you know
+
+535
+00:19:47,840 --> 00:19:52,799
+languages you almost never see
+
+536
+00:19:49,760 --> 00:19:53,679
+memes okay uh ruby you don't see memes
+
+537
+00:19:52,799 --> 00:19:58,080
+much
+
+538
+00:19:53,679 --> 00:20:01,760
+um not much okay um
+
+539
+00:19:58,080 --> 00:20:04,960
+mathematica no javascript not really
+
+540
+00:20:01,760 --> 00:20:05,360
+so but you know let me just focus on you
+
+541
+00:20:04,960 --> 00:20:08,320
+know
+
+542
+00:20:05,360 --> 00:20:09,360
+this the programming language lisp is
+
+543
+00:20:08,320 --> 00:20:11,600
+the best
+
+544
+00:20:09,360 --> 00:20:13,280
+it's the most popular mean material
+
+545
+00:20:11,600 --> 00:20:14,720
+among programming languages when it
+
+546
+00:20:13,280 --> 00:20:19,200
+comes to memes okay
+
+547
+00:20:14,720 --> 00:20:21,360
+for for for reasons okay now
+
+548
+00:20:19,200 --> 00:20:22,320
+back to the topic about which meme you
+
+549
+00:20:21,360 --> 00:20:24,720
+know
+
+550
+00:20:22,320 --> 00:20:25,760
+why is that certain things becomes more
+
+551
+00:20:24,720 --> 00:20:28,320
+memorable you know
+
+552
+00:20:25,760 --> 00:20:28,880
+more uh there's lots of more memes about
+
+553
+00:20:28,320 --> 00:20:31,520
+it
+
+554
+00:20:28,880 --> 00:20:33,200
+while others are less that's another
+
+555
+00:20:31,520 --> 00:20:36,400
+interesting topic but
+
+556
+00:20:33,200 --> 00:20:38,960
+let's not go into that today okay so
+
+557
+00:20:36,400 --> 00:20:41,120
+now let's go back to python okay so i
+
+558
+00:20:38,960 --> 00:20:42,960
+was going i was talking about this book
+
+559
+00:20:41,120 --> 00:20:44,159
+this book is written by these guys you
+
+560
+00:20:42,960 --> 00:20:47,760
+know one of the guy
+
+561
+00:20:44,159 --> 00:20:50,080
+harold alberson you know then back to
+
+562
+00:20:47,760 --> 00:20:53,120
+python okay why am i mentioning that
+
+563
+00:20:50,080 --> 00:20:56,000
+uh where is it uh
+
+564
+00:20:53,120 --> 00:20:58,799
+yeah where is my python sucks page okay
+
+565
+00:20:56,000 --> 00:21:02,960
+so let's go to
+
+566
+00:20:58,799 --> 00:21:06,320
+uh let's go to python sucks
+
+567
+00:21:02,960 --> 00:21:08,159
+camp comp land perving okay so i did
+
+568
+00:21:06,320 --> 00:21:10,080
+several videos about
+
+569
+00:21:08,159 --> 00:21:12,960
+pro i mean we just you should watch them
+
+570
+00:21:10,080 --> 00:21:14,480
+okay uh usually i put on my website
+
+571
+00:21:12,960 --> 00:21:18,159
+those are
+
+572
+00:21:14,480 --> 00:21:21,039
+relatively good videos of mine
+
+573
+00:21:18,159 --> 00:21:23,039
+so python okay python why python sucks
+
+574
+00:21:21,039 --> 00:21:26,159
+so
+
+575
+00:21:23,039 --> 00:21:28,559
+so why lambda is broken uh lambda is
+
+576
+00:21:26,159 --> 00:21:28,559
+broken
+
+577
+00:21:29,679 --> 00:21:34,880
+and cannot be fixed okay so in this
+
+578
+00:21:31,840 --> 00:21:37,120
+article i claim a few few things
+
+579
+00:21:34,880 --> 00:21:39,600
+the lambda you know python is a lambda
+
+580
+00:21:37,120 --> 00:21:43,280
+function uh but it's broken in
+
+581
+00:21:39,600 --> 00:21:45,919
+uh python so technically you know
+
+582
+00:21:43,280 --> 00:21:47,520
+lambda basically means a function and
+
+583
+00:21:45,919 --> 00:21:48,720
+lambda you know the function the
+
+584
+00:21:47,520 --> 00:21:52,559
+construct function
+
+585
+00:21:48,720 --> 00:21:54,400
+is the most the most important element
+
+586
+00:21:52,559 --> 00:21:57,200
+in a functional programming language
+
+587
+00:21:54,400 --> 00:21:59,760
+okay of all functional programming
+
+588
+00:21:57,200 --> 00:22:01,200
+language elements let's say currying
+
+589
+00:21:59,760 --> 00:22:04,480
+tail recursion
+
+590
+00:22:01,200 --> 00:22:08,000
+uh no side effect you know uh
+
+591
+00:22:04,480 --> 00:22:10,840
+uh how they call it um something cannot
+
+592
+00:22:08,000 --> 00:22:13,840
+be modified uh what's the name for that
+
+593
+00:22:10,840 --> 00:22:17,679
+uh
+
+594
+00:22:13,840 --> 00:22:17,679
+[ __ ] i'm getting old i forgot the terms
+
+595
+00:22:18,240 --> 00:22:22,559
+uh how do you call that something cannot
+
+596
+00:22:20,400 --> 00:22:24,559
+be modified cannot be changed there's a
+
+597
+00:22:22,559 --> 00:22:26,400
+name right yeah i forgot
+
+598
+00:22:24,559 --> 00:22:28,159
+so anyway of all elements in a
+
+599
+00:22:26,400 --> 00:22:31,679
+functional programming language
+
+600
+00:22:28,159 --> 00:22:33,280
+uh monad for example monad current tail
+
+601
+00:22:31,679 --> 00:22:35,600
+recursion functions
+
+602
+00:22:33,280 --> 00:22:38,159
+functions okay functions is the most
+
+603
+00:22:35,600 --> 00:22:38,159
+important
+
+604
+00:22:38,240 --> 00:22:41,440
+property aspect in the functional
+
+605
+00:22:40,720 --> 00:22:43,919
+programming
+
+606
+00:22:41,440 --> 00:22:45,760
+and that and in most languages that
+
+607
+00:22:43,919 --> 00:22:48,400
+function is just called lambda okay
+
+608
+00:22:45,760 --> 00:22:49,200
+so when when lambda when when you have a
+
+609
+00:22:48,400 --> 00:22:51,039
+language
+
+610
+00:22:49,200 --> 00:22:52,799
+python you know you have a lambda and
+
+611
+00:22:51,039 --> 00:22:54,480
+that lambda is crippled
+
+612
+00:22:52,799 --> 00:22:57,039
+which is the case in python i'm gonna
+
+613
+00:22:54,480 --> 00:22:59,280
+tell you what i'm gonna explain
+
+614
+00:22:57,039 --> 00:23:00,720
+then you can say you can't really say
+
+615
+00:22:59,280 --> 00:23:02,400
+the function you know the language
+
+616
+00:23:00,720 --> 00:23:04,880
+support we support functional
+
+617
+00:23:02,400 --> 00:23:07,280
+uh programming very good very well no
+
+618
+00:23:04,880 --> 00:23:10,880
+it's just [ __ ] it's a [ __ ]
+
+619
+00:23:07,280 --> 00:23:14,000
+[ __ ] python phonetics [ __ ]
+
+620
+00:23:10,880 --> 00:23:15,679
+okay uh
+
+621
+00:23:14,000 --> 00:23:17,600
+by the way there's lots of you know
+
+622
+00:23:15,679 --> 00:23:19,120
+idiots in all programming languages
+
+623
+00:23:17,600 --> 00:23:20,799
+these hackers you know they don't know
+
+624
+00:23:19,120 --> 00:23:23,360
+nothing nothing about social
+
+625
+00:23:20,799 --> 00:23:23,919
+social structure about how the world
+
+626
+00:23:23,360 --> 00:23:25,679
+works
+
+627
+00:23:23,919 --> 00:23:28,080
+they are just you know they are just
+
+628
+00:23:25,679 --> 00:23:28,799
+nurse besides these hacker types unix
+
+629
+00:23:28,080 --> 00:23:31,440
+philosophy
+
+630
+00:23:28,799 --> 00:23:32,960
+they are just uh idiots they happen to
+
+631
+00:23:31,440 --> 00:23:34,640
+work on computer
+
+632
+00:23:32,960 --> 00:23:36,400
+you know technical stuff but they
+
+633
+00:23:34,640 --> 00:23:38,240
+actually know nothing about word
+
+634
+00:23:36,400 --> 00:23:39,440
+so that you have emacs phonetics you
+
+635
+00:23:38,240 --> 00:23:41,600
+have vi for next
+
+636
+00:23:39,440 --> 00:23:43,120
+phonetics you have unix phonetics you
+
+637
+00:23:41,600 --> 00:23:45,679
+have linux phonetics
+
+638
+00:23:43,120 --> 00:23:47,679
+they are the same group by the way then
+
+639
+00:23:45,679 --> 00:23:49,600
+they of course you have python phonetics
+
+640
+00:23:47,679 --> 00:23:51,919
+you have uh you know
+
+641
+00:23:49,600 --> 00:23:52,960
+so these phonetics they become culty
+
+642
+00:23:51,919 --> 00:23:54,559
+they believed
+
+643
+00:23:52,960 --> 00:23:56,559
+you know they want to be they believed
+
+644
+00:23:54,559 --> 00:23:58,400
+in certain things uh that's
+
+645
+00:23:56,559 --> 00:23:59,600
+like they believe in one plus one equals
+
+646
+00:23:58,400 --> 00:24:01,679
+to three okay
+
+647
+00:23:59,600 --> 00:24:03,200
+so when you ask python phonetics they
+
+648
+00:24:01,679 --> 00:24:04,880
+will say oh python suppose
+
+649
+00:24:03,200 --> 00:24:07,200
+we support functional programming so
+
+650
+00:24:04,880 --> 00:24:07,200
+well
+
+651
+00:24:07,360 --> 00:24:12,000
+so i'm what i'm saying is that i'm not
+
+652
+00:24:09,520 --> 00:24:15,120
+specifically attacking the python
+
+653
+00:24:12,000 --> 00:24:17,440
+phonetics the idiots but this phenomenon
+
+654
+00:24:15,120 --> 00:24:21,760
+applies to quite a few other languages
+
+655
+00:24:17,440 --> 00:24:25,679
+as well for example it applies to
+
+656
+00:24:21,760 --> 00:24:28,080
+what is my [ __ ] uh it applies to lisp
+
+657
+00:24:25,679 --> 00:24:29,760
+phonetics very much you know at least is
+
+658
+00:24:28,080 --> 00:24:32,960
+another language that has
+
+659
+00:24:29,760 --> 00:24:35,200
+huge humongous you know there's a degree
+
+660
+00:24:32,960 --> 00:24:39,039
+of fanaticism in these programmers
+
+661
+00:24:35,200 --> 00:24:39,980
+very a lot tongue of them these markers
+
+662
+00:24:39,039 --> 00:24:42,320
+these markers
+
+663
+00:24:39,980 --> 00:24:45,919
+[Laughter]
+
+664
+00:24:42,320 --> 00:24:47,840
+okay but their beliefs is bananas
+
+665
+00:24:45,919 --> 00:24:49,440
+they don't know what they do they don't
+
+666
+00:24:47,840 --> 00:24:52,000
+know what they're talking about
+
+667
+00:24:49,440 --> 00:24:52,880
+and and when pearl was the most popular
+
+668
+00:24:52,000 --> 00:24:56,080
+language
+
+669
+00:24:52,880 --> 00:24:59,279
+around the year 2000 year 2000 for
+
+670
+00:24:56,080 --> 00:25:02,480
+about 10 years okay pearl is the
+
+671
+00:24:59,279 --> 00:25:05,919
+most popular language pearl and c
+
+672
+00:25:02,480 --> 00:25:06,640
+and c plus first okay for 10 years it
+
+673
+00:25:05,919 --> 00:25:08,880
+kind of
+
+674
+00:25:06,640 --> 00:25:11,200
+went away today so you know they come
+
+675
+00:25:08,880 --> 00:25:14,320
+and go this fashion and fads come and go
+
+676
+00:25:11,200 --> 00:25:17,279
+and you don't hear them anymore
+
+677
+00:25:14,320 --> 00:25:19,039
+so pearl has a great phonetism you know
+
+678
+00:25:17,279 --> 00:25:21,440
+for 10 years
+
+679
+00:25:19,039 --> 00:25:22,159
+you know pearl okay let me tell you
+
+680
+00:25:21,440 --> 00:25:24,799
+which one
+
+681
+00:25:22,159 --> 00:25:26,080
+which languages the level of fanaticism
+
+682
+00:25:24,799 --> 00:25:30,400
+is the highest
+
+683
+00:25:26,080 --> 00:25:33,679
+lisp okay this pearl
+
+684
+00:25:30,400 --> 00:25:37,440
+uh python well
+
+685
+00:25:33,679 --> 00:25:39,279
+python uh among the the ones i have here
+
+686
+00:25:37,440 --> 00:25:41,120
+okay so in haska okay
+
+687
+00:25:39,279 --> 00:25:43,520
+i don't have haskell here and of course
+
+688
+00:25:41,120 --> 00:25:47,360
+there are quite a lot of other languages
+
+689
+00:25:43,520 --> 00:25:50,799
+and rust okay and rust is the the latest
+
+690
+00:25:47,360 --> 00:25:54,000
+edition of the phoneticism [ __ ] idiots
+
+691
+00:25:50,799 --> 00:25:55,600
+you know the exa what do you think of us
+
+692
+00:25:54,000 --> 00:25:58,480
+you know we i have
+
+693
+00:25:55,600 --> 00:26:00,400
+i have followers friends okay you guys
+
+694
+00:25:58,480 --> 00:26:01,919
+uh who are into those ask me all the
+
+695
+00:26:00,400 --> 00:26:02,240
+time about russ what do you think of
+
+696
+00:26:01,919 --> 00:26:03,840
+russ
+
+697
+00:26:02,240 --> 00:26:06,000
+[Laughter]
+
+698
+00:26:03,840 --> 00:26:07,840
+so i digress a lot again so let's go
+
+699
+00:26:06,000 --> 00:26:11,600
+back to python why python
+
+700
+00:26:07,840 --> 00:26:15,919
+lambda sucks so first thing
+
+701
+00:26:11,600 --> 00:26:18,080
+python lambda is spoken who said that
+
+702
+00:26:15,919 --> 00:26:19,200
+how albertson said that you know the
+
+703
+00:26:18,080 --> 00:26:21,200
+author of this book
+
+704
+00:26:19,200 --> 00:26:22,960
+you know he says you have to content you
+
+705
+00:26:21,200 --> 00:26:25,919
+know so uh let's see
+
+706
+00:26:22,960 --> 00:26:28,400
+so he says you have to contend with
+
+707
+00:26:25,919 --> 00:26:31,039
+python's broken notion of lambda
+
+708
+00:26:28,400 --> 00:26:32,400
+but other than other than that it's not
+
+709
+00:26:31,039 --> 00:26:34,480
+really that different
+
+710
+00:26:32,400 --> 00:26:36,080
+from teaching computer science using
+
+711
+00:26:34,480 --> 00:26:39,279
+skim disk okay
+
+712
+00:26:36,080 --> 00:26:40,720
+so with you know this okay so this this
+
+713
+00:26:39,279 --> 00:26:44,240
+is uh from an interview
+
+714
+00:26:40,720 --> 00:26:48,400
+how about send questions and answers uh
+
+715
+00:26:44,240 --> 00:26:51,120
+in year 2011 interviewed by peter siebel
+
+716
+00:26:48,400 --> 00:26:53,760
+peter sibel is a well-known uh journal
+
+717
+00:26:51,120 --> 00:26:56,799
+journalist writing about programming
+
+718
+00:26:53,760 --> 00:26:58,480
+about uh programming industry especially
+
+719
+00:26:56,799 --> 00:27:01,520
+the technical side
+
+720
+00:26:58,480 --> 00:27:02,559
+peter c he's pretty old now i guess 60
+
+721
+00:27:01,520 --> 00:27:06,240
+or 70s
+
+722
+00:27:02,559 --> 00:27:08,720
+uh but you know anyway you look up he's
+
+723
+00:27:06,240 --> 00:27:11,440
+there's a wikipedia article about him
+
+724
+00:27:08,720 --> 00:27:11,440
+i'm pretty sure
+
+725
+00:27:11,679 --> 00:27:15,440
+yeah i think so in fact in the 1970s he
+
+726
+00:27:14,880 --> 00:27:19,679
+wrote
+
+727
+00:27:15,440 --> 00:27:23,039
+um let's see in the 1970s he wrote
+
+728
+00:27:19,679 --> 00:27:25,200
+you know several volumes of books about
+
+729
+00:27:23,039 --> 00:27:26,320
+programming languages uh you know this
+
+730
+00:27:25,200 --> 00:27:29,440
+is back in the day
+
+731
+00:27:26,320 --> 00:27:32,480
+and 1970s or 1980s
+
+732
+00:27:29,440 --> 00:27:35,600
+yeah peter 0 okay so
+
+733
+00:27:32,480 --> 00:27:38,640
+peter scibel
+
+734
+00:27:35,600 --> 00:27:40,559
+say bio is either a writer is either
+
+735
+00:27:38,640 --> 00:27:41,919
+a writer turned programmer or programmer
+
+736
+00:27:40,559 --> 00:27:43,760
+turned writer okay
+
+737
+00:27:41,919 --> 00:27:45,600
+after picking up undergraduate degree
+
+738
+00:27:43,760 --> 00:27:49,039
+anyway so anyway he
+
+739
+00:27:45,600 --> 00:27:50,960
+so he interviewed um
+
+740
+00:27:49,039 --> 00:27:53,039
+he interviewed heart abberson and this
+
+741
+00:27:50,960 --> 00:27:56,399
+is what albertson said
+
+742
+00:27:53,039 --> 00:27:59,200
+lambda python lambda is broken what
+
+743
+00:27:56,399 --> 00:28:00,320
+what is the context the context is the
+
+744
+00:27:59,200 --> 00:28:02,720
+phoneticism of
+
+745
+00:28:00,320 --> 00:28:04,880
+skin lisp okay let me give you the
+
+746
+00:28:02,720 --> 00:28:07,279
+background of the all this
+
+747
+00:28:04,880 --> 00:28:08,480
+of the background of the computing
+
+748
+00:28:07,279 --> 00:28:11,360
+history
+
+749
+00:28:08,480 --> 00:28:11,760
+so this scheme this impartial scheme
+
+750
+00:28:11,360 --> 00:28:14,000
+this
+
+751
+00:28:11,760 --> 00:28:15,200
+is considered the most elegant
+
+752
+00:28:14,000 --> 00:28:19,520
+programming language
+
+753
+00:28:15,200 --> 00:28:23,679
+for about 30 years starting from 1970s
+
+754
+00:28:19,520 --> 00:28:26,720
+to about year 2010 let's say
+
+755
+00:28:23,679 --> 00:28:30,880
+yeah for for 30 years you know
+
+756
+00:28:26,720 --> 00:28:34,240
+let's say from 1980s to 2010
+
+757
+00:28:30,880 --> 00:28:36,960
+scheme this is widely considered
+
+758
+00:28:34,240 --> 00:28:37,679
+to be the most elegant the most
+
+759
+00:28:36,960 --> 00:28:40,080
+beautiful
+
+760
+00:28:37,679 --> 00:28:42,000
+programming language okay and that's
+
+761
+00:28:40,080 --> 00:28:44,480
+skim this
+
+762
+00:28:42,000 --> 00:28:45,679
+and skim this you know lisp is a
+
+763
+00:28:44,480 --> 00:28:48,559
+functional programming
+
+764
+00:28:45,679 --> 00:28:50,000
+language and uh including me i'm a fan
+
+765
+00:28:48,559 --> 00:28:51,919
+of it
+
+766
+00:28:50,000 --> 00:28:54,480
+but it's very sad sad sorry you know
+
+767
+00:28:51,919 --> 00:28:56,880
+these hacker types these [ __ ] idiots
+
+768
+00:28:54,480 --> 00:28:59,039
+with their phonetism about marquez and
+
+769
+00:28:56,880 --> 00:29:01,760
+the tail recursion and crap
+
+770
+00:28:59,039 --> 00:29:02,480
+with that when no nowhere okay you you
+
+771
+00:29:01,760 --> 00:29:04,240
+look at the
+
+772
+00:29:02,480 --> 00:29:06,159
+you look at the industry what the
+
+773
+00:29:04,240 --> 00:29:10,240
+language they use c
+
+774
+00:29:06,159 --> 00:29:13,440
+c plus plus java
+
+775
+00:29:10,240 --> 00:29:16,159
+python php javascript
+
+776
+00:29:13,440 --> 00:29:17,600
+the worst [ __ ] that's that becomes the
+
+777
+00:29:16,159 --> 00:29:19,679
+most popular
+
+778
+00:29:17,600 --> 00:29:21,440
+now you've skim this is the most
+
+779
+00:29:19,679 --> 00:29:22,799
+beautiful language in haskell and all
+
+780
+00:29:21,440 --> 00:29:26,080
+these phonetic
+
+781
+00:29:22,799 --> 00:29:29,200
+phonetics and facts
+
+782
+00:29:26,080 --> 00:29:32,640
+you know uh so who is my so
+
+783
+00:29:29,200 --> 00:29:35,600
+for example this scheme uh you know uh
+
+784
+00:29:32,640 --> 00:29:37,600
+rust you know haskell these people you
+
+785
+00:29:35,600 --> 00:29:39,679
+know their phoneticism is very high
+
+786
+00:29:37,600 --> 00:29:41,760
+they think their language is really best
+
+787
+00:29:39,679 --> 00:29:44,480
+why is that why the [ __ ] is that
+
+788
+00:29:41,760 --> 00:29:45,600
+after 30 years that you guys are nowhere
+
+789
+00:29:44,480 --> 00:29:47,760
+you know seeing this
+
+790
+00:29:45,600 --> 00:29:50,320
+what the [ __ ] who who what the [ __ ] is
+
+791
+00:29:47,760 --> 00:29:54,320
+skin this people don't know
+
+792
+00:29:50,320 --> 00:29:55,840
+but even the phenomena died you know the
+
+793
+00:29:54,320 --> 00:29:59,200
+language is like
+
+794
+00:29:55,840 --> 00:30:02,320
+basically dead that's that's
+
+795
+00:29:59,200 --> 00:30:03,679
+okay it might cause opinion imagine
+
+796
+00:30:02,320 --> 00:30:06,240
+that's because
+
+797
+00:30:03,679 --> 00:30:07,600
+this hacker this phoneticism [ __ ] they
+
+798
+00:30:06,240 --> 00:30:10,000
+have no idea what's going on
+
+799
+00:30:07,600 --> 00:30:11,760
+they all they know is that they have a
+
+800
+00:30:10,000 --> 00:30:12,320
+you know they want to promote their
+
+801
+00:30:11,760 --> 00:30:14,320
+things
+
+802
+00:30:12,320 --> 00:30:15,679
+you know they want to promote it but if
+
+803
+00:30:14,320 --> 00:30:17,919
+you insist
+
+804
+00:30:15,679 --> 00:30:19,520
+if you if your idea is incorrect one
+
+805
+00:30:17,919 --> 00:30:22,720
+plus one equals through three
+
+806
+00:30:19,520 --> 00:30:24,799
+and you push that idea what happens
+
+807
+00:30:22,720 --> 00:30:25,760
+you got [ __ ] that's what happens
+
+808
+00:30:24,799 --> 00:30:29,520
+that's why
+
+809
+00:30:25,760 --> 00:30:32,880
+skim dis pascal this
+
+810
+00:30:29,520 --> 00:30:37,679
+in general they go nowhere dead
+
+811
+00:30:32,880 --> 00:30:41,200
+dead okay commonly you know dead
+
+812
+00:30:37,679 --> 00:30:43,360
+while language like php javascript
+
+813
+00:30:41,200 --> 00:30:45,520
+that every hacker these phoneticism you
+
+814
+00:30:43,360 --> 00:30:48,000
+know these people the this phonetics
+
+815
+00:30:45,520 --> 00:30:49,200
+the you know the python phonetics they
+
+816
+00:30:48,000 --> 00:30:51,760
+despise
+
+817
+00:30:49,200 --> 00:30:52,880
+php they bad bad mouth about php and
+
+818
+00:30:51,760 --> 00:30:56,399
+javascript for
+
+819
+00:30:52,880 --> 00:30:58,880
+for for for about 15 years
+
+820
+00:30:56,399 --> 00:30:59,519
+but however they become the most popular
+
+821
+00:30:58,880 --> 00:31:01,840
+language
+
+822
+00:30:59,519 --> 00:31:03,519
+used everywhere that's a phonetism
+
+823
+00:31:01,840 --> 00:31:06,000
+that's a harm of fanaticism
+
+824
+00:31:03,519 --> 00:31:06,640
+and that also includes emacs the e-max
+
+825
+00:31:06,000 --> 00:31:10,080
+magnetic
+
+826
+00:31:06,640 --> 00:31:11,279
+finances and [ __ ] they they they
+
+827
+00:31:10,080 --> 00:31:13,519
+made emacs
+
+828
+00:31:11,279 --> 00:31:15,039
+die you know these fin you know you go
+
+829
+00:31:13,519 --> 00:31:17,279
+you go to the online today
+
+830
+00:31:15,039 --> 00:31:18,720
+youtube you know emacs conference you
+
+831
+00:31:17,279 --> 00:31:20,960
+you'll see lots of these people
+
+832
+00:31:18,720 --> 00:31:22,480
+emacs can do everything oh my god emac
+
+833
+00:31:20,960 --> 00:31:24,960
+this is the best language
+
+834
+00:31:22,480 --> 00:31:26,799
+but in fact it's the worst [ __ ] but they
+
+835
+00:31:24,960 --> 00:31:29,600
+don't improve they have lots of problems
+
+836
+00:31:26,799 --> 00:31:30,960
+you know so instead you know among their
+
+837
+00:31:29,600 --> 00:31:34,399
+little community like
+
+838
+00:31:30,960 --> 00:31:36,880
+me me and you guys 10 people
+
+839
+00:31:34,399 --> 00:31:38,000
+yeah emacs is the best thing but outside
+
+840
+00:31:36,880 --> 00:31:40,880
+of it the
+
+841
+00:31:38,000 --> 00:31:41,600
+seven billion uh human animals on the
+
+842
+00:31:40,880 --> 00:31:44,399
+earth
+
+843
+00:31:41,600 --> 00:31:46,240
+on this earth what what is e-max they
+
+844
+00:31:44,399 --> 00:31:48,640
+don't know
+
+845
+00:31:46,240 --> 00:31:50,640
+so back to python let's let's think
+
+846
+00:31:48,640 --> 00:31:51,039
+let's focus on this topic for today's
+
+847
+00:31:50,640 --> 00:31:53,360
+whole
+
+848
+00:31:51,039 --> 00:31:55,760
+uh talk show back to python first of all
+
+849
+00:31:53,360 --> 00:31:58,880
+lambda is python lambda is working
+
+850
+00:31:55,760 --> 00:32:02,640
+okay that's one thing now let me explain
+
+851
+00:31:58,880 --> 00:32:05,279
+technically why is it broken okay um
+
+852
+00:32:02,640 --> 00:32:06,320
+so i have so i have quite a few things
+
+853
+00:32:05,279 --> 00:32:09,519
+to explain
+
+854
+00:32:06,320 --> 00:32:10,559
+one i want to show you uh with code okay
+
+855
+00:32:09,519 --> 00:32:13,600
+with code
+
+856
+00:32:10,559 --> 00:32:14,240
+i haven't coded python for a long time
+
+857
+00:32:13,600 --> 00:32:18,159
+so
+
+858
+00:32:14,240 --> 00:32:19,360
+what is this page uh let's go to today's
+
+859
+00:32:18,159 --> 00:32:23,279
+talk show
+
+860
+00:32:19,360 --> 00:32:25,600
+so let's go to uh python
+
+861
+00:32:23,279 --> 00:32:27,200
+let's say python3 okay let's start to
+
+862
+00:32:25,600 --> 00:32:31,440
+code python
+
+863
+00:32:27,200 --> 00:32:33,200
+print three magnify granite
+
+864
+00:32:31,440 --> 00:32:35,600
+uh oh yeah python three you need
+
+865
+00:32:33,200 --> 00:32:36,960
+parenthesis you know the python idiots
+
+866
+00:32:35,600 --> 00:32:39,519
+the guido von russo
+
+867
+00:32:36,960 --> 00:32:40,240
+you know they kiro von russom has a
+
+868
+00:32:39,519 --> 00:32:42,240
+vision
+
+869
+00:32:40,240 --> 00:32:43,519
+you know he he think his language is the
+
+870
+00:32:42,240 --> 00:32:46,480
+best
+
+871
+00:32:43,519 --> 00:32:47,360
+so so python 2 has lots of problems you
+
+872
+00:32:46,480 --> 00:32:49,120
+know because
+
+873
+00:32:47,360 --> 00:32:51,840
+you know every language has kind of
+
+874
+00:32:49,120 --> 00:32:54,080
+problems uh piles of baggage because
+
+875
+00:32:51,840 --> 00:32:55,120
+accumulated because when you begin to
+
+876
+00:32:54,080 --> 00:32:56,960
+design a language
+
+877
+00:32:55,120 --> 00:32:58,399
+you thought this way is better but it
+
+878
+00:32:56,960 --> 00:33:01,279
+turns out it's not you know
+
+879
+00:32:58,399 --> 00:33:04,159
+it usually you have that so how you know
+
+880
+00:33:01,279 --> 00:33:06,480
+so python so guido van rossum decided oh
+
+881
+00:33:04,159 --> 00:33:08,159
+oh i'm gonna my language is the best
+
+882
+00:33:06,480 --> 00:33:11,360
+language for education and
+
+883
+00:33:08,159 --> 00:33:12,960
+the most clarity and i i'm going to get
+
+884
+00:33:11,360 --> 00:33:15,279
+rid of the watts i don't think
+
+885
+00:33:12,960 --> 00:33:17,760
+that's good so i'm going to start a new
+
+886
+00:33:15,279 --> 00:33:21,039
+fresh python 3
+
+887
+00:33:17,760 --> 00:33:24,240
+incompatible with python 2. and
+
+888
+00:33:21,039 --> 00:33:24,640
+the result is turned out not so great a
+
+889
+00:33:24,240 --> 00:33:28,159
+lot
+
+890
+00:33:24,640 --> 00:33:31,679
+industrial python code is still python 2
+
+891
+00:33:28,159 --> 00:33:34,720
+after 10 years more than 10 years now
+
+892
+00:33:31,679 --> 00:33:37,039
+um so anyway python 3 okay so python 3
+
+893
+00:33:34,720 --> 00:33:38,080
+lambda okay so i haven't coded python
+
+894
+00:33:37,039 --> 00:33:43,440
+for about a year
+
+895
+00:33:38,080 --> 00:33:46,000
+or two uh lambda so python lambda so
+
+896
+00:33:43,440 --> 00:33:49,519
+so what uh so python lambda sucks okay
+
+897
+00:33:46,000 --> 00:33:49,519
+it's broken so why is that
+
+898
+00:33:50,840 --> 00:33:54,320
+uh
+
+899
+00:33:52,000 --> 00:33:57,120
+how do you how do you uh [ __ ] i don't
+
+900
+00:33:54,320 --> 00:33:59,519
+remember i don't even remember what uh
+
+901
+00:33:57,120 --> 00:33:59,519
+how do you
+
+902
+00:34:00,399 --> 00:34:08,399
+okay this is this is when you go to
+
+903
+00:34:04,960 --> 00:34:10,399
+python tutorial uh
+
+904
+00:34:08,399 --> 00:34:11,520
+yeah i don't i haven't coded python for
+
+905
+00:34:10,399 --> 00:34:14,320
+a year or two for
+
+906
+00:34:11,520 --> 00:34:16,079
+two or three years actually uh paid on
+
+907
+00:34:14,320 --> 00:34:18,560
+lambda so
+
+908
+00:34:16,079 --> 00:34:21,280
+actually i can i can tell you if i think
+
+909
+00:34:18,560 --> 00:34:24,159
+about it
+
+910
+00:34:21,280 --> 00:34:25,440
+i yeah i haven't coded python for a long
+
+911
+00:34:24,159 --> 00:34:28,639
+time so
+
+912
+00:34:25,440 --> 00:34:31,919
+um let's click on
+
+913
+00:34:28,639 --> 00:34:35,839
+function okay now wait wait do i
+
+914
+00:34:31,919 --> 00:34:35,839
+actually cover lambda at all
+
+915
+00:34:37,599 --> 00:34:42,560
+lambda sucks so bad so badly that i
+
+916
+00:34:40,960 --> 00:34:46,560
+don't even cover it
+
+917
+00:34:42,560 --> 00:34:49,839
+um okay so what am i doing i want i need
+
+918
+00:34:46,560 --> 00:34:49,839
+to code lambda okay
+
+919
+00:35:01,440 --> 00:35:07,200
+uh do i have example here
+
+920
+00:35:04,960 --> 00:35:07,200
+no
+
+921
+00:35:10,640 --> 00:35:12,880
+uh
+
+922
+00:35:15,359 --> 00:35:20,079
+yeah let's just try okay so let's just
+
+923
+00:35:18,160 --> 00:35:22,960
+try something okay so let me
+
+924
+00:35:20,079 --> 00:35:24,400
+anyway so what for the rest of the video
+
+925
+00:35:22,960 --> 00:35:26,880
+what i want to cover is
+
+926
+00:35:24,400 --> 00:35:27,680
+actual code of lambda then i'm going to
+
+927
+00:35:26,880 --> 00:35:30,240
+explain
+
+928
+00:35:27,680 --> 00:35:30,800
+why is it broken why is it it's broken
+
+929
+00:35:30,240 --> 00:35:33,920
+okay it's
+
+930
+00:35:30,800 --> 00:35:35,440
+it's actually crippled it's only it does
+
+931
+00:35:33,920 --> 00:35:37,359
+only some of the things
+
+932
+00:35:35,440 --> 00:35:39,680
+that lambda is supposed to do okay
+
+933
+00:35:37,359 --> 00:35:42,720
+crippled uh it's a crippled
+
+934
+00:35:39,680 --> 00:35:46,960
+function uh and then i'm going to
+
+935
+00:35:42,720 --> 00:35:46,960
+tell you why it cannot be fixed
+
+936
+00:35:47,040 --> 00:35:51,440
+why is that it's because the python
+
+937
+00:35:49,280 --> 00:35:54,560
+syntax so one of the things i
+
+938
+00:35:51,440 --> 00:35:56,640
+i say the most often is that syntax
+
+939
+00:35:54,560 --> 00:35:58,240
+is the most important element of a
+
+940
+00:35:56,640 --> 00:36:01,359
+programming language okay
+
+941
+00:35:58,240 --> 00:36:04,480
+and again this is a contrary view
+
+942
+00:36:01,359 --> 00:36:06,000
+from most uh programmers okay because
+
+943
+00:36:04,480 --> 00:36:08,079
+they don't know nothing
+
+944
+00:36:06,000 --> 00:36:10,160
+you know most programmers will think in
+
+945
+00:36:08,079 --> 00:36:13,119
+fact there's a computer science book
+
+946
+00:36:10,160 --> 00:36:13,440
+says that they will think that syntax is
+
+947
+00:36:13,119 --> 00:36:15,440
+not
+
+948
+00:36:13,440 --> 00:36:17,599
+important syntax is actually just
+
+949
+00:36:15,440 --> 00:36:18,240
+trivial just like sugar syntax just
+
+950
+00:36:17,599 --> 00:36:19,920
+dressing
+
+951
+00:36:18,240 --> 00:36:22,640
+dressing on top you know you can change
+
+952
+00:36:19,920 --> 00:36:24,640
+any syntax it's like clothing you can
+
+953
+00:36:22,640 --> 00:36:26,160
+you can put on skirt you can put put
+
+954
+00:36:24,640 --> 00:36:28,320
+down the shirt doesn't matter
+
+955
+00:36:26,160 --> 00:36:30,320
+but actually really the real thing that
+
+956
+00:36:28,320 --> 00:36:32,240
+matters is the semantics
+
+957
+00:36:30,320 --> 00:36:33,520
+that's false okay that's the most
+
+958
+00:36:32,240 --> 00:36:36,320
+idiotic idea
+
+959
+00:36:33,520 --> 00:36:38,079
+syntax is the most important element of
+
+960
+00:36:36,320 --> 00:36:40,720
+a programming language the most
+
+961
+00:36:38,079 --> 00:36:41,359
+the fundament the most important more
+
+962
+00:36:40,720 --> 00:36:45,680
+more most
+
+963
+00:36:41,359 --> 00:36:48,079
+important uh uh most i would you know
+
+964
+00:36:45,680 --> 00:36:50,320
+even then semantics okay that takes that
+
+965
+00:36:48,079 --> 00:36:52,880
+will require some explanation okay
+
+966
+00:36:50,320 --> 00:36:54,000
+syntax soup okay syntax is the most
+
+967
+00:36:52,880 --> 00:36:56,079
+important aspect of
+
+968
+00:36:54,000 --> 00:36:57,119
+a programming language the quality of a
+
+969
+00:36:56,079 --> 00:37:00,400
+programming language
+
+970
+00:36:57,119 --> 00:37:03,760
+can be judged by how much of it of it
+
+971
+00:37:00,400 --> 00:37:06,320
+can be explained by its syntax alone
+
+972
+00:37:03,760 --> 00:37:06,960
+now i did a video about this you know
+
+973
+00:37:06,320 --> 00:37:09,280
+you know
+
+974
+00:37:06,960 --> 00:37:10,079
+why you know i'm not going to explain
+
+975
+00:37:09,280 --> 00:37:13,520
+now but
+
+976
+00:37:10,079 --> 00:37:15,119
+it has to do it touches on the
+
+977
+00:37:13,520 --> 00:37:17,440
+fundamental aspect of
+
+978
+00:37:15,119 --> 00:37:18,560
+the theory theoretical computer
+
+979
+00:37:17,440 --> 00:37:21,359
+languages
+
+980
+00:37:18,560 --> 00:37:23,839
+i mean theoretical computer science that
+
+981
+00:37:21,359 --> 00:37:25,920
+is formal languages okay i did a few
+
+982
+00:37:23,839 --> 00:37:28,640
+videos on that watch this video
+
+983
+00:37:25,920 --> 00:37:29,599
+formal languages okay so it is the
+
+984
+00:37:28,640 --> 00:37:32,640
+touches the
+
+985
+00:37:29,599 --> 00:37:33,119
+heart of computer theoretical computer
+
+986
+00:37:32,640 --> 00:37:36,160
+science
+
+987
+00:37:33,119 --> 00:37:38,720
+anyway so i claim
+
+988
+00:37:36,160 --> 00:37:42,240
+syntax is most important so back to here
+
+989
+00:37:38,720 --> 00:37:44,640
+okay back to the lambda okay so
+
+990
+00:37:42,240 --> 00:37:46,320
+one i'm gonna going to show you in code
+
+991
+00:37:44,640 --> 00:37:49,359
+why lambda is broken then
+
+992
+00:37:46,320 --> 00:37:50,400
+i'm going to explain why it cannot be be
+
+993
+00:37:49,359 --> 00:37:52,240
+fixed okay
+
+994
+00:37:50,400 --> 00:37:54,400
+now python lambda is broken that's a
+
+995
+00:37:52,240 --> 00:37:56,320
+well-known thing okay i i
+
+996
+00:37:54,400 --> 00:37:57,520
+actually i don't even need to cover it
+
+997
+00:37:56,320 --> 00:38:00,000
+you know just you
+
+998
+00:37:57,520 --> 00:38:00,560
+you know if you know python if you have
+
+999
+00:38:00,000 --> 00:38:02,560
+you know
+
+1000
+00:38:00,560 --> 00:38:03,839
+some experience in python you know as
+
+1001
+00:38:02,560 --> 00:38:06,000
+well
+
+1002
+00:38:03,839 --> 00:38:07,280
+if you know some functional programming
+
+1003
+00:38:06,000 --> 00:38:10,800
+you know what i mean
+
+1004
+00:38:07,280 --> 00:38:14,240
+so because i can cover it now but
+
+1005
+00:38:10,800 --> 00:38:17,440
+you know it's not too valuable
+
+1006
+00:38:14,240 --> 00:38:20,720
+what what i believe is more valuable is
+
+1007
+00:38:17,440 --> 00:38:23,839
+my claim that this cannot be
+
+1008
+00:38:20,720 --> 00:38:24,240
+fixed and my claim that this cannot be
+
+1009
+00:38:23,839 --> 00:38:27,680
+fixed
+
+1010
+00:38:24,240 --> 00:38:30,480
+is because the python's
+
+1011
+00:38:27,680 --> 00:38:32,160
+uh syntax okay because the python
+
+1012
+00:38:30,480 --> 00:38:35,599
+indentation based syntax
+
+1013
+00:38:32,160 --> 00:38:38,960
+they are based in class that is why
+
+1014
+00:38:35,599 --> 00:38:41,839
+the lambda cannot be fixed okay
+
+1015
+00:38:38,960 --> 00:38:42,960
+so actually in order to explain that i
+
+1016
+00:38:41,839 --> 00:38:46,079
+do need to uh
+
+1017
+00:38:42,960 --> 00:38:47,839
+remember the lambda thing okay so uh so
+
+1018
+00:38:46,079 --> 00:38:52,079
+what is the lambda thing
+
+1019
+00:38:47,839 --> 00:38:55,599
+um okay so so let's just try the the
+
+1020
+00:38:52,079 --> 00:38:59,119
+the most easy example is to do a array
+
+1021
+00:38:55,599 --> 00:39:01,280
+three four five let's say
+
+1022
+00:38:59,119 --> 00:39:02,800
+three four five two okay so i believe
+
+1023
+00:39:01,280 --> 00:39:07,760
+that's a array in python
+
+1024
+00:39:02,800 --> 00:39:09,920
+and you want to sort the array okay sort
+
+1025
+00:39:07,760 --> 00:39:11,920
+i haven't coded python for a long time
+
+1026
+00:39:09,920 --> 00:39:15,040
+so what what is the python
+
+1027
+00:39:11,920 --> 00:39:17,839
+uh [ __ ] python3
+
+1028
+00:39:15,040 --> 00:39:17,839
+basics
+
+1029
+00:39:18,800 --> 00:39:21,920
+okay anyway i have a sword i have a here
+
+1030
+00:39:21,520 --> 00:39:24,960
+here
+
+1031
+00:39:21,920 --> 00:39:27,119
+here is a sword okay
+
+1032
+00:39:24,960 --> 00:39:28,160
+sword function you know python idiocy
+
+1033
+00:39:27,119 --> 00:39:31,119
+you know they
+
+1034
+00:39:28,160 --> 00:39:31,760
+python is very inconsistent you have the
+
+1035
+00:39:31,119 --> 00:39:35,119
+sort
+
+1036
+00:39:31,760 --> 00:39:37,839
+method okay then you have the sort
+
+1037
+00:39:35,119 --> 00:39:39,280
+function okay now the function is has
+
+1038
+00:39:37,839 --> 00:39:42,640
+this idiotic name
+
+1039
+00:39:39,280 --> 00:39:43,599
+sorted you know the past tense sorted
+
+1040
+00:39:42,640 --> 00:39:47,520
+that's a function
+
+1041
+00:39:43,599 --> 00:39:51,359
+yeah [ __ ] idiot okay so anyway
+
+1042
+00:39:47,520 --> 00:39:54,560
+let me just try uh refresh myself um
+
+1043
+00:39:51,359 --> 00:39:54,960
+you know so so let's let's say we want
+
+1044
+00:39:54,560 --> 00:39:58,320
+to
+
+1045
+00:39:54,960 --> 00:40:00,079
+print okay right there it is
+
+1046
+00:39:58,320 --> 00:40:02,560
+so we begin with the array three four
+
+1047
+00:40:00,079 --> 00:40:03,359
+five two we want to sort it and here is
+
+1048
+00:40:02,560 --> 00:40:06,640
+the
+
+1049
+00:40:03,359 --> 00:40:07,440
+you know the sorted result okay now let
+
+1050
+00:40:06,640 --> 00:40:09,599
+me tell you
+
+1051
+00:40:07,440 --> 00:40:12,160
+let's try something fresh uh i mean
+
+1052
+00:40:09,599 --> 00:40:14,400
+let's try something
+
+1053
+00:40:12,160 --> 00:40:15,760
+i mean i'm gonna i'm gonna start to use
+
+1054
+00:40:14,400 --> 00:40:18,800
+lambda okay so
+
+1055
+00:40:15,760 --> 00:40:22,960
+this is one way i i remember how to uh
+
+1056
+00:40:18,800 --> 00:40:25,839
+use uh sort so i believe we have a lot
+
+1057
+00:40:22,960 --> 00:40:25,839
+comments
+
+1058
+00:40:26,480 --> 00:40:31,680
+okay so am i still talking let me check
+
+1059
+00:40:29,040 --> 00:40:32,400
+20 people watching okay so how long have
+
+1060
+00:40:31,680 --> 00:40:37,280
+i been
+
+1061
+00:40:32,400 --> 00:40:41,200
+been talking uh i've been talking for
+
+1062
+00:40:37,280 --> 00:40:44,319
+40 minutes okay not too bad lots of rent
+
+1063
+00:40:41,200 --> 00:40:47,599
+continuous non-stop
+
+1064
+00:40:44,319 --> 00:40:51,359
+that the density is beyond
+
+1065
+00:40:47,599 --> 00:40:53,359
+beyond known elements uh
+
+1066
+00:40:51,359 --> 00:40:55,119
+star talk show that's what you're
+
+1067
+00:40:53,359 --> 00:40:58,240
+watching
+
+1068
+00:40:55,119 --> 00:40:58,880
+uh so so so lambda let's this yeah so
+
+1069
+00:40:58,240 --> 00:41:00,960
+lambda
+
+1070
+00:40:58,880 --> 00:41:03,280
+escape back to lambda so in order to do
+
+1071
+00:41:00,960 --> 00:41:07,200
+to use that first of all i want to
+
+1072
+00:41:03,280 --> 00:41:09,440
+um actually another way to use lambda
+
+1073
+00:41:07,200 --> 00:41:09,440
+is
+
+1074
+00:41:10,240 --> 00:41:15,040
+what what is the okay i don't remember
+
+1075
+00:41:13,119 --> 00:41:19,680
+the lambda syntax oh there it is
+
+1076
+00:41:15,040 --> 00:41:22,160
+the [ __ ] [ __ ] the python uh
+
+1077
+00:41:19,680 --> 00:41:22,800
+okay so lambda okay so lambda let's say
+
+1078
+00:41:22,160 --> 00:41:25,760
+let's just
+
+1079
+00:41:22,800 --> 00:41:26,400
+let's say simple okay a function that
+
+1080
+00:41:25,760 --> 00:41:28,880
+returns
+
+1081
+00:41:26,400 --> 00:41:30,240
+uh x plus one okay so that's lambda
+
+1082
+00:41:28,880 --> 00:41:33,359
+let's comment this out
+
+1083
+00:41:30,240 --> 00:41:36,640
+so this is lambda and let's say uh
+
+1084
+00:41:33,359 --> 00:41:40,079
+function you can actually assign it
+
+1085
+00:41:36,640 --> 00:41:40,079
+so now function
+
+1086
+00:41:40,560 --> 00:41:47,119
+let's evaluate at 2 okay now
+
+1087
+00:41:43,599 --> 00:41:49,680
+print it okay
+
+1088
+00:41:47,119 --> 00:41:50,319
+so here's our code so we have we have a
+
+1089
+00:41:49,680 --> 00:41:52,800
+lambda
+
+1090
+00:41:50,319 --> 00:41:53,680
+this function returns whatever argument
+
+1091
+00:41:52,800 --> 00:41:56,880
+plus one
+
+1092
+00:41:53,680 --> 00:41:59,200
+then we evaluate it at number two
+
+1093
+00:41:56,880 --> 00:42:00,000
+okay so here's the result three okay
+
+1094
+00:41:59,200 --> 00:42:02,800
+that's how
+
+1095
+00:42:00,000 --> 00:42:04,000
+that's that is the lambda in python okay
+
+1096
+00:42:02,800 --> 00:42:07,520
+now lambda so
+
+1097
+00:42:04,000 --> 00:42:10,480
+let's let's do another function
+
+1098
+00:42:07,520 --> 00:42:11,359
+uh let's say f2 now this time we have
+
+1099
+00:42:10,480 --> 00:42:14,880
+two arguments
+
+1100
+00:42:11,359 --> 00:42:16,079
+x and y and this time uh it just add
+
+1101
+00:42:14,880 --> 00:42:19,119
+them up okay
+
+1102
+00:42:16,079 --> 00:42:21,760
+so uh
+
+1103
+00:42:19,119 --> 00:42:21,760
+so now
+
+1104
+00:42:22,800 --> 00:42:29,440
+okay so now let's say uh let's let's see
+
+1105
+00:42:26,720 --> 00:42:32,000
+yeah okay let's just go okay so now we
+
+1106
+00:42:29,440 --> 00:42:34,560
+want to add two plus three run it
+
+1107
+00:42:32,000 --> 00:42:35,599
+five okay so you see so that's how you
+
+1108
+00:42:34,560 --> 00:42:38,079
+define lambda
+
+1109
+00:42:35,599 --> 00:42:38,720
+okay that's that's lambda in python and
+
+1110
+00:42:38,079 --> 00:42:41,440
+that is
+
+1111
+00:42:38,720 --> 00:42:42,000
+all okay there's nothing else you can do
+
+1112
+00:42:41,440 --> 00:42:45,680
+okay
+
+1113
+00:42:42,000 --> 00:42:46,640
+now first of all so let's go get back to
+
+1114
+00:42:45,680 --> 00:42:49,040
+the question so
+
+1115
+00:42:46,640 --> 00:42:50,400
+i'm trying to explain why lambda in
+
+1116
+00:42:49,040 --> 00:42:52,800
+python is broken by
+
+1117
+00:42:50,400 --> 00:42:53,760
+actual example so what's wrong with the
+
+1118
+00:42:52,800 --> 00:42:57,200
+lambda here
+
+1119
+00:42:53,760 --> 00:42:59,119
+so the the first of all notice that the
+
+1120
+00:42:57,200 --> 00:43:00,319
+the lambda in python can only be one
+
+1121
+00:42:59,119 --> 00:43:03,520
+single line
+
+1122
+00:43:00,319 --> 00:43:05,359
+you cannot you cannot
+
+1123
+00:43:03,520 --> 00:43:07,280
+uh put two lines okay so hold on a
+
+1124
+00:43:05,359 --> 00:43:08,720
+second let me let me show you okay so
+
+1125
+00:43:07,280 --> 00:43:10,960
+let's say for example
+
+1126
+00:43:08,720 --> 00:43:13,119
+so we have this one single lambda let's
+
+1127
+00:43:10,960 --> 00:43:16,560
+try to put it in two lines
+
+1128
+00:43:13,119 --> 00:43:18,319
+okay so that doesn't work okay so you
+
+1129
+00:43:16,560 --> 00:43:20,720
+see syntax error okay
+
+1130
+00:43:18,319 --> 00:43:24,079
+so but you actually you can make it work
+
+1131
+00:43:20,720 --> 00:43:24,079
+by adding this thing okay
+
+1132
+00:43:24,720 --> 00:43:29,599
+no it doesn't work wait uh okay you
+
+1133
+00:43:27,200 --> 00:43:32,319
+don't you cannot have space okay so here
+
+1134
+00:43:29,599 --> 00:43:33,040
+okay you see now it works you have to
+
+1135
+00:43:32,319 --> 00:43:36,240
+add this
+
+1136
+00:43:33,040 --> 00:43:39,440
+backslash now backslash in in
+
+1137
+00:43:36,240 --> 00:43:40,319
+python means continue like continue the
+
+1138
+00:43:39,440 --> 00:43:44,400
+current line
+
+1139
+00:43:40,319 --> 00:43:47,119
+so that you know that is equivalent to
+
+1140
+00:43:44,400 --> 00:43:49,839
+this line so that's how you can have
+
+1141
+00:43:47,119 --> 00:43:52,800
+multiple lines
+
+1142
+00:43:49,839 --> 00:43:54,960
+to define uh to construct the lambda
+
+1143
+00:43:52,800 --> 00:43:57,680
+function okay
+
+1144
+00:43:54,960 --> 00:43:58,960
+so what's my point so my point is that
+
+1145
+00:43:57,680 --> 00:44:01,839
+lambda in python
+
+1146
+00:43:58,960 --> 00:44:04,240
+essentially can can only have one line
+
+1147
+00:44:01,839 --> 00:44:06,800
+one single line
+
+1148
+00:44:04,240 --> 00:44:09,040
+you you you know you can force it into
+
+1149
+00:44:06,800 --> 00:44:09,839
+multiple lines by using the backslash
+
+1150
+00:44:09,040 --> 00:44:11,920
+but
+
+1151
+00:44:09,839 --> 00:44:13,359
+but the remember the backslash that's
+
+1152
+00:44:11,920 --> 00:44:17,440
+just a
+
+1153
+00:44:13,359 --> 00:44:20,160
+mechanism to to make multiple lines into
+
+1154
+00:44:17,440 --> 00:44:22,240
+a single line so even with backslash
+
+1155
+00:44:20,160 --> 00:44:23,599
+it basically still a single line okay
+
+1156
+00:44:22,240 --> 00:44:25,680
+it's still a single line
+
+1157
+00:44:23,599 --> 00:44:26,800
+so what's the problem with the single
+
+1158
+00:44:25,680 --> 00:44:28,800
+line line
+
+1159
+00:44:26,800 --> 00:44:30,400
+lambda the problem is that you know
+
+1160
+00:44:28,800 --> 00:44:33,280
+lambda in general is a
+
+1161
+00:44:30,400 --> 00:44:35,599
+basic you know it's the meaning of
+
+1162
+00:44:33,280 --> 00:44:38,960
+lambda is to define your function
+
+1163
+00:44:35,599 --> 00:44:42,720
+now so when you limit your function
+
+1164
+00:44:38,960 --> 00:44:42,720
+definition to a single line
+
+1165
+00:44:42,880 --> 00:44:46,960
+and in particular because the python
+
+1166
+00:44:45,280 --> 00:44:49,599
+syntax you know python syntax
+
+1167
+00:44:46,960 --> 00:44:52,000
+is indentation whenever you have nesting
+
+1168
+00:44:49,599 --> 00:44:54,079
+or complex things you have to indent it
+
+1169
+00:44:52,000 --> 00:44:55,760
+that means you have to have you have to
+
+1170
+00:44:54,079 --> 00:44:58,800
+have multiple lines
+
+1171
+00:44:55,760 --> 00:45:02,319
+so when you have a lambda you know
+
+1172
+00:44:58,800 --> 00:45:05,280
+when you have a way to define a function
+
+1173
+00:45:02,319 --> 00:45:07,040
+and it must be only one line but however
+
+1174
+00:45:05,280 --> 00:45:09,359
+however the python syntax
+
+1175
+00:45:07,040 --> 00:45:11,520
+require multiple lines because whenever
+
+1176
+00:45:09,359 --> 00:45:13,920
+you have complex things you need in the
+
+1177
+00:45:11,520 --> 00:45:14,720
+indentation that means you need multiple
+
+1178
+00:45:13,920 --> 00:45:18,240
+lines
+
+1179
+00:45:14,720 --> 00:45:22,160
+so you cannot you cannot
+
+1180
+00:45:18,240 --> 00:45:25,200
+use lambda to define uh
+
+1181
+00:45:22,160 --> 00:45:27,920
+arbitrary function you know
+
+1182
+00:45:25,200 --> 00:45:29,119
+in in a practical way in real life you
+
+1183
+00:45:27,920 --> 00:45:32,400
+know the only
+
+1184
+00:45:29,119 --> 00:45:34,960
+the only time you use lambda in python
+
+1185
+00:45:32,400 --> 00:45:35,680
+is when the function is very simple you
+
+1186
+00:45:34,960 --> 00:45:38,960
+know
+
+1187
+00:45:35,680 --> 00:45:41,280
+like like our example uh
+
+1188
+00:45:38,960 --> 00:45:43,680
+like our example okay so you know you
+
+1189
+00:45:41,280 --> 00:45:47,520
+know adding you know add one or
+
+1190
+00:45:43,680 --> 00:45:50,720
+what x plus one basically the only
+
+1191
+00:45:47,520 --> 00:45:51,440
+in practice the only time you use lambda
+
+1192
+00:45:50,720 --> 00:45:53,680
+in python
+
+1193
+00:45:51,440 --> 00:45:54,480
+is when the function is very simple you
+
+1194
+00:45:53,680 --> 00:45:56,480
+know what
+
+1195
+00:45:54,480 --> 00:45:57,599
+one single line that fits one single
+
+1196
+00:45:56,480 --> 00:46:01,440
+line
+
+1197
+00:45:57,599 --> 00:46:02,960
+otherwise you cannot use lambda okay so
+
+1198
+00:46:01,440 --> 00:46:05,119
+so let me explain what what's the
+
+1199
+00:46:02,960 --> 00:46:07,760
+significance of these
+
+1200
+00:46:05,119 --> 00:46:08,720
+so lambda is a way to define a function
+
+1201
+00:46:07,760 --> 00:46:10,319
+right it's the most
+
+1202
+00:46:08,720 --> 00:46:12,079
+important element in a function of
+
+1203
+00:46:10,319 --> 00:46:15,280
+programming language so
+
+1204
+00:46:12,079 --> 00:46:17,040
+a function so because functional
+
+1205
+00:46:15,280 --> 00:46:19,200
+programming everything is a function you
+
+1206
+00:46:17,040 --> 00:46:20,160
+chain functions together to make your
+
+1207
+00:46:19,200 --> 00:46:24,079
+program okay
+
+1208
+00:46:20,160 --> 00:46:26,640
+your entire program is made of is
+
+1209
+00:46:24,079 --> 00:46:27,839
+consists of function definitions and
+
+1210
+00:46:26,640 --> 00:46:30,960
+evaluation of those
+
+1211
+00:46:27,839 --> 00:46:34,400
+functions so functions is the
+
+1212
+00:46:30,960 --> 00:46:36,800
+core element the central part of your
+
+1213
+00:46:34,400 --> 00:46:40,240
+code your source code okay your program
+
+1214
+00:46:36,800 --> 00:46:42,240
+in your functional programming language
+
+1215
+00:46:40,240 --> 00:46:43,680
+but now you are saying in pi in the case
+
+1216
+00:46:42,240 --> 00:46:45,280
+of python you are saying
+
+1217
+00:46:43,680 --> 00:46:47,520
+all your function must be simple
+
+1218
+00:46:45,280 --> 00:46:50,560
+functions only you cannot have complex
+
+1219
+00:46:47,520 --> 00:46:52,319
+functions what the [ __ ] is that you know
+
+1220
+00:46:50,560 --> 00:46:54,880
+you cannot write programs in this
+
+1221
+00:46:52,319 --> 00:46:58,000
+language okay so that is why
+
+1222
+00:46:54,880 --> 00:47:00,400
+python lambda is spoken so so you cannot
+
+1223
+00:46:58,000 --> 00:47:02,160
+use lambda so when you cannot use lambda
+
+1224
+00:47:00,400 --> 00:47:02,640
+what do you do you use the definition
+
+1225
+00:47:02,160 --> 00:47:06,480
+okay
+
+1226
+00:47:02,640 --> 00:47:06,480
+you know the the more proper way
+
+1227
+00:47:08,240 --> 00:47:12,240
+you know i don't remember the python
+
+1228
+00:47:10,720 --> 00:47:14,880
+syntax okay define
+
+1229
+00:47:12,240 --> 00:47:16,319
+okay so that's how you do it i guess x
+
+1230
+00:47:14,880 --> 00:47:19,440
+plus one okay
+
+1231
+00:47:16,319 --> 00:47:23,200
+so define function uh
+
+1232
+00:47:19,440 --> 00:47:24,079
+x uh f3 okay so this is how you define a
+
+1233
+00:47:23,200 --> 00:47:28,480
+function
+
+1234
+00:47:24,079 --> 00:47:31,760
+properly in python okay let's try it
+
+1235
+00:47:28,480 --> 00:47:31,760
+uh let's try it
+
+1236
+00:47:32,160 --> 00:47:37,440
+okay let's read oh return uh
+
+1237
+00:47:35,520 --> 00:47:40,319
+you know idiotic python so here's
+
+1238
+00:47:37,440 --> 00:47:40,319
+another example
+
+1239
+00:47:40,480 --> 00:47:44,400
+you know python needs a return statement
+
+1240
+00:47:42,640 --> 00:47:46,400
+in a functional programming language
+
+1241
+00:47:44,400 --> 00:47:48,960
+usually when you define a function
+
+1242
+00:47:46,400 --> 00:47:50,000
+you don't you don't have the return
+
+1243
+00:47:48,960 --> 00:47:52,240
+statement
+
+1244
+00:47:50,000 --> 00:47:53,119
+any expression that comes last is the
+
+1245
+00:47:52,240 --> 00:47:55,359
+return
+
+1246
+00:47:53,119 --> 00:47:56,800
+value okay everything in functional
+
+1247
+00:47:55,359 --> 00:47:57,920
+programming everything tends to be
+
+1248
+00:47:56,800 --> 00:48:00,160
+expressions okay
+
+1249
+00:47:57,920 --> 00:48:01,040
+so you don't have return statement the
+
+1250
+00:48:00,160 --> 00:48:03,119
+fact that
+
+1251
+00:48:01,040 --> 00:48:05,760
+first of all python lambda is broken
+
+1252
+00:48:03,119 --> 00:48:07,599
+then the proper way to define a function
+
+1253
+00:48:05,760 --> 00:48:10,880
+you need the return statement what that
+
+1254
+00:48:07,599 --> 00:48:13,040
+like so so that means
+
+1255
+00:48:10,880 --> 00:48:14,400
+you know that supports you know this is
+
+1256
+00:48:13,040 --> 00:48:16,800
+supports my claim
+
+1257
+00:48:14,400 --> 00:48:18,480
+lamp you know python is not a very good
+
+1258
+00:48:16,800 --> 00:48:21,440
+you know it's not a good
+
+1259
+00:48:18,480 --> 00:48:22,160
+uh language to do functional programming
+
+1260
+00:48:21,440 --> 00:48:25,680
+at all
+
+1261
+00:48:22,160 --> 00:48:27,760
+you know contrary to python phonetics
+
+1262
+00:48:25,680 --> 00:48:29,680
+okay so anyway here's how you define a
+
+1263
+00:48:27,760 --> 00:48:30,800
+function properly in python okay return
+
+1264
+00:48:29,680 --> 00:48:33,520
+statement okay
+
+1265
+00:48:30,800 --> 00:48:34,559
+so uh so you run it here you know you
+
+1266
+00:48:33,520 --> 00:48:37,920
+got the results
+
+1267
+00:48:34,559 --> 00:48:37,920
+three three right so
+
+1268
+00:48:38,559 --> 00:48:44,800
+so okay i think that um that covers why
+
+1269
+00:48:42,000 --> 00:48:45,839
+python lambda is broken you know and why
+
+1270
+00:48:44,800 --> 00:48:49,040
+is it because
+
+1271
+00:48:45,839 --> 00:48:50,640
+syntax okay now you can so i've talked
+
+1272
+00:48:49,040 --> 00:48:52,960
+you know so you have seen
+
+1273
+00:48:50,640 --> 00:48:54,079
+python syntax it has to do with python
+
+1274
+00:48:52,960 --> 00:48:56,800
+syntax because
+
+1275
+00:48:54,079 --> 00:48:57,760
+the python lambda is basically single
+
+1276
+00:48:56,800 --> 00:49:00,559
+line you know
+
+1277
+00:48:57,760 --> 00:49:01,119
+uh practically it's just a single line
+
+1278
+00:49:00,559 --> 00:49:04,079
+functions
+
+1279
+00:49:01,119 --> 00:49:05,280
+simple functions the the proper way to
+
+1280
+00:49:04,079 --> 00:49:08,720
+define a function
+
+1281
+00:49:05,280 --> 00:49:09,440
+is actually using the def and require
+
+1282
+00:49:08,720 --> 00:49:12,559
+multiple
+
+1283
+00:49:09,440 --> 00:49:16,480
+multiple lines okay so
+
+1284
+00:49:12,559 --> 00:49:19,200
+so um so
+
+1285
+00:49:16,480 --> 00:49:20,160
+so that so that tells you okay lambda is
+
+1286
+00:49:19,200 --> 00:49:24,160
+broken okay
+
+1287
+00:49:20,160 --> 00:49:27,440
+so in so in practice you you know you
+
+1288
+00:49:24,160 --> 00:49:29,599
+whenever you you use
+
+1289
+00:49:27,440 --> 00:49:30,720
+you use lambda in python you cannot use
+
+1290
+00:49:29,599 --> 00:49:32,800
+lambda whenever you
+
+1291
+00:49:30,720 --> 00:49:34,640
+want to define a real you know complex
+
+1292
+00:49:32,800 --> 00:49:35,839
+function you have you cannot use lambda
+
+1293
+00:49:34,640 --> 00:49:41,839
+so lambda is broken
+
+1294
+00:49:35,839 --> 00:49:41,839
+in python okay now now the second part
+
+1295
+00:49:42,720 --> 00:49:48,480
+it cannot be fixed okay so
+
+1296
+00:49:46,079 --> 00:49:49,280
+now this now this comes interesting okay
+
+1297
+00:49:48,480 --> 00:49:52,720
+so
+
+1298
+00:49:49,280 --> 00:49:55,520
+suppose you are guido rondrossa you know
+
+1299
+00:49:52,720 --> 00:49:57,520
+you received many complaints from the
+
+1300
+00:49:55,520 --> 00:50:00,640
+functional programming
+
+1301
+00:49:57,520 --> 00:50:01,280
+phonetics they say python lambda is it
+
+1302
+00:50:00,640 --> 00:50:03,359
+sucks
+
+1303
+00:50:01,280 --> 00:50:04,559
+you know can we in next version of
+
+1304
+00:50:03,359 --> 00:50:07,920
+python python 3
+
+1305
+00:50:04,559 --> 00:50:10,559
+python 3000 okay here is a you know
+
+1306
+00:50:07,920 --> 00:50:12,160
+here is a guido you know guido is kind
+
+1307
+00:50:10,559 --> 00:50:15,280
+of a
+
+1308
+00:50:12,160 --> 00:50:16,079
+passive aggressive guy you know guido
+
+1309
+00:50:15,280 --> 00:50:18,079
+von listen
+
+1310
+00:50:16,079 --> 00:50:19,760
+you know he wrote the article he wrote
+
+1311
+00:50:18,079 --> 00:50:23,430
+the article
+
+1312
+00:50:19,760 --> 00:50:25,680
+the fate of reduce in python 3000
+
+1313
+00:50:23,430 --> 00:50:27,760
+[Laughter]
+
+1314
+00:50:25,680 --> 00:50:28,880
+the fate of reduce if you don't know
+
+1315
+00:50:27,760 --> 00:50:31,280
+reduce is a
+
+1316
+00:50:28,880 --> 00:50:32,160
+major uh construct in functional
+
+1317
+00:50:31,280 --> 00:50:35,359
+programming
+
+1318
+00:50:32,160 --> 00:50:40,640
+and he wrote the article back in 2005
+
+1319
+00:50:35,359 --> 00:50:43,040
+the fate of reducing python 3000
+
+1320
+00:50:40,640 --> 00:50:43,920
+he's a he's a passive aggressive guy he
+
+1321
+00:50:43,040 --> 00:50:46,400
+doesn't like
+
+1322
+00:50:43,920 --> 00:50:48,319
+functional programming but he he's full
+
+1323
+00:50:46,400 --> 00:50:51,920
+of himself he thinks that
+
+1324
+00:50:48,319 --> 00:50:52,480
+his opinion is the most the best opinion
+
+1325
+00:50:51,920 --> 00:50:57,280
+you know
+
+1326
+00:50:52,480 --> 00:51:00,880
+so i analyzed his blog here
+
+1327
+00:50:57,280 --> 00:51:02,640
+anyway so so and and
+
+1328
+00:51:00,880 --> 00:51:04,319
+you know there's a lot of story about
+
+1329
+00:51:02,640 --> 00:51:07,520
+this blog and the skin
+
+1330
+00:51:04,319 --> 00:51:11,440
+people okay the skin people lambda in
+
+1331
+00:51:07,520 --> 00:51:14,960
+python 3 000 the skinned people
+
+1332
+00:51:11,440 --> 00:51:14,960
+also wrote a a
+
+1333
+00:51:19,440 --> 00:51:26,160
+sarcastic taunt okay
+
+1334
+00:51:22,960 --> 00:51:28,319
+uh where is it okay so where is it
+
+1335
+00:51:26,160 --> 00:51:30,800
+yeah the the fate of lambda in python
+
+1336
+00:51:28,319 --> 00:51:33,119
+3000 versus skim 3000
+
+1337
+00:51:30,800 --> 00:51:34,960
+okay there it is you know so python
+
+1338
+00:51:33,119 --> 00:51:37,119
+wrote the article then the scheme these
+
+1339
+00:51:34,960 --> 00:51:39,200
+people you know the people from that
+
+1340
+00:51:37,119 --> 00:51:41,119
+you know this book you know fans of this
+
+1341
+00:51:39,200 --> 00:51:44,720
+book you know they wrote a
+
+1342
+00:51:41,119 --> 00:51:48,079
+counter a parody the parody okay
+
+1343
+00:51:44,720 --> 00:51:51,040
+they wrote a parody on april 1st
+
+1344
+00:51:48,079 --> 00:51:51,520
+uh april 1st 2005 also the fate of
+
+1345
+00:51:51,040 --> 00:51:54,110
+lambda
+
+1346
+00:51:51,520 --> 00:51:55,680
+in plt scheme version 300.
+
+1347
+00:51:54,110 --> 00:51:58,720
+[Laughter]
+
+1348
+00:51:55,680 --> 00:52:00,559
+or lambda the ultimate design flow
+
+1349
+00:51:58,720 --> 00:52:02,240
+you know they wrote the parody of the
+
+1350
+00:52:00,559 --> 00:52:05,760
+guido van gaal some [ __ ]
+
+1351
+00:52:02,240 --> 00:52:08,319
+the guido idiot okay so let me get back
+
+1352
+00:52:05,760 --> 00:52:08,319
+to the point
+
+1353
+00:52:08,720 --> 00:52:14,319
+why can it not be fixed okay so
+
+1354
+00:52:12,559 --> 00:52:16,240
+so if you are guido von russom for
+
+1355
+00:52:14,319 --> 00:52:16,880
+example you receive a lot of complaints
+
+1356
+00:52:16,240 --> 00:52:18,720
+from
+
+1357
+00:52:16,880 --> 00:52:21,520
+functional programming phonetics they
+
+1358
+00:52:18,720 --> 00:52:22,480
+say oh can you fix python lambda you
+
+1359
+00:52:21,520 --> 00:52:26,160
+know we need
+
+1360
+00:52:22,480 --> 00:52:28,880
+can you extend it so kirov and rossum
+
+1361
+00:52:26,160 --> 00:52:29,839
+actually thought about it in one of the
+
+1362
+00:52:28,880 --> 00:52:33,280
+article here
+
+1363
+00:52:29,839 --> 00:52:35,359
+okay let me show you this article
+
+1364
+00:52:33,280 --> 00:52:37,040
+ah this guido van rosen passive
+
+1365
+00:52:35,359 --> 00:52:38,240
+aggressive guy you know he wrote the
+
+1366
+00:52:37,040 --> 00:52:43,119
+article
+
+1367
+00:52:38,240 --> 00:52:45,920
+in 2006 and the title of the article is
+
+1368
+00:52:43,119 --> 00:52:46,880
+language design is not just solving
+
+1369
+00:52:45,920 --> 00:52:49,760
+puzzles
+
+1370
+00:52:46,880 --> 00:52:50,319
+okay guys you know you i oh you think
+
+1371
+00:52:49,760 --> 00:52:53,119
+language
+
+1372
+00:52:50,319 --> 00:52:53,680
+design is just starving puzzles no you
+
+1373
+00:52:53,119 --> 00:52:56,000
+idiot
+
+1374
+00:52:53,680 --> 00:52:57,440
+language design is not just serving
+
+1375
+00:52:56,000 --> 00:53:00,559
+serving puzzles
+
+1376
+00:52:57,440 --> 00:53:04,079
+okay guido rossum okay
+
+1377
+00:53:00,559 --> 00:53:07,680
+so again i i i i wrote a
+
+1378
+00:53:04,079 --> 00:53:11,119
+uh answer you know retort uh to his
+
+1379
+00:53:07,680 --> 00:53:12,960
+uh idiocy so he you know he passive
+
+1380
+00:53:11,119 --> 00:53:14,880
+aggressive guy guido von russo
+
+1381
+00:53:12,960 --> 00:53:16,559
+and brainless you know he doesn't you
+
+1382
+00:53:14,880 --> 00:53:19,119
+know in my opinion
+
+1383
+00:53:16,559 --> 00:53:21,680
+among the you know among all the people
+
+1384
+00:53:19,119 --> 00:53:24,800
+who have designed programming languages
+
+1385
+00:53:21,680 --> 00:53:25,119
+some are really smart okay now where is
+
+1386
+00:53:24,800 --> 00:53:28,400
+my
+
+1387
+00:53:25,119 --> 00:53:29,200
+okay here some are really smart some not
+
+1388
+00:53:28,400 --> 00:53:32,720
+so much
+
+1389
+00:53:29,200 --> 00:53:36,400
+okay python github listen not too smart
+
+1390
+00:53:32,720 --> 00:53:36,880
+okay pearl larry larry wood not too
+
+1391
+00:53:36,400 --> 00:53:41,119
+smart
+
+1392
+00:53:36,880 --> 00:53:43,680
+okay uh and uh
+
+1393
+00:53:41,119 --> 00:53:44,800
+you know uh and you know and there are
+
+1394
+00:53:43,680 --> 00:53:48,559
+other people you know
+
+1395
+00:53:44,800 --> 00:53:50,720
+it's it's you know you know
+
+1396
+00:53:48,559 --> 00:53:52,240
+it's hard to make one sentence summary
+
+1397
+00:53:50,720 --> 00:53:54,720
+about uh
+
+1398
+00:53:52,240 --> 00:53:55,440
+the creators okay but anyway i in
+
+1399
+00:53:54,720 --> 00:53:58,720
+particular
+
+1400
+00:53:55,440 --> 00:54:00,079
+pearl the pearl leader you know the
+
+1401
+00:53:58,720 --> 00:54:02,800
+creator of pearl and python i don't
+
+1402
+00:54:00,079 --> 00:54:06,079
+think they are too smart
+
+1403
+00:54:02,800 --> 00:54:07,920
+and ruby is not also not i mean i i
+
+1404
+00:54:06,079 --> 00:54:10,559
+don't want to say not too smart because
+
+1405
+00:54:07,920 --> 00:54:13,680
+that's kind of derogatory okay so
+
+1406
+00:54:10,559 --> 00:54:17,119
+let me put it in another way so among
+
+1407
+00:54:13,680 --> 00:54:23,599
+of the creators of programming languages
+
+1408
+00:54:17,119 --> 00:54:23,599
+some some knows a lot okay some notes
+
+1409
+00:54:23,680 --> 00:54:28,720
+you know uh you know theories about uh
+
+1410
+00:54:26,640 --> 00:54:30,880
+programming computer science you know
+
+1411
+00:54:28,720 --> 00:54:33,599
+uh they know a lot about mathematics
+
+1412
+00:54:30,880 --> 00:54:35,839
+they they know a lot in general okay so
+
+1413
+00:54:33,599 --> 00:54:35,839
+they
+
+1414
+00:54:35,920 --> 00:54:39,359
+uh they they know a lot but i mean on
+
+1415
+00:54:38,240 --> 00:54:41,200
+the other hand
+
+1416
+00:54:39,359 --> 00:54:43,599
+many of the creators of programming
+
+1417
+00:54:41,200 --> 00:54:46,880
+languages they just happen to
+
+1418
+00:54:43,599 --> 00:54:48,960
+to become okay for example php
+
+1419
+00:54:46,880 --> 00:54:50,480
+happen to become okay also i would
+
+1420
+00:54:48,960 --> 00:54:52,400
+include javascript
+
+1421
+00:54:50,480 --> 00:54:55,760
+javascript who's who what's the name of
+
+1422
+00:54:52,400 --> 00:54:59,040
+the javascript guy uh
+
+1423
+00:54:55,760 --> 00:55:01,680
+guys uh who you know what what's the
+
+1424
+00:54:59,040 --> 00:55:04,960
+name of the javascript guy
+
+1425
+00:55:01,680 --> 00:55:06,400
+um i forgot that moment i'm getting old
+
+1426
+00:55:04,960 --> 00:55:08,640
+or something
+
+1427
+00:55:06,400 --> 00:55:08,640
+um
+
+1428
+00:55:09,920 --> 00:55:14,480
+ike you know x something in the creator
+
+1429
+00:55:12,319 --> 00:55:17,119
+of javascript
+
+1430
+00:55:14,480 --> 00:55:17,760
+uh in many cases i have kind of talked
+
+1431
+00:55:17,119 --> 00:55:20,799
+with them
+
+1432
+00:55:17,760 --> 00:55:21,839
+you know online you know in many many of
+
+1433
+00:55:20,799 --> 00:55:25,280
+these people
+
+1434
+00:55:21,839 --> 00:55:25,680
+anyway so the people you know most of
+
+1435
+00:55:25,280 --> 00:55:28,240
+the
+
+1436
+00:55:25,680 --> 00:55:29,760
+programming language creators they are
+
+1437
+00:55:28,240 --> 00:55:32,319
+not actually
+
+1438
+00:55:29,760 --> 00:55:33,680
+uh you know solid computer scientists in
+
+1439
+00:55:32,319 --> 00:55:34,640
+fact many of them don't know nothing
+
+1440
+00:55:33,680 --> 00:55:37,599
+about computer
+
+1441
+00:55:34,640 --> 00:55:39,520
+science science okay i would include i
+
+1442
+00:55:37,599 --> 00:55:42,640
+would include
+
+1443
+00:55:39,520 --> 00:55:44,799
+you know anyway i i want to be careful
+
+1444
+00:55:42,640 --> 00:55:48,480
+in the wording of this
+
+1445
+00:55:44,799 --> 00:55:51,280
+because otherwise it's incorrect
+
+1446
+00:55:48,480 --> 00:55:53,119
+so so so anyway many of programming
+
+1447
+00:55:51,280 --> 00:55:54,000
+language creators they are not you know
+
+1448
+00:55:53,119 --> 00:55:57,040
+really
+
+1449
+00:55:54,000 --> 00:55:58,640
+like computer science background or or
+
+1450
+00:55:57,040 --> 00:56:00,799
+such
+
+1451
+00:55:58,640 --> 00:56:02,640
+uh it just happened to be i mean of
+
+1452
+00:56:00,799 --> 00:56:03,839
+course they are all talented you know i
+
+1453
+00:56:02,640 --> 00:56:06,400
+want to make sure
+
+1454
+00:56:03,839 --> 00:56:07,119
+uh you know they are of course they are
+
+1455
+00:56:06,400 --> 00:56:12,240
+all
+
+1456
+00:56:07,119 --> 00:56:12,240
+uh they are or um
+
+1457
+00:56:12,559 --> 00:56:16,319
+you know not just talented they they are
+
+1458
+00:56:14,640 --> 00:56:16,880
+they you know they did great things you
+
+1459
+00:56:16,319 --> 00:56:19,280
+know they did
+
+1460
+00:56:16,880 --> 00:56:21,040
+they they they created things for you
+
+1461
+00:56:19,280 --> 00:56:22,480
+know for the benefit let's say for the
+
+1462
+00:56:21,040 --> 00:56:25,760
+benefit of humanity
+
+1463
+00:56:22,480 --> 00:56:27,839
+anyway so but they are not really uh
+
+1464
+00:56:25,760 --> 00:56:29,040
+you know great computer scientists in
+
+1465
+00:56:27,839 --> 00:56:31,599
+fact in fact many
+
+1466
+00:56:29,040 --> 00:56:32,559
+in many cases they don't know much about
+
+1467
+00:56:31,599 --> 00:56:34,400
+you know theater
+
+1468
+00:56:32,559 --> 00:56:36,240
+theoretical computer science so much
+
+1469
+00:56:34,400 --> 00:56:41,599
+anything else anyway so
+
+1470
+00:56:36,240 --> 00:56:41,599
+pearl python php javascript
+
+1471
+00:56:42,079 --> 00:56:47,280
+these people okay i would say they don't
+
+1472
+00:56:45,359 --> 00:56:49,280
+you know they did you know yeah they did
+
+1473
+00:56:47,280 --> 00:56:52,480
+great things but they don't know
+
+1474
+00:56:49,280 --> 00:56:55,599
+they don't know much okay okay
+
+1475
+00:56:52,480 --> 00:56:58,400
+uh on the other hand in contrast okay
+
+1476
+00:56:55,599 --> 00:56:58,960
+you know of the people i respect much
+
+1477
+00:56:58,400 --> 00:57:02,559
+more
+
+1478
+00:56:58,960 --> 00:57:04,960
+much much more uh would be
+
+1479
+00:57:02,559 --> 00:57:05,920
+you know wolfham language stefan wufang
+
+1480
+00:57:04,960 --> 00:57:09,040
+uh
+
+1481
+00:57:05,920 --> 00:57:11,280
+golan you know golan rob pike
+
+1482
+00:57:09,040 --> 00:57:12,079
+he's great he's got great ideas you know
+
+1483
+00:57:11,280 --> 00:57:15,200
+um
+
+1484
+00:57:12,079 --> 00:57:16,240
+anyway i'm this requires another another
+
+1485
+00:57:15,200 --> 00:57:19,359
+hour
+
+1486
+00:57:16,240 --> 00:57:22,000
+talk in thinking because then about the
+
+1487
+00:57:19,359 --> 00:57:22,720
+creators of programming languages but
+
+1488
+00:57:22,000 --> 00:57:24,880
+anyway
+
+1489
+00:57:22,720 --> 00:57:26,000
+i want to make a point is that it's it's
+
+1490
+00:57:24,880 --> 00:57:27,680
+not difficult to
+
+1491
+00:57:26,000 --> 00:57:29,680
+create a programming language okay
+
+1492
+00:57:27,680 --> 00:57:31,599
+especially today like today
+
+1493
+00:57:29,680 --> 00:57:33,280
+so because you have so many tools you
+
+1494
+00:57:31,599 --> 00:57:35,839
+have compilers written for you
+
+1495
+00:57:33,280 --> 00:57:36,319
+you have lots of information wikipedia
+
+1496
+00:57:35,839 --> 00:57:38,880
+you know
+
+1497
+00:57:36,319 --> 00:57:39,359
+it's very easy as opposed to 20 years
+
+1498
+00:57:38,880 --> 00:57:42,559
+ago
+
+1499
+00:57:39,359 --> 00:57:44,319
+in the 1990s 30 years ago that's much
+
+1500
+00:57:42,559 --> 00:57:45,839
+more hard you don't have wikipedia if
+
+1501
+00:57:44,319 --> 00:57:48,319
+you want to learn a compiler
+
+1502
+00:57:45,839 --> 00:57:49,440
+you go to a library or bookstore to buy
+
+1503
+00:57:48,319 --> 00:57:52,240
+a compiler book
+
+1504
+00:57:49,440 --> 00:57:53,280
+and of limited information written by
+
+1505
+00:57:52,240 --> 00:57:55,599
+you know just a
+
+1506
+00:57:53,280 --> 00:57:57,359
+couple of guys and you know you have to
+
+1507
+00:57:55,599 --> 00:57:59,359
+have a lot of experience
+
+1508
+00:57:57,359 --> 00:58:01,760
+uh not like today you have so many so
+
+1509
+00:57:59,359 --> 00:58:03,920
+many so many so much tools available to
+
+1510
+00:58:01,760 --> 00:58:03,920
+you
+
+1511
+00:58:04,480 --> 00:58:08,400
+okay i i kind of digressed and lost my
+
+1512
+00:58:06,880 --> 00:58:10,640
+um
+
+1513
+00:58:08,400 --> 00:58:11,760
+so i want to get back to the python okay
+
+1514
+00:58:10,640 --> 00:58:15,359
+so what
+
+1515
+00:58:11,760 --> 00:58:17,680
+was i talking i i kind of lost
+
+1516
+00:58:15,359 --> 00:58:17,680
+um
+
+1517
+00:58:18,400 --> 00:58:25,839
+so anyway let's i forgot what how did i
+
+1518
+00:58:22,559 --> 00:58:25,839
+start to talk about that
+
+1519
+00:58:26,880 --> 00:58:30,640
+brendan ike yeah brain like is the
+
+1520
+00:58:29,200 --> 00:58:34,000
+creator of javascript
+
+1521
+00:58:30,640 --> 00:58:37,119
+yeah so in it's created invented and
+
+1522
+00:58:34,000 --> 00:58:38,160
+implemented in 10 days a very very well
+
+1523
+00:58:37,119 --> 00:58:41,760
+known story
+
+1524
+00:58:38,160 --> 00:58:42,880
+and that's true so let's go back to
+
+1525
+00:58:41,760 --> 00:58:44,559
+python okay i hope
+
+1526
+00:58:42,880 --> 00:58:46,880
+i answered the question so why is it
+
+1527
+00:58:44,559 --> 00:58:47,359
+broken so yeah back to the guido guido
+
+1528
+00:58:46,880 --> 00:58:50,799
+so
+
+1529
+00:58:47,359 --> 00:58:53,280
+he wrote article gidowan russo
+
+1530
+00:58:50,799 --> 00:58:54,240
+you know he wrote an article about how
+
+1531
+00:58:53,280 --> 00:58:56,799
+to fix
+
+1532
+00:58:54,240 --> 00:58:58,799
+the lambda in python okay so he wrote
+
+1533
+00:58:56,799 --> 00:59:01,200
+article python lambda
+
+1534
+00:58:58,799 --> 00:59:02,400
+you know language design is not just
+
+1535
+00:59:01,200 --> 00:59:04,319
+solving puzzles
+
+1536
+00:59:02,400 --> 00:59:05,760
+i believe this is article in this
+
+1537
+00:59:04,319 --> 00:59:08,559
+article he
+
+1538
+00:59:05,760 --> 00:59:08,559
+dived into
+
+1539
+00:59:09,760 --> 00:59:16,160
+he dived into there it is you see
+
+1540
+00:59:13,359 --> 00:59:17,040
+uh someone claimed you know for example
+
+1541
+00:59:16,160 --> 00:59:19,200
+today
+
+1542
+00:59:17,040 --> 00:59:20,160
+you know he's he's kind of a passive
+
+1543
+00:59:19,200 --> 00:59:22,480
+aggressive guy
+
+1544
+00:59:20,160 --> 00:59:24,640
+you know so he says for example some
+
+1545
+00:59:22,480 --> 00:59:27,200
+today someone claimed to have solved
+
+1546
+00:59:24,640 --> 00:59:29,440
+the problem of multi-statement lambda
+
+1547
+00:59:27,200 --> 00:59:32,480
+okay
+
+1548
+00:59:29,440 --> 00:59:33,440
+so basically in this article he's saying
+
+1549
+00:59:32,480 --> 00:59:36,160
+you know people he
+
+1550
+00:59:33,440 --> 00:59:37,200
+you know people want him to fix lambda
+
+1551
+00:59:36,160 --> 00:59:39,520
+so that lambda
+
+1552
+00:59:37,200 --> 00:59:40,559
+in python can have multiple lines so
+
+1553
+00:59:39,520 --> 00:59:43,119
+that it becomes an
+
+1554
+00:59:40,559 --> 00:59:45,040
+actual real construct for functions you
+
+1555
+00:59:43,119 --> 00:59:46,880
+know
+
+1556
+00:59:45,040 --> 00:59:49,040
+and he's making fun of people you know
+
+1557
+00:59:46,880 --> 00:59:51,680
+basically he says it cannot be done
+
+1558
+00:59:49,040 --> 00:59:52,319
+okay he says you know he considered all
+
+1559
+00:59:51,680 --> 00:59:55,280
+the
+
+1560
+00:59:52,319 --> 00:59:55,920
+possible suggestions and in his opinion
+
+1561
+00:59:55,280 --> 00:59:57,599
+it
+
+1562
+00:59:55,920 --> 00:59:59,440
+you know it shouldn't be done or cannot
+
+1563
+00:59:57,599 --> 01:00:03,200
+be done okay
+
+1564
+00:59:59,440 --> 01:00:06,480
+so there it is he himself made that
+
+1565
+01:00:03,200 --> 01:00:08,720
+kind of said that it cannot be fixed
+
+1566
+01:00:06,480 --> 01:00:10,079
+and should not be fixed okay in his
+
+1567
+01:00:08,720 --> 01:00:13,359
+opinion
+
+1568
+01:00:10,079 --> 01:00:15,920
+he python guido von russom he want to
+
+1569
+01:00:13,359 --> 01:00:18,160
+limit the lambda in python to be just
+
+1570
+01:00:15,920 --> 01:00:18,960
+for simple functions one single line
+
+1571
+01:00:18,160 --> 01:00:21,520
+functions
+
+1572
+01:00:18,960 --> 01:00:23,040
+when you need multiple lines don't use
+
+1573
+01:00:21,520 --> 01:00:25,760
+lambda that's his opinion
+
+1574
+01:00:23,040 --> 01:00:26,480
+okay so it's broken and why is it broken
+
+1575
+01:00:25,760 --> 01:00:28,640
+why is it
+
+1576
+01:00:26,480 --> 01:00:30,960
+cannot be fixed because the python
+
+1577
+01:00:28,640 --> 01:00:33,839
+syntax
+
+1578
+01:00:30,960 --> 01:00:35,920
+that concludes my uh thesis my claim
+
+1579
+01:00:33,839 --> 01:00:39,599
+okay python lambda broken and why
+
+1580
+01:00:35,920 --> 01:00:40,160
+is why is it broken that's well known
+
+1581
+01:00:39,599 --> 01:00:43,520
+you know
+
+1582
+01:00:40,160 --> 01:00:46,319
+that's a universally agreed mostly
+
+1583
+01:00:43,520 --> 01:00:46,960
+okay and why cannot be fixed it's
+
+1584
+01:00:46,319 --> 01:00:50,960
+because
+
+1585
+01:00:46,960 --> 01:00:53,359
+python lambda syntax okay
+
+1586
+01:00:50,960 --> 01:00:55,040
+because of the syntax of python and that
+
+1587
+01:00:53,359 --> 01:00:58,079
+ties to my claim
+
+1588
+01:00:55,040 --> 01:01:00,640
+that syntax is in fact
+
+1589
+01:00:58,079 --> 01:01:02,400
+very important and you know i i would i
+
+1590
+01:01:00,640 --> 01:01:03,599
+would claim the most important element
+
+1591
+01:01:02,400 --> 01:01:06,079
+in programming language
+
+1592
+01:01:03,599 --> 01:01:07,040
+that needs some kind of context because
+
+1593
+01:01:06,079 --> 01:01:09,440
+what do you mean by
+
+1594
+01:01:07,040 --> 01:01:10,400
+most important how do you define what's
+
+1595
+01:01:09,440 --> 01:01:13,200
+important you know
+
+1596
+01:01:10,400 --> 01:01:14,079
+but anyway so at least i would say so
+
+1597
+01:01:13,200 --> 01:01:16,079
+syntax is
+
+1598
+01:01:14,079 --> 01:01:17,359
+one of the most important thing in
+
+1599
+01:01:16,079 --> 01:01:21,599
+programming language
+
+1600
+01:01:17,359 --> 01:01:24,240
+and here is an example you see right now
+
+1601
+01:01:21,599 --> 01:01:25,040
+python has a broken lambda and it cannot
+
+1602
+01:01:24,240 --> 01:01:28,799
+be fixed
+
+1603
+01:01:25,040 --> 01:01:29,760
+because the syntax you know the choice
+
+1604
+01:01:28,799 --> 01:01:32,640
+of syntax
+
+1605
+01:01:29,760 --> 01:01:34,559
+of python okay syntax is a very
+
+1606
+01:01:32,640 --> 01:01:34,880
+important element okay i think that's
+
+1607
+01:01:34,559 --> 01:01:38,079
+fin
+
+1608
+01:01:34,880 --> 01:01:41,119
+that finished my
+
+1609
+01:01:38,079 --> 01:01:44,400
+the topic for today's talk show uh uh
+
+1610
+01:01:41,119 --> 01:01:48,079
+which is um uh
+
+1611
+01:01:44,400 --> 01:01:50,319
+both question okay okay that's it
+
+1612
+01:01:48,079 --> 01:01:51,599
+that's it today i i guess that's it
+
+1613
+01:01:50,319 --> 01:01:54,160
+today
+
+1614
+01:01:51,599 --> 01:01:55,599
+uh if you like my stuff donate okay if
+
+1615
+01:01:54,160 --> 01:01:58,559
+you find my stuff
+
+1616
+01:01:55,599 --> 01:01:59,359
+interesting put money in my pocket okay
+
+1617
+01:01:58,559 --> 01:02:07,039
+so i have
+
+1618
+01:01:59,359 --> 01:02:10,720
+you know you go to my website
+
+1619
+01:02:07,039 --> 01:02:13,839
+okay uh python tutorial open a new
+
+1620
+01:02:10,720 --> 01:02:17,119
+page open a new page
+
+1621
+01:02:13,839 --> 01:02:20,240
+so you go to my excited info
+
+1622
+01:02:17,119 --> 01:02:21,359
+and you'll see the donation button the
+
+1623
+01:02:20,240 --> 01:02:24,720
+paypal and
+
+1624
+01:02:21,359 --> 01:02:28,480
+you know paypal me
+
+1625
+01:02:24,720 --> 01:02:32,839
+amazon gift card me picture me
+
+1626
+01:02:28,480 --> 01:02:34,400
+put money in my pocket okay that is my
+
+1627
+01:02:32,839 --> 01:02:36,720
+message
+
+1628
+01:02:34,400 --> 01:02:38,400
+uh and of course you can also buy my
+
+1629
+01:02:36,720 --> 01:02:42,000
+emacs tutorial
+
+1630
+01:02:38,400 --> 01:02:44,240
+uh and my javascript in-depth tutorial
+
+1631
+01:02:42,000 --> 01:02:44,240
+okay
+
+1632
+01:02:44,400 --> 01:02:47,440
+emac this tutorial okay thank you guys
+
+1633
+01:02:46,480 --> 01:02:49,680
+for watching
+
+1634
+01:02:47,440 --> 01:02:50,960
+uh now i'm going to read the comments
+
+1635
+01:02:49,680 --> 01:02:54,559
+for maybe five minutes
+
+1636
+01:02:50,960 --> 01:02:55,039
+and talk stuff and uh and that's it for
+
+1637
+01:02:54,559 --> 01:03:00,839
+today
+
+1638
+01:02:55,039 --> 01:03:03,839
+okay so let's see what you guys been
+
+1639
+01:03:00,839 --> 01:03:03,839
+saying
+
+1640
+01:03:14,839 --> 01:03:17,839
+so
+
+1641
+01:03:21,359 --> 01:03:24,720
+so there's a question from now off why
+
+1642
+01:03:24,160 --> 01:03:27,359
+did you
+
+1643
+01:03:24,720 --> 01:03:29,440
+switch to windows okay that's a common
+
+1644
+01:03:27,359 --> 01:03:30,880
+frequently asked question because that's
+
+1645
+01:03:29,440 --> 01:03:32,319
+the most
+
+1646
+01:03:30,880 --> 01:03:34,319
+shallow question i don't mean to
+
+1647
+01:03:32,319 --> 01:03:36,559
+criticize you but that's a you know
+
+1648
+01:03:34,319 --> 01:03:37,359
+like every programmer needs to know why
+
+1649
+01:03:36,559 --> 01:03:39,760
+are you using
+
+1650
+01:03:37,359 --> 01:03:41,760
+windows why are using linux why are
+
+1651
+01:03:39,760 --> 01:03:42,799
+using mac os which one is the best which
+
+1652
+01:03:41,760 --> 01:03:45,200
+one should i use
+
+1653
+01:03:42,799 --> 01:03:46,640
+you know in fact i have a i did a video
+
+1654
+01:03:45,200 --> 01:03:49,440
+talking about that
+
+1655
+01:03:46,640 --> 01:03:51,760
+you know you you search it about half a
+
+1656
+01:03:49,440 --> 01:03:55,119
+year ago a year ago
+
+1657
+01:03:51,760 --> 01:03:58,480
+uh so i um you know so i'm on
+
+1658
+01:03:55,119 --> 01:04:00,160
+windows right now so uh
+
+1659
+01:03:58,480 --> 01:04:01,760
+so let me just give you a summary okay
+
+1660
+01:04:00,160 --> 01:04:04,400
+what i think about that so
+
+1661
+01:04:01,760 --> 01:04:06,640
+which one should you use linux or mac os
+
+1662
+01:04:04,400 --> 01:04:09,599
+or windows okay each one has
+
+1663
+01:04:06,640 --> 01:04:10,559
+problems which each one has advantages
+
+1664
+01:04:09,599 --> 01:04:14,240
+and each one has
+
+1665
+01:04:10,559 --> 01:04:17,440
+problems and uh it turns out
+
+1666
+01:04:14,240 --> 01:04:20,240
+it happened to be that way there's no
+
+1667
+01:04:17,440 --> 01:04:20,799
+like one is much better than the other
+
+1668
+01:04:20,240 --> 01:04:22,319
+because
+
+1669
+01:04:20,799 --> 01:04:24,160
+for example you know okay let me just
+
+1670
+01:04:22,319 --> 01:04:26,000
+cover let me just say okay
+
+1671
+01:04:24,160 --> 01:04:27,200
+for example windows if you play video
+
+1672
+01:04:26,000 --> 01:04:29,760
+games uh
+
+1673
+01:04:27,200 --> 01:04:30,319
+basically you know windows is your only
+
+1674
+01:04:29,760 --> 01:04:32,640
+choice
+
+1675
+01:04:30,319 --> 01:04:33,920
+and you know windows yeah if you play
+
+1676
+01:04:32,640 --> 01:04:35,680
+video games
+
+1677
+01:04:33,920 --> 01:04:38,799
+uh you know if you are a gamer if you
+
+1678
+01:04:35,680 --> 01:04:40,880
+need a graphics card
+
+1679
+01:04:38,799 --> 01:04:42,799
+windows is basically your only choice
+
+1680
+01:04:40,880 --> 01:04:45,760
+okay uh you can get a mac
+
+1681
+01:04:42,799 --> 01:04:47,440
+then you know the graphics card sucks or
+
+1682
+01:04:45,760 --> 01:04:48,400
+super expensive three times more
+
+1683
+01:04:47,440 --> 01:04:51,240
+expensive than
+
+1684
+01:04:48,400 --> 01:04:53,440
+the than windows three times more
+
+1685
+01:04:51,240 --> 01:04:55,680
+expensive for the same ram
+
+1686
+01:04:53,440 --> 01:04:58,319
+on win than with than windows if you get
+
+1687
+01:04:55,680 --> 01:04:59,200
+a mac if you get linux the graphics card
+
+1688
+01:04:58,319 --> 01:05:01,520
+doesn't work
+
+1689
+01:04:59,200 --> 01:05:04,000
+uh the game doesn't work this game
+
+1690
+01:05:01,520 --> 01:05:04,960
+doesn't work then you have to spend 1000
+
+1691
+01:05:04,000 --> 01:05:07,440
+hours to
+
+1692
+01:05:04,960 --> 01:05:09,359
+dig to hack okay this is the way you
+
+1693
+01:05:07,440 --> 01:05:09,839
+know to fix the graphic card drivers
+
+1694
+01:05:09,359 --> 01:05:12,960
+this
+
+1695
+01:05:09,839 --> 01:05:14,559
+linux diddling [ __ ] linux hackers linux
+
+1696
+01:05:12,960 --> 01:05:17,440
+idiots
+
+1697
+01:05:14,559 --> 01:05:19,200
+so if you play video games or if you do
+
+1698
+01:05:17,440 --> 01:05:22,400
+anything mainstream like lots of
+
+1699
+01:05:19,200 --> 01:05:24,720
+uh i don't know uh audio or audio
+
+1700
+01:05:22,400 --> 01:05:28,000
+processing especially video audio
+
+1701
+01:05:24,720 --> 01:05:29,200
+uh games you need windows okay windows
+
+1702
+01:05:28,000 --> 01:05:32,720
+is the best choice
+
+1703
+01:05:29,200 --> 01:05:34,480
+okay now if you don't if you do not play
+
+1704
+01:05:32,720 --> 01:05:36,720
+video games and if you
+
+1705
+01:05:34,480 --> 01:05:38,079
+are really concerned about privacy you
+
+1706
+01:05:36,720 --> 01:05:42,799
+know you are one of the
+
+1707
+01:05:38,079 --> 01:05:44,559
+uh conspiracy nut job you know you
+
+1708
+01:05:42,799 --> 01:05:46,480
+you don't like you know you you are
+
+1709
+01:05:44,559 --> 01:05:47,520
+concerned about big brother and you know
+
+1710
+01:05:46,480 --> 01:05:50,720
+you want privacy
+
+1711
+01:05:47,520 --> 01:05:54,160
+you work in the security sector
+
+1712
+01:05:50,720 --> 01:05:57,280
+or you are open source phonetics then
+
+1713
+01:05:54,160 --> 01:06:00,319
+linux is your best platform okay i
+
+1714
+01:05:57,280 --> 01:06:02,480
+i'm mostly open source
+
+1715
+01:06:00,319 --> 01:06:04,160
+you know i i despise the open source you
+
+1716
+01:06:02,480 --> 01:06:04,880
+know i think there's lots of things
+
+1717
+01:06:04,160 --> 01:06:07,680
+wrong but
+
+1718
+01:06:04,880 --> 01:06:07,920
+most of my technologies linux python you
+
+1719
+01:06:07,680 --> 01:06:10,960
+know
+
+1720
+01:06:07,920 --> 01:06:13,200
+all the languages i know are of the
+
+1721
+01:06:10,960 --> 01:06:14,319
+you know kind of the unix or open source
+
+1722
+01:06:13,200 --> 01:06:17,599
+background so
+
+1723
+01:06:14,319 --> 01:06:17,599
+anyway so if you are
+
+1724
+01:06:17,760 --> 01:06:22,000
+if you are a poor sub you know you if
+
+1725
+01:06:20,400 --> 01:06:22,640
+you are a poor student you don't have
+
+1726
+01:06:22,000 --> 01:06:24,799
+money
+
+1727
+01:06:22,640 --> 01:06:26,240
+and you are you are into open source you
+
+1728
+01:06:24,799 --> 01:06:29,200
+are open source phonetics
+
+1729
+01:06:26,240 --> 01:06:32,000
+you program in golan for example golan
+
+1730
+01:06:29,200 --> 01:06:34,720
+python you love golem python ruby pearl
+
+1731
+01:06:32,000 --> 01:06:36,000
+emacs emac base all this open source
+
+1732
+01:06:34,720 --> 01:06:40,400
+kind of technology
+
+1733
+01:06:36,000 --> 01:06:43,039
+svg uh and you know html and
+
+1734
+01:06:40,400 --> 01:06:44,079
+if you are in git you know and before
+
+1735
+01:06:43,039 --> 01:06:46,319
+that svn
+
+1736
+01:06:44,079 --> 01:06:47,119
+if you are that type of guy linux there
+
+1737
+01:06:46,319 --> 01:06:50,079
+it is
+
+1738
+01:06:47,119 --> 01:06:51,039
+linux is your daddy it's your mommy go
+
+1739
+01:06:50,079 --> 01:06:54,000
+to mommy
+
+1740
+01:06:51,039 --> 01:06:54,720
+linux is your best platform okay it's
+
+1741
+01:06:54,000 --> 01:06:56,720
+free
+
+1742
+01:06:54,720 --> 01:06:58,640
+it's free guys free free like free like
+
+1743
+01:06:56,720 --> 01:07:01,280
+free pizza
+
+1744
+01:06:58,640 --> 01:07:02,960
+but the problem of course if you need a
+
+1745
+01:07:01,280 --> 01:07:05,839
+audio video
+
+1746
+01:07:02,960 --> 01:07:08,480
+it sucks it sucks donkey ass it sucks to
+
+1747
+01:07:05,839 --> 01:07:12,839
+the most extreme
+
+1748
+01:07:08,480 --> 01:07:14,000
+uh you you spend 10 000 hours on stack
+
+1749
+01:07:12,839 --> 01:07:15,920
+overflow
+
+1750
+01:07:14,000 --> 01:07:19,200
+and all the answers you found is 10
+
+1751
+01:07:15,920 --> 01:07:21,920
+years old 20 years old documentation
+
+1752
+01:07:19,200 --> 01:07:23,200
+and and arc linux you dive into arc
+
+1753
+01:07:21,920 --> 01:07:25,599
+linux so gen 2
+
+1754
+01:07:23,200 --> 01:07:26,480
+or whatever the you know the new kid in
+
+1755
+01:07:25,599 --> 01:07:29,599
+town the
+
+1756
+01:07:26,480 --> 01:07:30,720
+window managers which we you know go go
+
+1757
+01:07:29,599 --> 01:07:33,839
+spend your time on
+
+1758
+01:07:30,720 --> 01:07:35,599
+on those things it's good waste your
+
+1759
+01:07:33,839 --> 01:07:38,400
+life on it
+
+1760
+01:07:35,599 --> 01:07:38,960
+linux yeah but if if you are you know if
+
+1761
+01:07:38,400 --> 01:07:41,520
+you are
+
+1762
+01:07:38,960 --> 01:07:44,240
+or you if you are just a dev developer
+
+1763
+01:07:41,520 --> 01:07:47,680
+programmers you know yeah linux is
+
+1764
+01:07:44,240 --> 01:07:48,240
+is it's your best choice now if you have
+
+1765
+01:07:47,680 --> 01:07:51,599
+money
+
+1766
+01:07:48,240 --> 01:07:52,319
+if you have money okay mac is the best
+
+1767
+01:07:51,599 --> 01:07:55,920
+okay
+
+1768
+01:07:52,319 --> 01:07:56,799
+mac for privacy concerns mac is better
+
+1769
+01:07:55,920 --> 01:07:59,920
+than windows
+
+1770
+01:07:56,799 --> 01:08:03,280
+and possibly even better than linux okay
+
+1771
+01:07:59,920 --> 01:08:06,079
+well except apple apple okay
+
+1772
+01:08:03,280 --> 01:08:07,359
+apple also do get your data but you you
+
+1773
+01:08:06,079 --> 01:08:10,960
+can trust apple
+
+1774
+01:08:07,359 --> 01:08:13,280
+in that department not that much
+
+1775
+01:08:10,960 --> 01:08:14,960
+anyway linux these days you cannot even
+
+1776
+01:08:13,280 --> 01:08:17,520
+be sure what's going on
+
+1777
+01:08:14,960 --> 01:08:19,359
+because the fbi the cia the big
+
+1778
+01:08:17,520 --> 01:08:22,000
+government the google they have
+
+1779
+01:08:19,359 --> 01:08:23,520
+they have code inside linux how do you
+
+1780
+01:08:22,000 --> 01:08:25,679
+know you don't know
+
+1781
+01:08:23,520 --> 01:08:27,040
+unless you work with linux kernel for
+
+1782
+01:08:25,679 --> 01:08:29,679
+five years then you
+
+1783
+01:08:27,040 --> 01:08:31,679
+you know you know the the linux you are
+
+1784
+01:08:29,679 --> 01:08:33,520
+using is trustworthy or not
+
+1785
+01:08:31,679 --> 01:08:35,120
+if you are just a student if you are
+
+1786
+01:08:33,520 --> 01:08:37,359
+just the open source phonetic
+
+1787
+01:08:35,120 --> 01:08:38,400
+uh even if you are a good grade python
+
+1788
+01:08:37,359 --> 01:08:40,880
+programmer said
+
+1789
+01:08:38,400 --> 01:08:42,000
+but you don't know linux kernel you
+
+1790
+01:08:40,880 --> 01:08:43,520
+don't see
+
+1791
+01:08:42,000 --> 01:08:46,159
+yeah you don't know you cannot trust
+
+1792
+01:08:43,520 --> 01:08:47,520
+linux because all the big powers they
+
+1793
+01:08:46,159 --> 01:08:50,799
+have things yeah you know
+
+1794
+01:08:47,520 --> 01:08:52,719
+it's not so easy today to uh to know
+
+1795
+01:08:50,799 --> 01:08:54,799
+who is trustworthy anyway if you have
+
+1796
+01:08:52,719 --> 01:08:58,400
+money apple is the best platform
+
+1797
+01:08:54,799 --> 01:09:02,080
+the the best user interface by far
+
+1798
+01:08:58,400 --> 01:09:02,880
+by far than windows or or linux
+
+1799
+01:09:02,080 --> 01:09:06,000
+everything just
+
+1800
+01:09:02,880 --> 01:09:08,799
+works mac okay but
+
+1801
+01:09:06,000 --> 01:09:09,279
+everything mac is twice as expensive
+
+1802
+01:09:08,799 --> 01:09:10,960
+okay
+
+1803
+01:09:09,279 --> 01:09:14,000
+if you want to buy the mouse the same
+
+1804
+01:09:10,960 --> 01:09:15,920
+mouse if you are from the mac community
+
+1805
+01:09:14,000 --> 01:09:16,319
+it's like twice as expensive the same
+
+1806
+01:09:15,920 --> 01:09:18,319
+thing
+
+1807
+01:09:16,319 --> 01:09:19,440
+everything yeah but you know then you
+
+1808
+01:09:18,319 --> 01:09:20,960
+have word garden
+
+1809
+01:09:19,440 --> 01:09:23,359
+everything you know just like rich
+
+1810
+01:09:20,960 --> 01:09:23,759
+people elite you live in a place you
+
+1811
+01:09:23,359 --> 01:09:25,920
+have
+
+1812
+01:09:23,759 --> 01:09:27,520
+you know you have watch dogs you know
+
+1813
+01:09:25,920 --> 01:09:30,159
+take care of your
+
+1814
+01:09:27,520 --> 01:09:31,920
+your garden uh you know and thieves you
+
+1815
+01:09:30,159 --> 01:09:35,759
+know
+
+1816
+01:09:31,920 --> 01:09:40,640
+so that's that linux smack
+
+1817
+01:09:35,759 --> 01:09:40,640
+versus you know um it's kind of that
+
+1818
+01:09:43,359 --> 01:09:49,040
+yeah immune immutability oh god
+
+1819
+01:09:46,560 --> 01:09:50,640
+i forgot the basic word immutable
+
+1820
+01:09:49,040 --> 01:09:53,199
+immutable that's the
+
+1821
+01:09:50,640 --> 01:09:53,679
+jargon immutability when you cannot
+
+1822
+01:09:53,199 --> 01:09:57,280
+change
+
+1823
+01:09:53,679 --> 01:10:00,159
+you know a variable by the way that this
+
+1824
+01:09:57,280 --> 01:10:00,560
+okay that i digressed you know i i might
+
+1825
+01:10:00,159 --> 01:10:02,560
+take
+
+1826
+01:10:00,560 --> 01:10:04,159
+talk another five or ten minutes if i
+
+1827
+01:10:02,560 --> 01:10:07,360
+talk start to talk about that
+
+1828
+01:10:04,159 --> 01:10:07,920
+there's a very interesting okay so here
+
+1829
+01:10:07,360 --> 01:10:10,560
+there's a
+
+1830
+01:10:07,920 --> 01:10:11,679
+very interesting thing about immunity
+
+1831
+01:10:10,560 --> 01:10:14,159
+the concept
+
+1832
+01:10:11,679 --> 01:10:16,400
+of being immutable in different
+
+1833
+01:10:14,159 --> 01:10:18,400
+programming languages
+
+1834
+01:10:16,400 --> 01:10:20,400
+let me just say it quickly okay for
+
+1835
+01:10:18,400 --> 01:10:23,679
+example in golan
+
+1836
+01:10:20,400 --> 01:10:27,440
+and in java the meaning of
+
+1837
+01:10:23,679 --> 01:10:30,719
+and much more than that the meaning of
+
+1838
+01:10:27,440 --> 01:10:33,520
+what's in the immune purity is
+
+1839
+01:10:30,719 --> 01:10:34,960
+language dependent also the concept is
+
+1840
+01:10:33,520 --> 01:10:36,800
+also fishy okay
+
+1841
+01:10:34,960 --> 01:10:39,760
+let me just quickly explain okay first
+
+1842
+01:10:36,800 --> 01:10:41,040
+of all in python for example python you
+
+1843
+01:10:39,760 --> 01:10:43,120
+have an array okay right
+
+1844
+01:10:41,040 --> 01:10:44,159
+you yeah a python you have a ray okay so
+
+1845
+01:10:43,120 --> 01:10:47,360
+where is my
+
+1846
+01:10:44,159 --> 01:10:51,440
+python code so here is a
+
+1847
+01:10:47,360 --> 01:10:54,159
+so so here is a python array
+
+1848
+01:10:51,440 --> 01:10:54,800
+now python in fact in most languages in
+
+1849
+01:10:54,159 --> 01:10:59,120
+ruby
+
+1850
+01:10:54,800 --> 01:11:01,440
+python list in javascript in php2
+
+1851
+01:10:59,120 --> 01:11:02,880
+array usually so when you assign an
+
+1852
+01:11:01,440 --> 01:11:05,600
+array to a
+
+1853
+01:11:02,880 --> 01:11:06,320
+to a variable it actually is a reference
+
+1854
+01:11:05,600 --> 01:11:09,199
+you know that
+
+1855
+01:11:06,320 --> 01:11:09,920
+that that is the content of the x you
+
+1856
+01:11:09,199 --> 01:11:11,840
+know they
+
+1857
+01:11:09,920 --> 01:11:15,120
+they have the concept of references and
+
+1858
+01:11:11,840 --> 01:11:18,480
+pointers the idiocy from c
+
+1859
+01:11:15,120 --> 01:11:19,120
+so so when you have im so for example
+
+1860
+01:11:18,480 --> 01:11:21,679
+when you say
+
+1861
+01:11:19,120 --> 01:11:23,360
+x let's say constant can how can you
+
+1862
+01:11:21,679 --> 01:11:24,880
+define constant in python i
+
+1863
+01:11:23,360 --> 01:11:26,960
+forgot if you can i don't know if you
+
+1864
+01:11:24,880 --> 01:11:29,760
+can or not but in javascript you can
+
+1865
+01:11:26,960 --> 01:11:30,960
+in golan you can also but anyway here's
+
+1866
+01:11:29,760 --> 01:11:33,920
+the question okay when you
+
+1867
+01:11:30,960 --> 01:11:36,480
+assign something to x okay usually the
+
+1868
+01:11:33,920 --> 01:11:38,560
+value of x is actually a reference okay
+
+1869
+01:11:36,480 --> 01:11:40,800
+it's like a number the memory address or
+
+1870
+01:11:38,560 --> 01:11:41,840
+something but then you can change the
+
+1871
+01:11:40,800 --> 01:11:44,239
+array
+
+1872
+01:11:41,840 --> 01:11:46,239
+so if you can change the array element
+
+1873
+01:11:44,239 --> 01:11:48,400
+does that mean
+
+1874
+01:11:46,239 --> 01:11:49,280
+so the the reference does not actually
+
+1875
+01:11:48,400 --> 01:11:51,440
+change
+
+1876
+01:11:49,280 --> 01:11:53,120
+actually in python in javascript let me
+
+1877
+01:11:51,440 --> 01:11:56,239
+show you
+
+1878
+01:11:53,120 --> 01:11:59,040
+okay javascript okay constant okay
+
+1879
+01:11:56,239 --> 01:12:01,520
+let's save this as a javascript dot
+
+1880
+01:11:59,040 --> 01:12:04,880
+javascript okay let's save this file
+
+1881
+01:12:01,520 --> 01:12:08,400
+so here we have a array
+
+1882
+01:12:04,880 --> 01:12:10,320
+three four five okay that's a constant
+
+1883
+01:12:08,400 --> 01:12:12,960
+okay let's not say constant let's say
+
+1884
+01:12:10,320 --> 01:12:15,840
+let okay
+
+1885
+01:12:12,960 --> 01:12:16,320
+so you have three row five though so um
+
+1886
+01:12:15,840 --> 01:12:18,080
+uh
+
+1887
+01:12:16,320 --> 01:12:19,520
+actually let's say constant okay so you
+
+1888
+01:12:18,080 --> 01:12:23,920
+have a constant okay
+
+1889
+01:12:19,520 --> 01:12:27,040
+now let's say x let's say the first one
+
+1890
+01:12:23,920 --> 01:12:29,920
+let's change it to one okay
+
+1891
+01:12:27,040 --> 01:12:29,920
+now print
+
+1892
+01:12:30,159 --> 01:12:36,880
+x okay let's say that
+
+1893
+01:12:33,440 --> 01:12:39,760
+okay so run it you can see we changed it
+
+1894
+01:12:36,880 --> 01:12:40,960
+we changed it you see before the array
+
+1895
+01:12:39,760 --> 01:12:44,400
+is 345.
+
+1896
+01:12:40,960 --> 01:12:48,880
+now the value of the array is 145.
+
+1897
+01:12:44,400 --> 01:12:51,600
+but but you use i said here constant
+
+1898
+01:12:48,880 --> 01:12:52,800
+y it's supposed to be constant you know
+
+1899
+01:12:51,600 --> 01:12:54,560
+when you when you have something
+
+1900
+01:12:52,800 --> 01:12:56,239
+declared a constant
+
+1901
+01:12:54,560 --> 01:12:59,199
+that means you cannot change it when you
+
+1902
+01:12:56,239 --> 01:13:01,600
+change it it will give you errors
+
+1903
+01:12:59,199 --> 01:13:05,840
+for example let's say let's say another
+
+1904
+01:13:01,600 --> 01:13:05,840
+constant okay
+
+1905
+01:13:06,239 --> 01:13:10,560
+okay let's say if i run that you see
+
+1906
+01:13:08,719 --> 01:13:13,280
+error
+
+1907
+01:13:10,560 --> 01:13:14,560
+encode type error assign assignment to
+
+1908
+01:13:13,280 --> 01:13:18,480
+constant variable
+
+1909
+01:13:14,560 --> 01:13:20,640
+you know you see but now but now
+
+1910
+01:13:18,480 --> 01:13:22,239
+you see this array we change the value
+
+1911
+01:13:20,640 --> 01:13:24,640
+but it works
+
+1912
+01:13:22,239 --> 01:13:28,080
+so what's going on well the reason the
+
+1913
+01:13:24,640 --> 01:13:28,080
+reason for that is because
+
+1914
+01:13:28,560 --> 01:13:32,960
+the value of array assigned to the x is
+
+1915
+01:13:30,800 --> 01:13:35,600
+actually just a reference the rest
+
+1916
+01:13:32,960 --> 01:13:36,320
+the reference doesn't actually change so
+
+1917
+01:13:35,600 --> 01:13:39,280
+actually
+
+1918
+01:13:36,320 --> 01:13:39,840
+the x the value of x didn't change but
+
+1919
+01:13:39,280 --> 01:13:43,040
+however
+
+1920
+01:13:39,840 --> 01:13:44,400
+the array itself changed so you here you
+
+1921
+01:13:43,040 --> 01:13:47,719
+run into an issue of
+
+1922
+01:13:44,400 --> 01:13:50,400
+of of a practicality of a
+
+1923
+01:13:47,719 --> 01:13:52,320
+intuitiveness because you thought you
+
+1924
+01:13:50,400 --> 01:13:54,480
+think that you know
+
+1925
+01:13:52,320 --> 01:13:56,320
+you have a ray if i say constant it's
+
+1926
+01:13:54,480 --> 01:13:58,080
+not supposed to let me change but not
+
+1927
+01:13:56,320 --> 01:14:00,800
+actually i can change the elements
+
+1928
+01:13:58,080 --> 01:14:03,360
+so that's wrong so what's going on so so
+
+1929
+01:14:00,800 --> 01:14:04,400
+that's the issue about immutability okay
+
+1930
+01:14:03,360 --> 01:14:06,000
+this happens so
+
+1931
+01:14:04,400 --> 01:14:08,560
+on the other hand gold line if you try
+
+1932
+01:14:06,000 --> 01:14:12,719
+golan it
+
+1933
+01:14:08,560 --> 01:14:14,760
+it treats this issue in a different way
+
+1934
+01:14:12,719 --> 01:14:18,080
+so that's interesting about immune
+
+1935
+01:14:14,760 --> 01:14:18,080
+immutability okay
+
+1936
+01:14:18,719 --> 01:14:22,800
+okay that's it for today thank you guys
+
+1937
+01:14:20,239 --> 01:14:22,800
+for watching
+
+1938
+01:14:24,480 --> 01:14:28,480
+uh fasting says are you upset that you
+
+1939
+01:14:26,960 --> 01:14:29,920
+invested so much time in dying
+
+1940
+01:14:28,480 --> 01:14:32,159
+programming language not really
+
+1941
+01:14:29,920 --> 01:14:34,640
+i talked about that before you know
+
+1942
+01:14:32,159 --> 01:14:37,280
+people see i get mad or something
+
+1943
+01:14:34,640 --> 01:14:38,320
+they think what's going on uh i'm not
+
+1944
+01:14:37,280 --> 01:14:41,440
+i'm not actually
+
+1945
+01:14:38,320 --> 01:14:43,520
+mad you know i'm just that's i'm just me
+
+1946
+01:14:41,440 --> 01:14:47,120
+i'm just that's just my personality
+
+1947
+01:14:43,520 --> 01:14:47,440
+why do i despise the unix the linux or
+
+1948
+01:14:47,120 --> 01:14:50,159
+the
+
+1949
+01:14:47,440 --> 01:14:51,520
+phonetics information in open source in
+
+1950
+01:14:50,159 --> 01:14:54,719
+programming languages
+
+1951
+01:14:51,520 --> 01:14:56,320
+because they are just incorrect okay
+
+1952
+01:14:54,719 --> 01:14:58,480
+you know you heard the expression
+
+1953
+01:14:56,320 --> 01:15:00,560
+someone is wrong on the internet
+
+1954
+01:14:58,480 --> 01:15:02,400
+you know that refers to the phenomenon
+
+1955
+01:15:00,560 --> 01:15:06,480
+or the common very common
+
+1956
+01:15:02,400 --> 01:15:06,960
+uh nerd kind of situation where you feel
+
+1957
+01:15:06,480 --> 01:15:10,719
+like
+
+1958
+01:15:06,960 --> 01:15:12,800
+you have a need to be argumentative
+
+1959
+01:15:10,719 --> 01:15:14,159
+uh oh you know it's kind of a nerd
+
+1960
+01:15:12,800 --> 01:15:16,320
+quality which
+
+1961
+01:15:14,159 --> 01:15:17,440
+exists in lots of you guys as well you
+
+1962
+01:15:16,320 --> 01:15:20,239
+know i know
+
+1963
+01:15:17,440 --> 01:15:22,400
+you argue all the time i i just happen
+
+1964
+01:15:20,239 --> 01:15:22,880
+to be more severe okay i just happen to
+
+1965
+01:15:22,400 --> 01:15:26,080
+be
+
+1966
+01:15:22,880 --> 01:15:29,199
+more severe i'm not like angry or mad
+
+1967
+01:15:26,080 --> 01:15:32,239
+or i have to do something no no okay i
+
+1968
+01:15:29,199 --> 01:15:33,840
+i i despite this despise the you know
+
+1969
+01:15:32,239 --> 01:15:37,679
+these phonetics because they are
+
+1970
+01:15:33,840 --> 01:15:41,120
+incorrect they are patently incorrect
+
+1971
+01:15:37,679 --> 01:15:44,560
+about something and in turn that creates
+
+1972
+01:15:41,120 --> 01:15:47,199
+perpetual uh pervasive harm
+
+1973
+01:15:44,560 --> 01:15:48,159
+in programming in in the field which is
+
+1974
+01:15:47,199 --> 01:15:51,679
+programming
+
+1975
+01:15:48,159 --> 01:15:53,600
+the unix the unix philosophy the
+
+1976
+01:15:51,679 --> 01:15:54,719
+the python phoneticism the e-max
+
+1977
+01:15:53,600 --> 01:15:57,920
+phoneticism
+
+1978
+01:15:54,719 --> 01:16:01,440
+creates pervasive
+
+1979
+01:15:57,920 --> 01:16:02,400
+harm in each of the percep perspective
+
+1980
+01:16:01,440 --> 01:16:04,800
+communities
+
+1981
+01:16:02,400 --> 01:16:05,440
+you know they drag the language down you
+
+1982
+01:16:04,800 --> 01:16:07,520
+know
+
+1983
+01:16:05,440 --> 01:16:08,960
+then in turn they dragged the whole
+
+1984
+01:16:07,520 --> 01:16:11,360
+programming industry down
+
+1985
+01:16:08,960 --> 01:16:12,719
+that's that is why today we have didn't
+
+1986
+01:16:11,360 --> 01:16:15,360
+we have to deal with so much
+
+1987
+01:16:12,719 --> 01:16:17,440
+[ __ ] crap in web programming doesn't
+
+1988
+01:16:15,360 --> 01:16:19,840
+work this doesn't work there's a bug
+
+1989
+01:16:17,440 --> 01:16:22,080
+you know then you go fire or fire or bug
+
+1990
+01:16:19,840 --> 01:16:24,800
+report what the [ __ ] is that
+
+1991
+01:16:22,080 --> 01:16:26,400
+you're not supposed to do that computers
+
+1992
+01:16:24,800 --> 01:16:29,520
+on is not supposed to
+
+1993
+01:16:26,400 --> 01:16:31,679
+create errors on the fly like humans do
+
+1994
+01:16:29,520 --> 01:16:33,199
+computers it's cold it's not it's not
+
+1995
+01:16:31,679 --> 01:16:35,600
+supposed to go wrong
+
+1996
+01:16:33,199 --> 01:16:37,199
+what whatever is wrong is the human
+
+1997
+01:16:35,600 --> 01:16:39,440
+animals you you [ __ ]
+
+1998
+01:16:37,199 --> 01:16:40,719
+the programmer [ __ ] the eunuchs
+
+1999
+01:16:39,440 --> 01:16:43,440
+people that creates
+
+2000
+01:16:40,719 --> 01:16:44,480
+the situation that creates the normalcy
+
+2001
+01:16:43,440 --> 01:16:46,880
+the norm today
+
+2002
+01:16:44,480 --> 01:16:47,679
+where we have lots of bugs it becomes
+
+2003
+01:16:46,880 --> 01:16:49,679
+actually
+
+2004
+01:16:47,679 --> 01:16:50,960
+you know it becomes normal it's accepted
+
+2005
+01:16:49,679 --> 01:16:54,000
+oh it's just a bug
+
+2006
+01:16:50,960 --> 01:16:56,800
+oh go fire fight go go fire a bug report
+
+2007
+01:16:54,000 --> 01:16:58,640
+that's not supposed to be that way
+
+2008
+01:16:56,800 --> 01:17:01,040
+you know it's not supposed to be oh
+
+2009
+01:16:58,640 --> 01:17:04,080
+window this doesn't work oh that crash
+
+2010
+01:17:01,040 --> 01:17:06,640
+not supposed to happen this happened
+
+2011
+01:17:04,080 --> 01:17:07,840
+it happened because new programmers the
+
+2012
+01:17:06,640 --> 01:17:10,400
+past for the past
+
+2013
+01:17:07,840 --> 01:17:12,080
+30 years the [ __ ] the free software
+
+2014
+01:17:10,400 --> 01:17:15,280
+foundation glue richard snowman
+
+2015
+01:17:12,080 --> 01:17:16,159
+[ __ ] the unix philosophy pushing
+
+2016
+01:17:15,280 --> 01:17:18,159
+for crap
+
+2017
+01:17:16,159 --> 01:17:19,280
+you know pushing for incorrect pushing
+
+2018
+01:17:18,159 --> 01:17:22,640
+for one plus one
+
+2019
+01:17:19,280 --> 01:17:24,560
+equals to three they push and push
+
+2020
+01:17:22,640 --> 01:17:25,760
+why do they push part of the reason is
+
+2021
+01:17:24,560 --> 01:17:28,320
+money okay
+
+2022
+01:17:25,760 --> 01:17:28,880
+now now of course free software and open
+
+2023
+01:17:28,320 --> 01:17:32,000
+source
+
+2024
+01:17:28,880 --> 01:17:33,120
+is excluded but anyway a lot of it has
+
+2025
+01:17:32,000 --> 01:17:36,719
+to do with money
+
+2026
+01:17:33,120 --> 01:17:37,360
+corporations they push okay money makes
+
+2027
+01:17:36,719 --> 01:17:39,760
+the go
+
+2028
+01:17:37,360 --> 01:17:42,640
+the world go around so they you know you
+
+2029
+01:17:39,760 --> 01:17:45,679
+push the wrong ideas
+
+2030
+01:17:42,640 --> 01:17:48,880
+you end up bad you end up bad so it has
+
+2031
+01:17:45,679 --> 01:17:50,719
+consequences so that is why we you know
+
+2032
+01:17:48,880 --> 01:17:52,880
+you you hear it everywhere
+
+2033
+01:17:50,719 --> 01:17:56,159
+you know this sucks or that sucks not
+
+2034
+01:17:52,880 --> 01:17:56,159
+just me saying that okay
+
+2035
+01:17:56,320 --> 01:18:00,239
+and i do have some personal opinions you
+
+2036
+01:17:59,040 --> 01:18:03,440
+know which is uh
+
+2037
+01:18:00,239 --> 01:18:06,239
+uh which is particular to me uh
+
+2038
+01:18:03,440 --> 01:18:08,320
+and which is not necessarily right okay
+
+2039
+01:18:06,239 --> 01:18:10,480
+i'm not saying i'm always right
+
+2040
+01:18:08,320 --> 01:18:11,360
+you know some some of my opinions might
+
+2041
+01:18:10,480 --> 01:18:14,800
+be extreme
+
+2042
+01:18:11,360 --> 01:18:17,679
+for example my opinions about how how
+
+2043
+01:18:14,800 --> 01:18:18,719
+how everything if how all the things
+
+2044
+01:18:17,679 --> 01:18:21,760
+that's wrong is
+
+2045
+01:18:18,719 --> 01:18:24,800
+because of unix
+
+2046
+01:18:21,760 --> 01:18:25,679
+and c you know so you know sometimes i
+
+2047
+01:18:24,800 --> 01:18:28,239
+make drama
+
+2048
+01:18:25,679 --> 01:18:28,719
+dramatic claims like click bait you know
+
+2049
+01:18:28,239 --> 01:18:31,760
+that's
+
+2050
+01:18:28,719 --> 01:18:32,400
+that's what that's how i get you you
+
+2051
+01:18:31,760 --> 01:18:35,360
+know that
+
+2052
+01:18:32,400 --> 01:18:36,000
+when it whenever i do that i get more
+
+2053
+01:18:35,360 --> 01:18:39,280
+viewers
+
+2054
+01:18:36,000 --> 01:18:42,640
+okay that's that's part of the
+
+2055
+01:18:39,280 --> 01:18:43,600
+kind of the how human works you know so
+
+2056
+01:18:42,640 --> 01:18:46,640
+some of my
+
+2057
+01:18:43,600 --> 01:18:50,000
+claim is a bit a little bit dramatic
+
+2058
+01:18:46,640 --> 01:18:52,480
+but but actually most of
+
+2059
+01:18:50,000 --> 01:18:53,360
+the time all of the time actually i
+
+2060
+01:18:52,480 --> 01:18:56,560
+believe that
+
+2061
+01:18:53,360 --> 01:18:57,440
+okay i do believe okay now listen i do
+
+2062
+01:18:56,560 --> 01:19:01,679
+believe
+
+2063
+01:18:57,440 --> 01:19:05,120
+that unix
+
+2064
+01:19:01,679 --> 01:19:08,080
+the hacker types and the unix philosophy
+
+2065
+01:19:05,120 --> 01:19:08,800
+they have done tremendous harm to the
+
+2066
+01:19:08,080 --> 01:19:12,480
+computing
+
+2067
+01:19:08,800 --> 01:19:15,199
+industry to this day okay and i i have
+
+2068
+01:19:12,480 --> 01:19:16,400
+explained some of the concrete examples
+
+2069
+01:19:15,199 --> 01:19:19,520
+for example the
+
+2070
+01:19:16,400 --> 01:19:21,280
+obsession about line truncation so in
+
+2071
+01:19:19,520 --> 01:19:21,840
+other words in other words let me put it
+
+2072
+01:19:21,280 --> 01:19:24,640
+in
+
+2073
+01:19:21,840 --> 01:19:25,440
+you know accept a acceptable way you
+
+2074
+01:19:24,640 --> 01:19:28,080
+know today
+
+2075
+01:19:25,440 --> 01:19:29,760
+in many program languages you know they
+
+2076
+01:19:28,080 --> 01:19:30,800
+tell you they have the idiom they tell
+
+2077
+01:19:29,760 --> 01:19:32,880
+you to add
+
+2078
+01:19:30,800 --> 01:19:34,159
+you know your lines cannot be more than
+
+2079
+01:19:32,880 --> 01:19:37,520
+80 characters
+
+2080
+01:19:34,159 --> 01:19:40,480
+so but that idea that
+
+2081
+01:19:37,520 --> 01:19:41,280
+that that idiom that guideline is
+
+2082
+01:19:40,480 --> 01:19:45,040
+actually
+
+2083
+01:19:41,280 --> 01:19:48,480
+bad because it wastes tremendous time
+
+2084
+01:19:45,040 --> 01:19:51,520
+of human effort and also it kind of
+
+2085
+01:19:48,480 --> 01:19:54,640
+prevents it thoughts the progress of
+
+2086
+01:19:51,520 --> 01:19:56,880
+automatic formatting you know so
+
+2087
+01:19:54,640 --> 01:19:58,400
+so that idea where that idea came from
+
+2088
+01:19:56,880 --> 01:20:01,520
+unix the unix
+
+2089
+01:19:58,400 --> 01:20:02,080
+factors pushed that idea all over the
+
+2090
+01:20:01,520 --> 01:20:04,159
+place
+
+2091
+01:20:02,080 --> 01:20:05,199
+it became a standard you know like most
+
+2092
+01:20:04,159 --> 01:20:08,480
+of you don't know
+
+2093
+01:20:05,199 --> 01:20:10,159
+like like you don't know like why is sod
+
+2094
+01:20:08,480 --> 01:20:12,639
+so crazy did we have this
+
+2095
+01:20:10,159 --> 01:20:14,800
+guy crazy he's talking but think about
+
+2096
+01:20:12,639 --> 01:20:15,840
+it where does that idea come from the
+
+2097
+01:20:14,800 --> 01:20:17,920
+line truncation
+
+2098
+01:20:15,840 --> 01:20:19,199
+to this day like when you when you're on
+
+2099
+01:20:17,920 --> 01:20:22,080
+twitter or when you
+
+2100
+01:20:19,199 --> 01:20:24,400
+when you are on discord do you think
+
+2101
+01:20:22,080 --> 01:20:26,639
+when you start to type you think oh oh
+
+2102
+01:20:24,400 --> 01:20:28,320
+oh i'm over 80 characters i must press
+
+2103
+01:20:26,639 --> 01:20:30,400
+the return now do you do that
+
+2104
+01:20:28,320 --> 01:20:31,600
+do you do that on twitter do you do that
+
+2105
+01:20:30,400 --> 01:20:33,280
+when you write email
+
+2106
+01:20:31,600 --> 01:20:34,719
+why do you have to do that when you do
+
+2107
+01:20:33,280 --> 01:20:35,920
+when you write a programming language
+
+2108
+01:20:34,719 --> 01:20:38,719
+you are a [ __ ]
+
+2109
+01:20:35,920 --> 01:20:39,440
+okay where does that come from from the
+
+2110
+01:20:38,719 --> 01:20:42,560
+unix
+
+2111
+01:20:39,440 --> 01:20:44,080
+philosophy spreading patently forced
+
+2112
+01:20:42,560 --> 01:20:45,760
+ideas all over the place
+
+2113
+01:20:44,080 --> 01:20:47,520
+and it becomes the normal it becomes
+
+2114
+01:20:45,760 --> 01:20:48,719
+normal you don't have to do that in
+
+2115
+01:20:47,520 --> 01:20:50,239
+programming languages
+
+2116
+01:20:48,719 --> 01:20:52,080
+there's a thing called automatic
+
+2117
+01:20:50,239 --> 01:20:54,560
+formatting i talked about that
+
+2118
+01:20:52,080 --> 01:20:55,840
+you know in lots of my i'm not talking
+
+2119
+01:20:54,560 --> 01:20:59,280
+about the emacs like
+
+2120
+01:20:55,840 --> 01:20:59,280
+the field column that
+
+2121
+01:20:59,600 --> 01:21:03,840
+anyway that's another topic okay i
+
+2122
+01:21:01,440 --> 01:21:06,400
+talked about that a lot
+
+2123
+01:21:03,840 --> 01:21:06,880
+autumn you know so so that that is why
+
+2124
+01:21:06,400 --> 01:21:09,280
+i'm
+
+2125
+01:21:06,880 --> 01:21:11,600
+angry not angry in a sense that you know
+
+2126
+01:21:09,280 --> 01:21:12,320
+it's kind of my just my personality okay
+
+2127
+01:21:11,600 --> 01:21:16,080
+this
+
+2128
+01:21:12,320 --> 01:21:18,880
+incorrect you know incorrect force ideas
+
+2129
+01:21:16,080 --> 01:21:20,239
+that spread on things that i'm
+
+2130
+01:21:18,880 --> 01:21:22,080
+passionate about
+
+2131
+01:21:20,239 --> 01:21:23,760
+programming you know programming
+
+2132
+01:21:22,080 --> 01:21:26,400
+language design in fact
+
+2133
+01:21:23,760 --> 01:21:27,520
+python is one of the victim why does
+
+2134
+01:21:26,400 --> 01:21:29,199
+python
+
+2135
+01:21:27,520 --> 01:21:32,000
+let me tell you okay since today we are
+
+2136
+01:21:29,199 --> 01:21:34,880
+talking about python why does the python
+
+2137
+01:21:32,000 --> 01:21:35,520
+choose the syntax indentation based
+
+2138
+01:21:34,880 --> 01:21:38,880
+syntax
+
+2139
+01:21:35,520 --> 01:21:39,360
+where does that come from okay you know
+
+2140
+01:21:38,880 --> 01:21:42,400
+we can
+
+2141
+01:21:39,360 --> 01:21:42,960
+explain that in many ways but a dramatic
+
+2142
+01:21:42,400 --> 01:21:45,280
+way to
+
+2143
+01:21:42,960 --> 01:21:46,000
+in my opinion that's because the unix
+
+2144
+01:21:45,280 --> 01:21:50,000
+the e
+
+2145
+01:21:46,000 --> 01:21:52,400
+unix idiocy okay why does python
+
+2146
+01:21:50,000 --> 01:21:54,840
+the guido von wilson i i mean why does
+
+2147
+01:21:52,400 --> 01:21:58,239
+python and in fact lots of python
+
+2148
+01:21:54,840 --> 01:22:01,440
+derived for example yamo
+
+2149
+01:21:58,239 --> 01:22:04,480
+lots of the template languages you know
+
+2150
+01:22:01,440 --> 01:22:06,400
+based on the python indentation uh i
+
+2151
+01:22:04,480 --> 01:22:07,840
+have articles on that okay i have quite
+
+2152
+01:22:06,400 --> 01:22:09,600
+a lot of articles on that
+
+2153
+01:22:07,840 --> 01:22:11,520
+why is it that why is that why does
+
+2154
+01:22:09,600 --> 01:22:14,080
+people do that
+
+2155
+01:22:11,520 --> 01:22:15,920
+that i would say it came from the unix
+
+2156
+01:22:14,080 --> 01:22:19,280
+philosophy the truncation
+
+2157
+01:22:15,920 --> 01:22:21,760
+the truncation of lines 80 characters
+
+2158
+01:22:19,280 --> 01:22:23,840
+came from all the harm all the pervasive
+
+2159
+01:22:21,760 --> 01:22:26,880
+that's why i say it's pervasive huh
+
+2160
+01:22:23,840 --> 01:22:27,679
+so we have not almost all languages are
+
+2161
+01:22:26,880 --> 01:22:30,800
+based on c
+
+2162
+01:22:27,679 --> 01:22:31,280
+syntax why is that because the c [ __ ]
+
+2163
+01:22:30,800 --> 01:22:34,000
+the
+
+2164
+01:22:31,280 --> 01:22:34,880
+the c and unix pervasive harm they
+
+2165
+01:22:34,000 --> 01:22:37,040
+spread
+
+2166
+01:22:34,880 --> 01:22:38,480
+they become a standard you know the unix
+
+2167
+01:22:37,040 --> 01:22:40,400
+people tell you tell
+
+2168
+01:22:38,480 --> 01:22:42,800
+everyone you must do it this way this is
+
+2169
+01:22:40,400 --> 01:22:46,000
+not the standard
+
+2170
+01:22:42,800 --> 01:22:47,040
+it's harmful it's incorrect bad ideas by
+
+2171
+01:22:46,000 --> 01:22:49,199
+technical you can
+
+2172
+01:22:47,040 --> 01:22:51,199
+you can scientific scientifically
+
+2173
+01:22:49,199 --> 01:22:53,600
+evaluate those are bad ideas
+
+2174
+01:22:51,199 --> 01:22:54,480
+but it becomes pervasive it's no it's
+
+2175
+01:22:53,600 --> 01:22:56,719
+normal now
+
+2176
+01:22:54,480 --> 01:22:58,880
+and anyone who do not believe that you
+
+2177
+01:22:56,719 --> 01:23:00,880
+think it's crazy like me
+
+2178
+01:22:58,880 --> 01:23:02,639
+okay so let me go get back so why is
+
+2179
+01:23:00,880 --> 01:23:05,120
+python indentation based
+
+2180
+01:23:02,639 --> 01:23:07,360
+well that came from the one of the idea
+
+2181
+01:23:05,120 --> 01:23:10,000
+of the of the idea that
+
+2182
+01:23:07,360 --> 01:23:10,480
+lines should not be be no be more than
+
+2183
+01:23:10,000 --> 01:23:12,080
+character
+
+2184
+01:23:10,480 --> 01:23:14,239
+80 characters because more than that
+
+2185
+01:23:12,080 --> 01:23:16,159
+it's hard to read but this act
+
+2186
+01:23:14,239 --> 01:23:17,360
+people don't get it the the point is
+
+2187
+01:23:16,159 --> 01:23:19,280
+that you need to have
+
+2188
+01:23:17,360 --> 01:23:21,199
+automatic automated formatting that's
+
+2189
+01:23:19,280 --> 01:23:24,320
+the thing you don't want
+
+2190
+01:23:21,199 --> 01:23:24,960
+actual you don't want actual let me turn
+
+2191
+01:23:24,320 --> 01:23:27,199
+on the
+
+2192
+01:23:24,960 --> 01:23:29,040
+you know you see you see the line return
+
+2193
+01:23:27,199 --> 01:23:32,639
+you don't want actual that
+
+2194
+01:23:29,040 --> 01:23:35,520
+you want you want this
+
+2195
+01:23:32,639 --> 01:23:37,280
+you want flexible formatting like like
+
+2196
+01:23:35,520 --> 01:23:41,040
+for example in mathematica or la
+
+2197
+01:23:37,280 --> 01:23:42,000
+tech anyway uh that's gonna take me
+
+2198
+01:23:41,040 --> 01:23:45,280
+another hour to
+
+2199
+01:23:42,000 --> 01:23:49,840
+to to um uh talk about okay so anyway
+
+2200
+01:23:45,280 --> 01:23:49,840
+that's it for today
+
+2201
+01:23:54,480 --> 01:24:03,840
+okay bye guys
+
+2202
+01:24:04,880 --> 01:24:06,960
+you
+

@@ -1,0 +1,4688 @@
+1
+00:00:01,320 --> 00:00:08,320
+hello welcome to another episode of s
+
+2
+00:00:04,880 --> 00:00:11,920
+talk show today we are going to code
+
+3
+00:00:08,320 --> 00:00:15,600
+emac lisp we are going to write a
+
+4
+00:00:11,920 --> 00:00:18,199
+program that validate all the matching
+
+5
+00:00:15,600 --> 00:00:20,720
+brackets may it be cly brackets
+
+6
+00:00:18,199 --> 00:00:23,640
+parentheses or square brackets or any of
+
+7
+00:00:20,720 --> 00:00:25,560
+the Chinese brackets or Unico brackets
+
+8
+00:00:23,640 --> 00:00:27,960
+so we're going to check you know there's
+
+9
+00:00:25,560 --> 00:00:30,439
+Mis no mismatch
+
+10
+00:00:27,960 --> 00:00:33,600
+brackets so that's one thing and I'm
+
+11
+00:00:30,439 --> 00:00:36,879
+going to talk about my keyboards in the
+
+12
+00:00:33,600 --> 00:00:40,000
+first five minutes five minutes or so so
+
+13
+00:00:36,879 --> 00:00:43,760
+this is kesis form keyboard brand new
+
+14
+00:00:40,000 --> 00:00:46,360
+okay I did a unboxing yesterday uh two
+
+15
+00:00:43,760 --> 00:00:50,640
+or two days ago you you should go watch
+
+16
+00:00:46,360 --> 00:00:54,680
+it uh and this is my ultimate hacking
+
+17
+00:00:50,640 --> 00:00:57,559
+keyboard okay and let me show this again
+
+18
+00:00:54,680 --> 00:01:00,840
+the king of
+
+19
+00:00:57,559 --> 00:01:06,360
+keyboards so this is uh
+
+20
+00:01:00,840 --> 00:01:10,040
+SW board data hand s v a l b o a r d uh
+
+21
+00:01:06,360 --> 00:01:12,720
+this is a fantastic very Advanced
+
+22
+00:01:10,040 --> 00:01:16,240
+keyboard so I'll be using it down the
+
+23
+00:01:12,720 --> 00:01:18,720
+road you know not yet sorry about that
+
+24
+00:01:16,240 --> 00:01:21,159
+so we got the keyboard so the form
+
+25
+00:01:18,720 --> 00:01:23,960
+keyboard got the trackpad now the
+
+26
+00:01:21,159 --> 00:01:27,000
+trackpad is not so good you see this
+
+27
+00:01:23,960 --> 00:01:29,439
+keyboard is Bluetooth I showed yesterday
+
+28
+00:01:27,000 --> 00:01:33,520
+you know you go watch my video very
+
+29
+00:01:29,439 --> 00:01:36,240
+elegant very well designed and beautiful
+
+30
+00:01:33,520 --> 00:01:38,560
+but however the track so it you know you
+
+31
+00:01:36,240 --> 00:01:41,280
+can use it wired right now I'm using it
+
+32
+00:01:38,560 --> 00:01:43,960
+wired or you can use it uh with
+
+33
+00:01:41,280 --> 00:01:45,799
+Bluetooth you have two profiles to
+
+34
+00:01:43,960 --> 00:01:47,399
+connect to two different
+
+35
+00:01:45,799 --> 00:01:50,240
+devices
+
+36
+00:01:47,399 --> 00:01:53,920
+okay but the trackpad when you connect
+
+37
+00:01:50,240 --> 00:01:56,880
+with Bluetooth on Windows it's it's it's
+
+38
+00:01:53,920 --> 00:01:59,039
+not so good I don't know if it's because
+
+39
+00:01:56,880 --> 00:02:00,520
+windows I mean I don't know if that's a
+
+40
+00:01:59,039 --> 00:02:03,439
+general situation
+
+41
+00:02:00,520 --> 00:02:05,880
+now this is not just a normal trackpad
+
+42
+00:02:03,439 --> 00:02:11,239
+you see a normal trackpad is just you
+
+43
+00:02:05,880 --> 00:02:13,720
+know one position uh and uh you can turn
+
+44
+00:02:11,239 --> 00:02:16,440
+this into a normal trackpad and I
+
+45
+00:02:13,720 --> 00:02:19,560
+believe it will work well but however
+
+46
+00:02:16,440 --> 00:02:19,560
+this is what's soall
+
+47
+00:02:20,120 --> 00:02:26,120
+multi-touch okay multi-touch trackpad
+
+48
+00:02:23,440 --> 00:02:30,360
+which allows you to do gestures for
+
+49
+00:02:26,120 --> 00:02:34,000
+example let's say uh s blog
+
+50
+00:02:30,360 --> 00:02:36,760
+you know I can two finger scroll here do
+
+51
+00:02:34,000 --> 00:02:40,440
+scroll and I can use three fingers to
+
+52
+00:02:36,760 --> 00:02:43,400
+see all my windows you see uh for
+
+53
+00:02:40,440 --> 00:02:47,800
+example click on that or I can show my
+
+54
+00:02:43,400 --> 00:02:51,440
+desktop uh not that let's see show my
+
+55
+00:02:47,800 --> 00:02:53,920
+desktop you see and I can use four
+
+56
+00:02:51,440 --> 00:02:56,319
+fingers to increase the volume up and
+
+57
+00:02:53,920 --> 00:02:59,480
+down you can see on the left corner I
+
+58
+00:02:56,319 --> 00:03:02,400
+don't know if you can see it uh let's
+
+59
+00:02:59,480 --> 00:03:05,879
+see four fingers okay now three fingers
+
+60
+00:03:02,400 --> 00:03:10,959
+to show my my windows where do I want to
+
+61
+00:03:05,879 --> 00:03:10,959
+go I want to go uh yeah
+
+62
+00:03:11,959 --> 00:03:19,080
+OBS so you can see so this is a
+
+63
+00:03:15,319 --> 00:03:20,040
+multi-touch touchpad like like the ones
+
+64
+00:03:19,080 --> 00:03:24,080
+on
+
+65
+00:03:20,040 --> 00:03:25,720
+Apple uh so but it's not so good because
+
+66
+00:03:24,080 --> 00:03:28,040
+when you connect with
+
+67
+00:03:25,720 --> 00:03:30,519
+Bluetooth you know sometimes there's a
+
+68
+00:03:28,040 --> 00:03:32,560
+bit delay I I don't know if it's a
+
+69
+00:03:30,519 --> 00:03:35,879
+Windows issue or it's just a general
+
+70
+00:03:32,560 --> 00:03:39,920
+Bluetooth problem also on the
+
+71
+00:03:35,879 --> 00:03:42,000
+Mac I haven't tried it on the Mac but
+
+72
+00:03:39,920 --> 00:03:45,280
+you know according to the documentation
+
+73
+00:03:42,000 --> 00:03:48,200
+by kesis kesis Form
+
+74
+00:03:45,280 --> 00:03:51,640
+keyboard uh you know the mac Apple
+
+75
+00:03:48,200 --> 00:03:56,120
+Computers they don't allow other third
+
+76
+00:03:51,640 --> 00:03:59,879
+party you know trackpad basically so you
+
+77
+00:03:56,120 --> 00:04:02,040
+so they don't allow gestures so on Apple
+
+78
+00:03:59,879 --> 00:04:05,079
+they just want you to buy the Apple
+
+79
+00:04:02,040 --> 00:04:09,239
+Magic trackpad or whatever Apple touch
+
+80
+00:04:05,079 --> 00:04:11,920
+pad so which is bad news for this
+
+81
+00:04:09,239 --> 00:04:14,760
+keyboard because if you are using a Mac
+
+82
+00:04:11,920 --> 00:04:17,840
+then you know then you don't have the
+
+83
+00:04:14,760 --> 00:04:20,759
+full capability of this trackpad track
+
+84
+00:04:17,840 --> 00:04:22,759
+you know this multi-touch Precision
+
+85
+00:04:20,759 --> 00:04:26,120
+trackpad that's what they call
+
+86
+00:04:22,759 --> 00:04:29,720
+it so anyways so I'm going to use it
+
+87
+00:04:26,120 --> 00:04:32,479
+this keyboard for a while okay so but
+
+88
+00:04:29,720 --> 00:04:35,720
+today we are going to code emac LP if
+
+89
+00:04:32,479 --> 00:04:39,520
+you have questions and comments post it
+
+90
+00:04:35,720 --> 00:04:43,199
+and pay me okay donate to me uh PayPal
+
+91
+00:04:39,520 --> 00:04:45,759
+patreon it's ons.info
+
+92
+00:04:43,199 --> 00:04:48,039
+so the other thing I want to mention is
+
+93
+00:04:45,759 --> 00:04:52,280
+that I'm going to read the comments in a
+
+94
+00:04:48,039 --> 00:04:56,759
+in a minute damic hello damic so I
+
+95
+00:04:52,280 --> 00:04:59,919
+updated my kesis form keyboard you know
+
+96
+00:04:56,759 --> 00:05:02,840
+right now so it's like you know 10 pages
+
+97
+00:04:59,919 --> 00:05:04,600
+full detail complete photos let's see if
+
+98
+00:05:02,840 --> 00:05:09,000
+I can
+
+99
+00:05:04,600 --> 00:05:13,240
+magnify so you can see this Isis form
+
+100
+00:05:09,000 --> 00:05:18,120
+keyboard uh you know I have full full uh
+
+101
+00:05:13,240 --> 00:05:20,919
+detailed review here including marketing
+
+102
+00:05:18,120 --> 00:05:23,720
+blug you see usually on my keyboard
+
+103
+00:05:20,919 --> 00:05:27,400
+website you'll see this section
+
+104
+00:05:23,720 --> 00:05:29,360
+marketing BL that is the part basically
+
+105
+00:05:27,400 --> 00:05:30,560
+from the manufacturer you know what they
+
+106
+00:05:29,360 --> 00:05:32,960
+say
+
+107
+00:05:30,560 --> 00:05:35,199
+themselves about this keyboard which
+
+108
+00:05:32,960 --> 00:05:37,360
+becomes import you know usually it's not
+
+109
+00:05:35,199 --> 00:05:39,479
+so good because it's just marketing you
+
+110
+00:05:37,360 --> 00:05:41,319
+know my you know our keyboard is the
+
+111
+00:05:39,479 --> 00:05:45,360
+best keyboard because it's the most
+
+112
+00:05:41,319 --> 00:05:48,560
+comfortable and so on but so usually
+
+113
+00:05:45,360 --> 00:05:52,199
+it's not useful information well part of
+
+114
+00:05:48,560 --> 00:05:55,680
+it is useful but part of it is
+
+115
+00:05:52,199 --> 00:05:59,639
+just fluff okay
+
+116
+00:05:55,680 --> 00:06:03,240
+however when time passes you know it be
+
+117
+00:05:59,639 --> 00:06:05,520
+becomes important historical information
+
+118
+00:06:03,240 --> 00:06:08,680
+for example if you look at you know let
+
+119
+00:06:05,520 --> 00:06:11,960
+me talk about this uh just random chat a
+
+120
+00:06:08,680 --> 00:06:15,039
+bit then we're going to go on to emac
+
+121
+00:06:11,960 --> 00:06:20,639
+this coding okay so for example if you
+
+122
+00:06:15,039 --> 00:06:24,080
+go to the history page uh you see and uh
+
+123
+00:06:20,639 --> 00:06:27,280
+then let's say some of the keyboard uh
+
+124
+00:06:24,080 --> 00:06:29,759
+let's say this one Macintosh portable
+
+125
+00:06:27,280 --> 00:06:31,759
+1989
+
+126
+00:06:29,759 --> 00:06:35,720
+now when you look back you know this is
+
+127
+00:06:31,759 --> 00:06:38,080
+30 years old or 35 years old you want to
+
+128
+00:06:35,720 --> 00:06:40,479
+see the marketing blub because you want
+
+129
+00:06:38,080 --> 00:06:43,520
+to see how it was
+
+130
+00:06:40,479 --> 00:06:45,960
+advertised and you get lots of detailed
+
+131
+00:06:43,520 --> 00:06:48,680
+information about what's the you know
+
+132
+00:06:45,960 --> 00:06:52,360
+ports you know the technical name of the
+
+133
+00:06:48,680 --> 00:06:53,759
+switches and so on at that time so the
+
+134
+00:06:52,360 --> 00:06:57,440
+marketing
+
+135
+00:06:53,759 --> 00:07:00,840
+blub let's go back um let's see which
+
+136
+00:06:57,440 --> 00:07:04,039
+key by the way I have programed my keys
+
+137
+00:07:00,840 --> 00:07:07,199
+uh via the power toys by the way this
+
+138
+00:07:04,039 --> 00:07:09,319
+kesis form keyboard is not programmable
+
+139
+00:07:07,199 --> 00:07:12,919
+anyway so let's go back to marketing BL
+
+140
+00:07:09,319 --> 00:07:17,520
+so the marketing blur becomes important
+
+141
+00:07:12,919 --> 00:07:21,280
+information as time passes that is why
+
+142
+00:07:17,520 --> 00:07:24,599
+uh I started to consistently add the
+
+143
+00:07:21,280 --> 00:07:27,240
+marketing blub uh typically from
+
+144
+00:07:24,599 --> 00:07:29,560
+Amazon so anyway so I did unboxing
+
+145
+00:07:27,240 --> 00:07:32,280
+yesterday so quick start and all the
+
+146
+00:07:29,560 --> 00:07:35,479
+liting you know superb quality build
+
+147
+00:07:32,280 --> 00:07:37,240
+truly uh yeah but the you know the
+
+148
+00:07:35,479 --> 00:07:40,479
+trackpad is got
+
+149
+00:07:37,240 --> 00:07:42,759
+issues when you connect with Bluetooth
+
+150
+00:07:40,479 --> 00:07:47,400
+but however when you click uh connect
+
+151
+00:07:42,759 --> 00:07:50,280
+with the USB it allows you to um also
+
+152
+00:07:47,400 --> 00:07:52,800
+connect it wired so you you don't need
+
+153
+00:07:50,280 --> 00:07:55,759
+Bluetooth devices you can just use it as
+
+154
+00:07:52,800 --> 00:07:59,560
+a USB it works okay you know it you know
+
+155
+00:07:55,759 --> 00:08:03,560
+it's a multi-touch trackpad I I
+
+156
+00:07:59,560 --> 00:08:07,240
+especially like this uh three finger
+
+157
+00:08:03,560 --> 00:08:10,039
+swipe so that's a issue so if you you
+
+158
+00:08:07,240 --> 00:08:12,720
+know it wouldn't it it's not for me
+
+159
+00:08:10,039 --> 00:08:15,479
+because I want the ergonomic you know I
+
+160
+00:08:12,720 --> 00:08:17,479
+want the fancy keyboard I have many
+
+161
+00:08:15,479 --> 00:08:19,720
+fancy keyboard but if you want a
+
+162
+00:08:17,479 --> 00:08:21,840
+beautiful keyboard you know it might be
+
+163
+00:08:19,720 --> 00:08:25,879
+for you okay that's my kind of my
+
+164
+00:08:21,840 --> 00:08:27,960
+summary of this kesis form keyboard and
+
+165
+00:08:25,879 --> 00:08:31,519
+it's fairly expensive like the uh
+
+166
+00:08:27,960 --> 00:08:33,800
+currently $200 yeah fairly
+
+167
+00:08:31,519 --> 00:08:36,320
+expensive yeah okay that's what I have
+
+168
+00:08:33,800 --> 00:08:39,080
+to say about this and also it's not
+
+169
+00:08:36,320 --> 00:08:40,159
+programmable so this is just for average
+
+170
+00:08:39,080 --> 00:08:43,519
+you know
+
+171
+00:08:40,159 --> 00:08:46,560
+people so I programmed it of course if
+
+172
+00:08:43,519 --> 00:08:51,839
+you let me show you guys
+
+173
+00:08:46,560 --> 00:08:54,399
+uh you know so of course I Pro wait yeah
+
+174
+00:08:51,839 --> 00:08:56,360
+scroll up yeah you see the touchpad
+
+175
+00:08:54,399 --> 00:08:58,200
+scroll is
+
+176
+00:08:56,360 --> 00:09:01,519
+not is
+
+177
+00:08:58,200 --> 00:09:04,680
+not good good compared to a actual
+
+178
+00:09:01,519 --> 00:09:07,720
+Square wheel you see now I'm using the
+
+179
+00:09:04,680 --> 00:09:10,360
+can you see uh you see I'm using the
+
+180
+00:09:07,720 --> 00:09:14,680
+trackpad I mean the track ball the newa
+
+181
+00:09:10,360 --> 00:09:17,440
+I reviewed uh few weeks ago last month
+
+182
+00:09:14,680 --> 00:09:19,079
+so when you you see when you use a mouse
+
+183
+00:09:17,440 --> 00:09:22,240
+or
+
+184
+00:09:19,079 --> 00:09:24,720
+trackball the Precision is very good you
+
+185
+00:09:22,240 --> 00:09:27,200
+know or if you play a game you know but
+
+186
+00:09:24,720 --> 00:09:30,240
+if you use a trackpad even you know the
+
+187
+00:09:27,200 --> 00:09:33,200
+multi-touch it's it's sometimes like you
+
+188
+00:09:30,240 --> 00:09:35,440
+have to do it twice and you know so
+
+189
+00:09:33,200 --> 00:09:37,640
+that's the issue with the trackpad in
+
+190
+00:09:35,440 --> 00:09:39,839
+general I don't like trackpad because
+
+191
+00:09:37,640 --> 00:09:42,760
+trackpad you rub your fingers all the
+
+192
+00:09:39,839 --> 00:09:46,399
+time and also you have the pronation
+
+193
+00:09:42,760 --> 00:09:48,240
+problem like today's most Mouse have
+
+194
+00:09:46,399 --> 00:09:50,760
+some kind of slant so it's more
+
+195
+00:09:48,240 --> 00:09:53,040
+ergonomic you want your hand this way
+
+196
+00:09:50,760 --> 00:09:55,040
+because this way is more natural and
+
+197
+00:09:53,040 --> 00:09:57,720
+then you have the vertical Mouse like
+
+198
+00:09:55,040 --> 00:10:00,079
+that typical trackpad and mouse is like
+
+199
+00:09:57,720 --> 00:10:03,079
+that but with the
+
+200
+00:10:00,079 --> 00:10:05,519
+typical track ball and mouse is like
+
+201
+00:10:03,079 --> 00:10:07,200
+that vertical Mouse is like that but
+
+202
+00:10:05,519 --> 00:10:09,760
+with a
+
+203
+00:10:07,200 --> 00:10:12,279
+trackpad your hand is like that and you
+
+204
+00:10:09,760 --> 00:10:15,640
+have to you know rub your fingers all
+
+205
+00:10:12,279 --> 00:10:18,600
+the time so I don't like
+
+206
+00:10:15,640 --> 00:10:22,240
+trackpad but anyway so that's that's
+
+207
+00:10:18,600 --> 00:10:25,160
+kind of uh you know my summary of the
+
+208
+00:10:22,240 --> 00:10:31,040
+kesis form keyboard okay so let's use
+
+209
+00:10:25,160 --> 00:10:33,519
+track track Bard much uh much more
+
+210
+00:10:31,040 --> 00:10:36,320
+efficient yeah also the other issue
+
+211
+00:10:33,519 --> 00:10:40,079
+about trackpad is that you see it's a
+
+212
+00:10:36,320 --> 00:10:43,360
+generic uh panel which is not good okay
+
+213
+00:10:40,079 --> 00:10:45,920
+so let me show you article about that
+
+214
+00:10:43,360 --> 00:10:48,519
+hello guys a bunch of people hello I'll
+
+215
+00:10:45,920 --> 00:10:50,320
+answer the questions in a minute so for
+
+216
+00:10:48,519 --> 00:10:53,120
+example by the way there's an
+
+217
+00:10:50,320 --> 00:10:55,760
+interesting story about Tesla you know
+
+218
+00:10:53,120 --> 00:10:59,920
+the Cyber truck that alen musk let me
+
+219
+00:10:55,760 --> 00:11:03,279
+tell you about that so you go to design
+
+220
+00:10:59,920 --> 00:11:06,480
+okay you go to the design page um
+
+221
+00:11:03,279 --> 00:11:09,720
+keyboard design and by the way you can
+
+222
+00:11:06,480 --> 00:11:13,200
+find S
+
+223
+00:11:09,720 --> 00:11:16,079
+keyboard okay so you can find my blog
+
+224
+00:11:13,200 --> 00:11:18,519
+there are over 1,000 articles on
+
+225
+00:11:16,079 --> 00:11:22,240
+keyboard on keyboard history on design
+
+226
+00:11:18,519 --> 00:11:26,160
+on key switches on uh on all sort of you
+
+227
+00:11:22,240 --> 00:11:29,880
+know on keypads programmable keypads
+
+228
+00:11:26,160 --> 00:11:31,839
+which I use for example this uh my a
+
+229
+00:11:29,880 --> 00:11:34,560
+ultimate hacking
+
+230
+00:11:31,839 --> 00:11:36,560
+keyboard and so you have you know track
+
+231
+00:11:34,560 --> 00:11:41,320
+bad trackpad track
+
+232
+00:11:36,560 --> 00:11:42,959
+B Mouse programming keys or everything
+
+233
+00:11:41,320 --> 00:11:46,519
+you need to know about how do you
+
+234
+00:11:42,959 --> 00:11:49,760
+program the keys if your keyboard is not
+
+235
+00:11:46,519 --> 00:11:52,839
+programmable you can use the windows uh
+
+236
+00:11:49,760 --> 00:11:56,399
+for example I want to tell you power
+
+237
+00:11:52,839 --> 00:12:00,560
+toys so for example this kesis form
+
+238
+00:11:56,399 --> 00:12:04,920
+keyboard is not programmable but but I
+
+239
+00:12:00,560 --> 00:12:08,160
+have used power toys let me show you so
+
+240
+00:12:04,920 --> 00:12:12,560
+show key mapping so you can see this is
+
+241
+00:12:08,160 --> 00:12:16,720
+my key mappings you know so for example
+
+242
+00:12:12,560 --> 00:12:20,680
+um caps lock is doing Escape right
+
+243
+00:12:16,720 --> 00:12:23,839
+now and you can remap a key
+
+244
+00:12:20,680 --> 00:12:26,240
+yourself so power toys is pretty good
+
+245
+00:12:23,839 --> 00:12:28,320
+though it's getting bloated it's I mean
+
+246
+00:12:26,240 --> 00:12:31,920
+it's getting bigger and bigger or you
+
+247
+00:12:28,320 --> 00:12:34,360
+can use Auto key so I have a you know
+
+248
+00:12:31,920 --> 00:12:38,240
+tutorial and documentation like over
+
+249
+00:12:34,360 --> 00:12:41,639
+over on my website just search for auto
+
+250
+00:12:38,240 --> 00:12:45,399
+H key or S keyboard and you will find it
+
+251
+00:12:41,639 --> 00:12:49,320
+okay so let's close uh so let's try to
+
+252
+00:12:45,399 --> 00:12:53,839
+use a trackpad so two finger click is
+
+253
+00:12:49,320 --> 00:12:57,399
+right click okay wait you see two finger
+
+254
+00:12:53,839 --> 00:13:01,320
+then close this okay it's kind of much
+
+255
+00:12:57,399 --> 00:13:03,440
+more slower and then yeah so we we
+
+256
+00:13:01,320 --> 00:13:05,519
+talked about Kinesis form keyboard oh
+
+257
+00:13:03,440 --> 00:13:11,199
+yeah so there's a thing I want to tell
+
+258
+00:13:05,519 --> 00:13:14,839
+you about design about these
+
+259
+00:13:11,199 --> 00:13:18,279
+panels you see the US
+
+260
+00:13:14,839 --> 00:13:20,440
+Navy they have a accident they you know
+
+261
+00:13:18,279 --> 00:13:23,600
+their warship run
+
+262
+00:13:20,440 --> 00:13:27,680
+into run into some commercial ship and
+
+263
+00:13:23,600 --> 00:13:32,040
+there's a and you know made a big dent
+
+264
+00:13:27,680 --> 00:13:34,720
+you know and they try to find out why
+
+265
+00:13:32,040 --> 00:13:37,639
+eventually is because of
+
+266
+00:13:34,720 --> 00:13:40,800
+the you know graphical touch screen
+
+267
+00:13:37,639 --> 00:13:44,000
+interface this sucks this sucks donkey
+
+268
+00:13:40,800 --> 00:13:46,399
+ass you know although you know why does
+
+269
+00:13:44,000 --> 00:13:48,720
+this happen because technology you know
+
+270
+00:13:46,399 --> 00:13:51,440
+made the touch screen right so you have
+
+271
+00:13:48,720 --> 00:13:54,440
+so much you know touch screen sliders
+
+272
+00:13:51,440 --> 00:13:57,480
+and all and all that and by the way on
+
+273
+00:13:54,440 --> 00:13:59,959
+Tesla cyber truck you you have no
+
+274
+00:13:57,480 --> 00:14:02,279
+control it's just except the this giant
+
+275
+00:13:59,959 --> 00:14:06,199
+display screen everything is touch
+
+276
+00:14:02,279 --> 00:14:10,000
+screen that is very bad okay so they
+
+277
+00:14:06,199 --> 00:14:13,279
+discover this touch screen control
+
+278
+00:14:10,000 --> 00:14:14,959
+system is what caused the uh you see
+
+279
+00:14:13,279 --> 00:14:17,480
+what the I made a mistake then it
+
+280
+00:14:14,959 --> 00:14:20,759
+becomes that you know that's a problem
+
+281
+00:14:17,480 --> 00:14:25,120
+you don't want touch screen you want
+
+282
+00:14:20,759 --> 00:14:27,360
+physical wheels and knobs okay for
+
+283
+00:14:25,120 --> 00:14:31,880
+example here is another touch screen
+
+284
+00:14:27,360 --> 00:14:32,920
+panel this one is Space X touch screen
+
+285
+00:14:31,880 --> 00:14:37,160
+no
+
+286
+00:14:32,920 --> 00:14:40,759
+good what you want you know another
+
+287
+00:14:37,160 --> 00:14:42,839
+picture of the space uh so what you want
+
+288
+00:14:40,759 --> 00:14:46,560
+is this is no
+
+289
+00:14:42,839 --> 00:14:50,279
+good yeah let's go back to mous you know
+
+290
+00:14:46,560 --> 00:14:50,279
+what you want is like this
+
+291
+00:14:50,720 --> 00:14:57,880
+classic one Bunch 1,000 wheels and knobs
+
+292
+00:14:55,040 --> 00:15:00,480
+and Sliders okay that's what you
+
+293
+00:14:57,880 --> 00:15:02,600
+want okay okay this is what you want
+
+294
+00:15:00,480 --> 00:15:05,800
+because you can feel it you can for
+
+295
+00:15:02,600 --> 00:15:09,399
+example Mouse wheel I can feel the wheel
+
+296
+00:15:05,800 --> 00:15:11,560
+or track B I can feel the ball or or a
+
+297
+00:15:09,399 --> 00:15:13,600
+mouse you know in in a case of mouse I'm
+
+298
+00:15:11,560 --> 00:15:17,800
+moving you know you want to be able to
+
+299
+00:15:13,600 --> 00:15:20,480
+feel it that's what your hand is for you
+
+300
+00:15:17,800 --> 00:15:24,800
+you you notice that touch you know that
+
+301
+00:15:20,480 --> 00:15:24,800
+classic uh let's see if you can see
+
+302
+00:15:25,120 --> 00:15:31,000
+me you know there's a classic art you
+
+303
+00:15:28,600 --> 00:15:33,600
+know but Leonardo or something you know
+
+304
+00:15:31,000 --> 00:15:38,079
+human touch that two fingers touch
+
+305
+00:15:33,600 --> 00:15:40,959
+because touch is the most essential
+
+306
+00:15:38,079 --> 00:15:44,600
+thing any any any new things you want to
+
+307
+00:15:40,959 --> 00:15:48,079
+touch it you so you can feel it so this
+
+308
+00:15:44,600 --> 00:15:50,959
+is so you know so this is come back to
+
+309
+00:15:48,079 --> 00:15:54,680
+the user interface you want physical
+
+310
+00:15:50,959 --> 00:15:58,680
+wheels and knobs okay you don't want
+
+311
+00:15:54,680 --> 00:15:58,680
+the the
+
+312
+00:15:59,360 --> 00:16:04,920
+the code you know the the the generic uh
+
+313
+00:16:03,160 --> 00:16:07,560
+touch
+
+314
+00:16:04,920 --> 00:16:10,160
+screen okay that's about that issue
+
+315
+00:16:07,560 --> 00:16:11,160
+that's about the user interface design
+
+316
+00:16:10,160 --> 00:16:15,519
+okay
+
+317
+00:16:11,160 --> 00:16:19,120
+so and uh you know back to the form
+
+318
+00:16:15,519 --> 00:16:22,199
+keyboard yeah the form keyboard okay
+
+319
+00:16:19,120 --> 00:16:24,759
+let's shall we start to code emac list
+
+320
+00:16:22,199 --> 00:16:27,199
+then or is that enough talking about
+
+321
+00:16:24,759 --> 00:16:30,920
+keyboard uh did I miss
+
+322
+00:16:27,199 --> 00:16:30,920
+anything uh
+
+323
+00:16:31,920 --> 00:16:39,680
+yeah okay so let me answer the questions
+
+324
+00:16:34,040 --> 00:16:39,680
+and say hi and let's h on to EAC this
+
+325
+00:16:41,519 --> 00:16:46,120
+coding hey I saw your video how is it
+
+326
+00:16:44,079 --> 00:16:48,120
+going with the keyboard so far is it
+
+327
+00:16:46,120 --> 00:16:51,279
+weird using a keyboard that is not
+
+328
+00:16:48,120 --> 00:16:54,600
+completely split okay
+
+329
+00:16:51,279 --> 00:16:58,120
+so I mean they this is a feature of
+
+330
+00:16:54,600 --> 00:17:02,600
+their design so that is simple you know
+
+331
+00:16:58,120 --> 00:17:06,799
+one simple piece elegant you know I I
+
+332
+00:17:02,600 --> 00:17:08,760
+actually do like one single piece so
+
+333
+00:17:06,799 --> 00:17:11,120
+because when you have two pieces then
+
+334
+00:17:08,760 --> 00:17:13,600
+you got cables going around every time
+
+335
+00:17:11,120 --> 00:17:17,520
+you go you have to you know and then you
+
+336
+00:17:13,600 --> 00:17:20,439
+have to move you know like like um foot
+
+337
+00:17:17,520 --> 00:17:24,280
+you know fidget you know like a fidget
+
+338
+00:17:20,439 --> 00:17:27,799
+spin you have to adjust position so I I
+
+339
+00:17:24,280 --> 00:17:30,679
+do like the one single piece anyway it's
+
+340
+00:17:27,799 --> 00:17:32,760
+their design you know you have pros and
+
+341
+00:17:30,679 --> 00:17:35,120
+cons if you have two piece or if you
+
+342
+00:17:32,760 --> 00:17:37,520
+allow tting you know pros and con so
+
+343
+00:17:35,120 --> 00:17:40,679
+this is supposedly according to their
+
+344
+00:17:37,520 --> 00:17:43,400
+website kesis you know they say it's you
+
+345
+00:17:40,679 --> 00:17:45,799
+know entry level ergonomic so it does
+
+346
+00:17:43,400 --> 00:17:49,760
+provide split that's why so they put the
+
+347
+00:17:45,799 --> 00:17:51,720
+trackpad in the middle so so you have wi
+
+348
+00:17:49,760 --> 00:17:54,520
+space you know so you don't have like
+
+349
+00:17:51,720 --> 00:17:56,440
+you know typical keybords like that you
+
+350
+00:17:54,520 --> 00:18:00,360
+know you have space in between so that's
+
+351
+00:17:56,440 --> 00:18:03,320
+the you know that's Design By Design
+
+352
+00:18:00,360 --> 00:18:05,799
+design and I can use to it I mean it's
+
+353
+00:18:03,320 --> 00:18:09,840
+you know sometimes I use it on my bad
+
+354
+00:18:05,799 --> 00:18:12,120
+phone now uh you know so it's it's
+
+355
+00:18:09,840 --> 00:18:14,960
+better than you know the one piece for
+
+356
+00:18:12,120 --> 00:18:17,360
+sure of course
+
+357
+00:18:14,960 --> 00:18:19,640
+alternatively uh alternatively for
+
+358
+00:18:17,360 --> 00:18:23,559
+example let me go
+
+359
+00:18:19,640 --> 00:18:25,400
+here so this is all the orgon ergonomic
+
+360
+00:18:23,559 --> 00:18:29,200
+keyboards you know these are the main
+
+361
+00:18:25,400 --> 00:18:32,880
+ones I talked about so much for example
+
+362
+00:18:29,200 --> 00:18:35,520
+alternative design is like that instead
+
+363
+00:18:32,880 --> 00:18:37,120
+of you know a big space in between you
+
+364
+00:18:35,520 --> 00:18:40,799
+have
+
+365
+00:18:37,120 --> 00:18:43,039
+angled so the advantage of that is that
+
+366
+00:18:40,799 --> 00:18:46,280
+you know then your keyboard becomes more
+
+367
+00:18:43,039 --> 00:18:48,520
+compact this one is fairly wide you know
+
+368
+00:18:46,280 --> 00:18:50,159
+so your keyboard become more compact you
+
+369
+00:18:48,520 --> 00:18:52,000
+know but you don't have you don't you
+
+370
+00:18:50,159 --> 00:18:53,600
+don't have a mouse with
+
+371
+00:18:52,000 --> 00:18:57,159
+it
+
+372
+00:18:53,600 --> 00:19:00,200
+so you know and also for example this is
+
+373
+00:18:57,159 --> 00:19:03,320
+another alternative design right so
+
+374
+00:19:00,200 --> 00:19:05,720
+yesterday I was looking for uh and here
+
+375
+00:19:03,320 --> 00:19:09,159
+is the Kinesis form keyboard so
+
+376
+00:19:05,720 --> 00:19:12,640
+yesterday I was looking for is there a
+
+377
+00:19:09,159 --> 00:19:15,320
+Bluetooth portable keyboard with a
+
+378
+00:19:12,640 --> 00:19:18,480
+trackpad and mechanical
+
+379
+00:19:15,320 --> 00:19:21,760
+keys so it does not you know I don't
+
+380
+00:19:18,480 --> 00:19:23,280
+seem to find it
+
+381
+00:19:21,760 --> 00:19:27,280
+Bluetooth
+
+382
+00:19:23,280 --> 00:19:30,480
+portable and mechanical keys and with a
+
+383
+00:19:27,280 --> 00:19:33,000
+pointer device so I don't seem to find
+
+384
+00:19:30,480 --> 00:19:36,240
+it you know this is Bluetooth but
+
+385
+00:19:33,000 --> 00:19:40,320
+there's no mouse with it this is not
+
+386
+00:19:36,240 --> 00:19:43,679
+Bluetooth this is wired okay so so in
+
+387
+00:19:40,320 --> 00:19:46,240
+some sense this is kind of um well
+
+388
+00:19:43,679 --> 00:19:48,760
+actually I did find that Logitech oh
+
+389
+00:19:46,240 --> 00:19:51,880
+yeah so let me show
+
+390
+00:19:48,760 --> 00:19:59,080
+you I did find a device
+
+391
+00:19:51,880 --> 00:19:59,080
+yesterday this thing Logitech Kasa po
+
+392
+00:20:00,799 --> 00:20:08,559
+but it's expensive it's
+
+393
+00:20:04,440 --> 00:20:11,919
+$180 well I mean but this one is $200
+
+394
+00:20:08,559 --> 00:20:15,159
+the kesis form so there you have it so
+
+395
+00:20:11,919 --> 00:20:18,039
+you know they come with also multi-touch
+
+396
+00:20:15,159 --> 00:20:18,960
+trackpad you know so it's I suppose it's
+
+397
+00:20:18,039 --> 00:20:22,880
+a
+
+398
+00:20:18,960 --> 00:20:26,760
+competition um yeah so that's one I
+
+399
+00:20:22,880 --> 00:20:28,640
+found uh but the key switch is oh this
+
+400
+00:20:26,760 --> 00:20:30,880
+is not I don't think this is mechanic
+
+401
+00:20:28,640 --> 00:20:30,880
+mechical
+
+402
+00:20:31,000 --> 00:20:35,799
+switch yeah I don't think that's
+
+403
+00:20:33,120 --> 00:20:38,360
+mechanical s switch that's the thing
+
+404
+00:20:35,799 --> 00:20:38,360
+also for
+
+405
+00:20:38,400 --> 00:20:45,080
+me uh yeah I don't think it's mechanical
+
+406
+00:20:42,000 --> 00:20:50,240
+switch and also for me I really want
+
+407
+00:20:45,080 --> 00:20:53,840
+lighter switches so even this one at 50
+
+408
+00:20:50,240 --> 00:20:59,120
+g uh is not light enough so it's not for
+
+409
+00:20:53,840 --> 00:21:02,559
+me for long-term use because I have RI
+
+410
+00:20:59,120 --> 00:21:07,919
+so greetings from Ukraine
+
+411
+00:21:02,559 --> 00:21:07,919
+wow how's how's going how's going
+
+412
+00:21:08,120 --> 00:21:12,440
+Ukraine uh yeah staggered okay staggered
+
+413
+00:21:11,640 --> 00:21:15,799
+I you
+
+414
+00:21:12,440 --> 00:21:18,960
+know yeah well I mean of course I prefer
+
+415
+00:21:15,799 --> 00:21:22,279
+grid but staggard is um you can you know
+
+416
+00:21:18,960 --> 00:21:26,880
+it's not like a big
+
+417
+00:21:22,279 --> 00:21:30,120
+deal and hello from Iran
+
+418
+00:21:26,880 --> 00:21:35,520
+wow amazing people from all over the
+
+419
+00:21:30,120 --> 00:21:35,520
+world Ukraine and Iran sensitive
+
+420
+00:21:37,200 --> 00:21:45,440
+locations
+
+421
+00:21:39,760 --> 00:21:47,679
+uh so hello from and hi Francisco hi I
+
+422
+00:21:45,440 --> 00:21:51,159
+believe you are the guy from
+
+423
+00:21:47,679 --> 00:21:54,480
+Twitter uh you know like usually I don't
+
+424
+00:21:51,159 --> 00:21:58,159
+know you guys unless you guys follow me
+
+425
+00:21:54,480 --> 00:22:01,159
+and frequently comment or join my
+
+426
+00:21:58,159 --> 00:22:03,640
+Discord you know then you know you talk
+
+427
+00:22:01,159 --> 00:22:08,840
+every day then I'll know who you
+
+428
+00:22:03,640 --> 00:22:10,559
+are um greetings from France oh France
+
+429
+00:22:08,840 --> 00:22:15,600
+right now
+
+430
+00:22:10,559 --> 00:22:15,600
+uh oh France okay right now is running
+
+431
+00:22:16,640 --> 00:22:23,279
+Olympics okay so what are your thoughts
+
+432
+00:22:19,480 --> 00:22:25,360
+on recent ThinkPad keyboard two well I
+
+433
+00:22:23,279 --> 00:22:28,240
+don't know about it I have to look up
+
+434
+00:22:25,360 --> 00:22:35,200
+but I think we should start to code emac
+
+435
+00:22:28,240 --> 00:22:38,279
+this shall we or or yeah I think
+
+436
+00:22:35,200 --> 00:22:40,799
+because you know if I put a title emac
+
+437
+00:22:38,279 --> 00:22:43,760
+disp some people come here they
+
+438
+00:22:40,799 --> 00:22:47,080
+expect emac disp coding they don't want
+
+439
+00:22:43,760 --> 00:22:49,679
+you know like you know they they are not
+
+440
+00:22:47,080 --> 00:22:52,720
+necessarily interested in keyboards oh
+
+441
+00:22:49,679 --> 00:22:57,080
+13 people so anyway let's let's do some
+
+442
+00:22:52,720 --> 00:23:00,120
+e uh EAC this then you know this diverse
+
+443
+00:22:57,080 --> 00:23:03,679
+interest some people watch me for
+
+444
+00:23:00,120 --> 00:23:06,200
+the for comedy
+
+445
+00:23:03,679 --> 00:23:09,440
+okay a lot of the forchan people they
+
+446
+00:23:06,200 --> 00:23:13,240
+come here for they come here to see Bas
+
+447
+00:23:09,440 --> 00:23:16,679
+Bas are talking [ __ ] you know but some
+
+448
+00:23:13,240 --> 00:23:18,720
+people come to see me for my emac this
+
+449
+00:23:16,679 --> 00:23:19,720
+expertise you know they want to you know
+
+450
+00:23:18,720 --> 00:23:23,360
+they are
+
+451
+00:23:19,720 --> 00:23:26,720
+emac uh fans some people come watch me
+
+452
+00:23:23,360 --> 00:23:28,960
+for my programming some people come for
+
+453
+00:23:26,720 --> 00:23:31,080
+uh for my wolam language
+
+454
+00:23:28,960 --> 00:23:33,919
+you know wolam
+
+455
+00:23:31,080 --> 00:23:35,799
+language code and functional programming
+
+456
+00:23:33,919 --> 00:23:42,200
+and programming language
+
+457
+00:23:35,799 --> 00:23:46,039
+issues uh and and some people uh want
+
+458
+00:23:42,200 --> 00:23:48,919
+to uh hear my opinions on politics which
+
+459
+00:23:46,039 --> 00:23:52,400
+by the way I want to mention few days
+
+460
+00:23:48,919 --> 00:23:56,760
+ago about last week There's a my
+
+461
+00:23:52,400 --> 00:23:58,960
+observation on El musk and Venezuela
+
+462
+00:23:56,760 --> 00:24:03,640
+situation you know Venezuela
+
+463
+00:23:58,960 --> 00:24:06,960
+the USA United States of America our
+
+464
+00:24:03,640 --> 00:24:10,200
+country is trying to do a coupe they
+
+465
+00:24:06,960 --> 00:24:14,200
+tried and tried Coupe
+
+466
+00:24:10,200 --> 00:24:17,000
+meaning oh God sad
+
+467
+00:24:14,200 --> 00:24:19,240
+meaning they have to do that to quite a
+
+468
+00:24:17,000 --> 00:24:21,880
+few people quite quite a lot sometimes
+
+469
+00:24:19,240 --> 00:24:23,039
+you know Riot on the street that means
+
+470
+00:24:21,880 --> 00:24:26,640
+people
+
+471
+00:24:23,039 --> 00:24:30,279
+die the you why because
+
+472
+00:24:26,640 --> 00:24:35,000
+oilo Venezuela has got the biggest oil
+
+473
+00:24:30,279 --> 00:24:35,000
+in the world more than Saudi AR
+
+474
+00:24:35,799 --> 00:24:41,559
+Arabia and uh oh my god when I talk
+
+475
+00:24:38,799 --> 00:24:45,480
+about politics you know the a lot of
+
+476
+00:24:41,559 --> 00:24:48,720
+people following me because I'm you know
+
+477
+00:24:45,480 --> 00:24:50,919
+I'm anti the let's say the Democratic
+
+478
+00:24:48,720 --> 00:24:53,600
+party the you know I'm I'm anti the
+
+479
+00:24:50,919 --> 00:24:56,840
+social justice Warriors you know they
+
+480
+00:24:53,600 --> 00:24:59,159
+want to say man can get pregnant they
+
+481
+00:24:56,840 --> 00:25:00,960
+want to insist
+
+482
+00:24:59,159 --> 00:25:03,880
+you know putting on 10 pound in the
+
+483
+00:25:00,960 --> 00:25:05,039
+bathroom in men men's bathroom you know
+
+484
+00:25:03,880 --> 00:25:09,120
+this kind of
+
+485
+00:25:05,039 --> 00:25:10,320
+thing so corrupt to a degree that you
+
+486
+00:25:09,120 --> 00:25:13,279
+know
+
+487
+00:25:10,320 --> 00:25:16,399
+it's you know very bad they and they are
+
+488
+00:25:13,279 --> 00:25:20,399
+trying to force it down your throat okay
+
+489
+00:25:16,399 --> 00:25:23,919
+so that I'm anti this kind of crowd so a
+
+490
+00:25:20,399 --> 00:25:26,840
+lot of people who follow me are we can
+
+491
+00:25:23,919 --> 00:25:29,399
+kind of call them right Wingers you know
+
+492
+00:25:26,840 --> 00:25:30,720
+they include roughly you know like
+
+493
+00:25:29,399 --> 00:25:32,960
+different people have different
+
+494
+00:25:30,720 --> 00:25:35,039
+attachment to the meaning of these words
+
+495
+00:25:32,960 --> 00:25:37,240
+right wing what does it mean you know to
+
+496
+00:25:35,039 --> 00:25:39,399
+you it means this to that guy it means
+
+497
+00:25:37,240 --> 00:25:42,480
+other another thing okay but roughly
+
+498
+00:25:39,399 --> 00:25:45,399
+they include the you know us let's
+
+499
+00:25:42,480 --> 00:25:47,960
+narrow down to USA because I'm American
+
+500
+00:25:45,399 --> 00:25:51,320
+okay I don't know other I don't know so
+
+501
+00:25:47,960 --> 00:25:53,279
+much about UK or other places so in
+
+502
+00:25:51,320 --> 00:25:56,919
+united in
+
+503
+00:25:53,279 --> 00:25:59,240
+USA right wing usually includes the
+
+504
+00:25:56,919 --> 00:26:02,880
+conservatives the
+
+505
+00:25:59,240 --> 00:26:05,360
+um Republican party supporters
+
+506
+00:26:02,880 --> 00:26:08,440
+conservatives Republican party
+
+507
+00:26:05,360 --> 00:26:11,720
+Christians American
+
+508
+00:26:08,440 --> 00:26:14,679
+Christians uh yeah including these
+
+509
+00:26:11,720 --> 00:26:18,240
+people and include anti social justice
+
+510
+00:26:14,679 --> 00:26:21,440
+Warriors and minorly also include
+
+511
+00:26:18,240 --> 00:26:23,840
+anti-war people which is like
+
+512
+00:26:21,440 --> 00:26:24,720
+classically the heppes the heppes in the
+
+513
+00:26:23,840 --> 00:26:28,520
+'90s
+
+514
+00:26:24,720 --> 00:26:31,279
+like free speech anti Vietnam War you
+
+515
+00:26:28,520 --> 00:26:34,440
+know anti-war you know love and peace
+
+516
+00:26:31,279 --> 00:26:37,640
+and and sex you know that's
+
+517
+00:26:34,440 --> 00:26:40,080
+Hees so a lot of people follow me are
+
+518
+00:26:37,640 --> 00:26:43,440
+you know the like the right-wing people
+
+519
+00:26:40,080 --> 00:26:47,840
+right but there's one thing that's very
+
+520
+00:26:43,440 --> 00:26:51,000
+annoying that's China you know whenever
+
+521
+00:26:47,840 --> 00:26:54,559
+you know they it comes to China lots of
+
+522
+00:26:51,000 --> 00:26:57,159
+these people they spread fake news about
+
+523
+00:26:54,559 --> 00:27:00,640
+China why am I concerned about China
+
+524
+00:26:57,159 --> 00:27:04,720
+because that was my that's my blood okay
+
+525
+00:27:00,640 --> 00:27:07,120
+the Chinese blood flows in me or like
+
+526
+00:27:04,720 --> 00:27:12,039
+many of you the white people blood flows
+
+527
+00:27:07,120 --> 00:27:15,039
+in you okay so oh then then there's
+
+528
+00:27:12,039 --> 00:27:19,240
+another issue you know there's another
+
+529
+00:27:15,039 --> 00:27:23,399
+race in USA which is like running the
+
+530
+00:27:19,240 --> 00:27:26,000
+town partially okay let's not mention it
+
+531
+00:27:23,399 --> 00:27:29,200
+uh well I think maybe we should get on
+
+532
+00:27:26,000 --> 00:27:32,200
+to emac this coding anyway the thing
+
+533
+00:27:29,200 --> 00:27:36,279
+very annoying annoying me very much is
+
+534
+00:27:32,200 --> 00:27:40,000
+that I mostly I follow the right-wing
+
+535
+00:27:36,279 --> 00:27:44,279
+people and more technically I want I I
+
+536
+00:27:40,000 --> 00:27:47,200
+follow I follow those who actually speak
+
+537
+00:27:44,279 --> 00:27:49,799
+the truth you know truth is very abused
+
+538
+00:27:47,200 --> 00:27:52,960
+word like everyone is all politicians
+
+539
+00:27:49,799 --> 00:27:55,600
+every politician is like we want truth
+
+540
+00:27:52,960 --> 00:27:56,559
+but but they they want they want
+
+541
+00:27:55,600 --> 00:27:59,480
+something
+
+542
+00:27:56,559 --> 00:28:02,279
+else but anyway
+
+543
+00:27:59,480 --> 00:28:05,880
+so to speak I follow you know those
+
+544
+00:28:02,279 --> 00:28:08,240
+people who truly speak what is true or
+
+545
+00:28:05,880 --> 00:28:11,880
+according to their opinion you know in
+
+546
+00:28:08,240 --> 00:28:14,360
+other words I follow people who have
+
+547
+00:28:11,880 --> 00:28:18,080
+integrity okay doesn't matter what their
+
+548
+00:28:14,360 --> 00:28:21,120
+policy is what's their political view uh
+
+549
+00:28:18,080 --> 00:28:24,760
+or religion or you know used to say
+
+550
+00:28:21,120 --> 00:28:27,320
+whatever their Creed or religion in USA
+
+551
+00:28:24,760 --> 00:28:29,799
+so I want to follow real information
+
+552
+00:28:27,320 --> 00:28:32,240
+truthful in information or honest
+
+553
+00:28:29,799 --> 00:28:35,840
+opinions okay I don't want for for
+
+554
+00:28:32,240 --> 00:28:38,799
+example as opposed to bots or agents you
+
+555
+00:28:35,840 --> 00:28:42,559
+know you pay me you know you pay me
+
+556
+00:28:38,799 --> 00:28:45,519
+$1,000 I say good things about you or
+
+557
+00:28:42,559 --> 00:28:49,360
+about the keyboard or you
+
+558
+00:28:45,519 --> 00:28:53,919
+know so I want to follow truthful
+
+559
+00:28:49,360 --> 00:28:56,760
+information and uh and the anti-war okay
+
+560
+00:28:53,919 --> 00:28:59,240
+I don't want this scop thing you know
+
+561
+00:28:56,760 --> 00:29:03,399
+the the top leaders coup other countries
+
+562
+00:28:59,240 --> 00:29:06,799
+to get money mostly forsel like they
+
+563
+00:29:03,399 --> 00:29:10,960
+it's why are they do that you know it's
+
+564
+00:29:06,799 --> 00:29:13,799
+it's very very very big money you know
+
+565
+00:29:10,960 --> 00:29:17,360
+like how much how much do I pay you for
+
+566
+00:29:13,799 --> 00:29:20,320
+you to do this thing for me is it 1,000
+
+567
+00:29:17,360 --> 00:29:23,200
+will you do it what about
+
+568
+00:29:20,320 --> 00:29:25,840
+10,000 but over here they are talking
+
+569
+00:29:23,200 --> 00:29:28,760
+about billions and billions of dollars
+
+570
+00:29:25,840 --> 00:29:31,159
+you know if you have you if you are rich
+
+571
+00:29:28,760 --> 00:29:34,200
+enough to buy a mansion now you can buy
+
+572
+00:29:31,159 --> 00:29:37,720
+10 you can buy a island that's that's
+
+573
+00:29:34,200 --> 00:29:40,080
+what they talking about so this you know
+
+574
+00:29:37,720 --> 00:29:43,080
+when it comes to China many of these not
+
+575
+00:29:40,080 --> 00:29:45,760
+all but many these rightwing people they
+
+576
+00:29:43,080 --> 00:29:48,399
+are you know oh [ __ ] China they steal
+
+577
+00:29:45,760 --> 00:29:49,600
+everything you know like they are brain
+
+578
+00:29:48,399 --> 00:29:53,279
+they don't know
+
+579
+00:29:49,600 --> 00:29:57,080
+anything okay we must protect Taiwan oh
+
+580
+00:29:53,279 --> 00:29:59,120
+Jesus okay I maybe I should um you know
+
+581
+00:29:57,080 --> 00:30:01,320
+today's episode is not going to be
+
+582
+00:29:59,120 --> 00:30:04,640
+imagist
+
+583
+00:30:01,320 --> 00:30:07,840
+anymore I [ __ ] it up
+
+584
+00:30:04,640 --> 00:30:10,279
+okay so this right when people you know
+
+585
+00:30:07,840 --> 00:30:12,720
+they they follow all the fake news you
+
+586
+00:30:10,279 --> 00:30:17,120
+see very interesting when it comes to
+
+587
+00:30:12,720 --> 00:30:19,039
+the social justice War issue they dig
+
+588
+00:30:17,120 --> 00:30:22,080
+you know they dig
+
+589
+00:30:19,039 --> 00:30:24,799
+deep um yeah well let me let me talk
+
+590
+00:30:22,080 --> 00:30:29,960
+about you see I follow these people okay
+
+591
+00:30:24,799 --> 00:30:34,600
+most of the people I follow are extreme
+
+592
+00:30:29,960 --> 00:30:37,679
+good truthful news okay Mike Ben that's
+
+593
+00:30:34,600 --> 00:30:39,440
+he's a top expert on the on the deep
+
+594
+00:30:37,679 --> 00:30:45,519
+deep State
+
+595
+00:30:39,440 --> 00:30:50,960
+okay uh Michael sh shellenberger he
+
+596
+00:30:45,519 --> 00:30:53,559
+is he is basically telling fact factual
+
+597
+00:30:50,960 --> 00:30:55,799
+in a factual manner okay I don't follow
+
+598
+00:30:53,559 --> 00:31:00,240
+any memes for example
+
+599
+00:30:55,799 --> 00:31:03,159
+Pepe uh MAA M you know the P Mar you
+
+600
+00:31:00,240 --> 00:31:06,159
+know what what whatever the [ __ ] I
+
+601
+00:31:03,159 --> 00:31:09,600
+despise those okay or based whatever
+
+602
+00:31:06,159 --> 00:31:11,600
+based [ __ ] scums they are just they are
+
+603
+00:31:09,600 --> 00:31:14,519
+there for the you know to get you know
+
+604
+00:31:11,600 --> 00:31:18,039
+massive followers they get money I don't
+
+605
+00:31:14,519 --> 00:31:22,720
+follow I don't follow any of those okay
+
+606
+00:31:18,039 --> 00:31:26,240
+I follow people who really post
+
+607
+00:31:22,720 --> 00:31:28,559
+insightful and uh rare information
+
+608
+00:31:26,240 --> 00:31:31,480
+usually you don't see you know which
+
+609
+00:31:28,559 --> 00:31:34,559
+usually means they have to spend a lot
+
+610
+00:31:31,480 --> 00:31:37,320
+effort to get it like me talking about
+
+611
+00:31:34,559 --> 00:31:40,039
+keyboard you know you go to t you know
+
+612
+00:31:37,320 --> 00:31:43,120
+you go to YouTube typical T keyboard you
+
+613
+00:31:40,039 --> 00:31:46,080
+know they got 1 million followers hi I'm
+
+614
+00:31:43,120 --> 00:31:48,600
+I'm Franco today I'm gonna sell you this
+
+615
+00:31:46,080 --> 00:31:53,000
+keyboard oh it's got you know they talk
+
+616
+00:31:48,600 --> 00:31:54,120
+fast G like the Linux Tech [ __ ] you know
+
+617
+00:31:53,000 --> 00:31:57,360
+the
+
+618
+00:31:54,120 --> 00:31:59,840
+lenus get like they are better they they
+
+619
+00:31:57,360 --> 00:32:01,279
+know better than you like and they use a
+
+620
+00:31:59,840 --> 00:32:04,320
+bunch of
+
+621
+00:32:01,279 --> 00:32:06,279
+Jons you follow typical you know they
+
+622
+00:32:04,320 --> 00:32:08,559
+they don't know anything deeper about
+
+623
+00:32:06,279 --> 00:32:11,200
+ergonomics about all the design they
+
+624
+00:32:08,559 --> 00:32:14,519
+don't know but they make a sale you know
+
+625
+00:32:11,200 --> 00:32:17,440
+their video is edited in 10 minutes you
+
+626
+00:32:14,519 --> 00:32:20,559
+know nice equipment nice cameras you
+
+627
+00:32:17,440 --> 00:32:23,679
+know their their cameras is is 10 times
+
+628
+00:32:20,559 --> 00:32:26,840
+more expensive than whatever [ __ ] I have
+
+629
+00:32:23,679 --> 00:32:28,840
+okay so you follow them there no
+
+630
+00:32:26,840 --> 00:32:31,840
+information
+
+631
+00:32:28,840 --> 00:32:34,200
+you know is is it's just
+
+632
+00:32:31,840 --> 00:32:37,679
+commercialization or in other words
+
+633
+00:32:34,200 --> 00:32:40,679
+capitalism USA style you buy things they
+
+634
+00:32:37,679 --> 00:32:44,320
+get money you know so but anyway back to
+
+635
+00:32:40,679 --> 00:32:48,279
+politics so I follow people who
+
+636
+00:32:44,320 --> 00:32:51,120
+really have knowledge about the things
+
+637
+00:32:48,279 --> 00:32:53,840
+they talk about for example this Glenn
+
+638
+00:32:51,120 --> 00:32:56,639
+Greenwood is probably the most famous
+
+639
+00:32:53,840 --> 00:33:01,960
+among them all some of you know I mean
+
+640
+00:32:56,639 --> 00:33:01,960
+some of you don't hello Chris uh thank
+
+641
+00:33:03,679 --> 00:33:08,760
+you it's asking me what's my favorite
+
+642
+00:33:06,320 --> 00:33:11,840
+Chinese character uh I don't I don't
+
+643
+00:33:08,760 --> 00:33:14,279
+have a favorite Chinese
+
+644
+00:33:11,840 --> 00:33:16,159
+character what kind of question is that
+
+645
+00:33:14,279 --> 00:33:18,240
+what's your favorite color what's your
+
+646
+00:33:16,159 --> 00:33:20,840
+favorite programming language typically
+
+647
+00:33:18,240 --> 00:33:22,919
+that's those are asked by beginners I
+
+648
+00:33:20,840 --> 00:33:25,600
+mean by young people what's your
+
+649
+00:33:22,919 --> 00:33:27,919
+favorite philosophy are you are you Pro
+
+650
+00:33:25,600 --> 00:33:29,600
+capitalism or are you Pro communism
+
+651
+00:33:27,919 --> 00:33:33,320
+which one do you think is
+
+652
+00:33:29,600 --> 00:33:35,519
+better young people are very much into
+
+653
+00:33:33,320 --> 00:33:40,399
+this kind of thing are you algebraist or
+
+654
+00:33:35,519 --> 00:33:43,840
+are you a u a a c analysist you know in
+
+655
+00:33:40,399 --> 00:33:46,279
+mathematics analysis versus algebra are
+
+656
+00:33:43,840 --> 00:33:48,840
+you into discret or continuous you know
+
+657
+00:33:46,279 --> 00:33:51,559
+they young people they like to
+
+658
+00:33:48,840 --> 00:33:53,919
+categorize like are you a generalist are
+
+659
+00:33:51,559 --> 00:33:55,760
+are you are you want to be a specialist
+
+660
+00:33:53,919 --> 00:33:58,440
+you know young people like programming
+
+661
+00:33:55,760 --> 00:34:02,159
+or you know generalist versus specialist
+
+662
+00:33:58,440 --> 00:34:05,399
+young people tends to um go into those
+
+663
+00:34:02,159 --> 00:34:09,040
+things including me you know when I was
+
+664
+00:34:05,399 --> 00:34:12,200
+when I was younger when I was a h shot
+
+665
+00:34:09,040 --> 00:34:15,200
+even when you are smart anyway so back
+
+666
+00:34:12,200 --> 00:34:18,480
+to politics so I don't follow you
+
+667
+00:34:15,200 --> 00:34:22,839
+know mean posters or anything you know I
+
+668
+00:34:18,480 --> 00:34:25,599
+follow people with real expertise and I
+
+669
+00:34:22,839 --> 00:34:28,560
+read them carefully for example let's
+
+670
+00:34:25,599 --> 00:34:32,399
+say for example this guy I check them
+
+671
+00:34:28,560 --> 00:34:36,079
+carefully just him every day for a while
+
+672
+00:34:32,399 --> 00:34:38,760
+to know to find out what is his nature
+
+673
+00:34:36,079 --> 00:34:41,560
+you know for example the Glen Greenwood
+
+674
+00:34:38,760 --> 00:34:44,919
+he's a f famous journalist you know for
+
+675
+00:34:41,560 --> 00:34:46,240
+15 for 10 or 15 years the most widely
+
+676
+00:34:44,919 --> 00:34:50,919
+known
+
+677
+00:34:46,240 --> 00:34:55,200
+okay so I I check out the guy know his
+
+678
+00:34:50,919 --> 00:34:58,040
+nature what area is he expert at what
+
+679
+00:34:55,200 --> 00:35:01,359
+kind of things he typ he say what he his
+
+680
+00:34:58,040 --> 00:35:04,839
+area okay and what is the style he says
+
+681
+00:35:01,359 --> 00:35:08,880
+it okay for example green I can tell you
+
+682
+00:35:04,839 --> 00:35:12,000
+Glen greenw you know he's a journalist
+
+683
+00:35:08,880 --> 00:35:15,280
+you know he's also he he's typically you
+
+684
+00:35:12,000 --> 00:35:18,640
+know not the mainstream I mean he's he's
+
+685
+00:35:15,280 --> 00:35:21,119
+a re classically so-called today real
+
+686
+00:35:18,640 --> 00:35:25,000
+journalist he
+
+687
+00:35:21,119 --> 00:35:27,720
+exposed crimes or misdeeds by government
+
+688
+00:35:25,000 --> 00:35:30,920
+by those very powerful That's a classic
+
+689
+00:35:27,720 --> 00:35:34,880
+meaning of journalist so Glen green word
+
+690
+00:35:30,920 --> 00:35:38,960
+is kind of the the representative of
+
+691
+00:35:34,880 --> 00:35:42,920
+that word journalist journalism
+
+692
+00:35:38,960 --> 00:35:45,000
+okay uh but okay and and and I can tell
+
+693
+00:35:42,920 --> 00:35:47,480
+you more about this guy he's got you
+
+694
+00:35:45,000 --> 00:35:50,040
+know characters you know like many
+
+695
+00:35:47,480 --> 00:35:53,280
+aspect you can dive into the person is
+
+696
+00:35:50,040 --> 00:35:56,319
+he a good person bad person in general
+
+697
+00:35:53,280 --> 00:35:58,119
+or you know or specifically with respect
+
+698
+00:35:56,319 --> 00:36:02,440
+to what and you know you know for
+
+699
+00:35:58,119 --> 00:36:03,680
+example he's gay okay he's gay and I'm
+
+700
+00:36:02,440 --> 00:36:06,400
+not gay
+
+701
+00:36:03,680 --> 00:36:07,760
+okay if you are gay you are fine but I'm
+
+702
+00:36:06,400 --> 00:36:12,480
+not
+
+703
+00:36:07,760 --> 00:36:16,359
+gay okay so he's gay so his mannerism is
+
+704
+00:36:12,480 --> 00:36:19,200
+kind of gayish you know you know is and
+
+705
+00:36:16,359 --> 00:36:22,720
+he for example let's on on the lighter
+
+706
+00:36:19,200 --> 00:36:25,599
+side of the Glen Green World he's often
+
+707
+00:36:22,720 --> 00:36:28,640
+he's just whines you know although he
+
+708
+00:36:25,599 --> 00:36:33,839
+exposed a lot of very criminal and
+
+709
+00:36:28,640 --> 00:36:37,079
+corrupt Deeds of of uh specifically USA
+
+710
+00:36:33,839 --> 00:36:40,079
+politicians you know he he for 10 years
+
+711
+00:36:37,079 --> 00:36:42,040
+for over 10 years but every day he's
+
+712
+00:36:40,079 --> 00:36:44,319
+just like whining about it like what you
+
+713
+00:36:42,040 --> 00:36:45,839
+going to do I mean that's one of the
+
+714
+00:36:44,319 --> 00:36:49,480
+thing
+
+715
+00:36:45,839 --> 00:36:52,240
+anyway so Glen Greenwood is a classic
+
+716
+00:36:49,480 --> 00:36:55,640
+journalist and a very good one I would
+
+717
+00:36:52,240 --> 00:36:58,400
+say so every news every day today you
+
+718
+00:36:55,640 --> 00:36:59,400
+see on the news for example few days ago
+
+719
+00:36:58,400 --> 00:37:03,800
+you have
+
+720
+00:36:59,400 --> 00:37:08,319
+Olympics controversy and then today this
+
+721
+00:37:03,800 --> 00:37:11,000
+week you have the riots in United
+
+722
+00:37:08,319 --> 00:37:14,359
+Kingdom United
+
+723
+00:37:11,000 --> 00:37:18,000
+Kingdom you got Riot so every day you
+
+724
+00:37:14,359 --> 00:37:21,839
+got news and you can check out green
+
+725
+00:37:18,000 --> 00:37:24,760
+green wood every day to know what's
+
+726
+00:37:21,839 --> 00:37:27,240
+actually happening you know I'm you know
+
+727
+00:37:24,760 --> 00:37:29,480
+you don't have to believe him you know
+
+728
+00:37:27,240 --> 00:37:33,280
+you know it's not like oh everything he
+
+729
+00:37:29,480 --> 00:37:36,400
+say is true but you can check it out and
+
+730
+00:37:33,280 --> 00:37:39,200
+usually it's good information you know
+
+731
+00:37:36,400 --> 00:37:42,480
+at least in my opinion okay so he will
+
+732
+00:37:39,200 --> 00:37:44,440
+tell you for example Kamala Harris you
+
+733
+00:37:42,480 --> 00:37:46,400
+know I'm not sure today you know my
+
+734
+00:37:44,440 --> 00:37:49,839
+video is going to be banned by
+
+735
+00:37:46,400 --> 00:37:53,119
+Google 17 concurrent view okay no no
+
+736
+00:37:49,839 --> 00:37:53,119
+emac list today
+
+737
+00:37:54,359 --> 00:37:59,720
+sorry you know it's it's really getting
+
+738
+00:37:57,240 --> 00:38:04,119
+very very bad you know they Google can
+
+739
+00:37:59,720 --> 00:38:07,160
+cancel my YouTube or you know very bad
+
+740
+00:38:04,119 --> 00:38:09,560
+so for example kamla Harris she's
+
+741
+00:38:07,160 --> 00:38:13,839
+running for president
+
+742
+00:38:09,560 --> 00:38:16,359
+today oh my God you you know I I'm not
+
+743
+00:38:13,839 --> 00:38:19,240
+going to go into details because then
+
+744
+00:38:16,359 --> 00:38:21,359
+it's going to be endless but anyway so
+
+745
+00:38:19,240 --> 00:38:25,119
+that's why that's why kamla Harris is on
+
+746
+00:38:21,359 --> 00:38:27,839
+the news so you hear the news and and on
+
+747
+00:38:25,119 --> 00:38:31,200
+the right side is this guy we shall not
+
+748
+00:38:27,839 --> 00:38:33,839
+mention the name okay it's also on the
+
+749
+00:38:31,200 --> 00:38:37,079
+news in know for the past two years
+
+750
+00:38:33,839 --> 00:38:38,800
+every day so my point is when you see
+
+751
+00:38:37,079 --> 00:38:39,760
+the news you want to know what's really
+
+752
+00:38:38,800 --> 00:38:43,760
+going
+
+753
+00:38:39,760 --> 00:38:44,920
+on Glen Green World okay you can check
+
+754
+00:38:43,760 --> 00:38:48,000
+him
+
+755
+00:38:44,920 --> 00:38:50,640
+out now as opposed to on Twitter you
+
+756
+00:38:48,000 --> 00:38:53,880
+know you go to on Twitter or you know
+
+757
+00:38:50,640 --> 00:38:56,400
+today is called X you know or Elam musk
+
+758
+00:38:53,880 --> 00:38:59,560
+you know another controversial you know
+
+759
+00:38:56,400 --> 00:39:02,560
+you go to Twitter or any any red or you
+
+760
+00:38:59,560 --> 00:39:05,280
+know you have this for You tab
+
+761
+00:39:02,560 --> 00:39:08,359
+algorithmically controlled then it's
+
+762
+00:39:05,280 --> 00:39:12,760
+just endless [ __ ] endless like you just
+
+763
+00:39:08,359 --> 00:39:16,440
+squir you know drama drama fighting you
+
+764
+00:39:12,760 --> 00:39:19,119
+know not just politics for me mostly you
+
+765
+00:39:16,440 --> 00:39:21,680
+see because I don't follow this meme
+
+766
+00:39:19,119 --> 00:39:24,920
+[ __ ] but for other people especially for
+
+767
+00:39:21,680 --> 00:39:29,599
+you young people you see you see Tik
+
+768
+00:39:24,920 --> 00:39:31,640
+Tock Tik Tock Tik Tok you see tits by
+
+769
+00:39:29,599 --> 00:39:34,680
+the so-call
+
+770
+00:39:31,640 --> 00:39:38,160
+influencers white white girls
+
+771
+00:39:34,680 --> 00:39:41,480
+typically most of them okay most of them
+
+772
+00:39:38,160 --> 00:39:45,000
+successful are white girls The Tick
+
+773
+00:39:41,480 --> 00:39:47,800
+Tock kind of type you know today's
+
+774
+00:39:45,000 --> 00:39:51,680
+zumas what they do basically girl they
+
+775
+00:39:47,800 --> 00:39:54,280
+just show you TI their tits okay that's
+
+776
+00:39:51,680 --> 00:39:57,119
+basically you can see it on YouTube you
+
+777
+00:39:54,280 --> 00:40:00,079
+go to YouTube YouTube shorts have a it
+
+778
+00:39:57,119 --> 00:40:03,040
+is these white girls doing their
+
+779
+00:40:00,079 --> 00:40:05,920
+things a little dance or
+
+780
+00:40:03,040 --> 00:40:09,599
+whatever okay then you see
+
+781
+00:40:05,920 --> 00:40:13,480
+then so social network today you go you
+
+782
+00:40:09,599 --> 00:40:15,520
+know it's just wash washes your brain to
+
+783
+00:40:13,480 --> 00:40:18,319
+the point that you get jaded like you
+
+784
+00:40:15,520 --> 00:40:21,359
+don't know even what you are seeing like
+
+785
+00:40:18,319 --> 00:40:26,070
+our hot dog guy we have a guy on our
+
+786
+00:40:21,359 --> 00:40:29,280
+Discord his name is hot dog
+
+787
+00:40:26,070 --> 00:40:33,240
+[Laughter]
+
+788
+00:40:29,280 --> 00:40:35,920
+you you you know you know you are a wimp
+
+789
+00:40:33,240 --> 00:40:38,000
+you are a n because you don't dare
+
+790
+00:40:35,920 --> 00:40:41,079
+because you know today's zumas you are
+
+791
+00:40:38,000 --> 00:40:44,440
+just a narm you are you are online just
+
+792
+00:40:41,079 --> 00:40:47,160
+to watch [ __ ] show and you memes you
+
+793
+00:40:44,440 --> 00:40:49,640
+don't care about nothing you don't know
+
+794
+00:40:47,160 --> 00:40:52,359
+nothing that's what's going
+
+795
+00:40:49,640 --> 00:40:55,000
+on and why did why did that happen that
+
+796
+00:40:52,359 --> 00:40:57,920
+because it's conditioned by these big
+
+797
+00:40:55,000 --> 00:41:01,520
+people behind the scenes you don't know
+
+798
+00:40:57,920 --> 00:41:04,960
+okay anyway so back to you know
+
+799
+00:41:01,520 --> 00:41:08,560
+so today online when you go to turn on
+
+800
+00:41:04,960 --> 00:41:11,760
+your computer you don't follow I never
+
+801
+00:41:08,560 --> 00:41:15,800
+follow anything that comes to me
+
+802
+00:41:11,760 --> 00:41:17,480
+free for example this for You tab I
+
+803
+00:41:15,800 --> 00:41:20,560
+don't I don't I
+
+804
+00:41:17,480 --> 00:41:23,800
+don't I never go to the For You
+
+805
+00:41:20,560 --> 00:41:26,720
+tab if I have to I go to the following
+
+806
+00:41:23,800 --> 00:41:28,000
+these are the people I actually follow I
+
+807
+00:41:26,720 --> 00:41:30,760
+never
+
+808
+00:41:28,000 --> 00:41:33,640
+get any information that just popped
+
+809
+00:41:30,760 --> 00:41:37,200
+popped up for me comes to my door
+
+810
+00:41:33,640 --> 00:41:39,760
+free okay like when you go to
+
+811
+00:41:37,200 --> 00:41:43,200
+YouTube you know the scum
+
+812
+00:41:39,760 --> 00:41:43,200
+YouTube uh let's
+
+813
+00:41:51,280 --> 00:41:58,560
+see you'll see you know a bunch of
+
+814
+00:41:55,480 --> 00:42:00,560
+crap uh do I have to to turn on you know
+
+815
+00:41:58,560 --> 00:42:06,599
+you have to turn on
+
+816
+00:42:00,560 --> 00:42:06,599
+okay try searching to get started oh
+
+817
+00:42:07,520 --> 00:42:13,920
+what usually it pops up I don't know why
+
+818
+00:42:10,720 --> 00:42:18,119
+today it shows a blank page but usually
+
+819
+00:42:13,920 --> 00:42:21,480
+just pop up a bunch of [ __ ] what that's
+
+820
+00:42:18,119 --> 00:42:23,880
+interesting wow this is new
+
+821
+00:42:21,480 --> 00:42:28,920
+today they don't they don't pop up
+
+822
+00:42:23,880 --> 00:42:28,920
+things like normally they do what
+
+823
+00:42:29,280 --> 00:42:34,960
+try searching to get started oh this is
+
+824
+00:42:32,720 --> 00:42:39,760
+actually this is new I'm not sure what's
+
+825
+00:42:34,960 --> 00:42:43,160
+going on but uh for example you can go
+
+826
+00:42:39,760 --> 00:42:47,599
+here you know let me show you the
+
+827
+00:42:43,160 --> 00:42:47,599
+situation youtube.com
+
+828
+00:42:48,520 --> 00:42:53,839
+Okay and by the way this web design you
+
+829
+00:42:51,200 --> 00:42:56,400
+see these gray things that's what that's
+
+830
+00:42:53,839 --> 00:42:59,559
+that's one I have an article on that you
+
+831
+00:42:56,400 --> 00:43:03,520
+know this started to do this about uh by
+
+832
+00:42:59,559 --> 00:43:07,079
+now 7 years ago around 2015 or
+
+833
+00:43:03,520 --> 00:43:11,119
+so uh oh yeah you need to turn on
+
+834
+00:43:07,079 --> 00:43:13,480
+JavaScript so Google knows what color is
+
+835
+00:43:11,119 --> 00:43:13,480
+your
+
+836
+00:43:14,400 --> 00:43:19,559
+panties oh okay this is new this is
+
+837
+00:43:17,400 --> 00:43:22,119
+something new Google started to do you
+
+838
+00:43:19,559 --> 00:43:25,280
+know they they just show a
+
+839
+00:43:22,119 --> 00:43:28,440
+blank anyway so let's not show it so
+
+840
+00:43:25,280 --> 00:43:30,359
+what I'm saying is that you any social
+
+841
+00:43:28,440 --> 00:43:33,200
+media when you talk you know do not
+
+842
+00:43:30,359 --> 00:43:37,599
+follow whatever information that comes
+
+843
+00:43:33,200 --> 00:43:41,839
+to you free okay only follow whatever
+
+844
+00:43:37,599 --> 00:43:44,680
+you actively seek okay so find people
+
+845
+00:43:41,839 --> 00:43:47,319
+for example for example this guy I kind
+
+846
+00:43:44,680 --> 00:43:51,119
+of know somewhat because I've been
+
+847
+00:43:47,319 --> 00:43:54,240
+following following him for by now two
+
+848
+00:43:51,119 --> 00:43:57,400
+years I know his nature what kind of
+
+849
+00:43:54,240 --> 00:44:00,119
+things he Post in what kind of style
+
+850
+00:43:57,400 --> 00:44:03,040
+what his what is his background slightly
+
+851
+00:44:00,119 --> 00:44:06,359
+at least you know you know so that's
+
+852
+00:44:03,040 --> 00:44:09,079
+what I recommend you follow people don't
+
+853
+00:44:06,359 --> 00:44:11,040
+just you know like for you whatever you
+
+854
+00:44:09,079 --> 00:44:13,160
+know scroll by you don't you don't even
+
+855
+00:44:11,040 --> 00:44:15,160
+know who's posting what you know who's
+
+856
+00:44:13,160 --> 00:44:18,520
+posting the thing you are
+
+857
+00:44:15,160 --> 00:44:22,240
+watching instead go to each person you
+
+858
+00:44:18,520 --> 00:44:25,040
+follow you can start by a few you know
+
+859
+00:44:22,240 --> 00:44:27,319
+and bookmark with the browser bookmark
+
+860
+00:44:25,040 --> 00:44:30,400
+not by not by whatever the social
+
+861
+00:44:27,319 --> 00:44:35,160
+networks you know save page Whatever by
+
+862
+00:44:30,400 --> 00:44:38,000
+your own browser okay so each day you
+
+863
+00:44:35,160 --> 00:44:40,760
+read whatever people you follow pretty
+
+864
+00:44:38,000 --> 00:44:43,760
+soon you'll know the nature of this
+
+865
+00:44:40,760 --> 00:44:48,280
+person is his
+
+866
+00:44:43,760 --> 00:44:51,760
+information valid or to what degree okay
+
+867
+00:44:48,280 --> 00:44:54,319
+is his opinion usually you agree with or
+
+868
+00:44:51,760 --> 00:44:57,359
+do not you know you don't you know it's
+
+869
+00:44:54,319 --> 00:45:00,359
+you don't want always to follow f and
+
+870
+00:44:57,359 --> 00:45:03,160
+things like things you agree emac is the
+
+871
+00:45:00,359 --> 00:45:05,240
+best thing K is the most beautiful guy
+
+872
+00:45:03,160 --> 00:45:08,240
+on
+
+873
+00:45:05,240 --> 00:45:10,880
+Earth mirror mirror on the world who is
+
+874
+00:45:08,240 --> 00:45:12,880
+the most beautiful man on
+
+875
+00:45:10,880 --> 00:45:17,760
+Earth it's
+
+876
+00:45:12,880 --> 00:45:17,760
+Kali oh yes how true that
+
+877
+00:45:18,559 --> 00:45:25,319
+is oh is somebody else go [ __ ]
+
+878
+00:45:22,720 --> 00:45:28,680
+yourself you know so you don't want to
+
+879
+00:45:25,319 --> 00:45:30,640
+always follow whatever L to you okay for
+
+880
+00:45:28,680 --> 00:45:33,920
+example let me go back to the China if
+
+881
+00:45:30,640 --> 00:45:37,280
+you are a white guy you are a rightwing
+
+882
+00:45:33,920 --> 00:45:39,960
+cons conservative or Christian and white
+
+883
+00:45:37,280 --> 00:45:43,160
+guy white man and then when you see
+
+884
+00:45:39,960 --> 00:45:46,359
+China China steal everything from
+
+885
+00:45:43,160 --> 00:45:49,480
+USA you are so happy you know you go you
+
+886
+00:45:46,359 --> 00:45:52,680
+know you read one after another another
+
+887
+00:45:49,480 --> 00:45:55,280
+that's no good okay because you know you
+
+888
+00:45:52,680 --> 00:45:58,319
+don't want to always do that you want to
+
+889
+00:45:55,280 --> 00:46:00,760
+actually try to see is
+
+890
+00:45:58,319 --> 00:46:04,760
+something whose opinion that's
+
+891
+00:46:00,760 --> 00:46:09,720
+unpleasant to your sensories
+
+892
+00:46:04,760 --> 00:46:12,359
+okay so you can see so that diversifies
+
+893
+00:46:09,720 --> 00:46:16,640
+your point of view
+
+894
+00:46:12,359 --> 00:46:20,200
+okay so that's my kind of advice to like
+
+895
+00:46:16,640 --> 00:46:24,920
+what you do on social networks
+
+896
+00:46:20,200 --> 00:46:29,000
+okay stop being a a non you know stop
+
+897
+00:46:24,920 --> 00:46:32,520
+being a non coward and do not mean
+
+898
+00:46:29,000 --> 00:46:37,359
+posting and random [ __ ] okay you know
+
+899
+00:46:32,520 --> 00:46:41,640
+random [ __ ] [ __ ] like the Y the Y miles
+
+900
+00:46:37,359 --> 00:46:44,839
+CH is one big scum grifter
+
+901
+00:46:41,640 --> 00:46:48,240
+okay uh I don't follow him okay I don't
+
+902
+00:46:44,839 --> 00:46:50,559
+follow this [ __ ] this scum he's a right
+
+903
+00:46:48,240 --> 00:46:55,119
+wing you know scum on the right wing
+
+904
+00:46:50,559 --> 00:46:56,920
+side 1 million followers okay a scum you
+
+905
+00:46:55,119 --> 00:46:59,680
+know he just post drop you know he just
+
+906
+00:46:56,920 --> 00:47:00,920
+suppos whatever attract attention and
+
+907
+00:46:59,680 --> 00:47:02,920
+you know for
+
+908
+00:47:00,920 --> 00:47:06,640
+example
+
+909
+00:47:02,920 --> 00:47:08,920
+ridicul kamla Harris every day and
+
+910
+00:47:06,640 --> 00:47:11,440
+promote you know this guy this another
+
+911
+00:47:08,920 --> 00:47:15,599
+this is one another one of another
+
+912
+00:47:11,440 --> 00:47:18,720
+grifter from the right wi side and uh
+
+913
+00:47:15,599 --> 00:47:22,480
+you know his name is Nick something I
+
+914
+00:47:18,720 --> 00:47:25,040
+shall not utter it but whatever Yan post
+
+915
+00:47:22,480 --> 00:47:27,240
+is basically promoting him you know I
+
+916
+00:47:25,040 --> 00:47:28,079
+don't have to read it I don't you know I
+
+917
+00:47:27,240 --> 00:47:31,760
+don't
+
+918
+00:47:28,079 --> 00:47:34,000
+want something like that okay uh so this
+
+919
+00:47:31,760 --> 00:47:37,680
+you know and he's posting you know
+
+920
+00:47:34,000 --> 00:47:42,920
+sometimes violent you know bloody Drama
+
+921
+00:47:37,680 --> 00:47:42,920
+videos and girls there there it comes
+
+922
+00:47:43,000 --> 00:47:53,440
+girls girls my favorite thing
+
+923
+00:47:48,119 --> 00:47:56,359
+girls y mil CH scum okay and one big
+
+924
+00:47:53,440 --> 00:47:59,240
+scum very popular on the right side on
+
+925
+00:47:56,359 --> 00:48:02,480
+the right side of
+
+926
+00:47:59,240 --> 00:48:06,040
+things so anyway so I recommend don't
+
+927
+00:48:02,480 --> 00:48:10,319
+you know blindly follow get a name be a
+
+928
+00:48:06,040 --> 00:48:13,800
+you know don't be a non-cow and pay okay
+
+929
+00:48:10,319 --> 00:48:18,359
+don't you know you know not oh free free
+
+930
+00:48:13,800 --> 00:48:20,359
+is no good pay for example on
+
+931
+00:48:18,359 --> 00:48:24,559
+Twitter I
+
+932
+00:48:20,359 --> 00:48:27,640
+paid this is the receipt did you see
+
+933
+00:48:24,559 --> 00:48:31,000
+that that you see you see that Mar I
+
+934
+00:48:27,640 --> 00:48:33,920
+that's my receipt I paid for it why do I
+
+935
+00:48:31,000 --> 00:48:37,119
+pay for it because I believe Adam musk
+
+936
+00:48:33,920 --> 00:48:40,160
+even though controversial in many ways
+
+937
+00:48:37,119 --> 00:48:43,040
+you know he's one of the richest people
+
+938
+00:48:40,160 --> 00:48:46,160
+controversial in many ways but
+
+939
+00:48:43,040 --> 00:48:49,359
+overall I think him is reasonably good
+
+940
+00:48:46,160 --> 00:48:51,960
+guy okay now you you might have your
+
+941
+00:48:49,359 --> 00:48:54,640
+opinion oh El how can you possibly he's
+
+942
+00:48:51,960 --> 00:48:58,960
+the worse than whatever [ __ ] you don't
+
+943
+00:48:54,640 --> 00:49:01,880
+know [ __ ] okay Elam musk although
+
+944
+00:48:58,960 --> 00:49:05,000
+controversial but overall in my judgment
+
+945
+00:49:01,880 --> 00:49:06,280
+I studied Elam musk the most in the past
+
+946
+00:49:05,000 --> 00:49:09,920
+three
+
+947
+00:49:06,280 --> 00:49:11,200
+years I believe he's reasonably you know
+
+948
+00:49:09,920 --> 00:49:14,720
+a good
+
+949
+00:49:11,200 --> 00:49:17,119
+person and more more importantly he
+
+950
+00:49:14,720 --> 00:49:21,079
+happens to be so rich he's
+
+951
+00:49:17,119 --> 00:49:22,440
+doing good things for America and for
+
+952
+00:49:21,079 --> 00:49:25,839
+the entire
+
+953
+00:49:22,440 --> 00:49:29,760
+Earth Adam musk okay that's that is my
+
+954
+00:49:25,839 --> 00:49:32,920
+opinion so elus run tter and I
+
+955
+00:49:29,760 --> 00:49:34,040
+decided yes I should pay so that's why I
+
+956
+00:49:32,920 --> 00:49:37,040
+paid for
+
+957
+00:49:34,040 --> 00:49:37,040
+it
+
+958
+00:49:37,119 --> 00:49:44,880
+okay uh and so don't be your
+
+959
+00:49:41,359 --> 00:49:48,200
+n and don't follow you know [ __ ] posting
+
+960
+00:49:44,880 --> 00:49:51,960
+you know comedy and joke are fun of
+
+961
+00:49:48,200 --> 00:49:54,520
+course my I personally don't enjoy
+
+962
+00:49:51,960 --> 00:49:57,280
+comedy much because I'm a schizoid
+
+963
+00:49:54,520 --> 00:50:00,480
+personality so when something typically
+
+964
+00:49:57,280 --> 00:50:04,720
+it's funny to most people I don't find
+
+965
+00:50:00,480 --> 00:50:06,640
+it funny okay I just don't you know it
+
+966
+00:50:04,720 --> 00:50:09,559
+doesn't do anything you know it's not
+
+967
+00:50:06,640 --> 00:50:13,040
+funny to me okay for for things to be
+
+968
+00:50:09,559 --> 00:50:16,440
+funny usually it's dark humor or more
+
+969
+00:50:13,040 --> 00:50:20,240
+involved nerd humor I find it funny okay
+
+970
+00:50:16,440 --> 00:50:24,319
+most things I don't so anyway and follow
+
+971
+00:50:20,240 --> 00:50:28,319
+people actually know the people okay get
+
+972
+00:50:24,319 --> 00:50:31,119
+to know the people gradually
+
+973
+00:50:28,319 --> 00:50:34,160
+and one last thing don't do anything
+
+974
+00:50:31,119 --> 00:50:38,400
+drastic okay some people who follow me
+
+975
+00:50:34,160 --> 00:50:40,160
+they you know I'm sometimes persuasive
+
+976
+00:50:38,400 --> 00:50:44,280
+you know they believe they think I'm
+
+977
+00:50:40,160 --> 00:50:47,240
+good person or for whatever reasons so I
+
+978
+00:50:44,280 --> 00:50:50,880
+made some change impact in their life
+
+979
+00:50:47,240 --> 00:50:54,799
+which is great thank you guys
+
+980
+00:50:50,880 --> 00:50:57,920
+so but don't do anything drastic okay if
+
+981
+00:50:54,799 --> 00:51:00,559
+you are right now A non Zuma you are
+
+982
+00:50:57,920 --> 00:51:03,319
+[ __ ] posting every day like lots of my
+
+983
+00:51:00,559 --> 00:51:07,119
+followers you
+
+984
+00:51:03,319 --> 00:51:11,079
+know lots of my followers let's see go
+
+985
+00:51:07,119 --> 00:51:13,599
+4,000 followers you know many of
+
+986
+00:51:11,079 --> 00:51:17,240
+them you know they they don't use real
+
+987
+00:51:13,599 --> 00:51:21,440
+names they they have anime uh pictures a
+
+988
+00:51:17,240 --> 00:51:24,040
+lot of them okay so you know anime you
+
+989
+00:51:21,440 --> 00:51:27,799
+know like oh this is verified wait all
+
+990
+00:51:24,040 --> 00:51:31,240
+these are verified let's see unverified
+
+991
+00:51:27,799 --> 00:51:33,799
+okay you know then it becomes small you
+
+992
+00:51:31,240 --> 00:51:36,640
+can see right away the
+
+993
+00:51:33,799 --> 00:51:41,839
+difference uh well except this guy okay
+
+994
+00:51:36,640 --> 00:51:44,839
+this is great this and AutoCat uh guy
+
+995
+00:51:41,839 --> 00:51:48,319
+anyway so my point is that don't do
+
+996
+00:51:44,839 --> 00:51:50,839
+anything drastic okay listen you know if
+
+997
+00:51:48,319 --> 00:51:53,280
+you like what I said keep it in mind
+
+998
+00:51:50,839 --> 00:51:55,240
+change it maybe slowly okay don't do you
+
+999
+00:51:53,280 --> 00:51:57,880
+know don't don't oh I'm going to you
+
+1000
+00:51:55,240 --> 00:52:00,200
+know something something
+
+1001
+00:51:57,880 --> 00:52:02,839
+um because it
+
+1002
+00:52:00,200 --> 00:52:08,520
+may you know do you no
+
+1003
+00:52:02,839 --> 00:52:12,160
+good okay okay today is kind of started
+
+1004
+00:52:08,520 --> 00:52:14,119
+um talking about politics randomish and
+
+1005
+00:52:12,160 --> 00:52:16,319
+uh when you talk about that lots of
+
+1006
+00:52:14,119 --> 00:52:19,680
+followers much more than my
+
+1007
+00:52:16,319 --> 00:52:22,480
+usual uh because emac lisp and you know
+
+1008
+00:52:19,680 --> 00:52:26,720
+coding programming is Technical and
+
+1009
+00:52:22,480 --> 00:52:29,760
+usually technical your audience shrinks
+
+1010
+00:52:26,720 --> 00:52:34,720
+by tenfold
+
+1011
+00:52:29,760 --> 00:52:37,040
+literally if you talk about sex girls
+
+1012
+00:52:34,720 --> 00:52:40,160
+gender how to get a
+
+1013
+00:52:37,040 --> 00:52:41,480
+girlfriend oh my God everyone want wants
+
+1014
+00:52:40,160 --> 00:52:45,240
+to know your
+
+1015
+00:52:41,480 --> 00:52:49,280
+opinion that's a common characteristics
+
+1016
+00:52:45,240 --> 00:52:52,880
+of humanity okay nothing special about
+
+1017
+00:52:49,280 --> 00:52:55,599
+that okay and I just hope today's video
+
+1018
+00:52:52,880 --> 00:52:57,520
+I don't get banned by Google you know
+
+1019
+00:52:55,599 --> 00:53:00,960
+Google is gonna
+
+1020
+00:52:57,520 --> 00:53:03,200
+strike uh you know very corrupt
+
+1021
+00:53:00,960 --> 00:53:04,599
+situation today so bad today you know
+
+1022
+00:53:03,200 --> 00:53:08,720
+it's really
+
+1023
+00:53:04,599 --> 00:53:12,440
+bad uh in USA and other white man
+
+1024
+00:53:08,720 --> 00:53:16,480
+countries you know the Canada
+
+1025
+00:53:12,440 --> 00:53:16,480
+Australia and United
+
+1026
+00:53:17,880 --> 00:53:23,280
+Kingdom uh they are
+
+1027
+00:53:20,240 --> 00:53:27,520
+basically you know they are basically
+
+1028
+00:53:23,280 --> 00:53:27,520
+following the USA's
+
+1029
+00:53:28,160 --> 00:53:35,960
+politicians big money big
+
+1030
+00:53:31,920 --> 00:53:38,720
+money The Wheel of Fortune you know but
+
+1031
+00:53:35,960 --> 00:53:41,200
+even when you are the most powerful you
+
+1032
+00:53:38,720 --> 00:53:45,079
+know if you are the let's say the evil
+
+1033
+00:53:41,200 --> 00:53:48,319
+Lord the evil evil Lord that's kind of
+
+1034
+00:53:45,079 --> 00:53:50,400
+the white men's concept especially
+
+1035
+00:53:48,319 --> 00:53:53,040
+American the evil
+
+1036
+00:53:50,400 --> 00:53:54,920
+Lord you know either it's a good guy or
+
+1037
+00:53:53,040 --> 00:53:57,799
+the evil Lord you know the like the
+
+1038
+00:53:54,920 --> 00:54:00,680
+Darth Vader
+
+1039
+00:53:57,799 --> 00:54:03,119
+even if you are the most powerful your
+
+1040
+00:54:00,680 --> 00:54:05,720
+power do not last
+
+1041
+00:54:03,119 --> 00:54:09,160
+forever judging by
+
+1042
+00:54:05,720 --> 00:54:13,520
+history okay
+
+1043
+00:54:09,160 --> 00:54:18,440
+so assuming what I say is true that the
+
+1044
+00:54:13,520 --> 00:54:24,440
+USA you know the top leaders some
+
+1045
+00:54:18,440 --> 00:54:26,760
+are uh you know leaders nominal nominal
+
+1046
+00:54:24,440 --> 00:54:30,680
+some are covert they are lead in the
+
+1047
+00:54:26,760 --> 00:54:33,760
+country but you don't know who they are
+
+1048
+00:54:30,680 --> 00:54:37,119
+okay they are very corrupt according you
+
+1049
+00:54:33,760 --> 00:54:38,960
+know according to me in a very critical
+
+1050
+00:54:37,119 --> 00:54:41,559
+condition right
+
+1051
+00:54:38,960 --> 00:54:45,119
+now so you know they are doing all these
+
+1052
+00:54:41,559 --> 00:54:47,839
+kind of things but the power will not
+
+1053
+00:54:45,119 --> 00:54:52,200
+last forever
+
+1054
+00:54:47,839 --> 00:54:55,160
+okay for certain you know uh and let me
+
+1055
+00:54:52,200 --> 00:54:57,920
+just you know the most important I mean
+
+1056
+00:54:55,160 --> 00:55:01,599
+the most serious things going on is the
+
+1057
+00:54:57,920 --> 00:55:05,240
+war things okay that that's where
+
+1058
+00:55:01,599 --> 00:55:09,160
+thousands 10 thousands 100 thousands
+
+1059
+00:55:05,240 --> 00:55:12,520
+people die innocent people like your
+
+1060
+00:55:09,160 --> 00:55:14,960
+mom your dad your
+
+1061
+00:55:12,520 --> 00:55:17,400
+brother you know but they are you know
+
+1062
+00:55:14,960 --> 00:55:18,440
+but they are not your family they are
+
+1063
+00:55:17,400 --> 00:55:23,480
+somewhere
+
+1064
+00:55:18,440 --> 00:55:26,160
+else you cannot possibly feel their
+
+1065
+00:55:23,480 --> 00:55:30,000
+pain you know like I'm coding you know
+
+1066
+00:55:26,160 --> 00:55:33,000
+I'm I'm enjoying my Starbucks and
+
+1067
+00:55:30,000 --> 00:55:33,000
+suddenly
+
+1068
+00:55:33,480 --> 00:55:38,880
+boom my neighbor
+
+1069
+00:55:35,839 --> 00:55:41,200
+died and I lost an arm that's what
+
+1070
+00:55:38,880 --> 00:55:43,160
+happened that's what's going on okay but
+
+1071
+00:55:41,200 --> 00:55:48,039
+it's not your family it's not here so
+
+1072
+00:55:43,160 --> 00:55:48,039
+you don't know you just we just enjoy
+
+1073
+00:55:51,480 --> 00:55:56,599
+YouTube and we enjoy talking about
+
+1074
+00:55:54,440 --> 00:56:00,319
+genders
+
+1075
+00:55:56,599 --> 00:56:04,599
+is it good or bad to have a t ton in
+
+1076
+00:56:00,319 --> 00:56:04,599
+man's bathroom let's have a
+
+1077
+00:56:05,400 --> 00:56:10,839
+debate Hey Jo
+
+1078
+00:56:07,920 --> 00:56:12,880
+Rogan invite me let's have a debate hey
+
+1079
+00:56:10,839 --> 00:56:15,599
+you know the you know the bunch of you
+
+1080
+00:56:12,880 --> 00:56:19,160
+know [ __ ] debate let's go let's go on
+
+1081
+00:56:15,599 --> 00:56:21,280
+TV let's make money Hey cuz I'm GNA
+
+1082
+00:56:19,160 --> 00:56:23,880
+invent who who wants to come to my show
+
+1083
+00:56:21,280 --> 00:56:23,880
+let's have a
+
+1084
+00:56:24,440 --> 00:56:30,839
+debate this the guy Destiny hey Destiny
+
+1085
+00:56:28,000 --> 00:56:33,280
+come on let's debate whether whether men
+
+1086
+00:56:30,839 --> 00:56:37,680
+should have you know whether men is
+
+1087
+00:56:33,280 --> 00:56:37,680
+women are they equal are they
+
+1088
+00:56:37,880 --> 00:56:43,599
+equality you know so you can make money
+
+1089
+00:56:41,119 --> 00:56:46,680
+you'll be more famous and I can make
+
+1090
+00:56:43,599 --> 00:56:46,680
+money I'll be more
+
+1091
+00:56:50,680 --> 00:56:56,119
+famous okay I think that's it for today
+
+1092
+00:56:57,520 --> 00:57:04,119
+uh pretty sad okay so yeah
+
+1093
+00:57:00,480 --> 00:57:08,680
+so final my final say
+
+1094
+00:57:04,119 --> 00:57:10,599
+is stop [ __ ] around find a goal you
+
+1095
+00:57:08,680 --> 00:57:11,640
+know don't [ __ ] around you know don't
+
+1096
+00:57:10,599 --> 00:57:16,280
+waste
+
+1097
+00:57:11,640 --> 00:57:19,319
+time uh you know try to not to be a non-
+
+1098
+00:57:16,280 --> 00:57:23,000
+coward pay for things you
+
+1099
+00:57:19,319 --> 00:57:25,599
+like uh you know follow people don't
+
+1100
+00:57:23,000 --> 00:57:27,799
+don't follow the The Social Network you
+
+1101
+00:57:25,599 --> 00:57:30,319
+know the the the the streams you know
+
+1102
+00:57:27,799 --> 00:57:32,760
+whatever comes through or door
+
+1103
+00:57:30,319 --> 00:57:35,280
+information really follow make friends
+
+1104
+00:57:32,760 --> 00:57:37,640
+you know follow people you really are
+
+1105
+00:57:35,280 --> 00:57:41,039
+interested or may it be programming may
+
+1106
+00:57:37,640 --> 00:57:44,119
+it be politics or maybe whatever you do
+
+1107
+00:57:41,039 --> 00:57:46,039
+you know try to know the people and
+
+1108
+00:57:44,119 --> 00:57:49,880
+determine what what kind of people they
+
+1109
+00:57:46,039 --> 00:57:55,480
+are you know and also including all new
+
+1110
+00:57:49,880 --> 00:57:55,480
+sources you know New York Times CNN
+
+1111
+00:57:56,319 --> 00:58:01,319
+you know try to find try to find out
+
+1112
+00:57:58,720 --> 00:58:04,200
+what's their nature or what whatever you
+
+1113
+00:58:01,319 --> 00:58:05,079
+know News website you know it may be a
+
+1114
+00:58:04,200 --> 00:58:09,200
+new
+
+1115
+00:58:05,079 --> 00:58:12,640
+one you know and uh and meanwhile I'll
+
+1116
+00:58:09,200 --> 00:58:15,319
+do something that benefit you okay I do
+
+1117
+00:58:12,640 --> 00:58:16,559
+not recommend contributing to the open
+
+1118
+00:58:15,319 --> 00:58:18,960
+source
+
+1119
+00:58:16,559 --> 00:58:22,680
+whatever
+
+1120
+00:58:18,960 --> 00:58:25,680
+socialism you know uh code for yourself
+
+1121
+00:58:22,680 --> 00:58:25,680
+okay
+
+1122
+00:58:27,480 --> 00:58:32,920
+okay so I think that's it so let me read
+
+1123
+00:58:29,799 --> 00:58:36,200
+the questions quickly and we shut down
+
+1124
+00:58:32,920 --> 00:58:36,200
+uh it's 1 hour
+
+1125
+00:58:39,799 --> 00:58:45,760
+today he Rich because the B Financial
+
+1126
+00:58:42,920 --> 00:58:50,680
+Market have you tried going to
+
+1127
+00:58:45,760 --> 00:58:52,319
+therapist uh have you think autism is a
+
+1128
+00:58:50,680 --> 00:58:55,240
+hyperborean
+
+1129
+00:58:52,319 --> 00:58:56,680
+trade so do you think autism is a
+
+1130
+00:58:55,240 --> 00:58:59,680
+hyperborean
+
+1131
+00:58:56,680 --> 00:59:02,400
+trade what is hyperborean in the default
+
+1132
+00:58:59,680 --> 00:59:04,319
+state of all Humanity okay hello YouTube
+
+1133
+00:59:02,400 --> 00:59:08,760
+once again did told me that you were
+
+1134
+00:59:04,319 --> 00:59:11,760
+streaming today oh YouTube didn't oh
+
+1135
+00:59:08,760 --> 00:59:11,760
+[ __ ]
+
+1136
+00:59:11,960 --> 00:59:18,119
+okay
+
+1137
+00:59:14,680 --> 00:59:19,160
+so so do you still plan to have kids
+
+1138
+00:59:18,119 --> 00:59:21,799
+like you
+
+1139
+00:59:19,160 --> 00:59:24,799
+mentioned long time back I mentioned
+
+1140
+00:59:21,799 --> 00:59:29,160
+like last month I believe not a long
+
+1141
+00:59:24,799 --> 00:59:32,839
+time back yeah but I don't have I need a
+
+1142
+00:59:29,160 --> 00:59:35,960
+blonde to have kids okay but right now
+
+1143
+00:59:32,839 --> 00:59:40,160
+my situation is my wife is too old and
+
+1144
+00:59:35,960 --> 00:59:43,680
+and uh I have to go through my wife in
+
+1145
+00:59:40,160 --> 00:59:46,400
+order to [ __ ] a blond I really do want
+
+1146
+00:59:43,680 --> 00:59:49,200
+to [ __ ] a blond
+
+1147
+00:59:46,400 --> 00:59:53,119
+because because the right the white
+
+1148
+00:59:49,200 --> 00:59:55,839
+girls oh my God Jesus they are my they
+
+1149
+00:59:53,119 --> 00:59:58,359
+they they are the love of my life okay
+
+1150
+00:59:55,839 --> 00:59:58,359
+the white
+
+1151
+00:59:58,920 --> 01:00:04,680
+girls uh debate a blue hair feminist
+
+1152
+01:00:02,480 --> 01:00:07,280
+that's good hey
+
+1153
+01:00:04,680 --> 01:00:10,240
+Jan okay that's it for today thank you
+
+1154
+01:00:07,280 --> 01:00:13,010
+guys for watching and do not forget to
+
+1155
+01:00:10,240 --> 01:00:16,099
+donate to me of course CH Ching CH
+
+1156
+01:00:13,010 --> 01:00:16,099
+[Music]
+
+1157
+01:00:16,599 --> 01:00:21,559
+Ching now I need to talk about this
+
+1158
+01:00:19,240 --> 01:00:24,240
+topic for one
+
+1159
+01:00:21,559 --> 01:00:26,480
+hour you know other people talk about
+
+1160
+01:00:24,240 --> 01:00:29,880
+pay for like five minutes in their
+
+1161
+01:00:26,480 --> 01:00:33,640
+YouTube today's video is sponsored by
+
+1162
+01:00:29,880 --> 01:00:37,880
+you you go to s.in info and scroll all
+
+1163
+01:00:33,640 --> 01:00:37,880
+the way down and you got this
+
+1164
+01:00:38,799 --> 01:00:45,119
+coupon this free
+
+1165
+01:00:42,039 --> 01:00:46,960
+coupon and uh there's a feature with
+
+1166
+01:00:45,119 --> 01:00:50,400
+this coupon you don't have there's no
+
+1167
+01:00:46,960 --> 01:00:53,000
+code okay you just click this Amazon
+
+1168
+01:00:50,400 --> 01:00:53,000
+gift card
+
+1169
+01:00:53,880 --> 01:01:02,599
+me and uh I sanction you that you are a
+
+1170
+01:00:58,559 --> 01:01:05,720
+good man oh Amazon GI card oh $50 that's
+
+1171
+01:01:02,599 --> 01:01:05,720
+good that's
+
+1172
+01:01:06,000 --> 01:01:10,000
+good bye
+

@@ -1,0 +1,4428 @@
+1
+00:00:02,159 --> 00:00:09,200
+hello guys welcome to another episode of
+
+2
+00:00:05,279 --> 00:00:13,639
+c talk show so ad Advent of code
+
+3
+00:00:09,200 --> 00:00:16,680
+2024 day two let's begin
+
+4
+00:00:13,639 --> 00:00:20,880
+coding okay let's see maybe we can do it
+
+5
+00:00:16,680 --> 00:00:25,840
+fast uh video check video am I alive yes
+
+6
+00:00:20,880 --> 00:00:27,760
+alive and audio check Advent of code
+
+7
+00:00:25,840 --> 00:00:30,599
+number
+
+8
+00:00:27,760 --> 00:00:34,879
+two wam language
+
+9
+00:00:30,599 --> 00:00:39,360
+okay we do we have wam language ready
+
+10
+00:00:34,879 --> 00:00:44,039
+new uh new notepad shift enter to
+
+11
+00:00:39,360 --> 00:00:46,840
+evaluate it and uh this needs to go here
+
+12
+00:00:44,039 --> 00:00:46,840
+and uh
+
+13
+00:00:47,640 --> 00:00:54,760
+magnify okay and this needs to go here
+
+14
+00:00:51,120 --> 00:00:57,600
+okay so can you see it yes day two okay
+
+15
+00:00:54,760 --> 00:01:00,000
+let's let me try to do this fast maybe
+
+16
+00:00:57,600 --> 00:01:03,000
+maybe 20 minutes or 30 there are people
+
+17
+00:01:00,000 --> 00:01:05,479
+people who finish it in like 2
+
+18
+00:01:03,000 --> 00:01:10,520
+minutes
+
+19
+00:01:05,479 --> 00:01:10,520
+uh okay so the input here is the
+
+20
+00:01:12,240 --> 00:01:17,479
+input what is
+
+21
+00:01:14,759 --> 00:01:20,439
+this okay let's start
+
+22
+00:01:17,479 --> 00:01:24,000
+here w f
+
+23
+00:01:20,439 --> 00:01:24,000
+language okay
+
+24
+00:01:25,119 --> 00:01:29,119
+code uh
+
+25
+00:01:30,560 --> 00:01:37,920
+okay so that there it
+
+26
+00:01:34,280 --> 00:01:40,640
+is uh the usual data in consider many
+
+27
+00:01:37,920 --> 00:01:43,240
+reports one report one report per line
+
+28
+00:01:40,640 --> 00:01:45,960
+each report is a list of numbers called
+
+29
+00:01:43,240 --> 00:01:49,840
+called levels that are separated by
+
+30
+00:01:45,960 --> 00:01:53,399
+space okay this example data contains
+
+31
+00:01:49,840 --> 00:01:58,680
+six reports six rows each containing
+
+32
+00:01:53,399 --> 00:02:00,640
+five levels okay so rowes and the levels
+
+33
+00:01:58,680 --> 00:02:04,159
+the engineers are trying to figure out
+
+34
+00:02:00,640 --> 00:02:07,200
+which reports are safe okay The Rednosed
+
+35
+00:02:04,159 --> 00:02:09,879
+reactor safety system can only tolerate
+
+36
+00:02:07,200 --> 00:02:12,160
+levels that are neither either gradually
+
+37
+00:02:09,879 --> 00:02:15,160
+increasing or gradually decreasing so a
+
+38
+00:02:12,160 --> 00:02:18,000
+report only counts a safe if both of the
+
+39
+00:02:15,160 --> 00:02:23,480
+following are true the levels are either
+
+40
+00:02:18,000 --> 00:02:25,800
+all increasing or or or decreasing okay
+
+41
+00:02:23,480 --> 00:02:30,720
+any two adjacent levels differ by at
+
+42
+00:02:25,800 --> 00:02:35,160
+least one and at and at most three okay
+
+43
+00:02:30,720 --> 00:02:37,640
+so they need to be gradual and uh okay
+
+44
+00:02:35,160 --> 00:02:40,080
+and all increasing or or decrease okay
+
+45
+00:02:37,640 --> 00:02:46,760
+in this example above the report can be
+
+46
+00:02:40,080 --> 00:02:49,400
+found uh 76 421 check safe because 76
+
+47
+00:02:46,760 --> 00:02:51,400
+421 all decreasing and no more than a
+
+48
+00:02:49,400 --> 00:02:56,760
+gap of three
+
+49
+00:02:51,400 --> 00:03:01,239
+okay yeah so second 1 278
+
+50
+00:02:56,760 --> 00:03:02,360
+9 7 1 278 9 no no because there's a gap
+
+51
+00:03:01,239 --> 00:03:06,840
+of
+
+52
+00:03:02,360 --> 00:03:06,840
+four okay
+
+53
+00:03:06,959 --> 00:03:14,280
+97621 unsafe because 62 is a decrease of
+
+54
+00:03:10,680 --> 00:03:16,959
+four okay yeah I get it okay so in this
+
+55
+00:03:14,280 --> 00:03:20,799
+example two reports are save okay number
+
+56
+00:03:16,959 --> 00:03:23,120
+one and and uh the last row analyze the
+
+57
+00:03:20,799 --> 00:03:26,159
+usual data from the engineers how many
+
+58
+00:03:23,120 --> 00:03:31,760
+reports are save oh
+
+59
+00:03:26,159 --> 00:03:31,760
+easy okay so first of all you
+
+60
+00:03:33,640 --> 00:03:40,879
+uh X2 you want to uh converted into a
+
+61
+00:03:39,360 --> 00:03:42,640
+matrix okay
+
+62
+00:03:40,879 --> 00:03:44,879
+so
+
+63
+00:03:42,640 --> 00:03:47,879
+uh
+
+64
+00:03:44,879 --> 00:03:47,879
+string
+
+65
+00:03:48,799 --> 00:03:56,239
+split okay
+
+66
+00:03:51,640 --> 00:03:56,239
+x one okay let's say x
+
+67
+00:03:56,360 --> 00:04:02,000
+input so evaluated
+
+68
+00:03:59,840 --> 00:04:06,000
+now it
+
+69
+00:04:02,000 --> 00:04:08,799
+becomes uh okay so yeah so okay so it
+
+70
+00:04:06,000 --> 00:04:13,519
+becomes one thing um
+
+71
+00:04:08,799 --> 00:04:16,199
+then what uh then what you want to do is
+
+72
+00:04:13,519 --> 00:04:20,799
+all these are actually strings so what
+
+73
+00:04:16,199 --> 00:04:20,799
+you want to do is you want to
+
+74
+00:04:22,000 --> 00:04:30,280
+um okay two expression that converts
+
+75
+00:04:27,120 --> 00:04:31,520
+string to actual numbers okay
+
+76
+00:04:30,280 --> 00:04:34,440
+so two
+
+77
+00:04:31,520 --> 00:04:38,199
+expression add add is the prefix
+
+78
+00:04:34,440 --> 00:04:39,800
+notation for the square brackets so
+
+79
+00:04:38,199 --> 00:04:43,479
+evaluate
+
+80
+00:04:39,800 --> 00:04:46,280
+that we get the same thing then apply
+
+81
+00:04:43,479 --> 00:04:49,479
+another function in front of it
+
+82
+00:04:46,280 --> 00:04:54,720
+um which we partition the list into two
+
+83
+00:04:49,479 --> 00:04:56,919
+elements okay so we can do function
+
+84
+00:04:54,720 --> 00:04:59,720
+partition partition take takes two
+
+85
+00:04:56,919 --> 00:05:02,280
+argument the first argument is the list
+
+86
+00:04:59,720 --> 00:05:04,280
+the second argument is uh how many rows
+
+87
+00:05:02,280 --> 00:05:08,919
+are there one two
+
+88
+00:05:04,280 --> 00:05:08,919
+three uh six uh five
+
+89
+00:05:14,600 --> 00:05:22,000
+okay okay
+
+90
+00:05:17,840 --> 00:05:26,080
+minute there we there we have it 76 421
+
+91
+00:05:22,000 --> 00:05:27,960
+764 check okay once you got that uh so
+
+92
+00:05:26,080 --> 00:05:30,319
+for each one you want to check if they
+
+93
+00:05:27,960 --> 00:05:32,280
+are ordered okay
+
+94
+00:05:30,319 --> 00:05:35,919
+uh there is
+
+95
+00:05:32,280 --> 00:05:40,039
+a there it is order Q let's look up the
+
+96
+00:05:35,919 --> 00:05:44,440
+documentation wam language the most
+
+97
+00:05:40,039 --> 00:05:44,440
+advanced programming language on
+
+98
+00:05:45,400 --> 00:05:52,440
+Earth okay it gives true if all the
+
+99
+00:05:48,600 --> 00:05:53,199
+elements are can canonical order okay so
+
+100
+00:05:52,440 --> 00:05:56,639
+let's
+
+101
+00:05:53,199 --> 00:06:00,360
+see uh so we can do a test you know
+
+102
+00:05:56,639 --> 00:06:02,600
+ordered that if that's true or not
+
+103
+00:06:00,360 --> 00:06:04,919
+Force well that's because they are
+
+104
+00:06:02,600 --> 00:06:06,520
+reverse order so use the ordering
+
+105
+00:06:04,919 --> 00:06:10,160
+function P to
+
+106
+00:06:06,520 --> 00:06:15,080
+determine okay well you
+
+107
+00:06:10,160 --> 00:06:15,080
+can you know you can do it
+
+108
+00:06:18,080 --> 00:06:22,280
+twice you know so if you run this this
+
+109
+00:06:21,240 --> 00:06:26,720
+will be
+
+110
+00:06:22,280 --> 00:06:30,199
+true right so you see so you can you
+
+111
+00:06:26,720 --> 00:06:32,919
+know so you can do a all so let's show
+
+112
+00:06:30,199 --> 00:06:35,080
+okay so
+
+113
+00:06:32,919 --> 00:06:39,360
+or either
+
+114
+00:06:35,080 --> 00:06:39,360
+that or
+
+115
+00:06:41,560 --> 00:06:49,120
+that okay true you see so but all has a
+
+116
+00:06:45,759 --> 00:06:52,520
+syntactical shortcuts that that would be
+
+117
+00:06:49,120 --> 00:06:55,280
+uh that would be um vertical bar
+
+118
+00:06:52,520 --> 00:07:01,080
+vertical bar so let's let me show you
+
+119
+00:06:55,280 --> 00:07:01,080
+okay syntactical shortcut fantastic
+
+120
+00:07:01,319 --> 00:07:08,280
+so but if you use this a lot then wam
+
+121
+00:07:04,800 --> 00:07:12,759
+language becomes hard to understand uh
+
+122
+00:07:08,280 --> 00:07:15,759
+but but uh what where is my comment oh
+
+123
+00:07:12,759 --> 00:07:18,800
+the W language comment there's only one
+
+124
+00:07:15,759 --> 00:07:20,879
+comment block comment like that okay so
+
+125
+00:07:18,800 --> 00:07:24,039
+if you run this
+
+126
+00:07:20,879 --> 00:07:26,599
+all uh failed
+
+127
+00:07:24,039 --> 00:07:29,080
+because uh yeah okay so you need
+
+128
+00:07:26,599 --> 00:07:33,759
+actually the because of the space you
+
+129
+00:07:29,080 --> 00:07:36,759
+need to to have the operator there so so
+
+130
+00:07:33,759 --> 00:07:39,879
+all we'll do it check the row is ordered
+
+131
+00:07:36,759 --> 00:07:43,039
+okay so now you just want to know what
+
+132
+00:07:39,879 --> 00:07:44,800
+you want to know uh okay you you want to
+
+133
+00:07:43,039 --> 00:07:48,759
+know the order but the other thing you
+
+134
+00:07:44,800 --> 00:07:53,120
+want to know is is if the difference is
+
+135
+00:07:48,759 --> 00:07:57,120
+in the list is um no more than
+
+136
+00:07:53,120 --> 00:08:01,440
+three so if it's three does it
+
+137
+00:07:57,120 --> 00:08:01,440
+work let see the uh
+
+138
+00:08:04,960 --> 00:08:09,599
+at most three so when the difference is
+
+139
+00:08:07,599 --> 00:08:12,840
+three is still
+
+140
+00:08:09,599 --> 00:08:12,840
+okay okay
+
+141
+00:08:14,960 --> 00:08:21,639
+so let's see if there's a function that
+
+142
+00:08:18,360 --> 00:08:23,039
+um compute the differences of adjacent
+
+143
+00:08:21,639 --> 00:08:25,840
+numbers so
+
+144
+00:08:23,039 --> 00:08:28,000
+check documentation difference is least
+
+145
+00:08:25,840 --> 00:08:32,000
+give the successive difference that's
+
+146
+00:08:28,000 --> 00:08:32,000
+that's what we want uh let's
+
+147
+00:08:34,360 --> 00:08:37,640
+see done
+
+148
+00:08:38,440 --> 00:08:44,440
+it fantastic and uh you want the
+
+149
+00:08:41,360 --> 00:08:44,440
+absolute value
+
+150
+00:08:44,920 --> 00:08:51,440
+okay so you want to apply absolute value
+
+151
+00:08:48,600 --> 00:08:56,680
+to each one of them and you want to make
+
+152
+00:08:51,440 --> 00:09:00,279
+sure they are less they are less than
+
+153
+00:08:56,680 --> 00:09:03,160
+three less than four okay um less or
+
+154
+00:09:00,279 --> 00:09:06,839
+equals to three okay so you apply a
+
+155
+00:09:03,160 --> 00:09:09,959
+function so absolute
+
+156
+00:09:06,839 --> 00:09:15,920
+value map okay so you
+
+157
+00:09:09,959 --> 00:09:15,920
+map the absolute value to this
+
+158
+00:09:17,320 --> 00:09:26,560
+thing to the to the differences um
+
+159
+00:09:21,320 --> 00:09:26,560
+actually let's let's let's
+
+160
+00:09:28,040 --> 00:09:34,800
+um let's put the output here so we kind
+
+161
+00:09:31,920 --> 00:09:34,800
+of have some
+
+162
+00:09:35,800 --> 00:09:42,120
+idea okay you know here's a whole code
+
+163
+00:09:39,480 --> 00:09:44,519
+very simple okay now we're going to to
+
+164
+00:09:42,120 --> 00:09:48,000
+do the apply the absolute value to all
+
+165
+00:09:44,519 --> 00:09:53,399
+of them so you got all positive that's
+
+166
+00:09:48,000 --> 00:09:56,760
+right then you just um make
+
+167
+00:09:53,399 --> 00:09:59,800
+sure all of them are less or equals to
+
+168
+00:09:56,760 --> 00:10:02,160
+three so
+
+169
+00:09:59,800 --> 00:10:05,959
+yeah so
+
+170
+00:10:02,160 --> 00:10:05,959
+um so you can
+
+171
+00:10:09,920 --> 00:10:15,120
+map you want to make sure all of them
+
+172
+00:10:12,640 --> 00:10:20,160
+are less or equals
+
+173
+00:10:15,120 --> 00:10:22,760
+to uh two three so you you you can do
+
+174
+00:10:20,160 --> 00:10:24,399
+less than four because they we know they
+
+175
+00:10:22,760 --> 00:10:27,360
+are all
+
+176
+00:10:24,399 --> 00:10:30,560
+integers implicitly
+
+177
+00:10:27,360 --> 00:10:38,639
+so so you can you can can map you can
+
+178
+00:10:30,560 --> 00:10:38,639
+map um uh there other ways so let's see
+
+179
+00:10:40,320 --> 00:10:45,279
+uh yeah you want to make sure all of
+
+180
+00:10:42,800 --> 00:10:47,839
+them is uh okay anyway let's just do the
+
+181
+00:10:45,279 --> 00:10:51,279
+dumb way because the you know I got
+
+182
+00:10:47,839 --> 00:10:53,680
+tired of the Advent of code because
+
+183
+00:10:51,279 --> 00:10:56,920
+they don't care about efficiency they
+
+184
+00:10:53,680 --> 00:10:59,680
+don't care about the like in other words
+
+185
+00:10:56,920 --> 00:11:01,800
+if you spend real time
+
+186
+00:10:59,680 --> 00:11:03,760
+if you are a master of computer science
+
+187
+00:11:01,800 --> 00:11:04,920
+you create the greatest code it doesn't
+
+188
+00:11:03,760 --> 00:11:08,000
+matter
+
+189
+00:11:04,920 --> 00:11:11,200
+because because
+
+190
+00:11:08,000 --> 00:11:15,240
+the you know or it cares is the answer
+
+191
+00:11:11,200 --> 00:11:18,920
+it yeah lots of issues so so let's just
+
+192
+00:11:15,240 --> 00:11:22,440
+uh do the brandless way okay so apply a
+
+193
+00:11:18,920 --> 00:11:26,839
+function and to each one of them and you
+
+194
+00:11:22,440 --> 00:11:30,160
+want to make sure is uh less
+
+195
+00:11:26,839 --> 00:11:34,399
+than I believe yeah less than
+
+196
+00:11:30,160 --> 00:11:34,399
+less than x
+
+197
+00:11:34,800 --> 00:11:42,639
+uh okay so X less than less than what
+
+198
+00:11:39,399 --> 00:11:42,639
+number uh less than
+
+199
+00:11:43,079 --> 00:11:46,680
+four okay you'll give you a bunch of
+
+200
+00:11:45,600 --> 00:11:50,200
+true and
+
+201
+00:11:46,680 --> 00:11:52,760
+false uh no wrong wait oh yeah okay so
+
+202
+00:11:50,200 --> 00:11:55,760
+the list it should be
+
+203
+00:11:52,760 --> 00:11:55,760
+here
+
+204
+00:11:56,880 --> 00:12:03,040
+okay okay so let's uh what is this uh
+
+205
+00:12:00,480 --> 00:12:06,079
+less than code with two arcs one
+
+206
+00:12:03,040 --> 00:12:06,079
+argument is
+
+207
+00:12:09,399 --> 00:12:14,480
+expected oh yeah that's right uh
+
+208
+00:12:18,120 --> 00:12:23,800
+what
+
+209
+00:12:20,480 --> 00:12:26,839
+what look at less than less then takes
+
+210
+00:12:23,800 --> 00:12:30,600
+one argument operator form that
+
+211
+00:12:26,839 --> 00:12:36,760
+yields oh okay so operator
+
+212
+00:12:30,600 --> 00:12:42,000
+form e x less than y okay so this is new
+
+213
+00:12:36,760 --> 00:12:44,320
+2015 2015 is a year I have I was not uh
+
+214
+00:12:42,000 --> 00:12:46,480
+keeping up to date with wolam language
+
+215
+00:12:44,320 --> 00:12:48,199
+so they added this new function so less
+
+216
+00:12:46,480 --> 00:12:51,360
+than text just one
+
+217
+00:12:48,199 --> 00:12:53,639
+argument um in that case you don't need
+
+218
+00:12:51,360 --> 00:12:56,000
+to Define your function you just say
+
+219
+00:12:53,639 --> 00:12:56,000
+less
+
+220
+00:12:57,800 --> 00:13:03,639
+than you see see fantastic and all you
+
+221
+00:13:00,720 --> 00:13:07,399
+have to do is just apply
+
+222
+00:13:03,639 --> 00:13:11,199
+and apply the end end function to all of
+
+223
+00:13:07,399 --> 00:13:13,320
+the uh them so that this a shortcut yeah
+
+224
+00:13:11,199 --> 00:13:13,320
+you
+
+225
+00:13:15,560 --> 00:13:23,000
+know uh wait a minute uh oh yeah uh okay
+
+226
+00:13:19,360 --> 00:13:26,800
+wait so yeah so it when this pass that
+
+227
+00:13:23,000 --> 00:13:29,880
+means this row pass okay so now you just
+
+228
+00:13:26,800 --> 00:13:33,639
+need to apply this to every row okay
+
+229
+00:13:29,880 --> 00:13:36,760
+okay okay so let's I guess uh clean up
+
+230
+00:13:33,639 --> 00:13:39,800
+the uh something clean up the code uh
+
+231
+00:13:36,760 --> 00:13:39,800
+let's start a new
+
+232
+00:13:40,160 --> 00:13:49,600
+one so let's start a new one so let's
+
+233
+00:13:44,399 --> 00:13:53,519
+just make them like one shot uh remove
+
+234
+00:13:49,600 --> 00:13:56,480
+the um the intermediate
+
+235
+00:13:53,519 --> 00:14:00,480
+so this is
+
+236
+00:13:56,480 --> 00:14:00,480
+all um
+
+237
+00:14:00,720 --> 00:14:06,279
+or so
+
+238
+00:14:02,720 --> 00:14:09,240
+what so you need
+
+239
+00:14:06,279 --> 00:14:11,079
+map map
+
+240
+00:14:09,240 --> 00:14:15,519
+to the
+
+241
+00:14:11,079 --> 00:14:18,240
+X2 and you map a function to it and what
+
+242
+00:14:15,519 --> 00:14:23,399
+does this function do the function first
+
+243
+00:14:18,240 --> 00:14:26,839
+of all needs to apply ordered
+
+244
+00:14:23,399 --> 00:14:30,600
+okay the function first of all needs to
+
+245
+00:14:26,839 --> 00:14:33,360
+apply let's let's put the let's make it
+
+246
+00:14:30,600 --> 00:14:33,360
+functional I
+
+247
+00:14:34,519 --> 00:14:42,920
+mean let's not use a shortcut okay
+
+248
+00:14:38,480 --> 00:14:46,639
+so and this is just
+
+249
+00:14:42,920 --> 00:14:46,639
+x x
+
+250
+00:14:48,680 --> 00:14:55,639
+so simple
+
+251
+00:14:52,440 --> 00:14:58,560
+so if one of them is older that means
+
+252
+00:14:55,639 --> 00:15:01,720
+it's increasing or decreasing it pass so
+
+253
+00:14:58,560 --> 00:15:01,720
+then you need an
+
+254
+00:15:04,120 --> 00:15:12,959
+end okay so and so first of all one they
+
+255
+00:15:10,120 --> 00:15:16,440
+must be increasing or or decreasing the
+
+256
+00:15:12,959 --> 00:15:21,160
+other thing you need to do is to check
+
+257
+00:15:16,440 --> 00:15:23,880
+um so order we don't care uh you need to
+
+258
+00:15:21,160 --> 00:15:27,160
+check the difference and this actually
+
+259
+00:15:23,880 --> 00:15:27,160
+this line
+
+260
+00:15:30,279 --> 00:15:38,360
+okay so that so basically what this does
+
+261
+00:15:34,839 --> 00:15:41,360
+is you map you find the differences the
+
+262
+00:15:38,360 --> 00:15:43,839
+absolute value of it and all of them
+
+263
+00:15:41,360 --> 00:15:47,199
+each one of them is less than four you
+
+264
+00:15:43,839 --> 00:15:50,279
+map to it then you just
+
+265
+00:15:47,199 --> 00:15:54,639
+say you got bunch of true and false then
+
+266
+00:15:50,279 --> 00:15:55,880
+you apply and you map the you apply n to
+
+267
+00:15:54,639 --> 00:15:59,600
+all
+
+268
+00:15:55,880 --> 00:16:01,759
+them so if either one of these condition
+
+269
+00:15:59,600 --> 00:16:05,399
+is
+
+270
+00:16:01,759 --> 00:16:08,639
+true uh both of them must be true then
+
+271
+00:16:05,399 --> 00:16:09,639
+you got it okay so that is a function so
+
+272
+00:16:08,639 --> 00:16:13,240
+the
+
+273
+00:16:09,639 --> 00:16:15,160
+expression we don't need so that is a
+
+274
+00:16:13,240 --> 00:16:16,480
+function map to the list and you don't
+
+275
+00:16:15,160 --> 00:16:20,600
+need that
+
+276
+00:16:16,480 --> 00:16:23,560
+okay uh wait so what you get then you
+
+277
+00:16:20,600 --> 00:16:26,720
+got a bunch of true and false I think
+
+278
+00:16:23,560 --> 00:16:30,639
+yeah so true false false false true true
+
+279
+00:16:26,720 --> 00:16:35,880
+okay uh in this example exle only how
+
+280
+00:16:30,639 --> 00:16:35,880
+many are true one two so I got it
+
+281
+00:16:51,000 --> 00:17:00,839
+wrong so the difference so they are not
+
+282
+00:16:54,279 --> 00:17:00,839
+just less than four but also not zero
+
+283
+00:17:04,280 --> 00:17:07,760
+so it it should
+
+284
+00:17:05,790 --> 00:17:12,079
+[Music]
+
+285
+00:17:07,760 --> 00:17:18,280
+be wait let me see less than four and
+
+286
+00:17:12,079 --> 00:17:21,520
+not z0 okay yeah okay not zero so so uh
+
+287
+00:17:18,280 --> 00:17:25,880
+not less than four and
+
+288
+00:17:21,520 --> 00:17:29,919
+uh actually you you need a function
+
+289
+00:17:25,880 --> 00:17:34,600
+okay yeah let's do a function so
+
+290
+00:17:29,919 --> 00:17:36,840
+function and uh this expression will
+
+291
+00:17:34,600 --> 00:17:39,840
+be let's just
+
+292
+00:17:36,840 --> 00:17:39,840
+say
+
+293
+00:17:41,840 --> 00:17:50,960
+four less or equal four
+
+294
+00:17:46,480 --> 00:17:56,440
+actually X here and uh greater
+
+295
+00:17:50,960 --> 00:17:56,440
+than zero okay now that's clear run
+
+296
+00:17:57,840 --> 00:18:05,080
+it true false uh what true uh this
+
+297
+00:18:03,120 --> 00:18:08,080
+got another one
+
+298
+00:18:05,080 --> 00:18:08,080
+wrong
+
+299
+00:18:08,640 --> 00:18:14,240
+what what is what is this so let's see
+
+300
+00:18:12,919 --> 00:18:17,559
+move from
+
+301
+00:18:14,240 --> 00:18:21,120
+language shift enter okay so let's say
+
+302
+00:18:17,559 --> 00:18:26,480
+if this is three shift enter
+
+303
+00:18:21,120 --> 00:18:29,280
+true if this is zero shift enter
+
+304
+00:18:26,480 --> 00:18:31,200
+Force ah where is it
+
+305
+00:18:29,280 --> 00:18:34,480
+true Force
+
+306
+00:18:31,200 --> 00:18:37,760
+true true Force
+
+307
+00:18:34,480 --> 00:18:39,799
+true true Force true so what's wrong
+
+308
+00:18:37,760 --> 00:18:43,360
+with this
+
+309
+00:18:39,799 --> 00:18:43,360
+97621 so that's
+
+310
+00:18:43,400 --> 00:18:51,080
+decreasing oh not it's it's not less
+
+311
+00:18:47,720 --> 00:18:53,520
+okay it's less than equals to three okay
+
+312
+00:18:51,080 --> 00:18:53,520
+run it
+
+313
+00:18:53,799 --> 00:19:00,080
+again there it is seems right and uh
+
+314
+00:18:57,400 --> 00:19:06,440
+then all we have to do is apply and
+
+315
+00:19:00,080 --> 00:19:09,559
+across okay so apply and across like
+
+316
+00:19:06,440 --> 00:19:11,720
+before uh by the way this add add sign
+
+317
+00:19:09,559 --> 00:19:14,799
+that means so when you when that's a
+
+318
+00:19:11,720 --> 00:19:19,080
+syntactical shortcut when you have f f
+
+319
+00:19:14,799 --> 00:19:20,640
+two symbols F add at then another symbol
+
+320
+00:19:19,080 --> 00:19:26,000
+that
+
+321
+00:19:20,640 --> 00:19:26,000
+means uh that means this okay
+
+322
+00:19:30,840 --> 00:19:38,600
+uh that means um yeah that means this
+
+323
+00:19:34,799 --> 00:19:41,679
+exactly okay just syntactical shortcut
+
+324
+00:19:38,600 --> 00:19:44,679
+uh you know you can I can show
+
+325
+00:19:41,679 --> 00:19:44,679
+you
+
+326
+00:19:45,400 --> 00:19:56,360
+um full form bracket paste shift
+
+327
+00:19:52,039 --> 00:20:00,640
+enter uh well yeah that where does The X
+
+328
+00:19:56,360 --> 00:20:00,640
+come from um this is wrong
+
+329
+00:20:01,000 --> 00:20:08,960
+uh this x needs to
+
+330
+00:20:03,559 --> 00:20:08,960
+be oh yeah so it needs to be um
+
+331
+00:20:10,440 --> 00:20:18,960
+list a b c
+
+332
+00:20:14,520 --> 00:20:22,919
+okay uh shift enter there it
+
+333
+00:20:18,960 --> 00:20:24,840
+is uh actually so what you let me show
+
+334
+00:20:22,919 --> 00:20:28,799
+you again okay actually you need what
+
+335
+00:20:24,840 --> 00:20:32,280
+you need to do is you need to
+
+336
+00:20:28,799 --> 00:20:34,720
+H let's do it here so I'm trying to show
+
+337
+00:20:32,280 --> 00:20:39,480
+you how this syntax is equivalent to
+
+338
+00:20:34,720 --> 00:20:43,679
+that so what you do is you for
+
+339
+00:20:39,480 --> 00:20:46,799
+form and hold hold is important because
+
+340
+00:20:43,679 --> 00:20:49,120
+otherwise that expression gets evaluated
+
+341
+00:20:46,799 --> 00:20:54,440
+so what you want to do is
+
+342
+00:20:49,120 --> 00:20:57,600
+this okay so you see apply FX so that
+
+343
+00:20:54,440 --> 00:21:01,559
+apply is similar to functional languages
+
+344
+00:20:57,600 --> 00:21:04,200
+apply like the in emac list it just turn
+
+345
+00:21:01,559 --> 00:21:07,400
+the list items feed them into the
+
+346
+00:21:04,200 --> 00:21:08,960
+function okay now in language because
+
+347
+00:21:07,400 --> 00:21:14,679
+it's
+
+348
+00:21:08,960 --> 00:21:19,120
+symbolic term rewriting system so anyway
+
+349
+00:21:14,679 --> 00:21:23,360
+so uh so so let's let's remove that
+
+350
+00:21:19,120 --> 00:21:23,360
+let's put it here so let's like
+
+351
+00:21:24,000 --> 00:21:32,200
+extra okay back to the code close that
+
+352
+00:21:27,320 --> 00:21:32,200
+back to the code okay so run
+
+353
+00:21:33,640 --> 00:21:40,440
+it uh wait so you don't want to end you
+
+354
+00:21:36,960 --> 00:21:42,159
+actually you want to count so okay yeah
+
+355
+00:21:40,440 --> 00:21:44,799
+so
+
+356
+00:21:42,159 --> 00:21:49,000
+count you want to count how many are
+
+357
+00:21:44,799 --> 00:21:52,440
+true so okay so you let's write a
+
+358
+00:21:49,000 --> 00:21:56,400
+function uh then then use the building
+
+359
+00:21:52,440 --> 00:21:59,080
+function count count X and uh you want
+
+360
+00:21:56,400 --> 00:22:01,760
+to count how many items are true so this
+
+361
+00:21:59,080 --> 00:22:06,120
+is a function so now a function now you
+
+362
+00:22:01,760 --> 00:22:09,520
+just apply the prefix notation apply to
+
+363
+00:22:06,120 --> 00:22:13,120
+this this thing
+
+364
+00:22:09,520 --> 00:22:14,919
+okay so run
+
+365
+00:22:13,120 --> 00:22:19,120
+it
+
+366
+00:22:14,919 --> 00:22:23,000
+two two rows pass so is that what we
+
+367
+00:22:19,120 --> 00:22:28,360
+want yes okay so that is a solution and
+
+368
+00:22:23,000 --> 00:22:31,039
+uh um okay that's fantastic uh it it's
+
+369
+00:22:28,360 --> 00:22:35,240
+um uh yeah okay
+
+370
+00:22:31,039 --> 00:22:40,159
+so that is a solution and uh make a
+
+371
+00:22:35,240 --> 00:22:41,720
+backup and what we want is the do our um
+
+372
+00:22:40,159 --> 00:22:45,799
+okay
+
+373
+00:22:41,720 --> 00:22:49,080
+so okay so let's let's make a copy of
+
+374
+00:22:45,799 --> 00:22:49,080
+this and do it
+
+375
+00:22:50,960 --> 00:23:00,440
+new okay now let's do the uh get our P
+
+376
+00:22:56,360 --> 00:23:00,440
+input okay a big one
+
+377
+00:23:00,799 --> 00:23:07,120
+we don't care we just like boot for
+
+378
+00:23:05,480 --> 00:23:09,919
+it
+
+379
+00:23:07,120 --> 00:23:13,520
+3:42 I don't even have time to drink my
+
+380
+00:23:09,919 --> 00:23:17,279
+coffee let's see 3:42 are you sure yes
+
+381
+00:23:13,520 --> 00:23:22,480
+shut the up paste
+
+382
+00:23:17,279 --> 00:23:26,480
+submit that is not the right answer
+
+383
+00:23:22,480 --> 00:23:26,480
+ okay
+
+384
+00:23:29,240 --> 00:23:35,480
+why why is it not right oh oh oh that's
+
+385
+00:23:32,880 --> 00:23:38,240
+right because oh you see this tricky
+
+386
+00:23:35,480 --> 00:23:43,320
+ you see not all numbers are the
+
+387
+00:23:38,240 --> 00:23:47,279
+same uh same number of items you
+
+388
+00:23:43,320 --> 00:23:49,200
+see yeah okay so that means yeah okay so
+
+389
+00:23:47,279 --> 00:23:53,720
+we need to
+
+390
+00:23:49,200 --> 00:23:55,919
+um okay so we need to get the number of
+
+391
+00:23:53,720 --> 00:23:59,200
+items
+
+392
+00:23:55,919 --> 00:24:02,480
+per you see It's Tricky the the input
+
+393
+00:23:59,200 --> 00:24:05,159
+the toy example doesn't show cuz I
+
+394
+00:24:02,480 --> 00:24:07,600
+assumed you know I just plug in a number
+
+395
+00:24:05,159 --> 00:24:11,840
+but uh it's trying it's trying to be
+
+396
+00:24:07,600 --> 00:24:15,760
+tricky so you uh okay instead of okay so
+
+397
+00:24:11,840 --> 00:24:19,880
+so let me just work on that so instead
+
+398
+00:24:15,760 --> 00:24:22,520
+of string split so string split this
+
+399
+00:24:19,880 --> 00:24:25,559
+time you just split
+
+400
+00:24:22,520 --> 00:24:30,039
+on uh you split on
+
+401
+00:24:25,559 --> 00:24:33,720
+the end of line character
+
+402
+00:24:30,039 --> 00:24:33,720
+then then you
+
+403
+00:24:34,360 --> 00:24:41,120
+map you map spr spring uh string split
+
+404
+00:24:39,000 --> 00:24:45,039
+again okay so
+
+405
+00:24:41,120 --> 00:24:49,440
+function uh okay you map it
+
+406
+00:24:45,039 --> 00:24:53,080
+to you map it to here of course you map
+
+407
+00:24:49,440 --> 00:24:56,880
+to this thing uh and this time you split
+
+408
+00:24:53,080 --> 00:24:59,960
+by y spaces okay
+
+409
+00:24:56,880 --> 00:25:01,799
+uh uh by default is split back white
+
+410
+00:24:59,960 --> 00:25:04,039
+space okay so actually you don't need
+
+411
+00:25:01,799 --> 00:25:08,120
+the function you just say
+
+412
+00:25:04,039 --> 00:25:12,039
+that okay so that gives
+
+413
+00:25:08,120 --> 00:25:12,039
+you uh so that gives
+
+414
+00:25:12,600 --> 00:25:19,360
+you yeah so each row is different length
+
+415
+00:25:16,360 --> 00:25:22,480
+then you just need to say two expression
+
+416
+00:25:19,360 --> 00:25:24,640
+there and you don't need partition okay
+
+417
+00:25:22,480 --> 00:25:30,159
+don't so don't partition
+
+418
+00:25:24,640 --> 00:25:33,919
+it okay so I think that's that so remove
+
+419
+00:25:30,159 --> 00:25:38,240
+that now comment this
+
+420
+00:25:33,919 --> 00:25:38,240
+out okay so let's try
+
+421
+00:25:38,559 --> 00:25:44,600
+it uh no well that's because you know
+
+422
+00:25:42,640 --> 00:25:47,360
+you actually you need to put this here
+
+423
+00:25:44,600 --> 00:25:51,720
+because uh emx
+
+424
+00:25:47,360 --> 00:25:54,760
+w w mod okay there we have it now let's
+
+425
+00:25:51,720 --> 00:25:58,880
+try to reduce you know some of the
+
+426
+00:25:54,760 --> 00:25:58,880
+length Okay run it
+
+427
+00:25:59,600 --> 00:26:07,320
+and there it is 135 okay so
+
+428
+00:26:03,559 --> 00:26:11,919
+now now we just remove this whole input
+
+429
+00:26:07,320 --> 00:26:17,440
+and use this input okay uh
+
+430
+00:26:11,919 --> 00:26:17,440
+and and and and and put this
+
+431
+00:26:18,760 --> 00:26:21,760
+back
+
+432
+00:26:25,000 --> 00:26:29,279
+okay run it
+
+433
+00:26:31,200 --> 00:26:40,840
+606 are you sure yes yes yes please so
+
+434
+00:26:37,360 --> 00:26:44,080
+how do I resubmit
+
+435
+00:26:40,840 --> 00:26:45,720
+uh make sure something something return
+
+436
+00:26:44,080 --> 00:26:48,360
+to day
+
+437
+00:26:45,720 --> 00:26:52,080
+two
+
+438
+00:26:48,360 --> 00:26:52,080
+okay page
+
+439
+00:26:52,120 --> 00:26:59,039
+606 that is the right answer of course
+
+440
+00:26:55,320 --> 00:27:00,799
+continue to part two celebration
+
+441
+00:26:59,039 --> 00:27:05,520
+hello
+
+442
+00:27:00,799 --> 00:27:10,000
+ju Pomo okay I don't know what is Pomo I
+
+443
+00:27:05,520 --> 00:27:10,000
+forgot so how many minutes 30
+
+444
+00:27:13,039 --> 00:27:17,760
+minutes okay so the result is
+
+445
+00:27:22,640 --> 00:27:28,320
+606 okay so that is our code for uh day
+
+446
+00:27:26,720 --> 00:27:29,559
+one
+
+447
+00:27:28,320 --> 00:27:35,000
+put it
+
+448
+00:27:29,559 --> 00:27:37,600
+back and now let's do day two okay I
+
+449
+00:27:35,000 --> 00:27:37,600
+mean part
+
+450
+00:27:38,480 --> 00:27:42,080
+two part
+
+451
+00:27:43,279 --> 00:27:49,200
+two syntax showing browser there is our
+
+452
+00:27:50,039 --> 00:28:00,120
+code oh God I hate this uh you know
+
+453
+00:27:55,519 --> 00:28:00,120
+so yeah part two okay
+
+454
+00:28:01,200 --> 00:28:04,960
+okay what is the part two let's
+
+455
+00:28:03,370 --> 00:28:09,279
+[Music]
+
+456
+00:28:04,960 --> 00:28:12,640
+see uh
+
+457
+00:28:09,279 --> 00:28:15,840
+what part two
+
+458
+00:28:12,640 --> 00:28:18,159
+okay part two the uh the engineers are
+
+459
+00:28:15,840 --> 00:28:20,960
+surprised by the low number something
+
+460
+00:28:18,159 --> 00:28:24,519
+the problem dampener the problem
+
+461
+00:28:20,960 --> 00:28:27,080
+dampener is a react something something
+
+462
+00:28:24,519 --> 00:28:28,640
+some something tolerate a single bad
+
+463
+00:28:27,080 --> 00:28:32,120
+level okay
+
+464
+00:28:28,640 --> 00:28:34,720
+tolerate a single bad level okay
+
+465
+00:28:32,120 --> 00:28:37,559
+something now something same rule apply
+
+466
+00:28:34,720 --> 00:28:41,000
+as before except if removing a single
+
+467
+00:28:37,559 --> 00:28:45,919
+level from an unsaved report would make
+
+468
+00:28:41,000 --> 00:28:45,919
+it safe the report instead count as safe
+
+469
+00:28:46,279 --> 00:28:50,679
+okay okay the pro the nature of the
+
+470
+00:28:49,240 --> 00:28:54,399
+problem
+
+471
+00:28:50,679 --> 00:28:59,200
+changed somewhat significantly so let's
+
+472
+00:28:54,399 --> 00:29:00,780
+see so 13245 is now save
+
+473
+00:28:59,200 --> 00:29:02,200
+because you
+
+474
+00:29:00,780 --> 00:29:05,440
+[Music]
+
+475
+00:29:02,200 --> 00:29:10,080
+remove oh God this problem becom in
+
+476
+00:29:05,440 --> 00:29:13,399
+complex so you remove three it
+
+477
+00:29:10,080 --> 00:29:13,399
+works oh
+
+478
+00:29:16,720 --> 00:29:23,320
+ so if you can remove one number in
+
+479
+00:29:21,600 --> 00:29:27,799
+a
+
+480
+00:29:23,320 --> 00:29:27,799
+row then it works
+
+481
+00:29:28,960 --> 00:29:36,159
+well you can do trial and error what
+
+482
+00:29:31,880 --> 00:29:36,159
+does it take this thousand
+
+483
+00:29:38,600 --> 00:29:42,720
+numbers I don't want to call
+
+484
+00:29:48,159 --> 00:29:55,519
+this so you see there are two conditions
+
+485
+00:29:51,840 --> 00:29:59,240
+one condition is that they must all
+
+486
+00:29:55,519 --> 00:30:01,240
+increase monotonically
+
+487
+00:29:59,240 --> 00:30:04,799
+or decrease
+
+488
+00:30:01,240 --> 00:30:07,080
+monotonically so that's one condition so
+
+489
+00:30:04,799 --> 00:30:09,840
+if you have a bad number there you know
+
+490
+00:30:07,080 --> 00:30:15,159
+let's say you have 1 2 3
+
+491
+00:30:09,840 --> 00:30:19,279
+100 then 4 five six okay so that 100 is
+
+492
+00:30:15,159 --> 00:30:24,000
+a bad seed you just kick it out then
+
+493
+00:30:19,279 --> 00:30:27,600
+it's increasing order again
+
+494
+00:30:24,000 --> 00:30:32,640
+so so one of the issue is that the order
+
+495
+00:30:27,600 --> 00:30:32,640
+so if if you can remove one element
+
+496
+00:30:32,919 --> 00:30:35,919
+then
+
+497
+00:30:36,279 --> 00:30:43,640
+then then it counts okay but the other
+
+498
+00:30:40,200 --> 00:30:47,039
+condition is that the difference must
+
+499
+00:30:43,640 --> 00:30:47,039
+be oh
+
+500
+00:30:51,480 --> 00:30:56,200
+God in well actually in fact these two
+
+501
+00:30:54,720 --> 00:31:01,080
+can be
+
+502
+00:30:56,200 --> 00:31:01,080
+combined yeah it's well not
+
+503
+00:31:01,440 --> 00:31:04,440
+necessarily
+
+504
+00:31:04,880 --> 00:31:13,200
+um okay so you know so I'm going to
+
+505
+00:31:10,399 --> 00:31:17,080
+show okay so anyway so you can remove
+
+506
+00:31:13,200 --> 00:31:21,440
+one number so that's one thing older so
+
+507
+00:31:17,080 --> 00:31:21,440
+okay the other thing is that the
+
+508
+00:31:21,760 --> 00:31:29,399
+difference so if you remove one number
+
+509
+00:31:25,399 --> 00:31:32,279
+and if you remove that specif
+
+510
+00:31:29,399 --> 00:31:36,320
+specific
+
+511
+00:31:32,279 --> 00:31:39,799
+item and if that fix the differences
+
+512
+00:31:36,320 --> 00:31:43,240
+problem all the differences are less
+
+513
+00:31:39,799 --> 00:31:45,639
+than three or equal to three then it
+
+514
+00:31:43,240 --> 00:31:45,639
+also
+
+515
+00:31:45,799 --> 00:31:52,159
+come you see you cannot apply these two
+
+516
+00:31:49,919 --> 00:31:56,320
+conditions separately
+
+517
+00:31:52,159 --> 00:31:59,679
+because because whenever you remove one
+
+518
+00:31:56,320 --> 00:32:01,399
+item it must be that item it then
+
+519
+00:31:59,679 --> 00:32:05,760
+satisfy
+
+520
+00:32:01,399 --> 00:32:09,720
+both okay so what you can do is
+
+521
+00:32:05,760 --> 00:32:12,840
+that H you can just do Brute Force you
+
+522
+00:32:09,720 --> 00:32:18,320
+know so just go through these numbers
+
+523
+00:32:12,840 --> 00:32:23,120
+for each row that fail then you try to
+
+524
+00:32:18,320 --> 00:32:23,120
+take out one row one
+
+525
+00:32:24,039 --> 00:32:30,600
+element and try it again actually that's
+
+526
+00:32:27,559 --> 00:32:35,120
+that will work there's only 1,000 items
+
+527
+00:32:30,600 --> 00:32:38,240
+let's see yeah for each row you the
+
+528
+00:32:35,120 --> 00:32:40,919
+maximum number of try is like
+
+529
+00:32:38,240 --> 00:32:45,519
+10 yeah Pro Force
+
+530
+00:32:40,919 --> 00:32:48,799
+Works uh let me give it a thought about
+
+531
+00:32:45,519 --> 00:32:48,799
+if there's some
+
+532
+00:32:49,240 --> 00:32:58,159
+trick you remove I one item so if
+
+533
+00:32:53,639 --> 00:32:58,159
+removing one item works
+
+534
+00:32:59,519 --> 00:33:05,679
+yeah
+
+535
+00:33:01,200 --> 00:33:05,679
+ let's let's just do it
+
+536
+00:33:08,120 --> 00:33:15,240
+okay so if you you know we can go to the
+
+537
+00:33:11,760 --> 00:33:16,760
+wfam language and paste it there so you
+
+538
+00:33:15,240 --> 00:33:20,600
+can see the
+
+539
+00:33:16,760 --> 00:33:20,600
+code now it's
+
+540
+00:33:20,639 --> 00:33:29,320
+clear oh we got we got a nested function
+
+541
+00:33:24,919 --> 00:33:31,799
+screw up that's why it's red I mean not
+
+542
+00:33:29,320 --> 00:33:34,000
+necessarily screw up that just means the
+
+543
+00:33:31,799 --> 00:33:36,720
+syntax
+
+544
+00:33:34,000 --> 00:33:40,559
+is potential problem because you are
+
+545
+00:33:36,720 --> 00:33:45,279
+using X in uh it still works because
+
+546
+00:33:40,559 --> 00:33:47,960
+function has a tighter scope but better
+
+547
+00:33:45,279 --> 00:33:51,880
+if you just change it to Y okay let's
+
+548
+00:33:47,960 --> 00:33:51,880
+change it X to y
+
+549
+00:33:52,559 --> 00:33:58,679
+y okay so copy
+
+550
+00:33:55,360 --> 00:34:03,399
+that paste there that's
+
+551
+00:33:58,679 --> 00:34:08,120
+beautiful and uh copy that paste here so
+
+552
+00:34:03,399 --> 00:34:08,120
+now it's like looks beautiful
+
+553
+00:34:09,040 --> 00:34:15,800
+okay okay but you got to solve the
+
+554
+00:34:13,760 --> 00:34:18,399
+problem by the way there's a lot
+
+555
+00:34:15,800 --> 00:34:22,960
+shortcut notations so you don't have to
+
+556
+00:34:18,399 --> 00:34:22,960
+have all those all these uh nested
+
+557
+00:34:24,359 --> 00:34:28,679
+brackets Okay so
+
+558
+00:34:32,040 --> 00:34:34,919
+yeah so
+
+559
+00:34:44,720 --> 00:34:56,119
+this so this end this whole end this and
+
+560
+00:34:51,560 --> 00:34:56,119
+that oh God
+
+561
+00:35:00,280 --> 00:35:05,760
+if you can remove just one item what
+
+562
+00:35:03,560 --> 00:35:08,720
+does does it
+
+563
+00:35:05,760 --> 00:35:11,119
+signify you know if you can just remove
+
+564
+00:35:08,720 --> 00:35:11,119
+one
+
+565
+00:35:14,440 --> 00:35:19,160
+item hey Louis Louis from
+
+566
+00:35:23,839 --> 00:35:29,200
+Germany uh okay so this problems are
+
+567
+00:35:27,480 --> 00:35:32,839
+okay okay so what am I
+
+568
+00:35:29,200 --> 00:35:36,480
+doing do I want to do this
+
+569
+00:35:32,839 --> 00:35:38,359
+yes okay I guess I have to I no
+
+570
+00:35:36,480 --> 00:35:42,040
+choice
+
+571
+00:35:38,359 --> 00:35:43,920
+because okay let's call this so if you
+
+572
+00:35:42,040 --> 00:35:47,800
+can remove one
+
+573
+00:35:43,920 --> 00:35:47,800
+item is here some
+
+574
+00:35:49,400 --> 00:35:55,680
+trick so order so most first of all you
+
+575
+00:35:53,079 --> 00:35:58,560
+got to know it's increasing or
+
+576
+00:35:55,680 --> 00:36:00,599
+decreasing given a bunch of numbers they
+
+577
+00:35:58,560 --> 00:36:03,400
+can potentially be
+
+578
+00:36:00,599 --> 00:36:07,880
+chaotic so there's no
+
+579
+00:36:03,400 --> 00:36:10,119
+predom you know you cannot say which it
+
+580
+00:36:07,880 --> 00:36:12,240
+tends to be increasing or decreasing it
+
+581
+00:36:10,119 --> 00:36:16,880
+could be K you know up and down up and
+
+582
+00:36:12,240 --> 00:36:19,920
+down so that means there's no shortcut
+
+583
+00:36:16,880 --> 00:36:22,640
+to say it's this is decreasing or
+
+584
+00:36:19,920 --> 00:36:25,040
+increasing okay so you got a bunch of so
+
+585
+00:36:22,640 --> 00:36:27,599
+up and down so their difference is going
+
+586
+00:36:25,040 --> 00:36:29,680
+to be some positive and some negative so
+
+587
+00:36:27,599 --> 00:36:31,839
+so if it's all positive so actually you
+
+588
+00:36:29,680 --> 00:36:34,640
+don't actually need this ordered
+
+589
+00:36:31,839 --> 00:36:38,160
+function you can just check you know you
+
+590
+00:36:34,640 --> 00:36:39,599
+just take the difference here and if
+
+591
+00:36:38,160 --> 00:36:43,560
+it's
+
+592
+00:36:39,599 --> 00:36:46,040
+all positive but also well you also have
+
+593
+00:36:43,560 --> 00:36:49,960
+to make sure they are not
+
+594
+00:36:46,040 --> 00:36:52,640
+um zero so if it's all positive and
+
+595
+00:36:49,960 --> 00:36:58,040
+doesn't contain any zero then then it's
+
+596
+00:36:52,640 --> 00:37:00,119
+increasing or decreasing okay uh and uh
+
+597
+00:36:58,040 --> 00:37:03,760
+uh and uh
+
+598
+00:37:00,119 --> 00:37:05,760
+then so or positive it's increasing but
+
+599
+00:37:03,760 --> 00:37:08,119
+you also have to check it whether it's
+
+600
+00:37:05,760 --> 00:37:11,839
+all negative
+
+601
+00:37:08,119 --> 00:37:15,599
+okay and no zero so first of all check
+
+602
+00:37:11,839 --> 00:37:19,520
+the item has no zero then check it's or
+
+603
+00:37:15,599 --> 00:37:21,839
+positive or or negative okay so that's
+
+604
+00:37:19,520 --> 00:37:21,839
+one
+
+605
+00:37:22,440 --> 00:37:33,640
+thing uh maybe maybe I should write out
+
+606
+00:37:27,599 --> 00:37:33,640
+check the diff list has no
+
+607
+00:37:34,839 --> 00:37:42,079
+zero then check if it's all positive or
+
+608
+00:37:40,319 --> 00:37:44,520
+all
+
+609
+00:37:42,079 --> 00:37:48,800
+negative if
+
+610
+00:37:44,520 --> 00:37:52,440
+so the row is good
+
+611
+00:37:48,800 --> 00:37:56,560
+okay so that's the mechanism underneath
+
+612
+00:37:52,440 --> 00:37:58,040
+this so but now it asks to remove one
+
+613
+00:37:56,560 --> 00:38:00,960
+item
+
+614
+00:37:58,040 --> 00:38:02,520
+so can we you know we look at the
+
+615
+00:38:00,960 --> 00:38:04,520
+mechanism to
+
+616
+00:38:02,520 --> 00:38:07,839
+[Music]
+
+617
+00:38:04,520 --> 00:38:12,040
+see so that
+
+618
+00:38:07,839 --> 00:38:15,240
+means if it's all you know if there's no
+
+619
+00:38:12,040 --> 00:38:19,440
+zero okay I think I think it'll work
+
+620
+00:38:15,240 --> 00:38:19,440
+out uh so there
+
+621
+00:38:19,640 --> 00:38:29,040
+is okay so you know thinking is like 100
+
+622
+00:38:24,760 --> 00:38:32,520
+times faster than talking so in my mind
+
+623
+00:38:29,040 --> 00:38:38,000
+I kind of already know what to do but
+
+624
+00:38:32,520 --> 00:38:42,079
+to to express it in speech will'll take
+
+625
+00:38:38,000 --> 00:38:45,640
+you know 30 seconds so basically you
+
+626
+00:38:42,079 --> 00:38:48,480
+check this you know this you know if
+
+627
+00:38:45,640 --> 00:38:52,599
+this condition met it's good but if this
+
+628
+00:38:48,480 --> 00:38:54,400
+condition doesn't work then you check if
+
+629
+00:38:52,599 --> 00:38:59,000
+there's only one
+
+630
+00:38:54,400 --> 00:39:02,720
+zero okay if there's only one zero
+
+631
+00:38:59,000 --> 00:39:02,720
+then then
+
+632
+00:39:05,240 --> 00:39:11,200
+um and uh then you can check the second
+
+633
+00:39:09,119 --> 00:39:15,440
+condition if it it works then that's
+
+634
+00:39:11,200 --> 00:39:15,440
+fine but otherwise if
+
+635
+00:39:16,040 --> 00:39:23,839
+it's if the same position that is zero
+
+636
+00:39:20,640 --> 00:39:27,119
+is causing one of the negative number or
+
+637
+00:39:23,839 --> 00:39:30,160
+one of the positive number then then it
+
+638
+00:39:27,119 --> 00:39:31,359
+Al work because you presume you remove
+
+639
+00:39:30,160 --> 00:39:34,000
+that
+
+640
+00:39:31,359 --> 00:39:38,920
+item okay so how do
+
+641
+00:39:34,000 --> 00:39:41,680
+we express this succinctly succinctly
+
+642
+00:39:38,920 --> 00:39:45,400
+because
+
+643
+00:39:41,680 --> 00:39:49,200
+uh Uganda wow in
+
+644
+00:39:45,400 --> 00:39:53,280
+Uganda Uganda where is Uganda that's in
+
+645
+00:39:49,200 --> 00:39:53,280
+Africa right
+
+646
+00:39:53,359 --> 00:39:57,720
+wow uh so
+
+647
+00:40:04,839 --> 00:40:12,920
+okay so remove one item this pesy
+
+648
+00:40:09,200 --> 00:40:16,280
+problem you just remove one
+
+649
+00:40:12,920 --> 00:40:20,920
+item you know actually the easiest
+
+650
+00:40:16,280 --> 00:40:23,319
+easiest is just brute force it you know
+
+651
+00:40:20,920 --> 00:40:26,160
+because because at vent of a code they
+
+652
+00:40:23,319 --> 00:40:28,079
+don't really care about code efficiency
+
+653
+00:40:26,160 --> 00:40:30,839
+you know there's not nothing you can
+
+654
+00:40:28,079 --> 00:40:34,520
+show how you
+
+655
+00:40:30,839 --> 00:40:36,760
+know it it only care for the answer so
+
+656
+00:40:34,520 --> 00:40:39,440
+if you can do it you know like run the
+
+657
+00:40:36,760 --> 00:40:42,040
+code in two minutes then that's fine so
+
+658
+00:40:39,440 --> 00:40:44,800
+the easiest way is actually just root
+
+659
+00:40:42,040 --> 00:40:49,240
+Force then you don't have to think about
+
+660
+00:40:44,800 --> 00:40:51,079
+the problem or and then record re recode
+
+661
+00:40:49,240 --> 00:40:54,200
+the problem you don't have to so you
+
+662
+00:40:51,079 --> 00:40:57,520
+just Brute Force okay yeah let's just
+
+663
+00:40:54,200 --> 00:40:57,520
+Brute Force
+
+664
+00:41:04,359 --> 00:41:11,400
+first check if the row
+
+665
+00:41:08,079 --> 00:41:11,400
+pass if
+
+666
+00:41:12,560 --> 00:41:18,480
+not uh if not then you want to
+
+667
+00:41:19,040 --> 00:41:25,880
+try remove each item so uh
+
+668
+00:41:29,480 --> 00:41:33,200
+write a function
+
+669
+00:41:34,760 --> 00:41:41,760
+FF that checks if the row pass okay
+
+670
+00:41:41,880 --> 00:41:47,079
+now run FF on a
+
+671
+00:41:48,720 --> 00:41:53,680
+row if no
+
+672
+00:41:51,240 --> 00:41:57,319
+pass
+
+673
+00:41:53,680 --> 00:42:00,760
+then then you want to try to remove uh
+
+674
+00:41:57,319 --> 00:42:02,720
+one item of the row and you know remove
+
+675
+00:42:00,760 --> 00:42:06,400
+first item remove the second item so you
+
+676
+00:42:02,720 --> 00:42:08,920
+got the list of you got the list of you
+
+677
+00:42:06,400 --> 00:42:12,480
+know so suppose that there are three
+
+678
+00:42:08,920 --> 00:42:16,960
+items in the row then you got a total of
+
+679
+00:42:12,480 --> 00:42:19,960
+how many possibilities one two three
+
+680
+00:42:16,960 --> 00:42:19,960
+yeah
+
+681
+00:42:21,680 --> 00:42:25,880
+uh map
+
+682
+00:42:23,880 --> 00:42:31,960
+FF
+
+683
+00:42:25,880 --> 00:42:33,920
+on uh list of rows each one is with one
+
+684
+00:42:31,960 --> 00:42:39,559
+item
+
+685
+00:42:33,920 --> 00:42:41,400
+removed okay if any of this
+
+686
+00:42:39,559 --> 00:42:47,640
+is
+
+687
+00:42:41,400 --> 00:42:47,640
+pass then it is pass okay that is the
+
+688
+00:42:47,720 --> 00:42:54,000
+algorithm so how do you generate this
+
+689
+00:42:50,960 --> 00:42:57,520
+list of rows okay we can try it and you
+
+690
+00:42:54,000 --> 00:43:01,400
+know let's say one
+
+691
+00:42:57,520 --> 00:43:04,400
+uh 1 2 3
+
+692
+00:43:01,400 --> 00:43:04,400
+4
+
+693
+00:43:07,960 --> 00:43:16,960
+uh you want generate so if the rows if
+
+694
+00:43:11,920 --> 00:43:16,960
+if the if the list has four items
+
+695
+00:43:19,400 --> 00:43:28,400
+then you got four possible uh so you got
+
+696
+00:43:23,480 --> 00:43:31,480
+2 three4 or 134 or
+
+697
+00:43:28,400 --> 00:43:36,720
+one two three okay so you
+
+698
+00:43:31,480 --> 00:43:41,559
+got wait wait one two three
+
+699
+00:43:36,720 --> 00:43:43,880
+four uh 2 3 4 13
+
+700
+00:43:41,559 --> 00:43:48,119
+4 1
+
+701
+00:43:43,880 --> 00:43:51,280
+24 then 2 three 4 I mean then two three
+
+702
+00:43:48,119 --> 00:43:54,559
+then then one two three okay
+
+703
+00:43:51,280 --> 00:43:59,040
+so the possible number of rows is the
+
+704
+00:43:54,559 --> 00:44:01,359
+same as the length of the list okay but
+
+705
+00:43:59,040 --> 00:44:05,200
+the question is how do you generate this
+
+706
+00:44:01,359 --> 00:44:07,440
+list without you know brute force uh we
+
+707
+00:44:05,200 --> 00:44:11,760
+can do
+
+708
+00:44:07,440 --> 00:44:11,760
+it in a simpler
+
+709
+00:44:17,119 --> 00:44:25,359
+way we can just do a permutation and
+
+710
+00:44:20,599 --> 00:44:29,040
+permutation and uh remove yeah let me
+
+711
+00:44:25,359 --> 00:44:29,040
+let me show you okay
+
+712
+00:44:29,079 --> 00:44:33,839
+so per
+
+713
+00:44:30,839 --> 00:44:39,119
+permute uh permute that returns all
+
+714
+00:44:33,839 --> 00:44:42,240
+possible rearrangement of the
+
+715
+00:44:39,119 --> 00:44:44,559
+elements no not you know so we want the
+
+716
+00:44:42,240 --> 00:44:49,079
+permutation
+
+717
+00:44:44,559 --> 00:44:49,079
+least uh permutation
+
+718
+00:44:50,240 --> 00:44:55,880
+Matrix represent the permutation Matrix
+
+719
+00:44:53,240 --> 00:45:00,200
+given by permutation Vector perm a
+
+720
+00:44:55,880 --> 00:45:00,200
+structure race something uh
+
+721
+00:45:01,800 --> 00:45:05,960
+maybe what does this
+
+722
+00:45:08,720 --> 00:45:15,280
+return uh okay that's missing argument
+
+723
+00:45:12,079 --> 00:45:15,280
+uh permutation
+
+724
+00:45:15,599 --> 00:45:23,359
+Matrix yeah but that's not what we want
+
+725
+00:45:19,599 --> 00:45:23,359
+you always got this kind of
+
+726
+00:45:25,520 --> 00:45:28,960
+problem okay
+
+727
+00:45:29,640 --> 00:45:34,960
+that's not what you
+
+728
+00:45:31,960 --> 00:45:34,960
+want
+
+729
+00:45:35,160 --> 00:45:43,440
+yeah kind of no no that's not what you
+
+730
+00:45:38,680 --> 00:45:47,400
+want there yeah there's a function okay
+
+731
+00:45:43,440 --> 00:45:53,359
+so uh permutation least obvious you know
+
+732
+00:45:47,400 --> 00:45:53,359
+why didn't you think of that yeah
+
+733
+00:45:58,599 --> 00:46:04,119
+run the
+
+734
+00:46:00,480 --> 00:46:04,119
+line uh
+
+735
+00:46:05,599 --> 00:46:13,000
+what returns of permutation least
+
+736
+00:46:09,319 --> 00:46:16,400
+representation of permutation per
+
+737
+00:46:13,000 --> 00:46:20,640
+no uh no you
+
+738
+00:46:16,400 --> 00:46:20,640
+want permutation
+
+739
+00:46:21,440 --> 00:46:28,640
+Cycles yeah now we we just want the list
+
+740
+00:46:25,280 --> 00:46:30,160
+of permutations what is the uh related
+
+741
+00:46:28,640 --> 00:46:35,160
+guide
+
+742
+00:46:30,160 --> 00:46:38,200
+permutation Cycles cyclic permutation
+
+743
+00:46:35,160 --> 00:46:41,359
+representation uh per permutation is a
+
+744
+00:46:38,200 --> 00:46:44,160
+fascinating subject of discrete
+
+745
+00:46:41,359 --> 00:46:48,119
+mathematics okay if you guys have not
+
+746
+00:46:44,160 --> 00:46:50,920
+studied it and it is you know
+
+747
+00:46:48,119 --> 00:46:54,599
+fascinating and easy to understand it
+
+748
+00:46:50,920 --> 00:46:56,559
+and it's also uh represents group Theory
+
+749
+00:46:54,599 --> 00:46:59,559
+so if you have if you guys have not
+
+750
+00:46:56,559 --> 00:47:03,319
+studed stud permutation you can start by
+
+751
+00:46:59,559 --> 00:47:05,640
+going to Wikipedia permutation okay just
+
+752
+00:47:03,319 --> 00:47:08,839
+read the article then you know then
+
+753
+00:47:05,640 --> 00:47:11,319
+you'll find related links to so many so
+
+754
+00:47:08,839 --> 00:47:14,359
+much others okay so permutation you see
+
+755
+00:47:11,319 --> 00:47:17,400
+in wam language you got like 20
+
+756
+00:47:14,359 --> 00:47:22,240
+functions on permutation so it relates
+
+757
+00:47:17,400 --> 00:47:24,520
+to group Theory and uh combinatorics
+
+758
+00:47:22,240 --> 00:47:27,040
+probability well you know for example
+
+759
+00:47:24,520 --> 00:47:29,359
+Lottery you know Lottery
+
+760
+00:47:27,040 --> 00:47:32,520
+what what are your chances of winning
+
+761
+00:47:29,359 --> 00:47:34,359
+things factorial you know
+
+762
+00:47:32,520 --> 00:47:38,559
+factorial
+
+763
+00:47:34,359 --> 00:47:40,280
+um you know so and and group Theory and
+
+764
+00:47:38,559 --> 00:47:44,359
+the
+
+765
+00:47:40,280 --> 00:47:47,160
+matrices okay so so let's go back to the
+
+766
+00:47:44,359 --> 00:47:49,359
+problem there it is all permutations of
+
+767
+00:47:47,160 --> 00:47:52,599
+arguments of expression that that's what
+
+768
+00:47:49,359 --> 00:47:54,520
+we want
+
+769
+00:47:52,599 --> 00:47:58,280
+yeah
+
+770
+00:47:54,520 --> 00:47:59,440
+permutations R it
+
+771
+00:47:58,280 --> 00:48:02,520
+there it
+
+772
+00:47:59,440 --> 00:48:06,079
+is uh okay that's not you know that's
+
+773
+00:48:02,520 --> 00:48:06,079
+actual permutation
+
+774
+00:48:06,640 --> 00:48:13,960
+actually we I think we are digressing
+
+775
+00:48:09,400 --> 00:48:16,720
+and digressing into different things
+
+776
+00:48:13,960 --> 00:48:19,160
+uh you know because to do this to
+
+777
+00:48:16,720 --> 00:48:21,520
+generate this this we can just manually
+
+778
+00:48:19,160 --> 00:48:25,359
+try to map
+
+779
+00:48:21,520 --> 00:48:27,319
+and yeah but um but permutation is much
+
+780
+00:48:25,359 --> 00:48:31,359
+simpler
+
+781
+00:48:27,319 --> 00:48:33,839
+way one two three four yeah because it
+
+782
+00:48:31,359 --> 00:48:33,839
+uh
+
+783
+00:48:36,880 --> 00:48:48,839
+what permutation is not what we
+
+784
+00:48:42,880 --> 00:48:48,839
+want tpos okay I think I what we need is
+
+785
+00:48:49,880 --> 00:48:56,839
+tpos all possible tures let's see turos
+
+786
+00:48:54,400 --> 00:48:59,000
+and generates a list of all possible and
+
+787
+00:48:56,839 --> 00:49:01,119
+toose of element from the Le that's what
+
+788
+00:48:59,000 --> 00:49:05,520
+we
+
+789
+00:49:01,119 --> 00:49:08,480
+want so toose that and uh just three
+
+790
+00:49:05,520 --> 00:49:08,480
+okay run
+
+791
+00:49:08,960 --> 00:49:19,400
+it oh okay so but then it uh no well one
+
+792
+00:49:15,559 --> 00:49:19,400
+that's not what we want
+
+793
+00:49:19,599 --> 00:49:24,640
+ okay but I'm pretty sure
+
+794
+00:49:28,119 --> 00:49:31,720
+I'm pretty sure there is a single
+
+795
+00:49:30,480 --> 00:49:35,280
+command
+
+796
+00:49:31,720 --> 00:49:40,040
+that that returns
+
+797
+00:49:35,280 --> 00:49:40,040
+um subsets that's what we want
+
+798
+00:49:47,839 --> 00:49:56,319
+subsets okay check subset three yeah
+
+799
+00:49:52,200 --> 00:49:56,319
+let's see right
+
+800
+00:49:57,040 --> 00:50:02,520
+h no that's okay so you need the extra
+
+801
+00:50:00,440 --> 00:50:06,319
+argument to
+
+802
+00:50:02,520 --> 00:50:10,119
+specify yeah so you want exactly three
+
+803
+00:50:06,319 --> 00:50:10,119
+elements okay run
+
+804
+00:50:10,960 --> 00:50:19,559
+it perfect that's what we want 1 2 3 1 2
+
+805
+00:50:15,760 --> 00:50:23,200
+4 1 3 4 2 3 4 okay now I have to
+
+806
+00:50:19,559 --> 00:50:27,280
+memorize this because this this you know
+
+807
+00:50:23,200 --> 00:50:32,000
+this um permutation topos subset comes
+
+808
+00:50:27,280 --> 00:50:35,799
+up often especially in this kind of to
+
+809
+00:50:32,000 --> 00:50:38,400
+problems so now I remember you know you
+
+810
+00:50:35,799 --> 00:50:41,640
+just remember what they are so you see
+
+811
+00:50:38,400 --> 00:50:44,839
+this is why wfam language is like very
+
+812
+00:50:41,640 --> 00:50:48,680
+high level in Python in almost all
+
+813
+00:50:44,839 --> 00:50:51,960
+languages you have to code
+
+814
+00:50:48,680 --> 00:50:55,359
+yourself you know most of these
+
+815
+00:50:51,960 --> 00:50:58,880
+functions are in wam language since
+
+816
+00:50:55,359 --> 00:51:01,640
+1989 so so you know so over the past 30
+
+817
+00:50:58,880 --> 00:51:04,520
+years gradually like very gradually
+
+818
+00:51:01,640 --> 00:51:06,720
+python for example they they added some
+
+819
+00:51:04,520 --> 00:51:09,359
+some of these in library for example in
+
+820
+00:51:06,720 --> 00:51:11,440
+Python you you I believe you have like
+
+821
+00:51:09,359 --> 00:51:13,880
+I'm pretty sure you have
+
+822
+00:51:11,440 --> 00:51:15,920
+permutations uh I don't know about tpos
+
+823
+00:51:13,880 --> 00:51:19,000
+or subset but you have some of these you
+
+824
+00:51:15,920 --> 00:51:22,880
+know like after 20 30 years they started
+
+825
+00:51:19,000 --> 00:51:26,160
+to add it but many others you just have
+
+826
+00:51:22,880 --> 00:51:29,880
+to code it yourself and lots of to
+
+827
+00:51:26,160 --> 00:51:32,880
+problem like in programming industry you
+
+828
+00:51:29,880 --> 00:51:36,280
+know for beginners or the Nerds like
+
+829
+00:51:32,880 --> 00:51:39,760
+they the Unix The Bash the
+
+830
+00:51:36,280 --> 00:51:43,319
+Unix or the python or the disp
+
+831
+00:51:39,760 --> 00:51:45,599
+they will often compete like how can you
+
+832
+00:51:43,319 --> 00:51:47,839
+this is the most especially the scheme
+
+833
+00:51:45,599 --> 00:51:50,640
+dispers you know they they they all do
+
+834
+00:51:47,839 --> 00:51:54,119
+this like oh every year every all the
+
+835
+00:51:50,640 --> 00:51:56,359
+time for 30 40 years like you will see
+
+836
+00:51:54,119 --> 00:52:00,359
+like how what's the most elegant way you
+
+837
+00:51:56,359 --> 00:52:03,079
+know recursive tail recursion doing like
+
+838
+00:52:00,359 --> 00:52:06,359
+like they just repeatedly code these
+
+839
+00:52:03,079 --> 00:52:09,200
+functions over and over
+
+840
+00:52:06,359 --> 00:52:13,240
+again uh which I did you know I did in
+
+841
+00:52:09,200 --> 00:52:15,040
+1990s using wolam language uh by that at
+
+842
+00:52:13,240 --> 00:52:18,319
+that time you don't have uh you don't
+
+843
+00:52:15,040 --> 00:52:20,240
+have turos okay uh you don't have per
+
+844
+00:52:18,319 --> 00:52:22,960
+you know you don't have this except some
+
+845
+00:52:20,240 --> 00:52:27,520
+of these are in the library okay so turo
+
+846
+00:52:22,960 --> 00:52:31,240
+is turos is added in 2004 Okay so
+
+847
+00:52:27,520 --> 00:52:32,400
+so yeah okay so toose and subset when
+
+848
+00:52:31,240 --> 00:52:36,280
+subset
+
+849
+00:52:32,400 --> 00:52:39,359
+added subset 24 yeah okay so they added
+
+850
+00:52:36,280 --> 00:52:44,200
+this whole bunch so anyway what is our
+
+851
+00:52:39,359 --> 00:52:46,920
+problem so so subset is what we want but
+
+852
+00:52:44,200 --> 00:52:50,920
+um but let's make
+
+853
+00:52:46,920 --> 00:52:53,720
+sure what if you got 2 two do you still
+
+854
+00:52:50,920 --> 00:52:56,599
+get the right
+
+855
+00:52:53,720 --> 00:52:59,000
+answer yeah
+
+856
+00:52:56,599 --> 00:52:59,000
+I think
+
+857
+00:53:06,880 --> 00:53:12,839
+so y that's what you want subset so the
+
+858
+00:53:10,400 --> 00:53:14,200
+length is going to be you know one less
+
+859
+00:53:12,839 --> 00:53:16,799
+than the
+
+860
+00:53:14,200 --> 00:53:21,720
+length so that's how you generate all
+
+861
+00:53:16,799 --> 00:53:21,720
+the other possible okay so
+
+862
+00:53:26,760 --> 00:53:32,119
+okay I'm digressing so much uh let's I
+
+863
+00:53:30,200 --> 00:53:35,480
+need to work on the problem so Brute
+
+864
+00:53:32,119 --> 00:53:38,839
+Force so you so this generates all
+
+865
+00:53:35,480 --> 00:53:43,200
+possible then then you just apply your
+
+866
+00:53:38,839 --> 00:53:48,680
+function to it okay let's let's do
+
+867
+00:53:43,200 --> 00:53:53,280
+it so this is a function now
+
+868
+00:53:48,680 --> 00:53:53,280
+uh okay so you need write the
+
+869
+00:53:53,520 --> 00:53:57,520
+function uh
+
+870
+00:53:58,400 --> 00:54:06,079
+check row okay check row will
+
+871
+00:54:02,760 --> 00:54:06,079
+be this
+
+872
+00:54:12,400 --> 00:54:17,599
+function okay so let's change that to
+
+873
+00:54:18,440 --> 00:54:26,200
+XX that's the body of the
+
+874
+00:54:22,200 --> 00:54:26,200
+function okay
+
+875
+00:54:27,359 --> 00:54:33,599
+that is a function check row okay so
+
+876
+00:54:30,280 --> 00:54:33,599
+let's actually
+
+877
+00:54:33,880 --> 00:54:36,880
+so
+
+878
+00:54:39,079 --> 00:54:46,920
+uh it Returns what does it return uh
+
+879
+00:54:44,119 --> 00:54:46,920
+return true or
+
+880
+00:54:52,920 --> 00:55:01,799
+false uh and we can try it
+
+881
+00:54:56,960 --> 00:55:04,799
+on let's say check row what what is the
+
+882
+00:55:01,799 --> 00:55:04,799
+row
+
+883
+00:55:06,960 --> 00:55:09,960
+uh
+
+884
+00:55:19,920 --> 00:55:27,039
+yeah you know that so let's put it here
+
+885
+00:55:27,599 --> 00:55:29,880
+then
+
+886
+00:55:30,720 --> 00:55:37,440
+it uh
+
+887
+00:55:32,799 --> 00:55:37,440
+no okay so got something
+
+888
+00:55:52,400 --> 00:56:00,839
+wrong oh wait so this is actually
+
+889
+00:55:57,480 --> 00:56:02,720
+this this is not uh yeah so I know
+
+890
+00:56:00,839 --> 00:56:06,000
+what's going on so we are actually
+
+891
+00:56:02,720 --> 00:56:09,839
+working on the whole expression so check
+
+892
+00:56:06,000 --> 00:56:09,839
+row actually should just
+
+893
+00:56:12,799 --> 00:56:18,640
+be yeah so not not the count okay
+
+894
+00:56:19,520 --> 00:56:24,760
+so so we don't need the count
+
+895
+00:56:32,359 --> 00:56:36,960
+yeah okay so let's try
+
+896
+00:56:40,079 --> 00:56:45,839
+it there's still something wrong
+
+897
+00:56:50,599 --> 00:56:54,599
+reverse God
+
+898
+00:57:04,839 --> 00:57:09,720
+wait okay so
+
+899
+00:57:06,720 --> 00:57:09,720
+yeah
+
+900
+00:57:11,000 --> 00:57:17,839
+uh this XX is wrong we got the argument
+
+901
+00:57:14,839 --> 00:57:17,839
+wrong
+
+902
+00:57:40,599 --> 00:57:47,480
+what
+
+903
+00:57:41,680 --> 00:57:47,480
+uh okay this stream is becoming no
+
+904
+00:57:50,200 --> 00:57:58,119
+good sir your internet is very slow my
+
+905
+00:57:54,000 --> 00:57:58,119
+monitor is a slow frame rate
+
+906
+00:57:58,839 --> 00:58:02,799
+uh maybe that is
+
+907
+00:58:05,440 --> 00:58:10,000
+because no it say
+
+908
+00:58:12,359 --> 00:58:16,359
+okay
+
+909
+00:58:35,640 --> 00:58:41,200
+control shift Escape let's see
+
+910
+00:59:23,319 --> 00:59:28,400
+maybe it's because I'm also recording to
+
+911
+00:59:28,680 --> 00:59:37,240
+disk uh but the disk says zero activity
+
+912
+00:59:33,720 --> 00:59:37,240
+so something is
+
+913
+00:59:38,720 --> 00:59:42,520
+wrong and very
+
+914
+00:59:48,319 --> 00:59:54,880
+annoying something odd because the dis
+
+915
+00:59:51,839 --> 01:00:00,440
+says zero
+
+916
+00:59:54,880 --> 01:00:07,079
+activity um uh but I'm recording to disk
+
+917
+01:00:00,440 --> 01:00:07,079
+so does that mean my disk is field
+
+918
+01:00:50,359 --> 01:00:54,359
+no I should have plenty of
+
+919
+01:00:54,520 --> 01:00:59,400
+space but uh
+
+920
+01:01:29,640 --> 01:01:33,839
+yeah very annoyed right
+
+921
+01:01:43,520 --> 01:01:48,280
+now I don't know
+
+922
+01:02:23,599 --> 01:02:28,960
+internet speed slow why why is
+
+923
+01:02:53,279 --> 01:02:58,359
+that am I doing good let me know how is
+
+924
+01:02:58,559 --> 01:03:07,359
+it uh so let's just push on the coding
+
+925
+01:03:03,279 --> 01:03:07,359
+okay is annoying
+
+926
+01:03:24,760 --> 01:03:28,760
+so for
+
+927
+01:03:59,240 --> 01:04:02,000
+map 2
+
+928
+01:04:24,720 --> 01:04:27,720
+X2
+
+929
+01:04:54,640 --> 01:04:58,680
+for for
+
+930
+01:05:47,920 --> 01:05:51,359
+same thing
+
+931
+01:06:07,559 --> 01:06:12,720
+uh let me stop for a moment let's see
+
+932
+01:06:29,559 --> 01:06:35,559
+okay am I back is all
+
+933
+01:06:32,799 --> 01:06:40,880
+good seems
+
+934
+01:06:35,559 --> 01:06:40,880
+so okay need to fix this
+
+935
+01:07:03,359 --> 01:07:06,920
+I the is going
+
+936
+01:07:24,520 --> 01:07:28,520
+on for
+
+937
+01:08:18,520 --> 01:08:27,440
+fixed okay sounds good uh fantastic
+
+938
+01:08:23,080 --> 01:08:27,440
+thank you thank you
+
+939
+01:08:30,319 --> 01:08:35,199
+Hamza uh now we need to fix a
+
+940
+01:08:52,279 --> 01:08:59,600
+problem oh okay so
+
+941
+01:08:56,600 --> 01:08:59,600
+so
+
+942
+01:09:02,120 --> 01:09:05,839
+um so
+
+943
+01:09:08,120 --> 01:09:15,920
+list list okay so
+
+944
+01:09:11,600 --> 01:09:15,920
+list and uh
+
+945
+01:09:16,839 --> 01:09:21,480
+then differences at
+
+946
+01:09:22,279 --> 01:09:27,960
+X yeah okay so I think I think think
+
+947
+01:09:25,719 --> 01:09:27,960
+this
+
+948
+01:09:28,799 --> 01:09:33,120
+is that okay
+
+949
+01:09:40,239 --> 01:09:49,199
+so okay
+
+950
+01:09:43,400 --> 01:09:53,159
+so so that and that
+
+951
+01:09:49,199 --> 01:09:57,199
+function and that difference difference
+
+952
+01:09:53,159 --> 01:09:58,800
+of the least absolute
+
+953
+01:09:57,199 --> 01:10:01,320
+okay
+
+954
+01:09:58,800 --> 01:10:06,480
+then
+
+955
+01:10:01,320 --> 01:10:06,480
+okay uh and I think that's
+
+956
+01:10:13,560 --> 01:10:20,080
+it this is a function
+
+957
+01:10:17,080 --> 01:10:20,080
+okay
+
+958
+01:10:20,120 --> 01:10:28,239
+it y That's the function that tells me
+
+959
+01:10:24,159 --> 01:10:31,239
+if a row checks out let's let's rewrite
+
+960
+01:10:28,239 --> 01:10:34,800
+it I mean let's write it so it's easier
+
+961
+01:10:31,239 --> 01:10:37,800
+to understand too many of the map thing
+
+962
+01:10:34,800 --> 01:10:37,800
+okay
+
+963
+01:10:45,520 --> 01:10:49,880
+so and uh this
+
+964
+01:10:52,480 --> 01:10:58,400
+all let's just use the shortcut but
+
+965
+01:11:31,600 --> 01:11:34,520
+now it's much
+
+966
+01:11:39,800 --> 01:11:43,520
+simpler okay
+
+967
+01:11:46,159 --> 01:11:56,040
+minute fantastic so now thank you jeel
+
+968
+01:11:52,560 --> 01:11:58,679
+so we re roll this with the shortcut
+
+969
+01:11:56,040 --> 01:12:03,960
+notation it's much easier to understand
+
+970
+01:11:58,679 --> 01:12:07,480
+and in fact this can be further uh SFI
+
+971
+01:12:03,960 --> 01:12:07,480
+let's do it
+
+972
+01:12:26,400 --> 01:12:29,400
+okay that's just
+
+973
+01:12:31,400 --> 01:12:35,040
+that and
+
+974
+01:12:38,920 --> 01:12:45,520
+uh okay now it's even
+
+975
+01:12:41,880 --> 01:12:47,080
+simpler uh test it run
+
+976
+01:12:45,520 --> 01:12:55,560
+it
+
+977
+01:12:47,080 --> 01:12:59,679
+true okay uh 82 76 73 70 60760
+
+978
+01:12:55,560 --> 01:13:03,159
+so let's say that it be
+
+979
+01:12:59,679 --> 01:13:05,679
+false yeah so the function works so
+
+980
+01:13:03,159 --> 01:13:09,040
+according to our algorithm brot Force
+
+981
+01:13:05,679 --> 01:13:11,080
+way write a function FF that checks if
+
+982
+01:13:09,040 --> 01:13:13,199
+the row
+
+983
+01:13:11,080 --> 01:13:16,840
+pass
+
+984
+01:13:13,199 --> 01:13:20,639
+then then map FF on a list of rows each
+
+985
+01:13:16,840 --> 01:13:24,480
+one is the one item removed okay which
+
+986
+01:13:20,639 --> 01:13:25,920
+we can do subset so let's start to use
+
+987
+01:13:24,480 --> 01:13:31,280
+subset
+
+988
+01:13:25,920 --> 01:13:36,679
+so subset you want to apply it to the
+
+989
+01:13:31,280 --> 01:13:37,710
+input actually X2 okay X2 is our new
+
+990
+01:13:36,679 --> 01:13:39,239
+input
+
+991
+01:13:37,710 --> 01:13:43,120
+[Music]
+
+992
+01:13:39,239 --> 01:13:47,880
+so so actually you want to map okay so
+
+993
+01:13:43,120 --> 01:13:47,880
+you map you map the
+
+994
+01:13:51,120 --> 01:14:04,440
+subset you map the subset this is the
+
+995
+01:13:56,440 --> 01:14:04,440
+input of subset function to to this X2
+
+996
+01:14:05,800 --> 01:14:09,120
+okay that
+
+997
+01:14:10,080 --> 01:14:14,679
+generates a list of lists
+
+998
+01:14:16,159 --> 01:14:22,120
+yeah so okay so what you want to
+
+999
+01:14:20,280 --> 01:14:27,960
+do
+
+1000
+01:14:22,120 --> 01:14:31,480
+if uh I'm just going to code okay so
+
+1001
+01:14:27,960 --> 01:14:36,120
+if if that
+
+1002
+01:14:31,480 --> 01:14:40,600
+then then it's true okay
+
+1003
+01:14:36,120 --> 01:14:42,280
+otherwise otherwise you're going to
+
+1004
+01:14:40,600 --> 01:14:47,199
+do
+
+1005
+01:14:42,280 --> 01:14:47,199
+this on the subset
+
+1006
+01:14:49,520 --> 01:14:57,000
+thing you want to apply that at uh
+
+1007
+01:15:04,280 --> 01:15:08,360
+you apply that and say
+
+1008
+01:15:10,159 --> 01:15:16,960
+end okay something like
+
+1009
+01:15:13,920 --> 01:15:20,000
+that I'm just trying to finish the
+
+1010
+01:15:16,960 --> 01:15:24,760
+problem okay so I think that's it so if
+
+1011
+01:15:20,000 --> 01:15:28,280
+check row if it's true then return true
+
+1012
+01:15:24,760 --> 01:15:33,360
+okay okay so otherwise
+
+1013
+01:15:28,280 --> 01:15:38,199
+you you find all possible subset okay
+
+1014
+01:15:33,360 --> 01:15:41,600
+so uh here this needs to be yeah the
+
+1015
+01:15:38,199 --> 01:15:45,719
+subset that's the argument okay the
+
+1016
+01:15:41,600 --> 01:15:49,400
+row so you find all the subset okay and
+
+1017
+01:15:45,719 --> 01:15:53,679
+the length of uh minus one okay
+
+1018
+01:15:49,400 --> 01:15:56,159
+so here you will be the
+
+1019
+01:15:53,679 --> 01:16:01,360
+length and
+
+1020
+01:15:56,159 --> 01:16:05,080
+that minus one okay so you generates all
+
+1021
+01:16:01,360 --> 01:16:07,560
+the subsets then you map the row check
+
+1022
+01:16:05,080 --> 01:16:09,760
+row function to each one of
+
+1023
+01:16:07,560 --> 01:16:14,840
+them
+
+1024
+01:16:09,760 --> 01:16:18,360
+then then if if any one of them is true
+
+1025
+01:16:14,840 --> 01:16:23,480
+then it's true okay so the whole thing
+
+1026
+01:16:18,360 --> 01:16:27,239
+can be reduced to uh all operation okay
+
+1027
+01:16:23,480 --> 01:16:29,639
+so let's rewrite the whole thing to one
+
+1028
+01:16:27,239 --> 01:16:32,920
+single o operation
+
+1029
+01:16:29,639 --> 01:16:36,280
+so it's
+
+1030
+01:16:32,920 --> 01:16:36,280
+that uh
+
+1031
+01:16:41,040 --> 01:16:45,440
+or
+
+1032
+01:16:43,480 --> 01:16:48,440
+or
+
+1033
+01:16:45,440 --> 01:16:48,440
+this
+
+1034
+01:16:48,679 --> 01:16:56,880
+okay so I think that's a entire solution
+
+1035
+01:16:53,520 --> 01:17:02,000
+um so wait so what does this return so
+
+1036
+01:16:56,880 --> 01:17:04,960
+this returns this returns if that row is
+
+1037
+01:17:02,000 --> 01:17:07,000
+true with the possibility of removing
+
+1038
+01:17:04,960 --> 01:17:10,239
+one item
+
+1039
+01:17:07,000 --> 01:17:13,280
+okay but this is not a function so we
+
+1040
+01:17:10,239 --> 01:17:17,600
+need to okay so let's
+
+1041
+01:17:13,280 --> 01:17:17,600
+make let's write the function
+
+1042
+01:17:20,600 --> 01:17:26,840
+okay this function we are named check
+
+1043
+01:17:24,480 --> 01:17:29,520
+row
+
+1044
+01:17:26,840 --> 01:17:31,159
+maybe
+
+1045
+01:17:29,520 --> 01:17:34,199
+remove
+
+1046
+01:17:31,159 --> 01:17:37,960
+one item
+
+1047
+01:17:34,199 --> 01:17:41,639
+okay return true or
+
+1048
+01:17:37,960 --> 01:17:43,920
+false some documentation always helps so
+
+1049
+01:17:41,639 --> 01:17:46,920
+that's a function name
+
+1050
+01:17:43,920 --> 01:17:46,920
+okay
+
+1051
+01:17:47,960 --> 01:17:59,560
+uh and uh and uh the function will be
+
+1052
+01:17:55,880 --> 01:17:59,560
+yeah it will be just
+
+1053
+01:18:02,560 --> 01:18:07,480
+that and uh
+
+1054
+01:18:11,719 --> 01:18:16,520
+yeah this this is the function
+
+1055
+01:18:18,280 --> 01:18:22,719
+okay okay so
+
+1056
+01:18:27,840 --> 01:18:31,920
+yeah let's just um let's just do it this
+
+1057
+01:18:30,760 --> 01:18:35,199
+way
+
+1058
+01:18:31,920 --> 01:18:35,199
+okay okay
+
+1059
+01:18:37,960 --> 01:18:47,400
+so then you just map this
+
+1060
+01:18:42,400 --> 01:18:49,520
+to you you just map this function
+
+1061
+01:18:47,400 --> 01:18:52,880
+to to
+
+1062
+01:18:49,520 --> 01:18:55,560
+X2 then you got a bunch of true and
+
+1063
+01:18:52,880 --> 01:18:57,440
+false then you just count
+
+1064
+01:18:55,560 --> 01:19:00,840
+okay
+
+1065
+01:18:57,440 --> 01:19:03,639
+count count this
+
+1066
+01:19:00,840 --> 01:19:08,199
+thing you want to count the number of
+
+1067
+01:19:03,639 --> 01:19:08,199
+true items okay I think that's
+
+1068
+01:19:08,760 --> 01:19:15,440
+it okay so the whole thing looks like
+
+1069
+01:19:11,880 --> 01:19:20,159
+that now let's try the uh Toy
+
+1070
+01:19:15,440 --> 01:19:26,719
+input so the toy input
+
+1071
+01:19:20,159 --> 01:19:26,719
+God to input is here let's try that
+
+1072
+01:19:35,800 --> 01:19:39,320
+uh so
+
+1073
+01:19:39,400 --> 01:19:48,920
+what so now is
+
+1074
+01:19:43,440 --> 01:19:48,920
+good it was excellent now it's
+
+1075
+01:19:53,520 --> 01:19:59,719
+good um okay let's see so what is the
+
+1076
+01:19:57,679 --> 01:20:02,280
+thanks to the problem damper four
+
+1077
+01:19:59,719 --> 01:20:05,600
+reports are actually save so so the
+
+1078
+01:20:02,280 --> 01:20:08,840
+result should be four on the toy input
+
+1079
+01:20:05,600 --> 01:20:11,440
+okay so we don't need this
+
+1080
+01:20:08,840 --> 01:20:13,480
+anymore yeah that's a comers some
+
+1081
+01:20:11,440 --> 01:20:18,880
+version so we are
+
+1082
+01:20:13,480 --> 01:20:22,840
+doing this is analysis okay so this is
+
+1083
+01:20:18,880 --> 01:20:25,360
+analysis and uh then this is a Brute
+
+1084
+01:20:22,840 --> 01:20:29,840
+Force way
+
+1085
+01:20:25,360 --> 01:20:33,719
+which we are doing and uh
+
+1086
+01:20:29,840 --> 01:20:33,719
+um okay let's run
+
+1087
+01:20:34,880 --> 01:20:42,040
+it please make it work four fantastic
+
+1088
+01:20:42,239 --> 01:20:49,560
+beautiful now we just
+
+1089
+01:20:46,199 --> 01:20:53,000
+try the full input put the full input
+
+1090
+01:20:49,560 --> 01:20:56,120
+here okay now run
+
+1091
+01:20:53,000 --> 01:20:58,480
+it no maybe or take a
+
+1092
+01:20:56,120 --> 01:21:03,000
+minute wait
+
+1093
+01:20:58,480 --> 01:21:06,000
+644 is that right what was the answer
+
+1094
+01:21:03,000 --> 01:21:06,000
+before
+
+1095
+01:21:06,480 --> 01:21:15,800
+uh 66 now 644 Brute Force way
+
+1096
+01:21:12,800 --> 01:21:15,800
+fantastic
+
+1097
+01:21:16,760 --> 01:21:22,159
+okay
+
+1098
+01:21:18,639 --> 01:21:26,040
+submit that's the right answer fantastic
+
+1099
+01:21:22,159 --> 01:21:26,040
+guys we finished
+
+1100
+01:21:26,440 --> 01:21:30,880
+we finished
+
+1101
+01:21:28,840 --> 01:21:33,800
+fantastic okay thank you guys for
+
+1102
+01:21:30,880 --> 01:21:33,800
+watching bye
+
+1103
+01:21:34,679 --> 01:21:37,679
+guys
+
+1104
+01:21:38,080 --> 01:21:45,440
+yeah okay copy that paste it here now we
+
+1105
+01:21:42,639 --> 01:21:49,560
+can do some clean up but that's it okay
+
+1106
+01:21:45,440 --> 01:21:51,920
+so put it back color it showing browser
+
+1107
+01:21:49,560 --> 01:21:51,920
+that's it
+

@@ -1,0 +1,7844 @@
+1
+00:00:08,880 --> 00:00:19,119
+good morning everyone today is 2019 uh
+
+2
+00:00:14,920 --> 00:00:23,439
+2020 uh today is the last day of 2020
+
+3
+00:00:19,119 --> 00:00:27,560
+and uh welcome to another episode of K
+
+4
+00:00:23,439 --> 00:00:31,080
+talk show and today we are going to do
+
+5
+00:00:27,560 --> 00:00:34,000
+Goan we are going to write a sh script
+
+6
+00:00:31,080 --> 00:00:38,079
+in goand inside goand so in other words
+
+7
+00:00:34,000 --> 00:00:39,399
+we are going to write a sh script um sh
+
+8
+00:00:38,079 --> 00:00:43,640
+script
+
+9
+00:00:39,399 --> 00:00:46,920
+okay bash like that so this is a sh
+
+10
+00:00:43,640 --> 00:00:49,079
+script but we are going to put those
+
+11
+00:00:46,920 --> 00:00:49,960
+code inside goand so I'm writing goand
+
+12
+00:00:49,079 --> 00:00:52,640
+to
+
+13
+00:00:49,960 --> 00:00:55,760
+cell why do I do that let me explain
+
+14
+00:00:52,640 --> 00:00:59,800
+okay today is 2020 December
+
+15
+00:00:55,760 --> 00:01:01,480
+31st um and 2:00 p.m. San Francisco time
+
+16
+00:00:59,800 --> 00:01:05,119
+what welcome
+
+17
+00:01:01,480 --> 00:01:09,360
+all now let me check if I'm alive the
+
+18
+00:01:05,119 --> 00:01:16,000
+status of Sali alive
+
+19
+00:01:09,360 --> 00:01:16,000
+yes and Ender Ender
+
+20
+00:01:16,840 --> 00:01:23,240
+Ender uh okay am I uh checking am I
+
+21
+00:01:21,000 --> 00:01:26,840
+alive yes I
+
+22
+00:01:23,240 --> 00:01:31,920
+am uh concurrent viewers was four become
+
+23
+00:01:26,840 --> 00:01:31,920
+okay so let's begin okay
+
+24
+00:01:32,000 --> 00:01:38,159
+Goan yes indeed
+
+25
+00:01:34,840 --> 00:01:41,520
+um so I'm going to write the Goan script
+
+26
+00:01:38,159 --> 00:01:42,880
+and uh and before we do that let's talk
+
+27
+00:01:41,520 --> 00:01:45,159
+about let me tell you about the
+
+28
+00:01:42,880 --> 00:01:48,439
+background image so background image is
+
+29
+00:01:45,159 --> 00:01:50,600
+this one this is someone else's picture
+
+30
+00:01:48,439 --> 00:01:52,759
+someone else's keyboard This is do it
+
+31
+00:01:50,600 --> 00:01:53,920
+yourself keyboard and this one is called
+
+32
+00:01:52,759 --> 00:01:56,920
+K
+
+33
+00:01:53,920 --> 00:02:01,719
+keyboard so K keyboard looks like that
+
+34
+00:01:56,920 --> 00:02:05,680
+it has total of 42 keys 21 Keys each
+
+35
+00:02:01,719 --> 00:02:08,520
+hand very minimum and someone has this
+
+36
+00:02:05,680 --> 00:02:11,640
+Goan goer key capap this is goland
+
+37
+00:02:08,520 --> 00:02:14,680
+mascot go language okay and there's a
+
+38
+00:02:11,640 --> 00:02:18,640
+variation of this keyboard A variation
+
+39
+00:02:14,680 --> 00:02:22,160
+of the K keyboard called Jong keyboard
+
+40
+00:02:18,640 --> 00:02:24,959
+very strange you know they add basically
+
+41
+00:02:22,160 --> 00:02:27,599
+they add this one extra key at the
+
+42
+00:02:24,959 --> 00:02:30,480
+end I don't know what's that
+
+43
+00:02:27,599 --> 00:02:33,239
+about but this one but this
+
+44
+00:02:30,480 --> 00:02:38,040
+the author of this strong keyboard
+
+45
+00:02:33,239 --> 00:02:41,959
+actually wrote to me saying saying okay
+
+46
+00:02:38,040 --> 00:02:44,360
+so J is essentially a k keyboard with an
+
+47
+00:02:41,959 --> 00:02:47,440
+extra key for brackets and the
+
+48
+00:02:44,360 --> 00:02:50,959
+international layouts okay so this extra
+
+49
+00:02:47,440 --> 00:02:53,280
+keys for bracket okay strange disclaimer
+
+50
+00:02:50,959 --> 00:02:54,920
+like I said you can go to the Moon
+
+51
+00:02:53,280 --> 00:02:58,920
+without a
+
+52
+00:02:54,920 --> 00:03:02,120
+computer yes so you know the thing we
+
+53
+00:02:58,920 --> 00:03:05,040
+are talking about about is 40% keyword
+
+54
+00:03:02,120 --> 00:03:07,319
+which means only 40 Keys it is very hard
+
+55
+00:03:05,040 --> 00:03:09,959
+to type Chinese Japanese Russian with
+
+56
+00:03:07,319 --> 00:03:13,840
+40% keyboard yes indeed that's what I
+
+57
+00:03:09,959 --> 00:03:17,000
+said it's like doubling your work yeah
+
+58
+00:03:13,840 --> 00:03:19,400
+you can but if you need to type that two
+
+59
+00:03:17,000 --> 00:03:20,480
+hours a day you're GNA see a doctor
+
+60
+00:03:19,400 --> 00:03:23,720
+within a
+
+61
+00:03:20,480 --> 00:03:27,280
+month okay so there's a
+
+62
+00:03:23,720 --> 00:03:30,560
+quote so this is a k keyboard and joone
+
+63
+00:03:27,280 --> 00:03:31,959
+keyboard okay you go buy it
+
+64
+00:03:30,560 --> 00:03:38,519
+that's a background
+
+65
+00:03:31,959 --> 00:03:38,519
+image uh and so um what where am
+
+66
+00:03:38,720 --> 00:03:44,200
+I comments okay guys comments am I
+
+67
+00:03:42,319 --> 00:03:47,319
+actually talking
+
+68
+00:03:44,200 --> 00:03:51,360
+alive concurrent views two viewers okay
+
+69
+00:03:47,319 --> 00:03:54,480
+so anyway we are going to do uh Goan uh
+
+70
+00:03:51,360 --> 00:03:56,959
+coding right it's right time right uh
+
+71
+00:03:54,480 --> 00:03:59,599
+212
+
+72
+00:03:56,959 --> 00:04:02,280
+yes okay so that's a background image
+
+73
+00:03:59,599 --> 00:04:04,879
+and we are going to do goand uh goand we
+
+74
+00:04:02,280 --> 00:04:07,799
+are going to do it from scratch
+
+75
+00:04:04,879 --> 00:04:09,480
+okay let me gather my thoughts let's see
+
+76
+00:04:07,799 --> 00:04:13,400
+what I'm going to do and let's see if
+
+77
+00:04:09,480 --> 00:04:16,600
+I'm ready and uh and let's shall C it
+
+78
+00:04:13,400 --> 00:04:18,639
+let's shall uh start to code it now
+
+79
+00:04:16,600 --> 00:04:21,360
+actually there are two things I want to
+
+80
+00:04:18,639 --> 00:04:24,560
+do one is this
+
+81
+00:04:21,360 --> 00:04:26,880
+um you know let me let let me explain
+
+82
+00:04:24,560 --> 00:04:29,560
+this one so this is a sh script so what
+
+83
+00:04:26,880 --> 00:04:31,880
+it does is that uh this is a function
+
+84
+00:04:29,560 --> 00:04:35,160
+okay okay can I actually intend it okay
+
+85
+00:04:31,880 --> 00:04:36,360
+I can actually intend it yeah okay let's
+
+86
+00:04:35,160 --> 00:04:39,800
+intend
+
+87
+00:04:36,360 --> 00:04:41,720
+it so what this sh script does you see
+
+88
+00:04:39,800 --> 00:04:43,840
+so this is a function this is how I how
+
+89
+00:04:41,720 --> 00:04:47,320
+you WR write a function I've never done
+
+90
+00:04:43,840 --> 00:04:49,080
+sh script before this is actually you
+
+91
+00:04:47,320 --> 00:04:53,880
+can say this is the first time I'm
+
+92
+00:04:49,080 --> 00:04:53,880
+writing a sh script that involves a
+
+93
+00:04:54,400 --> 00:05:00,000
+function now I have a big story about sh
+
+94
+00:04:57,759 --> 00:05:03,080
+script how shall you should you should
+
+95
+00:05:00,000 --> 00:05:06,240
+you not use uh learn bash should you or
+
+96
+00:05:03,080 --> 00:05:10,840
+should you not uh long story I have a
+
+97
+00:05:06,240 --> 00:05:10,840
+long story about it 20 years of
+
+98
+00:05:12,280 --> 00:05:18,680
+experience okay uh I'm thinking about
+
+99
+00:05:15,000 --> 00:05:21,199
+where am I going so yeah this so look at
+
+100
+00:05:18,680 --> 00:05:25,240
+this article one language to rule them
+
+101
+00:05:21,199 --> 00:05:28,479
+all or what language to use for find and
+
+102
+00:05:25,240 --> 00:05:31,919
+replace so this is an article I wrote In
+
+103
+00:05:28,479 --> 00:05:35,080
+2011 and and by that time I already I
+
+104
+00:05:31,919 --> 00:05:38,639
+was I'm I'm doing Unix admin and writing
+
+105
+00:05:35,080 --> 00:05:41,600
+show scripts well not you know Unix
+
+106
+00:05:38,639 --> 00:05:45,319
+admin for like 10 years so and this
+
+107
+00:05:41,600 --> 00:05:49,319
+article accounts my experience about
+
+108
+00:05:45,319 --> 00:05:53,000
+whether you should write sh script or in
+
+109
+00:05:49,319 --> 00:05:55,080
+other words should bash be banned banned
+
+110
+00:05:53,000 --> 00:05:58,479
+from the face of this
+
+111
+00:05:55,080 --> 00:06:01,639
+Earth so this article I talk about that
+
+112
+00:05:58,479 --> 00:06:05,000
+experience um um okay you go read it
+
+113
+00:06:01,639 --> 00:06:08,120
+okay re go read it this is homework
+
+114
+00:06:05,000 --> 00:06:11,599
+let's go to talk show and on the right
+
+115
+00:06:08,120 --> 00:06:14,160
+window you can see all my um let's close
+
+116
+00:06:11,599 --> 00:06:16,599
+that on the right window on the pink
+
+117
+00:06:14,160 --> 00:06:20,039
+window you can see all my emx keys and
+
+118
+00:06:16,599 --> 00:06:24,319
+command CES and go to S Talk Show today
+
+119
+00:06:20,039 --> 00:06:28,800
+and the con keyboard and make a new line
+
+120
+00:06:24,319 --> 00:06:34,240
+magnify and uh merge these two so this
+
+121
+00:06:28,800 --> 00:06:36,759
+is our topic today magnify okay so uh
+
+122
+00:06:34,240 --> 00:06:40,880
+what language to Ru them all or what
+
+123
+00:06:36,759 --> 00:06:45,080
+language to use for finds and uh replace
+
+124
+00:06:40,880 --> 00:06:48,919
+so shall I go over it
+
+125
+00:06:45,080 --> 00:06:51,400
+um so I explain so the reason I'm
+
+126
+00:06:48,919 --> 00:06:53,000
+thinking about this because I write a
+
+127
+00:06:51,400 --> 00:06:56,840
+lot a
+
+128
+00:06:53,000 --> 00:06:59,960
+lot find and script I mean find and
+
+129
+00:06:56,840 --> 00:07:02,000
+replace scripts for example uh in text
+
+130
+00:06:59,960 --> 00:07:04,319
+you want to find some function and
+
+131
+00:07:02,000 --> 00:07:06,680
+rename it or you know find and replace
+
+132
+00:07:04,319 --> 00:07:10,280
+or sometimes SCP you know in the Unix
+
+133
+00:07:06,680 --> 00:07:13,120
+tradition it's called grab and set
+
+134
+00:07:10,280 --> 00:07:15,759
+set grab and set okay that's a
+
+135
+00:07:13,120 --> 00:07:18,240
+traditional Unix way grab is for find
+
+136
+00:07:15,759 --> 00:07:21,560
+you know grab for example you know I can
+
+137
+00:07:18,240 --> 00:07:24,759
+show you okay so we go to the emac Shell
+
+138
+00:07:21,560 --> 00:07:28,479
+let's show the window so
+
+139
+00:07:24,759 --> 00:07:30,479
+grab uh Jesus I haven't used oh yeah
+
+140
+00:07:28,479 --> 00:07:33,599
+okay okay here is what to do okay here's
+
+141
+00:07:30,479 --> 00:07:36,160
+a syntax I haven't used haven't used
+
+142
+00:07:33,599 --> 00:07:39,520
+grab for more than 10 years because I
+
+143
+00:07:36,160 --> 00:07:42,240
+always use it within emx or uh you know
+
+144
+00:07:39,520 --> 00:07:44,680
+because I have my as I said I have
+
+145
+00:07:42,240 --> 00:07:47,319
+written so many times in different
+
+146
+00:07:44,680 --> 00:07:52,599
+languages scripts that do that does
+
+147
+00:07:47,319 --> 00:07:56,800
+scrip in Pearl python Goan um and emac
+
+148
+00:07:52,599 --> 00:07:59,520
+Lis okay I have a version of all of of
+
+149
+00:07:56,800 --> 00:08:01,560
+grab and I also have a version for set
+
+150
+00:07:59,520 --> 00:08:04,000
+okay let me explain grab first okay grab
+
+151
+00:08:01,560 --> 00:08:07,159
+so this is a traditional uh Unix tool
+
+152
+00:08:04,000 --> 00:08:09,280
+for finding some text in a file let's
+
+153
+00:08:07,159 --> 00:08:11,479
+grab hascal okay hascal is everyone
+
+154
+00:08:09,280 --> 00:08:14,280
+wants to know hascal so you want to grab
+
+155
+00:08:11,479 --> 00:08:18,240
+the keyword hascal in all files ending
+
+156
+00:08:14,280 --> 00:08:20,879
+in HTML enter there it is now within
+
+157
+00:08:18,240 --> 00:08:24,280
+emac you can you can see this is the
+
+158
+00:08:20,879 --> 00:08:27,240
+advantage of coding uh grab Unix tools
+
+159
+00:08:24,280 --> 00:08:29,840
+within emac because so this is these are
+
+160
+00:08:27,240 --> 00:08:32,360
+all the occurrences you see it occurs in
+
+161
+00:08:29,840 --> 00:08:35,519
+this file occur in this file occur in
+
+162
+00:08:32,360 --> 00:08:40,200
+this file and you can just press enter
+
+163
+00:08:35,519 --> 00:08:40,200
+to jump to that file you see uh
+
+164
+00:08:40,519 --> 00:08:46,000
+here okay let's let's do it again where
+
+165
+00:08:43,279 --> 00:08:46,000
+is it
+
+166
+00:08:46,080 --> 00:08:52,160
+um okay there it
+
+167
+00:08:48,360 --> 00:08:54,839
+is talk show okay iMac this sit map
+
+168
+00:08:52,160 --> 00:08:58,839
+python syntax and design type Theory
+
+169
+00:08:54,839 --> 00:09:03,440
+hascal there it is so this is SCP okay
+
+170
+00:08:58,839 --> 00:09:06,480
+uh and uh so this is cing grap in
+
+171
+00:09:03,440 --> 00:09:09,360
+emac let's show you uh let me show you
+
+172
+00:09:06,480 --> 00:09:11,480
+let's go back to um split the window
+
+173
+00:09:09,360 --> 00:09:14,200
+let's go back to EA you see this is this
+
+174
+00:09:11,480 --> 00:09:16,360
+is the Syntax for grip now we can call
+
+175
+00:09:14,200 --> 00:09:19,560
+this in terminal okay let me show you
+
+176
+00:09:16,360 --> 00:09:24,360
+how it show looks like in terminal so go
+
+177
+00:09:19,560 --> 00:09:26,880
+to uh call Sar open Terminal opening
+
+178
+00:09:24,360 --> 00:09:29,120
+terminal this is the emac command I
+
+179
+00:09:26,880 --> 00:09:31,920
+wrote so there it is the terminal okay
+
+180
+00:09:29,120 --> 00:09:33,320
+Max magnify magnify so let's do grab
+
+181
+00:09:31,920 --> 00:09:36,640
+again grab
+
+182
+00:09:33,320 --> 00:09:39,160
+hascal all files ending in HTML so here
+
+183
+00:09:36,640 --> 00:09:43,560
+is the output
+
+184
+00:09:39,160 --> 00:09:46,839
+ugly and it's unreadable okay so that's
+
+185
+00:09:43,560 --> 00:09:51,560
+a in Shell so this is advantage of
+
+186
+00:09:46,839 --> 00:09:55,480
+coling grab in emx so you got you know
+
+187
+00:09:51,560 --> 00:09:58,920
+uh this uh color of colored interactive
+
+188
+00:09:55,480 --> 00:10:01,839
+output so grab is a traditional Unix
+
+189
+00:09:58,920 --> 00:10:05,600
+tool or Linux uh for finding text in
+
+190
+00:10:01,839 --> 00:10:09,120
+some file now another traditional Unix
+
+191
+00:10:05,600 --> 00:10:13,040
+tool for find and replace is suppose you
+
+192
+00:10:09,120 --> 00:10:17,880
+want to replace all the words hascal by
+
+193
+00:10:13,040 --> 00:10:17,880
+Goan okay so that's
+
+194
+00:10:19,120 --> 00:10:25,959
+Set uh okay so in emac let's do men set
+
+195
+00:10:23,320 --> 00:10:30,000
+okay so this is a set man page actually
+
+196
+00:10:25,959 --> 00:10:32,279
+I haven't used set for a long time I you
+
+197
+00:10:30,000 --> 00:10:35,800
+know I said is not good you know because
+
+198
+00:10:32,279 --> 00:10:38,959
+these days you code in Pearl python Ruby
+
+199
+00:10:35,800 --> 00:10:42,079
+even PHP and Goan or even JavaScript
+
+200
+00:10:38,959 --> 00:10:43,480
+with Teno you can write all these you
+
+201
+00:10:42,079 --> 00:10:46,360
+know in 10 minutes if you know the
+
+202
+00:10:43,480 --> 00:10:49,200
+language and uh you can and you can
+
+203
+00:10:46,360 --> 00:10:52,760
+customize it to your needs instead of
+
+204
+00:10:49,200 --> 00:10:55,279
+using the Unix grab and set [ __ ] they
+
+205
+00:10:52,760 --> 00:10:57,800
+are [ __ ] okay they are [ __ ] up [ __ ] oh
+
+206
+00:10:55,279 --> 00:11:00,000
+[ __ ] up [ __ ] that's what they are they
+
+207
+00:10:57,800 --> 00:11:02,880
+they have lots of problems I mean
+
+208
+00:11:00,000 --> 00:11:04,600
+typically my my readers you you are
+
+209
+00:11:02,880 --> 00:11:08,480
+probably a Linux
+
+210
+00:11:04,600 --> 00:11:11,560
+fan and you what what what is this guy
+
+211
+00:11:08,480 --> 00:11:14,920
+saying what crap is [ __ ] yes it is it's
+
+212
+00:11:11,560 --> 00:11:17,279
+so [ __ ] [ __ ] long history I'm not going
+
+213
+00:11:14,920 --> 00:11:19,760
+to even go you know I can tell you the
+
+214
+00:11:17,279 --> 00:11:23,360
+reasons from 20 years ago to today it's
+
+215
+00:11:19,760 --> 00:11:26,639
+no good so set so here is your uh your
+
+216
+00:11:23,360 --> 00:11:29,519
+set okay set it's you know it's called
+
+217
+00:11:26,639 --> 00:11:34,519
+stream editor stream editor editor
+
+218
+00:11:29,519 --> 00:11:37,160
+stream your ass and editor your
+
+219
+00:11:34,519 --> 00:11:40,600
+ass and look at this incomprehensible
+
+220
+00:11:37,160 --> 00:11:43,639
+anyway anyway let's we are
+
+221
+00:11:40,600 --> 00:11:45,600
+digressing gra grab and set okay uh okay
+
+222
+00:11:43,639 --> 00:11:48,320
+starting to have people coming in so we
+
+223
+00:11:45,600 --> 00:11:51,320
+actually are you guys here to look for
+
+224
+00:11:48,320 --> 00:11:53,959
+the goand coding because if you guys are
+
+225
+00:11:51,320 --> 00:11:57,120
+here to look for the Goan uh scripting
+
+226
+00:11:53,959 --> 00:11:58,680
+actually I should um start to write Goan
+
+227
+00:11:57,120 --> 00:12:00,360
+instead of instead of rambling about
+
+228
+00:11:58,680 --> 00:12:05,000
+grab set because I can talk about this
+
+229
+00:12:00,360 --> 00:12:07,519
+for 10 hours non stop so grab and set
+
+230
+00:12:05,000 --> 00:12:10,399
+they are the traditional Unix tools one
+
+231
+00:12:07,519 --> 00:12:12,639
+for find strings in files another one
+
+232
+00:12:10,399 --> 00:12:16,040
+for uh find and replace in fact I have a
+
+233
+00:12:12,639 --> 00:12:18,519
+I have a tutorial for it let's go to un
+
+234
+00:12:16,040 --> 00:12:22,040
+uh Linux website
+
+235
+00:12:18,519 --> 00:12:25,560
+okay practical Linux
+
+236
+00:12:22,040 --> 00:12:28,560
+tutorial so there you have it if you are
+
+237
+00:12:25,560 --> 00:12:32,000
+new to Unix or Linux you know there
+
+238
+00:12:28,560 --> 00:12:34,399
+there is a there is your grip
+
+239
+00:12:32,000 --> 00:12:38,160
+grip and
+
+240
+00:12:34,399 --> 00:12:40,839
+rejects uh and uh and uh stuff and stuff
+
+241
+00:12:38,160 --> 00:12:42,360
+you know unique stuff grip and grip and
+
+242
+00:12:40,839 --> 00:12:44,800
+grip
+
+243
+00:12:42,360 --> 00:12:48,959
+grip it's you know actually is quite
+
+244
+00:12:44,800 --> 00:12:52,000
+useful actually um yeah
+
+245
+00:12:48,959 --> 00:12:55,160
+still yeah but I
+
+246
+00:12:52,000 --> 00:12:57,360
+mean here's here's the way uh to put it
+
+247
+00:12:55,160 --> 00:12:59,279
+okay yeah grip is you know they are Unix
+
+248
+00:12:57,360 --> 00:13:00,760
+tools they are traditional and they are
+
+249
+00:12:59,279 --> 00:13:03,320
+they are still around and they are not
+
+250
+00:13:00,760 --> 00:13:05,560
+going to go away they are not going to
+
+251
+00:13:03,320 --> 00:13:09,440
+away they will they probably will not
+
+252
+00:13:05,560 --> 00:13:11,120
+going go away in 10 10 10 years okay but
+
+253
+00:13:09,440 --> 00:13:13,000
+however I mean because they are part of
+
+254
+00:13:11,120 --> 00:13:14,959
+the uni system they are not going to go
+
+255
+00:13:13,000 --> 00:13:17,279
+away just like VI is not going to go
+
+256
+00:13:14,959 --> 00:13:21,040
+away okay so
+
+257
+00:13:17,279 --> 00:13:24,000
+um they are useful in many re for many
+
+258
+00:13:21,040 --> 00:13:26,399
+reasons one is is the momentum it's a
+
+259
+00:13:24,000 --> 00:13:28,959
+you know backward compatibility because
+
+260
+00:13:26,399 --> 00:13:32,519
+every every install tools you know they
+
+261
+00:13:28,959 --> 00:13:34,560
+are probably call Web okay because they
+
+262
+00:13:32,519 --> 00:13:38,279
+because it's installed in every Unix
+
+263
+00:13:34,560 --> 00:13:40,880
+Linux uh you know and on the Mac so you
+
+264
+00:13:38,279 --> 00:13:43,839
+cannot Escape it you have to use it it's
+
+265
+00:13:40,880 --> 00:13:47,120
+like the is momentum it's like a the C
+
+266
+00:13:43,839 --> 00:13:50,839
+language the most [ __ ] up [ __ ] C and
+
+267
+00:13:47,120 --> 00:13:52,320
+C++ [ __ ] okay but you cannot Escape it
+
+268
+00:13:50,839 --> 00:13:54,759
+because it's like a black hole it's
+
+269
+00:13:52,320 --> 00:13:57,639
+already very big you know it's not going
+
+270
+00:13:54,759 --> 00:14:01,839
+to die anytime soon same way with the
+
+271
+00:13:57,639 --> 00:14:04,600
+Unix tools that uh GP
+
+272
+00:14:01,839 --> 00:14:07,320
+okay but however if your need is
+
+273
+00:14:04,600 --> 00:14:08,839
+actually find and replace and without
+
+274
+00:14:07,320 --> 00:14:11,320
+you know if you are not working a
+
+275
+00:14:08,839 --> 00:14:13,079
+company but I mean your goal you need to
+
+276
+00:14:11,320 --> 00:14:14,720
+do something find replace for your own
+
+277
+00:14:13,079 --> 00:14:16,839
+system or something or you starting your
+
+278
+00:14:14,720 --> 00:14:18,399
+own company then you don't need grab and
+
+279
+00:14:16,839 --> 00:14:23,000
+set okay because you can do that in
+
+280
+00:14:18,399 --> 00:14:26,120
+Pearl in Python in Ruby in Goan in
+
+281
+00:14:23,000 --> 00:14:28,519
+JavaScript okay with Teno uh you can do
+
+282
+00:14:26,120 --> 00:14:30,440
+it easy in five minutes and customize to
+
+283
+00:14:28,519 --> 00:14:33,560
+your needs because I have I have already
+
+284
+00:14:30,440 --> 00:14:36,120
+written uh tens of such scripts I and
+
+285
+00:14:33,560 --> 00:14:40,000
+I've in fact I've talked about this in
+
+286
+00:14:36,120 --> 00:14:44,199
+dedicated CL talk show uh once or twice
+
+287
+00:14:40,000 --> 00:14:46,600
+at least where I showed you my GitHub
+
+288
+00:14:44,199 --> 00:14:46,600
+just you
+
+289
+00:14:47,000 --> 00:14:52,600
+know should I start to do go land or not
+
+290
+00:14:49,920 --> 00:14:56,040
+you know I because I'm digressing so
+
+291
+00:14:52,600 --> 00:14:57,639
+much uh okay so so grab and set so I was
+
+292
+00:14:56,040 --> 00:15:00,079
+saying grab and set is a traditional
+
+293
+00:14:57,639 --> 00:15:03,759
+Unix tool and and
+
+294
+00:15:00,079 --> 00:15:05,839
+uh okay let's let's just go you go go go
+
+295
+00:15:03,759 --> 00:15:09,320
+uh let's go to Goan okay let's show you
+
+296
+00:15:05,839 --> 00:15:11,920
+quickly quickly what my scripts about
+
+297
+00:15:09,320 --> 00:15:17,639
+okay so here's goand tutorial then you
+
+298
+00:15:11,920 --> 00:15:21,639
+go to find string so here is a uh uh
+
+299
+00:15:17,639 --> 00:15:23,680
+code written in Goan that does grap okay
+
+300
+00:15:21,639 --> 00:15:26,120
+more powerful than grap because you can
+
+301
+00:15:23,680 --> 00:15:28,199
+you can you can specify which directory
+
+302
+00:15:26,120 --> 00:15:31,079
+you need which one you don't need or you
+
+303
+00:15:28,199 --> 00:15:33,560
+can specify which directory to ignore or
+
+304
+00:15:31,079 --> 00:15:37,440
+you can specify
+
+305
+00:15:33,560 --> 00:15:39,399
+multiple uh search string in grab is
+
+306
+00:15:37,440 --> 00:15:42,199
+just one okay you can you can specify
+
+307
+00:15:39,399 --> 00:15:45,079
+multiple search screen string search
+
+308
+00:15:42,199 --> 00:15:48,160
+string and you can also specify how much
+
+309
+00:15:45,079 --> 00:15:49,839
+context to show before the string
+
+310
+00:15:48,160 --> 00:15:52,759
+occurrence or after the string
+
+311
+00:15:49,839 --> 00:15:55,560
+occurrence or don't show them at all or
+
+312
+00:15:52,759 --> 00:15:57,720
+you can uh you can modify it you know in
+
+313
+00:15:55,560 --> 00:15:59,839
+fact I have a script uh you can just do
+
+314
+00:15:57,720 --> 00:16:02,079
+count
+
+315
+00:15:59,839 --> 00:16:06,519
+uh of course you can do this in Unix to
+
+316
+00:16:02,079 --> 00:16:09,680
+but in in sh then it becomes SCP find
+
+317
+00:16:06,519 --> 00:16:12,399
+and and X Arc and very complex
+
+318
+00:16:09,680 --> 00:16:15,040
+eventually you start to write Pearl
+
+319
+00:16:12,399 --> 00:16:18,800
+that's the birth of pearl because Pearl
+
+320
+00:16:15,040 --> 00:16:20,839
+the L world is fed up with the Unix [ __ ]
+
+321
+00:16:18,800 --> 00:16:23,480
+so he created Pearl that's the reason
+
+322
+00:16:20,839 --> 00:16:26,240
+Pearl was Bor and it became the most
+
+323
+00:16:23,480 --> 00:16:29,720
+popular scripting language for 10
+
+324
+00:16:26,240 --> 00:16:33,440
+years in the in starting around
+
+325
+00:16:29,720 --> 00:16:36,279
+1995 and pearl died around let's say
+
+326
+00:16:33,440 --> 00:16:38,839
+2010 nobody is using Pearl now because
+
+327
+00:16:36,279 --> 00:16:41,519
+python took over and for reasons and and
+
+328
+00:16:38,839 --> 00:16:41,519
+and Ruby and
+
+329
+00:16:41,880 --> 00:16:48,839
+PHP okay so here is a Goan script for
+
+330
+00:16:45,360 --> 00:16:52,040
+find for for GP okay then you have a
+
+331
+00:16:48,839 --> 00:16:54,639
+Goan script for set basically set is
+
+332
+00:16:52,040 --> 00:16:58,959
+find and replace okay Goan script very
+
+333
+00:16:54,639 --> 00:17:01,399
+powerful and you if you are into python
+
+334
+00:16:58,959 --> 00:17:04,360
+here is the python script for find and
+
+335
+00:17:01,399 --> 00:17:06,959
+replace I use it I used the this for 10
+
+336
+00:17:04,360 --> 00:17:09,039
+years you know and then the granddaddy
+
+337
+00:17:06,959 --> 00:17:12,240
+is the Pearl
+
+338
+00:17:09,039 --> 00:17:14,240
+version find and replace string in uh
+
+339
+00:17:12,240 --> 00:17:17,240
+string pirs in directory so you can do
+
+340
+00:17:14,240 --> 00:17:19,839
+multiple find replace pairs in one shot
+
+341
+00:17:17,240 --> 00:17:23,039
+you know and you know let me tell you
+
+342
+00:17:19,839 --> 00:17:25,480
+one big problem about set in Unix
+
+343
+00:17:23,039 --> 00:17:27,959
+because the Unix philosophy [ __ ] you
+
+344
+00:17:25,480 --> 00:17:30,799
+know they truncate lines you know if
+
+345
+00:17:27,959 --> 00:17:33,760
+your lines is long than 80 characters
+
+346
+00:17:30,799 --> 00:17:37,320
+they silently and automatically just cut
+
+347
+00:17:33,760 --> 00:17:39,160
+it off like as as if it doesn't exist so
+
+348
+00:17:37,320 --> 00:17:41,600
+you are trying to grab you know some
+
+349
+00:17:39,160 --> 00:17:45,280
+some important word let's say you are
+
+350
+00:17:41,600 --> 00:17:48,039
+trying to grab uh
+
+351
+00:17:45,280 --> 00:17:50,559
+disaster but it so happens that word is
+
+352
+00:17:48,039 --> 00:17:52,320
+longer than you know at longer than 80
+
+353
+00:17:50,559 --> 00:17:54,480
+lines it just
+
+354
+00:17:52,320 --> 00:17:57,159
+truncated and it doesn't tell you it
+
+355
+00:17:54,480 --> 00:17:59,559
+just it says disaster not found but
+
+356
+00:17:57,159 --> 00:18:03,480
+actually because it truncated that that
+
+357
+00:17:59,559 --> 00:18:06,880
+is the that is the history of Unix Unix
+
+358
+00:18:03,480 --> 00:18:09,240
+is like that uh in 1980s and up to and
+
+359
+00:18:06,880 --> 00:18:12,640
+and even up to year
+
+360
+00:18:09,240 --> 00:18:15,280
+2000 year 2000 okay because T was doing
+
+361
+00:18:12,640 --> 00:18:17,880
+that if you T something a directory and
+
+362
+00:18:15,280 --> 00:18:20,120
+if the directory names is more than 120
+
+363
+00:18:17,880 --> 00:18:22,200
+characters it just
+
+364
+00:18:20,120 --> 00:18:25,400
+truncated then you send it this
+
+365
+00:18:22,200 --> 00:18:29,720
+important file to FBI you know it's a
+
+366
+00:18:25,400 --> 00:18:33,640
+big secret then they unti it and and the
+
+367
+00:18:29,720 --> 00:18:37,039
+files are file names are trated
+
+368
+00:18:33,640 --> 00:18:40,480
+silently I have a article on that too is
+
+369
+00:18:37,039 --> 00:18:42,880
+somewhere just search for um I have too
+
+370
+00:18:40,480 --> 00:18:45,039
+many articles so depending on where um
+
+371
+00:18:42,880 --> 00:18:47,280
+what you guys are saying so and that
+
+372
+00:18:45,039 --> 00:18:51,200
+determines which direction I'm going to
+
+373
+00:18:47,280 --> 00:18:51,200
+talk okay
+
+374
+00:18:52,159 --> 00:18:59,440
+uh uh okay so let's see uh I don't want
+
+375
+00:18:56,039 --> 00:19:02,200
+to use hasc grip uh hate
+
+376
+00:18:59,440 --> 00:19:03,360
+gra hat hater okay year change year
+
+377
+00:19:02,200 --> 00:19:06,360
+changed
+
+378
+00:19:03,360 --> 00:19:13,440
+johani okay yeah uh
+
+379
+00:19:06,360 --> 00:19:13,440
+2021 amazing 2021 2021 I I am
+
+380
+00:19:13,799 --> 00:19:20,240
+um Jesus I'm
+
+381
+00:19:16,640 --> 00:19:23,760
+53 well not yet but you know I'm I'm I'm
+
+382
+00:19:20,240 --> 00:19:26,679
+52 now but about to be
+
+383
+00:19:23,760 --> 00:19:30,159
+53 you know I can code maybe five more
+
+384
+00:19:26,679 --> 00:19:32,760
+years then you will not here for me now
+
+385
+00:19:30,159 --> 00:19:35,720
+you we you know I'll just quietly
+
+386
+00:19:32,760 --> 00:19:37,360
+quietly disappear just like every uh
+
+387
+00:19:35,720 --> 00:19:40,360
+Hollywood
+
+388
+00:19:37,360 --> 00:19:42,840
+star okay Robin Wheels morning good
+
+389
+00:19:40,360 --> 00:19:45,679
+morning Anon
+
+390
+00:19:42,840 --> 00:19:48,880
+um anything you do is fine for me not
+
+391
+00:19:45,679 --> 00:19:51,240
+here for Goan okay okay uh I see your
+
+392
+00:19:48,880 --> 00:19:53,919
+new PC build on Twitter yes you can
+
+393
+00:19:51,240 --> 00:19:57,679
+stream games when you get it indeed now
+
+394
+00:19:53,919 --> 00:20:02,360
+I'm I joined the the game again and I'm
+
+395
+00:19:57,679 --> 00:20:05,159
+going to Frack this malen Jen gamer ass
+
+396
+00:20:02,360 --> 00:20:07,960
+this I despise them so much you know
+
+397
+00:20:05,159 --> 00:20:10,919
+this American Gamers you can see them on
+
+398
+00:20:07,960 --> 00:20:14,159
+YouTube and many of you guys too you
+
+399
+00:20:10,919 --> 00:20:18,799
+know let's do you know uh on the video
+
+400
+00:20:14,159 --> 00:20:24,200
+games 3D video 3D video games firsters
+
+401
+00:20:18,799 --> 00:20:27,760
+shooter games I will Frack your ass in a
+
+402
+00:20:24,200 --> 00:20:29,640
+3D first person shooter games okay and
+
+403
+00:20:27,760 --> 00:20:31,520
+not Craig okay I'm not I don't want to
+
+404
+00:20:29,640 --> 00:20:34,000
+play quick I want to play a game let me
+
+405
+00:20:31,520 --> 00:20:36,400
+show you okay I want to play a game
+
+406
+00:20:34,000 --> 00:20:38,960
+where there's no machine gun or real gun
+
+407
+00:20:36,400 --> 00:20:43,559
+or zap zap electronic you know what the
+
+408
+00:20:38,960 --> 00:20:47,039
+[ __ ] guns the only weapon allowed is
+
+409
+00:20:43,559 --> 00:20:48,400
+single shot rifle okay like one shot and
+
+410
+00:20:47,039 --> 00:20:52,440
+you have to reload
+
+411
+00:20:48,400 --> 00:20:55,600
+it so in this game I found such a game
+
+412
+00:20:52,440 --> 00:20:58,799
+uh on during our Discord chat with uh
+
+413
+00:20:55,600 --> 00:21:01,520
+friends help lunarious and many other
+
+414
+00:20:58,799 --> 00:21:04,960
+people help me you know we were talking
+
+415
+00:21:01,520 --> 00:21:07,720
+about games so once I get my new
+
+416
+00:21:04,960 --> 00:21:09,400
+computer and thank you guys for uh you
+
+417
+00:21:07,720 --> 00:21:13,159
+know I got
+
+418
+00:21:09,400 --> 00:21:16,279
+$4,000 over the past four years from
+
+419
+00:21:13,159 --> 00:21:17,840
+from patreon so I can I can buy a
+
+420
+00:21:16,279 --> 00:21:20,720
+computer
+
+421
+00:21:17,840 --> 00:21:22,600
+now so once I get a computer but I'm
+
+422
+00:21:20,720 --> 00:21:25,559
+getting old I'm not sure I'm going to
+
+423
+00:21:22,600 --> 00:21:27,600
+get into games but you know there's a
+
+424
+00:21:25,559 --> 00:21:29,679
+Temptation there because I'm a nerd you
+
+425
+00:21:27,600 --> 00:21:32,679
+know I I want to know know what's going
+
+426
+00:21:29,679 --> 00:21:35,600
+on in games too so but if I get into
+
+427
+00:21:32,679 --> 00:21:38,760
+games I want to play a a first person
+
+428
+00:21:35,600 --> 00:21:41,760
+shooter one on one such that the weapon
+
+429
+00:21:38,760 --> 00:21:44,080
+is single shot RI rifle every time you
+
+430
+00:21:41,760 --> 00:21:47,120
+click Mouse click M click you make a
+
+431
+00:21:44,080 --> 00:21:49,679
+shot you have to reload okay no machine
+
+432
+00:21:47,120 --> 00:21:53,760
+gun no automatic or no semi-automatic
+
+433
+00:21:49,679 --> 00:21:55,279
+crap okay so in that game one onone I
+
+434
+00:21:53,760 --> 00:22:00,799
+will kick your
+
+435
+00:21:55,279 --> 00:22:04,120
+ass I'm fairly confident in saying that
+
+436
+00:22:00,799 --> 00:22:06,559
+okay uh and that game that game
+
+437
+00:22:04,120 --> 00:22:09,440
+lunarious told me that that game I found
+
+438
+00:22:06,559 --> 00:22:11,960
+this uh you know I'm asking you guys
+
+439
+00:22:09,440 --> 00:22:15,360
+what uh is there such a game and there
+
+440
+00:22:11,960 --> 00:22:19,000
+it is there is so one of them is at
+
+441
+00:22:15,360 --> 00:22:25,720
+least one of them is this one
+
+442
+00:22:19,000 --> 00:22:28,159
+okay this one one versus one rats insta
+
+443
+00:22:25,720 --> 00:22:31,360
+Gip okay that that's a game and it's
+
+444
+00:22:28,159 --> 00:22:31,360
+only 5 I
+
+445
+00:22:35,600 --> 00:22:42,320
+think because in Second Life you know I
+
+446
+00:22:38,559 --> 00:22:44,720
+I played with these um young people you
+
+447
+00:22:42,320 --> 00:22:44,720
+know
+
+448
+00:22:45,320 --> 00:22:52,039
+the anyway this is a game okay one uh
+
+449
+00:22:48,640 --> 00:22:55,400
+it's the name of the game is RADS instag
+
+450
+00:22:52,039 --> 00:22:57,520
+Gip now instag Gip is a slan it's a
+
+451
+00:22:55,400 --> 00:23:00,200
+gamer SL of course they have so many
+
+452
+00:22:57,520 --> 00:23:01,400
+gamer SLS and you know you can I looked
+
+453
+00:23:00,200 --> 00:23:05,080
+up you know
+
+454
+00:23:01,400 --> 00:23:09,279
+it's you know instag Gip it's this
+
+455
+00:23:05,080 --> 00:23:09,279
+atmology for it instant
+
+456
+00:23:11,240 --> 00:23:17,880
+instant so actually um so I maybe I
+
+457
+00:23:15,039 --> 00:23:21,880
+should go back to talk about
+
+458
+00:23:17,880 --> 00:23:24,400
+programming uh emac and esoteric
+
+459
+00:23:21,880 --> 00:23:27,840
+Computing Happy New
+
+460
+00:23:24,400 --> 00:23:29,240
+Year's how many times can one rebuild
+
+461
+00:23:27,840 --> 00:23:33,840
+the wheel
+
+462
+00:23:29,240 --> 00:23:37,720
+um I see your new pc okay um emac and
+
+463
+00:23:33,840 --> 00:23:40,640
+esoteric okay what is the I patch for oh
+
+464
+00:23:37,720 --> 00:23:44,559
+I have a cross eye I have a little a bit
+
+465
+00:23:40,640 --> 00:23:48,400
+crossy since I was um te I
+
+466
+00:23:44,559 --> 00:23:51,919
+think IMX and Es okay so what's what is
+
+467
+00:23:48,400 --> 00:23:54,720
+the most important books to learn for
+
+468
+00:23:51,919 --> 00:23:57,320
+programmer okay that's um there's no
+
+469
+00:23:54,720 --> 00:23:59,760
+such thing what's okay what is the most
+
+470
+00:23:57,320 --> 00:24:02,559
+important books to learn for programmer
+
+471
+00:23:59,760 --> 00:24:05,080
+yeah there's no such
+
+472
+00:24:02,559 --> 00:24:09,360
+idea you you just learn programming okay
+
+473
+00:24:05,080 --> 00:24:09,360
+there's no magic uh
+
+474
+00:24:10,880 --> 00:24:22,760
+trick Sid Ali hello uh FMS hello and uh
+
+475
+00:24:17,840 --> 00:24:25,320
+uh R Runo says R instag G is like Quake
+
+476
+00:24:22,760 --> 00:24:28,760
+with only real gun weapon I played it
+
+477
+00:24:25,320 --> 00:24:31,880
+before yeah you know the gamers they say
+
+478
+00:24:28,760 --> 00:24:35,640
+real gun weapon you know so and there's
+
+479
+00:24:31,880 --> 00:24:39,039
+also another term I learned it's
+
+480
+00:24:35,640 --> 00:24:41,640
+called Uh another term I learned that
+
+481
+00:24:39,039 --> 00:24:43,960
+refers to the way Rail Gun Works
+
+482
+00:24:41,640 --> 00:24:46,520
+basically a line of sight you know
+
+483
+00:24:43,960 --> 00:24:51,679
+instant line of sight
+
+484
+00:24:46,520 --> 00:24:53,679
+death and the gamas have a ter for
+
+485
+00:24:51,679 --> 00:24:57,039
+it uh
+
+486
+00:24:53,679 --> 00:24:59,039
+anyway I I I don't I I I like to you
+
+487
+00:24:57,039 --> 00:25:03,080
+know play games but I'm getting go maybe
+
+488
+00:24:59,039 --> 00:25:07,120
+I'll get into uh let's see my how my new
+
+489
+00:25:03,080 --> 00:25:11,840
+when my new computer arrives so
+
+490
+00:25:07,120 --> 00:25:15,640
+actually so I was planning to do Goan
+
+491
+00:25:11,840 --> 00:25:19,399
+but you know when you do a talk
+
+492
+00:25:15,640 --> 00:25:22,640
+show it's actually easier for me at
+
+493
+00:25:19,399 --> 00:25:24,880
+least you know because I my audience and
+
+494
+00:25:22,640 --> 00:25:28,159
+my personality actually it's much easier
+
+495
+00:25:24,880 --> 00:25:31,240
+for me just to random chat about lots of
+
+496
+00:25:28,159 --> 00:25:34,720
+things things interesting uh
+
+497
+00:25:31,240 --> 00:25:37,279
+things you guys will find interesting on
+
+498
+00:25:34,720 --> 00:25:39,480
+the other hand I can also go you know a
+
+499
+00:25:37,279 --> 00:25:43,720
+tutorial on goand you know purely
+
+500
+00:25:39,480 --> 00:25:46,480
+technical Or emac List although that is
+
+501
+00:25:43,720 --> 00:25:49,679
+that is in general more difficult and
+
+502
+00:25:46,480 --> 00:25:51,559
+also in fact less people are interested
+
+503
+00:25:49,679 --> 00:25:54,399
+because people watch YouTube they just
+
+504
+00:25:51,559 --> 00:25:56,240
+want to you know it's
+
+505
+00:25:54,399 --> 00:26:00,200
+entertainment you know if you really
+
+506
+00:25:56,240 --> 00:26:02,480
+want to learn go you know few most
+
+507
+00:26:00,200 --> 00:26:04,080
+people uh especially you guys you know
+
+508
+00:26:02,480 --> 00:26:06,039
+hacker types you want to learn a
+
+509
+00:26:04,080 --> 00:26:11,000
+language it's better to you know you can
+
+510
+00:26:06,039 --> 00:26:15,799
+just read uh you know then instead of um
+
+511
+00:26:11,000 --> 00:26:15,799
+well H okay what what are we doing
+
+512
+00:26:16,399 --> 00:26:23,039
+so so I was talking about goand so I was
+
+513
+00:26:19,720 --> 00:26:26,640
+going to write a Goan
+
+514
+00:26:23,039 --> 00:26:28,600
+script I was you know I was this this is
+
+515
+00:26:26,640 --> 00:26:31,000
+my own project I mean it's this is
+
+516
+00:26:28,600 --> 00:26:32,720
+something I have to do so I was thinking
+
+517
+00:26:31,000 --> 00:26:36,159
+you know why why don't I just do a talk
+
+518
+00:26:32,720 --> 00:26:38,559
+show and meanwhile complete you know uh
+
+519
+00:26:36,159 --> 00:26:42,000
+this script because I need to do this so
+
+520
+00:26:38,559 --> 00:26:45,679
+essentially I'm uh doing a backup of my
+
+521
+00:26:42,000 --> 00:26:49,720
+you know I started to have money to buy
+
+522
+00:26:45,679 --> 00:26:51,760
+a dis drive so that I can back up you
+
+523
+00:26:49,720 --> 00:26:55,720
+know
+
+524
+00:26:51,760 --> 00:26:59,200
+anyway uh so I'm writing a Backup backup
+
+525
+00:26:55,720 --> 00:27:00,919
+script and what this
+
+526
+00:26:59,200 --> 00:27:02,880
+what this script does you know there are
+
+527
+00:27:00,919 --> 00:27:05,320
+so many ways to do a backup okay you can
+
+528
+00:27:02,880 --> 00:27:08,679
+use AR sync you can use one of the
+
+529
+00:27:05,320 --> 00:27:12,080
+backup you know uh app there are quite a
+
+530
+00:27:08,679 --> 00:27:14,600
+few of them uh or you can do it manually
+
+531
+00:27:12,080 --> 00:27:14,600
+you know I
+
+532
+00:27:15,600 --> 00:27:22,279
+always I have always been doing it
+
+533
+00:27:18,440 --> 00:27:25,679
+manually because I believed in Brute
+
+534
+00:27:22,279 --> 00:27:27,799
+Force you know you just just copy just
+
+535
+00:27:25,679 --> 00:27:30,480
+copy the whole directory to the backup
+
+536
+00:27:27,799 --> 00:27:33,559
+dis every month or so you know just take
+
+537
+00:27:30,480 --> 00:27:35,799
+one minute to drag it over then just let
+
+538
+00:27:33,559 --> 00:27:38,360
+let it run you know and don't worry
+
+539
+00:27:35,799 --> 00:27:42,399
+about nothing because dis uh you know
+
+540
+00:27:38,360 --> 00:27:44,640
+the disk is growing and gr faster than
+
+541
+00:27:42,399 --> 00:27:47,799
+we can actually use it at least for a
+
+542
+00:27:44,640 --> 00:27:49,919
+person you know so you just do that and
+
+543
+00:27:47,799 --> 00:27:52,640
+don't worry about writing a script or
+
+544
+00:27:49,919 --> 00:27:55,480
+sync or whatever just every month just
+
+545
+00:27:52,640 --> 00:27:59,399
+spend the one minute to copy the file
+
+546
+00:27:55,480 --> 00:28:01,600
+over that's the ideal situation but
+
+547
+00:27:59,399 --> 00:28:04,480
+it was never like that I always end up
+
+548
+00:28:01,600 --> 00:28:06,840
+spending hours and hours whenever I want
+
+549
+00:28:04,480 --> 00:28:08,640
+to do a backup because every time I need
+
+550
+00:28:06,840 --> 00:28:11,480
+to do a backup it's going to I know it's
+
+551
+00:28:08,640 --> 00:28:14,559
+going to be hours so it tends I tends to
+
+552
+00:28:11,480 --> 00:28:17,720
+not want to do it why why hours because
+
+553
+00:28:14,559 --> 00:28:19,039
+every time I do a backup you know in one
+
+554
+00:28:17,720 --> 00:28:21,080
+hand you can just trag the whole
+
+555
+00:28:19,039 --> 00:28:23,120
+directory you know C you know like you
+
+556
+00:28:21,080 --> 00:28:25,679
+know on the Mac you you can for example
+
+557
+00:28:23,120 --> 00:28:28,159
+just drag for example this director just
+
+558
+00:28:25,679 --> 00:28:30,200
+drag it over to another dis and just wa
+
+559
+00:28:28,159 --> 00:28:32,120
+wait just wait the machine to copy you
+
+560
+00:28:30,200 --> 00:28:36,120
+know maybe take two hours or whatever
+
+561
+00:28:32,120 --> 00:28:39,840
+let it do it Brute Force now this is the
+
+562
+00:28:36,120 --> 00:28:41,240
+Brute Force way the utmost Simplicity
+
+563
+00:28:39,840 --> 00:28:43,960
+you know you don't worry about time
+
+564
+00:28:41,240 --> 00:28:46,279
+machine or whatever backup or G or our
+
+565
+00:28:43,960 --> 00:28:49,480
+syn or you know whether which you know
+
+566
+00:28:46,279 --> 00:28:51,480
+whatever just manually copy it daily if
+
+567
+00:28:49,480 --> 00:28:53,880
+you need to be you know just take one
+
+568
+00:28:51,480 --> 00:28:56,320
+minute to open the folder drag it over
+
+569
+00:28:53,880 --> 00:28:58,799
+and let the computer do the rest of it
+
+570
+00:28:56,320 --> 00:29:01,760
+for an hour or two
+
+571
+00:28:58,799 --> 00:29:04,840
+you rely you know this is this is kind
+
+572
+00:29:01,760 --> 00:29:07,240
+of the Brute Force approach to Computing
+
+573
+00:29:04,840 --> 00:29:08,760
+to manage your Computing directories or
+
+574
+00:29:07,240 --> 00:29:12,960
+whatever because you don't worry about
+
+575
+00:29:08,760 --> 00:29:16,000
+nothing you want the simplest method
+
+576
+00:29:12,960 --> 00:29:19,080
+possible and you but but one thing you
+
+577
+00:29:16,000 --> 00:29:21,880
+rely on is the fact that the disk you
+
+578
+00:29:19,080 --> 00:29:27,399
+know gets faster you know the interface
+
+579
+00:29:21,880 --> 00:29:29,799
+usb2 USB 3 there was fire fire wire fire
+
+580
+00:29:27,399 --> 00:29:32,039
+wire or or many other methods ethernet
+
+581
+00:29:29,799 --> 00:29:34,240
+you know you rely on the interface to be
+
+582
+00:29:32,039 --> 00:29:36,159
+faster and faster every every year right
+
+583
+00:29:34,240 --> 00:29:39,120
+and also the hard dis grows and grows
+
+584
+00:29:36,159 --> 00:29:42,240
+more than more than you can ever use so
+
+585
+00:29:39,120 --> 00:29:44,519
+that's a Brute Force way but but be also
+
+586
+00:29:42,240 --> 00:29:47,000
+because of my personality every
+
+587
+00:29:44,519 --> 00:29:50,039
+time it didn't happen like that every
+
+588
+00:29:47,000 --> 00:29:52,919
+time I spent hours because every time I
+
+589
+00:29:50,039 --> 00:29:55,519
+before I drag I want to know what what's
+
+590
+00:29:52,919 --> 00:29:58,279
+going on with my directories which file
+
+591
+00:29:55,519 --> 00:30:01,279
+I really don't need which which you know
+
+592
+00:29:58,279 --> 00:30:03,039
+I need to run many Unix uh you know sh
+
+593
+00:30:01,279 --> 00:30:05,240
+script to see which file is actually
+
+594
+00:30:03,039 --> 00:30:09,080
+large you know for example let's
+
+595
+00:30:05,240 --> 00:30:11,640
+do uh actually I don't want to do it um
+
+596
+00:30:09,080 --> 00:30:14,799
+um because then it's going to show lot
+
+597
+00:30:11,640 --> 00:30:18,600
+lots of my personal files but anyway you
+
+598
+00:30:14,799 --> 00:30:21,320
+can you know if you use Unix you know
+
+599
+00:30:18,600 --> 00:30:23,640
+what I mean you know you can use du to
+
+600
+00:30:21,320 --> 00:30:26,559
+show the directory size so you can get a
+
+601
+00:30:23,640 --> 00:30:28,279
+list of all the directory size so I want
+
+602
+00:30:26,559 --> 00:30:30,240
+to know which you know which one is a
+
+603
+00:30:28,279 --> 00:30:33,240
+big file and I never use and things like
+
+604
+00:30:30,240 --> 00:30:35,600
+that I want to you know I spend the time
+
+605
+00:30:33,240 --> 00:30:37,840
+to look then I started to look at you
+
+606
+00:30:35,600 --> 00:30:39,919
+know sometimes there's lot movie files I
+
+607
+00:30:37,840 --> 00:30:42,279
+haven't looked for a long time so I
+
+608
+00:30:39,919 --> 00:30:45,640
+started to look at those movie files to
+
+609
+00:30:42,279 --> 00:30:48,279
+see do I really need this and then
+
+610
+00:30:45,640 --> 00:30:50,120
+there's a a matter of indecision should
+
+611
+00:30:48,279 --> 00:30:53,960
+I delete this one or
+
+612
+00:30:50,120 --> 00:30:59,039
+not so every time I do backup it ends up
+
+613
+00:30:53,960 --> 00:30:59,039
+you know um like that
+
+614
+00:30:59,480 --> 00:31:06,440
+so am I doing good so what um I'm still
+
+615
+00:31:03,639 --> 00:31:08,120
+wondering should I go back to uh goand
+
+616
+00:31:06,440 --> 00:31:11,399
+code the goand and
+
+617
+00:31:08,120 --> 00:31:13,960
+stuff so let me show you my goand script
+
+618
+00:31:11,399 --> 00:31:16,840
+okay so so here's a goand script so what
+
+619
+00:31:13,960 --> 00:31:22,279
+I end up doing right now this time is
+
+620
+00:31:16,840 --> 00:31:25,240
+that I started to um created a I started
+
+621
+00:31:22,279 --> 00:31:28,480
+to make every directory a g
+
+622
+00:31:25,240 --> 00:31:32,000
+repo you know that so this is this is a
+
+623
+00:31:28,480 --> 00:31:34,320
+example where I ends up spending a lot
+
+624
+00:31:32,000 --> 00:31:36,559
+of time because now I started I'm
+
+625
+00:31:34,320 --> 00:31:39,200
+thinking you know why not now git is
+
+626
+00:31:36,559 --> 00:31:41,279
+very popular why not make every
+
+627
+00:31:39,200 --> 00:31:44,039
+directory for example
+
+628
+00:31:41,279 --> 00:31:47,200
+documents uh documents is a common
+
+629
+00:31:44,039 --> 00:31:49,840
+directory uh videos pictures is all
+
+630
+00:31:47,200 --> 00:31:52,919
+these are common directory so every make
+
+631
+00:31:49,840 --> 00:31:55,200
+make them into a git repo for every
+
+632
+00:31:52,919 --> 00:31:58,399
+directory then that takes time because
+
+633
+00:31:55,200 --> 00:32:02,039
+every you know every you you start uh G
+
+634
+00:31:58,399 --> 00:32:04,200
+repo it takes you know 40 minutes
+
+635
+00:32:02,039 --> 00:32:07,159
+sometimes so I did that for my
+
+636
+00:32:04,200 --> 00:32:10,480
+directories
+
+637
+00:32:07,159 --> 00:32:12,159
+then right now I so I wrote this script
+
+638
+00:32:10,480 --> 00:32:14,919
+okay let me show you what the okay let
+
+639
+00:32:12,159 --> 00:32:16,320
+me just let's let's try let me try to do
+
+640
+00:32:14,919 --> 00:32:19,080
+something useful
+
+641
+00:32:16,320 --> 00:32:21,080
+so um so you can see something that's
+
+642
+00:32:19,080 --> 00:32:24,559
+actually useful instead of instead of me
+
+643
+00:32:21,080 --> 00:32:28,840
+just babbling okay so let's go to
+
+644
+00:32:24,559 --> 00:32:28,840
+get uh okay
+
+645
+00:32:29,399 --> 00:32:36,240
+git site
+
+646
+00:32:32,159 --> 00:32:39,440
+okay practical git in one
+
+647
+00:32:36,240 --> 00:32:42,639
+hour so let me let me tell you about
+
+648
+00:32:39,440 --> 00:32:44,760
+this issue so suppose you have a
+
+649
+00:32:42,639 --> 00:32:47,080
+separate from backup okay this is
+
+650
+00:32:44,760 --> 00:32:49,760
+suppose this is a new issue okay now
+
+651
+00:32:47,080 --> 00:32:51,360
+suppose you have a g repo of you know
+
+652
+00:32:49,760 --> 00:32:55,080
+let's say there in there there are
+
+653
+00:32:51,360 --> 00:32:58,240
+10,000 20 you know 100,000 files a few
+
+654
+00:32:55,080 --> 00:33:02,159
+gigabytes very big let's say
+
+655
+00:32:58,240 --> 00:33:03,159
+so you want to backup this uh project
+
+656
+00:33:02,159 --> 00:33:06,399
+right
+
+657
+00:33:03,159 --> 00:33:10,080
+so in the mo most simple case you just
+
+658
+00:33:06,399 --> 00:33:13,919
+copy the entire entire directory to your
+
+659
+00:33:10,080 --> 00:33:16,760
+backup Drive yeah that works but it's
+
+660
+00:33:13,919 --> 00:33:19,600
+inefficient because in every git
+
+661
+00:33:16,760 --> 00:33:23,039
+repo for example in every git repo for
+
+662
+00:33:19,600 --> 00:33:26,480
+example let's go to directory okay
+
+663
+00:33:23,039 --> 00:33:28,600
+and okay let's go to for example this is
+
+664
+00:33:26,480 --> 00:33:31,840
+my Kali
+
+665
+00:33:28,600 --> 00:33:35,080
+doino um directory that's my website
+
+666
+00:33:31,840 --> 00:33:40,080
+okay so we go One Directory
+
+667
+00:33:35,080 --> 00:33:42,159
+up you can see magnify so this is s info
+
+668
+00:33:40,080 --> 00:33:45,360
+so you can see this is a
+
+669
+00:33:42,159 --> 00:33:48,559
+git uh data base you see every time you
+
+670
+00:33:45,360 --> 00:33:52,240
+have a git project you have this git and
+
+671
+00:33:48,559 --> 00:33:55,480
+this git essentially essentially is a
+
+672
+00:33:52,240 --> 00:33:58,679
+copy of your entire directory okay so
+
+673
+00:33:55,480 --> 00:34:01,279
+whenever you have a g repo the folder
+
+674
+00:33:58,679 --> 00:34:04,399
+actually double in size because it had
+
+675
+00:34:01,279 --> 00:34:08,359
+it contains a kind of a condensed copy
+
+676
+00:34:04,399 --> 00:34:11,000
+of the whole directory itself so if if I
+
+677
+00:34:08,359 --> 00:34:14,720
+want to back up this.info
+
+678
+00:34:11,000 --> 00:34:17,919
+uh magnify okay go up the so if I want
+
+679
+00:34:14,720 --> 00:34:21,359
+to back up this.info I
+
+680
+00:34:17,919 --> 00:34:24,599
+can you know I can go to uh let's see if
+
+681
+00:34:21,359 --> 00:34:28,599
+I can you know let me show you this emac
+
+682
+00:34:24,599 --> 00:34:30,839
+command okay open in open in desktop
+
+683
+00:34:28,599 --> 00:34:34,000
+okay so you press a
+
+684
+00:34:30,839 --> 00:34:37,040
+key the command is this one okay showing
+
+685
+00:34:34,000 --> 00:34:40,440
+desktop okay you press a key and it pops
+
+686
+00:34:37,040 --> 00:34:44,079
+up the folder viewer and it works in
+
+687
+00:34:40,440 --> 00:34:47,040
+Linux and windows as well so this emx
+
+688
+00:34:44,079 --> 00:34:48,839
+command so you see this is directory so
+
+689
+00:34:47,040 --> 00:34:50,440
+if you go up one directory and copy the
+
+690
+00:34:48,839 --> 00:34:53,800
+whole thing to backup
+
+691
+00:34:50,440 --> 00:34:56,760
+drive it's inefficient because it's
+
+692
+00:34:53,800 --> 00:34:59,400
+actually copying the directory twice
+
+693
+00:34:56,760 --> 00:35:02,680
+because including the get
+
+694
+00:34:59,400 --> 00:35:05,040
+repository so if I want to backup this
+
+695
+00:35:02,680 --> 00:35:07,720
+you know I do want to backup this I can
+
+696
+00:35:05,040 --> 00:35:10,160
+just you know originally originally my
+
+697
+00:35:07,720 --> 00:35:11,520
+The Brute Force way Brute Force way is
+
+698
+00:35:10,160 --> 00:35:14,520
+just copy the whole thing but it's
+
+699
+00:35:11,520 --> 00:35:16,560
+inefficient you know because it copy
+
+700
+00:35:14,520 --> 00:35:19,839
+twice you know including the G repo so I
+
+701
+00:35:16,560 --> 00:35:22,960
+was still but I'm I'm a efficiency nerd
+
+702
+00:35:19,839 --> 00:35:25,640
+so I don't I don't want so so is there a
+
+703
+00:35:22,960 --> 00:35:27,480
+way you know if you have a g repo is
+
+704
+00:35:25,640 --> 00:35:31,640
+there a way to copy the whole directory
+
+705
+00:35:27,480 --> 00:35:33,520
+to a backup but without without the git
+
+706
+00:35:31,640 --> 00:35:35,680
+the dogit
+
+707
+00:35:33,520 --> 00:35:38,240
+directory yeah there is of course
+
+708
+00:35:35,680 --> 00:35:41,680
+there's a way on you you know all you
+
+709
+00:35:38,240 --> 00:35:44,240
+have to do is select all files and uh
+
+710
+00:35:41,680 --> 00:35:46,480
+click on the git doget and so this way
+
+711
+00:35:44,240 --> 00:35:48,960
+you don't copy the
+
+712
+00:35:46,480 --> 00:35:50,880
+git yeah but if you do it this way then
+
+713
+00:35:48,960 --> 00:35:52,520
+you have to create a new directory first
+
+714
+00:35:50,880 --> 00:35:54,359
+then copy the whole thing into that
+
+715
+00:35:52,520 --> 00:35:56,440
+directory then that you know that
+
+716
+00:35:54,359 --> 00:35:59,119
+directory also has to be named the same
+
+717
+00:35:56,440 --> 00:36:01,960
+name so it's you know it's more more
+
+718
+00:35:59,119 --> 00:36:04,280
+work more manual work so is there you
+
+719
+00:36:01,960 --> 00:36:08,000
+know I want the simplest command just C
+
+720
+00:36:04,280 --> 00:36:08,000
+copy the whole thing exclude the
+
+721
+00:36:08,920 --> 00:36:13,359
+tget yeah there are ways you know that
+
+722
+00:36:11,240 --> 00:36:15,960
+you can do a sh script or you can there
+
+723
+00:36:13,359 --> 00:36:18,040
+are some many ways okay okay let me talk
+
+724
+00:36:15,960 --> 00:36:22,319
+let me talk about this backup there's
+
+725
+00:36:18,040 --> 00:36:22,319
+actually a lot issues
+
+726
+00:36:22,960 --> 00:36:27,960
+okay so let's hold on a second so I
+
+727
+00:36:25,520 --> 00:36:30,640
+haven't finished about this topic yet
+
+728
+00:36:27,960 --> 00:36:33,280
+about copying a repo but but there are
+
+729
+00:36:30,640 --> 00:36:36,800
+digressions let me talk about that in a
+
+730
+00:36:33,280 --> 00:36:39,119
+git repo typically you have thousands 10
+
+731
+00:36:36,800 --> 00:36:40,960
+or you know typically the file size is
+
+732
+00:36:39,119 --> 00:36:44,280
+very
+
+733
+00:36:40,960 --> 00:36:46,640
+small uh let's close that close that for
+
+734
+00:36:44,280 --> 00:36:50,520
+example my Linux tutorial you know all
+
+735
+00:36:46,640 --> 00:36:53,480
+these files are the file size is just 3K
+
+736
+00:36:50,520 --> 00:36:55,720
+9k 10K you know very small when you have
+
+737
+00:36:53,480 --> 00:36:59,119
+tens of thousands of small files you
+
+738
+00:36:55,720 --> 00:37:01,560
+copy them to a USB or whatever it takes
+
+739
+00:36:59,119 --> 00:37:05,280
+tremendous time it's very slow okay it's
+
+740
+00:37:01,560 --> 00:37:08,240
+super slow it takes two hours even if
+
+741
+00:37:05,280 --> 00:37:08,240
+you have a fast
+
+742
+00:37:08,599 --> 00:37:15,720
+interface uh that's my experience for
+
+743
+00:37:11,760 --> 00:37:17,760
+the you know for my um for this uh hard
+
+744
+00:37:15,720 --> 00:37:20,240
+disk drive this is actually spinning
+
+745
+00:37:17,760 --> 00:37:21,880
+drive this is not solid state I don't
+
+746
+00:37:20,240 --> 00:37:24,920
+have solid state
+
+747
+00:37:21,880 --> 00:37:27,720
+drive but now I'm upgrading so when my
+
+748
+00:37:24,920 --> 00:37:31,400
+new computer comes I'll finally have
+
+749
+00:37:27,720 --> 00:37:33,560
+solid state drive I'm tired of the dis
+
+750
+00:37:31,400 --> 00:37:36,440
+spinning because every time I do for
+
+751
+00:37:33,560 --> 00:37:36,440
+example
+
+752
+00:37:36,599 --> 00:37:41,680
+um when I do online stream you know the
+
+753
+00:37:39,680 --> 00:37:45,440
+CPU maxed
+
+754
+00:37:41,680 --> 00:37:48,000
+out not now but you know the CPU max out
+
+755
+00:37:45,440 --> 00:37:51,440
+and the disc start to W and you know
+
+756
+00:37:48,000 --> 00:37:54,160
+then you wait you you wait for the disc
+
+757
+00:37:51,440 --> 00:37:56,440
+calling anyway so so the point is when
+
+758
+00:37:54,160 --> 00:38:00,440
+you copy thousands files it's slow so
+
+759
+00:37:56,440 --> 00:38:02,839
+one solution it's faster if you first
+
+760
+00:38:00,440 --> 00:38:05,160
+zip them into a archive you know zip
+
+761
+00:38:02,839 --> 00:38:08,920
+them all together then you copy the zip
+
+762
+00:38:05,160 --> 00:38:11,319
+file over so this combination of steps
+
+763
+00:38:08,920 --> 00:38:14,280
+is actually faster than you just drag
+
+764
+00:38:11,319 --> 00:38:17,240
+the whole directory over
+
+765
+00:38:14,280 --> 00:38:19,200
+okay so so we are talking about backup
+
+766
+00:38:17,240 --> 00:38:21,800
+so there's complications we were talking
+
+767
+00:38:19,200 --> 00:38:24,960
+about copying the git the you know git
+
+768
+00:38:21,800 --> 00:38:28,280
+repel over so first complication is that
+
+769
+00:38:24,960 --> 00:38:30,359
+you are also copying the git uh you know
+
+770
+00:38:28,280 --> 00:38:33,040
+the git directory you don't want to do
+
+771
+00:38:30,359 --> 00:38:36,000
+that then the second complication is
+
+772
+00:38:33,040 --> 00:38:39,040
+that you want to you know you want to
+
+773
+00:38:36,000 --> 00:38:41,680
+zip it first before you copy over
+
+774
+00:38:39,040 --> 00:38:44,400
+because that way it's actually
+
+775
+00:38:41,680 --> 00:38:48,000
+faster so how do you do that so there is
+
+776
+00:38:44,400 --> 00:38:50,079
+a solution it turns out git has uh has a
+
+777
+00:38:48,000 --> 00:38:52,560
+solution so here is a solution okay
+
+778
+00:38:50,079 --> 00:38:56,480
+archive so there is a
+
+779
+00:38:52,560 --> 00:38:59,200
+command called get archive so this is
+
+780
+00:38:56,480 --> 00:39:02,240
+basically what you do so in this in this
+
+781
+00:38:59,200 --> 00:39:06,160
+article I tell you uh what to do okay so
+
+782
+00:39:02,240 --> 00:39:10,760
+this way it will create a zip file of a
+
+783
+00:39:06,160 --> 00:39:14,160
+git repo but without the dogit and also
+
+784
+00:39:10,760 --> 00:39:16,440
+without history so this is exactly what
+
+785
+00:39:14,160 --> 00:39:19,520
+we want we just want copy the current
+
+786
+00:39:16,440 --> 00:39:21,680
+folder without dogit without history
+
+787
+00:39:19,520 --> 00:39:23,680
+info you know just the file so this is
+
+788
+00:39:21,680 --> 00:39:26,000
+what you want so you do this command it
+
+789
+00:39:23,680 --> 00:39:28,119
+creates a zip file for the rep
+
+790
+00:39:26,000 --> 00:39:29,319
+repository then you can copy the zip
+
+791
+00:39:28,119 --> 00:39:33,280
+file
+
+792
+00:39:29,319 --> 00:39:36,200
+over so now back to uh back to why am I
+
+793
+00:39:33,280 --> 00:39:38,839
+writing this script uh I can show you
+
+794
+00:39:36,200 --> 00:39:41,520
+what's going on here so practical G so
+
+795
+00:39:38,839 --> 00:39:43,440
+this is a script okay so back to this
+
+796
+00:39:41,520 --> 00:39:45,440
+script so this is what the script is
+
+797
+00:39:43,440 --> 00:39:49,560
+doing so for this directories you can
+
+798
+00:39:45,440 --> 00:39:53,200
+see let me uh so this you see this is my
+
+799
+00:39:49,560 --> 00:39:56,200
+git repo oh go
+
+800
+00:39:53,200 --> 00:39:59,319
+IMX I'm me chewing gun let me speed out
+
+801
+00:39:56,200 --> 00:39:59,319
+speed it out
+
+802
+00:40:00,640 --> 00:40:05,440
+so this is my
+
+803
+00:40:02,200 --> 00:40:08,040
+emac uh website this is my w English
+
+804
+00:40:05,440 --> 00:40:11,119
+website this is my SAR website all these
+
+805
+00:40:08,040 --> 00:40:15,319
+are my websites so for each directory I
+
+806
+00:40:11,119 --> 00:40:18,160
+want to uh basically run the make them
+
+807
+00:40:15,319 --> 00:40:21,359
+into a zip file without history without
+
+808
+00:40:18,160 --> 00:40:24,359
+dogit okay so for each one of them this
+
+809
+00:40:21,359 --> 00:40:27,720
+script will create a zip file it it'll
+
+810
+00:40:24,359 --> 00:40:30,880
+take about an hour or two
+
+811
+00:40:27,720 --> 00:40:35,359
+wa I run this so
+
+812
+00:40:30,880 --> 00:40:38,560
+then so then I have to manually copy all
+
+813
+00:40:35,359 --> 00:40:43,680
+these zip files to my uh backup drive so
+
+814
+00:40:38,560 --> 00:40:45,200
+it's still manual process you know so of
+
+815
+00:40:43,680 --> 00:40:47,640
+course I'm still in the process of
+
+816
+00:40:45,200 --> 00:40:49,880
+automation so I can write another script
+
+817
+00:40:47,640 --> 00:40:52,640
+that moves the all these new zip files
+
+818
+00:40:49,880 --> 00:40:55,079
+over but the the problem is if you know
+
+819
+00:40:52,640 --> 00:40:56,680
+so this takes time writing these scripts
+
+820
+00:40:55,079 --> 00:40:59,520
+takes time you know take it actually
+
+821
+00:40:56,680 --> 00:40:59,520
+takes a few
+
+822
+00:40:59,839 --> 00:41:04,880
+hours
+
+823
+00:41:01,640 --> 00:41:08,079
+then then another issue you know because
+
+824
+00:41:04,880 --> 00:41:09,680
+I'm writing this sh script but I'm
+
+825
+00:41:08,079 --> 00:41:11,599
+thinking you know because I'm into
+
+826
+00:41:09,680 --> 00:41:14,640
+programming languages I'm into
+
+827
+00:41:11,599 --> 00:41:17,280
+efficiency remember I'm into efficiency
+
+828
+00:41:14,640 --> 00:41:20,520
+so when I'm writing sh scripts and I
+
+829
+00:41:17,280 --> 00:41:22,000
+know I know Shia is the most worthless
+
+830
+00:41:20,520 --> 00:41:25,720
+[ __ ] of the
+
+831
+00:41:22,000 --> 00:41:30,920
+Unix heritance Heritage okay shell you
+
+832
+00:41:25,720 --> 00:41:32,520
+know the crap what [ __ ] possible so why
+
+833
+00:41:30,920 --> 00:41:34,680
+am I writing a shell I don't want I
+
+834
+00:41:32,520 --> 00:41:37,760
+don't want use anything that's a hack
+
+835
+00:41:34,680 --> 00:41:43,480
+okay Unix shell is a hack beginning with
+
+836
+00:41:37,760 --> 00:41:45,480
+boom shell then bash C CSH
+
+837
+00:41:43,480 --> 00:41:50,200
+tcsh uh
+
+838
+00:41:45,480 --> 00:41:52,160
+zsh Kell ksh you know this crap why why
+
+839
+00:41:50,200 --> 00:41:54,960
+are there are so many because each one
+
+840
+00:41:52,160 --> 00:41:56,720
+is one [ __ ] up [ __ ] that's why then
+
+841
+00:41:54,960 --> 00:41:59,400
+there's another new version trying to
+
+842
+00:41:56,720 --> 00:42:02,599
+improve it then then there's
+
+843
+00:41:59,400 --> 00:42:06,800
+Pearl then Pearl died you know that's
+
+844
+00:42:02,599 --> 00:42:09,839
+why the Unix [ __ ] so all hack the Unix
+
+845
+00:42:06,800 --> 00:42:14,119
+is the embodiment of the word hack
+
+846
+00:42:09,839 --> 00:42:18,079
+everything Unix is a hack and the this
+
+847
+00:42:14,119 --> 00:42:20,240
+hack attitude is condensed into a slogan
+
+848
+00:42:18,079 --> 00:42:23,960
+the Unix
+
+849
+00:42:20,240 --> 00:42:28,319
+philosophy and everyone is happy ever
+
+850
+00:42:23,960 --> 00:42:30,880
+since the Unix [ __ ] philosophy
+
+851
+00:42:28,319 --> 00:42:33,000
+so so you know I want to do backup in
+
+852
+00:42:30,880 --> 00:42:35,480
+the beginning I I thought just just copy
+
+853
+00:42:33,000 --> 00:42:37,880
+the whole thing over Brute Force this
+
+854
+00:42:35,480 --> 00:42:40,800
+this is the mathematicians way this is
+
+855
+00:42:37,880 --> 00:42:43,000
+the most elegant method for a
+
+856
+00:42:40,800 --> 00:42:45,280
+mathematician because mathematicians
+
+857
+00:42:43,000 --> 00:42:47,240
+they don't care about efficiency
+
+858
+00:42:45,280 --> 00:42:50,920
+mathematicians they really they only
+
+859
+00:42:47,240 --> 00:42:53,760
+care what is what it is you know or if
+
+860
+00:42:50,920 --> 00:42:56,119
+you have a goal just do it you know they
+
+861
+00:42:53,760 --> 00:42:58,559
+they care about can it be done or can it
+
+862
+00:42:56,119 --> 00:43:01,079
+not be done is it possible to do do it
+
+863
+00:42:58,559 --> 00:43:02,920
+that's a mathematician's philosophy when
+
+864
+00:43:01,079 --> 00:43:06,200
+mathematician look at things is it
+
+865
+00:43:02,920 --> 00:43:08,920
+possible is it I mean when mathematician
+
+866
+00:43:06,200 --> 00:43:11,040
+says possible or impossible it means
+
+867
+00:43:08,920 --> 00:43:13,520
+theoretically you know it's a the
+
+868
+00:43:11,040 --> 00:43:15,839
+theoretical possibility okay let's
+
+869
+00:43:13,520 --> 00:43:18,400
+that's the theoretical computer science
+
+870
+00:43:15,839 --> 00:43:20,520
+what is computable you know uh things
+
+871
+00:43:18,400 --> 00:43:23,359
+like that recursive you know Theory
+
+872
+00:43:20,520 --> 00:43:26,400
+that's all you know most T tuning
+
+873
+00:43:23,359 --> 00:43:27,800
+machine as you know Lambda uh Lambda
+
+874
+00:43:26,400 --> 00:43:30,359
+calculus
+
+875
+00:43:27,800 --> 00:43:33,720
+uh combinators they are all about all
+
+876
+00:43:30,359 --> 00:43:38,000
+these are trying to answer the question
+
+877
+00:43:33,720 --> 00:43:41,000
+what is possible to compute what is not
+
+878
+00:43:38,000 --> 00:43:42,839
+possible to compute okay so they are you
+
+879
+00:43:41,000 --> 00:43:44,680
+know that's a mathematician so all these
+
+880
+00:43:42,839 --> 00:43:47,800
+are mathematician not Computer
+
+881
+00:43:44,680 --> 00:43:49,119
+Engineering [ __ ] like cc++ Java
+
+882
+00:43:47,800 --> 00:43:52,240
+JavaScript
+
+883
+00:43:49,119 --> 00:43:55,359
+[ __ ] so mathematicians created the
+
+884
+00:43:52,240 --> 00:43:58,839
+entire they are the forerunners pioneers
+
+885
+00:43:55,359 --> 00:44:00,839
+of a computer theore IAL theoretical
+
+886
+00:43:58,839 --> 00:44:02,839
+computer science in other words
+
+887
+00:44:00,839 --> 00:44:05,880
+theoretical computer science which is
+
+888
+00:44:02,839 --> 00:44:07,760
+nothing you know okay and they are about
+
+889
+00:44:05,880 --> 00:44:10,440
+Lambda calculus and so on they are
+
+890
+00:44:07,760 --> 00:44:13,079
+actually about Foundation of mathematics
+
+891
+00:44:10,440 --> 00:44:15,720
+they are part of they are really part of
+
+892
+00:44:13,079 --> 00:44:18,880
+math and they are part of the foundation
+
+893
+00:44:15,720 --> 00:44:21,359
+of mathematics the reason T machine
+
+894
+00:44:18,880 --> 00:44:23,119
+Lambda calculus combinators are in were
+
+895
+00:44:21,359 --> 00:44:26,400
+invented because they are trying to
+
+896
+00:44:23,119 --> 00:44:29,280
+answer the question about what is
+
+897
+00:44:26,400 --> 00:44:30,920
+actually possible I uh for computation
+
+898
+00:44:29,280 --> 00:44:33,520
+to arrive at the answer what is
+
+899
+00:44:30,920 --> 00:44:36,240
+impossible you know that's why and we
+
+900
+00:44:33,520 --> 00:44:38,960
+learn turns it turns out we we learned
+
+901
+00:44:36,240 --> 00:44:41,359
+that actually a lot things are not
+
+902
+00:44:38,960 --> 00:44:43,400
+possible you know it doesn't doesn't
+
+903
+00:44:41,359 --> 00:44:45,480
+even if you have a machine with infinite
+
+904
+00:44:43,400 --> 00:44:48,480
+speed and infinite
+
+905
+00:44:45,480 --> 00:44:50,480
+memory there are yeah there are there
+
+906
+00:44:48,480 --> 00:44:52,359
+are things it's just not it's not
+
+907
+00:44:50,480 --> 00:44:55,160
+possible we even with
+
+908
+00:44:52,359 --> 00:44:57,720
+infinite uh machine infinite memory is
+
+909
+00:44:55,160 --> 00:45:01,280
+just not possible okay well of course
+
+910
+00:44:57,720 --> 00:45:04,800
+for example one example most of you guys
+
+911
+00:45:01,280 --> 00:45:08,880
+know the most [ __ ] idiotic example is
+
+912
+00:45:04,800 --> 00:45:12,839
+the holding problem [ __ ] the [ __ ] the C
+
+913
+00:45:08,880 --> 00:45:15,760
+programmers C++ and Unix
+
+914
+00:45:12,839 --> 00:45:18,200
+[ __ ] they don't know nothing but every
+
+915
+00:45:15,760 --> 00:45:20,240
+time they they'll say holding problem
+
+916
+00:45:18,200 --> 00:45:23,319
+and tuning machine they meanwhile they
+
+917
+00:45:20,240 --> 00:45:25,160
+don't know nothing about the context and
+
+918
+00:45:23,319 --> 00:45:28,119
+and and and tuning machine is the worst
+
+919
+00:45:25,160 --> 00:45:31,119
+[ __ ] okay Lambda calcul is better
+
+920
+00:45:28,119 --> 00:45:32,559
+combinators is even better and even all
+
+921
+00:45:31,119 --> 00:45:36,480
+these you don't know you know they they
+
+922
+00:45:32,559 --> 00:45:39,760
+are part of the automat okay any
+
+923
+00:45:36,480 --> 00:45:41,880
+anyway so digression and digression so
+
+924
+00:45:39,760 --> 00:45:45,200
+let let me see what's the comments okay
+
+925
+00:45:41,880 --> 00:45:48,440
+so let me actually go back to the backup
+
+926
+00:45:45,200 --> 00:45:51,520
+thing so backup thing you know I I have
+
+927
+00:45:48,440 --> 00:45:54,480
+said so many uh [ __ ] in this video I'm
+
+928
+00:45:51,520 --> 00:45:57,240
+afraid that Google is going to censor
+
+929
+00:45:54,480 --> 00:46:00,520
+me you know so back to the backup so
+
+930
+00:45:57,240 --> 00:46:02,680
+originally I I was thinking back up the
+
+931
+00:46:00,520 --> 00:46:07,119
+from a mathematician's perspective the
+
+932
+00:46:02,680 --> 00:46:09,680
+the by Brute Force I don't care you know
+
+933
+00:46:07,119 --> 00:46:11,720
+efficiency just you can do it and by
+
+934
+00:46:09,680 --> 00:46:14,480
+boot Force because the power of
+
+935
+00:46:11,720 --> 00:46:16,680
+computers is getting bigger and gigabyte
+
+936
+00:46:14,480 --> 00:46:19,680
+terabytes hard dis you know just copy it
+
+937
+00:46:16,680 --> 00:46:23,119
+over and don't manually don't don't
+
+938
+00:46:19,680 --> 00:46:25,760
+spend a manual uh time to you know mess
+
+939
+00:46:23,119 --> 00:46:28,160
+with it but that turned out there are
+
+940
+00:46:25,760 --> 00:46:30,760
+you know because I also care about
+
+941
+00:46:28,160 --> 00:46:33,040
+efficiency so one thing leads to another
+
+942
+00:46:30,760 --> 00:46:35,960
+then you know then you have the then why
+
+943
+00:46:33,040 --> 00:46:39,280
+don't we make a g repo okay for each
+
+944
+00:46:35,960 --> 00:46:41,680
+directory so that way you know why not
+
+945
+00:46:39,280 --> 00:46:45,119
+because that way I have I have instant
+
+946
+00:46:41,680 --> 00:46:48,440
+backup you know ask SCH up you know if I
+
+947
+00:46:45,119 --> 00:46:50,520
+uh for example if I [ __ ] up this line
+
+948
+00:46:48,440 --> 00:46:54,680
+save close and
+
+949
+00:46:50,520 --> 00:46:57,920
+whoops I spend one hour's work is gun I
+
+950
+00:46:54,680 --> 00:47:00,480
+can just back up okay no no do No undo
+
+951
+00:46:57,920 --> 00:47:02,359
+is the first level of backup but no undo
+
+952
+00:47:00,480 --> 00:47:05,280
+I can you know I can go
+
+953
+00:47:02,359 --> 00:47:08,640
+here I just made a backup here so you
+
+954
+00:47:05,280 --> 00:47:11,520
+see copy it close it open it select all
+
+955
+00:47:08,640 --> 00:47:15,839
+paste so I got my thing
+
+956
+00:47:11,520 --> 00:47:18,160
+back but what if if what if I delete the
+
+957
+00:47:15,839 --> 00:47:20,720
+whole file without uh doing a manual
+
+958
+00:47:18,160 --> 00:47:23,720
+backup so I can do a manual backup by
+
+959
+00:47:20,720 --> 00:47:26,920
+just uh pressing three keys so now you
+
+960
+00:47:23,720 --> 00:47:30,160
+see let me try Okay Backup backup back
+
+961
+00:47:26,920 --> 00:47:32,520
+backup Backup backup Backup backup now
+
+962
+00:47:30,160 --> 00:47:36,640
+go to the DI directory refresh you can
+
+963
+00:47:32,520 --> 00:47:40,079
+see I've made so many backups so this is
+
+964
+00:47:36,640 --> 00:47:41,960
+so undo is the first level of backup but
+
+965
+00:47:40,079 --> 00:47:44,760
+once you close the file you all your
+
+966
+00:47:41,960 --> 00:47:48,079
+undo is gun so second level of backup is
+
+967
+00:47:44,760 --> 00:47:50,760
+the backup of the of the file so that's
+
+968
+00:47:48,079 --> 00:47:55,720
+second way but if this way also fails
+
+969
+00:47:50,760 --> 00:47:59,119
+then you then it's time to uh get check
+
+970
+00:47:55,720 --> 00:48:01,400
+out third level of backup for example I
+
+971
+00:47:59,119 --> 00:48:02,800
+can do get checkout for example let's go
+
+972
+00:48:01,400 --> 00:48:06,800
+to
+
+973
+00:48:02,800 --> 00:48:10,359
+um computer d uh uh for example a
+
+974
+00:48:06,800 --> 00:48:13,440
+programming blog uh let's try
+
+975
+00:48:10,359 --> 00:48:17,559
+to okay so let's try to let me show you
+
+976
+00:48:13,440 --> 00:48:20,559
+this uh zsh prompt set up so now I have
+
+977
+00:48:17,559 --> 00:48:21,480
+colorful prompt in zshell okay so you
+
+978
+00:48:20,559 --> 00:48:25,400
+can
+
+979
+00:48:21,480 --> 00:48:30,119
+see you can see my colorful prompt in
+
+980
+00:48:25,400 --> 00:48:33,440
+z uh open a new one
+
+981
+00:48:30,119 --> 00:48:35,119
+magnify okay so CD okay I don't want to
+
+982
+00:48:33,440 --> 00:48:37,839
+list directory because I don't want to
+
+983
+00:48:35,119 --> 00:48:40,319
+show my personal craft so anyway you can
+
+984
+00:48:37,839 --> 00:48:43,200
+see colorful prompt so you have you have
+
+985
+00:48:40,319 --> 00:48:46,280
+the user you have the uh host
+
+986
+00:48:43,200 --> 00:48:49,480
+name date
+
+987
+00:48:46,280 --> 00:48:51,839
+timestamp and current path this is you
+
+988
+00:48:49,480 --> 00:48:54,160
+know time stamp is uh greatly useful
+
+989
+00:48:51,839 --> 00:48:56,400
+because every time you do a sh shell
+
+990
+00:48:54,160 --> 00:48:58,480
+command it might run for 10 minutes or
+
+991
+00:48:56,400 --> 00:49:00,640
+hour you don't know when you come back
+
+992
+00:48:58,480 --> 00:49:03,559
+you can see every prompt has a time
+
+993
+00:49:00,640 --> 00:49:06,559
+stamp so you can automatically see how
+
+994
+00:49:03,559 --> 00:49:07,319
+long it you know something took without
+
+995
+00:49:06,559 --> 00:49:11,240
+you
+
+996
+00:49:07,319 --> 00:49:13,720
+know without you uh typing a date you
+
+997
+00:49:11,240 --> 00:49:16,079
+know in the beginning and in the end so
+
+998
+00:49:13,720 --> 00:49:18,319
+you can you know run any command go for
+
+999
+00:49:16,079 --> 00:49:20,960
+a coffee and when it's done you can see
+
+1000
+00:49:18,319 --> 00:49:25,240
+how long it to take so it's it's great
+
+1001
+00:49:20,960 --> 00:49:27,440
+to have uh date and time stamp in your
+
+1002
+00:49:25,240 --> 00:49:29,720
+prompt
+
+1003
+00:49:27,440 --> 00:49:32,559
+so this is one of my idea but the Unix
+
+1004
+00:49:29,720 --> 00:49:35,160
+[ __ ] you know these Unix Linux
+
+1005
+00:49:32,559 --> 00:49:38,599
+[ __ ] gigs you know they you you can
+
+1006
+00:49:35,160 --> 00:49:40,960
+see for the past 20 30 years you know
+
+1007
+00:49:38,599 --> 00:49:43,240
+they they have you know they have uh
+
+1008
+00:49:40,960 --> 00:49:46,040
+website forums talking about promp they
+
+1009
+00:49:43,240 --> 00:49:49,400
+have many colors or color or some you
+
+1010
+00:49:46,040 --> 00:49:52,760
+know especially Z Zell okay they have
+
+1011
+00:49:49,400 --> 00:49:55,400
+many customizations each one is geekier
+
+1012
+00:49:52,760 --> 00:49:58,520
+than the other but you will see none of
+
+1013
+00:49:55,400 --> 00:50:00,640
+it shows the time stamp you know
+
+1014
+00:49:58,520 --> 00:50:03,839
+something I find the most useful but the
+
+1015
+00:50:00,640 --> 00:50:05,240
+Unix people always they you know they
+
+1016
+00:50:03,839 --> 00:50:07,400
+they don't they don't leave in the same
+
+1017
+00:50:05,240 --> 00:50:10,319
+world as I do you know they have all
+
+1018
+00:50:07,400 --> 00:50:13,839
+these powerful ways geeking but they but
+
+1019
+00:50:10,319 --> 00:50:16,760
+you almost never okay see them show a
+
+1020
+00:50:13,839 --> 00:50:19,440
+Tim stamp which I find the most
+
+1021
+00:50:16,760 --> 00:50:21,520
+useful and another thing is that I
+
+1022
+00:50:19,440 --> 00:50:24,240
+always want let me show you I always
+
+1023
+00:50:21,520 --> 00:50:28,720
+want the prompt you see the prompt and
+
+1024
+00:50:24,240 --> 00:50:32,000
+whatever I type is for example uh date
+
+1025
+00:50:28,720 --> 00:50:34,720
+okay is in a separate line that's what I
+
+1026
+00:50:32,000 --> 00:50:37,799
+prefer because this way you have a
+
+1027
+00:50:34,720 --> 00:50:39,960
+separation you know it's Clarity but of
+
+1028
+00:50:37,799 --> 00:50:42,240
+all the Unix you know prompts you know
+
+1029
+00:50:39,960 --> 00:50:45,240
+these Unix heads they create on the
+
+1030
+00:50:42,240 --> 00:50:48,640
+website you will not see this
+
+1031
+00:50:45,240 --> 00:50:52,880
+neither it's so strange this is so
+
+1032
+00:50:48,640 --> 00:50:56,359
+strange so that this is why I always
+
+1033
+00:50:52,880 --> 00:50:59,160
+despise the Unix Fanatics because their
+
+1034
+00:50:56,359 --> 00:51:02,319
+way in every just just about in every
+
+1035
+00:50:59,160 --> 00:51:04,440
+way they hacker these nerds you know the
+
+1036
+00:51:02,319 --> 00:51:06,160
+their method you know that that's not
+
+1037
+00:51:04,440 --> 00:51:08,480
+you know that when I look at their what
+
+1038
+00:51:06,160 --> 00:51:10,799
+they say you know they they always try
+
+1039
+00:51:08,480 --> 00:51:12,880
+to tell you what what to do you know I
+
+1040
+00:51:10,799 --> 00:51:15,760
+look at their stuff you know that that's
+
+1041
+00:51:12,880 --> 00:51:17,720
+no good that's no good and they are they
+
+1042
+00:51:15,760 --> 00:51:19,559
+are telling you this is the best way if
+
+1043
+00:51:17,720 --> 00:51:22,880
+you don't follow their way you are a
+
+1044
+00:51:19,559 --> 00:51:26,799
+troll that's what they this uh very
+
+1045
+00:51:22,880 --> 00:51:31,160
+common behavior of this Linux Unix phos
+
+1046
+00:51:26,799 --> 00:51:31,160
+ophy and python you know this Cy
+
+1047
+00:51:31,880 --> 00:51:38,200
+[ __ ] uh okay so uh sh so I was
+
+1048
+00:51:35,480 --> 00:51:40,720
+saying so yeah get backup so for example
+
+1049
+00:51:38,200 --> 00:51:43,400
+you I can for example uh so that's Z
+
+1050
+00:51:40,720 --> 00:51:46,599
+shell and in the same you know you can
+
+1051
+00:51:43,400 --> 00:51:49,000
+also set up the prompt in bash and I
+
+1052
+00:51:46,599 --> 00:51:52,240
+have a tutorial on how to do that of
+
+1053
+00:51:49,000 --> 00:51:57,640
+course and for example uh bash color
+
+1054
+00:51:52,240 --> 00:52:03,760
+prompt okay now I go to uh esell
+
+1055
+00:51:57,640 --> 00:52:07,880
+magnify CD up G status okay get
+
+1056
+00:52:03,760 --> 00:52:07,880
+status let's see what things I've
+
+1057
+00:52:11,400 --> 00:52:16,280
+changed what what why is it taking so
+
+1058
+00:52:20,040 --> 00:52:28,000
+long oh oh okay I've changed quite a lot
+
+1059
+00:52:24,480 --> 00:52:31,160
+things JavaScript yeah hold directory of
+
+1060
+00:52:28,000 --> 00:52:33,680
+JavaScript JavaScript in depth okay guys
+
+1061
+00:52:31,160 --> 00:52:36,640
+you need to buy my JavaScript in depth
+
+1062
+00:52:33,680 --> 00:52:40,359
+let's magnify okay so all this file
+
+1063
+00:52:36,640 --> 00:52:44,000
+change and JavaScript blog and CSS
+
+1064
+00:52:40,359 --> 00:52:47,960
+HTML and more JavaScript so what did I
+
+1065
+00:52:44,000 --> 00:52:51,880
+change I forgot so let's open that okay
+
+1066
+00:52:47,960 --> 00:52:53,799
+let's see press a key to open it and go
+
+1067
+00:52:51,880 --> 00:52:58,040
+to the
+
+1068
+00:52:53,799 --> 00:53:01,000
+diet okay so you see all these backup I
+
+1069
+00:52:58,040 --> 00:53:03,319
+made automatically by a script because
+
+1070
+00:53:01,000 --> 00:53:06,119
+because of find and replace remember I
+
+1071
+00:53:03,319 --> 00:53:10,359
+was talking about find and replace every
+
+1072
+00:53:06,119 --> 00:53:15,040
+day for the past 15 years I do find
+
+1073
+00:53:10,359 --> 00:53:17,839
+replace on like a thousand to 5,000
+
+1074
+00:53:15,040 --> 00:53:20,920
+files every day almost every day because
+
+1075
+00:53:17,839 --> 00:53:23,599
+I'm using a static website uh so all
+
+1076
+00:53:20,920 --> 00:53:26,559
+these all this backup you are seeing are
+
+1077
+00:53:23,599 --> 00:53:29,920
+actually autogenerated F replace so I
+
+1078
+00:53:26,559 --> 00:53:35,079
+forgot what I did oh yeah I remember
+
+1079
+00:53:29,920 --> 00:53:38,799
+because I was trying to change um the
+
+1080
+00:53:35,079 --> 00:53:41,680
+logo my JavaScript in depth logo you see
+
+1081
+00:53:38,799 --> 00:53:44,319
+the logo at bottom so I changed that for
+
+1082
+00:53:41,680 --> 00:53:47,920
+the whole directory okay so anyway I was
+
+1083
+00:53:44,319 --> 00:53:47,920
+going to do a
+
+1084
+00:53:48,799 --> 00:53:54,240
+um I was going to do a diff I can show
+
+1085
+00:53:52,240 --> 00:53:56,760
+you a diff okay so let me show you so
+
+1086
+00:53:54,240 --> 00:53:58,520
+this is how I you know so you are
+
+1087
+00:53:56,760 --> 00:54:03,000
+looking at my
+
+1088
+00:53:58,520 --> 00:54:04,599
+workflow uh shell command diff that file
+
+1089
+00:54:03,000 --> 00:54:08,440
+and that
+
+1090
+00:54:04,599 --> 00:54:10,839
+file okay do it okay so you can see the
+
+1091
+00:54:08,440 --> 00:54:12,240
+difference okay uh let me show you go to
+
+1092
+00:54:10,839 --> 00:54:14,720
+messages
+
+1093
+00:54:12,240 --> 00:54:17,200
+buffer uh and
+
+1094
+00:54:14,720 --> 00:54:19,240
+magnify you see when the difference is
+
+1095
+00:54:17,200 --> 00:54:21,119
+not many it just shows in the message
+
+1096
+00:54:19,240 --> 00:54:23,559
+buer so you can see the difference is
+
+1097
+00:54:21,119 --> 00:54:26,960
+just
+
+1098
+00:54:23,559 --> 00:54:29,319
+um yeah anyways anyway I made some
+
+1099
+00:54:26,960 --> 00:54:30,680
+change in that so okay so let's go back
+
+1100
+00:54:29,319 --> 00:54:34,079
+to
+
+1101
+00:54:30,680 --> 00:54:37,720
+eell so I made uh so many JavaScript
+
+1102
+00:54:34,079 --> 00:54:39,640
+changes and also Linux yeah also I made
+
+1103
+00:54:37,720 --> 00:54:44,720
+some Linux changes so
+
+1104
+00:54:39,640 --> 00:54:44,720
+now get ad
+
+1105
+00:54:47,280 --> 00:54:54,200
+okay yeah it's taking a long
+
+1106
+00:54:50,559 --> 00:54:58,319
+time what are you guys saying okay so I
+
+1107
+00:54:54,200 --> 00:54:58,319
+guess I rambled so much
+
+1108
+00:55:03,640 --> 00:55:10,559
+okay so get add so now get commit
+
+1109
+00:55:12,559 --> 00:55:16,359
+Ado there it is
+
+1110
+00:55:17,400 --> 00:55:23,960
+okay so the third level of backup okay
+
+1111
+00:55:21,480 --> 00:55:26,720
+once I do a g commit let's go back to sh
+
+1112
+00:55:23,960 --> 00:55:31,520
+again okay I already Clos it okay anyway
+
+1113
+00:55:26,720 --> 00:55:33,480
+so magnify so uh magnify so now I want
+
+1114
+00:55:31,520 --> 00:55:36,480
+to do let me show you
+
+1115
+00:55:33,480 --> 00:55:39,079
+okay you see all these backup
+
+1116
+00:55:36,480 --> 00:55:41,559
+files all this red one those are the
+
+1117
+00:55:39,079 --> 00:55:44,880
+emac backup files I want to delete them
+
+1118
+00:55:41,559 --> 00:55:47,559
+all in all of them in my entire s
+
+1119
+00:55:44,880 --> 00:55:49,280
+directory okay not just this directory
+
+1120
+00:55:47,559 --> 00:55:52,920
+because in this directory I can just
+
+1121
+00:55:49,280 --> 00:55:57,000
+press a key in emac emac ask me if I
+
+1122
+00:55:52,920 --> 00:55:57,000
+want to delete them all yes
+
+1123
+00:55:57,079 --> 00:56:02,680
+so it delete deleted you know uh a
+
+1124
+00:56:00,240 --> 00:56:06,640
+thousand files you know so but however
+
+1125
+00:56:02,680 --> 00:56:09,480
+if you go to another directory let's say
+
+1126
+00:56:06,640 --> 00:56:12,599
+Linux you can see then you know lots
+
+1127
+00:56:09,480 --> 00:56:14,880
+lots of backup files so but I have tens
+
+1128
+00:56:12,599 --> 00:56:17,920
+of directory so instead of doing that I
+
+1129
+00:56:14,880 --> 00:56:20,359
+just go to Shell I want to run the
+
+1130
+00:56:17,920 --> 00:56:23,319
+command that basically I want to run
+
+1131
+00:56:20,359 --> 00:56:27,599
+this command okay find this is the uni
+
+1132
+00:56:23,319 --> 00:56:33,200
+shell uh working find name anything end
+
+1133
+00:56:27,599 --> 00:56:36,079
+in a t Tia then for example I can do
+
+1134
+00:56:33,200 --> 00:56:40,559
+that uh actually not in this directory
+
+1135
+00:56:36,079 --> 00:56:40,559
+so I actually CD up
+
+1136
+00:56:41,520 --> 00:56:48,920
+then uh unknown primary what oh yeah so
+
+1137
+00:56:45,359 --> 00:56:52,359
+I guess that yeah so it finds you know I
+
+1138
+00:56:48,920 --> 00:56:56,839
+want to delete them but I can run a
+
+1139
+00:56:52,359 --> 00:57:00,079
+command called interactive Abri then
+
+1140
+00:56:56,839 --> 00:57:02,960
+type backup then there's a you know
+
+1141
+00:57:00,079 --> 00:57:05,359
+because I have so many Abes so this way
+
+1142
+00:57:02,960 --> 00:57:08,319
+all Abes are listed so I can just type a
+
+1143
+00:57:05,359 --> 00:57:12,039
+few keys and find the brief I want
+
+1144
+00:57:08,319 --> 00:57:15,680
+delete emx backup okay Enter so it
+
+1145
+00:57:12,039 --> 00:57:19,319
+automatically type this command for me
+
+1146
+00:57:15,680 --> 00:57:22,880
+so I press enter Then That is done so
+
+1147
+00:57:19,319 --> 00:57:24,839
+all these backup files are deleted in in
+
+1148
+00:57:22,880 --> 00:57:28,480
+the info
+
+1149
+00:57:24,839 --> 00:57:30,960
+directory so now I close now I close now
+
+1150
+00:57:28,480 --> 00:57:34,319
+if I show this file in browser uh set
+
+1151
+00:57:30,960 --> 00:57:37,920
+prototype. entries so this is one of the
+
+1152
+00:57:34,319 --> 00:57:39,079
+new JavaScript function uh okay set you
+
+1153
+00:57:37,920 --> 00:57:42,319
+have a
+
+1154
+00:57:39,079 --> 00:57:44,680
+set like a mathematical set but anyway
+
+1155
+00:57:42,319 --> 00:57:48,160
+so if I deleted this file by mistake
+
+1156
+00:57:44,680 --> 00:57:48,160
+okay delete by
+
+1157
+00:57:48,200 --> 00:57:52,839
+mistake uh now I can go
+
+1158
+00:57:53,920 --> 00:58:03,280
+to ah okay so I okay so let's uh let's
+
+1159
+00:57:58,720 --> 00:58:03,280
+go to uh messages buffer
+
+1160
+00:58:03,400 --> 00:58:08,319
+magnify okay so you can see this is the
+
+1161
+00:58:06,280 --> 00:58:12,760
+file actually I made a backup so
+
+1162
+00:58:08,319 --> 00:58:16,079
+actually open it show in diet uh let's
+
+1163
+00:58:12,760 --> 00:58:19,559
+show that so this is the file I just
+
+1164
+00:58:16,079 --> 00:58:23,799
+deleted JavaScript set prototype entries
+
+1165
+00:58:19,559 --> 00:58:28,119
+okay let's let's uh simplify okay so
+
+1166
+00:58:23,799 --> 00:58:28,119
+this is the file I just deleted now
+
+1167
+00:58:29,640 --> 00:58:34,200
+the no I I made a backup but if I don't
+
+1168
+00:58:32,680 --> 00:58:36,799
+have a
+
+1169
+00:58:34,200 --> 00:58:39,599
+backup let's say let's say okay let's
+
+1170
+00:58:36,799 --> 00:58:41,640
+say I let's actually just delete this
+
+1171
+00:58:39,599 --> 00:58:44,039
+file okay delete
+
+1172
+00:58:41,640 --> 00:58:47,640
+it so
+
+1173
+00:58:44,039 --> 00:58:50,280
+whoops I deleted I deleted a important
+
+1174
+00:58:47,640 --> 00:58:57,680
+file refresh file not found okay so what
+
+1175
+00:58:50,280 --> 00:58:59,559
+do I do you go to uh eell get checkout
+
+1176
+00:58:57,680 --> 00:59:03,400
+and type the file
+
+1177
+00:58:59,559 --> 00:59:06,440
+name roofs updated One path from index
+
+1178
+00:59:03,400 --> 00:59:06,440
+so so that
+
+1179
+00:59:06,520 --> 00:59:13,960
+file that file refresh buffer okay
+
+1180
+00:59:09,960 --> 00:59:17,599
+refresh that file magically
+
+1181
+00:59:13,960 --> 00:59:21,480
+reappears so go to browser refresh it it
+
+1182
+00:59:17,599 --> 00:59:24,160
+came back so this is the so using git is
+
+1183
+00:59:21,480 --> 00:59:27,359
+the third level
+
+1184
+00:59:24,160 --> 00:59:28,960
+of of
+
+1185
+00:59:27,359 --> 00:59:32,079
+Revival from the
+
+1186
+00:59:28,960 --> 00:59:34,119
+dead okay the first level is undo the
+
+1187
+00:59:32,079 --> 00:59:36,599
+second level is manual backup of the
+
+1188
+00:59:34,119 --> 00:59:39,599
+file the third level is skit the fourth
+
+1189
+00:59:36,599 --> 00:59:42,960
+level is from your backup drive if you
+
+1190
+00:59:39,599 --> 00:59:45,760
+by chance deleted your entire git repo
+
+1191
+00:59:42,960 --> 00:59:49,400
+or your remote you know repo there's a
+
+1192
+00:59:45,760 --> 00:59:54,200
+disaster then you get them back you
+
+1193
+00:59:49,400 --> 00:59:56,799
+revive revive it from the backup
+
+1194
+00:59:54,200 --> 01:00:00,039
+dis okay so that's about some of the
+
+1195
+00:59:56,799 --> 01:00:03,400
+backup issue now back to my script uh
+
+1196
+01:00:00,039 --> 01:00:08,559
+let's see close that close that shell
+
+1197
+01:00:03,400 --> 01:00:10,920
+color prompt close that uh zshell prompt
+
+1198
+01:00:08,559 --> 01:00:13,119
+setup close that why are we talking
+
+1199
+01:00:10,920 --> 01:00:16,240
+about that uh
+
+1200
+01:00:13,119 --> 01:00:18,720
+because close that close that back to my
+
+1201
+01:00:16,240 --> 01:00:22,359
+backup file so I was saying so I wrote
+
+1202
+01:00:18,720 --> 01:00:24,599
+this backup file where for
+
+1203
+01:00:22,359 --> 01:00:27,799
+each this
+
+1204
+01:00:24,599 --> 01:00:31,680
+directories first each of them is a g
+
+1205
+01:00:27,799 --> 01:00:34,920
+repo so this this script will create a
+
+1206
+01:00:31,680 --> 01:00:39,280
+zip file of each one of them without the
+
+1207
+01:00:34,920 --> 01:00:41,680
+dot git uh repository okay but then at
+
+1208
+01:00:39,280 --> 01:00:43,680
+this stage I'm wondering why should I
+
+1209
+01:00:41,680 --> 01:00:46,680
+why should I write the sh script because
+
+1210
+01:00:43,680 --> 01:00:49,599
+I despise the Unix [ __ ] I don't want to
+
+1211
+01:00:46,680 --> 01:00:53,039
+use hack you know whatever the hack
+
+1212
+01:00:49,599 --> 01:00:56,880
+created so I rather let's
+
+1213
+01:00:53,039 --> 01:00:59,599
+say uh Pearl Pearl python or Goan or
+
+1214
+01:00:56,880 --> 01:01:03,280
+Ruby any one of them would be better
+
+1215
+01:00:59,599 --> 01:01:05,240
+than writing this sh script you know sh
+
+1216
+01:01:03,280 --> 01:01:07,200
+script you know like I was wondering I
+
+1217
+01:01:05,240 --> 01:01:09,799
+never wrote a sh script before because I
+
+1218
+01:01:07,200 --> 01:01:12,240
+always used a pearl
+
+1219
+01:01:09,799 --> 01:01:14,880
+before so I'm I'm wondering you know
+
+1220
+01:01:12,240 --> 01:01:18,400
+when you create a function are these
+
+1221
+01:01:14,880 --> 01:01:19,599
+variables local to the function or not I
+
+1222
+01:01:18,400 --> 01:01:23,240
+don't know I don't know what's the
+
+1223
+01:01:19,599 --> 01:01:23,240
+answer do you know
+
+1224
+01:01:27,240 --> 01:01:30,119
+am I still
+
+1225
+01:01:30,839 --> 01:01:38,880
+actually am I still
+
+1226
+01:01:34,960 --> 01:01:38,880
+running uh comments
+
+1227
+01:01:40,160 --> 01:01:46,039
+guys let's see uh let's see how long
+
+1228
+01:01:43,200 --> 01:01:48,799
+I've been talking oh [ __ ] I already
+
+1229
+01:01:46,039 --> 01:01:48,799
+talked for 1
+
+1230
+01:01:49,880 --> 01:01:55,920
+hour feels like I haven't began
+
+1231
+01:02:13,920 --> 01:02:20,079
+um exclude in our sync yes you know the
+
+1232
+01:02:18,000 --> 01:02:23,359
+problem with our sync okay let me let me
+
+1233
+01:02:20,079 --> 01:02:26,720
+talk about aryn aryn is one of the let
+
+1234
+01:02:23,359 --> 01:02:30,079
+me show you because I have aryn okay
+
+1235
+01:02:26,720 --> 01:02:32,960
+uh you know let's show why are you again
+
+1236
+01:02:30,079 --> 01:02:34,880
+this Unix philosophy oh I know my God
+
+1237
+01:02:32,960 --> 01:02:36,760
+you haven't watched you haven't read or
+
+1238
+01:02:34,880 --> 01:02:40,279
+watched my stuff because I talked about
+
+1239
+01:02:36,760 --> 01:02:43,400
+that for 10,000 times uh but anyway our
+
+1240
+01:02:40,279 --> 01:02:45,319
+syn you see you see this is this is the
+
+1241
+01:02:43,400 --> 01:02:49,400
+r sync I've been using
+
+1242
+01:02:45,319 --> 01:02:53,279
+for for for 15 years okay you see the
+
+1243
+01:02:49,400 --> 01:02:55,640
+complexity of the [ __ ] you know our sync
+
+1244
+01:02:53,279 --> 01:02:58,200
+you know you see you know okay so you
+
+1245
+01:02:55,640 --> 01:03:00,640
+have all these parameters right options
+
+1246
+01:02:58,200 --> 01:03:02,599
+but the the then you have the exclude
+
+1247
+01:03:00,640 --> 01:03:06,640
+you know okay let me tell you guys one
+
+1248
+01:03:02,599 --> 01:03:08,599
+of the story about Unix [ __ ] up okay
+
+1249
+01:03:06,640 --> 01:03:10,640
+what let me tell you and and that is
+
+1250
+01:03:08,599 --> 01:03:13,760
+part of the reason only just a part of
+
+1251
+01:03:10,640 --> 01:03:16,599
+the reason why I despise the Unix and
+
+1252
+01:03:13,760 --> 01:03:18,640
+Unix philosophy because Unix
+
+1253
+01:03:16,599 --> 01:03:21,359
+philosophy anyway let me let me just
+
+1254
+01:03:18,640 --> 01:03:24,920
+talk about what I'm talking about now I
+
+1255
+01:03:21,359 --> 01:03:27,000
+don't want to anyway yeah so anyway so
+
+1256
+01:03:24,920 --> 01:03:30,079
+you see ourn you have these options you
+
+1257
+01:03:27,000 --> 01:03:33,200
+know let me tell you one of the extreme
+
+1258
+01:03:30,079 --> 01:03:36,359
+complexity of the Unix shell tools [ __ ]
+
+1259
+01:03:33,200 --> 01:03:40,319
+is that whenever a command that has
+
+1260
+01:03:36,359 --> 01:03:43,359
+options to exclude or include some
+
+1261
+01:03:40,319 --> 01:03:46,039
+directories that becomes extremely
+
+1262
+01:03:43,359 --> 01:03:49,200
+complex nobody can [ __ ] explain it
+
+1263
+01:03:46,039 --> 01:03:52,960
+well okay I you know I be I've been I've
+
+1264
+01:03:49,200 --> 01:03:56,960
+been doing Unix admin on Solaris since
+
+1265
+01:03:52,960 --> 01:03:58,920
+year 1999 Okay so I know the stuff you
+
+1266
+01:03:56,960 --> 01:04:01,599
+know if you are new maybe you will say
+
+1267
+01:03:58,920 --> 01:04:04,839
+oh but you don't
+
+1268
+01:04:01,599 --> 01:04:06,720
+know actually I know a lot I can tell I
+
+1269
+01:04:04,839 --> 01:04:09,720
+I can ask you unique questions you don't
+
+1270
+01:04:06,720 --> 01:04:12,880
+know even if you are assisted me for 10
+
+1271
+01:04:09,720 --> 01:04:17,359
+years so let me so right now this point
+
+1272
+01:04:12,880 --> 01:04:21,079
+is about in Unix okay let me be precise
+
+1273
+01:04:17,359 --> 01:04:23,200
+in Unix shell command line tools such as
+
+1274
+01:04:21,079 --> 01:04:24,960
+AR sync and there are quite a few
+
+1275
+01:04:23,200 --> 01:04:26,480
+there's you know there's quite a lot of
+
+1276
+01:04:24,960 --> 01:04:28,760
+them
+
+1277
+01:04:26,480 --> 01:04:32,920
+when these programs when when they have
+
+1278
+01:04:28,760 --> 01:04:37,319
+a option for specifying which directory
+
+1279
+01:04:32,920 --> 01:04:40,599
+to include or which directory to exclude
+
+1280
+01:04:37,319 --> 01:04:44,359
+you know this is a common need okay then
+
+1281
+01:04:40,599 --> 01:04:46,640
+those commands are extremely complex and
+
+1282
+01:04:44,359 --> 01:04:48,640
+and also inconsistent okay because every
+
+1283
+01:04:46,640 --> 01:04:53,039
+command every command they'll do it in
+
+1284
+01:04:48,640 --> 01:04:53,039
+their own way their own option names
+
+1285
+01:04:53,279 --> 01:04:59,000
+okay uh
+
+1286
+01:04:55,880 --> 01:05:00,680
+then okay so so so you know and and why
+
+1287
+01:04:59,000 --> 01:05:03,240
+is it complex
+
+1288
+01:05:00,680 --> 01:05:05,200
+because when you have a include or
+
+1289
+01:05:03,240 --> 01:05:07,200
+exclude okay
+
+1290
+01:05:05,200 --> 01:05:12,599
+directories first of all are you going
+
+1291
+01:05:07,200 --> 01:05:14,200
+to use uh regular expression or uh or
+
+1292
+01:05:12,599 --> 01:05:15,720
+shell
+
+1293
+01:05:14,200 --> 01:05:18,680
+glob
+
+1294
+01:05:15,720 --> 01:05:21,079
+okay first of all if your need is simple
+
+1295
+01:05:18,680 --> 01:05:22,960
+you know you can there are many
+
+1296
+01:05:21,079 --> 01:05:24,960
+complexities let me just explain okay
+
+1297
+01:05:22,960 --> 01:05:27,720
+first of all are you are you talking
+
+1298
+01:05:24,960 --> 01:05:29,920
+about includ including and excluding
+
+1299
+01:05:27,720 --> 01:05:32,880
+directories or are you talking about
+
+1300
+01:05:29,920 --> 01:05:34,520
+including or excluding files okay
+
+1301
+01:05:32,880 --> 01:05:36,760
+because directories and files are
+
+1302
+01:05:34,520 --> 01:05:38,960
+obvious obviously different you know
+
+1303
+01:05:36,760 --> 01:05:41,160
+sometimes you all you all you need is
+
+1304
+01:05:38,960 --> 01:05:44,319
+exclude some files sometimes you
+
+1305
+01:05:41,160 --> 01:05:46,520
+actually you want to excl exclude some
+
+1306
+01:05:44,319 --> 01:05:50,039
+directories they are different okay so
+
+1307
+01:05:46,520 --> 01:05:53,359
+if you have a Syntax for excluding files
+
+1308
+01:05:50,039 --> 01:05:55,160
+that may not work for directory okay
+
+1309
+01:05:53,359 --> 01:05:57,880
+that's one of the first problem
+
+1310
+01:05:55,160 --> 01:06:00,760
+directory three versus files now second
+
+1311
+01:05:57,880 --> 01:06:03,760
+problem are you going to use a you know
+
+1312
+01:06:00,760 --> 01:06:05,960
+exact file name or are you going to use
+
+1313
+01:06:03,760 --> 01:06:08,079
+uh some kind of pattern such as glob or
+
+1314
+01:06:05,960 --> 01:06:10,920
+regular expression okay this is very
+
+1315
+01:06:08,079 --> 01:06:14,640
+complex too because let's say if you are
+
+1316
+01:06:10,920 --> 01:06:16,319
+going to use a pattern okay okay if you
+
+1317
+01:06:14,640 --> 01:06:18,599
+use a pattern that's great great for
+
+1318
+01:06:16,319 --> 01:06:22,240
+example this pattern okay so for example
+
+1319
+01:06:18,599 --> 01:06:26,039
+it's this exclude so this ex exclude
+
+1320
+01:06:22,240 --> 01:06:29,079
+means exclude all all file so directory
+
+1321
+01:06:26,039 --> 01:06:31,760
+that's begin with 2x okay so if you are
+
+1322
+01:06:29,079 --> 01:06:34,160
+using a pattern but if you have option
+
+1323
+01:06:31,760 --> 01:06:37,720
+for that it may not be convenient
+
+1324
+01:06:34,160 --> 01:06:39,559
+because sometimes all you want is a you
+
+1325
+01:06:37,720 --> 01:06:41,799
+know you don't want regular expression
+
+1326
+01:06:39,559 --> 01:06:43,680
+you you don't want patterns of any sort
+
+1327
+01:06:41,799 --> 01:06:45,359
+you just want you have a list of files
+
+1328
+01:06:43,680 --> 01:06:48,279
+you just and they don't have common
+
+1329
+01:06:45,359 --> 01:06:51,200
+pattern you just want you want to them
+
+1330
+01:06:48,279 --> 01:06:54,680
+to be literal okay
+
+1331
+01:06:51,200 --> 01:06:57,760
+but if your file name contain suppose
+
+1332
+01:06:54,680 --> 01:07:00,440
+your file name contains this as risk
+
+1333
+01:06:57,760 --> 01:07:03,000
+then you got a problem because now you
+
+1334
+01:07:00,440 --> 01:07:06,480
+need to escape like back back slash
+
+1335
+01:07:03,000 --> 01:07:09,839
+Escape all these file name characters
+
+1336
+01:07:06,480 --> 01:07:12,359
+where it contains that uh you know that
+
+1337
+01:07:09,839 --> 01:07:15,279
+glob you know shell GL you know whatever
+
+1338
+01:07:12,359 --> 01:07:17,359
+the pattern special character you know
+
+1339
+01:07:15,279 --> 01:07:20,319
+it's a practical issue because you have
+
+1340
+01:07:17,359 --> 01:07:22,440
+a bunch of you know directories or names
+
+1341
+01:07:20,319 --> 01:07:24,480
+you have to you have to be careful
+
+1342
+01:07:22,440 --> 01:07:27,079
+because other you know this is easy to
+
+1343
+01:07:24,480 --> 01:07:30,440
+make mistake because you if you forgot
+
+1344
+01:07:27,079 --> 01:07:33,480
+to escape one of the character then bam
+
+1345
+01:07:30,440 --> 01:07:36,279
+maybe you deleted entire directory in
+
+1346
+01:07:33,480 --> 01:07:38,480
+your server on your server okay so this
+
+1347
+01:07:36,279 --> 01:07:41,640
+is the second
+
+1348
+01:07:38,480 --> 01:07:44,319
+complexity that is is your option for
+
+1349
+01:07:41,640 --> 01:07:46,880
+including or excluding files or
+
+1350
+01:07:44,319 --> 01:07:49,319
+directories are they going to be uh
+
+1351
+01:07:46,880 --> 01:07:51,799
+literal or are they are you going to use
+
+1352
+01:07:49,319 --> 01:07:54,359
+a you know some kind of GRA or regular
+
+1353
+01:07:51,799 --> 01:07:58,680
+expression or pattern okay which one you
+
+1354
+01:07:54,359 --> 01:07:58,680
+going to do this is the second
+
+1355
+01:07:58,799 --> 01:08:03,000
+complexity or or maybe you should have
+
+1356
+01:08:01,079 --> 01:08:06,039
+several options you know one option is
+
+1357
+01:08:03,000 --> 01:08:08,960
+always about excluding using literal
+
+1358
+01:08:06,039 --> 01:08:12,039
+syntax then another option is about
+
+1359
+01:08:08,960 --> 01:08:15,359
+using sometime some kind of pattern okay
+
+1360
+01:08:12,039 --> 01:08:18,080
+so this is a second SE this is a second
+
+1361
+01:08:15,359 --> 01:08:21,199
+complexity third
+
+1362
+01:08:18,080 --> 01:08:22,920
+complexity is that uh so if you are
+
+1363
+01:08:21,199 --> 01:08:25,120
+going to use pattern pattern is very
+
+1364
+01:08:22,920 --> 01:08:28,040
+useful okay because sometimes you want
+
+1365
+01:08:25,120 --> 01:08:30,759
+to exclude all directories that begin
+
+1366
+01:08:28,040 --> 01:08:32,799
+with 2x for example in this case you
+
+1367
+01:08:30,759 --> 01:08:34,960
+need a pattern because it will be
+
+1368
+01:08:32,799 --> 01:08:36,679
+impossible to specify you know to
+
+1369
+01:08:34,960 --> 01:08:39,319
+literally list all those search
+
+1370
+01:08:36,679 --> 01:08:42,199
+directories so you want a pattern then
+
+1371
+01:08:39,319 --> 01:08:45,880
+there's a question are you going to use
+
+1372
+01:08:42,199 --> 01:08:48,960
+a shell glob uh
+
+1373
+01:08:45,880 --> 01:08:52,600
+system called called Unix glob you know
+
+1374
+01:08:48,960 --> 01:08:55,679
+for example uh asterisk means any
+
+1375
+01:08:52,600 --> 01:08:57,880
+character okay so that's one system or
+
+1376
+01:08:55,679 --> 01:09:01,279
+are you going to use regular
+
+1377
+01:08:57,880 --> 01:09:04,040
+expression so this is the this is I
+
+1378
+01:09:01,279 --> 01:09:07,000
+think the uh what the third
+
+1379
+01:09:04,040 --> 01:09:11,239
+wait the third or fourth complexity
+
+1380
+01:09:07,000 --> 01:09:14,159
+anyway so because it m you know on one
+
+1381
+01:09:11,239 --> 01:09:16,279
+hand if you use the sh glob that's great
+
+1382
+01:09:14,159 --> 01:09:18,480
+works most of the time but sometimes
+
+1383
+01:09:16,279 --> 01:09:20,799
+doesn't work because you need something
+
+1384
+01:09:18,480 --> 01:09:23,279
+more powerful you know your pattern is
+
+1385
+01:09:20,799 --> 01:09:26,400
+more complex then you need regular
+
+1386
+01:09:23,279 --> 01:09:30,159
+expression uh but but most but but but
+
+1387
+01:09:26,400 --> 01:09:33,839
+regular expression is usually unreadable
+
+1388
+01:09:30,159 --> 01:09:36,880
+so there are advantage and disadvantage
+
+1389
+01:09:33,839 --> 01:09:38,839
+of using sh glob or use regular
+
+1390
+01:09:36,880 --> 01:09:42,960
+expression you know you have to make a
+
+1391
+01:09:38,839 --> 01:09:45,679
+choice or or you could have have another
+
+1392
+01:09:42,960 --> 01:09:48,520
+option that specifies whether you know
+
+1393
+01:09:45,679 --> 01:09:52,199
+your exclude is a pattern based on
+
+1394
+01:09:48,520 --> 01:09:55,080
+regular expression or the shell gra so
+
+1395
+01:09:52,199 --> 01:09:58,920
+so let me summarize complexities one
+
+1396
+01:09:55,080 --> 01:10:03,520
+direct Factory versus file name two
+
+1397
+01:09:58,920 --> 01:10:07,480
+pattern versus literal file path
+
+1398
+01:10:03,520 --> 01:10:10,320
+three uh grab you know Unix grab file
+
+1399
+01:10:07,480 --> 01:10:14,719
+grab or regular expression you have to
+
+1400
+01:10:10,320 --> 01:10:17,960
+decide now four the fourth
+
+1401
+01:10:14,719 --> 01:10:22,920
+complexity when you have exclude or
+
+1402
+01:10:17,960 --> 01:10:27,880
+include there arises the issue of
+
+1403
+01:10:22,920 --> 01:10:31,679
+order so does exclude has precedence
+
+1404
+01:10:27,880 --> 01:10:35,560
+over include or does include have
+
+1405
+01:10:31,679 --> 01:10:35,560
+precedence precedence over
+
+1406
+01:10:35,719 --> 01:10:41,280
+exclude this is a complex issue and you
+
+1407
+01:10:39,440 --> 01:10:45,760
+know the different tools they have
+
+1408
+01:10:41,280 --> 01:10:48,480
+different their own uh thinking
+
+1409
+01:10:45,760 --> 01:10:51,600
+so and it's also a practical issue
+
+1410
+01:10:48,480 --> 01:10:54,280
+because you cannot you
+
+1411
+01:10:51,600 --> 01:10:56,880
+know suppose you know suppose you want
+
+1412
+01:10:54,280 --> 01:11:01,360
+to exclude all patterns you know begin
+
+1413
+01:10:56,880 --> 01:11:04,239
+with XX but except this one directory so
+
+1414
+01:11:01,360 --> 01:11:05,440
+if you have xx1 if a directory name
+
+1415
+01:11:04,239 --> 01:11:08,280
+start with
+
+1416
+01:11:05,440 --> 01:11:11,320
+xx1 then you want that to be
+
+1417
+01:11:08,280 --> 01:11:15,719
+included so you so so you can't you know
+
+1418
+01:11:11,320 --> 01:11:18,600
+so you cannot so how do you do that
+
+1419
+01:11:15,719 --> 01:11:21,320
+well one way is to spe you know one way
+
+1420
+01:11:18,600 --> 01:11:23,239
+to is to have a new Option
+
+1421
+01:11:21,320 --> 01:11:26,080
+include
+
+1422
+01:11:23,239 --> 01:11:28,199
+that that some somewhat take presidence
+
+1423
+01:11:26,080 --> 01:11:30,800
+over the exclude so in other words it
+
+1424
+01:11:28,199 --> 01:11:33,280
+comes after the exclude so anyway so
+
+1425
+01:11:30,800 --> 01:11:37,199
+there's the older problem it's kind of
+
+1426
+01:11:33,280 --> 01:11:39,920
+complex this it's semantically
+
+1427
+01:11:37,199 --> 01:11:42,199
+complex so of all these four
+
+1428
+01:11:39,920 --> 01:11:45,120
+complexities you know that's a that's
+
+1429
+01:11:42,199 --> 01:11:47,040
+big enough and you know each Unix tool
+
+1430
+01:11:45,120 --> 01:11:50,880
+will have different ways you know the
+
+1431
+01:11:47,040 --> 01:11:54,199
+Apache including Apache because Apache
+
+1432
+01:11:50,880 --> 01:11:57,120
+in Apache config files you also have
+
+1433
+01:11:54,199 --> 01:11:59,239
+this include and exclude issue very
+
+1434
+01:11:57,120 --> 01:12:02,880
+complex one [ __ ] up
+
+1435
+01:11:59,239 --> 01:12:05,199
+[ __ ] and the worst thing is the
+
+1436
+01:12:02,880 --> 01:12:08,920
+documentation because these Unix
+
+1437
+01:12:05,199 --> 01:12:11,440
+[ __ ] they are incapable of thinking
+
+1438
+01:12:08,920 --> 01:12:14,760
+clearly so when they you know they write
+
+1439
+01:12:11,440 --> 01:12:17,320
+a command such s you know aryn is a
+
+1440
+01:12:14,760 --> 01:12:19,400
+pretty good example you know let's do m
+
+1441
+01:12:17,320 --> 01:12:22,320
+page AR
+
+1442
+01:12:19,400 --> 01:12:25,760
+sync guess how many lines okay make take
+
+1443
+01:12:22,320 --> 01:12:27,040
+a guess how many lines is the man page
+
+1444
+01:12:25,760 --> 01:12:31,960
+for our
+
+1445
+01:12:27,040 --> 01:12:35,960
+sync is it 500 or 1,000 or
+
+1446
+01:12:31,960 --> 01:12:39,080
+2,000 okay I will
+
+1447
+01:12:35,960 --> 01:12:42,800
+say 1,000 okay let's
+
+1448
+01:12:39,080 --> 01:12:47,120
+see our syn Comm
+
+1449
+01:12:42,800 --> 01:12:52,560
+page go down to the bottom
+
+1450
+01:12:47,120 --> 01:12:55,239
+2,800 lines documentation for our
+
+1451
+01:12:52,560 --> 01:12:56,920
+sync how long they going to take you
+
+1452
+01:12:55,239 --> 01:12:59,760
+going to read
+
+1453
+01:12:56,920 --> 01:13:03,480
+this nobody nobody actually read the
+
+1454
+01:12:59,760 --> 01:13:07,400
+whole thing this a complexity [ __ ] [ __ ]
+
+1455
+01:13:03,480 --> 01:13:11,199
+assn [ __ ] Unix [ __ ] the Unix
+
+1456
+01:13:07,400 --> 01:13:15,800
+[ __ ] typical the last Unix
+
+1457
+01:13:11,199 --> 01:13:18,480
+tradition tool is kit [ __ ] kit no that's
+
+1458
+01:13:15,800 --> 01:13:20,840
+why that's why when you are doing you
+
+1459
+01:13:18,480 --> 01:13:23,800
+know you always have question about G oh
+
+1460
+01:13:20,840 --> 01:13:25,679
+how do you do this but you heard it's so
+
+1461
+01:13:23,800 --> 01:13:31,239
+powerful It's the Great
+
+1462
+01:13:25,679 --> 01:13:35,120
+tool since sliced bread but G is the
+
+1463
+01:13:31,239 --> 01:13:37,280
+last [ __ ] up in the Unix tradition okay
+
+1464
+01:13:35,120 --> 01:13:39,920
+get is last one basically because the
+
+1465
+01:13:37,280 --> 01:13:42,159
+then the millennial generation took over
+
+1466
+01:13:39,920 --> 01:13:43,360
+and they they become something else they
+
+1467
+01:13:42,159 --> 01:13:45,520
+got their
+
+1468
+01:13:43,360 --> 01:13:50,560
+problems but I'm talking about the
+
+1469
+01:13:45,520 --> 01:13:52,120
+traditional the Unix scrub so uh 200 you
+
+1470
+01:13:50,560 --> 01:13:56,440
+know
+
+1471
+01:13:52,120 --> 01:13:59,800
+2,800 lines for the aryn documentation
+
+1472
+01:13:56,440 --> 01:14:03,040
+and let me add and it's it's written in
+
+1473
+01:13:59,800 --> 01:14:05,960
+the most lousy incomprehensible way
+
+1474
+01:14:03,040 --> 01:14:08,840
+that's the Unix man page it's the
+
+1475
+01:14:05,960 --> 01:14:11,920
+worst system of documentation of the of
+
+1476
+01:14:08,840 --> 01:14:14,480
+the entire uh Computing industry I can
+
+1477
+01:14:11,920 --> 01:14:17,159
+say that okay so if you have a question
+
+1478
+01:14:14,480 --> 01:14:19,400
+so we for example which documentation of
+
+1479
+01:14:17,159 --> 01:14:22,199
+a programming language or a tool in
+
+1480
+01:14:19,400 --> 01:14:26,080
+Computing industry uh one would say is
+
+1481
+01:14:22,199 --> 01:14:28,520
+the worst that would be Unix man page
+
+1482
+01:14:26,080 --> 01:14:30,840
+okay the other runner runner up would be
+
+1483
+01:14:28,520 --> 01:14:35,040
+or the other you know top top five would
+
+1484
+01:14:30,840 --> 01:14:38,560
+be python documentation Apache
+
+1485
+01:14:35,040 --> 01:14:41,760
+documentation okay Unix man page this
+
+1486
+01:14:38,560 --> 01:14:44,440
+these three would be the top
+
+1487
+01:14:41,760 --> 01:14:46,400
+five but but the Unix people don't know
+
+1488
+01:14:44,440 --> 01:14:48,639
+they think the man page is the best
+
+1489
+01:14:46,400 --> 01:14:51,280
+thing you know they think they know
+
+1490
+01:14:48,639 --> 01:14:53,679
+complete that's a un that's a that's you
+
+1491
+01:14:51,280 --> 01:14:57,639
+know you ask me why are you against uni
+
+1492
+01:14:53,679 --> 01:15:01,000
+Unix philosophy the the the Jon the
+
+1493
+01:14:57,639 --> 01:15:04,400
+Mantra the chant you know Unix
+
+1494
+01:15:01,000 --> 01:15:08,560
+philosophy is the cause of all these
+
+1495
+01:15:04,400 --> 01:15:12,239
+problems because you spread the gospel
+
+1496
+01:15:08,560 --> 01:15:14,560
+oh unix's philosophy we are we love Unix
+
+1497
+01:15:12,239 --> 01:15:17,719
+philosophy that's why there are so many
+
+1498
+01:15:14,560 --> 01:15:20,400
+people for example they think manage is
+
+1499
+01:15:17,719 --> 01:15:23,360
+the great greatest things since Sid
+
+1500
+01:15:20,400 --> 01:15:25,719
+spread oh man page great documentation
+
+1501
+01:15:23,360 --> 01:15:28,159
+in depth technical detail
+
+1502
+01:15:25,719 --> 01:15:31,520
+in fact it's worst
+
+1503
+01:15:28,159 --> 01:15:34,760
+worst worst technical style writing
+
+1504
+01:15:31,520 --> 01:15:37,480
+possible in human history Unix man page
+
+1505
+01:15:34,760 --> 01:15:40,360
+[ __ ] and the Unix are syn you know we
+
+1506
+01:15:37,480 --> 01:15:43,040
+talked about so we we we I so why do I
+
+1507
+01:15:40,360 --> 01:15:45,199
+hate Unix why do I hate Unix philosophy
+
+1508
+01:15:43,040 --> 01:15:46,719
+here is you know I've talked about a few
+
+1509
+01:15:45,199 --> 01:15:49,159
+concrete examples one is the
+
+1510
+01:15:46,719 --> 01:15:51,480
+documentation the worst documentation
+
+1511
+01:15:49,159 --> 01:15:55,159
+but however all the Unix people they
+
+1512
+01:15:51,480 --> 01:15:56,719
+think it's the best is they think in in
+
+1513
+01:15:55,159 --> 01:15:59,400
+sometimes they think it's the best
+
+1514
+01:15:56,719 --> 01:16:01,560
+literature you know imagine that in in
+
+1515
+01:15:59,400 --> 01:16:03,239
+English writing department they think
+
+1516
+01:16:01,560 --> 01:16:05,600
+it's like
+
+1517
+01:16:03,239 --> 01:16:07,440
+Shakespeare in fact there are journalism
+
+1518
+01:16:05,600 --> 01:16:10,239
+writing about about that anyway I have
+
+1519
+01:16:07,440 --> 01:16:14,320
+article I have I have so many articles
+
+1520
+01:16:10,239 --> 01:16:17,320
+on that so anyway iyn okay so let me let
+
+1521
+01:16:14,320 --> 01:16:20,320
+me uh recap you know iyn one of the
+
+1522
+01:16:17,320 --> 01:16:23,120
+complexity of Unix tool not just in our
+
+1523
+01:16:20,320 --> 01:16:25,360
+sync but in so many other Unix tool is
+
+1524
+01:16:23,120 --> 01:16:26,960
+when it involves
+
+1525
+01:16:25,360 --> 01:16:30,600
+uh when when it
+
+1526
+01:16:26,960 --> 01:16:33,239
+involves exclude or include directories
+
+1527
+01:16:30,600 --> 01:16:35,880
+and the complexity are whether you're
+
+1528
+01:16:33,239 --> 01:16:37,920
+GNA talk are you talking about directory
+
+1529
+01:16:35,880 --> 01:16:39,840
+or are you talking about files only you
+
+1530
+01:16:37,920 --> 01:16:42,440
+know because it's a big issue or are you
+
+1531
+01:16:39,840 --> 01:16:44,239
+going to have a you know another option
+
+1532
+01:16:42,440 --> 01:16:46,320
+you know one option for directories one
+
+1533
+01:16:44,239 --> 01:16:48,159
+option for files you know or or you
+
+1534
+01:16:46,320 --> 01:16:50,440
+you're going to depend on syntax you
+
+1535
+01:16:48,159 --> 01:16:52,639
+know if the syntax ends in a slash that
+
+1536
+01:16:50,440 --> 01:16:55,239
+means a directory if the syntax does not
+
+1537
+01:16:52,639 --> 01:16:57,000
+end in a slash it means a file and
+
+1538
+01:16:55,239 --> 01:16:59,679
+there's more complexities because in
+
+1539
+01:16:57,000 --> 01:17:01,840
+Unix directories are actually a file
+
+1540
+01:16:59,679 --> 01:17:03,600
+because directory technically speaking
+
+1541
+01:17:01,840 --> 01:17:07,800
+is just a file
+
+1542
+01:17:03,600 --> 01:17:10,719
+so so too many complexities so directory
+
+1543
+01:17:07,800 --> 01:17:16,320
+so directory versus
+
+1544
+01:17:10,719 --> 01:17:20,760
+file pattern versus uh literate file
+
+1545
+01:17:16,320 --> 01:17:24,920
+path okay then Unix scab versus regular
+
+1546
+01:17:20,760 --> 01:17:27,639
+expression okay then the order of EX
+
+1547
+01:17:24,920 --> 01:17:31,480
+exclude and include okay that's another
+
+1548
+01:17:27,639 --> 01:17:35,320
+complexity now that's okay that's one of
+
+1549
+01:17:31,480 --> 01:17:38,480
+my criticism of Unix now maybe one can
+
+1550
+01:17:35,320 --> 01:17:41,360
+ask the question maybe the the problem
+
+1551
+01:17:38,480 --> 01:17:44,920
+about excluding and including
+
+1552
+01:17:41,360 --> 01:17:48,080
+directories is inherit inheritant
+
+1553
+01:17:44,920 --> 01:17:49,960
+complex that is that's just the way
+
+1554
+01:17:48,080 --> 01:17:52,520
+things are there's no I mean it's
+
+1555
+01:17:49,960 --> 01:17:55,920
+inherent it's it's like a math problem
+
+1556
+01:17:52,520 --> 01:17:58,440
+it's not it's not artificial complexity
+
+1557
+01:17:55,920 --> 01:18:00,880
+you know it's not something the Unix
+
+1558
+01:17:58,440 --> 01:18:02,840
+people created because the problem about
+
+1559
+01:18:00,880 --> 01:18:06,159
+excluding uh
+
+1560
+01:18:02,840 --> 01:18:09,560
+including directories or files is is
+
+1561
+01:18:06,159 --> 01:18:12,400
+just complex therefore you know some
+
+1562
+01:18:09,560 --> 01:18:14,840
+Unix people might say you know they they
+
+1563
+01:18:12,400 --> 01:18:16,600
+might retort or defend Unix by saying oh
+
+1564
+01:18:14,840 --> 01:18:18,120
+actually the problem is just complex
+
+1565
+01:18:16,600 --> 01:18:22,159
+it's not because
+
+1566
+01:18:18,120 --> 01:18:25,120
+Unix uh that is partially true but no
+
+1567
+01:18:22,159 --> 01:18:28,840
+the Unix is still [ __ ] the Unix
+
+1568
+01:18:25,120 --> 01:18:30,719
+people because when Unix people do
+
+1569
+01:18:28,840 --> 01:18:34,239
+trying to solve this problem it's they
+
+1570
+01:18:30,719 --> 01:18:36,480
+made it far worse far worse especially
+
+1571
+01:18:34,239 --> 01:18:38,760
+like I talked about especially when the
+
+1572
+01:18:36,480 --> 01:18:42,239
+documentation doesn't
+
+1573
+01:18:38,760 --> 01:18:43,960
+clearly you know delineate you know
+
+1574
+01:18:42,239 --> 01:18:47,360
+explain the
+
+1575
+01:18:43,960 --> 01:18:50,000
+issue so you know so as a concrete
+
+1576
+01:18:47,360 --> 01:18:52,040
+example if you ask you if you if in your
+
+1577
+01:18:50,000 --> 01:18:55,040
+day job you are going to write AR sync
+
+1578
+01:18:52,040 --> 01:18:58,520
+you know AR sync is one of the greatest
+
+1579
+01:18:55,040 --> 01:19:00,120
+most powerful tool of the Unix lineage
+
+1580
+01:18:58,520 --> 01:19:02,760
+if you are going to write AR sync you
+
+1581
+01:19:00,120 --> 01:19:05,719
+know in your job for backup for example
+
+1582
+01:19:02,760 --> 01:19:11,000
+if you are assisted me or today is soall
+
+1583
+01:19:05,719 --> 01:19:14,120
+uh uh uh uh something
+
+1584
+01:19:11,000 --> 01:19:17,679
+up Dev up you know today there's a new
+
+1585
+01:19:14,120 --> 01:19:20,400
+Jon Dev up so if you need to do a AR
+
+1586
+01:19:17,679 --> 01:19:23,760
+sync for backup you know you you will
+
+1587
+01:19:20,400 --> 01:19:26,760
+run into this issue and then you will
+
+1588
+01:19:23,760 --> 01:19:31,440
+read our sync man
+
+1589
+01:19:26,760 --> 01:19:33,280
+page you know then you know you I think
+
+1590
+01:19:31,440 --> 01:19:35,440
+if you have done this before you know
+
+1591
+01:19:33,280 --> 01:19:38,440
+you know my you know the experience it's
+
+1592
+01:19:35,440 --> 01:19:41,000
+not a presentant experience then you're
+
+1593
+01:19:38,440 --> 01:19:43,480
+going to go to stack overflow stack
+
+1594
+01:19:41,000 --> 01:19:46,719
+Overflow there's a special section for
+
+1595
+01:19:43,480 --> 01:19:48,440
+sis admin you know or Dev apps you're
+
+1596
+01:19:46,719 --> 01:19:50,280
+going to spend hours then you're going
+
+1597
+01:19:48,440 --> 01:19:54,080
+to try it it doesn't work then you're
+
+1598
+01:19:50,280 --> 01:19:56,639
+going to do you know Unix the story of
+
+1599
+01:19:54,080 --> 01:19:56,639
+Unix
+
+1600
+01:19:58,440 --> 01:20:03,280
+so our syn you know our sync is one way
+
+1601
+01:20:00,679 --> 01:20:04,760
+to do backup you know but there are uh
+
+1602
+01:20:03,280 --> 01:20:06,719
+they are quite a lot of issues okay
+
+1603
+01:20:04,760 --> 01:20:10,480
+maybe that's that's it for
+
+1604
+01:20:06,719 --> 01:20:10,480
+today uh I
+
+1605
+01:20:11,320 --> 01:20:20,679
+feel that's uh another rent this is one
+
+1606
+01:20:15,920 --> 01:20:26,679
+hour pure rent on Unix today it ends up
+
+1607
+01:20:20,679 --> 01:20:30,960
+that way and uh I talked about for 1
+
+1608
+01:20:26,679 --> 01:20:34,320
+hour and uh so I
+
+1609
+01:20:30,960 --> 01:20:38,080
+talked for 1 hour and 20
+
+1610
+01:20:34,320 --> 01:20:42,280
+minutes and uh I'm not feeling so good
+
+1611
+01:20:38,080 --> 01:20:42,280
+about it because I was
+
+1612
+01:20:42,320 --> 01:20:50,760
+hoping the plan was going to do the plan
+
+1613
+01:20:46,000 --> 01:20:53,320
+is going to C Goan to reite this this sh
+
+1614
+01:20:50,760 --> 01:20:53,320
+script in
+
+1615
+01:20:53,480 --> 01:20:58,239
+Goan uh why do I want to do that because
+
+1616
+01:20:56,280 --> 01:21:01,239
+essentially I want to write them in Goan
+
+1617
+01:20:58,239 --> 01:21:01,239
+as a rapper
+
+1618
+01:21:01,600 --> 01:21:08,960
+but but there are issues about whether I
+
+1619
+01:21:06,159 --> 01:21:11,120
+should do that because you know the
+
+1620
+01:21:08,960 --> 01:21:14,040
+reason I want to do that is because
+
+1621
+01:21:11,120 --> 01:21:17,639
+first of all I think sh script sucks you
+
+1622
+01:21:14,040 --> 01:21:20,120
+know for example in this uh sh function
+
+1623
+01:21:17,639 --> 01:21:22,080
+are this are this variables local to the
+
+1624
+01:21:20,120 --> 01:21:23,600
+function or not I don't know but and
+
+1625
+01:21:22,080 --> 01:21:26,600
+even if they are there are lots of
+
+1626
+01:21:23,600 --> 01:21:29,360
+problems for example the you know the
+
+1627
+01:21:26,600 --> 01:21:32,560
+the if statement you know if and fi you
+
+1628
+01:21:29,360 --> 01:21:34,679
+know this idiotic syntax I don't want
+
+1629
+01:21:32,560 --> 01:21:36,400
+you know I don't like hacks I don't want
+
+1630
+01:21:34,679 --> 01:21:38,520
+anything that's ugly I don't you know I
+
+1631
+01:21:36,400 --> 01:21:40,679
+don't want anything to do with it so I
+
+1632
+01:21:38,520 --> 01:21:43,480
+don't want I don't want sh
+
+1633
+01:21:40,679 --> 01:21:46,320
+script so another reason for example if
+
+1634
+01:21:43,480 --> 01:21:48,560
+I I'm writing this this is a sh script
+
+1635
+01:21:46,320 --> 01:21:50,840
+right so I have these directories I
+
+1636
+01:21:48,560 --> 01:21:52,600
+rather use a list you know instead
+
+1637
+01:21:50,840 --> 01:21:54,920
+instead of calling the function on each
+
+1638
+01:21:52,600 --> 01:21:57,760
+directory I just write a list then just
+
+1639
+01:21:54,920 --> 01:21:59,199
+write a loop and apply a function if you
+
+1640
+01:21:57,760 --> 01:22:01,920
+are doing functional programming you
+
+1641
+01:21:59,199 --> 01:22:04,280
+know you just map a function to a list
+
+1642
+01:22:01,920 --> 01:22:04,280
+of
+
+1643
+01:22:05,239 --> 01:22:10,280
+directories but you but in Shell you
+
+1644
+01:22:07,880 --> 01:22:12,520
+know you you you have also s of problems
+
+1645
+01:22:10,280 --> 01:22:15,960
+you know
+
+1646
+01:22:12,520 --> 01:22:19,520
+I uh so if I can do this in
+
+1647
+01:22:15,960 --> 01:22:22,040
+Goan it might be simpler you know I know
+
+1648
+01:22:19,520 --> 01:22:24,520
+for sure I know you know because I can
+
+1649
+01:22:22,040 --> 01:22:29,639
+write the I can write the whole thing in
+
+1650
+01:22:24,520 --> 01:22:33,760
+emag list or python or uh JavaScript or
+
+1651
+01:22:29,639 --> 01:22:34,679
+Goan it'll be more elegant it will yeah
+
+1652
+01:22:33,760 --> 01:22:37,920
+kind
+
+1653
+01:22:34,679 --> 01:22:40,320
+of a bit not you know so I can write
+
+1654
+01:22:37,920 --> 01:22:43,040
+then in that then for each thing I will
+
+1655
+01:22:40,320 --> 01:22:46,040
+actually want to do I actually want to
+
+1656
+01:22:43,040 --> 01:22:49,679
+call get you know make a archive I can
+
+1657
+01:22:46,040 --> 01:22:49,679
+just call sh script
+
+1658
+01:22:49,880 --> 01:22:55,920
+so so that's that was my thought that is
+
+1659
+01:22:53,560 --> 01:22:59,800
+why I want to write this in goand and
+
+1660
+01:22:55,920 --> 01:23:03,040
+also um yeah but I'm I'm wondering
+
+1661
+01:22:59,800 --> 01:23:06,080
+whether it's worthwhile
+
+1662
+01:23:03,040 --> 01:23:09,560
+because because there are instances
+
+1663
+01:23:06,080 --> 01:23:11,239
+where actually a sh script just let it
+
+1664
+01:23:09,560 --> 01:23:15,199
+be you know
+
+1665
+01:23:11,239 --> 01:23:20,360
+uh it's if you if I write this as a
+
+1666
+01:23:15,199 --> 01:23:24,159
+rapper in goine or python the problem is
+
+1667
+01:23:20,360 --> 01:23:26,760
+that sometimes it will end up with a
+
+1668
+01:23:24,159 --> 01:23:30,239
+code being more elegant and easier to
+
+1669
+01:23:26,760 --> 01:23:32,719
+manage but not always sometimes not
+
+1670
+01:23:30,239 --> 01:23:36,520
+sometimes it's actually just leave sh
+
+1671
+01:23:32,719 --> 01:23:38,679
+leave sh script alone as sh script why
+
+1672
+01:23:36,520 --> 01:23:43,600
+because I I do have a example I showed
+
+1673
+01:23:38,679 --> 01:23:48,080
+earlier in this talk you know uh
+
+1674
+01:23:43,600 --> 01:23:50,840
+about this article okay one language to
+
+1675
+01:23:48,080 --> 01:23:51,840
+rule them all what language to use for
+
+1676
+01:23:50,840 --> 01:23:54,199
+find and
+
+1677
+01:23:51,840 --> 01:23:56,560
+replace okay I think that's it for today
+
+1678
+01:23:54,199 --> 01:23:59,760
+thank you thank you guys for
+
+1679
+01:23:56,560 --> 01:24:03,199
+watching uh so today is about a lot rent
+
+1680
+01:23:59,760 --> 01:24:05,440
+on Unix I guess so let me answer some
+
+1681
+01:24:03,199 --> 01:24:09,480
+questions so Tanner says is this
+
+1682
+01:24:05,440 --> 01:24:12,440
+complexity a problem with uni system or
+
+1683
+01:24:09,480 --> 01:24:15,520
+the shell language they use seems like a
+
+1684
+01:24:12,440 --> 01:24:20,840
+more structured command language is what
+
+1685
+01:24:15,520 --> 01:24:20,840
+is needed although I've never seen uh a
+
+1686
+01:24:21,040 --> 01:24:24,840
+thing well I hope I give I give
+
+1687
+01:24:23,760 --> 01:24:27,600
+explanation
+
+1688
+01:24:24,840 --> 01:24:30,600
+towards that
+
+1689
+01:24:27,600 --> 01:24:30,600
+already
+
+1690
+01:24:33,800 --> 01:24:41,840
+um I was always unable to spell uh isach
+
+1691
+01:24:38,400 --> 01:24:44,679
+uh you mean the oh yeah the case the
+
+1692
+01:24:41,840 --> 01:24:45,719
+shell you know the [ __ ] idiotic you
+
+1693
+01:24:44,679 --> 01:24:48,360
+know
+
+1694
+01:24:45,719 --> 01:24:51,440
+recently so in the past few days I was
+
+1695
+01:24:48,360 --> 01:24:53,239
+looking at Shell because I was you know
+
+1696
+01:24:51,440 --> 01:24:55,080
+I was trying to write this sh script you
+
+1697
+01:24:53,239 --> 01:24:57,320
+know I was wondering whether you know I
+
+1698
+01:24:55,080 --> 01:24:59,960
+was trying trying to think about you
+
+1699
+01:24:57,320 --> 01:25:02,119
+know on one hand I was trying to write
+
+1700
+01:24:59,960 --> 01:25:05,960
+this script on the other hand I was also
+
+1701
+01:25:02,119 --> 01:25:10,560
+trying to you know because Mac switched
+
+1702
+01:25:05,960 --> 01:25:13,440
+from bash to zshell be why because the
+
+1703
+01:25:10,560 --> 01:25:16,560
+because the free software Foundation
+
+1704
+01:25:13,440 --> 01:25:18,960
+gpl3 you know the Mac the Apple people
+
+1705
+01:25:16,560 --> 01:25:23,360
+they don't want nothing to do with
+
+1706
+01:25:18,960 --> 01:25:24,840
+gpl3 so so they bash you know they The
+
+1707
+01:25:23,360 --> 01:25:28,880
+Bash on the Mac
+
+1708
+01:25:24,840 --> 01:25:32,600
+up to up to uh 3 years ago was bash
+
+1709
+01:25:28,880 --> 01:25:36,679
+version you know a version that's using
+
+1710
+01:25:32,600 --> 01:25:40,320
+gpl2 now gpr3 began like 10 years ago
+
+1711
+01:25:36,679 --> 01:25:42,920
+like 12 years ago so so the Mac never
+
+1712
+01:25:40,320 --> 01:25:45,840
+upgraded their bash you know they
+
+1713
+01:25:42,920 --> 01:25:48,760
+stayed in the version like 10 years ago
+
+1714
+01:25:45,840 --> 01:25:51,159
+up to like three years ago why because
+
+1715
+01:25:48,760 --> 01:25:53,480
+the Mac the Apple people they don't want
+
+1716
+01:25:51,159 --> 01:25:55,400
+gpr3 [ __ ] gpr3
+
+1717
+01:25:53,480 --> 01:25:59,480
+[Laughter]
+
+1718
+01:25:55,400 --> 01:25:59,480
+the politics of the open
+
+1719
+01:25:59,520 --> 01:26:05,800
+source then uh of course lenux also by
+
+1720
+01:26:02,880 --> 01:26:07,639
+the way I should mention in case some of
+
+1721
+01:26:05,800 --> 01:26:10,480
+the people will say oh yeah gpr3 is
+
+1722
+01:26:07,639 --> 01:26:13,719
+great no no [ __ ] the open source is one
+
+1723
+01:26:10,480 --> 01:26:16,320
+[ __ ] up [ __ ] you know the Linux Linux of
+
+1724
+01:26:13,719 --> 01:26:20,840
+course and lenux towards the the guy who
+
+1725
+01:26:16,320 --> 01:26:24,520
+wrote Linux also you know refuse to
+
+1726
+01:26:20,840 --> 01:26:28,159
+adapt gpr3 gpr3 is the richest storman
+
+1727
+01:26:24,520 --> 01:26:32,800
+thing he he wants he wants control he
+
+1728
+01:26:28,159 --> 01:26:34,520
+wants control of his Empire in in in in
+
+1729
+01:26:32,800 --> 01:26:38,280
+a sense okay there are many different
+
+1730
+01:26:34,520 --> 01:26:41,360
+opinions but in a sense he created gpr3
+
+1731
+01:26:38,280 --> 01:26:46,280
+because he want control of his
+
+1732
+01:26:41,360 --> 01:26:49,600
+commune you know his his word so lenu
+
+1733
+01:26:46,280 --> 01:26:53,239
+Linux and many any you know many open
+
+1734
+01:26:49,600 --> 01:26:55,480
+source project or even G project they
+
+1735
+01:26:53,239 --> 01:26:59,520
+began a re vote you know they don't
+
+1736
+01:26:55,480 --> 01:27:01,840
+adopt gpr3 go [ __ ] yourself go with your
+
+1737
+01:26:59,520 --> 01:27:05,199
+you know do your gpr3 in
+
+1738
+01:27:01,840 --> 01:27:08,840
+emx and you know that happened all in
+
+1739
+01:27:05,199 --> 01:27:13,400
+lots of places in Debian in you know you
+
+1740
+01:27:08,840 --> 01:27:16,800
+know War you know the the war among the
+
+1741
+01:27:13,400 --> 01:27:19,679
+good people open source
+
+1742
+01:27:16,800 --> 01:27:21,480
+Fanatics uh it's pretty bloody war okay
+
+1743
+01:27:19,679 --> 01:27:24,400
+because they don't they will not agree
+
+1744
+01:27:21,480 --> 01:27:26,440
+then we [ __ ] you go you know you do
+
+1745
+01:27:24,400 --> 01:27:28,280
+stuff I I'm you know first of all
+
+1746
+01:27:26,440 --> 01:27:30,400
+there's open source Camp versus free
+
+1747
+01:27:28,280 --> 01:27:33,159
+software Foundation Camp then there's a
+
+1748
+01:27:30,400 --> 01:27:37,040
+lot a lot camps and then then licenses
+
+1749
+01:27:33,159 --> 01:27:39,159
+1,000 licenses MIT Apache to Artistic
+
+1750
+01:27:37,040 --> 01:27:44,679
+license they are each one claims they
+
+1751
+01:27:39,159 --> 01:27:46,760
+are the most uh uh most uh great great
+
+1752
+01:27:44,679 --> 01:27:49,639
+good for
+
+1753
+01:27:46,760 --> 01:27:52,320
+Humanity but in the end they just want
+
+1754
+01:27:49,639 --> 01:27:56,639
+their name to be plastered over this
+
+1755
+01:27:52,320 --> 01:28:00,040
+open source Prett ious hypocrite
+
+1756
+01:27:56,639 --> 01:28:00,040
+[ __ ] open
+
+1757
+01:28:00,360 --> 01:28:06,400
+source uh okay I digressed so I was
+
+1758
+01:28:03,840 --> 01:28:10,719
+saying so yeah I was writing sh script
+
+1759
+01:28:06,400 --> 01:28:13,560
+and I was also uh finally made my uh
+
+1760
+01:28:10,719 --> 01:28:15,400
+Zell prompt to be color because you know
+
+1761
+01:28:13,560 --> 01:28:18,000
+it all this takes time you know like
+
+1762
+01:28:15,400 --> 01:28:20,119
+when you use Linux every day you spend
+
+1763
+01:28:18,000 --> 01:28:22,520
+hours you know geeking you know finding
+
+1764
+01:28:20,119 --> 01:28:26,719
+out you know window managers you know
+
+1765
+01:28:22,520 --> 01:28:29,960
+try so it takes time so finally I uh
+
+1766
+01:28:26,719 --> 01:28:31,360
+made my zshell prompt color use and
+
+1767
+01:28:29,960 --> 01:28:34,960
+useful to
+
+1768
+01:28:31,360 --> 01:28:39,080
+me and then so I
+
+1769
+01:28:34,960 --> 01:28:44,199
+revisit I Revisited the shell issue you
+
+1770
+01:28:39,080 --> 01:28:48,960
+know the the boom shell bash Zell K
+
+1771
+01:28:44,199 --> 01:28:52,320
+shell cell tcsh now shell you know and
+
+1772
+01:28:48,960 --> 01:28:54,639
+also the mod you know the fish fish sh
+
+1773
+01:28:52,320 --> 01:28:59,600
+is actually I think quite good and but
+
+1774
+01:28:54,639 --> 01:29:01,280
+it's actually uh from 2005 so fish sh is
+
+1775
+01:28:59,600 --> 01:29:03,639
+already 15 years
+
+1776
+01:29:01,280 --> 01:29:05,520
+old and also by the way there's also
+
+1777
+01:29:03,639 --> 01:29:07,480
+schem shell you don't hear it much
+
+1778
+01:29:05,520 --> 01:29:10,199
+anymore I talked about it before in one
+
+1779
+01:29:07,480 --> 01:29:13,320
+of my episode schem shell okay schem
+
+1780
+01:29:10,199 --> 01:29:15,600
+this you know that language schem shell
+
+1781
+01:29:13,320 --> 01:29:20,600
+so all these shells you know the the
+
+1782
+01:29:15,600 --> 01:29:23,400
+shell War the war of shells is old the
+
+1783
+01:29:20,600 --> 01:29:27,000
+the wall among shells is like today's
+
+1784
+01:29:23,400 --> 01:29:30,320
+language War you know uh back 20 years
+
+1785
+01:29:27,000 --> 01:29:32,560
+ago Pearl versus python then python
+
+1786
+01:29:30,320 --> 01:29:35,760
+versus Ruby of course then you have
+
+1787
+01:29:32,560 --> 01:29:38,320
+goand versus rust then you have closure
+
+1788
+01:29:35,760 --> 01:29:44,080
+versus common lisp you know you have
+
+1789
+01:29:38,320 --> 01:29:47,639
+Java versus C Java versus C++ versus c c
+
+1790
+01:29:44,080 --> 01:29:51,440
+versus D versus EF g h i j
+
+1791
+01:29:47,639 --> 01:29:56,400
+k the Unix the war the war among the
+
+1792
+01:29:51,440 --> 01:29:59,600
+languages but before that in the
+
+1793
+01:29:56,400 --> 01:30:02,199
+1990s and also 1980s but I wasn't I
+
+1794
+01:29:59,600 --> 01:30:07,280
+wasn't around in 1980s I began my
+
+1795
+01:30:02,199 --> 01:30:10,760
+Computing career in 1990s okay so but in
+
+1796
+01:30:07,280 --> 01:30:14,840
+1990s there's a war that's is a shell
+
+1797
+01:30:10,760 --> 01:30:16,960
+okay that's a shell so bash Kell
+
+1798
+01:30:14,840 --> 01:30:18,800
+seashell that's a big war every every
+
+1799
+01:30:16,960 --> 01:30:20,679
+programers is talking about my shell is
+
+1800
+01:30:18,800 --> 01:30:23,480
+better than your
+
+1801
+01:30:20,679 --> 01:30:25,960
+shell this is the reason why because we
+
+1802
+01:30:23,480 --> 01:30:27,880
+have more Nots you you don't have monads
+
+1803
+01:30:25,960 --> 01:30:33,320
+we have
+
+1804
+01:30:27,880 --> 01:30:35,320
+monuts sh but Shia as time goes on Shia
+
+1805
+01:30:33,320 --> 01:30:38,360
+the life of Shia they they kind of
+
+1806
+01:30:35,320 --> 01:30:42,040
+passed away quiet quietly just like just
+
+1807
+01:30:38,360 --> 01:30:44,440
+like Pearl is dead sha is also kind of
+
+1808
+01:30:42,040 --> 01:30:47,719
+dead you know nobody's because for
+
+1809
+01:30:44,440 --> 01:30:50,880
+example we talked about today grab said
+
+1810
+01:30:47,719 --> 01:30:55,159
+you can write those in Goan in Ruby in
+
+1811
+01:30:50,880 --> 01:30:57,199
+Java in in Pearl uh in python in 10
+
+1812
+01:30:55,159 --> 01:30:59,679
+minutes in 5 minutes you can write one
+
+1813
+01:30:57,199 --> 01:31:04,280
+that's better than grab all or or set
+
+1814
+01:30:59,679 --> 01:31:06,199
+you know the Unix tools so in and and
+
+1815
+01:31:04,280 --> 01:31:07,880
+actually the languages are far more
+
+1816
+01:31:06,199 --> 01:31:12,560
+powerful than all these
+
+1817
+01:31:07,880 --> 01:31:16,239
+shells so shells the uni shells became
+
+1818
+01:31:12,560 --> 01:31:19,000
+it it becomes the sole purpose of shell
+
+1819
+01:31:16,239 --> 01:31:24,600
+is just is just uh interactive use you
+
+1820
+01:31:19,000 --> 01:31:24,600
+know allows you to have a uh for example
+
+1821
+01:31:25,239 --> 01:31:30,320
+uh allows you to have uh you
+
+1822
+01:31:27,600 --> 01:31:32,719
+know you know interaction with your uh
+
+1823
+01:31:30,320 --> 01:31:34,800
+operating system then there comes
+
+1824
+01:31:32,719 --> 01:31:36,960
+Microsoft
+
+1825
+01:31:34,800 --> 01:31:39,920
+Powershell I think Powershell is the
+
+1826
+01:31:36,960 --> 01:31:43,440
+best okay let's go to
+
+1827
+01:31:39,920 --> 01:31:48,320
+Powershell you should learn Powers shell
+
+1828
+01:31:43,440 --> 01:31:51,760
+okay you should I think it's I I I don't
+
+1829
+01:31:48,320 --> 01:31:55,600
+know for sure but I think as a
+
+1830
+01:31:51,760 --> 01:31:59,080
+programming language power shell is a
+
+1831
+01:31:55,600 --> 01:32:02,800
+better shell is a b more a better
+
+1832
+01:31:59,080 --> 01:32:06,679
+designed shell than all these other
+
+1833
+01:32:02,800 --> 01:32:08,480
+traditional bash zshell Kell cell tcsh
+
+1834
+01:32:06,679 --> 01:32:12,280
+you know that's my
+
+1835
+01:32:08,480 --> 01:32:16,440
+opinion um maybe not compared to scheme
+
+1836
+01:32:12,280 --> 01:32:20,159
+shell but I think so too uh Power shell
+
+1837
+01:32:16,440 --> 01:32:22,520
+why because in general for comp computer
+
+1838
+01:32:20,159 --> 01:32:24,560
+languages programming languages or
+
+1839
+01:32:22,520 --> 01:32:27,239
+almost any technology
+
+1840
+01:32:24,560 --> 01:32:32,199
+the later ones are better than the
+
+1841
+01:32:27,239 --> 01:32:36,840
+earlier ones if the if their age differs
+
+1842
+01:32:32,199 --> 01:32:41,679
+by 10 years old so how old is Bash Bash
+
+1843
+01:32:36,840 --> 01:32:45,920
+was invented in 1990s 1989 bash how old
+
+1844
+01:32:41,679 --> 01:32:49,520
+is pow sha power sha was B in 2005
+
+1845
+01:32:45,920 --> 01:32:52,480
+around there okay so so what's the the
+
+1846
+01:32:49,520 --> 01:32:55,080
+what's their age difference uh about 15
+
+1847
+01:32:52,480 --> 01:32:58,719
+years Okay so so is that more than 10
+
+1848
+01:32:55,080 --> 01:33:02,199
+yes so therefore power shell is better
+
+1849
+01:32:58,719 --> 01:33:05,199
+shell uh in general because when it
+
+1850
+01:33:02,199 --> 01:33:08,800
+comes to technology later
+
+1851
+01:33:05,199 --> 01:33:11,320
+inventions almost is almost always
+
+1852
+01:33:08,800 --> 01:33:14,080
+better okay so I think power shell is
+
+1853
+01:33:11,320 --> 01:33:17,480
+the actually best best shell so and and
+
+1854
+01:33:14,080 --> 01:33:19,080
+actually today it's all cross platform
+
+1855
+01:33:17,480 --> 01:33:23,159
+so for example I can start the power
+
+1856
+01:33:19,080 --> 01:33:23,159
+shell now pwsh
+
+1857
+01:33:26,960 --> 01:33:33,119
+there it is I'm in Powers
+
+1858
+01:33:29,199 --> 01:33:35,920
+shell now let's see uh
+
+1859
+01:33:33,119 --> 01:33:40,280
+duh dos
+
+1860
+01:33:35,920 --> 01:33:41,520
+duh power shell okay so there it is
+
+1861
+01:33:40,280 --> 01:33:44,119
+poers
+
+1862
+01:33:41,520 --> 01:33:46,920
+shell so if you haven't done already
+
+1863
+01:33:44,119 --> 01:33:49,520
+learn poers shell read my tutorial okay
+
+1864
+01:33:46,920 --> 01:33:53,159
+and I have a section that is the most
+
+1865
+01:33:49,520 --> 01:33:55,880
+popular po Shell versus spash where you
+
+1866
+01:33:53,159 --> 01:33:59,560
+can learn if you came from bash you can
+
+1867
+01:33:55,880 --> 01:34:02,560
+learn how something is done in bash is
+
+1868
+01:33:59,560 --> 01:34:06,000
+done in Powershell you know so you have
+
+1869
+01:34:02,560 --> 01:34:08,480
+so this is a gateway to get you started
+
+1870
+01:34:06,000 --> 01:34:11,480
+in pow shell because based on what
+
+1871
+01:34:08,480 --> 01:34:14,760
+things you know grab grab find you know
+
+1872
+01:34:11,480 --> 01:34:16,719
+things you already know by muscle memory
+
+1873
+01:34:14,760 --> 01:34:19,639
+you you Al you can also learn how it's
+
+1874
+01:34:16,719 --> 01:34:24,040
+done in power sh okay but I don't I
+
+1875
+01:34:19,639 --> 01:34:28,159
+don't know that much in Powell uh
+
+1876
+01:34:24,040 --> 01:34:30,320
+never um you know it takes time to
+
+1877
+01:34:28,159 --> 01:34:32,679
+actually you know write scripts and
+
+1878
+01:34:30,320 --> 01:34:32,679
+learn
+
+1879
+01:34:32,880 --> 01:34:39,520
+stuff okay finally last words for today
+
+1880
+01:34:36,679 --> 01:34:42,400
+if you like my stuff buy my tutorials
+
+1881
+01:34:39,520 --> 01:34:45,679
+okay so you know I have iMac this
+
+1882
+01:34:42,400 --> 01:34:50,600
+tutorial I have uh JavaScript in depth
+
+1883
+01:34:45,679 --> 01:34:54,450
+tutorial or just PayPal me okay and uh
+
+1884
+01:34:50,600 --> 01:34:58,899
+thank you PayPal me and patreon
+
+1885
+01:34:54,450 --> 01:34:58,899
+[Music]
+
+1886
+01:35:20,360 --> 01:35:28,679
+H have you tried Elvish
+
+1887
+01:35:23,960 --> 01:35:32,239
+now if I remember correctly Elvish is
+
+1888
+01:35:28,679 --> 01:35:34,440
+a wait Elvish Elvish is a new shell I
+
+1889
+01:35:32,239 --> 01:35:36,920
+guess no I don't know you know I don't
+
+1890
+01:35:34,440 --> 01:35:42,360
+know this happy New Year by the way yeah
+
+1891
+01:35:36,920 --> 01:35:42,360
+Happy New Year's guys 2001
+
+1892
+01:35:43,760 --> 01:35:49,080
+2021 yeah actually I should close down
+
+1893
+01:35:46,239 --> 01:35:53,199
+it's over it's like 90 minutes
+
+1894
+01:35:49,080 --> 01:35:54,560
+so yeah random chat yeah I had fun thank
+
+1895
+01:35:53,199 --> 01:35:58,639
+you guys for
+
+1896
+01:35:54,560 --> 01:36:01,840
+watching uh bye guys Elish language okay
+
+1897
+01:35:58,639 --> 01:36:02,639
+let's see Elish language Wait no that's
+
+1898
+01:36:01,840 --> 01:36:04,600
+not
+
+1899
+01:36:02,639 --> 01:36:08,159
+it
+
+1900
+01:36:04,600 --> 01:36:10,480
+uh you are talking about shell okay so
+
+1901
+01:36:08,159 --> 01:36:14,880
+let's see
+
+1902
+01:36:10,480 --> 01:36:17,320
+shell Elvis shell so lvis shell is a
+
+1903
+01:36:14,880 --> 01:36:19,520
+friendly interactive shell and an
+
+1904
+01:36:17,320 --> 01:36:23,000
+expressive programming language it runs
+
+1905
+01:36:19,520 --> 01:36:25,159
+on Linux vsd and M OS and windows uh
+
+1906
+01:36:23,000 --> 01:36:27,880
+demos able blah blah blah now is there a
+
+1907
+01:36:25,159 --> 01:36:31,360
+Wikipedia article I always like
+
+1908
+01:36:27,880 --> 01:36:32,440
+to check Wikipedia article first uh
+
+1909
+01:36:31,360 --> 01:36:37,960
+maybe
+
+1910
+01:36:32,440 --> 01:36:37,960
+not okay so let's uh check Elvish
+
+1911
+01:36:38,280 --> 01:36:44,760
+shell yeah but sh is dead okay uh I is
+
+1912
+01:36:42,520 --> 01:36:46,760
+it true now sometimes you know when you
+
+1913
+01:36:44,760 --> 01:36:49,400
+make a comment or when you think when
+
+1914
+01:36:46,760 --> 01:36:52,480
+you have some opinions
+
+1915
+01:36:49,400 --> 01:36:54,480
+you you usually want to think about
+
+1916
+01:36:52,480 --> 01:36:56,480
+seriously
+
+1917
+01:36:54,480 --> 01:36:58,920
+like you you ask yourself when you have
+
+1918
+01:36:56,480 --> 01:37:01,480
+time you know is it really true when you
+
+1919
+01:36:58,920 --> 01:37:03,679
+know when you are when you casually you
+
+1920
+01:37:01,480 --> 01:37:05,280
+know thought about something so when I
+
+1921
+01:37:03,679 --> 01:37:07,840
+mentioned you know I just casually
+
+1922
+01:37:05,280 --> 01:37:11,000
+mentioned yeah sh you know Elvish is not
+
+1923
+01:37:07,840 --> 01:37:13,159
+going to go anywhere because shell in my
+
+1924
+01:37:11,000 --> 01:37:15,760
+opinion is kind of dead okay the only
+
+1925
+01:37:13,159 --> 01:37:18,040
+use for Shell is interactive shell
+
+1926
+01:37:15,760 --> 01:37:20,960
+interactive you know and you don't do
+
+1927
+01:37:18,040 --> 01:37:22,440
+much with that be you know the real
+
+1928
+01:37:20,960 --> 01:37:25,199
+power of shell is actually the
+
+1929
+01:37:22,440 --> 01:37:26,159
+programming the automation part and for
+
+1930
+01:37:25,199 --> 01:37:29,880
+that
+
+1931
+01:37:26,159 --> 01:37:32,119
+purposes PE python Ruby goand they take
+
+1932
+01:37:29,880 --> 01:37:36,440
+over you know even PHP JavaScript you
+
+1933
+01:37:32,119 --> 01:37:40,280
+know so Shia is dead so so that's my
+
+1934
+01:37:36,440 --> 01:37:42,480
+claim but is it really true you know
+
+1935
+01:37:40,280 --> 01:37:45,760
+maybe you know so you have to think
+
+1936
+01:37:42,480 --> 01:37:47,760
+about it you know maybe is it possible
+
+1937
+01:37:45,760 --> 01:37:50,080
+maybe something I didn't think about
+
+1938
+01:37:47,760 --> 01:37:52,880
+maybe in you know so maybe is it is it
+
+1939
+01:37:50,080 --> 01:37:57,480
+possible in 10 years after 10 years
+
+1940
+01:37:52,880 --> 01:37:57,480
+actually maybe maybe some shell
+
+1941
+01:37:58,440 --> 01:38:05,599
+becomes so popular
+
+1942
+01:38:01,480 --> 01:38:08,560
+that you know like today bash is still
+
+1943
+01:38:05,599 --> 01:38:11,960
+you know most useful because bash is the
+
+1944
+01:38:08,560 --> 01:38:16,440
+most used language to install programs
+
+1945
+01:38:11,960 --> 01:38:18,679
+on Unix systems on Linux bash why not
+
+1946
+01:38:16,440 --> 01:38:23,119
+because it's great technology but
+
+1947
+01:38:18,679 --> 01:38:25,679
+because it is the tool that everyone can
+
+1948
+01:38:23,119 --> 01:38:28,040
+r on because it's everywhere and it's
+
+1949
+01:38:25,679 --> 01:38:29,639
+stable you know it's been you know it's
+
+1950
+01:38:28,040 --> 01:38:32,159
+there's like see you know there's a
+
+1951
+01:38:29,639 --> 01:38:35,920
+momentum you know so when you want to
+
+1952
+01:38:32,159 --> 01:38:40,280
+write a installer on Unix
+
+1953
+01:38:35,920 --> 01:38:42,440
+server the one answer is Bash okay not
+
+1954
+01:38:40,280 --> 01:38:46,480
+not all the new shells and better
+
+1955
+01:38:42,440 --> 01:38:46,480
+features you know you have to use
+
+1956
+01:38:47,239 --> 01:38:52,040
+spash but uh so is it possible that bash
+
+1957
+01:38:51,080 --> 01:38:55,159
+will be
+
+1958
+01:38:52,040 --> 01:38:59,480
+replaced anyway anyway I gotta go okay
+
+1959
+01:38:55,159 --> 01:38:59,480
+so I gotta go and uh
+
+1960
+01:38:59,719 --> 01:39:05,960
+um uh yeah so talk to you guys Happy New
+
+1961
+01:39:02,960 --> 01:39:05,960
+Year
+

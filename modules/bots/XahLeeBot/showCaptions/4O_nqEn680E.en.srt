@@ -1,0 +1,3516 @@
+1
+00:00:03,480 --> 00:00:10,160
+good morning I am alive so are you
+
+2
+00:00:07,080 --> 00:00:13,839
+welcome to another episode of c talk
+
+3
+00:00:10,160 --> 00:00:17,160
+show uh so good morning we are going to
+
+4
+00:00:13,839 --> 00:00:20,519
+code emac lisp hello
+
+5
+00:00:17,160 --> 00:00:25,160
+timer uh let's have some wi okay can I
+
+6
+00:00:20,519 --> 00:00:30,400
+see it video check audio check have a
+
+7
+00:00:25,160 --> 00:00:34,480
+red one today's topic is emac L coding f
+
+8
+00:00:30,400 --> 00:00:38,600
+fantastic make America great Again by
+
+9
+00:00:34,480 --> 00:00:42,840
+engineering okay not by lawyers and uh
+
+10
+00:00:38,600 --> 00:00:42,840
+poor talkers mouths
+
+11
+00:00:47,840 --> 00:00:52,760
+influencers so if you want to make
+
+12
+00:00:50,160 --> 00:00:55,160
+America great again or whatever your
+
+13
+00:00:52,760 --> 00:01:01,440
+country great
+
+14
+00:00:55,160 --> 00:01:01,440
+again work do mathematics okay
+
+15
+00:01:02,920 --> 00:01:09,159
+today we're going to do for coders so
+
+16
+00:01:06,000 --> 00:01:11,680
+for those of you computer programmers
+
+17
+00:01:09,159 --> 00:01:14,479
+you will find this interesting because
+
+18
+00:01:11,680 --> 00:01:18,640
+we are doing emac
+
+19
+00:01:14,479 --> 00:01:20,439
+emac the most powerful text editor like
+
+20
+00:01:18,640 --> 00:01:21,320
+I'm using right now you can see these
+
+21
+00:01:20,439 --> 00:01:25,000
+two
+
+22
+00:01:21,320 --> 00:01:27,560
+windows uh check check check check okay
+
+23
+00:01:25,000 --> 00:01:30,200
+do I need to talk about my keyboards
+
+24
+00:01:27,560 --> 00:01:32,240
+like you know I talk about every video
+
+25
+00:01:30,200 --> 00:01:36,079
+so let's give it
+
+26
+00:01:32,240 --> 00:01:39,200
+today and okay so hi so if you are here
+
+27
+00:01:36,079 --> 00:01:43,680
+say hi comments I love your comments I
+
+28
+00:01:39,200 --> 00:01:48,320
+love it if you are not here play at 1.5
+
+29
+00:01:43,680 --> 00:01:48,320
+speed and Skip around because I
+
+30
+00:01:48,920 --> 00:01:54,799
+ramble fantastic you like rants of
+
+31
+00:01:52,280 --> 00:01:58,560
+course that is the bottom line of
+
+32
+00:01:54,799 --> 00:02:01,439
+humanity everyone wants gossip because
+
+33
+00:01:58,560 --> 00:02:03,920
+when you gossip they is drama you know
+
+34
+00:02:01,439 --> 00:02:07,640
+what is movie made of you know we talk
+
+35
+00:02:03,920 --> 00:02:11,480
+about box Offices Hollywood making big
+
+36
+00:02:07,640 --> 00:02:14,319
+money you go watch Star Wars or whatever
+
+37
+00:02:11,480 --> 00:02:17,519
+or or Twilight the women's thing
+
+38
+00:02:14,319 --> 00:02:21,200
+Twilight if you are a guy Star Wars or
+
+39
+00:02:17,519 --> 00:02:25,480
+whatever drama that's what you want
+
+40
+00:02:21,200 --> 00:02:28,640
+drama so okay so um so you guys how many
+
+41
+00:02:25,480 --> 00:02:30,879
+people are watching like three uh Jesus
+
+42
+00:02:28,640 --> 00:02:33,360
+three is a crowd
+
+43
+00:02:30,879 --> 00:02:36,599
+counting myself okay and there's no
+
+44
+00:02:33,360 --> 00:02:40,280
+people okay so so in that case let me uh
+
+45
+00:02:36,599 --> 00:02:42,680
+I want to talk about this Allan guy okay
+
+46
+00:02:40,280 --> 00:02:45,159
+so but we're going to also do code okay
+
+47
+00:02:42,680 --> 00:02:47,680
+don't worry if you are just technical
+
+48
+00:02:45,159 --> 00:02:51,560
+people like Asians you know if you are
+
+49
+00:02:47,680 --> 00:02:56,159
+Chinese you are good for math that's
+
+50
+00:02:51,560 --> 00:03:01,720
+it so there's this skum bag aggressive
+
+51
+00:02:56,159 --> 00:03:06,239
+German scum Allan Mac
+
+52
+00:03:01,720 --> 00:03:10,760
+Kenzie did he do any crime
+
+53
+00:03:06,239 --> 00:03:15,400
+no but he's aggressive guy in the emac
+
+54
+00:03:10,760 --> 00:03:18,840
+community that creates that insists he
+
+55
+00:03:15,400 --> 00:03:21,560
+insists bad things to happen to emac
+
+56
+00:03:18,840 --> 00:03:25,000
+because in his opinion it's better but
+
+57
+00:03:21,560 --> 00:03:27,680
+he makes emac a lot worse okay so this
+
+58
+00:03:25,000 --> 00:03:30,920
+Alan McKenzie guy he
+
+59
+00:03:27,680 --> 00:03:34,200
+resigned he he's old he is kind of old I
+
+60
+00:03:30,920 --> 00:03:37,200
+don't know how old but uh I think at
+
+61
+00:03:34,200 --> 00:03:40,720
+least 60 I think I I think I don't know
+
+62
+00:03:37,200 --> 00:03:44,360
+okay but Alan McKenzie aggressive guy
+
+63
+00:03:40,720 --> 00:03:47,879
+and he's been working with emac G emac
+
+64
+00:03:44,360 --> 00:03:51,680
+for like 20 years at least but he's he
+
+65
+00:03:47,879 --> 00:03:53,239
+he he he his opinions make emac very bad
+
+66
+00:03:51,680 --> 00:03:56,760
+so
+
+67
+00:03:53,239 --> 00:04:00,680
+finally he posted this
+
+68
+00:03:56,760 --> 00:04:03,480
+resignation letter to G IMX Dev okay he
+
+69
+00:04:00,680 --> 00:04:06,360
+says hello emx I'm resigning my position
+
+70
+00:04:03,480 --> 00:04:06,360
+as emac
+
+71
+00:04:06,519 --> 00:04:12,480
+contributor you know the immediate
+
+72
+00:04:09,239 --> 00:04:15,599
+reason is that as maintainer of CC mod
+
+73
+00:04:12,480 --> 00:04:18,359
+CC mod symbols its name where were taken
+
+74
+00:04:15,599 --> 00:04:21,600
+by emac and used for other purposes
+
+75
+00:04:18,359 --> 00:04:23,759
+without informing me much less
+
+76
+00:04:21,600 --> 00:04:28,000
+Consulting me blah blah blah you know
+
+77
+00:04:23,759 --> 00:04:31,160
+this you know he so so you see there are
+
+78
+00:04:28,000 --> 00:04:34,120
+arguments on the go emac development
+
+79
+00:04:31,160 --> 00:04:36,560
+mailing list of course programmers
+
+80
+00:04:34,120 --> 00:04:38,320
+always argue this should be designed
+
+81
+00:04:36,560 --> 00:04:41,360
+this way should be this way no it should
+
+82
+00:04:38,320 --> 00:04:43,440
+be that way the user interface of emac
+
+83
+00:04:41,360 --> 00:04:46,680
+no you shouldn't support Mouse no you
+
+84
+00:04:43,440 --> 00:04:49,759
+should you know always
+
+85
+00:04:46,680 --> 00:04:53,039
+arguments but he got pissed this Alan
+
+86
+00:04:49,759 --> 00:04:57,280
+McKenzie guy got pissed over the past
+
+87
+00:04:53,039 --> 00:04:59,720
+five or 10 years because people do do
+
+88
+00:04:57,280 --> 00:05:02,120
+not like his ideas you know he spefic
+
+89
+00:04:59,720 --> 00:05:05,840
+specifically point out a few people
+
+90
+00:05:02,120 --> 00:05:10,880
+which I like okay but Alan McKenzie he's
+
+91
+00:05:05,840 --> 00:05:14,320
+a so in my you know I I I I exchanged
+
+92
+00:05:10,880 --> 00:05:19,759
+email email and or uh News scho Post
+
+93
+00:05:14,320 --> 00:05:22,680
+with him back in uh 2000s let's say 2005
+
+94
+00:05:19,759 --> 00:05:26,080
+or you know in 2000s I've exchanged a
+
+95
+00:05:22,680 --> 00:05:29,759
+few emails with him now let me emphasize
+
+96
+00:05:26,080 --> 00:05:36,759
+again did this guy is he a criminal no
+
+97
+00:05:29,759 --> 00:05:41,080
+no did he do any crime no however he has
+
+98
+00:05:36,759 --> 00:05:44,880
+insisted on a lot opinions on emac
+
+99
+00:05:41,080 --> 00:05:47,759
+design which in my opinion did damage to
+
+100
+00:05:44,880 --> 00:05:49,800
+emac okay in particular there's one of
+
+101
+00:05:47,759 --> 00:05:52,080
+them let me show you okay since we I'm
+
+102
+00:05:49,800 --> 00:05:56,120
+talking about this let me just talk
+
+103
+00:05:52,080 --> 00:05:58,680
+about this okay Alam McKenzie I want to
+
+104
+00:05:56,120 --> 00:06:01,160
+I want to you know talk about this guy
+
+105
+00:05:58,680 --> 00:06:03,280
+on on YouTube because I want to
+
+106
+00:06:01,160 --> 00:06:07,560
+emphasize it again he
+
+107
+00:06:03,280 --> 00:06:08,880
+did damage to the emac okay to the emac
+
+108
+00:06:07,560 --> 00:06:11,120
+editor
+
+109
+00:06:08,880 --> 00:06:15,160
+technology huge
+
+110
+00:06:11,120 --> 00:06:18,160
+damage so let me show and so that's one
+
+111
+00:06:15,160 --> 00:06:20,479
+thing the other thing is that he's like
+
+112
+00:06:18,160 --> 00:06:22,440
+this kind of aggressive guy I noticed
+
+113
+00:06:20,479 --> 00:06:24,840
+actually German people tends to be
+
+114
+00:06:22,440 --> 00:06:27,319
+aggressive you know aggressive like they
+
+115
+00:06:24,840 --> 00:06:29,919
+insist their opinion if you don't agree
+
+116
+00:06:27,319 --> 00:06:33,400
+they're going to attack you okay so Alam
+
+117
+00:06:29,919 --> 00:06:35,680
+McKenzie is one of such guy so let me
+
+118
+00:06:33,400 --> 00:06:38,240
+show you the damage one of the major
+
+119
+00:06:35,680 --> 00:06:42,919
+damage he has done I talked about this
+
+120
+00:06:38,240 --> 00:06:46,720
+in past videos okay so CI quotes um so I
+
+121
+00:06:42,919 --> 00:06:51,919
+did a video about that S Talk Show
+
+122
+00:06:46,720 --> 00:06:56,680
+2021 May 29th curly quotes Unicode emac
+
+123
+00:06:51,919 --> 00:06:59,199
+and the crime of Richard storman okay
+
+124
+00:06:56,680 --> 00:07:02,199
+Richard storman is of course involved
+
+125
+00:06:59,199 --> 00:07:05,560
+but let's go to the C quote controversy
+
+126
+00:07:02,199 --> 00:07:08,360
+okay so here's article so let's copy it
+
+127
+00:07:05,560 --> 00:07:10,800
+so that you can uh for those of you
+
+128
+00:07:08,360 --> 00:07:14,599
+later on you can check it out okay well
+
+129
+00:07:10,800 --> 00:07:14,599
+not here uh
+
+130
+00:07:15,720 --> 00:07:23,919
+what so let's go toar talk show yeah
+
+131
+00:07:19,280 --> 00:07:28,479
+post it here and also the uh okay let me
+
+132
+00:07:23,919 --> 00:07:28,479
+just post the link here okay
+
+133
+00:07:31,000 --> 00:07:37,360
+so Alan McKenzie let's get his name
+
+134
+00:07:34,599 --> 00:07:41,800
+right okay showing browser there you go
+
+135
+00:07:37,360 --> 00:07:46,039
+Alan McKenzie guy aggressive scum two
+
+136
+00:07:41,800 --> 00:07:50,000
+articles emac Dev Alan McKenzie resigns
+
+137
+00:07:46,039 --> 00:07:52,639
+2024 November and uh the other so the
+
+138
+00:07:50,000 --> 00:07:55,199
+other article is iMac this dark string
+
+139
+00:07:52,639 --> 00:07:58,680
+cly quote controversy
+
+140
+00:07:55,199 --> 00:08:01,039
+2015 this is the huge damage he did Alam
+
+141
+00:07:58,680 --> 00:08:02,879
+McKenzie basically
+
+142
+00:08:01,039 --> 00:08:06,039
+single-handed
+
+143
+00:08:02,879 --> 00:08:09,000
+singlehandedly did it to emac a huge
+
+144
+00:08:06,039 --> 00:08:13,000
+damage to emac let me show you why okay
+
+145
+00:08:09,000 --> 00:08:15,520
+so this issue is about emac
+
+146
+00:08:13,000 --> 00:08:19,000
+um emac stock
+
+147
+00:08:15,520 --> 00:08:21,479
+string formatting conventions okay uh
+
+148
+00:08:19,000 --> 00:08:23,400
+you might think it's oh formatting
+
+149
+00:08:21,479 --> 00:08:27,240
+conventions that's no big deal it's a
+
+150
+00:08:23,400 --> 00:08:29,520
+big deal okay so let's start a emac this
+
+151
+00:08:27,240 --> 00:08:30,919
+you know let's say defund so we are
+
+152
+00:08:29,520 --> 00:08:33,919
+finding
+
+153
+00:08:30,919 --> 00:08:36,519
+function so in IMA convension so let's
+
+154
+00:08:33,919 --> 00:08:40,440
+say X test okay so this is a function
+
+155
+00:08:36,519 --> 00:08:42,640
+name so in iMac this we so this part is
+
+156
+00:08:40,440 --> 00:08:46,160
+a
+
+157
+00:08:42,640 --> 00:08:49,200
+documentation inline doc or sometimes
+
+158
+00:08:46,160 --> 00:08:51,440
+called doc string okay you know a
+
+159
+00:08:49,200 --> 00:08:53,160
+function you can have documentation now
+
+160
+00:08:51,440 --> 00:08:55,440
+in this documentation there are many
+
+161
+00:08:53,160 --> 00:08:59,079
+conventions for example if you search
+
+162
+00:08:55,440 --> 00:09:03,200
+for if you for example describe function
+
+163
+00:08:59,079 --> 00:09:06,680
+the that directory editing you know you
+
+164
+00:09:03,200 --> 00:09:09,560
+can see the inline doc of the ad and you
+
+165
+00:09:06,680 --> 00:09:11,920
+can see there are some links you click
+
+166
+00:09:09,560 --> 00:09:13,920
+on that it jumps through the source code
+
+167
+00:09:11,920 --> 00:09:16,279
+you see it jumps to the source code
+
+168
+00:09:13,920 --> 00:09:19,360
+which is this file right close it you
+
+169
+00:09:16,279 --> 00:09:21,360
+see you jump to the source code close it
+
+170
+00:09:19,360 --> 00:09:25,079
+so you got you see you got some links
+
+171
+00:09:21,360 --> 00:09:28,240
+you can tap to go to uh the links you
+
+172
+00:09:25,079 --> 00:09:32,000
+see then you got some of the key strokes
+
+173
+00:09:28,240 --> 00:09:34,680
+you see how it it is highlighted you and
+
+174
+00:09:32,000 --> 00:09:37,480
+then you got some other you know
+
+175
+00:09:34,680 --> 00:09:38,959
+highlighted and then you got links to
+
+176
+00:09:37,480 --> 00:09:42,880
+other
+
+177
+00:09:38,959 --> 00:09:45,120
+um function you see so you can you there
+
+178
+00:09:42,880 --> 00:09:47,560
+are links to the source code there are
+
+179
+00:09:45,120 --> 00:09:50,320
+you can link to other function names
+
+180
+00:09:47,560 --> 00:09:53,680
+when you discuss the documentation you
+
+181
+00:09:50,320 --> 00:09:55,000
+can you can have a keystroke markup so
+
+182
+00:09:53,680 --> 00:09:58,760
+all these are
+
+183
+00:09:55,000 --> 00:10:01,320
+markups so close that so that is what
+
+184
+00:09:58,760 --> 00:10:05,360
+you have to do so if for example if I
+
+185
+00:10:01,320 --> 00:10:08,600
+want um uh if I want to mention uh
+
+186
+00:10:05,360 --> 00:10:08,600
+directory uh let's
+
+187
+00:10:09,600 --> 00:10:16,079
+see uh you know if I want to mention so
+
+188
+00:10:12,800 --> 00:10:16,079
+what's a command
+
+189
+00:10:18,839 --> 00:10:24,279
+uh
+
+190
+00:10:21,279 --> 00:10:26,640
+um okay so let me just try to find a
+
+191
+00:10:24,279 --> 00:10:29,920
+command to link to okay so if I want to
+
+192
+00:10:26,640 --> 00:10:32,800
+mention the command switch to buffer
+
+193
+00:10:29,920 --> 00:10:37,639
+so for example
+
+194
+00:10:32,800 --> 00:10:41,639
+C switch to buffer okay so I need to put
+
+195
+00:10:37,639 --> 00:10:45,399
+this quote this tick back tick there and
+
+196
+00:10:41,639 --> 00:10:49,240
+a straight tick there that is a markup
+
+197
+00:10:45,399 --> 00:10:54,600
+so when you have that then evaluate the
+
+198
+00:10:49,240 --> 00:10:56,519
+buffer then describe function X test do
+
+199
+00:10:54,600 --> 00:10:59,959
+it then you can
+
+200
+00:10:56,519 --> 00:11:02,480
+see inline doc do string for for example
+
+201
+00:10:59,959 --> 00:11:05,160
+see switch to buffer so you can link to
+
+202
+00:11:02,480 --> 00:11:07,600
+another command so you press enter Then
+
+203
+00:11:05,160 --> 00:11:10,760
+you see the documentation for switch to
+
+204
+00:11:07,600 --> 00:11:13,480
+buer you see so that is done by this
+
+205
+00:11:10,760 --> 00:11:17,600
+markups
+
+206
+00:11:13,480 --> 00:11:20,720
+okay okay so let's go toar emac this
+
+207
+00:11:17,600 --> 00:11:24,399
+Search forar emac tutorial you'll find a
+
+208
+00:11:20,720 --> 00:11:29,639
+comprehensive tutorial and click
+
+209
+00:11:24,399 --> 00:11:31,920
+on list Basics and uh click on go down
+
+210
+00:11:29,639 --> 00:11:35,399
+go to the function section Define
+
+211
+00:11:31,920 --> 00:11:38,639
+function function parameters function
+
+212
+00:11:35,399 --> 00:11:42,360
+doc string so click on that so this page
+
+213
+00:11:38,639 --> 00:11:46,240
+tells you all about these markups in
+
+214
+00:11:42,360 --> 00:11:49,519
+dark string okay so you um all caps
+
+215
+00:11:46,240 --> 00:11:51,160
+means the parameter parameter name and
+
+216
+00:11:49,519 --> 00:11:54,040
+if you want to link to a function you
+
+217
+00:11:51,160 --> 00:11:57,480
+have to put the back tick and uh
+
+218
+00:11:54,040 --> 00:12:02,279
+straight single quote and if you want to
+
+219
+00:11:57,480 --> 00:12:05,120
+link to a variable name then you have to
+
+220
+00:12:02,279 --> 00:12:07,519
+put a variable in front because in iMac
+
+221
+00:12:05,120 --> 00:12:10,120
+this variable and function names can
+
+222
+00:12:07,519 --> 00:12:13,680
+sometimes be the same so you can you can
+
+223
+00:12:10,120 --> 00:12:16,399
+distinguish you know link to a name that
+
+224
+00:12:13,680 --> 00:12:18,639
+is a function or if you if that if you
+
+225
+00:12:16,399 --> 00:12:23,000
+want to link to the variable of that
+
+226
+00:12:18,639 --> 00:12:26,720
+same name so so these are markups okay
+
+227
+00:12:23,000 --> 00:12:29,680
+so close that uh copy the link go to the
+
+228
+00:12:26,720 --> 00:12:34,240
+talk show and uh let's paste the link
+
+229
+00:12:29,680 --> 00:12:38,600
+here so you can see it later okay so
+
+230
+00:12:34,240 --> 00:12:42,360
+there a documentation Stam markup
+
+231
+00:12:38,600 --> 00:12:47,240
+okay comments okay am I making sense so
+
+232
+00:12:42,360 --> 00:12:50,440
+we so we talked about the EAC lisp do
+
+233
+00:12:47,240 --> 00:12:52,639
+string markup okay so if you're going to
+
+234
+00:12:50,440 --> 00:12:56,880
+write emac LP you need to know
+
+235
+00:12:52,639 --> 00:13:00,639
+that now okay now let's get to the point
+
+236
+00:12:56,880 --> 00:13:05,000
+so so let's go so let's go to so close
+
+237
+00:13:00,639 --> 00:13:08,040
+that uh s talk show next what is this
+
+238
+00:13:05,000 --> 00:13:09,480
+emx block close uh next so back to the
+
+239
+00:13:08,040 --> 00:13:13,120
+code
+
+240
+00:13:09,480 --> 00:13:15,920
+okay so if so suppose now suppose you
+
+241
+00:13:13,120 --> 00:13:18,880
+want to
+
+242
+00:13:15,920 --> 00:13:20,040
+um uh suppose this function takes a
+
+243
+00:13:18,880 --> 00:13:25,320
+string
+
+244
+00:13:20,040 --> 00:13:29,720
+okay my string okay uh this function
+
+245
+00:13:25,320 --> 00:13:32,360
+takes uh this function wait this going
+
+246
+00:13:29,720 --> 00:13:35,240
+to be inside the string this function
+
+247
+00:13:32,360 --> 00:13:40,040
+takes an
+
+248
+00:13:35,240 --> 00:13:42,920
+AR my string okay and it by convention
+
+249
+00:13:40,040 --> 00:13:46,920
+you need you should capitalize
+
+250
+00:13:42,920 --> 00:13:48,600
+it okay so so this function takes a an
+
+251
+00:13:46,920 --> 00:13:51,000
+argument uh
+
+252
+00:13:48,600 --> 00:13:55,040
+string
+
+253
+00:13:51,000 --> 00:13:57,160
+um let's see um you know but basically
+
+254
+00:13:55,040 --> 00:13:59,920
+so
+
+255
+00:13:57,160 --> 00:14:03,000
+um sometimes in your doc mentation you
+
+256
+00:13:59,920 --> 00:14:05,800
+need to put you you you want a single
+
+257
+00:14:03,000 --> 00:14:05,800
+quote there
+
+258
+00:14:05,959 --> 00:14:12,279
+because because suppose uh suppose you
+
+259
+00:14:10,279 --> 00:14:16,399
+want so okay
+
+260
+00:14:12,279 --> 00:14:21,399
+so let me just create an example and
+
+261
+00:14:16,399 --> 00:14:25,959
+okay so take a AR my string my string
+
+262
+00:14:21,399 --> 00:14:29,959
+in must contain a
+
+263
+00:14:25,959 --> 00:14:29,959
+substring delimitated
+
+264
+00:14:31,759 --> 00:14:41,199
+by single quote okay let's for example
+
+265
+00:14:36,240 --> 00:14:41,199
+for example so for example
+
+266
+00:14:41,720 --> 00:14:50,440
+um okay
+
+267
+00:14:45,160 --> 00:14:54,759
+sum thing here okay
+
+268
+00:14:50,440 --> 00:14:59,399
+so for example if the
+
+269
+00:14:54,759 --> 00:15:04,519
+arc given is this string
+
+270
+00:14:59,399 --> 00:15:04,519
+it Returns the
+
+271
+00:15:07,560 --> 00:15:14,639
+returns this okay so you can see let me
+
+272
+00:15:11,800 --> 00:15:18,199
+show you okay so now evaluate the buffer
+
+273
+00:15:14,639 --> 00:15:21,279
+now describe function uh describe fun
+
+274
+00:15:18,199 --> 00:15:23,360
+function X test show the documentation
+
+275
+00:15:21,279 --> 00:15:27,360
+okay I got something wrong
+
+276
+00:15:23,360 --> 00:15:27,360
+here uh
+
+277
+00:15:31,199 --> 00:15:40,079
+wrong number of arguments what's going
+
+278
+00:15:35,199 --> 00:15:40,079
+on uh okay so my
+
+279
+00:15:40,240 --> 00:15:48,759
+string let's just print it okay
+
+280
+00:15:44,120 --> 00:15:48,759
+so but what is going on
+
+281
+00:15:50,519 --> 00:15:55,600
+here evaluate the per okay it's done now
+
+282
+00:15:53,920 --> 00:15:59,759
+I don't know what what is the error
+
+283
+00:15:55,600 --> 00:16:01,839
+before I think that's that uh uh because
+
+284
+00:15:59,759 --> 00:16:03,959
+I didn't use it I didn't use the
+
+285
+00:16:01,839 --> 00:16:05,480
+argument let's try it again evaluate the
+
+286
+00:16:03,959 --> 00:16:08,319
+buffer oh it
+
+287
+00:16:05,480 --> 00:16:11,880
+works uh I don't know what is the error
+
+288
+00:16:08,319 --> 00:16:15,120
+before so anyway here is a function okay
+
+289
+00:16:11,880 --> 00:16:17,440
+so you don't need the let remove the
+
+290
+00:16:15,120 --> 00:16:20,279
+let uh let's
+
+291
+00:16:17,440 --> 00:16:23,440
+say you know this is this is a function
+
+292
+00:16:20,279 --> 00:16:26,199
+evaluate the buffer describe function X
+
+293
+00:16:23,440 --> 00:16:28,720
+test okay so now you see the
+
+294
+00:16:26,199 --> 00:16:31,880
+documentation my string must contains a
+
+295
+00:16:28,720 --> 00:16:35,000
+sub string delim delimitated by single
+
+296
+00:16:31,880 --> 00:16:39,720
+quote it will return the single quote
+
+297
+00:16:35,000 --> 00:16:43,079
+okay so the point here is that sometimes
+
+298
+00:16:39,720 --> 00:16:45,480
+in the documentation you need to have
+
+299
+00:16:43,079 --> 00:16:49,160
+some kind of code you need to have this
+
+300
+00:16:45,480 --> 00:16:53,880
+um single quote there
+
+301
+00:16:49,160 --> 00:16:57,360
+okay so what the Alam maeni did is that
+
+302
+00:16:53,880 --> 00:17:00,120
+now when you have when you do this it's
+
+303
+00:16:57,360 --> 00:17:02,680
+emac will complain you actually what you
+
+304
+00:17:00,120 --> 00:17:06,360
+have to do is now you have to write this
+
+305
+00:17:02,680 --> 00:17:10,880
+okay so you have to write back
+
+306
+00:17:06,360 --> 00:17:14,079
+slash equal sign
+
+307
+00:17:10,880 --> 00:17:16,000
+okay this is what you have to write so
+
+308
+00:17:14,079 --> 00:17:18,919
+instead of that you have to write this
+
+309
+00:17:16,000 --> 00:17:22,480
+so [ __ ] Alan McKenzie
+
+310
+00:17:18,919 --> 00:17:26,959
+okay let me show you this this thing uh
+
+311
+00:17:22,480 --> 00:17:26,959
+let's go to diet okay so let me show
+
+312
+00:17:27,360 --> 00:17:35,559
+you uh describe function the add this
+
+313
+00:17:32,919 --> 00:17:39,640
+your documentation for the add jump to
+
+314
+00:17:35,559 --> 00:17:43,919
+the source code okay go to the directory
+
+315
+00:17:39,640 --> 00:17:47,600
+Now search search all files in the in
+
+316
+00:17:43,919 --> 00:17:52,080
+this directory that contains this uh
+
+317
+00:17:47,600 --> 00:17:56,200
+back slash equal okay search it so you
+
+318
+00:17:52,080 --> 00:18:00,200
+are searching all the emac this
+
+319
+00:17:56,200 --> 00:18:00,200
+code cheers
+
+320
+00:18:08,600 --> 00:18:16,360
+so timer says I don't code in
+
+321
+00:18:12,120 --> 00:18:19,320
+emac but I like looking at your video of
+
+322
+00:18:16,360 --> 00:18:21,440
+efficiency techniques thank you I'm
+
+323
+00:18:19,320 --> 00:18:25,640
+using keyboard
+
+324
+00:18:21,440 --> 00:18:27,840
+digma Dey okay that's a good one so you
+
+325
+00:18:25,640 --> 00:18:30,200
+are looking into you are interested in
+
+326
+00:18:27,840 --> 00:18:32,200
+keyboards what do you think about those
+
+327
+00:18:30,200 --> 00:18:34,320
+keyboard those that's a good one okay
+
+328
+00:18:32,200 --> 00:18:36,760
+but I don't have it
+
+329
+00:18:34,320 --> 00:18:39,120
+so so anyway let me let me finish
+
+330
+00:18:36,760 --> 00:18:43,000
+talking about this so you can see here
+
+331
+00:18:39,120 --> 00:18:44,350
+is all the occurrences of of of
+
+332
+00:18:43,000 --> 00:18:47,450
+the of
+
+333
+00:18:44,350 --> 00:18:47,450
+[Music]
+
+334
+00:18:48,120 --> 00:18:54,679
+the no okay so there's a question can
+
+335
+00:18:50,960 --> 00:18:57,440
+you just do tick or something no I mean
+
+336
+00:18:54,679 --> 00:19:00,400
+the the valid way is is you must use
+
+337
+00:18:57,440 --> 00:19:04,240
+this okay so here all the currencies you
+
+338
+00:19:00,400 --> 00:19:07,720
+can see the little score bar there are
+
+339
+00:19:04,240 --> 00:19:11,200
+like a thousands of them so let's show
+
+340
+00:19:07,720 --> 00:19:15,640
+how many of them are so wait show
+
+341
+00:19:11,200 --> 00:19:19,360
+them so there areh what is the uh why is
+
+342
+00:19:15,640 --> 00:19:19,360
+the number
+
+343
+00:19:19,960 --> 00:19:29,880
+what so there are
+
+344
+00:19:23,039 --> 00:19:33,480
+225 that contains that markup okay
+
+345
+00:19:29,880 --> 00:19:35,640
+220 files emac this source code now
+
+346
+00:19:33,480 --> 00:19:39,520
+let's let's look at the source let's
+
+347
+00:19:35,640 --> 00:19:44,520
+look at this okay
+
+348
+00:19:39,520 --> 00:19:44,520
+um let's look at all of them okay
+
+349
+00:19:46,280 --> 00:19:53,840
+so okay so you can see there are
+
+350
+00:19:51,360 --> 00:19:56,720
+3,145
+
+351
+00:19:53,840 --> 00:20:01,159
+occurrences so let me so let me show you
+
+352
+00:19:56,720 --> 00:20:03,960
+so you can see so this means it [ __ ] up
+
+353
+00:20:01,159 --> 00:20:06,360
+the inline documentation so every time
+
+354
+00:20:03,960 --> 00:20:10,159
+you need a single quote now it becomes
+
+355
+00:20:06,360 --> 00:20:13,080
+this back slash back slash equal sign
+
+356
+00:20:10,159 --> 00:20:17,880
+okay this is the
+
+357
+00:20:13,080 --> 00:20:21,679
+crime done by Alan McKenzie
+
+358
+00:20:17,880 --> 00:20:25,520
+[ __ ] okay Alan McKenzie
+
+359
+00:20:21,679 --> 00:20:27,640
+[ __ ] he create he made emx into this
+
+360
+00:20:25,520 --> 00:20:30,360
+in
+
+361
+00:20:27,640 --> 00:20:32,960
+2015 Alan McKenzie
+
+362
+00:20:30,360 --> 00:20:34,960
+[ __ ] okay so now every time you need
+
+363
+00:20:32,960 --> 00:20:37,039
+a single quote now you have to type back
+
+364
+00:20:34,960 --> 00:20:40,640
+slashback slash
+
+365
+00:20:37,039 --> 00:20:43,760
+quote not just single quote you you have
+
+366
+00:20:40,640 --> 00:20:46,760
+to do this for lots of other other kind
+
+367
+00:20:43,760 --> 00:20:49,280
+of quotes okay or or you you know it
+
+368
+00:20:46,760 --> 00:20:52,640
+madees it made
+
+369
+00:20:49,280 --> 00:20:57,200
+emac extremely complex the documentation
+
+370
+00:20:52,640 --> 00:21:00,039
+string [ __ ] the AL McKenzie [ __ ] it okay
+
+371
+00:20:57,200 --> 00:21:01,640
+so you can see in emac this sour there
+
+372
+00:21:00,039 --> 00:21:04,960
+are
+
+373
+00:21:01,640 --> 00:21:07,760
+3,145 occurrences just so that you know
+
+374
+00:21:04,960 --> 00:21:10,240
+so so you got to [ __ ] up [ __ ] like
+
+375
+00:21:07,760 --> 00:21:14,080
+that and when you look at into them
+
+376
+00:21:10,240 --> 00:21:14,080
+let's say open them open one of
+
+377
+00:21:14,720 --> 00:21:20,360
+them uh let's see open one of them so
+
+378
+00:21:18,000 --> 00:21:22,919
+here's the source code see here's the
+
+379
+00:21:20,360 --> 00:21:26,000
+ACT actual source code it becomes
+
+380
+00:21:22,919 --> 00:21:29,159
+unreadable you see in this source code
+
+381
+00:21:26,000 --> 00:21:31,799
+you know this one is Define Mar
+
+382
+00:21:29,159 --> 00:21:33,159
+Define absolute variable you know from
+
+383
+00:21:31,799 --> 00:21:37,840
+this spite
+
+384
+00:21:33,159 --> 00:21:39,880
+run. source code from building emx okay
+
+385
+00:21:37,840 --> 00:21:42,440
+so you can see this
+
+386
+00:21:39,880 --> 00:21:45,080
+function and here is the inline
+
+387
+00:21:42,440 --> 00:21:48,400
+documentation you know here's the inline
+
+388
+00:21:45,080 --> 00:21:49,760
+documentation so it's trying to explain
+
+389
+00:21:48,400 --> 00:21:52,600
+you know sometimes the inline
+
+390
+00:21:49,760 --> 00:21:56,039
+documentation must contain code so you
+
+391
+00:21:52,600 --> 00:21:59,360
+know it's trying to say this this is the
+
+392
+00:21:56,039 --> 00:22:01,760
+typical usage okay but now
+
+393
+00:21:59,360 --> 00:22:05,919
+you can't read it it's like like you
+
+394
+00:22:01,760 --> 00:22:09,200
+know back slash back slash equal full
+
+395
+00:22:05,919 --> 00:22:12,919
+thing back SL the [ __ ] Alam
+
+396
+00:22:09,200 --> 00:22:16,919
+McKenzie before 20 2025 you don't need
+
+397
+00:22:12,919 --> 00:22:18,559
+to do that okay so this is a crime this
+
+398
+00:22:16,919 --> 00:22:22,640
+is a
+
+399
+00:22:18,559 --> 00:22:24,360
+um this is a the the the effect the
+
+400
+00:22:22,640 --> 00:22:30,000
+Damage
+
+401
+00:22:24,360 --> 00:22:31,400
+Done by this Alan McKenzie [ __ ]
+
+402
+00:22:30,000 --> 00:22:35,200
+okay this Alam
+
+403
+00:22:31,400 --> 00:22:38,440
+McKenzie now he's complaining oh uh hi
+
+404
+00:22:35,200 --> 00:22:41,559
+guys I'm going to resign because I don't
+
+405
+00:22:38,440 --> 00:22:45,600
+feel you guys are correct that's good
+
+406
+00:22:41,559 --> 00:22:45,600
+thing thank you for resigning thank
+
+407
+00:22:47,520 --> 00:22:52,120
+you so let's look at you know let's look
+
+408
+00:22:50,360 --> 00:22:54,159
+at so there are 3 thousands of them
+
+409
+00:22:52,120 --> 00:22:56,400
+let's look at another one so here's
+
+410
+00:22:54,159 --> 00:22:59,760
+another one source code this is the
+
+411
+00:22:56,400 --> 00:23:04,200
+Define variable face up test explain so
+
+412
+00:22:59,760 --> 00:23:07,320
+you can see this this back slash back
+
+413
+00:23:04,200 --> 00:23:10,600
+slash quote you know things like
+
+414
+00:23:07,320 --> 00:23:13,480
+that so why did this happen so what is
+
+415
+00:23:10,600 --> 00:23:16,080
+the issue what why did Alan McKenzie
+
+416
+00:23:13,480 --> 00:23:18,919
+insisted that you need that in the
+
+417
+00:23:16,080 --> 00:23:20,760
+beginning he this is a indirect
+
+418
+00:23:18,919 --> 00:23:24,039
+consequence
+
+419
+00:23:20,760 --> 00:23:26,200
+because to understand that you need to
+
+420
+00:23:24,039 --> 00:23:29,320
+look at
+
+421
+00:23:26,200 --> 00:23:32,159
+um so we go to
+
+422
+00:23:29,320 --> 00:23:35,200
+you look at the CI quote so this article
+
+423
+00:23:32,159 --> 00:23:36,960
+emx this dark string CI quote
+
+424
+00:23:35,200 --> 00:23:41,080
+controversy
+
+425
+00:23:36,960 --> 00:23:45,520
+2015 basically what the Alan McKenzie
+
+426
+00:23:41,080 --> 00:23:50,279
+want is that he refused he do not want
+
+427
+00:23:45,520 --> 00:23:50,279
+people to be able to type curly
+
+428
+00:23:50,559 --> 00:23:56,760
+quote you see he doesn't want people to
+
+429
+00:23:53,799 --> 00:24:00,279
+be able to type unic code C quote for
+
+430
+00:23:56,760 --> 00:24:03,279
+example describe Char then you can see
+
+431
+00:24:00,279 --> 00:24:06,880
+what character that is so search for
+
+432
+00:24:03,279 --> 00:24:10,640
+name this is left double quotation mark
+
+433
+00:24:06,880 --> 00:24:14,720
+cly quote in short okay Alan McKenzie
+
+434
+00:24:10,640 --> 00:24:18,279
+[ __ ] he does not want people to type
+
+435
+00:24:14,720 --> 00:24:21,840
+Unicode in the dark string because why
+
+436
+00:24:18,279 --> 00:24:24,919
+because he thinks that oh uh programming
+
+437
+00:24:21,840 --> 00:24:27,279
+programming code must be asky only uh
+
+438
+00:24:24,919 --> 00:24:28,880
+when you have the C quote you can't type
+
+439
+00:24:27,279 --> 00:24:31,960
+it
+
+440
+00:24:28,880 --> 00:24:34,120
+[ __ ] Alam McKenzie okay that is the
+
+441
+00:24:31,960 --> 00:24:37,360
+reason
+
+442
+00:24:34,120 --> 00:24:41,960
+so so he doesn't want people to have the
+
+443
+00:24:37,360 --> 00:24:45,440
+curly quote in dark string so he
+
+444
+00:24:41,960 --> 00:24:48,360
+recommend that you don't use curly quote
+
+445
+00:24:45,440 --> 00:24:51,880
+but you just use like like this single
+
+446
+00:24:48,360 --> 00:24:51,880
+uh okay so let me try to do
+
+447
+00:24:54,720 --> 00:24:59,039
+it okay
+
+448
+00:24:56,559 --> 00:25:02,279
+because because the double straight
+
+449
+00:24:59,039 --> 00:25:04,559
+quote is used for string so you have to
+
+450
+00:25:02,279 --> 00:25:08,279
+escape it so that's why you have backs
+
+451
+00:25:04,559 --> 00:25:11,640
+slash quote C quote backlash so he want
+
+452
+00:25:08,279 --> 00:25:13,120
+people to use just asky okay so then you
+
+453
+00:25:11,640 --> 00:25:15,679
+need the
+
+454
+00:25:13,120 --> 00:25:18,799
+backslash okay he doesn't want people to
+
+455
+00:25:15,679 --> 00:25:22,960
+use any kind of unic code in in dark
+
+456
+00:25:18,799 --> 00:25:25,440
+string as the standard convention okay
+
+457
+00:25:22,960 --> 00:25:28,360
+so but
+
+458
+00:25:25,440 --> 00:25:30,080
+then people do want C quote you know
+
+459
+00:25:28,360 --> 00:25:33,200
+know that that's the reason you know
+
+460
+00:25:30,080 --> 00:25:36,880
+this this this guy Stefan Monier which
+
+461
+00:25:33,200 --> 00:25:40,200
+was a leader for the guu emx for about
+
+462
+00:25:36,880 --> 00:25:43,679
+five five or seven years he's a great
+
+463
+00:25:40,200 --> 00:25:46,720
+guy he implemented that so
+
+464
+00:25:43,679 --> 00:25:48,520
+he so instead instead of this you know
+
+465
+00:25:46,720 --> 00:25:52,520
+for
+
+466
+00:25:48,520 --> 00:25:55,919
+example see for example this this hack
+
+467
+00:25:52,520 --> 00:25:59,200
+you know this hack one is the back tick
+
+468
+00:25:55,919 --> 00:26:03,200
+character you begin it by great accent
+
+469
+00:25:59,200 --> 00:26:05,640
+character then you end it
+
+470
+00:26:03,200 --> 00:26:08,840
+by
+
+471
+00:26:05,640 --> 00:26:11,799
+apostrophe in order for this markup to
+
+472
+00:26:08,840 --> 00:26:17,159
+link to a function name command name
+
+473
+00:26:11,799 --> 00:26:19,960
+okay so people I suggested like 10 15
+
+474
+00:26:17,159 --> 00:26:23,520
+years ago I suggest you know this is a
+
+475
+00:26:19,960 --> 00:26:26,080
+hack this is a hack why are you using a
+
+476
+00:26:23,520 --> 00:26:29,440
+backtick and apostrophe you know
+
+477
+00:26:26,080 --> 00:26:32,640
+backtick that that's a grave Act accent
+
+478
+00:26:29,440 --> 00:26:35,480
+that's designed for Spanish
+
+479
+00:26:32,640 --> 00:26:38,200
+French okay apostrophe is apostrophe
+
+480
+00:26:35,480 --> 00:26:43,000
+they are not matching
+
+481
+00:26:38,200 --> 00:26:44,159
+pairs by the progress of Technology we
+
+482
+00:26:43,000 --> 00:26:47,159
+have
+
+483
+00:26:44,159 --> 00:26:47,159
+Unicode
+
+484
+00:26:47,320 --> 00:26:52,960
+okay matching pairs so you can actually
+
+485
+00:26:50,640 --> 00:26:55,960
+match them you know you can
+
+486
+00:26:52,960 --> 00:26:55,960
+actually
+
+487
+00:26:56,600 --> 00:27:00,240
+uh match them
+
+488
+00:27:01,080 --> 00:27:05,360
+by the progress of
+
+489
+00:27:02,840 --> 00:27:07,799
+Technology but come out this Alam
+
+490
+00:27:05,360 --> 00:27:10,600
+McKenzie [ __ ] and lots of American
+
+491
+00:27:07,799 --> 00:27:13,559
+[ __ ] okay a lot of American
+
+492
+00:27:10,600 --> 00:27:15,240
+[ __ ] this American just know
+
+493
+00:27:13,559 --> 00:27:18,000
+English monolingual they don't know
+
+494
+00:27:15,240 --> 00:27:20,520
+nothing else they think you know to
+
+495
+00:27:18,000 --> 00:27:23,480
+their opinion that programming should
+
+496
+00:27:20,520 --> 00:27:25,520
+not contain this this this kind of thing
+
+497
+00:27:23,480 --> 00:27:29,880
+I cannot type
+
+498
+00:27:25,520 --> 00:27:29,880
+it [ __ ] them
+
+499
+00:27:30,159 --> 00:27:35,080
+so that line of thought is kind of very
+
+500
+00:27:32,720 --> 00:27:38,919
+popular among the white you know typical
+
+501
+00:27:35,080 --> 00:27:42,399
+American industrial coders okay but it's
+
+502
+00:27:38,919 --> 00:27:45,720
+it's it's dying because you cannot
+
+503
+00:27:42,399 --> 00:27:49,120
+refuse the progress of Technology that's
+
+504
+00:27:45,720 --> 00:27:53,000
+what what it is emac is a technology
+
+505
+00:27:49,120 --> 00:27:56,360
+okay technology improves changes over
+
+506
+00:27:53,000 --> 00:27:59,039
+the years in 10 years in 20 years so we
+
+507
+00:27:56,360 --> 00:28:02,159
+go with it you know you don't want to
+
+508
+00:27:59,039 --> 00:28:05,799
+have a mentality oh but I I like the I
+
+509
+00:28:02,159 --> 00:28:08,159
+like you know 20 years ago uh technology
+
+510
+00:28:05,799 --> 00:28:10,640
+when I was a team because I'm used to
+
+511
+00:28:08,159 --> 00:28:12,399
+that oh what what is what what is this
+
+512
+00:28:10,640 --> 00:28:17,600
+Cody quote I don't know what the [ __ ] it
+
+513
+00:28:12,399 --> 00:28:20,799
+is the [ __ ] these people okay so this
+
+514
+00:28:17,600 --> 00:28:23,080
+kind of sticking to asking only I must
+
+515
+00:28:20,799 --> 00:28:27,120
+have asking only in programming code
+
+516
+00:28:23,080 --> 00:28:30,360
+that that thought was very popular in
+
+517
+00:28:27,120 --> 00:28:32,480
+1990s so of course because Unicode was
+
+518
+00:28:30,360 --> 00:28:37,000
+not you know Unicode was created in
+
+519
+00:28:32,480 --> 00:28:40,720
+1990s in 1989 also okay but but
+
+520
+00:28:37,000 --> 00:28:43,559
+beginning in 2000s it became popular so
+
+521
+00:28:40,720 --> 00:28:46,559
+by now it's very it's it's like standard
+
+522
+00:28:43,559 --> 00:28:49,360
+utf8 is a standard encoding for the
+
+523
+00:28:46,559 --> 00:28:54,559
+website for any programming language in
+
+524
+00:28:49,360 --> 00:28:57,360
+Java in Goan in Python utf8 unic code
+
+525
+00:28:54,559 --> 00:28:59,080
+okay so this character the matching Cod
+
+526
+00:28:57,360 --> 00:29:04,600
+quote is valid
+
+527
+00:28:59,080 --> 00:29:09,080
+okay so if you came from the 1980s 19
+
+528
+00:29:04,600 --> 00:29:12,000
+1980s 1990s you are a dinosaur okay so
+
+529
+00:29:09,080 --> 00:29:14,240
+today's people programmers The Zuma
+
+530
+00:29:12,000 --> 00:29:17,200
+generation they don't have a problem you
+
+531
+00:29:14,240 --> 00:29:19,440
+know this is this is natural which is
+
+532
+00:29:17,200 --> 00:29:23,480
+actually good okay especially when you
+
+533
+00:29:19,440 --> 00:29:23,480
+need to do a lot math for
+
+534
+00:29:23,640 --> 00:29:31,159
+example uh let me show you okay
+
+535
+00:29:28,159 --> 00:29:31,159
+for example right
+
+536
+00:29:31,840 --> 00:29:36,480
+arrow okay let me let me show it here
+
+537
+00:29:34,720 --> 00:29:42,880
+okay
+
+538
+00:29:36,480 --> 00:29:45,080
+so right arrow you know X to x squared
+
+539
+00:29:42,880 --> 00:29:47,799
+you often need that or you can even do
+
+540
+00:29:45,080 --> 00:29:50,760
+it this way you can can you see X tox
+
+541
+00:29:47,799 --> 00:29:54,039
+squ especially when you do a lot math
+
+542
+00:29:50,760 --> 00:29:56,880
+mathematics you need that okay so for
+
+543
+00:29:54,039 --> 00:30:00,039
+example let's uh give another example I
+
+544
+00:29:56,880 --> 00:30:00,039
+can show you
+
+545
+00:30:02,960 --> 00:30:09,919
+okay there function mapping this symbol
+
+546
+00:30:06,919 --> 00:30:11,720
+usually is known for is a convention
+
+547
+00:30:09,919 --> 00:30:14,080
+notation conventional notation in
+
+548
+00:30:11,720 --> 00:30:17,480
+mathematics
+
+549
+00:30:14,080 --> 00:30:23,480
+for for for example this in this case
+
+550
+00:30:17,480 --> 00:30:27,000
+two is mapped to four x squ okay this is
+
+551
+00:30:23,480 --> 00:30:29,200
+like actual map of a point you know so
+
+552
+00:30:27,000 --> 00:30:33,360
+many so many of the unical characters
+
+553
+00:30:29,200 --> 00:30:33,360
+you need it for example another
+
+554
+00:30:33,399 --> 00:30:37,360
+example
+
+555
+00:30:35,799 --> 00:30:38,960
+Alpha
+
+556
+00:30:37,360 --> 00:30:40,559
+Beta
+
+557
+00:30:38,960 --> 00:30:43,559
+gamma
+
+558
+00:30:40,559 --> 00:30:46,919
+and Lambda you know you need this all
+
+559
+00:30:43,559 --> 00:30:49,399
+the time okay so with the Zuma
+
+560
+00:30:46,919 --> 00:30:53,279
+generation for example in a lot
+
+561
+00:30:49,399 --> 00:30:56,039
+languages you have that you I mean it's
+
+562
+00:30:53,279 --> 00:30:59,919
+this unic code is part of the language
+
+563
+00:30:56,039 --> 00:30:59,919
+okay so let me show you a example
+
+564
+00:31:02,919 --> 00:31:09,200
+close that go to talk show close that go
+
+565
+00:31:06,440 --> 00:31:14,000
+to today's talk show showing browser
+
+566
+00:31:09,200 --> 00:31:17,480
+back to emac go to directory uh link so
+
+567
+00:31:14,000 --> 00:31:20,240
+I'm starting to learn this Lan proof
+
+568
+00:31:17,480 --> 00:31:24,799
+system fantastic okay so but let me show
+
+569
+00:31:20,240 --> 00:31:27,919
+you the unic code part so many languages
+
+570
+00:31:24,799 --> 00:31:31,279
+today especially those with to do with
+
+571
+00:31:27,919 --> 00:31:36,240
+with mathematics for example Lin
+
+572
+00:31:31,279 --> 00:31:39,200
+Julia even hascal Lin Julia hascal for
+
+573
+00:31:36,240 --> 00:31:41,600
+example they all like embrace the
+
+574
+00:31:39,200 --> 00:31:44,919
+Unicode because you have to because they
+
+575
+00:31:41,600 --> 00:31:48,760
+it makes a lot uh variable names or
+
+576
+00:31:44,919 --> 00:31:50,960
+function names easier to understand okay
+
+577
+00:31:48,760 --> 00:31:53,960
+so let me show you in their
+
+578
+00:31:50,960 --> 00:31:53,960
+documentation
+
+579
+00:31:58,399 --> 00:32:04,320
+okay the so these are official
+
+580
+00:32:00,320 --> 00:32:04,320
+documentations okay
+
+581
+00:32:08,360 --> 00:32:15,880
+cheers dependent type Theory okay I'm
+
+582
+00:32:12,399 --> 00:32:15,880
+starting to learn it it's
+
+583
+00:32:16,760 --> 00:32:23,760
+fantastic so let me magnify so you can
+
+584
+00:32:20,279 --> 00:32:26,760
+like see the full Glory of these Unicode
+
+585
+00:32:23,760 --> 00:32:26,760
+characters
+
+586
+00:32:31,720 --> 00:32:40,039
+search for Unicode you
+
+587
+00:32:35,480 --> 00:32:43,919
+see also known as cesium product note
+
+588
+00:32:40,039 --> 00:32:47,840
+that the x is a Unicode symbol the
+
+589
+00:32:43,919 --> 00:32:51,000
+judicious use of Unicode improves
+
+590
+00:32:47,840 --> 00:32:54,440
+legibility and all modern editors have
+
+591
+00:32:51,000 --> 00:32:57,559
+great support for it in the Lan standard
+
+592
+00:32:54,440 --> 00:33:01,320
+Library you often see the Greek letters
+
+593
+00:32:57,559 --> 00:33:04,799
+to denote types and the Unicode symbol
+
+594
+00:33:01,320 --> 00:33:08,159
+right arrow is a more compact version of
+
+595
+00:33:04,799 --> 00:33:10,240
+Dash greater than okay so you can see in
+
+596
+00:33:08,159 --> 00:33:15,000
+this documentation of the link proof
+
+597
+00:33:10,240 --> 00:33:17,279
+system unic code is um ubiquitous
+
+598
+00:33:15,000 --> 00:33:20,279
+ubiquitous it's part of the programming
+
+599
+00:33:17,279 --> 00:33:22,679
+language okay this right arrow this
+
+600
+00:33:20,279 --> 00:33:25,760
+multiplication sign
+
+601
+00:33:22,679 --> 00:33:28,559
+course and even Lambda okay and then
+
+602
+00:33:25,760 --> 00:33:31,760
+then and even they have built ways for
+
+603
+00:33:28,559 --> 00:33:33,399
+you to type it so that you know the
+
+604
+00:33:31,760 --> 00:33:36,120
+average programmer don't know how to
+
+605
+00:33:33,399 --> 00:33:39,639
+type these things but they but they
+
+606
+00:33:36,120 --> 00:33:44,720
+build it with the editor with the emac
+
+607
+00:33:39,639 --> 00:33:46,639
+mod link mod or the vs code very popular
+
+608
+00:33:44,720 --> 00:33:49,919
+so they show you how do you type that
+
+609
+00:33:46,639 --> 00:33:53,080
+for example to type lower Greek letters
+
+610
+00:33:49,919 --> 00:33:55,519
+like Alpha Beta gamma to range over
+
+611
+00:33:53,080 --> 00:33:58,639
+types you can enter this
+
+612
+00:33:55,519 --> 00:34:02,279
+particular characters by by back SL a
+
+613
+00:33:58,639 --> 00:34:05,440
+back SLB back SLG okay so you can see
+
+614
+00:34:02,279 --> 00:34:08,320
+this is the official documentation of
+
+615
+00:34:05,440 --> 00:34:11,839
+the link language you they use all these
+
+616
+00:34:08,320 --> 00:34:16,320
+characters including Lambda okay you see
+
+617
+00:34:11,839 --> 00:34:16,320
+red arrow there and the Greek
+
+618
+00:34:16,480 --> 00:34:23,320
+letters okay so anyway I I highly
+
+619
+00:34:20,560 --> 00:34:26,200
+recommend so for those of you into uh
+
+620
+00:34:23,320 --> 00:34:28,359
+functional programming uh you might look
+
+621
+00:34:26,200 --> 00:34:30,879
+into link proof system
+
+622
+00:34:28,359 --> 00:34:35,679
+I'm starting to learn it because this is
+
+623
+00:34:30,879 --> 00:34:39,000
+one of my goal for my life before I die
+
+624
+00:34:35,679 --> 00:34:42,119
+you know I'm 50 something I'm pushing 60
+
+625
+00:34:39,000 --> 00:34:44,639
+so I don't have much time in my life not
+
+626
+00:34:42,119 --> 00:34:48,359
+like you guys young you know young for
+
+627
+00:34:44,639 --> 00:34:51,079
+chan people you know mean mean this mean
+
+628
+00:34:48,359 --> 00:34:53,440
+that oh I have you tried this this this
+
+629
+00:34:51,079 --> 00:34:56,359
+this I don't have much time to for the
+
+630
+00:34:53,440 --> 00:34:59,440
+crap my time is limited so I need to
+
+631
+00:34:56,359 --> 00:35:03,760
+learn something you know that I want to
+
+632
+00:34:59,440 --> 00:35:07,000
+do so one of them is uh proof systems in
+
+633
+00:35:03,760 --> 00:35:09,200
+particular type Theory okay so I'm
+
+634
+00:35:07,000 --> 00:35:11,680
+reading this link I have a great time in
+
+635
+00:35:09,200 --> 00:35:15,560
+the past week
+
+636
+00:35:11,680 --> 00:35:18,320
+um okay so anyway this is one example
+
+637
+00:35:15,560 --> 00:35:21,480
+not just one okay this is one of the
+
+638
+00:35:18,320 --> 00:35:24,400
+example of a modern programming language
+
+639
+00:35:21,480 --> 00:35:27,440
+that they Embrace Unicode in fact you
+
+640
+00:35:24,400 --> 00:35:30,119
+have to use it actually I don't think
+
+641
+00:35:27,440 --> 00:35:33,720
+you you are forced to use it but it's
+
+642
+00:35:30,119 --> 00:35:38,000
+like very common in in link source code
+
+643
+00:35:33,720 --> 00:35:40,560
+okay other example is Julia or hascar
+
+644
+00:35:38,000 --> 00:35:44,960
+okay so I have article on
+
+645
+00:35:40,560 --> 00:35:48,480
+that so let me uh search okay so
+
+646
+00:35:44,960 --> 00:35:50,839
+Link Link learning notes I'm starting to
+
+647
+00:35:48,480 --> 00:35:54,760
+uh kind of write a tutorial I'm starting
+
+648
+00:35:50,839 --> 00:35:57,680
+to okay so let's copy that close close
+
+649
+00:35:54,760 --> 00:36:01,359
+that let's showing browser today's talk
+
+650
+00:35:57,680 --> 00:36:05,599
+show paste this link link show you there
+
+651
+00:36:01,359 --> 00:36:08,280
+there it is okay and uh and Link so let
+
+652
+00:36:05,599 --> 00:36:10,200
+me show you oh yeah so let's go to
+
+653
+00:36:08,280 --> 00:36:12,240
+search
+
+654
+00:36:10,200 --> 00:36:16,599
+search unic
+
+655
+00:36:12,240 --> 00:36:19,200
+code in programming languages
+
+656
+00:36:16,599 --> 00:36:22,560
+okay so there is
+
+657
+00:36:19,200 --> 00:36:26,359
+Fess for Fortress programming
+
+658
+00:36:22,560 --> 00:36:29,200
+language uh and this this article I want
+
+659
+00:36:26,359 --> 00:36:32,640
+to show you okay programming languages
+
+660
+00:36:29,200 --> 00:36:36,839
+unic code math symbols in function name
+
+661
+00:36:32,640 --> 00:36:40,520
+and operator so in this article I
+
+662
+00:36:36,839 --> 00:36:42,839
+explore what kind of support what degree
+
+663
+00:36:40,520 --> 00:36:42,839
+of
+
+664
+00:36:42,920 --> 00:36:50,599
+support of unit code in function names
+
+665
+00:36:47,240 --> 00:36:53,280
+and uh operator names function names
+
+666
+00:36:50,599 --> 00:36:56,160
+variable names and operator can you
+
+667
+00:36:53,280 --> 00:36:59,040
+define an operator in your favorite
+
+668
+00:36:56,160 --> 00:37:02,400
+programming language that this question
+
+669
+00:36:59,040 --> 00:37:06,839
+if you can then the next question is can
+
+670
+00:37:02,400 --> 00:37:09,040
+you have a Unicode math symbol as the
+
+671
+00:37:06,839 --> 00:37:12,319
+operator name you know some programming
+
+672
+00:37:09,040 --> 00:37:15,560
+language cannot do that so here is a
+
+673
+00:37:12,319 --> 00:37:17,880
+exploration and statistics of the
+
+674
+00:37:15,560 --> 00:37:22,400
+different languages support
+
+675
+00:37:17,880 --> 00:37:26,160
+cc++ go Java JavaScript python par Ruby
+
+676
+00:37:22,400 --> 00:37:29,319
+OK cam hascal imagis Julia you know and
+
+677
+00:37:26,160 --> 00:37:33,359
+so on okay so this this documentation I
+
+678
+00:37:29,319 --> 00:37:38,480
+wrote like 15 years ago
+
+679
+00:37:33,359 --> 00:37:41,880
+2010 okay so copy that so this is my
+
+680
+00:37:38,480 --> 00:37:45,119
+obsession my personal Obsession about
+
+681
+00:37:41,880 --> 00:37:47,920
+the unic code and you might wonder you
+
+682
+00:37:45,119 --> 00:37:51,079
+know you might wonder what's a big deal
+
+683
+00:37:47,920 --> 00:37:54,560
+you know you you you you are stupid why
+
+684
+00:37:51,079 --> 00:37:56,520
+should you I mean ask is fine you don't
+
+685
+00:37:54,560 --> 00:37:59,400
+have to use Unicode I mean to what
+
+686
+00:37:56,520 --> 00:38:00,920
+degree it doesn't improve readability
+
+687
+00:37:59,400 --> 00:38:05,680
+that
+
+688
+00:38:00,920 --> 00:38:09,680
+much because you are a idiot okay
+
+689
+00:38:05,680 --> 00:38:12,400
+Unicode in function name and especially
+
+690
+00:38:09,680 --> 00:38:15,760
+when you have a operator and you want it
+
+691
+00:38:12,400 --> 00:38:18,079
+to be Unicode like this okay so let me
+
+692
+00:38:15,760 --> 00:38:20,440
+increase the font so you can see the
+
+693
+00:38:18,079 --> 00:38:20,440
+full
+
+694
+00:38:21,560 --> 00:38:30,000
+Glory you see you see over
+
+695
+00:38:25,560 --> 00:38:33,040
+there where you have the Circle Cross as
+
+696
+00:38:30,000 --> 00:38:35,839
+an operator that becomes very
+
+697
+00:38:33,040 --> 00:38:38,520
+significant if you are doing a lot of
+
+698
+00:38:35,839 --> 00:38:40,520
+scientific programming okay I have
+
+699
+00:38:38,520 --> 00:38:44,000
+article on that
+
+700
+00:38:40,520 --> 00:38:46,520
+too uh so you go down this article is
+
+701
+00:38:44,000 --> 00:38:49,720
+quite long so what is a function what is
+
+702
+00:38:46,520 --> 00:38:52,040
+an operator and here this article
+
+703
+00:38:49,720 --> 00:38:55,040
+programing language design why do you
+
+704
+00:38:52,040 --> 00:38:57,280
+need operators why don't we all just use
+
+705
+00:38:55,040 --> 00:39:01,200
+function name and parenthesis why do you
+
+706
+00:38:57,280 --> 00:39:04,200
+need need like the plus you know or or
+
+707
+00:39:01,200 --> 00:39:08,000
+multiply the asterisk why do you need it
+
+708
+00:39:04,200 --> 00:39:09,599
+why don't we be consistent and uniform
+
+709
+00:39:08,000 --> 00:39:11,880
+always have a function name and
+
+710
+00:39:09,599 --> 00:39:16,720
+parentheses you know and
+
+711
+00:39:11,880 --> 00:39:19,200
+arguments well here is a this article
+
+712
+00:39:16,720 --> 00:39:22,440
+explains programming language design why
+
+713
+00:39:19,200 --> 00:39:25,640
+you need operators because then you can
+
+714
+00:39:22,440 --> 00:39:28,319
+see you can see the varieties if you
+
+715
+00:39:25,640 --> 00:39:30,800
+don't support operators if you don't you
+
+716
+00:39:28,319 --> 00:39:35,680
+know you can see
+
+717
+00:39:30,800 --> 00:39:38,240
+progressively how The Operators help
+
+718
+00:39:35,680 --> 00:39:41,640
+significantly significantly in
+
+719
+00:39:38,240 --> 00:39:43,720
+readability okay so you can see you know
+
+720
+00:39:41,640 --> 00:39:47,160
+you you have to go read the article I'm
+
+721
+00:39:43,720 --> 00:39:51,960
+not going to explain in detail and this
+
+722
+00:39:47,160 --> 00:39:55,920
+article is from 200 um this article is
+
+723
+00:39:51,960 --> 00:40:00,920
+from like 10 years ago okay this page is
+
+724
+00:39:55,920 --> 00:40:04,400
+from 202 too but it was split off from
+
+725
+00:40:00,920 --> 00:40:10,040
+other articles so this I've written this
+
+726
+00:40:04,400 --> 00:40:14,119
+like uh wait this article is um maybe
+
+727
+00:40:10,040 --> 00:40:18,480
+2022 okay so but anyway some article is
+
+728
+00:40:14,119 --> 00:40:21,359
+like split from other other articles
+
+729
+00:40:18,480 --> 00:40:24,200
+okay so I think that's it okay so today
+
+730
+00:40:21,359 --> 00:40:26,359
+we talked about basically we talked
+
+731
+00:40:24,200 --> 00:40:30,839
+about the Unicode issue why you need
+
+732
+00:40:26,359 --> 00:40:34,960
+unicode and the Alam McKenzie [ __ ]
+
+733
+00:40:30,839 --> 00:40:37,000
+up okay so again my point is that in
+
+734
+00:40:34,960 --> 00:40:39,760
+many today's programming languages
+
+735
+00:40:37,000 --> 00:40:42,400
+Unicode is just part of the language
+
+736
+00:40:39,760 --> 00:40:44,960
+okay so you need you want to have that
+
+737
+00:40:42,400 --> 00:40:47,400
+for example The Fortress language
+
+738
+00:40:44,960 --> 00:40:50,960
+Fortress language is not well known
+
+739
+00:40:47,400 --> 00:40:53,839
+Fortress Fortress programming language
+
+740
+00:40:50,960 --> 00:40:59,720
+is a concurrent programming language
+
+741
+00:40:53,839 --> 00:41:03,800
+designed for concurrency by the god of
+
+742
+00:40:59,720 --> 00:41:07,480
+lisp this guy okay guy steel who created
+
+743
+00:41:03,800 --> 00:41:11,880
+scheme lisp and you know guio one of the
+
+744
+00:41:07,480 --> 00:41:15,040
+wellknown computer scientist he designed
+
+745
+00:41:11,880 --> 00:41:18,040
+the Fortress language and in Fortress
+
+746
+00:41:15,040 --> 00:41:21,079
+language you see this this kind of weird
+
+747
+00:41:18,040 --> 00:41:24,119
+characters and this right arrow those
+
+748
+00:41:21,079 --> 00:41:29,040
+are part of the language and this Z
+
+749
+00:41:24,119 --> 00:41:33,040
+double stroke Z which stand for for uh
+
+750
+00:41:29,040 --> 00:41:35,280
+which stand for the integers okay they
+
+751
+00:41:33,040 --> 00:41:36,480
+are part of the language and you see
+
+752
+00:41:35,280 --> 00:41:39,920
+this angle
+
+753
+00:41:36,480 --> 00:41:42,960
+quote angle brackets you see they are
+
+754
+00:41:39,920 --> 00:41:47,599
+part of the Fortress language and
+
+755
+00:41:42,960 --> 00:41:49,200
+fortres language began in uh 2006 or
+
+756
+00:41:47,599 --> 00:41:53,880
+something
+
+757
+00:41:49,200 --> 00:41:55,960
+okay so you see so I documented fully so
+
+758
+00:41:53,880 --> 00:41:59,240
+let's copy that and put it
+
+759
+00:41:55,960 --> 00:41:59,240
+here uh
+
+760
+00:42:00,119 --> 00:42:05,560
+okay so you can see all the links in
+
+761
+00:42:03,000 --> 00:42:09,319
+today's talk show s talk show today's
+
+762
+00:42:05,560 --> 00:42:12,640
+talk show okay so Fortress language uh
+
+763
+00:42:09,319 --> 00:42:16,839
+where is it you see use all these
+
+764
+00:42:12,640 --> 00:42:19,599
+symbols so my my message is that if you
+
+765
+00:42:16,839 --> 00:42:23,280
+are a programmer you know the American
+
+766
+00:42:19,599 --> 00:42:27,760
+industrial programmer you are into C and
+
+767
+00:42:23,280 --> 00:42:30,160
+C++ and uh rust okay and you think that
+
+768
+00:42:27,760 --> 00:42:33,000
+oh you cannot you should not use these
+
+769
+00:42:30,160 --> 00:42:37,240
+weird characters uh programming source
+
+770
+00:42:33,000 --> 00:42:41,640
+code should be asky only okay my message
+
+771
+00:42:37,240 --> 00:42:41,640
+to you is go [ __ ]
+
+772
+00:42:41,920 --> 00:42:47,079
+yourself that's it for today thank you
+
+773
+00:42:44,599 --> 00:42:47,079
+guys for
+
+774
+00:42:47,240 --> 00:42:53,880
+watching uh we were going to do some uh
+
+775
+00:42:50,920 --> 00:42:57,440
+W uh emac this coding but let's forget
+
+776
+00:42:53,880 --> 00:42:59,319
+it okay because we uh the main topic IC
+
+777
+00:42:57,440 --> 00:43:00,640
+today we talked about the Unicode that's
+
+778
+00:42:59,319 --> 00:43:04,079
+a good
+
+779
+00:43:00,640 --> 00:43:09,119
+topic so let's change the let's change
+
+780
+00:43:04,079 --> 00:43:11,640
+the title so iMac this so let's see uh
+
+781
+00:43:09,119 --> 00:43:17,960
+let's change the title
+
+782
+00:43:11,640 --> 00:43:21,559
+to math symbols and unit code
+
+783
+00:43:17,960 --> 00:43:21,559
+in programming
+
+784
+00:43:22,920 --> 00:43:32,680
+languages why should you use use okay
+
+785
+00:43:28,880 --> 00:43:35,760
+capitalize the sentence and uh make the
+
+786
+00:43:32,680 --> 00:43:39,119
+H1 also that title showing browser there
+
+787
+00:43:35,760 --> 00:43:41,520
+it is that's a full title today okay if
+
+788
+00:43:39,119 --> 00:43:46,359
+you like my pay
+
+789
+00:43:41,520 --> 00:43:49,800
+me go to c. code c. info go all the way
+
+790
+00:43:46,359 --> 00:43:52,440
+to the bottom patreon me Amazon gift
+
+791
+00:43:49,800 --> 00:43:55,319
+card PayPal me if you work as a
+
+792
+00:43:52,440 --> 00:43:59,520
+professional coder or if you are a
+
+793
+00:43:55,319 --> 00:44:02,079
+lawyer or whatever uh pay me $100 okay I
+
+794
+00:43:59,520 --> 00:44:04,920
+need to increase this but I'm not I'm
+
+795
+00:44:02,079 --> 00:44:07,160
+not a money guy okay so just just send
+
+796
+00:44:04,920 --> 00:44:10,280
+it to me PayPal one
+
+797
+00:44:07,160 --> 00:44:12,160
+shot so here's some comments let me
+
+798
+00:44:10,280 --> 00:44:14,400
+answer the comments and that will be it
+
+799
+00:44:12,160 --> 00:44:14,400
+for
+
+800
+00:44:21,800 --> 00:44:29,400
+today youo says why not just make the
+
+801
+00:44:25,319 --> 00:44:32,400
+pass detect the nest double quoted
+
+802
+00:44:29,400 --> 00:44:35,400
+string uh well that's another question
+
+803
+00:44:32,400 --> 00:44:35,400
+you can't really do
+
+804
+00:44:35,960 --> 00:44:42,680
+that uh well I mean you got issues okay
+
+805
+00:44:39,880 --> 00:44:44,839
+so this is a do string and you can have
+
+806
+00:44:42,680 --> 00:44:47,359
+a nested so let's
+
+807
+00:44:44,839 --> 00:44:51,160
+see
+
+808
+00:44:47,359 --> 00:44:54,920
+uh you you can have a nested One n you
+
+809
+00:44:51,160 --> 00:44:59,040
+can you cannot you cannot really have
+
+810
+00:44:54,920 --> 00:44:59,040
+that wait uh
+
+811
+00:45:00,960 --> 00:45:05,640
+what let's magnify
+
+812
+00:45:12,800 --> 00:45:15,800
+okay
+
+813
+00:45:22,280 --> 00:45:28,960
+so not sure why it was an issue for
+
+814
+00:45:30,920 --> 00:45:36,280
+passing well I mean what you are saying
+
+815
+00:45:33,680 --> 00:45:40,680
+is that why can't the passer
+
+816
+00:45:36,280 --> 00:45:41,800
+automatically pass nested uh brackets
+
+817
+00:45:40,680 --> 00:45:44,599
+for
+
+818
+00:45:41,800 --> 00:45:46,400
+example uh why
+
+819
+00:45:44,599 --> 00:45:50,720
+can't
+
+820
+00:45:46,400 --> 00:45:54,480
+the pass Auto
+
+821
+00:45:50,720 --> 00:45:57,040
+detect let's let's say
+
+822
+00:45:54,480 --> 00:45:59,599
+nested quotes
+
+823
+00:45:57,040 --> 00:46:01,680
+well the problem is then because this
+
+824
+00:45:59,599 --> 00:46:06,160
+single double quote they are not
+
+825
+00:46:01,680 --> 00:46:09,079
+matching characters so this could be you
+
+826
+00:46:06,160 --> 00:46:11,640
+know so this this line for example it
+
+827
+00:46:09,079 --> 00:46:15,319
+contain contains a
+
+828
+00:46:11,640 --> 00:46:17,760
+nested straight double quote okay right
+
+829
+00:46:15,319 --> 00:46:21,079
+it contains the N straight double quote
+
+830
+00:46:17,760 --> 00:46:23,520
+so why can't the passer just
+
+831
+00:46:21,079 --> 00:46:25,599
+automatically detect the nesting well
+
+832
+00:46:23,520 --> 00:46:27,160
+the pro the issue is there are many
+
+833
+00:46:25,599 --> 00:46:30,280
+interpretations
+
+834
+00:46:27,160 --> 00:46:34,160
+so you can think of this is a nested or
+
+835
+00:46:30,280 --> 00:46:38,240
+you can think of this line as one quot
+
+836
+00:46:34,160 --> 00:46:42,200
+then one not quoted word followed by a
+
+837
+00:46:38,240 --> 00:46:44,839
+quoted string you see then you might say
+
+838
+00:46:42,200 --> 00:46:47,640
+oh well but but if if it's inside the
+
+839
+00:46:44,839 --> 00:46:50,119
+dark string part then you should
+
+840
+00:46:47,640 --> 00:46:52,680
+interpret this way or that way it gets
+
+841
+00:46:50,119 --> 00:46:55,680
+complex okay that's a basically bottom
+
+842
+00:46:52,680 --> 00:46:55,680
+line
+
+843
+00:46:57,680 --> 00:47:04,200
+uh this make me want to try
+
+844
+00:47:00,520 --> 00:47:07,400
+emac uh I've been using Vim for years
+
+845
+00:47:04,200 --> 00:47:10,440
+for years Vim is pretty good I mean you
+
+846
+00:47:07,400 --> 00:47:12,520
+don't have to change okay uh you know
+
+847
+00:47:10,440 --> 00:47:16,640
+you could try emac they are kind of
+
+848
+00:47:12,520 --> 00:47:19,920
+different because e emac is more of the
+
+849
+00:47:16,640 --> 00:47:22,640
+philosophy if you want to have a battle
+
+850
+00:47:19,920 --> 00:47:26,160
+session you want one thing to do
+
+851
+00:47:22,640 --> 00:47:27,680
+everything okay while vim's philosophy
+
+852
+00:47:26,160 --> 00:47:31,160
+is more
+
+853
+00:47:27,680 --> 00:47:33,839
+of just a text editor you know when you
+
+854
+00:47:31,160 --> 00:47:36,800
+need to do other things you dive into
+
+855
+00:47:33,839 --> 00:47:39,720
+the Unix sh bash and you know you can
+
+856
+00:47:36,800 --> 00:47:41,720
+easily switch around you know so this so
+
+857
+00:47:39,720 --> 00:47:45,079
+you don't have to
+
+858
+00:47:41,720 --> 00:47:48,400
+switch uh you know that's a long
+
+859
+00:47:45,079 --> 00:47:50,599
+frequently Asked flame wall between emac
+
+860
+00:47:48,400 --> 00:47:50,599
+and
+
+861
+00:47:55,599 --> 00:48:02,119
+Vim t te says you are going to reach a
+
+862
+00:47:59,119 --> 00:48:05,720
+100 years old and still uh teaching
+
+863
+00:48:02,119 --> 00:48:09,880
+efficiency and calling out scumback okay
+
+864
+00:48:05,720 --> 00:48:14,040
+hello Hank Uno been out for 25 years
+
+865
+00:48:09,880 --> 00:48:14,040
+anyone who want moveies clown that's
+
+866
+00:48:19,079 --> 00:48:25,480
+correct oh okay so you got that okay bye
+
+867
+00:48:22,160 --> 00:48:27,119
+guys thank you have a good day and uh
+
+868
+00:48:25,480 --> 00:48:30,800
+enjoy
+
+869
+00:48:27,119 --> 00:48:30,800
+your day whatever
+
+870
+00:48:31,440 --> 00:48:39,920
+um enjoy your day okay so let's see I'm
+
+871
+00:48:35,319 --> 00:48:39,920
+closing down I'm closing down in one
+
+872
+00:48:41,079 --> 00:48:49,480
+minute uh so search for pre so let's add
+
+873
+00:48:45,880 --> 00:48:53,839
+a pre uh
+
+874
+00:48:49,480 --> 00:48:56,799
+text okay then this code let's bring it
+
+875
+00:48:53,839 --> 00:48:59,680
+back let's bring it back color it
+
+876
+00:48:56,799 --> 00:49:02,599
+showing browser so that's what we did
+
+877
+00:48:59,680 --> 00:49:06,559
+today okay bye
+
+878
+00:49:02,599 --> 00:49:11,960
+guys pay me don't forget just Amazon
+
+879
+00:49:06,559 --> 00:49:11,960
+gift card or patreon PayPal okay bye
+

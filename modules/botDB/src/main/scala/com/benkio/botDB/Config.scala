@@ -49,7 +49,8 @@ case class ShowSourceConfig(
     youtubeSources: List[String],
     botId: String,
     captionLanguage: String,
-    outputFilePath: String
+    outputFilePath: String,
+    captionFolderPath: String
 ) derives ConfigReader
 
 case class JsonLocation(botId: String, value: String) derives ConfigReader

@@ -1,0 +1,3740 @@
+1
+00:00:00,400 --> 00:00:06,720
+Hello guys. Hello girls. Welcome to
+
+2
+00:00:03,600 --> 00:00:09,840
+another episode of Ex Talk Show. We are
+
+3
+00:00:06,720 --> 00:00:12,639
+going to do mathematics geometry.
+
+4
+00:00:09,840 --> 00:00:15,280
+Uh so I'm going to talk about what is
+
+5
+00:00:12,639 --> 00:00:18,800
+geometric inversion. So let me show you.
+
+6
+00:00:15,280 --> 00:00:20,960
+So these are geometric inversion.
+
+7
+00:00:18,800 --> 00:00:23,519
+Uh and we are going to code wam
+
+8
+00:00:20,960 --> 00:00:27,519
+language. We are going to recreate this
+
+9
+00:00:23,519 --> 00:00:30,240
+image. Uh so geometric in inversion is
+
+10
+00:00:27,519 --> 00:00:33,200
+beautiful. It's uh fantastic. Okay, all
+
+11
+00:00:30,240 --> 00:00:36,079
+these graphics you can see. Can you see
+
+12
+00:00:33,200 --> 00:00:39,360
+me? Voice check, video check. So, if you
+
+13
+00:00:36,079 --> 00:00:43,520
+are watching offline, play at 1.5 speed
+
+14
+00:00:39,360 --> 00:00:46,239
+because I talk slowly and composed
+
+15
+00:00:43,520 --> 00:00:49,120
+and I ramble. And if you are watching
+
+16
+00:00:46,239 --> 00:00:52,320
+live, say hi. Love to see your comments.
+
+17
+00:00:49,120 --> 00:00:55,280
+Okay, so these are geometric inversion.
+
+18
+00:00:52,320 --> 00:00:58,800
+Fantastic subject. Okay, let's start
+
+19
+00:00:55,280 --> 00:01:01,120
+coding. So let me so what so um yeah so
+
+20
+00:00:58,800 --> 00:01:03,680
+let's begin. So we are doing wuam
+
+21
+00:01:01,120 --> 00:01:07,119
+language you can download it for free
+
+22
+00:01:03,680 --> 00:01:09,840
+wam language the most advanced highle
+
+23
+00:01:07,119 --> 00:01:13,200
+programming language ever uh just search
+
+24
+00:01:09,840 --> 00:01:16,000
+for.info info download it language
+
+25
+00:01:13,200 --> 00:01:19,520
+tutorial in depth.
+
+26
+00:01:16,000 --> 00:01:25,600
+Ching Hank again. Thank you, Hank. Happy
+
+27
+00:01:19,520 --> 00:01:29,680
+666. That's today's execute 666
+
+28
+00:01:25,600 --> 00:01:31,600
+uh the white man's thing. 666 number of
+
+29
+00:01:29,680 --> 00:01:34,880
+the beast
+
+30
+00:01:31,600 --> 00:01:37,040
+uh episode. So uh wam language. Yeah,
+
+31
+00:01:34,880 --> 00:01:40,479
+you can download it the full tutorial
+
+32
+00:01:37,040 --> 00:01:42,960
+here. And uh if you are Emacs users, I'm
+
+33
+00:01:40,479 --> 00:01:44,880
+going to code Wuam language in Emacs. So
+
+34
+00:01:42,960 --> 00:01:49,600
+you can get this package. It's also
+
+35
+00:01:44,880 --> 00:01:51,600
+free. Kasaw Wuam mod. Kasawu mode. You
+
+36
+00:01:49,600 --> 00:01:55,119
+know, since I started to do live stream,
+
+37
+00:01:51,600 --> 00:01:58,079
+I learned mode is major mode. It's
+
+38
+00:01:55,119 --> 00:02:02,320
+pronounced mode, not mod.
+
+39
+00:01:58,079 --> 00:02:06,000
+Um I've been pronouncing it mod for like
+
+40
+00:02:02,320 --> 00:02:08,319
+20 years. And I'm using softly keys for
+
+41
+00:02:06,000 --> 00:02:10,399
+Emacs users. Okay. the most efficient
+
+42
+00:02:08,319 --> 00:02:12,640
+key binding. So you don't have to press
+
+43
+00:02:10,399 --> 00:02:15,120
+control or meta.
+
+44
+00:02:12,640 --> 00:02:17,200
+Okay. Circle inversion. So what is do
+
+45
+00:02:15,120 --> 00:02:20,800
+graphics demo? Okay. So let's do a
+
+46
+00:02:17,200 --> 00:02:22,239
+graphics demo. Let's see. Okay. So so we
+
+47
+00:02:20,800 --> 00:02:25,840
+we're just going to code. Okay. It's
+
+48
+00:02:22,239 --> 00:02:28,400
+about maybe 40 minutes. Um okay. So go
+
+49
+00:02:25,840 --> 00:02:31,200
+to this page. Open it. Showing browser.
+
+50
+00:02:28,400 --> 00:02:35,040
+That's a page. There's a wam language
+
+51
+00:02:31,200 --> 00:02:37,120
+notebook there. This is like 20 30 years
+
+52
+00:02:35,040 --> 00:02:38,879
+old. So let's open it. Let's see what we
+
+53
+00:02:37,120 --> 00:02:41,760
+get.
+
+54
+00:02:38,879 --> 00:02:45,440
+So I have written a package to do
+
+55
+00:02:41,760 --> 00:02:47,920
+inversion. So here is the package and
+
+56
+00:02:45,440 --> 00:02:52,720
+continue with updated style. So you can
+
+57
+00:02:47,920 --> 00:02:56,319
+see this is like 30 years old. Okay. Uh
+
+58
+00:02:52,720 --> 00:02:58,959
+and what okay so but we going to just do
+
+59
+00:02:56,319 --> 00:03:02,480
+this graphics. So I wrote this package
+
+60
+00:02:58,959 --> 00:03:05,200
+but the code to do this circle inversion
+
+61
+00:03:02,480 --> 00:03:09,280
+is actually uh not too large. So it's
+
+62
+00:03:05,200 --> 00:03:12,560
+going to be like 10 lines maximum. So we
+
+63
+00:03:09,280 --> 00:03:14,959
+can extract it. Okay. Okay. So what we
+
+64
+00:03:12,560 --> 00:03:17,760
+going to do? We going to regenerate this
+
+65
+00:03:14,959 --> 00:03:20,239
+graphics. Um
+
+66
+00:03:17,760 --> 00:03:23,280
+then I need to look through this code.
+
+67
+00:03:20,239 --> 00:03:27,599
+This 30 years code. God, this is too
+
+68
+00:03:23,280 --> 00:03:30,400
+old. Um okay, that's probably not the
+
+69
+00:03:27,599 --> 00:03:33,840
+best place to look. So I have written a
+
+70
+00:03:30,400 --> 00:03:36,640
+package. Let's see. Um,
+
+71
+00:03:33,840 --> 00:03:39,640
+GitHub
+
+72
+00:03:36,640 --> 00:03:39,640
+um,
+
+73
+00:03:41,360 --> 00:03:46,640
+Git Directory
+
+74
+00:03:43,760 --> 00:03:48,799
+inversion.
+
+75
+00:03:46,640 --> 00:03:50,720
+I don't have inversion. Damn, where's
+
+76
+00:03:48,799 --> 00:03:53,720
+the code?
+
+77
+00:03:50,720 --> 00:03:53,720
+Um,
+
+78
+00:03:55,840 --> 00:04:02,239
+let's see. Wra language plain tiling
+
+79
+00:03:58,400 --> 00:04:07,480
+inversion. Did I not?
+
+80
+00:04:02,239 --> 00:04:07,480
+Okay, I'm kind of um
+
+81
+00:04:07,760 --> 00:04:12,560
+I am V E.
+
+82
+00:04:10,239 --> 00:04:15,879
+Okay, there's no inversion. Where where
+
+83
+00:04:12,560 --> 00:04:15,879
+did it go?
+
+84
+00:04:15,920 --> 00:04:20,079
+Hang says, does that mean Python is the
+
+85
+00:04:18,400 --> 00:04:22,000
+second most advanced high level
+
+86
+00:04:20,079 --> 00:04:24,800
+language?
+
+87
+00:04:22,000 --> 00:04:27,600
+Python is not is not even the second
+
+88
+00:04:24,800 --> 00:04:30,800
+most advanced. So Wuam is the most
+
+89
+00:04:27,600 --> 00:04:33,120
+advanced most high level by a magnitude.
+
+90
+00:04:30,800 --> 00:04:35,759
+The second
+
+91
+00:04:33,120 --> 00:04:39,120
+the second best is like a magnitude
+
+92
+00:04:35,759 --> 00:04:44,040
+behind Wuam language. Okay. So the
+
+93
+00:04:39,120 --> 00:04:44,040
+second what would be the second uh
+
+94
+00:04:44,080 --> 00:04:50,560
+I wouldn't I mean Python well Python is
+
+95
+00:04:47,520 --> 00:04:53,199
+a lousy language very extremely lousy.
+
+96
+00:04:50,560 --> 00:04:55,840
+However, it's got this thing going for
+
+97
+00:04:53,199 --> 00:05:00,320
+it because it's got this huge amount of
+
+98
+00:04:55,840 --> 00:05:02,880
+math linear algebra libraries and AI
+
+99
+00:05:00,320 --> 00:05:05,520
+neural network libraries because of
+
+100
+00:05:02,880 --> 00:05:08,400
+Google because Google is using Python
+
+101
+00:05:05,520 --> 00:05:11,039
+and since like 15 years ago they ch out
+
+102
+00:05:08,400 --> 00:05:14,479
+Python libraries you know big data and
+
+103
+00:05:11,039 --> 00:05:16,800
+so on. So Python
+
+104
+00:05:14,479 --> 00:05:18,960
+first of all it's one of the worst
+
+105
+00:05:16,800 --> 00:05:21,039
+programming language. However, it's got
+
+106
+00:05:18,960 --> 00:05:23,280
+this huge now, you know, by now it's
+
+107
+00:05:21,039 --> 00:05:26,639
+got, you know, huge amount of library.
+
+108
+00:05:23,280 --> 00:05:28,720
+It became hugely popular. So, yeah, it's
+
+109
+00:05:26,639 --> 00:05:31,600
+usable.
+
+110
+00:05:28,720 --> 00:05:33,360
+But if you want a better programming
+
+111
+00:05:31,600 --> 00:05:35,039
+language for doing scientific
+
+112
+00:05:33,360 --> 00:05:37,680
+programming like mathematics,
+
+113
+00:05:35,039 --> 00:05:39,840
+statistics, neuros neural networks,
+
+114
+00:05:37,680 --> 00:05:42,160
+artificial intelligence,
+
+115
+00:05:39,840 --> 00:05:46,720
+uh Julia,
+
+116
+00:05:42,160 --> 00:05:49,120
+F or camel, they are much better. Okay,
+
+117
+00:05:46,720 --> 00:05:52,560
+much better than Python and much faster
+
+118
+00:05:49,120 --> 00:05:54,479
+than Python too but they don't have the
+
+119
+00:05:52,560 --> 00:05:57,039
+you know they don't have this huge
+
+120
+00:05:54,479 --> 00:06:00,800
+amount of library as Python you know so
+
+121
+00:05:57,039 --> 00:06:03,199
+anyway that's the thing okay so I mean
+
+122
+00:06:00,800 --> 00:06:07,440
+so you know in practice you always have
+
+123
+00:06:03,199 --> 00:06:10,400
+to like um you know that's just reality
+
+124
+00:06:07,440 --> 00:06:12,720
+okay so anyway so
+
+125
+00:06:10,400 --> 00:06:15,280
+okay so I want to get the uh I want to
+
+126
+00:06:12,720 --> 00:06:18,560
+do this code and uh looks like I don't
+
+127
+00:06:15,280 --> 00:06:20,880
+have the code. Okay, hold on. So, hold
+
+128
+00:06:18,560 --> 00:06:23,759
+on a second. Okay, so hold on a second.
+
+129
+00:06:20,880 --> 00:06:27,600
+Let me um
+
+130
+00:06:23,759 --> 00:06:30,600
+let me see if I can find the code. Okay,
+
+131
+00:06:27,600 --> 00:06:30,600
+um
+
+132
+00:06:31,680 --> 00:06:37,680
+display capture. Okay, let me turn off
+
+133
+00:06:34,240 --> 00:06:42,120
+dis display capture for a moment and let
+
+134
+00:06:37,680 --> 00:06:42,120
+me just search for my code.
+
+135
+00:06:51,600 --> 00:06:58,000
+Okay, I'm keep doing. Let me try to find
+
+136
+00:06:54,319 --> 00:07:00,720
+the code. So, um,
+
+137
+00:06:58,000 --> 00:07:05,280
+GitHub.
+
+138
+00:07:00,720 --> 00:07:08,880
+Okay, desktop. Uh, wine packages. Oh, I
+
+139
+00:07:05,280 --> 00:07:12,960
+don't have it now. Okay. So let me get
+
+140
+00:07:08,880 --> 00:07:17,039
+back the uh video my screen so you can
+
+141
+00:07:12,960 --> 00:07:21,120
+see. So I'm at I'm at desktop the
+
+142
+00:07:17,039 --> 00:07:23,520
+desktop folder. So I have this inversion
+
+143
+00:07:21,120 --> 00:07:25,120
+circle um
+
+144
+00:07:23,520 --> 00:07:27,360
+code.
+
+145
+00:07:25,120 --> 00:07:29,919
+Okay, I'm not doing so well because
+
+146
+00:07:27,360 --> 00:07:32,240
+because for the past five minutes it's
+
+147
+00:07:29,919 --> 00:07:34,479
+been boring because one thing about live
+
+148
+00:07:32,240 --> 00:07:36,639
+stream is that you want to keep doing
+
+149
+00:07:34,479 --> 00:07:39,280
+interesting things. you don't want to
+
+150
+00:07:36,639 --> 00:07:41,840
+spend time looking for file and so on.
+
+151
+00:07:39,280 --> 00:07:45,759
+So anyway, here's the inversion uh
+
+152
+00:07:41,840 --> 00:07:49,039
+package from 1996.
+
+153
+00:07:45,759 --> 00:07:51,680
+Okay. So what um okay the package is
+
+154
+00:07:49,039 --> 00:07:53,840
+very short. Okay. Make a backup. So
+
+155
+00:07:51,680 --> 00:07:56,240
+anyway, so you're going to learn some uh
+
+156
+00:07:53,840 --> 00:07:58,240
+mathematics and also learn some wam
+
+157
+00:07:56,240 --> 00:08:01,680
+language coding. Okay, that's what I'm
+
+158
+00:07:58,240 --> 00:08:04,080
+going to do. So this package export the
+
+159
+00:08:01,680 --> 00:08:06,479
+function invert circle. Okay, it's only
+
+160
+00:08:04,080 --> 00:08:08,639
+one uh function. Okay. So inverse circle
+
+161
+00:08:06,479 --> 00:08:12,000
+blah blah blah. Okay. So let me explain
+
+162
+00:08:08,639 --> 00:08:16,160
+what is inversion. So inversion is very
+
+163
+00:08:12,000 --> 00:08:19,280
+simple. Okay. So let's go there. Okay.
+
+164
+00:08:16,160 --> 00:08:22,960
+So you can see all you can see other
+
+165
+00:08:19,280 --> 00:08:25,360
+images of inversion. So you begin with a
+
+166
+00:08:22,960 --> 00:08:28,720
+rectangular grid. So inversion is a
+
+167
+00:08:25,360 --> 00:08:32,880
+transformation of points in a plane. So
+
+168
+00:08:28,720 --> 00:08:34,959
+given a plane and given a point.
+
+169
+00:08:32,880 --> 00:08:38,000
+So inversion is a function. So given a
+
+170
+00:08:34,959 --> 00:08:39,839
+point then you you apply the inversion
+
+171
+00:08:38,000 --> 00:08:42,479
+function then that point will be
+
+172
+00:08:39,839 --> 00:08:45,279
+somewhere else. Okay. So if you begin
+
+173
+00:08:42,479 --> 00:08:48,560
+with a grid you know grid is like lots
+
+174
+00:08:45,279 --> 00:08:51,200
+of points then you invert each point you
+
+175
+00:08:48,560 --> 00:08:53,680
+apply the function to the grid then you
+
+176
+00:08:51,200 --> 00:08:56,399
+then to the grid points then you get
+
+177
+00:08:53,680 --> 00:09:00,640
+this. Okay that's an inversion.
+
+178
+00:08:56,399 --> 00:09:03,519
+So uh and you can look up. So anyway, so
+
+179
+00:09:00,640 --> 00:09:08,000
+that's some of the pictures of inverting
+
+180
+00:09:03,519 --> 00:09:10,000
+a grid. Okay. Um, and another way to
+
+181
+00:09:08,000 --> 00:09:12,240
+think of geometric inversion. By the
+
+182
+00:09:10,000 --> 00:09:17,519
+way, this is called geometric inversion.
+
+183
+00:09:12,240 --> 00:09:19,920
+So the idea is very similar to 1 /x.
+
+184
+00:09:17,519 --> 00:09:25,120
+In fact, it is exactly the same thing.
+
+185
+00:09:19,920 --> 00:09:28,080
+So it's just 1 /x. Okay. Uh, and uh, so
+
+186
+00:09:25,120 --> 00:09:30,959
+that's another way to think of it. And
+
+187
+00:09:28,080 --> 00:09:33,920
+uh another way to think of it is if you
+
+188
+00:09:30,959 --> 00:09:37,760
+know complex numbers then the inversion
+
+189
+00:09:33,920 --> 00:09:41,120
+is basically the function 1 overx where
+
+190
+00:09:37,760 --> 00:09:42,959
+x is a complex number and if you plot it
+
+191
+00:09:41,120 --> 00:09:46,560
+it looks like that. Okay it looks like
+
+192
+00:09:42,959 --> 00:09:48,720
+that. In fact it looks like like smooth
+
+193
+00:09:46,560 --> 00:09:51,680
+smooth circles
+
+194
+00:09:48,720 --> 00:09:54,240
+you know in this image you are seeing
+
+195
+00:09:51,680 --> 00:09:57,519
+these uh edges.
+
+196
+00:09:54,240 --> 00:10:00,720
+That's because we are inverting the grid
+
+197
+00:09:57,519 --> 00:10:04,720
+points the intersection of the grid. But
+
+198
+00:10:00,720 --> 00:10:08,000
+however we we are not doing to each line
+
+199
+00:10:04,720 --> 00:10:11,440
+point each point in the line. If you do
+
+200
+00:10:08,000 --> 00:10:13,920
+them smoothly to every point in the line
+
+201
+00:10:11,440 --> 00:10:16,240
+in the grid of the grid then you're
+
+202
+00:10:13,920 --> 00:10:19,440
+going to what you get is like a bunch of
+
+203
+00:10:16,240 --> 00:10:22,079
+circles. So similar to this one okay
+
+204
+00:10:19,440 --> 00:10:24,560
+even this one is not smooth but I I have
+
+205
+00:10:22,079 --> 00:10:27,120
+a smooth one uh version. somewhere here.
+
+206
+00:10:24,560 --> 00:10:29,760
+Okay. So there are some other examples.
+
+207
+00:10:27,120 --> 00:10:32,720
+This is the example of if you begin with
+
+208
+00:10:29,760 --> 00:10:36,079
+a bunch of lines, vertical lines and you
+
+209
+00:10:32,720 --> 00:10:39,200
+apply inversion, you get this you get
+
+210
+00:10:36,079 --> 00:10:43,200
+these nested circles. Okay? And if you
+
+211
+00:10:39,200 --> 00:10:46,640
+begin with the a bunch of circles on a
+
+212
+00:10:43,200 --> 00:10:48,720
+line, the blue circles and you if you
+
+213
+00:10:46,640 --> 00:10:52,320
+apply inversion, you got these red
+
+214
+00:10:48,720 --> 00:10:54,320
+circles. Okay? So inversion is
+
+215
+00:10:52,320 --> 00:10:57,600
+fascinating this function because
+
+216
+00:10:54,320 --> 00:11:00,079
+circles become circles or lines lines
+
+217
+00:10:57,600 --> 00:11:04,079
+become lines or circles. So circle and
+
+218
+00:11:00,079 --> 00:11:07,120
+lines remain the same ba basically
+
+219
+00:11:04,079 --> 00:11:09,279
+and there's also angle conform it's a
+
+220
+00:11:07,120 --> 00:11:14,000
+conformal map so lots of properties.
+
+221
+00:11:09,279 --> 00:11:16,720
+Okay. Uh anyway so so here is yeah so if
+
+222
+00:11:14,000 --> 00:11:19,200
+you begin with a grid like that rainbow
+
+223
+00:11:16,720 --> 00:11:22,959
+colored grid then you apply the
+
+224
+00:11:19,200 --> 00:11:26,079
+inversion function you get like that.
+
+225
+00:11:22,959 --> 00:11:29,120
+Okay so let's magnify. So all these are
+
+226
+00:11:26,079 --> 00:11:32,640
+these images are generated 30 years ago.
+
+227
+00:11:29,120 --> 00:11:34,959
+So you you can see kind of like jacked
+
+228
+00:11:32,640 --> 00:11:38,000
+edge. Okay. So that's inversion. But
+
+229
+00:11:34,959 --> 00:11:40,399
+let's show uh so in inversion is
+
+230
+00:11:38,000 --> 00:11:42,720
+beautiful by the way. So all this this
+
+231
+00:11:40,399 --> 00:11:46,880
+is also inversion. We did a live stream
+
+232
+00:11:42,720 --> 00:11:50,720
+of this like uh two years ago 2023
+
+233
+00:11:46,880 --> 00:11:54,959
+February and uh this is also inversion.
+
+234
+00:11:50,720 --> 00:11:57,440
+We did this in 2023 February live we
+
+235
+00:11:54,959 --> 00:12:01,920
+created this image. So this this image
+
+236
+00:11:57,440 --> 00:12:05,519
+is uh inversion also working works in 3D
+
+237
+00:12:01,920 --> 00:12:08,560
+three dimension. So if you begin with a
+
+238
+00:12:05,519 --> 00:12:10,639
+cage a grid cage like that you apply
+
+239
+00:12:08,560 --> 00:12:15,440
+inversion it looks like that okay so
+
+240
+00:12:10,639 --> 00:12:17,920
+it's like fascinating beautiful okay
+
+241
+00:12:15,440 --> 00:12:20,880
+so that's geometric inversion okay so
+
+242
+00:12:17,920 --> 00:12:23,920
+and also uh you can create decorative
+
+243
+00:12:20,880 --> 00:12:27,760
+patterns based on inversion we also did
+
+244
+00:12:23,920 --> 00:12:31,839
+this one uh 2023 some sometimes around
+
+245
+00:12:27,760 --> 00:12:35,519
+there 2023 February
+
+246
+00:12:31,839 --> 00:12:39,360
+uh you know this this decorative pattern
+
+247
+00:12:35,519 --> 00:12:42,639
+is based on inversion. So it's a tiles.
+
+248
+00:12:39,360 --> 00:12:46,240
+So if you have a home you can build your
+
+249
+00:12:42,639 --> 00:12:50,800
+own uh decorative patterns in your
+
+250
+00:12:46,240 --> 00:12:52,320
+garden using this kind of uh technique
+
+251
+00:12:50,800 --> 00:12:54,560
+scheme.
+
+252
+00:12:52,320 --> 00:12:57,839
+Okay. So that's about a lot about
+
+253
+00:12:54,560 --> 00:13:00,800
+inversion. So yeah. So but let me
+
+254
+00:12:57,839 --> 00:13:04,000
+explain exactly what it is mathematics
+
+255
+00:13:00,800 --> 00:13:07,920
+mathematically. Okay. So for that so
+
+256
+00:13:04,000 --> 00:13:10,800
+hold on a second. So copy that um go to
+
+257
+00:13:07,920 --> 00:13:13,839
+talk show go to today's talk show show
+
+258
+00:13:10,800 --> 00:13:17,200
+in browser that's today and let's paste
+
+259
+00:13:13,839 --> 00:13:20,639
+the link here. So we show that's
+
+260
+00:13:17,200 --> 00:13:24,240
+inversion. Okay. So let's open that and
+
+261
+00:13:20,639 --> 00:13:27,920
+we want to show the definition. Okay.
+
+262
+00:13:24,240 --> 00:13:30,079
+The exact definition. So,
+
+263
+00:13:27,920 --> 00:13:32,639
+so here is the definition. Okay. So,
+
+264
+00:13:30,079 --> 00:13:36,880
+given a plane
+
+265
+00:13:32,639 --> 00:13:40,560
+and suppose O is origin. So, O is X = to
+
+266
+00:13:36,880 --> 00:13:44,000
+0, Y = to zero, you know, called origin.
+
+267
+00:13:40,560 --> 00:13:46,560
+Then given any point P in a plane could
+
+268
+00:13:44,000 --> 00:13:51,600
+be anywhere. Okay. So, let's say it's
+
+269
+00:13:46,560 --> 00:13:56,720
+here P. Then the inversion of that point
+
+270
+00:13:51,600 --> 00:13:59,839
+P is a point Q such that it lies on a
+
+271
+00:13:56,720 --> 00:14:02,240
+line from O P. So if you draw from the
+
+272
+00:13:59,839 --> 00:14:05,920
+center of the circle to the line to the
+
+273
+00:14:02,240 --> 00:14:08,639
+point P, you got a ray, right? A line.
+
+274
+00:14:05,920 --> 00:14:12,560
+So the inversion of the point P is
+
+275
+00:14:08,639 --> 00:14:16,160
+somewhere on the line such that
+
+276
+00:14:12,560 --> 00:14:18,560
+such that the new point the distance
+
+277
+00:14:16,160 --> 00:14:22,079
+from OP
+
+278
+00:14:18,560 --> 00:14:24,639
+times the distance from OQ is equals to
+
+279
+00:14:22,079 --> 00:14:27,519
+one. Okay suppose the radius of the
+
+280
+00:14:24,639 --> 00:14:32,079
+circle is one. So let me repeat maybe
+
+281
+00:14:27,519 --> 00:14:34,480
+it's um confusing. So inversion
+
+282
+00:14:32,079 --> 00:14:37,199
+you start with a circle uh you know you
+
+283
+00:14:34,480 --> 00:14:39,600
+you you um
+
+284
+00:14:37,199 --> 00:14:42,639
+let's see uh let me just read it okay
+
+285
+00:14:39,600 --> 00:14:45,839
+geometric inversion is a transformation
+
+286
+00:14:42,639 --> 00:14:49,680
+let P be a given point
+
+287
+00:14:45,839 --> 00:14:53,279
+let C be a circle centered on O origin
+
+288
+00:14:49,680 --> 00:14:57,199
+and radius R assume the radius is one
+
+289
+00:14:53,279 --> 00:15:02,639
+okay so the inverse of P with respect to
+
+290
+00:14:57,199 --> 00:15:06,079
+the circle C is a point Q on the line OP
+
+291
+00:15:02,639 --> 00:15:10,320
+such that distance OP * distance
+
+292
+00:15:06,079 --> 00:15:13,519
+distance OQ equals to R squared. Okay.
+
+293
+00:15:10,320 --> 00:15:16,800
+So if R the radius of the circle is one
+
+294
+00:15:13,519 --> 00:15:20,240
+then R 2 is just one. So basically it's
+
+295
+00:15:16,800 --> 00:15:23,279
+a you know one distance times another
+
+296
+00:15:20,240 --> 00:15:26,800
+distance equals to one. Okay. So you can
+
+297
+00:15:23,279 --> 00:15:30,639
+think of A * B equals to 1. So what is
+
+298
+00:15:26,800 --> 00:15:33,040
+B? B is one over A. So you can you can
+
+299
+00:15:30,639 --> 00:15:36,480
+see it's a just diversion you know one
+
+300
+00:15:33,040 --> 00:15:40,000
+over A. So that's an inversion. So so
+
+301
+00:15:36,480 --> 00:15:43,040
+but how does it can we visualize it?
+
+302
+00:15:40,000 --> 00:15:45,920
+Yes. Via this uh great application
+
+303
+00:15:43,040 --> 00:15:48,959
+called G algebra. G Algebra I recommend
+
+304
+00:15:45,920 --> 00:15:52,880
+if you it's on my website. If you search
+
+305
+00:15:48,959 --> 00:15:55,279
+for plane curves GGbraasi.info
+
+306
+00:15:52,880 --> 00:15:57,759
+you can see lots of these interactive
+
+307
+00:15:55,279 --> 00:15:59,519
+applications. Okay. Hey, if you ask here
+
+308
+00:15:57,759 --> 00:16:02,639
+say hi. Okay, love to see your comments
+
+309
+00:15:59,519 --> 00:16:05,199
+any questions you have. So, G algebra.
+
+310
+00:16:02,639 --> 00:16:08,079
+So, let's go back to inversion.
+
+311
+00:16:05,199 --> 00:16:13,279
+Uh, so that so you can see can we
+
+312
+00:16:08,079 --> 00:16:17,360
+magnify? Uh, let's see. Can we mag okay
+
+313
+00:16:13,279 --> 00:16:20,560
+so given a point P
+
+314
+00:16:17,360 --> 00:16:22,800
+and the Q shows the inversion. So if P
+
+315
+00:16:20,560 --> 00:16:26,000
+so it's always on the same line. Can you
+
+316
+00:16:22,800 --> 00:16:29,759
+see? So if P is further away outside of
+
+317
+00:16:26,000 --> 00:16:34,560
+the circle then Q is close to the
+
+318
+00:16:29,759 --> 00:16:37,600
+center. If P is closer to the circle
+
+319
+00:16:34,560 --> 00:16:41,199
+then Q is also closer to the circle.
+
+320
+00:16:37,600 --> 00:16:45,120
+Okay. Now if P goes to inside of the
+
+321
+00:16:41,199 --> 00:16:48,959
+circle Q goes to the outside. You see P
+
+322
+00:16:45,120 --> 00:16:52,320
+and Q are kind of symmetric. You see? So
+
+323
+00:16:48,959 --> 00:16:54,959
+this is a very interesting function
+
+324
+00:16:52,320 --> 00:16:58,480
+because when you apply this inversion to
+
+325
+00:16:54,959 --> 00:17:01,360
+to any picture or any point you know any
+
+326
+00:16:58,480 --> 00:17:04,319
+any like set of points in the plane what
+
+327
+00:17:01,360 --> 00:17:06,640
+you get is like all the points outside
+
+328
+00:17:04,319 --> 00:17:08,880
+of the circle
+
+329
+00:17:06,640 --> 00:17:12,880
+becomes gets into the inside of the
+
+330
+00:17:08,880 --> 00:17:16,079
+circle and any points inside the circle
+
+331
+00:17:12,880 --> 00:17:19,520
+they become outside of the circle. Okay.
+
+332
+00:17:16,079 --> 00:17:22,160
+So it's kind of like a mirror but it's
+
+333
+00:17:19,520 --> 00:17:25,360
+like swapped things outside to the
+
+334
+00:17:22,160 --> 00:17:28,079
+inside and inside to the outside. Okay,
+
+335
+00:17:25,360 --> 00:17:30,000
+that's the geometric inversion. So you
+
+336
+00:17:28,079 --> 00:17:32,880
+can think of that. It's like you know if
+
+337
+00:17:30,000 --> 00:17:36,080
+you have a piece of paper
+
+338
+00:17:32,880 --> 00:17:38,960
+you punch a hole in the middle. Can you
+
+339
+00:17:36,080 --> 00:17:41,200
+see? Um you know a piece of paper you
+
+340
+00:17:38,960 --> 00:17:43,600
+punch a hole in the middle and you grab
+
+341
+00:17:41,200 --> 00:17:48,400
+it. you know you grab it the hole and
+
+342
+00:17:43,600 --> 00:17:52,080
+you swap it inside out. Okay, that's in
+
+343
+00:17:48,400 --> 00:17:54,480
+that's kind of the you can think of that
+
+344
+00:17:52,080 --> 00:17:57,840
+inversion is like that. Okay, that is
+
+345
+00:17:54,480 --> 00:18:00,000
+why you see a rectangle I mean a grid it
+
+346
+00:17:57,840 --> 00:18:03,280
+becomes like that
+
+347
+00:18:00,000 --> 00:18:05,760
+um you know like you swap inside out
+
+348
+00:18:03,280 --> 00:18:08,559
+okay like a mirror but you swap inside
+
+349
+00:18:05,760 --> 00:18:10,880
+out around the circle
+
+350
+00:18:08,559 --> 00:18:14,400
+and mirror is actually you can think of
+
+351
+00:18:10,880 --> 00:18:16,320
+mirror as a special case of inversion I
+
+352
+00:18:14,400 --> 00:18:17,840
+mean mirror like reflection okay
+
+353
+00:18:16,320 --> 00:18:21,840
+reflection
+
+354
+00:18:17,840 --> 00:18:25,200
+why because when the circle's radius
+
+355
+00:18:21,840 --> 00:18:28,480
+become infinite that you know the circum
+
+356
+00:18:25,200 --> 00:18:31,520
+the the circle basically become a line.
+
+357
+00:18:28,480 --> 00:18:33,919
+Okay. So it becomes just reflection. So
+
+358
+00:18:31,520 --> 00:18:37,760
+the special case is that when the
+
+359
+00:18:33,919 --> 00:18:39,919
+circle's radius is infinite then this
+
+360
+00:18:37,760 --> 00:18:42,880
+inversion just becomes reflection you
+
+361
+00:18:39,919 --> 00:18:46,000
+know just like flip flip.
+
+362
+00:18:42,880 --> 00:18:48,720
+Okay that's the interesting part.
+
+363
+00:18:46,000 --> 00:18:51,200
+Uh and that's the mathematics of
+
+364
+00:18:48,720 --> 00:18:55,280
+inversion. Okay. So again you can also
+
+365
+00:18:51,200 --> 00:18:59,120
+think of uh it as the complex number 1
+
+366
+00:18:55,280 --> 00:19:01,760
+over Z where z is a complex number okay
+
+367
+00:18:59,120 --> 00:19:06,160
+it's exactly the same well except they
+
+368
+00:19:01,760 --> 00:19:08,799
+flipped it upside down as well anyway um
+
+369
+00:19:06,160 --> 00:19:10,799
+so you you can look into okay and of
+
+370
+00:19:08,799 --> 00:19:12,880
+course there's Wikipedia articles you
+
+371
+00:19:10,799 --> 00:19:16,000
+can look up for geometric inversion
+
+372
+00:19:12,880 --> 00:19:18,640
+Wikipedia will give you some um you know
+
+373
+00:19:16,000 --> 00:19:22,720
+explan explanation
+
+374
+00:19:18,640 --> 00:19:25,360
+okay so We covered the math
+
+375
+00:19:22,720 --> 00:19:27,280
+definition of inversion and their
+
+376
+00:19:25,360 --> 00:19:30,799
+geometric
+
+377
+00:19:27,280 --> 00:19:32,720
+how it looks like in geometry and uh
+
+378
+00:19:30,799 --> 00:19:36,320
+inversion is actually critical because
+
+379
+00:19:32,720 --> 00:19:38,880
+it's just like 1 /x. So this huge amount
+
+380
+00:19:36,320 --> 00:19:41,760
+of properties
+
+381
+00:19:38,880 --> 00:19:44,799
+and you can work out in analytic
+
+382
+00:19:41,760 --> 00:19:48,799
+geometry you know exactly you know given
+
+383
+00:19:44,799 --> 00:19:51,760
+a point centered on x y
+
+384
+00:19:48,799 --> 00:19:55,039
+then if you apply inversion what exactly
+
+385
+00:19:51,760 --> 00:19:57,280
+is a new coordinate you know you can
+
+386
+00:19:55,039 --> 00:20:00,080
+you know it's basic uh it's basic
+
+387
+00:19:57,280 --> 00:20:01,600
+trigonometry and distance and
+
+388
+00:20:00,080 --> 00:20:04,640
+pythagorean
+
+389
+00:20:01,600 --> 00:20:06,960
+formula so you can find out you you can
+
+390
+00:20:04,640 --> 00:20:10,160
+work it out. It will be interesting if
+
+391
+00:20:06,960 --> 00:20:12,400
+you are a math student in high school or
+
+392
+00:20:10,160 --> 00:20:16,160
+college.
+
+393
+00:20:12,400 --> 00:20:18,799
+Okay. So you know so um we derived the
+
+394
+00:20:16,160 --> 00:20:21,919
+formula here. So lots of properties. So
+
+395
+00:20:18,799 --> 00:20:24,160
+now let's get to the code. Okay. So
+
+396
+00:20:21,919 --> 00:20:27,440
+today actually I want to create this
+
+397
+00:20:24,160 --> 00:20:31,840
+this this code. Okay. So I got the code.
+
+398
+00:20:27,440 --> 00:20:33,360
+Go to desktop. open in operating system
+
+399
+00:20:31,840 --> 00:20:37,360
+desktop
+
+400
+00:20:33,360 --> 00:20:40,400
+wam language packages. Okay. Then one of
+
+401
+00:20:37,360 --> 00:20:46,320
+them is invert circle. Okay. Invert
+
+402
+00:20:40,400 --> 00:20:50,320
+circle that. Okay. So, so the so yeah.
+
+403
+00:20:46,320 --> 00:20:52,240
+So, and here is the code and basically
+
+404
+00:20:50,320 --> 00:20:55,600
+there's just one function inverse
+
+405
+00:20:52,240 --> 00:20:58,600
+circle. Okay.
+
+406
+00:20:55,600 --> 00:20:58,600
+Uh
+
+407
+00:20:59,760 --> 00:21:05,760
+okay. So that is the code.
+
+408
+00:21:03,520 --> 00:21:07,919
+Okay. So now we just coding. Okay. If
+
+409
+00:21:05,760 --> 00:21:09,679
+you are, you know, if you don't know Wam
+
+410
+00:21:07,919 --> 00:21:11,919
+language, you don't want to, you know,
+
+411
+00:21:09,679 --> 00:21:14,400
+then you can just
+
+412
+00:21:11,919 --> 00:21:16,960
+uh stop watching.
+
+413
+00:21:14,400 --> 00:21:19,600
+Hi, I hope your day is well. Thank you,
+
+414
+00:21:16,960 --> 00:21:22,320
+Dosey.
+
+415
+00:21:19,600 --> 00:21:27,039
+Okay, so how long have I been? Let's
+
+416
+00:21:22,320 --> 00:21:31,919
+code for like 30 minutes. Um yeah.
+
+417
+00:21:27,039 --> 00:21:34,799
+Okay. So this um so okay so so let's
+
+418
+00:21:31,919 --> 00:21:38,880
+double so I need to uh concentrate on
+
+419
+00:21:34,799 --> 00:21:41,600
+working on the code now. Okay.
+
+420
+00:21:38,880 --> 00:21:43,919
+So inverse circle. So this package just
+
+421
+00:21:41,600 --> 00:21:46,000
+export this one single function. So
+
+422
+00:21:43,919 --> 00:21:50,760
+let's highlight it. Okay. And the
+
+423
+00:21:46,000 --> 00:21:50,760
+parameters for the function is
+
+424
+00:21:53,200 --> 00:22:00,960
+okay uh that is inverse of C1. So the
+
+425
+00:21:57,840 --> 00:22:04,400
+argument it takes two parameters. The
+
+426
+00:22:00,960 --> 00:22:10,799
+first argument the first parameter is
+
+427
+00:22:04,400 --> 00:22:12,480
+the uh center of the inversion circle.
+
+428
+00:22:10,799 --> 00:22:16,240
+Wait.
+
+429
+00:22:12,480 --> 00:22:19,840
+Uh, returns a circle or line graphics
+
+430
+00:22:16,240 --> 00:22:22,840
+primitive. Okay, let's let's clarify.
+
+431
+00:22:19,840 --> 00:22:22,840
+Uh,
+
+432
+00:22:25,840 --> 00:22:34,080
+that is the inversion of circle C1 C2
+
+433
+00:22:31,120 --> 00:22:37,280
+with respect to circle that. Okay. So
+
+434
+00:22:34,080 --> 00:22:40,400
+this the second parameter is the
+
+435
+00:22:37,280 --> 00:22:42,720
+inversion circle. Okay.
+
+436
+00:22:40,400 --> 00:22:44,799
+So anyway you got that function. So
+
+437
+00:22:42,720 --> 00:22:48,159
+let's see
+
+438
+00:22:44,799 --> 00:22:51,159
+and uh okay so then you also can do
+
+439
+00:22:48,159 --> 00:22:51,159
+line.
+
+440
+00:22:52,480 --> 00:22:57,280
+Okay the second argument can also be a
+
+441
+00:22:54,960 --> 00:23:01,760
+line. So if it's a line then it's just
+
+442
+00:22:57,280 --> 00:23:04,720
+reflection. Okay. Um
+
+443
+00:23:01,760 --> 00:23:07,200
+so this package only does circles
+
+444
+00:23:04,720 --> 00:23:10,240
+inversion. So
+
+445
+00:23:07,200 --> 00:23:13,039
+yeah c circle lines. So circle become
+
+446
+00:23:10,240 --> 00:23:16,799
+circles, slime become lines. This
+
+447
+00:23:13,039 --> 00:23:18,960
+package, this function just take
+
+448
+00:23:16,799 --> 00:23:22,640
+you know two arguments
+
+449
+00:23:18,960 --> 00:23:25,919
+either one can be a circle or a line and
+
+450
+00:23:22,640 --> 00:23:29,600
+uh it returns a circle or a line. Okay,
+
+451
+00:23:25,919 --> 00:23:33,200
+that's a math property of this.
+
+452
+00:23:29,600 --> 00:23:38,320
+Okay, so so where is the definition?
+
+453
+00:23:33,200 --> 00:23:40,080
+Here is the inline documentation.
+
+454
+00:23:38,320 --> 00:23:42,240
+Okay. So, here's the inline
+
+455
+00:23:40,080 --> 00:23:44,480
+documentation.
+
+456
+00:23:42,240 --> 00:23:47,520
+Oh, okay. So, actually there's another
+
+457
+00:23:44,480 --> 00:23:50,640
+function. So, this is nested inversion.
+
+458
+00:23:47,520 --> 00:23:53,679
+Okay. I don't want to do Okay. So,
+
+459
+00:23:50,640 --> 00:23:55,840
+that's more advanced. So, that's about
+
+460
+00:23:53,679 --> 00:23:59,200
+you know if you want to do inversion and
+
+461
+00:23:55,840 --> 00:24:01,440
+if if you want to repeat it that you
+
+462
+00:23:59,200 --> 00:24:05,240
+know that's that's when you have nested
+
+463
+00:24:01,440 --> 00:24:05,240
+inversion. Okay.
+
+464
+00:24:05,280 --> 00:24:15,200
+Uh so then here is our code. Oh my god.
+
+465
+00:24:10,240 --> 00:24:19,679
+This this is optimized code. You see
+
+466
+00:24:15,200 --> 00:24:24,679
+optimized or coordinates manipulation
+
+467
+00:24:19,679 --> 00:24:24,679
+shouldn't be that complicated. Okay.
+
+468
+00:24:25,200 --> 00:24:30,760
+Uh so what what do we have? Input
+
+469
+00:24:30,960 --> 00:24:35,520
+initialization
+
+470
+00:24:32,559 --> 00:24:39,159
+go. Okay. So
+
+471
+00:24:35,520 --> 00:24:39,159
+input initialization
+
+472
+00:24:39,840 --> 00:24:42,840
+um
+
+473
+00:24:43,440 --> 00:24:52,440
+okay so you got that
+
+474
+00:24:48,159 --> 00:24:52,440
+inverse circle so
+
+475
+00:24:52,559 --> 00:24:57,919
+oh actually you can do a list of circles
+
+476
+00:24:55,600 --> 00:25:00,799
+go so this function is more powerful
+
+477
+00:24:57,919 --> 00:25:03,679
+than I than I imagined
+
+478
+00:25:00,799 --> 00:25:07,840
+you can actually do a list of circles
+
+479
+00:25:03,679 --> 00:25:12,159
+like invert a circle with respect to
+
+480
+00:25:07,840 --> 00:25:16,080
+many circles one shot at a time.
+
+481
+00:25:12,159 --> 00:25:18,320
+Uh and uh what about this one uh inverse
+
+482
+00:25:16,080 --> 00:25:21,120
+circle? So the code is like hard to
+
+483
+00:25:18,320 --> 00:25:26,559
+understand uh you know so we can go to
+
+484
+00:25:21,120 --> 00:25:30,159
+wam language open a new one paste it and
+
+485
+00:25:26,559 --> 00:25:34,000
+uh you can kind of like copy it again
+
+486
+00:25:30,159 --> 00:25:39,840
+and paste it back so you got more
+
+487
+00:25:34,000 --> 00:25:44,640
+um better code. Okay, same thing here.
+
+488
+00:25:39,840 --> 00:25:47,279
+Paste it. Okay, then copy.
+
+489
+00:25:44,640 --> 00:25:50,159
+and you paste it, it's kind of more
+
+490
+00:25:47,279 --> 00:25:53,600
+readable.
+
+491
+00:25:50,159 --> 00:25:56,080
+But if we want readability, we can open
+
+492
+00:25:53,600 --> 00:25:58,320
+this notebook.
+
+493
+00:25:56,080 --> 00:26:02,400
+Uh
+
+494
+00:25:58,320 --> 00:26:08,520
+here I have them readable. And so let's
+
+495
+00:26:02,400 --> 00:26:08,520
+magnify. You can see 150. Okay.
+
+496
+00:26:08,799 --> 00:26:15,039
+Yeah. So here is message definition and
+
+497
+00:26:11,840 --> 00:26:17,840
+symbol declaration. Okay.
+
+498
+00:26:15,039 --> 00:26:21,679
+Okay, I need to like I need to like just
+
+499
+00:26:17,840 --> 00:26:25,039
+focus on generate this image, extract
+
+500
+00:26:21,679 --> 00:26:27,520
+the code, make it simple, generate this
+
+501
+00:26:25,039 --> 00:26:30,960
+image and that's it for this video.
+
+502
+00:26:27,520 --> 00:26:33,960
+Okay, let's focus on that
+
+503
+00:26:30,960 --> 00:26:33,960
+uh
+
+504
+00:26:34,000 --> 00:26:40,120
+body of inverse circle. Okay. So, um
+
+505
+00:26:42,480 --> 00:26:49,840
+this one, this two, this one,
+
+506
+00:26:46,480 --> 00:26:53,520
+what outer? Yeah, you kind of apply.
+
+507
+00:26:49,840 --> 00:26:56,559
+Okay. So, you So, here is the main code.
+
+508
+00:26:53,520 --> 00:27:00,360
+Yeah. So, you see all these equations.
+
+509
+00:26:56,559 --> 00:27:00,360
+Here's the main code.
+
+510
+00:27:02,799 --> 00:27:10,000
+Okay. Let's copy that.
+
+511
+00:27:05,679 --> 00:27:13,120
+Copy that. So that is one. Then here is
+
+512
+00:27:10,000 --> 00:27:15,279
+the one that works online. Okay. So you
+
+513
+00:27:13,120 --> 00:27:17,200
+also need that.
+
+514
+00:27:15,279 --> 00:27:20,320
+So
+
+515
+00:27:17,200 --> 00:27:25,840
+do you guys follow me? Like do you guys
+
+516
+00:27:20,320 --> 00:27:29,279
+see what I'm doing? So the first case
+
+517
+00:27:25,840 --> 00:27:32,080
+both of the parameters
+
+518
+00:27:29,279 --> 00:27:34,720
+in the first case
+
+519
+00:27:32,080 --> 00:27:36,960
+both of the parameters are circle. Okay.
+
+520
+00:27:34,720 --> 00:27:41,760
+So this is inverting
+
+521
+00:27:36,960 --> 00:27:44,480
+a circle with respect to a circle. God
+
+522
+00:27:41,760 --> 00:27:48,720
+with respect to this circle. Okay. Now
+
+523
+00:27:44,480 --> 00:27:51,919
+the second case is inverting a line with
+
+524
+00:27:48,720 --> 00:27:55,120
+respect to a circle. Okay.
+
+525
+00:27:51,919 --> 00:27:58,480
+Now it's complicate. You know this may
+
+526
+00:27:55,120 --> 00:28:00,640
+seem complicated. That is because
+
+527
+00:27:58,480 --> 00:28:02,720
+that is actually because I'm doing a lot
+
+528
+00:28:00,640 --> 00:28:04,320
+of optimizations.
+
+529
+00:28:02,720 --> 00:28:07,840
+You know because if you just go by
+
+530
+00:28:04,320 --> 00:28:10,320
+formula it's very simple the okay so
+
+531
+00:28:07,840 --> 00:28:11,919
+then this case is a circle first
+
+532
+00:28:10,320 --> 00:28:15,840
+argument
+
+533
+00:28:11,919 --> 00:28:20,159
+uh then a line second argument okay so
+
+534
+00:28:15,840 --> 00:28:25,679
+circle circle line circle okay circle
+
+535
+00:28:20,159 --> 00:28:29,919
+line this is just reflection then line
+
+536
+00:28:25,679 --> 00:28:32,320
+okay line reflected by another line okay
+
+537
+00:28:29,919 --> 00:28:35,440
+so got it
+
+538
+00:28:32,320 --> 00:28:36,960
+Okay. Again, these are written 30 years
+
+539
+00:28:35,440 --> 00:28:39,679
+ago.
+
+540
+00:28:36,960 --> 00:28:44,720
+Today I would do
+
+541
+00:28:39,679 --> 00:28:46,960
+differently uh better I suppose.
+
+542
+00:28:44,720 --> 00:28:49,200
+Okay, let's copy the code. Okay, one,
+
+543
+00:28:46,960 --> 00:28:52,559
+two, three,
+
+544
+00:28:49,200 --> 00:28:55,360
+four. Okay, let me you know let me do
+
+545
+00:28:52,559 --> 00:28:57,600
+explanation so you actually understand
+
+546
+00:28:55,360 --> 00:28:59,520
+for those of you
+
+547
+00:28:57,600 --> 00:29:03,600
+language
+
+548
+00:28:59,520 --> 00:29:06,640
+coders or beginners. Okay, copy it.
+
+549
+00:29:03,600 --> 00:29:09,279
+So, we go back to today's talk show.
+
+550
+00:29:06,640 --> 00:29:12,559
+Open it. Showing browser. Good. Back
+
+551
+00:29:09,279 --> 00:29:15,440
+here. And let's add code
+
+552
+00:29:12,559 --> 00:29:19,440
+language. Okay. Paste the code there.
+
+553
+00:29:15,440 --> 00:29:22,480
+And showing browser looks like that. And
+
+554
+00:29:19,440 --> 00:29:26,240
+pop the code out. So you got circle
+
+555
+00:29:22,480 --> 00:29:30,000
+inversion code for inverting
+
+556
+00:29:26,240 --> 00:29:32,720
+circle. Okay. for for geometric
+
+557
+00:29:30,000 --> 00:29:36,399
+inversion.
+
+558
+00:29:32,720 --> 00:29:38,720
+Okay. And what does this code do? Um
+
+559
+00:29:36,399 --> 00:29:43,840
+let's explain. Let's type them out
+
+560
+00:29:38,720 --> 00:29:46,840
+slowly. Okay. Inverse circle takes two
+
+561
+00:29:43,840 --> 00:29:46,840
+arcs.
+
+562
+00:29:46,960 --> 00:29:50,919
+Okay. Such as
+
+563
+00:29:51,520 --> 00:30:03,080
+a b. Okay.
+
+564
+00:29:55,279 --> 00:30:03,080
+A and B. A can be a circle
+
+565
+00:30:03,520 --> 00:30:09,039
+or line
+
+566
+00:30:05,919 --> 00:30:11,200
+circle. Both
+
+567
+00:30:09,039 --> 00:30:14,200
+are graphics
+
+568
+00:30:11,200 --> 00:30:14,200
+primitives.
+
+569
+00:30:14,240 --> 00:30:18,960
+Okay.
+
+570
+00:30:16,640 --> 00:30:20,960
+Same thing with B. B can be a circle or
+
+571
+00:30:18,960 --> 00:30:23,960
+line.
+
+572
+00:30:20,960 --> 00:30:23,960
+Uh
+
+573
+00:30:25,039 --> 00:30:29,600
+okay. So what does graphic primitive
+
+574
+00:30:27,200 --> 00:30:32,159
+mean? That means just uh you know I can
+
+575
+00:30:29,600 --> 00:30:36,000
+show you. So for example let's say
+
+576
+00:30:32,159 --> 00:30:40,760
+graphics. Okay. Then that's allows you
+
+577
+00:30:36,000 --> 00:30:40,760
+to draw a graphics. Let's magnify.
+
+578
+00:30:40,960 --> 00:30:46,399
+Okay. Then inside is just graphics
+
+579
+00:30:43,360 --> 00:30:51,039
+primitive. So you can say circle and
+
+580
+00:30:46,399 --> 00:30:54,440
+circle centered on let's say uh wait I
+
+581
+00:30:51,039 --> 00:30:54,440
+don't want that
+
+582
+00:30:55,600 --> 00:31:01,760
+uh circle centered on
+
+583
+00:30:58,559 --> 00:31:06,960
+uh let's see
+
+584
+00:31:01,760 --> 00:31:12,919
+what god okay centered on 0 0 radius
+
+585
+00:31:06,960 --> 00:31:12,919
+true okay then you can say axis
+
+586
+00:31:13,279 --> 00:31:19,840
+true. Okay. Shift enter. That just show
+
+587
+00:31:16,480 --> 00:31:23,520
+a circle and you can change it to you
+
+588
+00:31:19,840 --> 00:31:27,520
+know centered on uh 1.5
+
+589
+00:31:23,520 --> 00:31:31,760
+and zero. Okay. Show it. You see? So
+
+590
+00:31:27,520 --> 00:31:35,600
+that circle that function that thing is
+
+591
+00:31:31,760 --> 00:31:40,559
+uh called graphics primitive. You also
+
+592
+00:31:35,600 --> 00:31:43,360
+have like point line rectangle ellipse
+
+593
+00:31:40,559 --> 00:31:47,279
+uh things like that. Okay. it it is the
+
+594
+00:31:43,360 --> 00:31:49,519
+primitive to build graphics. Okay.
+
+595
+00:31:47,279 --> 00:31:52,000
+So what this inverse circle do is that
+
+596
+00:31:49,519 --> 00:31:54,880
+it takes one of these circle line
+
+597
+00:31:52,000 --> 00:31:59,200
+graphics primitive returns a new one
+
+598
+00:31:54,880 --> 00:32:02,640
+that is the inversion. Okay.
+
+599
+00:31:59,200 --> 00:32:07,039
+So um and we are writing the code for
+
+600
+00:32:02,640 --> 00:32:09,840
+it. Okay. So but just for this case
+
+601
+00:32:07,039 --> 00:32:13,360
+you know so so we can define it. Okay.
+
+602
+00:32:09,840 --> 00:32:16,559
+Clear. Uh okay. So let me just show you
+
+603
+00:32:13,360 --> 00:32:19,279
+some of the basic. We can clear it first
+
+604
+00:32:16,559 --> 00:32:22,399
+and define it. Okay, let's let's focus
+
+605
+00:32:19,279 --> 00:32:24,640
+on the most simple case first. Okay,
+
+606
+00:32:22,399 --> 00:32:27,200
+let's forget about lines and stuff.
+
+607
+00:32:24,640 --> 00:32:30,000
+Let's just say circle and circle. Okay,
+
+608
+00:32:27,200 --> 00:32:32,880
+so here's a code and this code can be
+
+609
+00:32:30,000 --> 00:32:35,840
+much more simplified. Okay, so but let
+
+610
+00:32:32,880 --> 00:32:39,120
+me show you. So here's a code. Define
+
+611
+00:32:35,840 --> 00:32:41,200
+it. Okay, now we can call it. Okay, so
+
+612
+00:32:39,120 --> 00:32:44,720
+call it. Let's see.
+
+613
+00:32:41,200 --> 00:32:47,440
+Uh let's call a code. So circle let's
+
+614
+00:32:44,720 --> 00:32:52,480
+say um
+
+615
+00:32:47,440 --> 00:32:55,279
+let's say C1 center one S1 and this is
+
+616
+00:32:52,480 --> 00:32:58,000
+the second parameter. This circle is the
+
+617
+00:32:55,279 --> 00:33:00,559
+inversion circle. Okay. So if you do
+
+618
+00:32:58,000 --> 00:33:05,960
+this like that it's going to return
+
+619
+00:33:00,559 --> 00:33:05,960
+symbolic result. Okay. I think
+
+620
+00:33:06,000 --> 00:33:11,519
+so that is the beauty of Wufam language.
+
+621
+00:33:08,399 --> 00:33:15,200
+If you just call that it's going to
+
+622
+00:33:11,519 --> 00:33:20,960
+return symbolic result. You see you can
+
+623
+00:33:15,200 --> 00:33:22,640
+just replace C1 C2 S and O1 O2 uh R and
+
+624
+00:33:20,960 --> 00:33:25,840
+you you get a number. Okay, but let's
+
+625
+00:33:22,640 --> 00:33:28,559
+not do that. So we don't want so but
+
+626
+00:33:25,840 --> 00:33:30,880
+what about the you know uh numerical
+
+627
+00:33:28,559 --> 00:33:36,480
+results? So let's say the first circle
+
+628
+00:33:30,880 --> 00:33:39,440
+is centered on one and two and radius
+
+629
+00:33:36,480 --> 00:33:41,919
+let's say three. So you want to invert
+
+630
+00:33:39,440 --> 00:33:44,960
+that circle with another with respect to
+
+631
+00:33:41,919 --> 00:33:50,799
+a circle centered on let's say three
+
+632
+00:33:44,960 --> 00:33:52,559
+let's say 1.2 and uh 3.3 and radius 10.
+
+633
+00:33:50,799 --> 00:33:56,240
+Okay
+
+634
+00:33:52,559 --> 00:33:58,559
+there you go. So it returns a circle.
+
+635
+00:33:56,240 --> 00:34:01,279
+You see
+
+636
+00:33:58,559 --> 00:34:03,440
+um approximate result because you got
+
+637
+00:34:01,279 --> 00:34:06,320
+approximate number there. If you want
+
+638
+00:34:03,440 --> 00:34:11,200
+you know so if you if your input is all
+
+639
+00:34:06,320 --> 00:34:14,800
+integers then you got you know symbolic
+
+640
+00:34:11,200 --> 00:34:17,119
+result. Okay. So here is a circle you
+
+641
+00:34:14,800 --> 00:34:19,119
+want to invert this this circle with
+
+642
+00:34:17,119 --> 00:34:23,200
+respect to that circle you get that.
+
+643
+00:34:19,119 --> 00:34:25,760
+Okay. Now another thing we want to do.
+
+644
+00:34:23,200 --> 00:34:28,879
+So usually the inversion circle is
+
+645
+00:34:25,760 --> 00:34:32,639
+radius one
+
+646
+00:34:28,879 --> 00:34:36,320
+and uh uh radius one and centered on
+
+647
+00:34:32,639 --> 00:34:39,200
+zero and zero then it's much simpler you
+
+648
+00:34:36,320 --> 00:34:41,760
+see.
+
+649
+00:34:39,200 --> 00:34:45,919
+So why why is the inversion circle
+
+650
+00:34:41,760 --> 00:34:48,480
+always centered on 0 0? I mean typically
+
+651
+00:34:45,919 --> 00:34:50,399
+why is that? Because
+
+652
+00:34:48,480 --> 00:34:54,159
+if the circle is centered somewhere
+
+653
+00:34:50,399 --> 00:34:57,920
+somewhere else, you can always just um
+
+654
+00:34:54,159 --> 00:35:00,480
+uh let's see can we go? If if the circle
+
+655
+00:34:57,920 --> 00:35:03,520
+is centered somewhere else, you can
+
+656
+00:35:00,480 --> 00:35:06,400
+always move the point, you know, like
+
+657
+00:35:03,520 --> 00:35:08,880
+move the circle to the center and shrink
+
+658
+00:35:06,400 --> 00:35:12,960
+the radius to one. Then do the
+
+659
+00:35:08,880 --> 00:35:15,359
+inversion. After that then you then you
+
+660
+00:35:12,960 --> 00:35:19,280
+scale back you know whatever radius you
+
+661
+00:35:15,359 --> 00:35:22,079
+want you multiply the new point expand
+
+662
+00:35:19,280 --> 00:35:24,079
+that by that scale by that new radius
+
+663
+00:35:22,079 --> 00:35:28,079
+then you move back to whatever the
+
+664
+00:35:24,079 --> 00:35:30,400
+point. So the so so
+
+665
+00:35:28,079 --> 00:35:32,960
+the radius of the circle and the
+
+666
+00:35:30,400 --> 00:35:36,160
+location of the circle does not really
+
+667
+00:35:32,960 --> 00:35:39,359
+is not critical. You see the critical
+
+668
+00:35:36,160 --> 00:35:44,040
+concept of inversion is just the is just
+
+669
+00:35:39,359 --> 00:35:44,040
+one /x you know the the swap
+
+670
+00:35:44,720 --> 00:35:50,560
+you know but if you create a function
+
+671
+00:35:47,119 --> 00:35:52,800
+for it it's convenient to to allow you
+
+672
+00:35:50,560 --> 00:35:55,599
+to specify where is the circle and
+
+673
+00:35:52,800 --> 00:35:57,599
+radius because that way saves you doing
+
+674
+00:35:55,599 --> 00:36:00,640
+the translation you know vector
+
+675
+00:35:57,599 --> 00:36:03,920
+translation and scale you know thing.
+
+676
+00:36:00,640 --> 00:36:06,800
+Okay, but let's just um but for now
+
+677
+00:36:03,920 --> 00:36:10,240
+let's do a symbolic result. Okay, so we
+
+678
+00:36:06,800 --> 00:36:13,760
+want the inverted circle of XY
+
+679
+00:36:10,240 --> 00:36:16,400
+uh of what radius R with respect to
+
+680
+00:36:13,760 --> 00:36:20,320
+this. Okay.
+
+681
+00:36:16,400 --> 00:36:24,000
+Oh god, this is still okay. This is um
+
+682
+00:36:20,320 --> 00:36:27,200
+you know this is a big result because
+
+683
+00:36:24,000 --> 00:36:29,839
+because I'm trying to do uh because my
+
+684
+00:36:27,200 --> 00:36:33,359
+code is actually doing some
+
+685
+00:36:29,839 --> 00:36:39,599
+optimization. So
+
+686
+00:36:33,359 --> 00:36:42,079
+yeah. So that's not so good. Okay. So um
+
+687
+00:36:39,599 --> 00:36:44,480
+Okay. So anyway, I need to fix the code.
+
+688
+00:36:42,079 --> 00:36:49,520
+Okay. So but
+
+689
+00:36:44,480 --> 00:36:52,720
+can we actually just quickly do this? Um
+
+690
+00:36:49,520 --> 00:36:55,440
+where's our where's our thing we want to
+
+691
+00:36:52,720 --> 00:36:57,920
+do? Uh
+
+692
+00:36:55,440 --> 00:37:01,839
+well to do this one this one is a bit
+
+693
+00:36:57,920 --> 00:37:04,640
+more complicated because you got
+
+694
+00:37:01,839 --> 00:37:08,079
+so so what is this one? This one is you
+
+695
+00:37:04,640 --> 00:37:11,920
+begin with a image like that. Okay like
+
+696
+00:37:08,079 --> 00:37:15,680
+that uh seven circles
+
+697
+00:37:11,920 --> 00:37:19,440
+laid out in a hexog.
+
+698
+00:37:15,680 --> 00:37:24,000
+Okay. Then you invert each circle with
+
+699
+00:37:19,440 --> 00:37:27,520
+respect to every other circle.
+
+700
+00:37:24,000 --> 00:37:31,200
+Okay. Then then you got many circles.
+
+701
+00:37:27,520 --> 00:37:33,599
+You you got seven more circle like uh
+
+702
+00:37:31,200 --> 00:37:37,599
+yeah you got seven more circles. Then
+
+703
+00:37:33,599 --> 00:37:40,960
+you repeat you invert every circle with
+
+704
+00:37:37,599 --> 00:37:45,040
+respect to every other circle. Okay. You
+
+705
+00:37:40,960 --> 00:37:48,320
+do that three times. You get this. Okay.
+
+706
+00:37:45,040 --> 00:37:51,760
+So this is nested inversion of 6 + one
+
+707
+00:37:48,320 --> 00:37:54,160
+circles inverted four times. Okay.
+
+708
+00:37:51,760 --> 00:37:59,200
+Yeah. So you begin with that then you
+
+709
+00:37:54,160 --> 00:38:01,599
+just repeat uh h okay so maybe that's it
+
+710
+00:37:59,200 --> 00:38:05,440
+for today but I was thinking you know we
+
+711
+00:38:01,599 --> 00:38:08,800
+actually run and get this code but
+
+712
+00:38:05,440 --> 00:38:12,160
+but to work out you know to to like
+
+713
+00:38:08,800 --> 00:38:15,359
+rewrite my code here it's going to take
+
+714
+00:38:12,160 --> 00:38:17,839
+a while because
+
+715
+00:38:15,359 --> 00:38:21,200
+you know let's so for example shift
+
+716
+00:38:17,839 --> 00:38:24,079
+controln to make a type set this is our
+
+717
+00:38:21,200 --> 00:38:25,680
+function for inversion.
+
+718
+00:38:24,079 --> 00:38:29,680
+Um
+
+719
+00:38:25,680 --> 00:38:33,760
+yeah, so all these are analytic geometry
+
+720
+00:38:29,680 --> 00:38:37,040
+and this is kind of a hack because
+
+721
+00:38:33,760 --> 00:38:41,320
+you see that line 1 10,000 that's that's
+
+722
+00:38:37,040 --> 00:38:41,320
+basically um
+
+723
+00:38:45,440 --> 00:38:51,920
+that's that's trying to emulate a line
+
+724
+00:38:48,960 --> 00:38:54,480
+of infinity. So 30 years ago, Wuam
+
+725
+00:38:51,920 --> 00:38:57,599
+language doesn't have a graphics
+
+726
+00:38:54,480 --> 00:38:59,280
+primitive to represent like a infinite
+
+727
+00:38:57,599 --> 00:39:01,359
+line
+
+728
+00:38:59,280 --> 00:39:03,920
+but instead you always need like
+
+729
+00:39:01,359 --> 00:39:07,440
+beginning point and end point. So that
+
+730
+00:39:03,920 --> 00:39:11,760
+is why you multiply it by 10,000 to to
+
+731
+00:39:07,440 --> 00:39:15,920
+like emulate a infinite line.
+
+732
+00:39:11,760 --> 00:39:19,200
+Um and uh and this end make it numerical
+
+733
+00:39:15,920 --> 00:39:21,680
+that's also kind and this test end you
+
+734
+00:39:19,200 --> 00:39:24,680
+know this is also a hack to make it
+
+735
+00:39:21,680 --> 00:39:24,680
+faster.
+
+736
+00:39:24,960 --> 00:39:31,920
+So yeah so if I am going to rewrite this
+
+737
+00:39:28,560 --> 00:39:35,760
+code to kind of like improve it it's
+
+738
+00:39:31,920 --> 00:39:38,640
+going to take 10 minutes. Okay.
+
+739
+00:39:35,760 --> 00:39:42,000
+Uh so maybe let's not do that and you
+
+740
+00:39:38,640 --> 00:39:44,000
+know it's going to be
+
+741
+00:39:42,000 --> 00:39:47,040
+it's going to be a lot coding and
+
+742
+00:39:44,000 --> 00:39:49,599
+explanation but can we quickly just like
+
+743
+00:39:47,040 --> 00:39:52,480
+do these graphics like demonstrate that
+
+744
+00:39:49,599 --> 00:39:56,800
+it works?
+
+745
+00:39:52,480 --> 00:40:00,400
+Yeah, we can um let's see let let me
+
+746
+00:39:56,800 --> 00:40:04,640
+just try that. Okay, so uh put it back
+
+747
+00:40:00,400 --> 00:40:07,760
+syntax at today's talk show. Okay, then
+
+748
+00:40:04,640 --> 00:40:10,560
+go back here. Go to the desktop.
+
+749
+00:40:07,760 --> 00:40:14,160
+Okay, go to the desktop
+
+750
+00:40:10,560 --> 00:40:18,440
+and open my Wam package inverse circle.
+
+751
+00:40:14,160 --> 00:40:18,440
+And is there a example?
+
+752
+00:40:18,480 --> 00:40:25,280
+Uh yeah. So I need to update this
+
+753
+00:40:21,599 --> 00:40:30,160
+package here. Okay, there it is. Open
+
+754
+00:40:25,280 --> 00:40:32,000
+it. Okay, so now here is a package.
+
+755
+00:40:30,160 --> 00:40:36,880
+Let's say
+
+756
+00:40:32,000 --> 00:40:43,160
+125. So you can see it.
+
+757
+00:40:36,880 --> 00:40:43,160
+Okay. And now we just load the code.
+
+758
+00:40:43,359 --> 00:40:49,599
+Okay. What is this? Close. Don't save.
+
+759
+00:40:46,720 --> 00:40:53,359
+Go back here.
+
+760
+00:40:49,599 --> 00:40:56,079
+We load the code. Okay. So what is this?
+
+761
+00:40:53,359 --> 00:40:59,560
+Uh okay. So to load the code you need to
+
+762
+00:40:56,079 --> 00:40:59,560
+open that.
+
+763
+00:41:02,800 --> 00:41:08,760
+Okay. So that well okay so
+
+764
+00:41:11,040 --> 00:41:18,280
+wait open it. Why is it 14? Okay. Yeah.
+
+765
+00:41:22,079 --> 00:41:28,079
+Okay. We got a code here and let's don't
+
+766
+00:41:25,680 --> 00:41:30,720
+worry about anything. Just copy it and
+
+767
+00:41:28,079 --> 00:41:32,800
+shift control evaluate the whole thing.
+
+768
+00:41:30,720 --> 00:41:36,400
+Now,
+
+769
+00:41:32,800 --> 00:41:39,359
+now let's go back here. Let's see blah
+
+770
+00:41:36,400 --> 00:41:42,319
+blah blah blah blah documentation and
+
+771
+00:41:39,359 --> 00:41:45,920
+illustration of the inversion.
+
+772
+00:41:42,319 --> 00:41:48,400
+Okay. So, you see this blue line inverts
+
+773
+00:41:45,920 --> 00:41:52,480
+to this red circle and this red circle
+
+774
+00:41:48,400 --> 00:41:55,200
+inverts to that blue line. Okay. And uh
+
+775
+00:41:52,480 --> 00:41:58,880
+and you can also do reflection. Okay.
+
+776
+00:41:55,200 --> 00:42:01,200
+But um can we run this? Okay. Let me
+
+777
+00:41:58,880 --> 00:42:04,160
+just try
+
+778
+00:42:01,200 --> 00:42:09,200
+run it. Do you want to automatically
+
+779
+00:42:04,160 --> 00:42:11,119
+evaluate? Um wait. What what are the the
+
+780
+00:42:09,200 --> 00:42:14,880
+code?
+
+781
+00:42:11,119 --> 00:42:18,400
+Do I want to auto evaluate? Not really.
+
+782
+00:42:14,880 --> 00:42:21,280
+Okay. So let's go back here. Let's let's
+
+783
+00:42:18,400 --> 00:42:24,560
+run this. Okay. Shift enter. Auto
+
+784
+00:42:21,280 --> 00:42:26,800
+evaluate. No.
+
+785
+00:42:24,560 --> 00:42:30,640
+Okay, it's done. Now, for example,
+
+786
+00:42:26,800 --> 00:42:32,800
+delete that. Shift enter. Fantastic. And
+
+787
+00:42:30,640 --> 00:42:36,480
+beautiful.
+
+788
+00:42:32,800 --> 00:42:40,160
+Delete that. Shift enter. Fantastic. So,
+
+789
+00:42:36,480 --> 00:42:43,520
+these are test test examples. Oh, fancy
+
+790
+00:42:40,160 --> 00:42:46,640
+one. So, delete that.
+
+791
+00:42:43,520 --> 00:42:50,319
+Shift enter. Fantastic. So, these blue
+
+792
+00:42:46,640 --> 00:42:53,839
+lines inverts to these red circles. The
+
+793
+00:42:50,319 --> 00:42:56,480
+green circle is the inversion circle.
+
+794
+00:42:53,839 --> 00:43:00,800
+Okay, they swap.
+
+795
+00:42:56,480 --> 00:43:04,640
+Uh, and this one. Okay, delete that.
+
+796
+00:43:00,800 --> 00:43:07,200
+Shift enter. Fantastic. This this
+
+797
+00:43:04,640 --> 00:43:10,960
+horizontal sequence
+
+798
+00:43:07,200 --> 00:43:13,200
+of circles lying on a line inverts to
+
+799
+00:43:10,960 --> 00:43:17,119
+this sequence of red circles. You can
+
+800
+00:43:13,200 --> 00:43:19,520
+see beautiful. You see when the point is
+
+801
+00:43:17,119 --> 00:43:24,000
+outside of the inversion circle such as
+
+802
+00:43:19,520 --> 00:43:27,440
+this they goes to inside the circle you
+
+803
+00:43:24,000 --> 00:43:30,000
+see like that. So but the parts that's
+
+804
+00:43:27,440 --> 00:43:33,200
+inside the circle they become outside
+
+805
+00:43:30,000 --> 00:43:35,599
+like these two you see.
+
+806
+00:43:33,200 --> 00:43:39,040
+So now you got more examples. Let's do
+
+807
+00:43:35,599 --> 00:43:42,560
+it. Okay. Okay. So but now let's you
+
+808
+00:43:39,040 --> 00:43:45,040
+know so this now now here we start to
+
+809
+00:43:42,560 --> 00:43:48,000
+get nested inversion. So you begin with
+
+810
+00:43:45,040 --> 00:43:50,560
+two circles. Invert the right one with
+
+811
+00:43:48,000 --> 00:43:53,440
+respect to the left. Invert the left one
+
+812
+00:43:50,560 --> 00:43:56,800
+with respect to the right. Then you got
+
+813
+00:43:53,440 --> 00:44:00,000
+these two smaller ones. Okay.
+
+814
+00:43:56,800 --> 00:44:02,319
+Then you invert each other with respect
+
+815
+00:44:00,000 --> 00:44:04,800
+to all the other circles. Then repeat.
+
+816
+00:44:02,319 --> 00:44:07,599
+Then you got this. Okay. So graphics
+
+817
+00:44:04,800 --> 00:44:10,000
+gallery. Now let's do Okay. Yeah. So now
+
+818
+00:44:07,599 --> 00:44:13,680
+we are generating more interesting
+
+819
+00:44:10,000 --> 00:44:16,400
+things. Okay. Uh okay.
+
+820
+00:44:13,680 --> 00:44:20,319
+So there's a lot code I need to like go
+
+821
+00:44:16,400 --> 00:44:23,280
+through in order to like can we show
+
+822
+00:44:20,319 --> 00:44:29,200
+this? Yeah, that works. And can we do
+
+823
+00:44:23,280 --> 00:44:32,240
+this? Yes. You see? Delete that.
+
+824
+00:44:29,200 --> 00:44:35,520
+Shift enter. Fantastic. Then we're going
+
+825
+00:44:32,240 --> 00:44:38,720
+to invert that. Okay. So
+
+826
+00:44:35,520 --> 00:44:43,440
+wait, where's the Anyway, so there's
+
+827
+00:44:38,720 --> 00:44:45,760
+that one. Shift enter. There it is. Um,
+
+828
+00:44:43,440 --> 00:44:49,200
+delete
+
+829
+00:44:45,760 --> 00:44:52,480
+shift enter. There it is.
+
+830
+00:44:49,200 --> 00:44:55,359
+Yeah. I Okay. So then here you create a
+
+831
+00:44:52,480 --> 00:44:58,720
+grid. Then you create Yeah. So that's an
+
+832
+00:44:55,359 --> 00:45:05,359
+inversion. Okay. So actually pretty good
+
+833
+00:44:58,720 --> 00:45:08,760
+code. Pretty good. Uh, shift enter. Then
+
+834
+00:45:05,359 --> 00:45:08,760
+delete that.
+
+835
+00:45:09,040 --> 00:45:14,560
+Shift enter. Pretty good. Now where
+
+836
+00:45:11,680 --> 00:45:17,920
+where is the oh oh this one is beautiful
+
+837
+00:45:14,560 --> 00:45:22,640
+okay uh let's not evaluate where where
+
+838
+00:45:17,920 --> 00:45:26,880
+is the uh nested oh this one beautiful
+
+839
+00:45:22,640 --> 00:45:29,599
+can we just run it somewhere okay so
+
+840
+00:45:26,880 --> 00:45:31,520
+okay so why is there so many code shift
+
+841
+00:45:29,599 --> 00:45:36,720
+enter
+
+842
+00:45:31,520 --> 00:45:39,440
+then shift enter fantastic
+
+843
+00:45:36,720 --> 00:45:41,760
+okay I think that's it
+
+844
+00:45:39,440 --> 00:45:45,599
+this this this this beautiful. So you
+
+845
+00:45:41,760 --> 00:45:49,599
+see now so now I'm going to replace this
+
+846
+00:45:45,599 --> 00:45:52,000
+old image by this new one. That's it for
+
+847
+00:45:49,599 --> 00:45:54,480
+today. Thank you guys for watching. Did
+
+848
+00:45:52,000 --> 00:45:58,240
+you guys enjoy it? Did you guys learn
+
+849
+00:45:54,480 --> 00:46:01,720
+any interesting mathematics? Do you find
+
+850
+00:45:58,240 --> 00:46:01,720
+this fascinating?
+
+851
+00:46:02,079 --> 00:46:06,079
+What is your keyboard? You must be new
+
+852
+00:46:04,000 --> 00:46:09,599
+here because I repeat that in every
+
+853
+00:46:06,079 --> 00:46:12,880
+video almost for the past four years. So
+
+854
+00:46:09,599 --> 00:46:15,040
+this one, so let me answer it. Why not?
+
+855
+00:46:12,880 --> 00:46:17,760
+Okay, so this one is glove 80.
+
+856
+00:46:15,040 --> 00:46:21,680
+Fantastic. This one is ultimate hacking
+
+857
+00:46:17,760 --> 00:46:24,079
+keyboard too. Okay, I have a YouTube
+
+858
+00:46:21,680 --> 00:46:26,160
+video review
+
+859
+00:46:24,079 --> 00:46:30,400
+on YouTube. In fact, I have more than
+
+860
+00:46:26,160 --> 00:46:33,920
+one for each one of them. Okay,
+
+861
+00:46:30,400 --> 00:46:37,040
+so uh hello. That's it for today. Okay,
+
+862
+00:46:33,920 --> 00:46:39,760
+you guys donate to me. Okay. Hypo cray
+
+863
+00:46:37,040 --> 00:46:41,760
+ touch some grass bra. Do you get
+
+864
+00:46:39,760 --> 00:46:44,800
+profile or something? Are you making
+
+865
+00:46:41,760 --> 00:46:47,440
+game engine something? Hey bra. Okay.
+
+866
+00:46:44,800 --> 00:46:51,440
+Bunch of zoomers.
+
+867
+00:46:47,440 --> 00:46:54,800
+Thank you Hank again. Uh yeah. So for
+
+868
+00:46:51,440 --> 00:46:57,359
+those watching offline I guess uh donate
+
+869
+00:46:54,800 --> 00:46:59,280
+to me. Okay. If you like my stuff go to,
+
+870
+00:46:57,359 --> 00:47:02,720
+you know.info.
+
+871
+00:46:59,280 --> 00:47:06,079
+You got like 6,000 information pages of
+
+872
+00:47:02,720 --> 00:47:10,000
+information on programming. study.info
+
+873
+00:47:06,079 --> 00:47:12,640
+on programming, on mathematics, on
+
+874
+00:47:10,000 --> 00:47:15,520
+technicality, you know, logo design in
+
+875
+00:47:12,640 --> 00:47:18,720
+software industry. Uh, you got like
+
+876
+00:47:15,520 --> 00:47:22,160
+6,000 pages of them. So, you are asking
+
+877
+00:47:18,720 --> 00:47:25,440
+about keyboard. There it is. Keyboard.
+
+878
+00:47:22,160 --> 00:47:28,160
+Okay. Glove 80, Kinesis 360, and so on.
+
+879
+00:47:25,440 --> 00:47:31,520
+You know the there are like over 1,000
+
+880
+00:47:28,160 --> 00:47:33,599
+pages on keyboard and mouse
+
+881
+00:47:31,520 --> 00:47:34,960
+uh on layout on all sort of you know
+
+882
+00:47:33,599 --> 00:47:37,119
+everything you want to know about
+
+883
+00:47:34,960 --> 00:47:39,599
+keyboard on programming languages wam
+
+884
+00:47:37,119 --> 00:47:43,520
+language emacs emac this unic code
+
+885
+00:47:39,599 --> 00:47:47,359
+technicalities what is unic code and all
+
+886
+00:47:43,520 --> 00:47:53,599
+complete list of emojis and technical
+
+887
+00:47:47,359 --> 00:47:56,720
+symbols uh such as astrology and uh
+
+888
+00:47:53,599 --> 00:47:59,599
+and uh
+
+889
+00:47:56,720 --> 00:48:02,400
+alchemy. Okay. A chemical symbols. This
+
+890
+00:47:59,599 --> 00:48:06,880
+is Asian symbols. Okay. So, you got you
+
+891
+00:48:02,400 --> 00:48:08,800
+know um then you got a list of all the
+
+892
+00:48:06,880 --> 00:48:11,599
+arrows you ever wanted to know in
+
+893
+00:48:08,800 --> 00:48:14,240
+Unicode. There are hundreds of them. So,
+
+894
+00:48:11,599 --> 00:48:17,280
+Unicode documentation and you can search
+
+895
+00:48:14,240 --> 00:48:20,160
+and then go back. Uh oh, yeah. And
+
+896
+00:48:17,280 --> 00:48:23,440
+there's technical like what is character
+
+897
+00:48:20,160 --> 00:48:26,160
+set? What is encoding? What is UTFA? the
+
+898
+00:48:23,440 --> 00:48:29,200
+best simple explanation you can
+
+899
+00:48:26,160 --> 00:48:31,280
+understand. I hope for you programmers.
+
+900
+00:48:29,200 --> 00:48:34,720
+So that's unic code. Then uh then
+
+901
+00:48:31,280 --> 00:48:36,880
+JavaScript visualiz you know like 6,000
+
+902
+00:48:34,720 --> 00:48:39,280
+pages
+
+903
+00:48:36,880 --> 00:48:42,240
+at at the bottom is mathematics. So
+
+904
+00:48:39,280 --> 00:48:45,920
+today we are we were like kind of doing
+
+905
+00:48:42,240 --> 00:48:49,520
+part of these special plane curves
+
+906
+00:48:45,920 --> 00:48:52,240
+uh and uh three-dimensional geometry
+
+907
+00:48:49,520 --> 00:48:55,119
+interactive geometry
+
+908
+00:48:52,240 --> 00:48:57,680
+symmetry groups. So in the past four
+
+909
+00:48:55,119 --> 00:49:01,040
+days or uh in the past week so there are
+
+910
+00:48:57,680 --> 00:49:04,559
+two more three or more videos on wam
+
+911
+00:49:01,040 --> 00:49:08,880
+language um coding geometry. Okay,
+
+912
+00:49:04,559 --> 00:49:11,680
+beautiful. Check them out on YouTube.
+
+913
+00:49:08,880 --> 00:49:14,480
+If you like them, so pay me. Okay? $10,
+
+914
+00:49:11,680 --> 00:49:17,760
+$100. Okay? If you work in a job, if you
+
+915
+00:49:14,480 --> 00:49:21,000
+are coder, $100.
+
+916
+00:49:17,760 --> 00:49:21,000
+Thank you.
+
+917
+00:49:21,760 --> 00:49:28,280
+Bye, guys. Bye.
+
+918
+00:49:25,280 --> 00:49:28,280
+Close.
+
+919
+00:49:28,800 --> 00:49:33,280
+So I'm going to work out you know I'm
+
+920
+00:49:30,800 --> 00:49:35,760
+gonna you know update my website you
+
+921
+00:49:33,280 --> 00:49:40,079
+know update all these 30 years old
+
+922
+00:49:35,760 --> 00:49:43,599
+graphics with a new and uh then publish
+
+923
+00:49:40,079 --> 00:49:46,000
+my package on GitHub probably
+
+924
+00:49:43,599 --> 00:49:48,240
+update the code. It still works. I mean
+
+925
+00:49:46,000 --> 00:49:51,760
+I mean it all works. I think I worked on
+
+926
+00:49:48,240 --> 00:49:53,839
+it a bit last year but you know so all
+
+927
+00:49:51,760 --> 00:49:58,200
+works.
+
+928
+00:49:53,839 --> 00:49:58,200
+Uh bye guys.
+
+929
+00:50:08,240 --> 00:50:13,839
+Oh, I forgot to turn it back to video. I
+
+930
+00:50:11,119 --> 00:50:16,720
+mean to my screen. Okay.info.
+
+931
+00:50:13,839 --> 00:50:20,720
+Okay.
+
+932
+00:50:16,720 --> 00:50:23,200
+Then you can see all my uh Yeah. So I
+
+933
+00:50:20,720 --> 00:50:27,599
+were talking about ergonomic keyboards,
+
+934
+00:50:23,200 --> 00:50:31,520
+glove at Kinesis 360 and then you got
+
+935
+00:50:27,599 --> 00:50:31,520
+then you got uni code stuff.
+

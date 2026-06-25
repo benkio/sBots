@@ -1,0 +1,4987 @@
+1
+00:00:02,639 --> 00:00:08,559
+Hello guys, good morning. Audio check,
+
+2
+00:00:04,960 --> 00:00:10,960
+video check. Welcome to another episode
+
+3
+00:00:08,559 --> 00:00:14,559
+of Kasan Talk Show. If you are watching
+
+4
+00:00:10,960 --> 00:00:18,800
+this offline, play at 1.5 speed because
+
+5
+00:00:14,559 --> 00:00:22,480
+I ramble just like Joe Rogan monkey. So,
+
+6
+00:00:18,800 --> 00:00:26,480
+we are going to do uh Emac Lisp coding
+
+7
+00:00:22,480 --> 00:00:29,439
+pure Emac Lisp technology
+
+8
+00:00:26,480 --> 00:00:32,640
+make America great again. tech by
+
+9
+00:00:29,439 --> 00:00:35,040
+technology and that's the only way and
+
+10
+00:00:32,640 --> 00:00:37,280
+the emac bisp. Okay. So if you are here
+
+11
+00:00:35,040 --> 00:00:40,160
+say hi.
+
+12
+00:00:37,280 --> 00:00:42,160
+Okay. Let's begin. So let's begin. Uh
+
+13
+00:00:40,160 --> 00:00:44,559
+someone here. Nobody is here. So let's
+
+14
+00:00:42,160 --> 00:00:47,120
+just let me just code. Okay. So we are
+
+15
+00:00:44,559 --> 00:00:50,399
+going to solve this algorithmic problem.
+
+16
+00:00:47,120 --> 00:00:52,719
+So let me tell you about it. Uh complan
+
+17
+00:00:50,399 --> 00:00:56,719
+search for.info
+
+18
+00:00:52,719 --> 00:00:58,800
+compar programming blog. So there is a
+
+19
+00:00:56,719 --> 00:01:00,640
+fascinating question. So let me show you
+
+20
+00:00:58,800 --> 00:01:05,199
+what is a question. Okay. So you just
+
+21
+00:01:00,640 --> 00:01:07,200
+search for find and replace
+
+22
+00:01:05,199 --> 00:01:10,720
+feedback
+
+23
+00:01:07,200 --> 00:01:14,640
+loop problem. Okay, find and replace
+
+24
+00:01:10,720 --> 00:01:18,159
+multi-pairs feedback loop problem.
+
+25
+00:01:14,640 --> 00:01:20,320
+I had this problem for like 10 years. Uh
+
+26
+00:01:18,159 --> 00:01:23,600
+basically the problem is if you want to
+
+27
+00:01:20,320 --> 00:01:26,799
+do find and replace text
+
+28
+00:01:23,600 --> 00:01:29,439
+uh and you want to do it multiple pairs
+
+29
+00:01:26,799 --> 00:01:31,680
+you cannot do it sequentially
+
+30
+00:01:29,439 --> 00:01:34,880
+because then you run into problems
+
+31
+00:01:31,680 --> 00:01:38,799
+you'll get into a situation where you'll
+
+32
+00:01:34,880 --> 00:01:42,720
+find string that does not occur in the
+
+33
+00:01:38,799 --> 00:01:45,680
+input text. However it get replaced by
+
+34
+00:01:42,720 --> 00:01:47,439
+the replace string. So that is a
+
+35
+00:01:45,680 --> 00:01:50,240
+situation. Okay, let me check one more
+
+36
+00:01:47,439 --> 00:01:53,439
+time. So, audio check, video check.
+
+37
+00:01:50,240 --> 00:01:55,600
+Where where is my uh audio check, video
+
+38
+00:01:53,439 --> 00:01:58,560
+check? Okay, find replace multi-pair
+
+39
+00:01:55,600 --> 00:02:01,520
+problem. So, we I talked about this two
+
+40
+00:01:58,560 --> 00:02:03,680
+days ago in last episode. So, but let me
+
+41
+00:02:01,520 --> 00:02:06,159
+tell you again. So if you have a text
+
+42
+00:02:03,680 --> 00:02:08,479
+you want to do multiple pairs of find
+
+43
+00:02:06,159 --> 00:02:11,920
+replace for example if your input text
+
+44
+00:02:08,479 --> 00:02:17,920
+is a b c d and you have two pairs a
+
+45
+00:02:11,920 --> 00:02:21,920
+replace by c and cb replaced by x. So a
+
+46
+00:02:17,920 --> 00:02:24,720
+occurs once so it becomes c. So you got
+
+47
+00:02:21,920 --> 00:02:29,200
+c b c d
+
+48
+00:02:24,720 --> 00:02:32,400
+and cb does not occur anywhere. Okay. So
+
+49
+00:02:29,200 --> 00:02:37,040
+cb2x does not happen. So the result
+
+50
+00:02:32,400 --> 00:02:39,680
+should be C B C D. However, if you do
+
+51
+00:02:37,040 --> 00:02:41,200
+this you know uh replacement
+
+52
+00:02:39,680 --> 00:02:44,640
+sequentially
+
+53
+00:02:41,200 --> 00:02:48,239
+then you will get X C D because A
+
+54
+00:02:44,640 --> 00:02:52,080
+becomes C and C interact with the
+
+55
+00:02:48,239 --> 00:02:56,239
+subsequent character they are CB then CB
+
+56
+00:02:52,080 --> 00:02:58,400
+becomes X so you get X CD so that is a
+
+57
+00:02:56,239 --> 00:03:00,239
+problem find replace multiplayer
+
+58
+00:02:58,400 --> 00:03:03,200
+problem. So I had this problem for like
+
+59
+00:03:00,239 --> 00:03:07,040
+10 years be because uh this happens in
+
+60
+00:03:03,200 --> 00:03:09,920
+real life as uh especially when you do
+
+61
+00:03:07,040 --> 00:03:12,159
+you know the amperand encoding.
+
+62
+00:03:09,920 --> 00:03:13,760
+So you know it happens in in real life.
+
+63
+00:03:12,159 --> 00:03:16,159
+So
+
+64
+00:03:13,760 --> 00:03:18,480
+so I was talking about this two days ago
+
+65
+00:03:16,159 --> 00:03:21,280
+in my live stream and I was wondering
+
+66
+00:03:18,480 --> 00:03:24,080
+you know today we have AI so let's ask
+
+67
+00:03:21,280 --> 00:03:27,360
+AI this this problem must have happened
+
+68
+00:03:24,080 --> 00:03:30,080
+before uh is it a known problem must be
+
+69
+00:03:27,360 --> 00:03:33,519
+a known problem. What is the name and AI
+
+70
+00:03:30,080 --> 00:03:35,840
+answered? Uh, so let's see. Can I can I
+
+71
+00:03:33,519 --> 00:03:39,360
+find my tweet?
+
+72
+00:03:35,840 --> 00:03:42,080
+Uh, oh, just search my programming blog.
+
+73
+00:03:39,360 --> 00:03:44,400
+I blogged about the situation. So, age
+
+74
+00:03:42,080 --> 00:03:47,519
+of AI artificial intelligence. That's
+
+75
+00:03:44,400 --> 00:03:50,080
+interesting. I saw I've been super busy
+
+76
+00:03:47,519 --> 00:03:52,799
+writing a lot articles. If you are
+
+77
+00:03:50,080 --> 00:03:54,959
+watching here, say hi. Okay. So, coding
+
+78
+00:03:52,799 --> 00:03:59,519
+font review. Lots of work on font
+
+79
+00:03:54,959 --> 00:04:01,840
+technology review. Wuam language ws uh
+
+80
+00:03:59,519 --> 00:04:05,040
+state of AI multiple stream replacement
+
+81
+00:04:01,840 --> 00:04:07,040
+problem. So I was you know posting on
+
+82
+00:04:05,040 --> 00:04:09,439
+Twitter and live stream about the about
+
+83
+00:04:07,040 --> 00:04:11,280
+this problem and I was wondering you
+
+84
+00:04:09,439 --> 00:04:14,799
+know I'm pretty sure this is a known
+
+85
+00:04:11,280 --> 00:04:17,280
+problem. Is there a name for this guac?
+
+86
+00:04:14,799 --> 00:04:20,639
+And Guac says, "Yes, this is a known
+
+87
+00:04:17,280 --> 00:04:23,759
+issue in string processing commonly
+
+88
+00:04:20,639 --> 00:04:27,600
+referred to as the multiple stream
+
+89
+00:04:23,759 --> 00:04:30,960
+replacement interference problem or
+
+90
+00:04:27,600 --> 00:04:34,160
+cascading substitution feedback. It is
+
+91
+00:04:30,960 --> 00:04:37,199
+often solved using simultaneous
+
+92
+00:04:34,160 --> 00:04:40,800
+replacement algorithms like a whole
+
+93
+00:04:37,199 --> 00:04:42,320
+quasassic to prevent order dependent
+
+94
+00:04:40,800 --> 00:04:45,040
+errors.
+
+95
+00:04:42,320 --> 00:04:47,040
+Amazing, you know. So AI told me I had
+
+96
+00:04:45,040 --> 00:04:50,000
+this problem for 10 years. AI told me
+
+97
+00:04:47,040 --> 00:04:52,960
+the name. Then I I search for the name.
+
+98
+00:04:50,000 --> 00:04:56,160
+For example, this another AI. This is
+
+99
+00:04:52,960 --> 00:04:59,120
+Brave browser. Brave search. I recommend
+
+100
+00:04:56,160 --> 00:05:01,280
+it. Okay. Don't use W Google. Don't use
+
+101
+00:04:59,120 --> 00:05:06,720
+Firefox. I mean I recommend Brave
+
+102
+00:05:01,280 --> 00:05:08,639
+browser. It has um add filter building,
+
+103
+00:05:06,720 --> 00:05:11,120
+add blocking building. Okay. Brave
+
+104
+00:05:08,639 --> 00:05:13,600
+browser in Brave search. I searched for
+
+105
+00:05:11,120 --> 00:05:16,720
+multiple string replacement problem and
+
+106
+00:05:13,600 --> 00:05:21,199
+Brave answered. So Brave gave you two
+
+107
+00:05:16,720 --> 00:05:24,400
+solutions. One solution is that you
+
+108
+00:05:21,199 --> 00:05:27,280
+um you do uh you you use a regular
+
+109
+00:05:24,400 --> 00:05:30,960
+expression to join all the fine strings.
+
+110
+00:05:27,280 --> 00:05:33,120
+Okay. So all the fine strings you know
+
+111
+00:05:30,960 --> 00:05:35,600
+you want to find this or this or this
+
+112
+00:05:33,120 --> 00:05:38,800
+you know regular expression. Then you
+
+113
+00:05:35,600 --> 00:05:41,360
+put uh then you put the find and replace
+
+114
+00:05:38,800 --> 00:05:45,039
+pairs into a hash table or dictionary
+
+115
+00:05:41,360 --> 00:05:47,199
+also known as diction dictionary. So so
+
+116
+00:05:45,039 --> 00:05:50,560
+you search for the regular expression
+
+117
+00:05:47,199 --> 00:05:53,280
+for all the find strings. Once you find
+
+118
+00:05:50,560 --> 00:05:55,600
+it you check which one you found. Then
+
+119
+00:05:53,280 --> 00:05:59,199
+you use the dictionary to find the
+
+120
+00:05:55,600 --> 00:06:01,919
+replacement for that found string. Then
+
+121
+00:05:59,199 --> 00:06:04,160
+you replace that. Okay. So this is
+
+122
+00:06:01,919 --> 00:06:08,400
+fantastic. this is doing fine replacing
+
+123
+00:06:04,160 --> 00:06:11,199
+one shot using regular expression or
+
+124
+00:06:08,400 --> 00:06:13,759
+so you don't have this feedback loop so
+
+125
+00:06:11,199 --> 00:06:15,919
+that's one solution I haven't thought of
+
+126
+00:06:13,759 --> 00:06:19,039
+okay so that's one solution so I learned
+
+127
+00:06:15,919 --> 00:06:22,240
+something from AI AI is you know it's
+
+128
+00:06:19,039 --> 00:06:27,600
+like 100 professors around the clock
+
+129
+00:06:22,240 --> 00:06:29,759
+serving you uh that was one of my uh my
+
+130
+00:06:27,600 --> 00:06:32,479
+fantasy when I was younger you know is
+
+131
+00:06:29,759 --> 00:06:34,960
+it you know can I have I you know I I
+
+132
+00:06:32,479 --> 00:06:37,919
+I'm deeply obsessed about knowledge. So
+
+133
+00:06:34,960 --> 00:06:39,759
+I want to know it would be great if I
+
+134
+00:06:37,919 --> 00:06:42,080
+have all the professors around me who
+
+135
+00:06:39,759 --> 00:06:44,240
+can wherever I have whatever question
+
+136
+00:06:42,080 --> 00:06:45,840
+math question the math professor will
+
+137
+00:06:44,240 --> 00:06:48,400
+answer it. You know the let's say the
+
+138
+00:06:45,840 --> 00:06:51,039
+world's top mathematician he'll just
+
+139
+00:06:48,400 --> 00:06:54,000
+answer it. I have a a question about
+
+140
+00:06:51,039 --> 00:06:57,520
+chemistry, about society, about whatever
+
+141
+00:06:54,000 --> 00:06:59,599
+programming computers or CPU, all the
+
+142
+00:06:57,520 --> 00:07:02,400
+professors will answer it right away. Or
+
+143
+00:06:59,599 --> 00:07:04,639
+about plants, you know, the
+
+144
+00:07:02,400 --> 00:07:08,400
+plants or flowers, you know, or English
+
+145
+00:07:04,639 --> 00:07:10,319
+literature, history, linguistics,
+
+146
+00:07:08,400 --> 00:07:12,080
+it would be amazing all the professors
+
+147
+00:07:10,319 --> 00:07:15,120
+of different fields, you know, hundreds
+
+148
+00:07:12,080 --> 00:07:18,000
+of them evolve around me whenever I have
+
+149
+00:07:15,120 --> 00:07:21,520
+a question. So you have to be very rich
+
+150
+00:07:18,000 --> 00:07:24,240
+to to to do that. But anyway, today we
+
+151
+00:07:21,520 --> 00:07:27,360
+have that that is AI. So I have I've
+
+152
+00:07:24,240 --> 00:07:30,319
+written about this uh age of AI
+
+153
+00:07:27,360 --> 00:07:34,160
+professors on demand. That's exactly
+
+154
+00:07:30,319 --> 00:07:35,840
+what AI is is pretty much you know
+
+155
+00:07:34,160 --> 00:07:38,400
+basically you ask anything you don't
+
+156
+00:07:35,840 --> 00:07:42,000
+know like anything in history in
+
+157
+00:07:38,400 --> 00:07:45,759
+academia you know any academic topics
+
+158
+00:07:42,000 --> 00:07:47,599
+history of uh let's say history of sort
+
+159
+00:07:45,759 --> 00:07:50,000
+you know can you pass the sort you know
+
+160
+00:07:47,599 --> 00:07:52,960
+history of sort that's a there's a
+
+161
+00:07:50,000 --> 00:07:55,680
+history to that or the history of pi you
+
+162
+00:07:52,960 --> 00:07:58,319
+know the mathematics pi the number pi or
+
+163
+00:07:55,680 --> 00:08:01,039
+the history of uh you know any math or
+
+164
+00:07:58,319 --> 00:08:02,720
+any mathematics or history of or any
+
+165
+00:08:01,039 --> 00:08:05,280
+linguist you know you can ask the
+
+166
+00:08:02,720 --> 00:08:06,879
+history of Mexico how many races are
+
+167
+00:08:05,280 --> 00:08:09,599
+there you know things like that you know
+
+168
+00:08:06,879 --> 00:08:11,280
+like things you never you don't know a
+
+169
+00:08:09,599 --> 00:08:15,680
+thing about
+
+170
+00:08:11,280 --> 00:08:18,960
+you can ask that's AI today okay so
+
+171
+00:08:15,680 --> 00:08:22,400
+that's AI then uh there is resistance to
+
+172
+00:08:18,960 --> 00:08:25,520
+AI okay so typically the European
+
+173
+00:08:22,400 --> 00:08:28,000
+Americans like they you know they they
+
+174
+00:08:25,520 --> 00:08:30,000
+got a problem but it's interesting let
+
+175
+00:08:28,000 --> 00:08:33,120
+me let me finish talking about this and
+
+176
+00:08:30,000 --> 00:08:36,000
+let's we will get back to Emacs this
+
+177
+00:08:33,120 --> 00:08:39,200
+coding. Okay. So be because you know
+
+178
+00:08:36,000 --> 00:08:42,560
+there's a resistance to technology and I
+
+179
+00:08:39,200 --> 00:08:46,399
+personally see it. So for example when
+
+180
+00:08:42,560 --> 00:08:50,000
+there is uh graphing calculator when
+
+181
+00:08:46,399 --> 00:08:53,040
+became popular around 1991 that was when
+
+182
+00:08:50,000 --> 00:08:55,120
+I was in college there's a huge debate
+
+183
+00:08:53,040 --> 00:08:57,360
+whether you know you should allow using
+
+184
+00:08:55,120 --> 00:08:59,760
+graphing calculators.
+
+185
+00:08:57,360 --> 00:09:02,399
+Oh, that's like you know if you are
+
+186
+00:08:59,760 --> 00:09:04,399
+student these days are too uh lazy you
+
+187
+00:09:02,399 --> 00:09:06,240
+know because graphing calculators you
+
+188
+00:09:04,399 --> 00:09:09,839
+don't learn anything anymore you just
+
+189
+00:09:06,240 --> 00:09:12,320
+you know punching the numbers and then
+
+190
+00:09:09,839 --> 00:09:15,200
+there is then I learned you know through
+
+191
+00:09:12,320 --> 00:09:18,320
+lots of readings of diverse uh random
+
+192
+00:09:15,200 --> 00:09:22,399
+readings that happened the resistance to
+
+193
+00:09:18,320 --> 00:09:24,880
+technology happened in typewriters you
+
+194
+00:09:22,399 --> 00:09:27,519
+know for example when when mechanical
+
+195
+00:09:24,880 --> 00:09:30,959
+typewriters were invented 200 100 years
+
+196
+00:09:27,519 --> 00:09:33,760
+ago people are saying oh no no thank you
+
+197
+00:09:30,959 --> 00:09:36,000
+I can I can I'm capable of writing you
+
+198
+00:09:33,760 --> 00:09:37,920
+know handwriting you know like they are
+
+199
+00:09:36,000 --> 00:09:39,760
+resistant like what the yeah I
+
+200
+00:09:37,920 --> 00:09:41,440
+don't want I don't want it I don't want
+
+201
+00:09:39,760 --> 00:09:44,800
+mechanical type you know I don't want
+
+202
+00:09:41,440 --> 00:09:47,920
+typing machines I can I can be hand you
+
+203
+00:09:44,800 --> 00:09:50,320
+know writing by hand beautifully that
+
+204
+00:09:47,920 --> 00:09:52,080
+happens to typewriters that happens to
+
+205
+00:09:50,320 --> 00:09:54,800
+credit card when credit card was
+
+206
+00:09:52,080 --> 00:09:57,120
+invented people are like no no I can I I
+
+207
+00:09:54,800 --> 00:09:59,200
+you know I'll stick to my checks Thank
+
+208
+00:09:57,120 --> 00:10:02,080
+you.
+
+209
+00:09:59,200 --> 00:10:04,720
+And when calculator were invented there
+
+210
+00:10:02,080 --> 00:10:07,760
+are a bunch of you know engineers there
+
+211
+00:10:04,720 --> 00:10:10,560
+no thank you I'm capable of using the
+
+212
+00:10:07,760 --> 00:10:12,720
+slide rulers you know they used to use
+
+213
+00:10:10,560 --> 00:10:15,839
+the slide ruler so then graphing
+
+214
+00:10:12,720 --> 00:10:17,920
+calculator and instant messaging I
+
+215
+00:10:15,839 --> 00:10:21,040
+personally experienced that's around
+
+216
+00:10:17,920 --> 00:10:24,079
+year 2000 when all of a sudden you have
+
+217
+00:10:21,040 --> 00:10:26,880
+the instant messaging you know a a
+
+218
+00:10:24,079 --> 00:10:29,120
+online you know like like
+
+219
+00:10:26,880 --> 00:10:31,920
+of of Because today we have Twitter and
+
+220
+00:10:29,120 --> 00:10:34,399
+and so much others. But when instant
+
+221
+00:10:31,920 --> 00:10:38,240
+messaging came up, you can instantly
+
+222
+00:10:34,399 --> 00:10:41,120
+chat to someone on the internet. Maybe
+
+223
+00:10:38,240 --> 00:10:43,120
+you know uh uh you know your friends in
+
+224
+00:10:41,120 --> 00:10:45,760
+another states or in another country,
+
+225
+00:10:43,120 --> 00:10:49,839
+you can do that. Then also when
+
+226
+00:10:45,760 --> 00:10:52,000
+Wikipedia began around 2003,
+
+227
+00:10:49,839 --> 00:10:54,480
+you know, there's huge resistance to
+
+228
+00:10:52,000 --> 00:10:56,560
+Wikipedia for like a decade. you know
+
+229
+00:10:54,480 --> 00:11:00,000
+all the tech nerds you know like they
+
+230
+00:10:56,560 --> 00:11:03,040
+refuse to link to it or and and still
+
+231
+00:11:00,000 --> 00:11:06,000
+and there's still some of that today.
+
+232
+00:11:03,040 --> 00:11:09,440
+So, but eventually technology you cannot
+
+233
+00:11:06,000 --> 00:11:11,760
+stop technology. Okay? Like today a lot
+
+234
+00:11:09,440 --> 00:11:14,320
+of people are you know like you know
+
+235
+00:11:11,760 --> 00:11:16,399
+especially the white Americans they got
+
+236
+00:11:14,320 --> 00:11:18,959
+problems you know they they are
+
+237
+00:11:16,399 --> 00:11:21,760
+resistant to AI you know oh you know the
+
+238
+00:11:18,959 --> 00:11:23,920
+AI is just all fake news uh it's
+
+239
+00:11:21,760 --> 00:11:27,600
+controlling your thought and and all
+
+240
+00:11:23,920 --> 00:11:29,680
+that they make people stupid you know
+
+241
+00:11:27,600 --> 00:11:31,760
+you know some research look the
+
+242
+00:11:29,680 --> 00:11:33,920
+scientists they did the research all the
+
+243
+00:11:31,760 --> 00:11:37,279
+people students who used AI they are
+
+244
+00:11:33,920 --> 00:11:40,240
+unable to think okay those people who
+
+245
+00:11:37,279 --> 00:11:42,959
+say that they are idiotic. They are the
+
+246
+00:11:40,240 --> 00:11:46,160
+Ludats, Ludetss,
+
+247
+00:11:42,959 --> 00:11:48,560
+you know. So, there's a story about
+
+248
+00:11:46,160 --> 00:11:52,079
+Ludites, however you pronounce it, you
+
+249
+00:11:48,560 --> 00:11:54,640
+know, uh
+
+250
+00:11:52,079 --> 00:11:58,000
+they are resisting to the invention of
+
+251
+00:11:54,640 --> 00:12:00,399
+the weaving machine and they get angry,
+
+252
+00:11:58,000 --> 00:12:04,560
+they start to burn or break machines,
+
+253
+00:12:00,399 --> 00:12:08,160
+you know, uh the most uh uh famous
+
+254
+00:12:04,560 --> 00:12:12,240
+story, Ludites. Okay. So there's strong
+
+255
+00:12:08,160 --> 00:12:15,200
+resistance to AI and then uh Wikipedia
+
+256
+00:12:12,240 --> 00:12:17,680
+and then but eventually the uh you know
+
+257
+00:12:15,200 --> 00:12:21,040
+the resistance fold because you can
+
+258
+00:12:17,680 --> 00:12:26,040
+never stop technology the progress of
+
+259
+00:12:21,040 --> 00:12:26,040
+technology for example chopsticks
+
+260
+00:12:26,399 --> 00:12:36,399
+you know you know what's a chopstick or
+
+261
+00:12:29,519 --> 00:12:38,240
+fork and spoon or knife or the wheel you
+
+262
+00:12:36,399 --> 00:12:40,240
+know the wheel the greatest invention
+
+263
+00:12:38,240 --> 00:12:43,600
+the wheel or the fire you know you can
+
+264
+00:12:40,240 --> 00:12:46,480
+never stop it okay or you know today the
+
+265
+00:12:43,600 --> 00:12:48,639
+internet and cell phone
+
+266
+00:12:46,480 --> 00:12:52,240
+uh the internet I remember when when
+
+267
+00:12:48,639 --> 00:12:54,399
+internet began around let's say 1991 I
+
+268
+00:12:52,240 --> 00:12:56,240
+began to kind of start to use internet
+
+269
+00:12:54,399 --> 00:12:58,639
+in 1991
+
+270
+00:12:56,240 --> 00:13:01,680
+you have to connect to modems you have
+
+271
+00:12:58,639 --> 00:13:04,880
+to buy modem any anyway so but then then
+
+272
+00:13:01,680 --> 00:13:06,639
+there start to have email and a lot of
+
+273
+00:13:04,880 --> 00:13:09,360
+what you know at back then you know oh
+
+274
+00:13:06,639 --> 00:13:12,240
+that's cyerspace what is email a lot of
+
+275
+00:13:09,360 --> 00:13:14,480
+people refuse of course but today we are
+
+276
+00:13:12,240 --> 00:13:17,120
+beyond email of course everyone is on
+
+277
+00:13:14,480 --> 00:13:19,680
+Twitter everyone is on Instagram doing
+
+278
+00:13:17,120 --> 00:13:21,360
+their whatever posting and
+
+279
+00:13:19,680 --> 00:13:26,639
+whatn not
+
+280
+00:13:21,360 --> 00:13:29,200
+so technology you cannot stop it okay if
+
+281
+00:13:26,639 --> 00:13:32,800
+you don't use it somebody else will keep
+
+282
+00:13:29,200 --> 00:13:35,360
+using it and you'll be like dead
+
+283
+00:13:32,800 --> 00:13:38,320
+such as nuke
+
+284
+00:13:35,360 --> 00:13:41,680
+Okay. So in AI, you know, so anyway, so
+
+285
+00:13:38,320 --> 00:13:45,120
+that's a digression about AI. So
+
+286
+00:13:41,680 --> 00:13:48,240
+we got into that story because we were
+
+287
+00:13:45,120 --> 00:13:51,279
+talking about you know I asked AI an
+
+288
+00:13:48,240 --> 00:13:55,200
+programming issue algorithm alorithmic
+
+289
+00:13:51,279 --> 00:13:58,160
+problem and it answered superbly
+
+290
+00:13:55,200 --> 00:14:01,199
+uh a question I had you know I actually
+
+291
+00:13:58,160 --> 00:14:04,240
+I didn't look into but it's a question I
+
+292
+00:14:01,199 --> 00:14:06,480
+have for 10 years and AI just gave me
+
+293
+00:14:04,240 --> 00:14:09,199
+the the answer.
+
+294
+00:14:06,480 --> 00:14:13,279
+Okay so there are two solutions to this
+
+295
+00:14:09,199 --> 00:14:15,760
+problem. One of them is the um uh where
+
+296
+00:14:13,279 --> 00:14:18,880
+is the article? One of one of them is
+
+297
+00:14:15,760 --> 00:14:23,120
+the uh where is my uh blog? Okay. So,
+
+298
+00:14:18,880 --> 00:14:25,519
+okay. So, I need to go to uh
+
+299
+00:14:23,120 --> 00:14:27,519
+show that article again. So, one of the
+
+300
+00:14:25,519 --> 00:14:31,839
+solution
+
+301
+00:14:27,519 --> 00:14:34,560
+um is you create a hash table. You know
+
+302
+00:14:31,839 --> 00:14:37,040
+you use regular expression or expression
+
+303
+00:14:34,560 --> 00:14:39,279
+to do them one shot and each time you
+
+304
+00:14:37,040 --> 00:14:41,760
+found one item you use a dictionary to
+
+305
+00:14:39,279 --> 00:14:44,639
+find the replacement and do it. That's
+
+306
+00:14:41,760 --> 00:14:46,560
+one solution. The other solution is you
+
+307
+00:14:44,639 --> 00:14:52,160
+can you see it? It's kind of small. So
+
+308
+00:14:46,560 --> 00:14:56,560
+the other solution is uh the the the AI
+
+309
+00:14:52,160 --> 00:14:58,560
+from Brave search which is called Leo.
+
+310
+00:14:56,560 --> 00:15:02,639
+Leo answered is that the other solution
+
+311
+00:14:58,560 --> 00:15:05,760
+is you do a twice substitution. You
+
+312
+00:15:02,639 --> 00:15:09,199
+substitute twice. So the first time you
+
+313
+00:15:05,760 --> 00:15:13,120
+replace them with replace each find
+
+314
+00:15:09,199 --> 00:15:16,240
+string by some uh kind of random number.
+
+315
+00:15:13,120 --> 00:15:19,440
+Okay, that that will not occur anywhere.
+
+316
+00:15:16,240 --> 00:15:23,040
+Basically you identify all the fine
+
+317
+00:15:19,440 --> 00:15:25,279
+string spots. Then the second pass two
+
+318
+00:15:23,040 --> 00:15:30,160
+pass solution. The second pass you you
+
+319
+00:15:25,279 --> 00:15:32,800
+you use your uh newly random identifier
+
+320
+00:15:30,160 --> 00:15:35,279
+to replace with with each of the fine
+
+321
+00:15:32,800 --> 00:15:38,959
+string. Okay, two pass solution and that
+
+322
+00:15:35,279 --> 00:15:41,760
+is what I was doing. Okay, so that is
+
+323
+00:15:38,959 --> 00:15:44,000
+the like the prelude to the problem.
+
+324
+00:15:41,760 --> 00:15:46,560
+Okay, so today so let's begin to write
+
+325
+00:15:44,000 --> 00:15:50,880
+the write the code. So we uh I started
+
+326
+00:15:46,560 --> 00:15:53,040
+talking for 15 minutes. Okay, so what we
+
+327
+00:15:50,880 --> 00:15:55,920
+want to do? Okay. So what is this
+
+328
+00:15:53,040 --> 00:15:59,680
+programming blog? Uh okay. So today's
+
+329
+00:15:55,920 --> 00:16:02,720
+talk show. So let me show you a um the
+
+330
+00:15:59,680 --> 00:16:05,600
+the the code. Okay.
+
+331
+00:16:02,720 --> 00:16:08,880
+So I got this command. So describe
+
+332
+00:16:05,600 --> 00:16:10,959
+function replace squeak letter name to
+
+333
+00:16:08,880 --> 00:16:15,120
+symbol. Okay. So let's here's the
+
+334
+00:16:10,959 --> 00:16:18,079
+documentation. Let's go to it. Uh so you
+
+335
+00:16:15,120 --> 00:16:20,320
+can see you have bunch of so let me
+
+336
+00:16:18,079 --> 00:16:24,160
+demo. So here's a source code but let me
+
+337
+00:16:20,320 --> 00:16:27,519
+demo. Okay. So open that. Close that. Uh
+
+338
+00:16:24,160 --> 00:16:32,000
+let's start to demo
+
+339
+00:16:27,519 --> 00:16:36,720
+text. Okay. So let's uh text.
+
+340
+00:16:32,000 --> 00:16:39,440
+Okay. So you have some Greeks,
+
+341
+00:16:36,720 --> 00:16:41,120
+Greek letters
+
+342
+00:16:39,440 --> 00:16:43,279
+uh
+
+343
+00:16:41,120 --> 00:16:46,639
+such as
+
+344
+00:16:43,279 --> 00:16:53,360
+alpha and beta.
+
+345
+00:16:46,639 --> 00:16:59,040
+Suppose you have a angle of theta
+
+346
+00:16:53,360 --> 00:17:01,680
+mathematics. Okay. So now you copy that.
+
+347
+00:16:59,040 --> 00:17:05,679
+So but you want the real Greeks. So what
+
+348
+00:17:01,680 --> 00:17:08,880
+you can do is Greek uh what is this
+
+349
+00:17:05,679 --> 00:17:13,199
+command name? Kasa replace Greek letter
+
+350
+00:17:08,880 --> 00:17:15,600
+name to symbol do it. So you can see
+
+351
+00:17:13,199 --> 00:17:18,240
+they become alpha and beta. Okay.
+
+352
+00:17:15,600 --> 00:17:23,039
+Actually you do need to do this on this
+
+353
+00:17:18,240 --> 00:17:25,760
+line too. Uh oh theta eta. Okay. So
+
+354
+00:17:23,039 --> 00:17:30,000
+actually I need to fix that. So you see
+
+355
+00:17:25,760 --> 00:17:32,480
+there is theta and there's eta.
+
+356
+00:17:30,000 --> 00:17:34,480
+So but when you call this program it it
+
+357
+00:17:32,480 --> 00:17:37,440
+didn't check the word boundary. So it
+
+358
+00:17:34,480 --> 00:17:40,799
+all became eta.
+
+359
+00:17:37,440 --> 00:17:44,960
+Uh and actually I think eta is not in
+
+360
+00:17:40,799 --> 00:17:47,039
+modern Greek. ETA is a uh is it am I
+
+361
+00:17:44,960 --> 00:17:49,440
+correct Asian Greek or something? Okay,
+
+362
+00:17:47,039 --> 00:17:53,120
+so let's look up.
+
+363
+00:17:49,440 --> 00:17:54,880
+So now let's go to Unicode
+
+364
+00:17:53,120 --> 00:17:58,480
+block.
+
+365
+00:17:54,880 --> 00:18:02,320
+Okay, and there is a section on Greek.
+
+366
+00:17:58,480 --> 00:18:07,520
+Of course, you can go to Wikipedia.
+
+367
+00:18:02,320 --> 00:18:10,880
+So uh so there's eta bold itallic cancel
+
+368
+00:18:07,520 --> 00:18:13,679
+translation uh Greek archaic Greek
+
+369
+00:18:10,880 --> 00:18:15,679
+letters. Okay. So you got the final
+
+370
+00:18:13,679 --> 00:18:19,320
+sigma
+
+371
+00:18:15,679 --> 00:18:19,320
+uh cancel that
+
+372
+00:18:21,120 --> 00:18:25,000
+cheers red wine.
+
+373
+00:18:30,160 --> 00:18:35,880
+So ETA where where is ETA? So
+
+374
+00:18:42,400 --> 00:18:50,080
+God is anyone here? Hi Rohan. Why the
+
+375
+00:18:46,480 --> 00:18:52,240
+half keyboard in the middle? That is for
+
+376
+00:18:50,080 --> 00:18:54,240
+my keyboard Marco. That is ultimate
+
+377
+00:18:52,240 --> 00:18:57,120
+hacking keyboard.
+
+378
+00:18:54,240 --> 00:18:59,679
+There are two parts. You can you can't
+
+379
+00:18:57,120 --> 00:19:03,440
+see them but I can you know. So you can
+
+380
+00:18:59,679 --> 00:19:08,400
+see the other part is here here. So I
+
+381
+00:19:03,440 --> 00:19:11,679
+use them as a keyboard marker.
+
+382
+00:19:08,400 --> 00:19:15,840
+Okay. For example, so I'm in uh for
+
+383
+00:19:11,679 --> 00:19:19,440
+example I in my browser. So this key
+
+384
+00:19:15,840 --> 00:19:21,919
+switch to the last tab, previous tab,
+
+385
+00:19:19,440 --> 00:19:23,440
+next tab, previous tab. Next. Next,
+
+386
+00:19:21,919 --> 00:19:26,880
+previous
+
+387
+00:19:23,440 --> 00:19:30,480
+previous. Next, next. Pre previous.
+
+388
+00:19:26,880 --> 00:19:34,799
+Doom. Close it. Reopen it. Oh, wait.
+
+389
+00:19:30,480 --> 00:19:38,799
+Where is my reopen key? Uh, wait. Oh, I
+
+390
+00:19:34,799 --> 00:19:42,640
+I think I removed it. Okay. Tap shift
+
+391
+00:19:38,799 --> 00:19:45,120
+controlT to reopen.
+
+392
+00:19:42,640 --> 00:19:48,640
+Okay. Where's my uh reopen? Last. I
+
+393
+00:19:45,120 --> 00:19:50,960
+forgot. I I I probably removed it when I
+
+394
+00:19:48,640 --> 00:19:53,919
+changed my keyboard layout. Okay, that
+
+395
+00:19:50,960 --> 00:19:57,039
+is the answer.
+
+396
+00:19:53,919 --> 00:19:59,919
+Uh yeah, so I've done like hundreds
+
+397
+00:19:57,039 --> 00:20:02,799
+videos about keyboards uh in the past
+
+398
+00:19:59,919 --> 00:20:06,400
+few years. So it's all on my YouTube.
+
+399
+00:20:02,799 --> 00:20:09,200
+Okay, so let's go back to Greek. Yeah,
+
+400
+00:20:06,400 --> 00:20:13,919
+so we were we were wondering what is
+
+401
+00:20:09,200 --> 00:20:17,520
+eta. Okay, so let's check on that
+
+402
+00:20:13,919 --> 00:20:23,520
+now. Is eta a archaic Greek? I thought
+
+403
+00:20:17,520 --> 00:20:27,919
+so. Does anyone know actually? So
+
+404
+00:20:23,520 --> 00:20:31,880
+archaic Greek letters uh mass symbols
+
+405
+00:20:27,919 --> 00:20:31,880
+derived from Greek.
+
+406
+00:20:33,200 --> 00:20:39,320
+Wow. Okay. So let's check Wikipedia.
+
+407
+00:20:36,320 --> 00:20:39,320
+Greek
+
+408
+00:20:43,840 --> 00:20:47,320
+Greek alphabet.
+
+409
+00:20:47,360 --> 00:20:56,159
+Okay. So we are looking for ETA now does
+
+410
+00:20:50,799 --> 00:21:01,039
+it? So it says here, search for ETA
+
+411
+00:20:56,159 --> 00:21:03,840
+beta zeta. Oh. Oh, that's H. I mean
+
+412
+00:21:01,039 --> 00:21:09,880
+that's corresponding to the English edge
+
+413
+00:21:03,840 --> 00:21:09,880
+or looks like. Okay, that's why
+
+414
+00:21:10,480 --> 00:21:16,159
+uh Greek capital. Oh, okay. So, it so
+
+415
+00:21:14,640 --> 00:21:18,400
+anyway,
+
+416
+00:21:16,159 --> 00:21:21,520
+so you can see. So, go back then. Go
+
+417
+00:21:18,400 --> 00:21:24,880
+back here. Go back here. So we got this
+
+418
+00:21:21,520 --> 00:21:27,200
+ETA ata. So we need to when we do
+
+419
+00:21:24,880 --> 00:21:31,520
+replacement we need to have a boundary
+
+420
+00:21:27,200 --> 00:21:34,559
+check. So we you know theta would not
+
+421
+00:21:31,520 --> 00:21:37,280
+become tha.
+
+422
+00:21:34,559 --> 00:21:39,039
+Okay. Can you see that? So okay so let's
+
+423
+00:21:37,280 --> 00:21:41,520
+back to the command. So we want to
+
+424
+00:21:39,039 --> 00:21:44,960
+rewrite this command. Okay. So let's do
+
+425
+00:21:41,520 --> 00:21:48,080
+that. Let's do that. Okay. I think um we
+
+426
+00:21:44,960 --> 00:21:51,679
+talked too much. I mean not be able to
+
+427
+00:21:48,080 --> 00:21:53,760
+finish this. Uh okay. So we start the
+
+428
+00:21:51,679 --> 00:21:56,240
+eac list this code. So let's start
+
+429
+00:21:53,760 --> 00:21:59,200
+coding it. Okay. So right now it's
+
+430
+00:21:56,240 --> 00:22:01,440
+calling my uh custom function which I
+
+431
+00:21:59,200 --> 00:22:04,559
+talked about before. You can you can
+
+432
+00:22:01,440 --> 00:22:06,960
+download it. So this replace pairs
+
+433
+00:22:04,559 --> 00:22:08,720
+region. So you can see how easy
+
+434
+00:22:06,960 --> 00:22:11,840
+convenient. So you just say you know
+
+435
+00:22:08,720 --> 00:22:15,360
+give it a list of find replace.
+
+436
+00:22:11,840 --> 00:22:20,000
+And this function is available online
+
+437
+00:22:15,360 --> 00:22:23,200
+uh by just go to uh uh describe function
+
+438
+00:22:20,000 --> 00:22:26,880
+go to the source code go to the top so
+
+439
+00:22:23,200 --> 00:22:29,280
+it's on this URL open it showing browser
+
+440
+00:22:26,880 --> 00:22:32,159
+uh wait undo
+
+441
+00:22:29,280 --> 00:22:34,320
+this key showing browser okay so you can
+
+442
+00:22:32,159 --> 00:22:37,360
+so the source code is here you can grab
+
+443
+00:22:34,320 --> 00:22:39,760
+it okay you can use it but I want to
+
+444
+00:22:37,360 --> 00:22:42,720
+change it because
+
+445
+00:22:39,760 --> 00:22:45,600
+close uh Close. Close. I want to change
+
+446
+00:22:42,720 --> 00:22:47,840
+it because I don't want function
+
+447
+00:22:45,600 --> 00:22:50,240
+dependency,
+
+448
+00:22:47,840 --> 00:22:52,240
+you know, because to enable to use this
+
+449
+00:22:50,240 --> 00:22:55,760
+function, you you know, you need to get
+
+450
+00:22:52,240 --> 00:22:58,320
+that library. So I don't I don't I I
+
+451
+00:22:55,760 --> 00:23:02,320
+don't want that. So that that's why
+
+452
+00:22:58,320 --> 00:23:05,600
+let's rewrite it. Okay. So
+
+453
+00:23:02,320 --> 00:23:09,400
+Okay. So let's do that. And also we need
+
+454
+00:23:05,600 --> 00:23:09,400
+a boundary check.
+
+455
+00:23:15,600 --> 00:23:22,559
+How many people watching? Two people.
+
+456
+00:23:19,360 --> 00:23:26,000
+Okay. So, let me just uh focus on this
+
+457
+00:23:22,559 --> 00:23:30,640
+and get to work.
+
+458
+00:23:26,000 --> 00:23:33,440
+So, uh so do we have the algorithm
+
+459
+00:23:30,640 --> 00:23:37,200
+outline? Yes. So, all you have to do we
+
+460
+00:23:33,440 --> 00:23:39,360
+I have written it here.
+
+461
+00:23:37,200 --> 00:23:42,240
+uh we want to find do find replace
+
+462
+00:23:39,360 --> 00:23:44,320
+multiple pairs each find string is not
+
+463
+00:23:42,240 --> 00:23:46,400
+regular expression now remember we don't
+
+464
+00:23:44,320 --> 00:23:48,559
+you know the fine string are not regular
+
+465
+00:23:46,400 --> 00:23:51,520
+expressions okay because when you have
+
+466
+00:23:48,559 --> 00:23:53,600
+regular expression then then you don't
+
+467
+00:23:51,520 --> 00:23:56,000
+have this sequential replacement problem
+
+468
+00:23:53,600 --> 00:23:59,120
+because each regular expression can
+
+469
+00:23:56,000 --> 00:24:01,679
+match arbitrary kind of thing. So if you
+
+470
+00:23:59,120 --> 00:24:05,200
+have a multiple pairs of regular
+
+471
+00:24:01,679 --> 00:24:07,360
+expressions like find replace pairs and
+
+472
+00:24:05,200 --> 00:24:09,120
+each find is a regular expression
+
+473
+00:24:07,360 --> 00:24:12,799
+usually we just want to do that
+
+474
+00:24:09,120 --> 00:24:16,080
+sequentially. Okay. So but in our case
+
+475
+00:24:12,799 --> 00:24:18,080
+it's not regular expression. Okay. So we
+
+476
+00:24:16,080 --> 00:24:20,080
+want to do find replace multiple pairs.
+
+477
+00:24:18,080 --> 00:24:22,880
+Each find string is not regular
+
+478
+00:24:20,080 --> 00:24:25,919
+expression. Input is a list of pairs.
+
+479
+00:24:22,880 --> 00:24:28,880
+Each is a find replace string. Okay.
+
+480
+00:24:25,919 --> 00:24:31,360
+Convert the fine strings into a list
+
+481
+00:24:28,880 --> 00:24:34,000
+then call regular expression quote on
+
+482
+00:24:31,360 --> 00:24:36,400
+each so that they become they are not
+
+483
+00:24:34,000 --> 00:24:39,679
+irregular expression you know then
+
+484
+00:24:36,400 --> 00:24:43,919
+combine into a single regular expression
+
+485
+00:24:39,679 --> 00:24:46,159
+uh using all okay so that is outline of
+
+486
+00:24:43,919 --> 00:24:49,760
+the algorithm
+
+487
+00:24:46,159 --> 00:24:52,640
+uh let's uh
+
+488
+00:24:49,760 --> 00:24:56,320
+with all
+
+489
+00:24:52,640 --> 00:24:58,799
+with all operator okay then call regular
+
+490
+00:24:56,320 --> 00:25:01,200
+expression search uh search for what to
+
+491
+00:24:58,799 --> 00:25:03,520
+replace them in a while loop for each
+
+492
+00:25:01,200 --> 00:25:06,000
+found replace it by the corresponding
+
+493
+00:25:03,520 --> 00:25:09,039
+replace string uh by checking what's
+
+494
+00:25:06,000 --> 00:25:11,360
+match string. Okay, so that's that's the
+
+495
+00:25:09,039 --> 00:25:15,600
+outline of algorithm. So let's kind of
+
+496
+00:25:11,360 --> 00:25:19,039
+type it. Okay, so um so where is our
+
+497
+00:25:15,600 --> 00:25:24,679
+code? Uh here is our code. So let's
+
+498
+00:25:19,039 --> 00:25:24,679
+describe the algorithm here. Um
+
+499
+00:25:24,880 --> 00:25:31,720
+okay. So let's um
+
+500
+00:25:28,720 --> 00:25:31,720
+yeah
+
+501
+00:25:34,799 --> 00:25:41,679
+something like that. Okay. Now begin uh
+
+502
+00:25:38,799 --> 00:25:44,799
+begin that's beginning and end that's a
+
+503
+00:25:41,679 --> 00:25:48,240
+position the cruiser position of the
+
+504
+00:25:44,799 --> 00:25:52,799
+region we want to do the change. Okay.
+
+505
+00:25:48,240 --> 00:25:56,000
+So in this case you know so it you know
+
+506
+00:25:52,799 --> 00:25:59,840
+so if there is if it's given in the
+
+507
+00:25:56,000 --> 00:26:03,600
+argument in the parameter then use them
+
+508
+00:25:59,840 --> 00:26:08,159
+otherwise um let's do something okay so
+
+509
+00:26:03,600 --> 00:26:11,840
+actually so let's let's set Q
+
+510
+00:26:08,159 --> 00:26:15,120
+uh set sequence okay so actually we have
+
+511
+00:26:11,840 --> 00:26:17,919
+written this before so let me
+
+512
+00:26:15,120 --> 00:26:21,279
+uh grab the code okay because we don't
+
+513
+00:26:17,919 --> 00:26:23,360
+want to waste time to write this. Uh, if
+
+514
+00:26:21,279 --> 00:26:26,080
+you don't know, I've written this in my
+
+515
+00:26:23,360 --> 00:26:27,919
+live stream a thousand times. So, we
+
+516
+00:26:26,080 --> 00:26:31,200
+don't need to do it again. So, let me
+
+517
+00:26:27,919 --> 00:26:35,440
+just grab it.
+
+518
+00:26:31,200 --> 00:26:39,120
+Uh, so what is this? Um,
+
+519
+00:26:35,440 --> 00:26:43,200
+let me let me find where I can find that
+
+520
+00:26:39,120 --> 00:26:48,640
+code. Okay. So,
+
+521
+00:26:43,200 --> 00:26:53,799
+oh god. So this is not actually um
+
+522
+00:26:48,640 --> 00:26:53,799
+let me uh let me just find it. Okay.
+
+523
+00:26:58,660 --> 00:27:01,869
+[Music]
+
+524
+00:27:09,840 --> 00:27:15,279
+Okay. So that's one of these. Yeah. So
+
+525
+00:27:12,720 --> 00:27:18,320
+let's copy that.
+
+526
+00:27:15,279 --> 00:27:20,960
+Okay. Close close.
+
+527
+00:27:18,320 --> 00:27:23,840
+Okay. I'm going to explain. Okay. So
+
+528
+00:27:20,960 --> 00:27:26,880
+close that. Close that. Okay. So that's
+
+529
+00:27:23,840 --> 00:27:30,240
+what we want to do. Delete that. And I'm
+
+530
+00:27:26,880 --> 00:27:33,360
+going to explain this. Okay. If region
+
+531
+00:27:30,240 --> 00:27:37,600
+uh this formatted
+
+532
+00:27:33,360 --> 00:27:41,279
+pify the code. Pify the code.
+
+533
+00:27:37,600 --> 00:27:44,880
+Prefy the code. Okay. So we have a local
+
+534
+00:27:41,279 --> 00:27:47,919
+variable x begin and end those are
+
+535
+00:27:44,880 --> 00:27:50,559
+integers that's a beginning position and
+
+536
+00:27:47,919 --> 00:27:52,640
+end position of the cursor
+
+537
+00:27:50,559 --> 00:27:55,360
+of the region we want to do this
+
+538
+00:27:52,640 --> 00:27:58,799
+replacement. Okay so if region is active
+
+539
+00:27:55,360 --> 00:28:02,559
+that means if there's a selection then
+
+540
+00:27:58,799 --> 00:28:07,120
+set them to the beginning and end. Okay.
+
+541
+00:28:02,559 --> 00:28:10,640
+Uh but also actually so uh but we need
+
+542
+00:28:07,120 --> 00:28:14,799
+another if statement. Okay. If and if
+
+543
+00:28:10,640 --> 00:28:17,120
+they are defined given in this uh param
+
+544
+00:28:14,799 --> 00:28:20,080
+in you know the argument if they are
+
+545
+00:28:17,120 --> 00:28:22,559
+given then all you have to do is just
+
+546
+00:28:20,080 --> 00:28:24,080
+say list
+
+547
+00:28:22,559 --> 00:28:26,960
+um
+
+548
+00:28:24,080 --> 00:28:30,360
+just return that. Okay.
+
+549
+00:28:26,960 --> 00:28:30,360
+Then otherwise.
+
+550
+00:28:32,320 --> 00:28:37,200
+Okay. So
+
+551
+00:28:34,799 --> 00:28:40,000
+if they are given as argument just use
+
+552
+00:28:37,200 --> 00:28:42,480
+that. Otherwise if region is there's a
+
+553
+00:28:40,000 --> 00:28:45,120
+selection then use a beginning region
+
+554
+00:28:42,480 --> 00:28:47,840
+beginning region end the selection. If
+
+555
+00:28:45,120 --> 00:28:53,760
+there's no selection then what you do is
+
+556
+00:28:47,840 --> 00:28:56,480
+you um you search backward for the blank
+
+557
+00:28:53,760 --> 00:28:58,480
+line. So that is this search backward
+
+558
+00:28:56,480 --> 00:29:01,039
+you know the new line you know you
+
+559
+00:28:58,480 --> 00:29:04,000
+search for two
+
+560
+00:29:01,039 --> 00:29:05,600
+new line characters okay then you return
+
+561
+00:29:04,000 --> 00:29:07,520
+that
+
+562
+00:29:05,600 --> 00:29:10,880
+that's a beginning position then then
+
+563
+00:29:07,520 --> 00:29:14,480
+you search forward for again for two
+
+564
+00:29:10,880 --> 00:29:17,360
+line two uh new line characters. So
+
+565
+00:29:14,480 --> 00:29:21,039
+basically what that does is select the
+
+566
+00:29:17,360 --> 00:29:24,559
+current block of text. Okay. Separated
+
+567
+00:29:21,039 --> 00:29:27,120
+by new lines. Okay. So that sets up the
+
+568
+00:29:24,559 --> 00:29:30,720
+beginning end position. Okay. So then we
+
+569
+00:29:27,120 --> 00:29:32,960
+don't need this. Uh yeah. Okay. We want
+
+570
+00:29:30,720 --> 00:29:36,559
+to if there's no selection we just do
+
+571
+00:29:32,960 --> 00:29:40,159
+the current block. Okay. Then here is
+
+572
+00:29:36,559 --> 00:29:44,640
+the what we want the find replace. And
+
+573
+00:29:40,159 --> 00:29:47,760
+here the let's um so this is where our
+
+574
+00:29:44,640 --> 00:29:52,880
+algorithm is interesting the algorithm
+
+575
+00:29:47,760 --> 00:29:56,159
+outline. Okay. So we so remove that uh
+
+576
+00:29:52,880 --> 00:30:00,440
+remove that remove that. So this is our
+
+577
+00:29:56,159 --> 00:30:00,440
+list of pairs. Um
+
+578
+00:30:01,360 --> 00:30:09,279
+so let's see. So can we actually so let
+
+579
+00:30:05,200 --> 00:30:14,559
+me do something. Okay. So um let's make
+
+580
+00:30:09,279 --> 00:30:19,200
+the let's make it um kind of one
+
+581
+00:30:14,559 --> 00:30:21,440
+okay one is lower case one is uh one is
+
+582
+00:30:19,200 --> 00:30:23,919
+uh
+
+583
+00:30:21,440 --> 00:30:27,840
+capital first word okay so this is a
+
+584
+00:30:23,919 --> 00:30:30,399
+list of pairs so what we want to do is
+
+585
+00:30:27,840 --> 00:30:33,120
+now again check
+
+586
+00:30:30,399 --> 00:30:37,159
+convert so this is a list okay so
+
+587
+00:30:33,120 --> 00:30:37,159
+actually so Um
+
+588
+00:30:41,600 --> 00:30:46,720
+okay
+
+589
+00:30:43,120 --> 00:30:50,880
+when let's define the list locally. Okay
+
+590
+00:30:46,720 --> 00:30:53,880
+so case for search
+
+591
+00:30:50,880 --> 00:30:53,880
+um
+
+592
+00:30:54,240 --> 00:31:03,080
+so that's a list. So you need to uh
+
+593
+00:31:00,080 --> 00:31:03,080
+uh
+
+594
+00:31:07,840 --> 00:31:11,799
+find replace map.
+
+595
+00:31:12,559 --> 00:31:22,399
+Okay, that is like the dictionary you
+
+596
+00:31:15,120 --> 00:31:27,120
+want to um do. Okay. And and um find
+
+597
+00:31:22,399 --> 00:31:31,200
+replace map map you can set them
+
+598
+00:31:27,120 --> 00:31:36,360
+by this list. Okay. Now purify.
+
+599
+00:31:31,200 --> 00:31:36,360
+Okay. That is your find replace map.
+
+600
+00:31:38,240 --> 00:31:42,880
+Okay.
+
+601
+00:31:40,399 --> 00:31:45,600
+Now how do you deal with the lower case
+
+602
+00:31:42,880 --> 00:31:49,519
+or capital case? Right now I'm saying
+
+603
+00:31:45,600 --> 00:31:52,399
+you know make it case sensitive then
+
+604
+00:31:49,519 --> 00:31:54,720
+manually you know you have this group of
+
+605
+00:31:52,399 --> 00:31:58,679
+capital
+
+606
+00:31:54,720 --> 00:31:58,679
+letters um
+
+607
+00:31:58,799 --> 00:32:06,159
+yeah let's do that you know no case for
+
+608
+00:32:01,919 --> 00:32:10,080
+search set it to neo means no smart case
+
+609
+00:32:06,159 --> 00:32:13,519
+it's just all case sensitive
+
+610
+00:32:10,080 --> 00:32:17,760
+okay so that's that and so what's the
+
+611
+00:32:13,519 --> 00:32:21,320
+Next. So, you need to grab. So, let's
+
+612
+00:32:17,760 --> 00:32:21,320
+see. Uh,
+
+613
+00:32:23,120 --> 00:32:28,720
+let's That's too many words. Okay. So,
+
+614
+00:32:25,919 --> 00:32:32,320
+let's just say
+
+615
+00:32:28,720 --> 00:32:34,880
+FP map. Okay. That's our find paste map.
+
+616
+00:32:32,320 --> 00:32:38,399
+Copy it.
+
+617
+00:32:34,880 --> 00:32:42,880
+Then we So, algorithm outline. That's
+
+618
+00:32:38,399 --> 00:32:47,279
+correct. We want to change them. Uh so
+
+619
+00:32:42,880 --> 00:32:49,840
+uh find strings. Okay. Uh you you you
+
+620
+00:32:47,279 --> 00:32:51,440
+need to get all the fine strings. Okay.
+
+621
+00:32:49,840 --> 00:32:59,240
+So
+
+622
+00:32:51,440 --> 00:32:59,240
+find replace map find strings. Okay. Uh
+
+623
+00:33:03,039 --> 00:33:06,600
+okay. So
+
+624
+00:33:06,960 --> 00:33:16,799
+you want to gather all the fine strings.
+
+625
+00:33:10,799 --> 00:33:19,760
+Okay. So what can you do is you uh map
+
+626
+00:33:16,799 --> 00:33:24,080
+this is how you do uh not map chart. So
+
+627
+00:33:19,760 --> 00:33:26,880
+you want to map car
+
+628
+00:33:24,080 --> 00:33:31,519
+that means go uh basically that just
+
+629
+00:33:26,880 --> 00:33:34,960
+means map like Python's map or
+
+630
+00:33:31,519 --> 00:33:38,240
+JavaScript like JavaScript map. Okay. So
+
+631
+00:33:34,960 --> 00:33:40,399
+you want to map to this sequence and
+
+632
+00:33:38,240 --> 00:33:43,279
+what is the function? The function is
+
+633
+00:33:40,399 --> 00:33:46,080
+just to get the first element.
+
+634
+00:33:43,279 --> 00:33:50,080
+Uh
+
+635
+00:33:46,080 --> 00:33:53,039
+actually you need to turn this into a uh
+
+636
+00:33:50,080 --> 00:33:55,360
+hash table. Oh god, there's a lot to do.
+
+637
+00:33:53,039 --> 00:33:57,360
+
+638
+00:33:55,360 --> 00:33:59,600
+Oh god, there's a lot to do. Okay, so
+
+639
+00:33:57,360 --> 00:34:03,279
+let's do it. So
+
+640
+00:33:59,600 --> 00:34:06,399
+okay, find string set the all the fine
+
+641
+00:34:03,279 --> 00:34:09,440
+strings. Then uh what do you want to
+
+642
+00:34:06,399 --> 00:34:12,800
+save them to be? You want to set them to
+
+643
+00:34:09,440 --> 00:34:15,599
+be a list. Okay. So all you have to do a
+
+644
+00:34:12,800 --> 00:34:18,159
+ref
+
+645
+00:34:15,599 --> 00:34:21,359
+uh because th those are arrays. You can
+
+646
+00:34:18,159 --> 00:34:23,839
+see those these are arrays. So that you
+
+647
+00:34:21,359 --> 00:34:26,639
+want to get the first element
+
+648
+00:34:23,839 --> 00:34:29,839
+uh array
+
+649
+00:34:26,639 --> 00:34:33,440
+which is x
+
+650
+00:34:29,839 --> 00:34:37,200
+uh wait so
+
+651
+00:34:33,440 --> 00:34:39,839
+yeah each pair is array so array index
+
+652
+00:34:37,200 --> 00:34:43,919
+is zero. Okay.
+
+653
+00:34:39,839 --> 00:34:47,280
+So that that that that that that that
+
+654
+00:34:43,919 --> 00:34:52,440
+set fine string fine string is
+
+655
+00:34:47,280 --> 00:34:52,440
+uh you can actually print it.
+
+656
+00:34:56,560 --> 00:35:02,680
+Okay. So wait not wait
+
+657
+00:35:03,119 --> 00:35:10,800
+you want to print fine string. Okay
+
+658
+00:35:05,920 --> 00:35:17,640
+that's a fine string. Uh
+
+659
+00:35:10,800 --> 00:35:17,640
+actually so let's see why is this um
+
+660
+00:35:18,240 --> 00:35:25,680
+so that sets the sequence. Oh god.
+
+661
+00:35:22,640 --> 00:35:28,079
+Oh god a lot to do. So
+
+662
+00:35:25,680 --> 00:35:32,640
+we need to finish this quickly. So why
+
+663
+00:35:28,079 --> 00:35:38,119
+is this indented one level to the left?
+
+664
+00:35:32,640 --> 00:35:38,119
+Uh let's increase the uh
+
+665
+00:35:46,400 --> 00:35:53,280
+that's the let. Oh yeah. So that's why
+
+666
+00:35:50,320 --> 00:35:55,760
+so this don't want
+
+667
+00:35:53,280 --> 00:35:58,560
+very you need to be very very careful
+
+668
+00:35:55,760 --> 00:36:02,800
+about this because this is the let block
+
+669
+00:35:58,560 --> 00:36:06,560
+local variables you see. So this this
+
+670
+00:36:02,800 --> 00:36:10,160
+needs to be inside. So uh prints that.
+
+671
+00:36:06,560 --> 00:36:12,720
+So basically it's a list of find
+
+672
+00:36:10,160 --> 00:36:15,359
+strings. Okay.
+
+673
+00:36:12,720 --> 00:36:19,200
+And also you need to turn this into a
+
+674
+00:36:15,359 --> 00:36:23,680
+map. Oh god.
+
+675
+00:36:19,200 --> 00:36:27,760
+So right now it's a list of pairs and
+
+676
+00:36:23,680 --> 00:36:30,480
+each pair is an array data type. Uh but
+
+677
+00:36:27,760 --> 00:36:36,000
+for this problem, it's better if you
+
+678
+00:36:30,480 --> 00:36:39,040
+turn them into a map like hasht.
+
+679
+00:36:36,000 --> 00:36:43,119
+Okay, you need to turn this into hasht.
+
+680
+00:36:39,040 --> 00:36:47,520
+God. Uh oh, So, let's go to Emac
+
+681
+00:36:43,119 --> 00:36:50,079
+Lisp tutorial. Uh hasht is a data
+
+682
+00:36:47,520 --> 00:36:53,119
+structure in EMAC lisp. Emacs
+
+683
+00:36:50,079 --> 00:36:57,760
+efficiency. Uh wait, this we need to go
+
+684
+00:36:53,119 --> 00:37:01,680
+to lisp basics. Uh so sequence data type
+
+685
+00:36:57,760 --> 00:37:05,280
+hasht there it is. So that's your hasht
+
+686
+00:37:01,680 --> 00:37:08,960
+and you want to create a hash table.
+
+687
+00:37:05,280 --> 00:37:12,960
+Okay so what you can do is make hash
+
+688
+00:37:08,960 --> 00:37:17,040
+table. Okay copy that
+
+689
+00:37:12,960 --> 00:37:20,880
+uh and close that. Okay so this right
+
+690
+00:37:17,040 --> 00:37:24,960
+now it's a list of arrays. You want to
+
+691
+00:37:20,880 --> 00:37:27,960
+make them into a hash table.
+
+692
+00:37:24,960 --> 00:37:27,960
+Um
+
+693
+00:37:28,160 --> 00:37:33,920
+so there it you know first of all there
+
+694
+00:37:30,560 --> 00:37:36,880
+is a design issue. Do you want it to be
+
+695
+00:37:33,920 --> 00:37:40,800
+hash like manually hardcode the hash
+
+696
+00:37:36,880 --> 00:37:44,400
+table to begin with or you can begin
+
+697
+00:37:40,800 --> 00:37:47,680
+with this a list of arrays which is easy
+
+698
+00:37:44,400 --> 00:37:50,720
+to read then have a function that turns
+
+699
+00:37:47,680 --> 00:37:55,280
+them into a hash table. Let's do the
+
+700
+00:37:50,720 --> 00:37:58,480
+function. Okay. So
+
+701
+00:37:55,280 --> 00:38:01,839
+that so okay so then then then you need
+
+702
+00:37:58,480 --> 00:38:07,680
+another variable let's say hash table
+
+703
+00:38:01,839 --> 00:38:12,400
+okay so yeah so
+
+704
+00:38:07,680 --> 00:38:19,800
+so this hasht is actually hasht make
+
+705
+00:38:12,400 --> 00:38:19,800
+hasht okay then you set
+
+706
+00:38:20,079 --> 00:38:24,160
+hash table you want to turn this into to
+
+707
+00:38:22,160 --> 00:38:27,119
+a hash table. Okay. Can you do that?
+
+708
+00:38:24,160 --> 00:38:30,240
+Yeah. So, okay. So, you again, so you
+
+709
+00:38:27,119 --> 00:38:34,720
+want to turn it into a hash table.
+
+710
+00:38:30,240 --> 00:38:37,119
+Okay. So, you do map C. Um, then what
+
+711
+00:38:34,720 --> 00:38:40,839
+sequence you want to map to? Uh, you
+
+712
+00:38:37,119 --> 00:38:40,839
+want to map to
+
+713
+00:38:41,359 --> 00:38:48,800
+this map. Okay. Then in the body, you
+
+714
+00:38:45,520 --> 00:38:51,200
+say put hasht each for each item you put
+
+715
+00:38:48,800 --> 00:38:55,040
+hasht. Okay. Create hash table with
+
+716
+00:38:51,200 --> 00:38:58,560
+symbol keys with integer keys. Uh in our
+
+717
+00:38:55,040 --> 00:39:01,119
+case the keys are string keys. Okay. So
+
+718
+00:38:58,560 --> 00:39:06,640
+literal expression for hasht length add
+
+719
+00:39:01,119 --> 00:39:09,920
+entry. There it is. Add entry. Put hash.
+
+720
+00:39:06,640 --> 00:39:13,839
+Okay. So the the body of the function is
+
+721
+00:39:09,920 --> 00:39:17,760
+going to be put hash. Okay. Uh no make
+
+722
+00:39:13,839 --> 00:39:21,680
+hash table. Wait. Uh where are we making
+
+723
+00:39:17,760 --> 00:39:26,480
+hasht? No, just put hash. So put hash.
+
+724
+00:39:21,680 --> 00:39:29,520
+Uh the key will be the
+
+725
+00:39:26,480 --> 00:39:32,800
+you know the first element of the array
+
+726
+00:39:29,520 --> 00:39:35,599
+that's called vector in magis. Okay. So
+
+727
+00:39:32,800 --> 00:39:39,119
+the first element of a vector how you
+
+728
+00:39:35,599 --> 00:39:43,599
+get the first element be that would be
+
+729
+00:39:39,119 --> 00:39:46,240
+array f. Okay. So array would be x. The
+
+730
+00:39:43,599 --> 00:39:49,680
+x is a pair you know because we map it
+
+731
+00:39:46,240 --> 00:39:54,960
+to that the index is zero. So that is
+
+732
+00:39:49,680 --> 00:39:58,160
+the key and the value would be not nine.
+
+733
+00:39:54,960 --> 00:40:02,160
+The value would be the first index of
+
+734
+00:39:58,160 --> 00:40:05,760
+that array. Okay. Then here is where you
+
+735
+00:40:02,160 --> 00:40:10,119
+say the hash table put it to a hash
+
+736
+00:40:05,760 --> 00:40:10,119
+table. Okay. So
+
+737
+00:40:11,119 --> 00:40:18,880
+pify the code. So this line, this single
+
+738
+00:40:13,599 --> 00:40:23,040
+line will turn this list of
+
+739
+00:40:18,880 --> 00:40:26,640
+vectors into a hash table.
+
+740
+00:40:23,040 --> 00:40:31,280
+It populates the hash table. Okay.
+
+741
+00:40:26,640 --> 00:40:34,280
+Convert uh list of vectors to hash
+
+742
+00:40:31,280 --> 00:40:34,280
+table.
+
+743
+00:40:37,200 --> 00:40:44,800
+No expansion found. Interesting.
+
+744
+00:40:40,079 --> 00:40:48,560
+Okay. So hasht. Okay, that's this slide.
+
+745
+00:40:44,800 --> 00:40:51,839
+So we got the hasht. Let's highlight it.
+
+746
+00:40:48,560 --> 00:40:54,160
+Okay, so this map. So we got a hasht.
+
+747
+00:40:51,839 --> 00:40:56,800
+Fantastic.
+
+748
+00:40:54,160 --> 00:40:58,880
+It's like I've been coding eag this so
+
+749
+00:40:56,800 --> 00:41:03,040
+much. I know what to do. I don't Okay,
+
+750
+00:40:58,880 --> 00:41:05,680
+so anyway, uh we got a hash table
+
+751
+00:41:03,040 --> 00:41:09,119
+and uh okay, convert fine string to a
+
+752
+00:41:05,680 --> 00:41:12,319
+list. We did that. Okay. So let's move
+
+753
+00:41:09,119 --> 00:41:17,760
+this part to
+
+754
+00:41:12,319 --> 00:41:20,000
+cut. Okay. Uh yeah. So common dial.
+
+755
+00:41:17,760 --> 00:41:22,960
+Okay. We convert it to hash table.
+
+756
+00:41:20,000 --> 00:41:26,400
+Convert. Okay.
+
+757
+00:41:22,960 --> 00:41:30,160
+I mean the it's at least a fine string.
+
+758
+00:41:26,400 --> 00:41:32,880
+Then we also convert it to hash table.
+
+759
+00:41:30,160 --> 00:41:37,520
+Then we need to turn this fine string
+
+760
+00:41:32,880 --> 00:41:42,800
+into a regular expression of all. Okay,
+
+761
+00:41:37,520 --> 00:41:45,040
+how do I do that? Uh, well, I
+
+762
+00:41:42,800 --> 00:41:47,760
+uh you can call a function called
+
+763
+00:41:45,040 --> 00:41:50,720
+rejects something
+
+764
+00:41:47,760 --> 00:41:53,040
+but I forgot. So, let's look up my I
+
+765
+00:41:50,720 --> 00:41:56,720
+know where to find it.
+
+766
+00:41:53,040 --> 00:41:58,480
+Uh, create a major mod. Okay, but if we
+
+767
+00:41:56,720 --> 00:42:00,640
+don't know if you are not familiar with
+
+768
+00:41:58,480 --> 00:42:04,400
+my tutorial, how do you find it? So, I
+
+769
+00:42:00,640 --> 00:42:06,880
+can we can do um a propose to search for
+
+770
+00:42:04,400 --> 00:42:09,200
+it. Okay, for example, let me show you
+
+771
+00:42:06,880 --> 00:42:12,800
+the command. The command is called a
+
+772
+00:42:09,200 --> 00:42:15,040
+propose command which will list all
+
+773
+00:42:12,800 --> 00:42:16,880
+commands containing certain regular
+
+774
+00:42:15,040 --> 00:42:19,760
+expression.
+
+775
+00:42:16,880 --> 00:42:22,480
+Okay, but right now you don't want just
+
+776
+00:42:19,760 --> 00:42:24,640
+command. You want to find
+
+777
+00:42:22,480 --> 00:42:27,440
+in the space of functions. You want to
+
+778
+00:42:24,640 --> 00:42:31,760
+find a function. You are looking for a
+
+779
+00:42:27,440 --> 00:42:34,240
+function that will turn a list of
+
+780
+00:42:31,760 --> 00:42:36,079
+strings into one single regular
+
+781
+00:42:34,240 --> 00:42:39,440
+expression. Okay, there is such a
+
+782
+00:42:36,079 --> 00:42:43,280
+function. So how do you find well that
+
+783
+00:42:39,440 --> 00:42:46,960
+so you do what you do is uh you give a
+
+784
+00:42:43,280 --> 00:42:50,400
+universal argument. So rejects
+
+785
+00:42:46,960 --> 00:42:53,200
+okay let's just search for it. Okay. So,
+
+786
+00:42:50,400 --> 00:42:55,839
+uh you know, I'm not talking about all
+
+787
+00:42:53,200 --> 00:42:59,680
+the things. Um
+
+788
+00:42:55,839 --> 00:43:02,319
+you probably don't know what I'm saying
+
+789
+00:42:59,680 --> 00:43:04,720
+because I was not too careful in
+
+790
+00:43:02,319 --> 00:43:07,359
+explaining. But anyway,
+
+791
+00:43:04,720 --> 00:43:10,880
+so you call universal argument which
+
+792
+00:43:07,359 --> 00:43:14,400
+which means you press control u then you
+
+793
+00:43:10,880 --> 00:43:16,960
+call the a propose command that will
+
+794
+00:43:14,400 --> 00:43:19,839
+list all
+
+795
+00:43:16,960 --> 00:43:23,040
+command n functions that contains the
+
+796
+00:43:19,839 --> 00:43:26,319
+word rejects. Okay, that's what we did
+
+797
+00:43:23,040 --> 00:43:28,160
+for example close it. So press controlU
+
+798
+00:43:26,319 --> 00:43:30,400
+universal argument you can see in the
+
+799
+00:43:28,160 --> 00:43:33,359
+bottom control U. Then you press the key
+
+800
+00:43:30,400 --> 00:43:35,520
+for a proper command which is that.
+
+801
+00:43:33,359 --> 00:43:38,319
+Okay. Then it asks you to type. Then
+
+802
+00:43:35,520 --> 00:43:43,440
+let's type rejects.
+
+803
+00:43:38,319 --> 00:43:47,200
+Oh what? Uh let's do it again.
+
+804
+00:43:43,440 --> 00:43:50,839
+Oh god. Uh wait wait wait.
+
+805
+00:43:47,200 --> 00:43:50,839
+Didn't wait.
+
+806
+00:43:51,359 --> 00:43:57,359
+What list or rejects? Okay. So you have
+
+807
+00:43:53,839 --> 00:43:59,359
+to type rejects. Okay. So there it is.
+
+808
+00:43:57,359 --> 00:44:01,440
+So you got all these functions. We are
+
+809
+00:43:59,359 --> 00:44:04,240
+looking for a function that converts a
+
+810
+00:44:01,440 --> 00:44:06,720
+list of string to
+
+811
+00:44:04,240 --> 00:44:10,560
+to one single regular expression with
+
+812
+00:44:06,720 --> 00:44:13,599
+all. Okay. So something so there's like
+
+813
+00:44:10,560 --> 00:44:15,839
+you know hundreds of them.
+
+814
+00:44:13,599 --> 00:44:19,359
+So if you are coding EMAC this this is
+
+815
+00:44:15,839 --> 00:44:21,280
+how you find um the functions you need.
+
+816
+00:44:19,359 --> 00:44:24,640
+Okay.
+
+817
+00:44:21,280 --> 00:44:24,640
+Cheers. Red wine.
+
+818
+00:44:31,280 --> 00:44:37,359
+Okay, there it is. Can you see that you
+
+819
+00:44:34,800 --> 00:44:41,920
+got rejects builder regular expression
+
+820
+00:44:37,359 --> 00:44:44,160
+builder and rejects opt funky name? So
+
+821
+00:44:41,920 --> 00:44:47,280
+function. This is a function return the
+
+822
+00:44:44,160 --> 00:44:49,599
+regular expression to match a string in
+
+823
+00:44:47,280 --> 00:44:52,640
+the list of strings. Exactly. That's
+
+824
+00:44:49,599 --> 00:44:55,040
+what we want. So go to it.
+
+825
+00:44:52,640 --> 00:44:57,920
+uh return to open it. So here's a
+
+826
+00:44:55,040 --> 00:44:59,920
+documentation of this function reject
+
+827
+00:44:57,920 --> 00:45:02,640
+opt
+
+828
+00:44:59,920 --> 00:45:05,520
+return a regular expression uh to match
+
+829
+00:45:02,640 --> 00:45:09,920
+a string in the list of strings. You can
+
+830
+00:45:05,520 --> 00:45:13,359
+can you see that uh wait actually uh
+
+831
+00:45:09,920 --> 00:45:17,599
+what let's do it again. Okay so let's
+
+832
+00:45:13,359 --> 00:45:20,640
+highlight this word. Okay. So each
+
+833
+00:45:17,599 --> 00:45:23,200
+member of strings is treated as a fixed
+
+834
+00:45:20,640 --> 00:45:25,920
+string not as regular expression. That's
+
+835
+00:45:23,200 --> 00:45:28,880
+exactly that's what we want. Optional
+
+836
+00:45:25,920 --> 00:45:33,200
+parent specifies how the return rejects
+
+837
+00:45:28,880 --> 00:45:36,880
+be surrounded by grouping construct.
+
+838
+00:45:33,200 --> 00:45:40,160
+Okay. Uh in this case so let's just do
+
+839
+00:45:36,880 --> 00:45:42,720
+that. So we want it to be um grouping
+
+840
+00:45:40,160 --> 00:45:45,760
+construct. We do that's basically means
+
+841
+00:45:42,720 --> 00:45:49,119
+boundary. Do you want boundary? Yes,
+
+842
+00:45:45,760 --> 00:45:53,920
+because we had the ETA versus theta
+
+843
+00:45:49,119 --> 00:45:57,040
+issue because ETA occurs inside theta.
+
+844
+00:45:53,920 --> 00:46:01,119
+But if we add boundaries, then you know
+
+845
+00:45:57,040 --> 00:46:05,119
+that's not considered um the same
+
+846
+00:46:01,119 --> 00:46:11,480
+when ETA is inside theta. So anyway, so
+
+847
+00:46:05,119 --> 00:46:11,480
+uh so words or symbols. So let's see um
+
+848
+00:46:15,599 --> 00:46:22,079
+uh okay so let's uh words or symbols you
+
+849
+00:46:19,599 --> 00:46:25,440
+know that's always a bit confusing
+
+850
+00:46:22,079 --> 00:46:29,359
+symbol basically means including uh
+
+851
+00:46:25,440 --> 00:46:32,359
+hyphen usually not always
+
+852
+00:46:29,359 --> 00:46:32,359
+um
+
+853
+00:46:34,800 --> 00:46:39,280
+let's let's use symbol for now We can
+
+854
+00:46:36,960 --> 00:46:42,720
+always change. Okay, let's do trial and
+
+855
+00:46:39,280 --> 00:46:45,680
+error cuz you know so anyway. So what?
+
+856
+00:46:42,720 --> 00:46:49,520
+Okay, let's try again. Describe function
+
+857
+00:46:45,680 --> 00:46:53,599
+rejects opt. Okay, so what is a function
+
+858
+00:46:49,520 --> 00:46:56,160
+name? So let's just copy that. And uh
+
+859
+00:46:53,599 --> 00:47:01,280
+optional paren is going to be that.
+
+860
+00:46:56,160 --> 00:47:04,720
+Okay, and strings is going to be xfind
+
+861
+00:47:01,280 --> 00:47:06,960
+strings. Fantastic and beautiful. So
+
+862
+00:47:04,720 --> 00:47:11,280
+actually we can print this. Okay. So
+
+863
+00:47:06,960 --> 00:47:13,920
+let's say messages and and just print
+
+864
+00:47:11,280 --> 00:47:18,880
+it.
+
+865
+00:47:13,920 --> 00:47:22,079
+Okay. So this is uh rejects. Okay. Find
+
+866
+00:47:18,880 --> 00:47:24,400
+all these strings you know in a uh
+
+867
+00:47:22,079 --> 00:47:28,400
+regular expression. Okay. So what is so
+
+868
+00:47:24,400 --> 00:47:30,800
+we need to set it uh wait
+
+869
+00:47:28,400 --> 00:47:33,040
+uh this is a list. Okay. So actually
+
+870
+00:47:30,800 --> 00:47:36,640
+this is not a good name. So this is a
+
+871
+00:47:33,040 --> 00:47:38,880
+list. This is a string. Okay. Okay. So,
+
+872
+00:47:36,640 --> 00:47:40,880
+let's change the name
+
+873
+00:47:38,880 --> 00:47:45,920
+uh
+
+874
+00:47:40,880 --> 00:47:47,839
+replace strings by
+
+875
+00:47:45,920 --> 00:47:52,319
+find
+
+876
+00:47:47,839 --> 00:47:56,560
+this. Okay. Do it. Do it. Do it. Do it.
+
+877
+00:47:52,319 --> 00:47:59,839
+Do it. Do it. Okay. So, you need to
+
+878
+00:47:56,560 --> 00:48:04,440
+set that
+
+879
+00:47:59,839 --> 00:48:04,440
+by that. Okay.
+
+880
+00:48:05,040 --> 00:48:10,560
+Fantastic. And we print it. Now purify
+
+881
+00:48:07,599 --> 00:48:13,520
+the code. Fantastic. Now make a backup.
+
+882
+00:48:10,560 --> 00:48:17,040
+Go to the directory by compile. Is there
+
+883
+00:48:13,520 --> 00:48:19,760
+arrow? Yes. Lexical binding directive.
+
+884
+00:48:17,040 --> 00:48:23,839
+No lexical binding directive. So let's
+
+885
+00:48:19,760 --> 00:48:26,640
+add one. use the abbreviation feature
+
+886
+00:48:23,839 --> 00:48:30,079
+SAR UTF
+
+887
+00:48:26,640 --> 00:48:34,319
+and it adds this declaration code UTF
+
+888
+00:48:30,079 --> 00:48:39,359
+coding UTF8 encoding and lexical binding
+
+889
+00:48:34,319 --> 00:48:42,079
+true so make a backup go to directory by
+
+890
+00:48:39,359 --> 00:48:45,839
+compile it yes
+
+891
+00:48:42,079 --> 00:48:49,200
+uh warning unused lexical variable x
+
+892
+00:48:45,839 --> 00:48:51,040
+begin and x end that's is that correct
+
+893
+00:48:49,200 --> 00:48:54,000
+yes that's correct because We haven't
+
+894
+00:48:51,040 --> 00:48:56,240
+used it but let's ignore it. Okay. So,
+
+895
+00:48:54,000 --> 00:48:58,880
+open the bite compile file. Delete it.
+
+896
+00:48:56,240 --> 00:49:01,599
+We don't need it. Uh we just haven't
+
+897
+00:48:58,880 --> 00:49:06,160
+used that yet. So now the algorithm
+
+898
+00:49:01,599 --> 00:49:09,200
+outline. So we let's see.
+
+899
+00:49:06,160 --> 00:49:12,480
+Okay. This is uh fairly technical and
+
+900
+00:49:09,200 --> 00:49:16,599
+boring. Okay. So let me finish it. Uh I
+
+901
+00:49:12,480 --> 00:49:16,599
+find list um
+
+902
+00:49:16,640 --> 00:49:21,359
+so convert list of vectors to hash
+
+903
+00:49:18,880 --> 00:49:25,440
+table. We did that. Yes, that's
+
+904
+00:49:21,359 --> 00:49:29,440
+required. Uh and we need to So what is
+
+905
+00:49:25,440 --> 00:49:33,520
+Yeah. So evaluate the buffer. Now let's
+
+906
+00:49:29,440 --> 00:49:37,760
+call this. Okay. And let's just call it
+
+907
+00:49:33,520 --> 00:49:40,240
+on this uh kind of here.
+
+908
+00:49:37,760 --> 00:49:43,359
+Let's see what we do. Do do it. Okay.
+
+909
+00:49:40,240 --> 00:49:46,720
+Now go to the messages buffer. Here is
+
+910
+00:49:43,359 --> 00:49:49,599
+what it printed. Fantastic.
+
+911
+00:49:46,720 --> 00:49:52,000
+So you can see uh regular expression it
+
+912
+00:49:49,599 --> 00:49:56,319
+print you know it generates this string
+
+913
+00:49:52,000 --> 00:49:59,520
+this long string of or you know that's a
+
+914
+00:49:56,319 --> 00:50:01,680
+regular expression or and also with the
+
+915
+00:49:59,520 --> 00:50:05,280
+you know so alpha beta ch that's
+
+916
+00:50:01,680 --> 00:50:10,720
+fantastic close it
+
+917
+00:50:05,280 --> 00:50:15,760
+yeah exactly so so far so good yes next
+
+918
+00:50:10,720 --> 00:50:20,800
+so next we need just go to um now Let's
+
+919
+00:50:15,760 --> 00:50:24,559
+let's start to use um go to char
+
+920
+00:50:20,800 --> 00:50:30,240
+uh x begin that's a beginning position
+
+921
+00:50:24,559 --> 00:50:32,640
+we defined here go to char x begin then
+
+922
+00:50:30,240 --> 00:50:34,800
+do a while loop
+
+923
+00:50:32,640 --> 00:50:36,960
+while
+
+924
+00:50:34,800 --> 00:50:39,599
+we want the regular expression search
+
+925
+00:50:36,960 --> 00:50:44,319
+forward. So research forward regular
+
+926
+00:50:39,599 --> 00:50:46,640
+expression when whenever this is true.
+
+927
+00:50:44,319 --> 00:50:51,280
+So what we want to search we want to
+
+928
+00:50:46,640 --> 00:50:54,559
+search for this uh
+
+929
+00:50:51,280 --> 00:50:59,400
+right this uh this is a fine list. Oh
+
+930
+00:50:54,559 --> 00:50:59,400
+this is uh this should be fine string.
+
+931
+00:51:00,960 --> 00:51:07,119
+Okay. So wait. So that is fine list.
+
+932
+00:51:03,839 --> 00:51:12,240
+This should be fine string.
+
+933
+00:51:07,119 --> 00:51:14,400
+I can actually uh copy that.
+
+934
+00:51:12,240 --> 00:51:16,559
+You see remember we are turning a list
+
+935
+00:51:14,400 --> 00:51:22,599
+into a string. So this is a new
+
+936
+00:51:16,559 --> 00:51:22,599
+variable. We need to like put it
+
+937
+00:51:24,400 --> 00:51:30,559
+you know. So we begin with a map of list
+
+938
+00:51:27,520 --> 00:51:34,960
+of vectors. Vector each pair is a
+
+939
+00:51:30,559 --> 00:51:38,000
+vector. We create a a list of just a
+
+940
+00:51:34,960 --> 00:51:41,359
+fine string. We also create a string of
+
+941
+00:51:38,000 --> 00:51:47,079
+regular expression. Uh so let's change
+
+942
+00:51:41,359 --> 00:51:47,079
+that to find rejects. Okay.
+
+943
+00:51:49,839 --> 00:51:56,640
+Do that. Do that. Do that. Fantastic.
+
+944
+00:51:52,319 --> 00:51:59,520
+Now it's more sensible naming.
+
+945
+00:51:56,640 --> 00:52:02,079
+So we turn the list into a list of
+
+946
+00:51:59,520 --> 00:52:05,119
+strings into a one single string of
+
+947
+00:52:02,079 --> 00:52:08,480
+regular expression. Then we print it.
+
+948
+00:52:05,119 --> 00:52:10,880
+Then we go to the beginning position.
+
+949
+00:52:08,480 --> 00:52:13,359
+Then we start to do the search. And what
+
+950
+00:52:10,880 --> 00:52:16,319
+is the reg regular expression? That
+
+951
+00:52:13,359 --> 00:52:19,599
+would be this
+
+952
+00:52:16,319 --> 00:52:22,720
+rejects. Okay. Bound. Yes, we want the
+
+953
+00:52:19,599 --> 00:52:26,240
+boundary that is don't go beyond that.
+
+954
+00:52:22,720 --> 00:52:29,440
+So the boundary is X end. Okay. Whatever
+
+955
+00:52:26,240 --> 00:52:32,240
+the region beginning and end. No error.
+
+956
+00:52:29,440 --> 00:52:34,559
+True. In case you know any of these
+
+957
+00:52:32,240 --> 00:52:36,800
+alpha doesn't occur you know we don't
+
+958
+00:52:34,559 --> 00:52:39,440
+want it to say oh error cannot find
+
+959
+00:52:36,800 --> 00:52:44,400
+alpha omega
+
+960
+00:52:39,440 --> 00:52:47,359
+okay and count we don't care okay so
+
+961
+00:52:44,400 --> 00:52:50,319
+so okay so the no error true we can make
+
+962
+00:52:47,359 --> 00:52:53,359
+it a symbol easier to read okay which
+
+963
+00:52:50,319 --> 00:52:56,800
+zero means true okay so while that is
+
+964
+00:52:53,359 --> 00:52:59,599
+found you replace it now what you want
+
+965
+00:52:56,800 --> 00:53:01,920
+to replace here is the new text okay
+
+966
+00:52:59,599 --> 00:53:05,359
+what we want to replace is that you want
+
+967
+00:53:01,920 --> 00:53:07,040
+to find out first of all what is a match
+
+968
+00:53:05,359 --> 00:53:10,880
+string.
+
+969
+00:53:07,040 --> 00:53:14,400
+So match string you find the exact match
+
+970
+00:53:10,880 --> 00:53:16,720
+string. So zero. Okay.
+
+971
+00:53:14,400 --> 00:53:19,599
+So that is a match string. Then you want
+
+972
+00:53:16,720 --> 00:53:22,480
+to get from the hash table to find the
+
+973
+00:53:19,599 --> 00:53:26,480
+corresponding replacement string. Okay.
+
+974
+00:53:22,480 --> 00:53:30,880
+So what you do is um
+
+975
+00:53:26,480 --> 00:53:34,640
+so hasht let's go to hasht again. So how
+
+976
+00:53:30,880 --> 00:53:38,720
+do you get a key the value of a key from
+
+977
+00:53:34,640 --> 00:53:41,599
+hasht? So that would be
+
+978
+00:53:38,720 --> 00:53:44,880
+uh get hash. Okay. I'm pretty sure it's
+
+979
+00:53:41,599 --> 00:53:48,800
+get hash. There it is. Get hash.
+
+980
+00:53:44,880 --> 00:53:53,520
+Okay. So get hash.
+
+981
+00:53:48,800 --> 00:53:59,480
+Exactly. So the key is
+
+982
+00:53:53,520 --> 00:53:59,480
+the match string and the table is
+
+983
+00:54:01,359 --> 00:54:08,240
+uh not m hash table you know so from
+
+984
+00:54:05,119 --> 00:54:10,800
+this hash table and optional means if
+
+985
+00:54:08,240 --> 00:54:15,440
+it's not found what do you want it to
+
+986
+00:54:10,800 --> 00:54:20,240
+return we don't care just return neo
+
+987
+00:54:15,440 --> 00:54:22,800
+okay so if that is true So
+
+988
+00:54:20,240 --> 00:54:25,280
+when it's found it we you know there
+
+989
+00:54:22,800 --> 00:54:28,800
+it's going to be there for sure because
+
+990
+00:54:25,280 --> 00:54:30,640
+the way we uh worked on this. So replace
+
+991
+00:54:28,800 --> 00:54:33,359
+match
+
+992
+00:54:30,640 --> 00:54:36,319
+replace by this string. Okay the value
+
+993
+00:54:33,359 --> 00:54:40,720
+of the corresponding replacement
+
+994
+00:54:36,319 --> 00:54:44,160
+then new text. Um then what is the other
+
+995
+00:54:40,720 --> 00:54:46,400
+option? New text.
+
+996
+00:54:44,160 --> 00:54:50,280
+Uh what? Let's check the documentation
+
+997
+00:54:46,400 --> 00:54:50,280
+for replace string.
+
+998
+00:54:50,400 --> 00:54:57,040
+Oh, new text. Yeah. So, new text is
+
+999
+00:54:53,280 --> 00:55:02,480
+that. Okay. Then optional fixed case
+
+1000
+00:54:57,040 --> 00:55:06,640
+true. Wait, it's just that literal true.
+
+1001
+00:55:02,480 --> 00:55:08,720
+And this we don't care. Okay. So that
+
+1002
+00:55:06,640 --> 00:55:11,680
+so
+
+1003
+00:55:08,720 --> 00:55:14,960
+that Okay. So purify the code. So there
+
+1004
+00:55:11,680 --> 00:55:18,240
+it is our code. Actually,
+
+1005
+00:55:14,960 --> 00:55:23,200
+I think we done. Oh, Did
+
+1006
+00:55:18,240 --> 00:55:25,280
+we already do one hour? Yes, but it went
+
+1007
+00:55:23,200 --> 00:55:27,920
+smooth. Uh, you know, so actually I
+
+1008
+00:55:25,280 --> 00:55:31,040
+think I'm done.
+
+1009
+00:55:27,920 --> 00:55:34,400
+So this message we don't need anymore.
+
+1010
+00:55:31,040 --> 00:55:37,200
+Uh such you know remove the message the
+
+1011
+00:55:34,400 --> 00:55:39,440
+uh crust. Okay. So actually we don't you
+
+1012
+00:55:37,200 --> 00:55:41,680
+know the algorithm outline we also don't
+
+1013
+00:55:39,440 --> 00:55:45,200
+need anymore.
+
+1014
+00:55:41,680 --> 00:55:49,760
+Uh let's kind of delete it. Okay. So
+
+1015
+00:55:45,200 --> 00:55:53,440
+that so that so that pretty the code. I
+
+1016
+00:55:49,760 --> 00:55:57,079
+think that's it. So you can see our
+
+1017
+00:55:53,440 --> 00:55:57,079
+beautiful code.
+
+1018
+00:55:58,559 --> 00:56:02,720
+Replace Greek letter name to symbol.
+
+1019
+00:56:01,200 --> 00:56:05,760
+Okay.
+
+1020
+00:56:02,720 --> 00:56:09,119
+Uh you got beginning end position. You
+
+1021
+00:56:05,760 --> 00:56:12,319
+got you know don't you know make it case
+
+1022
+00:56:09,119 --> 00:56:14,559
+sensitive. Okay. Then you got the map of
+
+1023
+00:56:12,319 --> 00:56:19,280
+what you want to find and replace
+
+1024
+00:56:14,559 --> 00:56:22,000
+capital letters and lower case. Then you
+
+1025
+00:56:19,280 --> 00:56:25,359
+have a local variable of the list of
+
+1026
+00:56:22,000 --> 00:56:27,599
+fine string. Then you have a regular
+
+1027
+00:56:25,359 --> 00:56:30,880
+expression for all the fine strings in
+
+1028
+00:56:27,599 --> 00:56:34,799
+one string. Then you have a hash table
+
+1029
+00:56:30,880 --> 00:56:37,359
+of find replace pairs. Okay. So you
+
+1030
+00:56:34,799 --> 00:56:39,359
+begin by set the beginning and end
+
+1031
+00:56:37,359 --> 00:56:41,520
+position
+
+1032
+00:56:39,359 --> 00:56:44,960
+of the you know if there's selection use
+
+1033
+00:56:41,520 --> 00:56:48,920
+that otherwise do the current block of
+
+1034
+00:56:44,960 --> 00:56:48,920
+text like a paragraph.
+
+1035
+00:56:49,760 --> 00:56:55,920
+Okay then you set up the fine list. So
+
+1036
+00:56:52,960 --> 00:56:58,799
+it's fantastic perfect coding find list
+
+1037
+00:56:55,920 --> 00:57:02,480
+that's all the find strings in a as a
+
+1038
+00:56:58,799 --> 00:57:04,559
+list. Okay. Then you do convert the list
+
+1039
+00:57:02,480 --> 00:57:07,200
+of vectors to hash table. Yeah, you
+
+1040
+00:57:04,559 --> 00:57:09,760
+create a hash table.
+
+1041
+00:57:07,200 --> 00:57:12,319
+Okay. Then you create the regular
+
+1042
+00:57:09,760 --> 00:57:15,680
+expression. The all regular expression
+
+1043
+00:57:12,319 --> 00:57:19,440
+all connectives. Then go to the
+
+1044
+00:57:15,680 --> 00:57:22,480
+beginning. Then do a while loop
+
+1045
+00:57:19,440 --> 00:57:25,119
+regular expression search.
+
+1046
+00:57:22,480 --> 00:57:26,720
+If you found this regular expression
+
+1047
+00:57:25,119 --> 00:57:29,599
+found
+
+1048
+00:57:26,720 --> 00:57:32,480
+to the end of the position
+
+1049
+00:57:29,599 --> 00:57:34,799
+no error then then you replace it. Every
+
+1050
+00:57:32,480 --> 00:57:38,799
+time you do it found it you do the
+
+1051
+00:57:34,799 --> 00:57:41,280
+replace by the corresponding entry in
+
+1052
+00:57:38,799 --> 00:57:44,400
+the hash table. Am I correct? Double
+
+1053
+00:57:41,280 --> 00:57:46,799
+check. Yes, I think. Okay. So back up.
+
+1054
+00:57:44,400 --> 00:57:49,760
+Go to the directory.
+
+1055
+00:57:46,799 --> 00:57:52,240
+Uh compile the file. No arrow. Open the
+
+1056
+00:57:49,760 --> 00:57:55,040
+compile file. Close it. Delete it. Close
+
+1057
+00:57:52,240 --> 00:57:58,000
+it. Evaluate the buffer. Now we can test
+
+1058
+00:57:55,040 --> 00:58:00,960
+it.
+
+1059
+00:57:58,000 --> 00:58:04,319
+Okay. Describe function. This function.
+
+1060
+00:58:00,960 --> 00:58:08,880
+Fantastic. Now this is in our temp file.
+
+1061
+00:58:04,319 --> 00:58:12,720
+Fantastic. Yeah. So now let's go to uh
+
+1062
+00:58:08,880 --> 00:58:16,960
+let's go to some file where we let's do
+
+1063
+00:58:12,720 --> 00:58:21,280
+you know let's go to some talk show uh
+
+1064
+00:58:16,960 --> 00:58:24,400
+there. Okay. So
+
+1065
+00:58:21,280 --> 00:58:27,680
+copy that, paste it and let's call the
+
+1066
+00:58:24,400 --> 00:58:30,079
+command. There it is. Meta X. Let's do
+
+1067
+00:58:27,680 --> 00:58:32,000
+it. Let's see if it makes error. So do
+
+1068
+00:58:30,079 --> 00:58:36,240
+it.
+
+1069
+00:58:32,000 --> 00:58:39,440
+Wrong type argument hasht P. Okay, we
+
+1070
+00:58:36,240 --> 00:58:41,839
+got a problem. Go back to our code. Go
+
+1071
+00:58:39,440 --> 00:58:44,559
+back to our drawing board. Is this our
+
+1072
+00:58:41,839 --> 00:58:47,440
+code? Yes. So wrong type of argument.
+
+1073
+00:58:44,559 --> 00:58:50,720
+What is the error? Replace match wrong
+
+1074
+00:58:47,440 --> 00:58:55,040
+type argument hasht P.
+
+1075
+00:58:50,720 --> 00:58:58,440
+Oh, right. So, we need uh wait get hash
+
+1076
+00:58:55,040 --> 00:58:58,440
+wait hasht.
+
+1077
+00:58:59,040 --> 00:59:08,599
+Oh, right. So, wait.
+
+1078
+00:59:02,480 --> 00:59:08,599
+Oh, wait. This is not how you do it. Uh,
+
+1079
+00:59:09,359 --> 00:59:14,319
+so you don't set it. Okay. Because the
+
+1080
+00:59:12,559 --> 00:59:17,839
+because this is not functional
+
+1081
+00:59:14,319 --> 00:59:21,760
+programming. When you use put hash,
+
+1082
+00:59:17,839 --> 00:59:25,040
+you know, you map a function, you map
+
+1083
+00:59:21,760 --> 00:59:28,880
+this function to this
+
+1084
+00:59:25,040 --> 00:59:32,079
+map dictionary of find replace pairs.
+
+1085
+00:59:28,880 --> 00:59:35,359
+Each time you map it, you have a
+
+1086
+00:59:32,079 --> 00:59:38,079
+function, you put add to the hash table.
+
+1087
+00:59:35,359 --> 00:59:42,079
+So you don't actually do this set
+
+1088
+00:59:38,079 --> 00:59:44,960
+because the result of this map C is
+
+1089
+00:59:42,079 --> 00:59:47,920
+Neil. Okay? So you don't you don't do
+
+1090
+00:59:44,960 --> 00:59:50,400
+that. So so so
+
+1091
+00:59:47,920 --> 00:59:53,920
+the code here is correct still correct.
+
+1092
+00:59:50,400 --> 00:59:57,920
+You you just don't set. Okay. This this
+
+1093
+00:59:53,920 --> 01:00:00,319
+is a part of lisp that's not functional.
+
+1094
+00:59:57,920 --> 01:00:03,440
+Not not exactly functional programming
+
+1095
+01:00:00,319 --> 01:00:06,160
+because you see anyway
+
+1096
+01:00:03,440 --> 01:00:09,280
+evaluate the buffer.
+
+1097
+01:00:06,160 --> 01:00:12,799
+Close the message buffer. Go back to our
+
+1098
+01:00:09,280 --> 01:00:15,200
+testing page. Code the command.
+
+1099
+01:00:12,799 --> 01:00:19,599
+do it.
+
+1100
+01:00:15,200 --> 01:00:22,880
+Fantastic. You can see you see it
+
+1101
+01:00:19,599 --> 01:00:25,760
+changed the theta character to the Greek
+
+1102
+01:00:22,880 --> 01:00:30,079
+theta and did not make a mistake like
+
+1103
+01:00:25,760 --> 01:00:34,720
+before where it changed the eta to you
+
+1104
+01:00:30,079 --> 01:00:37,359
+know the eta part of theta to the eta
+
+1105
+01:00:34,720 --> 01:00:40,000
+you know let's magnify can you see it so
+
+1106
+01:00:37,359 --> 01:00:42,240
+this is
+
+1107
+01:00:40,000 --> 01:00:45,680
+fantastic and beautiful so let's do it
+
+1108
+01:00:42,240 --> 01:00:49,200
+again one more time copy it paste it
+
+1109
+01:00:45,680 --> 01:00:54,480
+here. So you got alpha here, beta there,
+
+1110
+01:00:49,200 --> 01:00:57,200
+and theta. Let's add omega. Okay, and
+
+1111
+01:00:54,480 --> 01:00:59,359
+pi. Okay, now let's call the command.
+
+1112
+01:00:57,200 --> 01:01:01,280
+Now don't highlight anything. It'll
+
+1113
+01:00:59,359 --> 01:01:04,640
+automatically work on the current
+
+1114
+01:01:01,280 --> 01:01:07,280
+paragraph. Okay, call the command.
+
+1115
+01:01:04,640 --> 01:01:09,520
+Replace Greek letter name to symbol. Do
+
+1116
+01:01:07,280 --> 01:01:15,119
+it.
+
+1117
+01:01:09,520 --> 01:01:17,440
+Fantastic. Theta and omega and pi.
+
+1118
+01:01:15,119 --> 01:01:20,319
+Okay, thank you guys for watching. That
+
+1119
+01:01:17,440 --> 01:01:23,119
+is fantastic. ACP says, "Hello, just got
+
+1120
+01:01:20,319 --> 01:01:27,280
+here. I'm almost done." Yes. Can you
+
+1121
+01:01:23,119 --> 01:01:32,720
+explain the regular expression search is
+
+1122
+01:01:27,280 --> 01:01:35,599
+Xfine rejects list? Okay. Okay. I
+
+1123
+01:01:32,720 --> 01:01:37,599
+I I actually explained them in detail
+
+1124
+01:01:35,599 --> 01:01:40,319
+but quickly.
+
+1125
+01:01:37,599 --> 01:01:42,799
+So we
+
+1126
+01:01:40,319 --> 01:01:46,160
+So the regulation Okay. So, so we first
+
+1127
+01:01:42,799 --> 01:01:48,720
+of all we got this find list
+
+1128
+01:01:46,160 --> 01:01:52,160
+that is a list
+
+1129
+01:01:48,720 --> 01:01:54,880
+of strings of all the fine strings.
+
+1130
+01:01:52,160 --> 01:01:59,839
+Okay, how we get that? Because we just
+
+1131
+01:01:54,880 --> 01:02:03,760
+map map over the map. Okay, you see this
+
+1132
+01:01:59,839 --> 01:02:07,680
+is the original input you know list of
+
+1133
+01:02:03,760 --> 01:02:10,680
+pairs. Each pair is a vector. Okay, that
+
+1134
+01:02:07,680 --> 01:02:10,680
+is
+
+1135
+01:02:10,960 --> 01:02:17,760
+that is the
+
+1136
+01:02:13,200 --> 01:02:20,400
+map. Okay, so so we but we create a fine
+
+1137
+01:02:17,760 --> 01:02:23,520
+list of list of strings of just the fine
+
+1138
+01:02:20,400 --> 01:02:26,960
+strings. Okay, then let's highlight it.
+
+1139
+01:02:23,520 --> 01:02:30,000
+Okay, so wait highlighted pink. Okay,
+
+1140
+01:02:26,960 --> 01:02:33,839
+then here we create a one single regular
+
+1141
+01:02:30,000 --> 01:02:37,119
+expression string. This safety rejects.
+
+1142
+01:02:33,839 --> 01:02:40,799
+How we do that? By calling this reject
+
+1143
+01:02:37,119 --> 01:02:44,960
+opt function, it will take a list of
+
+1144
+01:02:40,799 --> 01:02:48,640
+strings and we'll basically construct
+
+1145
+01:02:44,960 --> 01:02:50,720
+one single long regular expression of
+
+1146
+01:02:48,640 --> 01:02:54,960
+all the words.
+
+1147
+01:02:50,720 --> 01:02:58,200
+So that is that. Okay, let's uh let's
+
+1148
+01:02:54,960 --> 01:02:58,200
+color it.
+
+1149
+01:02:58,240 --> 01:03:03,680
+Okay, so it's green. So now we just
+
+1150
+01:03:00,799 --> 01:03:06,640
+search for word. This reject regular
+
+1151
+01:03:03,680 --> 01:03:09,680
+expression is like one single huge
+
+1152
+01:03:06,640 --> 01:03:11,200
+regular expression of all
+
+1153
+01:03:09,680 --> 01:03:14,000
+words.
+
+1154
+01:03:11,200 --> 01:03:17,200
+Okay. Thank you guys for watching. Uh if
+
+1155
+01:03:14,000 --> 01:03:19,920
+you like you know let's put it back.
+
+1156
+01:03:17,200 --> 01:03:23,359
+Showing browser. So that's today's talk
+
+1157
+01:03:19,920 --> 01:03:26,720
+show. That's the code. This is supreme
+
+1158
+01:03:23,359 --> 01:03:28,640
+code. Uh wait syntax code show in
+
+1159
+01:03:26,720 --> 01:03:30,720
+browser.
+
+1160
+01:03:28,640 --> 01:03:34,480
+Scroll down. So here's a code you can
+
+1161
+01:03:30,720 --> 01:03:39,839
+grab it. You can do so this specific
+
+1162
+01:03:34,480 --> 01:03:42,799
+code does the find replace of Greek
+
+1163
+01:03:39,839 --> 01:03:45,359
+uh letters fully spelled into actual
+
+1164
+01:03:42,799 --> 01:03:47,280
+Greek characters but you can change it
+
+1165
+01:03:45,359 --> 01:03:49,599
+to
+
+1166
+01:03:47,280 --> 01:03:53,440
+uh lots of use. So let me show you for
+
+1167
+01:03:49,599 --> 01:03:57,520
+example uh so let's uh this matching
+
+1168
+01:03:53,440 --> 01:04:01,599
+lines defend. So you can do lat to unic
+
+1169
+01:03:57,520 --> 01:04:04,319
+code. You can do tech text to latex you
+
+1170
+01:04:01,599 --> 01:04:08,079
+know convert you know or math symbols to
+
+1171
+01:04:04,319 --> 01:04:10,240
+wam language or or Greek letters name to
+
+1172
+01:04:08,079 --> 01:04:15,359
+symbol that's what we did or you can do
+
+1173
+01:04:10,240 --> 01:04:17,920
+also remove vows English vows a e i o u
+
+1174
+01:04:15,359 --> 01:04:20,480
+or you can replace all a brief you can
+
+1175
+01:04:17,920 --> 01:04:23,520
+replace all profanity for example for
+
+1176
+01:04:20,480 --> 01:04:27,760
+example let's look at the code you know
+
+1177
+01:04:23,520 --> 01:04:31,280
+ ass you
+
+1178
+01:04:27,760 --> 01:04:33,280
+You know so that they all work in the
+
+1179
+01:04:31,280 --> 01:04:35,200
+same principle
+
+1180
+01:04:33,280 --> 01:04:38,559
+but you see my functions they are
+
+1181
+01:04:35,200 --> 01:04:42,000
+calling my custom function
+
+1182
+01:04:38,559 --> 01:04:44,160
+replace pairs region but now you don't
+
+1183
+01:04:42,000 --> 01:04:46,319
+need the dependency
+
+1184
+01:04:44,160 --> 01:04:51,520
+you can use that you know you know too
+
+1185
+01:04:46,319 --> 01:04:55,359
+but now but we have this algorithm
+
+1186
+01:04:51,520 --> 01:04:57,200
+concrete version worked out.
+
+1187
+01:04:55,359 --> 01:04:59,520
+Okay, thank you guys. Yeah, so if you
+
+1188
+01:04:57,200 --> 01:05:01,760
+like my stuff, you can, you know, donate
+
+1189
+01:04:59,520 --> 01:05:05,039
+me.
+
+1190
+01:05:01,760 --> 01:05:07,839
+Please go to kasi.info.
+
+1191
+01:05:05,039 --> 01:05:10,960
+All the way at the bottom, you can see
+
+1192
+01:05:07,839 --> 01:05:15,280
+my Patreon, Amazon gift card, PayPal. If
+
+1193
+01:05:10,960 --> 01:05:18,599
+you work in a job, pay me $100. Okay,
+
+1194
+01:05:15,280 --> 01:05:18,599
+bye guys.
+
+1195
+01:05:19,359 --> 01:05:25,920
+Yeah, this is fantastic because
+
+1196
+01:05:23,200 --> 01:05:28,000
+Okay, let me talk for two more minutes.
+
+1197
+01:05:25,920 --> 01:05:32,720
+We're going to shut down. This is
+
+1198
+01:05:28,000 --> 01:05:36,880
+fantastic because because my code uh
+
+1199
+01:05:32,720 --> 01:05:39,520
+let's go back to the code you know this
+
+1200
+01:05:36,880 --> 01:05:41,599
+replace pairs region they are
+
+1201
+01:05:39,520 --> 01:05:45,520
+inefficient
+
+1202
+01:05:41,599 --> 01:05:48,960
+you know because what I was doing is the
+
+1203
+01:05:45,520 --> 01:05:51,599
+two pass solution so I was doing for
+
+1204
+01:05:48,960 --> 01:05:53,119
+each pair I'm basically doing the first
+
+1205
+01:05:51,599 --> 01:05:56,400
+replacement
+
+1206
+01:05:53,119 --> 01:05:59,280
+but replace it by a unique random
+
+1207
+01:05:56,400 --> 01:06:01,760
+identifier here. Then I'm going to do a
+
+1208
+01:05:59,280 --> 01:06:05,440
+whole find replacement for the second
+
+1209
+01:06:01,760 --> 01:06:08,400
+pair like going through the entire input
+
+1210
+01:06:05,440 --> 01:06:10,880
+text. Then I'm going to do the third one
+
+1211
+01:06:08,400 --> 01:06:14,319
+then then the fourth one and so on for
+
+1212
+01:06:10,880 --> 01:06:15,920
+so I'm doing find replace like multiple
+
+1213
+01:06:14,319 --> 01:06:19,280
+times.
+
+1214
+01:06:15,920 --> 01:06:22,799
+That's very inefficient.
+
+1215
+01:06:19,280 --> 01:06:26,319
+uh then once it's done then I go through
+
+1216
+01:06:22,799 --> 01:06:29,359
+each pair again by finding the unique
+
+1217
+01:06:26,319 --> 01:06:33,280
+identifier randomly generated basically
+
+1218
+01:06:29,359 --> 01:06:36,079
+a random sequence of you know numbers
+
+1219
+01:06:33,280 --> 01:06:39,680
+then then I replace them with a real
+
+1220
+01:06:36,079 --> 01:06:42,880
+replacement character. So my code this
+
+1221
+01:06:39,680 --> 01:06:45,359
+is a two pass solution is actually
+
+1222
+01:06:42,880 --> 01:06:47,599
+compared to this solution we are doing
+
+1223
+01:06:45,359 --> 01:06:50,799
+today is inefficient.
+
+1224
+01:06:47,599 --> 01:06:52,640
+So that that is why I'm doing this today
+
+1225
+01:06:50,799 --> 01:06:54,240
+to first of all get rid of the
+
+1226
+01:06:52,640 --> 01:06:56,240
+dependency
+
+1227
+01:06:54,240 --> 01:07:00,240
+you know so this you know this function
+
+1228
+01:06:56,240 --> 01:07:05,280
+there's no dependency of my code but it
+
+1229
+01:07:00,240 --> 01:07:09,920
+also prepares me to fix my code so that
+
+1230
+01:07:05,280 --> 01:07:13,280
+we so I will be using this new algorithm
+
+1231
+01:07:09,920 --> 01:07:16,960
+uh in in my package so this package let
+
+1232
+01:07:13,280 --> 01:07:20,640
+me show you again so this is find place
+
+1233
+01:07:16,960 --> 01:07:22,960
+payers eel.
+
+1234
+01:07:20,640 --> 01:07:25,359
+It's it's great very useful because
+
+1235
+01:07:22,960 --> 01:07:28,160
+instead of writing you know instead of
+
+1236
+01:07:25,359 --> 01:07:30,720
+manually writing this whole thing you
+
+1237
+01:07:28,160 --> 01:07:34,960
+can just simply say you know just give a
+
+1238
+01:07:30,720 --> 01:07:37,280
+list of find replace you want and we
+
+1239
+01:07:34,960 --> 01:07:40,400
+were talking about earlier today I
+
+1240
+01:07:37,280 --> 01:07:44,160
+learned this because by happen stance I
+
+1241
+01:07:40,400 --> 01:07:46,480
+asked AI AI just gave me the solution I
+
+1242
+01:07:44,160 --> 01:07:48,960
+mean I already have the solution the two
+
+1243
+01:07:46,480 --> 01:07:51,440
+pass is one of the solution but there's
+
+1244
+01:07:48,960 --> 01:07:54,079
+another solution which is using the
+
+1245
+01:07:51,440 --> 01:07:57,359
+using a hasht dictionary and using the
+
+1246
+01:07:54,079 --> 01:08:00,359
+regular expression of all. Okay, bye
+
+1247
+01:07:57,359 --> 01:08:00,359
+guys.
+

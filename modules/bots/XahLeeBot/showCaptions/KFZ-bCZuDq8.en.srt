@@ -1,0 +1,5584 @@
+1
+00:00:03,439 --> 00:00:06,960
+welcome
+
+2
+00:00:04,080 --> 00:00:09,599
+to another episode of star talk show
+
+3
+00:00:06,960 --> 00:00:13,040
+today is 2021st
+
+4
+00:00:09,599 --> 00:00:13,599
+june 5th and today we are going to talk
+
+5
+00:00:13,040 --> 00:00:16,800
+about
+
+6
+00:00:13,599 --> 00:00:20,240
+random stuff i'm going to work on
+
+7
+00:00:16,800 --> 00:00:23,439
+emac lisp emacs
+
+8
+00:00:20,240 --> 00:00:26,960
+workflow you are going to watch and
+
+9
+00:00:23,439 --> 00:00:27,920
+uh i'm going to work on my website
+
+10
+00:00:26,960 --> 00:00:29,840
+random stuff
+
+11
+00:00:27,920 --> 00:00:31,359
+and if you have questions this is the
+
+12
+00:00:29,840 --> 00:00:34,800
+right time to post it
+
+13
+00:00:31,359 --> 00:00:37,760
+um programming on keyboards on emacs on
+
+14
+00:00:34,800 --> 00:00:39,360
+mathematics on wolfram language uh
+
+15
+00:00:37,760 --> 00:00:42,480
+whatever topic okay just
+
+16
+00:00:39,360 --> 00:00:45,920
+post your questions in the chat box
+
+17
+00:00:42,480 --> 00:00:49,520
+chat box okay uh audio check
+
+18
+00:00:45,920 --> 00:00:51,360
+video check good so let's begin okay so
+
+19
+00:00:49,520 --> 00:00:52,719
+the keyboard you are looking at of
+
+20
+00:00:51,360 --> 00:00:56,800
+course
+
+21
+00:00:52,719 --> 00:00:58,960
+is the so let me show you
+
+22
+00:00:56,800 --> 00:01:01,440
+some of the keyboard stuff okay so
+
+23
+00:00:58,960 --> 00:01:03,520
+keyboard stuff ergonomic keyboard so you
+
+24
+00:01:01,440 --> 00:01:04,239
+are looking at my kinesis keyboard of
+
+25
+00:01:03,520 --> 00:01:07,520
+course
+
+26
+00:01:04,239 --> 00:01:08,960
+just search for saudi kinesis keyboard
+
+27
+00:01:07,520 --> 00:01:12,080
+you'll find my review
+
+28
+00:01:08,960 --> 00:01:14,479
+and the the other one is this this
+
+29
+00:01:12,080 --> 00:01:16,000
+one is the ultimate hacking keyboard
+
+30
+00:01:14,479 --> 00:01:20,560
+it's the greatest
+
+31
+00:01:16,000 --> 00:01:20,560
+marker keypad okay so
+
+32
+00:01:20,640 --> 00:01:24,080
+yeah i'm going to start to do to code
+
+33
+00:01:22,880 --> 00:01:27,040
+some emac lists
+
+34
+00:01:24,080 --> 00:01:28,240
+then when people come out and let's do
+
+35
+00:01:27,040 --> 00:01:30,560
+more things okay
+
+36
+00:01:28,240 --> 00:01:31,280
+so let's go to talk show today's talk
+
+37
+00:01:30,560 --> 00:01:34,479
+show
+
+38
+00:01:31,280 --> 00:01:38,320
+uh show in browser go back
+
+39
+00:01:34,479 --> 00:01:38,320
+okay turn on the javascript
+
+40
+00:01:39,360 --> 00:01:47,200
+and then go back and go open the
+
+41
+00:01:42,560 --> 00:01:50,000
+um open the
+
+42
+00:01:47,200 --> 00:01:52,560
+notes so these are a bunch of to-do's i
+
+43
+00:01:50,000 --> 00:01:54,720
+want to do
+
+44
+00:01:52,560 --> 00:01:55,920
+then let's see what we're going to do
+
+45
+00:01:54,720 --> 00:01:59,840
+today i'm going to
+
+46
+00:01:55,920 --> 00:01:59,840
+do some imac this coding
+
+47
+00:02:05,759 --> 00:02:09,759
+okay this one the first one some move
+
+48
+00:02:07,600 --> 00:02:10,399
+image file so let me show you what that
+
+49
+00:02:09,759 --> 00:02:13,840
+is about
+
+50
+00:02:10,399 --> 00:02:16,640
+okay good morning aaron dodd
+
+51
+00:02:13,840 --> 00:02:17,440
+okay so for example if you write a lot
+
+52
+00:02:16,640 --> 00:02:19,680
+of blogs
+
+53
+00:02:17,440 --> 00:02:21,440
+you know i write a lot blogs let's see
+
+54
+00:02:19,680 --> 00:02:25,520
+let's let's go to
+
+55
+00:02:21,440 --> 00:02:28,720
+uh let's see my keyboard marcos
+
+56
+00:02:25,520 --> 00:02:32,400
+so let's go to twitter the dramatic
+
+57
+00:02:28,720 --> 00:02:34,160
+ drama twitter that's what
+
+58
+00:02:32,400 --> 00:02:37,200
+twitter is drama
+
+59
+00:02:34,160 --> 00:02:40,239
+so there is some for example of
+
+60
+00:02:37,200 --> 00:02:42,080
+this mathematics this guy this guy you
+
+61
+00:02:40,239 --> 00:02:46,239
+should follow okay this danielle
+
+62
+00:02:42,080 --> 00:02:49,599
+ if you like mathematics and uh
+
+63
+00:02:46,239 --> 00:02:51,840
+not just you know anyway this beautiful
+
+64
+00:02:49,599 --> 00:02:54,239
+image
+
+65
+00:02:51,840 --> 00:02:56,080
+so let's say so if you write a lot blog
+
+66
+00:02:54,239 --> 00:02:56,800
+you know i want to make a screenshot of
+
+67
+00:02:56,080 --> 00:03:00,080
+this
+
+68
+00:02:56,800 --> 00:03:04,000
+so what i do so i press the button
+
+69
+00:03:00,080 --> 00:03:06,720
+then i select it for example screenshot
+
+70
+00:03:04,000 --> 00:03:08,319
+okay it's captured now of course it's
+
+71
+00:03:06,720 --> 00:03:11,040
+captured in the download folder
+
+72
+00:03:08,319 --> 00:03:14,879
+typically so let's go to download folder
+
+73
+00:03:11,040 --> 00:03:14,879
+let's show them there
+
+74
+00:03:17,200 --> 00:03:22,319
+where is it is it here okay it's not in
+
+75
+00:03:20,480 --> 00:03:23,440
+the download folder it's in the pictures
+
+76
+00:03:22,319 --> 00:03:26,640
+folder okay so
+
+77
+00:03:23,440 --> 00:03:27,360
+you can see in this folder now can we
+
+78
+00:03:26,640 --> 00:03:30,959
+magnify
+
+79
+00:03:27,360 --> 00:03:34,080
+okay so yeah you cannot magnify
+
+80
+00:03:30,959 --> 00:03:35,519
+you can but yeah anyway anyway so here's
+
+81
+00:03:34,080 --> 00:03:37,920
+a screenshot
+
+82
+00:03:35,519 --> 00:03:40,720
+but it's in a folder that's uh i have to
+
+83
+00:03:37,920 --> 00:03:44,000
+move this folder to my website directory
+
+84
+00:03:40,720 --> 00:03:47,760
+so it's tedious so i have this command
+
+85
+00:03:44,000 --> 00:03:51,120
+i'm gonna show you okay so wait
+
+86
+00:03:47,760 --> 00:03:55,120
+um go to the pictures
+
+87
+00:03:51,120 --> 00:03:57,439
+folder okay pictures so you can see
+
+88
+00:03:55,120 --> 00:03:59,120
+this is the file okay i can open it you
+
+89
+00:03:57,439 --> 00:04:02,159
+see now i need to move
+
+90
+00:03:59,120 --> 00:04:05,519
+that file to my uh to my
+
+91
+00:04:02,159 --> 00:04:07,280
+um web site directory so where is my
+
+92
+00:04:05,519 --> 00:04:09,280
+website directory let's say
+
+93
+00:04:07,280 --> 00:04:10,560
+let's go to math blog okay show in
+
+94
+00:04:09,280 --> 00:04:14,239
+browser so this is my
+
+95
+00:04:10,560 --> 00:04:16,959
+math blog so which is uh this file
+
+96
+00:04:14,239 --> 00:04:18,799
+and go to the directory so here is the
+
+97
+00:04:16,959 --> 00:04:21,919
+directory for my math blog so
+
+98
+00:04:18,799 --> 00:04:23,919
+at the top you can see here is the path
+
+99
+00:04:21,919 --> 00:04:26,000
+in the bottom let's magnify at the
+
+100
+00:04:23,919 --> 00:04:26,639
+bottom you can see the picture is in
+
+101
+00:04:26,000 --> 00:04:31,360
+this path
+
+102
+00:04:26,639 --> 00:04:34,000
+so i need to move this into this folder
+
+103
+00:04:31,360 --> 00:04:34,800
+then i i need to write a you know
+
+104
+00:04:34,000 --> 00:04:38,160
+tedious
+
+105
+00:04:34,800 --> 00:04:40,320
+so what i do is i don't have to do
+
+106
+00:04:38,160 --> 00:04:42,560
+move anything like that i just you know
+
+107
+00:04:40,320 --> 00:04:45,600
+this is my math uh
+
+108
+00:04:42,560 --> 00:04:47,040
+blog on this buffer this file i just go
+
+109
+00:04:45,600 --> 00:04:50,720
+to the place i want to
+
+110
+00:04:47,040 --> 00:04:53,040
+insert it create a new section
+
+111
+00:04:50,720 --> 00:04:54,080
+uh let's show it again so see create a
+
+112
+00:04:53,040 --> 00:04:57,600
+new section
+
+113
+00:04:54,080 --> 00:04:59,520
+then just watch the pink window okay it
+
+114
+00:04:57,600 --> 00:05:03,199
+will show the command i call
+
+115
+00:04:59,520 --> 00:05:06,400
+so press uh one three keys
+
+116
+00:05:03,199 --> 00:05:09,280
+it says move image two directory so okay
+
+117
+00:05:06,400 --> 00:05:13,120
+i want to move to the eye directory okay
+
+118
+00:05:09,280 --> 00:05:16,240
+then just enter enter then it is done
+
+119
+00:05:13,120 --> 00:05:20,000
+you see it's here now showing browser
+
+120
+00:05:16,240 --> 00:05:22,160
+fantastic so let's do it again okay
+
+121
+00:05:20,000 --> 00:05:25,520
+let's do another one okay so i'm going
+
+122
+00:05:22,160 --> 00:05:29,680
+to uh
+
+123
+00:05:25,520 --> 00:05:29,680
+screenshot this picture
+
+124
+00:05:30,720 --> 00:05:33,759
+okay now i just go to the file i want
+
+125
+00:05:33,360 --> 00:05:36,800
+and
+
+126
+00:05:33,759 --> 00:05:40,560
+press the key and it's done
+
+127
+00:05:36,800 --> 00:05:44,240
+now show in browser now we have you see
+
+128
+00:05:40,560 --> 00:05:46,800
+it's a huge time saver
+
+129
+00:05:44,240 --> 00:05:47,919
+so that's what this command is for and
+
+130
+00:05:46,800 --> 00:05:52,400
+by the way it also
+
+131
+00:05:47,919 --> 00:05:56,639
+um you can see
+
+132
+00:05:52,400 --> 00:05:58,639
+it also automatically optimize the png
+
+133
+00:05:56,639 --> 00:06:00,800
+because you know screenshot is the png
+
+134
+00:05:58,639 --> 00:06:03,360
+auto automatically optimize it
+
+135
+00:06:00,800 --> 00:06:05,520
+so that command is you can see in this
+
+136
+00:06:03,360 --> 00:06:07,680
+window
+
+137
+00:06:05,520 --> 00:06:09,919
+this command because i move image file
+
+138
+00:06:07,680 --> 00:06:10,720
+so that's a command i wrote in emacs
+
+139
+00:06:09,919 --> 00:06:14,479
+list
+
+140
+00:06:10,720 --> 00:06:17,199
+so let's uh let's so okay but anyway i
+
+141
+00:06:14,479 --> 00:06:20,880
+don't want this picture okay so deleted
+
+142
+00:06:17,199 --> 00:06:23,919
+open delete the file delete it
+
+143
+00:06:20,880 --> 00:06:27,360
+delete delete delete delete
+
+144
+00:06:23,919 --> 00:06:29,039
+show in browser it's gone okay so
+
+145
+00:06:27,360 --> 00:06:31,199
+now i want to show you the command so
+
+146
+00:06:29,039 --> 00:06:33,840
+this command is this one okay so
+
+147
+00:06:31,199 --> 00:06:36,400
+let's look at the source code source
+
+148
+00:06:33,840 --> 00:06:39,680
+code of this command okay
+
+149
+00:06:36,400 --> 00:06:41,919
+magnify so describe function
+
+150
+00:06:39,680 --> 00:06:42,880
+okay describe function paste the
+
+151
+00:06:41,919 --> 00:06:46,080
+function name
+
+152
+00:06:42,880 --> 00:06:49,120
+there is the function okay uh
+
+153
+00:06:46,080 --> 00:06:51,759
+sum of image file to the name move image
+
+154
+00:06:49,120 --> 00:06:54,720
+to another directory blah blah blah
+
+155
+00:06:51,759 --> 00:06:55,520
+uh it will automatically search several
+
+156
+00:06:54,720 --> 00:06:58,240
+directories
+
+157
+00:06:55,520 --> 00:06:59,440
+it will search in this list of
+
+158
+00:06:58,240 --> 00:07:03,039
+directories
+
+159
+00:06:59,440 --> 00:07:04,639
+uh and we'll try to match file name by
+
+160
+00:07:03,039 --> 00:07:08,400
+this regular expression
+
+161
+00:07:04,639 --> 00:07:09,280
+so emacs is going to go through those
+
+162
+00:07:08,400 --> 00:07:11,120
+directories
+
+163
+00:07:09,280 --> 00:07:13,680
+and try to find the match if it's a
+
+164
+00:07:11,120 --> 00:07:15,360
+match it will move it
+
+165
+00:07:13,680 --> 00:07:18,080
+but let's look at the source code okay
+
+166
+00:07:15,360 --> 00:07:22,560
+so let's look at the source code
+
+167
+00:07:18,080 --> 00:07:25,840
+open the source code there it is
+
+168
+00:07:22,560 --> 00:07:29,199
+here is the code
+
+169
+00:07:25,840 --> 00:07:32,960
+okay 100 lines okay basically
+
+170
+00:07:29,199 --> 00:07:36,000
+so i need to now go to the
+
+171
+00:07:32,960 --> 00:07:36,800
+now i have a website for this code open
+
+172
+00:07:36,000 --> 00:07:40,080
+it
+
+173
+00:07:36,800 --> 00:07:40,400
+here's the file open in browser there it
+
+174
+00:07:40,080 --> 00:07:43,120
+is
+
+175
+00:07:40,400 --> 00:07:45,840
+move image file so you can you know it's
+
+176
+00:07:43,120 --> 00:07:45,840
+on my website
+
+177
+00:07:45,919 --> 00:07:52,160
+but however i have
+
+178
+00:07:48,960 --> 00:07:54,560
+updated this code so you see before
+
+179
+00:07:52,160 --> 00:07:56,400
+all these directories are hard coded you
+
+180
+00:07:54,560 --> 00:07:57,520
+know pictures directory downloads
+
+181
+00:07:56,400 --> 00:08:00,000
+directory
+
+182
+00:07:57,520 --> 00:08:01,919
+desktop directory document directory and
+
+183
+00:08:00,000 --> 00:08:05,280
+temp directory and home directory
+
+184
+00:08:01,919 --> 00:08:07,440
+those are hard coded in here and also
+
+185
+00:08:05,280 --> 00:08:09,680
+the regular expression to match the file
+
+186
+00:08:07,440 --> 00:08:12,960
+name is also hard coded you can see
+
+187
+00:08:09,680 --> 00:08:15,599
+it's here but however i have changed
+
+188
+00:08:12,960 --> 00:08:16,319
+you know i have updated the code so it's
+
+189
+00:08:15,599 --> 00:08:19,919
+so
+
+190
+00:08:16,319 --> 00:08:20,800
+so so the directory list and the regular
+
+191
+00:08:19,919 --> 00:08:24,240
+expression
+
+192
+00:08:20,800 --> 00:08:27,599
+list are now custom customizable
+
+193
+00:08:24,240 --> 00:08:29,520
+variables okay so you can see close that
+
+194
+00:08:27,599 --> 00:08:32,479
+so you can see let me show you okay so
+
+195
+00:08:29,520 --> 00:08:32,479
+here is the
+
+196
+00:08:32,959 --> 00:08:36,080
+define var some move image file from
+
+197
+00:08:35,519 --> 00:08:38,080
+does
+
+198
+00:08:36,080 --> 00:08:39,440
+you know so here's a list of directories
+
+199
+00:08:38,080 --> 00:08:43,120
+you can customize
+
+200
+00:08:39,440 --> 00:08:46,000
+for your own needs and here is a list of
+
+201
+00:08:43,120 --> 00:08:47,839
+image regular expression file patterns
+
+202
+00:08:46,000 --> 00:08:49,920
+for example anything that's named
+
+203
+00:08:47,839 --> 00:08:51,760
+screenshot
+
+204
+00:08:49,920 --> 00:08:53,040
+or you know different operating systems
+
+205
+00:08:51,760 --> 00:08:56,080
+they have different
+
+206
+00:08:53,040 --> 00:08:56,480
+default naming for the screenshot and
+
+207
+00:08:56,080 --> 00:08:59,600
+this
+
+208
+00:08:56,480 --> 00:09:04,640
+regular expression is for example amazon
+
+209
+00:08:59,600 --> 00:09:08,800
+files and and any file starting with
+
+210
+00:09:04,640 --> 00:09:11,279
+characters tt also move it so
+
+211
+00:09:08,800 --> 00:09:12,640
+for example if i want to do a screenshot
+
+212
+00:09:11,279 --> 00:09:16,080
+of anything
+
+213
+00:09:12,640 --> 00:09:18,320
+for example this one any anyway i
+
+214
+00:09:16,080 --> 00:09:20,000
+i don't want to i don't need to uh demo
+
+215
+00:09:18,320 --> 00:09:23,519
+i already did
+
+216
+00:09:20,000 --> 00:09:25,760
+hello xetron crazy where is what
+
+217
+00:09:23,519 --> 00:09:27,440
+okay so let me show you so so what i
+
+218
+00:09:25,760 --> 00:09:29,120
+need to do is to update so
+
+219
+00:09:27,440 --> 00:09:31,440
+let's show the pink window so you are
+
+220
+00:09:29,120 --> 00:09:35,200
+looking at my workflow so
+
+221
+00:09:31,440 --> 00:09:38,640
+copy copy uh wait starting from here
+
+222
+00:09:35,200 --> 00:09:41,680
+select them select them select them
+
+223
+00:09:38,640 --> 00:09:43,519
+select them copy now we go
+
+224
+00:09:41,680 --> 00:09:44,800
+i copy the whole thing now i want to
+
+225
+00:09:43,519 --> 00:09:48,720
+open the
+
+226
+00:09:44,800 --> 00:09:50,160
+um the file that contains the source
+
+227
+00:09:48,720 --> 00:09:52,880
+code of this
+
+228
+00:09:50,160 --> 00:09:54,240
+you know on my blog so this is a file i
+
+229
+00:09:52,880 --> 00:09:56,800
+need to delete this
+
+230
+00:09:54,240 --> 00:09:57,440
+and replace them with the new code okay
+
+231
+00:09:56,800 --> 00:10:02,079
+so
+
+232
+00:09:57,440 --> 00:10:05,600
+go here so we can press a button
+
+233
+00:10:02,079 --> 00:10:08,000
+okay now you see the source code now is
+
+234
+00:10:05,600 --> 00:10:11,279
+moved into a
+
+235
+00:10:08,000 --> 00:10:14,000
+a buffer by itself here you see
+
+236
+00:10:11,279 --> 00:10:16,839
+now if i refresh the browser it's empty
+
+237
+00:10:14,000 --> 00:10:19,279
+so now i just go to the
+
+238
+00:10:16,839 --> 00:10:22,000
+here and just paste
+
+239
+00:10:19,279 --> 00:10:24,480
+in the new code paste it in i just
+
+240
+00:10:22,000 --> 00:10:27,920
+copied before now showing browser
+
+241
+00:10:24,480 --> 00:10:30,800
+fantastic so you can see here's a
+
+242
+00:10:27,920 --> 00:10:31,120
+directory variable list of directories
+
+243
+00:10:30,800 --> 00:10:33,440
+and
+
+244
+00:10:31,120 --> 00:10:35,120
+here's the regular expression variable
+
+245
+00:10:33,440 --> 00:10:38,399
+and then the main code
+
+246
+00:10:35,120 --> 00:10:40,160
+okay now those are not syntax colored i
+
+247
+00:10:38,399 --> 00:10:42,880
+need to syntax color them
+
+248
+00:10:40,160 --> 00:10:44,399
+press a button done showing browser
+
+249
+00:10:42,880 --> 00:10:47,279
+fantastic
+
+250
+00:10:44,399 --> 00:10:48,240
+now i also need to update the last
+
+251
+00:10:47,279 --> 00:10:51,839
+updated date
+
+252
+00:10:48,240 --> 00:10:55,200
+you see it says 2021 january 15th
+
+253
+00:10:51,839 --> 00:10:59,040
+so what i do i press the button
+
+254
+00:10:55,200 --> 00:11:03,040
+and you can see it's 2021
+
+255
+00:10:59,040 --> 00:11:05,120
+june 5th go to the browser refresh
+
+256
+00:11:03,040 --> 00:11:08,480
+so all the commands i've done you can
+
+257
+00:11:05,120 --> 00:11:11,920
+see you can find them on the pink window
+
+258
+00:11:08,480 --> 00:11:13,920
+for example this one update article
+
+259
+00:11:11,920 --> 00:11:16,079
+timestamp and if you search it you'll
+
+260
+00:11:13,920 --> 00:11:19,519
+find the code
+
+261
+00:11:16,079 --> 00:11:21,040
+i'm using site.tml mod so most of the
+
+262
+00:11:19,519 --> 00:11:24,399
+code is in
+
+263
+00:11:21,040 --> 00:11:27,519
+html mod okay so show in
+
+264
+00:11:24,399 --> 00:11:30,480
+showing browser okay this is
+
+265
+00:11:27,519 --> 00:11:31,519
+explanation what this code does uh we
+
+266
+00:11:30,480 --> 00:11:34,720
+which we i just
+
+267
+00:11:31,519 --> 00:11:35,760
+explained so i'm going to there's one
+
+268
+00:11:34,720 --> 00:11:39,120
+more thing to do
+
+269
+00:11:35,760 --> 00:11:42,079
+so i need to say on my blog
+
+270
+00:11:39,120 --> 00:11:44,240
+that i have updated this code so if you
+
+271
+00:11:42,079 --> 00:11:47,279
+for example go to my web blog
+
+272
+00:11:44,240 --> 00:11:51,200
+i need to add a new entry that says okay
+
+273
+00:11:47,279 --> 00:11:54,959
+okay so copy the file path use the fast
+
+274
+00:11:51,200 --> 00:11:58,639
+open bookmark eb for emacs blog
+
+275
+00:11:54,959 --> 00:12:01,120
+open then go to the section here
+
+276
+00:11:58,639 --> 00:12:02,079
+so here is the section you see in the
+
+277
+00:12:01,120 --> 00:12:05,680
+browser
+
+278
+00:12:02,079 --> 00:12:08,880
+so i go to here add a new section
+
+279
+00:12:05,680 --> 00:12:12,320
+paste the file path linkify
+
+280
+00:12:08,880 --> 00:12:17,120
+it make a paragraph and go back here
+
+281
+00:12:12,320 --> 00:12:21,519
+and say break line break okay
+
+282
+00:12:17,120 --> 00:12:24,639
+updated code okay showing browser
+
+283
+00:12:21,519 --> 00:12:27,440
+there it is click on that fantastic
+
+284
+00:12:24,639 --> 00:12:29,279
+go back now i need to update also the
+
+285
+00:12:27,440 --> 00:12:32,000
+atom
+
+286
+00:12:29,279 --> 00:12:32,480
+the atom file you know the you know the
+
+287
+00:12:32,000 --> 00:12:35,680
+web
+
+288
+00:12:32,480 --> 00:12:38,720
+feed the rss
+
+289
+00:12:35,680 --> 00:12:42,000
+okay so move the cursor here
+
+290
+00:12:38,720 --> 00:12:44,800
+and press three buttons there it is
+
+291
+00:12:42,000 --> 00:12:45,680
+so you got this new entry emac smooth
+
+292
+00:12:44,800 --> 00:12:48,959
+image file
+
+293
+00:12:45,680 --> 00:12:50,800
+updated code okay close it yes
+
+294
+00:12:48,959 --> 00:12:52,639
+showing browser again fantastic we are
+
+295
+00:12:50,800 --> 00:12:56,399
+done we are done with this
+
+296
+00:12:52,639 --> 00:12:58,320
+uh this thing except you know we still
+
+297
+00:12:56,399 --> 00:13:00,880
+have the code
+
+298
+00:12:58,320 --> 00:13:02,639
+uh you know this temp code just delete
+
+299
+00:13:00,880 --> 00:13:05,279
+that file okay
+
+300
+00:13:02,639 --> 00:13:06,160
+so we are done with that any comments no
+
+301
+00:13:05,279 --> 00:13:09,920
+comments okay
+
+302
+00:13:06,160 --> 00:13:13,360
+so then let's move on to the next
+
+303
+00:13:09,920 --> 00:13:16,000
+thing we're gonna do of course i need to
+
+304
+00:13:13,360 --> 00:13:19,040
+sync my browser so press the button
+
+305
+00:13:16,000 --> 00:13:22,399
+launches the powershell the best
+
+306
+00:13:19,040 --> 00:13:24,720
+shell in the universe from microsoft
+
+307
+00:13:22,399 --> 00:13:26,800
+far better than bash and stuff i've
+
+308
+00:13:24,720 --> 00:13:30,000
+talked about i did a video on that
+
+309
+00:13:26,800 --> 00:13:34,639
+and you can go to my powershell tutorial
+
+310
+00:13:30,000 --> 00:13:37,680
+just go to xari powershell
+
+311
+00:13:34,639 --> 00:13:39,040
+powershell tutorial uh yeah i should
+
+312
+00:13:37,680 --> 00:13:42,000
+talk about this they are
+
+313
+00:13:39,040 --> 00:13:44,240
+quite i worked on this for several days
+
+314
+00:13:42,000 --> 00:13:47,040
+so there's quite a lot updates
+
+315
+00:13:44,240 --> 00:13:48,000
+in particular you want to look at this
+
+316
+00:13:47,040 --> 00:13:50,560
+example common
+
+317
+00:13:48,000 --> 00:13:52,959
+examples okay now powershell i talked
+
+318
+00:13:50,560 --> 00:13:53,839
+about before in in my in the past month
+
+319
+00:13:52,959 --> 00:13:57,120
+or two
+
+320
+00:13:53,839 --> 00:13:59,920
+uh is a much better you know
+
+321
+00:13:57,120 --> 00:14:00,720
+shell than all the unix unix shells and
+
+322
+00:13:59,920 --> 00:14:04,160
+two bags
+
+323
+00:14:00,720 --> 00:14:08,160
+bash t-shirt tcsh uh
+
+324
+00:14:04,160 --> 00:14:12,079
+kong xiao and and crap and set oak
+
+325
+00:14:08,160 --> 00:14:13,760
+you know all that find xox you know so
+
+326
+00:14:12,079 --> 00:14:16,720
+anyway powershell examples
+
+327
+00:14:13,760 --> 00:14:17,199
+this page is the is basically what you
+
+328
+00:14:16,720 --> 00:14:20,720
+want
+
+329
+00:14:17,199 --> 00:14:22,880
+uh the most okay uh it
+
+330
+00:14:20,720 --> 00:14:25,120
+gets you start to learning uh create a
+
+331
+00:14:22,880 --> 00:14:25,440
+new file just type in i file name create
+
+332
+00:14:25,120 --> 00:14:27,920
+a
+
+333
+00:14:25,440 --> 00:14:30,000
+new directory make the same as unix
+
+334
+00:14:27,920 --> 00:14:33,360
+actually it's a function
+
+335
+00:14:30,000 --> 00:14:36,399
+anyway so you know uh copy directory
+
+336
+00:14:33,360 --> 00:14:40,160
+uh copy file size and so on and
+
+337
+00:14:36,399 --> 00:14:43,199
+and uh find a command in unix which is
+
+338
+00:14:40,160 --> 00:14:46,560
+which you know which command name in
+
+339
+00:14:43,199 --> 00:14:49,279
+powershell it's get command or gcm
+
+340
+00:14:46,560 --> 00:14:50,079
+and print file cad for example unix card
+
+341
+00:14:49,279 --> 00:14:52,240
+drawing file
+
+342
+00:14:50,079 --> 00:14:53,760
+unzip these files you know find all
+
+343
+00:14:52,240 --> 00:14:57,120
+files that
+
+344
+00:14:53,760 --> 00:15:01,519
+has zero length these empty files
+
+345
+00:14:57,120 --> 00:15:04,480
+list backup emacs backup files list
+
+346
+00:15:01,519 --> 00:15:07,199
+files that's not the directory these
+
+347
+00:15:04,480 --> 00:15:10,800
+files with creation date
+
+348
+00:15:07,199 --> 00:15:13,600
+by the way unix even today linux
+
+349
+00:15:10,800 --> 00:15:14,720
+this is a question you know you ask any
+
+350
+00:15:13,600 --> 00:15:17,040
+of those unix
+
+351
+00:15:14,720 --> 00:15:17,839
+administrators or today called devops
+
+352
+00:15:17,040 --> 00:15:20,079
+you asked them
+
+353
+00:15:17,839 --> 00:15:21,760
+you know they they worked with unix for
+
+354
+00:15:20,079 --> 00:15:24,320
+five years or ten
+
+355
+00:15:21,760 --> 00:15:26,560
+you asked them how do you get the file
+
+356
+00:15:24,320 --> 00:15:28,399
+creation date
+
+357
+00:15:26,560 --> 00:15:29,600
+you know they don't know they will say
+
+358
+00:15:28,399 --> 00:15:32,240
+oh do it this way
+
+359
+00:15:29,600 --> 00:15:33,920
+if you know something dash c in fact
+
+360
+00:15:32,240 --> 00:15:37,440
+that's wrong
+
+361
+00:15:33,920 --> 00:15:39,519
+in unix including linux file creation
+
+362
+00:15:37,440 --> 00:15:41,519
+date is never recorded okay
+
+363
+00:15:39,519 --> 00:15:42,560
+that's a that's one of the eunuchs
+
+364
+00:15:41,519 --> 00:15:45,040
+pestilence
+
+365
+00:15:42,560 --> 00:15:46,880
+uh all the unix idiots they don't know
+
+366
+00:15:45,040 --> 00:15:49,680
+they think they know but they are wrong
+
+367
+00:15:46,880 --> 00:15:50,079
+you know try to ask you know ask of the
+
+368
+00:15:49,680 --> 00:15:52,160
+some
+
+369
+00:15:50,079 --> 00:15:54,399
+linux you know expert you think you know
+
+370
+00:15:52,160 --> 00:15:57,040
+maybe you think you are
+
+371
+00:15:54,399 --> 00:15:58,399
+how do you get the file creation date
+
+372
+00:15:57,040 --> 00:16:01,920
+okay it doesn't exist
+
+373
+00:15:58,399 --> 00:16:08,240
+it doesn't work it's not the dash
+
+374
+00:16:01,920 --> 00:16:11,519
+c okay
+
+375
+00:16:08,240 --> 00:16:14,000
+today okay so back so
+
+376
+00:16:11,519 --> 00:16:15,839
+so powershell fantastic okay so here is
+
+377
+00:16:14,000 --> 00:16:18,720
+a you know a bunch of examples
+
+378
+00:16:15,839 --> 00:16:19,920
+then there's more detail i cover how to
+
+379
+00:16:18,720 --> 00:16:22,880
+use powershell to
+
+380
+00:16:19,920 --> 00:16:24,399
+uh manipulate environment variables and
+
+381
+00:16:22,880 --> 00:16:27,040
+also by the way powershell is
+
+382
+00:16:24,399 --> 00:16:30,399
+cross-platform you know microsoft now it
+
+383
+00:16:27,040 --> 00:16:33,839
+is becoming the biggest giant
+
+384
+00:16:30,399 --> 00:16:36,880
+the biggest open source corporation
+
+385
+00:16:33,839 --> 00:16:39,120
+in the world you can measure it by
+
+386
+00:16:36,880 --> 00:16:40,800
+counting lines of code open source lines
+
+387
+00:16:39,120 --> 00:16:42,959
+of code or counting the github
+
+388
+00:16:40,800 --> 00:16:44,000
+repositories or project numbers by
+
+389
+00:16:42,959 --> 00:16:47,680
+microsoft that's a
+
+390
+00:16:44,000 --> 00:16:50,720
+microsoft is not the biggest open source
+
+391
+00:16:47,680 --> 00:16:51,360
+corporation and okay so i was going to
+
+392
+00:16:50,720 --> 00:16:54,000
+say the
+
+393
+00:16:51,360 --> 00:16:55,920
+net you know microsoft invented.net
+
+394
+00:16:54,000 --> 00:16:58,160
+which is a systematic
+
+395
+00:16:55,920 --> 00:17:00,160
+uh programming language environment they
+
+396
+00:16:58,160 --> 00:17:03,120
+invented that back in 2002
+
+397
+00:17:00,160 --> 00:17:04,959
+okay around 2002 and it's windows only
+
+398
+00:17:03,120 --> 00:17:08,240
+but starting about three or
+
+399
+00:17:04,959 --> 00:17:11,120
+four about five years ago okay they
+
+400
+00:17:08,240 --> 00:17:11,720
+moved everything now.net is now open
+
+401
+00:17:11,120 --> 00:17:15,679
+source
+
+402
+00:17:11,720 --> 00:17:18,000
+entire.net is open source so c plus plus
+
+403
+00:17:15,679 --> 00:17:19,600
+and f sharp you know f-sharp is a
+
+404
+00:17:18,000 --> 00:17:22,079
+functional programming language
+
+405
+00:17:19,600 --> 00:17:23,839
+comparable to haskell i would say even
+
+406
+00:17:22,079 --> 00:17:27,520
+more powerful than haskell
+
+407
+00:17:23,839 --> 00:17:30,720
+f-sharp which is a borrowed from ocamo
+
+408
+00:17:27,520 --> 00:17:34,799
+which is the lineage of meta language
+
+409
+00:17:30,720 --> 00:17:35,200
+ml okay so okay so let me show you my
+
+410
+00:17:34,799 --> 00:17:37,679
+face
+
+411
+00:17:35,200 --> 00:17:38,480
+since i'm talking so how many people are
+
+412
+00:17:37,679 --> 00:17:41,840
+watching
+
+413
+00:17:38,480 --> 00:17:45,120
+six miss v6 okay so let me
+
+414
+00:17:41,840 --> 00:17:45,120
+let me let me um
+
+415
+00:17:45,600 --> 00:17:49,840
+okay so we talked random powershell
+
+416
+00:17:50,480 --> 00:17:56,400
+let's see so this so i'm using this
+
+417
+00:17:54,400 --> 00:17:59,679
+mouse currently this is my
+
+418
+00:17:56,400 --> 00:18:03,320
+eye patch this mouse um and
+
+419
+00:17:59,679 --> 00:18:06,480
+you see the spin wheel is fantastic
+
+420
+00:18:03,320 --> 00:18:09,840
+spins you know why is it fantastic
+
+421
+00:18:06,480 --> 00:18:10,480
+you go to you go to for example you go
+
+422
+00:18:09,840 --> 00:18:13,520
+to
+
+423
+00:18:10,480 --> 00:18:16,080
+uh you go to one of my blog that has
+
+424
+00:18:13,520 --> 00:18:16,799
+lots of pages then now look at look at
+
+425
+00:18:16,080 --> 00:18:20,320
+the spin
+
+426
+00:18:16,799 --> 00:18:22,240
+spin okay this this is not long enough
+
+427
+00:18:20,320 --> 00:18:25,919
+you know if you are on twitter you know
+
+428
+00:18:22,240 --> 00:18:25,919
+for example twitter just spin
+
+429
+00:18:26,799 --> 00:18:30,880
+okay let's go to a math okay let's go to
+
+430
+00:18:29,679 --> 00:18:33,919
+profile
+
+431
+00:18:30,880 --> 00:18:36,960
+uh lists now i made my lists
+
+432
+00:18:33,919 --> 00:18:39,919
+private okay so let's go to math
+
+433
+00:18:36,960 --> 00:18:41,520
+so here's a my private math list so you
+
+434
+00:18:39,919 --> 00:18:44,400
+can just spin
+
+435
+00:18:41,520 --> 00:18:45,360
+and trader is gonna this is uh infinite
+
+436
+00:18:44,400 --> 00:18:47,760
+load
+
+437
+00:18:45,360 --> 00:18:47,760
+spin
+
+438
+00:18:49,039 --> 00:18:52,240
+you know so spinny mouse is what you
+
+439
+00:18:51,200 --> 00:18:57,840
+need
+
+440
+00:18:52,240 --> 00:18:57,840
+okay now let's go back let's um
+
+441
+00:19:06,559 --> 00:19:13,679
+yeah i still need a
+
+442
+00:19:10,160 --> 00:19:18,400
+camera holder i need a proper one
+
+443
+00:19:13,679 --> 00:19:23,039
+and i need a camera as well probably
+
+444
+00:19:18,400 --> 00:19:24,400
+okay so spinny mouse is fantastic okay
+
+445
+00:19:23,039 --> 00:19:27,679
+and you should buy let me show you
+
+446
+00:19:24,400 --> 00:19:27,679
+actually there's another one
+
+447
+00:19:32,400 --> 00:19:37,280
+this one is wireless okay also a
+
+448
+00:19:35,520 --> 00:19:40,960
+spinning mouse okay
+
+449
+00:19:37,280 --> 00:19:43,440
+so you see you see
+
+450
+00:19:40,960 --> 00:19:46,320
+it can spin for like 30 seconds
+
+451
+00:19:43,440 --> 00:19:53,840
+fantastic if you spin it fast
+
+452
+00:19:46,320 --> 00:19:53,840
+30 seconds
+
+453
+00:20:01,840 --> 00:20:07,840
+okay what's uh so let me go on to the
+
+454
+00:20:04,320 --> 00:20:07,840
+next topic
+
+455
+00:20:09,600 --> 00:20:14,559
+seamus yes indeed stream mouse you know
+
+456
+00:20:13,280 --> 00:20:17,039
+so so look at
+
+457
+00:20:14,559 --> 00:20:18,880
+you so i have reviews here let me let me
+
+458
+00:20:17,039 --> 00:20:22,960
+show you let me talk about the mouse
+
+459
+00:20:18,880 --> 00:20:26,000
+the mouse is okay so you go mouse here
+
+460
+00:20:22,960 --> 00:20:35,840
+and here is a spin mouse and there's a
+
+461
+00:20:26,000 --> 00:20:35,840
+video i recorded you can watch it
+
+462
+00:20:43,039 --> 00:20:46,720
+okay it's gonna spin for like 20 30
+
+463
+00:20:45,440 --> 00:20:50,320
+seconds
+
+464
+00:20:46,720 --> 00:20:52,480
+uh and uh yeah so about mouse you know
+
+465
+00:20:50,320 --> 00:20:54,559
+so i have so right now i'm using this
+
+466
+00:20:52,480 --> 00:20:56,799
+one fantastic
+
+467
+00:20:54,559 --> 00:20:59,039
+uh one of you know but it doesn't have
+
+468
+00:20:56,799 --> 00:21:02,240
+that many buttons okay there's
+
+469
+00:20:59,039 --> 00:21:03,120
+like two one two three four five kind of
+
+470
+00:21:02,240 --> 00:21:05,120
+five extra
+
+471
+00:21:03,120 --> 00:21:06,240
+buttons on the side but that that's not
+
+472
+00:21:05,120 --> 00:21:08,960
+enough actually
+
+473
+00:21:06,240 --> 00:21:10,960
+so why is it not enough uh i have
+
+474
+00:21:08,960 --> 00:21:11,440
+reasons okay i have lots of articles
+
+475
+00:21:10,960 --> 00:21:14,840
+about
+
+476
+00:21:11,440 --> 00:21:18,640
+why why you need
+
+477
+00:21:14,840 --> 00:21:20,400
+um why you need 10 button mouse okay
+
+478
+00:21:18,640 --> 00:21:22,240
+it's all detailed here
+
+479
+00:21:20,400 --> 00:21:23,520
+but anyway so that's one of the mouse
+
+480
+00:21:22,240 --> 00:21:26,559
+and here's the other
+
+481
+00:21:23,520 --> 00:21:28,960
+mouse i just showed you now which one is
+
+482
+00:21:26,559 --> 00:21:33,039
+better now this one is wireless okay uh
+
+483
+00:21:28,960 --> 00:21:36,400
+actually so let's go back to mouse okay
+
+484
+00:21:33,039 --> 00:21:37,039
+so both of these both of these this one
+
+485
+00:21:36,400 --> 00:21:40,960
+also
+
+486
+00:21:37,039 --> 00:21:43,360
+has a wireless version um
+
+487
+00:21:40,960 --> 00:21:44,320
+so which one is better well this one is
+
+488
+00:21:43,360 --> 00:21:46,000
+got you know
+
+489
+00:21:44,320 --> 00:21:47,600
+much more buttons one two three four
+
+490
+00:21:46,000 --> 00:21:50,080
+five six seven eight eight
+
+491
+00:21:47,600 --> 00:21:52,240
+on the side on the other hand this one
+
+492
+00:21:50,080 --> 00:21:52,640
+is only only one uh one two three four
+
+493
+00:21:52,240 --> 00:21:56,720
+five
+
+494
+00:21:52,640 --> 00:21:59,919
+so three more here um
+
+495
+00:21:56,720 --> 00:22:01,919
+they are slightly you know they
+
+496
+00:21:59,919 --> 00:22:03,280
+i would say either one is good okay
+
+497
+00:22:01,919 --> 00:22:06,480
+either one is good
+
+498
+00:22:03,280 --> 00:22:07,280
+uh this one the wireless one the main
+
+499
+00:22:06,480 --> 00:22:10,720
+buttons
+
+500
+00:22:07,280 --> 00:22:12,720
+are quieter okay so these
+
+501
+00:22:10,720 --> 00:22:14,320
+two buttons are the left and right
+
+502
+00:22:12,720 --> 00:22:17,120
+buttons are quieter
+
+503
+00:22:14,320 --> 00:22:17,520
+but however the mouse is more scooped
+
+504
+00:22:17,120 --> 00:22:20,559
+down
+
+505
+00:22:17,520 --> 00:22:23,679
+so can i show you
+
+506
+00:22:20,559 --> 00:22:26,559
+so if i can show you
+
+507
+00:22:23,679 --> 00:22:27,520
+yeah okay so let me let me show you the
+
+508
+00:22:26,559 --> 00:22:29,840
+mouse
+
+509
+00:22:27,520 --> 00:22:31,200
+since i'm talking about the mouse let's
+
+510
+00:22:29,840 --> 00:22:34,799
+see
+
+511
+00:22:31,200 --> 00:22:34,799
+let's see if i can do
+
+512
+00:22:37,039 --> 00:22:41,840
+okay so you can see now
+
+513
+00:22:50,400 --> 00:22:56,480
+so the buttons here it's
+
+514
+00:22:53,440 --> 00:23:00,000
+more like scooped down downwards
+
+515
+00:22:56,480 --> 00:23:03,360
+and this one is flatter okay so this
+
+516
+00:23:00,000 --> 00:23:04,960
+as far as the the slope goes this one is
+
+517
+00:23:03,360 --> 00:23:06,880
+better this one
+
+518
+00:23:04,960 --> 00:23:08,080
+because when you press it it's kind of
+
+519
+00:23:06,880 --> 00:23:11,200
+flat okay
+
+520
+00:23:08,080 --> 00:23:12,480
+so you can just press it like and this
+
+521
+00:23:11,200 --> 00:23:14,400
+one
+
+522
+00:23:12,480 --> 00:23:17,200
+your fingers have to curve down a little
+
+523
+00:23:14,400 --> 00:23:20,320
+bit but but however this
+
+524
+00:23:17,200 --> 00:23:22,240
+the buttons here on this one is quieter
+
+525
+00:23:20,320 --> 00:23:24,400
+i don't know if you can hear it let me
+
+526
+00:23:22,240 --> 00:23:26,960
+try okay it's not turned on
+
+527
+00:23:24,400 --> 00:23:26,960
+turn it on
+
+528
+00:23:27,919 --> 00:23:37,120
+now where's my okay i need to switch
+
+529
+00:23:32,000 --> 00:23:40,559
+so it's both bluetooth and also uh
+
+530
+00:23:37,120 --> 00:23:44,480
+bluetooth and also uh usb
+
+531
+00:23:40,559 --> 00:23:47,440
+wireless so now it's on so you can see
+
+532
+00:23:44,480 --> 00:23:47,440
+okay so now
+
+533
+00:23:47,520 --> 00:23:51,279
+uh so what what so the but yeah the
+
+534
+00:23:50,720 --> 00:23:54,880
+button
+
+535
+00:23:51,279 --> 00:23:54,880
+you can let's see if you can hear it
+
+536
+00:24:01,520 --> 00:24:07,120
+see this one is a bit louder but however
+
+537
+00:24:04,960 --> 00:24:07,919
+the side buttons you know it's got six
+
+538
+00:24:07,120 --> 00:24:12,960
+here
+
+539
+00:24:07,919 --> 00:24:15,679
+and it's got just one two three here
+
+540
+00:24:12,960 --> 00:24:16,400
+uh the side buttons this one is easier
+
+541
+00:24:15,679 --> 00:24:19,440
+to press
+
+542
+00:24:16,400 --> 00:24:21,840
+this one is a bit harder to press so
+
+543
+00:24:19,440 --> 00:24:24,000
+for the buttons i actually kind of
+
+544
+00:24:21,840 --> 00:24:33,840
+prefer these
+
+545
+00:24:24,000 --> 00:24:33,840
+okay that's that's about that
+
+546
+00:24:37,679 --> 00:24:42,720
+okay so let's now put the camera back
+
+547
+00:24:43,120 --> 00:24:48,240
+and let me turn off my alarm clock on
+
+548
+00:24:46,000 --> 00:24:48,240
+the
+
+549
+00:24:49,279 --> 00:25:01,840
+this thing alarm clock is going
+
+550
+00:25:04,720 --> 00:25:08,640
+uh what's your opinion on the new mi
+
+551
+00:25:07,600 --> 00:25:13,039
+apple chips
+
+552
+00:25:08,640 --> 00:25:15,360
+and uh is on the future i think so
+
+553
+00:25:13,039 --> 00:25:16,480
+you know because you know i i don't know
+
+554
+00:25:15,360 --> 00:25:20,720
+much about
+
+555
+00:25:16,480 --> 00:25:22,159
+cpus but however i have looked
+
+556
+00:25:20,720 --> 00:25:24,080
+hold on a second let me turn off the
+
+557
+00:25:22,159 --> 00:25:27,200
+mouse and i have to
+
+558
+00:25:24,080 --> 00:25:30,000
+i i have looked you know so so there's a
+
+559
+00:25:27,200 --> 00:25:31,840
+lot of youtube reviews of the m1 chip
+
+560
+00:25:30,000 --> 00:25:33,600
+and let me show you which video i
+
+561
+00:25:31,840 --> 00:25:37,919
+watched it's truly
+
+562
+00:25:33,600 --> 00:25:37,919
+fantastic apple okay um
+
+563
+00:25:39,360 --> 00:25:43,440
+so let me show you which review you know
+
+564
+00:25:42,559 --> 00:25:46,640
+this guy is
+
+565
+00:25:43,440 --> 00:25:49,760
+uh very popular but let me show you
+
+566
+00:25:46,640 --> 00:25:52,880
+the one i watched okay now this this
+
+567
+00:25:49,760 --> 00:25:56,240
+guy is a chipmunk you know this
+
+568
+00:25:52,880 --> 00:25:56,240
+this guy didn't lean us
+
+569
+00:25:56,320 --> 00:25:59,760
+review he is the classic millennial
+
+570
+00:25:58,559 --> 00:26:02,799
+generation gamer
+
+571
+00:25:59,760 --> 00:26:05,440
+idiot you will be really good at
+
+572
+00:26:02,799 --> 00:26:05,840
+petty petty and small and you know and
+
+573
+00:26:05,440 --> 00:26:08,400
+and
+
+574
+00:26:05,840 --> 00:26:09,679
+he needs to talk fast and he needs to
+
+575
+00:26:08,400 --> 00:26:12,960
+use jargons
+
+576
+00:26:09,679 --> 00:26:12,960
+to to kind of like
+
+577
+00:26:18,080 --> 00:26:23,840
+one annoying chipmunk
+
+578
+00:26:21,520 --> 00:26:24,799
+okay so but i want to show you the one
+
+579
+00:26:23,840 --> 00:26:28,400
+the video
+
+580
+00:26:24,799 --> 00:26:29,840
+that i liked okay not not this idiot
+
+581
+00:26:28,400 --> 00:26:31,840
+look at look at this millennial
+
+582
+00:26:29,840 --> 00:26:33,279
+generation these reviewers you know what
+
+583
+00:26:31,840 --> 00:26:35,279
+why are they doing review
+
+584
+00:26:33,279 --> 00:26:36,480
+you might be wondering why are so many
+
+585
+00:26:35,279 --> 00:26:38,960
+people like doing in
+
+586
+00:26:36,480 --> 00:26:40,080
+in these face is all over the place
+
+587
+00:26:38,960 --> 00:26:43,279
+you know look look
+
+588
+00:26:40,080 --> 00:26:45,919
+oh it's so you know he's funny
+
+589
+00:26:43,279 --> 00:26:47,039
+he's gonna put the you know faces the
+
+590
+00:26:45,919 --> 00:26:48,400
+ idiots
+
+591
+00:26:47,039 --> 00:26:50,720
+these these are the millennial
+
+592
+00:26:48,400 --> 00:26:51,520
+generations and why are there so many do
+
+593
+00:26:50,720 --> 00:26:53,440
+you know why
+
+594
+00:26:51,520 --> 00:26:56,400
+because money you know google youtube
+
+595
+00:26:53,440 --> 00:26:59,840
+they you know these ads
+
+596
+00:26:56,400 --> 00:27:02,080
+uh ads makes the world go around okay
+
+597
+00:26:59,840 --> 00:27:03,919
+so anyway i want to find i want to show
+
+598
+00:27:02,080 --> 00:27:06,799
+you the one i watched
+
+599
+00:27:03,919 --> 00:27:08,320
+uh so the m1 chip the apple m1 chip is
+
+600
+00:27:06,799 --> 00:27:11,840
+truly amazing
+
+601
+00:27:08,320 --> 00:27:11,840
+you know i i'm you know i
+
+602
+00:27:11,919 --> 00:27:15,600
+okay i uh there's a lot of history you
+
+603
+00:27:14,000 --> 00:27:18,080
+know i used to be a mac
+
+604
+00:27:15,600 --> 00:27:19,279
+fan you know because my first mac is
+
+605
+00:27:18,080 --> 00:27:22,640
+1992.
+
+606
+00:27:19,279 --> 00:27:26,240
+i started to use mac since 1991
+
+607
+00:27:22,640 --> 00:27:27,760
+okay my well in 1990 you know i'm using
+
+608
+00:27:26,240 --> 00:27:30,960
+someone else's computer so
+
+609
+00:27:27,760 --> 00:27:32,720
+that's a ps2 ibm which is a high quality
+
+610
+00:27:30,960 --> 00:27:35,919
+computer but anyway my first
+
+611
+00:27:32,720 --> 00:27:39,679
+my the mac i bought myself mac 2si
+
+612
+00:27:35,919 --> 00:27:41,840
+is uh beginning 1992 and since then
+
+613
+00:27:39,679 --> 00:27:43,600
+almost every every every few years i
+
+614
+00:27:41,840 --> 00:27:47,039
+have a new mac
+
+615
+00:27:43,600 --> 00:27:47,600
+up to until 2000 anyway i stopped using
+
+616
+00:27:47,039 --> 00:27:49,919
+mac
+
+617
+00:27:47,600 --> 00:27:50,799
+in 2009 i talked about that before
+
+618
+00:27:49,919 --> 00:27:53,919
+anyway
+
+619
+00:27:50,799 --> 00:27:56,799
+so i'm going to say i was going to say
+
+620
+00:27:53,919 --> 00:27:59,440
+uh the mac the mi chip is truly
+
+621
+00:27:56,799 --> 00:28:03,679
+fantastic okay
+
+622
+00:27:59,440 --> 00:28:06,880
+uh so let me let me show you the
+
+623
+00:28:03,679 --> 00:28:08,000
+code fusion okay this this is the one i
+
+624
+00:28:06,880 --> 00:28:10,559
+watched
+
+625
+00:28:08,000 --> 00:28:13,679
+code fusion okay uh watch you know you
+
+626
+00:28:10,559 --> 00:28:13,679
+might check out this guy
+
+627
+00:28:14,159 --> 00:28:17,520
+now code fusion he's an interesting guy
+
+628
+00:28:16,320 --> 00:28:21,360
+okay so
+
+629
+00:28:17,520 --> 00:28:22,559
+he has a like not just one he has a few
+
+630
+00:28:21,360 --> 00:28:25,520
+let me hold on second
+
+631
+00:28:22,559 --> 00:28:27,679
+i i need i want i need to put on my eye
+
+632
+00:28:25,520 --> 00:28:31,039
+patch
+
+633
+00:28:27,679 --> 00:28:34,080
+because i have a little bit cross eye so
+
+634
+00:28:31,039 --> 00:28:37,200
+anyway you watch it so anyway the
+
+635
+00:28:34,080 --> 00:28:40,320
+bottom line is m1 chip is truly amazing
+
+636
+00:28:37,200 --> 00:28:42,399
+and i also learned the intel is a scum
+
+637
+00:28:40,320 --> 00:28:43,679
+okay intel you know the intel chip
+
+638
+00:28:42,399 --> 00:28:47,039
+inside is just gone
+
+639
+00:28:43,679 --> 00:28:49,760
+they produce very bad cpu but
+
+640
+00:28:47,039 --> 00:28:50,960
+they use their power to you know to push
+
+641
+00:28:49,760 --> 00:28:53,919
+so everyone thinks
+
+642
+00:28:50,960 --> 00:28:54,880
+intel is the you know best not really so
+
+643
+00:28:53,919 --> 00:28:57,760
+today
+
+644
+00:28:54,880 --> 00:29:00,000
+you probably want to buy amd okay amd is
+
+645
+00:28:57,760 --> 00:29:02,080
+much better
+
+646
+00:29:00,000 --> 00:29:03,760
+just don't don't don't buy intel and
+
+647
+00:29:02,080 --> 00:29:07,440
+then you have the bleeding
+
+648
+00:29:03,760 --> 00:29:10,480
+heart you know that that that that
+
+649
+00:29:07,440 --> 00:29:13,679
+that eunuchs and see idiots
+
+650
+00:29:10,480 --> 00:29:16,480
+they created that problem unix
+
+651
+00:29:13,679 --> 00:29:17,039
+unix philosophy and c and c plus plus
+
+652
+00:29:16,480 --> 00:29:20,000
+those
+
+653
+00:29:17,039 --> 00:29:22,240
+those those type of people and trust
+
+654
+00:29:20,000 --> 00:29:24,840
+they created that problem
+
+655
+00:29:22,240 --> 00:29:26,559
+uh you know you know what i'm talking
+
+656
+00:29:24,840 --> 00:29:29,039
+about so
+
+657
+00:29:26,559 --> 00:29:30,240
+guys who is watching say something okay
+
+658
+00:29:29,039 --> 00:29:33,440
+answer
+
+659
+00:29:30,240 --> 00:29:37,360
+seven people okay bleeding
+
+660
+00:29:33,440 --> 00:29:41,200
+uh bleeding what's the problem bleeding
+
+661
+00:29:37,360 --> 00:29:42,360
+bug cpu i forgot what's the name
+
+662
+00:29:41,200 --> 00:29:44,240
+heart bleed okay
+
+663
+00:29:42,360 --> 00:29:46,799
+[Laughter]
+
+664
+00:29:44,240 --> 00:29:46,799
+i'll bleed
+
+665
+00:29:48,240 --> 00:29:54,720
+okay let me finish uh so hard lick
+
+666
+00:29:51,360 --> 00:29:57,840
+bleed is one of the major uh
+
+667
+00:29:54,720 --> 00:30:00,159
+design bug in cpu
+
+668
+00:29:57,840 --> 00:30:02,000
+okay and why does that design work
+
+669
+00:30:00,159 --> 00:30:05,200
+happens because
+
+670
+00:30:02,000 --> 00:30:07,679
+because the c idiot the c programmers
+
+671
+00:30:05,200 --> 00:30:08,480
+you know and uh those people who love
+
+672
+00:30:07,679 --> 00:30:11,200
+rust
+
+673
+00:30:08,480 --> 00:30:12,960
+a lot of my uh people who watch me okay
+
+674
+00:30:11,200 --> 00:30:13,720
+let me show you my one of my article
+
+675
+00:30:12,960 --> 00:30:17,120
+okay
+
+676
+00:30:13,720 --> 00:30:19,679
+saudi.info now this okay
+
+677
+00:30:17,120 --> 00:30:22,240
+uh okay let me let me talk about that
+
+678
+00:30:19,679 --> 00:30:24,559
+programming okay programming
+
+679
+00:30:22,240 --> 00:30:26,480
+so by the way recently i did it i did a
+
+680
+00:30:24,559 --> 00:30:30,720
+new design of my home page
+
+681
+00:30:26,480 --> 00:30:33,840
+so now most of my articles can be found
+
+682
+00:30:30,720 --> 00:30:37,840
+directly on the you know home page
+
+683
+00:30:33,840 --> 00:30:37,840
+so let's go to
+
+684
+00:30:38,320 --> 00:30:41,039
+let's go to
+
+685
+00:30:42,320 --> 00:30:49,520
+syntax soup this complement pervin
+
+686
+00:30:45,840 --> 00:30:50,000
+semantic noodle let's go to semantic
+
+687
+00:30:49,520 --> 00:30:53,120
+noodle
+
+688
+00:30:50,000 --> 00:30:54,960
+okay so this is a collection of essays
+
+689
+00:30:53,120 --> 00:30:58,080
+related to programming language
+
+690
+00:30:54,960 --> 00:31:01,200
+design that and related to uh
+
+691
+00:30:58,080 --> 00:31:01,679
+semantics issues not syntactical issues
+
+692
+00:31:01,200 --> 00:31:04,159
+okay
+
+693
+00:31:01,679 --> 00:31:04,880
+let's turn on javascript so you can see
+
+694
+00:31:04,159 --> 00:31:07,120
+my
+
+695
+00:31:04,880 --> 00:31:09,440
+you know my video i talked about before
+
+696
+00:31:07,120 --> 00:31:13,440
+i did a video on that
+
+697
+00:31:09,440 --> 00:31:13,440
+so you want to go to um
+
+698
+00:31:13,760 --> 00:31:21,919
+so i have article this is important
+
+699
+00:31:18,799 --> 00:31:24,000
+uh let's see where uh
+
+700
+00:31:21,919 --> 00:31:25,360
+yeah programming language and their
+
+701
+00:31:24,000 --> 00:31:29,760
+machines okay
+
+702
+00:31:25,360 --> 00:31:30,559
+so you might be this is about if you are
+
+703
+00:31:29,760 --> 00:31:33,919
+interested
+
+704
+00:31:30,559 --> 00:31:36,399
+in programming language design and their
+
+705
+00:31:33,919 --> 00:31:38,960
+relations to the hardware
+
+706
+00:31:36,399 --> 00:31:40,559
+so what so the question is for example
+
+707
+00:31:38,960 --> 00:31:43,919
+what is the relationship
+
+708
+00:31:40,559 --> 00:31:46,640
+between algorithms and and cpu
+
+709
+00:31:43,919 --> 00:31:47,279
+what what is the relationship you know
+
+710
+00:31:46,640 --> 00:31:50,320
+is
+
+711
+00:31:47,279 --> 00:31:51,840
+algorithm you know tell me you know you
+
+712
+00:31:50,320 --> 00:31:53,679
+if you know programming you think you
+
+713
+00:31:51,840 --> 00:31:55,679
+know c or what whatever you think you
+
+714
+00:31:53,679 --> 00:31:56,559
+know unix philosophy you think you know
+
+715
+00:31:55,679 --> 00:31:58,840
+stuff
+
+716
+00:31:56,559 --> 00:32:00,320
+answer the question what is the
+
+717
+00:31:58,840 --> 00:32:03,200
+relationship
+
+718
+00:32:00,320 --> 00:32:04,320
+of algorithms and programming languages
+
+719
+00:32:03,200 --> 00:32:06,559
+and the hardware
+
+720
+00:32:04,320 --> 00:32:07,360
+you know the hardware can be abacus can
+
+721
+00:32:06,559 --> 00:32:10,320
+be a
+
+722
+00:32:07,360 --> 00:32:10,720
+quantum machine quantum computer can be
+
+723
+00:32:10,320 --> 00:32:14,159
+a
+
+724
+00:32:10,720 --> 00:32:16,880
+cpu gpu can be uh you know
+
+725
+00:32:14,159 --> 00:32:18,559
+those are all hardwares so the in the
+
+726
+00:32:16,880 --> 00:32:19,440
+most general sense what what is the
+
+727
+00:32:18,559 --> 00:32:22,080
+relationship
+
+728
+00:32:19,440 --> 00:32:22,799
+try to come up with an answer what's the
+
+729
+00:32:22,080 --> 00:32:25,039
+relationship
+
+730
+00:32:22,799 --> 00:32:26,159
+between a programming language and
+
+731
+00:32:25,039 --> 00:32:29,120
+algorithm
+
+732
+00:32:26,159 --> 00:32:30,399
+and uh hardware okay hardware can also
+
+733
+00:32:29,120 --> 00:32:32,720
+be tuning machine
+
+734
+00:32:30,399 --> 00:32:33,519
+can be uh lambda calculus you know the
+
+735
+00:32:32,720 --> 00:32:37,360
+these are
+
+736
+00:32:33,519 --> 00:32:40,799
+models foundations of uh
+
+737
+00:32:37,360 --> 00:32:41,360
+computation okay so the article i will
+
+738
+00:32:40,799 --> 00:32:44,559
+actually
+
+739
+00:32:41,360 --> 00:32:48,080
+i want to show is um this one okay
+
+740
+00:32:44,559 --> 00:32:50,640
+programming language and its machine
+
+741
+00:32:48,080 --> 00:32:52,159
+okay so first of all there is this uh
+
+742
+00:32:50,640 --> 00:32:54,640
+fantastic article c
+
+743
+00:32:52,159 --> 00:32:55,360
+is not a low-level language you know if
+
+744
+00:32:54,640 --> 00:32:58,320
+you are
+
+745
+00:32:55,360 --> 00:32:59,919
+if you code in c uh c plus well plus you
+
+746
+00:32:58,320 --> 00:33:04,399
+should read this okay
+
+747
+00:32:59,919 --> 00:33:07,120
+and by the way my i anyway anyway so
+
+748
+00:33:04,399 --> 00:33:07,840
+so here so anyway i don't know much
+
+749
+00:33:07,120 --> 00:33:10,159
+about
+
+750
+00:33:07,840 --> 00:33:13,200
+cpu stuff i don't know much about
+
+751
+00:33:10,159 --> 00:33:15,919
+low-level programming stuff
+
+752
+00:33:13,200 --> 00:33:17,360
+but i started to learn about them in the
+
+753
+00:33:15,919 --> 00:33:19,679
+past five years
+
+754
+00:33:17,360 --> 00:33:21,600
+from a you know mathematical and
+
+755
+00:33:19,679 --> 00:33:22,880
+theoretical computer science background
+
+756
+00:33:21,600 --> 00:33:26,399
+that's what i have
+
+757
+00:33:22,880 --> 00:33:28,399
+so this is my kind of my my essay and
+
+758
+00:33:26,399 --> 00:33:31,600
+also my note to myself
+
+759
+00:33:28,399 --> 00:33:34,000
+and i think it's informative
+
+760
+00:33:31,600 --> 00:33:34,720
+for many of you guys to watch okay even
+
+761
+00:33:34,000 --> 00:33:37,200
+if you are
+
+762
+00:33:34,720 --> 00:33:38,159
+you know industrial programmers you know
+
+763
+00:33:37,200 --> 00:33:41,200
+you have 10 years
+
+764
+00:33:38,159 --> 00:33:41,919
+experience coding c blah blah blah i
+
+765
+00:33:41,200 --> 00:33:44,240
+think this
+
+766
+00:33:41,919 --> 00:33:44,960
+will still be informative to you this
+
+767
+00:33:44,240 --> 00:33:47,440
+article
+
+768
+00:33:44,960 --> 00:33:48,000
+and especially by this guy okay this guy
+
+769
+00:33:47,440 --> 00:33:50,399
+uh
+
+770
+00:33:48,000 --> 00:33:52,720
+c is not a low level language okay so
+
+771
+00:33:50,399 --> 00:33:54,000
+anyway so you try to read this article
+
+772
+00:33:52,720 --> 00:33:57,200
+and you'll see
+
+773
+00:33:54,000 --> 00:34:00,240
+you'll start to understand the
+
+774
+00:33:57,200 --> 00:34:02,880
+many of the issues about cpu design and
+
+775
+00:34:00,240 --> 00:34:03,679
+and and and and what what what is that
+
+776
+00:34:02,880 --> 00:34:06,320
+bleeding
+
+777
+00:34:03,679 --> 00:34:07,360
+you know heart bleed why does this
+
+778
+00:34:06,320 --> 00:34:09,679
+problem occur
+
+779
+00:34:07,360 --> 00:34:10,800
+what exactly is the problem now this
+
+780
+00:34:09,679 --> 00:34:13,119
+this problem is kind of
+
+781
+00:34:10,800 --> 00:34:14,240
+advanced so you might read other places
+
+782
+00:34:13,119 --> 00:34:16,720
+lots of blogs
+
+783
+00:34:14,240 --> 00:34:17,679
+talks about it but you may not quite
+
+784
+00:34:16,720 --> 00:34:20,960
+understand it
+
+785
+00:34:17,679 --> 00:34:23,679
+so you might try you know give my
+
+786
+00:34:20,960 --> 00:34:25,280
+give my essay you know my article a try
+
+787
+00:34:23,679 --> 00:34:28,399
+then you'll start to understand
+
+788
+00:34:25,280 --> 00:34:29,679
+many of the issues about cpu design and
+
+789
+00:34:28,399 --> 00:34:31,839
+things like that
+
+790
+00:34:29,679 --> 00:34:33,679
+programming language and its machine
+
+791
+00:34:31,839 --> 00:34:36,399
+okay instruction
+
+792
+00:34:33,679 --> 00:34:38,000
+set architecture what are they and micro
+
+793
+00:34:36,399 --> 00:34:40,560
+architecture what are they
+
+794
+00:34:38,000 --> 00:34:42,480
+cpu design and random notes okay so this
+
+795
+00:34:40,560 --> 00:34:44,879
+is my
+
+796
+00:34:42,480 --> 00:34:46,960
+kind of my take you know complex
+
+797
+00:34:44,879 --> 00:34:50,079
+instruction set computer and reduce
+
+798
+00:34:46,960 --> 00:34:51,040
+instruction set computer and so on so
+
+799
+00:34:50,079 --> 00:34:54,480
+anyway so
+
+800
+00:34:51,040 --> 00:34:55,280
+and okay so i actually i have okay so
+
+801
+00:34:54,480 --> 00:34:57,599
+yeah
+
+802
+00:34:55,280 --> 00:34:59,760
+so i wrote an article about apple m1
+
+803
+00:34:57,599 --> 00:35:02,640
+chip i forgot this is just my notes
+
+804
+00:34:59,760 --> 00:35:04,240
+so you go you know just search for um
+
+805
+00:35:02,640 --> 00:35:04,800
+actually i'm not sure you can find this
+
+806
+00:35:04,240 --> 00:35:06,960
+article
+
+807
+00:35:04,800 --> 00:35:08,400
+because i don't think it's a popular
+
+808
+00:35:06,960 --> 00:35:11,839
+article so
+
+809
+00:35:08,400 --> 00:35:13,920
+sorry apple m1 chip
+
+810
+00:35:11,839 --> 00:35:15,200
+yeah you okay you can find the article
+
+811
+00:35:13,920 --> 00:35:17,599
+so
+
+812
+00:35:15,200 --> 00:35:18,400
+so watch these videos okay this one is
+
+813
+00:35:17,599 --> 00:35:21,520
+by
+
+814
+00:35:18,400 --> 00:35:25,680
+max tech and this one is by
+
+815
+00:35:21,520 --> 00:35:26,480
+that code fusion so apple m1 chip is
+
+816
+00:35:25,680 --> 00:35:28,400
+fantastic
+
+817
+00:35:26,480 --> 00:35:30,000
+it's a breakthrough it's truly a
+
+818
+00:35:28,400 --> 00:35:32,560
+breakthrough and what i was going
+
+819
+00:35:30,000 --> 00:35:33,200
+to say is that i would i have been you
+
+820
+00:35:32,560 --> 00:35:36,160
+know i
+
+821
+00:35:33,200 --> 00:35:37,119
+i've been i've been around i was a fan
+
+822
+00:35:36,160 --> 00:35:39,119
+of apple
+
+823
+00:35:37,119 --> 00:35:40,560
+apple transitioned from you know
+
+824
+00:35:39,119 --> 00:35:44,800
+motorola chip
+
+825
+00:35:40,560 --> 00:35:49,280
+then transitioned to risk chip power pc
+
+826
+00:35:44,800 --> 00:35:51,599
+in 2005 then transitioned back to intel
+
+827
+00:35:49,280 --> 00:35:51,599
+around
+
+828
+00:35:52,560 --> 00:35:57,119
+in 1995 apple transitioned from motorola
+
+829
+00:35:55,839 --> 00:36:00,640
+to
+
+830
+00:35:57,119 --> 00:36:03,040
+power pc chip then in 2005
+
+831
+00:36:00,640 --> 00:36:04,320
+apple transitioned from power pc chip to
+
+832
+00:36:03,040 --> 00:36:07,839
+intel again
+
+833
+00:36:04,320 --> 00:36:11,040
+then today in 2020
+
+834
+00:36:07,839 --> 00:36:14,800
+also apple transition from intel to the
+
+835
+00:36:11,040 --> 00:36:19,280
+their own m1 chip which is a risk
+
+836
+00:36:14,800 --> 00:36:22,800
+ri sc chip okay so again you want to
+
+837
+00:36:19,280 --> 00:36:25,839
+read my article to understand
+
+838
+00:36:22,800 --> 00:36:28,640
+uh hold on a second uh where's my
+
+839
+00:36:25,839 --> 00:36:28,640
+article again
+
+840
+00:36:34,000 --> 00:36:40,160
+that looks lost my article so let's show
+
+841
+00:36:37,119 --> 00:36:43,440
+let's show it again
+
+842
+00:36:40,160 --> 00:36:47,680
+uh so code you go
+
+843
+00:36:43,440 --> 00:36:50,880
+to xr code semantic noodle
+
+844
+00:36:47,680 --> 00:36:50,880
+then you go to
+
+845
+00:36:52,839 --> 00:36:57,119
+uh programming language and its machine
+
+846
+00:36:55,920 --> 00:37:00,240
+okay so you read
+
+847
+00:36:57,119 --> 00:37:04,079
+this article you can kind of understand
+
+848
+00:37:00,240 --> 00:37:06,400
+and also uh these videos so apple m1
+
+849
+00:37:04,079 --> 00:37:09,040
+chip is truly a breakthrough it's not a
+
+850
+00:37:06,400 --> 00:37:10,640
+you know apple is known for marketing
+
+851
+00:37:09,040 --> 00:37:13,680
+gimmicks
+
+852
+00:37:10,640 --> 00:37:15,359
+but mri chip is truly a breakthrough in
+
+853
+00:37:13,680 --> 00:37:18,000
+cpu
+
+854
+00:37:15,359 --> 00:37:19,839
+you know and i think they have a great
+
+855
+00:37:18,000 --> 00:37:22,400
+future
+
+856
+00:37:19,839 --> 00:37:23,599
+but then again but but again i mean i
+
+857
+00:37:22,400 --> 00:37:26,480
+mean that's
+
+858
+00:37:23,599 --> 00:37:27,599
+that's good aspect of apple okay but
+
+859
+00:37:26,480 --> 00:37:29,920
+apple has also
+
+860
+00:37:27,599 --> 00:37:31,200
+many bad aspects for example whenever
+
+861
+00:37:29,920 --> 00:37:33,440
+they have a new iphone
+
+862
+00:37:31,200 --> 00:37:34,560
+they make they use software to make your
+
+863
+00:37:33,440 --> 00:37:37,200
+iphone slower
+
+864
+00:37:34,560 --> 00:37:38,160
+so you you buy a new one you know that's
+
+865
+00:37:37,200 --> 00:37:41,040
+a
+
+866
+00:37:38,160 --> 00:37:42,000
+that's a scumbag practice apple apple do
+
+867
+00:37:41,040 --> 00:37:45,200
+a lot of that
+
+868
+00:37:42,000 --> 00:37:46,079
+today and apple create their computers
+
+869
+00:37:45,200 --> 00:37:48,640
+so everything
+
+870
+00:37:46,079 --> 00:37:50,720
+so it cannot be fixed you have to you
+
+871
+00:37:48,640 --> 00:37:52,560
+know you just have to buy a new one
+
+872
+00:37:50,720 --> 00:37:54,480
+and meanwhile they pretend you know they
+
+873
+00:37:52,560 --> 00:37:57,200
+say they are the greeniest company
+
+874
+00:37:54,480 --> 00:38:00,160
+they are all support for diversity green
+
+875
+00:37:57,200 --> 00:38:00,160
+earth and crap
+
+876
+00:38:00,560 --> 00:38:05,839
+okay that's about that no comments
+
+877
+00:38:08,560 --> 00:38:14,880
+so m1 chip is great okay and also
+
+878
+00:38:12,320 --> 00:38:17,680
+yeah it's great okay so watch this video
+
+879
+00:38:14,880 --> 00:38:19,680
+and read this article okay
+
+880
+00:38:17,680 --> 00:38:21,440
+bleeding heart yeah that's uh you know
+
+881
+00:38:19,680 --> 00:38:25,040
+the the the
+
+882
+00:38:21,440 --> 00:38:26,560
+problem uh and code fusion is an
+
+883
+00:38:25,040 --> 00:38:29,520
+interesting guy okay he
+
+884
+00:38:26,560 --> 00:38:29,920
+he makes a lot interesting videos you
+
+885
+00:38:29,520 --> 00:38:32,640
+know
+
+886
+00:38:29,920 --> 00:38:34,640
+uh you know he's one of the popular
+
+887
+00:38:32,640 --> 00:38:38,000
+popular youtuber
+
+888
+00:38:34,640 --> 00:38:40,720
+almost three million followers
+
+889
+00:38:38,000 --> 00:38:43,359
+uh so one day you know like who the
+
+890
+00:38:40,720 --> 00:38:46,320
+is code fusion i'm very skeptical
+
+891
+00:38:43,359 --> 00:38:47,040
+when i watch youtube you know i because
+
+892
+00:38:46,320 --> 00:38:50,160
+i think most
+
+893
+00:38:47,040 --> 00:38:53,680
+most most people are dummies so
+
+894
+00:38:50,160 --> 00:38:55,920
+i you know so i did some research
+
+895
+00:38:53,680 --> 00:38:58,480
+you know i just looked up who is he and
+
+896
+00:38:55,920 --> 00:39:02,400
+he has an introduction about himself
+
+897
+00:38:58,480 --> 00:39:06,560
+uh turns out he's a a guy in australia
+
+898
+00:39:02,400 --> 00:39:08,960
+and uh you know yeah he's a good i
+
+899
+00:39:06,560 --> 00:39:10,000
+so i would recommend i recommend code
+
+900
+00:39:08,960 --> 00:39:13,440
+fusion
+
+901
+00:39:10,000 --> 00:39:16,640
+videos he talks about a lot of things
+
+902
+00:39:13,440 --> 00:39:19,359
+related to technology and innovation i
+
+903
+00:39:16,640 --> 00:39:19,359
+think mostly
+
+904
+00:39:19,680 --> 00:39:26,720
+okay so that's about that now
+
+905
+00:39:22,960 --> 00:39:30,000
+does that answer your question honza
+
+906
+00:39:26,720 --> 00:39:32,160
+okay so now let's go let's
+
+907
+00:39:30,000 --> 00:39:33,280
+let me go random then let's go back to
+
+908
+00:39:32,160 --> 00:39:36,480
+random
+
+909
+00:39:33,280 --> 00:39:40,800
+emacs blog so we did that
+
+910
+00:39:36,480 --> 00:39:43,680
+oh yeah powershell so powershell
+
+911
+00:39:40,800 --> 00:39:44,240
+uh yeah so let's go back to powershell
+
+912
+00:39:43,680 --> 00:39:46,880
+and now
+
+913
+00:39:44,240 --> 00:39:46,880
+i show you
+
+914
+00:39:48,640 --> 00:39:51,680
+now i'm gonna sync
+
+915
+00:39:55,599 --> 00:39:59,760
+yeah go over my notes but are you going
+
+916
+00:39:57,599 --> 00:40:02,560
+to buy your apple
+
+917
+00:39:59,760 --> 00:40:03,920
+it's actually you know the apple the the
+
+918
+00:40:02,560 --> 00:40:06,079
+new machine
+
+919
+00:40:03,920 --> 00:40:07,119
+you know apple is so you know they they
+
+920
+00:40:06,079 --> 00:40:09,760
+squeeze money
+
+921
+00:40:07,119 --> 00:40:10,319
+a lot you know for example like
+
+922
+00:40:09,760 --> 00:40:14,240
+everything
+
+923
+00:40:10,319 --> 00:40:17,040
+memories for the pc let's say it's 100
+
+924
+00:40:14,240 --> 00:40:18,640
+for something for apple it's 200 or 300
+
+925
+00:40:17,040 --> 00:40:19,760
+they charge you twice or three times
+
+926
+00:40:18,640 --> 00:40:23,040
+small
+
+927
+00:40:19,760 --> 00:40:26,160
+what can you do but you know
+
+928
+00:40:23,040 --> 00:40:29,920
+uh so anyway so i just
+
+929
+00:40:26,160 --> 00:40:30,560
+synced my you know my changes on my
+
+930
+00:40:29,920 --> 00:40:35,119
+website
+
+931
+00:40:30,560 --> 00:40:40,400
+to my server so now if you go to xrd
+
+932
+00:40:35,119 --> 00:40:42,960
+emacs so go to my emacs blog
+
+933
+00:40:40,400 --> 00:40:44,800
+so you can see today's code updated
+
+934
+00:40:42,960 --> 00:40:48,560
+there so you can now copy this
+
+935
+00:40:44,800 --> 00:40:49,280
+put to your init file then you have the
+
+936
+00:40:48,560 --> 00:40:52,640
+same
+
+937
+00:40:49,280 --> 00:40:54,880
+power okay so that's
+
+938
+00:40:52,640 --> 00:40:54,880
+that
+
+939
+00:41:01,040 --> 00:41:06,240
+oh so you are saying uh and you are
+
+940
+00:41:03,119 --> 00:41:09,520
+going to wait for a year or two
+
+941
+00:41:06,240 --> 00:41:11,280
+wait for a year or two you know in a
+
+942
+00:41:09,520 --> 00:41:15,839
+year or two things will have
+
+943
+00:41:11,280 --> 00:41:15,839
+been changed you know yeah
+
+944
+00:41:17,040 --> 00:41:20,079
+yeah because technology space they move
+
+945
+00:41:19,359 --> 00:41:22,640
+fast so
+
+946
+00:41:20,079 --> 00:41:23,839
+who knows what will happen in two years
+
+947
+00:41:22,640 --> 00:41:26,079
+you know amd
+
+948
+00:41:23,839 --> 00:41:26,880
+intel they are all competing you know
+
+949
+00:41:26,079 --> 00:41:31,839
+very
+
+950
+00:41:26,880 --> 00:41:31,839
+uh harsh very hard
+
+951
+00:41:32,640 --> 00:41:37,599
+but as of now you know apple m1 chip is
+
+952
+00:41:35,520 --> 00:41:39,920
+truly a great thing
+
+953
+00:41:37,599 --> 00:41:41,680
+but that you know they they are going to
+
+954
+00:41:39,920 --> 00:41:43,520
+raise the prices you know when they have
+
+955
+00:41:41,680 --> 00:41:44,720
+more sales you know the market you know
+
+956
+00:41:43,520 --> 00:41:46,960
+the more sale
+
+957
+00:41:44,720 --> 00:41:48,160
+their goal is essentially every company
+
+958
+00:41:46,960 --> 00:41:52,079
+apple intel
+
+959
+00:41:48,160 --> 00:41:54,400
+or amd just basically every company
+
+960
+00:41:52,079 --> 00:41:55,839
+especially in america the the home of
+
+961
+00:41:54,400 --> 00:41:58,000
+capitalism
+
+962
+00:41:55,839 --> 00:42:01,520
+you know when they have more sales
+
+963
+00:41:58,000 --> 00:42:04,640
+they're gonna raise their prices
+
+964
+00:42:01,520 --> 00:42:07,839
+um you know they make money is the
+
+965
+00:42:04,640 --> 00:42:12,560
+main thing so
+
+966
+00:42:07,839 --> 00:42:16,000
+uh what what else uh so emacs blog
+
+967
+00:42:12,560 --> 00:42:19,280
+so let's copy okay so
+
+968
+00:42:16,000 --> 00:42:22,160
+copy this path go to my talk page
+
+969
+00:42:19,280 --> 00:42:23,280
+uh go to today's top page paste the file
+
+970
+00:42:22,160 --> 00:42:25,680
+name
+
+971
+00:42:23,280 --> 00:42:26,480
+okay close emacs log and i talk about
+
+972
+00:42:25,680 --> 00:42:29,520
+this mouse
+
+973
+00:42:26,480 --> 00:42:32,319
+also paste the file path here and
+
+974
+00:42:29,520 --> 00:42:34,000
+i talk about this mouth and also paste
+
+975
+00:42:32,319 --> 00:42:37,520
+the file path here
+
+976
+00:42:34,000 --> 00:42:40,960
+and i talked about the spinning wheel so
+
+977
+00:42:37,520 --> 00:42:43,839
+let's click on that copy it
+
+978
+00:42:40,960 --> 00:42:46,400
+back to emax paste it here so we have a
+
+979
+00:42:43,839 --> 00:42:49,920
+record of what we talked about you see
+
+980
+00:42:46,400 --> 00:42:53,119
+so close that what else we did we talked
+
+981
+00:42:49,920 --> 00:42:53,520
+uh you know so next topic we can talk
+
+982
+00:42:53,119 --> 00:42:56,400
+about
+
+983
+00:42:53,520 --> 00:42:59,119
+keyboards and okay no but nobody's
+
+984
+00:42:56,400 --> 00:43:01,680
+comment you guys comment okay
+
+985
+00:42:59,119 --> 00:43:02,720
+okay no comment i'm just gonna work on
+
+986
+00:43:01,680 --> 00:43:06,160
+my website then
+
+987
+00:43:02,720 --> 00:43:09,599
+another emacs workflow okay
+
+988
+00:43:06,160 --> 00:43:09,599
+so let's see notes
+
+989
+00:43:11,520 --> 00:43:15,680
+uh powershell yeah so we talked about
+
+990
+00:43:14,480 --> 00:43:20,319
+powershell
+
+991
+00:43:15,680 --> 00:43:20,319
+uh powershell yeah so
+
+992
+00:43:23,280 --> 00:43:27,839
+okay let's copy powershell here
+
+993
+00:43:32,960 --> 00:43:40,560
+oh no not here so go to talk show
+
+994
+00:43:36,800 --> 00:43:44,079
+here paste it here
+
+995
+00:43:40,560 --> 00:43:44,079
+show fantastic
+
+996
+00:43:45,280 --> 00:43:53,119
+now let me decide what to do next
+
+997
+00:43:49,839 --> 00:43:56,720
+so i've been talking for wow
+
+998
+00:43:53,119 --> 00:44:00,960
+54 minutes already oh
+
+999
+00:43:56,720 --> 00:44:03,920
+ um i want to do something
+
+1000
+00:44:00,960 --> 00:44:03,920
+else i think
+
+1001
+00:44:06,839 --> 00:44:09,839
+uh
+
+1002
+00:44:25,040 --> 00:44:29,680
+so this item is no longer they should
+
+1003
+00:44:27,680 --> 00:44:30,160
+should not be there anymore because we
+
+1004
+00:44:29,680 --> 00:44:33,440
+did it
+
+1005
+00:44:30,160 --> 00:44:37,520
+so copy the file path go back to emacs
+
+1006
+00:44:33,440 --> 00:44:40,640
+open the file and here is that line
+
+1007
+00:44:37,520 --> 00:44:42,240
+deleted okay back to the browser refresh
+
+1008
+00:44:40,640 --> 00:44:47,040
+let's see what's the next thing i want
+
+1009
+00:44:42,240 --> 00:44:47,040
+to do html youtube
+
+1010
+00:44:48,839 --> 00:44:51,839
+and
+
+1011
+00:44:56,240 --> 00:45:07,599
+html youtube linkify okay so
+
+1012
+00:45:04,319 --> 00:45:08,400
+so i have a custom emacs command that's
+
+1013
+00:45:07,599 --> 00:45:12,319
+called
+
+1014
+00:45:08,400 --> 00:45:13,280
+html youtube linkify and you can see the
+
+1015
+00:45:12,319 --> 00:45:17,520
+source code
+
+1016
+00:45:13,280 --> 00:45:19,119
+here so the issue here is that i need to
+
+1017
+00:45:17,520 --> 00:45:23,520
+add it to my website
+
+1018
+00:45:19,119 --> 00:45:27,119
+so that other people can use it okay
+
+1019
+00:45:23,520 --> 00:45:29,040
+okay so let's do that so
+
+1020
+00:45:27,119 --> 00:45:30,640
+you know you go to so what's the use of
+
+1021
+00:45:29,040 --> 00:45:32,960
+these so you know
+
+1022
+00:45:30,640 --> 00:45:36,160
+again if you are a web blogger for
+
+1023
+00:45:32,960 --> 00:45:36,160
+example you go to this
+
+1024
+00:45:36,400 --> 00:45:40,560
+yeah this fantastic fantastic video you
+
+1025
+00:45:38,960 --> 00:45:42,640
+know if you are a blogger you write a
+
+1026
+00:45:40,560 --> 00:45:46,000
+lot of blogs so you want to put this
+
+1027
+00:45:42,640 --> 00:45:48,880
+embed this youtube into your uh
+
+1028
+00:45:46,000 --> 00:45:50,079
+into your blog so what you do copy the
+
+1029
+00:45:48,880 --> 00:45:51,599
+file path
+
+1030
+00:45:50,079 --> 00:45:53,599
+you know let me show you okay let me
+
+1031
+00:45:51,599 --> 00:45:56,079
+demo so go to the go to
+
+1032
+00:45:53,599 --> 00:45:56,800
+keyboard okay so here's my keyboard
+
+1033
+00:45:56,079 --> 00:45:59,440
+block
+
+1034
+00:45:56,800 --> 00:46:01,520
+so you go to the top add a new section
+
+1035
+00:45:59,440 --> 00:46:03,599
+paste the file path you can see there is
+
+1036
+00:46:01,520 --> 00:46:04,640
+a file path go back to browser you can
+
+1037
+00:46:03,599 --> 00:46:07,920
+see refresh
+
+1038
+00:46:04,640 --> 00:46:10,880
+so that's a youtube link so you want to
+
+1039
+00:46:07,920 --> 00:46:11,599
+embed it so press the button you can see
+
+1040
+00:46:10,880 --> 00:46:14,640
+that
+
+1041
+00:46:11,599 --> 00:46:18,160
+go back to browser show and you see
+
+1042
+00:46:14,640 --> 00:46:22,160
+how easy it is you know as opposed to
+
+1043
+00:46:18,160 --> 00:46:25,200
+as opposed to you go here click share
+
+1044
+00:46:22,160 --> 00:46:26,079
+then you click start ad or whatever then
+
+1045
+00:46:25,200 --> 00:46:29,200
+you click
+
+1046
+00:46:26,079 --> 00:46:32,240
+embed then you
+
+1047
+00:46:29,200 --> 00:46:33,440
+then you copy the code ugly code by the
+
+1048
+00:46:32,240 --> 00:46:36,240
+way
+
+1049
+00:46:33,440 --> 00:46:37,680
+then you press it paste it here so you
+
+1050
+00:46:36,240 --> 00:46:40,240
+see that
+
+1051
+00:46:37,680 --> 00:46:42,160
+so instead of doing that you just all
+
+1052
+00:46:40,240 --> 00:46:45,280
+you have to do is copy the url
+
+1053
+00:46:42,160 --> 00:46:48,319
+go to your file and press a key
+
+1054
+00:46:45,280 --> 00:46:51,440
+that's it okay so
+
+1055
+00:46:48,319 --> 00:46:56,000
+this command is called saw youtube uh
+
+1056
+00:46:51,440 --> 00:47:00,000
+let's see where is it youtube
+
+1057
+00:46:56,000 --> 00:47:03,839
+start youtube linkify okay so uh
+
+1058
+00:47:00,000 --> 00:47:06,480
+so i want to so yeah so i want to put
+
+1059
+00:47:03,839 --> 00:47:08,800
+the code on my emacs blog again so so
+
+1060
+00:47:06,480 --> 00:47:11,520
+people can
+
+1061
+00:47:08,800 --> 00:47:12,480
+okay go to emacs blog show in browser go
+
+1062
+00:47:11,520 --> 00:47:14,880
+back here
+
+1063
+00:47:12,480 --> 00:47:16,800
+uh go to emacs blog let's see first
+
+1064
+00:47:14,880 --> 00:47:17,599
+thing is to decide where do i want to
+
+1065
+00:47:16,800 --> 00:47:22,079
+put it
+
+1066
+00:47:17,599 --> 00:47:26,800
+so go to emacs tutorial at the bottom
+
+1067
+00:47:22,079 --> 00:47:26,800
+there is a section on html
+
+1068
+00:47:28,640 --> 00:47:33,440
+so so this function will this command
+
+1069
+00:47:32,240 --> 00:47:37,359
+will
+
+1070
+00:47:33,440 --> 00:47:40,240
+turn a youtube url into a embedded
+
+1071
+00:47:37,359 --> 00:47:41,200
+youtube video so where do i want to add
+
+1072
+00:47:40,240 --> 00:47:44,000
+it
+
+1073
+00:47:41,200 --> 00:47:45,200
+let's see you are to link url to link
+
+1074
+00:47:44,000 --> 00:47:49,280
+with date
+
+1075
+00:47:45,200 --> 00:47:53,760
+citation to link word to wikipedia link
+
+1076
+00:47:49,280 --> 00:47:57,040
+wikipedia url to link amazon url to link
+
+1077
+00:47:53,760 --> 00:48:00,240
+okay image path
+
+1078
+00:47:57,040 --> 00:48:01,119
+to link okay okay let's add it after
+
+1079
+00:48:00,240 --> 00:48:04,559
+that
+
+1080
+00:48:01,119 --> 00:48:07,920
+image path to link okay
+
+1081
+00:48:04,559 --> 00:48:09,839
+so copy that i mean click on that then
+
+1082
+00:48:07,920 --> 00:48:13,359
+copy the file path
+
+1083
+00:48:09,839 --> 00:48:16,720
+then okay add a new section
+
+1084
+00:48:13,359 --> 00:48:20,000
+paste it here make a list okay
+
+1085
+00:48:16,720 --> 00:48:24,960
+so copy that paste it here so this
+
+1086
+00:48:20,000 --> 00:48:24,960
+one will be elise you
+
+1087
+00:48:25,359 --> 00:48:28,160
+tube okay
+
+1088
+00:48:30,079 --> 00:48:32,400
+link
+
+1089
+00:48:33,599 --> 00:48:49,839
+embed youtube video okay
+
+1090
+00:48:37,520 --> 00:48:49,839
+let's name it that
+
+1091
+00:48:56,480 --> 00:48:59,520
+okay this is a new file we want to
+
+1092
+00:48:58,720 --> 00:49:01,760
+create
+
+1093
+00:48:59,520 --> 00:49:05,280
+now how do we create it i want to create
+
+1094
+00:49:01,760 --> 00:49:09,599
+it by copy this one okay
+
+1095
+00:49:05,280 --> 00:49:13,200
+so xsa html copy
+
+1096
+00:49:09,599 --> 00:49:16,480
+okay wait xr copy html
+
+1097
+00:49:13,200 --> 00:49:20,400
+by link okay enter now
+
+1098
+00:49:16,480 --> 00:49:22,960
+i can open that file this is exactly
+
+1099
+00:49:20,400 --> 00:49:23,920
+the same content as the the other file
+
+1100
+00:49:22,960 --> 00:49:26,640
+so now
+
+1101
+00:49:23,920 --> 00:49:31,839
+i just edit it update the date so let me
+
+1102
+00:49:26,640 --> 00:49:31,839
+just do it fast
+
+1103
+00:49:37,839 --> 00:49:41,599
+showing browser empty that's good oh so
+
+1104
+00:49:40,880 --> 00:49:44,000
+we need to
+
+1105
+00:49:41,599 --> 00:49:44,720
+okay so showing browser that's good so
+
+1106
+00:49:44,000 --> 00:49:49,040
+close that
+
+1107
+00:49:44,720 --> 00:49:49,040
+back to emacs close it uh
+
+1108
+00:49:49,839 --> 00:49:57,680
+open that so the command we want is
+
+1109
+00:49:54,000 --> 00:50:01,839
+you youtube
+
+1110
+00:49:57,680 --> 00:50:05,920
+linkify okay so here's a command
+
+1111
+00:50:01,839 --> 00:50:09,040
+describe function open it
+
+1112
+00:50:05,920 --> 00:50:11,520
+here's the code okay so
+
+1113
+00:50:09,040 --> 00:50:12,079
+i need to update the code i need to put
+
+1114
+00:50:11,520 --> 00:50:14,720
+so
+
+1115
+00:50:12,079 --> 00:50:16,480
+so here is the inline documentation for
+
+1116
+00:50:14,720 --> 00:50:19,920
+the for this command
+
+1117
+00:50:16,480 --> 00:50:23,119
+and i need to put a url
+
+1118
+00:50:19,920 --> 00:50:25,200
+so that whenever people use this in
+
+1119
+00:50:23,119 --> 00:50:27,760
+their init file they can find my home
+
+1120
+00:50:25,200 --> 00:50:28,720
+page so the home page now is this one
+
+1121
+00:50:27,760 --> 00:50:32,559
+new
+
+1122
+00:50:28,720 --> 00:50:36,000
+so copy that paste it here make a
+
+1123
+00:50:32,559 --> 00:50:39,280
+make from relative link
+
+1124
+00:50:36,000 --> 00:50:42,640
+to to the url real url link
+
+1125
+00:50:39,280 --> 00:50:46,000
+and type that and do that that
+
+1126
+00:50:42,640 --> 00:50:49,680
+that that that that that
+
+1127
+00:50:46,000 --> 00:50:54,079
+update the date added here okay
+
+1128
+00:50:49,680 --> 00:50:56,160
+so here we have a link of the of the of
+
+1129
+00:50:54,079 --> 00:51:01,599
+this command's home page okay
+
+1130
+00:50:56,160 --> 00:51:01,599
+now copy the whole command copy it
+
+1131
+00:51:02,319 --> 00:51:08,480
+oh wait so wait here wait wait
+
+1132
+00:51:05,760 --> 00:51:11,200
+this shouldn't be here so this is wrong
+
+1133
+00:51:08,480 --> 00:51:11,200
+hold on a second
+
+1134
+00:51:11,359 --> 00:51:19,280
+yeah okay oops uh
+
+1135
+00:51:14,960 --> 00:51:21,760
+okay so now copy the command
+
+1136
+00:51:19,280 --> 00:51:24,800
+put the cursor on this link press a
+
+1137
+00:51:21,760 --> 00:51:28,000
+button press a few keys to open the file
+
+1138
+00:51:24,800 --> 00:51:36,000
+go back here oh wait
+
+1139
+00:51:28,000 --> 00:51:40,079
+we got the wrong url not this one
+
+1140
+00:51:36,000 --> 00:51:40,079
+block this one okay copy it
+
+1141
+00:51:42,079 --> 00:51:49,760
+this is the local file path turn it to a
+
+1142
+00:51:46,079 --> 00:51:53,599
+fully qualified domain path url
+
+1143
+00:51:49,760 --> 00:51:56,640
+and okay
+
+1144
+00:51:53,599 --> 00:52:00,800
+so there it is here's a
+
+1145
+00:51:56,640 --> 00:52:04,000
+correct link now
+
+1146
+00:52:00,800 --> 00:52:06,559
+copy the code
+
+1147
+00:52:04,000 --> 00:52:06,559
+open it
+
+1148
+00:52:07,520 --> 00:52:14,079
+add a new code tag
+
+1149
+00:52:10,880 --> 00:52:17,200
+paste it showing browser
+
+1150
+00:52:14,079 --> 00:52:20,240
+fantastic here's a result now it just
+
+1151
+00:52:17,200 --> 00:52:22,319
+shows that because the
+
+1152
+00:52:20,240 --> 00:52:23,359
+because you see these parties has you
+
+1153
+00:52:22,319 --> 00:52:25,920
+know those
+
+1154
+00:52:23,359 --> 00:52:27,200
+has not been encoded they need to be
+
+1155
+00:52:25,920 --> 00:52:31,200
+encoded to
+
+1156
+00:52:27,200 --> 00:52:34,720
+you know the html encoding encoding but
+
+1157
+00:52:31,200 --> 00:52:38,079
+let me do okay so press the button to
+
+1158
+00:52:34,720 --> 00:52:38,800
+syntax colored so you can now you can
+
+1159
+00:52:38,079 --> 00:52:40,960
+see
+
+1160
+00:52:38,800 --> 00:52:42,319
+now they have been encoded now back to
+
+1161
+00:52:40,960 --> 00:52:46,319
+browser refresh
+
+1162
+00:52:42,319 --> 00:52:47,280
+fantastic syntax colors and code and now
+
+1163
+00:52:46,319 --> 00:52:49,359
+we need to add
+
+1164
+00:52:47,280 --> 00:52:51,920
+some description about what this command
+
+1165
+00:52:49,359 --> 00:52:51,920
+do okay
+
+1166
+00:52:53,920 --> 00:53:03,760
+this command turns a youtube
+
+1167
+00:52:58,040 --> 00:53:07,119
+url into a embedded
+
+1168
+00:53:03,760 --> 00:53:10,880
+youtube video on
+
+1169
+00:53:07,119 --> 00:53:14,000
+your blog okay showing browser
+
+1170
+00:53:10,880 --> 00:53:16,720
+essentially that's it so you can grab
+
+1171
+00:53:14,000 --> 00:53:18,880
+this code if you are a blogger and you
+
+1172
+00:53:16,720 --> 00:53:21,280
+emacs user you can grab this code and
+
+1173
+00:53:18,880 --> 00:53:21,280
+use it
+
+1174
+00:53:26,400 --> 00:53:29,839
+comments comments
+
+1175
+00:53:30,559 --> 00:53:36,960
+we are you by a kinesis 360
+
+1176
+00:53:33,680 --> 00:53:37,839
+yes i think so i'm not going to buy it
+
+1177
+00:53:36,960 --> 00:53:40,720
+but
+
+1178
+00:53:37,839 --> 00:53:42,160
+i think they i'm gonna ask them you know
+
+1179
+00:53:40,720 --> 00:53:46,559
+i'm gonna
+
+1180
+00:53:42,160 --> 00:53:46,559
+review it for them see if they um
+
+1181
+00:53:46,720 --> 00:53:52,319
+you know they i i don't want to say but
+
+1182
+00:53:50,319 --> 00:53:54,240
+but you know they they might send me a
+
+1183
+00:53:52,319 --> 00:53:57,520
+copy for review then i
+
+1184
+00:53:54,240 --> 00:53:59,200
+review it for you guys
+
+1185
+00:53:57,520 --> 00:54:00,960
+why are you wearing double glasses
+
+1186
+00:53:59,200 --> 00:54:03,440
+because i'm getting old
+
+1187
+00:54:00,960 --> 00:54:04,319
+this one is for near-sightedness this
+
+1188
+00:54:03,440 --> 00:54:07,760
+one is for
+
+1189
+00:54:04,319 --> 00:54:12,000
+um for you know for old men's
+
+1190
+00:54:07,760 --> 00:54:12,000
+you know for seeing things uh close
+
+1191
+00:54:14,400 --> 00:54:17,520
+and i talked about that a few times were
+
+1192
+00:54:16,800 --> 00:54:20,079
+you from
+
+1193
+00:54:17,520 --> 00:54:20,079
+honsa
+
+1194
+00:54:21,040 --> 00:54:25,920
+kinesis so if you don't know kansas is
+
+1195
+00:54:23,280 --> 00:54:27,359
+360. it's a new keyboard from kinesis
+
+1196
+00:54:25,920 --> 00:54:30,800
+they are coming out
+
+1197
+00:54:27,359 --> 00:54:33,599
+um i'm not sure at what stage they are
+
+1198
+00:54:30,800 --> 00:54:34,240
+in yet bet alpha or beta or whatever i
+
+1199
+00:54:33,599 --> 00:54:38,079
+don't know
+
+1200
+00:54:34,240 --> 00:54:40,319
+so anyway
+
+1201
+00:54:38,079 --> 00:54:42,319
+i don't know you know there's no much
+
+1202
+00:54:40,319 --> 00:54:43,280
+not much information yet they just
+
+1203
+00:54:42,319 --> 00:54:46,480
+announced it
+
+1204
+00:54:43,280 --> 00:54:48,960
+like a week ago so there's not much
+
+1205
+00:54:46,480 --> 00:54:50,240
+information on how it looks what how it
+
+1206
+00:54:48,960 --> 00:54:53,839
+is designed
+
+1207
+00:54:50,240 --> 00:54:58,559
+uh you know and they are you know so
+
+1208
+00:54:53,839 --> 00:54:58,559
+maybe i will review it
+
+1209
+00:54:59,839 --> 00:55:07,280
+okay so embed youtube video so we need
+
+1210
+00:55:04,960 --> 00:55:10,000
+so we created this page
+
+1211
+00:55:07,280 --> 00:55:11,680
+now we need to add a link to this
+
+1212
+00:55:10,000 --> 00:55:14,559
+navigation box
+
+1213
+00:55:11,680 --> 00:55:15,280
+because in this navigation box it's all
+
+1214
+00:55:14,559 --> 00:55:18,720
+articles
+
+1215
+00:55:15,280 --> 00:55:19,599
+about creating a link you know citation
+
+1216
+00:55:18,720 --> 00:55:23,040
+link
+
+1217
+00:55:19,599 --> 00:55:27,839
+word to wikipedia link uh with
+
+1218
+00:55:23,040 --> 00:55:29,359
+pdr url to a link amazon url to a link
+
+1219
+00:55:27,839 --> 00:55:32,480
+you know things like that so we need to
+
+1220
+00:55:29,359 --> 00:55:32,480
+add it here
+
+1221
+00:55:33,599 --> 00:55:37,599
+let's do okay so let's do so let me show
+
+1222
+00:55:36,480 --> 00:55:40,559
+you how you do it
+
+1223
+00:55:37,599 --> 00:55:40,559
+so you go down
+
+1224
+00:55:42,640 --> 00:55:46,160
+so you can see this section correspond
+
+1225
+00:55:45,359 --> 00:55:50,079
+to this
+
+1226
+00:55:46,160 --> 00:55:52,160
+box okay so now copy that
+
+1227
+00:55:50,079 --> 00:56:03,839
+you know this requires more explanation
+
+1228
+00:55:52,160 --> 00:56:03,839
+but i'm just going to do it
+
+1229
+00:56:10,240 --> 00:56:21,520
+youtube url to
+
+1230
+00:56:16,559 --> 00:56:21,520
+embedded video okay let's let's say that
+
+1231
+00:56:22,319 --> 00:56:31,680
+okay now find and replace
+
+1232
+00:56:26,559 --> 00:56:36,880
+for all of them
+
+1233
+00:56:31,680 --> 00:56:36,880
+now youtube let's do that
+
+1234
+00:56:38,400 --> 00:56:42,240
+replace all okay let's change all the
+
+1235
+00:56:41,119 --> 00:56:45,760
+files okay
+
+1236
+00:56:42,240 --> 00:56:47,520
+now refresh there it is so you can click
+
+1237
+00:56:45,760 --> 00:56:50,000
+on that
+
+1238
+00:56:47,520 --> 00:56:51,359
+you can see this navigation box is
+
+1239
+00:56:50,000 --> 00:56:55,599
+working
+
+1240
+00:56:51,359 --> 00:56:55,599
+every page has it
+
+1241
+00:56:56,640 --> 00:57:02,799
+okay so we we just added a link
+
+1242
+00:56:59,760 --> 00:57:05,520
+to all pages navigation box
+
+1243
+00:57:02,799 --> 00:57:08,160
+and we also need to do it here on the
+
+1244
+00:57:05,520 --> 00:57:08,160
+left side
+
+1245
+00:57:09,680 --> 00:57:27,839
+uh so where do i want to add it
+
+1246
+00:57:14,240 --> 00:57:27,839
+again let's add it here okay
+
+1247
+00:57:38,559 --> 00:57:42,960
+by the way the command i'm using is
+
+1248
+00:57:43,760 --> 00:57:50,640
+uh the command
+
+1249
+00:57:47,040 --> 00:57:53,200
+i was using is saw find
+
+1250
+00:57:50,640 --> 00:57:55,680
+okay there that one start find replace
+
+1251
+00:57:53,200 --> 00:57:58,240
+text a fantastic
+
+1252
+00:57:55,680 --> 00:57:58,960
+extremely efficient command you should
+
+1253
+00:57:58,240 --> 00:58:09,839
+use it
+
+1254
+00:57:58,960 --> 00:58:09,839
+it's on mailpad just search for it
+
+1255
+00:58:12,000 --> 00:58:16,720
+uh let's just say embed youtube video
+
+1256
+00:58:18,400 --> 00:58:23,839
+okay copy that okay
+
+1257
+00:58:36,640 --> 00:58:40,160
+okay so now it has changed tensor files
+
+1258
+00:58:39,599 --> 00:58:45,200
+okay
+
+1259
+00:58:40,160 --> 00:58:45,200
+now go to the browser go to the bottom
+
+1260
+00:58:45,440 --> 00:58:49,119
+if we refresh you'll see a new link
+
+1261
+00:58:48,079 --> 00:58:52,960
+between these two
+
+1262
+00:58:49,119 --> 00:58:57,119
+okay so now let's refresh refresh
+
+1263
+00:58:52,960 --> 00:58:57,119
+there it is embed youtube video
+
+1264
+00:59:02,839 --> 00:59:07,280
+and
+
+1265
+00:59:04,799 --> 00:59:10,160
+and i also want to change your name here
+
+1266
+00:59:07,280 --> 00:59:13,520
+okay youtube url to embedded video i
+
+1267
+00:59:10,160 --> 00:59:13,520
+want to change the name
+
+1268
+00:59:16,240 --> 00:59:23,280
+so we are essentially doing find replace
+
+1269
+00:59:19,440 --> 00:59:23,280
+on all files in a directory
+
+1270
+00:59:24,720 --> 00:59:32,240
+okay so these are changed files
+
+1271
+00:59:27,920 --> 00:59:34,799
+close it close it back to browser
+
+1272
+00:59:32,240 --> 00:59:36,000
+so now you can see the file name change
+
+1273
+00:59:34,799 --> 00:59:40,400
+you can see
+
+1274
+00:59:36,000 --> 00:59:44,839
+it was youtube url to embedded video
+
+1275
+00:59:40,400 --> 00:59:47,839
+now refresh embed youtube video so it's
+
+1276
+00:59:44,839 --> 00:59:47,839
+simpler
+
+1277
+00:59:48,000 --> 00:59:53,440
+okay show in browser there you have it
+
+1278
+00:59:50,880 --> 00:59:57,920
+now we need to add this to my blog
+
+1279
+00:59:53,440 --> 01:00:01,440
+again copy the file path close
+
+1280
+00:59:57,920 --> 01:00:04,559
+close wait did we update the date
+
+1281
+01:00:01,440 --> 01:00:07,839
+yes june 5th yeah
+
+1282
+01:00:04,559 --> 01:00:11,200
+so uh
+
+1283
+01:00:07,839 --> 01:00:15,839
+so copy the file path close close go to
+
+1284
+01:00:11,200 --> 01:00:15,839
+emacs blog
+
+1285
+01:00:17,280 --> 01:00:24,400
+and there it is a new command
+
+1286
+01:00:21,040 --> 01:00:28,000
+delete that so showing browser
+
+1287
+01:00:24,400 --> 01:00:31,119
+so we just added a new entry embed
+
+1288
+01:00:28,000 --> 01:00:32,319
+youtube video click on that here's the
+
+1289
+01:00:31,119 --> 01:00:35,119
+code you can now
+
+1290
+01:00:32,319 --> 01:00:36,559
+put in your ini file now again we need
+
+1291
+01:00:35,119 --> 01:00:39,200
+to update to
+
+1292
+01:00:36,559 --> 01:00:39,200
+update the
+
+1293
+01:00:39,760 --> 01:00:46,559
+rss you know the web feed okay
+
+1294
+01:00:43,040 --> 01:00:49,839
+press the button done close it yes
+
+1295
+01:00:46,559 --> 01:00:57,839
+showing browser go to powershell again
+
+1296
+01:00:49,839 --> 01:00:57,839
+rsync to my web server
+
+1297
+01:01:00,000 --> 01:01:06,720
+okay so powershell
+
+1298
+01:01:03,440 --> 01:01:09,359
+yes you see all these changes you see
+
+1299
+01:01:06,720 --> 01:01:10,000
+you see all these emacs files changed
+
+1300
+01:01:09,359 --> 01:01:12,880
+tens of
+
+1301
+01:01:10,000 --> 01:01:14,000
+you know like 50 files changed why so
+
+1302
+01:01:12,880 --> 01:01:17,440
+many file change
+
+1303
+01:01:14,000 --> 01:01:19,760
+because of the
+
+1304
+01:01:17,440 --> 01:01:22,240
+because of the navigation bar because
+
+1305
+01:01:19,760 --> 01:01:25,760
+every file contains a navigation bar
+
+1306
+01:01:22,240 --> 01:01:29,280
+and we just changed them so now
+
+1307
+01:01:25,760 --> 01:01:32,559
+there you know okay so that
+
+1308
+01:01:29,280 --> 01:01:35,040
+that fantastic we did two
+
+1309
+01:01:32,559 --> 01:01:36,079
+great things i've been wanting to do so
+
+1310
+01:01:35,040 --> 01:01:38,240
+now back to
+
+1311
+01:01:36,079 --> 01:01:39,200
+so what's the next topic let's show this
+
+1312
+01:01:38,240 --> 01:01:41,920
+again
+
+1313
+01:01:39,200 --> 01:01:43,040
+keyboard let's go to let's show what is
+
+1314
+01:01:41,920 --> 01:01:47,040
+this one uh this
+
+1315
+01:01:43,040 --> 01:01:52,480
+is to do oh wait so
+
+1316
+01:01:47,040 --> 01:01:56,480
+we open to do so you see this one
+
+1317
+01:01:52,480 --> 01:02:00,640
+html youtube linkify add to emacs blog
+
+1318
+01:01:56,480 --> 01:02:00,640
+so we just did remove that
+
+1319
+01:02:02,720 --> 01:02:10,160
+so this one it's got re refresh okay
+
+1320
+01:02:06,319 --> 01:02:13,280
+we just finished another thing
+
+1321
+01:02:10,160 --> 01:02:15,359
+okay now what's next
+
+1322
+01:02:13,280 --> 01:02:17,280
+am i gonna quit or am i going to
+
+1323
+01:02:15,359 --> 01:02:20,319
+continue on
+
+1324
+01:02:17,280 --> 01:02:22,880
+we've been talking for an hour and
+
+1325
+01:02:20,319 --> 01:02:22,880
+10 minutes
+
+1326
+01:02:27,200 --> 01:02:30,799
+any other questions now
+
+1327
+01:02:32,400 --> 01:02:36,640
+yeah kinesis 360 no function keys that's
+
+1328
+01:02:35,680 --> 01:02:40,400
+uh
+
+1329
+01:02:36,640 --> 01:02:42,559
+you know that's a problem uh
+
+1330
+01:02:40,400 --> 01:02:44,880
+i'm trying to you know if i have the
+
+1331
+01:02:42,559 --> 01:02:45,680
+opportunity i'm going to try to convince
+
+1332
+01:02:44,880 --> 01:02:49,280
+them
+
+1333
+01:02:45,680 --> 01:02:53,280
+you know put the function keys back
+
+1334
+01:02:49,280 --> 01:02:53,280
+you know the kinesis you know like
+
+1335
+01:02:54,319 --> 01:02:58,720
+i don't want to you know they are still
+
+1336
+01:02:56,720 --> 01:02:59,440
+beta so i'm not sure i should talk to
+
+1337
+01:02:58,720 --> 01:03:02,559
+yeah i
+
+1338
+01:02:59,440 --> 01:03:02,880
+i don't have information but i mean they
+
+1339
+01:03:02,559 --> 01:03:04,799
+just
+
+1340
+01:03:02,880 --> 01:03:06,960
+now you know it's actually it's public
+
+1341
+01:03:04,799 --> 01:03:09,599
+info it's on their twitter
+
+1342
+01:03:06,960 --> 01:03:09,599
+for example
+
+1343
+01:03:10,559 --> 01:03:14,960
+okay you can see on their twitter
+
+1344
+01:03:15,200 --> 01:03:21,039
+uh wait not that one kinesis
+
+1345
+01:03:18,400 --> 01:03:21,039
+keyboard
+
+1346
+01:03:26,960 --> 01:03:34,559
+uh is that the one why is that
+
+1347
+01:03:31,440 --> 01:03:37,920
+yeah so kinesis keyboard you can see
+
+1348
+01:03:34,559 --> 01:03:41,200
+so this is their official uh twitter
+
+1349
+01:03:37,920 --> 01:03:43,119
+and they are announcing this
+
+1350
+01:03:41,200 --> 01:03:46,400
+you know they they are designing a new
+
+1351
+01:03:43,119 --> 01:03:49,280
+keyboard let's see what is this
+
+1352
+01:03:46,400 --> 01:03:50,880
+google yeah so they are oh i haven't
+
+1353
+01:03:49,280 --> 01:03:52,960
+seen this before
+
+1354
+01:03:50,880 --> 01:03:54,079
+oh no i have yeah they are trying to do
+
+1355
+01:03:52,960 --> 01:03:57,119
+a survey
+
+1356
+01:03:54,079 --> 01:03:59,839
+you know asking you whether you think
+
+1357
+01:03:57,119 --> 01:04:00,319
+where should escape key be positioned
+
+1358
+01:03:59,839 --> 01:04:02,480
+you know
+
+1359
+01:04:00,319 --> 01:04:03,920
+things like that you know i i'm not sure
+
+1360
+01:04:02,480 --> 01:04:06,079
+there's a
+
+1361
+01:04:03,920 --> 01:04:08,000
+you know it's still in in the design
+
+1362
+01:04:06,079 --> 01:04:10,400
+stage
+
+1363
+01:04:08,000 --> 01:04:12,079
+and and and seems like they are not
+
+1364
+01:04:10,400 --> 01:04:12,480
+going to have function keys but if i
+
+1365
+01:04:12,079 --> 01:04:14,640
+have
+
+1366
+01:04:12,480 --> 01:04:27,839
+opportunity i'm going to tell them you
+
+1367
+01:04:14,640 --> 01:04:27,839
+need function keys
+
+1368
+01:04:32,160 --> 01:04:35,200
+according to this uh what do you mean i
+
+1369
+01:04:34,160 --> 01:04:39,280
+don't get
+
+1370
+01:04:35,200 --> 01:04:41,839
+the joke uh okay what else
+
+1371
+01:04:39,280 --> 01:04:41,839
+let's see
+
+1372
+01:04:51,839 --> 01:04:55,920
+maybe that's it for today yeah so today
+
+1373
+01:04:54,400 --> 01:04:58,079
+is mostly emacs
+
+1374
+01:04:55,920 --> 01:04:59,359
+and i've been talking for 17 minutes
+
+1375
+01:04:58,079 --> 01:05:01,119
+already so
+
+1376
+01:04:59,359 --> 01:05:04,319
+thank you guys for watching yeah that's
+
+1377
+01:05:01,119 --> 01:05:04,319
+that's it for today
+
+1378
+01:05:06,839 --> 01:05:09,839
+and
+
+1379
+01:05:11,440 --> 01:05:15,440
+okay if you like my stuff go buy my
+
+1380
+01:05:13,839 --> 01:05:18,720
+stuff okay
+
+1381
+01:05:15,440 --> 01:05:18,720
+click click
+
+1382
+01:05:19,680 --> 01:05:23,520
+you can patreon me you can amazon gift
+
+1383
+01:05:22,880 --> 01:05:27,839
+card me
+
+1384
+01:05:23,520 --> 01:05:31,520
+you can paypal me or you can bitcoin
+
+1385
+01:05:27,839 --> 01:05:34,960
+me or you can buy my fantastic
+
+1386
+01:05:31,520 --> 01:05:39,119
+tutorials javascript in depth
+
+1387
+01:05:34,960 --> 01:05:41,680
+and emacs this tutorial and emacs
+
+1388
+01:05:39,119 --> 01:05:43,920
+tutorial
+
+1389
+01:05:41,680 --> 01:05:45,200
+that's the tool i charge it's free
+
+1390
+01:05:43,920 --> 01:05:48,079
+online any but but
+
+1391
+01:05:45,200 --> 01:05:48,559
+you know if you like it you probably
+
+1392
+01:05:48,079 --> 01:05:52,480
+should
+
+1393
+01:05:48,559 --> 01:05:54,160
+think about you know paying for it
+
+1394
+01:05:52,480 --> 01:06:05,839
+okay that's it for today thank you guys
+
+1395
+01:05:54,160 --> 01:06:05,839
+for watching bye
+
+1396
+01:06:09,839 --> 01:06:11,920
+you
+
