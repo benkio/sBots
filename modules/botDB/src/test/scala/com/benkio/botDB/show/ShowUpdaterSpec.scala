@@ -115,7 +115,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
         "target",
         "ytdlpCaptions"
       ).forall(tempDir.toString.contains)
-      then IO.pure(tempDir)
+      then IO.pure(Some(tempDir))
       else
         IO.raiseError(
           Throwable(
@@ -127,7 +127,8 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   val showUpdater: ShowUpdaterImpl[IO] = ShowUpdaterImpl(
     config = config,
     dbLayer = dbLayerMock,
-    youTubeService = youTubeServiceMock
+    youTubeService = youTubeServiceMock,
+    captionParser = CaptionParser[IO]()
   )
 
   test("ShowUpdater.filterCandidateIds should leave the input unchanged if the stored Ids are empty") {

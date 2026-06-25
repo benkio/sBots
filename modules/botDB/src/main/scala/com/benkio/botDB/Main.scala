@@ -4,6 +4,7 @@ import cats.effect.*
 import com.benkio.botDB.config.Config
 import com.benkio.botDB.db.DBMigrator
 import com.benkio.botDB.media.MediaUpdater
+import com.benkio.botDB.show.CaptionParser
 import com.benkio.botDB.show.ShowUpdater
 import com.benkio.botDB.show.YouTubeService
 import com.benkio.botDB.Logger.given
@@ -41,11 +42,14 @@ object Main extends IOApp {
       youTubeApiKey  <- TokenReader.token(youtubeTokenFilename, repository)
       _              <- Resource.eval(LogWriter.info("[Main - Initialization] Creating YouTube Service"))
       youTubeService <- Resource.eval(YouTubeService(config = config, youTubeApiKey))
+      _              <- Resource.eval(LogWriter.info("[Main - Initialization] Creating Caption Parser"))
+      captionParser  <- Resource.eval(IO.pure(CaptionParser[IO]()))
       _              <- Resource.eval(LogWriter.info("[Main - Initialization] ShowUpdater"))
       showUpdater = ShowUpdater[IO](
         config = config,
         dbLayer = dbLayer,
-        youTubeService = youTubeService
+        youTubeService = youTubeService,
+        captionParser = captionParser
       )
     } yield BotDBInitialization(config, migrator, mediaUpdater, showUpdater)
 

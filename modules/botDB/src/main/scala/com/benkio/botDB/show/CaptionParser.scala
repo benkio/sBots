@@ -3,14 +3,14 @@ package com.benkio.botDB.show
 import java.nio.file.Path
 
 trait CaptionParser[F[_]] {
-  def parseCaption(videoId: String, captionFolderPath: Path): F[String]
+  def parsePlainCaptionSrt(captionPath: Path): F[String]
 }
 
 object CaptionParser {
-  def apply[F[_]]() : CaptionParser[F] = CaptionParserImpl[F]()
+  def apply[F[_]](): CaptionParser[F] = CaptionParserImpl[F]()
 
   class CaptionParserImpl[F[_]]() extends CaptionParser[F] {
-    def parseCaption(videoId: String, captionFolderPath: Path): F[String] = {
+    def parsePlainCaptionSrt(captionPath: Path): F[String] = {
       // TODO: Fetch the srt file. parse it. return the caption
 
       /*

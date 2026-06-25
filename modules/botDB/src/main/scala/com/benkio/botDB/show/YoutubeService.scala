@@ -36,8 +36,8 @@ final case class YouTubeBotVideos(
 )
 final case class YouTubeBotDBShowDatas(
     botId: SBotId,
-  outputFilePath: String,
-  captionFolderPath: String,
+    outputFilePath: String,
+    captionFolderPath: String,
     captionLanguage: String,
     dbShowDatas: List[DBShowData]
 )
@@ -60,7 +60,7 @@ trait YouTubeService[F[_]] {
   def getYouTubeVideos(
       videoIds: List[String]
   ): F[List[Video]]
-  def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Path]
+  def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Option[Path]]
 }
 
 object YouTubeService {
@@ -134,12 +134,15 @@ object YouTubeService {
               playlistIds = playlistIds,
               youTubeApiKey = youTubeApiKey
             )
-              .map(videoIds => YouTubeBotIds(
-                botId = botId,
-                outputFilePath = outputFilePath,
-                captionFolderPath = captionFolderPath,
-                captionLanguage = captionLanguage,
-                videoIds = videoIds))
+              .map(videoIds =>
+                YouTubeBotIds(
+                  botId = botId,
+                  outputFilePath = outputFilePath,
+                  captionFolderPath = captionFolderPath,
+                  captionLanguage = captionLanguage,
+                  videoIds = videoIds
+                )
+              )
         }
       } yield botVideoIds
     }
@@ -169,19 +172,19 @@ object YouTubeService {
       } yield videos
     }
 
-    override def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Path] = {
+    override def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Option[Path]] = {
       val command =
         s"""yt-dlp --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format srt -o "%(id)s" -P $captionFolderPath https://www.youtube.com/watch?v=${videoId}"""
-      val captionDownloadLogic: F[Path] = for {
-        _           <- LogWriter.info(s"[ShowUpdater] ${videoId} - $captionLanguage: fetch caption into ${captionFolderPath}")
-        output           <- Async[F].delay(command.!!)
-        _ <- LogWriter.debug(s"[ShowUpdater] yt-dlp output: $output")
-      } yield captionFolderPath.resolve("${videoId}.srt")
+      val captionDownloadLogic: F[Option[Path]] = for {
+        _ <- LogWriter.info(s"[ShowUpdater] ${videoId} - $captionLanguage: fetch caption into ${captionFolderPath}")
+        output <- Async[F].delay(command.!!)
+        _      <- LogWriter.debug(s"[ShowUpdater] yt-dlp output: $output")
+      } yield Some(captionFolderPath.resolve("${videoId}.srt"))
       captionDownloadLogic
-        .onError(e =>
+        .handleErrorWith(e =>
           LogWriter.error(
             s"[ShowUpdater] ❌ ${videoId} - $captionLanguage Downloading Caption: $e"
-          )
+          ) >> Async[F].pure(None)
         )
     }
   }

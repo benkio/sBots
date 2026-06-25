@@ -38,11 +38,13 @@ object ShowUpdater {
   ](
       config: Config,
       dbLayer: DBLayer[F],
-      youTubeService: YouTubeService[F]
+      youTubeService: YouTubeService[F],
+      captionParser: CaptionParser[F]
   ): ShowUpdater[F] = ShowUpdaterImpl[F](
     config = config,
     dbLayer = dbLayer,
-    youTubeService = youTubeService
+    youTubeService = youTubeService,
+    captionParser = captionParser
   )
 
   private[show] def mergeShowDatas(
@@ -73,7 +75,8 @@ object ShowUpdater {
   ](
       config: Config,
       dbLayer: DBLayer[F],
-      youTubeService: YouTubeService[F]
+      youTubeService: YouTubeService[F],
+      captionParser: CaptionParser[F]
   ) extends ShowUpdater[F] {
 
     private[show] def youTubeBotIdsToVideos(
@@ -139,7 +142,9 @@ object ShowUpdater {
             s"[ShowUpdater] Error when fetching online show Ids. Continue with just stared data: ${e.getMessage}"
           ) >> List.empty.pure
         )
-        _                 <- LogWriter.info(s"[ShowUpdater] Fetched ${candidateIds.flatMap(_.videoIds).length} Ids. Fetching stored DbShowData")
+        _ <- LogWriter.info(
+          s"[ShowUpdater] Fetched ${candidateIds.flatMap(_.videoIds).length} Ids. Fetching stored DbShowData"
+        )
         storedDbShowDatas <- getStoredDbShowDatas
         youTubeBotIds = filterCandidateIds(candidateIds, storedDbShowDatas.flatMap(_.dbShowDatas.map(_.show_id)))
         _                <- LogWriter.info(s"[ShowUpdater] ${youTubeBotIds.flatMap(_.videoIds).length} Ids to be added")
@@ -295,25 +300,30 @@ object ShowUpdater {
         youTubeBotDBShowDatas: YouTubeBotDBShowDatas
     ): F[YouTubeBotDBShowDatas] = for {
       _ <- LogWriter.info("[ShowUpdater] Getting Caption Folder")
-      captionFolder = Path.of(youTubeBotDBShowDatas.captionFolderPath)
-      _ <- LogWriter.info("[ShowUpdater] 🚀 Start fetching and saving captions")
+      captionFolderPath = Path.of(youTubeBotDBShowDatas.captionFolderPath)
+      _           <- LogWriter.info("[ShowUpdater] 🚀 Start fetching and saving captions")
       dbShowDatas <- youTubeBotDBShowDatas.dbShowDatas.traverse(
         saveAndFetchCaptionDbShowData(
           _,
-          captionFolder = captionFolder,
+          captionFolderPath = captionFolderPath,
           captionLanguage = youTubeBotDBShowDatas.captionLanguage
         )
       )
       _ <- LogWriter.info("[ShowUpdater] 🏁 Finish saving captions")
-      // TODO: implement: save caption to folder. parse the result file. add it to the input youtubeBotDBShowData. return them
     } yield youTubeBotDBShowDatas.copy(dbShowDatas = dbShowDatas)
 
     private[show] def saveAndFetchCaptionDbShowData(
         dbShowData: DBShowData,
-        captionFolder: Path,
+        captionFolderPath: Path,
         captionLanguage: String
-    ): F[DBShowData] =
-      // _ <- youTubeService.saveCaption(videoId = ???, captionFolderPath = captionFolder, captionLanguage = youTubeBotDBShowDatas.captionLanguage)
-      ???
+    ): F[DBShowData] = for {
+      _                <- LogWriter.info("[ShowUpdater] 🏁 Saving caption for ${dbShowData.show_id}")
+      maybeCaptionPath <- youTubeService.saveCaption(
+        videoId = dbShowData.show_id,
+        captionFolderPath = captionFolderPath,
+        captionLanguage = captionLanguage
+      )
+      maybeCaption <- maybeCaptionPath.traverse(captionParser.parsePlainCaptionSrt)
+    } yield dbShowData.copy(show_origin_automatic_caption = maybeCaption)
   }
 }
