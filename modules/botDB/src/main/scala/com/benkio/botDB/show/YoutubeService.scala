@@ -179,7 +179,7 @@ object YouTubeService {
         _ <- LogWriter.info(s"[ShowUpdater] ${videoId} - $captionLanguage: fetch caption into ${captionFolderPath}")
         output <- Async[F].delay(command.!!)
         _      <- LogWriter.debug(s"[ShowUpdater] yt-dlp output: $output")
-      } yield Some(captionFolderPath.resolve("${videoId}.srt"))
+      } yield Some(captionFolderPath.resolve(s"${videoId}.srt"))
       captionDownloadLogic
         .handleErrorWith(e =>
           LogWriter.error(
