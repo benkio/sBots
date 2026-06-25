@@ -67,6 +67,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     YouTubeBotDBShowDatas(
       botId = botId,
       outputFilePath = outputFilePath,
+      captionFolderPath = captionFolderPath,
       captionLanguage = captionLanguage,
       dbShowDatas = List(expectedDBShowData)
     )
@@ -75,6 +76,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     YouTubeBotDBShowDatas(
       botId = botId,
       outputFilePath = outputFilePath,
+      captionFolderPath = captionFolderPath,
       captionLanguage = captionLanguage,
       dbShowDatas = List(
         DBShowData(
@@ -108,16 +110,16 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       if inputVideoIds == videoIds
       then videos.pure[IO]
       else IO.raiseError(Throwable(s"[ShowUpdaterSpec] Unexpected input video ids: $inputVideoIds")),
-    onFetchCaption = (inputVideoId, tempDir, inputCaptionLanguage) =>
+    onSaveCaption = (inputVideoId, tempDir, inputCaptionLanguage) =>
       if videoIds.exists(_ == inputVideoId) && captionLanguage == inputCaptionLanguage && List(
         "target",
         "ytdlpCaptions"
       ).forall(tempDir.toString.contains)
-      then IO.pure(Some(testCaption))
+      then IO.unit
       else
         IO.raiseError(
           Throwable(
-            s"[ShowUpdaterSpec] Unexpected input for fetchCaption. ($inputVideoId, $tempDir, $inputCaptionLanguage) ≠ (one of `$videoIds`, `does not contains: target & ytdlpCaptions`, $captionLanguage)"
+            s"[ShowUpdaterSpec] Unexpected input for saveCaption. ($inputVideoId, $tempDir, $inputCaptionLanguage) ≠ (one of `$videoIds`, `does not contains: target & ytdlpCaptions`, $captionLanguage)"
           )
         )
   )
@@ -188,6 +190,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       YouTubeBotDBShowDatas(
         botId = botId,
         outputFilePath = outputFilePath,
+        captionFolderPath = captionFolderPath,
         captionLanguage = captionLanguage,
         dbShowDatas = List(expectedDBShowData)
       )
@@ -238,6 +241,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       YouTubeBotDBShowDatas(
         botId = botId,
         outputFilePath = outputFilePath,
+        captionFolderPath = captionFolderPath,
         captionLanguage = captionLanguage,
         dbShowDatas = List(secondDBShowData)
       )
@@ -257,7 +261,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   }
   test("ShowUpdater.addCaptions should successfully enrich the input with caption") {
     showUpdater
-      .addCaptions(expectedYouTubeBotDBShowDatas, List("java"))
+      .saveAndFetchCaptions(expectedYouTubeBotDBShowDatas, List("java"))
       .map(result => {
         assertEquals(result.length, 1)
         assertEquals(result.head.dbShowDatas.length, 1)

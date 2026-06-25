@@ -13,17 +13,13 @@ import com.google.api.client.http.HttpRequestInitializer
 import com.google.api.client.json.gson.GsonFactory
 import com.google.api.services.youtube.model.*
 import com.google.api.services.youtube.YouTube
-import io.circe.*
-import io.circe.parser.*
 import log.effect.LogWriter
 
-import java.nio.file.Files
 import java.nio.file.Path
 import scala.jdk.CollectionConverters.*
 import scala.sys.process.*
-import scala.util.Try
 
-final case class YouTubeBotFile(botId: SBotId, captionLanguage: String, file: Path)
+final case class YouTubeBotFile(botId: SBotId, captionLanguage: String, captionFolderPath: String, file: Path)
 final case class YouTubeBotIds(
     botId: SBotId,
     outputFilePath: String,
@@ -40,7 +36,8 @@ final case class YouTubeBotVideos(
 )
 final case class YouTubeBotDBShowDatas(
     botId: SBotId,
-    outputFilePath: String,
+  outputFilePath: String,
+  captionFolderPath: String,
     captionLanguage: String,
     dbShowDatas: List[DBShowData]
 )
@@ -51,6 +48,7 @@ object YouTubeBotDBShowDatas {
       YouTubeBotDBShowDatas(
         botId = d1.botId,
         outputFilePath = d1.outputFilePath,
+        captionFolderPath = d1.captionFolderPath,
         captionLanguage = d1.captionLanguage,
         dbShowDatas = d1.dbShowDatas ++ d2.dbShowDatas
       )
@@ -174,9 +172,9 @@ object YouTubeService {
     override def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Unit] = {
       val command =
         s"""yt-dlp --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format srt -o "%(id)s" -P $captionFolderPath https://www.youtube.com/watch?v=${videoId}"""
-      val captionDownloadLogic: F[Option[String]] = for {
-        _           <- LogWriter.info(s"[ShowUpdater] ${videoId} - $captionLanguage: fetch caption")
-        _           <- Async[F].delay(command.!)
+      val captionDownloadLogic: F[Unit] = for {
+        _           <- LogWriter.info(s"[ShowUpdater] ${videoId} - $captionLanguage: fetch caption into ${captionFolderPath}")
+        _           <- Async[F].delay(command.!(ProcessLogger(_ => ())))
       } yield ()
       captionDownloadLogic
         .handleErrorWith(e =>
